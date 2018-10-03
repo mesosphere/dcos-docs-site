@@ -13,7 +13,6 @@ code {
   border-radius: 3px;
   font-weight: 0.9rem;
   margin: 0;
-  word-break: break-all;
 }
 
 pre {
@@ -28,6 +27,7 @@ pre {
     background: transparent;
     // font-size: 0.8rem;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    margin-right: 15px;
   }
 }
 

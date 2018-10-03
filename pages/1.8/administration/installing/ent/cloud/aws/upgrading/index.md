@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-This document provides instructions for upgrading a DC/OS cluster from version 1.7 to 1.8 using AWS CloudFormation templates. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation on AWS](/1.8/administration/installing/ent/cloud/aws/advanced/) before proceeding.
+This page provides instructions for upgrading a DC/OS cluster from version 1.7 to 1.8 using AWS CloudFormation templates. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation on AWS](/1.8/administration/installing/ent/cloud/aws/advanced/) before proceeding.
 
 **Important**
 

@@ -11,7 +11,7 @@ The purpose of this document is to provide guidance and education for Mesosphere
 
 ## DC/OS Version Lifecycle
 
-Mesosphere tests DC/OS Enterprise with specific components and operating systems as covered in the [DC/OS Version Compatibility Matrix](#compatibility-matrix). This testing is provided in the DC/OS Platform Interoperability Matrix. Support services for customers under a license and support agreement is defined within the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>.
+Mesosphere tests DC/OS Enterprise with specific components and operating systems as covered in the [DC/OS Version Compatibility Matrix](#version-compatibility-matrix). This testing is provided in the [DC/OS Platform Interoperability Matrix](#dcos-platform-version-compatibility-matrix). Support services for customers under a license and support agreement is defined within the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>.
 
 ### Versioning Definitions
 
@@ -55,6 +55,18 @@ The below matrix provides guidance as to which platform components and operating
     <th><strong>DC/OS 1.9</strong></th>
     </tr>
     <tr>
+       <td>CoreOS 1800.7.0</td>
+       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
+       <td>                    </td>
+       <td>                    </td>
+    </tr>
+    <tr>
+       <td>CoreOS 1688.5.3</td>
+       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
+       <td>                    </td>
+       <td>                    </td>
+    </tr>
+    <tr>
       <td>CoreOS Stable 1235.12.0</td>
       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13</p><p style="text-align: center;">Docker Engine 1.12 </p><p style="text-align: center;"> Docker Engine 1.11 </p></td>
@@ -80,8 +92,8 @@ The below matrix provides guidance as to which platform components and operating
     </tr>
      <tr>
         <td>RHEL 7.4</td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
     </tr>
     <tr>
@@ -92,8 +104,8 @@ The below matrix provides guidance as to which platform components and operating
     </tr>
      <tr>
         <td>CentOS 7.4</td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
     </tr>
     <tr>
@@ -111,7 +123,32 @@ The below matrix provides guidance as to which platform components and operating
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
+    <tr>
+    <th><strong>CLI</strong></th>
+    </tr>
+    <tr>
+        <td>DC/OS CLI 0.6.x</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>DC/OS CLI 0.5.x</td>
+        <td></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>DC/OS CLI 0.4.x</td>
+        <td></td>
+        <td></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
 </table>
+
+**Note:**
+- CoreOS 1688.5.3 requires DC/OS 1.11.3 or later releases.
+- CoreOS 1800.7.0 requires DC/OS 1.11.6 or later releases.
 
 ## Version Compatibility Matrix
 
@@ -272,7 +309,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
-      <tr>
+    <tr>
         <td>ElasticSearch 2.1.x-5.6.y</td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -365,6 +402,13 @@ B- This package combination is *beta*.
     </tr>
      <tr>
         <td>MoM (Marathon on Marathon) 1.5</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>Edge-LB 1.1</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>

@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-**Important:** DC/OS 1.8 introduces binary CLIs for Linux, Windows, and Mac. The install script is replaced with a simple binary CLI. The 1.8 CLI is compatible with DC/OS 1.6.1 forward. For more information, see the [documentation](/1.7/usage/cli/install/).
+**Important:** DC/OS 1.8 introduces binary CLIs for Linux, Windows, and Mac. The install script is replaced with a simple binary CLI. The 1.8 CLI (version 0.4.x) is compatible with DC/OS 1.7, 1.8, and 1.9. For more information, see the [documentation](/1.7/usage/cli/install/).
 
 *   [Installing the DC/OS CLI on Unix, Linux, and macOS][1]
 *   [Installing the DC/OS CLI on Windows][2]

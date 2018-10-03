@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos package repo list
 title: dcos package repo list
 menuWeight: 4
-excerpt:
+excerpt: Displaying the package repository sources
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Print the package repository sources. Possible sources include a local file, HTTPS, and Git.
+The `dcos package repo list` command displays the package repository sources. Possible sources include a local file, HTTPS, and Git.
 
 # Usage
 
@@ -22,10 +20,10 @@ dcos package repo list [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  JSON-formatted data. |
-        
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--json`   |   JSON-formatted data. |
+
 # Parent command
 
 | Command | Description |

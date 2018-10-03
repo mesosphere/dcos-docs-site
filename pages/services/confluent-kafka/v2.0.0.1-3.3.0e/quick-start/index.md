@@ -16,7 +16,7 @@ enterprise: false
 1.  If you are using open source DC/OS, install a Beta Confluent Kafka cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for more information.
 
 ```
-dcos package install beta-confluent-kafka
+dcos package install confluent-kafka
 ```
 <!-- stopped here -->
    Alternatively, you can install Beta Confluent Kafka from [the DC/OS web interface](/latest/usage/webinterface/).
@@ -25,14 +25,14 @@ Kafka will deploy with a default configuration. You can monitor deployment at th
 
 1. Connect a client to the service.
 ```
-dcos beta-confluent-kafka endpoints --name=confluent-kafka
+dcos confluent-kafka endpoints --name=confluent-kafka
 [
   "zookeeper",
   "broker"
 ]
 ```
 ```
-dcos beta-confluent-kafka endpoints broker --name=confluent-kafka
+dcos confluent-kafka endpoints broker --name=confluent-kafka
 {
   "address": [
     "10.0.1.161:1025",

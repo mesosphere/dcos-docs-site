@@ -3,16 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos task ls
 title: dcos task ls
 menuWeight: 2
-excerpt:
+excerpt: Display the list of files in the Mesos task directory
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
-Print the list of files in the Mesos task sandbox.
+The `dcos task ls` command displays a list of the files in the Mesos task sandbox.
 
 # Usage
 
@@ -22,10 +19,10 @@ dcos task ls <task> <path> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--completed`   |             | Print completed and in-progress tasks. |
-| `--long`   |             |  Print full Mesos sandbox file attributes. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--completed`   | Displays completed and in-progress tasks. |
+| `--long`   |  Displays full Mesos sandbox file attributes. |
 
 # Positional arguments
 

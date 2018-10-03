@@ -2,11 +2,16 @@
 # Util
 #
 
+
 clean: ## Remove all build folders
 	./scripts/clean.sh
 
 reduce-pages:
 	./scripts/reduce-pages.sh
+
+
+nginx-test: ## Test and run Nginx config
+	./scripts/nginx-test.sh
 
 #
 # Migration
@@ -26,6 +31,7 @@ build-redirects:
 # Build
 #
 
+## Rebuild nginx, swagger, and static content
 build-development: build-api
 	npm run dev
 

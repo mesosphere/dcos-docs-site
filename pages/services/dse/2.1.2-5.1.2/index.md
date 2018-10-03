@@ -17,3 +17,9 @@ DataStax Enterprise (DSE) Service is an automated service that makes it easy to 
 - Easy redeployment to new systems upon scheduled or unscheduled outages.
 - Consistent DNS addresses regardless of where nodes are located in the cluster.
 - Node placement may be customized via Placement Constraints.
+
+
+## Terms of Use
+
+- Customers will be at their own risk if any failure arises when using a non-default DSE package settings without a service engagement with DataStax.
+- This integration is DataStax licensed and for DataStax Enterprise customers only.

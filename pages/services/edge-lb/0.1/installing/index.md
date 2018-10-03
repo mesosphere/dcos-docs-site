@@ -49,7 +49,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/latest/security/ent/secrets/) to secure the key pair.
+<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/latest/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
 
 ## Create the principal
 From a terminal prompt, create a new service account (`edge-lb-principal`) containing the public key (`edge-lb-public-key.pem`).
@@ -58,7 +58,7 @@ From a terminal prompt, create a new service account (`edge-lb-principal`) conta
 dcos security org service-accounts create -p edge-lb-public-key.pem -d "Edge-LB service account" edge-lb-principal
 ```
 
-**Tip:** Verify your new service account using the following command.
+Verify your new service account using the following command.
 
 ```bash
 dcos security org service-accounts show edge-lb-principal
@@ -67,17 +67,22 @@ dcos security org service-accounts show edge-lb-principal
 ## <a name="create-an-sa-secret"></a>Create a secret
 Create a secret (`dcos-edgelb/edge-lb-secret`) with your service account (`edge-lb-principal`) and private key specified (`edge-lb-private-key.pem`).
 
-**Tip:** If you store your secret in a path that matches the service name (e.g. service name and path are `edge-lb`), then only the service named `edge-lb` can access it.
+<p class="message--important"><strong>IMPORTANT: </strong>If you store your secret in a path that matches the service name (for example, service name and path are both <code>edge-lb</code>), then only the service named <code>edge-lb</code> can access it.</p>
+
+```bash
+dcos security secrets create-sa-secret --strict edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
+```
+If you are installing Edge-LB on a cluster in security mode **disabled**, remove the `--strict` parameter:
 
 ```bash
 dcos security secrets create-sa-secret edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
 ```
-
-**Tip:** List the secrets with this command.
+List the secrets with this command.
 
 ```bash
 dcos security secrets list /
 ```
+
 
 ## <a name="give-perms"></a>Create and Assign Permissions
 

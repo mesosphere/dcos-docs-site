@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Managing
 title: Managing
 menuWeight: 60
-excerpt:
+excerpt: Managing your Cassandra configuration
 featureMaturity:
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
 # Updating Configuration
@@ -31,7 +29,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 + Enterprise DC/OS 1.10 or newer
 + Service with a version greater than 2.0.0-x
-+ [The DC/OS CLI](/1.10/cli/install/)installed and available
++ [The DC/OS CLI](/1.10/cli/install/) installed and available 
 + The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli cassandra`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
@@ -187,11 +185,7 @@ dcos cassandra pod replace node-2
 ```
 
 ## Seed nodes
-Cassandra seed nodes are those nodes with indices smaller than the seed node count.  By default, Cassandra is deployed
-with a seed node count of two.  So, node-0 and node-1 are seed nodes. When a replace operation is performed on one these
-nodes, all other nodes must be restarted to be brought up to date regarding the ip address of the new seed node. This
-operation is performed automatically.
-
+Cassandra seed nodes are those nodes with indices smaller than the seed node count.  By default, Cassandra is deployed with a seed node count of two; therefore, node-0 and node-1 are seed nodes. When a replace operation is performed on one of these nodes, all other nodes must be restarted to be brought up to date with the IP address of the new seed node. This operation is performed automatically.
 For example if `node-0` needed to be replaced we would execute:
 
 ```bash
@@ -214,7 +208,7 @@ recovery (IN_PROGRESS)
 
 # Configuring Multi-data-center Deployments
 
-To replicate data across data centers, Apache Cassandra requires that you configure each cluster with the addresses of the seed nodes from every remote cluster. Here's what starting a multi-data-center Apache Cassandra deployment would like, running inside of a single DC/OS cluster.
+To replicate data across data centers, Apache Cassandra requires that you configure each cluster with the addresses of the seed nodes from every remote cluster. Here's what starting a multi-data-center Apache Cassandra deployment would look like, running inside of a single DC/OS cluster.
 
 Launch the first cluster with the default configuration:
 ```

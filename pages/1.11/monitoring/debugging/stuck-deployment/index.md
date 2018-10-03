@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Stuck Deployments
 title: Stuck Deployments
 menuWeight: 30
-excerpt:
+excerpt: Understanding offer matching and failed deployments
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # How Offer Matching Works
@@ -27,17 +25,20 @@ Here is an overview of the offer matching process.
 
 1. If a matching offer does not arrive that matches the requirements and constraints of a service or pod, Marathon is unable to launch the service or pod.
 
- **Note:** The required resources must all be available on a single host.
+  <table class=“table” bgcolor=#7d58ff>
+  <tr> 
+    <td align=justify style=color:white><strong>Note:</strong> The required resources must all be available on a single host.</td> 
+  </tr> 
+  </table>
 
 # Why Your Service or Pod is Stuck
 
 There are several reasons why your service or pod may fail to deploy. Some possibilities include:
 
-- Marathon isn't getting the resource offers it needs to launch the app.
+- Marathon is not getting the resource offers it needs to launch the app.
   Use the [CLI](/1.11/monitoring/debugging/cli-debugging/) debug subcommands or the [debugging page in the DC/OS web interface](/1.11/monitoring/debugging/gui-debugging/) to troubleshoot unmatched or unaccepted resource offers from Mesos. You can also [consult the service and task logs](/1.11/monitoring/logging/).
 
-- The service's health check is failing.
-  If a service has a health check, deployment does not complete until the health check passes. You can see the health of a service with Marathon health checks from [the DC/OS web interface](/1.11/monitoring/debugging/gui-debugging/). To see more information about the health of a service with Marathon health checks, run `dcos marathon app list --json` from the DC/OS CLI.
+- The service's health check is failing. If a service has a health check, deployment does not complete until the health check passes. You can see the health of a service with Marathon health checks from [the DC/OS web interface](/1.11/monitoring/debugging/gui-debugging/). To see more information about the health of a service with Marathon health checks, run `dcos marathon app list --json` from the DC/OS CLI.
 
 - `docker pull` is failing.
   If your app runs in a Docker image, the Mesos agent node will first have to pull the Docker image. If this fails, your app could get stuck in a "deploying" state. The Mesos agent logs (`<dcos-url>/mesos/#/agents/`) will contain this information. You will see an error in the log similar to the following.
@@ -47,4 +48,4 @@ There are several reasons why your service or pod may fail to deploy. Some possi
   ```
 
 - Your application or application group definition is otherwise badly configured.
-  The DC/OS web interface performs some validation of Marathon application and pod definitions. You can also use the [marathon-validate](https://github.com/dcos-labs/marathon-validate) script to validate your app or group definition locally, before you deploy it to DC/OS.
+  The DC/OS web interface performs some validation of Marathon application and pod definitions.

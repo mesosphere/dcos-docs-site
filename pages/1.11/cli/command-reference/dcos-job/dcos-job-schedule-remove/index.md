@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos job schedule remove
 title: dcos job schedule remove
 menuWeight: 7
-excerpt:
+excerpt: Removing a job schedule
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
 # Description
-Remove a job schedule.
+The `dcos job schedule remove` command allows you to remove a job schedule.
 
 # Usage
 
@@ -26,10 +24,10 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<job-id>`   |             |  Specify the job ID. |
-| `<schedule-file>`   |             |  A JSON formatted job schedule file. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` command.|
+| `<schedule-file>`   |   A JSON formatted job schedule file. |
 
 # Parent command
 
@@ -47,4 +45,4 @@ In this example, a job named `my-job` is removed.
 dcos job remove my-job
 ```
 
-**Tip:** You can view the job IDs with the `dcos job list` command.
+

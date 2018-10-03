@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Node Settings
 title: Node Settings
 menuWeight: 50
-excerpt:
+excerpt: Customize your node resource settings
 featureMaturity:
 enterprise: false
 ---
@@ -84,6 +84,9 @@ Using `MOUNT` volumes requires [additional configuration on each DC/OS agent sys
 To configure the disk type:
 *   **In DC/OS CLI options.json**: `disk_type`: string (default: `ROOT`)
 *   **DC/OS web interface**: `CASSANDRA_DISK_TYPE`: `string`
+
+#include /services/include/node-disk-type-warning.tmpl
+
 
 ## Disk Scheduler
 

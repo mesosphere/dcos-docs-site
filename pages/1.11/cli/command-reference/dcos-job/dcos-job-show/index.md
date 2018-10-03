@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos job show
 title: dcos job show
 menuWeight: 10
-excerpt:
+excerpt: Displaying job definitions
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-    
 # Description
-Show the job definition.
+The `dcos job show` command displays a job definition.
 
 # Usage
 
@@ -26,9 +24,9 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<job-id>`   |             |  Specify the job ID. |
+| Name, shorthand | Description |
+|---------|-------------|
+| `<job-id>`   |   Specify the job ID.  You can view the job IDs with the `dcos job list` command.|
 
 # Parent command
 

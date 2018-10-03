@@ -3,10 +3,13 @@ layout: layout.pug
 navigationTitle:  Granting Access to the Secrets Tab
 title: Granting Access to the Secrets Tab
 menuWeight: 50
-excerpt:
+excerpt: Granting access to the Secrets tab
 
 enterprise: true
 ---
+
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 You can grant users access to the **Secrets** tab. By default, new users have no permissions.
 
 **Tip:** This procedure grants full user access to the **Secrets** tab. If you are running in `strict` or `permissive` [security mode](/1.11/security/ent/#security-modes) and want to configure fine-grained user access, see the [documentation](/1.11/security/ent/secrets/use-secrets/).
@@ -21,11 +24,15 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
    ![Login](/1.11/img/gui-installer-login-ee.gif)
 
+   Figure 1. DC/OS web interface login
+
 1.  Select **Organization** and choose **Users** or **Groups**.
 
 1.  Select the name of the user or group to grant the permission to.
 
     ![Add permission cory](/1.11/img/services-tab-user.png)
+
+    Figure 2. Select user or group to grant permissions to
 
 1.  From the **Permissions** tab, click **ADD PERMISSION**.
 
@@ -33,24 +40,29 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
     ![Add permission](/1.11/img/services-tab-user3.png)
 
+    Figure 3. Insert Permission String
+
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
     ## Disabled
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
     ## Permissive
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
     ## Strict
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
 ## <a name="network-access-via-api"></a>Granting Access by using the API

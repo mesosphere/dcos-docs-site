@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle: Release Notes for 1.10.4
 title: Release Notes for 1.10.4
-menuWeight: 5
+menuWeight: 15
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.10.4.
+DC/OS 1.10.4 was released on January 16, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 

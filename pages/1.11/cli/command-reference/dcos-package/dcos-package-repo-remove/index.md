@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos package repo remove
 title: dcos package repo remove
 menuWeight: 5
-excerpt:
+excerpt: Removing a package repository from DC/OS
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Remove a package repository from DC/OS.
+The `dcos package repo remove` command allows you to remove a package repository from DC/OS.
 
 # Usage
 
@@ -22,16 +20,16 @@ dcos package repo remove <repo-name> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<repo-name>`   |             |  Name of the package repository. For example, `Universe`. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<repo-name>`   |             |  Name of the package repository. For example, `Universe`. |
-        
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
+
 # Parent command
 
 | Command | Description |

@@ -3,26 +3,24 @@ layout: layout.pug
 navigationTitle: Highly Available Load Balancing on AWS
 title: Highly Available Load Balancing on AWS
 menuWeight: 20
-excerpt:
+excerpt: Setting up multiple load balancer instances
 
 enterprise: false
 ---
 
-This tutorial demonstrates how to set up multiple load balancer instances in a single pool behind a single AWS Classic Load Balancer. Similar steps could be followed for AWS Application Load Balancers or AWS Network Load Balancers.
-
-Multiple Edge-LB instances enable you to create a highly available load balanced environment and support increased throughput.
+This tutorial demonstrates how to set up multiple load balancer instances in a single pool behind a single AWS Classic Load Balancer. Similar steps could be followed for AWS Application Load Balancers or AWS Network Load Balancers. Multiple Edge-LB instances enable you to create a highly available load balanced environment and support increased throughput.
 
 # Prerequisites
 
 * Edge-LB is installed following the [Edge-LB Installation Guide](/services/edge-lb/1.0/installing).
 * The DC/OS CLI is installed and configured to communicate with the DC/OS cluster, and the `edgelb` CLI package has been installed.
-* At least one DC/OS private agent node to run the load balanced service (more is preferable).
-* Multiple (2 or more) DC/OS public agent nodes in a single VPC. In order to use an AWS ALB or NLB, the agent nodes must be in multiple AZs.
+* At least one DC/OS private agent node to run the load balanced service (more is better).
+* Multiple (two or more) DC/OS public agent nodes in a single VPC. In order to use an AWS ALB or NLB, the agent nodes must be in multiple AZs.
 * Permissions to create AWS Load Balancers.
 
 # Environment Set Up
 
-1. Create a Marathon application definition containing the sample service, `customer.json`. It will start 4 instances.
+1. Create a Marathon application definition containing the sample service, `customer.json`. It will start four instances.
 
    ```json
    {
@@ -48,7 +46,7 @@ Multiple Edge-LB instances enable you to create a highly available load balanced
      "networks": [{
        "mode": "container/bridge"
      }]
-   } 
+   }
    ```
 
 1. Deploy the sample service.
@@ -57,7 +55,7 @@ Multiple Edge-LB instances enable you to create a highly available load balanced
    dcos marathon app add customer.json
    ```
 
-1. Create an Edge-LB json configuration file with a single Edge-LB pool that has multiple load balancer instances. We will call this file `multi-lb.json`.
+1. Create an Edge-LB JSON configuration file with a single Edge-LB pool that has multiple load balancer instances. We will call this file `multi-lb.json`.
 
    ```json
    {
@@ -140,14 +138,14 @@ The AWS Classic Elastic Load Balancer (Classic ELB) supports both TCP and HTTP c
 
 1. Optionally, specify tags for your ELB so you can identify it later, click **Review and Create**, then click **Create**.
 
-On the Load Balancer page, you can check the status of your load balancer by going to **Instances**. It may take a little bit of time for the instances to be registered. Once your instances are properly registered, you should be able to access the load balancer via the Load Balancer name.
+On the Load Balancer page, you can check the status of your load balancer by going to **Instances**. It may take a little bit of time for the instances to be registered. Once your instances are properly registered, you can access the load balancer via the Load Balancer name.
 
 # Load Balancer Set Up: AWS Application Load Balancer / Network Load Balancer
 
 The AWS Application Load Balancer (ALB) is a Layer 7 Load Balancer that does HTTP processing; the AWS Network Load Balancer is a Layer 4 Load Balancer that does TCP load balancing. Conceptually they operate as follows:
 
-* ALB: HTTP Load Balancer: HTTP connections terminate on ALB.  
-* NLB: TCP Load Balancer: HTTP connections terminate on the EC2 instance itself (in this case, directly on the Edge-LB Load Balancer instance).
+- ALB: HTTP Load Balancer: HTTP connections terminate on ALB.  
+- NLB: TCP Load Balancer: HTTP connections terminate on the EC2 instance itself (in this case, directly on the Edge-LB Load Balancer instance).
 
 Configuration of the two is roughly identical:
 
@@ -182,4 +180,4 @@ Configuration of the two is roughly identical:
 
 1. Select your instances, click **Add to Registered**, then click **Next: Review**, and then click **Create**.
 
-After a bit of time, your instances should be available via the DNS name in your newly-generated load balancer.
+There will be a short wait. Your instances will be available via the DNS name in your newly-generated load balancer.

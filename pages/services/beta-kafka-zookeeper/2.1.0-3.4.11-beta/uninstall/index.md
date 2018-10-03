@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 title: Uninstall
 menuWeight: 20
-excerpt:
+excerpt: Uninstalling Apache ZooKeeper
 featureMaturity:
 enterprise: false
 ---
@@ -19,7 +19,7 @@ If you are using DC/OS 1.10 and the installed service has a version greater than
 
 1. Uninstall the service. From the DC/OS CLI, enter `dcos package uninstall --app-id=<instancename> kafka-zookeeper`.
 
-For example, to uninstall an Apache Zookeeper instance named `kafka-zookeeper-dev`, run:
+For example, to uninstall an Apache ZooKeeper instance named `kafka-zookeeper-dev`, run:
 
 ```shell
 dcos package uninstall --app-id=kafka-zookeeper-dev kafka-zookeeper

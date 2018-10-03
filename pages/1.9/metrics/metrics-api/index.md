@@ -7,15 +7,15 @@ excerpt: >
   You can use the Metrics API to
   periodically poll for data about your
   cluster, hosts, containers, and
-  applications. You can then pass this
-  data to a third party service of your
-  choice to achieve informative charts,
-  dashboards, and alerts.
-preview: true
+  applications. 
+beta: true
 ---
 
 You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications.
-You can then pass this data to a third party service of your choice to achieve informative charts, dashboards, and alerts.
+The Metrics API is just one way to get metrics from DC/OS. It is designed for occasional targeted access to specific
+tasks and hosts. It is not the best way to get a comprehensive picture of all metrics on DC/OS. For this, please refer
+to the [DataDog](/1.9/metrics/datadog), [Prometheus](/1.9/metrics/prometheus), and
+[third-party plugins](https://github.com/dcos/dcos-metrics/blob/master/plugins/CONTRIBUTING.md) documents.
 
 The Metrics API is backed by the [DC/OS Metrics component](/1.9/overview/architecture/components/#dcos-metrics), which runs on all nodes in the cluster.
 
@@ -24,19 +24,19 @@ For examples of how to use the Metrics API, see the [Metrics Quick Start Guide](
 
 # Routes
 
-Access to the Metrics API is proxied through the Admin Router on each node using the following route:
+Access to the Metrics API is proxied via Admin Router to each node. Statistics for the current leader are prefixed with:
 
 ```
 /system/v1/metrics/v0/
 ```
 
-Access to the Metrics API of the agent nodes is also proxied through the master nodes:
+Statistics for an agent are prefixed with:
 
 ```
 /system/v1/agent/{agent_id}/metrics/v0/
 ```
 
-To determine the URL of your cluster, see [Cluster Access](/1.9/api/access/).
+To determine the URL of your cluster, see [Cluster Access](/1.9/api/access/). The agent ID of a node is its Mesos ID.
 
 
 # Format

@@ -34,13 +34,13 @@ dcos cluster setup http://your-cluster.com
 To start a basic test cluster with three brokers, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions.
 
 ```
-dcos package install beta-confluent-kafka
+dcos package install confluent-kafka
 ```
 
 You can specify a custom configuration in an `options.json` file and pass it to `dcos package install` using the `--options` parameter.
 
 ```
-$ dcos package install beta-confluent-kafka --options=your-options.json
+$ dcos package install confluent-kafka --options=your-options.json
 ```
 
 For more information about building the options.json file, see the [DC/OS documentation](/1.10/deploying-services/config-universe-service/).
@@ -49,7 +49,7 @@ For more information about building the options.json file, see the [DC/OS docume
 
 1. Visit http://yourcluster.com/ to view the DC/OS Dashboard.
 
-1. Navigate to **Universe** > **Packages** and find the `beta-confluent-kafka` package.
+1. Navigate to **Universe** > **Packages** and find the `confluent-kafka` package.
 
 1. Click `Install`, then in the pop up dialog click `Advanced` to see the customization dialog.
 
@@ -65,7 +65,7 @@ Each instance of Kafka in a given DC/OS cluster must be configured with a differ
 
 All DC/OS Kafka CLI commands have a --name argument that allows the user to specify which instance to query. If you do not specify a service name, the CLI assumes the default value, `confluent-kafka`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 ```
-dcos beta-confluent-kafka --name beta-confluent-kafka-dev <cmd>
+dcos confluent-kafka --name confluent-kafka-dev <cmd>
 ```
 
 ## Broker Settings

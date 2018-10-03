@@ -70,6 +70,7 @@ through Admin Router.
 | `dcos:adminrouter:acs`<br>Controls access to the security and access management features.                                                                                                                                                                                         | x    |   |   |   |   |
 | `dcos:adminrouter:ops:ca:ro`<br>Controls access to the read-only endpoints of the [Certificate Authority API](/1.10/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/).                               | x    |   |   |   |   |
 | `dcos:adminrouter:ops:ca:rw`<br>Controls user access to all endpoints of the [Certificate Authority API](/1.10/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/).                                    | x    |   |   |   |   |
+| `dcos:adminrouter:ops:cockroachdb`<br> Controls access to the [CockroachDB UI](https://www.cockroachlabs.com/docs/v1.1/admin-ui-overview-dashboard.html).      | x    |   |   |   |   |
 | `dcos:adminrouter:ops:exhibitor`<br> Controls access to the Exhibitor UI and API. This permission allows users to [remove the ZooKeeper state](/1.10/deploying-services/uninstall/#framework-cleaner) after uninstalling a service.                                                | x    |   |   |   |   |
 | `dcos:adminrouter:ops:historyservice`<br>Controls access to the [History Service](/1.10/overview/architecture/components/#dcos-history).                                                                                                                                           | x    |   |   |   |   |
 | `dcos:adminrouter:ops:mesos-dns`<br> Controls access to the [Mesos DNS API](/1.10/networking/mesos-dns/mesos-dns-api/).                                                                                                                                                           | x    |   |   |   |   |
@@ -157,7 +158,7 @@ Marathon applications using secrets see [Configuring services and pods to use se
 ## <a name="superuser"></a>Superuser Permissions
 
 Similar to the Windows `Administrator` or Linux `root` accounts, DC/OS has the
-concept of the `superuser`. A user with permission to perform any action on the `dcos:superuser` resource has complete, unrestricted access to any operation
+concept of the `superuser`. A user with at least one permission out of `create`, `read`, `update`, `delete` or `full` on the `dcos:superuser` resource has complete, unrestricted access to any operation
 throughout DC/OS. This is extremely powerful and this permission should be
 granted sparingly.
 

@@ -63,9 +63,9 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/agen
 # Container Logs
 
 **Important:**
-The following example requires journald task logging, which by default is [disabled](/1.10/monitoring/logging/logging-api/#compatibility).
+The following example requires journald task logging, which by default is [disabled](/1.10/monitoring/logging/logging-api/#compatibility). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
 
-Get the last 100 journal entries from a single service container:
+The following code may be useful:
 
 ```
 FRAMEWORK_NAME="marathon"
@@ -85,8 +85,8 @@ CONTAINER_ID="$(echo "${TASK_STATE}" | jq -r '.statuses[0].container_status.cont
 # default to container ID when executor ID is empty
 EXECUTOR_ID="${EXECUTOR_ID:-${TASK_ID}}"
 
-# get container/task logs
-curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/agent/${AGENT_ID}/logs/v1/range/framework/${FRAMEWORK_ID}/executor/${EXECUTOR_ID}/container/${CONTAINER_ID}?skip_prev=100"
+# Using Mesos API, agent/files endpoint
+curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_ID}/files/read?path=/var/lib/mesos/slave/slaves/${AGENT_ID}/frameworks/${FRAMEWORK_ID}/executors/${EXECUTOR_ID}/runs/${CONTAINER_ID}/stdout&offset=0&length=50000"
 ```
 
 # Tail
