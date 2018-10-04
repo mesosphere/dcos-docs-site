@@ -135,8 +135,8 @@ In this step you create a YAML configuration file that is customized for your en
 
     ```json
     bootstrap_url: http://<bootstrap_ip>:80   
-    superuser_username:
-    superuser_password_hash:   
+    superuser_password_hash: <hashed-password> # Generated above
+    superuser_username: <username> # This can be whatever you like   
     cluster_name: '<cluster-name>'
     customer_key: <customer-key>
     exhibitor_storage_backend: static

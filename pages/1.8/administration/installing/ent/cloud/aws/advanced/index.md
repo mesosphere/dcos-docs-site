@@ -66,6 +66,8 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
     aws_template_storage_access_key_id: <your-access-key-id>
     aws_template_storage_secret_access_key: <your-secret-access_key>
     security: [permissive|strict|disabled]
+    superuser_password_hash: <hashed-password> # Generated above
+    superuser_username: <username> # This can be whatever you like
     zk_super_credentials: <userid>:<password>
     zk_master_credentials: <userid>:<password>
     zk_agent_credentials: <userid>:<password>
