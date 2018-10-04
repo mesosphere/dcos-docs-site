@@ -48,7 +48,7 @@ RFC 4648 prior to being stored as secrets.
 To create a secret called `mysecret` with the binary contents of `kerb5.keytab` run:
 
 ```bash
-$ dcos security secrets create --text-file kerb5.keytab mysecret
+$ dcos security secrets create --file kerb5.keytab mysecret
 ```
 
 #### DC/OS 1.10 or lower
