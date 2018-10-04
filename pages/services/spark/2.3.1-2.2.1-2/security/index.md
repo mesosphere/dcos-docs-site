@@ -83,7 +83,7 @@ RFC 4648 prior to being stored as secrets.
 To create a secret called `mysecret` with the binary contents of `kerb5.keytab` run:
 
 ```bash
-$ dcos security secrets create --text-file kerb5.keytab mysecret
+$ dcos security secrets create --file kerb5.keytab mysecret
 ```
 
 #### DC/OS 1.10 or earlier
@@ -202,8 +202,8 @@ are server.jks and trust.jks, respectively, then use the following commands to a
 store:
 
 ```bash
-dcos security secrets create /{{ model.serviceName }}/keystore --text-file server.jks
-dcos security secrets create /{{ model.serviceName }}/truststore --text-file trust.jks
+dcos security secrets create /{{ model.serviceName }}/keystore --file server.jks
+dcos security secrets create /{{ model.serviceName }}/truststore --file trust.jks
 ```
 
 You must add the following configurations to your `dcos {{ model.serviceName }} run ` command.
