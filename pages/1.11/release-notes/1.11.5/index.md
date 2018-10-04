@@ -19,6 +19,8 @@ DC/OS 1.11.5 includes the following components:
 - Marathon 1.6.544 [change log](https://github.com/dcos/dcos/pull/3289).
 - Metronome 0.4.3 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.3).
 
+- DCOS-38342 - Documenation: Rename advanced installation to production installation. 
+
 # Issues Fixed in DC/OS 1.11.5
 
 ## Customer Advisory
