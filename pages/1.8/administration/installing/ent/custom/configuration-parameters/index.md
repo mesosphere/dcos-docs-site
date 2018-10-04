@@ -478,6 +478,8 @@ resolvers:
 - <dns-resolver-2>
 # Choose your security mode: permissive, strict, or disabled
 security: <security-mode>
+superuser_password_hash: <hashed-password> # Generated above
+superuser_username: <username> # This can be whatever you like
 ssh_key_path: /genconf/ssh-key
 ssh_port: '<port-number>'
 ssh_user: <username>
@@ -511,6 +513,8 @@ resolvers:
 - 169.254.169.253
 # Choose your security mode: permissive, strict, or disabled
 security: <security-mode>
+superuser_password_hash: <hashed-password> # Generated above
+superuser_username: <username> # This can be whatever you like
 s3_bucket: mybucket
 s3_prefix: s3-example
 ssh_key_path: /genconf/ssh-key
@@ -545,6 +549,8 @@ resolvers:
 - 8.8.8.8
 # Choose your security mode: permissive, strict, or disabled
 security: <security-mode>
+superuser_password_hash: <hashed-password> # Generated above
+superuser_username: <username> # This can be whatever you like
 ssh_key_path: /genconf/ssh-key
 ssh_port: '<port-number>'
 ssh_user: <username>
@@ -572,7 +578,9 @@ ssh_user: <username>
     - 8.8.4.4
     - 8.8.8.8
     # Choose your security mode: permissive, strict, or disabled
-    security: <security-mode>    
+    security: <security-mode>  
+    superuser_password_hash: <hashed-password> # Generated above
+    superuser_username: <username> # This can be whatever you like  
     ssh_port: 22
     ssh_user: centos
     dcos_overlay_enable: true
@@ -613,6 +621,8 @@ ssh_user: <username>
     - 8.8.8.8
     # Choose your security mode: permissive, strict, or disabled
     security: <security-mode>    
+    superuser_password_hash: <hashed-password> # Generated above
+    superuser_username: <username> # This can be whatever you like
     ssh_port: 22
     ssh_user: centos
     use_proxy: 'true'
@@ -646,6 +656,8 @@ ssh_user: <username>
     - 8.8.8.8
     # Choose your security mode: permissive, strict, or disabled
     security: <security-mode>
+    superuser_password_hash: <hashed-password> # Generated above
+    superuser_username: <username> # This can be whatever you like
     ssh_port: 22
     ssh_user: centos
     zk_super_credentials: <userid>:<password>
