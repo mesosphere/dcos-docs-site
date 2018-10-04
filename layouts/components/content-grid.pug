@@ -1,6 +1,6 @@
 - var pageHierarchy = hierarchy.findByPath(path)
 
-if pageHierarchy.children.length > 0 && pageHierarchy.menuWeight && pageHierarchy.menuWeight > -1
+if pageHierarchy.children.length > 0
   div(class='grid')
     each val, index in pageHierarchy.children
       if val.menuWeight == -1
