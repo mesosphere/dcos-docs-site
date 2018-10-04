@@ -227,6 +227,8 @@ resolvers:
 - 169.254.169.253
 # Choose your security mode: permissive or strict 
 security: <security-mode>
+superuser_password_hash: <hashed-password> # Generated above
+superuser_username: <username> # This can be whatever you like
 # A custom proxy is optional. For details, see the configuration documentation.
 use_proxy: 'true'
 http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
