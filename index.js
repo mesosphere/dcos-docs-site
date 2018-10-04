@@ -236,6 +236,8 @@ CB.use(timer('CB: Redirects'));
 CB.use(permalinks());
 CB.use(timer('CB: Permalinks'));
 
+// Hello aaron
+
 // Layouts
 if (!RENDER_PATH_PATTERN) {
   // Default: Render all pages.
