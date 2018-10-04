@@ -199,7 +199,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
 
-- Latest version of Marathon-LB is required for DC/OS 1.10.0.
+- Marathon-LB 1.11.0 or greater is required for DC/OS 1.10.0.
 
   Before upgrading to DC/OS 1.10.0, uninstall your existing Marathon-LB package and reinstall the updated version.
 

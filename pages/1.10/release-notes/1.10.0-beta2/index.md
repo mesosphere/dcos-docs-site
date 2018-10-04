@@ -121,7 +121,8 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
 
-## Latest version of Marathon-LB is required for 1.10
+## Latest version of Marathon-LB 
+
 Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinstall the updated version.
 
 - REX-Ray configuration change
