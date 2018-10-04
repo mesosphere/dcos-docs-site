@@ -10,7 +10,7 @@ mixin renderGridToc()
       if val.menuWeight != -1
         if val.children
           each childVal, childIndex in val.children
-            if semverService.test(childVal.id)
+            if semverService.test(childVal.id) && childVal.menuWeight != -1
               - versioned = true
               - childVal.title = val.title
               - val = childVal
