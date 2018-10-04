@@ -1,10 +1,10 @@
 - var pageHierarchy = hierarchy.findByPath(path)
 
-if pageHierarchy.children.length > 0
+if pageHierarchy.children.length > 0 && pageHierarchy.menuWeight && pageHierarchy.menuWeight > -1
   div(class='grid')
     each val, index in pageHierarchy.children
-      if pageHierarchy.menuWeight && pageHierarchy.menuWeight > -1 && val.menuWeight == -1
-        continue
+      if val.menuWeight == -1
+        - continue
       - var labels = [];
       - labels = (val.enterprise) ? [...labels, 'ENTERPRISE'] : labels
       - labels = (val.oss) ? [...labels, 'OPEN SOURCE'] : labels
