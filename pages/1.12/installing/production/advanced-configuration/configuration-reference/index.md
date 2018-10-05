@@ -417,6 +417,10 @@ set -o nounset -o errexit
 curl -fsSL https://ipinfo.io/ip
 ```
 
+## license_key_contents [enterprise type="inline" size="small" /]
+A license key helps to administer your cluster in conformance with your license requirements. A license contains the maximum number of nodes attached to a cluster at any given time and the start and end date of the license.The license key must reside in a genconf/license.txt file. This parameter is used when an user wants to directly specify the license in the config.yaml. 
+Example: `license_key_contents: xyz`.
+
 ## log_directory
 The path to the installer host logs from the SSH processes. By default, this is set to `/genconf/logs`. In most cases this should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
 
