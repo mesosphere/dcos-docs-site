@@ -29,8 +29,20 @@ Commands:
       Manage the DC/OS configuration file
   help
       Help about any command
+  job
+      Deploy and manage jobs in DC/OS
+  marathon
+      Deploy and manage applications to DC/OS
+  node
+      View DC/OS node information
+  package
+      Install and manage DC/OS software packages
   plugin
       Manage CLI plugins
+  service
+      Manage DC/OS services
+  task
+      Manage DC/OS tasks
 
 Options:
   --version
@@ -127,17 +139,6 @@ $ dcos cluster list
 ```
 
 <p class="message--note"><strong>NOTE: </strong>The * indicates that the CLI is currently attached to the cluster name. If you run the setup command again with another cluster, you will see a new item in the list.</p>
-
-# <a name="airgapped"></a> Airgapped Clusters
-
-For airgapped customers, the automatic installation of the dcos-core-cli and dcos-enterprise-cli plugins will likely fail because of the airgap
-so the 0.7 CLI will have the core plugin for DC/OS 1.12 included to ensure that customers running the CLI from within an airgap will be able to use the CLI after setup.
-However, the dcos-enterprise-cli plugin, dcos-core-cli for other versions of DC/OS, and other CLI subcommands are not included and must be downloaded
-and brought to the computer using the CLI then installed using `dcos plugin add`.
-
-See the [CLI plugin documentation](/1.12/cli/plugins/) for more details.
-
-<p class="message--note"><strong>NOTE: </strong>This will also apply to user accounts that don't have the <code>dcos:adminrouter:package</code> permission, which would prevent them from accessing Cosmos to get the <code>dcos-core-cli</code> and <code>dcos-enterprise-cli </code>package descriptions.
 
 <a name="dcos-log-level"></a>
 
