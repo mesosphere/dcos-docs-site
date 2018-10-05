@@ -169,6 +169,7 @@
 /services/cassandra/2.1.0-3.0.16/11-release-notes/ /services/cassandra/2.1.0-3.0.16/release-notes/;
 /services/elastic/2.3.0-5.6.5/11-release-notes/ /services/elastic/2.3.0-5.6.5/release-notes/;
 /services/hdfs/2.2.0-2.6.0-cdh5.11.0/11-release-notes/ /services/hdfs/2.2.0-2.6.0-cdh5.11.0/release-notes/;
+/1.12/installing/oss/opt-out/ /1.12/installing/production/deploying-dcos/opt-out/;
 /1.11/administering-clusters/cluster-connections/ /1.11/administering-clusters/multiple-clusters/cluster-connections/;
 /1.11/cli/command-reference/dcos-cluster-link/ /1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/;
 /1.11/cli/command-reference/dcos-cluster-unlink/ /1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink/;
