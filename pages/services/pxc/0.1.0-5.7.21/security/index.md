@@ -72,7 +72,7 @@ With SSL enable the Transport Encryption will be enabled automatically in SSL mo
 
 ## Authentication
 
-DC/OS percona-pxc-mysql Service supports two authentication mechanisms, SSL and PAM(Plugable Authentication Module). PAM can not work alone without SSL. By default PAM is disabled.
+DC/OS percona-pxc-mysql Service supports two authentication mechanisms, SSL and PAM(Pluggable Authentication Module). PAM can not work alone without SSL. By default PAM is disabled.
 
 Steps to follow to configure PAM:
 1. Install openLDAP and openLDAP admin in the same cluster from Catalogue.
