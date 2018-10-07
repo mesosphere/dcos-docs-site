@@ -188,7 +188,51 @@ dcos package install --yes spinnaker --options=options.json
 ```
 
 ## Edge-LB
-Instead of the simple proxy we used in the quick start you can also use Edge-LB. After installing Edge-LB you can create the Edge-LB pool configuration for {{ model.techName }} (`minio` is also included) using the [spinnaker-edgelb.yml](misc/spinnaker-edgelb.yml) file.
+Instead of the simple proxy we used in the quick start you can also use Edge-LB. After installing Edge-LB you can create the Edge-LB pool configuration file named `spinnaker-edgelb.yml` using the following yml (`minio` is also included).
+
+```
+apiVersion: V2
+name: spinnaker
+count: 1
+haproxy:
+  frontends:
+  - bindPort: 9001
+    protocol: HTTP
+    linkBackend:
+      defaultBackend: deck
+  - bindPort: 8084
+    protocol: HTTP
+    linkBackend:
+      defaultBackend: gate
+  - bindPort: 9000
+    protocol: HTTP
+    linkBackend:
+      defaultBackend: minio
+  backends:
+  - name: deck
+    protocol: HTTP
+    services:
+    - endpoint:
+        type: ADDRESS
+        address: deck.spinnaker.l4lb.thisdcos.directory
+        port: 9001
+  - name: gate
+    protocol: HTTP
+    services:
+    - endpoint:
+        type: ADDRESS
+        address: gate.spinnaker.l4lb.thisdcos.directory
+        port: 8084
+  - name: minio
+    protocol: HTTP
+    services:
+    - endpoint:
+        type: ADDRESS
+        address: minio.marathon.l4lb.thisdcos.directory
+        port: 9000
+```
+
+Use the following command to launch the pool.
 ```
 dcos edgelb create spinnaker-edgelb.yml
 ```
