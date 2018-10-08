@@ -18,8 +18,9 @@ HDFS is available in the Universe and can be installed by using either the web i
 	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
-- A minimum of five agent nodes with eight GiB of memory and ten GiB of disk available on each agent.
-- Each agent node must have these ports available: 8019, 8480, 8485, 9000, 9001, 9002, 9003, 9005, and 9006.
+- A minimum of five agent nodes with 0.9 of CPU, 6144MB of memory, and 10 GiB of disk available on each agent. 
+- Each agent node must have these ports available: 8019, 8480, 8485, 9000, 9001, 9002, 9003, 9005, and 9006, and 9007.
+
 
 # Installation
 
