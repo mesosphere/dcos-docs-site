@@ -8,15 +8,7 @@ featureMaturity:
 
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
-
-
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
-
-
-<!-- THIS CONTENT DUPLICATES THE DC/OS OPERATION GUIDE -->
-
-### DC/OS 1.10
+## DC/OS 1.10
 
 If you are using DC/OS 1.10 and the installed service has a version greater than 2.0.0-x:
 
@@ -28,7 +20,7 @@ For example, to uninstall a Kafka instance named `kafka-dev`, run:
 $ dcos package uninstall --app-id=kafka-dev kafka
 ```
 
-### Older versions
+## Older versions
 
 If you are running DC/OS 1.9 or older, or a version of the service that is older than 2.0.0-x, follow these steps:
 
@@ -50,6 +42,6 @@ $ dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.
     -z dcos-service-$MY_SERVICE_NAME"
 ```
 
-<p class="message--note"><strong>NOTE: </strong>If you are running DC/OS on CentOS please add <code>--user=centos</code> to the CLI command in order for Janitor to properly function.</p>
+<p class="message--note"><strong>NOTE: </strong>If you are running DC/OS on CentOS, please add <code>--user=centos</code> to the CLI command in order for Janitor to properly function.</p>
 
-<!-- END DUPLICATE BLOCK -->
+
