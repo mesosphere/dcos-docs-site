@@ -50,6 +50,6 @@ $ dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.
     -z dcos-service-$MY_SERVICE_NAME"
 ```
 
-**Note: If you are running DC/OS on CentOS please add `--user=centos` to the CLI command for Janitor to properly function.
+<p class="message--note"><strong>NOTE: </strong>If you are running DC/OS on CentOS please add <code>--user=centos</code> to the CLI command in order for Janitor to properly function.</p>
 
 <!-- END DUPLICATE BLOCK -->
