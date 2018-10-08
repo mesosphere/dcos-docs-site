@@ -49,5 +49,6 @@ $ dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.
     -p $MY_SERVICE_NAME-principal \
     -z dcos-service-$MY_SERVICE_NAME"
 ```
+**Note** Please mind that if you're running DC/OS on CentOS that you will need to prefix the `docker` command with `sudo`.
 
 <!-- END DUPLICATE BLOCK -->
