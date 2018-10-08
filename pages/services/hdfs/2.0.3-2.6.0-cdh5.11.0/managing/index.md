@@ -14,7 +14,7 @@ enterprise: false
 # Updating Configuration
 You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles deploying DC/OS HDFS Service itself.
 
-After making a change, the scheduler will be restarted and will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `_NODEPOD_-0`, then `_NODEPOD_-1`, and so on.
+After making a change, the scheduler will be restarted and will automatically deploy any detected changes to the service, one node at a time.
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
 
@@ -30,10 +30,10 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer.
-+ Service with a version greater than 2.0.0-x.
-+ [The DC/OS CLI](/1.10/cli/install/) installed and available.
-+ The service's subcommand available and installed on your local machine.
++ Enterprise DC/OS 1.10 or newer
++ Service with a version greater than 2.0.0-x
++ [The DC/OS CLI](/1.10/cli/install/)installed and available
++ The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli hdfs`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
@@ -43,7 +43,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Preparing configuration
 
-If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
 $ dcos hdfs describe > options.json
@@ -51,7 +51,7 @@ $ dcos hdfs describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](#initial-service-configuration).
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
 
 <strong>Note:</strong> You need to specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 
@@ -62,38 +62,45 @@ If the `options.json` from when the service was last installed or updated is not
 First, we'll fetch the default application's environment, current application's environment, and the actual template that maps config values to the environment:
 
 1. Ensure you have [jq](https://stedolan.github.io/jq/) installed.
+
 1. Set the service name that you're using, for example:
-  ```bash
-  $ SERVICE_NAME=hdfs
-  ```
+    ```bash
+    $ SERVICE_NAME=hdfs
+    ```
+
 1. Get the version of the package that is currently installed:
-  ```bash
-  $ PACKAGE_VERSION=$(dcos package list | grep $SERVICE_NAME | awk '{print $2}')
-  ```
+    ```bash
+    $ PACKAGE_VERSION=$(dcos package list | grep $SERVICE_NAME | awk '{print $2}')
+    ```
+
 1. Then fetch and save the environment variables that have been set for the service:
-  ```bash
-  $ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
-  ```
+    ```bash
+    $ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
+    ```
+
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
-  ```bash
-  $ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
-  ```
+    ```bash
+    $ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
+    ```
+
 1. We'll also get the entire application template:
-  ```bash
-  $ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
-  ```
+    ```bash
+    $ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
+    ```
 
 Now that you have these files, we'll attempt to recreate the `options.json`.
 
 1. Use JQ and `diff` to compare the two:
-```bash
-$ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
-```
+    ```bash
+    $ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
+    ```
+
 1. Now compare these values to the values contained in the `env` section in application template:
-```bash
-$ less marathon.json.mustache
-```
-1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](#initial-service-configuration).
+    ```bash
+    $ less marathon.json.mustache
+    ```
+
+1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](https://docs.mesosphere.com/services/ops-guide/common-operations/#initial-service-configuration).
 
 ### Starting the update
 

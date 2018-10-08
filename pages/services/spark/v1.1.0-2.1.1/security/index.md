@@ -33,6 +33,8 @@ When running in [DC/OS strict security mode](/1.10/security/ent/), both the disp
 
 Follow these instructions to authenticate in strict mode:
 
+Note that if `${ROLE}` in any command contains a percent character, it must be replaced by `%252F`.
+
 1. Create a service account by following the instructions [here](/services/spark/spark-auth/).
 
 1. Assign Permissions

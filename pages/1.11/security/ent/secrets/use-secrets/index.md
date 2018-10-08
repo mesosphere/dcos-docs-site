@@ -1,22 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Configuring services and pods to use
-  secrets
+navigationTitle:  Configuring services and pods
+title: Configuring services and pods
 menuWeight: 1
-excerpt:
+excerpt: Configuring services and pods to use secrets
 
 enterprise: true
 ---
+
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 Your service definition can reference secrets as environment variables or as a file.
 
 ## File-based secrets
 
-You can reference the secret as a file for increased security from other processes, or if your service needs to read secrets from files mounted in the container.
-
-Referencing a file-based secret can be particularly useful for:
+You can reference the secret as a file for increased security from other processes, or if your service needs to read secrets from files mounted in the container. Referencing a file-based secret can be particularly useful for:
 
 - Kerberos keytabs or other credential files.
 - SSL certificates.
@@ -24,14 +22,13 @@ Referencing a file-based secret can be particularly useful for:
 
 File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<configured-path>`).
 
-**Prerequisites:**
+### Prerequisites
 
 - An existing secret. The examples below use a secret called `my-secret` stored in the `developer` path. If you complete the steps in [Creating secrets](/1.11/security/ent/secrets/create-secrets/), you will meet this prerequisite.
 
 - [DC/OS CLI installed](/1.11/cli/install/) and the [DC/OS Enterprise CLI installed](/1.11/cli/enterprise-cli/#ent-cli-install).
-
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
-
+- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  
+- If your [security mode](/1.11/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 - The appropriate permissions for your [security mode](/1.11/security/ent/#security-modes).
 
   <table class="table">
@@ -65,19 +62,21 @@ The procedure differs depending on whether or not you want to make the secret av
 
 The procedure varies by interface. Refer to the section that corresponds to your desired interface.
 
-- [GUI](#deploying-the-service-via-the-web-interface)
+- [web interface](#deploying-the-service-via-the-web-interface)
 
 - [Marathon API](#deploying-the-service-via-marathon-app-definition)
 
-## <a name="deploying-the-service-via-the-web-interface"></a>Configuring a service to use a secret via the GUI
+## <a name="deploying-the-service-via-the-web-interface"></a>Configuring a service to use a secret via the web interface
 
-1. Log into the GUI as a user with the necessary permissions as discussed in the [previous section](#service).
+1. Log into the web interface as a user with the necessary permissions as discussed in the [previous section](#service).
 
 1. Click the **Services** tab.
 
 1. Click the **+** icon in the top right.
 
     ![Add a Service](/1.11/img/add-service.png)
+
+    Figure 1. Running a service
 
 1. Click the **JSON Editor** toggle.
 
@@ -209,11 +208,60 @@ The procedure varies by interface. Refer to the section that corresponds to your
    curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
    ```
 
-1. Open the DC/OS GUI.
+1. Open the DC/OS web interface.
 
 1. Click the group name of your service, i.e., **developer**.
 
 1. Click the name of your service.
+
+1. Click the name of its task.
+
+1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE`.
+
+# <a name="deploying-the-job-via-metronome-job-definition"></a>Configuring a job to use an environment variable-based secret via Metronome job definition
+
+1. Log into the CLI as an user with the necessary permissions via `dcos auth login`. 
+
+1. Within a text editor, create a job definition for your Metronome job. The following job definition creates a new job and references a stored secret.
+
+Environment variable-based secret:
+ ```json
+   {
+  "id": "test-metronome-secret",
+  "run": {
+    "cpus": 0.01,
+    "mem": 128,
+    "cmd": "echo ${TEST}; sleep 30;",
+    "env": {
+      "TEST": {
+        "secret": "secret0"
+      }
+    },
+    "secrets": {
+      "secret0": {
+        "source": "/path/to/secret"
+      }
+    }
+  },
+  "schedules": []
+  }
+```
+
+In the example above, DC/OS stores the secret under the environment variable `"TEST"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
+
+1. Save the file with a descriptive name, such as `mytest.json`.
+
+1. Add the job to DC/OS via the DC/OS CLI.
+
+   ```bash
+   dcos job add mytest.json
+   ```
+
+1. Open the DC/OS web interface.
+
+1. Click the job id i.e., **test-metronome-secret**.
+
+1. Click the name of your job.
 
 1. Click the name of its task.
 
@@ -309,7 +357,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    dcos marathon pod add mypod.json
    ```
 
-1. Open the DC/OS GUI.
+1. Open the DC/OS web interface.
 
 1. Click the group name of your service, i.e., **developer**.
 
@@ -318,3 +366,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 1. Click to open the **Configuration** tab.
 
 1. Scroll to the **Environment Variables** area to locate your secret `MY_SECRET`.
+
+## Limitation
+
+ The file-based secrets work only with the UCR.

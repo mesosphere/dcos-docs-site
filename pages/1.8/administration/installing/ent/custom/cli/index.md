@@ -124,7 +124,7 @@ In this step, you create a YAML configuration file that is customized for your e
     - <master-private-ip-2>
     - <master-private-ip-3>
     public_agent_list:
-    - <private-agent-private-ip>
+    - <public-agent-private-ip>
     resolvers:
     - 8.8.4.4
     - 8.8.8.8 

@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
-1. Install DC/OS on your cluster. See [the documentation](/1.10/installing/) for instructions.
+1. Install DC/OS on your cluster. See [the documentation](/1.11/installing/) for instructions.
 1. If you are using open source DC/OS, install DC/OS Apache Cassandra with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for more information.
     ```
     dcos package install cassandra
@@ -23,12 +23,11 @@ You can also install DC/OS Apache Cassandra from [the DC/OS web interface](/late
 1. Connect a client to the DC/OS Apache Cassandra service.
 
    ```
-   dcos cassandra endpoints
+   dcos cassandra endpoint node
    [
-     "native-client"
+     "node"
    ]
 
-   dcos cassandra endpoints native-client
    {
      "address": [
        "10.0.1.125:9042",

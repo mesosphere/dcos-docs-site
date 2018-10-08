@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon pod show
 title: dcos marathon pod show
 menuWeight: 27
-excerpt:
+excerpt: Displaying detailed information for a specific pod
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Display detailed information for a specific pod.
+The `dcos marathon pod show` command allows you to view detailed information for a specific pod.
 
 # Usage
 
@@ -26,9 +24,9 @@ None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<pod-id>`   |             | The pod ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<pod-id>`   | The pod ID. You can view a list of the pod IDs with the `dcos marathon pod list` command.|
 
 # Parent command
 
@@ -38,7 +36,7 @@ None.
 
 # Examples
 
-# Show Pod JSON
+## Show Pod JSON
 To see the pod definition, run the following command:
 ```
 dcos marathon pod show <pod-id>

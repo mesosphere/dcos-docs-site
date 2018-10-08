@@ -1,0 +1,46 @@
+# Common values:
+
+packageName: hdfs
+serviceName: hdfs
+techName: Apache HDFS
+techShortName: HDFS
+
+# Values specific to certain templates:
+
+install:
+  minNodeCount: five
+  customRequirements: "- Each agent node must have 4 GB of memory and 5 GiB of disk, and each must have these ports available: 8480, 8485, 9000, 9001, 9002, 9005, and 9006, and 9007."
+  nodeDescription: with three journal nodes, two name nodes, and three data nodes
+  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/hdfs/hdfs-auth/
+
+managing:
+  podType: data
+  taskType: node
+
+supportedVersions:
+  techExampleVersion: 2.9.0
+  techLink: "[HDFS](http://hadoop.apache.org/releases.html)"
+
+security:
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
+
+kerberos:
+  spn: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory
+  upn: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+  principal: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+
+operations:
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    ├─ journal (serial strategy) (COMPLETE)
+    │  ├─ journal-0:[node] (COMPLETE)
+    │  ├─ journal-1:[node] (COMPLETE)
+    │  └─ journal-2:[node] (COMPLETE)
+    ├─ name (serial strategy) (COMPLETE)
+    │  ├─ name-0:[node, zkfc] (COMPLETE)
+    │  └─ name-1:[node, zkfc] (COMPLETE)
+    └─ data (serial strategy) (COMPLETE)
+       ├─ data-0:[node] (COMPLETE)
+       ├─ data-1:[node] (COMPLETE)
+       └─ data-2:[node] (COMPLETE)

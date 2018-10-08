@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Beta Confluent Kafka Zookeeper
 title: Beta Confluent Kafka Zookeeper
-menuWeight: 190
+menuWeight: 125
 excerpt:
 featureMaturity:
 enterprise: false

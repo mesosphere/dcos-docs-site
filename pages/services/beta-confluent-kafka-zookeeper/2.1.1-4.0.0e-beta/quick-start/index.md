@@ -50,7 +50,7 @@ You will use the values in the `address` field for the final step.
 
 # Install the ZooKeeper CLI
 
-1. [SSH into one your agent nodes](https://docs.mesosphere.com/1.10/administering-clusters/sshcluster/).
+1. [SSH into one your agent nodes](https://docs.mesosphere.com/1.11/administering-clusters/sshcluster/).
    
    ```
    dcos node ssh --master-proxy --mesos-id=<agent-id>
@@ -156,4 +156,4 @@ docker run -it zookeeper zkCli.sh -server 10.0.3.206:1140 10.0.3.206:1140,10.0.1
 
 - [Connecting clients][1].
 
- [1]: connecting-clients.md
+ [1]: /services/beta-confluent-kafka-zookeeper/2.1.1-4.0.0e-beta/connecting-clients/

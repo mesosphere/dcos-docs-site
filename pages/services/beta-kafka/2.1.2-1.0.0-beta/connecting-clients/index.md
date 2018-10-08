@@ -89,7 +89,7 @@ The response, for both the CLI and the REST API is as below.
 
 This JSON array contains a list of valid brokers that the client can use to connect to the Kafka cluster. For availability reasons, it is best to specify multiple brokers in configuration of the client. Use the VIP to address any one of the Kafka brokers in the cluster. [Learn more about load balancing and VIPs in DC/OS](/1.9/networking/).
 
-When [the TLS][15] is enabled you can request details for `broker-tls` port. To verify a TLS connection from a client the [DC/OS trust bundle with a CA certificate](/1.9/networking/tls-ssl/get-cert/) is required.
+When [the TLS][15] is enabled you can request details for `broker-tls` port. To verify a TLS connection from a client the [DC/OS trust bundle with a CA certificate](/1.11/security/ent/tls-ssl/) is required.
 
 # Configuring the Kafka Client Library
 
@@ -201,6 +201,6 @@ root@7d0aed75e582:/bin# ./kafka-console-consumer.sh --zookeeper master.mesos:218
     Hello, World.
 ```
 
- [13]: /1.9/security/users-groups/
- [14]: /1.9/security/iam-api/
- [15]: /services/kafka/configure/#tls
+ [13]: /1.11/security/ent/users-groups/
+ [14]: /1.11/security/ent/iam-api/
+ [15]: /services/beta-kafka/2.1.2-1.0.0-beta/ssl-auth/

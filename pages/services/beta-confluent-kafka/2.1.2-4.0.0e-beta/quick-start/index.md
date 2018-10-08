@@ -17,22 +17,22 @@ featureMaturity:
 1. Install a Kafka cluster. If you are using open source DC/OS, install a Kafka cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for more information.
 
     ```bash
-    $ dcos package install kafka
+    $ dcos package install beta-confluent-kafka
     ```
 
 1. Create a new topic.
 
     ```bash
-    $ $ dcos confluent-kafka topic create topic1
+    $ $ dcos beta-confluent-kafka topic create topic1
     ```
 
 1. Find Zookeeper and broker endpoint information.
 
     ```bash
-    $ $ dcos confluent-kafka endpoints zookeeper
-    master.mesos:2181/dcos-service-kafka
+    $ $ dcos beta-confluent-kafka endpoints zookeeper
+    master.mesos:2181/dcos-service-confluent-kafka
 
-    $ $ dcos confluent-kafka endpoints broker
+    $ $ dcos beta-confluent-kafka endpoints broker
     {
         "address": [
             "10.0.3.226:1000",
@@ -55,12 +55,12 @@ featureMaturity:
 
     core@ip-10-0-6-153 ~ $ docker run -it mesosphere/kafka-client
 
-    root@7d0aed75e582:/bin# echo "Hello, World." | ./kafka-console-producer.sh --broker-list kafka-0-broker.kafka.autoip.dcos.thisdcos.directory:1000, kafka-1-broker.kafka.autoip.dcos.thisdcos.directory:1000, kafka-2-broker.kafka.autoip.dcos.thisdcos.directory:1000 --topic topic1
+    root@7d0aed75e582:/bin# echo "Hello, World." | ./kafka-console-producer.sh --broker-list confluent-kafka-0-broker.kafka.autoip.dcos.thisdcos.directory:1000, confluent-kafka-1-broker.kafka.autoip.dcos.thisdcos.directory:1000, confluent-kafka-2-broker.kafka.autoip.dcos.thisdcos.directory:1000 --topic topic1
 
-    root@7d0aed75e582:/bin# ./kafka-console-consumer.sh --zookeeper master.mesos:2181/dcos-service-kafka --topic topic1 --from-beginning
+    root@7d0aed75e582:/bin# ./kafka-console-consumer.sh --zookeeper master.mesos:2181/dcos-service-confluent-kafka --topic topic1 --from-beginning
     Hello, World.
     ```
 
 See also [Connecting clients][1].
 
- [1]: /services/kafka/connecting-clients/
+ [1]: /services/beta-confluent-kafka/2.1.2-4.0.0e-beta/connecting-clients/

@@ -34,7 +34,7 @@ This command creates a new Kafka cluster with the default name `kafka`. Two clus
 All `dcos kafka` CLI commands have a `--name` argument allowing the user to specify which Kafka instance to query. If you do not specify a service name, the CLI assumes the default value, `kafka`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
 ```bash
-$ dcos kafka --name kafka-dev <cmd>
+$ dcos kafka --name=<kafka-dev> <cmd>
 ```
 
 **Note:** Alternatively, you can [install Kafka from the DC/OS web interface](/1.9/deploying-services/install/). If you install Kafka from the web interface, you must install the Kafka DC/OS CLI subcommands separately. From the DC/OS CLI, enter:
@@ -116,7 +116,7 @@ $ dcos package install kafka --options=kafka1.json
 
  [4]: #custom-installation
  [5]: https://github.com/mesosphere/dcos-vagrant
- [6]: /services/kafka/configure/#configuration-options
+ [6]: #configuration-options
 
 <a name="changing-configuration-at-runtime"></a>
 # Changing Configuration at Runtime

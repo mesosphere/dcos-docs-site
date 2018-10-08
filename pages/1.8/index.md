@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Mesosphere DC/OS 1.8
 title: Documentation for Mesosphere DC/OS 1.8
-menuWeight: 3
+menuWeight: 40
 excerpt:
 ---
 

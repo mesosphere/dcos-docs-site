@@ -4,6 +4,7 @@ excerpt:
 title: CLI DC/OS Installation Guide
 navigationTitle: CLI
 menuWeight: 200
+oss: true
 ---
 
 The automated CLI installer provides a guided installation of DC/OS from the command line. With this method you can choose from the complete set of DC/OS configuration options.
@@ -51,10 +52,10 @@ The DC/OS installation creates these folders:
 
 **Important:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
-## Prerequisites
+# Prerequisites
 Your cluster must meet the software and hardware [requirements](/1.8/administration/installing/oss/custom/system-requirements/).
 
-# Configure your cluster
+## Configure your cluster
 
 1. Create a directory named `genconf` on your bootstrap node.
 
@@ -67,7 +68,7 @@ Your cluster must meet the software and hardware [requirements](/1.8/administrat
     In this step you create an IP detect script to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
 
     **Important:** The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled][7].
-    
+
     Create an IP detect script for your environment and save as `genconf/ip-detect`. This script needs to be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) line. You can use the examples below.
 
     *   #### Use the AWS Metadata Server
@@ -174,7 +175,7 @@ Your cluster must meet the software and hardware [requirements](/1.8/administrat
     use_proxy: 'true'
     http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
     https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
-    no_proxy: 
+    no_proxy:
     - 'foo.bar.com'
     - '.baz.com'
     ```

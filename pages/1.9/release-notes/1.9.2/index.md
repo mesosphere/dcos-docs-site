@@ -6,10 +6,11 @@ menuWeight: 40
 excerpt:
 ---
 
+DC/OS 1.9.2 was released on July 25, 2017.
+
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.2/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-DC/OS 1.9 includes many new capabilities for Operators, and expands the collection of Data and Developer Services with a focus on:
-
+DC/OS 1.9 includes many new capabilities and expands the collection of data and developer services, with a focus on:
 - Tools for Production Operations - Monitoring and troubleshooting for distributed apps.
 - Broader Workload Support - From traditional apps to machine learning.
 - Security - New CLI capabilities, enhanced LDAP support, and many small improvements.

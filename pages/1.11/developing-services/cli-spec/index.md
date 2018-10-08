@@ -1,23 +1,18 @@
 ---
 layout: layout.pug
 navigationTitle:  CLI Specification
-title: CLI Specification
+title: CLI Specification 
 menuWeight: 3
-excerpt:
+excerpt: Using the command line interface
 
 enterprise: false
 ---
+This document is intended for a developer creating new DC/OS CLI subcommands. See also [Universe Getting Started][1]. 
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
-The [DC/OS command-line interface (CLI)](/1.11/cli) is a utility to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.
-
-The DC/OS CLI is open and extensible: anyone can create a new subcommand and make it available for installation by end users. For example, the [Spark DC/OS service][2] provides CLI extensions for working with Spark. When installed, you can type the following command to submit Spark jobs and query their status:
+The [DC/OS command-line interface (CLI)](/1.11/cli) is a utility to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks. The DC/OS CLI is open and extensible: anyone can create a new subcommand and make it available for installation by end users. For example, the [Spark DC/OS service][2] provides CLI extensions for working with Spark. When installed, you can type the following command to submit Spark jobs and query their status:
 
     dcos spark [<flags>] <command>
 
-This document is intended for a developer creating new DC/OS CLI subcommands. See also [Universe Getting Started][1].
 
 # How the DC/OS CLI discovers subcommands
 
@@ -124,7 +119,7 @@ The [Hello World example][3] implements a new subcommand called `helloworld`:
 
 
 [1]: https://github.com/mesosphere/universe/blob/version-3.x/docs/tutorial/GetStarted.md
-[2]: https://github.com/mesosphere/spark-build 
+[2]: https://github.com/mesosphere/spark-build
 [3]: https://github.com/mesosphere/dcos-helloworld
 [7]: https://docs.python.org/2/howto/logging.html#when-to-use-logging
 [8]: https://github.com/dcos/dcos-cli

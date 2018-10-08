@@ -1,11 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  Spark
+navigationTitle: Spark
 title: Spark
-menuWeight: 100
-excerpt:
+menuWeight: 90
+excerpt: 
 featureMaturity:
+model: /services/spark/data.yml
+render: mustache
 enterprise: false
 ---
 
-Welcome to the documentation for Apache DC/OS Spark. Choose a version to get started!
+Welcome to the documentation for DC/OS {{ model.techName }}. Choose a version on the left or below to get started!

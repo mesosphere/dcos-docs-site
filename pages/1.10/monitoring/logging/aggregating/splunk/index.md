@@ -130,7 +130,7 @@ For each agent node in your DC/OS cluster:
 
 4.  Add the task logs as inputs to the forwarder:
 
-        "$SPLUNK_HOME/bin/splunk" add monitor '/var/lib/mesos/slave' \
+        "$SPLUNK_HOME/bin/splunk" add monitor '/var/lib/mesos/slave/slaves' \
             -whitelist '/stdout$|/stderr$'
 
 # Known issue

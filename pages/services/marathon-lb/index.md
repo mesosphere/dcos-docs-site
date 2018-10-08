@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Marathon-LB
 title: Marathon-LB
-menuWeight: 90
+menuWeight: 80
 excerpt:
 
 enterprise: false
@@ -18,7 +18,7 @@ Marathon-LB is based on HAProxy, a rapid proxy and load balancer. HAProxy provid
 You can can configure Marathon-LB with various topologies. Here are some examples of how you might use Marathon-LB:
 
 * Use Marathon-LB as your edge load balancer and service discovery mechanism. You could run Marathon-LB on public-facing nodes to route ingress traffic. You would use the IP addresses of your public-facing nodes in the A-records for your internal or external DNS records (depending on your use-case).
-* Use Marathon-LB as an internal LB and service discovery mechanism, with a separate HA load balancer for routing public traffic in. For example, you may use an external F5 load balancer on-premise, or an Elastic Load Balancer on Amazon Web Services.
+* Use Marathon-LB as an internal LB and service discovery mechanism, with a separate HA load balancer for routing public traffic. For example, you may use an external F5 load balancer on-premise, or an Elastic Load Balancer on Amazon Web Services.
 * Use Marathon-LB strictly as an internal load balancer and service discovery mechanism.
 * You might also want to use a combination of internal and external load balancers, with different services exposed on different load balancers.
 
@@ -28,9 +28,13 @@ Here we discuss Marathon-LB as an edge load balancer and as an internal and exte
 
 ![lb1](/1.10/img/lb1.png)
 
+Figure 1. Marathon-LB as load balancer
+
 ## Marathon-LB as an internal and external load balancer
 
 ![lb7](/1.10/img/lb7.jpg)
+
+Figure 2. Marathon-LB as internal and external load balancer
 
 ## Learn More
 More information for Marathon-LB can be found on the GitHub page.

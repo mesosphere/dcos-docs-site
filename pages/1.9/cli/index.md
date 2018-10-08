@@ -15,6 +15,8 @@ You can use the DC/OS command-line interface (CLI) to manage your cluster nodes,
 
 You can quickly [install](/1.9/cli/install) the CLI from the DC/OS web interface.
 
+DC/OS 1.9 requires the DC/OS CLI 0.4.x.
+
 To list available commands, either run `dcos` with no parameters or run `dcos help`:
 
 ```bash

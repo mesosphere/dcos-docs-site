@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.10.4
+navigationTitle: Release Notes for 1.10.4
 title: Release Notes for 1.10.4
-menuWeight: 0
+menuWeight: 15
 excerpt:
 ---
 
-These are the release notes for DC/OS 1.10.4.
+DC/OS 1.10.4 was released on January 16, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -23,14 +23,13 @@ These are the release notes for DC/OS 1.10.4.
 
 # Notable Changes in DC/OS 1.10.4
 
-- Mesos 1.4.1 is integrated with DC/OS 1.10.4.
-- Marathon 1.5.5 is integrated with DCOS 1.10.4.
-- DC/OS Java Developer Kit upgraded to the latest version: JDK 8u152.
+- Updated to Marathon 1.5.5 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.5)).
+- DC/OS Java Developer Kit updated to the latest version: JDK 8u152.
 - DC/OS is compatible with the newest Docker version: 17.05.0.
 
 # Issues Fixed in DC/OS 1.10.3
 
-- Fixed an issue related to a failure mode in DC/OS IAM (Identity and Access Manager), which can cause DC/OS master nodes not to come online for a period of time after failover or restart. [enterprise type="inline" size="small" /]
+- Fixed an issue related to a failure mode in IAM (Identity and Access Manager), which can cause DC/OS master nodes not to come online for a period of time after failover or restart. [enterprise type="inline" size="small" /]
 
 # Issues Fixed in DC/OS 1.10.2
 
@@ -121,7 +120,7 @@ Please try out the new features and updated data services. Provide any feedback 
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
   
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1.9/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
 
 [enterprise type="block" size="large"]
 ## Security

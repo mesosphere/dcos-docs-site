@@ -3,9 +3,8 @@ layout: layout.pug
 navigationTitle:  System Requirements
 title: System Requirements
 menuWeight: 0
-excerpt:
+excerpt: Hardware and software requirements for DC/OS Open Source
 
-enterprise: true
 ---
 
 
@@ -98,9 +97,8 @@ Here are the agent node hardware requirements.
 *   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
 
     **Important:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
-    
-*   Do not mount `/tmp` with `noexec`. This will prevent Exhibitor and ZooKeeper from running.
 
+*   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.  
 ### <a name="port-and-protocol"></a>Port and Protocol Configuration
 
 *   Secure Shell (SSH) must be enabled on all nodes.
@@ -109,7 +107,7 @@ Here are the agent node hardware requirements.
 *   Each node is network accessible from the bootstrap node.
 *   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
 *   All ports should be open for communication from the master nodes to the agent nodes and vice versa.
-*   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`. 
+*   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`.
 
 ### High Speed Internet Access
 
@@ -153,7 +151,7 @@ For more more information, see Docker's <a href="http://docs.docker.com/engine/i
 
 ### Disable sudo password prompts
 
-To use the [GUI][4] or [CLI][1] installation methods, you must disable password prompts for sudo. 
+To use the [GUI][4] or [CLI][1] installation methods, you must disable password prompts for sudo.
 
 Add the following line to your `/etc/sudoers` file. This disables the sudo password prompt.
 
@@ -177,14 +175,14 @@ timedatectl
 
 Before installing DC/OS, you must ensure that your bootstrap node has the following prerequisites.
 
-**Important:** 
+**Important:**
 
 * If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.8/administration/installing/ent/custom/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
 ### <a name="setup-file"></a>DC/OS setup file
 
-Download and save the [DC/OS setup file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file.
+Download and save the [DC/OS setup file](https://dcos.io/releases/) to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file.
 
 ### Docker Nginx (advanced installer)
 
@@ -223,10 +221,19 @@ On each of your cluster nodes, use the following command to:
     sudo reboot
     ```
 
-    **Tip:** It may take a few minutes for your node to come back online after reboot.
-    
+    **Note:** It may take a few minutes for your node to come back online after reboot.
+
 ### Locale requirements
-You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.  
+You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
+
+- For info on setting these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
+
+- On Linux:
+    ````
+    localectl set-locale LANG=en_US.utf8
+    ````
+
+- For info on setting these variable in CentOS7, see [How to set up system locale on CentOS 7](https://www.rosehosting.com/blog/how-to-set-up-system-locale-on-centos-7/).
 
 # Next steps
 

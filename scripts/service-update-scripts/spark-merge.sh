@@ -20,15 +20,19 @@ if [ -z "$2" ]; then echo "Enter a directory name as the second argument."; exit
 
 # Create directory structure
 
+
+# Move to the top level of the repo
+root="$(git rev-parse --show-toplevel)"
+cd $root
+
 echo "Creating new directories"
 mkdir ./pages/services/spark/$directory
 mkdir ./pages/services/spark/$directory/img
 echo "New directories created: /pages/services/spark/$directory and /pages/services/spark/$directory/img"
 
-# Move to the top level of the repo
 
-root="$(git rev-parse --show-toplevel)"
-cd $root
+
+
 
 # pull spark
 git remote rm spark-build

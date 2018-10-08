@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  HDFS 2.0.3-2.6.0-cdh5.11.0
 title: HDFS 2.0.3-2.6.0-cdh5.11.0
-menuWeight: 20
+menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false
@@ -13,7 +13,7 @@ enterprise: false
 
 
 
-Welcome to the documentation for DC/OS Apache HDFS. DC/OS Apache HDFS is a managed service that makes it easy to deploy and manage an HA Apache HDFS cluster on Mesosphere DC/OS. Apache HDFS (Hadoop Distributed File System) is an open source distributed file system based on Google's GFS (Google File System) paper. It is a replicated and distributed file system interface for use with "big data" and "fast data" applications.
+Welcome to the documentation for DC/OS Apache HDFS. DC/OS Apache HDFS is a managed service that makes it easy to deploy and manage an HA (High Availability) Apache HDFS cluster on Mesosphere DC/OS. [Apache HDFS](http://hadoop.apache.org/) (Hadoop Distributed File System) is an open source distributed file system based on Google's GFS (Google File System) paper. It is a replicated and distributed file system interface for use with "big data" and "fast data" applications.
 
 DC/OS HDFS offers the following benefits:
 
@@ -32,7 +32,7 @@ DC/OS HDFS provides the following features:
 - Runtime configuration and software updates for high availability
 - Health checks and metrics for monitoring
 - Distributed storage scale out
-- HA name service with Quorum Journaling and ZooKeeper failure detection.
+- HA name service with Quorum Journaling and ZooKeeper failure detection
 
 ## Related Services
 

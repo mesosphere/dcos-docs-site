@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon task list
 title: dcos marathon task list
 menuWeight: 29
-excerpt:
+excerpt: Displaying all tasks
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-List all tasks.
+The `dcos marathon task list` command displays a list of all tasks.
 
 # Usage
 
@@ -22,15 +20,15 @@ dcos marathon task list <app-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  Print JSON-formatted data. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--json`   |   Displays JSON-formatted data. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<app-id>`   |             |  The application ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<app-id>`   |   The application ID. |
 
 # Parent command
 
@@ -38,4 +36,4 @@ dcos marathon task list <app-id> [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->
+

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Customizing your Docker container
 title: Customizing your Docker container
-menuWeight: 3
+menuWeight: 40
 excerpt:
 featureMaturity:
 enterprise: false

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Managing
 menuWeight: 60
@@ -25,28 +25,28 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer.
-+ Service with a version greater than 2.0.0-x.
-+ [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
-+ The service's subcommand available and installed on your local machine.
-  + You can install just the subcommand CLI by running `dcos package install --cli beta-kafka`.
++ Enterprise DC/OS 1.10 or newer
++ Service with a version greater than 2.0.0-x
++ [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available 
++ The service's subcommand available and installed on your local machine
+  + You can install just the subcommand CLI by running `dcos package install --cli kafka`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
-    $ dcos package uninstall --cli beta-kafka
-    $ dcos package install --cli beta-kafka
+    $ dcos package uninstall --cli kafka
+    $ dcos package install --cli kafka
     ```
 
 ### Preparing configuration
 
-If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
-$ dcos beta-kafka describe > options.json
+$ dcos kafka describe > options.json
 ```
 
 Make any configuration changes to this `options.json` file.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](#initial-service-configuration).
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
 
 **Note:** You must specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 
@@ -57,45 +57,52 @@ If the `options.json` from when the service was last installed or updated is not
 First, we'll fetch the default application's environment, current application's environment, and the actual template that maps config values to the environment:
 
 1. Ensure you have [jq](https://stedolan.github.io/jq/) installed.
+
 1. Set the service name that you're using, for example:
-```bash
-$ SERVICE_NAME=beta-kafka
-```
+    ```bash
+    $ SERVICE_NAME=kafka
+    ```
+
 1. Get the version of the package that is currently installed:
-```bash
-$ PACKAGE_VERSION=$(dcos package list | grep $SERVICE_NAME | awk '{print $2}')
-```
+    ```bash
+    $ PACKAGE_VERSION=$(dcos package list | grep $SERVICE_NAME | awk '{print $2}')
+    ```
+
 1. Then fetch and save the environment variables that have been set for the service:
-```bash
-$ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
-```
+    ```bash
+    $ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
+    ```
+
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
-```bash
-$ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
-```
+    ```bash
+    $ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
+    ```
+
 1. We'll also get the entire application template:
-```bash
-$ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
-```
+    ```bash
+    $ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
+    ```
 
 Now that you have these files, we'll attempt to recreate the `options.json`.
 
 1. Use `jq` and `diff` to compare the two:
-```bash
-$ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
-```
+    ```bash
+    $ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
+    ```
+
 1. Now compare these values to the values contained in the `env` section in application template:
-```bash
-$ less marathon.json.mustache
-```
-1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](#initial-service-configuration).
+    ```bash
+    $ less marathon.json.mustache
+    ```
+
+1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](https://docs.mesosphere.com/services/ops-guide/common-operations/#initial-service-configuration).
 
 ### Starting the update
 
 Once you are ready to begin, initiate an update using the DC/OS CLI, passing in the updated `options.json` file:
 
 ```bash
-$ dcos beta-kafka update start --options=options.json
+$ dcos kafka update start --options=options.json
 ```
 
 You will receive an acknowledgement message and the DC/OS package manager will restart the Scheduler in Marathon.
@@ -110,14 +117,14 @@ If you do not have Enterprise DC/OS 1.10 or later, the CLI commands above are no
 
 To make configuration changes via scheduler environment updates, perform the following steps:
 1. Visit `<dcos-url>` to access the DC/OS web interface.
-1. Navigate to `Services` and click on the service to be configured (default `beta-kafka`).
+1. Navigate to `Services` and click on the service to be configured (default `kafka`).
 1. Click `Edit` in the upper right. On DC/OS 1.9.x, the `Edit` button is in a menu made up of three dots.
 1. Navigate to `Environment` (or `Environment variables`) and search for the option to be updated.
 1. Update the option value and click `Review and run` (or `Deploy changes`).
 1. The Scheduler process will be restarted with the new configuration and will validate any detected changes.
 1. If the detected changes pass validation, the relaunched Scheduler will deploy the changes by sequentially relaunching affected tasks as described above.
 
-To see a full listing of available options, run `dcos package describe --config beta-kafka` in the CLI, or browse the Kafka install dialog in the DC/OS web interface.
+To see a full listing of available options, run `dcos package describe --config kafka` in the CLI, or browse the Kafka install dialog in the DC/OS web interface.
 
 # Upgrade Software
 
@@ -139,7 +146,7 @@ To see a full listing of available options, run `dcos package describe --config 
 1.  Install the latest version of Kafka:
 
 ```bash
-$ dcos package install beta-kafka -—options=options.json
+$ dcos package install kafka -—options=options.json
 ```
 
 # Graceful Shutdown
@@ -152,8 +159,7 @@ During the configuration update, each of the Kafka broker tasks are restarted. D
 the shutdown portion of the task restart, the previous configuration value for
 `brokers.kill_grace_period` is in effect. Following the shutdown, each broker
 task is launched with the new effective configuration value. Take care to monitor
-the amount of time Kafka brokers take to cleanly shutdown. Find the relevant log
-entries in the [Configure](configure.md) section.
+the amount of time Kafka brokers take to cleanly shutdown.
 
 Create an options file `kafka-options.json` with the following content:
 
@@ -168,7 +174,7 @@ Create an options file `kafka-options.json` with the following content:
 Issue the following command:
 
 ```bash
-$ dcos beta-kafka --name=/kafka update --options=kafka-options.json
+$ dcos kafka --name=/kafka update --options=kafka-options.json
 ```
 
 ## Restart a Broker with Grace
@@ -184,30 +190,30 @@ The grace period must also be respected when a broker is shut down before replac
 Comprehensive information is available about every broker.  To list all brokers:
 
 ```bash
-dcos beta-kafka --name=<service-name> pod list
+dcos kafka --name=<service-name> pod list
 ```
 
 To view information about a broker, run the following command from the CLI.
 ```bash
-$ dcos beta-kafka --name=<service-name> pod info <broker-id>
+$ dcos kafka --name=<service-name> pod info <broker-id>
 ```
 
 For example:
 ```bash
-$ dcos beta-kafka --name=<service-name> pod info master-0
+$ dcos kafka --name=<service-name> pod info master-0
 ```
 
 # broker Status
 Similarly, the status for any broker may also be queried.
 
 ```bash
-$ dcos beta-kafka --name=<service-name> pod info <broker-id>
+$ dcos kafka --name=<service-name> pod info <broker-id>
 ```
 
 For example:
 
 ```bash
-$ dcos beta-kafka pod info data-0
+$ dcos kafka pod info data-0
 ```
 
 # Pause a broker
@@ -224,7 +230,7 @@ After the broker has been paused, it may be started again, at which point it wil
 Here is an example session where an `index-1` broker is crash looping due to some corrupted data in a persistent volume. The operator pauses the `index-1` broker, then uses `task exec` to repair the index. Following this, the operator starts the broker and it resumes normal operation:
 
 ```bash
-$ dcos beta-kafka debug pod pause index-1
+$ dcos kafka debug pod pause index-1
 {
   "pod": "index-1",
   "tasks": [
@@ -233,7 +239,7 @@ $ dcos beta-kafka debug pod pause index-1
   ]
 }
 
-$ dcos beta-kafka pod status
+$ dcos kafka pod status
 myservice
 ├─ index
 │  ├─ index-0
@@ -253,7 +259,7 @@ myservice
 $ dcos task exec --interactive --tty index-1-broker /bin/bash
 index-1-broker$ ./repair-index && exit
 
-$ dcos beta-kafka debug pod resume index-1
+$ dcos kafka debug pod resume index-1
 {
   "pod": "index-1",
   "tasks": [
@@ -262,7 +268,7 @@ $ dcos beta-kafka debug pod resume index-1
   ]
 }
 
-$ dcos beta-kafka pod status
+$ dcos kafka pod status
 myservice
 ├─ index
 │  ├─ index-0
@@ -280,7 +286,7 @@ myservice
 ... repeat "pod status" until index-1 tasks are RUNNING ...
 ```
 
-In the above example, all tasks in the broker were being paused and started, but it's worth noting that the commands also support pausing and starting individual tasks within a broker. For example, `dcos beta-kafka debug pod pause index-1 -t agent` will pause only the `agent` task within the `index-1` broker.
+In the above example, all tasks in the broker were being paused and started, but it's worth noting that the commands also support pausing and starting individual tasks within a broker. For example, `dcos kafka debug pod pause index-1 -t agent` will pause only the `agent` task within the `index-1` broker.
 
 # Upgrading Service Version
 
@@ -294,25 +300,25 @@ The `update package-versions` command allows you to view the versions of a servi
 
 For example, run:
 ```bash
-$ dcos beta-kafka update package-versions
+$ dcos kafka update package-versions
 ```
 
 ## Upgrading or downgrading a service
 
 1. Before updating the service itself, update its CLI subcommand to the new version:
    ```bash
-   $ dcos package uninstall --cli beta-kafka
-   $ dcos package install --cli beta-kafka --package-version="1.1.6-5.0.7"
+   $ dcos package uninstall --cli kafka
+   $ dcos package install --cli kafka --package-version="1.1.6-5.0.7"
    ```
 1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS Kafka Service to version `1.1.6-5.0.7`:
    ```bash
-   $ dcos beta-kafka update start --package-version="1.1.6-5.0.7"
+   $ dcos kafka update start --package-version="1.1.6-5.0.7"
    ```
 
 If you are missing mandatory configuration parameters, the `update` command will return an error. To supply missing values, you can also provide an `options.json` file (see [Updating configuration](#updating-configuration)):
 
 ```bash
-$ dcos beta-kafka update start --options=options.json --package-version="1.1.6-5.0.7"
+$ dcos kafka update start --options=options.json --package-version="1.1.6-5.0.7"
 ```
 
 See [Advanced update actions](#advanced-update-actions) for commands you can use to inspect and manipulate an update after it has started.
@@ -332,7 +338,7 @@ Once the Scheduler has been restarted, it will begin a new deployment plan as in
 You can query the status of the update as follows:
 
 ```bash
-$ dcos beta-kafka update status
+$ dcos kafka update status
 ```
 
 If the Scheduler is still restarting, DC/OS will not be able to route to it and this command will return an error message. Wait a short while and try again. You can also go to the Services tab of the DC/OS GUI to check the status of the restart.
@@ -342,7 +348,7 @@ If the Scheduler is still restarting, DC/OS will not be able to route to it and 
 To pause an ongoing update, issue a pause command:
 
 ```bash
-$ dcos beta-kafka update pause
+$ dcos kafka update pause
 ```
 
 You will receive an error message if the plan has already completed or has been paused. Once completed, the plan will enter the `WAITING` state.
@@ -352,7 +358,7 @@ You will receive an error message if the plan has already completed or has been 
 If a plan is in a `WAITING` state, as a result of being paused or reaching a breakpoint that requires manual operator verification, you can use the `resume` command to continue the plan:
 
 ```bash
-$ dcos beta-kafka update resume
+$ dcos kafka update resume
 ```
 
 You will receive an error message if you attempt to `resume` a plan that is already in progress or has already completed.
@@ -362,7 +368,7 @@ You will receive an error message if you attempt to `resume` a plan that is alre
 In order to manually "complete" a step (such that the Scheduler stops attempting to launch a task), you can issue a `force-complete` command. This will instruct to Scheduler to mark a specific step within a phase as complete. You need to specify both the phase and the step, for example:
 
 ```bash
-$ dcos beta-kafka update force-complete service-phase service-0:[broker]
+$ dcos kafka update force-complete service-phase service-0:[broker]
 ```
 
 ## Force Restart
@@ -371,17 +377,17 @@ Similar to force complete, you can also force a restart. This can either be done
 
 To restart the entire plan:
 ```bash
-$ dcos beta-kafka update force-restart
+$ dcos kafka update force-restart
 ```
 
 Or for all steps in a single phase:
 ```bash
-$ dcos beta-kafka update force-restart service-phase
+$ dcos kafka update force-restart service-phase
 ```
 
 Or for a specific step within a specific phase:
 ```bash
-$ dcos beta-kafka update force-restart service-phase service-0:[node]
+$ dcos kafka update force-restart service-phase service-0:[node]
 ```
 
 <!-- END DUPLICATE BLOCK -->

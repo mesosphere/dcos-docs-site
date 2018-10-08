@@ -11,9 +11,9 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/mesosphere/confluent -->
 
 
-The Confluent Kafka service will be listed as "Unhealthy" when it detects any underreplicated partitions. This error condition usually indicates a malfunctioning broker. Use the `dcos beta-confluent-kafka topic under_replicated_partitions` and `dcos beta-confluent-kafka topic describe <topic-name>` commands to find the problem broker and determine what actions are required.
+The Confluent Kafka service will be listed as "Unhealthy" when it detects any underreplicated partitions. This error condition usually indicates a malfunctioning broker. Use the `dcos confluent-kafka topic under_replicated_partitions` and `dcos confluent-kafka topic describe <topic-name>` commands to find the problem broker and determine what actions are required.
 
-Possible repair actions include `dcos beta-confluent-kafka broker restart <broker-id>` and `dcos beta-confluent-kafka broker replace <broker-id>`. The replace operation is destructive and will irrevocably lose all data associated with the broker. The restart operation is not destructive and indicates an attempt to restart a broker process.
+Possible repair actions include `dcos confluent-kafka broker restart <broker-id>` and `dcos confluent-kafka broker replace <broker-id>`. The replace operation is destructive and will irrevocably lose all data associated with the broker. The restart operation is not destructive and indicates an attempt to restart a broker process.
 
 # Configuration Update Errors
 

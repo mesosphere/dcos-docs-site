@@ -10,7 +10,7 @@ excerpt:
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
-Adjust the following settings to customize the amount of resources allocated to each node. DC/OS Apache ZooKeeper's [system requirements](https://zookeeper.apache.org/doc/trunk/zookeeperAdmin.html#sc_systemReq) must be taken into consideration when adjusting these values. Reducing these values below those requirements may result in adverse performance and/or failures while using the service.
+Adjust the following settings to customize the amount of resources allocated to each node. DC/OS Apache ZooKeeper's [system requirements](https://zookeeper.apache.org/doc/r3.1.2/zookeeperAdmin.html#sc_systemReq) must be taken into consideration when adjusting these values. Reducing these values below those requirements may result in adverse performance and/or failures while using the service.
 
 <!-- Each of the following settings can be customized under the **node** configuration section. -->
 
@@ -72,7 +72,7 @@ Change this value by modifying the following JSON.
 
 # Heap Size
 
-It is extremely important to carefully define the Java heap size. Heap size is important to prevent swapping, which can seriously degrade ZooKeeper performance. Heap size should always be less than the memory allocated to a task. For more information, consult the [ZooKeeper Administrator's Guide](https://zookeeper.apache.org/doc/trunk/zookeeperAdmin.html#sc_zkMulitServerSetup).
+It is extremely important to carefully define the Java heap size. Heap size is important to prevent swapping, which can seriously degrade ZooKeeper performance. Heap size should always be less than the memory allocated to a task. For more information, consult the [ZooKeeper Administrator's Guide](https://zookeeper.apache.org/doc/r3.1.2/zookeeperAdmin.html#ch_administration).
 
 Change this value by modifying the following JSON.
 
@@ -154,7 +154,7 @@ The service supports two volume types:
 - `ROOT` volumes are effectively an isolated directory on the root volume, sharing IO/spindles with the rest of the host system.
 - `MOUNT` volumes are a dedicated device or partition on a separate volume, with dedicated IO/spindles.
 
-Using `MOUNT` volumes requires [additional configuration on each DC/OS agent system](/1.10/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you should configure `MOUNT` volumes on the machines that will run the service in your cluster.
+Using `MOUNT` volumes requires [additional configuration on each DC/OS agent system](/1.11/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you should configure `MOUNT` volumes on the machines that will run the service in your cluster.
 
 ZooKeeper requires two directories: the `dataDir`, used for storing data, and the `dataLogDir`, used for storing logs. Both have designated configurable volumes.
 
@@ -192,7 +192,7 @@ To configure the `dataLogDir` disk type, modify the following JSON.
 
 <!-- stopped here -->
 
-Placement constraints allow you to customize where the service is deployed in the DC/OS cluster. Placement constraints support all [Marathon operators](http://mesosphere.github.io/marathon/docs/constraints.html).
+Placement constraints allow you to customize where the service is deployed in the DC/OS cluster. Placement constraints support all [Marathon operators](/1.11/installing/ent/faq/#q-how-to-add-mesos-attributes-to-nodes-to-use-marathon-constraints).
 
 By default, DC/OS Apache ZooKeeper has a placement strategy of `[["hostname", "UNIQUE"]]`. This is to minimize risk from single node failure.
 
@@ -204,9 +204,9 @@ A common task is to specify a list of whitelisted systems to deploy to. To achie
 
 You must include spare capacity in this list, so that if one of the whitelisted systems goes down, there is still enough room to repair your service without that system.
 
-For an example of updating placement constraints, see [Managing](#managing) below.
+For an example of updating placement constraints, see [Managing](/services/kafka-zookeeper/2.1.2-3.4.11/managing/) below.
 
 <a name="overlay-networks"></a>
 ### Overlay Networks
 
-The ZooKeeper service can be run on the DC/OS overlay network, affording each node its own IP address (IP-per-container). For details about virtual networks on DC/OS see the [documentation](/1.9/networking/virtual-networks/#virtual-network-service-dns). For the ZooKeeper service, using the overlay network means that nodes no longer use reserved port resources on the Mesos agents. This means that nodes that share machines with other applications may need to use the same ports that ZooKeeper does. That means, however, that we cannot guarantee that the ports on the agents containing the reserved resources for ZooKeeper will be available, therefore we do not allow a service to change from the overlay network to the host network. Once the service is deployed on the overlay network it must remain on the overlay network. The only way to move your data to ZooKeeper on the host network is through a migration.
+The ZooKeeper service can be run on the DC/OS overlay network, affording each node its own IP address (IP-per-container). For details about virtual networks on DC/OS see the [documentation](/1.11/networking). For the ZooKeeper service, using the overlay network means that nodes no longer use reserved port resources on the Mesos agents. This means that nodes that share machines with other applications may need to use the same ports that ZooKeeper does. That means, however, that we cannot guarantee that the ports on the agents containing the reserved resources for ZooKeeper will be available, therefore we do not allow a service to change from the overlay network to the host network. Once the service is deployed on the overlay network it must remain on the overlay network. The only way to move your data to ZooKeeper on the host network is through a migration.

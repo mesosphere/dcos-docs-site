@@ -8,4 +8,4 @@ featureMaturity:
 enterprise: false
 ---
 
-Welcome to the documentation for Apache DC/OS Cassandra. Choose a version to get started!
+Welcome to the documentation for DC/OS Apache Cassandra. Choose a version to get started!

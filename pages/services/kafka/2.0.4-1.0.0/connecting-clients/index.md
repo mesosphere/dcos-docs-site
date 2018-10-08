@@ -28,7 +28,7 @@ Through Confluent:
 The following command can be executed from the cli in order to retrieve a set of brokers to connect to.
 
 ```bash
-$ dcos beta-kafka --name=<name> endpoints broker
+$ dcos kafka --name=<name> endpoints broker
 ```
 
 <a name="using-the-rest-api"></a>
@@ -86,7 +86,7 @@ The response, for both the CLI and the REST API is as below.
 
 This JSON array contains a list of valid brokers that the client can use to connect to the Kafka cluster. For availability reasons, it is best to specify multiple brokers in configuration of the client. Use the VIP to address any one of the Kafka brokers in the cluster. [Learn more about load balancing and VIPs in DC/OS](https://docs.mesosphere.com/1.9/networking/).
 
-When [the TLS][15] is enabled you can request details for `broker-tls` port. To verify a TLS connection from a client the [DC/OS trust bundle with a CA certificate](https://docs.mesosphere.com/1.9/networking/tls-ssl/get-cert/) is required.
+When TLS is enabled you can request details for `broker-tls` port. To verify a TLS connection from a client the [DC/OS trust bundle with a CA certificate](/1.11/security/ent/tls-ssl/) is required.
 
 # Configuring the Kafka Client Library
 
@@ -173,7 +173,7 @@ The code snippet below demonstrates how to connect a Kafka Consumer to the clust
 The following code connects to a DC/OS-hosted Kafka instance using `bin/kafka-console-producer.sh` and `bin/kafka-console-consumer.sh` as an example:
 
 ```bvash
-$ dcos beta-kafka endpoints broker
+$ dcos kafka endpoints broker
 {
   "address": [
     "10.0.0.49:1025",
@@ -198,6 +198,6 @@ root@7d0aed75e582:/bin# ./kafka-console-consumer.sh --zookeeper master.mesos:218
     Hello, World.
 ```
 
- [13]: https://docs.mesosphere.com/1.9/security/users-groups/
- [14]: https://docs.mesosphere.com/1.9/security/iam-api/
+ [13]: https://docs.mesosphere.com/1.11/security/ent/users-groups/
+ [14]: https://docs.mesosphere.com/1.11/security/ent/iam-api/
  [15]: https://docs.mesosphere.com/services/kafka/configure/#tls

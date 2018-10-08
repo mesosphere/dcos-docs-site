@@ -10,11 +10,8 @@ menuWeight: 120
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
-## Version 2.1.2-3.4.11-beta
+## Version 2.1.2-3.4.11
 
-## NOTICE
-
-This is a beta release of the DC/OS Kafka Zookeeper service. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
 
 ### Improvements
 - Ensure that a task passes self-resolution on startup
