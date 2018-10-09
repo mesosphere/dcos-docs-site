@@ -1,0 +1,30 @@
+# Common values:
+
+packageName: spinnaker
+serviceName: spinnaker
+techName:  Spinnaker
+techShortName: Spinnaker
+
+# Values specific to certain templates:
+
+operations:
+  complete-deploy: |
+    deploy (parallel strategy) (COMPLETE)
+    ├─ redis (parallel strategy) (COMPLETE)
+    │  └─ redis-0:[node] (COMPLETE)
+    ├─ front50 (parallel strategy) (COMPLETE)
+    │  └─ front50-0:[node] (COMPLETE)
+    ├─ fiat (parallel strategy) (COMPLETE)
+    │  └─ fiat-0:[node] (COMPLETE)
+    ├─ clouddriver (parallel strategy) (COMPLETE)
+    │  └─ clouddriver-0:[node] (COMPLETE)
+    ├─ orca (parallel strategy) (COMPLETE)
+    │  └─ orca-0:[node] (COMPLETE)
+    ├─ gate (parallel strategy) (COMPLETE)
+    │  └─ gate-0:[node] (COMPLETE)
+    ├─ deck (parallel strategy) (COMPLETE)
+    │  └─ deck-0:[node] (COMPLETE)
+    ├─ echo (parallel strategy) (COMPLETE)
+    │  └─ echo-0:[node] (COMPLETE)
+    └─ igor (parallel strategy) (COMPLETE)
+       └─ igor-0:[node] (COMPLETE)
