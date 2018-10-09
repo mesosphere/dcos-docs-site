@@ -30,11 +30,18 @@ You must install universe repos for the Edge-LB API server and the Edge-LB pool 
 
 <p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
 
+
 ## Obtain artifacts
+
 
 If your cluster already has connectivity, you can obtain the artifacts directly. 
 
-If you do not have a cluster with connectivity, you will then need a service account to download the artifacts for each of the repos from the [Mesosphere support page](https://support.mesosphere.com/hc/en-us/articles/213198586). Note that you will get a "page not found" message if you attempt to download the artifacts without a service account.
+If you do not have a cluster with connectivity, you will then need a customer service account with Mesosphere to download the artifacts for each of the repos from the <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>. 
+
+<p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without a current customer service account.</p>
+
+
+
 
 ## Add them to the package repository
 

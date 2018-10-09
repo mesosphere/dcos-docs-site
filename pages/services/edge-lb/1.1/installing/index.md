@@ -20,22 +20,40 @@ To configure a service account and install the Edge-LB package, use the instruct
 - Currently, Edge-LB works only with DC/OS Enterprise in permissive mode on DC/OS 1.10, and permissive or strict mode on DC/OS 1.11 [security mode](/latest/security/ent/#security-modes). 
 
 # Add Edge-LB package repositories
-
 The Edge-LB package comprises two components: 
 
-<p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
+- The **Edge-LB API server** is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers. 
 
 - An **Edge-LB pool** can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer. 
 
-<p class="message--note"><strong>NOTE: </strong>You must have a service account to do this.</p>
+You must install universe repos for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB. 
 
 <p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
 
+
 ## Obtain artifacts
+
 
 If your cluster already has connectivity, you can obtain the artifacts directly. 
 
-If you do not have a cluster with connectivity, you will then need a service account to download the artifacts for each of the repos from the [Mesosphere support page](https://support.mesosphere.com/hc/en-us/articles/213198586). Note that you will get a "page not found" message if you attempt to download the artifacts without a service account.
+If you do not have a cluster with connectivity, you will then need a customer service account with Mesosphere to download the artifacts for each of the repos from the <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>. 
+
+<p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without a current customer service account.</p>
+
+
+
+## Add them to the package repository
+
+Once you have the links to the artifacts for the Edge-LB API server and Edge-LB pool repos, use the following command to add them to the universe package repository:
+
+
+```bash
+dcos package repo add --index=0 edgelb  https://<insert download link>/stub-universe-edgelb.json
+```
+
+```bash
+dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-universe-edgelb-pool.json
+```
 
 ## Add them to the package repository
 
