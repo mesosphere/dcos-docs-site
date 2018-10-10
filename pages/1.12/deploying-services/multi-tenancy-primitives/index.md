@@ -7,21 +7,26 @@ excerpt: A primer to Multi-tenancy in DC/OS
 ---
 
 # Overview
-Resources in DC/OS can be reserved and prioritised using a combination of roles, reservations, quotas, and weights. These features are provided by Apache Mesos, at the core of DC/OS and are referred to as primitives, as they are only accessible via API and have not yet been integrated into the DC/OS UI or CLI.
+Resources in DC/OS can be reserved and prioritised using a combination of roles, reservations, quotas, and weights. These features are provided by Apache Mesos, at the core of DC/OS and are referred to as `Primitives`, as they are only accessible via API and have not yet been integrated into the DC/OS UI or CLI.
 
 Resource management in this context refers to concepts such as reservations of resources on agents, resource quotas, and weights (priorities) for frameworks. These are useful for a number of scenarios, such as configuring multi-tenant environments, where multiple teams or projects co-exist on the same DC/OS cluster and the available resources (CPU, RAM, disk, and ports) must be carved up and guaranteed for each cluster with guaranteed quotas.
 
 Secondly, with mixed workloads on a single cluster where one class of frameworks may have a high weight (priority) than another, and should be able to deploy faster than a lower weight framework.
 
-This page covers the multi-tenancy primitives: key concepts, references two real-world scenarios, provides implementation instructions, and reference links. 
+This page covers the multi-tenancy primitives: key concepts, two examples to real-world scenarios, implementation instructions, and reference links. 
 
 
 # Key Concepts
+The key concepts of multi-tenancy primitives include the following:
 
 ## Roles
-Roles refer to a resource consumer within the cluster. This resource consumer could represent a user within an organization, but it could also represent a team, a group, or a service. It most commonly refers to a class or type of activity which is running. In DC/OS, schedulers subscribe to one or more roles in order to receive resources and schedule work on behalf of the resource consumer(s) they are servicing. Examples of schedulers include Marathon, Kubernetes, and a number of the certified frameworks in the DC/OS catalog such as Kafka and Cassandra, which have been built to include their own scheduler.
+Roles refer to a resource consumer within the cluster. The resource consumer could represent a user within an organization, but it could also represent a team, a group, or a service. It most commonly refers to a class or type of activity which is running. In DC/OS, schedulers subscribe to one or more roles in order to receive resources and schedule work on behalf of the resource consumer(s) they are servicing. Examples of schedulers include Marathon, Kubernetes, and a number of the certified frameworks in the DC/OS catalog such as Kafka and Cassandra, which have been built to include their own scheduler.
 
-Two default roles exist, which frameworks will subscribe to, * on private agents and slave_public on public. Frameworks from the catalog deploy with their own roles and unique roles can be created on demand. 
+There are two default roles which frameworks will subscribe to:
+- `*` on private agents
+- `slave_public` on public. 
+
+Frameworks from the catalog deploy with their own roles and unique roles can be created on demand. 
 
 ## Reservations
 Reservations refer to where the resources are reserved on targeted public and private agents for a specific role. Statically reserved resources are applied on agent (public/private) startup and cannot be amended for other roles without restarting the agent. Dynamically reserved resources enable operators and authorized frameworks to reserve and unreserve resources after agent startup and on demand. All SDK based frameworks, like Kafka and Cassandra (certified frameworks list in the DC/OS catalog) leverage dynamic reservations for reserving the resources they intend to use with a deployment.
@@ -32,33 +37,37 @@ Quotas refer to a mechanism for guaranteeing that a role will receive a specific
 ## Weights
 Weights refer to a mechanism for prioritising one role over another, to allow all tasks assigned to that role to receive more offers (resources) over other roles with a lower weight. This provides faster deployment time and scaling or replacing tasks.
 
-# Real-world examples
+# Examples
 The concepts are best described based on two real-world scenarios of existing customer use cases. 
 
 ## Analytics platform with weighted Spark roles
-This example is based on an existing customer’s use case of an analytics pipeline. The primary workload is Spark, with 3 tiers of Spark jobs, tagged with roles; Low - 1, medium - 2, and high - 3, representing the priority, and weighted accordingly. 
+This example is based on an existing customer’s use case of an analytics pipeline. The primary workload is Spark, with three tiers of Spark jobs, tagged with roles; Low - 1, medium - 2, and high - 3, representing the priority, and weighted accordingly. 
 
-In practise, the high role is allocated three times the fair share of offers (of resources) than medium which will be provided twice the fair share of low. Alongside weights, the high priority Spark role is provided a quota of `x` CPU shares and `y` RAM. 
+In practise, the high role is allocated three times the fair share of offers (resources) than medium which will be provided twice the fair share of low. Alongside weights, the high priority Spark role is provided a quota of `x` CPU shares and `y` RAM. 
 
 As Spark jobs are deployed, the high priority Spark jobs are prioritised to receive their offers over the medium and low jobs, ensuring they are deployed in a shorter period of time. Given the medium and low priority roles do not have a quota applied, medium roles will be provided offers sooner than low, but there is no quota for medium, so if medium requires `z` cores and `z` cores are not available, it will receive as many are available at that time.
 
 ## Jenkins in Marathon on Marathon
 In this example, the customer runs Jenkins (CI/CD pipeline) as a service, with hundreds of instances, one instance for each development team that requires a service run.
 
-On the DC/OS cluster there are other applications-as-a-service deployed as Marathon tasks running containers. Each application, including Jenkins are grouped in their own instance of Marathon referred to as Marathon on Marathon (MoM) and in DC/OS documentation as non-native Marathon - where native Marathon is the default Marathon that ships with DC/OS. Conceptually, there is a native Marathon and non-native Marathon on Marathon that are dedicated for grouping other tasks.
+On the DC/OS cluster, there are other application-as-a-service deployed as Marathon tasks running containers. Each application, including Jenkins are grouped in their own instance of Marathon referred to as Marathon on Marathon (MoM) and in DC/OS documentation as non-native Marathon - where native Marathon is the default Marathon that ships with DC/OS. Conceptually, there is a native Marathon and non-native Marathon on Marathon that are dedicated for grouping other tasks.
 
-Each of the MoMs hosts one of the groups of the application, and each MoM has a role and quota attached. Each role and quota provides a method to guarantee that where one of them scales frequently, like Jenkins does as it spins up its agents on demand for a new build, that it can get the resources it requires. If Jenkins requires more resources, the quota can be amended on the fly to provide them. Another common use of MoMs is for grouping environments such as Development, Testing, and Staging on one DC/OS cluster with robust resource and access management. 
+Each MoM hosts one of the groups of the application, and they have a role and quota attached. Each role and quota provides a method to guarantee that where one of them scales frequently, like Jenkins does as it spins up its agents on demand for a new build, that it can get the resources it requires. If Jenkins requires more resources, the quota can be amended on the fly to provide them. Another common use of MoMs is for grouping environments such as Development, Testing, and Staging on one DC/OS cluster with robust resource and access management. 
 
 # Implementation
-At the end of this page are links to existing documentation that provide details on implementing both Marathon on Marathon and Spark quotas as described in the real-world examples earlier on.
+You can use the following resources to learn how to implement both Marathon on Marathon and Spark quotas:
+- [Deploying non-native instances of Marathon](https://docs.mesosphere.com/1.11/deploying-services/marathon-on-marathon/)
+- [Spark Quota](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/job-scheduling/#setting-quotas-for-the-drivers)
 
-**Note:** All double quotes in the JSON examples below require sanitising before use when copying and pasting into editors or a terminal.
+In the examples below, it is recommended to run the application from a host with [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/) installed.
+
+<p class="message--note"><strong>NOTE: </strong> All double quotes in the JSON examples below require sanitising before use when copying and pasting into editors or a terminal.</p>
 
 ## Roles
-Roles are simply a tag or a label which is assigned to a framework, task, or an agent. The default role is called <sup>*</sup> and all existing roles in a cluster can be viewed through the Mesos UI: `https://<cluster-name-or-IP>/mesos/#/roles`. 
+[Roles](https://mesos.apache.org/documentation/latest/roles/) are simply a tag or a label which is assigned to a framework, task, or an agent. The default role is called <sup>*</sup> and all existing roles in a cluster can be viewed through the Mesos UI: `https://<cluster-name-or-IP>/mesos/#/roles`. 
 
 
-In the following example, a role called `high` is assigned to a Spark task at runtime. Multiple instances of this Spark task can be executed, ensuring they all benefit from the resource management associated with high. 
+In the following example, a role called `high` is assigned to a Spark task at runtime. Multiple instances of the Spark task can be executed, ensuring they all benefit from the resource management associated with high. 
 
 `spark.mesos.role=high`
 
@@ -69,12 +78,12 @@ Applications in the DC/OS catalog, like Kafka and Cassandra, are automatically d
 Roles do not require explicit management, like configuring a new role and assigning it to a task, they are created on demand when deploying a task or configuring a weight or quota. Likewise, you should not delete roles, they exist for the duration of the cluster.
 
 ## Reservations
-Reservations can be manually configured, and as previously discussed are used by SDK frameworks. In both cases, an authorised user must be declared which is referred to as the principal/framework or an operator. In the case of SDK frameworks in DC/OS this is also known as the service account.
+[Reservations](https://mesos.apache.org/documentation/latest/reservation/) can be manually configured, and as previously discussed are used by SDK frameworks. In both cases, an authorised user must be declared which is referred to as the principal/framework or an operator. In the case of SDK frameworks in DC/OS this is also known as the service account.
 
 ### Adding
 Adding reserves resources on a specific agent with id `312dc1dc-9b39-474f-8295-87fc43872e7c-S0` for role low, guaranteeing `four` CPU shares and `512MB` of RAM. When any task with a role of low requests offers that match - what this agent has reserved then the task will be guaranteed to the agent itself.
 
-**Note:** The principal of `bootstrapuser` differs for each user. In this example, the principal of `bootstrapuser` is my superuser account.
+<p class="message--note"><strong>NOTE: </strong>The principal of `bootstrapuser` differs for each user. In this example, the principal of `bootstrapuser` is my superuser account.</p>
 
 You must change the `agent_id` for the agent ID on your cluster. Use `$dcos node` to find the agent id. 
 
@@ -152,7 +161,7 @@ Reviewing is best achieved through the Mesos UI against the specific agent which
 ### Removing
 Removing requires amending the input `JSON` to reference only the resources in the following format:
 
-**Note:** Change the `agent_id` to match the agent ID on your cluster as in the previous example.
+<p class="message--note"><strong>NOTE: </strong>Change the `agent_id` to match the agent ID on your cluster as in the previous example.</p> 
 
 ```
 tee remove-reservation.json << EOF
@@ -217,12 +226,10 @@ curl -i -k \
 There are further options related to dynamic and static operations and amending existing reservations that can be found in the reference links.
 
 ## Quotas
+[Quotas](https://mesos.apache.org/documentation/latest/quota/) specify a minimum amount of resources that the role is guaranteed to receive (unless the total resources in the cluster are less than the configured quota resources, which often indicates a misconfiguration). 
 
 ### Adding
-
-Quotas cannot be updated once applied, they must be removed and added again.
-
-This applies a quota of `two` CPU shares and `4GB` of RAM to a role called high.
+Quotas cannot be updated once applied, they must be removed and added again. The following example applies a quota of `two` CPU shares and `4GB` of RAM to a role called `high`.
 
 ```
 tee set-quota.json << EOF
@@ -319,6 +326,7 @@ Connection: keep-alive
 If successful, expect a `HTTP/1.1 200 OK` response.
 
 ## Weights 
+[Weights](https://mesos.apache.org/documentation/latest/weights/) can be used to control the relative share of cluster resources that is offered to different roles.
 
 ### Applying
 This applies a weight of `five` to role `perf`.
@@ -372,7 +380,6 @@ Connection: keep-alive
 {"type":"GET_WEIGHTS","get_weights":{"weight_infos":[{"weight":5.0,"role":"perf"}]}}
 ```
 
-
 ### Removing
 Weights cannot be removed once set, they can be amended using the same method as applying to update the weight. If you wish to reset the weight for a role, you could set it back to `two` which is the same weight as the default role <sup>`*`</sup>.
 
@@ -385,28 +392,14 @@ In order to install Enterprise MoM, you must contact Mesosphere for the Enterpri
 ## Summary
 Working with quotas, reservations, and weights all require that you have good monitoring in place of available/used resources. In the two real-world customer examples provided, Jenkins-as-a-service was a very dynamic workload, with hundreds of Jenkins agents being run on demand. Having good visibility of the resources available and when the quota was being reached was important for tuning, availability and growth. With the Spark example, being able to measure how much sooner the high role tasks ran than the low, informed the tuning of the weights. 
 
-The primitives as discussed in this page are planned for further development, introducing features such as oversubscription, revocable resources, and more crucially, integration into DC/OS itself, to provide a user friendly interface.
+<p class="message--note"><strong>NOTE: </strong>The primitives are planned for further development, introducing features such as oversubscription, revocable resources, and more crucially, integration into DC/OS itself to provide a user friendly interface.</p>
 
-# Reference links
-Marathon on Marathon
-https://docs.mesosphere.com/1.11/deploying-services/marathon-on-marathon/
+# Additional Resources
+You can use the following additional resources to learn more about:
 
-Roles, reservations, quotas, weights
-https://mesos.apache.org/documentation/latest/roles/
-https://mesos.apache.org/documentation/latest/reservation/
-https://mesos.apache.org/documentation/latest/quota/
-https://mesos.apache.org/documentation/latest/weights/
-
-Spark Quotas
-https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/job-scheduling/#setting-quotas-for-the-drivers
-Oversubscription
-https://mesos.apache.org/documentation/latest/oversubscription/
-
-Authorization
-https://mesos.apache.org/documentation/latest/authorization/
-
-Mesos API
-https://mesos.apache.org/documentation/latest/operator-http-api/
+- [Oversubscription](https://mesos.apache.org/documentation/latest/oversubscription/)
+- [Authorization](https://mesos.apache.org/documentation/latest/authorization/)
+- [Mesos API](https://mesos.apache.org/documentation/latest/operator-http-api/)
 
 
 
