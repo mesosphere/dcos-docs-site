@@ -139,7 +139,7 @@ DC/OS Enterprise IAM service also includes support for authorization controls th
 ## <a name="identity-provider"></a>External Identity Provider with LDAP, SAML and OpenID connect
 [/enterprise]
 
-DC/OS Enterprise integrates identity providers that support the LDAP v3 interface (including Microsoft Active Directory) and SAML based identity providers, such that you can import users external to DC/OS from your existing user directory, and manage user and group authorizations within DC/OS.
+DC/OS Enterprise integrates identity providers that support the LDAP v3 interface (including Microsoft Active Directory) and SAML based identity providers, such that you can import users external to DC/OS from your existing user directory, and manage user and group authorizations within DC/OS. (CK--Possible place to put LDAP sync edit)
 
 [enterprise]
 ## <a name="cluster-encryption"></a>Cluster security with encrypted communication

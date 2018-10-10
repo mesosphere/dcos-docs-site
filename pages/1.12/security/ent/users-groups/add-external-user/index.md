@@ -49,7 +49,7 @@ You can import existing LDAP user groups into DC/OS. Importing LDAP groups is a 
 Group size is limited to 100 users. To increase this limit, contact Mesosphere customer support. If the user name matches an existing user, it is not reimported. You can check the logs to determine if this has occurred.
 
 ## Configuring LDAP group import
-
+(CK--Possible place to put LDAP sync edit)
 1. Open the **Settings** -> **LDAP Directories** tab.
 
 2. Click **ADD DIRECTORY**.
