@@ -18,7 +18,7 @@ render: mustache
 1. Use the following command to download {{ model.techName }} configuration templates to get started.
 
 ```
-curl -O https://ecosystem-repo.s3.amazonaws.com/spinnaker/artifacts/0.2.0-1.4.2/config.tgz && tar -xzf config.tgz && cd config && chmod +x gen-optionsjson
+curl -O https://ecosystem-repo.s3.amazonaws.com/spinnaker/artifacts/0.3.0-1.9.2/config.tgz && tar -xzf config.tgz && cd config && chmod +x gen-optionsjson
 ```
 
 The created **config** folder has the following `yml` templates.
