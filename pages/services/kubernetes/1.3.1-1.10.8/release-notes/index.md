@@ -25,6 +25,8 @@ excerpt:
 
 ## Bug Fixes
 
+* Fixed a bug affecting node decommission which could cause Kubernetes apps temporary downtime.
+
 ## Documentation
 
 None
@@ -42,5 +44,3 @@ None
   to a maximum of 100 pods per node. This will be configurable in future
   releases.
 * Changing the value of the `kubernetes.authorization_mode` option after installing the package is not supported.
-* An issue with decommissioning `kube-node` skips cordon and drain of the `kube-node`. Users should cordon and drain
-  the `kube-node` manually with kubectl before decommissioning. This will be fixed in future releases.
