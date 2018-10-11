@@ -278,22 +278,20 @@ Logrotate manages rotation, compression, and deletion of historical log files.
 - [Documentation](https://linux.die.net/man/8/logrotate)
 - [Source](https://github.com/logrotate/logrotate)
 
-<a name="dcos-metrics"></a>
+<a name="telegraf"></a>
 
-## DC/OS Metrics
+## Telegraf
 
-The DC/OS Metrics service exposes node, container, and application metrics.
+Telegraf is a configurable metrics pipeline. By default, it collects system, container, and application metrics.
 
 ### System Service
 
-- `dcos-metrics-master.service`
-- `dcos-metrics-master.socket`
-- `dcos-metrics-agent.service`
-- `dcos-metrics-agent.socket`
+- `dcos-telegraf.service`
+- `dcos-telegraf.socket`
 
 **See Also:**
 
-- [Source](https://github.com/dcos/dcos-metrics)
+- [Source](https://github.com/dcos/telegraf)
 - [API Reference](/1.12/metrics/metrics-api/)
 
 <a name="dcos-signal"></a>
