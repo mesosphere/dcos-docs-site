@@ -48,10 +48,6 @@ OpenID Connect and Apache Knox are not supported.
 
 Non root user based install not supported in current release.
 
-## Dependency on external Zookeeper
-
-External zookeeper needs to be installed for current service install.
-
 ## Supports manual Restore processs
 
 Restore for PXC service process is currently manual.
