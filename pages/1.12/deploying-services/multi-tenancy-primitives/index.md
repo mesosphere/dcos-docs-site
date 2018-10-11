@@ -38,14 +38,14 @@ Quotas refer to a mechanism for guaranteeing that a role will receive a specific
 Weights refer to a mechanism for prioritising one role over another, to allow all tasks assigned to that role to receive more offers (resources) over other roles with a lower weight. This provides faster deployment time and scaling or replacing tasks.
 
 # Examples
-The concepts are best described based on two real-world scenarios of existing customer use cases. 
+The concepts are described based on two real-world scenarios of existing customer use cases. 
 
 ## Analytics platform with weighted Spark roles
-This example is based on an existing customer’s use case of an analytics pipeline. The primary workload is Spark, with three tiers of Spark jobs, tagged with roles; Low - 1, medium - 2, and high - 3, representing the priority, and weighted accordingly. 
+This example is based on an existing customer’s use case of an analytics pipeline. The primary workload is Spark with three tiers of Spark jobs, tagged with roles; Low - 1, medium - 2, and high - 3, representing the priority and weights accordingly. 
 
 In practise, the high role is allocated three times the fair share of offers (resources) than medium which will be provided twice the fair share of low. Alongside weights, the high priority Spark role is provided a quota of `x` CPU shares and `y` RAM. 
 
-As Spark jobs are deployed, the high priority Spark jobs are prioritised to receive their offers over the medium and low jobs, ensuring they are deployed in a shorter period of time. Given the medium and low priority roles do not have a quota applied, medium roles will be provided offers sooner than low, but there is no quota for medium, so if medium requires `z` cores and `z` cores are not available, it will receive as many are available at that time.
+As Spark jobs are deployed, the high priority Spark jobs are prioritised to receive their offers over the medium and low jobs, ensuring they are deployed in a shorter period of time. Given the medium and low priority roles do not have a quota applied, medium roles will be provided offers sooner than low, but there is no quota for medium, so if medium requires `z` cores and if they are not available, it will receive as many are available at that time.
 
 ## Jenkins in Marathon on Marathon
 In this example, the customer runs Jenkins (CI/CD pipeline) as a service, with hundreds of instances, one instance for each development team that requires a service run.
@@ -56,15 +56,15 @@ Each MoM hosts one of the groups of the application, and they have a role and qu
 
 # Implementation
 You can use the following resources to learn how to implement both Marathon on Marathon and Spark quotas:
-- [Deploying non-native instances of Marathon](https://docs.mesosphere.com/1.11/deploying-services/marathon-on-marathon/)
+- [Deploying non-native instances of Marathon](https://docs.mesosphere.com/1.12/deploying-services/marathon-on-marathon/)
 - [Spark Quota](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/job-scheduling/#setting-quotas-for-the-drivers)
 
-In the examples below, it is recommended to run the application from a host with [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/) installed.
+In the examples below, it is recommended to run the application from a host with [DC/OS CLI](https://docs.mesosphere.com/1.12/cli/) installed.
 
 <p class="message--note"><strong>NOTE: </strong> All double quotes in the JSON examples below require sanitising before use when copying and pasting into editors or a terminal.</p>
 
 ## Roles
-[Roles](https://mesos.apache.org/documentation/latest/roles/) are simply a tag or a label which is assigned to a framework, task, or an agent. The default role is called <sup>*</sup> and all existing roles in a cluster can be viewed through the Mesos UI: `https://<cluster-name-or-IP>/mesos/#/roles`. 
+[Roles](https://mesos.apache.org/documentation/latest/roles/) refer to a tag or a label which is assigned to a framework, task, or an agent. The default role is called <sup>`*`</sup> and all existing roles in a cluster can be viewed through the Mesos UI: `https://<cluster-name-or-IP>/mesos/#/roles`. 
 
 
 In the following example, a role called `high` is assigned to a Spark task at runtime. Multiple instances of the Spark task can be executed, ensuring they all benefit from the resource management associated with high. 
@@ -78,12 +78,12 @@ Applications in the DC/OS catalog, like Kafka and Cassandra, are automatically d
 Roles do not require explicit management, like configuring a new role and assigning it to a task, they are created on demand when deploying a task or configuring a weight or quota. Likewise, you should not delete roles, they exist for the duration of the cluster.
 
 ## Reservations
-[Reservations](https://mesos.apache.org/documentation/latest/reservation/) can be manually configured, and as previously discussed are used by SDK frameworks. In both cases, an authorised user must be declared which is referred to as the principal/framework or an operator. In the case of SDK frameworks in DC/OS this is also known as the service account.
+[Reservations](https://mesos.apache.org/documentation/latest/reservation/) can be manually configured and are used by SDK frameworks. In both cases, an authorised user must be declared which is referred to as the principal/framework or an operator. In the case of SDK frameworks in DC/OS this is also known as the service account.
 
 ### Adding
-Adding reserves resources on a specific agent with id `312dc1dc-9b39-474f-8295-87fc43872e7c-S0` for role low, guaranteeing `four` CPU shares and `512MB` of RAM. When any task with a role of low requests offers that match - what this agent has reserved then the task will be guaranteed to the agent itself.
+Adding reserves resources on a specific agent with id `312dc1dc-9b39-474f-8295-87fc43872e7c-S0` for role low, guaranteeing `four` CPU shares and `512MB` of RAM. When any task with a role of low requests offers that match what this agent has reserved then the task will be guaranteed to the agent itself.
 
-<p class="message--note"><strong>NOTE: </strong>The principal of `bootstrapuser` differs for each user. In this example, the principal of `bootstrapuser` is my superuser account.</p>
+<p class="message--note"><strong>NOTE: </strong>The principal of bootstrapuser differs for each user. In this example, the principal of `bootstrapuser` is my superuser account.</p>
 
 You must change the `agent_id` for the agent ID on your cluster. Use `$dcos node` to find the agent id. 
 
@@ -161,7 +161,7 @@ Reviewing is best achieved through the Mesos UI against the specific agent which
 ### Removing
 Removing requires amending the input `JSON` to reference only the resources in the following format:
 
-<p class="message--note"><strong>NOTE: </strong>Change the `agent_id` to match the agent ID on your cluster as in the previous example.</p> 
+<p class="message--note"><strong>NOTE: </strong>Change the agent_id to match the agent ID on your cluster (as in the previous example).</p> 
 
 ```
 tee remove-reservation.json << EOF
@@ -389,8 +389,8 @@ The DC/OS catalog includes Marathon, which can be used to deploy a MoM. It shoul
 
 In order to install Enterprise MoM, you must contact Mesosphere for the Enterprise MoM tarball, then deploying it via the root Marathon. 
 
-## Summary
-Working with quotas, reservations, and weights all require that you have good monitoring in place of available/used resources. In the two real-world customer examples provided, Jenkins-as-a-service was a very dynamic workload, with hundreds of Jenkins agents being run on demand. Having good visibility of the resources available and when the quota was being reached was important for tuning, availability and growth. With the Spark example, being able to measure how much sooner the high role tasks ran than the low, informed the tuning of the weights. 
+# Summary
+An user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights. In the two real-world customer examples provided, Jenkins-as-a-service was a very dynamic workload, with hundreds of Jenkins agents being run on demand. Having good visibility of the resources available and when the quota was being reached was important for tuning, availability and growth. With the Spark example, being able to measure how much sooner the high role tasks ran than the low, informed the tuning of the weights. 
 
 <p class="message--note"><strong>NOTE: </strong>The primitives are planned for further development, introducing features such as oversubscription, revocable resources, and more crucially, integration into DC/OS itself to provide a user friendly interface.</p>
 
