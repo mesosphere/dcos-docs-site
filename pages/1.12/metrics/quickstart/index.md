@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Quick Start
 title: Metrics Quick Start
 menuWeight: 0
-excerpt: Getting Started with DC/OS metrics
+excerpt: Getting Started with metrics in DC/OS
 beta: false
 ---
 
 
-Use this guide to get started with the DC/OS metrics component. The metrics component is natively integrated with DC/OS and no additional setup is required.
+Use this guide to get started with metrics in DC/OS. A metrics pipeline is natively integrated with DC/OS and no additional setup is required.
 
 **Prerequisites:**
 
@@ -21,8 +21,9 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
         ```json
         {
           "id": "/test-metrics",
-          "cmd": "/opt/mesosphere/bin/statsd-emitter",
-          "cpus": 0.001,
+          "cmd": "./statsd-emitter",
+          "fetch": [{"uri": "https://downloads.mesosphere.com/dcos-metrics/1.11.0/statsd-emitter", "executable": true}],
+          "cpus": 0.01,
           "instances": 1,
           "mem": 128
         }
@@ -109,7 +110,6 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
 
         ```bash
         NAME                       VALUE      TAGS
-        cpu.cores                  4
         cpu.idle                   99.56%
         cpu.system                 0.09%
         cpu.total                  0.34%
