@@ -113,7 +113,7 @@ function plugin(opts) {
         return `/${array.join('/')}`;
       });
       if (listOfPaths.indexOf(pathToFind) === -1) {
-        return;
+        throw new Error(`Missing file in path: ${pathToFind}`);
       }
       // Find
       const f = function find(array, key, value) {
