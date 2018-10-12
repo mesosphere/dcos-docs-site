@@ -122,4 +122,4 @@ Dimensions are metadata about the metrics. The following table lists the availab
 | task_name   | The task name.  | container |
 
 
-For more information, see the [dcos-metrics repository](https://github.com/dcos/dcos-metrics).
+For more information, see the [dcos-metrics repository](https://github.com/dcos/dcos-metrics) documentation. 
