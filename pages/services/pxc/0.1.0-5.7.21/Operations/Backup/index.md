@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
 navigationTitle: Backup
-excerpt:
-title: Backup Operation
+excerpt: Backing up your service
+title: Backup 
 menuWeight: 30
 model: /services/pxc/data.yml
 render: mustache
 ---
 # Backing Up
 
-For backup, we need to run backup using the following command using dcos cli:
+To back up your {{ model.techName }} service, run the following command from the CLI:
 
 ```shell
 {
@@ -17,5 +17,5 @@ For backup, we need to run backup using the following command using dcos cli:
 }
 ```
 
-The backup plan for PXC, backs up data to a S3 compatible datastore.
+The backup plan for {{ model.techShortName }} backs up data to a S3 compatible datastore.
 

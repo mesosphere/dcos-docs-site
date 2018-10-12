@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 navigationTitle: Restore
-excerpt:
-title: Restore Operation 
+excerpt: Restoring your Percona XtraDB Cluster service
+title: Restore  
 menuWeight: 30
 model: /services/pxc/data.yml
 render: mustache
@@ -14,29 +14,29 @@ The restore plan is a manual process and will be used to restore any backed up d
 
 ## The restore process is as follows:
 
-1. All POD of PXC should be paused.
+1. Pause all {{ model.techShortName }} pods.
 
 ```shell
 {
-dcos percona-pxc-mysql --name=percona-pxc-mysql debug pod pause <pod-name> -t <task-name>
+dcos {{ model.serviceName}} --name={{ model.serviceName}} debug pod pause <pod-name> -t <task-name>
 }
 ```
 
-2. Then run the following dcos cli command for running the restore plan.
+1. Run the following DC/OS CLI command to start the restore plan.
 
 ```shell
 {
-dcos percona-pxc-mysql plan start restore -p ACCESS_KEY_ID=<ACCESS_KEY> -p SECRET_ACCESS_KEY=<SECRET_ACCESS_KEY>
+dcos {{ model.serviceName}} plan start restore -p ACCESS_KEY_ID=<ACCESS_KEY> -p SECRET_ACCESS_KEY=<SECRET_ACCESS_KEY>
 }
 ```
 
-3. Then start the pxc pod one by one in sequential manner by using the following command:
+1. Start the {{ model.techShortName }} pods one by one in sequential manner, using the following command:
 
 ```shell
 {
-dcos percona-pxc-mysql --name=percona-pxc-mysql debug pod resume <pod-name> -t <task-name>
+dcos {{ model.serviceName}} --name={{ model.serviceName}} debug pod resume <pod-name> -t <task-name>
 }
 ```
 
-This will restore the backed up PXC data to your existing cluster.
+This will restore the backed up {{ model.techShortName }} data to your existing cluster.
 
