@@ -2,8 +2,8 @@
 
 packageName: percona-pxc-mysql
 serviceName: percona-pxc-mysql
-techName:  percona-pxc-mysql
-techShortName: percona-pxc-mysql
+techName:  Percona XtraDB Cluster
+techShortName: Percona PXC
 
 # Values specific to certain templates:
 
@@ -22,3 +22,5 @@ operations:
        └─ psqlconf (serial strategy) (COMPLETE)
        └─ psqlconf-0:[mysqlcli] (COMPLETE)
     
+install:
+  nodePrerequisite: 3 private nodes

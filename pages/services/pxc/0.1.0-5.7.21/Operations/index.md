@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Managing, repairing, and monitoring the DC/OS Percona XtraDB Cluster service
 title: Operations
 menuWeight: 30
 model: /services/pxc/data.yml

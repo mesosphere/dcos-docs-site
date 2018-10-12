@@ -6,6 +6,8 @@ menuWeight: 40
 excerpt: Uninstalling DC/OS Percona XtraDB Cluster Service
 featureMaturity:
 enterprise: false
+model: /services/pxc/data.yml
+render: mustache
 ---
 
 ## DC/OS 1.10
