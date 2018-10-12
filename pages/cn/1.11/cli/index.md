@@ -15,7 +15,7 @@ DC/OS 命令行界面 (DC/OS CLI) 实用程序允许您管理群集节点、安�
 ```bash
 dcos
 
-Command line utility for the Mesosphere Datacenter Operating System (DC/OS). The Mesosphere DC/OS is a distributed operating system built around Apache Mesos. This utility provides tools for easy management of a DC/OS installation.
+Command line utility for the Mesosphere Distributed Cloud Operating System (DC/OS). The Mesosphere DC/OS is a distributed operating system built around Apache Mesos. This utility provides tools for easy management of a DC/OS installation.
 
 Available DC/OS commands:
 
