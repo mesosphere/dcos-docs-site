@@ -15,7 +15,7 @@ enterprise: false
 # <a name="dcos"></a>dcos
 
     Description:
-        The Mesosphere Datacenter Operating System (DC/OS) spans all of the machines in
+        The Mesosphere Distributed Cloud Operating System (DC/OS) spans all of the machines in
     your datacenter or cloud and treats them as a single, shared set of resources.
     
     Usage:
