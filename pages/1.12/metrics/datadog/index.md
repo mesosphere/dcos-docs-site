@@ -1,14 +1,17 @@
 ---
 layout: layout.pug
-title: Sending DC/OS Metrics to Datadog
+title: Export DC/OS Metrics to Datadog
+navigationTitle: Export DC/OS Metrics to Datadog
 menuWeight: 3
 excerpt: Sending DC/OS metrics to Datadog
 beta: true
-enterprise: false
 ---
 
 
-DC/OS 1.12 sends metrics via [Telegraf](/1.12/overview/architecture/components/#telegraf), which may be configured to export metrics to Datadog. There is no need to install a metrics plugin, as in DC/OS 1.9, 1.10, and 1.11. This guide details how to add the appropriate configuration to DC/OS. Please note that this functionality is experimental, and that modifying files in `/opt/mesosphere` is not supported. 
+DC/OS 1.12 sends metrics via [Telegraf](/1.12/overview/architecture/components/#telegraf), which may be configured to export metrics to Datadog. There is no need to install a metrics plugin, as in DC/OS 1.9, 1.10, and 1.11. This page explains how to add the appropriate configuration to DC/OS.
+
+<p class="message--note"><strong>NOTE: </strong>This functionality is experimental, and modifying files in `/opt/mesosphere` is not supported. </p>
+ 
 
 **Prerequisite:**
 
@@ -29,8 +32,8 @@ DC/OS 1.12 sends metrics via [Telegraf](/1.12/overview/architecture/components/#
 
 1. Replace the `apikey` value with your Datadog API key.
 
-1. On every node in your cluster:
+1. On every node in your cluster, do the following tasks:
 
-   1. Upload the `datadog.conf` file to `/opt/mesosphere/etc/telegraf/telegraf.d/datadog.conf`
-   1. Restart the Telegraf process with your new configuration by running `sudo systemctl restart dcos-telegraf`
-   1. Check the Datadog UI to see DC/OS metrics arriving
+   1. Upload the `datadog.conf` file to `/opt/mesosphere/etc/telegraf/telegraf.d/datadog.conf`.
+   1. Restart the Telegraf process with your new configuration by running `sudo systemctl restart dcos-telegraf` command.
+   1. Check the Datadog UI to see the incoming DC/OS metrics. 
