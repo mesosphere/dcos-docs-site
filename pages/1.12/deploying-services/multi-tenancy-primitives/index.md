@@ -7,13 +7,14 @@ excerpt: A primer to Multi-tenancy in DC/OS
 ---
 
 # Overview
-Resources in DC/OS can be reserved and prioritised using a combination of roles, reservations, quotas, and weights. These features are provided by Apache Mesos, at the core of DC/OS and are referred to as `Primitives`, as they are only accessible via API and have not yet been integrated into the DC/OS UI or CLI.
+Resources in DC/OS can be reserved and prioritised using a combination of roles, reservations, quotas, and weights. These features are provided by Apache Mesos, at the core of DC/OS and are referred to as `Primitives`, as they are only accessible via API and have not yet been integrated into the DC/OS UI or CLI. An user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights. 
 
-Resource management in this context refers to concepts such as reservations of resources on agents, resource quotas, and weights (priorities) for frameworks. These are useful for a number of scenarios, such as configuring multi-tenant environments, where multiple teams or projects co-exist on the same DC/OS cluster and the available resources (CPU, RAM, disk, and ports) must be carved up and guaranteed for each cluster with guaranteed quotas.
-
-Secondly, with mixed workloads on a single cluster where one class of frameworks may have a high weight (priority) than another, and should be able to deploy faster than a lower weight framework.
+Resource management in this context refers to concepts such as reservations of resources on agents, resource quotas, and weights (priorities) for frameworks. These are useful for a number of scenarios, such as configuring multi-tenant environments, where multiple teams or projects co-exist on the same DC/OS cluster and the available resources (CPU, RAM, disk, and ports) must be carved up and guaranteed for each cluster with guaranteed quotas. Secondly, with mixed workloads on a single cluster where one class of frameworks may have a high weight (priority) than another, and should be able to deploy faster than a lower weight framework.
 
 This page covers the multi-tenancy primitives: key concepts, two examples to real-world scenarios, implementation instructions, and reference links. 
+
+
+<p class="message--note"><strong>NOTE: </strong>The primitives are planned for further development, introducing features such as oversubscription, revocable resources, and more crucially, integration into DC/OS itself to provide a user friendly interface.</p>
 
 
 # Key Concepts
@@ -53,6 +54,8 @@ In this example, the customer runs Jenkins (CI/CD pipeline) as a service, with h
 On the DC/OS cluster, there are other application-as-a-service deployed as Marathon tasks running containers. Each application, including Jenkins are grouped in their own instance of Marathon referred to as Marathon on Marathon (MoM) and in DC/OS documentation as non-native Marathon - where native Marathon is the default Marathon that ships with DC/OS. Conceptually, there is a native Marathon and non-native Marathon on Marathon that are dedicated for grouping other tasks.
 
 Each MoM hosts one of the groups of the application, and they have a role and quota attached. Each role and quota provides a method to guarantee that where one of them scales frequently, like Jenkins does as it spins up its agents on demand for a new build, that it can get the resources it requires. If Jenkins requires more resources, the quota can be amended on the fly to provide them. Another common use of MoMs is for grouping environments such as Development, Testing, and Staging on one DC/OS cluster with robust resource and access management. 
+
+In summary, Jenkins-as-a-service is a very dynamic workload, with hundreds of Jenkins agents being run on demand. Having good visibility of the resources available and to understand when the quota is reached is an important parameter for tuning, availability and growth. The Spark example measures how much sooner the high role tasks ran than the low and to inform the tuning of the weights. 
 
 # Implementation
 You can use the following resources to learn how to implement both Marathon on Marathon and Spark quotas:
@@ -388,11 +391,6 @@ Weights cannot be removed once set, they can be amended using the same method as
 The DC/OS catalog includes Marathon, which can be used to deploy a MoM. It should be noted that this is only useful for DC/OS OSS installations, as it does not provide support for Strict mode, Secrets or ACLs.
 
 In order to install Enterprise MoM, you must contact Mesosphere for the Enterprise MoM tarball, then deploying it via the root Marathon. 
-
-# Summary
-An user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights. In the two real-world customer examples provided, Jenkins-as-a-service was a very dynamic workload, with hundreds of Jenkins agents being run on demand. Having good visibility of the resources available and when the quota was being reached was important for tuning, availability and growth. With the Spark example, being able to measure how much sooner the high role tasks ran than the low, informed the tuning of the weights. 
-
-<p class="message--note"><strong>NOTE: </strong>The primitives are planned for further development, introducing features such as oversubscription, revocable resources, and more crucially, integration into DC/OS itself to provide a user friendly interface.</p>
 
 # Additional Resources
 You can use the following additional resources to learn more about:
