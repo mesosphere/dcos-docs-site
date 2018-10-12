@@ -18,7 +18,8 @@ if paths[0] === 'services' && paths[1]
     if !semverService.test(paths[2])
       - versionTitle = navigationTitle || title
     - dropdown = service.children
-    - tmpItems = hierarchy.findByPath('/' + paths[0] + '/' + paths[1] + '/' + paths[2])
+    if paths[2]
+      - tmpItems = hierarchy.findByPath('/' + paths[0] + '/' + paths[1] + '/' + paths[2])
     if tmpItems
       - items = tmpItems
 

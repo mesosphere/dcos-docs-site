@@ -113,6 +113,7 @@ function plugin(opts) {
         return `/${array.join('/')}`;
       });
       if (listOfPaths.indexOf(pathToFind) === -1) {
+        // return;
         throw new Error(`Missing file in path: ${pathToFind}`);
       }
       // Find
@@ -171,12 +172,22 @@ function plugin(opts) {
       return parent;
     };
 
+    const checkIfPathExists = function checkIfPathExists(potentialPath) {
+      try {
+        return this.findByPath(potentialPath);
+      } catch (err) {
+        console.log(potentialPath);
+        return null;
+      }
+    };
+
     const r = {
       id: '',
       title: '',
       path: '/',
       children: [],
       findByPath,
+      checkIfPathExists,
       findParent,
       find,
     };
