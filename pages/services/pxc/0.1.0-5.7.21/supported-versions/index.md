@@ -6,6 +6,8 @@ menuWeight: 120
 excerpt: Understanding DC/OS Prometheus Services package versioning
 featureMaturity:
 enterprise: false
+model: /services/pxc/data.yml
+render: mustache
 ---
 
 ## Supported Versions
