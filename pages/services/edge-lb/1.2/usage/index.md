@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:   Usage
-title:  Usage
+navigationTitle: Usage
+title: Usage
 menuWeight: 60
 excerpt: Common commands for Edge-LB usage
 
@@ -18,15 +18,17 @@ This page covers common commands for Edge-LB usage. For a more detailed list of 
 
 After launching a service and creating a [pool configuration file](/services/edge-lb/1.1/pool-configuration), you can use the CLI to deploy it:
 
-```
+```bash
 dcos edgelb create <pool-configuration-file>
 ```
+
+Please refer to the [tutorials sections](/services/edge-lb/1.1/tutorials/) for examples of pool configs.
 
 # Update pools
 
 Update a pool's configuration with the following command:
 
-```
+```bash
 dcos edgelb update <pool-configuration-file>
 ```
 
@@ -36,9 +38,9 @@ A change to a service (such as scaling up) that is load balanced by a pool will 
 
 * No traffic is dropped (unless the service instance that was serving the request was killed).
 
-* The load balancer will wait until existing connections terminate, so a long-running connection will prevent the reload from completing.
+* The load balancer will keep the long-running connections intact, while all the new connections will be proxied using the new configuration.
 
-* A reload will occur at most once every 10 seconds.
+* A reload will occur at most once every 3 seconds.
 
 The properties of this reload enable strategies like
 [Blue/Green Deployment](/services/edge-lb/1.1/tutorials/blue-green-deploy).
@@ -47,10 +49,11 @@ The properties of this reload enable strategies like
 
 A change to the load balancer pool (such as adding a secret) will trigger a relaunch of all load balancers in the pool. This relaunch has the following properties:
 
-- Traffic is dropped. To minimize the impact, we suggest running more than one load balancer within the pool.
+- Traffic currently flowing through the given load balancer is dropped when it is stopped. To minimize the impact, we suggest running more than one load balancer within the pool.
+- Only one load balancer is stopped in the pool during the update at a time.
 - The load balancer will be relaunched on the same node (unless the node itself has failed).
 
-<p class="message--warning"><strong>WARNING: </strong>The number of instances of load balancers cannot be scaled down. This limitation will be addressed in a future Edge-LB release.</p>
+<p class="message--warning"><strong> WARNING: </strong>The number of instances of load balancers cannot be scaled down. This limitation will be addressed in a future Edge-LB release.</p>
 
 ## Replacing a failed pod
 
@@ -60,27 +63,27 @@ This can all be done using the dcos CLI `edgelb-pool` subcommand (note that this
 
 1. Install the `edgelb-pool` CLI subcommand:
 
-```
+```bash
 $ dcos package install edgelb-pool --cli --yes
 ```
 
 2. Get the name of the pool that owns the pod you need to relocate:
 
-```
-dcos edgelb show
+```bash
+$ dcos edgelb list
 ```
 
 This should show all pool configurations. The pool that has a missing pod will be your value for `<pool-name>` below.
 
 3. Get the name of the pod you need to replace (the one that was running on the removed public agent). This will be your value for `<pod-id>`.
 
-```
+```bash
 $ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod list
 ```
 
 4. Use `<pod-id>` with the `pod replace` command:
 
-```
+```bash
 $ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod replace <pod-id>
 ```
 
