@@ -24,3 +24,7 @@ operations:
     
 install:
   nodePrerequisite: 3 private nodes
+
+security:
+  private-key-name: pxc-private-key
+  public-key-name: pxc-public-key
