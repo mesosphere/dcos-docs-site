@@ -1,148 +1,150 @@
 ---
 layout: layout.pug
 navigationTitle: Quick Start
-excerpt: Configuring Percona XtraDB Cluster - Quick Start
+excerpt: Configuring Percona XtraDB Cluster 
 title: Quick Start
 menuWeight: 15
 model: /services/pxc/data.yml
 render: mustache
 ---
 
-# How to use Percona XtraDB Cluster with DC/OS
+This section will explain how to use {{ model.techName}} with DC/OS.
 
-## Prerequisite
+## Prerequisites
 
 - DC/OS should be installed on your cluster.
 
 ## Steps
 
-If you are using open source DC/OS, install percona-pxc-mysql on the cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
+If you are using open source DC/OS, install {{ model.techName}} on the cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the [Install and Customize](/install) section for information.
 
 ```shell
-dcos package install --yes percona-pxc-mysql
+dcos package install --yes {{ model.serviceName}}
 ```
-Alternatively, you can install percona-pxc-mysql from [the DC/OS web interface].
+Alternatively, you can install {{ model.techName}} from [the DC/OS web interface].
 
-Once the install command is triggered, the service will deploy with a default configuration. You can monitor its deployment via the Services tab of the DC/OS web interface. Mentioned below is the complete list of DC/OS percona-pxc-mysql Commands Available:
+Once the `install` command is triggered, the service will deploy with a default configuration. You can monitor its deployment via the **Services** tab of the DC/OS web interface. 
+
+Here is the complete list of DC/OS {{ model.techName}} Commands Available:
    
-1. View the configuration for this service
+1. View the configuration for this service:
 
     ```shell
-    dcos percona-pxc-mysql describe
+    dcos {{ model.serviceName}} describe
     ```
-2. View client endpoints   
+1. View client endpoints:
 
     ```shell  
-    dcos percona-pxc-mysql endpoints [<name>]
+    dcos {{ model.serviceName}} endpoints [<name>]
     ```
-3. Show all plans for this service    
+1. Show all plans for this service:    
 
     ```shell  
-    dcos percona-pxc-mysql plan list
+    dcos {{ model.serviceName}} plan list
     ```    
-4. Display the status of the plan with the provided plan name
+1. Display the status of the plan with the provided plan name:
 
     ```shell 
-    dcos percona-pxc-mysql plan status [<flags>] <plan>   
+    dcos {{ model.serviceName}} plan status [<flags>] <plan>   
     --json  Show raw JSON response instead of user-friendly tree
     ```    
-5. Start the plan with the provided name and any optional plan arguments
+1. Start the plan with the provided name and any optional plan arguments:
 
     ```shell 
-    dcos percona-pxc-mysql plan start <flags> <plan>
+    dcos {{ model.serviceName}} plan start <flags> <plan>
     -p, --params=PARAMS ...  Envvar definition in VAR=value form; can be repeated for multiple variables
     ```      
-6. Stop the running plan with the provided name
+1. Stop the running plan with the provided name:
 
     ```shell 
-    dcos percona-pxc-mysql plan stop <plan>
+    dcos {{ model.serviceName}} plan stop <plan>
     ```          
-7. Pause the plan, or a specific phase in that plan with the provided phase name (or UUID)
+1. Pause the plan, or a specific phase in that plan with the provided phase name (or UUID):
 
     ```shell 
-    dcos percona-pxc-mysql plan pause <plan> [<phase>]
+    dcos {{ model.serviceName}} plan pause <plan> [<phase>]
     ```               
-7. Resume the plan, or a specific phase in that plan with the provided phase name (or UUID)
+1. Resume the plan, or a specific phase in that plan with the provided phase name (or UUID):
 
     ```shell 
-    dcos percona-pxc-mysql plan resume <plan> [<phase>]
+    dcos {{ model.serviceName}} plan resume <plan> [<phase>]
     ```    
-8. Restart the plan with the provided name, or a specific phase in the plan with the provided name, or a specific step in a              phase of the plan with the provided step name.   
+1. Restart the plan with the provided name, or a specific phase in the plan with the provided name, or a specific step in a phase of the plan with the provided step name.   
     
     ```shell 
-    dcos percona-pxc-mysql plan force-restart <plan> <phase> <step>
+    dcos {{ model.serviceName}} plan force-restart <plan> <phase> <step>
     ```       
-9. Force complete a specific step in the provided phase. Example uses include the following: Abort a sidecar operation due to observed failure or known required manual preparation that was not performed
+1. Force complete a specific step in the provided phase. Example uses include aborting a sidecar operation due to observed failure or known required manual preparation that was not performed.
 
     ```shell 
-    dcos percona-pxc-mysql plan force-complete <plan> [<phase> [<step>]]
+    dcos {{ model.serviceName}} plan force-complete <plan> [<phase> [<step>]]
     ```   
     
-10. Display the list of known pod instances                 
+1. Display the list of known pod instances:                 
 
     ```shell 
-    dcos percona-pxc-mysql pod list
+    dcos {{ model.serviceName}} pod list
     ```   
     
-11. Restarts a given pod without moving it to a new agent
+1. Restarts a given pod without moving it to a new agent:
 
     ```shell 
-    dcos percona-pxc-mysql pod restart <pod>
+    dcos {{ model.serviceName}} pod restart <pod>
     ```      
-12. Destroys a given pod and moves it to a new agent  
+1. Destroys a given pod and moves it to a new agent:  
  
     ```shell 
-    dcos percona-pxc-mysql pod replace <pod>
+    dcos {{ model.serviceName}} pod replace <pod>
     ```      
-13. Launches an update operation
+1. Launches an update operation:
  
     ```shell 
-    dcos percona-pxc-mysql update start [<flags>]
+    dcos {{ model.serviceName}} update start [<flags>]
     --options=OPTIONS  Path to a JSON file that contains customized package installation options
     --package-version=PACKAGE-VERSION  
                        The desired package version
     --replace          Replace the existing configuration in whole. Otherwise, the existing configuration and options are merged.
     ```     
 
-14. Force complete a specific step in the provided phase
+1. Forces complete a specific step in the provided phase:
   
     ```shell 
-    dcos percona-pxc-mysql update force-complete <phase> <step>
+    dcos {{ model.serviceName}} update force-complete <phase> <step>
     ```         
 
-15. Restart update plan, or specific step in the provided phase
+1. Restarts update plan, or specific step in the provided phase:
 
     ```shell 
-    dcos percona-pxc-mysql update force-restart [<phase> [<step>]]
+    dcos {{ model.serviceName}} update force-restart [<phase> [<step>]]
     ``` 
 
-16. View a list of available package versions to downgrade or upgrade to
+1. Displays a list of available package versions to downgrade or upgrade to:
     
     ```shell 
-    dcos percona-pxc-mysql update package-versions
+    dcos {{ model.serviceName}} update package-versions
     ```     
     
-17. Pause update plan
+7. Pause update plan:
 
     ```shell 
-    dcos percona-pxc-mysql update pause
+    dcos {{ model.serviceName}} update pause
     ```  
-18. Resume update plan
+1. Resume update plan:
 
     ```shell 
-    dcos percona-pxc-mysql update resume
+    dcos {{ model.serviceName}} update resume
     ```  
     
-19. View status of a running update   
+1. View status of a running update   
   
     ```shell 
-    dcos percona-pxc-mysql update status [<flags>]
+    dcos {{ model.serviceName}} update status [<flags>]
     --json  Show raw JSON response instead of user-friendly tree
     ```               
 
 # External Client Access(Proxysql and EdgeLB configuration)
 
-Proxysql is auto configured by the service with some defaults as in the configuration. To install EdgeLB using the following steps:
+Proxysql is auto configured by the service with some defaults as in the configuration. To install EdgeLB, follow these steps:
 
 ```shell
 dcos package repo add --index=0 edgelb-aws \
@@ -200,7 +202,7 @@ Then we need to note down the Public slave security group IP for the DC/OS clust
 ```shell
 mysql -u<application_user_name> -p<application_user_passwd> -h<public_slave_securitygrpIP> -P3306
 ```
-This will connect to the PXC cluster. Now start using the cluster by creating a db and tables into it.
+This will connect to the {{ model.techShortName }} cluster. Now start using the cluster by creating a database and adding tables into it.
 
 
 # How to see Metrices with Prometheus and Garafana with DC/OS

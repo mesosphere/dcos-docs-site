@@ -10,4 +10,4 @@ model: /services/pxc/data.yml
 render: mustache
 ---
 
-Welcome to the documentation for DC/OS {{ model.techName}}. Choose a version to get started!
+Welcome to the documentation for DC/OS Percona XtraDB Cluster 0.1.0-5.7.21. Choose a version to get started!
