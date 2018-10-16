@@ -7,11 +7,11 @@ excerpt: A primer to Multi-tenancy in DC/OS
 ---
 
 # Overview
-Resources in DC/OS can be reserved and prioritised using a combination of roles, reservations, quotas, and weights. These features are provided by Apache Mesos, at the core of DC/OS and are referred to as `Primitives`, as they are only accessible via API and have not yet been integrated into the DC/OS UI or CLI. An user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights. 
+Resources in DC/OS can be reserved and prioritised using a combination of roles, reservations, quotas, and weights. These features are provided by Apache Mesos, at the core of DC/OS and are referred to as `Primitives`, as they are only accessible via API and have not yet been integrated into the DC/OS UI or CLI. A user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights. 
 
 Resource management in this context refers to concepts such as reservations of resources on agents, resource quotas, and weights (priorities) for frameworks. These are useful for a number of scenarios, such as configuring multi-tenant environments, where multiple teams or projects co-exist on the same DC/OS cluster and the available resources (CPU, RAM, disk, and ports) must be carved up and guaranteed for each cluster with guaranteed quotas. Secondly, with mixed workloads on a single cluster where one class of frameworks may have a high weight (priority) than another, and should be able to deploy faster than a lower weight framework.
 
-This page covers the multi-tenancy primitives: key concepts, two examples to real-world scenarios, implementation instructions, and reference links. 
+This page covers the multi-tenancy primitives: key concepts, two examples of real-world scenarios, implementation instructions, and reference links. 
 
 
 <p class="message--note"><strong>NOTE: </strong>The primitives are planned for further development, introducing features such as oversubscription, revocable resources, and more crucially, integration into DC/OS itself to provide a user friendly interface.</p>
@@ -30,13 +30,13 @@ There are two default roles which frameworks will subscribe to:
 Frameworks from the catalog deploy with their own roles and unique roles can be created on demand. 
 
 ## Reservations
-Reservations refer to where the resources are reserved on targeted public and private agents for a specific role. Statically reserved resources are applied on agent (public/private) startup and cannot be amended for other roles without restarting the agent. Dynamically reserved resources enable operators and authorized frameworks to reserve and unreserve resources after agent startup and on demand. All SDK based frameworks, like Kafka and Cassandra (certified frameworks list in the DC/OS catalog) leverage dynamic reservations for reserving the resources they intend to use with a deployment.
+Reservations refer to where the resources are reserved on targeted public and private agents for a specific role. Statically reserved resources are applied on agent (public/private) startup and cannot be amended for other roles without restarting the agent. Dynamically reserved resources enable operators and authorized frameworks to reserve and unreserve resources after agent startup and on demand. All SDK based frameworks, like Kafka and Cassandra (certified frameworks listed in the DC/OS catalog) leverage dynamic reservations for reserving the resources they intend to use with a deployment.
 
 ## Quotas
-Quotas refer to a mechanism for guaranteeing that a role will receive a specific amount of resources. Today, quotas are a maximal rather than initial usage and they scale up as required. If a quota is defined and the task for the role is deployed then those resources will be reserved immediately, whether the task scales up to use them or not. Other tasks will not be able to make use of those resources even though they may be unused by the task they are provided for. Dynamic quotas where the task will only use what it needs at the time but is guaranteed to reach its quota, revocable resources and oversubscription are planned for a future release.
+Quotas refer to a mechanism for guaranteeing that a role will receive a specific amount of resources. Today, quotas are a maximal, if a quota is defined and the task for the role is deployed, then those resources will be reserved immediately, whether the task scales up to use them or not. Other tasks will not be able to make use of those resources even though they may be unused by the task they are provided for. Dynamic quotas, where the task will only use what it needs at the time but is guaranteed to reach its quota, revocable resources and oversubscription are planned for a future release.
 
 ## Weights
-Weights refer to a mechanism for prioritising one role over another, to allow all tasks assigned to that role to receive more offers (resources) over other roles with a lower weight. This provides faster deployment time and scaling or replacing tasks.
+Weights refer to a mechanism for prioritising one role over another, to allow all tasks assigned to that role to receive more offers (of resources) over other roles with a lower weight. This can provide faster deployment time, scaling and replacement of tasks.
 
 # Examples
 The concepts are described based on two real-world scenarios of existing customer use cases. 
@@ -46,12 +46,12 @@ This example is based on an existing customer’s use case of an analytics pipel
 
 In practise, the high role is allocated three times the fair share of offers (resources) than medium which will be provided twice the fair share of low. Alongside weights, the high priority Spark role is provided a quota of `x` CPU shares and `y` RAM. 
 
-As Spark jobs are deployed, the high priority Spark jobs are prioritised to receive their offers over the medium and low jobs, ensuring they are deployed in a shorter period of time. Given the medium and low priority roles do not have a quota applied, medium roles will be provided offers sooner than low, but there is no quota for medium, so if medium requires `z` cores and if they are not available, it will receive as many are available at that time.
+As Spark jobs are deployed, the high priority Spark jobs receive their offers over the medium and low roles. Given the medium and low priority roles do not have a quota applied, medium roles will be provided offers sooner than low, but there is no quota for medium, so if medium requires `z` cores and they are not available, it will receive as many are available at that time.
 
 ## Jenkins in Marathon on Marathon
 In this example, the customer runs Jenkins (CI/CD pipeline) as a service, with hundreds of instances, one instance for each development team that requires a service run.
 
-On the DC/OS cluster, there are other application-as-a-service deployed as Marathon tasks running containers. Each application, including Jenkins are grouped in their own instance of Marathon referred to as Marathon on Marathon (MoM) and in DC/OS documentation as non-native Marathon - where native Marathon is the default Marathon that ships with DC/OS. Conceptually, there is a native Marathon and non-native Marathon on Marathon that are dedicated for grouping other tasks.
+On the DC/OS cluster, there are other applications-as-a-service deployed as Marathon tasks. Each application, including Jenkins are grouped in their own instance of Marathon referred to as Marathon on Marathon (MoM) and in DC/OS documentation as non-native Marathon - where native Marathon is the default Marathon that ships with DC/OS. Conceptually, there is a native Marathon and non-native Marathon on Marathon that are dedicated for grouping other tasks.
 
 Each MoM hosts one of the groups of the application, and they have a role and quota attached. Each role and quota provides a method to guarantee that where one of them scales frequently, like Jenkins does as it spins up its agents on demand for a new build, that it can get the resources it requires. If Jenkins requires more resources, the quota can be amended on the fly to provide them. Another common use of MoMs is for grouping environments such as Development, Testing, and Staging on one DC/OS cluster with robust resource and access management. 
 
