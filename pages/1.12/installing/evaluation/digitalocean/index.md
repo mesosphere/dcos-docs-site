@@ -7,13 +7,12 @@ menuWeight: 15
 oss: true
 ---
 
+
+<p class="message--warning"><strong>DISCLAIMER: </strong>This is a <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">community driven project</a> and not officially supported by Mesosphere. This installation method is used for fast demos and proofs of concept. Installing DC/OS cluster on DigitalOcean using Terraform is intended for reference only and are not recommended for production use. Upgrades are not supported with the following installation methods.</p>
+
 You can create a DC/OS cluster on DigitalOcean using Terraform.
 
 The included Terraform templates are configured to run Mesosphere DC/OS on DigitalOcean. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support with droplet creation or other related issues, email <a href="mailto:support@digitalocean.com"></a>, visit the unofficial DigitalOcean IRC channel (#digitalocean on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/).
-
-<p class="message--warning"><strong>DISCLAIMER: </strong>Please note this is a <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">community driven project</a> and not officially supported by Mesosphere.</p>
-
-Upgrades are not supported with this installation method.
 
 ## Security
 
