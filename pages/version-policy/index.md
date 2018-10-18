@@ -5,6 +5,9 @@ title: Version Policy
 menuWeight: 5
 excerpt:
 ---
+
+This page was updated on October 19, 2018. 
+
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
 The purpose of this document is to provide guidance and education for Mesosphere customers, partners, users, and operators of Mesosphere DC/OS about the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined within this document apply to the version of DC/OS and its catalog packages that this document resides in.
@@ -58,17 +61,20 @@ The below matrix provides guidance as to which platform components and operating
     <tr>
         <td>CentOS 7.3</td>
         <td>                    </td>
+        <td>                    </td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13</p><p style="text-align: center;"> Docker Engine 1.12 </p><p style="text-align: center;">Docker Engine 1.11</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13</p><p style="text-align: center;">Docker Engine 1.12</p><p style="text-align: center;">Docker Engine 1.11</p> </td>
     </tr>
     <tr>
         <td>CentOS 7.4</td>
+        <td>                    </td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
     </tr>
     <tr>
        <td>CoreOS 1688.5.3</td>
+       <td>                    </td>
        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
        <td>                    </td>
        <td>                    </td>
@@ -97,11 +103,13 @@ The below matrix provides guidance as to which platform components and operating
     <tr>
         <td>CoreOS Stable 835.13.0</td>
         <td>                    </td>
+        <td>                    </td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p><p style="text-align: center;">Docker Engine 1.12 </p><p style="text-align: center;">Docker Engine 1.11 </p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p><p style="text-align: center;">Docker Engine 1.12</p><p style="text-align: center;">Docker Engine 1.11 </p>
     </tr>
     <tr>
       <td>CoreOS Stable 1235.12.0</td>
+      <td>                    </td>
       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13</p><p style="text-align: center;">Docker Engine 1.12 </p><p style="text-align: center;"> Docker Engine 1.11 </p></td>
       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p><p style="text-align: center;">Docker Engine 1.12 </p> <p style="text-align: center;">Docker Engine 1.11 </p>
@@ -109,17 +117,20 @@ The below matrix provides guidance as to which platform components and operating
     <tr>
         <td>RHEL 7.2</td>
         <td>                    </td>
+        <td>                    </td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13</p><p style="text-align: center;">Docker Engine 1.12</p><p style="text-align: center;">Docker Engine 1.11 </p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p> <p style="text-align: center;">Docker Engine 1.12 </p><p style="text-align: center;"> Docker Engine 1.11 </p>
     </tr>
     <tr>
         <td>RHEL 7.3</td>
         <td>                    </td>
+        <td>                    </td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p><p style="text-align: center;">Docker Engine 1.12 </p><p style="text-align: center;">Docker Engine 1.11 </p>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p><p style="text-align: center;">Docker Engine 1.12 </p><p style="text-align: center;">Docker Engine 1.11 </p></td>
     </tr>
     <tr>
         <td>RHEL 7.4</td>
+        <td>                    </td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
