@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Multi-tenancy Primitives
-title: Multi-tenancy Primitives
+navigationTitle:  Multi-Tenancy Primitives
+title: Multi-Tenancy Primitives
 menuWeight: 90
-excerpt: A primer to Multi-tenancy in DC/OS
+excerpt: A primer to Multi-Tenancy in DC/OS
 ---
 
 # Overview
@@ -11,13 +11,9 @@ Resources in DC/OS can be reserved and prioritised using a combination of roles,
 
 Resource management in this context refers to concepts such as reservations of resources on agents, resource quotas, and weights (priorities) for frameworks. These are useful for a number of scenarios, such as configuring multi-tenant environments, where multiple teams or projects co-exist on the same DC/OS cluster and the available resources (CPU, RAM, disk, and ports) must be carved up and guaranteed for each cluster with guaranteed quotas. Secondly, with mixed workloads on a single cluster where one class of frameworks may have a high weight (priority) than another, and should be able to deploy faster than a lower weight framework.
 
-This page covers the multi-tenancy primitives: key concepts, two examples of real-world scenarios, implementation instructions, and reference links. 
+This page covers the multi-tenancy primitives: Multi-Tenant quota management primitives, two examples to real-world scenarios, implementation instructions, and reference links. 
 
-
-<p class="message--note"><strong>NOTE: </strong>The primitives are planned for further development, introducing features such as oversubscription, revocable resources, and more crucially, integration into DC/OS itself to provide a user friendly interface.</p>
-
-
-# Key Concepts
+# Multi-Tenant Quota Management Primitives
 The key concepts of multi-tenancy primitives include the following:
 
 ## Roles
