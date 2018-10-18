@@ -135,7 +135,6 @@ The below matrix provides guidance as to which platform components and operating
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
         <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
     </tr>
-  
     <tr>
     <th><strong>Web Browser</strong></th>
     </tr>
@@ -511,7 +510,7 @@ B- This package combination is *beta*.
     	<td><p style="text-align: center;">⚫</p></td>
     	<td><p style="text-align: center;">⚫</p></td>
     	<td><p style="text-align: center;">◯</p></td>
-    </tr>   
+    </tr>
 </table>
 
 ### Footnotes
