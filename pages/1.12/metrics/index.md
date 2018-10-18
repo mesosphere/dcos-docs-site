@@ -27,6 +27,16 @@ Application metrics and custom metrics emitted by DC/OS applications are collect
 
 For more informaiton about the list of metrics that are automatically collected by DC/OS, read [Metrics Reference](/1.12/metrics/reference/) documentation.
 
+## Upgrading from 1.11
+DC/OS 1.12 includes an updated statsd server implementation for application metrics. This fixes an issue with the statsd server implementation in 1.11, which treated all application metrics as gauges, regardless of statsd type. Dashboards and alerts which rely on counters, histograms or sets will behave differently in 1.12 than in 1.11:
+
+- Gauges report the last received value. There is no change from 1.11 functionality. 
+- Counters report the sum of all received values. In 1.11, counters reported the last received value.
+- Histograms and timers report `_sum`, `_min` and `_max` metrics. In 1.11, histograms reported the last received value.
+- Sets report the sum of all unique values. In 1.11, sets reported the last received value. 
+
+Additionally, multi-packet metrics and sampling are now available. In 1.11, they were not implemented and resulted in missing metrics. 
+
 ## Troubleshooting
 Use the following troubleshooting guidelines to resolve errors:
 
