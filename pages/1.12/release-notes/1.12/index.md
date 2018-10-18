@@ -6,11 +6,11 @@ menuWeight: 5
 excerpt: Release notes for DC/OS 1.12.0
 ---
 
-DC/OS 1.12.0 was released on October 25, 2018.
+DC/OS 1.12.0 was released on October 26, 2018.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/testing/1.12.0/commit/a55cf6cd18bea6961e2cc3c957ac8d0ee47583d5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.12/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="light" href="https://downloads.mesosphere.io/dcos-enterprise/testing/1.12.0/commit/9d2ee649f1ddb90728757ea24d912189aaef9a52/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
+[button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 <p class=“message--warning”><strong>WARNING: </strong>Mesos endpoints with `.json` suffix (e.g., /mesos/state.json) are deprecated in DC/OS 1.12 and will be removed in DC/OS 1.13.</p>
 
@@ -26,7 +26,7 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 - Complies with standardized Enterprise LDAP integration pattern without a dedicated DC/OS integration LDAP user.
 
 ### CLI 
-- DCOS_OSS-1899 - Enabled Windows-based pkgpanda builds.
+- DCOS_OSS-1899 - Enable Windows-based pkgpanda builds.
 - DCOS_OSS-3491 - Replace the `dcos-diagnostics` check runner with `dcos-check-runner`. 
 
 [enterprise]
@@ -73,7 +73,9 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 [enterprise]
 ### Security
 [/enterprise]
-- DCOS_OSS-2283 - Add a DC/OS API endpoint to distinguish `open` and `enterprise` build variants.
+- DCOS-38953 - Support DC/OS on SELinux in enforcing-targeted mode on RHEL/CentOS.
+- DCOS_OSS-2283 - Add a DC/OS API endpoint to distinguish `open` and `enterprise` build variants. [enterprise type="inline" size="small" /]
+- DCOS_OSS-4129 - Change Admin Router access log format to facilitate debugging and performance analysis.
 
 ### UX Enhancements
 - Add master table and health information in the nodes page.
@@ -87,7 +89,6 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - DCOS_OSS-2256 - Remove the DC/OS web installer.
 - DCOS_OSS-3714 - Replace `dcos-metrics` with Telegraf.
 
-
 ## Improvements and Major Issues Fixed Since 1.12.0 Beta 1
 
 ### CLI 
@@ -99,10 +100,8 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 ### Installing 
 - DCOS_OSS-2389 - A cluster's IP detect script may be changed with a config upgrade.
 - DCOS_OSS-3549 - Fixed ftype=1 check for dcos-docker.
-- DCOS_OSS-3556 - Root Marathon support for post-installation configuration of flags and JVM settings has been improved
-- DCOS_OSS-3556 - Root Marathon support for post-installation configuration of flags and JVM settings has been improved. 
+- DCOS_OSS-3556 - Root Marathon support for post-installation configuration of flags and JVM settings is improved. 
 - DCOS_OSS-3804 - Fix logging of dcos-checks-poststart results to the journal. 
-- DCOS_OSS-3556 - Root Marathon heap size can be customized during installation.
 
 ### Mesos 
 - DCOS_OSS-2137 - Expose jemalloc memory profiler by default.
@@ -111,21 +110,33 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - DCOS_OSS-2368 - DC/OS Metrics: moved the prometheus producer from port 9273 to port 61091.
 
 ### Platform 
+- DCOS-40949 - Add CockroachDB enpoints data to diagnostics bundle. 
+- DCOS_OSS-3861 - Get timestamp on dmesg, timedatectl, distro version, systemd unit status and pods endpoint in diagnostics bundle. 
 - DCOS_OSS_3961 - Add mountinfo to diagnostics bundle.
 - DCOS_OSS-4040 - Allow dcos-diagnostics bundles location to be configured.
-- DCOS_OSS-3861 - Get timestamp on dmesg, timedatectl, distro version, systemd unit status and pods endpoint in diagnostics bundle. 
 
 ### Networking 
-- DCOS_OSS-1406 -  Added an API for checks at /system/checks/ on all cluster nodes. 
-- DCOS_OSS-1751 - DC/OS Net: Get rid of epmd 
+- DCOS_OSS-1406 - Add an API for checks at /system/checks/ on all cluster nodes. [enterprise type="inline" size="small" /]
+- DCOS_OSS-1751 - DC/OS Net: Disable `epmd`. 
 - DCOS_OSS-3655 - Upgrade OTP version.
-- DCOS_OSS-3697 - Fixed Docker isolation iptables rule reversal on reboot.
-- DCOS_OSS-3841 - Updated CNI plugins to v0.7.1.
+- DCOS_OSS-3697 - Fix Docker isolation iptables rule reversal on reboot.
+- DCOS_OSS-3841 - Update CNI plugins to v0.7.1.
 - DCOS_OSS-3929 - DC/OS Net: Logging improvements.
+
+### Platform
+- DCOS-21611 - Fail to update cluster's IP detect script and fault domain detect script during a configuration upgrade. [enterprise type="inline" size="small" /]
+- DCOS-40949 - Add CockroachDB enpoints data to diagnostics bundle. [enterprise type="inline" size="small" /]
+- DCOS_OSS-4040 - Allow dcos-diagnostics bundles location to be configured.
+- DCOS_OSS-4287 - Check system clock is synced before starting Exhibitor.
+
+### Security
+- COPS-2142 - LDAP - Fix for Lookup DN no longer works in 1.10.x. [enterprise type="inline" size="small" /]
+- DCOS-37684 - Add `iam-database-backup` and `iam-database-restore` script to simplify backup/restore of the IAM database. [enterprise type="inline" size="small" /]
+
 
 ## Notable Changes
 
-- Update DC/OS UI to master+v2.21.8 [change log](https://github.com/dcos/dcos-ui/releases/tag/master+v2.21.8).
+- Update DC/OS UI to 1.12+v2.25.1[change log](https://github.com/dcos/dcos-ui/releases/tag/1.12+v2.25.1).
 
 - DCOS_OSS-2338 - Update Metronome to 0.5.0.
 
