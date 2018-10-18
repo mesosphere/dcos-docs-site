@@ -1,0 +1,3 @@
+[submodule "submodules/terraform-aws-dcos"]
+	path = submodules/terraform-aws-dcos
+	url = https://github.com/dcos-terraform/terraform-aws-dcos.git
