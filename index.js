@@ -120,12 +120,12 @@ CB.use(timer('CB: Init'));
 CB.use(ignore(METALSMITH_SKIP_SECTIONS));
 CB.use(timer('CB: Ignore'));
 
-// CB.use(copy({
-//   pattern: '1.12/**',
-//   transform: file => file.replace(/^1\.12/, '1.12-beta'),
-//   move: true,
-// }));
-// CB.use(timer('CB: Copy'));
+CB.use(copy({
+  pattern: '**/README.md',
+  transform: file => file.replace(/README/, 'index'),
+  move: true,
+}));
+CB.use(timer('CB: Copy'));
 
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
