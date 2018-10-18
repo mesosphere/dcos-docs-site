@@ -21,30 +21,21 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
 
 ## Static Reservations
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>Warning:</strong> This procedure kills all running tasks on your node.</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>WARNING: </strong> This procedure kills all running tasks on your node.</p>
 
 1.  [SSH](/1.11/administering-clusters/sshcluster/) to your private agent node.
-
-   ```bash
-   dcos node ssh --master-proxy --mesos-id=<agent-id>
-   ```
-
+    ```bash
+    dcos node ssh --master-proxy --mesos-id=<agent-id>
+    ```
 1.  Navigate to `/var/lib/dcos` and create a file named `mesos-slave-common` with these contents, where `<myrole>` is the name of your role.
-
     ```bash
     MESOS_DEFAULT_ROLE='<myrole>'
     ```
 1.  Stop the private agent node:
-
     ```bash
     sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
     ```
-
-1.  Add the node back to your cluster.
+1.  Add the node back to your cluster. 
 
     1.  Reload the `systemd` configuration.
 
