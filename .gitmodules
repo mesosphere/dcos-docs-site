@@ -4,3 +4,6 @@
 [submodule "submodules/terraform-azurerm-dcos-master"]
 	path = submodules/terraform-azurerm-dcos-master
 	url = https://github.com/dcos-terraform/terraform-azurerm-dcos.git
+[submodule "submodules/terraform-gcp-dcos-master"]
+	path = submodules/terraform-gcp-dcos-master
+	url = https://github.com/dcos-terraform/terraform-gcp-dcos.git
