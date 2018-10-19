@@ -1,4 +1,6 @@
 {
-  "terraform-aws-dcos": "pages/1.12/installing/evaluation/AWS"
+  "terraform-aws-dcos-master": "pages/1.12/installing/evaluation/AWS",
+  "terraform-azurerm-dcos-master": "pages/1.12/installing/evaluation/Azure",
+  "terraform-gcp-dcos-master": "pages/1.12/installing/evaluation/GCP"
 }
 
