@@ -42,14 +42,14 @@ To import an external user:
 
 ## About importing LDAP groups
 
-You can import existing LDAP user groups into DC/OS. Importing LDAP groups is a one-time operation: DC/OS does not maintain any connection to the LDAP group after importing.
+You can import existing LDAP user groups into DC/OS. Starting in DC/OS Enterprise 1.12, imported LDAP groups are supported by LDAP sync. DC/OS periodically synchronizes the external LDAP directory, by default this is set to every 1800 seconds (30 mins). 
 
 **Requirement:** Group entries in the LDAP directory must list their members with the `member`, `uniquemember`, or `memberuid` attribute.
 
 Group size is limited to 100 users. To increase this limit, contact Mesosphere customer support. If the user name matches an existing user, it is not reimported. You can check the logs to determine if this has occurred.
 
 ## Configuring LDAP group import
-(CK--Possible place to put LDAP sync edit)
+
 1. Open the **Settings** -> **LDAP Directories** tab.
 
 2. Click **ADD DIRECTORY**.
