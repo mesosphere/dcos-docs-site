@@ -92,7 +92,6 @@ Options:
 
 ## dcos security cluster directory
 Manage LDAP related settings.
-(CK--Possible place to put LDAP sync edit)
 
 ```
 Usage: dcos security cluster directory get_config [OPTIONS]
