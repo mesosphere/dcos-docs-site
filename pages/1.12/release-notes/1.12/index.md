@@ -34,23 +34,37 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 [/enterprise]
 - Automatically synchronize [LDAP user account groups](https://docs.mesosphere.com/1.12/security/ent/users-groups/) without manual synchronization of [LDAP directory](https://docs.mesosphere.com/1.12/security/ent/ldap/) with accounts imported into DC/OS.
 
+### Expanded DC/OS Upgrade Paths 
+- Support specific skip [upgrade paths](https://docs.mesosphere.com/1.12/installing/production/upgrading/) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move).
+- Support specific skip upgrade paths between supported major to major versions of DC/OS (i.e upgrade from 1.10.7 => 1.11.4 in one move).
+
 ### Installing 
 - DCOS-38953 - DC/OS can now be installed with SELinux in enforcing mode with the targeted policy loaded.
 
 ### Improved Multi-Cluster UI
-- DC/OS CLI now supports [multiple clusters](https://docs.mesosphere.com/1.12/administering-clusters/multiple-clusters/) with different versions.
+- DC/OS CLI now supports [multiple clusters](https://docs.mesosphere.com/1.12/administering-clusters/multiple-clusters/) with different DC/OS versions (1.10 and higher).
 - DC/OS CLI now automatically downloads and install the enterprise-cli plugins. [enterprise type="inline" size="small" /]
 
+### Marathon Enhancements
+
+
+### Mesosphere Jupyter Service (MJS)
+- Deliver secure, cloud-native Jupyter Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
+- Secure connectivity to data lakes and data sets on S3 and (Kerberized) HDFS.
+- GPU-enabled Spark and distributed TensorFlow.
+- OpenID connect authentication and authorization with support for Windows Integrated Authentication (WIA) and Active Directory Federation Services (ADFS)
+
 ### Mesosphere Kubernetes Engine
-- High density [multi-Kubernetes](https://docs.mesosphere.com/services/beta-kubernetes/2.0.0-1.12.0-beta/) leveraging enhanced containerized bin packing. 
+- High density [Multi-Kubernetes](https://docs.mesosphere.com/services/beta-kubernetes/2.0.0-1.12.0-beta/) leveraging enhanced containerized bin packing. 
 
 ### Metrics
 Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability are:
 - Adopt industry standards, Free and Open Source Software (FOSS) metrics infrastructure.
-- Simplify a complicated codebase.
-- Enable additional output formats.
+- Use flexible and configurable metrics pipeline with multiple output formats.
+- Enhanced support for application metric types including histograms, counters, timers, and gauges.
+- Support for sample rates and multi-metrics packets. 
+- Mesos framework metrics are now [available](http://mesos.apache.org/documentation/latest/monitoring/#frameworks).
 - No longer require modifications when collecting metrics via Prometheus endpoint in 1.11.
-- Contact for DataDog plugin support.
 
 ### Networking 
 - DCOS_OSS-1566 - DC/OS Net: Use operator HTTP API.
@@ -65,7 +79,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - Enable [on-premise package distribution and management](https://docs.mesosphere.com/1.12/administering-clusters/package-registry/).
 - Enable air-gapped Virtual Private Cloud package management.
 - Simplify package artifact management.
-- Full support for NFS and S3 as storage backends for package storage.
+- Support for NFS and S3 as storage backends for package storage.
 - Package specific controls for adding/removing/updating packages within a cluster.
 - Package management CLI.
 - DCOS_OSS-2420 - Admin Router: Disable HTTP request buffering for `/service/` endpoint requests through the `DCOS_SERVICE_REQUEST_BUFFERING` Marathon label and disable upstream request URL rewriting for `/service/` endpoint requests through the `DCOS_SERVICE_REWRITE_REQUEST_URLS` Marathon label. 
@@ -77,6 +91,15 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - DCOS_OSS-2283 - Add a DC/OS API endpoint to distinguish `open` and `enterprise` build variants. [enterprise type="inline" size="small" /]
 - DCOS_OSS-4129 - Change Admin Router access log format to facilitate debugging and performance analysis.
 
+### SELinux Hardened OS Install Support
+- Support installing and operating a cluster on SELinux hardened OS with SE Linux in targeted-enforcing mode for all hardened non-DC/OS components.
+
+### Universal Cloud Installer (Beta)
+- Introducing an unified Terraform-based open source tool for provisioning, deploying, installing, upgrading, and decommissioning DC/OS on AWS, GCP, and Azure.
+- Intuitive, streamlined installation with a quick start process - spin up a DC/OS cluster with four easy steps in 10 minutes. 
+- Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
+- Restructure [Mesosphere installation documentation](https://docs.mesosphere.com/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
+
 ### UX Enhancements
 - Add master table and health information in the nodes page.
 - Include base tech version in the services page.
@@ -86,66 +109,127 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - Fix 100+ bugs and performance improvements.
 
 ## Breaking Changes
-- DCOS_OSS-2256 - Remove the DC/OS web installer.
+- DCOS_OSS-2256 - Remove the DC/OS web installer. 
 - DCOS_OSS-3714 - Replace `dcos-metrics` with Telegraf.
 
 ## Improvements and Major Issues Fixed Since 1.12.0 Beta 1
 
 ### CLI 
-- DCOS_OSS-2239 - Node and cluster checks are executed in parallel. 
+- DCOS_OSS-2239 - Execute node and cluster checks in parallel.
+- DCOS_OSS-3683 - Fix to add a second EBS drive to agents and public agents.
 
 ### Deploying Services 
 - DCOS_OSS-2195 - Release cosmos v0.6.0. 
 
+### GUI
+- COPS-2041 - DC/OS UI wipes labels with empty values.
+- COPS-2661/DCOS-21440 - Fix to recognize `VIP_0` label.
+- DCOS-20283 - Fix for network metrics failure on SOAK 111.
+- DCOS-21723 - Include allocated and scheduler resources.
+- DCOS_OSS-1551 - Show VIP fields in host mode to enable VIP.
+- DCOS_OSS-1553 - Add VIP input to virtual networks.
+- DCOS_OSS-1961 - DC/OS UI does not support lifecycle of pods.
+
 ### Installing 
-- DCOS_OSS-2389 - A cluster's IP detect script may be changed with a config upgrade.
+- DCOS_OSS-2389 - Upgrade fails to update the agents ip-detect script.
 - DCOS_OSS-3549 - Fixed ftype=1 check for dcos-docker.
 - DCOS_OSS-3556 - Root Marathon support for post-installation configuration of flags and JVM settings is improved. 
 - DCOS_OSS-3804 - Fix logging of dcos-checks-poststart results to the journal. 
 
+### Marathon
+- DCOS-18597 - Marathon Enterprise DCOS packaging needs revision. [enterprise type="inline" size="small" /]
+- DCOS-39883 - Add permissions to `dcos_diagnostics_master` to read marathon state. [enterprise type="inline" size="small" /]
+- DCOS-42827 - Marathon `--ssl_keystore_password` value no longer appears in `ps aux`. 
+- DCOS_OSS-4193 - Marathon bootstrap relies on zk-1.zk node to be available.
+- MARATHON-7390 - Add required pre-condition for Marathon startup and connect Marathon to Zookeeper.
+- MARATHON-7969 - Fix to populate default `portDefinitions` when creating a new application via PUT. 
+- MARATHON-8420 - Marathon framework ID generation is now very conservative. [enterprise type="inline" size="small" /]
+- MARATHON-8360 - Fix the failure to reject invalid group IDs by creating mid-level groups. 
+- MARATHON-8438 - Change default Mesos user with docker image default user.
+
 ### Mesos 
+- COPS-1880 - Allow agents to re-register post a host reboot.
+- COPS-1993 - Check for maintenance on agent causes fatal error.
+- COPS-3574 - Bump Mesos to nightly 1.5.x dd68c0b.
+- DCOS-24515 - Unresponsive Mesos containerizer.
+- DCOS-38225 - Unexpected error handling of Mesos-IAM interaction failures leads to task loss.
+- DCOS-39869 - Missing Mesos master log from Mesos UI.
+- DCOS-40410/DCOS-40750 - Bump Mesos to nightly master 6a98857. 
+- DCOS-41442 - Updated signature of `MesosContainerizer::create`.
+- DCOS-42098 - Admin Router instructs downstream components (e.g. the load balancer) to close the connection from Mesos streaming endpoint after serving the request. [enterprise type="inline" size="small" /]
 - DCOS_OSS-2137 - Expose jemalloc memory profiler by default.
+- DCOS_OSS-4152 - Fix incorrect attempts to delete check containers by metrics isolater module.
 
 ### Metrics
 - DCOS_OSS-2368 - DC/OS Metrics: moved the prometheus producer from port 9273 to port 61091.
 
-### Platform 
-- DCOS-40949 - Add CockroachDB enpoints data to diagnostics bundle. 
+### Networking 
+- COPS-3520 - Unable to build `dcos-cni` package.
+- COPS-3540/DCOS-39517 - Fix delay in overlay configuration.
+- COPS-3576/DCOS-37703 -  Fix erroneous values in service addresses stats and enable metrics forwarding.
+- DCOS-38600 - Deadlock when SSL sockets are simultaneously sending/receiving data and buffers are full. [enterprise type="inline" size="small" /]
+- DCOS-39165 - Fix failure to create VIP on overlay network.
+- DCOS_OSS-1406 - Add an API for checks at /system/checks/ on all cluster nodes. [enterprise type="inline" size="small" /]
+- DCOS_OSS-1751 - DC/OS Net: Disable `epmd`. 
+- DCOS_OSS-3539 - Fix running tasks to get .dcos fqdns.
+- DCOS_OSS-3655 - Upgrade OTP version.
+- DCOS_OSS-3697 - Fix connectivity issue between bridge and overlay networks.
+- DCOS_OSS-3707 - Fix network failure caused by updating to CoreOS v1800.7.
+- DCOS_OSS-3750 - Move data directories to `tmpfs` location and recycle allocated IP addresses upon agent reboot. 
+- DCOS_OSS-3841 - Update CNI plugins to v0.7.1.
+- DCOS_OSS-3929 - DC/OS Net: Logging improvements.
+- DCOS_OSS-4308 - Bump dcos-net.
+
+### Platform
+- DCOS-21611 - Fix failure to update cluster's IP detect script and fault domain detect script during a configuration upgrade. [enterprise type="inline" size="small" /]
+- DCOS-40373 - Prevent `dcos-history` leaking auth tokens in the header.
+- DCOS-40949 - Add CockroachDB enpoints data to diagnostics bundle. [enterprise type="inline" size="small" /]
+- DCOS-42419 - Add UCR Support for package registry by supporting v2 schema 1.
+- DCOS-43822 - Add an upgrade qualification table to show upgrading paths. 
+- DCOS_OSS-2317 - Add retries for pkgpanda when downloading packages.
+- DCOS_OSS-2422 - Fix to avoid failure of `test_history_service` on master.
 - DCOS_OSS-3861 - Get timestamp on dmesg, timedatectl, distro version, systemd unit status and pods endpoint in diagnostics bundle. 
 - DCOS_OSS_3961 - Add mountinfo to diagnostics bundle.
 - DCOS_OSS-4040 - Allow dcos-diagnostics bundles location to be configured.
-
-### Networking 
-- DCOS_OSS-1406 - Add an API for checks at /system/checks/ on all cluster nodes. [enterprise type="inline" size="small" /]
-- DCOS_OSS-1751 - DC/OS Net: Disable `epmd`. 
-- DCOS_OSS-3655 - Upgrade OTP version.
-- DCOS_OSS-3697 - Fix Docker isolation iptables rule reversal on reboot.
-- DCOS_OSS-3841 - Update CNI plugins to v0.7.1.
-- DCOS_OSS-3929 - DC/OS Net: Logging improvements.
-
-### Platform
-- DCOS-21611 - Fail to update cluster's IP detect script and fault domain detect script during a configuration upgrade. [enterprise type="inline" size="small" /]
-- DCOS-40949 - Add CockroachDB enpoints data to diagnostics bundle. [enterprise type="inline" size="small" /]
-- DCOS_OSS-4040 - Allow dcos-diagnostics bundles location to be configured.
 - DCOS_OSS-4287 - Check system clock is synced before starting Exhibitor.
 
+[enterprise]
 ### Security
-- COPS-2142 - LDAP - Fix for Lookup DN no longer works in 1.10.x. [enterprise type="inline" size="small" /]
-- DCOS-37684 - Add `iam-database-backup` and `iam-database-restore` script to simplify backup/restore of the IAM database. [enterprise type="inline" size="small" /]
+[/enterprise]
+- COPS-2142 - Fix for Lookup DN no longer works in 1.10.x. 
+- DCOS-20133 - Fix an issue where bootstrap was generating empty keys for task executor authentication. 
+- DCOS-21728 - Add `dcos-check` for cockroachdb `underreplicated ranges`.
+- DCOS-37684 - Add `iam-database-backup` and `iam-database-restore` script to simplify backup/restore of the IAM database. 
+- DCOS-40648 - Add `LDAP_GROUP_IMPORT_LIMIT_SECONDS` default value to DC/OS configuration. 
+- DCOS-42227 - DC/OS IAM: Consolidated LDAP group import in case when the user DN template and the entries in the directory use different capitalization of attribute names. 
 
+[enterprise]
+## Security Updates
+[/enterprise]
+- Bump `python3-saml` for CVE-2017-11427. 
+- DCOS-19073 - Prevent ZooKeeper configuration credentials from being leaked while accessing mesos /state or /flags endpoints, as well as in the journald logs.
+- DCOS-21947 - DC/OS IAM never logs LDAP server passwords or private keys, at any log level.
+- DCOS-21958 - Disable the 3DES bulk encryption algorithm for master Admin Router's TLS.
+- DCOS-22050 - TLS: Admin Router can be configured with both RSA and EC type certificates. 
+- DCOS-22326 - Disable the TLS 1.1 protocol for Master Admin Router's TLS.
+- DCOS-40246 - DC/OS Net: Support only TLS 1.2.
 
 ## Notable Changes
-
 - Update DC/OS UI to 1.12+v2.25.1[change log](https://github.com/dcos/dcos-ui/releases/tag/1.12+v2.25.1).
-
-- DCOS_OSS-2338 - Update Metronome to 0.5.0.
-
-- DCOS_OSS-2378 - Update OTP version to 20.3.2 
-
+- DCOS-19427 - CockroachDB: set cluster version to 1.1. [enterprise type="inline" size="small" /]
+- DCOS-19922 - Remove disable security mode. [enterprise type="inline" size="small" /]
+- DCOS-22308 - CockroachDB: use 1.1.8. [enterprise type="inline" size="small" /]
+- DCOS-37654 - Add `permissions_cache_ttl_seconds` configuration parameter. [enterprise type="inline" size="small" /]
+- DCOS-38663 - Enable DC/OS storage features by default. [enterprise type="inline" size="small" /]
+- DCOS_OSS-2338 - Update Metronome to 0.5.0. 
+- DCOS_OSS-2378 - Update OTP version to 20.3.2.
 - DCOS_OSS-3597 - Update REX-Ray version to [0.11.2](https://github.com/rexray/rexray/releases/tag/v0.11.2). 
 
 ## Known Issues and Limitations
+- [Requirements for Kubernetes Support on DC/OS 1.12](https://support.mesosphere.com/s/article/Critical-Issue-Kubernetes-Upgrade-MSPH-2018-0007).
+- [Red Hat Docker 1.13 Recommended for CentOS & RHEL Support on DC/OS](https://support.mesosphere.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006).
 
 
-**Note:** Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).
+<p class="message--note"><strong>NOTE: </strong>Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).</p>
+
 
