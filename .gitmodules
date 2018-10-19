@@ -1,5 +1,5 @@
 [submodule "submodules/terraform-aws-dcos"]
-	path = submodules/terraform-aws-dcos
+	path = submodules/terraform-aws-dcos-master
 	url = https://github.com/dcos-terraform/terraform-aws-dcos.git
 [submodule "submodules/terraform-azurerm-dcos-master"]
 	path = submodules/terraform-azurerm-dcos-master
