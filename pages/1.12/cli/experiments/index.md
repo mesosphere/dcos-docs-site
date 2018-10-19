@@ -3,14 +3,13 @@ layout: layout.pug
 navigationTitle:  Experiments
 title: Experiments
 menuWeight: 1
-excerpt: What experimental features are currently available and how to enable them
+excerpt: Enabling and using experimental CLI features
 
 enterprise: false
 ---
 
-Experimental features are features that are currently in development and
-potentially ready for use but that may not have been extensively tested and may
-still have bugs.
+The DC/OS CLI offers experimental features which are still in development and
+may still contain bugs.
 
 Experiments are activated by setting a certain environment variable.
 
@@ -22,9 +21,8 @@ ticket](https://jira.mesosphere.com/secure/CreateIssueDetails!init.jspa?pid=1410
 ).
 
 Make sure to set the component to `dcos-cli` and the team to `CLI Team`. In the
-description, please include the experiments you have enabled along with the
-output of the command that demonstrates the unexpected behavior with the `-vv`
-flag for debug output.
+description, please include the experiments you have enabled and debug output
+from the command using the `-vv` flag.
 
 # Currently Active Experiments #
 
@@ -32,12 +30,12 @@ flag for debug output.
 
 Usage: `export DCOS_CLI_EXPERIMENTAL_AUTOINSTALL_PLUGINS=1`
 
-When running `dcos cluster setup` this experiment enables automatic
+When running `dcos cluster setup`, this experiment enables automatic
 installation of the [Core and Enterprise CLI plugins](/1.12/cli/plugins) from
 Cosmos. There are Core CLI plugins available in Cosmos for DC/OS 1.10+.
 
 For this to be successful, the user will need to have the
-`dcos:adminrouter:package` permission in order to make calls to Cosmos. Also
+`dcos:adminrouter:package` permission in order to make calls to Cosmos. Also,
 the system needs access to the internet or a local universe.
 
 
