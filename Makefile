@@ -14,13 +14,6 @@ nginx-test: ## Test and run Nginx config
 	./scripts/nginx-test.sh
 
 #
-# Migration
-#
-
-migration:
-	./scripts/migration.sh
-
-#
 # Redirects
 #
 
