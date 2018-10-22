@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  CLI Plugins
 title: CLI Plugins
-menuWeight: 1
+menuWeight: 5
 excerpt: How to extend the command line interface
 
 enterprise: false

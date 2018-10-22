@@ -2,9 +2,9 @@
 layout: layout.pug
 navigationTitle:  Experiments
 title: Experiments
-menuWeight: 1
+menuWeight: 6
 excerpt: Enabling and using experimental CLI features
-
+experimental: true
 enterprise: false
 ---
 
