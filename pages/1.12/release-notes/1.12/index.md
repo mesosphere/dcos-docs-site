@@ -45,9 +45,6 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 - DC/OS CLI now supports [multiple clusters](https://docs.mesosphere.com/1.12/administering-clusters/multiple-clusters/) with different DC/OS versions (1.10 and higher).
 - DC/OS CLI now automatically downloads and install the enterprise-cli plugins. [enterprise type="inline" size="small" /]
 
-### Marathon Enhancements
-
-
 ### Mesosphere Jupyter Service (MJS)
 - Deliver secure, cloud-native Jupyter Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
 - Secure connectivity to data lakes and data sets on S3 and (Kerberized) HDFS.
@@ -111,6 +108,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 ## Breaking Changes
 - DCOS_OSS-2256 - Remove the DC/OS web installer. 
 - DCOS_OSS-3714 - Replace `dcos-metrics` with Telegraf.
+- DCOS_OSS-4243 - By default, Marathon declines offers for agents in [maintenance mode](https://github.com/mesosphere/marathon/blob/master/changelog.md#maintenance-mode-support-production-ready-now-default). Requests to Marathon's events API (/v2/events when queried directly) for standby instances is no longer proxy, but instead responds with a redirect. Clients consuming Marathon's events API should be updated to follow redirects. Component such as updated to versions that follow redirects; for example, Marathon-LB should be updated to at least version v1.12.3. [See more details](https://github.com/mesosphere/marathon/blob/master/changelog.md#non-leaderstandby-marathon-instances-respond-to-v2events-with-a-redirect-rather-than-proxy).
 
 ## Improvements and Major Issues Fixed Since 1.12.0 Beta 1
 
@@ -226,9 +224,48 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - DCOS_OSS-3597 - Update REX-Ray version to [0.11.2](https://github.com/rexray/rexray/releases/tag/v0.11.2). 
 
 ## Known Issues and Limitations
-- [Requirements for Kubernetes Support on DC/OS 1.12](https://support.mesosphere.com/s/article/Critical-Issue-Kubernetes-Upgrade-MSPH-2018-0007).
-- [Red Hat Docker 1.13 Recommended for CentOS & RHEL Support on DC/OS](https://support.mesosphere.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006).
 
+### Customer Advisory 
+- [Requirements for Kubernetes support on DC/OS 1.12](https://support.mesosphere.com/s/article/Critical-Issue-Kubernetes-Upgrade-MSPH-2018-0007).
+- [Red Hat Docker 1.13 recommended for CentOS & RHEL support on DC/OS](https://support.mesosphere.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006).
+
+### GUI
+- DCOS-39298 - Edit Jobs: Make ID field non-editable.
+
+### Marathon
+- DCOS-42236 - EE-Integration-Test/E2E test_replace_all_static: Admin Router returns an error on `/service/metronome`.          
+- MARATHON-8429 - Marathon app is not completely destroyed due to an agent or Docker issue. It is unable to scale the application until the agent/Docker issue is resolved.
+- MARATHON-8441 - Docker image tests fail on master.
+
+### Metrics
+- DCOS-43601 - Service accounts `dcos_telegraf_master` and `dcos_telegraf_agent` require dcos::superuser permissions.
+
+### Networking
+- DCOS_OSS-4328 - Lashup fails to converge in certain cases.
+
+### Platform
+- DCOS-43345/DCOS_OSS-3738 - Integration tests on DC/OS E2E - Perform log collection from CI runs.
+
+[enterprise]
+### Security
+[/enterprise]
+- DCOS-9929 - Lack of access to a secret should prevent a deployment.
+- DCOS-42160 - Large group import of users fails due to CockroachDB error.
+- DCOS-43432 - LDAP tests fail to sync after cluster is upgraded to 1.12-rc2.
+- DCOS-43585 - MWT - Intermittent gateway time-outs API request (PUT-ing ACLs).
+- DCOS-43598/DCOS-43596 - Mesos authorizer: Happy path post mortem auth token refresh exposes an error.
+
+### Mesos
+- DCOS-40878 - Event stream subscribers are added but not removed.
+- DCOS-41729 - Permanent failure to kill task on agent.
+- DCOS-42624 - Master Admin Router returns an error on `/service/jenkins`.
+- DCOS-43044 - `OperationStatus` messages sent to framework must include both agent ID and resource provider ID.
+- DCOS-43518 - Improve Mesos API to distinguish between health check states.
+- DCOS-43670 - UCR container launch stuck at provisioning during image fetching.
+
+### SDK
+- DCOS-41362 - Master fails to process unreserve operation for resources.
+- DCOS-42593 - Occurrence of `STORAGE_ERROR` during options update.
 
 <p class="message--note"><strong>NOTE: </strong>Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).</p>
 
