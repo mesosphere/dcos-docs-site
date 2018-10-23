@@ -12,6 +12,7 @@ This page was updated on October 19, 2018.
 
 The purpose of this document is to provide guidance and education for Mesosphere customers, partners, users, and operators of Mesosphere DC/OS about the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined within this document apply to the version of DC/OS and its catalog packages that this document resides in.
 
+
 ## DC/OS Version Lifecycle
 
 Mesosphere tests DC/OS Enterprise with specific components and operating systems as covered in the [DC/OS Version Compatibility Matrix](#version-compatibility-matrix). This testing is provided in the [DC/OS Platform Interoperability Matrix](#dcos-platform-version-compatibility-matrix). Support services for customers under a license and support agreement is defined within the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>.
@@ -38,10 +39,10 @@ Thus, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
 * **Minor Version**: Upon the availability of a new DC/OS Minor version 1.11.0, minor versions prior to and including 1.8.0 will no longer be supported as (N-2) includes 1.11 (N), 1.10 (N-1) and 1.9 (N-2).
 * **Maintenance Version**: Upon the availability of DC/OS Maintenance version 1.10.5, Maintenance versions prior to and including 1.10.0 will no longer be supported as (N-4) includes 1.10.5 (N), 1.10.4 (N-1), 1.10.3 (N-2), 1.10.2 (N-3) and 1.10.1 (N-4).<br>
 
+
 ## DC/OS Platform Version Compatibility Matrix
 
-The below matrix provides guidance as to which platform components and operating environments are tested to run DC/OS on. Customers that are running DC/OS on non-supported Platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
-
+The below matrix provides guidance to which platform components and operating environments are tested to run DC/OS on. Customers that are running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
 
 |Display Icon | Service |
@@ -56,84 +57,66 @@ The below matrix provides guidance as to which platform components and operating
     <th><strong>DC/OS 1.12</strong></th>
     <th><strong>DC/OS 1.11</strong></th>
     <th><strong>DC/OS 1.10</strong></th>
-    <th><strong>DC/OS 1.9</strong></th>
     </tr>
     <tr>
         <td>CentOS 7.3</td>
-        <td>                    </td>
-        <td>                    </td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13</p><p style="text-align: center;"> Docker Engine 1.12 </p><p style="text-align: center;">Docker Engine 1.11</p></td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13</p><p style="text-align: center;">Docker Engine 1.12</p><p style="text-align: center;">Docker Engine 1.11</p> </td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
     <tr>
         <td>CentOS 7.4</td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+    </tr>
+    <tr>
+        <td>CentOS 7.5</td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+    </tr>
+    <tr>
+        <td>CoreOS 1800.6.0</td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
+        <td>                    </td>  
+    </tr>
+    <tr>
+        <td>CoreOS 1800.7.0</td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
         <td>                    </td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p></td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p></td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
     </tr>
     <tr>
-       <td>CoreOS 1688.5.3</td>
-       <td>                    </td>
-       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
-       <td>                    </td>
-       <td>                    </td>
+        <td>CoreOS 1855.4.0</td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td>                    </td>
     </tr>
     <tr>
-       <td>CoreOS 1800.6.0</td>
-       <td>                    </td>
-       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
-       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
-       <td>                    </td>
-    </tr>
-    <tr>
-       <td>CoreOS 1800.7.0</td>
-       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
-       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.03.1</p></td>
-       <td>                    </td>
-       <td>                    </td>
-    </tr>
-    <tr>
-       <td>CoreOS 1855.4.0</td>
-       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.06.1</p></td>
-       <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 18.06.1</p></td>
-       <td>                    </td>
-       <td>                    </td>
-    </tr>
-    <tr>
-        <td>CoreOS Stable 835.13.0</td>
+        <td>CoreOS Stable 1235.12.0</td>
         <td>                    </td>
         <td>                    </td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p><p style="text-align: center;">Docker Engine 1.12 </p><p style="text-align: center;">Docker Engine 1.11 </p></td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p><p style="text-align: center;">Docker Engine 1.12</p><p style="text-align: center;">Docker Engine 1.11 </p>
-    </tr>
-    <tr>
-      <td>CoreOS Stable 1235.12.0</td>
-      <td>                    </td>
-      <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
-      <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13</p><p style="text-align: center;">Docker Engine 1.12 </p><p style="text-align: center;"> Docker Engine 1.11 </p></td>
-      <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p><p style="text-align: center;">Docker Engine 1.12 </p> <p style="text-align: center;">Docker Engine 1.11 </p>
-    </tr>
-    <tr>
-        <td>RHEL 7.2</td>
-        <td>                    </td>
-        <td>                    </td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13</p><p style="text-align: center;">Docker Engine 1.12</p><p style="text-align: center;">Docker Engine 1.11 </p></td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p> <p style="text-align: center;">Docker Engine 1.12 </p><p style="text-align: center;"> Docker Engine 1.11 </p>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p><p style="text-align: center;">Docker Engine 1.12 </p> <p style="text-align: center;">Docker Engine 1.11 </p>
     </tr>
     <tr>
         <td>RHEL 7.3</td>
-        <td>                    </td>
-        <td>                    </td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p><p style="text-align: center;">Docker Engine 1.12 </p><p style="text-align: center;">Docker Engine 1.11 </p>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker Engine 1.13 </p><p style="text-align: center;">Docker Engine 1.12 </p><p style="text-align: center;">Docker Engine 1.11 </p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
     <tr>
         <td>RHEL 7.4</td>
-        <td>                    </td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p><p style="text-align: center;">Docker EE 17.06.2</p><p style="text-align: center;">Docker CE 17.12.1</p></td>
-        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">Docker CE 17.05</p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+    </tr>
+        <tr>
+        <td>RHEL 7.5</td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">⚫</p><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
     <tr>
     <th><strong>Web Browser</strong></th>
@@ -173,9 +156,15 @@ The below matrix provides guidance as to which platform components and operating
     </tr>  
 </table>
 
-**Note:**
-- CoreOS 1688.5.3 requires DC/OS 1.11.3 or later releases.
-- CoreOS 1800.7.0 requires DC/OS 1.11.6 or later releases.
+<p class="message--note"><strong>NOTE: </strong>CoreOS 1800.7.0 requires DC/OS 1.11.6 or later releases.</p>
+
+
+## Customer Advisory
+A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13. This fork of Docker does not require an RHN subscription.
+
+<p class="message--note"><strong>NOTE: </strong>More specific details on the Docker bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a>.</p>
+
+
 
 ## Version Compatibility Matrix
 
