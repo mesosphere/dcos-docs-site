@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Upgrade
 title: Upgrade
 menuWeight: 30
-excerpt:
+excerpt: Upgrade options for DC/OS Kubernetes
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
@@ -13,22 +13,22 @@ excerpt:
 Currently, updating the package may trigger an update of a subset or all the components managed by this framework, depending on whether new versions of these components or related ones are part of the new release.
 
 Updating these components means the Kubernetes cluster may experience some downtime or, in the worst-case scenario, cease to function properly.
-And while we are committed to make the user experience as robust and smooth as possible, fact is there is no such thing as fail-proof software.
+And while we are committed to make the user experience as robust and smooth as possible, in fact is there is no such thing as fail-proof software.
 
-Before updating the package version, **proceed cautiously and always backup your data**.
+<p class="message--important"><strong>IMPORTANT: </strong>Before updating the package version, proceed cautiously and always back up your data.</p>
 
 In the future, we will be integrating the disaster-recovery functionality so you can easily revert to the previous functioning state.
 
 ## Updating package vs updating package options
 
 When a new package is available, you will have the option to update to the new version.
-If you haven't updated the package in a while, it may be that an update to the most recent package version is not allowed and you will be informed on how to proceed.
-Note that the DC/OS Open edition requires some additional [steps](#dcos-open-edition) to update the package version.
+If you have not updated the package in a while, it may be that an update to the most recent package version is not allowed and you will be informed on how to proceed.
+Note that the DC/OS requires some additional [steps](#dcos) to update the package version.
 
-However, you may simply want to update package options, for example, in order to change the resources allocated to one type of Kubernetes component.
-Do have in mind that package options updates may also mean the Kubernetes cluster may experience some downtime or, in the worst-case scenario, cease to function properly.
+However, you may only want to update package options, for example, in order to change the resources allocated to one type of Kubernetes component.
+Keep in mind that package options updates may also mean the Kubernetes cluster may experience some downtime or, in the worst-case scenario, cease to function properly.
 
-Before updating package options, **proceed cautiously and always backup your data**.
+<p class="message--important"><strong>IMPORTANT: </strong>Before updating package options, proceed cautiously and always back up your data.</p>
 
 # Updating the package version
 
@@ -57,7 +57,7 @@ Flags:
       --timeout=1200s    Maximum time to wait for the update process to complete
 ```
 
-**IMPORTANT:** Due to the number of variables such as the DC/OS cluster resources available, CPU and internet speed, etc the installer cannot automatically determine a proper `--timeout` value and is recommended to increase it when updating larger clusters.
+<p class="message--important"><strong>IMPORTANT: </strong>Due to the number of variables such as the DC/OS cluster resources available, CPU and internet speed, etc., the installer cannot automatically determine a proper <tt>--timeout</tt> value and is recommended to increase it when updating larger clusters.</p>
 
 ## DC/OS Enterprise Edition
 
@@ -67,9 +67,7 @@ Starting the package version update:
 $ dcos kubernetes cluster update  --cluster-name=CLUSTER-NAME --package-version=NEW-VERSION
 About to start an update from version CURRENT-VERSION to NEW-VERSION
 
-Updating these components means the Kubernetes cluster may experience some
-downtime or, in the worst-case scenario, cease to function properly.
-Before updating proceed cautiously and always backup your data.
+Updating these components means the Kubernetes cluster may experience some downtime or, in the worst-case scenario, cease to function properly. Before updating proceed cautiously and always back up your data.
 
 This operation is long-running and has to run to completion.
 Are you sure you want to continue? [yes/no] yes
@@ -79,23 +77,23 @@ Are you sure you want to continue? [yes/no] yes
 2018/03/01 15:41:56 update complete!
 ```
 
-## DC/OS Open Edition
+## DC/OS
 
-In contrast to the Enterprise edition, the package upgrade on Open requires some additional steps to achieve the same result.
+In contrast to the Enterprise edition, the package upgrade on the open source version of DC/OS requires some additional steps to achieve the same result.
 
-First, export the current package configuration into a JSON file called `config.json`:
+1. First, export the current package configuration into a JSON file called `config.json`:
 
 ```shell
 dcos kubernetes cluster describe --cluster-name=CLUSTER-NAME > config.json
 ```
 
-Remove the DC/OS Kubernetes scheduler by running:
+2. Remove the DC/OS Kubernetes scheduler by running:
 
 ```shell
 dcos marathon app remove /kubernetes-cluster
 ```
 
-And then install the new version of the package:
+3. And then install the new version of the package:
 
 ```shell
 dcos kubernetes cluster create --package-version=NEW-VERSION --options=config.json
@@ -103,11 +101,11 @@ dcos kubernetes cluster create --package-version=NEW-VERSION --options=config.js
 
 # Updating the package options
 
-This package exposes certain options that advanced users can use to adapt the Kubernetes cluster to their need.
+This package describes options that advanced users can use to adapt the Kubernetes cluster to their need.
 For instance, you may want to increase the `kube-apiserver` count or the resources available to `kube-proxy`.
 As an example, we will describe how to achieve the latter.
 
-Assuming you have installed the package with its default options, all that's required is creating `new_options.json` file with the following contents:
+1. Assuming you have installed the package with its default options, all that is required is creating a `new_options.json` file with the following contents:
 
 ```json
 {
@@ -118,13 +116,13 @@ Assuming you have installed the package with its default options, all that's req
 }
 ```
 
-And run:
+2. Run:
 
 ```shell
 dcos kubernetes cluster update --cluster-name=CLUSTER-NAME --options=new_options.json
 ```
 
-Below is the expected output:
+Here is the expected output:
 
 ```text
 The following differences were detected between service configurations (CHANGED, CURRENT):
@@ -140,7 +138,7 @@ The following differences were detected between service configurations (CHANGED,
 The components of the cluster will be updated according to the changes in the options file [new_options.json].
 
 Updating these components means the Kubernetes cluster may experience some downtime or, in the worst-case scenario, cease to function properly.  
-Before updating proceed cautiously and always backup your data.
+Before updating proceed cautiously and always back up your data.
 
 This operation is long-running and has to run to completion.
 Are you sure you want to continue? [yes/no] yes

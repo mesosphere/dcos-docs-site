@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Limitations
 title: Limitations
-menuWeight: 60
-excerpt:
+menuWeight: 105
+excerpt: Understanding the limitations of Kubernetes on DC/OS
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->

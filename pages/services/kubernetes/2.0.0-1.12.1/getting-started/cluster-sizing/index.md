@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Cluster Sizing
 title: Cluster Sizing
-menuWeight: 20
-excerpt:
+menuWeight: 10
+excerpt: Planning and sizing clusters for increased performance
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->

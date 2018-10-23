@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
-menuWeight: 120
-excerpt:
+menuWeight: 1
+excerpt: Release notes for DC/OS Kubernetes version 2.0.0-1.12.1
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
@@ -25,7 +25,7 @@ excerpt:
 ## Improvements
 
 * Kubernetes v1.12.1 and other components' [version changes](../supported-versions#supported-and-bundled-versions).
-* Enable high density deployments of multiple kubernetes clusters on DC/OS.
+* Enable high density deployments of multiple Kubernetes clusters on DC/OS.
 * Replace `kube-apiserver`, `kube-controller-manager` and `kube-scheduler` tasks with static pods in a new task `kube-control-plane`.
 * Replace `kube-proxy` and `coredns` tasks with static pods, and rename `coredns` to `local-dns-dispatcher`.
 * Replace cluster DNS `kube-dns` deployment with `coredns` and prevent co-location of these pods.
@@ -45,9 +45,9 @@ excerpt:
 
 ## Documentation
 
-* Add a [What's New?](../whats-new) page explaining in detail what changed since the 1.x series of releases.
-* Add an [Operations](../operations) page detailing the new Mesosphere Kubernetes Engine CLI.
-* Remove `Advanced Installation` page merging its content into `Install and Customize`.
+* Add an [Overview](../overview) page explaining in detail what changed since the 1.x series of releases.
+* Add a [CLI](../CLI) page detailing the new Mesosphere Kubernetes Engine CLI.
+* Merged `Advanced Installation` page merging its content into [Install and Customize](../install-and-customize).
 
 ## Known Issues
 

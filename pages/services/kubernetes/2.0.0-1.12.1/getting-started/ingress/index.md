@@ -3,29 +3,31 @@ layout: layout.pug
 navigationTitle: External Ingress
 title: External Ingress
 menuWeight: 90
-excerpt:
+excerpt: Creating an Ingress controller
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
 
 # Running an Ingress controller
 
-In order to expose HTTP/S (L7) apps to the outside world - at least outside the DC/OS cluster - you can rely on [Kubernetes `Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress) resources.
+An Ingress is a collection of rules that allow inbound connections to reach the cluster services.
+In order to expose HTTP/S (L7) apps to the outside world - at least outside the DC/OS cluster - one can rely on [Kubernetes `Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress) resources.
 However, simply creating the resource will have no effect. An Ingress controller is needed to satisfy an Ingress.
 
-This package does not install nor provide support for any specific Ingress controller, including [the ones listed below](#ingress-controllers). However, it does enable you to install any of your choosing.
+This package does not install or provide support for any specific Ingress controller, including [the ones listed below](#ingress-controllers). However, it does enable you to install any of your choosing.
 
-In future iterations of DC/OS Kubernetes, we will provide an Ingress controller that deeply integrates with DC/OS.
+In future iterations of DC/OS Kubernetes, we will provide an Ingress controller that integrates with DC/OS.
 
 ## Requirements
 
-- The DC/OS cluster needs at least one available public DC/OS agent where to run a public Kubernetes node.
+- The DC/OS cluster needs at least one available public DC/OS agent on which to run a public Kubernetes node.
 - The abovementioned DC/OS agent(s) must have no running workloads that reserve and/or bind to ports `80` or `443`.
-- The Kubernetes cluster needs at least one public Kubernetes node.
+- The Kubernetes cluster must have at least one public Kubernetes node.
 
-With respect to the second bullet item, it's worth noting that port reservations in DC/OS work on an honor-system basis. This means that there may be workloads running on a public DC/OS agent that actually _bind_ to ports `80` and/or `443` without actually _reserving_ them. The reverse is also true - for example, DC/OS Kubernetes will _reserve_ ports `80` and `443` on all public DC/OS agents where public Kubernetes nodes are deployed so that they can be used for ingress, but won't actually _bind_ to them.
+With respect to the second bullet item, it is worth noting that port reservations in DC/OS work on an honor-system basis. This means that there may be workloads running on a public DC/OS agent that actually **bind** to ports `80` and/or `443` without actually **reserving** them. The reverse is also true - for example, DC/OS Kubernetes will **reserve** ports `80` and `443` on all public DC/OS agents where public Kubernetes nodes are deployed so that they can be used for ingress, but won't actually **bind** to them.
 
-Based on one's availability needs, it is advised to have multiple public Kubernetes nodes. In order to specify the number of public Kubernetes nodes, set the value of the `kubernetes.public_node_count` option, accordingly:
+Based on your availability needs, it is advised to have multiple public Kubernetes nodes.
+In order to specify the number of public Kubernetes nodes, you must set the value of the `kubernetes.public_node_count` option, accordingly:
 
 ```json
 {
@@ -35,8 +37,7 @@ Based on one's availability needs, it is advised to have multiple public Kuberne
 }
 ```
 
-Make sure to set a value that is less than or equal to the number of public DC/OS agents available.
-Failing to set this number properly may result in an incomplete Kubernetes cluster install.
+<p class="message--important"><strong>IMPORTANT: </STRONG>Make sure to set a value that is less than or equal to the number of public DC/OS agents available. Failing to set this number properly may result in an incomplete Kubernetes cluster install. </p>
 
 <a id="ingress-controllers">
 
@@ -52,7 +53,7 @@ Below are listed a few open-source Ingress controllers:
 - [AWS ALB Ingress Controller](https://github.com/coreos/alb-ingress-controller)
 - [Google Cloud GLBC](https://github.com/kubernetes/ingress-gce)
 
-Again, this package does not install nor provides support for any specific Ingress controller.
+Again, this package does not install or provide support for any specific Ingress controller.
 
 It is your responsibility to follow the respective official documentation, and report any issues to the controller authors.
 
@@ -60,11 +61,9 @@ It is your responsibility to follow the respective official documentation, and r
 
 ### Installing the Ingress controller
 
-<p class="message--warning"><strong>WARNING: </strong>The following instructions are not guaranteed to work.
-</br>For more information, please read <a link=https://docs.traefik.io/user-guide/kubernetes/>the official documentation for Traefik Kubernetes integration</a>.
-</p>
+<p class="message--warning"><strong>WARNING: </strong>Mesosphere does not guarantee that these instructions will work for all configurations. For more information, please read <a href="https://docs.traefik.io/user-guide/kubernetes/">the official documentation for Traefik Kubernetes integration</a>.</p>
 
-Let's start by deploying the Traefik Ingress controller:
+We will start by deploying the Traefik Ingress controller:
 
 ```shell
 cat <<EOF | kubectl create -f -
@@ -176,10 +175,10 @@ traefik-ingress-controller-z8rdb                                              1/
 
 ### Accessing an Ingress resource
 
-Assuming the Kubernetes cluster only has one single public Kubernetes node on public DC/OS agent `pa`, with public IP `pa-ip`, the Ingress controller will be made accessible at `http://<pa-ip>`.
-There's no need to specify the port since `http://` scheme already translates to `TCP 80`, and `https://` scheme translates to `TCP 443`.
+Assuming the Kubernetes cluster only has one (1) single public Kubernetes node on public DC/OS agent `pa`, with public IP `pa-ip`, the Ingress controller will be made accessible at `http://<pa-ip>`.
+There's no need to specify the port since the `http://` scheme already translates to `TCP 80`, and the `https://` scheme translates to `TCP 443`.
 
-Let's now deploy an application and expose it through an Ingress.
+We will now deploy an application and expose it through an Ingress.
 
 In this example, we will be exposing a simple HTTP server that responds to `GET /` requests with an `Hello from Kubernetes!` message:
 
@@ -239,7 +238,8 @@ spec:
 EOF
 ```
 
-Notice the `kubernetes.io/ingress.class` annotation — an optional annotation used to specify the Ingress controller that will be responsible for satisfying the Ingress resource.
+Notice the `kubernetes.io/ingress.class` annotation — that is how you specify the Ingress controller that will be responsible for satisfying an Ingress.
+This annotation may be optional.
 
 Once you have created this resource, open a browser and navigate to:
 
