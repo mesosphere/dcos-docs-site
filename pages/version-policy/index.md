@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt:
 ---
 
-This page was updated on October 19, 2018. 
+This page was updated on October 23, 2018. 
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
