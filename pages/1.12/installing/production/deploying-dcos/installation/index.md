@@ -430,7 +430,7 @@ You are done! The UI dashboard will now be displayed.
 
 Figure 4. DC/OS UI dashboard
 
-<p class="message--note"><strong>NOTE: </strong>You can also use Terraform templates to deploy DC/OS on AWS, Azure, or GCP in production.</p>
+<p class="message--note"><strong>NOTE: </strong>You can also use <a href="https://docs.mesosphere.com/1.12/installing/evaluation/mesosphere-supported-methods/">Terraform templates</a> to deploy DC/OS on AWS, Azure, or GCP in production.</p>
 
 ### Next Steps: Enterprise and Open Source users
 
