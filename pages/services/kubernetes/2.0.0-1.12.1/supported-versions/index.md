@@ -2,17 +2,17 @@
 layout: layout.pug
 navigationTitle: Supported Versions
 title: Supported Versions
-menuWeight: 110
-excerpt:
+menuWeight: 130
+excerpt: Understanding DC/OS Kubernetes versions and policies
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
 
 # Supported and Bundled Versions
 
-DC/OS Kubernetes supports the following versions of DC/OS Open and DC/OS Enterprise:
+DC/OS Kubernetes supports the following versions of DC/OS and DC/OS Enterprise:
 
-- [DC/OS](https://dcos.io/) 1.12 or higher.
+- [DC/OS](https://dcos.io/) 1.12 or later.
 
 DC/OS Kubernetes bundles the following versions of the base technology:
 

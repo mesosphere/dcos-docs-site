@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: What's new in DC/OS Kubernetes 2.0.0-1.12.1
-title: What's new in DC/OS Kubernetes 2.0.0-1.12.1
+navigationTitle: Overview
+title: Overview
 menuWeight: 5
-excerpt:
+excerpt: What's new in DC/OS Kubernetes 2.0.0-1.12.1
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
@@ -13,7 +13,7 @@ When compared with previous versions, DC/OS Kubernetes 2.0.0-1.12.1 brings in a 
 # High-Density Multi-Kubernetes
 
 The most notable change in the new release is that it is now possible to install multiple Kubernetes clusters side-by-side on the same DC/OS cluster.
-It is also now possible to run multiple _private_ Kubernetes nodes on the same private DC/OS agent (regardless of whether they belong to the same or to different Kubernetes clusters).
+It is also now possible to run multiple **private** Kubernetes nodes on the same private DC/OS agent, regardless of whether they belong to the same or to different Kubernetes clusters.
 This change makes it possible, for example, to run multiple development clusters side-by-side on the same DC/OS cluster, reducing costs and management overhead.
 
 # Revamped CLI
@@ -50,17 +50,15 @@ The new CLI features a number of other useful commands, which can be listed by r
 $ dcos kubernetes --help
 ```
 
-See [operations](../operations) for documentation on the new CLI.
+See the [CLI](../cli) section for documentation on the new CLI.
 
 # Cluster Manager
 
 To make management of multiple Kubernetes clusters on the same DC/OS cluster a reality, a custom cluster manager was introduced.
 As a result of its introduction, the old `kubernetes` package has been re-purposed and split into two different packages:
 
-* The `kubernetes` package now represents the cluster manager.
-  Installing this package is _required_ to create Kubernetes clusters, and it can only be installed once.
-* The `kubernetes-cluster` package has been introduced in order to represent a single, atomic Kubernetes cluster.
-  It roughly corresponds to the `kubernetes` package available in DC/OS 1.11, and can now be installed multiple times.
+* The `kubernetes` package now represents the cluster manager. Installing this package is **required** to create Kubernetes clusters, and it can only be installed once.
+* The `kubernetes-cluster` package has been introduced in order to represent a single, atomic Kubernetes cluster. It roughly corresponds to the `kubernetes` package available in DC/OS 1.11, and can now be installed multiple times.
 
 # Control-Plane Nodes
 
@@ -71,5 +69,5 @@ Control-plane nodes are labeled with `node-role.kubernetes.io/master`, being tai
 # Networking
 
 In order to make it possible to run multiple private Kubernetes nodes on the same private DC/OS agent, some changes to networking were required.
-The etcd, control-plane nodes and private Kubernetes nodes leverage [DC/OS virtual networking](/1.12/networking/SDN/) and each have their own IP address in the DC/OS cluster.
- Kubernetes cluster pod networking and policy are now powered by [Calico](https://github.com/projectcalico/calico/).
+The `etcd`, control-plane nodes and private Kubernetes nodes leverage [DC/OS virtual networking](/1.12/networking/SDN/) and each have their own IP address in the DC/OS cluster.
+Kubernetes cluster pod networking and policy are now powered by [Calico](https://github.com/projectcalico/calico/).

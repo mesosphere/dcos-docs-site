@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Authentication and Authorization
 title: Authentication and Authorization
-menuWeight: 75
-excerpt:
+menuWeight: 10
+excerpt: Authentication and authorization modes for DC/OS Kubernetes
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
@@ -30,6 +30,8 @@ This is done when installing the package, either via the UI:
 
 ![alt text](/services/kubernetes/2.0.0-1.12.1/img/authorization-mode.png "Authorization Mode")
 
+Figure 1. Setting the authorization mode
+
 Or, alternatively, via the CLI, with custom options:
 
 ```json
@@ -42,28 +44,28 @@ Or, alternatively, via the CLI, with custom options:
 
 # Giving users access to the Kubernetes API
 
-This package does not provide integration with DC/OS authentication or authorization, meaning a DC/OS user will not be a valid Kubernetes user.  
-This means the following:
+This package does not provide integration with DC/OS authentication or authorization, meaning a DC/OS user will not be a valid Kubernetes user.  This means the following:
 
-* Kubernetes API _Users_ will be modelled as Kubernetes service-accounts.
+* Kubernetes API **Users** will be modelled as Kubernetes service-accounts.
 * The install procedure will create a user (`bootstrapper`) with superuser privileges (`cluster-admin` cluster role), that can be used later by the operator to add more users - and their respective permissions if `RBAC` authorization mode is enabled.
 
-<p class="message--warning"><strong>WARNING: </strong>We <strong>highly recommend</strong> the operator to create a service account for every user wanting access to the Kubernetes cluster (e.g. using <tt>kubectl create serviceaccount</tt>), and give this service account only the permissions needed by each user (e.g. using <tt>kubectl create [cluster]rolebinding</tt>).</br></br>
-We also <strong>highly recommend</strong> the operator to create new service account(s) for themselves and entirely remove the <tt>bootstrapper</tt> service account.
-</p>
+<p class="message--warning"><strong>WARNING: </strong>We <strong>highly recommend</strong> the operator to create a service account for every user wanting access to the Kubernetes cluster (for example, using <tt>kubectl create serviceaccount</tt>), and give this service account only the permissions needed by each user (for example, using <tt>kubectl create [cluster]rolebinding</tt>).</p>
+
+We also **highly recommend** that the operator create new service account(s) for themselves and entirely remove the `bootstrapper` service account.
+
 
 ## Creating Kubernetes service accounts, roles and role bindings
 
-**Note**: fine-grained authorization control with service accounts will only work when RBAC authorization mode is selected.
+<p class="message--note"><strong>NOTE: </strong> Fine-grained authorization control with service accounts will only work when RBAC authorization mode is selected.</p>
 
 Once [kubectl is setup for the bootstrap user](../connecting-clients) you may wish to grant other users access to specific resources running in the cluster.
 Below are examples on how to create service accounts and grant those accounts different permissions in the cluster.
 
 ### Pre-defined roles
 
-A few roles are [automatically created](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) when a Kubernetes cluster is installed, these include `cluster-admin`, `admin`, `edit` and `view`.
+A few roles are [automatically created](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) when a Kubernetes cluster is installed; these include `cluster-admin`, `admin`, `edit` and `view`.
 
-Below is an example of creating a user with `view` permissions on the `my-namespace` namespace (but can be adapted with any other user or role):
+Below is an example of creating a user with `view` permissions on the `my-namespace` namespace; this method can be adapted to any other user or role:
 
 ```shell
 kubectl create serviceaccount my-sa
@@ -76,15 +78,15 @@ kubectl create rolebinding my-sa-view \
 ### Custom roles
 
 In addition to the pre-defined roles, you may want to grant users customized permissions.
-As an example lets create a user `my-pod-sa` that can only view **pods** in the `my-namespace` namespace.
+As an example we shall create a user, `my-pod-sa`, that can only view **pods** in the `my-namespace` namespace.
 
-First create a service account:
+1. First create a service account:
 
 ```shell
 kubectl create serviceaccount my-pod-sa -n my-namespace
 ```
 
-Then create a `Role` definition called `pod-reader`:
+2. Then create a `Role` definition called `pod-reader`:
 
 ```shell
 cat <<EOF | kubectl create -f -
@@ -100,7 +102,7 @@ rules:
 EOF
 ```
 
-Finally bind the service account `my-pod-sa` to the new `pod-reader` role:
+3. Finally, bind the service account `my-pod-sa` to the new `pod-reader` role:
 
 ```shell
 kubectl create rolebinding my-pod-sa-view \

@@ -3,31 +3,31 @@ layout: layout.pug
 navigationTitle: Exposing the Kubernetes API
 title: Exposing the Kubernetes API
 menuWeight: 70
-excerpt:
+excerpt: Setting up HAProxy to expose the Kubernetes API
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
 
 # Using HAProxy
 
-DC/OS Kubernetes doesn't automatically expose the Kubernetes API for a given Kubernetes cluster outside of the DC/OS cluster.
-Hence, in order to access the Kubernetes API for one or more Kubernetes clusters from outside the DC/OS cluster, you can setup a proxy that can reach the DC/OS VIP(s) exposing the Kubernetes API instance(s) inside the DC/OS cluster.
+DC/OS Kubernetes does not automatically expose the Kubernetes API for a given Kubernetes cluster outside of the DC/OS cluster.
+Hence, in order to access the Kubernetes API for one or more Kubernetes clusters from outside the DC/OS cluster, you can set up a proxy that can reach the DC/OS VIP(s) exposing the Kubernetes API instance(s) inside the DC/OS cluster.
 This VIP is `apiserver.<SERVICE_NAME>.l4lb.thisdcos.directory:6443`, where `<SERVICE_NAME>` is the service name you have provided when creating the Kubernetes cluster. By default the `<SERVICE_NAME>` is `kubernetes-cluster`, so, by default, the VIP is `apiserver.kubernetes-cluster.l4lb.thisdcos.directory:6443`.
 
-<p class="message--warning"><strong>WARNING: </strong>If the Kubernetes cluster is installed under a group (e.g. <tt>dev/kubernetes01</tt>) then you must remove any slashes from <tt>&lt;SERVICE_NAME&gt;</tt> (e.g. <tt>apiserver.devkubernetes01.l4lb.thisdcos.directory:6443</tt>).
+<p class="message--warning"><strong>WARNING: </strong>If the Kubernetes cluster is installed under a group (for example,  <tt>dev/kubernetes01</tt>) then you must remove any slashes from <tt>&lt;SERVICE_NAME&gt;</tt> (for example, <tt>apiserver.devkubernetes01.l4lb.thisdcos.directory:6443</tt>).
 </p>
 
 In the next sections we present two examples you can follow in order to expose the Kubernetes API for a given Kubernetes cluster to outside the DC/OS cluster.
-The first example provides a way for quickly trying out DC/OS Kubernetes without being concerned about establishing trust.
-This example also only covers exposing a single Kubernetes API.
-The second example is an extension of the first that builds a fully-secured setup exposing multiple instances of the Kubernetes API for multiple Kubernetes clusters.
+- [The first example](#example-1) provides a way for quickly trying out DC/OS Kubernetes without being concerned about establishing trust. This example also only covers exposing a single Kubernetes API.
+- [The second example](#example-2) is an extension of the first that builds a fully-secured setup exposing multiple instances of the Kubernetes API for multiple Kubernetes clusters.
 
 Alternately, if you are running Marathon-LB and/or Edge-LB in your DC/OS cluster, you may wish to expose the Kubernetes API for a given Kubernetes cluster via one of those. Details on how to do this are documented [here](../exposing-the-kubernetes-api-marathonlb-edgelb).
 
-In order for you to follow the examples successfully, your DC/OS cluster **MUST** have at least one [public agent](/1.12/overview/architecture/node-types/#public-agent-nodes) (i.e. an agent that is on a network that allows ingress from outside the cluster).
-In the examples, `<ip-of-public-agent>` is the IP address you use to reach said public DC/OS agent. You  **MUST** also have SSH access to this DC/OS public agent. Having followed these examples, you will end up with a setup similar to the following:
+In order for you to follow the examples successfully, your DC/OS cluster **MUST** have at least one [public agent](/1.12/overview/architecture/node-types/#public-agent-nodes) (that is, an agent that is on a network that allows ingress from outside the cluster). In the examples, `<ip-of-public-agent>` is the IP address you use to reach said public DC/OS agent. You  **MUST** also have SSH access to this DC/OS public agent. Having followed these examples, you will end up with a setup similar to the following:
 
 ![Exposing the Kubernetes API using HAProxy](/services/kubernetes/2.0.0-1.12.1/img/haproxy.png "Exposing the Kubernetes API using HAProxy")
+
+Figure 1. Exposing the Kubernetes API using HAProxy
 
 <a name="example-1"></a>
 
@@ -112,18 +112,17 @@ haproxy.pem     100%    2985    16.9KB/s    00:00
 haproxy.conf    100%    1041     5.9KB/s    00:00
 ```
 
-For example, if your SSH user is `core`, the IP of your public agent is `35.233.213.97` and you want to install certificates in `/opt/haproxy`, you should run:
+For example, if your SSH user is `core`, the IP of your public agent is `35.233.213.97`, and you want to install certificates in `/opt/haproxy`, you should run:
 
 ```shell
 $ ssh core@35.233.213.97 mkdir /opt/haproxy
 $ scp haproxy.pem haproxy.conf core@35.233.213.97:/opt/haproxy
 ```
 
-<p class="message--warning"><strong>WARNING: </strong>In the instructions above it is assumed that <tt>&lt;user&gt;</tt> has permissions to create the <tt>&lt;path-to-haproxy-config-directory&gt;</tt>. If this is not the case in your setup, you will probably need to ask your systems administrator to perform this step and setup adequate permissions on said directory.
+<p class="message--note"><strong>NOTE: </strong>In the instructions above it is assumed that <tt>&lt;user&gt;</tt> has permissions to create the <tt>&lt;path-to-haproxy-config-directory&gt;</tt>. If this is not the case in your setup, you will probably need to ask your systems administrator to perform this step and set up adequate permissions on said directory.
 </p>
 
-<p class="message--warning"><strong>WARNING: </strong>If your cluster has multiple public DC/OS agents you will have to repeat these steps for every public DC/OS agent. Alternatively, you must set an appropriate placement constraint in the Marathon application that you will create in the next step so that HAProxy only runs on this same public DC/OS agent. Failure to do this will cause the HAProxy deployment to enter a crash loop.
-</p>
+<p class="message--note"><strong>NOTE: </strong>If your cluster has multiple public DC/OS agents you will have to repeat these steps for every public DC/OS agent. Alternatively, you must set an appropriate placement constraint in the Marathon application that you will create in the next step so that HAProxy only runs on this same public DC/OS agent. Failure to do this will cause the HAProxy deployment to enter a crash loop.</p>
 
 ### Step 4: Running HAProxy
 
@@ -213,6 +212,8 @@ $ curl -k https://<ip-of-public-agent>:6443
 
 To configure `kubectl` to access the Kubernetes API using this setup, follow the steps described in the ["Without TLS verification"](../connecting-clients#without-tls-verification) subsection of the [Connecting Clients](../connecting-clients) page.
 
+<a name="example-2"></a>
+
 ## Example 2: Using HAProxy and establishing trust
 
 The solution presented in [Example 1](#example-1) has a few shortcomings:
@@ -220,8 +221,8 @@ The solution presented in [Example 1](#example-1) has a few shortcomings:
 * The certificate presented by the Kubernetes API to HAProxy is not validated.
 * The certificate presented by HAProxy to the user is too broad (and also not validated).
 * The target Kubernetes API will be accessed at the DC/OS public agent's IP address.
-* HAProxy will route _all_ incoming traffic to the target Kubernetes API VIP.
-* It doesn't support exposing multiple Kubernetes APIs for multiple Kubernetes clusters.
+* HAProxy will route **all** incoming traffic to the target Kubernetes API VIP.
+* It does not support exposing multiple Kubernetes APIs for multiple Kubernetes clusters.
 
 In a production scenario, the above points should be addressed, both in order to increase the overall security of the solution and to be able to expose the Kubernetes API for multiple Kubernetes clusters using the same HAProxy instance.
 
@@ -236,15 +237,14 @@ This is done by letting HAProxy know that the certificate authority that signs e
 dcos task exec <SERVICE_NAME_1>.kube-control-plane-0-instance cat ca-crt.pem > <SERVICE_NAME_1>-ca.pem
 ```
 
-It should be noted that if `<SERVICE_NAME_1>` contains slashes, these slashes should be replaced by a dot (`.`) in the command above.
-For example, if one of your Kubernetes clusters is called `dev/kubernetes01`, you must run:
+It should be noted that if `<SERVICE_NAME_1>` contains slashes, these slashes should be replaced by a dot (`.`) in the command above. For example, if one of your Kubernetes clusters is called `dev/kubernetes01`, you must run:
 
 ```shell
 dcos task exec dev.kubernetes01__kube-control-plane-0-instance cat ca-crt.pem > dev.kubernetes01-ca.pem
 ```
 
 Running this command will create a `<SERVICE_NAME_1>-ca.pem` file in the current directory which must be copied to the `<path-to-haproxy-config-directory>` directory in the DC/OS public agent.
-In DC/OS Open, these instructions must be repeated for `<SERVICE_NAME_2>`. In DC/OS Enterprise it is enough to run this step once, and `<SERVICE_NAME_1>-ca.pem` can be renamed to something more generic (e.g. `dcos-ca.pem`).
+In DC/OS, these instructions must be repeated for `<SERVICE_NAME_2>`. In DC/OS Enterprise it is enough to run this step once, and `<SERVICE_NAME_1>-ca.pem` can be renamed to something more generic (e.g. `dcos-ca.pem`).
 
 The HAProxy configuration must also be updated accordingly:
 
@@ -266,13 +266,14 @@ This configuration requires further updates. Hence, it is not necessary to copy 
 In [Example 1](#example-1) a self-signed, wildcard certificate was used.
 In a production scenario, a valid certificate signed by a well-known, trusted certificate authority should be used instead.
 Each instance of the Kubernetes API should also be accessed using a stable domain name such as `devkubernetes01.example.com` rather than an IP address.
-Requirements:
+
+**Requirements:**
 
 * A certificate (and matching private key) valid for each of the domains used to expose the Kubernetes API (for example, `devkubernetes01.example.com` and `devkubernetes02.example.com`).
 * The CA certificate(s) of above certificate (in case these are not already trusted by the operating system);
 * DNS is configured in such a way that each of the abovementioned domains resolve to the IP address(es) of the public DC/OS agent(s) where HAProxy will be running (for example, `devkubernetes01.example.com` and `devkubernetes02.example.com` both resolve to `35.233.213.97s`).
 
-How these three items are addressed is highly dependent on your setup, and as such, for the remaining of this example it is assumed that these items have been addressed.
+How these three items are addressed is highly dependent on your setup, and as such, for the remaining of this example it is assumed that these requirements have been met.
 
 Replace the `haproxy.pem` file created in [Example 1](#example-1) with new files, each containing:
 
@@ -307,7 +308,7 @@ frontend frontend_all
 ```
 
 Notice how `backend_devkubernetes01` and `backend_devkubernetes02` match the the names of the backends defined in the first step.
-Additional forwarding rules can be setup for other domains as required, regardless of whether they correspond to other instances of the Kubernetes API or to completely different services.
+Additional forwarding rules can be set up for other domains as required, regardless of whether they correspond to other instances of the Kubernetes API or to completely different services.
 For further information, refer to the [HAProxy documentation](https://cbonte.github.io/haproxy-dconv/1.8/configuration.html).
 
 ### Step 4: Configuring `kubectl`
