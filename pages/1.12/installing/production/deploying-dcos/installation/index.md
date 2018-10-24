@@ -7,7 +7,7 @@ excerpt: Installing production-ready DC/OS
 ---
 
 
-This page describes how to install a production-ready deployment of DC/OS that can be upgraded. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
+This page outlines how to install DC/OS for production. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
 
 The DC/OS installation process requires a bootstrap node, master node, public agent node, and a private agent node. You can view the [nodes](/1.12/overview/concepts/#node) documentation for more information.
 
@@ -430,7 +430,7 @@ You are done! The UI dashboard will now be displayed.
 
 Figure 4. DC/OS UI dashboard
 
-<p class="message--note"><strong>NOTE: </strong>You can also use <a href="https://docs.mesosphere.com/1.12/installing/evaluation/mesosphere-supported-methods/">Terraform templates</a> to deploy DC/OS on AWS, Azure, or GCP in production.</p>
+<p class="message--note"><strong>NOTE: </strong>You can also use <a href="https://docs.mesosphere.com/1.12/installing/evaluation/mesosphere-supported-methods/">Universal Installer</a> to deploy DC/OS on AWS, Azure, or GCP in production.</p>
 
 ### Next Steps: Enterprise and Open Source users
 
