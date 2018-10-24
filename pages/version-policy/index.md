@@ -60,21 +60,21 @@ The below matrix provides guidance to which platform components and operating en
     </tr>
     <tr>
         <td>CentOS 7.3</td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
     <tr>
         <td>CentOS 7.4</td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
     <tr>
         <td>CentOS 7.5</td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
     <tr>
         <td>CoreOS 1800.6.0</td>
@@ -102,21 +102,21 @@ The below matrix provides guidance to which platform components and operating en
     </tr>
     <tr>
         <td>RHEL 7.3</td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
     <tr>
         <td>RHEL 7.4</td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
         <tr>
         <td>RHEL 7.5</td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
-        <td><p style="text-align: center;"><sup>*</sup>RH Fork of Docker CE 1.13.1</p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
     <tr>
     <th><strong>Web Browser</strong></th>
@@ -160,7 +160,8 @@ The below matrix provides guidance to which platform components and operating en
 
 
 ## Customer Advisory for CentOS/RHEL 7.X
-A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13. This fork of Docker does not require an RHN subscription.
+<p class="message--important"><strong>IMPORTANT: </strong>A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13. This fork of Docker does not require an RHN subscription.</p>
+
 
 <p class="message--note"><strong>NOTE: </strong>More specific details on the Docker bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a>.</p>
 
