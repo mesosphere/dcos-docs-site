@@ -47,7 +47,7 @@ Figure 2. Select Install CLI
 
 1. Copy and paste the code snippets appropriate to your OS into your terminal.
 
-![CLI copy/paste](/1.12/img/install-cli-terminal.png)
+![CLI copy/paste](/1.12/img/CLI-Installation-GUI_Popup_Linux.png)
 
 Figure 3. Code snippet window
 
