@@ -10,8 +10,6 @@ enterprise: false
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-
-
 # Requirements and Recommendations
 
 Before installing Docker on CentOS, review the general [requirements and recommendations for running Docker on DC/OS][1] and the following CentOS-specific recommendations:
@@ -29,6 +27,11 @@ Before installing Docker on CentOS, review the general [requirements and recomme
   ```bash
   mkfs -t xfs -n ftype=1 /dev/sdc1
   ```
+
+## Customer Advisory
+A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13. This fork of Docker does not require an RHN subscription.
+
+<p class="message--note"><strong>NOTE: </strong>More specific details on the Docker bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a>.</p>
 
 # Installation Procedure
 

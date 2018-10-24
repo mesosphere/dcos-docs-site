@@ -22,7 +22,7 @@ To configure Spark for a specific HDFS cluster, configure `hdfs.config-url` to b
 
 where `http://mydomain.com/hdfs-config/hdfs-site.xml` and `http://mydomain.com/hdfs-config/core-site.xml` are valid URLs.[Learn more][8].
 
-For DC/OS HDFS, these configuration files are served at `http://<hdfs.framework-name>.marathon.mesos:<port>/v1/connection`, where `<hdfs.framework-name>` is a configuration variable set in the HDFS package, and `<port>` is the port of its marathon app.
+For DC/OS HDFS, these configuration files are served at `http://api.<hdfs>.marathon.l4lb.thisdcos.directory/v1/endpoints` where `<hdfs>` is the name of the HDFS package configured at installation.
 
 # HDFS Kerberos
 

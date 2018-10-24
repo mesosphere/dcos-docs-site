@@ -19,7 +19,6 @@ These metrics are automatically collected by DC/OS.
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
-| cpu.cores         |    Percentage of cores used.     |
 | cpu.idle         |     Percentage of CPUs idle.         |
 | cpu.system         |    Percentage of system used.   |
 | cpu.total         |   Percentage of CPUs used.  |
@@ -36,7 +35,7 @@ These metrics are automatically collected by DC/OS.
 | swap.free         |  Amount of free swap space.   |
 | swap.total         |  Total swap space.    |
 | swap.used         |    Amount of swap space used.    |
-| system.uptime          |   The system reliability and load average.    |
+| system.uptime          |   The system uptime.    |
 
 ### Filesystem metrics
 
@@ -55,11 +54,11 @@ These metrics are automatically collected by DC/OS.
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
-| network.in.bytes    | Number of bytes downloaded. |
+| network.in    | Number of bytes downloaded. |
 | network.in.dropped    | Number of downloaded bytes dropped. |
 | network.in.errors    | Number of downloaded bytes in error. |
 | network.in.packets    | Number of packets downloaded. |
-| network.out.bytes    | Number of bytes uploaded. |
+| network.out    | Number of bytes uploaded. |
 | network.out.dropped    | Number of uploaded bytes dropped. |
 | network.out.errors    | Number of uploaded bytes in error.  |
 | network.out.packets    | Number of packets uploaded. |
@@ -75,23 +74,23 @@ The following per-container resource utilization metrics are collected.
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | cpus.limit    | The number of CPU shares allocated. |
-| cpus.system.time    | Total CPU time spent in kernel mode in seconds. |
-| cpus.throttled.time    | Total time, in seconds, that CPU was throttled. |
-| cpus.user.time    | Total CPU time spent in user mode. |
+| cpus.system_time_secs    | Total CPU time spent in kernel mode in seconds. |
+| cpus.throttled_time_secs    | Total time, in seconds, that CPU was throttled. |
+| cpus.user_time_secs    | Total CPU time spent in user mode. |
 
 ### Disk metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
-| disk.limit    | Hard capacity limit for disk in bytes. |
-| disk.used    | Hard capacity used in bytes.  |
+| disk.limit_bytes    | Hard capacity limit for disk in bytes. |
+| disk.used_bytes    | Hard capacity used in bytes.  |
 
 ### Memory metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
-| mem.limit    | Hard memory limit for a container. |
-| mem.total    | Total memory of a process in RAM (as opposed to in swap). |   
+| mem.limit_bytes    | Hard memory limit for a container. |
+| mem.total_bytes    | Total memory of a process in RAM (as opposed to in swap). |   
 
 ### Network metrics
 
@@ -116,17 +115,11 @@ Dimensions are metadata about the metrics. The following table lists the availab
 | mesos_id   | The Mesos ID of the node.  | node, container |
 | cluster_id   |  The ID of the Mesos cluster. | node, container |
 | container_id  | The ID of the container.  | metric, container |
-| executor_id  |  The ID of the task executor. | metric, container |
 | executor_name   |  The name of the task executor. | metric |
-| framework_id   |  The ID of the framework. | metric, container |
 | framework_name   | The name of the framework.  | container |
-| framework_principal | The principal of the framework. | container |
-| framework_role   | The framework role.  | container |
 | hostname   | The IP address of the node.  | container, node |
 | labels   |  Key-value pairs describing the metric.  | container |
-| source   | The source of the metric. Equivalent to the executor ID. | metric |
-| task_id   | The task ID. | container |
 | task_name   | The task name.  | container |
 
 
-For more information, see the [dcos-metrics repository](https://github.com/dcos/dcos-metrics).
+For more information, see the [dcos-metrics repository](https://github.com/dcos/dcos-metrics) documentation. 

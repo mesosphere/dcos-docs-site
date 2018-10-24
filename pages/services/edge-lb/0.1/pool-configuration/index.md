@@ -317,14 +317,14 @@ Below is a simple example of a pool configuration for load-balancing a Marathon 
     "haproxy": {
       "frontends": [{
         "bindPort": 80,
-        "protocol": "HTTP",
+        "protocol": "TCP",
         "linkBackend": {
           "defaultBackend": "app-backend"
         }
       }],
       "backends": [{
         "name": "app-backend",
-        "protocol": "HTTP",
+        "protocol": "TCP",
         "servers": [{
           "framework": {
             "value": "marathon"

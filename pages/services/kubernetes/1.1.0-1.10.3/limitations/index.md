@@ -25,3 +25,4 @@ Currently, the DC/OS Kubernetes package has the following limitations:
 * Losing `etcd` pod when `high_availability` is disabled may result in permanent data loss.
 * Nodes are restricted to running 10 pods per available CPU core, up to a maximum of 100 pods per node.
 * Changing the authorization mode after installing the package is not supported.
+* Kubernetes `Service NodePort` and `Pod hostPort` are not supported. Using them can have unpredictable results if any other DC/OS service binds also to the very same port.
