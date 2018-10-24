@@ -101,7 +101,7 @@ dcos kubernetes cluster create --package-version=NEW-VERSION --options=config.js
 
 # Updating the package options
 
-This package describes options that advanced users can use to adapt the Kubernetes cluster to their need.
+This package exposes certain options that advanced users can use to adapt the Kubernetes cluster to their need.
 For instance, you may want to increase the `kube-apiserver` count or the resources available to `kube-proxy`.
 As an example, we will describe how to achieve the latter.
 

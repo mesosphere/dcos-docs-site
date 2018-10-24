@@ -9,7 +9,7 @@ excerpt: Uninstalling DC/OS Kubernetes
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
 You may uninstall DC/OS Kubernetes from its command line interface.
 
-From the DC/OS Kubernetes CLI, enter
+From a terminal window, enter:
 
 ```shell
 dcos kubernetes cluster delete --cluster-name=kubernetes-cluster
