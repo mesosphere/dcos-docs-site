@@ -28,12 +28,13 @@ If an upgrade is performed on a supported OS with all prerequisites fulfilled, t
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads).
 
 ## Supported upgrade paths
-- From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this upgrade would be supported.
-    - [1.7 to 1.8](/1.8/administration/upgrading/)
-    - [1.8 to 1.9](/1.9/installing/ent/upgrading/)
-    - [1.9 to 1.10](/1.10/installing/ent/upgrading/)
-- From any current release to the next. For example, an upgrade from 1.9.1 to 1.9.2 would be supported.
-- From any current release to an identical release. For example, an upgrade from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
+From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this upgrade would be supported. 
+
+![Upgrade Qualification Chart](/1.12/img/upgrade-path-matrix.png).
+
+*Figure 1 - Upgrade Qualification Chart*
+
+<p class="message--note"><strong>NOTE:</strong> See the <a href="https://docs.mesosphere.com/version-policy/">version policy</a> page to understand information about DC/OS version lifecycle and compatibility matrix.</p>
 
 
 ## Modifying DC/OS configuration

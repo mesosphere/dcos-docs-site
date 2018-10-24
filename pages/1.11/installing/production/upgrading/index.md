@@ -32,9 +32,13 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 - Task history in the Mesos UI will not persist through the upgrade.
 
 ## Supported upgrade paths
-- From the latest GA version of previous to the latest GA version of current. For example, if 1.10.8 is the latest GA version of previous and 1.11.4 is the latest GA version of current, this upgrade would be supported.
+From the latest GA version of previous to the latest GA version of current. For example, if 1.10.8 is the latest GA version of previous and 1.11.4 is the latest GA version of current, this upgrade would be supported.
 
-**Note:** See the [version policy](https://docs.mesosphere.com/version-policy/) page to understand information about DC/OS version lifecycle and compatibility matrix.
+![Upgrade Qualification Chart](/1.12/img/upgrade-path-matrix.png).
+
+*Figure 1 - Upgrade Qualification Chart*
+
+<p class="message--note"><strong>NOTE:</strong> See the <a href="https://docs.mesosphere.com/version-policy/">version policy</a> page to understand information about DC/OS version lifecycle and compatibility matrix.</p>
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 

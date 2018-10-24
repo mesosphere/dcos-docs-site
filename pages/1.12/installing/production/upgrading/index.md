@@ -37,7 +37,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 
 *Figure 1 - Upgrade Qualification Chart*
 
-<p class="message--note"><strong>NOTE:</strong>See the <a href="https://docs.mesosphere.com/version-policy/">version policy</a> page to understand information about DC/OS version lifecycle and compatibility matrix.</p>
+<p class="message--note"><strong>NOTE:</strong> See the <a href="https://docs.mesosphere.com/version-policy/">version policy</a> page to understand information about DC/OS version lifecycle and compatibility matrix.</p>
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
