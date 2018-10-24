@@ -57,8 +57,6 @@ From this point on, any `kubectl` calls should simply work, depending on the Kub
 
 # Managing multiple clusters
 
-As this is written, DC/OS Kubernetes supports only one Kubernetes cluster deployment. However, users may want to use multiple Kubernetes clusters, for example, clusters running on other Kubernetes providers.
-
 To interact with multiple Kubernetes clusters, `kubectl` supports contexts, a group of access parameters that defines how to connect to a cluster.
 
 To create the DC/OS Kubernetes config without switching the context, run:
