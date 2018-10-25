@@ -8,6 +8,11 @@ model: /services/dse/data.yml
 render: mustache
 ---
 
+# Version 2.4.0-5.1.10
+
+## Improvements
+- Update to DSE 5.1.10 and OpsCenter 6.1.9
+
 # Version 2.3.0-5.1.2
 
 ## New Features
