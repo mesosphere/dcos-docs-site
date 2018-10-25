@@ -46,79 +46,76 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 | ⚫| Supported |
 | ◯| Not Supported |
 
-<table class="table">
-    <tr>
-    <th><p style="text-align: center;"><strong>Patch From</strong></p></th>
+<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+   <tr>
+    <th Rowspan = "20" Align = "center"><strong>Patch<br> From</strong></div></th>
+   <tr>
     <th></th>
+    <th Colspan = "6" Align = "center"><strong>Patch To</strong></th>
+   </tr>
     <th></th>
-    <th><p style="text-align: center;"><strong>Patch To</strong></p></th>
-    <th></th>
-    <th></th>
-    </tr>
-    <tr>
-    <th></th>
-    <th><p style="text-align: center;">1.11.1</p></th>
-    <th><p style="text-align: center;">1.11.2</p></th>
-    <th><p style="text-align: center;">1.11.3</p></th>
-    <th><p style="text-align: center;">1.11.4</p></th>
-    <th><p style="text-align: center;">1.11.5</p></th>
-    <th><p style="text-align: center;">1.11.6</p></th>
-    </tr>
-    <tr>
-       <td><p style="text-align: center;">1.11.0</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-       <td><p style="text-align: center;">1.11.1</p></td>
-       <td><p style="text-align: center;">◯</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-       <td><p style="text-align: center;">1.11.2</p></td>
-       <td><p style="text-align: center;">◯</p></td>
-       <td><p style="text-align: center;">◯</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-      <td><p style="text-align: center;">1.11.3</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-      <td><p style="text-align: center;">1.11.4</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-      <td><p style="text-align: center;">1.11.5</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-    </tr>
- </table>   
+    <th>1.11.1</th>
+    <th>1.11.2</th>
+    <th>1.11.3</th>
+    <th>1.11.4</th>
+    <th>1.11.5</th>
+    <th>1.11.6</th>
+   </tr>
+    <th>1.11.0</th>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.1</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.2</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.3</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.4</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.5</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+  </table>  
 
 ## Modifying DC/OS configuration
 
