@@ -6,9 +6,12 @@ navigationTitle: GCP
 menuWeight: 0
 ---
 
-This installation method is officially supported by Mesosphere. Upgrades are supported using this installation method.
+<p class="message--warning"><strong>DISCLAIMER: </strong>This installation
+method is officially supported by Mesosphere and is used for fast demos and
+proofs of concept. The use cases for production in use are being evaluated.
+Upgrades are supported using this installation method.</p>
 
-If you are new to Terraform and/or want to deploy DC/OS on GCP quickly and effortlessly, use the following instructions:
+If you’re new to Terraform and/or want to deploy DC/OS on GCP quickly and effortlessly - please follow this guide.  We’ll walk you through step-by-step on how to:
 
 1) Create an Open Source DC/OS Cluster on GCP
 2) Scale the cluster to a larger number of nodes

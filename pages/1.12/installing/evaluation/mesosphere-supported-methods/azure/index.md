@@ -5,9 +5,14 @@ title: DC/OS on Azure using the Universal Installer
 navigationTitle: Azure
 menuWeight: 0
 ---
-This installation method is officially supported by Mesosphere. Upgrades are supported using this installation method.
 
-If you are new to Terraform and/or want to deploy DC/OS on Azure quickly and effortlessly use the following instructions:
+<p class="message--warning"><strong>DISCLAIMER: </strong>This installation
+method is officially supported by Mesosphere and is used for fast demos and
+proofs of concept. The use cases for production in use are being evaluated.
+Upgrades are supported using this installation method.</p>
+
+If you’re new to Terraform and/or want to deploy DC/OS on Azure quickly and effortlessly - please follow this guide.  We’ll walk you through step-by-step on how to:
+
 
 1) Create an DC/OS Cluster on Azure
 2) Scale the cluster to a larger number of nodes
@@ -112,9 +117,9 @@ The example code below creates a DC/OS OSS 1.11.4 cluster on Azure with:
 It also specifies that a the list of `masters-ips`, the `cluster-address`, and the address of the `public-agents-loadbalancer` should be printed out after cluster creation is complete.
 
 It also specifies that the following output should be printed once cluster creation is complete:
-- ```master-ips``` - A list of Your DC/OS Master Nodes.
-- ```cluster-address``` - The URL you use to access DC/OS UI after the cluster is setup.
-- ```public-agent-loadbalancer``` - The URL of your Public routable services.
+- `master-ips` - A list of Your DC/OS Master Nodes.
+- `cluster-address` - The URL you use to access DC/OS UI after the cluster is setup.
+- `public-agent-loadbalancer` - The URL of your Public routable services.
 
 The way the AzureRM provider is implemented forces us to specify the `location` in the module. If you want to use a different region replace `location = "West US"` with your desired region.
 
