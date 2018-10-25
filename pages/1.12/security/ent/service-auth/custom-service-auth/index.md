@@ -47,7 +47,7 @@ dcos security org service-accounts show <service-account-id>
 1. In the DC/OS web interface, navigate to the **Organization** -> **Service Accounts** tab.
 1. Click the **+** icon in the top right.
 
-   ![Click the service account create button](/1.12/img/new-service-account-button.png)
+   ![Click the service account create button](/1.12/img/GUI-Organization-Service_Accounts_View-1_12.png)
 
    Figure 1. Click the service account create button
 
@@ -130,7 +130,7 @@ Grant the permissions (`dcos:mesos:master:framework:role:cassandra-role`) and th
 1.  Select **Organization > Service Accounts**.
 1.  Select the name of the service account to grant the permission to.
 
-    ![Select service acccount](/1.12/img/add-service-account-permission.png)
+    ![Select service acccount](/1.12/img/GUI-Organization-Service_Accounts_No_Tooltip-1_12.png)
 
     Figure 3. Select service account
 

@@ -30,7 +30,7 @@ You can grant users access to the [**Catalog** screen](/1.12/gui/catalog/). By d
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.12/img/services-tab-user.png)
+    ![Add permission cory](/1.12/img/GUI-Organization-Users-List_View-1_12.png)
 
     Figure 2. Select user or group to grant permissions to
 
