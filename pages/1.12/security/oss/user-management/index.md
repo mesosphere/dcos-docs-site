@@ -51,7 +51,7 @@ To switch users, you must log out of the current user and then back in as the ne
 
 ### From the web interface
 
-1.   To log out of the DC/OS web interface, click on your username in the upper-left side and select **Sign Out**.
+1.   To log out of the DC/OS web interface, click on your username in the upper-right side and select **Sign Out**.
 
 ![log out](/1.12/img/1-11-user-drop-down-menu.png)
 
