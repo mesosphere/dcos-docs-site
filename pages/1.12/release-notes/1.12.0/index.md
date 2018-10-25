@@ -19,10 +19,10 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 ## New Features and Capabilities
 
 ### Mesosphere Kubernetes Engine
-- High density [Multi-Kubernetes](https://docs.mesosphere.com/services/beta-kubernetes/2.0.0-1.12.0-beta/) leveraging enhanced containerized bin packing. 
+- High density [Multi-Kubernetes](https://docs.mesosphere.com/services/kubernetes/2.0.0-1.12.1/) leveraging enhanced containerized bin packing. 
 
 ### Mesosphere Jupyter Service (MJS)
-- Delivered secure, cloud-native Jupyter Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
+- Delivered secure, [cloud-native Jupyter](https://docs.mesosphere.com/services/beta-jupyter/) Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
 - Secured connectivity to data lakes and data sets on S3 and (Kerberized) HDFS.
 - GPU-enabled Spark and distributed TensorFlow.
 - OpenID connect authentication and authorization with support for Windows Integrated Authentication (WIA) and Active Directory Federation Services (ADFS)
