@@ -26,13 +26,13 @@ Here is the [permission](/1.12/security/ent/perms-reference/) that is required t
 
 1.  Select **Organization** and choose **Users**. Select an existing or create a new user.
 
-    ![New user](/1.12/img/new-user-generic.png)
+    ![New user](/1.12/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
 
     Figure 1. New user screen
 
 1.  From the **Permissions** tab, select **ADD PERMISSION**.
 
-    ![Add permission to user](/1.10/img/permission-user.png)
+    ![Add permission to user](/1.12/img/GUI-Organization-Users-User_Main_View.png)
 
     Figure 2. Add Permission button
 
@@ -42,13 +42,13 @@ Here is the [permission](/1.12/security/ent/perms-reference/) that is required t
     dcos:adminrouter:ops:system-logs full
     ```
 
-    ![Add permission](/1.12/img/comp-log-perms.png)
+    ![Add permission](/1.12/img/GUI-Organization-User-Add_Single_User_Perm_String-1_12.png)
 
     Figure 3. Permission string dialog
 
     The **Permissions** tab should now look like this:
 
-    ![prod-group permissions complete](/1.12/img/comp-log-perms-done.png)
+    ![prod-group permissions complete](/1.12/img/GUI-Organization-Users-User_View_w_Perm.png)
 
     Figure 4. Permissions have been added
 
