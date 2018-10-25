@@ -42,7 +42,6 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - Enabled [on-premise package distribution and management](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/).
 - Enabled air-gapped Virtual Private Cloud package management.
 - Simplifies package artifact management.
-- Support for NFS and S3 as storage backends for package storage.
 - Package-specific controls for adding/removing/updating packages within a cluster.
 - Package management CLI.
 
