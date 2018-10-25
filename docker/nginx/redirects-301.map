@@ -171,6 +171,14 @@
 /services/hdfs/2.2.0-2.6.0-cdh5.11.0/11-release-notes/ /services/hdfs/2.2.0-2.6.0-cdh5.11.0/release-notes/;
 /1.12/installing/oss/opt-out/ /1.12/installing/production/deploying-dcos/opt-out/;
 /1.12/release-notes/1.12/ /1.12/release-notes/1.12.0/;
+/1.12/installing/development/ /1.12/installing/evaluation/mesosphere-supported-methods/;
+~/1.12/installing/evaluation/cloud-installation/aws/.* /1.12/installing/evaluation/mesosphere-supported-methods/aws/;
+~/1.12/installing/evaluation/cloud-installation/azure/.* /1.12/installing/evaluation/mesosphere-supported-methods/azure/;
+~/1.12/installing/evaluation/cloud-installation/gce/.* /1.12/installing/evaluation/mesosphere-supported-methods/gcp/;
+~/1.12/installing/evaluation/cloud-installation/digitalocean/.* /1.12/installing/evaluation/community-supported-methods/digitalocean/;
+~/1.12/installing/evaluation/cloud-installation/packet/.* /1.12/installing/evaluation/community-supported-methods/packet/;
+~/1.12/installing/evaluation/cloud-installation/ /1.12/installing/evaluation/mesosphere-supported-methods/;
+~/1.12/installing/evaluation/on-premise-installation/ /1.12/installing/evaluation/;
 /1.11/administering-clusters/cluster-connections/ /1.11/administering-clusters/multiple-clusters/cluster-connections/;
 /1.11/cli/command-reference/dcos-cluster-link/ /1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/;
 /1.11/cli/command-reference/dcos-cluster-unlink/ /1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink/;
