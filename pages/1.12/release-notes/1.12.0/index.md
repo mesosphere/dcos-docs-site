@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Release notes for DC/OS 1.12.0
 ---
 
-DC/OS 1.12.0 was released on October 26, 2018.
+DC/OS 1.12.0 was released on October 25, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.12/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -148,7 +148,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - DCOS_OSS-4152 - Fix incorrect attempts to delete check containers by metrics isolater module.
 
 ### Metrics
-- DCOS_OSS-2368 - DC/OS Metrics: moved the prometheus producer from port 9273 to port 61091.
+- DCOS_OSS-2368 - DC/OS Metrics: Moved the prometheus producer from port 9273 to port 61091.
 
 ### Networking 
 - COPS-3520 - Unable to build `dcos-cni` package.
@@ -228,7 +228,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - DCOS-43601 - Service accounts `dcos_telegraf_master` and `dcos_telegraf_agent` require dcos::superuser permissions.
 
 ### Networking
-- COPS-3690/DCOS-40539 - dcos6 interface is displayed in the UI even when `enable_ipv6` was set to false.
+- COPS-3690/DCOS-40539 - `dcos6` interface is displayed in the UI even when `enable_ipv6` was set to false.
 - COPS-3900 - Connection timed out error while logging into docker using MLB.
 - COPS-3901 - EdgeLB creating frequent sidecars, `SIGSEV` in apiserver logs.
 - COPS-3924/DCOS-43552 - VIP returns 502 errors while application is scaling.
