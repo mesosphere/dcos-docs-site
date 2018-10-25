@@ -244,7 +244,7 @@ To demonstrate the `vhost` feature:
   }
   ```
   
-  **Important:** Do not include the leading `http://`trailing slash (`/`) in your public DNS name.
+  <p class="message--important"><strong>IMPORTANT: </strong> Do not include the leading `http://`trailing slash (`/`) in your public DNS name.</p>
 
 2.  Run this command to replace the contents of the deployed `nginx-external.json` with your modified local copy:
 
@@ -276,7 +276,7 @@ You should see output similar to this:
 
 Figure 3. NGINX external service
 
-**Important:** Do not include the leading `http://`trailing slash (`/`) in your public DNS name.
+<p class="message--important"><strong>IMPORTANT: </strong>Do not include the leading `http://`trailing slash (`/`) in your public DNS name.</p>
 
 1.  Select **REVIEW & RUN** and **RUN SERVICE**.
 
