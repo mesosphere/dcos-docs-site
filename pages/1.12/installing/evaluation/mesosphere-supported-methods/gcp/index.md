@@ -1,18 +1,14 @@
 ---
 layout: layout.pug
-excerpt: Guide for DC/OS on GCP using an Universal Installer
-title: DC/OS on GCP using an Universal Installer
+excerpt: Guide for DC/OS on GCP using the Universal Installer
+title: DC/OS on GCP using the Universal Installer
 navigationTitle: GCP
 menuWeight: 0
 ---
 
-<p class="message--warning"><strong>DISCLAIMER: </strong>This installation
-method is officially supported by Mesosphere and is used for fast demos and
-proofs of concept. The use cases for production in use are being evaluated.
-Upgrades are supported using this installation method.</p>
+This installation method is officially supported by Mesosphere. Upgrades are supported using this installation method.
 
-If you’re new to Terraform and/or want to deploy DC/OS on GCP quickly and effortlessly - please follow this guide.  We’ll walk you through step-by-step on how to:
-
+If you are new to Terraform and/or want to deploy DC/OS on GCP quickly and effortlessly, use the following instructions:
 
 1) Create an Open Source DC/OS Cluster on GCP
 2) Scale the cluster to a larger number of nodes
@@ -22,7 +18,7 @@ If you’re new to Terraform and/or want to deploy DC/OS on GCP quickly and effo
 # Prerequisites:
 Terraform, cloud credentials, and SSH keys:
 
-## Installing Terraform.
+## Installing Terraform
 If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
 ```bash
 brew install terraform

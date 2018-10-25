@@ -1,18 +1,13 @@
 ---
 layout: layout.pug
-excerpt: Guide for DC/OS on Azure using an Universal Installer
-title: DC/OS on Azure using an Universal Installer
+excerpt: Guide for DC/OS on Azure using the Universal Installer
+title: DC/OS on Azure using the Universal Installer
 navigationTitle: Azure
 menuWeight: 0
 ---
+This installation method is officially supported by Mesosphere. Upgrades are supported using this installation method.
 
-<p class="message--warning"><strong>DISCLAIMER: </strong>This installation
-method is officially supported by Mesosphere and is used for fast demos and
-proofs of concept. The use cases for production in use are being evaluated.
-Upgrades are supported using this installation method.</p>
-
-If you’re new to Terraform and/or want to deploy DC/OS on Azure quickly and effortlessly - please follow this guide.  We’ll walk you through step-by-step on how to:
-
+If you are new to Terraform and/or want to deploy DC/OS on Azure quickly and effortlessly use the following instructions:
 
 1) Create an DC/OS Cluster on Azure
 2) Scale the cluster to a larger number of nodes
@@ -22,7 +17,7 @@ If you’re new to Terraform and/or want to deploy DC/OS on Azure quickly and ef
 # Prerequisites:
 Terraform, cloud credentials, and SSH keys:
 
-## Installing Terraform.
+## Installing Terraform
 If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
 ```bash
 brew install terraform
@@ -49,7 +44,7 @@ To retrieve credentials please issue
 $ az login
 ```
 
-the output will show the subscriptions your user has permissions in.
+The output will show the subscriptions your user has permissions in.
 
 You can insure being logged in by listing your accounts subscriptions
 

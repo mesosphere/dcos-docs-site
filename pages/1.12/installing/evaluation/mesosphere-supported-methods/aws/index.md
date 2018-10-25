@@ -1,27 +1,25 @@
 ---
 layout: layout.pug
-excerpt: Guide for DC/OS on AWS using an Universal Installer
-title: DC/OS on AWS using an Universal Installer
+excerpt: Guide for DC/OS on AWS using the Universal Installer
+title: DC/OS on AWS using the Universal Installer
 navigationTitle: AWS
 menuWeight: 0
 ---
 
-<p class="message--warning"><strong>DISCLAIMER: </strong>This installation method is officially supported by Mesosphere and is used for fast demos and proofs of
-concept. The use cases for production in use are being evaluated. Upgrades are supported using this installation method.</p>
+This installation method is officially supported by Mesosphere. Upgrades are supported using this installation method.
 
-If you’re new to Terraform and/or want to deploy DC/OS on AWS quickly and effortlessly - please follow this guide.  We’ll walk you through step-by-step on how to:
-
+If you are new to Terraform and/or want to deploy DC/OS on AWS quickly and effortlessly, use the following instructions:
 
 1) Create an Open Source DC/OS Cluster on AWS
 2) Scale the cluster to a larger number of nodes
 3) Upgrade the cluster to a newer version of DC/OS
 4) Destroy the cluster and all AWS resources associated with it
 
-# Prerequisites:
-Terraform, AWS cloud credentials, SSH keys
+# Prerequisites
+Terraform, AWS cloud credentials, SSH keys.
 
-## Installing Terraform.
-If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
+## Installing Terraform
+If you are on a Mac environment with [homebrew](https://brew.sh/) installed, run the following command:
 ```bash
 brew install terraform
 ```
@@ -32,10 +30,10 @@ $ terraform version
 Terraform v0.11.8
 ```
 
-For help installing Terraform on a different OS, please see [here](https://www.terraform.io/downloads.html):
+For help installing Terraform on a different OS, see [here](https://www.terraform.io/downloads.html):
 
 ## Ensure you have your AWS Cloud Credentials Properly Set up
-Please follow the AWS guide [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) how to setup your credentials.
+Follow the AWS guide [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) to understand how to setup your credentials.
 
 ## Set the Default AWS Region
 The current Terraform Provider for AWS requires that the default AWS region be set before it can be used. You can set the default region with the following command:
@@ -57,9 +55,9 @@ us-east-1
 
 Terraform requires SSH access to the instances you launch as part of your DC/OS cluster. As such, we need to make sure that the SSH key used to SSH to these instances is added to your `ssh-agent`, prior to running `terraform`.
 
-If you need help on creating an SSH key-pair for AWS prior to running the command below, please follow the instructions [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
+If you need help on creating an SSH key-pair for AWS prior to running the command below, follow the instructions [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html).
 
-Otherwise, just run the following command to add your key to the `ssh-agent`:
+Otherwise, run the following command to add your key to the `ssh-agent`:
 
 ```bash
 ssh-add <path_to_your_private_aws_ssh_key>
@@ -72,12 +70,12 @@ ssh-add ~/.ssh/aws-id-rsa
 
 ## Enterprise Edition
 
-DC/OS Enterprise Edition also requires a valid license key provided by Mesosphere that we will pass into our `main.tf` as `dcos_license_key_contents`. For this guide we are going to use the default superuser and password to login:
+DC/OS Enterprise Edition also requires a valid license key provided by Mesosphere that we will pass into our `main.tf` as `dcos_license_key_contents`. Use the default superuser and password to login:
 
 Username: `bootstrapuser`
 Password: `deleteme`
 
-Please note that this should *NOT* be used in a Production environment and you will need generate a password hash.
+**Note:** This should *NOT* be used in a Production environment and you will need generate a password hash.
 
 # Creating a Cluster
 
@@ -177,13 +175,13 @@ Afterwards, we should see a message like the one below, confirming that we have 
 
 Every time you run `terraform plan`, the output will always detail the resources your plan will be adding, changing or destroying.  Since we are creating our DC/OS cluster for the very first time, our output tells us that our plan will result in adding 38 pieces of infrastructure/resources.
 
-5) The next step is to get Terraform to build/deploy our plan.  Run the command below.
+5) The next step is to get Terraform to build/deploy our plan.  Run the following command:
 
 ```bash
 terraform apply plan.out
 ```
 
-Once Terraform has completed applying our plan, you should see output similar to the following:  
+Once Terraform has completed applying our p you should see output similar to the following:  
 
 <p align=center>
 <img src="./images/install/terraform-apply.png" />
@@ -199,7 +197,8 @@ And congratulations - you’re done!  In just 4 steps, you’ve successfully ins
 <img src="./images/install/dcos-ui.png"
 </p>
 
-# Scaling Your Cluster
+## Scaling Your Cluster
+
 Terraform makes it easy to scale your cluster to add additional agents (public or private) once the initial cluster has been created. Simply follow the instructions below.
 
 1) Increase the value for the `num_private_agents` and/or `num_public_agents` in your `main.tf` file. In this example we are going to scale our cluster from 2 Private Agents to 3.

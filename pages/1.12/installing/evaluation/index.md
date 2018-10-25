@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Evaluation
 title: Evaluation
 menuWeight: 10
-excerpt: Installing DC/OS for evaluation using Universal Installer
+excerpt: Installing DC/OS for evaluation using the Universal Installer
 ---
 
 This page explains about the Universal Installer and the evaluation methods that are supported for both DC/OS OSS (default) and DC/OS Enterprise installation. You can evaluate the installation of DC/OS cluster based on your requirements.
@@ -40,18 +40,18 @@ The following two installation methods use Terraform templates to create a DC/OS
 These installation methods are used for fast demos and proofs of concept. The use cases for production in use are being evaluated. Upgrades are supported with the following installation methods.
 
 Any of the following methods can be used to install DC/OS:
-- [Provision DC/OS on Amazon Web Services](/1.12/installing/evaluation/mesosphere-supported-methods/aws/): Install your DC/OS cluster on Amazon Web Services (AWS) by using the DC/OS Terraform templates on AWS.
-- [Provision DC/OS on Azure](/1.12/installing/evaluation/mesosphere-supported-methods/azure/): Install your DC/OS cluster on Azure by using the DC/OS Terraform templates on Azure.
-- [Provision DC/OS on Google Cloud Platform (GCP)](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/): Install your DC/OS cluster on GCP by using the DC/OS Terraform templates on GCP. 
+- [Amazon Web Services (AWS)](/1.12/installing/evaluation/mesosphere-supported-methods/aws/): Install DC/OS on AWS by using the Mesosphere Universal Installer.
+- [Azure](/1.12/installing/evaluation/mesosphere-supported-methods/azure/): Install DC/OS on Microsoft Azure by using the Mesosphere Universal Installer.
+- [Google Cloud Platform (GCP)](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/): Install DC/OS on Google Cloud Platform (GCP) by using the Mesosphere Universal Installer. 
 
 ## Community Supported Installation Methods 
 These installation methods are used for fast demos and proofs of concept. DC/OS Terraform templates are intended for reference only and are not recommended for production use. Upgrades are not supported with the following installation methods.
 
 Any of the following methods can be used to install DC/OS:
-- [Provision DC/OS on Amazon Web Services](/1.12/installing/evaluation/community-supported-methods/aws/) (AWS): Install your DC/OS cluster on Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation. 
-- [Provision DC/OS on Azure](/1.12/installing/evaluation/community-supported-methods/azure/): Install your DC/OS cluster on Azure by using the Azure Resource Manager templates.
-- [Provision DC/OS on DigitalOcean](/1.12/installing/evaluation/community-supported-methods/digitalocean/): Install your DC/OS cluster on DigitalOcean by using Terraform templates that are configured to run Mesosphere DC/OS on DigitalOcean.
-- [Provision DC/OS on Packet bare metal](/1.12/installing/evaluation/community-supported-methods/packet/): A bare metal environment is a computer system or network in which a virtual machine is installed directly on hardware rather than within the host operating system (OS). Install your DC/OS cluster on Packet bare metal using Terraform templates that are configured to run Mesosphere DC/OS on Packet.
+- [Amazon Web Services (AWS)](/1.12/installing/evaluation/community-supported-methods/aws/) (AWS): Install your DC/OS cluster on Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation. 
+- [Azure](/1.12/installing/evaluation/community-supported-methods/azure/): Install your DC/OS cluster on Azure by using the Azure Resource Manager templates.
+- [DigitalOcean](/1.12/installing/evaluation/community-supported-methods/digitalocean/): Install your DC/OS cluster on DigitalOcean by using Terraform templates that are configured to run Mesosphere DC/OS on DigitalOcean.
+- [Packet bare metal](/1.12/installing/evaluation/community-supported-methods/packet/): A bare metal environment is a computer system or network in which a virtual machine is installed directly on hardware rather than within the host operating system (OS). Install your DC/OS cluster on Packet bare metal using Terraform templates that are configured to run Mesosphere DC/OS on Packet.
  
 <p class="message--note"><strong>NOTE: </strong>The recommended way to install production ready DC/OS that can be upgraded in-place is to use the  <a href="https://docs.mesosphere.com/1.12/installing/production/deploying-dcos/">production installation</a>method.</p>
 
