@@ -30,10 +30,94 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 - An upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
 
-## Supported upgrade paths
-- From the latest GA version of previous to the latest GA version of current. For example, if 1.11.8 is the latest GA version of previous and 1.12.4 is the latest GA version of current, this upgrade would be supported.
+## Supported upgrade paths matrix
+The following matrix table lists the supported upgrade paths for DC/OS 1.11.
 
-**Note:** See the [version policy](https://docs.mesosphere.com/version-policy/) page to understand information about DC/OS version lifecycle and compatibility matrix.
+
+|**Display Icon** | **Service** |
+|---------- | ------- |
+| ⚫| Supported |
+| ◯| Not Supported |
+
+<table class="table">
+    <tr>
+    <th><p style="text-align: center;"><strong>Upgrade From</strong></p></th>
+    <th></th>
+    <th></th>
+    <th><p style="text-align: center;"><strong>Upgrade To</strong></p></th>
+    <th></th>
+    <th></th>
+    </tr>
+    <tr>
+    <th></th>
+    <th><p style="text-align: center;">1.12.0</p></th>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.10.0</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.10.1</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.10.2</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+      <td><p style="text-align: center;">1.10.3</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.10.4</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.10.5</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.10.6</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+      <td><p style="text-align: center;">1.10.7</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+      <td><p style="text-align: center;">1.10.8</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.11.0</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.11.1</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+       <td><p style="text-align: center;">1.11.2</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+      <td><p style="text-align: center;">1.11.3</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+      <td><p style="text-align: center;">1.11.4</p></td>
+      <<td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+      <td><p style="text-align: center;">1.11.5</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+      <td><p style="text-align: center;">1.11.6</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+ </table>
+
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
