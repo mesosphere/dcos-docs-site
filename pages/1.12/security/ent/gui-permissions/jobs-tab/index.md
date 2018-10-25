@@ -24,7 +24,7 @@ You can grant users access to the [**Jobs** screen](/1.12/gui/jobs/). By default
 
 1. Log in to the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.12/img/gui-installer-login-ee.gif)
+   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
     Figure 1. Log in to web interface
 
