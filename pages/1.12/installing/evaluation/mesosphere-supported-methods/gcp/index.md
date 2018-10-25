@@ -151,7 +151,7 @@ terraform init
 ```
 
 <p align=center>
-<img src="../images/install/terraform-init.png" />
+<img src="./images/install/terraform-init.png" />
 </p>
 
 
@@ -166,7 +166,7 @@ Writing our execution plan to a file allows us to pass the execution plan to the
 Afterwards, we should see a message like the one below, confirming that we have successfully saved to the `plan.out` file.  This file should appear in your `dcos-tf-gcp-demo` folder alongside `main.tf`.
 
 <p align=center>  
-<img src="../images/install/terraform-plan.png" />
+<img src="./images/install/terraform-plan.png" />
 </p>
 
 Every time you run `terraform plan`, the output will always detail the resources your plan will be adding, changing or destroying.  Since we are creating our DC/OS cluster for the very first time, our output tells us that our plan will result in adding 38 pieces of infrastructure/resources.
@@ -180,17 +180,17 @@ terraform apply plan.out
 Once Terraform has completed applying our plan, you should see output similar to the following:  
 
 <p align=center>
-<img src="../images/install/terraform-apply.png" />
+<img src="./images/install/terraform-apply.png" />
 </p>
 
 And congratulations - you’re done!  In just 4 steps, you’ve successfully installed a DC/OS cluster on GCP!
 
 <p align=center>
-<img src="../images/install/dcos-login.png"
+<img src="./images/install/dcos-login.png"
 </p>
 
 <p align=center>
-<img src="../images/install/dcos-ui.png"
+<img src="./images/install/dcos-ui.png"
 </p>
 
 # Scaling Your Cluster
@@ -246,7 +246,7 @@ terraform plan -out=plan.out
 Doing this helps us to ensure that our state is stable and to confirm that we will only be creating the resources necessary to scale our Private Agents to the desired number.
 
 <p align=center>
-<img src="../images/scale/terraform-plan.png" />
+<img src="./images/scale/terraform-plan.png" />
 </p>
 
 You should see a message similar to above.  There will be 3 resources added as a result of scaling up our cluster’s Private Agents (1 instance resource & 2 null resources which handle the DC/OS installation & prerequisites behind the scenes).
@@ -258,7 +258,7 @@ terraform apply plan.out
 ```
 
 <p align=center>
-<img src="../images/scale/terraform-apply.png" />
+<img src="./images/scale/terraform-apply.png" />
 </p>
 
 Once you see an output like the message above, check your DC/OS cluster to ensure the additional agents have been added.  
@@ -266,7 +266,7 @@ Once you see an output like the message above, check your DC/OS cluster to ensur
 You should see now 4 total nodes connected like below via the DC/OS UI.
 
 <p align=center>
-<img src="../images/scale/node-count-4.png" />
+<img src="./images/scale/node-count-4.png" />
 </p>
 
 
@@ -332,7 +332,7 @@ terraform plan -out=plan.out -var dcos_install_mode=upgrade
 You should see an output like below.
 
 <p align=center>
-<img src="../images/upgrade/terraform-plan.png" />
+<img src="./images/upgrade/terraform-plan.png" />
 </p>
 
 
@@ -345,7 +345,7 @@ terraform apply plan.out
 Once the apply completes, you can verify that the cluster was upgraded via the DC/OS UI.
 
 <p align=center>
-<img src="../images/upgrade/cluster-details-open.png" />
+<img src="./images/upgrade/cluster-details-open.png" />
 </p>
 
 # Maintenance
@@ -363,7 +363,7 @@ terraform destroy
 You will be required to enter ‘yes’ to ensure you know what you are doing.
 
 <p align=center>
-<img src="../images/destroy/terraform-destory.png" />
+<img src="./images/destroy/terraform-destory.png" />
 </p>
 
 After that. You're done!
