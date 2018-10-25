@@ -426,7 +426,7 @@ Figure 3. Sign in dialogue
 
 You are done! The UI dashboard will now be displayed.
 
-![UI dashboard](/1.12/img/dashboard-ee.png)
+![UI dashboard](/1.12/img/dashboard-ee-1-12.png)
 
 Figure 4. DC/OS UI dashboard
 

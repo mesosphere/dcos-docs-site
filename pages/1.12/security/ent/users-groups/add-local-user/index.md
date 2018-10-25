@@ -15,7 +15,7 @@ enterprise: true
 
 1. Log in as a user with the `superuser` permission.
 
-   ![Login](/1.12/img/gui-installer-login-ee.gif)
+   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 1. Log in as superuser
 
