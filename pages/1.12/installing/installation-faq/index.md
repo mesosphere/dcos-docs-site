@@ -25,7 +25,7 @@ In DC/OS, add the line `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dc
 
 ## Q. How do I gracefully shut down an agent?
 
-- To gracefully kill an agent node's Mesos process and allow `systemd` to restart it, run the following command. 
+- To gracefully kill an agent node's Mesos process and allow `systemd` to restart it, run the following command.
 
     ```bash
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave
@@ -50,41 +50,20 @@ If Auto Scaling groups are in use, the node will be replaced automatically.
     ```bash
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave-public && sudo systemctl stop dcos-mesos-slave-public
     ```
+## Q. How do I backup the IAM database?
 
-## Q. How do I back up the IAM database? [enterprise type="inline" size="small" /]
+- To backup the IAM database to a file run the following command on one of the master nodes:
 
-- To back up the IAM database to a file, run the following command on one of the master nodes:
-
-    ```bash
-    sudo /opt/mesosphere/bin/cockroach dump --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) iam > ~/iam-backup.sql
-    ```
+```bash
+dcos-shell iam-database-backup > ~/iam-backup.sql
+```
 
 ## Q. How do I restore the IAM database?
 
-- To restore the IAM database from a file `~/iam-backup.sql` run the following commands on one of the master nodes:
-
-1. Create a new database called `iam_new` into which the back up should be loaded.
+- To restore the IAM database from a file `~/iam-backup.sql` run the following command on one of the master nodes:
 
 ```bash
-sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "CREATE DATABASE iam_new"
+dcos-shell iam-database-restore ~/iam-backup.sql
 ```
 
-2. Load the data into the new database.
-
-```bash
-sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) --database=iam_new < ~/iam-backup.sql
-```
-
-3.With the backup data loaded into the `iam_new` database, rename the `iam` database to `iam_old`. After this command is issued, the IAM is completely unavailable. Any requests to the IAM will fail.
-
-```bash
-sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam RENAME TO iam_old"
-```
-
-4. Rename the `iam_new` database to `iam`. After this command is issued, the IAM is available again. Requests to the IAM will be successful.
-
-```bash
-sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam_new RENAME TO iam"
-```
-
-The IAM database is restored from the back up file and the cluster is operational.
+The IAM database is restored from the backup file and the cluster is operational.

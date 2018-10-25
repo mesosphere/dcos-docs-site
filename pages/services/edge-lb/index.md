@@ -12,4 +12,4 @@ Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edg
 
 Edge-LB builds upon HAProxy. HAProxy provides base functionality, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
 
-Choose a version at the left to get started!
+New users are encouraged to use the latest version available. Please choose one on the left and get started!

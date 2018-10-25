@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  CLI Plugins
 title: CLI Plugins
-menuWeight: 1
+menuWeight: 5
 excerpt: How to extend the command line interface
 
 enterprise: false
@@ -12,13 +12,14 @@ enterprise: false
 
 Plugins extend the functionality of the CLI for cluster specific actions.
 
-When setting up a cluster, the CLI will install the core plugin by default and, if applicable, the enterprise plugin.
-
 Plugins are cluster-specific, when switching between different clusters the CLI will automatically use the proper set of plugins installed for that cluster.
 
 # Core CLI Plugin
 
-Commands that are specific to a DC/OS version are packaged into a plugin called `dcos-core-cli`. It gets automatically installed when running `dcos cluster setup` unless the `--no-plugin` flag is used. The subcommands included in this plugin are:
+Commands that are specific to a DC/OS version are packaged into a plugin called `dcos-core-cli`.
+In version 0.7, the CLI has the 1.12 Core plugin included which it will automatically install for any cluster that it's attached to.
+
+The subcommands included in this plugin are:
 
 | Command | Description |
 |---------|-------------|
@@ -31,7 +32,9 @@ Commands that are specific to a DC/OS version are packaged into a plugin called 
 
 # Enterprise CLI Plugin
 
-Commands that are specific to a DC/OS EE version are packaged into a plugin called `dcos-enterprise-cli`. It gets automatically installed when running `dcos cluster setup` with a cluster running on DC/OS EE unless the `--no-plugin` flag is used. The subcommands included in this plugin are:
+Commands that are specific to a DC/OS EE version are packaged into a plugin called `dcos-enterprise-cli`.
+
+The subcommands included in this plugin are:
 
 | Command | Description |
 |---------|-------------|
