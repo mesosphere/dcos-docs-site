@@ -80,7 +80,7 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
 ## Switch to a linked cluster from the DC/OS UI
 
-1.  At the top-left corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
+1.  At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
     ![open cluster popup](/1.12/img/open-cluster-popup.png)
 
