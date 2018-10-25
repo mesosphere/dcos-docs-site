@@ -275,7 +275,7 @@ You can launch the DC/OS web interface by entering the master hostname. Follow t
 
     You are done!
 
-    ![UI dashboard](/1.12/img/dashboard-ee.png)
+    ![UI dashboard](/1.12/img/dashboard-ee-1-12.png)
 
     Figure 6. DC/OS dashboard
 
