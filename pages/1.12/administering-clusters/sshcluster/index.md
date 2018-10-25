@@ -63,7 +63,7 @@ If you are on the same network as your cluster or connected by a VPN, you can us
 
     To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/1.12/gui/) and click **Details**.
 
-    ![Web interface node ID](/1.12/img/ssh-node-id.png)
+    ![Web interface node ID](/1.12/img/GUI-Nodes-Selected_Node_Detail_View-1_12.png)
 
     Figure 1. Web interface Node ID screen
 
