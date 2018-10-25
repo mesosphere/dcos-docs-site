@@ -65,7 +65,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - Restructured [Mesosphere installation documentation](https://docs.mesosphere.com/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
 
 ### Expanded DC/OS Upgrade Paths 
-- Mesosphere now supports specific skip [upgrade paths](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported [patch version](https://docs.mesosphere.com/1.12/installing/production/patching/#supported-patching-path-matrix) of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move).
+- Mesosphere now supports specific skip [upgrade paths](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move).
 - Mesosphere now supports specific skip upgrade paths between supported major to major versions of DC/OS (i.e upgrade from 1.10.7 => 1.11.4 in one move).
 
 ### Services (Marathon) Enhancements
