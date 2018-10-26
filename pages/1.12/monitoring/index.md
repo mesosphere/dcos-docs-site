@@ -15,19 +15,19 @@ DC/OS components are the [`systemd` units](https://www.freedesktop.org/wiki/Soft
 
 Launch the [DC/OS web interface](/1.12/gui/) and navigate to the **System -> Components** page. You can sort components by health.
 
-![system health](/1.12/img/component-system-view.png)
+![system health](/1.12/img/GUI-Components-List_View-1_12.png)
 
 Figure 1. Components page showing health status
 
 You can click on a DC/OS component to view the details, including role, node, and health.
 
-![node detail](/1.12/img/component-node-detail.png)
+![node detail](/1.12/img/GUI-Components-Compenent_Detail_View-1_12.png)
 
 Figure 2. Individual component detail
 
 You can debug further by clicking the node to view the component `journald` (log) output.
 
-![log](/1.12/img/component-node-output.png)
+![log](/1.12/img/GUI-Components-Individual_Node_Detail_View-1_12.png)
 
 Figure 3. `Journald` log output
 

@@ -19,7 +19,7 @@ You can grant users access to the [**Components** screen](/1.12/gui/components/)
 
 1. Log in to the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.12/img/gui-installer-login-ee.gif)
+   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
     Figure 1. Log in to web interface
 
@@ -28,7 +28,7 @@ You can grant users access to the [**Components** screen](/1.12/gui/components/)
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.12/img/services-tab-user.png)
+    ![Add permission cory](/1.12/img/GUI-Organization-Users-List_View-1_12.png)
 
     Figure 2. Select user or group to grant permissions to
 

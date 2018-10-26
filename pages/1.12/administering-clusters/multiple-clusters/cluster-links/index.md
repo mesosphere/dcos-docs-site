@@ -80,7 +80,7 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
 ### Switch to a linked cluster from the DC/OS UI
 
-1.  At the top-left corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
+1.  At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
     ![open cluster popup](/1.12/img/open-cluster-popup.png)
 
@@ -88,7 +88,7 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
 1.  Select **Switch Cluster**.
 
-    ![swi cluster](/1.12/img/switch-cluster.png)
+    ![swi cluster](/1.12/img/switch-cluster-1-12.png)
 
     Figure 2. Switch clusters
 
@@ -211,9 +211,9 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
    Figure 5. Google login
 
-1. From the top left corner, click the down arrow next to the cluster name.
+1. From the top right corner, click the down arrow next to the cluster name.
 
-   ![swi cluster](/1.12/img/switch-cluster.png)
+   ![swi cluster](/1.12/img/switch-cluster-1-12.png)
 
    Figure 6. Switch cluster
 

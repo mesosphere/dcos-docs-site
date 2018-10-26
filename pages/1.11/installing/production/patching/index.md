@@ -46,63 +46,76 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 | ⚫| Supported |
 | ◯| Not Supported |
 
-<table class="table">
-    <tr>
-    <th><p style="text-align: center;"><strong>Patch From</strong></p></th>
+<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+   <tr>
+    <th Rowspan = "20" Align = "center"><strong>Patch<br> From</strong></div></th>
+   <tr>
     <th></th>
+    <th Colspan = "6" Align = "center"><strong>Patch To</strong></th>
+   </tr>
     <th></th>
-    <th><p style="text-align: center;"><strong>Patch To</strong></p></th>
-    <th></th>
-    <th></th>
-    </tr>
-    <tr>
-    <th></th>
-    <th><p style="text-align: center;">1.11.1</p></th>
-    <th><p style="text-align: center;">1.11.2</p></th>
-    <th><p style="text-align: center;">1.11.3</p></th>
-    <th><p style="text-align: center;">1.11.4</p></th>
-    <th><p style="text-align: center;">1.11.5</p></th>
-    </tr>
-    <tr>
-       <td><p style="text-align: center;">1.11.0</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-       <td><p style="text-align: center;">1.11.1</p></td>
-       <td><p style="text-align: center;">◯</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-       <td><p style="text-align: center;">1.11.2</p></td>
-       <td><p style="text-align: center;">◯</p></td>
-       <td><p style="text-align: center;">◯</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-      <td><p style="text-align: center;">1.11.3</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    </tr>
-      <td><p style="text-align: center;">1.11.4</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-    </tr>
- </table>   
+    <th>1.11.1</th>
+    <th>1.11.2</th>
+    <th>1.11.3</th>
+    <th>1.11.4</th>
+    <th>1.11.5</th>
+    <th>1.11.6</th>
+   </tr>
+    <th>1.11.0</th>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.1</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.2</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.3</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.4</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.5</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+  </table>  
 
 ## Modifying DC/OS configuration
 
@@ -263,8 +276,8 @@ Proceed with patching every master node one at a time in any order using the fol
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
         **Note:** If you are patching from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access. [enterprise type="inline" size="small" /]
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/1.11/release-notes/), for example `1.5.1`.
-	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
-	    ```bash
+  1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
+      ```bash
         sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
         | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
@@ -273,8 +286,8 @@ Proceed with patching every master node one at a time in any order using the fol
         |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
         |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-		```
-		If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated.
+    ```
+    If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated.
 
 1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 

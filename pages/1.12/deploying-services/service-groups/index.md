@@ -25,7 +25,7 @@ The [Marathon permissions](/1.11/security/ent/perms-reference/#marathon-metronom
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.11/img/gui-installer-login-ee.gif)
+   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 1. DC/OS web interface login screen
 
@@ -33,7 +33,7 @@ The [Marathon permissions](/1.11/security/ent/perms-reference/#marathon-metronom
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.11/img/services-tab-user.png)
+    ![Add permission cory](/1.12/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     Figure 2. Select user to grant permissions
 
@@ -43,7 +43,7 @@ The [Marathon permissions](/1.11/security/ent/perms-reference/#marathon-metronom
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
 
-    ![Add permission](/1.11/img/services-tab-user3.png)
+    ![Add permission](/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     Figure 3. Copy and paste permissions string.
 
@@ -149,7 +149,7 @@ The [Marathon permissions](/1.11/security/ent/perms-reference/#marathon-metronom
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.11/img/gui-installer-login-ee.gif)
+   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 3. DC/OS web interface login screen
 
@@ -157,7 +157,7 @@ The [Marathon permissions](/1.11/security/ent/perms-reference/#marathon-metronom
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.11/img/services-tab-user.png)
+    ![Add permission cory](/1.12/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     Figure 4. Select user to grant permissions
 
@@ -165,7 +165,7 @@ The [Marathon permissions](/1.11/security/ent/perms-reference/#marathon-metronom
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.11/img/services-tab-user3.png)
+    ![Add permission](/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     Figure 5. Add permission
 
@@ -279,7 +279,7 @@ The [Marathon permissions](/1.11/security/ent/perms-reference/#marathon-metronom
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.11/img/gui-installer-login-ee.gif)
+   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 5. DC/OS web interface login screen
 
@@ -287,7 +287,7 @@ The [Marathon permissions](/1.11/security/ent/perms-reference/#marathon-metronom
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.11/img/services-tab-user.png)
+    ![Add permission cory](/1.12/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     Figure 6. Select user to grant permissions
 
@@ -295,7 +295,7 @@ The [Marathon permissions](/1.11/security/ent/perms-reference/#marathon-metronom
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.11/img/services-tab-user3.png)
+    ![Add permission](/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     Figure 7. Add permissions
 
