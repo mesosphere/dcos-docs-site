@@ -8,6 +8,15 @@ model: /services/confluent-kafka/data.yml
 render: mustache
 ---
 
+# Version 2.4.0-4.1.1
+
+## Updates
+
+- Update to Confluent Kafka version 4.1.1
+- Upgrade JRE to 1.8u192 to address CVEs
+
+## New Features
+
 
 # Version 2.3.0-4.0.0e
 

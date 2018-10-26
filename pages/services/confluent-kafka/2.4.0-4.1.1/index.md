@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Confluent Kafka 2.3.0-4.0.0e
+navigationTitle: Confluent Kafka 2.4.0-4.1.1
 excerpt:
-title: Confluent Kafka 2.3.0-4.0.0e
+title: Confluent Kafka 2.4.0-4.1.1
 menuWeight: 4
 model: /services/confluent-kafka/data.yml
 render: mustache
