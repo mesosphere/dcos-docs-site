@@ -170,7 +170,7 @@ dcos security org groups add_user superusers edge-lb-principal
 
 ### Grant limited actions to service account
 
-<p class="message--note"><strong>NOTE: </strong>These steps are not necessary if you added <code>edge-lb-principal</code> to the <code>superusers<code> group.</p>
+<p class="message--note"><strong>NOTE: </strong>These steps are not necessary if you added <code>edge-lb-principal</code> to the <code>superusers</code> group.</p>
 
 These more limited permissions include management of DC/OS packages, Marathon tasks, Edge-LB pools and tasks. They also enable Edge-LB pool framework schedulers to register with mesos master and launch load-balancer tasks.
 

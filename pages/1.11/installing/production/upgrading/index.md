@@ -31,10 +31,123 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 - An upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
 
-## Supported upgrade paths
-- From the latest GA version of previous to the latest GA version of current. For example, if 1.10.8 is the latest GA version of previous and 1.11.4 is the latest GA version of current, this upgrade would be supported.
+## Supported upgrade paths matrix
+The following matrix table lists the supported upgrade paths for DC/OS 1.11.
 
-**Note:** See the [version policy](https://docs.mesosphere.com/version-policy/) page to understand information about DC/OS version lifecycle and compatibility matrix.
+
+|**Display Icon** | **Service** |
+|---------- | ------- |
+| ⚫| Supported |
+| ◯| Not Supported |
+
+<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+   <tr>
+    <th Rowspan = "20" Align = "center"><strong>Upgrade<br> From</strong></div></th>
+   <tr>
+    <th></th>
+    <th Colspan = "7" Align = "center"><strong>Upgrade To</strong></th>
+   </tr>
+    <th></th>
+    <th>1.11.0</th>
+    <th>1.11.1</th>
+    <th>1.11.2</th>
+    <th>1.11.3</th>
+    <th>1.11.4</th>
+    <th>1.11.5</th>
+    <th>1.11.6</th>
+   </tr>
+   <tr>
+    <th>1.10.0</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+   </tr>
+   <tr>
+    <th>1.10.1</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.10.2</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
+    <tr>
+    <th>1.10.3</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.10.4</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.10.5</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.10.6</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.10.7</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.10.8</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+  </table>
+
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
@@ -144,8 +257,8 @@ Proceed with upgrading every master node one at a time in any order using the fo
 
         **Note:** If you are upgrading from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access. [enterprise type="inline" size="small" /]
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running the version of Mesos specified in the [release notes](/1.11/release-notes/), for example `1.5.1`.
-	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros. [enterprise type="inline" size="small" /]
-	    ```bash
+  1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros. [enterprise type="inline" size="small" /]
+      ```bash
         sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
         | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
@@ -154,8 +267,8 @@ Proceed with upgrading every master node one at a time in any order using the fo
         |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
         |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-		```
-		If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated. [enterprise type="inline" size="small" /]
+    ```
+    If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated. [enterprise type="inline" size="small" /]
 
 1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation. 
 

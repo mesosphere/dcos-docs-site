@@ -19,7 +19,7 @@ You can create and administer jobs in the DC/OS web interface, from the DC/OS CL
 
 From the DC/OS web interface, click the **Jobs** tab, then the **Create a Job** button. Fill in the following fields, or toggle to JSON mode to edit the JSON directly.
 
-![Create JOB UI](/1.12/img/create-job.png)
+![Create JOB UI](/1.12/img/GUI-Jobs-New_Job_Modal-1_12.png)
 
 Figure 1. New job menu
 

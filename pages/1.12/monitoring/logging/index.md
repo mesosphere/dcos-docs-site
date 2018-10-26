@@ -56,7 +56,7 @@ journalctl -u dcos-nginx -b
 
 You can find which components are unhealthy in the DC/OS web interface **Nodes** tab.
 
-![system health](/1.12/img/ui-system-health-logging.png)
+![system health](/1.12/img/GUI-Nodes-Main_View_Agents-1_12.png)
 
 Figure 1. System health log showing nodes
 

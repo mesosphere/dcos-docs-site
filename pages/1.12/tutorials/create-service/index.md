@@ -42,7 +42,7 @@ Create and run a simple service from the DC/OS web interface:
 
 1. Click the name of your service in the **Services** view to see it running and monitor health.
 
-    ![Running service in the DC/OS UI](/1.12/img/svc-running-ui.png)
+    ![Running service in the DC/OS UI](/1.12/img/GUI-Services-Running_Services_View-1_12.png)
 
     Figure 2. Viewing a running service in the web interface
 
