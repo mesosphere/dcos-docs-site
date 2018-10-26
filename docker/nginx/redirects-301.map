@@ -376,7 +376,6 @@
 /1.10/installing/evaluation/cloud-installation/aws/advanced/aws-ami/ /1.10/installing/production/system-requirements/custom-ami/;
 /1.10/installing/local/ /1.10/installing/;
 /1.10/installing/oss/ /1.10/installing/;
-/1.10/installing/oss/oss/ /1.10/installing/;
 /1.10/installing/oss/custom/ /1.10/installing/;
 /1.10/installing/oss/patching/ /1.10/installing/production/patching/;
 /1.10/installing/oss/upgrading/ /1.10/installing/production/upgrading/;
