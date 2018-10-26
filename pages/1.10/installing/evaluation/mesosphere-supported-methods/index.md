@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: Mesosphere Supported Installation Methods
+excerpt: Mesosphere supported installation methods
 title: Mesosphere Supported Methods
 navigationTitle: Mesosphere Supported Methods
 menuWeight: 5
