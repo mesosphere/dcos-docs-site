@@ -68,7 +68,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 ## <a name="deploying-the-service-via-the-web-interface"></a>Configuring a service to use a secret via the web interface
 
-1. Log into the web interface as a user with the necessary permissions as discussed in the [previous section](#service).
+1. Log into the web interface as a user with the necessary permissions as discussed in [Permissions](/1.12/security/ent/perms-management/) or [Granting access to the secrets tab](/1.12/security/ent/gui-permissions/secrets-tab/#grant-access-by-using-the-gui).
 
 1. Click the **Services** tab.
 
@@ -349,27 +349,24 @@ The procedure varies by interface. Refer to the section that corresponds to your
      }
    }
    ```
-
-<p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See <a href="/1.12/security/ent/#spaces">Namespacing</a> for more details about the paths.</p>
-
-
-1. Save the file with a descriptive name, such as `mypod.json`.
-
-1. Use the DC/OS CLI to deploy the pod as shown below.
-
-   ```bash
-   dcos marathon pod add mypod.json
-   ```
-
-1. Open the DC/OS web interface.
-
-1. Click the group name of your service, i.e., **developer**.
-
-1. Click the name of your pod.
-
-1. Click to open the **Configuration** tab.
-
-1. Scroll to the **Environment Variables** area to locate your secret `MY_SECRET`.
+   <p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See <a href="/1.12/security/ent/#spaces">Namespacing</a> for more details about the paths.</p>
+   
+  1. Save the file with a descriptive name, such as `mypod.json`.
+  
+  1. Use the DC/OS CLI to deploy the pod as shown below.
+  
+      ```bash
+      dcos marathon pod add mypod.json
+      ```
+  1. Open the DC/OS web interface.
+  
+  1. Click the group name of your service, i.e., **developer**.
+  
+  1. Click the name of your pod.
+  
+  1. Click to open the **Configuration** tab.
+  
+  1. Scroll to the **Environment Variables** area to locate your secret `MY_SECRET`.
 
 ## Limitation
 

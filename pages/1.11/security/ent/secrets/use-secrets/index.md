@@ -68,7 +68,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 ## <a name="deploying-the-service-via-the-web-interface"></a>Configuring a service to use a secret via the web interface
 
-1. Log into the web interface as a user with the necessary permissions as discussed in the [previous section](#service).
+1. Log into the web interface as a user with the necessary permissions as discussed in [Permissions](/1.11/security/ent/perms-management/) or [Granting access to the secrets tab](/1.11/security/ent/gui-permissions/secrets-tab/#grant-access-by-using-the-gui).
 
 1. Click the **Services** tab.
 
@@ -276,38 +276,41 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Within a text editor, create a job definition for your Metronome job. The following job definition creates a new job and references a stored secret.
 
-Environment variable-based secret:
- ```json
-   {
-  "id": "test-metronome-secret",
-  "run": {
-    "cpus": 0.01,
-    "mem": 128,
-    "cmd": "echo ${TEST}; sleep 30;",
-    "env": {
-      "TEST": {
-        "secret": "secret0"
-      }
-    },
-    "secrets": {
-      "secret0": {
-        "source": "/path/to/secret"
-      }
+    Environment variable-based secret:
+  
+    ```json
+    {
+      "id": "test-metronome-secret",
+      "run": 
+      {
+        "cpus": 0.01,
+        "mem": 128,
+        "cmd": "echo ${TEST}; sleep 30;",
+        "env": {
+          "TEST": {
+          "secret": "secret0"
+        }
+        },
+        "secrets":
+        {
+          "secret0": {
+            "source": "/path/to/secret"
+          }
+        }
+      },
+        "schedules": []
     }
-  },
-  "schedules": []
-  }
-```
+    ```
 
-In the example above, DC/OS stores the secret under the environment variable `"TEST"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
+    In the example above, DC/OS stores the secret under the environment variable `"TEST"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
 
 1. Save the file with a descriptive name, such as `mytest.json`.
 
 1. Add the job to DC/OS via the DC/OS CLI.
 
-   ```bash
-   dcos job add mytest.json
-   ```
+    ```bash
+    dcos job add mytest.json
+    ```
 
 1. Open the DC/OS web interface.
 
@@ -399,7 +402,7 @@ In the example above, DC/OS stores the secret under the environment variable `"T
    }
    ```
 
-   **Note:** Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.11//security/ent/#spaces) for more details about the paths.
+   <p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.11//security/ent/#spaces) for more details about the paths.</p>
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 
