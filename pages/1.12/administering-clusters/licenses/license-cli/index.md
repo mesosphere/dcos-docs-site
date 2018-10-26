@@ -10,7 +10,7 @@ excerpt: Using the command line interface to manage your DC/OS license
 # Prerequisites
 - A DC/OS Enterprise cluster.
 - The [DC/OS CLI](/1.12/cli/install/) installed.
-- The [DC/OS Enterprise CLI](/1.12/cli/enterprise-cli/) installed.
+- The [DC/OS Enterprise CLI](/1.12/cli/plugins/#enterprise-cli-plugin) installed.
 
 
 # List licenses
