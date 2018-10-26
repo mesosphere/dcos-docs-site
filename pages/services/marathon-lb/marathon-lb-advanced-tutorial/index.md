@@ -11,11 +11,11 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-In this tutorial, Marathon-LB is used as an internal and external load balancer. The external load balancer is used to route external HTTP traffic into the cluster, and the internal load balancer is used for internal service discovery and load balancing. Since we will be doing this on AWS, external traffic will first hit an external load balancer configured to expose our "public" agent nodes.
+In this tutorial, Marathon-LB is used as an internal and external load balancer. The external load balancer is used to route external HTTP traffic into the cluster, and the internal load balancer is used for internal service discovery and load balancing. Since we will be doing this on an AWS instance, external traffic will first hit an external load balancer configured to expose our "public" agent nodes.
 
 ## Prerequisites
 
-*   DC/OS installed by using the AWS [cloud templates](/1.10/installing/oss/cloud/aws/) with at least three [private](/1.10/overview/concepts/#private-agent-node) agent and one [public](/1.10/overview/concepts/#public-agent-node) agent.
+*   DC/OS installed by using the AWS [cloud templates](/1.10/installing/oss/cloud/aws/) with at least three [private](/1.10/overview/concepts/#private-agent-node) agents and one [public](/1.10/overview/concepts/#public-agent-node) agent.
 *   DC/OS CLI [installed][2].
 *   Marathon-LB [installed](/services/marathon-lb/usage-ee/).
 
@@ -23,7 +23,7 @@ In this tutorial, Marathon-LB is used as an internal and external load balancer.
 
 Verify that Marathon-LB is working. Find the public IP for your [public node](/1.10/administering-clusters/locate-public-agent/) and navigate to `<public-agent-IP>:9090/haproxy?stats`. You will see a statistics report page like this:
 
-    ![lb2](/1.10/img/lb2.jpg)
+![lb2](/1.10/img/lb2.jpg)
 
 Figure 1. HAProxy statistics report
 
@@ -58,45 +58,45 @@ Set up your internal load balancer. To do this, we must first specify some confi
 
 1.  Copy the JSON below into a file and name it `nginx-external.json`.
 
-        ```json
-        {
-          "id": "nginx-external",
-          "container": {
-            "type": "DOCKER",
-            "portMappings": [
-              { "hostPort": 0, "containerPort": 80, "servicePort": 10000 }
-            ],
-            "docker": {
-              "image": "nginx:latest",
-              "forcePullImage":true
-            }
-          },
-          "instances": 1,
-          "cpus": 0.1,
-          "mem": 65,
-          "networks": [ { "mode": "container/bridge" } ],
-          "healthChecks": [{
-              "protocol": "HTTP",
-              "path": "/",
-              "portIndex": 0,
-              "timeoutSeconds": 10,
-              "gracePeriodSeconds": 10,
-              "intervalSeconds": 2,
-              "maxConsecutiveFailures": 10
-          }],
-          "labels":{
-            "HAPROXY_GROUP":"external"
-          }
+    ```json
+    {
+      "id": "nginx-external",
+      "container": {
+        "type": "DOCKER",
+        "portMappings": [
+          { "hostPort": 0, "containerPort": 80, "servicePort": 10000 }
+        ],
+        "docker": {
+          "image": "nginx:latest",
+          "forcePullImage":true
         }
-        ```
+      },
+      "instances": 1,
+      "cpus": 0.1,
+      "mem": 65,
+      "networks": [ { "mode": "container/bridge" } ],
+      "healthChecks": [{
+          "protocol": "HTTP",
+          "path": "/",
+          "portIndex": 0,
+          "timeoutSeconds": 10,
+          "gracePeriodSeconds": 10,
+          "intervalSeconds": 2,
+          "maxConsecutiveFailures": 10
+      }],
+      "labels":{
+        "HAPROXY_GROUP":"external"
+      }
+    }
+    ```
 
-        The application definition includes the `"HAPROXY_GROUP":"external"` label which instructs Marathon-LB to expose the application. The external Marathon-LB (`marathon-lb`) was deployed with the `--group` parameter set to `external`, which is the default.
+    The application definition includes the `"HAPROXY_GROUP":"external"` label which instructs Marathon-LB to expose the application. The external Marathon-LB (`marathon-lb`) was deployed with the `--group` parameter set to `external`, which is the default.
 
 1.  Deploy the external NGINX app on DC/OS using this command:
 
-        ```bash
-        dcos marathon app add nginx-external.json
-        ```
+    ```bash
+    dcos marathon app add nginx-external.json
+    ```
 
 ## Deploy an internal facing NGINX app
 
@@ -104,53 +104,53 @@ Set up your internal load balancer. To do this, we must first specify some confi
 
 1.  Copy the JSON below into a file and name it `nginx-internal.json`.
 
-        ```json
-        {
-          "id": "nginx-internal",
-          "networks": [
-            { "mode": "container/bridge" }
-          ],
-          "container": {
-            "type": "DOCKER",
-            "docker": {
-              "image": "nginx:latest",
-              "forcePullImage": true
-            },
-            "portMappings": [
-              {
-                "hostPort": 0,
-                "containerPort": 80,
-                "servicePort": 10001
-              }
-            ]
-          },
-          "instances": 1,
-          "cpus": 0.1,
-          "mem": 65,
-          "healthChecks": [
-            {
-              "protocol": "HTTP",
-              "path": "/",
-              "portIndex": 0,
-              "timeoutSeconds": 10,
-              "gracePeriodSeconds": 10,
-              "intervalSeconds": 2,
-              "maxConsecutiveFailures": 10
-            }
-          ],
-          "labels": {
-            "HAPROXY_GROUP": "internal"
+    ```json
+    {
+      "id": "nginx-internal",
+      "networks": [
+        { "mode": "container/bridge" }
+      ],
+      "container": {
+        "type": "DOCKER",
+        "docker": {
+          "image": "nginx:latest",
+          "forcePullImage": true
+        },
+        "portMappings": [
+          {
+            "hostPort": 0,
+            "containerPort": 80,
+            "servicePort": 10001
           }
+        ]
+      },
+      "instances": 1,
+      "cpus": 0.1,
+      "mem": 65,
+      "healthChecks": [
+        {
+          "protocol": "HTTP",
+          "path": "/",
+          "portIndex": 0,
+          "timeoutSeconds": 10,
+          "gracePeriodSeconds": 10,
+          "intervalSeconds": 2,
+          "maxConsecutiveFailures": 10
         }
-        ```
+      ],
+      "labels": {
+        "HAPROXY_GROUP": "internal"
+      }
+    }
+    ```
 
-        Note that the app definition specifies the `servicePort` parameter. This parameter exposes this service on Marathon-LB. By default, port 10000 through to 10100 are reserved for Marathon-LB services, so you should begin numbering your service ports from 10000.
+    Note that the app definition specifies the `servicePort` parameter. This parameter exposes this service on Marathon-LB. By default, port 10000 through to 10100 are reserved for Marathon-LB services, so you should begin numbering your service ports from 10000.
 
 1.  Deploy the internal NGINX app on DC/OS using this command:
 
-        ```bash
-        dcos marathon app add nginx-internal.json
-        ```
+    ```bash
+    dcos marathon app add nginx-internal.json
+    ```
 
 ## Deploy an external and internal facing NGINX app
 
@@ -158,68 +158,68 @@ Set up your internal load balancer. To do this, we must first specify some confi
 
 1.  Copy the JSON below into a file and name it `nginx-everywhere.json`. This instance exposes the app both internally and externally.
 
-        ```json
-        {
-          "id": "nginx-everywhere",
-          "networks": [
-            { "mode": "container/bridge" }
-          ],
-          "container": {
-            "type": "DOCKER",
-            "docker": {
-              "image": "nginx:latest",
-              "forcePullImage":true
-            },
-            "portMappings": [
-              { "hostPort": 0, "containerPort": 80, "servicePort": 10002 }
-            ]
-          },
-          "instances": 1,
-          "cpus": 0.1,
-          "mem": 65,
-          "healthChecks": [{
-              "protocol": "HTTP",
-              "path": "/",
-              "portIndex": 0,
-              "timeoutSeconds": 10,
-              "gracePeriodSeconds": 10,
-              "intervalSeconds": 2,
-              "maxConsecutiveFailures": 10
-          }],
-          "labels":{
-            "HAPROXY_GROUP":"external,internal"
-          }
-        }
-        ```
+    ```json
+    {
+      "id": "nginx-everywhere",
+      "networks": [
+        { "mode": "container/bridge" }
+      ],
+      "container": {
+        "type": "DOCKER",
+        "docker": {
+          "image": "nginx:latest",
+          "forcePullImage":true
+        },
+        "portMappings": [
+          { "hostPort": 0, "containerPort": 80, "servicePort": 10002 }
+        ]
+      },
+      "instances": 1,
+      "cpus": 0.1,
+      "mem": 65,
+      "healthChecks": [{
+          "protocol": "HTTP",
+          "path": "/",
+          "portIndex": 0,
+          "timeoutSeconds": 10,
+          "gracePeriodSeconds": 10,
+          "intervalSeconds": 2,
+          "maxConsecutiveFailures": 10
+      }],
+      "labels":{
+        "HAPROXY_GROUP":"external,internal"
+      }
+    }
+    ```
 
-        Note the `servicePort` is unique and does not overlap with the other NGINX instances. Service ports can be defined either by using port mappings (as in the examples above), or with the `ports` parameter in the Marathon app definition.
+    Note the `servicePort` is unique and does not overlap with the other NGINX instances. Service ports can be defined either by using port mappings (as in the examples above), or with the `ports` parameter in the Marathon app definition.
 
 1.  Deploy the NGINX everywhere app on DC/OS using this command:
 
-        ```bash
-        dcos marathon app add nginx-everywhere.json
-        ```
+    ```bash
+    dcos marathon app add nginx-everywhere.json
+    ```
 
 ## Confirm that your apps are deployed and accessible from within cluster
 
-Test the configuration by [SSHing][4] into one of the instances in the cluster (such as a master), and `curl` the endpoints:
+Test the configuration by opening a secure shell [(SSH)][4] into one of the instances in the cluster (such as a master), and running `curl` for the endpoints:
 
-    ```bash
-    # Access to external load balancer
-    curl http://marathon-lb.marathon.mesos:10000/
-    # Access to internal load balancer
-    curl http://marathon-lb-internal.marathon.mesos:10001
-    # Access to nginx app from external load balancer
-    curl http://marathon-lb.marathon.mesos:10002/
-    #Access to nginx app from internal load balancer
-    curl http://marathon-lb-internal.marathon.mesos:10002/
-    ```
+  ```bash
+  # Access to external load balancer
+  curl http://marathon-lb.marathon.mesos:10000/
+  # Access to internal load balancer
+  curl http://marathon-lb-internal.marathon.mesos:10001
+  # Access to nginx app from external load balancer
+  curl http://marathon-lb.marathon.mesos:10002/
+  #Access to nginx app from internal load balancer
+  curl http://marathon-lb-internal.marathon.mesos:10002/
+  ```
 
-    Each of these should return the NGINX ‘Welcome’ page:
+Each of these should return the NGINX ‘Welcome’ page:
 
-    ![lb3](/1.10/img/lb3.jpg)
+![lb3](/1.10/img/lb3.jpg)
 
-    Figure 2. HTML version of NGINX welcome page
+Figure 2. HTML version of NGINX welcome page
 
 ## Virtual hosts
 
@@ -235,33 +235,34 @@ To demonstrate the `vhost` feature:
 
 1.  Add the `HAPROXY_0_VHOST` label to your local `nginx-external.json` file. In this example, the public DNS name is `brenden-j-publicsl-1ltlkzeh6b2g6-1145355943.us-west-2.elb.amazonaws.com`.
 
-        ```json
-        ...
-          "labels":{
-            "HAPROXY_GROUP":"external",
-            "HAPROXY_0_VHOST":"brenden-j-publicsl-1ltlkzeh6b2g6-1145355943.us-west-2.elb.amazonaws.com"
-          }
-        }
-        ```
+  ```json
+  ...
+    "labels":{
+      "HAPROXY_GROUP":"external",
+      "HAPROXY_0_VHOST":"brenden-j-publicsl-1ltlkzeh6b2g6-1145355943.us-west-2.elb.amazonaws.com"
+    }
+  }
+  ```
+  
   **Important:** Do not include the leading `http://`trailing slash (`/`) in your public DNS name.
 
 2.  Run this command to replace the contents of the deployed `nginx-external.json` with your modified local copy:
 
-        ```bash
-        cat nginx-external.json | dcos marathon app update nginx-external
-        ```
+  ```bash
+  cat nginx-external.json | dcos marathon app update nginx-external
+  ```
 
 You should see output similar to this:
 
-        ```bash
-        Created deployment 5f3e06ff-e077-48ee-afc0-745f167bc105
-        ```
+  ```bash
+  Created deployment 5f3e06ff-e077-48ee-afc0-745f167bc105
+  ```
 
 3. Deploy the modified NGINX external app on DC/OS using this command:
 
-        ```bash
-        dcos marathon app add nginx-external.json
-        ```
+  ```bash
+  dcos marathon app add nginx-external.json
+  ```
 
 **DC/OS GUI**
 
@@ -284,7 +285,7 @@ The label `HAPROXY_0_VHOST`, instructs Marathon-LB to expose NGINX on the extern
 2.  Navigate to the public agent in your browser and you should see the following:
 
     ![lb6](/1.10/img/lb6.jpg)
-
+    
     Figure 4. NGINX welcome page
 
  [1]: /1.10/installing/oss/

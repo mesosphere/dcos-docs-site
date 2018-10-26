@@ -20,7 +20,7 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
 1.  Log into the DC/OS web interface as a user with the `dcos:superuser` permission.
 
-    ![Login](/1.12/img/gui-installer-login-ee.gif)
+    ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
     Figure 1. Log in to web interface
 
@@ -28,7 +28,7 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
 3.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.12/img/services-tab-user.png)
+    ![Add permission cory](/1.12/img/GUI-Organization-Users-List_View-1_12.png)
 
     Figure 2. Select user or group to grant permissions to
 

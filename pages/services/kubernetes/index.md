@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Kubernetes
+navigationTitle: Kubernetes
 title: Kubernetes
 menuWeight: 75
 excerpt:
@@ -8,4 +8,4 @@ featureMaturity:
 enterprise: false
 ---
 
-Welcome to the documentation for Kubernetes. Choose a version to get started!
+Welcome to the documentation for Kubernetes.

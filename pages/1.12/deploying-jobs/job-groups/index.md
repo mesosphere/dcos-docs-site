@@ -19,7 +19,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS web
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.11/img/gui-installer-login-ee.gif)
+   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 1. DC/OS web interface login
 
@@ -27,7 +27,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS web
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.11/img/services-tab-user.png)
+    ![Add permission cory](/1.12/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     Figure 2. Choose user or group to add permissions to
 
@@ -35,7 +35,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS web
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.11/img/services-tab-user3.png)
+    ![Add permission](/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     Figure 3. Add permissions
 

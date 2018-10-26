@@ -8,7 +8,7 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-In this section, you will will specify the address, protocol and certificates to be used to connect to the LDAP server.
+In this section, you will specify the address, protocol and certificates to be used to connect to the LDAP server.
 
 1.  Click on the **Settings** -> **LDAP Directory** tab.
 

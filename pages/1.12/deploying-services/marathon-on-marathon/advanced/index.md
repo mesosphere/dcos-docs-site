@@ -440,7 +440,7 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 
 1.  Enter your username and password and click **LOG IN**.
 
-    ![Log in DC/OS](/1.12/img/gui-installer-login-ee.gif)
+    ![Log in DC/OS](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
     Figure 4. You are done!
 
