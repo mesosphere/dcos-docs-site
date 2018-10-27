@@ -396,7 +396,6 @@
 ~/1.10/installing/oss/high-availability/(.*)$ /1.10/installing/production/advanced-configuration/configuring-zones-regions/$1;
 /1.10/installing/oss/local/ /1.10/installing/;
 /1.10/installing/oss/opt-out/ /1.10/installing/production/deploying-dcos/opt-out/;
-/1.10/installing/oss/patching/ /1.10/installing/production/patching/;
 /1.10/installing/oss/ports/ /1.10/installing/production/system-requirements/ports/;
 /1.10/installing/oss/troubleshooting/ /1.10/installing/troubleshooting/;
 /1.10/installing/oss/upgrading/ /1.10/installing/production/upgrading/;
