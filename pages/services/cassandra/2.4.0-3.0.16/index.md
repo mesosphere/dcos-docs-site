@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Cassandra 2.3.0-3.0.16
+navigationTitle: Cassandra 2.4.0-3.0.16
 excerpt:
-title: Cassandra 2.3.0-3.0.16
+title: Cassandra 2.4.0-3.0.16
 menuWeight: 9
 model: /services/cassandra/data.yml
 render: mustache
