@@ -8,6 +8,13 @@ model: /services/cassandra/data.yml
 render: mustache
 ---
 
+# Version 2.4.0-3.0.16
+
+## Bug Fixes
+
+- Fix a bug where an out of data configuration ID would be selected when restarting or replacing pods. This could lead to configuration updates being reverted to the values with which the service was initially deployed. ([#2694](https://github.com/mesosphere/dcos-commons/pull/2694))
+
+
 # Version 2.3.0-3.0.16
 
 ## New Features
