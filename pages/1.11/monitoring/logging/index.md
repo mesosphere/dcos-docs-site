@@ -40,6 +40,8 @@ You can download all the log files for your service from the **Services > Servic
 
 For more information, see the Service and Task Logs [quick start guide](/1.11/monitoring/logging/quickstart/).
 
+<p class="message--note"><strong>NOTE: </strong> DC/OS can send copies of task logs to the host's journald, but this is disabled by default because of a known systemd performance problem, for details see the <a href="https://docs.mesosphere.com/1.11/installing/ent/custom/configuration/configuration-parameters/#mesos-container-log-sink">configuration documentation</a></p>.
+
 ## System logs
 
 DC/OS components use `systemd-journald` to store their logs. To access the DC/OS core component logs, [SSH into a node][5] and run this command to see all logs:
