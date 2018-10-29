@@ -80,11 +80,12 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 
 ### UI/UX Enhancements
 - Added master table and health information in the nodes page.
+- Added the Mesosphere DC/OS logo above the UI.
+- Expanded JSON editor view and GPU’s included if deployed in a cluster.
+- Fixed 100+ bugs and performance improvements.
 - Included base tech version in the services page.
 - Included node type (Public/Private) in the nodes page.
 - Removed CPU/MEM/Disk graphic from the nodes page.
-- Added the Mesosphere DC/OS logo above the UI.
-- Fixed 100+ bugs and performance improvements.
 
 ## Notable Changes
 - Update DC/OS UI to 1.12+v2.25.1 [change log](https://github.com/dcos/dcos-ui/releases/tag/1.12+v2.25.1).
