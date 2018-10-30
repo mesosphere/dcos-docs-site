@@ -11,12 +11,7 @@ enterprise: true
 
 You can control user access to task logs by using Marathon groups for jobs and services. You can then assign permissions to access these groups, allowing you to control which logs a user can access.
 
-<table class=“table” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> The functionality described in this document is only available in strict security mode.</td> 
-</tr> 
-</table>
-
+<p class="message--important"><strong>IMPORTANT: </strong>The functionality described in this document is only available in strict security mode.</p> 
 
 In this procedure, you will deploy services in separate Marathon groups, and grant user permissions to view the tasks for these Marathon groups.
 
