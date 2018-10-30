@@ -52,7 +52,6 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
 
   As long as the path of the secret and the path of the group [match up properly](/1.12/security/ent/#spaces), the service will be able to access the secret value.
 
-
 The procedure differs depending on whether or not you want to make the secret available to a [pod](/1.12/deploying-services/pods/) or to an individual service.
 
 - [Individual service](#service)
@@ -371,4 +370,4 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 ## Limitation
 
- The file-based secrets work only with the UCR.
+ The file-based secrets work only with the UCR. 

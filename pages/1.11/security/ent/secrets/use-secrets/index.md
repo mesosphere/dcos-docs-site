@@ -85,9 +85,9 @@ The procedure varies by interface. Refer to the section that corresponds to your
 1. Copy one of the following simple application definitions and paste it into the black box. This application definition creates a new service inside of the developer group and references a secret stored inside a developer path.
 
    Environment variable-based secret:
-
-   ```json
-   {  
+   
+    ```json
+    {  
       "id":"/developer/service",
       "cmd":"sleep 100",
       "env":{  
@@ -106,9 +106,9 @@ The procedure varies by interface. Refer to the section that corresponds to your
    In the example above, DC/OS stores the secret under the environment variable `"MY_SECRET"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
 
    File-based secret:
-
+   
    ```json
-   {
+    {
      "id": "developer/service",
      "cmd": "sleep 100",
      "container": {
