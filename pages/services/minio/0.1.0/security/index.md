@@ -99,6 +99,85 @@ In DC/OS 1.10, the required permission is `dcos:superuser full`:
    ```
 where `<service name>` is the name of the service to be installed.
 
+## Accessing the Minio UI with Edge-LB TLS configuration
+
+### Pre-requisites for EdgeLB with TLS configuration
+1) DC/OS cluster with Service account and Service account secret configured.
+
+2) Minio service installed with TLS enabled.
+
+### Steps
+For Edge-LB pool configuration:
+  1. Add repo of Edge-LB-aws.
+  
+  2. Add repo of Edge-LB-Pool-aws.
+   
+  3. Install the Edge-LB:
+  ```shell
+  dcos package install edgelb --yes
+  ``` 
+  4. Create the configuration JSON file with required parameters to access Minio:
+  ```shell
+{
+  "apiVersion": "V2",
+  "name": "minio",
+  "count": 1,
+  "autoCertificate": true,
+  "haproxy": {
+    "frontends": [
+      {
+        "bindPort": 9001,
+        "protocol": "HTTPS",
+        "certificates": [
+           "$AUTOCERT"
+        ],
+        "linkBackend": {
+          "defaultBackend": "miniodemo"
+        }
+      }
+    ],
+    "backends": [
+     {
+      "name": "miniodemo",
+      "protocol": "HTTPS",
+      "rewriteHttp": {
+         "host": "miniod.miniodemo.l4lb.thisdcos.directory"
+         },
+         "request": {
+            "forwardfor": true,
+            "xForwardedPort": true,
+            "xForwardedProtoHttpsIfTls": true,
+            "setHostHeader": true,
+            "rewritePath": true
+      },
+      "services": [{
+        "endpoint": {
+          "type": "ADDRESS",
+          "address": "miniod.miniodemo.l4lb.thisdcos.directory",
+          "port": 9000
+        }
+      }]
+      }
+      ]
+    }
+}
+
+```
+5. Create `edge-pool` using the JSON file created in the preceding step:
+  ```shell
+  dcos edgelb create edgelb-pool-config.json
+  ```    
+ 6. Accessing Minio:
+  ```shell
+  https://<Public IP of the Public Node of the cluster>>:9001/minio
+  ```  
+Minio server can be accessed using Minio client by registering it to the Minio Server. To register Minio client, specify the public IP of the Public Agent running EdgeLB.
+
+[<img src="../img/edgelb_with_tls.png" alt="With TLS"/>](../img/edgelb_with_tls.png)
+
+For more details on Minio Client, refer to the link:
+   [minio-client-complete-guide](https://docs.minio.io/docs/minio-client-complete-guide.html)  
+
 ## Install the service
 
 Install the DC/OS Minio Service, including the following options in addition to your own:

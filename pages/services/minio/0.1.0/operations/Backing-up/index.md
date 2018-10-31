@@ -56,4 +56,15 @@ It will create new buckets in AWS S3 compatible storage according to the current
     
 'backup' plan would execute aforementioned tasks serially. 
 
+# Specify an S3 compatible storage endpoint
+
+While deploying service from catalog user can specify S3 compatible storage by providing URL of that storage.
+
+[<img src="../../img/S3_Compatible_1.png" alt="S3_Compatible_1" width="800"/>](../img/S3_Compatible_1.png)
+
+   _Figure 1. - S3 bucket storage
+
+[<img src="../../img/S3_Compatible_2.png" alt="S3_Compatible_2" width="800"/>](../img/S3_Compatible_2.png)
+
+   _Figure 2. - S3 compatible storage(e.g. Minio)
 
