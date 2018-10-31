@@ -1,35 +1,75 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.10.7
-title: Release Notes for 1.10.7
-menuWeight: 15
+navigationTitle:  Release Notes for 1.10.9
+title: Release Notes for 1.10.9
+menuWeight: 5
 excerpt:
 ---
 
-DC/OS 1.10.7 was released on May 24, 2018.
+DC/OS 1.10.9 was released on November 6, 2018.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.7/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.9/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
-DC/OS 1.10.7 includes the following:
-- Apache Mesos 1.4.2-315d047[change log](https://github.com/apache/mesos/blob/315d047/CHANGELOG).
-- Marathon 1.5.8 [change log](https://github.com/dcos/dcos/pull/2707).
-- Metronome 0.4.2 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.2).
+# Notable Changes in DC/OS 1.10.9
+DC/OS 1.10.9 includes the following:
+- Apache Mesos  [change log]().
+- Marathon  [change log]().
+- Metronome  [change log]().
 
 
-# Issues Fixed in DC/OS 1.10.7
+# Issues Fixed in DC/OS 1.10.9
 
-- COPS-3158 - Block DC/OS install if mesos work directory or Docker root directory is XFS but not mounted with ftype=1.
-- COPS-3195 - Fixed issues with Mesos authentication token refresh in strict mode cluster. [enterprise type="inline" size="small" /]
-- DCOS-14199 - Consolidated the Exhibitor bootstrapping shortcut by atomically reading and writing the ZooKeeper PID file.
-- DCOS-21596 - DC/OS Bouncer: Prevented local users getting added to LDAP-derived groups containing a matching name.[enterprise type="inline" size="small" /]
-- DCOS-22308 - Cockroachdb: Updated to version 1.1.8. [enterprise type="inline" size="small" /]
-- DCOS_OSS-2335 - Increase the mesos executor registration timeout from 2 seconds to 20 seconds.
+## CLI
 
 
-# Security Enhancements in DC/OS 1.10.7 
+## Data Services
 
-- DCOS-21958 - Disabled the 3DES bulk encryption algorithm for Master Admin Router's TLS. [enterprise type="inline" size="small" /]
+
+## Debugging
+
+
+## Deploying
+
+
+## Front End
+
+
+## Installing
+
+
+## Kubernetes
+
+
+## Logging
+
+
+## Marathon
+
+
+## Mesos
+
+
+## Metrics
+
+
+## Monitoring
+
+
+## Networking
+
+
+## Platform
+
+
+## SDK
+
+
+## Security
+
+
+## Storage
+
 
 # About DC/OS 1.10
 
