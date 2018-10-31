@@ -28,3 +28,7 @@ DC/OS {{ model.techName }} offers the following benefits:
 5. Large Bucket Support: It allows a single Minio bucket to expand over multiple erasure code deployment sets.
 6. Disk Cache: Disk caching feature refers to the use of caching disks to store content closer to the tenants.
 7. Monitoring: Minio server exposes monitoring data over an unauthenticated endpoints so monitoring tools can pick the data without you having to share Minio server credentials.
+
+## Dynamic Scaling Out
+
+Minio does not support horizontal scaling i.e., if Minio cluster has started with eight Minio servers then ninth Minio server cannot be added to the Minio cluster.
