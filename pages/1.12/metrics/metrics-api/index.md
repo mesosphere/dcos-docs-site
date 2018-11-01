@@ -23,6 +23,8 @@ Access to the Metrics API is proxied via Admin Router to each node. Statistics f
 /system/v1/metrics/v0/
 ```
 
+<p class="message--important"><strong>IMPORTANT: </strong> /system/v1/metrics/v0/ is expected to 404 on masters.</p>
+
 Statistics for an agent are prefixed with:
 
 ```
