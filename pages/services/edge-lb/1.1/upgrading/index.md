@@ -19,8 +19,8 @@ Perform an Edge-LB upgrade by following this procedure.
 1. Remove the old package repositories.
 
     ```bash
-    dcos package repo remove edgelb-aws
-    dcos package repo remove edgelb-pool-aws
+    dcos package repo remove edgelb
+    dcos package repo remove edgelb-pool
     ```
 
 1. Add the new package repositories.
