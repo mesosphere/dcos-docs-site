@@ -22,7 +22,7 @@ DC/OS 1.11.7 includes the following components:
 # Issues Fixed in DC/OS 1.11.7
 
 ## GUI
-- DCOS-20222 - Fix invalid environment variables. 
+- DCOS-20222 - Add an error message when environment variables are input without keys. 
 - DCOS-42365 - Fix incorrect memory total in Pod instance.
 - DCOS_OSS-1961 - Support lifecycle of Pods in DC/OS UI.
 
@@ -33,7 +33,6 @@ DC/OS 1.11.7 includes the following components:
 ## Mesos
 - COPS-3172/DCOS-40120/DCOS-42667 - Include MESOS-8545 and MESOS-9131 in Mesos bump.
 - DCOS-40309 - Bump Mesos to nightly 1.5.x 305c7f8.
-- DCOS-43236 - Fix UCR tests on strict mode clusters.
 
 ## Metrics
 - DCOS-39103 - Fix to avoid DC/OS Metrics agent crash with `SIGSEGV` when Docker daemon is unresponsive.
@@ -45,7 +44,7 @@ DC/OS 1.11.7 includes the following components:
 [enterprise]
 ## Security
 [/enterprise]
-- DCOS-42156 - Add root permissions to `dcos_marathon` inorder to launch MoM.
+- DCOS-42156 - Add root permissions to `dcos_marathon` in order to launch MoM.
 - DCOS-42814 - Upgrade CockroachDB to 1.1.9 in DC/OS 1.11.
 
 # About DC/OS 1.11
