@@ -36,8 +36,6 @@ You must install Universe repositories for the Edge-LB API server and the Edge-L
 
 In order to install both packages, you need to obtain package artifacts. They can be downloaded from <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>. 
 
-<p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without a current customer service account.</p>
-
 <p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without logging in using your customer service account.</p>
 
 Once you have these artifacts, they need to be made accesible to the cluster via an HTTP server. The address of the HTTP server will be used in the next step.
@@ -95,7 +93,7 @@ cp -rpv stub-repo/packages/* ../../repo/packages
 6. You can then build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz` file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Universe packages are included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web interface.
 
     ```bash
-    sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“edgelb:v1.1.3,edgelb-pool:stub-universe,<other-package>:<version>” local-universe
+    sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“edgelb:v1.2.1,edgelb-pool:v1.2.1,<other-package>:<version>” local-universe
     ```
 
 7.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
