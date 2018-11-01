@@ -23,8 +23,8 @@ DC/OS 1.11.7 includes the following components:
 
 ## GUI
 - DCOS-20222 - Add an error message when environment variables are input without keys. 
-- DCOS-42365 - Fix incorrect memory total in Pod instance.
-- DCOS_OSS-1961 - Support lifecycle of Pods in DC/OS UI.
+- DCOS-42365 - Fix incorrect memory total in pod instance.
+- DCOS_OSS-1961 - Support lifecycle of pods in DC/OS UI.
 
 ## Marathon
 - DCOS-43816 - Bump DC/OS OSS & EE to 1.11 for `marathon-1.6.564`.
