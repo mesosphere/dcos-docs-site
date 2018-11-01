@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Command Reference
 title: Command Reference
-menuWeight: 6
+menuWeight: 10
 excerpt: Exploring the unique DC/OS commands
 
 enterprise: false

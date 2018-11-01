@@ -11,12 +11,7 @@ enterprise: true
 
 You can control user access to task logs by using Marathon groups for jobs and services. You can then assign permissions to access these groups, allowing you to control which logs a user can access.
 
-<table class=“table” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> The functionality described in this document is only available in strict security mode.</td> 
-</tr> 
-</table>
-
+<p class="message--important"><strong>IMPORTANT: </strong>The functionality described in this document is only available in strict security mode.</p> 
 
 In this procedure, you will deploy services in separate Marathon groups, and grant user permissions to view the tasks for these Marathon groups.
 
@@ -45,19 +40,19 @@ Here is an overview of the [permissions](/1.12/security/ent/perms-reference/) th
 
 1.  Select **Organization** and choose **Groups**.
 
-    ![New group](/1.12/img/new-user-group.png)
+    ![New group](/1.12/img/GUI-Organization-Groups-Add_Group_w_Plus_Button_Tooltip-1_12.png)
 
     Figure 1. New user group
 
 1.  Create a new group.
 
-    ![Prod group](/1.12/img/new-user-group-prod.png)
+    ![Prod group](/1.12/img/GUI-Organization-Groups-Create_New_Group_Modal-1_12.png)
 
     Figure 2. Create new group screen
 
 1.  Select the group name and from the **Permissions** tab, click **ADD PERMISSION**.
 
-    ![Add permission to prod-group](/1.12/img/new-user-group-prod-permission.png)
+    ![Add permission to prod-group](/1.12/img/GUI-Organization-Groups-Group_Detail_Page-1_12.png)
 
     Figure 3. Add Permission button
 
@@ -75,7 +70,7 @@ Here is an overview of the [permissions](/1.12/security/ent/perms-reference/) th
     dcos:mesos:master:task:app_id:/prod-group/ read
     ```
 
-    ![Add permission](/1.12/img/new-user-group-prod-permission-string.png)
+    ![Add permission](/1.12/img/GUI-Organization-Groups-Add_Perms_Modal_Logging-1_12.png)
 
     Figure 4. Permissions string added
 
@@ -83,13 +78,13 @@ Here is an overview of the [permissions](/1.12/security/ent/perms-reference/) th
 
 1.  Select **Organization** and choose **Users**. Select an existing or create a new user.
 
-    ![New user](/1.12/img/new-user-generic.png)
+    ![New user](/1.12/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
 
     Figure 5. Users screen
 
 1.  From the **Group Membership** tab, type in the search box and choose the group name. This will grant the group permissions to an individual user.
 
-    ![Add alice to security group](/1.12/img/new-user-alice-add-group.png)
+    ![Add alice to security group](/1.12/img/GUI-Organization-Users-User_Alice_Add_prod_group-1_12.png)
 
     Figure 6. Adding user to security group
 
@@ -105,13 +100,13 @@ This section shows you how to deploy a simple application in your group.
     -  **COMMAND** Specify `sleep 1000000000`.
     -  **Container Runtime** Select **UNIVERSAL CONTAINER RUNTIME (UCR)**.
 
-    ![Define nested service](/1.12/img/new-user-alice-service-group.png)
+    ![Define nested service](/1.12/img/GUI-Services-Add_Service_Single_Container_Alice-1_12.png)
 
     Figure 7. Define a nested service
 
 1.  Click **REVIEW & RUN** and **RUN SERVICE** to complete your installation. You should now see a service that is running in a group.
 
-    ![Service running within group](/1.12/img/new-user-alice-service-done.png)
+    ![Service running within group](/1.12/img/GUI-Services-Main_View_prod_group_Alice-1_12.png)
 
     Figure 8. Service running in a group
 

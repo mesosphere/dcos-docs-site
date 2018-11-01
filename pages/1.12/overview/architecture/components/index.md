@@ -31,7 +31,7 @@ Mesos manages resources and tasks as a distributed systems kernel. Mesos Master 
 - `dcos-mesos-slave.service`
 - `dcos-mesos-slave-public.service`
 
-**See Also:**
+Read the following documentation resources to learn more about Apache Mesos:
 
 - [Documentation](http://mesos.apache.org/)
 - [Source](https://github.com/apache/mesos)
@@ -46,7 +46,7 @@ ZooKeeper provides consistent, highly available, distributed key-value storage f
 
 N/A - ZooKeeper is supervised by Exhibitor.
 
-**See Also:**
+Read the following documentation resources to learn more about Apache ZooKeeper:
 
 - [Documentation](https://zookeeper.apache.org/)
 - [Source](https://github.com/apache/zookeeper)
@@ -61,7 +61,7 @@ Exhibitor supervises ZooKeeper and provides a management web interface.
 
 - `dcos-exhibitor.service`
 
-**See Also:**
+Read the following documentation resources to learn more about Exhibitor:
 
 - [Documentation](https://github.com/soabase/exhibitor/wiki)
 - [Source](https://github.com/dcos/exhibitor)
@@ -78,9 +78,9 @@ The DC/OS Installer (`dcos_generate_config.ee.sh`) generates install artifacts a
 - `dcos-download.service`
 - `dcos-setup.service`
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS and installation methods:
 
-- [Documentation](/1.12/installing/oss/)
+- [Documentation](/1.12/installing/)
 - [Source](https://github.com/dcos/dcos)
 
 [enterprise]
@@ -94,7 +94,7 @@ DC/OS Backup provides backup and restore of DC/OS component state (Marathon-only
 - `dcos-backup-master.service`
 - `dcos-backup-master.socket`
 
-**See Also:**
+Read the following documentation resources to learn more about backing up and restoring your cluster:
 
 - [Documentation](/1.12/administering-clusters/backup-and-restore/)
 - [API Reference](/1.12/administering-clusters/backup-and-restore/backup-restore-api/)
@@ -109,7 +109,7 @@ The DC/OS GUI (web interface) is a browser-based system dashboard and control ce
 
 N/A - The GUI is served by Admin Router.
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS GUI:
 
 - [Documentation](/1.12/gui/)
 - [Source](https://github.com/dcos/dcos-ui)
@@ -124,7 +124,7 @@ The DC/OS CLI is a terminal-based remote client.
 
 N/A - The CLI is a user downloadable binary.
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS CLI:
 
 - [Documentation](/1.12/cli/)
 - [Source](https://github.com/dcos/dcos-cli)
@@ -143,7 +143,7 @@ Marathon orchestrates long-lived containerized services (apps and pods).
 
 - `dcos-marathon.service`
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS Marathon:
 
 - [Website](https://mesosphere.github.io/marathon/)
 - [Documentation](/1.12/deploying-services/)
@@ -159,7 +159,7 @@ DC/OS Jobs (Metronome) orchestrates short-lived, scheduled or immediate, contain
 
 - `dcos-metronome.service`
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS Metronome:
 
 - [Documentation](/1.12/deploying-jobs/)
 - [Source](https://github.com/dcos/metronome)
@@ -178,7 +178,7 @@ Universal Container Runtime (Mesos Containerizer) is a logical component built-i
 
 N/A - Universal Container Runtime is part of Mesos Agent.
 
-**See Also:**
+Read the following documentation resource to learn more about Universal Container Runtime:
 
 - [Mesos Containerizer Documentation](http://mesos.apache.org/documentation/latest/containerizers/)
 
@@ -191,7 +191,7 @@ Docker Engine is not installed by the DC/OS Installer, but rather is a system de
 
 - `docker.service` - Docker Engine is not installed by the DC/OS installer.
 
-**See Also:**
+Read the following documentation resource to learn more about Docker Engine:
 
 - [Docker ContainerizerDocumentation](http://mesos.apache.org/documentation/latest/docker-containerizer)
 - [Docker Engine Documentation](https://docs.docker.com/engine/)
@@ -208,7 +208,7 @@ Docker GC periodically collects Docker "garbage" containers and images.
 - `dcos-docker-gc.service`
 - `dcos-docker-gc.timer`
 
-**See Also:**
+Read the following documentation resource to learn more about Docker GC:
 
 - [Source](https://github.com/spotify/docker-gc)
 
@@ -237,7 +237,7 @@ DC/OS Diagnostics aggregates and exposes component health. DC/OS Diagnostics is 
 - `dcos-diagnostics.service`
 - `dcos-diagnostics.socket`
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS Diagnostics:
 
 - [Source](https://github.com/dcos/dcos-diagnostics)
 - [API Reference](/1.12/monitoring/#system-health-http-api-endpoint)
@@ -255,7 +255,7 @@ The DC/OS Log service exposes node, component, and container (task) logs.
 - `dcos-log-agent.service`
 - `dcos-log-agent.socket`
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS Logs:
 
 - [Source](https://github.com/dcos/dcos-log)
 - [API Reference](/1.12/monitoring/logging/logging-api/)
@@ -273,27 +273,25 @@ Logrotate manages rotation, compression, and deletion of historical log files.
 - `dcos-logrotate-agent.service`
 - `dcos-logrotate-agent.timer`
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS Logrotate:
 
 - [Documentation](https://linux.die.net/man/8/logrotate)
 - [Source](https://github.com/logrotate/logrotate)
 
-<a name="dcos-metrics"></a>
+<a name="telegraf"></a>
 
-## DC/OS Metrics
+## Telegraf
 
-The DC/OS Metrics service exposes node, container, and application metrics.
+Telegraf is a configurable metrics pipeline. By default, it collects system, container, and application metrics.
 
 ### System Service
 
-- `dcos-metrics-master.service`
-- `dcos-metrics-master.socket`
-- `dcos-metrics-agent.service`
-- `dcos-metrics-agent.socket`
+- `dcos-telegraf.service`
+- `dcos-telegraf.socket`
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS Telegraf:
 
-- [Source](https://github.com/dcos/dcos-metrics)
+- [Source](https://github.com/dcos/telegraf)
 - [API Reference](/1.12/metrics/metrics-api/)
 
 <a name="dcos-signal"></a>
@@ -307,7 +305,7 @@ The DC/OS Signal service reports cluster telemetry and analytics to help improve
 - `dcos-signal.service`
 - `dcos-signal.timer`
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS Signal:
 
 - [Source](https://github.com/dcos/dcos-signal)
 
@@ -321,7 +319,7 @@ The DC/OS History service caches and exposes the historical system state to faci
 
 - `dcos-history.service`
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS History:
 
 - [Source](https://github.com/dcos/dcos/tree/master/packages/dcos-history/extra)
 - [API Reference](https://github.com/dcos/dcos/tree/master/packages/dcos-history/extra#api)
@@ -341,7 +339,7 @@ Admin Router exposes a unified control plane proxy for components and services u
 - `dcos-adminrouter.service`
 - `dcos-adminrouter-agent.service`
 
-**See Also:**
+Read the following documentation resource to learn more about DC/OS Admin Router:
 
 - [Source](https://github.com/dcos/adminrouter)
 
@@ -355,7 +353,7 @@ Mesos DNS provides domain name based service discovery within the cluster.
 
 - `dcos-mesos-dns.service`
 
-**See Also:**
+Read the following documentation resources to learn more about Mesos DNS:
 
 - [Documentation](http://mesosphere.github.io/mesos-dns/)
 - [Source](https://github.com/mesosphere/mesos-dns)
@@ -375,7 +373,7 @@ Mesos DNS provides domain name based service discovery within the cluster.
 - `dcos-net.service`
 - `dcos-net-watchdog.service`
 
-**See Also:**
+Read the following documentation resource to learn more about DC/OS Net:
 
 - [Source](https://github.com/dcos/dcos-net)
 
@@ -391,7 +389,7 @@ Mesos DNS provides domain name based service discovery within the cluster.
 - `dcos-gen-resolvconf.timer`
 
 
-**See Also:**
+Read the following documentation resource to learn more about `Generate resolv.conf`:
 
 - [Source](https://github.com/dcos/dcos/blob/master/packages/dcos-net/extra/gen_resolvconf.py)
 
@@ -410,7 +408,7 @@ DC/OS Package Manager (Cosmos) installs and manages DC/OS packages from [DC/OS p
 
 - `dcos-cosmos.service`
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS Package Manager (Cosmos):
 
 - [Source](https://github.com/dcos/cosmos)
 - [API Reference](/1.12/deploying-services/package-api/)
@@ -425,7 +423,7 @@ DC/OS Component Package Manager (Pkgpanda) installs and manages DC/OS components
 - `dcos-pkgpanda-api.socket`
 
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS Component Package Manager (Pkgpanda):
 
 - [Source](https://github.com/dcos/dcos/tree/master/pkgpanda)
 - [API Reference](/1.12/administering-clusters/component-management/)
@@ -445,7 +443,7 @@ DC/OS Identity and Access Manager (IAM) controls access to DC/OS components and 
 
 - `dcos-bouncer.service`
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS Identity and Access Manager (Bouncer):
 
 - [Documentation](/1.12/security/)
 - [API Reference](/1.12/security/ent/iam-api/)
@@ -462,7 +460,7 @@ CockroachDB is a distributed SQL database built on a transactional and strongly 
 
 - `dcos-cockroach.service`
 
-**See Also:**
+Read the following documentation resources to learn more about CockroachDB:
 
 - [Documentation](https://www.cockroachlabs.com/docs/)
 - [Source](https://github.com/cockroachdb/cockroach)
@@ -478,7 +476,7 @@ DC/OS Certificate Authority (CA) issues signed digital certificates for secure c
 - `dcos-ca.service`
 
 
-**See Also:**
+Read the following documentation resources to learn more about DC/OS Certificate Authority:
 
 - [Documentation](/1.12/security/ent/tls-ssl/)
 - [API Reference](/1.12/security/ent/tls-ssl/ca-api/)
@@ -492,8 +490,7 @@ DC/OS Secrets provides a secure API for storing and retrieving secrets from Vaul
 
 - `dcos-secrets.service`
 
-**See Also:**
-
+Read the following documentation resources to learn more about DC/OS Secrets:
 - [Documentation](/1.12/security/ent/secrets/)
 - [API Reference](/1.12/security/ent/secrets/secrets-api/)
 
@@ -506,7 +503,7 @@ Vault is a tool for securely managing secrets. A secret is anything that you wan
 
 - `dcos-vault.service`
 
-**See Also:**
+Read the following documentation resources to learn more about Vault:
 
 - [Documentation](https://www.vaultproject.io/docs/)
 - [Source](https://github.com/mesosphere/vault/)
@@ -526,7 +523,7 @@ REX-Ray orchestrates provisioning, attachment, and mounting of external persiste
 
 - `dcos-rexray.service`
 
-**See Also:**
+Read the following documentation resources to learn more about REX-Ray:
 
 - [Documentation](http://rexray.readthedocs.io/)
 - [Source](https://github.com/codedellemc/rexray)
