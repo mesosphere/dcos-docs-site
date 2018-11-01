@@ -441,7 +441,7 @@ B- This package combination is *beta*.
     <tr>
         <td>Marathon-LB 1.2.* 1.9.*</td>
         <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p>/td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr> 
