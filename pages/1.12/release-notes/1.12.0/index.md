@@ -29,8 +29,7 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 
 ### Observability - Metrics
 Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability are:
-- Adopted industry standards, Free and Open Source Software (FOSS) metrics infrastructure.
-- Used flexible and configurable metrics pipeline with multiple output formats.
+- Introduced a flexible and configurable metrics pipeline with multiple output formats.
 - Enhanced support for application metric types including histograms, counters, timers, and gauges.
 - Support for sample rates and multi-metrics packets. 
 - Mesos framework metrics are now [available](http://mesos.apache.org/documentation/latest/monitoring/#frameworks).
