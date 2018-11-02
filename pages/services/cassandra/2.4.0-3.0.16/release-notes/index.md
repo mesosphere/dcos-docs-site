@@ -14,6 +14,9 @@ render: mustache
 
 - Fix a bug where an out of data configuration ID would be selected when restarting or replacing pods. This could lead to configuration updates being reverted to the values with which the service was initially deployed. ([#2694](https://github.com/mesosphere/dcos-commons/pull/2694))
 
+## Updates
+
+- Upgrade JRE to 1.8u192 to address CVEs
 
 # Version 2.3.0-3.0.16
 
