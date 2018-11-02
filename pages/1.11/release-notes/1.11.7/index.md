@@ -23,29 +23,27 @@ DC/OS 1.11.7 includes the following components:
 
 ## GUI
 - DCOS-20222 - Add an error message when environment variables are input without keys. 
-- DCOS-42365 - Fix incorrect memory total in pod instance.
-- DCOS_OSS-1961 - Support lifecycle of pods in DC/OS UI.
+- DCOS-42365 - Set total resource counts to display in the pods table.
+- DCOS_OSS-1961 - Secure pod container fields to prevent instances of unprompted swallowing when pod is edited via JSON Editor. 
 
 ## Marathon
-- DCOS-43816 - Bump DC/OS OSS & EE to 1.11 for `marathon-1.6.564`.
-- DCOS_OSS-4193 - Marathon `systemd` unit requires zk-1.zk node to be available in order to launch Marathon service.
+- DCOS_OSS-4193 - Resolve [MSPH-2018-0004](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004)(Mesosphere Customer Advisory) where Marathon fails to launch if the first DC/OS master is down with the introduction of ping zk-1 in DC/OS 1.11.5.
 
 ## Mesos
-- COPS-3172/DCOS-40120/DCOS-42667 - Include MESOS-8545 and MESOS-9131 in Mesos bump.
-- DCOS-40309 - Bump Mesos to nightly 1.5.x 305c7f8.
+- COPS-3172/DCOS-40120/DCOS-42667 - Fix instances where parent containers may get stuck in `DESTROYING` state when there is a simultaneous health check running to create nested containers.
 
 ## Metrics
-- DCOS-39103 - Fix to avoid DC/OS Metrics agent crash with `SIGSEGV` when Docker daemon is unresponsive.
-- DCOS_OSS-3918 - Removed duplicate errors from the logs.
+- DCOS-39103 - Consolidate DC/OS metrics agent service error messages in instances when the Docker daemon becomes unresponsive.
+- DCOS_OSS-3918 - Downrate logs to debug in occurrences of NaN data point values to reduce log size and free disk space. 
 
 ## Platform
-- DCOS_OSS-4127 - Add more diagnostics data like timestamp for `dmesg`, `distro version`, `systemd` unit status into the bundle.
+- DCOS_OSS-4127 - Add additional data (timestamp for `dmesg`, `timedatectl`, distro version, systemd unit status, pods endpoint) into DC/OS diagnostics bundle.
 
 [enterprise]
 ## Security
 [/enterprise]
 - DCOS-42156 - Add root permissions to `dcos_marathon` in order to launch MoM.
-- DCOS-42814 - Upgrade CockroachDB to 1.1.9 in DC/OS 1.11.
+- DCOS-42814 - Upgrade CockroachDB from 1.1.8 to 1.1.9.
 
 # About DC/OS 1.11
 
