@@ -62,7 +62,7 @@ The procedure differs depending on whether or not you want to make the secret av
 
 The procedure varies by interface. Refer to the section that corresponds to your desired interface.
 
-- [web interface](#deploying-the-service-via-the-web-interface)
+- [Web interface](#deploying-the-service-via-the-web-interface)
 
 - [Marathon API](#deploying-the-service-via-marathon-app-definition)
 
@@ -176,22 +176,22 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
    Environment variable-based secret:
 
-   ```json
-   {  
-      "id":"/developer/service",
-      "cmd":"sleep 100",
-      "env":{  
-         "MY_SECRET":{  
-            "secret":"secret0"
-         }
+    ```json
+    {  
+      "id": "/developer/service",
+      "cmd": "sleep 100",
+      "env": {  
+        "MY_SECRET": {  
+          "secret": "secret0"
+        }
       },
-      "secrets":{  
-         "secret0":{  
-            "source":"developer/my-secret"
-         }
+      "secrets": {  
+        "secret0": {  
+          "source": "developer/my-secret"
+        }
       }
-   }
-   ```
+    }
+    ```
 
    In the example above, DC/OS stores the secret under the environment variable `"MY_SECRET"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
 
@@ -303,9 +303,9 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Add the job to DC/OS via the DC/OS CLI.
 
-   ```bash
-   dcos job add mytest.json
-   ```
+    ```bash
+    dcos job add mytest.json
+    ```
 
 1. Open the DC/OS web interface.
 
