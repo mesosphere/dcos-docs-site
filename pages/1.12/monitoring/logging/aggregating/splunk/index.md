@@ -13,11 +13,7 @@ You can pipe system and application logs from a DC/OS cluster to your existing S
 
 These instructions are based on CoreOS and might differ substantially from other Linux distributions.
 
-<table class=“table” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> The agent node Splunk forwarder configuration expects tasks to write logs to `stdout` and `stderr`. Some DC/OS services, including Cassandra and Kafka, do not write logs to `stdout` and `stderr`. If you want to log these services, you must customize your agent node Splunk forwarder configuration.</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong>The agent node Splunk forwarder configuration expects tasks to write logs to `stdout` and `stderr`. Some DC/OS services, including Cassandra and Kafka, do not write logs to `stdout` and `stderr`. If you want to log these services, you must customize your agent node Splunk forwarder configuration.</p>
 
 **Prerequisites**
 
