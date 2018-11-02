@@ -21,7 +21,7 @@ DC/OS 1.10.9 includes the following:
 # Issues Fixed in DC/OS 1.10.9
 
 ## CLI
-
+- DCOS-3200 - Fix `dcos task --completed` command failure when a Mesos agent is lost and rejoins with a new ID.
 
 ## Data Services
 
@@ -32,7 +32,17 @@ DC/OS 1.10.9 includes the following:
 ## Deploying
 
 
-## Front End
+## GUI
+- DCOS-40881 - Fix form control icons overflow issue in Firefox.
+- DCOS-40525 - Fix the environment variables reducer to support empty values.
+- DCOS-37585 - Fix Marathon health checks by caching right task data.
+- DCOS-37466 - Adjust service structs to defer spec creation.
+- DCOS-37461/DCOS-37465 - Change `MesosStateStore` to apply `assignSchedulerTaskField` only once since the same data is regenerated multiple times.
+- DCOS-37464 - Adjust DCOSStore to cache the `serviceTree` and `taskLookupTable`.
+- DCOS-21723 - Display allocated resources for frameworks in the GUI. 
+- DCOS-15289 - Fix the display message on Marathon-LB debug page to show deplpoyment problems.
+- DCOS-14757 - Fix unexpected persistent and residency error in volumes.
+- COPS-3051 - 
 
 
 ## Installing
@@ -48,25 +58,38 @@ DC/OS 1.10.9 includes the following:
 
 
 ## Mesos
-
+- DCOS-40309 - Bump Mesos to nightly 1.4.x df0a475.
+- DCOS-24245 - 
+- COPS-3780 - Run health checks on Mesos Master and other components.
+- COPS-3612 - 
+- COPS-3371 - Remove `check-*` directories created by health checks for Kafka inside /run/mesos/containers after the health check is completed.
 
 ## Metrics
-
+- DCOS-38083 - Improve the behavior of statsd timers on dcos-metrics.
+- DCOS-37454 - Fix inconsistent output reported by prometheus endpoint (/metrics) in the metrics store. 
 
 ## Monitoring
 
 
 ## Networking
-
+- DCOS-39841 - Fix the erros of `dcos-cni` package that lead to the failure to build DC/OS locally.
+- DCOS-39707 - Fix clustering issues with `etcd`.
+- COPS-3701 - Fix file descriptors leak associated with TCP connection on DC/OS nodes.  
+- COPS-3585 - Set routing table correctly on public nodes. 
+- COPS-3520 - 
 
 ## Platform
-
-
-## SDK
+- DCOS-40373 - Prevent `dcos-history` leaking authorization tokens.
+- DCOS-22194 - Fix `dcos-metrics` pkgpanda build.
+- DCOS-21349 - 
+- COPS-3773 - 
 
 
 ## Security
-
+- DCOS-40788 - Add E2E tests to modify dump journals in case of failures and/or timeouts.
+- DCOS-40245 - Enables the`adminrouter_auth_cache_enabled` configuration option by default. 
+- COPS-2988/DCOS-40021 - Update superuser permissions in documentation. 
+- COPS-3485 - 
 
 ## Storage
 
