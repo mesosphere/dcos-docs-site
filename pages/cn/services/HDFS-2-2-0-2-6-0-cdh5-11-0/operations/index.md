@@ -17,8 +17,8 @@ render: mustache
 从 DC/OS CLI 执行以下命令，检索客户端应用程序可用于连接到 HDFS 实例的 `hdfs-site.xml` 文件。
 
 ```bash
-$ dcos {{ model.packageName }} --name=<service-name> endpoints hdfs-site.xml
+dcos {{ model.packageName }} --name=<service-name> endpoints hdfs-site.xml
 ...
-$ dcos {{ model.packageName }} --name=<service-name> endpoints core-site.xml
+dcos {{ model.packageName }} --name=<service-name> endpoints core-site.xml
 ...
 ```

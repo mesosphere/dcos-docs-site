@@ -17,7 +17,7 @@ render: mustache
 ## 列表主题
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} topic list
+dcos {{ model.packageName }} --name={{ model.serviceName }} topic list
 [
   "topic1",
   "topic0"
@@ -35,7 +35,7 @@ $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.servic
 ## 描述主题
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} topic describe topic1
+dcos {{ model.packageName }} --name={{ model.serviceName }} topic describe topic1
 {
   "partitions": [
   {
@@ -132,7 +132,7 @@ $ curl -X POST -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ mode
 ## 创建主题
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} topic create topic1 --partitions=3 --replication=3
+dcos {{ model.packageName }} --name={{ model.serviceName }} topic create topic1 --partitions=3 --replication=3
 {
   "message": "Output: Created topic \"topic1\"\n"
 }
@@ -150,7 +150,7 @@ $ curl -X POST -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ mode
 可选的 `--time` 参数可以被设置为“first”、“last” 或时间戳（以毫秒为单位），[如 {{ model.techShortName }} 文档中所述](https://kafka.apache.org/documentation/#topicconfigs)。
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} topic offsets topic1 --time=last
+dcos {{ model.packageName }} --name={{ model.serviceName }} topic offsets topic1 --time=last
 [
   {
     "2": "334"
@@ -182,7 +182,7 @@ $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.servic
 ## 修改主题分区计数
 
 ```
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} topic partitions topic1 2
+dcos {{ model.packageName }} --name={{ model.serviceName }} topic partitions topic1 2
 {
   "message": "Output: WARNING: If partitions are increased for a topic that has a key, the partition logic or ordering of the messages will be affectednAdding partitions succeeded!n"
 }
@@ -198,7 +198,7 @@ $ curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model
 ## 在主题上运行生产者测试
 
 ```
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} topic producer_test topic1 10
+dcos {{ model.packageName }} --name={{ model.serviceName }} topic producer_test topic1 10
 {
   "message": "10 records sent, 70.422535 records/sec (0.07 MB/sec), 24.20 ms avg latency, 133.00 ms max latency, 13 ms 50th, 133 ms 95th, 133 ms 99th, 133 ms 99.9th.n"
 }
@@ -223,7 +223,7 @@ $ kafka-producer-perf-test.sh \
 ## 删除主题
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} topic delete topic1
+dcos {{ model.packageName }} --name={{ model.serviceName }} topic delete topic1
 {
   "message": "Topic topic1 is marked for deletion.nNote: This will have no impact if delete.topic.enable is not set to true.n"
 }
@@ -241,7 +241,7 @@ $ curl -X DELETE -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ mo
 ## 列出 Under Replicated 分区
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} topic under_replicated_partitions
+dcos {{ model.packageName }} --name={{ model.serviceName }} topic under_replicated_partitions
 {
   "message": ""
 }
@@ -257,7 +257,7 @@ $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.servic
 ## 列出不可用分区
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} topic unavailable_partitions
+dcos {{ model.packageName }} --name={{ model.serviceName }} topic unavailable_partitions
 {
   "message": ""
 }

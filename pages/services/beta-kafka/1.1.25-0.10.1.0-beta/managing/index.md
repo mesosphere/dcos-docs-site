@@ -33,4 +33,4 @@ Increase the `BROKER_COUNT` value via the DC/OS web interface as in any other co
 
 1.  Install the latest version of Kafka:
 
-        $ dcos package install kafka -—options=options.json
+       dcos package install kafka -—options=options.json

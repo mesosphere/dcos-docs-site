@@ -25,12 +25,12 @@ Backups are started using the Percona-Server-MongoDB CLI module's `backup` comma
 
 If the AWS Access Key, Secret Key, S3 Bucket Name and S3 Bucket Prefix are already defined in your service options the following will start a backup:
     ```shell
-    $ dcos percona-server-mongodb backup run s3
+   dcos percona-server-mongodb backup run s3
     ```
 
 If the AWS configuration/credentials are not defined in the service options or you would like to override them, define the options on the command line with the following:
     ```shell
-    $ dcos percona-server-mongodb backup run s3 \
+   dcos percona-server-mongodb backup run s3 \
         --access-key=XXXXXXXXXXXXXXXXXXX \
         --secret-key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
         --bucket-name=my-s3-bucket-name \
@@ -53,7 +53,7 @@ A task named `mongodb-consistent-backup-0-backup` will exist for the duration of
 To stop a running backup process:
 
     ```shell
-    $ dcos percona-server-mongodb backup stop s3
+   dcos percona-server-mongodb backup stop s3
     ```
 
 ## Troubleshooting a backup
@@ -92,13 +92,13 @@ Start a manual restoration using the Percona-Server-MongoDB CLI module's `restor
 If the AWS Access Key and Secret Keyare already defined in your service options, the following will start a restore:
 
     ```shell
-    $ dcos percona-server-mongodb restore run s3 s3://my-s3-bucket-name-here/backup/dump
+   dcos percona-server-mongodb restore run s3 s3://my-s3-bucket-name-here/backup/dump
     ```
 
 If the AWS configuration/credentials are not defined in the service options or you would like to override them, define the options on the command line with the following:
 
     ```shell
-    $ dcos percona-server-mongodb restore run s3 \
+   dcos percona-server-mongodb restore run s3 \
         --access-key=XXXXXXXXXXXXXXXXXXX \
         --secret-key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
         s3://my-s3-bucket-name-here/backup/dump
@@ -109,7 +109,7 @@ If the AWS configuration/credentials are not defined in the service options or y
 To stop a running backup restore process:
 
     ```shell
-    $ dcos percona-server-mongodb restore stop s3
+   dcos percona-server-mongodb restore stop s3
     ```
 
 ### Troubleshooting a restore process

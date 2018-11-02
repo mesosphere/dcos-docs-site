@@ -144,14 +144,14 @@ If your cluster is set up for [strict](https://docs.mesosphere.com/latest/securi
 1.  Install the `dcos-enterprise-cli` to get CLI security commands (if you haven't already):
 
     ```bash
-    $ dcos package install dcos-enterprise-cli
+   dcos package install dcos-enterprise-cli
     ```
 
 1.  Create a key pair, a 2048-bit RSA public-private key pair is created using the Enterprise DC/OS CLI. Create a
     public-private key pair and save each value into a separate file within the current directory.
 
     ```bash
-    $ dcos security org service-accounts keypair <your-private-key>.pem <your-public-key>.pem
+   dcos security org service-accounts keypair <your-private-key>.pem <your-public-key>.pem
     ```
 
     For example:
@@ -164,7 +164,7 @@ If your cluster is set up for [strict](https://docs.mesosphere.com/latest/securi
     `your-public-key.pem`.
 
     ```bash
-    $ dcos security org service-accounts create -p <your-public-key>.pem -d "Spark service account" <service-account>
+   dcos security org service-accounts create -p <your-public-key>.pem -d "Spark service account" <service-account>
     ```
 
     For example:
@@ -181,16 +181,16 @@ If your cluster is set up for [strict](https://docs.mesosphere.com/latest/securi
     **Note** You can verify your new service account using the following command.
 
     ```bash
-    $ dcos security org service-accounts show <service-account>
+   dcos security org service-accounts show <service-account>
     ```
 
 1.  Create a secret (e.g. `{{ model.serviceName }}/<secret-name>`) with your service account, `service-account`, and private key specified, `your-private-key.pem`.
 
     ```bash
     # permissive mode
-    $ dcos security secrets create-sa-secret <your-private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
+   dcos security secrets create-sa-secret <your-private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
     # strict mode
-    $ dcos security secrets create-sa-secret --strict <private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
+   dcos security secrets create-sa-secret --strict <private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
     ```
 
     For example, on a strict-mode DC/OS cluster:
@@ -202,7 +202,7 @@ If your cluster is set up for [strict](https://docs.mesosphere.com/latest/securi
     **Note** Use the `dcos security secrets list /` command to verify that the secrets were created:
 
     ```bash
-    $ dcos security secrets list /
+   dcos security secrets list /
     ```
 
 ## Assigning permissions
@@ -216,9 +216,9 @@ Permissions can also be assigned through the UI.
 
 1.  Run the following to create the required permissions for Spark:
     ```bash
-    $ dcos security org users grant <service-account> dcos:mesos:master:task:user:<user> create --description "Allows the Linux user to execute tasks"
-    $ dcos security org users grant <service-account> dcos:mesos:master:framework:role:<{{ model.serviceName }}-service-role> create --description "Allows a framework to register with the Mesos master using the Mesos default role"
-    $ dcos security org users grant <service-account> dcos:mesos:master:task:app_id:/<service_name> create --description "Allows reading of the task state"
+   dcos security org users grant <service-account> dcos:mesos:master:task:user:<user> create --description "Allows the Linux user to execute tasks"
+   dcos security org users grant <service-account> dcos:mesos:master:framework:role:<{{ model.serviceName }}-service-role> create --description "Allows a framework to register with the Mesos master using the Mesos default role"
+   dcos security org users grant <service-account> dcos:mesos:master:task:app_id:/<service_name> create --description "Allows reading of the task state"
     ```
 
     Note that above the `dcos:mesos:master:task:app_id:/<service_name>` will likely be `dcos:mesos:master:task:app_id:/{{ model.serviceName }}`
@@ -269,7 +269,7 @@ Permissions can also be assigned through the UI.
     Then install:
 
     ```bash
-    $ dcos package install {{ model.serviceName }} --options={{ model.serviceName }}-strict-options.json
+   dcos package install {{ model.serviceName }} --options={{ model.serviceName }}-strict-options.json
     ```
 
 

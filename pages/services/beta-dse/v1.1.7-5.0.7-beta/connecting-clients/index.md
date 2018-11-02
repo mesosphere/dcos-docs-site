@@ -11,7 +11,7 @@ enterprise: false
 1. [Use `dcos tunnel vpn` to connect](/1.8/administration/access-node/tunnel/) (only needed if the DC/OS nodes are not directly reachable from your local machine).
 1. Find endpoints
 ```bash
-$ dcos dse endpoints
+dcos dse endpoints
 [
   "studio",
   "spark-master-webui",
@@ -22,7 +22,7 @@ $ dcos dse endpoints
   "cassandra-thrift"
 ]
 
-$ dcos dse endpoints opscenter
+dcos dse endpoints opscenter
 {
   "address": ["10.0.3.156:8888"],
   "dns": ["opscenter-0-node.dse.mesos:8888"]

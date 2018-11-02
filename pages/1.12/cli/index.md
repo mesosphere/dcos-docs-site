@@ -15,7 +15,7 @@ DC/OS 1.12 requires the DC/OS CLI >= 0.7. To install it, [follow the instruction
 To list available commands, run `dcos` with no parameters:
 
 ```bash
-$ dcos
+dcos
 
 Usage:
   dcos [command]
@@ -133,7 +133,7 @@ Optionally set `DCOS_DIR` and run `dcos cluster setup` command.
 This command indicates whether to verify SSL certificates or set the path to the SSL certificates. You must set this variable manually. Setting this environment variable is equivalent to setting the `dcos config set core.ssl_verify` option in the DC/OS configuration [file](#configuration-files). For example, to indicate that you want to set the path to SSL certificates:
 
 ```bash
-$ dcos cluster list
+dcos cluster list
         NAME               ID                        STATUS     VERSION      URL
   *   cluster 26f72c2f-8d03-47d7-b95f-972b1fd3dea2  AVAILABLE    1.12  <cluster-url>
 ```

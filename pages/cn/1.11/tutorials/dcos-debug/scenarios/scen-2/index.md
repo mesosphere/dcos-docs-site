@@ -15,7 +15,7 @@ menuWeight: 11
 部署文件 [`app-oom.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-oom.json)：
 
 ```bash
-$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
+dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
 ```
 
 部署完成后，当我们查看 DC/OS Web 界面时，我们在 CPU 分配下看到一些奇怪的结果：
@@ -45,7 +45,7 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
 正如所可疑的，这可能是与应用程序相关的问题，且此应用程序是通过 Marathon 安排的。让我们使用 CLI 检查 Marathon 日志：
 
 ```bash
-$ dcos service log marathon
+dcos service log marathon
 ```
 我们看到的日志条目类似于：
 
@@ -93,5 +93,5 @@ Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: oom_reaper: rea
 使用以下命令删除应用程序
 
 ```bash
-$ dcos marathon app remove /app-oom
+dcos marathon app remove /app-oom
 ```

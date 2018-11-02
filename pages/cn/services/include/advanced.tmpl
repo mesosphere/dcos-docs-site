@@ -228,7 +228,7 @@ Enterprise DC/OS 提供了一个密钥存储库，以支持访问敏感数据，
 
 要使用 `kerb5.keytab` 二进制内容创建名为 `mysecret`的密钥，运行：
 
-<```>bash<linebreak>$ dcos security secrets create --file kerb5.keytab mysecret<linebreak></```>
+<```>bash<linebreak>dcos security secrets create --file kerb5.keytab mysecret<linebreak></```>
 
 #### DC/OS 1.10 或更早版本
 
@@ -242,7 +242,7 @@ Enterprise DC/OS 提供了一个密钥存储库，以支持访问敏感数据，
 
 现在文件已编码，可以将其作为密钥存储。
 
-<```>bash<linebreak>$ dcos security secrets create --value-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret<linebreak></```>
+<```>bash<linebreak>dcos security secrets create --value-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret<linebreak></```>
 
 **注意：** 密钥名称 **必须**具有前缀 `__dcos_base64__`。
 

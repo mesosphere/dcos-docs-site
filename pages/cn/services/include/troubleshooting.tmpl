@@ -2,7 +2,7 @@
 
 配置更改后，服务可能会进入不健康状态。这通常在用户进行无效配置更改时发生。某些配置值可能不会被更改，或可能不会被减少。要验证是否如此，对于任何错误，请检查服务的 `deploy` 计划。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> plan show deploy<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name=<service-name> plan show deploy<linebreak></```>
 
 ## 访问日志
 
@@ -32,15 +32,15 @@ DC/OS {{ model.techName }} 服务对临时 Pod 故障有复原能力，如果其
 
 应使用以下命令获取可用 Pod 的列表。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> pod list<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name=<service-name> pod list<linebreak></```>
 
 然后应借助上述列表中提供的适当的 `pod_name`，使用以下命令更换故障机器上的 Pod。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> pod replace <pod_name><linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name=<service-name> pod replace <pod_name><linebreak></```>
 
 Pod 然后可通过 `recovery` 计划恢复。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> plan show recovery<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name=<service-name> plan show recovery<linebreak></```>
 
 ## 重新启动节点
 
@@ -48,15 +48,15 @@ Pod 然后可通过 `recovery` 计划恢复。
 
 应使用以下命令获取可用 Pod 的列表。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> pod list<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name=<service-name> pod list<linebreak></```>
 
 然后应使用以下命令重启 Pod，使用在上述列表中提供的相应的命令 `pod_name` 。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> pod restart <pod_name><linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name=<service-name> pod restart <pod_name><linebreak></```>
 
 Pod 然后可通过 `recovery` 计划恢复。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> plan show recovery<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name=<service-name> plan show recovery<linebreak></```>
 
 ## 任务未部署/资源匮乏
 

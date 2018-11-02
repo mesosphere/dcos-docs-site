@@ -44,12 +44,12 @@ You must change the configuration to also bring up `index`, `query`, `full text 
 1. Once the cluster is up and running, use the following command to get the `mesos-id` of the host running one of the data nodes.
 
   ```bash
-  $ dcos node
+ dcos node
   ```
 2. Using the `mesos-id,` create a SSH localhost tunnel.
 
   ```bash
-  $ dcos node ssh --master-proxy --mesos-id=... --option LocalForward=8091=localhost:8091
+ dcos node ssh --master-proxy --mesos-id=... --option LocalForward=8091=localhost:8091
   ```
 3. Open your browser and enter `localhost:8091`. When prompted for credentials, enter the defaults: `Administrator` / `password`.
 
@@ -160,7 +160,7 @@ We will use the PouchDB Getting Started app to demonstrate the use of the {{ mod
   ```
 6. Launch the `todo` app using the following command.
   ```bash
-  $ dcos marathon app add todo.json
+ dcos marathon app add todo.json
   ```
 
 ## Expose the {{ model.syncGatewayName }} node
@@ -222,7 +222,7 @@ Before we can use it, we must expose the {{ model.syncGatewayName }} service and
 
 2. Launch the Edge-LB configuration using the following command.
   ```bash
-  $ dcos edgelb create lb-sync-gateway.json
+ dcos edgelb create lb-sync-gateway.json
   ```
 
 Now everything is in place.

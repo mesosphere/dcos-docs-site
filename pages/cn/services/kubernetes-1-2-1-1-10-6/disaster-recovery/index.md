@@ -60,7 +60,7 @@ Flags:
 标签 `--aws-region`、`--aws-bucket`、`--aws-access-key-id` 和 `--aws-secret-access-key` 为必须。
 
 ```
-$ dcos kubernetes backup --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
+dcos kubernetes backup --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
  Backup creation: [COMPLETE]
 Backup has been successfully created!
 ```
@@ -91,7 +91,7 @@ Flags:
 标签 `--aws-region`、`--aws-bucket`、`--aws-access-key-id` 和 `--aws-secret-access-key` 为必须。
 
 ```
-$ dcos kubernetes restore --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
+dcos kubernetes restore --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
  Backup restore: [COMPLETE]
 Backup successfully restored!
 ```
@@ -114,7 +114,7 @@ default       nginx-6c54bd5869-xt82y              1/1       Running   0         
 2. 创建群集备份：
 
 ```shell
-$ dcos kubernetes backup --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
+dcos kubernetes backup --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
 ```
 
 3. 删除之前创建的部署：
@@ -126,5 +126,5 @@ $  kubectl delete -f ./artifacts/nginx/nginx-deployment.yaml
 4. 恢复备份并验证 pod 是否再次运行：
 
 ```shell
-$ dcos kubernetes restore --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
+dcos kubernetes restore --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
 ```

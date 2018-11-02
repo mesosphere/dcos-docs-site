@@ -29,21 +29,21 @@ Kafka is available in the Universe and can be installed by using either the web 
 To start a basic test cluster with three brokers, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Kafka on Enterprise DC/OS](#install-enterprise).
 
 ```bash
-$ dcos package install kafka
+dcos package install kafka
 ```
 
 This command creates a new Kafka cluster with the default name `kafka`. Two clusters cannot share the same name, so installing additional clusters beyond the default cluster requires [customizing the `name` at install time][4] for each additional instance.
 
-All `$ dcos confluent-kafka` CLI commands have a `--name` argument allowing the user to specify which Kafka instance to query. If you do not specify a service name, the CLI assumes the default value, `kafka`. The default value for `--name` can be customized via the DC/OS CLI configuration:
+All `dcos confluent-kafka` CLI commands have a `--name` argument allowing the user to specify which Kafka instance to query. If you do not specify a service name, the CLI assumes the default value, `kafka`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
 ```bash
-$ $ dcos confluent-kafka --name kafka-dev <cmd>
+dcos confluent-kafka --name kafka-dev <cmd>
 ```
 
 **Note:** Alternatively, you can [install Kafka from the DC/OS web interface](/1.9/deploying-services/install/). If you install Kafka from the web interface, you must install the Kafka DC/OS CLI subcommands separately. From the DC/OS CLI, enter:
 
 ```bash
-$ dcos package install kafka --cli
+dcos package install kafka --cli
 ```
 
 # Minimal Installation
@@ -65,7 +65,7 @@ To start a minimal cluster with a single broker, create a JSON options file name
 The command below creates a cluster using `sample-kafka-minimal.json`:
 
 ```bash
-$ dcos package install --options=sample-kafka-minimal.json kafka
+dcos package install --options=sample-kafka-minimal.json kafka
 ```
 
 <a name="custom-installation"></a>
@@ -95,7 +95,7 @@ Sample JSON options file named `sample-kafka-custom.json`:
 The command below creates a cluster using `sample-kafka.json`:
 
 ```bash
-$ dcos package install --options=sample-kafka-custom.json kafka
+dcos package install --options=sample-kafka-custom.json kafka
 ```
 
 **Recommendation:** Store your custom configuration in source control.
@@ -114,7 +114,7 @@ $ cat kafka1.json
     }
 }
 
-$ dcos package install kafka --options=kafka1.json
+dcos package install kafka --options=kafka1.json
 ```
 
  [4]: #custom-installation

@@ -83,7 +83,7 @@ $ cat options.json
         "role": "dispatcher"
     }
 }
-$ dcos package install spark --options=options.json
+dcos package install spark --options=options.json
 ```
 
 ## 为执行程序设置配额
@@ -123,7 +123,7 @@ $ curl -d @executor-quota.json -X POST http://<master>:5050/quota
 示例：
 
 ```bash
-$ dcos spark run --verbose --name=spark --submit-args="\
+dcos spark run --verbose --name=spark --submit-args="\
 --driver-cores=1 \
 --driver-memory=1024M \
 --conf spark.cores.max=8 \
@@ -231,7 +231,7 @@ http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 3000"
 长时间运行和流式 Spark 作业尤其重要。
 
 ```bash
-$ dcos spark run --verbose --name=spark --submit-args="\
+dcos spark run --verbose --name=spark --submit-args="\
 --driver-cores=1 \
 --driver-memory=1024M \
 --conf spark.cores.max=8 \ #<< Very important!

@@ -15,7 +15,7 @@ DC/OS Spark includes The [Spark History Server][3]. Because the history server r
 
 1.  Install HDFS:
 
-        $ dcos package install hdfs
+       dcos package install hdfs
 
     **Note:** HDFS requires 5 private nodes.
 
@@ -32,7 +32,7 @@ DC/OS Spark includes The [Spark History Server][3]. Because the history server r
 
 1. Install The Spark History Server:
 
-        $ dcos package install spark-history --options=spark-history-options.json
+       dcos package install spark-history --options=spark-history-options.json
 
 1. Create `spark-dispatcher-options.json`;
 
@@ -47,11 +47,11 @@ DC/OS Spark includes The [Spark History Server][3]. Because the history server r
 
 1.  Install The Spark Dispatcher:
 
-        $ dcos package install spark --options=spark-dispatcher-options.json
+       dcos package install spark --options=spark-dispatcher-options.json
 
 1.  Run jobs with the event log enabled:
 
-        $ dcos spark run --submit-args="--conf spark.eventLog.enabled=true --conf spark.eventLog.dir=hdfs://hdfs/history ... --class MySampleClass  http://external.website/mysparkapp.jar"
+       dcos spark run --submit-args="--conf spark.eventLog.enabled=true --conf spark.eventLog.dir=hdfs://hdfs/history ... --class MySampleClass  http://external.website/mysparkapp.jar"
 
 1.  Visit your job in the dispatcher at `http://<dcos_url>/service/spark/`. It will include a link to the history server entry for that job.
 

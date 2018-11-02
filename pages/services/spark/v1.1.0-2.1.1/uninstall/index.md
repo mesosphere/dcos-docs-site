@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->
 
 
-    $ dcos package uninstall --app-id=<app-id> spark
+   dcos package uninstall --app-id=<app-id> spark
 
 The Spark dispatcher persists state in ZooKeeper, so to fully
 uninstall the Spark DC/OS package, you must go to

@@ -33,7 +33,7 @@ To configure an alternate Zookeeper instance:
 1. Install {{ model.techName }} with the options file you created.
 
 ```bash
-$ dcos package install {{ model.packageName }} --options="options.json"
+dcos package install {{ model.packageName }} --options="options.json"
 ```
 
 You can also update an already-running {{ model.techName }} instance from the DC/OS CLI, in case you need to migrate your ZooKeeper data elsewhere.
@@ -41,7 +41,7 @@ You can also update an already-running {{ model.techName }} instance from the DC
 **Note:** Before performing this configuration change, you must first copy the data from your current ZooKeeper ensemble to the new ZooKeeper ensemble. The new location must have the same data as the previous location during the migration.
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json
+dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json
 ```
 
 ## Extend the Kill Grace Period

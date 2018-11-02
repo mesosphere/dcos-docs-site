@@ -26,7 +26,7 @@ This tutorial will get you up and running in minutes with HDFS. You will install
 1.  Install the HDFS package.
 
     ```bash
-    $ dcos package install beta-hdfs
+   dcos package install beta-hdfs
     ```
 
     **Tip:** Type `dcos beta-hdfs` to view the HDFS CLI options.
@@ -35,7 +35,7 @@ This tutorial will get you up and running in minutes with HDFS. You will install
 1.  Show the currently configured HDFS nodes.
 
     ```bash
-    $ dcos beta-hdfs --name=hdfs config list
+   dcos beta-hdfs --name=hdfs config list
     ```
 
     The output should resemble:
@@ -51,7 +51,7 @@ This tutorial will get you up and running in minutes with HDFS. You will install
 1.  [SSH](/1.9/administering-clusters/sshcluster/) to the leading master node.
 
     ```bash
-    $ dcos node ssh --leader --master-proxy
+   dcos node ssh --leader --master-proxy
     ```
 
 1.  Pull the HDFS Docker container down to your node and start an interactive pseudo-TTY session.
@@ -128,7 +128,7 @@ This tutorial will get you up and running in minutes with HDFS. You will install
     1.  Run this command to retrieve the `hdfs-site.xml` file.
 
         ```bash
-        $ dcos beta-hdfs --name=hdfs endpoints hdfs-site.xml
+       dcos beta-hdfs --name=hdfs endpoints hdfs-site.xml
         ```
 
         The output should resemble:
@@ -148,7 +148,7 @@ This tutorial will get you up and running in minutes with HDFS. You will install
     1.  Run this command to retrieve the `core-site.xml` file.
 
         ```bash
-        $ dcos beta-hdfs --name=hdfs endpoints core-site.xml
+       dcos beta-hdfs --name=hdfs endpoints core-site.xml
         ```
 
         The output should resemble:

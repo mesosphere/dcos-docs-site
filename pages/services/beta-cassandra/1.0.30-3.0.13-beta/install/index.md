@@ -30,7 +30,7 @@ dcos package install beta-cassandra
 You can specify a custom configuration in an `options.json` file and pass it to `dcos package install` using the `--options` parameter.
 
 ```
-$ dcos package install beta-cassandra --options=<options>.json
+dcos package install beta-cassandra --options=<options>.json
 ```
 
 For more information about building the `options.json` file, see the [DC/OS documentation](/1.10/deploying-services/config-universe-service/) for service configuration access.

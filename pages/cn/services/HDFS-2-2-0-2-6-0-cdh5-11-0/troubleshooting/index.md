@@ -21,7 +21,7 @@ render: mustache
 
 通过以下方式替换日志节点：
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace journal-0
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace journal-0
 ```
 
 ## 检测到在`replace` 之后的不健康的日志节点
@@ -47,7 +47,7 @@ org.apache.hadoop.hdfs.qjournal.protocol.JournalNotFormattedException: Journal S
 
 1. 通过以下方式将 SSH 置入不健康日志节点的沙盒
 ```bash
-$ dcos task exec -it journal-0 /bin/bash
+dcos task exec -it journal-0 /bin/bash
 ```
 
 2. 在此沙盒中，创建目录 `journal-data/hdfs/current`：
@@ -62,7 +62,7 @@ $ mkdir -p journal-data/hdfs/current
 
 5. 通过以下方式重新启动不健康的日志节点：
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod restart journal-0
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod restart journal-0
 ```
 
 6. 重新启动的日志节点启动并运行后，通过检查 `stderr` 日志确认节点已经是健康状态。您应该看到：

@@ -83,7 +83,7 @@ RFC 4648 的说明进行 base64 编码，才能保存为密钥。
 要使用 `kerb5.keytab` 二进制内容创建名为 `mysecret`的密钥，运行：
 
 ```bash
-$ dcos security secrets create --file kerb5.keytab mysecret
+dcos security secrets create --file kerb5.keytab mysecret
 ```
 
 #### DC/OS 1.10 或更早版本
@@ -105,7 +105,7 @@ $ base64 -w 0 -i krb5.keytab > kerb5.keytab.base64-encoded
 现在文件已编码，可以将其作为密钥存储。
 
 ```bash
-$ dcos security secrets  create -f kerb5.keytab.base64-encoded  some/path/__dcos_base64__mysecret
+dcos security secrets  create -f kerb5.keytab.base64-encoded  some/path/__dcos_base64__mysecret
 ```
 
 **注意：** 密钥名称 **必须**具有前缀 `__dcos_base64__`。

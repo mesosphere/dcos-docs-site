@@ -116,7 +116,7 @@ If you are logged in as a superuser you can also switch to a linked cluster in t
 1. Set up cluster `cluster-a` using the `dcos-user` provider.
 
     ```
-    $ dcos cluster setup --provider=dcos-users https://cluster-a.us-west-2.elb.amazonaws.com
+    dcos cluster setup --provider=dcos-users https://cluster-a.us-west-2.elb.amazonaws.com
     ```
     The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`.
     The CLI prompts for superuser credentials. Provide the credentials.
@@ -124,7 +124,7 @@ If you are logged in as a superuser you can also switch to a linked cluster in t
 1. Set up `cluster-b` using the `dcos-user` provider.
 
     ```
-    $ dcos cluster setup --provider=dcos-users https://cluster-b.us-west-2.elb.amazonaws.com
+    dcos cluster setup --provider=dcos-users https://cluster-b.us-west-2.elb.amazonaws.com
     ```
 
     The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`.
@@ -166,7 +166,7 @@ If you are logged in as a superuser you can also switch to a linked cluster in t
 1. Attach to cluster `cluster-b`.
 
     ```
-    $ dcos cluster attach cluster-b
+    dcos cluster attach cluster-b
     ```
 
 1. Link to cluster `cluster-a` from cluster `cluster-b`.

@@ -21,27 +21,27 @@ Enterprise DC/OS 1.10 引入了方便的命令行选项，允许更快更新服�
 `update package-versions` 命令允许您查看您可以升级或降级的 {{ model.techName }} 服务的版本。
 
 CLI 命令为：
-<```>bash<linebreak>$ dcos {{ model.packageName }} update package-versions<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} update package-versions<linebreak></```>
 
 结果将为如下形式：
 <```>bash<linebreak>Current package version is: "1.0.1-1.2.3"<linebreak>Package can be downgraded to: ["1.0.0-1.2.3"]<linebreak>Package can be upgraded to: ["1.0.2-1.2.3"]<linebreak></```>
 #### 升级或降级服务
 
 1. 在更新服务本身之前，将其 CLI 子命令更新为新版本：
-<```>bash<linebreak>$ dcos package uninstall --cli {{ model.packageName }}<linebreak>$ dcos package install --cli {{ model.packageName }} --package-version="<version>"<linebreak></```>
+<```>bash<linebreak>dcos package uninstall --cli {{ model.packageName }}<linebreak>dcos package install --cli {{ model.packageName }} --package-version="<version>"<linebreak></```>
 2. CLI 子命令更新后，调用 `update start` 命令，传递于版本
-<```>bash<linebreak>$ dcos {{ model.packageName }} update start --package-version="<version>"<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} update start --package-version="<version>"<linebreak></```>
 
 如果您缺少强制性配置参数，该 `update` 命令将返回错误。
 
 若要提供缺失配置值或覆盖配置值，您也可以提供 `options.json` 文件（请参见下面的 [更新配置](#updating-configuration) ：
-<```>bash<linebreak>$ dcos {{ model.packageName }} update start --options=options.json --package-version="<version>"<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} update start --options=options.json --package-version="<version>"<linebreak></```>
 
 更新的默认行为是按“默认”、“已存储”和“已提供”配置的顺序进行合并，然后
 按架构进行验证。在某些情况下，例如，删除架构选项时，默认行为
 可能导致配置无效。您可以通过 `--replace=true` 加以解决，其被指定时
 将使用“已提供”选项覆盖“已存储”选项。
-<```>bash<linebreak>$ dcos {{ model.packageName }} update start --options=options.json --replace=true --package-verion="<version>"<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} update start --options=options.json --replace=true --package-verion="<version>"<linebreak></```>
 
 请参阅 [高级更新操作](#advanced-update-actions)，了解用于在启动后检查和操作更新的命令。
 
@@ -51,7 +51,7 @@ CLI 命令为：
 
 如果您使用 Enterprise DC/OS 1.10 安装服务，您可以获取服务的完整配置（包括安装期间应用的任何默认值）。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} describe > options.json<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} describe > options.json<linebreak></```>
 
 对此`options.json`文件进行任何配置更改。
 
@@ -70,7 +70,7 @@ CLI 命令为：
 
 您准备好开始时，即可使用 DC/OS CLI 初始化更新，在已更新的 `options.json` 文件中传递：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} update start --options=options.json<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} update start --options=options.json<linebreak></```>
 
 您将收到确认消息，DC/OS 包管理程序将重新启动服务调度程序，后者将继续更新服务。
 
@@ -86,7 +86,7 @@ CLI 命令为：
 
 您可以按如下方式查询更新状态：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} update status<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} update status<linebreak></```>
 
 如果服务调度程序仍在重新启动，DC/OS 将无法向其路由，且此命令将返回错误消息。稍等，然后重试。您也可以转到 DC/OS GUI 的“服务”选项卡，检查重新启动的状态。
 
@@ -94,7 +94,7 @@ CLI 命令为：
 
 要暂停正在进行的更新，发出暂停命令：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} update pause<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} update pause<linebreak></```>
 
 如果计划已经完成或已暂停，您将收到错误消息。完成后，更新将进入 `WAITING` 状态。
 
@@ -102,7 +102,7 @@ CLI 命令为：
 
 如果更新因为暂停或达到需要手动操作员验证的断点而处于 `WAITING` 状态，您可以使用 `resume` 命令继续更新：
 
-<```>bash<linebreak>$ dcos {{ model.packagename }} update resume<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packagename }} update resume<linebreak></```>
 
 如果您尝试 `resume` 正在进行或已完成的更新，您将会收到错误消息。
 
@@ -110,7 +110,7 @@ CLI 命令为：
 
 为了手动“完成”步骤（使服务调度程序停止尝试启动任务），您可以发出 `force-complete` 命令。这将指示服务调度程序在更新的一个阶段内标记一个特定步骤为完成。您需要指定阶段和步骤：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} update force-complete <phase> <step><linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} update force-complete <phase> <step><linebreak></```>
 
 阶段的名称和步骤的名称可通过运行 `update status` 命令确定（如上所述）。
 
@@ -119,13 +119,13 @@ CLI 命令为：
 类似于 `force complete`，您也可以强制重新启动。可以对整个更新、更新的一个阶段，或仅针对阶段中的特定步骤执行此操作。
 
 重新启动整个更新：
-<```>bash<linebreak>$ dcos {{ model.packageName }} update force-restart<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} update force-restart<linebreak></```>
 
 或单个阶段的所有步骤：
-<```>bash<linebreak>$ dcos {{ model.packageName }} update force-restart <phase><linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} update force-restart <phase><linebreak></```>
 
 或特定阶段中的特定步骤：
-<```>bash<linebreak>$ dcos {{ model.packageName }} update force-restart <phase> <step><linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} update force-restart <phase> <step><linebreak></```>
 
 ## 开源 DC/OS、DC/OS 1.9 及更早版本
 
@@ -155,4 +155,4 @@ DC/OS Enterprise 1.10 及更高版本支持直接使用选项模式更改配置�
 1. 验证您不再在 DC/OS Web 界面中看到它。
 1. 使用受版本控制服务选项安装最新版本的 {{ model.packageName }} 包：
 
-<```>bash<linebreak>$ dcos package install {{ model.packageName }} -—options=options.json<linebreak></```>
+<```>bash<linebreak>dcos package install {{ model.packageName }} -—options=options.json<linebreak></```>

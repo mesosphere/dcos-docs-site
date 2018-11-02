@@ -30,4 +30,4 @@ You can customize the Docker image in which Spark runs by extending the standard
 
 1. Reference your custom Docker image with the `--docker-image` option when running a Spark job.
 
-        $ dcos spark run --docker-image=myusername/myimage:v1 --submit-args="http://external.website/mysparkapp.py 30"
+       dcos spark run --docker-image=myusername/myimage:v1 --submit-args="http://external.website/mysparkapp.py 30"

@@ -25,14 +25,14 @@ Kafka is available in the Universe and can be installed by using either the web 
 
 To start a basic test cluster with three brokers, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Kafka on Enterprise DC/OS](#install-enterprise).
 
-    $ dcos package install confluent-kafka
+   dcos package install confluent-kafka
 
 
 This command creates a new Confluent Kafka cluster with the default name `confluent-kafka`. Two clusters cannot share the same name, so installing additional clusters beyond the default cluster requires [customizing the `name` at install time][4] for each additional instance.
 
 All `dcos confluent-kafka` CLI commands have a `--name` argument allowing the user to specify which Kafka instance to query. If you do not specify a service name, the CLI assumes the default value, `confluent-kafka`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
-    $ dcos confluent-kafka --name confluent-kafka-dev <cmd>
+   dcos confluent-kafka --name confluent-kafka-dev <cmd>
 
 **Note:** Alternatively, you can [install Beta Confluent Kafka from the DC/OS web interface](/1.9/deploying-services/install/). If you install Beta Confluent Kafka from the web interface, you must install the Beta Confluent Kafka DC/OS CLI subcommands separately. From the DC/OS CLI, enter:
 
@@ -57,7 +57,7 @@ To start a minimal cluster with a single broker, create a JSON options file name
 
 The command below creates a cluster using `sample-confluent-kafka-minimal.json`:
 
-    $ dcos package install --options=sample-confluent-kafka-minimal.json confluent-kafka
+   dcos package install --options=sample-confluent-kafka-minimal.json confluent-kafka
 
 <a name="custom-installation"></a>
 # Custom Installation
@@ -84,7 +84,7 @@ Sample JSON options file named `sample-confluent-kafka-custom.json`:
 
 The command below creates a cluster using `sample-confluent-kafka.json`:
 
-    $ dcos package install --options=sample-confluent-kafka-custom.json confluent-kafka
+   dcos package install --options=sample-confluent-kafka-custom.json confluent-kafka
 
 **Recommendation:** Store your custom configuration in source control.
 
@@ -101,7 +101,7 @@ Installing multiple Kafka clusters is identical to installing Kafka clusters wit
         }
     }
 
-    $ dcos package install confluent-kafka --options=confluent-kafka1.json
+   dcos package install confluent-kafka --options=confluent-kafka1.json
 
 <!-- THIS BLOCK DUPLICATES THE OPERATIONS GUIDE -->
 

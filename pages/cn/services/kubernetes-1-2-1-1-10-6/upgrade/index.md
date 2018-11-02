@@ -47,7 +47,7 @@ excerpt: Updating and upgrading Kubernetes
 子命令。
 
 ```shell
-$ dcos kubernetes update -h
+dcos kubernetes update -h
 usage: dcos kubernetes [<flags>] update [<flags>]
 
 Flags:
@@ -73,7 +73,7 @@ Flags:
 更新到新版本：
 
 ```shell
-$ dcos package install kubernetes --cli --package-version=<NEW_VERSION>
+dcos package install kubernetes --cli --package-version=<NEW_VERSION>
 ```
 
 #### DC/OS 企业版
@@ -81,7 +81,7 @@ $ dcos package install kubernetes --cli --package-version=<NEW_VERSION>
 以下是您开始包版本更新的方式：
 
 ```shell
-$ dcos kubernetes update --package-version=<NEW_VERSION>
+dcos kubernetes update --package-version=<NEW_VERSION>
 About to start an update from version <CURRENT_VERSION> to <NEW_VERSION>
 
 Updating these components means the Kubernetes cluster may experience some
@@ -104,20 +104,20 @@ Are you sure you want to continue? [yes/no] yes
 首先，将当前包配置导入名为 `config.json` 的 JSON 文件：
 
 ```shell
-$ dcos kubernetes describe > config.json
+dcos kubernetes describe > config.json
 ```
 
 要以非破坏性方式进行升级，首先删除 DC/OS Kubernetes
 调度器，通过运行：
 
 ```shell
-$ dcos marathon app remove /kubernetes
+dcos marathon app remove /kubernetes
 ```
 
 然后安装包的新版本：
 
 ```shell
-$ dcos package install kubernetes --package-version=<NEW_VERSION> --options=config.json
+dcos package install kubernetes --package-version=<NEW_VERSION> --options=config.json
 ```
 
 ### 更新包选项
@@ -143,7 +143,7 @@ $ dcos package install kubernetes --package-version=<NEW_VERSION> --options=conf
 假设文件被保存为 `new_options.json`，运行：
 
 ```shell
-$ dcos kubernetes update --options=new_options.json
+dcos kubernetes update --options=new_options.json
 ```
 
 以下为预期输出。请注意，更改以
@@ -215,7 +215,7 @@ Are you sure you want to continue? [yes/no] yes
 1. 强制框架调度器重新启动：
 
    ```
-   $ dcos marathon app kill /<SERVICE_NAME>
+   dcos marathon app kill /<SERVICE_NAME>
    ```
 
    `<SERVICE_NAME>` 必须替换为服务名称（如
@@ -225,7 +225,7 @@ Are you sure you want to continue? [yes/no] yes
  `deploy` 计划已完成：
 
    ```
-   $ dcos kubernetes --name=<SERVICE_NAME> plan show deploy
+   dcos kubernetes --name=<SERVICE_NAME> plan show deploy
    deploy (serial strategy) (COMPLETE)
    (...)
    ```

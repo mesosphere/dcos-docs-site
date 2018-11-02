@@ -28,7 +28,7 @@ enterprise: false
 
 1. Retrieve client endpoint information by running the `endpoints` command:
 
-        $ dcos elastic endpoints coordinator-http
+       dcos elastic endpoints coordinator-http
         {
             "vip": "coordinator.elastic.l4lb.thisdcos.directory:9200",
             "address": [
@@ -43,7 +43,7 @@ enterprise: false
 
 1. [SSH into a DC/OS node][1]:
 
-        $ dcos node ssh --master-proxy --leader
+       dcos node ssh --master-proxy --leader
 
     Now that you are inside your DC/OS cluster, you can connect to your Elasticsearch cluster directly.
 

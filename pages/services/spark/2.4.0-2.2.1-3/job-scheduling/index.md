@@ -72,7 +72,7 @@ Quota for the Drivers allows the operator of the cluster to ensure that only a g
             "role": "dispatcher"
         }
     }
-    $ dcos package install spark --options=options.json
+   dcos package install spark --options=options.json
     ```
 
 ## Best practices for the Executors
@@ -211,7 +211,7 @@ To improve {{ model.techShortName }} job execution reliability, set the maximum 
 submitted with a limitation on the maximum number of cores (CPUs) it can consume. This is especially important for long-running and streaming {{ model.techShortName }} jobs. 
 
   ```bash
-  $ dcos spark run --verbose --name=spark --submit-args="\
+ dcos spark run --verbose --name=spark --submit-args="\
   --driver-cores=1 \
   --driver-memory=1024M \
   --conf spark.cores.max=8 \ #<< Very important!

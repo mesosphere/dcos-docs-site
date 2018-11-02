@@ -24,23 +24,23 @@ dcos elastic --name=<service-name> pod list
 
 To view information about a node, run the following command from the CLI.
 ```bash
-$ dcos elastic --name=<service-name> pod info <node-id>
+dcos elastic --name=<service-name> pod info <node-id>
 ```
 
 For example:
 ```bash
-$ dcos elastic pod info master-0
+dcos elastic pod info master-0
 ```
 
 ## Node Status
 Similarly, the status for any node may also be queried.
 
 ```bash
-$ dcos elastic --name=<service-name> pod info <node-id>
+dcos elastic --name=<service-name> pod info <node-id>
 ```
 
 For example:
 
 ```bash
-$ dcos elastic pod info data-0
+dcos elastic pod info data-0
 ```

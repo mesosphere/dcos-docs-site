@@ -36,8 +36,8 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
   + You can install just the subcommand CLI by running `dcos package install --cli kafka`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
-    $ dcos package uninstall --cli kafka
-    $ dcos package install --cli kafka
+   dcos package uninstall --cli kafka
+   dcos package install --cli kafka
     ```
 
 ### Preparing configuration
@@ -74,17 +74,17 @@ First, we'll fetch the default application's environment, current application's 
 
 1. Then fetch and save the environment variables that have been set for the service:
     ```bash
-    $ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
+   dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
     ```
 
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
     ```bash
-    $ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
+   dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
     ```
 
 1. We'll also get the entire application template:
     ```bash
-    $ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
+   dcos package describe $SERVICE_NAME --app > marathon.json.mustache
     ```
 
 Now that you have these files, we'll attempt to recreate the `options.json`.
@@ -148,7 +148,7 @@ To see a full listing of available options, run `dcos package describe --config 
 
 1.  Install the latest version of Kafka:
     ```bash
-    $ dcos package install kafka -—options=options.json
+   dcos package install kafka -—options=options.json
     ```
 
 # Graceful Shutdown
@@ -205,12 +205,12 @@ $ dcos kafka update package-versions
 
 1. Before updating the service itself, update its CLI subcommand to the new version:
     ```bash
-    $ dcos package uninstall --cli kafka
-    $ dcos package install --cli kafka --package-version="1.1.6-5.0.7"
+   dcos package uninstall --cli kafka
+   dcos package install --cli kafka --package-version="1.1.6-5.0.7"
     ```
 1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS Kafka Service to version `1.1.6-5.0.7`:
     ```bash
-    $ dcos kafka update start --package-version="1.1.6-5.0.7"
+   dcos kafka update start --package-version="1.1.6-5.0.7"
     ```
 
 If you are missing mandatory configuration parameters, the `update` command will return an error. To supply missing values, you can also provide an `options.json` file (see [Updating configuration](#updating-configuration)):

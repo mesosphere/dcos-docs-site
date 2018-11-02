@@ -32,7 +32,7 @@ Through Confluent:
 The following command can be executed from the cli in order to retrieve a set of brokers to connect to.
 
 ```bash
-$ $ dcos confluent-kafka --name=<name> endpoints broker
+$dcos confluent-kafka --name=<name> endpoints broker
 ```
 
 <a name="using-the-rest-api"></a>
@@ -177,7 +177,7 @@ The code snippet below demonstrates how to connect a Kafka Consumer to the clust
 The following code connects to a DC/OS-hosted Kafka instance using `bin/kafka-console-producer.sh` and `bin/kafka-console-consumer.sh` as an example:
 
 ```bash
-$ $ dcos confluent-kafka endpoints broker
+$dcos confluent-kafka endpoints broker
 {
   "address": [
     "10.0.0.49:1025",

@@ -24,7 +24,7 @@ Run the following command from the DC/OS CLI to uninstall Kafka. Alternatively, 
 
 Replace `name` with the name of the kafka instance to be uninstalled.
 
-    $ dcos package uninstall --app-id=<name> kafka
+   dcos package uninstall --app-id=<name> kafka
     
 Then, use the [framework cleaner script](/1.9/deploying-services/uninstall/#framework-cleaner) to remove your Kafka instance from Zookeeper and to destroy all data associated with it. The script require several arguments, the values for which are derived from your service name:
 

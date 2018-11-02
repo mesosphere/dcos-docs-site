@@ -16,7 +16,7 @@ enterprise: false
 To start a basic cluster with three master nodes, two data nodes, and one coordinator node, run the following command on the DC/OS CLI:
 
 ```bash
-$ dcos package install beta-elastic
+dcos package install beta-elastic
 ```
 
 This command creates a new Elasticsearch cluster with the default name `elastic`. Two clusters cannot share the same name, so installing additional clusters beyond the default cluster requires customizing the `name` at install time for each additional instance.
@@ -49,7 +49,7 @@ You can customize the Elastic cluster in a variety of ways by specifying a JSON 
 The command below creates a cluster using a `options.json` file:
 
 ```bash
-$ dcos package install beta-elastic --options=options.json
+dcos package install beta-elastic --options=options.json
 ```
 
 **Recommendation:** Store your custom configuration in source control.
@@ -70,7 +70,7 @@ Sample JSON options file named `another-cluster.json`:
 The command below creates a cluster using `another-cluster.json`:
 
 ```bash
-$ dcos package install beta-elastic --options=another-cluster.json
+dcos package install beta-elastic --options=another-cluster.json
 ```
 
 See the Configuring section for a list of fields that can be customized via an options JSON file when the Elastic cluster is created.
@@ -198,7 +198,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
-$ dcos beta-elastic describe > options.json
+dcos beta-elastic describe > options.json
 ```
 
 Make any configuration changes to this `options.json` file.
@@ -227,17 +227,17 @@ First, we'll fetch the default application's environment, current application's 
 
 1. Then fetch and save the environment variables that have been set for the service:
     ```bash
-    $ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
+    dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
     ```
 
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
     ```bash
-    $ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
+    dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
     ```
 
 1. We'll also get the entire application template:
     ```bash
-    $ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
+    dcos package describe $SERVICE_NAME --app > marathon.json.mustache
     ```
 
 Now that you have these files, we'll attempt to recreate the `options.json`.
@@ -259,7 +259,7 @@ Now that you have these files, we'll attempt to recreate the `options.json`.
 Once you are ready to begin, initiate an update using the DC/OS CLI, passing in the updated `options.json` file:
 
 ```bash
-$ dcos beta-elastic update start --options=options.json
+dcos beta-elastic update start --options=options.json
 ```
 
 You will receive an acknowledgement message and the DC/OS package manager will restart the Scheduler in Marathon.

@@ -49,7 +49,7 @@ The default framework name is `elastic`. If you customized the name your framewo
 [Kibana](https://www.elastic.co/products/kibana) lets you visualize your Elasticsearch data and navigate the Elastic Stack. You can install Kibana like any other DC/OS package via the **Universe** > **Packages** tab of the DC/OS web interface or the DC/OS CLI:
 
 ```bash
-$ dcos package install kibana
+dcos package install kibana
 ```
 
 This command launches a new Kibana application with the default name `kibana` and the default Elasticsearch URL `http://coordinator.elastic.l4lb.thisdcos.directory:9200`. Two Kibana application instances cannot share the same name, so installing additional Kibana applications beyond the default one requires customizing the `name` at install time for each additional instance.
@@ -109,6 +109,6 @@ You can customize the Kibana installation in a variety of ways by specifying a J
 The command below installs Kibana using a `options.json` file:
 
 ```bash
-$ dcos package install kibana --options=options.json 
+dcos package install kibana --options=options.json 
 ```
 

@@ -79,5 +79,5 @@ If a machine has permanently failed, manual intervention is required to replace 
 
 In the example below, the broker with id `0` will be replaced on new machine as long as cluster resources are sufficient to satisfy the service’s placement constraints and resource requirements.
 
-    $ dcos kafka broker replace 0
+   dcos kafka broker replace 0
 

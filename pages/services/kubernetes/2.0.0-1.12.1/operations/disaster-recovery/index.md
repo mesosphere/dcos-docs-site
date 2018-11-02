@@ -123,7 +123,7 @@ Backup successfully restored!
     ```
 1. Create a backup of the cluster:
     ```shell
-    $ dcos kubernetes cluster backup --cluster-name=CLUSTER-NAME --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
+   dcos kubernetes cluster backup --cluster-name=CLUSTER-NAME --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
     ```
 1. Delete the deployment that was previously created:
     ```shell
@@ -131,5 +131,5 @@ Backup successfully restored!
     ```
 1. Restore the backup and verify that the pods are running again:
     ```shell
-    $ dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
+   dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME --aws-region=us-east1-d --aws-bucket=my_bucket --aws-access-key-id=ABC --aws-secret-access-key=XYZ
     ```

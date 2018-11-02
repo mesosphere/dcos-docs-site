@@ -27,8 +27,8 @@ The OpsCenter Node has:
 
 From the CLI, DSE may be installed with a default configuration as follows:
 ```
-$ dcos package install datastax-dse
-$ dcos package install datastax-ops
+dcos package install datastax-dse
+dcos package install datastax-ops
 ```
 
 From the DC/OS Dashboard website, DSE may be installed with a default configuration as follows:
@@ -44,11 +44,11 @@ You may customize settings at initial install. See below for an explanation of s
 
 From the CLI, DSE may be installed with a custom configuration as follows:
 ```
-$ dcos package install datastax-dse --options=your-dse-options.json
+dcos package install datastax-dse --options=your-dse-options.json
 ```
 OpsCenter can be installed with a custom configuration the same way:
 ```
-$ dcos package install datastax-ops --options=your-datastax-ops-options.json
+dcos package install datastax-ops --options=your-datastax-ops-options.json
 ```
 For more information about building the options.json file, see the [DC/OS Documentation](https://docs.autoip.dcos.thisdcos.directoryphere.com/latest/usage/managing-services/config-universe-service/).
 

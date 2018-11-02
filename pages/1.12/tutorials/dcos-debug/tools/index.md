@@ -97,7 +97,7 @@ Sometimes it can help to increase the level of detail written to a log temporari
 ##### Connect to Master Node
 
 ```bash
-$ dcos node ssh --master-proxy --leader
+dcos node ssh --master-proxy --leader
 ```
 
 ##### Raise Log Level on Mesos Agent 10.0.2.219
@@ -119,7 +119,7 @@ Figure 4. Task log
 You can also do the same from the DC/OS CLI:
 
 ```bash
-$ dcos task log --follow <service-name>
+dcos task log --follow <service-name>
 ```
 
 <a name="scheduler-logs"></a>
@@ -131,7 +131,7 @@ $ dcos task log --follow <service-name>
 You can retrieve and view a scheduler log about a specific service through the list of services found in the DC/OS web interface, or via the following command:
 
 ```bash
-$ dcos service log --follow <scheduler-service-name>
+dcos service log --follow <scheduler-service-name>
 ```
 
 Note that since Marathon is the “Init” system of DC/OS, it is running as a SystemD unit (same with respect to the other DC/OS system components). Due to this fact, you need the CLI command to access its logs.
@@ -149,7 +149,7 @@ Figure 5. Mesos agent interface
 Alternatively, you can view the agent logs by first using `dcos node log --mesos-id=<node-id>` from the DC/OS CLI to locate the corresponding node `ID`. Enter:
 
 ```bash
-$ dcos node
+dcos node
 ```
 
 where you will see something similar to the following output:
@@ -173,7 +173,7 @@ master.mesos.  10.0.4.215    ffc913d8-4012-4953-b693-1acc33b400ce   master (lead
 Then, in this case, you can enter:
 
 ```bash
-$ dcos node log --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0 --follow
+dcos node log --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0 --follow
 ```
 
 and get the following log output:
@@ -205,7 +205,7 @@ As an example, consider the system unit for the docker daemon on the Mesos agent
 First, we can SSH into that agent using the corresponding SSH key:
 
 ```bash
-$ dcos node ssh --master-proxy --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0
+dcos node ssh --master-proxy --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0
 ```
 
 Then we can use `journatlctl`, to look at the Docker logs:

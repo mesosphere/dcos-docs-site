@@ -13,7 +13,7 @@ menuWeight: 21
 首先部署此 [`dockerimage.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json) 文件：
 
 ```bash
-$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json
+dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json
 ```
 
 我们看到应用程序几乎立即出现故障：
@@ -35,7 +35,7 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debuggi
 因此第 2 步是检查调度程序日志，--- 在本例中是 Marathon：
 
 ```bash
-$ dcos service log marathon
+dcos service log marathon
 ```
 
 应该在响应中产生类似于以下输出的一些内容：
@@ -49,7 +49,7 @@ Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: ') (
 但是，这并没有说明任务失败的原因。那么接下来进入我们[策略](/1.11/tutorials/dcos-debug/gen-strat/)的 [第 3 步](/1.11/tutorials/dcos-debug/gen-strat/#agent-strat)：使用以下命令检查 [Mesos 代理节点日志](/1.11/tutorials/dcos-debug/tools/#agent-logs)：
 
 ```bash
-$ dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100
+dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100
 ```
 
 输出类似以下内容的内容：
@@ -71,7 +71,7 @@ s
 在这本例中，我们有一个 Docker 守护程序特定的问题。通过检查 Mesos 代理节点日志，可以发现许多此类问题。在某些情况下，我们需要深入挖掘，需要访问 Docker 守护程序日志。首先，通过ssh 进入主节点：
 
 ```bash
-$ dcos node ssh --master-proxy --mesos-id=$(dcos task --all | grep docker-image | head -n1 | awk '{print $6}')
+dcos node ssh --master-proxy --mesos-id=$(dcos task --all | grep docker-image | head -n1 | awk '{print $6}')
 ```
 
 然后获取日志：
@@ -87,5 +87,5 @@ $ journalct1 -u docker
 运行：
 
 ```bash
-$ dcos marathon app remove docker-image
+dcos marathon app remove docker-image
 ```

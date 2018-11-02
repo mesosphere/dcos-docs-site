@@ -6,7 +6,7 @@
 
 在每个例子中，您将使用自定义配置创建一个新的 {{ model.techName }} 实例，如下所示：
 
-<```>bash<linebreak>$ dcos package install {{ model.packageName }} --options=sample-{{ model.serviceName }}.json<linebreak></```>
+<```>bash<linebreak>dcos package install {{ model.packageName }} --options=sample-{{ model.serviceName }}.json<linebreak></```>
 
 **建议：** 将自定义配置存储在源控件中。
 
@@ -18,7 +18,7 @@
 
 当上述 JSON 配置通过 `--options` 自变量被传递到 `package install {{ model.packageName }}` 命令时，新服务将使用 JSON 配置中指定的名称：
 
-<```>bash<linebreak>$ dcos package install {{ model.packageName }} --options={{ model.serviceName }}-other.json<linebreak></```>
+<```>bash<linebreak>dcos package install {{ model.packageName }} --options={{ model.serviceName }}-other.json<linebreak></```>
 
 可以通过自定义每个实例的名称将多个 {{ model.techName }} 实例安装到 DC/OS 群集中。例如，您可能有一个名为 `{{ model.serviceName }}-staging` 和另一个名为 `{{ model.serviceName }}-prod`的 {{ model.techName }} 实例，每个都具有各自的自定义配置。
 
@@ -42,7 +42,7 @@
 
 例如，如果您有一个名为 `{{ model.serviceName }}-dev`的实例，以下命令将针对它调用 `pod list` 命令：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }}-dev pod list<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }}-dev pod list<linebreak></```>
 
 相同的查询将通过 HTTP 执行，如下所示：
 
@@ -50,7 +50,7 @@
 
 同样，如果您在文件夹中有一个类似 `/foldered/path/to/{{ model.serviceName }}`的实例，以下命令将针对它调用 `pod list` 命令：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=/foldered/path/to/{{ model.serviceName }} pod list<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name=/foldered/path/to/{{ model.serviceName }} pod list<linebreak></```>
 
 类似地，可以直接通过 HTTP 查询，如下所示：
 

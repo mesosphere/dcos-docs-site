@@ -37,7 +37,7 @@ dcos package install beta-confluent-kafka
 You can specify a custom configuration in an `options.json` file and pass it to `dcos package install` using the `--options` parameter.
 
 ```
-$ dcos package install beta-confluent-kafka --options=your-options.json
+dcos package install beta-confluent-kafka --options=your-options.json
 ```
 
 For more information about building the options.json file, see the [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/).

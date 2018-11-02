@@ -70,7 +70,7 @@ Marathon-LB 查看所有运行的 Marathon 应用程序，并使用应用程序�
 此应用程序可通过 DC/OS UI、Marathon API、或通过 `dcos` 命令行（假设 JSON 被保存为文件 `kubectl-proxy.json`）加入到 DC/OS
 
 ```bash
-$ dcos marathon app add kubectl-proxy.json
+dcos marathon app add kubectl-proxy.json
 ```
 
 以下是其工作方式的示例：
@@ -119,7 +119,7 @@ $ dcos marathon app add kubectl-proxy.json
 同样，此应用程序可通过 DC/OS UI、Marathon API、或通过 `dcos` 命令行（假设 JSON 被保存为文件 `kubectl-proxy.json`）加入到 DC/OS
 
 ```bash
-$ dcos marathon app add kubectl-proxy.json
+dcos marathon app add kubectl-proxy.json
 ```
 
 ## 示例 2：创建 Edge-LB 池
@@ -172,7 +172,7 @@ $ dcos marathon app add kubectl-proxy.json
 1. 使用以下命令创建 Edge-LB 池：
 
     ```bash
-    $ dcos edgelb create kubectl-proxy-pool.json
+    dcos edgelb create kubectl-proxy-pool.json
     ```
 
 1. 这将创建具有以下配置的 Edge-LB 池：

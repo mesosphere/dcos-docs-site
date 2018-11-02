@@ -35,7 +35,7 @@ render: mustache
 1. 通过您创建的选项文件来安装 {{ model.techName }} 。
 
 ```bash
-$ dcos package install {{ model.packageName }} --options="options.json"
+dcos package install {{ model.packageName }} --options="options.json"
 ```
 
 您也可以从 DC/OS CLI 更新已经运行的 {{ model.techName }} 的实例，以防您需要在其他地方迁移 ZooKeeper 数据。
@@ -43,7 +43,7 @@ $ dcos package install {{ model.packageName }} --options="options.json"
 **注意：** 执行此配置更改之前，您必须先将当前 ZooKeeper ensemble 中的数据复制到新的 ZooKeeper ensemble。在迁移过程中，新位置的数据必须与上一个位置相同。
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json
+dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json
 ```
 
 ## 延长终止宽限期

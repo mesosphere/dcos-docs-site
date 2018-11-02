@@ -116,7 +116,7 @@ dcos cluster attach <linked-cluster>
 1. 使用 `dcos-user` 提供程序设置群集 `cluster-a` 。
 
     ```
-    $ dcos cluster setup --provider=dcos-users https://cluster-a.us-west-2.elb.amazonaws.com
+    dcos cluster setup --provider=dcos-users https://cluster-a.us-west-2.elb.amazonaws.com
     ```
  响应请求您验证群集证书捆绑包中的指纹，其必须通过响应`yes`接受。
  CLI 提示提供超级用户凭证。提供凭证。
@@ -124,7 +124,7 @@ dcos cluster attach <linked-cluster>
 1. 使用 `dcos-user` 提供程序设置 `cluster-b`。
 
     ```
-    $ dcos cluster setup --provider=dcos-users https://cluster-b.us-west-2.elb.amazonaws.com
+    dcos cluster setup --provider=dcos-users https://cluster-b.us-west-2.elb.amazonaws.com
     ```
 
  响应请求您验证群集证书捆绑包中的指纹，其必须通过响应`yes`接受。
@@ -166,7 +166,7 @@ dcos cluster attach <linked-cluster>
 1. 附加到群集 `cluster-b`。
 
     ```
-    $ dcos cluster attach cluster-b
+    dcos cluster attach cluster-b
     ```
 
 1. 从群集 `cluster-b` 链接到群集 `cluster-a`。

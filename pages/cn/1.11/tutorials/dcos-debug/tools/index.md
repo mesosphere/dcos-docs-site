@@ -94,7 +94,7 @@ DC/OS 有许多不同的日志源。通常，这些是应用程序调试最有�
 ##### 连接到主节点
 
 ```bash
-$ dcos node ssh --master-proxy --leader
+dcos node ssh --master-proxy --leader
 ```
 
 ##### 提高 Mesos 代理节点 10.0.2.219 上的日志级别
@@ -116,7 +116,7 @@ $ curl -X POST 10.0.2.219:5051/logging/toggle?level=3&duration=5mins
 您也可以从 DC/OS CLI 执行相同操作：
 
 ```bash
-$ dcos task log --follow <service-name>
+dcos task log --follow <service-name>
 ```
 
 <a name="scheduler-logs"></a>
@@ -128,7 +128,7 @@ $ dcos task log --follow <service-name>
 您可以通过 DC/OS Web 界面中找到的服务列表或通过以下命令检索和查看有关特定服务的调度程序日志：
 
 ```bash
-$ dcos service log --follow <scheduler-service-name>
+dcos service log --follow <scheduler-service-name>
 ```
 
 请注意，由于 Marathon 是 DC/OS 的“Init”系统，因此它作为 SystemD 单元（相对于其他 DC/OS 系统组件是相同的）运行。由于这个原因，您需要 CLI 命令来访问其日志。
@@ -146,7 +146,7 @@ Mesos 代理节点日志有助于了解代理节点启动应用程序的方式�
 或者，您可以首先使用 `dcos node log --mesos-id=<node-id>` from the DC/OS CLI to locate the corresponding node `ID` 来查找代理日志，以找到相应的节点 ID。输入：
 
 ```bash
-$ dcos node
+dcos node
 ```
 
 您将看到类似于以下输出的内容：
@@ -170,7 +170,7 @@ master.mesos.  10.0.4.215    ffc913d8-4012-4953-b693-1acc33b400ce   master (lead
 然后，在本例中，您可以输入：
 
 ```bash
-$ dcos node log --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0 --follow
+dcos node log --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0 --follow
 ```
 
 并获取以下日志输出：
@@ -202,7 +202,7 @@ Mesos 管理节点负责将可用资源与调度程序匹配。它还将任务�
 首先，我们可以使用相应的 SSH 密钥通过 SSH 进入该代理节点：
 
 ```bash
-$ dcos node ssh --master-proxy --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0
+dcos node ssh --master-proxy --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0
 ```
 
 然后我们可以使用 `journatlctl`，以查看 Docker 日志：

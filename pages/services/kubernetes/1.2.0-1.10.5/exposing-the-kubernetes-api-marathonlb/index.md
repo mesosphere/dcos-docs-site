@@ -170,7 +170,7 @@ This example assumes that Edge-LB (version 1.0.3 or above) is already properly i
 1. Create the Edge-LB pool with the following command:
 
     ```bash
-    $ dcos edgelb create kubectl-proxy-pool.json
+   dcos edgelb create kubectl-proxy-pool.json
     ```
 
 1. This creates an Edge-LB pool with the following configuration:

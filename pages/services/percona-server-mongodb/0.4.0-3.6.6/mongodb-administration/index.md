@@ -28,13 +28,13 @@ To scale the Replica Set in the web interface:
 To scale the Replica Set using the CLI:
 
    ```shell
-   $ dcos percona-server-mongodb scale [up|down] [1|3|5|7]
+  dcos percona-server-mongodb scale [up|down] [1|3|5|7]
    ```
 
 To list the current count/scale using the CLI:
 
    ```shell
-   $ dcos percona-server-mongodb scale list
+  dcos percona-server-mongodb scale list
    3
    ```
 
@@ -66,27 +66,27 @@ To start the service with MongoDB SSL/TLS support:
 
 1. Install the `dcos-enterprise-cli`:
     ```shell
-    $ dcos package install dcos-enterprise-cli --cli
+   dcos package install dcos-enterprise-cli --cli
     ```
 
 1. Create a public-private keypair:
     ```shell
-    $ dcos security org service-accounts keypair priv.pem pub.pem
+   dcos security org service-accounts keypair priv.pem pub.pem
     ```
 
 1. Create a service account for Percona-Server-MongoDB:
     ```shell
-    $ dcos security org service-accounts create -p pub.pem -d "Percona-Server-MongoDB" percona-server-mongodb-service-acct
+   dcos security org service-accounts create -p pub.pem -d "Percona-Server-MongoDB" percona-server-mongodb-service-acct
     ```
 
 1. Create a service acccount Secret:
     ```shell
-    $ dcos security secrets create-sa-secret priv.pem percona-server-mongodb-service-acct percona-server-mongodb-service-acct-secret
+   dcos security secrets create-sa-secret priv.pem percona-server-mongodb-service-acct percona-server-mongodb-service-acct-secret
     ```
 
 1. Grant the service account `superuser` privileges:
     ```shell
-    $ dcos security org users grant percona-server-mongodb-service-acct dcos:superuser full
+   dcos security org users grant percona-server-mongodb-service-acct dcos:superuser full
     ```
 
 1. In `Services` page of the DC/OS web interface, create a new Percona-Server-MongoDB service.
@@ -194,7 +194,7 @@ To add a user:
 1. Add the user to the Percona-Server-MongoDB service using the service CLI tool, providing the filename of the user definition.
 
     ```shell
-    $ dcos percona-server-mongodb user add <database> <user-json-file>
+   dcos percona-server-mongodb user add <database> <user-json-file>
     ```
 
 ### Update user
@@ -215,7 +215,7 @@ To add a user:
 1. Update the user using the Percona-Server-MongoDB CLI tool by providing the filename of the user definition:
 
     ```shell
-    $ dcos percona-server-mongodb user update <database> <user-json-file>
+   dcos percona-server-mongodb user update <database> <user-json-file>
     ```
 
 ### Remove User
@@ -223,7 +223,7 @@ To add a user:
 To remove a user, provide the database and username to the `percona-server-mongodb` CLI tool, as in the following example:
 
     ```shell
-    $ dcos percona-server-mongodb user remove <database> <username>
+   dcos percona-server-mongodb user remove <database> <username>
     ```
 
 ### Reload Percona-Server-MongoDB Service/System users
@@ -231,7 +231,7 @@ To remove a user, provide the database and username to the `percona-server-mongo
 To reload the Percona-Server-MongoDB [System Users](#system-users), run the following command using the Percona-Server-MongoDB CLI tool:
 
     ```shell
-    $ dcos percona-server-mongodb user reload-system
+   dcos percona-server-mongodb user reload-system
     ```
 
 ### Stop a user change
@@ -239,7 +239,7 @@ To reload the Percona-Server-MongoDB [System Users](#system-users), run the foll
 To stop an add, update, remove or reload-system operation, run the following command with the action name you would like to stop:
 
     ```shell
-    $ dcos percona-server-mongodb user stop <action-name>
+   dcos percona-server-mongodb user stop <action-name>
     ```
 
 See 'dcos percona-server-mongodb user stop --help' for more information*

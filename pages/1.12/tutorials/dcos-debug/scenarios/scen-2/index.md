@@ -15,7 +15,7 @@ menuWeight: 11
 Deploy the file [`app-oom.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-oom.json):
 
 ```bash
-$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
+dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
 ```
 
 Once deployed, when we take a look at the DC/OS web interface, we see some strange results under CPU Allocation:
@@ -45,7 +45,7 @@ The log output “Eating Memory” is a pretty generous hint that the issue migh
 As suspected, this might be an application-related issue, and this application is scheduled via Marathon. So let’s check the Marathon logs using the CLI:
 
 ```bash
-$ dcos service log marathon
+dcos service log marathon
 ```
 We see a log entry similar to:
 
@@ -93,5 +93,5 @@ As we are dealing with a failing task it is good to check the application and sc
 Remove the application with
 
 ```bash
-$ dcos marathon app remove /app-oom
+dcos marathon app remove /app-oom
 ```

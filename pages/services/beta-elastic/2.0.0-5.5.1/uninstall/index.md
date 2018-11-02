@@ -37,8 +37,8 @@ For example, to uninstall an Elastic instance named `elastic-dev`, run:
 
 ```bash
 $ MY_SERVICE_NAME=elastic-dev
-$ dcos package uninstall --app-id=$MY_SERVICE_NAME beta-elastic`.
-$ dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \
+dcos package uninstall --app-id=$MY_SERVICE_NAME beta-elastic`.
+dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \
     -r $MY_SERVICE_NAME-role \
     -p $MY_SERVICE_NAME-principal \
     -z dcos-service-$MY_SERVICE_NAME"

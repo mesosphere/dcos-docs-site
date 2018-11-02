@@ -145,14 +145,14 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
 1. 安装 `dcos-enterprise-cli` 以获取 CLI 安全命令（如果您还没有安装）：
 
     ```bash
-    $ dcos package install dcos-enterprise-cli
+   dcos package install dcos-enterprise-cli
     ```
 
 1. 创建一个密钥对，使用 Enterprise DC/OS CLI 创建 2048 位 RSA 公私密钥对。创建一个
  公私密钥对并将每个值保存到当前目录中的单独文件中。
 
     ```bash
-    $ dcos security org service-accounts keypair <your-private-key>.pem <your-public-key>.pem
+   dcos security org service-accounts keypair <your-private-key>.pem <your-public-key>.pem
     ```
 
  例如：
@@ -165,7 +165,7 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
     `your-public-key.pem`.
 
     ```bash
-    $ dcos security org service-accounts create -p <your-public-key>.pem -d "Spark service account" <service-account>
+   dcos security org service-accounts create -p <your-public-key>.pem -d "Spark service account" <service-account>
     ```
 
  例如：
@@ -182,16 +182,16 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
  **注意** 您可以使用以下命令验证您的新服务帐户。
 
     ```bash
-    $ dcos security org service-accounts show <service-account>
+   dcos security org service-accounts show <service-account>
     ```
 
 1. 创建密钥（例如，`{{ model.serviceName }}//<secret-name>`) with your service account, `service-account`, and private key specified, `your-private-key.pem`。
 
     ```bash
     # permissive mode
-    $ dcos security secrets create-sa-secret <your-private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
+   dcos security secrets create-sa-secret <your-private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
     # strict mode
-    $ dcos security secrets create-sa-secret --strict <private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
+   dcos security secrets create-sa-secret --strict <private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
     ```
 
  例如，在严格模式 DC/OS 群集上：
@@ -203,7 +203,7 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
  **注意** 使用 `dcos security secrets list /` 命令验证是否已创建密钥：
 
     ```bash
-    $ dcos security secrets list /
+   dcos security secrets list /
     ```
 
 ## 分配权限
@@ -217,9 +217,9 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
 
 1. 运行以下内容以创建 Spark 所需的权限：
     ```bash
-    $ dcos security org users grant <service-account> dcos:mesos:master:task:user:<user> create --description "Allows the Linux user to execute tasks"
-    $ dcos security org users grant <service-account> dcos:mesos:master:framework:role:<{{ model.serviceName }}-service-role> create --description "Allows a framework to register with the Mesos master using the Mesos default role"
-    $ dcos security org users grant <service-account> dcos:mesos:master:task:app_id:/<service_name> create --description "Allows reading of the task state"
+   dcos security org users grant <service-account> dcos:mesos:master:task:user:<user> create --description "Allows the Linux user to execute tasks"
+   dcos security org users grant <service-account> dcos:mesos:master:framework:role:<{{ model.serviceName }}-service-role> create --description "Allows a framework to register with the Mesos master using the Mesos default role"
+   dcos security org users grant <service-account> dcos:mesos:master:task:app_id:/<service_name> create --description "Allows reading of the task state"
     ```
 
  注意上述 `dcos:mesos:master:task:app_id:/<service_name>` will likely be `dcos:mesos:master:task:app_id:/{{ model.serviceName }}` 
@@ -270,7 +270,7 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
  然后安装：
 
     ```bash
-    $ dcos package install {{ model.serviceName }} --options={{ model.serviceName }}-strict-options.json
+   dcos package install {{ model.serviceName }} --options={{ model.serviceName }}-strict-options.json
     ```
 
 

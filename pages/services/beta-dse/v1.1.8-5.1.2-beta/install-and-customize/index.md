@@ -26,7 +26,7 @@ The Opscenter Node has:
 
 From the CLI, DSE may be installed with a default configuration as follows:
 ```
-$ dcos package install dse
+dcos package install dse
 ```
 
 From the DC/OS Dashboard website, DSE may be installed with a default configuration as follows:
@@ -41,7 +41,7 @@ You may customize settings at initial install. See below for an explanation of s
 
 From the CLI, DSE may be installed with a custom configuration as follows:
 ```
-$ dcos package install dse --options=your-options.json
+dcos package install dse --options=your-options.json
 ```
 For more information about building the options.json file, see the [DC/OS Documentation](/1.10/deploying-services/config-universe-service/).
 

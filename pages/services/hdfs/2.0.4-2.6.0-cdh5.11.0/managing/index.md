@@ -36,8 +36,8 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
   + You can install just the subcommand CLI by running `dcos package install --cli hdfs`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
-    $ dcos package uninstall --cli hdfs
-    $ dcos package install --cli hdfs
+   dcos package uninstall --cli hdfs
+   dcos package install --cli hdfs
     ```
 
 ### Preparing configuration
@@ -74,17 +74,17 @@ First, we'll fetch the default application's environment, current application's 
 
 1. Then fetch and save the environment variables that have been set for the service:
     ```bash
-    $ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
+   dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
     ```
 
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
     ```bash
-    $ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
+   dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
     ```
 
 1. We'll also get the entire application template:
     ```bash
-    $ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
+   dcos package describe $SERVICE_NAME --app > marathon.json.mustache
     ```
 
 Now that you have these files, we'll attempt to recreate the `options.json`.

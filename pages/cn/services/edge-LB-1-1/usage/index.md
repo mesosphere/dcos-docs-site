@@ -61,7 +61,7 @@ dcos edgelb update <pool-configuration-file>
 1. 安装 `edgelb-pool` CLI 子命令：
 
 ```
-$ dcos package install edgelb-pool --cli --yes
+dcos package install edgelb-pool --cli --yes
 ```
 
 2. 获取您需要重新定位的 pod 的池名称：
@@ -75,13 +75,13 @@ dcos edgelb show
 3. 获取您需要替换的 pod 的名称（在已删除的公用代理上运行的 pod）。这将是 ` 的值<pod-id>`.
 
 ```
-$ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod list
+dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod list
 ```
 
 4. 使用 `<pod-id>` with the `pod 替换` 命令：
 
 ```
-$ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod replace <pod-id>
+dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod replace <pod-id>
 ```
 
 这将销毁池服务器，并重新启动新公用代理上的新服务器。

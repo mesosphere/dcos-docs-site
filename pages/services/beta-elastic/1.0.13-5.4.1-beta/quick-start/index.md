@@ -17,7 +17,7 @@ enterprise: false
 1. Wait until the cluster is deployed and the nodes are all running. This may take 5-10 minutes. You can monitor the deployment via the CLI:
 	
 	```bash
-	$ dcos elastic plan show deploy
+	dcos elastic plan show deploy
 	```
 
 1. SSH into the master node.
@@ -28,7 +28,7 @@ enterprise: false
         
 1. Retrieve client endpoint information by running the `endpoints` command:
         
-        $ dcos elastic endpoints coordinator
+        dcos elastic endpoints coordinator
         {
             "vips": [
                 "coordinator.elastic.l4lb.thisdcos.directory:9200",
@@ -46,7 +46,7 @@ enterprise: false
 
 1. [SSH into a DC/OS node][1]:
 
-        $ dcos node ssh --master-proxy --leader
+        dcos node ssh --master-proxy --leader
 
     Now that you are inside your DC/OS cluster, you can connect to your Elasticsearch cluster directly.
 

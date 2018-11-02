@@ -26,7 +26,7 @@ Plan API 提供用于监控和控制服务安装和配置更新的端点。
 
 <```>bash<linebreak>$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/plans<linebreak></```>
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan list<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} plan list<linebreak></```>
 
 ## 查看计划
 
@@ -36,9 +36,9 @@ Plan API 提供用于监控和控制服务安装和配置更新的端点。
 
 CLI 可用于显示计划的格式树（默认），或从上述 HTTP 端点检索的基础 JSON 数据：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show <plan><linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} plan show <plan><linebreak></```>
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show <plan> --json<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} plan show <plan> --json<linebreak></```>
 
 ## 暂停计划
 
@@ -46,7 +46,7 @@ CLI 可用于显示计划的格式树（默认），或从上述 HTTP 端点检�
 
 <```>bash<linebreak>$ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/plans/deploy/interrupt<linebreak></```>
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan pause deploy<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} plan pause deploy<linebreak></```>
 
 ## 恢复计划
 
@@ -54,7 +54,7 @@ CLI 可用于显示计划的格式树（默认），或从上述 HTTP 端点检�
 
 <```>bash<linebreak>$ curl -X PUT -H "Authorization:token=$auth_token" <dcos_surl>/service/{{ model.serviceName }}/v1/plans/deploy/continue<linebreak></```>
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan continue deploy<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} plan continue deploy<linebreak></```>
 
 # 节点 API
 
@@ -65,7 +65,7 @@ pod API 提供用于检索节点信息、重新启动节点和更换节点的端
 可以通过发送 GET 请求到 `/v1/pod`来检索可用节点 ID 的列表：
 
 CLI 示例
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod list<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} pod list<linebreak></```>
 
 HTTP 示例
 <```>bash<linebreak>$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod<linebreak></```>
@@ -77,7 +77,7 @@ HTTP 示例
 <```>bash<linebreak>$ curl  -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/<node-id>/info<linebreak></```>
 
 CLI 示例
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod info journalnode-0<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} pod info journalnode-0<linebreak></```>
 
 HTTP 示例
 <```>bash<linebreak>$ curl  -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/journalnode-0/info<linebreak></```>
@@ -87,7 +87,7 @@ HTTP 示例
 可以使用 `replace endpoint` 命令用其他代理节点上运行的实例来替换节点。
 
 CLI 示例
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace <node-id><linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace <node-id><linebreak></```>
 
 HTTP 示例
 <```>bash<linebreak>$ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/<node-id>/replace<linebreak></```>
@@ -99,7 +99,7 @@ HTTP 示例
 可以使用 `restart endpoint` 命令重新启动在同一代理节点上的节点。
 
 CLI 示例
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod restart <node-id><linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} pod restart <node-id><linebreak></```>
 
 HTTP 示例
 <```>bash<linebreak>$ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/<node-id>/restart<linebreak></```>
@@ -125,7 +125,7 @@ HTTP 示例
 您可以通过发送 GET 请求到 `/v1/configurations/target` 来查看当前目标配置。
 
 CLI 示例
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} config target<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} config target<linebreak></```>
 
 HTTP 示例
 <```>bash<linebreak>$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/configurations/target<linebreak></```>
@@ -135,7 +135,7 @@ HTTP 示例
 您可以通过发送 GET 请求到 `/v1/configurations`来列出所有配置 ID。
 
 CLI 示例
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} config list<linebreak>[<linebreak>  "319ebe89-42e2-40e2-9169-8568e2421023",<linebreak>  "294235f2-8504-4194-b43d-664443f2132b"<linebreak>]<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} config list<linebreak>[<linebreak>  "319ebe89-42e2-40e2-9169-8568e2421023",<linebreak>  "294235f2-8504-4194-b43d-664443f2132b"<linebreak>]<linebreak></```>
 
 HTTP 示例
 <```>bash<linebreak>$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/configurations<linebreak>[<linebreak>  "319ebe89-42e2-40e2-9169-8568e2421023",<linebreak>  "294235f2-8504-4194-b43d-664443f2132b"<linebreak>]<linebreak></```>
@@ -145,7 +145,7 @@ HTTP 示例
 您可以通过向 `/v1/configurations/ 发送 GET 请求来查看指定配置<config-id>`.
 
 CLI 示例
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} config show 9a8d4308-ab9d-4121-b460-696ec3368ad6<linebreak></```>
+<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} config show 9a8d4308-ab9d-4121-b460-696ec3368ad6<linebreak></```>
 
 HTTP 示例
 <```>bash<linebreak>$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/configurations/9a8d4308-ab9d-4121-b460-696ec3368ad6<linebreak></```>

@@ -71,7 +71,7 @@ Note that if `${ROLE}` in any command contains a percent character, it must be r
 1. Install Spark
 
     ```
-    $ dcos package install spark --options=config.json
+   dcos package install spark --options=config.json
     ```
 
     Where `config.json` contains the following JSON. Replace `<principal>` with the name of your service account, and `<secret_name>` with the name of the DC/OS secret containing your service account's private key. These values were created in Step #1 above.
@@ -100,7 +100,7 @@ Note that if `${ROLE}` in any command contains a percent character, it must be r
     $ PROPS="--conf spark.mesos.driverEnv.MESOS_MODULES=file:///opt/mesosphere/etc/mesos-scheduler-modules/dcos_authenticatee_module.json "
     $ PROPS+="--conf spark.mesos.driverEnv.MESOS_AUTHENTICATEE=com_mesosphere_dcos_ClassicRPCAuthenticatee "
     $ PROPS+="--conf spark.mesos.principal=<principal>"
-    $ dcos spark run --submit-args="${PROPS} ..."
+   dcos spark run --submit-args="${PROPS} ..."
     ```
 
 # Spark SSL
@@ -113,7 +113,7 @@ SSL support in DC/OS Spark encrypts the following channels:
 
 There are a number of configuration variables relevant to SSL setup. List them with the following command:
 
-    $ dcos package describe spark --config
+   dcos package describe spark --config
 
 There are only two required variables:
 
@@ -172,11 +172,11 @@ With this and the password `secret` for the keystore and the private key, your J
 
 Install Spark with your custom configuration:
 
-    $ dcos package install --options=options.json spark
+   dcos package install --options=options.json spark
 
 In addition to the described configuration, make sure to connect the DC/OS cluster only using an SSL connection, i.e. by using an `https://<dcos-url>`. Use the following command to set your DC/OS URL:
 
-    $ dcos config set core.dcos_url https://<dcos-url>
+   dcos config set core.dcos_url https://<dcos-url>
 
  [11]: /1.9/overview/architecture/components/
  [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html

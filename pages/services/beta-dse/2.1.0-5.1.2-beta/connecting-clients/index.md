@@ -14,7 +14,7 @@ enterprise: false
 1. [Use `dcos tunnel vpn` to connect](https://docs.mesosphere.com/1.8/administration/access-node/tunnel/) (only needed if the DC/OS nodes are not directly reachable from your local machine).
 1. Find endpoints
 ```bash
-$ dcos datastax-dse endpoints
+dcos datastax-dse endpoints
 [
   "spark-master-webui",
   "spark-worker-webui",
@@ -24,7 +24,7 @@ $ dcos datastax-dse endpoints
   "thrift-client"
 ]
 
-$ dcos datastax-ops endpoints opscenter
+dcos datastax-ops endpoints opscenter
 {
   "address": ["10.0.3.156:8888"],
   "dns": ["opscenter-0-node.datastax-ops.autoip.dcos.thisdcos.directory:8888"]

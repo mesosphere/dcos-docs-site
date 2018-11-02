@@ -21,7 +21,7 @@ We support upgrade/rollback between adjacent versions only. Concretely, to upgra
 3. From the DC/OS CLI, install the N+1 version of Elastic (where N is your current version) with any customizations you require in a JSON options file:
 
 ```bash
-$ dcos package install elastic --options=/path/to/options.json
+dcos package install elastic --options=/path/to/options.json
 ```
 
 The command above will trigger the install of the new Elastic version. You can follow the upgrade progress by making a REST request identical to the one used to follow the progress of a configuration upgrade. See the Configuring section for more information.

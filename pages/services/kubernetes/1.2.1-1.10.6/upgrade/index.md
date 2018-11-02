@@ -215,7 +215,7 @@ state. In order to do this, the following steps can be followed:
 1. Forcing the framework scheduler to restart:
 
    ```
-   $ dcos marathon app kill /<SERVICE_NAME>
+  dcos marathon app kill /<SERVICE_NAME>
    ```
 
    `<SERVICE_NAME>` must be replaced by the name of the service (e.g.
@@ -225,7 +225,7 @@ state. In order to do this, the following steps can be followed:
    `deploy` plan is complete:
 
    ```
-   $ dcos kubernetes --name=<SERVICE_NAME> plan show deploy
+  dcos kubernetes --name=<SERVICE_NAME> plan show deploy
    deploy (serial strategy) (COMPLETE)
    (...)
    ```

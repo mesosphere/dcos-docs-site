@@ -34,14 +34,14 @@ DC/OS UI 安装 Kubernetes 包，那么您还需要安装
 <p>
 在进行之前，<tt>dcos</tt> <b>必须</b> 被配置，可通过 HTTPS 访问
 所需的 DC/OS 群集。您必须确保
-<p><tt>$ dcos config show core.dcos_url</tt></p> 返回以
+<p><tt>dcos config show core.dcos_url</tt></p> 返回以
 <tt>https://</tt> 开头的 URL。
 
 如果返回的 URL 不是以
 <tt>https://</tt> 开头，那么您必须运行
-<p><tt>$ dcos config set core.dcos_url https://&lt;master-ip&gt;</tt></p>
+<p><tt>dcos config set core.dcos_url https://&lt;master-ip&gt;</tt></p>
 如果 DC/OS 使用的 TLS 证书不受信任，那么您也必须运行以下命令来禁用 TLS 验证：
-<p><tt>$ dcos config set core.ssl_verify false</tt></p>
+<p><tt>dcos config set core.ssl_verify false</tt></p>
 </p>
 </div>
 
@@ -51,7 +51,7 @@ DC/OS UI 安装 Kubernetes 包，那么您还需要安装
 即可访问 Kubernetes API，您必须运行以下命令：
 
 ```
-$ dcos kubernetes kubeconfig \
+dcos kubernetes kubeconfig \
     --apiserver-url https://kube-apiserver.example.com:6443 \
     --insecure-skip-tls-verify
 ```
@@ -65,7 +65,7 @@ Kubernetes API 暴露于 DC/OS 群集外部的 URL。
 即可访问 Kubernetes API，您必须运行以下命令：
 
 ```
-$ dcos kubernetes kubeconfig \
+dcos kubernetes kubeconfig \
     --apiserver-url https://kube-apiserver.example.com:6443 \
     --path-to-custom-ca ca.pem
 ```
@@ -88,7 +88,7 @@ API 暴露于 DC/OS 群集外部的 URL。
 要在不切换上下文环境的情况下创建 DC/OS Kubernetes config，请执行以下操作：
 
 ```bash
-$ dcos kubernetes kubeconfig \
+dcos kubernetes kubeconfig \
     --apiserver-url https://kube-apiserver.example.com:6443 \
     --path-to-custom-ca ca.pem \
     --no-activate-context
@@ -116,7 +116,7 @@ kube-node-0-kubelet.kubernetes.mesos   Ready     10m        v1.10.6
 您可以通过使用 `--context-name` 标签指定一个名称：
 
 ```bash
-$ dcos kubernetes kubeconfig \
+dcos kubernetes kubeconfig \
     --apiserver-url https://kube-apiserver.example.com:6443 \
     --path-to-custom-ca ca.pem \
     --context-name=my-context

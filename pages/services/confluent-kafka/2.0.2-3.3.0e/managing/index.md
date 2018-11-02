@@ -36,8 +36,8 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
   + You can install just the subcommand CLI by running `dcos package install --cli kafka`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
-    $ dcos package uninstall --cli kafka
-    $ dcos package install --cli kafka
+   dcos package uninstall --cli kafka
+   dcos package install --cli kafka
     ```
 
 ### Preparing configuration
@@ -45,7 +45,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
-$ $ dcos confluent-kafka describe > options.json
+$dcos confluent-kafka describe > options.json
 ```
 
 Make any configuration changes to this `options.json` file.
@@ -74,17 +74,17 @@ First, we'll fetch the default application's environment, current application's 
 
 1. Then fetch and save the environment variables that have been set for the service:
     ```bash
-    $ dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
+   dcos marathon app show $SERVICE_NAME | jq .env > current_env.json
     ```
 
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
     ```bash
-    $ dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
+   dcos package describe --package-version=$PACKAGE_VERSION --render --app $SERVICE_NAME | jq .env > default_env.json
     ```
 
 1. We'll also get the entire application template:
     ```bash
-    $ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
+   dcos package describe $SERVICE_NAME --app > marathon.json.mustache
     ```
 
 Now that you have these files, we'll attempt to recreate the `options.json`.
@@ -148,7 +148,7 @@ To see a full listing of available options, run `dcos package describe --config 
 
 1.  Install the latest version of Kafka:
     ```bash
-    $ dcos package install kafka -—options=options.json
+   dcos package install kafka -—options=options.json
     ```
 
 # Graceful Shutdown
@@ -175,7 +175,7 @@ Create an options file `kafka-options.json` with the following content:
 
 Issue the following command:
 ```bash
-$ $ dcos confluent-kafka --name=/kafka update --options=kafka-options.json
+$dcos confluent-kafka --name=/kafka update --options=kafka-options.json
 ```
 
 ## Restart a Broker with Grace
@@ -198,24 +198,24 @@ The `update package-versions` command allows you to view the versions of a servi
 
 For example, run:
 ```bash
-$ $ dcos confluent-kafka update package-versions
+$dcos confluent-kafka update package-versions
 ```
 
 ## Upgrading or downgrading a service
 
 1. Before updating the service itself, update its CLI subcommand to the new version:
     ```bash
-    $ dcos package uninstall --cli kafka
-    $ dcos package install --cli kafka --package-version="1.1.6-5.0.7"
+   dcos package uninstall --cli kafka
+   dcos package install --cli kafka --package-version="1.1.6-5.0.7"
     ```
 1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS Kafka Service to version `1.1.6-5.0.7`:
     ```bash
-    $ $ dcos confluent-kafka update start --package-version="1.1.6-5.0.7"
+    $dcos confluent-kafka update start --package-version="1.1.6-5.0.7"
     ```
 
 If you are missing mandatory configuration parameters, the `update` command will return an error. To supply missing values, you can also provide an `options.json` file (see [Updating configuration](#updating-configuration)):
 ```bash
-$ $ dcos confluent-kafka update start --options=options.json --package-version="1.1.6-5.0.7"
+$dcos confluent-kafka update start --options=options.json --package-version="1.1.6-5.0.7"
 ```
 
 See [Advanced update actions](#advanced-update-actions) for commands you can use to inspect and manipulate an update after it has started.
@@ -235,7 +235,7 @@ Once the Scheduler has been restarted, it will begin a new deployment plan as in
 You can query the status of the update as follows:
 
 ```bash
-$ $ dcos confluent-kafka update status
+$dcos confluent-kafka update status
 ```
 
 If the Scheduler is still restarting, DC/OS will not be able to route to it and this command will return an error message. Wait a short while and try again. You can also go to the Services tab of the DC/OS GUI to check the status of the restart.
@@ -245,7 +245,7 @@ If the Scheduler is still restarting, DC/OS will not be able to route to it and 
 To pause an ongoing update, issue a pause command:
 
 ```bash
-$ $ dcos confluent-kafka update pause
+$dcos confluent-kafka update pause
 ```
 
 You will receive an error message if the plan has already completed or has been paused. Once completed, the plan will enter the `WAITING` state.
@@ -255,7 +255,7 @@ You will receive an error message if the plan has already completed or has been 
 If a plan is in a `WAITING` state, as a result of being paused or reaching a breakpoint that requires manual operator verification, you can use the `resume` command to continue the plan:
 
 ```bash
-$ $ dcos confluent-kafka update resume
+$dcos confluent-kafka update resume
 ```
 
 You will receive an error message if you attempt to `resume` a plan that is already in progress or has already completed.
@@ -265,7 +265,7 @@ You will receive an error message if you attempt to `resume` a plan that is alre
 In order to manually "complete" a step (such that the Scheduler stops attempting to launch a task), you can issue a `force-complete` command. This will instruct to Scheduler to mark a specific step within a phase as complete. You need to specify both the phase and the step, for example:
 
 ```bash
-$ $ dcos confluent-kafka update force-complete service-phase service-0:[node]
+$dcos confluent-kafka update force-complete service-phase service-0:[node]
 ```
 
 ## Force Restart
@@ -274,17 +274,17 @@ Similar to force complete, you can also force a restart. This can either be done
 
 To restart the entire plan:
 ```bash
-$ $ dcos confluent-kafka update force-restart
+$dcos confluent-kafka update force-restart
 ```
 
 Or for all steps in a single phase:
 ```bash
-$ $ dcos confluent-kafka update force-restart service-phase
+$dcos confluent-kafka update force-restart service-phase
 ```
 
 Or for a specific step within a specific phase:
 ```bash
-$ $ dcos confluent-kafka update force-restart service-phase service-0:[node]
+$dcos confluent-kafka update force-restart service-phase service-0:[node]
 ```
 
 <!-- END DUPLICATE BLOCK -->

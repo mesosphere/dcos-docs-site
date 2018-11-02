@@ -37,7 +37,7 @@ enterprise: false
 
 1. Gather the `dns` names of the member nodes.
     ```shell
-    $ dcos percona-server-mongodb endpoints mongo-port
+   dcos percona-server-mongodb endpoints mongo-port
         {
           "address": [
             "10.0.3.53:27017",
@@ -76,7 +76,7 @@ enterprise: false
           ]
     }
     EOF
-    $ dcos percona-server-mongodb user add admin myApp.json
+   dcos percona-server-mongodb user add admin myApp.json
     ```
 
 1. Reconnect using your new application-level user `myApp`.

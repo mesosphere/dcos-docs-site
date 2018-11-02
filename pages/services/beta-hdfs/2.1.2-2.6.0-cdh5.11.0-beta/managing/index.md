@@ -36,8 +36,8 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
   + You can install just the subcommand CLI by running `dcos package install --cli beta-hdfs`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
-    $ dcos package uninstall --cli beta-hdfs
-    $ dcos package install --cli beta-hdfs
+   dcos package uninstall --cli beta-hdfs
+   dcos package install --cli beta-hdfs
     ```
 
 ### Preparing configuration
