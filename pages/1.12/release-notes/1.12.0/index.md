@@ -28,9 +28,7 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 - OpenID connect authentication and authorization with support for Windows Integrated Authentication (WIA) and Active Directory Federation Services (ADFS)
 
 ### Observability - Metrics
-Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability are:
-- Adopted industry standards, Free and Open Source Software (FOSS) metrics infrastructure.
-- Used flexible and configurable metrics pipeline with multiple output formats.
+- Introduced a flexible and configurable metrics pipeline with multiple output formats.
 - Enhanced support for application metric types including histograms, counters, timers, and gauges.
 - Support for sample rates and multi-metrics packets. 
 - Mesos framework metrics are now [available](http://mesos.apache.org/documentation/latest/monitoring/#frameworks).
@@ -80,11 +78,12 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 
 ### UI/UX Enhancements
 - Added master table and health information in the nodes page.
+- Added the Mesosphere DC/OS logo above the UI.
+- Expanded JSON editor view and GPU’s included if deployed in a cluster.
+- Fixed 100+ bugs and performance improvements.
 - Included base tech version in the services page.
 - Included node type (Public/Private) in the nodes page.
 - Removed CPU/MEM/Disk graphic from the nodes page.
-- Added the Mesosphere DC/OS logo above the UI.
-- Fixed 100+ bugs and performance improvements.
 
 ## Notable Changes
 - Update DC/OS UI to 1.12+v2.25.1 [change log](https://github.com/dcos/dcos-ui/releases/tag/1.12+v2.25.1).

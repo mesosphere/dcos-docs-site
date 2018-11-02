@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: Community Supported Installation Methods
+excerpt: Community supported installation methods
 title: Community Supported Methods
 navigationTitle: Community Supported Methods
 menuWeight: 10
