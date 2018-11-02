@@ -62,7 +62,7 @@ The procedure differs depending on whether or not you want to make the secret av
 
 The procedure varies by interface. Refer to the section that corresponds to your desired interface.
 
-- [web interface](#deploying-the-service-via-the-web-interface)
+- [Web interface](#deploying-the-service-via-the-web-interface)
 
 - [Marathon API](#deploying-the-service-via-marathon-app-definition)
 
@@ -148,26 +148,26 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
    For example:
   
-  ```json
-  {
-     "id": "developer/service",
-     "cmd": "cat path && sleep 100",
-     "container": {
-   "type": "MESOS",
-   "volumes": [
+    ```json
     {
-       "containerPath": "path",
-       "secret": "secretpassword"
-     }
-    ]
-    },
+      "id": "developer/service",
+      "cmd": "cat path && sleep 100",
+      "container": {
+        "type": "MESOS",
+        "volumes": [
+          {
+            "containerPath": "path",
+            "secret": "secretpassword"
+          }
+        ]
+      },
       "secrets": {
         "secretpassword": {
           "source": "developer/databasepassword"
+        }
       }
     }
-  }
-  ```
+    ```
 
 # <a name="deploying-the-service-via-marathon-app-definition"></a>Configuring a service to use an environment variable-based secret via Marathon app definition
 
@@ -177,22 +177,22 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
    Environment variable-based secret:
 
-   ```json
-   {  
-      "id":"/developer/service",
-      "cmd":"sleep 100",
-      "env":{  
-         "MY_SECRET":{  
-            "secret":"secret0"
-         }
+    ```json
+    {  
+      "id": "/developer/service",
+      "cmd": "sleep 100",
+      "env": {  
+        "MY_SECRET": {  
+          "secret": "secret0"
+        }
       },
-      "secrets":{  
-         "secret0":{  
-            "source":"developer/my-secret"
-         }
+      "secrets": {  
+        "secret0": {  
+          "source": "developer/my-secret"
+        }
       }
-   }
-   ```
+    }
+    ```
 
    In the example above, DC/OS stores the secret under the environment variable `"MY_SECRET"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
 
@@ -251,20 +251,20 @@ The procedure varies by interface. Refer to the section that corresponds to your
   
   ```json
   {
-     "id": "developer/service",
-     "cmd": "cat path && sleep 100",
-     "container": {
-   "type": "MESOS",
-   "volumes": [
-    {
-       "containerPath": "path",
-       "secret": "secretpassword"
-     }
-    ]
+    "id": "developer/service",
+    "cmd": "cat path && sleep 100",
+    "container": {
+      "type": "MESOS",
+      "volumes": [
+        {
+          "containerPath": "path",
+          "secret": "secretpassword"
+        }
+      ]
     },
-      "secrets": {
-        "secretpassword": {
-          "source": "developer/databasepassword"
+    "secrets": {
+      "secretpassword": {
+        "source": "developer/databasepassword"
       }
     }
   }
@@ -281,24 +281,22 @@ The procedure varies by interface. Refer to the section that corresponds to your
     ```json
     {
       "id": "test-metronome-secret",
-      "run": 
-      {
+      "run": {
         "cpus": 0.01,
         "mem": 128,
         "cmd": "echo ${TEST}; sleep 30;",
         "env": {
           "TEST": {
           "secret": "secret0"
-        }
+          }
         },
-        "secrets":
-        {
+        "secrets": {
           "secret0": {
             "source": "/path/to/secret"
           }
         }
       },
-        "schedules": []
+      "schedules": []
     }
     ```
 
@@ -373,33 +371,33 @@ The procedure varies by interface. Refer to the section that corresponds to your
     {
       "id": "developer/pod-with-secrets",
       "containers": [
-         {
-           "name": "container-1",
-           "exec": {
-             "command": {
-               "shell": "sleep 1"
-             }
-         },
-         "volumeMounts": [
-           {
-             "name": "secretvolume",
-             "mountPath": "path/to/db/password"
-           }
-         ]
-       }
-     ],
-     "volumes": [
-       {
-         "name": "secretvolume",
-         "secret": "secretpassword"
-       }
-     ],
-     "secrets": {
-       "secretpassword": {
-         "source": "developer/databasepassword"
-       }
-     }
-   }
+        {
+          "name": "container-1",
+          "exec": {
+            "command": {
+              "shell": "sleep 1"
+            }
+          },
+          "volumeMounts": [
+            {
+              "name": "secretvolume",
+              "mountPath": "path/to/db/password"
+            }
+          ]
+        }
+      ],
+      "volumes": [
+        {
+          "name": "secretvolume",
+          "secret": "secretpassword"
+        }
+      ],
+      "secrets": {
+        "secretpassword": {
+          "source": "developer/databasepassword"
+        }
+      }
+    }
    ```
 
    <p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.11//security/ent/#spaces) for more details about the paths.</p>
