@@ -13,6 +13,9 @@ render: mustache
 ### Bug Fixes
 - Fix a bug where an out of date configuration ID would be selected when restarting or replacing pods. This could lead to configuration updates being reverted to the values with which the service was initially deployed. ([#2694](https://github.com/mesosphere/dcos-commons/pull/2694))
 
+### Improvements
+- The `hdfs.auth_to_local` setting no longer need to be specified for the HDFS-specific principals when installing kerberized HDFS.
+
 ### Updates
 - Upgrade JRE to 1.8u192 to address CVEs
 
