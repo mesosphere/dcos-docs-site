@@ -177,7 +177,7 @@ A custom mapping must be set to map Kerberos principals to OS user names for the
 ```
 where `<custom mapping>` is a base64-encoded string.
 
-*Note*: There is _no_ default mapping. One **MUST** be set at install time or as a service update.
+*Note*: Mappings for {{ model.techShortName}} service principals will be inserted automatically.
 
 [This](https://hortonworks.com/blog/fine-tune-your-apache-hadoop-security-settings/) article has a good description of how to build a custom mapping, under the section "Kerberos Principals and UNIX User Names".
 
