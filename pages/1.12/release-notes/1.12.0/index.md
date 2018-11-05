@@ -62,6 +62,18 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 - Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
 - Restructured [Mesosphere installation documentation](https://docs.mesosphere.com/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
 
+### Networking
+
+- Networking component enhancements with 150+ bug fixes with limited logging for visibility.
+- Improved DNS convergence time (sub-sec) performance.
+- Configurable MTU for Overlay networks.
+- Reusable IP addresses for new agents in the cluster.
+- Mitigation of networking stuck-state due to SSL deadlock in Erlang library
+- TLS 1.2 support
+- Support for per container network Metrics
+- Leverage persistent connections in Edge-LB for L7 load-balancing [enterprise type="inline" size="small" /]
+- Improved logging in Edge-LB [enterprise type="inline" size="small" /]
+
 ### Expanded DC/OS Upgrade Paths 
 - Mesosphere now supports specific skip [upgrade paths](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move).
 - Mesosphere now supports specific skip upgrade paths between supported major to major versions of DC/OS (i.e upgrade from 1.10.7 => 1.11.4 in one move).
