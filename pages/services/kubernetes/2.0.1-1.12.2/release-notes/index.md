@@ -10,7 +10,7 @@ excerpt: Release notes for DC/OS Kubernetes version 2.0.1-1.12.2
 
 # Version 2.0.1-1.12.2
 
-## Breaking Changes
+## Breaking Changes from 1.x
 
 * DC/OS Kubernetes `2.0.1-1.12.2` requires DC/OS 1.12.
 * DC/OS Kubernetes `2.0.1-1.12.2` introduces breaking changes to the way the package works and is deployed.
