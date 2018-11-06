@@ -22,69 +22,55 @@ DC/OS 1.10.9 includes the following:
 # Issues Fixed in DC/OS 1.10.9
 
 ## CLI
-- DCOS-3200 - Fix `dcos task --completed` command failure when a Mesos agent is lost and rejoins with a new ID.
-- DCOS-41601/DCOS_OSS-3921 - The [make_disk_resources.py](https://github.com/dcos/dcos/blob/master/packages/mesos/extra/make_disk_resources.py) script uses the total space available on mounted disks to determine the space available for restarting the Mesos agent.
+- DCOS-3200 - `dcos task --completed` command no longer fails in instances when accessing information for a task completed on an agent that is no longer registered with the master.
+- DCOS-41601/DCOS_OSS-3921 - Use the total amount of space available on mounted disks to create /var/lib/dcos/mesos-resources to ensure successful Mesos agent restarts in instances where disk has been used.
 
 ## Data Services
-- DCOS_OSS-3938 - Add a check to determine if the IP returned by the ip-detect program is contained in the configured master list.
-- DCOS_OSS-4221 - Fix packaging test in DC/OS.
+- DCOS_OSS-3938 - Add a check that terminates bootstrap if an unexpected IP address is returned in Exhibitor startup.
 
 ## GUI
-- DCOS-14757 - Fix unexpected persistent and residency error in volumes.
-- DCOS-15289 - Fix the display message on Marathon-LB debug page to show deplpoyment problems.
-- DCOS-21723 - Display allocated resources for frameworks in the GUI. 
-- DCOS-37461/DCOS-37465 - Change `MesosStateStore` to apply `assignSchedulerTaskField` only once since the same data is regenerated multiple times.
-- DCOS-37464 - Adjust DCOSStore to cache the `serviceTree` and `taskLookupTable`.
-- DCOS-37466 - Adjust service structs to defer spec creation.
+- DCOS-14757 - Remove an unexpected error message about persistent volumes that may appear when creating a local volume.
+- DCOS-15289 - Ensure that the removal of volumes on multi-container applications via the UI also removes the same fields in the JSON editor.
+- DCOS-21723 - Ensure correct display of the allocated resources for running frameworks at all times by retrieving consumption data directly at framework level rather than summing ongoing tasks.
+- DCOS-37461/DCOS-37464/DCOS-37466/DCOS-37465 - Improve UI performance.
 - DCOS-37585 - Fix Marathon health checks by caching right task data.
 - DCOS-40525 - Fix the environment variables reducer to support empty values.
 - DCOS-40881 - Fix form control icons overflow issue in Firefox.
-- DCOS-41668 - Bump dcos-ui v1.10-1.10.9.
-- DCOS-42035 - Adding an environment variable without a key displays an error message.
-- DCOS-17436/DCOS-42366 - Clarify resource totals on pod instances table.
+- DCOS-42035 - Add an error message when environment variables are input without keys.
+- DCOS-17436/DCOS-42366 - Set total resource counts to display in the pods table.
 - DCOS_OSS-1551/DCOS_OSS-4034 - Add support for virtual IP addresses when configuring hosts.
-- DCOS_OSS-526 - Error messages include additional details if a machine is unable to access a repository or container.
+- DCOS_OSS-526 - Update error messages to include additional details if a machine is unable to access a repository or container.
 
 ## Marathon
 - COPS-3593/DCOS_OSS-4193 - Resolve [MSPH-2018-0004](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004)(Mesosphere Customer Advisory) where Marathon fails to launch if the first DC/OS master is down with the introduction of ping zk-1 in DC/OS 1.11.5.
 
 ## Mesos
 - COPS-3371 - Remove `check-*` directories created by health checks for Kafka inside /run/mesos/containers after the health check is completed.
-- COPS-3527 - Check cache when creating Mesos resources using `make_disk_resources.py`.
-- COPS-3773/DCOS_OSS-4064 - Provide additional diagnostic information for components in diagnostic bundles and vendor folder packages. 
-- COPS-3780/DCOS_OSS-4086 - Run health checks on Mesos Master and other components.
-- DCOS-21349 - Update diagnostics bundle endpoints for mesos agent nodes.
-- DCOS-42704 - Packages fail to install on 1.10 due to problem with readiness check.
+- COPS-3780/DCOS_OSS-4086 - Improve allocate error messages for Mesos.
+- DCOS-21349 - Update agent endpoints to ensure Mesos flags and state are always retrieved in a DC/OS diagnostics bundle.
 - DCOS_OSS-3861 - Add additional data (timestamp for `dmesg`, `timedatectl`, distro version, systemd unit status, pods endpoint) into DC/OS diagnostics bundle.
-- DCOS_OSS-3978 - Add information to diagnostics bundle.
+- DCOS_OSS-3978 - Add `/quota`, `/containers`, `/proc/[cmdline|cpuinfo|meminfo]`, `ps aux wwww` to DC/OS diagnostics bundle.
 
 ## Metrics
 - DCOS-37454 - Fix inconsistent output reported by prometheus endpoint (/metrics) in the metrics store. 
-- DCOS-38083 - Improve the behavior of statsd timers on dcos-metrics.
+- DCOS-38083 - Improve the behavior of statsd timers on `dcos-metrics`.
 
 ## Networking
 - COPS-3520/DCOS-39999 - Fix DC/OS OSS build failure that occurred due to segmentation violation.
-- COPS-3585 - Set routing table correctly on public nodes. 
 - COPS-3701 - Fix file descriptors leak associated with TCP connection on DC/OS nodes.  
 - DCOS-39707 - Fix clustering issues with `etcd`.
 - DCOS-39841 - Fix the erros of `dcos-cni` package that lead to the failure to build DC/OS locally.
-- DCOS_OSS-3697 - Connections between bridged and overlay networks on the same host are preserved without requiring a reboot after an upgrade.
-- DCOS_OSS-3855 - Restarting dcos-net reconfigures the MAC addresses of the vtep interface to assign static IP addresses after approximately 5 minutes.
-- DCOS_OSS-3895 - The mesos-module supports all iptable commands.
+- DCOS_OSS-3697 - Ensure connectivity between Docker bridge and DC/OS overlay via VIP on the same host.
+- DCOS_OSS-3855 - Verify properties of existing vtep interfaces for mismatches before creating a new interface.
 
 ## Platform
-- DCOS-22194 - Fix `dcos-metrics` pkgpanda build.
-- DCOS-40373 - Prevent `dcos-history` leaking authorization tokens.
+- DCOS-40373 - Fix instances where `dcos-history-service` would leak authorization tokens in its header.
 
 ## Security
-- COPS-2988/DCOS-40021 - Update superuser permissions in documentation. 
-- COPS-3485 - Exhibitor start script accepts invalid ip address for hostname resulting in loss of zookeeper myid cfg file.
-- DCOS-40245 - Enables the`adminrouter_auth_cache_enabled` configuration option by default. 
-- DCOS-40788/DCOS-42361/DCOS-43024 - If an E2E test times out before completion, the information generated by the timeout is logged to the journald logging facility.
-- DCOS-40950 - Mesos does not allow you to specify an empty value for an executor secret file.
+- DCOS-40245 - Set the `adminrouter_auth_cache_enabled` configuration to true by default, in order to prevent 503 Adminrouter errors when scheduling Marathon jobs.
 - DCOS_OSS-3793 - Add activity for the Adminrouter (nginx) program to the journald logging facility so that the logged activity is available in the same location as other DC/OS logs.
-- DCOS_OSS-3933 - Upgraded Java support includes version 8u181.
-- DCOS-42813/DCOS-42814 - DC/OS supports the security update included in CouchroachDB version 1.1.9. 
+- DCOS_OSS-3933 - Upgraded Java from version `8u151` to version `8u181`.
+- DCOS-42813/DCOS-42814 - Upgrade CockroachDB from 1.1.9 to 1.1.9.
 
 # About DC/OS 1.10
 
