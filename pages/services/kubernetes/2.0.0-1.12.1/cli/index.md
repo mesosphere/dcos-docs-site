@@ -36,10 +36,10 @@ A CLI is provided as a way to interact with the cluster manager and allow comple
 
 The `kubernetes` CLI has two useful top level commands that each refer to the particular objects you can run actions against.
 
-* manager - commands run against the cluster `manager`
-* cluster - commands run against a specific Kubernetes cluster
+* manager - commands run against the cluster `manager`.
+* cluster - commands run against a specific Kubernetes cluster.
 
-For more details on available commands, run
+For more details on available commands, run:
 
 ```shell
 $ dcos kubernetes --help
@@ -61,7 +61,7 @@ $ dcos kubernetes manager <subcommand> [<flags>]
 
 #### Manager Describe
 
-View the configuration for this service
+View the configuration for this service:
 
 ```shell
 $ dcos kubernetes manager describe
@@ -71,7 +71,7 @@ $ dcos kubernetes manager describe
 
 ##### Plan List
 
-Show all plans for this service
+Show all plans for this service:
 
 ```shell
 $ dcos kubernetes manager plan list
@@ -79,7 +79,7 @@ $ dcos kubernetes manager plan list
 
 ##### Plan Status
 
-Display the status of the plan with the provided plan name
+Display the status of the plan with the provided plan name:
 
 ```shell
 $ dcos kubernetes manager plan status [<flags>] <plan>
@@ -87,7 +87,7 @@ $ dcos kubernetes manager plan status [<flags>] <plan>
 
 ##### Plan Start
 
-Start the plan with the provided name and any optional plan arguments
+Start the plan with the provided name and any optional plan arguments:
 
 ```shell
 $ dcos kubernetes manager plan start [<flags>] <plan>
@@ -95,7 +95,7 @@ $ dcos kubernetes manager plan start [<flags>] <plan>
 
 ##### Plan Stop
 
-Stop the running plan with the provided name
+Stop the running plan with the provided name:
 
 ```shell
 $ dcos kubernetes manager plan stop <plan>
@@ -108,7 +108,7 @@ Plan Stop differs from Plan Pause in the following ways:
 
 ##### Plan Pause
 
-Pause the plan, or a specific phase in that plan with the provided phase name (or UUID)
+Pause the plan, or a specific phase in that plan with the provided phase name (or UUID):
 
 ```shell
 $ dcos kubernetes manager plan pause <plan> [<phase>]
@@ -116,7 +116,7 @@ $ dcos kubernetes manager plan pause <plan> [<phase>]
 
 ##### Plan Resume
 
-Resume the plan, or a specific phase in that plan with the provided phase name (or UUID)
+Resume the plan, or a specific phase in that plan with the provided phase name (or UUID):
 
 ```shell
 $ dcos kubernetes manager plan resume <plan> [<phase>]
@@ -132,7 +132,7 @@ $ dcos kubernetes manager plan force-restart <plan> [<phase> [<step>]]
 
 ##### Plan Force-Complete
 
-Force complete a specific step in the provided phase. Example uses include the following: Abort a sidecar operation due to observed failure or known required manual preparation that was not performed
+Force complete a specific step in the provided phase. Example uses include the following: Abort a sidecar operation due to observed failure or known required manual preparation that was not performed.
 
 ```shell
 $ dcos kubernetes manager plan force-complete <plan> <phase> <step>
@@ -142,7 +142,7 @@ $ dcos kubernetes manager plan force-complete <plan> <phase> <step>
 
 ##### Pod List
 
-Display the list of known pod instances
+Display the list of known pod instances:
 
 ```shell
 $ dcos kubernetes manager pod list
@@ -150,7 +150,7 @@ $ dcos kubernetes manager pod list
 
 ##### Pod Status
 
-Display the status for tasks in one pod or all pods
+Display the status for tasks in one pod or all pods:
 
 ```shell
 $ dcos kubernetes manager pod status [<flags>] [<pod>]
@@ -158,7 +158,7 @@ $ dcos kubernetes manager pod status [<flags>] [<pod>]
 
 ##### Pod Info
 
-Display the full state information for tasks in a pod
+Display the full state information for tasks in a pod:
 
 ```shell
 $ dcos kubernetes manager pod info <pod>
@@ -166,7 +166,7 @@ $ dcos kubernetes manager pod info <pod>
 
 ##### Pod Restart
 
-Restarts a given pod without moving it to a new agent
+Restarts a given pod without moving it to a new agent:
 
 ```shell
 $ dcos kubernetes manager pod restart <pod>  
@@ -174,7 +174,7 @@ $ dcos kubernetes manager pod restart <pod>
 
 ##### Pod Replace
 Replace should be used **only** when the current instance of the pod should be completely destroyed. All persistent data (read: volumes) of the pod will be destroyed. Replace should be used when a DC/OS agent is being removed, is permanently down, or pod placement constraints need to be updated.
-Destroys a given pod and moves it to a new agent
+Destroys a given pod and moves it to a new agent:
 
 ```shell
 $ dcos kubernetes manager pod replace <pod>
@@ -184,7 +184,7 @@ $ dcos kubernetes manager pod replace <pod>
 
 ##### Update Start
 
-Launches an update operation
+Launches an update operation:
 
 ```shell
 $ dcos kubernetes manager update start [<flags>]
@@ -192,7 +192,7 @@ $ dcos kubernetes manager update start [<flags>]
 
 ##### Update Force-Complete
 
-Force complete a specific step in the provided phase
+Force complete a specific step in the provided phase:
 
 ```shell
 $ dcos kubernetes manager update force-complete <phase> <step>
@@ -200,7 +200,7 @@ $ dcos kubernetes manager update force-complete <phase> <step>
 
 ##### Update Force-Restart
 
-Restart update plan, or specific step in the provided phase
+Restart update plan, or specific step in the provided phase:
 
 ```shell
 $ dcos kubernetes manager update force-restart [<phase> [<step>]]
@@ -208,7 +208,7 @@ $ dcos kubernetes manager update force-restart [<phase> [<step>]]
 
 ##### Update Package-Version
 
-View a list of available package versions to downgrade or upgrade to
+View a list of available package versions to downgrade or upgrade to:
 
 ```shell
 $ dcos kubernetes manager update package-versions
@@ -219,12 +219,12 @@ $ dcos kubernetes manager update package-versions
 Pause update plan
 
 ```shell
-$ dcos kubernetes manager update pause
+$ dcos kubernetes manager update pause:
 ```
 
 ##### Update Resume
 
-Resume update plan
+Resume update plan:
 
 ```shell
 $ dcos kubernetes manager update resume
@@ -232,7 +232,7 @@ $ dcos kubernetes manager update resume
 
 ##### Update Status
 
-View status of a running update
+View status of a running update:
 
 ```shell
 $ dcos kubernetes manager update status [<flags>]
@@ -242,25 +242,25 @@ $ dcos kubernetes manager update status [<flags>]
 
 ##### Debug Config
 
-List IDs of all available configurations
+List IDs of all available configurations:
 
 ```shell
 $ dcos kubernetes manager debug config list
 ```
 
-Display a specified configuration
+Display a specified configuration:
 
 ```shell
 $ dcos kubernetes manager debug config show <config_id>
 ```
 
-Display the target configuration
+Display the target configuration:
 
 ```shell
 $ dcos kubernetes manager debug config target
 ```
 
-List ID of the target configuration
+List ID of the target configuration:
 
 ```shell
 $ dcos kubernetes manager debug config target_id
@@ -268,13 +268,13 @@ $ dcos kubernetes manager debug config target_id
 
 ##### Debug Pod
 
-Pauses a pod's tasks for debugging
+Pauses a pod's tasks for debugging:
 
 ```shell
 $ dcos kubernetes manager debug pod pause [<flags>] <pod>
 ```
 
-Resumes a pod's normal execution following a pause command
+Resumes a pod's normal execution following a pause command:
 
 ```shell
 $ dcos kubernetes manager debug pod resume [<flags>] <pod>
@@ -282,25 +282,25 @@ $ dcos kubernetes manager debug pod resume [<flags>] <pod>
 
 ##### Debug State
 
-Display the Mesos framework ID
+Display the Mesos framework ID:
 
 ```shell
 $ dcos kubernetes manager debug state framework_id
 ```
 
-List names of all custom properties
+List names of all custom properties:
 
 ```shell
 $ dcos kubernetes manager debug state properties
 ```
 
-Display the content of a specified property
+Display the content of a specified property:
 
 ```shell
 $ dcos kubernetes manager debug state property <name>
 ```
 
-Refresh the state cache, used for debugging
+Refresh the state cache, used for debugging:
 
 ```shell
 $ dcos kubernetes manager debug state refresh_cache
@@ -316,7 +316,7 @@ $ dcos kubernetes cluster <sub-command> [<flags>]
 
 #### Cluster List
 
-Lists Kubernetes clusters
+Lists Kubernetes clusters:
 
 ```shell
 $ dcos kubernetes cluster list
@@ -324,7 +324,7 @@ $ dcos kubernetes cluster list
 
 #### Cluster Kubeconfig
 
-Generates a kubeconfig entry for a cluster
+Generates a kubeconfig entry for a cluster:
 
 ```shell
 $ dcos kubernetes cluster kubeconfig --apiserver-url=APISERVER-URL [<flags>]
@@ -332,7 +332,7 @@ $ dcos kubernetes cluster kubeconfig --apiserver-url=APISERVER-URL [<flags>]
 
 #### Cluster Describe
 
-View the configuration for a cluster
+View the configuration for a cluster:
 
 ```shell
 $ dcos kubernetes cluster describe [<flags>]
@@ -340,21 +340,21 @@ $ dcos kubernetes cluster describe [<flags>]
 #### Cluster Default
 
 ##### Default Show
-Print the name of the default Kubernetes cluster
+Print the name of the default Kubernetes cluster:
 
 ```shell
 $ dcos kubernetes cluster default show
 ```
 
 ##### Default Unset
-Unset the default Kubernetes cluster
+Unset the default Kubernetes cluster:
 
 ```shell
 $ dcos kubernetes cluster default unset
 ```
 
 ##### Default Set
-Set the default Kubernetes cluster
+Set the default Kubernetes cluster:
 
 ```shell
 $ dcos kubernetes cluster default set <cluster_name>
@@ -362,7 +362,7 @@ $ dcos kubernetes cluster default set <cluster_name>
 
 #### Cluster Create
 
-Create a cluster
+Create a cluster:
 
 ```shell
 $ dcos kubernetes cluster create [<flags>]
@@ -370,7 +370,7 @@ $ dcos kubernetes cluster create [<flags>]
 
 #### Cluster Update
 
-Update a cluster
+Update a cluster:
 
 ```shell
 $ dcos kubernetes cluster update [<flags>]
@@ -378,7 +378,7 @@ $ dcos kubernetes cluster update [<flags>]
 
 #### Cluster Delete
 
-Delete a cluster
+Delete a cluster:
 
 ```shell
 $ dcos kubernetes cluster delete [<flags>]
@@ -387,7 +387,7 @@ $ dcos kubernetes cluster delete [<flags>]
 
 #### Cluster Backup
 
-Create a backup of the state of a cluster
+Create a backup of the state of a cluster:
 
 ```shell
 $ dcos kubernetes cluster backup [<flags>]
@@ -395,7 +395,7 @@ $ dcos kubernetes cluster backup [<flags>]
 
 #### Cluster Restore
 
-Restore a backup of the state of a cluster
+Restore a backup of the state of a cluster:
 
 ```shell
 $ dcos kubernetes cluster restore [<flags>]
@@ -406,25 +406,25 @@ $ dcos kubernetes cluster restore [<flags>]
 
 ##### Debug Config
 
-List IDs of all available configurations
+List IDs of all available configurations:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] config list
 ```
 
-Display a specified configuration
+Display a specified configuration:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] config show <config_id>
 ```
 
-Display the target configuration
+Display the target configuration:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] config target
 ```
 
-List ID of the target configuration
+List ID of the target configuration:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] config target_id
@@ -432,43 +432,43 @@ dcos kubernetes cluster debug [<flags>] config target_id
 
 ##### Debug Pod
 
-Pauses a pod's tasks for debugging
+Pauses a pod's tasks for debugging:
 
 ```shell
-dcos kubernetes cluster debug [<flags>] pod pause [<flags>] <pod>
+dcos kubernetes cluster debug pod pause [<flags>] <pod>
 ```
 
-Resumes a pod's normal execution following a pause command
+Resumes a pod's normal execution following a pause command:
 
 ```shell
-dcos kubernetes cluster debug [<flags>] pod resume [<flags>] <pod>
+dcos kubernetes cluster debug pod resume [<flags>] <pod>
 ```
 
-Display the list of known pod instances
+Display the list of known pod instances:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] pod list
 ```
 
-Display the status for tasks in one pod or all pods
+Display the status for tasks in one pod or all pods:
 
 ```shell
-dcos kubernetes cluster debug [<flags>] pod status [<flags>] [<pod>]
+dcos kubernetes cluster debug pod status [<flags>] [<pod>]
 ```
 
-Display the full state information for tasks in a pod
+Display the full state information for tasks in a pod:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] pod info <pod>
 ```
 
-Restarts a given pod without moving it to a new agent
+Restarts a given pod without moving it to a new agent:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] pod restart <pod>
 ```
 
-Destroys a given pod and moves it to a new agent
+Destroys a given pod and moves it to a new agent:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] pod replace <pod>
@@ -476,25 +476,25 @@ dcos kubernetes cluster debug [<flags>] pod replace <pod>
 
 ##### Debug State
 
-Display the Mesos framework ID
+Display the Mesos framework ID:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] state framework_id
 ```
 
-List names of all custom properties
+List names of all custom properties:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] state properties
 ```
 
-Display the content of a specified property
+Display the content of a specified property:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] state property <name>
 ```
 
-Refresh the state cache, used for debugging
+Refresh the state cache, used for debugging:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] state refresh_cache
@@ -502,37 +502,37 @@ dcos kubernetes cluster debug [<flags>] state refresh_cache
 
 ##### Debug Plan
 
-Show all plans for this service
+Show all plans for this service:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] plan list
 ```
 
-Display the status of the plan with the provided plan name
+Display the status of the plan with the provided plan name:
 
 ```shell
-dcos kubernetes cluster debug [<flags>] plan status [<flags>] <plan>
+dcos kubernetes cluster debug plan status [<flags>] <plan>
 ```
 
-Start the plan with the provided name and any optional plan arguments
+Start the plan with the provided name and any optional plan arguments:
 
 ```shell
-dcos kubernetes cluster debug [<flags>] plan start [<flags>] <plan>
+dcos kubernetes cluster debug plan start [<flags>] <plan>
 ```
 
-Stop the running plan with the provided name
+Stop the running plan with the provided name:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] plan stop <plan>
 ```
 
-Pause the plan, or a specific phase in that plan with the provided phase name (or UUID)
+Pause the plan, or a specific phase in that plan with the provided phase name (or UUID):
 
 ```shell
 dcos kubernetes cluster debug [<flags>] plan pause <plan> [<phase>]
 ```
 
-Resume the plan, or a specific phase in that plan with the provided phase name (or UUID)
+Resume the plan, or a specific phase in that plan with the provided phase name (or UUID):
 
 ```shell
 dcos kubernetes cluster debug [<flags>] plan resume <plan> [<phase>]
@@ -544,7 +544,7 @@ Restart the plan with the provided name, or a specific phase in the plan with th
 dcos kubernetes cluster debug [<flags>] plan force-restart <plan> [<phase> [<step>]]
 ```
 
-Force complete a specific step in the provided phase. Example uses include the following: Abort a sidecar operation due to observed failure or known required manual preparation that was not performed
+Force complete a specific step in the provided phase. Example uses include the following: Abort a sidecar operation due to observed failure or known required manual preparation that was not performed.
 
 ```shell
 dcos kubernetes cluster debug [<flags>] plan force-complete <plan> <phase> <step>
@@ -552,7 +552,7 @@ dcos kubernetes cluster debug [<flags>] plan force-complete <plan> <phase> <step
 
 ##### Debug Endpoints
 
-View client endpoints for this DC/OS service
+View client endpoints for this DC/OS service:
 
 ```shell
 dcos kubernetes cluster debug [<flags>] endpoints [<name>]

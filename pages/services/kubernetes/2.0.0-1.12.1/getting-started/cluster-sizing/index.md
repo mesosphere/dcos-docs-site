@@ -10,11 +10,11 @@ excerpt: Planning and sizing clusters for increased performance
 
 DC/OS Kubernetes supports clusters that meet all the following criteria:
 
-* No more than 85 Kubernetes nodes ([total of private and public](#sum-private-public-85))
-* No more than 8500 total Kubernetes pods
-* No more than 17000 total containers
-* No more than 100 Kubernetes pods per Kubernetes node
-* No more than 10 Kubernetes pods per core running on a Kubernetes node
+* No more than 85 Kubernetes nodes ([total of private and public](#sum-private-public-85)).
+* No more than 8500 total Kubernetes pods.
+* No more than 17000 total containers.
+* No more than 100 Kubernetes pods per Kubernetes node.
+* No more than 10 Kubernetes pods per core running on a Kubernetes node.
 
 Note that these values are based on lightweight pods or containers like NGINX.
 It is up to you as the DC/OS cluster operator to size each Kubernetes cluster appropriately for the specific type of workload you plan on running atop of it.
