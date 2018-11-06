@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Beta Kafka
 title: Beta Kafka
-menuWeight: 160
+menuWeight: -1
 excerpt:
 featureMaturity:
 enterprise: false
