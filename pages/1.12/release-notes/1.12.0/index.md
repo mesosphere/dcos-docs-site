@@ -103,12 +103,9 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 - DCOS-22308 - CockroachDB: use 1.1.8. [enterprise type="inline" size="small" /]
 - DCOS-37654 - Add `permissions_cache_ttl_seconds` configuration parameter. [enterprise type="inline" size="small" /]
 - DCOS-38663 - Enable DC/OS storage features by default. [enterprise type="inline" size="small" /]
-- DCOS_OSS-2256 - Removed the DC/OS web installer. 
 - DCOS_OSS-2338 - Update Metronome to 0.5.0. 
 - DCOS_OSS-2378 - Update OTP version to 20.3.2.
 - DCOS_OSS-3597 - Update REX-Ray version to [0.11.2](https://github.com/rexray/rexray/releases/tag/v0.11.2). 
-- DCOS_OSS-3714 - Replaced `dcos-metrics` with Telegraf.
-- DCOS_OSS-4243 - By default, Marathon will decline offers for agents in [maintenance mode](https://github.com/mesosphere/marathon/blob/master/changelog.md#maintenance-mode-support-production-ready-now-default). Requests to Marathon's events API (/v2/events when queried directly) for standby instances no longer proxy, but instead responds with a redirect. Clients consuming Marathon's events API should be updated to follow redirects. Component such as updated to versions that follow redirects; for example, Marathon-LB should be updated to at least version v1.12.3. [See more details](https://github.com/mesosphere/marathon/blob/master/changelog.md#non-leaderstandby-marathon-instances-respond-to-v2events-with-a-redirect-rather-than-proxy).
 - Removed Local, Development, On-Premise sections and corresponding dcos-docker/dcos-vagrant installation methods from DC/OS 1.12, 1.11, 1.10 installation documentation.
 
 <p class="message--warning"><strong>WARNING: </strong>Mesos endpoints with `.json` suffix (e.g., /mesos/state.json) are deprecated in DC/OS 1.12 and will be removed in DC/OS 1.13.</p>
@@ -215,15 +212,20 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 - DCOS_OSS-2283 - Add a DC/OS API endpoint to distinguish `open` and `enterprise` build variants. [enterprise type="inline" size="small" /]
 - DCOS_OSS-4129 - Change Admin Router access log format to facilitate debugging and performance analysis.
 
-## SDK
+### SDK
 - DCOS_OSS-2195 - Release cosmos v0.6.0. 
 
-## Known Issues and Limitations
+## Breaking Changes
+- DCOS_OSS-2256 - Removed the DC/OS web installer. 
+- DCOS_OSS-3714 - Replaced `dcos-metrics` with Telegraf.
+- DCOS_OSS-4243 - By default, Marathon will decline offers for agents in [maintenance mode](https://github.com/mesosphere/marathon/blob/master/changelog.md#maintenance-mode-support-production-ready-now-default). Requests to Marathon's events API (/v2/events when queried directly) for standby instances no longer proxy, but instead responds with a redirect. Clients consuming Marathon's events API should be updated to follow redirects. Component such as updated to versions that follow redirects; for example, Marathon-LB should be updated to at least version v1.12.3. [See more details](https://github.com/mesosphere/marathon/blob/master/changelog.md#non-leaderstandby-marathon-instances-respond-to-v2events-with-a-redirect-rather-than-proxy).
 
-### Customer Advisory 
+## Customer Advisory 
 - [Requirements for Kubernetes support on DC/OS 1.12](https://support.mesosphere.com/s/article/Critical-Issue-Kubernetes-Upgrade-MSPH-2018-0007).
 - [Red Hat Docker 1.13 recommended for CentOS & RHEL support on DC/OS](https://support.mesosphere.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006).
 - Update components to support Marathon's [new event-stream redirects](https://support.mesosphere.com/s/article/Update-Components-to-Support-Marathon-s-New-Event-Stream-Redirects-MSPH-2018-0008).
+
+## Known Issues and Limitations
 
 ### GUI
 - DCOS-39298 - Edit Jobs: Make ID field non-editable.
