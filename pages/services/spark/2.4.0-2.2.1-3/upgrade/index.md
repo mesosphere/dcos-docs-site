@@ -8,15 +8,21 @@ featureMaturity:
 render: mustache
 model: /services/spark/data.yml
 ---
-The only way currently to upgrade your version of DC/OS {{ model.techName }} is to first uninstall it, then re-install it. 
 
-1. Go to the **Universe** > **Installed** page of the DC/OS web interface. Hover over your {{ model.techShortName }} Service to see the **Uninstall** button, then select it. 
+Because the {{ model.techShortName }} dispatcher persists its state in ZooKeeper, upgrading the DC/OS {{ model.techName }} package requires you to complete the following steps:
+- Remove the DC/OS {{ model.techName }} package from ZooKeeper.
+- Uninstall your current DC/OS {{ model.techName }} package.
+- Install the DC/OS {{ model.techName }} upgrade. 
 
-   Alternatively, enter the following from the DC/OS CLI:
+To upgrade DC/OS {{ model.techName }}, do the following:
+1. Navigate to `http://<dcos-url>/exhibitor`. 
+1. Click `Explorer`. 
+1. Delete the znode corresponding to your instance of {{ model.techShortName }}. 
+        By default, the znode instance is `spark_mesos_Dispatcher`.
+1. Select the {{ model.techShortName }} service from the list of Services in DC/OS web interface and click **Delete** or run the following command from the DC/OS CLI:
 
-        dcos package uninstall spark
-
+        dcos package uninstall --app-id=<app-id> spark
 1. Verify that you no longer see your {{ model.techShortName }} service on the **Services** page.
-1. Reinstall {{ model.techShortName }}.
+1. Reinstall the new {{ model.techShortName }} package by running the following command:
 
         dcos package install spark
