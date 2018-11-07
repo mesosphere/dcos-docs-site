@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Getting Started
-menuWeight: 10
+navigationTitle: Getting Started with HDFS
+excerpt: Getting started with DC/OS Apache HDFS
+title: Getting Started with DC/OS Apache HDFS
+menuWeight: 25
 model: /services/hdfs/data.yml
 render: mustache
 ---

@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Limitations
+excerpt: Known limitations of the DC/OS Apache HDFS service
 title: Limitations
-menuWeight: 100
+menuWeight: 190
 model: /services/hdfs/data.yml
 render: mustache
 ---
@@ -16,8 +16,8 @@ render: mustache
 
 ### Toggling Kerberos
 
-Kerberos authentication cannot be toggled (enabled / disabled). In order to enable or disable Kerberos, the service must be uninstalled and reinstalled with the desired configuration.
+Kerberos authentication cannot be toggled (enabled/disabled). In order to enable or disable Kerberos, the service must be uninstalled and reinstalled with the desired configuration.
 
 ### Toggling Transport Encryption
 
-Transport Encryption (TLS) cannot toggled (enabled / disabled). In order to enable or disable TLS, the service must be uninstalled and reinstalled with the desired configuration.
+Transport Encryption (TLS) cannot toggled (enabled/disabled). In order to enable or disable TLS, the service must be uninstalled and reinstalled with the desired configuration.

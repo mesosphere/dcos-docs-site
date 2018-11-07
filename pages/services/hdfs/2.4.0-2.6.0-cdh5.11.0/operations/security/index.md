@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Security
+excerpt: Security for DC/OS Apache HDFS service
 title: Security
 menuWeight: 50
 model: /services/hdfs/data.yml
@@ -14,21 +14,17 @@ The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s nati
 
 A good overview of these features can be found [here](https://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/SecureMode.html).
 
-*Note*: These security features are only available on DC/OS Enterprise 1.10 and above.
+<p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
 ## Transport Encryption
 
 #include /services/include/security-transport-encryption-lead-in.tmpl
 
-*Note*: Enabling transport encryption is not _required_ to use [Kerberos authentication](#kerberos-authentication), but transport encryption _can_ be combined with Kerberos authentication.
+<p class="message--note"><strong>NOTE: </strong>Enabling transport encryption is not <strong>required</strong> to use <a href="#kerberos-authentication">Kerberos authentication</a>, but transport encryption <strong>can</strong> be combined with Kerberos authentication.</p>
 
 #include /services/include/security-configure-transport-encryption.tmpl
 
 #include /services/include/security-transport-encryption-clients.tmpl
-
-<!--
-TO BE CONFIRMED
-*Note*: It is possible to update a running DC/OS {{ model.techName }} service to enable transport encryption after initial installation, but the service may be unavilable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured unless `service.security.transport_encryption.allow_plaintext` is set to true. -->
 
 ## Authentication
 
@@ -54,7 +50,7 @@ The DC/OS {{ model.techName }} service requires Kerberos principals for each nod
 - 2 name nodes (with ZKFC)
 - A configurable number of data nodes
 
-*Note:* {{ model.techName }} requires a principal for both the `service primary` and `HTTP`. The latter is used by the HTTP api.
+<p class="message--note"><strong>NOTE: </strong> DC/OS Apache HDFS requires a principal for both the <tt>service primary</tt> and <tt>HTTP</tt>. The latter is used by the HTTP API.</p>
 
 The required Kerberos principals will have the form:
 ```
@@ -154,8 +150,6 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 }
 ```
 
-<!-- TO BE DETERMINED *Note*: It is possible to enable Kerberos after initial installation but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured. -->
-
 ## Authorization
 
 The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s native authorization, which behaves similarly to UNIX file permissions. If Kerberos is enabled as detailed [above](#kerberos-authentication), then Kerberos principals are mapped to {{ model.techShortName }} users against which permissions can be assigned.
@@ -177,8 +171,8 @@ A custom mapping must be set to map Kerberos principals to OS user names for the
 ```
 where `<custom mapping>` is a base64-encoded string.
 
-*Note*: Mappings for {{ model.techShortName}} service principals will be inserted automatically.
+<p class="message--note"><strong>NOTE: </strong>Mappings for HDFS service principals will be inserted automatically.</p>
 
 [This](https://hortonworks.com/blog/fine-tune-your-apache-hadoop-security-settings/) article has a good description of how to build a custom mapping, under the section "Kerberos Principals and UNIX User Names".
 
-*NOTE*: In DC/OS 1.11 and above, the DC/OS UI will automatically encode and decode the mapping to and from base64. If installing from the CLI or from the UI in a version older than DC/OS 1.11, it is necessary to do the encoding manually.
+<p class="message--note"><strong>NOTE: </strong>In DC/OS 1.11 and later, the DC/OS UI will automatically encode and decode the mapping to and from base64. If installing from the CLI or from the UI in a version earlier than DC/OS 1.11, it is necessary to do the encoding manually.</p>

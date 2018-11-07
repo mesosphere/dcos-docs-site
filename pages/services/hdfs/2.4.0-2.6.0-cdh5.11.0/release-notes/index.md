@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Release Notes
+excerpt: Release notes for v. 2.4.0-2.6.0-cdh5.11.0
 title: Release Notes
-menuWeight: 120
+menuWeight: 10
 model: /services/hdfs/data.yml
 render: mustache
 ---
@@ -14,7 +14,7 @@ render: mustache
 - Fix a bug where an out of date configuration ID would be selected when restarting or replacing pods. This could lead to configuration updates being reverted to the values with which the service was initially deployed. ([#2694](https://github.com/mesosphere/dcos-commons/pull/2694))
 
 ### Improvements
-- The `hdfs.auth_to_local` setting no longer need to be specified for the HDFS-specific principals when installing kerberized HDFS.
+- The `hdfs.auth_to_local` setting no longer need to be specified for the {{ model.techShortName }}-specific principals when installing kerberized {{ model.techShortName }}.
 
 ### Updates
 - Upgrade JRE to 1.8u192 to address CVEs
@@ -23,7 +23,7 @@ render: mustache
 
 ### New Features
 
-- All frameworks (HDFS included) now isolate their `/tmp` task directories by making them Mesos [`SANDBOX_PATH` volume sources](https://github.com/apache/mesos/blob/master/docs/container-volume.md#sandbox_path-volume-source). ([#2467](https://github.com/mesosphere/dcos-commons/pull/2467) and [#2486](https://github.com/mesosphere/dcos-commons/pull/2486))
+- All frameworks ({{ model.techShortName }} included) now isolate their `/tmp` task directories by making them Mesos [`SANDBOX_PATH` volume sources](https://github.com/apache/mesos/blob/master/docs/container-volume.md#sandbox_path-volume-source). ([#2467](https://github.com/mesosphere/dcos-commons/pull/2467) and [#2486](https://github.com/mesosphere/dcos-commons/pull/2486))
 
 ### Bug Fixes
 
@@ -44,8 +44,8 @@ render: mustache
 ## Version 2.1.0-2.6.0-cdh5.11.0
 
 ### New Features
-- Support for HDFS rack awareness using DC/OS zones on DC/OS 1.11+
-- Support for the automated provisioning of TLS artifacts to secure HDFS communication.
+- Support for {{ model.techShortName }} rack awareness using DC/OS zones on DC/OS 1.11+
+- Support for the automated provisioning of TLS artifacts to secure {{ model.techShortName }} communication.
 - Support for Kerberos authorization and authentication.
 - Ability to pause a service pod for debugging and recovery purposes.
 
