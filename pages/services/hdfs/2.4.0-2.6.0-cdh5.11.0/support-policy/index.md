@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-title: Support Policy
+navigationTitle: Supported Versions
+title: Supported Versions
 menuWeight: 110
-excerpt:
+excerpt: DC/OS and certified package version support policy
 model: /services/hdfs/data.yml
 render: mustache
 ---
