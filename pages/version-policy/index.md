@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  Version Policy
 title: Version Policy
 menuWeight: 5
-excerpt:
+excerpt: DC/OS version lifecycle and compatibility matrix
 ---
 
-This page was updated on October 23, 2018. 
+This page was updated on November 7, 2018. 
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
-The purpose of this document is to provide guidance and education for Mesosphere customers, partners, users, and operators of Mesosphere DC/OS about the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined within this document apply to the version of DC/OS and its catalog packages that this document resides in.
+This document explains to Mesosphere customers, partners, users, and operators of Mesosphere DC/OS the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined within this document apply to the version of DC/OS and its catalog packages that this document resides in.
 
 
 ## DC/OS Version Lifecycle
@@ -42,7 +42,7 @@ Thus, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
 
 ## DC/OS Platform Version Compatibility Matrix
 
-The below matrix provides guidance to which platform components and operating environments are tested to run DC/OS on. Customers that are running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
+The following matrix shows the platform components and operating environments on which DC/OS has been tested; DC/OS will run on these components. Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
 
 |Display Icon | Service |
@@ -58,8 +58,8 @@ The below matrix provides guidance to which platform components and operating en
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
-    <tr>
-        <td>CentOS 7.3</td>
+      <tr>
+        <td>CentOS 7.5</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
@@ -70,29 +70,11 @@ The below matrix provides guidance to which platform components and operating en
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
     </tr>
-    <tr>
-        <td>CentOS 7.5</td>
+  <tr>
+        <td>CentOS 7.3</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-    </tr>
-    <tr>
-        <td>CoreOS 1800.6.0</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td>                    </td>  
-    </tr>
-    <tr>
-        <td>CoreOS 1800.7.0</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td>                    </td>
-    </tr>
-    <tr>
-        <td>CoreOS 1855.4.0</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td>                    </td>
     </tr>
     <tr>
         <td>CoreOS Stable 1235.12.0</td>
@@ -101,7 +83,26 @@ The below matrix provides guidance to which platform components and operating en
         <td><p style="text-align: center;"><ul><li>Docker Engine 1.13</li></ul></p><p style="text-align: center;"><ul><li>Docker Engine 1.12</li></ul></p><p style="text-align: center;"><ul><li>Docker Engine 1.11</li></ul></p></td>
     </tr>
     <tr>
-        <td>RHEL 7.3</td>
+        <td>CoreOS 1855.4.0</td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td>                    </td>
+    </tr>
+    <tr>
+        <td>CoreOS 1800.7.0</td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
+        <td>                    </td>
+    </tr>
+    <tr>
+        <td>CoreOS 1800.6.0</td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
+        <td>                    </td>  
+    </tr>
+    </tr>
+        <tr>
+        <td>RHEL 7.5</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
@@ -111,9 +112,26 @@ The below matrix provides guidance to which platform components and operating en
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    <tr>
+        <td>RHEL 7.3</td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
     </tr>
-        <tr>
-        <td>RHEL 7.5</td>
+    <tr>
+        <td>Oracle Linux 7.5 (RHCK)</td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    </tr>
+    <tr>
+        <td>Oracle Linux 7.4 (RHCK)</td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    </tr>
+    <tr>
+        <td>Oracle Linux 7.3 (RHCK)</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
