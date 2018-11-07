@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+title: Operating HDFS
 navigationTitle: Operating HDFS
 excerpt: Plan and pod operations in DC/OS Apache HDFS service
 menuWeight: 30

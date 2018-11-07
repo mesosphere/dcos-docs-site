@@ -7,6 +7,8 @@ if !rssPath
   - var parent = hierarchy.findParent(path, 'rss', true)
   if parent
     - rssPath = parent.path + '/rss.xml'
+if (!title)
+  - throw `File ${path} does not contain a title`
 - var feedbackPath = 'https://jira.dcos.io/secure/CreateIssueDetails!init.jspa'
 - feedbackPath += '?pid=14105'
 - feedbackPath += '&issuetype=1'
