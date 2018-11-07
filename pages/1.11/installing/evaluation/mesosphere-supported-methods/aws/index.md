@@ -350,8 +350,6 @@ You should see the following output.
 terraform apply plan.out
 ```
 
-If you want to destroy your cluster, then use the following command and wait for it to complete.
-
 <p align=center>
 <img src="./images/upgrade/cluster-details-open.png" />
 </p>
