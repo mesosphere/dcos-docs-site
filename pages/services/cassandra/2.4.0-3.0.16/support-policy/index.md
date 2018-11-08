@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle: Support Policy
 title: Support Policy
-menuWeight: 110
+menuWeight: 190
 excerpt: DC/OS and certified package version support policy
 model: /services/cassandra/data.yml
 render: mustache

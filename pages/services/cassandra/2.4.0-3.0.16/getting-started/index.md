@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle: Getting Started
 excerpt: Getting started with Cassandra
 title: Getting Started
-menuWeight: 10
+menuWeight: 20
 model: /services/cassandra/data.yml
 render: mustache
 ---

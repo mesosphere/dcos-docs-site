@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle: Troubleshooting
 excerpt: Diagnosing service problems
-title: Troubleshooting
+title: Troubleshooting DC/OS Apache Cassandra
 menuWeight: 70
 model: /services/cassandra/data.yml
 render: mustache

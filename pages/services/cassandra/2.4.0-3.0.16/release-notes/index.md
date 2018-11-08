@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Release Notes
-menuWeight: 120
+navigationTitle: Release Notes  
+excerpt: Release notes for all versions
+title: Release Notes v. 2.4.0-3.0.16
+menuWeight: 10
 model: /services/cassandra/data.yml
 render: mustache
 ---
@@ -22,12 +22,12 @@ render: mustache
 
 ## New Features
 
-- It is now possible to configure Cassandra's `disk_failure_policy` through the `cassandra.disk_failure_policy` service configuration. In previous versions this is hard-coded to `stop`. ([#2515](https://github.com/mesosphere/dcos-commons/pull/2515))
-- All frameworks (Cassandra included) now isolate their `/tmp` task directories by making them Mesos [`SANDBOX_PATH` volume sources](https://github.com/apache/mesos/blob/master/docs/container-volume.md#sandbox_path-volume-source). ([#2467](https://github.com/mesosphere/dcos-commons/pull/2467) and [#2486](https://github.com/mesosphere/dcos-commons/pull/2486))
+- It is now possible to configure {{ model.TechShortName }}'s `disk_failure_policy` through the `cassandra.disk_failure_policy` service configuration. In previous versions this is hard-coded to `stop`. ([#2515](https://github.com/mesosphere/dcos-commons/pull/2515))
+- All frameworks ({{ model.TechShortName }} included) now isolate their `/tmp` task directories by making them Mesos [`SANDBOX_PATH` volume sources](https://github.com/apache/mesos/blob/master/docs/container-volume.md#sandbox_path-volume-source). ([#2467](https://github.com/mesosphere/dcos-commons/pull/2467) and [#2486](https://github.com/mesosphere/dcos-commons/pull/2486))
 
 ## Bug Fixes
 
-- Upgrading Cassandra with non-default `service.rack` values has been fixed. ([#2553](https://github.com/mesosphere/dcos-commons/pull/2553))
+- Upgrading {{ model.TechShortName }} with non-default `service.rack` values has been fixed. ([#2553](https://github.com/mesosphere/dcos-commons/pull/2553))
 
 ## Improvements
 
@@ -42,15 +42,15 @@ render: mustache
 
 ## New Features
 
-- The Cassandra tasks no longer run inside a Docker container. This removes the requirement that on Centos based distributions the service must be run as root.
-- Support for the automated provisioning of TLS artifacts to secure Cassandra communication.
+- The {{ model.TechShortName }} tasks no longer run inside a Docker container. This removes the requirement that on Centos based distributions the service must be run as root.
+- Support for the automated provisioning of TLS artifacts to secure {{ model.TechShortName }} communication.
 - Automatic configuration of the system tables on initial deployment.
 - Support for `Zone` placement constraints in DC/OS 1.11.
 - Ability to pause a service pod for debugging and recovery purposes.
 
 ## Updates
 - Major improvements to the stability and performance of service orchestration.
-- The service now uses Cassandra v3.0.16.
+- The service now uses {{ model.TechShortName }} v3.0.16.
 - Upgrade JRE to 1.8u162.
 - The service now uses the Mesos V1 API. The service can be set back to the V0 API using the service property `service.mesos_api_version`.
 
@@ -75,7 +75,7 @@ render: mustache
 
 ## Bug Fixes
 
-- Corrected closing brace in Cassandra mustache.
+- Corrected closing brace in {{ model.TechShortName }} mustache.
 - Fixed restore-snapshot port rendering.
 - Tasks will correctly bind on DC/OS 1.10.
 - Fixed config generation.
@@ -95,7 +95,7 @@ render: mustache
   - Orchestrated software and configuration update, enforcement of version upgrade paths, and ability to pause/resume updates.
   - Placement constraints for pods.
   - Uniform user experience across a variety of services.
-- Upgrade to version 3.0.14 of Apache Cassandra.
+- Upgrade to version 3.0.14 of {{ model.TechName }}.
 
 ## Breaking Changes
 - This is a major release.  You cannot upgrade to 2.0.0-3.0.14 from a 1.0.x version of the package.  To upgrade, you must perform a fresh install and restore from a backup.
