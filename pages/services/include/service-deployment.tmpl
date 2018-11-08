@@ -1,0 +1,27 @@
+<!-- This section is also found in the getting-started template. -->
+
+# Service Deployment
+
+To monitor the deployment of your instance, install [the package CLI](services/include/basic-install.tmpl)  and run the command:
+
+```bash
+dcos {{ model.packageName }} plan show deploy
+```
+
+Once the deploy plan has a status of `Complete`, the service is fully deployed.
+
+## Service Discovery
+
+To connect a client, query the service for its endpoints.
+```bash
+dcos {{ model.packageName }} endpoints
+```
+
+Select an endpoint from the list to see the available connections.
+```bash
+dcos {{ model.packageName }} endpoints <endpoint>
+```
+
+## Working with the Service
+
+Using the endpoint information, you can connect a client to the service from within the DC/OS cluster (for example, a Marathon app running a client application). See the other sections of the documentation for more details on configuration, operation, and service capabilities.
