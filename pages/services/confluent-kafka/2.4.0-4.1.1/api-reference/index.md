@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: API Reference
+navigationTitle: API Reference 
+excerpt: API Reference for Confluent-Kafka
+title: API Reference for Confluent-Kafka
 menuWeight: 90
 model: /services/confluent-kafka/data.yml
 render: mustache

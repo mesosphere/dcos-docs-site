@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Advanced
+navigationTitle: Advanced Features 
+excerpt: Advanced Features of Confluent Kafka
+title: Advanced Features of Confluent Kafka
 menuWeight: 80
 model: /services/confluent-kafka/data.yml
 render: mustache

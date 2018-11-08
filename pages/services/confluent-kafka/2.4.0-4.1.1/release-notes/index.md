@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Release Notes v. 2.4.0-4.1.1
+excerpt: Release Notes for version 2.4.0-4.1.1
 title: Release Notes
-menuWeight: 120
+menuWeight: 10
 model: /services/confluent-kafka/data.yml
 render: mustache
 ---
