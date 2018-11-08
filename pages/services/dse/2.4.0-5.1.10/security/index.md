@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Security for DSE
+excerpt: Security, encryption and authorization for DSE
 title: Security
 menuWeight: 50
 model: /services/dse/data.yml
@@ -23,10 +23,10 @@ The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s nati
 #include /services/include/security-transport-encryption-clients.tmpl
 
 ## DSE Authentication/Authorization Schemes
-DSE in DC/OS currently supports both internal and ldap authentication/authorization schemes.  You can configure both schemes and then select the order in which they are used, or you can configure just one, in which case only that scheme will be used.  DSE will try to authenticate with the default scheme first and fall back to the alternate scheme if it has been configured. More information about how DSE handles this can be found in [DataStax's documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secDSEUnifiedAuthAbout.html)
+{{ model.shortTechName }} in DC/OS currently supports both internal and ldap authentication/authorization schemes.  You can configure both schemes and then select the order in which they are used, or you can configure just one, in which case only that scheme will be used.  {{ model.shortTechName }} will try to authenticate with the default scheme first and fall back to the alternate scheme if it has been configured. More information about how {{ model.shortTechName }} handles this can be found in [DataStax's documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secDSEUnifiedAuthAbout.html)
 
-## Enabling DSE Authentication/Authorization
-To enable DSE authentication/authorization, follow these steps:
+## Enabling {{ model.shortTechName }} Authentication/Authorization
+To enable {{ model.shortTechName }} authentication/authorization, follow these steps:
    1. In Advanced Installation wizard, configure the following fields:
       ```
       In "cassandra" tab,
@@ -41,10 +41,10 @@ To enable DSE authentication/authorization, follow these steps:
       Set ROLE_MANAGEMENT_OPTIONS_MODE to either internal or ldap, according to your needs
       Check AUTHORIZATION_OPTIONS_ENABLED checkbox (optional to enable authorization)
       ```
-   1. If you are using only internal auth, no further configuration is required for DSE. If you are also using ldap, then follow the sections below to configure ldap based on your needs.
+   1. If you are using only internal auth, no further configuration is required for {{ model.shortTechName }}. If you are also using ldap, then follow the sections below to configure ldap based on your needs.
 
-## DSE LDAP Configuration
-When you enable LDAP authentication in DataStax Enterprise, users and groups that are managed by external LDAP servers can be authenticated by DataStax Enterprise.  To enable LDAP authentication with your DSE cluster, you need to configure the followings:
+## {{ model.shortTechName }} LDAP Configuration
+When you enable LDAP authentication in DataStax Enterprise, users and groups that are managed by external LDAP servers can be authenticated by DataStax Enterprise.  To enable LDAP authentication with your {{ model.shortTechName }} cluster, you need to configure the followings:
 
    1. In Advanced Installation wizard, you need to configure the following fields according to your LDAP settings:
       ```
@@ -101,7 +101,7 @@ Configure LDAP (Lightweight Directory Access Protocol) for users accessing OpsCe
       Set admin_group_name  ex. mygroup, manager, developer
       ```
       Please refer to [DataStax's documentation](https://docs.datastax.com/en/latest-opsc/opsc/configure/opscConfigLDAP.html) for more detailed description of each field above.
-      Once your DSE Package service instance is ready, you can use your LDAP account to log in to OpsCenter to manage your DSE cluster.
+      Once your {{ model.shortTechName }} Package service instance is ready, you can use your LDAP account to log in to OpsCenter to manage your {{ model.shortTechName }} cluster.
 
 ## OpsCenter Internal Authentication Configuraton
 
@@ -112,4 +112,4 @@ Configure LDAP (Lightweight Directory Access Protocol) for users accessing OpsCe
       Leave login_user as admin (when you install the package the first time)
       Leave login_password as admin (when you install the package the first time)
       ```
-      Once your DSE Package service instance is ready, you can use "admin" and "admin" as the username and the password to log into OpsCenter to start managing your DSE cluster.
+      Once your {{ model.shortTechName }} Package service instance is ready, you can use "admin" and "admin" as the username and the password to log into OpsCenter to start managing your {{ model.shortTechName }} cluster.

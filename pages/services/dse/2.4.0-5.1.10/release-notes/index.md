@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Release Notes
+excerpt: Release Notes for DSE v. 2.4.0-5.1.10
 title: Release Notes
-menuWeight: 120
+menuWeight: 10
 model: /services/dse/data.yml
 render: mustache
 ---
@@ -11,13 +11,13 @@ render: mustache
 # Version 2.4.0-5.1.10
 
 ## Improvements
-- Update to DSE 5.1.10 and OpsCenter 6.1.9
+- Update to {{ model.shortTechName }} 5.1.10 and OpsCenter 6.1.9
 
 # Version 2.3.0-5.1.2
 
 ## New Features
 
-- DataStax DSE and DataStax OpsCenter now isolate their `/tmp` task directories by making them Mesos [`SANDBOX_PATH` volume sources](https://github.com/apache/mesos/blob/master/docs/container-volume.md#sandbox_path-volume-source). ([#2467](https://github.com/mesosphere/dcos-commons/pull/2467) and [#2486](https://github.com/mesosphere/dcos-commons/pull/2486))
+- DataStax {{ model.shortTechName }} and DataStax OpsCenter now isolate their `/tmp` task directories by making them Mesos [`SANDBOX_PATH` volume sources](https://github.com/apache/mesos/blob/master/docs/container-volume.md#sandbox_path-volume-source). ([#2467](https://github.com/mesosphere/dcos-commons/pull/2467) and [#2486](https://github.com/mesosphere/dcos-commons/pull/2486))
 
 ## Improvements
 
@@ -43,7 +43,7 @@ render: mustache
 ## Updates
 
 - Upgraded JRE to 1.8u162. ([#2135](https://github.com/mesosphere/dcos-commons/pull/2135))
-- Marks all DSE tasks as non-essential: the DSE agent and DSE node may now fail independently (without the entire pod failing).
+- Marks all {{ model.shortTechName }} tasks as non-essential: the {{ model.shortTechName }} agent and {{ model.shortTechName }} node may now fail independently (without the entire pod failing).
 - Major Improvements to the stability and performance of service orchestration
 - The service now uses the Mesos V1 API. The service can be set back to the V0 API using the service property `service.mesos_api_version`.
 
@@ -60,8 +60,8 @@ render: mustache
 
 ## Improvements
 
-- Exposed additional OpsCenter agent options to the DSE DC/OS service
-- Exposed commitlog_archiving.properties file and associated options to the DSE DC/OS service
+- Exposed additional OpsCenter agent options to the {{ model.shortTechName }} DC/OS service
+- Exposed commitlog_archiving.properties file and associated options to the {{ model.shortTechName }} DC/OS service
 
 ## Breaking Changes
 
@@ -69,7 +69,7 @@ render: mustache
 
 ## Upgrade Steps
 
-- Follow the upgrade steps in the [DCOS DSE service guide](https://docs.mesosphere.com/services/dse/2.0.4-5.1.2/managing/#upgrading-or-downgrading-a-service).
+- Follow the upgrade steps in the [DCOS {{ model.shortTechName }} service guide](https://docs.mesosphere.com/services/dse/2.0.4-5.1.2/managing/#upgrading-or-downgrading-a-service).
 
 
 # Version 2.0.3-5.1.2
@@ -82,7 +82,7 @@ render: mustache
 ## Improvements
 
 - Upgraded to the latest stable release of the dcos-commons SDK.
-- Better support for configuring/using DSE Unified Authentication. See the [authentication documentation](https://docs.mesosphere.com/services/dse/2.0.3-5.1.2/dse-authentication).
+- Better support for configuring/using {{ model.shortTechName }} Unified Authentication. See the [authentication documentation](https://docs.mesosphere.com/services/dse/2.0.3-5.1.2/dse-authentication).
 
 ## Breaking Changes
 
@@ -159,4 +159,4 @@ render: mustache
 - Upgrade to version 6.1.2 of DataStax Enterprise Opscenter.
 
 ## Breaking Changes
-- This is a major release available for DC/OS 1.9 or higher. You cannot upgrade to version 2.0.0-5.1.2 from any previous versions of the  package. This is due to the separation of the core DSE nodes from Opscenter.
+- This is a major release available for DC/OS 1.9 or higher. You cannot upgrade to version 2.0.0-5.1.2 from any previous versions of the  package. This is due to the separation of the core {{ model.shortTechName }} nodes from Opscenter.
