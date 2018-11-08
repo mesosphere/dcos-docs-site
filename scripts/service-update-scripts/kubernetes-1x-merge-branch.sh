@@ -11,9 +11,9 @@ echo "------------------------------"
 echo " Merging Kubernetes"
 echo "------------------------------"
 
-# Get values for version
-version=$1
-if [ -z "$1" ]; then echo "Enter a version tag as the first argument."; exit 1; fi
+# Get values for branch
+branch=$1
+if [ -z "$1" ]; then echo "Enter a branch as the first argument."; exit 1; fi
 skip=$2
 # Package name, default to "kubernetes"
 name=${3:-kubernetes}
@@ -29,7 +29,7 @@ git remote add dcos-kubernetes-1.x git@github.com:mesosphere/dcos-kubernetes-1.x
 git fetch dcos-kubernetes-1.x > /dev/null 2>&1
 
 # checkout
-git checkout tags/$version docs/package
+git checkout dcos-kubernetes-1.x/$branch docs/package
 
 # remove any user specified directories 
 if [ -n "$skip" ]; then 
