@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Limitations
-menuWeight: 100
+navigationTitle: Limitations 
+excerpt: Limitations of Confluent Kafka 
+title: Limitations of Confluent Kafka 
+menuWeight: 120
 model: /services/confluent-kafka/data.yml
 render: mustache
 ---

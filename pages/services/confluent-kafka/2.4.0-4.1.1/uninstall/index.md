@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Uninstall
-menuWeight: 60
+navigationTitle: Uninstalling 
+excerpt: Uninstalling Confluent Kafka
+title: Uninstalling Confluent Kafka
+menuWeight: 160
 model: /services/confluent-kafka/data.yml
 render: mustache
 ---

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Confluent Kafka 2.4.0-4.1.1
-excerpt:
+excerpt: DC/OS Confluent Kafka is an automated service that makes it easy to deploy and manage Confluent Kafka on Mesosphere DC/OS.
 title: Confluent Kafka 2.4.0-4.1.1
 menuWeight: 4
 model: /services/confluent-kafka/data.yml
@@ -10,23 +10,22 @@ featureMaturity:
 enterprise: false
 ---
 
-<!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
 
-DC/OS Confluent Kafka is an automated service that makes it easy to deploy and manage Confluent Kafka on Mesosphere DC/OS, eliminating nearly all of the complexity traditionally associated with managing a Kafka cluster. Confluent Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees. Kafka clusters are highly available, fault tolerant, and very durable. DC/OS Confluent Kafka gives you direct access to the Confluent Kafka API so that existing producers and consumers can interoperate. You can configure and install DC/OS Confluent Kafka in moments. Multiple Confluent Kafka clusters can be installed on DC/OS and managed independently, so you can offer Confluent Kafka as a managed service to your organization.
+DC/OS {{ model.techName }} is an automated service that makes it easy to deploy and manage {{ model.techName }} on Mesosphere DC/OS, eliminating nearly all of the complexity traditionally associated with managing a {{ model.techShortName }} cluster. {{ model.techName }} is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees. {{ model.techShortName }} clusters are highly available, fault tolerant, and very durable. DC/OS {{ model.techName }} gives you direct access to the {{ model.techName }} API so that existing producers and consumers can interoperate. You can configure and install DC/OS {{ model.techName }} in moments. Multiple {{ model.techName }} clusters can be installed on DC/OS and managed independently, so you can offer {{ model.techName }} as a managed service to your organization.
 
 ## Benefits
 
-DC/OS Confluent Kafka offers the following benefits of a semi-managed service:
+DC/OS {{ model.techName }} offers the following benefits of a semi-managed service:
 
 *   Easy installation
-*   Multiple Confluent Kafka clusters
+*   Multiple {{ model.techName }} clusters
 *   Elastic scaling of brokers
 *   Replication and graceful shutdown for high availability
-*   Confluent Kafka cluster and broker monitoring
+*   {{ model.techName }} cluster and broker monitoring
 
 ## Features
 
-DC/OS Confluent Kafka provides the following features:
+DC/OS {{ model.techName }} provides the following features:
 
 *   Single-command installation for rapid provisioning
 *   Multiple clusters for multiple tenancy with DC/OS

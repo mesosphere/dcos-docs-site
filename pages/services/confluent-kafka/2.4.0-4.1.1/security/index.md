@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Security
+navigationTitle: Security 
+excerpt: Security for Confluent Kafka
+title: Security for Confluent Kafka
 menuWeight: 50
 model: /services/confluent-kafka/data.yml
 render: mustache
@@ -15,17 +15,17 @@ The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s nati
 
 A good overview of these features can be found [here](https://www.confluent.io/blog/apache-kafka-security-authorization-authentication-encryption/), and {{ model.techShortName }}'s security documentation can be found [here](http://kafka.apache.org/documentation/#security).
 
-*Note*: These security features are only available on DC/OS Enterprise 1.10 and above.
+<p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
 ## Transport Encryption
 
 #include /services/include/security-transport-encryption-lead-in.tmpl
 
-*Note*: Enabling transport encryption is _required_ to use [SSL authentication](#ssl-authentication) for [authentication](#authentication), but is optional for [Kerberos authentication](#kerberos-authentication).
+<p class="message--note"><strong>NOTE: </strong>Enabling transport encryption is <strong>required</strong> to use <a href="#ssl-authentication">SSL authentication</a> for <a href="#authentication">authentication</a>, but is optional for <a href="#kerberos-authentication">Kerberos authentication</a>.</p>
 
 #include /services/include/security-configure-transport-encryption.tmpl
 
-*Note*: It is possible to update a running DC/OS {{ model.techName }} service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured unless `service.security.transport_encryption.allow_plaintext` is set to true.
+<p class="message--note"><strong>NOTE: </strong>It is possible to update a running DC/OS Confluent Kafka service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your Kafka clients will need to be reconfigured unless <tt>service.security.transport_encryption.allow_plaintext</tt> is set to <tt>true</tt>.</p>
 
 #### Verify Transport Encryption Enabled
 
@@ -37,7 +37,7 @@ After service deployment completes, check the list of [{{ model.techShortName }}
 
 DC/OS {{ model.techName }} supports two authentication mechanisms, SSL and Kerberos. The two are supported independently and may not be combined. If both SSL and Kerberos authentication are enabled, the service will use Kerberos authentication.
 
-*Note*: Kerberos authentication can, however, be combined with transport encryption.
+<p class="message--note"><strong>NOTE: </strong>Kerberos authentication can, however, be combined with transport encryption.</p>
 
 ### Kerberos Authentication
 
@@ -115,7 +115,8 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 }
 ```
 
-*Note*: If `service.kerberos.enabled_for_zookeeper` is set to true, then the additional setting `kafka.kafka_zookeeper_uri` must be configured to point at a kerberized {{ model.kafka.zookeeperTechName }} as follows:
+<p class="message--note"><strong>NOTE: </strong>If <tt>service.kerberos.enabled_for_zookeeper</tt> is set to true, then the additional setting <tt>kafka.kafka_zookeeper_uri</tt> must be configured to point at a kerberized Confluent Zookeeper as shown below. </p>
+
 ```json
 {
     "kafka": {
@@ -125,7 +126,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 ```
 The DC/OS {{ model.kafka.zookeeperTechName }} service (`{{ model.kafka.zookeeperPackageName }}` package) is intended for this purpose and supports Kerberos.
 
-*Note*: It is possible to enable Kerberos after initial installation but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured.
+It is possible to enable Kerberos after initial installation but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured.
 
 
 ### SSL Authentication
@@ -155,7 +156,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 }
 ```
 
-*Note*: It is possible to enable SSL authentication after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured.
+It is possible to enable SSL authentication after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured.
 
 #### Authenticating a Client
 
@@ -197,8 +198,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 
 `service.security.authorization.super_users` should be set to a semi-colon delimited list of principals to treat as super users (all permissions). The format of the list is `User:<user1>;User:<user2>;...`. Using Kerberos authentication, the "user" value is the Kerberos primary, and for SSL authentication the "user" value is the `CN` of the certificate. The {{ model.techShortName }} brokers themselves are automatically designated as super users.
 
-<!-- TODO. @Evan, did you write something for this already? Or am I mis-remembering? -->
-*Note*:  It is possible to enable Authorization after initial installation, but the service may be unavailable during the transition. Additionally, {{ model.techShortName }} clients may fail to function if they do not have the correct ACLs assigned to their principals. During the transition `service.security.authorization.allow_everyone_if_no_acl_found` can be set to `true` to prevent clients from being failing until their ACLs can be set correctly. After the transition, `service.security.authorization.allow_everyone_if_no_acl_found` should be reversed to `false`
+<p class="message--important"><strong>IMPORTANT: </strong>It is possible to enable Authorization after initial installation, but the service may be unavailable during the transition. Additionally, Kafka clients may fail to function if they do not have the correct ACLs assigned to their principals. During the transition, <tt>service.security.authorization.allow_everyone_if_no_acl_found</tt> can be set to <tt>true</tt> to prevent clients from failing until their ACLs can be set correctly. After the transition, <tt>service.security.authorization.allow_everyone_if_no_acl_found</tt> should be reversed to <tt>false</tt>.</p>
 
 
 ## Securely Exposing DC/OS {{ model.techName }} Outside the Cluster.

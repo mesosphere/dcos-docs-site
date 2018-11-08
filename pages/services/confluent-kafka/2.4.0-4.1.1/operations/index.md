@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Operations
+navigationTitle: Operating 
+excerpt: Operating Confluent Kafka
+title: Operating Confluent Kafka
 menuWeight: 30
 model: /services/confluent-kafka/data.yml
 render: mustache

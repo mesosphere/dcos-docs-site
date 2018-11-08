@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Updates
-menuWeight: 40
+navigationTitle: Updating 
+excerpt: Updating Confluent Kafka
+title: Updating Confluent Kafka
+menuWeight: 140
 model: /services/confluent-kafka/data.yml
 render: mustache
 ---
