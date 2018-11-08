@@ -184,14 +184,14 @@ $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.servic
 ```
 $ dcos {{ model.packageName }} --name={{ model.serviceName }} topic partitions topic1 2
 {
-  "message": "Output: WARNING: If partitions are increased for a topic that has a key, the partition logic or ordering of the messages will be affectednAdding partitions succeeded!n"
+  "message": "Output: WARNING: If partitions are increased for a topic that has a key, the partition logic or ordering of the messages will be affected\nAdding partitions succeeded!\n"
 }
 ```
 
 ```bash
 $ curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/topics/topic1?operation=partitions&partitions=2"
 {
-  "message": "Output: WARNING: If partitions are increased for a topic that has a key, the partition logic or ordering of the messages will be affectednAdding partitions succeeded!n"
+  "message": "Output: WARNING: If partitions are increased for a topic that has a key, the partition logic or ordering of the messages will be affected\nAdding partitions succeeded!\n"
 }
 ```
 
@@ -200,13 +200,13 @@ $ curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model
 ```
 $ dcos {{ model.packageName }} --name={{ model.serviceName }} topic producer_test topic1 10
 {
-  "message": "10 records sent, 70.422535 records/sec (0.07 MB/sec), 24.20 ms avg latency, 133.00 ms max latency, 13 ms 50th, 133 ms 95th, 133 ms 99th, 133 ms 99.9th.n"
+  "message": "10 records sent, 70.422535 records/sec (0.07 MB/sec), 24.20 ms avg latency, 133.00 ms max latency, 13 ms 50th, 133 ms 95th, 133 ms 99th, 133 ms 99.9th.\n"
 }
 
 ```bash
 $ curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/topics/topic1?operation=producer-test&messages=10"
 {
-  "message": "10 records sent, 70.422535 records/sec (0.07 MB/sec), 24.20 ms avg latency, 133.00 ms max latency, 13 ms 50th, 133 ms 95th, 133 ms 99th, 133 ms 99.9th.n"
+  "message": "10 records sent, 70.422535 records/sec (0.07 MB/sec), 24.20 ms avg latency, 133.00 ms max latency, 13 ms 50th, 133 ms 95th, 133 ms 99th, 133 ms 99.9th.\n"
 }
 ```
 
@@ -225,14 +225,14 @@ $ kafka-producer-perf-test.sh \
 ```bash
 $ dcos {{ model.packageName }} --name={{ model.serviceName }} topic delete topic1
 {
-  "message": "Topic topic1 is marked for deletion.nNote: This will have no impact if delete.topic.enable is not set to true.n"
+  "message": "Topic topic1 is marked for deletion.\nNote: This will have no impact if delete.topic.enable is not set to true.\n"
 }
 ```
 
 ```bash
 $ curl -X DELETE -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/topics/topic1"
 {
-  "message": "Topic topic1 is marked for deletion.nNote: This will have no impact if delete.topic.enable is not set to true.n"
+  "message": "Topic topic1 is marked for deletion.\nNote: This will have no impact if delete.topic.enable is not set to true.\n"
 }
 ```
 
