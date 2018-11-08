@@ -10,7 +10,7 @@ DC/OS is installed in your environment by using a dynamically generated configur
 
 The DC/OS installation process requires a cluster of nodes to install DC/OS onto and a single node to run the DC/OS installation from. For fully functional clusters on any infrastructure including on-premise, public or private clouds, follow the Production installation instructions. The Production installation method was previously called Custom installation. 
 
-The Universal Installer is the recommended tool for provisioning, deploying, installing, and upgrading DC/OS on a subset of our supported platforms. A more detailed discussion of the Universal Installer may be found [here](/1.11/installing/evaluation/#overview-of-universal-installer).
+The Universal Installer is the recommended tool for provisioning, deploying, installing, and upgrading DC/OS on a subset of our supported platforms. A more detailed overview and instructions for the Universal Installer may be found [here](/1.11/installing/evaluation/#overview-of-universal-installer).
 
 # Access DC/OS Configuration File
 
