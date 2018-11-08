@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle: Security
 excerpt: Securing your service
-title: Security
+title: DC/OS Cassandra security
 menuWeight: 50
 model: /services/cassandra/data.yml
 render: mustache
@@ -15,7 +15,7 @@ enterprise: true
 
 - The DC/OS {{ model.techName }} service supports {{ model.techName }}'s native transport encryption mechanisms. The service provides automation and orchestration to simplify the usage of these important features. At this time, {{ model.techName }}'s authentication and authorization features are not supported.
 
-**Note:** These security features are only available on DC/OS Enterprise 1.10 and later.
+<p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
 
 #include /services/include/service-account.tmpl
@@ -28,6 +28,6 @@ enterprise: true
 
 #include /services/include/security-configure-transport-encryption.tmpl
 
-<p class="message--note"><strong>NOTE: </strong>It is possible to update a running DC/OS {{ model.techName }} service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your clients will need to be reconfigured unless `service.security.transport_encryption.allow_plaintext` is set to `true`.</p>
+<p class="message--note"><strong>NOTE: </strong>It is possible to update a running DC/OS Apache Cassandra service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your clients will need to be reconfigured unless <tt>service.security.transport_encryption.allow_plaintext<tt> is set to <tt>true</tt>.</p>
 
 #include /services/include/security-transport-encryption-clients.tmpl

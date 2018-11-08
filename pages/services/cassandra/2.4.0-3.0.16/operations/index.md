@@ -1,23 +1,23 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt: Managing Cassandra
+navigationTitle: Operations
+excerpt: Managing, repairing, and monitoring your DC/OS Apache Cassandra service
 title: Operations
-menuWeight: 30
+menuWeight: 40
 model: /services/cassandra/data.yml
 render: mustache
 ---
 
 #include /services/include/operations.tmpl
 
-## Performing Cassandra Cleanup and Repair Operations
+## Performing {{ model.techShortName }} Cleanup and Repair Operations
 
-You may manually trigger certain `nodetool` operations against your Cassandra instance using the CLI or the HTTP API.
+You may manually trigger certain `nodetool` operations against your {{ model.techShortName }} instance using the CLI or the HTTP API.
 
 ### Cleanup
 
-You may trigger a `nodetool cleanup` operation across your Cassandra nodes using the `cleanup` plan. This plan requires the following parameters to run:
-- `CASSANDRA_KEYSPACE`: the Cassandra keyspace to be cleaned up.
+You may trigger a `nodetool cleanup` operation across your {{ model.techShortName }} nodes using the `cleanup` plan. This plan requires the following parameters to run:
+- `CASSANDRA_KEYSPACE`: the {{ model.techShortName }} keyspace to be cleaned up.
 
 To initiate this plan from the command line:
 ```
@@ -38,12 +38,12 @@ When the plan is completed, its status will be `COMPLETE`.
 
 The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. To see the queries involved, run the above commands with an additional `-v` flag.
 
-For more information about `nodetool cleanup`, see the Cassandra documentation.
+For more information about `nodetool cleanup`, see the {{ model.techShortName }} documentation.
 
 ### Repair
 
-You may trigger a `nodetool repair` operation across your Cassandra nodes using the `repair` plan. This plan requires the following parameters to run:
-- `CASSANDRA_KEYSPACE`: the Cassandra keyspace to be cleaned up.
+You may trigger a `nodetool repair` operation across your {{ model.techShortName }} nodes using the `repair` plan. This plan requires the following parameters to run:
+- `CASSANDRA_KEYSPACE`: the {{ model.techShortName }} keyspace to be cleaned up.
 
 To initiate this command from the command line:
 ```
@@ -64,11 +64,11 @@ When the plan is completed, its status will be `COMPLETE`.
 
 The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. To see the queries involved, run the above commands with an additional `-v` flag.
 
-For more information about `nodetool repair`, see the Cassandra documentation.
+For more information about `nodetool repair`, see the {{ model.techShortName }} documentation.
 
 ## Seed nodes
 
-Cassandra seed nodes are those nodes with indices smaller than the seed node count.  By default, Cassandra is deployed
+{{ model.techShortName }} seed nodes are those nodes with indices smaller than the seed node count.  By default, {{ model.techShortName }} is deployed
 with a seed node count of two (node-0 and node-1 are seed nodes). When a replace operation is performed on one these
 nodes, all other nodes must be restarted to be brought up to date regarding the ip address of the new seed node. This
 operation is performed automatically.
@@ -91,22 +91,22 @@ recovery (IN_PROGRESS)
    ...
 ```
 
-**Note:** Only the seed node is being placed on a new node, all other nodes are restarted in place with no loss of data.
+<p class="message--note"><strong>NOTE: </strong>Only the seed node is being placed on a new node, all other nodes are restarted in place with no loss of data.</p>
 
 
-## Backup and Restore
+## Back up and Restore
 
 ### Backing Up to S3
 
 You can back up an entire cluster's data and schema to Amazon S3 using the `backup-s3` plan. This plan requires the following parameters to run:
 - `SNAPSHOT_NAME`: the name of this snapshot. Snapshots for individual nodes will be stored as S3 folders inside of a top level `snapshot` folder.
-- `CASSANDRA_KEYSPACES`: the Cassandra keyspaces to back up. The entire keyspace, as well as its schema, will be backed up for each keyspace specified.
+- `CASSANDRA_KEYSPACES`: the {{ model.techShortName }} keyspaces to back up. The entire keyspace, as well as its schema, will be backed up for each keyspace specified.
 - `AWS_ACCESS_KEY_ID`: the access key ID for the AWS IAM user running this backup
 - `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this backup
 - `AWS_REGION`: the region of the S3 bucket being used to store this backup
 - `S3_BUCKET_NAME`: the name of the S3 bucket in which to store this backup
 
-Make sure that you provision your nodes with enough disk space to perform a backup. Apache Cassandra backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables, so you will need half of your total available space to be free to backup every keyspace at once.
+Make sure that you provision your nodes with enough disk space to perform a backup. {{ model.TechName }} backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables, so you will need half of your total available space to be free to back up every keyspace at once.
 
 As noted in the documentation for the backup/restore strategy configuration option, it is possible to run transfers to S3 either in serial or in parallel, but care must be taken not to exceed any throughput limits you may have in your cluster. Throughput depends on a variety of factors, including uplink speed, proximity to region where the backups are being uploaded and downloaded, and the performance of the underlying storage infrastructure. You should perform periodic tests in your local environment to understand what you can expect from S3.
 
@@ -129,9 +129,9 @@ dcos {{ model.packageName }} --name=<service-name> plan start backup-s3 \
     -p S3_BUCKET_NAME=$S3_BUCKET_NAME
 ```
 
-If you're backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as in the example above. If the `CASSANDRA_KEYSPACES` parameter isn't supplied, then every keyspace in your cluster will be backed up.
+If you are backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as in the example above. If the `CASSANDRA_KEYSPACES` parameter isn't supplied, then every keyspace in your cluster will be backed up.
 
-**Warning**: To ensure that sensitive information, such as your AWS secret access key, remains secure, make sure that you've set the `core.dcos_url` configuration property in the DC/OS CLI to an HTTPS URL.
+<p class="message--warning"><strong>WARNING: </strong>To ensure that sensitive information such as your AWS secret access key remains secure, make sure that you've set the <tt>core.dcos_url</tt> configuration property in the DC/OS CLI to an HTTPS URL.</p>
 
 To view the status of this plan from the command line:
 ```
@@ -162,7 +162,7 @@ The above `plan start` and `plan status` commands may also be made directly to t
 You can also back up to Microsoft Azure using the `backup-azure` plan. This plan requires the following parameters to run:
 
 - `SNAPSHOT_NAME`: the name of this snapshot. Snapshots for individual nodes will be stored as gzipped tarballs with the name `node-<POD_INDEX>.tar.gz`.
-- `CASSANDRA_KEYSPACES`: the Cassandra keyspaces to backup. The entire keyspace, as well as its schema, will be backed up for each keyspace specified.
+- `CASSANDRA_KEYSPACES`: the {{ model.techShortName }} keyspaces to backup. The entire keyspace, as well as its schema, will be backed up for each keyspace specified.
 - `CLIENT_ID`: the client ID for the Azure service principal running this backup
 - `TENANT_ID`: the tenant ID for the tenant that the service principal belongs to
 - `CLIENT_SECRET`: the service principal's secret key

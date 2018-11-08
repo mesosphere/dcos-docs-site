@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle: Update
 excerpt: Updates and patches
-title: Updates
-menuWeight: 40
+title: Updating DC/OS Apache Cassandra
+menuWeight: 47
 model: /services/cassandra/data.yml
 render: mustache
 ---

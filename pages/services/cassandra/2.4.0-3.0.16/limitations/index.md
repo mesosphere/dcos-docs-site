@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt: Limitations on backups, node counts, security.
+navigationTitle: Limitations
+excerpt: Limitations on backups, node counts, security
 title: Limitations
 menuWeight: 100
 model: /services/cassandra/data.yml
