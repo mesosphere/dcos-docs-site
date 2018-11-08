@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Updates
+navigationTitle: Updating DSE
+excerpt: Updating DSE
+title: Updating DSE
 menuWeight: 40
 model: /services/dse/data.yml
 render: mustache

@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Limitations
+navigationTitle: Limitations of DSE
+excerpt: Limitations of DC/OS DSE
+title: Limitations of DSE
 menuWeight: 100
 model: /services/dse/data.yml
 render: mustache
@@ -12,10 +12,10 @@ render: mustache
 #include /services/include/limitations-zones.tmpl
 
 ## Service Limits
-- Multiple DSE Instances on a host is not supported in production.
-- Stopping or restarting a DSE node from OpsCenter is not supported. Use `dcos pod restart` to restart DSE nodes from the DC/OS CLI.
-- A single OpsCenter cannot manage multiple DSE clusters, but can manage multiple DCs in the same cluster.
-- A DSE node will restart if its associated DSE Agent process crashes.
+- Multiple {{ model.shortTechName }} instances on a host is not supported in production.
+- Stopping or restarting a {{ model.shortTechName }} node from OpsCenter is not supported. Use `dcos pod restart` to restart {{ model.shortTechName }} nodes from the DC/OS CLI.
+- A single OpsCenter cannot manage multiple {{ model.shortTechName }} clusters, but can manage multiple DCs in the same cluster.
+- A {{ model.shortTechName }} node will restart if its associated {{ model.shortTechName }} Agent process crashes.
 - Point-in-time restore functionality through the OpsCenter UI is not supported.
 
 ## Automatic failed node recovery
@@ -26,4 +26,4 @@ Nodes are not automatically replaced by the service in the event a system goes d
 
 ## Rack-aware replication
 
-Rack awareness within the DC/OS DSE Service is not currently supported, but is planned to be supported with a future release of DC/OS.
+Rack awareness within the DC/OS {{ model.shortTechName }} Service is not currently supported, but is planned to be supported with a future release of DC/OS.
