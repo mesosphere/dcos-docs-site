@@ -27,3 +27,4 @@ Currently, the DC/OS Kubernetes package has the following limitations:
 * Nodes are restricted to running 10 pods per available CPU core, up to a maximum of 100 pods per node.
 * The Kubernetes Dashboard cannot be accessed at the usual
   `https://<apiserver-url>/ui/` URL.
+* Kubernetes `Service NodePort` and `Pod hostPort` are not supported. Using them can have unpredictable results if any other DC/OS service binds also to the very same port.

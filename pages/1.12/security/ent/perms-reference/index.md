@@ -55,6 +55,9 @@ package API through Admin Router.
 
 ## <a name="admin-router"></a>Admin Router permissions
 
+#include /include/permissions-inheritance-disclaimer.tmpl
+
+
 Most HTTP requests made to a DC/OS cluster pass through Admin Router. For many
 HTTP endpoints the Admin Router performs authorization itself. For example, the DC/OS
 user identified by `uid` must have `full` access to the protected resource

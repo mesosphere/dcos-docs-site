@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes for 1.12.0 Beta 1
 title: Release Notes for 1.12.0 Beta 1
-menuWeight: 5
+menuWeight: 10
 excerpt: Release notes for DC/OS 1.12.0 Beta 1
 ---
 
@@ -52,7 +52,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 [enterprise]
 ### Private Package Registry
 [/enterprise]
-- Enable [on-premise package distribution and management](https://docs.mesosphere.com/1.12/administering-clusters/package-registry/).
+- Enable [on-premise package distribution and management](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/).
 - Enable air-gapped Virtual Private Cloud package management.
 - Simplify package artifact management.
 - Full support for NFS and S3 as storage backends for package storage.

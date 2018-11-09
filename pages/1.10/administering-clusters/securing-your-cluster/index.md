@@ -24,15 +24,17 @@ You must use appropriate network mechanisms to prevent unauthorized access to cl
 
 Depending on your cluster environment, this may include:
 - using physical or virtual subnets to isolate [DC/OS Security Zones](#security-zones);
-- using router firewalls to restrict access to ports;
+- using router firewalls or security groups to restrict access to ports;
 - using firewall software (e.g. `iptables`) on the nodes to restrict access to ports.
 
-Use these mechanisms to:
-- block connection requests on all ports from external machines to master nodes except TCP ports 80 and 443.
-- block connection requests on all ports from external machines to private agent nodes.
-- block connection requests on all ports from external machines to public agent ports except [advertised port ranges](/1.10/installing/production/system-requirements/ports/#agent).
-
-For connections between cluster nodes, refer to [DC/OS Ports](/1.10/installing/ports/).
+Use these mechanisms to provide the following connectivity:
+- between master nodes: allow connections on all ports.
+- between agent nodes: allow connections on all ports.
+- from master nodes to agent nodes: allow connections on all ports.
+- from agent nodes to master nodes: allow connections on all ports except TCP ports 8201 and 26257.
+- from external machines to master nodes: block connection requests on all ports except TCP ports 80 and 443.
+- from external machines to private agent nodes: block connection requests on all ports.
+- from external machines to public agent nodes: block connection requests on all ports except [advertised port ranges](/1.10/installing/production/system-requirements/ports/#agent).
 
 You may want to open port 22 to external machines to allow administrative tasks using Secure Shell (`ssh`).
 Although DC/OS components do not currently support private network selection, you can configure

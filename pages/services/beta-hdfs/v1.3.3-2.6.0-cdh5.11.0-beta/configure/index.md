@@ -1,10 +1,9 @@
-
 ---
 layout: layout.pug
 navigationTitle:  Configuring
 title: Configuring
 menuWeight: 30
-excerpt:
+excerpt: Configuring Beta-HDFS
 featureMaturity:
 enterprise: false
 ---

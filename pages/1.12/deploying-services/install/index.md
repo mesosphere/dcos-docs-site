@@ -33,7 +33,7 @@ From the DC/OS web interface you can install services from the **Services** or *
 
 1.  Navigate to the [**Catalog**](/1.11/gui/catalog/) tab in the DC/OS web interface.
 
-    ![universe](/1.11/img/ui-dashboard-catalog.png)
+    ![universe](/1.12/img/GUI-Catalog-Main_View-1_12.png)
 
     Figure 1. Universe catalog
 
@@ -47,7 +47,7 @@ From the DC/OS web interface you can install services from the **Services** or *
 1.  Navigate to the [**Services**](/1.11/gui/services/) tab in the DC/OS web interface.
 1.  Click **RUN A SERVICE** and specify your Marathon app definition.
 
-    ![service tab](/1.11/img/run-a-service.png)
+    ![service tab](/1.12/img/GUI-Services-No_Services_Running-1_12.png)
 
     Figure 2. Services screen
 
@@ -63,7 +63,7 @@ dcos package list
 
 Go to the **Services** tab and confirm that the service is running. For more information, see the web interface [documentation](/1.11/gui/services/).
 
-![Services](/1.11/img/tweeter-services6.png)
+![Services](/1.12/img/GUI-Services-Running_Services_View-1_12.png)
 
 Figure 3. Service is running
 

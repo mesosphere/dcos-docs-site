@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Spark 1.1.0-2.1.1
 title: Spark 1.1.0-2.1.1
-menuWeight: 80
-excerpt:
+menuWeight: 8
+excerpt: Welcome to the documentation for DC/OS Apache Spark. 
 featureMaturity:
 enterprise: false
 ---

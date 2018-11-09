@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes for 1.11.6
 title: Release Notes for 1.11.6
-menuWeight: 5
+menuWeight: 10
 excerpt: Release notes for DC/OS 1.11.6
 ---
 
@@ -23,6 +23,9 @@ DC/OS 1.11.6 includes the following components:
 - DCOS_OSS-4106/DCOS_OSS-4109 - Bump ZooKeeper to [3.4.13](https://zookeeper.apache.org/doc/r3.4.13/releasenotes.html). 
 - Update DC/OS UI for [1.11+v1.23.0+f17c3335](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.20.0+1c67f4b5...1.11+v1.23.0+f17c3335). [enterprise type="inline" size="small" /]
 
+# Customer Advisory
+- [Removing the patch for Marathon failing to start if the first DC/OS is not available](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004). The patch for Marathon failing to start under certain DNS failure conditions is not required after upgrading to DC/OS 1.11.6 with Marathon version 1.6.541 (or later). 
+
 # Issues Fixed in DC/OS 1.11.6
 
 ## CLI 
@@ -36,10 +39,10 @@ DC/OS 1.11.6 includes the following components:
 
 ## Marathon
 - DCOS-41198 - Replace `poll_marathon_for_app_deployment()` method with `wait_for_deployments_complete()` method in dcos-test-utils.
+- DCOS_OSS-4193 - Fix for [Marathon not starting if the first DC/OS Master is down](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004).
 - MARATHON-8095 - Fix  PATCH call against inactive HA node.
 - MARATHON-8381 - Add new exit codes for Marathon. 
 - MARATHON-8428 - Fix SSL readiness check with self-signed cert. Bump [Marathon on 1.11](https://github.com/mesosphere/marathon/tree/aabf74302).
-
 
 ## Mesos
 - COPS-3527/DCOS_OSS-3921 - Check cache when creating Mesos resources using `make_disk_resources.py`.

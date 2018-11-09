@@ -19,20 +19,20 @@ Perform an Edge-LB upgrade by following this procedure.
 1. Remove the old package repositories.
 
     ```bash
-    dcos package repo remove edgelb-aws
-    dcos package repo remove edgelb-pool-aws
+    dcos package repo remove edgelb
+    dcos package repo remove edgelb-pool
     ```
 
 1. Add the new package repositories.
 
     ```bash
     dcos package repo add --index=0 edgelb-aws \
-      https://<AWS S3 bucket>/stub-universe-edgelb.json
+      https://<insert download link>/stub-universe-edgelb.json
     dcos package repo add --index=0 edgelb-pool-aws \
-      https://<AWS S3 bucket>/stub-universe-edgelb-pool.json
+      https://<insert download link>/stub-universe-edgelb-pool.json
     ```
 
-1. Install the new `apiserver`. Use the service account created when installing the previous version; see [Edge-LB Installation Guide](/services/edge-lb/1.1/installing) for more information.
+1. Install the new `apiserver`. Use the service account created when installing the previous version; see [Edge-LB Installation Guide](/services/edge-lb/1.1/installing) for more information. The configuration file below matches the one created while following the install instructions.
 
     ```bash
     tee edgelb-options.json <<EOF

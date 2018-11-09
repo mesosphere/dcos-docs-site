@@ -228,14 +228,14 @@ For Mesos frameworks and DC/OS services that run tasks which are not managed by 
   "haproxy": {
     "frontends": [{
       "bindPort": 1025,
-      "protocol": "HTTP",
+      "protocol": "TCP",
       "linkBackend": {
         "defaultBackend": "kafka-backend"
       }
     }],
     "backends": [{
       "name": "kafka-backend",
-      "protocol": "HTTP",
+      "protocol": "TCP",
       "services": [{
         "mesos": {
           "frameworkName": "beta-confluent-kafka",

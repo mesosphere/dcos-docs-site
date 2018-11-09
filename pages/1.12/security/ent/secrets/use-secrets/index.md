@@ -52,7 +52,6 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
 
   As long as the path of the secret and the path of the group [match up properly](/1.12/security/ent/#spaces), the service will be able to access the secret value.
 
-
 The procedure differs depending on whether or not you want to make the secret available to a [pod](/1.12/deploying-services/pods/) or to an individual service.
 
 - [Individual service](#service)
@@ -68,7 +67,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 ## <a name="deploying-the-service-via-the-web-interface"></a>Configuring a service to use a secret via the web interface
 
-1. Log into the web interface as a user with the necessary permissions as discussed in the [previous section](#service).
+1. Log into the web interface as a user with the necessary permissions as discussed in [Permissions Management](/1.12/security/ent/perms-management/) and [Granting Access to the Secrets Tab](/1.12/security/ent/gui-permissions/secrets-tab/).
 
 1. Click the **Services** tab.
 
@@ -112,7 +111,8 @@ The procedure varies by interface. Refer to the section that corresponds to your
      "id": "developer/service",
      "cmd": "sleep 100",
      "container": {
-       "volumes": [
+        "type": "MESOS",
+        "volumes": [
          {
            "containerPath": "path",
            "secret": "secretpassword"
@@ -141,7 +141,31 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Click the name of its task.
 
-1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE`.
+1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE` for environmment variable-based secrets.
+
+    If you want to test whether file-based secrets are successful, you can add `cat path` to the application `cmd` to have the secret printed to the `stdout` logs.
+
+    For example:
+    ```json
+    {
+      "id": "developer/service",
+      "cmd": "cat path && sleep 100",
+      "container": {
+        "type": "MESOS",
+        "volumes": [
+      {
+        "containerPath": "path",
+        "secret": "secretpassword"
+      }
+      ]
+      },
+        "secrets": {
+          "secretpassword": {
+            "source": "developer/databasepassword"
+        }
+      }
+    }
+    ```
 
 # <a name="deploying-the-service-via-marathon-app-definition"></a>Configuring a service to use an environment variable-based secret via Marathon app definition
 
@@ -177,7 +201,8 @@ The procedure varies by interface. Refer to the section that corresponds to your
      "id": "developer/service",
      "cmd": "sleep 100",
      "container": {
-       "volumes": [
+        "type": "MESOS",
+        "volumes": [
          {
            "containerPath": "path",
            "secret": "secretpassword"
@@ -216,7 +241,31 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Click the name of its task.
 
-1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE`.
+1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE` for environment variable-based secrets.
+
+    If you want to test whether file-based secrets are successful, you can add `cat path` to the application `cmd` to have the secret printed to the `stdout` logs.
+
+    For example:
+    ```json
+    {
+      "id": "developer/service",
+      "cmd": "cat path && sleep 100",
+      "container": {
+        "type": "MESOS",
+        "volumes": [
+        {
+        "containerPath": "path",
+        "secret": "secretpassword"
+        }
+      ]
+      },
+        "secrets": {
+          "secretpassword": {
+            "source": "developer/databasepassword"
+        }
+      }
+    }
+    ```
 
 # <a name="pod"></a>Configuring a pod to use a secret
 
@@ -270,6 +319,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
       "id": "developer/pod-with-secrets",
       "containers": [
          {
+           "type": "MESOS",
            "name": "container-1",
            "exec": {
              "command": {
@@ -297,9 +347,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
      }
    }
    ```
-
-<p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See <a href="/1.12/security/ent/#spaces">Namespacing</a> for more details about the paths.</p>
-
+    <p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See <a href="/1.12/security/ent/#spaces">Namespacing</a> for more details about the paths.</p>
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 
@@ -321,4 +369,4 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 ## Limitation
 
- The file-based secrets work only with the UCR.
+ The file-based secrets work only with the UCR. 

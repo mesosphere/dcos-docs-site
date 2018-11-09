@@ -17,7 +17,7 @@ These options (as documented below) are slightly less secure than the Option 2 f
 
 Both of these examples will generate a setup similar to the following:
 
-![Exposing the Kubernetes API using HAProxy](/services/kubernetes/2.0.0-1.12.0-beta/img/marathonlb.png "Exposing the Kubernetes API using HAProxy")
+![Exposing the Kubernetes API using HAProxy](/services/beta-kubernetes/2.0.0-1.12.0-beta/img/marathonlb.png "Exposing the Kubernetes API using HAProxy")
 
 All of these examples assume that you are using `kubernetes` as the service name for your Kubernetes instance.  If you have a different service name, then some changes may need to be made; these are called out below.
 

@@ -2,13 +2,11 @@
 layout: layout.pug
 title: Spark 2.3.0-2.2.1-2
 navigationTitle: Spark 2.3.0-2.2.1-2
-menuWeight: 20
-excerpt:
+menuWeight: 3
+excerpt: Welcome to the documentation for DC/OS Apache Spark. 
 featureMaturity:
 
 ---
-
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
 Welcome to the documentation for DC/OS Apache Spark. For more information about new and changed features, see the [release notes](/services/spark/2.3.0-2.2.1-2/release-notes/).

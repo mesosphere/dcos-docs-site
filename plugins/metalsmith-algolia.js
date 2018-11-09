@@ -105,6 +105,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         '&euro;': '€',
         '&copy;': '©',
         '&reg;': '®',
+        '\\n': ' ',
       };
 
       const transform = (content) => {
@@ -125,7 +126,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         }
         if (extname(file) !== '.html') return;
         const fileData = files[file];
-        const postContent = sanitize(fileData.contents);
+        const postContent = sanitize(fileData.contents, file);
         const postParts = convertStringToArray(postContent, 9000);
         postParts.forEach((value, _index) => {
           const record = getSharedAttributes(fileData, hierarchy, semverMap);
@@ -327,17 +328,44 @@ const trim = string => string.replace(/^\s+|\s+$/g, '');
  * Removes all contained <pre></pre> tags.
  * Removes all tags and replaces with whitespace.
  * @param {Buffer} buffer
+ * @param {String} file
  */
-const sanitize = (buffer) => {
+const sanitize = (buffer, file) => {
   const string = buffer.toString();
   let parsedString = sanitizeHtml(string, {
     allowedTags: [],
     allowedAttributes: [],
     selfClosing: [],
-    nonTextTags: ['style', 'script', 'textarea', 'noscript', 'nav'],
+    nonTextTags: [
+      'head',
+      'style',
+      'script',
+      'textarea',
+      'noscript',
+      'header',
+      'footer',
+      'nav',
+      'aside',
+      'section',
+    ],
   });
   parsedString = trim(parsedString);
-  return parsedString;
+  // Remove extraneous information from content
+  // Because this library doesn't have the tools necessary to do it nicely
+
+  // Remove all content up to and including the action buttons
+  // Some pages don't have action buttons.
+  // For those pages, have the first capture group take nothing
+  const headerRegex = /^(.*SharePrintContributeDiscussFeedback|)((\n|.)*)?/;
+  const capturedContent = headerRegex.exec(parsedString);
+  // Only take the second capture group
+  const filteredContent = capturedContent[2];
+
+  if (filteredContent) return filteredContent;
+
+  // There should be no blank pages
+  console.error(`Warning: file ${file} has no content.`);
+  return '';
 };
 
 // Push content to array.

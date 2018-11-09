@@ -38,7 +38,7 @@ A new class of operating system that spans all of the machines in a datacenter o
 
 # <a name="dcos"></a>DC/OS
 
-The abbreviated form of the Datacenter Operating System.
+The abbreviated form of the Distributed Cloud Operating System.
 
 # <a name="dcoscluster"></a>DC/OS Cluster
 

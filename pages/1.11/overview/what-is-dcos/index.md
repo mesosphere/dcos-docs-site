@@ -7,7 +7,7 @@ excerpt: Understanding DC/OS
 enterprise: false
 ---
 
-As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
+As a distributed system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
 
 ## Distributed System
 

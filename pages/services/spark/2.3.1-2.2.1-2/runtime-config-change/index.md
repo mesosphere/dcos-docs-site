@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle: Runtime Changes
 excerpt: Customizing Spark while running
 navigationTitle: Runtime Changes
 title: Runtime Configuration Change

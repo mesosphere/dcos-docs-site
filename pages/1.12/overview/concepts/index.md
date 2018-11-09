@@ -18,7 +18,7 @@ Unlike traditional distributed operating systems, DC/OS is also a container plat
 
 DC/OS is made up of many components, most notably a distributed systems kernel ([Mesos](#apache-mesos)) and a container orchestration engine ([Marathon](#marathon)).
 
-Prior to version 1.6, DC/OS was known as The Datacenter Operating System (DCOS). With version 1.6, the platform was renamed to DC/OS and open sourced. While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features such as multitenancy, fine-grained permissions, secrets management, and end-to-end encryption.
+While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features such as multitenancy, fine-grained permissions, secrets management, and end-to-end encryption.
 
 ## <a name="dcos-gui"></a>DC/OS GUI
 

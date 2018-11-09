@@ -1,9 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Configuring services and pods to use
-  secrets
+navigationTitle: Configuring services and pods to use secrets
+title: Configuring services and pods to use secrets
 menuWeight: 1
 excerpt:
 
@@ -113,6 +111,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
      "id": "developer/service",
      "cmd": "sleep 100",
      "container": {
+       "type": "MESOS",
        "volumes": [
          {
            "containerPath": "path",
@@ -142,7 +141,32 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Click the name of its task.
 
-1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE`.
+1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE` for environment variable-based secrets.
+
+   If you want to test whether file-based secrets are successful, you can add `cat path` to the application `cmd` to have the secret printed to the `stdout` logs.
+
+   For example:
+  
+  ```json
+  {
+     "id": "developer/service",
+     "cmd": "cat path && sleep 100",
+     "container": {
+   "type": "MESOS",
+   "volumes": [
+    {
+       "containerPath": "path",
+       "secret": "secretpassword"
+     }
+    ]
+    },
+      "secrets": {
+        "secretpassword": {
+          "source": "developer/databasepassword"
+      }
+    }
+  }
+  ```
 
 # <a name="deploying-the-service-via-marathon-app-definition"></a>Configuring a service to use an environment variable-based secret via Marathon app definition
 
@@ -178,6 +202,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
      "id": "developer/service",
      "cmd": "sleep 100",
      "container": {
+       "type": "MESOS",
        "volumes": [
          {
            "containerPath": "path",
@@ -217,7 +242,32 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Click the name of its task.
 
-1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE`.
+1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE` for environment variable-based secrets.
+
+   If you want to test whether file-based secrets are successful, you can add `cat path` to the application `cmd` to have the secret printed to the `stdout` logs.
+
+   For example:
+  
+  ```json
+  {
+     "id": "developer/service",
+     "cmd": "cat path && sleep 100",
+     "container": {
+   "type": "MESOS",
+   "volumes": [
+    {
+       "containerPath": "path",
+       "secret": "secretpassword"
+     }
+    ]
+    },
+      "secrets": {
+        "secretpassword": {
+          "source": "developer/databasepassword"
+      }
+    }
+  }
+  ```
 
 # <a name="pod"></a>Configuring a pod to use a secret
 

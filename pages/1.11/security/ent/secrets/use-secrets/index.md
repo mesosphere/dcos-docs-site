@@ -62,13 +62,13 @@ The procedure differs depending on whether or not you want to make the secret av
 
 The procedure varies by interface. Refer to the section that corresponds to your desired interface.
 
-- [web interface](#deploying-the-service-via-the-web-interface)
+- [Web interface](#deploying-the-service-via-the-web-interface)
 
 - [Marathon API](#deploying-the-service-via-marathon-app-definition)
 
 ## <a name="deploying-the-service-via-the-web-interface"></a>Configuring a service to use a secret via the web interface
 
-1. Log into the web interface as a user with the necessary permissions as discussed in the [previous section](#service).
+1. Log into the web interface as a user with the necessary permissions as discussed in [Permissions Management](/1.11/security/ent/perms-management/) and [Granting Access to the Secrets Tab](/1.11/security/ent/gui-permissions/secrets-tab/).
 
 1. Click the **Services** tab.
 
@@ -85,9 +85,9 @@ The procedure varies by interface. Refer to the section that corresponds to your
 1. Copy one of the following simple application definitions and paste it into the black box. This application definition creates a new service inside of the developer group and references a secret stored inside a developer path.
 
    Environment variable-based secret:
-
-   ```json
-   {  
+   
+    ```json
+    {  
       "id":"/developer/service",
       "cmd":"sleep 100",
       "env":{  
@@ -106,13 +106,14 @@ The procedure varies by interface. Refer to the section that corresponds to your
    In the example above, DC/OS stores the secret under the environment variable `"MY_SECRET"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
 
    File-based secret:
-
+   
    ```json
-   {
+    {
      "id": "developer/service",
      "cmd": "sleep 100",
      "container": {
-       "volumes": [
+        "type": "MESOS",
+        "volumes": [
          {
            "containerPath": "path",
            "secret": "secretpassword"
@@ -141,7 +142,31 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Click the name of its task.
 
-1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE`.
+1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE` for environment variable-based secrets.
+
+    If you want to test whether file-based secrets are successful, you can add `cat path` to the application `cmd` to have the secret printed to the `stdout` logs.
+
+    For example:
+    ```json
+    {
+      "id": "developer/service",
+      "cmd": "cat path && sleep 100",
+      "container": {
+        "type": "MESOS",
+        "volumes": [
+        {
+        "containerPath": "path",
+        "secret": "secretpassword"
+        }
+      ]
+      },
+        "secrets": {
+          "secretpassword": {
+            "source": "developer/databasepassword"
+        }
+      }
+    }
+    ```
 
 # <a name="deploying-the-service-via-marathon-app-definition"></a>Configuring a service to use an environment variable-based secret via Marathon app definition
 
@@ -151,22 +176,22 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
    Environment variable-based secret:
 
-   ```json
-   {  
-      "id":"/developer/service",
-      "cmd":"sleep 100",
-      "env":{  
-         "MY_SECRET":{  
-            "secret":"secret0"
-         }
+    ```json
+    {  
+      "id": "/developer/service",
+      "cmd": "sleep 100",
+      "env": {  
+        "MY_SECRET": {  
+          "secret": "secret0"
+        }
       },
-      "secrets":{  
-         "secret0":{  
-            "source":"developer/my-secret"
-         }
+      "secrets": {  
+        "secret0": {  
+          "source": "developer/my-secret"
+        }
       }
-   }
-   ```
+    }
+    ```
 
    In the example above, DC/OS stores the secret under the environment variable `"MY_SECRET"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
 
@@ -177,7 +202,8 @@ The procedure varies by interface. Refer to the section that corresponds to your
      "id": "developer/service",
      "cmd": "sleep 100",
      "container": {
-       "volumes": [
+        "type": "MESOS",
+        "volumes": [
          {
            "containerPath": "path",
            "secret": "secretpassword"
@@ -216,7 +242,31 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Click the name of its task.
 
-1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE`.
+1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE` for environment variable-based secrets.
+
+    If you want to test whether file-based secrets are successful, you can add `cat path` to the application `cmd` to have the secret printed to the `stdout` logs.
+
+    For example:
+    ```json
+    {
+      "id": "developer/service",
+      "cmd": "cat path && sleep 100",
+      "container": {
+        "type": "MESOS",
+        "volumes": [
+        {
+        "containerPath": "path",
+        "secret": "secretpassword"
+        }
+      ]
+      },
+        "secrets": {
+          "secretpassword": {
+            "source": "developer/databasepassword"
+        }
+      }
+    }
+    ``` 
 
 # <a name="deploying-the-job-via-metronome-job-definition"></a>Configuring a job to use an environment variable-based secret via Metronome job definition
 
@@ -224,38 +274,38 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Within a text editor, create a job definition for your Metronome job. The following job definition creates a new job and references a stored secret.
 
-Environment variable-based secret:
- ```json
-   {
-  "id": "test-metronome-secret",
-  "run": {
-    "cpus": 0.01,
-    "mem": 128,
-    "cmd": "echo ${TEST}; sleep 30;",
-    "env": {
-      "TEST": {
-        "secret": "secret0"
+    Environment variable-based secret:
+    ```json
+      {
+      "id": "test-metronome-secret",
+      "run": {
+        "cpus": 0.01,
+        "mem": 128,
+        "cmd": "echo ${TEST}; sleep 30;",
+        "env": {
+          "TEST": {
+            "secret": "secret0"
+          }
+        },
+        "secrets": {
+          "secret0": {
+            "source": "/path/to/secret"
+          }
+        }
+      },
+      "schedules": []
       }
-    },
-    "secrets": {
-      "secret0": {
-        "source": "/path/to/secret"
-      }
-    }
-  },
-  "schedules": []
-  }
-```
+      ```
 
-In the example above, DC/OS stores the secret under the environment variable `"TEST"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
+    In the example above, DC/OS stores the secret under the environment variable `"TEST"`. Observe how the `"env"` and `"secrets"` objects are used to define environment variable-based secrets.
 
 1. Save the file with a descriptive name, such as `mytest.json`.
 
 1. Add the job to DC/OS via the DC/OS CLI.
 
-   ```bash
-   dcos job add mytest.json
-   ```
+    ```bash
+    dcos job add mytest.json
+    ```
 
 1. Open the DC/OS web interface.
 
@@ -265,7 +315,31 @@ In the example above, DC/OS stores the secret under the environment variable `"T
 
 1. Click the name of its task.
 
-1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE`.
+1. Scroll through the **Details** tab to locate your `DCOS_SECRETS_DIRECTIVE` for environment variable-based secrets.
+
+    If you want to test whether file-based secrets are successful, you can add `cat path` to the application `cmd` to have the secret printed to the `stdout` logs.
+
+    For example:
+    ```json
+    {
+      "id": "developer/service",
+      "cmd": "cat path && sleep 100",
+      "container": {
+        "type": "MESOS",
+        "volumes": [
+        {
+        "containerPath": "path",
+        "secret": "secretpassword"
+        }
+      ]
+      },
+        "secrets": {
+          "secretpassword": {
+            "source": "developer/databasepassword"
+        }
+      }
+    }
+    ```
 
 # <a name="pod"></a>Configuring a pod to use a secret
 
@@ -319,6 +393,7 @@ In the example above, DC/OS stores the secret under the environment variable `"T
       "id": "developer/pod-with-secrets",
       "containers": [
          {
+           "type": "MESOS",
            "name": "container-1",
            "exec": {
              "command": {
@@ -347,7 +422,7 @@ In the example above, DC/OS stores the secret under the environment variable `"T
    }
    ```
 
-   **Note:** Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.11//security/ent/#spaces) for more details about the paths.
+    Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.11//security/ent/#spaces) for more details about the paths.
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 

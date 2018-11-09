@@ -21,10 +21,10 @@ name=${3:-kubernetes}
 root="$(git rev-parse --show-toplevel)"
 cd $root
 
-# pull dcos-kubernetes
-git remote rm dcos-kubernetes
-git remote add dcos-kubernetes git@github.com:mesosphere/dcos-kubernetes.git
-git fetch dcos-kubernetes > /dev/null 2>&1
+# pull dcos-kubernetes-cluster
+git remote rm dcos-kubernetes-cluster
+git remote add dcos-kubernetes-cluster git@github.com:mesosphere/dcos-kubernetes-cluster.git
+git fetch dcos-kubernetes-cluster > /dev/null 2>&1
 
 # checkout
 git checkout tags/$version docs/package
@@ -57,7 +57,7 @@ for d in docs/package/*/; do
       awk '{gsub(/https:\/\/docs.mesosphere.com\/service-docs\//,"/services/");}{print}' $p > tmp && mv tmp $p
 
       # add full path for images
-      awk -v directory=$(basename $d) '{gsub(/\([.][.]\/img/,"(/services/kubernetes/"directory"/img");}{print;}' $p > tmp && mv tmp $p  
+      awk -v directory=$(basename $d) -v name="$name" '{gsub(/\([.][.]\/img/,"(/services/"name"/"directory"/img");}{print;}' $p > tmp && mv tmp $p
     fi
   done
 done
@@ -65,13 +65,24 @@ done
 # Fix up relative links after prettifying structure above
 sedi -e 's/](\(.*\)\.md)/](..\/\1)/' $(find docs/package/ -name '*.md')
 
+# Backup 1.x docs
+mkdir tmp_backup && mv ./pages/services/$name/1.* tmp_backup/
+
+# Remove old docs 
+rm -rf ./pages/services/$name
+mkdir -p ./pages/services/$name
+
+# Restore backup 1.x docs
+mv tmp_backup/* ./pages/services/$name
+rm -rf tmp_backup
+
+# Copy new docs
 cp -r docs/package/* ./pages/services/$name
 
 git rm -rf docs/
 rm -rf docs/
 
 # Update sort order of index files
-
 weight=10
 for i in $( ls -r ./pages/services/$name/*/index.md ); do
   sedi "s/^menuWeight:.*$/menuWeight: ${weight}/" $i

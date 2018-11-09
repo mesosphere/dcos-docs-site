@@ -270,5 +270,5 @@ interface.
     sudo make DCOS_VERSION=1.10 DCOS_PACKAGE_INCLUDE="cassandra:1.0.25-3.0.10,marathon:1.4.2" local-universe
     ```
 
-4.  Perform all of the steps as described in [Certified Universe packages][#certified].
+4.  Perform all of the steps as described in [Certified Universe packages](#certified).
 

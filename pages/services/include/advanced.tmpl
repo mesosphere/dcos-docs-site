@@ -267,7 +267,7 @@ $ base64 -w 0 krb5.keytab > kerb5.keytab.base64-encoded
 Now that the file is encoded it can be stored as a secret.
 
 ```bash
-$ dcos security secrets create --value-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret
+$ dcos security secrets create --text-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret
 ```
 
 <table class=“table” bgcolor=#858585>

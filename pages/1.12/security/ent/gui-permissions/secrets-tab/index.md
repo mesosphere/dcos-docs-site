@@ -22,7 +22,7 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
 1. Log into the DC/OS GUI as a user with the `superuser` permission.
 
-   ![Login](/1.12/img/gui-installer-login-ee.gif)
+   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 1. DC/OS web interface login
 
@@ -30,7 +30,7 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.12/img/services-tab-user.png)
+    ![Add permission cory](/1.12/img/GUI-Organization-Users-List_View-1_12.png)
 
     Figure 2. Select user or group to grant permissions to
 
@@ -42,18 +42,28 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
     Figure 3. Insert Permission String
 
+    ## Disabled
+
+    ```bash
+    dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
+    ```
+
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.12/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
+
 
     ## Permissive
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
     ## Strict
 
     ```bash
     dcos:adminrouter:secrets full
+    dcos:secrets:list:default:/ read
     ```
 
 ## <a name="network-access-via-api"></a>Granting Access by using the API

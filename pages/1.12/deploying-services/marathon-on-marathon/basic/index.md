@@ -7,12 +7,12 @@ excerpt: Using a basic, non-native instance of Marathon
 enterprise: true
 ---
 
-This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas. This  procedure does not support [secrets](/1.11/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/1.11/deploying-services/marathon-on-marathon/advanced/).
+This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas. This  procedure does not support [secrets](/1.12/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/1.12/deploying-services/marathon-on-marathon/advanced/).
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/1.11/installing/oss/).
--  [DC/OS Enterprise CLI 0.4.14 or later](/1.11/cli/enterprise-cli/#ent-cli-install).
+-  DC/OS and DC/OS CLI [installed](/1.12/installing/oss/).
+-  [DC/OS Enterprise CLI 0.4.14 or later](/1.12/cli/enterprise-cli/#ent-cli-install).
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
 
@@ -21,45 +21,35 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
 
 ## Static Reservations
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>Warning:</strong> This procedure kills all running tasks on your node.</td> 
+<p class="message--warning"><strong>WARNING: </strong> This procedure kills all running tasks on your node.</p> 
 </tr> 
 </table>
 
-1.  [SSH](/1.11/administering-clusters/sshcluster/) to your private agent node.
+
+1.  [SSH](/1.12/administering-clusters/sshcluster/) to your private agent node.
 
    ```bash
    dcos node ssh --master-proxy --mesos-id=<agent-id>
    ```
 
 1.  Navigate to `/var/lib/dcos` and create a file named `mesos-slave-common` with these contents, where `<myrole>` is the name of your role.
-
     ```bash
     MESOS_DEFAULT_ROLE='<myrole>'
     ```
 1.  Stop the private agent node:
-
     ```bash
     sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
     ```
-
 1.  Add the node back to your cluster.
-
     1.  Reload the `systemd` configuration.
-
         ```bash
         ﻿⁠⁠sudo systemctl daemon-reload
         ```
-
     1.  Remove the `latest` metadata pointer on the agent node:
-
         ```bash
         ⁠⁠⁠⁠sudo rm /var/lib/mesos/slave/meta/slaves/latest
         ```
-
     1.  Start your agents with the newly configured attributes and resource specification⁠⁠.
-
         ```bash
         sudo systemctl start dcos-mesos-slave
         ```
@@ -135,7 +125,6 @@ curl -i -k \
 In this step, a non-native Marathon instance is installed on DC/OS with the Mesos role assigned.
 
 1.  Create a custom JSON config file and save as `marathon-config.json`. This file is used to install the custom non-native Marathon instance.
-
     ```json
     {"marathon": {
      "mesos-role": "<myrole>",
@@ -143,16 +132,13 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
      "default-accepted-resource-roles": "*,<myrole>"
      }
     }
-     ```      
-    
+     ```        
 1.  Install the Marathon package from Universe with the custom JSON configuration specified (`marathon-config.json`).
-
     ```bash
     dcos package install --options=marathon-config.json marathon
     ```
-
 # Step 3 - Create a Marathon Service Account
-In this step, a Marathon Service Account is created. Depending on your [security mode](/1.11/security/ent/#security-modes), a Marathon Service Account is either optional or required.
+In this step, a Marathon Service Account is created. Depending on your [security mode](/1.12/security/ent/#security-modes), a Marathon Service Account is either optional or required.
 
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
@@ -174,7 +160,7 @@ In this step, a Marathon Service Account is created. Depending on your [security
 # Step 4 - Assign Permissions (Strict mode only)
 In this step, permissions are assigned to the Marathon-on-Marathon instance. Permissions are required in strict mode and are ignored in permissive security mode.
 
-All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api/).
+All CLI commands can also be executed via the [IAM API](/1.12/security/ent/iam-api/).
 
 | Security Mode | Permissions |
 |---------------|----------------------|
@@ -201,7 +187,7 @@ In this step, a user is granted access to the non-native Marathon instance.
 
 1. Log in to the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.11/img/gui-installer-login-ee.gif)
+   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 1. DC/OS web interface login screen.
 
@@ -209,7 +195,7 @@ In this step, a user is granted access to the non-native Marathon instance.
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.11/img/services-tab-user.png)
+    ![Add permission cory](/1.12/img/GUI-Organization-Users-List_View-1_12.png)
 
     Figure 2. Select user or group permission
 
@@ -217,11 +203,11 @@ In this step, a user is granted access to the non-native Marathon instance.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.11/img/services-tab-user3.png)
+    ![Add permission](/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     Figure 3. Add permissions.
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.12/security/ent/#security-modes).
 
     ### Permissive
 
@@ -290,12 +276,12 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 
 1.  Enter your username and password and click **LOG IN**.
 
-    ![Log in DC/OS](/1.11/img/gui-installer-login-ee.gif)
+    ![Log in DC/OS](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
     Figure 4. DC/OS log in screen
 
     You are done!
 
-    ![Marathon on Marathon](/1.11/img/mom-marathon-gui.png)
+    ![Marathon on Marathon](/1.12/img/mom-marathon-gui.png)
 
     Figure 5. Success screen.

@@ -2,7 +2,6 @@
 layout: layout.pug
 navigationTitle:
 excerpt: Install Spark using either the web interface or the DC/OS CLI
-
 title: Install and Customize
 menuWeight: 15
 featureMaturity:

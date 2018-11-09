@@ -101,19 +101,24 @@ function walk(opts, file, files, array, children = [], level = 0) {
 function plugin(opts) {
   return function hierarchyMiddleware(files, metalsmith, done) {
     setImmediate(done);
+
+    const possiblePaths = {};
+    Object.keys(files).map((f) => {
+      const array = f.split('/');
+      array.pop();
+      finalPath = `/${array.join('/')}`;
+      possiblePaths[finalPath] = true;
+    });
+
     const findByPath = function findByPath(pathArg) {
       let pathToFind = pathArg;
       if (pathToFind[0] !== '/') {
         pathToFind = `/${pathToFind}`;
       }
       // Check if exists
-      const listOfPaths = Object.keys(files).map((f) => {
-        const array = f.split('/');
-        array.pop();
-        return `/${array.join('/')}`;
-      });
-      if (listOfPaths.indexOf(pathToFind) === -1) {
-        return;
+      if (!possiblePaths[pathToFind]) {
+        // return;
+        throw new Error(`Missing file in path: ${pathToFind}`);
       }
       // Find
       const f = function find(array, key, value) {
@@ -171,12 +176,21 @@ function plugin(opts) {
       return parent;
     };
 
+    const checkIfPathExists = function checkIfPathExists(potentialPath) {
+      try {
+        return this.findByPath(potentialPath);
+      } catch (err) {
+        return null;
+      }
+    };
+
     const r = {
       id: '',
       title: '',
       path: '/',
       children: [],
       findByPath,
+      checkIfPathExists,
       findParent,
       find,
     };

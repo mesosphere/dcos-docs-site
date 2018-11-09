@@ -6,8 +6,6 @@ menuWeight: 20
 excerpt: Understanding cluster patches
 ---
 
-# Patching live clusters with no downtime
-
 A DC/OS patch describes a set of changes and supporting data designed to update, fix, or improve the features/functionality of DC/OS. A point release that consists of minor changes is also called a patch.
 
 A patching process includes the following:
@@ -15,15 +13,18 @@ A patching process includes the following:
 - Does not impact workloads which is an essential piece of patching live clusters with no downtime
 - Helps users to understand the minor changes impacting the functionality of DC/OS
 
-Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
+<p class="message--note"><strong>NOTE: </strong>These instructions are only appropriate for a change to the cluster configuration or the maintenance version number. Example: DC/OS 1.11.1 --> 1.11.2</p>
 
-**Note:** A patching process occurs only between minor releases.
+- To update to a newer major or minor version (e.g. 1.10 to 1.11), refer to the instructions for [upgrading](/1.11/installing/production/upgrading/).
+
+If patching is performed on a supported OS with all prerequisites fulfilled, then the patch **should** preserve the state of running tasks on the cluster.
+
 
 ## Important guidelines
 
 - Review the [release notes](/1.11/release-notes/) before patching DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when patching or configuring a new cluster. If you have already patched to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true`, then do not add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302).
-- There are new options in the `config.yaml` file which must be declared prior to patching. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file).
+- There are new options in the `config.yaml` file which must be declared prior to patching. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](/1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file).
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the patch to succeed.
 - DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the patch will fail. [enterprise type="inline" size="small" /]
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been patched. For example, a patched DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been patched. When this occurs:
@@ -45,63 +46,76 @@ Example: DC/OS 1.X.A to 1.X.B (1.11.1 --> 1.11.2)
 | ⚫| Supported |
 | ◯| Not Supported |
 
-<table class="table">
-    <tr>
-    <th><p style="text-align: center;"><strong>Patch From</strong></p></th>
+<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+   <tr>
+    <th Rowspan = "20" Align = "center"><strong>Patch<br> From</strong></div></th>
+   <tr>
     <th></th>
+    <th Colspan = "6" Align = "center"><strong>Patch To</strong></th>
+   </tr>
     <th></th>
-    <th><p style="text-align: center;"><strong>Patch To</strong></p></th>
-    <th></th>
-    <th></th>
-    </tr>
-    <tr>
-    <th></th>
-    <th><p style="text-align: center;">1.11.1</p></th>
-    <th><p style="text-align: center;">1.11.2</p></th>
-    <th><p style="text-align: center;">1.11.3</p></th>
-    <th><p style="text-align: center;">1.11.4</p></th>
-    <th><p style="text-align: center;">1.11.5</p></th>
-    </tr>
-    <tr>
-       <td><p style="text-align: center;">1.11.0</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-       <td><p style="text-align: center;">1.11.1</p></td>
-       <td><p style="text-align: center;">◯</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-       <td><p style="text-align: center;">1.11.2</p></td>
-       <td><p style="text-align: center;">◯</p></td>
-       <td><p style="text-align: center;">◯</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-       <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-      <td><p style="text-align: center;">1.11.3</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    </tr>
-      <td><p style="text-align: center;">1.11.4</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">◯</p></td>
-      <td><p style="text-align: center;">⚫</p></td>
-    </tr>
- </table>   
+    <th>1.11.1</th>
+    <th>1.11.2</th>
+    <th>1.11.3</th>
+    <th>1.11.4</th>
+    <th>1.11.5</th>
+    <th>1.11.6</th>
+   </tr>
+    <th>1.11.0</th>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.1</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.2</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.3</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.4</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.5</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+  </table>  
 
 ## Modifying DC/OS configuration
 
@@ -262,8 +276,8 @@ Proceed with patching every master node one at a time in any order using the fol
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
         **Note:** If you are patching from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access. [enterprise type="inline" size="small" /]
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/1.11/release-notes/), for example `1.5.1`.
-	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
-	    ```bash
+  1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
+      ```bash
         sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
         | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
@@ -272,8 +286,8 @@ Proceed with patching every master node one at a time in any order using the fol
         |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
         |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-		```
-		If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated.
+    ```
+    If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated.
 
 1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 

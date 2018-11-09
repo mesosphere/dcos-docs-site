@@ -229,13 +229,13 @@ DC/OS allows you to restrict:
 
 The default Linux user for tasks and sandbox files varies according to your [security mode](/1.12/security/ent/#security-modes) and the [type of container](/1.12/deploying-services/containerizers/) the task runs inside of.
 
-By default, all tasks will run inside of Mesos containers. However, a user service can be configured to run tasks inside of Docker containers instead. Please see [Deploying a Docker-based Service to Marathon](/1.12/deploying-services/creating-services/deploy-docker-app/) for an example.
+By default, all tasks will run inside of Docker containers. Please see [Deploying a Docker-based Service to Marathon](/1.12/deploying-services/creating-services/deploy-docker-app/) for an example.
 
 The following table identifies the default Linux user in each situation.
 
 | Container type | Permissive                                                             | Strict                                                                     |
 |----------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| Mesos          | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `nobody`. Fetched and created files are owned by `nobody`. |
+| Mesos (UCR)    | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `nobody`. Fetched and created files are owned by `nobody`. |
 | Docker         | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `nobody`.   |
 
 Docker tasks run under `root` by default, but Docker user privileges are confined to the Docker container. Should you wish to change the default task user, modify the Docker container. Please reference the [Docker documentation](https://docs.docker.com/engine/tutorials/dockerimages/) for more information, as well as the user service [documentation](/services/).

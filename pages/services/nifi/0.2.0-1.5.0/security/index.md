@@ -12,7 +12,7 @@ enterprise: false
 
 TThe DC/OS Apache NiFi service supports NiFi’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the usage of these important features.
 
-A good overview of these features can be found  [here](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html).
+A good overview of these features can be found in the [Apache NiFi Administration Guide](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html).
 
 ## Transport Encryption and Kerberos Authentication
 With transport encryption enabled, DC/OS Apache NiFi will automatically deploy all nodes with the correct configuration to encrypt communication via SSL. The nodes will communicate securely between themselves using SSL. SSL authentication requires that all NiFi Nodes present a valid certificate from which their identity can be derived for communicating between themselves.
@@ -29,7 +29,7 @@ Note: Enabling transport encryption is required to use [SSL authentication](http
 
 ## Configure Transport Encryption
 
-**Tip:** A complete guide to Configuring DC/OS Access for Nifi can be found [here](serviceaccountdetail.md).
+**Tip:** A complete guide to Configuring DC/OS Access for Nifi can be found [here](/nifi/security/service-account-detail/).
 
 
 ## Set up the Service Account

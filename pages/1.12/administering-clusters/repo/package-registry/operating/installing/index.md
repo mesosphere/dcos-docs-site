@@ -23,7 +23,7 @@ For a list of DC/OS Packages supported by DC/OS Package Registry see the [offica
 **Example**: To download a version of Jenkins:
 
 ```bash
-wget https://downloads.mesosphere.com/universe/packages/jenkins/3.4.0-2.89.2/jenkins-3.4.0-2.89.2.dcos
+wget https://downloads.mesosphere.com/universe/packages/jenkins/3.5.2-2.107.2/jenkins-3.5.2-2.107.2.dcos
 ```
 
 ### Adding Packages
@@ -33,7 +33,7 @@ DC/OS Packages are added to a DC/OS Package Registry with the `dcos registry add
 **Example**: To add a version of Jenkins to a registry, enter:
 
 ```bash
-dcos registry add --dcos-file jenkins-3.4.0-2.89.2.dcos
+dcos registry add --dcos-file jenkins-3.5.2-2.107.2.dcos
 ```
 
 ### Describing and Listing Packages
@@ -43,7 +43,7 @@ Use the `dcos registry describe` command to describe a DC/OS Package.
 **Example**: To describe a version of the Jenkins DC/OS Package, enter:
 
 ```bash
-dcos registry describe --package-name jenkins --package-version 3.4.0-2.89.2
+dcos registry describe --package-name jenkins --package-version 3.5.2-2.107.2
 ```
 
 To list all added packages:
@@ -59,7 +59,7 @@ Use the `dcos registry remove` command to remove an added DC/OS Package.
 **Example**: To remove a version of the Jenkins DC/OS Package, enter:
 
 ```bash
-dcos registry remove --package-name jenkins --package-version 3.4.0-2.89.2
+dcos registry remove --package-name jenkins --package-version 3.5.2-2.107.2
 ```
 
 <p class="message--warning"><strong>WARNING: </strong>Removing a package while a service is still deployed may cause the service to stop working.</p>

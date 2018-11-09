@@ -168,8 +168,8 @@ are server.jks and trust.jks, respectively, then use the following commands to a
 store: 
 
 ```bash
-dcos security secrets create /spark/keystore --value-file server.jks
-dcos security secrets create /spark/truststore --value-file trust.jks
+dcos security secrets create /spark/keystore --file server.jks
+dcos security secrets create /spark/truststore --file trust.jks
 ```
 
 You must add the following configurations to your `dcos spark run ` command.

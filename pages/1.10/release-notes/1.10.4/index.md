@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes for 1.10.4
 title: Release Notes for 1.10.4
-menuWeight: 15
+menuWeight: 30
 excerpt:
 ---
 
@@ -206,7 +206,9 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
 
-- Latest version of Marathon-LB is required for DC/OS 1.10.0.
+- Moved file location for the DC/OS CA bundle in the sandbox of Mesos tasks from `$MESOS_SANDBOX/.ssl/ca.crt` to `$MESOS_SANDBOX/.ssl/ca-bundle.crt` and declared the new file path to be stable.
+
+- Marathon-LB 1.11.0 or greater is required for DC/OS 1.10.0.
 
   Before upgrading to DC/OS 1.10.0, uninstall your existing Marathon-LB package and reinstall the updated version.
 
