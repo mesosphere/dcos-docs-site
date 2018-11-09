@@ -386,7 +386,7 @@ Weights cannot be removed once set, they can be amended using the same method as
 ## Marathon on Marathon
 The DC/OS catalog includes Marathon, which can be used to deploy a MoM. It should be noted that this is only useful for DC/OS OSS installations, as it does not provide support for Strict mode, Secrets or ACLs.
 
-In order to install Enterprise MoM, you must contact Mesosphere for the Enterprise MoM tarball, then deploying it via the root Marathon. 
+To install Enterprise MoM, you must contact Mesosphere Support for the Enterprise MoM tarball, then deploy it using the root Marathon. 
 
 # Additional Resources
 You can use the following additional resources to learn more about:
