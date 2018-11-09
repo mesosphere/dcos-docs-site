@@ -4,3 +4,4 @@ packageName: percona-server-mongodb
 serviceName: percona-server-mongodb
 techName:  Percona Server for MongoDB
 techShortName: Percona MongoDB
+dbName: MongoDB
