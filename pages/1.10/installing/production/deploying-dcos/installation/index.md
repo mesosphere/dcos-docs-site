@@ -156,7 +156,19 @@ By default, DC/OS clusters have [fault domain awareness](/1.12/deploying-service
 
 1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain. During installation, the output of this script is passed to Mesos.
 
-   We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>`. We provide [fault domain detect scripts for AWS and Azure](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+   We recommend the format for the script output be:
+
+```json
+  {
+    "fault_domain": {
+      "region": {
+        "name": <region>,
+        "zone": <zone>
+      }
+    }
+  }
+```
+    We provide [fault domain detect scripts for AWS and Azure](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
 
    <p class="message--warning"><strong>WARNING: </strong>This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
 
