@@ -5,6 +5,7 @@ title: Volume Plugins
 menuWeight: 70
 excerpt: Learn how the DC/OS Storage Service integrates with CSI plugins in order to support multiple storage provisioning backends.
 enterprise: true
+beta: true
 ---
 
 The Container Storage Interface (CSI) is an open specification developed by multiple container orchestrators through interaction with the open source community and storage vendors.

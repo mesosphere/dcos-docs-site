@@ -5,6 +5,7 @@ title: Via Artifacts Container
 menuWeight: 30
 excerpt: Instructions for installing the DC/OS Storage Service using the artifacts container.
 enterprise: true
+beta: true
 ---
 
 **Note**: This install method is *deprecated*.
