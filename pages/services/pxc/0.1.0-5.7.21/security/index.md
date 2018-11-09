@@ -26,7 +26,7 @@ The service uses the [DC/OS CA](/latest/security/ent/tls-ssl/) to generate the S
 
 ## Configure Transport Encryption
 
-#include /include/service-account.tmpl
+#include /services/include/service-account.tmpl
 
 ### Assign Permissions
 
