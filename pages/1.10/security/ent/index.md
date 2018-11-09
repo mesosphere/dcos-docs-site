@@ -231,7 +231,7 @@ DC/OS allows you to restrict:
 
 The default Linux user for tasks and sandbox files varies according to your [security mode](/1.10/security/ent/#security-modes) and the [type of container](/1.10/deploying-services/containerizers/) the task runs inside of.
 
-By default, all tasks will run inside of Docker containers. However, a user service can be configured to run tasks inside of Docker containers instead. Please see [Deploying a Docker-based Service to Marathon](/1.10/deploying-services/creating-services/deploy-docker-app/) for an example.
+By default, all tasks will run inside of Docker containers. Please see [Deploying a Docker-based Service to Marathon](/1.10/deploying-services/creating-services/deploy-docker-app/) for an example.
 
 The following table identifies the default Linux user in each situation.
 
