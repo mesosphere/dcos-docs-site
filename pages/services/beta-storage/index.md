@@ -4,6 +4,7 @@ navigationTitle: Beta DC/OS Storage Service
 title: Beta DC/OS Storage Service
 menuWeight: 127
 enterprise: true
+beta: true
 excerpt:
 ---
 
