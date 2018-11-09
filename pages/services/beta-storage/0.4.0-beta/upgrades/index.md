@@ -5,6 +5,7 @@ title: Upgrades
 menuWeight: 35
 excerpt: Instructions for upgrading the DC/OS Storage Service on a DC/OS cluster.
 enterprise: true
+beta: true
 ---
 
 # Manually upgrade the DSS package to 0.3.0 from 0.2.0

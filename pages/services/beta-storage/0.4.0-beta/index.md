@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle: DC/OS Storage Service 0.4.0
 title: DC/OS Storage Service 0.4.0
 menuWeight: 0
-excerpt:
+excerpt: DC/OS Beta Storage Service (DSS) is a service that manages storage in DC/OS.
+beta: true
 ---
 
 DC/OS Beta Storage Service (DSS) is a service that manages storage in DC/OS.
