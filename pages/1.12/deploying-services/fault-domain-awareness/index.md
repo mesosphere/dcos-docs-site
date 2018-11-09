@@ -113,7 +113,7 @@ Suppose you have a Mesos cluster that spans 3 regions: `aws-us-east1`, `aws-us-e
 - No instance will launch in the local region.
 - All of the 5 instances will be launched in the `aws-us-east1` region.
 
-### Balanced Placement for a Single Region
+### Balanced placement for a single region
 
 ```json
 {
