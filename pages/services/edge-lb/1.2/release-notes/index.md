@@ -51,41 +51,6 @@ Released on September 11, 2018.
 * Bump `haproxy` from 1.8.12 to 1.8.13. [changelog] (http://git.haproxy.org/?p=haproxy-1.8.git;a=blob;f=CHANGELOG;h=aed48fc5fb951aff7dd458c4bc9bfcfe1d5dd99a;hb=HEAD)
 * Commit protobuf code changes that stem from [tool update](https://github.com/golang/protobuf/tree/master/protoc-gen-go).
 
-
-### Shortlist
-
-```
-
-      dcos-template: set maximum recv message size to 100MiB
-      dcos-template/dependency: better comments
-      dcos-template/dependency: use huge name instead of key
-      Bump haproxy to 1.8.13 from 1.8.12
-      Fix anonymous ACLs logic for predefined conditions
-      Fix linting bugs
-      models: Fix string formatting
-      Standardize on github.com/BurntSushi/toml in order to avoid import collisions with lowercase version
-      apiserver: Include all of the swagger-generated code in the repo
-      spec: Bump go-swagger, rename the binary so that it is version-agnostic
-      apiserver:spec:models: API code regeneration using new go-swagger (0.16.0)
-      framework:apiserver: Adjust non-generated code to accomodate go-swagger update
-      Bump vendored dependencies to match the changes done by code re-generation using go-swagger 0.16
-      apiserver: Remove reduntant go:generate comment
-      spec: Add missing newlines to swagger spec files
-      spec: Remove newline at the end of swagger.json
-      framework: Update go:generate stanza, move it into a separate file
-      Remove redundant swagger.json file
-      Migrate away swagger definitions from YML to Json
-      spec: Refactor Makefile
-      spec: Make packageVersoins use the $DOCKER_VERSION variable
-      framework/edgelb/cli: Make `show --json` output the pool config instead of the container.
-      Bump API version in the swagger spec
-      lbmgr: Adjust environment passing to match the new haproxy svc launching model
-      itests: Add integration tests for autocert feature
-      dcos-template: Properly handle nil values for some of the Mesos Tasks's protobuf fields
-      dcos-template: Fix remaining direct accesses to protobufs fields
-      mesos-listener: Commit protobuf code changes that stem from [tool update](https://github.com/golang/protobuf/tree/master/protoc-gen-go)
-```
-
 ## Known Limitations
 
 * Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
