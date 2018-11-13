@@ -9,6 +9,8 @@ excerpt: Hardware and software requirements for DC/OS  deployments
 render: mustache  
 ---
 
+A DC/OS cluster consists of two types of nodes **master nodes** and **agent nodes**.  The agent nodes can be either **public agent nodes** or **private agent nodes**. Public agent nodes provide north-south (external to internal) access to services in the cluster through load balancers. Private agents host the containers and services that are deployed on the cluster. In addition to the master and agent cluster nodes, each DC/OS installation includes a separate **bootstrap node** for file storage and distribution. Some of the hardware and software requirements apply to all nodes. Other requirements are specific to the type of node being deployed.
+
 # Hardware Prerequisites
 
 The hardware prerequisites are a single bootstrap node, Mesos master nodes, and Mesos agent nodes.
@@ -26,6 +28,34 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 The cluster nodes are designated Mesos masters and agents during installation. The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
 
 DC/OS is installed to `/opt/mesosphere` on cluster nodes. `/opt/mesosphere` directory may be created prior to installing DC/OS, but it must be either an empty directory or a link to an empty directory. DC/OS may be installed on a separate volume mount by creating an empty directory on the mounted volume, creating a link at `/opt/mesosphere` that targets the empty directory, and then installing DC/OS.
+
+<a name="CommonReqs">
+
+### All master and agent nodes in the cluster
+You should verify the following requirements for all master and agent nodes in the cluster:
+- Every node must have network access to a public Docker repository or to an internal Docker registry.
+- If the node operating system is RHEL 7 or CentOS 7, the `firewalld` daemon must be stopped and disabled. For more information, see [Disabling the firewall daemon on Red Hat or CentOS](#FirewallDaemon).
+- The DNSmasq process must be stopped and disabled so that DC/OS has access to port 53. For more information, see [Stopping the DNSmasq process](#StopDNSmasq).
+- You are not using `noexec` to mount the `/tmp` directory on any system where you intend to use the DC/OS CLI.
+-  You have sufficient disk to store persistent information for the cluster in the `var/lib/mesos` directory.
+- You should not remotely mount the `/var/lib/mesos` or Docker storage `/var/lib/docker` directory.
+
+<a name="FirewallDaemon">
+
+#### Disabling the firewall daemon on Red Hat or CentOS
+There is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that the `firewalld` process interacts poorly with Docker. For more information about this issue, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
+
+To stop and disable the `firewalld`, run the following command:
+```bash
+sudo systemctl stop firewalld && sudo systemctl disable firewalld
+```
+<a name="StopDNSmasq">
+
+#### Stopping the DNSmasq process
+The DC/OS cluster requires access to port 53. To prevent port conflicts, you should stop and disable the `dnsmasq` process by running the following command:
+```bash
+sudo systemctl stop dnsmasq && sudo systemctl disable dnsmasq.service
+```
 
 ### Master nodes
 
@@ -75,30 +105,12 @@ The table below shows the agent node hardware requirements.
 | Memory      | 16 GB RAM | 16 GB RAM   |
 | Hard disk   | 60 GB     | 60 GB       |
 
-The agent nodes must also have:
-
+In addition to the requirements described in [All master and agent nodes in the cluster](#CommonReqs), the agent nodes must have:
 - A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.12/deploying-services/containerizers/).
-- Network Access to a public Docker repository or to an internal Docker registry.
-- On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that `firewalld` interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
 
-    ```bash
-    sudo systemctl stop firewalld && sudo systemctl disable firewalld
-    ```
+- Do not use `noexec` to mount the `/tmp` directory on any system where you intend to use the DC/OS CLI unless a TMPDIR environment variable is set to something other than `/tmp/`. Mounting the `/tmp` directory using the `noexec` option could break CLI functionality. 
 
-- Disable DNSmasq (DC/OS requires access to port 53):
-
-    ```bash
-    sudo systemctl stop dnsmasq && sudo systemctl disable dnsmasq.service
-    ```
-
--   The Mesos master and agent persistent information of the cluster is stored in the `var/lib/mesos` directory.
-
-    <p class="message--important"><strong>IMPORTANT: </strong>Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).</p>
-
-
--   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.
-
--   If you are planning a cluster with hundreds of agent nodes or intend to have a high rate of deploying and deleting services, isolating this directory to dedicated SSD storage is recommended.
+- If you are planning a cluster with hundreds of agent nodes or intend to have a high rate of deploying and deleting services, isolating this directory to dedicated SSD storage is recommended.
 
     | Directory Path | Description |
     |:-------------- | :---------- |
