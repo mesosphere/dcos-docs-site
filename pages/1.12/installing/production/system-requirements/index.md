@@ -71,7 +71,7 @@ There are many mixed workloads on the masters. Workloads that are expected to be
 
 [0]: /1.12/overview/high-availability/
 
-Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
+Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require synchronizing with `fsync` periodically, which can generate a lot of expensive random I/O. We recommend the following:
 
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
