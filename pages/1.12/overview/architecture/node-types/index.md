@@ -11,7 +11,7 @@ A DC/OS node is a virtual or physical machine on which DC/OS components run. DC/
 
 We recommend that you use different types of nodes set up in different networks (private, public, master) as seen in Figure 1.
 
-![DC/OS Node Types](/1.12/img/dcos-node-types.png)
+![DC/OS Node Types](/1.12/img/node-types-redesigned.png)
 
 Figure 1 - DC/OS node types
 
