@@ -224,6 +224,7 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 - [Requirements for Kubernetes support on DC/OS 1.12](https://support.mesosphere.com/s/article/Critical-Issue-Kubernetes-Upgrade-MSPH-2018-0007).
 - [Red Hat Docker 1.13 recommended for CentOS & RHEL support on DC/OS](https://support.mesosphere.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006).
 - Update components to support Marathon's [new event-stream redirects](https://support.mesosphere.com/s/article/Update-Components-to-Support-Marathon-s-New-Event-Stream-Redirects-MSPH-2018-0008).
+- `dcos-net` ignores some [tcp/udp discovery ports](https://support.mesosphere.com/s/article/Known-Issue-DC-OS-Networking-MSPH-2018-0008) for tasks on the host network.
 
 ## Known Issues and Limitations
 
@@ -246,6 +247,7 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 - DCOS_OSS-4328 - Lashup fails to converge in certain cases.
 - DCOS-10809 - DNS unavailable during DC/OS upgrade.
 - DCOS-43857 - `test_dcos_cni_l4lb` fails for 1.12.0-rc3 & 1.11.6 on RHEL 7.5.
+- COPS-4078/DCOS_OSS-4395 - `dcos-net` ignores some tcp/udp discovery ports for tasks on the host network.
 
 [enterprise]
 ### Security
