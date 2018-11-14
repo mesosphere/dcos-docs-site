@@ -17,37 +17,37 @@ Released on November 15, 2018.
 ## Notable Changes
 
 * lbmgr: Improved healthchecking
-  * Instead of shelling out to `socat`, lbmgr now nativelly handles communication with haproxy
-  * Add more inforation about successful and failed healthcheck: size of the reply, time it took to write the command, fetch the result, total time
-  * Make the check time out after 9 seconds, 1 second earlier than Mesos healthcheck would. This way there is more verbose information about where the timeout occured.
+  * Instead of shelling out to `socat`, lbmgr now natively handles communication with haproxy
+  * Added more information about status on successful and failed healthcheck regarding size of the reply, time it took to write the command, fetch the result, total time
+  * Made the healthcheck time out to 9 seconds. Its 1 second sooner than Mesos healthcheck. This way there is more verbose information about where the timeout occured.
 * mesos-listener: Added support for TASK_GONE_BY_OPERATOR event
-* mesos-listener: Events for inexistant tasks are ignored
-* mesos-listener: Make goroutines properly mark themselves as done during the termination
-* mesos-listener: Fix bugs in mesos-failover handling code:
+* mesos-listener: Events for non-existant tasks are ignored
+* mesos-listener: Made goroutines properly mark themselves as done during the termination
+* mesos-listener: Fixed bugs in mesos-failover handling code:
   * Prevent overriding of framework data in carried over tasks
   * Prevent carry-over logic from removing frameworks that may still be in use by the tasks in the active shapshot
 * mesos-listener: No longer send inactive tasks to the clients, only those in TASK_RUNNING will be now present in the data offered to clients
 * mesos-listener: Improve integration tests and increase the tests coverage
-* Update SDK used by Edge-LB from 0.42.3 to 0.54.2
+* Updated SDK used by Edge-LB from 0.42.3 to 0.54.2
   * This update also updates the Java JRE to 8u192 from 8u172 to address Java vulneralibities
-* Bump haproxy used from 1.8.13 to 1.8.14
+* Bumped haproxy version used from 1.8.13 to 1.8.14
 * Pool task container improvements:
   * Use -slim version of debian for smaller container
-  * Install some basic debugging tooling
-  * Makes LBWORKDIR the working directory of the container
-  * Removes some unnecessary tooling (iptables, syslogd, etc..)
-  * Makes sure that only the necessary artifacts are copied into the container during the build (i.e. no more Dockerfile)
+  * Installed some basic debugging tooling
+  * Made LBWORKDIR the working directory of the container
+  * Removed unnecessary tooling regarding iptables, syslogd, etc.
+  * Made sure that only the necessary artifacts are copied into the container during the build (i.e. no more Dockerfile)
   * Be verbose when copying files during the container start
-* Fix a bug in haproxy templates used, that was preventing TLS+SNI to work
+* Fixed bug on haproxy template usage that was preventing TLS+SNI to work properly
 
 ## Known Limitations
 
-* Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
-* Edge-LB does not currently support self-service configuration; all configuration must be handled centrally.
+* Edge-LB currently does not support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
+* Edge-LB currently does not support self-service configuration. All configuration must be handled centrally.
 
 ## Known Issues
 
-* The steps presented in the UI to uninstall Edge-LB are incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
+* The steps provided in the DC/OS UI to uninstall Edge-LB are incorrect. Follow these steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
 
