@@ -16,31 +16,29 @@ Released on November 15, 2018.
 
 ## Notable Changes
 
-* lbmgr: improved healthchecking
-  * instead of shelling out to `socat`, lbmgr now nativelly handles communication with haproxy
-  * add more inforation about successful and failed healthcheck: size of the reply, time it took to write the command, fetch the result, total time
-  * make the check time out after 9 seconds, 1 second earlier than Mesos healthcheck would. This way there is more verbose information about where the timeout occured.
-* integration tests refactoring and improvements
-* mesos-listener: added support for TASK_GONE_BY_OPERATOR event
-* mesos-listener: events for inexistant tasks are ignored
-* mesos-listener: make goroutines properly mark themselves as done during the termination
-* mesos-listener: fix bugs in mesos-failover handling code:
-  * prevent overriding of framework data in carried over tasks
-  * prevent carry-over logic from removing frameworks that may still be in use by the tasks in the active shapshot
-* mesos-listener: no longer send inactive tasks to the clients, only those in TASK_RUNNING will be now present in the data offered to clients
-* mesos-listener: improve integration tests and increase the tests coverage
-* update SDK used by Edge-LB from 0.42.3 to 0.54.2
-  * this update also updates the Java JRE to 8u192 from 8u172 to address Java vulneralibities
-* mesos-listener: code refactoring: naming, readability
-* bump haproxy used from 1.8.13 to 1.8.14
-* pool task container improvements:
-  * use -slim version of debian for smaller container
-  * install some basic debugging tooling
-  * makes LBWORKDIR the working directory of the container
-  * removes some unnecessary tooling (iptables, syslogd, etc..)
-  * makes sure that only the necessary artifacts are copied into the container during the build (i.e. no more Dockerfile)
-  * be verbose when copying files during the container start
-* fix a bug in haproxy templates used, that was preventing TLS+SNI to work
+* lbmgr: Improved healthchecking
+  * Instead of shelling out to `socat`, lbmgr now nativelly handles communication with haproxy
+  * Add more inforation about successful and failed healthcheck: size of the reply, time it took to write the command, fetch the result, total time
+  * Make the check time out after 9 seconds, 1 second earlier than Mesos healthcheck would. This way there is more verbose information about where the timeout occured.
+* mesos-listener: Added support for TASK_GONE_BY_OPERATOR event
+* mesos-listener: Events for inexistant tasks are ignored
+* mesos-listener: Make goroutines properly mark themselves as done during the termination
+* mesos-listener: Fix bugs in mesos-failover handling code:
+  * Prevent overriding of framework data in carried over tasks
+  * Prevent carry-over logic from removing frameworks that may still be in use by the tasks in the active shapshot
+* mesos-listener: No longer send inactive tasks to the clients, only those in TASK_RUNNING will be now present in the data offered to clients
+* mesos-listener: Improve integration tests and increase the tests coverage
+* Update SDK used by Edge-LB from 0.42.3 to 0.54.2
+  * This update also updates the Java JRE to 8u192 from 8u172 to address Java vulneralibities
+* Bump haproxy used from 1.8.13 to 1.8.14
+* Pool task container improvements:
+  * Use -slim version of debian for smaller container
+  * Install some basic debugging tooling
+  * Makes LBWORKDIR the working directory of the container
+  * Removes some unnecessary tooling (iptables, syslogd, etc..)
+  * Makes sure that only the necessary artifacts are copied into the container during the build (i.e. no more Dockerfile)
+  * Be verbose when copying files during the container start
+* Fix a bug in haproxy templates used, that was preventing TLS+SNI to work
 
 ## Known Limitations
 
@@ -91,7 +89,7 @@ Released on September 11, 2018.
 * Cleanup of the goswagger code generation code and build chain, bump of goswagger tool used for generation from v0.11 to v0.16.
 * Bump `golang` from 1.8.3 to 1.10.3.
 * Fix anonymous ACLs logic for predefined conditions.
-* Bump `haproxy` from 1.8.12 to 1.8.13. [changelog] (http://git.haproxy.org/?p=haproxy-1.8.git;a=blob;f=CHANGELOG;h=aed48fc5fb951aff7dd458c4bc9bfcfe1d5dd99a;hb=HEAD)
+* Bump `haproxy` from 1.8.12 to 1.8.13. [changelog](http://git.haproxy.org/?p=haproxy-1.8.git;a=blob;f=CHANGELOG;h=aed48fc5fb951aff7dd458c4bc9bfcfe1d5dd99a;hb=HEAD).
 * Commit protobuf code changes that stem from [tool update](https://github.com/golang/protobuf/tree/master/protoc-gen-go).
 
 ## Known Limitations
