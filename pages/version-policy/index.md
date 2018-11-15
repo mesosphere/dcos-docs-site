@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: DC/OS version lifecycle and compatibility matrix
 ---
 
-This page was updated on November 7, 2018. 
+This page was updated on November 7, 2018.
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
@@ -98,7 +98,7 @@ The following matrix shows the platform components and operating environments on
         <td>CoreOS 1800.6.0</td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td>                    </td>  
+        <td>                    </td>
     </tr>
     </tr>
         <tr>
@@ -171,17 +171,17 @@ The following matrix shows the platform components and operating environments on
         <td><p style="text-align: center;">⚫</p></td>
         <td></td>
         <td></td>
-    </tr>  
+    </tr>
 </table>
 
 <p class="message--note"><strong>NOTE: </strong>CoreOS 1800.7.0 requires DC/OS 1.11.6 or later releases.</p>
 
 
 ## Customer Advisory for CentOS/RHEL 7.X
-<p class="message--important"><strong>IMPORTANT: </strong>A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13. This fork of Docker does not require an RHN subscription.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>IMPORTANT: A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. <strong>Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13</strong>. This fork of Docker does not require an RHN subscription. More specific details on the Docker bug and mitigation instructions are located [here][https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006].</p>
 
 
-<p class="message--note"><strong>NOTE: </strong>More specific details on the Docker bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>Because of this kmem bug, <strong>Mesosphere only supports Kubernetes on DC/OS with CentOS/RHEL 7.X when using DC/OS 1.12 or greater and CentOS/RHEL 7.5</strong>.</a>.</p>
 
 
 
@@ -212,7 +212,7 @@ The designations are as follows:
 - This combination is not within the scope of our technical support organization.
 - This combination is not eligible for bug fixes.
 
-B- This package combination is *beta*.      
+B- This package combination is *beta*.
 - Beta packages are not within the scope of our technical support organization.
 - Beta packages iterate quickly and are not eligible for bug fixes.
 
@@ -231,7 +231,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>Cassandra 2.1.x-*</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -266,7 +266,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>¹DataStax-DSE 2.1.x-*</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -280,7 +280,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>¹DataStax-Ops 2.1.x-*</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -329,14 +329,14 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>ElasticSearch 2.1.x-*</td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>ElasticSearch 2.2.x-*</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -448,7 +448,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr>  
+    </tr>
     <tr>
         <td>Kubernetes 1.0.x-*</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -462,7 +462,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>MoM (Marathon on Marathon) 1.5</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -490,7 +490,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>Spark 1.x-*</td>
         <td><p style="text-align: center;">◯</p></td>
@@ -504,14 +504,14 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>Spark 2.1.x-2.2.y</td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr>   
+    </tr>
     <tr>
     	<td>Spark 2.3.x-2.2.y</td>
     	<td><p style="text-align: center;">⚫</p></td>
