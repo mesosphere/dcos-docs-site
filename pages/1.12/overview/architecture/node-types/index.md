@@ -71,8 +71,8 @@ Because these resources are undifferentiated, most tasks are scheduled on privat
 
 For more on master and agent node components, see [Components](/1.12/overview/architecture/components/).
 
-For more on security, see [Securing Your Cluster](/1.12/administering-clusters/).
+For more on security, see [Securing your cluster](/1.12/administering-clusters/securing-your-cluster/).
 
-For more on scaling your cluster, see [Adding Agent Nodes](/1.12/administering-clusters/add-a-node/).
+For more on scaling your cluster, see [Adding agent nodes](/1.12/administering-clusters/add-a-node/).
 
-For more on configuring public nodes, see [Converting Agent Node Types](/1.12/administering-clusters/convert-agent-type/).
+For more on configuring public nodes, see [Converting agent node types](/1.12/administering-clusters/convert-agent-type/).
