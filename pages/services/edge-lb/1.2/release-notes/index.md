@@ -19,24 +19,24 @@ Released on November 15, 2018.
 * lbmgr: Improved healthchecking
   * Instead of shelling out to `socat`, lbmgr now natively handles communication with haproxy
   * Added more information about status on successful and failed healthcheck regarding size of the reply, time it took to write the command, fetch the result, total time
-  * Made the healthcheck time out to 9 seconds. Its 1 second sooner than Mesos healthcheck. This way there is more verbose information about where the timeout occured.
+  * Made the healthcheck time out to 9 seconds. It's 1 second sooner than mesos healthcheck. This helps identifying the timeout occurance time.
 * mesos-listener: Added support for TASK_GONE_BY_OPERATOR event
 * mesos-listener: Events for non-existant tasks are ignored
 * mesos-listener: Made goroutines properly mark themselves as done during the termination
-* mesos-listener: Fixed bugs in mesos-failover handling code:
+* mesos-listener: Mesos-failover code handling:
   * Prevent overriding of framework data in carried over tasks
   * Prevent carry-over logic from removing frameworks that may still be in use by the tasks in the active shapshot
 * mesos-listener: No longer send inactive tasks to the clients, only those in TASK_RUNNING will be now present in the data offered to clients
-* mesos-listener: Improve integration tests and increase the tests coverage
+* mesos-listener: Increased tests coverage with improved integration tests
 * Updated SDK used by Edge-LB from 0.42.3 to 0.54.2
-  * This update also updates the Java JRE to 8u192 from 8u172 to address Java vulneralibities
-* Bumped haproxy version used from 1.8.13 to 1.8.14
+  * This also updated Java JRE to 8u192 from 8u172 to address Java vulneralibities
+* Bumped HAProxy version used from 1.8.13 to 1.8.14
 * Pool task container improvements:
   * Use -slim version of debian for smaller container
-  * Installed some basic debugging tooling
-  * Made LBWORKDIR the working directory of the container
+  * Installed basic debugging tooling
+  * Made LBWORKDIR, the working directory of the container
   * Removed unnecessary tooling regarding iptables, syslogd, etc.
-  * Made sure that only the necessary artifacts are copied into the container during the build (i.e. no more Dockerfile)
+  * Now only necessary artifacts are copied into the container during the build (i.e. no more Dockerfile)
   * Be verbose when copying files during the container start
 
 ## Bug Fixes
