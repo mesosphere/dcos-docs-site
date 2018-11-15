@@ -4,11 +4,51 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 0
 excerpt: Release notes for Edge-LB 1.2
-
 enterprise: false
 ---
 
 These are the release notes for Edge-LB 1.2.
+
+# v1.2.2
+
+Released on November 15, 2018.
+
+## Notable Changes
+
+* lbmgr: Improved healthchecking
+  * Instead of shelling out to `socat`, lbmgr now natively handles communication with HAProxy
+  * Added more information about status on successful and failed healthcheck regarding size of the reply, time it took to write the command, fetch the result, total time
+  * Extended the healthcheck time out to 9 seconds. This is one second longer than the Mesos healthcheck. This way there is more verbose information about where the timeout occured.
+* mesos-listener: Added support for TASK_GONE_BY_OPERATOR event
+* mesos-listener: Events for non-existent tasks are ignored
+* mesos-listener: Made goroutines properly mark themselves as done during the termination
+* mesos-listener: Fixed bugs in mesos-failover handling code:
+  * Prevent overriding of framework data in carried-over tasks
+  * Prevent carry-over logic from removing frameworks that may still be in use by the tasks in the active shapshot
+* mesos-listener: No longer send inactive tasks to the clients. Only those in TASK_RUNNING will  now be present in the data offered to clients.
+* mesos-listener: Improved integration tests and increased the tests coverage.
+* Updated SDK used by Edge-LB from 0.42.3 to 0.54.2
+  * This update also updates the Java JRE to 8u192 from 8u172 to address Java vulnerabilities.
+* Bumped HAProxy version used from 1.8.13 to 1.8.14
+* Pool task container improvements:
+  * Use -slim version of Debian for smaller containers
+  * Installed some basic debugging tools
+  * Made LBWORKDIR the working directory of the container
+  * Removed unnecessary tooling regarding iptables, syslogd, etc.
+  * Made sure that only the necessary artifacts are copied into the container during the build (i.e., no more Dockerfile)
+  * Verbose when copying files during the container start
+* Fixed bug on HAProxy template usage that was preventing TLS+SNI from working properly
+
+## Known Limitations
+
+* Edge-LB currently does not support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
+* Edge-LB currently does not support self-service configuration. All configuration must be handled centrally.
+
+## Known Issues
+
+* The steps provided in the DC/OS web interface to uninstall Edge-LB are incorrect. Follow these steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
+* Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
+* If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
 
 # v1.2.1
 
@@ -17,10 +57,10 @@ Released on September 17, 2018.
 ## Notable Changes
 
 - Added Add timestamp to log messages produced during cont. start
-- Replace manual logline prefixing with proper source code file log field
-- Migrate logging to logrus, unify logging
-- Increase log retention for edge-lb containers
-- Add extra logging about the mesos state snapshot logging for better troubleshooting of Edge-LB
+- Replaced manual logline prefixing with proper source code file log field
+- Migrated logging to logrus, unify logging
+- Increased log retention for edge-lb containers
+- Added extra logging about the mesos state snapshot logging for better troubleshooting of Edge-LB
 
 ## Known Limitations
 
@@ -41,50 +81,15 @@ Released on September 11, 2018.
 
 * dcos-template: Properly handle nil values for some of the Mesos tasks protobuf fields.
 * dcos-template: Set maximum grpc recv. message size to 100MIB.
-* lbmgr: Adjust environment passing to match the new haproxy svc launch model. This fixes `AUTOCERT` and `SECRET` env passing in the haproxy task container.
-* api-swagger-spec: Bump api version to match edgelb version.
+* lbmgr: Adjust environment passing to match the new HAProxy svc launch model. This fixes `AUTOCERT` and `SECRET` env passing in the HAProxy task container.
+* api-swagger-spec: Bump api version to match Edge-LB version.
 * Introduce proper versioning for edgelb-pool cosmos package to match the version of the package with the version of the edgelb package itself instead of `stub-universe`.
-* Make the output of `dcos edgelb show --json` cmd be the actual pool configuration instead of wrapping it in a configuration container. This enables feeding the output of `show` command directly to the `update` command.
+* Make the output of `dcos edgelb show --json` copmmand be the actual pool configuration instead of wrapping it in a configuration container. This enables feeding the output of `show` command directly to the `update` command.
 * Cleanup of the goswagger code generation code and build chain, bump of goswagger tool used for generation from v0.11 to v0.16.
 * Bump `golang` from 1.8.3 to 1.10.3.
 * Fix anonymous ACLs logic for predefined conditions.
-* Bump `haproxy` from 1.8.12 to 1.8.13. [changelog] (http://git.haproxy.org/?p=haproxy-1.8.git;a=blob;f=CHANGELOG;h=aed48fc5fb951aff7dd458c4bc9bfcfe1d5dd99a;hb=HEAD)
+* Bump `haproxy` from 1.8.12 to 1.8.13. [changelog](http://git.haproxy.org/?p=haproxy-1.8.git;a=blob;f=CHANGELOG;h=aed48fc5fb951aff7dd458c4bc9bfcfe1d5dd99a;hb=HEAD).
 * Commit protobuf code changes that stem from [tool update](https://github.com/golang/protobuf/tree/master/protoc-gen-go).
-
-
-### Shortlist
-
-```
-
-      dcos-template: set maximum recv message size to 100MiB
-      dcos-template/dependency: better comments
-      dcos-template/dependency: use huge name instead of key
-      Bump haproxy to 1.8.13 from 1.8.12
-      Fix anonymous ACLs logic for predefined conditions
-      Fix linting bugs
-      models: Fix string formatting
-      Standardize on github.com/BurntSushi/toml in order to avoid import collisions with lowercase version
-      apiserver: Include all of the swagger-generated code in the repo
-      spec: Bump go-swagger, rename the binary so that it is version-agnostic
-      apiserver:spec:models: API code regeneration using new go-swagger (0.16.0)
-      framework:apiserver: Adjust non-generated code to accomodate go-swagger update
-      Bump vendored dependencies to match the changes done by code re-generation using go-swagger 0.16
-      apiserver: Remove reduntant go:generate comment
-      spec: Add missing newlines to swagger spec files
-      spec: Remove newline at the end of swagger.json
-      framework: Update go:generate stanza, move it into a separate file
-      Remove redundant swagger.json file
-      Migrate away swagger definitions from YML to Json
-      spec: Refactor Makefile
-      spec: Make packageVersoins use the $DOCKER_VERSION variable
-      framework/edgelb/cli: Make `show --json` output the pool config instead of the container.
-      Bump API version in the swagger spec
-      lbmgr: Adjust environment passing to match the new haproxy svc launching model
-      itests: Add integration tests for autocert feature
-      dcos-template: Properly handle nil values for some of the Mesos Tasks's protobuf fields
-      dcos-template: Fix remaining direct accesses to protobufs fields
-      mesos-listener: Commit protobuf code changes that stem from [tool update](https://github.com/golang/protobuf/tree/master/protoc-gen-go)
-```
 
 ## Known Limitations
 
