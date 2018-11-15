@@ -38,7 +38,14 @@ Released on November 15, 2018.
   * Removed unnecessary tooling regarding iptables, syslogd, etc.
   * Made sure that only the necessary artifacts are copied into the container during the build (i.e. no more Dockerfile)
   * Be verbose when copying files during the container start
-* Fixed bug on haproxy template usage that was preventing TLS+SNI to work properly
+
+## Bug Fixes
+
+* In DC/OS 1.11.3 EE (strict mode), non-superuser access needed to Edge-LB pool logs
+* EdgeLB – default template for SNI is incorrect
+* Edgelb should ignore terminal but not ack'ed tasks from Mesos when subscribing.
+* Edge-LB pool is unable to launch additional load balancer tasks
+* Edge LB pool can not deploy if app and secret are under namespace/group
 
 ## Known Limitations
 
