@@ -178,8 +178,7 @@ The following matrix shows the platform components and operating environments on
 
 
 ## Customer Advisory for CentOS/RHEL 7.X
-<p class="message--important"><strong>IMPORTANT: </strong>IMPORTANT: A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. <strong>Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13</strong>. This fork of Docker does not require an RHN subscription. More specific details on the Docker bug and mitigation instructions are located [here][https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006].</p>
-
+<p class="message--important"><strong>IMPORTANT: </strong>A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. <strong>Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13</strong>. This fork of Docker does not require an RHN subscription. More specific details on the Docker bug and mitigation instructions are located <a href=“https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006“>here</a>.</p>
 
 <p class="message--note"><strong>NOTE: </strong>Because of this kmem bug, <strong>Mesosphere only supports Kubernetes on DC/OS with CentOS/RHEL 7.X when using DC/OS 1.12 or greater and CentOS/RHEL 7.5</strong>.</a>.</p>
 
