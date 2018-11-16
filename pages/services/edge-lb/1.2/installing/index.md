@@ -11,9 +11,9 @@ To configure a service account and install the Edge-LB package, use the instruct
 
 # Prerequisites
 
-- [DC/OS CLI is installed](/latest/cli/install/)
+- [DC/OS CLI is installed](/1.12/cli/install/)
 - You are logged in as a superuser.
-- The [DC/OS Enterprise CLI is installed](/latest/cli/enterprise-cli/).
+- The [DC/OS Enterprise CLI is installed](/1.12/cli/enterprise-cli/).
 - You have access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must have a customer service account to log in as a superuser and download the remote Edge-LB repositories.</p>
@@ -106,7 +106,7 @@ cp -rpv stub-repo/packages/* ../../repo/packages
 # Create a service account
 The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
 
-[Service accounts](/latest/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
+[Service accounts](/1.12/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
 
 Follow the steps below to create a service account, a principal associated with the service account, assign permissions to this principle, and associate a secret store with this service account. The secret store is used by Edge-LB to retrieve and install TLS certificates on the Edge-LB pools in order to enable TLS for all HTTP traffic between client and service backends.
 
@@ -119,7 +119,7 @@ In this step, a 2048-bit RSA public-private key pair is created using the DC/OS 
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/latest/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
+<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/1.12/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
 
 ## Create the principal
 From a terminal prompt, create a new service account (`edge-lb-principal`) containing the public key (`edge-lb-public-key.pem`).
@@ -155,7 +155,7 @@ dcos security secrets list /
 
 ## <a name="give-perms"></a>Create and Assign Permissions
 
-Use the following CLI commands to provision the Edge-LB service account with the required permissions. All CLI commands can also be executed via the [IAM API](/latest/security/ent/iam-api/).
+Use the following CLI commands to provision the Edge-LB service account with the required permissions. All CLI commands can also be executed via the [IAM API](/1.12/security/ent/iam-api/).
 
 One of two methods can be used to securely provision the Edge-LB service account with the required permissions:
 
