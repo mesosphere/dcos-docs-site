@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Installing and deploying a Minio cluster
+excerpt: Installing and deploying a MongoDB cluster
 title: Getting Started
 menuWeight: 10
-model: /services/minio/data.yml
+model: /services/mongodb-enterprise/data.yml
 render: mustache
 ---
 

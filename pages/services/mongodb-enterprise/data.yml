@@ -1,32 +1,14 @@
 # Common values:
 
-packageName: miniod
-serviceName: minio
-techName: Minio
-techShortName: minio
-minNodeCount: four
+packageName: MongoDB
+serviceName: MongoDB
+techName: MongoDB
+techShortName: MongoDB
+minNodeCount: three
 # Values specific to certain templates:
 
 operations:
   default-deploy: |
-    deploy (parallel strategy) (COMPLETE)
-    ├─ miniod (serial strategy) (COMPLETE)
-    │  └─ node:[server] (COMPLETE)
-
-  backup-plan-deploy: |
     deploy (serial strategy) (COMPLETE)
-    ├─ minioc (serial strategy) (COMPLETE)
-    │  └─ init:[server] (COMPLETE)
-    │  └─ delete-previous-snapshot:[server] (COMPLETE)
-    │  └─ backup:[server] (COMPLETE)
-
-  restore-plan-deploy: |
-    deploy (serial strategy) (COMPLETE)
-    ├─ minioc (serial strategy) (COMPLETE)
-    │  └─ init:[server] (COMPLETE)
-    │  └─ restore:[server] (COMPLETE)
-
-  recover-plan-deploy: |
-    deploy (serial strategy) (COMPLETE)
-    ├─ minioc (serial strategy) (COMPLETE)
-    │  └─ recover:[server] (COMPLETE)
+    ├─ mongodb (serial strategy) (COMPLETE)
+    │  └─ mongod:[server] (COMPLETE)
