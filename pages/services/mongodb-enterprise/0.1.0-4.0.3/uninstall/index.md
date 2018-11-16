@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Uninstall
 title: Uninstall
 menuWeight: 40
-excerpt: Uninstalling DC/OS Minio Services
+excerpt: Uninstalling DC/OS MongoDB Services
 featureMaturity:
 enterprise: false
 ---
@@ -16,7 +16,7 @@ Uninstall the service from the DC/OS CLI, by entering `dcos package uninstall <p
 
 ```
 
-dcos package uninstall miniod
+dcos package uninstall mongodbservice
 
 ```
 
@@ -42,7 +42,7 @@ In the vast majority of cases, this uninstall process goes off without a hitch. 
 
 This situation is indicated by looking at the deploy plan while the uninstall is proceeding. The deploy plan may be viewed using either of the following methods:
 
-- CLI: dcos minio --name=minio plan show deploy (after running dcos package install --cli minio if needed)
+- CLI: dcos mongod --name=mongodb plan show deploy (after running dcos package install --cli mongodb if needed)
 - HTTP: https://yourcluster.com/service/minio/v1/plans/deploy
 
 ### Manual uninstall    
@@ -53,7 +53,7 @@ If all else fails, you can manually perform the uninstall yourself. To do this, 
 1. Unregister the service from Mesos using its UUID as follows:
 
 ```shell
-dcos service --inactive | grep miniod
+dcos service --inactive | grep mongod
 miniod     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 dcos service shutdown 97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 ```
