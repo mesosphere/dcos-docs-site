@@ -9,8 +9,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos edgelb status` command returns a list of load-balancer task information associated with a pool, such as agent IP address, task ID, etc.
-Lists the names of each running load balancer instance in a pool.
+The `dcos edgelb status` command returns a list of load-balancer task information associated with a pool, such as agent IP address, task ID, etc. 
 
 # Usage
 
@@ -32,8 +31,8 @@ dcos edgelb status [<flags>] <pool-name>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) |  Manage Edge-LB. |
+| [dcos edgelb](/services/edge-lb/1.2/cli-reference) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.1/usage).
+See the [Edge-LB Usage](/services/edge-lb/1.2/usage).

@@ -9,14 +9,17 @@ enterprise: false
 
 To configure a service account and install the Edge-LB package, use the instructions below.
 
-**Prerequisites:**
+# Prerequisites
 
 - [DC/OS CLI is installed](/latest/cli/install/)
 - You are logged in as a superuser.
 - The [DC/OS Enterprise CLI is installed](/latest/cli/enterprise-cli/).
 - You have access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
-**Limitations**
+<p class="message--important"><strong>IMPORTANT: </strong>You must have a customer service account to log in as a superuser and download the remote Edge-LB repositories.</p>
+
+## Limitations
+
 - Edge-LB supports all [security modes](/1.12/security/ent/#security-modes) in DC/OS 1.11 and later. It supports Permissive, Disabled in DC/OS 1.10. DC/OS 1.9 or earlier is not supported.
 
 # Add Edge-LB package repositories
@@ -110,7 +113,7 @@ Follow the steps below to create a service account, a principal associated with 
 The steps below require [DC/OS Enterprise CLI to be installed](/1.12/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
 
 ## <a name="create-a-keypair"></a>Create a key pair
-In this step, a 2048-bit RSA public-private key pair is created using the DC/OS Enterprise CLI. Create a public-private key pair and save each value into a separate file within the current directory. You can use the [DC/OS Secret Store](/latest/security/ent/secrets/) to secure the key pair.
+In this step, a 2048-bit RSA public-private key pair is created using the DC/OS Enterprise CLI. Create a public-private key pair and save each value into a separate file within the current directory. 
 
 ```bash
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
@@ -190,7 +193,7 @@ dcos security org users grant edge-lb-principal dcos:mesos:master:task:user:root
 dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id full
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Additionally, this permission needs to be granted <strong>for each Edge-LB pool created</strong>.</p>
+<p class="message--note"><strong>NOTE: </strong>This permission needs to be granted <strong>for each Edge-LB pool created</strong>.</p>
 
 ```bash
 dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
