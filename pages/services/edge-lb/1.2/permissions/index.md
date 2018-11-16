@@ -27,7 +27,7 @@ In order to install Edge-LB, the user must have the following permissions:
 
 # Service Account Permissions
 
-In order for Edge-LB to operate, it must be configured to use a [service account](/services/edge-lb/1.0/installing/#create-a-service-account/).
+In order for Edge-LB to operate, it must be configured to use a [service account](/services/edge-lb/1.2/installing/#create-a-service-account/).
 
 For easier administration, add the service account principal to the `superusers` group.
 
