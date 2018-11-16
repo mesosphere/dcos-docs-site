@@ -1,31 +1,31 @@
 ---
 layout: layout.pug
 navigationTitle: Quick Start
-excerpt: Configuring Minio - Quick Start
+excerpt: Configuring MongoDB - Quick Start
 title: Quick Start
 menuWeight: 15
 ---
 
-# How to use Minio with DC/OS
+# How to use MongoDB with DC/OS
 
 ## Prerequisites
 
 * A running DC/OS 1.11 cluster
 
-* Minio requires atleast four nodes to start in distributed mode. DC/OS cluster must contain atleast four Private slaves. 
+* MongoDB requires atleast three nodes to start in distributed mode. DC/OS cluster must contain atleast three Private slaves. 
 
-* Minio requires even number of nodes to start in distributed mode.
+* MongoDB requires even number of nodes to start in distributed mode.
 
-* If DC/OS Secrets are enabled to specify credentials of Minio then following Secrets must be created:  service.name/access_key and service.name/secret_key. Where service.name is the name with which Minio service is installed on DC/OS.
+* If DC/OS Secrets are enabled to specify credentials of MongoDB then following Secrets must be created:  service.name/access_key and service.name/secret_key. Where service.name is the name with which MongoDB service is installed on DC/OS.
 
 ## Install
 
-Minio can be installed via either the DC/OS Catalog web interface or by using the CLI. The following command will launch the install via the DC/OS CLI:
+MongoDB can be installed via either the DC/OS Catalog web interface or by using the CLI. The following command will launch the install via the DC/OS CLI:
 
 ```bash
-dcos package install miniod 
+dcos package install mongodbservice --yes
 ```
-Below are the steps to install Minio using the DC/OS Catalog Web Interface:
+Below are the steps to install MongoDB using the DC/OS Catalog Web Interface:
 
 [<img src="../img/Catalog_Service_View.png" alt="Catalog Service View"/>](../img/Catalog_Service_View.png)
 
@@ -38,7 +38,7 @@ Below are the steps to install Minio using the DC/OS Catalog Web Interface:
 
 
 
-## Accessing the Minio UI with Edge-LB configuration
+## Accessing the MongoDB UI with MongoDB OpsManager
 
 ### Steps
 
