@@ -39,7 +39,7 @@ For help installing Terraform on a different OS, please see [here](https://www.t
 ## Ensure you have default application credentials
 You have to have [Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login) in order to allow the gcp provider authenticate against GCP.
 
-To receive Application Default Credentials run:  
+To receive Application Default Credentials run:
 
 ```bash
 $ gcloud auth application-default login
@@ -171,7 +171,7 @@ Writing our execution plan to a file allows us to pass the execution plan to the
 
 Afterwards, we should see a message like the one below, confirming that we have successfully saved to the `plan.out` file.  This file should appear in your `dcos-tf-gcp-demo` folder alongside `main.tf`.
 
-<p align=center>  
+<p align=center>
 <img src="./images/install/terraform-plan.png" />
 </p>
 
@@ -183,7 +183,7 @@ Every time you run `terraform plan`, the output will always detail the resources
 terraform apply plan.out
 ```
 
-Once Terraform has completed applying our plan, you should see output similar to the following:  
+Once Terraform has completed applying our plan, you should see output similar to the following:
 
 <p align=center>
 <img src="./images/install/terraform-apply.png" />
@@ -249,7 +249,7 @@ output "public-agents-loadbalancer" {
 }
 ```
 
-2) Now that we’ve made changes to our `main.tf`, we need to re-run our new execution plan.  
+2) Now that we’ve made changes to our `main.tf`, we need to re-run our new execution plan.
 
 ```bash
 terraform plan -out=plan.out
@@ -273,7 +273,7 @@ terraform apply plan.out
 <img src="./images/scale/terraform-apply.png" />
 </p>
 
-Once you see an output like the message above, check your DC/OS cluster to ensure the additional agents have been added.  
+Once you see an output like the message above, check your DC/OS cluster to ensure the additional agents have been added.
 
 You should see now 4 total nodes connected like below via the DC/OS UI.
 
@@ -336,7 +336,7 @@ output "public-agents-loadbalancer" {
 }
 ```
 
-2) Re-run our execution plan.  
+2) Re-run our execution plan.
 
 ```bash
 terraform plan -out=plan.out -var dcos_install_mode=upgrade

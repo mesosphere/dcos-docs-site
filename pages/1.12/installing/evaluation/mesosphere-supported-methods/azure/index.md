@@ -360,7 +360,7 @@ output "public-agents-loadbalancer" {
 }
 ```
 
-2) Re-run our execution plan.  
+2) Re-run our execution plan.
 
 ```bash
 terraform plan -out=plan.out -var dcos_install_mode=upgrade
