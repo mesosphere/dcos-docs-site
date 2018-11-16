@@ -12,7 +12,7 @@ DC/OS 1.12.0 was released on October 25, 2018.
 
 [button color="purple" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise* [/button]
 
-\*Registered Enterprise customers can access the DC/OS Enterprise configuration file from the [support website](https://support.mesosphere.com/s/downloads). New customers, for installing DC/OS Enterprise Edition please contact your sales representative or <sales@mesosphere.io>.
+<p class="message--warning"><strong>WARNING: </strong>Registered Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. New customers, for installing DC/OS Enterprise Edition please contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a>.</p>
 
 # About DC/OS 1.12.0 
 
