@@ -21,13 +21,80 @@ Before installing Docker on CentOS/RHEL, review the general [requirements and re
 
 * For more a more detailed breakdown of installing docker, [see the Docker CE for CentOS installation page][4].
 
-<p class="message--note"><strong>NOTE: </strong> In modern versions of Centos and RHEL, <code>ftype=1</code> is the default. The <code>xfs_info</code> utility can be used to verify that <code>ftype=1</code>.</p>
+    <p class="message--note"><strong>NOTE: </strong> In modern versions of Centos and RHEL, <code>ftype=1</code> is the default. The <code>xfs_info</code> utility can be used to verify that <code>ftype=1</code>.</p>
 
-```bash
-mkfs -t xfs -n ftype=1 /dev/sdc1
-```
+    ```bash
+    mkfs -t xfs -n ftype=1 /dev/sdc1
+    ```
+
+# Installation
+
+### RHEL-only requirements
+
+You must register with the subcription-manager to enable additional repos.
+
+Follow the Docker [RHEL-specific installation instructions][3], keeping in mind the above customer advisory.
+
+## Example: Installing Docker on CentOS
+
+The following instructions demonstrate how to install Docker CentOS 7.
+
+1.  Uninstall the newer version of Docker (if present):
+
+    ```bash
+    sudo yum remove docker-ce
+    ```
+
+1. Install additional yum utilities:
+
+    ```bash
+    sudo yum install -y yum-utils \
+        device-mapper-persistent-data \
+        lvm2
+    ```
+1. Set up the stable repository for yum 
+
+    ```bash
+    sudo yum-config-manager \
+        --add-repo \
+        https://download.docker.com/linux/centos/docker-ce.repo
+    ```
+
+1.  Install Docker:
+
+    ```bash
+    sudo yum install docker
+    ```
+
+1.  Start Docker:
+
+    ```bash
+    sudo systemctl start docker
+    ```
+
+1. Verify that Docker version 1.13 was installed:
+
+    ```bash
+    docker version --format '{{.Server.Version}}'
+    ```
+
+1.  Test Docker with `hello-world` app:
+
+    ```bash
+    sudo docker run hello-world
+    ```
+
+1.  Verify that Docker is using the overlay driver:
+
+    ```bash
+    sudo docker info | grep Storage
+    ```
+
+To continue setting up DC/OS, [please jump to the Advanced Installer][4]
+
+For more generic Docker requirements, see [System Requirements: Docker][1].
 
 [1]: /1.12/installing/production/system-requirements/#docker
 [2]: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.2_Release_Notes/technology-preview-file_systems.html
-[3]: https://docs.docker.com/install/linux/docker-ce/centos/
+[3]: https://docs.docker.com/install/linux/docker-ee/rhel
 [4]: /1.12/installing/production/deploying-dcos/installation/
