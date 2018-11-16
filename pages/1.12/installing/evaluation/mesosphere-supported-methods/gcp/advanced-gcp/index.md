@@ -66,7 +66,7 @@ module "dcos" {
   dcos_variant = "open"
 }
 ```
-
+Here is a list of all the variables that are currently supported on the Universal Installer and available for you to customize your cluster.
 
 ## Inputs
 
