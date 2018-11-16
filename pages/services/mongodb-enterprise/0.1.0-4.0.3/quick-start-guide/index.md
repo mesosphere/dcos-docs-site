@@ -14,8 +14,6 @@ menuWeight: 15
 
 * MongoDB requires atleast three nodes to start in distributed mode. DC/OS cluster must contain atleast three Private slaves. 
 
-* MongoDB requires even number of nodes to start in distributed mode.
-
 * If DC/OS Secrets are enabled to specify credentials of MongoDB then following Secrets must be created:  service.name/access_key and service.name/secret_key. Where service.name is the name with which MongoDB service is installed on DC/OS.
 
 ## Install
