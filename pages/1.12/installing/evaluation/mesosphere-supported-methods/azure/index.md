@@ -117,9 +117,9 @@ The example code below creates a DC/OS OSS 1.11.4 cluster on Azure with:
 It also specifies that a the list of `masters-ips`, the `cluster-address`, and the address of the `public-agents-loadbalancer` should be printed out after cluster creation is complete.
 
 It also specifies that the following output should be printed once cluster creation is complete:
-- ```master-ips``` - A list of Your DC/OS Master Nodes.
-- ```cluster-address``` - The URL you use to access DC/OS UI after the cluster is setup.
-- ```public-agent-loadbalancer``` - The URL of your Public routable services.
+- `master-ips` - A list of Your DC/OS Master Nodes.
+- `cluster-address` - The URL you use to access DC/OS UI after the cluster is setup.
+- `public-agent-loadbalancer` - The URL of your Public routable services.
 
 The way the AzureRM provider is implemented forces us to specify the `location` in the module. If you want to use a different region replace `location = "West US"` with your desired region.
 
@@ -313,7 +313,7 @@ If you are interested in learning more about the upgrade procedure that Terrafor
 
 Since we’re now upgrading, however, we need to set this parameter to `upgrade`.
 
-**IMPORTANT:** Do not change any number of masters, agents or public agents while performing an upgrade.
+<p class="message--important"><strong>IMPORTANT: </strong>Do not change any number of masters, agents or public agents while performing an upgrade.</p>
 
 ```hcl
 variable "dcos_install_mode" {
@@ -395,7 +395,7 @@ If you want to destroy your cluster, then use the following command and wait for
 terraform destroy
 ```
 
-**Note:** Runing this command will cause your entire cluster and all at its associated resources to be destroyed. Only run this command if you are absolutely sure you no longer need access to your cluster.
+<p class="message--note"><strong>NOTE: </strong>Running this command will cause your entire cluster and all at its associated resources to be destroyed. Only run this command if you are absolutely sure you no longer need access to your cluster.</p>
 
 You will be required to enter ‘yes’ to ensure you know what you are doing.
 

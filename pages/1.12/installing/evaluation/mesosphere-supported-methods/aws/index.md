@@ -1,3 +1,11 @@
+---
+layout: layout.pug
+excerpt: Guide for DC/OS on AWS using the Universal Installer
+title: DC/OS on AWS using the Universal Installer
+navigationTitle: AWS
+menuWeight: 0
+---
+
 # Quick Start Guide
 
 If you’re new to Terraform and/or want to deploy DC/OS on AWS quickly and effortlessly - please follow this guide.  We’ll walk you through step-by-step on how to:
@@ -88,9 +96,9 @@ This example code tells Terraform to create a DC/OS OSS 1.11.4 cluster on AWS wi
 It also specifies that a the list of `masters-ips`, the `cluster-address`, and the address of the `public-agents-loadbalancer` should be printed out after cluster creation is complete.
 
 It also specifies that the following output should be printed once cluster creation is complete:
-- ```master-ips``` - A list of Your DC/OS Master Nodes.
-- ```cluster-address``` - The URL you use to access DC/OS UI after the cluster is setup.
-- ```public-agent-loadbalancer``` - The URL of your Public routable services.
+- `master-ips` - A list of Your DC/OS Master Nodes.
+- `cluster-address` - The URL you use to access DC/OS UI after the cluster is setup.
+- `public-agent-loadbalancer` - The URL of your Public routable services.
 
 ```hcl
 variable "dcos_install_mode" {
@@ -162,7 +170,7 @@ Writing our execution plan to a file allows us to pass the execution plan to the
 
 Afterwards, we should see a message like the one below, confirming that we have successfully saved to the `plan.out` file.  This file should appear in your `dcos-tf-aws-demo` folder alongside `main.tf`.
 
-<p align=center>  
+<p align=center>
 <img src="../images/install/terraform-plan.png" />
 </p>
 
@@ -174,7 +182,7 @@ Every time you run `terraform plan`, the output will always detail the resources
 terraform apply plan.out
 ```
 
-Once Terraform has completed applying our plan, you should see output similar to the following:  
+Once Terraform has completed applying our plan, you should see output similar to the following:
 
 <p align=center>
 <img src="../images/install/terraform-apply.png" />
@@ -236,7 +244,7 @@ output "public-agents-loadbalancer" {
 }
 ```
 
-2) Now that we’ve made changes to our `main.tf`, we need to re-run our new execution plan.  
+2) Now that we’ve made changes to our `main.tf`, we need to re-run our new execution plan.
 
 ```bash
 terraform plan -out=plan.out
@@ -260,7 +268,7 @@ terraform apply plan.out
 <img src="../images/scale/terraform-apply.png" />
 </p>
 
-Once you see an output like the message above, check your DC/OS cluster to ensure the additional agents have been added.  
+Once you see an output like the message above, check your DC/OS cluster to ensure the additional agents have been added.
 
 You should see now 4 total nodes connected like below via the DC/OS UI.
 
@@ -277,7 +285,7 @@ If you are interested in learning more about the upgrade procedure that Terrafor
 
 Since we’re now upgrading, however, we need to set this parameter to `upgrade`.
 
-**IMPORTANT:** Do not change any number of masters, agents or public agents while performing an upgrade.
+<p class="message--important"><strong>IMPORTANT: </strong>Do not change any number of masters, agents or public agents while performing an upgrade.</p>
 
 ```hcl
 variable "dcos_install_mode" {
@@ -323,7 +331,7 @@ output "public-agents-loadbalancer" {
 }
 ```
 
-2) Re-run our execution plan.  
+2) Re-run our execution plan.
 
 ```bash
 terraform plan -out=plan.out -var dcos_install_mode=upgrade
@@ -360,7 +368,7 @@ If you ever decide you would like to destroy your cluster, simply run the follow
 terraform destroy
 ```
 
-**Note:** Runing this command will cause your entire cluster and all at its associated resources to be destroyed. Only run this command if you are absolutely sure you no longer need access to your cluster.
+<p class="message--note"><strong>NOTE: </strong>Running this command will cause your entire cluster and all at its associated resources to be destroyed. Only run this command if you are absolutely sure you no longer need access to your cluster.</p>
 
 You will be required to enter ‘yes’ to ensure you know what you are doing.
 
@@ -369,3 +377,4 @@ You will be required to enter ‘yes’ to ensure you know what you are doing.
 </p>
 
 After that. You're done!
+
