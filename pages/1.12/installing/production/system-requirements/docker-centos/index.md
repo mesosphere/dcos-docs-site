@@ -37,27 +37,12 @@ Follow the Docker [RHEL-specific installation instructions][3], keeping in mind 
 
 ## Example: Installing Docker on CentOS
 
-The following instructions demonstrate how to install Docker CentOS 7.
+The following instructions demonstrate how to install Docker on CentOS 7.
 
-1.  Uninstall the newer version of Docker (if present):
+### Note: Uninstall the newer version of Docker (if present):
 
     ```bash
     sudo yum remove docker-ce
-    ```
-
-1. Install additional yum utilities:
-
-    ```bash
-    sudo yum install -y yum-utils \
-        device-mapper-persistent-data \
-        lvm2
-    ```
-1. Set up the stable repository for yum 
-
-    ```bash
-    sudo yum-config-manager \
-        --add-repo \
-        https://download.docker.com/linux/centos/docker-ce.repo
     ```
 
 1.  Install Docker:
@@ -76,18 +61,6 @@ The following instructions demonstrate how to install Docker CentOS 7.
 
     ```bash
     docker version --format '{{.Server.Version}}'
-    ```
-
-1.  Test Docker with `hello-world` app:
-
-    ```bash
-    sudo docker run hello-world
-    ```
-
-1.  Verify that Docker is using the overlay driver:
-
-    ```bash
-    sudo docker info | grep Storage
     ```
 
 To continue setting up DC/OS, [please jump to the Advanced Installer][4]
