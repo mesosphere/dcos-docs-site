@@ -98,6 +98,8 @@ Released on September 11, 2018.
 * Bump `haproxy` from 1.8.12 to 1.8.13. [changelog](http://git.haproxy.org/?p=haproxy-1.8.git;a=blob;f=CHANGELOG;h=aed48fc5fb951aff7dd458c4bc9bfcfe1d5dd99a;hb=HEAD).
 * Commit protobuf code changes that stem from [tool update](https://github.com/golang/protobuf/tree/master/protoc-gen-go).
 
+<p class="message--warning"><strong>WARNING: </strong>With the introduction of proper versioning of the edgelb-pool cosmos package, it is neccessary to remove any `packageVersion` fields from the pool configuration prior to upgrading.</p>
+
 ## Known Limitations
 
 * Edge-LB does not currently support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
