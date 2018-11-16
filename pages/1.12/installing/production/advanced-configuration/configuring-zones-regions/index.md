@@ -83,7 +83,7 @@ When failures do occur, failover [should be as fast as possible](https://en.wiki
 
 A fast failover can be achieved by:
 
- * Using an HA load balancer like [Marathon-LB](/1.12/networking/marathon-lb/), or the internal [Layer 4 load balancer](/1.12/networking/load-balancing-vips/).
+ * Using an HA load balancer like [Marathon-LB](/services/marathon-lb/), or the internal [Layer 4 load balancer](/1.12/networking/load-balancing-vips/).
  * Building apps in accordance with the [12-factor app](http://12factor.net/) manifesto.
  * Following REST best practices when building services: in particular, avoiding storing client state on the server between requests.
 
