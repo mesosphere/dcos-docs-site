@@ -29,11 +29,11 @@ Below are the steps to install MongoDB using the DC/OS Catalog Web Interface:
 
 [<img src="../img/Catalog_Service_View.png" alt="Catalog Service View"/>](../img/Catalog_Service_View.png)
 
-[<img src="../img/Node_Count1.png" alt="Node Count"/>](../img/Node_Count1.png)
+[<img src="../img/Config_page.png" alt="Config Page"/>](../img/Config_page.png)
 
-[<img src="../img/Running_Stage1.png" alt="Running Stage"/>](../img/Running_Stage1.png)
+[<img src="../img/Running_Stage.png" alt="Running Stage"/>](../img/Running_Stage.png)
 
-[<img src="../img/Successful_Execution1.png" alt="Successful Execution"/>](../img/Successful_Execution1.png)
+[<img src="../img/Successful_execution.png" alt="Successful Execution"/>](../img/Successful_execution.png)
 
 
 
