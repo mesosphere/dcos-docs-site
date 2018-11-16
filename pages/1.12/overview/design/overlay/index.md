@@ -69,7 +69,7 @@ These challenges must be addressed to make the DC/OS overlay functional. In the 
 
 ## Software Architecture
 
-![Software architecture for DC/OS overlay control plane.](/1.12/img/overlay-fig-2.png)
+![Software architecture for DC/OS overlay control plane.](/1.12/img/overlay-control-plane-redesigned.png)
 
 *Figure 2 - Software architecture for DC/OS overlay control plane*
 
