@@ -11,7 +11,7 @@ The installation of DC/OS involves configuring your infrastructure, and installi
 
 The DC/OS installation methods are as follows:
 
-- **Mesosphere-supported installation:** Use the [Mesosphere-supported installation methods](#mesosphere-supported) to test or demo DC/OS on AWS, Azure, or GCP using an Universal Installer.
+- **Mesosphere-supported installation:** Use the [Mesosphere-supported installation methods](#mesosphere-supported)  to deploy DC/OS on AWS, Azure, or GCP using the Universal Installer.
 
 - **Community-supported installation:** Use the [Community-supported installation methods](#community-supported) to test or demo DC/OS on AWS, Azure, Digital Ocean or Packet.
 

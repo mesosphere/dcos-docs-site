@@ -22,14 +22,6 @@ Prior to installing this package you must install the `kubernetes` package, refe
 <p class="message--warning"><strong>WARNING: </strong>The package <tt>kubernetes-cluster</tt> cannot be operated without the <tt>kubernetes</tt> package. Do not uninstall <tt>kubernetes</tt> at any time.
 </p>
 
-### Installing MKE on DC/OS
-
-To install using the default options:
-
-  ```shell
-  dcos kubernetes cluster create --yes
-  ```
-
 ### Installing MKE on DC/OS Enterprise
 
 In order to run the `kubernetes` package on DC/OS Enterprise, a [service account](/1.12/security/ent/service-auth/) with permissions to run tasks with the `kubernetes-role` is required.
@@ -67,8 +59,57 @@ Create an `options.json` file, or edit an existing one:
 1. Install the package:
 
     ```shell
-    dcos kubernetes cluster create --options=options.json
+    dcos package install --yes kubernetes --options=options.json
     ```
+
+### Installing MKE on DC/OS Open Source
+
+Unlike on DC/OS Enterprise, running on DC/OS Open Source does not require a service account and can simply be installed using the default options:
+
+  ```shell
+  dcos package install --yes kubernetes
+  ```
+
+## Kubernetes Cluster
+
+### Installing from the DC/OS CLI
+
+To install a Kubernetes cluster on DC/OS Enterprise , you **must** specify a custom configuration in an `options.json` file where the options `service.service_account` and `service.service_account_secret` are properly set.
+Follow [these instructions](
+/services/kubernetes/2.0.0-1.12.1/operations/customizing-install/#tls-provisioning-in-dcos-enterprise) to configure that service account and service account secret.
+
+Then to install, run `dcos kubernetes cluster create` using the `--options` parameter:
+
+  ```shell
+  dcos kubernetes cluster create --options=options.json
+  ```
+
+On the other hand, to install a Kubernetes cluster on DC/OS Open Source run the following command:
+
+  ```shell
+  dcos kubernetes cluster create
+  ```
+
+The default configuration does not set the options `service.service_account` and `service.service_account_secret`.
+Consequently this configuration will only work on DC/OS Open Source.
+
+Please note that any custom value of `service.name` must consist of alphanumeric characters, `'-'`, `'_'` or `'.'`, and must start and end with an alphanumeric characters, and be no longer than 24 characters.
+It is also possible to install the package under a group (e.g., using `/dev/kubernetes` as the service name).
+To do that, you need to give the user permissions for the folder (e.g. `/dev`) where you will install your service.
+
+<p class="message--note"><strong>NOTE: </strong> We recommend that you store your custom configuration in source control.</p>
+
+For more information on building the `options.json` file, see [DC/OS documentation](/1.12/deploying-services/config-universe-service/).
+
+### Installing from the DC/OS Web Interface
+
+You can [install Kubernetes from the DC/OS web interface](/1.12/deploying-services/install/).
+If you install Kubernetes from the web interface, you must install the DC/OS Kubernetes CLI subcommands separately.  
+From the DC/OS CLI, enter:
+
+  ```shell
+  dcos package install kubernetes --cli
+  ```
 
 # Resources
 
@@ -94,8 +135,12 @@ Memory and CPU settings of the `mesosphere-kubernetes-engine` pod can be re-conf
     ```
 1. Install the package:
     ```shell
-    dcos kubernetes cluster create --options=options.json
+    dcos package install --yes kubernetes --options=options.json
     ```
+
+Please note that the above example does not set the options `service.service_account` and `service.service_account_secret`.
+Consequently this configuration will only work on DC/OS Open Source.
+For DC/OS Enterprise you must specify the [required options](services/kubernetes/2.0.0-1.12.1/getting-started/install-basic/#installing-mke-on-dcos-enterprise), in addition to those described above.
 
 ## Kubernetes Cluster
 
@@ -138,40 +183,3 @@ If support for [ingress](../operations/ingress) is desirable, the `kubernetes.pu
 |                         | CPUs per instance | MEM (MB) per instance | Disk (MB) per instance |
 | ----------------------- | ---------------- | --------------------- | ---------------------- |
 | kube-node-public        | 1.6              | 1568                  | 2048                   |
-
-## Installing from the DC/OS CLI
-
-To install a Kubernetes cluster on DC/OS Enterprise , you **must** specify a custom configuration in an `options.json` file where the options `service.service_account` and `service.service_account_secret` are properly set.
-To do so, run `dcos kubernetes cluster create` using the `--options` parameter:
-
-  ```shell
-  dcos kubernetes cluster create --options=options.json
-  ```
-
-On the other hand, to install a Kubernetes cluster on DC/OS run the following command:
-
-  ```shell
-  dcos kubernetes cluster create
-  ```
-
-The default configuration does not set the options `service.service_account`
-and `service.service_account_secret`. Consequently this configuration will only work
-on DC/OS.
-
-Please note that any custom value of `service.name` must consist of alphanumeric characters, `'-'`, `'_'` or `'.'`, and must start and end with an alphanumeric characters, and be no longer than 24 characters.
-It is also possible to install the package under a group (e.g., using `/dev/kubernetes` as the service name).
-To do that, you need to give the user permissions for the folder (e.g. `/dev`) where you will install your service.
-
-<p class="message--note"><strong>NOTE: </strong> We recommend that you store your custom configuration in source control.</p>
-
-For more information on building the `options.json` file, see [DC/OS documentation](/1.12/deploying-services/config-universe-service/).
-
-## Installing from the DC/OS Web Interface
-
-You can [install Kubernetes from the DC/OS web interface](/1.12/deploying-services/install/).
-If you install Kubernetes from the web interface, you must install the DC/OS Kubernetes CLI subcommands separately.  
-From the DC/OS CLI, enter:
-
-  ```shell
-  dcos package install kubernetes --cli
-  ```

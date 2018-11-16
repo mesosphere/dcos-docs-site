@@ -21,7 +21,7 @@ Add your plugin and configuration file to each agent on your cluster. Consult th
 1. Add your configuration file to the `/opt/mesosphere/etc/dcos/network/cni/` directory.
    A typical configuration file looks like this.
 
-   ```
+   ```bash
    {
      "name": "dcos",
      "type": "bridge",
@@ -49,8 +49,12 @@ Your service must use the [Universal Container Runtime (UCR)](/1.12/deploying-se
 
 Add the `ipAddress.networkName` parameter to your service definition. `networkName` must match the `name` parameter of the configuration file in the previous step. In our current example, it is `dcos`.
 
-```
+```bash
 "ipAddress": {
         "networkName": "dcos"
 }
 ```
+
+# Known Limitations
+
+- When DC/OS is used on RHEL 7.5 with dcos-cni plugin and UCR (Universal Runtime Container), the layer-4 load-balancing functionality will not work as expected.

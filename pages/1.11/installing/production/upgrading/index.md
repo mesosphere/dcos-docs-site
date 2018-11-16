@@ -18,14 +18,14 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 
 ## Important guidelines
 
-- The Production installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [DC/OS Deployment Guide](/1.11/installing/production/deploying-dcos/) before proceeding. 
+- The Production installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [DC/OS Deployment Guide](/1.11/installing/production/deploying-dcos/) before proceeding.
 - Review the [release notes](/1.11/release-notes/) before upgrading DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true` then do not add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
 - There are new options in the `config.yaml` file which must be declared prior to upgrading. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](/latest/installing/ent/custom/advanced/#create-a-configuration-file). [enterprise type="inline" size="small" /]
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file.
 - The DC/OS Enterprise license key must reside in a `genconf/license.txt` file. [enterprise type="inline" size="small" /]
-- The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded. 
-  When this occurs: 
+- The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded.
+  When this occurs:
    * The DC/OS GUI may not provide an accurate list of services.
    * For multi-master configurations, after one master has finished upgrading, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
 - An upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
@@ -55,9 +55,11 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <th>1.11.4</th>
     <th>1.11.5</th>
     <th>1.11.6</th>
+    <th>1.11.7</th>
    </tr>
    <tr>
     <th>1.10.0</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -75,6 +77,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.2</th>
@@ -85,6 +88,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
     <tr>
     <th>1.10.3</th>
@@ -95,6 +99,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.4</th>
@@ -105,6 +110,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.5</th>
@@ -115,6 +121,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.6</th>
@@ -123,6 +130,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
@@ -135,6 +143,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.10.8</th>
@@ -143,6 +152,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
@@ -176,7 +186,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 - Verify that all Marathon application constraints are valid before beginning the upgrade. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
 - [Back up your cluster](/1.11/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
 - Optional: You can add custom [node and cluster health checks](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
-- Verify that all your masters are in a healthy state: 
+- Verify that all your masters are in a healthy state:
    - Check the Exhibitor UI to confirm that all masters have joined the quorum successfully (the status indicator will show green). The Exhibitor UI is available at `http://<dcos_master>:8181/`.
    - Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1` for each master.
 
@@ -184,7 +194,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 ## Bootstrap Node
 
 [enterprise]
-### Enterprise users 
+### Enterprise users
 [/enterprise]
 
 This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.11.
@@ -270,7 +280,7 @@ Proceed with upgrading every master node one at a time in any order using the fo
     ```
     If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated. [enterprise type="inline" size="small" /]
 
-1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation. 
+1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 
 ### <a name="agents"></a>DC/OS Agents
 
@@ -278,7 +288,7 @@ Be aware that when upgrading agent nodes, there is a five minute timeout for the
 
 On all DC/OS agents:
 
-1.  Navigate to the `/opt/mesosphere/lib` directory and delete this library file. Deleting this file will prevent conflicts. 
+1.  Navigate to the `/opt/mesosphere/lib` directory and delete this library file. Deleting this file will prevent conflicts.
     ```bash
       libltdl.so.7
     ```
@@ -297,9 +307,9 @@ On all DC/OS agents:
 
 1.  Validate the upgrade.
 
-    - Verify that `curl http://<dcos_agent_private_ip>:5051/metrics/snapshot` has the metric `slave/registered` with a value of `1`. 
+    - Verify that `curl http://<dcos_agent_private_ip>:5051/metrics/snapshot` has the metric `slave/registered` with a value of `1`.
     - Monitor the Mesos UI to verify that the upgraded node rejoins the DC/OS cluster and that tasks are reconciled (`http://<master-ip>/mesos`).
-     If you are upgrading from permissive to strict mode, this URL will be `https://<master-ip>/mesos`. 
+     If you are upgrading from permissive to strict mode, this URL will be `https://<master-ip>/mesos`.
 
 ## <a name="troubleshooting"></a>Troubleshooting Recommendations
 
@@ -319,7 +329,7 @@ dcos-diagnostics check node-poststart
 dcos-diagnostics check cluster
 ```
 
-#### On DC/OS Masters 
+#### On DC/OS Masters
 
 [enterprise type="inline" size="small" /]
 ```bash

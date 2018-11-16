@@ -21,7 +21,7 @@ The DC/OS CA bundle is located on any master node at the file system path `/run/
 
 # <a name="curl"></a>Using curl to retrieve the DC/OS CA bundle
 
-**Warning:** If you are using `curl` to retrieve the DC/OS CA bundle, you must use the `-k`/`--insecure` flag. If the communication is performed through HTTPS, this flag disables server certificate verification. This allows for a [man-in-the-middle attack](https://en.wikipedia.org/wiki/Man-in-the-middle_attack), where a malicious party in the network path could send a bad CA bundle, causing you to trust entities from outside your DC/OS cluster.
+<p class="message--important"><strong>IMPORTANT: </strong>If you are using `curl` to retrieve the DC/OS CA bundle, you must use the `-k`/`--insecure` flag. If the communication is performed through HTTPS, this flag disables server certificate verification. This allows for a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle attack</a>, where a malicious party in the network path could send a bad CA bundle, causing you to trust entities from outside your DC/OS cluster.
 
 **Prerequisite:** You must have the [DC/OS CLI installed](/1.10/cli/install/) in order to retrieve the cluster URL in the command below.
 

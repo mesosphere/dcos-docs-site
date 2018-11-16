@@ -5,6 +5,7 @@ title: Uninstall
 menuWeight: 40
 excerpt: Instructions for removing the DC/OS Storage Service from a DC/OS cluster.
 enterprise: true
+beta: true
 ---
 
 # Uninstall the DSS package

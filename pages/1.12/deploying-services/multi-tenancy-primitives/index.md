@@ -9,7 +9,7 @@ excerpt: A primer to Multi-Tenancy in DC/OS
 # Overview
 Resources in DC/OS can be reserved and prioritised using a combination of roles, reservations, quotas, and weights. These features are provided by Apache Mesos, at the core of DC/OS and are referred to as `Primitives`, as they are only accessible via API and have not yet been integrated into the DC/OS UI or CLI. A user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights. 
 
-Resource management in this context refers to concepts such as reservations of resources on agents, resource quotas, and weights (priorities) for frameworks. These are useful for a number of scenarios, such as configuring multi-tenant environments, where multiple teams or projects co-exist on the same DC/OS cluster and the available resources (CPU, RAM, disk, and ports) must be carved up and guaranteed for each cluster with guaranteed quotas. Secondly, with mixed workloads on a single cluster where one class of frameworks may have a high weight (priority) than another, and should be able to deploy faster than a lower weight framework.
+Resource management in this context refers to concepts such as reservations of resources on agents, resource quotas, and weights (priorities) for frameworks. These are useful for a number of scenarios, such as configuring multi-tenant environments, where multiple teams or projects co-exist on the same DC/OS cluster and the available resources (CPU, RAM, disk, and ports) must be carved up and guaranteed for each cluster with guaranteed quotas. Secondly, with mixed workloads on a single cluster where one class of frameworks may have a higher weight (priority) than another, and should be able to deploy faster than a lower weight framework.
 
 This page covers the multi-tenancy primitives: Multi-Tenant quota management primitives, two examples to real-world scenarios, implementation instructions, and reference links. 
 
@@ -386,7 +386,7 @@ Weights cannot be removed once set, they can be amended using the same method as
 ## Marathon on Marathon
 The DC/OS catalog includes Marathon, which can be used to deploy a MoM. It should be noted that this is only useful for DC/OS OSS installations, as it does not provide support for Strict mode, Secrets or ACLs.
 
-In order to install Enterprise MoM, you must contact Mesosphere for the Enterprise MoM tarball, then deploying it via the root Marathon. 
+To install Enterprise MoM, you must contact Mesosphere Support for the Enterprise MoM tarball, then deploy it using the root Marathon. 
 
 # Additional Resources
 You can use the following additional resources to learn more about:

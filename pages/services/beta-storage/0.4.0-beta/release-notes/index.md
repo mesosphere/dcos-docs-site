@@ -5,6 +5,7 @@ title: Release Notes
 menuWeight: 80
 excerpt: Discover the new features, updates, and known limitations in this release of the Beta DC/OS Storage Service.
 enterprise: true
+beta: true
 ---
 
 # Version 0.4.0

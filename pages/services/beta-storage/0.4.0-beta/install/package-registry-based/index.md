@@ -5,6 +5,7 @@ title: Via Package Registry
 menuWeight: 20
 excerpt: Instructions for installing the DC/OS Storage Service using the package registry.
 enterprise: true
+beta: true
 ---
 
 # Prerequisites

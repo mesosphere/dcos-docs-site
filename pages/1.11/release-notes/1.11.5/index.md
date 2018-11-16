@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes for 1.11.5
 title: Release Notes for 1.11.5
-menuWeight: 10
+menuWeight: 15
 excerpt: Release notes for DC/OS 1.11.5
 ---
 
@@ -19,14 +19,14 @@ DC/OS 1.11.5 includes the following components:
 - Marathon 1.6.544 [change log](https://github.com/dcos/dcos/pull/3289).
 - Metronome 0.4.3 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.3).
 
-- DCOS-38342 - Documenation: Rename advanced installation to production installation. 
+- DCOS-38342 - Documentation: Rename advanced installation to production installation.
+ 
+# Customer Advisory
+- [Addressing deadlock issues when SSL sockets are simultaneously sending/receiving data and buffers are full](https://support.mesosphere.com/s/article/Critical-Issue-DC-OS-Networking-MSPH-2018-0003).
+- [Marathon will not launch if the first DC/OS Master is down](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004).
+<p class="message--note"><strong>NOTE: </strong>The <a href="https://support.mesosphere.com/s/">support website</a> requires a <a href="https://support.mesosphere.com/s/login/">login credential</a> to access the customer advisory information.
 
 # Issues Fixed in DC/OS 1.11.5
-
-## Customer Advisory
-The customer advisory information is available [here](https://support.mesosphere.com/s/article/Critical-Issue-DC-OS-Networking-MSPH-2018-0003).
-
-**Note:** The [support website](https://support.mesosphere.com/s/downloads) requires a [login credential](https://support.mesosphere.com/s/login/) to access the customer advisory information. 
 
 ## GUI
 - COPS-3051/DCOS-39662 - Fix deployment state in Marathon-LB debug page.

@@ -36,8 +36,8 @@ The default `HAPROXY_GROUP` label that Marathon-LB looks for is `external`.
 While Marathon-LB is primarily used to expose Marathon applications, it can be tricked into exposing non-Marathon endpoints with a dummy application.
 Here are two examples on how to achieve this:
 
-* One with no TLS certificate verification
-* One with TLS verification between HAProxy and the Kubernetes API (but not between the user and HAProxy)
+* One with no TLS certificate verification.
+* One with TLS verification between HAProxy and the Kubernetes API (but not between the user and HAProxy).
 
 Both of these examples assume that Marathon-LB (version 1.12.1 or later) is already properly installed and configured (following the Marathon-LB [installation instructions](https://docs.mesosphere.com/services/marathon-lb/)).
 

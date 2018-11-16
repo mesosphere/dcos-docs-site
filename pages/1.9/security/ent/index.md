@@ -208,8 +208,6 @@ The unseal key is encrypted under a public GPG key. Requests to the [Secrets API
 
 As a convenience, DC/OS automatically generates a new 4096-bit GPG keypair during the bootstrap sequence. It uses this keypair to initialize the Secret Store and stores the keypair in ZooKeeper.
 
-If you wish to generate your own GPG keypair and store it in an alternate location, you can [reinitialize the Secret Store with a custom GPG keypair](/1.9/security/ent/secrets/custom-key/).
-
 The Secret Store is available in all security modes.
 
 By default, you cannot store a secret larger than one megabyte. If you need to exceed this limit, contact Mesosphere support.
@@ -228,13 +226,13 @@ DC/OS allows you to restrict:
 
 The default Linux user for tasks and sandbox files varies according to your [security mode](/1.9/security/ent/#security-modes) and the [type of container](/1.9/deploying-services/containerizers/) the task runs inside of.
 
-By default, all tasks will run inside of Mesos containers. However, a user service can be configured to run tasks inside of Docker containers instead. Please see [Deploying a Docker-based Service to Marathon](/1.9/deploying-services/creating-services/deploy-docker-app/) for an example.
+By default, all tasks will run inside of Docker containers. Please see [Deploying a Docker-based Service to Marathon](/1.9/deploying-services/creating-services/deploy-docker-app/) for an example.
 
 The following table identifies the default Linux user in each situation.
 
 | Container type | Disabled                                                               | Permissive                                                             | Strict                                                                     |
 |----------------|------------------------------------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| Mesos          | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `nobody`. Fetched and created files are owned by `nobody`. |
+| Mesos (UCR)    | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `nobody`. Fetched and created files are owned by `nobody`. |
 | Docker         | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `nobody`.   |
 
 Docker tasks run under `root` by default, but Docker user privileges are confined to the Docker container. Should you wish to change the default task user, modify the Docker container. Please reference the [Docker documentation](https://docs.docker.com/engine/tutorials/dockerimages/) for more information, as well as the user service [documentation](/services/).

@@ -464,11 +464,12 @@ Indicates whether the master DNS port is open. An open master DNS port listens p
 ## master_external_loadbalancer [enterprise type="inline" size="small" /]
 The DNS name or IP address for the load balancer. If specified, this is included as subject alternative name in the [DC/OS certificate](/1.12/security/ent/tls-ssl/) of the Admin Router on the master nodes.
 
-
 ## mesos_agent_work_dir [oss type="inline" size="small" /]
 The location of the Mesos work directory on agent and public agent nodes. This defines the `work_dir` parameter for Mesos agents in the cluster. The default is `/var/lib/mesos/slave`. For details, see [Mesos documentation](https://mesos.apache.org/documentation/latest/configuration/agent/).
 
 ## mesos_container_log_sink
+- DC/OS can send copies of task logs to a host's journald, however this is disabled by default because of a known performance problem in [systemd](https://github.com/systemd/systemd/issues/5102) which was [fixed](https://github.com/systemd/systemd/pull/6392) on July 31, 2017 and included in systemd v235. However, some Linux distributions do not use this version of systemd, for example CentOS 7.4 as of July 2018 uses systemd v219. Thus DC/OS by default does not have logrotate and journald enabled. If this feature is desired, ensure a modern version of systemd is in use in order to avoid this systemd performance problem.
+
 The log manager for containers (tasks). The options are:
 
 * `'journald'` - send task logs only to journald
