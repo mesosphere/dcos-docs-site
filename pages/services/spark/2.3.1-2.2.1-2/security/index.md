@@ -15,10 +15,10 @@ must authenticate to Mesos using a [DC/OS Service Account](https://docs.mesosphe
 
 #include /services/include/service-account.tmpl
 
-# <a name="give-perms"></a>Create and Assign Permissions
+# <a name="give-perms"></a>Create and assign permissions
 Use the following `curl` commands to rapidly provision the {{ model.techShortName }} service account with the required permissions. This can also be done through the UI.
 
-**Note:**
+**Notes:**
 
 - Any `/` character in a resource must be replaced with `%252F` before it can be passed in a `curl` command.
 - When using the API to manage permissions, you must first create the permissions and then assign them. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation and continue to the next command.
@@ -59,20 +59,32 @@ Use the following `curl` commands to rapidly provision the {{ model.techShortNam
 
 #include /services/include/configuration-create-json-file.tmpl
 
-# Using the Secret Store
+# Set permissions for jobs running outside of the cluster
+
+You must set the following permissions if you want to execute a Spark job (`dcos spark run`) from outside of the DC/OS cluster:
+
+ ```
+ dcos:adminrouter:service:marathon full 
+ dcos:adminrouter:service:spark full 
+ dcos:service:marathon:marathon:services:/spark read 
+ ```
+
+Replace `spark` when setting these permissions with the appropriate service name if you are not using the default service name.
+
+# Using the secret store
 
 DC/OS Enterprise allows users to add privileged information in the form of a file to the DC/OS secret store. These files
 can be referenced in {{ model.techShortName }} jobs and used for authentication and authorization with various external services (e.g.
 HDFS). For example, we use this functionality to pass the Kerberos Keytab. Details about how to use Secrets can be found
 at the [official documentation](https://docs.mesosphere.com/latest/security/ent/secrets/).
 
-### Where to Place Secrets
+### Where to place secrets
 In order for a secret to be available to {{ model.techShortName}}, it must be placed in a path that can be accessed by the {{ model.techShortName}} service. If only {{ model.techShortName}} requires access to a secret, store the secret in a path that matches the name of the {{ model.techShortName}} service (e.g. `{{ model.serviceName}}/secret`).  See the [Secrets Documentation about Spaces][13] for details about how secret paths restrict service access to secrets.
 
 ### Limitations
 Anyone who has access to the {{ model.techShortName}} (Dispatcher) service instance has access to all secrets available to it. Do not grant users access to the {{ model.techShortName}} Dispatchers instance unless they are also permitted to access all secrets available to the {{ model.techShortName}} Dispatcher instance.
 
-### Binary Secrets
+### Binary secrets
 
 You can store binary files, like a Kerberos keytab, in the DC/OS secrets store. In DC/OS 1.11 and later,  you can create
 secrets from binary files directly, while in DC/OS 1.10 or earlier, files must be base64-encoded as specified in
@@ -116,7 +128,7 @@ in your {{ model.techShortName }} application. **Note:** Make sure to only refer
 in environment variables is discouraged.
 
 
-# Using Mesos Secrets
+# Using Mesos secrets
 
 Once a secret has been added in the secret store,
 you can pass them to {{ model.techShortName }} with the `{{ model.serviceName }}.mesos.<task-name>.secret.names` and
