@@ -73,7 +73,7 @@ dcos security org service-accounts show <service-account-id>
 # Create a secret
 Create a secret (`spark/<secret-name>`) with your service account (`<service-account-id>`) and private key specified (`<private-key>.pem`).
 
-**Tip:** If you store your secret in a path that matches the service name (for examplem the service name and secret path are both `spark`), then only the service named `spark` can access the secret.
+**Tip:** If you store your secret in a path that matches the service name (for example, the service name and secret path are both `spark`), then only the service named `spark` can access the secret.
 
 ## Permissive
 
