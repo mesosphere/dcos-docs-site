@@ -15,19 +15,9 @@ Out-of-Band Configuration modifications are not supported. The service's core re
 - If a task crashes, it will be restarted with the configuration known to the scheduler, not one modified out-of-band.
 - If a configuration update is initiated, all out-of-band modifications will be overwritten during the rolling update.
 
-Minio does not support Horizontal Scaling.
-
 ## Scaling In
 
 To prevent accidental data loss, the service does not support reducing the number of pods.
-
-## Scaling Out
-
-Minio does not support horizontal scaling i.e., if Minio cluster has started with eight Minio servers then ninth Minio server cannot be added to the Minio cluster.
-
-## Auto Assignment of Ports
-
-Auto assignment of ports is not supported by the Minio framework. Minio is required to be binded at the same port on each node to start in distributed mode. Enabling auto assignment of ports may result in binding Minio server at different ports on each Pod.
 
 ## Disk Changes
 
