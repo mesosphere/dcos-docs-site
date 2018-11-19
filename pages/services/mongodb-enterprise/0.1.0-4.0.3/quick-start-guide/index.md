@@ -40,61 +40,63 @@ Below are the steps to install MongoDB using the DC/OS Catalog Web Interface:
 
 ### Steps
 
-For Edge-LB pool configuration:
-  1. Add repo of Edge-LB-aws.
+For Installing MongoDB OpsManager on a host machine:
+
+  <strong> Tip: </strong> For host machine configuration details, please go through this  [link](https://docs.opsmanager.mongodb.com/current/tutorial/install-simple-test-deployment/).
+
+  1. Configure yum to install MongoDB
   
-  2. Add repo of Edge-LB-Pool-aws.
+  ```
+  echo "[mongodb-org-4.0]
+  name=MongoDB Repository
+  baseurl=https://repo.mongodb.org/yum/redhat/7.0/mongodb-org/4.0/x86_64/
+  gpgcheck=1
+  enabled=1
+  gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc" | sudo tee /etc/yum.repos.d/mongodb.repo 
+  ```
+  
+  2. Install MongoDB.
+  
+  ```
+  sudo yum install -y mongodb-org mongodb-org-shell
+  ```
 
-  3. Install the Edge-LB:
-  ```shell
-  dcos package install edgelb --yes
+  3. Create the Ops Manager Application Database directory:
+  ```
+  sudo mkdir -p /data/appdb
+  sudo chown -R mongod:mongod /data
   ``` 
-  4. Create the configuration JSON file with required parameters to access Minio:
+  4. Start the Ops Manager Application Database mongod instance:
 
-  Example without TLS:
-
-  ```shell
-  {
-  "apiVersion": "V2",
-  "name": "minio",
-  "count": 1,
-  "haproxy": {
-    "frontends": [
-      {
-        "bindPort": 9001,
-        "protocol": "HTTP",
-        "linkBackend": {
-          "defaultBackend": "miniodemo"
-        }
-      }
-    ],
-    "backends": [
-     {
-      "name": "miniodemo",
-      "protocol": "HTTP",
-      "services": [{
-        "endpoint": {
-          "type": "ADDRESS",
-          "address": "miniod.miniodemo.l4lb.thisdcos.directory",
-          "port": 9000
-        }
-      }]
-    }
-   ]
-  }
-}
+  ```
+  sudo -u mongod mongod --port 27017 --dbpath /data/appdb \
+  --logpath /data/appdb/mongodb.log \
+  --wiredTigerCacheSizeGB 1 --fork
   ```
  
- 5. Create `edge-pool` using the JSON file created in the preceding step:
-  ```shell
-  dcos edgelb create edgelb-pool-config.json
-  ```    
- 6. Accessing Minio:
-  ```shell
-  http://<Public IP of the Public Node of the cluster>>:9001/minio
-  ```      
-
-Now you can connect with the Minio server using Minio Client on the public IP of the public agent running EdgeLB and the port number at which Minio server is binded at EdgeLB.
+ 5. Download the Ops Manager package:
+ 
+ To get the latest package version of MongoDB OpsManager, please download the package (tar.gz) from [MongoDB Download Center](http://www.mongodb.com/download-center/ops-manager?jmp=docs)
+    
+ The downloaded package is named mongodb-mms-<version>.x86_64.tar.gz , where <version> is the version number.
+   
+ 6. Install Ops Manager:
+ 
+  ```
+  tar -zxf mongodb-mms-<version>.x86_64.tar.gz
+  ```
+ 7. Start Ops Manager:
+ 
+ ```
+ <install_directory>/bin/mongodb-mms start
+ ```
+ 8. Open the Ops Manager home page and register the first user.
+ 
+ Enter the following URL in a browser, where <OpsManagerHost> is the fully qualified domain name of the server:
+  
+ ```
+  http://<OpsManagerHost>:8080
+ ```
 
 [<img src="../img/edgelb_without_tls.png" alt="Without TLS"/>](../img/egdelb_without_tls.png)
    
