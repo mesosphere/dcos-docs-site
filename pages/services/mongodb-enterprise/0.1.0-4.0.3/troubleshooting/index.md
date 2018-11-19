@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Troubleshooting
 menuWeight: 70
-model: /services/minio/data.yml
+model: /services/mongodb-enterprise/data.yml
 render: mustache
 ---
 
