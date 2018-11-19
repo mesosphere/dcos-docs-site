@@ -3,9 +3,9 @@ layout: layout.pug
 navigationTitle: Security
 title:  Security
 menuWeight: 50
-excerpt: DC/OS Minio Security
+excerpt: DC/OS MongoDB Security
 featureMaturity:
-enterprise: false
+enterprise: true
 ---
 
 # Prerequisites
@@ -16,7 +16,7 @@ enterprise: false
 - If your [security mode](https://docs.mesosphere.com/1.10/security/ent/) is permissive or strict, you must [get the root cert](https://docs.mesosphere.com/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # Service Account Configuration
-This topic describes how to configure DC/OS access for Minio. Depending on your security mode, Minio requires service authentication for access to DC/OS.
+This topic describes how to configure DC/OS access for MongoDB. Depending on your security mode, MongoDB requires service authentication for access to DC/OS.
 
     Security Mode     Service Account
     =============     ===============
@@ -32,7 +32,7 @@ In this step, a 2048-bit RSA public-private key pair is created using the Enterp
 Create a public-private key pair and save each value into a separate file within the current directory.
 
    ```shell
-   dcos security org service-accounts keypair minio-private-key.pem minio-public-key.pem
+   dcos security org service-accounts keypair mongodb-private-key.pem mongodb-public-key.pem
    ```  
 **Tip:** You can use the [DC/OS Secret Store](https://docs.mesosphere.com/1.10/security/ent/secrets/) to secure the key pair.
 
@@ -41,7 +41,7 @@ Create a public-private key pair and save each value into a separate file within
 From a terminal prompt, create a new service account `<service-account-id>` containing the public key `<your-public-key>.pem`.
 
    ```shell
-   dcos security org service-accounts create -p minio-public-key.pem -d "dcos_minio" <service name>
+   dcos security org service-accounts create -p mongodb-public-key.pem -d "dcos_mongodb" <service name>
    ``` 
 **Tip:** You can verify your new service account using the following command.
 
@@ -52,18 +52,18 @@ From a terminal prompt, create a new service account `<service-account-id>` cont
 
 Create a secret `minio/<secret-name>` with your service account `<service-account-id>` and private key specified `<private-key>.pem`.
 
-**Tip:** If you store your secret in a path that matches the service name, for example, service name and secret path are minio, then only the service named Minio can access it.
+**Tip:** If you store your secret in a path that matches the service name, for example, service name and secret path are mongodb, then only the service named mongodb can access it.
 
 ### Permissive     
 
    ```shell
-   dcos security secrets create-sa-secret minio-private-key.pem <service name> <service name secret>
+   dcos security secrets create-sa-secret mongodb-private-key.pem <service name> <service name secret>
    ``` 
    
 ### Strict     
 
    ```shell
-   dcos security secrets create-sa-secret --strict minio-private-key.pem <service name> <service name secret>
+   dcos security secrets create-sa-secret --strict mongodb-private-key.pem <service name> <service name secret>
    ```    
 **Tip:** You can list the secrets with this command:   
    ```shell
@@ -74,8 +74,8 @@ Create a secret `minio/<secret-name>` with your service account `<service-accoun
 
    ```shell
    dcos security org users grant <service name> dcos:superuser full --description "grant permission to superuser" 
-   dcos security org users grant dcos_minio dcos:adminrouter:ops:ca:rw full --description "grant permission to adminrouter"
-   dcos security org users grant dcos_minio dcos:secrets:default:miniodemo full --description "grant permission to miniodemo"
+   dcos security org users grant dcos_mongodb dcos:adminrouter:ops:ca:rw full --description "grant permission to adminrouter"
+   dcos security org users grant dcos_mongodb dcos:secrets:default:miniodemo full --description "grant permission to miniodemo"
    ```    
 
 
