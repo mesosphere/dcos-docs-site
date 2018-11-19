@@ -53,7 +53,7 @@ If all else fails, you can manually perform the uninstall yourself. To do this, 
 1. Unregister the service from Mesos using its UUID as follows:
 
 ```shell
-dcos service --inactive | grep mongod
-miniod     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
+dcos service --inactive | grep mongodbservice
+mongodbservice     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 dcos service shutdown 97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 ```
