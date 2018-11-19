@@ -3,17 +3,17 @@ layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 130
-excerpt: Release Notes for version 0.1.0-25
+excerpt: Release Notes for version 0.1.0-4.0.3
 featureMaturity:
-enterprise: false
+enterprise: true
 ---
 
-Release notes for Minio.
+Release notes for MongoDB Enterprise.
 
-# Version 0.1.0-RELEASE.2018-07-31T02-11-47Z
+# Version 0.1.0-4.0.3
 
-This is the first release of DC/OS Minio framework.
+This is the first release of DC/OS MongoDB Enterprise framework.
 
-* Minio RELEASE.2018-07-31T02-11-47Z
-* The framework provides options to provide the Minio Configurations.
-* The default Minio Configuration starts Minio in distributed mode with four Minio Server listening on port 9000. 
+* MongoDB 4.0.3
+* The framework provides options to provide the MongoDB Configurations.
+* The default MongoDB Configuration starts MongoDB in distributed mode with provided number of replica set listening on port 1025. 
