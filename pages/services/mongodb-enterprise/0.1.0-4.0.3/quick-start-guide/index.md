@@ -23,7 +23,7 @@ menuWeight: 15
 * Add the IP of host to the OpsManager API Whitelist.
 
 
-## Accessing the MongoDB UI with MongoDB OpsManager
+## Install MongoDB OpsManager
 
 For Installing MongoDB OpsManager on a host machine, please gather the requirements specified and follow the steps provided on the [MongoDB OpsManager Installation](https://docs.opsmanager.mongodb.com/current/installation/) page.
 
