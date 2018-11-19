@@ -2,16 +2,41 @@
 
 Microsoft Active Directory 可当作 Kerberos KDC 一样使用 。这样做需要在 Active Directory 用户和 Kerberos principal 之间创建映射。
 
-实用程序 [ktpass](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass) 可用于从 Active Directory 创建 keytab 并同时生成映射。
+实用程序 <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass">ktpass</a> 可用于从 Active Directory 创建 keytab 并同时生成映射。
 
-然而，映射 *可以*手动创建。对于一个 Kerberos principal，如 `<primary>/<host>@<REALM>`, the Active Directory user should have its `servicePrincipalName` and `userPrincipalName”，属性设置为
-<```><linebreak>servicePrincipalName = <primary>/<host><linebreak>userPrincipalName = <primary>/<host>@<REALM><linebreak></```>
+然而，映射 *可以*手动创建。对于一个 Kerberos principal，如 `<primary>/<host>@<REALM>`, Active Directory 用户应该拥有它 `servicePrincipalName` 和 `userPrincipalName”，属性设置为
+```
+servicePrincipalName = <primary>/<host>
+userPrincipalName = <primary>/<host>@<REALM>
+```
 
 例如，存在 Kerberos principal `{{ model.kerberos.principal }}`，则正确的映射应为，
-<```><linebreak>servicePrincipalName = {{ model.kerberos.spn }}<linebreak>userPrincipalName = {{ model.kerberos.upn }}<linebreak></```>
+```
+servicePrincipalName = {{ model.kerberos.spn }}
+userPrincipalName = {{ model.kerberos.upn }}
+```
 
 如果映射不正确或不存在，该服务将无法认证该 Principal。Kerberos 调试日志中的症状会是
-<```><linebreak>KRBError:<linebreak>sTime is Wed Feb 07 03:22:47 UTC 2018 1517973767000<linebreak>suSec is 697984<linebreak>error code is 6<linebreak>error Message is Client not found in Kerberos database<linebreak>sname is krbtgt/AD.MESOSPHERE.COM@AD.MESOSPHERE.COM<linebreak>msgType is 30<linebreak></```>
+```
+KRBError:
+sTime is Wed Feb 07 03:22:47 UTC 2018 1517973767000
+suSec is 697984
+error code is 6
+error Message is Client not found in Kerberos database
+sname is krbtgt/AD.MESOSPHERE.COM@AD.MESOSPHERE.COM
+msgType is 30
+```
+
 在 `userPrincipalName` 设置不正确时的表单错误，以及
-<```><linebreak>KRBError:<linebreak>sTime is Wed Feb 07 03:44:57 UTC 2018 1517975097000<linebreak>suSec is 128465<linebreak>error code is 7<linebreak>error Message is Server not found in Kerberos database<linebreak>sname is kafka/kafka-1-broker.confluent-kafka.autoip.dcos.thisdcos.directory@AD.MESOSPHERE.COM<linebreak>msgType is 30<linebreak></```>
+
+```
+KRBError:
+sTime is Wed Feb 07 03:44:57 UTC 2018 1517975097000
+suSec is 128465
+error code is 7
+error Message is Server not found in Kerberos database
+sname is kafka/kafka-1-broker.confluent-kafka.autoip.dcos.thisdcos.directory@AD.MESOSPHERE.COM
+msgType is 30
+```
+
 在 `servicePrincipalName` 设置不正确时的表单错误。

@@ -16,7 +16,7 @@
 3. 完成卸载过程之后，群集即会自动删除调度程序任务。
 
 **注意：** 卸载操作开始后就不能取消，因为这可能使服务处于不确定的半销毁状态。
-
+ 
 ## 调试卸载
 
 有些情况下，自动卸载过程需要手动干预才能完成。
@@ -40,27 +40,76 @@
 - CLI：`dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy`（必要时在运行 `dcos package install --cli {{ model.packageName }}` 后）
 - HTTP：`https://yourcluster.com/service/{{ model.serviceName }}/v1/plans/deploy`
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy<linebreak>deploy (IN_PROGRESS)<linebreak>├─ kill-tasks (COMPLETE)<linebreak>│  ├─ kill-task-node-0-server__1a4114bc-48bb-47f6-be99-1b5ca6d55c4e (COMPLETE)<linebreak>│  ├─ kill-task-node-1-server__0c42118e-04fd-40e1-b49d-0d3f71d2d243 (COMPLETE)<linebreak>│  └─ kill-task-node-2-server__e00cad38-f27f-4332-b1df-5118ca480d50 (COMPLETE)<linebreak>├─ unreserve-resources (IN_PROGRESS)<linebreak>│  ├─ unreserve-f41351a2-b478-4e13-a94c-705f530989ef (COMPLETE)<linebreak>│  ├─ unreserve-48f64612-8427-4cde-86f4-4edeb9efff37 (COMPLETE)<linebreak>│  ├─ unreserve-402d51f5-6014-4ca3-bd13-324dae62b888 (PENDING)<linebreak>│  ├─ unreserve-cb95e869-277f-48b9-954f-08c0d7a26bcf (PENDING)<linebreak>│  ├─ unreserve-cbd748d0-df7b-4d01-b0b7-6acf915d8f98 (COMPLETE)<linebreak>│  ├─ unreserve-00ed63d6-427c-4492-9713-772390cc5241 (COMPLETE)<linebreak>│  ├─ unreserve-5dd56b1d-4522-4bbd-88b5-de9fa0f181f2 (PENDING)<linebreak>│  └─ unreserve-c9915f07-f446-4e14-a6b4-12c8dd2f914b (COMPLETE)<linebreak>└─ deregister-service (PENDING)<linebreak>   └─ deregister (PENDING)<linebreak></```>
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy
+deploy (IN_PROGRESS)
+├─ kill-tasks (COMPLETE)
+│  ├─ kill-task-node-0-server__1a4114bc-48bb-47f6-be99-1b5ca6d55c4e (COMPLETE)
+│  ├─ kill-task-node-1-server__0c42118e-04fd-40e1-b49d-0d3f71d2d243 (COMPLETE)
+│  └─ kill-task-node-2-server__e00cad38-f27f-4332-b1df-5118ca480d50 (COMPLETE)
+├─ unreserve-resources (IN_PROGRESS)
+│  ├─ unreserve-f41351a2-b478-4e13-a94c-705f530989ef (COMPLETE)
+│  ├─ unreserve-48f64612-8427-4cde-86f4-4edeb9efff37 (COMPLETE)
+│  ├─ unreserve-402d51f5-6014-4ca3-bd13-324dae62b888 (PENDING)
+│  ├─ unreserve-cb95e869-277f-48b9-954f-08c0d7a26bcf (PENDING)
+│  ├─ unreserve-cbd748d0-df7b-4d01-b0b7-6acf915d8f98 (COMPLETE)
+│  ├─ unreserve-00ed63d6-427c-4492-9713-772390cc5241 (COMPLETE)
+│  ├─ unreserve-5dd56b1d-4522-4bbd-88b5-de9fa0f181f2 (PENDING)
+│  └─ unreserve-c9915f07-f446-4e14-a6b4-12c8dd2f914b (COMPLETE)
+└─ deregister-service (PENDING)
+   └─ deregister (PENDING)
+```
+
 
 正如我们以上所看到的那样，一些要取消保留的资源被困在 `PENDING` 状态。我们可以强迫它们进入 `COMPLETE` 状态，从而允许调度程序完成卸载操作。这可以使用以下任一方法进行：
 - CLI：`dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy`
 - HTTP：`https://yourcluster.com/service/{{ model.serviceName }}/v1/plans/deploy/forceComplete?phase=unreserve-resources&step=unreserve-<UUID>`
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-402d51f5-6014-4ca3-bd13-324dae62b888<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-cb95e869-277f-48b9-954f-08c0d7a26bcf<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-5dd56b1d-4522-4bbd-88b5-de9fa0f181f2<linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-402d51f5-6014-4ca3-bd13-324dae62b888
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-cb95e869-277f-48b9-954f-08c0d7a26bcf
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-5dd56b1d-4522-4bbd-88b5-de9fa0f181f2
+```
 
 此时，调度程序应显示计划中这些步骤的 `COMPLETE` 状态，允许其继续正常进行卸载操作：
 
-<```><linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy<linebreak>deploy (IN_PROGRESS)<linebreak>├─ kill-tasks (COMPLETE)<linebreak>│  ├─ kill-task-node-0-server__1a4114bc-48bb-47f6-be99-1b5ca6d55c4e (COMPLETE)<linebreak>│  ├─ kill-task-node-1-server__0c42118e-04fd-40e1-b49d-0d3f71d2d243 (COMPLETE)<linebreak>│  └─ kill-task-node-2-server__e00cad38-f27f-4332-b1df-5118ca480d50 (COMPLETE)<linebreak>├─ unreserve-resources (COMPLETE)<linebreak>│  ├─ unreserve-f41351a2-b478-4e13-a94c-705f530989ef (COMPLETE)<linebreak>│  ├─ unreserve-48f64612-8427-4cde-86f4-4edeb9efff37 (COMPLETE)<linebreak>│  ├─ unreserve-402d51f5-6014-4ca3-bd13-324dae62b888 (COMPLETE)<linebreak>│  ├─ unreserve-cb95e869-277f-48b9-954f-08c0d7a26bcf (COMPLETE)<linebreak>│  ├─ unreserve-cbd748d0-df7b-4d01-b0b7-6acf915d8f98 (COMPLETE)<linebreak>│  ├─ unreserve-00ed63d6-427c-4492-9713-772390cc5241 (COMPLETE)<linebreak>│  ├─ unreserve-5dd56b1d-4522-4bbd-88b5-de9fa0f181f2 (COMPLETE)<linebreak>│  └─ unreserve-c9915f07-f446-4e14-a6b4-12c8dd2f914b (COMPLETE)<linebreak>└─ deregister-service (PENDING)<linebreak>   └─ deregister (PENDING)<linebreak></```>
+```
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy
+deploy (IN_PROGRESS)
+├─ kill-tasks (COMPLETE)
+│  ├─ kill-task-node-0-server__1a4114bc-48bb-47f6-be99-1b5ca6d55c4e (COMPLETE)
+│  ├─ kill-task-node-1-server__0c42118e-04fd-40e1-b49d-0d3f71d2d243 (COMPLETE)
+│  └─ kill-task-node-2-server__e00cad38-f27f-4332-b1df-5118ca480d50 (COMPLETE)
+├─ unreserve-resources (COMPLETE)
+│  ├─ unreserve-f41351a2-b478-4e13-a94c-705f530989ef (COMPLETE)
+│  ├─ unreserve-48f64612-8427-4cde-86f4-4edeb9efff37 (COMPLETE)
+│  ├─ unreserve-402d51f5-6014-4ca3-bd13-324dae62b888 (COMPLETE)
+│  ├─ unreserve-cb95e869-277f-48b9-954f-08c0d7a26bcf (COMPLETE)
+│  ├─ unreserve-cbd748d0-df7b-4d01-b0b7-6acf915d8f98 (COMPLETE)
+│  ├─ unreserve-00ed63d6-427c-4492-9713-772390cc5241 (COMPLETE)
+│  ├─ unreserve-5dd56b1d-4522-4bbd-88b5-de9fa0f181f2 (COMPLETE)
+│  └─ unreserve-c9915f07-f446-4e14-a6b4-12c8dd2f914b (COMPLETE)
+└─ deregister-service (PENDING)
+   └─ deregister (PENDING)
+```
 
-**注意：** 由于操作员可能需要一段时间来完成这些操作，卸载完成后，服务调度程序可能会处于僵尸状态。
-请参阅上面的 [僵尸服务调度程序](#zombie-service-scheduler)，了解如何纠正这一点。
+<p class="message--note"><strong>注意：</strong> 由于操作员可能需要一段时间来完成这些操作，卸载完成后，服务调度程序可能会处于僵尸状态。
+请参阅上面的 <a href="#zombie-service-scheduler">僵尸服务调度程序</a>，了解如何纠正这一点。</p>
 
 #### 手动卸载
 
 如果无法以其他方式恢复，则可以手动卸载服务。
 - 从 Marathon 中删除卸载调度程序。
 - 如下使用其 UUID 从 Mesos 中取消注册服务：
-  <```>bash<linebreak>  $ dcos service --inactive | grep {{ model.serviceName }}<linebreak>  {{ model.serviceName }}     False     3    3.3  6240.0  15768.0  <UUID><linebreak><linebreak>  $ dcos service shutdown <UUID><linebreak>  </```>
+
+  ```bash
+  $ dcos service --inactive | grep {{ model.serviceName }}
+  {{ model.serviceName }}     False     3    3.3  6240.0  15768.0  <UUID>
+
+  $ dcos service shutdown <UUID>
+  ```
+
 - 运行 `janitor.py` 清理剩余的保留资源，如下列 DC/OS 1.9 说明中所述。
 
 ## DC/OS 1.9 及更早版本，或早于 2.0.0-x 的包
@@ -70,6 +119,12 @@
 1. 停止服务。从 DC/OS CLI，输入 `dcos package uninstall --app-id=<service-name> {{model.packageName }}`.
 1. 使用框架清洁器脚本 `janitor.py`清理剩余的保留资源。
 
-<```>bash<linebreak>$ MY_SERVICE_NAME=<service-name><linebreak>$ dcos package uninstall --app-id=$MY_SERVICE_NAME {{ model.packageName }}`.<linebreak>$ dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \<linebreak>    -r $MY_SERVICE_NAME-role \<linebreak>    -p $MY_SERVICE_NAME-principal \<linebreak>    -z dcos-service-$MY_SERVICE_NAME"<linebreak></```>
-
- 参见 [DC/OS 文档](/latest/deploying-services/uninstall/#framework-cleaner) 了解有关框架清洁器脚本的详细信息。
+```bash
+$ MY_SERVICE_NAME=<service-name>
+$ dcos package uninstall --app-id=$MY_SERVICE_NAME {{ model.packageName }}`.
+$ dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \
+    -r $MY_SERVICE_NAME-role \
+    -p $MY_SERVICE_NAME-principal \
+    -z dcos-service-$MY_SERVICE_NAME"
+```
+ 参见 [DC/OS 文档](/cn/1.11/deploying-services/uninstall/#framework-cleaner) 了解有关框架清洁器脚本的详细信息。

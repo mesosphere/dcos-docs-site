@@ -1,0 +1,37 @@
+# Common values:
+
+packageName: cassandra
+serviceName: cassandra
+techName: Apache Cassandra
+techShortName: Cassandra
+
+# Values specific to certain templates:
+
+install:
+  minNodeCount: 三个
+  nodeDescription: 有三个 Apache Cassandra 节点
+  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/cassandra/cass-auth/
+
+managing:
+  podType: 节点
+  taskType: 服务器
+
+supportedVersions:
+  techExampleVersion: 3.0.13
+  techLink: "[Cassandra](http://cassandra.apache.org/download/)" 
+
+operations:
+  minNodeCount: 三个
+  nodeDescription: 有三个 Apache Cassandra 节点
+  
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    └─ node-deploy (serial strategy) (COMPLETE)
+       ├─ node-0:[server] (COMPLETE)
+       ├─ node-0:[init_system_keyspaces] (COMPLETE)
+       ├─ node-1:[server] (COMPLETE)
+       └─ node-2:[server] (COMPLETE)
+
+security:
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
