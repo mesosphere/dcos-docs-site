@@ -1,6 +1,13 @@
 ### 区域
 
 服务参数 `region` 可用于在一个替换区域中部署服务。默认情况下，服务部署在“本地”区域，这是运行 DC/OS 管理节点的区域。要在特定原因下安装服务，在其选项中包含：
-<```>json<linebreak>{<linebreak>  "service": {<linebreak>    "region": "<region>"<linebreak>  }<linebreak>}<linebreak></```>
 
-**注意：** 服务不能在区域之间移动。
+```json
+{
+  "service": {
+    "region": "<region>"
+  }
+}
+```
+
+<p class="message--warning"><strong>注意：</strong>服务不能在区域之间移动。</p>
