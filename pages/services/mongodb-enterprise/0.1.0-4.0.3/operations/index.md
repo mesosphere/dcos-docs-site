@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Operations
 menuWeight: 30
-model: /services/minio/data.yml
+model: /services/mongodb-enterprise/data.yml
 render: mustache
 ---
 
