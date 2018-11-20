@@ -3,8 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos edgelb update
 title: dcos edgelb update
 menuWeight: 65
-excerpt: Upload a new pool config file
-
+excerpt: 上传新的池配置文件
 enterprise: false
 ---
 
@@ -32,10 +31,10 @@ dcos edgelb update [<flags>] <pool-file>
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。

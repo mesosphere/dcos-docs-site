@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB Permissions
-title: Edge-LB Permissions
+navigationTitle: 权限
+title: Edge-LB 权限
 menuWeight: 50
-excerpt: Service account and user permissions required to use the Edge-LB package
-
+excerpt: 使用 Edge-LB 安装包所需的服务帐户和用户权限
 enterprise: false
 ---
 
@@ -27,7 +26,7 @@ Edge-LB 作为 DC/OS 服务进行安装，而非内置组件。以下列出的�
 
 # 服务帐户权限
 
-要使 Edge-LB 运行，必须将其配置为使用 [服务账户](/services/edge-lb/1.0/installing/#create-a-service-account/)。
+要使 Edge-LB 运行，必须将其配置为使用 [服务账户](/cn/services/edge-lb/1.1/installing/#create-a-service-account/)。
 
 为方便管理，将服务帐户主体添加到 `superusers` 组。
 

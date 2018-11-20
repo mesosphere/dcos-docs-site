@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb show
-title: dcos edgelb show
+navigationTitle: dcos edgelb 显示
+title: dcos edgelb 显示
 menuWeight: 35
-excerpt: Show the pool definition for a specific pool name
-
+excerpt: 显示特定池名称的池定义
 enterprise: false
 ---
 
@@ -34,10 +33,10 @@ dcos edgelb show [<flags>] [<pool-name>]
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。

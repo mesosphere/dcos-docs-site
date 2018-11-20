@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb list
+navigationTitle: dcos edgelb list
 title: dcos edgelb list
 menuWeight: 25
-excerpt: List the names and a summary of all configured pools
-
+excerpt: 列出所有已配置池的名称和摘要
 enterprise: false
 ---
 
@@ -32,10 +31,10 @@ dcos edgelb list [<flags>]
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。

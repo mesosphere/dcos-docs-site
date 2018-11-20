@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb status
-title: dcos edgelb status
+navigationTitle: dcos edgelb 状态
+title: dcos edgelb 状态
 menuWeight: 40
-excerpt: List load-balancer task information for a pool
+excerpt: 列出池的负载均衡器任务信息
+
 
 enterprise: false
 ---
@@ -34,10 +35,10 @@ dcos edgelb status [<flags>] <pool-name>
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。

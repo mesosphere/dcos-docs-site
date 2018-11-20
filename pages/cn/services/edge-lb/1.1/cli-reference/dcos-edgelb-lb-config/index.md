@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb lb-config
+navigationTitle: dcos edgelb lb-config
 title: dcos edgelb lb-config
 menuWeight: 20
-excerpt: Display the running load-balancer config associated with a pool
-
+excerpt: 显示与池关联的运行负载平衡器配置
 enterprise: false
 ---
 
@@ -33,10 +32,10 @@ dcos edgelb lb-config [<flags>] <pool-name>
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。

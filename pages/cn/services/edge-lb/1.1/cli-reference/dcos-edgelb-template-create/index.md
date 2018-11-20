@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb template create
-title: dcos edgelb template create
+navigationTitle: dcos edgelb 模板创建
+title: dcos edgelb 模板创建
 menuWeight: 45
-excerpt: Create a custom config template for a pool of load-balancers
-
+excerpt: 为负载均衡器的池创建自定义配置模板。
 enterprise: false
 ---
 
@@ -33,10 +32,10 @@ dcos edgelb template create <pool-name> <template-file>
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。
