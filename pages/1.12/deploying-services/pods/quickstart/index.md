@@ -47,7 +47,7 @@ enterprise: false
 
 # Launching a pod from the DC/OS web interface
 
-You can also launch a pod from the [**Services**](/1.11/gui/) tab of the DC/OS web interface. Select **Services -> Services -> RUN A SERVICE -> Multi-container (Pod)**, then toggle to JSON mode and paste in the application definition supplied above.
+You can also launch a pod from the [**Services**](/1.12/gui/) tab of the DC/OS web interface. Select **Services -> Services -> RUN A SERVICE -> Multi-container (Pod)**, then toggle to JSON mode and paste in the application definition supplied above.
 
 If you already have other services running, go to **Services -> Services**, then click the **+** on the upper right hand side.
 

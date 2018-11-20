@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 
-This topic provides field definitions and usage examples for pods. For more details on field definitions, see [Marathon Configuration Reference](/1.11/deploying-services/marathon-parameters).
+This topic provides field definitions and usage examples for pods. For more details on field definitions, see [Marathon Configuration Reference](/1.12/deploying-services/marathon-parameters).
 
 # Annotated simple pod definition
 
@@ -547,11 +547,11 @@ The following pod definition specifies an ephemeral volume called `v1`. <!-- Val
 
 # A Pod that Uses Persistent Volumes
 
-For an example of a pod that uses a persistent volume, see [Create a pod with a local persistent volume](/1.11/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume).
+For an example of a pod that uses a persistent volume, see [Create a pod with a local persistent volume](/1.12/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume).
 
 ## IP-per-Pod Networking
 
-The following pod definition specifies a virtual (user) network named `dcos`. The `networks:mode:container` field creates the virtual network. The `name` field is optional. If you have installed DC/OS using [our AWS templates](/1.11/installing/oss/cloud/aws/), the default virtual network name is `dcos`. <!-- Validated by suzanne 6-23-17 -->
+The following pod definition specifies a virtual (user) network named `dcos`. The `networks:mode:container` field creates the virtual network. The `name` field is optional. If you have installed DC/OS using [our AWS templates](/1.12/installing/oss/cloud/aws/), the default virtual network name is `dcos`. <!-- Validated by suzanne 6-23-17 -->
 
 ```json
 {
