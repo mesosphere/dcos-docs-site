@@ -50,7 +50,7 @@ From a terminal prompt, create a new service account `<service-account-id>` cont
    ``` 
 ## Create a Secret
 
-Create a secret `minio/<secret-name>` with your service account `<service-account-id>` and private key specified `<private-key>.pem`.
+Create a secret `mongodb/<secret-name>` with your service account `<service-account-id>` and private key specified `<private-key>.pem`.
 
 **Tip:** If you store your secret in a path that matches the service name, for example, service name and secret path are mongodb, then only the service named mongodb can access it.
 
@@ -75,7 +75,7 @@ Create a secret `minio/<secret-name>` with your service account `<service-accoun
    ```shell
    dcos security org users grant <service name> dcos:superuser full --description "grant permission to superuser" 
    dcos security org users grant dcos_mongodb dcos:adminrouter:ops:ca:rw full --description "grant permission to adminrouter"
-   dcos security org users grant dcos_mongodb dcos:secrets:default:miniodemo full --description "grant permission to miniodemo"
+   dcos security org users grant dcos_mongodb dcos:secrets:default:mongodbdemo full --description "grant permission to mongodbdemo"
    ```    
 
 
@@ -90,21 +90,21 @@ In DC/OS 1.10, the required permission is `dcos:superuser full`:
    export LC_ALL=C.UTF-8
    export LANG=C.UTF-8
    dcos package install dcos-enterprise-cli
-   dcos security org service-accounts keypair minio-private-key.pem minio-public-key.pem
-   dcos security org service-accounts create -p minio-public-key.pem -d "dcos_minio" <service name>
-   dcos security secrets create-sa-secret --strict minio-private-key.pem <service name> <service name secret>
+   dcos security org service-accounts keypair mongodb-private-key.pem mongodb-public-key.pem
+   dcos security org service-accounts create -p mongodb-public-key.pem -d "dcos_mongodb" <service name>
+   dcos security secrets create-sa-secret --strict mongodb-private-key.pem <service name> <service name secret>
    dcos security org users grant <service name> dcos:superuser full --description "grant permission to superuser"
-   dcos security org users grant dcos_minio dcos:adminrouter:ops:ca:rw full --description "grant permission to adminrouter"
-   dcos security org users grant dcos_minio dcos:secrets:default:miniodemo full --description "grant permission to miniodemo"
+   dcos security org users grant dcos_mongodb dcos:adminrouter:ops:ca:rw full --description "grant permission to adminrouter"
+   dcos security org users grant dcos_mongodb dcos:secrets:default:mongodbdemo full --description "grant permission to mongodbdemo"
    ```
 where `<service name>` is the name of the service to be installed.
 
-## Accessing the Minio UI with Edge-LB TLS configuration
+## Enabling the TLS configuration with MongoDB OpsManager
 
-### Pre-requisites for EdgeLB with TLS configuration
+### Pre-requisites for Enabling MongoDB OpsManager with TLS configuration
 1) DC/OS cluster with Service account and Service account secret configured.
 
-2) Minio service installed with TLS enabled.
+2) MongoDB service installed with TLS enabled.
 
 ### Steps
 For Edge-LB pool configuration:
