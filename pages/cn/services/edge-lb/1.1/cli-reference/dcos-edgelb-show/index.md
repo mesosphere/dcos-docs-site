@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edgelb 显示
-title: dcos edgelb 显示
+navigationTitle: dcos edgelb show
+title: dcos edgelb show
 menuWeight: 35
 excerpt: 显示特定池名称的池定义
 enterprise: false

@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  V1 Pool Examples
-title: V1 Pool Examples
+navigationTitle: V1 池示例
+title: V1 池示例
 menuWeight: 81
-excerpt: Example Edge-LB pool configurations using the V1 API
-
+excerpt: 使用 V1 API 来示例 Edge-LB 池配置
 enterprise: false
 ---
 

@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  V2 API Reference
-title: V2 API Reference
+navigationTitle: V2 API 参考
+title: V2 API 参考
 menuWeight: 85
-excerpt: Endpoints exposed in the V2 API
-
+excerpt: 在 V2 API 中暴露的端点
 enterprise: false
 ---
 
@@ -22,7 +21,7 @@ Edge-LB API 最初与 DC/OS 1.10.0 一起发布，需要 DC/OS Enterprise 1.10.0
 /services/edge-lb/
 ```
 
-要确定您集群的地址，请参阅 [集群访问](/1.11/api/access/)。
+要确定您集群的地址，请参阅 [集群访问](/cn/1.11/api/access/)。
 
 # 格式
 
@@ -35,7 +34,7 @@ API 请求标头可以是以下任一项：
 
 所有 Edge-LB API 路由都需要使用身份验证。
 
-要验证 API 请求，请参阅 [获取身份认证令牌](/1.10/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递身份认证令牌](1.11/security/ent/iam-api/#pass-an-authentication-token)。
+要验证 API 请求，请参阅 [获取身份认证令牌](/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递身份认证令牌](/cn1.11/security/ent/iam-api/#pass-an-authentication-token)。
 
 Edge-LB API 还需要通过以下权限进行授权：
 
