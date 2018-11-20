@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: API 参考
+navigationTitle: Edge-LB API 参考
 title: Edge-LB API 参考
 menuWeight: 80
 excerpt: 由 Edge-LB 安装包暴露的所有 API 端点的参考
