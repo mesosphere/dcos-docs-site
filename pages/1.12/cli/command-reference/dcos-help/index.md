@@ -30,7 +30,7 @@ dcos help <subcommand>
 
 ## Display help for dcos config command
 
-The `dcos help config` command is the same as [`dcos config --help`](/1.11/cli/command-reference/dcos-config/).
+The `dcos help config` command is the same as [`dcos config --help`](/1.12/cli/command-reference/dcos-config/).
 
 ```bash
 dcos help config
