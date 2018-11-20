@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb endpoints
+navigationTitle: dcos edgelb endpoints
 title: dcos edgelb endpoints
 menuWeight: 15
-excerpt: List all endpoints for a pool
-
+excerpt: 列出池的所有端点
 enterprise: false
 ---
 
@@ -33,10 +32,10 @@ dcos edgelb endpoints [<flags>] <pool-name>
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。

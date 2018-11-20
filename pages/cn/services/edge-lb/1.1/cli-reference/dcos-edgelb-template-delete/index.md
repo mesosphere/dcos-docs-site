@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb template delete
+navigationTitle: dcos edgelb template delete
 title: dcos edgelb template delete
-menuWeight: 50
-excerpt: Revert a custom config template to defaults
-
+menuWeight: 10
+excerpt: 删除并卸载现有池
 enterprise: false
 ---
 
@@ -33,10 +32,10 @@ dcos edgelb template delete <pool-name>
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。

@@ -3,8 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos edgelb version
 title: dcos edgelb version
 menuWeight: 70
-excerpt: Display the current Edge-LB version
-
+excerpt: 显示当前的 Edge-LB 版本
 enterprise: false
 ---
 
@@ -31,10 +30,10 @@ dcos edgelb [<flags>] version
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。

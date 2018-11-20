@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Input Formats
-title: Input Formats
+navigationTitle: 输入格式
+title: 输入格式
 menuWeight: 45
-excerpt: Pool configuration file format information
-
+excerpt: 池配置文件格式信息
 enterprise: false
 ---
 

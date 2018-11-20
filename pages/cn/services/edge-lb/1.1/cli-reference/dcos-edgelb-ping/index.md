@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb ping
+navigationTitle: dcos edgelb ping
 title: dcos edgelb ping
 menuWeight: 30
-excerpt: Test the readiness of the Edge-LB API server
-
+excerpt: 测试 Edge-LB API 服务器的就绪情况
 enterprise: false
 ---
 
@@ -31,10 +30,10 @@ dcos edgelb ping
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。

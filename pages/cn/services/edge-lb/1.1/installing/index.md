@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Installing Edge-LB
-title: Installing Edge-LB
+navigationTitle: 安装 
+title: 安装 Edge-LB
 menuWeight: 10
-excerpt: Configuring a service account and installing Edge-LB
+excerpt: 配置服务帐户并安装 Edge-LB
 enterprise: false
 ---
 
@@ -11,13 +11,13 @@ enterprise: false
 
 **前提条件：**
 
-- [已安装 DC/OS CLI](/latest/cli/install/)
+- [已安装 DC/OS CLI](/cn/1.11/cli/install/)
 - 您以超级用户身份登录。
--  [已安装 DC/OS Enterprise CLI](/latest/cli/enterprise-cli/)。
+-  [已安装 DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/)。
 - 您有权限访问 [远程 Edge-LB 软件库](https://support.mesosphere.com/hc/en-us/articles/213198586)。
 
 **限制**
-- 目前，在 DC/OS 1.11 中，Edge-LB 仅适用于宽容模式的 DC/OS Enterprise，而在 DC/OS 1.11 [安全模式](/latest/security/ent/#security-modes)中，适用于宽容或严格模式的 DC/OS Enterprise。它不适用于禁用模式。
+- 目前，在 DC/OS 1.11 中，Edge-LB 仅适用于宽容模式的 DC/OS Enterprise，而在 DC/OS 1.11 [安全模式](/cn/1.11/security/ent/#security-modes)中，适用于宽容或严格模式的 DC/OS Enterprise。它不适用于禁用模式。
 
 # 添加 Edge-LB 包软件库
 Edge-LB 包括两个组件：
@@ -26,11 +26,11 @@ Edge-LB 包括两个组件：
 
 要安装 Edge-LB，您必须安装 Edge-LB API 服务器和 Edge-LB 池的 universe 软件库。Edge-LB API 服务器是管理一个或多个 Edge-LB 池的 RESTful API。每个 Edge-LB 池都是负载均衡器的集合。Edge-LB 池可用于启动负载均衡器的一个或多个实例，以创建单个高可用性负载均衡器。目前，Edge-LB 池仅支持 HAProxy 作为负载均衡器。
 
-**注意** 如果您的环境位于防火墙后方，或者无法访问公共目录，那么您必须使用本地目录。
+<p class="message--note"><strong>注意: </strong> 如果您的环境位于防火墙后方，或者无法访问公共目录，那么您必须使用本地目录。</p>
 
 1. 从 [Mesosphere 服务支持页面](https://support.mesosphere.com/hc/en-us/articles/213198586)下载每个软件库的工件。
 
-**注意：** 您必须有服务帐户，才能执行此操作。
+<p class="message--note"><strong>注意: </strong> 您必须有服务帐户，才能执行此操作。</p>
 
 2. 当您拥有 Edge-LB API 服务器和 Edge-LB 池软件库的工件链接时，请使用以下命令将其添加到 universe 包软件库：
 
@@ -46,7 +46,7 @@ dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-
 ## <a name="build"></a>部署包含 Edge-LB 的本地 Universe
 [/企业]
 
-如果您需要部署包含您自己软件包组合的本地 Universe，您必须构建一个自定义的本地 Universe Docker 镜像。以下指令基于 [DC/OS universe 部署指令](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/#certified)。
+如果您需要部署包含您自己软件包组合的本地 Universe，您必须构建一个自定义的本地 Universe Docker 镜像。以下指令基于 [DC/OS universe 部署指令](/cn/1.11/administering-clusters/deploying-a-local-dcos-universe/#certified)。
 
 **先决条件：** [Git](https://git-scm.com/)。在 Unix/Linux 中，参阅这些 [入门指令](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 
@@ -88,13 +88,13 @@ cp -rpv stub-repo/packages/* ../../repo/packages
     sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“edgelb:v1.1.3,edgelb-pool:stub-universe,<other-package>:<version>” local-universe
     ```
 
-7. 执行 [部署包含已认证 Universe 包的本地 Universe] 中所述的所有步骤(/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages)。
+7. 执行 <a href="/cn/1.11/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages">部署包含已认证 Universe 包的本地 Universe</a> 中所述的所有步骤。
 
 
 # 创建服务帐户
 Edge-LB API 服务器必须与服务帐户关联，以便它可以根据用户请求在公用节点和专用节点上启动 Edge-LB 池。
 
-[服务账户](/latest/security/ent/service-auth/) 与公私密钥对、密码、权限和身份认证令牌结合使用，为 DC/OS 服务提供访问 DC/OS 的权限。服务帐户控制服务被允许进行的通信和 DC/OS API 操作。
+[服务账户](/cn/1.11/security/ent/service-auth/) 与公私密钥对、密码、权限和身份认证令牌结合使用，为 DC/OS 服务提供访问 DC/OS 的权限。服务帐户控制服务被允许进行的通信和 DC/OS API 操作。
 
 按照以下步骤创建服务帐户、与服务帐户相关联的主体，为该主体分配权限，并将密钥存储库与该服务帐户关联。Edge-LB 使用密钥存储库在 Edge-LB 池上检索和安装 TLS 证书，以便为客户端和服务后端之间的所有 HTTP 流量启用 TLS。
 
@@ -107,7 +107,7 @@ Edge-LB API 服务器必须与服务帐户关联，以便它可以根据用户�
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
 ```
 
-**注意：** 您可以使用 [DC/OS 密钥存储库](/latest/security/ent/secrets/) 以确保密钥对的安全。
+<p class="message--note"><strong>注意: </strong> 您可以使用 <a href="/cn/1.11/security/ent/secrets/">DC/OS 密钥存储库</a> 以确保密钥对的安全。</p>
 
 ## 创建主体
 从终端提示创建包含包含公钥 (`edge-lb-public-key.pem`) 的新服务帐户 (`edge-lb-principal`)。
@@ -116,7 +116,7 @@ dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-publi
 dcos security org service-accounts create -p edge-lb-public-key.pem -d "Edge-LB service account" edge-lb-principal
 ```
 
-**注意：** 使用以下命令验证您的新服务帐户。
+<p class="message--note"><strong>注意: </strong> 使用以下命令验证您的新服务帐户。</p>
 
 ```bash
 dcos security org service-accounts show edge-lb-principal
@@ -125,13 +125,13 @@ dcos security org service-accounts show edge-lb-principal
 ## <a name="create-an-sa-secret"></a>创建密码
 使用您的服务帐户 (`edge-lb-principal`) 和指定的私钥 (`edge-lb-private-key.pem`) 创建密码 (`dcos-edgelb/edge-lb-secret`)。
 
-**注意：** 如果您在与服务名称匹配的路径中存储密码（例如，服务名称和路径都为 `edge-lb`)，那么只有名为 `edge-lb` 的服务可以进行访问。
+<p class="message--note"><strong>注意: </strong> 如果您在与服务名称匹配的路径中存储密码（例如，服务名称和路径都为 `edge-lb`)，那么只有名为 `edge-lb` 的服务可以进行访问。</p>
 
 ```bash
 dcos security secrets create-sa-secret --strict edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
 ```
 
-**注意：** 使用此命令列出密码。
+<p class="message--note"><strong>注意: </strong> 使用此命令列出密码。</p>
 
 ```bash
 dcos security secrets list /
@@ -139,7 +139,7 @@ dcos security secrets list /
 
 ## <a name="give-perms"></a>创建和分配权限
 
-使用以下 CLI 命令，为 Edge-LB 服务帐户配置所需权限。所有 CLI 命令也可通过 [IAM API] 执行(/latest/security/ent/iam-api/)。
+使用以下 CLI 命令，为 Edge-LB 服务帐户配置所需权限。所有 CLI 命令也可通过 [IAM API 执行](/cn/1.11/security/ent/iam-api/)。
 
 可以使用两种方法中的一种为 Edge-LB 服务帐户安全地配置所需权限：
 
@@ -156,7 +156,7 @@ dcos security org groups add_user superusers edge-lb-principal
 
 ### 允许服务账户进行有限操作
 
-**注意：** 如果您添加 `edge-lb-principal` 到 `superusers` 组，则不需要这些步骤。
+<p class="message--note"><strong>注意: </strong> 如果您添加 `edge-lb-principal` 到 `superusers` 组，则不需要这些步骤。</p>
 
 这些更加有限的权限包括 DC/OS 包、Marathon 任务、Edge-LB 池与任务的管理。它们还使得 Edge-LB 池框架调度器能够通过 Mesos 管理节点进行注册并启动负载均衡器任务。
 
@@ -177,13 +177,13 @@ dcos security org users grant edge-lb-principal dcos:mesos:master:task:user:root
 dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id full
 ```
 
-**注意：** 另外，**对于创建的每个 Edge-LB 池**，都需要授予此权限：
+另外，**对于创建的每个 Edge-LB 池**，都需要授予此权限：
 
 ```bash
 dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
 ```
 
-有关所需权限的详细信息，请参阅 [Edge-LB 权限](/services/edge-lb/1.1/permissions)
+有关所需权限的详细信息，请参阅 [Edge-LB 权限](/cn/services/edge-lb/1.1/permissions)
 
 # <a name="create-json"></a>为服务身份认证创建配置文件
 配置服务身份认证后，您必须使用凭据创建 JSON 选项文件。安装 Edge-LB 时，此文件将传递到 DC/OS。
@@ -199,14 +199,14 @@ dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-ed
   }
 }
 ```
-EdGelB 还需要指定以下选项。它们的值取决于其正在运行的集群的安全模式：
+EdgelB 还需要指定以下选项。它们的值取决于其正在运行的集群的安全模式：
 
 * `service.mesosProtocol`: `"https"` 针对宽容和严格安全模式， `"http"`（默认）针对禁用安全模式
 * `service.mesosAuthNZ`: `true`（默认）针对宽容和严格安全模式， `false`针对禁用安全模式 参数从 v1.1 版本开始可用。
 
 其他有用的可配置服务参数包括：
 
-* `service.name`: `"dcos-edgelb/api"`. 当  [配置池](/services/edge-lb/1.1/pool-configuration/)，`apiserver`. `dcos-edgelb` 的服务路径对应于 `pool.namespace`。
+* `service.name`: `"dcos-edgelb/api"`. 当  [配置池](/cn/services/edge-lb/1.1/pool-configuration/)，`apiserver`. `dcos-edgelb` 的服务路径对应于 `pool.namespace`。
 * `service.logLevel`: `"info"`. 可以是 `debug`、`info`、`warn` 或 `error`中的一个。
 * `service.cpus`: `1.1`
 * `service.mem`: `1024`
@@ -232,5 +232,5 @@ until dcos edgelb ping; do sleep 1; done
 pong
 ```
 
-- 有关配置 Edge-LB 的详细信息，请参阅 [Edge-LB 配置](/services/edge-lb/1.1/pool-configuration) 部分。
-- 有关可用 Edge-LB 命令的详细信息，请参阅 [Edge-LB 命令参考](/services/edge-lb/1.1/cli-reference)。
+- 有关配置 Edge-LB 的详细信息，请参阅 [Edge-LB 配置](/cn/services/edge-lb/1.1/pool-configuration) 部分。
+- 有关可用 Edge-LB 命令的详细信息，请参阅 [Edge-LB 命令参考](/cn/services/edge-lb/1.1/cli-reference)。

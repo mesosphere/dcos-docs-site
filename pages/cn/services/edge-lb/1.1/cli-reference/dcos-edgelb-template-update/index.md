@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos edgelb template update
 title: dcos edgelb template update
 menuWeight: 60
-excerpt: Update a custom config template for a pool of load balancers
+excerpt: 为负载均衡器的池更新自定义配置模板
 
 enterprise: false
 ---
@@ -34,10 +34,10 @@ dcos edgelb template update <pool-name> <template-file>
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。

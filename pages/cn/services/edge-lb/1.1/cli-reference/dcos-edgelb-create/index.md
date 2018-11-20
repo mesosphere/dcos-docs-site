@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb create
+navigationTitle: dcos edgelb create
 title: dcos edgelb create
 menuWeight: 5
-excerpt: Create a single pool given a definition file written in JSON or YAML
-
+excerpt: 根据 JSON 或 YAML 中写入的定义文件创建单个池。
 enterprise: false
 ---
 
@@ -32,10 +31,10 @@ dcos edgelb create [<flags>] <pool-file>
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。

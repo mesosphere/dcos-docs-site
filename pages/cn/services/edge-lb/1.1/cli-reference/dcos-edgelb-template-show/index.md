@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos edgelb template show
 title: dcos edgelb template show
 menuWeight: 55
-excerpt: Display load-balancer config template for a pool
+excerpt: 显示池的负载平衡器配置模板
 
 enterprise: false
 ---
@@ -34,10 +34,10 @@ dcos edgelb template show [<pool-name>]
 
 # Parent command
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。
