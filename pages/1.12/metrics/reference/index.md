@@ -9,18 +9,7 @@ enterprise: false
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-Mesosphere DC/OS collects the following metrics automatically:
-- [Node](#Node)
-    - [CPI and memory](#NodeCPUMem)
-    - [File system](#NodeFiles)
-    - [Network interface](#NodeNetwork)
-- [Container](#Container)
-    - [CPU usage](#ConCPU)
-    - [Disk metrics](#ConDisk)
-    - [Memory metrice](#ConMem)
-    - [Network metrics](#ConNetwork)
-
-Mesosphere DC/OS also collects metadata about the different categories of metrics. For more information about the metadata metrics, see [Dimensions](#Dimensions).
+Mesosphere DC/OS collects basic system metrics--such as CPU and memory--for nodes and containers automatically. Mesosphere DC/OS also collects metadata about the different categories of metrics. For more information about the metadata metrics, see [Dimensions](#Dimensions).
 
 You should note that automatically-collected metrics are only available for containers that provide endpoint statistics. For example, Docker containers do not provide networking data for DC/OS to consume, so the networking metrics that are available for UCR containers are not available for Docker containers.
 
