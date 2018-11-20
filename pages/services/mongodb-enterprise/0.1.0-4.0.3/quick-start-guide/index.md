@@ -52,11 +52,18 @@ Where options.json should contain required key pairs, which are `base_url`,`proj
 Sample for options.json:
 
 ```
-{   "base_url": "http://54.110.97.37:8080",
+{
+  "service": {
+    "base_url": "http://54.110.97.37:8080",
     "project_id": "5bf3d8fdcg3a9f3ff8588343",
     "ops_user_name": "user",
     "public_api_key": "4d215f3c-e241-4ea7-86fa-g06235a0e19d"
+  },
+  "node": {
+    "count": 1
+  }
 }
+
 ```
 
 
