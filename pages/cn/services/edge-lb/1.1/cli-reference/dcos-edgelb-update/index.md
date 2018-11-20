@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb update
+navigationTitle: dcos edgelb update
 title: dcos edgelb update
 menuWeight: 65
 excerpt: 上传新的池配置文件

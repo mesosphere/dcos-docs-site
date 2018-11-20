@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Blue/Green Service Update
-title: Blue/Green Service
+navigationTitle: 蓝色/绿色服务更新
+title: 蓝色/绿色服务
 menuWeight: 30
-excerpt: Tutorial - Using blue/green deployment
-
+excerpt: 教程 - 使用蓝色/绿色部署
 enterprise: false
 ---
 
@@ -183,10 +182,10 @@ enterprise: false
    }
    ```
 
-1. 将修改的配置上传到 Edge-LB。
+6. 将修改的配置上传到 Edge-LB。
 
    ```
    dcos edgelb update sample-minimal.json
    ```
 
-1. 现在，"svc-green" 暴露在 `http://<public-ip>/`.
+7. 现在，"svc-green" 暴露在 `http://<public-ip>/`.

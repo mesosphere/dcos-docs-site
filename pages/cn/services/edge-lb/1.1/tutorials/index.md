@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Tutorials
-title: Tutorials
+navigationTitle: 教程
+title: 教程
 menuWeight: 60
-excerpt: Learning to use Edge-LB
-
+excerpt: 学习使用 Edge-LB
 enterprise: false
 ---
 

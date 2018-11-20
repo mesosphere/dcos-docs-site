@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Upgrading Edge-LB
-title: Upgrading Edge-LB
+navigationTitle: 升级池
+title: 升级池 Edge-LB
 menuWeight: 25
-excerpt: Upgrading an Edge-LB installation
-
+excerpt: 升级 Edge-LB 安装
 enterprise: false
 ---
 
@@ -55,6 +54,6 @@ EdGelB 还需要指定以下选项。它们的值取决于其正在运行的集�
 
 升级每个池。
 
-    ```bash
-    dcos edgelb update <pool-file>
-    ```
+```bash
+dcos edgelb update <pool-file>
+```

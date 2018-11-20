@@ -1,22 +1,21 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB Usage
-title: Edge-LB Usage
+navigationTitle: 使用
+title: Edge-LB 使用
 menuWeight: 60
-excerpt: Common commands for Edge-LB usage
-
+excerpt: Edge-LB 使用的常见命令
 enterprise: true
 ---
 
-本页面介绍 Edge-LB 使用的常见命令。有关 CLI 命令的更详细列表，请参阅 [dcos edgelb cli 参考](/services/edge-lb/1.1/cli-reference/)。
+本页面介绍 Edge-LB 使用的常见命令。有关 CLI 命令的更详细列表，请参阅 [dcos edgelb cli 参考](/cn/services/edge-lb/1.1/cli-reference/)。
 
 # 先决条件
 
-- Edge-LB [安装和运行](/services/edge-lb/1.1/installing/)。
+- Edge-LB [安装和运行](/cn/services/edge-lb/1.1/installing/)。
 
 # 创建池
 
-启动服务并创建 [池配置文件](/services/edge-lb/1.1/pool-configuration)后，您可以使用 CLI 来部署它：
+启动服务并创建 [池配置文件](/cn/services/edge-lb/1.1/pool-configuration)后，您可以使用 CLI 来部署它：
 
 ```
 dcos edgelb create <pool-configuration-file>
@@ -41,7 +40,7 @@ dcos edgelb update <pool-configuration-file>
 * 重新加载将每 10 秒进行一次。
 
 此重新加载的属性能够实现
-[蓝色/绿色部署]这样的策略(/services/edge-lb/1.1/tutorials/blue-green-deploy)。
+[蓝色/绿色部署这样的策略](/services/edge-lb/1.1/tutorials/blue-green-deploy)。
 
 ## 负载均衡器重新启动场景
 
@@ -50,7 +49,7 @@ dcos edgelb update <pool-configuration-file>
 - 流量丢失。为了尽量降低影响，我们建议在池内运行多个负载均衡器。
 - 负载均衡器将在同一节点上（除非节点本身已出错）重新启动。
 
-**警告：** 负载均衡器的实例数不能缩小。此限制将在未来的 Edge-LB 版本中解决。
+<p class="message--warning"><strong>警告：</strong> 负载均衡器的实例数不能缩小。此限制将在未来的 Edge-LB 版本中解决。</p>
 
 ## 替换出错的 pod
 

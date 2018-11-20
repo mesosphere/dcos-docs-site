@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Highly Available Load Balancing on AWS
-title: Highly Available Load Balancing on AWS
+navigationTitle: AWS 上的高可用性负载平衡
+title: AWS 上的高可用性负载平衡
 menuWeight: 20
-excerpt: Tutorial - Setting up multiple load balancer instances
-
+excerpt: 教程 - 设置多个负载平衡器实例
 enterprise: false
 ---
 

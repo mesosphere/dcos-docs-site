@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Load Balance and Expose a Service
-title: Load Balance and Expose a Service
+navigationTitle: 负载平衡和暴露服务
+title: 负载平衡和暴露服务
 menuWeight: 10
-excerpt: Tutorial - Load balancing a DC/OS service
-
+excerpt: 教程 - 负载平衡 DC/OS 服务
 enterprise: false
 ---
 
@@ -101,4 +100,4 @@ enterprise: false
    dcos edgelb endpoints sample-minimal
    ```
 
- 然后，您可以使用此信息来确定您想用来访问负载均衡器的公用 IP。您还可以使用此技术来发现集群的公用 IP 地址：[查找公用代理 IP](https://docs.mesosphere.com/1.10/administering-clusters/locate-public-agent/)。
+ 然后，您可以使用此信息来确定您想用来访问负载均衡器的公用 IP。您还可以使用此技术来发现集群的公用 IP 地址：[查找公用代理 IP](/cn/1.11/administering-clusters/locate-public-agent/)。

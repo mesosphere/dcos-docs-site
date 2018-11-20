@@ -53,14 +53,14 @@ enterprise: false
 
 | 密钥 | 类型 | 说明 |
 | ------------- | ----------- | ----------- |
-| 密码 | 对象 | |
+| secret        | object      |             |
 
 ### pool.secrets.secret
 
 | 密钥 | 类型 | 说明 |
 | ------------- | ----------- | ----------- |
-| 密码 | 字符串 | 密码名称。 |
-| 文件 | 字符串 | 文件名。<br />将在 `$SECRETS/myfile` 找到文件 `myfile`。 |
+| secret        | string      | Secret name. |
+| file          | string      | File name.<br />The file `myfile` will be found at `$SECRETS/myfile`. |
 
 <a name="env-var"></a>
 ## pool.environmentVariables
@@ -82,31 +82,31 @@ enterprise: false
 
 | Key             | Type    | Description         |
 | --------------- | ------- | ------------------- |
-| 统计信息 | | |
-| 前端 | 阵列 | 前端阵列。 |
-| 后端 | 阵列 | 后端阵列。 |
+| stats           |         |                     |
+| frontends       | array   | Array of frontends. |
+| backends        | array   | Array of backends.  |
 
 <a name="stats-prop"></a>
 # pool.stats
 
 | 密钥 | 类型 |
 | -------------- | -------- |
-| bindAddress | 字符串 |
-| bindPort | int 32 |
+| bindAddress    | string   |
+| bindPort       | int 32   |
 
 <a name="frontend-prop"></a>
 # 池前端
 
 | 密钥 | 类型 | 属性 | 说明 | x-nullable  | 格式 |
 | --------------- | ------- | -------------- | -------------- | ---------- | ------ |
-| 名称 | 字符串 | | 默认为 `frontend_{{bindAddress}}_{{bindPort}}`。| | | bindAddress | 字符串 | | 仅使用前端名称中允许的字符。已知无效前端名称字符包括 `*`、`[` 和 `]`。 | | |
-| bindPort | 整数 | | 此前端将绑定的端口（如例如，针对 HTTP 的 80 或针对 HTTP 的 443）。| | int32 |
-| bindModifier | 字符串 | | 要放入绑定字段的其他文本 | | |
-| 证书 | 阵列 | | 负载均衡器中的 SSL/TLS 证书。<br /><br />对于密码，使用 `$SECRETS/my_file_name`<br />对于环境文件，使用 `$ENVFILE/my_file_name`<br />对于 autoCertificate，使用 `$AUTOCERT`。<br />类型：字符串 | | |
-| redirectToHttps | 对象 | <ul><li>[except](#redirect-https-prop)</li><li>[项](#redirect-https-prop)</li></ul> | 将其设置为空对象，足以将所有流量从 HTTP（该前端）重定向至 HTTPS（端口 443）。默认： except: [] | | |
-| miscStrs | 字符串阵列 | | 在 use_backend 前插入的其他模板行 | | |
-| protocol | | | 前端协议是客户/用户与 HAProxy 通信的方式。 | | |
-| linkBackend | 对象 | <ul><li>defaultBackend</li><li>map</li></ul> | 这描述了将流量发送到哪个后端。这可以用多种筛选器表示，例如，与主机名或 HTTP URL 路径匹配。<br />默认： map: [] | | |
+| name            | string  |                | Defaults to `frontend_{{bindAddress}}_{{bindPort}}`.  |   |   | bindAddress     | string  |                | Only use characters that are allowed in the frontend name. Known invalid frontend name characters include `*`, `[`, and `]`.  |   |   |
+| bindPort        | integer |                | The port (e.g. 80 for HTTP or 443 for HTTPS) that this frontend will bind to.  |   | int32  |
+| bindModifier    | string  |                | Additional text to put in the bind field   |   |   |
+| certificates    | array   |                | SSL/TLS certificates in the load balancer.<br /><br />For secrets, use `$SECRETS/my_file_name`<br />For environment files, use `$ENVFILE/my_file_name`<br />For autoCertificate, use `$AUTOCERT`.<br />type: string  |   |   |
+| redirectToHttps | object  | <ul><li>[except](#redirect-https-prop)</li><li>[items](#redirect-https-prop)</li></ul>  | Setting this to the empty object is enough to redirect all traffic from HTTP (this frontend) to HTTPS (port 443). Default: except: [] |   |   |
+| miscStrs        | array of strings  |   | Additional template lines inserted before use_backend  |   |   |
+| protocol        |   |   | The frontend protocol is how clients/users communicate with HAProxy.  |   |   |
+| linkBackend     | object  | <ul><li>defaultBackend</li><li>map</li></ul>  | This describes what backends to send traffic to. This can be expressed with a variety of filters such as matching on the hostname or the HTTP URL path.<br />Default: map: []   |   |   |
 
 <a name="redirect-https-prop"></a>
 ## pool.frontend.redirectToHttps
@@ -128,20 +128,20 @@ enterprise: false
 
 | Key             | Type    | Properties | Description |
 | --------------- | ------- | ---------- | ----------- |
-| defaultBackend | 字符串 | | 如果没有匹配其他筛选器，则路由到该默认后端 |。
-| map | 阵列 | <ul><li>[后端](#map-prop)</li><li>[hostEq](#map-prop)</li><li>[hostReg](#map-prop)</li><li>[pathBeg](#map-prop)</li><li>[pathEnd](#map-prop)</li><li>[pathReg](#map-prop)</li></ul> | 这是一个可选字段，指定各个后端的映射。按顺序应用这些规则。<br />必须填写“后端”和至少一个条件字段。如果填写多个条件，那么它们将与一个 boolean "AND" 结合。|
+| defaultBackend  | string  |            | This is default backend that is routed to if none of the other filters are matched.  |
+| map             | array   | <ul><li>[backend](#map-prop)</li><li>[hostEq](#map-prop)</li><li>[hostReg](#map-prop)</li><li>[pathBeg](#map-prop)</li><li>[pathEnd](#map-prop)</li><li>[pathReg](#map-prop)</li></ul> | This is an optional field that specifies a mapping to various backends. These rules are applied in order.<br />"Backend" and at least one of the condition fields must be filled out. If multiple conditions are filled out, they will be combined with a boolean "AND". |
 
 <a name="map-prop"></a>
 ### pool.frontend.linkBackend.map
 
 | 密钥 | 类型 | 说明 |
 | --------------- | ------- | ----------- |
-| 后端 | 字符串 | |
-| hostEq | 字符串 | 必须都为小写。 |
-| hostReg | 字符串 | 必须都为小写。 | 端口（如 `foo.com:80`）可以在此 regex 中。 |
-| pathBeg | 字符串 | |
-| pathEnd | 字符串 | |
-| pathReg  | 字符串 | |
+| backend         | string  |             |
+| hostEq          | string  | Must be all lowercase. |
+| hostReg         | string  | Must be all lowercase. It is possible for a port (e.g. `foo.com:80`) to be in this regex.  |
+| pathBeg         | string  |             |
+| pathEnd         | string  |             |
+| pathReg         | string  |             |
 
 <a name="backend-prop"></a>
 # pool.backend
@@ -171,11 +171,11 @@ enterprise: false
 
 | Key             | Type    | Properties     | Description    |
 | --------------- | ------- | -------------- | -------------- |
-| 主机 | 字符串 | | 设置主机标题值。 |
-| 路径 | 对象 | <ul><li>[fromPath](#path-prop)</li><li>[toPath](#path-prop)</li></ul> | 重写 HTTP URL 路径。所有字段必填，否则会被忽略。|
-| 请求 | | | |
-| 响应 | | | |
-| 粘滞 | 对象 | <ul><li>[已启用](#sticky-prop)</li><li>[customStr](#sticky-prop)</li></ul> | 通过 Cookie 进行粘滞会话。<br />要使用默认值（建议），则将此字段设置为空对象。|
+| host            | string  |                | Set the host header value. |
+| path            | object  | <ul><li>[fromPath](#path-prop)</li><li>[toPath](#path-prop)</li></ul>  | Rewrite the HTTP URL path. All fields required, otherwise it's ignored.  |
+| request         |         |                |                |
+| response        |         |                |                |
+| sticky          | object  | <ul><li>[enabled](#sticky-prop)</li><li>[customStr](#sticky-prop)</li></ul>  | Sticky sessions via a cookie.<br />To use the default values (recommended), set this field to the empty object.  |
 
 <a name="path-prop"></a>
 ## pool.backend.rewriteHttp.path
@@ -198,11 +198,11 @@ enterprise: false
 
 | Key                         | Type       | nullable   |
 | --------------------------- | ---------- | ---------- |
-| forwardfor | boolean | 正确 |
-| xForwardedPort | boolean | 正确 |
-| xForwardedProtoHttpSiFtls |  | 正确 |
-| setHostHeader | boolean | 正确 |
-| rewritePath | boolean | 正确 |
+| forwardfor                  | boolean    | true       |
+| xForwardedPort              | boolean    | true       |
+| xForwardedProtoHttpsIfTls   | boolean    | true       |
+| setHostHeader               | boolean    | true       |
+| rewritePath                 | boolean    | true       |
 
 <a name="rewrite-resp-prop"></a>
 # pool.backend.rewriteHttp.response
@@ -216,20 +216,21 @@ enterprise: false
 
 | Key             | Type       | Properties |  Default    | Description |
 | --------------- | ---------- | ---------- | ----------- | ----------- |
-| 类型 | | | | |
-| 框架 | 对象 | <ul><li>[值](#framework-prop)</li><li>[匹配](#framework-prop)</li></ul> | 匹配：EXACT | Mesos 框架。如果不确定，则该值可能是“marathon”。|
-| 任务 | 对象 | <ul><li>[值](#task-prop)</li><li>[匹配](#task-prop)</li></ul> | 匹配：EXACT | 任务名称。VIP 不需要此字段。<br />对于 Marathon pod，这是容器名称，而不是 pod 名称。|
-| 检查 | 对象 | <ul><li>[已启用](#check-prop)</li><li>[customStr](#check-prop)</li></ul> | 已启用：正确 | 启用健康检查。默认情况下，这些是 TCP 健康检查。有关更多选项，请参阅“customCheck”。<br />这些是 DNS 解析（因此，VIP）正常运行所需的 |
-| 端口 | | | | |
-| timesStr | 字符串 | | | 将任意字符串附加到“服务器”指令。 |
+| type            |            |            |             |             |
+| framework       | object     | <ul><li>[value](#framework-prop)</li><li>[match](#framework-prop)</li></ul> | match: EXACT | The Mesos framework. If unsure, the value should probably be "marathon". |
+| task            | object     | <ul><li>[value](#task-prop)</li><li>[match](#task-prop)</li></ul>  | match: EXACT  | The Task name. This field is not needed for VIPs.<br />For Marathon pods, this is the container name, NOT the pod name. |
+| check           | object     | <ul><li>[enabled](#check-prop)</li><li>[customStr](#check-prop)</li></ul> | enabled: true | Enable health checks. These are by default TCP health checks. For more options see "customCheck".<br />These are required for DNS resolution (and hence VIPs) to function properly |
+| port            |            |            |             |             |
+| miscStr         | string     |            |             | Append an arbitrary string to the "server" directive. |
+
 
 <a name="framework-prop"></a>
 ## pool.backend.server.framework
 
 | 密钥 | 类型 |
 | ----------- | --------- |
-| 值 | 字符串 |
-| 匹配 | |
+| values      | string    |
+| match       |           |
 
 <a name="task-prop"></a>
 ## pool.backend.server.task
@@ -244,8 +245,9 @@ enterprise: false
 
 | Key             | Type       | nullable   |
 | --------------- | ---------- | ---------- |
-| 已启用 | boolean | 正确 |
-| customStr | 字符串 | |
+| enabled         | boolean    | true       |
+| customStr       | string     |            |
+
 
 <a name="server-port-prop"></a>
 # pool.backend.server.port
@@ -261,5 +263,5 @@ enterprise: false
 
 | Key             | Type        |
 | --------------- | ----------- |
-| 代码 | int32 |
-| 消息 | 字符串 |
+| code            | int32       |
+| message         | string      |

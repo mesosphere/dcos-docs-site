@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edgelb 状态
-title: dcos edgelb 状态
+navigationTitle: dcos edgelb status
+title: dcos edgelb status
 menuWeight: 40
 excerpt: 列出池的负载均衡器任务信息
 
