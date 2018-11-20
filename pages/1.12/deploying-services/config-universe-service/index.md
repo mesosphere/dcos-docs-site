@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-This topic describes how to use the DC/OS CLI to configure services. You can also customize services by using the [**Services**](/1.11/gui/services/) tab in the DC/OS UI.
+This topic describes how to use the DC/OS CLI to configure services. You can also customize services by using the [**Services**](/1.12/gui/services/) tab in the DC/OS UI.
 
 1. View the available configuration options for the service with the `dcos package describe --config <package-name>` command.
 
@@ -73,4 +73,4 @@ This topic describes how to use the DC/OS CLI to configure services. You can als
     dcos package install --options=marathon-config.json marathon
     ```
 
-For more information, see the [dcos package](/1.11/cli/command-reference/dcos-package) documentation.
+For more information, see the [dcos package](/1.12/cli/command-reference/dcos-package) documentation.

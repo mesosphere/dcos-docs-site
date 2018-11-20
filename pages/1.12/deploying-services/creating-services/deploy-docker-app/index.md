@@ -88,7 +88,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
 
 # Create a Docker app and deploy to DC/OS
 
-1.  Create a Marathon app definition with the following contents and save as `hello-nginx.json`. In the `image` field, replace `<username>` with your Docker Hub username. In the `type` field, specify `MESOS` or `DOCKER` depending on which [containerizer runtime](/1.11/deploying-services/containerizers/) you prefer.
+1.  Create a Marathon app definition with the following contents and save as `hello-nginx.json`. In the `image` field, replace `<username>` with your Docker Hub username. In the `type` field, specify `MESOS` or `DOCKER` depending on which [containerizer runtime](/1.12/deploying-services/containerizers/) you prefer.
 
     ```json
     {
@@ -138,27 +138,27 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
     /hello-nginx   64  0.1    1/1    N/A       ---      False      MESOS    N/A
     ```
 
-1.  If you used the [AWS CloudFormation templates](/1.11/installing/oss/cloud/aws/) to expose the app to the port specified in your app definition (e.g. port 80), you must reconfigure the health check on the public ELB.
+1.  If you used the [AWS CloudFormation templates](/1.12/installing/oss/cloud/aws/) to expose the app to the port specified in your app definition (e.g. port 80), you must reconfigure the health check on the public ELB.
     1. In CloudFormation, check the checkbox next to your stack.
     2. Click the **Resources** tab.
     3. Search for **PublicSlaveLoadBalancer**.
     4. Click the link in the Physical ID column.
     5. Follow the instructions in [Update the Health Check Configuration](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html#update-health-check-config).
 
-1.  Go to your public agent to see the site running. To find your public agent IP address, see [Finding a Public Agent IP](/1.11/administering-clusters/locate-public-agent/).
+1.  Go to your public agent to see the site running. To find your public agent IP address, see [Finding a Public Agent IP](/1.12/administering-clusters/locate-public-agent/).
 
     You should see the following message in your browser:
 
-    ![Hello Brave World](/1.11/img/helloworld.png)
+    ![Hello Brave World](/1.12/img/helloworld.png)
 
     Figure1. Hello World message 
 
 # Next steps
 
-Learn how to load balance your app on a public node using [Marathon-LB](/1.11/networking/marathon-lb/marathon-lb-basic-tutorial/).
+Learn how to load balance your app on a public node using [Marathon-LB](/1.12/networking/marathon-lb/marathon-lb-basic-tutorial/).
 
 
  [1]: https://www.docker.com
  [2]: https://hub.docker.com
- [3]: /1.11/installing/oss/
- [4]: /1.11/cli/install/
+ [3]: /1.12/installing/oss/
+ [4]: /1.12/cli/install/

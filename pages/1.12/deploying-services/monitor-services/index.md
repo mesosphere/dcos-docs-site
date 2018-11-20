@@ -27,7 +27,7 @@ kafka     <privatenode3>   True     0    0.0    0.0     0.0   <service-id3>
 
 ## Web interface
 
-See the monitoring [documentation](/1.11/monitoring/).
+See the monitoring [documentation](/1.12/monitoring/).
 
 # Monitoring user-created services
 
@@ -45,4 +45,4 @@ suzanne-simple-service  10.0.3.224  root    R    suzanne-simple-service.47359150
 
 ## Web interface
 
-See the monitoring [documentation](/1.11/monitoring/). 
+See the monitoring [documentation](/1.12/monitoring/). 
