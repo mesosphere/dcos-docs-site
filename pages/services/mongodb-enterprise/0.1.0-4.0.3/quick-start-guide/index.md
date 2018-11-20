@@ -45,9 +45,19 @@ Below are the steps to install MongoDB using the DC/OS Catalog Web Interface:
 The following command will launch the install via the DC/OS CLI:
 
 ```bash
-dcos package install mongodbservice --yes
+dcos package install mongodbservice --yes --options=options.json
 ```
+Where options.json should contain required key pairs, which are `base_url`,`project_id`, `ops_user_name` and `public_api_key`.
 
+Sample for options.json:
+
+```
+{   "base_url": "http://54.110.97.37:8080",
+    "project_id": "5bf3d8fdcg3a9f3ff8588343",
+    "ops_user_name": "user",
+    "public_api_key": "4d215f3c-e241-4ea7-86fa-g06235a0e19d"
+}
+```
 
 
 
