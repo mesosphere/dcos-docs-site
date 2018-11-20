@@ -12,11 +12,11 @@ menuWeight: 15
 
 * A running DC/OS cluster
 
-* Have OpsManager Base URI (Host URL or Path where the OpsManager is hosted)
+* OpsManager Base URI (Host URL or Path where the OpsManager is hosted)
 
-* Have Project ID (obtained after creating a project on OpsManager UI)
+* Project ID (obtained after creating a project on OpsManager UI)
 
-* Have or generate a Public API Key.
+* Generate or use an existing Public API Key.
 
 * Username of the Registered user over OpsManager Organisation.
 
