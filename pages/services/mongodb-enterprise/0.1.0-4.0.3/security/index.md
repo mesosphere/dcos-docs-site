@@ -116,43 +116,34 @@ For TLS/SSL configuration while launching MongoDB service from catalog:
   
   Now, Launch the service with the required number of nodes count.
   
-  After successful deployment of the service, go to MongoDB OpsManager. 
+  [<img src="../img/Ssl_enabled_config.png" alt="Configuration Enabling SSL"/>](../img/Ssl_enabled_config.png)
+  
+  After successful deployment of the service, go to **MongoDB OpsManager**. 
   
   1. In the project dashboard, select the tab `Security`.
   
   2. Go to sub-section `Authentication & TLS/SSL` and click 'Edit Settings'.
   
-  3. 
+  3. Click 'Next' on the pop-up menu appeared for Authentication & TLS/SSL Settings.
+  
+  [<img src="../img/tls_setting_screen1.png" alt="SSL Settings Screen1"/>](../img/tls_setting_screen1.png)
+  
+  4. Swipe `Enable TLS/SSL` to the right i.e. 'Yes'. It will ask for TLS/SSL CA file path.
+  
+  [<img src="../img/tls_setting_screen2.png" alt="SSL Settings Screen2"/>](../img/tls_setting_screen2.png)
+  
+  5. Enter the path for the certificate that is created under the sandbox. Default path for the certification directory is `/mnt/mesos/sandbox/certs/CAs/node.ca`. Enter the path and click 'Next'.
+  
+  6. In the sslPEMKeyFile column, enter the path for the PEM Key file generated to enable TLS/SSL. Default path for the PEM Key file is `mnt/mesos/sandbox/certs/mongodb.pem`. Enter the path and click 'Next'.
+  
+  [<img src="../img/ssl_settings_screen3.png" alt="SSL Settings Screen3"/>](../img/ssl_settings_screen3.png)
+  
+  7. Configure certificate path for OpsManager Agents. Default path for the PEM Key file is `mnt/mesos/sandbox/certs/mongodb.pem`. Enter the path and click 'Save'.
+  
+  [<img src="../img/ssl_settings_screen4.png" alt="SSL Settings Screen4"/>](../img/ssl_settings_screen4.png)
+  
+  8. The TLS/SSL configuration for the project is completed. You may connect to the instance using the CA File and PEM key file as provided while enabling the TLS/SSL configuration.
+  
+  [<img src="../img/TLS_Config_connect.png" alt="With TLS"/>](../img/TLS_Config_connect.png)
   
   
-Minio server can be accessed using Minio client by registering it to the Minio Server. To register Minio client, specify the public IP of the Public Agent running EdgeLB.
-
-[<img src="../img/edgelb_with_tls.png" alt="With TLS"/>](../img/edgelb_with_tls.png)
-
-For more details on Minio Client, refer to the link:
-   [minio-client-complete-guide](https://docs.minio.io/docs/minio-client-complete-guide.html)  
-
-## Install the service
-
-Install the DC/OS Minio Service, including the following options in addition to your own:
-
-   ```shell
-   {
-    "service": {
-       "service_account": "<your service account name>",
-       "service_account_secret": "<full path of service secret>",
-       "security": {
-          "tls_ssl": {
-             "enabled": true
-                     }
-                   }
-               }
-   }
-   ```
-
-[<img src="../img/TLS_Service.png" alt="TLS Service View"/>](../img/TLS_Service.png)
-
-[<img src="../img/TLS_Running_Stage.png" alt="TLS Running Stage"/>](../img/Running_Stage1.png)
-
-[<img src="../img/TLS_Successful_Execution.png" alt="TLS Successful Execution"/>](../img/TLS_Successful_Execution.png)
-
