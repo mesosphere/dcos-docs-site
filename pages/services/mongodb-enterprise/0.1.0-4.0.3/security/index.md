@@ -107,70 +107,24 @@ where `<service name>` is the name of the service to be installed.
 2) MongoDB service installed with TLS enabled.
 
 ### Steps
-For Edge-LB pool configuration:
-  1. Add repo of Edge-LB-aws.
+For TLS/SSL configuration while launching MongoDB service from catalog:
+  1. Check `ssl Enabled` option in service configuration menu for Enabling TLS over the service.
   
-  2. Add repo of Edge-LB-Pool-aws.
+  2. Add Service Account name (`dcos_mongodb` as created above) in the respective column.
    
-  3. Install the Edge-LB:
-  ```shell
-  dcos package install edgelb --yes
-  ``` 
-  4. Create the configuration JSON file with required parameters to access Minio:
-  ```shell
-{
-  "apiVersion": "V2",
-  "name": "minio",
-  "count": 1,
-  "autoCertificate": true,
-  "haproxy": {
-    "frontends": [
-      {
-        "bindPort": 9001,
-        "protocol": "HTTPS",
-        "certificates": [
-           "$AUTOCERT"
-        ],
-        "linkBackend": {
-          "defaultBackend": "miniodemo"
-        }
-      }
-    ],
-    "backends": [
-     {
-      "name": "miniodemo",
-      "protocol": "HTTPS",
-      "rewriteHttp": {
-         "host": "miniod.miniodemo.l4lb.thisdcos.directory"
-         },
-         "request": {
-            "forwardfor": true,
-            "xForwardedPort": true,
-            "xForwardedProtoHttpsIfTls": true,
-            "setHostHeader": true,
-            "rewritePath": true
-      },
-      "services": [{
-        "endpoint": {
-          "type": "ADDRESS",
-          "address": "miniod.miniodemo.l4lb.thisdcos.directory",
-          "port": 9000
-        }
-      }]
-      }
-      ]
-    }
-}
-
-```
-5. Create `edge-pool` using the JSON file created in the preceding step:
-  ```shell
-  dcos edgelb create edgelb-pool-config.json
-  ```    
- 6. Accessing Minio:
-  ```shell
-  https://<Public IP of the Public Node of the cluster>>:9001/minio
-  ```  
+  3. Add Service Account secret (`dcos_mongodb_secret` as created above) in the secret column.
+  
+  Now, Launch the service with the required number of nodes count.
+  
+  After successful deployment of the service, go to MongoDB OpsManager. 
+  
+  1. In the project dashboard, select the tab `Security`.
+  
+  2. Go to sub-section `Authentication & TLS/SSL` and click 'Edit Settings'.
+  
+  3. 
+  
+  
 Minio server can be accessed using Minio client by registering it to the Minio Server. To register Minio client, specify the public IP of the Public Agent running EdgeLB.
 
 [<img src="../img/edgelb_with_tls.png" alt="With TLS"/>](../img/edgelb_with_tls.png)
