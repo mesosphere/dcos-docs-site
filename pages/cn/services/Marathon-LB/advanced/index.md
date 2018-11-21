@@ -1,14 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  Marathon-LB Reference
-title: Marathon-LB Reference
+navigationTitle: 参考
+title: Marathon-LB 参考
 menuWeight: 4
-excerpt:
-
+excerpt: Marathon-LB 参考
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 ## HAProxy 配置
 
@@ -31,38 +29,38 @@ Marathon-LB 具有用于指定自定义 HAProxy 配置参数的制模功能。�
 
 ### 全局模板
 
-**注意：** 模板的 HAPROXY_HEAD 部分在 Marathon-LB 版本 1.12 中已更改：`daemon` 被删除并且 `stats socket /var/run/haproxy/socket expose-fd listeners` 已添加到全局部分。在升级到 1.12 版之前，确保已对您的自定义 HAPROXY_HEAD 进行了这些更改。
+<p class="messages--note"><strong>注意：</strong> 模板的 HAPROXY_HEAD 部分在 Marathon-LB 版本 1.12 中已更改：`daemon` 被删除并且 `stats socket /var/run/haproxy/socket expose-fd listeners` 已添加到全局部分。在升级到 1.12 版之前，确保已对您的自定义 HAPROXY_HEAD 进行了这些更改。</p>
 
 要指定全局模板：
 
 1. 在您的本地机器上在 `templates` 目录中创建名为 `HAPROXY_HEAD` 的文件，内容如下：
 
- global
- log /dev/log local0
- log /dev/log local1 notice
- maxconn 4096
- tune.ssl.default-dh-param 2048
- stats socket /var/run/haproxy/socket expose-fd listeners
- server-state-file global
- server-state-base /var/state/haproxy/
- defaults
- log global
- retries 3
- maxconn 3000
- timeout connect 5s
- timeout client 30s
- timeout server 30s
- option redispatch
- listen stats
- bind 0.0.0.0:9090
- balance mode http
- stats enable monitor-uri /_haproxy_health_check
+ 
+        global
+          log /dev/log local0
+          log /dev/log local1 notice
+          maxconn 4096
+          tune.ssl.default-dh-param 2048
+          stats socket /var/run/haproxy/socket expose-fd listeners
+          server-state-file global
+          server-state-base /var/state/haproxy/
+        defaults
+          log global
+          retries 3
+          maxconn 3000
+          timeout connect 5s
+          timeout client 30s
+          timeout server 30s
+          option redispatch
+        listen stats
+          bind 0.0.0.0:9090
+          balance mode http
+          stats enable monitor-uri /_haproxy_health_check
+
 
 在以上代码中，以下项目已从默认值更改：`maxconn`、 `timeout client` 和 `timeout server`。
 
-**注意：** 当前全部默认 HAPROXY_HEAD 可在此处找到：
-
-[https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head](https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head)。
+<p class="message--note"><strong>注意：</strong> 当前全部默认 HAPROXY_HEAD 可在此处找到：<a href="https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head">https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head</a>。</p>
 
 2. Tar 或 zip 该文件。[这里是一个用于执行此操作的方便脚本][1]。
 
@@ -70,16 +68,17 @@ Marathon-LB 具有用于指定自定义 HAProxy 配置参数的制模功能。�
 
 3. 通过将以下 JSON 保存在名为 `options.json` 的文件中，增加 Marathon-LB 配置：
 
+
         {
- "marathon-lb": {
- "template-url":"https://downloads.mesosphere.com/marathon/marathon-lb/templates.tgz" 
+          "marathon-lb": {
+            "template-url":"https://downloads.mesosphere.com/marathon/marathon-lb/templates.tgz"
           }
         }
 
 4. 启动新的 Marathon-LB：
-
+```
  dcos package install --options=options.json marathon-lb
-
+```
 您定制的 Marathon-LB HAProxy 实例现在将使用新模板运行。[可在此处找到可用模板的完整列表][2]。
 
 ### 单个应用模板
@@ -168,27 +167,29 @@ HAProxy 的统计报告可用于监控健康、性能，甚至制定调度安排
 
 1. 开始先运行 `marathon-lb-autoscale`。JSON 应用定义 [可在此处找到][7]。保存该文件并在 Marathon 上启动它：
 
- dcos marathon app add https://gist.githubusercontent.com/brndnmtthws/2ca7e10b985b2ce9f8ee/raw/66cbcbe171afc95f8ef49b70034f2842bfdb0aca/marathon-lb-autoscale.json
+ 
+        dcos marathon app add https://gist.githubusercontent.com/brndnmtthws/2ca7e10b985b2ce9f8ee/raw/66cbcbe171afc95f8ef49b70034f2842bfdb0aca/marathon-lb-autoscale.json
 
- JSON 应用定义将 2 个重要的自变量传递给工具：`--target-rps` 告诉 marathon-lb-autoscale 识别目标 RPS，`--apps` 是一个用逗号分隔的 Marathon 应用和要监控的服务端口的列表，使用 `_` 串联。如果经过配置，每个应用都可以将多个服务端口公开给负载均衡器，并且 `marathon-lb-autoscale` 将扩展应用数量以符合所需实例数目的最大公分母。
+The JSON app definition passes 2 important arguments to the tool: `--target-rps` tells marathon-lb-autoscale identifies the target RPS and `--apps` is a comma-separated list of the Marathon apps and service ports to monitor, concatenated with `_`. Each app could expose multiple service ports to the load balancer if configured to do so, and `marathon-lb-autoscale` will scale the app to meet the greatest common denominator for the number of required instances.
 
- "args":[
- "--marathon", "http://leader.mesos:8080", 
- "--haproxy", "http://marathon-lb.marathon.mesos:9090", 
- "--target-rps", "100", 
- "--apps", "nginx_10000" 
+        "args":[
+          "--marathon", "http://leader.mesos:8080",
+          "--haproxy", "http://marathon-lb.marathon.mesos:9090",
+          "--target-rps", "100",
+          "--apps", "nginx_10000"
         ],
 
- **注意：** 如果您尚未运行外部 Marathon-LB 实例，使用`dcos package install Marathon-LB`启动它。
+
+ <p class="message--note"><strong>注意：</strong> 如果您尚未运行外部 Marathon-LB 实例，使用`dcos package install Marathon-LB`启动它。</p>
 
 2. 启动您的 NGINX 测试实例。JSON 应用定义 [可在此处找到][8]。保存文件，并按以下启动：
-
- dcos marathon app add https://gist.githubusercontent.com/brndnmtthws/84d0ab8ac057aaacba05/raw/d028fa9477d30b723b140065748e43f8fd974a84/nginx.json
-
+```
+  dcos marathon app add https://gist.githubusercontent.com/brndnmtthws/84d0ab8ac057aaacba05/raw/d028fa9477d30b723b140065748e43f8fd974a84/nginx.json
+```
 3. 启动 `siege`，这是用于生成 HTTP 请求流量的工具。JSON 应用定义 [可在此处找到][9]。保存文件，并按以下启动：
-
+```
  dcos marathon app add https://gist.githubusercontent.com/brndnmtthws/fe3fb0c13c19a96c362e/raw/32280a39e1a8a6fe2286d746b0c07329fedcb722/siege.json
-
+```
  现在，如果您检查 HAProxy 状态页，您应该看到冲击 NGINX 实例的请求：
 
  ![image02](/1.10/img/image02-800x508.png)
@@ -198,12 +199,12 @@ HAProxy 的统计报告可用于监控健康、性能，甚至制定调度安排
  在“会话率”部分，您可以看到 NGINX 前端每秒约有 54 个请求。
 
 4. 扩展 `siege` 应用，这样我们生成大量的 HTTP 请求：
-
+```
  dcos marathon app update /siege instances=15
-
+```
  几分钟后，您将看到 NGINX 应用已自动扩展以服务增加的流量。
 
-5. 有关 `marathon-lb-autoscale` 参数使用（参见[此处文档][14]）。尝试更改间隔、样例数量和其他值，直到达到所需效果。默认值相当保守，可能会也可能不会符合您的预期。我们建议您在目标 RPS 中包含 50% 的安全因素。例如，如果您估量您的应用程序能够满足在 1500 RPS 下的 SLAs （1 CUP 和 1GiB 内存），您可能希望将目标 RPS 设置为 1000。
+5. 有关 `marathon-lb-autoscale` 参数使用。尝试更改间隔、样例数量和其他值，直到达到所需效果。默认值相当保守，可能会也可能不会符合您的预期。我们建议您在目标 RPS 中包含 50% 的安全因素。例如，如果您估量您的应用程序能够满足在 1500 RPS 下的 SLAs （1 CUP 和 1GiB 内存），您可能希望将目标 RPS 设置为 1000。
 
  [1]: https://gist.github.com/brndnmtthws/c5c613d9e90d2df771f9
  [2]: https://github.com/mesosphere/marathon-lb#templates

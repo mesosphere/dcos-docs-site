@@ -3,13 +3,9 @@ layout: layout.pug
 navigationTitle:  Marathon-LB
 title: Marathon-LB
 menuWeight: 80
-excerpt:
-
+excerpt: Marathon-LB 基于 HAProxy，是快速代理和负载均衡器。
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 Marathon-LB 基于 HAProxy，是快速代理和负载均衡器。HAProxy 为基于 TCP 和 HTTP 的应用程序提供代理和负载均衡，具有 SSL 支持、HTTP 压缩、健康检查、Lua 脚本等特性。Marathon-LB 订阅 Marathon 事件总线，并实时更新 HAProxy 配置。
 

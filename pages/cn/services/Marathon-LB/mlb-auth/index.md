@@ -1,13 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  Provisioning Marathon-LB
-title: Provisioning Marathon-LB
+navigationTitle: 配置 
+title: 配置 Marathon-LB
 menuWeight: 3
-excerpt: Provisioning Marathon-LB with a service account
-
+excerpt: 使用服务帐户配置 Marathon-LB
 enterprise: true
 ---
-
 
 您是否可以或必须使用服务帐户配置 Marathon-LB 因 [安全模式] 而异(/1.10/security/ent/#security-modes)。
 
@@ -21,13 +19,13 @@ enterprise: true
 
 本主题描述如何配置与本土 Marathon 实例相互作用的 Marathon-LB 实例。要为 Marathon-LB 设置服务帐户，请完成以下步骤。
 
-1. [创建密钥对。](#create-a-keyair)
+1. [创建密钥对。](#create-a-keypair)
 1. [创建服务帐户。](#create-a-service-account)
 1. [创建服务帐户密钥。](#create-an-sa-secret)
 1. [为服务帐户提供必要的权限。](#give-perms)
 1. [创建 config.json 文件。](#create-json)
 
-**注意：** 本文档假定以下内容：
+本文档假定以下内容：
 * `marathon-lb` 是 `marathon-lb` `marathon` 服务名称；如果您正在不同位置安装 `marathon-lb` ，您必须相应地更改密钥位置。
 * `marathon-lb/service-account-secret` 是存储 Marathon-LB 服务帐户凭证的密钥的完整路径； 如果您更改 `marathon-lb` 服务名称，您必须更改此项。
 * `mlb-private-key.pem` 是包含私钥的文件的名称。
@@ -35,7 +33,7 @@ enterprise: true
 
 我们建议您坚持使用这些名称，因为这样可以更容易地复制和粘贴命令。如果您决定更改名称，请确保在发出它们之前修改命令。
 
-**注意：** 我们将密钥存储在 `marathon-lb/service-account-secret` 路径中。这将保护其免受其他服务的影响，所以我们不建议进行修改。
+<p class="message--note"><strong>注意：</strong> 我们将密钥存储在 `marathon-lb/service-account-secret` 路径中。这将保护其免受其他服务的影响，所以我们不建议进行修改。</p>
 
 ## <a name="create-a-keypair"></a>创建密钥对
 
@@ -105,37 +103,37 @@ enterprise: true
 
  **严格或宽容：**
 
-    ```bash
-    dcos security secrets create-sa-secret --strict mlb-private-key.pem marathon-lb-sa marathon-lb/service-account-secret
-    ```
+```bash
+dcos security secrets create-sa-secret --strict mlb-private-key.pem marathon-lb-sa marathon-lb/service-account-secret
+```
 
  **禁用：**
 
-    ```bash
-    dcos security secrets create-sa-secret mlb-private-key.pem marathon-lb-sa marathon-lb/service-account-secret
-    ```
+```bash
+dcos security secrets create-sa-secret mlb-private-key.pem marathon-lb-sa marathon-lb/service-account-secret
+```
 
-1. 确保已成功创建密钥：
+2. 确保已成功创建密钥：
 
-    ```bash
-    dcos security secrets list /
-    ```
+```bash
+dcos security secrets list /
+```
 
-1. 如果您安装了 [jq 1.5 或更高版本](https://stedolan.github.io/jq/download)，您还可以使用以下命令检索密钥，并确保其包含正确的服务帐户 ID 和私钥。
+3. 如果您安装了 [jq 1.5 或更高版本](https://stedolan.github.io/jq/download)，您还可以使用以下命令检索密钥，并确保其包含正确的服务帐户 ID 和私钥。
 
-    ```bash
-    dcos security secrets get /marathon-lb/service-account-secret --json | jq -r .value | jq
-    ```
+```bash
+dcos security secrets get /marathon-lb/service-account-secret --json | jq -r .value | jq
+```
 
- **重要信息：** 在检查密钥时，如果您处于 `strict` 或 `permissive` 模式，确保 `login_endpoint` URL 使用 HTTPS；如果您处于 `disabled` 模式，则使用 HTTP。如果 URL 以 `https` 开始，且您处于 `disabled` 模式中，尝试 [升级 DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/#ent-cli-upgrade)、删除密钥并重新创建。
+ <p class="message--important"><strong>重要信息：</strong> 在检查密钥时，如果您处于 `strict` 或 `permissive` 模式，确保 `login_endpoint` URL 使用 HTTPS；如果您处于 `disabled` 模式，则使用 HTTP。如果 URL 以 `https` 开始，且您处于 `disabled` 模式中，尝试 <a href="/cn/1.11/cli/enterprise-cli/#ent-cli-upgrade">升级 DC/OS Enterprise CLI</a>、删除密钥并重新创建。</p>
 
-1. 现在，您已经将私钥存储在密钥存储库中，我们建议从文件系统中删除私钥文件。这将防止不良用户使用私钥来进行 DC/OS 身份认证。
+4. 现在，您已经将私钥存储在密钥存储库中，我们建议从文件系统中删除私钥文件。这将防止不良用户使用私钥来进行 DC/OS 身份认证。
 
-   ```bash
-   rm -rf mlb-private-key.pem
-   ```
+```bash
+rm -rf mlb-private-key.pem
+```
 
-1. 继续 [为服务帐户提供权限](#give-perms)。
+5. 继续 [为服务帐户提供权限](#give-perms)。
 
 ### 使用 Web 界面
 
@@ -171,11 +169,11 @@ enterprise: true
 
 6. 用该标签更换 `<private-key-value>` 使用在 [创建密钥对](#create-a-keyair) 中创建的私钥值。
 
-1. 单击 **创建**。您的密钥已经存储！
+7. 单击 **创建**。您的密钥已经存储！
 
  **提示：** 确保将密钥路径复制到文本编辑器中。后面您将需要该信息。
 
-1. 继续进入 [下一节](#give-perms)。
+8. 继续进入 [下一节](#give-perms)。
 
 ## <a name="give-perms"></a>为服务帐户配置权限
 
@@ -194,11 +192,11 @@ enterprise: true
    dcos security org users grant marathon-lb-sa dcos:service:marathon:marathon:admin:events read --description "Allows access to Marathon events"
    ```
 
-1. 继续进入 [下一部分](#create-json)。
+2. 继续进入 [下一部分](#create-json)。
 
 ## <a name="create-json"></a>创建 config.json 文件
 
-`config.json` 文件必要的内容将根据您的 [安全模式] 而有所不同(/1.10/security/ent/#security-modes)。
+`config.json` 文件必要的内容将根据您的 [安全模式而有所不同](/1.10/security/ent/#security-modes)。
 
 ### 严格和宽容模式 config.json
 
@@ -213,7 +211,7 @@ enterprise: true
 }
 ```
 
-**注意：** 虽然在`permissive`模式中安装 Marathon-LB 不要求将用于与 Marathon 通信的端口切换至 `8443` ，我们还是推荐这样处理。这可确保 Marathon-LB 与 Marathon 的通信在加密渠道上进行。
+<p class="message--note"><strong>注意：</strong> 虽然在`permissive`模式中安装 Marathon-LB 不要求将用于与 Marathon 通信的端口切换至 `8443` ，我们还是推荐这样处理。这可确保 Marathon-LB 与 Marathon 的通信在加密渠道上进行。</p>
 
 继续进入 [Install Marathon-LB](#install-mlb)。
 
