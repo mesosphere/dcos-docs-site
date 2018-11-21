@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon pod update` 命令允许您更新 pod。
+`dcos marathon pod update` 命令让您更新 pod。
 
 # 使用
 

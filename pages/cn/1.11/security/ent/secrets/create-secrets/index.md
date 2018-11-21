@@ -69,7 +69,7 @@ enterprise: true
 
 # <a name="cli"></a>通过 DC/OS Enterprise CLI 创建键/值对密钥
 
-本程序介绍了如何使用 DC/OS Enterprise CLI 在 `developer` 路径内创建名为 `my-secret` 的键/值对密钥。
+此步骤介绍了如何使用 DC/OS Enterprise CLI 在 `developer` 路径内创建名为 `my-secret` 的键/值对密钥。
 
 1. 使用 `dcos auth login` 登录到 CLI。您可在 [CLI 参考](/1.11/cli/command-reference/dcos-auth/dcos-auth-login/) 中找到有关此命令的更多信息。
 
@@ -81,11 +81,11 @@ enterprise: true
 
 # 通过 DC/OS Enterprise CLI 从文件创建密钥
 
-本程序介绍了如何使用文件在 `developer` 路径内使用 DC/OS Enterprise CLI 创建名为 `my-secret` 的密钥。
+此步骤介绍了如何使用文件在 `developer` 路径内使用 DC/OS Enterprise CLI 创建名为 `my-secret` 的密钥。
 
 文件内容（以下称为 `my-secret.txt`）可以是任何文本值。
 
-**注意：**从 DC/OS 1.10 开始，您只能从 DC/OS CLI 上传密钥作为文件。密钥的最大文件大小约为 1 MiB，减去了密钥存储库元数据的大约 1 KB。
+**注意：**从 DC/OS 1.10 开始，您只能从 DC/OS CLI 上传密钥作为文件。密钥的最大文件大小约为 1 MiB，减去密钥存储库元数据的大约 1 KB。
 
 1. 使用 `dcos auth login` 登录到 CLI。您可在 [CLI 参考](/1.11/cli/command-reference/dcos-auth/dcos-auth-login/) 中找到有关此命令的更多信息。
 
@@ -97,6 +97,6 @@ enterprise: true
 
 <table class=“table” bgcolor=#858585>
     <tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>密钥的最大文件大小约为 1 MB，减去了密钥存储库元数据的大约 1 KB。</td> 
+  <td align=justify style=color:white><strong>重要信息：</strong>密钥的最大文件大小约为 1 MB减去密钥存储库元数据的大约 1 KB。</td> 
     </tr> 
 </table>

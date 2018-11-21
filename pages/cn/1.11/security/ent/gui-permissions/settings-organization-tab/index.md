@@ -14,7 +14,7 @@ enterprise: true
 
 ## <a name="network-access-via-ui"></a>使用 GUI 授予访问权限
 
-**前提条件：**
+**先决条件：**
 
 - 不具有 `dcos:superuser` [权限](/1.11/security/ent/users-groups/) 的 DC/OS 用户账户。
 
@@ -64,7 +64,7 @@ enterprise: true
 
 ## <a name="network-access-via-api"></a>使用 API 授予访问权限
 
-**前提条件：**
+**先决条件：**
 
 - 您必须[安装 DC/OS CLI](/1.11/cli/install/) 并以超级用户身份登录。
 - 如果您的 [安全模式](/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。

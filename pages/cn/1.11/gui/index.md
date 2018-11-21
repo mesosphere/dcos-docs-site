@@ -28,7 +28,7 @@ DC/OS Web 界面提供了 DC/OS 群集的丰富图形视图。通过 Web 界面�
 
 # 用户菜单
 
-此外，Web 界面左上角有一个用户菜单，其中包含[群集概述] (/1.11/gui/cluster)、[链接群集] (/1.11/administering-clusters/multiple-clusters/cluster-links)、文档、CLI 安装和用户注销的链接。
+此外，Web 界面左上角有一个用户菜单，其中包含[群集概述] (/1.11/gui/cluster)、[已链接群集] (/1.11/administering-clusters/multiple-clusters/cluster-links)、文档、CLI 安装和用户注销的链接。
 
 ![DC/OS UI User Menu](/1.11/img/ui-user-menu.png)
 

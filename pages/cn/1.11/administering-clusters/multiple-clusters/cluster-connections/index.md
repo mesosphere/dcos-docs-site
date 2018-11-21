@@ -14,7 +14,7 @@ enterprise: false
 
 ## 设置与群集的连接
 
-设置与群集的连接以在文件 `<home-directory>/.dcos/clusters/<cluster_id>/dcos.toml`中存储连接配置，附加到群集并对 DC/OS 进行身份认证。附加到群集设置其为活动群集。
+设置与群集的连接时，会在文件 `<home-directory>/.dcos/clusters/<cluster_id>/dcos.toml`中存储连接配置，附加到群集并对 DC/OS 进行身份认证。附加到群集设置其为活动群集。
 
 要设置群集连接，运行 `dcos cluster setup` 命令，使用群集 URL 替换 `<dcos-url>` ：
 
@@ -40,7 +40,7 @@ dcos cluster attach <connected-cluster-name>
 - 不可用：群集在本地设置，且无法访问
 - 未配置：群集不在本地设置（即，群集被 [链接](/1.11/administering-clusters/multiple-clusters/cluster-links)至当前附加的群集上）。
 
-在本示例中，附加名为 `dcosdev` 的群集：
+在本示例中，名为 `dcosdev` 的群集为被附加的群集：
 
 ```bash
   NAME                   CLUSTER ID                 STATUS       VERSION                     URL
@@ -52,7 +52,7 @@ dcosdev*     cf96739f-f800-42ea-95d7-d60acc689194  AVAILABLE     1.11.0    https
 
 ## 重命名群集
 
-您可以重命名连接的群集：使用`dcos cluster rename <name> <new-name>` command. For example, to rename your cluster from `dcosdev` to `dcoslive`:
+您可以使用`dcos cluster rename重命名连接的群集 <name> <new-name>` command. For example, to rename your cluster from `dcosdev` to `dcoslive`:
 
 ```bash
 dcos cluster rename dcosdev dcoslive
@@ -62,10 +62,10 @@ dcos cluster rename dcosdev dcoslive
 
 ## 删除群集
 
-您可以删除连接的群集：`dcos cluster remove <name>` command. For example, to remove the cluster `dcosdev`:
+您可以用`dcos cluster remove 删除连接的群集 <name>` command. For example, to remove the cluster `dcosdev`:
 
 ```bash
 dcos cluster remove dcosdev
 ```
 
-如果删除附加的群集，执行在群集上安装包之类操作的 dcos 命令可能失败，直到您附加另一个连接的群集为止。
+如果删除附加的群集，执行在群集上例如安装程序包之类操作的 dcos 命令可能失败，直到您附加另一个连接的群集为止。

@@ -19,10 +19,10 @@ enterprise: false
 ### 先决条件：
 
 * DC/OS 使用 [自定义] (/1.11/installing/production/deploying-dcos/installation/) 安装方法安装。
-* 来自您的[安装](/1.11/installing/evaluation/cloud-installation/)的存档 DC/OS 安装程序文件（`dcos-install.tar`）。
+* 来自您的[安装](/1.11/installing/evaluation/cloud-installation/)步骤的存档 DC/OS 安装程序文件（`dcos-install.tar`）。
 * 满足 [系统要求] 的可用代理节点(/1.11/installing/production/system-requirements/)。
 * CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation)。
-* 已安装和配置 SSH。这是访问 DC/OS 群集中的节点所需的。
+* 已安装和配置 SSH。这是访问 DC/OS 群集中的节点所必需的。
 
 ### 安装 DC/OS 代理节点
 复制存档的 DC/OS 安装程序文件（`dcos-install.tar`）到代理节点。此存档在 GUI 或 CLI [安装](/1.11/installing/evaluation/cloud-installation/)方法期间创建。
@@ -67,13 +67,13 @@ enterprise: false
 
  **注意：** 您可以通过从 DC/OS CLI 运行此命令来验证节点类型。
 
- - 运行此命令以计算私有代理数。
+ - 运行此命令以计私有代理数量。
 
         ```bash
         dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public == null) | .id' | wc -l
         ```
 
- - 运行此命令以计算公共代理数。
+ - 运行此命令以计公共代理数量。
 
         ```bash
         dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l

@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos-cluster list` 命令允许您列出连接到 DC/OS CLI 的群集。
+`dcos-cluster list` 命令让您列出连接到 DC/OS CLI 的群集。
 
 # 使用
 
@@ -22,7 +22,7 @@ dcos cluster list [--attached --json]
 | 名称、简写 | D 描述 |
 |---------|-------------|
 | | `--attached` | 仅附加的群集。 |
-| | `--json` | 显示 JSON 格式化列表。 |
+| | `--json` | 显示以 JSON 为格式的列表。 |
 
 
 # 父命令

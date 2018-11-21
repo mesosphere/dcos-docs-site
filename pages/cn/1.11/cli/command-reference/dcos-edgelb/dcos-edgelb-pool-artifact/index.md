@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # 说明
- `dcos edgelb pool artifact` 命令允许您列出可用于 Edge-LB 池的工件。
+ `dcos edgelb pool artifact` 命令让您列出可用于 Edge-LB 池的工件。
 
 # 使用
 

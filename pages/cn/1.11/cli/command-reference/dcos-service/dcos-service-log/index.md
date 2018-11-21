@@ -25,11 +25,11 @@ dcos service log <file> <service> [OPTION]
 
 # 选项
 
-| Name<>shorthand | Default | Description |
+| 名称，简写 | 默认值 | 说明 |
 |---------|-------------|-------------|
 | `--follow` | | 动态更新日志。|
 | `--lines=N` | 10 | 显示最后 N 行。|
-| `--ssh-config-file=<path>` | | SSH 配置文件的路径。这用于访问 Marathon 日志。|
+| `--ssh-config-file=<path>` | | SSH 配置文件的路径。此选项用于访问 Marathon 日志。|
 
 # 位置自变量
 

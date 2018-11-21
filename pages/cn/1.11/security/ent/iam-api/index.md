@@ -15,7 +15,7 @@ enterprise: true
 
 # 请求和响应格式
 
-API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为 `Content-Type`，如下所示。
+API 仅支持 JSON。您必须在 HTTP 报文头中包含 `application/json` 作为 `Content-Type`，如下所示。
 
  Content-Type: application/json
 
@@ -24,7 +24,7 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 
 要使用的主机名将根据您的应用程序运行的位置而有所不同。
 
-* 如果您的应用程序在 DC/OS 群集之外运行，则应该使用群集 URL。这可以通过启动 DC/OS Web 界面并从浏览器复制域名来获取。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。在生产环境中，这应该是位于主服务器前面的负载均衡器的路径。
+* 如果您的应用程序在 DC/OS 群集之外运行，则应该使用群集 URL。这可以通过启动 DC/OS Web 界面并从浏览器复制域名来获取。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。在生产环境中，这应该是位于管理节点前面的负载均衡器的路径。
 
 * 如果您的应用程序在群集内部运行，则使用 `master.mesos`。
 
@@ -41,7 +41,7 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 
 ### 通过 IAM API
 
-若要获得认证令牌，请将请求正文中的用户名和密码传递给 `/auth/login`。它将返回认证令牌，如下所示。
+若要获得认证令牌，请将用户名和密码zai 请求正文中传递给 `/auth/login`。它将返回认证令牌，如下所示。
 
 ```json
 {
@@ -61,9 +61,9 @@ dcos config show core.dcos_acs_token
 
 ## 传递认证令牌
 
-### 通过 HTTP 标头
+### 通过 HTTP 报文头
 
-复制令牌值并将其传递到 HTTP 标头的 `Authorization` 字段中，如下所示。
+复制令牌值并将其传递到 HTTP 报文头的 `Authorization` 字段中，如下所示。
 
 ```http
 Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg

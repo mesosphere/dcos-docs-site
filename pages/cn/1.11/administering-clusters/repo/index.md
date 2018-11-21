@@ -1,20 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle: 管理包资源库
-title: 管理包资源库
+navigationTitle: 管理软件包资源库
+title: 管理软件包资源库
 menuWeight: 50
-excerpt: 学习使用 Web 界面或 CLI 管理包资源库。
+excerpt: 学习使用 Web 界面或 CLI 管理您的软件包资源库。
 enterprise: false
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-DC/OS 预配置了 [Mesosphere Universe](https://github.com/mesosphere/universe) 包资源库作为 DC/OS 包的提供程序，但也可添加其他包资源库。
+DC/OS 预配置了 [Mesosphere Universe](https://github.com/mesosphere/universe) 软件包资源库作为 DC/OS 包的提供程序，但也可添加其他软件包资源库。
 
 您可以使用 Web 界面或 CLI 来：
 
 * [列出资源库](#listing)
-* [搜索包](#finding-packages)
+* [搜索软件包](#finding-packages)
 * [添加资源库](#adding)
 * [删除资源库](#removing)
 
@@ -22,16 +22,16 @@ DC/OS 预配置了 [Mesosphere Universe](https://github.com/mesosphere/universe)
 
 ## <a name="listing"></a>列出资源库
 
-要查看当前安装的包资源库，输入此 CLI 命令：
+要查看当前安装的软件包资源库，输入此 CLI 命令：
 
 ```bash
 dcos package repo list
 Universe: https://universe.mesosphere.com/repo
 ```
 
-## <a name="finding-packages"></a>搜索包
+## <a name="finding-packages"></a>搜索软件包
 
-要搜索包，运行此 CLI 命令：
+要搜索软件包，运行此 CLI 命令：
 
 ```bash
 dcos package search [--json <query>]

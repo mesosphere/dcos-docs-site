@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos cluster rename` 命令允许您重命名群集。
+`dcos cluster rename` 命令让您重命名群集。
 
 # 使用
 
@@ -22,7 +22,7 @@ dcos cluster rename <name> <new-name>
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `<name>` | 已连接的群集的名称。 |
-| `<new-name>` | 连接的群集的新名称。|
+| `<new-name>` | 已连接的群集的新名称。|
 
 # 父命令
 

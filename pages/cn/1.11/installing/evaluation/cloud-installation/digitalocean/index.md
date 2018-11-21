@@ -9,7 +9,7 @@ oss: true
 
 可以使用 Terraform 在 DigitalOcean 上创建 DC/OS 群集。
 
-随附的特性模板配置为在 DigitalOcean 上运行 Mesosphere DC/OS。根据安装的 DC/OS 服务或工作负载所需的计算量，可能须要修改模板才能满足需求。可以修改 Terraform 模板，但 Mesosphere 不能协助完成故障排除。如果需要有关 Droplet 创建或其他相关问题的支持，请发送电子邮件至 support@digitalocean.com，访问非官方的 DigitalOcean IRC 频道（#digitalocean on freenode）或考虑 [DC / OS Enterprise] (https://mesosphere.com/)。
+随附的 Terraform 模板设置为能在 DigitalOcean 上运行 Mesosphere DC/OS。根据安装的 DC/OS 服务或工作负载所需的计算量，可能须要修改模板才能满足需求。可以修改 Terraform 模板，但 Mesosphere 不能协助完成故障排除。如果需要有关 Droplet 创建或其他相关问题的支持，请发送电子邮件至 support@digitalocean.com，访问非官方的 DigitalOcean IRC 频道（#digitalocean on freenode）或考虑 [DC / OS Enterprise] (https://mesosphere.com/)。
 
 **免责声明：请注意，这是 [社区推动的项目](https://github.com/dcos/terraform-dcos/tree/master/gcp)，未正式获得 Mesosphere 支持。**
 
@@ -17,7 +17,7 @@ oss: true
 
 ## 安全
 
-**注意：** 通过 Terraform 部署后，所有节点都默认面向互联网，并且开箱使用后未加防护。将管理节点和代理节点放入安全组需要其他配置。
+**注意：** 通过 Terraform 部署后，所有节点都默认面向互联网，并且未在开箱时设加防护。将管理节点和代理节点放入安全组需要其他配置。
 
 ## 环境
 
@@ -100,18 +100,18 @@ oss: true
 
  - `key_file_path` - 在第 4 步中创建的 ssh 私钥路径 ——默认为 ./do-key
 
-8. 还是在这一目录中运行 `terraform init`，然后运行 `terraform apply`，将服务器部署到您在 DigitalOcean 的项目中，并运行 DC/OS 安装程序。完成后，您将看到和以下内容相似，但带有分配给您服务器的 IP 地址的输出：
+8. 还是在这一目录中运行 `terraform init`，然后运行 `terraform apply`，将服务器部署到您在 DigitalOcean 的项目中，并运行 DC/OS 安装程序。完成后，您将看到和以下内容相似的输出，但它带有分配给您服务器的 IP 地址：
 
  ![terraform apply output](/1.11/img/digitalocean_terraform_output.png)
 
  图 1. Terraform 应用输出
 
-可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 或 20 分钟后，查看 [故障排除](1.11/installing/troubleshooting/) 文档。
+这时，可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 或 20 分钟后，查看 [故障排除](1.11/installing/troubleshooting/) 文档。
 
 # 启动 DC/OS
 输入 Mesos 管理节点 IP 地址启动 DC/OS Web 界面：
 
-1. 将运行 `terraform apply` 或运行相同目录中 `terraform output` 得到的链接，剪切并粘贴到浏览器，从而打开 DC/OS Web 界面。该界面在标准 HTTP 端口 80 上运行，因此无需在主机名后指定端口号。
+1. 将运行 `terraform apply` 或运行相同目录中的 `terraform output` 得到的链接，剪切并粘贴到浏览器，从而打开 DC/OS Web 界面。该界面在标准 HTTP 端口 80 上运行，因此无需在主机名后指定端口号。
 
 2. 安装 DC/OS 命令行界面 (CLI)。可以安装 CLI，用于管理 DC/OS 群集。可以通过单击左上方的群集名称随时访问文档。
 

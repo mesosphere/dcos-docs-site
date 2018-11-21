@@ -22,7 +22,7 @@ dcos license status  [--terms] [--breaches]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | | `--terms` | 显示合同条款。|
-| | `--breaches` | 显示违规数量。|
+| | `--breaches` | 显示违规次数。|
 
 # 父命令
 

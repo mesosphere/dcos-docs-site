@@ -11,7 +11,7 @@ menuWeight: 21
 
 # 一般策略：调试 DC/OS 上的应用程序部署
 
-既然我们已经定义了 [DC/OS 上调试应用程序的工具集](#tools)，那么让我们考虑实际在应用程序调试方案中实施这些工具的逐步一般故障排除策略。一旦我们完成了一般战略，我们将考虑如何在[实践部分](/1.11/tutorials/dcos-debug/scenarios/)应用此策略的一些具体方案。
+既然我们已经定义了 [DC/OS 上调试应用程序的工具集](#tools)，那么让我们考虑实际在应用程序调试方案中实施这些工具的分步的一般故障排除策略。一旦我们完成了一般战略，我们将考虑如何在[实践部分](/1.11/tutorials/dcos-debug/scenarios/)应用此策略的一些具体方案。
 
 除了考虑方案特有的任何信息外，调试应用部署问题的合理方法是按以下顺序应用[我们的调试工具](#tool)：
 
@@ -19,8 +19,8 @@ menuWeight: 21
 - 2: [检查任务日志](#task-strat)
 - 3: [检查调度程序日志](#schedule-strat)
 - 4: [检查代理程序日志](#agent-strat)
-- 5: [交互式测试任务](#interactive-strat)
-- 6: [检查主节点日志](#master-strat)
+- 5: [测试任务交互](#interactive-strat)
+- 6: [检查管理节点日志](#master-strat)
 - 7: [咨询社区](#community-strat)
 
 
@@ -28,7 +28,7 @@ menuWeight: 21
 
 ### 第 1 步：检查 Web 界面
 
-首先检查 [DC/OS Web 界面](#dcos-ui)（或使用 CLI）以[检查任务的状态](/latest/deploying-services/task-handling/)。如果任务有关联的[运行状况检查](/latest/deploying-services/creating-services/health-checks/)，则检查任务的运行状况也是一个好主意。
+首先检查 [DC/OS Web 界面](#dcos-ui)（或使用 CLI）以[检查任务的状态](/latest/deploying-services/task-handling/)。如果任务有关联的[运行状况检查](/latest/deploying-services/creating-services/health-checks/)，则建议检查任务的运行状况。
 
 如果可能相关，则检查 [Mesos Web 界面](/1.11/tutorials/dcos-debug/tools/#mesos-ui) 或 [Exhibitor/ZooKeeper Web 界面](/1.11/tutorials/dcos-debug/tools/#zoo-ui)，以获取可能相关的调试信息。
 
@@ -52,18 +52,18 @@ menuWeight: 21
 
 <a name="interactive-strat"></a>
 
-### 第 5 步：交互式测试任务
+### 第 5 步：测试任务的交互
 
-下一步是以[交互方式查看容器内运行的任务](/1.11/tutorials/dcos-debug//tools/#interactive)。如果任务仍在运行，`dcos task exec` 或 `docker exec` 可以帮助启动交互式调试会话。如果应用程序基于 Docker 容器镜像，则使用 `docker run` 和 `docker exec` 手动启动它也可以让您从正确的方向开始。
+下一步是以[交互方式查看容器内运行的任务](/1.11/tutorials/dcos-debug//tools/#interactive)。如果任务仍在运行，`dcos task exec` 或 `docker exec` 可以帮助启动交互式调试会话。如果应用程序基于 Docker 容器镜像，则使用 `docker run` 和 `docker exec` 手动启动它也可以让您以正确的方向开始操作。
 
 <a name="master-strat"></a>
 
-### 第 6 步：检查主节点日志
+### 第 6 步：检查管理节点日志
 
-如果您想了解特定调度程序收到某些资源或特定状态的原因，那么[主节点日志可能非常有用](/1.11/tutorials/dcos-debug/tools/#master-logs)。请记住，主节点转发代理程序和调度程序之间的所有状态更新，因此，在代理节点可能无法访问的情况下（例如，网络分区或节点故障）甚至可能非常有用。
+如果您想了解特定调度程序收到某些资源或特定状态的原因，那么[管理节点日志可能非常有用](/1.11/tutorials/dcos-debug/tools/#master-logs)。请记住，管理节点转发代理程序和调度程序之间的所有状态更新，因此，在代理节点可能无法访问的情况下（例如，网络分区或节点故障）甚至可能非常有用。
 
 <a name="community-strat"></a>
 
 ### 第 7 步：咨询社区
 
-如上所述，通过使用 [DC/OS Slack](http://chat.dcos.io/?_ga=2.29995196.285985511.1525709518-600356888.1525372520) 或对进一步调试非常有帮助的[邮件列表](https://groups.google.com/a/dcos.io/forum/#!forum/users)，[社区可能非常有用](/1.11/tutorials/dcos-debug/tools/#community)。
+如上所述，通过使用 [DC/OS Slack](http://chat.dcos.io/?_ga=2.29995196.285985511.1525709518-600356888.1525372520) [邮件列表](https://groups.google.com/a/dcos.io/forum/#!forum/users) 中阅读[社区可能非常有用](/1.11/tutorials/dcos-debug/tools/#community) 对进一步调试非常有帮助。

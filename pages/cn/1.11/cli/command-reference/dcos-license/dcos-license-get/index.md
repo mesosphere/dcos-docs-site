@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos license get` 命令允许您查看群集许可证。
+`dcos license get` 命令让您查看群集许可证。
 
 # 使用
 
@@ -31,7 +31,7 @@ dcos license get [<id>|active] [--output <file_path>] [--decryption-key]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `<id> ` | 许可证的 ID。 |
-| | `active` | 活动许可证。 |
+| | `active` | 有效许可证。 |
 | `<file_path>` | 存储许可证的文件的路径 |
 
 # 父命令

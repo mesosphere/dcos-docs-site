@@ -8,11 +8,11 @@ enterprise: true
 ---
 
 # 说明
-`dcos cluster link` 命令允许您配置从一个群集指向一个或多个群集的单向链接。访问群集时，您可以查看与其链接的群集。您可以[附加](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 链接的群集，无需事先运行 `dcos cluster setup`。
+`dcos cluster link` 命令让您配置从一个群集指向一个或多个群集的单向链接。访问群集时，您可以查看与其链接的群集。您可以[附加](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 链接的群集，无需事先运行 `dcos cluster setup`。
 
 **前提条件**
 
-- [`dcos cluster setup`](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/)命令用于设置要被链接的群集，必须指定相同的身份认证提供程序。例如：
+-用于设置要被链接的群集的[`dcos cluster setup`](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/)命令，必须指定相同的身份认证提供程序。例如：
 
   ```
   dcos cluster setup <dcos-url-a> --provider=dcos-users

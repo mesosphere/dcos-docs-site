@@ -10,27 +10,27 @@ enterprise: true
 
 本主题详细介绍了如何为在 DC/OS 上启动的自定义应用程序和 Pod 配置身份认证。
 
-**前提条件：**
+**先决条件：**
 
 - [已安装 DC/OS CLI](/1.11/cli/install/) 并以超级用户身份登录。
 - [已安装 DC/OS Enterprise CLI 0.4.14 或更高版本](/1.11/cli/enterprise-cli/#ent-cli-install)。
 - 如果您的 [安全模式](/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 `curl` 命令。
 
-# <a name="create-a-keypair"></a>创建密钥对
-使用 DC/OS Enterprise CLI 创建 2048 位 RSA 公私密钥对。将每个值保存到当前目录中的单独文件中。
+# <a name="create-a-keypair"></a>创建验证序号对
+使用 DC/OS Enterprise CLI 创建 2048 位 RSA 公私验证序号对。将每个值保存到当前目录中的单独文件中。
 
 ```bash
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-使用 [DC/OS 密钥存储库](/1.11/security/ent/secrets/) 保护钥匙对。
+使用 [DC/OS 密钥存储库](/1.11/security/ent/secrets/) 保护验证序号对。
 
 # <a name="create-a-service-account"></a>创建服务帐户
 您可以使用 DC/OS Enterprise CLI 或 DC/OS Web 界面创建服务帐户。
 
 ## 使用 DC/OS Enterprise CLI
 
-在终端提示符下，创建新服务帐户 (`<service-account-id>`) containing the public key (`<your-public-key>.pem`）的新服务帐户。
+在终端提示符下，创建新服务帐户 (`<service-account-id>`) containing the public key (`<your-public-key>.pem`）。
 
 ```bash
 dcos security org service-accounts create -p <your-public-key>.pem -d "<description>" <service-account-id>
@@ -52,7 +52,7 @@ dcos security org service-accounts show <service-account-id>
  图 1. 单击服务帐户创建按钮
 
 1. 输入描述并在 **ID** 字段中输入服务帐户 ID。
-1. 将与帐户相关联的公钥粘贴到 **PUBLIC KEY** 字段中。
+1. 将与帐户相关联的公共验证序号粘贴到 **PUBLIC KEY** 字段中。
 
  ![创建服务帐户 UI](/1.11/img/create-service-account.png)
 
@@ -60,7 +60,7 @@ dcos security org service-accounts show <service-account-id>
 
 
 # 创建密钥
-创建密钥 (`<secret-name>`) with your service account (`service-account-id>`) and private key specified (`<private-key>.pem`）的新服务帐户。
+创建密钥 (`<secret-name>`) with your service account (`service-account-id>`) and private key specified (`<private-key>.pem`）。
 
 ## 宽容
 
@@ -83,7 +83,7 @@ dcos security secrets list /
 # <a name="give-perms"></a>创建和分配权限
 
 ## 确定所需权限
-使用此程序确定服务帐户所需的访问权限。这将允许您排除可能由错误权限导致的任何功能问题。
+使用此程序确定服务帐户所需的访问权限。这将让您排除可能由错误权限导致的任何功能问题。
 
 1. [SSH 到您的节点](/1.11/administering-clusters/sshcluster/)。
 
@@ -150,7 +150,7 @@ dcos security secrets list /
 dcos auth login --username=<service-account-id> --private-key=<private-key>.pem
 ```
 
-# <a name="pass-tok"></a>在后续请求中传递认证令牌
+# <a name="pass-tok"></a>在后续请求中通过传递认证令牌
 服务成功登录后，将创建一个[认证令牌](/1.11/security/ent/service-auth/)。认证令牌应在后续对 DC/OS 端点的请求中使用。您可以将认证令牌引用为 shell 变量，例如：
 
 ```
@@ -160,4 +160,4 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 # <a name="refresh-tok"></a>刷新认证令牌
 默认情况下，认证令牌在五天后过期。您的服务将需要在到期之前或之后续订其令牌。令牌本身包含到期时间，因此您的服务可以使用此信息主动刷新令牌。或者，您可以等待从 DC/OS 获取 `401`，然后刷新。
 
-若要刷新认证令牌，只需重复 [请求认证令牌](#req-auth-tok) 中讨论的过程。
+若要刷新认证令牌，只需重复 [请求认证令牌](#req-auth-tok) 中所示的过程。

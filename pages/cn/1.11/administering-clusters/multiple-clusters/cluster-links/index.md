@@ -9,9 +9,9 @@ enterprise: true
 
 群集链接是群集和另一群集之间的 **单向** 关系。
 
-您可以使用 DC/OS CLI [dcos cluster link] (/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) 和 [dcos cluster unlink](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) 命令和 [cluster link API](/1.11/administering-clusters/multiple-clusters/cluster-link-api)添加和删除一个群集到另一个群集的链接。设置链接后，您可以使用 CLI 或 UI 轻松在群集之间切换。如果已经使用 SSO 提供程序设置链接，您不需要提供凭证即可切换群集。
+您可以使用 DC/OS CLI [dcos cluster link] (/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) 和 [dcos cluster unlink](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) 命令和 [cluster link API](/1.11/administering-clusters/multiple-clusters/cluster-link-api)添加和删除一个群集到另一个群集的链接。链接设置完成后，您可以使用 CLI 或 UI 轻松在群集之间切换。如果链接通过由 SSO 提供程序设置，您不需要提供凭证即可切换群集。
 
-您必须以超级用户身份登录或具有相应的群集链接 [权限](/1.11/security/ent/perms-reference/#cluster-linker)以查看、添加和删除链接以及授予权限以查看链接的群集。
+您必须以超级用户身份登录或具有相应的群集链接 [权限](/1.11/security/ent/perms-reference/#cluster-linker)以查看、添加及删除链接和授予权限以查看链接的群集。
 
 
 # 启用使用 SSO 访问群集链接
@@ -19,10 +19,10 @@ enterprise: true
 作为超级用户：
 
 1. 配置 [OpenID IDP](/1.11/security/ent/sso/setup-openid/)。
- 1. 确保在 Google Dev 控制台中的**授权 Javascript 源** 和 **授权重定向 URL** 字段中均提供两个群集 URL。
+ 1. 确保在 Google Dev 控制台中的**授权 Javascript 源** 和 **授权重定向 URI** 字段中均提供两个群集 URL。
  1. 提供 OIDC 名称，如“google-idp”。
  1. 配置 OIDC 时，确保两个群集使用相同的 `Client-Id` 和 `Client-Secret` 。
-1. 为每个用户提供查看服务和链接群集的权限：
+1. 为每个用户提供查看服务和已链接群集的权限：
 
  1. 选择 **组织 -> 用户**。
  2. 选择用户。
@@ -40,7 +40,7 @@ enterprise: true
 
  6. 单击 **添加权限**。
 
-# 添加群集链接
+# 将链接添加到群集
 
 要添加指向另一个群集的链接，运行 `dcos cluster link` 命令，提供群集的 URL 以链接至：
 
@@ -52,9 +52,9 @@ Choose the login method and provider to enable switching to this linked cluster:
 (1-2):
 ```
 
-# 查看链接的群集
+# 查看已链接的群集
 
-要查看所有链接的群集，运行 `dcos cluster list` 命令。如果群集已链接，但未设置，其状态为 `UNCONFIGURED`。如果群集已链接和附加，其状态为 `AVAILABLE`。另请参阅 [查看连接的群集](/1.11/administering-clusters/multiple-clusters/cluster-connections)。
+要查看所有已链接的群集，运行 `dcos cluster list` 命令。如果群集已链接，但未设置，其状态为 `UNCONFIGURED`。如果群集已链接和附加，其状态为 `AVAILABLE`。另请参阅 [查看连接的群集](/1.11/administering-clusters/multiple-clusters/cluster-connections)。
 
 # 删除群集的链接
 
@@ -66,19 +66,19 @@ dcos cluster unlink <linked-cluster>
 
 # 切换群集
 
-您可以使用 CLI 或 UI 在链接的群集之间切换。使用 CLI 切换群集时，新群集将成为 CLI 的活动群集。使用 UI 切换群集时，新群集将成为您在 UI 中看到的群集。如果在 CLI 中切换群集，它不会更改 UI 中的群集；同样，在 UI 中切换，不会影响 CLI 中附加的群集。
+您可以使用 CLI 或 UI 在已链接的群集之间切换。使用 CLI 切换群集时，新群集将成为 CLI 的活动群集。使用 UI 切换群集时，新群集将成为您在 UI 中看到的群集。如果在 CLI 中切换群集，它不会更改 UI 中的群集；同样，在 UI 中切换，不会影响 CLI 中附加的群集。
 
-### 从 DC/OS CLI 切换到链接的群集
+### 从 DC/OS CLI 切换到已链接的群集
 
-运行 `dcos cluster attach` 命令并提供链接群集的名称或 ID：
+运行 `dcos cluster attach` 命令并提供已链接群集的名称或 ID：
 
 ```bash
 dcos cluster attach <linked-cluster>
 ```
 
-如果您运行 `dcos cluster list`，`<linked-cluster>` ，其名称旁有一个星号。
+如果您运行 `dcos cluster list`，`<linked-cluster>` ，其名称旁会有一个星号。
 
-### 从 DC/OS UI 切换到链接的群集
+### 从 DC/OS UI 切换到已链接的群集
 
 1. 在 DC/OS Web 界面的左上角，单击群集名称右侧的向下箭头。
 
@@ -94,19 +94,19 @@ dcos cluster attach <linked-cluster>
 
 1. 单击要切换到的群集名称。
 
- ![swi 链接的集群](/1.11/img/switch-linked-cluster.png)
+ ![swi 已链接的集群](/1.11/img/switch-linked-cluster.png)
 
- 图 3. 切换到链接的群集
+ 图 3. 切换到已链接的群集
 
-如果您以超级用户身份登录，您也可以在“链接群集”选项卡中切换到链接的群集。
+如果您以超级用户身份登录，您也可以在“链接群集”选项卡中切换到已链接的群集。
 
 1. 选择 **群集 -> 链接群集**。
 
 1. 在切换目标群集的最右侧单击垂直椭圆，然后选择 **切换**。
 
- ![swi linked cluster2](/1.11/img/switch-linked-cluster2.png)
+ ![swi 已链接的群集2](/1.11/img/switch-linked-cluster2.png)
 
- 图 4. 切换到链接的群集
+ 图 4. 切换到已链接的群集
 
 
 # 链接和切换群集示例
@@ -161,7 +161,7 @@ dcos cluster attach <linked-cluster>
     (1-2): 2
     ```
 
- **注意：** 如果群集链接成功，则无响应。
+ **注意：** 如果群集链接成功，会没有回应。
 
 1. 附加到群集 `cluster-b`。
 

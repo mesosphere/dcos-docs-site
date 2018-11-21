@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos config validate` 命令允许您验证对配置文件的更改。
+`dcos config validate` 命令让您验证对配置文件的更改。
 
 # 使用
 

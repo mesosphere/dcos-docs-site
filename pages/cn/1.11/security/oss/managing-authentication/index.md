@@ -9,7 +9,7 @@ menuWeight: 20
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-DC/OS 用户数据库通过在路径 `/dcos/users` 下 [znodes](https://zookeeper.apache.org/doc/r3.1.2/zookeeperProgrammers.html#sc-zkDataModel-znodes) 中的主节点上运行而保留在 ZooKeeper 中。在 HTTP 授权标题中发送至 DC/OS 的令牌必须采用以下格式：`token=<token>`. In future versions `Bearer <token>` 还将受到支持 。
+DC/OS 用户数据库通过在路径 `/dcos/users` 下 [znodes](https://zookeeper.apache.org/doc/r3.1.2/zookeeperProgrammers.html#sc-zkDataModel-znodes) 中的管理节点上运行而保留在 ZooKeeper 中。在 HTTP 授权标题中发送至 DC/OS 的令牌必须采用以下格式：`token=<token>`. In future versions `Bearer <token>` 还将受到支持 。
 
 DC/OS 开源通过 CLI 命令提供安全管理；请参阅 [CLI 命令参考](/1.11/cli/command-reference/dcos-auth/)。在 CLI 中，您可以对群集进行身份认证，甚至可以选择退出基于 Auth0 的身份认证。
 
@@ -77,7 +77,7 @@ oauth_enabled: 'false'
 
 如果您正在 [AWS](1.11/install/evaluation/cloud-installation/aws/) 上进行云安装，则可以在**指定详细信息**步骤上将 `OAuthEnabled` 选项设置为 `false` 以禁用身份认证。
 
-如果您在 [Azure](/1.11/installing/evaluation/cloud-installation/azure/) 上进行云安装，则无法禁用身份认证。此选项将通过其他选项在未来 releasealong 中添加以自定义身份认证。
+如果您在 [Azure](/1.11/installing/evaluation/cloud-installation/azure/) 上进行云安装，则无法禁用身份认证。此选项将在未来 版本中与其他选项一起添加以自定义身份认证的选项。
 
 请注意，如果您已经安装了群集并希望就地禁用此功能，则可以使用相同的参数集进行升级。
 

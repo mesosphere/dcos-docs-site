@@ -66,7 +66,7 @@ enterprise: true
     ```
 
 ### 任务详情和日志
- 要查看任务详情和日志，您必须授予访问 [Mesos UI] 的权限(/1.11/security/ent/gui-permissions/mesos-ui/)。
+ 要查看任务详情和日志，您必须为 [Mesos UI] 授予访问权限(/1.11/security/ent/gui-permissions/mesos-ui/)。
 
 ## 严格
 
@@ -89,7 +89,7 @@ enterprise: true
 
 # <a name="services-access-via-api"></a>使用 API 授予访问权限
 
-**前提条件：**
+**先决条件：**
 
 - 您必须[安装 DC/OS CLI](/1.11/cli/install/) 并以超级用户身份登录。
 - 如果您的 [安全模式](/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
@@ -219,6 +219,6 @@ enterprise: true
  **提示：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
 
 ### 任务详情和日志
-要查看任务详情和日志，您必须授予访问 [Mesos UI] 的权限(/1.11/security/ent/gui-permissions/mesos-ui/)。
+要查看任务详情和日志，您必须为 [Mesos UI] 授予访问权限(/1.11/security/ent/gui-permissions/mesos-ui/)。
 
 您现在可以将 DC/OS 本地 Marathon UI 的 URL 发送给用户：`http://<master-public-ip>/marathon/`。

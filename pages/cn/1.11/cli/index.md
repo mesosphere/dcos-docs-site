@@ -8,14 +8,14 @@ excerpt: 了解 DC/OS 命令行界面
 enterprise: false
 ---
 
-DC/OS 命令行界面 (DC/OS CLI) 实用程序允许您管理群集节点、安装和管理软件包、检查群集状态以及从终端管理服务和任务。DC/OS 1.11 需要 DC/OS CLI 0.6.x。
+DC/OS 命令行界面 (DC/OS CLI) 实用程序让您管理群集节点、安装和管理软件包、检查群集状态以及从终端管理服务和任务。DC/OS 1.11 需要 DC/OS CLI 0.6.x。
 
 若要列出可用命令，请运行不带参数的 `dcos`：
 
 ```bash
 dcos
 
-Command line utility for the Mesosphere Distributed Cloud Operating System (DC/OS). The Mesosphere DC/OS is a distributed operating system built around Apache Mesos. This utility provides tools for easy management of a DC/OS installation.
+Command line utility for the Mesosphere Datacenter Operating System (DC/OS). The Mesosphere DC/OS is a distributed operating system built around Apache Mesos. This utility provides tools for easy management of a DC/OS installation.
 
 Available DC/OS commands:
 
@@ -53,7 +53,7 @@ DC/OS CLI 0.4.x 和 0.5.x 针对配置文件的位置使用不同的结构。
 
 DC/OS CLI 0.4.x 具有单个配置文件，默认情况下存储在 `~/.dcos/dcos.toml`。在 DC/OS CLI 0.4.x 中，您可以选择使用 [`DCOS_CONFIG`](#dcos-config) 环境变量更改配置文件的位置。
 
-DC/OS CLI 0.5.x 具有每个连接群集的配置文件，默认情况下存储在 `~/.dcos/cluster/<cluster_id>/dcos.toml 中。`. In DC/OS CLI 0.5.x you can optionally change the base portion (`~/.dcos`) of the configuration directory using the [`DCOS_DIR`](#dcos-cdir) 环境变量。
+DC/OS CLI 0.5.x 的每个连接群集都有一个配置文件，默认情况下存储在 `~/.dcos/cluster/<cluster_id>/dcos.toml 中。`. In DC/OS CLI 0.5.x you can optionally change the base portion (`~/.dcos`) of the configuration directory using the [`DCOS_DIR`](#dcos-cdir) 环境变量。
 
 **注意：**
 - 如果更新到 DC/OS CLI 0.5.x 并运行任何 CLI 命令，它将触发从旧配置结构到新配置结构的转换。
@@ -83,7 +83,7 @@ export DCOS_CONFIG=/home/jdoe/config/dcos.toml
 
 如果您已经配置了 `DCOS_CONFIG` 环境变量：
 
-- 在转换为[新配置结构] (#configuration-files) 后，不再接受 `DCOS_CONFIG`。
+- 在转换为[新配置结构] (#configuration-files) 后，将不再接受 `DCOS_CONFIG`。
 - 在调用 `dcos cluster setup` 之前，您可使用 `dcos config set` 更改 `DCOS_CONFIG` 指向的配置。该命令会显示一条警告消息，指出该命令已弃用，建议使用 `dcos cluster setup`。
 
 
@@ -108,7 +108,7 @@ export DCOS_DIR=/home/jdoe/config
 
 <a name="dcos-ssl-verify"></a>
 #### `DCOS_SSL_VERIFY`
-指示是否验证 SSL 证书或设置 SSL 证书路径。您必须手动设置此变量。设置此环境变量相当于在 DC/OS 配置[文件] (#configuration-files) 中设置 `dcos config set core.ssl_verify` 选项。例如，指示您想要设置 SSL 证书的路径：
+指示是否验证 SSL 证书或设置 SSL 证书路径。您必须手动设置此变量。设置此环境变量相当于在 DC/OS 配置[文件] (#configuration-files) 中设置 `dcos config set core.ssl_verify` 选项。例如，如果您想要设置 SSL 证书的路径：
 
 ```bash
 export DCOS_SSL_VERIFY=false
@@ -116,7 +116,7 @@ export DCOS_SSL_VERIFY=false
 
 <a name="dcos-log-level"></a>
 #### `DCOS_LOG_LEVEL`
-向指示级别或更高级别的 `stderr` 显示日志消息。这相当于 `--log-level` 命令行选项。严重级别为：
+用所示级别或更高级别显示 `stderr` 的日志消息。这相当于 `--log-level` 命令行选项。严重级别为：
 
 * **调试** 向 `stderr` 显示所有消息，包括信息、警告、错误以及关键消息。
 * **信息** 向 `stderr` 显示信息、警告、错误以及关键消息 。
@@ -132,7 +132,7 @@ export DCOS_LOG_LEVEL=warning
 
 <a name="dcos-debug"></a>
 #### `DCOS_DEBUG`
-指示是否将其他调试消息打印到 `stdout`。默认情况下，这设置为 `false`。例如：
+指示是否将其他调试消息 print 输出到 `stdout`。默认情况下，这设置为 `false`。例如：
 
 ```bash
 export DCOS_DEBUG=true

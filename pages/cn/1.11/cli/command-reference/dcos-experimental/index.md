@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos experimental` 命令允许您列出正在开发并可能会发生变化的命令。
+`dcos experimental` 命令列出正在开发并可能会发生变化的命令。
 
 # 使用
 

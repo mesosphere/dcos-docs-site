@@ -27,7 +27,7 @@ enterprise: true
     sudo /opt/mesosphere/bin/dcos-shell /opt/mesosphere/active/bouncer/bouncer/bin/reset-superuser <username>
     ```
 
-1. 输入用户的新密码，然后按照提示完成程序。
+1. 输入用户的新密码，然后按照提示完成步骤。
 
     ```bash
     Type superuser password:

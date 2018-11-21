@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 使用自定义 Marathon 和安全功能部署服务
-title: 使用自定义 Marathon 和安全功能部署服务
+navigationTitle: 使用有安全功能的自定义 Marathon 部署服务
+title: 使用有安全功能的自定义 Marathon 部署服务
 menuWeight: 40
 excerpt: 使用高级非本地 Marathon 实例
 enterprise: true
@@ -17,14 +17,14 @@ enterprise: true
 - DC/OS 和 DC/OS CLI [已安装](/1.11/installing/)。
 - [DC/OS Enterprise CLI 0.4.14 或更高版本](/1.11/cli/enterprise-cli/#ent-cli-install)。
 - 自定义非本地 Marathon tarball。联系销售代表或 <sales@mesosphere.io> 获取本文件的访问权限。
-- 每个专用 DC/OS 代理可以通过网络访问的专用 Docker 注册表。可以遵循 [以下](/1.11/deploying-services/private-docker-registry/) 关于如何在 Marathon 中设置，或使用其他选项的说明（如 [DockerHub](https://hub.docker.com/)、[Amazon EC2 容器注册表](https://aws.amazon.com/ecr/)和 [Quay](https://quay.io/)）。
+- 每个专用 DC/OS 代理可以通过网络访问的专用 Docker 注册表。可以遵循 [以下](/1.11/deploying-services/private-docker-registry/) 了解关于如何在 Marathon 中设置，或使用其他选项的说明（如 [DockerHub](https://hub.docker.com/)、[Amazon EC2 容器注册表](https://aws.amazon.com/ecr/)和 [Quay](https://quay.io/)）。
 - 您必须以超级用户身份登录。
 - 对群集的 SSH 访问。
 
 # 第 1 步 - 加载和推送自定义非本地 Marathon 镜像
 在此步骤中，自定义非本地 Marathon 实例被推送到专用 Docker 注册表。
 
-1. 使用自定义非本地 Marathon 文件（`marathon-dcos-ee<version>.tar`）将 tarball 加载到 Docker 中。
+1. 使用所要求的自定义非本地 Marathon 文件（`marathon-dcos-ee<version>.tar`）将 tarball 加载到 Docker 中。
 
    ```bash
    docker load -i marathon-dcos-ee.<version>.tar
@@ -59,7 +59,7 @@ enterprise: true
    ```
 
 # 第 2 步 - 保留资源
-在此步骤中，保留 Mesos 资源。选择 [静态](#static-reservations) 或 [动态](#dynamic-reservations) 保留的程序。
+在此步骤中，保留 Mesos 资源。选择 [静态](#static-reservations) 或 [动态](#dynamic-reservations) 保留的步骤。
 
 ## 静态保留
 
@@ -75,7 +75,7 @@ enterprise: true
    dcos node ssh --master-proxy --mesos-id=<agent-id>
    ```
 
-1. 导航至 `/var/lib/dcos` 并创建一个名为 `mesos-slave-common` 且使用这些内容的文件，其中 `<myrole>` 是您的角色名称。
+1. 导航至 `/var/lib/dcos` 并创建一个名为 `mesos-slave-common` 且含有这些内容的文件，其中 `<myrole>` 是您的角色名称。
 
     ```bash
     MESOS_DEFAULT_ROLE='<myrole>'
@@ -191,7 +191,7 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
     ```
 
 # 第 4 步 - 为专用代理创建专用 Docker 注册表凭据
-在此步骤中，使用 [安全拷贝] 将凭据 tarball 传输到每个专用代理的本地文件系统(https://linux.die.net/man/1/scp)。以下指示针对 CorEos 管理节点和代理节点进行了优化。如果您正在运行 CenTos，请将以下所有命令中的 `core` 替换为 `centos`。
+在此步骤中，使用 [安全拷贝] 将凭据 tarball 传输到每个专用代理的本地文件系统(https://linux.die.net/man/1/scp)。以下指示针对 CoreOS 管理节点和代理节点进行了优化。如果您正在运行 CentOS，请将以下所有命令中的 `core` 替换为 `centos`。
 
 1. 利用终端提示登录您的专用 Docker 注册表。
  - 如果专用存储库位于 Docker Hub，请使用此命令：
@@ -233,7 +233,7 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
  -rw------- 0 user group 217 Jan 23 15:48 .docker/config.json
    ```
 
-1. 复制 Docker 凭据文件到一个管理节点，使用公共管理 IP 地址 (` <public-master-ip>`) 。
+1. 复制 Docker 凭据文件到管理节点之一，使用公共管理 IP 地址 (` <public-master-ip>`) 。
 
  可以通过单击 DC/OS Web 界面左上角的群集名称找到公共管理 IP 地址。
 
@@ -324,7 +324,7 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
    dcos security secrets get /momee-serv-group/momee-serv-group-service/<secret-name> --json | jq -r .value | jq
    ```
 
-- 从文件系统中删除私钥文件，防止不法之徒利用私钥通过 DC/OS 身份认证。
+- 从文件系统中删除私钥文件，防止恶意者利用私钥通过 DC/OS 身份认证。
 
 # 第 6 步 - 分配权限（仅限严格模式）
 在此步骤中，权限被分配至 Marathon-on-Marathon 实例。在严格模式下需要权限，而在其他安全模式将其忽略即可。
@@ -338,7 +338,7 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
 所有 CLI 命令也可通过 [IAM API](/1.11/security/ent/iam-api) 执行。
 
 授予服务帐户 `<service-account-id>` permission to launch Mesos tasks that will execute as Linux user `nobody`。
-要允许作为不同 Linux 用户执行任务，请替换 `nobody` 为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请替换 `nobody` 为以下的 `bob`。
+要允许作为不同 Linux 用户执行任务，请将 `nobody` 替换为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请将 `nobody` 替换为以下的 `bob`。
 请注意， `nobody` 和 `root` 是默认出现在所有代理上的，但如果指定自定义 `bob` 用户，必须在可以执行这些任务的每个代理上手动创建（使用 `adduser` 或类似实用程序）。
 
 ```bash

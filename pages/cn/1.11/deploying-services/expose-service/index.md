@@ -9,9 +9,9 @@ enterprise: false
 ---
 
 
-DC/OS 代理节点在 [安装](/1.11/installing/)过程中可被指定为[公共](/1.11/overview/concepts/#public-agent-node) 或[专用](/1.11/overview/concepts/#private-agent-node)。公共代理节点通过基础架构网络从群集外部访问 DC/OS 服务。默认情况下，服务在专用代理节点上启动，不可从群集外部访问。
+DC/OS 代理节点在 [安装](/1.11/installing/)过程中可被指定为[公共](/1.11/overview/concepts/#public-agent-node) 或[专用](/1.11/overview/concepts/#private-agent-node)。公共代理节点通过基础架构网络提供从群集外部访问 DC/OS 服务。默认情况下，服务在专用代理节点上启动，不可从群集外部访问。
 
-若要在公共节点上启动服务，则必须通过指定的 `"acceptedResourceRoles":["slave_public"]` 参数创建 Marathon 应用程序并配置边缘负载均衡器和服务发现机制。
+若要在公共节点上启动服务，则必须通过指定的 `"acceptedResourceRoles":["slave_public"]` 参数创建 Marathon 应用程序并设置边缘负载均衡器和服务发现机制。
 
 **前提条件：**
 
@@ -74,9 +74,9 @@ DC/OS 代理节点在 [安装](/1.11/installing/)过程中可被指定为[公共
 
  您还可以使用 DC/OS [Web 界面](/1.11/gui/services/) 的 **Services** 选项卡查看已部署的应用程序 。
 
-1. 配置边缘负载均衡器和服务发现机制。
+1. 设置边缘负载均衡器和服务发现机制。
 
- - AWS 用户：如果您通过使用 [AWS CloudFormation 模板] 安装了 DC/OS(/1.11/installing/evaluation/cloud-installation/aws/)，则会包含 ELB。但是，您则必须在公共 ELB 上重新配置运行状况检查，以将应用程序公开到应用定义中指定的端口（例如，端口 80）。
+ - AWS 用户：如果您通过使用 [AWS CloudFormation 模板] 安装了 DC/OS(/1.11/installing/evaluation/cloud-installation/aws/)，则会包含 ELB。但是，您则必须在公共 ELB 上重新设置运行状况检查，以将应用程序公开到应用定义中指定的端口（例如，端口 80）。
  - 所有其他用户：您可以使用 [Marathon-LB](/1.11/networking/marathon-lb/)，一种基于 HAProxy 的快速代理程序和负载均衡器。
 
 1. 转到您的公共代理节点，查看网站运行并找到您的公共代理 IP。将其输入到您的浏览器中。

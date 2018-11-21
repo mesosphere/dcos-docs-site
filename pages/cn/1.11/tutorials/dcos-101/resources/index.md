@@ -117,14 +117,14 @@ menuWeight: 7
 
 ## 群集中的资源太少
 
-要模拟这个：
+要模拟这个情况：
 
 * 将 app2 实例增加到 100
 
 `dcos marathon app update /dcos-101/app2 instances=100`
 
 如果您有大型群集，则可能必须增加此数字。
-* 使用 `dcos marathon app list` 检查 `scale` 部署是否卡住。
+* 使用 `dcos marathon app list` 检查 `scale` 部署是否受阻。
 * `dcos marathon deployment list`
 
 此处的问题在于没有可用的匹配资源。例如，可能存在用于公共-从属角色的资源，但不包括默认角色。
@@ -141,15 +141,15 @@ menuWeight: 7
 
 由于每个应用程序都在单个节点上启动，因此任务资源也必须适合单个节点。
 
-要模拟这个：
+要模拟这个情况：
 
 * 更新 app2 以使用 100 个 CPU：
 
 `dcos marathon app update /dcos-101/app2 cpus=100`
-* 使用 `dcos marathon app list` 检查 `restart` 部署是否卡住。
+* 使用 `dcos marathon app list` 检查 `restart` 部署是否受阻。
 * `dcos marathon deployment list`
 
-此处的问题是没有足够大的资源提供可以与请求匹配。
+此处的问题是没有足够大的资源邀约可以与请求匹配。
 
 解决方案：
 
@@ -163,7 +163,7 @@ menuWeight: 7
 
 如果应用程序尝试使用比分配给它的资源更多的资源，会发生什么情况？ 最常见的问题是与基于 JVM 的应用程序结合使用的内存消耗。
 
-要模拟这个：
+要模拟这个情况：
 
 * 部署 [memory eater](https://github.com/joerg84/dcos-101/blob/master/oomApp/oomApp.go) 应用程序。
 
@@ -188,7 +188,7 @@ menuWeight: 7
 
 解决方案：
 
-使用过多内存的应用程序有两个潜在原因：
+应用程序使用过多内存有两个潜在原因：
 
 1. 您的应用程序意外使用过多内存，例如代码中的内存泄漏。
 1. 您为它分配的内存过少。
@@ -201,4 +201,4 @@ menuWeight: 7
 
 # 结果
 
-祝贺您！您已经学习了如何将应用部署到 DC/OS、将这些应用程序联网、使用负载均衡器将它们公开到群集外部、扩展它们以及调试潜在的资源问题！您几乎是专业人士了！
+祝贺您！您已经学习了如何将应用部署到 DC/OS、将这些应用程序联网、使用负载均衡器将它们公开到群集外部、扩展它们以及调试潜在的资源问题！您基本已是专家了！

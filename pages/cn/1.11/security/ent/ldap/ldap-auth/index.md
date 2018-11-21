@@ -15,7 +15,7 @@ enterprise: true
 
 1. 在 **Connection** 选项卡中指定连接参数后，单击 **Authentication**。
 
-1. 提供用于连接到 LDAP 服务器的用户帐户的完整 DN，以在 **Lookup DN** 字段中导入用户、组以及检查用户凭据。以下是几个示例。
+1. 提供用于连接到 LDAP 服务器的用户帐户的完整 DN，以导入用户、组以及检查在 **Lookup DN** 字段中用户凭据。以下是几个示例。
 
  cn=read-only-user,dc=los-pollos,dc=io
  uid=read-only-user,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org
@@ -67,7 +67,7 @@ enterprise: true
     - `(sAMAccountName=%(username)s)`
     - `(uid=%(username)s)`
 
-1. 完成输入后，对话框应如下所示。
+1. 完成输入后，对话框应类似于如下所示的示例。
 
  ![搜索/绑定参数](/1.11/img/ldap-add-dir-auth-search-bind.png)
 

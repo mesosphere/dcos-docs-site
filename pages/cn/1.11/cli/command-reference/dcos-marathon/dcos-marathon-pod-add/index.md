@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon pod add` 命令允许您添加 pod。
+`dcos marathon pod add` 命令让您添加 pod。
 
 # 使用
 
@@ -26,7 +26,7 @@ dcos marathon pod add <pod-resource> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<pod-resource>` | 包含 pod 的 JSON 定义的文件或 HTTP(S) URL 路径。如果遗漏，则从 stdin 中读取定义。|
+| `<pod-resource>` | 包含 pod 的 JSON 定义的文件或 HTTP(S) URL 路径。如省略，则从 stdin 中读取定义。|
 
 # 父命令
 

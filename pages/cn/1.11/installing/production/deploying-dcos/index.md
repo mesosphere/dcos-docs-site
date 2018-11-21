@@ -25,6 +25,6 @@ DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和
 
 此安装方法要求：
 
-* bootstrap 节点必须是可从群集节点访问的网络。
-* bootstrap 节点必须从群集节点打开 HTTP(S) 端口。
+* bootstrap 节点必须在可从群集节点访问的网络。
+* bootstrap 节点必须有从群集节点可打开端口的 HTTP（S）端口。
 

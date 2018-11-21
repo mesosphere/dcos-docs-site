@@ -8,11 +8,11 @@ excerpt: 了解群集补丁
 
 # 不停机修补实时群集
 
-DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改进 DC/OS 的特性/功能。包含次要变更的单点发布也称为补丁。
+DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改进 DC/OS 的特性/功能。软件包含次要变更的单点发布也称为补丁。
 
 补丁流程包括以下内容：
 - 说明修复问题、已知问题/限制，明显变更和安全增强
-- 不会影响工作负载，这是在不停机的情况下修补实时群集的重要产品
+- 不会影响工作负载，这是在不停机的情况下修补实时群集重要的一部分
 - 帮助用户了解影响 DC/OS 功能的次要变更
 
 示例：DC/OS 1.X.A 至 1.X.B (1.11.1 --> 1.11.2)
@@ -26,11 +26,11 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 - `config.yaml` 文件中有几个必须在修补前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否已添加到 `config.yaml` 文件中。您可以查看 [此处]的样本文件 (1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file). 
 - 如果 IPv6 在内核中被禁用，则 IPv6 必须在 `config.yaml` 文件中禁用才能确保修补成功。
 - DC/OS Enterprise 现在执行许可证密钥。许可证密钥必须驻留在 genconf/license.txt 文件中，否则修补将失败。[enterprise type="inline" size="small" /]
-- 如果没有修补全部管理节点，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。例如，修补后的 DC/OS Marathon 首要实例无法连接到首要的 Mesos 管理节点上，直到该节点也得到修补为止。出现这种情况时：
+- 直到全部管理节点都被修补完毕，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。例如，修补后的 DC/OS Marathon 首要实例无法连接到首要的 Mesos 管理节点上，直到该节点也得到修补为止。出现这种情况时：
 
  - DC/OS GUI 不能提供准确的服务列表。
  - 对于多管理节点配置，在一个管理节点完成修补后，您可以从端口 8181 上的 Exhibitor UI 监控其余管理节点的健康状况。
-- 升级后的 DC/OS Marathon 首要实例无法连接至不安全（未升级的）首要 Mesos 管理节点。在所有管理节点得到修补之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已修补，Marathon 首要实例可能不是 Mesos 首要实例。
+- 升级后的 DC/OS Marathon 首要实例无法连接至不安全（未打补丁的）首要 Mesos 管理节点。在所有管理节点得到修补之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已修补，Marathon 首要实例可能不是 Mesos 首要实例。
 - Mesos UI 中的任务历史记录不会持续到修补。
 - DC/OS Enterprise 可在 [此处](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads)下载。[enterprise type="inline" size="small" /]
 
@@ -43,7 +43,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 ## 修改 DC/OS 配置
 
- **不能** 在修补到新版本的同时更改群集配置。必须通过对已安装版本的更新进行群集配置更改。例如，您无法同时将群集从 1.10.x 修补到 1.10.y 并添加更多公共代理节点。您可以更新为 1.10.x，然后修补为 1.10.y，或者可以修补到 1.10.y，再在修补后更新 1.10.y，从而添加更多公共代理。
+ **不能** 在修补到新版本的同时更改群集配置。必须通过对已安装版本的更新进行群集配置更改。例如，您无法同时将群集从 1.10.x 修补到 1.10.y 并添加更多公共代理节点。您可以更新为 1.10.x，然后修补为 1.10.y，或者可以修补到 1.10.y，再在修补后通过更新 1.10.y，添加更多公共代理。
 
 要修改您的 DC/OS 配置，必须使用已修改的 `config.yaml` 运行安装工具并使用新的安装文件更新您的群集。更改 DC/OS 配置与修补主机的风险相同。配置错误可能会使主机或整个群集崩溃。
 
@@ -73,7 +73,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 ## 先决条件
 
-- Mesos、Mesos 框架、Marathon、Docker 和群集中的所有运行任务应稳定且处于已知的健康状态。
+- Mesos、Mesos 框架、Marathon、Docker 和群集中的所有运行任务应稳定且处于已知的运行良好的状态。
 - 出于 Mesos 兼容性原因，我们建议将任何运行 Marathon-on-Marathon 实例修补至 Marathon 版本1.3.5，然后进行此 DC/OS 修补。
 - 您必须有权访问与之前 DC/OS 版本一起使用的配置文件的副本：`config.yaml` 和 `ip-detect`。
 - 您必须使用 `systemd` 218 或更新版本才能维持任务状态。
@@ -81,13 +81,13 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 - 在 CentOS 或 RedHat 中，使用此命令安装 IP 集（在某些 IP 检测脚本中使用）：`sudo yum install -y ipset`
 - 您必须熟悉使用 `systemctl` 和 `journalctl` 命令行工具，以查看和监控服务状态。本 [文档](#故障排除) 结尾部分提供了故障排除说明。
 - 您必须熟悉 [DC/OS 安装指南](/1.11/installing/production/deploying-dcos/installation/)。
-- 修补之前要对 ZooKeeper 截屏。Marathon 支持返回查看，但不支持降级。
+- 修补之前要对 ZooKeeper 截屏。Marathon 支持回滚，但不支持降级。
 - 修补之前 [对 IAM 数据库截屏](/1.11/installing/installation-faq/#q-how-do-i-backup-the-iam-database)。
 - 确保在开始修补之前， Marathon 事件订阅者已被禁用。完成修补后，保持其禁用状态，因为此功能现已被弃用。
-- **注意：** Marathon 事件订阅者默认为禁用。检查是否已将 `--event_subscriber "http_callback"` 行添加到主节点上的 `sudo vi /opt/mesosphere/bin/marathon.sh`。如果是，就需要移除该行，以禁用事件订阅者。
+- **注意：** Marathon 事件订阅者默认为禁用。检查是否已将 `--event_subscriber "http_callback"` 行添加到管理节点上的 `sudo vi /opt/mesosphere/bin/marathon.sh`。如果是，就需要移除该行，以禁用事件订阅者。
 - 确认在开始修补前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
 - [备份您的群集](/1.11/administering-clusters/backup-and-restore/)。
-- **可选** 您可以将自定义 [节点和群集健康检查](/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
+- **可选** 您可以将自定义 [节点和群集运行状况检查](/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
 
 ## Bootstrap 节点
 
@@ -116,7 +116,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
  1. 上一步中的命令将在其输出的最后一行产生 URL，前缀为 `Node patch script URL:`。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点补丁脚本 URL”。
- 1. 运行 [nginx](/1.11/installing/production/deploying-dcos/installation/) 容器以提供安装文件。
+ 1. 运行 [nginx](/1.11/installing/production/deploying-dcos/installation/) 容器以便使用安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](/1.11/installing/production/patching/#masters) 完成安装。
 
@@ -129,7 +129,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>对于从禁用模式修补到宽容安全模式，您已配置的任何<a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">自定义节点或群集健康检查</a>都会失败。未来版本支持绕过健康检查。</td> 
+  <td align=justify style=color:white><strong>重要信息：</strong>从禁用模式修补到宽容安全模式的补丁，您已配置的任何<a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">自定义节点或群集运行状况检查</a>都会失败。未来版本支持绕过运行状况检查。</td> 
 </tr> 
 </table>
 
@@ -145,14 +145,14 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
  1. 上一步中的命令将在其输出的最后一行产生 URL，前缀为 `Node patch script URL:`。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点补丁脚本 URL”。
- 1. 运行 [nginx][install] 容器以提供安装文件。
+ 1. 运行 [nginx][install] 容器以便使用安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
 
 # <a name="strict"></a>在严格模式下修补 DC/OS 1.11
 该程序的在安全性严格 [模式](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) 下修补到 DC/OS 1.11。
 
-如果正在更新运行的 DC/OS 群集在 `security: strict` 模式下运行，则请注意，在迁移到严格模式后，安全漏洞可能会持续存在。转到严格模式后，您的服务现在需要身份认证和授权，以便在 Mesos 注册或访问其 HTTP API。在升级到严格模式之前，应在宽容模式下测试这些配置，以便在升级期间维护调度程序和脚本正常运行时间。
+如果正在更新运行的 DC/OS 群集在 `security: strict` 模式下运行，则请注意，在迁移到严格模式后，安全漏洞可能会持续存在。转到严格模式后，您的服务现在需要身份认证和授权，以便在 Mesos 注册或访问其 HTTP API。在打补丁到严格模式之前，应在宽容模式下测试这些配置，以便在升级期间维护调度程序和脚本正常运行时间。
 
 **前提条件：**
 
@@ -171,13 +171,13 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
  1. 上一步中的命令将在其输出的最后一行产生 URL，前缀为 `Node patch script URL:`。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点补丁脚本 URL”。
- 1. 运行 [nginx][install] 容器以提供安装文件。
+ 1. 运行 [nginx][install] 容器以便使用安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
 
 ## <a name="masters"></a>DC/OS 管理节点
 
-采用以下程序，继续以任何顺序修补每个管理节点，每次修补一个。完成每次修补后，监控 Mesos 管理节点度量标准，确保节点已重新加入群集并完成了协调。
+采用以下步骤，继续以任何顺序修补每个管理节点，每次修补一个。完成每次修补后，监控 Mesos 管理节点度量标准，确保节点已重新加入群集并完成了协调。
 
 1. 下载并运行节点补丁脚本：
     ```bash
@@ -193,7 +193,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 1. 验证补丁：
 
- 1. 监视 Exhibitor 并等待其融合到 `http://<master-ip>:8181/exhibitor/v1/ui/index.html`。确认管理节点已成功重新加入 ZooKeeper 法定数量（状态指示灯将变为绿色）。
+ 1. 监视 Exhibitor 并等待其融合到 `http://<master-ip>:8181/exhibitor/v1/ui/index.html`。确认管理节点已成功重新加入 ZooKeeper 共识机制（状态指示灯将变为绿色）。
 
  **注意：** 如果要从宽容模式修补到严格模式，此 URL 将是 `https://...`。
  1. 等到 `dcos-mesos-master` 单元启动并运行。
@@ -217,7 +217,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 ## <a name="agents"></a>DC/OS 代理
 
-**注意：** 修补代理节点时，在代理节点和任务到期之前，代理节点响应来自 Mesos 管理节点的健康检查 ping 的时间超过五分钟才是超时。
+**注意：** 修补代理节点时，，代理节点响应来自 Mesos 管理节点的运行状况检查 ping 的时间超过五分钟，代理节点和任务才会到期。
 在所有 DC/OS 代理上：
 
 1. 导航至 `/opt/mesosphere/lib` 目录并删除此库文件。删除此文件可防止发生冲突。
@@ -245,7 +245,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 ## <a name="troubleshooting"></a>故障排除建议
 
-以下命令应提供对修补问题的洞见：
+以下命令应提供对修补问题的深度信息：
 
 #### 在所有群集节点上
 
@@ -277,5 +277,5 @@ sudo journalctl -u dcos-mesos-slave
 
 ## 注意：
 
-- DC/OS 1.11 Universe 中可用的软件包比旧版本 Universe 中的要新。服务在安装 DC/OS 时不会自动修补，因为并非所有 DC/OS 服务都具有保持现有状态的修补路径。
+- DC/OS 1.11 Universe 中可用的软件包比旧版本 Universe 中的要新。服务在已安装了 DC/OS 时不会自动修补，因为并非所有 DC/OS 服务都具有保持现有状态的修补路径。
 

@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos package install` 命令允许您安装软件包。
+`dcos package install` 命令让您安装软件包。
 
 # 使用
 
@@ -26,7 +26,7 @@ dcos package install <package-name> [OPTION]
 | `--app-id=<app-id>` | 应用程序 ID。|
 | `--cli` | 仅命令行。|
 | `--options=<file>` | 包含自定义软件包安装选项的 JSON 文件路径。|
-| `--package-version=<package-version>` | 包版本。|
+| `--package-version=<package-version>` | 软件包版本。|
 | | `--yes` | 禁用交互模式并假设“是”是所有提示的答案。|
 
 # 位置自变量

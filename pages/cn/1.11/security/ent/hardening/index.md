@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 强化
-title: 强化
+navigationTitle: 安全强化
+title: 安全强化
 menuWeight: 100
 excerpt: 增加群集的安全性
 enterprise: true
@@ -28,6 +28,6 @@ enterprise: true
 
 - 遵守 [最小权限原则](http://searchsecurity.techtarget.com/definition/principle-of-least-privilege-POLP) 并只向您的用户提供他们所需的最低 [权限](/1.11/security/ent/perms-reference/)。避免授予用户或服务帐户 `dcos:superuser` 权限。
 
-- 如果[配置外部 LDAP 目录](/1.11/security/ent/ldap/ldap-conn/)，请选择**对所有连接使用 SSL/TLS**或 **尝试 StarTtLS，如果失败则中止，并在 **CA certificate chain (Optional)** 字段中提供根 CA 根证书以及 LDAP 目录服务器的任何中间证书。
+- 如果[配置外部 LDAP 目录](/1.11/security/ent/ldap/ldap-conn/)，请选择**对所有连接使用 SSL/TLS**或 **尝试 StarTtLS，如果失败则中止，并在 **CA certificate chain (Optional)** 字段中提供 CA 根证书以及 LDAP 目录服务器的任何中间证书。
 
 - [覆盖服务的 Linux 用户帐户](/1.11/security/ent/users-groups/config-linux-user/)以使用权限较低的帐户，如 `nobody`。

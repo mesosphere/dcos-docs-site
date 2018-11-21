@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle: 授予对作业的访问权限
-title: 授予对作业的访问权限
+navigationTitle: 为作业授予访问权限
+title: 为作业授予访问权限
 menuWeight: 200
-excerpt: 使用 CLI 或 Web 界面授予对作业的访问权限
+excerpt: 使用 CLI 或 Web 界面为作业授予访问权限
 
 enterprise: true
 ---
 
-您可以使用 DC/OS Web 界面、CLI 或 [API](/1.11/security/ent/iam-api/) 来实现对作业的细粒度用户访问。[Metronome 权限](/1.11/security/ent/perms-reference/#marathon-metronome) 允许您在每项作业或每个作业组上限制用户对作业的访问。该部分为您介绍实现这一切的步骤。
+您可以使用 DC/OS Web 界面、CLI 或 [API](/1.11/security/ent/iam-api/) 来实现对作业的细粒度用户访问。[Metronome 权限](/1.11/security/ent/perms-reference/#marathon-metronome) 让您在每项作业或每个作业组上限制用户对作业的访问。该部分为您介绍实现这一切的步骤。
 
 **前提条件：**
 

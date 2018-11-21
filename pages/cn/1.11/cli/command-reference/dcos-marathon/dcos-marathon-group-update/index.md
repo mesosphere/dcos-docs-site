@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon group update` 命令允许您更新 Marathon 组属性。
+`dcos marathon group update` 命令让您更新 Marathon 组属性。
 
 # 使用
 
@@ -28,7 +28,7 @@ dcos marathon group update <group-id> <properties> <key>=<value> [OPTION]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `<group-id>`   |  The group ID. You can view a list of the group IDs with the `dcos marathon group list` 命令。|
-| `<properties>`   | List of one or more JSON object properties, separated by a space. The list must be formatted as `<key>=<value>`. For example, `cpu=2,0 mem=308`。如果遗漏了，则从 stdin 上提供的 JSON 对象读取属性。|
+| `<properties>`   | List of one or more JSON object properties, separated by a space. The list must be formatted as `<key>=<value>`. For example, `cpus=2,0 mem=308`。如省略，则从 stdin 上提供的 JSON 对象读取属性。|
 
 # 父命令
 

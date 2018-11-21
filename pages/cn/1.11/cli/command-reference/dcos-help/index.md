@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos help` 命令允许您显示 DC/OS CLI 帮助信息。
+`dcos help` 命令显示 DC/OS CLI 帮助信息。
 
 # 使用
 

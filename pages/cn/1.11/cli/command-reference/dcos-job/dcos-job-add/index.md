@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos job add` 命令允许您通过创建 JSON 格式配置文件来添加作业。
+`dcos job add` 命令让您通过创建 JSON 格式配置文件来添加作业。
 
 # 使用
 
@@ -20,7 +20,7 @@ dcos job add <job-file> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<job-file>` | 指定 JSON 格式化的作业定义。|
+| `<job-file>` | 指定以 JSON 为格式的作业的定义。|
 
 # 父命令
 

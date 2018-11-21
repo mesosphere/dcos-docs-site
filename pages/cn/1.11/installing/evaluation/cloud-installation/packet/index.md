@@ -7,7 +7,7 @@ menuWeight: 25
 oss: true
 ---
 
-可以使用 Terraform 在 Packet 裸机上创建 DC/OS 群集。随附的 Terraform 模板配置为在 Packet 上运行 Mesosphere DC/OS。根据安装的 DC/OS 服务或工作负载所需的计算量，可能须要修改模板才能满足需求。可以修改 Terraform 模板，但 Mesosphere 不能协助完成故障排除。如需支持，请发送电子邮件至 help@packet.net，访问 Packet IRC 渠道（#packethost on freenode）或考虑 [DC/OS Enterprise](https://mesosphere.com/)。
+可以使用 Terraform 在 Packet 裸机上创建 DC/OS 群集。随附的 Terraform 模板为在 Packet 上运行 Mesosphere DC/OS 而设置。根据安装的 DC/OS 服务或工作负载所需的计算量，可能须要修改模板才能满足需求。可以修改 Terraform 模板，但 Mesosphere 不能协助完成故障排除。如需支持，请发送电子邮件至 help@packet.net，访问 Packet IRC 渠道（#packethost on freenode）或考虑 [DC/OS Enterprise](https://mesosphere.com/)。
 
 **免责声明：请注意，这是 [社区推动的项目](https://github.com/dcos/terraform-dcos/tree/master/gcp)，未正式获得 Mesosphere 支持。**
 
@@ -40,7 +40,7 @@ oss: true
 
 1. 使用“先决条件”部分提供的链接上的说明下载和安装 Terraform。
 
-2. [在 GiThub 中下载 DC/OS Terraform 表单](https://github.com/dcos/packet-terraform) 到本地目录。
+2. [在 GitHub 中下载 DC/OS Terraform 表单](https://github.com/dcos/packet-terraform) 到本地目录。
 
     ```bash
     git clone https://github.com/dcos/packet-terraform
@@ -95,7 +95,7 @@ oss: true
 # 启动 DC/OS
 输入 Mesos 管理节点 IP 地址启动 DC/OS Web 界面：
 
-1. 将运行 `terraform apply` 或运行相同目录中 terraform 输出得到的链接，剪切并粘贴到浏览器，从而打开 DC/OS Web 界面。该界面在标准 HTTP 端口 80 上运行，因此无需在主机名后指定端口号。
+1. 通过运行 `terraform apply` 或运行相同目录中 terraform 的输出得到的链接，剪切并粘贴到浏览器，从而打开 DC/OS Web 界面。该界面在标准 HTTP 端口 80 上运行，因此无需在主机名后指定端口号。
 
 2. 安装 DC/OS 命令行界面 (CLI)。可以安装 CLI，用于管理 DC/OS 群集。可以通过单击左上方的群集名称随时访问文档。
 
@@ -109,6 +109,6 @@ oss: true
 
  - 运行 `terraform apply -var ‘dcos_agent_count=N’`，将专用代理计数更改为指定数字。（`‘dcos_public_agent_count’` 同样可用）。
 
- - 快速安全地增加节点数。
+ - 增加节点数快速而安全。
 
- - 我们不建议减少生产中的节点数。如果节点未进入维护模式，而且通过各自的调度程序重新安排其任务，则有状态 DC/OS 应用程序和服务可能遭受停机和故障。
+ - 我们不建议在生产中减少节点数。如果节点未进入维护模式，而且通过各自的调度程序重新安排其任务，则有状态 DC/OS 应用程序和服务可能遭受停机和故障。

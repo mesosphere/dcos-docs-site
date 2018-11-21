@@ -38,7 +38,7 @@ dcos marathon app add <app-resource> [OPTION]
 
 ## 部署简单的应用程序
 
-在该示例中，将一个简单的应用程序部署到 DC/OS Marathon。
+在该示例中，一个简单的应用程序被部署到了 DC/OS Marathon。
 
 1. 使用这些内容创建名为 `my-app.json` 的应用定义文件。
 

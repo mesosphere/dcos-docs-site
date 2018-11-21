@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon task stop` 命令允许您停止任务。
+`dcos marathon task stop` 命令让您停止任务。
 
 # 使用
 
@@ -22,7 +22,7 @@ dcos marathon task stop <task-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `--wipe` | 擦除持久数据。|
+| `--wipe` | 清除持久数据。|
 
 # 位置自变量
 

@@ -27,10 +27,10 @@ HTTP 代理可采用两种模式运行：透明和标准。
 
 <a name="srv"></a>
 ### SRV 记录
-SRV DNS 记录是从名称到 IP/端口对的映射。DC/OS 创建 SRV 记录，采用的形式为 `_<port-name>._<service-name>._tcp.marathon.mesos`。HTTP 代理将这些记录作为 URL 披露。此功能可用于与 DC/OS 服务进行通信。
+SRV DNS 记录是从名称到 IP/端口对的映射。DC/OS 创建 SRV 记录，采用的形式为 `_<port-name>._<service-name>._tcp.marathon.mesos`。HTTP 代理将这些记录作为 URL 披露。此功能可用于与 DC/OS 服务进行交流。
 
 # VPN
-DC/OS 隧道可让您完全访问群集内的 DNS、管理节点和代理。OpenVPN 需要根权限才能配置这些路由。
+DC/OS 隧道可让您从群集内完全访问 DNS、管理节点和代理。OpenVPN 需要根权限才能配置这些路由。
 
 # DC/OS 隧道选项概述
 
@@ -125,7 +125,7 @@ DC/OS 隧道可让您完全访问群集内的 DNS、管理节点和代理。Open
 * 端口：`555`
  * 端口名称：`myport`
 
-`myapp` 是一个 Web 服务器侦听端口 `555`。我们将使用 `curl`
+`myapp` 是一个 在端口 `555` 侦听的 Web 服务器。我们将使用 `curl`
 作为客户端应用程序。所有成功的示例都将得到
 `myapp` 提供的作为文本输出的 HTML。
 
@@ -183,7 +183,7 @@ Marathon 应用定义中的 `<service-name>` is the entry in the **ID** field of
 #### 在 DC/OS Web 界面中添加指定端口
 如需在 DC/OS Web 界面指定端口，请转到 **服务 > 服务** 选项卡，单击服务名称，然后单击 **编辑**。在 **网络** 选项卡上输入端口的名称。
 
-#### 在 Marathon 应用定义中添加指定港口
+#### 在 Marathon 应用定义中添加指定端口
 或者，可以添加 `name` 到Marathon 应用定义的 `portMappings` 或 `portDefinitions` 字段。使用 `portMappings` 还是 `portDefinitions` 取决于您使用的是 `BRIDGE` 还是 `HOST` 网络。[详细了解 Marathon 的网络和端口](/1.11/deploying-services/service-ports/)。
 
 ```json
@@ -220,7 +220,7 @@ sudo dcos tunnel vpn
 curl myapp-mygroup.marathon.agentip.dcos.thisdcos.directory:555
 ```
 
-VPN 客户端试图自动配置 DNS，但此功能不适用 macOS。如需在 macOS 上使用 VPN 客户端，请按照 DC/OS 隧道的指示，[添加 DNS 服务器](https://support.apple.com/kb/PH18499?locale=en_US)。
+VPN 客户端试图自动配置 DNS，但此功能不适用于 macOS。如需在 macOS 上使用 VPN 客户端，请按照 DC/OS 隧道的指示，[添加 DNS 服务器](https://support.apple.com/kb/PH18499?locale=en_US)。
 
 使用 VPN 时，您通过虚拟的方式进入群集。可以直接访问
 管理节点和代理节点：
@@ -231,7 +231,7 @@ ping slave.mesos
 ```
 
 ### macOS OpenVPN 客户端安装
-* 如果使用 [homebrew](http://brew.sh/)，就要安装：
+* 如果使用 [homebrew](http://brew.sh/)，就要用以下方式安装：
     ```
     brew install openvpn
     ```

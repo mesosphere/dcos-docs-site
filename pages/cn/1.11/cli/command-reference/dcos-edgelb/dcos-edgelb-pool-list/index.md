@@ -10,7 +10,7 @@ enterprise: true
 
 
 # 说明
-`dcos edgelb pool list` 命令允许您列出所有池的名称。
+`dcos edgelb pool list` 命令让您列出所有池的名称。
 
 # 使用
 

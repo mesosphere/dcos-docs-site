@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon app debug details` 命令允许您查看正在等待的 Marathon 应用程序部署的调试信息。
+`dcos marathon app debug details` 命令让您查看正在等待的 Marathon 应用程序部署的调试信息。
 
 # 使用
 

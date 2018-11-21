@@ -30,13 +30,13 @@ curl -H "Authorization: token=<auth-token>" http://<public-master-ip>/system/v1/
 
 Mesos DNS API 的请求和响应主体被编排成 JSON 格式。
 
-请求必须包含接受标题：
+请求必须包含接受标头：
 
 ```
 Accept: application/json
 ```
 
-响应将包括内容类型标题：
+响应将包括内容类型标头：
 
 ```
 Content-Type: application/json
@@ -46,7 +46,7 @@ Content-Type: application/json
 
 所有 Mesos DNS API 路由需要认证才能使用。
 
-要验证 API 请求，请参阅 [获取认证令牌](/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/1.11/security/ent/iam-api/#passing-an-authentication-token)。
+要验证 API 请求，请参阅 [获取认证令牌](/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [通过传递认证令牌](/1.11/security/ent/iam-api/#passing-an-authentication-token)。
 
 Mesos DNS API 还需要通过以下权限授权：
 

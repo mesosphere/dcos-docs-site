@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos edgelb pool delete` 命令允许您删除和卸载 Edge-LB 池。
+`dcos edgelb pool delete` 命令让您删除和卸载 Edge-LB 池。
 
 # 使用
 

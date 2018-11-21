@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos task exec` 命令允许您在任务 (<task><cmd>`) inside of a task's (`<task>)  容器内部启动进程 (<cmd>)。
+`dcos task exec` 命令让您在<cmd>`) inside of a task's (`<task>容器（‘’）启动进程 。
 
 # 使用
 
@@ -21,7 +21,7 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `--interactive, -i` | 将 STDIN 流与到远程命令连接以进行交互式会话。|
+| `--interactive, -i` | 将 STDIN 流连接到远程命令以进行交互式会话。|
 | `--tty, -t` | 将 TTY 与远程流连接。|
 
 # 位置自变量

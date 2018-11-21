@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos package repo add` 命令允许您将软件包存储库添加到 DC/OS。
+`dcos package repo add` 命令让您将软件包存储库添加到 DC/OS。
 
 # 使用
 

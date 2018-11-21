@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: 使用 DC/OS 开源管理数据中心的安全
+excerpt: 管理使用 DC/OS 开源管理数据中心的安全
 title: DC/OS 开源安全
 menuWeight: 80
 ---

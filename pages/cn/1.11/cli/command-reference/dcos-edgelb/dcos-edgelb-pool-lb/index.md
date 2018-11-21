@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos edgelb pool lb` 命令允许您列出池负载均衡器 (LB) 实例信息。
+`dcos edgelb pool lb` 命令让您列出池负载均衡器 (LB) 实例信息。
 
 # 使用
 

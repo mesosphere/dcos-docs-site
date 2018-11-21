@@ -28,15 +28,15 @@ enterprise: true
 
 # 格式
 
-备份和恢复 API 请求和响应主体在 JSON 中格式化。
+备份和恢复 API 请求和响应主体格式为 JSON 格式。
 
-请求必须包含接受标题：
+请求必须包含接受标头：
 
 ```
 Accept: application/json
 ```
 
-响应包括内容类型标题：
+响应包括内容类型标头：
 
 ```
 Content-Type: application/json
@@ -54,7 +54,7 @@ Content-Type: application/json
 |-------------|--------|
 | `dcos:adminrouter:ops:system-backup` | `full` |
 
-所有路由也可以被具有 `dcos:superuser` 权限的用户抵达。
+所有路由也可以被具有 `dcos:superuser` 权限的用户使用。
 
 要为您的帐户分配权限，请参阅 [权限参考](/1.11/security/ent/perms-reference/)。
 

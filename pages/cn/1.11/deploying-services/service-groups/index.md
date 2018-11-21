@@ -12,7 +12,7 @@ enterprise: true
 
 [Marathon 权限](/1.11/security/ent/perms-reference/#marathon-metronome) 帮助您按照服务或服务组，限制用户对服务的访问。该部分为您介绍实现这一切的步骤。
 
-[Marathon 权限](/1.11/security/ent/perms-reference/#marathon-metronome) 和 [Mesos 权限](/1.11/security/ent/perms-reference/#mesos) 的服务名称、工作名称、服务组或作业组没有区别。因此，您的命名必须是唯一的。
+[Marathon 权限](/1.11/security/ent/perms-reference/#marathon-metronome) 和 [Mesos 权限](/1.11/security/ent/perms-reference/#mesos) 不区分服务名称、工作名称、服务组或作业组的区别。因此，您的命名必须是唯一的。
 
 **前提条件：**
 
@@ -149,7 +149,7 @@ enterprise: true
        dcos security org users grant <uid> dcos:mesos:master:task:app_id:/<service-name> read --description "Controls access to tasks of a service, job, service group, or job group named <service-name>"
        ```
 
-# <a name="service-in-group"></a>授权访问服务组中的服务
+# <a name="service-in-group"></a>授权予访问服务组中的服务
 
 ## <a name="service-in-group-ui"></a>通过 DC/OS Web 界面
 

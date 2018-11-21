@@ -27,7 +27,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 | [cluster_docker_credentials_enabled](#cluster-docker-credentials-enabled) | 是否传递 Mesos `--docker_config` 选项给 Mesos。 |
 | [cluster_docker_registry_url](#cluster-docker-registry-url) | Mesos 用来从来拉取 Docker 镜像的自定义 URL。 |
 | [cluster_name](#cluster-name) | 群集的名称。 |
-| [cosmos_config](#cosmos-config) | 传递给 [DC/OS 包管理器 (Cosmos) ](https://github.com/dcos/cosmos) 的包配置词典。 |
+| [cosmos_config](#cosmos-config) | 传递给 [DC/OS 软件包管理器 (Cosmos) ](https://github.com/dcos/cosmos) 的软件包配置词典。 |
 | [custom_checks](#custom-checks) | 添加到默认检查配置进程的自定义安装检查。 |
 | [exhibitor_storage_backend](#exhibitor-storage-backend) | 用于 Exhibitor 的存储后端类型。 |
 | [enable_gpu_isolation](#enable-gpu-isolation) | 指示是否在 DC/OS 中启用 GPU 支持。 |
@@ -48,9 +48,9 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 | [dcos_overlay_enable](#dcos-overlay-enable) | 指定是否启用 DC/OS 虚拟网络的参数模块。 |
 | [dns_bind_ip_blacklist](#dns-bind-ip-blacklist) | 无法绑定 DC/OS DNS 解析程序的 IP 地址列表。|
 | [dns_forward_zones](#dns-forward-zones) | 配置 DNS 查询自定义转发行为的 DNS 分区、IP 地址 和端口的嵌套列表。|
-| [dns_search](#dns-search) | 输入不合格域时尝试的域列表（以空格隔开）。 |
+| [dns_search](#dns-search) | 进入不合格域时尝试的域列表（以空格隔开）。 |
 | [master_dns_bindall](#master-dns-bindall) | 指示管理节点 DNS 端口是否打开。 |
-| [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit) | 指示在响应过大而无法放入单个数据包时，是否设置截断数位。 |
+| [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit) | 指示在响应过大而无法放入单个数据包时，是否设置缩短数位。 |
 | [resolvers](#resolvers) | DC/OS 群集节点 DNS 解析器 的 YAML 嵌套列表（`-`）。|
 | [use_proxy](#use-proxy) | 指示是否启用 DC/OS 代理。 |
 |[enable_ipv6](#enable-ipv6) | 指示 IPv6 网络支持是否在 DC/OS 中可用的布尔值。默认值为 `true`。 |
@@ -68,7 +68,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 
 | 参数 | 描述 |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [docker_remove_delay](#docker-remove-delay) | 删除存储在代理节点上的代理节点和安装程序生成的 Docker 镜像之前等待的时间。 |
+| [docker_remove_delay](#docker-remove-delay) | 删除存储在代理节点上保存的旧 Docker 镜像和安装程序生成的 Docker 镜像之前等待的时间。 |
 | [dcos_audit_logging](#dcos-audit-logging-enterprise) | 指示是否为 Mesos、Marathon 和作业记录安全决策（身份认证、授权）。[enterprise type="inline" size="small" /] |
 | [enable_docker_gc](#enable-docker-gc) | 指示是否运行 [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) 脚本，一个简单的 Docker 容器和镜像垃圾回收脚本，每小时清理一次失散的 Docker 容器。|
 | [gc_delay](#gc-delay) | 清理执行器目录前等待的最长时间。 |
@@ -82,7 +82,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 
 | 参数 | 描述 |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [adminrouter_auth_cache_enabled](#adminrouter-auth-cache-enabled-enterprise) | 控制 Admin Router 授权缓存的启用。[enterprise type="inline" size="small" /] |
+| [adminrouter_auth_cache_enabled](#adminrouter-auth-cache-enabled-enterprise) | 控制 Admin Router 是否授权缓存的启用。[enterprise type="inline" size="small" /] |
 | [adminrouter_tls_1_0_enabled](#adminrouter-tls-1-0-enabled) | 指示是否在管理路由器中启用 TLSv1 支持。|
 | [adminrouter_tls_1_1_enabled](#adminrouter-tls-1-1-enabled) | 指示是否在 Admin Router 中启用 TLSv1.1 支持。|
 | [adminrouter_tls_1_2_enabled](#adminrouter-tls-1-2-enabled) | 指示是否在 Admin Router 中启用 TLSv1.2 支持。|
@@ -132,7 +132,7 @@ _此选项已添加到 DC/OS 1.11.1。_
 
 建议您不要启用 TLS 1.0，因为该协议被视为不安全。
 
-如果您已经安装了群集，并且想要更改此设备，可以通过 [升级](/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_0_enabled` 参数设置为所需值。
+如果您已经安装了群集，并且想要就地更改此设备，可以通过 [升级](/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_0_enabled` 参数设置为所需值。
 
 
 ## adminrouter_tls_1_1_enabled [enterprise type="inline" size="small" /]
@@ -141,7 +141,7 @@ _此选项已添加到 DC/OS 1.11.1。_
 - `adminrouter_tls_1_1_enabled: 'true'` 在 Admin Router 中启用 TLS 1.1 协议。这是默认值。
 - `adminrouter_tls_1_1_enabled: 'false'` 在 Admin Router 中禁用 TLS 1.1 协议。
 
-如果您已经安装了群集，并且想要更改此设备，可以通过 [升级](/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_1_enabled` 参数设置为所需值。
+如果您已经安装了群集，并且想要即时更改此设备，可以通过 [升级](/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_1_enabled` 参数设置为所需值。
 
 
 ## adminrouter_tls_1_2_enabled [enterprise type="inline" size="small" /]
@@ -177,7 +177,7 @@ _此选项已添加到 DC/OS 1.11.1。_
  - 在浏览器和终止 TLS 的 DC/OS 之间有代理
 
 ## bootstrap_url（必填）
- DC/OS 安装工具用于存储自定义 DC/OS 构建文件的 URL 路径。如果正在使用自动化 DC/OS 安装工具，则应指定 `bootstrap_url: file:///opt/dcos_install_tmp`，除非已经移动安装工具资产。自动化 DC/OS 安装工具默认将构建文件放置于 `file:///opt/dcos_install_tmp`。
+ DC/OS 安装工具用于存储自定义 DC/OS 构建文件的 URL 路径。如果正在使用自动化 DC/OS 安装工具，则应指定 `bootstrap_url: file:///opt/dcos_install_tmp`，除非已经移动安装工具组。自动化 DC/OS 安装工具默认将构建文件放置于 `file:///opt/dcos_install_tmp`。
 
 ## bouncer_expiration_auth_token_days [enterprise type="inline" size="small" /]
 此参数设置了认证令牌生存时间值 (TTL) ，用于身份和访问管理。必须指定 YAML 字符串中包裹的 Python 浮动语法的值。令牌默认在五天后到期。例如，要将令牌寿命设置为半天：
@@ -203,7 +203,7 @@ bouncer_expiration_auth_token_days: '0.5'
 * `cluster_docker_credentials_dcos_owned` 指示是否将凭据文件存储在 `/opt/mesosphere` 或 `/etc/mesosphere/docker_credentials` 中。sysadmin 无法直接编辑 `/opt/mesosphere`。
  * `cluster_docker_credentials_dcos_owned: 'true'` 凭据文件存储在 `/opt/mesosphere` 中。
  * `cluster_docker_credentials_write_to_etc` 是否写入群集凭据文件。
- * `cluster_docker_credentials_write_to_etc: 'true'` 写入凭据文件。该操作在覆盖凭据文件会引起问题（例如，如果文件含在机器图像或 AMI 中）的时候很实用。这是默认值。
+ * `cluster_docker_credentials_write_to_etc: 'true'` 写入凭据文件。该操作在覆盖凭据文件会引起问题（例如，如果文件是机器图像或 AMI 的一部分）的时候很实用。这是默认值。
  * `cluster_docker_credentials_write_to_etc: 'false'` 请勿写入凭据文件。
  * `cluster_docker_credentials_dcos_owned: 'false'` 凭据文件存储在 `/etc/mesosphere/docker_credentials` 中。
 
@@ -228,24 +228,24 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将配置 Mesos 的 
 * `package_storage_uri`
  永久存储 DC/OS 包的位置。值必须是一个文件 URL，例如 `file:///var/lib/dcos/cosmos/packages`。
 * `staged_package_storage_uri`
- 添加 DC/OS 包时，临时存储包的位置。值必须是一个文件 URL，例如 `file:///var/lib/dcos/cosmos/staged-packages`。
+ 添加 DC/OS 包时，临时存储软件包的位置。值必须是一个文件 URL，例如 `file:///var/lib/dcos/cosmos/staged-packages`。
 
 ## custom_checks
-添加到默认检查配置进程的自定义安装检查。配置用于 [DC/OS 诊断组件] (/1.11/overview/architecture/components/#dcos-diagnostics) 执行安装和升级检查。在安装和升级期间，这些自定义检查与默认的启动前和启动后检查一起运行。
+添加到默认检查配置进程的自定义安装检查。配置用 [DC/OS 诊断组件] (/1.11/overview/architecture/components/#dcos-diagnostics) 来执行安装和升级检查。在安装和升级期间，这些自定义检查与默认的启动前和启动后检查一起运行。
 
 - `cluster_checks` - 这组参数指定整个 DC/OS 群集的运行状况检查。
 
     - `<check-name>` - 运行状况检查的自定义名称
  - `description` - 指定检查说明
  - `cmd` - 指定运行状况检查命令字符串阵列
- - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常状态为 `3 (UNKNOWN)`
+ - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常有 `3 (UNKNOWN)` 的状态
 
 - `node_checks` - 这组参数指定节点运行状况检查。
 
     - `<check-name>` - 运行状况检查的自定义名称
  - `description` - 指定检查说明
  - `cmd` - 指定运行状况检查命令字符串阵列
- - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常状态为 `3 (UNKNOWN)`
+ - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常有 `3 (UNKNOWN)` 的状态
 
 有关如何使用这些自定义检查的详细信息，请参阅 [示例](/1.11/installing/ent/custom/configuration/examples/#custom-checks) 以及 [节点和群集运行状况检查](/1.11/installing/ent/custom/node-cluster-health-check/) 文档。
 
@@ -300,7 +300,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将配置 Mesos 的 
 DC/OS DNS 解析器无法绑定的 IP 地址列表。
 
 ## dns_forward_zones
-配置 DNS 查询自定义转发行为的 DNS 分区、IP 地址和端口列表。DNS 分区映射到一组 DNS 解析器中。
+配置 DNS 查询自定义转发行为的 DNS 分区、IP 地址和端口列表。DNS 分区与一组 DNS 解析器的映射。
 
 样本定义如下：
 
@@ -328,16 +328,16 @@ dns_search: dc1.example.com dc1.example.com example.com dc1.example.com dc2.exam
 ```
 
 ## docker_remove_delay
-删除存储在代理节点上的代理节点和安装程序生成的 Docker 镜像之前等待的时间。建议您接受 1 小时作为默认值。
+删除存储在代理节点上保存的旧 Docker 镜像和安装程序生成的 Docker 镜像之前等待的时间。建议您接受 1 小时作为默认值。
 
 ## enable_docker_gc
-指示是否运行 [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) 脚本，一个简单的 Docker 容器和镜像垃圾回收脚本，每小时清理一次失散的 Docker 容器。您可以使用 `/etc/` 配置参数，配置运行时间行为。如需更多信息，请参阅 [文档](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
+指示是否运行 [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) 脚本，一个简单的 Docker 容器和镜像垃圾回收脚本，每小时清理一次失散的 Docker 容器。您可以使用 `/etc/` 配置参数，设置运行时间行为。如需更多信息，请参阅 [文档](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
 * `enable_docker_gc: 'true'` 请每小时运行一次 docker-gc 脚本。这是 [云] (/1.11/installing/ent/cloud/) 模板安装的默认值。
 * `enable_docker_gc: 'false'` 请勿每小时运行一次 docker-gc 脚本。这是 [自定义] (/1.11/installing/ent/custom/) 安装的默认值。
 
 ## exhibitor_storage_backend
-Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`static`）或指定外部存储系统（`ZooKeeper`、`aws_s3`和 `Azure`），使用 Exhibitor 在管理节点上配置和编排 ZooKeeper。在 DC/OS 安装期间，Exhibitor 自动配置管理节点上的 ZooKeeper 安装。
+Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`static`）或指定外部存储系统（`ZooKeeper`、`aws_s3`和 `Azure`），使用 Exhibitor 在管理节点上设置和编排 ZooKeeper。在 DC/OS 安装期间，Exhibitor 自动配置管理节点上的 ZooKeeper 安装。
 
 *   `exhibitor_storage_backend: static`
  Exhibitor 存储后端在您的群集内部进行管理。
@@ -377,7 +377,7 @@ Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`st
     *  `exhibitor_azure_account_key`
  访问 Azure 存储帐户的密钥。
     *  `exhibitor_azure_prefix`
- 供 Exhibitor 使用的存储账户中使用的二进制大对象前缀。
+ 供 Exhibitor 使用的存储账户中使用的 blob 前缀。
 
 ## enable_gpu_isolation
 指示是否在 DC/OS 中启用 GPU 支持。
@@ -393,11 +393,11 @@ Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`st
 ## gpus_are_scarce
 指示是否将 [GPU](/1.11/deploying-services/gpu/) 作为群集中的稀缺资源。
 
-* `gpus_are_scarce: 'true'` 将 GPU 视为稀缺资源。这样就把 GPU 完全保留给通过 [Mesos `GPU_RESOURCES` 框架功能](http://mesos.apache.org/documentation/latest/gpu-support/) 选入占用 GPU 的服务。这是默认值。
+* `gpus_are_scarce: 'true'` 将 GPU 视为稀缺资源。这样就把 GPU 完全保留给通过 [Mesos `GPU_RESOURCES` 框架功能](http://mesos.apache.org/documentation/latest/gpu-support/) 选择消耗 GPU 的服务。这是默认值。
 * `gpus_are_scarce: 'false'` 将 GPU 与其他资源同等对待。所有框架，不论是否使用 [Mesos `GPU_RESOURCES` 框架功能](http://mesos.apache.org/documentation/latest/gpu-support/)，都会没有差别地收到 GPU。
 
 ## ip_detect_public_filename
-bootstrap 节点上的文件（`/genconf/ip-detect-public`）路径，其中包含 shell 脚本，可将内部 IP 映射到公用 IP。例如：
+bootstrap 节点上的文件（`/genconf/ip-detect-public`）路径，其中包含 shell 脚本，可进行内部 IP 到公用 IP 的映射。例如：
 
 ```bash
 #!/bin/sh
@@ -423,7 +423,7 @@ Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadb
  * `exhibitor_address` （必填） 
  管理节点前面负载均衡器的地址（推荐 IP 地址）。如果需要替换管理节点，该地址成为代理用来查找新管理节点的静态地址。对于 DC/OS Enterprise，该地址包含在 [DC/OS 证书] 中(/1.11/security/ent/tls-ssl/)。
 
- 负载均衡器必须接受端口 80、443、2181、5050、8080、8181 的流量。流量也必须转发到管理节点上的相同端口。例如，负载均衡器上的 Mesos 端口 5050 应转发到管理节点的端口 5050 上。管理节点应通过循环调度转发任何新连接，并且应避免对 Mesos 端口 5050 的请求做出响应以确保管理节点保持运行。
+ 负载均衡器必须接受端口 80、443、2181、5050、8080、8181 的流量。流量也必须转发到管理节点上的相同端口。例如，负载均衡器上的 Mesos 端口 5050 应转发到管理节点的端口 5050 上。管理节点应通过循环调度转发任何新连接，并且应避免对 Mesos 端口 5050 的请求做出响应的机器以确保管理节点保持运行。
 
  **注意：** 内部负载均衡器必须在 TCP 模式下工作，不终止任何 TLS。
        
@@ -459,12 +459,12 @@ Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadb
 默认为 `logrotate`。由于性能问题， 不推荐 `journald`。如需更多信息，请参阅 [记录 API](/1.11/monitoring/logging/logging-api/#compatibility)。
 
 ## mesos_dns_set_truncate_bit
-指示在响应过大而无法放入一个数据包时，Mesos-DNS 是否设置截断数位。
+指示在响应过大而无法放入单个数据包时，Mesos-DNS 是否设置缩短数位。
 
-* `mesos_dns_set_truncate_bit: 'true'` 如果响应太大而无法放入一个数据包并且被截断，Mesos-DNS 会设置截断位。这是默认行为，符合 RFC7766。
-* `mesos_dns_set_truncate_bit: 'false'` 如果响应太大而无法放入单个数据包，Mesos-DNS 不会设置截断数位。如果您知道应用程序在 TCP 上解析截断的 DNS 响应时会崩溃，或出于响应 DNS 请求的性能原因，应将此选项设置为 `false` ，并需注意，您从 Mesos-DNS 收到的 DNS 响应可能丢失了被私下丢弃的条目。这意味着截断的 DNS 响应将显示为完整（即使并不完整），因此不会触发 TCP 重试。此行为不符合 RFC7766。
+* `mesos_dns_set_truncate_bit: 'true'` 如果响应太大而无法放入单个数据包并且被缩短，Mesos-DNS 会设置缩短位。这是默认行为，符合 RFC7766。
+* `mesos_dns_set_truncate_bit: 'false'` 如果响应太大而无法放入单个数据包，Mesos-DNS 不会设置缩短数位。如果您知道应用程序在 TCP 上解析缩短的 DNS 响应时会崩溃，或出于响应 DNS 请求的性能原因，应将此选项设置为 `false` ，并需注意，您从 Mesos-DNS 收到的 DNS 响应可能丢失了被安静丢弃的条目。这意味着缩短的 DNS 响应将显示为完整（即使并不完整），因此不会触发 TCP 重试。此行为不符合 RFC7766。
 
-有关截断的 DNS 响应和重试 TCP 的详细信息，请参阅 [RFC7766 - 在 TCP 中传输 DNS——实施要求](https://tools.ietf.org/html/rfc7766)。
+有关缩短的 DNS 响应和重试 TCP 的详细信息，请参阅 [RFC7766 - 在 TCP 中传输 DNS——实施要求](https://tools.ietf.org/html/rfc7766)。
 
 ## mesos_master_work_dir [oss type="inline" size="small" /]
 管理节点上的 Mesos 工作目录位置。它定义了群集中 Mesos 管理节点的  `work_dir`  参数。默认为 `/var/lib/dcos/mesos/master`。如需更多信息，请参阅 [Mesos 文档](https://mesos.apache.org/documentation/latest/configuration/master/)。
@@ -485,7 +485,7 @@ Mesos 管理节点在内存中保留的每个框架的完成任务数。在具�
 基础架构平台。该值为可选的自由格式，无内容验证，仅用于遥测。提供适当的价值，以帮助通知 DC/OS 平台优先做出决策。示例值：`aws`、 `azure`、`oneview`、`openstack`、`vsphere`、`vagrant-virtualbox`、`onprem` （默认）。
 
 ## process_timeout
-在进程分叉之后等待开始操作的时间（以秒为单位）。这个参数不是完整的进程时间。默认值为 120 秒。
+在进程分叉之后允许等待操作开始的时间（以秒为单位）。这个参数不是完整的进程时间。默认值为 120 秒。
 
 **注意：** 对于较慢的网络，请考虑更改为 `process_timeout: 600`。
 
@@ -503,7 +503,7 @@ DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定
     - 8.8.4.4
     - 8.8.8.8
     ```
-- 如果没有 DNS 基础架构且没有权限访问互联网 DNS 服务器，您可以指定 `resolvers: []`。指定该设置后，发送到非 `.mesos` 的所有请求都将回复一个错误。如需更多信息，请参阅 Mesos-DNS [文档](/1.11/networking/mesos-dns/)。
+- 如果没有 DNS 基础架构且没有权限访问互联网 DNS 服务器，您可以指定 `resolvers: []`。指定该设置后，发送到非 `.mesos` 的所有请求都将返回一个错误。如需更多信息，请参阅 Mesos-DNS [文档](/1.11/networking/mesos-dns/)。
 
 **注意：** 如果设置的 `resolvers` 参数不正确，您将永久损坏配置，必须重新安装 DC/OS。
 
@@ -526,11 +526,11 @@ DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定
 
 请查看外部持久卷 [文档](/1.11/storage/external-storage/)，了解有关如何创建配置的信息。
 
-如果提供了 `rexray_config` 参数，则请逐字使用其内容进行 REX-Ray 配置。这样就可以完全自定义与各种 [外部存储提供商] 集成的 REX-Ray 配置 ( https://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/)。然而，如果将群集升级到包含更新版的 REX-Ray 的版本，就必须确保 `rexray_config` 参数与较新版本的 REX-Ray 兼容。
+如果提供了 `rexray_config` 参数，则请为 REX-Ray 完全按照参数内容进行设置。这样就可以完全自定义与各种 [外部存储提供商] 集成的 REX-Ray 配置 ( https://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/)。然而，如果将群集升级到包含更新版的 REX-Ray 的版本，就必须确保 `rexray_config` 参数与较新版本的 REX-Ray 兼容。
 
 
 ## rexray_config_preset
-如果您正在 AWS 上运行群集，并希望 DC/OS 与弹性块存储器 (EBS) 集成，无需关注特定的 REX-Ray 配置，并将 `rexray_config_preset` 参数设置为 `aws`。这样就会将 `rexray_config` 参数设置为与 DC/OS 捆绑的默认 REX-Ray 配置。这一选项的另一优势在于，在您升级到包含更新 REX-Ray 版本的 DC/OS 版本后，它能自动升级您群集的 REX-Ray 配置。
+如果您正在 AWS 上运行群集，并希望 DC/OS 与弹性块存储器 (EBS) 集成，而无需关注特定的 REX-Ray 配置，并将 `rexray_config_preset` 参数设置为 `aws`。这样就会将 `rexray_config` 参数设置为与 DC/OS 捆绑的默认 REX-Ray 配置。这一选项的另一优势在于，在您升级到包含已更新 REX-Ray 版本的 DC/OS 版本后，它能自动升级您群集的 REX-Ray 配置。
 
 ## security [enterprise type="inline" size="small" /]
 指定 `security: permissive`（默认）以外的安全模式。模式后面是潜在的值。
@@ -542,7 +542,7 @@ DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定
 请参阅 [安全模式](/1.11/security/ent/#security-modes) 部分，了解对于每个参数的详细探讨。
 
 ## ssh_key_path
-安装工具用于登录到目标节点的路径。默认情况下，这设置为 `/genconf/ssh_key`。该参数不能更改，因为 `/genconf` 是容器运行安装工具的本地路径，还是一个挂载卷。
+安装工具用于登录到目标节点的路径。默认情况下，这设置为 `/genconf/ssh_key`。该参数不能更改，因为 `/genconf` 在容器运行安装工具的本地路径，并是一个挂载卷。
 
 ## ssh_port
 SSH 端口，例如 `22`。
@@ -551,7 +551,7 @@ SSH 端口，例如 `22`。
 SSH 用户名，例如 `centos`。
 
 ## superuser_password_hash (Required) [enterprise type="inline" size="small" /]
-带井号的超级用户密码。`superuser_password_hash` 通过使用安装工具 `--hash-password` 标记生成。第一个超级用户帐户用于提供登录 DC/OS 的方法，其中可添加其他管理帐户。如需更多信息，请参阅 [安全文档](/1.11/security/ent/)。
+带井号的超级用户密码。`superuser_password_hash` 通过使用安装工具 `--hash-password` 标记生成。第一个超级用户帐户用于提供登录 DC/OS 的方法，登入后可添加其他管理帐户。如需更多信息，请参阅 [安全文档](/1.11/security/ent/)。
 
 ## superuser_username（必填）[enterprise type="inline" size="small" /]
 超级用户的用户名。此帐户使用 `superuser_password_hash`。如需更多信息，请参阅 [安全文档](/1.11/security/ent/)。

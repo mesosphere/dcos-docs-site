@@ -38,7 +38,7 @@ dcos job show <job-id> [OPTION]
 
 ## 显示作业定义
 
-在本示例中，显示`my-scheduled-job`作业定义。
+在本示例中，显示了`my-scheduled-job`作业定义。
 
 ```bash
 dcos job show my-scheduled-job

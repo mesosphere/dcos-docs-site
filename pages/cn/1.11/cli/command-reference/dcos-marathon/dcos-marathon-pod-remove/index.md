@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon pod remove` 命令允许您删除 pod。
+`dcos marathon pod remove` 命令让您删除 pod。
 
 # 使用
 

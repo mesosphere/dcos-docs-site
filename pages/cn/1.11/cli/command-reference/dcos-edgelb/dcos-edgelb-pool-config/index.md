@@ -10,7 +10,7 @@ enterprise: true
 
 
 # 说明
-`dcos edgelb pool config` 命令允许您查看或更新 Edge-LB 池配置。
+`dcos edgelb pool config` 命令让您查看或更新 Edge-LB 池配置。
 
 # 使用
 

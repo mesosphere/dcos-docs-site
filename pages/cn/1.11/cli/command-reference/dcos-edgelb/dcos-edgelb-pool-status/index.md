@@ -10,7 +10,7 @@ enterprise: true
 
 
 # 说明
-`dcos edgelb pool status` 命令允许您显示 Edge-LB 池状态信息。
+`dcos edgelb pool status` 命令让您显示 Edge-LB 池状态信息。
 
 # 使用
 

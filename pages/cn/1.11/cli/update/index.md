@@ -13,7 +13,7 @@ enterprise: false
 
 # <a name="upgrade"></a>升级 CLI
 
-**注意：** 如果您从 PYpI 下载 CLI 或从 DC/OS UI 版本 1.7 或更早版本下载，您必须完全[卸载](/1.11/cli/uninstall/) CLI。您无法升级。
+**注意：** 如果您从 PyPI 下载 CLI 或从 DC/OS UI 版本 1.7 或更早版本下载，您必须完全[卸载](/1.11/cli/uninstall/) CLI。您无法升级。
 
 您可以将现有 DC/OS CLI 安装升级到最新版本。
 
@@ -39,13 +39,13 @@ enterprise: false
 
  **注意：** 如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。
 
-1. 将 CLI 指向 DC/OS 主节点。在本示例中， `http://example.com` 是主节点 IP 地址。
+1. 将 CLI 指向 DC/OS 管理节点。在本示例中， `http://example.com` 是管理节点 IP 地址。
 
     ```bash
     dcos cluster setup http://example.com
     ```
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/1.11/security/)。您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。
+ 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/1.11/security/)。您的 CLI 现在应可通过您群集的身份认证！输入 `dcos` 即可开始。
 
     ```bash
     dcos
@@ -78,7 +78,7 @@ enterprise: false
     rm path/to/binary/dcos
     ```
 
-1. 从要安装新 DC/OS CLI 二进制文件的目录中，输入此命令以使用指定的降级版本 (`<version>`) 更新 DC/OS CLI：
+1. 从要安装新 DC/OS CLI 二进制文件的目录中，输入此命令以用指定的降级版本 (`<version>`) 更新 DC/OS CLI：
 
     ```bash
     curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/<version>/dcos

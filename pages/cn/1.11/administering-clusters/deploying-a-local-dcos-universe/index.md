@@ -104,7 +104,7 @@ enterprise: false
 
 1. 如果只有一个管理节点，跳转至步骤 25。如果您有多个管理节点，继续下一步。
 
-1. 使用以下命令发现所有管理节点的私有 IP 地址。识别现在从列表中通过 SSH 所进入的管理节点的私有 IP 地址。
+1. 使用以下命令查询所有管理节点的私有 IP 地址。从列表中识别现在通过 SSH 所进入的管理节点的私有 IP 地址。
 
  **提示：** 它将与在您的提示中 `core@ip-` 之后显示的路径匹配，其中连字符变为句号。
 
@@ -112,7 +112,7 @@ enterprise: false
     host master.mesos
     ```
 
-1. 使用 [安全副本](https://linux.die.net/man/1/scp) 将 Universe 和注册表文件传输到其他管理节点之一。使用先前命令中使用的 IP 地址替换 `<master-IP>` 用其他管理节点的 IP 地址。
+1. 使用 [安全副本](https://linux.die.net/man/1/scp) 将 Universe 和注册表文件传输到另一个管理节点之一。使用另一个管理节点的 IP 地址替换 `<master-IP>`。
 
     ```bash
     scp local-universe.tar.gz core@<master-IP>:
@@ -151,7 +151,7 @@ enterprise: false
     ls -la /etc/systemd/system/dcos-local-universe-*
     ```
 
-1. 将 Universe 加载到本地 Docker 实例中。
+1. 将 Universe 加载到本地 Docker 个体实例中。
 
     ```
     docker load < local-universe.tar.gz
@@ -179,21 +179,21 @@ enterprise: false
     sudo systemctl status dcos-local-universe-registry
     ```
 
-1. 重复步骤 14 至 23，直到对所有管理节点完成这一程序。然后继续下一步。
+1. 重复步骤 14 至 23，直到为所有管理节点完成这一程序。然后继续下一步。
 
 1. 通过键入 `exit` 或打开新终端提示关闭 SSH 会话。
 
  **提示：** 如果有多个管理节点，您可能必须退出多个 SSH 会话。
 
-1. （可选）使用以下命令删除群集对默认 Universe 的引用。如果要将默认 Universe 保留在适当位置，只需将本地 Universe 添加为附加资源库，跳至下一步。
+1. （可选）使用以下命令删除群集对默认 Universe 的指向。如果要将默认 Universe 保留在默认状态，只需将本地 Universe 添加为附加资源库，跳至下一步。
 
     ```bash
     dcos package repo remove Universe
     ```
 
- **提示：** 您还可以从 DC/OS Web 界面中的 **设置** > **包资源库** 中删除对默认 Universe 资源库的引用。
+ **提示：** 您还可以从 DC/OS Web 界面中的 **设置** > **包资源库** 中删除对默认 Universe 资源库的指向。
 
-1. 使用以下命令添加对您已添加到每个管理节点的本地 Universe 的引用。
+1. 使用以下命令添加对您已添加到每个管理节点的本地 Universe 的指向。
 
     ```bash
     dcos package repo add local-universe http://master.mesos:8082/repo
@@ -240,7 +240,7 @@ enterprise: false
 
 * **我无法安装 CLI 子命令**
 
- 包托管于 `master.mesos:8082`。如果您无法从您的 DC/OS CLI 安装解析或连接到 `master.mesos:8082`，您无法安装 CLI 子命令。如果您可以在管理节点上连接到端口 8082，将其中一个管理节点 IP 添加到 `/etc/hosts`。
+ 包托管于 `master.mesos:8082`。如果您无法从您的 DC/OS CLI 安装解决或连接到 `master.mesos:8082`，您无法安装 CLI 子命令。如果您可以在管理节点上连接到端口 8082，将其中一个管理节点 IP 添加到 `/etc/hosts`。
 
 * **镜像破损**
 
@@ -248,7 +248,7 @@ enterprise: false
 
 * **我没有看到我在找的包**
 
- 默认情况下，仅捆绑已认证的包。如果您想获得其他包，请参阅下一节中的说明。
+ 默认情况下，只有已认证的包会做捆绑处理。如果您想获得其他包，请参阅下一节中的说明。
 
 # <a name="build"></a>部署包含选定包的本地 Universe
 

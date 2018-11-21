@@ -6,13 +6,13 @@ menuWeight: 10
 excerpt: 使用“设置”菜单
 ---
 
-可在“设置”菜单中管理包存储库。
+可在“设置”菜单中管理软件包存储库。
 
 
 
 ![Package repositories](/1.11/img/package-repositories-ee.png)
 
-图 1. 设置 > 包存储库
+图 1. 设置 > 软件包存储库
 
 还可以在 DC/OS 企业版中管理：
 

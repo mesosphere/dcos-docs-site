@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon app version list` 命令允许您列出应用程序的版本历史记录。
+`dcos marathon app version list` 命令列出应用程序的版本历史记录。
 
 # 使用
 

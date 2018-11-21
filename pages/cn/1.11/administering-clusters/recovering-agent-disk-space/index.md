@@ -12,6 +12,6 @@ enterprise: false
 
 - 检查每个组件的健康状况并重新启动每个组件。
 
-- 如果工作目录位于单独的卷上（如按建议在 [代理节点] 中）(/1.11/installing/production/system-requirements/#agent-nodes))，则您可以清空此卷并重新启动该代理。
+- 如果工作目录位于单独的卷上（如在 [代理节点] 中的建议）(/1.11/installing/production/system-requirements/#agent-nodes))，则您可以清空此卷并重新启动该代理。
 
-如果两种方法均无效，您可能需要重新镜像节点。
+如果两种方法均无效，您可能需要重新为节点做镜像。

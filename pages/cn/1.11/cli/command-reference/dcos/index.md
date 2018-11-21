@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos` 命令允许您管理 DC/OS 环境变量。
+`dcos` 命令让您管理 DC/OS 环境变量。
 
 # 使用
 

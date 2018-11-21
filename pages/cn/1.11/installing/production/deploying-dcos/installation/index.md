@@ -25,8 +25,8 @@ DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和
 
 此安装方法要求：
 
-* bootstrap 节点必须是可从群集节点访问的网络。
-* bootstrap 节点必须从群集节点打开 HTTP(S) 端口。
+* bootstrap 节点必须在可从群集节点访问的网络。
+* 从群集节点到 bootstrap 节点的 HTTP(S) 端口必须在打开状态。
 
 DC/OS 安装会创建以下文件夹：
 
@@ -67,7 +67,7 @@ DC/OS 安装会创建以下文件夹：
 - 在节点上安装 DC/OS 后，节点的 IP 地址不能更改。例如，当重新启动节点或更新 DHCP 租约时，IP 地址不应更改。如果节点的 IP 地址更改，就必须 [卸载](/1.11/installing/production/uninstalling/) 节点。
 - 脚本必须返回与 `config.yaml` 中指定的相同 IP 地址。例如，如果将 `config.yaml` 中的专用管理节点 IP 指定为 `10.2.30.4`，您的脚本在管理节点上运行时应返回相同的值。
 
-1. 为您的环境创建 IP 检测脚本，并另存为 `genconf/ip-detect`。此脚本需要 `UTF-8` 编码并具备有效的 [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix) 行。可以使用以下示例。
+1. 为您的环境创建 IP 检测脚本，并另存为 `genconf/ip-detect`。此脚本需要 `UTF-8` 加密并具备有效的 [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix) 行。可以使用以下示例。
 
  * #### 使用 AWS 元数据服务器
 
@@ -94,11 +94,11 @@ DC/OS 安装会创建以下文件夹：
         curl -fsSl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/ip
         ```
 
- * #### 使用现有接口的 IP 地址
+ * #### 使用现有网络接口的 IP 地址
 
- 此方法发现节点特定接口的 IP 地址。
+ 此方法发现节点特定网络接口的 IP 地址。
 
- 如果有带有不同内部 IP 地址的多代硬件，可以在主机之间更改接口名称。IP 检测脚本必须考虑接口名称更改。如果将多个 IP 地址连接到同一个接口，或建立复杂的 Linux 网络等，则也会混淆示例脚本。
+ 如果有带有不同内部 IP 地址的多代硬件，可以在主机之间更改网络接口名称。IP 检测脚本必须考虑网络接口名称更改。如果将多个 IP 地址连接到同一个网络接口，或建立复杂的 Linux 网络等，则也会混淆示例脚本。
 
         ```bash
         #!/usr/bin/env bash
@@ -111,7 +111,7 @@ DC/OS 安装会创建以下文件夹：
 
  此方法使用 Mesos 管理节点的路由查找源 IP 地址，然后与该节点通信。
 
- 在本示例中，我们假设 Mesos 管理节点具有 IP 地址 `172.28.128.3`。可以使用此脚本的任何语言。Shebang 行必须指向所用语言的相应环境，且输出必须是正确的 IP 地址。
+ 在本示例中，我们假设 Mesos 管理节点具有 IP 地址 `172.28.128.3`。可以使用在此脚本中使用任何语言。Shebang 行必须指向所用语言的相应环境，且输出必须是正确的 IP 地址。
 
  [enterprise type="inline" size="small" /]
 
@@ -152,7 +152,7 @@ BEGIN { ec = 1 }
 # 创建故障域检测脚本
 [/enterprise]
 
-DC/OS 群集默认启用 [故障域意识](/1.11/deploying-services/fault-domain-awareness/)，所以必须更改 `config.yaml` 才能使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `config.yaml` 文件中的 `fault_domain_enabled` 参数设置为 `false`。
+DC/OS 群集默认启用 [故障域意识](/1.11/deploying-services/fault-domain-awareness/)，所以无须更改 `config.yaml` 来使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `config.yaml` 文件中的 `fault_domain_enabled` 参数设置为 `false`。
 
 
 1. 创建名为 `fault-domain-detect` 的故障域检测脚本，在每个节点上运行，以检测节点的故障域。安装过程中此脚本的输出被传递到 Mesos。
@@ -172,7 +172,7 @@ DC/OS 群集默认启用 [故障域意识](/1.11/deploying-services/fault-domain
 [Enterprise]
 ## 设置超级用户密码
 [/enterprise]
-在以下说明中，我们假定您正在使用 ZooKeeper 进行共享存储。
+在以下说明中，我们假定您使用 ZooKeeper 进行共享存储。
 
 1. 在 bootstrap 节点运行此命令，创建用于超级用户身份认证的带井号密码，其中 `<superuser_password>` 是超级用户密码。
 
@@ -206,8 +206,8 @@ Enterprise 指定三个Mesos 管理节点、静态管理节点发现列表、Exh
 **注意：**
 
 - 如果 AWS DNS IP 在您的国家/地区不可用，可以使用本地 DNS 服务器替换 AWS DNS IP 服务器 `8.8.8.8` 和 `8.8.4.4`。
-- 如果指定了 `master_discovery: static`，还必须创建脚本，以将内部 IP 映射到 bootstrap 节点上的公共 IP（例如， `genconf/ip-detect-public`）。此脚本在以下 IP 中引用：`ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
-- 在 AWS 或任何其他无法控制节点的 IP 地址的环境中， 都需要设置 master_discovery 才能使用 master_http_load_balancer，并且需要设置负载均衡器。
+- 如果指定了 `master_discovery: static`，还必须创建脚本，以进行内部 IP 到 bootstrap 节点上的公共 IP（例如， `genconf/ip-detect-public`）的映射。此脚本在以下 IP 中引用：`ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
+- 在 AWS 或任何其他无法控制节点的 IP 地址的环境中，都需要设置 master_discovery 才能使用 master_http_load_balancer，并且需要设置负载均衡器。
 
 [enterprise]
 ## Enterprise 模板
@@ -270,7 +270,7 @@ enable_ipv6: 'false'
 # <a name="install-bash"></a>安装 DC/OS
 
 在这一步，您将在 bootstrap 节点上创建一个自定义 DC/OS 构建文件，然后在群集上安装 DC/OS。使用这种方法，您可以
-1. 自行打包 DC/OS 分发
+1. 自行打包 DC/OS 发布
 2. 手动连接到每个服务器
 3. 运行命令
 
@@ -280,9 +280,9 @@ enable_ipv6: 'false'
 - 必须生效以下项目才能安装 DC/OS：所有 DC/OS 节点上的 IP 检测脚本、DNS 和 NTP 均已同步时间。参见 [故障排除](/1.11/installing/ent/troubleshooting/)，了解更多信息。
 - 如果出现问题并且您想重新运行设置，请使用群集 [卸载] [11]说明。
 
-**前提条件**
+**先决条件**
 
-* 经过优化，可在节点上手动分发 DC/OS 的 `genconf/config.yaml` 文件。
+* 经过优化，可在节点上手动发布 DC/OS 的 `genconf/config.yaml` 文件。
 * 包含 DC/OS Enterprise 许可证的 `genconf/license.txt` 文件。[enterprise type="inline" size="small" /]
 * `genconf/ip-detect` 脚本。
 
@@ -349,7 +349,7 @@ enable_ipv6: 'false'
         ```bash
         ssh <master-ip>
         ```
- * 创建并导航新目录。
+ * 创建并导航到新目录。
 
         ```bash
         mkdir /tmp/dcos && cd /tmp/dcos
@@ -367,7 +367,7 @@ enable_ipv6: 'false'
         sudo bash dcos_install.sh master
         ```
 
- **注意：** 如果不配置所有管理节点，DC/OS 就可能发出错误消息，尽管这对群集 DC/OS 没有实际损害。
+ **注意：** DC/OS 可能一直发出错误消息，直到所有管理节点都配置完毕，尽管这对群集 DC/OS 没有实际损害。
 
 4. <A name="slaveinstall"></A>在每个代理节点上运行以下命令，使用自定义构建文件安装 DC / OS：
 
@@ -377,7 +377,7 @@ enable_ipv6: 'false'
         ssh <agent-ip>
         ```
 
- * 创建并导航新目录。
+ * 创建并导航到新目录。
 
         ```bash
         mkdir /tmp/dcos && cd /tmp/dcos

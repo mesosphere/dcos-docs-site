@@ -52,7 +52,7 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 
  **注意：** 请勿在此阶段单击 **Save**；它会失败。
 
-## 配置 DC/OS 以作为 SAML 服务提供程序
+## 配置 DC/OS 以使其作为 SAML 服务提供程序
 
 1. 以 `superuser` 中的用户或具有 `dcos:superuser` 权限的用户身份登录 DC/OS GUI。
 1. 打开 **Settings** -> **Identity Providers** 选项卡。
