@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle: dcos cluster unlink
 title: dcos cluster unlink
 menuWeight: 8
-excerpt: 取消另一个群集对一个群集的链接
+excerpt: 取消一个群集和另一个群集的链接
 enterprise: true
 ---
 
 # 说明
-`dcos cluster unlink` 命令允许您取消另一个群集对一个群集的链接。
+`dcos cluster unlink` 命令允许您取消一个群集和另一个群集的链接。
 
 # 使用
 

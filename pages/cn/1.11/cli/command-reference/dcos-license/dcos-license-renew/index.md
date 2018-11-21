@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos license renew` 命令允许您管理群集许可证。
+`dcos license renew` 命令让您管理群集许可证。
 
 # 使用
 

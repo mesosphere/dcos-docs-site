@@ -25,7 +25,7 @@ menuWeight: 5
 
 # 步骤
  * 了解应用程序
- * 简要了解一下 [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go)。App2 是基于 [Go](https://golang.org/) 的 HTTP 服务器，它向 Redis 公开了一个非常简单的接口。
+ * 简要了解一下 [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go)。App2 是基于 [Go](https://golang.org/) 的 HTTP 服务器，它向 Redis 公开了一个非常简单的网络接口。
  * 部署 app2
  * 简要了解一下[应用定义](https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json)。在这种情况下，应用程序是是没有外部依赖关系的二进制文件。
  因此，您不再需要将其部署在 Docker 容器中。
@@ -33,7 +33,7 @@ menuWeight: 5
  * 您有多个选项可以检查应用程序 2 是否成功运行：
  * 通过查看所有 DC/OS 任务: `dcos task`
  * 通过查看所有 Marathon 应用程序：`dcos marathon app list`
- * 从群集中卷曲 http 服务器（在这种情况下来自主要主服务器）：
+ * 从群集中curl  http 服务器（在这种情况下来自主要主管理节点服务器）：
        * `dcos node ssh --master-proxy --leader`
        * `curl dcos-101app2.marathon.l4lb.thisdcos.directory:10000`
 
@@ -55,7 +55,7 @@ menuWeight: 5
 
 DC/OS 使用[容器化工具](/1.11/deploying-services/containerizers/)在容器中运行任务。容器中的运行任务提供了许多好处，包括将任务彼此隔离并以编程方式控制任务资源的能力。DC/OS 支持两种类型的容器化工具 - DC/OS Universal Container Runtime 和 Docker 容器化工具。
 
-对于第一个应用程序，您使用 Docker 容器镜像来封装 app1 的依赖项（请记住：永远不要依赖于代理程序上安装的依赖项！），然后使用 Docker 容器化工具来执行它。由于 Docker 容器化工具在内部使用 [Docker 运行时间](https://docs.docker.com/engine/userguide/intro/)，因此您还使用了 Docker 运行时间。
+对于第一个应用程序，您使用了 Docker 容器镜像来封装 app1 的依赖项（请记住：永远不要依赖于代理程序上安装的依赖项！），然后使用 了Docker 容器化工具来执行它。由于 Docker 容器化工具在内部使用 [Docker 运行时间](https://docs.docker.com/engine/userguide/intro/)，因此您还使用了 Docker 运行时间。
 
 对于第二个应用程序，您没有任何依赖项，因此可能依赖于默认的 DC/OS Universal Container Runtime。在内部，两个运行时间都使用相同的 OS 功能进行隔离，即 [cgroup](https://en.wikipedia.org/wiki/Cgroups) 和 [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces)。
 这实际上可以使用 DC/OS Universal Container Runtime 来运行 Docker 镜像 - 有关详细信息，请查看 [DC/OS Universal Container Runtime](/1.11/deploying-services/containerizers/) 文档。

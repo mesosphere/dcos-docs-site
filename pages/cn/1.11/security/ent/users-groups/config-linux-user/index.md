@@ -24,7 +24,7 @@ enterprise: true
 
 # <a name="marathon-app-def"></a>通过 Marathon 应用定义覆盖默认 Linux 用户
 
-Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 密钥。**提示：**参考 [Marathon 文档](/1.11/deploying-services/creating-services/)，了解有关编写 Marathon 服务的更多详细信息。
+Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 验证序号。**提示：**参考 [Marathon 文档](/1.11/deploying-services/creating-services/)，了解有关编写 Marathon 服务的更多详细信息。
 
 以下教程将展示所有权如何运作。在开始之前，请确保：
 
@@ -36,7 +36,7 @@ Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 密钥。
 
 满足这些先决条件后，完成以下步骤以覆盖默认 Linux 用户。
 
-1. 创建 Marathon 应用定义，并使用信息名称保存，如 `myservice.json`。以下服务会将其在用户名称下运行的用户名称写入日志，创建新文件，并从 dcos.io 获取 Mesosphere 徽标。
+1. 创建 Marathon 应用定义，并使用能表达其性质的名称保存，如 `myservice.json`。以下服务会将其在用户名称下运行的用户名称写入日志，创建新文件，并从 dcos.io 获取 Mesosphere 徽标。
 
   ```json
   {
@@ -75,15 +75,15 @@ curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/mara
 
 1. 单击以打开 **stdout** 文件。
 
-1. 滚动到底部，您应该看到 `whoami` 命令的结果，任务在其下运行的用户名称。
+1. 滚动到底部，您应该看到 `whoami` 命令的结果，也就是任务在其下运行的用户名称。
 
 # <a name="metronome-job-def"></a>通过 Metronome 作业定义覆盖默认 Linux 用户
 
-Metronome 作业定义提供 `"user"` 密钥，可用于覆盖默认 Linux 用户。
+Metronome 作业定义提供 `"user"` 验证序号，可用于覆盖默认 Linux 用户。
 
 **注意：**有关创建和部署作业的更多信息，请参阅[作业文档](/1.11/deploying-jobs/quickstart/)。
 
-以下程序将引导您完成快速教程，以展示所有权如何运作。在开始之前，请确保：
+以下步骤将引导您完成快速教程，以展示所有权如何运作。在开始之前，请确保：
 
 - 代理程序上已存在 Linux 用户帐户。
 - 您已安装并登录到 [DC/OS CLI](/1.11/cli/)。
@@ -93,7 +93,7 @@ Metronome 作业定义提供 `"user"` 密钥，可用于覆盖默认 Linux 用�
 满足这些先决条件后，完成以下步骤以覆盖默认 Linux 用户。
 
 
-1. 创建 Metronome 作业定义，并使用信息名称保存，如 `myjob.json`。
+1. 创建 Metronome 作业定义，并使用能表达其性质的名称保存，如 `myjob.json`。
 
   ```json
 {

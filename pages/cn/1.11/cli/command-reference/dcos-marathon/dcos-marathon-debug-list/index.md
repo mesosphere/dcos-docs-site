@@ -11,7 +11,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon debug list` 命令允许您显示正在等待的 Marathon 应用程序部署的当前队列。
+`dcos marathon debug list` 命令显示正在等待的 Marathon 应用程序部署的当前队列。
 
 # 使用
 

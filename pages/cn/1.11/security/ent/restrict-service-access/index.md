@@ -13,7 +13,7 @@ enterprise: true
 
 本教程演示如何在宽容[安全模式](/1.11/security/ent/#security-modes)下实现 DC/OS 服务的用户权限。完成后，您将通过使用 DC/OS 权限获得多租户。
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS Enterprise [已安装](/1.11/installing/ent/)在宽容[模式](/1.11/security/ent/#security-modes)下。
 
@@ -249,7 +249,7 @@ enterprise: true
 
 ## 作为超级用户在 DC/OS Web 界面中监控用户帐户
 
-1. 注销当前用户，然后以具有[超级用户](/1.11/security/ent/perms-reference/#superuser)权限的用户身份返回。您将看到，两个服务都在 prod-a 和 prod-b 组中运行。
+1. 注销当前用户，然后以具有[超级用户](/1.11/security/ent/perms-reference/#superuser)权限的用户身份重新登入。您将看到，两个服务都在 prod-a 和 prod-b 组中运行。
 
  ![prod-a-group](/1.11/img/service-group14.png)
 

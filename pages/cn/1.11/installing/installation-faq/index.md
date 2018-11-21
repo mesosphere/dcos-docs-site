@@ -8,7 +8,7 @@ excerpt: 关于安装 DC/OS 的常见问题
 
 
 ## 问：能否在已经运行的 Mesos 群集上安装 DC/OS？
-我们建议从新群集开始，以确保所有默认值都能设置为预期值。这样可防止版本和配置不匹配引起的意外条件。
+我们建议从新群集开始，以确保所有默认值都能设置为预期值。这样可防止版本和配置不匹配引起的意外情况。
 
 ## 问：DC/OS 的操作系统要求是什么？
 请参阅 [系统要求](/1.11/installing/production/system-requirements/) 文档。
@@ -17,11 +17,11 @@ excerpt: 关于安装 DC/OS 的常见问题
 DC/OS 运行自己的 ZooKeeper，由 Exhibitor 和 `systemd` 监督。
 
 ## 问：创建群集后是否需要维护 bootstrap 节点？
-如果您在群集配置 [文件] (/1.11/installing/production/advanced-configuration/configuration-reference/)中指定的 Exhibitor 存储后端类型不是 `exhibitor_storage_backend: static`，则必须保留在群集生命周期内一直保留外部存储库，方便首要实例选用。如果您的群集是任务攸关群集，则应使用 S3 加固外部存储库或运行 bootstrap ZooKeeper 担当 quorum。可以容忍外部存储库的服务中断，但永久性的状态丢失可能导致意外状况。
+如果您在群集配置 [文件] (/1.11/installing/production/advanced-configuration/configuration-reference/)中指定的 Exhibitor 存储后端类型不是 `exhibitor_storage_backend: static`，则必须在群集生命周期内一直保留外部存储库，以方便首要实例选用。如果您的群集是任务攸关群集，则应使用 S3 加固外部存储库或运行 bootstrap ZooKeeper 担当 quorum。可以勉强接受外部存储库的服务中断，但永久性的状态丢失可能导致意外状况。
 
 ## 问：如何将 Mesos 属性添加到节点以使用 Marathon 限制？
 
-在 DC/OS 添加行 `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dcos/mesos-slave-common`（可能需要创建该行）到需要添加的各个属性。如需更多信息，请参阅 [Mesos 文档](http://mesos.apache.org/documentation/latest/attributes-resources/)。
+在 DC/OS 添加行 `MESOS_ATTRIBUTES=<key>:<value>` to the file `/var/lib/dcos/mesos-slave-common`（可能需要为需要添加的每个属性创建该行）。如需更多信息，请参阅 [Mesos 文档](http://mesos.apache.org/documentation/latest/attributes-resources/)。
 
 ## 问：如何从容关闭一个代理？
 
@@ -39,7 +39,7 @@ DC/OS 运行自己的 ZooKeeper，由 Exhibitor 和 `systemd` 监督。
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave-public
     ```
 
-- 如需从容地关闭进程并防止系统重新启动，请添加 `stop` 命令：
+- 如需从容地关闭进程并防止 systemd 重新启动进程，请添加 `stop` 命令：
 
     ```bash
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave && sudo systemctl stop dcos-mesos-slave
@@ -77,7 +77,7 @@ sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --hos
 
 3. 将备份数据加载到 `iam_new` 数据库中，将 `iam` 数据库重命名为 `iam_old`。
 
-**注意：** 发出这个命令后，IAM 就会完全不可用。向 IAM 任何请求都会失败。
+**注意：** 发出这个命令后，IAM 就会完全不可用。向 IAM 发出任何请求都会失败。
 
 ```bash
 sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam RENAME TO iam_old"

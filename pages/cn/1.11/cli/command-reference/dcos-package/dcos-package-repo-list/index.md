@@ -22,7 +22,7 @@ dcos package repo list [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `--json` | JSON 格式化的数据。|
+| `--json` | JSON 格式的数据。|
 
 # 父命令
 

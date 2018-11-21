@@ -25,7 +25,7 @@ bootstrap_url: file:///opt/dcos_install_tmp
 ## 配置块和列表
 配置块是一组设置。它包括以下内容：
 
-- 一个后面有冒号的密钥，例如：`agent_list:`. 配置块的密钥必须位于自己的行，开头无空白。
+- 一个后面有冒号的密钥，例如：`agent_list:`. 配置块的密钥必须自起一行，开头无空白。
 - 使用连字符（`-`）格式化的值列表，后加空格；或缩进排列且包含一个或多个密钥值对的数集。每个密钥值对必须缩进两个空格。请勿使用选项卡。
 - 任意数量的空行或备注行。
 
@@ -39,9 +39,9 @@ master_list:
 ```
 
 ## 备注
-备注行以井号（`#`）开头。它们可以在开头缩进几个空格。
+备注行以井号（`#`）开头。它们可以在开头缩进任意数量的空格。
 
-不允许添加行内备注，例如 `agent_list # this is my agent list`。它们将被视为设置值的一部分。要被视为备注，井号必须作为本行的第一个非空格字符。
+不允许添加行内备注，例如 `agent_list # this is my agent list`。它们将被视为设置值的一部分。要被视为备注，井号必须作为该行的第一个非空格字符。
 
 例如：
 
@@ -54,19 +54,19 @@ master_list:
 ```
 
 ## 依赖关系
-某些参数要依赖其他参数。除非指定了所有依赖关系，否则将忽略这些依赖参数。这些依赖关系通过在父级中嵌套显示在文档中。例如， 只有在您指定 ` master_discovery: static.` 时才需要 `master_list`
+某些参数要依赖其他参数。除非指定了所有依赖关系，否则将忽略这些依赖参数。这些依赖关系以父级中嵌套的方式显示在文档中。例如， 只有在您指定 ` master_discovery: static.` 时才需要 `master_list`
 
 # 基本设置
 
 | 参数 | 描述 |
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [agent_list](/1/1.11/installing/production/advanced-configuration/configuration-reference/#agent-list) | 该参数指定 IPv4 地址的 YAML 嵌套列表 (`-`) 到您的 [专用代理](/1.11/overview/concepts/#private-agent-node) 主机名。 |
-| [bootstrap_url](/1.11/installing/production/advanced-configuration/configuration-reference/#bootstrap-url) | 这一必填参数指定 DC/OS 安装工具存储自定义 DC/OS 构建文件的 URI 路径。 |
+| [agent_list](/1/1.11/installing/production/advanced-configuration/configuration-reference/#agent-list) | 该参数指定您的 [专用代理](/1.11/overview/concepts/#private-agent-node) 主机名的 IPv4 地址的 YAML 嵌套列表 (`-`)。 |
+| [bootstrap_url](/1.11/installing/production/advanced-configuration/configuration-reference/#bootstrap-url) | 这一必填参数指定 DC/OS 安装工具存储自定义 DC/OS 构建文件的 URL 路径。 |
 | [cluster_name](/1.11/installing/production/advanced-configuration/configuration-reference/#cluster-name) | 该参数指定群集的名称。 |
 | [exhibitor_storage_backend](/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) | 该参数指定用于 Exhibitor 的存储库后端类型。 |
 | [master_discovery](/1.11/installing/production/advanced-configuration/configuration-reference/#master-discovery-required) | 这一必填参数指定 Mesos 管理节点发现方法。 |
-| [public_agent_list](/1.11/installing/production/advanced-configuration/configuration-reference/#public-agent-list) | 该参数指定 IPv4 地址的 YAML 嵌套列表 (-) 到您的 [公共代理](/1.11/overview/concepts/#public-agent-node) 主机名。 |
-| [resolvers](/1.11/installing/production/advanced-configuration/configuration-reference/#resolvers) | 这一必填参数指定一组 DNS 解析器 的 YAML 嵌套列表 (`-`) 到您的 DC/OS 群集节点。 |
+| [public_agent_list](/1.11/installing/production/advanced-configuration/configuration-reference/#public-agent-list) | 该参数指定您的 [公共代理](/1.11/overview/concepts/#public-agent-node) 主机名的 IPv4 地址的 YAML 嵌套列表 (-) 。 |
+| [resolvers](/1.11/installing/production/advanced-configuration/configuration-reference/#resolvers) | 这一必填参数为您的 DC/OS 群集节点指定一组 DNS 解析器 的 YAML 嵌套列表 (`-`)。 |
 | [security](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) | [enterprise type="inline" size="small" /] 该参数指定安全模式：禁用、宽容、严格。 |
 | [ssh_port](/1.11/installing/production/advanced-configuration/configuration-reference/#ssh-port) | 该参数指定 SSH 端口，例如 22。|
 | [ssh_user](/1.11/installing/production/advanced-configuration/configuration-reference/#ssh-user) |该参数指定 SSH 用户名，例如 `centos`。 |

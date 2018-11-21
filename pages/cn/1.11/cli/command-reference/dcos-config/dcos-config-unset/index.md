@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle: dcos config unset
 title: dcos config unset
 menuWeight: 3
-excerpt: 从配置文件中删除属性
+excerpt: 从配置文件中删除一个属性
 
 enterprise: false
 ---
 
 
 # 说明
-`dcos config unset` 命令允许您从配置文件中删除属性。
+`dcos config unset` 命令让您从配置文件中删除属性。
 
 # 使用
 

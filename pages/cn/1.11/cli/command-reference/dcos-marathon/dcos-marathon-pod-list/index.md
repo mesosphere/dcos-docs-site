@@ -33,7 +33,7 @@ dcos marathon pod list [OPTION]
 # 示例
 
 ## 列出 pod
-使用以下命令列出 pod 及其拥有的容器数：
+使用以下命令列出 pod 及其容器数：
 ```
 dcos marathon pod list
 ```

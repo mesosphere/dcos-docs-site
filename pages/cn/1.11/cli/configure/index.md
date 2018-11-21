@@ -19,7 +19,7 @@ enterprise: false
 **前提条件**
 
 * `pip` 版本 7.1.0 或更高版本。
-* `http_proxy` 和 `https_proxy` 环境变量定义为使用 `pip`。
+* 定义 `http_proxy` 和 `https_proxy` 环境变量来使用 `pip`。
 
 若要为 CLI 配置代理：
 

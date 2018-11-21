@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon group scale` 命令允许您扩展组。
+`dcos marathon group scale` 命令让您扩展组。
 
 # 使用
 
@@ -29,7 +29,7 @@ dcos marathon group scale <group-id> <scale-factor> [OPTION]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `<group-id>`   |   The group ID. You can view a list of the group IDs with the `dcos marathon group list` 命令。|
-| `<scale-factor>` | 扩展应用程序组的因素。|
+| `<scale-factor>` | 应用程序组的扩展因数。|
 
 # 父命令
 

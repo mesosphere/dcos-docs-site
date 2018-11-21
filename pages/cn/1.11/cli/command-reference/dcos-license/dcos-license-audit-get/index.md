@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos license audit get` 命令允许您查看群集许可证审计记录。
+`dcos license audit get` 命令让您查看群集许可证审计记录。
 
 # 使用
 
@@ -22,7 +22,7 @@ dcos license audit get [<id>|active] [--output <file_path>] [--decrypt]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | | `--output` | 将审计记录存储在文件中。 |
-| | `--decrypt` | 解密许可证审计记录校验和。 |
+| | `--decrypt` | 将许可证审计记录校验和解密。 |
 
 
 # 位置自变量
@@ -30,7 +30,7 @@ dcos license audit get [<id>|active] [--output <file_path>] [--decrypt]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `<id> ` | 许可证的 ID。 |
-| | `active` | 活动许可证。 |
+| | `active` | 有效许可证。 |
 | `<file_path>` | 存储审计记录的文件路径。 |
 
 

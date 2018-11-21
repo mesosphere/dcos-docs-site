@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 揭示外面的 Mesos 区域
-title: 揭示外面的 Mesos 区域
+navigationTitle: 揭示外界 Mesos 区域
+title: 揭示外界 Mesos 区域
 menuWeight: 300
 excerpt: 揭示 DC/OS 之外的 Mesos 区域
 
@@ -37,7 +37,7 @@ enterprise: false
 
 
 ## 创建一个区域
-现在，您可以创建您希望为此取别名的区域。您也可以跳过此步骤并 [使用现有区域](#existing)。
+现在，您可以创建您希望以此为别名的区域。您也可以跳过此步骤并 [使用现有区域](#existing)。
 
 1. 在 `named.conf` 文件中创新一个区域条目。此例中，使用了 `contoso.com`：
 

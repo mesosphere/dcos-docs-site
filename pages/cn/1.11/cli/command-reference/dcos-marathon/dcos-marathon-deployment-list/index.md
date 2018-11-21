@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon deployment list` 命令允许您查看当前部署的应用程序列表。
+`dcos marathon deployment list` 命令让您查看当前部署的应用程序列表。
 
 # 使用
 

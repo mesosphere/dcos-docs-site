@@ -10,7 +10,7 @@ enterprise: true
 
 
 # 说明
-`dcos edgelb ping` 命令允许您测试 Edge-LB API 服务器的就绪情况。
+`dcos edgelb ping` 命令让您测试 Edge-LB API 服务器的就绪情况。
 
 # 使用
 

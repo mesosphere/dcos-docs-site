@@ -20,7 +20,7 @@ dcos task log <task> <file> [OPTION]
 
 # 选项
 
-| Name<>shorthand | Default | Description |
+| 名称，简写 | 默认值 | 说明 |
 |---------|-------------|-------------|
 | `--completed` | | 显示已完成和正在进行的任务。|
 | `--follow` | | 动态更新日志。|
@@ -28,7 +28,7 @@ dcos task log <task> <file> [OPTION]
 
 # 位置自变量
 
-| Name<>shorthand | Default | Description |
+| 名称，简写 | 默认值 | 说明 |
 |---------|-------------|-------------|
 | `<task>` | | 完整任务 ID，部分任务 ID 或正则表达式。|
 | `<file>`   |  `stdout` | 指定要显示的沙盒文件。|

@@ -28,7 +28,7 @@ menuWeight: 8
 1. [Marathon-LB](/1.11/networking/marathon-lb/)
 1. [命名 VIP](/1.11/networking/load-balancing-vips/)。
 
-您已经在[服务发现](/1.11/tutorials/dcos-101/service-discovery/)的上下文中探讨了这些负载均衡机制，并且在[之前的](/1.11/tutorials/dcos-101/marathon-lb/)教程中，您使用 Marathon-LB 公开了 app2。现在让我们再深入探讨一下。
+您已经在[服务发现](/1.11/tutorials/dcos-101/service-discovery/)中探讨了这些负载均衡机制，并且在[之前的](/1.11/tutorials/dcos-101/marathon-lb/)教程中，您使用 Marathon-LB 公开了 app2。现在让我们再深入探讨一下。
 * 首先，将 app2 扩展为两个实例：
 
   `dcos marathon app update /dcos-101/app2 instances=2`
@@ -36,7 +36,7 @@ menuWeight: 8
  *像以前一样通过 `http://<public-node>10000` 检查 app2。重复执行此操作时，您应该看到 app2 的不同实例所提供的请求。
  * 您还也可以通过 `http://<public-node>:9090/haproxy?stats` 检查 Marathon-LB 统计数据
 * **命名 VIP**
- * 通过 SSH 连接到主导主节点：`dcos node ssh --master-proxy --leader`
+ * 通过 SSH 连接到主导管理节点：`dcos node ssh --master-proxy --leader`
  * 使用 curl 从应用程序中获取原始 HTML 输出：
 
       `curl dcos-101app2.marathon.l4lb.thisdcos.directory:10000`

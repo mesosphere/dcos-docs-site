@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: 使用自定义 Marathon 实例部署服务
 title: 使用自定义 Marathon 实例部署服务
 menuWeight: 39
-excerpt: 使用基础非本地 Marathon 实例
+excerpt: 使用基本的非本地 Marathon 实例
 enterprise: true
 ---
 
@@ -33,7 +33,7 @@ enterprise: true
    dcos node ssh --master-proxy --mesos-id=<agent-id>
    ```
 
-1. 导航至 `/var/lib/dcos` 并创建一个名为 `mesos-slave-common` 且使用这些内容的文件，其中 `<myrole>` 是您的角色名称。
+1. 导航至 `/var/lib/dcos` 并创建一个名为 `mesos-slave-common` 且含有这些内容的文件，其中 `<myrole>` 是您的角色名称。
 
     ```bash
     MESOS_DEFAULT_ROLE='<myrole>'
@@ -145,14 +145,14 @@ curl -i -k \
     }
      ```      
     
-1. 通过指定的自定义 JSON 配置（`marathon-config.json`）安装来自 Universe 的 Marathon 包。
+1. 通过指定的自定义 JSON 配置（`marathon-config.json`）安装来自 Universe 的 Marathon 软件包。
 
     ```bash
     dcos package install --options=marathon-config.json marathon
     ```
 
 # 第 3 步 - 创建 Marathon 服务帐户
-步骤创建了 Marathon 服务帐户。Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/1.11/security/ent/#security-modes)。
+此步骤创建了 Marathon 服务帐户。Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/1.11/security/ent/#security-modes)。
 
 | 安全模式 |  Marathon 服务帐户 |
 |---------------|----------------------|
@@ -185,8 +185,8 @@ curl -i -k \
 
 
 为用户授予权限 `<uid>` to launch Mesos tasks that will execute as Linux user `nobody`。
-要允许作为不同 Linux 用户执行任务，请替换 `nobody` 为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请替换 `nobody` 为以下的 `bob`。
-请注意， `nobody` 和 `root` 是默认出现在所有代理上的，但如果指定自定义 `bob` 用户，必须在可以执行这些任务的每个代理上手动创建（使用 `adduser` 或类似实用程序）。
+要允许作为不同 Linux 用户执行任务，请将 `nobody` 替换为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请将 `nobody` 替换为以下的 `bob`。
+请注意， `nobody` 和 `root` 是默认出现在所有代理上的，但如果指定了自定义 `bob` 用户，必须在可以执行这些任务的每个代理上手动创建（使用 `adduser` 或类似实用程序）。
 
 ```bash
 dcos security org users grant <uid> dcos:mesos:master:task:user:nobody create --description "Tasks can execute as Linux user nobody"

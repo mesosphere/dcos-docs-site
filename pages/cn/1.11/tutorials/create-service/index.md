@@ -110,7 +110,7 @@ enterprise: false
 
 
 1. 转到 [Mesosphere Docker Hub 存储库](https://hub.docker.com/r/mesosphere/hello-dcos/tags/) 的 `hello-dcos` 页面，并记下最新的图像标签。
-1. 使用以下内容创建名为 `hello-dcos-cli.json` 的 JSON 文件。使用先前命令中使用的 IP 地址替换 `<image-tag>` in the `docker:image` 字段，使用您在步骤 1 中复制的标记。
+1. 使用以下内容创建名为 `hello-dcos-cli.json` 的 JSON 文件。用您在步骤 1 中复制的标记替换 `<image-tag>` in the `docker:image` 字段。
 
     ```json
     {

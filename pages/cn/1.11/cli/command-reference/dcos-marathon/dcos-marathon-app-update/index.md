@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`command dcos marathon app add` 允许您添加应用程序。
+`command dcos marathon app add` 让您添加应用程序。
 
 # 使用
 
@@ -28,7 +28,7 @@ dcos marathon app update <app-id> [OPTION]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `<app-id>`   |  The application ID.  You can view a list of the application IDs with the `dcos marathon group list` 命令。|
-| `<properties>`   |  List of one or more JSON object properties, separated by a space. The list must be formatted as `<key>=<value>`. For example, `cpu=2,0 mem=308`。如果遗漏了，则从 stdin 上提供的 JSON 对象读取属性。|
+| `<properties>`   |  List of one or more JSON object properties, separated by a space. The list must be formatted as `<key>=<value>`. For example, `cpus=2,0 mem=308`。如果遗漏了，则从 stdin 上提供的 JSON 对象读取属性。|
 
 
 # 父命令

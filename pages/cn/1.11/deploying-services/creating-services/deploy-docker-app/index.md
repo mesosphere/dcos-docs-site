@@ -68,7 +68,7 @@ enterprise: false
     docker login
     ```
 
-1. 将图像推送到 Docker Hub，其中 `<username>是您的 Docker Hub 用户名：
+1. 将图像推送到 Docker Hub，其中 `<username>` 是您的 Docker Hub 用户名：
 
     ```bash
     docker push <username>/simple-docker
@@ -88,7 +88,7 @@ enterprise: false
 
 # 创建 Docker 应用程序并部署到 DC/OS
 
-1. 使用以下内容创建 Marathon 应用定义，并另存为 `hello-nginx.json`：在 `image` 字段，替换 `<username>在` with your Docker Hub username. In the `type` field, specify `字段中，根据您喜欢的 [containerizer runtime](/1.11/deploying-services/containerizers/) 指定 MESOS` or ` 或 DOCKER。
+1. 使用以下内容创建 Marathon 应用定义，并另存为 `hello-nginx.json`：在 `image` 字段，替换 `<username>在` with your Docker Hub username. In the `type` field, specify `字段中，按您需要的 [containerizer runtime](/1.11/deploying-services/containerizers/) 指定 MESOS` or ` 或 DOCKER。
 
     ```json
     {
@@ -138,7 +138,7 @@ enterprise: false
  /hello-nginx 64 0.1 1/1 N/A --- False MESOS N/A
     ```
 
-1. 如果您使用 [AWS CloudFormation 模板](/1.11/installing/evaluation/cloud-installation/aws/) 将应用程序公开到应用定义中指定的端口（例如，端口 80），则必须在公共 ELB 上重新配置运行状况检查。
+1. 如果您使用 [AWS CloudFormation 模板](/1.11/installing/evaluation/cloud-installation/aws/) 将应用程序公开到应用定义中指定的端口（例如，端口 80），则必须在公共 ELB 上重新设置运行状况检查。
  1. 在 CloudFormation 中，勾选堆栈旁边的复选框。
  2. 单击 **Resources** 选项卡。
  3. 搜索 **PublicSlavEloadBalancer**。

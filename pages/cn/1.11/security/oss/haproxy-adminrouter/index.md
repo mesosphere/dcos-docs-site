@@ -8,7 +8,7 @@ menuWeight: 30
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-通过在 Admin Router 和来自群集外部的用户代理程序请求之间[设置代理](#HAProxy)，您可以使用自定义服务器证书与 DC/OS 群集建立安全的 HTTPS 通信。HTTP 代理必须执行即时 HTTP 请求和响应标头修改，因为 DC/OS 不知道用户代理程序用于寻址 HTTP 代理的自定义主机名和端口。
+通过在 Admin Router 和来自群集外部的用户代理程序请求之间[设置代理](#HAProxy)，您可以使用自定义服务器证书与 DC/OS 群集建立安全的 HTTPS 通信。HTTP 代理必须执行即时 HTTP 请求和响应报文头修改，因为 DC/OS 不知道用户代理程序用于寻址 HTTP 代理的自定义主机名和端口。
 
 # <a name="HAProxy"></a>在 Admin Router 前配置 HAProxy
 

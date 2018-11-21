@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos node` 命令允许您查看 DC/OS 节点信息。
+`dcos node` 命令让您查看 DC/OS 节点信息。
 
 # 使用
 

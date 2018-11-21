@@ -9,14 +9,14 @@ enterprise: false
 ---
 本文档适用于创建新 DC/OS CLI 子命令的开发人员。另请参阅 [Universe 入门指南][1]。
 
-[DC/OS 命令行界面 (CLI)](/1.11/cli) 是管理群集节点、安装和管理包、检查群集状态，以及管理服务和任务的实用程序。DC/OS CLI 开放且可扩展：任何人都可以创建新子命令，可供最终用户安装。例如，[Spark DC/OS 服务] [2] 提供了兼容 Spark 的 CLI 扩展。安装后，您可以键入以下命令以提交 Spark 作业并查询其状态：
+[DC/OS 命令行界面 (CLI)](/1.11/cli) 是管理群集节点、安装和管理包、检查群集状态，以及管理服务和任务的实用程序。DC/OS CLI 开放且可扩展：任何人都可以创建新子命令，可供最终用户安装。例如，[Spark DC/OS 服务] [2] 提供了可用 Spark 的 CLI 扩展。安装后，您可以键入以下命令以提交 Spark 作业并查询其状态：
 
  dcos spark [<flags>] <command>
 
 
 # DC/OS CLI 发现子命令的方式
 
-运行 `dcos` 命令时，它会在当前 shell 的“路径”中的 `~/.dcos/clusters//subcommands//env/bin` 目录中搜索前缀为 `dcos-` <cluster_id>的可执行<package_name>文件。
+运行 `dcos` 命令时，它会在`~/.dcos/clusters//subcommands//env/bin` 目录中搜索当前 shell 的“路径”中的前缀为 `dcos-` <cluster_id>的可执行<package_name>文件。
 
 ## 安装 CLI 子命令
 
@@ -91,18 +91,18 @@ DC/OS CLI 子命令命名规范为：
 
 [Python 的日志记录][7] 中描述了日志记录级别：调试、信息、警告、错误和关键。
 
-### 打包 CLI 子命令
+### 将 CLI 子命令打包
 
 要使您的子命令可供最终用户使用：
 
-1. 将包条目添加到 Mesosphere Universe 存储库。参见规范的 [Universe 说明书][9]。
+1. 将软件包条目添加到 Mesosphere Universe 存储库。参见规范的 [Universe 说明书][9]。
 
 包条目必须包含名为 [resource.json][10] 的文件，其中包含可执行子命令的链接。
 
 运行 `dcos package install <package> --cli` 时：
 
-1. 就会从存储库中 <package> 检索要添加的包条目。
-2. `resource.json` 文件被解析为查找 CLI 资源。
+1. 就会从存储库中 <package> 检索要添加的软件包条目。
+2. `resource.json` 文件被解析，以查找 CLI 资源。
 3. 用户平台的可执行文件已下载。
 
 ### DC/OS CLI 模块
@@ -114,7 +114,7 @@ DC/OS CLI 子命令命名规范为：
 
 [Hello World 示例][3] 执行称为 `helloworld`的新子命令：
 
- dcos package install helloworld --cli
+ dcos package install helloworld –cli
  dcos helloworld
 
 

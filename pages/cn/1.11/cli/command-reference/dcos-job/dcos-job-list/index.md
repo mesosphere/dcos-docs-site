@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos jobs list` 命令允许您显示所有作业定义。
+`dcos jobs list` 命令显示所有作业定义。
 
 # 使用
 
@@ -22,7 +22,7 @@ dcos job list [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| | `--json` | 显示 JSON 格式化列表。 |
+| | `--json` | 显示以 JSON 为格式的列表。 |
 
 # 父命令
 

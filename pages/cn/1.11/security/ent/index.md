@@ -8,11 +8,11 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS Enterprise 提供一系列功能，允许您保护群集并防止破坏和其他攻击。本节概述了强化群集的安全功能和建议。
+DC/OS Enterprise 提供一系列功能，让您保护群集并防止其受破坏和其他攻击。本节概述了强化群集的安全功能和建议。
 
 DC/OS 安全性的目标是：
 
-- 通过所有接口的重要身份认证和授权隔离群集周边。
+- 通过所有网络接口的重要身份认证和授权隔离群集周边。
 - 严密保护内部群集通信、容器和沙盒。
 - 通过支持第三方安全集成来增强集群安全性。
 
@@ -22,18 +22,18 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 在最高级别上，我们可以区分 DC/OS 部署的三个安全区域，即管理、专用和公共安全区。
 
 ## 管理区
-**管理**区可通过 HTTP/HTTPS 和 SSH 连接访问，并提供对主节点的访问。它还可通过 URL 路由向群集中的其他节点提供反向代理访问。为了安全起见，DC/OS 云模板允许配置白名单，以便只允许特定的 IP 地址范围访问管理区。
+**管理**区可通过 HTTP/HTTPS 和 SSH 连接访问，并提供对管理节点的访问。它还可通过 URL 路由向群集中的其他节点提供反向代理访问。为了安全起见，DC/OS 云模板允许配置白名单，以便只允许特定的 IP 地址范围访问管理区。
 
 ### Admin Router
 对管理区的访问由 [Admin Router] 控制(/1.11/overview/architecture/components/#admin-router)。
 
-传入 DC/OS 群集的 HTTP 请求通过 Admin Router 代理（使用 [Nginx](http://nginx.org)，其核心是 [OpenResty](https://openresty.org)）。Admin Router 拒绝访问大多数 HTTP 端点以获取未经身份认证的请求。为了请求进行身份认证，它需要在其 `Authorization` 标头中提供有效的认证令牌。可通过验证流程获得令牌。
+传入 DC/OS 群集的 HTTP 请求通过 Admin Router 代理（使用 [Nginx](http://nginx.org)，其核心是 [OpenResty](https://openresty.org)）。Admin Router 拒绝访问大多数 HTTP 端点未经身份认证的请求。为了请求能得到身份认证，它需要在其 `Authorization` 报文头中提供有效的认证令牌。可通过验证流程获得令牌。
 
 ## 专用区
-**专用**区是非可路由网络，仅可从管理区或通过公共区的边缘路由器访问。部署的服务在专用区运行。此区域是运行大多数代理节点的位置。
+**专用**区是非可路由网络，仅可从管理区或通过公共区的边缘路由器访问。部署的服务在专用区运行。此区域是运行大多数代理节点运行的位置。
 
 ## 公共区
-可选的**公共**区是运行公共可访问的应用程序的地方。通常，此区域只运行少量代理节点。边缘路由器将流量转发给专用区中运行的应用程序。公共区中的代理节点被标记为特殊角色，以便只能在此处安排特定任务。这些代理节点具有公共和专用 IP 地址，也只能在其 `iptables` 防火墙中打开特定端口。
+可选的**公共**区是运行公共可访问的应用程序的地方。通常，此区域只运行少量代理节点。边缘路由器将流量转发给专用区中运行的应用程序。公共区中的代理节点被标记为特殊角色，以便只有特定任务才能安排在此处。这些代理节点具有公共和专用 IP 地址，也只能在其 `iptables` 防火墙中打开特定端口。
 
 典型部署（包括负载均衡器）如下所示：
 
@@ -64,7 +64,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 此模式提供最强大的安全状态，需要大量配置。
 
 ## <a name="set"></a>设置安全模式
-安全模式在 [DC/OS 安装](/1.11/installing/ent/custom/advanced/) 过程中设置，并且只能通过执行[升级](/1.11/installing/ent/upgrading/) 进行更改。安全模式在安装配置文件中使用 [`security` 参数](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)进行设置。
+安全模式在 [DC/OS 安装](/1.11/installing/ent/custom/advanced/) 过程中设置，并且只能通过执行[升级](/1.11/installing/ent/upgrading/) 进行更改。安全模式已在有 [`security` 参数](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) 的安装配置文件设置。
 
 <table class=“table” bgcolor=#858585>
 <tr> 
@@ -78,18 +78,18 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 - 向以下端点发送 `GET` 请求：`http[s]://<cluster-url>/dcos-metadata/bootstrap-config.json`。
  **要求：**您的用户帐户必须具有 `dcos:adminrouter:ops:metadata full` 或 `dcos:superuser` 权限。在 `permissive` 或 `strict` 模式下，您必须使用 HTTPS。查看 [保护 TLS 通信的安全](/1.11/security/ent/tls-ssl/)，了解如何获取 DC/OS CA 的根证书，并将其置备到首选客户端。
 
-- [SSH](/1.11/administering-clusters/sshcluster/) 进入主服务器并查看 `/opt/mesosphere/etc/bootstrap-config.json` 内容。
+- [SSH](/1.11/administering-clusters/sshcluster/) 进入首要节点并查看 `/opt/mesosphere/etc/bootstrap-config.json` 内容。
 
 # <a name="authentication"></a>身份认证
-DC/OS 群集外部的所有请求都需要认证令牌。根据您的安全模式，可能需要群集内认证令牌。如需更多信息，请参阅 [服务账户文档](/1.11/security/ent/service-auth/)。
+DC/OS 群集外部的所有请求都需要认证令牌。根据您的安全模式，可能会要求群集内认证令牌。如需更多信息，请参阅 [服务账户文档](/1.11/security/ent/service-auth/)。
 
 DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，默认情况下，在发布后五天到期。默认到期时间可在 [自定义安装或升级] 期间进行修改(/1.11/installing/ent/custom/configuration/configuration-parameters/#bouncer-expiration-auth-token-days-enterprise)。
 
-在  bootstrap 序列期间，DC/OS 使用 ZooKeeper 凭据提供主节点。这使得主节点可以将自己指定未潜在的 Mesos 主节点。
+在  bootstrap 序列期间，DC/OS 使用 ZooKeeper 凭据配置管理节点。这使得管理节点可以将自己指定为潜在的 Mesos 管理节点。
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>除非在安装或升级期间进行了更改，否则每个群集将使用相同的默认 ZooKeeper 凭据（强烈建议）。参见<a href="/1.11/security/ent/hardening/#zk">强化</a>，了解更多信息。</td> 
+  <td align=justify style=color:white><strong>重要信息：</strong>除非在安装或升级期间进行了更改（强烈建议），否则每个群集将使用相同的默认 ZooKeeper 凭据。参见<a href="/1.11/security/ent/hardening/#zk">强化</a>，了解更多信息。</td> 
 </tr> 
 </table>
 
@@ -123,9 +123,9 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 服务帐户为 [服务](/1.11/overview/concepts/#dcos-service) 提供身份，以使用 DC/OS 进行身份认证。服务帐户控制服务与 DC/OS 组件之间的通信。DC/OS 服务可能需要 [服务帐户](/1.11/security/ent/service-auth/)，这取决于您的安全模式。
 
 ## <a name="sysd"></a>组件身份认证
-在严格和宽容 [安全模式](/1.11/security/ent/#security-modes)下，DC/OS 在 bootstrap 序列期间使用服务账户自动配置 DC/OS 组件（[DC/OS 节点上的系统服务](/1.11/overview/concepts/#systemd-service)）。服务帐户在禁用安全模式下不可用。
+在严格和宽容 [安全模式](/1.11/security/ent/#security-modes)下，DC/OS 在 bootstrap 序列期间使用服务账户自动配置 DC/OS 组件（[DC/OS 节点上的systemd服务](/1.11/overview/concepts/#systemd-service)）。服务帐户在禁用安全模式下不可用。
 
-例如，Mesos 代理节点配置了用于向 Mesos 主节点进行身份认证的服务帐户。这确保仅授权代理节点可加入 Mesos 群集、宣传资源并被要求启动任务。
+例如，Mesos 代理节点配置了用于向 Mesos 管理节点进行身份认证的服务帐户。这确保仅授权代理节点可加入 Mesos 群集、宣传资源并被要求启动任务。
 
 您可以从 DC/OS GUI 的 **Organization -> Service Accounts** 选项卡查看 `systemd` 服务帐户。这些服务帐户以 `dcos_` 为前缀。
 
@@ -150,8 +150,8 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 - Admin Router 和密钥存储库在所有安全模式下执行其权限。
 
-- Metronome 和 Marathon 在 `permissive` 和 `strict` 模式执行其权限。但是，只有在请求者提供认证令牌时才会执行 `permissive` 模式，这在 `permissive` 模式下是可选的。如果群集中的请求者未提供认证令牌，Metronome 和 Marathon 则将按照具有 `dcos:superuser` 权限的用户所作请求进行操作。
-- Mesos 主节点的和代理节点仅在 `strict` 安全模式下执行其权限。
+- Metronome 和 Marathon 在 `permissive` 和 `strict` 模式执行其权限。但是，只有在请求者提供认证令牌时才会执行 `permissive` 模式，这在 `permissive` 模式下是可选的。如果群集中的请求者未提供认证令牌，Metronome 和 Marathon 则将按照请求是否由具有 `dcos:superuser` 权限的用户所发出进行操作。
+- Mesos 管理节点的和代理节点仅在 `strict` 安全模式下执行其权限。
 
 该图未显示密钥存储库序列。Admin Router 不会检查向密钥存储库请求的权限。它将这些请求发送给密钥存储库，后者会针对每个请求执行自己的权限。
 
@@ -163,17 +163,17 @@ DC/OS 通信的加密因[安全模式]而异(/1.11/security/ent/#security-modes)
 
 | 安全模式 | 外部通信* | 节点间通信 |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| 禁用 | 仅支持 HTTP。HTTP 连接不会重定向到 HTTPS，反之亦然。HTTPS 连接将被拒绝，因为 Admin Router 未配置为其服务。如果您使用密码登录 DC/OS，密码将不在用户代理程序（例如，Web 浏览器或 DC/OS CLI）和 Admin Router 之间不安全地传输。| 未加密 |
+| 禁用 | 仅支持 HTTP。HTTP 连接不会重定向到 HTTPS，反之亦然。HTTPS 连接将被拒绝，因为 Admin Router 未配置为其服务。如果您使用密码登录 DC/OS，密码将在用户代理程序（例如，Web 浏览器或 DC/OS CLI）和 Admin Router 之间不安全地传输。| 未加密 |
 | 宽容 | 支持 HTTP 和 HTTPS。根路径的 HTTP 请求（例如， `http://example.com/`）重定向到 HTTPS。具有与根路径不同的目标的 HTTP 请求（例如， `http://example.com/foo`）不会重定向到 HTTPS。如果使用密码登录 DC/OS，则可以选择是不安全地还是安全地传输密码（需要正确的证书验证，包括客户端上的主机名验证）。| 启用加密 |
 | 严格 | 仅支持 HTTPS。所有 HTTP 连接都重定向到 HTTPS。如果使用密码登录 DC/OS，则将安全地传输密码（需要正确的证书验证，包括客户端上的主机名验证）。如果一个或多个 HTTP 代理或负载均衡器在用户代理程序和 Admin Router 之间，则安全密码传输适用于 Admin Router 和先前代理或负载均衡器之间的最终通信。| 执行加密** |
 
 \* *与群集以外的客户端进行通信。例如，浏览器和 DC/OS CLI*。
 
-\*\* *在任何安全模式下未加密的 ZooKeeper 实例之间的节点间通信除外。每个主节点都有 ZooKeeper 实例。这些 ZooKeeper 实例定期通信，以保持其内存数据库同步。您可以使用 [Ipsec](https://datatracker.ietf.org/wg/ipsec/documents/) 对这些通信进行手动加密。*
+\*\* *在任何安全模式下未加密的 ZooKeeper 实例之间的节点间通信除外。每个管理节点都有 ZooKeeper 实例。这些 ZooKeeper 实例定期通信，以保持其内存数据库同步。您可以使用 [Ipsec](https://datatracker.ietf.org/wg/ipsec/documents/) 对这些通信进行手动加密。*
 
-目前，并非所有现有用户服务都支持加密。如果服务支持加密，则可以在 `permissive` 模式下启用它。在 `strict` 模式下，执行用户服务通信加密。因此，只能在 `strict` 模式下部署支持加密的用户服务。
+目前，并非所有现有用户服务都支持加密。如果服务支持加密，则可以在 `permissive` 模式下启用它。在 `strict` 模式下，执行用户服务通信加密。因此，只有支持加密的用户服务能在 `strict` 模式下被部署。
 
-节点间通信通过 TLS 1.2 进行。为确保浏览器支持，外部通信目前接受 TLS 1.0、1.1 和 1.2。这些设置是可配置的。
+节点间通信通过 TLS 1.2 进行。为确保浏览器支持，外部通信目前接受 TLS 1.0、1.1 和 1.2。这些配置是可设置的。
 
 有关更多信息，请参阅[使用 TLS 确保通信安全](/1.11/security/ent/tls-ssl/)。
 
@@ -222,9 +222,9 @@ DC/OS 通信的加密因[安全模式]而异(/1.11/security/ent/#security-modes)
 
 ## <a name="storage-transport"></a>密钥的安全存储和传输
 
-DC/OS 使用 Galois 计数器模式 (GCM) 中的高级加密标准 (AES) 算法将密钥存储库数据存储在 ZooKeeper 中。密钥存储库将密钥发送到 ZooKeeper 之前使用开封密钥加密密钥，并在从 ZooKeeper 收到密钥后解密密钥。这可确保密钥在休息和传输时都被加密。TLS 为从 ZooKeeper 传输到密钥存储库的密钥提供了额外的加密层。
+DC/OS 使用 Galois 计数器模式 (GCM) 中的高级加密标准 (AES) 算法将密钥存储库数据存储在 ZooKeeper 中的一个开封密钥中。密钥存储库将解封密钥发送到 ZooKeeper 之前使用开封密钥加密，并在从 ZooKeeper 收到密钥后解密密钥。这可确保密钥在休息和传输时都被加密。TLS 为从 ZooKeeper 传输到密钥存储库的密钥提供了额外的加密层。
 
-开封密钥在公共 GPG 密钥下加密。对 [Secrets API] 的请求(/1.11/security/ent/secrets/secrets-api/)仅返回加密的开封密钥。当密钥存储库被手动或由于故障而被密封时，必须使用专用 GPG 密钥解密开封密钥并开启密钥存储库。为方便起见，DC/OS 在 bootstrap 序列期间自动生成新的 4096-bit GPG 密钥对。它使用此密钥对初始化密钥存储库，并将密钥对存储在 ZooKeeper 中。
+开封密钥在公共 GPG 密钥下加密。对 [Secrets API] 的请求(/1.11/security/ent/secrets/secrets-api/)仅返回加密的开封密钥。当密钥存储库被手动或由于故障而被密封时，必须使用专用 GPG 密钥解密开封密钥并开启密钥存储库。为方便起见，DC/OS 在 bootstrap 序列期间自动生成新的 4096-bit GPG 密钥对。它使用此密钥初始化密钥存储库，并将密钥对存储在 ZooKeeper 中。
 
 <!-- If you wish to generate your own GPG keypair and store it in an alternate location, you can [reinitialize the Secret Store with a custom GPG keypair](/1.11/security/ent/secrets/custom-key/). -->
 

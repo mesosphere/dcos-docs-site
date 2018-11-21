@@ -77,7 +77,7 @@ menuWeight: 2
       ```
 
 # 结果
- 您刚刚从 Universe 存储库中成功安装了第一个服务，并验证它正在运行！
+ 您刚刚从 Universe 存储库中成功安装了第一个服务，并验证了它正在运行！
 
 # 深入研究
  [Universe](https://github.com/mesosphere/universe) 是可用于 DC/OS 群集的软件包存储库。

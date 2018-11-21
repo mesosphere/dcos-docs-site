@@ -10,7 +10,7 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-本页面讨论了 OpenID Idp 的一般要求，并提供了设置 OneLogin IdP 的分步程序。DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Idp) 集成。以下程序将采用 Google IdP 作为示例，并引导您完成设置流程的每个步骤。
+本页面讨论了 OpenID Idp 的一般要求，并提供了设置 OneLogin IdP 的分步步骤。DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Idp) 集成。以下步骤将采用 Google IdP 作为示例，并引导您完成设置流程的每个步骤。
 
 # 添加 OpenID Connect 身份提供程序：
 

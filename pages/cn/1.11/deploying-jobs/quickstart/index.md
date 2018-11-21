@@ -35,7 +35,7 @@ enterprise: false
 检查 **Run on a Schedule** 以显示以下字段。
 * **Cron Schedule** - 指定 cron 格式的时间表。使用 [this crontab generator](http://crontab.guru) 寻求帮助。
 * **Time Zone** - 以 [TZ 格式] 输入时区(http://www.timezoneconverter.com/cgi-bin/zonehelp)，例如，美国/纽约。
-* **Starting Deadline** -  如果由于任何原因错过了计划时间，这是开始作业的时间（以秒为单位）。错过的作业执行将被视为失败的作业执行。
+* **Starting Deadline** -  如果由于某些原因错过了计划时间，这是开始作业的时间（以秒为单位）。错过的作业执行将被视为失败的作业执行。
 
 ### **Docker Container** 选项卡
 * **Image** - 如果您使用的是 Docker 镜像，请输入您将用于指定作业操作的 Docker 镜像。
@@ -93,9 +93,9 @@ enterprise: false
     dcos job list
     ```
 
-## 仅限计划 JSON
+## 仅限计划的 JSON
 
-如果对多项作业使用相同的计划，则可以为计划创建单独的 JSON 文件。使用 `dcos job schedule add <job-id> <schedule-file>` 命令将作业与计划关联。
+如果对多项作业使用相同的计划，您可以为计划创建单独的 JSON 文件。使用 `dcos job schedule add <job-id> <schedule-file>` 命令将作业与计划关联。
 
 ```json
 {
@@ -145,7 +145,7 @@ dcos job update <job-file>.json
 
 #### 使用单独的计划文件修改作业
 
-修改  `<schedule-file>参数。然后运行以下命令之一：
+修改  `<schedule-file>.json`。然后运行以下命令之一：
 
 ```bash
 dcos job schedule add <job-id> <schedule-file>.json
@@ -181,13 +181,13 @@ dcos job schedule show <job-id>
 
 ### 查看作业日志
 
-若要查看工作日志：
+若要查看作业日志：
 
 ```
 dcos task log --completed <job-id>
 ```
 
-若要仅获取特定作业的日志，请使用‘dcos job history’中的作业运行 ID <job-id>`
+若要仅获取一个特定作业的日志，请使用‘dcos job history’中的作业运行 ID <job-id>`
 
 ```
 dcos task log --completed <job-run-id>
@@ -214,7 +214,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos
 curl -X DELETE -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<myjob>?stopCurrentJobRuns=true
 ```
 
-若要只在作业未运行时删除作业，请将 `stopCurrentJobRuns` 设置为 `False`。
+若要只在作业不在运行时删除作业，请将 `stopCurrentJobRuns` 设置为 `False`。
 
 ## 修改或查看作业
 

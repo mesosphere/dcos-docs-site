@@ -29,7 +29,7 @@ menuWeight: 10
 
 - DC/OS [已安装](/1.11/installing/)
 
-1. [SSH](/1.11/administering-clusters/sshcluster/) 到主节点并运行此命令，其中 `<email>` 是用户的电子邮件：
+1. [SSH](/1.11/administering-clusters/sshcluster/) 到管理节点并运行此命令，其中 `<email>` 是用户的电子邮件：
 
     ```bash
     sudo -i dcos-shell /opt/mesosphere/bin/dcos_add_user.py <email>

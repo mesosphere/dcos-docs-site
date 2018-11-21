@@ -11,11 +11,11 @@ enterprise: true
 
 # 关于证书颁发机构 API
 
-DC/OS 证书颁发机构 API 允许您查看 DC/OS Enterprise 所使用的 TLS 证书、创建证书签名请求 (CSR)<>以及让 DC/OS CA 签署 CSR 。
+DC/OS 证书颁发机构 API 让您查看 DC/OS Enterprise 所使用的 TLS 证书、创建证书签名请求 (CSR)，以及让 DC/OS CA 签署 CSR 。
 
 ## 请求和响应格式
 
-API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为 `Content-Type`，如下所示。
+API 仅支持 JSON。您必须在 HTTP 报文头中包含 `application/json` 作为 `Content-Type`，如下所示。
 
  Content-Type: application/json
 
@@ -24,7 +24,7 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 
 主机名将根据应用程序运行的位置而有所不同。
 
-* 如果您的应用程序在 DC/OS 群集之外运行，则应该使用群集 URL。这可以通过启动 DC/OS Web 界面并从浏览器复制域名来获取。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。在生产环境中，这应该是位于主服务器前面的负载均衡器的地址。
+* 如果您的应用程序在 DC/OS 群集之外运行，则应该使用群集 URL。这可以通过启动 DC/OS Web 界面并从浏览器复制域名来获取。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。在生产环境中，这应该是位于管理节点前面的负载均衡器的地址。
 
 * 如果您的应用程序在群集内部运行，则使用 `master.mesos`。
 
@@ -41,7 +41,7 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 - `dcos:adminrouter:ops:ca:ro`
 - `dcos:adminrouter:ops:ca:rw`
 
-# 获取认证令牌
+# 获取身份认证令牌
 
 ### 通过 IAM API
 
@@ -55,7 +55,7 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 
 ### 通过 DC/OS CLI
 
-使用 `dcos auth login` 登录 [DC/OS CLI](/1.11/cli/) 时，它会在本地存储认证令牌值。您可以在 cURL 命令中将此值引用为变量（在下一部分中讨论）。
+使用 `dcos auth login` 登录 [DC/OS CLI](/1.11/cli/) 时，它会在本地存储认证令牌值。您可以在 cURL 命令中将此值以变量指代（在下一部分中讨论）。
 
 或者，您可以使用以下命令获取认证令牌值。
 
@@ -63,11 +63,11 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 dcos config show core.dcos_acs_token
 ```
 
-## 传递认证令牌
+## 通过传递认证令牌
 
-### 通过 HTTP 标头
+### 通过 HTTP 报文头
 
-复制令牌值并将其传递到 HTTP 标头的 `Authorization` 字段中，如下所示。
+复制令牌值并将其传递到 HTTP 报文头的 `Authorization` 字段中，如下所示。
 
 ```http
 Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg
@@ -100,4 +100,4 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 # 日志记录
 
-虽然 API 会返回信息性错误消息，但您也可能会发现检查服务日志很有用。有关说明，请参阅[服务和任务日志记录](/1.11/monitoring/logging/)。
+虽然 API 会返回有用的错误消息，但您也可能会发现检查服务日志很有用。有关说明，请参阅[服务和任务日志记录](/1.11/monitoring/logging/)。

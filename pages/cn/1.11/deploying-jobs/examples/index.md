@@ -42,8 +42,8 @@ enterprise: true
     curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs -d@/Users/<your-username>/<myjob>.json
     ```
 
-# <a name="create-job-schedule"></a>使用计划创建工作
-**注意：** 此示例 JSON 仅在您从 DC/OS CLI 或 Web 界面添加作业时有效。使用 [以下示例](#schedule-with-api) 通过 API 创建计划作业。
+# <a name="create-job-schedule"></a>创建有计划的作业
+**注意：** 此示例 JSON 仅在您从 DC/OS CLI 或 Web 界面添加作业时有效。使用 [以下示例](#schedule-with-api) 通过 API 创建有计划的作业。
 
 1. 使用以下内容创建 JSON 文件。
     ```
@@ -105,7 +105,7 @@ enterprise: true
 
 # 创建分区作业环境
 
-在此示例中，使用 DC/OS Web 界面创建分区作业环境。这允许您限制每项作业或每个作业组的用户访问。作业是在名为 `batch` 的作业组中创建，该作业组是名为 `dev` 作业组的子级。
+在此示例中，使用了 DC/OS Web 界面创建分区作业环境。这让您限制每项作业或每个作业组的用户访问。作业是在名为 `batch` 的作业组中创建的，该作业组是名为 `dev` 作业组的子级。
 
 ```
 ├── dev
@@ -114,11 +114,11 @@ enterprise: true
         ├── job2
 ```
 
-然后作业组被分配给用户 `Cory` 和 `Alice` 以限制访问的权限。
+然后作业组为用户 `Cory` 和 `Alice` 分配权限以限制访问的权限。
 
 **前提条件：**
 
-- 安装 DC/OS 时，[安全模式](/1.11/security/ent/#security-modes)为 `permissive` 或 `strict`。
+- 安装 DC/OS 时，[安全模式](/1.11/security/ent/#security-modes) `permissive` 或 `strict`。
 - 您必须以 `superuser` 身份登录。
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
@@ -137,7 +137,7 @@ enterprise: true
 
  图 2. 新作业屏幕
 
- 这将在 DC/OS 中的此目录结构中创建作业：**Jobs > dev > batch > job1**。
+ 这将在 DC/OS 中的这样的目录结构中创建作业：**Jobs > dev > batch > job1**。
 
  1. 单击右上角的 **+** 图标创建另一项作业。
 
@@ -205,4 +205,4 @@ enterprise: true
 
  ![Alice 作业查看](/1.11/img/job-ex6.png)
 
- 图 8. “Alice”的限制性查看
+ 图 8. “Alice”的局限性查看

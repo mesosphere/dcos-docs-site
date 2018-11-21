@@ -24,7 +24,7 @@ dcos package list <package-name> [OPTION]
 |---------|-------------|
 | `--app-id=<app-id>` | 应用程序 ID。|
 | `--cli` | 仅命令行。|
-| `--json` | JSON 格式化的数据。|
+| `--json` | JSON 格式的数据。|
 
 # 位置自变量
 

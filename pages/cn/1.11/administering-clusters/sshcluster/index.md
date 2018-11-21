@@ -51,7 +51,7 @@ enterprise: false
             dcos node ssh --master-proxy --leader
             ```
 
- **提示：** CorEos 默认用户是`core` 。如果您正在使用 CenTos，输入：
+ **提示：** CoreOS 默认用户是`core` 。如果您正在使用 CentOS，输入：
 
             ```bash
             dcos node ssh --master-proxy --leader --user=centos
@@ -77,7 +77,7 @@ enterprise: false
 **要求：**
 
 * PuTTY SSH 客户端或同等工具（这些说明假设您正在使用 PuTTY，但几乎所有 SSH 客户端都可以使用。）
-* PuTTYgen RSA 和 DSA 密钥生成实用工具
+* PuTTYgen RSA 和 DSA 密钥生成工具
 * Pageant SSH 身份认证代理
 
 要安装这些程序，从官方 PuTTY 下载页面下载 Windows 安装程序 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">。</a>
@@ -112,7 +112,7 @@ enterprise: false
 
  图 4. PuTty SSH 选项
 
- 4. 如果您正在运行 CorEos，则以“core”用户登录。CenTos 上的默认用户是“centos”。
+ 4. 如果您正在运行 CoreOS，则以“core”用户登录。CentOS 上的默认用户是“centos”。
 
  ![Windows 登录](/1.11/img/windowscore.png)
 
@@ -155,7 +155,7 @@ enterprise: false
 
  2. 在 PuTTY 窗口左侧的 **类别** 窗格中，选择 **会话**，在 **主机名（或 IP 地址）** 字段中输入管理节点 IP 地址。
 
- 4. 如果您正在运行 CorEos，则以“core”用户登录。CenTos 上的默认用户是“centos”。
+ 4. 如果您正在运行 CoreOS，则以“core”用户登录。CentOS 上的默认用户是“centos”。
 
  ![Windows 登录](/1.11/img/windowscore.png)
 

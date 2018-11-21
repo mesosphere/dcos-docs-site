@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon app stop` 命令允许您停止应用程序。
+`dcos marathon app stop` 命令让您停止应用程序。
 
 # 使用
 

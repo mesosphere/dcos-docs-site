@@ -88,8 +88,8 @@ DNS 由 DC/OS 中的两个不同组件 [mesos-dns](/1.11/networking/DNS/mesos-dn
 
 此 FQDN 由 `mesos-dns` 展示为 SRV 记录。
 
-# 除用于 Marathon 以外其他框架的 FQDN
-[示例 1](#Example1) 使用 Marathon，这是 DC/OS 中的默认框架。但还有其他框架也可以在 DC/OS 之上运行，如 Kafka、Cassandra、Spark 等。DC/OS 中的 DNS 基础架构生成上面所述的 FQDN，用于这些框架启动的服务。唯一的区别就是名称 `marathon` 被该框架的名称替换，以建立 FQDN。例如，由框架启动的服务 `kafka` 具有 FQDN，例如：
+#用于除Marathon 以外其他框架的 FQDN
+[示例 1](#Example1) 使用 Marathon，这是 DC/OS 中的默认框架。但还有其他框架也可以在 DC/OS 之上运行，如 Kafka、Cassandra、Spark 等。DC/OS 中的 DNS 基础架构也为这些框架启动的服务生成上面所述的 FQDN。唯一的区别就是名称 `marathon` 被该框架的名称替换，以建立 FQDN。例如，由框架启动的服务 `kafka` 具有 FQDN，例如：
 
 * `<taskname>.kafka.l4lb.thisdcos.directory`
 * `<taskname>.kafka.containerip.dcos.thisdcos.directory`
@@ -98,5 +98,5 @@ DNS 由 DC/OS 中的两个不同组件 [mesos-dns](/1.11/networking/DNS/mesos-dn
 * `<taskname>.kafka.mesos`
 
 # <a name="Recommendation"></a>建议
-`.mesos` TLD 先于 `.directory` TLD，主要是为了向后兼容。虽然在 DC/OS 上启动的任何服务都将在 `.mesos` TLD 和 `.directory` TLD 中获取 FQDN，但建议使用 `.directory` TLD 来访问服务，因为在设计上，`dcos-dns` 比 `mesos-dns` 的反应性和容错性要好。也就是说，`mesos-dns` 确实提供 RESTful 界面用于访问其记录，使得 `.mesos` TLD 可通过 HTTP 接口而不只是通过 DNS 来获取。
+`.mesos` TLD 先于 `.directory` TLD，主要是为了向先前的版本兼容。虽然在 DC/OS 上启动的任何服务都将在 `.mesos` TLD 和 `.directory` TLD 中获取 FQDN，但建议使用 `.directory` TLD 来访问服务，因为在设计上，`dcos-dns` 比 `mesos-dns` 的反应性和容错性要好。也就是说，`mesos-dns` 确实提供 RESTful 界面用于访问其记录，使得 `.mesos` TLD 可通过 HTTP 接口而不只是通过 DNS 来获取。
 

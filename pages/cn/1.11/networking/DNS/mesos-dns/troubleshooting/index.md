@@ -23,7 +23,7 @@ enterprise: false
 
 # 如果我的代理节点无法连接到 Mesos-DNS，该怎么办？
 
-* 确保端口 53 未被群集上的防火墙规则阻止。
+* 确保端口 53 未被群集上的防火墙规则阻挡。
 
 * 管理节点可能未在运行。运行 `sudo systemctl status dcos-mesos-dns` 和 `sudo journalctl -u dcos-gen-resolvconf.service -n 200 -f`，获取有关 Mesos-DNS 错误的更多信息。
 
@@ -39,7 +39,7 @@ enterprise: false
 
 # <a name="leader"></a>leader.mesos 和 master.mesos 的区别是什么？
 
-要查询领导管理节点，应始终查询 `leader.mesos`。如果您尝试使用 HTTP 来连接到 `master.mesos`，则会被自动重定向到领导管理节点。
+要查询领导管理节点，应始终查询 `leader.mesos`。如果您尝试使用 HTTP 来连接到 `master.mesos`，则会被自动重定向到首要管理节点。
 
-但是，如果您尝试使用 HTTP 以外的任何其他方式查询或连接到 `master.mesos`，结果将不可预测，因为该名称将解析到任意管理节点。例如，尝试向 `master.mesos` 注册的服务可能与非领导管理节点通信，并且无法在群集上注册为服务。
+但是，如果您尝试使用 HTTP 以外的任何其他方式查询或连接到 `master.mesos`，结果将不可预测，因为该名称将解析到任意管理节点。例如，尝试向 `master.mesos` 注册的服务可能与非首要管理节点通信，并且无法在群集上注册为服务。
 

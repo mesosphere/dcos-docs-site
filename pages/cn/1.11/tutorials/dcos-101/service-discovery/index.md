@@ -21,7 +21,7 @@ menuWeight: 4
 
 
 # 目的
-本教程前一部分中的 [app] (https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) 使用 `redis.marathon.l4lb.thisdcos.directory` 作为连接 Redis 的地址，端口为 6379。由于 Redis 可能正在群集中的任何代理程序上运行，并且可能在不同的端口上运行，因此该地址如何解析为实际运行的 Redis 实例？
+本教程前一部分中的 [app] (https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) 使用 `redis.marathon.l4lb.thisdcos.directory` 作为连接 Redis 的地址，端口为 6379。由于 Redis 可能正在群集中的任何代理程序上运行，并且可能在不同的端口上运行，因此该地址如何解析到实际运行的 Redis 实例？
 
 在本部分中，您将通过探索 DC/OS 中应用程序的不同选项，了解 DC/OS 服务发现。
 
@@ -34,7 +34,7 @@ menuWeight: 4
  1. 命名虚拟 IP。
 
 
-通过 SSH 进入群集中的 Mesos 主节点，以查看这些不同的服务发现方法的工作方式：
+通过 SSH 进入群集中的 Mesos 管理节点，以查看这些不同的服务发现方法的工作方式：
 
 `dcos node ssh --master-proxy --leader`
 
@@ -77,7 +77,7 @@ menuWeight: 4
 
 # 命名虚拟 IP
 
- * [命名 VIP](/1.11/networking/load-balancing-vips/) 允许您将名称/端口对分配到应用程序，这意味着您可以使用可预测的端口为应用程序提供有意义的名称。当使用应用程序的多个实例时，它们还提供内置的负载均衡。例如，您可以通过将以下内容添加到软件包定义中，将命名 VIP 分配给 Redis 服务：
+ * [命名 VIP](/1.11/networking/load-balancing-vips/) 让您将名称/端口对分配到应用程序，这意味着您可以使用可预测的端口为应用程序提供有意义的名称。当使用应用程序的多个实例时，它们还提供内置的负载均衡。例如，您可以通过将以下内容添加到软件包定义中，将已命名的 VIP 分配给 Redis 服务：
 
   ```
   "VIP_0": "/redis:6379"
@@ -92,14 +92,14 @@ menuWeight: 4
 您知道如何使用服务发现从 DC/OS 群集中连接到您的应用程序，并了解了 DC/OS 中可用的两种服务发现机制。
 
 # 深入研究
-[Mesos-DNS](#mesos-dns) 和[命名 VIP](#named-vips) 之间有什么区别？
+[Mesos-DNS](#mesos-dns) 和[已命名的 VIP](#named-vips) 之间有什么区别？
 
 ## Mesos-DNS
 Mesos-DNS 是在群集中查找应用程序的简单解决方案。虽然 DNS 受许多应用程序支持，但 Mesos-DNS 具有以下缺点：
 
  * DNS 缓存：应用程序有时会缓存 DNS 条目以提高效率，因此可能没有更新的地址信息（例如，在任务失败后）。
- * 您需要使用 SRV DNS 记录来检索有关已分配端口的信息。虽然应用程序通常了解 DNS A 记录，但并非所有应用程序都支持 SRV 记录。
+ * 您需要使用 SRV DNS 记录来检索有关已分配端口的信息。虽然应用程序通常能理解 DNS A 记录，但并非所有应用程序都支持 SRV 记录。
 
 
-## 命名 VIP
-命名 VIP 使用智能算法对 IP 地址/端口对进行负载均衡，以确保与原始请求者相关的流量的最佳路由，并且还提供用于高性能的本地缓存层。它们还允许您为应用程序提供有意义的名称并选择特定端口。由于这些优于 Mesos-DNS 的优势，我们建议使用命名 VIP 作为 DC/OS 中默认的服务发现方法。
+## 已命名的 VIP
+已命名的 VIP 使用智能算法对 IP 地址/端口对进行负载均衡，以确保与原始请求者对应的流量的最佳路由，并且还提供用于高性能的本地缓存层。它们还让您为应用程序提供有意义的名称并选择特定端口。由于这些优于 Mesos-DNS 的优势，我们建议使用已命名的 VIP 作为 DC/OS 中默认的服务发现方法。

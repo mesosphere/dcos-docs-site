@@ -10,7 +10,7 @@ enterprise: false
 
     
 # 说明
-`dcos node diagnostics delete` 命令允许您删除诊断捆绑包。
+`dcos node diagnostics delete` 命令让您删除诊断捆绑包。
 
 # 使用
 

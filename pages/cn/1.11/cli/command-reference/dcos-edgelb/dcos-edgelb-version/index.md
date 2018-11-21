@@ -10,7 +10,7 @@ enterprise: true
 
 
 # 说明
-`dcos edgelb version` 命令允许您显示 Edge-LB 版本。
+`dcos edgelb version` 命令显示 Edge-LB 版本。
 
 # 使用
 

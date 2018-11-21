@@ -27,7 +27,7 @@ dcos job schedule add <job-id> <schedule-file> [OPTION]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` 命令。|
-| `<schedule-file>` | JSON 格式化的作业时间表文件。|
+| `<schedule-file>` | 以 JSON 为格式的作业时间表文件。|
 
 # 父命令
 

@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos package uninstall` 命令允许您卸载软件包。
+`dcos package uninstall` 命令让您卸载软件包。
 
 # 使用
 

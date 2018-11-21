@@ -23,11 +23,11 @@ excerpt: 升级 DC/OS 群集
 - 在所有管理节点都升级前，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。
  出现这种情况时：
  * DC/OS GUI 不能提供准确的服务列表。
- * 对于多管理节点配置，在一个管理节点完成升级后，您可以从端口 8181 上的 Exhibitor UI 监控其余管理节点的健康状况。
+ * 对于多管理节点配置，在一个管理节点完成升级后，您可以从端口 8181 上的 Exhibitor UI 监控其余管理节点的运行状况。
 
 例如：升级后的 DC/OS Marathon 领导者无法连接至领导 Mesos 管理节点，直到它也升级。
 
-- 升级后的 DC/OS Marathon 领导者无法连接至不安全（未升级的）领导 Mesos 管理节点。在所有管理节点升级之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已升级，Marathon 领导者可能不是 Mesos 领导者。
+- 升级后的 DC/OS Marathon 领导者无法连接至不安全（未升级的）领导 Mesos 管理节点。在所有管理节点升级之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已升级，Marathon 首要实例可能不是 Mesos 领导者。
 - Mesos UI 中的任务历史记录不会持续到升级。
 
 ## 支持的升级路径
@@ -66,15 +66,15 @@ excerpt: 升级 DC/OS 群集
 ## 先决条件
 - 企业用户：DC/OS Enterprise 下载可见 [此处](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads)。[enterprise type="inline" size="small" /]
 - 开源用户：DC/OS Open Source 下载可见 [此处](https://dcos.io/releases/)。[oss type="inline" size="small" /]
-- Mesos、Mesos 框架、Marathon、Docker 和群集中的所有运行任务应稳定且处于已知的健康状态。
+- Mesos、Mesos 框架、Marathon、Docker 和群集中的所有运行任务应稳定且处于已知的运行良好的状态。
 - 出于 Mesos 兼容性原因，我们建议将任何运行Marathon-on-Marathon 实例升级至 Marathon 版本1.3.5，然后进行此 DC/OS 升级。
 - 您必须有权访问与之前 DC/OS 版本一起使用的配置文件的副本：`config.yaml` 和 `ip-detect`。
 - 您必须使用 systemd 218 或更新版本才能维持任务状态。
-- 所有主机（管理节点和代理节点）必须能够与所有端口上的所有其他主机通信（对于 TCP 和 UDP）。
+- 所有主机（管理节点和代理节点）必须能够对于 TCP 和 UDP，与所有端口上的所有其他主机通信。
 - 在 CentOS 或 RedHat 中，使用此命令安装 IP 集（在某些 IP 检测脚本中使用）：`sudo yum install -y ipset`
 - 您必须熟悉使用 `systemctl` 和 `journalctl` 命令行工具，以查看和监控服务状态。本 [文档](#故障排除) 结尾部分提供了故障排除说明。
 - 您必须熟悉 [DC/OS 安装指南][安装]。
-- 升级之前对 ZooKeeper 截屏。Marathon 支持返回查看，但不支持降级。
+- 升级之前对 ZooKeeper 截屏。Marathon 支持回滚，但不支持降级。
 - 升级之前 [对 IAM 数据库截屏](/1.11/installing/ent/faq/#q-how-do-i-backup-the-iam-database)。[enterprise type="inline" size="small" /]
 - 确保在开始升级之前， Marathon 事件订阅者已被禁用。完成升级后，保持其禁用状态，因为此功能现已被弃用。
 
@@ -83,8 +83,8 @@ excerpt: 升级 DC/OS 群集
 - 确认在在开始升级前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
 - [备份您的群集](/1.11/administering-clusters/backup-and-restore/)。[enterprise type="inline" size="small" /]
 - 可选：您可以将自定义 [节点和群集健康检查](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
-- 确认所有管理节点都处于健康状态：
- - 检查 Exhibitor UI 以确认所有管理节点已成功加入法定数量（状态指示灯将显示绿色）。Exhibitor UI 可在 `http://<dcos_master>:8181/` 获得。
+- 确认所有管理节点都处于运行良好状态：
+ - 检查 Exhibitor 共识机制 UI 以确认所有管理节点已成功加入（状态指示灯将显示绿色）。Exhibitor UI 可在 `http://<dcos_master>:8181/` 获得。
  - 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`。
 
 
@@ -108,7 +108,7 @@ excerpt: 升级 DC/OS 群集
 
  * 在升级期间，您无法更改 `exhibitor_zk_backend` 设置。
  * `config.yaml` 的语法可能与早期版本不同。有关当前 `config.yaml` 语法和参数的详细说明，请参阅 [文档](/1.11/installing/ent/custom/configuration/configuration-parameters/)。
-3. 更新 config.yaml 的格式后，比较旧的 config.yaml 和新的 config.yaml。验证路径或配置没有区别。升级时更改这些会导致灾难性群集失效。
+3. 更新 config.yaml 的格式后，比较旧的 config.yaml 和新的 config.yaml。验证路径或配置没有区别。升级时更改这些会导致灾难性群集错误。
 4. 根据需要修改 `ip-detect` 文件。
 5. 构建安装工具包。
 
@@ -117,7 +117,7 @@ excerpt: 升级 DC/OS 群集
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
- 3. 上一步中的命令将在其输出的最后一行产生 URL，前缀为 `Node upgrade script URL:`。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
+ 3. 上一步中的命令将在其输出的最后一行产生前缀为 `Node upgrade script URL:` 的 URL。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
  4. 运行 [nginx][install] 容器以提供安装文件。
 
 6. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
@@ -142,7 +142,7 @@ excerpt: 升级 DC/OS 群集
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
- 1. 上一步中的命令将在其输出的最后一行产生 URL，前缀为 `Node upgrade script URL:`。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
+ 1. 上一步中的命令将在其输出的最后一行产生前缀为 `Node upgrade script URL:` 的 URL。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
  1. 运行 [nginx][install] 容器以提供安装文件。
 
 4. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
@@ -168,7 +168,7 @@ excerpt: 升级 DC/OS 群集
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
- 3. 上一步中的命令将在其输出的最后一行产生 URL，前缀为 `Node upgrade script URL:`。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
+ 3. 上一步中的命令将在其输出的最后一行产生前缀为 `Node upgrade script URL:` 的 URL。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
  4. 运行 [nginx][install] 容器以提供安装文件。
 
 4. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
@@ -191,7 +191,7 @@ excerpt: 升级 DC/OS 群集
         ```bash
         dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
- 1. 上一步中的命令将在其输出的最后一行产生 URL，前缀为 `Node upgrade script URL:`。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
+ 1. 上一步中的命令将在其输出的最后一行产生前缀为 `Node upgrade script URL:` 的 URL。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
  1. 运行 [nginx][install] 容器以提供安装文件。<!-- ?? -->
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
@@ -214,7 +214,7 @@ excerpt: 升级 DC/OS 群集
 
 1. 验证升级情况：
 
- 1. 监视 Exhibitor 并等待其融合到 `http://<master-ip>:8181/exhibitor/v1/ui/index.html`。确认管理节点已成功重新加入 ZooKeeper 法定数量（状态指示灯将变为绿色）。
+ 1. 监视 Exhibitor 并等待其融合到 `http://<master-ip>:8181/exhibitor/v1/ui/index.html`。确认管理节点已成功重新加入 ZooKeeper 共识机制（状态指示灯将变为绿色）。
 
  **注意：** 如果要从宽容模式升级到严格模式，此 URL 将为 `https://...`。
  1. 等到 `dcos-mesos-master` 单元启动并运行。
@@ -239,7 +239,7 @@ excerpt: 升级 DC/OS 群集
 
 ### <a name="agents"></a>DC/OS 代理节点
 
-请注意，当升级代理节点时，在代理节点和任务到期之前，代理节点响应来自 Mesos 管理节点的健康检查 ping 有五分钟的超时。
+请注意，当升级代理节点时，代理节点响应来自 Mesos 管理节点的运行状况检查 ping 离代理节点和任务超时有五分钟的时限。
 
 在所有 DC/OS 代理上：
 
@@ -268,7 +268,7 @@ excerpt: 升级 DC/OS 群集
 
 ## <a name="troubleshooting"></a>故障排除建议
 
-以下命令应提供对升级问题的洞见：
+以下命令应提供对升级问题的提供深度信息：
 
 #### 在所有群集节点上
 

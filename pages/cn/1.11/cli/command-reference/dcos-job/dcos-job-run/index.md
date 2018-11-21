@@ -11,7 +11,7 @@ enterprise: false
 
 
 # 说明
-`dcos job run` 命令允许您立即运行作业。
+`dcos job run` 命令让您立即运行作业。
 
 # 使用
 

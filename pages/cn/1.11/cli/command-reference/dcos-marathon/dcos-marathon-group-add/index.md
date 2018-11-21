@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon group add` 命令允许您添加 Marathon 组。
+`dcos marathon group add` 命令让您添加 Marathon 组。
 
 # 使用
 

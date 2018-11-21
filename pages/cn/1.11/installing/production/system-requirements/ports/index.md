@@ -34,13 +34,13 @@ excerpt: 了解为 DC/OS 部署配置的端口
 | 53 | DC/OS Net | `dcos-net.service` | 代理/管理 | 代理/管理 | 
 | 64000 | DC/OS Net | `dcos-net.service` | 代理/管理 | 代理/管理 | 
 
-**注意：** UDP 端口 123 打开用于与 NTP 通信。
+**注意：** UDP 端口 123 用于与 NTP 通信而开启。
 
 ## 管理节点
 
 ### TCP
 
-| 端口 | DC/OS 组件 | 系统单元 | 来源 | 目标 |
+| 端口 | DC/OS 组件 | systemd单元 | 来源 | 目标 |
 |---|---|---|---|---|
 | 80 | Admin Router 管理节点 (HTTP) | `dcos-adminrouter.service` |公共 IP| 管理 |
 | 443 | Admin Router 管理节点 (HTTPS) | `dcos-adminrouter.service`|公共 IP| 管理 |

@@ -30,7 +30,7 @@ enterprise: true
 
 许多资源标识符包括方括号中的可选部分，可以填写这些部分以进一步缩小授予的权限。如果忽略可选部分，则资源标识符引用所有可能的值。例如，资源标识符 `dcos:mesos:agent:framework:role` 控制对使用任何 [Mesos 角色](/1.11/overview/concepts/#mesos-role) 注册的 DC/OS 服务的查看访问权限，而资源标识符 `dcos:mesos:agent:framework:role:slave_public` 控制对使用角色 `slave_public` 注册的 DC/OS 服务的查看访问权限。
 
-发送到 DC/OS 组件的大多数 HTTP 请求都需要认证证明。这些
+发送到 DC/OS 组件的大多数 HTTP 请求都需要身份认证证明。这些
 包括由 DC/OS CLI、DC/OS UI、DC/OS API 以及
 DC/OS 组件之间内部启动的操作。某些端点的 HTTP 请求需要
 额外的授权。许多 DC/OS 组件与 DC/OS 服务
@@ -43,13 +43,13 @@ DC/OS 组件之间内部启动的操作。某些端点的 HTTP 请求需要
 是 DC/OS 授权程序的高级描述。
 
 当授权者收到对受保护资源的 HTTP 请求时，
-授权者会检查 `Authorization` HTTP 请求标头以获取 DC/OS
-认证令牌。DC/OS 认证令牌由
+授权者会检查 `Authorization` HTTP 请求报文头以获取 DC/OS
+身份认证令牌。DC/OS 身份认证令牌由
 授权者验证和评估。在 `uid` 从 DC/OS 身份验证
 令牌中提取后，授权者检查是否已授予相应 DC/OS 用户
 执行所请求操作的必要权限。例如，
-由 `uid` 标识的 DC/OS 用户必须具有 `full` 访问权限，
-该权限是针对受保护资源 `dcos:adminrouter:package`，以便能够通过
+由 `uid` 标识的 DC/OS 用户必须具有受保护资源 `dcos:adminrouter:package` 的 `full` 访问权限，
+以便能够通过
 Admin Router 访问 DC/OS 软件包 API。
 
 
@@ -57,8 +57,8 @@ Admin Router 访问 DC/OS 软件包 API。
 
 对 DC/OS 群集发出的大多数 HTTP 请求都通过 Admin Router。对于许多
 HTTP 端点，Admin Router 自身执行授权。例如，
-由 `uid` 标识的 DC/OS 用户必须具有 `full` 访问权限，
-该权限是针对受保护资源 `dcos:adminrouter:package`，以便能够
+由 `uid` 标识的 DC/OS 用户必须具有受保护资源 `dcos:adminrouter:package` 的 `full` 访问权限，
+以便能够
 通过 Admin Router 访问 DC/OS 软件包 API。
 
 | 资源标识符 | 全部 | C | R | U | D |
@@ -74,9 +74,9 @@ HTTP 端点，Admin Router 自身执行授权。例如，
 | `dcos:adminrouter:ops:metadata` <br> 控制对 [元数据端点] 的访问(/1.11/api/master-routes/#metadata)。| x | | | | |
 | `dcos:adminrouter:ops:networking`<br> 控制对 [网络度量标准] 端点(/1.11/api/master-routes/#network-metrics)的访问。| x | | | | |
 | `dcos:adminrouter:ops:slave`<br> 控制对 Mesos 代理节点 UI 和 API 的访问。| x | | | | |
-| `dcos:adminrouter:ops:system-health` <br> 控制对 [系统健康 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
+| `dcos:adminrouter:ops:system-health` <br> 控制对 [系统运行状况 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
 | `dcos:adminrouter:ops:system-logs` <br> 控制对 [系统日志 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
-| `dcos:adminrouter:ops:system-metrics`<br> 控制对 [系统日志度量标准 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
+| `dcos:adminrouter:ops:system-metrics`<br> 控制对 [系统度量标准 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
 | `dcos:adminrouter:licensing` <br> 控制对许可 API 的访问。| x | | | | |
 | `dcos:adminrouter:package` <br> 控制对 [Cosmos API] 的访问(/1.11/api/master-routes/#cosmos)，其提供对 DC/OS Universe 的访问。| x | | | | |
 | `dcos:adminrouter:secrets`<br> 控制对 [密钥](/1.11/security/ent/secrets/) Web 界面和 API 的访问。| x | | | | |
@@ -95,7 +95,7 @@ HTTP 请求授权并检查 `alice` DC/OS 用户是否具有
 如果是，它使用**其自己的** DC/OS 用户（ 具有 `dcos_marathon` 的 `uid` 的 DC/OS 服务帐户），用指令认证对 Mesos 的 HTTP 请求，以启动新的 Mesos 任务。
 此时，Mesos 将执行 DC/OS 授权程序，并检查 `dcos_marathon` DC/OS 用户是否已在 `dcos:mesos:master:task:app_id` 资源上被授予 `create` 操作。
 
-根据 Root Marathon 启动的应用程序只能接收为 `slave_public` 或 `*` [Mesos 角色](/1.11/overview/concepts/#mesos-role)保留的资源供应。
+根据 Root Marathon 启动的应用程序只能接收为 `slave_public` 或 `*` [Mesos 角色](/1.11/overview/concepts/#mesos-role)保留的资源供应邀约。
 
 | 资源标识符 | 全部 | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|

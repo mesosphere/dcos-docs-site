@@ -33,7 +33,7 @@ enterprise: false
 
 ## 添加 Docker Hub 凭据
 
-Jenkins 在其凭据库内存储帐户凭据，这允许作业以安全方式使用凭据。在 Jenkins 主页面种，从左侧菜单中单击 **Credentials**。从那里选择 **System**（也可从左侧菜单中选择），最后选择主查看区域中显示的全局凭据（不受限制）链接。左侧菜单现在应具有 **Add Credentials** 选项。
+Jenkins 在其凭据库内存储帐户凭据，这允许作业以安全方式使用凭据。在 Jenkins 主页面中，从左侧菜单中单击 **Credentials**。从那里选择 **System**（也可从左侧菜单中选择），最后选择主查看区域中显示的全局凭据（不受限制）链接。左侧菜单现在应具有 **Add Credentials** 选项。
 
 单击 **Add Credentials**，为 Docker Hub 创建新凭据。**Kind** 下拉菜单中应选择“Username with password”选项。填写其余信息以匹配您的 Docker Hub 帐户。
 
@@ -78,9 +78,9 @@ Jenkins 作业执行以下操作：
 
 填写以下字段：
 
-* **存储库名称**，带有您的 Docker Hub 用户名和 `/${JOB_NAME}` 作为后缀 ("myusername/${JOB_NAME}")
-* **标签**，具有 `${GIT_COMMIT}`
-* **注册表凭据**，以上创建的 Docker Hub 的凭据
+* 用您的 Docker Hub 用户名填写 **存储库名称**，并以 `/${JOB_NAME}` 作为后缀 ("myusername/${JOB_NAME}")
+* 以 `${GIT_COMMIT}` 填写**标签**
+* 将**注册表凭据**，填写到以上创建的 Docker Hub 的凭据中
 
 ![dcos-velocity-jenkins-build-docker-config.png](/1.11/img/dcos-velocity-jenkins-build-docker-config.png)
 
@@ -98,7 +98,7 @@ Jenkins 作业执行以下操作：
 
 * **Marathon URL**，可使用 URL `http://leader.mesos/service/marathon` 在 DC/OS 内对其进行访问  
 * **应用定义**，具有与 marathon 应用程序文件 (`conf/cd-demo-app.json`) 相对的路径
-* **Docker 镜像**，具有以上创建的镜像 (`myusername/${JOB_NAME}:${GIT_COMMIT}`)
+*使用以上创建的镜像 (`myusername/${JOB_NAME}:${GIT_COMMIT}`) 选择 **Docker 镜像**
 
 ![dcos-velocity-marathon-config.png](/1.11/img/dcos-velocity-marathon-config.png)
 

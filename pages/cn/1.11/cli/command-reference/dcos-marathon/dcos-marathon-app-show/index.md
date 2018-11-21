@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-dcos marathon app show 命令允许您查看在 DC/OS 上运行的应用程序的详细信息。
+dcos marathon app show 命令让您查看在 DC/OS 上运行的应用程序的详细信息。
 
 # 使用
 
