@@ -47,7 +47,7 @@ Example:
 ```json
 {
     "id": "basic-1",
-    "cmd": "`chmod u+x cool-script.sh && ./cool-script.sh`",
+    "cmd": "`chmod u+x /mnt/mesos/sandbox/cool-script.sh && /mnt/mesos/sandbox/cool-script.sh`",
     "cpus": 0.1,
     "mem": 10.0,
     "instances": 1,
@@ -55,7 +55,7 @@ Example:
 }
 ```
 
-The example above executes the contents of `cmd`, downloads the resource `https://example.com/app/cool-script.sh` (via Mesos), and makes it available in the service instance's Mesos sandbox. You can verify that it has been downloaded by visiting the DC/OS web interface and clicking on an instance of `basic-1`, then on the **Files** tab. You should find `cool-script.sh` there.
+The example above executes the contents of `cmd`, downloads the resource `https://example.com/app/cool-script.sh` (via Mesos), and makes it available in the service instance's Mesos sandbox. You can verify that it has been downloaded by visiting the DC/OS web interface and clicking on an instance of `basic-1`, then on the **Files** tab. You should find `cool-script.sh` there. Generally, the file will be downloaded into `/mnt/mesos/sandbox/`.
 
 <p class="message--note"><strong>NOTE: </strong>The fetcher does not make dowloaded files executable by default. In the example above, <code>cmd</code> first makes the file executable.</p>
 
