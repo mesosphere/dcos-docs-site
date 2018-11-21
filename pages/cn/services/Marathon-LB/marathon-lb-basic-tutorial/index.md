@@ -1,15 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  Tutorial - Basic Marathon-LB
-title: Tutorial - Deploying an Externally Load Balanced App with Marathon-LB
+navigationTitle: 教程 - 基本 Marathon-LB
+title: 教程 - 使用 Marathon-LB 部署外部负载平衡应用
 menuWeight: 5
-excerpt: Tutorial - Using Marathon-LB to run a containerized DC/OS service that serves a website
-
+excerpt: 教程 - 使用 Marathon-LB 来运行容器化 DC/OS 服务（服务一个网站）
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 本教程向您展示如何使用 Marathon-LB 运行为网站提供服务的容器化 DC/OS 服务。具体地说，您将使用包含 NGINX（为`dcos.i`o 站点服务）的 Docker 镜像。在本教程中，Marathon-LB 用作边缘负载均衡器和服务发现机制。Marathon-LB 在面向公众的节点上运行，以路由 ingress 流量。
 
@@ -36,48 +32,48 @@ enterprise: false
 
 完整的 JSON 服务定义文件应该类似：
 
-        ```json
-        {
-          "id": "dcos-website",
-          "container": {
-            "type": "DOCKER",
-            "portMappings": [
-              { "hostPort": 0, "containerPort": 80, "servicePort": 10004 }
-            ],
-            "docker": {
-              "image": "mesosphere/dcos-website:<image-tag>"
-            }
-          },
-          "instances": 3,
-          "cpus": 0.25,
-          "mem": 100,
-          "networks": [ { "mode": "container/bridge" } ],
-          "healthChecks": [{
-              "protocol": "HTTP",
-              "path": "/",
-              "portIndex": 0,
-              "timeoutSeconds": 2,
-              "gracePeriodSeconds": 15,
-              "intervalSeconds": 3,
-              "maxConsecutiveFailures": 2
-          }],
-          "labels":{
-            "HAPROXY_DEPLOYMENT_GROUP":"dcos-website",
-            "HAPROXY_DEPLOYMENT_ALT_PORT":"10005",
-            "HAPROXY_GROUP":"external",
-            "HAPROXY_0_REDIRECT_TO_HTTPS":"true",
-            "HAPROXY_0_VHOST": "<public-agent-ip>"
-          }
-        }
-        ```
+  ```json
+  {
+    "id": "dcos-website",
+    "container": {
+      "type": "DOCKER",
+      "portMappings": [
+        { "hostPort": 0, "containerPort": 80, "servicePort": 10004 }
+      ],
+      "docker": {
+        "image": "mesosphere/dcos-website:<image-tag>"
+      }
+    },
+    "instances": 3,
+    "cpus": 0.25,
+    "mem": 100,
+    "networks": [ { "mode": "container/bridge" } ],
+    "healthChecks": [{
+        "protocol": "HTTP",
+        "path": "/",
+        "portIndex": 0,
+        "timeoutSeconds": 2,
+        "gracePeriodSeconds": 15,
+        "intervalSeconds": 3,
+        "maxConsecutiveFailures": 2
+    }],
+    "labels":{
+      "HAPROXY_DEPLOYMENT_GROUP":"dcos-website",
+      "HAPROXY_DEPLOYMENT_ALT_PORT":"10005",
+      "HAPROXY_GROUP":"external",
+      "HAPROXY_0_REDIRECT_TO_HTTPS":"true",
+      "HAPROXY_0_VHOST": "<public-agent-ip>"
+    }
+  }
+  ```
 
 6. 使用以下命令从 DC/OS CLI 运行服务：
 
-    ```bash
-    dcos marathon app add dcos-website.json
-    ```
+  ```bash
+  dcos marathon app add dcos-website.json
+  ```
 
-1. 转到 DC/OS Web 界面的 **服务** 选项卡，验证您的应用程序是否健康。
+7. 转到 DC/OS Web 界面的 **服务** 选项卡，验证您的应用程序是否健康。
 
 ![健康服务](/1.10/img/healthy-dcos-website.png)
 

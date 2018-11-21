@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Marathon-LB Release Notes
-title: Marathon-LB Release Notes
+navigationTitle: 发行说明
+title: Marathon-LB 发行说明
 menuWeight: 0
-excerpt: Release notes for Marathon-LB
+excerpt: Marathon-LB 发行说明 v1.12.0
 ---
 
 # v1.12.0
