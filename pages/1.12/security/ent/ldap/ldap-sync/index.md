@@ -16,7 +16,7 @@ In earlier versions of DC/OS Enterprise LDAP Group Import and LDAP User Import w
 
 In DC/OS Enterprise v1.12 we added automatic LDAP Synchronization. This feature is enabled by default and periodically performs LDAP Synchronization. This feature is designed to keep IAM users, IAM user groups and the relations between them synchronized with their counterparts in the external Directory.
 
-**A quick note on security:** LDAP Synchronization occurs periodically. The exact period is configurable (See [iam_ldap_sync_interval config]()). There are cases where you modify the external Directory, e.g. to perform a permission revocation through modification of group membership or removal of user accounts. In some cases, these changes must be reflected in the DC/OS IAM within seconds, not minutes and therefore waiting for the next LDAP Synchronization event is not an option. For these scenarios you will have to make the equivalent changes to the DC/OS IAM instead of waiting for the next LDAP Synchronization event.
+**A quick note on security:** LDAP Synchronization occurs periodically. There are cases where you modify the external Directory, e.g. to perform a permission revocation through modification of group membership or removal of user accounts. In some cases, these changes must be reflected in the DC/OS IAM within seconds, not minutes and therefore waiting for the next LDAP Synchronization event is not an option. For these scenarios you will have to make the equivalent changes to the DC/OS IAM instead of waiting for the next LDAP Synchronization event.
 
 # The LDAP Synchronization procedure
 LDAP Synchronization only regards IAM users and user groups that were imported from the external Directory. The intent of LDAP Synchronization is to have imported users and user groups mirror their counterparts in the external Directory.
@@ -37,3 +37,5 @@ The LDAP Synchronization procedure is performed by a DC/OS Component present on 
 This procedure runs on the DC/OS master node which corresponds to the current Mesos leader. Should that master node fail and thereby trigger a Mesos leader re-election, the LDAP Synchronization procedure will be performed on the master node corresponding to the newly elected Mesos leader.
 
 Every run of the LDAP Synchronization logs detailed logic to the systemd journal. These logs may be inspected by checking the logs on the DC/OS master node corresponding to the Mesos leader.
+
+The exact period is configurable on installation. See the [configuration reference](/1.12/installing/production/advanced-configuration/configuration-reference/) under [advanced configuration](/1.12/installing/production/advanced-configuration/). 
