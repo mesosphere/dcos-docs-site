@@ -12,7 +12,7 @@ The configuration templates using Terraform are designed to be flexible. Below i
 
 ```hcl
 module "dcos" {
-  source  = "dcos-terraform/dcos/gcp"
+  source  = "dcos-terraform/dcos/azurerm"
   version = "~> 0.1"
 
   cluster_name = "mydcoscluster"
