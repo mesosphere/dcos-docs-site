@@ -9,11 +9,11 @@ enterprise: true
 
 为通过添加节点来支持云爆发，还需支持停用节点。删除节点包括两个步骤：命令 DC/OS 将节点标记为 `GONE`，并停止相应的 Mesos 从设备 `systemd` 器件。
 
-如果您的节点以意外方式停工，您只需要 [停用节点](/1.11/administering-clusters/delete-node/#decommission-the-node/)。
+如果您的节点以意外方式停工，您只需要 [停用节点](/cn/1.11/administering-clusters/delete-node/#decommission-the-node/)。
 
 # 关闭节点
 
-1. （您希望关闭的）[SSH 至代理节点](/1.11/administering-clusters/sshcluster/)。
+1. （您希望关闭的）[SSH 至代理节点](/cn/1.11/administering-clusters/sshcluster/)。
 
 1. 输入以下命令，停止节点。
 
@@ -65,7 +65,7 @@ dcos node decommission <mesos-agent-id>
 
 如果 DC/OS 节点仍在运行，Mesos从进程将继续尝试注册（并且由于代理被标记为已消失，注册会被拒绝）。您可以通过停止 Mesos 从进程（以 systemd 单元运行），停止这些尝试。
 
-1. （您希望关闭的）[SSH 至代理节点](/1.11/administering-clusters/sshcluster/)。
+1. （您希望关闭的）[SSH 至代理节点](/cn/1.11/administering-clusters/sshcluster/)。
 
 1. 使用以下命令停止节点。
 

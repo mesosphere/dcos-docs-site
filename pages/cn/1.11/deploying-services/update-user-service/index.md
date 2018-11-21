@@ -11,7 +11,7 @@ enterprise: false
 
 可以使用 `dcos marathon` 命令轻松查看和更新已部署应用程序的配置。
 
-**注意：**在 [DC/OS 目录] (/1.11/gui/catalog/)中更新软件包的流程不同。如需更多信息，请参阅 [文档](/1.11/deploying-services/config-universe-service/)。
+**注意：**在 [DC/OS 目录] (/1.11/gui/catalog/)中更新软件包的流程不同。如需更多信息，请参阅 [文档](/cn/1.11/deploying-services/config-universe-service/)。
 
 # 更新所有环境变量
 

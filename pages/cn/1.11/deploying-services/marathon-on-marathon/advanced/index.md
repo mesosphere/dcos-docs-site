@@ -8,16 +8,16 @@ enterprise: true
 
 ---
 
-本专题描述了如何部署具有独立角色、保留、配额和安全功能的非本地 Marathon 实例。高级非本地 Marathon 程序只能在您需要 [密钥](/1.11/security/ent/secrets/) 或细粒度 ACL 时使用，否则请使用 [基本程序](/1.11/deploying-services/marathon-on-marathon/basic/)。
+本专题描述了如何部署具有独立角色、保留、配额和安全功能的非本地 Marathon 实例。高级非本地 Marathon 程序只能在您需要 [密钥](/cn/1.11/security/ent/secrets/) 或细粒度 ACL 时使用，否则请使用 [基本程序](/cn/1.11/deploying-services/marathon-on-marathon/basic/)。
 
 要使用此程序，您必须向销售代表获取自定义非本地 Marathon tarball（<sales@mesosphere.io>）。这一自定义 tarball 包含 Marathon 以及一个密钥和授权插件。这些附加插件帮助您在非本地 Marathon 文件夹层级中使用密码和细粒度访问控制。
 
 **前提条件：**
 
-- DC/OS 和 DC/OS CLI [已安装](/1.11/installing/)。
-- [DC/OS Enterprise CLI 0.4.14 或更高版本](/1.11/cli/enterprise-cli/#ent-cli-install)。
+- DC/OS 和 DC/OS CLI [已安装](/cn/1.11/installing/)。
+- [DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
 - 自定义非本地 Marathon tarball。联系销售代表或 <sales@mesosphere.io> 获取本文件的访问权限。
-- 每个专用 DC/OS 代理可以通过网络访问的专用 Docker 注册表。可以遵循 [以下](/1.11/deploying-services/private-docker-registry/) 了解关于如何在 Marathon 中设置，或使用其他选项的说明（如 [DockerHub](https://hub.docker.com/)、[Amazon EC2 容器注册表](https://aws.amazon.com/ecr/)和 [Quay](https://quay.io/)）。
+- 每个专用 DC/OS 代理可以通过网络访问的专用 Docker 注册表。可以遵循 [以下](/cn/1.11/deploying-services/private-docker-registry/) 了解关于如何在 Marathon 中设置，或使用其他选项的说明（如 [DockerHub](https://hub.docker.com/)、[Amazon EC2 容器注册表](https://aws.amazon.com/ecr/)和 [Quay](https://quay.io/)）。
 - 您必须以超级用户身份登录。
 - 对群集的 SSH 访问。
 
@@ -69,7 +69,7 @@ enterprise: true
 </tr> 
 </table>
 
-1. [SSH](/1.11/administering-clusters/sshcluster/) 到专用代理节点。
+1. [SSH](/cn/1.11/administering-clusters/sshcluster/) 到专用代理节点。
 
    ```bash
    dcos node ssh --master-proxy --mesos-id=<agent-id>
@@ -170,7 +170,7 @@ curl -i -k \
 ```
 
 # 第 3 步 - 创建 Marathon 服务帐户
-Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/1.11/security/ent/#security-modes)。
+Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/cn/1.11/security/ent/#security-modes)。
 
 | 安全模式 |  Marathon 服务帐户 |
 |---------------|----------------------|
@@ -241,13 +241,13 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
    scp docker.tar.gz core@<public-master-ip>:
 ~   ```
 
-1. [SSH](/1.11/administering-clusters/sshcluster/) 到包含 Docker 凭据文件的管理节点。
+1. [SSH](/cn/1.11/administering-clusters/sshcluster/) 到包含 Docker 凭据文件的管理节点。
 
    ```bash
    dcos node ssh --master-proxy --mesos-id=<master-id>
    ```
 
-1. 存储环境变量中每个专用代理的 IP 地址。<!-- What is this step for -->所需步骤取决于您的 [安全模式](/1.11/security/ent/#security-modes)。
+1. 存储环境变量中每个专用代理的 IP 地址。<!-- What is this step for -->所需步骤取决于您的 [安全模式](/cn/1.11/security/ent/#security-modes)。
 
  ### 已禁用
 
@@ -312,7 +312,7 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
 
 #### 建议
 
-- 查看您的密钥，确保其包含正确的服务帐户 ID、私钥和 `login_endpoint` URL。如果是 `strict` 模式，应为 HTTPS，如果是 `disabled` 或 `permissive` 模式，则应为 HTTP。如果 URL 不正确，尝试 [升级 DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/#ent-cli-upgrade)，删除密钥，并重新创建。可以使用此命令查看内容：
+- 查看您的密钥，确保其包含正确的服务帐户 ID、私钥和 `login_endpoint` URL。如果是 `strict` 模式，应为 HTTPS，如果是 `disabled` 或 `permissive` 模式，则应为 HTTP。如果 URL 不正确，尝试 [升级 DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/#ent-cli-upgrade)，删除密钥，并重新创建。可以使用此命令查看内容：
 
    ```bash
    dcos security secrets list /
@@ -335,7 +335,7 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
 | 宽容 | 不可用 |
 | 严格 | 必填 |
 
-所有 CLI 命令也可通过 [IAM API](/1.11/security/ent/iam-api) 执行。
+所有 CLI 命令也可通过 [IAM API](/cn/1.11/security/ent/iam-api) 执行。
 
 授予服务帐户 `<service-account-id>` permission to launch Mesos tasks that will execute as Linux user `nobody`。
 要允许作为不同 Linux 用户执行任务，请将 `nobody` 替换为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请将 `nobody` 替换为以下的 `bob`。
@@ -650,7 +650,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:volume:prin
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
- ![登录](/1.11/img/gui-installer-login-ee.gif)
+ ![登录](/cn/1.11/img/gui-installer-login-ee.gif)
 
  图 1. DC/OS Web 界面登录
 
@@ -658,7 +658,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:volume:prin
 
 1. 选择要授予权限的用户名或组名。
 
- ![添加 cory 权限](/1.11/img/services-tab-user.png)
+ ![添加 cory 权限](/cn/1.11/img/services-tab-user.png)
 
  图 2. 选择用户以获取权限
 
@@ -666,7 +666,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:volume:prin
 
 1. 单击 **INSERT PERMISSION STRING** 以切换对话框。
 
- ![添加权限](/1.11/img/services-tab-user3.png)
+ ![添加权限](/cn/1.11/img/services-tab-user3.png)
 
  图 3. 添加权限字符串
 
@@ -753,11 +753,11 @@ dcos security org users grant <service-account-id> dcos:mesos:master:volume:prin
 
 1. 输入您的用户名和密码，然后单击 **登录**。
 
- ![Log in DC/OS](/1.11/img/gui-installer-login-ee.gif)
+ ![Log in DC/OS](/cn/1.11/img/gui-installer-login-ee.gif)
 
  图 4. 成功了！
 
- ![Marathon on Marathon](/1.11/img/mom-marathon-gui.png)
+ ![Marathon on Marathon](/cn/1.11/img/mom-marathon-gui.png)
 
  图 5. 登录 Marathon 
 

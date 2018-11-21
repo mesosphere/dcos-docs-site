@@ -29,7 +29,7 @@ enterprise: false
 
 # 如何配置 DC/OS 群集，以便与外部主机和服务通信？
 
-对于 DC/OS 群集之外主机名或服务的 DNS 请求，Mesos-DNS 将查询外部域名服务器。默认将使用 IP 地址为 8.8.8.8 的 Google 域名服务器。如果需要配置自定义外部域名服务器，请在首次安装 DC/OS 时使用 [`resolvers` 参数](/1.11/installing/production/advanced-configuration/configuration-reference/)。
+对于 DC/OS 群集之外主机名或服务的 DNS 请求，Mesos-DNS 将查询外部域名服务器。默认将使用 IP 地址为 8.8.8.8 的 Google 域名服务器。如果需要配置自定义外部域名服务器，请在首次安装 DC/OS 时使用 [`resolvers` 参数](/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
 
 <table class=“table” bgcolor=#858585>
 <tr> 

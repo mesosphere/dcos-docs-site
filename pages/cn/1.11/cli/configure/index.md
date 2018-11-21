@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-您可以使用 [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) 和 [dcos confi](/1.11/cli/command-reference/dcos-config/) 命令组访问 DC/OS CLI 配置。
+您可以使用 [dcos cluster](/cn/1.11/cli/command-reference/dcos-cluster/) 和 [dcos confi](/cn/1.11/cli/command-reference/dcos-config/) 命令组访问 DC/OS CLI 配置。
 
 
 # 配置 HTTP 代理

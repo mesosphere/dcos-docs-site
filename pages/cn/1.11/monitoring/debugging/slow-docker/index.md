@@ -22,7 +22,7 @@ enterprise: false
 
 ## 提高 CPU 分配
 
-如果由于 DC/OS 升级或配置 `MESOS_CGROUPS_ENABLE_CFS=true` 而导致 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/1.11/deploying-services/update-user-service/) 或 DC/OS GUI 的**服务**选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
+如果由于 DC/OS 升级或配置 `MESOS_CGROUPS_ENABLE_CFS=true` 而导致 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/cn/1.11/deploying-services/update-user-service/) 或 DC/OS GUI 的**服务**选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
 
 ## 更改 Mesos 代理节点配置
 

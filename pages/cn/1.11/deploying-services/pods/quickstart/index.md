@@ -9,8 +9,8 @@ enterprise: false
 
 
 ## 先决条件
-- DC/OS [已安装](/1.11/installing/)
-- DC/OS CLI [已安装](/1.11/cli/install/)
+- DC/OS [已安装](/cn/1.11/installing/)
+- DC/OS CLI [已安装](/cn/1.11/cli/install/)
 
 # 在 DC/OS CLI 中启动 Pod
 
@@ -53,6 +53,6 @@ enterprise: false
 
 在启动 pod 之后，您将在 DC/OS Web 界面的 **服务** 选项卡上看到您的新 POD。单击 pod，查看有关 Pod 中容器状态的信息。
 
-![Pods UI](/1.11/img/pods-service-dashboard.png)
+![Pods UI](/cn/1.11/img/pods-service-dashboard.png)
 
 图 1. 服务 > Pods

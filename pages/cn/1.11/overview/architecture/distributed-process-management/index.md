@@ -10,19 +10,19 @@ enterprise: false
 
 本节介绍 DC/OS 群集中的进程管理，从资源的分配到进程的执行。在高层面上，启动一个进程时，DC/OS 组件之间会发生这种相互作用。通信发生在不同层之间（例如，与调度程序交互的用户）以及层内（例如，与代节点通信的主节点）。
 
-![DC/OS 中分布式进程管理的概念](/1.11/img/dcos-architecture-distributed-process-management-concept.png)
+![DC/OS 中分布式进程管理的概念](/cn/1.11/img/dcos-architecture-distributed-process-management-concept.png)
 
 图 1. DC/OS 中的分布式进程管理
 
 以下是使用 Marathon 服务和用户根据 Docker 镜像启动容器的示例：
 
-![DC/OS 中分布式进程管理的示例](/1.11/img/dcos-architecture-distributed-process-management-example.png)
+![DC/OS 中分布式进程管理的示例](/cn/1.11/img/dcos-architecture-distributed-process-management-example.png)
 
 图 2. DC/OS 中使用 Marathon 和 Docker 的分布式进程管理
 
 上述组件之间按时间顺序的相互作用与此相似。请注意，执行器和任务被折叠到一个区块，因为在实践中，情况往往如此：
 
-![DC/OS 中分布式进程管理的序列图](/1.11/img/dcos-architecture-distributed-process-management-seq-diagram.png)
+![DC/OS 中分布式进程管理的序列图](/cn/1.11/img/dcos-architecture-distributed-process-management-seq-diagram.png)
 
 图 3. DC/OS 中分布式进程管理的序列
 

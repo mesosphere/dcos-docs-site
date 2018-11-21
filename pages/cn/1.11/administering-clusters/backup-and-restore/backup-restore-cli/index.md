@@ -10,8 +10,8 @@ enterprise: true
 
 # 先决条件
 - 一个 DC/OS Enterprise 群集。
-- [DC/OS CLI](/1.11/cli/install/) 已安装。
-- [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/) 已安装。
+- [DC/OS CLI](/cn/1.11/cli/install/) 已安装。
+- [DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/) 已安装。
 
 <table class=“table” bgcolor=#858585>
 <tr> 

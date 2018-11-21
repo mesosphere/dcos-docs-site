@@ -14,17 +14,17 @@ enterprise: false
 
 1. 在 **服务** 选项卡中，将光标放在要扩展的服务名称上，就会显示齿轮符号。
 1. 单击齿轮符号并选择 **扩展**。
- ![gear symbol](/1.11/img/gear-services.png)
+ ![gear symbol](/cn/1.11/img/gear-services.png)
 
  图 1. 下拉式设置菜单和选项
 
 1. 输入您想要的实例总数，然后单击**扩展服务**。
- ![scale](/1.11/img/scale-services.png)
+ ![scale](/cn/1.11/img/scale-services.png)
 
  图 2. 选择实例数
 
 1. 单击服务名称查看扩展的服务。
- ![post scale](/1.11/img/post-scale-services.png)
+ ![post scale](/cn/1.11/img/post-scale-services.png)
 
  图 3. 服务列表
 

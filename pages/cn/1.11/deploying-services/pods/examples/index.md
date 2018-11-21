@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 
-本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/1.11/deploying-services/marathon-parameters)。
+本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/cn/1.11/deploying-services/marathon-parameters)。
 
 # 带注释的简单 Pod 定义
 
@@ -547,7 +547,7 @@ enterprise: false
 
 # 使用持久卷的 Pod
 
-如需查看使用持久卷的 pod 的示例，请参见 [创建具有本地持久卷的 pod](/1.11/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume)。
+如需查看使用持久卷的 pod 的示例，请参见 [创建具有本地持久卷的 pod](/cn/1.11/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume)。
 
 ## 各 Pod 的 IP 网络
 

@@ -9,7 +9,7 @@ enterprise: false
 ---
 本文档适用于创建新 DC/OS CLI 子命令的开发人员。另请参阅 [Universe 入门指南][1]。
 
-[DC/OS 命令行界面 (CLI)](/1.11/cli) 是管理群集节点、安装和管理包、检查群集状态，以及管理服务和任务的实用程序。DC/OS CLI 开放且可扩展：任何人都可以创建新子命令，可供最终用户安装。例如，[Spark DC/OS 服务] [2] 提供了可用 Spark 的 CLI 扩展。安装后，您可以键入以下命令以提交 Spark 作业并查询其状态：
+[DC/OS 命令行界面 (CLI)](/cn/1.11/cli) 是管理群集节点、安装和管理包、检查群集状态，以及管理服务和任务的实用程序。DC/OS CLI 开放且可扩展：任何人都可以创建新子命令，可供最终用户安装。例如，[Spark DC/OS 服务] [2] 提供了可用 Spark 的 CLI 扩展。安装后，您可以键入以下命令以提交 Spark 作业并查询其状态：
 
  dcos spark [<flags>] <command>
 
@@ -30,7 +30,7 @@ enterprise: false
 
 DC/OS 服务和 CLI 子命令同样采用 [打包格式和资料库][11] 。
 
-**注意：** CLI 模块为 [群集专用](/1.11/administering-clusters/multiple-clusters/)且存储于 `~/.dcos/clusters/<cluster_id>/subcommands`。必须为每个群集安装 CLI 模块。例如，如果连接到群集 1 并安装 Spark 模块，则连接到也运行 Spark 的群集 2。在安装该群集的模块之前，Spark CLI 命令不可用。
+**注意：** CLI 模块为 [群集专用](/cn/1.11/administering-clusters/multiple-clusters/)且存储于 `~/.dcos/clusters/<cluster_id>/subcommands`。必须为每个群集安装 CLI 模块。例如，如果连接到群集 1 并安装 Spark 模块，则连接到也运行 Spark 的群集 2。在安装该群集的模块之前，Spark CLI 命令不可用。
 
 ## 创建 DC/OS CLI 子命令
 

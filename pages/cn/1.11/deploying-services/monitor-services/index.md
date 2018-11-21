@@ -27,7 +27,7 @@ kafka     <privatenode3>   True     0    0.0    0.0     0.0   <service-id3>
 
 ## Web 界面
 
-查看监控 [文档](/1.11/monitoring/)。
+查看监控 [文档](/cn/1.11/monitoring/)。
 
 # 监控用户创建的服务
 
@@ -45,4 +45,4 @@ suzanne-simple-service  10.0.3.224  root    R    suzanne-simple-service.47359150
 
 ## Web 界面
 
-查看监控 [文档](/1.11/monitoring/)。
+查看监控 [文档](/cn/1.11/monitoring/)。

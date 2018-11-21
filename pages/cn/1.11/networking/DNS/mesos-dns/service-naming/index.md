@@ -231,7 +231,7 @@ Mesos-DNS 遵循关于名称格式的 [RFC 1123][3]。用于构建 A 记录主�
 
 您可以获得在 DC/OS 群集节点上运行的应用程序的综合列表。
 
-**先决条件：** [DC/OS 和 DC/OS CLI](/1.11/installing/) 已安装。
+**先决条件：** [DC/OS 和 DC/OS CLI](/cn/1.11/installing/) 已安装。
 
 1. SSH 到您的节点。例如，使用以下命令对管理节点执行 [SSH]：
 
@@ -239,7 +239,7 @@ Mesos-DNS 遵循关于名称格式的 [RFC 1123][3]。用于构建 A 记录主�
     dcos node ssh --leader --master-proxy
     ```
 
- 如需更多信息，请参阅 SSH [文档](/1.11/administering-clusters/sshcluster/)。
+ 如需更多信息，请参阅 SSH [文档](/cn/1.11/administering-clusters/sshcluster/)。
 
 2. 从管理节点运行此命令以查看节点详情：
 

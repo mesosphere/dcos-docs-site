@@ -13,7 +13,7 @@ enterprise: false
 
 # <a name="upgrade"></a>升级 CLI
 
-**注意：** 如果您从 PyPI 下载 CLI 或从 DC/OS UI 版本 1.7 或更早版本下载，您必须完全[卸载](/1.11/cli/uninstall/) CLI。您无法升级。
+**注意：** 如果您从 PyPI 下载 CLI 或从 DC/OS UI 版本 1.7 或更早版本下载，您必须完全[卸载](/cn/1.11/cli/uninstall/) CLI。您无法升级。
 
 您可以将现有 DC/OS CLI 安装升级到最新版本。
 
@@ -45,7 +45,7 @@ enterprise: false
     dcos cluster setup http://example.com
     ```
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/1.11/security/)。您的 CLI 现在应可通过您群集的身份认证！输入 `dcos` 即可开始。
+ 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.11/security/)。您的 CLI 现在应可通过您群集的身份认证！输入 `dcos` 即可开始。
 
     ```bash
     dcos

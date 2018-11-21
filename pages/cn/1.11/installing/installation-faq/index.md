@@ -11,7 +11,7 @@ excerpt: 关于安装 DC/OS 的常见问题
 我们建议从新群集开始，以确保所有默认值都能设置为预期值。这样可防止版本和配置不匹配引起的意外情况。
 
 ## 问：DC/OS 的操作系统要求是什么？
-请参阅 [系统要求](/1.11/installing/production/system-requirements/) 文档。
+请参阅 [系统要求](/cn/1.11/installing/production/system-requirements/) 文档。
 
 ## 问：DC/OS 是否安装 ZooKeeper？
 DC/OS 运行自己的 ZooKeeper，由 Exhibitor 和 `systemd` 监督。

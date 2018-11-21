@@ -94,7 +94,7 @@ enterprise: false
 
 按照以下步骤向 [DC/OS Enterprise 密钥存储库] 添加 Docker 注册表凭据(/1.11/security/ent/secrets/)，然后在服务定义中引用该密钥。
 
-**注意：** 此功能仅适用于 [通用 Containerizer 运行时间](/1.11/deploying-services/containerizers/ucr/)。如果需要使用 Docker Engine，请遵循上述 [URI 说明](#uri-instructions)。
+**注意：** 此功能仅适用于 [通用 Containerizer 运行时间](/cn/1.11/deploying-services/containerizers/ucr/)。如果需要使用 Docker Engine，请遵循上述 [URI 说明](#uri-instructions)。
 
 ## 第 1 步：创建凭据文件
 

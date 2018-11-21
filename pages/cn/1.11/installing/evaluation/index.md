@@ -25,9 +25,9 @@ DC/OS CloudFormation 模板仅供参考，因为以下限制不推荐用于生�
 - 经过修改的 CloudFormation 模板不受 Mesosphere，Inc.支持。
 
 采用以下方法安装 DC/OS：
-- [在 Amazon Web Services (AWS) 上提供 DC/OS](/1.11/installing/evaluation/cloud-installation/aws/) ：使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。
-- [在 Azure 上提供 DC/OS](/1.11/installing/evaluation/cloud-installation/azure/)：使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。
-- [在 Google 云端平台 (GCE) 上提供 DC/OS](/1.11/installing/evaluation/cloud-installation/gce/)：使用安装脚本在 Google 计算引擎 (GCE) 上安装 DC/OS 群集。此安装方法不支持升级。
+- [在 Amazon Web Services (AWS) 上提供 DC/OS](/cn/1.11/installing/evaluation/cloud-installation/aws/) ：使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。
+- [在 Azure 上提供 DC/OS](/cn/1.11/installing/evaluation/cloud-installation/azure/)：使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。
+- [在 Google 云端平台 (GCE) 上提供 DC/OS](/cn/1.11/installing/evaluation/cloud-installation/gce/)：使用安装脚本在 Google 计算引擎 (GCE) 上安装 DC/OS 群集。此安装方法不支持升级。
 
 **注意：** 安装可以就地升级的生产就绪的 DC/OS 的推荐方法是使用 [生产安装] (/1.11/installing/production/deploying-dcos/installation/) 方法。
 

@@ -18,7 +18,7 @@ DC/OS 预配置了 [Mesosphere Universe](https://github.com/mesosphere/universe)
 * [添加资源库](#adding)
 * [删除资源库](#removing)
 
-**注意：** 在使用 CLI 之前，您需要 [安装它](/1.11/cli/install/)。
+**注意：** 在使用 CLI 之前，您需要 [安装它](/cn/1.11/cli/install/)。
 
 ## <a name="listing"></a>列出资源库
 

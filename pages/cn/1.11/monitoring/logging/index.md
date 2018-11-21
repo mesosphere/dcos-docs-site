@@ -38,7 +38,7 @@ dcos node log --mesos-id=<node-id>
 
 您可以从 [DC/OS Web 界面]的**服务 > 服务**选项卡，下载服务的所有日志文件(/1.11/gui/)。您也可以监控 `stdout`/`stderr`。
 
-如需更多信息，请参阅“服务和任务日志”[快速入门指南](/1.11/monitoring/logging/quickstart/)。
+如需更多信息，请参阅“服务和任务日志”[快速入门指南](/cn/1.11/monitoring/logging/quickstart/)。
 
 ## 系统日志
 
@@ -56,7 +56,7 @@ journalctl -u dcos-nginx -b
 
 您可以在 DC/OS Web 界面的**节点**选项卡上发现哪些组件不正常。
 
-![系统健康](/1.11/img/ui-system-health-logging.png)
+![系统健康](/cn/1.11/img/ui-system-health-logging.png)
 
 图 1. 显示节点的系统健康状况日志
 
@@ -64,7 +64,7 @@ journalctl -u dcos-nginx -b
 
 流式传输来自群集中机器的日志并非始终可行。有时您需要已发生事件的历史记录，而这需要有存储和聚合日志的方法。这些主题描述了其中一些最常见的解决方案：
 
-- [使用 ELK 进行日志管理](/1.11/monitoring/logging/aggregating/elk/)
-- [使用 Splunk 进行日志管理](/1.11/monitoring/logging/aggregating/splunk/)
+- [使用 ELK 进行日志管理](/cn/1.11/monitoring/logging/aggregating/elk/)
+- [使用 Splunk 进行日志管理](/cn/1.11/monitoring/logging/aggregating/splunk/)
 
 [5]: /1.11/administering-clusters/sshcluster/

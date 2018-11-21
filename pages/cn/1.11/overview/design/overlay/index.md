@@ -26,7 +26,7 @@ DC/OS 的覆盖技术设计有以下假设：
 
 图 1 显示了 VxLAN 配置完成后，在 `MesosContainerizer` 和 Docker 上运行的容器的代理配置：
 
-![VxLAN 配置完成后，在 `MesosContainerizer` 和 Docker 上运行的容器的代理配置。](/1.11/img/overlay-fig-1.png)
+![VxLAN 配置完成后，在 `MesosContainerizer` 和 Docker 上运行的容器的代理配置。](/cn/1.11/img/overlay-fig-1.png)
 
 图 1. 代理配置 
 
@@ -71,7 +71,7 @@ DC/OS 的覆盖技术设计有以下假设：
 
 ## 软件架构
 
-![DC/OS 覆盖网络控制平面的软件架构。](/1.11/img/overlay-fig-2.png)
+![DC/OS 覆盖网络控制平面的软件架构。](/cn/1.11/img/overlay-fig-2.png)
 
 图 2. DC/OS 覆盖网络控制平面的软件架构
 

@@ -12,7 +12,7 @@ beta: false
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/1.11/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
+- 必须 [安装 DC/OS CLI](/cn/1.11/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
 
 1. 可选：部署一个示例 Marathon 应用程序供在本快速入门指南中使用。如果您已有任务在 DC/OS 上运行，则可以跳过此设置步骤。
 

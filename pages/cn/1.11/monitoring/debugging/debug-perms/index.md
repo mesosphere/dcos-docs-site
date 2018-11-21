@@ -13,10 +13,10 @@ enterprise: true
 
 **前提条件：**
 
-- 您必须[安装 DC/OS CLI](/1.11/cli/install/) 并以超级用户身份登录。
-- [用户帐户](/1.11/security/ent/users-groups/) 将权限分配给
+- 您必须[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
+- [用户帐户](/cn/1.11/security/ent/users-groups/) 将权限分配给
 
-所有 CLI 命令也可通过 [IAM API](/1.11/security/ent/iam-api/) 执行。您可以在 [CLI 命令参考部分](1.11/cli/command-reference/dcos-security/) 看到更多有关 `dcos security org users` 命令的详细信息。
+所有 CLI 命令也可通过 [IAM API](/cn/1.11/security/ent/iam-api/) 执行。您可以在 [CLI 命令参考部分](cn/1.11/cli/command-reference/dcos-security/) 看到更多有关 `dcos security org users` 命令的详细信息。
 
 ## 禁用
 

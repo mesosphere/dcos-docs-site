@@ -13,7 +13,7 @@ enterprise: false
 **前提条件：**
 
 - 您必须 [安装了] DC/OS 和 DC/OS CLI(/1.11/installing/)。
-- 您必须以超级用户身份登录，或者已被授予对日志记录的用户访问权限。如需更多信息，请参阅 [访问系统和组件日志](/1.11/monitoring/logging/access-component-logs/) 和 [访问任务日志](/1.11/monitoring/logging/access-task-logs/)。
+- 您必须以超级用户身份登录，或者已被授予对日志记录的用户访问权限。如需更多信息，请参阅 [访问系统和组件日志](/cn/1.11/monitoring/logging/access-component-logs/) 和 [访问任务日志](/cn/1.11/monitoring/logging/access-task-logs/)。
 
 # 部署一个示例应用程序
 部署一个示例 Marathon 应用程序供在本快速入门指南中使用。

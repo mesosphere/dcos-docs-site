@@ -44,7 +44,7 @@ Edge-LB API 还需要通过以下权限进行授权：
 
 用户也可以通过 `dcos:superuser` 权限来访问所有路由。
 
-要为您的帐户分配权限，请参阅 [分配权限](/1.11/security/ent/perms-reference/)。
+要为您的帐户分配权限，请参阅 [分配权限](/cn/1.11/security/ent/perms-reference/)。
 
 # 通用资源
 

@@ -22,11 +22,11 @@ DC/OS 由许多组件构成，尤其是分布式系统内核 ([Mesos](#apache-me
 
 ## <a name="dcos-gui"></a>DC/OS GUI
 
-[DC/OS 图形用户界面 (GUI)](/1.11/gui/) 是用于从网页浏览器远程控制和管理 DC/OS 群集的界面。GUI 有时也被称为 DC/OS UI 或 DC/OS Web 界面。
+[DC/OS 图形用户界面 (GUI)](/cn/1.11/gui/) 是用于从网页浏览器远程控制和管理 DC/OS 群集的界面。GUI 有时也被称为 DC/OS UI 或 DC/OS Web 界面。
 
 ## <a name="dcos-cli"></a>DC/OS CLI
 
-[DC/OS 命令行界面 (CLI)](/1.11/cli/) 是从终端远程控制和管理 DC/OS 群集的界面。
+[DC/OS 命令行界面 (CLI)](/cn/1.11/cli/) 是从终端远程控制和管理 DC/OS 群集的界面。
 
 # <a name="dcos-cluster"></a>群集
 
@@ -69,7 +69,7 @@ DC/OS 代理节点是 Mesos 任务运行所在的虚拟机或物理机。
 - 每个代理节点都包含多个 DC/OS 组件，尤其包括 [Mesos 代理节点](#mesos-agent) 进程。
 - 代理节点可以是 [专用的](#private-agent-node) 或 [公共的](#public-agent-node)，具体取决于代理和网络配置。
 
-如需更多信息，请参阅 [网络安全](/1.11/administering-clusters/) 和 [添加代理节点](/1.11/administering-clusters/add-a-node/)。
+如需更多信息，请参阅 [网络安全](/cn/1.11/administering-clusters/) 和 [添加代理节点](/cn/1.11/administering-clusters/add-a-node/)。
 
 # <a name="private-agent-node"></a>专用代理节点
 
@@ -84,10 +84,10 @@ DC/OS 代理节点是 Mesos 任务运行所在的虚拟机或物理机。
 公共代理节点是位于网络上的代理节点，**允许**通过群集的基础架构网络从群集外部访问。
 
 - 每个公共代理节点上的 Mesos 代理节点配置有 `public_ip:true` 代理属性及其分配给 `slave_public` 角色的所有资源。
-- 公共代理节点主要用于面向外部的反向代理负载均衡器，如 [Marathon-LB](/1.11/networking/marathon-lb/)。
+- 公共代理节点主要用于面向外部的反向代理负载均衡器，如 [Marathon-LB](/cn/1.11/networking/marathon-lb/)。
 - 群集通常只有几个公共代理节点，因为单个负载均衡器通常可以处理多个代理服务。
 
-如需更多信息，请参阅 [转换代理节点类型](/1.11/administering-clusters/convert-agent-type/)。
+如需更多信息，请参阅 [转换代理节点类型](/cn/1.11/administering-clusters/convert-agent-type/)。
 
 - <a name="host-operating-system"></a>[主机操作系统]
 
@@ -107,10 +107,10 @@ bootstrap 机是配置、构建和发布 DC/OS 安装程序工件的机器。
 
 - bootstrap 机在技术上不被视为是群集的一部分，因为它没有安装 DC/OS。对于大多数安装方法，必须可以通过基础架构网络来对群集中的机器进行 bootstrap 节点来回的访问。
 - bootstrap 机有时用作跳转盒来控制 SSH 访问群集中的其他节点，以提高安全性和日志记录。
-- 允许管理节点更改 IP 的一种方法涉及在 bootstrap 机上运行 ZooKeeper并使用 Exhibitor。其他替代方案包括使用 S3、DNS 或静态 IP，具有各种权衡需要考虑。如需更多信息，请参阅 [配置 Exhibitor 存储后端](/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend)。
-- 如果管理主节点 IP 更改不需要使用 bootstrap 机或将其作为 SSH 跳转盒，可在启动后将其关闭并按需运行以 [添加新节点](/1.11/administering-clusters/add-a-node/) 到群集。
+- 允许管理节点更改 IP 的一种方法涉及在 bootstrap 机上运行 ZooKeeper并使用 Exhibitor。其他替代方案包括使用 S3、DNS 或静态 IP，具有各种权衡需要考虑。如需更多信息，请参阅 [配置 Exhibitor 存储后端](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend)。
+- 如果管理主节点 IP 更改不需要使用 bootstrap 机或将其作为 SSH 跳转盒，可在启动后将其关闭并按需运行以 [添加新节点](/cn/1.11/administering-clusters/add-a-node/) 到群集。
 
-如需更多信息，请参阅 [系统要求](/1.11/installing/production/system-requirements/#bootstrap-node)。
+如需更多信息，请参阅 [系统要求](/cn/1.11/installing/production/system-requirements/#bootstrap-node)。
 
 # <a name="dcos-service"></a>服务
 
@@ -129,7 +129,7 @@ Marathon 服务由零个或多个容器化服务实例组成。每个服务实�
  - Marathon 应用程序实例与任务一对多映射。
 - 服务实例在提前退出时作为新的 Mesos 任务重新启动。
 - 如果服务实例提前退出且代理节点已关闭或不再有足够的资源，则可能会重新安排到另一个代理节点上。
-- 服务可通过 [DC/OS API (Marathon)](/1.11/deploying-services/marathon-api/) 直接安装，或者从 [Mesosphere Universe](#mesosphere-universe) 等 [软件包存储库](#dcos-package-registry) 通过 [DC/OS 包管理器 (Cosmos)](#package-manager) 间接安装。可以使用 [DC/OS GUI](#dcos-gui) 和 [DC/OS CLI](#dcos-cli) 更轻松地与 DC/OS 包管理器 (Cosmos) 交互。
+- 服务可通过 [DC/OS API (Marathon)](/cn/1.11/deploying-services/marathon-api/) 直接安装，或者从 [Mesosphere Universe](#mesosphere-universe) 等 [软件包存储库](#dcos-package-registry) 通过 [DC/OS 包管理器 (Cosmos)](#package-manager) 间接安装。可以使用 [DC/OS GUI](#dcos-gui) 和 [DC/OS CLI](#dcos-cli) 更轻松地与 DC/OS 包管理器 (Cosmos) 交互。
 - Marathon 服务可以是 [DC/OS 调度器](#dcos-scheduler)，但并非所有服务都是调度器。
 - Marathon 服务是围绕 Marathon 服务实例的抽象，后者是围绕 Mesos 任务的抽象。DC/OS 作业 (Metronome) 或 Jenkins 等其他调度器有自己的名称，用于围绕 Mesos 任务的抽象。
 
@@ -226,7 +226,7 @@ Mesosphere Universe 是由 Mesosphere 管理的一个公共包注册表。
 
 云模板是声明性描述 DC/OS 群集的一种基础架构特定方法。
 
-如需更多信息，请参阅 [云安装选项](/1.11/installing/evaluation/cloud-installation/)。
+如需更多信息，请参阅 [云安装选项](/cn/1.11/installing/evaluation/cloud-installation/)。
 
 
 # <a name="mesos-concepts"></a>Mesos 概念
@@ -321,7 +321,7 @@ Mesos 取决于 ZooKeeper，后者是管理群集状态的高性能协调服务�
 
 Mesos-DNS 是一个 DC/OS 组件，可在群集内提供服务发现。Mesos-DNS 允许在 Mesos 上运行的应用程序和服务通过使用域名系统 (DNS) 找到彼此，与服务在整个互联网中发现彼此的方式相似。
 
-如需更多信息，请参阅 [Mesos-DNS 文档](/1.11/networking/mesos-dns/)。
+如需更多信息，请参阅 [Mesos-DNS 文档](/cn/1.11/networking/mesos-dns/)。
 
 # <a name="marathon-concepts"></a>Marathon 概念
 

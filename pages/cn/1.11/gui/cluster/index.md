@@ -8,7 +8,7 @@ excerpt: 使用群集菜单
 
 群集菜单提供了群集运行状况的概述。
 
-![Cluster](/1.11/img/cluster-ee.png)
+![Cluster](/cn/1.11/img/cluster-ee.png)
 
 图 1. 群集 > 概述菜单
 

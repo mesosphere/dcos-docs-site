@@ -39,4 +39,4 @@ dcos config
 
 `dcos help config` 命令与 `dcos config --help`相同。
 
-有关详细信息，请参阅 [`dcos help`](/1.11/cli/command-reference/dcos-help/)命令。
+有关详细信息，请参阅 [`dcos help`](/cn/1.11/cli/command-reference/dcos-help/)命令。
