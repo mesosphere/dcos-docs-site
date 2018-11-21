@@ -93,7 +93,8 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | ca_certificate_path                   | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.12/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_key_path           | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.12/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_chain_path       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.12/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
-| [security](#security-enterprise)                               | The security mode: disabled, permissive, or strict. [enterprise type="inline" size="small" /] |
+| [iam_ldap_sync_interval](/1.12/security/ent/ldap/ldap-sync/) | Interval in seconds between ldap sync operations. [enterprise type="inline" size="small" /] | 
+|[security](#security-enterprise)                               | The security mode: disabled, permissive, or strict. [enterprise type="inline" size="small" /] |
 | [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
 | [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
