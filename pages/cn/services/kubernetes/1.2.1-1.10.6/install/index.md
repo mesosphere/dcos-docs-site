@@ -24,17 +24,14 @@ excerpt: 安装 DC/OS Kubernetes（附带默认安装）
 | `kube-proxy`              | 1                     | 0.1              | 512                   | -                           |
 | `kubelet`                 | 1                     | 3                | 3072                  | 10240                       |
 
-For instructions on how to run a highly-available cluster please referr to
+如果需要如何运行高可用性群集的指导，请参考
 [Advanced Installation](../advanced-install).
 
-<p class="message--warning"><strong>WARNING: </strong>Failing to meet these prerequisites will lead to tasks failing to be
-scheduled. These tasks will not show up in the DC/OS UI or CLI, and installation
-will seem to be stuck.</p>
+<p class="message--warning"><strong>警告： </strong>无法满足先决条件会导致任务无法调度。这些任务将不会在DC/OS UI 或 CLI 显示，且可能安装会受阻。</p>
 
 ### Software
 
-Each DC/OS agent (both private and public) must have the following binaries
-installed and available in `$PATH`:
+每个 DC/OS 代理 (无论是专有或公共) 必须安装在 `$PATH` 中有的以下二进制文件:
 
 | Binary     |
 | ---------- |
