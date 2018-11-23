@@ -24,7 +24,7 @@ enterprise: true
 
 如果您在宽容模式下安装服务且未指定服务帐户，Metronome 和 Marathon 将按照此服务的请求是由具有 [超级用户权限](/cn/1.11/security/ent/perms-reference/#superuser)的帐户做出的那样行事。
 
-**前提条件：**
+**先决条件：**
 
 - [已安装 DC/OS CLI](/1.9/cli/install/) 并以超级用户身份登录。
 - [已安装 Enterprise DC/OS CLI 0.4.14 或更高版本](/1.9/cli/enterprise-cli/#ent-cli-install)。
