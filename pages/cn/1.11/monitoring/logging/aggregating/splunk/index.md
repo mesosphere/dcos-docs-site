@@ -19,7 +19,7 @@ enterprise: false
 </tr> 
 </table>
 
-**前提条件**
+**先决条件**
 
 * 现有 Splunk 装置可以消化数据用于索引
 * 所有 DC/OS 节点必须能够通过 HTTP 或 HTTPS 连接到 Splunk 索引器
