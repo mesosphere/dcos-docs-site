@@ -19,7 +19,7 @@ enterprise: false
 
 本文档未介绍如何设置和配置 Elasticsearch 服务器。本文档未介绍如何在 Filebeat 实例和 Elasticsearch 之间建立安全的 TLS 通信。有关如何实现此操作的详细信息，请参阅 [Filebeat][2] 和 [Elasticsearch][5] 文档。
 
-**前提条件**
+**先决条件**
 
 * 现有 Elasticsearch 装置可以消化数据用于索引
 * 所有 DC/OS 节点都必须能够连接到用于在 Elasticsearch 和 Filebeat 之间通信的端口上的 Elasticsearch 服务器（默认情况下为 9200）
