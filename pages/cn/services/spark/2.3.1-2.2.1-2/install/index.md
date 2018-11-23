@@ -11,7 +11,7 @@ render: mustache
 
 DC/OS {{ model.techName }} 可在 Universe 中使用，可通过使用 GUI 或 DC/OS CLI 进行安装。
 
-**前提条件：**
+**先决条件：**
 
 - [已安装 DC/OS 和 DC/OS CLI](https://docs.mesosphere.com/latest/installing/)。
 - 根据您的 [安全模式](https://docs.mesosphere.com/latest/security/ent/#security-modes)，Spark 需要服务身份认证才能访问 DC/OS。更多信息：
