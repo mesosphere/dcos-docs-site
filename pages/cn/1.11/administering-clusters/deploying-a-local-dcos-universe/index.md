@@ -13,7 +13,7 @@ enterprise: false
 
 您可以部署包含所有已认证包的本地 Universe（最简单），或包含所选包的本地 Universe（高级）。
 
-**前提条件：**
+**先决条件：**
 
 - [已安装 DC/OS CLI](/cn/1.11/cli/install/)。
 
