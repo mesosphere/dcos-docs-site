@@ -12,7 +12,7 @@ enterprise: true
 
 要使用此程序，您必须向销售代表获取自定义非本地 Marathon tarball（<sales@mesosphere.io>）。这一自定义 tarball 包含 Marathon 以及一个密钥和授权插件。这些附加插件帮助您在非本地 Marathon 文件夹层级中使用密码和细粒度访问控制。
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS 和 DC/OS CLI [已安装](/cn/1.11/installing/)。
 - [DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
