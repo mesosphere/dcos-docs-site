@@ -7,7 +7,7 @@ navigationTitle: 上安装和自定义 ： 开源
 ---
 
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS [已安装](/1.10/installing/oss/)
 - DC/OS CLI [已安装](/1.10/cli/install/)
