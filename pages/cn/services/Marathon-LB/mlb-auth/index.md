@@ -39,7 +39,7 @@ enterprise: true
 
 首先，您需要生成 2048 位 RSA 公私密钥对。虽然您可以使用任何工具完成此操作，但 DC/OS Enterprise CLI 最为方便，因为它以 DC/OS 所需的格式返回密钥。
 
-**前提条件：**
+**先决条件：**
 - [已安装 DC/OS CLI](/1.10/cli/install/)
 - [DC/OS Enterprise CLI 0.4.14 或更高版本](/1.10/cli/enterprise-cli/#ent-cli-install)
 
@@ -59,7 +59,7 @@ enterprise: true
 
 ### 使用 DC/OS Enterprise CLI
 
-**前提条件：**
+**先决条件：**
 - [已安装 DC/OS CLI](/1.10/cli/install/)
 - [DC/OS Enterprise CLI 0.4.14 或更高版本](/1.10/cli/enterprise-cli/#ent-cli-install)
 - 通过 `dcos auth login` 以超级用户身份登录。
@@ -179,7 +179,7 @@ rm -rf mlb-private-key.pem
 
 使用以下命令，您可以快速为 Marathon-LB 服务帐户配置所需权限。这些命令可从群集外部执行。
 
-**前提条件**
+**先决条件**
 - [已安装 DC/OS CLI](/1.10/cli/install/)
 - 作为超级用户通过 `dcos auth login` 登录
 
