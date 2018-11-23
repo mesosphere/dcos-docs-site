@@ -13,7 +13,7 @@ enterprise: true
 
 ## <a name="network-access-via-ui"></a>使用 Web 界面授予访问权限
 
-**前提条件：**
+**先决条件：**
 
 - 不具有 `dcos:superuser` [权限](/cn/1.11/security/ent/users-groups/) 的 DC/OS 用户账户。
 
