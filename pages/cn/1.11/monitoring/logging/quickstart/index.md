@@ -10,7 +10,7 @@ enterprise: false
 
 使用本指南开始使用 DC/OS 日志记录。此处使用的许多命令在 [CLI 命令参考] 中有更全面的描述(/1.11/cli/command-reference/dcos-task/)。
 
-**前提条件：**
+**先决条件：**
 
 - 您必须 [安装了] DC/OS 和 DC/OS CLI(/1.11/installing/)。
 - 您必须以超级用户身份登录，或者已被授予对日志记录的用户访问权限。如需更多信息，请参阅 [访问系统和组件日志](/cn/1.11/monitoring/logging/access-component-logs/) 和 [访问任务日志](/cn/1.11/monitoring/logging/access-task-logs/)。
