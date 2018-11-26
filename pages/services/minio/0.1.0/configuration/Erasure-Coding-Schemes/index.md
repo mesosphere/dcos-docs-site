@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Eraser Coding Scheme in MInio
-title: Eraser Coding Scheme in Minio
+navigationTitle: Erasure Coding Scheme in MInio
+title: Erasure Coding Scheme in Minio
 menuWeight: 45
-excerpt: Eraser Coding Scheme
+excerpt: Erasure Coding Scheme
 featureMaturity:
 enterprise: false
 ---
