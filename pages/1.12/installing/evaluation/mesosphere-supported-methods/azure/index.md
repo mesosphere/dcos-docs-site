@@ -134,7 +134,8 @@ data "http" "whatismyip" {
 }
 
 module "dcos" {
-  source = "dcos-terraform/dcos/azurerm"
+  source  = "dcos-terraform/dcos/azurerm"
+  version = "~> 0.1"
 
   dcos_instance_os    = "coreos_1855.5.0"
   cluster_name        = "my-dcos"
@@ -238,7 +239,8 @@ data "http" "whatismyip" {
 }
 
 module "dcos" {
-  source = "dcos-terraform/dcos/azurerm"
+  source  = "dcos-terraform/dcos/azurerm"
+  version = "~> 0.1"
 
   dcos_instance_os    = "coreos_1855.5.0"
   cluster_name        = "my-dcos"
@@ -307,7 +309,7 @@ You should see now 4 total nodes connected like below via the DC/OS UI.
 
 # Upgrading Your Cluster
 Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS.
-If you are interested in learning more about the upgrade procedure that Terraform performs, please see the official [DC/OS Upgrade documentation](https://docs.mesosphere.com//installing/production/upgrading/).
+If you are interested in learning more about the upgrade procedure that Terraform performs, please see the official [DC/OS Upgrade documentation](https://docs.mesosphere.com/1.11/installing/production/upgrading/).
 
 1) In order to perform an upgrade, we need to go back to our `main.tf` and modify the current DC/OS Version (`dcos_version`) to `1.11.5` and also specify an additional parameter (`dcos_install_mode`). By default this parameter is set to `install`, which is why we were able to leave it unset when creating the initial DC/OS cluster and scaling it.
 
@@ -326,7 +328,8 @@ data "http" "whatismyip" {
 }
 
 module "dcos" {
-  source = "dcos-terraform/dcos/azurerm"
+  source  = "dcos-terraform/dcos/azurerm"
+  version = "~> 0.1"
 
   dcos_instance_os    = "coreos_1855.5.0"
   cluster_name        = "my-dcos"
