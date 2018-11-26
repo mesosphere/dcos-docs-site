@@ -125,7 +125,7 @@ paths:
         in: header
       responses:
         "200":
-          description: Load Balancer Pool response.
+          description: Load balancer pool response.
           schema:
             $ref: '#/definitions/V1Pool'
         default:
@@ -169,7 +169,7 @@ paths:
         in: header
       responses:
         "200":
-          description: Load Balancer Pool response.
+          description: Load balancer pool response.
           schema:
             $ref: '#/definitions/V1Pool'
         default:
@@ -242,7 +242,7 @@ paths:
           schema:
             type: string
     put:
-      description: Creates or updates an configuration artifact for a load balancer
+      description: Creates or updates a configuration artifact for a load balancer
         pool. Not all artifacts can be changed.
       consumes:
       - text/plain
@@ -273,7 +273,7 @@ paths:
           schema:
             type: string
     delete:
-      description: Clears an override for a artifact. Not all artifacts can be deleted.
+      description: Clears an override for an artifact. Not all artifacts can be deleted.
       consumes:
       - text/plain
       produces:
@@ -395,7 +395,7 @@ paths:
         in: header
       responses:
         "200":
-          description: Load Balancer Pool response.
+          description: Load balancer pool response.
           schema:
             $ref: '#/definitions/V2Pool'
         default:
@@ -439,7 +439,7 @@ paths:
         in: header
       responses:
         "200":
-          description: Load Balancer Pool response.
+          description: Load balancer pool response.
           schema:
             $ref: '#/definitions/V2Pool'
         default:
@@ -647,7 +647,7 @@ definitions:
         type: string
       protocol:
         description: The backend protocol is how HAProxy communicates with the servers
-          it's load balancing.
+          it is load balancing.
         $ref: '#/definitions/V1Protocol'
       rewriteHttp:
         description: Manipulate HTTP headers. There is no effect unless the protocol
@@ -695,7 +695,7 @@ definitions:
         description: Additional text to put in the bind field
         type: string
       bindPort:
-        description: The port (e.g. 80 for HTTP or 443 for HTTPS) that this frontend
+        description: The port (e.g., 80 for HTTP or 443 for HTTPS) that this frontend
           will bind to.
         type: integer
         format: int32
@@ -716,7 +716,7 @@ definitions:
           map: []
         properties:
           defaultBackend:
-            description: This is default backend that is routed to if none of the
+            description: This is the default backend that is routed to if none of the
               other filters are matched.
             type: string
           map:
@@ -1078,7 +1078,7 @@ definitions:
             $ref: '#/definitions/V1Match'
           value:
             description: The Task name. This field is not needed for VIPs. For Marathon
-              pods this is the container name NOT the pod name.
+              pods this is the container name, NOT the pod name.
             type: string
       type:
         $ref: '#/definitions/V1ServerType'
@@ -1127,7 +1127,7 @@ definitions:
       services: []
     properties:
       balance:
-        description: Load balancing strategy. e.g. roundrobin, leastconn, etc.
+        description: Load balancing strategy, e.g., roundrobin, leastconn, etc.
         type: string
       customCheck:
         description: This is used to specify alternate forms of healthchecks
@@ -1147,7 +1147,7 @@ definitions:
         items:
           type: string
       name:
-        description: This is name that frontends refer to.
+        description: This is the name that frontends refer to.
         type: string
       protocol:
         description: The backend protocol is how HAProxy communicates with the servers
@@ -1221,7 +1221,7 @@ definitions:
         - CONTAINER_IP
         - ADDRESS
   V2Frontend:
-    description: The Frontend maps to the HAProxy frontend. This includes information
+    description: The frontend maps to the HAProxy frontend. This includes information
       such as what addresses and ports to listen on, what SSL/TLS certificates to
       use, and which backends to route to.
     type: object
