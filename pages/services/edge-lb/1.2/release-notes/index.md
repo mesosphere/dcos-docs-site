@@ -9,6 +9,32 @@ enterprise: false
 
 These are the release notes for Edge-LB 1.2.
 
+# v1.2.3
+
+Released on November 15, 2018.
+
+## Notable Changes
+
+* lbmgr: enforce the timeout also during the connection phase of the healthcheck
+  command
+* apiserver: make following parameters of the pool tasks healthchecking configurable via new pool parameters:
+  * `poolHealthcheckGracePeriod` - defines the period of time after start of the pool container when failed healtchecks will be ignored (default: 180s).
+  * `poolHealthcheckInterval` - defines healthcheck execution interval. At most one healtcheck is going to execute at any given time (default: 12s).
+  * `poolHealthcheckMaxFail` - defines how many consecutive failures mark the task as failed and force Mesos to kill it (default: 5).
+  * `poolHealthcheckTimeout` - defines the timeout enforced by Mesos on the healthcheck execution. It includes the container startup(fetch, setup, start, etc...) as well as the time spent by the healthcheck command executing the test.
+
+
+## Known Limitations
+
+* Edge-LB currently does not support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
+* Edge-LB currently does not support self-service configuration. All configuration must be handled centrally.
+
+## Known Issues
+
+* The steps provided in the DC/OS web interface to uninstall Edge-LB are incorrect. Follow these steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
+* Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
+* If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
+
 # v1.2.2
 
 Released on November 15, 2018.
@@ -37,14 +63,6 @@ Released on November 15, 2018.
   * Removed unnecessary tooling regarding iptables, syslogd, etc.
   * Now only necessary artifacts are copied into the container during the build (i.e., no more Dockerfile)
   * Verbose when copying files during the container start
-
-## Bug Fixes
-
-* In DC/OS 1.11.3 EE (strict mode), non-superuser access needed to Edge-LB pool logs
-* EdgeLB – default template for SNI is incorrect
-* Edgelb should ignore terminal but not ack'ed tasks from Mesos when subscribing.
-* Edge-LB pool is unable to launch additional load balancer tasks
-* Edge LB pool can not deploy if app and secret are under namespace/group
 
 ## Known Limitations
 
