@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Configuration
 menuWeight: 20
-model: /services/minio/data.yml
+model: /services/mongodb-enterprise/data.yml
 render: mustache
 ---
 
