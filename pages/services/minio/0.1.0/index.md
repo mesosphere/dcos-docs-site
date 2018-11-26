@@ -17,7 +17,7 @@ DC/OS {{ model.techName }} offers the following benefits:
 1. Based on the battle-proven DC/OS framework/operator SDK underpinning all DC/OS-certified frameworks
 2. Minio is a lightweight object storage server.
 3. Minio deploys Amazon S3 compatible object storage server in seconds.
-4. Provides Consistent deployment across multi-cloud environments.
+4. Provides consistent deployment across multi-cloud environments.
 5. Backup and restore using AWS S3 as backing store
 
 ## DC/OS {{ model.techName }}'s main features are:
