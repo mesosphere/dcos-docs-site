@@ -82,7 +82,7 @@ If the service was previously installed on DC/OS 1.9, and the cluster has now be
 
 Using the version controlled options file of the service, start a configuration update:
 ```bash
-dcos {{ model.pacakgeName }} update start --options=<options-file>
+dcos {{ model.packageName }} update start --options=<options-file>
 ```
 This will update the service metadata with the correct stored options. The service scheduler will be restarted, but service tasks will not. Going forward, you can use the `update` commands as described elsewhere.
 
