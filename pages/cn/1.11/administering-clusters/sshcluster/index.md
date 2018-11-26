@@ -3,23 +3,23 @@ layout: layout.pug
 navigationTitle: SSH 至节点
 title: SSH 至节点
 menuWeight: 0
-excerpt: 从外部网络设置到您的 DC/OS 群集的 SSH 连接。
+excerpt: 从外部网络设置到您的 DC/OS 集群的 SSH 连接。
 
 enterprise: false
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-如果您与群集位于同一网络或通过使用 VPN 连接，您可以使用 `dcos node ssh` 命令。有关详细信息，请参阅 CLI 参考的 [dcos 节点部分][1]。
+如果您与集群位于同一网络或通过使用 VPN 连接，您可以使用 `dcos node ssh` 命令。有关详细信息，请参阅 CLI 参考的 [dcos 节点部分][1]。
 
-* [在 Unix/Linux 上 SSH 至 DC/OS 群集（macOS、Ubuntu 等）][2]
-* [在 Windows 上 SSH 至 DC/OS 群集][3]
+* [在 Unix/Linux 上 SSH 至 DC/OS 集群（macOS、Ubuntu 等）][2]
+* [在 Windows 上 SSH 至 DC/OS 集群][3]
 
 **要求：**
 
-* 可用于通过 SSH 认证群集节点的未加密 SSH 密钥。不支持加密的 SSH 密钥。
+* 可用于通过 SSH 认证集群节点的未加密 SSH 密钥。不支持加密的 SSH 密钥。
 
-### <a name="unix"></a>在 Unix/Linux 上 SSH 至 DC/OS 群集（macOS、Ubuntu 等）
+### <a name="unix"></a>在 Unix/Linux 上 SSH 至 DC/OS 集群（macOS、Ubuntu 等）
 **注意：** Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即使使用 Microsoft Azure 也是如此。
 
 1. 使用 `chmod` 命令更改 `.pem` 文件权限为所有者读/写权限。
@@ -34,7 +34,7 @@ enterprise: false
     chmod 600 <private-key>.pem
     ```
 
-2. SSH 至群集。
+2. SSH 至集群。
 
  1. 从您的终端，将您的新配置添加到 `.pem` 文件，其中 `<private-key>` is your `.pem` 文件。
 
@@ -72,7 +72,7 @@ enterprise: false
  图 1. Web 界面节点 ID 屏幕
 
 
-### <a name="windows"></a> 在 Windows 上 SSH 至 DC/OS 群集
+### <a name="windows"></a> 在 Windows 上 SSH 至 DC/OS 集群
 
 **要求：**
 
@@ -94,7 +94,7 @@ enterprise: false
 
  3. 关闭 PuTTYgen。
 
-2. SSH 至群集。
+2. SSH 至集群。
 
  * **要 SSH 至管理节点：**
 
@@ -151,7 +151,7 @@ enterprise: false
 
  3. SSH 至管理节点。
 
- 1. 从 DC/OS Web 界面，复制管理节点的 IP 地址。IP 地址显示在您的群集名称下方。
+ 1. 从 DC/OS Web 界面，复制管理节点的 IP 地址。IP 地址显示在您的集群名称下方。
 
  2. 在 PuTTY 窗口左侧的 **类别** 窗格中，选择 **会话**，在 **主机名（或 IP 地址）** 字段中输入管理节点 IP 地址。
 

@@ -13,7 +13,7 @@ enterprise: true
 - `permissive`：可选
 - `strict`：必需
 
-为了增加群集的安全性并符合最低权限的原则，我们建议在 `permissive` 模式中为 Marathon-LB 配置一个服务帐户。否则，Marathon 和 Metronome 将按照 Marathon-LB 配置到一个具有 `superuser` 权限的服务帐户行事。
+为了增加集群的安全性并符合最低权限的原则，我们建议在 `permissive` 模式中为 Marathon-LB 配置一个服务帐户。否则，Marathon 和 Metronome 将按照 Marathon-LB 配置到一个具有 `superuser` 权限的服务帐户行事。
 
 此外，如果您计划升级至 `strict` 模式，在 `disabled` 和 `permissive` 模式中为 Marathon-LB 配置一个服务帐户将使升级更加轻松。如果您设置了与同一 Marathon 实例相互作用的多个 Marathon-LB 实例，您可以对每个 Marathon-LB 实例使用相同的服务帐户。
 
@@ -145,7 +145,7 @@ rm -rf mlb-private-key.pem
 
 1. 将 `marathon-lb/service-account-secret` 输入到 **ID** 字段中，在 `marathon-lb`路径中创建一个名为 `service-account-secret` 的新密钥。在 `marathon-lb` 路径中定位查找该密钥将确保只有 Marathon-LB 服务才能访问它。
 
-1. 如果您有 `strict` 或 `permissive` 群集，将以下 JSON 粘贴到 **值** 字段。
+1. 如果您有 `strict` 或 `permissive` 集群，将以下 JSON 粘贴到 **值** 字段。
 
   ```json
   {
@@ -156,7 +156,7 @@ rm -rf mlb-private-key.pem
   }
   ```
 
- 如果您有 `disabled` 群集，将以下 JSON 粘贴到 **值** 字段。
+ 如果您有 `disabled` 集群，将以下 JSON 粘贴到 **值** 字段。
 
   ```json
   {
@@ -177,7 +177,7 @@ rm -rf mlb-private-key.pem
 
 ## <a name="give-perms"></a>为服务帐户配置权限
 
-使用以下命令，您可以快速为 Marathon-LB 服务帐户配置所需权限。这些命令可从群集外部执行。
+使用以下命令，您可以快速为 Marathon-LB 服务帐户配置所需权限。这些命令可从集群外部执行。
 
 **前提条件**
 - [已安装 DC/OS CLI](/1.10/cli/install/)

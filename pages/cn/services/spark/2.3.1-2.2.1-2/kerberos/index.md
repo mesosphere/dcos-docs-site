@@ -12,8 +12,8 @@ render: mustache
 # HDFS Kerberos
 
 Kerberos 是一个认证系统，允许 Spark 对启用 Kerberos 的 HDFS 进行数据的安全检索和写入。
-群集中设置 ingress 的示例和重要信息。至 Mesosphere Spark `2.2.0-2` 起，长时间运行的作业将更新其授权令牌（认证
-凭证）。此部分假定您之前设置了启用 Kerberos 的 HDFS 群集。
+集群中设置 ingress 的示例和重要信息。至 Mesosphere Spark `2.2.0-2` 起，长时间运行的作业将更新其授权令牌（认证
+凭证）。此部分假定您之前设置了启用 Kerberos 的 HDFS 集群。
 
 <p class="message--note"><strong>注意: </strong> 根据您的 OS，Spark 可能需要以 <code>root</code> 运行，以使用启用 Kerberos 的服务进行认证。这可以通过在提交作业时设置 <code>--conf spark.mesos.driverEnv.SPARK_USER=root</code> 来完成。</p>
 
@@ -186,14 +186,14 @@ Keytab 无限期有效，而票证会过期。推荐使用 Keytab，尤其是对
 ```
 <p class="message--note"><strong>注意：</strong> 此页面上的示例假设您正在使用 Spark 的默认服务名称 "spark"。如果使用不同的服务名称，请相应地更新密钥路径。</p>
 
-<p class="message--note"><strong>注意：</strong> 您可以从 Mesos 上的 Spark 访问外部（即非 DC/OS） Kerberos 安全的 HDFS 群集。</p>
+<p class="message--note"><strong>注意：</strong> 您可以从 Mesos 上的 Spark 访问外部（即非 DC/OS） Kerberos 安全的 HDFS 集群。</p>
 
 **DC/OS 1.10 或更早版本：** 这些凭证对安全至关重要。DC/OS 密钥存储库要求您在添加密钥之前使用 base64 编码二进制密钥（例如 Kerberos keytab）。如果使用 `__dcos_base64__` 前缀上传，当 Spark 作业可用该密钥时，密钥会被自动解码。如果密钥名称**没有**此前缀，keytab 将被解码并写入沙盒中的文件。这将导致密钥暴露，不建议这样使用。
 
 
 # 使用 Kerberos 安全的 Kafka
 
-Spark 可以消费启用 Kerberos 的 Kafka 群集中的数据。连接 Spark 到安全的 Kafka 不需要特殊的
+Spark 可以消费启用 Kerberos 的 Kafka 集群中的数据。连接 Spark 到安全的 Kafka 不需要特殊的
 安装参数。但是，它确实要求 Spark 驱动程序和 Spark 执行程序可以访问以下文件：
 
 * 客户端 JAAS（Java 认证和授权服务）文件。这是使用带有 `--conf
@@ -207,7 +207,7 @@ Spark 可以消费启用 Kerberos 的 Kafka 群集中的数据。连接 Spark �
  --conf spark.mesos.driverEnv.KRB5_CONFIG_BASE64=<base64_encoded_string>
  --conf spark.executorEnv.KRB5_CONFIG_BASE64=<base64_encoded_string>
   ```      
-* `keytab` 包含访问 Kafka 群集的凭证。
+* `keytab` 包含访问 Kafka 集群的凭证。
 ```       
  --conf spark.mesos.containerizer=mesos # required for secrets
  --conf spark.mesos.driver.secret.name=<keytab> # 例如 spark/kafka_keytab

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: 替换管理节点
 title: 替换管理节点
 menuWeight: 800
-excerpt: 替换现有 DC/OS 群集中的管理节点
+excerpt: 替换现有 DC/OS 集群中的管理节点
 
 enterprise: true
 ---
@@ -11,7 +11,7 @@ enterprise: true
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-docs-site -->
 
 
-您可以替换现有 DC/OS 群集中的管理节点。一次只能替换一个管理节点。
+您可以替换现有 DC/OS 集群中的管理节点。一次只能替换一个管理节点。
 
 ### 删除现有管理节点
 
@@ -28,7 +28,7 @@ enterprise: true
 地址。
 
 再次确认新服务器具有与旧服务器相同的内部 IP 地址
-之后，旧服务器就完全无法从群集中访问了
+之后，旧服务器就完全无法从集群中访问了
 您可以按正常方式继续安装新的管理节点。
 
 #### `master_discovery: master_http_loadbalancer`
@@ -39,7 +39,7 @@ enterprise: true
 
 ### 检查新管理节点是否健康
 
-为确认新的管理节点已成功加入群集，您在继续之前，必须验证该程序是否成功。
+为确认新的管理节点已成功加入集群，您在继续之前，必须验证该程序是否成功。
 
 该程序与管理节点升级后执行的验证程序相同。
 

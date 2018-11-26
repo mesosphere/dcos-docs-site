@@ -27,7 +27,7 @@ DC/OS 1.11.2 包括以下内容：
 - DCOS-20568 - 修复了有关服务账户权限不足的诊断捆绑包创建错误。[enterprise type="inline" size="small" /]
 - DCOS-21596 - 如果本地用户账户匹配 LDAP 组中存在的 LDAP 用户名，本地用户账户现在会自动添加到 LDAP 组。[enterprise type="inline" size="small" /]
 - DCOS-21611 - IP 检测脚本和故障域检测脚本可通过配置升级来更改。
-- DCOS-22128 - 修复了当群集 Pod 但并非每个容器都挂载一个卷时，DC/OS UI “服务”视图中的问题 [enterprise type="inline" size="small" /]
+- DCOS-22128 - 修复了当集群 Pod 但并非每个容器都挂载一个卷时，DC/OS UI “服务”视图中的问题 [enterprise type="inline" size="small" /]
 - DCOS-22041 - Admin Router：修复了权限数据缓存中的竞争条件。[enterprise type="inline" size="small" /]
 - DCOS-22133 - DC/OS IAM：修复了数据库 bootstrap 事务不会插入某些数据的罕见情况。[enterprise type="inline" size="small" /]
 - DCOS_OSS-2317 - 整合了 pkgpanda 的包下载方法。
@@ -58,7 +58,7 @@ Kubernetes 包依赖关系记录 [在此处](https://docs.mesosphere.com/service
 # 关于 DC/OS 1.11
 
 DC/OS 1.11 包含许多新功能，重点是：
-- 跨多个云管理群集 [enterprise type="inline" size="small" /]
+- 跨多个云管理集群 [enterprise type="inline" size="small" /]
 - 生产 Kubernetes 即服务
 - 增强了数据安全性 [enterprise type="inline" size="small" /]
 - 更新了数据服务
@@ -69,8 +69,8 @@ DC/OS 1.11 包含许多新功能，重点是：
 ## 新特性和功能
 
 ### 平台
-- 多区域管理 - 使 DC/OS 群集能跨越多个数据中心、云和远程分支，同时提供统一的管理和控制群集。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
-- 已链接的群集 - 群集链路是一个群集和另一个群集之间的单向关系。使用 DC/OS CLI 将一个群集的链接添加到另一个群集或将其删除。设置链接后，您可以使用 CLI 或 UI 在群集之间轻松切换。[查看文档](/cn/1.11/administering-clusters/multiple-clusters/cluster-links)。[enterprise type="inline" size="small" /]
+- 多区域管理 - 使 DC/OS 集群能跨越多个数据中心、云和远程分支，同时提供统一的管理和控制集群。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
+- 已链接的集群 - 集群链路是一个集群和另一个集群之间的单向关系。使用 DC/OS CLI 将一个集群的链接添加到另一个集群或将其删除。设置链接后，您可以使用 CLI 或 UI 在集群之间轻松切换。[查看文档](/cn/1.11/administering-clusters/multiple-clusters/cluster-links)。[enterprise type="inline" size="small" /]
  - 故障域感知 - 利用故障域感知使您的服务高度可用，并能在需要时增加容量。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
 - 停用节点 - 支持永久停用节点使得更容易管理“spot”云实例，实现任务的立即重新调度。[查看文档](/cn/1.11/hybrid-cloud/features/decommission-nodes/)
 - UCR

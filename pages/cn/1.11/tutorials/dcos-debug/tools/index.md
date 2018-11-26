@@ -43,7 +43,7 @@ DC/OS 为各种组件提供许多 Web 界面，尤其是在调试应用程序部
 
 **DC/OS Web 界面** 是开始调试的绝佳地方，因为它提供了对以下内容的快速访问：
 
-- **群集资源分配**，以提供可用群集资源的概述
+- **集群资源分配**，以提供可用集群资源的概述
 - **任务日志**，以提供对任务故障的深入了解
 - **任务调试信息**，以提供关于最近任务邀约的信息和/或任务未启动的原因
 
@@ -65,7 +65,7 @@ DC/OS Web 界面显示调试所需的大部分信息。但是，更进一步并�
 
 ### ZooKeeper Web 界面
 
-由于大部分群集和框架状态存储在 Zookeeper 中，因此使用 ZooKeeper/Exhibitor Web 界面检查这些状态有时会很有帮助。Marathon、Kafka 和 Cassandra 等框架使用 Zookeeper 存储信息，因此在调试此类框架时，此资源尤为有用。例如，卸载其中一个框架时出现故障可能会留下条目。因此，当然如果您在重新安装之前卸载的框架时遇到困难，检查此 Web 界面可能非常有用。您可通过 `https://<cluster-address>/exhibitor` 查看状态。
+由于大部分集群和框架状态存储在 Zookeeper 中，因此使用 ZooKeeper/Exhibitor Web 界面检查这些状态有时会很有帮助。Marathon、Kafka 和 Cassandra 等框架使用 Zookeeper 存储信息，因此在调试此类框架时，此资源尤为有用。例如，卸载其中一个框架时出现故障可能会留下条目。因此，当然如果您在重新安装之前卸载的框架时遇到困难，检查此 Web 界面可能非常有用。您可通过 `https://<cluster-address>/exhibitor` 查看状态。
 
 ![ZooKeeper/Exhibitor Web 界面图片](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-13.png)
 
@@ -185,9 +185,9 @@ $ dcos node log --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0 --follow
 
 ### Mesos 管理节点日志
 
-Mesos 管理节点负责将可用资源与调度程序匹配。它还将任务状态更新从 Mesos 代理节点转发到相应的调度程序。这使 Mesos 管理节点日志成为了解群集整体状态的一个很好的资源。
+Mesos 管理节点负责将可用资源与调度程序匹配。它还将任务状态更新从 Mesos 代理节点转发到相应的调度程序。这使 Mesos 管理节点日志成为了解集群整体状态的一个很好的资源。
 
-请注意，单个群集通常有多个 Mesos 管理节点。因此，您应该**确定当前主导的 Mesos 管理节点以获得最新日志**。事实上，在某些情况下，从另一个 Mesos 管理节点检索日志甚至是有意义的：例如，管理节点发生故障并且您想要了解原因。
+请注意，单个集群通常有多个 Mesos 管理节点。因此，您应该**确定当前主导的 Mesos 管理节点以获得最新日志**。事实上，在某些情况下，从另一个 Mesos 管理节点检索日志甚至是有意义的：例如，管理节点发生故障并且您想要了解原因。
 
 您可以通过从 Mesos Web 界面检索管理节点日志，通过<cluster-name>/mesos`, via `dcos node log --leader`, or for a specific master node using `ssh master` and `journalctl -u dcos-mesos-master` 进行。
 
@@ -238,7 +238,7 @@ Apr 09 23:51:51 ip-10-0-3-81.us-west-2.compute.internal dockerd[1262]: time="201
 
 利用度量数据来帮助调试的一种方法是设置仪表盘。此仪表盘将包括与您要监控的服务相关的最重要度量数据。例如，您可以[使用 prometheus 和 grafana](https://github.com/dcos/dcos-metrics/blob/master/docs/quickstart/prometheus.md#dcos-metrics-with-prometheus-and-grafana) 创建度量仪表盘。
 
-理想情况下，配置仪表盘并运行后，您可以在潜在问题成为实际错误之前识别它们。此外，当出现问题时，此类仪表盘在确定错误原因方面非常有帮助（例如，可能群集没有可用资源）。上面列出的端点项中的每个链接都提供了您应监控该端点的度量数据的建议。
+理想情况下，配置仪表盘并运行后，您可以在潜在问题成为实际错误之前识别它们。此外，当出现问题时，此类仪表盘在确定错误原因方面非常有帮助（例如，可能集群没有可用资源）。上面列出的端点项中的每个链接都提供了您应监控该端点的度量数据的建议。
 
 <a name="interactive"></a>
 
@@ -268,7 +268,7 @@ DC/OS 具有大量可用于调试的其他端点：
 
 ### `state-summary`
 
-[`state-summary` 端点](http://mesos.apache.org/documentation/latest/endpoints/master/state-summary/) 返回群集内代理节点、任务和框架的 json 编码摘要。在考虑跨群集分配资源时，这尤其有用，因为它显示是否已为特定角色保留了资源（在[下文提供的调试方案之一](#c2)中有更多详细信息）。
+[`state-summary` 端点](http://mesos.apache.org/documentation/latest/endpoints/master/state-summary/) 返回集群内代理节点、任务和框架的 json 编码摘要。在考虑跨集群分配资源时，这尤其有用，因为它显示是否已为特定角色保留了资源（在[下文提供的调试方案之一](#c2)中有更多详细信息）。
 
 **注意** 请参阅 [Mesos 端点的完整列表](http://mesos.apache.org/documentation/latest/endpoints/)。
 

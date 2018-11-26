@@ -8,7 +8,7 @@ menuWeight: 10
 
 
 
-可以使用以下方法在本地安装 DC/OS 群集：
+可以使用以下方法在本地安装 DC/OS 集群：
 
 1. [使用 Ansible On-Premise 安装 DC/OS](https://github.com/dcos-labs/ansible-dcos/blob/master/docs/INSTALL_ONPREM.md)。
 2. [使用 Chef On-Premises 安装 DC/OS](https://github.com/dcos-labs/dcos-chef)。

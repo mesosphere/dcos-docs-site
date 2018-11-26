@@ -16,7 +16,7 @@ featureMaturity:
 * Spark 作业在 Docker 容器中运行。第一次在节点上运行 Spark 作业时，
  因为 `docker pull`，可能需要比预期更长的时间。
 
-* DC/OS Apache Spark 仅支持从 DC/OS 群集中运行 Spark shell。参见 [Spark Shell 部分](/cn/services/spark/2.3.1-2.2.1-2/spark-shell/) 了解更多信息。对于交互式分析，我们推荐 Zeppelin，其支持可视化效果和动态依赖关系管理。
+* DC/OS Apache Spark 仅支持从 DC/OS 集群中运行 Spark shell。参见 [Spark Shell 部分](/cn/services/spark/2.3.1-2.2.1-2/spark-shell/) 了解更多信息。对于交互式分析，我们推荐 Zeppelin，其支持可视化效果和动态依赖关系管理。
 
 * 启用 Spark SSL/TLS 时，如果您使用
  `spark.mesos.[driver|executor].secret.envkeys`指定基于环境的密钥，由于密钥实施方式，keystore 和信任存储密钥也将显示为
@@ -34,7 +34,7 @@ featureMaturity:
  容器内部有一个区别于主机系统的不同的 UID。尽管按惯例，在许多系统上，用户 `nobody` 有 UID 65534，
  但并不总是如此。由于 Mesos 不执行 Linux 用户命名空间之间的 UID 映射，这种情况下，指定
  `nobody` 服务用户会导致当容器用户尝试打开或执行由具有不同 UID 的用户拥有的文件系统资源时出现故障，
- 阻止服务启动。如果群集中的主机
+ 阻止服务启动。如果集群中的主机
  中 `nobody` 的 UID 不是 65534，您需要维护默认用户（`root`) 以成功运行 DC/OS Spark
  。
 
@@ -42,7 +42,7 @@ featureMaturity:
 # DC/OS Spark 限制测试结果
 Mesosphere 通过在以下硬件上运行一个 CPU 绑定 Monte Carlo 应用程序，在 DC/OS 上规模测试 Spark。
 
-## 群集特性
+## 集群特性
 - 总共 2560 个核
 - 40 m4.16xlarge EC2 实例
 
@@ -52,7 +52,7 @@ Mesosphere 通过在以下硬件上运行一个 CPU 绑定 Monte Carlo 应用程
 - CPU 利用率超过 90%，大部分时间用于任务计算
 
 ### 每个节点多个执行程序：
-在较小的、1024-核、16 节点（m4.16xlarge）群集上，测试以下变化：
+在较小的、1024-核、16 节点（m4.16xlarge）集群上，测试以下变化：
 
  执行程序 | 启动所有执行程序的时间 | 每节点执行程序
  --------- | --------------------------- | -----------------

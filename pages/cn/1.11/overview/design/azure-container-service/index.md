@@ -6,7 +6,7 @@ navigationTitle: ACS
 menuWeight: 2
 ---
 
-[Azure 容器服务](https://azure.microsoft.com/documentation/articles/container-service-deployment/) 是对已优化 DC/OS 的参考实现，以充分利用 Microsoft Azure 基础架构的特性。如果您已拥有 Azure 帐户，则可以通过 [创建 Azure 容器服务群集]，尝试在 Microsoft Azure 上构建的 DC/OS 参考实现(https://aka.ms/acscreate)。（若没有账户，请首先获得 [免费 Azure 试用帐户](https://azure.microsoft.com/pricing/free-trial/)。）
+[Azure 容器服务](https://azure.microsoft.com/documentation/articles/container-service-deployment/) 是对已优化 DC/OS 的参考实现，以充分利用 Microsoft Azure 基础架构的特性。如果您已拥有 Azure 帐户，则可以通过 [创建 Azure 容器服务集群]，尝试在 Microsoft Azure 上构建的 DC/OS 参考实现(https://aka.ms/acscreate)。（若没有账户，请首先获得 [免费 Azure 试用帐户](https://azure.microsoft.com/pricing/free-trial/)。）
 
 **注意：** Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即便是使用 Microsoft Azure 时。
 
@@ -14,7 +14,7 @@ menuWeight: 2
 
 - 使用 DC/OS 的好处
 - Azure 基础架构和实现架构
-- 用于构建 DC/OS 和 ACS 群集的物料清单
+- 用于构建 DC/OS 和 ACS 集群的物料清单
 
 ## DC/OS 的优势
 
@@ -78,12 +78,12 @@ DC/OS 应用程序用作其分布式用户空间中的系统组件。系统 Mara
 
 ## Azure 容器服务基础架构和优化
 
-Azure 容器服务采用 DC/OS 构建，作为关键编排选项之一。DC/OS 实现经过优化，可在 Microsoft Azure 和本地轻松创建和使用，最终使用 Azure Stack。它是开始使用 DC/OS、Mesos 和分布式群集（可以像一个大型系统一样管理）的最佳方式之一，无论是在您的数据中心，还是在 Azure 中。
+Azure 容器服务采用 DC/OS 构建，作为关键编排选项之一。DC/OS 实现经过优化，可在 Microsoft Azure 和本地轻松创建和使用，最终使用 Azure Stack。它是开始使用 DC/OS、Mesos 和分布式集群（可以像一个大型系统一样管理）的最佳方式之一，无论是在您的数据中心，还是在 Azure 中。
 
 Azure 容器服务实现为您带来了其他几项好处：
 
 1. 这是开始使用 DC/OS 的最简便方法。您只需点击几个按钮并提供几个参数，然后就可以部署应用程序了。如果您有 Azure 帐户，[请尝试](https://aka.ms/acscreate)。
-2. DC/OS 部署专门针对 Azure 经过审核和优化：所有虚拟机、存储、网络、负载均衡器等都可以为高可用性 DC/OS 群集创建并配置。
+2. DC/OS 部署专门针对 Azure 经过审核和优化：所有虚拟机、存储、网络、负载均衡器等都可以为高可用性 DC/OS 集群创建并配置。
 3. 您可以增加与 Azure 服务的集成性，只要您认定随着系统改进它会使您的部署受益。
 4. ACS 为基础架构提供 Microsoft 支持，以补充 Mesosphere 对 DC/OS 的支持。
 

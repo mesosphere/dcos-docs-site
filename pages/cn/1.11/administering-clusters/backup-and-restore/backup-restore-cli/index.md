@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: 备份和恢复 CLI
 title: 备份和恢复 CLI
 menuWeight: 0
-excerpt: 使用 CLI 备份和恢复群集
+excerpt: 使用 CLI 备份和恢复集群
 
 enterprise: true
 ---
 
 # 先决条件
-- 一个 DC/OS Enterprise 群集。
+- 一个 DC/OS Enterprise 集群。
 - [DC/OS CLI](/cn/1.11/cli/install/) 已安装。
 - [DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/) 已安装。
 
@@ -20,9 +20,9 @@ enterprise: true
 </table>
 
 
-# 备份群集
+# 备份集群
 
-备份存储在管理节点的本地文件系统上。备份状态由在群集中运行的服务维护，并通过直接使用此服务来进行备份/恢复操作。
+备份存储在管理节点的本地文件系统上。备份状态由在集群中运行的服务维护，并通过直接使用此服务来进行备份/恢复操作。
 
 1. 创建备份并对其分配一个有意义的标签。
  标签有以下限制：
@@ -58,7 +58,7 @@ enterprise: true
    dcos backup delete <backup-id>
    ```
 
-# 恢复群集
+# 恢复集群
 
 1. 列出可用备份，选择要恢复的备份并记录下备份 ID。
 

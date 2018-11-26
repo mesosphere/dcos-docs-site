@@ -29,23 +29,23 @@ Mesos 上的 Spark 支持两种操作模式：粗粒度模式和细粒度模式�
  `spark.cores.max`。执行程序在作业期间存活。
 * **每代理的执行程序**：多个
 
-**注意：** 我们强烈建议您 [设置 `spark.cores.max`](#set-spark-cores-max)。如果您没有设置，您的 Spark 作业可能会消耗群集中的所有可用资源，导致其他同等作业不适应。
+**注意：** 我们强烈建议您 [设置 `spark.cores.max`](#set-spark-cores-max)。如果您没有设置，您的 Spark 作业可能会消耗集群中的所有可用资源，导致其他同等作业不适应。
 
 # 驱动程序和执行程序的配额
 
 为驱动程序设置 [Mesos 配额](http://mesos.apache.org/documentation/latest/quota/) 可防止 Dispatcher 消耗过多资源并协助行为排队。若要控制驱动程序并发数，
 Spark 服务将同时运行。我们强烈建议为驱动程序设置配额。配额将既可
 保证 Spark Dispatcher 拥有可启动驱动程序的资源，又能限制因为驱动程序而对
-群集产生的整体影响。可选择为要使用的驱动程序设置配额，以确保驱动程序不会因为其他框架影响而出现
-资源不足，以及确保它们不会消耗太多群集（请参阅粗粒度
+集群产生的整体影响。可选择为要使用的驱动程序设置配额，以确保驱动程序不会因为其他框架影响而出现
+资源不足，以及确保它们不会消耗太多集群（请参阅粗粒度
 模式）。
 
 ## 为驱动程序设置配额
 
-为驱动程序设置配额允许群集管理员确保只有给定数量的驱动程序在同时运行。随着其他驱动程序的提交，它们将由 Spark Dispatcher 进行排队。以下是为驱动程序设置配额的建议步骤：
+为驱动程序设置配额允许集群管理员确保只有给定数量的驱动程序在同时运行。随着其他驱动程序的提交，它们将由 Spark Dispatcher 进行排队。以下是为驱动程序设置配额的建议步骤：
 
 1. 保守设置配额，记住这将影响可同时运行的作业数量。
-1. 决定为运行中的驱动程序分配多少群集资源。这些资源将仅用于
+1. 决定为运行中的驱动程序分配多少集群资源。这些资源将仅用于
  Spark 驱动程序，这意味着现在我们可以大致决定我们希望一次运行多少个并发作业。随着其他作业的提交，它们将被排队并使用先进先出的语义运行。
 1. 对于最可预测的行为，执行统一驱动程序资源要求以及 Dispatcher 特定的配额大小
  。如果每个驱动程序消耗 1.0 CPU，希望同时运行最多五个 Spark 作业，则应创建具有 5 个 CPU 的配额：
@@ -90,10 +90,10 @@ $ dcos package install spark --options=options.json
         
 建议为 Spark 作业执行程序分配配额。为 Spark 执行程序分配配额，可以：
 - 保证 Spark 作业将收到所需数量的资源。
-- 还可以保证即使是错误配置的 Spark 作业（例如，带有未设置`spark.cores.max`的驱动程序）也不会消费太多资源，从而影响群集中的其他租户。
+- 还可以保证即使是错误配置的 Spark 作业（例如，带有未设置`spark.cores.max`的驱动程序）也不会消费太多资源，从而影响集群中的其他租户。
 
 为执行程序分配配额的缺点是配额资源不能被其他框架使用
-群集中设置 ingress 的示例和重要信息。
+集群中设置 ingress 的示例和重要信息。
 
 可以按照为 Spark 调度程序进行分配的相同方式为 Spark 执行程序分配配额。假设我们想同时运行 100 个执行程序，每个有 1.0  CPU 和 4096 MB 内存，我们应该执行以下操作：
 
@@ -139,7 +139,7 @@ http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 3000"
 
 ## 严格模式使用配额时的权限 
 
-严格模式群集（参见 [安全模式](https://docs.mesosphere.com/1.10/security/ent/#security-modes)) 需要额外权限才能使用配额。遵循[安装中的说明](https://github.com/mesosphere/spark-build/blob/master/docs/install.md) 并为
+严格模式集群（参见 [安全模式](https://docs.mesosphere.com/1.10/security/ent/#security-modes)) 需要额外权限才能使用配额。遵循[安装中的说明](https://github.com/mesosphere/spark-build/blob/master/docs/install.md) 并为
 您打算使用的角色添加其他权限，详见如下说明。按照以上示例，将进行如下设置：
 
 1. 首先，为调度程序角色设置配额（`dispatcher`）
@@ -227,7 +227,7 @@ http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 3000"
 ## 设置 `spark.cores.max`
 
 为了改善 Spark 作业执行可靠性，设置任何给定作业所消耗的最大核心数。这可防止
-任何特定 Spark 作业在群集中消耗过多资源。强烈建议提交的每个 Spark 作业时限制其可消耗的最大核心 (CPU) 数量。这对于
+任何特定 Spark 作业在集群中消耗过多资源。强烈建议提交的每个 Spark 作业时限制其可消耗的最大核心 (CPU) 数量。这对于
 长时间运行和流式 Spark 作业尤其重要。
 
 ```bash

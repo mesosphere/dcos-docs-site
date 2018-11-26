@@ -88,7 +88,7 @@ enterprise: false
 
 # 容器镜像垃圾收集
 
-对于长时间运行的群集，容器镜像可能占用代理机器上的磁盘空间。为了改善操作员使用 UCR 的体验，从 Mesos 1.5.0 开始的文档会介绍容器镜像 GC（请阅读 Mesos 文档(http://mesos.apache.org/documentation/latest/container-image/#garbage-collect-unused-container-images) 以获取更多详细信息）。镜像 GC 在 DC/OS 中默认是自动的，而操作员可以手动启用。
+对于长时间运行的集群，容器镜像可能占用代理机器上的磁盘空间。为了改善操作员使用 UCR 的体验，从 Mesos 1.5.0 开始的文档会介绍容器镜像 GC（请阅读 Mesos 文档(http://mesos.apache.org/documentation/latest/container-image/#garbage-collect-unused-container-images) 以获取更多详细信息）。镜像 GC 在 DC/OS 中默认是自动的，而操作员可以手动启用。
 
 ## [自动镜像 GC](http://mesos.apache.org/documentation/latest/container-image/#automatic-image-gc-through-agent-flag)
 

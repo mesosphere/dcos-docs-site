@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-容器化服务可以放置在群集中的任何位置。许多 DC/OS 服务提供端点，方便客户端找到它们。
+容器化服务可以放置在集群中的任何位置。许多 DC/OS 服务提供端点，方便客户端找到它们。
 
 # 发现端点
 可以通过 DC/OS Web 界面找到服务端点（若有）。单击 **服务**，之后单击服务名称。单击 **端点** 选项卡。
@@ -28,12 +28,12 @@ enterprise: false
 
 返回的端点将包括以下内容：
 
-- `.autoip.dcos.thisdcos.directory` 如果实例在 DC/OS 群集内移动的情况下，会跟着每个实例的主机名，。
+- `.autoip.dcos.thisdcos.directory` 如果实例在 DC/OS 集群内移动的情况下，会跟着每个实例的主机名，。
 - 用于访问任何实例的支持 HA 的 VIP 主机名（可选）。
 - 用于在 `.autoip.dcos.thisdcos.directory` 主机名不可解析时访问服务的直接 IP 地址。
 - 如果服务位于虚拟网络（例如 `dcos` 覆盖网络），那么 IP 将来自分配给正运行任务所在主机的子网。不会是主机 IP。若要解析主机 IP，请使用 Mesos DNS (`<task>.<service>.mesos`）。
 
-一般情况下，`.autoip.dcos.thisdcos.directory` 端点仅在同一 DC/OS 群集内工作。从群集外部，可以使用直接 IP 或设置作为服务实例前端的代理服务。出于开发和测试目的，可以使用 [DC/OS 隧道](/cn/1.11/developing-services/tunnel/) 从群集外部访问服务，但此选项不适合生产使用。
+一般情况下，`.autoip.dcos.thisdcos.directory` 端点仅在同一 DC/OS 集群内工作。从集群外部，可以使用直接 IP 或设置作为服务实例前端的代理服务。出于开发和测试目的，可以使用 [DC/OS 隧道](/cn/1.11/developing-services/tunnel/) 从集群外部访问服务，但此选项不适合生产使用。
 
 ## 将客户端连接到端点
 

@@ -11,13 +11,13 @@ excerpt: 高级安装选项
 
 默认的 DC/OS Kubernetes 包安装为尝试服务提供合理的默认设置。
 此页面描述了许多选项，可以启用选择性功能或允许您更改
-分配给 Kubernetes 群集的资源。
+分配给 Kubernetes 集群的资源。
 
 ## 先决条件
 
-为了使用默认参数运行框架，您的群集至少必须有一个专用代理以及运行下表所述任务所需的可用资源：
+为了使用默认参数运行框架，您的集群至少必须有一个专用代理以及运行下表所述任务所需的可用资源：
 
-| | 每个群集的实例 | 每个 CPU 的实例 | 每个实例的 Mem (MB) | 每个实例的磁盘空间 (MB) |
+| | 每个集群的实例 | 每个 CPU 的实例 | 每个实例的 Mem (MB) | 每个实例的磁盘空间 (MB) |
 | ----------------------- | --------------------- | ---------------- | --------------------- | --------------------------- |
 | Package scheduler       | 1                     | 1                | 1024                  | -                           |
 | etcd                    | 1                     | 0.5              | 1024                  | 3072 for data, 512 for logs |
@@ -34,7 +34,7 @@ following:-->
 
 如果需要高可用性，则使用`kubernetes.high_availability`包必须启用选项，建议至少使用三个私有代理。在高可用性模式运行任务所需的资源是以下：
 
-| | 每个群集的实例 | 每个 CPU 的实例 | 每个实例的 Mem (MB) | 每个实例的磁盘空间 (MB) |
+| | 每个集群的实例 | 每个 CPU 的实例 | 每个实例的 Mem (MB) | 每个实例的磁盘空间 (MB) |
 | ----------------------- | --------------------- | ---------------- | --------------------- | --------------------------- |
 | 包调度器 | 1 | 1 | 1024 | - |
 | etcd | 3 | 0.5 | 1024 | 3072 用于数据，512 用于日志 |
@@ -86,7 +86,7 @@ dcos package install kubernetes --options=options.json
 
 ## 更改 Kubernetes 节点数量
 
-DC/OS Kubernetes 允许您指定群集中的专用和公用 Kubernetes 节点数量。
+DC/OS Kubernetes 允许您指定集群中的专用和公用 Kubernetes 节点数量。
 
 ### 专用节点
 
@@ -134,7 +134,7 @@ dcos package install kubernetes --options=options.json
 
 ## 布局约束
 
-布局约束允许您自定义 DC/OS 群集中部署服务的位置。布局约束使用 [Marathon 运营商](http://mesosphere.github.io/marathon/docs/constraints.html) 语法。例如，`[["hostname", "UNIQUE"]]` 确保每个代理最多部署一个 Pod。
+布局约束允许您自定义 DC/OS 集群中部署服务的位置。布局约束使用 [Marathon 运营商](http://mesosphere.github.io/marathon/docs/constraints.html) 语法。例如，`[["hostname", "UNIQUE"]]` 确保每个代理最多部署一个 Pod。
 
 通用任务是指定要对其进行部署的白名单系统列表。为此，请使用以下语法用于布局约束：
 
@@ -158,7 +158,7 @@ dcos package install kubernetes --options=options.json
 
 ### 更新布局约束
 
-群集更改，那么您的布局约束也会更改。但是，已经运行的 pod 将不会受到布局约束变化的影响。这是因为更改布局约束可能使正在运行的 pod 的当前布局失效，而且 pod 不会被自动迁移，因为这种操作具有破坏性。我们建议使用以下程序更新 Pod 的布局约束：
+集群更改，那么您的布局约束也会更改。但是，已经运行的 pod 将不会受到布局约束变化的影响。这是因为更改布局约束可能使正在运行的 pod 的当前布局失效，而且 pod 不会被自动迁移，因为这种操作具有破坏性。我们建议使用以下程序更新 Pod 的布局约束：
 
 - 更新服务中的布局约束定义。
 - 针对每个受影响的 pod，一次执行一个 pod 替换。这将（破坏性地）移动 Pod 使其符合新的布局约束。
@@ -172,7 +172,7 @@ dcos package install kubernetes --options=options.json
 
 用于共同身份认证和通信加密的 TLS 实施为：
 
-- `etcd` 群集 peer - 仅启用加密，而不是共同身份认证，因为 `etcd`
+- `etcd` 集群 peer - 仅启用加密，而不是共同身份认证，因为 `etcd`
  不会基于所提供的主机名，而是基于 IP 地址上验证 peer 证书
  peer 视为 peer 或 DC/OS 不支持的 DNS SRV 发现。
 - `etcd` client-server - 同时启用加密和共同身份认证。唯一就位的客户端
@@ -193,7 +193,7 @@ TLS 工件，如密钥对（私和公）以及证书的创建、签名和交换�
  (CA) 用于验证和最终签署证书签名请求 (CSR)。
 - [DC/OS 密码](/cn/1.11/security/ent/secrets/) - 一种向包组件分配
  TLS 工件的集中、安全方式，例如，Kubernetes 组件和
- 在同一 DC/OS 群集中的其他应用程序。
+ 在同一 DC/OS 集群中的其他应用程序。
 - [DC/OS 服务帐户](/cn/1.11/security/ent/service-auth/) - 我们的包和
  应用程序所需，以对上述服务进行身份认证。
 
@@ -268,7 +268,7 @@ dcos package install kubernetes --options=options.json
 
 ## 当您有代理时
 
-某些用户可以在其 DC/OS 群集和互联网之间进行代理设置。这导致安装此包出现问题，即无法运行 `kube-dns` 以及其他插件 pod。以下是此类故障的示例:
+某些用户可以在其 DC/OS 集群和互联网之间进行代理设置。这导致安装此包出现问题，即无法运行 `kube-dns` 以及其他插件 pod。以下是此类故障的示例:
 
 ```
 Normal Created 5m (x2502 over 8d) kubelet, kube-node-5-kubelet.kubernetes.mesos Created container
@@ -289,8 +289,8 @@ DC/OS 代理上的 `HTTPS_PROXY` 导致 `kubelet` 任务继承相同的值，因
 
 ## 当使用 10.100.0.0/16 时
 
-默认情况下，Kubernetes 群集将使用 `10.100.0.0/16` 作为服务 CIDR。
-如果是这种情况，则需要对 Kubernetes 群集服务 CIDR 进行更改。
+默认情况下，Kubernetes 集群将使用 `10.100.0.0/16` 作为服务 CIDR。
+如果是这种情况，则需要对 Kubernetes 集群服务 CIDR 进行更改。
 
 创建 JSON 选项文件，或编辑现有的文件：
 
@@ -318,7 +318,7 @@ Kubernetes 为选择性集成提供许多公用和专用云提供商。
 
 - [AWS](https://kubernetes.io/docs/concepts/cluster-administration/cloud-providers/#aws)
 
-以下，您将找到有关如何选择性地让您的 Kubernetes 群集
+以下，您将找到有关如何选择性地让您的 Kubernetes 集群
 与云提供商集成。
 
 ### AWS
@@ -425,7 +425,7 @@ dcos package install kubernetes --options=options.json
 
 举个例子，要使用
 [通用固态硬盘](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html)
-卷作为您群集中卷的默认存储类型，您必须创建
+卷作为您集群中卷的默认存储类型，您必须创建
 以下 `StorageClass` 资源：
 
 ```yaml
@@ -512,4 +512,4 @@ spec:
 ingress 控制器。请参阅
 [Ingress](/cn/services/kubernetes/1.2.1-1.10.6/ingress)
 文档，以了解有关在您的
-群集中设置 ingress 的示例和重要信息。
+集群中设置 ingress 的示例和重要信息。

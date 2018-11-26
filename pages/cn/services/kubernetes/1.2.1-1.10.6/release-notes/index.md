@@ -45,7 +45,7 @@ excerpt: 此版本的发行说明
 * 支持 XFS 文件系统（RHEL 7.2 及更高版本），但只有 `d_type=true`
  被启用。使用 `xfs_info` 来验证 `ftype` 选项被设置为 `1`。
  要正确格式化 XFS 文件系统，请使用标签 `-n ftype=1`。
-* 不支持在创建群集后关闭 `kubernetes.high_availability` 
+* 不支持在创建集群后关闭 `kubernetes.high_availability` 
  选项的值。
 * 当 `kubernetes.high_availability` 被禁用时，替换 `etcd` 或 `kube-node` pod
  可能会导致永久数据丢失。

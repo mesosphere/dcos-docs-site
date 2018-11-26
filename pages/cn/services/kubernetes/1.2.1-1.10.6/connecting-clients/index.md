@@ -3,15 +3,15 @@ layout: layout.pug
 navigationTitle: 连接客户端
 title: 连接客户端
 menuWeight: 72
-excerpt: 将客户端连接到 Kubernetes 群集
+excerpt: 将客户端连接到 Kubernetes 集群
 
 ---
 
 ## 连接客户端
 
-在尝试连接到 Kubernetes 群集之前，您应确保
+在尝试连接到 Kubernetes 集群之前，您应确保
 您已正确将 Kubernetes API 暴露于 DC/OS 外部
-群集中设置 ingress 的示例和重要信息。这可通过遵循
+集群中设置 ingress 的示例和重要信息。这可通过遵循
 [暴露 Kubernetes API](/cn/services/kubernetes/1.2.1-1.10.6/exposing-the-kubernetes-api/) 中所述的步骤实现。
 
 您还应确保
@@ -25,11 +25,11 @@ DC/OS UI 安装 Kubernetes 包，那么您还需要安装
 ```
 
 在进行之前，您还应确保 `dcos` 被充分配置，
-可访问所需的 DC/OS 群集。
+可访问所需的 DC/OS 集群。
 
 <div class="message--important"><p><strong>警告</strong></p>
 <p>在进行之前，<tt>dcos</tt> <b>必须</b> 被配置，可通过 HTTPS 访问
-所需的 DC/OS 群集。您必须确保</p>
+所需的 DC/OS 集群。您必须确保</p>
 <p><tt>$ dcos config show core.dcos_url</tt></p>
 <p> 返回以<tt>https://</tt> 开头的 URL。</p>
 
@@ -53,7 +53,7 @@ $ dcos kubernetes kubeconfig \
 ```
 
 您必须将 `https://kube-apiserver.example.com:6443` 替换为
-Kubernetes API 暴露于 DC/OS 群集外部的 URL。
+Kubernetes API 暴露于 DC/OS 集群外部的 URL。
 
 ### 有 TLS 验证
 
@@ -69,16 +69,16 @@ $ dcos kubernetes kubeconfig \
 哪个 `ca.crt` 是访问 CA（签署用于暴露 Kubernetes API 的证书）
 证书的路径。您必须将
 `https://kube-apiserver.example.com:6443` 替换为 Kubernetes
-API 暴露于 DC/OS 群集外部的 URL。
+API 暴露于 DC/OS 集群外部的 URL。
 
 从此，任何 `kubectl` 调用都可以轻松运行，基于
 已配置 Kubernetes API 授权模式以及授予您 Kubernetes 服务帐户的权限。
 
-## 管理多个群集
+## 管理多个集群
 
-如文档中所述，DC/OS Kubernetes 仅支持一个 Kubernetes 群集
-部署。然而，您可能想要使用多个 Kubernetes 群集，
-有可能是在其他 Kubernetes 提供者上运行的群集。 `kubectl` 支持多个上下文环境，您随后可以切换至
+如文档中所述，DC/OS Kubernetes 仅支持一个 Kubernetes 集群
+部署。然而，您可能想要使用多个 Kubernetes 集群，
+有可能是在其他 Kubernetes 提供者上运行的集群。 `kubectl` 支持多个上下文环境，您随后可以切换至
 所需的环境。
 
 要在不切换上下文环境的情况下创建 DC/OS Kubernetes config，请执行以下操作：
@@ -91,7 +91,7 @@ $ dcos kubernetes kubeconfig \
 kubeconfig context 'kube-apiserver-example-com6443' created successfully
 ```
 
-要切换到 DC/OS Kubernetes 群集上下文环境，
+要切换到 DC/OS Kubernetes 集群上下文环境，
 您必须运行：
 
 ```bash

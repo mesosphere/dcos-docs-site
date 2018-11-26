@@ -3,21 +3,21 @@ layout: layout.pug
 title: 在 AWS EC2 Advanced 上运行 DC/OS
 navigationTitle: Advanced
 menuWeight: 10
-excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
+excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
 ---
 
 
-可以使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集。高级模板包括：
+可以使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群。高级模板包括：
 * 高度可自定义
-* 可堆叠；例如，您可以将多个代理池部署到同一个群集
+* 可堆叠；例如，您可以将多个代理池部署到同一个集群
 * 复杂；需要更多设置工作
 
-高级 AWS CloudFormation 模板为创建和扩展 DC/OS 群集带来了优势和灵活性。通过这些模板，您可以从一整套 DC/OS 配置选项中进行选择。
+高级 AWS CloudFormation 模板为创建和扩展 DC/OS 集群带来了优势和灵活性。通过这些模板，您可以从一整套 DC/OS 配置选项中进行选择。
 
- - 在现有的 VPC/子网组合上实例化完整的 DC/OS 群集。
- - 通过添加更多的 [代理] (/1.8/overview/concepts/#agent) 节点来扩展和更新现有的 DC/OS 群集。
+ - 在现有的 VPC/子网组合上实例化完整的 DC/OS 集群。
+ - 通过添加更多的 [代理] (/1.8/overview/concepts/#agent) 节点来扩展和更新现有的 DC/OS 集群。
 
-模板一起用于创建 DC/OS 群集。驱动这些模板的是 AWS CloudFormation 用于创建每个堆栈的参数。
+模板一起用于创建 DC/OS 集群。驱动这些模板的是 AWS CloudFormation 用于创建每个堆栈的参数。
 
 <table class=“table” bgcolor=#858585>
 <tr> 
@@ -36,7 +36,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
  * Enterprise 用户应使用 [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads)。请联系销售代表或 <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a>，访问配置文件。[enterprise type="inline" size="small" /]
  * 开源用户应使用 [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh)。[oss type="inline" size="small" /]
 - 带根 [IAM] 权限的 Amazon Web Services 帐户(https://aws.amazon.com/iam/)。安装高级模板需要高级权限。如需更多信息，请联系 AWS 管理员。
-- 与群集相同分域的 AWS EC2 密钥对。密钥对不能跨分域共享。AWS 密钥对使用公钥加密功能提供对 AWS 群集的安全登录。有关创建 AWS EC2 密钥对的详细信息，请参阅 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">文档</a>。
+- 与集群相同分域的 AWS EC2 密钥对。密钥对不能跨分域共享。AWS 密钥对使用公钥加密功能提供对 AWS 集群的安全登录。有关创建 AWS EC2 密钥对的详细信息，请参阅 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">文档</a>。
 - AWS [命令行界面](https://aws.amazon.com/cli/)。
 - CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation)。
 - 符合 bootstrap 节点 [系统要求] 的节点(/1.11/installing/ent/custom/system-requirements/)。
@@ -174,7 +174,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
     echo "Public SubnetId: $public_subnet"
     ```
 
-1. 运行 `zen.sh` 脚本，为指定 DC/OS 堆栈（`STACK_NAME`）设置可选标签值，或使用默认值 `dcos`。此值将用于在 AWS 中标记 DC/OS 群集。
+1. 运行 `zen.sh` 脚本，为指定 DC/OS 堆栈（`STACK_NAME`）设置可选标签值，或使用默认值 `dcos`。此值将用于在 AWS 中标记 DC/OS 集群。
 
     ```bash
     bash ./zen.sh <STACK_NAME>
@@ -210,7 +210,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
  图 1. AWS Advanced Web 界面
 
- * **堆栈名称** 指定群集名称。
+ * **堆栈名称** 指定集群名称。
  * **CustomAMI** 可选：指定 AMI ID。如需更多信息，请参阅 [使用自定义 AMI 进行安装](/cn/1.11/installing/ent/cloud/aws/advanced/aws-ami)。
  * **InternetGateway** 指定 `zen.sh` 脚本的 `InternetGatewayID` 输出值。互联网网关 ID 必须附加于 VPC。该互联网网关用于所有节点向外互联网访问。
  * **KeyName** 指定 AWS EC2 密钥对。
@@ -231,11 +231,11 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
  **注意：** 如果显示 **创建新堆栈** 页面，要么是 AWS 仍在处理您的请求，要么就是您查看的是其他分域。导航至正确的分域并刷新页面以查看您的堆栈。
 
-# 监控 DC/OS 群集聚合过程
+# 监控 DC/OS 集群聚合过程
 
 在 CloudFormation 中，您会看到：
 
-* 群集堆栈启动需要 15 到 20 分钟时间。您将为其逐个创建堆栈，其中<stack-name>` is the value you specified for **Stack name** and `<stack-id>` 是自动生成的 ID。
+* 集群堆栈启动需要 15 到 20 分钟时间。您将为其逐个创建堆栈，其中<stack-name>` is the value you specified for **Stack name** and `<stack-id>` 是自动生成的 ID。
 
  ![AWS UI](/cn/1.11/img/aws-advanced-2.png)
 
@@ -303,7 +303,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 可以通过创建新的堆栈来添加更多代理节点。使用 [advanced-priv-agent.json](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#private-agent) 或 [advanced-pub-agent.json](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#public-agent) 模板。这些模板创建代理，然后作为 AutoScalingGroup 的一部分附加到 `PrivateAgentStack` 或 `PublicAgentStack`。
 
-使用 `zen.sh` 脚本以及管理节点和基础架构堆栈的输出值。这些新的代理节点将自动添加到您的 DC/OS 群集。
+使用 `zen.sh` 脚本以及管理节点和基础架构堆栈的输出值。这些新的代理节点将自动添加到您的 DC/OS 集群。
 
 专用代理：
 

@@ -13,7 +13,7 @@ enterprise: false
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>若要使用 <code>dcos service log marathon</code> 命令查看本地 DC/OS Marathon 日志，您必须位于同一网络上或者通过 VPN 连接到群集。有关更多信息，请参阅 <a href="/1.11/monitoring/logging/quickstart/">访问本地 DC/OS Marathon 日志</a>。</td> 
+  <td align=justify style=color:white><strong>重要信息：</strong>若要使用 <code>dcos service log marathon</code> 命令查看本地 DC/OS Marathon 日志，您必须位于同一网络上或者通过 VPN 连接到集群。有关更多信息，请参阅 <a href="/1.11/monitoring/logging/quickstart/">访问本地 DC/OS Marathon 日志</a>。</td> 
 </tr> 
 </table>
 

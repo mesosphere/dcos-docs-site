@@ -9,7 +9,7 @@ enterprise: false
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-Datadog 度量标准插件支持直接从 DC/OS 度量标准服务发送度量标准到 [DatadogHQ](https://www.datadoghq.com/)。此插件包括 Datadog 代理的函数。必须在群集中的每个节点上安装此插件。此插件适用于 DC/OS 1.9.4 及更高版本。
+Datadog 度量标准插件支持直接从 DC/OS 度量标准服务发送度量标准到 [DatadogHQ](https://www.datadoghq.com/)。此插件包括 Datadog 代理的函数。必须在集群中的每个节点上安装此插件。此插件适用于 DC/OS 1.9.4 及更高版本。
 
 **先决条件：**
 
@@ -17,9 +17,9 @@ Datadog 度量标准插件支持直接从 DC/OS 度量标准服务发送度量�
 
 # 安装 DC/OS Datadog 度量标准插件
 
-对于群集中的每个节点，先传输插件的二进制文件，然后添加一个 `systemd` 单元以管理该服务。此单元在管理节点和代理节点之间略有不同。
+对于集群中的每个节点，先传输插件的二进制文件，然后添加一个 `systemd` 单元以管理该服务。此单元在管理节点和代理节点之间略有不同。
 
-1. 在群集中的每个节点上：
+1. 在集群中的每个节点上：
 
  1. 从 downloads.mesosphere.io 下载最新的 Datadog 插件二进制文件：[datadog-plugin](https://downloads.mesosphere.io/dcos-metrics/plugins/datadog)
  1. 将插件重命名为 `dcos-metrics-datadog` 并移至 `/opt/mesosphere/bin`。
