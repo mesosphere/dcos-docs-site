@@ -44,7 +44,7 @@ enterprise: true
     dcos security org groups add_user dcos-services cory
     ```
 
-1. 使用此命令验证用户是否已添加到群集。
+1. 使用此命令验证用户是否已添加到集群。
 
     ```bash
     dcos security org users show

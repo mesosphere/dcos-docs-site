@@ -88,7 +88,7 @@ dcos marathon app remove [--force] <app-id>
 
 ### 关于清理
 
-如果服务有保留资源，并且没有自动对其本身进行彻底清理，您可以使用框架清理器的 Docker 镜像——`mesosphere/janitor`，从 ZooKeeper 中删除服务实例并销毁与其关联的所有数据，简化该流程。**在 DC/OS 1.10+ 群集上，仅在极少数情况下（例如卸载失败）需要该流程。** 软件包的文档可能在“卸载”部分有它自己的附加信息。
+如果服务有保留资源，并且没有自动对其本身进行彻底清理，您可以使用框架清理器的 Docker 镜像——`mesosphere/janitor`，从 ZooKeeper 中删除服务实例并销毁与其关联的所有数据，简化该流程。**在 DC/OS 1.10+ 集群上，仅在极少数情况下（例如卸载失败）需要该流程。** 软件包的文档可能在“卸载”部分有它自己的附加信息。
 
 运行框架清理器脚本的方法有两种。首选方法是通过 DC/OS CLI 运行。如果没有 CLI ，也可以将镜像作为自行删除 Marathon 任务运行。
 
@@ -105,7 +105,7 @@ dcos marathon app remove [--force] <app-id>
 docker run mesosphere/janitor /janitor.py -r <service_name>-role -z dcos-service-<service_name>
 ```
 
-如果您正在使用严格模式群集，就必须提供执行清理所需的附加参数：
+如果您正在使用严格模式集群，就必须提供执行清理所需的附加参数：
 * `-a`：用于认证的令牌
 * `--username` 和 `--password`：用于认证的用户名和密码
 
@@ -119,11 +119,11 @@ docker run mesosphere/janitor /janitor.py -r <service_name>-role -z dcos-service
 
 连接到首要实例并启动脚本：
 
-1. 打开群集首要实例的 SSH 会话。
+1. 打开集群首要实例的 SSH 会话。
 
  your-machine$ dcos node ssh --master-proxy --leader
 
-1. 运行 `mesosphere/janitor` 镜像，该镜像带有为服务配置的角色和 ZooKeeper 节点，并且在严格模式群集中还带有认证令牌：
+1. 运行 `mesosphere/janitor` 镜像，该镜像带有为服务配置的角色和 ZooKeeper 节点，并且在严格模式集群中还带有认证令牌：
 
  docker run mesosphere/janitor /janitor.py -r sample-role -z sample-zk [-a auth-token]
 

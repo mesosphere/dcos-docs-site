@@ -87,7 +87,7 @@ render: mustache
  - `ROOT` 卷是根卷上的隔离目录，与主机系统的其余部分共享 IO /心轴。
  - `MOUNT` 卷是独立卷上的专用设备或分区，具有专用 IO/心轴。
 
-使用 `MOUNT` 卷，需要 [每个 DC/OS 代理系统上的附加配置](/cn/1.11/storage/mount-disk-resources/)，所以服务当前使用默认的 `ROOT` 卷。为确保生产环境中可靠和稳定的性能，您应配置将在您的群集中运行服务的计算机上的 `MOUNT` 卷，然后将以下内容配置为 `MOUNT` 卷：
+使用 `MOUNT` 卷，需要 [每个 DC/OS 代理系统上的附加配置](/cn/1.11/storage/mount-disk-resources/)，所以服务当前使用默认的 `ROOT` 卷。为确保生产环境中可靠和稳定的性能，您应配置将在您的集群中运行服务的计算机上的 `MOUNT` 卷，然后将以下内容配置为 `MOUNT` 卷：
 
 配置磁盘类型：
 * **在 DC/OS CLI options.json** 中：`disk_type`：字符串（默认：`ROOT`）
@@ -107,17 +107,17 @@ Apache Cassandra 的配置可通过服务架构的 `cassandra` 部分进行。�
 
 ## 多数据中心部署
 
-要跨数据中心复制数据， {{ model.techName }} 则需要使用每个远程群集中种子节点的地址配置每个群集。以下是启用多数据中心 {{ model.techName }} 部署的情况，其在单个 DC / OS 群集内运行：
+要跨数据中心复制数据， {{ model.techName }} 则需要使用每个远程集群中种子节点的地址配置每个集群。以下是启用多数据中心 {{ model.techName }} 部署的情况，其在单个 DC / OS 集群内运行：
 
-### 启动两个 Cassandra 群集
+### 启动两个 Cassandra 集群
 
-1. 使用默认配置启动第一个群集：
+1. 使用默认配置启动第一个集群：
 
 ```shell
 dcos package install {{ model.packageName }}
 ```
 
-2. 为第二个群集创建 `options.json` 文件，该群集指定不同的服务名称和数据中心名称：
+2. 为第二个集群创建 `options.json` 文件，该集群指定不同的服务名称和数据中心名称：
 
 ```json
 {
@@ -128,16 +128,16 @@ dcos package install {{ model.packageName }}
 }
 ```
 
-3. 使用这些自定义选项启动第二个群集：
+3. 使用这些自定义选项启动第二个集群：
 ```
 dcos package install {{ model.packageName }} --options=<options.json>
 ```
 
 ### 获取种子节点的 IP 地址
 
-<p class="message--note"><strong>注意：</strong> 如果您的 Cassandra 群集不在同一个网络上，您必须设置代理层来路由流量。</p>
+<p class="message--note"><strong>注意：</strong> 如果您的 Cassandra 集群不在同一个网络上，您必须设置代理层来路由流量。</p>
 
-1. 为第一个群集获取种子节点地址的列表：
+1. 为第一个集群获取种子节点地址的列表：
 
 ```shell
 dcos {{ model.packageName }} --name={{ model.serviceName }} endpoints node
@@ -169,15 +169,15 @@ curl -H "authorization:token=$DCOS_AUTH_TOKEN" $DCOS_URL/service/{{ model.servic
 
 注意 `address` 字段中的 IP。
 
-2. 对第二个 Cassandra 群集运行相同命令，并注意 `address` 字段中的 IP：
+2. 对第二个 Cassandra 集群运行相同命令，并注意 `address` 字段中的 IP：
 
 ```
 dcos {{ model.packageName }} --name={{ model.serviceName }}2 endpoints node
 ```
 
-### 为两个群集更新配置
+### 为两个集群更新配置
 
-1. 使用第一个群集 (`{{ model.serviceName }}`) 的 IP 地址创建 `options2.json` 文件：
+1. 使用第一个集群 (`{{ model.serviceName }}`) 的 IP 地址创建 `options2.json` 文件：
 
 ```json
 {
@@ -187,23 +187,23 @@ dcos {{ model.packageName }} --name={{ model.serviceName }}2 endpoints node
 }
 ```
 
-2. 更新第二个群集的配置：
+2. 更新第二个集群的配置：
 
 ```
 dcos {{ model.packageName }} --name={{ model.serviceName}}2 update start --options=options2.json
 ```
 
-对第一个群集执行相同操作，在 `service.remote_seeds` 字段中创建包含第二个群集 (`{{ model.serviceName }}2`) 种子节点的 IP 地址的 `options.json`。然后，更新第一个群集的配置：`dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json`。
+对第一个集群执行相同操作，在 `service.remote_seeds` 字段中创建包含第二个集群 (`{{ model.serviceName }}2`) 种子节点的 IP 地址的 `options.json`。然后，更新第一个集群的配置：`dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json`。
 
-两个调度器都将在接收到配置更新后重新启动，并且每个群集将与其他群集的种子节点通信，以建立多数据中心拓扑。对您添加的每个新群集重复执行此过程。
+两个调度器都将在接收到配置更新后重新启动，并且每个集群将与其他集群的种子节点通信，以建立多数据中心拓扑。对您添加的每个新集群重复执行此过程。
 
-您可以监控第一个群集的更新进度：
+您可以监控第一个集群的更新进度：
 
 ```shell
 dcos {{ model.packageName }} --name={{ model.serviceName }} update status
 ```
 
-或者对第二个群集：
+或者对第二个集群：
 
 ```shell
 dcos {{ model.packageName }} --name={{ model.serviceName }}2 update status

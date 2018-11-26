@@ -17,8 +17,8 @@ menuWeight: 7
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/tutorials/dcos-101/cli/)。
-* [app2](/cn/1.11/tutorials/dcos-101/app2/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 集群](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/tutorials/dcos-101/cli/)。
+* [app2](/cn/1.11/tutorials/dcos-101/app2/) 已部署并在您的集群中运行。
 
 # 目的
 
@@ -115,7 +115,7 @@ menuWeight: 7
 
 # 调试资源问题
 
-## 群集中的资源太少
+## 集群中的资源太少
 
 要模拟这个情况：
 
@@ -123,7 +123,7 @@ menuWeight: 7
 
 `dcos marathon app update /dcos-101/app2 instances=100`
 
-如果您有大型群集，则可能必须增加此数字。
+如果您有大型集群，则可能必须增加此数字。
 * 使用 `dcos marathon app list` 检查 `scale` 部署是否受阻。
 * `dcos marathon deployment list`
 
@@ -201,4 +201,4 @@ menuWeight: 7
 
 # 结果
 
-祝贺您！您已经学习了如何将应用部署到 DC/OS、将这些应用程序联网、使用负载均衡器将它们公开到群集外部、扩展它们以及调试潜在的资源问题！您基本已是专家了！
+祝贺您！您已经学习了如何将应用部署到 DC/OS、将这些应用程序联网、使用负载均衡器将它们公开到集群外部、扩展它们以及调试潜在的资源问题！您基本已是专家了！

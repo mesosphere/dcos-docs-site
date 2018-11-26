@@ -18,13 +18,13 @@ excerpt: DC/OS 部署的软硬件要求
 * DC/OS 装置在一个 bootstrap 节点上运行，它由一个带有两个核心的节点、16 GB RAM 和 60 GB HDD 组成。
 * bootstrap 节点仅在安装和升级过程中使用，因此没有针对高性能存储或分离挂载点的具体建议。
 
- **注意：** bootstrap 节点必须与群集节点分开。
+ **注意：** bootstrap 节点必须与集群节点分开。
 
-## 群集节点
+## 集群节点
 
-在安装期间，群集节点是指定的 Mesos 管理节点和代理节点。支持的操作系统和环境列于 [版本政策页面](https://docs.mesosphere.com/version-policy/)。
+在安装期间，集群节点是指定的 Mesos 管理节点和代理节点。支持的操作系统和环境列于 [版本政策页面](https://docs.mesosphere.com/version-policy/)。
 
-DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录可在安装 DC/OS 之前创建，但必须是空目录或指向空目录的链接。DC/OS 可以通过在挂载卷上创建空目录，在 `/opt/mesosphere` 处创建指向空目录的链接，然后在单独的卷挂载上安装 DC/OS 的方式。
+DC/OS 安装到集群节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录可在安装 DC/OS 之前创建，但必须是空目录或指向空目录的链接。DC/OS 可以通过在挂载卷上创建空目录，在 `/opt/mesosphere` 处创建指向空目录的链接，然后在单独的卷挂载上安装 DC/OS 的方式。
 
 ## 管理节点
 
@@ -38,7 +38,7 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 | 硬盘 | 120 GB | 120 GB |
 &ast; 对于业务关键部署，需要三个管理节点，而不是一个管理节点。
 
-管理节点上有许多混合工作负载。预计持续可用或被视为业务关键的工作负载只能在具有至少三个管理节点的 DC/OS 群集上运行。有关高可用性要求的更多信息，请参阅 [高可用性文档][0]。
+管理节点上有许多混合工作负载。预计持续可用或被视为业务关键的工作负载只能在具有至少三个管理节点的 DC/OS 集群上运行。有关高可用性要求的更多信息，请参阅 [高可用性文档][0]。
 
 [0]: /1.11/overview/high-availability/
 
@@ -47,12 +47,12 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 - 固态硬盘 (SSD)
 - 带 BBU 的 RAID 控制器
 - 在回写模式下配置的 RAID 控制器缓存
-- 如果可以分离存储挂载点，则建议在管理节点上使用以下存储挂载点。这些建议将通过隔离各种服务的 I/O 来优化繁忙 DC/OS 群集的性能。
+- 如果可以分离存储挂载点，则建议在管理节点上使用以下存储挂载点。这些建议将通过隔离各种服务的 I/O 来优化繁忙 DC/OS 集群的性能。
  | 目录路径 | 描述 |
   |:-------------- | :---------- |
- | _/var/lib/dcos_ | 管理节点上的大部分 I/O 将出现在此目录结构中。如果计划一个拥有数百个节点的群集或打算以较高速度部署和删除工作负载，则建议将此目录隔离到专用固态硬盘存储。
+ | _/var/lib/dcos_ | 管理节点上的大部分 I/O 将出现在此目录结构中。如果计划一个拥有数百个节点的集群或打算以较高速度部署和删除工作负载，则建议将此目录隔离到专用固态硬盘存储。
 
-- 对于会发展到数千个节点的群集，建议将此目录结构进一步分解为具体服务的单个挂载点。
+- 对于会发展到数千个节点的集群，建议将此目录结构进一步分解为具体服务的单个挂载点。
 
  | 目录路径 | 描述 |
   |:-------------- | :---------- |
@@ -90,19 +90,19 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
     sudo systemctl stop dnsmasq && sudo systemctl disable dnsmasq.service
     ```
 
-- 群集的 Mesos 管理节点和代理节点持久信息存储在 `var/lib/mesos` 目录中。
+- 集群的 Mesos 管理节点和代理节点持久信息存储在 `var/lib/mesos` 目录中。
 
  **注意：** 不要远程挂载 `/var/lib/mesos` 或 Docker 存储目录（默认情况下 `/var/lib/docker`）。
 
 - 不要挂载带有 `noexec` 的 `/tmp`。这样可防止 Exhibitor 和 ZooKeeper 运行。
 
-- 如果计划一个拥有数百个代理节点的群集或打算以较高速度部署和删除服务，则建议将此目录隔离到专用固态硬盘存储。
+- 如果计划一个拥有数百个代理节点的集群或打算以较高速度部署和删除服务，则建议将此目录隔离到专用固态硬盘存储。
 
  | 目录路径 | 描述 |
     |:-------------- | :---------- |
  | _/var/lib/mesos/_ | 代理节点的大多数 I/O 将定向到此目录。此外，Apache Mesos 在其 UI 中宣称的磁盘空间是支持 _/var/lib/mesos_ |的文件系统宣称的空间之和
 
-- 对于会发展到数千个节点的群集，建议将此目录结构进一步分解为具体服务的单个挂载点。
+- 对于会发展到数千个节点的集群，建议将此目录结构进一步分解为具体服务的单个挂载点。
 
  | 目录路径 | 描述 |
    |:-------------- |:----------- |
@@ -117,9 +117,9 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 - 必须在所有节点上启用互联网控制消息协议 (ICMP)。
 - 所有主机名（FQDN 和简短主机名）在 DNS 中必须可解析；正向和反向查找必须成功。[enterprise type="inline" size="small" /]
 - 每个节点均可从 bootstrap 节点访问网络。
-- 每个节点均具有从本身到 DC/OS 群集中所有节点的不受限制 IP 至 IP 连接。
+- 每个节点均具有从本身到 DC/OS 集群中所有节点的不受限制 IP 至 IP 连接。
 - 所有端口都应打开，以进行从管理节点到代理节点的来回通信。[enterprise type="inline" size="small" /]
-- UDP 必须打开才能进入管理节点上的端口 53。为连接到群集，Mesos 代理节点服务 (`dcos-mesos-slave`) 使用此端口查找 `leader.mesos`。
+- UDP 必须打开才能进入管理节点上的端口 53。为连接到集群，Mesos 代理节点服务 (`dcos-mesos-slave`) 使用此端口查找 `leader.mesos`。
 
 ### 高速互联网访问
 
@@ -133,7 +133,7 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 
 ### Docker
 
-Docker 必须安装在所有 bootstrap 和群集节点上。支持的 Docker 版本列于 [版本策略页面](https://docs.mesosphere.com/version-policy/)。
+Docker 必须安装在所有 bootstrap 和集群节点上。支持的 Docker 版本列于 [版本策略页面](https://docs.mesosphere.com/version-policy/)。
 
 **建议**
 
@@ -178,9 +178,9 @@ timedatectl
 
 在安装 DC/OS 之前，您**必须**确保 bootstrap 节点具备以下前提条件。
 
-- 如果您指定 `exhibitor_storage_backend: zookeeper`，bootstrap 节点将是群集的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和领导者选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅配置参数 [文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
+- 如果您指定 `exhibitor_storage_backend: zookeeper`，bootstrap 节点将是集群的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和领导者选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅配置参数 [文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
 
-- bootstrap 节点必须与群集节点分开。
+- bootstrap 节点必须与集群节点分开。
 
 ### <a name="setup-file"></a>DC/OS 配置文件
 
@@ -197,13 +197,13 @@ timedatectl
 sudo docker pull nginx
 ```
 
-## 群集节点
+## 集群节点
 
-仅对于生产安装，群集节点必须具备以下前提条件。在安装期间，群集节点被指定为 Mesos 管理节点和代理节点。
+仅对于生产安装，集群节点必须具备以下前提条件。在安装期间，集群节点被指定为 Mesos 管理节点和代理节点。
 
 ### 数据压缩（生产安装）
 
-您必须在群集节点上安装 <a href="http://www.info-zip.org/UnZip.html" target="_blank">UnZip</a>、<a href="https://www.gnu.org/software/tar/" target="_blank">GNU tar</a> 和 <a href="http://tukaani.org/xz/" target="_blank">XZ Utils</a> 数据压缩实用程序。
+您必须在集群节点上安装 <a href="http://www.info-zip.org/UnZip.html" target="_blank">UnZip</a>、<a href="https://www.gnu.org/software/tar/" target="_blank">GNU tar</a> 和 <a href="http://tukaani.org/xz/" target="_blank">XZ Utils</a> 数据压缩实用程序。
 
 在 CentOS7 和 RHEL7 上安装此类实用程序：
 
@@ -212,13 +212,13 @@ sudo yum install -y tar xz unzip curl ipset
 ```
 
 
-### 群集权限（生产安装）
+### 集群权限（生产安装）
 
-在每个群集节点上，使用以下命令以：
+在每个集群节点上，使用以下命令以：
 
 * 禁用 SELinux 或将其设置为宽容模式。
 * 为每个 Mesos 管理节点和代理节点添加 `nogroup` 和 `docker`。
-* 重新启动群集，以使更改生效。
+* 重新启动集群，以使更改生效。
 
     ```bash
     sudo sed -i s/SELINUX=enforcing/SELINUX=permissive/g /etc/selinux/config &&

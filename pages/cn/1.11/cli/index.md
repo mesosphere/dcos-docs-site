@@ -8,7 +8,7 @@ excerpt: 了解 DC/OS 命令行界面
 enterprise: false
 ---
 
-DC/OS 命令行界面 (DC/OS CLI) 实用程序让您管理群集节点、安装和管理软件包、检查群集状态以及从终端管理服务和任务。DC/OS 1.11 需要 DC/OS CLI 0.6.x。
+DC/OS 命令行界面 (DC/OS CLI) 实用程序让您管理集群节点、安装和管理软件包、检查集群状态以及从终端管理服务和任务。DC/OS 1.11 需要 DC/OS CLI 0.6.x。
 
 若要列出可用命令，请运行不带参数的 `dcos`：
 
@@ -53,11 +53,11 @@ DC/OS CLI 0.4.x 和 0.5.x 针对配置文件的位置使用不同的结构。
 
 DC/OS CLI 0.4.x 具有单个配置文件，默认情况下存储在 `~/.dcos/dcos.toml`。在 DC/OS CLI 0.4.x 中，您可以选择使用 [`DCOS_CONFIG`](#dcos-config) 环境变量更改配置文件的位置。
 
-DC/OS CLI 0.5.x 的每个连接群集都有一个配置文件，默认情况下存储在 `~/.dcos/cluster/<cluster_id>/dcos.toml 中。`. In DC/OS CLI 0.5.x you can optionally change the base portion (`~/.dcos`) of the configuration directory using the [`DCOS_DIR`](#dcos-cdir) 环境变量。
+DC/OS CLI 0.5.x 的每个连接集群都有一个配置文件，默认情况下存储在 `~/.dcos/cluster/<cluster_id>/dcos.toml 中。`. In DC/OS CLI 0.5.x you can optionally change the base portion (`~/.dcos`) of the configuration directory using the [`DCOS_DIR`](#dcos-cdir) 环境变量。
 
 **注意：**
 - 如果更新到 DC/OS CLI 0.5.x 并运行任何 CLI 命令，它将触发从旧配置结构到新配置结构的转换。
-- 在调用 `dcos cluster setup` 后（或已经发生转换），如果您尝试使用 `dcos config set` 命令更新群集配置，该命令将显示一条警告消息，指出该命令已弃用且群集配置状态现在可能已损坏。
+- 在调用 `dcos cluster setup` 后（或已经发生转换），如果您尝试使用 `dcos config set` 命令更新集群配置，该命令将显示一条警告消息，指出该命令已弃用且集群配置状态现在可能已损坏。
 
 # 环境变量
 
@@ -66,7 +66,7 @@ DC/OS CLI 支持以下环境变量，可以动态设置。
 <a name="dcos-cluster"></a>
 #### `DCOS_CLUSTER` （仅限 DC/OS CLI 0.5.x 及更高版本）
 
-[连接的](/1.10/cli/command-reference/dcos-cluster/dcos-cluster-attach/)群集。要设置连接的群集，请使用以下命令设置变量：
+[连接的](/1.10/cli/command-reference/dcos-cluster/dcos-cluster-attach/)集群。要设置连接的集群，请使用以下命令设置变量：
 
 ```bash
 export DCOS_CLUSTER=<cluster_name>
@@ -103,7 +103,7 @@ export DCOS_DIR=/home/jdoe/config
     dcos cluster setup <url>
     ```
 
- 此设置根据 $DCOS_DIR/clusters/<cluster_id> 下的群集配置生成和更新<cluster_id>。 将新设置的群集设置为连接的群集。
+ 此设置根据 $DCOS_DIR/clusters/<cluster_id> 下的集群配置生成和更新<cluster_id>。 将新设置的集群设置为连接的集群。
 
 
 <a name="dcos-ssl-verify"></a>

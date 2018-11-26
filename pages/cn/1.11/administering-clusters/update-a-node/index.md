@@ -3,15 +3,15 @@ layout: layout.pug
 navigationTitle: 更新节点
 title: 更新节点
 menuWeight: 801
-excerpt: 更新活动 DC/OS 群集中的代理节点
+excerpt: 更新活动 DC/OS 集群中的代理节点
 
 enterprise: false
 ---
 
 
-您可以使用维护窗口或通过手动终止代理来更新活动 DC/OS 群集中的代理节点。维护窗口是首选方法，因为这通常更稳定，不容易出错。
+您可以使用维护窗口或通过手动终止代理来更新活动 DC/OS 集群中的代理节点。维护窗口是首选方法，因为这通常更稳定，不容易出错。
 
-如果您正在缩小群集、重新配置代理节点或将节点转移到新 IP，这些步骤非常有用。更改 Mesos 属性(`⁠⁠⁠⁠/var/lib/dcos/mesos-slave-common`⁠⁠⁠⁠) 或资源(⁠⁠⁠⁠`/var/lib/dcos/mesos-resources`⁠⁠⁠⁠)时，您必须删除代理节点，并以新的 UUID 在管理节点上重新注册它。然后，管理节点将识别新的属性和资源规范。
+如果您正在缩小集群、重新配置代理节点或将节点转移到新 IP，这些步骤非常有用。更改 Mesos 属性(`⁠⁠⁠⁠/var/lib/dcos/mesos-slave-common`⁠⁠⁠⁠) 或资源(⁠⁠⁠⁠`/var/lib/dcos/mesos-resources`⁠⁠⁠⁠)时，您必须删除代理节点，并以新的 UUID 在管理节点上重新注册它。然后，管理节点将识别新的属性和资源规范。
 
 <table class=“table” bgcolor=#ffd000>
 <tr> 
@@ -25,7 +25,7 @@ enterprise: false
 * 可访问 [Admin Router 权限](/cn/1.11/overview/architecture/components/#admin-router)。
 
 # 使用维护窗口更新节点
-使用维护窗口，您可以从群集外部同时排空多个节点。无需 SSH 访问。
+使用维护窗口，您可以从集群外部同时排空多个节点。无需 SSH 访问。
 
 您可以定义维护计划,以在更改代理属性或资源之前撤退您的任务。
 
@@ -59,7 +59,7 @@ enterprise: false
     </table>
     
 1. 执行维护。
-1. 通过使用指定的添加代理 JSON 定义，调用 `⁠⁠⁠⁠machine/up` 端点来添加代理到您的群集中。例如：
+1. 通过使用指定的添加代理 JSON 定义，调用 `⁠⁠⁠⁠machine/up` 端点来添加代理到您的集群中。例如：
 
     ```json
     [
@@ -86,7 +86,7 @@ enterprise: false
        ```
 
 1. 执行维护。
-1. 将节点添加回群集。
+1. 将节点添加回集群。
  1. 重新加载 systemd 配置。
 
         ```bash

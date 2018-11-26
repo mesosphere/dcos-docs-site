@@ -47,7 +47,7 @@ global:
     - targets: ['Slave Prometheus endpoint1','Slave Prometheus endpoint2']
 ```
 
-### 使用案例：简单的群集服务实施（全局 Prometheus 服务）
+### 使用案例：简单的集群服务实施（全局 Prometheus 服务）
 
 要联合来自两个或多个 Prometheus 服务器的数据，我们必须将 Prometheus 服务启动为全局 Prometheus 服务，并将全局 Prometheus 服务器端点作为目标传递给 `slave prometheus` 服务。要启动全局 Prometheus 服务器，查看上一节中给出的模板。
 

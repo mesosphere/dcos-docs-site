@@ -145,7 +145,7 @@ zk_agent_credentials: 'dcos-agent:<long, random string>'
 
 
 # <a name="examples1"></a>示例配置
-DC/OS 群集，带有内部托管的三个管理节点、五个专用代理和 Exhibitor/ZooKeeper：
+DC/OS 集群，带有内部托管的三个管理节点、五个专用代理和 Exhibitor/ZooKeeper：
 
 ```yaml
 ---
@@ -174,7 +174,7 @@ ssh_user: <username>
 ```
 
 ## <a name="aws"></a>AWS
-DC/OS 群集，带有三个管理节点、一个通过 AWS s3 bucket 备份的 Exhibitor/ZooKeeper、五个专用代理和一个公共代理节点：
+DC/OS 集群，带有三个管理节点、一个通过 AWS s3 bucket 备份的 Exhibitor/ZooKeeper、五个专用代理和一个公共代理节点：
 
 ```yaml
 ---
@@ -209,7 +209,7 @@ ssh_user: <username>
 ```
 
 ## <a name="zk"></a>ZooKeeper
-DC/OS 群集，带有三个管理节点、一个通过 ZooKeeper 备份的 Exhibitor/ZooKeeper、前面带有 HTTP 负载均衡器的管理节点、一个公共代理节点、五个专用代理和 Google DNS：
+DC/OS 集群，带有三个管理节点、一个通过 ZooKeeper 备份的 Exhibitor/ZooKeeper、前面带有 HTTP 负载均衡器的管理节点、一个公共代理节点、五个专用代理和 Google DNS：
 
 ```yaml
 ---
@@ -241,7 +241,7 @@ ssh_user: <username>
 ```
 
 ## <a name="overlay"></a>覆盖
-DC/OS 群集，带有三个管理节点、一个内部托管的 Exhibitor/ZooKeeper、两个 DC/OS 虚拟网络、两个专用代理和 Google DNS：
+DC/OS 集群，带有三个管理节点、一个内部托管的 Exhibitor/ZooKeeper、两个 DC/OS 虚拟网络、两个专用代理和 Google DNS：
 
 ```yaml
 agent_list:
@@ -278,7 +278,7 @@ dcos_overlay_network:
 ```
 
 ## <a name="http-proxy"></a>HTTP 代理
-DC/OS 群集，带有三个管理节点、一个内部托管的 Exhibitor/ZooKeeper、一个自定义 HTTP 代理、两个专用代理和 Google DNS：
+DC/OS 集群，带有三个管理节点、一个内部托管的 Exhibitor/ZooKeeper、一个自定义 HTTP 代理、两个专用代理和 Google DNS：
 
 ```yaml
 agent_list:
@@ -308,7 +308,7 @@ no_proxy:
 ```
 
 ## <a name="docker-credentials"></a>Docker 凭据
-DC/OS 群集，带有三个管理节点、一个内部托管的 Exhibitor/ZooKeeper、自定义 Docker 凭据、两个专用代理和 Google DNS：
+DC/OS 集群，带有三个管理节点、一个内部托管的 Exhibitor/ZooKeeper、自定义 Docker 凭据、两个专用代理和 Google DNS：
 
 ```yaml
 agent_list:
@@ -340,7 +340,7 @@ ssh_user: centos
 ```
 
 ## <a name="cosmos-config"></a>Cosmos 配置
-DC/OS 群集，带有一个管理节点、一个内部托管的 Exhibitor/ZooKeeper 、三个专用代理、谷歌 DNS 和配置永久存储库的 DC/OS 包管理器 (Cosmos) ：
+DC/OS 集群，带有一个管理节点、一个内部托管的 Exhibitor/ZooKeeper 、三个专用代理、谷歌 DNS 和配置永久存储库的 DC/OS 包管理器 (Cosmos) ：
 
 ```yaml
 agent_list:
@@ -367,7 +367,7 @@ cosmos_config:
 
 
 ## <a name="custom-checks"></a>自定义检查
-DC/OS 群集，带有一个管理节点、一个内部托管的 Exhibitor/ZooKeeper、三个专用代理、谷歌DNS和为此定义的自定义运行状况检查：
+DC/OS 集群，带有一个管理节点、一个内部托管的 Exhibitor/ZooKeeper、三个专用代理、谷歌DNS和为此定义的自定义运行状况检查：
 
 - 用户 Marathon 实例（`user-marathon-on-marathon`）
 - 管理节点上的本地装载（`master-mounts`）

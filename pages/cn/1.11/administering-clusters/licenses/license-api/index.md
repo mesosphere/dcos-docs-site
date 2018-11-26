@@ -14,7 +14,7 @@ excerpt: 使用 License API 管理您的 DC/OS 许可证
 /licensing/v1
 ```
 
-要确定群集的 URL，请参阅 [群集访问](/cn/1.11/api/access/)。
+要确定集群的 URL，请参阅 [集群访问](/cn/1.11/api/access/)。
 
 # 格式
 
@@ -57,6 +57,6 @@ License API 还需要通过以下权限授权：
 
 # API 参考
 
-License API 允许您管理 DC/OS 群集上的许可证操作。
+License API 允许您管理 DC/OS 集群上的许可证操作。
 
 [swagger api='/1.11/api/dcos-licensing-component-spec.yaml']

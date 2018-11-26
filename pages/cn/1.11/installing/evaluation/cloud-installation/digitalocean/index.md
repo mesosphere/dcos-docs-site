@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-excerpt: 使用 Terraform 在 DigitalOcean 上安装 DC/OS 群集
+excerpt: 使用 Terraform 在 DigitalOcean 上安装 DC/OS 集群
 title: 在 DigitalOcean 上运行 DC/OS
 navigationTitle: DigitalOcean
 menuWeight: 15
 oss: true
 ---
 
-可以使用 Terraform 在 DigitalOcean 上创建 DC/OS 群集。
+可以使用 Terraform 在 DigitalOcean 上创建 DC/OS 集群。
 
 随附的 Terraform 模板设置为能在 DigitalOcean 上运行 Mesosphere DC/OS。根据安装的 DC/OS 服务或工作负载所需的计算量，可能须要修改模板才能满足需求。可以修改 Terraform 模板，但 Mesosphere 不能协助完成故障排除。如果需要有关 Droplet 创建或其他相关问题的支持，请发送电子邮件至 support@digitalocean.com，访问非官方的 DigitalOcean IRC 频道（#digitalocean on freenode）或考虑 [DC / OS Enterprise] (https://mesosphere.com/)。
 
@@ -29,7 +29,7 @@ oss: true
 
 - DigitalOcean 4GB（或更多）Droplet
 
-# 创建 DC/OS 群集
+# 创建 DC/OS 集群
 
 ## 先决条件
 
@@ -79,7 +79,7 @@ oss: true
 以下字段具有默认值，可根据您的要求进行更改：
 
  - `region` - DigitalOcean 设施：[NYC1|NYC2|NYC3|SGP1|LON1|AMS2|AMS3|SFO1|TOR1|FRA1]
- 为您的群集选择 DigitalOcean 数据中心——默认 NYC2
+ 为您的集群选择 DigitalOcean 数据中心——默认 NYC2
 
  - `agent_size` - 用于 DC/OS 代理的 DigitalOcean Droplet 大小：[4GB|8GB|16GB|32GB|48GB|64GB]
  选择用于 DC/OS 专用代理的 DigitalOcean Droplet 大小——默认为 4GB
@@ -90,7 +90,7 @@ oss: true
  - `boot_size` - 用于 DC/OS 引导节点的 DigitalOcean Droplet 大小：[4GB|8GB|16GB|32GB|48GB|64GB]
  选择用于 DC/OS 引导服务器的 DigitalOcean Droplet 大小 ——默认为 4GB
 
- - `dcos_cluster_name` - DC/OS 群集的名称 ——默认为 digitalocean-dcos
+ - `dcos_cluster_name` - DC/OS 集群的名称 ——默认为 digitalocean-dcos
 
  - `dcos_agent_count` - 要部署的专用代理数 ——默认为 4
 
@@ -113,7 +113,7 @@ oss: true
 
 1. 将运行 `terraform apply` 或运行相同目录中的 `terraform output` 得到的链接，剪切并粘贴到浏览器，从而打开 DC/OS Web 界面。该界面在标准 HTTP 端口 80 上运行，因此无需在主机名后指定端口号。
 
-2. 安装 DC/OS 命令行界面 (CLI)。可以安装 CLI，用于管理 DC/OS 群集。可以通过单击左上方的群集名称随时访问文档。
+2. 安装 DC/OS 命令行界面 (CLI)。可以安装 CLI，用于管理 DC/OS 集群。可以通过单击左上方的集群名称随时访问文档。
 
  ![install CLI](/cn/1.11/img/install-cli-terminal.png)
 

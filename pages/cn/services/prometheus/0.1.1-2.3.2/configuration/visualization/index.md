@@ -55,6 +55,6 @@ enterprise: false
 
 ### Prometheus 表达式浏览器
 
- DC/OS Prometheus 服务具有一个可从群集外访问的表达式浏览器。表达式浏览器在 Prometheus 服务器上的 `/graph`可用，允许您输入任何表达式，并在表格或图表中随时间查看结果。
+ DC/OS Prometheus 服务具有一个可从集群外访问的表达式浏览器。表达式浏览器在 Prometheus 服务器上的 `/graph`可用，允许您输入任何表达式，并在表格或图表中随时间查看结果。
 
 这主要用于即席查询和调试。Prometheus 表达式浏览器应通过 [Edge-LB] 访问(/services/edge-lb/)。

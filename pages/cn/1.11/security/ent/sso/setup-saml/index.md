@@ -48,7 +48,7 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
   ```
 
 11. 将 XML 复制到剪贴板或文本编辑器中。
-12. 单击 **Access** 选项卡。激活您希望能够登录到群集的所有角色。例如：**员工**和**工程师**。
+12. 单击 **Access** 选项卡。激活您希望能够登录到集群的所有角色。例如：**员工**和**工程师**。
 
  **注意：** 请勿在此阶段单击 **Save**；它会失败。
 
@@ -93,7 +93,7 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 
 1. 单击以打开 OneLogin 仪表盘中的 **Configuration** 选项卡。
 2. 将上一过程中获得的回调 URL 粘贴到以下三个字段中：**Recipient**。**ACS (Consumer) URL Validator** 和 **ACS (Consumer) URL**。
-3. 将您的群集 URL 粘贴到 **Audience** 字段中。附加以下内容：`/acs/api/v1/auth/saml/providers/{provider-id}/sp-metadata`。
+3. 将您的集群 URL 粘贴到 **Audience** 字段中。附加以下内容：`/acs/api/v1/auth/saml/providers/{provider-id}/sp-metadata`。
 4. 将 `{provider-id}` 替换为您的提供程序 ID。例如，`https://me-9w7g-elasticl-3tifi04qqdhz-692669367.us-west-2.elb.amazonaws.com/acs/api/v1/auth/saml/providers/my-saml-idp/sp-metadata`。
 5. 点击**保存**。
 

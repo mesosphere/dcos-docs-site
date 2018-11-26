@@ -22,4 +22,4 @@ Prometheus 发布说明。
 
 * Prometheus v2.3.2、AlertManager v0.15.1、PushGateway v0.5.2
 * 该框架提供了提供 Prometheus、AlertManager 和规则配置的选项。
-* 默认 `prometheus` 配置抓取群集中的 DC/OS 管理节点、代理节点，并执行 Prometheus 自我监控。
+* 默认 `prometheus` 配置抓取集群中的 DC/OS 管理节点、代理节点，并执行 Prometheus 自我监控。

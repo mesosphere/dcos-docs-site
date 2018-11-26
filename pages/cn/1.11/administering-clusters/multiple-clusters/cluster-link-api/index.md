@@ -3,11 +3,11 @@ layout: layout.pug
 navigationTitle: Cluster Link API
 title: Cluster Link API
 menuWeight: 3
-excerpt: 使用 Cluster Link API 管理群集链接
+excerpt: 使用 Cluster Link API 管理集群链接
 enterprise: true
 ---
 
-您可以使用 Cluster Link API 管理群集链接。
+您可以使用 Cluster Link API 管理集群链接。
 
 # 路由
 
@@ -17,7 +17,7 @@ enterprise: true
 /cluster/v1/links
 ```
 
-要确定群集的 URL，请参阅 [群集访问](/cn/1.11/api/access/)。
+要确定集群的 URL，请参阅 [集群访问](/cn/1.11/api/access/)。
 
 # 格式
 
@@ -54,6 +54,6 @@ Cluster Link API 还需要通过以下权限授权：
 
 API 参考
 
-Cluster Link API 允许您管理 DC/OS 群集上的群集链接操作。
+Cluster Link API 允许您管理 DC/OS 集群上的集群链接操作。
 
 [api-explorer api='/1.11/api/cluster-link.yaml']

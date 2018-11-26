@@ -10,7 +10,7 @@ enterprise: false
 本教程向您展示如何使用 Marathon-LB 运行为网站提供服务的容器化 DC/OS 服务。具体地说，您将使用包含 NGINX（为`dcos.i`o 站点服务）的 Docker 镜像。在本教程中，Marathon-LB 用作边缘负载均衡器和服务发现机制。Marathon-LB 在面向公众的节点上运行，以路由 ingress 流量。
 
 ## 先决条件
-- [DC/OS 群集](/1.10/installing/oss/) 至少有一个 [私有](/1.10/overview/concepts/#private-agent-node) 代理和一个 [公共](/1.10/overview/concepts/#public-agent-node) 代理。
+- [DC/OS 集群](/1.10/installing/oss/) 至少有一个 [私有](/1.10/overview/concepts/#private-agent-node) 代理和一个 [公共](/1.10/overview/concepts/#public-agent-node) 代理。
 - [DC/OS CLI](/1.10/cli/install/) 已安装。
 - Marathon-LB [已安装](/services/marathon-lb/usage-ee/)。
 

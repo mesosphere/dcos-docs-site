@@ -15,7 +15,7 @@ excerpt: 安装 DC/OS 进行开发和测试
 
 - DC/OS Vagrant 适用于 Windows、Mac 或 Linux，而 DC/OS Docker 要求使用 Mac 或 Linux。
 - DC/OS Docker 的部署速度明显快很多（5 分钟左右，而非 15 分钟左右）。
-- DC/OS Vagrant 通过指定分配给每个节点资源来更准确地模拟真实群集，而 DC/OS Docker 允许超额预订您的机器资源。
+- DC/OS Vagrant 通过指定分配给每个节点资源来更准确地模拟真实集群，而 DC/OS Docker 允许超额预订您的机器资源。
 - DC/OS Docker 在发布过程中更稳定，因为它只要求使用 Docker，而不是同时使用 Vagrant 和 VirtualBox。
 
 要使用 DC/OS Enterprise 的这两个工具之一，请联系销售代表或 <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a>，获取 DC/OS Enterprise 安装工具。[enterprise type="inline" size="small" /]

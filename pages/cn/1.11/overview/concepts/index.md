@@ -14,7 +14,7 @@ DC/OS 由许多开源组件构成，其中多个在 DC/OS 之前就存在。本�
 
 DC/OS 是数据中心的 [分布式操作系统](https://en.wikipedia.org/wiki/Distributed_operating_system)。
 
-与传统的分布式操作系统不同，DC/OS 还是管理基于本地可执行文件或容器镜像（如 [Docker 镜像]）的容器化任务的容器平台(https://docs.docker.com/engine/tutorials/dockerimages/)。同样与传统 [操作系统] (https://en.wikipedia.org/wiki/Operating_system) 不同，DC/OS 是在 [节点群集](#cluster) 上而不是在单台机器上运行的。每个 DC/OS 节点还具有管理底层机器的 [主机操作系统](#host-operating-system)。
+与传统的分布式操作系统不同，DC/OS 还是管理基于本地可执行文件或容器镜像（如 [Docker 镜像]）的容器化任务的容器平台(https://docs.docker.com/engine/tutorials/dockerimages/)。同样与传统 [操作系统] (https://en.wikipedia.org/wiki/Operating_system) 不同，DC/OS 是在 [节点集群](#cluster) 上而不是在单台机器上运行的。每个 DC/OS 节点还具有管理底层机器的 [主机操作系统](#host-operating-system)。
 
 DC/OS 由许多组件构成，尤其是分布式系统内核 ([Mesos](#apache-mesos)) 和容器编排引擎 ([Marathon](#marathon))。
 
@@ -22,15 +22,15 @@ DC/OS 由许多组件构成，尤其是分布式系统内核 ([Mesos](#apache-me
 
 ## <a name="dcos-gui"></a>DC/OS GUI
 
-[DC/OS 图形用户界面 (GUI)](/cn/1.11/gui/) 是用于从网页浏览器远程控制和管理 DC/OS 群集的界面。GUI 有时也被称为 DC/OS UI 或 DC/OS Web 界面。
+[DC/OS 图形用户界面 (GUI)](/cn/1.11/gui/) 是用于从网页浏览器远程控制和管理 DC/OS 集群的界面。GUI 有时也被称为 DC/OS UI 或 DC/OS Web 界面。
 
 ## <a name="dcos-cli"></a>DC/OS CLI
 
-[DC/OS 命令行界面 (CLI)](/cn/1.11/cli/) 是从终端远程控制和管理 DC/OS 群集的界面。
+[DC/OS 命令行界面 (CLI)](/cn/1.11/cli/) 是从终端远程控制和管理 DC/OS 集群的界面。
 
-# <a name="dcos-cluster"></a>群集
+# <a name="dcos-cluster"></a>集群
 
-DC/OS 群集是一组联网的 DC/OS 节点，具有共识机制的管理节点以及任意数量的公共和/或专用代理节点。
+DC/OS 集群是一组联网的 DC/OS 节点，具有共识机制的管理节点以及任意数量的公共和/或专用代理节点。
 
 # <a name="network"></a>网络
 
@@ -42,7 +42,7 @@ DC/OS 有两种类型的网络：基础架构网络和虚拟网络。
 
 ## <a name="dcos-virtual-network"></a>虚拟网络
 
-DC/OS 虚拟网络具体来说是群集内部的虚拟网络，连接在 DC/OS 上运行的 DC/OS 组件和容器化任务。
+DC/OS 虚拟网络具体来说是集群内部的虚拟网络，连接在 DC/OS 上运行的 DC/OS 组件和容器化任务。
 
 - DC/OS 提供的虚拟网络是由虚拟网络服务 (Navstar) 管理的 VXLAN。
 - 虚拟网络必须由管理员配置，然后才能被任务使用。
@@ -52,15 +52,15 @@ DC/OS 虚拟网络具体来说是群集内部的虚拟网络，连接在 DC/OS �
 
 # <a name="dcos-node"></a>节点
 
-DC/OS 节点是 Mesos 代理节点和/或 Mesos 管理节点进程运行所在的虚拟机或物理机。DC/OS 节点联网以形成 DC/OS 群集。
+DC/OS 节点是 Mesos 代理节点和/或 Mesos 管理节点进程运行所在的虚拟机或物理机。DC/OS 节点联网以形成 DC/OS 集群。
 
 ## <a name="dcos-master-node"></a>管理节点
 
-DC/OS 管理节点是一个虚拟机或物理机，运行一系列协同工作的 DC/OS 组件来管理群集的其他部分。
+DC/OS 管理节点是一个虚拟机或物理机，运行一系列协同工作的 DC/OS 组件来管理集群的其他部分。
 
 - 每个管理节点都包含多个 DC/OS 组件，尤其包括 [Mesos 管理节点](#mesos-master) 进程。
-- 管理节点在 [共识机制] 中工作(https://en.wikipedia.org/wiki/Quorum_%28distributed_computing%29)，以实现群集协调的一致性。要避免 [脑裂](https://en.wikipedia.org/wiki/Split-brain_%28computing%29) 群集分区，群集的管理节点数应始终为奇数。例如，具有三个管理节点允许一个管理节点出故障；具有五个管理节点允许两个管理节点出故障，允许在滚动更新过程中出故障。可添加额外的管理节点，以提高风险承受力。
-- 只有一个管理节点的群集可用于开发，但可用性不高，可能无法从故障中恢复。
+- 管理节点在 [共识机制] 中工作(https://en.wikipedia.org/wiki/Quorum_%28distributed_computing%29)，以实现集群协调的一致性。要避免 [脑裂](https://en.wikipedia.org/wiki/Split-brain_%28computing%29) 集群分区，集群的管理节点数应始终为奇数。例如，具有三个管理节点允许一个管理节点出故障；具有五个管理节点允许两个管理节点出故障，允许在滚动更新过程中出故障。可添加额外的管理节点，以提高风险承受力。
+- 只有一个管理节点的集群可用于开发，但可用性不高，可能无法从故障中恢复。
 
 ## <a name="dcos-agent-node"></a>代理节点
 
@@ -73,19 +73,19 @@ DC/OS 代理节点是 Mesos 任务运行所在的虚拟机或物理机。
 
 # <a name="private-agent-node"></a>专用代理节点
 
-专用代理节点是位于网络上的代理节点，**不允许**通过群集的基础架构网络从群集外部访问。
+专用代理节点是位于网络上的代理节点，**不允许**通过集群的基础架构网络从集群外部访问。
 
 - 每个专用代理节点上的 Mesos 代理节点默认配置为不将其资源分配给任何特定 Mesos 角色 (`*`)。
 - 大多数服务包默认安装在专用代理节点上。
-- 群集一般大部分由专用代理节点组成。
+- 集群一般大部分由专用代理节点组成。
 
 # <a name="public-agent-node"></a>公共代理节点
 
-公共代理节点是位于网络上的代理节点，**允许**通过群集的基础架构网络从群集外部访问。
+公共代理节点是位于网络上的代理节点，**允许**通过集群的基础架构网络从集群外部访问。
 
 - 每个公共代理节点上的 Mesos 代理节点配置有 `public_ip:true` 代理属性及其分配给 `slave_public` 角色的所有资源。
 - 公共代理节点主要用于面向外部的反向代理负载均衡器，如 [Marathon-LB](/cn/1.11/networking/marathon-lb/)。
-- 群集通常只有几个公共代理节点，因为单个负载均衡器通常可以处理多个代理服务。
+- 集群通常只有几个公共代理节点，因为单个负载均衡器通常可以处理多个代理服务。
 
 如需更多信息，请参阅 [转换代理节点类型](/cn/1.11/administering-clusters/convert-agent-type/)。
 
@@ -99,16 +99,16 @@ DC/OS 代理节点是 Mesos 任务运行所在的虚拟机或物理机。
 - [RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
 - [CoreOS](https://coreos.com/)
 
-主机操作系统管理本地任务和机器资源，DC/OS 则管理群集任务和资源，使得您不需要与节点上的主机操作系统进行交互。
+主机操作系统管理本地任务和机器资源，DC/OS 则管理集群任务和资源，使得您不需要与节点上的主机操作系统进行交互。
 
 # <a name="bootstrap-machine"></a>Bootstrap 机
 
 bootstrap 机是配置、构建和发布 DC/OS 安装程序工件的机器。
 
-- bootstrap 机在技术上不被视为是群集的一部分，因为它没有安装 DC/OS。对于大多数安装方法，必须可以通过基础架构网络来对群集中的机器进行 bootstrap 节点来回的访问。
-- bootstrap 机有时用作跳转盒来控制 SSH 访问群集中的其他节点，以提高安全性和日志记录。
+- bootstrap 机在技术上不被视为是集群的一部分，因为它没有安装 DC/OS。对于大多数安装方法，必须可以通过基础架构网络来对集群中的机器进行 bootstrap 节点来回的访问。
+- bootstrap 机有时用作跳转盒来控制 SSH 访问集群中的其他节点，以提高安全性和日志记录。
 - 允许管理节点更改 IP 的一种方法涉及在 bootstrap 机上运行 ZooKeeper并使用 Exhibitor。其他替代方案包括使用 S3、DNS 或静态 IP，具有各种权衡需要考虑。如需更多信息，请参阅 [配置 Exhibitor 存储后端](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend)。
-- 如果管理主节点 IP 更改不需要使用 bootstrap 机或将其作为 SSH 跳转盒，可在启动后将其关闭并按需运行以 [添加新节点](/cn/1.11/administering-clusters/add-a-node/) 到群集。
+- 如果管理主节点 IP 更改不需要使用 bootstrap 机或将其作为 SSH 跳转盒，可在启动后将其关闭并按需运行以 [添加新节点](/cn/1.11/administering-clusters/add-a-node/) 到集群。
 
 如需更多信息，请参阅 [系统要求](/cn/1.11/installing/production/system-requirements/#bootstrap-node)。
 
@@ -148,7 +148,7 @@ Marathon 服务由零个或多个容器化服务实例组成。每个服务实�
 系统服务是一项实现或增强 DC/OS 本身功能的服务，作为 Marathon 服务或 `systemd` 服务运行，由系统（管理员）用户或 DC/OS 本身拥有。
 
 - 系统服务可能需要特殊权限才能与其他系统服务进行交互。
-- 在 DC/OS Enterprise 群集上作为系统服务运行的权限需要特定的细粒度权限，而在开放的 DC/OS 上，所有登录用户都有相同的管理权限。
+- 在 DC/OS Enterprise 集群上作为系统服务运行的权限需要特定的细粒度权限，而在开放的 DC/OS 上，所有登录用户都有相同的管理权限。
 
 **示例：** 所有 DC/OS 组件。
 
@@ -203,7 +203,7 @@ DC/OS 包是指元数据捆绑包，描述如何使用 Marathon 来配置、安�
 
 # <a name="dcos-package-manager"></a> 软件包管理器
 
-[DC/OS 包管理器 (Cosmos)(https://github.com/dcos/cosmos)) 是管理在 DC/OS 群集上安装和卸载软件包的一个组件。
+[DC/OS 包管理器 (Cosmos)(https://github.com/dcos/cosmos)) 是管理在 DC/OS 集群上安装和卸载软件包的一个组件。
 
 - DC/OS GUI 和 DC/OS CLI 充当与 DC/OS 包管理器交互的客户端。
 - [DC/OS 包管理器 API](https://github.com/dcos/cosmos) 允许进行程序化交互。
@@ -224,7 +224,7 @@ Mesosphere Universe 是由 Mesosphere 管理的一个公共包注册表。
 
 # <a name="cloud-template"></a>云模板
 
-云模板是声明性描述 DC/OS 群集的一种基础架构特定方法。
+云模板是声明性描述 DC/OS 集群的一种基础架构特定方法。
 
 如需更多信息，请参阅 [云安装选项](/cn/1.11/installing/evaluation/cloud-installation/)。
 
@@ -250,13 +250,13 @@ Mesosphere Universe 是由 Mesosphere 管理的一个公共包注册表。
 
 ## <a name="apache-mesos"></a>Apache Mesos
 
-Apache Mesos 是一个分布式系统内核，可管理群集资源和任务。Mesos 是 DC/OS 的核心组件之一，先于 DC/OS 本身，为平台带来成熟性和稳定性。
+Apache Mesos 是一个分布式系统内核，可管理集群资源和任务。Mesos 是 DC/OS 的核心组件之一，先于 DC/OS 本身，为平台带来成熟性和稳定性。
 
 如需更多信息，请参阅 [Mesos 网站](http://mesos.apache.org/)。
 
 ## <a name="mesos-master"></a>管理节点
 
-Mesos 管理节点是在管理节点上运行的一个进程，以协调群集资源管理并促进任务编排。
+Mesos 管理节点是在管理节点上运行的一个进程，以协调集群资源管理并促进任务编排。
 
 - Mesos 管理节点构成共识机制并选举首要节点。
 - 首要 Mesos 管理节点收集 Mesos 代理节点报告的资源，并向 Mesos 调度器作出资源邀约。调度器然后可以接受资源邀约，并将任务置于其相应节点上。
@@ -315,11 +315,11 @@ Containerizer 提供围绕特定容器运行时间的容器化和资源隔离抽
 
 ## <a name="mesos-exhibitor-zookeeper"></a>Exhibitor 和 ZooKeeper
 
-Mesos 取决于 ZooKeeper，后者是管理群集状态的高性能协调服务。Exhibitor 自动配置和管理 [管理节点](#master-node) 上的 ZooKeeper。
+Mesos 取决于 ZooKeeper，后者是管理集群状态的高性能协调服务。Exhibitor 自动配置和管理 [管理节点](#master-node) 上的 ZooKeeper。
 
 ## <a name="mesos-dns"></a>Mesos-DNS
 
-Mesos-DNS 是一个 DC/OS 组件，可在群集内提供服务发现。Mesos-DNS 允许在 Mesos 上运行的应用程序和服务通过使用域名系统 (DNS) 找到彼此，与服务在整个互联网中发现彼此的方式相似。
+Mesos-DNS 是一个 DC/OS 组件，可在集群内提供服务发现。Mesos-DNS 允许在 Mesos 上运行的应用程序和服务通过使用域名系统 (DNS) 找到彼此，与服务在整个互联网中发现彼此的方式相似。
 
 如需更多信息，请参阅 [Mesos-DNS 文档](/cn/1.11/networking/mesos-dns/)。
 
