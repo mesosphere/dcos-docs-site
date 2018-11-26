@@ -15,13 +15,13 @@ Released on November 15, 2018.
 
 ## Notable Changes
 
-* lbmgr: enforce the timeout also during the connection phase of the healthcheck
+* lbmgr: Enforce the timeout also during the connection phase of the healthcheck
   command
-* apiserver: make following parameters of the pool tasks healthchecking configurable via new pool parameters:
-  * `poolHealthcheckGracePeriod` - defines the period of time after start of the pool container when failed healtchecks will be ignored (default: 180s).
-  * `poolHealthcheckInterval` - defines healthcheck execution interval. At most one healtcheck is going to execute at any given time (default: 12s).
-  * `poolHealthcheckMaxFail` - defines how many consecutive failures mark the task as failed and force Mesos to kill it (default: 5).
-  * `poolHealthcheckTimeout` - defines the timeout enforced by Mesos on the healthcheck execution. It includes the container startup(fetch, setup, start, etc...) as well as the time spent by the healthcheck command executing the test.
+* apiserver: Make the following parameters of the pool tasks healthchecking configurable via new pool parameters:
+  * `poolHealthcheckGracePeriod` - Defines the period of time after start of the pool container when failed healtchecks will be ignored (default: 180s).
+  * `poolHealthcheckInterval` - Defines healthcheck execution interval. At most one healtcheck is going to execute at any given time (default: 12s).
+  * `poolHealthcheckMaxFail` - Defines how many consecutive failures mark the task as failed and force Mesos to kill it (default: 5).
+  * `poolHealthcheckTimeout` - Defines the timeout enforced by Mesos on the healthcheck execution. It includes the container startup (fetch, setup, start, etc...) as well as the time spent by the healthcheck command executing the test.
 
 
 ## Known Limitations
