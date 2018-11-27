@@ -3,15 +3,15 @@ Getting started with a test instance of the DC/OS {{ model.techName }} service i
 ## Prerequisites
 
 - Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account]({{ model.install.serviceAccountInstructionsUrl }}) before installing. Only someone with `superuser` permission can create the service account.
-	- `strict` requires a service account.
+	- `strict` [security mode](/latest/security/ent/#security-modes) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
-- Your cluster must have at least {{ model.minNodeCount }} private nodes.
+- Your cluster must have at least {{ model.install.minNodeCount }} private nodes.
 {{ model.install.customRequirements }}
 
 ## Install
 
-To start a basic test cluster {{ model.install.nodeDescription }}, run the following command on the DC/OS CLI.
+To start a basic test cluster {{ model.install.nodeDescription }}, run the following command on the DC/OS CLI. Enterprise DC/OS users may need to follow [additional instructions]({{ model.install.serviceAccountInstructionsUrl }}), depending on the security mode of the Enterprise DC/OS cluster.
 
 ```bash
 $ dcos package install {{ model.packageName }}
