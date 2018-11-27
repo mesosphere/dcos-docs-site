@@ -1,9 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Configuring services and pods to use
-  secrets
+navigationTitle: Configuring services and pods to use secrets
+title: Configuring services and pods to use secrets
 menuWeight: 1
 excerpt:
 

@@ -10,7 +10,7 @@ enterprise: false
 
     
 # 说明
-`dcos job schedule update` 命令允许您更新作业时间表。
+`dcos job schedule update` 命令让您更新作业时间表。
 
 # 使用
 
@@ -27,12 +27,12 @@ dcos job schedule update <job-id> <schedule-file> [OPTION]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` 命令。|
-| `<schedule-file>` | JSON 格式化的作业时间表文件。|
+| `<schedule-file>` | 以 JSON 为格式的作业时间表文件。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
 
 

@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos edgelb` 命令允许您管理 [Edge-LB](https://docs.mesosphere.com/services/edge-lb/)。
+`dcos edgelb` 命令让您管理 [Edge-LB](https://docs.mesosphere.com/services/edge-lb/)。
 
 # 使用
 
@@ -29,4 +29,4 @@ dcos edgelb [<flags>] [OPTIONS] [<args> ...]
 | | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH` | 指定在查询服务时使用的自定义 TLS CA 证书文件。|
 | `--name=" <name>"` | 要查询的服务实例的名称。|
 
-请参阅 [Edge-LB 快速入门指南](/1.11/networking/edge-lb/quickstart/)。
+请参阅 [Edge-LB 快速入门指南](/cn/1.11/networking/edge-lb/quickstart/)。

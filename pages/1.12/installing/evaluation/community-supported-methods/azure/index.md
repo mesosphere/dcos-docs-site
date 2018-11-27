@@ -115,7 +115,7 @@ Also, to access nodes in the DC/OS cluster you will need `ssh` installed and con
 
 ## Deploying the template
 
-To install DC/OS 1.11 on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
+To install DC/OS 1.12 on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
 
 Some notes on the template configuration:
 
@@ -128,13 +128,13 @@ Some notes on the template configuration:
 
 1. Look up `MASTERFQDN` in the outputs of the deployment. To find that, click on the link under `Last deployment` (which is `4/15/2016 (Succeeded)` here) and you should see this:
 
-![Deployment history](/1.11/img/dcos-azure-marketplace-step2a.png)
+![Deployment history](//img/dcos-azure-marketplace-step2a.png)
 
 Figure 1. Deployment history
 
 2. Click on the latest deployment and copy the value of `MASTERFQDN` in the `Outputs` section.
 
-![Deployment output](/1.11/img/dcos-azure-marketplace-step2b.png)
+![Deployment output](/1.12/img/dcos-azure-marketplace-step2b.png)
 
 Figure 2. Outputs section
 
@@ -148,37 +148,37 @@ In order to visit the the DC/OS Dashboard, you will need to access TCP port 80 o
 
 1. Find the network security group resource of the master node,
 
-![Resource - Master Node Network Security Group](/1.11/img/dcos-azure-step2case1a.png)
+![Resource - Master Node Network Security Group](//img/dcos-azure-step2case1a.png)
 
 Figure 3. Master node network security group
 
 2. Click on the **Inbound security rules** tab on the left side.
 
-![Inbound Security Rules](/1.11/img/dcos-azure-step2case1b.png)
+![Inbound Security Rules](//img/dcos-azure-step2case1b.png)
 
 Figure 4. Inbound security rules
 
 3. Add an inbound security rule.
 
-![Add Inbound Security Rules](/1.11/img/dcos-azure-step2case1c.png)
+![Add Inbound Security Rules](//img/dcos-azure-step2case1c.png)
 
 Figure 5. Adding an inbound security rule 
 
 4. Find the load balancer resource of the master node.
 
-![Resource - Master Node Load balancer](/1.11/img/dcos-azure-step2case1d.png)
+![Resource - Master Node Load balancer](//img/dcos-azure-step2case1d.png)
 
 Figure 6. Master node load balancer
 
 5. Click on the **Inbound NAT rules** tab on the left side,
 
-![Inbound NAT Rules](/1.11/img/dcos-azure-step2case1e.png)
+![Inbound NAT Rules](//img/dcos-azure-step2case1e.png)
 
 Figure 7. Inbound NAT rules
 
 6. Add an inbound NAT rule.
 
-![Add Inbound NAT Rules](/1.11/img/dcos-azure-step2case1f.png)
+![Add Inbound NAT Rules](//img/dcos-azure-step2case1f.png)
 
 Figure 8. Adding an inbound NAT rule
 
@@ -202,7 +202,7 @@ ssh azureuser@dcosmaster.westus.cloudapp.azure.com -L 8000:localhost:80
 
 Now you can visit `http://localhost:8000` on your local machine and view the DC/OS Dashboard.
 
-![DC/OS dashboard](/1.11/img/dcos-gui.png)
+![DC/OS dashboard](//img/dcos-gui.png)
 
 Figure 9. DC/OS dashboard
 
@@ -226,7 +226,7 @@ The following commands can be used to run the DC/OS CLI directly on the master n
 ssh azureuser@$MASTERFQDN
 
 # Install CLI on the master node and configure with http://localhost
-curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.11/dcos -o dcos &&
+curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-/dcos -o dcos &&
 sudo mv dcos /usr/local/bin &&
 sudo chmod +x /usr/local/bin/dcos &&
 dcos cluster setup http://localhost &&
@@ -246,6 +246,6 @@ If you have created a new resource group in the deployment step, it is easy to t
 - [Install the DC/OS Command-Line Interface (CLI)][2]
 - [Scaling considerations][4]
 
-[1]: /1.11/security/ent/users-groups/
-[2]: /1.11/cli/install/
+[1]: //security/ent/users-groups/
+[2]: //cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/

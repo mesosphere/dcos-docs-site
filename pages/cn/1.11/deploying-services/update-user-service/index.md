@@ -11,7 +11,7 @@ enterprise: false
 
 可以使用 `dcos marathon` 命令轻松查看和更新已部署应用程序的配置。
 
-**注意：**在 [DC/OS 目录] (/1.11/gui/catalog/)中更新包的流程不同。如需更多信息，请参阅 [文档](/1.11/deploying-services/config-universe-service/)。
+**注意：**在 [DC/OS 目录] (/1.11/gui/catalog/)中更新软件包的流程不同。如需更多信息，请参阅 [文档](/cn/1.11/deploying-services/config-universe-service/)。
 
 # 更新所有环境变量
 
@@ -43,7 +43,7 @@ dcos marathon app show test-app | jq .env >env_vars.json
 { "SCHEDULER_DRIVER_PORT": "25501", }
 ```
 
-2. 编辑 `env_vars.json` 文件。使用 `{ "env" :}` 括起文件内容并添加更新，将 JSON 变为有效对象：
+2. 编辑 `env_vars.json` 文件。将 `{ "env" :}` 包括在文件内容内并添加更新，将 JSON 变为有效对象：
 
 ```json
 { "env" : { "APISERVER_PORT" : "25502", "SCHEDULER_DRIVER_PORT" : "25501" } }

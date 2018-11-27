@@ -22,7 +22,7 @@ dcos job show runs <job-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| | `--json` | 显示 JSON 格式化列表。|
+| | `--json` | 显示以 JSON 为格式的列表。|
 | | `--q` | 仅显示运行 ID 的阵列。|
 | `--run-id <run-id>`   |  The ID of a job run.   You can view the job IDs with the `dcos job list` 命令。|
 
@@ -36,13 +36,13 @@ dcos job show runs <job-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
 
 # 示例
 
 ## 显示运行状态
 
-在此示例中，显示作业成功运行。
+在此示例中，显示了作业成功运行。
 
 ```bash
 dcos job show runs my-scheduled-job

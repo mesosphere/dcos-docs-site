@@ -8,11 +8,11 @@ excerpt: 了解 Marathon 任务类别
 enterprise: false
 ---
 
-Marathon 将任务分为三类：初始、非终端和终端。这些类别中的任务可能处于下图所示的一种状态。如需了解任务的状态，可以查看数据中心操作系统日志或查询 [ Marathon  API](http://mesosphere.github.io/marathon/api-console/index.html) 的 [事件流](http://mesosphere.github.io/marathon/docs/event-bus.html) (/v2/events)。
+Marathon 将任务分为三类：初始、非终端和终端。这些类别中的任务可能处于下图所示的几种状态之一。如需了解任务的状态，可以查看数据中心操作系统日志或查询 [ Marathon  API](http://mesosphere.github.io/marathon/api-console/index.html) 的 [事件流](http://mesosphere.github.io/marathon/docs/event-bus.html) (/v2/events)。
 
-也可以 [在无法访问任务时配置 Marathon 的行为](/1.11/deploying-services/task-handling/configure-task-handling/)。
+也可以 [在无法访问任务时配置 Marathon 的行为](/cn/1.11/deploying-services/task-handling/configure-task-handling/)。
 
-![Task Handling Flow](/1.11/img/task-handling-corrected.png)
+![Task Handling Flow](/cn/1.11/img/task-handling-corrected.png)
 
 图 1. 任务处理图
 
@@ -64,7 +64,7 @@ case TASK_KILLED => Killed
 ```
 case TASK_STAGING => Staging
 ```
-初始状态：任务正在分段。
+初始状态：任务正在临时阶段。
 
 ```
 case TASK_STARTING => Starting
@@ -84,5 +84,5 @@ case TASK_KILLING => Killing
 ```
 case TASK_UNREACHABLE => Unreachable
 ```
-任务在与管理节点丢失联系的代理上运行，通常是因为网络故障或分区。任务可能仍在运行，也可能不再运行。Marathon 收到“任务不可访问”消息之后，就会启动替换任务。如果不可访问的时间超过 15 分钟，Marathon 就会将任务标记为未知，然后排除任务。
+任务在与管理节点失去联系的代理上运行，通常是因为网络故障或分区。任务可能仍在运行，也可能不再运行。Marathon 收到“任务不可访问”消息之后，就会启动替换任务。如果不可访问的时间超过 15 分钟，Marathon 就会将任务标记为未知，然后排除任务。
 

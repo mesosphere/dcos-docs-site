@@ -77,11 +77,13 @@ GET /service/kafka/v1/plan HTTP/1.1
 
 If a machine has permanently failed, manual intervention is required to replace the broker or brokers that resided on that machine. Because DC/OS Kafka uses persistent volumes, the service continuously attempts to replace brokers where their data has been persisted. In the case where a machine has permanently failed, use the Kafka CLI to replace the brokers.
 
-In the example below, the broker with id `0` will be replaced on new machine as long as cluster resources are sufficient to satisfy the service’s placement constraints and resource requirements.
+In the example below, the broker with the pod name `kafka-0` will be replaced on new machine as long as cluster resources are sufficient to satisfy the service’s placement constraints and resource requirements.
 
 ```bash
-$ dcos kafka broker replace 0
+$ dcos kafka pod replace kafka-0
 ```
+
+Note that you must specify the full pod name that you want to replace in the command line.
 
 # Extending the Kill Grace Period
 

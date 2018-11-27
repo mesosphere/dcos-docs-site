@@ -10,7 +10,7 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-[新用户](/1.11/security/ent/users-groups/) 默认没有权限，无法查看 [DC/OS GUI](/1.11/gui/)。您必须授予用户和组访问 Web 界面每个屏幕的权限。
+[新用户](/cn/1.11/security/ent/users-groups/) 默认没有权限，无法查看 [DC/OS GUI](/cn/1.11/gui/)。您必须授予用户和组访问 Web 界面每个屏幕的权限。
 
 <table class=“table” bgcolor=#858585>
 <tr> 

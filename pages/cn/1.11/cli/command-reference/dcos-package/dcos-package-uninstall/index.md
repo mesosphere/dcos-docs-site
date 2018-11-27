@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos package uninstall` 命令允许您卸载软件包。
+`dcos package uninstall` 命令让您卸载软件包。
 
 # 使用
 
@@ -36,8 +36,8 @@ dcos package uninstall <package-name> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/cn/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
 
 # 示例
 
-有关示例，请参阅[文档](/1.11/deploying-services/uninstall/)。
+有关示例，请参阅[文档](/cn/1.11/deploying-services/uninstall/)。

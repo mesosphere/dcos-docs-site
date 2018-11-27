@@ -135,7 +135,6 @@ You are advised not to enable TLS 1.0 as the protocol is considered insecure.
 
 If you have already installed your cluster and would like to change this in place, you can go through an [upgrade](/1.12/installing/production/upgrading/) with the `adminrouter_tls_1_0_enabled` parameter set to the desired value.
 
-
 ## adminrouter_tls_1_1_enabled [enterprise type="inline" size="small" /]
 Indicates whether to enable TLS 1.1 in Admin Router. Changing this setting has no effect on internal Admin Router configuration on agent nodes.
 
@@ -143,7 +142,6 @@ Indicates whether to enable TLS 1.1 in Admin Router. Changing this setting has n
 - `adminrouter_tls_1_1_enabled: 'false'` Disable the TLS 1.1 protocol in Admin Router.
 
 If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade](/1.12/installing/production/upgrading/) with the `adminrouter_tls_1_1_enabled` parameter set to the desired value.
-
 
 ## adminrouter_tls_1_2_enabled [enterprise type="inline" size="small" /]
 Indicates whether to enable TLS 1.2 in Admin Router. Changing this setting has no effect in internal Admin Router configuration on agent nodes.
@@ -344,6 +342,8 @@ Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#ex
 *  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.12/installing/ent/cloud/) template installations.
 *  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.12/installing/ent/custom/) installations.
 
+<a name="exhibitor_storage_backend"></a>
+
 ## exhibitor_storage_backend
 The type of storage backend to use for Exhibitor. You can use internal DC/OS storage (`static`) or specify an external storage system (`ZooKeeper`, `aws_s3`, and `Azure`) for configuring and orchestrating ZooKeeper with Exhibitor on the master nodes. Exhibitor automatically configures your ZooKeeper installation on the master nodes during your DC/OS installation.
 
@@ -464,11 +464,12 @@ Indicates whether the master DNS port is open. An open master DNS port listens p
 ## master_external_loadbalancer [enterprise type="inline" size="small" /]
 The DNS name or IP address for the load balancer. If specified, this is included as subject alternative name in the [DC/OS certificate](/1.12/security/ent/tls-ssl/) of the Admin Router on the master nodes.
 
-
 ## mesos_agent_work_dir [oss type="inline" size="small" /]
 The location of the Mesos work directory on agent and public agent nodes. This defines the `work_dir` parameter for Mesos agents in the cluster. The default is `/var/lib/mesos/slave`. For details, see [Mesos documentation](https://mesos.apache.org/documentation/latest/configuration/agent/).
 
 ## mesos_container_log_sink
+- DC/OS can send copies of task logs to a host's journald, however this is disabled by default because of a known performance problem in [systemd](https://github.com/systemd/systemd/issues/5102) which was [fixed](https://github.com/systemd/systemd/pull/6392) on July 31, 2017 and included in systemd v235. However, some Linux distributions do not use this version of systemd, for example CentOS 7.4 as of July 2018 uses systemd v219. Thus DC/OS by default does not have logrotate and journald enabled. If this feature is desired, ensure a modern version of systemd is in use in order to avoid this systemd performance problem.
+
 The log manager for containers (tasks). The options are:
 
 * `'journald'` - send task logs only to journald

@@ -23,21 +23,21 @@ enterprise: false
 
 ## 访问 Jenkins for DC/OS
 
-可通过 [DC/OS Web 界面](/1.11/gui/)中的仪表盘或服务导航菜单访问 Jenkins for DC/OS。
+可通过 [DC/OS Web 界面](/cn/1.11/gui/)中的仪表盘或服务导航菜单访问 Jenkins for DC/OS。
 
 单击“Jenkins”服务，然后单击“Open Service”访问 Jenkins Web 界面。
 
-![dcos-velocity-jenkins-ui.png](/1.11/img/dcos-velocity-jenkins-ui.png)
+![dcos-velocity-jenkins-ui.png](/cn/1.11/img/dcos-velocity-jenkins-ui.png)
 
 图 1. Jenkins Web 界面
 
 ## 添加 Docker Hub 凭据
 
-Jenkins 在其凭据库内存储帐户凭据，这允许作业以安全方式使用凭据。在 Jenkins 主页面种，从左侧菜单中单击 **Credentials**。从那里选择 **System**（也可从左侧菜单中选择），最后选择主查看区域中显示的全局凭据（不受限制）链接。左侧菜单现在应具有 **Add Credentials** 选项。
+Jenkins 在其凭据库内存储帐户凭据，这允许作业以安全方式使用凭据。在 Jenkins 主页面中，从左侧菜单中单击 **Credentials**。从那里选择 **System**（也可从左侧菜单中选择），最后选择主查看区域中显示的全局凭据（不受限制）链接。左侧菜单现在应具有 **Add Credentials** 选项。
 
 单击 **Add Credentials**，为 Docker Hub 创建新凭据。**Kind** 下拉菜单中应选择“Username with password”选项。填写其余信息以匹配您的 Docker Hub 帐户。
 
-![dcos-velocity-jenkins-creds-new.png](/1.11/img/dcos-velocity-jenkins-creds-new.png)
+![dcos-velocity-jenkins-creds-new.png](/cn/1.11/img/dcos-velocity-jenkins-creds-new.png)
 
 图 2. 添加 Jenkins 凭据
 
@@ -47,7 +47,7 @@ Jenkins 在其凭据库内存储帐户凭据，这允许作业以安全方式使
 
 创建一个新的 **Freestyle** 作业，其名称仅包含小写字母和连字符。此名称将稍后在 Docker 镜像名称中使用，并可能作为 Marathon 应用程序 ID 使用。
 
-![dcos-jenkins-new-freestyle.png](/1.11/img/dcos-jenkins-new-freestyle.png)
+![dcos-jenkins-new-freestyle.png](/cn/1.11/img/dcos-jenkins-new-freestyle.png)
 
 图 3. Freestyle 项目
 
@@ -55,7 +55,7 @@ Jenkins 在其凭据库内存储帐户凭据，这允许作业以安全方式使
 
 在以上**示例项目**部分中，使用新创建的 Git 存储库填写 Git 存储库 URL。Jenkins 必须可以访问它，且可能需要向 Jenkins 实例添加凭据。
 
-![dcos-jenkins-repourl.png](/1.11/img/dcos-jenkins-repourl.png)
+![dcos-jenkins-repourl.png](/cn/1.11/img/dcos-jenkins-repourl.png)
 
 图 4. 源代码管理凭据
 
@@ -72,17 +72,17 @@ Jenkins 作业执行以下操作：
 
 这些步骤可以使用 **Docker Build and Publish** 插件通过单个构建步骤执行，这已经包含并可供使用。在 **Add build step** 下拉列表中选择 **Docker Build and Publish** 选项。
 
-![dcos-velocity-jenkins-build-docker.png](/1.11/img/dcos-velocity-jenkins-build-docker.png)
+![dcos-velocity-jenkins-build-docker.png](/cn/1.11/img/dcos-velocity-jenkins-build-docker.png)
 
 图 5. Docker “Add build step” 选项
 
 填写以下字段：
 
-* **存储库名称**，带有您的 Docker Hub 用户名和 `/${JOB_NAME}` 作为后缀 ("myusername/${JOB_NAME}")
-* **标签**，具有 `${GIT_COMMIT}`
-* **注册表凭据**，以上创建的 Docker Hub 的凭据
+* 用您的 Docker Hub 用户名填写 **存储库名称**，并以 `/${JOB_NAME}` 作为后缀 ("myusername/${JOB_NAME}")
+* 以 `${GIT_COMMIT}` 填写**标签**
+* 将**注册表凭据**，填写到以上创建的 Docker Hub 的凭据中
 
-![dcos-velocity-jenkins-build-docker-config.png](/1.11/img/dcos-velocity-jenkins-build-docker-config.png)
+![dcos-velocity-jenkins-build-docker-config.png](/cn/1.11/img/dcos-velocity-jenkins-build-docker-config.png)
 
 图 6. Docker 构建和发布屏幕
 
@@ -90,7 +90,7 @@ Jenkins 作业执行以下操作：
 
 通过从 **Add post-build action**下拉菜单中选择 **Marathon Deployment** 选项，添加 Marathon 部署构建后操作。
 
-![dcos-jenkins-plugin-popup.png](/1.11/img/dcos-jenkins-plugin-popup.png)
+![dcos-jenkins-plugin-popup.png](/cn/1.11/img/dcos-jenkins-plugin-popup.png)
 
 图 6. Marathon 部署菜单
 
@@ -98,9 +98,9 @@ Jenkins 作业执行以下操作：
 
 * **Marathon URL**，可使用 URL `http://leader.mesos/service/marathon` 在 DC/OS 内对其进行访问  
 * **应用定义**，具有与 marathon 应用程序文件 (`conf/cd-demo-app.json`) 相对的路径
-* **Docker 镜像**，具有以上创建的镜像 (`myusername/${JOB_NAME}:${GIT_COMMIT}`)
+*使用以上创建的镜像 (`myusername/${JOB_NAME}:${GIT_COMMIT}`) 选择 **Docker 镜像**
 
-![dcos-velocity-marathon-config.png](/1.11/img/dcos-velocity-marathon-config.png)
+![dcos-velocity-marathon-config.png](/cn/1.11/img/dcos-velocity-marathon-config.png)
 
 图 7. 构建后操作屏幕
 
@@ -120,7 +120,7 @@ Marathon 部署构建后操作读取应用定义文件，默认情况下为 `mar
 
 单击 **Build Now**，然后构建作业。
 
-![dcos-jenkins-build-now.png](/1.11/img/dcos-jenkins-build-now.png)
+![dcos-jenkins-build-now.png](/cn/1.11/img/dcos-jenkins-build-now.png)
 
 图 8. 构建作业
 
@@ -134,7 +134,7 @@ Marathon 部署构建后操作读取应用定义文件，默认情况下为 `mar
 
 访问公共 DC/OS 代理节点上的 `80` 以显示 Jekyll 网站。
 
-![dcos-jekyll-site1.png](/1.11/img/dcos-jekyll-site1.png)
+![dcos-jekyll-site1.png](/cn/1.11/img/dcos-jekyll-site1.png)
 
 图 9. Jekyll 演示
 
@@ -144,7 +144,7 @@ Marathon 部署构建后操作读取应用定义文件，默认情况下为 `mar
 
 将新帖子提交给 Git。在新的提交落在主分支上之后不久，Jenkins 将看到更改并重新部署到 Marathon。
 
-![dcos-jekyll-updated.png](/1.11/img/dcos-jekyll-updated.png)
+![dcos-jekyll-updated.png](/cn/1.11/img/dcos-jekyll-updated.png)
 
  [1]:https://mesosphere.github.io/marathon/
  [3]:https://mesosphere.github.io/marathon/docs/application-basics.html

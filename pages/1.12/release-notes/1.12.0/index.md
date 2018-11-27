@@ -8,9 +8,11 @@ excerpt: Release notes for DC/OS 1.12.0
 
 DC/OS 1.12.0 was released on October 25, 2018.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.12.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="light" href="https://downloads.dcos.io/dcos/stable/1.12.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
+[button color="purple" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise* [/button]
+
+<p class="message--warning"><strong>WARNING: </strong>Registered Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, please contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> when installing DC/OS Enterprise Edition.</p>
 
 # About DC/OS 1.12.0 
 
@@ -19,7 +21,7 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 ## New Features and Capabilities
 
 ### Mesosphere Kubernetes Engine
-- High density [Multi-Kubernetes](https://docs.mesosphere.com/services/kubernetes/2.0.0-1.12.1/) leveraging enhanced containerized bin packing. 
+- High Density Multi-Kubernetes (HDMK) allows operators to take advantage of intelligent resource pooling when running multiple Kubernetes clusters on DC/OS. Compared with other Kubernetes distributions that run a single Kubernetes node per virtual machine, Mesosphere HDMK uses its intelligent resource pooling to pack multiple Kubernetes nodes onto the same server for bare metal, virtual machine, and public cloud instances, driving significant cost savings and resource efficiencies. [Learn more about Kubernetes on DC/OS](/services/kubernetes/2.0.0-1.12.1/).
 
 ### Mesosphere Jupyter Service (MJS)
 - Delivered secure, [cloud-native Jupyter](https://docs.mesosphere.com/services/beta-jupyter/) Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
@@ -28,9 +30,7 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 - OpenID connect authentication and authorization with support for Windows Integrated Authentication (WIA) and Active Directory Federation Services (ADFS)
 
 ### Observability - Metrics
-Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability are:
-- Adopted industry standards, Free and Open Source Software (FOSS) metrics infrastructure.
-- Used flexible and configurable metrics pipeline with multiple output formats.
+- Introduced a flexible and configurable metrics pipeline with multiple output formats.
 - Enhanced support for application metric types including histograms, counters, timers, and gauges.
 - Support for sample rates and multi-metrics packets. 
 - Mesos framework metrics are now [available](http://mesos.apache.org/documentation/latest/monitoring/#frameworks).
@@ -59,10 +59,21 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - Automatically synchronize [LDAP user account groups](https://docs.mesosphere.com/1.12/security/ent/users-groups/) without manual synchronization of [LDAP directory](https://docs.mesosphere.com/1.12/security/ent/ldap/) with accounts imported into DC/OS.
 
 ### Universal Installer 
-- Introducing an unified Terraform-based open source tool for provisioning, deploying, installing, upgrading, and decommissioning DC/OS on AWS, GCP, and Azure.
+- Introducing a unified Terraform-based open source tool for provisioning, deploying, installing, upgrading, and decommissioning DC/OS on AWS, GCP, and Azure.
 - Intuitive, streamlined installation with a quick start process - Spin up a DC/OS cluster with a few easy steps in 10-15 minutes. 
 - Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
 - Restructured [Mesosphere installation documentation](https://docs.mesosphere.com/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
+
+### Networking
+- Networking component enhancements with 150+ bug fixes with limited logging for visibility.
+- Improved DNS convergence time (sub-sec) performance.
+- Configurable MTU for Overlay networks.
+- Reusable IP addresses for new agents in the cluster.
+- Mitigation of networking stuck-state due to SSL deadlock in Erlang library.
+- TLS 1.2 support.
+- Support for per container network Metrics.
+- Leverage persistent connections in Edge-LB for L7 load-balancing. [enterprise type="inline" size="small" /]
+- Improved logging in Edge-LB. [enterprise type="inline" size="small" /]
 
 ### Expanded DC/OS Upgrade Paths 
 - Mesosphere now supports specific skip [upgrade paths](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move).
@@ -97,7 +108,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - DCOS_OSS-2338 - Update Metronome to 0.5.0. 
 - DCOS_OSS-2378 - Update OTP version to 20.3.2.
 - DCOS_OSS-3597 - Update REX-Ray version to [0.11.2](https://github.com/rexray/rexray/releases/tag/v0.11.2). 
-- Removed Local, Development, On-Premise sections and corresponding dcos-docker/dcos-vagrant installation methods from DC/OS 1.12, 1.11, 1.10 Installation documentation.
+- Removed Local, Development, On-Premise sections and corresponding dcos-docker/dcos-vagrant installation methods from DC/OS 1.12, 1.11, 1.10 installation documentation.
 
 <p class="message--warning"><strong>WARNING: </strong>Mesos endpoints with `.json` suffix (e.g., /mesos/state.json) are deprecated in DC/OS 1.12 and will be removed in DC/OS 1.13.</p>
 
@@ -203,20 +214,21 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - DCOS_OSS-2283 - Add a DC/OS API endpoint to distinguish `open` and `enterprise` build variants. [enterprise type="inline" size="small" /]
 - DCOS_OSS-4129 - Change Admin Router access log format to facilitate debugging and performance analysis.
 
-## SDK
+### SDK
 - DCOS_OSS-2195 - Release cosmos v0.6.0. 
 
-## Known Issues and Limitations
-
-### Breaking Changes
+## Breaking Changes
 - DCOS_OSS-2256 - Removed the DC/OS web installer. 
 - DCOS_OSS-3714 - Replaced `dcos-metrics` with Telegraf.
 - DCOS_OSS-4243 - By default, Marathon will decline offers for agents in [maintenance mode](https://github.com/mesosphere/marathon/blob/master/changelog.md#maintenance-mode-support-production-ready-now-default). Requests to Marathon's events API (/v2/events when queried directly) for standby instances no longer proxy, but instead responds with a redirect. Clients consuming Marathon's events API should be updated to follow redirects. Component such as updated to versions that follow redirects; for example, Marathon-LB should be updated to at least version v1.12.3. [See more details](https://github.com/mesosphere/marathon/blob/master/changelog.md#non-leaderstandby-marathon-instances-respond-to-v2events-with-a-redirect-rather-than-proxy).
 
-### Customer Advisory 
+## Customer Advisory 
 - [Requirements for Kubernetes support on DC/OS 1.12](https://support.mesosphere.com/s/article/Critical-Issue-Kubernetes-Upgrade-MSPH-2018-0007).
 - [Red Hat Docker 1.13 recommended for CentOS & RHEL support on DC/OS](https://support.mesosphere.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006).
 - Update components to support Marathon's [new event-stream redirects](https://support.mesosphere.com/s/article/Update-Components-to-Support-Marathon-s-New-Event-Stream-Redirects-MSPH-2018-0008).
+- [`dcos-net` ignores some tcp/udp discovery ports for tasks on the host network](https://support.mesosphere.com/s/article/Known-Issue-DC-OS-Networking-MSPH-2018-0008).
+
+## Known Issues and Limitations
 
 ### GUI
 - DCOS-39298 - Edit Jobs: Make ID field non-editable.
@@ -237,6 +249,7 @@ Maturation of [metrics](https://docs.mesosphere.com/1.12/metrics/) observability
 - DCOS_OSS-4328 - Lashup fails to converge in certain cases.
 - DCOS-10809 - DNS unavailable during DC/OS upgrade.
 - DCOS-43857 - `test_dcos_cni_l4lb` fails for 1.12.0-rc3 & 1.11.6 on RHEL 7.5.
+- COPS-4078/DCOS_OSS-4395 - `dcos-net` ignores some tcp/udp discovery ports for tasks on the host network.
 
 [enterprise]
 ### Security

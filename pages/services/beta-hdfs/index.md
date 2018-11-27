@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Beta HDFS
 title: Beta HDFS
-menuWeight: 150
+menuWeight: -1
 excerpt:
 featureMaturity:
 enterprise: false

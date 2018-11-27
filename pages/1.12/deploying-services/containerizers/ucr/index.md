@@ -9,7 +9,7 @@ enterprise: false
 
 # Provision a Mesos container using UCR
 
-The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/latest/container-image) launches Mesos containers from binary executables and extends the Mesos container runtime to support provisioning [Docker](https://docker.com/) images. The UCR has many [advantages](/1.11/deploying-services/containerizers/) over the Docker Engine for running Docker images. Use the Docker Engine only if you need specific [features](/1.11/deploying-services/containerizers/#container-runtime-features) of the Docker package.
+The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/latest/container-image) launches Mesos containers from binary executables and extends the Mesos container runtime to support provisioning [Docker](https://docker.com/) images. The UCR has many [advantages](/1.12/deploying-services/containerizers/) over the Docker Engine for running Docker images. Use the Docker Engine only if you need specific [features](/1.12/deploying-services/containerizers/#container-runtime-features) of the Docker package.
 
 # DC/OS web interface
 Use this procedure to provision a container with the UCR from the DC/OS web interface.
@@ -30,7 +30,7 @@ Use this procedure to provision a container with the UCR from the DC/OS web inte
 # DC/OS CLI
 Use this procedure to provision a container with the UCR from the DC/OS command line.
 
-1. In your [Marathon application definition](/1.11/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api), set the `container.type` parameter to `MESOS`. Here, we specify a Docker container with the `docker` object. The UCR provides an optional `pullConfig` parameter to enable you to [authenticate to a private Docker registry](/1.11/deploying-services/private-docker-registry/).
+1. In your [Marathon application definition](/1.12/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api), set the `container.type` parameter to `MESOS`. Here, we specify a Docker container with the `docker` object. The UCR provides an optional `pullConfig` parameter to enable you to [authenticate to a private Docker registry](/1.12/deploying-services/private-docker-registry/).
 
 ```json
 {

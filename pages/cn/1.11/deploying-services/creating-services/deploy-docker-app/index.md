@@ -68,7 +68,7 @@ enterprise: false
     docker login
     ```
 
-1. 将图像推送到 Docker Hub，其中 `<username>是您的 Docker Hub 用户名：
+1. 将图像推送到 Docker Hub，其中 `<username>` 是您的 Docker Hub 用户名：
 
     ```bash
     docker push <username>/simple-docker
@@ -88,7 +88,7 @@ enterprise: false
 
 # 创建 Docker 应用程序并部署到 DC/OS
 
-1. 使用以下内容创建 Marathon 应用定义，并另存为 `hello-nginx.json`：在 `image` 字段，替换 `<username>在` with your Docker Hub username. In the `type` field, specify `字段中，根据您喜欢的 [containerizer runtime](/1.11/deploying-services/containerizers/) 指定 MESOS` or ` 或 DOCKER。
+1. 使用以下内容创建 Marathon 应用定义，并另存为 `hello-nginx.json`：在 `image` 字段，替换 `<username>在` with your Docker Hub username. In the `type` field, specify `字段中，按您需要的 [containerizer runtime](/cn/1.11/deploying-services/containerizers/) 指定 MESOS` or ` 或 DOCKER。
 
     ```json
     {
@@ -138,24 +138,24 @@ enterprise: false
  /hello-nginx 64 0.1 1/1 N/A --- False MESOS N/A
     ```
 
-1. 如果您使用 [AWS CloudFormation 模板](/1.11/installing/evaluation/cloud-installation/aws/) 将应用程序公开到应用定义中指定的端口（例如，端口 80），则必须在公共 ELB 上重新配置运行状况检查。
+1. 如果您使用 [AWS CloudFormation 模板](/cn/1.11/installing/evaluation/cloud-installation/aws/) 将应用程序公开到应用定义中指定的端口（例如，端口 80），则必须在公共 ELB 上重新设置运行状况检查。
  1. 在 CloudFormation 中，勾选堆栈旁边的复选框。
  2. 单击 **Resources** 选项卡。
  3. 搜索 **PublicSlavEloadBalancer**。
  4. 单击 Physical ID（物理 ID）列中的链接。
  5. 遵循[更新运行状况检查配置](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html#update-health-check-config)中的说明。
 
-1. 转到公共代理节点，查看网站是否正在运行。若要查找公共代理 IP 地址，请参阅[查找公共代理 IP](/1.11/administering-clusters/locate-public-agent/)。
+1. 转到公共代理节点，查看网站是否正在运行。若要查找公共代理 IP 地址，请参阅[查找公共代理 IP](/cn/1.11/administering-clusters/locate-public-agent/)。
 
  您应在浏览器中看到以下消息：
 
- ![Hello Brave World](/1.11/img/helloworld.png)
+ ![Hello Brave World](/cn/1.11/img/helloworld.png)
 
  图 1. Hello World 消息 
 
 # 后续步骤
 
-了解如何使用 [Marathon-LB](/1.11/networking/marathon-lb/marathon-lb-basic-tutorial/) 在公共节点上对应用程序进行负载均衡。
+了解如何使用 [Marathon-LB](/cn/1.11/networking/marathon-lb/marathon-lb-basic-tutorial/) 在公共节点上对应用程序进行负载均衡。
 
 
  [1]:https://www.docker.com

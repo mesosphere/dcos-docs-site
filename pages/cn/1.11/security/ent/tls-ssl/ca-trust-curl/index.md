@@ -11,9 +11,9 @@ enterprise: true
 
 如果您没有设置代理，您应该在 `permissive` 和 `strict` 安全模式下使用 `curl` 命令中 `--cacert dcos-ca.crt`。
 
-**先决条件：**[DC/OS CA 根证书](/1.11/security/ent/tls-ssl/get-cert/)的本地副本。
+**先决条件：**[DC/OS CA 根证书](/cn/1.11/security/ent/tls-ssl/get-cert/)的本地副本。
 
-如果您没有[设置代理](/1.11/security/ent/tls-ssl/haproxy-adminrouter/)，您应该在 `permissive` 和 `strict` 安全模式下使用 `curl` 命令中 `--cacert dcos-ca.crt`。
+如果您没有[设置代理](/cn/1.11/security/ent/tls-ssl/haproxy-adminrouter/)，您应该在 `permissive` 和 `strict` 安全模式下使用 `curl` 命令中的 `--cacert dcos-ca.crt`。
 
 在以下示例中，我们假定文件被命名 `dcos-ca.crt` 并位于当前目录中。
 

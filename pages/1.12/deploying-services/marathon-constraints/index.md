@@ -18,7 +18,7 @@ Entering `@hostname` as the field name matches the agent node hostnames. All Mar
 
 ### Region and zone as field names
 
-Use the `@region` and `@zone` field names to configure [fault domain awareness and capacity extension](/1.11/deploying-services/fault-domain-awareness/).
+Use the `@region` and `@zone` field names to configure [fault domain awareness and capacity extension](/1.12/deploying-services/fault-domain-awareness/).
 
 ## Attribute as field name
 

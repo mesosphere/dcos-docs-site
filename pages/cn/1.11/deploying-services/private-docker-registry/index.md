@@ -12,7 +12,7 @@ enterprise: false
 若要从专用 Docker 注册表中提供拉取凭据，请创建 Docker 凭据的存档，然后将其添加为服务或 pod 定义中的 URI。在 DC/OS Enterprise 中，您还可以将 Docker 注册表凭据上传到 DC/OS 密钥存储库]（#secret-store-instructions），并在服务或 pod 定义中进行引用。
 
 <a name="uri-instructions"></a>
-# 将专用 Docker 注册表凭据引用为 URI
+# 将专用 Docker 注册表凭据以 URI 的形式来使用
 
 ## 第 1 步：压缩 Docker 凭据
 
@@ -49,7 +49,7 @@ enterprise: false
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>所有会启动您应用的节点都必须能够访问 URI。可以将文件分发到所有节点的本地文件系统，例如，通过 RSYNC/SCP 分发，或将其存储在共享网络驱动器上，例如 <a href="http://aws.amazon.com/s3/">Amazon S3</a>。仔细考虑所选方法的安全影响。</td> 
+  <td align=justify style=color:white><strong>重要信息：</strong>URI 必须能够通过所有会启动您应用的节点访问。可以将文件分发到所有节点的本地文件系统，例如，通过 RSYNC/SCP 分发，或将其存储在共享网络驱动器上，例如 <a href="http://aws.amazon.com/s3/">Amazon S3</a>。仔细考虑所选方法的安全影响。</td> 
 </tr> 
 </table>
 
@@ -94,7 +94,7 @@ enterprise: false
 
 按照以下步骤向 [DC/OS Enterprise 密钥存储库] 添加 Docker 注册表凭据(/1.11/security/ent/secrets/)，然后在服务定义中引用该密钥。
 
-**注意：** 此功能仅适用于 [通用容器运行时间](/1.11/deploying-services/containerizers/ucr/)。如果需要使用 Docker Engine，请遵循上述 [URI 说明](#uri-instructions)。
+**注意：** 此功能仅适用于 [通用 Containerizer 运行时间](/cn/1.11/deploying-services/containerizers/ucr/)。如果需要使用 Docker Engine，请遵循上述 [URI 说明](#uri-instructions)。
 
 ## 第 1 步：创建凭据文件
 
@@ -185,7 +185,7 @@ enterprise: false
 
 ### 对于 pod
 
-1. 在 `secrets` 参数中添加密钥位置，并在 `containers.image.pullConfig` 参数中引用密钥。
+1. 在 `secrets` 参数中添加密钥位置，并在 `containers.image.pullConfig` 参数中指向密钥。
 
  **注意：** 只有在 `image.kind` 设置为 `DOCKER` 时，支持此功能。
 

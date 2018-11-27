@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon pod update` 命令允许您更新 pod。
+`dcos marathon pod update` 命令让您更新 pod。
 
 # 使用
 
@@ -34,7 +34,7 @@ dcos marathon pod update <pod-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
 # 示例
 

@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 
-本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/1.11/deploying-services/marathon-parameters)。
+本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/cn/1.11/deploying-services/marathon-parameters)。
 
 # 带注释的简单 Pod 定义
 
@@ -72,12 +72,12 @@ enterprise: false
 |  `containers.exec.command` | 对象 | Mesos 执行的命令。 |
 |  `containers.exec.command.shell` | 字符串 | 要执行的命令。如果使用容器进入点，请使用空字符串。|
 |  `containers.exec.overrideEntrypoint` | 布尔值 | 如果提供 `command`，将该值默示设置为 `true`。要使用默认进入点，则设置为 `false`。|
-|  `containers:resources` （必填）| 对象 | 资源的容器规范。 |
+|  `containers:resources` （必填）| 对象 | 资源的容器配置。 |
 |  `containers.resources.cpus` | 数字 | CPU 共享（默认值：1.0）。|
 |  `containers.resources.mem` | 数字 | 以 MiB 计算的内存资源（默认值：128）。|
 |  `containers.resources.disk` | 双倍 | 以 MiB 计算的磁盘资源（默认值：128）。|
 |  `containers.resources.gpus` | 整数 | GPU 资源（默认值：0）。|
-|  `containers.image` | 对象 | 如果省略 `image`，就使用 Mesos 容器。|
+|  `containers.image` | 对象 | 如果省略 `image`，就使用 Mesos containerizer。|
 |  `containers.image.kind` | 字符串 | 容器镜像格式（`DOCKER` 或 `APPC`）。 |
 |  `containers.image.id` | 字符串 | 容器镜像标签。 |
 |  `containers.image.forcePull` | 布尔值 | 设置为 true 即可始终拉取镜像（默认值：假）。|
@@ -324,8 +324,8 @@ enterprise: false
 |-----------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------|
 |  `labels` | 对象 | Pod 元数据作为密钥/值对。 |
 |  `environment` | 对象 | pod 级别的环境变量。所有 pod 容器都将继承这些环境变量。必须大写。 |
-|  `secrets` | 对象 | 存储库中的密钥的完全限定路径。 |
-|  `scheduling` | 对象 | 定义故障应用程序的指数退避行为，防止沙箱填满。 |
+|  `secrets` | 对象 | 存储库中的密钥的完全符合要求的路径。 |
+|  `scheduling` | 对象 | 定义故障应用程序的指数退避行为，防止沙盒填满。 |
 |  `scheduling.backoff` | 数字 | 启动实例失败时应用的初始退避（秒）（默认值：1）。|
 |  `scheduling.backoffFactor` | 数字 | 应用于当前退避的因数，可确定新的退避（默认值：1.15）。|
 |  `scheduling.maxLaunchDelay` | 数字 | 检测到后续故障时应用的最大退避（秒）（默认值：3600）。|
@@ -333,11 +333,11 @@ enterprise: false
 |  `scheduling.unreachableStrategy.inactiveAfterSeconds` | 数字 | 实例被标记为非活动后无法访问的时长。 |
 |  `scheduling.unreachableStrategy.expungeAfterSeconds` | 数字 | 实例被排除后无法访问的时长。 |
 |  `scheduling.upgrade` | 对象 | 控制 pod 更新的升级策略。 |
-|  `scheduling.upgrade.minimumHealthCapacity` | 数字 | 介于 0 和 1 之间的数字，表示在升级期间保持的最少健康节点数量（默认值：1）。|
+|  `scheduling.upgrade.minimumHealthCapacity` | 数字 | 介于 0 和 1 之间的数字，表示在升级期间保持的最少运行良好的节点数量（默认值：1）。|
 |  `scheduling.upgrade.maximumOverCapacity` | 数字 | 0 至 1 之间的数字，表示升级期间启动的最大附加实例数（默认值：1）。|
 |  `placement` | 对象 | 控制 pod 任务的放置。 |
 |  `placement.constraints` | 字符串[] | 约束控制 pod 任务的布局策略。选项：`UNIQUE`、`CLUSTER`、`GROUP_BY`、`LIKE`、`UNLIKE`、`MAX_PER`。|
-|  `placement.acceptedResourceRoles` | 字符串[] | 资源角色列表。Marathon 组件只会考虑在此列表中列出角色，为此 Pod 的任务提供的资源邀约。 |
+|  `placement.acceptedResourceRoles` | 字符串[] | 资源角色列表。Marathon 组件只会考虑在此列表中列出角色，为此 Pod 的任务提供的资源邀请。 |
 |  `killSelection` | 字符串 | 定义应用程序处于过度调配状态时首先被关闭的实例。选项：`YOUNGEST_FIRST`、`OLDEST_FIRST`。 |
 |  `unreachableStrategy` |  代理从管理节点分区后的行为 |
 |  `killSelection.inactiveAfterSeconds` | 整数 | 替换任务前等待的时间（秒）（默认值：900）。|
@@ -356,9 +356,9 @@ enterprise: false
 |  `healthCheck` | 对象 | 接受以下参数: `http`、`tcp` 和 `exec`。|
 |  `healthCheck.http` | | 协议类型。选项：`http`、`tcp`、 `exec`。 |
 |  `healthCheck.http.endpoint` | 字符串 | 要使用的端点名称。 |
-|  `healthCheck.http.path` | 字符串 | 由提供健康状态的任务披露的端点路径。 |
+|  `healthCheck.http.path` | 字符串 | 由提供运行状态的任务披露的端点路径。 |
 |  `healthCheck.http.scheme` | 字符串 | 对于 httpHealthCheck，使用 `http`。|
-|  `healthCheck.gracePeriodSeconds` | 整数 | 忽略运行状况检查失败距离第一次启动任务，或距离任务初次显示健康的时间间隔（默认值：300）。|
+|  `healthCheck.gracePeriodSeconds` | 整数 | 忽略运行状况检查失败距离第一次启动任务，或距离任务初次显示运行良好的时间间隔（默认值：300）。|
 |  `healthCheck.intervalSeconds` | 整数 | 运行状况检查时间间隔（默认值：60）。|
 |  `healthCheck.maxConsecutiveFailures` | 整数 | 任务被关闭之前连续故障的次数（默认值：3）。|
 |  `healthCheck.timeoutSeconds` | 整数 | 等待运行状况检查完成的时间（默认值：20）。|
@@ -547,7 +547,7 @@ enterprise: false
 
 # 使用持久卷的 Pod
 
-如需查看使用持久卷的 pod 的示例，请参见 [创建具有本地持久卷的 pod](/1.11/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume)。
+如需查看使用持久卷的 pod 的示例，请参见 [创建具有本地持久卷的 pod](/cn/1.11/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume)。
 
 ## 各 Pod 的 IP 网络
 

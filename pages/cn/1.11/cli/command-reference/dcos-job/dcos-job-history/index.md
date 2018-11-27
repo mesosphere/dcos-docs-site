@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos job history` 命令允许您查看您的作业运行历史记录。
+`dcos job history` 命令让您查看您的作业运行历史记录。
 
 # 使用
 
@@ -22,7 +22,7 @@ dcos job history <job-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| | `--json` | 显示 JSON 格式化列表。 |
+| | `--json` | 显示以 JSON 为格式的列表。 |
 | | `--show-failures` | 显示故障表和历史记录统计信息。 |
 
 # 位置自变量
@@ -35,7 +35,7 @@ dcos job history <job-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
 
 # 示例
 

@@ -28,12 +28,12 @@ dcos marathon pod list [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
 # 示例
 
 ## 列出 pod
-使用以下命令列出 pod 及其拥有的容器数：
+使用以下命令列出 pod 及其容器数：
 ```
 dcos marathon pod list
 ```

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Beta DataStax Enterprise
 title: Beta DataStax Enterprise
-menuWeight: 130
+menuWeight: -1
 excerpt:
 featureMaturity:
 enterprise: false

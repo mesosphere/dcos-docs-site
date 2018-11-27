@@ -11,7 +11,7 @@ enterprise: false
 
 您可以使用维护窗口或通过手动终止代理来更新活动 DC/OS 群集中的代理节点。维护窗口是首选方法，因为这通常更稳定，不容易出错。
 
-如果您正在缩小群集、重新配置代理节点或将节点移动到新 IP，这些步骤非常有用。更改 Mesos 属性(`⁠⁠⁠⁠/var/lib/dcos/mesos-slave-common`⁠⁠⁠⁠) 或资源(⁠⁠⁠⁠`/var/lib/dcos/mesos-resources`⁠⁠⁠⁠)时，您必须删除代理节点，并以新的 UUID 在管理节点上重新注册它。然后，管理节点将识别新的属性和资源规范。
+如果您正在缩小群集、重新配置代理节点或将节点转移到新 IP，这些步骤非常有用。更改 Mesos 属性(`⁠⁠⁠⁠/var/lib/dcos/mesos-slave-common`⁠⁠⁠⁠) 或资源(⁠⁠⁠⁠`/var/lib/dcos/mesos-resources`⁠⁠⁠⁠)时，您必须删除代理节点，并以新的 UUID 在管理节点上重新注册它。然后，管理节点将识别新的属性和资源规范。
 
 <table class=“table” bgcolor=#ffd000>
 <tr> 
@@ -21,13 +21,13 @@ enterprise: false
 
 ### 先决条件：
 
-* [已安装和配置 SSH](/1.11/administering-clusters/sshcluster/)。这是通过手动终止代理来删除节点所需的。
-* 可访问 [Admin Router 权限](/1.11/overview/architecture/components/#admin-router)。
+* [已安装和配置 SSH](/cn/1.11/administering-clusters/sshcluster/)。这是通过手动终止代理来删除节点所需的。
+* 可访问 [Admin Router 权限](/cn/1.11/overview/architecture/components/#admin-router)。
 
 # 使用维护窗口更新节点
-使用维护窗口，您可以从群集外部同时排放多个节点。无需 SSH 访问。
+使用维护窗口，您可以从群集外部同时排空多个节点。无需 SSH 访问。
 
-您可以定义维护计划以在更改代理属性或资源之前撤退您的任务。
+您可以定义维护计划,以在更改代理属性或资源之前撤退您的任务。
 
 1. 定义维护计划。例如，此处是已经指定示例机器 (`machine_ids`) 和维护窗口(`unavailability`)的基本维护计划 JSON 文件：
 
@@ -50,7 +50,7 @@ enterprise: false
 
  如需更复杂的示例，请参阅 [maintain-agents.sh](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/maintain-agents.sh) 脚本。
 
-1. 指定机器 JSON 定义之后调用 `⁠⁠⁠⁠machine/down` 端点。例如，[此处](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) 是一个调用 `/machine/down/`的脚本。
+1. 用指定机器 JSON 定义调用 `⁠⁠⁠⁠machine/down` 端点。例如，[此处](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) 是一个调用 `/machine/down/`的脚本。
 
     <table class=“table” bgcolor=#858585>
     <tr> 
@@ -71,7 +71,7 @@ enterprise: false
 # 通过手动终止代理更新节点
 使用终止信号 SIGUSR1 排空节点，这易于与可在节点上平行地执行任务的自动化工具集成，例如，Ansible、Chef 和 Puppet.。
 
-1. [SSH 至代理节点](/1.11/administering-clusters/sshcluster/)。
+1. [SSH 至代理节点](/cn/1.11/administering-clusters/sshcluster/)。
 1. 停止代理。
 
  - **私有代理**

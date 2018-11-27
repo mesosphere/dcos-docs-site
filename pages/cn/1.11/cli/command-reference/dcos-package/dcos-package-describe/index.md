@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos package describe` 命令允许您查看软件包的特定详细信息。
+`dcos package describe` 命令让您查看软件包的特定详细信息。
 
 # 使用
 
@@ -40,4 +40,4 @@ dcos package describe <package-name> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/cn/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|

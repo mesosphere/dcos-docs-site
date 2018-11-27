@@ -10,7 +10,7 @@ enterprise: true
 
 
 # 说明
-`dcos edgelb pool status` 命令允许您显示 Edge-LB 池状态信息。
+`dcos edgelb pool status` 命令让您显示 Edge-LB 池状态信息。
 
 # 使用
 
@@ -43,8 +43,8 @@ dcos edgelb [<flags>] pool status [<flags>] <name>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/1.11/cli/command-reference/dcos-edgelb/) | 管理 Edge-LB。|
+| [dcos edgelb](/cn/1.11/cli/command-reference/dcos-edgelb/) | 管理 Edge-LB。|
 
 # 示例
 
-请参阅 [Edge-LB 快速入门指南](/1.11/networking/edge-lb/quickstart/)。
+请参阅 [Edge-LB 快速入门指南](/cn/1.11/networking/edge-lb/quickstart/)。

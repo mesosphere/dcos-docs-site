@@ -21,11 +21,10 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
 
 ## Static Reservations
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>Warning:</strong> This procedure kills all running tasks on your node.</td> 
+<p class="message--warning"><strong>WARNING: </strong> This procedure kills all running tasks on your node.</p> 
 </tr> 
 </table>
+
 
 1.  [SSH](/1.12/administering-clusters/sshcluster/) to your private agent node.
 
@@ -34,32 +33,23 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
    ```
 
 1.  Navigate to `/var/lib/dcos` and create a file named `mesos-slave-common` with these contents, where `<myrole>` is the name of your role.
-
     ```bash
     MESOS_DEFAULT_ROLE='<myrole>'
     ```
 1.  Stop the private agent node:
-
     ```bash
     sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
     ```
-
 1.  Add the node back to your cluster.
-
     1.  Reload the `systemd` configuration.
-
         ```bash
         ﻿⁠⁠sudo systemctl daemon-reload
         ```
-
     1.  Remove the `latest` metadata pointer on the agent node:
-
         ```bash
         ⁠⁠⁠⁠sudo rm /var/lib/mesos/slave/meta/slaves/latest
         ```
-
     1.  Start your agents with the newly configured attributes and resource specification⁠⁠.
-
         ```bash
         sudo systemctl start dcos-mesos-slave
         ```
@@ -135,7 +125,6 @@ curl -i -k \
 In this step, a non-native Marathon instance is installed on DC/OS with the Mesos role assigned.
 
 1.  Create a custom JSON config file and save as `marathon-config.json`. This file is used to install the custom non-native Marathon instance.
-
     ```json
     {"marathon": {
      "mesos-role": "<myrole>",
@@ -143,14 +132,11 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
      "default-accepted-resource-roles": "*,<myrole>"
      }
     }
-     ```      
-    
+     ```        
 1.  Install the Marathon package from Universe with the custom JSON configuration specified (`marathon-config.json`).
-
     ```bash
     dcos package install --options=marathon-config.json marathon
     ```
-
 # Step 3 - Create a Marathon Service Account
 In this step, a Marathon Service Account is created. Depending on your [security mode](/1.12/security/ent/#security-modes), a Marathon Service Account is either optional or required.
 

@@ -18,7 +18,7 @@ enterprise: true
 
 # <a name="oob"></a>从带外检索 DC/OS CA 捆绑包
 
-DC/OS CA 捆绑包位于文件系统路径 `/run/dcos/pki/CA/ca-bundle.crt` 的任何主节点上。为获得最大安全性，您应手动检索此文件。或者，如果无法物理访问主节点，则合理安全的方法是通过 SSH 连接到其中一个主节点以获取文件。为了简化和更容易地使用文档中其他地方提供的 `curl` 命令，您可以从 `ca-bundle.crt` 到 `dcos-ca.crt` 重命名文件。
+DC/OS CA 捆绑包位于文件系统路径 `/run/dcos/pki/CA/ca-bundle.crt` 的任何管理节点上。为获得最大安全性，您应手动检索此文件。或者，如果无法物理访问管理节点，则合理安全的方法是通过 SSH 连接到其中一个管理节点以获取文件。为了简化和更容易地使用文档中其他地方提供的 `curl` 命令，您可以从 `ca-bundle.crt` 到 `dcos-ca.crt` 重命名文件。
 
 # <a name="curl"></a>使用 curl 检索 DC/OS CA 捆绑包
 
@@ -29,7 +29,7 @@ DC/OS CA 捆绑包位于文件系统路径 `/run/dcos/pki/CA/ca-bundle.crt` 的�
 </table>
 
 
-**先决条件：**您必须已[安装 DC/OS CLI](/1.11/cli/install/)，以在以下命令中检索群集 URL。
+**先决条件：**您必须已[安装 DC/OS CLI](/cn/1.11/cli/install/)，以在以下命令中检索群集 URL。
 
 使用以下命令检索 DC/OS CA 捆绑包，并将其保存在当前目录中：
 

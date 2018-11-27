@@ -7,15 +7,19 @@ excerpt:
 preview: true
 enterprise: false
 ---
-
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
+Mesosphere DC/OS collects basic system metrics--such as CPU and memory--for nodes and containers automatically. Mesosphere DC/OS also collects metadata about the different categories of metrics. For more information about the metadata metrics, see [Dimensions](#Dimensions).
 
-These metrics are automatically collected by DC/OS.
+You should note that automatically-collected metrics are only available for containers that provide endpoint statistics. For example, Docker containers do not provide networking data for DC/OS to consume, so the networking metrics that are available for UCR containers are not available for Docker containers.
+
+<a name="Node">
 
 #  Node
 
-### CPU and memory metrics
+<a name="NodeCPUMem">
+
+## CPU and memory metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
@@ -38,7 +42,9 @@ These metrics are automatically collected by DC/OS.
 | swap.used         |    Amount of swap space used.    |
 | system.uptime          |   The system reliability and load average.    |
 
-### Filesystem metrics
+<a name="NodeFiles">
+
+## File system metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
@@ -49,9 +55,11 @@ These metrics are automatically collected by DC/OS.
 | filesystem.inode.total    | Total inodes in bytes. |
 | filesystem.inode.used    | Inodes used in bytes.  |
 
-**Note:** The tag `path` is automatically populated based on the mount path of the local filesystem (e.g., `/`, `/boot`, etc).
+<p class="message--note"><strong>NOTE: </strong>The tag `path` is automatically populated based on the mount path of the local file system (for example, `/`, `/boot`, etc).</p>
 
-### Network interface metrics
+<a name="NodeNetwork">
+
+## Network interface metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
@@ -64,13 +72,16 @@ These metrics are automatically collected by DC/OS.
 | network.out.errors    | Number of uploaded bytes in error.  |
 | network.out.packets    | Number of packets uploaded. |
 
-**Note:** The tag `interface` is automatically populated based on the type of the network interface (e.g., `spartan`, `d-dcos`, `minuteman`, etc).
+<p class="message--note"><strong>NOTE: </strong>The tag `interface` is automatically populated based on the type of the network interface (for example, `spartan`, `d-dcos`, `minuteman`, etc).</p>
+
+<a name="Container">
 
 # Container
-
 The following per-container resource utilization metrics are collected.
 
-### CPU usage metrics
+<a name="ConCPU">
+
+## CPU usage metrics
    <!-- https://github.com/apache/mesos/blob/1.0.1/include/mesos/v1/mesos.proto -->
 
 | Metric            | Description                  |
@@ -80,22 +91,28 @@ The following per-container resource utilization metrics are collected.
 | cpus.throttled.time    | Total time, in seconds, that CPU was throttled. |
 | cpus.user.time    | Total CPU time spent in user mode. |
 
-### Disk metrics
+<a name="ConDisk">
+
+## Disk metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | disk.limit    | Hard capacity limit for disk in bytes. |
 | disk.used    | Hard capacity used in bytes.  |
-   
-### Memory metrics
+
+<a name="ConMem">
+
+## Memory metrics
    <!-- https://github.com/apache/mesos/blob/1.0.1/include/mesos/v1/mesos.proto -->
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | mem.limit    | Hard memory limit for a container. |
 | mem.total    | Total memory of a process in RAM (as opposed to in swap). |   
-   
-### Network metrics
+
+<a name="ConNetwork">
+
+## Network metrics
    <!-- http://mesos.apache.org/documentation/latest/port-mapping-isolator -->
 
 | Metric            | Description                  |
@@ -109,8 +126,9 @@ The following per-container resource utilization metrics are collected.
 | net.tx.errors    | Errors reported on send. |
 | net.tx.packets    | Packets sent. |
 
+<a name="Dimensions">
 
-## Dimensions
+# Dimensions
 
 Dimensions are metadata about the metrics. The following table lists the available dimensions and the entities where they appear.
 
@@ -130,6 +148,5 @@ Dimensions are metadata about the metrics. The following table lists the availab
 | source   | The source of the metric. Equivalent to the executor ID. | metric |
 | task_id   | The task ID. | container |
 | task_name   | The task name.  | container |
-
 
 For more information, see the [dcos-metrics repository](https://github.com/dcos/dcos-metrics).

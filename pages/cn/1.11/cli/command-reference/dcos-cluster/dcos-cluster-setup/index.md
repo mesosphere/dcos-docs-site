@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: dcos cluster setup
 title: dcos cluster setup
 menuWeight: 7
-excerpt: 配置与 DC/OS 群集的连接
+excerpt: 设置连接到 DC/OS 群集
 
 enterprise: false
 ---
 
 # 说明
-`dcos cluster setup` 命令允许您配置与 DC/OS 群集的连接、向 DC/OS 进行身份认证以及附加到群集。
+`dcos cluster setup` 命令让您设置与 DC/OS 群集的连接、向 DC/OS 进行身份认证以及附加到群集。
 
 # 使用
 
@@ -46,7 +46,7 @@ dcos cluster setup <dcos-url> [OPTIONS]
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos cluster] ](/1.11/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
+|  [dcos cluster] ](/cn/1.11/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
 
 # 示例
-有关示例，请参阅 [群集连接](/1.11/administering-clusters/multiple-clusters/cluster-connections/)。
+有关示例，请参阅 [群集连接](/cn/1.11/administering-clusters/multiple-clusters/cluster-connections/)。

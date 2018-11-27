@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  Version Policy
 title: Version Policy
 menuWeight: 5
-excerpt:
+excerpt: DC/OS version lifecycle and compatibility matrix
 ---
 
-This page was updated on October 23, 2018. 
+This page was updated on November 7, 2018.
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
-The purpose of this document is to provide guidance and education for Mesosphere customers, partners, users, and operators of Mesosphere DC/OS about the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined within this document apply to the version of DC/OS and its catalog packages that this document resides in.
+This document explains to Mesosphere customers, partners, users, and operators of Mesosphere DC/OS the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined within this document apply to the version of DC/OS and its catalog packages that this document resides in.
 
 
 ## DC/OS Version Lifecycle
@@ -42,7 +42,7 @@ Thus, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
 
 ## DC/OS Platform Version Compatibility Matrix
 
-The below matrix provides guidance to which platform components and operating environments are tested to run DC/OS on. Customers that are running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
+The following matrix shows the platform components and operating environments on which DC/OS has been tested; DC/OS will run on these components. Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
 
 |Display Icon | Service |
@@ -58,8 +58,8 @@ The below matrix provides guidance to which platform components and operating en
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
-    <tr>
-        <td>CentOS 7.3</td>
+      <tr>
+        <td>CentOS 7.5</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
@@ -70,22 +70,22 @@ The below matrix provides guidance to which platform components and operating en
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
     </tr>
-    <tr>
-        <td>CentOS 7.5</td>
+  <tr>
+        <td>CentOS 7.3</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
     </tr>
     <tr>
-        <td>CoreOS 1800.6.0</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td>                    </td>  
+        <td>CoreOS 1911.3.0</td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td>                    </td>
     </tr>
     <tr>
-        <td>CoreOS 1800.7.0</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
+        <td>CoreOS 1855.5.0</td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
         <td>                    </td>
     </tr>
     <tr>
@@ -95,13 +95,26 @@ The below matrix provides guidance to which platform components and operating en
         <td>                    </td>
     </tr>
     <tr>
+        <td>CoreOS 1800.7.0</td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
+        <td>                    </td>
+    </tr>
+    <tr>
+        <td>CoreOS 1800.6.0</td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
+        <td>                    </td>
+    </tr>
+    <tr>
         <td>CoreOS Stable 1235.12.0</td>
         <td>                    </td>
         <td>                    </td>
         <td><p style="text-align: center;"><ul><li>Docker Engine 1.13</li></ul></p><p style="text-align: center;"><ul><li>Docker Engine 1.12</li></ul></p><p style="text-align: center;"><ul><li>Docker Engine 1.11</li></ul></p></td>
     </tr>
-    <tr>
-        <td>RHEL 7.3</td>
+    </tr>
+        <tr>
+        <td>RHEL 7.5</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
@@ -111,9 +124,26 @@ The below matrix provides guidance to which platform components and operating en
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    <tr>
+        <td>RHEL 7.3</td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
     </tr>
-        <tr>
-        <td>RHEL 7.5</td>
+    <tr>
+        <td>Oracle Linux 7.5 (RHCK)</td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    </tr>
+    <tr>
+        <td>Oracle Linux 7.4 (RHCK)</td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    </tr>
+    <tr>
+        <td>Oracle Linux 7.3 (RHCK)</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
@@ -153,17 +183,16 @@ The below matrix provides guidance to which platform components and operating en
         <td><p style="text-align: center;">⚫</p></td>
         <td></td>
         <td></td>
-    </tr>  
+    </tr>
 </table>
 
 <p class="message--note"><strong>NOTE: </strong>CoreOS 1800.7.0 requires DC/OS 1.11.6 or later releases.</p>
 
 
 ## Customer Advisory for CentOS/RHEL 7.X
-<p class="message--important"><strong>IMPORTANT: </strong>A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13. This fork of Docker does not require an RHN subscription.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. <strong>Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13</strong>. This fork of Docker does not require an RHN subscription. More specific details on the Docker bug and mitigation instructions are located <a href=“https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006“>here</a>.</p>
 
-
-<p class="message--note"><strong>NOTE: </strong>More specific details on the Docker bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>Because of this kmem bug, <strong>Mesosphere only supports Kubernetes on DC/OS with CentOS/RHEL 7.X when using DC/OS 1.12 or greater and CentOS/RHEL 7.5</strong>.</a>.</p>
 
 
 
@@ -194,7 +223,7 @@ The designations are as follows:
 - This combination is not within the scope of our technical support organization.
 - This combination is not eligible for bug fixes.
 
-B- This package combination is *beta*.      
+B- This package combination is *beta*.
 - Beta packages are not within the scope of our technical support organization.
 - Beta packages iterate quickly and are not eligible for bug fixes.
 
@@ -213,7 +242,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>Cassandra 2.1.x-*</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -248,7 +277,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>¹DataStax-DSE 2.1.x-*</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -262,7 +291,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>¹DataStax-Ops 2.1.x-*</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -311,14 +340,14 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>ElasticSearch 2.1.x-*</td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>ElasticSearch 2.2.x-*</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -430,7 +459,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr>  
+    </tr>
     <tr>
         <td>Kubernetes 1.0.x-*</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -441,10 +470,10 @@ B- This package combination is *beta*.
     <tr>
         <td>Marathon-LB 1.2.* 1.9.*</td>
         <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p>/td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
     <tr>
         <td>MoM (Marathon on Marathon) 1.5</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -472,7 +501,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>Spark 1.x-*</td>
         <td><p style="text-align: center;">◯</p></td>
@@ -486,14 +515,14 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> 
+    </tr>
     <tr>
         <td>Spark 2.1.x-2.2.y</td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr>   
+    </tr>
     <tr>
     	<td>Spark 2.3.x-2.2.y</td>
     	<td><p style="text-align: center;">⚫</p></td>

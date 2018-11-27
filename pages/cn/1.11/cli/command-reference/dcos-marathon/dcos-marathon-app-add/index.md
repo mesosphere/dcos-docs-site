@@ -26,19 +26,19 @@ dcos marathon app add <app-resource> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<app-resource>`   | Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from `stdin`。有关详细说明，请参阅[文档](/1.11/deploying-services/marathon-api/)。|
+| `<app-resource>`   | Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from `stdin`。有关详细说明，请参阅[文档](/cn/1.11/deploying-services/marathon-api/)。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
 # 示例
 
 ## 部署简单的应用程序
 
-在该示例中，将一个简单的应用程序部署到 DC/OS Marathon。
+在该示例中，一个简单的应用程序被部署到了 DC/OS Marathon。
 
 1. 使用这些内容创建名为 `my-app.json` 的应用定义文件。
 

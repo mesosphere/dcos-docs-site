@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-dcos marathon app show 命令允许您查看在 DC/OS 上运行的应用程序的详细信息。
+dcos marathon app show 命令让您查看在 DC/OS 上运行的应用程序的详细信息。
 
 # 使用
 
@@ -33,6 +33,6 @@ dcos marathon app show <app-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
 

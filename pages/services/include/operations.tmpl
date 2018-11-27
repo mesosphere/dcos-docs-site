@@ -31,7 +31,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName }} plan status deploy
 {{ model.operations.complete-deploy}}
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Passing the "--json" flag to the "status" command will return a JSON response which has UUIDs for the phases and steps of a plan. These UUIDs can be useful in the other plan commands.</p>
+<p class="message--note"><strong>NOTE: </strong>Passing the <code>--json</code> flag to the <code>status</code> command will return a JSON response which has UUIDs for the phases and steps of a plan. These UUIDs can be useful in the other plan commands.</p>
 
 
 ### Operating on a plan
@@ -191,3 +191,7 @@ Navigate to the agent you want to view either directly from a task by clicking t
 In the Agent view, you will see a list of frameworks with a presence on that Agent. In the left pane you will see a plain link named "LOG". Click that link to view the agent logs.
 
 [<img src="/services/include/img/ops-guide-agent.png" alt="view of tasks running on a given agent" width="400"/>](/services/include/img/ops-guide-agent.png)
+
+
+Figure 2. List of frameworks
+

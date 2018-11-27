@@ -16,8 +16,8 @@ menuWeight: 3
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/1.11/tutorials/dcos-101/cli/)。
-* [Redis](/1.11/tutorials/dcos-101/redis-package/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 群集](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/tutorials/dcos-101/cli/)。
+* [Redis](/cn/1.11/tutorials/dcos-101/redis-package/) 已部署并在您的群集中运行。
 
 
 # 目的
@@ -33,7 +33,7 @@ menuWeight: 3
  * 看看[应用定义](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json)。应用定义是 Marathon 用于部署和管理应用程序的配置。此应用定义将下载 python 脚本，然后在 `mesosphere/dcos-101` Docker 容器内运行它。
  * 使用应用定义将 app1 添加到 Marathon：`dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json`
 3. 检查 app1 是否正在运行：
- * 通过查看所有 DC/OS 任务: `dcos task`。在这里，您应该查看此任务当前所处的状态，可能是正在分段或正在运行。
+ * 通过查看所有 DC/OS 任务: `dcos task`。在这里，您应该查看此任务当前所处的状态，可能是正在整备或正在运行。
  * 通过查看所有 Marathon 应用程序：`dcos marathon app list`。
  * 通过检查日志：`dcos task log app1`。在这里，您应该看到 app1 在哪个节点和端口上运行以及显示 Redis 中密匙数的应用程序输出。不同运行之间甚至在应用程序生命周期内，节点和端口可能会有所不同，具体取决于群集中的事件。
 
@@ -48,4 +48,4 @@ Marathon 还允许扩展或卸载应用程序。
 除 DC/OS GUI 以外，还有多种选项可以在 Marathon 上部署和维护应用程序：
 
 * DC/OS CLI：您刚刚使用此选项部署了应用程序。若要获得有关 Marathon CLI 的更多信息 ，请使用 `dcos marathon app --help`。
-* HTTP 端点：Marathon 还带有广泛的 [REST API](http://mesosphere.github.io/marathon/api-console/index.html)
+* HTTP 端点：Marathon 还带有外带的 [REST API](http://mesosphere.github.io/marathon/api-console/index.html)

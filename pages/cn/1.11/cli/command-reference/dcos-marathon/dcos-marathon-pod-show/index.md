@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon pod show` 命令允许您查看特定 pod 的详细信息。
+`dcos marathon pod show` 命令让您查看特定 pod 的详细信息。
 
 # 使用
 
@@ -32,7 +32,7 @@ dcos marathon pod show <pod-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
 # 示例
 

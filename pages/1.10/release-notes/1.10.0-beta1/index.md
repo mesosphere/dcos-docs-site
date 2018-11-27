@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.0 Beta 1
 title: Release Notes for 1.10.0 Beta 1
-menuWeight: 50
+menuWeight: 65
 excerpt:
 ---
 These are the release notes for DC/OS 1.10.0 Beta 1.
@@ -119,11 +119,12 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 - TLS 1.0 is no longer enabled by default in Admin Router. [enterprise type="inline" size="small" /]
 
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
-
 <!-- relevant to beta 2
 ## Latest version of Marathon-LB is required for 1.10
 Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinstall the updated version.
 -->
+
+- Moved file location for the DC/OS CA bundle in the sandbox of Mesos tasks from `$MESOS_SANDBOX/.ssl/ca.crt` to `$MESOS_SANDBOX/.ssl/ca-bundle.crt` and declared the new file path to be stable.
 
 - REX-Ray configuration change
   DC/OS 1.10 upgrades REX-Ray from v03.3. to v0.9.0 and therefore the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the `rexray_config` parameter of your `config.yaml` file, change the parameter to `rexray_config_preset: aws`.

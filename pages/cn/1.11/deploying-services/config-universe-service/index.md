@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-本主题介绍如何使用 DC/OS CLI 配置服务。您还可以使用 DC/OS UI 中的 [**Services**](/1.11/gui/services/) 选项卡自定义服务 。
+本主题介绍如何使用 DC/OS CLI 配置服务。您还可以使用 DC/OS UI 中的 [**Services**](/cn/1.11/gui/services/) 选项卡自定义服务 。
 
 1. 使用 dcos package describe --config <package-name> <package-name>命令查看服务的可用配置选项。
 
@@ -51,13 +51,13 @@ enterprise: false
     }
     ```
 
-2. 创建 JSON 配置文件。您可以选择任意名称，但您可能想要选择类似于 `<package-name>-config.json`. For example, `marathon-config.json`的模式。
+2. 创建 JSON 配置文件。您可以选择任意名称，但您可能想要选择类似于 `<package-name>-config.json`. For example, `marathon-config.json`的起名格式。
 
     ```bash
     nano marathon-config.json
     ```
 
-3. 使用 `properties` 以构建您的 JSON 选项文件。例如，将 Marathon 的 CPU 共享数更改为 3，将内存分配更改为 2048：
+3. 使用 `properties` 对象以构建您的 JSON 选项文件。例如，将 Marathon 的 CPU 共享数更改为 3，将内存分配更改为 2048：
 
     ```json
     {
@@ -67,10 +67,10 @@ enterprise: false
     }
     ```
 
-4. 从 DC/OS CLI 安装 DC/OS 服务，并指定自定义选项文件：
+4. 从 DC/OS CLI 安装指定了自定义选项文件的 DC/OS 服务：
 
     ```bash
     dcos package install --options=marathon-config.json marathon
     ```
 
-如需更多信息，请参阅 [dcos package](/1.11/cli/command-reference/dcos-package) 文档。
+如需更多信息，请参阅 [dcos package](/cn/1.11/cli/command-reference/dcos-package) 文档。

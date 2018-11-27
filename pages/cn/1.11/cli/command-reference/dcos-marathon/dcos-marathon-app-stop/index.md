@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon app stop` 命令允许您停止应用程序。
+`dcos marathon app stop` 命令让您停止应用程序。
 
 # 使用
 
@@ -35,6 +35,6 @@ dcos marathon app stop <app-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
 

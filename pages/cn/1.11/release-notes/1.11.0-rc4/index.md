@@ -24,9 +24,9 @@ DC/OS 1.11 候选版本 4 有许多限制，将在 GA 时解决。
   <li><a href="/1.11/cli/uninstall/">卸载现有 CLI</a>。</li>
   <li>根据 1.11 DC/OS GUI 左上角处下拉列表中的 <strong>安装 CLI</strong> 说明，安装版本 0.6.x。</li>
   </ul>
-<strong>注意：</strong>CLI 版本 0.6.x 不兼容 DC/OS 1.10</li>
+<strong>注意：</strong>CLI 版本 0.6.x 与 DC/OS 1.10 不兼容</li>
 </ul>
-请尝试新特性和更新的数据服务。请通过我们的支持渠道 <a href="https://support.mesosphere.com/">support.mesosphere.com</a> 提供任何反馈。
+请尝试新功能和更新的数据服务。请通过我们的支持渠道 <a href="https://support.mesosphere.com/">support.mesosphere.com</a> 提供任何反馈。
 </td> </tr> </table>
 
 <a name="new-features"></a>
@@ -40,21 +40,21 @@ DC/OS 1.11 候选版本 4 有许多限制，将在 GA 时解决。
 - DC/OS 1.11.0 支持最新的 Kubernetes 1.9 容器调度程序。有关 DC/OS 上 Kubernetes 1.0 的更多信息，[查看文档](https://docs.mesosphere.com/services/kubernetes/1.0.0-1.9.3)。
 
 ## 平台
-- 故障域意识。利用故障域感知使服务高度可用，并能在需要时增加容量。[查看文档](/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
-- 链接的群集。- 群集链路是一个群集和另一个群集之间的**单向关系**。使用 DC/OS CLI 将一个群集的链接添加到另一个群集或将其删除。设置链接后，您可以使用 CLI 或 UI 轻松在群集之间切换。[查看文档](/1.11/administering-clusters/multiple-clusters/cluster-links)。[enterprise type="inline" size="small" /]
-- 集成远程区域。使“突发”充分利用临时云计算资源。[查看文档](/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
-- [多区域管理](/1.11/deploying-services/fault-domain-awareness)。使 DC/OS 群集能跨越多个数据中心、云和远程分支，同时提供统一的管理和控制群集。
-- 停用节点。支持永久停用节点使得在使用后更容易维护和退役“Spot”云实例，从而允许立即重新安排任务，而不是延时重新安排任务。
+- 故障域感知。利用故障域感知使服务高度可用，并能在需要时增加容量。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
+- 已链接的群集。- 群集链路是一个群集和另一个群集之间的**单向关系**。使用 DC/OS CLI 将一个群集的链接添加到另一个群集或将其删除。设置链接后，您可以使用 CLI 或 UI 轻松在群集之间切换。[查看文档](/cn/1.11/administering-clusters/multiple-clusters/cluster-links)。[enterprise type="inline" size="small" /]
+- 集成远程区域。使“突发”充分利用临时云计算资源。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
+- [多区域管理](/cn/1.11/deploying-services/fault-domain-awareness)。使 DC/OS 群集能跨越多个数据中心、云和远程分支，同时提供统一的管理和控制群集。
+- 停用节点。支持永久停用节点使得在使用后更容易维护和让“Spot”云实例退役，从而允许立即重新安排任务，而不是延时重新安排任务。
 - UCR
- - 支持 Docker 镜像垃圾收集。[查看文档](/1.11/deploying-services/containerizers)。
- - 支持 Docker 镜像拉取秘密。
+ - 支持 Docker 镜像垃圾收集。[查看文档](/cn/1.11/deploying-services/containerizers)。
+ - 支持 Docker 镜像拉取秘钥。
 
 ## 网络
 [enterprise]
 - Edge-LB 1.0 RC 候选版本。[查看文档](https://docs.mesosphere.com/services/edge-lb/1.0/)
 [/enterprise]
-- 现在支持 IPv6 用于 Docker 容器。
-- DC/OS 网络堆栈的性能改进。所有网络组件 (minuteman、navstar、spartan) 被整合到一个被称为 `dcos-net` 的单个 systemd 单元中。请查看有关 [网络软件重构](/1.11/networking/#a-note-on-software-re-architecture) 的注释，进一步了解网络堆栈的重新分解。
+- Docker 容器现在支持 IPv6 。
+- DC/OS 网络堆栈的性能改进。所有网络组件 (minuteman、navstar、spartan) 被整合到一个被称为 `dcos-net` 的单个 systemd 单元中。请查看有关 [网络软件重构](/cn/1.11/networking/#a-note-on-software-re-architecture) 的注释，进一步了解网络堆栈的重新分解。
 
 [enterprise]
 ## 安全
@@ -64,18 +64,18 @@ DC/OS 1.11 候选版本 4 有许多限制，将在 GA 时解决。
  - 现在支持分层访问控制。
 
 ## 监控
-- DC/OS 度量标准组件现在以 [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) 格式产生度量标准。[查看文档](/1.11/metrics)。
+- DC/OS 度量标准组件现在以 [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) 格式产生度量标准。[查看文档](/cn/1.11/metrics)。
 - 收集容器（任务）和系统组件日志的统一日志记录端点。
 
 ## 存储
 - DC/OS 1.11 介绍了行业标准容器存储接口 (CSI) 版本 0.1 的实现，它通过在容器编排器 (DC/OS) 和存储设备之间提供通用 API，让开发人员（Mesosphere、社区和合作伙伴）能够提高开发 DC/OS 中存储功能的效率。[查看文档](/services/beta-storage/0.1.0-beta)。[enterprise type="inline" size="small" /]
-- Pod 现在支持永久卷。[查看文档](/1.11/deploying-services/pods)。
+- Pod 现在支持永久卷。[查看文档](/cn/1.11/deploying-services/pods)。
 
 **注意：** 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。
 
 ## 更新了 DC/OS 数据服务
 - 现在支持对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的TLS 加密。
-- 对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的故障域意识。利用故障域感知使服务高度可用，并能在需要时增加容量。
+- 对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的故障域感知。利用故障域感知使服务高度可用，并能在需要时增加容量。
 - 新的 API 端点用于暂停 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的节点。使用此端点以空闲命令状态重新启动节点用于调试。
 - 新的 beta DC/OS Kafka ZooKeeper 服务。[查看文档](/services/beta-kafka-zookeeper)。
 - 现在，您可以从 DC/OS UI 的下拉菜单中选择 DC/OS 数据服务版本。
@@ -94,22 +94,22 @@ DC/OS 1.11 候选版本 4 有许多限制，将在 GA 时解决。
 - DCOS-20064 - 支持 Azure 和 AWS 模板中的许可证参数。[enterprise type="inline" size="small" /]
 - DCOS-20396 - 测试当旧证书不匹配新的 CSR 时 bootstrap 重新生成证书。
 - DCOS-20492 - 在使用 AWS CloudFormation 模板时，群集有时会在没有许可证的情况下出现。[enterprise type="inline" size="small" /]
-- DCOS-20515 - 为防止升级失败而使得具有授权版本意识。[enterprise type="inline" size="small" /]
+- DCOS-20515 - 使得授权时注意版本而防止升级失败。[enterprise type="inline" size="small" /]
 - DCOS-20569 - 仅包括诊断捆绑包上许可证的公共属性。[enterprise type="inline" size="small" /]
 - DCOS-20628 - `dcos-vault`：修复 go-zookeeper 库中的死锁。
 - DCOS-20676 - `csidevices`：修复空字符串布尔值的 lsblk 解析。
 - DCOS-20679 - 在配置升级期间，让许可处理相同主要版本的群集许可证更新。[enterprise type="inline" size="small" /]
 - DCOS-20772 - 更新 znode 创建方案，以存储许可证审核数据。
 - DCOS-21000 - 发布 Marathon 插件，具有资源完整授权漏洞修复。
-- DCOS-21045 - 更新 `dcos-cluster-linker` 以便不允许自我链接。[enterprise type="inline" size="small" /]
+- DCOS-21045 - 更新 `dcos-cluster-linker` 使其不允许自我链接。[enterprise type="inline" size="small" /]
 - DCOS-21095 - 在 IPv4 环境中关闭 IPv6 覆盖。
 - DCOS_OSS-1587 - 支持非 Root LVM 卷上的 DC/OS 安装。
 - DCOS_OSS-2070 - 服务不能使用 UCR 网桥模式从本地代理通过 l4lb VIP 访问。
 - DCOS_OSS-2105 - UI 可以显示由于事件丢失而导致的过时任务状态（相关 MESOS-8469 - 修复算子 API 流中 Mesos 管理节点丢失事件的问题）。
-- METRONOME-100 - 修复导致作业重复的 Metronome 重启问题。
+- METRONOME-100 - 修复Metronome 重启导致作业重复的问题。
 - METRONOME-190 - 添加授权的启动队列。
 - METRONOME-191 - 执行启动最后期限超时。
-- METRONOME-194 - 支持 FORBID 并发策略。
+- METRONOME-194 - 支持 FORBID 并发政策。
 - 将 Marathon 更新到 1.6.322 (https://github.com/dcos/dcos/pull/2473 | https://github.com/mesosphere/dcos-enterprise/pull/2278)
 - 将 Mesos 更新到 1.5.x 9840ae1 (https://github.com/dcos/dcos/pull/2472 | https://github.com/mesosphere/dcos-enterprise/pull/2263)
 

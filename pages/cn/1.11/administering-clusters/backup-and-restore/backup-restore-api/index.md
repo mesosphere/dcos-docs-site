@@ -24,19 +24,19 @@ enterprise: true
 /system/v1/backup/v1
 ```
 
-要确定群集的 URL，请参阅 [群集访问](/1.11/api/access/)。
+要确定群集的 URL，请参阅 [群集访问](/cn/1.11/api/access/)。
 
 # 格式
 
-备份和恢复 API 请求和响应主体在 JSON 中格式化。
+备份和恢复 API 请求和响应主体格式为 JSON 格式。
 
-请求必须包含接受标题：
+请求必须包含接受标头：
 
 ```
 Accept: application/json
 ```
 
-响应包括内容类型标题：
+响应包括内容类型标头：
 
 ```
 Content-Type: application/json
@@ -46,7 +46,7 @@ Content-Type: application/json
 
 使用所有备份和恢复 API 路由都需要身份验证。
 
-要验证 API 请求，请参阅 [获取认证令牌](/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/1.11/security/ent/iam-api/#passing-an-authentication-token)。
+要验证 API 请求，请参阅 [获取认证令牌](/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/cn/1.11/security/ent/iam-api/#passing-an-authentication-token)。
 
 备份和恢复 API 还需要通过以下权限授权：
 
@@ -54,9 +54,9 @@ Content-Type: application/json
 |-------------|--------|
 | `dcos:adminrouter:ops:system-backup` | `full` |
 
-所有路由也可以被具有 `dcos:superuser` 权限的用户抵达。
+所有路由也可以被具有 `dcos:superuser` 权限的用户使用。
 
-要为您的帐户分配权限，请参阅 [权限参考](/1.11/security/ent/perms-reference/)。
+要为您的帐户分配权限，请参阅 [权限参考](/cn/1.11/security/ent/perms-reference/)。
 
 
 # API 参考

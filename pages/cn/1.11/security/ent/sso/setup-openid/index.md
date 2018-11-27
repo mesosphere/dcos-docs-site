@@ -10,7 +10,7 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-本页面讨论了 OpenID Idp 的一般要求，并提供了设置 OneLogin IdP 的分步程序。DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Idp) 集成。以下程序将采用 Google IdP 作为示例，并引导您完成设置流程的每个步骤。
+本页面讨论了 OpenID Idp 的一般要求，并提供了设置 OneLogin IdP 的分步步骤。DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Idp) 集成。以下步骤将采用 Google IdP 作为示例，并引导您完成设置流程的每个步骤。
 
 # 添加 OpenID Connect 身份提供程序：
 
@@ -70,7 +70,7 @@ enterprise: true
 
 1. 将客户端密钥从 Google 粘贴到 **Client Secret** 字段。
 
- ![Google IdP 配置](/1.11/img/oidc-google.png)
+ ![Google IdP 配置](/cn/1.11/img/oidc-google.png)
 
  图 1. Google IdP 配置
 
@@ -110,11 +110,11 @@ enterprise: true
 
 1. 您应该看到所列的新用户。
 
-1. 为此用户分配适当的[权限](/1.11/security/ent/perms-reference/)。
+1. 为此用户分配适当的[权限](/cn/1.11/security/ent/perms-reference/)。
 
 ### <a name="using-cli"></a>使用 DC/OS CLI
 
-**先决条件：**[已安装 DC/OS CLI](/1.11/cli/install/)。
+**先决条件：**[已安装 DC/OS CLI](/cn/1.11/cli/install/)。
 
 1. 使用以下命令以新用户身份登录。
 
@@ -134,7 +134,7 @@ enterprise: true
 
 1. 您应该看到类似以下内容的消息。
 
- ![CLI IdP 认证令牌](/1.11/img/cli-auth-token.png)
+ ![CLI IdP 认证令牌](/cn/1.11/img/cli-auth-token.png)
 
  图 2. CLI IdP 认证令牌
 

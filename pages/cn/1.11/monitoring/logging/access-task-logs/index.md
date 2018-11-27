@@ -37,7 +37,7 @@ enterprise: true
 
 **前提条件：**
 
-- DC/OS 和 DC/OS CLI [已安装](/1.11/installing/)，您以超级用户身份登录。
+- DC/OS 和 DC/OS CLI [已安装](/cn/1.11/installing/)，您以超级用户身份登录。
 
 # 通过 DC/OS Web 界面
 
@@ -45,7 +45,7 @@ enterprise: true
 
 1. 选择**组织**并选择**组**。
 
- ![新组](/1.11/img/new-user-group.png)
+ ![新组](/cn/1.11/img/new-user-group.png)
 
  图 1. 新用户组
 
@@ -57,7 +57,7 @@ enterprise: true
 
 1. 选择组名，并从**权限**选项卡上单击**添加权限**。
 
- ![为生产组添加权限](/1.11/img/new-user-group-prod-permission.png)
+ ![为生产组添加权限](/cn/1.11/img/new-user-group-prod-permission.png)
 
  图 3. “添加权限”按钮
 
@@ -75,7 +75,7 @@ enterprise: true
     dcos:mesos:master:task:app_id:/prod-group/ read
     ```
 
- ![添加权限](/1.11/img/new-user-group-prod-permission-string.png)
+ ![添加权限](/cn/1.11/img/new-user-group-prod-permission-string.png)
 
  图 4. 权限字符串已添加
 
@@ -83,13 +83,13 @@ enterprise: true
 
 1. 选择**组织**并选择**用户**。选择现有用户或创建一个新用户。
 
- ![新用户](/1.11/img/new-user-generic.png)
+ ![新用户](/cn/1.11/img/new-user-generic.png)
 
  图 5. 用户屏幕
 
 1. 从**组成员**选项卡，在搜索框中输入并选择组名。这将向单个用户授予组权限。
 
- ![添加 Alice 到安全组](/1.11/img/new-user-alice-add-group.png)
+ ![添加 Alice 到安全组](/cn/1.11/img/new-user-alice-add-group.png)
 
  图 6. 将用户添加到安全组
 
@@ -105,13 +105,13 @@ enterprise: true
  - **命令**指定 `sleep 1000000000`。
  - **容器运行时**选择**通用容器运行时 (UCR)**。
 
- ![定义嵌套服务](/1.11/img/new-user-alice-service-group.png)
+ ![定义嵌套服务](/cn/1.11/img/new-user-alice-service-group.png)
 
  图 7. 定义一个嵌套服务
 
 1. 单击**查看并运行**和**运行服务**以完成安装。您现在应该能看到一个在组中运行的服务。
 
- ![在组中运行的服务](/1.11/img/new-user-alice-service-done.png)
+ ![在组中运行的服务](/cn/1.11/img/new-user-alice-service-done.png)
 
  图 8. 在组中运行的服务
 
@@ -120,7 +120,7 @@ enterprise: true
 # 通过 IAM API
 
 **先决条件：**
-您必须 [获取根证书](/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
+您必须 [获取根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
 
 ### 提示
 

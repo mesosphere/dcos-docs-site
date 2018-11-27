@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos auth logout` 命令允许您注销 DC/OS 认证。
+`dcos auth logout` 命令允许您登出 DC/OS 认证。
 
 # 使用
 
@@ -22,4 +22,4 @@ dcos auth logout
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos auth](/1.11/cli/command-reference/dcos-auth/) | 管理 DC/OS 身份和访问。 |
+| [dcos auth](/cn/1.11/cli/command-reference/dcos-auth/) | 管理 DC/OS 身份和访问。 |

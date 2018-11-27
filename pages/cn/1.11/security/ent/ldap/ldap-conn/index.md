@@ -14,7 +14,7 @@ enterprise: true
 
 1. 单击 **Add Directory**。
 
- ![添加目录对话框](/1.11/img/ldap-add-dir-conn.png)
+ ![添加目录对话框](/cn/1.11/img/ldap-add-dir-conn.png)
 
  图 1. 添加目录对话框
 
@@ -26,9 +26,9 @@ enterprise: true
 
  * 选择 **Use SSL/TLS for all connections** 复选框以使用 [安全 LDAP (LDAPS)](http://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx)。
 
- * 如果**尝试 StartTLS，如果未能**尝试通过 [StartTLS](https://tools.ietf.org/html/rfc2830) 将连接升级到 TLS，则中止，如果升级到 TLS 失败，则中止连接。
+ * 选择 **尝试 StartTLS，如果未能**尝试通过 [StartTLS](https://tools.ietf.org/html/rfc2830) 将连接升级到 TLS，则中止，如果升级到 TLS 失败，则中止连接。
 
- * 如果**尝试 StartTLS，如果未能**尝试通过 [StartTLS](https://tools.ietf.org/html/rfc2830) 将连接升级到 TLS，则继续不加密，如果升级到 TLS 失败，则继续不加密连接。
+ * 选择**尝试 StartTLS，如果未能**尝试通过 [StartTLS](https://tools.ietf.org/html/rfc2830) 将连接升级到 TLS，则继续不加密，如果升级到 TLS 失败，则继续不加密连接。
 
  **注意：**我们建议**对所有连接使用 SSL/TLS**，否则 **尝试 StartTLS，如果无法**确保 SSL/TLS 或 StartTLS 加密，则中止；否则密码将以明文形式发送。
 

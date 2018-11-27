@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon app version list` 命令允许您列出应用程序的版本历史记录。
+`dcos marathon app version list` 命令列出应用程序的版本历史记录。
 
 # 使用
 
@@ -34,6 +34,6 @@ dcos marathon app version list <app-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
 

@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos job schedule show` 命令允许您查看作业时间表。
+`dcos job schedule show` 命令让您查看作业时间表。
 
 # 使用
 
@@ -22,7 +22,7 @@ dcos job schedule show <job-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| | `--json` | 打印 JSON 格式化列表。|
+| | `--json` | 打印以 JSON 为格式的列表。|
 
 # 位置自变量
 
@@ -34,7 +34,7 @@ dcos job schedule show <job-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
 
 # 示例
 

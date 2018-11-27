@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos edgelb pool delete` 命令允许您删除和卸载 Edge-LB 池。
+`dcos edgelb pool delete` 命令让您删除和卸载 Edge-LB 池。
 
 # 使用
 
@@ -40,8 +40,8 @@ dcos edgelb [<flags>] pool delete <name>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/1.11/cli/command-reference/dcos-edgelb/) | 管理 Edge-LB。|
+| [dcos edgelb](/cn/1.11/cli/command-reference/dcos-edgelb/) | 管理 Edge-LB。|
 
 # 示例
 
-请参阅 [Edge-LB 快速入门指南](/1.11/networking/edge-lb/quickstart/)。
+请参阅 [Edge-LB 快速入门指南](/cn/1.11/networking/edge-lb/quickstart/)。

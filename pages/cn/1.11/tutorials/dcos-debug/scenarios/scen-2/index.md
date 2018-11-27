@@ -32,7 +32,7 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
 
 基于此，*应用程序运行几秒钟，然后失败**。
 
-### 解析度
+### 解决方法
 
 为了更好地理解这种意外行为，让我们先看看应用程序日志，--- 在 Web 界面中或通过 CLI。通过查看应用程序“日志”选项卡中的“输出”，您可以在 Web 界面中找到应用程序日志：
 
@@ -42,7 +42,7 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
 
 日志输出“Eating Memory”是一个非常慷慨的提示，问题可能与内存有关。尽管如此，没有关于内存分配的直接故障消息（请记住，**大多数应用程序不太友好，因为它们正占用内存**）。
 
-正如所可疑的，这可能是与应用程序相关的问题，且此应用程序是通过 Marathon 安排的。让我们使用 CLI 检查 Marathon 日志：
+正如所怀疑的，这可能是与应用程序相关的问题，且此应用程序是通过 Marathon 安排的。让我们使用 CLI 检查 Marathon 日志：
 
 ```bash
 $ dcos service log marathon
@@ -56,7 +56,7 @@ Mar 27 00:46:37 ip-10-0-6-109.us-west-2.compute.internal marathon.sh[5866]: [201
 
 **现在，我们已经确认，我们已经超出了 [`app-oom.json`](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6) 中先前设置的容器内存限制 **
 
-如果您一直密切注意，您可能会大喊“等一下”，因为您注意到应用定义中设置的内存限制为 32 MB，但错误消息提到 64MB。DC/OS 自动为[执行程序](/1.11/overview/architecture/task-types/#executors)保留一些高开销内存，在本例中为 32 MB。
+如果您一直密切注意，您可能会大喊“等一下”，因为您注意到应用定义中设置的内存限制为 32 MB，但错误消息提到 64MB。DC/OS 自动为[执行程序](/cn/1.11/overview/architecture/task-types/#executors)保留一些多余内存，在本例中为 32 MB。
 
 请注意，OOM `kill` 是由 Linux 内核本身执行的，因此我们也可以直接检查内核日志：
 
@@ -82,9 +82,9 @@ Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: Killed process 
 Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: oom_reaper: reaped process 16883 (oomApp), now anon-rss:0kB, file-rss:0kB, shmem-rss:0kB
 ```
 
-在这种情况下，解决方案是增加该容器的资源限制，以防其配置过低而无法开始。或者，如本例中一样，修复应用程序本身的内存泄漏。
+在这种情况下，解决方案是增加该容器的资源限制，以防其配置一开始就过低。或者，如本例中一样，修复应用程序本身的内存泄漏。
 
-### 一般模式
+### 一般规律
 
 在我们处理失败任务时，最好检查应用程序和调度程序日志（在本例中，我们的调度程序是 Marathon）。如果这样做不够，可以帮助查看 Mesos 代理节点日志和/或在使用 UCR（或在 Docker 容器化工具中，通过 ssh 进入节点并使用 `docker exec`）时使用 `dcos task exec`。
 

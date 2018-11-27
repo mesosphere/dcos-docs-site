@@ -11,7 +11,7 @@ enterprise: false
 
 
 # 说明
-`dcos node diagnostics create` 命令允许您创建诊断捆绑包。
+`dcos node diagnostics create` 命令让您创建诊断捆绑包。
 
 # 使用
 
@@ -33,5 +33,5 @@ dcos node diagnostics create <nodes> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 节点](/1.11/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos 节点](/cn/1.11/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
 

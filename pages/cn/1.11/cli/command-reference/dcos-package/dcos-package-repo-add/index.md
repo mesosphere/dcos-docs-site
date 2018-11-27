@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos package repo add` 命令允许您将软件包存储库添加到 DC/OS。
+`dcos package repo add` 命令让您将软件包存储库添加到 DC/OS。
 
 # 使用
 
@@ -34,8 +34,8 @@ dcos package repo add <repo-name> <repo-url> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/cn/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
 
 # 示例
 
-有关示例，请参阅[文档](/1.11/administering-clusters/repo/)。
+有关示例，请参阅[文档](/cn/1.11/administering-clusters/repo/)。

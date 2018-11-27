@@ -8,15 +8,15 @@ excerpt: 关闭和停用代理节点
 enterprise: false
 ---
 
-自 DC/OS 1.11 起，删除节点涉及两个步骤：告知 DC/OS 将节点标记为 `GONE`，并停止相应的 Mesos 从 systemd 单元。
+自 DC/OS 1.11 起，删除节点涉及两个步骤：告知 DC/OS 将节点标记为 `GONE`，并停止相应的 Mesos 的从 systemd 单元。
 
-如果您的节点以意外方式停工，您只需要 [停用节点](/1.11/administering-clusters/delete-node/#decommission-the-node/)。
+如果您的节点以意外方式停工，您只需要 [停用节点](/cn/1.11/administering-clusters/delete-node/#decommission-the-node/)。
 
 # 停用节点
 
-当 Mesos 检测到某个节点已停止时，它将节点置于 `UNREACHABLE` 状态，因为 Mesos 不知道节点是暂时停止并将重新上线，还是永久停止。如果您知道节点不会返回，您可以明确告诉 Mesos 将节点置于 `GONE` 状态。
+当 Mesos 检测到某个节点已停止时，它将节点置于 `UNREACHABLE` 状态，因为 Mesos 不知道节点是暂时停止并将重新上线，还是永久停止。如果您知道节点永久停止，您可以明确告诉 Mesos 将节点置于 `GONE` 状态。
 
-节点停用后，对应的代理 ID 被内部标记为 `GONE` 并且不允许返回和在管理节点上重新注册。节点上运行的任务已过渡到 `TASK_GONE_BY_OPERATOR` 状态。
+节点停用后，对应的代理 ID 被内部标记为 `GONE` 并且不允许恢复使用及在管理节点上重新注册。节点上运行的任务已过渡到 `TASK_GONE_BY_OPERATOR` 状态。
 
 您应该在以下情况下停用节点。
 
@@ -26,7 +26,7 @@ enterprise: false
 
 - 当节点以意外停工时。
 
-从 DC/OS CLI 中输入以下命令，以标识要停用的节点。
+从 DC/OS CLI 中输入以下命令，以识别要停用的节点。
 
 ```
 dcos node 
@@ -42,14 +42,14 @@ dcos node decommission <mesos-agent-id>
 -关闭（kill）代理节点上运行的所有执行程序（任务）
 -停止 Mesos 从进程（但它将被 systemd 自动重新启动）
 
-**注意：** *仅*在节点永远不会返回（例如，EC2 VM 销毁）时才应该停用节点 。节点停用后，对应的代理 ID 被内部标记为 `GONE` 并且不允许返回和在管理节点上重新注册。节点上运行的任务已过渡到 `TASK_GONE_BY_OPERATOR` 状态。
+**注意：** *仅*在节点永远不会恢复使用（例如，EC2 VM 损毁）时才应该停用节点 。节点停用后，对应的代理 ID 被内部标记为 `GONE` 并且不允许恢复使用及在管理节点上重新注册。节点上运行的任务已过渡到 `TASK_GONE_BY_OPERATOR` 状态。
 
 
 # 关闭节点
 
 如果 DC/OS 节点仍在运行，Mesos从进程将继续尝试注册（并且由于代理被标记为已消失，注册会被拒绝）。您可以通过停止 Mesos 从进程（以 systemd 单元运行），停止这些尝试。
 
-1. [SSH 至代理节点](/1.11/administering-clusters/sshcluster/)（您希望关闭的）。
+1. [SSH 至代理节点](/cn/1.11/administering-clusters/sshcluster/)（您希望关闭的）。
 
 1. 使用以下命令停止节点。
 

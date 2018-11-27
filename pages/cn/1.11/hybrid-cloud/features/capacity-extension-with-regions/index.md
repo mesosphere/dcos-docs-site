@@ -18,23 +18,23 @@ enterprise: true
 
 ### 注意事项
 
-- 考虑群集中服务的未来需求。尽管安装后可以在分域和分区中添加或删除节点，但是必须在安装时就定义分域和分区。如果需要更新故障域检测脚本，就必须重新安装 DC/OS 。
+- 考虑群集中服务的未来需求。您必须在安装时就定义分域和分区，尽管可以在安装后可以在分域和分区中添加或删除节点。如果需要更新故障域检测脚本，就必须重新安装 DC/OS 。
 
-- Mesos 管理节点必须位于同一分域，以免它们之间的延迟过高。为了容错，它们分散到不同分区。
+- Mesos 管理节点必须位于同一分域，以免它们之间的延迟过高。为了容错，它们应该被分散到不同分区。
 
 - 分域之间的延迟必须小于 100ms。
 
 ### 安装步骤
 
-1. 创建故障域检测脚本以在每个节点上运行，从而检测节点的故障域（仅限企业）。安装过程中此脚本的输出被传递到 Mesos。
+1. 创建故障域检测脚本，以在每个节点上运行，从而检测节点的故障域（仅限企业）。安装过程中此脚本的输出被传递到 Mesos。
 
  推荐脚本输出的格式为 `fault_domain: region: name: <region>, zone: name: <zone>` 我们提供 [AWS 和 Azure 节点的故障域检测脚本]。(https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). 对于具有 aws 节点和 azure 节点的群集，可将两者组合为一个脚本。可以使用这些模型为本地群集创建故障域检测脚本。
 
    <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>重要信息：</b>如果您在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</td> </tr> </table>
 
-1. 将此脚本添加到 bootstrap 节点的 `genconf` 文件夹。[更多信息](/1.11/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
+1. 将此脚本添加到 bootstrap 节点的 `genconf` 文件夹。[更多信息](/cn/1.11/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
 
-1. [安装 DC/OS ](/1.11/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
+1. [安装 DC/OS ](/cn/1.11/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
 
 1. 测试安装。
 
@@ -53,12 +53,12 @@ enterprise: true
 
 # 使用
 
-用户创建的 Marathon 服务和 Pod 支持树立分区和分域感知。以下 DC/OS 数据服务的 beta 版本支持树立分区感知：Cassandra、Elastic、HDFS、Kafka 和 Spark。请参阅各个服务文档，了解配置 DC/OS 数据服务分区感知的更多信息。
+用户创建的 Marathon 服务和 Pod 支持树立分区和分域感知。以下 DC/OS 数据服务的 beta 版本支持树立分区感知：Cassandra、Elastic、HDFS、Kafka 和 Spark。请参阅各个服务文档，了解设置 DC/OS 数据服务分区感知的更多信息。
 
 
 ## Marathon 服务和 Pod
 
-在 Marathon 服务或 pod 定义中，可以使用 [布局约束](/1.11/deploying-services/marathon-constraints/)，以便：
+在 Marathon 服务或 pod 定义中，可以使用 [布局约束](/cn/1.11/deploying-services/marathon-constraints/)，以便：
 
 - 为您的服务或 pod 指定分区和分域，从而将所有实例都安排在该分域和分区。
 
@@ -92,7 +92,7 @@ enterprise: true
 - 不在本地分域启动任何实例。
 - 5 个实例全都在 `aws-us-east1` 分域启动。
 
-### 在同一分域内均衡放置
+### 在同一分域内均衡安排
 
 ```json
 {
@@ -109,6 +109,6 @@ enterprise: true
 
 ### 增加群集容量
 
-要增加容量，请 [添加新代理](/1.11/administering-clusters/add-a-node/) 到群集的远程分域或分区，然后更新服务以在相应的一个或多个分域启动实例。
+要增加容量，请 [添加新代理](/cn/1.11/administering-clusters/add-a-node/) 到群集的远程分域或分区，然后更新服务以在相应的一个或多个分域启动实例。
 
-**注意：** 您无法将服务配置为在多个分域运行。
+**注意：** 您无法将服务设置为在多个分域运行。

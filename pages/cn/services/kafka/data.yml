@@ -1,0 +1,45 @@
+# Common values:
+
+packageName: kafka
+serviceName: kafka
+techName: Apache Kafka
+techShortName: Kafka
+
+# Values specific to certain templates:
+
+install:
+  minNodeCount: 三个
+  nodeDescription: 有三个 broker
+  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/kafka/kafka-auth/
+
+managing:
+  podType: kafka
+  taskType: broker
+
+supportedVersions:
+  techExampleVersion: 0.11.0.2
+  techLink: "[Apache Kafka](https://kafka.apache.org/downloads)" 
+
+security:
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
+
+kerberos:
+  spn: example/kafka-0-broker.agoodexample.autoip.dcos.thisdcos.directory
+  upn: example/kafka-0-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+  principal: example/kafka-0-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+
+# Values specific to Kafka's own docs content:
+
+kafka:
+  zookeeperPackageName: kafka-zookeeper
+  zookeeperServiceName: kafka-zookeeper
+  zookeeperTechName: Apache ZooKeeper
+
+operations:
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    └─ broker (serial strategy) (COMPLETE)
+       ├─ kafka-0:[broker] (COMPLETE)
+       ├─ kafka-1:[broker] (COMPLETE)
+       └─ kafka-2:[broker] (COMPLETE)

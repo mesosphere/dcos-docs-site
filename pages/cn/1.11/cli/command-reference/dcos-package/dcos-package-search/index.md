@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos package search` 命令允许您搜索软件包存储库。
+`dcos package search` 命令让您搜索软件包存储库。
 
 # 使用
 
@@ -21,7 +21,7 @@ dcos package search <query> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `--json` | JSON 格式化的数据。|
+| `--json` | JSON 格式的数据。|
 
 # 位置自变量
 
@@ -33,8 +33,8 @@ dcos package search <query> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/cn/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
 
 # 示例
 
-有关示例，请参阅[文档](/1.11/administering-clusters/repo/)。
+有关示例，请参阅[文档](/cn/1.11/administering-clusters/repo/)。

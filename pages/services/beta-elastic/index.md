@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Beta Elastic
 title: Beta Elastic
-menuWeight: 140
+menuWeight: -1
 excerpt:
 featureMaturity:
 enterprise: false

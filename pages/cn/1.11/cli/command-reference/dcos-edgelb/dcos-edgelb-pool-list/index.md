@@ -10,7 +10,7 @@ enterprise: true
 
 
 # 说明
-`dcos edgelb pool list` 命令允许您列出所有池的名称。
+`dcos edgelb pool list` 命令让您列出所有池的名称。
 
 # 使用
 
@@ -34,8 +34,8 @@ dcos edgelb pool list [OPTIONS]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/1.11/cli/command-reference/dcos-edgelb/) | 管理 Edge-LB。|
+| [dcos edgelb](/cn/1.11/cli/command-reference/dcos-edgelb/) | 管理 Edge-LB。|
 
 # 示例
 
-请参阅 [Edge-LB 快速入门指南](/1.11/networking/edge-lb/quickstart/)。
+请参阅 [Edge-LB 快速入门指南](/cn/1.11/networking/edge-lb/quickstart/)。

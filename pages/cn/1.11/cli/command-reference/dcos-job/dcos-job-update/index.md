@@ -10,7 +10,7 @@ enterprise: false
 
   
 # 说明
-`dcos job update` 命令允许您更新作业。
+`dcos job update` 命令让您更新作业。
 
 # 使用
 
@@ -26,12 +26,12 @@ dcos job update <job-file> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<job-file>` | JSON 格式化的作业定义。|
+| `<job-file>` | 以 JSON 为格式的作业定义。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
 
 

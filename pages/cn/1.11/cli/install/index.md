@@ -14,19 +14,19 @@ enterprise: false
 
 1. 在 DC/OS Web 界面的左上角，单击群集名称右侧的向下箭头。
 
-![打开群集弹出窗口](/1.11/img/open-cluster-popup.png)
+![打开群集弹出窗口](/cn/1.11/img/open-cluster-popup.png)
 
 图 1. 打开群集弹出菜单
 
 1. 选择 **安装 CLI**。
 
-![CLI 安装 UI](/1.11/img/install-cli.png)
+![CLI 安装 UI](/cn/1.11/img/install-cli.png)
 
 图 2. 选择安装 CLI
 
 1. 将适合您操作系统的代码片段复制并粘贴到您的终端。
 
-![CLI 复制/粘贴](/1.11/img/install-cli-terminal.png)
+![CLI 复制/粘贴](/cn/1.11/img/install-cli-terminal.png)
 
 图 3. 代码片段窗口
 
@@ -43,7 +43,7 @@ enterprise: false
 * 您可以在其上安装 CLI 的 DC/OS 群集外部系统。
 * 从外部系统到 DC/OS 群集的网络访问。
 * 命令行环境，如终端。
-* `cURL`：默认安装在大多数 Linux 发行版中。
+* `cURL`：默认安装在大多数 Linux 发行版本中。
 
 ### 安装 DC/OS CLI
 
@@ -71,13 +71,13 @@ enterprise: false
     chmod +x /usr/local/bin/dcos
     ```
 
-1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是主节点 URL。
+1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是管理节点 URL。
 
     ```bash
     dcos cluster setup http://example.com
     ```
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/1.11/security/)。
+ 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/cn/1.11/security/)。
 
  您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。
 
@@ -110,14 +110,14 @@ enterprise: false
     chmod +x dcos
     ```
 
-1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是主节点 URL。
+1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是管理节点 URL。
 
     ```bash
     dcos cluster setup http://example.com
     ```
  **注意：** 如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/1.11/security/)。
+ 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.11/security/)。
 
  您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。
 
@@ -127,7 +127,7 @@ enterprise: false
 
 * 您将在其上安装 CLI 的 DC/OS 群集外部系统
 * 从外部系统到 DC/OS 群集的网络访问。
-* 命令行环境，如 Windows Powershell，默认安装在 Windows 7 及更高版本上
+* 命令行环境，如默认安装在 Windows 7 及更高版本上的Windows Powershell。
 * 在开始安装之前，禁用任何安全或防病毒软件。
 
 
@@ -135,12 +135,12 @@ enterprise: false
 
 1. 将 DC/OS CLI 可执行文件下载到本地目录 ([dcos.exe](https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.11/dcos.exe)）。
 
-1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是主节点 URL。
+1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是管理节点 URL。
 
     ```powershell
     dcos cluster setup http://example.com
     ```
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/1.11/security/)。
+ 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.11/security/)。
 
- 您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。
+ 您的 CLI 现在应可通过您群集的身份认证了！输入 `dcos` 即可开始。

@@ -12,7 +12,7 @@ enterprise: true
 
 **先决条件：**
 
-- [DC/OS](/1.11/installing/)和[DC/OS CLI](/1.11/cli/install/)已安装。
+- [DC/OS](/cn/1.11/installing/)和[DC/OS CLI](/cn/1.11/cli/install/)已安装。
 
 # <a name="create-job"></a>创建简单的作业
 
@@ -42,8 +42,8 @@ enterprise: true
     curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs -d@/Users/<your-username>/<myjob>.json
     ```
 
-# <a name="create-job-schedule"></a>使用计划创建工作
-**注意：** 此示例 JSON 仅在您从 DC/OS CLI 或 Web 界面添加作业时有效。使用 [以下示例](#schedule-with-api) 通过 API 创建计划作业。
+# <a name="create-job-schedule"></a>创建有计划的作业
+**注意：** 此示例 JSON 仅在您从 DC/OS CLI 或 Web 界面添加作业时有效。使用 [以下示例](#schedule-with-api) 通过 API 创建有计划的作业。
 
 1. 使用以下内容创建 JSON 文件。
     ```
@@ -105,7 +105,7 @@ enterprise: true
 
 # 创建分区作业环境
 
-在此示例中，使用 DC/OS Web 界面创建分区作业环境。这允许您限制每项作业或每个作业组的用户访问。作业是在名为 `batch` 的作业组中创建，该作业组是名为 `dev` 作业组的子级。
+在此示例中，使用了 DC/OS Web 界面创建分区作业环境。这让您限制每项作业或每个作业组的用户访问。作业是在名为 `batch` 的作业组中创建的，该作业组是名为 `dev` 作业组的子级。
 
 ```
 ├── dev
@@ -114,16 +114,16 @@ enterprise: true
         ├── job2
 ```
 
-然后作业组被分配给用户 `Cory` 和 `Alice` 以限制访问的权限。
+然后作业组为用户 `Cory` 和 `Alice` 分配权限以限制访问的权限。
 
 **前提条件：**
 
-- 安装 DC/OS 时，[安全模式](/1.11/security/ent/#security-modes)为 `permissive` 或 `strict`。
+- 安装 DC/OS 时，[安全模式](/cn/1.11/security/ent/#security-modes) `permissive` 或 `strict`。
 - 您必须以 `superuser` 身份登录。
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
- ![登录](/1.11/img/gui-installer-login-ee.gif)
+ ![登录](/cn/1.11/img/gui-installer-login-ee.gif)
 
  图 1. DC/OS Enterprise 登录
 
@@ -133,22 +133,22 @@ enterprise: true
  1. 在 **ID** 字段中，键入 `dev.batch.job1`。
  1. 在 **Command** 字段中，键入 `sleep 1000`（或其他有效的 shell 命令）并单击 **CREATE A JOB**。
 
- ![创建作业](/1.11/img/job-ex1.png)
+ ![创建作业](/cn/1.11/img/job-ex1.png)
 
  图 2. 新作业屏幕
 
- 这将在 DC/OS 中的此目录结构中创建作业：**Jobs > dev > batch > job1**。
+ 这将在 DC/OS 中的这样的目录结构中创建作业：**Jobs > dev > batch > job1**。
 
  1. 单击右上角的 **+** 图标创建另一项作业。
 
- ![创建另一项作业](/1.11/img/job-ex2.png)
+ ![创建另一项作业](/cn/1.11/img/job-ex2.png)
 
  图 3. 创建另一项作业
 
  1. 在 **ID** 字段中，键入 `dev.batch.job2`。
  1. 在 **Command** 字段中，键入 `sleep 1000`（或其他有效的 shell 命令）并单击 **CREATE A JOB**。您应该有两项作业：
 
- ![创建作业](/1.11/img/job-ex3.png)
+ ![创建作业](/cn/1.11/img/job-ex3.png)
 
  图 4. Jobs > dev > batch screen
 
@@ -156,7 +156,7 @@ enterprise: true
 
  1. 单击 **Jobs > dev > batch > job1**，然后单击 **Run Now**。
 
- ![运行作业](/1.11/img/job-ex4.png)
+ ![运行作业](/cn/1.11/img/job-ex4.png)
 
  图 5. “Run now”菜单
 
@@ -166,14 +166,14 @@ enterprise: true
 
  1. 选择 **Organization > Users** 并创建名为 `Cory` 和 `Alice` 的新用户。
 
- ![创建用户 Cory](/1.11/img/service-group3.png)
+ ![创建用户 Cory](/cn/1.11/img/service-group3.png)
 
  图 6. 创建新用户
 
  1. 选择用户 **Cory** 授予 `job1` 访问权限。
  1. 从 **Permissions** 选项卡中，单击 **ADD PERMISSION**，然后切换 **INSERT PERMISSION STRING** 按钮以手动输入权限。
 
- ![添加 cory 权限](/1.11/img/job-ex5.png)
+ ![添加 cory 权限](/cn/1.11/img/job-ex5.png)
 
  图 7. 为用户“Cory”添加权限
 
@@ -203,6 +203,6 @@ enterprise: true
 
 1. 退出并以新用户身份重新登录以验证权限。用户现在应该在 **Jobs** 选项卡内具有对 `dev/batch/job1` 和 `dev/batch/job2` 的指定访问级别。例如，如果您以 **Alice** 身份登录，您只能看到 **jobs2**：
 
- ![Alice 作业查看](/1.11/img/job-ex6.png)
+ ![Alice 作业查看](/cn/1.11/img/job-ex6.png)
 
- 图 8. “Alice”的限制性查看
+ 图 8. “Alice”的局限性查看

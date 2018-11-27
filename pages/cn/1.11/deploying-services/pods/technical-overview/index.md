@@ -10,39 +10,39 @@ enterprise: false
 
 Pod 是特殊类型的 Mesos 任务组，而 pod 中的任务或容器是组成员。通过 [Mesos 启动组] (https://github.com/apache/mesos/blob/cfeabec58fb2a87076f0a2cf4d46cdd02510bce4/docs/executor-http-api.md#launch-group)指令，将 pod 实例的容器一起彻底启动。
 
-DC/OS 作为单一服务处理并展示 pod。pod 共享网络命名空间中的容器和临时卷。您可以通过 pod 定义配置 pod，这类似于 Marathon 应用定义。然而 Pod 和应用定义之间有一些差异。例如：
+DC/OS以单一服务处理并代表 pod。Pod 中的容器 共享网络命名空间和临时卷。您可以通过 pod 定义配置 pod，这类似于 Marathon 应用定义。然而 Pod 和应用定义之间有一些差异。例如：
 
 - 您必须指定端点（不是端口号），以便其他应用程序与 Pod 通信。
-- Pod 具有单独的重置 API。
-- Pod 仅支持 Mesos 级健康检查。
+- Pod 具有单独的 REST API。
+- Pod 仅支持 Mesos 级运行状况检查。
 
 # 网络
-Marathon Pod 仅支持 [DC/OS 通用容器运行时间](/1.11/deploying-services/containerizers/)，该运行时间支持多种镜像格式，包括 Docker。
+Marathon Pod 仅支持 [DC/OS 通用容器运行时间](/cn/1.11/deploying-services/containerizers/)，该运行时间支持多种镜像格式，包括 Docker。
 
 通用容器运行时间允许每个 pod 实例的容器通过 VLAN 或专用网络共享网络命名空间并进行通信，从而简化网络。如果在 pod 定义中指定没有名称的容器网络，它将被分配到默认网络。如果您已使用 [AWS 模板] 安装了 DC/OS(/1.11/installing/evaluation/cloud-installation/aws/)，则默认网络是 `dcos`。
 
-如果其他应用需要与您的 pod 通信，请在 pod 定义中指定一个端点。其他应用程序将通过访问这些端点与 Pod 进行通信。参见 [示例部分](/1.11/deploying-services/pods/examples/)，了解更多信息。
+如果其他应用需要与您的 pod 通信，请在 pod 定义中指定一个端点。其他应用程序将通过访问这些端点与 Pod 进行通信。参见 [示例部分](/cn/1.11/deploying-services/pods/examples/)，了解更多信息。
 
-在您的 pod 定义中，您可以声明 `host` 或 `container` 网络类型。借助 `host` 类型创建的 Pod 共享主机的网络命名空间。借助 `container` 类型创建的 Pod 则使用虚拟网络。如果您指定 `container` 网络类型且 Marathon 未配置为具有默认网络名称，您也必须在 `name` 字段中声明虚拟网络名称。参见完整 JSON 的 [示例](/1.11/deploying-services/pods/examples/) 部分。
+在您的 pod 定义中，您可以声明 `host` 或 `container` 网络类型。借助 `host` 类型创建的 Pod 共享主机的网络命名空间。借助 `container` 类型创建的 Pod 则使用虚拟网络。如果您指定 `container` 网络类型且 Marathon 未配置为具有默认网络名称，您也必须在 `name` 字段中声明虚拟网络名称。参见完整 JSON 的 [示例](/cn/1.11/deploying-services/pods/examples/) 部分。
 
 # 临时存储库
 Pod 内的容器共享临时存储库。在 pod 级别声明卷，且在被 `name` 引用之后安装到特定容器中。
 
 # Pod 事件和状态
 
- 更新已启动的 pod 时，只有在重新部署完成时才可使用 pod 的新版本。查询系统，了解在重新部署之前部署哪个版本时，您收到的回复可能是先前的版本。询问 Pod 状态时会收到同样的答复：如果更新 pod，在完成重新部署之前，状态更改将不会反映在查询中。
+ 更新已启动的 pod 时，只有在重新部署完成时才可使用 pod 的新版本。如果您在重新部署完成之前查询系统了解正在部署哪个版本时，您收到的回复可能是先前的版本。询问 Pod 状态时会收到同样的答复：如果更新 pod，直到完成重新部署之前，状态更改将不会反映在查询中。
 
  历史记录永久关联 `pod_id`。如果删除 pod，然后重新使用该 ID，即使 Pod 的详细信息不同，新的 pod 仍会显示先前的历史记录（例如，版本信息）。
 
 # Pod 定义
-Pod 通过 JSON pod 定义接受配置，与 Marathon 方式相似 [应用定义](/1.11/deploying-services/creating-services/)。您必须声明 Pod 中每个容器所需的资源，因为Mesos（而非 Marathon）决定了对 Pod 请求的所有资源执行隔离的方式和时间。参见 [示例](/1.11/deploying-services/pods/examples/) 部分，了解完整的 pod 定义。
+Pod 通过 JSON pod 定义接受配置，与 Marathon 方式相似 [应用定义](/cn/1.11/deploying-services/creating-services/)。您必须声明 Pod 中每个容器所需的资源，因为Mesos（而非 Marathon）决定了 Pod 请求的所有资源执行隔离的方式和时间。参见 [示例](/cn/1.11/deploying-services/pods/examples/) 部分，了解完整的 pod 定义。
 
 # 环境变量
 在 pod 级别定义的环境变量将传播到所有 pod 容器。Pod 级环境变量被在 pod 容器级别定义的环境变量覆盖。
 
-端口的环境变量使用 pod 容器端点名称（即，ENDPOINT_）定义<ENDPOINT_NAME>=<PORT>).
+端口的环境变量以 pod 容器端点名称（即，ENDPOINT_）定义<ENDPOINT_NAME>=<PORT>).
 
-以下是反映 [多个 Pod JSON pod 定义示例](/1.11/deploying-services/pods/examples/#multi-pod) 的环境变量示例。
+以下是反映 [多个 Pod JSON pod 定义示例](/cn/1.11/deploying-services/pods/examples/#multi-pod) 的环境变量示例。
 
 ```
 MESOS_EXECUTOR_ID=instance-test-pod.c2b47e5c-d1f5-11e6-a247-a65e72d2dda4
@@ -86,7 +86,7 @@ EP_HOST_HTTPENDPOINT=21528
 
 ## 密钥
 
-在 Pod 定义的 `secrets` 字段中指定密钥。论据应该是存储库中的密钥的完全限定路径。
+在 Pod 定义的 `secrets` 字段中指定密钥。论据应该是完全合格的可获取存储库中的密钥的路径。
 
 ```json
 {
@@ -121,7 +121,7 @@ Pod 支持临时卷，临时卷在 pod 级别定义。Pod 定义必须包括 `vo
 }
 ```
 
-Pod 还支持主机卷。Pod 卷参数可以声明 `host` 字段，用于引用代理上的已有文件或目录。
+Pod 还支持主机卷。Pod 卷参数可以声明 `host` 字段，用于指向代理上的已有文件或目录。
 ```json
 {
 	"volumes": [
@@ -135,9 +135,9 @@ Pod 还支持主机卷。Pod 卷参数可以声明 `host` 字段，用于引用�
 
 **注意：** 重新启动脚本后，数据不复存在。
 
-## 容器
+## Containerizer
 
-Marathon Pod 支持 [DC/OS 通用容器运行时间](/1.11/deploying-services/containerizers/)。通用容器运行时间 [支持多个镜像，例如 Docker](http://mesos.apache.org/documentation/latest/container-image/)。
+Marathon Pod 支持 [DC/OS 通用容器运行时间](/cn/1.11/deploying-services/containerizers/)。通用容器运行时间 [支持多个镜像，例如 Docker](http://mesos.apache.org/documentation/latest/container-image/)。
 
 以下 JSON 为 Pod 指定了 Docker 镜像：
 

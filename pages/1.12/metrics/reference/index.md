@@ -7,15 +7,18 @@ excerpt: Understanding metrics collected by DC/OS
 beta: false
 enterprise: false
 ---
-
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
+Mesosphere DC/OS collects basic system metrics--such as CPU and memory--for nodes and containers automatically. Mesosphere DC/OS also collects metadata about the different categories of metrics. For more information about the metadata metrics, see [Dimensions](#Dimensions).
 
-These metrics are automatically collected by DC/OS.
+You should note that automatically-collected metrics are only available for containers that provide endpoint statistics. For example, Docker containers do not provide networking data for DC/OS to consume, so the networking metrics that are available for UCR containers are not available for Docker containers.
+
+<a name="Node">
 
 #  Node
+<a name="NodeCPUMem">
 
-### CPU and memory metrics
+## CPU and memory metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
@@ -37,7 +40,9 @@ These metrics are automatically collected by DC/OS.
 | swap.used         |    Amount of swap space used.    |
 | system.uptime          |   The system uptime.    |
 
-### Filesystem metrics
+<a name="NodeFiles">
+
+## File system metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
@@ -50,7 +55,9 @@ These metrics are automatically collected by DC/OS.
 
 <p class="message--note"><strong>NOTE: </strong>The tag <code>path</code> is automatically populated based on the mount path of the local filesystem (for example, <code>/</code>, <code>/boot</code>, etc).</p>
 
-### Network interface metrics
+<a name="NodeNetwork">
+
+## Network interface metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
@@ -65,11 +72,15 @@ These metrics are automatically collected by DC/OS.
 
 <p class="message--note"><strong>NOTE: </strong>The tag <code>interface</code> is automatically populated based on the type of the network interface (for example, <code>spartan</code>, <code>d-dcos</code>, <code>minuteman</code>, etc).</p>
 
+<a name="Container">
+
 # Container
 
 The following per-container resource utilization metrics are collected.
 
-### CPU usage metrics
+<a name="ConCPU">
+
+## CPU usage metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
@@ -78,21 +89,27 @@ The following per-container resource utilization metrics are collected.
 | cpus.throttled_time_secs    | Total time, in seconds, that CPU was throttled. |
 | cpus.user_time_secs    | Total CPU time spent in user mode. |
 
-### Disk metrics
+<a name="ConDisk">
+
+## Disk metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | disk.limit_bytes    | Hard capacity limit for disk in bytes. |
 | disk.used_bytes    | Hard capacity used in bytes.  |
 
-### Memory metrics
+<a name="ConMem">
+
+## Memory metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
 | mem.limit_bytes    | Hard memory limit for a container. |
 | mem.total_bytes    | Total memory of a process in RAM (as opposed to in swap). |   
 
-### Network metrics
+<a name="ConNetwork">
+
+## Network metrics
 
 | Metric            | Description                  |
 |-------------------|------------------------------|
@@ -105,8 +122,9 @@ The following per-container resource utilization metrics are collected.
 | net.tx.errors    | Errors reported on send. |
 | net.tx.packets    | Packets sent. |
 
+<a name="Dimensions">
 
-## Dimensions
+# Dimensions
 
 Dimensions are metadata about the metrics. The following table lists the available dimensions and the entities where they appear.
 

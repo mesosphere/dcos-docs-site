@@ -82,7 +82,7 @@ If the service was previously installed on DC/OS 1.9, and the cluster has now be
 
 Using the version controlled options file of the service, start a configuration update:
 ```bash
-dcos {{ model.pacakgeName }} update start --options=<options-file>
+dcos {{ model.packageName }} update start --options=<options-file>
 ```
 This will update the service metadata with the correct stored options. The service scheduler will be restarted, but service tasks will not. Going forward, you can use the `update` commands as described elsewhere.
 
@@ -132,7 +132,7 @@ You will receive an error message if the plan has already completed or has alrea
 If the update is in a `WAITING` state, as a result of being paused or reaching a breakpoint that requires manual operator verification, you can use the `resume` command to continue the update:
 
 ```bash
-$ dcos {{ model.packagename }} update resume
+$ dcos {{ model.packageName }} update resume
 ```
 
 You will receive an error message if you attempt to `resume` an update that is already in progress or has already completed.

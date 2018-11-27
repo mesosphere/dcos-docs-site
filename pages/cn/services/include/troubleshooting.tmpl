@@ -2,9 +2,11 @@
 
 配置更改后，服务可能会进入不健康状态。这通常在用户进行无效配置更改时发生。某些配置值可能不会被更改，或可能不会被减少。要验证是否如此，对于任何错误，请检查服务的 `deploy` 计划。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> plan show deploy<linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name=<service-name> plan show deploy
+```
 
-## 访问日志
+## 访问日志 
 
 调度程序和所有服务节点的日志可从 DC/OS Web 界面查看。
 
@@ -32,15 +34,22 @@ DC/OS {{ model.techName }} 服务对临时 Pod 故障有复原能力，如果其
 
 应使用以下命令获取可用 Pod 的列表。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> pod list<linebreak></```>
+
+```bash
+$ dcos {{ model.packageName }} --name=<service-name> pod list
+```
 
 然后应借助上述列表中提供的适当的 `pod_name`，使用以下命令更换故障机器上的 Pod。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> pod replace <pod_name><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name=<service-name> pod replace <pod_name>
+```
 
 Pod 然后可通过 `recovery` 计划恢复。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> plan show recovery<linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name=<service-name> plan show recovery
+```
 
 ## 重新启动节点
 
@@ -48,35 +57,98 @@ Pod 然后可通过 `recovery` 计划恢复。
 
 应使用以下命令获取可用 Pod 的列表。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> pod list<linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name=<service-name> pod list
+```
 
 然后应使用以下命令重启 Pod，使用在上述列表中提供的相应的命令 `pod_name` 。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> pod restart <pod_name><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name=<service-name> pod restart <pod_name>
+```
 
 Pod 然后可通过 `recovery` 计划恢复。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=<service-name> plan show recovery<linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name=<service-name> plan show recovery
 
+```
 ## 任务未部署/资源匮乏
 
 当调度程序尝试启动任务时，它将记录有关于其已收到资源的决定。在确定任务未能部署的原因时，这很有用。
 
-最近的服务版本中，调度程序端点位于`http://yourcluster.com/service/<service-name>/v1/debug/offer` will display an HTML table containing a summary of recently-evaluated offers. This table's contents are currently very similar to what can be found in logs, but in a slightly more accessible format. Alternatively, we can look at the scheduler's logs in `stdout`。
+最近的服务版本中，调度程序端点位于`http://yourcluster.com/service/<service-name>/v1/debug/offer` 将显示一个HTML表，其中包含最近评估的商品摘要. 此表的内容目前与日志中的内容非常相似，但格式更易于访问. 另外, 我们可以查看调度程序的日志 `stdout`。
 
 以下示例假设一个需要预先确定资源数量的假定任务。滚动调度程序日志，我们看到了几个模式。首先，存在这样的故障，其中缺少唯一的东西是 CPU。剩余的任务需要两个 CPU，但此资源供应显然不够：
 
-<```><linebreak>INFO  2017-04-25 19:17:13,846 [pool-8-thread-1] com.mesosphere.sdk.offer.evaluate.OfferEvaluator:evaluate(69): Offer 1: failed 1 of 14 evaluation stages:<linebreak>  PASS(PlacementRuleEvaluationStage): No placement rule defined<linebreak>  PASS(ExecutorEvaluationStage): Offer contains the matching Executor ID<linebreak>  PASS(ResourceEvaluationStage): Offer contains sufficient 'cpus': requirement=type: SCALAR scalar { value: 0.5 }<linebreak>  PASS(ResourceEvaluationStage): Offer contains sufficient 'mem': requirement=type: SCALAR scalar { value: 500.0 }<linebreak>  PASS(LaunchEvaluationStage): Added launch information to offer requirement<linebreak>  FAIL(ResourceEvaluationStage): Failed to satisfy required resource 'cpus': name: "cpus" type: SCALAR scalar { value: 2.0 } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>  PASS(ResourceEvaluationStage): Offer contains sufficient 'mem': requirement=type: SCALAR scalar { value: 8000.0 }<linebreak>  PASS(MultiEvaluationStage): All child stages passed<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 9042 end: 9042 } }<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 9160 end: 9160 } }<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7000 end: 7000 } }<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7001 end: 7001 } }<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 8609 end: 8609 } }<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 8182 end: 8182 } }<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7199 end: 7199 } }<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 21621 end: 21621 } }<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 8983 end: 8983 } }<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7077 end: 7077 } }<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7080 end: 7080 } }<linebreak>    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7081 end: 7081 } }<linebreak>  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'<linebreak>  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'<linebreak>  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'<linebreak>  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'<linebreak>  PASS(LaunchEvaluationStage): Added launch information to offer requirement<linebreak>  PASS(ReservationEvaluationStage): Added reservation information to offer requirement<linebreak></```>
+```
+INFO  2017-04-25 19:17:13,846 [pool-8-thread-1] com.mesosphere.sdk.offer.evaluate.OfferEvaluator:evaluate(69): Offer 1: failed 1 of 14 evaluation stages:
+  PASS(PlacementRuleEvaluationStage): No placement rule defined
+  PASS(ExecutorEvaluationStage): Offer contains the matching Executor ID
+  PASS(ResourceEvaluationStage): Offer contains sufficient 'cpus': requirement=type: SCALAR scalar { value: 0.5 }
+  PASS(ResourceEvaluationStage): Offer contains sufficient 'mem': requirement=type: SCALAR scalar { value: 500.0 }
+  PASS(LaunchEvaluationStage): Added launch information to offer requirement
+  FAIL(ResourceEvaluationStage): Failed to satisfy required resource 'cpus': name: "cpus" type: SCALAR scalar { value: 2.0 } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+  PASS(ResourceEvaluationStage): Offer contains sufficient 'mem': requirement=type: SCALAR scalar { value: 8000.0 }
+  PASS(MultiEvaluationStage): All child stages passed
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 9042 end: 9042 } }
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 9160 end: 9160 } }
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7000 end: 7000 } }
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7001 end: 7001 } }
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 8609 end: 8609 } }
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 8182 end: 8182 } }
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7199 end: 7199 } }
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 21621 end: 21621 } }
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 8983 end: 8983 } }
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7077 end: 7077 } }
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7080 end: 7080 } }
+    PASS(PortEvaluationStage): Offer contains sufficient 'ports': requirement=type: RANGES ranges { range { begin: 7081 end: 7081 } }
+  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'
+  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'
+  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'
+  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'
+  PASS(LaunchEvaluationStage): Added launch information to offer requirement
+  PASS(ReservationEvaluationStage): Added reservation information to offer requirement
+```
 
 如果我们从此拒绝摘要中向上滚动，我们发现一条描述代理提供 CPU 相关资源的消息：
 
-<```><linebreak>INFO  2017-04-25 19:17:13,834 [pool-8-thread-1] com.mesosphere.sdk.offer.MesosResourcePool:consumeUnreservedMerged(239): Offered quantity of cpus is insufficient: desired type: SCALAR scalar { value: 2.0 }, offered type: SCALAR scalar { value: 0.5 }<linebreak></```>
+```
+INFO  2017-04-25 19:17:13,834 [pool-8-thread-1] com.mesosphere.sdk.offer.MesosResourcePool:consumeUnreservedMerged(239): Offered quantity of cpus is insufficient: desired type: SCALAR scalar { value: 2.0 }, offered type: SCALAR scalar { value: 0.5 }
+```
 
 可以理解，当节点需要 2.0 CPU 而系统只剩 0.5 CPU 时，我们的调度程序拒绝在系统上启动节点。
 
 我们看到的另一种模式是出于如下若干原因，所提供的资源被拒绝：
 
-<```><linebreak>INFO  2017-04-25 19:17:14,849 [pool-8-thread-1] com.mesosphere.sdk.offer.evaluate.OfferEvaluator:evaluate(69): Offer 1: failed 6 of 14 evaluation stages:<linebreak>  PASS(PlacementRuleEvaluationStage): No placement rule defined<linebreak>  PASS(ExecutorEvaluationStage): Offer contains the matching Executor ID<linebreak>  FAIL(ResourceEvaluationStage): Failed to satisfy required resource 'cpus': name: "cpus" type: SCALAR scalar { value: 0.5 } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>  PASS(ResourceEvaluationStage): Offer contains sufficient 'mem': requirement=type: SCALAR scalar { value: 500.0 }<linebreak>  PASS(LaunchEvaluationStage): Added launch information to offer requirement<linebreak>  FAIL(ResourceEvaluationStage): Failed to satisfy required resource 'cpus': name: "cpus" type: SCALAR scalar { value: 2.0 } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } } FAIL(ResourceEvaluationStage): Failed to satisfy required resource 'mem': name: "mem" type: SCALAR scalar { value: 8000.0 } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>  FAIL(MultiEvaluationStage): Failed to pass all child stages<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 9042 end: 9042 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 9160 end: 9160 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7000 end: 7000 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7001 end: 7001 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 8609 end: 8609 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 8182 end: 8182 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7199 end: 7199 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 21621 end: 21621 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 8983 end: 8983 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7077 end: 7077 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7080 end: 7080 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7081 end: 7081 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>  FAIL(VolumeEvaluationStage): Failed to satisfy required volume 'disk': name: "disk" type: SCALAR scalar { value: 10240.0 } role: "{{ model.serviceName }}-role" disk { persistence { id: "" principal: "{{ model.serviceName }}-principal" } volume { container_path: "{{ model.serviceName }}-data" mode: RW } } reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'<linebreak>  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'<linebreak>  FAIL(VolumeEvaluationStage): Failed to satisfy required volume 'disk': name: "disk" type: SCALAR scalar { value: 10240.0 } role: "{{ model.serviceName }}-role" disk { persistence { id: "" principal: "{{ model.serviceName }}-principal" } volume { container_path: "solr-data" mode: RW } } reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }<linebreak>  PASS(LaunchEvaluationStage): Added launch information to offer requirement<linebreak>  PASS(ReservationEvaluationStage): Added reservation information to offer requirement<linebreak></```>
+```
+INFO  2017-04-25 19:17:14,849 [pool-8-thread-1] com.mesosphere.sdk.offer.evaluate.OfferEvaluator:evaluate(69): Offer 1: failed 6 of 14 evaluation stages:
+  PASS(PlacementRuleEvaluationStage): No placement rule defined
+  PASS(ExecutorEvaluationStage): Offer contains the matching Executor ID
+  FAIL(ResourceEvaluationStage): Failed to satisfy required resource 'cpus': name: "cpus" type: SCALAR scalar { value: 0.5 } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+  PASS(ResourceEvaluationStage): Offer contains sufficient 'mem': requirement=type: SCALAR scalar { value: 500.0 }
+  PASS(LaunchEvaluationStage): Added launch information to offer requirement
+  FAIL(ResourceEvaluationStage): Failed to satisfy required resource 'cpus': name: "cpus" type: SCALAR scalar { value: 2.0 } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } } FAIL(ResourceEvaluationStage): Failed to satisfy required resource 'mem': name: "mem" type: SCALAR scalar { value: 8000.0 } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+  FAIL(MultiEvaluationStage): Failed to pass all child stages
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 9042 end: 9042 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 9160 end: 9160 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7000 end: 7000 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7001 end: 7001 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 8609 end: 8609 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 8182 end: 8182 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7199 end: 7199 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 21621 end: 21621 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 8983 end: 8983 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7077 end: 7077 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7080 end: 7080 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+    FAIL(PortEvaluationStage): Failed to satisfy required resource 'ports': name: "ports" type: RANGES ranges { range { begin: 7081 end: 7081 } } role: "{{ model.serviceName }}-role" reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+  FAIL(VolumeEvaluationStage): Failed to satisfy required volume 'disk': name: "disk" type: SCALAR scalar { value: 10240.0 } role: "{{ model.serviceName }}-role" disk { persistence { id: "" principal: "{{ model.serviceName }}-principal" } volume { container_path: "{{ model.serviceName }}-data" mode: RW } } reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'
+  PASS(VolumeEvaluationStage): Offer contains sufficient 'disk'
+  FAIL(VolumeEvaluationStage): Failed to satisfy required volume 'disk': name: "disk" type: SCALAR scalar { value: 10240.0 } role: "{{ model.serviceName }}-role" disk { persistence { id: "" principal: "{{ model.serviceName }}-principal" } volume { container_path: "solr-data" mode: RW } } reservation { principal: "{{ model.serviceName }}-principal" labels { labels { key: "resource_id" value: "" } } }
+  PASS(LaunchEvaluationStage): Added launch information to offer requirement
+  PASS(ReservationEvaluationStage): Added reservation information to offer requirement
+```
 
 在这种情况下，我们发现在此系统上没有我们的任务需要的可用端口（更不用提缺少足够的 CPU 和 RAM）。当我们查看已经对其进行部署的代理时，通常会发生这种情况。此处的代理可能会为此服务运行一个现有节点，而其中我们已经将那些端口保留给自己了。
 

@@ -22,7 +22,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 
 ### 管理区
 
-可通过 HTTP/HTTPS 和 SSH 连接访问 **管理** 区，并
+**管理** 区可通过 HTTP/HTTPS 和 SSH 连接访问，并
 提供对管理节点的访问。它还提供
 通过 URL 路由对群集中的其他节点的反向代理访问。安全起见，DC/OS 云
 模板允许配置白名单，这样仅特定 IP 地址范围
@@ -35,10 +35,10 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 所有 HTTP 流量到 HTTPS 以适当地保护对您的群集的访问。
 
 在您获得有效的 TLS 证书之后，在每个管理节点上安装证书。
-将证书和私钥复制到众所周知的位置，如在此位置下
+将证书和私钥复制到一个熟悉的位置，如在此位置下
 `/etc/ssl/certs`.
 
-如果您在 Admin Router 前运行 HAProxy，您应该保护它们之间的通信。有关保护您的通信的信息，请参阅[文档](/1.11/security/oss/tls-ssl/haproxy-adminrouter/)。
+如果您在 Admin Router 前运行 HAProxy，您应该保护它们之间的通信安全。有关保护您的通信的信息，请参阅[文档](/cn/1.11/security/oss/tls-ssl/haproxy-adminrouter/)。
 
 ### 私有区
 
@@ -63,14 +63,14 @@ CloudFormation 模板，大量公共区端口暴露于
 互联网中。在生产系统中，您不太可能
 暴露所有这些端口。除了
 80 和 443（用于 HTTP/HTTPS 流量）端口，建议您关闭所有端口，并使用
-[Marathon-LB](/1.11/networking/marathon-lb/) 和 HTTPS
+[Marathon-LB](/cn/1.11/networking/marathon-lb/) 和 HTTPS
 管理入口流量。
 
 ### 典型 AWS 部署
 
 包括 AWS 负载均衡器的典型 AWS 部署如下所示：
 
-![安全区](/1.11/img/security-zones.jpg)
+![安全区](/cn/1.11/img/security-zones.jpg)
 
 图 1. 安全区
 
@@ -82,12 +82,12 @@ Admin Router 控制对管理区的访问。
 Router 代理（在其内核使用 [Nginx](http://nginx.org) 和
 [OpenResty](https://openresty.org)） 对于未经认证的请求，Admin Router 拒绝
 对大多数 HTTP 端点的访问。要让
-请求得到身份认证，需要在其授权标题中提供
+请求得到身份认证，需要在其授权标头中提供
 有效的认证令牌。可通过
 认证流程获得令牌，具体参见下一节所述。
 
 经过认证的用户有权在其
-集群中执行任意操作。即，DC/OS 中目前没有细粒度访问控制，
+集群中执行任意操作。即，DC/OS 中目前没有极细化的访问控制，
 仅提供可访问服务和不可访问服务这两种控制。
 
-请参阅 [安全部分](/1.11/security/) 了解更多信息。
+请参阅 [安全部分](/cn/1.11/security/) 了解更多信息。

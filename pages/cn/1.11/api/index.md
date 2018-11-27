@@ -8,7 +8,7 @@ excerpt: DC/OS API 参考手册
 enterprise: true
 ---
 
-DC/OS API 是由 [DC/OS 组件] (/1.11/overview/architecture/components/) 支持的路由集合，通过名为 [Admin Router] (/1.11/overview/architecture/components/#admin-router)的 API 网关提供。
+DC/OS API 是由 [DC/OS 组件] (/1.11/overview/architecture/components/) 支持的一组路由，通过名为 [Admin Router] (/1.11/overview/architecture/components/#admin-router)的 API 网关提供。
 
 <!-- Use html img for horizontal centering -->
 <img src="/1.11/img/dcos-api-routing.png" alt="DC/OS API 路由" style="display:block;margin:0 auto"/>
@@ -26,13 +26,13 @@ Admin Router 是基于 NGINX 的 API 网关，具有以下功能：
 
 Admin Router 在每个 DC/OS 节点上运行，其有如下两种配置：
 
-- **Admin Router 管理节点** 公开 [管理节点路由](/1.11/api/master-routes/)。
+- **Admin Router 管理节点** 公开 [管理节点路由](/cn/1.11/api/master-routes/)。
 
  此配置在每个管理节点上运行，用作与 DC/OS 组件交互的主 API 网关。
 
-- **Admin Router 代理节点** 公开 [代理路由](/1.11/api/agent-routes/)。
+- **Admin Router 代理节点** 公开 [代理路由](/cn/1.11/api/agent-routes/)。
 
- 此配置在每个代理节点上运行，并提供用于监视、调试和管理的路由。
+ 此配置在每个代理节点上运行，并提供用于监控、调试和管理的路由。
 
  某些代理路由，如日志和度量标准，通过管理节点 Admin Router 代理以允许外部访问。
 其他路由，如组件管理，仅供内部使用。
@@ -51,21 +51,21 @@ Admin Router 公开若干路由类型：
 
 # 群集访问
 
-要确定群集的 URL，请参阅 [群集访问](/1.11/api/access/)。
+要确定群集的 URL，请参阅 [群集访问](/cn/1.11/api/access/)。
 
 
 # 版本控制
 
-DC/OS API 部分按组件、路由或资源进行版本控制。
+DC/OS API 的部分按组件、路由或资源进行版本控制。
 
-有关版本控制机制的详细信息，请参阅[版本控制](/1.11/api/versioning/)。
+有关版本控制机制的详细信息，请参阅[版本控制](/cn/1.11/api/versioning/)。
 
 
-# 验证
+# 身份验证
 
 某些路由未经过身份认证，但大多数路由都需要认证令牌。
 
-有关如何获取和使用认证令牌的详细信息，请参阅 [验证 HTTP API 端点](/1.11/security/ent/iam-api/)。
+有关如何获取和使用认证令牌的详细信息，请参阅 [验证 HTTP API 端点](/cn/1.11/security/ent/iam-api/)。
 
 
 # 授权
@@ -74,15 +74,15 @@ DC/OS API 部分按组件、路由或资源进行版本控制。
 
 权限执行可以在两个级别执行。
 
-- **粗粒度权限** 是在路由级别 [由 Admin Router 执行](/1.11/security/ent/perms-reference/#admin-router)。
+- **粗粒度权限** 是在路由级别 [由 Admin Router 执行](/cn/1.11/security/ent/perms-reference/#admin-router)。
 - **细粒度权限** 由单个后端组件服务执行。
 
-[权限管理](/1.11/security/ent/perms-management/)可通过具有 [超级用户权限](/1.11/security/ent/perms-reference/#superuser) 的用户使用 [身份和访问管理 API](/1.11/security/ent/iam-api/)执行。具有超级用户权限的用户也有隐式权限访问所有路由。
+[权限管理](/cn/1.11/security/ent/perms-management/)可通过具有 [超级用户权限](/cn/1.11/security/ent/perms-reference/#superuser) 的用户使用 [身份和访问管理 API](/cn/1.11/security/ent/iam-api/)执行。具有超级用户权限的用户也有隐式权限访问所有路由。
 
 
 # 路由使用
 
-- 要通过 **代理路由**确定一个 API 资源的完整 URL，连接群集 URL、路由和后端组件资源路径。
+- 通过 **代理路由**确定一个 API 资源的完整 URL，连接群集 URL、路由和后端组件资源路径。
 
     ```
     <cluster-url>/<route>/<resource-path>
@@ -90,7 +90,7 @@ DC/OS API 部分按组件、路由或资源进行版本控制。
 
  例如，从以下获取 Mesos 版本：`https://dcos.example.com/mesos/version`
 
-- **文件路由** 没有后端组件，但可能提供多个文件或单个文件的目录。因此，对于文件路由，指定文件路径，而不是后端组件资源路径。
+- **文件路由** 没有后端组件，但可能提供有多个文件的目录或单个文件。因此，对于文件路由，指定文件路径，而不是后端组件资源路径。
 
     ```
     <cluster-url>/<route>/<file-path>

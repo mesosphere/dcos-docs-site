@@ -8,9 +8,9 @@ excerpt: 使用 Mesos 挂载存储资源
 enterprise: false
 ---
 
-使用 DC/OS，您可以在群集中配置 Mesos [`Mount` 磁盘资源][1]，只需使用众所周知的路径在代理节点上挂载存储资源即可。
+使用 DC/OS，您可以在群集中配置 Mesos [`Mount` 磁盘资源][1]，只需使用常见的路径在代理节点上挂载存储资源即可。
 
-当 DC/OS 代理节点启动时，它会扫描与模式 `/dcos/volume 匹配的卷<N>`, where `<N>` 是一个整数。然后，代理节点会自动配置，以向其他服务提供这些磁盘资源。
+当 DC/OS 代理节点启动时，它会扫描与`/dcos/volume 模式匹配的卷<N>`, where `<N>` 是一个整数。然后，代理节点会自动配置，以向其他服务提供这些磁盘资源。
 
 # 使用回送设备示例
 
@@ -36,13 +36,13 @@ enterprise: false
  请注意，`/dcos/volume0` 尚无引用。
 
 3. 停止代理节点。
- - 在[专用](/1.11/overview/concepts/#private-agent-node)代理节点上：
+ - 在[专用](/cn/1.11/overview/concepts/#private-agent-node)代理节点上：
 
       ```bash
       sudo systemctl stop dcos-mesos-slave.service
       ```
 
- - 在[公共](/1.11/overview/concepts/#public-agent-node)代理节点上：
+ - 在[公共](/cn/1.11/overview/concepts/#public-agent-node)代理节点上：
 
       ```bash
       sudo systemctl stop dcos-mesos-slave-public.service
@@ -61,7 +61,7 @@ enterprise: false
         sudo rm -f /var/lib/mesos/slave/meta/slaves/latest
         ```
 
-5. 创建 200 MB 回送设备。
+5. 创建一个 200 MB 的回送设备。
 
     ```bash
     sudo mkdir -p /dcos/volume0
@@ -178,7 +178,7 @@ enterprise: false
 
 在运行此服务后，导航到 Web 界面中的 **Services > Volumes** 选项卡：
 
-![挂载磁盘](/1.11/img/mount-disk.png)
+![挂载磁盘](/cn/1.11/img/mount-disk.png)
 
 图 1. Services > Volumes 选项卡
 
@@ -192,14 +192,14 @@ enterprise: false
 
 # 最佳实践
 
-`Mount` 磁盘资源主要用于 Kafka 和 Cassandra 等有状态服务，这些服务可以从整个群集中可用的专用存储中受益。使用 `Mount` 磁盘资源的任何服务具有对保留资源的独占访问权限。然而，考虑服务的性能和可靠性要求仍然很重要。`Mount` 磁盘资源的性能基于底层存储的特性，并且 DC/OS 不提供任何数据复制服务。请考虑以下事项：
+`Mount` 磁盘资源主要用于 Kafka 和 Cassandra 等有状态服务，这些服务可以受益于整个群集中可用的专用存储。使用 `Mount` 磁盘资源的任何服务具有对保留资源的专设访问权限。然而，考虑服务的性能和可靠性要求仍然很重要。`Mount` 磁盘资源的性能基于底层存储的特性，并且 DC/OS 不提供任何数据复制服务。请考虑以下事项：
 
 * 将 `Mount` 磁盘资源与具有严格存储要求的有状态服务一起使用。
 * 根据有状态服务的存储需求和要求，仔细考虑文件系统类型、存储介质（网络链接、SSD 等）和卷特征（RAID 级别、大小调整等）。
 * 使用 Mesos 属性标记 Mesos 代理节点，该属性反映代理节点磁盘挂载的特征，例如， IOPS200、RAID1 等
 * 使用 Mesos 属性限制将有状态服务与存储代理节点相关联。
 * 考虑将要求严苛的存储服务隔离到专用存储代理节点中，因为文件系统页面缓存是主机级共享资源。
-* 确保使用 `Mount` 磁盘资源的所有服务都旨在处理一个或多个 `Mount` 磁盘资源的永久丢失。服务仍然负责管理数据复制和保留，从故障代理节点进行正常恢复以及关键服务状态的备份。
+* 确保使用 `Mount` 磁盘资源的所有服务都旨在处理一个或多个 `Mount` 磁盘资源的永久丢失。服务仍然负责管理数据复制和保留，从故障代理节点进行降级恢复以及关键服务状态的备份。
 
 [1]: http://mesos.apache.org/documentation/latest/multiple-disk/
 [2]:http://docs.aws.amazon.com/AWSEC2/latest/Userguide/AmazOneBS.html

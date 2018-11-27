@@ -4,6 +4,10 @@ packageName: datastax-dse
 serviceName: datastax-dse
 techName: DataStax Enterprise
 techShortName: DSE
+techMidName: DataStax
+techOpsName: OpsCenter
+opsPackageName: datastax-ops
+
 
 # Values specific to certain templates:
 

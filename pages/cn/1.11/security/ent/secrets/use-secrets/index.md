@@ -10,11 +10,11 @@ enterprise: true
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-您的服务定义可将密钥引用环境变量或文件。
+您的服务定义可将密钥以环境变量或文件的方式指代。
 
 ## 基于文件的密钥
 
-您可以将密钥引用为提高其他进程安全性的文件，或者您的服务需要从容器中安装的文件中读取密钥。引用基于文件的密钥对以下内容特别有用：
+您可以将密钥以提高其他进程安全性的文件来指代，或者您的服务需要从容器中安装的文件中读取密钥。引用基于文件的密钥对以下内容特别有用：
 
 - Kerberos keytab 或其他凭据文件。
 - SSL 证书。
@@ -26,9 +26,9 @@ enterprise: true
 
 - 现有密钥。以下示例使用了存储在 `developer` 路径名为 `my-secret` 的密钥。如果您完成[创建密钥]中的步骤(/1.11/security/ent/secrets/create-secrets/)，则您将满足此先决条件。
 
-- [已安装 DC/OS CLI](/1.11/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/#ent-cli-install)。
-- 如果您的 [安全模式](/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
-- 如果您的[安全模式](/1.11/security/ent/#security-modes)为 `disabled`，则必须在将其发出前从命令中删除 `--cacert dcos-ca.crt`。
+- [已安装 DC/OS CLI](/cn/1.11/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
+- 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
+- 如果您的[安全模式](/cn/1.11/security/ent/#security-modes)为 `disabled`，则必须在将其发出前从命令中删除 `--cacert dcos-ca.crt`。
 - 您的[安全模式]的适当权限(/1.11/security/ent/#security-modes)。
 
   <table class="table">
@@ -51,16 +51,16 @@ enterprise: true
  - `dcos:adminrouter:ops:mesos full`：查看 **任务** 面板信息。
  - `dcos:adminrouter:ops:slave full`：查看任务的详细信息，包括日志。
 
- 只要密钥的路径和组的路径[匹配正确](/1.11//security/ent/#spaces)，服务将能够访问密钥值。
+ 只要密钥的路径和组的路径[匹配正确](/cn/1.11//security/ent/#spaces)，服务将能够访问密钥值。
 
-该程序根据您是否要将密钥提供给 [pod](/1.11/deploying-services/pods/) 或单个服务而有所不同。
+该程序根据您是否要将密钥提供给 [pod](/cn/1.11/deploying-services/pods/) 或单个服务而有所不同。
 
 - [单个服务](#service)
 - [Pod](#pod)
 
 # <a name="service"></a>配置服务以使用密钥
 
-程序因接口而异。请参阅与您所需界面相对应的部分。
+程序因网络接口而异。请参阅与您所需网络接口相对应的部分。
 
 - [Web 界面](#deploying-the-service-via-the-web-interface)
 
@@ -74,7 +74,7 @@ enterprise: true
 
 1. 单击右上方的 **+** 图标。
 
- ![添加服务](/1.11/img/add-service.png)
+ ![添加服务](/cn/1.11/img/add-service.png)
 
  图 1. 运行服务
 
@@ -129,7 +129,7 @@ enterprise: true
 
  在上述示例中，密钥将具有文件名 `path`，并且将在任务的沙盒中可用 (`$MESOS_SANDBOX/path`) 。
 
- 由于服务和密钥路径匹配，服务将能够访问该密钥。有关路径的更多详细信息，请参阅[空间](/1.11/security/ent/#spaces)。
+ 由于服务和密钥路径匹配，服务将能够访问该密钥。有关路径的更多详细信息，请参阅[空间](/cn/1.11/security/ent/#spaces)。
 
 1. 单击 **查看并运行**。
 
@@ -192,7 +192,7 @@ enterprise: true
    }
    ```
 
- 由于服务组和密钥路径匹配，服务将能够访问密钥。有关路径的更多详细信息，请参阅[空间](/1.11/security/ent/#spaces)。
+ 由于服务组和密钥路径匹配，服务将能够访问密钥。有关路径的更多详细信息，请参阅[空间](/cn/1.11/security/ent/#spaces)。
 
 1. 使用描述性名称保存文件，如 `myservice.json`。
 
@@ -210,7 +210,7 @@ enterprise: true
 
 1. 打开 DC/OS Web 界面。
 
-1. 单击服务组名称，即**开发人员**。
+1. 单击服务组名称，例如**开发人员**。
 
 1. 单击服务名称。
 
@@ -298,7 +298,7 @@ enterprise: true
    }
    ```
 
- **注意：**由于服务组和密钥路径匹配，pod 将能够访问密钥。有关路径的更多详细信息，请参阅[命名空间](/1.11//security/ent/#spaces)。
+ **注意：**由于服务组和密钥路径匹配，pod 将能够访问密钥。有关路径的更多详细信息，请参阅[命名空间](/cn/1.11//security/ent/#spaces)。
 
 1. 使用描述性名称保存文件，如 `mypod.json`。
 
@@ -310,7 +310,7 @@ enterprise: true
 
 1. 打开 DC/OS Web 界面。
 
-1. 单击服务组名称，即**开发人员**。
+1. 单击服务组名称，例如**开发人员**。
 
 1. 单击 Pod 的名称。
 

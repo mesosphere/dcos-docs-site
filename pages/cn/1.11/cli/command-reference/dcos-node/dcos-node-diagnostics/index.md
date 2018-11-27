@@ -10,7 +10,7 @@ enterprise: false
 
     
 # 说明
-`dcos node diagnostics` 命令允许您查看诊断捆绑包的详细信息。
+`dcos node diagnostics` 命令让您查看诊断捆绑包的详细信息。
 
 # 使用
 
@@ -31,5 +31,5 @@ dcos node diagnostics [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 节点](/1.11/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos 节点](/cn/1.11/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
 

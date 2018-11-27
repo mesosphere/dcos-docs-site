@@ -5,6 +5,7 @@ title: Terminology and Concepts
 menuWeight: 10
 excerpt: Common definitions and terms used throughout DC/OS Storage Service documentation.
 enterprise: true
+beta: true
 ---
 
 We use the following terminology throughout the documentation.

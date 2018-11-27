@@ -3,15 +3,15 @@ backends:
   backup:
     server: 'unix:/run/dcos/dcos-backup-master.sock'
     name: DC/OS Backup
-    reference: 'https://docs.mesosphere.com/1.11/administering-clusters/backup-and-restore/backup-restore-api/'
+    reference: 'https://docs.mesosphere.com/1.12/administering-clusters/backup-and-restore/backup-restore-api/'
   certificate_authority:
     server: '127.0.0.1:8888'
     name: DC/OS Certificate Authority
-    reference: 'https://docs.mesosphere.com/1.11/security/ent/tls-ssl/ca-api/'
+    reference: 'https://docs.mesosphere.com/1.12/security/ent/tls-ssl/ca-api/'
   cluster_linker:
     server: 'unix:/run/dcos/dcos-cluster-linker.sock'
     name: DC/OS Cluster Linker
-    reference: 'https://docs.mesosphere.com/1.11/administering-clusters/multiple-clusters/cluster-link-api/'
+    reference: 'https://docs.mesosphere.com/1.12/administering-clusters/multiple-clusters/cluster-link-api/'
   cockroachdb:
     server: '127.0.0.1:8090'
     name: CockroachDB
@@ -20,7 +20,7 @@ backends:
     server: 'unix:/run/dcos/dcos-diagnostics.sock'
     name: DC/OS Diagnostics
     reference: >-
-      https://docs.mesosphere.com/1.11/monitoring/#system-health-http-api-endpoint
+      https://docs.mesosphere.com/1.12/monitoring/#system-health-http-api-endpoint
   dcos_net:
     server: '127.0.0.1:62080'
     name: DC/OS Net
@@ -31,23 +31,23 @@ backends:
   iam:
     server: '127.0.0.1:8101'
     name: DC/OS Identity and Access Manager (Bouncer)
-    reference: 'https://docs.mesosphere.com/1.11/security/ent/iam-api/'
+    reference: 'https://docs.mesosphere.com/1.12/security/ent/iam-api/'
   log:
     server: 'unix:/run/dcos/dcos-log.sock'
     name: DC/OS Log
-    reference: 'https://docs.mesosphere.com/1.11/monitoring/logging/logging-api/'
+    reference: 'https://docs.mesosphere.com/1.12/monitoring/logging/logging-api/'
   mesos_dns:
     server: '127.0.0.1:8123'
     name: Mesos DNS
-    reference: 'https://docs.mesosphere.com/1.11/networking/mesos-dns/mesos-dns-api/'
+    reference: 'https://docs.mesosphere.com/1.12/networking/mesos-dns/mesos-dns-api/'
   metrics:
     server: 'unix:/run/dcos/dcos-metrics-master.sock'
     name: DC/OS Metrics
-    reference: 'https://docs.mesosphere.com/1.11/metrics/metrics-api/'
+    reference: 'https://docs.mesosphere.com/1.12/metrics/metrics-api/'
   pkgpanda:
     server: 'unix:/run/dcos/pkgpanda-api.sock'
     name: DC/OS Component Package Manager (Pkgpanda)
-    reference: 'https://docs.mesosphere.com/1.11/administering-clusters/component-management/'
+    reference: 'https://docs.mesosphere.com/1.12/administering-clusters/component-management/'
 routes:
   /:
     group: Root

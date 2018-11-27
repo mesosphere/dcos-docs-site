@@ -67,9 +67,16 @@ done
 # Fix up relative links after prettifying structure above
 sedi -e 's/](\(.*\)\.md)/](..\/\1)/' $(find docs/package/ -name '*.md')
 
+# Backup 2.x docs
+mkdir tmp_backup && mv ./pages/services/$name/2.* tmp_backup/
+
 # Remove old docs 
 rm -rf ./pages/services/$name
 mkdir -p ./pages/services/$name
+
+# Restore backup 2.x docs
+mv tmp_backup/* ./pages/services/$name
+rm -rf tmp_backup
 
 # Copy new docs
 cp -r docs/package/* ./pages/services/$name

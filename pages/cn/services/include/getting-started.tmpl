@@ -4,46 +4,70 @@
 要启动基本测试群集 {{ model.install.nodeDescription }}，在 DC/OS CLI 上运行以下命令。
 
 
-<```>bash<linebreak>$ dcos package install {{ model.packageName }}<linebreak></```>
+```bash
+$ dcos package install {{ model.packageName }}
+```
+
 
 此命令将创建具有默认名称 `{{ model.serviceName }}` 的新实例。两个实例不能使用相同的名称，因此在默认实例之外，安装其他实例时需要在每次安装时自定义 `name`。
 
 所有 `dcos {{ model.packageName }}` CLI 命令具有一个 `--name` 自变量，其允许您指定要查询的实例。如果未指定服务名称，CLI 将假设与包名称匹配的默认值，`{{ model.packageName }}`。`--name` 的默认值可通过 DC/OS CLI 配置进行自定义：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} <cmd><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} <cmd>
+```
 
-**注意：** 或者，您可以 [从 DC/OS Web 界面安装](/latest/deploying-services/install/#installing-a-service-using-the-gui)。如果您从 DC/OS Web 界面安装 {{ model.techName }}，`dcos {{ model.packageName }}` CLI 命令不会自动安装到工作站中。可以使用 DC/OS CLI 手动安装它们：
+或者，您可以 [从 DC/OS Web 界面安装](/cn/1.11/deploying-services/install/#installing-a-service-using-the-gui)。如果您从 DC/OS Web 界面安装 {{ model.techName }}，`dcos {{ model.packageName }}` CLI 命令不会自动安装到工作站中。可以使用 DC/OS CLI 手动安装它们：
 
-<```>bash<linebreak>dcos package install {{ model.packageName }} --cli<linebreak></```>
+```bash
+dcos package install {{ model.packageName }} --cli
+```
 
 运行 `package install` 命令后，服务将开始安装。
 
 # Enterprise DC/OS 安装
-根据 Enterprise DC/OS 群集的 [安全模式](/latest/security/ent/#security-modes)，Enterprise DC/OS 用户可能需要创建自定义 .json 文件并使用它来安装 {{ model.techName }}。
+根据 Enterprise DC/OS 群集的 [安全模式](/cn/1.11/security/ent/#security-modes)，Enterprise DC/OS 用户可能需要创建自定义 .json 文件并使用它来安装 {{ model.techName }}。
 
 ## <a name="create-json"></a>创建配置文件
-创建将用于安装 {{ model.techName }} 的自定义配置文件，并将其保存为 `config.json`。指定服务帐户 (`<service_account_id>`) and a secret path (`{{ model.packageName }}/<secret-name>`) .
-<```>json<linebreak>{<linebreak>  "service": {<linebreak>    "service_account": "<service_account_id>",<linebreak>    "service_account_secret": "{{ model.packageName }}/<secret-name>"<linebreak>  }<linebreak>}<linebreak></```>
+创建将用于安装 {{ model.techName }} 的自定义配置文件，并将其保存为 `config.json`。指定服务帐户 (`<service_account_id>`) 和秘密的道路 (`{{ model.packageName }}/<secret-name>`) .
+
+```json
+{
+  "service": {
+    "service_account": "<service_account_id>",
+    "service_account_secret": "{{ model.packageName }}/<secret-name>"
+  }
+}
+```
+
 ## <a name="install-custom"></a>使用自定义配置文件进行安装
 通过此命令使用刚创建的自定义配置文件安装 {{ model.techName }} ：
 
-<```>bash<linebreak>dcos package install --options=config.json {{ model.packageName }}<linebreak></```>
+```bash
+dcos package install --options=config.json {{ model.packageName }}
+```
 
 # 服务部署
 
 要监控测试实例的部署，安装包 cli（请参阅上面的命令）并运行命令：
 
-<```>bash<linebreak>dcos {{ model.packageName }} plan show deploy<linebreak></```>
+```bash
+dcos {{ model.packageName }} plan show deploy
+```
 
 部署计划的状态为 `Complete`时，即表示服务已完全部署。
 
 ## 服务发现
 
 要连接客户端，请通过服务查询其端点。
-<```>bash<linebreak>dcos {{ model.packageName }} endpoints<linebreak></```>
+```bash
+dcos {{ model.packageName }} endpoints
+```
 
 从列表中选择一个端点以查看可用连接。
-<```>bash<linebreak>dcos {{ model.packageName }} endpoints <endpoint><linebreak></```>
+```bash
+dcos {{ model.packageName }} endpoints <endpoint>
+```
 
 ## 使用服务
 

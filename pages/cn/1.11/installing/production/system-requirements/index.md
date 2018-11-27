@@ -9,9 +9,9 @@ excerpt: DC/OS 部署的软硬件要求
 渲染：胡须 
 ---
 
-# 硬件前提条件
+# 硬件先决条件
 
-硬件前提条件是单个 bootstrap 节点、Mesos 管理节点和 Mesos 代理节点。
+硬件先决条件是单个 bootstrap 节点、Mesos 管理节点和 Mesos 代理节点。
 
 ## bootstrap 节点
 
@@ -24,7 +24,7 @@ excerpt: DC/OS 部署的软硬件要求
 
 在安装期间，群集节点是指定的 Mesos 管理节点和代理节点。支持的操作系统和环境列于 [版本政策页面](https://docs.mesosphere.com/version-policy/)。
 
-DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录可在安装 DC/OS 之前创建，但必须是空目录或指向空目录的链接。DC/OS 可以通过在挂载卷上创建空目录，在 `/opt/mesosphere` 处创建指向空目录的链接，然后安装 DC/OS 的方式，安装在单独的卷挂载上。
+DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录可在安装 DC/OS 之前创建，但必须是空目录或指向空目录的链接。DC/OS 可以通过在挂载卷上创建空目录，在 `/opt/mesosphere` 处创建指向空目录的链接，然后在单独的卷挂载上安装 DC/OS 的方式。
 
 ## 管理节点
 
@@ -42,7 +42,7 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 
 [0]: /1.11/overview/high-availability/
 
-管理节点上混合工作负载的示例是 Mesos 复制日志和 ZooKeeper。其中部分每隔一段时间需要进行 fsync()，而且可以生成很多非常昂贵的随机 I/O。我们推荐以下内容：
+管理节点上混合工作负载的示例是 Mesos 复制了的日志和 ZooKeeper。其中部分每隔一段时间需要进行 fsync()，而且可以生成很多非常昂贵的随机 I/O。我们推荐以下内容：
 
 - 固态硬盘 (SSD)
 - 带 BBU 的 RAID 控制器
@@ -75,10 +75,10 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 
 代理节点还必须具有：
 
-- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒用于 [Docker 和 DC/OS 通用容器运行时](/1.11/deploying-services/containerizers/)。
+- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒用于 [Docker 和 DC/OS 通用容器运行时](/cn/1.11/deploying-services/containerizers/)。
 
 - 公共 Docker 存储库或内部 Docker 注册表的网络访问权限。
-- 在 RHEL 7 和 CenTos 7 上，必须停止并禁用 `firewalld`。这是一个已知的 <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker 问题</a>，`firewalld` 与 Docker 的交互不佳。如需更多信息，请参阅 <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> 文档。
+- 在 RHEL 7 和 CentOS 7 上，必须停止并禁用 `firewalld`。这是一个已知的 <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker 问题</a>，`firewalld` 与 Docker 的交互不佳。如需更多信息，请参阅 <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> 文档。
 
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
@@ -118,7 +118,7 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 - 所有主机名（FQDN 和简短主机名）在 DNS 中必须可解析；正向和反向查找必须成功。[enterprise type="inline" size="small" /]
 - 每个节点均可从 bootstrap 节点访问网络。
 - 每个节点均具有从本身到 DC/OS 群集中所有节点的不受限制 IP 至 IP 连接。
-- 所有端口都应打开，以进行从管理节点到代理节点的通信，反之亦然。[enterprise type="inline" size="small" /]
+- 所有端口都应打开，以进行从管理节点到代理节点的来回通信。[enterprise type="inline" size="small" /]
 - UDP 必须打开才能进入管理节点上的端口 53。为连接到群集，Mesos 代理节点服务 (`dcos-mesos-slave`) 使用此端口查找 `leader.mesos`。
 
 ### 高速互联网访问
@@ -127,7 +127,7 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 
 # 软件前提条件
 
-请参阅 [install_preeqs.sh](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) 脚本，了解如何在 CenTos 7 主机上安装 DC/OS 管理节点和代理节点的软件要求的示例。[enterprise type="inline" size="small" /]
+请参阅 [install_preeqs.sh](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) 脚本，了解如何在 CentOS 7 主机上安装 DC/OS 管理节点和代理节点的软件要求的示例。[enterprise type="inline" size="small" /]
 
 ## 所有节点
 
@@ -150,7 +150,7 @@ Docker 必须安装在所有 bootstrap 和群集节点上。支持的 Docker 版
 每个 Linux 系统分发都需要以特定方式安装 Docker：
 
 - **CentOS/RHEL** - [从 Docker 的 Yum 存储库安装 Docker][1]。
-- **CoreOS** - 提供时 Docker 已预先安装和配置。
+- **CoreOS** - 已预先安装和配置 Docker。
 
 如需更多信息，请参阅 Docker 的<a href="https://docs.docker.com/install/" target="_blank">分发特定的安装说明</a>。
 
@@ -178,7 +178,7 @@ timedatectl
 
 在安装 DC/OS 之前，您**必须**确保 bootstrap 节点具备以下前提条件。
 
-- 如果您指定 `exhibitor_storage_backend: zookeeper`，bootstrap 节点将是群集的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和领导者选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅配置参数 [文档](/1.11/installing/production/advanced-configuration/configuration-reference/)。
+- 如果您指定 `exhibitor_storage_backend: zookeeper`，bootstrap 节点将是群集的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和领导者选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅配置参数 [文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
 
 - bootstrap 节点必须与群集节点分开。
 
@@ -243,7 +243,7 @@ localectl set-locale LANG=en_US.utf8
 
 # 后续步骤
 - [从 Docker 的 Yum 存储库安装 Docker][1]
-- [DC/OS 安装指南](/1.11/installing/production/deploying-dcos/installation/)
+- [DC/OS 安装指南](/cn/1.11/installing/production/deploying-dcos/installation/)
 
 [1]: /1.11/installing/production/system-requirements/docker-centos/
 

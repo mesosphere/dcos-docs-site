@@ -9,7 +9,7 @@ excerpt: 安装生产就绪的 DC/OS
 
 本部分介绍如何安装可升级的 DC/OS 生产就绪部署。使用这种方法，您可以打包 DC/OS 分发并手动连接到每个节点，以运行 DC/OS 安装命令。若要与现有系统集成，或者您没有群集的 SSH 访问权限，则推荐使用这种安装方法。
 
-DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和专用代理节点。可以查看 [节点](/1.11/overview/concepts/#node) 文档以了解更多信息。
+DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和专用代理节点。可以查看 [节点](/cn/1.11/overview/concepts/#node) 文档以了解更多信息。
 
 # 生产安装流程
 
@@ -19,14 +19,14 @@ DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和
 1. 在管理节点上安装 DC/OS
 1. 在代理节点上安装 DC/OS
 
-![Production Installation Process](/1.11/img/advanced-installer.png)
+![Production Installation Process](/cn/1.11/img/advanced-installer.png)
 图 1. 生产安装流程
 
 
 此安装方法要求：
 
-* bootstrap 节点必须是可从群集节点访问的网络。
-* bootstrap 节点必须从群集节点打开 HTTP(S) 端口。
+* bootstrap 节点必须在可从群集节点访问的网络。
+* 从群集节点到 bootstrap 节点的 HTTP(S) 端口必须在打开状态。
 
 DC/OS 安装会创建以下文件夹：
 
@@ -35,7 +35,7 @@ DC/OS 安装会创建以下文件夹：
 | | `/opt/mesosphere` | 包含 DC/OS 二进制文件、库和群集配置。请勿修改。 |
 | | `/etc/systemd/system/dcos.target.wants` | 包含启动 systemd 组件的 systemd 服务。它们因受 systemd 限制而必须位于 `/opt/mesosphere` 之外。 |
 | `/etc/systemd/system/dcos. <units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| | `/var/lib/dcos/exhibitor/zookeeper` | 包含 [ZooKeeper](/1.11/overview/concepts/#exhibitor-zookeeper) 数据。 |
+| | `/var/lib/dcos/exhibitor/zookeeper` | 包含 [ZooKeeper](/cn/1.11/overview/concepts/#exhibitor-zookeeper) 数据。 |
 | | `/var/lib/docker` | 包含 Docker 数据。 |
 | | `/var/lib/dcos` | 包含 DC/OS 数据。 |
 | | `/var/lib/mesos` | 包含 Mesos 数据。 |
@@ -43,7 +43,7 @@ DC/OS 安装会创建以下文件夹：
 **注意：** 不支持更改 `/opt/mesosphere`。它们可能导致 DC/OS 中出现不可预测的行为，并防止升级。
 
 ## 先决条件
-您的群集必须符合软件和硬件 [要求](/1.11/installing/production/system-requirements/)，才能安装 DC/OS。
+您的群集必须符合软件和硬件 [要求](/cn/1.11/installing/production/system-requirements/)，才能安装 DC/OS。
 
 
 # <a name="configure-cluster"></a>配置您的群集
@@ -56,7 +56,7 @@ DC/OS 安装会创建以下文件夹：
 [enterprise]
 # <a name="license"></a>存储许可证文件
 [/enterprise]
-1. 创建 [许可证文件](/1.11/administering-clusters/licenses)（包含您的授权支持联系人发送的电子邮件中提供的许可文本）并另存为 `genconf/license.txt`。
+1. 创建 [许可证文件](/cn/1.11/administering-clusters/licenses)（包含您的授权支持联系人发送的电子邮件中提供的许可文本）并另存为 `genconf/license.txt`。
 
 # <a name="ip-detect-script"></a>创建 IP 检测脚本
 
@@ -64,10 +64,10 @@ DC/OS 安装会创建以下文件夹：
 
 **注意：**
 
-- 在节点上安装 DC/OS 后，节点的 IP 地址不能更改。例如，当重新启动节点或更新 DHCP 租约时，IP 地址不应更改。如果节点的 IP 地址更改，就必须 [卸载](/1.11/installing/production/uninstalling/) 节点。
+- 在节点上安装 DC/OS 后，节点的 IP 地址不能更改。例如，当重新启动节点或更新 DHCP 租约时，IP 地址不应更改。如果节点的 IP 地址更改，就必须 [卸载](/cn/1.11/installing/production/uninstalling/) 节点。
 - 脚本必须返回与 `config.yaml` 中指定的相同 IP 地址。例如，如果将 `config.yaml` 中的专用管理节点 IP 指定为 `10.2.30.4`，您的脚本在管理节点上运行时应返回相同的值。
 
-1. 为您的环境创建 IP 检测脚本，并另存为 `genconf/ip-detect`。此脚本需要 `UTF-8` 编码并具备有效的 [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix) 行。可以使用以下示例。
+1. 为您的环境创建 IP 检测脚本，并另存为 `genconf/ip-detect`。此脚本需要 `UTF-8` 加密并具备有效的 [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix) 行。可以使用以下示例。
 
  * #### 使用 AWS 元数据服务器
 
@@ -94,11 +94,11 @@ DC/OS 安装会创建以下文件夹：
         curl -fsSl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/ip
         ```
 
- * #### 使用现有接口的 IP 地址
+ * #### 使用现有网络接口的 IP 地址
 
- 此方法发现节点特定接口的 IP 地址。
+ 此方法发现节点特定网络接口的 IP 地址。
 
- 如果有带有不同内部 IP 地址的多代硬件，可以在主机之间更改接口名称。IP 检测脚本必须考虑接口名称更改。如果将多个 IP 地址连接到同一个接口，或建立复杂的 Linux 网络等，则也会混淆示例脚本。
+ 如果有带有不同内部 IP 地址的多代硬件，可以在主机之间更改网络接口名称。IP 检测脚本必须考虑网络接口名称更改。如果将多个 IP 地址连接到同一个网络接口，或建立复杂的 Linux 网络等，则也会混淆示例脚本。
 
         ```bash
         #!/usr/bin/env bash
@@ -111,7 +111,7 @@ DC/OS 安装会创建以下文件夹：
 
  此方法使用 Mesos 管理节点的路由查找源 IP 地址，然后与该节点通信。
 
- 在本示例中，我们假设 Mesos 管理节点具有 IP 地址 `172.28.128.3`。可以使用此脚本的任何语言。Shebang 行必须指向所用语言的相应环境，且输出必须是正确的 IP 地址。
+ 在本示例中，我们假设 Mesos 管理节点具有 IP 地址 `172.28.128.3`。可以使用在此脚本中使用任何语言。Shebang 行必须指向所用语言的相应环境，且输出必须是正确的 IP 地址。
 
  [enterprise type="inline" size="small" /]
 
@@ -152,7 +152,7 @@ BEGIN { ec = 1 }
 # 创建故障域检测脚本
 [/enterprise]
 
-DC/OS 群集默认启用 [故障域意识](/1.11/deploying-services/fault-domain-awareness/)，所以必须更改 `config.yaml` 才能使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `config.yaml` 文件中的 `fault_domain_enabled` 参数设置为 `false`。
+DC/OS 群集默认启用 [故障域意识](/cn/1.11/deploying-services/fault-domain-awareness/)，所以无须更改 `config.yaml` 来使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `config.yaml` 文件中的 `fault_domain_enabled` 参数设置为 `false`。
 
 
 1. 创建名为 `fault-domain-detect` 的故障域检测脚本，在每个节点上运行，以检测节点的故障域。安装过程中此脚本的输出被传递到 Mesos。
@@ -172,7 +172,7 @@ DC/OS 群集默认启用 [故障域意识](/1.11/deploying-services/fault-domain
 [Enterprise]
 ## 设置超级用户密码
 [/enterprise]
-在以下说明中，我们假定您正在使用 ZooKeeper 进行共享存储。
+在以下说明中，我们假定您使用 ZooKeeper 进行共享存储。
 
 1. 在 bootstrap 节点运行此命令，创建用于超级用户身份认证的带井号密码，其中 `<superuser_password>` 是超级用户密码。
 
@@ -201,13 +201,13 @@ Enterprise 指定三个Mesos 管理节点、静态管理节点发现列表、Exh
 
 此开源模板指定三个 Mesos 管理节点、三个用于 Exhibitor 存储的 ZooKeeper 实例、静态管理节点发现列表、Exhibitor 的内部存储后端、一个自定义代理，以及云专用的 DNS 解析器。[oss type="inline" size="small" /]
 
-如果服务器在您的 `/etc/resolv.conf` 中安装时带有域名，请添加 `dns_search` 参数。有关参数描述和配置示例，请参阅 [文档](/1.11/installing/ent/custom/configuration/configuration-parameters/)。
+如果服务器在您的 `/etc/resolv.conf` 中安装时带有域名，请添加 `dns_search` 参数。有关参数描述和配置示例，请参阅 [文档](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/)。
 
 **注意：**
 
 - 如果 AWS DNS IP 在您的国家/地区不可用，可以使用本地 DNS 服务器替换 AWS DNS IP 服务器 `8.8.8.8` 和 `8.8.4.4`。
-- 如果指定了 `master_discovery: static`，还必须创建脚本，以将内部 IP 映射到 bootstrap 节点上的公共 IP（例如， `genconf/ip-detect-public`）。此脚本在以下 IP 中引用：`ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
-- 在 AWS 或任何其他无法控制节点的 IP 地址的环境中， 都需要设置 master_discovery 才能使用 master_http_load_balancer，并且需要设置负载均衡器。
+- 如果指定了 `master_discovery: static`，还必须创建脚本，以进行内部 IP 到 bootstrap 节点上的公共 IP（例如， `genconf/ip-detect-public`）的映射。此脚本在以下 IP 中引用：`ip_detect_public_filename: <relative-path-from-dcos-generate-config.sh>`.
+- 在 AWS 或任何其他无法控制节点的 IP 地址的环境中，都需要设置 master_discovery 才能使用 master_http_load_balancer，并且需要设置负载均衡器。
 
 [enterprise]
 ## Enterprise 模板
@@ -270,19 +270,19 @@ enable_ipv6: 'false'
 # <a name="install-bash"></a>安装 DC/OS
 
 在这一步，您将在 bootstrap 节点上创建一个自定义 DC/OS 构建文件，然后在群集上安装 DC/OS。使用这种方法，您可以
-1. 自行打包 DC/OS 分发
+1. 自行打包 DC/OS 发布
 2. 手动连接到每个服务器
 3. 运行命令
 
 **注意：**
 
 - 由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 `config.yaml` 中将 `enable_ipv6` 设置为 `false`。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，请不要添加新节点。可以在我们最新的重要 [产品咨询] 中找到更多信息和更详细的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。[enterprise type="inline" size="small" /]
-- 必须生效以下项目才能安装 DC/OS：所有 DC/OS 节点上的 IP 检测脚本、DNS 和 NTP 均已同步时间。参见 [故障排除](/1.11/installing/ent/troubleshooting/)，了解更多信息。
+- 必须生效以下项目才能安装 DC/OS：所有 DC/OS 节点上的 IP 检测脚本、DNS 和 NTP 均已同步时间。参见 [故障排除](/cn/1.11/installing/ent/troubleshooting/)，了解更多信息。
 - 如果出现问题并且您想重新运行设置，请使用群集 [卸载] [11]说明。
 
-**前提条件**
+**先决条件**
 
-* 经过优化，可在节点上手动分发 DC/OS 的 `genconf/config.yaml` 文件。
+* 经过优化，可在节点上手动发布 DC/OS 的 `genconf/config.yaml` 文件。
 * 包含 DC/OS Enterprise 许可证的 `genconf/license.txt` 文件。[enterprise type="inline" size="small" /]
 * `genconf/ip-detect` 脚本。
 
@@ -349,7 +349,7 @@ enable_ipv6: 'false'
         ```bash
         ssh <master-ip>
         ```
- * 创建并导航新目录。
+ * 创建并导航到新目录。
 
         ```bash
         mkdir /tmp/dcos && cd /tmp/dcos
@@ -367,7 +367,7 @@ enable_ipv6: 'false'
         sudo bash dcos_install.sh master
         ```
 
- **注意：** 如果不配置所有管理节点，DC/OS 就可能发出错误消息，尽管这对群集 DC/OS 没有实际损害。
+ **注意：** DC/OS 可能一直发出错误消息，直到所有管理节点都配置完毕，尽管这对群集 DC/OS 没有实际损害。
 
 4. <A name="slaveinstall"></A>在每个代理节点上运行以下命令，使用自定义构建文件安装 DC / OS：
 
@@ -377,7 +377,7 @@ enable_ipv6: 'false'
         ssh <agent-ip>
         ```
 
- * 创建并导航新目录。
+ * 创建并导航到新目录。
 
         ```bash
         mkdir /tmp/dcos && cd /tmp/dcos
@@ -403,13 +403,13 @@ enable_ipv6: 'false'
             sudo bash dcos_install.sh slave_public
             ```
 
- __注意：__ 如果遇到错误（例如在 journald 中的 `Time is marked as bad`、`adjtimex` 或 `Time not in sync`），请验证是否在所有节点都启用了网络时间协议 (NTP)。如需更多信息，请参阅 [系统要求](/1.11/installing/ent/custom/system-requirements/#port-and-protocol) 文档。
+ __注意：__ 如果遇到错误（例如在 journald 中的 `Time is marked as bad`、`adjtimex` 或 `Time not in sync`），请验证是否在所有节点都启用了网络时间协议 (NTP)。如需更多信息，请参阅 [系统要求](/cn/1.11/installing/ent/custom/system-requirements/#port-and-protocol) 文档。
 
 5. 监视 Exhibitor 并等待其融合到 `http://<master-ip>:8181/exhibitor/v1/ui/index.html`。
 
  **注意：** 该进程大约需要 10 分钟。在此期间，您将看到管理节点在 Exhibitor 控制台上可见并上线，并且最后会显示一个绿灯图标。
 
-![Exhibitor for ZooKeeper](/1.11/img/chef-zk-status.png)
+![Exhibitor for ZooKeeper](/cn/1.11/img/chef-zk-status.png)
 
 图 2. Exhibitor for ZooKeeper
 
@@ -421,14 +421,14 @@ enable_ipv6: 'false'
 
 7. 输入您的管理员用户名和密码。
 
-![Login screen](/1.11/img/ui-installer-auth2.png)
+![Login screen](/cn/1.11/img/ui-installer-auth2.png)
 
 图 3. 登录对话
 
 
 成功了！现在将显示 UI 仪表板。
 
-![UI dashboard](/1.11/img/dashboard-ee.png)
+![UI dashboard](/cn/1.11/img/dashboard-ee.png)
 
 图 4. DC/OS UI 仪表板
 
@@ -437,7 +437,7 @@ enable_ipv6: 'false'
 
 下列链接提供了后续步骤的信息：
 - [分配用户角色][7]。
-- [系统要求](/1.11/installing/production/system-requirements/)
+- [系统要求](/cn/1.11/installing/production/system-requirements/)
 - [公共代理节点][2]
 - [专用代理节点][3]
 - [安装 DC/OS 命令行界面 (CLI)][9]

@@ -22,9 +22,9 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debuggi
 
 图 1. 显示故障的任务日志
 
-## 解析度
+## 解决方法
 
-正如我们[前期](/1.11/tutorials/dcos-debug/gen-strat/)所学的，对于应用程序故障， [第一步](/1.11/tutorials/dcos-debug/gen-strat/#task-strat)是检查[任务日志](/1.11/tutorials/dcos-debug/tools/#task-logs)。
+正如我们[前期](/cn/1.11/tutorials/dcos-debug/gen-strat/)所学的，对于应用程序故障， [第一步](/cn/1.11/tutorials/dcos-debug/gen-strat/#task-strat)是检查[任务日志](/cn/1.11/tutorials/dcos-debug/tools/#task-logs)。
 
 ![空日志输出图片](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-18.png)
 
@@ -46,7 +46,7 @@ Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: [201
 Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: ') (mesosphere.marathon.MarathonScheduler:Thread-1723)
 ```
 
-但是，这并没有说明任务失败的原因。那么接下来进入我们[策略](/1.11/tutorials/dcos-debug/gen-strat/)的 [第 3 步](/1.11/tutorials/dcos-debug/gen-strat/#agent-strat)：使用以下命令检查 [Mesos 代理节点日志](/1.11/tutorials/dcos-debug/tools/#agent-logs)：
+但是，这并没有说明任务失败的原因。那么接下来进入我们[策略](/cn/1.11/tutorials/dcos-debug/gen-strat/)的 [第 3 步](/cn/1.11/tutorials/dcos-debug/gen-strat/#agent-strat)：使用以下命令检查 [Mesos 代理节点日志](/cn/1.11/tutorials/dcos-debug/tools/#agent-logs)：
 
 ```bash
 $ dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100
@@ -64,11 +64,11 @@ $ dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slav
 
 看起来像**无法找到特定的 Docker 镜像**，可能因为它不存在。图像是否存在于指定位置（在本例中为 Dockerhub 中的 `noimage:idonotexist`）？ 如果不是，则必须更正位置或将文件移至指定位置。此外，指定的位置或文件名是否存在错误？ 最后，检查容器镜像注册表是否可访问（尤其是在使用专用注册表时）。
 s
-### 一般模式
+### 一般规律
 
 作为应用程序错误，我们再次查看任务日志，然后查看调度程序日志。
 
-在这本例中，我们有一个 Docker 守护程序特定的问题。通过检查 Mesos 代理节点日志，可以发现许多此类问题。在某些情况下，我们需要深入挖掘，需要访问 Docker 守护程序日志。首先，通过ssh 进入主节点：
+在这本例中，我们有一个 Docker 守护程序特定的问题。通过检查 Mesos 代理节点日志，可以发现许多此类问题。在某些情况下，我们需要深入挖掘，需要访问 Docker 守护程序日志。首先，通过ssh 进入管理节点：
 
 ```bash
 $ dcos node ssh --master-proxy --mesos-id=$(dcos task --all | grep docker-image | head -n1 | awk '{print $6}')
@@ -80,7 +80,7 @@ $ dcos node ssh --master-proxy --mesos-id=$(dcos task --all | grep docker-image 
 $ journalct1 -u docker
 ```
 
-请注意，与前面的示例相比，此处使用的更复杂的模式用于检索 `mesos-id`。此模式列出先前失败的任务以及正在运行的任务，而**较早的模式仅列出正在运行的任务**。
+请注意，与前面的示例相比，此处使用的更复杂的规律，用于检索 `mesos-id`。此规律列出先前失败的任务以及正在运行的任务，而**较早的规律仅列出正在运行的任务**。
 
 ## 清除
 

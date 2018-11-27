@@ -1,0 +1,19 @@
+# Common values:
+
+packageName: prometheus
+serviceName: prometheus
+techName: Prometheus
+techShortName: Prometheus
+
+# Values specific to certain templates:
+
+operations:
+  complete-deploy: |
+    deploy (parallel strategy) (COMPLETE)
+    ├─ alertmanager (serial strategy) (COMPLETE)
+    │  └─ alertmanager-0:[server] (COMPLETE)
+    ├─ prometheus (serial strategy) (COMPLETE)
+    │  ├─ prometheus-0:[server] (COMPLETE)
+    │  └─ prometheus-0:[agent-discovery] (COMPLETE)
+    └─ pushgateway (serial strategy) (COMPLETE)
+       └─ pushgateway-0:[server] (COMPLETE)

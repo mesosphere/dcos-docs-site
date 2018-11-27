@@ -9,15 +9,18 @@ enterprise: false
 
 To configure a service account and install the Edge-LB package, use the instructions below.
 
-**Prerequisites:**
+# Prerequisites
 
-- [DC/OS CLI is installed](/latest/cli/install/)
+- [DC/OS CLI is installed](/1.12/cli/install/)
 - You are logged in as a superuser.
-- The [DC/OS Enterprise CLI is installed](/latest/cli/enterprise-cli/).
+- The [DC/OS Enterprise CLI is installed](/1.12/cli/enterprise-cli/).
 - You have access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
-**Limitations**
-- Edge-LB supports all [security modes] in DC/OS 1.11 and later. It supports Permissive, Disabled in DC/OS 1.10. DC/OS 1.9 or earlier is not supported.
+<p class="message--important"><strong>IMPORTANT: </strong>You must have a customer service account to log in as a superuser and download the remote Edge-LB repositories.</p>
+
+## Limitations
+
+- Edge-LB supports all [security modes](/1.12/security/ent/#security-modes) in DC/OS 1.11 and later. It supports Permissive, Disabled in DC/OS 1.10. DC/OS 1.9 or earlier is not supported.
 
 # Add Edge-LB package repositories
 The Edge-LB package comprises two components:
@@ -34,9 +37,7 @@ You must install Universe repositories for the Edge-LB API server and the Edge-L
 ## Obtaining package artifacts
 
 
-In order to install both packages, you need to obtain package artifacts. They can be downloaded from <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>. 
-
-<p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without a current customer service account.</p>
+In order to install both packages, you need to obtain package artifacts. They can be downloaded from <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>.
 
 <p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without logging in using your customer service account.</p>
 
@@ -60,7 +61,7 @@ dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-
 ## <a name="build"></a>Deploying a local Universe containing Edge-LB
 [/enterprise]
 
-If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](https://docs.mesosphere.com/1.11/administering-clusters/deploying-a-local-dcos-universe/#certified).
+If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](https://docs.mesosphere.com/1.12/administering-clusters/deploying-a-local-dcos-universe/#certified).
 
 **Prerequisite:** [Git](https://git-scm.com/). On Unix/Linux, see these [Getting Started instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
@@ -70,54 +71,55 @@ If you need to deploy a local Universe containing your own set of packages, you 
     git clone https://github.com/mesosphere/universe.git --branch version-3.x
     ```
 
-2.  Build the `universe-base` image:
+1.  Build the `universe-base` image:
 
     ```bash
     cd universe/docker/local-universe/
     sudo make base
     ```
 
-3. Use `add-stub-universe.sh` script to add to the Universe the JSON definitions obtained in [Obtaining package artifacts](pages/services/edge-lb/1.2/installing/#obtaining-package-artifacts) section.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.
+1. Use `add-stub-universe.sh` script to add to the Universe the JSON definitions obtained in [Obtaining package artifacts](https://docs.mesosphere.com/services/edge-lb/1.2/installing/#obtaining-package-artifacts) section.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.
 
 ```bash
 bash add-stub-universe.sh -j stub-universe-edgelb.json
 ```
+
 ```bash
 bash add-stub-universe.sh -j stub-universe-edgelb-pool.json
 ```
 
-5. From there, they can be merged into the primary `universe/repo/packages` directory:
+1. From there, they can be merged into the primary `universe/repo/packages` directory:
 
 ```bash
 cp -rpv stub-repo/packages/* ../../repo/packages
 ```
 
-6. You can then build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz` file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Universe packages are included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web interface.
+1. You can then build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz` file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Universe packages are included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web interface.
 
     ```bash
-    sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“edgelb:v1.1.3,edgelb-pool:stub-universe,<other-package>:<version>” local-universe
+    sudo make DCOS_VERSION=1.12 DCOS_PACKAGE_INCLUDE=“edgelb:v1.2.1,edgelb-pool:v1.2.1,<other-package>:<version>” local-universe
     ```
 
-7.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
+1.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
 
 
 # Create a service account
 The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
 
-[Service accounts](/latest/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
+[Service accounts](/1.12/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
 
 Follow the steps below to create a service account, a principal associated with the service account, assign permissions to this principle, and associate a secret store with this service account. The secret store is used by Edge-LB to retrieve and install TLS certificates on the Edge-LB pools in order to enable TLS for all HTTP traffic between client and service backends.
 
-The steps below require [DC/OS Enterprise CLI to be installed](/1.11/cli/enterprise-cli/#ent-cli-install)
+The steps below require [DC/OS Enterprise CLI to be installed](/1.12/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
 
 ## <a name="create-a-keypair"></a>Create a key pair
-In this step, a 2048-bit RSA public-private key pair is created using the DC/OS Enterprise CLI. Create a public-private key pair and save each value into a separate file within the current directory. You can use the [DC/OS Secret Store](/latest/security/ent/secrets/) to secure the key pair.
+In this step, a 2048-bit RSA public-private key pair is created using the DC/OS Enterprise CLI. Create a public-private key pair and save each value into a separate file within the current directory. 
 
 ```bash
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/latest/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
+<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/1.12/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
 
 ## Create the principal
 From a terminal prompt, create a new service account (`edge-lb-principal`) containing the public key (`edge-lb-public-key.pem`).
@@ -153,7 +155,7 @@ dcos security secrets list /
 
 ## <a name="give-perms"></a>Create and Assign Permissions
 
-Use the following CLI commands to provision the Edge-LB service account with the required permissions. All CLI commands can also be executed via the [IAM API](/latest/security/ent/iam-api/).
+Use the following CLI commands to provision the Edge-LB service account with the required permissions. All CLI commands can also be executed via the [IAM API](/1.12/security/ent/iam-api/).
 
 One of two methods can be used to securely provision the Edge-LB service account with the required permissions:
 
@@ -191,13 +193,13 @@ dcos security org users grant edge-lb-principal dcos:mesos:master:task:user:root
 dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id full
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Additionally, this permission needs to be granted <strong>for each Edge-LB pool created</strong>.</p>
+<p class="message--note"><strong>NOTE: </strong>This permission needs to be granted <strong>for each Edge-LB pool created</strong>.</p>
 
 ```bash
 dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
 ```
 
-For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/1.1/permissions)
+For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/1.2/permissions)
 
 # <a name="create-json"></a>Create a configuration file for service authentication
 After configuring service authentication, you must create a JSON options file with your credentials. This file will be passed to DC/OS when you install Edge-LB.
@@ -220,7 +222,7 @@ EdgeLB also needs the following options to be specified. Their values depend on 
 
 Other useful configurable service parameters include:
 
-* `service.name`: `"dcos-edgelb/api"`. The service path for the `apiserver`. `dcos-edgelb` corresponds to `pool.namespace` when [configuring pools](/services/edge-lb/1.1/pool-configuration/).
+* `service.name`: `"dcos-edgelb/api"`. The service path for the `apiserver`. `dcos-edgelb` corresponds to `pool.namespace` when [configuring pools](/services/edge-lb/1.2/pool-configuration/).
 * `service.logLevel`: `"info"`. Can be one of `debug`, `info`, `warn`, or `error`
 * `service.cpus`: `1.1`
 * `service.mem`: `1024`
@@ -246,5 +248,5 @@ You should receive this message when ready:
 pong
 ```
 
-- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/1.1/pool-configuration) section.
-- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/1.1/cli-reference).
+- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/1.2/pool-configuration) section.
+- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/1.2/cli-reference).

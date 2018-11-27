@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 版本控制和发布策略
-title: 版本控制和发布策略
+navigationTitle: 版本控制和发布政策
+title: 版本控制和发布政策
 menuWeight: 110
 excerpt: 了解 DC/OS 版本控制和发布
 ---
@@ -11,7 +11,7 @@ Mesosphere DC/OS 版本号的格式为：<code>&lt;发布&gt;.&lt;版本&gt;.&lt
 
 ## 发布
 
-对同一软件产品的修改或增强，以 <code>R</code> 发布编号的变更来表示。<code>R</code> 发布可能包括新变更和重大变更。<code>R</code> 发布不包括 Mesosphere 以不同名称销售的独立或不同产品，即使此类产品兼容相关软件产品。
+对同一软件产品的修改或增强，以 <code>R</code> 发布编号的变更来表示。<code>R</code> 发布可能包括新变更和重大变更。<code>R</code> 发布不包括 Mesosphere 以不同名称销售的独立或不同产品，即使此类产品与相关软件产品兼容。
 
 ## 版本
 
@@ -21,7 +21,7 @@ Mesosphere DC/OS 版本号的格式为：<code>&lt;发布&gt;.&lt;版本&gt;.&lt
 
 对同一软件产品的漏洞修复和新增强，以补丁发布编号的变更来表示。例如，版本 5.6.3 意指 <code>R</code> 为 5，<code>V</code> 为 6，<code>M</code> 为 3。
 
-# Mesosphere 软件寿命终止策略
+# Mesosphere 软件寿命终止政策
 
 Mesosphere 将支持当前发布版本（发布版 N）和前两个特性（主要或次要发布）发布（发布版 N-1 和 N-2）的产品发布。在发布版 N-1 时，Mesosphere 将宣布发布版 N-2 的寿命终止 (EOL) 日期。当发布版 N 可普遍提供时，Mesosphere 将宣布发布版 N-2 的 EOL。
 
@@ -39,13 +39,13 @@ Mesosphere 将支持当前发布版本（发布版 N）和前两个特性（主�
 
 # DC/OS 版本和服务调度程序互操作性矩阵
 
-所有 Mesosphere 驱动的服务框架及其附带的基线技术都将进行测试，以便与当前 DC/OS 和之前的 DC/OS 版本互操作。同样，DC/OS 的每个发布版都支持服务调度程序利用的当前可用 (GA) 软件及其上一版本。如果 DC/OS 发布版本支持较老版本的服务调度程序，则较老版本的服务调度程序可能不支持较新版本 DC/OS 提供的所有特性。
+所有 Mesosphere 驱动的服务框架及其附带的基线技术都将进行测试，以便与当前 DC/OS 和之前的 DC/OS 版本兼容操作。同样，DC/OS 的每个发布版都支持服务调度程序利用的当前可用 (GA) 软件及其上一版本。如果 DC/OS 发布版本支持较老版本的服务调度程序，则较老版本的服务调度程序可能不支持较新版本 DC/OS 提供的所有功能。
 
 例如，如果我们有以下三项技术：DC/OS、Framework 和 Apache Kafka。
 
-![版本策略框架](/1.10/img/version-policy-1.png)
+![版本政策框架](/1.10/img/version-policy-1.png)
 
-图 1. 版本策略框架
+图 1. 版本政策框架
 
 我们在上述情形下的互操作性保证如下：
 
@@ -64,8 +64,8 @@ Mesosphere 将支持当前发布版本（发布版 N）和前两个特性（主�
 </tbody>
 </table>
 
-# Mesosphere 版本控制和升级策略
+# Mesosphere 版本控制和升级政策
 
-![版本策略框架](/1.10/img/version-policy-2.png)
+![版本政策框架](/1.10/img/version-policy-2.png)
 
-图 1. 版本策略框架
+图 1. 版本政策框架

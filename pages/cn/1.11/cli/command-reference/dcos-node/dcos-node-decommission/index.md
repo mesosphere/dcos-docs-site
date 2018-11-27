@@ -8,7 +8,7 @@ menuWeight: 1
 
 # 说明
 
-`dcos node decommission` 命令允许您将代理程序标记为已消失。
+`dcos node decommission` 命令让您将代理程序标记为已不存在。
 
 # 使用
 
@@ -20,4 +20,4 @@ dcos node decommission <mesos-id>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 节点](/1.11/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos 节点](/cn/1.11/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|

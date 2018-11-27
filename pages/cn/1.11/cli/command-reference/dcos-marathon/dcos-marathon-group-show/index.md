@@ -22,7 +22,7 @@ dcos marathon group show <group-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `--group-version=<group-version>` | 用于命令的组版本。可以指定为绝对值或相对值。绝对值必须为 ISO8601 日期格式。相对值必须指定为负整数，它们表示当前部署的组定义中的版本。|
+| `--group-version=<group-version>` | 该用于命令中的组版本。可以指定为绝对值或相对值。绝对值必须为 ISO8601 日期格式。相对值必须指定为负整数，它们表示当前部署的组定义中的版本。|
 
 # 位置自变量
 
@@ -34,5 +34,5 @@ dcos marathon group show <group-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 

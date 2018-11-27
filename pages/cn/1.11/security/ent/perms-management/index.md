@@ -13,7 +13,7 @@ enterprise: true
 DC/OS 身份和访问管理系统旨在通过细粒度授权来保护资源。
 每个受保护资源都有一个关联的 ACL，用于声明哪些主体可以对指定资源执行哪些操作。这是根据白名单（默认拒绝）模型执行的。
 
-可以使用 DC/OS Web 界面、[IAM HTTP API](/1.11/security/ent/iam-api/) 或 [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/) 对用户和组应用权限。每个接口提供管理访问控制条目 (ACE) 的方式。每个 ACE 包括以下信息：
+可以使用 DC/OS Web 界面、[IAM HTTP API](/cn/1.11/security/ent/iam-api/) 或 [DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/) 对用户和组应用权限。每个接口提供管理访问控制条目 (ACE) 的方式。每个 ACE 包括以下信息：
 
 * 主体标识符
 * 资源标识符
@@ -25,7 +25,7 @@ DC/OS 身份和访问管理系统旨在通过细粒度授权来保护资源。
 
 ### 从 CLI 管理权限
 
-有 [4 个命令](1.11/cli/command-reference/dcos-security/#dcos-security-org) 用于管理 DC/OS Enterprise CLI 的权限。
+有 [4 个命令](cn/1.11/cli/command-reference/dcos-security/#dcos-security-org) 用于管理 DC/OS Enterprise CLI 的权限。
 
 若要从 DC/OS Enterprise CLI 管理**组**的权限，请使用以下命令：
 

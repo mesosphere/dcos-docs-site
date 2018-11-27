@@ -21,10 +21,10 @@ Mesos-DNS 为在 DC/OS 上运行的 Mesos 任务定义 DNS 顶级域 `.mesos`。
 
 # <a name="a-records"></a>A 记录
 
-A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任务时，Mesos-DNS 以可提供以下任一内容的格式 `<task>.<service>.mesos` 为主机名生成 A 记录：
+A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任务时，Mesos-DNS 以可提供以下任一主机名的格式 `<task>.<service>.mesos` 为主机名生成 A 记录：
 
 * 正在运行此任务的 [代理节点][1] 的 IP 地址
-* 此任务的网络容器的 IP 地址（由 Mesos 容器化工具提供）
+* 此任务的网络容器的 IP 地址（由 Mesos containerizer工具提供）
 
 例如，其他 DC/OS 任务可以发现名为 `search` 的任务的 IP 地址，此任务由 `marathon` 启动以查找 `search.marathon.mesos`：
 
@@ -42,7 +42,7 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
  ;; ANSWER SECTION:
  search.marathon.mesos. 60 IN A 10.9.87.94
 
-如果启动任务的 Mesos 容器化工具为任务 `search.marathon.mesos` 提供了容器 IP `10.0.4.1`，则查找结果为：
+如果启动任务的 Mesos containerizer 工具为任务 `search.marathon.mesos` 提供了容器 IP `10.0.4.1`，则查找结果为：
 
  dig search.marathon.mesos
 
@@ -58,9 +58,9 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
  ;; ANSWER SECTION:
  search.marathon.mesos. 60 IN A 10.0.4.1
 
-除 `<task>.<service>.mesos` syntax shown above, Mesos-DNS also generates A records that contain the IP addresses of the agent nodes that are running the task: `<task>.<service>.slave.mesos` 以外。
+除 `<task>.<service>.mesos` syntax shown above, Mesos-DNS also generates A records that contain the IP addresses of the agent nodes that are running the task: `<task>.<service>.slave.mesos` 。
 
-例如，查询 `search.marathon.slave.mesos` 的 A 记录显示在 `marathon` 服务上运行 `search` 应用程序一个或多个实例的每个代理节点的 IP 地址。
+例如，查询 `search.marathon.slave.mesos` 的 A 记录显示在 `marathon` 服务上运行 `search` 应用程序的一个或多个实例的每个代理节点的 IP 地址。
 
 # <a name="srv-records"></a>SRV 记录
 
@@ -200,38 +200,38 @@ Mesos-DNS 支持使用任务的 DiscoveryInfo 来生成 SRV 记录。在 DC/OS �
 
 Mesos-DNS 生成一些特殊记录：
 
-* 对于领导管理节点：A 记录 (`leader.mesos`) 和 SRV 记录 (`_leader._tcp.mesos` 和 `_leader._udp.mesos`)
+* 对于首要管理节点：A 记录 (`leader.mesos`) 和 SRV 记录 (`_leader._tcp.mesos` 和 `_leader._udp.mesos`)
 * 对于所有服务调度器：A 记录 (`myservice.mesos`) 和 SRV 记录 (`_myservice._tcp.myservice.mesos`)
 * 对于每个已知的 DC/OS 管理节点：A 记录 (`master.mesos`)
 * 对于每个已知的 DC/OS 代理节点：A 记录 (`slave.mesos`) 和 SRV 记录 (`_slave._tcp.mesos`)
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>要查询领导管理节点，应始终查询"leader.mesos"，而不是"master.mesos"。如需更多信息，请参阅 <a href="/1.11/networking/DNS/mesos-dns/troubleshooting/#leader">此 FAQ 条目</a>。</td> 
+  <td align=justify style=color:white><strong>重要信息：</strong>要查询首要管理节点，应始终查询"leader.mesos"，而不是"master.mesos"。如需更多信息，请参阅 <a href="/1.11/networking/DNS/mesos-dns/troubleshooting/#leader">此 FAQ 条目</a>。</td> 
 </tr> 
 </table>
 
-选者新管理节点和更新 Mesos-DNS 中的领导者/管理节点记录之间存在延迟。Mesos-DNS 还支持 Mesos 域的 SOA 和 NS 记录请求。对 Mesos 域中其他类型记录的 DNS 请求将返回 `NXDOMAIN`。Mesos-DNS 不支持反向查找所需的 PTR 记录。Mesos-DNS 还会为自己生成 A 记录，列出了 Mesos-DNS 将答复查找请求的所有 IP 地址。这些 A 记录的主机名是 `ns1.mesos`。
+选者新管理节点和更新 Mesos-DNS 中的首要节点/管理节点记录之间存在延迟。Mesos-DNS 还支持 Mesos 域的 SOA 和 NS 记录请求。对 Mesos 域中其他类型记录的 DNS 请求将返回 `NXDOMAIN`。Mesos-DNS 不支持反向查找所需的 PTR 记录。Mesos-DNS 还会为自己生成 A 记录，列出了 Mesos-DNS 将答复查找请求的所有 IP 地址。这些 A 记录的主机名是 `ns1.mesos`。
 
 # <a name="naming-conventions"></a>任务和服务命名约定
 
-Mesos-DNS 遵循关于名称格式化的 [RFC 1123][3]。用于构建 A 记录主机名和用于构建 SRV 记录的服务名的所有字段必须为 63 个字符或更短，可以包含字母 (A-Z)、数字 (0-9) 和破折号 (-)。名称不分大小写。如果任务名不符合这些限制，Mesos-DNS 将把名称缩短到 24 个字符，删除所有无效字符并以破折号 (-) 替换句点 (.)。对于 Mesos DNS 名称，可以选择执行 [RFC 952][4]。
+Mesos-DNS 遵循关于名称格式的 [RFC 1123][3]。用于构建 A 记录主机名和用于构建 SRV 记录的服务名的所有字段必须为 63 个字符或更短，可以包含字母 (A-Z)、数字 (0-9) 和破折号 (-)。名称不分大小写。如果任务名不符合这些限制，Mesos-DNS 将把名称缩短到 24 个字符，删除所有无效字符并以破折号 (-) 替换句点 (.)。对于 Mesos DNS 名称，执行 [RFC 952][4] 是可选的。
 
 请注意，服务名和任务名的规则存在差异。对于服务名，允许使用句点 (.)，但所有其他规则适用。例如，由服务 `marathon.prod` 启动的名为 `apiserver.myservice` 的任务将具有与 `apiserver-myservice.marathon.prod.mesos` 名称关联的 A 记录以及与名称 `_apiserver-myservice._tcp.marathon.prod.mesos` 关联的 SRV 记录。
 
 有些服务注册的默认名称让人难以理解。例如，旧版本的 Marathon 可以注册使用 `marathon-0.7.5` 等名称，但这会产生诸如 `search.marathon-0.7.5.mesos` 的 Mesos-DNS 主机名。您可以通过启动自定义名称的服务来避免此问题。例如，以 `--framework_name marathon` 启动 Marathon 将该服务注册为 `marathon`。
 
-如果您是使用 Marathon 群组，则 Mesos-DNS 主机名是根据应用程序 ID 创建的。例如，如果您有一个名为 `nginx-router` 的应用程序且它在一个应用 ID 为 `/mesosphere-tutorial/nginx-router` 的 `mesosphere-tutorial` 组中，则 DNS 名称将为 `nginx-router-mesosphere-.marathon.mesos`。请注意，Mesos-DNS 将主机名截断为 24 个字符，将破折号替换为介于 `mesosphere-tutorial` 和 `nginx-router` 的斜杠。
+如果您是使用 Marathon 群组，则 Mesos-DNS 主机名是根据应用程序 ID 创建的。例如，如果您有一个名为 `nginx-router` 的应用程序且它在一个应用 ID 为 `/mesosphere-tutorial/nginx-router` 的 `mesosphere-tutorial` 组中，则 DNS 名称将为 `nginx-router-mesosphere-.marathon.mesos`。请注意，Mesos-DNS 将主机名缩短为 24 个字符，将破折号替换为介于 `mesosphere-tutorial` 和 `nginx-router` 的斜杠。
 
-如果某个服务启动多个名称相同的任务，DNS 查找将返回多个记录，每个任务一个。Mesos-DNS 随机改变记录的顺序，以在这些任务之间提供负载均衡。
+如果某个服务启动多个名称相同的任务，DNS 查找将返回多个记录，每个任务一个。Mesos-DNS 随机改变记录的顺序，以在这些任务之间提供根本的负载均衡。
 
-**警示：** 如果不同服务启动具有相同主机名的任务，则可能会出现名称冲突。如果不同服务启动具有相同 Mesos-DNS 主机名的任务，或者如果 Mesos-DNS 截断了应用 ID 以创建相同的 Mesos-DNS 主机名，则应用程序会与错误的代理节点通信，并且不可预测地失败。
+**警示：** 如果不同服务启动具有相同主机名的任务，则可能会出现名称冲突。如果不同服务启动具有相同 Mesos-DNS 主机名的任务，或者如果 Mesos-DNS 缩短了应用 ID 以创建相同的 Mesos-DNS 主机名，则应用程序会与错误的代理节点通信，并且不可预测地失败。
 
 # <a name="dns-naming"></a>发现服务的 DNS 名称
 
 您可以获得在 DC/OS 群集节点上运行的应用程序的综合列表。
 
-**前提条件：** [DC/OS 和 DC/OS CLI](/1.11/installing/) 已安装。
+**先决条件：** [DC/OS 和 DC/OS CLI](/cn/1.11/installing/) 已安装。
 
 1. SSH 到您的节点。例如，使用以下命令对管理节点执行 [SSH]：
 
@@ -239,7 +239,7 @@ Mesos-DNS 遵循关于名称格式化的 [RFC 1123][3]。用于构建 A 记录�
     dcos node ssh --leader --master-proxy
     ```
 
- 如需更多信息，请参阅 SSH [文档](/1.11/administering-clusters/sshcluster/)。
+ 如需更多信息，请参阅 SSH [文档](/cn/1.11/administering-clusters/sshcluster/)。
 
 2. 从管理节点运行此命令以查看节点详情：
 

@@ -9,22 +9,22 @@ excerpt: 了解 DC/OS 组件
 
 DC/OS 由许多开源微服务组件组成，经过精心调整和配置以协同工作。Mesosphere DC/OS Enterprise 包括大部分开源 DC/OS 组件，但还包括多个额外组件、模块和插件。
 
-![Mesosphere DC/OS Enterprise 组件](/1.11/img/dcos-components-1.11-portrait.png)
+![Mesosphere DC/OS Enterprise 组件](/cn/1.11/img/dcos-components-1.11-portrait.png)
 
 图 1. DC/OS Enterprise 组件
 
-从表面上看，DC/OS 是处理容器编排、包管理和安全的包容性容器平台。从根本上说，DC/OS 是建立在 [Apache Mesos] 基础之上的操作系统(http://mesos.apache.org/)，处理群集管理和软件定义网络，同时简化日志记录和度量标准收集。
+从表面上看，DC/OS 是处理容器编排、软件包管理和安全的包容性容器平台。从根本上说，DC/OS 是建立在 [Apache Mesos] 基础之上的操作系统(http://mesos.apache.org/)，处理群集管理和软件定义网络，同时简化日志记录和度量标准收集。
 
 <a name="cluster-management"><a>
 # 群集管理
 
-DC/OS 提供了一种作为单个群集级别系统查看和操作大量单个机器级系统的方法。它隐藏了 Mesos（分布式系统内核）的复杂性，具有更高级别的抽象概念、接口和工具。群集管理是该功能的核心，包括内核、其依赖关系及其用户界面。
+DC/OS 提供了一种作为单个群集级别系统查看和操作大量单个机器级系统的方法。它隐藏了 Mesos（分布式系统内核）的复杂性，具有更高级别的抽象概念、网络接口和工具。群集管理是该功能的核心，包括内核、其依赖关系及其用户界面。
 
 
 <a name="apache-mesos"></a>
 ## Apache Mesos
 
-Mesos 作为分布式系统内核来管理资源和任务。Mesos 管理节点揭示调度器、执行器和操作界面，以便进行群集管理。Mesos 代理节点管理每个 [DC/OS 代理节点] 上的单个执行器、任务和资源(/1.11/overview/concepts/#dcos-agent-node)。Mesos Agent Public 是配置用于在 [DC/OS 公共代理节点] 上运行的 Mesos 代理节点(/1.11/overview/concepts/#public-agent-node)。
+Mesos 作为分布式系统内核来管理资源和任务。Mesos 管理节点揭示调度器、执行器和操作界面，以便进行群集管理。Mesos 代理节点管理每个 [DC/OS 代理节点] 上的单个执行器、任务和资源(/1.11/overview/concepts/#dcos-agent-node)。Mesos Agent Public 被配置为可用于在 [DC/OS 公共代理节点] 上运行的 Mesos 代理节点(/1.11/overview/concepts/#public-agent-node)。
 
 ## 系统服务
 
@@ -82,7 +82,7 @@ DC/OS 安装工具（`dcos_generate_config.ee.sh`）生成安装工件并安装 
 **另请参阅：**
 
 
-- [文档](/1.11/installing/)
+- [文档](/cn/1.11/installing/)
 - [来源](https://github.com/dcos/dcos)
 
 [enterprise]
@@ -98,8 +98,8 @@ DC/OS 备份提供 DC/OS 组件状态的备份和恢复（在 1.10 中仅 Marath
 
 **另请参阅：**
 
-- [文档](/1.11/administering-clusters/backup-and-restore/)
-- [API 参考](/1.11/administering-clusters/backup-and-restore/backup-restore-api/)
+- [文档](/cn/1.11/administering-clusters/backup-and-restore/)
+- [API 参考](/cn/1.11/administering-clusters/backup-and-restore/backup-restore-api/)
 
 
 <a name="dcos-gui"></a>
@@ -113,7 +113,7 @@ DC/OS GUI（Web 界面）是基于浏览器的系统仪表盘和控制中心。
 
 **另请参阅：**
 
-- [文档](/1.11/gui/)
+- [文档](/cn/1.11/gui/)
 - [来源](https://github.com/dcos/dcos-ui)
 
 
@@ -128,12 +128,12 @@ DC/OS CLI 是基于终端的远程客户端。
 
 **另请参阅：**
 
-- [文档](/1.11/cli/)
+- [文档](/cn/1.11/cli/)
 - [来源](https://github.com/dcos/dcos-cli)
 
 # 容器编排
 
-容器编排是连续自动调度、协调和管理容器化流程及其所消耗的资源。DC/OS 包括最常用的基于容器的高级抽象的内置编排：作业和服务。许多使用案例通过这些基本抽象直接处理，但它们还能够为需要更灵活程序化生命周期管理自动化的任务部署定制调度器。
+容器编排是连续自动调度、协调和管理容器化流程及其所消耗的资源的进程。DC/OS 包括最常用的基于容器的高级抽象的内置编排：作业和服务。许多使用案例通过这些基本抽象直接处理，但它们还能够为需要更灵活程序化生命周期管理自动化的任务部署定制调度器。
 
 
 <a name="marathon"></a>
@@ -148,9 +148,9 @@ Marathon 编排长期的容器化服务（应用程序和 Pod）。
 **另请参阅：**
 
 - [网站](https://mesosphere.github.io/marathon/)
-- [文档](/1.11/deploying-services/)
+- [文档](/cn/1.11/deploying-services/)
 - [来源](https://github.com/mesosphere/marathon)
-- [API 参考](/1.11/deploying-services/marathon-api/)
+- [API 参考](/cn/1.11/deploying-services/marathon-api/)
 
 <a name="dcos-jobs"></a>
 ## DC/OS 作业（节拍器）
@@ -163,13 +163,13 @@ DC/OS 作业（节拍器）编排短期的、计划的或即时的容器化作�
 
 **另请参阅：**
 
-- [文档](/1.11/deploying-jobs/)
+- [文档](/cn/1.11/deploying-jobs/)
 - [来源](https://github.com/dcos/metronome)
 - [API 参考](https://dcos.github.io/metronome/docs/generated/api.html)
 
 # 容器运行时
 
-容器运行时在隔离操作系统级别环境中执行和管理机器一级的进程。DC/OS 使用 [Mesos 的容器化工具抽象] 支持多个容器运行时(http://mesos.apache.org/documentation/latest/containerizers/)。
+容器运行时在隔离操作系统级别环境中执行和管理机器级的进程。DC/OS 使用 [Mesos 的 containerizer 抽象] 支持多个容器运行时(http://mesos.apache.org/documentation/latest/containerizers/)。
 
 <a name="universal-container-runtime"></a>
 ## 通用容器运行时
@@ -187,7 +187,7 @@ DC/OS 作业（节拍器）编排短期的、计划的或即时的容器化作�
 <a name="docker-engine"></a>
 ## Docker 引擎
 
-Docker 引擎不由 DC/OS 安装程序安装，而是在每个节点上运行的系统附属。Mesos 代理节点还包括一个名为 Docker 容器化工具的独立逻辑组件，将 Mesos 任务的容器化分配给 Docker 引擎。
+Docker 引擎不由 DC/OS 安装程序安装，而是在每个节点上运行的系统附属。Mesos 代理节点还包括一个名为 Docker Containerizer 的独立逻辑组件，将 Mesos 任务的容器化分配给 Docker 引擎。
 
 ### 系统服务
 
@@ -195,7 +195,7 @@ Docker 引擎不由 DC/OS 安装程序安装，而是在每个节点上运行的
 
 **另请参阅：**
 
-- [Docker 容器化工具文档](http://mesos.apache.org/documentation/latest/docker-containerizer)
+- [Docker Containerizer 文档](http://mesos.apache.org/documentation/latest/docker-containerizer)
 - [Docker 引擎文档](https://docs.docker.com/engine/)
 - [Docker 引擎来源](https://github.com/docker/docker/)
 
@@ -217,7 +217,7 @@ Docker GC 定期收集 Docker“垃圾”容器和图像。
 # 日志记录和度量标准
 
 
-没有任何软件能完美运行，尤其是在首次运行时。在整个群集分配任务以及分析和调试这些服务的正常模式都会变得繁琐。DC/OS 包括多个组件，通过聚合、缓存和流式传输日志、度量标准和群集状态元数据来减轻调试分布式系统的辛苦。
+没有任何软件能完美运行，尤其是在首次运行时。在整个群集分配任务以及分析和调试这些服务的正常模式都会变得繁琐。DC/OS 包括多个组件，通过聚合、缓存和流式传输日志、度量标准和群集状态元数据来减轻调试分布式系统的困难。
 
 <a name="dcos-network-metrics"></a>
 [enterprise]
@@ -233,7 +233,7 @@ DC/OS 网络度量标准揭示了网络相关度量标准。DC/OS 网络度量�
 <a name="dcos-diagnostics"></a>
 ## DC/OS 诊断
 
-DC/OS 诊断汇总并揭示组件的健康状态。DC/OS 诊断也被称为 DC/OS 分布式诊断工具。
+DC/OS 诊断汇总并揭示组件的运行状态。DC/OS 诊断也被称为 DC/OS 分布式诊断工具。
 
 ### 系统服务
 
@@ -243,7 +243,7 @@ DC/OS 诊断汇总并揭示组件的健康状态。DC/OS 诊断也被称为 DC/O
 **另请参阅：**
 
 - [来源](https://github.com/dcos/dcos-diagnostics)
-- [API 参考](/1.11/monitoring/#system-health-http-api-endpoint)
+- [API 参考](/cn/1.11/monitoring/#system-health-http-api-endpoint)
 
 <a name="dcos-log"></a>
 
@@ -261,7 +261,7 @@ DC/OS 日志服务揭示节点、组件和容器（任务）日志。
 **另请参阅：**
 
 - [来源](https://github.com/dcos/dcos-log)
-- [API 参考](/1.11/monitoring/logging/logging-api/)
+- [API 参考](/cn/1.11/monitoring/logging/logging-api/)
 
 <a name="logrotate"></a>
 
@@ -298,13 +298,13 @@ DC/OS 度量标准服务揭示节点、容器和应用程序度量标准。
 **另请参阅：**
 
 - [来源](https://github.com/dcos/dcos-metrics)
-- [API 参考](/1.11/metrics/metrics-api/)
+- [API 参考](/cn/1.11/metrics/metrics-api/)
 
 <a name="dcos-signal"></a>
 
 ## DC/OS 信号
 
-DC/OS 信号服务报告群集遥测和分析，以帮助改进 DC/OS。管理员在安装时可以 [不选择遥测](1.11/install/production/deploying-dcos/opt-out/#telemetry)。
+DC/OS 信号服务报告群集遥测和分析，以帮助改进 DC/OS。管理员在安装时可以 [不选择遥测](cn/1.11/install/production/deploying-dcos/opt-out/#telemetry)。
 
 ### 系统服务
 
@@ -332,13 +332,13 @@ DC/OS 历史记录服务缓存并揭示历史系统状态，以促进 GUI 中的
 
 # 网络
 
-在为计算机提供数字而非名字的世界里，任务是自动调度的，依赖关系以声明方式定义，服务在分布式集合中运行，网络管理也需要从插入电缆提升到配置软件定义网络。为实现这个目标，DC/OS 包含了用于路由、代理、名称解析、虚拟 IP、负载均衡和分布式重配置的一系列网络组件。
+在为计算机提供数字而非名字的环境中，任务是自动调度的，依赖关系以声明方式定义，服务在分布式集合中运行，网络管理也需要从插入电缆提升到配置软件定义网络。为实现这个目标，DC/OS 包含了用于路由、代理、名称解析、虚拟 IP、负载均衡和分布式重配置的一系列网络组件。
 
 <a name="admin-router"></a>
 
 Admin Router
 
-Admin Router 使用 [NGINX] 揭示组件和服务的统一控制平面代理(https://www.nginx.com/)。Admin Router 代理为节点特定的健康、日志、度量标准和包管理内部端点提供代理。
+Admin Router 使用 [NGINX] 揭示组件和服务的统一控制平面代理(https://www.nginx.com/)。Admin Router 代理为节点特定的运行状况、日志、度量标准和软件包管理内部端点提供代理。
 
 ### 系统服务
 
@@ -363,7 +363,7 @@ Mesos DNS 提供群集内基于域名的服务发现。
 
 - [文档](http://mesosphere.github.io/mesos-dns/)
 - [来源](https://github.com/mesosphere/mesos-dns)
-- [API 参考](/1.11/networking/mesos-dns/mesos-dns-api/)
+- [API 参考](/cn/1.11/networking/mesos-dns/mesos-dns-api/)
 
 <a name="dns-forwarder"></a>
 
@@ -399,14 +399,14 @@ Mesos DNS 提供群集内基于域名的服务发现。
 
 - [来源](https://github.com/dcos/dcos/blob/master/packages/dcos-net/extra/gen_resolvconf.py)
 
-# 包管理
+# 软件包管理
 
-正如机器操作系统需要包管理以安装、升级、配置和移除单个应用程序和服务一样，数据中心操作系统也需要包管理来对分布式服务执行同样的操作。在 DC/OS 中，包管理有两个级别：组件的机器级别以及用户服务的群集级别。
+正如机器操作系统需要软件包管理以安装、升级、配置和移除单个应用程序和服务一样，数据中心操作系统也需要包管理来对分布式服务执行同样的操作。在 DC/OS 中，软件包管理有两个级别：组件的机器级别以及用户服务的群集级别。
 
 
 <a name="dcos-package-manager"></a>
 
-## DC/OS 包管理器 (Cosmos)
+## DC/OS 软件包管理器 (Cosmos)
 
 DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 软件包存储库] 中的 DC/OS 软件包(/1.11/administering-clusters/repo/)，如 [Mesosphere Universe](https://github.com/mesosphere/universe)。
 
@@ -417,7 +417,7 @@ DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 软件包存储库] 中的 DC
 **另请参阅：**
 
 - [来源](https://github.com/dcos/cosmos)
-- [API 参考](/1.11/deploying-services/package-api/)
+- [API 参考](/cn/1.11/deploying-services/package-api/)
 
 <a name="dcos-component-package-manager">DC/OS 组件包管理器 (Pkgpanda)
 
@@ -432,18 +432,18 @@ DC/OS 组件包管理器 (Pkgpanda) 安装和管理 DC/OS 组件。
 **另请参阅：**
 
 - [来源](https://github.com/dcos/dcos/tree/master/pkgpanda)
-- [API 参考](/1.11/administering-clusters/component-management/)
+- [API 参考](/cn/1.11/administering-clusters/component-management/)
 
 [enterprise]
 # IAM 和安全
 [/enterprise]
 
-DC/OS Enterprise 中的身份和访问管理由用户、用户组和权限构成的内部数据库管理。也可以附加外部身份提供商，以充分利用现有数据库。权限由 Admin Router 的反向代理在边缘执行，也在组件级别执行，以控制对特定操作的访问。SSL 证书等密钥也可以安全地生成、管理、存储并添加到用户服务中。
+DC/OS Enterprise 中的身份和访问管理由用户、用户组和权限构成的内部数据库。也可以附加外部身份提供商，以充分利用现有数据库。权限由 Admin Router 的反向代理在边缘执行，也在组件级别执行，以控制对特定操作的访问。SSL 证书等密钥也可以安全地生成、管理、存储并添加到用户服务中。
 
 <a name="dcos-iam"></a>
 ## DC/OS 身份和访问管理器 (Bouncer)
 
-DC/OS 身份和访问管理器 (IAM) 通过管理用户、用户组、服务帐户、权限和身份提供商，控制对 DC/OS 组件和服务的访问。除管理本地用户数据库以外，DC/OS IAM 还可以使用 LDAP、SAML 或 Open ID Connect 来分派给外部身份提供商。对于细粒度的访问控制，其他 DC/OS 组件（如 Mesos 和Marathon）直接与 DC/OS IAM 集成。DC/OS IAM 也被称为 Bouncer。
+DC/OS 身份和访问管理器 (IAM) 通过管理用户、用户组、服务帐户、权限和身份提供程序，控制对 DC/OS 组件和服务的访问。除管理本地用户数据库以外，DC/OS IAM 还可以使用 LDAP、SAML 或 Open ID Connect 来分派给外部身份提供程序。对于细粒度的访问控制，其他 DC/OS 组件（如 Mesos 和Marathon）直接与 DC/OS IAM 集成。DC/OS IAM 也被称为 Bouncer。
 
 ### 系统服务
 
@@ -451,8 +451,8 @@ DC/OS 身份和访问管理器 (IAM) 通过管理用户、用户组、服务帐�
 
 **另请参阅：**
 
-- [文档](/1.11/security/)
-- [API 参考](/1.11/security/ent/iam-api/)
+- [文档](/cn/1.11/security/)
+- [API 参考](/cn/1.11/security/ent/iam-api/)
 
 <a name="cockroachdb"></a>
 
@@ -484,8 +484,8 @@ DC/OS 证书颁发机构 (CA) 发布已签署的数字证书，确保通信安�
 
 **另请参阅：**
 
-- [文档](/1.11/security/ent/tls-ssl/)
-- [API 参考](/1.11/security/ent/tls-ssl/ca-api/)
+- [文档](/cn/1.11/security/ent/tls-ssl/)
+- [API 参考](/cn/1.11/security/ent/tls-ssl/ca-api/)
 
 <a name="dcos-secrets"></a>
 ## DC/OS 密钥
@@ -498,8 +498,8 @@ DC/OS 密钥提供一个安全的 API，用于存储并从 Vault （一个密钥
 
 **另请参阅：**
 
-- [文档](/1.11/security/ent/secrets/)
-- [API 参考](/1.11/security/ent/secrets/secrets-api/)
+- [文档](/cn/1.11/security/ent/secrets/)
+- [API 参考](/cn/1.11/security/ent/secrets/secrets-api/)
 
 <a name="vault"></a>
 ## Vault
@@ -543,7 +543,7 @@ REX-Ray 编排调配、附加和安装外部持久卷。
 
 # 组件安装
 
-DC/OS 组件由 [DC/OS 组件包管理器 (Pkgpanda)](https://github.com/dcos/dcos/tree/master/pkgpanda)（用于 `systemd` 单元的包管理器）安装、升级和管理。
+DC/OS 组件由 [DC/OS 组件包管理器 (Pkgpanda)](https://github.com/dcos/dcos/tree/master/pkgpanda)（用于 `systemd` 单元的软件包管理器）安装、升级和管理。
 
 要查看 DC/OS 安装工具管理的软件包的完整列表，请参阅 [DC/OS 源存储库的软件包目录](https://github.com/dcos/dcos/tree/master/packages)。
 

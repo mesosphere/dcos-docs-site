@@ -9,7 +9,7 @@ excerpt: Understanding DC/OS components
 
 DC/OS is composed of many open source microservice components meticulously tuned and configured to work together. Mesosphere DC/OS Enterprise includes most of the open source DC/OS components but also includes several additional components, modules, and plugins.
 
-![Mesosphere DC/OS Enterprise Components](/1.11/img/dcos-components-1.11-portrait.png)
+![Mesosphere DC/OS Enterprise Components](/1.12/img/dcos-components-1-12-updated.png)
 
 Figure 1 - DC/OS components
 
@@ -25,7 +25,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 
 Mesos manages resources and tasks as a distributed systems kernel. Mesos Master exposes scheduler, executor, and operator interfaces to facilitate cluster management. Mesos Agent manages individual executors, tasks, and resources on each [DC/OS agent node](/1.12/overview/concepts/#dcos-agent-node). Mesos Agent Public is a Mesos Agent configured to run on [DC/OS public agent nodes](/1.12/overview/concepts/#public-agent-node).
 
-### System Service
+### System services
 
 - `dcos-mesos-master.service`
 - `dcos-mesos-slave.service`
@@ -42,7 +42,7 @@ Read the following documentation resources to learn more about Apache Mesos:
 
 ZooKeeper provides consistent, highly available, distributed key-value storage for configuration, synchronization, name registration, and cluster state storage.
 
-### System Service
+### System services
 
 N/A - ZooKeeper is supervised by Exhibitor.
 
@@ -57,7 +57,7 @@ Read the following documentation resources to learn more about Apache ZooKeeper:
 
 Exhibitor supervises ZooKeeper and provides a management web interface.
 
-### System Service
+### System service
 
 - `dcos-exhibitor.service`
 
@@ -67,13 +67,13 @@ Read the following documentation resources to learn more about Exhibitor:
 - [Source](https://github.com/dcos/exhibitor)
 - [API Reference](https://github.com/soabase/exhibitor/wiki/REST-Introduction)
 
-
 <a name="dcos-installer"></a>
+
 ## DC/OS Installer
 
 The DC/OS Installer (`dcos_generate_config.ee.sh`) generates install artifacts and installs DC/OS. As part of the install process on each node, the DC/OS Download service downloads the install artifacts from the bootstrap machine and the DC/OS Setup service installs components using the DC/OS Component Package Manager (Pkgpanda).
 
-### System Service
+### System services
 
 - `dcos-download.service`
 - `dcos-setup.service`
@@ -85,11 +85,12 @@ Read the following documentation resources to learn more about DC/OS and install
 
 [enterprise]
 <a name="dcos-backup"></a>
-## DC/OS Backup
+
+## DC/OS backup
 [/enterprise]
 DC/OS Backup provides backup and restore of DC/OS component state (Marathon-only in 1.10).
 
-### System Service
+### System services
 
 - `dcos-backup-master.service`
 - `dcos-backup-master.socket`
@@ -101,11 +102,12 @@ Read the following documentation resources to learn more about backing up and re
 
 
 <a name="dcos-gui"></a>
+
 ## DC/OS GUI
 
 The DC/OS GUI (web interface) is a browser-based system dashboard and control center.
 
-### System Service
+### System service
 
 N/A - The GUI is served by Admin Router.
 
@@ -116,11 +118,12 @@ Read the following documentation resources to learn more about DC/OS GUI:
 
 
 <a name="dcos-cli"></a>
+
 ## DC/OS CLI
 
 The DC/OS CLI is a terminal-based remote client.
 
-### System Service
+### System service
 
 N/A - The CLI is a user downloadable binary.
 
@@ -129,17 +132,17 @@ Read the following documentation resources to learn more about DC/OS CLI:
 - [Documentation](/1.12/cli/)
 - [Source](https://github.com/dcos/dcos-cli)
 
-# Container Orchestration
+# Container orchestration
 
 Container orchestration is the continuous, automated scheduling, coordination, and management of containerized processes and the resources they consume. DC/OS includes built-in orchestration of the most commonly used high level container-based abstractions: jobs and services. Many use cases are handled directly by these basic abstractions, but they also enable the deployment of custom schedulers for tasks that require more flexible programmatic lifecycle management automation.
 
-
 <a name="marathon"></a>
+
 ## Marathon
 
 Marathon orchestrates long-lived containerized services (apps and pods).
 
-### System Service
+### System service
 
 - `dcos-marathon.service`
 
@@ -151,11 +154,12 @@ Read the following documentation resources to learn more about DC/OS Marathon:
 - [API Reference](/1.12/deploying-services/marathon-api/)
 
 <a name="dcos-jobs"></a>
-## DC/OS Jobs (Metronome)
 
-DC/OS Jobs (Metronome) orchestrates short-lived, scheduled or immediate, containerized jobs.
+## DC/OS jobs (Metronome)
 
-### System Service
+DC/OS jobs (Metronome) orchestrates short-lived, scheduled or immediate, containerized jobs.
+
+### System service
 
 - `dcos-metronome.service`
 
@@ -165,16 +169,17 @@ Read the following documentation resources to learn more about DC/OS Metronome:
 - [Source](https://github.com/dcos/metronome)
 - [API Reference](https://dcos.github.io/metronome/docs/generated/api.html)
 
-# Container Runtimes
+# Container runtimes
 
 Container runtimes execute and manage machine level processes in isolated operating system level environments. DC/OS supports multiple container runtimes using [Mesos' containerizer abstraction](http://mesos.apache.org/documentation/latest/containerizers/).
 
 <a name="universal-container-runtime"></a>
+
 ## Universal Container Runtime
 
 Universal Container Runtime (Mesos Containerizer) is a logical component built-in to the Mesos Agent, not technically a separate process. It containerizes Mesos tasks with configurable isolators. Universal Container Runtime supports multiple image formats, including Docker images without using Docker Engine.
 
-### System Service
+### System service
 
 N/A - Universal Container Runtime is part of Mesos Agent.
 
@@ -183,11 +188,12 @@ Read the following documentation resource to learn more about Universal Containe
 - [Mesos Containerizer Documentation](http://mesos.apache.org/documentation/latest/containerizers/)
 
 <a name="docker-engine"></a>
+
 ## Docker Engine
 
 Docker Engine is not installed by the DC/OS Installer, but rather is a system dependency that runs on each node. The Mesos Agent also includes a separate logical component called Docker Containerizer which delegates the containerization of Mesos task to Docker Engine.
 
-### System Service
+### System service
 
 - `docker.service` - Docker Engine is not installed by the DC/OS installer.
 
@@ -203,7 +209,7 @@ Read the following documentation resource to learn more about Docker Engine:
 
 Docker GC periodically collects Docker "garbage" containers and images.
 
-### System Service
+### System services
 
 - `dcos-docker-gc.service`
 - `dcos-docker-gc.timer`
@@ -212,27 +218,29 @@ Read the following documentation resource to learn more about Docker GC:
 
 - [Source](https://github.com/spotify/docker-gc)
 
-# Logging and Metrics
+# Logging and metrics
 
 No software runs perfectly, especially not the first time. Distributing tasks across a cluster, as well as the normal patterns of analyzing and debugging these services, become tedious. DC/OS includes several components to help ease the pain of debugging distributed systems by aggregating, caching, and streaming logs, metrics, and cluster state metadata.
 
 <a name="dcos-network-metrics"></a>
 [enterprise]
-## DC/OS Network Metrics
+
+## DC/OS network metrics
 [/enterprise]
 
-DC/OS Network Metrics exposes networking-related metrics. DC/OS Network Metrics is also known as the DC/OS Networking API.
+DC/OS network metrics exposes networking-related metrics. DC/OS network metrics are also known as the DC/OS Networking API.
 
-### System Service
+### System service
 
 - `dcos-networking_api.service`
 
 <a name="dcos-diagnostics"></a>
-## DC/OS Diagnostics
 
-DC/OS Diagnostics aggregates and exposes component health. DC/OS Diagnostics is also known as DC/OS Distributed Diagnostics Tool.
+## DC/OS diagnostics
 
-### System Service
+DC/OS diagnostics aggregate and expose component health. DC/OS diagnostics are also known as DC/OS Distributed Diagnostics Tool.
+
+### System services
 
 - `dcos-diagnostics.service`
 - `dcos-diagnostics.socket`
@@ -244,11 +252,11 @@ Read the following documentation resources to learn more about DC/OS Diagnostics
 
 <a name="dcos-log"></a>
 
-## DC/OS Log
+## DC/OS log
 
-The DC/OS Log service exposes node, component, and container (task) logs.
+The DC/OS log service exposes node, component, and container (task) logs.
 
-### System Service
+### System services
 
 - `dcos-log-master.service`
 - `dcos-log-master.socket`
@@ -266,7 +274,7 @@ Read the following documentation resources to learn more about DC/OS Logs:
 
 Logrotate manages rotation, compression, and deletion of historical log files.
 
-### System Service
+### System services
 
 - `dcos-logrotate-master.service`
 - `dcos-logrotate-master.timer`
@@ -284,7 +292,7 @@ Read the following documentation resources to learn more about DC/OS Logrotate:
 
 Telegraf is a configurable metrics pipeline. By default, it collects system, container, and application metrics.
 
-### System Service
+### System services
 
 - `dcos-telegraf.service`
 - `dcos-telegraf.socket`
@@ -296,11 +304,11 @@ Read the following documentation resources to learn more about DC/OS Telegraf:
 
 <a name="dcos-signal"></a>
 
-## DC/OS Signal
+## DC/OS signal
 
-The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](/1.12/installing/oss/opt-out/#telemetry) at installation time.
+The DC/OS signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](/1.12/installing/oss/opt-out/#telemetry) at installation time.
 
-### System Service
+### System services
 
 - `dcos-signal.service`
 - `dcos-signal.timer`
@@ -311,11 +319,11 @@ Read the following documentation resources to learn more about DC/OS Signal:
 
 <a name="dcos-history"></a>
 
-## DC/OS History
+## DC/OS history
 
-The DC/OS History service caches and exposes the historical system state to facilitate cluster usage statistics in the GUI.
+The DC/OS history service caches and exposes the historical system state to facilitate cluster usage statistics in the GUI.
 
-### System Service
+### System service
 
 - `dcos-history.service`
 
@@ -334,7 +342,7 @@ In a world where machines are given numbers instead of names, tasks are schedule
 
 Admin Router exposes a unified control plane proxy for components and services using [NGINX](https://www.nginx.com/). Admin Router Agent provides proxies for node-specific health, logs, metrics, and package management internal endpoints.
 
-### System Service
+### System services
 
 - `dcos-adminrouter.service`
 - `dcos-adminrouter-agent.service`
@@ -349,7 +357,7 @@ Read the following documentation resource to learn more about DC/OS Admin Router
 
 Mesos DNS provides domain name based service discovery within the cluster.
 
-### System Service
+### System service
 
 - `dcos-mesos-dns.service`
 
@@ -357,7 +365,7 @@ Read the following documentation resources to learn more about Mesos DNS:
 
 - [Documentation](http://mesosphere.github.io/mesos-dns/)
 - [Source](https://github.com/mesosphere/mesos-dns)
-- [API Reference](/1.12/networking/mesos-dns/mesos-dns-api/)
+- [API Reference](/1.12/networking/DNS/mesos-dns/mesos-dns-api/)
 
 <a name="dns-forwarder"></a>
 
@@ -368,7 +376,7 @@ Read the following documentation resources to learn more about Mesos DNS:
 - `dcos-overlay`: An SDN solution for UCR and Docker containers.
 - `dcos-l4lb`: A distributed layer-4 load-balancer.
 
-### System Service
+### System services
 
 - `dcos-net.service`
 - `dcos-net-watchdog.service`
@@ -383,28 +391,27 @@ Read the following documentation resource to learn more about DC/OS Net:
 
 `Generate resolv.conf` configures network name resolution by updating `/etc/resolv.conf` to facilitate DC/OS's software defined networking.
 
-### System Service
+### System services
 
 - `dcos-gen-resolvconf.service`
 - `dcos-gen-resolvconf.timer`
-
 
 Read the following documentation resource to learn more about `Generate resolv.conf`:
 
 - [Source](https://github.com/dcos/dcos/blob/master/packages/dcos-net/extra/gen_resolvconf.py)
 
-# Package Management
+# Package management
 
 Just as machine operating systems need package management to install, upgrade, configure, and remove individual applications and services, a datacenter operating system needs package management to do the same for distributed services. In DC/OS there are two levels of package management: machine-level for components; and cluster-level for user services.
 
 
 <a name="dcos-package-manager"></a>
 
-## DC/OS Package Manager (Cosmos)
+## DC/OS package manager (Cosmos)
 
-DC/OS Package Manager (Cosmos) installs and manages DC/OS packages from [DC/OS package repositories](/1.12/administering-clusters/repo/), such as the [Mesosphere Universe](https://github.com/mesosphere/universe).
+The DC/OS package manager (Cosmos) installs and manages DC/OS packages from [DC/OS package repositories](/1.12/administering-clusters/repo/), such as the [Mesosphere Universe](https://github.com/mesosphere/universe).
 
-### System Service
+### System service
 
 - `dcos-cosmos.service`
 
@@ -413,7 +420,9 @@ Read the following documentation resources to learn more about DC/OS Package Man
 - [Source](https://github.com/dcos/cosmos)
 - [API Reference](/1.12/deploying-services/package-api/)
 
-<a name="dcos-component-package-manager">DC/OS Component Package Manager (Pkgpanda)
+<a name="dcos-component-package-manager"></a>
+
+## DC/OS Component Package Manager (Pkgpanda)
 
 DC/OS Component Package Manager (Pkgpanda) installs and manages DC/OS components.
 
@@ -435,11 +444,12 @@ Read the following documentation resources to learn more about DC/OS Component P
 Identity and access management in DC/OS Enterprise is governed by an internal database of users, user groups, and permissions. External identity providers can also be attached to take advantage of existing databases. Permissions are enforced both at the edge by Admin Router's reverse proxy and also at the component level for controlling access to specific actions. Secrets, like SSL certificates, can also be securely generated, managed, stored, and injected into user services.
 
 <a name="dcos-iam"></a>
+
 ## DC/OS Identity and Access Manager (Bouncer)
 
 DC/OS Identity and Access Manager (IAM) controls access to DC/OS components and services by managing users, user groups, service accounts, permissions, and identity providers. In addition to managing a local user database, DC/OS IAM can delegate to external identity providers using LDAP, SAML, or Open ID Connect. For fine grained access control, other DC/OS components, like Mesos and Marathon, integrate with DC/OS IAM directly. DC/OS IAM is also known as Bouncer.
 
-### System Service
+### System service
 
 - `dcos-bouncer.service`
 
@@ -456,7 +466,7 @@ CockroachDB is a distributed SQL database built on a transactional and strongly 
 
 <p class="message--note"><strong>NOTE: </strong> CockroachDB is currently only used by <a href="#dcos-iam">DC/OS Identity and Access Manager</a>.</p>
 
-### System Service
+### System service
 
 - `dcos-cockroach.service`
 
@@ -471,10 +481,9 @@ Read the following documentation resources to learn more about CockroachDB:
 
 DC/OS Certificate Authority (CA) issues signed digital certificates for secure communication. DC/OS CA is based on Cloudflare's <a href="https://github.com/cloudflare/cfssl">Cfssl</a>.
 
-### System Service
+### System service
 
 - `dcos-ca.service`
-
 
 Read the following documentation resources to learn more about DC/OS Certificate Authority:
 
@@ -482,11 +491,12 @@ Read the following documentation resources to learn more about DC/OS Certificate
 - [API Reference](/1.12/security/ent/tls-ssl/ca-api/)
 
 <a name="dcos-secrets"></a>
-## DC/OS Secrets
 
-DC/OS Secrets provides a secure API for storing and retrieving secrets from Vault, a secret store.
+## DC/OS secrets
 
-### System Service
+DC/OS secrets provide a secure API for storing and retrieving secrets from Vault, a secret store.
+
+### System service
 
 - `dcos-secrets.service`
 
@@ -499,7 +509,7 @@ Read the following documentation resources to learn more about DC/OS Secrets:
 
 Vault is a tool for securely managing secrets. A secret is anything that you want to control access to, such as API keys, passwords, certificates, and more. Vault provides a unified interface to any secret, while providing tight access control and recording a detailed audit log.
 
-### System Service
+### System service
 
 - `dcos-vault.service`
 
@@ -519,7 +529,7 @@ DC/OS provides many different ways to provision and allocate disk space and volu
 
 REX-Ray orchestrates provisioning, attachment, and mounting of external persistent volumes.
 
-### System Service
+### System service
 
 - `dcos-rexray.service`
 
@@ -528,25 +538,25 @@ Read the following documentation resources to learn more about REX-Ray:
 - [Documentation](http://rexray.readthedocs.io/)
 - [Source](https://github.com/codedellemc/rexray)
 
-# Sockets and Timers
+# Sockets and timers
 
 Several components are configured to use on-demand [systemd sockets](https://www.freedesktop.org/software/systemd/man/systemd.socket.html) which allows them to be started when a request comes in, rather than running continuously and consuming resources unnecessarily. While these sockets are separate [systemd units](https://www.freedesktop.org/software/systemd/man/systemd.unit.html) they are not considered separate components.
 
 Several components are configured to use [systemd timers](https://www.freedesktop.org/software/systemd/man/systemd.timer.html) which allows them to be periodically executed or restarted. Periodic execution avoids continuous execution and consuming resources unnecessarily. Periodic restarting allows for picking up new configurations from downstream dependencies, like time-based DNS cache expiration. While these timers are separate [systemd units](https://www.freedesktop.org/software/systemd/man/systemd.unit.html) they are not considered separate components.
 
-# Component Installation
+# Component installation
 
 DC/OS components are installed, upgraded, and managed by [DC/OS Component Package Manager (Pkgpanda)](https://github.com/dcos/dcos/tree/master/pkgpanda), a package manager for `systemd` units.
 
 To see the full list of packages managed by the DC/OS installer, see the [packages directory of the DC/OS source repository](https://github.com/dcos/dcos/tree/master/packages).
 
-# `Systemd` Services
+# `Systemd` services
 
 Most DC/OS components run as [systemd services](/1.12/overview/concepts/#systemd-service) on the DC/OS nodes.
 
 To see a list of the `systemd` components running on any particular node, list the contents of the `/etc/systemd/system/dcos.target.wants/` directory or execute `systemctl | grep dcos-` to see their current status.
 
-## Master Node
+## Master node
 
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
@@ -588,7 +598,7 @@ dcos-spartan-watchdog.timer
 dcos-vault.service
 ```
 
-## Private Agent Node
+## Private agent node
 
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
@@ -616,7 +626,7 @@ dcos-spartan-watchdog.service
 dcos-spartan-watchdog.timer
 ```
 
-## Public Agent Node
+## Public agent node
 
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1

@@ -13,7 +13,7 @@ enterprise: true
 
 **先决条件：**您必须具有 DC/OS 群集的 SSH 访问权限。
 
-1. [SSH](/1.11/administering-clusters/sshcluster/) 到主节点，使用您选择的方法。
+1. [SSH](/cn/1.11/administering-clusters/sshcluster/) 到主节点，使用您选择的方法。
 
  例如：
 
@@ -27,7 +27,7 @@ enterprise: true
     sudo /opt/mesosphere/bin/dcos-shell /opt/mesosphere/active/bouncer/bouncer/bin/reset-superuser <username>
     ```
 
-1. 输入用户的新密码，然后按照提示完成程序。
+1. 输入用户的新密码，然后按照提示完成步骤。
 
     ```bash
     Type superuser password:

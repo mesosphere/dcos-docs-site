@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos auth` 命令允许您管理 DC/OS 身份和访问。
+`dcos auth` 命令让您管理 DC/OS 身份和访问。
 
 # 使用
 

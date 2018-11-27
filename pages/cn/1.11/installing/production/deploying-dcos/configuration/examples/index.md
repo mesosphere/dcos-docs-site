@@ -209,7 +209,7 @@ ssh_user: <username>
 ```
 
 ## <a name="zk"></a>ZooKeeper
-DC/OS 群集，带有三个管理节点、一个通过 ZooKeeper 备份的 Exhibitor/ZooKeeper、前面带有 HTTP 负载均衡器的管理节点、一个公共代理节点和 Google DNS：
+DC/OS 群集，带有三个管理节点、一个通过 ZooKeeper 备份的 Exhibitor/ZooKeeper、前面带有 HTTP 负载均衡器的管理节点、一个公共代理节点、五个专用代理和 Google DNS：
 
 ```yaml
 ---
@@ -367,7 +367,7 @@ cosmos_config:
 
 
 ## <a name="custom-checks"></a>自定义检查
-DC/OS 群集，带有一个管理节点、一个内部托管的 Exhibitor/ZooKeeper、三个专用代理、谷歌DNS和自定义运行状况检查，确定用于：
+DC/OS 群集，带有一个管理节点、一个内部托管的 Exhibitor/ZooKeeper、三个专用代理、谷歌DNS和为此定义的自定义运行状况检查：
 
 - 用户 Marathon 实例（`user-marathon-on-marathon`）
 - 管理节点上的本地装载（`master-mounts`）

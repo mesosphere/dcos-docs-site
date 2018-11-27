@@ -8,22 +8,29 @@ DC/OS  {{ model.techName }} 服务实例根本上是一套计划（如何运行�
 
 每个计划由一组阶段组成，每个阶段由一个或多个步骤组成。
 
-### 列表计划
+### 列表计划 
 
 可使用 CLI 命令检索计划列表：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan list<linebreak><linebreak></```>
-
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan list
+```
 ### 检查计划
 
 使用 CLI 命令查看计划的当前状态：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan status <plan-name><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan status <plan-name>
+```
 
 例如，服务计划已部署完成的状态为：
-<```>bash<linebreak>dcos {{ model.packageName }} --name={{ model.serviceName }} plan status deploy<linebreak>{{ model.operations.complete-deploy}}<linebreak></```>
 
-**注意**：传递 --json 标记给 `status` 命令将返回 `JSON` 应答，其中包含计划的阶段和步骤的 UUID。这些 UUID 对于其他计划命令可能有用。
+```bash
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan status deploy
+{{ model.operations.complete-deploy}}
+```
+
+<p class="message--note"><strong>注意：</strong>传递 --json 标记给 <tt>status</tt> 命令将返回 <tt>JSON</tt> 应答，其中包含计划的阶段和步骤的 UUID。这些 UUID 对于其他计划命令可能有用。</p>
 
 ### 运行计划
 
@@ -31,17 +38,23 @@ DC/OS  {{ model.techName }} 服务实例根本上是一套计划（如何运行�
 
 使用 CLI 命令启动计划：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan start <plan-name><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan start <plan-name>
+```
 
 #### 暂停
 使用提供的阶段名称（或 UUID）暂停计划或该计划中的特定阶段。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan pause <plan (required)> <phase (optional)><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan pause <plan (required)> <phase (optional)>
+```
 
 #### 停止
 使用提供的名称停止运行中的计划。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan stop <plan><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan stop <plan>
+```
 
 计划停止与计划暂停不同，区别如下：
 * 可以为计划中的特定阶段或所有阶段发出暂停。只能为计划发出停止。
@@ -50,40 +63,55 @@ DC/OS  {{ model.techName }} 服务实例根本上是一套计划（如何运行�
 #### 恢复
 使用提供的阶段名称（或 UUID）恢复计划或该计划的特定阶段。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan resume <plan (required)> <phase (optional)><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan resume <plan (required)> <phase (optional)>
+```
 
 #### 强制重启
 重新启动指定的步骤、阶段（如果未指定步骤）或计划（如果未指定阶段）。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} force-restart <plan (required)> <phase (optional)> <step (optional)><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} force-restart <plan (required)> <phase (optional)> <step (optional)>
+```
 
 #### 强制完成
 强制完成计划中所提供阶段的特定步骤。通过 CLI，只能强制完成一个步骤。HTTP API 支持强制整体完成各个阶段和计划。
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} force-complete <plan (required)> <phase (required)> <step (required)><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} force-complete <plan (required)> <phase (required)> <step (required)>
+```
 
 ## Pod 操作
 
 已部署的 DC/OS  {{ model.techName }} 服务实例由一组运行中的 Pod 组成。使用 pod API 可以管理这些 Pod 的生命周期，以及调查 Pod 及其任务的故障。
 
-**注意：** 管理 Pod 计数通过服务配置完成，没有直接 API。
+<p class="message--note"><strong>注意：</strong> 管理 Pod 计数通过服务配置完成，没有直接 API。</p>
 
 ### 列表
 
 要列出服务的所有 Pod，运行 CLI 命令：
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod list<linebreak></```>
 
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod list
+```
 ### 状态
 
 要查看所有 Pod 的状态，或者选择查看一个 Pod 的状态，运行 CLI 命令：
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod <pod-name (optional)><linebreak></```>
+
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod <pod-name (optional)>
+```
 
 这将显示 Pod 及其任务的任何状态覆盖。
 
 ### 重新启动
 
 要重新启动 Pod，使用 CLI 命令：
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod restart <pod-name><linebreak></```>
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod restart <pod-name>
+```
 
 这将终止 Pod 的任务并将其重新启动到位。重新启动的进度可通过查看服务的 `recovery` 计划进行监控。
 
@@ -92,31 +120,38 @@ DC/OS  {{ model.techName }} 服务实例根本上是一套计划（如何运行�
  **仅** 当 Pod 当前实例应该被完全销毁时，才能使用替换。Pod 的所有持久数据（读取：卷）将被销毁。在移除 DC/OS 代理、永久停工或需要更新 Pod 布局约束时应使用替换。
 
 通过运行 CLI 命令发出替换：
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace <pod-name><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace <pod-name>
+```
 
 ### 暂停
 
 暂停 Pod 会以空闲命令状态将其重新启动。这允许您调试 Pod 的内容，可能会进行更改以修补问题，同时仍可以访问 Pod 的所有上下文（如卷）
 
 使用暂停和 `dcos task exec` 是非常强大的调试工具。要暂停 Pod，使用 CLI 命令：
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause <pod-name><linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause <pod-name>
+```
 
 要暂停 Pod 的特定任务，附加“-t” <task-name>` 标记，
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause <pod-name> -t <task-name><linebreak></```>
-
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause <pod-name> -t <task-name>
+```
 使用 `pod status` 命令以检查哪些任务和 Pod 处于覆盖状态。
 
 ### 恢复
 
 要恢复暂停的 Pod 或任务，使用 CLI 命令：
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod resume <pod-name> [-t <task-name>]<linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod resume <pod-name> [-t <task-name>]
+```
 
 检查 `pod status` 命令以验证是否已正确恢复 Pod（或任务）。
 
 
 ## 服务度量标准
 
-DC/OS {{ model.techName }} 服务将度量标准推送到 DC/OS 度量标准系统。有关其使用情况的详细信息可参阅 [DC/OS 度量标准系统](/latest/metrics/) 文档。
+DC/OS {{ model.techName }} 服务将度量标准推送到 DC/OS 度量标准系统。有关其使用情况的详细信息可参阅 [DC/OS 度量标准系统](/cn/1.11/metrics/) 文档。
 
 
 ## 记录
@@ -136,9 +171,6 @@ Mesos GUI 提供与 DC/OS UI 相似的访问，但服务调度程序与服务任
 
 单击 `sandbox` 链接可访问服务的文件和日志。
 
-[<img src="/services/include/img/ops-guide-scheduler-sandbox.png" alt="调度程序沙盒内容" width="400"/>](/services/include/img/ops-guide-scheduler-sandbox.png)
-
-图 1. 调度程序沙盒
 
 ### DC/OS CLI
 
@@ -154,4 +186,3 @@ Mesos 代理节点日志可通过 Mesos GUI 或直接在代理上访问。此处
 
 在代理视图中，您将看到在该代理上出现的框架的列表。在左侧窗格中，您将看到名为“LOG”的普通链接。点击该链接查看代理日志。
 
-[<img src="/services/include/img/ops-guide-agent.png" alt="查看给定代理上运行的任务" width="400"/>](/services/include/img/ops-guide-agent.png)

@@ -95,7 +95,6 @@ The agent nodes must also have:
 
     <p class="message--important"><strong>IMPORTANT: </strong>Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).</p>
 
-
 -   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.
 
 -   If you are planning a cluster with hundreds of agent nodes or intend to have a high rate of deploying and deleting services, isolating this directory to dedicated SSD storage is recommended.
@@ -135,9 +134,9 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 # Software Prerequisites
 
-* Refer to [install_prereqs.sh](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) script for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.[enterprise type="inline" size="small" /]
-
 * When using OverlayFS over XFS, the XFS volume should be created with the -n ftype=1 flag. Please see the [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.2_release_notes/technology-preview-file_systems) and [Mesos](http://mesos.apache.org/documentation/latest/container-image/#provisioner-backends) documentation for more details.
+
+<p class="message--note"><strong>NOTE: </strong>The name service caching daemon 'nscd' or 'unscd.service' must be disabled as it is not compatible with the Mesos UCR.</p>
 
 ## All Nodes
 

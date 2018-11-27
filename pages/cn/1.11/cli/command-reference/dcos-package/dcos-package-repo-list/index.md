@@ -22,14 +22,14 @@ dcos package repo list [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `--json` | JSON 格式化的数据。|
+| `--json` | JSON 格式的数据。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/cn/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
 
 # 示例
 
-有关示例，请参阅[文档](/1.11/administering-clusters/repo/)。
+有关示例，请参阅[文档](/cn/1.11/administering-clusters/repo/)。

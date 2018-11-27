@@ -13,13 +13,13 @@ oss: true
 
 - 这种安装方法不支持升级。
 
-- 下列安装方法尚未正式获得 Mesosphere 支持，但得到 DC/OS 社区支持。联系 [邮寄列表](https://groups.google.com/a/dcos.io/forum/#!forum/users) 或 [Slack 渠道](http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201)，获取社区支持。
+- 下列安装方法尚未正式获得 Mesosphere 支持，但由 DC/OS 社区支持。联系 [邮寄列表](https://groups.google.com/a/dcos.io/forum/#!forum/users) 或 [Slack 渠道](http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201)，获取社区支持。
 
 # 系统要求
 
 ## 硬件
 
-要使用 DC/OS 中提供的所有服务，您应该使用 `Standard_D2`[虚拟机](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/) 选择至少五个 Mesos 代理节点，这是 DC/OS Azure 市场提供的默认大小。建议不要选择较小的 VM，而选择较少的 VM 可能会导致某些资源密集型服务（如分布式数据存储）无法正常工作（从安装问题到操作限制都有问题）。
+要使用 DC/OS 中提供的所有服务，您应该使用 `Standard_D2`[虚拟机](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/) 选择至少五个 Mesos 代理节点，这是 DC/OS Azure 市场提供的默认大小。建议不要选择较小的 VM，而选择较少的 VM 可能会导致某些资源密集型服务（如分布式数据存储）无法正常工作（从安装问题到操作限制）。
 
 ### 生产就绪群集配置 ###
 
@@ -27,7 +27,7 @@ oss: true
 
 #### 通用机器配置 ####
 我们建议在 VM 上禁用交换。Azure Linux 图像通常默认启用交换。我们发现使用临时固态硬盘交换（通过 WAAgent 配置）
-可能与 `D` 系列 VM 的磁盘缓存配置发生冲突。其他 VM 系列（如 `L` 系列）可以使用 SSD 进行交换和其他用途。有关磁盘配置的详细信息，请参阅以下部分。
+可能会造成与 `D` 系列 VM 的磁盘缓存配置发生冲突。其他 VM 系列（如 `L` 系列）可以使用 SSD 进行交换和其他用途。有关磁盘配置的详细信息，请参阅以下部分。
 
 应使用监控（例如具有 Prometheus 的 Node Exporter）
 识别和警告工作负载接近新建 Azure 定义的限制范围的情况。
@@ -36,7 +36,7 @@ oss: true
 Azure 上的原始网络性能大致由 VM 大小决定。
 `Standard_D8_v3` 等具有 8 个或更多芯核的 VM，可以用于
 [Azure 加速网络 (SR-IOV)](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli)。
-我们发现，相对于依靠 Azure hypervisor vswitches，使用 SR-IOV 能够显著降低延迟
+我们发现，与依靠 Azure hypervisor vswitches 相比，使用 SR-IOV 能够显著降低延迟
 且使带宽更加充裕稳定。
 例如，在我们的测试中，不带 SR-IOV 的`Standard_D16s_v3`
 可以在两个 VM 之间推送大约 450MB/s 的数据，而
@@ -46,17 +46,17 @@ Azure 上的原始网络性能大致由 VM 大小决定。
 要求。
 
 此外，尽管支持在每台虚拟机配置多个 NIC，
-但是带宽的数量是按照 VM 分配的，而非按照 NIC 分配。因此，尽管将
+但是带宽的大小是按照 VM 分配的，而非按照 NIC 分配。因此，尽管将
 您的网络划分到控制和数据板块（或其他网络）
-可能对组织或安全目的有用，但必须进行 Linux 级流量整形，
+可能对组织或安全目的有用，但必须进行 Linux 级流量管理，
 才能实现带宽控制。
 
 #### 磁盘配置 ####
 为了在 Azure 上实现可靠的高性能群集操作，
 推荐在特定磁盘配置中使用优质固态硬盘。
-托管磁盘 (MD) 优于非托管磁盘 (UMD)，
+托管磁盘 (MD) 比起非托管磁盘 (UMD)，
 更能避免存储帐户的限制。
-Azure fabric 将适当地放置托管磁盘，以满足
+Azure fabric 将适当地管理托管磁盘，以满足
 SLA 保证条件。
 UMD 的存储帐户限制已记录在
 [此处](https://docs.microsoft.com/en-us/azure/storage/common/storage-performance-checklist)。
@@ -92,10 +92,10 @@ Etcd、 Zookeeper 和使用
  - /var/lib/docker - P10
  - /var/lib/mesos/slave - P20
 
-当然可以运行具有较小和/或较少磁盘的群集，
+完全有可能可以运行具有较小和/或较少磁盘的群集，
 但用于生产时，经验证明上述配置具有显著优势，
-适用于任何重要群集。另外，我们建议使用 Mesos MOUNT 磁盘资源，附加适当的
-优质固态硬盘到 `/dcos/volume0 ... /dcos/volumeN`
+适用于任何较大的大小的群集。另外，我们建议使用 Mesos MOUNT 磁盘资源将合适的
+优质固态硬盘附加到 `/dcos/volume0 ... /dcos/volumeN`
 然后即可专门用于数据
 密集型服务，不会发生 I/O 争用。
 
@@ -132,13 +132,13 @@ Etcd、 Zookeeper 和使用
 
 1. 在部署的输出中查找 `MASTERFQDN`。要查找该值，单击 `Last deployment` 下面的链接（就是这里的 `4/15/2016 (Succeeded)`），您将看到：
 
-![Deployment history](/1.11/img/dcos-azure-marketplace-step2a.png)
+![Deployment history](/cn/1.11/img/dcos-azure-marketplace-step2a.png)
 
 图 1. 部署历史记录
 
 2. 单击最新部署并复制 `MASTERFQDN` 到 `Outputs` 部分。
 
-![Deployment output](/1.11/img/dcos-azure-marketplace-step2b.png)
+![Deployment output](/cn/1.11/img/dcos-azure-marketplace-step2b.png)
 
 图 2. 输出部分
 
@@ -152,37 +152,37 @@ Etcd、 Zookeeper 和使用
 
 1. 查找管理节点的网络安全组资源，
 
-![Resource - Master Node Network Security Group](/1.11/img/dcos-azure-step2case1a.png)
+![Resource - Master Node Network Security Group](/cn/1.11/img/dcos-azure-step2case1a.png)
 
 图 3. 管理节点网络安全组
 
 2. 单击左侧的 **入站安全规则** 选项卡。
 
-![Inbound Security Rules](/1.11/img/dcos-azure-step2case1b.png)
+![Inbound Security Rules](/cn/1.11/img/dcos-azure-step2case1b.png)
 
 图 4. 入站安全规则
 
 3. 添加入站安全规则。
 
-![Add Inbound Security Rules](/1.11/img/dcos-azure-step2case1c.png)
+![Add Inbound Security Rules](/cn/1.11/img/dcos-azure-step2case1c.png)
 
 图 5. 添加入站安全规则 
 
 4. 查找管理节点的负载均衡器资源。
 
-![Resource - Master Node Load balancer](/1.11/img/dcos-azure-step2case1d.png)
+![Resource - Master Node Load balancer](/cn/1.11/img/dcos-azure-step2case1d.png)
 
 图 6. 管理节点负载均衡器
 
 5. 单击左侧的 **入站 NAT 规则** 选项卡，
 
-![Inbound NAT Rules](/1.11/img/dcos-azure-step2case1e.png)
+![Inbound NAT Rules](/cn/1.11/img/dcos-azure-step2case1e.png)
 
 图 7. 入站 NAT 规则
 
 6. 添加入站 NAT 规则。
 
-![Add Inbound NAT Rules](/1.11/img/dcos-azure-step2case1f.png)
+![Add Inbound NAT Rules](/cn/1.11/img/dcos-azure-step2case1f.png)
 
 图 8. 添加入站 NAT 规则
 
@@ -206,7 +206,7 @@ ssh azureuser@dcosmaster.westus.cloudapp.azure.com -L 8000:localhost:80
 
 现在您可以在本地机器上访问 `http://localhost:8000` 并查看 DC/OS 仪表板。
 
-![DC/OS dashboard](/1.11/img/dcos-gui.png)
+![DC/OS dashboard](/cn/1.11/img/dcos-gui.png)
 
 图 9. DC/OS 仪表板
 
@@ -242,7 +242,7 @@ dcos package search
 
 ## 卸下 DC/OS 群集
 
-如果在部署步骤中创建了新的资源组，就很容易卸下群集并释放所有资源：只需删除资源组即可。如果已将群集部署到现有资源组，您需要确定属于 DC/OS 群集的所有资源，并手动删除它们。
+如果在部署步骤中创建了新的资源组，就很容易卸下群集并释放所有资源：只需删除资源组即可。如果已将群集部署到现有资源组，您需要找到属于 DC/OS 群集的所有资源，并手动删除它们。
 
 ## 后续步骤
 

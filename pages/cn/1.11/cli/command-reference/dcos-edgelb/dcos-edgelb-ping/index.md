@@ -10,7 +10,7 @@ enterprise: true
 
 
 # 说明
-`dcos edgelb ping` 命令允许您测试 Edge-LB API 服务器的就绪情况。
+`dcos edgelb ping` 命令让您测试 Edge-LB API 服务器的就绪情况。
 
 # 使用
 
@@ -34,4 +34,4 @@ dcos edgelb ping [OPTIONS]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/1.11/cli/command-reference/dcos-edgelb/) | 管理 Edge-LB。|
+| [dcos edgelb](/cn/1.11/cli/command-reference/dcos-edgelb/) | 管理 Edge-LB。|

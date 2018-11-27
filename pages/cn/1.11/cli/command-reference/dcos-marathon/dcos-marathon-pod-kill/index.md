@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos marathon pod kill` 命令允许您终止一个或多个正在运行的 pod 实例。
+`dcos marathon pod kill` 命令让您终止一个或多个正在运行的 pod 实例。
 
 # 使用
 
@@ -32,5 +32,5 @@ dcos marathon pod kill <instance-ids> <pod-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 

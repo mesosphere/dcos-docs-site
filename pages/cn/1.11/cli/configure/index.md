@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-您可以使用 [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) 和 [dcos confi](/1.11/cli/command-reference/dcos-config/) 命令组访问 DC/OS CLI 配置。
+您可以使用 [dcos cluster](/cn/1.11/cli/command-reference/dcos-cluster/) 和 [dcos confi](/cn/1.11/cli/command-reference/dcos-config/) 命令组访问 DC/OS CLI 配置。
 
 
 # 配置 HTTP 代理
@@ -19,7 +19,7 @@ enterprise: false
 **前提条件**
 
 * `pip` 版本 7.1.0 或更高版本。
-* `http_proxy` 和 `https_proxy` 环境变量定义为使用 `pip`。
+* 定义 `http_proxy` 和 `https_proxy` 环境变量来使用 `pip`。
 
 若要为 CLI 配置代理：
 
