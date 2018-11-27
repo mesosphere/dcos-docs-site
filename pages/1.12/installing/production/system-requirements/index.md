@@ -8,28 +8,27 @@ excerpt: Hardware and software requirements for DC/OS  deployments
 
 render: mustache  
 ---
-A DC/OS cluster consists of two types of nodes **master nodes** and **agent nodes**.  The agent nodes can be either **public agent nodes** or **private agent nodes**. Public agent nodes provide north-south (external to internal) access to services in the cluster through load balancers. Private agents host the containers and services that are deployed on the cluster. In addition to the master and agent cluster nodes, each DC/OS installation includes a separate **bootstrap node** for file storage and distribution. Some of the hardware and software requirements apply to all nodes. Other requirements are specific to the type of node being deployed.
+A DC/OS cluster consists of two types of nodes **master nodes** and **agent nodes**.  The agent nodes can be either **public agent nodes** or **private agent nodes**. Public agent nodes provide north-south (external to internal) access to services in the cluster through load balancers. Private agents host the containers and services that are deployed on the cluster. In addition to the master and agent cluster nodes, each DC/OS installation includes a separate **bootstrap node** for DC/OS installation and upgrade files. Some of the hardware and software requirements apply to all nodes. Other requirements are specific to the type of node being deployed.
 
-# Hardware Prerequisites
+# Hardware prerequisites
 
 The hardware prerequisites are a single bootstrap node, Mesos master nodes, and Mesos agent nodes.
 
 ## Bootstrap node
 
-*  DC/OS installation is run on a Bootstrap node comprising of one node with two cores, 16 GB RAM and 60 GB HDD. 
+*  DC/OS installation is run on a single **Bootstrap node** with two cores, 16 GB RAM, and 60 GB HDD. 
 *  The bootstrap node is only used during the installation and upgrade process, so there are no specific recommendations for high performance storage or separated mount points.
 
 <p class="message--note"><strong>NOTE: </strong>The bootstrap node must be separate from your cluster nodes.</p>
 
-## Cluster nodes
-
-The cluster nodes are designated Mesos masters and agents during installation. The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
-
-DC/OS is installed to `/opt/mesosphere` on cluster nodes. The `/opt/mesosphere` directory can be created prior to installing DC/OS, but it must be either an empty directory or a link to an empty directory. DC/OS can be installed on a separate volume mount by creating an empty directory on the mounted volume, creating a link at `/opt/mesosphere` that targets the empty directory, and then installing DC/OS.
-
 <a name="CommonReqs">
 
-### All master and agent nodes in the cluster
+## All master and agent nodes in the cluster
+
+The DC/OS cluster nodes are designated Mesos masters and agents during installation. The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+
+When you install DC/OS on the cluster nodes, the required files are installed in the `/opt/mesosphere` directory. You can create the `/opt/mesosphere` directory prior to installing DC/OS, but it must be either an empty directory or a link to an empty directory. DC/OS can be installed on a separate volume mount by creating an empty directory on the mounted volume, creating a link at `/opt/mesosphere` that targets the empty directory, and then installing DC/OS.
+
 You should verify the following requirements for all master and agent nodes in the cluster:
 - Every node must have network access to a public Docker repository or to an internal Docker registry.
 - If the node operating system is RHEL 7 or CentOS 7, the `firewalld` daemon must be stopped and disabled. For more information, see [Disabling the firewall daemon on Red Hat or CentOS](#FirewallDaemon).
@@ -40,7 +39,7 @@ You should verify the following requirements for all master and agent nodes in t
 
 <a name="FirewallDaemon">
 
-#### Disabling the firewall daemon on Red Hat or CentOS
+### Disabling the firewall daemon on Red Hat or CentOS
 There is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that the `firewalld` process interacts poorly with Docker. For more information about this issue, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
 
 To stop and disable the `firewalld`, run the following command:
@@ -49,13 +48,13 @@ sudo systemctl stop firewalld && sudo systemctl disable firewalld
 ```
 <a name="StopDNSmasq">
 
-#### Stopping the DNSmasq process
+### Stopping the DNSmasq process
 The DC/OS cluster requires access to port 53. To prevent port conflicts, you should stop and disable the `dnsmasq` process by running the following command:
 ```bash
 sudo systemctl stop dnsmasq && sudo systemctl disable dnsmasq.service
 ```
 
-### Master node requirements
+## Master node requirements
 
 The following table lists the master node hardware requirements:
 
@@ -91,7 +90,7 @@ Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeep
   | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] | 
   | _/var/lib/dcos/exhibitor_ | Zookeeper database |
 
-### Agent node requirements
+## Agent node requirements
 
 The table below shows the agent node hardware requirements.
 
@@ -122,7 +121,7 @@ In addition to the requirements described in [All master and agent nodes in the 
    | _/var/lib/mesos/docker/store_ | Stores Docker image layers that are used to provision URC containers |
    | _/var/lib/docker_ | Stores Docker image layers that are used to provision Docker containers |
 
-### <a name="port-and-protocol"></a>Port and Protocol Configuration
+## <a name="port-and-protocol"></a>Port and protocol configuration
 
 -   Secure shell (SSH) must be enabled on all nodes.
 -   Internet Control Message Protocol (ICMP) must be enabled on all nodes.
@@ -138,23 +137,21 @@ Requirements for intermediaries (e.g., reverse proxies performing SSL terminatio
 - Upon detecting that its client goes away, the intermediary should also close the corresponding upstream TCP connection (i.e., the intermediary
 should not reuse upstream HTTP connections).
 
-### High Speed Internet Access
+## High-speed internet access
 
-High speed internet access is recommended for DC/OS installation. A minimum 10 MBit per second is required for DC/OS services. The installation of some DC/OS services will fail if the artifact download time exceeds the value of MESOS_EXECUTOR_REGISTRATION_TIMEOUT within the file `/opt/mesosphere/etc/mesos-slave-common`. The default value for MESOS_EXECUTOR_REGISTRATION_TIMEOUT is 10 minutes.
+High speed internet access is recommended for DC/OS installations. A minimum 10 MBit per second is required for DC/OS services. The installation of some DC/OS services will fail if the artifact download time exceeds the value of MESOS_EXECUTOR_REGISTRATION_TIMEOUT within the file `/opt/mesosphere/etc/mesos-slave-common`. The default value for MESOS_EXECUTOR_REGISTRATION_TIMEOUT is 10 minutes.
 
-# Software Prerequisites
+# Software prerequisites
 
-* Refer to [install_prereqs.sh](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) script for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.[enterprise type="inline" size="small" /]
+* Refer to the [install_prereqs.sh](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) script for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.[enterprise type="inline" size="small" /]
 
 * When using OverlayFS over XFS, the XFS volume should be created with the -n ftype=1 flag. Please see the [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.2_release_notes/technology-preview-file_systems) and [Mesos](http://mesos.apache.org/documentation/latest/container-image/#provisioner-backends) documentation for more details.
 
-## All Nodes
-
-### Docker
+## Docker requirements
 
 Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on [version policy page](https://docs.mesosphere.com/version-policy/).
 
-**Recommendations**
+### Recommendations
 
 - Do not use Docker `devicemapper` storage driver in `loop-lvm` mode. For more information, see [Docker and the Device Mapper storage driver](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/).
 
@@ -164,7 +161,7 @@ Docker must be installed on all bootstrap and cluster nodes. The supported Docke
 
 - Run Docker commands as the root user (with `sudo`) or as a user in the <a href="https://docs.docker.com/engine/installation/linux/centos/#create-a-docker-group" target="_blank">docker user group</a>.
 
-**Distribution-Specific Installation**
+### Distribution-specific installation
 
 Each Linux distribution requires Docker to be installed in a specific way:
 
@@ -229,7 +226,6 @@ To install these utilities on CentOS7 and RHEL7:
 ```bash
 sudo yum install -y tar xz unzip curl ipset
 ```
-
 
 ### Cluster permissions (production installation)
 
