@@ -8,7 +8,7 @@ enterprise: false
 
 ---
 
-使用 [dcos cluster] (/1.11/cli/command-reference/dcos-cluster) 命令连接到多个 DC/OS 群集。
+使用 [dcos cluster](/cn/1.11/cli/command-reference/dcos-cluster) 命令连接到多个 DC/OS 群集。
 
 `dcos cluster` 命令有子命令，用于设置连接并附加到群集以及重命名和删除群集。
 

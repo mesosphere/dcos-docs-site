@@ -5,7 +5,6 @@ title: 管理群集
 menuWeight: 60
 enterprise: true
 excerpt: 管理您的 DC/OS 群集
-enterprise: false
 
 ---
 

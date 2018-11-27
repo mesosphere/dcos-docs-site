@@ -20,7 +20,7 @@ enterprise: false
 * 可用于通过 SSH 认证群集节点的未加密 SSH 密钥。不支持加密的 SSH 密钥。
 
 ### <a name="unix"></a>在 Unix/Linux 上 SSH 至 DC/OS 群集（macOS、Ubuntu 等）
-**注意：** Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即使使用 Microsoft Azure 也是如此。
+<p class="message--note"><strong>注意: </strong> Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即使使用 Microsoft Azure 也是如此。</p>
 
 1. 使用 `chmod` 命令更改 `.pem` 文件权限为所有者读/写权限。
 
@@ -124,7 +124,7 @@ enterprise: false
 
  1. 启用 PuTTY 中的代理转发。
 
- **注意：** SSH 代理转发具有安全影响。只能添加您信任并且您打算用于代理转发的服务器。有关代理转发的详细信息，请参阅 <a href="https://developer.github.com/guides/using-ssh-agent-forwarding/" target="_blank">使用 SSH 代理转发。</a>
+ <p class="message--note"><strong>注意: </strong> SSH 代理转发具有安全影响。只能添加您信任并且您打算用于代理转发的服务器。有关代理转发的详细信息，请参阅 <a href="https://developer.github.com/guides/using-ssh-agent-forwarding/" target="_blank">使用 SSH 代理转发。</a>.</p>
 
  1. 打开 PuTTY。在 PuTTY 窗口左侧的 **类别** 窗格中，选择 **连接 > SSH > Auth**，然后选中 **允许代理转发** 框。
 

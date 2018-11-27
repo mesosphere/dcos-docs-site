@@ -70,11 +70,11 @@ CloudFormation 模板，大量公共区端口暴露于
 
 包括 AWS 负载均衡器的典型 AWS 部署如下所示：
 
-![安全区](/cn/1.11/img/security-zones.jpg)
+    ![安全区](/cn/1.11/img/security-zones.jpg)
 
-图 1. 安全区
+    图 1. 安全区
 
-Admin Router
+## Admin Router
 
 Admin Router 控制对管理区的访问。
 
