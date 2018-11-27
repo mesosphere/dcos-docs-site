@@ -45,10 +45,16 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 
 ### Installing the DC/OS CLI
 
+1. If you do not already have a working directory for the CLI, create one. The preferred location is `/usr/local/bin` and all the instructions will reference this path.
+
+    ```bash
+    [ -d usr/local/bin ] || sudo mkdir -p /usr/local/bin
+    ```
+
 1.  Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`).
 
     ```bash
-    curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.9/dcos
+    curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.9/dcos -o dcos
     ```
 
     **Important:** The CLI must be installed on a system that is external to your DC/OS cluster.
@@ -91,13 +97,25 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 
 ### Installing the DC/OS CLI
 
+1. If you do not already have a working directory for the CLI, create one. The preferred location is `/usr/local/bin` and all the instructions will reference this path.
+
+    ```bash
+    [ -d usr/local/bin ] || sudo mkdir -p /usr/local/bin
+    ```
+
 1.  Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`).
 
     ```bash
-    curl -O https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.9/dcos
+    curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.9/dcos -o dcos
     ```
 
     **Important:** The CLI must be installed on a system that is external to your DC/OS cluster.
+
+1.  Move the CLI binary to your local bin directory.
+
+    ```bash
+    sudo mv dcos /usr/local/bin
+    ```
 
 1.  Make the CLI binary executable.
 

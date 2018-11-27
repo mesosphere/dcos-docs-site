@@ -27,15 +27,13 @@ You can upgrade an existing DC/OS CLI installation to the latest build.
 1. Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`) by running the following command and replacing `<dcos-version>` with the version you want to use:
     
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-<dcos-version>/dcos
+    curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-<dcos-version>/dcos -o dcos
     ```
- 1. Save or copy the downloaded file to a working directory with network access to the nodes in the cluster. 
-    Keep in mind that the CLI must be installed on a host computer that is external to your DC/OS cluster. In most organizations, the CLI is installed on an administrative workstation.
 
-    For example:
+1.  Move the CLI binary to your local bin directory.
 
     ```bash
-    mkdir /usr/local/bin/dcos && cd /usr/local/bin/dcos
+    sudo mv dcos /usr/local/bin
     ```
 
 1. Open the file location and make the downloaded CLI binary file executable. 
