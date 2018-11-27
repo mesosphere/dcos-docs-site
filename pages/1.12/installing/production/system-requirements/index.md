@@ -170,19 +170,19 @@ Each Linux distribution requires Docker to be installed in a specific way:
 
 For more more information, see Docker's <a href="https://docs.docker.com/install/" target="_blank">distribution-specific installation instructions</a>.
 
-### Disable sudo password prompts
+## Disable sudo password prompts
 
-To disable the sudo password prompt you must add the following line to your `/etc/sudoers` file.
+To disable the `sudo` password prompt, you must add the following line to your `/etc/sudoers` file.
 
 ```bash
 %wheel ALL=(ALL) NOPASSWD: ALL
 ```
 
-Alternatively, you can SSH as the `root user`.
+Alternatively, you can SSH as the `root` user.
 
-### Enable NTP
+## Synchronize time for all nodes in the cluster
 
-Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can check if NTP is enabled by running one of these commands, depending on your OS and configuration:
+You must enable Network Time Protocol (NTP) on all nodes in the cluster for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can check if NTP is enabled by running one of these commands, depending on your OS and configuration:
 
 ```bash
 ntptime
@@ -199,7 +199,7 @@ Before installing DC/OS, you **must** ensure that your bootstrap node has the fo
 
 - The bootstrap node must be separate from your cluster nodes.
 
-### <a name="setup-file"></a>DC/OS Configuration file
+### <a name="setup-file"></a>DC/OS configuration file
 
 - Download and save the [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file. [enterprise type="inline" size="small" /]
 
