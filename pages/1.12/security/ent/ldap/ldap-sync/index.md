@@ -14,7 +14,7 @@ DC/OS Enterprise supports [directory-based authentication via LDAP](/1.12/securi
 
 In earlier versions of DC/OS Enterprise, LDAP Group Import and LDAP User Import were oneshot operations. If a user was removed from the external directory, that user would not be automatically removed from the DC/OS IAM. Similarly, if an “Engineers” user group was imported from the directory, any new user added to that group would have to be added explicitly to the DC/OS IAM. Keeping imported users and user groups synchronized between the DC/OS IAM and the directory was a laborious task for administrators of large organizations.
 
-In DC/OS Enterprise v1.12 we added automatic LDAP synchronization. This feature is enabled by default and run every 30 minutes. This feature is designed to keep IAM users, IAM user groups and the relations between them synchronized with their counterparts in the external directory.
+In DC/OS Enterprise v1.12 we added automatic LDAP synchronization. This feature is enabled by default and runs every 30 minutes. This feature is designed to keep IAM users, IAM user groups and the relations between them synchronized with their counterparts in the external directory.
 
 **A quick note on security:** LDAP synchronization occurs periodically. There are cases where you modify the external directory, e.g. to perform a permission revocation through modification of group membership or removal of user accounts. In some cases, these changes must be reflected in the DC/OS IAM within seconds, not minutes and therefore waiting for the next LDAP synchronization event is not an option. For these scenarios you will have to make the equivalent changes to the DC/OS IAM instead of waiting for the next LDAP synchronization event.
 
