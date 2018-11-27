@@ -28,6 +28,8 @@ If you install a service in permissive mode and do not specify a service account
 - [Enterprise DC/OS CLI 0.4.14 or later installed](/1.9/cli/enterprise-cli/#ent-cli-install).
 - If your [security mode](/1.9/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
+<a name="SetPermsOutsideCluster"></a>
+
 ## Set permissions for jobs running outside of the cluster
 You must set the following permissions if you want to execute a Spark job (`dcos spark run`) from outside of the DC/OS cluster:
 
@@ -139,6 +141,8 @@ Use the following curl commands to rapidly provision the Spark service account w
     curl -X PUT -k \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody/users/<service-account-id>/create
     ```
+
+If you are setting permissions to execute Spark jobs from outside of the DC/OS cluster, see [Set permissions for jobs running outside of the cluster](#SetPermsOutsideCluster).
 
 <a name="create-json"></a>
 
