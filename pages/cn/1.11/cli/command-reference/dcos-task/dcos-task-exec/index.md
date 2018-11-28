@@ -28,8 +28,8 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<args>`   |  Additional arguments to pass to the command (`<cmd>`). |
-| `<cmd>`   |  The command to run inside the remote task's container. For example: `/bin/bash`. |
+| `<args>`   |  传递给命令的其他参数 (`<cmd>`). |
+| `<cmd>`   |  在远程任务的容器内运行的命令。 例如: `/bin/bash`. |
 | `<task>` | 完整任务 ID，部分任务 ID 或正则表达式。|
 
 # 父命令

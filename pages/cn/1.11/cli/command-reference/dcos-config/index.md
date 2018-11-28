@@ -9,13 +9,13 @@ enterprise: false
 ---
 
 # 说明
-`dcos config` 命令让您管理您在运行 [dcos cluster setup] 时创建的 DC/OS 配置文件(/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup)。该配置文件位于：`~/.dcos/cluster/<cluster_id>/dcos.toml`. If you have not changed any configuration properties, you should see this output when you run `dcos config show`:
-
+`dcos config` 命令让您管理您在运行 [dcos cluster setup](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup) 时创建的 DC/OS 配置文件。该配置文件位于：`~/.dcos/cluster/<cluster_id>/dcos.toml`. 如果您尚未更改任何配置属性, 你应该在运行时看到这个输出 `dcos config show`:
+```
  cluster.name <cluster_name>
  core.dcos_acs_token ********
  core.dcos_url <cluster_url>
  core.ssl_verify `true` or `false`
-
+```
 
 ## 环境变量
 配置属性具有相应的环境变量。如果属性位于 `core` 部分（例如，`core.foo`)，它与环境变量`DCOS_FOO`对应。所有其他属性（例如，`foo.bar`）与环境变量 `DCOS_FOO_BAR`对应。环境变量优先于相应的配置属性。

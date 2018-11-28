@@ -30,7 +30,7 @@ dcos cluster attach [<connected-cluster-name> | <linked-cluster-name> | <connect
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos cluster]](/cn/1.11/cli/command-reference/dcos-cluster/) | 管理与 DC/OS 群集的连接。 |
+| [dcos cluster](/cn/1.11/cli/command-reference/dcos-cluster/) | 管理与 DC/OS 群集的连接。 |
 
 # 示例
 有关示例，请参阅 [群集连接](/cn/1.11/administering-clusters/multiple-clusters/cluster-connections/) 和 [群集链接](/cn/1.11/administering-clusters/multiple-clusters/cluster-links/)。

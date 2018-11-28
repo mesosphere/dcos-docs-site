@@ -26,7 +26,7 @@ dcos marathon pod kill <instance-ids> <pod-id> [OPTION]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `<instance-ids>` | 一个或多个 pod 实例 ID 的列表，以空格分隔。|
-| `<pod-id>`   |  The pod ID. You can view a list of the pod IDs with the `dcos marathon pod list` 命令。|
+| `<pod-id>`   |  pod ID。 您可以使用以下命令查看pod ID列表 `dcos marathon pod list` 命令。|
 
 # 父命令
 

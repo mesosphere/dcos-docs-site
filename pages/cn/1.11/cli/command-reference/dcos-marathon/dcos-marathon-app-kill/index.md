@@ -29,7 +29,7 @@ dcos marathon app kill <app-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<app-id>`   |   The application ID. You can view a list of the application IDs with the `dcos marathon group list` 命令。|
+| `<app-id>`   |   应用程序ID。 您可以使用以下命令查看应用程序ID列表 `dcos marathon group list` 命令。|
 
 # 父命令
 

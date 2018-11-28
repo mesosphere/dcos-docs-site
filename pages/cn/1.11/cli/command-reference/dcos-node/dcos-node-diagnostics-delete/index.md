@@ -26,7 +26,7 @@ dcos node diagnostics delete <bundle> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<bundle>`   |   The bundle filename. For example, `bundle-2017-02-01T00:33:48-110930856.zip`. |
+| `<bundle>`   |   包文件名。 例如， `bundle-2017-02-01T00:33:48-110930856.zip`. |
 
 # 父命令
 
