@@ -53,11 +53,7 @@ enterprise: false
     curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.11/dcos
     ```
 
-    <table class=“table” bgcolor=#858585>
-    <tr> 
-    <td align=justify style=color:white><strong>重要信息：</strong>CLI 必须安装在 DC/OS 集群外部的系统上。</td> 
-    </tr> 
-    </table>
+    <p class="message--important"><strong>重要信息：</strong>CLI 必须安装在 DC/OS 集群外部的系统上。</p>
 
 1. 将 CLI 二进制文件移动到本地 bin 目录。
 

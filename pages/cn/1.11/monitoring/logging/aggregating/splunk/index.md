@@ -13,11 +13,8 @@ enterprise: false
 
 这些说明是基于 CentOS，可能极大地不同于与其他 Linux 系统分配。
 
-<table class=“table” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>代理节点 Splunk 转发器配置要求任务将日志写入 `stdout` 和 `stderr`。某些 DC/OS 服务（包括 Cassandra 和 Kafka）不会将日志写入 `stdout` 和 `stderr`。如果要记录这些服务，您必须自定义代理节点 Splunk 转发器配置。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>代理节点 Splunk 转发器配置要求任务将日志写入 <tt>stdout</tt> 和 <tt>stderr</tt>。某些 DC/OS 服务（包括 Cassandra 和 Kafka）不会将日志写入 <tt>stdout</tt> 和 <tt>stderr</tt>。如果要记录这些服务，您必须自定义代理节点 Splunk 转发器配置。</p> 
+
 
 **先决条件**
 

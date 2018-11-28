@@ -25,11 +25,8 @@ enterprise: false
 
 1. 如果匹配的邀约不符合服务或 Pod 的要求和约束，Marathon 将无法启动该服务或 Pod。
 
-  <table class=“table” bgcolor=#7d58ff>
-  <tr> 
-    <td align=justify style=color:white><strong>注意：</strong>必须在单个主机上提供所需的全部资源。</td> 
-  </tr> 
-  </table>
+  <p class="message--note"><strong>注意：</strong>必须在单个主机上提供所需的全部资源。</p> 
+ 
 
 # 为什么服务或 Pod 被卡住
 

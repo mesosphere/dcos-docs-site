@@ -19,11 +19,8 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
 
 模板一起用于创建 DC/OS 集群。驱动这些模板的是 AWS CloudFormation 用于创建每个堆栈的参数。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>此安装方法不支持升级。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>此安装方法不支持升级。</p> 
+
 
 ## 先决条件
 
@@ -249,11 +246,8 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 * 状态从 `CREATE_IN_PROGRESS` 变为 `CREATE_COMPLETE`。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅“事件”选项卡。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅“事件”选项卡。</p> 
+
 
 # 启动 DC/OS
 
@@ -263,7 +257,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 1. 单击 **输出**选项卡，复制/粘贴 Mesos 管理节点主机名，打开 DC/OS Web 界面。该界面在标准 HTTP 端口 80 上运行，因此无需在主机名后指定端口号。
 
- **注意：** 可能需要调整窗口大小以查看此选项卡。可以随时在<a href="https://console.aws.amazon.com/cloudformation/home" target="_blank"> AWS CloudFormation 管理</a>页面找到 DC / OS 主机名。
+ <p class="message--note"><strong>注意：</strong> 可能需要调整窗口大小以查看此选项卡。可以随时在<a href="https://console.aws.amazon.com/cloudformation/home" target="_blank"> AWS CloudFormation 管理</a>页面找到 DC / OS 主机名。</p>
 
  ![Monitor stack creation](/cn/1.11/img/dcos-aws-step3a.png)
 
@@ -271,11 +265,8 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 1. 单击 **登录到 DC/OS**。
 
-    <table class=“table” bgcolor=#858585>
-    <tr> 
-    <td align=justify style=color:white><strong>重要信息：</strong>单击“登录到 DC/OS”，浏览器就会显示您的连接不安全的警告。这是因为 DC/OS 使用自签名证书。可以忽略该错误，然后单击以继续。</td> 
-    </tr> 
-    </table>
+    <p class="message--important"><strong>重要信息：</strong>单击“登录到 DC/OS”，浏览器就会显示您的连接不安全的警告。这是因为 DC/OS 使用自签名证书。可以忽略该错误，然后单击以继续。</p> 
+    
 
  ![UI installer success](/cn/1.11/img/gui-installer-success-ee.gif)
 
@@ -283,7 +274,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 1. 输入超级用户帐户的用户名和密码。
 
- **注意：** 默认用户名为 `bootstrapuser`，默认密码为 `deleteme`。
+ <p class="message--note"><strong>注意：</strong> 默认用户名为 <tt>bootstrapuser</tt>，默认密码为 <tt>deleteme</tt>。</p>
 
  ![alt text](/cn/1.11/img/ui-installer-auth2.png)
 

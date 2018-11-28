@@ -8,7 +8,7 @@ excerpt: 使用 DC/OS 隧道通过代理和 VPN 访问您的集群
 enterprise: false
 ---
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>重要信息：</b>DC/OS 隧道适用于开发、调试和测试。请勿在生产中使用 DC/OS 隧道。Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即便是使用 Microsoft Azure 时。</td> </tr> </table>
+<p class="message--important"><strong>重要信息：</strong>DC/OS 隧道适用于开发、调试和测试。请勿在生产中使用 DC/OS 隧道。Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即便是使用 Microsoft Azure 时。</p>
 
 在 DC/OS 上开发服务时，您可能会发现通过 SOCKS 代理、HTTP 代理或 VPN，有助于在本地机器访问集群。例如，您可以在自己的开发环境中工作，并立即针对您的 DC/OS 集群进行测试。
 

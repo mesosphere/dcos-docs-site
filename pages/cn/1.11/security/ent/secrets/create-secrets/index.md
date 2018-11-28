@@ -95,8 +95,4 @@ enterprise: true
   dcos security secrets create -f my-secret.txt developer/my-secret
   ```
 
-<table class=“table” bgcolor=#858585>
-    <tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>密钥的最大文件大小约为 1 MB减去密钥存储库元数据的大约 1 KB。</td> 
-    </tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>密钥的最大文件大小约为 1 MB减去密钥存储库元数据的大约 1 KB。</p>

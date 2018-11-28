@@ -11,11 +11,7 @@ enterprise: true
 
 您可以通过使用 Marathon 群组进行作业和服务，控制用户对任务日志的访问。然后，您可以分配访问这些群组的权限，从而让您可以控制用户可以访问哪些日志。
 
-<table class=“table” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>本文档所述的功能仅在严格安全模式下可用。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>本文档所述的功能仅在严格安全模式下可用。</p>
 
 
 在此过程中，您将在单独的 Marathon 群组中部署服务，并授予用户权限以查看这些 Marathon 群组的任务。

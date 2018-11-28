@@ -68,11 +68,8 @@ DC/OS 任务日志的文件系统路径包含代理 ID、框架 ID 和执行器 
 
 以下是一些查询模板示例。使用集群中的实际值替换模板参数 `$executor1`、`$framework2`，以及任何其他内容。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>提醒：</strong>请勿更改这些示例中的引号，否则查询将不起作用。如果您创建自定义查询，请注意布局引号。</td> 
-</tr> 
-</table>
+<p class="message--note"><strong>注意：</strong>请勿更改这些示例中的引号，否则查询将不起作用。如果您创建自定义查询，请注意布局引号。</p> 
+
 
 * 与特定执行器相关的日志 `$executor1`，包括从该执行器运行的任务的日志：
 
