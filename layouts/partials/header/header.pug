@@ -1,11 +1,3 @@
-- var paths = path.split('/')
-- var semanticVersion = /^[0-9]+\.[0-9]+/
-- var pages = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
-- var sectionTitle = 'DC/OS Docs'
-
-if paths[0] === 'services'
-  - sectionTitle = 'Service Docs'
-
 header(class='header')
   a(class='header__drawer')
     i(class='header__icon', data-feather='menu')
@@ -23,7 +15,7 @@ header(class='header')
           if(val.menuWeight !== -1)
             - var itemClass = {}
             - itemClass['header__menu-item'] = true
-            - itemClass['header__menu-item--active'] = (val.path == '/' && semanticVersion.test(paths[0])) || (val.path != '/' && ('/' + path).includes(val.path))
+            - itemClass['header__menu-item--active'] = isItemActive(val.path)
             li(class=itemClass)
               a(href=val.path)!= val.title
         li(class='header__menu-item')

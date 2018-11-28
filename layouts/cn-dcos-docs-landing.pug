@@ -1,7 +1,7 @@
 - var paths = path.split('/')
 - var semanticVersion = /^[0-9]\.[0-9].*$/
 - var latestDocs = hierarchy.children.find(el => el.path === `/cn`).children.find(el => el.path === `/cn/1.11`)
-- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
+- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('cn-header') != -1)
 - var sectionTitle = 'DC/OS Docs'
 
 if paths[1] === 'services'
@@ -67,7 +67,7 @@ html(lang='en')
                 if(val.menuWeight !== -1)
                   - var itemClass = {}
                   - itemClass['header__menu-item'] = true
-                  - itemClass['header__menu-item--active'] = val.path == '/'
+                  - itemClass['header__menu-item--active'] = val.path == '/cn'
                   li(class=itemClass)
                     a(href=val.path)!= val.title
               li(class='header__menu-item')

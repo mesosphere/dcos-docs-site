@@ -77,7 +77,7 @@ html(lang='en')
             label(class='header__search-label', for='header-search-input')
               i(class='header__icon', data-feather='search')
             input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
-      include partials/header-dropdown.pug
+      include partials/header/header-dropdown.pug
       div(class='landing__hero')
         form(class='landing__search', action='/search/', method='GET')
           input(class='landing__search-input', id='landing-search-input', placeholder='Search documentation', tabindex='1', type='text', name='q')

@@ -1,0 +1,18 @@
+- var semanticVersion = /^[0-9]+\.[0-9]+/
+- var pages = hierarchy.find('menus').filter(page => page.menus.indexOf('cn-header') != -1)
+- var sectionTitle = 'Chinese DC/OS Docs'
+
+- function isItemActive(itemPath)
+  - console.log(itemPath)
+  - console.log(path)
+  if itemPath == '/cn'
+    if path == '/cn'
+      - return true
+    - return semanticVersion.test(paths[1])
+  else
+    - return `/${path}`.startsWith(itemPath)
+
+if paths[1] === 'services'
+  - sectionTitle = 'Chinese Service Docs'
+
+include header.pug
