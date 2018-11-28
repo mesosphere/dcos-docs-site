@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Kubernetes 2.0.0-1.12.1
-title: Kubernetes 2.0.0-1.12.1
-menuWeight: 30
+navigationTitle: Kubernetes 2.1.0-1.12.3
+title: Kubernetes 2.1.0-1.12.3
+menuWeight: 10
 excerpt:
 ---
 
