@@ -316,7 +316,7 @@ enterprise: true
 
       图 8. 添加权限
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/1.11/security/ent/#security-modes)。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式](/1.11/security/ent/#security-modes)选择权限字符串。
 
  ### 已禁用
  此模式不提供细粒度控制。
@@ -383,45 +383,45 @@ enterprise: true
 
 - **DC/OS 组访问：**
 
-      向用户授予以下权限 `uid`。
+   向用户授予以下权限 `uid`。
 
-      ```bash
-      dcos security org users grant <uid> dcos:adminrouter:service:marathon full
-      dcos security org users grant <uid> dcos:service:marathon:marathon:services:/group full --description "Controls access to a service, job, service group, or job group named group"
-      ```
+   ```bash
+   dcos security org users grant <uid> dcos:adminrouter:service:marathon full
+   dcos security org users grant <uid> dcos:service:marathon:marathon:services:/group full --description "Controls access to a service, job, service group, or job group named group"
+   ```
 
 - **组任务和日志：**
 
-      向用户授予以下权限 `uid`。
+   向用户授予以下权限 `uid`。
 
-       ```bash
-       dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
-       dcos security org users grant <uid> dcos:adminrouter:ops:slave full
-       ```
+   ```bash
+   dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
+   dcos security org users grant <uid> dcos:adminrouter:ops:slave full
+   ```
 
 ### 严格
 
 - **DC/OS 组访问：**
 
- 1. 向用户授予以下权限 `uid`。
+   向用户授予以下权限 `uid`。
 
-       ```bash
-       dcos security org users grant <uid> dcos:adminrouter:service:marathon full
-       dcos security org users grant <uid> dcos:service:marathon:marathon:services:/group full --description "Controls access to a service, job, service group, or job group named group"
-       ```
+   ```bash
+   dcos security org users grant <uid> dcos:adminrouter:service:marathon full
+   dcos security org users grant <uid> dcos:service:marathon:marathon:services:/group full --description "Controls access to a service, job, service group, or job group named group"
+   ```
 
 - **组任务和日志：**
 
- 1. 向用户授予以下权限 `uid`。
+   向用户授予以下权限 `uid`。
 
-       ```bash
-       dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
-       dcos security org users grant <uid> dcos:adminrouter:ops:slave full
-       dcos security org users grant <uid> dcos:mesos:agent:executor:app_id:/group read --description "Controls access to executors of a service, job, service group, or job group named group"
-       dcos security org users grant <uid> dcos:mesos:agent:framework:role:slave_public read --description "Controls access to information about frameworks registered under the slave_public role"
-       dcos security org users grant <uid> dcos:mesos:agent:sandbox:app_id:/group read --description "Controls access to the sandbox data of a service, job, service group, or job group named group"
-       dcos security org users grant <uid> dcos:mesos:agent:task:app_id:/group read --description "Controls access to tasks of a service, job, service group, or job group named group"
-       dcos security org users grant <uid> dcos:mesos:master:executor:app_id:/group read --description "Controls access to executors running inside a service, job, service group, or job group named group"
-       dcos security org users grant <uid> dcos:mesos:master:framework:role:slave_public read --description "Controls access to frameworks registered with the slave_public role"
-       dcos security org users grant <uid> dcos:mesos:master:task:app_id:/group read --description "Controls access to tasks of a service, job, service group, or job group named group"
-       ```
+   ```bash
+   dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
+   dcos security org users grant <uid> dcos:adminrouter:ops:slave full
+   dcos security org users grant <uid> dcos:mesos:agent:executor:app_id:/group read --description "Controls access to executors of a service, job, service group, or job group named group"
+   dcos security org users grant <uid> dcos:mesos:agent:framework:role:slave_public read --description "Controls access to information about frameworks registered under the slave_public role"
+   dcos security org users grant <uid> dcos:mesos:agent:sandbox:app_id:/group read --description "Controls access to the sandbox data of a service, job, service group, or job group named group"
+   dcos security org users grant <uid> dcos:mesos:agent:task:app_id:/group read --description "Controls access to tasks of a service, job, service group, or job group named group"
+   dcos security org users grant <uid> dcos:mesos:master:executor:app_id:/group read --description "Controls access to executors running inside a service, job, service group, or job group named group"
+   dcos security org users grant <uid> dcos:mesos:master:framework:role:slave_public read --description "Controls access to frameworks registered with the slave_public role"
+   dcos security org users grant <uid> dcos:mesos:master:task:app_id:/group read --description "Controls access to tasks of a service, job, service group, or job group named group"
+   ```
