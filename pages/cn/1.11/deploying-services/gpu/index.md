@@ -16,7 +16,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 
 ## 配备 GPU 的自定义 DC/OS 安装
 
 1. 在每个具有 GPU 的群集节点上安装 [NVIDIA 管理库 (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml)。所需的 NVIDIA 驱动程序最低版本为 340.29。如需详细的安装说明，请参阅 [Mesos GPU 支持文档](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies)。
-1. 使用 [自定义高级安装说明] 安装 DC/OS (/1.11/installing/production/deploying-dcos/installation/)。以下是 GPU 专有的配置参数：
+1. 使用 [自定义高级安装说明](/1.11/installing/production/deploying-dcos/installation/) 安装 DC/OS 。以下是 GPU 专有的配置参数：
 
  - **enable_gpu_isolation**：指示是否在 DC/OS 中启用 GPU 支持。默认设置为 `enable_gpu_isolation: 'true'`。
  - **gpus_are_scarce**：指示是否将 GPU 作为群集中的稀缺资源。默认设置为 `gpus_are_scarce: 'true'`，这意味着 DC/OS 仅为配置为占用 GPU 资源的服务保留 GPU 节点。值得注意的是，此设置将影响在 DC/OS 的哪些代理节点部署 GPU 感知框架。此设置不影响框架在运行时可能启动的具体+任务。框架可以在有 GPU 的代理节点上安排非 GPU 任务。
@@ -26,7 +26,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 
 ## 带有 GPU 的 AWS EC2 DC/OS 安装
 
 ## 先决条件
-- AWS DC/OS 高级模板 [系统要求](cn/1.11/install/evaluation/cloud-installation/aws/advanced/)。
+- AWS DC/OS 高级模板 [系统要求](cn/1.11/installing/evaluation/cloud-installation/aws/advanced/)。
 - 复制到本地机器的 `zen.sh` 脚本。脚本和说明在 [此处](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/)。
 
 ### 创建依赖关系
@@ -37,36 +37,32 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 
    bash ./zen.sh <stack-name>
    ```
 
-    <table class=“table” bgcolor=#858585>
-    <tr> 
-    <td align=justify style=color:white><strong>重要信息：</strong>执行后续步骤前，必须运行“zen.sh”脚本。</td> 
-    </tr> 
-    </table>
+   <p class="message--important"><strong>重要信息：</strong>执行后续步骤前，必须运行“zen.sh”脚本。</p>
 
-1. 按照 [此处] 的说明 (1.11/install/evaluation/cloud-installation/aws/advanced/) 使用高级 AWS 模板创建群集，并使用以下 GPU 特定配置。
+1. 按照 [此处](1.11/installing/evaluation/cloud-installation/aws/advanced/) 的说明  使用高级 AWS 模板创建群集，并使用以下 GPU 特定配置。
 
-1. 在 **创建堆栈** > **指定详情**页面指定您的堆栈信息并单击 **下一步**。以下是 GPU 特定设置。
+1. 在 **Create Stack > Specify Details**页面指定您的堆栈信息并单击 **Next**。以下是 GPU 特定设置。
 
- - **自定义 AMI** - 为您所在地区指定自定义 AMI：
+      - **CustomAMI** - 为您所在地区指定自定义 AMI：
 
- - us-west-2：`ami-d54a2cad`
- - us-east-1：`ami-5f5d1449`
- - ap-southeast-2：`ami-0d50476e`
+         - us-west-2：`ami-d54a2cad`
+         - us-east-1：`ami-5f5d1449`
+         - ap-southeast-2：`ami-0d50476e`
 
- - **MasterInstanceType** - 接受默认管理实例类型（例如 `m3.xlarge`）。
- - **PrivateAgentInstanceType** - 指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如 `g2.2xlarge`）。
- - **PublicAgentInstanceType** - 指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如 `g2.2xlarge`）。
+      - **MasterInstanceType** - 接受默认管理实例类型（例如 `m3.xlarge`）。
+      - **PrivateAgentInstanceType** - 指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如 `g2.2xlarge`）。
+      - **PublicAgentInstanceType** - 指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如 `g2.2xlarge`）。
 
-1. 在 **选项** 页面，接受默认值，然后单击 **下一步**。在有故障时回滚。默认情况下，此选项设置为 **是**。
+1. 在 **Options** 页面，接受默认值，然后单击 **Next**。在有故障时回滚。默认情况下，此选项设置为 **Yes**。
 
-1. 在 **查看** 页面勾选确认框，然后单击 **创建**。如果显示 **创建新堆栈** 页面，要么是 AWS 仍在处理您的请求，要么就是您查看的是另一个分域。导航至正确的分域并刷新页面以查看您的堆栈。
+1. 在 **Review** 页面勾选确认框，然后单击 **Create**。如果显示 **Create New Stack** 页面，要么是 AWS 仍在处理您的请求，要么就是您查看的是另一个分域。导航至正确的分域并刷新页面以查看您的堆栈。
 
 # 在您的应用程序中使用 GPU
 
 可以通过 `gpus` 参数在应用定义中指定 GPU。
 
 - 只能在应用程序定义中指定整数数量的 GPU。如果选中分数数量，启动任务后就会造成 `TASK_ERROR`。
-- NVIDIA GPU 支持仅适用于使用 [DC/OS 通用容器运行时间] 启动的任务(/1.11/deploying-services/containerizers/)。
+- NVIDIA GPU 支持仅适用于使用 [DC/OS 通用容器运行时间](/1.11/deploying-services/containerizers/) 启动的任务。
 
 # 示例
 
@@ -94,21 +90,21 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 
     dcos marathon app add simple-gpu-test.json
     ```
 
- 服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/cn/1.11/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务 **运行状况** 页面访问日志。
+   服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/cn/1.11/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务 **Health** 页面访问日志。
 
- ```bash
+   ```bash
     +------------------------------------------------------+
- | NVIDIA-SMI 352.79 Driver Version: 352.79 |
+    | NVIDIA-SMI 352.79     Driver Version: 352.79         |
     |-------------------------------+----------------------+----------------------+
- | GPU Name Persistence-M| Bus-Id Disp.A | Volatile Uncorr. ECC |
- | Fan Temp Perf Pwr:Usage/Cap| Memory-Usage | GPU-Util Compute M. |
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
     |===============================+======================+======================|
- | 0 Tesla M60 Off | 0000:04:00.0 Off | 0 |
- | N/A 34C P0 39W / 150W | 34MiB / 7679MiB | 0% Default |
+    |   0  Tesla M60           Off  | 0000:04:00.0     Off |                    0 |
+    | N/A   34C    P0    39W / 150W |     34MiB /  7679MiB |      0%      Default |
     +-------------------------------+----------------------+----------------------+
     ```
 
- 您还将在服务的 **配置** 选项卡上看到 DC/OS  GUI 的 **GPU** 条目。
+   您还将在服务的 **Configuration** 选项卡上看到 DC/OS  GUI 的 **GPU** 条目。
 
 ## 基于 Docker 的应用定义
 在本示例中部署了一个具有 GPU 的应用程序，用于指定 Docker 容器和 [DC/OS 通用容器运行时间 (UCR)](/cn/1.11/deploying-services/containerizers/) （容器类型为 `MESOS`）。
@@ -140,21 +136,22 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 
     dcos marathon app add docker-gpu-test.json
     ```
 
- 服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/cn/1.11/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务 **运行状况** 页面访问日志。
+   服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/cn/1.11/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务 **Health** 页面访问日志。
 
-    ```
-    +------------------------------------------------------+
- | NVIDIA-SMI 352.79 Driver Version: 352.79 |
-    |-------------------------------+----------------------+----------------------+
- | GPU Name Persistence-M| Bus-Id Disp.A | Volatile Uncorr. ECC |
- | Fan Temp Perf Pwr:Usage/Cap| Memory-Usage | GPU-Util Compute M. |
-    |===============================+======================+======================|
- | 0 Tesla M60 Off | 0000:04:00.0 Off | 0 |
- | N/A 34C P0 39W / 150W | 34MiB / 7679MiB | 0% Default |
-    +-------------------------------+----------------------+----------------------+
-    ```
 
- 您还将在服务页面的 **配置** 选项卡上看到 **GPU** 条目。
+   ```
+   +------------------------------------------------------+
+   | NVIDIA-SMI 352.79     Driver Version: 352.79         |
+   |-------------------------------+----------------------+----------------------+
+   | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+   | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+   |===============================+======================+======================|
+   |   0  Tesla M60           Off  | 0000:04:00.0     Off |                    0 |
+   | N/A   34C    P0    39W / 150W |     34MiB /  7679MiB |      0%      Default |
+   +-------------------------------+----------------------+----------------------+
+   ```
+
+   您还将在服务页面的 **Configuration** 选项卡上看到 **GPU** 条目。
 
 ## 详细了解 GPU
 

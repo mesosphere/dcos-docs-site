@@ -30,7 +30,7 @@ enterprise: false
 ## DC/OS CLI
 使用此程序从 DC/OS 命令行配置 UCR 的容器。
 
-1. 在 [Marathon 应用定义](/cn/1.11/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `MESOS`。在这里，我们指定一个有着 `docker` 对象的 Docker 容器。UCR 提供可选的 `pullConfig` 参数以使您能够[对专用 Docker 注册表进行身份认证](/cn/1.11/deploying-services/private-docker-registry/)。
+在 [Marathon 应用定义](/cn/1.11/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `MESOS`。在这里，我们指定一个有着 `docker` 对象的 Docker 容器。UCR 提供可选的 `pullConfig` 参数以使您能够[对专用 Docker 注册表进行身份认证](/cn/1.11/deploying-services/private-docker-registry/)。
 
 ```json
 {
@@ -80,15 +80,11 @@ enterprise: false
 }
 ```
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>如果您将“args”字段留空，默认入口点将是容器的启动命令。如果您的容器没有默认入口点，则须在“args”字段中指定命令。如果不这样做，您的服务将无法部署。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>如果您将“args”字段留空，默认入口点将是容器的启动命令。如果您的容器没有默认入口点，则须在“args”字段中指定命令。如果不这样做，您的服务将无法部署。</p>
 
 # 容器镜像垃圾收集
 
-对于长时间运行的群集，容器镜像可能占用代理机器上的磁盘空间。为了改善操作员使用 UCR 的体验，从 Mesos 1.5.0 开始的文档会介绍容器镜像 GC（请阅读 Mesos 文档(http://mesos.apache.org/documentation/latest/container-image/#garbage-collect-unused-container-images) 以获取更多详细信息）。镜像 GC 在 DC/OS 中默认是自动的，而操作员可以手动启用。
+对于长时间运行的群集，容器镜像可能占用代理机器上的磁盘空间。为了改善操作员使用 UCR 的体验，从 Mesos 1.5.0 开始的文档会介绍容器镜像 GC[请阅读 Mesos 文档](http://mesos.apache.org/documentation/latest/container-image/#garbage-collect-unused-container-images) 以获取更多详细信息）。镜像 GC 在 DC/OS 中默认是自动的，而操作员可以手动启用。
 
 ## [自动镜像 GC](http://mesos.apache.org/documentation/latest/container-image/#automatic-image-gc-through-agent-flag)
 
