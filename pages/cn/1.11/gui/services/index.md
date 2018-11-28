@@ -24,7 +24,7 @@ excerpt: 使用“服务”菜单
 
 对于带有 Web 界面的服务，将鼠标悬停在服务名称上并单击 ![open service](/cn/1.11/img/open-service.png) 查看服务。
 
-**注意：** 可以在 ` 访问 Mesos Web 界面<hostname>/mesos`。
+<p class="message--note"><strong>注意：</strong>可以在 ` 访问 Mesos Web 界面<hostname>/mesos`。</p>
 
 # 服务状态
 
