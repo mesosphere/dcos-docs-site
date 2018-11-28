@@ -9,9 +9,9 @@ oss: true
 
 可以使用 Terraform 在 Packet 裸机上创建 DC/OS 集群。随附的 Terraform 模板为在 Packet 上运行 Mesosphere DC/OS 而设置。根据安装的 DC/OS 服务或工作负载所需的计算量，可能须要修改模板才能满足需求。可以修改 Terraform 模板，但 Mesosphere 不能协助完成故障排除。如需支持，请发送电子邮件至 help@packet.net，访问 Packet IRC 渠道（#packethost on freenode）或考虑 [DC/OS Enterprise](https://mesosphere.com/)。
 
-**免责声明：请注意，这是 [社区推动的项目](https://github.com/dcos/terraform-dcos/tree/master/gcp)，未正式获得 Mesosphere 支持。**
+<p class="message--warning"><strong>免责声明：</strong>请注意，这是 <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">社区推动的项目</a>，未正式获得 Mesosphere 支持。</p>
 
-**注意：** 此安装方法不支持升级。
+<p class="message--note"><strong>注意: </strong> 此安装方法不支持升级。</p>
 
 
 ## 硬件
@@ -36,7 +36,7 @@ oss: true
 
 ## 安装 DC/OS
 
-**注意：** 使用此方法就会默认打开网络。因此网络安全令人担忧，管理员应尽快解决。
+<p class="message--note"><strong>注意: </strong> 使用此方法就会默认打开网络。因此网络安全令人担忧，管理员应尽快解决。</p>
 
 1. 使用“先决条件”部分提供的链接上的说明下载和安装 Terraform。
 
@@ -62,16 +62,16 @@ oss: true
 
  以下字段具有默认值，可根据您的要求进行更改：
 
- - `packet_facility` -  Packet 设施：[ewr1|sjc1|ams1]
- ewr1 is New Jersey, ams1 is Amsterdam, sjc1 is San Jose - default sjc1
+ - `packet_facility` -  Packet 设施：`ewr1|sjc1|ams1` 
+ ewr1 是 New Jersey, ams1 是 Amsterdam, sjc1 是 San Jose - default 是 sjc1
 
- - `packet_agent_type` - 用于 DC/OS 代理的 Packet 服务器类型：[`baremetal_0`|baremetal_1|baremetal_3]
+ - `packet_agent_type` - 用于 DC/OS 代理的 Packet 服务器类型：`baremetal_0|baremetal_1|baremetal_3`
  选择用于 DC/OS 专用代理的 Packet 服务器类型——默认为 `baremetal_0`
 
- - `packet_master_type` - 用于 DC/OS 管理节点的 Packet 服务器类型：[`baremetal_0`|baremetal_1|baremetal_3]
+ - `packet_master_type` - 用于 DC/OS 管理节点的 Packet 服务器类型：`baremetal_0|baremetal_1|baremetal_3`
  选择用于 DC/OS 管理节点的 Packet 服务器类型——默认为 `baremetal_0`
 
- - `packet_boot_type` - 用于 DC/OS 引导节点的 Packet 服务器类型：[`baremetal_0`|baremetal_1|baremetal_3]
+ - `packet_boot_type` - 用于 DC/OS 引导节点的 Packet 服务器类型：`baremetal_0`baremetal_1|baremetal_3`
  选择用于 DC/OS 引导服务器的 Packet 服务器类型——默认为 `baremetal_0`
 
  - `dcos_cluster_name` - DC/OS 集群的名称——默认为 `packet-dcos`
@@ -80,9 +80,9 @@ oss: true
 
  - `dcos_public_agent_count` - 要部署的公共代理数——默认为一个
 
- - `dcos_init_pubkey` - 在第 4 步中创建的 ssh 公钥路径——默认为 ./packet-key.pub
+ - `dcos_init_pubkey` - 在第 4 步中创建的 ssh 公钥路径——默认为 `./packet-key.pub`
 
- - `key_file_path` - 在第 4 步中创建的 ssh 私钥路径——默认为 ./packet-key
+ - `key_file_path` - 在第 4 步中创建的 ssh 私钥路径——默认为 `./packet-key`
 
 5. 还是在这一目录中运行 `terraform apply`，将服务器部署到您在 Packet 的项目中，并运行 DC/OS 安装程序。完成后，您将看到和以下内容相似，但带有分配给您服务器的 IP 地址的输出：
 

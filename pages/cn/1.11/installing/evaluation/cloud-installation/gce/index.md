@@ -11,13 +11,13 @@ oss: true
 
 在 GCE 上部署 OSS DC/OS 集群的推荐方式是使用 [Terraform](#terraform)。
 
-**免责声明：请注意，这是 [社区推动的项目](https://github.com/dcos/terraform-dcos/tree/master/gcp)，未正式获得 Mesosphere 支持。**
+<p class="message--warning"><strong>免责声明：</strong>请注意，这是 <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">社区推动的项目</a>，未正式获得 Mesosphere 支持。</p>
 
 ## 先决条件
 - [Terraform 0.11.x](https://www.terraform.io/downloads.html)
 - Google 云端平台 (GCP) 凭据 [配置方式：`gcloud auth login`](https://cloud.google.com/sdk/downloads)
 - SSH 密钥
-- 现有 Google 项目。这是通过 Terraform 使用 [此处] 记录的项目创建自动执行的。(https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform)
+- 现有 Google 项目。这是通过 Terraform 使用 [此处](https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform) 记录的项目创建自动执行的。
 
 ## Google 身份认证
 使用前提条件中列出的凭据对 Google 云端平台进行身份认证。将在本地下载您使用 Terraform 的凭据。
@@ -67,7 +67,7 @@ terraform apply -var gcp_project="your_existing_project"
 
 ### 自定义 `terraform-dcos` 变量
 
-默认变量在 [variables.tf] (https://github.com/dcos/terraform-dcos/blob/master/gcp/variables.tf) 文件内跟踪。但是，如果您为了抓取新发布的 DC/OS 升级而运行 `terraform get --updates`，这个文件就可能会被覆盖。因此，最好使用 [desired_cluster_profile.tfvars](https://github.com/dcos/terraform-dcos/blob/master/gcp/desired_cluster_profile.tfvars.example) 并设置自定义 Terraform 和 DC/OS 标记。这样在集群的整个生命周期中，只跟踪一个能够用于管理的文件就可以了。
+默认变量在 [variables.tf](https://github.com/dcos/terraform-dcos/blob/master/gcp/variables.tf) 文件内跟踪。但是，如果您为了抓取新发布的 DC/OS 升级而运行 `terraform get --updates`，这个文件就可能会被覆盖。因此，最好使用 [desired_cluster_profile.tfvars](https://github.com/dcos/terraform-dcos/blob/master/gcp/desired_cluster_profile.tfvars.example) 并设置自定义 Terraform 和 DC/OS 标记。这样在集群的整个生命周期中，只跟踪一个能够用于管理的文件就可以了。
 
 如需这一存储库支持的操作系统列表，请参阅 [此处](https://docs.mesosphere.com/1.10/installing/oss/custom/system-requirements/) 的 DC/OS 推荐。您可以在 [此处](http://github.com/bernadinm/tf_dcos_core) 找到 Terraform 支持的列表。
 
@@ -126,7 +126,7 @@ dcos_cluster_docker_credentials = <<EOF
 EOF
 gcp_ssh_pub_key_file = "INSERT_PUBLIC_KEY_PATH_HERE"
 ```
-**注意：** 设置 DC/OS 专用 YAML 需要 YAML 评论。
+<p class="message--note"><strong>注意: </strong> 设置 DC/OS 专用 YAML 需要 YAML 评论。</p>
 
 ## 升级 DC/OS
 
@@ -165,7 +165,7 @@ terraform apply \
 ```
 
 ### 删除代理
-**注意**：切记，每次删除代理之前都要在 `desired_cluster_profile.tfvars` 保存需要的状态。
+<p class="message--note"><strong>注意: </strong>切记，每次删除代理之前都要在 <tt>desired_cluster_profile.tfvars</tt> 保存需要的状态。</p>
 
 ```bash
 terraform apply \
@@ -178,7 +178,7 @@ terraform apply \
 
 若要重新部署一个有问题的管理节点（例如，您的存储已满，导致集群无响应），您可以在下一个循环命令 Terraform 进行重新部署。
 
-**注意：** 这仅适用于已将 `dcos_master_discovery` 设置为 `master_http_loadbalancer` 而不是 `static` 的 DC/OS 集群。
+<p class="message--note"><strong>注意: </strong> 这仅适用于已将 <tt>dcos_master_discovery</tt> 设置为 <tt>master_http_loadbalancer</tt> 而不是 <tt>static</tt> 的 DC/OS 集群。</p>
 
 ### 管理节点
 

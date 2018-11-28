@@ -16,4 +16,4 @@ DC/OS CloudFormation 模板仅供参考，因为以下限制不推荐用于生�
 
 可以使用 [生产安装](/cn/1.11/installing/production/) 方法安装功能齐全的集群。
 
-**注意：** 云安装方法尚未正式获得 Mesosphere 支持，但由 DC/OS 社区支持。联系 [邮寄列表](https://groups.google.com/a/dcos.io/forum/#!forum/users) 或 [Slack 渠道](http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201)，获取社区支持。
+<p class="message--note"><strong>注意: </strong> 云安装方法尚未正式获得 Mesosphere 支持，但由 DC/OS 社区支持。联系 <a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">邮寄列表</a> 或 <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack 渠道</a>，获取社区支持。</p>
