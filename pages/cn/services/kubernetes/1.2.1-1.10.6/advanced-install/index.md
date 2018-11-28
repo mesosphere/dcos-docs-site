@@ -32,7 +32,7 @@ option must be enabled, and a minimum of three private agents is recommended. In
 the high-availability mode the resources needed to run the tasks are the
 following:-->
 
-如果需要高可用性，则使用`kubernetes.high_availability`包必须启用选项，建议至少使用三个私有代理。在高可用性模式运行任务所需的资源是以下：
+如果需要高可用性，则必须启用`kubernetes.high_availability`包选项，且建议至少使用三个私有代理。在高可用性模式运行任务需以下资源：
 
 | | 每个集群的实例 | 每个 CPU 的实例 | 每个实例的 Mem (MB) | 每个实例的磁盘空间 (MB) |
 | ----------------------- | --------------------- | ---------------- | --------------------- | --------------------------- |
@@ -302,7 +302,7 @@ DC/OS 代理上的 `HTTPS_PROXY` 导致 `kubelet` 任务继承相同的值，因
 }
 ```
 <!-- above with a CIDR block that is not already assigned somewhere in your network -->
-<p class="message--note"><strong>注意：</strong> 替换 `<YOUR_CIDR_HERE>` 上面有一个尚未在网络中某处分配的CIDR块, e.g. `10.90.0.0/16`。</p>
+<p class="message--note"><strong>注意：</strong> 将上面的 `<YOUR_CIDR_HERE>` 用有一个尚未分配到网络中的CIDR块替换, 例如： `10.90.0.0/16`。</p>
 
 假设您将文件保存为 `options.json`，按如下方式安装包：
 

@@ -10,7 +10,7 @@ beta: false
 
 使用本指南开始使用 DC/OS 度量标准组件。度量标准组件天生与 DC/OS 集成，无需额外设置。
 
-**前提条件：**
+**先决条件：**
 
 - 必须 [安装 DC/OS CLI](/cn/1.11/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
 

@@ -11,7 +11,7 @@ enterprise: false
 
 使用已确认的公共代理节点安装 DC/OS 后，您可以导航到公共代理节点的公用 IP 地址。
 
-**前提条件**
+**先决条件**
 
 - DC/OS 已安装，有至少 1 个管理节点和 [公共代理](/cn/1.11/overview/concepts/#public-agent-node) 节点
 - DC/OS [CLI](/cn/1.11/cli/) 0.4.6 或更高版本

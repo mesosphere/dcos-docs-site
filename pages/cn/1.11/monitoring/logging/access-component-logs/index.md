@@ -16,7 +16,7 @@ enterprise: true
 |----------------------------|------|---|---|---|---|
 | `dcos:adminrouter:ops:system-logs` <br>控制对 [系统日志 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS 和 DC/OS CLI [已安装](/cn/1.11/installing/)，您以超级用户身份登录。
 

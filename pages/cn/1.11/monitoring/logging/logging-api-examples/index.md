@@ -10,7 +10,7 @@ enterprise: false
 
 以下是日志记录 API 的一些常见使用示例。
 
-**前提条件：**
+**先决条件：**
 
 - [Bash](https://www.gnu.org/software/bash/)
 - [Curl](https://curl.haxx.se/)

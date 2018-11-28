@@ -9,7 +9,7 @@ enterprise: false
 
 要配置服务帐户并安装 Edge-LB 包，请遵照以下指令。
 
-**前提条件：**
+**先决条件：**
 
 - [已安装 DC/OS CLI](/cn/1.11/cli/install/)
 - 您以超级用户身份登录。
