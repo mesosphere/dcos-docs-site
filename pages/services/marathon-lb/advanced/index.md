@@ -98,15 +98,19 @@ To specify a global template:
 
     The current `HAPROXY_HEAD`, as well as other Marathon templates, can be [found here](https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head").
 
-2.  Tar or zip the file. [Here is a handy script you can use to do this][1].
+2.  Tar or zip the file. 
 
-Take the file you created (`templates.tgz` if you use the script), and make it available from an HTTP server. If you would like to use the sample one, use this URI: <https://downloads.mesosphere.com/marathon/marathon-lb/templates.tgz>
+    ```bash
+    tar czf templates.tgz templates/
+    ```
 
-3.  Augment the Marathon-LB config by saving the following JSON in a file called `options.json`:
+    Take the file you created (`templates.tgz` if you use the script), and make it available from an HTTP server. 
+
+3.  Augment the Marathon-LB config by copying the following JSON into a file called `options.json`, putting in the URL to your file:
 
         {
           "marathon-lb": {
-            "template-url":"https://downloads.mesosphere.com/marathon/marathon-lb/templates.tgz"
+            "template-url":"<your-http-server-address>/templates.tgz"
           }
         }
 
