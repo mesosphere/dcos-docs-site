@@ -103,7 +103,7 @@ VIP 遵循以下命名约定：
       "vip": "broker.kafka.l4lb.thisdcos.directory:9092"
     }
     ```
-您可以用此 VIP 为群集中的任何一个 Kafka 中间人分配地址。
+您可以用此 VIP 为集群中的任何一个 Kafka 中间人分配地址。
 
 
 ## 常见问题

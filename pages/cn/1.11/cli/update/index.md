@@ -29,7 +29,7 @@ enterprise: false
     curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-<dcos-version>/dcos
     ```
 
- **注意：** CLI 必须安装在 DC/OS 群集外部的系统上。
+ **注意：** CLI 必须安装在 DC/OS 集群外部的系统上。
 
 1. 使 CLI 二进制文件可执行。
 
@@ -45,7 +45,7 @@ enterprise: false
     dcos cluster setup http://example.com
     ```
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.11/security/)。您的 CLI 现在应可通过您群集的身份认证！输入 `dcos` 即可开始。
+ 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.11/security/)。您的 CLI 现在应可通过您集群的身份认证！输入 `dcos` 即可开始。
 
     ```bash
     dcos

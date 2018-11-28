@@ -19,7 +19,7 @@ enterprise: true
 - 自定义非本地 Marathon tarball。联系销售代表或 <sales@mesosphere.io> 获取本文件的访问权限。
 - 每个专用 DC/OS 代理可以通过网络访问的专用 Docker 注册表。可以遵循 [以下](/cn/1.11/deploying-services/private-docker-registry/) 了解关于如何在 Marathon 中设置，或使用其他选项的说明（如 [DockerHub](https://hub.docker.com/)、[Amazon EC2 容器注册表](https://aws.amazon.com/ecr/)和 [Quay](https://quay.io/)）。
 - 您必须以超级用户身份登录。
-- 对群集的 SSH 访问。
+- 对集群的 SSH 访问。
 
 # 第 1 步 - 加载和推送自定义非本地 Marathon 镜像
 在此步骤中，自定义非本地 Marathon 实例被推送到专用 Docker 注册表。
@@ -86,7 +86,7 @@ enterprise: true
     sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
     ```
 
-1. 将节点重新添加到群集。
+1. 将节点重新添加到集群。
 
  1. 重新加载 systemd 配置。
 
@@ -235,7 +235,7 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
 
 1. 复制 Docker 凭据文件到管理节点之一，使用公共管理 IP 地址 (` <public-master-ip>`) 。
 
- 可以通过单击 DC/OS Web 界面左上角的群集名称找到公共管理 IP 地址。
+ 可以通过单击 DC/OS Web 界面左上角的集群名称找到公共管理 IP 地址。
 
    ```bash
    scp docker.tar.gz core@<public-master-ip>:
@@ -271,7 +271,7 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
        -H 'Content-Type: application/json' | jq -r '.token')
        ```
 
- 1. 下载证书捆绑包，需使用您的群集 URL (`<cluster-url>`) 。
+ 1. 下载证书捆绑包，需使用您的集群 URL (`<cluster-url>`) 。
 
        ```bash
        sudo curl -k -v https://<cluster-url>/ca/dcos-ca.crt -o /etc/ssl/certs/dcos-ca.crt

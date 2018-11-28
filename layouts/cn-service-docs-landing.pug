@@ -1,0 +1,56 @@
+- var paths = path.split('/')
+- var currentPath = '/' + path
+- var items = hierarchy.children.find(el => el.path === `/cn`).children.find(el => el.path === `/cn/services`)
+- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
+- var semverService = /^(v|)[0-9](.*)/
+
+mixin renderGridToc()
+  div(class='grid-toc')
+    each val, index in items.children
+      if val.menuWeight != -1
+        if val.children
+          each childVal, childIndex in val.children
+            if semverService.test(childVal.id) && childVal.menuWeight != -1
+              - versioned = true
+              - childVal.title = val.title
+              - val = childVal
+              - break
+        div(class='grid-toc__item')
+          h2(class='grid-toc__title')
+            a(href=val.path)!= val.title
+          if val.excerpt
+            - var displayExcerpt = (val.excerpt.length > 100) ? val.excerpt.substring(0, 100) + '…' : val.excerpt
+            p(class='grid-toc__desc')!= displayExcerpt
+          if val.children
+            ul(class='grid-toc__list')
+              for item in val.children.slice(0, 5)
+                li(class='grid-toc__list-item')
+                  a(href=item.path, class='grid-toc__link')!= item.title
+              if val.children.length > 5
+                li(class='grid-toc__list-item')
+                  a(href=val.path, class='grid-toc__link grid-toc__link--all') View All
+                    img(class='grid-toc__link--all__arrow', src='/assets/right-arrow.svg')
+
+doctype html
+html(lang='en')
+  head
+    include partials/head.pug
+  body(class='landing landing--services')
+    div(class='layout')
+      div(role='main', class='layout__content')
+        include partials/header.pug
+        div(class='landing__hero')
+          h1(class='landing__title') DC/OS Service Docs
+        div(class='landing__container')
+          +renderGridToc()
+        footer(class='landing__footer')
+          div(class='landing__footer__container')
+            a(class='landing__footer__logo__link', href='https://mesosphere.com/')
+              img(class='landing__footer__logo', src='/assets/header-logo-mark.svg')
+            div(class='landing__footer__menu')
+              a(href='https://mesosphere.com/terms/') Terms of Service
+              a(href='https://mesosphere.com/privacy/') Privacy Policy
+            a(class='landing__footer__copyright', href='https://mesosphere.com/')!= copyright
+    script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
+    script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
+    include partials/scripts.pug

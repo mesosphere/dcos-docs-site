@@ -1,13 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle: 节点和群集运行状况检查
-title: 节点和群集运行状况检查
+navigationTitle: 节点和集群运行状况检查
+title: 节点和集群运行状况检查
 menuWeight: 25
 excerpt: 使用您的 DC/OS 群集进行运行状况检查
+
 ---
 
 
-节点和群集运行状况检查提供群集信息，包括可用端口、Mesos 代理节点状态和 IP 检测脚本验证。运行状况检查是通过其退出代码报告 DC/OS 群集或节点状态的 shell 命令。您可以编写自己的自定义运行状况检查或使用预定义的检查。
+节点和集群运行状况检查提供集群信息，包括可用端口、Mesos 代理节点状态和 IP 检测脚本验证。运行状况检查是通过其退出代码报告 DC/OS 集群或节点状态的 shell 命令。您可以编写自己的自定义运行状况检查或使用预定义的检查。
 
 # 预定义的运行状况检查
 DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查。这些内置检查可验证以下内容：
@@ -25,7 +26,7 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
 - 节点上的本地装载是否运行良好
 
 ## 创建自定义运行状况检查
-自定义运行状况检查是一组用户定义的命令，可添加到一组在用于判定节点或群集运行状况而执行的检查中。自定义运行状况检查必须采用下表中的一种退出代码报告状态。
+自定义运行状况检查是一组用户定义的命令，可添加到一组在用于判定节点或集群运行状况而执行的检查中。自定义运行状况检查必须采用下表中的一种退出代码报告状态。
 
 | 代码 | 状态 | 描述 |
 |--------------|----------|---------------------------------------------------|
@@ -44,25 +45,25 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
 有关此参数的描述和示例，请参阅 [配置参数文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#custom-checks)。
 
 ## 自定义运行状况检查可执行文件
-在安装 DC/OS，之前，您可以选择在 `genconf/check_bins/` 提供可执行文件的目录，列出要分发到所有群集节点，用于自定义检查的可执行文件。如果提供，这些可执行文件将被添加到检查可执行文件的搜索路径末尾。若要使用自定义检查可执行文件，参考 `custom_checks` 不带绝对路径的参数（例如，要在自定义检查中使用 `genconf/check_bins/custom_script.sh` ，以 `custom_script.sh` 表示）。
+在安装 DC/OS，之前，您可以选择在 `genconf/check_bins/` 提供可执行文件的目录，列出要分发到所有集群节点，用于自定义检查的可执行文件。如果提供，这些可执行文件将被添加到检查可执行文件的搜索路径末尾。若要使用自定义检查可执行文件，参考 `custom_checks` 不带绝对路径的参数（例如，要在自定义检查中使用 `genconf/check_bins/custom_script.sh` ，以 `custom_script.sh` 表示）。
 
 # 运行状况检查的类型
 
-## 群集检查
-群集检查报告整个 DC/OS 群集的运行状况。所有节点上的集群均可运行群集检查。通过 SSH 连接到群集节点并运行此命令：`/opt/mesosphere/bin/dcos-shell dcos-diagnostics check cluster --list`，可以了解定义了哪些群集检查。
+## 集群检查
+集群检查报告整个 DC/OS 集群的运行状况。所有节点上的集群均可运行集群检查。通过 SSH 连接到集群节点并运行此命令：`/opt/mesosphere/bin/dcos-shell dcos-diagnostics check cluster --list`，可以了解定义了哪些集群检查。
 
 ## 节点检查
-节点检查会在安装后报告各个节点的状态。安装后的运行节点检查，可以通过 SSH 连接到一个单独的节点来进行。可以通过 SSH 连接到群集节点并运行此命令: `/opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart --list`，查看已定义了哪些节点检查。
+节点检查会在安装后报告各个节点的状态。安装后的运行节点检查，可以通过 SSH 连接到一个单独的节点来进行。可以通过 SSH 连接到集群节点并运行此命令: `/opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart --list`，查看已定义了哪些节点检查。
 
 # 运行状况检查
-可在群集节点运行以下命令，调用自定义或预定义的运行状况检查。
+可在集群节点运行以下命令，调用自定义或预定义的运行状况检查。
 
 **先决条件：**
 
 - DC/OS 已安装，您已通过超级用户权限登录。
 
 
-1. [SSH 连接到群集节点](/cn/1.11/administering-clusters/sshcluster/)。
+1. [SSH 连接到集群节点](/cn/1.11/administering-clusters/sshcluster/)。
 
     ```bash
     dcos node --master-proxy --mesos-id=<agent-node-id>
@@ -142,7 +143,7 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
 
 ## 列出所有检查
 
-列出所有群集检查。
+列出所有集群检查。
 
 ```
 /opt/mesosphere/bin/dcos-shell dcos-diagnostics check cluster --list
@@ -156,7 +157,7 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
 
 ## 列出特定检查
 
-列出特定群集检查（`check1`）。
+列出特定集群检查（`check1`）。
 
 ```bash
 /opt/mesosphere/bin/dcos-shell dcos-diagnostics check cluster --list check1 [check2 [...]]
@@ -170,7 +171,7 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
 
 ## 运行所有检查
 
-运行群集检查。
+运行集群检查。
 
 ```bash
 /opt/mesosphere/bin/dcos-shell dcos-diagnostics check cluster
@@ -184,7 +185,7 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
 
 ## 运行特定检查
 
-运行特定群集检查（`check1`）。
+运行特定集群检查（`check1`）。
 
 ```bash
 dcos-diagnostics check cluster check1 [check2 [...]]

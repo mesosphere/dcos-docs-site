@@ -7,13 +7,13 @@ excerpt: 安装生产就绪的 DC/OS
 ---
 
 
-本部分介绍如何安装可升级的 DC/OS 生产就绪部署。使用这种方法，您可以打包 DC/OS 分发并手动连接到每个节点，以运行 DC/OS 安装命令。若要与现有系统集成，或者您没有群集的 SSH 访问权限，则推荐使用这种安装方法。
+本部分介绍如何安装可升级的 DC/OS 生产就绪部署。使用这种方法，您可以打包 DC/OS 分发并手动连接到每个节点，以运行 DC/OS 安装命令。若要与现有系统集成，或者您没有集群的 SSH 访问权限，则推荐使用这种安装方法。
 
 DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和专用代理节点。可以查看 [节点](/cn/1.11/overview/concepts/#node) 文档以了解更多信息。
 
 # 生产安装流程
 
- 安装 DC/OS 群集需要以下步骤：
+ 安装 DC/OS 集群需要以下步骤：
 
 1. 配置 bootstrap 节点
 1. 在管理节点上安装 DC/OS
@@ -25,14 +25,14 @@ DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和
 
 此安装方法要求：
 
-* bootstrap 节点必须在可从群集节点访问的网络。
-* 从群集节点到 bootstrap 节点的 HTTP(S) 端口必须在打开状态。
+* bootstrap 节点必须在可从集群节点访问的网络。
+* 从集群节点到 bootstrap 节点的 HTTP(S) 端口必须在打开状态。
 
 DC/OS 安装会创建以下文件夹：
 
 | 文件夹 | 描述 |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| | `/opt/mesosphere` | 包含 DC/OS 二进制文件、库和群集配置。请勿修改。 |
+| | `/opt/mesosphere` | 包含 DC/OS 二进制文件、库和集群配置。请勿修改。 |
 | | `/etc/systemd/system/dcos.target.wants` | 包含启动 systemd 组件的 systemd 服务。它们因受 systemd 限制而必须位于 `/opt/mesosphere` 之外。 |
 | `/etc/systemd/system/dcos. <units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
 | | `/var/lib/dcos/exhibitor/zookeeper` | 包含 [ZooKeeper](/cn/1.11/overview/concepts/#exhibitor-zookeeper) 数据。 |
@@ -43,10 +43,10 @@ DC/OS 安装会创建以下文件夹：
 **注意：** 不支持更改 `/opt/mesosphere`。它们可能导致 DC/OS 中出现不可预测的行为，并防止升级。
 
 ## 先决条件
-您的群集必须符合软件和硬件 [要求](/cn/1.11/installing/production/system-requirements/)，才能安装 DC/OS。
+您的集群必须符合软件和硬件 [要求](/cn/1.11/installing/production/system-requirements/)，才能安装 DC/OS。
 
 
-# <a name="configure-cluster"></a>配置您的群集
+# <a name="configure-cluster"></a>配置您的集群
 
 1. 在 bootstrap 节点上创建名为 `genconf` 的目录，并导航到该目录。
 
@@ -60,7 +60,7 @@ DC/OS 安装会创建以下文件夹：
 
 # <a name="ip-detect-script"></a>创建 IP 检测脚本
 
-在这一步创建 IP 检测脚本。这一脚本报告群集中每个节点的 IP 地址。DC/OS 群集中的每个节点都有一个唯一的 IP 地址，用于在群集中的节点之间进行通信。每次在节点上启动 DC/OS 时，IP 检测脚本都会将节点的唯一 IPv4 地址打印到 STDOUT。
+在这一步创建 IP 检测脚本。这一脚本报告集群中每个节点的 IP 地址。DC/OS 集群中的每个节点都有一个唯一的 IP 地址，用于在集群中的节点之间进行通信。每次在节点上启动 DC/OS 时，IP 检测脚本都会将节点的唯一 IPv4 地址打印到 STDOUT。
 
 **注意：**
 
@@ -152,12 +152,12 @@ BEGIN { ec = 1 }
 # 创建故障域检测脚本
 [/enterprise]
 
-DC/OS 群集默认启用 [故障域意识](/cn/1.11/deploying-services/fault-domain-awareness/)，所以无须更改 `config.yaml` 来使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `config.yaml` 文件中的 `fault_domain_enabled` 参数设置为 `false`。
+DC/OS 集群默认启用 [故障域意识](/cn/1.11/deploying-services/fault-domain-awareness/)，所以无须更改 `config.yaml` 来使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `config.yaml` 文件中的 `fault_domain_enabled` 参数设置为 `false`。
 
 
 1. 创建名为 `fault-domain-detect` 的故障域检测脚本，在每个节点上运行，以检测节点的故障域。安装过程中此脚本的输出被传递到 Mesos。
 
- 推荐脚本输出的格式为 `fault_domain: region: name: <region>, zone: name: <zone>`。我们提供 [AWS 和 Azure 故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的群集，可将两者组合为一个脚本。可以使用这些模型为本地群集创建故障域检测脚本。
+ 推荐脚本输出的格式为 `fault_domain: region: name: <region>, zone: name: <zone>`。我们提供 [AWS 和 Azure 故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的集群，可将两者组合为一个脚本。可以使用这些模型为本地集群创建故障域检测脚本。
 
    <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>提醒：</b>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</td> </tr> </table>
 
@@ -167,7 +167,7 @@ DC/OS 群集默认启用 [故障域意识](/cn/1.11/deploying-services/fault-dom
 
 # 创建配置文件
 
-在这一步，可以创建针对您的环境自定义的 YAML 配置文件。DC/OS 在安装期间使用此配置文件生成群集安装文件。
+在这一步，可以创建针对您的环境自定义的 YAML 配置文件。DC/OS 在安装期间使用此配置文件生成集群安装文件。
 
 [Enterprise]
 ## 设置超级用户密码
@@ -269,16 +269,16 @@ enable_ipv6: 'false'
 
 # <a name="install-bash"></a>安装 DC/OS
 
-在这一步，您将在 bootstrap 节点上创建一个自定义 DC/OS 构建文件，然后在群集上安装 DC/OS。使用这种方法，您可以
+在这一步，您将在 bootstrap 节点上创建一个自定义 DC/OS 构建文件，然后在集群上安装 DC/OS。使用这种方法，您可以
 1. 自行打包 DC/OS 发布
 2. 手动连接到每个服务器
 3. 运行命令
 
 **注意：**
 
-- 由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 `config.yaml` 中将 `enable_ipv6` 设置为 `false`。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，请不要添加新节点。可以在我们最新的重要 [产品咨询] 中找到更多信息和更详细的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。[enterprise type="inline" size="small" /]
+- 由于覆盖网络存在集群配置问题，建议在升级或配置新集群时，在 `config.yaml` 中将 `enable_ipv6` 设置为 `false`。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，请不要添加新节点。可以在我们最新的重要 [产品咨询] 中找到更多信息和更详细的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。[enterprise type="inline" size="small" /]
 - 必须生效以下项目才能安装 DC/OS：所有 DC/OS 节点上的 IP 检测脚本、DNS 和 NTP 均已同步时间。参见 [故障排除](/cn/1.11/installing/ent/troubleshooting/)，了解更多信息。
-- 如果出现问题并且您想重新运行设置，请使用群集 [卸载] [11]说明。
+- 如果出现问题并且您想重新运行设置，请使用集群 [卸载] [11]说明。
 
 **先决条件**
 
@@ -299,7 +299,7 @@ enable_ipv6: 'false'
     ```
 
 
-1. 在 bootstrap 节点运行 DC/OS 安装工具 shell 脚本，生成自定义 DC/OS 构建文件。安装脚本提取 Docker 容器，该容器使用通用 DC/OS 安装工具文件为群集创建自定义 DC/OS 构建文件。构建文件会输出到 `./genconf/serve/`。
+1. 在 bootstrap 节点运行 DC/OS 安装工具 shell 脚本，生成自定义 DC/OS 构建文件。安装脚本提取 Docker 容器，该容器使用通用 DC/OS 安装工具文件为集群创建自定义 DC/OS 构建文件。构建文件会输出到 `./genconf/serve/`。
 
  **注意：** 可以通过以下方式查看所有自动命令行安装工具选项：
  * `dcos_generate_config.ee.sh --help` 标记 [enterprise type="inline" size="small" /] 
@@ -367,7 +367,7 @@ enable_ipv6: 'false'
         sudo bash dcos_install.sh master
         ```
 
- **注意：** DC/OS 可能一直发出错误消息，直到所有管理节点都配置完毕，尽管这对群集 DC/OS 没有实际损害。
+ **注意：** DC/OS 可能一直发出错误消息，直到所有管理节点都配置完毕，尽管这对集群 DC/OS 没有实际损害。
 
 4. <A name="slaveinstall"></A>在每个代理节点上运行以下命令，使用自定义构建文件安装 DC / OS：
 
@@ -441,7 +441,7 @@ enable_ipv6: 'false'
 - [公共代理节点][2]
 - [专用代理节点][3]
 - [安装 DC/OS 命令行界面 (CLI)][9]
-- [使用节点和群集运行状况检查][12]
+- [使用节点和集群运行状况检查][12]
 - [DC/OS 安装故障排除][10]
 - [卸载 DC/OS][11]
 

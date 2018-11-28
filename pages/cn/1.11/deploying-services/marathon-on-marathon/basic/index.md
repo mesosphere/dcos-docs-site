@@ -14,7 +14,7 @@ enterprise: true
 - DC/OS 和 DC/OS CLI [已安装](/cn/1.11/installing/oss/)。
 - [DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
 - 您必须以超级用户身份登录。
-- 对群集的 SSH 访问。
+- 对集群的 SSH 访问。
 
 # 第 1 步 - 保留资源
 在此步骤中，保留 Mesos 资源。选择 [静态](#static-reservations) 或 [动态](#dynamic-reservations) 保留的程序。
@@ -44,7 +44,7 @@ enterprise: true
     sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
     ```
 
-1. 将节点重新添加到群集。
+1. 将节点重新添加到集群。
 
  1. 重新加载 `systemd` 配置。
 

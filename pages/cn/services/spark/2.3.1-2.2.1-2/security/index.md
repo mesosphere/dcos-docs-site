@@ -43,7 +43,7 @@ curl -X PUT -k \
 
 ```
 
-如果这些命令返回 `307 Temporary Redirect` 错误，可能是因为您的群集 URL (`dcos config show core.dcos_url`) 未设置为超文本传输协议安全（`https://`）。
+如果这些命令返回 `307 Temporary Redirect` 错误，可能是因为您的集群 URL (`dcos config show core.dcos_url`) 未设置为超文本传输协议安全（`https://`）。
 
 
 2. 使用以下命令将权限和允许的操作授予服务帐户。运行这些命令，并且指定您的服务帐户名称 (`<service-account-id>`) 。

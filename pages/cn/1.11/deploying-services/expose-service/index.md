@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-DC/OS 代理节点在 [安装](/cn/1.11/installing/)过程中可被指定为[公共](/cn/1.11/overview/concepts/#public-agent-node) 或[专用](/cn/1.11/overview/concepts/#private-agent-node)。公共代理节点通过基础架构网络提供从群集外部访问 DC/OS 服务。默认情况下，服务在专用代理节点上启动，不可从群集外部访问。
+DC/OS 代理节点在 [安装](/cn/1.11/installing/)过程中可被指定为[公共](/cn/1.11/overview/concepts/#public-agent-node) 或[专用](/cn/1.11/overview/concepts/#private-agent-node)。公共代理节点通过基础架构网络提供从集群外部访问 DC/OS 服务。默认情况下，服务在专用代理节点上启动，不可从集群外部访问。
 
 若要在公共节点上启动服务，则必须通过指定的 `"acceptedResourceRoles":["slave_public"]` 参数创建 Marathon 应用程序并设置边缘负载均衡器和服务发现机制。
 

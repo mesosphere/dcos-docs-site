@@ -3,10 +3,10 @@ layout: layout.pug
 title: AWS
 navigationTitle: AWS
 menuWeight: 5
-excerpt: 使用 AWS CloudFormation 上的模板为 Amazon Web Services 安装 DC/OS 群集
+excerpt: 使用 AWS CloudFormation 上的模板为 Amazon Web Services 安装 DC/OS 集群
 ---
 
-可以使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。
+可以使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 集群。
 
 **注意：** 这些安装方法尚未正式获得 Mesosphere 支持，但由 DC/OS 社区支持。联系 [邮寄列表](https://groups.google.com/a/dcos.io/forum/#!forum/users) 或 [Slack 渠道](http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201)，获取社区支持。
 

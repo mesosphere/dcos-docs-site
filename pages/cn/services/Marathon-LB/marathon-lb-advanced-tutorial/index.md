@@ -7,7 +7,7 @@ excerpt: 教程 - Marathon-LB 作为内部和外部负载均衡器
 enterprise: false
 ---
 
-在本教程中，Marathon-LB 用作内部和外部负载均衡器。外部负载均衡器用于将外部 HTTP 流量路由到群集，内部负载均衡器用于内部服务发现和负载均衡。由于我们将在 AWS 上执行此操作，外部流量首先会冲击经过配置以公开我们的“公共”代理节点的外部负载均衡器。
+在本教程中，Marathon-LB 用作内部和外部负载均衡器。外部负载均衡器用于将外部 HTTP 流量路由到集群，内部负载均衡器用于内部服务发现和负载均衡。由于我们将在 AWS 上执行此操作，外部流量首先会冲击经过配置以公开我们的“公共”代理节点的外部负载均衡器。
 
 ## 先决条件
 
@@ -196,9 +196,9 @@ enterprise: false
       dcos marathon app add nginx-everywhere.json
       ```
 
-## 确认您的应用已部署并可从群集中访问
+## 确认您的应用已部署并可从集群中访问
 
-通过 [SShing][4] 在群集中的一个实例（如主实例）和 `curl` 端点中测试配置：
+通过 [SShing][4] 在集群中的一个实例（如主实例）和 `curl` 端点中测试配置：
 
   ```bash
   # Access to external load balancer

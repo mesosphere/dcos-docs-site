@@ -17,7 +17,7 @@ DC/OS Kubernetes 支持以下
 - `AlwaysAllow`，默认、全宽容模式
 - `RBAC`，更细粒度地控制 **谁** 可以访问 哪个 Kubernetes API 资源。
 
-<p class="message--important"><strong>警告</strong>安装包时必须选择群集的授权模式。不支持在安装包后更改授权模式。</p>
+<p class="message--important"><strong>警告</strong>安装包时必须选择集群的授权模式。不支持在安装包后更改授权模式。</p>
 
 
 ## `AlwaysAllow`
@@ -52,10 +52,10 @@ DC/OS Kubernetes 中的默认授权模式是 `AlwaysAllow`。这意味着，
 
 - Kubernetes API Users 将被建模为 Kubernetes 服务帐户；
 - 安装程序将创建拥有超级用户权限的用户 (`bootstrapper`) 
- （`cluster-admin` 群集角色），之后
+ （`cluster-admin` 集群角色），之后
  操作员可以用其添加更多用户，以及其各自的权限（如果 `RBAC`
  授权模式已启用）。
 
-<p class="message--important"><strong>警告</strong>我们 <strong>强烈建议</strong> 您为每个希望访问 Kubernetes 群集的用户创建服务帐户（例如，使用 <tt>kubectl 创建服务帐户</tt>)，并仅向此服务帐户提供每个用户所需的权限（例如，使用 <tt>kubectl 创建 [群集] 角色绑定</tt>）。
+<p class="message--important"><strong>警告</strong>我们 <strong>强烈建议</strong> 您为每个希望访问 Kubernetes 集群的用户创建服务帐户（例如，使用 <tt>kubectl 创建服务帐户</tt>)，并仅向此服务帐户提供每个用户所需的权限（例如，使用 <tt>kubectl 创建 [集群] 角色绑定</tt>）。
 我们也 <strong>强烈建议</strong> 您为自己创建新服务帐户，并完全删除 <tt>bootstrapper</tt> 服务帐户。</p>
 

@@ -15,7 +15,7 @@ This section will provide you with a basic installation of DC/OS Kubernetes.  Fo
 
 # Prerequisites
 
-## Mesosphere Kubernetes Engine
+## Mesosphere Kubernetes Engine (MKE)
 
 Prior to installing this package you must install the `kubernetes` package, referred to as Mesosphere Kubernetes Engine or MKE, otherwise the installation will fail.
 

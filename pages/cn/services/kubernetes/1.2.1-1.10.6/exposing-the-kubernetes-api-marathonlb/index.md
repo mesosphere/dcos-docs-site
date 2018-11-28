@@ -8,9 +8,9 @@ excerpt: 通过内置于 Marathon-LB 或 Edge-LB 中的现有 HAProxy 暴露 Kub
 
 ## 通过 Marathon-LB 或 Edge-LB 暴露 Kubernetes API
 
-如果您在 DC/OS 群集中有现有的 Marathon-LB 实例，或者如果您使用 Edge-LB (DC/OS Enterprise)，可以通过内置于 Marathon-LB 或 Edge-LB 中的现有 HAProxy 暴露 Kubernetes API。
+如果您在 DC/OS 集群中有现有的 Marathon-LB 实例，或者如果您使用 Edge-LB (DC/OS Enterprise)，可以通过内置于 Marathon-LB 或 Edge-LB 中的现有 HAProxy 暴露 Kubernetes API。
 
-这些选项（如下文所述）的安全性略低于 [暴露 Kubernetes API(../exposing-the-kubernetes-api) 页面中的选项 2，因为它们使用自签名 TLS 证书来暴露 API 端点。可以使用签名证书通过 Marathon-LB 和/或 Edge-LB 将 Kubernetes API 端点暴露，但本文档中未涵盖。这些示例旨在提供一种快速、简便的方法，通过现有的 Marathon-LB 或 Edge-LB 实例暴露群集中的 Kubernetes API 端点。
+这些选项（如下文所述）的安全性略低于 [暴露 Kubernetes API(../exposing-the-kubernetes-api) 页面中的选项 2，因为它们使用自签名 TLS 证书来暴露 API 端点。可以使用签名证书通过 Marathon-LB 和/或 Edge-LB 将 Kubernetes API 端点暴露，但本文档中未涵盖。这些示例旨在提供一种快速、简便的方法，通过现有的 Marathon-LB 或 Edge-LB 实例暴露集群中的 Kubernetes API 端点。
 
 这两个示例都将生成以下类似设置：
 
@@ -120,7 +120,7 @@ $ dcos marathon app add kubectl-proxy.json
 ```
 
 ## 示例 2：创建 Edge-LB 池
-如果您是在 DC/OS 群集中使用 Edge-LB，而不是使用 Marathon-LB，那么您可以创建 Edge-LB 池，以将 Kubernetes API 暴露给客户端。
+如果您是在 DC/OS 集群中使用 Edge-LB，而不是使用 Marathon-LB，那么您可以创建 Edge-LB 池，以将 Kubernetes API 暴露给客户端。
 
 <p class="message--note"><strong>注意: </strong>此示例不会验证 Kubernetes 客户端与 HAProxy 之间的证书或者 HAProxy 与 Kubernetes API 之间的证书。这些验证是可实现的，但在本文档未涵盖。</p>
 

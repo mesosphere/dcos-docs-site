@@ -82,7 +82,7 @@ SRV 记录指定服务的主机名和端口。
  ;; ANSWER SECTION:
  _search._tcp.marathon.mesos. 60 IN SRV 0 0 31302 10.254.132.41. 
 
-Mesos-DNS 支持使用任务的 DiscoveryInfo 来生成 SRV 记录。在 DC/OS 群集上，代理节点提供端口的方式与 CPU 和内存等其他资源的相同。如果 DiscoveryInfo 不可用，Mesos-DNS 将使用为任务分配的端口。
+Mesos-DNS 支持使用任务的 DiscoveryInfo 来生成 SRV 记录。在 DC/OS 集群上，代理节点提供端口的方式与 CPU 和内存等其他资源的相同。如果 DiscoveryInfo 不可用，Mesos-DNS 将使用为任务分配的端口。
 
 下表显示了对 SRV 生成适用的规则：
 
@@ -229,7 +229,7 @@ Mesos-DNS 遵循关于名称格式的 [RFC 1123][3]。用于构建 A 记录主�
 
 # <a name="dns-naming"></a>发现服务的 DNS 名称
 
-您可以获得在 DC/OS 群集节点上运行的应用程序的综合列表。
+您可以获得在 DC/OS 集群节点上运行的应用程序的综合列表。
 
 **先决条件：** [DC/OS 和 DC/OS CLI](/cn/1.11/installing/) 已安装。
 

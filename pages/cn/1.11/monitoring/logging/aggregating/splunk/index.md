@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 概述
-您可以将系统和应用程序日志从 config.yaml 群集传输到现有 Splunk 服务器。本文档介绍如何配置 Splunk 通用转发器以将每个节点的输出发送到 Splunk 装置。本文档未介绍如何设置和配置 Splunk 服务器。
+您可以将系统和应用程序日志从 config.yaml 集群传输到现有 Splunk 服务器。本文档介绍如何配置 Splunk 通用转发器以将每个节点的输出发送到 Splunk 装置。本文档未介绍如何设置和配置 Splunk 服务器。
 
 这些说明是基于 CentOS，可能极大地不同于与其他 Linux 系统分配。
 
@@ -27,7 +27,7 @@ enterprise: false
 
 ## 第 1 步：所有节点
 
-对于 DC/OS 群集中的所有节点：
+对于 DC/OS 集群中的所有节点：
 
 1. 安装 Splunk 的 [通用转发器][2]。
 2. 确保转发器具有将数据发送给索引器所需的凭据。
@@ -35,7 +35,7 @@ enterprise: false
 
 ## 第 2 步：管理节点
 
-对于 DC/OS 群集中的每个管理节点：
+对于 DC/OS 集群中的每个管理节点：
 
 1. 创建一个脚本 `$SPLUNK_HOME/bin/scripts/journald-master.sh`，其含有来自 `journald` Mesos 管理节点的日志。此脚本可配合 DC/OS 和 DC/OS Enterprise 使用。不适用的日志条目将被忽略。
 
@@ -88,7 +88,7 @@ enterprise: false
 
 ## 步骤 3：代理节点
 
-对于 DC/OS 群集中的每个代理节点：
+对于 DC/OS 集群中的每个代理节点：
 
 1. 创建一个脚本 `$SPLUNK_HOME/bin/scripts/journald-agent.sh`，其含有来自 `journald` Mesos 代理节点的日志。此脚本可配合 DC/OS 和 DC/OS Enterprise 使用。不适用的日志条目将被忽略。
 

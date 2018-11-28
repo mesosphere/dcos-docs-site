@@ -39,9 +39,9 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 
 ## 平台
 - 故障域感知。利用故障域感知使服务高度可用，并能在需要时增加容量。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
-- 链接的群集。- 群集链路是一个群集和另一个群集之间的**单向关系**。使用 DC/OS CLI 将一个群集的链接添加到另一个群集或将其删除。设置链接后，您可以使用 CLI 或 UI 轻松在群集之间切换。[查看文档](/cn/1.11/administering-clusters/multiple-clusters/cluster-links)。[enterprise type="inline" size="small" /]
+- 链接的集群。- 集群链路是一个集群和另一个集群之间的**单向关系**。使用 DC/OS CLI 将一个集群的链接添加到另一个集群或将其删除。设置链接后，您可以使用 CLI 或 UI 轻松在集群之间切换。[查看文档](/cn/1.11/administering-clusters/multiple-clusters/cluster-links)。[enterprise type="inline" size="small" /]
 - 集成远程区域。使“突发”充分利用临时云计算资源。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
-- [多区域管理](/cn/1.11/deploying-services/fault-domain-awareness)。使 DC/OS 群集能跨越多个数据中心、云和远程分支，同时提供统一的管理和控制群集。
+- [多区域管理](/cn/1.11/deploying-services/fault-domain-awareness)。使 DC/OS 集群能跨越多个数据中心、云和远程分支，同时提供统一的管理和控制集群。
 - 停用节点。支持永久停用节点使得在使用后更容易维护和退役“Spot”云实例，从而允许立即重新安排任务，而不是延时重新安排任务。
 - UCR
  - 支持 Docker 镜像垃圾收集。[查看文档](/cn/1.11/deploying-services/containerizers)。
@@ -87,9 +87,9 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 
 # <a name="fixed-issues"></a>在 1.11.0 候选版本 1 中的改进和修复的重大问题
 - DCOS-19573 - 增加对 UI 中独特限制的更改支持。
-- DCOS-19837 - 将所有云提供商的故障域脚本整合到一个脚本中，以支持与多个云提供商的群集。
-- DCOS-19896 - 添加 `--linked` 标记到 `dcos cluster list`，使用户可以看到哪些群集可以取消链接。[enterprise type="inline" size="small" /]
-- DCOS-19955 - 提升 API 和 CLI 的链接群集体验。[enterprise type="inline" size="small" /]
+- DCOS-19837 - 将所有云提供商的故障域脚本整合到一个脚本中，以支持与多个云提供商的集群。
+- DCOS-19896 - 添加 `--linked` 标记到 `dcos cluster list`，使用户可以看到哪些集群可以取消链接。[enterprise type="inline" size="small" /]
+- DCOS-19955 - 提升 API 和 CLI 的链接集群体验。[enterprise type="inline" size="small" /]
 - DCOS_OSS-1658 - 添加 `--verbose` 标记以升级可将所有状态和错误消息打印到控制台的脚本以启用升级调试。
 - DCOS_OSS-1733 - 配置参数 `dns_forward_zones` 现在采用对象列表，而不是嵌套列表。
 - DCOS_OSS-2130 - `systemd-networkd` 必须启用，DC/OS 网络才能配合 CoreOS 工作。

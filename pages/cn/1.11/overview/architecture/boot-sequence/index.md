@@ -28,7 +28,7 @@ enterprise: false
  1. 选择首要管理节点
 1. Mesos-DNS 启动
  1. 发现首要 Mesos 管理节点（从 ZooKeeper 或本地 `mesos-master`）
- 1. 轮询首要 Mesos 管理节点了解群集状态
+ 1. 轮询首要 Mesos 管理节点了解集群状态
 1. Admin Router 启动
  1. 发现来自 Mesos-DNS 的领导 Mesos 管理节点
  1. 发现来自 Mesos-DNS 的领导 Marathon
@@ -44,7 +44,7 @@ enterprise: false
 1. DC/OS 诊断启动
  1. 轮询 systemd 了解组件状态
  1. 报告节点运行不佳，直到所有组件（systemd 服务）都运行良好
- 1. 报告群集运行不佳，直到所有管理节点都运行良好
+ 1. 报告集群运行不佳，直到所有管理节点都运行良好
 1. 日志记录和 Metrics 标准组件启动
 1. 安全组件启动
 

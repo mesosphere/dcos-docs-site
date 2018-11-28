@@ -10,7 +10,7 @@ menuWeight: 15
 
 ## 先决条件
 
-- 运行的 DC/OS 1.11 群集
+- 运行的 DC/OS 1.11 集群
 
 ## 安装
 
@@ -30,7 +30,7 @@ dcos package install prometheus
 dcos package install --yes grafana
 ```
 
-框架提供输入 Prometheus、AlertManager 和规则配置的选项。默认 Prometheus 配置将在群集中抓取 DC/OS 管理节点和代理。将任何新配置附加到结尾。
+框架提供输入 Prometheus、AlertManager 和规则配置的选项。默认 Prometheus 配置将在集群中抓取 DC/OS 管理节点和代理。将任何新配置附加到结尾。
 
 ## 访问 Prometheus UI
 

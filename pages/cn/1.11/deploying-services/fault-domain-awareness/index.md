@@ -27,7 +27,7 @@ DC/OS 现在支持树立故障域感知。利用故障域感知使服务高度�
 
 # 安装
 
-请考虑群集中服务的未来需求。您必须在安装时就定义分域和分区,尽管安装后可以在分域和分区中添加或删除节点。如果需要更新故障域检测脚本，就必须重新安装 DC/OS 。
+请考虑集群中服务的未来需求。您必须在安装时就定义分域和分区,尽管安装后可以在分域和分区中添加或删除节点。如果需要更新故障域检测脚本，就必须重新安装 DC/OS 。
 
 Mesos 管理节点必须位于同一分域，因为否则它们之间的延迟就会过高。不过为了容错，它们应该被分散到不同分区。
 
@@ -50,7 +50,7 @@ Mesos 管理节点必须位于同一分域，因为否则它们之间的延迟�
   }
 ```
 
-我们提供 [AWS 和 Azure 节点的故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的群集，可将两者组合为一个脚本。可以使用这些模型为本地群集创建故障域检测脚本。
+我们提供 [AWS 和 Azure 节点的故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的集群，可将两者组合为一个脚本。可以使用这些模型为本地集群创建故障域检测脚本。
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>重要信息：</b>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</td> </tr> </table>
 
@@ -97,7 +97,7 @@ Mesos 管理节点必须位于同一分域，因为否则它们之间的延迟�
 
 ## 示例
 
-假设您有跨 3 个分域的 Mesos 群集：`aws-us-east1`、`aws-us-east2` 和 `local`。每个分域都有分区 `a`、`b`、`c`、`d`。
+假设您有跨 3 个分域的 Mesos 集群：`aws-us-east1`、`aws-us-east2` 和 `local`。每个分域都有分区 `a`、`b`、`c`、`d`。
 
 ### 仅指定远程分域
 
@@ -128,8 +128,8 @@ Mesos 管理节点必须位于同一分域，因为否则它们之间的延迟�
 
 - 实例全都在 `aws-us-east1` 分域启动并均匀划分到 `aws-us-east1` 的分区 `a`、`b`、`c`、`d`。
 
-### 增加群集容量
+### 增加集群容量
 
-要增加容量，请 [添加新代理](/cn/1.11/administering-clusters/add-a-node/) 到远程分域或群集的分域，然后更新服务以在相应的一个或多个分域启动实例。
+要增加容量，请 [添加新代理](/cn/1.11/administering-clusters/add-a-node/) 到远程分域或集群的分域，然后更新服务以在相应的一个或多个分域启动实例。
 
 **注意：** 您无法将服务配置为在多个分域运行。

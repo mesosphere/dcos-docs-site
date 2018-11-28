@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: dcos cluster
 title: dcos cluster
 menuWeight: 3
-excerpt: 管理与 DC/OS 群集的连接
+excerpt: 管理与 DC/OS 集群的连接
 
 enterprise: false
 ---
 
 # 说明
-`dcos cluster` 命令允许您管理与 DC/OS 群集的连接。
+`dcos cluster` 命令允许您管理与 DC/OS 集群的连接。
 
 # 使用
 

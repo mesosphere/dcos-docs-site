@@ -117,7 +117,7 @@ enterprise: false
 | 维度 | 描述 | 实体 |
 |-----------|-------------|--------|
 | mesos_id | 节点的 Mesos ID。| 节点，容器 |
-| cluster_id | Mesos 群集的 ID。| 节点，容器 |
+| cluster_id | Mesos 集群的 ID。| 节点，容器 |
 | container_id | 容器的 ID。| 公制，容器 |
 | executor_id | 任务执行器的 ID。| 公制，容器 |
 | executor_name | 任务执行器的名称。| 度量标准 |

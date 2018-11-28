@@ -8,7 +8,7 @@ beta: true
 enterprise: false
 ---
 
-DC/OS 群集节点生成包含诊断和状态信息的日志，用于 DC/OS 核心组件和 DC/OS 服务。
+DC/OS 集群节点生成包含诊断和状态信息的日志，用于 DC/OS 核心组件和 DC/OS 服务。
 
 ## 服务、任务和节点日志
 
@@ -62,7 +62,7 @@ journalctl -u dcos-nginx -b
 
 # 日志聚合
 
-流式传输来自群集中机器的日志并非始终可行。有时您需要已发生事件的历史记录，而这需要有存储和聚合日志的方法。这些主题描述了其中一些最常见的解决方案：
+流式传输来自集群中机器的日志并非始终可行。有时您需要已发生事件的历史记录，而这需要有存储和聚合日志的方法。这些主题描述了其中一些最常见的解决方案：
 
 - [使用 ELK 进行日志管理](/cn/1.11/monitoring/logging/aggregating/elk/)
 - [使用 Splunk 进行日志管理](/cn/1.11/monitoring/logging/aggregating/splunk/)

@@ -18,7 +18,7 @@ enterprise: false
 - [jq](https://github.com/stedolan/jq/wiki/Installation)
 - [SSH](/cn/1.11/administering-clusters/sshcluster/) 已配置
 
-您可以通过从终端运行此命令来找到您的公共代理 IP。此命令 SSH 至您的群集以获取群集信息，然后查询 [ifconfig.co](https://ifconfig.co/) 以确定您的公共 IP 地址。
+您可以通过从终端运行此命令来找到您的公共代理 IP。此命令 SSH 至您的集群以获取集群信息，然后查询 [ifconfig.co](https://ifconfig.co/) 以确定您的公共 IP 地址。
 
 ```
 for id in $(dcos node --json | jq --raw-output '.[] | select(.attributes.public_ip == "true") | .id'); do dcos node ssh --option StrictHostKeyChecking=no --option LogLevel=quiet --master-proxy --mesos-id=$id "curl -s ifconfig.co" ; done 2>/dev/null

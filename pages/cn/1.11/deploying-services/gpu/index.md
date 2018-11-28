@@ -8,18 +8,18 @@ enterprise: false
 ---
 
 
-DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 服务。将 GPU 添加到服务中 可以显著加快大数据工作负载。借助基于 GPU 的计划，您可以共享用于传统和机器学习工作负荷的群集资源，还可以在这些群集内动态分配 GPU 资源并在需要时释放它们。您可以为有需要的工作负荷预留 GPU 资源，或将这些启用了 GPU 的资源与基础架构的其余部分进行混合，以提高总体利用率。在启用 GPU 的 DC/OS 之后，您可以通过 `gpus` 参数在应用定义中指定 GPU。
+DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 服务。将 GPU 添加到服务中 可以显著加快大数据工作负载。借助基于 GPU 的计划，您可以共享用于传统和机器学习工作负荷的集群资源，还可以在这些集群内动态分配 GPU 资源并在需要时释放它们。您可以为有需要的工作负荷预留 GPU 资源，或将这些启用了 GPU 的资源与基础架构的其余部分进行混合，以提高总体利用率。在启用 GPU 的 DC/OS 之后，您可以通过 `gpus` 参数在应用定义中指定 GPU。
 
 # 安装启用了 GPU 的 DC/OS 
 必须在 DC/OS 安装期间启用 GPU。按照以下说明，根据您的特定 DC/OS 部署方法启用 GPU。
 
 ## 配备 GPU 的自定义 DC/OS 安装
 
-1. 在每个具有 GPU 的群集节点上安装 [NVIDIA 管理库 (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml)。所需的 NVIDIA 驱动程序最低版本为 340.29。如需详细的安装说明，请参阅 [Mesos GPU 支持文档](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies)。
+1. 在每个具有 GPU 的集群节点上安装 [NVIDIA 管理库 (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml)。所需的 NVIDIA 驱动程序最低版本为 340.29。如需详细的安装说明，请参阅 [Mesos GPU 支持文档](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies)。
 1. 使用 [自定义高级安装说明] 安装 DC/OS (/1.11/installing/production/deploying-dcos/installation/)。以下是 GPU 专有的配置参数：
 
  - **enable_gpu_isolation**：指示是否在 DC/OS 中启用 GPU 支持。默认设置为 `enable_gpu_isolation: 'true'`。
- - **gpus_are_scarce**：指示是否将 GPU 作为群集中的稀缺资源。默认设置为 `gpus_are_scarce: 'true'`，这意味着 DC/OS 仅为配置为占用 GPU 资源的服务保留 GPU 节点。值得注意的是，此设置将影响在 DC/OS 的哪些代理节点部署 GPU 感知框架。此设置不影响框架在运行时可能启动的具体+任务。框架可以在有 GPU 的代理节点上安排非 GPU 任务。
+ - **gpus_are_scarce**：指示是否将 GPU 作为集群中的稀缺资源。默认设置为 `gpus_are_scarce: 'true'`，这意味着 DC/OS 仅为配置为占用 GPU 资源的服务保留 GPU 节点。值得注意的是，此设置将影响在 DC/OS 的哪些代理节点部署 GPU 感知框架。此设置不影响框架在运行时可能启动的具体+任务。框架可以在有 GPU 的代理节点上安排非 GPU 任务。
 
  如需更多信息，请参阅 [配置参数文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#enable-gpu-isolation) 和 Mesos [Nvidia GPU 支持文档](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies)。
 
@@ -43,7 +43,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 
     </tr> 
     </table>
 
-1. 按照 [此处] 的说明 (1.11/install/evaluation/cloud-installation/aws/advanced/) 使用高级 AWS 模板创建群集，并使用以下 GPU 特定配置。
+1. 按照 [此处] 的说明 (1.11/install/evaluation/cloud-installation/aws/advanced/) 使用高级 AWS 模板创建集群，并使用以下 GPU 特定配置。
 
 1. 在 **创建堆栈** > **指定详情**页面指定您的堆栈信息并单击 **下一步**。以下是 GPU 特定设置。
 

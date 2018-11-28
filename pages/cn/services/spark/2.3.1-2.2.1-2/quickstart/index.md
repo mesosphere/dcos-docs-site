@@ -159,6 +159,6 @@ name
 
 ## 后续步骤
 
-- 要查看作业状态，运行 `dcos spark webui` 命令，然后访问 Spark 群集调度器 UI： `http://<dcos-url>/service/spark/` 。
+- 要查看作业状态，运行 `dcos spark webui` 命令，然后访问 Spark 集群调度器 UI： `http://<dcos-url>/service/spark/` 。
 - 要查看日志，访问 Mesos UI：'http://<your-master-ip>/mesos`。
 - 要查看关于您的 Spark 作业的详细信息，运行“dcos task log --completed <submissionId>”命令。

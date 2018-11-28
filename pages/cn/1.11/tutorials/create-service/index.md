@@ -13,7 +13,7 @@ enterprise: false
 本教程介绍如何使用 DC/OS Web 界面和 CLI 创建和部署简单的单命令服务和容器化服务。
 
 ## 先决条件
-- [DC/OS 群集](/cn/1.11/installing/)
+- [DC/OS 集群](/cn/1.11/installing/)
 
 # 单命令服务
 
