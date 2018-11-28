@@ -104,7 +104,7 @@ To specify a global template:
     tar czf templates.tgz templates/
     ```
 
-    Take the file you created (`templates.tgz` if you use the script), and make it available from an HTTP server. 
+    Take the file you created (`templates.tgz`), and make it available from an HTTP server. 
 
 3.  Augment the Marathon-LB config by copying the following JSON into a file called `options.json`, putting in the URL to your file:
 
