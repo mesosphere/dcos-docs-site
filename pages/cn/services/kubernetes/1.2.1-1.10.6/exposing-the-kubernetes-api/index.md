@@ -10,10 +10,10 @@ excerpt: 设置代理以暴露 Kubernetes API
 
 ## 暴露 Kubernetes API
 
-DC/OS Kubernetes 不会自动在 DC/OS 群集外部暴露
- Kubernetes API。因此，要从 DC/OS 群集外部访问 Kubernetes API，
+DC/OS Kubernetes 不会自动在 DC/OS 集群外部暴露
+ Kubernetes API。因此，要从 DC/OS 集群外部访问 Kubernetes API，
 您必须设置可以到达 DC/OS VIP（
-在 DC/OS 群集内暴露 Kubernetes API）的代理。
+在 DC/OS 集群内暴露 Kubernetes API）的代理。
 
 此 VIP 为 `apiserver. <SERVICE_NAME>.l4lb.thisdcos.directory:6443`，其中，
 `<SERVICE_NAME>` 是安装包时您所提供的
@@ -21,18 +21,18 @@ DC/OS Kubernetes 不会自动在 DC/OS 群集外部暴露
 VIP 是 `apiserver.kubernetes.l4lb.thisdcos.directory:6443`。
 
 在接下来的部分中，我们将介绍您可以遵循的两个示例，以便
-将 Kubernetes API 暴露于 DC/OS 群集之外。第一个示例
+将 Kubernetes API 暴露于 DC/OS 集群之外。第一个示例
 提供了快速尝试 DC/OS Kubernetes 的方式，而无需担心
 建立信任。第二个示例是对第一个示例的扩展，以便
 建立完全安全的设置。
 
-另外，如果您在 DC/OS 群集中运行 Marathon-LB 和/或 Edge-LB，您可以通过其中的一个暴露 Kubernetes API。有关操作的详细信息记录于 [此处](../exposing-the-kubernetes-api-marathonlb)。
+另外，如果您在 DC/OS 集群中运行 Marathon-LB 和/或 Edge-LB，您可以通过其中的一个暴露 Kubernetes API。有关操作的详细信息记录于 [此处](../exposing-the-kubernetes-api-marathonlb)。
 
-为了让用户成功遵循示例，其 DC/OS 群集
+为了让用户成功遵循示例，其 DC/OS 集群
 **必须**至少有一个
 [共用代理](/cn/1.11/overview/architecture/node-types/#public-agent-nodes)
 （例如，网络上一个代理，允许从
-群集外部 ingress）。在示例中，`<ip-of-public-agent>` 代表 IP 地址，
+集群外部 ingress）。在示例中，`<ip-of-public-agent>` 代表 IP 地址，
 通过该地址可以找到此公用代理。用户 **必须**也可以从其工作站
 通过 SSH 来访问此 DC/OS 公用代理。最终，用户
 将得到以下类似设置：
@@ -47,12 +47,12 @@ VIP 是 `apiserver.kubernetes.l4lb.thisdcos.directory:6443`。
 <div class="message--note">
 <p><strong>警告</strong></p>
 <p>本示例旨在提供一种快速、简单的方式来将
-Kubernetes API 暴露于 DC/OS 群集（即开即用）外部。对于
+Kubernetes API 暴露于 DC/OS 集群（即开即用）外部。对于
 暴露 Kubernetes API 的问题，这不是一个完全安全的解决方案，
 <strong>不得</strong> 用于生产。</p>
 </div>
 
-此示例侧重于在 DC/OS 群集外暴露 Kubernetes API，
+此示例侧重于在 DC/OS 集群外暴露 Kubernetes API，
 将 HAProxy 作为中间代理，并使用自签名通配符证书，
 已确保用户和 HAProxy 之间的通信。
 

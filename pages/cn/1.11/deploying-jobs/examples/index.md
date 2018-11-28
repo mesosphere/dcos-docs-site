@@ -117,7 +117,7 @@ enterprise: true
 
 然后作业组为用户 `Cory` 和 `Alice` 分配权限以限制访问的权限。
 
-**前提条件：**
+**先决条件：**
 
 - 安装 DC/OS 时，[安全模式](/cn/1.11/security/ent/#security-modes) `permissive` 或 `strict`。
 - 您必须以 `superuser` 身份登录。

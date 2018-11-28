@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: 安全强化
 title: 安全强化
 menuWeight: 100
-excerpt: 增加群集的安全性
+excerpt: 增加集群的安全性
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-当您从 `disabled` 转为 `permissive` 转为 `strict` [安全模式](/cn/1.11/security/ent/#security-modes)时，您的群集将变得更加安全。但是，有许多设置可以独立于安全模式进行修改，以提高群集的安全性。
+当您从 `disabled` 转为 `permissive` 转为 `strict` [安全模式](/cn/1.11/security/ent/#security-modes)时，您的集群将变得更加安全。但是，有许多设置可以独立于安全模式进行修改，以提高集群的安全性。
 
 - <a name="secure-flag"></a>在 `permissive` 和 `strict` 模式下，将[`auth_cookie_secure_flag`](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#auth-cookie-secure-flag-enterprise) 设置为 `true`。
 

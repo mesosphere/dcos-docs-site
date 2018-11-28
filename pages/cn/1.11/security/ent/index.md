@@ -8,12 +8,12 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS Enterprise 提供一系列功能，让您保护群集并防止其受破坏和其他攻击。本节概述了强化群集的安全功能和建议。
+DC/OS Enterprise 提供一系列功能，让您保护集群并防止其受破坏和其他攻击。本节概述了强化集群的安全功能和建议。
 
 DC/OS 安全性的目标是：
 
-- 通过所有网络接口的重要身份认证和授权隔离群集周边。
-- 严密保护内部群集通信、容器和沙盒。
+- 通过所有网络接口的重要身份认证和授权隔离集群周边。
+- 严密保护内部集群通信、容器和沙盒。
 - 通过支持第三方安全集成来增强集群安全性。
 
 DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实践同样适用于保护 DC/OS，包括设置正确的文件权限、限制根用户和普通用户帐户、使用 `iptables` 或其他防火墙保护网络接口以及定期应用与 DC/OS 配合使用的 Linux 发行版的更新，以确保 `systemd` 和 OpenSSH 等系统库、实用程序和核心服务是安全的。
@@ -22,12 +22,12 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 在最高级别上，我们可以区分 DC/OS 部署的三个安全区域，即管理、专用和公共安全区。
 
 ## 管理区
-**管理**区可通过 HTTP/HTTPS 和 SSH 连接访问，并提供对管理节点的访问。它还可通过 URL 路由向群集中的其他节点提供反向代理访问。为了安全起见，DC/OS 云模板允许配置白名单，以便只允许特定的 IP 地址范围访问管理区。
+**管理**区可通过 HTTP/HTTPS 和 SSH 连接访问，并提供对管理节点的访问。它还可通过 URL 路由向集群中的其他节点提供反向代理访问。为了安全起见，DC/OS 云模板允许配置白名单，以便只允许特定的 IP 地址范围访问管理区。
 
 ### Admin Router
 对管理区的访问由 [Admin Router] 控制(/1.11/overview/architecture/components/#admin-router)。
 
-传入 DC/OS 群集的 HTTP 请求通过 Admin Router 代理（使用 [Nginx](http://nginx.org)，其核心是 [OpenResty](https://openresty.org)）。Admin Router 拒绝访问大多数 HTTP 端点未经身份认证的请求。为了请求能得到身份认证，它需要在其 `Authorization` 报文头中提供有效的认证令牌。可通过验证流程获得令牌。
+传入 DC/OS 集群的 HTTP 请求通过 Admin Router 代理（使用 [Nginx](http://nginx.org)，其核心是 [OpenResty](https://openresty.org)）。Admin Router 拒绝访问大多数 HTTP 端点未经身份认证的请求。为了请求能得到身份认证，它需要在其 `Authorization` 报文头中提供有效的认证令牌。可通过验证流程获得令牌。
 
 ## 专用区
 **专用**区是非可路由网络，仅可从管理区或通过公共区的边缘路由器访问。部署的服务在专用区运行。此区域是运行大多数代理节点运行的位置。
@@ -73,7 +73,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 </table>
 
 ## <a name="discover"></a>了解您的安全模式
-您可以使用以下任一方法来确定现有群集的安全模式。
+您可以使用以下任一方法来确定现有集群的安全模式。
 
 - 向以下端点发送 `GET` 请求：`http[s]://<cluster-url>/dcos-metadata/bootstrap-config.json`。
  **要求：**您的用户帐户必须具有 `dcos:adminrouter:ops:metadata full` 或 `dcos:superuser` 权限。在 `permissive` 或 `strict` 模式下，您必须使用 HTTPS。查看 [保护 TLS 通信的安全](/cn/1.11/security/ent/tls-ssl/)，了解如何获取 DC/OS CA 的根证书，并将其置备到首选客户端。
@@ -81,7 +81,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 - [SSH](/cn/1.11/administering-clusters/sshcluster/) 进入首要节点并查看 `/opt/mesosphere/etc/bootstrap-config.json` 内容。
 
 # <a name="authentication"></a>身份认证
-DC/OS 群集外部的所有请求都需要认证令牌。根据您的安全模式，可能会要求群集内认证令牌。如需更多信息，请参阅 [服务账户文档](/cn/1.11/security/ent/service-auth/)。
+DC/OS 集群外部的所有请求都需要认证令牌。根据您的安全模式，可能会要求集群内认证令牌。如需更多信息，请参阅 [服务账户文档](/cn/1.11/security/ent/service-auth/)。
 
 DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，默认情况下，在发布后五天到期。默认到期时间可在 [自定义安装或升级] 期间进行修改(/1.11/installing/ent/custom/configuration/configuration-parameters/#bouncer-expiration-auth-token-days-enterprise)。
 
@@ -89,7 +89,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>除非在安装或升级期间进行了更改（强烈建议），否则每个群集将使用相同的默认 ZooKeeper 凭据。参见<a href="/1.11/security/ent/hardening/#zk">强化</a>，了解更多信息。</td> 
+  <td align=justify style=color:white><strong>重要信息：</strong>除非在安装或升级期间进行了更改（强烈建议），否则每个集群将使用相同的默认 ZooKeeper 凭据。参见<a href="/1.11/security/ent/hardening/#zk">强化</a>，了解更多信息。</td> 
 </tr> 
 </table>
 
@@ -115,7 +115,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 ## <a name="passwords"></a>密码
 
-群集本地用户帐户（不使用 LDAP、SAML 或 OpenID Connect 的账户）的凭据包含用户名和密码，可用于验证但不能复制用户密码。使用 [crypt(3)] (http://man7.org/linux/man-pages/man3/crypt.3.html) SHA-512 对密码进行单独加盐和密码散列。这会导致单向散列，可用于验证但不能复制用户密码。为了进一步阻止暴力攻击并达到或超过 NIST FIPS 安全要求，散列函数使用 128 位盐长度执行多次迭代。
+集群本地用户帐户（不使用 LDAP、SAML 或 OpenID Connect 的账户）的凭据包含用户名和密码，可用于验证但不能复制用户密码。使用 [crypt(3)] (http://man7.org/linux/man-pages/man3/crypt.3.html) SHA-512 对密码进行单独加盐和密码散列。这会导致单向散列，可用于验证但不能复制用户密码。为了进一步阻止暴力攻击并达到或超过 NIST FIPS 安全要求，散列函数使用 128 位盐长度执行多次迭代。
 
 在 DC/OS IAM 验证了您的凭据后，就会将认证令牌返回给您。然后，认证令牌将用于会话期间进一步请求身份认证。这样，密码不需要存储在客户端，并且只能在输入后立即通过电报发送。通过电报，使用 TLS 加密身份认证请求。TLS 是必需的，并以严格模式执行，但在宽容模式下可选。有关更多信息，请参阅[安全模式](/cn/1.11/security/ent/#security-modes)。
 
@@ -125,7 +125,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 ## <a name="sysd"></a>组件身份认证
 在严格和宽容 [安全模式](/cn/1.11/security/ent/#security-modes)下，DC/OS 在 bootstrap 序列期间使用服务账户自动配置 DC/OS 组件（[DC/OS 节点上的systemd服务](/cn/1.11/overview/concepts/#systemd-service)）。服务帐户在禁用安全模式下不可用。
 
-例如，Mesos 代理节点配置了用于向 Mesos 管理节点进行身份认证的服务帐户。这确保仅授权代理节点可加入 Mesos 群集、宣传资源并被要求启动任务。
+例如，Mesos 代理节点配置了用于向 Mesos 管理节点进行身份认证的服务帐户。这确保仅授权代理节点可加入 Mesos 集群、宣传资源并被要求启动任务。
 
 您可以从 DC/OS GUI 的 **Organization -> Service Accounts** 选项卡查看 `systemd` 服务帐户。这些服务帐户以 `dcos_` 为前缀。
 
@@ -150,7 +150,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 - Admin Router 和密钥存储库在所有安全模式下执行其权限。
 
-- Metronome 和 Marathon 在 `permissive` 和 `strict` 模式执行其权限。但是，只有在请求者提供认证令牌时才会执行 `permissive` 模式，这在 `permissive` 模式下是可选的。如果群集中的请求者未提供认证令牌，Metronome 和 Marathon 则将按照请求是否由具有 `dcos:superuser` 权限的用户所发出进行操作。
+- Metronome 和 Marathon 在 `permissive` 和 `strict` 模式执行其权限。但是，只有在请求者提供认证令牌时才会执行 `permissive` 模式，这在 `permissive` 模式下是可选的。如果集群中的请求者未提供认证令牌，Metronome 和 Marathon 则将按照请求是否由具有 `dcos:superuser` 权限的用户所发出进行操作。
 - Mesos 管理节点的和代理节点仅在 `strict` 安全模式下执行其权限。
 
 该图未显示密钥存储库序列。Admin Router 不会检查向密钥存储库请求的权限。它将这些请求发送给密钥存储库，后者会针对每个请求执行自己的权限。
@@ -167,7 +167,7 @@ DC/OS 通信的加密因[安全模式]而异(/1.11/security/ent/#security-modes)
 | 宽容 | 支持 HTTP 和 HTTPS。根路径的 HTTP 请求（例如， `http://example.com/`）重定向到 HTTPS。具有与根路径不同的目标的 HTTP 请求（例如， `http://example.com/foo`）不会重定向到 HTTPS。如果使用密码登录 DC/OS，则可以选择是不安全地还是安全地传输密码（需要正确的证书验证，包括客户端上的主机名验证）。| 启用加密 |
 | 严格 | 仅支持 HTTPS。所有 HTTP 连接都重定向到 HTTPS。如果使用密码登录 DC/OS，则将安全地传输密码（需要正确的证书验证，包括客户端上的主机名验证）。如果一个或多个 HTTP 代理或负载均衡器在用户代理程序和 Admin Router 之间，则安全密码传输适用于 Admin Router 和先前代理或负载均衡器之间的最终通信。| 执行加密** |
 
-\* *与群集以外的客户端进行通信。例如，浏览器和 DC/OS CLI*。
+\* *与集群以外的客户端进行通信。例如，浏览器和 DC/OS CLI*。
 
 \*\* *在任何安全模式下未加密的 ZooKeeper 实例之间的节点间通信除外。每个管理节点都有 ZooKeeper 实例。这些 ZooKeeper 实例定期通信，以保持其内存数据库同步。您可以使用 [Ipsec](https://datatracker.ietf.org/wg/ipsec/documents/) 对这些通信进行手动加密。*
 

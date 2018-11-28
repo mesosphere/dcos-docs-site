@@ -8,7 +8,7 @@ menuWeight: 10
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-其他授权用户可授予用户对 DC/OS 的访问权限。首个登录到 DC/OS 群集的用户自动创建默认用户。可从 Web 界面或 CLI 添加用户。
+其他授权用户可授予用户对 DC/OS 的访问权限。首个登录到 DC/OS 集群的用户自动创建默认用户。可从 Web 界面或 CLI 添加用户。
 
 ## 从 Web 界面添加用户
 
@@ -23,9 +23,9 @@ menuWeight: 10
 **注意：**对 DC/OS 有访问权限的任何用户可以邀请更多用户。每个 DC/OS 用户都是管理员，DC/OS 没有明确的权限概念。
 
 ## 从 CLI 添加用户
-您可以使用 `dcos_add_user.py` 脚本从终端将用户添加到 DC/OS 群集。默认情况下，您的 DC/OS 安装将包含此脚本。
+您可以使用 `dcos_add_user.py` 脚本从终端将用户添加到 DC/OS 集群。默认情况下，您的 DC/OS 安装将包含此脚本。
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS [已安装](/cn/1.11/installing/)
 
@@ -35,7 +35,7 @@ menuWeight: 10
     sudo -i dcos-shell /opt/mesosphere/bin/dcos_add_user.py <email>
     ```
 
-1. 发送 DC/OS 群集的 URL（如 `http://<public-master-ip>/`) to the new user. The user specified by `<email>` 现在可以登录并访问群集。
+1. 发送 DC/OS 集群的 URL（如 `http://<public-master-ip>/`) to the new user. The user specified by `<email>` 现在可以登录并访问集群。
 
 ## 删除用户
 1. 在 **Users** 屏幕中，选择用户名，然后单击 **Delete**。

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: dcos config show
 title: dcos config show
 menuWeight: 2
-excerpt: 显示群集配置文件
+excerpt: 显示集群配置文件
 
 enterprise: false
 ---

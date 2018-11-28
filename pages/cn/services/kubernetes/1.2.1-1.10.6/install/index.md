@@ -12,9 +12,9 @@ excerpt: 安装 DC/OS Kubernetes（附带默认安装）
 
 ### 资源
 
-要使用默认参数运行框架，您的群集至少必须有一个专用代理以及运行下表所述任务所需的可用资源：
+要使用默认参数运行框架，您的集群至少必须有一个专用代理以及运行下表所述任务所需的可用资源：
 
-| | 每个群集的实例 | 每个实例的 CPU | 每个实例的 Mem (MB) | 每个实例的磁盘空间 (MB) |
+| | 每个集群的实例 | 每个实例的 CPU | 每个实例的 Mem (MB) | 每个实例的磁盘空间 (MB) |
 | ----------------------- | --------------------- | ---------------- | --------------------- | --------------------------- |
 | Package scheduler       | 1                     | 1                | 1024                  | -                           |
 | `etcd`                    | 1                     | 0.5              | 1024                  | 3072 for data, 512 for logs |
@@ -24,17 +24,14 @@ excerpt: 安装 DC/OS Kubernetes（附带默认安装）
 | `kube-proxy`              | 1                     | 0.1              | 512                   | -                           |
 | `kubelet`                 | 1                     | 3                | 3072                  | 10240                       |
 
-For instructions on how to run a highly-available cluster please referr to
+如果需要如何运行高可用性群集的指导，请参考
 [Advanced Installation](../advanced-install).
 
-<p class="message--warning"><strong>WARNING: </strong>Failing to meet these prerequisites will lead to tasks failing to be
-scheduled. These tasks will not show up in the DC/OS UI or CLI, and installation
-will seem to be stuck.</p>
+<p class="message--warning"><strong>警告： </strong>无法满足先决条件会导致任务无法调度。这些任务将不会在DC/OS UI 或 CLI 显示，且可能安装会受阻。</p>
 
 ### Software
 
-Each DC/OS agent (both private and public) must have the following binaries
-installed and available in `$PATH`:
+每个 DC/OS 代理 (无论是专有或公共) 必须安装在 `$PATH` 中有的以下二进制文件:
 
 | Binary     |
 | ---------- |
@@ -81,12 +78,12 @@ $ yum install -y \
 ```
 
 <p class="message--warning"><strong>警告: </strong>未能满足这些先决条件将导致任务启动
-失败或在执行过程中出现错误，导致群集中断。</p>
+失败或在执行过程中出现错误，导致集群中断。</p>
 
 
 # 从 DC/OS CLI 中安装
 
-要使用默认配置启动 Kubernetes 群集，请运行以下命令：
+要使用默认配置启动 Kubernetes 集群，请运行以下命令：
 
 ```shell
 dcos package install kubernetes

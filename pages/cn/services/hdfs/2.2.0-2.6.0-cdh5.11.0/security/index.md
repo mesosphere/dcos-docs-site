@@ -42,7 +42,7 @@ DC/OS {{ model.techName }} 支持 Kerberos 身份认证。
 Kerberos 身份认证依赖中央权限来验证 {{ model.techShortName }} 客户端是其所声明的身份。DC/OS {{ model.techName }} 与现有 Kerberos 基础架构集成，以验证客户端的身份。
 
 #### 先决条件
-- 从 DC/OS 群集可访问的 KDC 的主机名和端口
+- 从 DC/OS 集群可访问的 KDC 的主机名和端口
 - 充分访问 KDC 的权限，以创建 Kerberos principal
 - 充分访问 KDC 的权限，以检索已生成的 principal 的 keytab
 - [DC/OS Enterprise CLI](/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)

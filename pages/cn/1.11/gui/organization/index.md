@@ -22,7 +22,7 @@ excerpt: 使用“组织”菜单
 
 ## 组
 
-“组”菜单将显示当前在 DC/OS 群集中注册的所有组的列表。
+“组”菜单将显示当前在 DC/OS 集群中注册的所有组的列表。
 
 ![Groups](/cn/1.11/img/new-user-group.png)
 
@@ -30,7 +30,7 @@ excerpt: 使用“组织”菜单
 
 ## 服务帐户
 
-“服务帐户”菜单将显示在 DC/OS 群集中注册的所有服务帐户的列表。
+“服务帐户”菜单将显示在 DC/OS 集群中注册的所有服务帐户的列表。
 
 ![Service Accounts](/cn/1.11/img/new-service-account-button.png)
 

@@ -24,9 +24,9 @@ API 仅支持 JSON。您必须在 HTTP 报文头中包含 `application/json` 作
 
 要使用的主机名将根据您的应用程序运行的位置而有所不同。
 
-* 如果您的应用程序在 DC/OS 群集之外运行，则应该使用群集 URL。这可以通过启动 DC/OS Web 界面并从浏览器复制域名来获取。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。在生产环境中，这应该是位于管理节点前面的负载均衡器的路径。
+* 如果您的应用程序在 DC/OS 集群之外运行，则应该使用集群 URL。这可以通过启动 DC/OS Web 界面并从浏览器复制域名来获取。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取集群 URL。在生产环境中，这应该是位于管理节点前面的负载均衡器的路径。
 
-* 如果您的应用程序在群集内部运行，则使用 `master.mesos`。
+* 如果您的应用程序在集群内部运行，则使用 `master.mesos`。
 
 将 `/acs/api/v1` 附加到主机名，如下所示。
 

@@ -11,7 +11,7 @@ enterprise: false
 
 DC/OS 任务日志的文件系统路径包含代理 ID、框架 ID 和执行器 ID 等信息。您可以使用此信息来筛选特定任务、应用程序或代理的日志输出。
 
-**前提条件**
+**先决条件**
 
 * [聚合 DC/OS 日志的 Splunk 安装][1]
 
@@ -71,7 +71,7 @@ DC/OS 任务日志的文件系统路径包含代理 ID、框架 ID 和执行器 
 
 # <a name="templates"></a>模板示例
 
-以下是用于使用 Splunk 聚合 DC/OS 日志的查询模板示例。使用群集中的实际值替换模板参数 `$executor1`、`$framework2`，以及任何其他内容。
+以下是用于使用 Splunk 聚合 DC/OS 日志的查询模板示例。使用集群中的实际值替换模板参数 `$executor1`、`$framework2`，以及任何其他内容。
 
 <table class=“table” bgcolor=#858585>
 <tr> 

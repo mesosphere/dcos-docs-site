@@ -26,11 +26,11 @@ render: mustache
 ```
 5. 查看您的作业：
 
-访问 Spark 群集调度器：`http://<dcos-url>/service/spark/` 查看您的工作状态。也参观了 Mesos UI 在 `http://<dcos-url>/mesos/` 以查看作业日志。
+访问 Spark 集群调度器：`http://<dcos-url>/service/spark/` 查看您的工作状态。也参观了 Mesos UI 在 `http://<dcos-url>/mesos/` 以查看作业日志。
 
 ## 高级示例
 
-* 使用 Kafka 运行 Spark 流式作业：连接到安全 Kafka 群集的 Spark 流式应用程序的示例可在 [spark-build 找到](https://github.com/mesosphere/spark-build/blob/beta-2.1.1-2.2.0-2/tests/jobs/scala/src/main/scala/KafkaJobs.scala)。
+* 使用 Kafka 运行 Spark 流式作业：连接到安全 Kafka 集群的 Spark 流式应用程序的示例可在 [spark-build 找到](https://github.com/mesosphere/spark-build/blob/beta-2.1.1-2.2.0-2/tests/jobs/scala/src/main/scala/KafkaJobs.scala)。
 正如 [使用 Keberos 安全的 Kafka](/cn/services/spark/2.3.1-2.2.1-2/kerberos/#using-kerberos-secured-kafka) 部分中所述，Spark 需要 JAAS 文件、`krb5.conf` 和 keytab。JAAS 文件的示例：
 
         KafkaClient {

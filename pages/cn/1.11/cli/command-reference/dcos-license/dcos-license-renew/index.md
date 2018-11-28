@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: dcos license renew
 title: dcos license renew
 menuWeight: 3
-excerpt: 更新群集许可证
+excerpt: 更新集群许可证
 
 enterprise: true
 ---
 
 # 说明
-`dcos license renew` 命令让您管理群集许可证。
+`dcos license renew` 命令让您管理集群许可证。
 
 # 使用
 

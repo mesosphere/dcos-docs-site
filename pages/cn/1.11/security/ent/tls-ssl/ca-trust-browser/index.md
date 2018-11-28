@@ -74,7 +74,7 @@ enterprise: true
 
 1. 单击 **Close**。
 
-1. 关闭并重新启动 Chrome，或打开新的 Incognito 会话。访问您的群集 URL 和每个管理节点的公共 IP 地址，以确认这些站点现在显示为 **Secure**。
+1. 关闭并重新启动 Chrome，或打开新的 Incognito 会话。访问您的集群 URL 和每个管理节点的公共 IP 地址，以确认这些站点现在显示为 **Secure**。
 
 
 # <a name="osx-win-firefox"></a>在 OS X 或 Windows 上配置 Mozilla Firefox 以信任您的 DC/OS CA
@@ -95,4 +95,4 @@ enterprise: true
 
 1. 再次单击 **OK**，关闭 **Certificate** 对话框。
 
-1. 在地址栏中键入您的群集 URL 并按 ENTER 键。地址栏中的 DC/OS Web 界面的路径应标记为 **Secure**。您也可以尝试访问每个管理节点的公共 IP 地址，以确认所有主节点均显示为 **Secure**。
+1. 在地址栏中键入您的集群 URL 并按 ENTER 键。地址栏中的 DC/OS Web 界面的路径应标记为 **Secure**。您也可以尝试访问每个管理节点的公共 IP 地址，以确认所有主节点均显示为 **Secure**。

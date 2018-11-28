@@ -9,12 +9,12 @@ enterprise: true
 
 本专题描述了如何部署具有独立角色、保留和配额的非本地 Marathon 实例。本程序不支持 [密钥](/cn/1.11/security/ent/secrets/) 或细粒度 ACL。如果需要这些功能，您必须使用自定义非本地 Marathon [程序](/cn/1.11/deploying-services/marathon-on-marathon/advanced/)。
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS 和 DC/OS CLI [已安装](/cn/1.11/installing/oss/)。
 - [DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
 - 您必须以超级用户身份登录。
-- 对群集的 SSH 访问。
+- 对集群的 SSH 访问。
 
 # 第 1 步 - 保留资源
 在此步骤中，保留 Mesos 资源。选择 [静态](#static-reservations) 或 [动态](#dynamic-reservations) 保留的程序。
@@ -40,7 +40,7 @@ enterprise: true
     sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
     ```
 
-1. 将节点重新添加到群集。
+1. 将节点重新添加到集群。
 
     1. 重新加载 `systemd` 配置。
 

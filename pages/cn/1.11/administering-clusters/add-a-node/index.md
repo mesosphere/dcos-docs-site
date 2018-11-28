@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: 添加代理节点
 title: 添加代理节点
 menuWeight: 800
-excerpt: 向现有 DC/OS 群集添加代理节点
+excerpt: 向现有 DC/OS 集群添加代理节点
 
 
 enterprise: false
@@ -21,7 +21,7 @@ enterprise: false
 * 来自您的[安装](/cn/1.11/installing/evaluation/cloud-installation/)步骤的存档 DC/OS 安装程序文件（`dcos-install.tar`）。
 * 满足 [系统要求] 的可用代理节点(/1.11/installing/production/system-requirements/)。
 * CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation)。
-* 已安装和配置 SSH。这是访问 DC/OS 群集中的节点所必需的。
+* 已安装和配置 SSH。这是访问 DC/OS 集群中的节点所必需的。
 
 ### 安装 DC/OS 代理节点
 复制存档的 DC/OS 安装程序文件（`dcos-install.tar`）到代理节点。此存档在 GUI 或 CLI [安装](/cn/1.11/installing/evaluation/cloud-installation/)方法期间创建。

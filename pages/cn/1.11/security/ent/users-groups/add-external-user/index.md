@@ -83,7 +83,7 @@ enterprise: true
 
 您可以使用 `/ldap/importuser` [IAM API](/cn/1.11/security/ent/iam-api/) 端点导入一组 LDAP 用户。
 
-**前提条件：**
+**先决条件：**
 
 - 必须设置 `group-search` 配置验证序号，如[配置 LDAP 组导入](#Configure-LDAP-group-import) 中所述。
 - 现有组条目必须通过使用 `member`、`uniquemember` 或 `memberuid` 属性列出其成员。
@@ -91,7 +91,7 @@ enterprise: true
 
 在此示例中，导入了名为 `johngroup` 的组。
 
-1. 登录 CLI 以确保您可以引用以下代码样本中所示的群集 URL。
+1. 登录 CLI 以确保您可以引用以下代码样本中所示的集群 URL。
 
 1. 使用此命令启动导入：
 

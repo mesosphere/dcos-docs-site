@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: dcos license get
 title: dcos license get
 menuWeight: 1
-excerpt: 显示群集许可证
+excerpt: 显示集群许可证
 
 enterprise: true
 ---
 
 # 说明
-`dcos license get` 命令让您查看群集许可证。
+`dcos license get` 命令让您查看集群许可证。
 
 # 使用
 

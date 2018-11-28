@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle: 管理 AWS
 title: 管理 AWS
 menuWeight: 9
-excerpt: 扩展 AWS 群集 
+excerpt: 扩展 AWS 集群 
 enterprise: false
 ---
 
 
-您可以扩展 AWS 群集或更改代理节点的数量。
+您可以扩展 AWS 集群或更改代理节点的数量。
 
-## 扩展 AWS 群集
+## 扩展 AWS 集群
 
 DC/OS AWS CloudFormation 模板为运行 DC/OS 已经过优化，但您可能希望根据您的需求更改代理节点的数量。
 
@@ -18,7 +18,7 @@ DC/OS AWS CloudFormation 模板为运行 DC/OS 已经过优化，但您可能希
 
 要更改 AWS 的代理节点数：
 
-1. 在 [AWS CloudFormation 管理][3] 页面中，选择您的 DC/OS 群集，然后单击 **更新堆栈**。
+1. 在 [AWS CloudFormation 管理][3] 页面中，选择您的 DC/OS 集群，然后单击 **更新堆栈**。
 2. 单击到 **指定参数**页面，您可以为 **PublicSlaveInstancEcount** 和 **SlaveInstancEcount** 指定新值。
 3. 在 **选项** 页面，接受默认值，然后单击 **下一步**。
 

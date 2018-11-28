@@ -13,7 +13,7 @@ enterprise: false
 
 您可以部署包含所有已认证包的本地 Universe（最简单），或包含所选包的本地 Universe（高级）。
 
-**前提条件：**
+**先决条件：**
 
 - [已安装 DC/OS CLI](/cn/1.11/cli/install/)。
 
@@ -185,7 +185,7 @@ enterprise: false
 
     **提示：** 如果有多个管理节点，您可能必须退出多个 SSH 会话。
 
-1. （可选）使用以下命令删除群集对默认 Universe 的指向。如果要将默认 Universe 保留在默认状态，只需将本地 Universe 添加为附加资源库，跳至下一步。
+1. （可选）使用以下命令删除集群对默认 Universe 的指向。如果要将默认 Universe 保留在默认状态，只需将本地 Universe 添加为附加资源库，跳至下一步。
 
     ```bash
     dcos package repo remove Universe
@@ -246,7 +246,7 @@ enterprise: false
 
 * **镜像破损**
 
- 所有 Universe 组件都托管在您的群集中，包括镜像。组件由 `master.mesos:8082`提供。如果您已经连接到该 IP，您可以将其添加到 `/etc/hosts` 并让镜像工作。
+ 所有 Universe 组件都托管在您的集群中，包括镜像。组件由 `master.mesos:8082`提供。如果您已经连接到该 IP，您可以将其添加到 `/etc/hosts` 并让镜像工作。
 
 * **我没有看到我在找的包**
 

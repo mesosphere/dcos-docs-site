@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: dcos license status
 title: dcos license status
 menuWeight: 4
-excerpt: 查看群集许可证状态
+excerpt: 查看集群许可证状态
 
 enterprise: true
 ---
 
 # 说明
-`dcos license status` 命令将显示群集许可证状态。
+`dcos license status` 命令将显示集群许可证状态。
 
 # 使用
 

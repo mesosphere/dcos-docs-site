@@ -3,40 +3,38 @@ layout: layout.pug
 navigationTitle: SSH 至节点
 title: SSH 至节点
 menuWeight: 0
-excerpt: 从外部网络设置到您的 DC/OS 群集的 SSH 连接。
+excerpt: 从外部网络设置到您的 DC/OS 集群的 SSH 连接。
 
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
+如果您与集群位于同一网络或通过使用 VPN 连接，您可以使用 `dcos node ssh` 命令。有关详细信息，请参阅 CLI 参考的 [dcos 节点部分][1]。
 
-如果您与群集位于同一网络或通过使用 VPN 连接，您可以使用 `dcos node ssh` 命令。有关详细信息，请参阅 CLI 参考的 [dcos 节点部分][1]。
-
-* [在 Unix/Linux 上 SSH 至 DC/OS 群集（macOS、Ubuntu 等）][2]
-* [在 Windows 上 SSH 至 DC/OS 群集][3]
+* [在 Unix/Linux 上 SSH 至 DC/OS 集群（macOS、Ubuntu 等）][2]
+* [在 Windows 上 SSH 至 DC/OS 集群][3]
 
 **要求：**
 
-* 可用于通过 SSH 认证群集节点的未加密 SSH 密钥。不支持加密的 SSH 密钥。
+* 可用于通过 SSH 认证集群节点的未加密 SSH 密钥。不支持加密的 SSH 密钥。
 
-### <a name="unix"></a>在 Unix/Linux 上 SSH 至 DC/OS 群集（macOS、Ubuntu 等）
+### <a name="unix"></a>
+
+在 Unix/Linux 上 SSH 至 DC/OS 群集（macOS、Ubuntu 等）
+
 <p class="message--note"><strong>注意: </strong> Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即使使用 Microsoft Azure 也是如此。</p>
 
 1. 使用 `chmod` 命令更改 `.pem` 文件权限为所有者读/写权限。
 
-    <table class=“table” bgcolor=#858585>
-        <tr> 
-        <td align=justify style=color:white><strong>重要信息：</strong>您的 .pem 文件必须位于 `~/.ssh` 目录。</td> 
-        </tr> 
-    </table>
+    <p class="message--important"><strong>重要信息：</strong>您的 .pem 文件必须位于 <tt>~/.ssh</tt> 目录。</p> 
+    
 
     ```bash
     chmod 600 <private-key>.pem
     ```
 
-2. SSH 至群集。
+2. SSH 至集群。
 
- 1. 从您的终端，将您的新配置添加到 `.pem` 文件，其中 `<private-key>` is your `.pem` 文件。
+    1. 从您的终端，将您的新配置添加到 `.pem` 文件，其中 `<private-key>` is your `.pem` 文件。
 
         ```bash
         ssh-add ~/.ssh/<private-key>.pem
@@ -45,17 +43,17 @@ enterprise: false
 
  * **要 SSH 至管理节点：**
 
- 1. 从 DC/OS CLI，输入以下命令：
+    从 DC/OS CLI，输入以下命令：
 
-            ```bash
-            dcos node ssh --master-proxy --leader
-            ```
+    ```bash
+    dcos node ssh --master-proxy --leader
+    ```
 
- **提示：** CoreOS 默认用户是`core` 。如果您正在使用 CentOS，输入：
+    **提示：** CoreOS 默认用户是`core` 。如果您正在使用 CentOS，输入：
 
-            ```bash
-            dcos node ssh --master-proxy --leader --user=centos
-            ```
+    ```bash
+    dcos node ssh --master-proxy --leader --user=centos
+    ```
 
  * **要 SSH 至代理节点：**
 
@@ -72,7 +70,7 @@ enterprise: false
  图 1. Web 界面节点 ID 屏幕
 
 
-### <a name="windows"></a> 在 Windows 上 SSH 至 DC/OS 群集
+### <a name="windows"></a> 在 Windows 上 SSH 至 DC/OS 集群
 
 **要求：**
 
@@ -94,7 +92,7 @@ enterprise: false
 
  3. 关闭 PuTTYgen。
 
-2. SSH 至群集。
+2. SSH 至集群。
 
  * **要 SSH 至管理节点：**
 
@@ -151,7 +149,7 @@ enterprise: false
 
  3. SSH 至管理节点。
 
- 1. 从 DC/OS Web 界面，复制管理节点的 IP 地址。IP 地址显示在您的群集名称下方。
+ 1. 从 DC/OS Web 界面，复制管理节点的 IP 地址。IP 地址显示在您的集群名称下方。
 
  2. 在 PuTTY 窗口左侧的 **类别** 窗格中，选择 **会话**，在 **主机名（或 IP 地址）** 字段中输入管理节点 IP 地址。
 
@@ -166,9 +164,9 @@ enterprise: false
  1. 从 Mesos Web 界面，复制代理节点主机名。您可以在 **框架** (`<master-node-IPaddress>/mesos/#/frameworks`) or **Slaves** page (`<master-node-IPaddress>/mesos/#/slaves`）中找到主机名。
 
  2. 使用指定的代理节点主机名以用户`core`的身份 SSH 至代理节点：
-
+```
  ssh core@<agent-node-hostname>
-
+```
  [1]: /1.11/cli/command-reference/
  [2]: #unix
  [3]: #windows

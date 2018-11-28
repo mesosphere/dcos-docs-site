@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: dcos license audit get
 title: dcos license audit get
 menuWeight: 0
-excerpt: 获取群集许可证审计记录
+excerpt: 获取集群许可证审计记录
 
 enterprise: true
 ---
 
 # 说明
-`dcos license audit get` 命令让您查看群集许可证审计记录。
+`dcos license audit get` 命令让您查看集群许可证审计记录。
 
 # 使用
 

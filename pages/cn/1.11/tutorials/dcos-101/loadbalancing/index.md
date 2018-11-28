@@ -16,8 +16,8 @@ menuWeight: 8
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/cli/install/)。
-* [app2 和 Marathon-LB](/cn/1.11/tutorials/dcos-101/app2/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 集群](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/cli/install/)。
+* [app2 和 Marathon-LB](/cn/1.11/tutorials/dcos-101/app2/) 已部署并在您的集群中运行。
 
 # 目的
 在本部分中，您将您的应用程序扩展到多个实例，并了解内部和外部服务在应用程序扩展后如何选择使用的实例。
@@ -53,4 +53,4 @@ menuWeight: 8
 选择负载均衡机制时，请考虑这些功能和优点。
 
  * [Marathon-LB](/cn/1.11/networking/marathon-lb/) 是主要用于外部请求的第 7 层负载均衡器。它基于知名的 HAProxy 负载均衡器，并使用 Marathon 的事件总线实时更新其配置。作为第 7 层负载均衡器，它支持基于会话的功能，如 HTTP 粘滞会话和零停机部署。
- * [命名 VIP](/cn/1.11/networking/load-balancing-vips/) 是用于内部 TCP 流量的第 4 层负载均衡器机制。由于它们与内核紧密集成，因此它们提供负载均衡的 IP 地址，可以在群集中的任何位置使用。
+ * [命名 VIP](/cn/1.11/networking/load-balancing-vips/) 是用于内部 TCP 流量的第 4 层负载均衡器机制。由于它们与内核紧密集成，因此它们提供负载均衡的 IP 地址，可以在集群中的任何位置使用。

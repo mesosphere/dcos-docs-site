@@ -14,7 +14,7 @@ enterprise: true
 
 [Marathon 权限](/cn/1.11/security/ent/perms-reference/#marathon-metronome) 和 [Mesos 权限](/cn/1.11/security/ent/perms-reference/#mesos) 不区分服务名称、工作名称、服务组或作业组的区别。因此，您的命名必须是唯一的。
 
-**前提条件：**
+**先决条件：**
 
 - 您必须[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
 - 用于分配权限的[用户帐户](/cn/1.11/security/ent/users-groups/)。
@@ -94,7 +94,7 @@ enterprise: true
 
 ## <a name="root-service-cli"></a>通过 CLI
 
-**前提条件：**
+**先决条件：**
 
 - 您必须[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
 
@@ -231,7 +231,7 @@ enterprise: true
 
 ## <a name="service-in-group-cli"></a>通过 CLI
 
-**前提条件：**
+**先决条件：**
 
 - 您必须[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
 
@@ -368,7 +368,7 @@ enterprise: true
 
 ## <a name="service-group-cli"></a>通过 CLI
 
-**前提条件：**
+**先决条件：**
 
 - 您必须[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
 

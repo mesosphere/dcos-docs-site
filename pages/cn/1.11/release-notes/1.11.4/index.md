@@ -34,7 +34,7 @@ DC/OS 1.11.4 包括以下内容：
 - DCOS-37452 - 增加 dcos 度量标准的 Mesos 代理节点响应超时。
 - DCOS-37588 - 修复因临时连接损失而出现的 Vault/ZK 解锁问题。
 - DCOS-38083 - 改善 dcos 度量标准上 statsd 计时器的特性。
-- DCOS-38248 - 修复规模测试群集上 Admin Router 的特性问题。Admin Router 因 worker_connections 耗尽而未能更新状态缓存。
+- DCOS-38248 - 修复规模测试集群上 Admin Router 的特性问题。Admin Router 因 worker_connections 耗尽而未能更新状态缓存。
 - DCOS-38258/DCOS_OSS-3307 - 增加 Admin Router 服务器中软件包下载的超时时间。
 - DCOS-38323 - 将 Lua HTTP 客户端的超时时间从 10 秒增加到 60 秒，以容纳上游 DC/OS 组件（例如，Mesos 和 Marathon）的更长响应时间。
 - DCOS-38603 - 提高 Mesos 分配器性能。
@@ -58,7 +58,7 @@ DC/OS 1.11.4 包括以下内容：
 # 关于 DC/OS 1.11
 
 DC/OS 1.11 包含许多新功能，重点是：
-- 跨多个云管理群集 [enterprise type="inline" size="small" /]
+- 跨多个云管理集群 [enterprise type="inline" size="small" /]
 - 生产 Kubernetes 即服务
 - 增强了数据安全性 [enterprise type="inline" size="small" /]
 - 更新了数据服务
@@ -69,8 +69,8 @@ DC/OS 1.11 包含许多新功能，重点是：
 ## 新特性和功能
 
 ### 平台
-- 多区域管理 - 使 DC/OS 群集能跨越多个数据中心、云和远程分支，同时提供统一的管理和控制群集。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
-- 已链接的群集 - 群集链路是一个群集和另一个群集之间的单向关系。使用 DC/OS CLI 将一个群集的链接添加到另一个群集或将其删除。设置链接后，您可以使用 CLI 或 UI 在群集之间轻松切换。[查看文档](/cn/1.11/administering-clusters/multiple-clusters/cluster-links)。[enterprise type="inline" size="small" /]
+- 多区域管理 - 使 DC/OS 集群能跨越多个数据中心、云和远程分支，同时提供统一的管理和控制集群。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
+- 已链接的集群 - 集群链路是一个集群和另一个集群之间的单向关系。使用 DC/OS CLI 将一个集群的链接添加到另一个集群或将其删除。设置链接后，您可以使用 CLI 或 UI 在集群之间轻松切换。[查看文档](/cn/1.11/administering-clusters/multiple-clusters/cluster-links)。[enterprise type="inline" size="small" /]
  - 故障域感知 - 利用故障域感知使您的服务高度可用，并能在需要时增加容量。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
 - 停用节点 - 支持永久停用节点使得更容易管理“spot”云实例，实现任务的立即重新调度。[查看文档](/cn/1.11/hybrid-cloud/features/decommission-nodes/)
 - UCR

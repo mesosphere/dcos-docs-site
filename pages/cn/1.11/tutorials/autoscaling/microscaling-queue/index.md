@@ -9,10 +9,10 @@ menuWeight: 2
 
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>重要信息：</b>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</td> </tr> </table>
 
-本教程指导您在 DC/OS 群集上设置 [Microscaling Systems][2] 的 Microscaling 演示。
+本教程指导您在 DC/OS 集群上设置 [Microscaling Systems][2] 的 Microscaling 演示。
 
 
-[Microscaling][1] 调整计算群集内运行的任务的平衡。
+[Microscaling][1] 调整计算集群内运行的任务的平衡。
 这允许您的基础架构
 从较低到较高优先级任务自动重新分配资源，并在几秒钟内响应需求变化。
 Microscaling 可监控较高优先级任务是否符合性能目标。在本教程中，性能目标是维护配置队列值的长度。优先级较高的任务在不满足目标时被增容，在超出目标时被减容。优先级较低的任务可以使用备用资源。
@@ -38,9 +38,9 @@ Microscaling 可监控较高优先级任务是否符合性能目标。在本教�
 
 # <a name="prerequisites"></a>先决条件
 
-* [Microsoft Azure][3] 帐户。您的 DC/OS 群集可以在任何地方运行（不必在 Azure 上运行），
+* [Microsoft Azure][3] 帐户。您的 DC/OS 集群可以在任何地方运行（不必在 Azure 上运行），
 但演示使用 Azure 存储队列。如果您还没有帐户，可以获得[免费试用版][4]。
-* [正在运行的 DC/OS 群集][5]。如果您还没有群集，您可以遵循[在 Azure 上设置 DC/OS 群集的说明][6]。
+* [正在运行的 DC/OS 集群][5]。如果您还没有集群，您可以遵循[在 Azure 上设置 DC/OS 集群的说明][6]。
 * Marathon API 地址。如果您在端口 80 上设置 SSH 隧道到 Marathon 管理节点，则可以在 `http://localhost/marathon` 上访问 Marathon API。
 * [Ruby][8] 在您的本地机器上运行演示脚本。
 
@@ -120,7 +120,7 @@ export MSS_MARATHON_API=http://localhost/marathon
 
 ## 卸载 Marathon 应用程序
 
-您可以使用 `marathon-uninstall` 命令从群集中删除演示应用程序。（此命令要求如上所述设置 `MSS_MARATHON_API` 环境变量。）
+您可以使用 `marathon-uninstall` 命令从集群中删除演示应用程序。（此命令要求如上所述设置 `MSS_MARATHON_API` 环境变量。）
 
 ``` bash
 ./marathon-uninstall
@@ -133,7 +133,7 @@ export MSS_MARATHON_API=http://localhost/marathon
 * 登录 [Azure 门户][9]。
 * 从左侧菜单中选择资源组。
 * 找到并删除您为 Azure 队列创建的资源组。
-* 如果您为此演示创建了 ACS 群集，则还需要删除该群集的资源组。
+* 如果您为此演示创建了 ACS 集群，则还需要删除该集群的资源组。
 
 # 后续步骤
 

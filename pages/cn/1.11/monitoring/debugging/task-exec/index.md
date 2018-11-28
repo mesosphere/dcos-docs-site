@@ -88,7 +88,7 @@ enterprise: false
 有关 `dcos task exec` 命令的更多信息，请参阅 [CLI 参考部分](/cn/1.11/cli/command-reference/dcos-task/dcos-task-exec/)。
 
 # 在任务容器内运行交互命令
-您可以使用 `dcos task exec` 命令，在群集中的机器上运行交互命令。此例中，`dcos task exec` 命令用来将简单脚本从本地计算机复制到节点上的任务容器。然后使用 `dcos task exec` 命令对脚本进行管理。
+您可以使用 `dcos task exec` 命令，在集群中的机器上运行交互命令。此例中，`dcos task exec` 命令用来将简单脚本从本地计算机复制到节点上的任务容器。然后使用 `dcos task exec` 命令对脚本进行管理。
 
 1. 创建 Marathon 应用定义，并使用以下内容为其命名 `my-interactive-app.json`：
 

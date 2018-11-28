@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle: 备份和恢复
 title: 备份和恢复
 menuWeight: 7
-excerpt: 备份和恢复您群集的本地 Marathon 实例
+excerpt: 备份和恢复您集群的本地 Marathon 实例
 
 enterprise: true
 ---
 
-您可以备份您群集的  Marathon本地执行个体的状态，而之后能从该备份中恢复。
+您可以备份您集群的  Marathon本地执行个体的状态，而之后能从该备份中恢复。
 
-您可能会有需要在执行升级或降级之前备份群集。如果升级过程中发生错误或安装了未能按预期执行的 Universe 包，则可能需要将群集恢复至已知的良好状态。
+您可能会有需要在执行升级或降级之前备份集群。如果升级过程中发生错误或安装了未能按预期执行的 Universe 包，则可能需要将集群恢复至已知的良好状态。
 
 # 限制
 

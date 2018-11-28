@@ -15,7 +15,7 @@ enterprise: false
 
 如果使用代理服务器连接到互联网，您可以配置 CLI 以使用代理服务器。
 
-**前提条件**
+**先决条件**
 
 * `pip` 版本 7.1.0 或更高版本。
 * 定义 `http_proxy` 和 `https_proxy` 环境变量来使用 `pip`。

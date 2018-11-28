@@ -11,7 +11,7 @@ These are the release notes for Edge-LB 1.2.
 
 # v1.2.3
 
-Released on November 15, 2018.
+Released on November 27, 2018.
 
 ## Notable Changes
 
@@ -23,6 +23,10 @@ Released on November 15, 2018.
   * `poolHealthcheckMaxFail` - Defines how many consecutive failures mark the task as failed and force Mesos to kill it (default: 5).
   * `poolHealthcheckTimeout` - Defines the timeout enforced by Mesos on the healthcheck execution. It includes the container startup (fetch, setup, start, etc...) as well as the time spent by the healthcheck command executing the test.
 
+ ## Bug Fixes
+
+* LB task getting killed intermittently leading to outage for apps being load balanced.
+ 
 
 ## Known Limitations
 
@@ -63,6 +67,15 @@ Released on November 15, 2018.
   * Removed unnecessary tooling regarding iptables, syslogd, etc.
   * Now only necessary artifacts are copied into the container during the build (i.e., no more Dockerfile)
   * Verbose when copying files during the container start
+
+
+## Bug Fixes
+
+* In DC/OS 1.11.3 EE (strict mode), non-superuser access needed to Edge-LB pool logs
+* Edge-LB – default template for SNI is incorrect
+* Edge-LB should ignore terminal but not ack'ed tasks from Mesos when subscribing.
+* Edge-LB pool is unable to launch additional load balancer tasks
+* Edge-LB pool can not deploy if app and secret are under namespace/group
 
 ## Known Limitations
 

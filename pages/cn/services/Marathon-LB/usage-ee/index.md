@@ -18,7 +18,7 @@ enterprise: true
 
 ### 使用 DC/OS CLI
 
-**前提条件：**
+**先决条件：**
 - [已安装 DC/OS CLI](/1.10/cli/install/)
 - 作为具有 [必要权限 的用户通过 `dcos auth login` 登录](/1.10/security/ent/perms-reference/)。
 
@@ -52,7 +52,7 @@ dcos package install --options=config.json marathon-lb
 
 ## <a name="mlb-strict-perm-install"></a>以严格模式安装
 
-**前提条件：**
+**先决条件：**
 
 - Marathon-LB 需要一个`strict` [安全模式](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)中的服务帐户。只有具有 `superuser` 权限的用户才能创建服务帐户。请参阅 [Provisioning Marathon-LB](/services/marathon-lb/mlb-auth/) 了解说明。
 

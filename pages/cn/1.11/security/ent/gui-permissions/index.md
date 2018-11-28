@@ -14,7 +14,7 @@ enterprise: true
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>只有 <a href="/1.11/security/ent/perms-reference/#superuser">超级用户</a> 可以查看“仪表盘、节点和群集 -> 概述”选项卡。</td> 
+  <td align=justify style=color:white><strong>重要信息：</strong>只有 <a href="/1.11/security/ent/perms-reference/#superuser">超级用户</a> 可以查看“仪表盘、节点和集群 -> 概述”选项卡。</td> 
 </tr> 
 </table>
 

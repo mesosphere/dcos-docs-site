@@ -23,7 +23,7 @@ excerpt: 教程 - 在 DC/OS 上构建完整的负载均衡数据管线
 * 如何发现您的应用程序。
 * 如何扩展您的应用程序。
 
-本教程使用 DC/OS 为群集启动和部署这些微服务：
+本教程使用 DC/OS 为集群启动和部署这些微服务：
 
 ### Cassandra
 [Cassandra][1] 数据库用于后端以存储 Tweeter 应用程序数据。
@@ -35,18 +35,18 @@ excerpt: 教程 - 在 DC/OS 上构建完整的负载均衡数据管线
 [Marathon-LB][12] 是一种基于 HAProxy 的负载均衡器，仅适用于 Marathon。当您需要外部路由或第 7 层负载均衡功能时，它非常有用。
 
 ### Zeppelin
-[Zeppelin][4] 是一款交互式分析笔记本，可在后端与 DC/OS Spark 配合使用，以实现交互式分析和可视化。因为 Spark 和 Zeppelin 可能会占用所有群集资源，所以必须为 Zeppelin 服务指定最大内核数。
+[Zeppelin][4] 是一款交互式分析笔记本，可在后端与 DC/OS Spark 配合使用，以实现交互式分析和可视化。因为 Spark 和 Zeppelin 可能会占用所有集群资源，所以必须为 Zeppelin 服务指定最大内核数。
 
 ### Tweeter
 Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传输到 DC/OS Kafka 服务，并使用 DC/OS [Spark][3] 和 Zeppelin 服务执行实时分析。
 
-# 在 DC/OS 群集上准备和部署 Tweeter
+# 在 DC/OS 集群上准备和部署 Tweeter
 
 ## 先决条件
 
 * [DC/OS](/cn/1.11/installing/) 或 [DC/OS Enterprise](/cn/1.11/installing/) 已安装，至少具有 5 个[专用代理节点][6] 和 1 个[公共代理节点][6]。
 
- 如果您正在使用 DC/OS Enterprise 群集运行本教程，则需要确保将[安全模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)设置为宽容或严格。默认情况下，DC/OS 安装在宽容安全模式下。
+ 如果您正在使用 DC/OS Enterprise 集群运行本教程，则需要确保将[安全模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)设置为宽容或严格。默认情况下，DC/OS 安装在宽容安全模式下。
 
 * [DC/OS CLI](/cn/1.11/cli/install/) 已安装。
 * 公共代理节点的公共 IP 地址。在声明了公共代理节点的 DC/OS 已安装后，可以[导航到公共代理节点的公共 IP 地址][9]。
@@ -64,7 +64,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 3. 单击 **Catalog** 选项卡。查找并单击 *marathon-lb** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。当模态警报提示时，单击 **OPEN SERVICE**。
 
-如果您在 Enterprise 群集上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/services/marathon-lb/mlb-auth/)进行安装。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
+如果您在 Enterprise 集群上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/services/marathon-lb/mlb-auth/)进行安装。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
 
 4. 单击 **Catalog** 选项卡。单击 **zeppelin** 软件包，然后单击 **REVIEW & RUN** 按钮。
  1. 单击左侧的 **spark** 选项卡，并将 `cores_max` 设置为 `8`。
@@ -101,7 +101,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
     ...
     ```
 
- 在本示例中，DC/OS 群集正在 AWS 上运行：
+ 在本示例中，DC/OS 集群正在 AWS 上运行：
 
     ```bash
     ...
@@ -113,7 +113,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
     ...
     ```
 
-3. 导航至包含已修改 `tweeter.json` 文件的目录。将 Tweeter 安装及部署到您的 DC/OS 群集中。
+3. 导航至包含已修改 `tweeter.json` 文件的目录。将 Tweeter 安装及部署到您的 DC/OS 集群中。
 
     ```bash
     dcos marathon app add tweeter.json
@@ -125,7 +125,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
     dcos marathon app update tweeter instances=<number_of_desired_instances>
     ```
 
- 在本示例中，服务通过群集节点 `node-0.cassandra.mesos:9042` 与 Cassandra 进行通信，通过群集节点 `broker-0.kafka.mesos:9557` 与 Kafka 进行通信。由于 `tweeter.json` 应用定义文件中的 `HAPROXY_0_VHOST` 定义，流量通过 Marathon-LB 传输。
+ 在本示例中，服务通过集群节点 `node-0.cassandra.mesos:9042` 与 Cassandra 进行通信，通过集群节点 `broker-0.kafka.mesos:9557` 与 Kafka 进行通信。由于 `tweeter.json` 应用定义文件中的 `HAPROXY_0_VHOST` 定义，流量通过 Marathon-LB 传输。
 
 4. 转到 **Services** 选项卡，验证您的应用程序是否正常运行。
 
@@ -182,7 +182,7 @@ Tweeter 应用程序使用安装在每个 DC/OS 节点上的服务发现和负�
 ...
 ```
 
-如果您正在使用 DC/OS Enterprise 群集，单击 DC/OS Web 界面中的 **Networking** -> **Service Addresses** 选项卡，然后选择 `1.1.1.1:30000` 虚拟网络，以查看正在执行的负载均衡：
+如果您正在使用 DC/OS Enterprise 集群，单击 DC/OS Web 界面中的 **Networking** -> **Service Addresses** 选项卡，然后选择 `1.1.1.1:30000` 虚拟网络，以查看正在执行的负载均衡：
 
 ![Tweeter scaled](/1.10/img/tweeter-services8-ee.png)
 
@@ -196,7 +196,7 @@ Tweeter 应用程序使用安装在每个 DC/OS 节点上的服务发现和负�
 
 2. 通过 'https://<master_ip>/service/zeppelin/` 导航至 Zeppelin。您的管理节点 IP 地址是 DC/OS Web 界面的 URL。
 
-3. 单击 **Import Note** 并导入 `tweeter-analytics.json`。Zeppelin 已预先配置，以在 DC/OS 群集上执行 Spark 作业，因此无需进一步配置或设置。请务必使用 `https://` 而不是 `http://`。
+3. 单击 **Import Note** 并导入 `tweeter-analytics.json`。Zeppelin 已预先配置，以在 DC/OS 集群上执行 Spark 作业，因此无需进一步配置或设置。请务必使用 `https://` 而不是 `http://`。
 
 4. 导航至 **Notebook** -> **Tweeter Analytics**。
 

@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos node ssh` 命令让您建立与 DC/OS 群集管理节点或代理节点的 SSH 连接。
+`dcos node ssh` 命令让您建立与 DC/OS 集群管理节点或代理节点的 SSH 连接。
 
 # 使用
 
@@ -35,7 +35,7 @@ dcos node ssh <command> [OPTION]
 
 | 名称，简写 | 默认值 | 说明 |
 |---------|-------------|-------------|
-| `<command>` | | 在 DCOS 群集节点上执行的命令。|
+| `<command>` | | 在 DCOS 集群节点上执行的命令。|
 
 # 父命令
 
