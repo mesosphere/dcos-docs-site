@@ -1,0 +1,16 @@
+- var semanticVersion = /^[0-9]+\.[0-9]+/
+- var pages = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
+- var sectionTitle = 'DC/OS Docs'
+
+- function isItemActive(itemPath)
+  if itemPath == '/'
+    if path == '/'
+      - return true
+    - return semanticVersion.test(paths[0])
+  else
+    - return `/${path}`.startsWith(itemPath)
+
+if paths[0] === 'services'
+  - sectionTitle = 'Service Docs'
+
+include header.pug

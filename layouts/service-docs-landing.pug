@@ -1,4 +1,5 @@
 - var paths = path.split('/')
+- var isChinese = paths[0] == 'cn'
 - var currentPath = '/' + path
 - var items = hierarchy.children.find(child => child.id === paths[0])
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
@@ -38,7 +39,10 @@ html(lang='en')
   body(class='landing landing--services')
     div(class='layout')
       div(role='main', class='layout__content')
-        include partials/header.pug
+        if isChinese
+          include partials/header/cn-header.pug
+        else
+          include partials/header/en-header.pug
         div(class='landing__hero')
           h1(class='landing__title') DC/OS Service Docs
         div(class='landing__container')
