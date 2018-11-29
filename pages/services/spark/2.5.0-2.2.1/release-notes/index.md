@@ -10,18 +10,18 @@ featureMaturity:
 ## Version Spark and Spark History 2.5.0-2.2.1
 
 ### New Features
-- Unique Mesos Task IDs for Spark executors
-- Trusted Ubuntu 18.04 base Docker image
-- `nobody` user support on RHEL/CentOS (via configuration)
+- Added unique Mesos Task IDs for Spark executors
+- Added trusted Ubuntu 18.04 base Docker image
+- Added `nobody` user support on RHEL/CentOS (via configuration)
 
 ### Updates
 - Changed default user for Docker container from ‘root’ to ‘nobody’
-- JRE upgrade to 1.8.192
-- Ubuntu upgrade 18.04
-- Hadoop dependencies update from 2.7.3 to 2.7.7 (fixes CVE-2016-6811, CVE-2017-3162, CVE-2017-3166, CVE-2018-8009)
-- Jetty dependencies update from jetty 9.3.11.v20160721 to 9.3.24.v20180605 (fixes CVE-2017-7658)
-- Jackson dependencies update from 2.6.5 to 2.9.6 (fixes CVE-2017-15095, CVE-2017-17485, CVE-2017-7525, CVE-2018-7489, CVE-2016-3720)
-- ZooKeeper dependencies update from 3.4.6 to 3.4.13
+- Updated JRE upgrade to 1.8.192
+- Updated Ubuntu upgrade 18.04
+- Updated Hadoop dependencies update from 2.7.3 to 2.7.7 (fixes CVE-2016-6811, CVE-2017-3162, CVE-2017-3166, CVE-2018-8009)
+- Updated Jetty dependencies update from jetty 9.3.11.v20160721 to 9.3.24.v20180605 (fixes CVE-2017-7658)
+- Updated Jackson dependencies update from 2.6.5 to 2.9.6 (fixes CVE-2017-15095, CVE-2017-17485, CVE-2017-7525, CVE-2018-7489, CVE-2016-3720)
+- Updated ZooKeeper dependencies update from 3.4.6 to 3.4.13
 
 
 ### Bug fixes
@@ -30,8 +30,8 @@ featureMaturity:
 - Spark dispatcher task output now redirected to stdout and available in logs
 
 ### Breaking Changes
-- new configuration option added: ‘docker_user’ which allows to override a user when running Spark using Docker containerizer
-- Spark default Hadoop dependency is updated from 2.6 to 2.7
+- We've added a new configuration option added: ‘docker_user’ which allows to override a user when running Spark using Docker containerizer
+- The default Hadoop dependency is now 2.7 and not 2.6
 
 
 ## Version Spark and Spark History 2.4.0-2.2.1-3
@@ -50,7 +50,7 @@ featureMaturity:
 - Updated JRE version to 8u172
 
 ### Bug fixes
-- Fixed duplicate docker image URLs; use resource.json as default
+- Fixed duplicate docker image URLs; use `resource.json` as default
 
 ### Breaking Changes
 - VIP endpoints for the dispatcher are no longer `spark-dispatcher:<port>` and are now `dispatcher.{{service.name}}:<port>`
