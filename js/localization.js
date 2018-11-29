@@ -1,11 +1,7 @@
-const $ = global.$;
-
 class Localizer {
   constructor(el) {
-    console.log(el);
     this.el = el;
     this.list = this.el.querySelector('ul');
-    console.log(this.list);
     this.svg = this.el.querySelector('.localization-svg');
 
     this.listShown = false;
