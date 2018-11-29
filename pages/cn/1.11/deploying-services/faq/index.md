@@ -43,14 +43,16 @@ Marathon 中的 [服务发现][2] 有对一些服务发现常见实施的综合�
 
 以下示例展示了应该启动以使其工作的命令：
 
-
- dcos spark run --submit-args='--conf spark.mesos.uris=https://path/to/pi.conf --class JavaSparkPiConf https://path/to/sparkPi_without_config_file.jar /mnt/mesos/sandbox/pi.conf' 
+```
+dcos spark run --submit-args='--conf spark.mesos.uris=https://path/to/pi.conf --class JavaSparkPiConf https://path/to/sparkPi_without_config_file.jar /mnt/mesos/sandbox/pi.conf' 
+```
 
 更多信息：
+```
+> --conf spark.mesos.uris=... Mesos 启动驱动器或执行器时，URI 的逗号分隔列表就会下载到沙盒。这一情况同时适用于粗粒度和细粒度模式。
 
- > --conf spark.mesos.uris=... Mesos 启动驱动器或执行器时，URI 的逗号分隔列表就会下载到沙盒。这一情况同时适用于粗粒度和细粒度模式。
-
- > /mnt/mesos/sandbox/pi.conf 您的主类作为第 0 个参数接收到的下载文件路径（参见下面的代码片段）。/mnt/mesos/sandbox/ 是映射到相应 mesos 任务沙盒的容器内的标准路径。
+> /mnt/mesos/sandbox/pi.conf 您的主类作为第 0 个参数接收到的下载文件路径（参见下面的代码片段）。/mnt/mesos/sandbox/ 是映射到相应 mesos 任务沙盒的容器内的标准路径。
+```
 
 ## 安装工具如何工作？
 

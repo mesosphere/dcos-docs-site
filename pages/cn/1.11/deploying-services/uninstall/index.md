@@ -34,9 +34,9 @@ dcos package uninstall chronos
 1. 导航至 DC/OS Web 界面中的 [**服务**](/cn/1.11/gui/services/) 选项卡。
 1. 选择服务，单击最右的垂直椭圆形，然后选择**删除**。
 
- ![Destroy app](/cn/1.11/img/service-delete.png)
-    
- 图 1. 删除服务
+    ![Destroy app](/cn/1.11/img/service-delete.png)
+
+    图 1. 删除服务
     
 1. 复制并运行显示的命令。
 
@@ -120,17 +120,17 @@ docker run mesosphere/janitor /janitor.py -r <service_name>-role -z dcos-service
 连接到首要实例并启动脚本：
 
 1. 打开集群首要实例的 SSH 会话。
-
- your-machine$ dcos node ssh --master-proxy --leader
-
+    ```
+    your-machine$ dcos node ssh --master-proxy --leader
+    ```
 1. 运行 `mesosphere/janitor` 镜像，该镜像带有为服务配置的角色和 ZooKeeper 节点，并且在严格模式集群中还带有认证令牌：
-
- docker run mesosphere/janitor /janitor.py -r sample-role -z sample-zk [-a auth-token]
-
+    ```
+    docker run mesosphere/janitor /janitor.py -r sample-role -z sample-zk [-a auth-token]
+    ```
 ### 通过 Marathon 运行
 
 在 DC/OS [**服务**](/cn/1.11/gui/) 选项卡中，使用 JSON 编辑器将以下内容添加为 Marathon 任务。根据需要清理的内容，替换传递到 `-r`/`-z` 的值。
-
+```json
     {
  "id": "janitor", 
  "cmd": "/janitor.py -r sample-role -z dcos-service-sample", 
@@ -146,7 +146,7 @@ docker run mesosphere/janitor /janitor.py -r <service_name>-role -z dcos-service
  "type": "DOCKER" 
       }
     }
-
+```
 当框架清理器完成工作后，就会自动从 Marathon 中移除，确保仅运行一次。移除操作即便已经成功完成，通常也会导致清理任务出现 `TASK_KILLED` 甚至是 `TASK_FAILED` 的结果。清理任务还会从“服务”和“仪表板”选项卡中迅速消失。
 
 ### 验证结果
@@ -154,53 +154,55 @@ docker run mesosphere/janitor /janitor.py -r <service_name>-role -z dcos-service
 如需查看脚本的结果，请前往 Mesos（`http://your-cluster.com/mesos`） 并查看任务的 `stdout` 内容。如果 `stdout` 缺少内容，请手动运行以下命令：
 
  # 确定运行 Docker 任务的代理 ID。示例如下：
+```
+# Determine id of agent which ran the Docker task. This is an example:
 
- your-machine$ dcos node ssh --master-proxy --mesos-id=c62affd0-ce56-413b-85e7-32e510a7e131-S3
+your-machine$ dcos node ssh --master-proxy --mesos-id=c62affd0-ce56-413b-85e7-32e510a7e131-S3
 
- agent-node$ docker ps -a
- 容器 ID 镜像命令 ... 
- 828ee17b5fd3 mesosphere/janitor:latest /bin/sh -c /janito ... 
+agent-node$ docker ps -a
+CONTAINER ID        IMAGE                       COMMAND             ...
+828ee17b5fd3        mesosphere/janitor:latest   /bin/sh -c /janito  ...
 
- agent-node$ docker logs 828ee17b5fd3
-
+agent-node$ docker logs 828ee17b5fd3
+```
 ### 示例结果
 
 以下是成功运行样本安装的输出示例：
 
- your-machine$ dcos node ssh --master-proxy --leader
+    your-machine$ dcos node ssh --master-proxy --leader
 
- leader-node$ docker run mesosphere/janitor /janitor.py -r sample_role -z dcos-service-sample
- [... docker 下载 ...]
- 管理节点： http://leader.mesos:5050/master/ Exhibitor: http://leader.mesos:8181/ Role: sample_role ZK Path: sample
+    leader-node$ docker run mesosphere/janitor /janitor.py -r sample_role -z dcos-service-sample
+    [... docker download ...]
+    Master: http://leader.mesos:5050/master/ Exhibitor: http://leader.mesos:8181/ Role: sample_role ZK Path: sample
 
- 正在销毁卷... 
- Mesos 版本：0.28.1 => 28
- 在从节点 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S5 上找到 1 个“sample_role”卷，正在删除：
- 200
- 在从节点 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S4 上找到 1 个“sample_role” 卷，正在删除... 
- 200
- 从节点 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S3任何角色均无保留资源
- 从节点 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S2任何角色均无保留资源
- 在从节点 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S1 上找到 1 个“sample_role” 卷，正在删除... 
- 200
- 从节点 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S0  “sample_role”角色无保留资源。已知角色为：[slave_public]
+    Destroying volumes...
+    Mesos version: 0.28.1 => 28
+    Found 1 volume(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S5, deleting...
+    200
+    Found 1 volume(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S4, deleting...
+    200
+    No reserved resources for any role on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S3
+    No reserved resources for any role on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S2
+    Found 1 volume(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S1, deleting...
+    200
+    No reserved resources for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S0. Known roles are: [slave_public]
 
- 不会保留资源... 
- 在从节点 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S5 上找到 4 个角色“sample_role” 的资源，正在删除... 
- 200
- 在从节点 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S4 上找到 4 个角色“sample_role” 的资源，正在删除... 
- 200
- 从节点 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S3任何角色均无保留资源
- 从节点 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S2任何角色均无保留资源
- 在从节点  3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S1 上找到 4 个角色“sample_role” 的资源，正在删除... 
- 200
- 从节点 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S0“sample_role”角色无保留资源。已知角色为：[slave_public]
+    Unreserving resources...
+    Found 4 resource(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S5, deleting...
+    200
+    Found 4 resource(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S4, deleting...
+    200
+    No reserved resources for any role on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S3
+    No reserved resources for any role on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S2
+    Found 4 resource(s) for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S1, deleting...
+    200
+    No reserved resources for role 'sample_role' on slave 3ce447e3-2894-4c61-bd0f-be97e4d99ee9-S0. Known roles are: [slave_public]
 
- 正在删除 zk 节点... 
- 成功删除存在的 z 节点 'dcos-service-sample' (代码=200)。
- 顺利完成清理。
+    Deleting zk node...
+    Successfully deleted znode 'dcos-service-sample' (code=200), if znode existed.
+    Cleanup completed successfully.
 
 如果通过 Marathon 运行脚本，您还会看到以下输出：
 
- 正在从 Marathon 自我删除，避免运行循环：/janitor
- 成功从 marathon 删除自身(代码=200)：/janitor
+    Deleting self from Marathon to avoid run loop: /janitor
+    Successfully deleted self from marathon (code=200): /janitor

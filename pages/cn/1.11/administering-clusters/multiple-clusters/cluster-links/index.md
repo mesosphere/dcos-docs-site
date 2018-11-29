@@ -9,7 +9,7 @@ enterprise: true
 
 集群链接是集群和另一集群之间的 **单向** 关系。
 
-您可以使用 DC/OS CLI [dcos cluster link] (/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) 和 [dcos cluster unlink](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) 命令和 [cluster link API](/cn/1.11/administering-clusters/multiple-clusters/cluster-link-api)添加和删除一个集群到另一个集群的链接。链接设置完成后，您可以使用 CLI 或 UI 轻松在集群之间切换。如果链接通过由 SSO 提供程序设置，您不需要提供凭证即可切换集群。
+您可以使用 DC/OS CLI [dcos cluster link](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) 和 [dcos cluster unlink](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) 命令和 [群集链接 API](/cn/1.11/administering-clusters/multiple-clusters/cluster-link-api)添加和删除一个群集到另一个群集的链接。链接设置完成后，您可以使用 CLI 或 UI 轻松在群集之间切换。如果链接通过由 SSO 提供程序设置，您不需要提供凭证即可切换群集。
 
 您必须以超级用户身份登录或具有相应的集群链接 [权限](/cn/1.11/security/ent/perms-reference/#cluster-linker)以查看、添加及删除链接和授予权限以查看链接的集群。
 
@@ -19,26 +19,26 @@ enterprise: true
 作为超级用户：
 
 1. 配置 [OpenID IDP](/cn/1.11/security/ent/sso/setup-openid/)。
- 1. 确保在 Google Dev 控制台中的**授权 Javascript 源** 和 **授权重定向 URI** 字段中均提供两个集群 URL。
- 1. 提供 OIDC 名称，如“google-idp”。
- 1. 配置 OIDC 时，确保两个集群使用相同的 `Client-Id` 和 `Client-Secret` 。
-1. 为每个用户提供查看服务和已链接集群的权限：
+    1. 确保在 Google Dev 控制台中的**授权 Javascript 源** 和 **授权重定向 URI** 字段中均提供两个群集 URL。
+    1. 提供 OIDC 名称，如“google-idp”。
+    1. 配置 OIDC 时，确保两个群集使用相同的 `Client-Id` 和 `Client-Secret` 。
+1. 为每个用户提供查看服务和已链接群集的权限：
 
- 1. 选择 **组织 -> 用户**。
- 2. 选择用户。
- 3. 单击 **添加权限**。
- 4. 在右上方，单击 **插入权限字符串**。
- 5. 粘贴权限：
+    1. 选择 **组织 -> 用户**。
+    2. 选择用户。
+    3. 单击 **添加权限**。
+    4. 在右上方，单击 **插入权限字符串**。
+    5. 粘贴权限：
 
-        ```
-        dcos:adminrouter:ops:mesos full
-        dcos:adminrouter:ops:slave full
-        dcos:adminrouter:service:marathon full
-        dcos:service:marathon:marathon:services:/ full
-        dcos:cluster:linker:* read
-        ```
+    ```
+    dcos:adminrouter:ops:mesos full
+    dcos:adminrouter:ops:slave full
+    dcos:adminrouter:service:marathon full
+    dcos:service:marathon:marathon:services:/ full
+    dcos:cluster:linker:* read
+    ```
 
- 6. 单击 **添加权限**。
+    6. 单击 **添加权限**。
 
 # 将链接添加到集群
 
@@ -146,7 +146,7 @@ dcos cluster attach <linked-cluster>
     dcos cluster link https://cluster-b.us-west-2.elb.amazonaws.com
     ```
 
- CLI 提示选择用于切换的登录提供程序。
+    CLI 提示选择用于切换的登录提供程序。
 
     ```
     Choose the login method and provider to enable switching to this linked cluster:
@@ -161,7 +161,7 @@ dcos cluster attach <linked-cluster>
     (1-2): 2
     ```
 
- **注意：** 如果集群链接成功，会没有回应。
+    <p class="message--note"><strong>注意: </strong> 如果群集链接成功，会没有回应。</p>
 
 1. 附加到集群 `cluster-b`。
 
@@ -175,7 +175,7 @@ dcos cluster attach <linked-cluster>
     dcos cluster link https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
- CLI 提示选择用于切换的登录提供程序。
+    CLI 提示选择用于切换的登录提供程序。
 
     ```
     Choose the login method and provider to enable switching to this linked cluster:
@@ -209,15 +209,15 @@ dcos cluster attach <linked-cluster>
 
 1. 作为外部用户，使用 Google 凭证登录集群的 DC/OS UI `cluster-a` 。
 
- ![google 登录](/cn/1.11/img/google-login.png)
+    ![google 登录](/cn/1.11/img/google-login.png)
 
- 图 5. Google 登录
+    图 5. Google 登录
 
 1. 从左上角，单击集群名称旁边的向下箭头。
 
- ![swi 集群](/cn/1.11/img/switch-cluster.png)
+    ![swi 集群](/cn/1.11/img/switch-cluster.png)
 
- 图 6. 切换集群
+    图 6. 切换集群
 
 1. 单击 **切换集群**。在“链接集群”窗格中，选择集群 `cluster-b`。集群 `cluster-b`的 UI 显示。
 

@@ -46,11 +46,11 @@ excerpt: 排除 DC/OS 安装问题
 
  网络时间协议 (NTP) 必须在所有节点上启用，以便时钟同步。默认情况下，在 DC/OS 启动期间，如果未启用，将会出现错误。您可以通过运行以下一个命令来验证 NTP 是否启用，具体取决于您的操作系统和配置：
 
-    
- ntptime
- adjtimex -p
- timedatectl
-    
+```
+ntptime
+adjtimex -p
+timedatectl
+```   
 
 * 确保防火墙和任何其他连接过滤机制不干扰集群组件通信。必须允许 TCP、UDP 和 ICMP。
 
@@ -74,45 +74,45 @@ excerpt: 排除 DC/OS 安装问题
 
 * 要修复挂载有 `noexec` 的 `/tmp`，请运行以下命令：
 
-
- mount -o remount,exec /tmp
-
+    ```
+    mount -o remount,exec /tmp
+    ```
 	    
 * 检查 `/exhibitor/v1/cluster/status` 的输出，并验证其是否显示了正确数量的管理节点，所有管理节点是否为 `"serving"`，但只有其中一个被指定为 `"isLeader": true`。
 
- 例如，对管理节点执行 [SSH](/cn/1.11/administering-clusters/sshcluster/) 并输入以下命令：
+   例如，对管理节点执行 [SSH](/cn/1.11/administering-clusters/sshcluster/) 并输入以下命令：
 
+    ```
+    curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
+            [
+                    {
+    "code": 3, 
+    "description": "serving", 
+    "hostname": "10.0.6.70", 
+    "isLeader": false
+                    },
+                    {
+    "code": 3, 
+    "description": "serving", 
+    "hostname": "10.0.6.69", 
+    "isLeader": false
+                    },
+                    {
+    "code": 3, 
+    "description": "serving", 
+    "hostname": "10.0.6.68", 
+    "isLeader": true
+                    }
+                ]
+    ```
 
- curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
-        [
-                {
- "code": 3, 
- "description": "serving", 
- "hostname": "10.0.6.70", 
- "isLeader": false
-                },
-                {
- "code": 3, 
- "description": "serving", 
- "hostname": "10.0.6.69", 
- "isLeader": false
-                },
-                {
- "code": 3, 
- "description": "serving", 
- "hostname": "10.0.6.68", 
- "isLeader": true
-                }
-            ]
-
-
-
-**注意：** 在多管理节点配置中运行此命令需要 10-15 分钟才能完成。如果 10-15 分钟后未完成，请认真查看 `journalctl -flu dcos-exhibitor` 日志。
+<p class="message--note"><strong>注意: </strong> 在多管理节点配置中运行此命令需要 10-15 分钟才能完成。如果 10-15 分钟后未完成，请认真查看 <tt>journalctl -flu dcos-exhibitor</tt> 日志。</p>
 
 * 验证您是否可以 ping DNS 转发器 (`ready.spartan`)。如果没有，请查看 DNS 调度器服务日志：
 
-
- journalctl -flu dcos-net﻿⁠⁠⁠⁠
+   ```
+   journalctl -flu dcos-net﻿⁠⁠⁠⁠
+   ```
 
 * 验证您是否可以 ping `⁠⁠⁠⁠leader.mesos` 和 `master.mesos`。如果不可以：
  - 使用此命令查看 Mesos-DNS 服务日志：
@@ -123,11 +123,11 @@ excerpt: 排除 DC/OS 安装问题
 
  - 如果能够 ping `ready.spartan`，但不是 `leader.mesos`，则使用以下命令查看 Mesos 管理节点服务日志：
 
-       ```bash
-       ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
-       ```
-       ﻿
- Mesos 管理节点必须在 Mesos-DNS 从 `⁠⁠⁠⁠/state` 生成其 DNS 记录之前，与选举的首要实例一起启动并运行。
+    ```bash
+    ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
+    ```
+    ﻿
+Mesos 管理节点必须在 Mesos-DNS 从 `⁠⁠⁠⁠/state` 生成其 DNS 记录之前，与选举的首要实例一起启动并运行。
 
 # <a name="component-logs"></a>组件日志
 
@@ -148,17 +148,17 @@ Admin Router 在管理节点上启动。Admin Router 为集群中的 DC/OS 服�
 **故障排除：**
 
 对管理节点执行 SSH，并输入以下命令来查看从启动时间起的日志：
-
+```
  journalctl -u dcos-adminrouter -b
-    
+```   
 
 例如，此处是随着其转为成功状态，Admin Router 日志的一个片段：
-
+```
  systemd[1]：正在启动高性能 Web 服务器和反向代理服务器... 
  systemd[1]：已启动高性能 Web 服务器和反向代理服务器。
  nginx[1652]: ip-10-0-7-166.us-west-2.compute.internal nginx: 10.0.7.166 - - [18/Nov/2015:14:01:10 +0000] "GET /mesos/master/state-summary HTTP/1.1" 200 575 "-" "python-requests/2.6.0 CPython/3.4.2 Linux/4.1.7-coreos" 
  nginx[1652]: ip-10-0-7-166.us-west-2.compute.internal nginx: 10.0.7.166 - - [18/Nov/2015:14:01:10 +0000] "GET /metadata HTTP/1.1" 200 175 "-" "python-requests/2.6.0 CPython/3.4.2 Linux/4.1.7-coreos" 
-    
+```    
 
 ## <a name="dcos-agent-nodes"></a>DC/OS 代理节点
 

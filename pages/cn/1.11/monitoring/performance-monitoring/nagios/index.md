@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-Nagios 是分布式主机的常用监控框架。本指南介绍如何使用 [NRPE] 通过 [Nagios Core 4x] (https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-linux.html) 监控 DC/OS 集群(https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/addons.html#nrpe)。
+Nagios 是分布式主机的常用监控框架。本指南介绍如何使用 [NRPE](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/addons.html#nrpe) 通过 [Nagios Core 4x](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-linux.html)  监控 DC/OS 集群。
 
 ## 安装
 本指南假设您已安装且为集群配置了 Nagios。以下是流行配置管理套件的链接：
@@ -22,15 +22,15 @@ Nagios 是分布式主机的常用监控框架。本指南介绍如何使用 [NR
 
 1. 使用 SSL
 
- Nagios 的 NRPE 插件让您可以使用 SSL 来设置 server-daemon 接口。出于安全考虑，我们建议您这样做。
+   Nagios 的 NRPE 插件让您可以使用 SSL 来设置 server-daemon 接口。出于安全考虑，我们建议您这样做。
 
 2. 轻量级检查
 
- 最常见的 Nagios 实现错误是构建过度复杂的脚本，而这些脚本不会注意检查所需的资源。这可能会影响集群的性能。确保您的检查清洁，需要较少的资源开销，并充分利用其被催生的过程（例如，不将 `grep` 传输至 `awk`）。
+   最常见的 Nagios 实现错误是构建过度复杂的脚本，而这些脚本不会注意检查所需的资源。这可能会影响集群的性能。确保您的检查清洁，需要较少的资源开销，并充分利用其被催生的过程（例如，不将 `grep` 传输至 `awk`）。
 
 3. 通过 DC/OS 运行 Nagios
 
- 我们***不建议***通过 DC/OS 运行 Nagios。在您正在监控的集群上运行监控平台存在固有缺陷：如果集群出问题，监控平台也会出问题。
+   我们**不建议**通过 DC/OS 运行 Nagios。在您正在监控的集群上运行监控平台存在固有缺陷：如果集群出问题，监控平台也会出问题。
 
 ## 监控内容
 

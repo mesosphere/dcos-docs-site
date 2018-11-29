@@ -52,9 +52,9 @@ bash ./zen.sh <stack-name>
  - us-east-1：`ami-5f5d1449`
  - ap-southeast-2：`ami-0d50476e`
 
- - **MasterInstancEtype**——接受默认管理节点实例类型（例如， `m3.xlarge`）。
- - **PrivateAgentInstancEtype**——指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如， `g2.2xlarge`）。
- - **PublicAgentInstancEtype**——指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如， `g2.2xlarge`）。
+ - **MasterInstanceType**——接受默认管理节点实例类型（例如， `m3.xlarge`）。
+ - **PrivateAgentInstanceType**——指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如， `g2.2xlarge`）。
+ - **PublicAgentInstanceType**——指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如， `g2.2xlarge`）。
 
 4. 在 **选项** 页面，接受默认值，然后单击 **下一步**。
 

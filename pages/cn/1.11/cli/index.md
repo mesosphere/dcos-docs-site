@@ -83,11 +83,12 @@ export DCOS_CONFIG=/home/jdoe/config/dcos.toml
 
 如果您已经配置了 `DCOS_CONFIG` 环境变量：
 
-- 在转换为[新配置结构] (#configuration-files) 后，将不再接受 `DCOS_CONFIG`。
+- 在转换为[新配置结构](#configuration-files) 后，将不再接受 `DCOS_CONFIG`。
 - 在调用 `dcos cluster setup` 之前，您可使用 `dcos config set` 更改 `DCOS_CONFIG` 指向的配置。该命令会显示一条警告消息，指出该命令已弃用，建议使用 `dcos cluster setup`。
 
 
 <a name="dcos-dir"></a>
+
 #### `DCOS_DIR`（仅限 DC/OS CLI 0.5.x 及更高版本）
 
 DC/OS 配置目录的路径。如果您希望 DC/OS 配置目录为 `/home/jdoe/config`，请使用以下命令设置变量：
@@ -96,25 +97,27 @@ DC/OS 配置目录的路径。如果您希望 DC/OS 配置目录为 `/home/jdoe/
 export DCOS_DIR=/home/jdoe/config
 ```
 
-1. 可选择地设置 `DCOS_DIR` 并运行 `dcos cluster setup` 命令。
+可选择地设置 `DCOS_DIR` 并运行 `dcos cluster setup` 命令。
 
-    ```
-    export DCOS_DIR=<path/to/config_dir> (optional, default when not set is ~/.dcos)
-    dcos cluster setup <url>
-    ```
+```
+export DCOS_DIR=<path/to/config_dir> (optional, default when not set is ~/.dcos)
+dcos cluster setup <url>
+```
 
  此设置根据 $DCOS_DIR/clusters/<cluster_id> 下的集群配置生成和更新<cluster_id>。 将新设置的集群设置为连接的集群。
 
 
 <a name="dcos-ssl-verify"></a>
+
 #### `DCOS_SSL_VERIFY`
-指示是否验证 SSL 证书或设置 SSL 证书路径。您必须手动设置此变量。设置此环境变量相当于在 DC/OS 配置[文件] (#configuration-files) 中设置 `dcos config set core.ssl_verify` 选项。例如，如果您想要设置 SSL 证书的路径：
+指示是否验证 SSL 证书或设置 SSL 证书路径。您必须手动设置此变量。设置此环境变量相当于在 DC/OS 配置[文件](#configuration-files) 中设置 `dcos config set core.ssl_verify` 选项。例如，如果您想要设置 SSL 证书的路径：
 
 ```bash
 export DCOS_SSL_VERIFY=false
 ```
 
 <a name="dcos-log-level"></a>
+
 #### `DCOS_LOG_LEVEL`
 用所示级别或更高级别显示 `stderr` 的日志消息。这相当于 `--log-level` 命令行选项。严重级别为：
 

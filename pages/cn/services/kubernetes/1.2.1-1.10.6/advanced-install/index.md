@@ -27,10 +27,7 @@ excerpt: 高级安装选项
 | kube-proxy              | 1                     | 0.1              | 512                   | -                           |
 | kubelet                 | 1                     | 3                | 3072                  | 10240                       |
 
-<!-- If high-availability is desirable, the `kubernetes.high_availability` package
-option must be enabled, and a minimum of three private agents is recommended. In
-the high-availability mode the resources needed to run the tasks are the
-following:-->
+
 
 如果需要高可用性，则必须启用`kubernetes.high_availability`包选项，且建议至少使用三个私有代理。在高可用性模式运行任务需以下资源：
 

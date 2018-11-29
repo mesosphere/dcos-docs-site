@@ -13,8 +13,7 @@ enterprise: false
 
 在安装过程中，代理节点被指定为 [公共](/cn/1.11/overview/concepts/#public-agent-node) 或 [私有](/cn/1.11/overview/concepts/#private-agent-node)节点。默认情况下，它们在 GUI 或 CLI [安装](/cn/1.11/installing/evaluation/cloud-installation/) 方法中被指定为私有节点。
 
-**注意：**
-- DC/OS 支持添加/替换代理节点，但不支持添加管理节点。
+<p class="message--note"><strong>注意: </strong>DC/OS 支持添加/替换代理节点，但不支持添加管理节点。</p>
 
 ### 先决条件：
 
@@ -55,28 +54,28 @@ enterprise: false
 
  私有代理节点：
 
-    ```bash
-    sudo bash /opt/dcos_install_tmp/dcos_install.sh slave
-    ```
+```bash
+sudo bash /opt/dcos_install_tmp/dcos_install.sh slave
+```
 
  公共代理节点：
 
-    ```bash
-    sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
-    ```
+```bash
+sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
+```
 
- **注意：** 您可以通过从 DC/OS CLI 运行此命令来验证节点类型。
+ <p class="message--note"><strong>注意: </strong> 您可以通过从 DC/OS CLI 运行此命令来验证节点类型。</p>
 
  - 运行此命令以计私有代理数量。
 
-        ```bash
-        dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public == null) | .id' | wc -l
-        ```
+    ```bash
+    dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public == null) | .id' | wc -l
+    ```
 
  - 运行此命令以计公共代理数量。
 
-        ```bash
-        dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l
-        ```
+    ```bash
+    dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l
+    ```
 
 

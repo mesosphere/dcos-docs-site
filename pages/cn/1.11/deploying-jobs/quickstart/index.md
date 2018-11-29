@@ -13,7 +13,7 @@ enterprise: false
 
 # DC/OS Web 界面
 
-**注意：** DC/OS Web 界面提供 CLI 和 API 功能的子集。对于高级作业配置，使用 [dcos job](/cn/1.11/cli/command-reference/dcos-job/) 命令或 Jobs [API](#jobs-api)。
+<p class="message--note"><strong>注意: </strong> DC/OS Web 界面提供 CLI 和 API 功能的子集。对于高级作业配置，使用 [dcos job](/cn/1.11/cli/command-reference/dcos-job/) 命令或 Jobs [API](#jobs-api)。</p>
 
 ## 添加作业
 
@@ -79,14 +79,14 @@ enterprise: false
     }
     ```
 
- **注意：** 您只能为作业分配一个计划。
+    <p class="message--note"><strong>注意: </strong> 您只能为作业分配一个计划。</p>
 
 1. 添加作业：
     ```bash
     dcos job add <myjob>.json
     ```
 
- **注意：** 您可以为作业文件选择任何名称。
+    <p class="message--note"><strong>注意: </strong> 您可以为作业文件选择任何名称。</p>
 
 1. 转到 DC/OS Web 界面的 **Jobs** 选项卡以验证是否已添加作业，或从 CLI 进行验证：
     ```bash
@@ -197,7 +197,7 @@ dcos task log --completed <job-run-id>
 
 您还可以通过 API 创建和管理作业。[在此查看完整的 API](http://dcos.github.io/metronome/docs/generated/api.html)。
 
-**注意：** DC/OS CLI 和 Web 界面支持组合 JSON 格式（通过 `/v0` 终端访问），允许您在作业描述符中指定计划。若要通过 API 计划作业，请使用两个调用：一个添加未计划的作业，另一个用于将<schedule-file><schedule-file>.json 与作业关联。
+<p class="message--note"><strong>注意: </strong> DC/OS CLI 和 Web 界面支持组合 JSON 格式（通过 `/v0` 终端访问），允许您在作业描述符中指定计划。若要通过 API 计划作业，请使用两个调用：一个添加未计划的作业，另一个用于将<schedule-file><schedule-file>.json 与作业关联。</p>
 
 ## 添加作业
 

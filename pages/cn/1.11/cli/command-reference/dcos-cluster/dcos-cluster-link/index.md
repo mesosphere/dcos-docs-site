@@ -25,7 +25,7 @@ enterprise: true
 dcos cluster link <dcos-url-a>
 ```
 
-**注意：** 如果集群链接成功，则控制台没有输出。
+<p class="message--note"><strong>注意: </strong> 如果群集链接成功，则控制台没有输出。</p>
 
 # 位置自变量
 
@@ -38,7 +38,7 @@ dcos cluster link <dcos-url-a>
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos cluster] ](/cn/1.11/cli/command-reference/dcos-cluster/) | 管理 DC/OS 集群。 |
+|  [dcos cluster](/cn/1.11/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
 
 # 示例
 有关示例，请参阅 [集群链接](/cn/1.11/administering-clusters/multiple-clusters/cluster-links/)。

@@ -24,7 +24,7 @@ dcos job show runs <job-id> [OPTION]
 |---------|-------------|
 | | `--json` | 显示以 JSON 为格式的列表。|
 | | `--q` | 仅显示运行 ID 的阵列。|
-| `--run-id <run-id>`   |  The ID of a job run.   You can view the job IDs with the `dcos job list` 命令。|
+| `--run-id <run-id>`   |  作业的ID.   您可以使用以下命令查看作业ID `dcos job list` 命令。|
 
 # 位置自变量
 

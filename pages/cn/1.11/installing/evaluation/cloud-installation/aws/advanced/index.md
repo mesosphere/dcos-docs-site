@@ -19,11 +19,8 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
 
 模板一起用于创建 DC/OS 集群。驱动这些模板的是 AWS CloudFormation 用于创建每个堆栈的参数。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>此安装方法不支持升级。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>此安装方法不支持升级。</p> 
+
 
 ## 先决条件
 
@@ -73,6 +70,8 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
 
 [enterprise type="inline" size="small" /]
 
+```
+
  aws_template_storage_bucket: <your-bucket>
  aws_template_storage_bucket_path: <path-to-directory>
  aws_template_upload: true
@@ -85,16 +84,17 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
  zk_super_credentials: <userid>:<password>
  zk_master_credentials: <userid>:<password>
  zk_agent_credentials: <userid>:<password>
-
+```
 
 [oss type="inline" size="small" /]
+```
 
  aws_template_storage_bucket: <your-bucket>
  aws_template_storage_bucket_path: <path-to-directory>
  aws_template_upload: true
  aws_template_storage_access_key_id: <your-access-key-id>
  aws_template_storage_secret_access_key: <your-secret-access_key>
-
+```
 
 有关参数描述和配置示例，请参阅 [文档](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/)。
 
@@ -120,7 +120,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 4. 转到 [S3](https://console.aws.amazon.com/s3/home) 并导航至上述 ` 中的 s3 bucket<path-to-directory>`.
 
- 1. 选择** cloudformation **，然后选择管理节点所需数量的 zen 模板。例如，为单个管理配置选择** el7-zen-1.json **。
+ 1. 选择 **cloudformation**，然后选择管理节点所需数量的 zen 模板。例如，为单个管理配置选择 **el7-zen-1.json**。
  1. 右键单击并选择 **属性**，然后复制 AWS S3 模板 URL。
 5. 转到 [CloudFormation](https://console.aws.amazon.com/cloudformation/home) 并单击 **创建堆栈**。
 6. 在 **选择模板** 页面指定 Zen 模板的 AWS S3 模板 URL 路径。例如：
@@ -180,7 +180,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
     bash ./zen.sh <STACK_NAME>
     ```
 
- 输出应如下所示：
+    输出应如下所示：
 
     ```bash
     Creating Zen Template Dependencies
@@ -214,22 +214,22 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
  * **CustomAMI** 可选：指定 AMI ID。如需更多信息，请参阅 [使用自定义 AMI 进行安装](/cn/1.11/installing/ent/cloud/aws/advanced/aws-ami)。
  * **InternetGateway** 指定 `zen.sh` 脚本的 `InternetGatewayID` 输出值。互联网网关 ID 必须附加于 VPC。该互联网网关用于所有节点向外互联网访问。
  * **KeyName** 指定 AWS EC2 密钥对。
- * **MasterInstancEtype** 指定 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
- * **PrivateAgentInstancEcount** 指定专用代理的数量。
- * **PrivateAgentInstancEtype** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
- * **PrivatEsubnet** 指定 `zen.sh` 脚本的 `Private SubnetId` 输出值。所有专用代理都将使用该子网 ID。
- * **PublicAgentInstancEcount** 指定公共代理的数量。
- * **PublicAgentInstancEtype** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
+ * **MasterInstanceType** 指定 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
+ * **PrivateAgentInstanceCount** 指定专用代理的数量。
+ * **PrivateAgentInstanceType** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
+ * **PrivateSubnet** 指定 `zen.sh` 脚本的 `Private SubnetId` 输出值。所有专用代理都将使用该子网 ID。
+ * **PublicAgentInstanceCount** 指定公共代理的数量。
+ * **PublicAgentInstanceType** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
  * **PublicSubnet** 指定 `zen.sh` 脚本的 `Public SubnetId` 输出值。所有公共代理都将使用该子网 ID。
  * **Vpc** 指定 `zen.sh` 脚本的 `VpcId` 输出值。所有节点都将使用该 VPC 项下的子网和互联网网关启动。
 
 3. 在 **选项** 页面，接受默认值，然后单击 **下一步**。
 
- **注意：** 您可以选择是否退回查看故障。默认情况下，此选项设置为 **是**。
+    <p class="message--note"><strong>注意: </strong>您可以选择是否退回查看故障。默认情况下，此选项设置为 <strong>是</strong>。</p>
 
 4. 在 **查看** 页面，选中确认框，然后单击 **创建**。
 
- **注意：** 如果显示 **创建新堆栈** 页面，要么是 AWS 仍在处理您的请求，要么就是您查看的是其他分域。导航至正确的分域并刷新页面以查看您的堆栈。
+    <p class="message--note"><strong>注意: </strong>如果显示 **创建新堆栈** 页面，要么是 AWS 仍在处理您的请求，要么就是您查看的是其他分域。导航至正确的分域并刷新页面以查看您的堆栈。</p>
 
 # 监控 DC/OS 集群聚合过程
 
@@ -237,23 +237,20 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 * 集群堆栈启动需要 15 到 20 分钟时间。您将为其逐个创建堆栈，其中<stack-name>` is the value you specified for **Stack name** and `<stack-id>` 是自动生成的 ID。
 
- ![AWS UI](/cn/1.11/img/aws-advanced-2.png)
+  ![AWS UI](/cn/1.11/img/aws-advanced-2.png)
 
- 图 2. AWS 堆栈详细信息
+  图 2. AWS 堆栈详细信息
 
- * Zen 模板： `<stack-name>`
- * 公共代理： `<stack-name>-PublicAgentStack-<stack-id>`
- * 专用代理：`<stack-name>-PrivateAgentStack-<stack-id>`
- * 管理节点： `<stack-name>-MasterStack-<stack-id>`
- * 基础架构： `<stack-name>-Infrastructure-<stack-id>`
+* Zen 模板： `<stack-name>`
+* 公共代理： `<stack-name>-PublicAgentStack-<stack-id>`
+* 专用代理：`<stack-name>-PrivateAgentStack-<stack-id>`
+* 管理节点： `<stack-name>-MasterStack-<stack-id>`
+* 基础架构： `<stack-name>-Infrastructure-<stack-id>`
 
 * 状态从 `CREATE_IN_PROGRESS` 变为 `CREATE_COMPLETE`。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅“事件”选项卡。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅“事件”选项卡。</p> 
+
 
 # 启动 DC/OS
 
@@ -263,37 +260,34 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 1. 单击 **输出**选项卡，复制/粘贴 Mesos 管理节点主机名，打开 DC/OS Web 界面。该界面在标准 HTTP 端口 80 上运行，因此无需在主机名后指定端口号。
 
- **注意：** 可能需要调整窗口大小以查看此选项卡。可以随时在<a href="https://console.aws.amazon.com/cloudformation/home" target="_blank"> AWS CloudFormation 管理</a>页面找到 DC / OS 主机名。
+    <p class="message--note"><strong>注意：</strong> 可能需要调整窗口大小以查看此选项卡。可以随时在<a href="https://console.aws.amazon.com/cloudformation/home" target="_blank"> AWS CloudFormation 管理</a>页面找到 DC / OS 主机名。</p>
 
- ![Monitor stack creation](/cn/1.11/img/dcos-aws-step3a.png)
+    ![Monitor stack creation](/cn/1.11/img/dcos-aws-step3a.png)
 
- 图 3. Mesos 管理节点主机名
+    图 3. Mesos 管理节点主机名
 
 1. 单击 **登录到 DC/OS**。
 
-    <table class=“table” bgcolor=#858585>
-    <tr> 
-    <td align=justify style=color:white><strong>重要信息：</strong>单击“登录到 DC/OS”，浏览器就会显示您的连接不安全的警告。这是因为 DC/OS 使用自签名证书。可以忽略该错误，然后单击以继续。</td> 
-    </tr> 
-    </table>
+    <p class="message--important"><strong>重要信息：</strong>单击“登录到 DC/OS”，浏览器就会显示您的连接不安全的警告。这是因为 DC/OS 使用自签名证书。可以忽略该错误，然后单击以继续。</p> 
 
- ![UI installer success](/cn/1.11/img/gui-installer-success-ee.gif)
 
- 图 4. 操作成功的画面
+    ![UI installer success](/cn/1.11/img/gui-installer-success-ee.gif)
+
+    图 4. 操作成功的画面
 
 1. 输入超级用户帐户的用户名和密码。
 
- **注意：** 默认用户名为 `bootstrapuser`，默认密码为 `deleteme`。
+    <p class="message--note"><strong>注意：</strong> 默认用户名为 <tt>bootstrapuser</tt>，默认密码为 <tt>deleteme</tt>。</p>
 
- ![alt text](/cn/1.11/img/ui-installer-auth2.png)
+    ![alt text](/cn/1.11/img/ui-installer-auth2.png)
 
- 图 5. 登录画面
+    图 5. 登录画面
 
- 成功了！
+    成功了！
 
- ![UI dashboard](/cn/1.11/img/dashboard-ee.png)
+    ![UI dashboard](/cn/1.11/img/dashboard-ee.png)
 
- 图 6. DC/OS 仪表板
+    图 6. DC/OS 仪表板
 
 # 后续步骤
 
@@ -309,17 +303,17 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 * **InternalMasterLoadBalancerDnsName** 指定 `InternalMasterLoadBalancerDnsName` 主栈的值 (`<stack-name>-MasterStack-<stack-id>`)。可以在 **输出** 选项卡中找到此值。
 * **KeyName** 指定 AWS EC2 密钥对。
-* **PrivateAgentInstancEcount** 指定专用代理的数量。
-* **PrivateAgentInstancEtype** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
+* **PrivateAgentInstanceCount** 指定专用代理的数量。
+* **PrivateAgentInstanceType** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
 * **PrivateAgentSecurityGroup** 指定专用代理的安全组 ID。该组具备有限的外部访问权限。可以在基础架构堆栈的 **输出** 选项卡中找到此值 (`<stack-name>-Infrastructure-<stack-id>`).
-* **PrivatEsubnet** 指定 `zen.sh` 脚本的 `Private SubnetId` 输出值。所有专用代理都将使用该子网 ID。
+* **PrivateSubnet** 指定 `zen.sh` 脚本的 `Private SubnetId` 输出值。所有专用代理都将使用该子网 ID。
 
 公共代理：
 
 * **InternalMasterLoadBalancerDnsName** 指定 `InternalMasterLoadBalancerDnsName` 主栈的值 (`<stack-name>-MasterStack-<stack-id>`)。可以在 **输出** 选项卡中找到此值。
 * **KeyName** 指定 AWS EC2 密钥对。
-* **PublicAgentInstancEcount** 指定公共代理的数量。
-* **PublicAgentInstancEtype** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
+* **PublicAgentInstanceCount** 指定公共代理的数量。
+* **PublicAgentInstanceType** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
 * **PublicAgentSecurityGroup** 指定公共代理的安全组 ID。该组具备有限的外部访问权限。可以在基础架构堆栈的 **输出** 选项卡中找到此值 (`<stack-name>-Infrastructure-<stack-id>`).
 * **PublicSubnet** 指定 `zen.sh` 脚本的 `Public SubnetId` 输出值。所有公共代理都将使用该子网 ID。
 

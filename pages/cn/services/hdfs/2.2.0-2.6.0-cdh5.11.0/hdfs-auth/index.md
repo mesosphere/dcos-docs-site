@@ -14,7 +14,7 @@ render: mustache
 
 # 为 HDFS 配置 DC/OS 访问
 
-本主题介绍如何为 HDFS 配置 DC/OS 访问。根据您的 [安全模式](/1.9/security/ent/#security-modes/)，HDFS 需要 [服务身份认证](/cn/1.11/security/ent/service-auth/) 以访问 DC/OS。
+本主题介绍如何为 HDFS 配置 DC/OS 访问。根据您的 [安全模式](/1.9/security/ent/#security-modes/)，HDFS 需要 [服务身份认证](/1.11/security/ent/service-auth/) 以访问 DC/OS。
 
 | 安全模式 | 服务帐户 |
 |---------------|-----------------------|
@@ -39,7 +39,11 @@ render: mustache
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
+<<<<<<< HEAD
 **提示：** 您可以使用 [DC/OS 密钥存储库](/cn/1.11/security/ent/secrets/) 保护密钥对。
+=======
+**提示：** 您可以使用 [DC/OS 密钥存储库](/1.11/security/ent/secrets/) 保护密钥对。
+>>>>>>> c64725e8abdf15dd384b89db6535a2113ec4dfa6
 
 # <a name="create-a-service-account"></a>创建服务帐户
 

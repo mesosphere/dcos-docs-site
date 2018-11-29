@@ -10,11 +10,7 @@ enterprise: false
 
 
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>警告：</strong>卷大小以在 GiB 指定。</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>警告：</strong>卷大小以在 GiB 指定。</p>
 
 当容错对您的应用程序至关重要时，请使用外部卷。如果主机发生故障，本地 Marathon 实例会在其他主机上重新安排您的应用程序及其相关数据，而无需用户干预。外部卷通常提供较大的存储量。
 

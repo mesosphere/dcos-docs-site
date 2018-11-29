@@ -42,9 +42,5 @@ enterprise: false
 
 在实例无法访问时间超过 7 天而被 Marathon 排除之后，拥有持久卷的应用程序的默认 `unreachableStrategy` 就会创建带有新卷的新实例并删除现有卷（尽可能）。
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=“color:black><strong>警告：</strong>删除不可访问实例的现有卷时，可能会删除数据。</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>警告：</strong>删除不可访问实例的现有卷时，可能会删除数据。</p>
 

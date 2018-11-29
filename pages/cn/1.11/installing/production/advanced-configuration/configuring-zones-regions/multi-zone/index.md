@@ -9,11 +9,8 @@ beta: true
 
 DC/OS 支持多个区域 (multi-AZ) 配置。本页介绍设置建议和注意事项。典型的 DC/OS 集群具有同一区域中的所有主节点和代理节点。拥有跨分区管理节点的成本通常超出了收益。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>以下多 AZ 设置尚未明确测试或验证。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>以下多 AZ 设置尚未明确测试或验证。</p> 
+
 
 # 地区内的单区域管理节点和跨区域代理节点
 所有 DC/OS 管理节点都存在于单个区域，但代理节点可跨越该区域内的多个区域。

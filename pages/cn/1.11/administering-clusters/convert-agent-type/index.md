@@ -85,13 +85,13 @@ enterprise: false
 
 1. 运行此命令以在代理节点上安装 DC/OS。您必须将代理节点指定为公共或私有节点。
 
- 私有代理节点：
+    私有代理节点：
 
     ```bash
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave
     ```
 
- 公共代理节点：
+    公共代理节点：
 
     ```bash
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public

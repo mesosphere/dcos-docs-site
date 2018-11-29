@@ -22,13 +22,13 @@ dcos package repo remove <repo-name> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
+| `<repo-name>`   |   包存储库的名称。 例如, `Universe`. |
 
 # 位置自变量
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
+| `<repo-name>`   |   包存储库的名称。 例如, `Universe`. |
 
 # 父命令
 

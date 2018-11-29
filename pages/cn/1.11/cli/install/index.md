@@ -53,11 +53,7 @@ enterprise: false
     curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.11/dcos
     ```
 
-    <table class=“table” bgcolor=#858585>
-    <tr> 
-    <td align=justify style=color:white><strong>重要信息：</strong>CLI 必须安装在 DC/OS 集群外部的系统上。</td> 
-    </tr> 
-    </table>
+    <p class="message--important"><strong>重要信息：</strong>CLI 必须安装在 DC/OS 集群外部的系统上。</p>
 
 1. 将 CLI 二进制文件移动到本地 bin 目录。
 
@@ -98,11 +94,7 @@ enterprise: false
     curl -O https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.11/dcos
     ```
 
-    <table class=“table” bgcolor=#858585>
-    <tr> 
-    <td align=justify style=color:white><strong>重要信息：</strong>CLI 必须安装在 DC/OS 集群外部的系统上。</td> 
-    </tr> 
-    </table>
+    <p class="message--important"<strong>重要信息：</strong>CLI 必须安装在 DC/OS 群集外部的系统上。</p>
 
 1. 使 CLI 二进制文件可执行。
 
@@ -115,7 +107,8 @@ enterprise: false
     ```bash
     dcos cluster setup http://example.com
     ```
- **注意：** 如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。
+
+<p class="message--note"><strong>注意: </strong> 如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。</p>
 
  遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.11/security/)。
 

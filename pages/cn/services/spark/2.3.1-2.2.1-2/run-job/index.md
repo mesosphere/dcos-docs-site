@@ -8,7 +8,7 @@ featureMaturity:
 model: /cn/services/spark/data.yml
 render: mustache
 ---
-1. 在提交工作前，上传工件，例如上传 `jar` 文件到集群可见的位置（例如，HTTP、S3 或 HDFS）。[了解更多][13]。
+1. 在提交工作前，上传工件，例如上传 `jar` 文件到群集可见的位置（例如，HTTP、S3 或 HDFS）。[了解更多][13]。
 
 1. 运行作业。
  在 `jar` url 之前包含所有配置标记，在 `jar` url 之后包含 {{ model.techShortName }} 作业的自变量。通常遵循模板 `dcos spark run --submit-args=" <flags> URL [args]` where `<flags>` 可以是这样的事情 `--conf spark.cores.max=16` 和 `--class my.aprk.app`, `URL` 是应用程序的位置, 和 `[args]` 是应用程序的任何自变量。

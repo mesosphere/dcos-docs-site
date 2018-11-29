@@ -48,11 +48,7 @@ Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 验证序
     ]
   }
   ```
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>不要忘记将“your-test-user-account”替换为代理程序上存在的 Linux 用户的名称，并且与默认值不同。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>不要忘记将<tt>your-test-user-account</tt>替换为代理程序上存在的 Linux 用户的名称，并且与默认值不同。</p>
 
 1. 使用 [Marathon API] 部署服务(/1.11/deploying-services/marathon-api/)。
 
@@ -112,11 +108,7 @@ Metronome 作业定义提供 `"user"` 验证序号，可用于覆盖默认 Linux
   }
 }
   ```
-  <table class=“table” bgcolor=#858585>
-    <tr> 
-    <td align=justify style=color:white><strong>重要信息：</strong>不要忘记将“your-test-user-account”替换为代理程序上存在的 Linux 用户的名称，并且与默认值不同。</td> 
-    </tr> 
-  </table>
+  <p class="message--important"><strong>重要信息：</strong>不要忘记将<tt>your-test-user-account</tt>替换为代理程序上存在的 Linux 用户的名称，并且与默认值不同。</p>
 
 2. 使用 [Metronome REST API](https://dcos.github.io/metronome/docs/generated/api.html) 部署作业。
 

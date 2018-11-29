@@ -135,7 +135,7 @@ dcos package install {{ model.packageName }} --options=<options.json>
 
 ### 获取种子节点的 IP 地址
 
-<p class="message--note"><strong>注意：</strong> 如果您的 Cassandra 集群不在同一个网络上，您必须设置代理层来路由流量。</p>
+<p class="message--note"><strong>注意：</strong> 如果您的 Cassandra 群集不在同一个网络上，您必须设置代理层来路由流量。</p>
 
 1. 为第一个集群获取种子节点地址的列表：
 

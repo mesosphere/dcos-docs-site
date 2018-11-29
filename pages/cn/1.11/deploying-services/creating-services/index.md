@@ -28,7 +28,7 @@ Marathon 应用程序通常代表长期运行的服务，有许多实例在多�
     }
     ```
 
- 在上述示例中， `cmd` 是执行的命令。它的值由底层的 Mesos 执行器通过 `/bin/sh -c ${cmd}` 包装。
+    在上述示例中， `cmd` 是执行的命令。它的值由底层的 Mesos 执行器通过 `/bin/sh -c ${cmd}` 包装。
 
 1. 使用 [DC/OS CLI](/cn/1.11/cli) 将服务添加到 DC/OS。
 
@@ -57,7 +57,7 @@ Marathon 应用程序通常代表长期运行的服务，有许多实例在多�
 
 上述示例执行 `cmd` 内容，下载资源 `https://example.com/app/cool-script.sh` (通过 Mesos)，并使其在服务实例的 Mesos 沙盒中可用。您可以通过访问 DC/OS Web 界面并单击 `basic-1` 的实例，然后单击**Files**选项卡来验证是否已下载。您应该在那里找到 `cool-script.sh`。
 
-**注意：** 默认情况下，抓取器不会使下载的文件可执行。在上述示例中， `cmd` 首先使文件可执行。
+<p class="message--note"><strong>注意：</strong> 默认情况下，抓取器不会使下载的文件可执行。在上述示例中， `cmd` 首先使文件可执行。</p>
 
 如前所述，Marathon 还知道如何处理存档中的应用程序资源。目前，Marathon（通过 Mesos 并在执行 `cmd` 之前） 首先尝试使用以下文件扩展名解压缩/提取资源：
 

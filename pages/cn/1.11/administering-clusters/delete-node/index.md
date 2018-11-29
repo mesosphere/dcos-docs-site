@@ -4,7 +4,6 @@ navigationTitle: 关闭和停用节点
 title: 关闭和停用节点
 menuWeight: 810
 excerpt: 关闭和停用代理节点
-
 enterprise: false
 ---
 
@@ -42,7 +41,7 @@ dcos node decommission <mesos-agent-id>
 -关闭（kill）代理节点上运行的所有执行程序（任务）
 -停止 Mesos 从进程（但它将被 systemd 自动重新启动）
 
-**注意：** *仅*在节点永远不会恢复使用（例如，EC2 VM 损毁）时才应该停用节点 。节点停用后，对应的代理 ID 被内部标记为 `GONE` 并且不允许恢复使用及在管理节点上重新注册。节点上运行的任务已过渡到 `TASK_GONE_BY_OPERATOR` 状态。
+<p class="message--note"><strong>注意：</strong> <strong>仅</strong>在节点永远不会恢复使用（例如，EC2 VM 损毁）时才应该停用节点 。节点停用后，对应的代理 ID 被内部标记为 `GONE` 并且不允许恢复使用及在管理节点上重新注册。节点上运行的任务已过渡到 `TASK_GONE_BY_OPERATOR` 状态。</p>
 
 
 # 关闭节点

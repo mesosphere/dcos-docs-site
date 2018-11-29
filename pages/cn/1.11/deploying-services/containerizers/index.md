@@ -8,9 +8,6 @@ excerpt: 使用具有 Docker Engine 和 Universal Container Runtime 的Container
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 Containerizer 提供围绕特定容器运行时间的容器化和资源隔离的抽取整理。DC/OS containerizer 支持以下容器运行时间：
 
 - [Universal Container Runtime](/cn/1.11/deploying-services/containerizers/ucr/)。

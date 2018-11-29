@@ -10,8 +10,8 @@ enterprise: true
 
 # 本地和远程分域
 
--**本地分域**是运行 Mesos 管理节点的分域。
--**远程区域** 仅包含 Mesos 代理节点。远程分域和本地分域通常都存在高延迟。
+- **本地分域**是运行 Mesos 管理节点的分域。
+- **远程区域** 仅包含 Mesos 代理节点。远程分域和本地分域通常都存在高延迟。
 
 
 ## 安装
@@ -28,9 +28,22 @@ enterprise: true
 
 1. 创建故障域检测脚本，以在每个节点上运行，从而检测节点的故障域（仅限企业）。安装过程中此脚本的输出被传递到 Mesos。
 
- 推荐脚本输出的格式为 `fault_domain: region: name: <region>, zone: name: <zone>` 我们提供 [AWS 和 Azure 节点的故障域检测脚本]。(https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). 对于具有 aws 节点和 azure 节点的集群，可将两者组合为一个脚本。可以使用这些模型为本地集群创建故障域检测脚本。
+    推荐脚本输出的格式为
 
-   <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>重要信息：</b>如果您在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</td> </tr> </table>
+      ```json
+        {
+          "fault_domain": {
+            "region": {
+              "name": <region>,
+              "zone": <zone>
+            }
+          }
+        }
+      ```
+      
+    我们提供 [AWS 和 Azure 节点的故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的集群，可将两者组合为一个脚本。可以使用这些模型为本地集群创建故障域检测脚本。
+
+      <p class="message--important"><strong>重要信息：</strong>如果您在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</p> 
 
 1. 将此脚本添加到 bootstrap 节点的 `genconf` 文件夹。[更多信息](/cn/1.11/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
 
@@ -38,16 +51,16 @@ enterprise: true
 
 1. 测试安装。
 
- 在 DC/OS  CLI 中输入 `dcos node`。您将看到类似以下内容的输出，其中列出了各个节点的分域和分区：
+    在 DC/OS  CLI 中输入 `dcos node`。您将看到类似以下内容的输出，其中列出了各个节点的分域和分区：
 
-   ```bash
-   HOSTNAME        IP                         ID                    TYPE               REGION      ZONE     
-  	10.0.3.188   10.0.3.188  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S1  agent            us-east-1  us-east-1a  
-  	10.0.7.224   10.0.7.224  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S0  agent            us-east-1  us-east-1b  
-	master.mesos.  10.0.5.41                     N/A                    master              N/A         N/A     
-	master.mesos.  10.0.6.95                     N/A                    master           us-east-1  us-east-1b      
-	master.mesos.  10.0.7.111    a2ea1578-22ee-430e-aeb8-82ee1b74d88a   master (leader)  us-east-1  us-east-1c
-	```
+    ```bash
+      HOSTNAME        IP                         ID                    TYPE               REGION      ZONE     
+      10.0.3.188   10.0.3.188  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S1  agent            us-east-1  us-east-1a  
+      10.0.7.224   10.0.7.224  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S0  agent            us-east-1  us-east-1b  
+    master.mesos.  10.0.5.41                     N/A                    master              N/A         N/A     
+    master.mesos.  10.0.6.95                     N/A                    master           us-east-1  us-east-1b      
+    master.mesos.  10.0.7.111    a2ea1578-22ee-430e-aeb8-82ee1b74d88a   master (leader)  us-east-1  us-east-1c
+    ```
 
 或者，单击 DC/OS  GUI 中的 **节点** 选项卡。节点表将显示每个代理的分域和分区栏。
 
@@ -111,4 +124,4 @@ enterprise: true
 
 要增加容量，请 [添加新代理](/cn/1.11/administering-clusters/add-a-node/) 到集群的远程分域或分区，然后更新服务以在相应的一个或多个分域启动实例。
 
-**注意：** 您无法将服务设置为在多个分域运行。
+<p class="message--note"><strong>注意： </strong>您无法将服务设置为在多个分域运行。</p>

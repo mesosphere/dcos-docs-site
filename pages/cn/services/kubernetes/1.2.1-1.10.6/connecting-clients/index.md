@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: 连接客户端
 title: 连接客户端
 menuWeight: 72
-excerpt: 将客户端连接到 Kubernetes 集群
+excerpt: 将客户端连接到 Kubernetes 群集
 
 ---
 
@@ -11,7 +11,7 @@ excerpt: 将客户端连接到 Kubernetes 集群
 
 在尝试连接到 Kubernetes 集群之前，您应确保
 您已正确将 Kubernetes API 暴露于 DC/OS 外部
-集群中设置 ingress 的示例和重要信息。这可通过遵循
+群集中设置 ingress 的示例和重要信息。这可通过遵循
 [暴露 Kubernetes API](/cn/services/kubernetes/1.2.1-1.10.6/exposing-the-kubernetes-api/) 中所述的步骤实现。
 
 您还应确保
@@ -29,7 +29,7 @@ DC/OS UI 安装 Kubernetes 包，那么您还需要安装
 
 <div class="message--important"><p><strong>警告</strong></p>
 <p>在进行之前，<tt>dcos</tt> <b>必须</b> 被配置，可通过 HTTPS 访问
-所需的 DC/OS 集群。您必须确保</p>
+所需的 DC/OS 群集。您必须确保</p>
 <p><tt>$ dcos config show core.dcos_url</tt></p>
 <p> 返回以<tt>https://</tt> 开头的 URL。</p>
 

@@ -8,8 +8,6 @@ excerpt: 替换现有 DC/OS 集群中的管理节点
 enterprise: true
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-docs-site -->
-
 
 您可以替换现有 DC/OS 集群中的管理节点。一次只能替换一个管理节点。
 
@@ -43,4 +41,4 @@ enterprise: true
 
 该程序与管理节点升级后执行的验证程序相同。
 
-确切步骤参见升级文档 [升级管理节点] (/1.11/installing/production/upgrading/#dcos-masters) 中的“验证升级”部分。
+确切步骤参见升级文档 [升级管理节点](/1.11/installing/production/upgrading/#dcos-masters) 中的“验证升级”部分。

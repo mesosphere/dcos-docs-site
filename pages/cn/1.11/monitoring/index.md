@@ -16,15 +16,15 @@ DC/OS 组件是构成 DC/OS 核心的 [`systemd` 单元](https://www.freedesktop
 
 启动 [DC/OS Web 界面](/cn/1.11/gui/) 并导航到**系统 -> 组件**页面。您可以按运行状况对组件进行排序。
 
-![系统运行状况](/cn/1.11/img/component-system-view.png)
-
-图 1. 显示运行状况的组件页面
+   ![系统运行状况](/cn/1.11/img/component-system-view.png)
+   
+   图 1. 显示运行状况的组件页面
 
 您可以单击 DC/OS 组件以查看详细信息，包括角色、节点和运行状况。
 
-![节点详情](/cn/1.11/img/component-node-detail.png)
+   ![节点详情](/cn/1.11/img/component-node-detail.png)
 
-图 2. 单个组件的详细信息
+   图 2. 单个组件的详细信息
 
 通过点击节点查看组件 `journald`（日志）输出，您可以进一步调试。
 
@@ -46,9 +46,9 @@ DC/OS 组件是构成 DC/OS 核心的 [`systemd` 单元](https://www.freedesktop
 
 系统运行状况端点通过管理节点上的 DC/OS 诊断实用程序展示：
 
-```bash
-curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1
-```
+   ```bash
+   curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1
+   ```
 
 ## 聚合
 
@@ -57,9 +57,9 @@ curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/healt
 
 1. 对到管理节点执行 SSH：
 
-    ```bash
-    dcos node ssh --master-proxy --leader
-    ```
+   ```bash
+   dcos node ssh --master-proxy --leader
+   ```
 1. 运行此命令以打开 root 会话：
 
     ```bash
@@ -68,21 +68,21 @@ curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/healt
 1. 运行以下命令以获得群集运行状况：
 
 
- - 系统运行状况（按单元）：
+   - 系统运行状况（按单元）：
 
-       ```bash
-       curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/units
-       ```
- - 系统运行状况（按节点）：
+    ```bash
+    curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/units
+    ```
+   - 系统运行状况（按节点）：
 
-       ```bash
-       curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/nodes
-       ```
- - 系统运行状况报告：
+    ```bash
+    curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/nodes
+    ```
+   - 系统运行状况报告：
 
-       ```bash
-       curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/report
-       ```
+    ```bash
+    curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/report
+    ```
 
 DC/OS 用户界面使用这些聚合端点生成您在系统运行状况控制台浏览的数据。
 

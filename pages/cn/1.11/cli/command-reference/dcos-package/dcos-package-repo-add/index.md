@@ -27,7 +27,7 @@ dcos package repo add <repo-name> <repo-url> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
+| `<repo-name>`   |   包存储库的名称。 例如, `Universe`. |
 | `<repo-url>` | 软件包存储库的 URL。例如，https://universe.mesosphere.com/repo。|
 
 # 父命令

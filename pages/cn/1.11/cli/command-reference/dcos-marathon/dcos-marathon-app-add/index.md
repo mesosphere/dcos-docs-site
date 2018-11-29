@@ -69,7 +69,7 @@ dcos marathon app add <app-resource> [OPTION]
     dcos marathon app add <my-app.json>
     ```
 
- 如果添加成功，则没有输出。
+    如果添加成功，则没有输出。
 
 1. 使用此命令验证应用程序是否已添加：
 
@@ -77,9 +77,9 @@ dcos marathon app add <app-resource> [OPTION]
     dcos marathon app list
     ```
 
- 输出应如下所示：
+    输出应如下所示：
 
- ```bash
- ID MEM CPUS TASKS HEALTH DEPLOYMENT CONTAINER CMD
- /myApp 64 0.1 0/1 --- scale DOCKER None
-    ```
+    ```bash
+    ID MEM CPUS TASKS HEALTH DEPLOYMENT CONTAINER CMD
+    /myApp 64 0.1 0/1 --- scale DOCKER None
+        ```

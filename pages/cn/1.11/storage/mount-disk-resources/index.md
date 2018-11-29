@@ -18,11 +18,7 @@ enterprise: false
 
 请注意，此示例仅处理**添加**资源，在删除资源时不能采用相同的方式。
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>警告：</strong>这将终止节点上任何运行的任务或服务。</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>警告：</strong>这将终止节点上任何运行的任务或服务。</p>
 
 1. 通过 SSH 连接到集群中的代理节点。
 2. 检查当前代理节点的资源状态。

@@ -8,8 +8,6 @@ beta: false
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-
 [度量标准组件](/cn/1.11/overview/architecture/components/#dcos-metrics) 从 DC/OS 集群主机和在这些主机上运行的容器，以及从在 DC/OS 上运行的向 Mesos 度量标准模块发送 StatsD 度量标准的应用程序提供度量标准。度量标准组件与 DC/OS 本身集成，可从 `/system/v1/metrics/v0` HTTP API 端点按主机获得。
 
 ## 概述

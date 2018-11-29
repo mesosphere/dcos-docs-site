@@ -27,8 +27,8 @@ dcos marathon group update <group-id> <properties> <key>=<value> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<group-id>`   |  The group ID. You can view a list of the group IDs with the `dcos marathon group list` 命令。|
-| `<properties>`   | List of one or more JSON object properties, separated by a space. The list must be formatted as `<key>=<value>`. For example, `cpus=2,0 mem=308`。如省略，则从 stdin 上提供的 JSON 对象读取属性。|
+| `<group-id>`   |  组ID。 您可以使用以下命令查看组ID列表 `dcos marathon group list` 命令。|
+| `<properties>`   | 一个或多个JSON对象属性的列表，以空格分隔。 列表必须格式化为 `<key>=<value>`. 例如, `cpus=2,0 mem=308`。如省略，则从 stdin 上提供的 JSON 对象读取属性。|
 
 # 父命令
 

@@ -159,7 +159,7 @@ DC/OS 集群默认启用 [故障域意识](/cn/1.11/deploying-services/fault-dom
 
  推荐脚本输出的格式为 `fault_domain: region: name: <region>, zone: name: <zone>`。我们提供 [AWS 和 Azure 故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的集群，可将两者组合为一个脚本。可以使用这些模型为本地集群创建故障域检测脚本。
 
-   <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>提醒：</b>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</td> </tr> </table>
+   <p class="message--note"><strong>注意：</strong>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</p>
 
 
 2. 添加新创建的 `fault-domain-detect` 脚本到 bootstrap 节点的 `/genconf` 目录。

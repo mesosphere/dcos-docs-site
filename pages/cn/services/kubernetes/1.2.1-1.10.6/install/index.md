@@ -78,7 +78,7 @@ $ yum install -y \
 ```
 
 <p class="message--warning"><strong>警告: </strong>未能满足这些先决条件将导致任务启动
-失败或在执行过程中出现错误，导致集群中断。</p>
+失败或在执行过程中出现错误，导致群集中断。</p>
 
 
 # 从 DC/OS CLI 中安装

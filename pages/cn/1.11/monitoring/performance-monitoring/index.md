@@ -107,21 +107,21 @@ Mesos 提供了许多用于监控的 [度量标准][2]。以下是对 DC/OS 特�
  * 确保管理节点有大量磁盘空间。
  * 将 `logrotation` 选项从 `rotate 7` 变为 `maxage 14` 或更多。例如：
 
-        ```
-        ...
-        /var/log/mesos/* {
-            olddir /var/log/mesos/archive
-            maxsize 2000k
-            daily
-            maxage 14
-            copytruncate
-            postrotate
-                find  /var/log/mesos /var/log/mesos/archive -mtime +14 -delete
-            endscript
-        }
-        EOF
-        ...
-        ```
+    ```
+    ...
+    /var/log/mesos/* {
+        olddir /var/log/mesos/archive
+        maxsize 2000k
+        daily
+        maxage 14
+        copytruncate
+        postrotate
+            find  /var/log/mesos /var/log/mesos/archive -mtime +14 -delete
+        endscript
+    }
+    EOF
+    ...
+    ```
 
 
 参阅 Apache Mesos [文档](http://mesos.apache.org/documentation/latest/monitoring/) 了解 Mesos 基本警报。

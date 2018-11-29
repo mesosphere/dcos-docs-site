@@ -14,7 +14,7 @@ enterprise: true
 
 | 权限字符串 | full | C | R | U | D |
 |----------------------------|------|---|---|---|---|
-| `dcos:adminrouter:ops:system-logs` <br>控制对 [系统日志 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
+| `dcos:adminrouter:ops:system-logs` <br>控制对 [系统日志 API] 的访问(/cn/1.11/api/master-routes/#system)。| x | | | | |
 
 **先决条件：**
 
@@ -26,15 +26,15 @@ enterprise: true
 
 1. 选择**组织**并选择**用户**。选择现有用户或创建一个新用户。
 
- ![新用户](/cn/1.11/img/new-user-generic.png)
+   ![新用户](/cn/1.11/img/new-user-generic.png)
 
- 图 1. 新用户屏幕
+   图 1. 新用户屏幕
 
 1. 从**权限**选项卡，选择**添加权限**。
 
- ![为用户添加权限](/1.10/img/permission-user.png)
+   ![为用户添加权限](/1.10/img/permission-user.png)
 
- 图 2. “添加权限”按钮
+   图 2. “添加权限”按钮
 
 1. 单击**插入权限字符串**以切换对话框，并粘贴到以下权限中，单击**添加权限**。
 

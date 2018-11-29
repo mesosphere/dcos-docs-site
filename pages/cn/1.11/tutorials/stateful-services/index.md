@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: 教程 - 在 DC/OS 上运行有状态服务
 ---
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>重要信息：</b>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</td> </tr> </table>
+<p class="message--important"><strong>重要信息：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
 本教程向您展示如何在 DC/OS 上安装和运行有状态服务。有状态服务对持久数据起作用。每次启动时，简单**无**状态服务在空沙盒中运行。相反，**有**状态服务使用驻留在集群中代理节点上的持久卷，直到被明确销毁。
 

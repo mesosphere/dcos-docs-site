@@ -16,7 +16,7 @@ excerpt: 使用“组织”菜单
 
 用户菜单将显示所有注册用户的用户名和全名。可以按本地和外部用户对列表进行排序。
 
-![Users](/cn/1.11/img/organization-ee.png)
+![Users](/cn/1.11/img/organization-ee-users.png)
 
 图 1. 组织 > 用户菜单
 

@@ -26,7 +26,7 @@ dcos marathon group add <group-resource> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<group-resource>`   | Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from `stdin`。有关详细说明，请参阅[文档](/cn/1.11/deploying-services/marathon-api/)。|
+| `<group-resource>`   | 包含组的JSON定义的文件或HTTP（S）URL的路径。 如果省略，则从中读取定义 `stdin`。有关详细说明，请参阅[文档](/cn/1.11/deploying-services/marathon-api/)。|
 
 # 父命令
 

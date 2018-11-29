@@ -28,7 +28,7 @@ dcos marathon task stop <task-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<task-id>`   |    The task ID. You can view a list of the task IDs with the `dcos marathon task list` 命令。|
+| `<task-id>`   |    任务ID。 您可以使用以下命令查看任务ID列表 `dcos marathon task list` 命令。|
 
 # 父命令
 

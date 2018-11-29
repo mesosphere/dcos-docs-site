@@ -4,7 +4,6 @@ navigationTitle: 命令参考
 title: 命令参考
 menuWeight: 6
 excerpt: 探索 DC/OS 独有的命令
-
 enterprise: false
 ---
 

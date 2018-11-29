@@ -66,11 +66,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 ## <a name="set"></a>设置安全模式
 安全模式在 [DC/OS 安装](/cn/1.11/installing/ent/custom/advanced/) 过程中设置，并且只能通过执行[升级](/cn/1.11/installing/ent/upgrading/) 进行更改。安全模式已在有 [`security` 参数](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) 的安装配置文件设置。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>升级期间，您只能从“禁用”移至“宽容”，从“宽容”移至“严格”。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>升级期间，您只能从“禁用”移至“宽容”，从“宽容”移至“严格”。</p>
 
 ## <a name="discover"></a>了解您的安全模式
 您可以使用以下任一方法来确定现有集群的安全模式。
@@ -87,11 +83,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 在  bootstrap 序列期间，DC/OS 使用 ZooKeeper 凭据配置管理节点。这使得管理节点可以将自己指定为潜在的 Mesos 管理节点。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>除非在安装或升级期间进行了更改（强烈建议），否则每个集群将使用相同的默认 ZooKeeper 凭据。参见<a href="/1.11/security/ent/hardening/#zk">强化</a>，了解更多信息。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>除非在安装或升级期间进行了更改（强烈建议），否则每个集群将使用相同的默认 ZooKeeper 凭据。参见<a href="/1.11/security/ent/hardening/#zk">强化</a>，了解更多信息。</p>
 
 ## <a name="user"></a>用户登录
 您可以使用 DC/OS GUI、DC/OS CLI 或编程式客户端登录。
@@ -129,11 +121,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 您可以从 DC/OS GUI 的 **Organization -> Service Accounts** 选项卡查看 `systemd` 服务帐户。这些服务帐户以 `dcos_` 为前缀。
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>警告：</strong>修改任何自动配置服务帐户的权限可能会导致服务失败。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>修改任何自动配置服务帐户的权限可能会导致服务失败。</p>
 
 
 # <a name="authorization"></a>授权

@@ -3,7 +3,7 @@ layout: layout.pug
 title: Spark 2.3.1-2.2.1-2
 navigationTitle: Spark 2.3.1-2.2.1-2
 menuWeight: 0
-excerpt: Apache Spark 是一种用于大数据的快速通用集群计算系统。
+excerpt: Apache Spark 是一种用于大数据的快速通用群集计算系统。
 featureMaturity:
 model: /cn/services/spark/data.yml
 render: mustache

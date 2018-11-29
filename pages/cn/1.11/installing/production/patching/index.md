@@ -127,11 +127,8 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 - 您的集群必须 [修补到 DC/OS 1.11](#current-security) 并在 [禁用安全模式] (1.11/install/production/advanced-configuration/configuration-reference/#security-enterprise) 下运行，才能修补为宽容模式。如果您的集群在补丁到 DC/OS 1.10，之前处于宽容模式，则可以跳过该程序。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>从禁用模式修补到宽容安全模式的补丁，您已配置的任何<a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">自定义节点或集群运行状况检查</a>都会失败。未来版本支持绕过运行状况检查。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>从禁用模式修补到宽容安全模式的补丁，您已配置的任何<a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">自定义节点或集群运行状况检查</a>都会失败。未来版本支持绕过运行状况检查。</p> 
+
 
 要将集群从禁用安全模式修补为宽容安全模式，请完成以下步骤：
 
