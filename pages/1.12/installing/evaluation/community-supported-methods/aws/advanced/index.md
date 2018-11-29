@@ -78,7 +78,7 @@ The required parameters for Enterprise and Open Source users are:
     aws_template_storage_access_key_id: <your-access-key-id>
     aws_template_storage_secret_access_key: <your-secret-access_key>
     cluster_name: <cluster-name>
-    security: [permissive|strict|disabled]
+    security: [permissive|strict]
     superuser_password_hash: <hashed-password>
     superuser_username: <username>
     zk_super_credentials: <userid>:<password>
