@@ -13,9 +13,10 @@ DC/OS 由许多开源微服务组件组成，经过精心调整和配置以协�
 
 图 1. DC/OS Enterprise 组件
 
-从表面上看，DC/OS 是处理容器编排、软件包管理和安全的包容性容器平台。从根本上说，DC/OS 是建立在 [Apache Mesos] 基础之上的操作系统(http://mesos.apache.org/)，处理群集管理和软件定义网络，同时简化日志记录和度量标准收集。
+从表面上看，DC/OS 是处理容器编排、软件包管理和安全的包容性容器平台。从根本上说，DC/OS 是建立在 [Apache Mesos](http://mesos.apache.org/) 基础之上的操作系统，处理群集管理和软件定义网络，同时简化日志记录和度量标准收集。
 
-<a name="cluster-management"><a>
+<a name="cluster-management"></a>
+
 # 群集管理
 
 DC/OS 提供了一种作为单个群集级别系统查看和操作大量单个机器级系统的方法。它隐藏了 Mesos（分布式系统内核）的复杂性，具有更高级别的抽象概念、网络接口和工具。群集管理是该功能的核心，包括内核、其依赖关系及其用户界面。
@@ -24,7 +25,7 @@ DC/OS 提供了一种作为单个群集级别系统查看和操作大量单个�
 <a name="apache-mesos"></a>
 ## Apache Mesos
 
-Mesos 作为分布式系统内核来管理资源和任务。Mesos 管理节点揭示调度器、执行器和操作界面，以便进行群集管理。Mesos 代理节点管理每个 [DC/OS 代理节点] 上的单个执行器、任务和资源(/cn/1.11/overview/concepts/#dcos-agent-node)。Mesos Agent Public 被配置为可用于在 [DC/OS 公共代理节点] 上运行的 Mesos 代理节点(/cn/1.11/overview/concepts/#public-agent-node)。
+Mesos 作为分布式系统内核来管理资源和任务。Mesos 管理节点揭示调度器、执行器和操作界面，以便进行群集管理。Mesos 代理节点管理每个 [DC/OS 代理节点](/cn/1.11/overview/concepts/#dcos-agent-node) 上的单个执行器、任务和资源。Mesos Agent Public 被配置为可用于在 [DC/OS 公共代理节点](/cn/1.11/overview/concepts/#public-agent-node) 上运行的 Mesos 代理节点。
 
 ## 系统服务
 
@@ -169,7 +170,7 @@ DC/OS 作业（节拍器）编排短期的、计划的或即时的容器化作�
 
 # 容器运行时
 
-容器运行时在隔离操作系统级别环境中执行和管理机器级的进程。DC/OS 使用 [Mesos 的 containerizer 抽象] 支持多个容器运行时(http://mesos.apache.org/documentation/latest/containerizers/)。
+容器运行时在隔离操作系统级别环境中执行和管理机器级的进程。DC/OS 使用 [Mesos 的 containerizer 抽象](http://mesos.apache.org/documentation/latest/containerizers/) 支持多个容器运行时。
 
 <a name="universal-container-runtime"></a>
 ## 通用容器运行时
@@ -338,7 +339,7 @@ DC/OS 历史记录服务缓存并揭示历史系统状态，以促进 GUI 中的
 
 Admin Router
 
-Admin Router 使用 [NGINX] 揭示组件和服务的统一控制平面代理(https://www.nginx.com/)。Admin Router 代理为节点特定的运行状况、日志、度量标准和软件包管理内部端点提供代理。
+Admin Router 使用 [NGINX](https://www.nginx.com/) 揭示组件和服务的统一控制平面代理。Admin Router 代理为节点特定的运行状况、日志、度量标准和软件包管理内部端点提供代理。
 
 ### 系统服务
 
@@ -408,7 +409,7 @@ Mesos DNS 提供群集内基于域名的服务发现。
 
 ## DC/OS 软件包管理器 (Cosmos)
 
-DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 软件包存储库] 中的 DC/OS 软件包(/cn/1.11/administering-clusters/repo/)，如 [Mesosphere Universe](https://github.com/mesosphere/universe)。
+DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 软件包存储库](/cn/1.11/administering-clusters/repo/) 中的 DC/OS 软件包，如 [Mesosphere Universe](https://github.com/mesosphere/universe)。
 
 ### 系统服务
 
@@ -460,7 +461,7 @@ DC/OS 身份和访问管理器 (IAM) 通过管理用户、用户组、服务帐�
 
 CockroachDB 是一个分布式 SQL 数据库，基于事务性、高度一致的键值对存储。
 
-**注意：** CockroachDB 目前仅由 <a href="#dcos-iam">DC/OS 身份和访问管理器</a>使用。
+<p class="message--note"><strong>注意: </strong>CockroachDB 目前仅由 <a href="#dcos-iam">DC/OS 身份和访问管理器</a>使用。</p>
 
 ### 系统服务
 
@@ -549,7 +550,7 @@ DC/OS 组件由 [DC/OS 组件包管理器 (Pkgpanda)](https://github.com/dcos/dc
 
 # `Systemd` 服务
 
-大多数 DC/OS 组件在 DC/OS 节点上作为 [systemd 服务] (/cn/1.11/overview/concepts/#systemd-service)运行。
+大多数 DC/OS 组件在 DC/OS 节点上作为 [systemd 服务](/cn/1.11/overview/concepts/#systemd-service)运行。
 
 要查看 `systemd` 在任何特定节点上运行的组件的列表，请列出 `/etc/systemd/system/dcos.target.wants/` 目录的内容或执行 `systemctl | grep dcos-` 以查看其当前状态。
 

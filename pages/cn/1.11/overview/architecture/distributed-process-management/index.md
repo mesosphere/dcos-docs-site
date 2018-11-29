@@ -42,5 +42,4 @@ enterprise: false
 1. 调度器向客户端报告进程状态。
 
 
-[auth]：/1.11/security/
-[组件]：/1.11/overview/architecture/components/
+

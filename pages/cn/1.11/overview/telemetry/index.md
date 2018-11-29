@@ -42,7 +42,7 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 "customerKey": "ab1c23de-45f6-7g8h-9012-i345j6k7lm8n", 
 </pre>
 </td></tr>
-<tr><td>事件</td>
+<tr><td>event</td>
 <td>这是在区块中出现的类别。可能的值为 <code>package_list</code>（包管理器）、<code>health</code>（诊断）和 <code>mesos_track</code> (Mesos)。例如：
 <pre>
 "event": "package_list" 
@@ -54,17 +54,17 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 <pre>
 "environmentVersion": "1.11", 
 </pre></td></tr>
-<tr><td>提供者</td>
+<tr><td>provider</td>
 <td>这是 DC/OS 运行所在的平台。可能的值为 <code>aws</code>、<code>on-prem</code> 和 <code>azure</code>。例如，如果您是在 AWS 上运行：
 <pre>
 "provider": "aws", 
 </pre></td></tr>
-<tr><td>来源</td>
+<tr><td>source</td>
 <td>这是表示群集的硬编码设置。例如：
 <pre>
 "source": "cluster", 
 </pre></td></tr>
-<tr><td>变量</td>
+<tr><td>variant</td>
 <td>这表示群集是 DC/OS 还是 DC/OS Enterprise。例如，如果您使用的是 DC/OS Open Source：
 <pre>
 "variant": "open" 
@@ -75,14 +75,14 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 
 ## 诊断
 
-此信息从 [DC/OS 诊断] (/cn/1.11/overview/architecture/components/#dcos-diagnostics) 组件收集。对于每一个 `systemd` 单元收集以下信息，其中 `<UNIT_NAME>` 是组件名：
+此信息从 [DC/OS 诊断](/cn/1.11/overview/architecture/components/#dcos-diagnostics) 组件收集。对于每一个 `systemd` 单元收集以下信息，其中 `<UNIT_NAME>` 是组件名：
 
 ```
 "health-unit-dcos-<UNIT_NAME>-total": 3, "health-unit-dcos-<UNIT_NAME>-unhealthy": 0,
 ```
 
 ## Mesos
-此信息从 [Apache Mesos] (/cn/1.11/overview/architecture/components/#apache-mesos) 组件收集。
+此信息从 [Apache Mesos](/cn/1.11/overview/architecture/components/#apache-mesos) 组件收集。
 
 <table class="table">
 <tr>
@@ -96,7 +96,7 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 <tr><td>disk_total</td><td>按 MB 计的可用磁盘空间。例如：<pre>"disk_total": 71154, </pre></td></tr>
 <tr><td>disk_used</td><td>按 MB 计的已分配磁盘空间。例如：<pre>"disk_used": 0, </pre></td></tr>
 <tr><td>framework_count</td><td>已安装 DC/OS 服务的数量。例如：<pre>"framework_count": 2, </pre></td></tr>
-<tr><td>框架</td><td>安装了哪些 DC/OS 服务。例如：
+<tr><td>frameworks</td><td>安装了哪些 DC/OS 服务。例如：
 <pre>
 "frameworks": [
                 {
@@ -115,7 +115,7 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 
 
 ## 软件包管理器
-此信息从 [DC/OS 包管理器 (Cosmos) ](/cn/1.11/overview/architecture/components/#dcos-package-manager) 组件收集。
+此信息从 [DC/OS 包管理器 (Cosmos)](/cn/1.11/overview/architecture/components/#dcos-package-manager) 组件收集。
 
 <table class="table">
 <tr>

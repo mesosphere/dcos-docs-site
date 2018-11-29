@@ -33,7 +33,7 @@ Mesosphere DC/OS 功能将通过多阶段生命周期发展。此生命周期可
 6. 不保证 Beta 功能能从 Beta 升级到 GA。
 7. 关于 Beta 功能的反馈可根据测试、使用和经验，通过电子邮件、Slack 渠道或社区论坛等非标准渠道提供。
 
-**注意**：对 Mesosphere DC/OS Enterprise 的 Beta 版本或功能的任何使用均受 [评估条款] 的约束(https://mesosphere.com/mesosphere-support-terms/)，所有其他条款均排除在外。
+<p class="message--note"><strong>注意: </strong>对 Mesosphere DC/OS Enterprise 的 Beta 版本或功能的任何使用均受 的约束<a href="https://mesosphere.com/mesosphere-support-terms/">评估条款</a>，所有其他条款均排除在外。</p>
 
 <a name="general_availability"></a>
 ## 一般可用性
@@ -45,7 +45,7 @@ Mesosphere DC/OS 功能将通过多阶段生命周期发展。此生命周期可
 3. API 修改将接受版本控制（V1、V2 等）。
 4. 对于 DC/OS Enterprise 的客户，反馈和支持应通过 Mesosphere 服务支持条款中概述的方法进行。
 5. 对于 DC/OS Open Source 的客户，反馈应通过社区渠道进行。
-6. GA 功能修改或成熟度生命周期变更可见 [版本注释] (/cn/1.11/release-notes/)。
+6. GA 功能修改或成熟度生命周期变更可见 [版本注释](/cn/1.11/release-notes/)。
 
 <a name="deprecated"></a>
 ## 已弃用

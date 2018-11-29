@@ -14,11 +14,11 @@ DC/OS 由许多开源组件构成，其中多个在 DC/OS 之前就存在。本�
 
 DC/OS 是数据中心的 [分布式操作系统](https://en.wikipedia.org/wiki/Distributed_operating_system)。
 
-与传统的分布式操作系统不同，DC/OS 还是管理基于本地可执行文件或容器镜像（如 [Docker 镜像]）的容器化任务的容器平台(https://docs.docker.com/engine/tutorials/dockerimages/)。同样与传统 [操作系统] (https://en.wikipedia.org/wiki/Operating_system) 不同，DC/OS 是在 [节点群集](#cluster) 上而不是在单台机器上运行的。每个 DC/OS 节点还具有管理底层机器的 [主机操作系统](#host-operating-system)。
+与传统的分布式操作系统不同，DC/OS 还是管理基于本地可执行文件或容器镜像（如 [Docker 镜像](https://docs.docker.com/engine/tutorials/dockerimages/)）的容器化任务的容器平台。同样与传统 [操作系统](https://en.wikipedia.org/wiki/Operating_system) 不同，DC/OS 是在 [节点群集](#cluster) 上而不是在单台机器上运行的。每个 DC/OS 节点还具有管理底层机器的 [主机操作系统](#host-operating-system)。
 
 DC/OS 由许多组件构成，尤其是分布式系统内核 ([Mesos](#apache-mesos)) 和容器编排引擎 ([Marathon](#marathon))。
 
-在版本 1.6 之前，DC/OS 被称为数据中心操作系统 (DCOS)。使用版本 1.6，平台被重命名为 DC/OS，并开源化了。虽然 DC/OS 本身是开源，但像 [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) 等高级分布可能包括其他闭源组件和功能，例如多租户、细粒度权限、密钥管理和端对端加密。
+在版本 1.6 之前，DC/OS 被称为数据中心操作系统 (DCOS)。使用版本 1.6，平台被重命名为 DC/OS，并开源化了。虽然 DC/OS 本身是开源，但像 [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) 等高级分布可能包括其他闭源组件和功能，例如多租户, 细粒度权限, 密钥管理和端对端加密。
 
 ## <a name="dcos-gui"></a>DC/OS GUI
 
@@ -59,7 +59,7 @@ DC/OS 节点是 Mesos 代理节点和/或 Mesos 管理节点进程运行所在�
 DC/OS 管理节点是一个虚拟机或物理机，运行一系列协同工作的 DC/OS 组件来管理群集的其他部分。
 
 - 每个管理节点都包含多个 DC/OS 组件，尤其包括 [Mesos 管理节点](#mesos-master) 进程。
-- 管理节点在 [共识机制] 中工作(https://en.wikipedia.org/wiki/Quorum_%28distributed_computing%29)，以实现群集协调的一致性。要避免 [脑裂](https://en.wikipedia.org/wiki/Split-brain_%28computing%29) 群集分区，群集的管理节点数应始终为奇数。例如，具有三个管理节点允许一个管理节点出故障；具有五个管理节点允许两个管理节点出故障，允许在滚动更新过程中出故障。可添加额外的管理节点，以提高风险承受力。
+- 管理节点在 [共识机制](https://en.wikipedia.org/wiki/Quorum_%28distributed_computing%29) 中工作，以实现群集协调的一致性。要避免 [脑裂](https://en.wikipedia.org/wiki/Split-brain_%28computing%29) 群集分区，群集的管理节点数应始终为奇数。例如，具有三个管理节点允许一个管理节点出故障；具有五个管理节点允许两个管理节点出故障，允许在滚动更新过程中出故障。可添加额外的管理节点，以提高风险承受力。
 - 只有一个管理节点的群集可用于开发，但可用性不高，可能无法从故障中恢复。
 
 ## <a name="dcos-agent-node"></a>代理节点
@@ -103,11 +103,11 @@ DC/OS 代理节点是 Mesos 任务运行所在的虚拟机或物理机。
 
 # <a name="bootstrap-machine"></a>Bootstrap 机
 
-bootstrap 机是配置、构建和发布 DC/OS 安装程序工件的机器。
+bootstrap 机是配置, 构建和发布 DC/OS 安装程序工件的机器。
 
 - bootstrap 机在技术上不被视为是群集的一部分，因为它没有安装 DC/OS。对于大多数安装方法，必须可以通过基础架构网络来对群集中的机器进行 bootstrap 节点来回的访问。
 - bootstrap 机有时用作跳转盒来控制 SSH 访问群集中的其他节点，以提高安全性和日志记录。
-- 允许管理节点更改 IP 的一种方法涉及在 bootstrap 机上运行 ZooKeeper并使用 Exhibitor。其他替代方案包括使用 S3、DNS 或静态 IP，具有各种权衡需要考虑。如需更多信息，请参阅 [配置 Exhibitor 存储后端](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend)。
+- 允许管理节点更改 IP 的一种方法涉及在 bootstrap 机上运行 ZooKeeper并使用 Exhibitor。其他替代方案包括使用 S3, DNS 或静态 IP，具有各种权衡需要考虑。如需更多信息，请参阅 [配置 Exhibitor 存储后端](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend)。
 - 如果管理主节点 IP 更改不需要使用 bootstrap 机或将其作为 SSH 跳转盒，可在启动后将其关闭并按需运行以 [添加新节点](/cn/1.11/administering-clusters/add-a-node/) 到群集。
 
 如需更多信息，请参阅 [系统要求](/cn/1.11/installing/production/system-requirements/#bootstrap-node)。
@@ -133,15 +133,15 @@ Marathon 服务由零个或多个容器化服务实例组成。每个服务实�
 - Marathon 服务可以是 [DC/OS 调度器](#dcos-scheduler)，但并非所有服务都是调度器。
 - Marathon 服务是围绕 Marathon 服务实例的抽象，后者是围绕 Mesos 任务的抽象。DC/OS 作业 (Metronome) 或 Jenkins 等其他调度器有自己的名称，用于围绕 Mesos 任务的抽象。
 
-**示例：** Cassandra（调度器）、Marathon-on-Marathon、Kafka（调度器）、Nginx、Tweeter。
+**示例：** Cassandra（调度器）, Marathon-on-Marathon, Kafka（调度器）, Nginx, Tweeter。
 
 ## <a name="systemd-service"></a>`Systemd`服务
 
 `systemd` 服务包含单个可选的容器化机器操作系统进程，在管理节点或代理节点上运行，由 `systemd` 管理，由 DC/OS 本身拥有。
 
-- 所有 `systemd` 服务目前是主机操作系统服务、DC/OS 依赖关系、DC/OS 组件或系统管理员手动管理的服务。
+- 所有 `systemd` 服务目前是主机操作系统服务, DC/OS 依赖关系, DC/OS 组件或系统管理员手动管理的服务。
 
-**示例：** 大多数 DC/OS 组件、（系统）Marathon。
+**示例：** 大多数 DC/OS 组件, （系统）Marathon。
 
 ## <a name="system-service"></a>系统服务
 
@@ -158,7 +158,7 @@ Marathon 服务由零个或多个容器化服务实例组成。每个服务实�
 
 这种区分是新的，并且随着命名空间转换为系统范围的第一类模式，并映身到细粒度用户和用户组权限而不断发展。
 
-**示例：** Jenkins、Cassandra、Kafka、Tweeter。
+**示例：** Jenkins, Cassandra, Kafka, Tweeter。
 
 # <a name="dcos-service-group"></a>服务组
 
@@ -176,8 +176,8 @@ DC/OS 作业是一组类似的短期作业实例，作为 Mesos 任务运行，�
 DC/OS 调度器是一个 Mesos 调度器，在管理节点上作为 `systemd` 服务运行，在代理节点上作为 Mesos 任务运行。
 
 DC/OS 调度器和 Mesos 调度器之间的主要区别在于它运行的位置和安装的方式。
-- 某些调度器预先安装为 DC/OS 组件（例如，Marathon、DC/OS 作业 (Metronome)）。
-- 某些调度器可以由用户作为用户服务安装（例如，Kafka、Cassandra）。
+- 某些调度器预先安装为 DC/OS 组件（例如，Marathon, DC/OS 作业 (Metronome)）。
+- 某些调度器可以由用户作为用户服务安装（例如，Kafka, Cassandra）。
 - 某些调度器作为多个服务实例运行，以提供高可用性（例如，Marathon）。
 
 在 DC/OS Enterprise 中的某些安全模式下，DC/OS 调度器必须使用服务账户在 Mesos 注册为框架来认证身份并获得授权。
@@ -193,13 +193,13 @@ DC/OS 组件是与 DC/OS 一起发布的 DC/OS 系统服务。
 - 组件可以是 `systemd` 服务或 Marathon 服务。
 - 组件可以以高可用性的配置部署。
 
-大多数组件在管理节点上运行，但有些组件 (likr mesos-agent) 在代理节点上运行。
+大多数组件在管理节点上运行，但有些组件 (`likr mesos-agent`) 在代理节点上运行。
 
-**示例：** Mesos、Marathon、Mesos-DNS、Bouncer、Admin Router、DC/OS 包管理器 (Cosmos)、历史服务等。
+**示例：** Mesos, Marathon, Mesos-DNS, Bouncer, Admin Router, DC/OS 包管理器 (Cosmos), 历史服务等。
 
 # <a name="dcos-package"></a> 软件包
 
-DC/OS 包是指元数据捆绑包，描述如何使用 Marathon 来配置、安装和卸载 DC/OS 服务。
+DC/OS 包是指元数据捆绑包，描述如何使用 Marathon 来配置, 安装和卸载 DC/OS 服务。
 
 # <a name="dcos-package-manager"></a> 软件包管理器
 
@@ -263,7 +263,7 @@ Mesos 管理节点是在管理节点上运行的一个进程，以协调群集�
 
 ## <a name="mesos-agent"></a>代理节点
 
-Mesos 代理节点是在代理节点上运行的一个进程，以管理该节点的执行器、任务和资源。
+Mesos 代理节点是在代理节点上运行的一个进程，以管理该节点的执行器, 任务和资源。
 
 - Mesos 代理节点注册节点的部分或全部资源，允许首要 Mesos 管理节点向调度器提供这些资源，调度器则决定运行任务的节点。
 - Mesos 代理节点将任务状态更新报告给首要 Mesos 管理节点，后者则将其报告给相应的调度器。
@@ -280,23 +280,23 @@ Mesos 执行器是 Mesos 代理节点启动任务的一种方法。Mesos 任务�
 
 ## <a name="mesos-scheduler"></a>调度器
 
-Mesos 调度器是定义新的 Mesos 任务并为其分配资源（将其放在特定节点上）的程序。调度器收到描述 CPU、RAM 等的资源邀约，并分配给可由 Mesos 代理节点启动的离散任务。调度器必须在 Mesos 注册为框架。
+Mesos 调度器是定义新的 Mesos 任务并为其分配资源（将其放在特定节点上）的程序。调度器收到描述 CPU, RAM 等的资源邀约，并分配给可由 Mesos 代理节点启动的离散任务。调度器必须在 Mesos 注册为框架。
 
-**示例：** Kafka、Marathon、Cassandra。
+**示例：** Kafka, Marathon, Cassandra。
 
 ## <a name="mesos-framework"></a>框架
 
-Mesos 框架包括调度器、任务和可选的自定义执行器。术语“框架”和“调度器”有时可以互换使用。在 DC/OS 的情况下，我们更喜欢使用“调度器”。
+Mesos 框架包括调度器, 任务和可选的自定义执行器。术语“框架”和“调度器”有时可以互换使用。在 DC/OS 的情况下，我们更喜欢使用“调度器”。
 
 有关框架调度器和执行器的更多信息，请参阅 [应用框架开发指南](http://mesos.apache.org/documentation/latest/app-framework-development-guide/)。
 
 ## <a name="mesos-role"></a>角色
 
-Mesos 角色是一组 Mesos 框架，共享保留的资源、持久卷和配额。这些框架也在 Mesos 的层次主导资源公平性 (DRF) 份额计算中分为一组。角色通常与资源组混淆，这是由于它们在代理节点上静态配置的方式。分派实际上是反向的：资源被分派给角色。角色资源分配可以在 Mesos 代理节点上静态配置，或者使用 Mesos API 在运行时更改。
+Mesos 角色是一组 Mesos 框架，共享保留的资源, 持久卷和配额。这些框架也在 Mesos 的层次主导资源公平性 (DRF) 份额计算中分为一组。角色通常与资源组混淆，这是由于它们在代理节点上静态配置的方式。分派实际上是反向的：资源被分派给角色。角色资源分配可以在 Mesos 代理节点上静态配置，或者使用 Mesos API 在运行时更改。
 
 ## <a name="mesos-resource-offer"></a>资源邀约
 
-Mesos 资源邀约从代理节点向调度器提供一组未分配的资源（如 CPU、磁盘、内存），以便调度器可将这些资源分配给一个或多个任务。资源邀约由首要 Mesos 管理节点构建，但资源本身由各代理节点报告。
+Mesos 资源邀约从代理节点向调度器提供一组未分配的资源（如 CPU, 磁盘, 内存），以便调度器可将这些资源分配给一个或多个任务。资源邀约由首要 Mesos 管理节点构建，但资源本身由各代理节点报告。
 
 ## <a name="mesos-containerizer"></a>Containerizer
 
@@ -349,7 +349,7 @@ Marathon 应用程序是一个长期运行的服务，可能有一个或多个�
 
 Marathon Pod 是一个长期运行的服务，可能有一个或多个实例与同地协作的 Mesos 任务一对多映射。以 JSON 文件格式为 Marathon 提供 Pod 定义，您可以创建一个 Pod。然后，Marathon 将一个或 Pod 实例作为 Mesos 任务来调度，具体取决于指定了多少定义。
 
-- Pod 实例可能包括共享某些资源的一个或多个任务（例如，IP、端口、卷）。
+- Pod 实例可能包括共享某些资源的一个或多个任务（例如，IP, 端口, 卷）。
 - Pod 需要使用 [Mesos 通用容器运行时](#mesos-containerizer-universal-container-runtime)。
 
 ## <a name="marathon-group"></a>组
