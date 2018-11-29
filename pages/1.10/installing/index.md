@@ -29,9 +29,9 @@ You can [evaluate](/1.10/installing/evaluation/) the installation process using 
 These installation methods are officially supported by Mesosphere.  
 
 Any of the following methods can be used to install DC/OS:
-- [Provision DC/OS on Amazon Web Services (AWS)](/1.10/installing/evaluation/mesosphere-supported-methods/aws/): Install your DC/OS cluster on Amazon Web Services (AWS) by using the DC/OS Terraform templates on AWS.
-- [Provision DC/OS on Azure](/1.10/installing/evaluation/mesosphere-supported-methods/azure/): Install your DC/OS cluster on Azure by using the DC/OS Terraform templates on Azure.
-- [Provision DC/OS on Google Cloud Platform (GCP)](/1.10/installing/evaluation/mesosphere-supported-methods/gcp/): Install your DC/OS cluster on GCP by using the DC/OS Terraform templates on GCP. 
+- [Provision DC/OS on Amazon Web Services (AWS)](/1.10/installing/evaluation/mesosphere-supported-methods/aws/): Install your DC/OS cluster on Amazon Web Services (AWS) by using the Universal Installer.
+- [Provision DC/OS on Azure](/1.10/installing/evaluation/mesosphere-supported-methods/azure/): Install your DC/OS cluster on Azure by using the Universal Installer.
+- [Provision DC/OS on Google Cloud Platform (GCP)](/1.10/installing/evaluation/mesosphere-supported-methods/gcp/): Install your DC/OS cluster on GCP by using the Universal Installer. 
 
 ### <a name="community-supported"></a>Community Supported Installation Methods 
 These installation methods are not officially supported by Mesosphere, but are supported by the DC/OS community. 
@@ -46,4 +46,3 @@ Any of the following methods can be used to install DC/OS:
 
 ## <a name="production-install"></a>Production
 The [production installation](/1.10/installing/production/) method is used to install production-ready DC/OS that can be upgraded. This method was previously called custom installation. It involves packaging the DC/OS distribution and connecting to every node manually to run the DC/OS installation commands. This method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
-
