@@ -15,4 +15,4 @@ DC/OS 附带自己的本地虚拟网络解决方案，称为 [DC/OS 覆盖层](/
 ## Docker 容器的 IPv6 支持
 在 DC/OS 1.11 中，DC/OS 覆盖层设有内置支持，支持创建 Docker 容器的 IPv6 网络。
 
-**注意**：IPv6 支持目前仅适用于 Docker 容器，不适用于 UCR 容器。
+<p class="message--note"><strong>注意: </strong>IPv6 支持目前仅适用于 Docker 容器，不适用于 UCR 容器。</p>

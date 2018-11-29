@@ -7,7 +7,6 @@ excerpt: 使用 Mesos DNA API 发现 IP 地址和端口
 
 enterprise: true
 ---
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 您可以使用 Mesos DNS API 发现其他应用程序的 IP 地址和端口。

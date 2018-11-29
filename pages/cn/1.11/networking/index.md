@@ -8,8 +8,6 @@ excerpt: 了解 DC/OS 网络堆栈
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-
 DC/OS 网络堆栈提供 
 - [与容器的 IP 连接](#IP-connectivity)
 - 内置 [基于 DNS 的服务发现](#DNS-discovery)
