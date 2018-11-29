@@ -1,7 +1,7 @@
 ---
 layout: cn-dcos-docs-landing.pug
-title: Chinese DC/OS Docs
-navigationTitle: Chinese DC/OS Docs
+title: DC/OS文档
+navigationTitle: DC/OS文档
 menus: ['cn-header']
 menuWeight: 10
 ---

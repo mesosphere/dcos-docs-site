@@ -76,7 +76,7 @@ html(lang='en')
                 a(href='https://support.mesosphere.com') Support
         nav(id="landing-localization" class='localization')
           div(id="landing-localization-current" class='localization-current')
-            strong(class='localization-language')!= isChinese ? 'Chinese' : 'English'
+            strong(class='localization-language')!= isChinese ? '中文 (简体)' : 'English'
             svg(class="localization-svg")
               path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#FFFFFF")
           ul(class='localization-list')
@@ -93,7 +93,7 @@ html(lang='en')
                   - return currPath
                 - return findLongestCnPath(enPaths.slice(0, enPaths.length - 1))
               li(class='localization-list-item')
-                a(href=findLongestCnPath(paths)) Chinese
+                a(href=findLongestCnPath(paths)) 中文 (简体)
         section(class='header__search', role='search')
           form(class='header__search-form', action='/search/', method='GET')
             label(class='header__search-label', for='header-search-input')
