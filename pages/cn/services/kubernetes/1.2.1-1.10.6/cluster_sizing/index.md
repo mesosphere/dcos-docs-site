@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle: 集群大小
-title: 集群大小
+navigationTitle: 群集大小
+title: 群集大小
 menuWeight: 45
-excerpt: 规划和调整集群的大小
+excerpt: 规划和调整群集的大小
 ---
 
-DC/OS Kubernetes 支持符合以下所有标准的集群：
+DC/OS Kubernetes 支持符合以下所有标准的群集：
 
 * 不超过 100 个节点
 * 总共不超过 10000 个 pod

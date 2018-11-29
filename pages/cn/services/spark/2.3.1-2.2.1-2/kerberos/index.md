@@ -186,7 +186,7 @@ Keytab 无限期有效，而票证会过期。推荐使用 Keytab，尤其是对
 ```
 <p class="message--note"><strong>注意：</strong> 此页面上的示例假设您正在使用 Spark 的默认服务名称 "spark"。如果使用不同的服务名称，请相应地更新密钥路径。</p>
 
-<p class="message--note"><strong>注意：</strong> 您可以从 Mesos 上的 Spark 访问外部（即非 DC/OS） Kerberos 安全的 HDFS 集群。</p>
+<p class="message--note"><strong>注意：</strong> 您可以从 Mesos 上的 Spark 访问外部（即非 DC/OS） Kerberos 安全的 HDFS 群集。</p>
 
 **DC/OS 1.10 或更早版本：** 这些凭证对安全至关重要。DC/OS 密钥存储库要求您在添加密钥之前使用 base64 编码二进制密钥（例如 Kerberos keytab）。如果使用 `__dcos_base64__` 前缀上传，当 Spark 作业可用该密钥时，密钥会被自动解码。如果密钥名称**没有**此前缀，keytab 将被解码并写入沙盒中的文件。这将导致密钥暴露，不建议这样使用。
 

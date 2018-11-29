@@ -88,7 +88,7 @@ DC/OS {{ model.techName }} 不支持任意 {{ model.techShortName }} 分布，�
 
 # 最小安装
 
-出于开发目的，您可以在本地 DC/OS 集群上安装 {{ model.techShortName }}。为此，您可以使用[dcos-vagrant](https://github.com/mesosphere/dcos-vagrant)。
+出于开发目的，您可以在本地 DC/OS 群集上安装 {{ model.techShortName }}。为此，您可以使用[dcos-vagrant](https://github.com/mesosphere/dcos-vagrant)。
 
 1. 根据 [此处](https://github.com/mesosphere/dcos-vagrant)说明安装最小 DC/OS Vagrant。
 
@@ -104,7 +104,7 @@ DC/OS {{ model.techName }} 不支持任意 {{ model.techShortName }} 分布，�
    dcos {{ model.serviceName }} run --class org.apache.{{ model.serviceName }}.examples.SparkPi http://downloads.mesosphere.com.s3.amazonaws.com/assets/{{ model.serviceName }}/{{ model.serviceName }}-examples_2.10-1.5.0.jar"
    ```
 
-<p class="message--note"><strong>注意：</strong> DC/OS Vagrant 等有限资源环境限制了 DC/OS 中的某些功能 {{ model.techName }}。例如，除非您有足够的资源启动 5 代理集群，您将无法安装 DC/OS HDFS，因此无法启用历史服务器。</p>
+<p class="message--note"><strong>注意：</strong> DC/OS Vagrant 等有限资源环境限制了 DC/OS 中的某些功能 {{ model.techName }}。例如，除非您有足够的资源启动 5 代理群集，您将无法安装 DC/OS HDFS，因此无法启用历史服务器。</p>
 
 另外，有限的资源环境可能限制您的执行程序的大小，例如使用`{{ model.serviceName }}.executor.memory`。
 
@@ -189,7 +189,7 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
     $ dcos security secrets create-sa-secret --strict <private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
     ```
 
-   例如，在严格模式 DC/OS 集群上：
+   例如，在严格模式 DC/OS 群集上：
 
    ```bash
    dcos security secrets create-sa-secret --strict private-key.pem {{ model.serviceName }}-principal {{ model.serviceName }}/{{ model.serviceName }}-secret

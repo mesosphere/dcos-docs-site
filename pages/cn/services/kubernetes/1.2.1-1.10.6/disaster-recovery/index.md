@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: 灾难恢复
 title: 灾难恢复
 menuWeight: 80
-excerpt: 备份和恢复 Kubernetes 集群
+excerpt: 备份和恢复 Kubernetes 群集
 ---
 
 # 灾难恢复

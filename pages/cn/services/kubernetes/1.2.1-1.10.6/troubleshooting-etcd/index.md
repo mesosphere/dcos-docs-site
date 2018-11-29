@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: 故障排除 
 title: etcd 故障排除 
-excerpt: 诊断 etcd 集群
+excerpt: 诊断 etcd 群集
 menuWeight: 80
 ---
 
