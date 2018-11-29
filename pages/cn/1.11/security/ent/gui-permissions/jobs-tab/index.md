@@ -12,7 +12,7 @@ enterprise: true
 
 您可以授予用户访问 [**作业**屏幕](/cn/1.11/gui/jobs/) 的权限。新用户默认没有权限。
 
-**注意：** 此过程授予访问**作业**屏幕及其内部所有作业的全部用户权限。如果您正在以 `strict` 或 `permissive` [安全模式](/cn/1.11/security/ent/#security-modes) 运行并希望配置细粒度用户访问权限，请参阅 [文档](/cn/1.11/deploying-services/service-groups/)。
+<p class="message--note"><strong>注意: </strong>此过程可授予访问这个屏幕选项卡的全部用户权限。如果您正在以 <tt>strict</tt> 或 <tt>permissive</tt> <a href="/cn/1.11/security/ent/#security-modes">安全模式</a> 运行并希望配置细粒度用户访问权限，请参阅 <a href="/cn/1.11/deploying-services/service-groups/">文档</a>。</p>
 
 # <a name="jobs-access-via-ui"></a>使用 Web 界面授予访问权限
 
@@ -43,61 +43,61 @@ enterprise: true
 
  图 3. 插入权限字符串
 
-6. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式] 选择权限字符串(/cn/1.11/security/ent/#security-modes)，单击**添加权限**，然后单击**关闭**。
+6. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes 选择权限字符串)，单击**ADD PERMISSIONS**，然后单击**Close**。
 
 ## 禁用
 
 ### DC/OS 作业屏幕
 
-    ```
-    dcos:adminrouter:service:metronome full
-    ```
+```
+dcos:adminrouter:service:metronome full
+```
 
 ### DC/OS 作业任务和详情
 
-    ```
-    dcos:adminrouter:ops:mesos full
-    dcos:adminrouter:ops:slave full
-    ```
+```
+dcos:adminrouter:ops:mesos full
+dcos:adminrouter:ops:slave full
+```
 
 ## 宽容
 
 ### DC/OS 作业屏幕
 
-    ```
-    dcos:adminrouter:service:metronome full
-    dcos:service:metronome:metronome:jobs full
-    ```
+```
+dcos:adminrouter:service:metronome full
+dcos:service:metronome:metronome:jobs full
+```
 
 ### DC/OS 作业任务和详情
 
-    ```
-    dcos:adminrouter:ops:mesos full
-    dcos:adminrouter:ops:slave full
-    ```
+```
+dcos:adminrouter:ops:mesos full
+dcos:adminrouter:ops:slave full
+```
 
 ## 严格
 
 ### DC/OS 作业屏幕
 
-    ```
-    dcos:adminrouter:service:metronome full
-    dcos:service:metronome:metronome:jobs full
-    ```
+```
+dcos:adminrouter:service:metronome full
+dcos:service:metronome:metronome:jobs full
+```
 
 ### DC/OS 作业任务和详情
 
-    ```
-    dcos:adminrouter:ops:mesos full
-    dcos:adminrouter:ops:slave full
-    dcos:mesos:master:framework:role:* read
-    dcos:mesos:master:executor:app_id read
-    dcos:mesos:master:task:app_id read
-    dcos:mesos:agent:framework:role:* read
-    dcos:mesos:agent:executor:app_id read
-    dcos:mesos:agent:task:app_id read
-    dcos:mesos:agent:sandbox:app_id read
-    ```
+```
+dcos:adminrouter:ops:mesos full
+dcos:adminrouter:ops:slave full
+dcos:mesos:master:framework:role:* read
+dcos:mesos:master:executor:app_id read
+dcos:mesos:master:task:app_id read
+dcos:mesos:agent:framework:role:* read
+dcos:mesos:agent:executor:app_id read
+dcos:mesos:agent:task:app_id read
+dcos:mesos:agent:sandbox:app_id read
+```
 
 
 # <a name="services-access-via-api"></a>使用 API 授予访问权限
@@ -142,7 +142,7 @@ enterprise: true
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs/users/<uid>/full
    ```   
 
- **注意：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+ <p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 ### DC/OS 作业任务和详情
 
@@ -172,7 +172,7 @@ enterprise: true
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
    ```  
 
-**注意：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 ## 宽容
 
@@ -200,7 +200,7 @@ enterprise: true
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs/users/<uid>/full
    ```   
 
-**注意：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 ### DC/OS 作业任务和详情
 
@@ -226,7 +226,7 @@ enterprise: true
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
    ```  
 
-**注意：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 ## 严格
 
@@ -254,7 +254,7 @@ enterprise: true
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs/users/<uid>/full
    ```
 
-**注意：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 ### DC/OS 作业任务和详情
 
@@ -322,4 +322,4 @@ enterprise: true
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:agent:sandbox:app_id/users/<uid>/read       
    ```   
 
-**注意：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>

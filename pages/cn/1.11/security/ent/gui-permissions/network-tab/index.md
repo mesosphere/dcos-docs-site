@@ -7,11 +7,11 @@ excerpt: 授予访问“网络”选项卡的权限
 
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 您可以授予用户访问**网络**选项卡的权限。新用户默认没有权限。
 
-**提示：** 此过程可授予访问**网络**选项卡的全部用户权限。如果您正在以 `strict` 或 `permissive` [安全模式](/cn/1.11/security/ent/#security-modes) 运行并希望配置细粒度用户访问权限，请参阅 [文档](/cn/1.11/deploying-services/service-groups/)。
+<p class="message--note"><strong>注意: </strong>此过程可授予访问这个屏幕选项卡的全部用户权限。如果您正在以 <tt>strict</tt> 或 <tt>permissive</tt> <a href="/cn/1.11/security/ent/#security-modes">安全模式</a> 运行并希望配置细粒度用户访问权限，请参阅 <a href="/cn/1.11/deploying-services/service-groups/">文档</a>。</p>
 
 ## <a name="network-access-via-ui"></a>使用 GUI 授予访问权限
 
@@ -42,28 +42,28 @@ enterprise: true
 
  图 3. 插入权限字符串
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式] 选择权限字符串(/cn/1.11/security/ent/#security-modes)，单击**添加权限**，然后单击**关闭**。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes) 选择权限字符串，单击**添加权限**，然后单击**关闭**。
 
- ## 禁用
+## 禁用
 
-    ```bash
-    dcos:adminrouter:ops:networking full
-    dcos:adminrouter:ops:mesos full
-    ```
+```bash
+dcos:adminrouter:ops:networking full
+dcos:adminrouter:ops:mesos full
+```
 
- ## 宽容
+## 宽容
 
-    ```bash
-    dcos:adminrouter:ops:networking full
-    dcos:adminrouter:ops:mesos full
-    ```
+```bash
+dcos:adminrouter:ops:networking full
+dcos:adminrouter:ops:mesos full
+```
 
- ## 严格
+## 严格
 
-    ```bash
-    dcos:adminrouter:ops:networking full
-    dcos:adminrouter:ops:mesos full
-    ```
+```bash
+dcos:adminrouter:ops:networking full
+dcos:adminrouter:ops:mesos full
+```
 
 ## <a name="network-access-via-api"></a>使用 API 授予访问权限
 
@@ -105,7 +105,7 @@ enterprise: true
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
     ```
 
- **提示：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 ## 宽容
 
@@ -135,7 +135,7 @@ enterprise: true
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
     ```
 
- **提示：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 ## 严格
 
@@ -165,4 +165,4 @@ enterprise: true
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
     ```
 
- **提示：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
