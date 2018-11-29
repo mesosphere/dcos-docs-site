@@ -6,9 +6,11 @@ navigationTitle: Advanced Azure
 menuWeight: 10
 ---
 
-You can add variables to your `main.tf` file to customize your DC/OS clusters.
+The Mesosphere Universal Installer supports a wide range of inputs/variables to add to your `main.tf` and enable you to customize your DC/OS cluster to your needs.
 
-The configuration templates using Terraform are designed to be flexible. Below is an example of a customized `main.tf`.
+These inputs/variables include everything from specifying the operating system (CentOS, CoreOS, RHEL) to the garbage collection time of your DC/OS Cluster.
+
+The Terraform-based Universal Installer is designed to be flexible with configuration. Below is an example of a custom `main.tf` that provisions a customized DC/OS 1.12.0 cluster on Azure.
 
 ```hcl
 module "dcos" {
@@ -18,7 +20,8 @@ module "dcos" {
   cluster_name = "mydcoscluster"
   ssh_public_key_file = "~/.ssh/id_rsa.pub"
   admin_ips = ['198.51.100.0/24']
-
+  
+  dcos_version = "1.12.0"
   num_masters = "3"
   num_private_agents = "2"
   num_public_agents = "1"
