@@ -16,10 +16,10 @@ featureMaturity:
 
 ### Updates
 - Changed default user for Docker container from ‘root’ to ‘nobody’
-- Updated JRE upgrade to 1.8.192
-- Updated Ubuntu upgrade 18.04
+- Updated JRE to 1.8.192
+- Updated to Ubuntu 18.04
 - Updated Hadoop dependencies from 2.7.3 to 2.7.7 (fixes CVE-2016-6811, CVE-2017-3162, CVE-2017-3166, CVE-2018-8009)
-- Updated Jetty dependencies from jetty 9.3.11.v20160721 to 9.3.24.v20180605 (fixes CVE-2017-7658)
+- Updated Jetty dependencies from 9.3.11.v20160721 to 9.3.24.v20180605 (fixes CVE-2017-7658)
 - Updated Jackson dependencies from 2.6.5 to 2.9.6 (fixes CVE-2017-15095, CVE-2017-17485, CVE-2017-7525, CVE-2018-7489, CVE-2016-3720)
 - Updated ZooKeeper dependencies from 3.4.6 to 3.4.13
 
@@ -27,10 +27,10 @@ featureMaturity:
 ### Bug fixes
 - `dcos task log` now works because of unique Mesos Tasks IDs of Spark executors
 - Fixed unstable health checks for Spark Dispatcher and History Server
-- Spark dispatcher task output now redirected to stdout and available in logs
+- Spark dispatcher task output now redirects to stdout and is available in logs
 
 ### Breaking Changes
-- We've added a new configuration option added: ‘docker_user’ which allows to override a user when running Spark using Docker containerizer
+- We've added a new configuration option: ‘docker_user’ which allows overriding the user when running Spark using Docker containerizer
 - The default Hadoop dependency is now 2.7 and not 2.6
 
 
