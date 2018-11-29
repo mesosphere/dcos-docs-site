@@ -70,7 +70,7 @@ enterprise: true
 
 1. 将客户端密钥从 Google 粘贴到 **Client Secret** 字段。
 
- ![Google IdP 配置](/1.11/img/oidc-google.png)
+ ![Google IdP 配置](/cn/1.11/img/oidc-google.png)
 
  图 1. Google IdP 配置
 
@@ -110,11 +110,11 @@ enterprise: true
 
 1. 您应该看到所列的新用户。
 
-1. 为此用户分配适当的[权限](/1.11/security/ent/perms-reference/)。
+1. 为此用户分配适当的[权限](/cn/1.11/security/ent/perms-reference/)。
 
 ### <a name="using-cli"></a>使用 DC/OS CLI
 
-**先决条件：**[已安装 DC/OS CLI](/1.11/cli/install/)。
+**先决条件：**[已安装 DC/OS CLI](/cn/1.11/cli/install/)。
 
 1. 使用以下命令以新用户身份登录。
 
@@ -134,7 +134,7 @@ enterprise: true
 
 1. 您应该看到类似以下内容的消息。
 
- ![CLI IdP 认证令牌](/1.11/img/cli-auth-token.png)
+ ![CLI IdP 认证令牌](/cn/1.11/img/cli-auth-token.png)
 
  图 2. CLI IdP 认证令牌
 

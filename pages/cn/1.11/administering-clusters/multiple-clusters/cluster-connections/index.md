@@ -8,7 +8,7 @@ enterprise: false
 
 ---
 
-使用 [dcos cluster] (/1.11/cli/command-reference/dcos-cluster) 命令连接到多个 DC/OS 群集。
+使用 [dcos cluster] (/cn/1.11/cli/command-reference/dcos-cluster) 命令连接到多个 DC/OS 群集。
 
 `dcos cluster` 命令有子命令，用于设置连接并附加到群集以及重命名和删除群集。
 
@@ -38,7 +38,7 @@ dcos cluster attach <connected-cluster-name>
 
 - 可用：群集在本地设置，且可访问
 - 不可用：群集在本地设置，且无法访问
-- 未配置：群集不在本地设置（即，群集被 [链接](/1.11/administering-clusters/multiple-clusters/cluster-links)至当前附加的群集上）。
+- 未配置：群集不在本地设置（即，群集被 [链接](/cn/1.11/administering-clusters/multiple-clusters/cluster-links)至当前附加的群集上）。
 
 在本示例中，名为 `dcosdev` 的群集为被附加的群集：
 

@@ -8,12 +8,12 @@ beta: true
 enterprise: false
 ---
 
-使用本指南开始使用 DC/OS 日志记录。此处使用的许多命令在 [CLI 命令参考] 中有更全面的描述(/1.11/cli/command-reference/dcos-task/)。
+使用本指南开始使用 DC/OS 日志记录。此处使用的许多命令在 [CLI 命令参考] 中有更全面的描述(/cn/1.11/cli/command-reference/dcos-task/)。
 
 **前提条件：**
 
-- 您必须 [安装了] DC/OS 和 DC/OS CLI(/1.11/installing/)。
-- 您必须以超级用户身份登录，或者已被授予对日志记录的用户访问权限。如需更多信息，请参阅 [访问系统和组件日志](/1.11/monitoring/logging/access-component-logs/) 和 [访问任务日志](/1.11/monitoring/logging/access-task-logs/)。
+- 您必须 [安装了] DC/OS 和 DC/OS CLI(/cn/1.11/installing/)。
+- 您必须以超级用户身份登录，或者已被授予对日志记录的用户访问权限。如需更多信息，请参阅 [访问系统和组件日志](/cn/1.11/monitoring/logging/access-component-logs/) 和 [访问任务日志](/cn/1.11/monitoring/logging/access-task-logs/)。
 
 # 部署一个示例应用程序
 部署一个示例 Marathon 应用程序供在本快速入门指南中使用。
@@ -96,7 +96,7 @@ enterprise: false
 
 # 查看 Mesos 任务和系统日志
 
-您可以使用 `dcos node log` 命令，查看任务或主机系统的日志。关于这些命令的更多信息可在 [CLI 命令参考] (/1.11/cli/command-reference/dcos-node/) 部分找到。
+您可以使用 `dcos node log` 命令，查看任务或主机系统的日志。关于这些命令的更多信息可在 [CLI 命令参考] (/cn/1.11/cli/command-reference/dcos-node/) 部分找到。
 
 1. 运行此命令以查看领导 Mesos 管理节点日志：
 

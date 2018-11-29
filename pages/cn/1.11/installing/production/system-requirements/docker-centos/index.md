@@ -8,7 +8,7 @@ excerpt: 在 CentOS/RHEL 上安装 Docker CE 的要求、建议和程序
 
 # 要求和建议
 
-本说明涵盖在 CentOS/RHEL 上的安装 Docker CE 的步骤。在 CentOS/RHEL 上安装 Docker 之前，请先查看通用的 [在 DC/OS 上运行 Docker 的要求和建议](/1.11/installing/production/system-requirements/#docker)。
+本说明涵盖在 CentOS/RHEL 上的安装 Docker CE 的步骤。在 CentOS/RHEL 上安装 Docker 之前，请先查看通用的 [在 DC/OS 上运行 Docker 的要求和建议](/cn/1.11/installing/production/system-requirements/#docker)。
 
 * OverlayFS 现在是 Docker CE 中的默认值。无需另行指定或配置覆盖驱动程序。OverlayFS 避免已知问题 `devicemapper` 在 `loop-lvm` 模式下发生，并在必要时允许容器使用 docker-in-docker。
 
@@ -16,7 +16,7 @@ excerpt: 在 CentOS/RHEL 上安装 Docker CE 的要求、建议和程序
 
 * 必须采用 `ftype=1` 选项将节点存储格式化为 XFS。对于 CentOS/RHEL 7.2，仅 XFS 目前支持用作下层文件系统。[参见 RHEL 发行说明](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.2_Release_Notes/technology-preview-file_systems.html)。
 
-* 如需更多通用 Docker 要求，请参阅 [系统要求： Docker ](/1.11/installing/production/system-requirements/#docker)。
+* 如需更多通用 Docker 要求，请参阅 [系统要求： Docker ](/cn/1.11/installing/production/system-requirements/#docker)。
 
 
 **注意：** 在现代版本的 Centos 和 RHEL 中， `ftype=1` 是默认值。`xfs_info` 应用程序可用于验证 `ftype=1`。
@@ -110,6 +110,6 @@ excerpt: 在 CentOS/RHEL 上安装 Docker CE 的要求、建议和程序
     sudo docker info | grep Storage
     ```
 
-要继续设置 DC/OS，请参阅 [安装文档](/1.11/installing/production/deploying-dcos/installation/)。
+要继续设置 DC/OS，请参阅 [安装文档](/cn/1.11/installing/production/deploying-dcos/installation/)。
 
 

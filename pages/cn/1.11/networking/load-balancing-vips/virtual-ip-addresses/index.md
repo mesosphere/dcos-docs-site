@@ -35,7 +35,7 @@ VIP 遵循以下命名约定：
 
 ## 创建 VIP
 
-1. 从 DC/OS [GUI](/1.11/gui/)，单击**Services**选项卡，然后单击**RUN A SERVICE**。
+1. 从 DC/OS [GUI](/cn/1.11/gui/)，单击**Services**选项卡，然后单击**RUN A SERVICE**。
     1. 在**Networking**选项卡上，选择**Network Type > Virtual Network：dcos**。
     2. 展开**ADD SERVICE ENDPOINT**，为以下内容提供回复：
 
@@ -73,7 +73,7 @@ VIP 遵循以下命名约定：
 1. 单击**网络** > **网络**，然后选择**dcos**。
 1. 选择任务以查看详情。
 
-  ![VIP service details](/1.11/img/vip-service-details.png)
+  ![VIP service details](/cn/1.11/img/vip-service-details.png)
 
  图 3. VIP 服务详情
 

@@ -11,7 +11,7 @@ enterprise: false
 
 日志记录 API 揭示节点、组件和容器（任务）日志。
 
-日志记录 API 由 [DC/OS 日志组件] 支持(/1.11/overview/architecture/components/#dcos-log)，后者在群集中的所有节点上运行。有关使用日志记录 API 的更多信息，请参阅 [日志记录](/1.11/monitoring/logging/index.md)。关于使用示例，请参阅 [日志记录 API 示例](/1.11/monitoring/logging/logging-api-examples/index.md)。
+日志记录 API 由 [DC/OS 日志组件] 支持(/cn/1.11/overview/architecture/components/#dcos-log)，后者在群集中的所有节点上运行。有关使用日志记录 API 的更多信息，请参阅 [日志记录](/cn/1.11/monitoring/logging/index.md)。关于使用示例，请参阅 [日志记录 API 示例](/cn/1.11/monitoring/logging/logging-api-examples/index.md)。
 
 # 兼容性
 
@@ -65,7 +65,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_
 /system/v1/agent/{agent_id}/
 ```
 
-要确定群集的地址，请参阅 [群集访问](/1.11/api/access/)。
+要确定群集的地址，请参阅 [群集访问](/cn/1.11/api/access/)。
 
 
 ## 发现端点

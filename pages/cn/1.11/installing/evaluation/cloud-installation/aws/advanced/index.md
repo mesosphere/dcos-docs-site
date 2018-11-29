@@ -39,7 +39,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
 - 与群集相同分域的 AWS EC2 密钥对。密钥对不能跨分域共享。AWS 密钥对使用公钥加密功能提供对 AWS 群集的安全登录。有关创建 AWS EC2 密钥对的详细信息，请参阅 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">文档</a>。
 - AWS [命令行界面](https://aws.amazon.com/cli/)。
 - CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation)。
-- 符合 bootstrap 节点 [系统要求] 的节点(/1.11/installing/ent/custom/system-requirements/)。
+- 符合 bootstrap 节点 [系统要求] 的节点(/cn/1.11/installing/ent/custom/system-requirements/)。
 - 具有读写访问权限的 AWS s3 bucket。
  - S3 bucket 必须具备 bucket 策略，以便让启动的 AWS 实例从 s3 bucket下载文件。以下是任何人均可下载的示例政策：
 
@@ -96,7 +96,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
  aws_template_storage_secret_access_key: <your-secret-access_key>
 
 
-有关参数描述和配置示例，请参阅 [文档](/1.11/installing/ent/custom/configuration/configuration-parameters/)。
+有关参数描述和配置示例，请参阅 [文档](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/)。
 
 3. 使用指定的 AWS 参数运行 DC/OS 安装工具脚本。此命令创建 DC/OS 原图和模板的自定义构造并将其上传到指定的 s3 bucket。
 
@@ -196,7 +196,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 1. 转到 [CloudFormation](https://console.aws.amazon.com/cloudformation/home) 并单击 **创建堆栈**。
 
-- 在 **选择模板** 页面，从您的工作站上传 [Zen](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#zen) 模板，然后单击 **下一步**。
+- 在 **选择模板** 页面，从您的工作站上传 [Zen](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#zen) 模板，然后单击 **下一步**。
 
 模板示例：
 
@@ -206,12 +206,12 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 2. 在 **指定详情**页面指定这些值，然后单击 **下一步**。
 
- ![AWS UI](/1.11/img/aws-advanced-1.png)
+ ![AWS UI](/cn/1.11/img/aws-advanced-1.png)
 
  图 1. AWS Advanced Web 界面
 
  * **堆栈名称** 指定群集名称。
- * **CustomAMI** 可选：指定 AMI ID。如需更多信息，请参阅 [使用自定义 AMI 进行安装](/1.11/installing/ent/cloud/aws/advanced/aws-ami)。
+ * **CustomAMI** 可选：指定 AMI ID。如需更多信息，请参阅 [使用自定义 AMI 进行安装](/cn/1.11/installing/ent/cloud/aws/advanced/aws-ami)。
  * **InternetGateway** 指定 `zen.sh` 脚本的 `InternetGatewayID` 输出值。互联网网关 ID 必须附加于 VPC。该互联网网关用于所有节点向外互联网访问。
  * **KeyName** 指定 AWS EC2 密钥对。
  * **MasterInstancEtype** 指定 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
@@ -237,7 +237,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 * 群集堆栈启动需要 15 到 20 分钟时间。您将为其逐个创建堆栈，其中<stack-name>` is the value you specified for **Stack name** and `<stack-id>` 是自动生成的 ID。
 
- ![AWS UI](/1.11/img/aws-advanced-2.png)
+ ![AWS UI](/cn/1.11/img/aws-advanced-2.png)
 
  图 2. AWS 堆栈详细信息
 
@@ -265,7 +265,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
  **注意：** 可能需要调整窗口大小以查看此选项卡。可以随时在<a href="https://console.aws.amazon.com/cloudformation/home" target="_blank"> AWS CloudFormation 管理</a>页面找到 DC / OS 主机名。
 
- ![Monitor stack creation](/1.11/img/dcos-aws-step3a.png)
+ ![Monitor stack creation](/cn/1.11/img/dcos-aws-step3a.png)
 
  图 3. Mesos 管理节点主机名
 
@@ -277,7 +277,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
     </tr> 
     </table>
 
- ![UI installer success](/1.11/img/gui-installer-success-ee.gif)
+ ![UI installer success](/cn/1.11/img/gui-installer-success-ee.gif)
 
  图 4. 操作成功的画面
 
@@ -285,13 +285,13 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
  **注意：** 默认用户名为 `bootstrapuser`，默认密码为 `deleteme`。
 
- ![alt text](/1.11/img/ui-installer-auth2.png)
+ ![alt text](/cn/1.11/img/ui-installer-auth2.png)
 
  图 5. 登录画面
 
  成功了！
 
- ![UI dashboard](/1.11/img/dashboard-ee.png)
+ ![UI dashboard](/cn/1.11/img/dashboard-ee.png)
 
  图 6. DC/OS 仪表板
 
@@ -301,7 +301,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 ### 添加更多代理节点
 
-可以通过创建新的堆栈来添加更多代理节点。使用 [advanced-priv-agent.json](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#private-agent) 或 [advanced-pub-agent.json](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#public-agent) 模板。这些模板创建代理，然后作为 AutoScalingGroup 的一部分附加到 `PrivateAgentStack` 或 `PublicAgentStack`。
+可以通过创建新的堆栈来添加更多代理节点。使用 [advanced-priv-agent.json](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#private-agent) 或 [advanced-pub-agent.json](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#public-agent) 模板。这些模板创建代理，然后作为 AutoScalingGroup 的一部分附加到 `PrivateAgentStack` 或 `PublicAgentStack`。
 
 使用 `zen.sh` 脚本以及管理节点和基础架构堆栈的输出值。这些新的代理节点将自动添加到您的 DC/OS 群集。
 
@@ -323,7 +323,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 * **PublicAgentSecurityGroup** 指定公共代理的安全组 ID。该组具备有限的外部访问权限。可以在基础架构堆栈的 **输出** 选项卡中找到此值 (`<stack-name>-Infrastructure-<stack-id>`).
 * **PublicSubnet** 指定 `zen.sh` 脚本的 `Public SubnetId` 输出值。所有公共代理都将使用该子网 ID。
 
-对于所有高级配置选项，请参阅模板参考 [文档](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/)。
+对于所有高级配置选项，请参阅模板参考 [文档](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/)。
 
 
 # 限制
@@ -335,4 +335,4 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 
 # 模板参考
-如需完整的高级配置选项，请参阅模板参考 [文档](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/)。
+如需完整的高级配置选项，请参阅模板参考 [文档](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/)。

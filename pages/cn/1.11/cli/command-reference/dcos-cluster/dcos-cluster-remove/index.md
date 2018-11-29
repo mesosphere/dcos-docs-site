@@ -28,7 +28,7 @@ dcos cluster remove [<cluster-name> | <cluster-id> | --all]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) | 管理您的 DC/OS 群集。|
+| [dcos cluster](/cn/1.11/cli/command-reference/dcos-cluster/) | 管理您的 DC/OS 群集。|
 
 # 示例
-有关示例，请参阅 [群集连接](/1.11/administering-clusters/multiple-clusters/cluster-connections/)。
+有关示例，请参阅 [群集连接](/cn/1.11/administering-clusters/multiple-clusters/cluster-connections/)。

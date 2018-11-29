@@ -102,7 +102,7 @@ oss: true
 
 8. 还是在这一目录中运行 `terraform init`，然后运行 `terraform apply`，将服务器部署到您在 DigitalOcean 的项目中，并运行 DC/OS 安装程序。完成后，您将看到和以下内容相似的输出，但它带有分配给您服务器的 IP 地址：
 
- ![terraform apply output](/1.11/img/digitalocean_terraform_output.png)
+ ![terraform apply output](/cn/1.11/img/digitalocean_terraform_output.png)
 
  图 1. Terraform 应用输出
 
@@ -115,7 +115,7 @@ oss: true
 
 2. 安装 DC/OS 命令行界面 (CLI)。可以安装 CLI，用于管理 DC/OS 群集。可以通过单击左上方的群集名称随时访问文档。
 
- ![install CLI](/1.11/img/install-cli-terminal.png)
+ ![install CLI](/cn/1.11/img/install-cli-terminal.png)
 
  图 2. 安装 CLI
 

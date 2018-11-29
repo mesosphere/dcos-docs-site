@@ -145,7 +145,7 @@ dcos marathon app remove postgres
 
 ## 附录
 
-有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/1.11/storage/)。
+有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/cn/1.11/storage/)。
 
 
 [1]: /1.11/installing/

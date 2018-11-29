@@ -29,7 +29,7 @@ DC/OS CA 捆绑包位于文件系统路径 `/run/dcos/pki/CA/ca-bundle.crt` 的�
 </table>
 
 
-**先决条件：**您必须已[安装 DC/OS CLI](/1.11/cli/install/)，以在以下命令中检索群集 URL。
+**先决条件：**您必须已[安装 DC/OS CLI](/cn/1.11/cli/install/)，以在以下命令中检索群集 URL。
 
 使用以下命令检索 DC/OS CA 捆绑包，并将其保存在当前目录中：
 

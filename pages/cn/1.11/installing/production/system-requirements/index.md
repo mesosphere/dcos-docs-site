@@ -75,7 +75,7 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 
 代理节点还必须具有：
 
-- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒用于 [Docker 和 DC/OS 通用容器运行时](/1.11/deploying-services/containerizers/)。
+- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒用于 [Docker 和 DC/OS 通用容器运行时](/cn/1.11/deploying-services/containerizers/)。
 
 - 公共 Docker 存储库或内部 Docker 注册表的网络访问权限。
 - 在 RHEL 7 和 CentOS 7 上，必须停止并禁用 `firewalld`。这是一个已知的 <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker 问题</a>，`firewalld` 与 Docker 的交互不佳。如需更多信息，请参阅 <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> 文档。
@@ -178,7 +178,7 @@ timedatectl
 
 在安装 DC/OS 之前，您**必须**确保 bootstrap 节点具备以下前提条件。
 
-- 如果您指定 `exhibitor_storage_backend: zookeeper`，bootstrap 节点将是群集的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和领导者选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅配置参数 [文档](/1.11/installing/production/advanced-configuration/configuration-reference/)。
+- 如果您指定 `exhibitor_storage_backend: zookeeper`，bootstrap 节点将是群集的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和领导者选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅配置参数 [文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
 
 - bootstrap 节点必须与群集节点分开。
 
@@ -243,7 +243,7 @@ localectl set-locale LANG=en_US.utf8
 
 # 后续步骤
 - [从 Docker 的 Yum 存储库安装 Docker][1]
-- [DC/OS 安装指南](/1.11/installing/production/deploying-dcos/installation/)
+- [DC/OS 安装指南](/cn/1.11/installing/production/deploying-dcos/installation/)
 
 [1]: /1.11/installing/production/system-requirements/docker-centos/
 

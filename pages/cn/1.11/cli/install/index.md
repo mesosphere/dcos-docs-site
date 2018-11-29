@@ -14,19 +14,19 @@ enterprise: false
 
 1. 在 DC/OS Web 界面的左上角，单击群集名称右侧的向下箭头。
 
-![打开群集弹出窗口](/1.11/img/open-cluster-popup.png)
+![打开群集弹出窗口](/cn/1.11/img/open-cluster-popup.png)
 
 图 1. 打开群集弹出菜单
 
 1. 选择 **安装 CLI**。
 
-![CLI 安装 UI](/1.11/img/install-cli.png)
+![CLI 安装 UI](/cn/1.11/img/install-cli.png)
 
 图 2. 选择安装 CLI
 
 1. 将适合您操作系统的代码片段复制并粘贴到您的终端。
 
-![CLI 复制/粘贴](/1.11/img/install-cli-terminal.png)
+![CLI 复制/粘贴](/cn/1.11/img/install-cli-terminal.png)
 
 图 3. 代码片段窗口
 
@@ -77,7 +77,7 @@ enterprise: false
     dcos cluster setup http://example.com
     ```
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/1.11/security/)。
+ 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/cn/1.11/security/)。
 
  您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。
 
@@ -117,7 +117,7 @@ enterprise: false
     ```
  **注意：** 如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/1.11/security/)。
+ 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.11/security/)。
 
  您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。
 
@@ -141,6 +141,6 @@ enterprise: false
     dcos cluster setup http://example.com
     ```
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/1.11/security/)。
+ 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.11/security/)。
 
  您的 CLI 现在应可通过您群集的身份认证了！输入 `dcos` 即可开始。

@@ -9,7 +9,7 @@ enterprise: false
 
 
 
-您可通过 DC/OS CLI 或通过[Marathon API] 的 `/v2/pods/` 端点创建和管理 Pod(/1.11/deploying-services/marathon-api/)。
+您可通过 DC/OS CLI 或通过[Marathon API] 的 `/v2/pods/` 端点创建和管理 Pod(/cn/1.11/deploying-services/marathon-api/)。
 
 # 使用 Pod CLI
 

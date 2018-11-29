@@ -14,11 +14,11 @@ excerpt: 升级 DC/OS 群集
 
 如果在支持的操作系统上执行升级且所有前提条件均满足，则升级应维持在群集上运行任务的状态。本文档再次使用 [DC/OS 安装指南][安装] 的部分。
 
-- 在升级 DC/OS 之前，请先查看 [版本注释](/1.11/release-notes/)。
+- 在升级 DC/OS 之前，请先查看 [版本注释](/cn/1.11/release-notes/)。
 - 由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，则在 DC/OS 1.11.3 发布之前不要添加新节点。可以在我们最新的重要 [产品咨询] 中找到更多信息和更详细的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。[enterprise type="inline" size="small" /]
 - `config.yaml` 文件中有几个必须在升级前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否已添加到 `config.yaml` 文件中。您可以在 [此处](/latest/installing/ent/custom/advanced/#create-a-configuration-file) 查看示例文件。[enterprise type="inline" size="small" /]
 - 如果 IPv6 在内核中被禁用，则 IPv6 必须在 `config.yaml` 文件中禁用才能确保升级成功。
-- 高级安装方法是 DC/OS 的唯一建议升级路径。建议您熟悉 [高级 DC/OS 安装指南](/1.11/installing/oss/custom/advanced) 后再继续操作。
+- 高级安装方法是 DC/OS 的唯一建议升级路径。建议您熟悉 [高级 DC/OS 安装指南](/cn/1.11/installing/oss/custom/advanced) 后再继续操作。
 - DC/OS Enterprise 现在执行许可证密钥。许可证密钥必须驻留在 genconf/license.txt 文件中，否则升级将失败。[enterprise type="inline" size="small" /]
 - 在所有管理节点都升级前，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。
  出现这种情况时：
@@ -43,22 +43,22 @@ excerpt: 升级 DC/OS 群集
 
 下表列出了可以修改的参数：
 
-- [`dns_search`](/1.11/installing/ent/custom/configuration/configuration-parameters/#dns-search)
-- [`docker_remove_delay`](/1.11/installing/ent/custom/configuration/configuration-parameters/#docker-remove-delay)
-- [`gc_delay`](/1.11/installing/ent/custom/configuration/configuration-parameters/#gc-delay)
-- [`resolvers`](/1.11/installing/ent/custom/configuration/configuration-parameters/#resolvers)
-- [`telemetry_enabled`](/1.11/installing/ent/custom/configuration/configuration-parameters/#telemetry-enabled)
-- [`use_proxy`](/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`http_proxy`](/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`https_proxy`](/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`no_proxy`](/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+- [`dns_search`](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#dns-search)
+- [`docker_remove_delay`](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#docker-remove-delay)
+- [`gc_delay`](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#gc-delay)
+- [`resolvers`](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#resolvers)
+- [`telemetry_enabled`](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#telemetry-enabled)
+- [`use_proxy`](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+    - [`http_proxy`](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+    - [`https_proxy`](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+    - [`no_proxy`](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
 
 安全模式 (`security`) 可以更改，但有特别的注意事项。[enterprise type="inline" size="small" /]
 
 - 只能更新到更严格的安全模式。不支持安全降级。例如，如果群集处于 `permissive` 模式，而您希望降级至 `disabled` 模式，则必须重新安装群集并终止所有运行的工作负载。[enterprise type="inline" size="small" /]
 - 每次更新时，只能将安全性提高一个级别。例如，您无法直接从 `disabled` 更新到 `strict` 模式。要从 `disabled` 提高到 `strict` 模式，必须首先更新到 `permissive` 模式，然后再从 `permissive` 更新到 `strict` 模式。[enterprise type="inline" size="small" /]
 
-有关不同安全模式的更多信息，请参阅安全 [模式](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。[enterprise type="inline" size="small" /]
+有关不同安全模式的更多信息，请参阅安全 [模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。[enterprise type="inline" size="small" /]
 
 # 说明
 必须执行这些步骤才能进行版本升级和群集配置更改。
@@ -75,14 +75,14 @@ excerpt: 升级 DC/OS 群集
 - 您必须熟悉使用 `systemctl` 和 `journalctl` 命令行工具，以查看和监控服务状态。本 [文档](#故障排除) 结尾部分提供了故障排除说明。
 - 您必须熟悉 [DC/OS 安装指南][安装]。
 - 升级之前对 ZooKeeper 截屏。Marathon 支持回滚，但不支持降级。
-- 升级之前 [对 IAM 数据库截屏](/1.11/installing/ent/faq/#q-how-do-i-backup-the-iam-database)。[enterprise type="inline" size="small" /]
+- 升级之前 [对 IAM 数据库截屏](/cn/1.11/installing/ent/faq/#q-how-do-i-backup-the-iam-database)。[enterprise type="inline" size="small" /]
 - 确保在开始升级之前， Marathon 事件订阅者已被禁用。完成升级后，保持其禁用状态，因为此功能现已被弃用。
 
 **注意：** Marathon 事件订阅者默认被禁用，请检查行 `--event_subscriber "http_callback"` 是否已添加到管理节点上的 `sudo vi /opt/mesosphere/bin/marathon.sh`。这种情况下，您需要移除该行，以禁用事件订阅者。[enterprise type="inline" size="small" /]
 
 - 确认在在开始升级前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
-- [备份您的群集](/1.11/administering-clusters/backup-and-restore/)。[enterprise type="inline" size="small" /]
-- 可选：您可以将自定义 [节点和群集健康检查](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
+- [备份您的群集](/cn/1.11/administering-clusters/backup-and-restore/)。[enterprise type="inline" size="small" /]
+- 可选：您可以将自定义 [节点和群集健康检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
 - 确认所有管理节点都处于运行良好状态：
  - 检查 Exhibitor 共识机制 UI 以确认所有管理节点已成功加入（状态指示灯将显示绿色）。Exhibitor UI 可在 `http://<dcos_master>:8181/` 获得。
  - 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`。
@@ -101,13 +101,13 @@ excerpt: 升级 DC/OS 群集
 - [在严格模式下升级 DC/OS 1.11](#strict)
 
 #### <a name="current-security"></a>升级 DC/OS 1.11 而不更改安全模式 
-此过程将 DC/OS 1.10 群集升级到 DC/OS 1.11 而不更改群集的 [安全模式](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。
+此过程将 DC/OS 1.10 群集升级到 DC/OS 1.11 而不更改群集的 [安全模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。
 
 1. 将现有 `config.yaml` 和 `ip-detect` 文件复制到 bootstrap 节点上的空 `genconf` 文件夹。文件夹与安装工具应当位于同一个目录中。
 2. 将旧的 `config.yaml` 合并到新的 `config.yaml` 格式中。在大多数情况下，区别都很小。
 
  * 在升级期间，您无法更改 `exhibitor_zk_backend` 设置。
- * `config.yaml` 的语法可能与早期版本不同。有关当前 `config.yaml` 语法和参数的详细说明，请参阅 [文档](/1.11/installing/ent/custom/configuration/configuration-parameters/)。
+ * `config.yaml` 的语法可能与早期版本不同。有关当前 `config.yaml` 语法和参数的详细说明，请参阅 [文档](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/)。
 3. 更新 config.yaml 的格式后，比较旧的 config.yaml 和新的 config.yaml。验证路径或配置没有区别。升级时更改这些会导致灾难性群集错误。
 4. 根据需要修改 `ip-detect` 文件。
 5. 构建安装工具包。
@@ -123,13 +123,13 @@ excerpt: 升级 DC/OS 群集
 6. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
 
 #### <a name="permissive"></a>在宽容模式下升级 DC/OS 1.11 
-此步骤在 [宽容安全模式] 下升级到 DC/OS 1.11(/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。
+此步骤在 [宽容安全模式] 下升级到 DC/OS 1.11(/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。
 
 **先决条件：**
 
-- 群集必须 [升级到 DC/OS 1.11](#current-security) 并在 [禁用安全模式] 中运行(/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)，然后才能升级到宽容模式。如果群集在升级到 DC/OS 1.10 之前以宽容模式运行，则可以跳过此步骤。
+- 群集必须 [升级到 DC/OS 1.11](#current-security) 并在 [禁用安全模式] 中运行(/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)，然后才能升级到宽容模式。如果群集在升级到 DC/OS 1.10 之前以宽容模式运行，则可以跳过此步骤。
 
-**注意：** 对于从禁用模式升级到宽容安全模式，您已配置的任何 [自定义节点或群集健康检查](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 将会失败。未来版本支持绕过健康检查。
+**注意：** 对于从禁用模式升级到宽容安全模式，您已配置的任何 [自定义节点或群集健康检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 将会失败。未来版本支持绕过健康检查。
 
 要将群集从禁用安全模式修补为宽容安全模式，请完成以下步骤：
 
@@ -148,7 +148,7 @@ excerpt: 升级 DC/OS 群集
 4. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
 
 #### <a name="strict"></a>在严格模式下升级 DC/OS 1.11 
-此步骤在安全性严格 [模式] 下升级到 DC/OS 1.11(/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。
+此步骤在安全性严格 [模式] 下升级到 DC/OS 1.11(/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。
 
 如果正在更新运行的 DC/OS 群集在 `security: strict` 模式下运行，则请注意，在迁移到严格模式后，安全漏洞可能会持续存在。转到严格模式后，您的服务现在需要身份认证和授权，以便在 Mesos 注册或访问其 HTTP API。在升级到严格模式之前，您应在宽容模式下测试这些配置，以便在升级期间维护调度器和脚本正常运行时间。
 
@@ -180,7 +180,7 @@ excerpt: 升级 DC/OS 群集
 1. 复制并更新 DC/OS 1.10 `config.yaml` 和 `ip-detect` 文件到引导节点上新的干净文件夹。
 
  * 在升级期间，您无法更改 `exhibitor_zk_backend` 设置。
- * DC/OS 1.11 `config.yaml`的语法不同于先前版本。请参阅 [文档](/1.11/installing/oss/custom/configuration/configuration-parameters/) 以获取最新信息。
+ * DC/OS 1.11 `config.yaml`的语法不同于先前版本。请参阅 [文档](/cn/1.11/installing/oss/custom/configuration/configuration-parameters/) 以获取最新信息。
 
 1. 更新 `config.yaml` 的格式后，比较旧的 `config.yaml` 和新的 `config.yaml`。验证路径或配置没有区别。升级时更改这些会导致灾难性群集失效。
 
@@ -278,7 +278,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-如果您的升级因为 [自定义节点或群集检查] 而失败(/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks)，运行以下命令可了解更多详细信息：
+如果您的升级因为 [自定义节点或群集检查] 而失败(/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks)，运行以下命令可了解更多详细信息：
 ```bash
 dcos-diagnostics check node-poststart
 dcos-diagnostics check cluster
