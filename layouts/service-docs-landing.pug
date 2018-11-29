@@ -4,6 +4,7 @@
 - var items = hierarchy.children.find(child => child.id === paths[0])
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
 - var semverService = /^(v|)[0-9](.*)/
+- var isChinese = paths[0] == 'cn'
 
 mixin renderGridToc()
   div(class='grid-toc')

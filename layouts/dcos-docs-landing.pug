@@ -4,6 +4,8 @@
 - var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
 - var sectionTitle = 'DC/OS Docs'
 
+- var isChinese = paths[0] == 'cn'
+
 if paths[0] === 'services'
   - sectionTitle = 'Service Docs'
 
@@ -72,6 +74,26 @@ html(lang='en')
                     a(href=val.path)!= val.title
               li(class='header__menu-item')
                 a(href='https://support.mesosphere.com') Support
+        nav(id="landing-localization" class='localization')
+          div(id="landing-localization-current" class='localization-current')
+            strong(class='localization-language')!= isChinese ? 'Chinese' : 'English'
+            svg(class="localization-svg")
+              path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#FFFFFF")
+          ul(class='localization-list')
+            if isChinese
+              - var enPath = `/${paths.slice(1).join('/')}`
+              li(id="landing-localization-list-item" class='localization-list-item')
+                a(href=enPath) English
+            else
+              - function findLongestCnPath(enPaths)
+                if enPaths.length == 0
+                  - return '/cn/'
+                - var currPath = `/cn/${enPaths.join('/')}`
+                if hierarchy.checkIfPathExists(currPath)
+                  - return currPath
+                - return findLongestCnPath(enPaths.slice(0, enPaths.length - 1))
+              li(class='localization-list-item')
+                a(href=findLongestCnPath(paths)) Chinese
         section(class='header__search', role='search')
           form(class='header__search-form', action='/search/', method='GET')
             label(class='header__search-label', for='header-search-input')
