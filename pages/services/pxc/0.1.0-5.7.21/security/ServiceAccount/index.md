@@ -1,3 +1,12 @@
+---
+layout: layout.pug
+navigationTitle: Service Account
+excerpt:
+title: Service Account
+menuWeight: 30
+model: /services/pxc/data.yml
+render: mustache
+---
 
 # Service Account Configuration
 This topic describes how to configure DC/OS access for percona-pxc-mysql. Depending on your security mode, percona-pxc-mysql requires service authentication for access to DC/OS.

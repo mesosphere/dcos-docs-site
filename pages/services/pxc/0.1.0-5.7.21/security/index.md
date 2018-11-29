@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Security
 menuWeight: 50
-model: /services/kafka/data.yml
+model: /services/pxc/data.yml
 render: mustache
 ---
 
@@ -26,7 +26,7 @@ The service uses the [DC/OS CA](https://docs.mesosphere.com/latest/security/ent/
 
 ## Configure Transport Encryption
 
-See the [Guide to Configuring DC/OS Access for percona-pxc-mysql](serviceaccountdetail.md).
+See the [Guide to Configuring DC/OS Access for percona-pxc-mysql](ServiceAccount).
 
 ## Set up the service account
 

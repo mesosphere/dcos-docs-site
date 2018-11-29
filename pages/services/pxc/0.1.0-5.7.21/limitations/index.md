@@ -43,11 +43,3 @@ The “disk” configuration value is denominated in MB. We recommend you set th
 ## OpenID Connect and Apache Knox
 
 OpenID Connect and Apache Knox are not supported.
-
-## Non-Root user based installation not supported
-
-Non root user based install not supported in current release.
-
-## Supports manual Restore processs
-
-Restore for PXC service process is currently manual.

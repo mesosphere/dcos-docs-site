@@ -19,7 +19,7 @@ If you are using open source DC/OS, install percona-pxc-mysql on the cluster wit
 ```shell
 dcos package install --yes percona-pxc-mysql
 ```
-Alternatively, you can install percona-pxc-mysql from [the DC/OS web interface].
+Alternatively, you can install percona-pxc-mysql from the DC/OS web interface.
 
 Once the install command is triggered, the service will deploy with a default configuration. You can monitor its deployment via the Services tab of the DC/OS web interface. Mentioned below is the complete list of DC/OS percona-pxc-mysql Commands Available:
    

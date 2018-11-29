@@ -12,7 +12,7 @@ menuWeight: 15
 The default DC/OS percona-pxc-mysql Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
 
-## Configuration Best Practices for Production (TBD)
+## Configuration Best Practices for Production
   
     - Increase the number of TCP socket ports available
     

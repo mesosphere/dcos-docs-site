@@ -14,7 +14,7 @@ The restore plan is a manual process and will be used to restore any backed up d
 
 ## The restore process is as follows:
 
-1. All POD of PXC should be paused.
+1. All Percona MySQL Servers tasks should be paused.
 
 ```shell
 {
@@ -22,7 +22,7 @@ dcos percona-pxc-mysql --name=percona-pxc-mysql debug pod pause <pod-name> -t <t
 }
 ```
 
-2. Then run the following dcos cli command for running the restore plan.
+2. Run the following dcos cli command for running the restore plan.
 
 ```shell
 {
@@ -30,7 +30,7 @@ dcos percona-pxc-mysql plan start restore -p ACCESS_KEY_ID=<ACCESS_KEY> -p SECRE
 }
 ```
 
-3. Then start the pxc pod one by one in sequential manner by using the following command:
+3. Resume all Percona MySQL Servers tasks sequentially such that a nodes is resumed only when its predecessor node has arrived in synced state:
 
 ```shell
 {
