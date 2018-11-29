@@ -18,10 +18,10 @@ featureMaturity:
 - Changed default user for Docker container from ‘root’ to ‘nobody’
 - Updated JRE upgrade to 1.8.192
 - Updated Ubuntu upgrade 18.04
-- Updated Hadoop dependencies update from 2.7.3 to 2.7.7 (fixes CVE-2016-6811, CVE-2017-3162, CVE-2017-3166, CVE-2018-8009)
-- Updated Jetty dependencies update from jetty 9.3.11.v20160721 to 9.3.24.v20180605 (fixes CVE-2017-7658)
-- Updated Jackson dependencies update from 2.6.5 to 2.9.6 (fixes CVE-2017-15095, CVE-2017-17485, CVE-2017-7525, CVE-2018-7489, CVE-2016-3720)
-- Updated ZooKeeper dependencies update from 3.4.6 to 3.4.13
+- Updated Hadoop dependencies from 2.7.3 to 2.7.7 (fixes CVE-2016-6811, CVE-2017-3162, CVE-2017-3166, CVE-2018-8009)
+- Updated Jetty dependencies from jetty 9.3.11.v20160721 to 9.3.24.v20180605 (fixes CVE-2017-7658)
+- Updated Jackson dependencies from 2.6.5 to 2.9.6 (fixes CVE-2017-15095, CVE-2017-17485, CVE-2017-7525, CVE-2018-7489, CVE-2016-3720)
+- Updated ZooKeeper dependencies from 3.4.6 to 3.4.13
 
 
 ### Bug fixes
