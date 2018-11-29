@@ -17,9 +17,9 @@ DC/OS 1.11 默认导出 Prometheus 度量标准。无需像在 DC/OS 1.9 和 1.1
 有许多方法可以运行 Prometheus 服务器。这是在 DC/OS 上使用自我托管度量标准的最简单方法。
 
 1. 从 dcos-metrics 存储库下载三个 Marathon 配置：
- 1. [metrics.json](https://raw.githubusercontent.com/dcos/dcos-metrics/master/docs/resources/metrics.json)
- 1. [prometheus.json](https://raw.githubusercontent.com/dcos/dcos-metrics/master/docs/resources/prometheus.json)
- 1. [grafana.json](https://raw.githubusercontent.com/dcos/dcos-metrics/master/docs/resources/grafana.json)
+   1. [metrics.json](https://raw.githubusercontent.com/dcos/dcos-metrics/master/docs/resources/metrics.json)
+   1. [prometheus.json](https://raw.githubusercontent.com/dcos/dcos-metrics/master/docs/resources/prometheus.json)
+   1. [grafana.json](https://raw.githubusercontent.com/dcos/dcos-metrics/master/docs/resources/grafana.json)
 1. 通过 `dcos marathon pod add metrics.json` 在 Pod 中运行 Prometheus 和 Grafana。
 1. 通过 `dcos marathon app add prometheus.json` 运行 Prometheus UI 代理。
 1. 通过 `dcos marathon app add grafana.json` 运行 Grafana UI。
