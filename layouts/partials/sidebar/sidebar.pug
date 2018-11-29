@@ -48,7 +48,7 @@ mixin renderSidebarNav()
     - listClassList['sidebar__nav__list'] = true
     - listClassList['sidebar__nav__list--active'] = true
     ul(class=listClassList)
-      each val, index in items.children
+      each val, index in item.children
         if val.menuWeight != -1
           +renderSidebarNavListItem(val, 0)
 
