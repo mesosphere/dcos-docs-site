@@ -55,7 +55,7 @@ If Auto Scaling groups are in use, the node will be replaced automatically.
 ## Q. How do I backup the IAM database?
 [/enterprise]
 
-To backup the IAM database to a file run the following command on one of the master nodes:
+To backup the IAM database to a file, run the following command on one of the master nodes:
 
     ```bash
     sudo /opt/mesosphere/bin/cockroach dump --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) iam > ~/iam-backup.sql
@@ -65,7 +65,7 @@ To backup the IAM database to a file run the following command on one of the mas
 ## Q. How do I restore the IAM database?
 [/enterprise]
 
-To restore the IAM database from a file `~/iam-backup.sql` run the following commands on one of the master nodes:
+To restore the IAM database from a file `~/iam-backup.sql`, run the following commands on one of the master nodes:
 
 1. First, we create a new database called `iam_new` into which to load the backup.
 
