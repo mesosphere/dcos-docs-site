@@ -8,8 +8,6 @@ beta: true
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 `dcos task exec` 命令允许您在任务的容器内执行任意命令，并将其输出返回到本地终端，以了解有关某个特定任务如何表现的更多信息。它提供了非常类似于 [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/) 体验，不需要 SSH 密钥。
 
@@ -37,7 +35,7 @@ enterprise: false
 
 **先决条件：**
 
-- 使用 [DC/OS 通用容器运行时] 启动的容器(/1.11/deploying-services/containerizers/)
+- 使用 [DC/OS 通用容器运行时](/cn/1.11/deploying-services/containerizers/) 启动的容器
 
 # 使用在容器内运行的命令传送输出
 
@@ -66,7 +64,7 @@ enterprise: false
     dcos task
     ```
 
- 输出应与此类似：
+   输出应与此类似：
 
     ```bash
     NAME        HOST        USER  STATE  ID                                               
@@ -79,7 +77,7 @@ enterprise: false
     dcos task exec <task_id> hostname
     ```
 
- 输出应与此类似：
+   输出应与此类似：
 
     ```bash
     ip-10-0-1-105.us-west-2.compute.internal
@@ -113,7 +111,7 @@ enterprise: false
     dcos task
     ```
 
- 输出应与此类似：
+   输出应与此类似：
 
     ```bash
     NAME                HOST        USER  STATE  ID                                               
@@ -143,7 +141,7 @@ enterprise: false
     dcos task exec <task_id> ./hello-world.sh
     ```
 
- 输出应与此类似：
+   输出应与此类似：
 
     ```bash
     Hello World
@@ -155,51 +153,51 @@ enterprise: false
 
 1. 使用 DC/OS CLI 部署和运行作业：
 
- 1. 创建以下应用定义并另存为 `my-job.json`。这将指定运行 `10000000` 秒的休眠作业。
+    1. 创建以下应用定义并另存为 `my-job.json`。这将指定运行 `10000000` 秒的休眠作业。
 
-        ```bash
-        {
-          "id": "my-job",
-          "labels": {},
-          "run": {
-            "artifacts": [],
-            "cmd": "sleep 100000000",
-            "cpus": 0.01,
-            "disk": 0,
-            "env": {},
-            "maxLaunchDelay": 3600,
-            "mem": 32,
-            "placement": {
-              "constraints": []
-            },
-            "restart": {
-              "policy": "NEVER"
-            },
-            "volumes": []
-          }
-        }
-        ```
+       ```bash
+       {
+           "id": "my-job",
+           "labels": {},
+           "run": {
+           "artifacts": [],
+           "cmd": "sleep 100000000",
+           "cpus": 0.01,
+           "disk": 0,
+           "env": {},
+           "maxLaunchDelay": 3600,
+           "mem": 32,
+           "placement": {
+               "constraints": []
+           },
+           "restart": {
+               "policy": "NEVER"
+           },
+           "volumes": []
+           }
+       }
+       ```
 
- 1. 使用此 CLI 命令部署该作业：
+    1. 使用此 CLI 命令部署该作业：
 
         ```bash
         dcos job add my-job.json
         ```
 
- 1. 验证作业是否已成功部署：
+    1. 验证作业是否已成功部署：
 
         ```bash
         dcos job list
         ```
 
- 输出应类似于：
+       输出应类似于：
 
         ```bash
         ID      DESCRIPTION  STATUS       LAST SUCCESFUL RUN        
         my-job               Unscheduled         None
         ```
 
- 1. 运行作业：
+    1. 运行作业：
 
         ```bash
         dcos job run my-job
@@ -211,7 +209,7 @@ enterprise: false
     dcos task
     ```
 
- 输出应与此类似：
+    输出应与此类似：
 
     ```bash
     NAME                          HOST       USER  STATE  ID                                                                       
@@ -224,7 +222,7 @@ enterprise: false
     dcos task exec --interactive --tty <task_id> bash
     ```
 
- 您现在应该是位于运行交互式 Bash 会话 的容器内部。
+    您现在应该是位于运行交互式 Bash 会话 的容器内部。
 
     ```bash
     root@ip-10-0-2-53 / #

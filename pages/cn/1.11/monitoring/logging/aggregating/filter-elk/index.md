@@ -48,53 +48,54 @@ DC/OS 任务日志的文件系统路径包含代理 ID、框架 ID 和执行器 
 
 1. 将 `framework:*` 输入“搜索”字段。这将显示 `framework` 字段已定义的所有事件：
 
- ![Logstash 示例](/cn/1.11/img/logstash-framework-exists.png)
+   ![Logstash 示例](/cn/1.11/img/logstash-framework-exists.png)
 
- 图 1. Logstash 事件
+   图 1. Logstash 事件
 
 1. 点击其中一个事件旁边的披露三角形可查看详细信息。这将显示从任务日志文件路径提取的所有字段：
 
- ![Logstash 示例2](/cn/1.11/img/logstash-fields.png)
+   ![Logstash 示例2](/cn/1.11/img/logstash-fields.png)
 
- 图 2. 事件详情
+   图 2. 事件详情
 
 1. 搜索所有提到上述屏幕截图中所示事件框架 ID 的事件，但不要包含选中的 `framework` 字段。这将仅显示非任务结果：
 
- ![Logstash 框架搜索](/cn/1.11/img/logstash-framework-search.png)
+   ![Logstash 框架搜索](/cn/1.11/img/logstash-framework-search.png)
 
- 图 3. 搜索结果
+   图 3. 搜索结果
 
 # <a name="templates"></a>模板示例
 
 以下是一些查询模板示例。使用集群中的实际值替换模板参数 `$executor1`、`$framework2`，以及任何其他内容。
 
-<p class="message--note"><strong>注意：</strong>请勿更改这些示例中的引号，否则查询将不起作用。如果您创建自定义查询，请注意布局引号。</p> 
+<p class="message--important"><strong>重要信息：</strong>请勿更改这些示例中的引号，否则查询将不起作用。如果您创建自定义查询，请注意布局引号。</p> 
 
 
 * 与特定执行器相关的日志 `$executor1`，包括从该执行器运行的任务的日志：
-
- "$executor1" 
+   ```
+    "$executor1" 
+   ```
 
 * 与特定执行器有关的非任务日志 `$executor1`：
-
- "$executor1" 且非 executor:$executor1
-
+   ```
+    "$executor1" AND NOT executor:$executor1
+   ```
 * 框架的日志（包括任务日志）`$framework1`，如果 `$executor1` 和 `$executor2` 是该框架的执行器：
-
- "$framework1" 或 "$executor1" 或 "$executor2" 
-
+   ```
+    "$framework1" OR "$executor1" OR "$executor2" 
+   ```
 * 框架的非任务日志`$framework1`，如果 `$executor1` 和 `$executor2` 是该框架的执行器：
-
- ("$framework1" 或 "$executor1" 或 "$executor2") 且非 (framework:$framework1 或 executor:$executor1 或 executor:$executor2)
-
+   ```
+   ("$framework1" OR "$executor1" OR "$executor2") AND NOT (framework:$framework1 OR executor:$executor1 OR executor:$executor2)
+   ```
 * 特定代理主机上 `$agent_host1` 框架的日志 `$framework1`：
-
- host:$agent_host1 且 ("$framework1" 或 "$executor1" 或 "$executor2")
-
+   ```
+    host:$agent_host1 且 ("$framework1" OR "$executor1" OR "$executor2")
+   ```
 * 带主机 `$agent_host1` 的特定代理 `$agent1` 上框架 `$framework1` 的非任务日志：
-
- host:$agent_host1 和 ("$framework1" 或 "$executor1" 或 "$executor2") 且非 agent:$agent
-
+   ```
+   host:$agent_host1 和 ("$framework1" OR "$executor1" OR "$executor2") AND NOT agent:$agent
+   ```
 [1]: ../elk/
 [2]: http://logz.io
 [7]: https://www.elastic.co/guide/en/logstash/current/installing-logstash.html

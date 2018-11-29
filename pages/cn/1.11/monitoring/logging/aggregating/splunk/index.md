@@ -35,102 +35,103 @@ enterprise: false
 对于 DC/OS 集群中的每个管理节点：
 
 1. 创建一个脚本 `$SPLUNK_HOME/bin/scripts/journald-master.sh`，其含有来自 `journald` Mesos 管理节点的日志。此脚本可配合 DC/OS 和 DC/OS Enterprise 使用。不适用的日志条目将被忽略。
-
- #!/bin/sh
-
- exec journalctl --since=now -f \
- -u dcos-diagnostics.service \
- -u dcos-diagnostics.socket \
- -u dcos-adminrouter-reload.service \
- -u dcos-adminrouter-reload.timer \
- -u dcos-adminrouter.service \
- -u dcos-bouncer.service \
- -u dcos-ca.service \
- -u dcos-cfn-signal.service \
- -u dcos-cosmos.service \
- -u dcos-download.service \
- -u dcos-epmd.service \
- -u dcos-exhibitor.service \
- -u dcos-gen-resolvconf.service \
- -u dcos-gen-resolvconf.timer \
- -u dcos-history.service \
- -u dcos-link-env.service \
- -u dcos-logrotate-master.timer \
- -u dcos-marathon.service \
- -u dcos-mesos-dns.service \
- -u dcos-mesos-master.service \
- -u dcos-metronome.service \
- -u dcos-minuteman.service \
- -u dcos-navstar.service \
- -u dcos-networking_api.service \
- -u dcos-secrets.service \
- -u dcos-setup.service \
- -u dcos-signal.service \
- -u dcos-signal.timer \
- -u dcos-spartan-watchdog.service \
- -u dcos-spartan-watchdog.timer \
- -u dcos-spartan.service \
- -u dcos-vault.service \
- -u dcos-logrotate-master.service
-
+   ```
+   #!/bin/sh
+   
+   exec journalctl --since=now -f \
+   -u dcos-diagnostics.service \
+   -u dcos-diagnostics.socket \
+   -u dcos-adminrouter-reload.service \
+   -u dcos-adminrouter-reload.timer \
+   -u dcos-adminrouter.service \
+   -u dcos-bouncer.service \
+   -u dcos-ca.service \
+   -u dcos-cfn-signal.service \
+   -u dcos-cosmos.service \
+   -u dcos-download.service \
+   -u dcos-epmd.service \
+   -u dcos-exhibitor.service \
+   -u dcos-gen-resolvconf.service \
+   -u dcos-gen-resolvconf.timer \
+   -u dcos-history.service \
+   -u dcos-link-env.service \
+   -u dcos-logrotate-master.timer \
+   -u dcos-marathon.service \
+   -u dcos-mesos-dns.service \
+   -u dcos-mesos-master.service \
+   -u dcos-metronome.service \
+   -u dcos-minuteman.service \
+   -u dcos-navstar.service \
+   -u dcos-networking_api.service \
+   -u dcos-secrets.service \
+   -u dcos-setup.service \
+   -u dcos-signal.service \
+   -u dcos-signal.timer \
+   -u dcos-spartan-watchdog.service \
+   -u dcos-spartan-watchdog.timer \
+   -u dcos-spartan.service \
+   -u dcos-vault.service \
+   -u dcos-logrotate-master.service
+   ```
 2. 使脚本可执行：
-
- chmod +x "$SPLUNK_HOME/bin/scripts/journald-master.sh" 
-
+   ```
+   chmod +x "$SPLUNK_HOME/bin/scripts/journald-master.sh" 
+   ```
 3. 将脚本添加为转发器的输入：
-
- "$SPLUNK_HOME/bin/splunk" add exec \
- -source "$SPLUNK_HOME/bin/scripts/journald-master.sh" \
- -interval 0
+   ```
+   "$SPLUNK_HOME/bin/splunk" add exec \
+      -source "$SPLUNK_HOME/bin/scripts/journald-master.sh" \
+      -interval 0
+   ```
 
 ## 步骤 3：代理节点
 
 对于 DC/OS 集群中的每个代理节点：
 
 1. 创建一个脚本 `$SPLUNK_HOME/bin/scripts/journald-agent.sh`，其含有来自 `journald` Mesos 代理节点的日志。此脚本可配合 DC/OS 和 DC/OS Enterprise 使用。不适用的日志条目将被忽略。
-
- #!/bin/sh
-
- journalctl --since="now" -f \
- -u dcos-diagnostics.service \
- -u dcos-logrotate-agent.timer \
- -u dcos-diagnostics.socket \
- -u dcos-mesos-slave.service \
- -u dcos-adminrouter-agent.service \
- -u dcos-minuteman.service \
- -u dcos-adminrouter-reload.service \
- -u dcos-navstar.service \
- -u dcos-adminrouter-reload.timer \
- -u dcos-rexray.service \
- -u dcos-cfn-signal.service \
- -u dcos-setup.service \
- -u dcos-download.service \
- -u dcos-signal.timer \
- -u dcos-epmd.service \
- -u dcos-spartan-watchdog.service \
- -u dcos-gen-resolvconf.service \
- -u dcos-spartan-watchdog.timer \
- -u dcos-gen-resolvconf.timer \
- -u dcos-spartan.service \
- -u dcos-link-env.service \
- -u dcos-vol-discovery-priv-agent.service \
- -u dcos-logrotate-agent.service
-
+   ```
+   #!/bin/sh
+   
+   journalctl --since="now" -f \
+   -u dcos-diagnostics.service \
+   -u dcos-logrotate-agent.timer \
+   -u dcos-diagnostics.socket \
+   -u dcos-mesos-slave.service \
+   -u dcos-adminrouter-agent.service \
+   -u dcos-minuteman.service \
+   -u dcos-adminrouter-reload.service \
+   -u dcos-navstar.service \
+   -u dcos-adminrouter-reload.timer \
+   -u dcos-rexray.service \
+   -u dcos-cfn-signal.service \
+   -u dcos-setup.service \
+   -u dcos-download.service \
+   -u dcos-signal.timer \
+   -u dcos-epmd.service \
+   -u dcos-spartan-watchdog.service \
+   -u dcos-gen-resolvconf.service \
+   -u dcos-spartan-watchdog.timer \
+   -u dcos-gen-resolvconf.timer \
+   -u dcos-spartan.service \
+   -u dcos-link-env.service \
+   -u dcos-vol-discovery-priv-agent.service \
+   -u dcos-logrotate-agent.service
+   ```
 2. 使脚本可执行：
-
- chmod +x "$SPLUNK_HOME/bin/scripts/journald-agent.sh" 
-
+   ```
+    chmod +x "$SPLUNK_HOME/bin/scripts/journald-agent.sh" 
+   ```
 3. 将脚本添加为转发器的输入：
-
- "$SPLUNK_HOME/bin/splunk" add exec \
- -source "$SPLUNK_HOME/bin/scripts/journald-agent.sh" \
- -interval 0
-
+   ```
+   "$SPLUNK_HOME/bin/splunk" add exec \
+      -source "$SPLUNK_HOME/bin/scripts/journald-agent.sh" \
+      -interval 0
+   ```
 4. 将任务日志添加为转发器的输入：
-
- "$SPLUNK_HOME/bin/splunk" add monitor '/var/lib/mesos/slave' \
- -whitelist '/stdout$|/stderr$' 
-
+   ```
+   "$SPLUNK_HOME/bin/splunk" add monitor '/var/lib/mesos/slave' \
+      -whitelist '/stdout$|/stderr$' 
+   ```
 
 
 
@@ -138,5 +139,5 @@ enterprise: false
 
 有关如何使用 Splunk 筛选日志的详细信息，请参阅 [使用 Splunk 筛选日志][3]。
 
- [2]: http://www.splunk.com/en_us/download/universal-forwarder.html
- [3]: ../filter-splunk/
+[2]: http://www.splunk.com/en_us/download/universal-forwarder.html
+[3]: ../filter-splunk/

@@ -71,7 +71,7 @@ enterprise: false
 
 1. 创建脚本 `/etc/systemd/system/dcos-journalctl-filebeat.service`，该脚本可解析 DC/OS 管理节点 `journalctl` 日志的输出并将其输送到 `/var/log/dcos/dcos.log`。
 
- 此脚本可配合 DC/OS 和 Enterprise DC/OS 使用。不适用的日志条目将被忽略。
+    此脚本可配合 DC/OS 和 Enterprise DC/OS 使用。不适用的日志条目将被忽略。
 
     ```bash
     sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF

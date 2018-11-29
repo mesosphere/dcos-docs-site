@@ -36,7 +36,7 @@ dcos node log --leader
 dcos node log --mesos-id=<node-id>
 ```
 
-您可以从 [DC/OS Web 界面]的**服务 > 服务**选项卡，下载服务的所有日志文件(/1.11/gui/)。您也可以监控 `stdout`/`stderr`。
+您可以从 [DC/OS Web 界面](/cn/1.11/gui/)的**Services > Services**选项卡，下载服务的所有日志文件。您也可以监控 `stdout`/`stderr`。
 
 如需更多信息，请参阅“服务和任务日志”[快速入门指南](/cn/1.11/monitoring/logging/quickstart/)。
 
@@ -48,7 +48,7 @@ DC/OS 组件使用 `systemd-journald` 来存储其日志。要访问 DC/OS 核�
 journalctl -u "dcos-*" -b
 ```
 
-输入组件名，您可以查看特定 [组件] (/1.11/overview/architecture/components/) 的日志。例如，要访问 Admin Router 日志，可运行此命令：
+输入组件名，您可以查看特定 [组件](/cn/1.11/overview/architecture/components/) 的日志。例如，要访问 Admin Router 日志，可运行此命令：
 
 ```bash
 journalctl -u dcos-nginx -b
@@ -67,4 +67,4 @@ journalctl -u dcos-nginx -b
 - [使用 ELK 进行日志管理](/cn/1.11/monitoring/logging/aggregating/elk/)
 - [使用 Splunk 进行日志管理](/cn/1.11/monitoring/logging/aggregating/splunk/)
 
-[5]: /1.11/administering-clusters/sshcluster/
+[5]: /cn/1.11/administering-clusters/sshcluster/

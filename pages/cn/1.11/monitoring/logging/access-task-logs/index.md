@@ -16,7 +16,7 @@ enterprise: true
 
 在此过程中，您将在单独的 Marathon 群组中部署服务，并授予用户权限以查看这些 Marathon 群组的任务。
 
-以下是对所需 [权限] 的概述(/1.11/security/ent/perms-reference/)：
+以下是对所需 [权限](/cn/1.11/security/ent/perms-reference/) 的概述：
 
 | 权限字符串 | full | C | R | U | D |
 |----------------------------|------|---|---|---|---|
@@ -47,8 +47,8 @@ enterprise: true
 
 1. 新建一个组。
 
- ![生产组(/1.11/img/new-user-group-prod.png)
-
+ ![生产组](/cn/1.11/img/new-user-group-prod.png)
+ 
  图 2. 创建新组屏幕
 
 1. 选择组名，并从**权限**选项卡上单击**添加权限**。
