@@ -11,23 +11,23 @@ featureMaturity:
 
 ### New Features
 - Unique Mesos Task IDs for Spark executors
-- Trusted Ubuntu 18.04 base Docker image [[DCOS-45167]](https://github.com/mesosphere/spark-build/pull/456)
-- `nobody` user support on RHEL/CentOS (via configuration) [[DCOS-45167]](https://github.com/mesosphere/spark-build/pull/456)
+- Trusted Ubuntu 18.04 base Docker image
+- `nobody` user support on RHEL/CentOS (via configuration)
 
 ### Updates
-- Changed default user for Docker container from ‘root’ to ‘nobody’ [[DCOS-45167]](https://github.com/mesosphere/spark-build/pull/456)
+- Changed default user for Docker container from ‘root’ to ‘nobody’
 - JRE upgrade to 1.8.192
 - Ubuntu upgrade 18.04
-- Hadoop dependencies update from 2.7.3 to 2.7.7 (fixes CVE-2016-6811, CVE-2017-3162, CVE-2017-3166, CVE-2018-8009) [[DCOS-44777]](https://github.com/mesosphere/spark/pull/39), [[DCOS-45549]](https://github.com/mesosphere/spark/pull/41)
-- Jetty dependencies update from jetty 9.3.11.v20160721 to 9.3.24.v20180605 (fixes CVE-2017-7658) [[DCOS-44777]](https://github.com/mesosphere/spark/pull/39)
-- Jackson dependencies update from 2.6.5 to 2.9.6 (fixes CVE-2017-15095, CVE-2017-17485, CVE-2017-7525, CVE-2018-7489, CVE-2016-3720) [[DCOS-44777]](https://github.com/mesosphere/spark/pull/39)
-- ZooKeeper dependencies update from 3.4.6 to 3.4.13 [[DCOS-44777]](https://github.com/mesosphere/spark/pull/39)
+- Hadoop dependencies update from 2.7.3 to 2.7.7 (fixes CVE-2016-6811, CVE-2017-3162, CVE-2017-3166, CVE-2018-8009)
+- Jetty dependencies update from jetty 9.3.11.v20160721 to 9.3.24.v20180605 (fixes CVE-2017-7658)
+- Jackson dependencies update from 2.6.5 to 2.9.6 (fixes CVE-2017-15095, CVE-2017-17485, CVE-2017-7525, CVE-2018-7489, CVE-2016-3720)
+- ZooKeeper dependencies update from 3.4.6 to 3.4.13
 
 
 ### Bug fixes
 - `dcos task log` now works because of unique Mesos Tasks IDs of Spark executors
 - Fixed unstable health checks for Spark Dispatcher and History Server
-- Spark dispatcher task output now redirected to stdout and available in logs [[DCOS-39730]](https://github.com/mesosphere/spark-build/pull/431)
+- Spark dispatcher task output now redirected to stdout and available in logs
 
 ### Breaking Changes
 - new configuration option added: ‘docker_user’ which allows to override a user when running Spark using Docker containerizer
@@ -58,7 +58,7 @@ featureMaturity:
 ## Version Spark and Spark History 2.3.1-2.2.1-2
 
 ### Updates
-- Updated libmesos version version with critical bug fix, [MESOS-8171](https://issues.apache.org/jira/browse/MESOS-8171)
+- Updated libmesos version version with critical bug fix
 
 ### Documentation
 - Added a [page](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/limits/) documenting results from scale testing of Spark on DC/OS.
