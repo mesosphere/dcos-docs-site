@@ -49,10 +49,10 @@ DC/OS 1.11.4 包括以下内容：
 
 - DCOS-37833 - 把对 Admin Router 连接 (worker_connections) 数量的限制增至 10K。
 - DCOS_OSS-3597- 将 REX-Ray 版本更新到 [0.11.2](https://github.com/rexray/rexray/releases/tag/v0.11.2)。
-- 更新 [1.11+v1.15.0+3231764b] 的 DC/OS UI(https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.14.0+7e0cb54f...1.11+v1.15.0+3231764b)。[enterprise type="inline" size="small" /]
-- 更新 [1.11+v1.15.0] 的 DC/OS UI(https://github.com/dcos/dcos-ui/blob/1.11+v1.15.0/CHANGELOG.md)。[oss type="inline" size="small" /]
+- 更新 [1.11+v1.15.0+3231764b](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.14.0+7e0cb54f...1.11+v1.15.0+3231764b) 的 DC/OS UI。[enterprise type="inline" size="small" /]
+- 更新 [1.11+v1.15.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.15.0/CHANGELOG.md) 的 DC/OS UI。[oss type="inline" size="small" /]
 
-**注意：** Kubernetes 包依赖关系记录 [在此处](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install)。
+<p class="message--note"><strong>注意: </strong> Kubernetes 包依赖关系记录 [在此处](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install)。</p>
 
 
 # 关于 DC/OS 1.11

@@ -32,7 +32,7 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 <a name="new-features"></a>
 # 新特性和功能
 
-## 集成了 Apache Mesos 1.5、Marathon 1.6 和 Kubernetes 1.9。
+## 集成了 Apache Mesos 1.5, Marathon 1.6 和 Kubernetes 1.9。
 - DC/OS 1.11.0 基于 Mesos 1.5。查看 [Mesos 更改日志](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG)。
 - DC/OS 1.11.0 与最新的 1.6 版 Marathon 集成。有关 Marathon 1.6 的更多信息，请参阅 [Marathon 更改日志](https://github.com/mesosphere/marathon/blob/master/changelog.md)。
 - DC/OS 1.11.0 支持最新的 Kubernetes 1.9 容器调度程序。有关 DC/OS 上 Kubernetes 1.0 的更多信息，[查看文档](https://docs.mesosphere.com/services/kubernetes/1.0.0-1.9.3)。
@@ -41,7 +41,7 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 - 故障域感知。利用故障域感知使服务高度可用，并能在需要时增加容量。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
 - 链接的群集。- 群集链路是一个群集和另一个群集之间的**单向关系**。使用 DC/OS CLI 将一个群集的链接添加到另一个群集或将其删除。设置链接后，您可以使用 CLI 或 UI 轻松在群集之间切换。[查看文档](/cn/1.11/administering-clusters/multiple-clusters/cluster-links)。[enterprise type="inline" size="small" /]
 - 集成远程区域。使“突发”充分利用临时云计算资源。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
-- [多区域管理](/cn/1.11/deploying-services/fault-domain-awareness)。使 DC/OS 群集能跨越多个数据中心、云和远程分支，同时提供统一的管理和控制群集。
+- [多区域管理](/cn/1.11/deploying-services/fault-domain-awareness)。使 DC/OS 群集能跨越多个数据中心, 云和远程分支，同时提供统一的管理和控制群集。
 - 停用节点。支持永久停用节点使得在使用后更容易维护和退役“Spot”云实例，从而允许立即重新安排任务，而不是延时重新安排任务。
 - UCR
  - 支持 Docker 镜像垃圾收集。[查看文档](/cn/1.11/deploying-services/containerizers)。
@@ -52,7 +52,7 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 - Edge-LB 1.0 RC 候选版本。[查看文档](https://docs.mesosphere.com/services/edge-lb/1.0/)
 [/enterprise]
 - 现在 Docker 容器支持IPv6。
-- DC/OS 网络堆栈的性能改进。所有网络组件 (minuteman、navstar、spartan) 被整合到一个被称为 `dcos-net` 的单个 systemd 单元中。请查看有关 [网络软件重构](/cn/1.11/networking/#a-note-on-software-re-architecture) 的注释，进一步了解网络堆栈的重新分解。
+- DC/OS 网络堆栈的性能改进。所有网络组件 (minuteman, navstar, spartan) 被整合到一个被称为 `dcos-net` 的单个 systemd 单元中。请查看有关 [网络软件重构](/cn/1.11/networking/#a-note-on-software-re-architecture) 的注释，进一步了解网络堆栈的重新分解。
 
 
 [enterprise]
@@ -67,16 +67,16 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 - 收集容器（任务）和系统组件日志的统一日志记录端点。
 
 ## 存储
-- DC/OS 1.11 介绍了行业标准容器存储接口 (CSI) 版本 0.1 的实现，它通过在容器编排器 (DC/OS) 和存储设备之间提供通用 API，让开发人员（Mesosphere、社区和合作伙伴）能够提高开发 DC/OS 中存储功能的效率。[enterprise type="inline" size="small" /]
+- DC/OS 1.11 介绍了行业标准容器存储接口 (CSI) 版本 0.1 的实现，它通过在容器编排器 (DC/OS) 和存储设备之间提供通用 API，让开发人员（Mesosphere, 社区和合作伙伴）能够提高开发 DC/OS 中存储功能的效率。[enterprise type="inline" size="small" /]
 - Pod 现在支持永久卷。[查看文档](/cn/1.11/deploying-services/pods)。
 
-**注意：** 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。
+<p class="message--note"><strong>注意: </strong> 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。</p>
 
 ## 更新了 DC/OS 数据服务
-- 现在支持对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的TLS 加密。
-- 对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的故障域感知。利用故障域感知使服务高度可用，并能在需要时增加容量。
-- 新的 API 端点用于暂停 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的节点。使用此端点以空闲命令状态重新启动节点用于调试。
-- 新的 beta DC/OS Kafka ZooKeeper 服务。[查看文档](/services/beta-kafka-zookeeper)。
+- 现在支持对 DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic 和 DC/OS HDFS 的TLS 加密。
+- 对 DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic 和 DC/OS HDFS 的故障域感知。利用故障域感知使服务高度可用，并能在需要时增加容量。
+- 新的 API 端点用于暂停 DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic 和 DC/OS HDFS 的节点。使用此端点以空闲命令状态重新启动节点用于调试。
+- 新的 beta DC/OS Kafka ZooKeeper 服务。[查看文档](/1.11/services/beta-kafka-zookeeper)。
 - 现在，您可以从 DC/OS UI 的下拉菜单中选择 DC/OS 数据服务版本。
 - 提高了所有 DC/OS 数据服务的可扩展性。
 
@@ -94,4 +94,4 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 - DCOS_OSS-1733 - 配置参数 `dns_forward_zones` 现在采用对象列表，而不是嵌套列表。
 - DCOS_OSS-2130 - `systemd-networkd` 必须启用，DC/OS 网络才能配合 CoreOS 工作。
 
-**注意：** Kubernetes 包依赖关系记录 [在此处](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install)。
+<p class="message--note"><strong>注意: </strong> Kubernetes 包依赖关系记录 <a href="https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install">在此处</a>。</p>

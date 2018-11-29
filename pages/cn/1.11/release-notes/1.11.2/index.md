@@ -46,13 +46,13 @@ DC/OS 1.11.2 包括以下内容：
 
 # DC/OS 1.11.2 中的安全巩固
 
-- DCOS-21465 - 更新了 [CVE-2017-11427] 的 python3-saml(https://www.kb.cert.org/vuls/id/475445)。[enterprise type="inline" size="small" /] 
+- DCOS-21465 - 更新了 [CVE-2017-11427](https://www.kb.cert.org/vuls/id/475445) 的 python3-saml。[enterprise type="inline" size="small" /] 
 - DCOS-21958 - 管理节点上的 Admin Router 默认不再支持旧版 TLS 1.1 协议和 3DES 加密算法。[enterprise type="inline" size="small" /] 
 
 
-**注意：** 
-- RHEL 7.4 支持新的 Docker 版本。请参阅 [兼容性矩阵](https://docs.mesosphere.com/version-policy/) 了解更多信息。
-Kubernetes 包依赖关系记录 [在此处](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install)。
+<p class="message--note"><strong>注意: </strong> 
+RHEL 7.4 支持新的 Docker 版本。请参阅 <a href="https://docs.mesosphere.com/version-policy/">兼容性矩阵</a> 了解更多信息。
+Kubernetes 包依赖关系记录 <a href="https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install">在此处</a>。</p>
 
 
 # 关于 DC/OS 1.11
@@ -98,12 +98,12 @@ DC/OS 1.11 包含许多新功能，重点是：
 - DC/OS 存储服务 0.1 (beta) - DSS 用户能够根据配置文件或策略，动态地创建卷，以调整其应用程序的存储要求。该特性利用行业标准容器存储接口 (CSI) 让 Mesosphere、社区和合作伙伴能够提高开发 DC/OS 中存储特性的效率。[查看文档](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
 - Pod 现在支持永久卷。[查看文档](/cn/1.11/deploying-services/pods).[beta type="inline" size="small" /]
 
-**注意：** 因为这些存储功能在 1.11 中为 beta，因此在安装 DC/OS 时，它们必须在config.yaml 文件中明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。
+<p class="message--note"><strong>注意: </strong> 因为这些存储功能在 1.11 中为 beta，因此在安装 DC/OS 时，它们必须在config.yaml 文件中明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。</p>
 
 ### 更新了 DC/OS 数据服务
 - 现已支持对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的TLS 加密。[enterprise type="inline" size="small" /]
 - 对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的故障域感知。利用故障域感知使服务高度可用，并能在需要时增加容量。[enterprise type="inline" size="small" /]
-- 新的 API 端点用于暂停 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的节点。使用此端点以空闲命令状态重新启动节点用于调试。
+- 新的 API 端点用于暂停 DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic 和 DC/OS HDFS 的节点。使用此端点以空闲命令状态重新启动节点用于调试。
 - 新的 DC/OS Kafka ZooKeeper 服务。[查看文档](/services/kafka-zookeeper)。
 - 现在，您可以从 DC/OS UI 的下拉菜单中选择 DC/OS 数据服务版本。
 - 提高了所有 DC/OS 数据服务的可扩展性。
