@@ -16,8 +16,8 @@ featureMaturity:
 
 ### Updates
 - Changed default user for Docker container from ‘root’ to ‘nobody’
-- Updated JRE to 1.8.192
-- Updated to Ubuntu 18.04
+- Upgraded JRE to 1.8.192
+- Upgraded to Ubuntu 18.04
 - Updated Hadoop dependencies from 2.7.3 to 2.7.7 (fixes CVE-2016-6811, CVE-2017-3162, CVE-2017-3166, CVE-2018-8009)
 - Updated Jetty dependencies from 9.3.11.v20160721 to 9.3.24.v20180605 (fixes CVE-2017-7658)
 - Updated Jackson dependencies from 2.6.5 to 2.9.6 (fixes CVE-2017-15095, CVE-2017-17485, CVE-2017-7525, CVE-2018-7489, CVE-2016-3720)
