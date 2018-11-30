@@ -4,11 +4,10 @@ navigationTitle: 管理用户和组
 title: 管理用户和组
 menuWeight: 0
 excerpt: 管理用户和组
-
 enterprise: true
 ---
 
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 DC/OS Enterprise 可管理两种类型的用户：
 

@@ -4,26 +4,23 @@ navigationTitle: 添加本地用户
 title: 添加本地用户
 menuWeight: 10
 excerpt: 使用 Web 界面或 CLI 添加本地用户
-
 enterprise: true
 ---
-
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 # 使用 Web 界面添加本地用户
 
 1. 以具有 `superuser` 权限的用户身份登录。
 
- ![登录](/cn/1.11/img/gui-installer-login-ee.gif)
+    ![登录](/cn/1.11/img/gui-installer-login-ee.gif)
 
- 图 1. 以超级用户身份登录
+    图 1. 以超级用户身份登录
 
 1. 选择 **Organization > Users** 并创建新用户。键入用户的全名、用户名和密码。
 
- ![创建用户 Cory](/cn/1.11/img/service-group3.png)
+    ![创建用户 Cory](/cn/1.11/img/service-group3.png)
 
- 图 2. 创建新用户
+    图 2. 创建新用户
 
 
 # 使用 CLI 添加本地用户
@@ -50,7 +47,7 @@ enterprise: true
     dcos security org users show
     ```
 
- 输出应类似于：
+    输出应类似于：
 
     ```bash
     dcos security org users show
