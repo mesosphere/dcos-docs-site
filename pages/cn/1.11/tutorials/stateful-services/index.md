@@ -98,7 +98,7 @@ excerpt: 教程 - 在 DC/OS 上运行有状态服务
 接下来，将此[服务][4] 添加到您的集群：
 
 ```
-dcos marathon app add /1.11/tutorials/stateful-services/postgres.marathon.json
+dcos marathon app add/cn/1.11/tutorials/stateful-services/postgres.marathon.json
 ```
 
 服务已安排且 Docker 容器已下载后，postgres 将变得运行良好并且可以使用。您可以从 DC/OS CLI 验证这一点：

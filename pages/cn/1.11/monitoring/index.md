@@ -100,8 +100,8 @@ DC/OS 用户界面使用这些聚合端点生成您在系统运行状况控制�
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html
- [6]: /1.11/security/
- [7]: /1.11/networking/load-balancing-vips/
- [8]: /1.11/overview/concepts/#private-agent-node
- [9]: /1.11/overview/concepts/#public-agent-node
+ [6]:/cn/1.11/security/
+ [7]:/cn/1.11/networking/load-balancing-vips/
+ [8]:/cn/1.11/overview/concepts/#private-agent-node
+ [9]:/cn/1.11/overview/concepts/#public-agent-node
  [10]: http://mesos.apache.org/documentation/latest/persistent-volume/

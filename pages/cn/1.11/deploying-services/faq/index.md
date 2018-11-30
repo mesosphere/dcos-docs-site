@@ -64,7 +64,7 @@ DC/OS 通过使用动态生成的设置文件安装到您的环境。此文件�
 
 我们建议使用 CoreOS，搭配 Docker、文件系统和其他设置的正确版本和可信默认值。
 
-[1]: /1.11/networking/load-balancing-vips/
-[2]: /1.11/networking/
+[1]:/cn/1.11/networking/load-balancing-vips/
+[2]:/cn/1.11/networking/
 [4]: https://support.mesosphere.com/hc/en-us/articles/206474745-How-to-reserve-resources-for-certain-frameworks-in-Mesos-cluster-
-[5]: /1.11/administering-clusters/convert-agent-type/
+[5]:/cn/1.11/administering-clusters/convert-agent-type/

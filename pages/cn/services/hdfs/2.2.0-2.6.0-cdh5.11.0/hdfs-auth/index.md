@@ -45,7 +45,7 @@ dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 <<<<<<< HEAD
 **提示：** 您可以使用 [DC/OS 密钥存储库](/cn/1.11/security/ent/secrets/) 保护密钥对。
 =======
-**提示：** 您可以使用 [DC/OS 密钥存储库](/1.11/security/ent/secrets/) 保护密钥对。
+**提示：** 您可以使用 [DC/OS 密钥存储库](/cn/1.11/security/ent/secrets/) 保护密钥对。
 >>>>>>> c64725e8abdf15dd384b89db6535a2113ec4dfa6
 >>>>>>> staging
 

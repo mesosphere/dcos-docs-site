@@ -167,6 +167,6 @@ enterprise: false
 ```
  ssh core@<agent-node-hostname>
 ```
- [1]: /1.11/cli/command-reference/
+ [1]:/cn/1.11/cli/command-reference/
  [2]: #unix
  [3]: #windows

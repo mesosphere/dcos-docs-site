@@ -159,5 +159,5 @@ enterprise: false
 
  [1]:https://www.docker.com
  [2]:https://hub.docker.com
- [3]: /1.11/installing/
- [4]: /1.11/cli/install/
+ [3]:/cn/1.11/installing/
+ [4]:/cn/1.11/cli/install/

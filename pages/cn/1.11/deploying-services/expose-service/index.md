@@ -76,7 +76,7 @@ DC/OS 代理节点在 [安装](/cn/1.11/installing/)过程中可被指定为[公
 
 1. 设置边缘负载均衡器和服务发现机制。
 
-   - AWS 用户：如果您通过使用 [AWS CloudFormation 模板] 安装了 DC/OS(/1.11/installing/evaluation/cloud-installation/aws/)，则会包含 ELB。但是，您则必须在公共 ELB 上重新设置运行状况检查，以将应用程序公开到应用定义中指定的端口（例如，端口 80）。
+   - AWS 用户：如果您通过使用 [AWS CloudFormation 模板] 安装了 DC/OS(/cn/1.11/installing/evaluation/cloud-installation/aws/)，则会包含 ELB。但是，您则必须在公共 ELB 上重新设置运行状况检查，以将应用程序公开到应用定义中指定的端口（例如，端口 80）。
    - 所有其他用户：您可以使用 [Marathon-LB](/cn/1.11/networking/marathon-lb/)，一种基于 HAProxy 的快速代理程序和负载均衡器。
 
 1. 转到您的公共代理节点，查看网站运行并找到您的公共代理 IP。将其输入到您的浏览器中。

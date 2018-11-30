@@ -77,7 +77,7 @@ menuWeight: 30
         # perform server certificate verification (including hostname verification).
         # If you are using the community-supported version of DC/OS, you must
         # configure Admin Router with a custom TLS server certificate, see
-        # /1.11/administering-clusters/. This step
+        #/cn/1.11/administering-clusters/. This step
         # is not required for DC/OS Enterprise.
         #
         # Explanation for the parameters in the following `server` definition line:

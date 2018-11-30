@@ -146,7 +146,7 @@ export MSS_MARATHON_API=http://localhost/marathon
 [2]:http://microscaling.com
 [3]:http://azure.microsoft.com
 [4]:https://azure.microsoft.com/en-us/pricing/free-trial/
-[5]: /1.11/installing/
+[5]:/cn/1.11/installing/
 [6]:https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/
 
 [8]:https://www.ruby-lang.org/en/documentation/installation/
