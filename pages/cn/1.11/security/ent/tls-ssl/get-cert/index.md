@@ -5,7 +5,7 @@ menuWeight: 100
 excerpt: 获取 DC/OS CA 捆绑包
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 
 要确保您与 DC/OS 群集通信而不是与其他潜在恶意方通信，您必须获得适当的信任锚。此信任锚是 DC/OS CA 捆绑包的一部分，它是根 CA 证书的集合。在最简单的案例中，它只包含一个项目：对应于 DC/OS 证书颁发机构的根 CA 证书。您可以使用以下方法之一获取 DC/OS CA 捆绑包：
@@ -22,11 +22,7 @@ DC/OS CA 捆绑包位于文件系统路径 `/run/dcos/pki/CA/ca-bundle.crt` 的�
 
 # <a name="curl"></a>使用 curl 检索 DC/OS CA 捆绑包
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>警告：</strong>如果您正在使用 `curl` 检索 DC/OS CA 捆绑包，则必须使用 `-k`/`--insecure` 标记。如果通过 HTTPS 执行通信，则此标记会禁用服务器证书验证。这允许<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间人攻击</a>，其中，网络路径中的恶意方可能发送错误的 CA 捆绑包，导致您信任 DC/OS 群集外部的实体。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>警告：</strong>如果您正在使用 <tt>curl</tt> 检索 DC/OS CA 捆绑包，则必须使用 <tt>-k</tt>/<tt>--insecure</tt> 标记。如果通过 HTTPS 执行通信，则此标记会禁用服务器证书验证。这允许<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间人攻击</a>，其中，网络路径中的恶意方可能发送错误的 CA 捆绑包，导致您信任 DC/OS 群集外部的实体。</p>
 
 
 **先决条件：**您必须已[安装 DC/OS CLI](/cn/1.11/cli/install/)，以在以下命令中检索群集 URL。

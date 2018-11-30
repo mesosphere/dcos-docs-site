@@ -7,7 +7,7 @@ excerpt: 配置 Chrome 和 Firefox 以信任您的 DC/OS CA。
 beta: true
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 
 **先决条件：**[DC/OS CA 根证书](/cn/1.11/security/ent/tls-ssl/get-cert/)的本地副本。
@@ -31,10 +31,10 @@ enterprise: true
 1. 在 **Keychain Access** 对话框中，选择 **System**。
 
 1. 使用以下方法之一将 `dcos-ca.crt` 文件添加到 **System** 验证序号链：
- - 拖放文件
- - **文件** -> **导入项目** 
+    - 拖放文件
+    - **File > Import Items** 
 
-1. 双击验证序号链中的证书，展开 **信任** 部分，并选择**使用此证书时** **始终信任**。
+1. 双击验证序号链中的证书，展开 **Trust** 部分，并选择**Always Trust** **When using this certificate**。
 
 1. 关闭对话框。
 
@@ -60,11 +60,11 @@ enterprise: true
 
 1. 导航至您的 `dcos-ca.crt` 文件，选择它，并单击 **Open**。
 
-1. 单击 **下一步**。
+1. 单击 **Next**。
 
 1. 确保选中 **Place all certificates in the following store** 选项，以及**Certificate Store** 是 **Trusted Root Certification Authorities**。
 
-1. 单击 **下一步**。
+1. 单击 **Next**。
 
 1. 单击 **Finish**。
 
