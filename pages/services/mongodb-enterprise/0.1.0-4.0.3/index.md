@@ -19,12 +19,17 @@ DC/OS {{ model.techName }} offers the following benefits:
 3. MongoDB provides high performance, high availability, and automatic scaling.
 
 ## DC/OS {{ model.techName }}'s main features are:
-1. High Performance: MongoDB Support for embedded data models reduces I/O activity on database system.Indexes support faster queries and can include keys from embedded documents and arrays.
-2. Rich Query Language: MongoDB support read and write operations, Data Aggregation, Text Search and Geospatial Queries.
-3. High Availability: MongoDB’s replication facility, called replica set, provides automatic failover and data redundancy.
-4. Horizontal Scalability: MongoDB provides horizontal scalability as part of its core functionality. Sharding distributes data across a cluster of machines. MongoDB supports creating zones of data based on the shard key. In a balanced cluster, MongoDB directs reads and writes covered by a zone only to those shards inside the zone.
-5. Multiple Storage Engine: MongoDB supports multiple storage engines such as WiredTiger Storage Engine (including support for Encryption at Rest), In-Memory Storage Engine, MMAPv1 Storage Engine.
-6. MongoDB provides pluggable storage engine API that allows third parties to develop storage engines for MongoDB.
+**1. High Performance:** MongoDB Support for embedded data models reduces I/O activity on database system.Indexes support faster queries and can include keys from embedded documents and arrays.
+
+**2. Rich Query Language:** MongoDB support read and write operations, Data Aggregation, Text Search and Geospatial Queries.
+
+**3. High Availability:** MongoDB’s replication facility, called replica set, provides automatic failover and data redundancy.
+
+**4. Horizontal Scalability:** MongoDB provides horizontal scalability as part of its core functionality. Sharding distributes data across a cluster of machines. MongoDB supports creating zones of data based on the shard key. In a balanced cluster, MongoDB directs reads and writes covered by a zone only to those shards inside the zone.
+
+**5. Multiple Storage Engine:** MongoDB supports multiple storage engines such as WiredTiger Storage Engine (including support for Encryption at Rest), In-Memory Storage Engine, MMAPv1 Storage Engine.
+
+**6. Storage Engine API:** MongoDB provides pluggable storage engine API that allows third parties to develop storage engines for MongoDB.
 
 ## Dynamic Scaling Out
 

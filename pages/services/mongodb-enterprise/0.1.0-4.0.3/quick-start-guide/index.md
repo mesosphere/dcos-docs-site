@@ -14,13 +14,13 @@ menuWeight: 15
 
 * OpsManager Base URI (Host URL or Path where the OpsManager is hosted)
 
-* Project ID (obtained after creating a project on OpsManager UI)
+* Project ID (Obtained after creating a project on OpsManager UI)
 
-* Generate or use an existing Public API Key.
+* Generate new or use an existing Public API Key from OpsManager.
 
 * Username of the Registered user over OpsManager Organisation.
 
-* Add the IP of host to the OpsManager API Whitelist.
+* Whitelist the IP of host in the OpsManager.
 
 
 ## Install MongoDB OpsManager
@@ -36,11 +36,19 @@ Below are the steps to install MongoDB using the DC/OS Catalog Web Interface:
 
 [<img src="../img/Catalog_Service_View.png" alt="Catalog Service View"/>](../img/Catalog_Service_View.png)
 
+ _Figure 1. -Catalog view of mongodbservice for installation
+
 [<img src="../img/Config_page.png" alt="Config Page"/>](../img/Config_page.png)
+
+ _Figure 2. -Edit configuration to install  mongodbservice
 
 [<img src="../img/Running_Stage.png" alt="Running Stage"/>](../img/Running_Stage.png)
 
+ _Figure 3. -Running instances of  mongodbservice
+
 [<img src="../img/Successful_execution.png" alt="Successful Execution"/>](../img/Successful_execution.png)
+
+ _Figure 4. -Log view of successful running of  mongodbservice instance
 
 The following command will launch the install via the DC/OS CLI:
 

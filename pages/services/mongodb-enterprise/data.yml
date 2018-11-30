@@ -1,10 +1,10 @@
 # Common values:
 
-packageName: MongoDB
-serviceName: MongoDB
+packageName: mongodbservice
+serviceName: mongodb 
 techName: MongoDB
 techShortName: MongoDB
-minNodeCount: three
+minNodeCount: one
 # Values specific to certain templates:
 
 operations:

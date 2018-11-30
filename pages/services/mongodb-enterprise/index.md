@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: MongoDB
-title: MongoDB 0.1.0-4.0.3  
+title: MongoDB   
 menuWeight: 87
 excerpt:
 featureMaturity:

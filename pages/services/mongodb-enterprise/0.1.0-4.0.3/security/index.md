@@ -117,6 +117,8 @@ For TLS/SSL configuration while launching MongoDB service from catalog:
   Now, Launch the service with the required number of nodes count.
   
   [<img src="../img/Ssl_enabled_config.png" alt="Configuration Enabling SSL"/>](../img/Ssl_enabled_config.png)
+
+   _Figure 1. - Enable ssl
   
   After successful deployment of the service, go to **MongoDB OpsManager**. 
   
@@ -126,24 +128,32 @@ For TLS/SSL configuration while launching MongoDB service from catalog:
   
   3. Click 'Next' on the pop-up menu appeared for Authentication & TLS/SSL Settings.
   
-  [<img src="../img/tls_setting_screen1.png" alt="SSL Settings Screen1"/>](../img/tls_setting_screen1.png)
+  [<img src="../img/TLS_setting_screen1.png" alt="SSL Settings"/>](../img/TLS_setting_screen1.png)
+  
+   _Figure 2. - Authentication & TLS Settings
   
   4. Swipe `Enable TLS/SSL` to the right i.e. 'Yes'. It will ask for TLS/SSL CA file path.
   
   [<img src="../img/tls_setting_screen2.png" alt="SSL Settings Screen2"/>](../img/tls_setting_screen2.png)
+
+   _Figure 3. - Provide CA absolute path
   
   5. Enter the path for the certificate that is created under the sandbox. Default path for the certification directory is `/mnt/mesos/sandbox/certs/CAs/node.ca`. Enter the path and click 'Next'.
   
   6. In the sslPEMKeyFile column, enter the path for the PEM Key file generated to enable TLS/SSL. Default path for the PEM Key file is `mnt/mesos/sandbox/certs/mongodb.pem`. Enter the path and click 'Next'.
   
   [<img src="../img/ssl_settings_screen3.png" alt="SSL Settings Screen3"/>](../img/ssl_settings_screen3.png)
-  
+
+   _Figure 4. - Provide ssl PEM file absolute path for replicaset
+ 
   7. Configure certificate path for OpsManager Agents. Default path for the PEM Key file is `mnt/mesos/sandbox/certs/mongodb.pem`. Enter the path and click 'Save'.
   
   [<img src="../img/ssl_settings_screen4.png" alt="SSL Settings Screen4"/>](../img/ssl_settings_screen4.png)
+
+   _Figure 5. - Provide ssl PEM file absolute path for agents
   
   8. The TLS/SSL configuration for the project is completed. You may connect to the instance using the CA File and PEM key file as provided while enabling the TLS/SSL configuration.
   
   [<img src="../img/TLS_Config_connect.png" alt="With TLS"/>](../img/TLS_Config_connect.png)
   
-  
+   _Figure 6. - Connect to mongodb cluster
