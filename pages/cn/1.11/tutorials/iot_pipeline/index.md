@@ -4,10 +4,11 @@ navigationTitle: 部署负载均衡数据管线
 title: 部署负载均衡数据管线
 menuWeight: 3
 excerpt: 教程 - 在 DC/OS 上构建完整的负载均衡数据管线
-
 ---
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>重要信息：</b>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</td> </tr> </table>
+
+更新
 
 本教程演示如何在大约 15 分钟内在 DC/OS 上构建完整的负载均衡数据管线！
 
@@ -46,13 +47,13 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 * [DC/OS](/cn/1.11/installing/) 或 [DC/OS Enterprise](/cn/1.11/installing/) 已安装，至少具有 5 个[专用代理节点][6] 和 1 个[公共代理节点][6]。
 
- 如果您正在使用 DC/OS Enterprise 群集运行本教程，则需要确保将[安全模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)设置为宽容或严格。默认情况下，DC/OS 安装在宽容安全模式下。
+  如果您正在使用 DC/OS Enterprise 群集运行本教程，则需要确保将[安全模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)设置为宽容或严格。默认情况下，DC/OS 安装在宽容安全模式下。
 
 * [DC/OS CLI](/cn/1.11/cli/install/) 已安装。
 * 公共代理节点的公共 IP 地址。在声明了公共代理节点的 DC/OS 已安装后，可以[导航到公共代理节点的公共 IP 地址][9]。
 * Git：
- * **macOS：**从 [Git 下载](http://git-scm.com/download/mac)获取安装程序。
- * **Unix/Linux：**请参阅这些 [安装说明](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
+  * **macOS：** 从 [Git 下载](http://git-scm.com/download/mac)获取安装程序。
+  * **Unix/Linux：** 请参阅这些 [安装说明](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 
 ## 安装 DC/OS 服务
 
@@ -64,11 +65,11 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 3. 单击 **Catalog** 选项卡。查找并单击 *marathon-lb** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。当模态警报提示时，单击 **OPEN SERVICE**。
 
-如果您在 Enterprise 群集上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/services/marathon-lb/mlb-auth/)进行安装。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
+    如果您在 Enterprise 群集上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/services/marathon-lb/mlb-auth/)进行安装。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
 
-4. 单击 **Catalog** 选项卡。单击 **zeppelin** 软件包，然后单击 **REVIEW & RUN** 按钮。
- 1. 单击左侧的 **spark** 选项卡，并将 `cores_max` 设置为 `8`。
- 2. 单击 **REVIEW AND RUN**，然后单击 **RUN**。单击 **OPEN SERVICE**。
+1. 单击 **Catalog** 选项卡。单击 **zeppelin** 软件包，然后单击 **REVIEW & RUN** 按钮。
+    1. 单击左侧的 **spark** 选项卡，并将 `cores_max` 设置为 `8`。
+    2. 单击 **REVIEW AND RUN**，然后单击 **RUN**。单击 **OPEN SERVICE**。
 
 5. 在 DC/OS 上部署您的微服务时，单击 **Services**（服务**）选项卡。当节点上线时，您将看到“运行状况”状态从“空闲”转为“不佳”，最后变为良好状态。这可能需要几分钟。
 
@@ -82,14 +83,10 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 1. 导航至 [Tweeter](https://github.com/mesosphere/tweeter/) GiThub 存储库并保存 `/tweeter/tweeter.json` Marathon 应用定义文件。
 
-2. 将 `HAPROXY_0_VHOST` 定义添加到 `tweeter.json` 文件中，该定义使用[公共代理][9] 节点的公共 IP 地址。
+1. 将 `HAPROXY_0_VHOST` 定义添加到 `tweeter.json` 文件中，该定义使用[公共代理][9] 节点的公共 IP 地址。
 
-    <table class=“table” bgcolor=#858585>
-    <tr> 
-    <td align=justify style=color:white><strong>重要信息：</strong>您必须删除前面的“http://”和后面的“/”。
-    </td> 
-    </tr> 
-    </table>
+    <p class="message--important"><strong>重要信息：</strong>您必须删除前面的“http://”和后面的“/”。
+    <p>
 
     ```json
     ...
@@ -101,7 +98,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
     ...
     ```
 
- 在本示例中，DC/OS 群集正在 AWS 上运行：
+    在本示例中，DC/OS 群集正在 AWS 上运行：
 
     ```bash
     ...
@@ -113,31 +110,31 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
     ...
     ```
 
-3. 导航至包含已修改 `tweeter.json` 文件的目录。将 Tweeter 安装及部署到您的 DC/OS 群集中。
+1. 导航至包含已修改 `tweeter.json` 文件的目录。将 Tweeter 安装及部署到您的 DC/OS 群集中。
 
     ```bash
     dcos marathon app add tweeter.json
     ```
 
- `tweeter.json` 中的 `instances` 参数指定应用程序实例的数量。使用以下命令为应用程序增容或减容：
+   `tweeter.json` 中的 `instances` 参数指定应用程序实例的数量。使用以下命令为应用程序增容或减容：
 
     ```bash
     dcos marathon app update tweeter instances=<number_of_desired_instances>
     ```
 
- 在本示例中，服务通过群集节点 `node-0.cassandra.mesos:9042` 与 Cassandra 进行通信，通过群集节点 `broker-0.kafka.mesos:9557` 与 Kafka 进行通信。由于 `tweeter.json` 应用定义文件中的 `HAPROXY_0_VHOST` 定义，流量通过 Marathon-LB 传输。
+   在本示例中，服务通过群集节点 `node-0.cassandra.mesos:9042` 与 Cassandra 进行通信，通过群集节点 `broker-0.kafka.mesos:9557` 与 Kafka 进行通信。由于 `tweeter.json` 应用定义文件中的 `HAPROXY_0_VHOST` 定义，流量通过 Marathon-LB 传输。
 
-4. 转到 **Services** 选项卡，验证您的应用程序是否正常运行。
+1. 转到 **Services** 选项卡，验证您的应用程序是否正常运行。
 
- ![已部署的 Tweeter](/cn/1.11/img/tweeter-services7.png)
+    ![已部署的 Tweeter](/cn/1.11/img/tweeter-services7.png)
 
- 图 2. 已部署的 Tweeter
+    图 2. 已部署的 Tweeter
 
-5. 导航到[公共代理][9] 节点端点以查看 Tweeter UI 并发布一篇推文。在本例中，您将浏览器指向 `52.34.136.22`。
+1. 导航到[公共代理][9] 节点端点以查看 Tweeter UI 并发布一篇推文。在本例中，您将浏览器指向 `52.34.136.22`。
 
- ![Tweeter][14]
+    ![Tweeter][14]
 
- 图 3. “Hello world”推文
+    图 3. “Hello world”推文
 
 ## 发布 10 万条推文
 
@@ -206,21 +203,19 @@ Tweeter 应用程序使用安装在每个 DC/OS 节点上的服务发现和负�
 
 6. 运行 **Top tweeter** SQL 查询，其使用上一步中创建的表来计算每个用户的推文数。当新推文进入时，表会不断更新，因此重新运行查询会每次产生不同的结果。
 
-![Top Tweeters][16]
-
-图 6. Top Tweeters
 
 
 
- [1]: /services/cassandra/
- [2]: /services/kafka/
- [3]: /services/spark/
- [4]:http://zeppelin.apache.org/
- [5]: https://github.com/mesosphere/marathon-lb
- [6]: /1.11/overview/concepts/
- [9]: /1.11/administering-clusters/locate-public-agent/
- [11]: /1.11/cli/command-reference/
- [12]: /services/marathon-lb/
- [13]: https://github.com/mesosphere/tweeter
- [14]: /1.11/img/tweeter.png
- [16]: /1.11/img/top-tweeter.png
+
+[1]: /cn/services/cassandra/
+[2]: /cn/services/kafka/
+[3]: /cn/services/spark/
+[4]: http://zeppelin.apache.org/
+[5]: https://github.com/mesosphere/marathon-lb
+[6]: /cn/1.11/overview/concepts/
+[9]: /cn/1.11/administering-clusters/locate-public-agent/
+[11]: /cn/1.11/cli/command-reference/
+[12]: /cn/services/marathon-lb/
+[13]: https://github.com/mesosphere/tweeter
+[14]: /cn/1.11/img/tweeter.png
+

@@ -6,11 +6,8 @@ excerpt: 调试分布式系统中的应用程序部署问题
 menuWeight: 55
 ---
 
-<!-- i. Support Disclaimer -->
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>重要信息：</b>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，因此不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</td> </tr> </table>
-
-<!-- ii. Intro/Set Expectations for this Tutorial -->
 
 本教程仅旨在提供在 DC/OS 上部署期间和之后调试应用程序的自上而下的简介。它不应被视为在 DC/OS 上进行调试的详尽资源，而是一个起点。
 

@@ -6,11 +6,7 @@ title: 教程 - 部署第一个应用程序
 menuWeight: 3
 ---
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的仅仅是为了演示功能，它可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您应该进行调整、验证和测试。</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
 欢迎阅读 DC/OS 101 教程第 3 部分
 
@@ -42,7 +38,7 @@ menuWeight: 3
 您验证了应用程序正在运行并已与先前部署的 Redis 服务成功连接。
 
 # 深入研究
-您刚刚直接使用 [Marathon] 部署了第一个应用程序(https://mesosphere.github.io/marathon/)。另请注意，Redis 服务本身是通过 Marathon 运行的。
+您刚刚直接使用 [Marathon](https://mesosphere.github.io/marathon/) 部署了第一个应用程序。另请注意，Redis 服务本身是通过 Marathon 运行的。
 Marathon 被称为 DC/OS 的初始化系统，因为其主要工作是支持长时间运行服务。
 Marathon 还允许扩展或卸载应用程序。
 除 DC/OS GUI 以外，还有多种选项可以在 Marathon 上部署和维护应用程序：

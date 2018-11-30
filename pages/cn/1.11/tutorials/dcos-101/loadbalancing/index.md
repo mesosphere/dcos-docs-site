@@ -7,12 +7,7 @@ menuWeight: 8
 ---
 
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的仅仅是为了演示功能，它可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您应该进行调整、验证和测试。</td> 
-</tr> 
-</table>
-欢迎阅读 DC/OS 101 教程第 8 部分。
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
 
 # 先决条件
@@ -33,7 +28,7 @@ menuWeight: 8
 
   `dcos marathon app update /dcos-101/app2 instances=2`
 * **Marathon-LB**
- *像以前一样通过 `http://<public-node>10000` 检查 app2。重复执行此操作时，您应该看到 app2 的不同实例所提供的请求。
+ 像以前一样通过 `http://<public-node>10000` 检查 app2。重复执行此操作时，您应该看到 app2 的不同实例所提供的请求。
  * 您还也可以通过 `http://<public-node>:9090/haproxy?stats` 检查 Marathon-LB 统计数据
 * **命名 VIP**
  * 通过 SSH 连接到主导管理节点：`dcos node ssh --master-proxy --leader`

@@ -8,8 +8,8 @@ excerpt: 教程 - 使用 DC/OS Web 界面和 Marathon HTTP API 定义标签
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>重要信息：</b>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</td> </tr> </table>
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
+
 
 本教程说明如何使用 DC/OS Web 界面和 Marathon HTTP API 定义标签，以及如何根据标签值条件查询与正在运行的应用程序和作业有关的信息。
 
@@ -22,8 +22,8 @@ enterprise: false
 ## DC/OS CLI
 
 您还可以在应用定义的 `labels` 参数中指定标签值。
-
- vi myapp.json
+```
+  vi myapp.json
 
     {
  "id": “myapp”，
@@ -38,6 +38,7 @@ enterprise: false
  "COST_CENTER": “0001”
         }
     }
+```
 
 然后，从 DC/OS CLI 部署：
 
@@ -60,24 +61,24 @@ dcos marathon app add <myapp>.json
 ## DC/OS CLI
 
 您还可以在作业定义的 `labels` 参数中指定标签值。
-
+```
  vi myjob.json
 
-     ```json
-        {
-          "id": "my-job",
-          "description": "A job that sleeps",
-          "labels": {
-            "department": "marketing"
-          },
-          "run": {
-            "cmd": "sleep 1000",
-            "cpus": 0.01,
-            "mem": 32,
-            "disk": 0
-          }
-        }
-     ```
+
+  {
+    "id": "my-job",
+    "description": "A job that sleeps",
+    "labels": {
+      "department": "marketing"
+    },
+    "run": {
+      "cmd": "sleep 1000",
+      "cpus": 0.01,
+      "mem": 32,
+      "disk": 0
+    }
+  }
+```
 
 然后，从 DC/OS CLI 部署：
 
@@ -91,11 +92,11 @@ dcos job add <myjob>.json
 部署并启动应用程序后，您可以通过 DC/OS UI 的 **Services** 选项卡按标签进行筛选。您还可以使用 DC/OS CLI 中的 Marathon HTTP API，根据标签值条件查询正在运行的应用程序。
 
 下面的代码片段显示了向 Marathon HTTP API 发出的 HTTP 请求。此示例中使用 curl 程序提交 HTTP GET 请求，但您可以使用任何能够发送 HTTP GET/PUT/DELETE 请求的程序。您可以看到 HTTP 端点是 `https://52.88.210.228/marathon/v2/apps`，以及随 HTTP 请求发送的参数包括标签条件 `?label=COST_CENTER==0001`：
-
+```
  curl --insecure \
  > https://52.88.210.228/marathon/v2/apps?label=COST_CENTER==0001 \
  > | python -m json.tool | more
-
+```
 您还可以指定多个标签条件，如下所示：`?label=COST_CENTER==0001,COST_CENTER==0002`
 
 在以上示例中，您收到的响应将仅包括具有定义值为 `0001` 的 `COST_CENTER` 的应用程序。还包括资源度量标准，例如 CPU 共享数和分配的内存量。在响应的底部，您可以看到部署此应用程序的日期/时间，可用于计算计费或退费目的的正常运行时间。
