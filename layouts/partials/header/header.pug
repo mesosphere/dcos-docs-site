@@ -18,8 +18,9 @@ header(class='header')
             - itemClass['header__menu-item--active'] = isItemActive(val.path)
             li(class=itemClass)
               a(href=val.path)!= val.title
-        li(class='header__menu-item')
-          a(href='https://support.mesosphere.com') Support
+        if (!isChinese)
+          li(class='header__menu-item')
+            a(href='https://support.mesosphere.com') Support
   include localization-dropdown.pug
   section(class='header__search', role='search')
       form(class='header__search-form', action='/search/', method='GET')

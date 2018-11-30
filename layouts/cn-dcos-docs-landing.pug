@@ -72,8 +72,6 @@ html(lang='en')
                   - itemClass['header__menu-item--active'] = val.path == '/cn'
                   li(class=itemClass)
                     a(href=val.path)!= val.title
-              li(class='header__menu-item')
-                a(href='https://support.mesosphere.com') Support
         nav(id="landing-localization" class='localization')
           div(id="landing-localization-current" class='localization-current')
             strong(class='localization-language')!= isChinese ? '中文 (简体)' : 'English'
