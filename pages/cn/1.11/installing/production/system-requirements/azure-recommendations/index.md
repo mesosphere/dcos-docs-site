@@ -16,7 +16,7 @@ excerpt: 针对 Azure 的建议
 有关磁盘配置的详细信息，请参阅以下部分。应使用监控（例如，带有 Prometheus 的 Node Exporter）识别和警告工作负载接近 Azure 定义的限制范围。
 
 ## 网络 
-Azure 上的原始网络性能大致由 VM 大小决定。具有 8 个或更多内核的 VM（如 `Standard_D8_v3`）可用于 [Azure 加速网络 (SR-IOV)](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli)。使用 SR-IOV，而不是依靠 Azure 虚拟机管理程序 vswitch，延迟更低、可用性更高且带宽更稳定。例如，在我们的测试中，不使用 SR-IOV 的 `Standard_D16s_v3` 可以在两个虚拟机之间推送大约 450MB/s 的数据，而相同大小的机器在使用 SR-IOV 后，可推送将近 1000MB/s 的数据。因此，应尽可能部署 SR-IOV，并且应对实例大小进行基准测试（例如，使用 [iperf3]）(https://github.com/esnet/iperf)），确保满足您的网络要求。
+Azure 上的原始网络性能大致由 VM 大小决定。具有 8 个或更多内核的 VM（如 `Standard_D8_v3`）可用于 [Azure 加速网络 (SR-IOV)](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli)。使用 SR-IOV，而不是依靠 Azure 虚拟机管理程序 vswitch，延迟更低、可用性更高且带宽更稳定。例如，在我们的测试中，不使用 SR-IOV 的 `Standard_D16s_v3` 可以在两个虚拟机之间推送大约 450MB/s 的数据，而相同大小的机器在使用 SR-IOV 后，可推送将近 1000MB/s 的数据。因此，应尽可能部署 SR-IOV，并且应对实例大小进行基准测试（例如，使用 [iperf3](https://github.com/esnet/iperf)），确保满足您的网络要求。
 
 另外，虽然每个虚拟机都支持多个 NIC，但是带宽取决于 VM，而不是 NIC。因此，将网络分割为控制和数据板块（或其他网络）可能对组织或安全目的有用，需要 Linux 级流量成形才能实现带宽控制。
 
