@@ -8,20 +8,17 @@ excerpt: Mesos DNS 故障排除
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
+## 如何查看 Mesos-DNS 版本？
 
+## 您可以通过 `mesos-dns -version` 查看 Mesos-DNS 版本。
 
-# 如何查看 Mesos-DNS 版本？
+<p class="message--important"><strong>重要信息: </strong> 我们不建议独立于 DC/OS 升级 Mesos-DNS。请使用随 DC/OS 版本发送的 Mesos-DNS 版本。</p>
 
-# 您可以通过 `mesos-dns -version` 查看 Mesos-DNS 版本。
-
-**注意：** 我们不建议独立于 DC/OS 升级 Mesos-DNS。请使用随 DC/OS 版本发送的 Mesos-DNS 版本。
-
-# 如果 Mesos-DNS 未能启动，该怎么办？
+## 如果 Mesos-DNS 未能启动，该怎么办？
 
 检查端口 53 和端口 8123 是否可用，确保未被其他进程使用。
 
-# 如果我的代理节点无法连接到 Mesos-DNS，该怎么办？
+## 如果我的代理节点无法连接到 Mesos-DNS，该怎么办？
 
 * 确保端口 53 未被集群上的防火墙规则阻挡。
 

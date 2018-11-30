@@ -34,7 +34,7 @@ DC/OS 1.11.3 包括以下内容：
 - DCOS-19427 - CockroachDB：将集群版本设为 1.1。[enterprise type="inline" size="small" /]
 - DCOS_OSS-2417 和 DCOS_OSS-3548 - 支持 CoreOS 1688.5.3。
 - 为 1.11+1.13.0+7e0cb54f 更新了 DC/OS UI Enterprise [开源更改日志](https://github.com/dcos/dcos-ui/blob/1.11%2Bv1.13.0/CHANGELOG.md) 和 [EE 插件](https://github.com/mesosphere/dcos-ui-plugins-private/compare/v1.11.1...1.11+1.13.0+7e0cb54f)。[enterprise type="inline" size="small" /]
-- 更新了 [1.11+v1.14.0] 的 DC/OS UI(https://github.com/dcos/dcos-ui/blob/1.11+v1.14.0/CHANGELOG.md)。
+- 更新了 [1.11+v1.14.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.14.0/CHANGELOG.md) 的 DC/OS UI。
 
 
 **注意：** 

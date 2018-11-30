@@ -8,7 +8,6 @@ excerpt: 了解负载均衡和虚拟 IP
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 DC/OS 提供东西向第 4 层负载均衡器 (Minuteman)，可实现多层微服务架构。它充当 TCP 第 4 层负载均衡器，利用 Linux 内核中的负载均衡功能实现接近线路速率的吞吐量和延迟。
@@ -20,7 +19,7 @@ DC/OS 提供东西向第 4 层负载均衡器 (Minuteman)，可实现多层微�
 - 尊重运行状况检查。
 - 自动为服务 FQDN 分配虚拟 IP。
 
-您可以通过在应用定义中分配 [VIP] 来使用第 4 层负载均衡器(/1.11/networking/load-balancing-vips/virtual-ip-addresses/)。通过VIP创建一个任务或一组任务后，它们将自动可用于集群中的所有节点，包括管理节点。
+您可以通过在应用定义中分配 [VIP](/cn/1.11/networking/load-balancing-vips/virtual-ip-addresses/) 来使用第 4 层负载均衡器。通过VIP创建一个任务或一组任务后，它们将自动可用于集群中的所有节点，包括管理节点。
 
 启动一组任务时，DC/OS 将它们分配给集群中的一组节点。在每个集群代理节点上运行的 Minuteman 实例对负载均衡决策进行协调。每个代理节点上的 Minuteman 对 Linux 内核中的 IPVS 模块进行编程，其中所有任务的条目与给定服务相关联。这使得 Linux 内核可以按接近线路速率的速度进行负载均衡决策。Minuteman 跟踪这些任务的可用性和可达到性，并保持 IPVS 数据库与所有运行良好的后端均更新到最新的状态，意味着 Linux 内核可为每个进行负载均衡的请求选择实时后端。
 
@@ -42,7 +41,7 @@ DC/OS 提供东西向第 4 层负载均衡器 (Minuteman)，可实现多层微�
 
 这可确保返回的 HTTP 状态代码为 200。它还假定您的应用程序邦定到本地主机。`${PORT0}` 被 Marathon 设置为变量。您不应使用 TCP 运行状况检查，因为它们可能提供有关服务活跃度的误导性信息。
 
-**注意：** Docker 容器命令运行状况检查在 Docker 容器之内运行。例如，如果使用 cURL 检查 NGINX，则 NGINX 容器必须安装 cURL，或者容器必须 `/opt/mesosphere` 在 RW 模式下挂载。
+<p class="message--note"><strong>注意: </strong> Docker 容器命令运行状况检查在 Docker 容器之内运行。例如，如果使用 cURL 检查 NGINX，则 NGINX 容器必须安装 cURL，或者容器必须 <tt>/opt/mesosphere</tt> 在 RW 模式下挂载。</p>
 
 ## 故障排除
 

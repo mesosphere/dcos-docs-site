@@ -8,7 +8,6 @@ excerpt: 了解 DC/OS 域名服务发现
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 DC/OS 提供基于 DNS 的分布式容错性服务发现机制。
 
@@ -17,6 +16,7 @@ DNS 由 DC/OS 中的两个不同组件 [mesos-dns](/cn/1.11/networking/DNS/mesos
 每个 TLD 均由多个区域组成。每个 DC/OS 服务从这些不同区域获取多个 FQDN 条目。通过 Marathon 在 DC/OS 上启动的每个服务都以下列形式获得 FQDN，即 `<service-name>.mesos`. Moreover, **all** running services launched on DC/OS get an FQDN based upon the service that launched it, in the form `<service-name>.<group-name>.<framework-name>.mesos`。
 
 <a name="Example1"></a>
+
 假设以下 UCR 容器在 DC/OS 上启动：
 ```json
 {

@@ -5,9 +5,7 @@ excerpt: 第 2 部分 - 安装第一个软件包
 title: 教程 - 安装第一个软件包
 menuWeight: 2
 ---
-
-
-<p class="message--important"><strong>重要信息：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
 欢迎阅读 DC/OS 101 教程第 2 部分。
 
@@ -24,16 +22,16 @@ menuWeight: 2
 ## 安装 Redis
 1. 在 Universe 存储库中搜索 `redis` 软件包：
 
-        ```bash
-        dcos package search redis
-        ```
- 这应该返回两个条目（`mr-redis` 和 `redis`）。您想要 `redis` 软件包，它安装单个 Redis 容器。
+      ```bash
+      dcos package search redis
+      ```
+      这应该返回两个条目（`mr-redis` 和 `redis`）。您想要 `redis` 软件包，它安装单个 Redis 容器。
       
 2. 使用此命令安装软件包：
 
-        ```bash
-        dcos package install redis
-        ```
+      ```bash
+      dcos package install redis
+      ```
 
 1. 验证 `redis` 是否正在运行。您可以使用以下任何方法：
 - 通过查看 Web 界面：Redis 任务应显示在“Service Health”选项卡中，并显示运行状况。
@@ -48,7 +46,7 @@ menuWeight: 2
 
       ```bash
       dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
-       ```
+      ```
 
 因为 Redis 在 Docker 容器中运行，所以您可以使用 `docker ps`列出所有 Docker 容器，并获取运行 redis 服务的容器的 ContainerID。
 

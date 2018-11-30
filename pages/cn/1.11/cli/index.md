@@ -53,7 +53,7 @@ DC/OS CLI 0.4.x 和 0.5.x 针对配置文件的位置使用不同的结构。
 
 DC/OS CLI 0.4.x 具有单个配置文件，默认情况下存储在 `~/.dcos/dcos.toml`。在 DC/OS CLI 0.4.x 中，您可以选择使用 [`DCOS_CONFIG`](#dcos-config) 环境变量更改配置文件的位置。
 
-DC/OS CLI 0.5.x 的每个连接集群都有一个配置文件，默认情况下存储在 `~/.dcos/cluster/<cluster_id>/dcos.toml 中。`. In DC/OS CLI 0.5.x you can optionally change the base portion (`~/.dcos`) of the configuration directory using the [`DCOS_DIR`](#dcos-cdir) 环境变量。
+DC/OS CLI 0.5.x 的每个连接集群都有一个配置文件，默认情况下存储在 `~/.dcos/cluster/<cluster_id>/dcos.toml 中。`. 在DC / OS CLI 0.5.x中，您可以选择使用更改配置目录的基本部分（`〜/ .dcos`） [`DCOS_DIR`](#dcos-cdir) 环境变量。
 
 **注意：**
 - 如果更新到 DC/OS CLI 0.5.x 并运行任何 CLI 命令，它将触发从旧配置结构到新配置结构的转换。

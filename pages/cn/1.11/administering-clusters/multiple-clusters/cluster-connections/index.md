@@ -58,7 +58,7 @@ dcosdev*     cf96739f-f800-42ea-95d7-d60acc689194  AVAILABLE     1.11.0    https
 dcos cluster rename dcosdev dcoslive
 ```
 
-**备注：** 此命令仅在本地重命名集群。服务器上的实际集群名称未更改。
+<p class="message--note"><strong>注意: </strong> 此命令仅在本地重命名集群。服务器上的实际集群名称未更改。</p>
 
 ## 删除集群
 

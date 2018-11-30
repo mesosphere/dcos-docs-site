@@ -5,6 +5,7 @@ navigationTitle: 方案 2
 excerpt: 教程 - 内存不足
 menuWeight: 11
 ---
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
 <a name=c2></a>
 
@@ -52,7 +53,7 @@ $ dcos service log marathon
 ```bash
 Mar 27 00:46:37 ip-10-0-6-109.us-west-2.compute.internal marathon.sh[5866]: [2018-03-27 00:46:36,960] INFO  Acknowledge status update for task app-oom.4af344fa-3158-11e8-b60b-a2f459e14528: TASK_FAILED (Memory limit exceeded: Requested: 64MB Maximum Used: 64MB
 ```
-**注意：**一个有用的省时提示可以是 'TASK_FAILED' 的 `grep`。
+<p class="message--note"><strong>注意：</strong>一个有用的省时提示可以是 <tt>TASK_FAILED</tt> 的 <tt>grep</tt>。</p>
 
 **现在，我们已经确认，我们已经超出了 [`app-oom.json`](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6) 中先前设置的容器内存限制 **
 

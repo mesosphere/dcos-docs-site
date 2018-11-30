@@ -16,7 +16,7 @@ enterprise: false
 dcos package install [--options=<config-file-name>.json] <servicename>
 ```
 
-使用可选 `--options` 标记指定您在 [高级配置](/1.11/deploying-services/config-universe-service/) 中创建的自定义 JSON 文件的名称。
+使用可选 `--options` 标记指定您在 [高级配置](/cn/1.11/deploying-services/config-universe-service/) 中创建的自定义 JSON 文件的名称。
 
 例如，您将使用以下命令按照默认参数安装 Chronos。
 
@@ -26,7 +26,7 @@ dcos package install chronos
 
 ## 使用 Web 界面安装服务
 
-在 DC/OS Web 界面，可以在 **Services** 或 **Catalog** 选项卡中安装服务。“目录”选项卡显示软件包 [存储库] 中所有可用的 DC/OS 服务(/1.11/administering-clusters/repo/)。“服务”选项卡为本地 DC/OS Marathon 实例提供了完整的功能界面。
+在 DC/OS Web 界面，可以在 **Services** 或 **Catalog** 选项卡中安装服务。“目录”选项卡显示软件包 [存储库] 中所有可用的 DC/OS 服务(/cn/1.11/administering-clusters/repo/)。“服务”选项卡为本地 DC/OS Marathon 实例提供了完整的功能界面。
 
 
 ### 目录选项卡

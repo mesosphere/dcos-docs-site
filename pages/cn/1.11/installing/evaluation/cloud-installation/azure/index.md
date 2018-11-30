@@ -250,6 +250,6 @@ dcos package search
 - [安装 DC/OS 命令行界面 (CLI)][2]
 - [扩展注意事项][4]
 
-[1]: /1.11/security/ent/users-groups/
-[2]: /1.11/cli/install/
+[1]: /cn/1.11/security/ent/users-groups/
+[2]: /cn/1.11/cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/

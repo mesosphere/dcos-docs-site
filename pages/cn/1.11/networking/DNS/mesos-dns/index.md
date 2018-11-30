@@ -8,7 +8,6 @@ excerpt: 了解 Mesos DNS
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 [Mesos-DNS][1] 在集群内提供服务发现。它完全集成到 DC/OS，让集群上的应用程序和服务可以通过 [域名系统 (DNS)][2] 找到彼此，类似于服务在整个互联网中发现彼此的方式。

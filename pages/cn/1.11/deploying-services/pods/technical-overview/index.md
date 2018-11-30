@@ -19,7 +19,7 @@ DC/OS以单一服务处理并代表 pod。Pod 中的容器 共享网络命名空
 # 网络
 Marathon Pod 仅支持 [DC/OS 通用容器运行时间](/cn/1.11/deploying-services/containerizers/)，该运行时间支持多种镜像格式，包括 Docker。
 
-通用容器运行时间允许每个 pod 实例的容器通过 VLAN 或专用网络共享网络命名空间并进行通信，从而简化网络。如果在 pod 定义中指定没有名称的容器网络，它将被分配到默认网络。如果您已使用 [AWS 模板](/1.11/installing/evaluation/cloud-installation/aws/) 安装了 DC/OS，则默认网络是 `dcos`。
+通用容器运行时间允许每个 pod 实例的容器通过 VLAN 或专用网络共享网络命名空间并进行通信，从而简化网络。如果在 pod 定义中指定没有名称的容器网络，它将被分配到默认网络。如果您已使用 [AWS 模板](/cn/1.11/installing/evaluation/cloud-installation/aws/) 安装了 DC/OS，则默认网络是 `dcos`。
 
 如果其他应用需要与您的 pod 通信，请在 pod 定义中指定一个端点。其他应用程序将通过访问这些端点与 Pod 进行通信。参见 [示例部分](/cn/1.11/deploying-services/pods/examples/)，了解更多信息。
 

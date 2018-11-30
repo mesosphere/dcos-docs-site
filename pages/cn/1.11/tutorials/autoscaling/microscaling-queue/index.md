@@ -7,7 +7,7 @@ menuWeight: 2
 ---
 
 
-<p class="message--important"><strong>重要信息：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
 本教程指导您在 DC/OS 集群上设置 [Microscaling Systems][2] 的 Microscaling 演示。
 
@@ -146,7 +146,7 @@ export MSS_MARATHON_API=http://localhost/marathon
 [2]:http://microscaling.com
 [3]:http://azure.microsoft.com
 [4]:https://azure.microsoft.com/en-us/pricing/free-trial/
-[5]: /1.11/installing/
+[5]:/cn/1.11/installing/
 [6]:https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/
 
 [8]:https://www.ruby-lang.org/en/documentation/installation/

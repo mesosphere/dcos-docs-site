@@ -7,7 +7,6 @@ excerpt: 授予访问 Mesos GUI 的权限
 
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 您可以授予用户访问 Mesos UI 的权限。新用户默认没有权限。
@@ -41,49 +40,49 @@ enterprise: true
 
  图 3. 插入权限字符串
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式] 选择权限字符串(/1.11/security/ent/#security-modes)，单击**添加权限**，然后单击**关闭**。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式] 选择权限字符串(/cn/1.11/security/ent/#security-modes)，单击**添加权限**，然后单击**关闭**。
 
- ## 禁用
+## 禁用
 
- ### Mesos 管理节点 UI 和 API
+### Mesos 管理节点 UI 和 API
 
-    ```bash
-    dcos:adminrouter:ops:mesos full
-    ```
+```bash
+dcos:adminrouter:ops:mesos full
+```
 
- ### 用于访问任务沙盒和日志以及执行任务的 Mesos 代理节点 API
+### 用于访问任务沙盒和日志以及执行任务的 Mesos 代理节点 API
 
-    ```bash
-    dcos:adminrouter:ops:slave full
-    ```
+```bash
+dcos:adminrouter:ops:slave full
+```
 
- ## 宽容
+## 宽容
 
- ### Mesos 管理节点 UI 和 API
+### Mesos 管理节点 UI 和 API
 
-    ```bash
-    dcos:adminrouter:ops:mesos full
-    ```
+```bash
+dcos:adminrouter:ops:mesos full
+```
 
- ### 用于访问任务沙盒和日志以及执行任务的 Mesos 代理节点 API
+### 用于访问任务沙盒和日志以及执行任务的 Mesos 代理节点 API
 
-    ```bash
-    dcos:adminrouter:ops:slave full
-    ```
+```bash
+dcos:adminrouter:ops:slave full
+```
 
- ## 严格
+## 严格
 
- ### Mesos 管理节点 UI 和 API
+### Mesos 管理节点 UI 和 API
 
-    ```bash
-    dcos:adminrouter:ops:mesos full
-    ```
+```bash
+dcos:adminrouter:ops:mesos full
+```
 
- ### 用于访问任务沙盒和日志以及执行任务的 Mesos 代理节点 API
+### 用于访问任务沙盒和日志以及执行任务的 Mesos 代理节点 API
 
-    ```bash
-    dcos:adminrouter:ops:slave full
-    ```
+```bash
+dcos:adminrouter:ops:slave full
+```
 
 现在，您可以将 DC/OS Mesos UI 的 URL 发送给用户：`http://<master-public-ip>/mesos/`。
 
@@ -120,7 +119,7 @@ enterprise: true
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
     ```
 
- **提示：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.  
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 1. 您可以将 DC/OS Mesos UI 的 URL 发送给用户：`http://<master-public-ip>/mesos/`。
 
@@ -143,7 +142,7 @@ enterprise: true
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
     ```  
 
- **提示：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 ## 宽容
 
@@ -165,7 +164,7 @@ enterprise: true
     curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
     ```
- **提示：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 1. 您可以将 DC/OS Mesos UI 的 URL 发送给用户：`http://<master-public-ip>/mesos/`。
 
@@ -188,7 +187,7 @@ enterprise: true
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
     ```  
- **提示：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 
 ## 严格
@@ -235,4 +234,4 @@ enterprise: true
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
     ```  
- **提示：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong> 要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>

@@ -8,7 +8,7 @@ excerpt: DC/OS API 参考手册
 enterprise: true
 ---
 
-DC/OS API 是由 [DC/OS 组件](/1.11/overview/architecture/components/) 支持的一组路由，通过名为 [Admin Router](/1.11/overview/architecture/components/#admin-router)的 API 网关提供。
+DC/OS API 是由 [DC/OS 组件](/cn/1.11/overview/architecture/components/) 支持的一组路由，通过名为 [Admin Router](/cn/1.11/overview/architecture/components/#admin-router)的 API 网关提供。
 
 <!-- Use html img for horizontal centering -->
 <img src="/1.11/img/dcos-api-routing.png" alt="DC/OS API 路由" style="display:block;margin:0 auto"/>

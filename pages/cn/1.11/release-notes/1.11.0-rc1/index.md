@@ -32,7 +32,7 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 <a name="new-features"></a>
 # 新特性和功能
 
-## 集成了 Apache Mesos 1.5、Marathon 1.6 和 Kubernetes 1.9。
+## 集成了 Apache Mesos 1.5, Marathon 1.6 和 Kubernetes 1.9。
 - DC/OS 1.11.0 基于 Mesos 1.5。查看 [Mesos 更改日志](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG)。
 - DC/OS 1.11.0 与最新的 1.6 版 Marathon 集成。有关 Marathon 1.6 的更多信息，请参阅 [Marathon 更改日志](https://github.com/mesosphere/marathon/blob/master/changelog.md)。
 - DC/OS 1.11.0 支持最新的 Kubernetes 1.9 容器调度程序。有关 DC/OS 上 Kubernetes 1.0 的更多信息，[查看文档](https://docs.mesosphere.com/services/kubernetes/1.0.0-1.9.3)。
@@ -70,13 +70,13 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 - DC/OS 1.11 介绍了行业标准容器存储接口 (CSI) 版本 0.1 的实现，它通过在容器编排器 (DC/OS) 和存储设备之间提供通用 API，让开发人员（Mesosphere、社区和合作伙伴）能够提高开发 DC/OS 中存储功能的效率。[enterprise type="inline" size="small" /]
 - Pod 现在支持永久卷。[查看文档](/cn/1.11/deploying-services/pods)。
 
-**注意：** 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。
+<p class="message--note"><strong>注意: </strong> 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。</p>
 
 ## 更新了 DC/OS 数据服务
 - 现在支持对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的TLS 加密。
 - 对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的故障域感知。利用故障域感知使服务高度可用，并能在需要时增加容量。
 - 新的 API 端点用于暂停 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的节点。使用此端点以空闲命令状态重新启动节点用于调试。
-- 新的 beta DC/OS Kafka ZooKeeper 服务。[查看文档](/services/beta-kafka-zookeeper)。
+- 新的 beta DC/OS Kafka ZooKeeper 服务。[查看文档](/cn/services/beta-kafka-zookeeper)。
 - 现在，您可以从 DC/OS UI 的下拉菜单中选择 DC/OS 数据服务版本。
 - 提高了所有 DC/OS 数据服务的可扩展性。
 
@@ -94,4 +94,4 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 - DCOS_OSS-1733 - 配置参数 `dns_forward_zones` 现在采用对象列表，而不是嵌套列表。
 - DCOS_OSS-2130 - `systemd-networkd` 必须启用，DC/OS 网络才能配合 CoreOS 工作。
 
-**注意：** Kubernetes 包依赖关系记录 [在此处](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install)。
+<p class="message--note"><strong>注意: </strong> Kubernetes 包依赖关系记录 <a href="https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install">在此处</a>。</p>

@@ -8,12 +8,9 @@ excerpt: 揭示 DC/OS 之外的 Mesos 区域
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
+有时您希望在 DC/OS 之外拥有可使用 DC/OS 群集之内 DNS 记录的服务。但是，DC/OS 用来揭示记录的 `.mesos` 域名不支持此操作。要启用此功能，您可以在群集之前放置一个 BIND 服务器。
 
-
-有时您希望在 DC/OS 之外拥有可使用 DC/OS 集群之内 DNS 记录的服务。但是，DC/OS 用来揭示记录的 `.mesos` 域名不支持此操作。要启用此功能，您可以在集群之前放置一个 BIND 服务器。
-
-每个 DC/OS 集群都有唯一的加密标识符。标识符的 zbase32 编码版本可在 UI 中于**概述**下找到。
+每个 DC/OS 群集都有唯一的加密标识符。标识符的 zbase32 编码版本可在 UI 中于**Overview**下找到。
 
 此例中，使用了加密集群 ID `yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo`。
 

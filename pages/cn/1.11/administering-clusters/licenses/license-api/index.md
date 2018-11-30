@@ -14,7 +14,7 @@ excerpt: 使用 License API 管理您的 DC/OS 许可证
 /licensing/v1
 ```
 
-要确定集群的 URL，请参阅 [集群访问](/cn/1.11/api/access/)。
+要确定群集的 URL，请参阅 [群集访问](/cn/1.11/api/access/)。
 
 # 格式
 

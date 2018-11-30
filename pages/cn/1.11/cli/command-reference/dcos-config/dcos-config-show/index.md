@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos config show` 命令让您显示当前 [附加的群集](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 的 DC/OS 配置文件内容。
+`dcos config show` 命令让您显示当前 [附加的群集](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 的 DC/OS 配置文件内容。
 
 # 使用
 

@@ -41,7 +41,7 @@ enterprise: true
 
 1. 单击 **INSERT PERMISSION STRING** 以切换对话框。
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式](/1.11/security/ent/#security-modes)选择权限字符串。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式](/cn/1.11/security/ent/#security-modes)选择权限字符串。
 
       ![添加权限](/cn/1.11/img/services-tab-user3.png)
 
@@ -179,7 +179,7 @@ enterprise: true
 
       图 5. 添加权限
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/1.11/security/ent/#security-modes)。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/cn/1.11/security/ent/#security-modes)。
 
  ### 已禁用
  此模式不提供细粒度控制。
@@ -316,7 +316,7 @@ enterprise: true
 
       图 8. 添加权限
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式](/1.11/security/ent/#security-modes)选择权限字符串。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式](/cn/1.11/security/ent/#security-modes)选择权限字符串。
 
  ### 已禁用
  此模式不提供细粒度控制。

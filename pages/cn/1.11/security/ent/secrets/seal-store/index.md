@@ -4,10 +4,8 @@ navigationTitle: 密封密钥存储库
 title: 密封密钥存储库
 menuWeight: 2
 excerpt: 手动密封密钥存储库
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 您可能需要手动密封密钥存储库，以保护其内容免受侵入者的侵害。密封的密钥存储库无法从 Web 界面访问。无法使用 [密钥 API](/cn/1.11/security/ent/secrets/secrets-api/) 检索密码值。取决于密钥存储库中的值的服务可能无法部署。
 
@@ -36,7 +34,7 @@ enterprise: true
    {"sealed":false,"threshold":1,"shares":1,"progress":0}
    ```
 
- 如果 `"sealed"` 的值是 `true`，则不完成本程序的其余部分。如果密钥存储库已经密封，则不能再次密封。
+    如果 `"sealed"` 的值是 `true`，则不完成本程序的其余部分。如果密钥存储库已经密封，则不能再次密封。
 
 1. 使用以下命令密封密钥存储库。
 

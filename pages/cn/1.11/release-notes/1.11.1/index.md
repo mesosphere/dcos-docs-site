@@ -40,7 +40,7 @@ DC/OS 1.11.1 于 2018 年 4 月 18 日发布。
 - DCOS_OSS-2132 - DC/OS 日志：整合了日志文件轮换的处理。
 - DCOS_OSS-2162 - Mesos 不再通过其状态 JSON 文档披露 ZooKeeper 凭据。
 - DCOS_OSS-2210 - 修复了历史记录服务会崩溃的边缘案例。
-- DCOS_OSS-2229 - 突出了 dcos-net。[lashup] 中的性能改进和漏洞修复(https://github.com/dcos/lashup)。
+- DCOS_OSS-2229 - 突出了 dcos-net。[lashup](https://github.com/dcos/lashup) 中的性能改进和漏洞修复。
 - DCOS_OSS-2247 - 修复了 dcos-checks 中的漏洞，将命令超时视为失败的检查。
 - DCOS_OSS-2292 - 修复了 dcos 任务 - 追随任务可能会崩溃的情况。
 - DSS_EE-161 - DC/OS 存储：修复了 LVM 插件在 CoreOS 上失败时的漏洞。[enterprise type="inline" size="small" /]
@@ -60,7 +60,7 @@ DC/OS 1.11.1 于 2018 年 4 月 18 日发布。
 
 - DCOS-22128 - 使用带卷的 Pod 时，如果 Pod 中的某个容器未配置成挂载卷，集群将无法通过 UI 访问任何服务。作为替代办法，使用带卷的 Pod 时，可使用 CLI。
 
-**注意：** Kubernetes 包依赖关系记录 [在此处](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install)。
+<p class="message--note"><strong>注意: </strong> Kubernetes 包依赖关系记录 <a href="https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install">在此处</a>。</p>
 
 # 关于 DC/OS 1.11
 
@@ -105,7 +105,7 @@ DC/OS 1.11 包含许多新功能，重点是：
 - DC/OS 存储服务 0.1 (beta) - DSS 用户能够根据配置文件或策略动态地创建卷，以调整其应用程序的存储要求。该特性利用行业标准容器存储接口 (CSI) 让 Mesosphere、社区和合作伙伴能够提高开发 DC/OS 中存储特性的效率。[查看文档](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /][enterprise type="inline" size="small" /]
 - Pod 现已支持永久卷。[查看文档](/cn/1.11/deploying-services/pods).[beta type="inline" size="small" /]
 
-**注意：** 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。
+<p class="message--note"><strong>注意: </strong> 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。</p>
 
 ### 更新了 DC/OS 数据服务
 - 现在支持对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的TLS 加密。[enterprise type="inline" size="small" /]

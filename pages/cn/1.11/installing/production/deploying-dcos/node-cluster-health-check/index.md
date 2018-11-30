@@ -75,7 +75,7 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
     /opt/mesosphere/bin/dcos-shell dcos-diagnostics check <check-type> --list
     ```
 
- 输出应类似于：
+    输出应类似于：
 
     ```bash
     {
@@ -114,13 +114,13 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
     /opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart <checkname>
     ```
 
- 例如：运行 `component_agent` 检查。
+    例如：运行 `component_agent` 检查。
 
     ```bash
     /opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart component_agent
     ```   
 
- 输出应类似于：
+    输出应类似于：
 
     ```bash
     {

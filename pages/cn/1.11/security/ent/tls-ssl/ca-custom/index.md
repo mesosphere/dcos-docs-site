@@ -4,10 +4,8 @@ navigationTitle: 配置自定义 CA 证书
 title: 配置自定义 CA 证书
 menuWeight: 50
 excerpt: 配置 DC/OS Enterprise 以使用自定义 CA 证书
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 每个 DC/OS Enterprise 集群都有自己的 DC/OS 证书颁发机构 (CA)。默认情况下，CA 使用在安装 DC/OS 期间生成的全局唯一根 CA 证书。根 CA 证书用于为 DC/OS 组件（如 Admin Router）签署证书。您可以将 DC/OS Enterprise 配置为使用自定义 CA 证书，而不是使用自动生成的根 CA 证书，该证书可以是根 CA 证书，也可以是中间 CA 证书。（参见 [以下](#example-use-cases) 示例）
@@ -31,17 +29,17 @@ enterprise: true
 - 只有全新安装的 DC/OS Enterprise 1.10 或更高版本才支持自定义 CA 证书。不支持较旧版本的 DC/OS，并且在升级期间无法添加自定义 CA 证书。
 
 术语表 
-- **自定义 CA 证书：**PEM 格式的自定义 CA 证书，用于为 DC/OS 组件（如 Admin Router）颁发证书。自定义 CA 证书是中间 CA 证书（由其他 CA 颁发）或根 CA 证书（由自定义 CA 自签名）。
+- **自定义 CA 证书：** PEM 格式的自定义 CA 证书，用于为 DC/OS 组件（如 Admin Router）颁发证书。自定义 CA 证书是中间 CA 证书（由其他 CA 颁发）或根 CA 证书（由自定义 CA 自签名）。
 
-- **与自定义 CA 证书相关联的私钥：**与自定义 CA 证书关联的 PKCS#8 格式的私钥。
+- **与自定义 CA 证书相关联的私钥：** 与自定义 CA 证书关联的 PKCS#8 格式的私钥。
 
-- **与自定义 CA 证书相关联的证书链：**终端实体证书验证所需的完整 CA 证书链。它必须包括中间自定义 CA 的所有父级 CA 证书，其中包括根 CA 证书。如果自定义 CA 证书为根 CA 证书，则证书链必须为空。
+- **与自定义 CA 证书相关联的证书链：** 终端实体证书验证所需的完整 CA 证书链。它必须包括中间自定义 CA 的所有父级 CA 证书，其中包括根 CA 证书。如果自定义 CA 证书为根 CA 证书，则证书链必须为空。
 
-- **安装目录：**DC/OS 安装程序驻留的 bootstrap 节点上的目录。在本文档中以 `$DCOS_INSTALL_DIR` 表示。
+- **安装目录：** DC/OS 安装程序驻留的 bootstrap 节点上的目录。在本文档中以 `$DCOS_INSTALL_DIR` 表示。
 
-- **配置：**管理安装过程特定方面的配置参数集。配置存储在 DC/OS 配置文件中。
+- **配置：** 管理安装过程特定方面的配置参数集。配置存储在 DC/OS 配置文件中。
 
-- **DC/OS 配置文件：**包含 DC/OS 配置参数的文件。DC/OS 配置文件通常被称为 `config.yaml`，并且必须在安装期间出现在 bootstrap 节点上的 `$DCOS_INSTALL_DIR/genconf/` 的目录中。它由 DC/OS 安装程序使用。
+- **DC/OS 配置文件：** 包含 DC/OS 配置参数的文件。DC/OS 配置文件通常被称为 `config.yaml`，并且必须在安装期间出现在 bootstrap 节点上的 `$DCOS_INSTALL_DIR/genconf/` 的目录中。它由 DC/OS 安装程序使用。
 
 
 # 要求
@@ -198,7 +196,7 @@ verify return:1
 
 包含以下文件：
 
-- 在 botstrap 节点上：
+- 在 bootstrap 节点上：
  - 包含自定义 CA 证书的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt` 文件
  - 包含与自定义 CA 证书相关联的专用验证序号的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` 文件
 
@@ -227,7 +225,7 @@ ca_certificate_key_path: genconf/dcos-ca-certificate-key.key
 
 在该用例中，自定义 CA 证书是由 root CA 直接颁发的中间 CA 证书。CA 证书链只包含该根 CA 证书。存在以下文件：
 
-- 在 botstrap 节点上：
+- 在 bootstrap 节点上：
  - 包含自定义 CA 证书的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt` 文件， 格式为 PEM
  - 包含与自定义 CA 证书相关联的私钥的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` 文件，格式为 PKCS#8
  - 包含证书链的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt` 文件， 格式为 PEM
@@ -277,7 +275,7 @@ CA 证书链包括
 
 存在以下文件：
 
-- 在 botstrap 节点上：
+- 在 bootstrap 节点上：
  - 包含自定义 CA 证书的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt` 文件， 格式为 PEM
  - 包含与自定义 CA 证书相关联的私钥的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` 文件，格式为 PKCS#8
  - 包含证书链的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt` 文件， 格式为 PEM

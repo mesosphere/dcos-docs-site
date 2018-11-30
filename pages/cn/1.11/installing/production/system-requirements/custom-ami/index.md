@@ -31,11 +31,11 @@ beta: true
 
 1. 使用自己的 AMI 自定义，修改 DC/OS [cloud_images](https://github.com/dcos/dcos/tree/master/cloud_images) AMI 脚本。
 
- **注意：** 您的 AMI 必须满足模板中所示的所有 DC/OS AMI 先决条件。
+   <p class="message--note"><strong>注意: </strong>您的 AMI 必须满足模板中所示的所有 DC/OS AMI 先决条件。</p>
 
 1. 使用 AWS CloudFormation Web 控制台启动 DC/OS 高级模板，并指定您的自定义 AMI。验证 DC/OS 是否如期启动，并且可以在 DC/OS 集群上启动服务。
 
-1. 按照 [本说明] 完成安装 (/1.11/installing/evaluation/cloud-installation/aws/advanced/#launch)。
+1. 按照 [本说明](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/#launch) 完成安装。
 
 ## 故障排除
 

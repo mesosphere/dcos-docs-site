@@ -30,7 +30,7 @@ HTTP 代理可采用两种模式运行：透明和标准。
 SRV DNS 记录是从名称到 IP/端口对的映射。DC/OS 创建 SRV 记录，采用的形式为 `_<port-name>._<service-name>._tcp.marathon.mesos`。HTTP 代理将这些记录作为 URL 披露。此功能可用于与 DC/OS 服务进行交流。
 
 # VPN
-DC/OS 隧道可让您从集群内完全访问 DNS、管理节点和代理。OpenVPN 需要根权限才能配置这些路由。
+DC/OS 隧道可让您从集群内完全访问 DNS,管理节点和代理。OpenVPN 需要根权限才能配置这些路由。
 
 # DC/OS 隧道选项概述
 
@@ -159,7 +159,7 @@ DC/OS 隧道可让您从集群内完全访问 DNS、管理节点和代理。Open
 
 1. 在透明模式下，HTTP 代理通过端口转发开展工作。输入命令时，在域名末尾附加 `.mydcos.directory`。例如， `http://example.com/?query=hello` 变成 `http://example.com.mydcos.directory/?query=hello`。
 
- **注意：** 在透明模式下，无法在 URL 中指定端口。
+<p class="message--note"><strong>注意: </strong> 在透明模式下，无法在 URL 中指定端口。</p>
 
 ### 标准模式
 1. 如需不使用根权限，以标准模式运行 HTTP 代理，则请使用 `--port` 标记将代理配置为使用其他端口：
@@ -175,10 +175,10 @@ DC/OS 隧道可让您从集群内完全访问 DNS、管理节点和代理。Open
 1. 配置应用程序，在上文指定的端口上使用代理。
 
 ### SRV 记录
-HTTP 代理将 DC/OS SRV 记录作为 URL 披露，采用的形式为 `_<port-name>._<service-name>._tcp.marathon.mesos.mydcos.directory` (transparent mode) or `_<port-name>._<service-name>._tcp.marathon.mesos`（标准模式）。
+HTTP 代理将 DC/OS SRV 记录作为 URL 披露，采用的形式为 `_<port-name>._<service-name>._tcp.marathon.mesos.mydcos.directory` (transparent mode) 要么 `_<port-name>._<service-name>._tcp.marathon.mesos`（标准模式）。
 
 #### 查找服务名称
-Marathon 应用定义中的 `<service-name>` is the entry in the **ID** field of a service you create from the DC/OS web interface or the value of the `id` 字段。
+Marathon 应用定义中的 `<service-name>` 是您从DC / OS Web界面创建的服务的** ID **字段中的条目或者值 `id` 字段。
 
 #### 在 DC/OS Web 界面中添加指定端口
 如需在 DC/OS Web 界面指定端口，请转到 **服务 > 服务** 选项卡，单击服务名称，然后单击 **编辑**。在 **网络** 选项卡上输入端口的名称。

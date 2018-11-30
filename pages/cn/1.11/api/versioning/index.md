@@ -28,7 +28,7 @@ DC/OS API 由多个松散耦合组件支持；有些是独立项目，其他是�
 
 部分组件完全避开路径版本控制，并在资源级别使用内容协商，以同时支持同一路径的多个 API 版本。
 
-例如，[DC/OS Package Manager (Cosmos) 组件](/cn/1.11/overview/architecture/components/#dcos-package-manager)在路由`/package` 下为 [软件包管理 API](/cn/1.11/deploying-services/package-api/)服务，其中一个资源路径是`/list`，所以该资源的完整路径是 `/package/list`。请求的版本和所期待的应答版本分别由 `Content-Type` 和 `Accept` HTTP 标头指定：
+例如，[DC/OS Package Manager (Cosmos) 组件](/cn/1.11/overview/architecture/components/#dcos-package-manager)在路由`/package` 下为 [Package API](/cn/1.11/deploying-services/package-api/)服务，其中一个资源路径是`/list`，所以该资源的完整路径是 `/package/list`。请求的版本和所期待的应答版本分别由 `Content-Type` 和 `Accept` HTTP 标头指定：
 
 ```
 Content-Type: application/vnd.dcos.package.list-request+json;charset=utf-8;version=v1

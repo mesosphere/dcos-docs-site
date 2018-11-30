@@ -7,7 +7,6 @@ excerpt: 授予访问“组件”屏幕的权限
 
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 您可以授予用户访问 [**组件**屏幕](/cn/1.11/gui/components/) 的权限。新用户默认没有权限。
 
@@ -32,42 +31,42 @@ enterprise: true
 
  图 2. 选择要授予权限的用户或组
 
-1. 在**权限**屏幕上，单击**添加权限**。
+1. 在**权限**屏幕上，单击**ADD PERMISSIONS**。
 
 1. 单击 **INSERT PERMISSION STRING** 以切换对话框。
 
- ![添加权限](/cn/1.11/img/services-tab-user3.png)
+ ![ADD PERMISSIONS](/cn/1.11/img/services-tab-user3.png)
     
  图 3. 插入权限字符串 
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式] 选择权限字符串(/1.11/security/ent/#security-modes)，单击**添加权限**，然后单击**关闭**。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes) 选择权限字符串，单击**ADD PERMISSIONS**，然后单击**Close**。
 
  ## 禁用
 
  ### 组件选项卡
 
-    ```
-    dcos:adminrouter:ops:historyservice full
-    dcos:adminrouter:ops:system-health full
-    ```
+```
+dcos:adminrouter:ops:historyservice full
+dcos:adminrouter:ops:system-health full
+```
 
- ## 宽容
+## 宽容
 
- ### 组件选项卡
+### 组件选项卡
 
-    ```
-    dcos:adminrouter:ops:historyservice full
-    dcos:adminrouter:ops:system-health full
-    ```
+```
+dcos:adminrouter:ops:historyservice full
+dcos:adminrouter:ops:system-health full
+```
 
- ## 严格
+## 严格
 
- ### 组件选项卡
+### 组件选项卡
 
-    ```
-    dcos:adminrouter:ops:historyservice full
-    dcos:adminrouter:ops:system-health full
-    ```
+```
+dcos:adminrouter:ops:historyservice full
+dcos:adminrouter:ops:system-health full
+```
 
 ## <a name="network-access-via-api"></a>使用 API 授予访问权限
 
@@ -107,7 +106,7 @@ enterprise: true
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
 
- **注意：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+ <p class="message--note"><strong>注意: </strong>要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 ## 宽容
 
@@ -135,7 +134,7 @@ enterprise: true
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
 
- **注意：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong>要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>
 
 ## 严格
 
@@ -163,4 +162,4 @@ enterprise: true
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
 
- **注意：** 要向组而不是向用户授予权限，应替换 `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>注意: </strong>要向组而不是向用户授予权限，应替换 <tt>/users/<uid></tt> with <tt>/groups/<gid></tt>.</p>

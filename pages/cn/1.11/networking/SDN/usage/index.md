@@ -7,8 +7,6 @@ excerpt: 使用软件定义的网络
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 DC/OS 让您在各种基于 IP 的虚拟网络上运行容器，从而为每个容器提供自己的 IP 地址。要在虚拟网络上运行容器，您必须在带外安装 CNI 或 CNM 网络。DC/OS 本身附带自己的虚拟网络解决方案，称为 [DC/OS Overlay](/cn/1.11/networking/SDN/dcos-overlay/)，您可以用它为容器提供唯一性 IP 地址。
 
@@ -49,4 +47,4 @@ DC/OS 让您在各种基于 IP 的虚拟网络上运行容器，从而为每个�
 }
 ```
 
-详细了解 [Marathon] 中的端口和网络(/1.11/deploying-services/service-ports/)。
+详细了解 [Marathon](/cn/1.11/deploying-services/service-ports/) 中的端口和网络。

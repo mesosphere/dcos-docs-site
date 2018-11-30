@@ -6,7 +6,6 @@ menuWeight: 70
 excerpt: 了解 DC/OS Enterprise 安全功能
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 DC/OS Enterprise 提供一系列功能，让您保护集群并防止其受破坏和其他攻击。本节概述了强化集群的安全功能和建议。
 
@@ -25,7 +24,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 **管理**区可通过 HTTP/HTTPS 和 SSH 连接访问，并提供对管理节点的访问。它还可通过 URL 路由向集群中的其他节点提供反向代理访问。为了安全起见，DC/OS 云模板允许配置白名单，以便只允许特定的 IP 地址范围访问管理区。
 
 ### Admin Router
-对管理区的访问由 [Admin Router] 控制(/1.11/overview/architecture/components/#admin-router)。
+对管理区的访问由 [Admin Router](/cn/1.11/overview/architecture/components/#admin-router) 控制。
 
 传入 DC/OS 集群的 HTTP 请求通过 Admin Router 代理（使用 [Nginx](http://nginx.org)，其核心是 [OpenResty](https://openresty.org)）。Admin Router 拒绝访问大多数 HTTP 端点未经身份认证的请求。为了请求能得到身份认证，它需要在其 `Authorization` 报文头中提供有效的认证令牌。可通过验证流程获得令牌。
 
@@ -79,7 +78,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 # <a name="authentication"></a>身份认证
 DC/OS 集群外部的所有请求都需要认证令牌。根据您的安全模式，可能会要求集群内认证令牌。如需更多信息，请参阅 [服务账户文档](/cn/1.11/security/ent/service-auth/)。
 
-DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，默认情况下，在发布后五天到期。默认到期时间可在 [自定义安装或升级] 期间进行修改(/1.11/installing/ent/custom/configuration/configuration-parameters/#bouncer-expiration-auth-token-days-enterprise)。
+DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，默认情况下，在发布后五天到期。默认到期时间可在 [自定义安装或升级](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#bouncer-expiration-auth-token-days-enterprise) 期间进行修改。
 
 在  bootstrap 序列期间，DC/OS 使用 ZooKeeper 凭据配置管理节点。这使得管理节点可以将自己指定为潜在的 Mesos 管理节点。
 
@@ -91,7 +90,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 - 如果已配置 LDAP 目录服务器，则 DC/OS 会将您的凭据传递到 LDAP 目录服务器进行验证。
 - 如果您已配置 SAML 或 OpenID Connect 身份提供程序 (Idp)，则会将凭据直接传递给 IdP。
 
-**提示：**如果您使用 DC/OS GUI、SAML 和 OpenID Connect 提供程序登录，则他们可能会在浏览器 Cookie 中发现必要的登录详细信息。在这种情况下，您无需传递凭据。
+<p class="message--warning"><strong>提示： </strong> 如果您使用 DC/OS GUI、SAML 和 OpenID Connect 提供程序登录，则他们可能会在浏览器 Cookie 中发现必要的登录详细信息。在这种情况下，您无需传递凭据。</p>
 
 下图详细说明了顺序。
 
@@ -103,7 +102,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 使用 DC/OS GUI 登录时，Identity 和 Access Manager 会生成包含认证令牌的 Cookie。虽然它收到 [`HttpOnly`](https://www.owasp.org/index.php/HttpOnly) 标志的保护，但您应在浏览器会话结束时**注销**以清除此 Cookie。
 
-请注意，清除 Cookie 不会使认证失效。如果监测到未加密的连接或从 cookie 中提取，则可能有人使用认证令牌登录了 DC/OS。为降低此风险，我们建议在 `permissive` 和 `strict` 模式下设置[安全标志](https://www.owasp.org/index.php/SecureFlag)，如[强化]中所述(/1.11/security/ent/hardening/#secure-flag)。
+请注意，清除 Cookie 不会使认证失效。如果监测到未加密的连接或从 cookie 中提取，则可能有人使用认证令牌登录了 DC/OS。为降低此风险，我们建议在 `permissive` 和 `strict` 模式下设置[安全标志](https://www.owasp.org/index.php/SecureFlag)，如[强化](/cn/1.11/security/ent/hardening/#secure-flag)中所述。
 
 ## <a name="passwords"></a>密码
 
@@ -147,7 +146,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 # <a name="encryption"></a>传输层安全性 (TLS) 加密
 
-DC/OS 通信的加密因[安全模式]而异(/1.11/security/ent/#security-modes)。
+DC/OS 通信的加密因[安全模式](/cn/1.11/security/ent/#security-modes)而异。
 
 | 安全模式 | 外部通信* | 节点间通信 |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
@@ -212,9 +211,7 @@ DC/OS 通信的加密因[安全模式]而异(/1.11/security/ent/#security-modes)
 
 DC/OS 使用 Galois 计数器模式 (GCM) 中的高级加密标准 (AES) 算法将密钥存储库数据存储在 ZooKeeper 中的一个开封密钥中。密钥存储库将解封密钥发送到 ZooKeeper 之前使用开封密钥加密，并在从 ZooKeeper 收到密钥后解密密钥。这可确保密钥在休息和传输时都被加密。TLS 为从 ZooKeeper 传输到密钥存储库的密钥提供了额外的加密层。
 
-开封密钥在公共 GPG 密钥下加密。对 [Secrets API] 的请求(/1.11/security/ent/secrets/secrets-api/)仅返回加密的开封密钥。当密钥存储库被手动或由于故障而被密封时，必须使用专用 GPG 密钥解密开封密钥并开启密钥存储库。为方便起见，DC/OS 在 bootstrap 序列期间自动生成新的 4096-bit GPG 密钥对。它使用此密钥初始化密钥存储库，并将密钥对存储在 ZooKeeper 中。
-
-<!-- If you wish to generate your own GPG keypair and store it in an alternate location, you can [reinitialize the Secret Store with a custom GPG keypair](/cn/1.11/security/ent/secrets/custom-key/). -->
+开封密钥在公共 GPG 密钥下加密。对 [Secrets API](/cn/1.11/security/ent/secrets/secrets-api/) 的请求仅返回加密的开封密钥。当密钥存储库被手动或由于故障而被密封时，必须使用专用 GPG 密钥解密开封密钥并开启密钥存储库。为方便起见，DC/OS 在 bootstrap 序列期间自动生成新的 4096-bit GPG 密钥对。它使用此密钥初始化密钥存储库，并将密钥对存储在 ZooKeeper 中。
 
 密钥存储库适用于所有安全模式。默认情况下，您不能存储大于一兆字节的密钥。如果您需要超过此限制，请联系 Mesosphere 支持中心。我们目前不支持替代或额外的密钥存储库。您应只使用 Mesosphere 提供的 `default` 密钥存储库。
 
@@ -241,6 +238,6 @@ DC/OS 允许您限制：
 
 默认情况下，Docker 任务在 `root` 下运行，但 Docker 用户权限仅限于 Docker 容器。如果您希望更改默认任务用户，请修改 Docker 容器。有关更多信息，请参考 [Docker 文档](https://docs.docker.com/engine/tutorials/dockerimages/)以及用户服务[文档](/services/)。
 
-**注意：**如果压缩了提取的文件，内部的单个文件将保留文件压缩时分配的权限和所有权，并且不受任何其他配置或设置的影响。
+<p class="message--note"><strong>注意: </strong>如果压缩了提取的文件，内部的单个文件将保留文件压缩时分配的权限和所有权，并且不受任何其他配置或设置的影响。</p>
 
 请参阅 [覆盖默认 Linux 用户](/cn/1.11/security/ent/users-groups/config-linux-user/)。

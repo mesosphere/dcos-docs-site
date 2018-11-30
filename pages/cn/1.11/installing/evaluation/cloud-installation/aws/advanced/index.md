@@ -15,7 +15,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
 高级 AWS CloudFormation 模板为创建和扩展 DC/OS 集群带来了优势和灵活性。通过这些模板，您可以从一整套 DC/OS 配置选项中进行选择。
 
  - 在现有的 VPC/子网组合上实例化完整的 DC/OS 集群。
- - 通过添加更多的 [代理] (/1.8/overview/concepts/#agent) 节点来扩展和更新现有的 DC/OS 集群。
+ - 通过添加更多的 [代理](/1.8/overview/concepts/#agent) 节点来扩展和更新现有的 DC/OS 集群。
 
 模板一起用于创建 DC/OS 集群。驱动这些模板的是 AWS CloudFormation 用于创建每个堆栈的参数。
 
@@ -32,11 +32,11 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
 - `dcos_generate_config` 文件：
  * Enterprise 用户应使用 [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads)。请联系销售代表或 <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a>，访问配置文件。[enterprise type="inline" size="small" /]
  * 开源用户应使用 [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh)。[oss type="inline" size="small" /]
-- 带根 [IAM] 权限的 Amazon Web Services 帐户(https://aws.amazon.com/iam/)。安装高级模板需要高级权限。如需更多信息，请联系 AWS 管理员。
-- 与集群相同分域的 AWS EC2 密钥对。密钥对不能跨分域共享。AWS 密钥对使用公钥加密功能提供对 AWS 集群的安全登录。有关创建 AWS EC2 密钥对的详细信息，请参阅 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">文档</a>。
+- 带根 [IAM](https://aws.amazon.com/iam/) 权限的 Amazon Web Services 帐户。安装高级模板需要高级权限。如需更多信息，请联系 AWS 管理员。
+- 与群集相同分域的 AWS EC2 密钥对。密钥对不能跨分域共享。AWS 密钥对使用公钥加密功能提供对 AWS 群集的安全登录。有关创建 AWS EC2 密钥对的详细信息，请参阅 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">文档</a>。
 - AWS [命令行界面](https://aws.amazon.com/cli/)。
 - CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation)。
-- 符合 bootstrap 节点 [系统要求] 的节点(/1.11/installing/ent/custom/system-requirements/)。
+- 符合 bootstrap 节点 [系统要求](/cn/1.11/installing/ent/custom/system-requirements/) 的节点。
 - 具有读写访问权限的 AWS s3 bucket。
  - S3 bucket 必须具备 bucket 策略，以便让启动的 AWS 实例从 s3 bucket下载文件。以下是任何人均可下载的示例政策：
 
@@ -64,9 +64,9 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
     ```bash
     mkdir -p genconf
     ```
-2. 在 `genconf` 目录中创建配置文件并另存为 `config.yaml`。此配置文件指定您的 AWS 凭据以及用于存储生成的原图的 S3 位置。
+1. 在 `genconf` 目录中创建配置文件并另存为 `config.yaml`。此配置文件指定您的 AWS 凭据以及用于存储生成的原图的 S3 位置。
 
-企业和开源用户所需的参数为：
+    企业和开源用户所需的参数为：
 
 [enterprise type="inline" size="small" /]
 
@@ -98,27 +98,27 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
 
 有关参数描述和配置示例，请参阅 [文档](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/)。
 
-3. 使用指定的 AWS 参数运行 DC/OS 安装工具脚本。此命令创建 DC/OS 原图和模板的自定义构造并将其上传到指定的 s3 bucket。
+1. 使用指定的 AWS 参数运行 DC/OS 安装工具脚本。此命令创建 DC/OS 原图和模板的自定义构造并将其上传到指定的 s3 bucket。
 
-[enterprise type="inline" size="small" /]
+    [enterprise type="inline" size="small" /]
 
-```bash
-sudo bash dcos_generate_config.ee.sh --aws-cloudformation
-```
+    ```bash
+    sudo bash dcos_generate_config.ee.sh --aws-cloudformation
+    ```
 
-[oss type="inline" size="small" /]
+    [oss type="inline" size="small" /]
 
-```bash
-sudo bash dcos_generate_config.sh --aws-cloudformation
-```
+    ```bash
+    sudo bash dcos_generate_config.sh --aws-cloudformation
+    ```
 
-此 bucket 位置的根 URL 位于本步骤的末尾。您将看到以下消息：
+    此 bucket 位置的根 URL 位于本步骤的末尾。您将看到以下消息：
 
-```bash
-AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<path-to-directory>
-```
+    ```bash
+    AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<path-to-directory>
+    ```
 
-4. 转到 [S3](https://console.aws.amazon.com/s3/home) 并导航至上述 ` 中的 s3 bucket<path-to-directory>`.
+1. 转到 [S3](https://console.aws.amazon.com/s3/home) 并导航至上述 ` 中的 s3 bucket<path-to-directory>`.
 
  1. 选择 **cloudformation**，然后选择管理节点所需数量的 zen 模板。例如，为单个管理配置选择 **el7-zen-1.json**。
  1. 右键单击并选择 **属性**，然后复制 AWS S3 模板 URL。
@@ -198,19 +198,19 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 - 在 **选择模板** 页面，从您的工作站上传 [Zen](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#zen) 模板，然后单击 **下一步**。
 
-模板示例：
+    模板示例：
 
- - `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/ee.el7-zen-1.json` [enterprise type="inline" size="small" /]
+    - `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/ee.el7-zen-1.json` [enterprise type="inline" size="small" /]
 
- - `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/el7-zen-1.json` [oss type="inline" size="small" /]
+    - `https://s3-us-west-2.amazonaws.com/dcos/templates/dcos/config_id/6a7451f6dec/cloudformation/el7-zen-1.json` [oss type="inline" size="small" /]
 
 2. 在 **指定详情**页面指定这些值，然后单击 **下一步**。
 
- ![AWS UI](/cn/1.11/img/aws-advanced-1.png)
+     ![AWS UI](/cn/1.11/img/aws-advanced-1.png)
 
- 图 1. AWS Advanced Web 界面
+    图 1. AWS Advanced Web 界面
 
- * **堆栈名称** 指定集群名称。
+ * **StackName** 指定集群名称。
  * **CustomAMI** 可选：指定 AMI ID。如需更多信息，请参阅 [使用自定义 AMI 进行安装](/cn/1.11/installing/ent/cloud/aws/advanced/aws-ami)。
  * **InternetGateway** 指定 `zen.sh` 脚本的 `InternetGatewayID` 输出值。互联网网关 ID 必须附加于 VPC。该互联网网关用于所有节点向外互联网访问。
  * **KeyName** 指定 AWS EC2 密钥对。

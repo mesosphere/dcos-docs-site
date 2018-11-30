@@ -350,7 +350,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:volume:prin
 # 第 7 步 - 安装具有分配角色的非本地 Marathon 实例
 在此步骤中，非本地 Marathon 实例安装在 DC/OS上，并分配了 Mesos 角色。
 
-1. 创建自定义 JSON 配置文件并另存为 `config.json`。此文件用于安装自定义非本地 Marathon 实例。JSON 文件内容因您的 [安全模式](/1.11/security/ent/#security-modes) 而有所不同。将这些示例中的变量替换为您的具体信息：
+1. 创建自定义 JSON 配置文件并另存为 `config.json`。此文件用于安装自定义非本地 Marathon 实例。JSON 文件内容因您的 [安全模式](/cn/1.11/security/ent/#security-modes) 而有所不同。将这些示例中的变量替换为您的具体信息：
 
    | 变量 | 描述 |
    |--------------------------|--------------------------------------------|
@@ -666,7 +666,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:volume:prin
 
  图 3. 添加权限字符串
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/1.11/security/ent/#security-modes)。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/cn/1.11/security/ent/#security-modes)。
 
  ### 已禁用
 

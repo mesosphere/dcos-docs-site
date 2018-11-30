@@ -16,7 +16,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 
 ## 配备 GPU 的自定义 DC/OS 安装
 
 1. 在每个具有 GPU 的群集节点上安装 [NVIDIA 管理库 (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml)。所需的 NVIDIA 驱动程序最低版本为 340.29。如需详细的安装说明，请参阅 [Mesos GPU 支持文档](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies)。
-1. 使用 [自定义高级安装说明](/1.11/installing/production/deploying-dcos/installation/) 安装 DC/OS 。以下是 GPU 专有的配置参数：
+1. 使用 [自定义高级安装说明](/cn/1.11/installing/production/deploying-dcos/installation/) 安装 DC/OS 。以下是 GPU 专有的配置参数：
 
  - **enable_gpu_isolation**：指示是否在 DC/OS 中启用 GPU 支持。默认设置为 `enable_gpu_isolation: 'true'`。
  - **gpus_are_scarce**：指示是否将 GPU 作为集群中的稀缺资源。默认设置为 `gpus_are_scarce: 'true'`，这意味着 DC/OS 仅为配置为占用 GPU 资源的服务保留 GPU 节点。值得注意的是，此设置将影响在 DC/OS 的哪些代理节点部署 GPU 感知框架。此设置不影响框架在运行时可能启动的具体+任务。框架可以在有 GPU 的代理节点上安排非 GPU 任务。
@@ -62,7 +62,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 
 可以通过 `gpus` 参数在应用定义中指定 GPU。
 
 - 只能在应用程序定义中指定整数数量的 GPU。如果选中分数数量，启动任务后就会造成 `TASK_ERROR`。
-- NVIDIA GPU 支持仅适用于使用 [DC/OS 通用容器运行时间](/1.11/deploying-services/containerizers/) 启动的任务。
+- NVIDIA GPU 支持仅适用于使用 [DC/OS 通用容器运行时间](/cn/1.11/deploying-services/containerizers/) 启动的任务。
 
 # 示例
 

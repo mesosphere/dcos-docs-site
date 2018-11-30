@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # 先决条件
-- 一个 DC/OS Enterprise 集群。
+- 一个 DC/OS Enterprise 群集。
 - [DC/OS CLI](/cn/1.11/cli/install/) 已安装。
 - [DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/) 已安装。
 
@@ -18,7 +18,7 @@ enterprise: true
 
 # 备份集群
 
-备份存储在管理节点的本地文件系统上。备份状态由在集群中运行的服务维护，并通过直接使用此服务来进行备份/恢复操作。
+备份存储在管理节点的本地文件系统上。备份状态由在群集中运行的服务维护，并通过直接使用此服务来进行备份/恢复操作。
 
 1. 创建备份并对其分配一个有意义的标签。
  标签有以下限制：
@@ -44,7 +44,7 @@ enterprise: true
 
  备份最初将过渡到 `STATUS_BACKING_UP` 状态，并且最终应进入 `STATUS_READY`状态。如果出现错误，它将显示一个 `STATUS_ERROR`状态。使用`dcos backup show <backup-id>` 检查在备份过程中 Marathon 出错的原因。
 
-3. 在后续命令中使用由 `dcos backup list` 产生的 ID 指代您的备份。备份 ID 类似于 `<backup-label>-ea6b49f5-79a8-4767-ae78-3f874c90e3da`。
+1. 在后续命令中使用由 `dcos backup list` 产生的 ID 指代您的备份。备份 ID 类似于 `<backup-label>-ea6b49f5-79a8-4767-ae78-3f874c90e3da`。
 
 # 删除备份
 

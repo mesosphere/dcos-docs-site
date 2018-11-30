@@ -7,7 +7,6 @@ excerpt: 授予调试的访问权限
 beta: true
 enterprise: true
 ---
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 您可以授予用户访问容器以进行调试会话的权限。
 

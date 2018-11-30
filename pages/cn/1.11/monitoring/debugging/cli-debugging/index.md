@@ -16,7 +16,7 @@ dcos -—log-level="debug" package install hdfs
 
 # 调试被卡住部署的子命令
 
-DC/OS CLI 提供一组调试子命令，用于排除卡住的服务或 Pod 部署。您也可以从 [DC/OS Web 界面](/1.11/monitoring/debugging/gui-debugging/) 使用调试服务和 Pod。
+DC/OS CLI 提供一组调试子命令，用于排除卡住的服务或 Pod 部署。您也可以从 [DC/OS Web 界面](/cn/1.11/monitoring/debugging/gui-debugging/) 使用调试服务和 Pod。
 
 ## 先决条件
 - DC/OS 集群

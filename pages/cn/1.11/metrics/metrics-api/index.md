@@ -11,7 +11,7 @@ beta: false
 [DataDog](/cn/1.11/metrics/datadog)、[Prometheus](/cn/1.11/metrics/prometheus) 以及
 [第三方插件](https://github.com/dcos/dcos-metrics/blob/master/plugins/CONTRIBUTING.md) 文档。
 
-度量标准 API 由 [DC/OS 度量标准组件] 支持(/1.11/overview/architecture/components/#dcos-metrics)，后者在集群中的所有节点上运行。
+度量标准 API 由 [DC/OS 度量标准组件] 支持(/cn/1.11/overview/architecture/components/#dcos-metrics)，后者在集群中的所有节点上运行。
 
 有关如何使用度量标准 API 的示例，请参阅 [度量标准快速入门指南](/cn/1.11/metrics/quickstart/)。
 

@@ -4,7 +4,6 @@ navigationTitle: dcos cluster setup
 title: dcos cluster setup
 menuWeight: 7
 excerpt: 设置连接到 DC/OS 集群
-
 enterprise: false
 ---
 

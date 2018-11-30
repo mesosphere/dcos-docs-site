@@ -6,7 +6,7 @@ navigationTitle: 服务发现
 menuWeight: 4
 ---
 
-<p class="message--important"><strong>重要信息：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
 欢迎阅读 DC/OS 101 教程第 4 部分
 
@@ -17,7 +17,7 @@ menuWeight: 4
 
 
 # 目的
-本教程前一部分中的 [app] (https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) 使用 `redis.marathon.l4lb.thisdcos.directory` 作为连接 Redis 的地址，端口为 6379。由于 Redis 可能正在集群中的任何代理程序上运行，并且可能在不同的端口上运行，因此该地址如何解析到实际运行的 Redis 实例？
+本教程前一部分中的 [app](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) 使用 `redis.marathon.l4lb.thisdcos.directory` 作为连接 Redis 的地址，端口为 6379。由于 Redis 可能正在集群中的任何代理程序上运行，并且可能在不同的端口上运行，因此该地址如何解析到实际运行的 Redis 实例？
 
 在本部分中，您将通过探索 DC/OS 中应用程序的不同选项，了解 DC/OS 服务发现。
 

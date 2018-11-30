@@ -4,10 +4,8 @@ navigationTitle: 配置 SAML IdP
 title: 配置 SAML 身份提供程序
 menuWeight: 1
 excerpt: 配置 SAML 身份提供程序和 OneLogin IdP
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 本主题讨论了安全声明标记语言 (SAML) 的一般要求，并提供了设置 OneLogin IdP 的分步程序。
 
@@ -31,26 +29,27 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 ## 获取身份提供程序元数据
 
 1. 以 OneLogin 超级用户身份登录 Onelogin 仪表盘。
-2. [创建](https://admin.us.onelogin.com/apps/find) 一个可以发送属性并签署授权声明的 IdP 应用程序。
-3. 单击以添加应用程序。
-4. 在 **Display Name** 字段中键入此 IdP 的描述性名称。
-5. 点击**保存**。
-7. 单击 **SSO** 选项卡。
-8. 复制 **Issuer URL** 值。
-9. 从浏览器或使用 curl 向 **Issuer URL** 发出 `GET` 请求。
-10. 它应该返回身份提供程序 XML。
+1. [创建](https://admin.us.onelogin.com/apps/find) 一个可以发送属性并签署授权声明的 IdP 应用程序。
+1. 单击以添加应用程序。
+1. 在 **Display Name** 字段中键入此 IdP 的描述性名称。
+1. 点击**保存**。
+1. 单击 **SSO** 选项卡。
+1. 复制 **Issuer URL** 值。
+1. 从浏览器或使用 curl 向 **Issuer URL** 发出 `GET` 请求。
+1. 它应该返回身份提供程序 XML。
 
-  ```xml
-<?xml version="1.0?>
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://app.onelogin.com/saml/metadata/555370">
-  [...]
-</EntityDescriptor>
-  ```
+    ```xml
+    <?xml version="1.0?>
+    <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://app.onelogin.com/saml/metadata/555370">
+      [...]
+    </EntityDescriptor>
+    ```
 
-11. 将 XML 复制到剪贴板或文本编辑器中。
-12. 单击 **Access** 选项卡。激活您希望能够登录到集群的所有角色。例如：**员工**和**工程师**。
+1. 将 XML 复制到剪贴板或文本编辑器中。
+1. 单击 **Access** 选项卡。激活您希望能够登录到集群的所有角色。例如：**员工**和**工程师**。
 
- **注意：** 请勿在此阶段单击 **Save**；它会失败。
+<p class="message--note"><strong>注意: </strong>
+请勿在此阶段单击 <strong>Save</strong>；它会失败。</p>
 
 ## 配置 DC/OS 以使其作为 SAML 服务提供程序
 
@@ -104,7 +103,8 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 3. 单击刚刚配置的 SAML 提供程序的按钮。
 4. 您应该收到来自 DC/OS 的**访问被拒绝**消息。
 
- **注意：**这表明 DC/OS 已经与第三方提供程序一起验证您的帐户，并将其导入 DC/OS。由于默认情况下您的帐户没有权限，因此会返回“访问被拒绝”。
+<p class="message--note"><strong>注意: </strong>
+这表明 DC/OS 已经与第三方提供程序一起验证您的帐户，并将其导入 DC/OS。由于默认情况下您的帐户没有权限，因此会返回“访问被拒绝”。</p>
 
 ## 分配权限
 

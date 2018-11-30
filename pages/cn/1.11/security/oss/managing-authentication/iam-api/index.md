@@ -17,9 +17,9 @@ title: HTTP API 端点身份认证
 
 2. 使用以下命令确认此写入成功，并查看您的认证令牌。
 
-```bash
-dcos config show core.dcos_acs_token
-```
+    ```bash
+    dcos config show core.dcos_acs_token
+    ```
 
 # 将认证令牌传递到 DC/OS 端点
 

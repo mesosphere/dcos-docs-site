@@ -4,12 +4,8 @@ navigationTitle: 密钥 API
 title: 密钥 API
 menuWeight: 6
 excerpt: 了解密钥 API
-
 enterprise: true
 ---
-
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 
 # 关于密钥 API
@@ -20,7 +16,7 @@ enterprise: true
 
 API 仅支持 JSON。您必须在 HTTP 报文头中包含 `application/json` 作为 `Content-Type`，如下所示。
 
- Content-Type: application/json
+    Content-Type: application/json
 
 
 # 主机名和基础路径
@@ -31,9 +27,9 @@ API 仅支持 JSON。您必须在 HTTP 报文头中包含 `application/json` 作
 
 * 如果您的应用程序在集群内部运行，则使用 `master.mesos`。
 
-将 `/secrets/v1/<api_endpoint>` 附加到主机名，如下所示。
+  将 `/secrets/v1/<api_endpoint>` 附加到主机名，如下所示。
 
- https://<host-name-or-ip>/secrets/v1/<api_endpoint>
+     https://<host-name-or-ip>/secrets/v1/<api_endpoint>
 
 
 # 身份验证和授权

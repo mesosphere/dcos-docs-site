@@ -60,7 +60,7 @@ oss: true
 
  - `dcos_installer_url` - 在哪获取 [DC/OS 配置文件](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh)
 
- 以下字段具有默认值，可根据您的要求进行更改：
+    以下字段具有默认值，可根据您的要求进行更改：
 
  - `packet_facility` -  Packet 设施：`ewr1|sjc1|ams1` 
  ewr1 是 New Jersey, ams1 是 Amsterdam, sjc1 是 San Jose - default 是 sjc1
@@ -71,7 +71,7 @@ oss: true
  - `packet_master_type` - 用于 DC/OS 管理节点的 Packet 服务器类型：`baremetal_0|baremetal_1|baremetal_3`
  选择用于 DC/OS 管理节点的 Packet 服务器类型——默认为 `baremetal_0`
 
- - `packet_boot_type` - 用于 DC/OS 引导节点的 Packet 服务器类型：`baremetal_0`baremetal_1|baremetal_3`
+ - `packet_boot_type` - 用于 DC/OS 引导节点的 Packet 服务器类型：`baremetal_0|baremetal_1|baremetal_3`
  选择用于 DC/OS 引导服务器的 Packet 服务器类型——默认为 `baremetal_0`
 
  - `dcos_cluster_name` - DC/OS 集群的名称——默认为 `packet-dcos`
@@ -88,7 +88,7 @@ oss: true
 
  ![terraform apply output](/cn/1.11/img/packet_terraform_output.png)
 
- 图 1. "Terraform apply" 输出
+    图 1. "Terraform apply" 输出
 
 可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/cn/1.11/installing/troubleshooting/) 文档。
 
@@ -101,7 +101,7 @@ oss: true
 
  ![install CLI](/cn/1.11/img/install-cli-terminal.png)
 
- 图 2. 安装 DC/OS CLI 画面
+    图 2. 安装 DC/OS CLI 画面
 
 ## 后续步骤
 

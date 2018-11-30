@@ -34,7 +34,7 @@ excerpt: 了解为 DC/OS 部署配置的端口
 | 53 | DC/OS Net | `dcos-net.service` | 代理/管理 | 代理/管理 | 
 | 64000 | DC/OS Net | `dcos-net.service` | 代理/管理 | 代理/管理 | 
 
-**注意：** UDP 端口 123 用于与 NTP 通信而开启。
+<p class="message--note"><strong>注意: </strong> UDP 端口 123 用于与 NTP 通信而开启。</p>
 
 ## 管理节点
 

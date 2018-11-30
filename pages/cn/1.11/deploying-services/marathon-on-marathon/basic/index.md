@@ -219,7 +219,7 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
  图 3. 添加权限。
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/1.11/security/ent/#security-modes)。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/cn/1.11/security/ent/#security-modes)。
 
  ### 已禁用
 

@@ -9,9 +9,9 @@ enterprise: true
 
 集群链接是集群和另一集群之间的 **单向** 关系。
 
-您可以使用 DC/OS CLI [dcos cluster link](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) 和 [dcos cluster unlink](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) 命令和 [cluster link API](/cn/1.11/administering-clusters/multiple-clusters/cluster-link-api)添加和删除一个集群到另一个集群的链接。链接设置成功后，您可以使用 CLI 或 UI 轻松在集群之间切换。如果已经使用 SSO 提供程序设置链接，您不需要提供凭证即可切换集群。
+您可以使用 DC/OS CLI [dcos cluster link](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) 和 [dcos cluster unlink](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) 命令和 [cluster link API](/cn/1.11/administering-clusters/multiple-clusters/cluster-link-api)添加和删除一个集群到另一个集群的链接。链接设置成功后，您可以使用 CLI 或 UI 轻松在集群之间切换。如果已经使用 SSO 提供程序设置链接，您不需要提供凭证即可切换集群。
 
-您必须是超级用户或具有相应的集群链接 [权限](/1.11/security/ent/perms-reference/#cluster-linker)才能查看、添加和删除链接并授予查看链接集群的权限。
+您必须是超级用户或具有相应的集群链接 [权限](/cn/1.11/security/ent/perms-reference/#cluster-linker)才能查看、添加和删除链接并授予查看链接集群的权限。
 
 
 # 使用 SSO 访问集群链接

@@ -19,7 +19,9 @@ excerpt: 在 CentOS/RHEL 上安装 Docker CE 的要求、建议和程序
 * 如需更多通用 Docker 要求，请参阅 [系统要求： Docker ](/cn/1.11/installing/production/system-requirements/#docker)。
 
 
-**注意：** 在现代版本的 Centos 和 RHEL 中， `ftype=1` 是默认值。`xfs_info` 应用程序可用于验证 `ftype=1`。
+<p class="message--note"><strong>注意: </strong> 在现代版本的 Centos 和 RHEL 中， <tt>ftype=1</tt> 是默认值。<tt>xfs_info</tt> 应用程序可用于验证 <tt>ftype=1</tt>。</p>
+
+
 
   ```bash
   mkfs -t xfs -n ftype=1 /dev/sdc1
@@ -33,15 +35,15 @@ excerpt: 在 CentOS/RHEL 上安装 Docker CE 的要求、建议和程序
 
 必须注册订阅管理器，才能启用其他存储库。
 
-1. 在订阅管理器中订阅 RHEL 系统，并添加存储库
+在订阅管理器中订阅 RHEL 系统，并添加存储库
 
-    ```bash
-    sudo subscription-manager register --username <RHEL-SUBSCRIPTION-USERNAME> --password ******** --auto-attach
+```bash
+sudo subscription-manager register --username <RHEL-SUBSCRIPTION-USERNAME> --password ******** --auto-attach
 
-    sudo subscription-manager repos --enable=rhel-7-server-rpms
-    sudo subscription-manager repos --enable=rhel-7-server-extras-rpms
-    sudo subscription-manager repos --enable=rhel-7-server-optional-rpms
-    ```
+sudo subscription-manager repos --enable=rhel-7-server-rpms
+sudo subscription-manager repos --enable=rhel-7-server-extras-rpms
+sudo subscription-manager repos --enable=rhel-7-server-optional-rpms
+```
 
 ### 示例：在 CentOS/RedHat 上安装带有 OverlayFS 的 Docker 
 
@@ -83,9 +85,9 @@ excerpt: 在 CentOS/RHEL 上安装 Docker CE 的要求、建议和程序
     sudo yum list docker-ce --showduplicates | sort -r
     ```
 
-以下说明假设您已安装最新版本。
+    以下说明假设您已安装最新版本。
 
-6. 安装 Docker CE：
+1. 安装 Docker CE：
 
     ```bash
     sudo yum install docker-ce

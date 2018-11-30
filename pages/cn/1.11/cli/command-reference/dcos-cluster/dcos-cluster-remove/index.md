@@ -4,8 +4,6 @@ navigationTitle: dcos cluster remove
 title: dcos cluster remove
 menuWeight: 5
 excerpt: 从 DC/OS CLI 中删除连接的集群
-
-
 enterprise: false
 ---
 

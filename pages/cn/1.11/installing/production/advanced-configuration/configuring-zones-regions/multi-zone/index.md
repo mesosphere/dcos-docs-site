@@ -11,6 +11,7 @@ DC/OS 支持多个区域 (multi-AZ) 配置。本页介绍设置建议和注意�
 
 <p class="message--important"><strong>重要信息：</strong>以下多 AZ 设置尚未明确测试或验证。</p> 
 
+<p class="message--important"><strong>重要信息：</strong>以下多 AZ 设置尚未明确测试或验证。</p>
 
 # 地区内的单区域管理节点和跨区域代理节点
 所有 DC/OS 管理节点都存在于单个区域，但代理节点可跨越该区域内的多个区域。

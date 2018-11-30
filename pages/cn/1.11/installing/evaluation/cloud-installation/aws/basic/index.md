@@ -142,7 +142,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 - [添加用户到集群][3]
 - [扩展注意事项][4]
 
- [1]: /1.11/administering-clusters/managing-aws/
- [2]: /1.11/cli/install/
- [3]: /1.11/security/ent/users-groups/
+ [1]: /cn/1.11/administering-clusters/managing-aws/
+ [2]: /cn/1.11/cli/install/
+ [3]: /cn/1.11/security/ent/users-groups/
  [4]: https://aws.amazon.com/autoscaling/

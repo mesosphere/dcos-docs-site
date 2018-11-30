@@ -6,8 +6,7 @@ navigationTitle: 了解资源
 menuWeight: 7
 ---
 
-
-<p class="message--important"><strong>重要信息：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
 欢迎阅读 DC/OS 101 教程第 7 部分。
 
@@ -26,20 +25,20 @@ menuWeight: 7
 
 * 再次查看 [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) 的应用定义。
 
-```
-  {
-  "id": "/dcos-101/app2",
-  "cmd": "chmod u+x app2 && ./app2",
-  "args": null,
-  "user": null,
-  "env": null,
-  "instances": 1,
-  "cpus": 1,
-  "mem": 128,
-  "disk": 0,
-  "gpus": 0,
-  ...
-```
+  ```
+    {
+    "id": "/dcos-101/app2",
+    "cmd": "chmod u+x app2 && ./app2",
+    "args": null,
+    "user": null,
+    "env": null,
+    "instances": 1,
+    "cpus": 1,
+    "mem": 128,
+    "disk": 0,
+    "gpus": 0,
+    ...
+  ```
 
 * 以上 `cpus`、`mem`、`disk` 和 `gpus` 参数指定分配的资源，从而定义任务可使用的最大资源量。此数字不一定与任务实际使用的资源量相同。该数字通常较低。
 
@@ -97,7 +96,7 @@ menuWeight: 7
 
 垂直扩展包括增加分配给实例的 CPU 或 RAM 等资源的量。
 
-**注意**：这会导致应用程序重启！
+<p class="message--note"><strong>注意：</strong>这会导致应用程序重启！</p>
 
 * 为 app2 实例增加 2 个 CPU：
 
@@ -179,7 +178,7 @@ menuWeight: 7
 此时，您可以看到以下内容：
 
 ```
-    Memory cgroup out of memory: Kill process 10106 (oomApp) score 925 or sacrifice child; Killed process 10390 (oomApp) total-vm:3744760kB, anon-rss:60816kB, file-rss:1240kB, shmem-rss:0kB`
+Memory cgroup out of memory: Kill process 10106 (oomApp) score 925 or sacrifice child; Killed process 10390 (oomApp) total-vm:3744760kB, anon-rss:60816kB, file-rss:1240kB, shmem-rss:0kB`
 ```
 
 解决方案：

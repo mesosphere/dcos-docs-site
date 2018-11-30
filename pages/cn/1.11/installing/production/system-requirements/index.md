@@ -5,8 +5,6 @@ title: 系统要求
 menuWeight: 5
 enterprise: false
 excerpt: DC/OS 部署的软硬件要求
-
-渲染：胡须 
 ---
 
 # 硬件先决条件
@@ -18,7 +16,7 @@ excerpt: DC/OS 部署的软硬件要求
 * DC/OS 装置在一个 bootstrap 节点上运行，它由一个带有两个核心的节点、16 GB RAM 和 60 GB HDD 组成。
 * bootstrap 节点仅在安装和升级过程中使用，因此没有针对高性能存储或分离挂载点的具体建议。
 
- **注意：** bootstrap 节点必须与集群节点分开。
+<p class="message--note"><strong>注意: </strong> bootstrap 节点必须与群集节点分开。</P>
 
 ## 集群节点
 
@@ -36,31 +34,31 @@ DC/OS 安装到集群节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 | 处理器 | 4 核 | 4 核 |
 | 内存 | 32 GB RAM | 32 GB RAM |
 | 硬盘 | 120 GB | 120 GB |
+
 &ast; 对于业务关键部署，需要三个管理节点，而不是一个管理节点。
 
-管理节点上有许多混合工作负载。预计持续可用或被视为业务关键的工作负载只能在具有至少三个管理节点的 DC/OS 集群上运行。有关高可用性要求的更多信息，请参阅 [高可用性文档][0]。
-
-[0]: /1.11/overview/high-availability/
+管理节点上有许多混合工作负载。预计持续可用或被视为业务关键的工作负载只能在具有至少三个管理节点的 DC/OS 群集上运行。有关高可用性要求的更多信息，请参阅 [高可用性文档](/cn/1.11/overview/high-availability/)。
 
 管理节点上混合工作负载的示例是 Mesos 复制了的日志和 ZooKeeper。其中部分每隔一段时间需要进行 fsync()，而且可以生成很多非常昂贵的随机 I/O。我们推荐以下内容：
 
 - 固态硬盘 (SSD)
 - 带 BBU 的 RAID 控制器
 - 在回写模式下配置的 RAID 控制器缓存
-- 如果可以分离存储挂载点，则建议在管理节点上使用以下存储挂载点。这些建议将通过隔离各种服务的 I/O 来优化繁忙 DC/OS 集群的性能。
- | 目录路径 | 描述 |
-  |:-------------- | :---------- |
- | _/var/lib/dcos_ | 管理节点上的大部分 I/O 将出现在此目录结构中。如果计划一个拥有数百个节点的集群或打算以较高速度部署和删除工作负载，则建议将此目录隔离到专用固态硬盘存储。
+- 如果可以分离存储挂载点，则建议在管理节点上使用以下存储挂载点。这些建议将通过隔离各种服务的 I/O 来优化繁忙 DC/OS 群集的性能。
+
+| 目录路径 | 描述 |
+|:-------------- | :---------- |
+|/var/lib/dcos | 管理节点上的大部分 I/O 将出现在此目录结构中。如果计划一个拥有数百个节点的群集或打算以较高速度部署和删除工作负载，则建议将此目录隔离到专用固态硬盘存储。
 
 - 对于会发展到数千个节点的集群，建议将此目录结构进一步分解为具体服务的单个挂载点。
 
- | 目录路径 | 描述 |
-  |:-------------- | :---------- |
- | _/var/lib/dcos/mesos/master_ | 日志记录目录 |
- | _/var/lib/dcos/cockroach_ | CockroachDB [enterprise type="inline" size="small" /] |
- | _/var/lib/dcos/navstar_ | 对于 Mnesia 数据库 |
- | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] | 
- | _/var/lib/dcos/exhibitor_ | Zookeeper 数据库 |
+| 目录路径 | 描述 |
+|:-------------- | :---------- |
+|/var/lib/dcos/mesos/master | 日志记录目录 |
+|/var/lib/dcos/cockroach | CockroachDB [enterprise type="inline" size="small" /] |
+|/var/lib/dcos/navstar | 对于 Mnesia 数据库 |
+|/var/lib/dcos/secrets | secrets vault [enterprise type="inline" size="small" /] | 
+|/var/lib/dcos/exhibitor | Zookeeper 数据库 |
 
 ### 代理节点
 
@@ -92,24 +90,24 @@ DC/OS 安装到集群节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 
 - 集群的 Mesos 管理节点和代理节点持久信息存储在 `var/lib/mesos` 目录中。
 
- **注意：** 不要远程挂载 `/var/lib/mesos` 或 Docker 存储目录（默认情况下 `/var/lib/docker`）。
+    <p class="message--note"><strong>注意: </strong>不要远程挂载 <tt>/var/lib/mesos</tt> 或 Docker 存储目录（默认情况下 <tt>/var/lib/docker</tt>）。</p>
 
 - 不要挂载带有 `noexec` 的 `/tmp`。这样可防止 Exhibitor 和 ZooKeeper 运行。
 
 - 如果计划一个拥有数百个代理节点的集群或打算以较高速度部署和删除服务，则建议将此目录隔离到专用固态硬盘存储。
 
- | 目录路径 | 描述 |
-    |:-------------- | :---------- |
- | _/var/lib/mesos/_ | 代理节点的大多数 I/O 将定向到此目录。此外，Apache Mesos 在其 UI 中宣称的磁盘空间是支持 _/var/lib/mesos_ |的文件系统宣称的空间之和
+| 目录路径 | 描述 |
+|:-------------- | :---------- |
+|/var/lib/mesos/ | 代理节点的大多数 I/O 将定向到此目录。此外，Apache Mesos 在其 UI 中宣称的磁盘空间是支持 /var/lib/mesos_ |的文件系统宣称的空间之和
 
 - 对于会发展到数千个节点的集群，建议将此目录结构进一步分解为具体服务的单个挂载点。
 
- | 目录路径 | 描述 |
-   |:-------------- |:----------- |
- | _/var/lib/mesos/slave/slaves_ | 任务的沙盒目录 |
- | _/var/lib/mesos/slave/volumes_ | 由消耗 ROOT 持久卷的框架使用 |
- | _/var/lib/mesos/docker/store_ | 存储用来配置 URC 容器的 Docker 镜像层 |
- | _/var/lib/docker_ | 存储用来配置 Docker 容器的 Docker 镜像层 |
+| 目录路径 | 描述 |
+|:-------------- |:----------- |
+|/var/lib/mesos/slave/slaves | 任务的沙盒目录 |
+|/var/lib/mesos/slave/volumes | 由消耗 ROOT 持久卷的框架使用 |
+|/var/lib/mesos/docker/store | 存储用来配置 URC 容器的 Docker 镜像层 |
+|/var/lib/docker | 存储用来配置 Docker 容器的 Docker 镜像层 |
 
 ### <a name="port-and-protocol"></a>端口和协议配置
 
@@ -227,7 +225,7 @@ sudo yum install -y tar xz unzip curl ipset
     sudo reboot
     ```
 
- **注意：** 重启后，节点可能需要几分钟时间才能恢复联机。
+<p class="message--note"><strong>注意: </strong> 重启后，节点可能需要几分钟时间才能恢复联机。</p>
 
 ### 区域设置要求
 您必须将 `LC_ALL` 和 `LANG` 环境变量设置为 `en_US.utf-8`。
@@ -245,5 +243,5 @@ localectl set-locale LANG=en_US.utf8
 - [从 Docker 的 Yum 存储库安装 Docker][1]
 - [DC/OS 安装指南](/cn/1.11/installing/production/deploying-dcos/installation/)
 
-[1]: /1.11/installing/production/system-requirements/docker-centos/
+[1]: /cn/1.11/installing/production/system-requirements/docker-centos/
 

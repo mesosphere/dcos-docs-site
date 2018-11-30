@@ -12,7 +12,7 @@ menuWeight: 1
 
 对于某些有状态的服务，如 Jenkins，可以方便地将共享网络驱动器挂载到每个节点。如果使用中的节点不可用，则共享网络驱动器可以在新节点上启动任务。
 
-<p class="message--note"><strong>注意：</strong>此示例使用 CoreOS 和 `systemd`，且尚未在其他环境中进行测试。</p>
+<p class="message--note"><strong>注意：</strong>此示例使用 CoreOS 和 <tt>systemd</tt>，且尚未在其他环境中进行测试。</p>
 
 
 ### 注意

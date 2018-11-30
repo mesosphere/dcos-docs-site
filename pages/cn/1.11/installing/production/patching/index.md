@@ -15,15 +15,15 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 - 不会影响工作负载，这是在不停机的情况下修补实时集群重要的一部分
 - 帮助用户了解影响 DC/OS 功能的次要变更
 
-示例：DC/OS 1.X.A 至 1.X.B (1.11.1 --> 1.11.2)
 
-**注意：** 修补进程仅在次要版本之间发生。
+
+<p class="message--note"><strong>注意: </strong> 修补进程仅在次要版本之间发生。示例：DC/OS 1.X.A 至 1.X.B (1.11.1 --> 1.11.2)</p>
 
 ## 重要指南
 
 - 在修补 DC/OS 之前，请先查看 [版本注释](/cn/1.11/release-notes/)。
-- 由于覆盖网络存在集群配置问题，建议在修补或配置新集群时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已修补到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，则在 DC/OS 1.11.3 发布之前不要添加新节点。您可以在我们最新的重要 [产品咨询] 中找到更多信息和更稳固的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。
-- `config.yaml` 文件中有几个必须在修补前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否已添加到 `config.yaml` 文件中。您可以查看 [此处]的样本文件 (1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file). 
+- 由于覆盖网络存在群集配置问题，建议在修补或配置新群集时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已修补到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，则在 DC/OS 1.11.3 发布之前不要添加新节点。您可以在我们最新的重要 [产品咨询](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 中找到更多信息和更稳固的补救程序 。
+- `config.yaml` 文件中有几个必须在修补前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否已添加到 `config.yaml` 文件中。您可以查看 [此处](/cn/1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file)的样本文件 . 
 - 如果 IPv6 在内核中被禁用，则 IPv6 必须在 `config.yaml` 文件中禁用才能确保修补成功。
 - DC/OS Enterprise 现在执行许可证密钥。许可证密钥必须驻留在 genconf/license.txt 文件中，否则修补将失败。[enterprise type="inline" size="small" /]
 - 直到全部管理节点都被修补完毕，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。例如，修补后的 DC/OS Marathon 首要实例无法连接到首要的 Mesos 管理节点上，直到该节点也得到修补为止。出现这种情况时：
@@ -94,11 +94,11 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 选择您所需的安全模式，然后按照适用的补丁说明进行。
 
 - [修补 DC/OS 1.11 而不更改安全模式](#current-security)
-- [在宽容模式下修补 DC/OS 1.11]](#permissive)
+- [在宽容模式下修补 DC/OS 1.11](#permissive)
 - [在严格模式下修补 DC/OS 1.11](#strict)
 
 # <a name="current-security"></a>修补 DC/OS 1.11 而不更改安全模式
-改程序将 DC/OS 1.10 集群修补到 DC/OS 1.11 而不更改集群的 [安全模式](//1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)。
+改程序将 DC/OS 1.10 群集修补到 DC/OS 1.11 而不更改群集的 [安全模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)。
 1. 将现有 `config.yaml` 和 `ip-detect` 文件复制到 bootstrap 节点上的空 `genconf` 文件夹。文件夹与安装工具应当位于同一个目录中。
 1. 将旧的 `config.yaml` 合并到新的 `config.yaml` 格式中。在大多数情况下，区别都很小。
 
@@ -111,7 +111,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 1. 构建安装工具包。
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
- 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the command below with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`。
+ 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` 例如，在下面的命令中，当前正在要修补的群集上运行DC / OS版本 `1.8.8`。
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
@@ -121,13 +121,14 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 1. 转到 DC/OS 管理节点 [程序](/cn/1.11/installing/production/patching/#masters) 完成安装。
 
 # <a name="permissive"></a>在宽容模式下的修补 DC/OS 1.11
-此程序补丁在 [宽容安全模式] 下修补 DC/OS 1.11 (1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)。
+
+此程序补丁在 [宽容安全模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) 下修补 DC/OS 1.11 。
 
 **先决条件：**
 
-- 您的集群必须 [修补到 DC/OS 1.11](#current-security) 并在 [禁用安全模式] (1.11/install/production/advanced-configuration/configuration-reference/#security-enterprise) 下运行，才能修补为宽容模式。如果您的集群在补丁到 DC/OS 1.10，之前处于宽容模式，则可以跳过该程序。
+- 您的群集必须 [修补到 DC/OS 1.11](#current-security) 并在 [禁用安全模式](/cn/1.11/install/production/advanced-configuration/configuration-reference/#security-enterprise) 下运行，才能修补为宽容模式。如果您的群集在补丁到 DC/OS 1.10，之前处于宽容模式，则可以跳过该程序。
 
-<p class="message--important"><strong>重要信息：</strong>从禁用模式修补到宽容安全模式的补丁，您已配置的任何<a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">自定义节点或集群运行状况检查</a>都会失败。未来版本支持绕过运行状况检查。</p> 
+<p class="message--important"><strong>重要信息：</strong>从禁用模式修补到宽容安全模式的补丁，您已配置的任何<a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">自定义节点或群集运行状况检查</a>都会失败。未来版本支持绕过运行状况检查。</p>
 
 
 要将集群从禁用安全模式修补为宽容安全模式，请完成以下步骤：
@@ -137,12 +138,13 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 1. 构建安装工具包。
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
- 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`。
-        ```bash
-        dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
-        ```
+ 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` 例如，在下面的命令中，当前正在要修补的群集上运行DC / OS版本 `1.8.8`。
+
+    ```bash
+    dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
+    ```
  1. 上一步中的命令将在其输出的最后一行产生 URL，前缀为 `Node patch script URL:`。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点补丁脚本 URL”。
- 1. 运行 [nginx][install] 容器以便使用安装文件。
+ 1. 运行 [nginx](/cn/1.11/installing/production/deploying-dcos/installation/) 容器以便使用安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
 
@@ -162,13 +164,14 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 1. 根据需要修改 `ip-detect` 文件。
 1. 构建安装工具包。
 
- 1. 下载 `dcos_generate_config.ee.sh` 文件。
- 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`。
-        ```bash
-        dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
-        ```
- 1. 上一步中的命令将在其输出的最后一行产生 URL，前缀为 `Node patch script URL:`。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点补丁脚本 URL”。
- 1. 运行 [nginx][install] 容器以便使用安装文件。
+    1. 下载 `dcos_generate_config.ee.sh` 文件。
+    1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` 例如，在下面的命令中，当前正在要修补的群集上运行DC / OS版本 `1.8.8`。
+
+       ```bash
+       dcos_generate_config.ee.sh --generate-node-upgrade-script  <installed_cluster_version>
+       ```
+    1. 上一步中的命令将在其输出的最后一行产生 URL，前缀为 `Node patch script URL:`。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点补丁脚本 URL”。
+    1. 运行 [nginx](/cn/1.11/installing/production/deploying-dcos/installation/) 容器以便使用安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
 
@@ -177,6 +180,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 采用以下步骤，继续以任何顺序修补每个管理节点，每次修补一个。完成每次修补后，监控 Mesos 管理节点度量标准，确保节点已重新加入集群并完成了协调。
 
 1. 下载并运行节点补丁脚本：
+
     ```bash
     curl -O <Node patch script URL>
     sudo bash dcos_node_upgrade.sh
@@ -192,22 +196,25 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
  1. 监视 Exhibitor 并等待其融合到 `http://<master-ip>:8181/exhibitor/v1/ui/index.html`。确认管理节点已成功重新加入 ZooKeeper 共识机制（状态指示灯将变为绿色）。
 
- **注意：** 如果要从宽容模式修补到严格模式，此 URL 将是 `https://...`。
+**注意：** 如果要从宽容模式修补到严格模式，此 URL 将是 `https://...`。
  1. 等到 `dcos-mesos-master` 单元启动并运行。
- 1. 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`。
- **注意：** 如果要从宽容模式修补到严格模式，此 URL 将是 `curl https://...`，并且需要有 JWT 才能访问。
+ 1. 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 有指标 `registrar/log/recovered` 价值为 `1`。
+ 
+**注意：** 如果要从宽容模式修补到严格模式，此 URL 将是 `curl https://...`，并且需要有 JWT 才能访问。
  1. 验证 `/opt/mesosphere/bin/mesos-master --version` 表示修补后的管理节点正在运行 Mesos 1.4.0。
  1. 验证副本不足范围的数量是否随着 IAM 数据库被复制到新管理节点而已经降至零。可以通过运行以下命令并确认右侧的最后一列是否只显示零来完成。
+
  ```bash
  sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
++----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
  | id | address | build | updated_at | started_at | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
++----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
  | 1 | 172.31.7.32:26257 | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 | 195 | 194 | 195 | 0 | 0 |
  | 2 | 172.31.10.48:26257 | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 | 200 | 199 | 200 | 0 | 0 |
  | 3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 | 187 | 187 | 187 | 0 | 0 |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-		```
++----+---------------------+--------+---------------------+---------------------+------------------+-----------------------
+```
+
  如果 `ranges_underreplicated` 栏列出任何非零值，则等待一分钟，然后重新运行命令。一旦所有数据被安全地复制，数值将聚合为零。
 
 1. 转到 DC/OS 代理节点 [程序](#agents) 以完成安装。
@@ -237,8 +244,8 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 1. 验证补丁：
 
- - 验证 `curl http://<dcos_agent_private_ip>:5051/metrics/snapshot` has the metric `slave/registered` with a value of `1`。
- - 监控 Mesos UI 以验证修补的节点是否重新加入 DC/OS 集群以及任务是否已协调 (`http://<master-ip>/mesos`). If you are patching from permissive to strict mode, this URL will be `https://<master-ip>/mesos`。
+ - 验证 `curl http://<dcos_agent_private_ip>:5051/metrics/snapshot` 有指标 `slave/registered` 价值为 `1`。
+ - 监控 Mesos UI 以验证修补的节点是否重新加入 DC/OS 群集以及任务是否已协调 (`http://<master-ip>/mesos`). 如果您从允许严格模式进行修补，则此URL将是 `https://<master-ip>/mesos`。
 
 ## <a name="troubleshooting"></a>故障排除建议
 
@@ -252,7 +259,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-如果您的修补因为 [自定义节点或集群检查] 而失败(/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks)，运行以下命令可了解更多详细信息：
+如果您的修补因为 [自定义节点或群集检查](/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) 而失败，运行以下命令可了解更多详细信息：
 ```bash
 dcos-diagnostics check node-poststart
 dcos-diagnostics check cluster

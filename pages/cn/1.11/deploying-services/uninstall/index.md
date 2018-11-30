@@ -168,7 +168,7 @@ agent-node$ docker logs 828ee17b5fd3
 ### 示例结果
 
 以下是成功运行样本安装的输出示例：
-
+```
     your-machine$ dcos node ssh --master-proxy --leader
 
     leader-node$ docker run mesosphere/janitor /janitor.py -r sample_role -z dcos-service-sample
@@ -201,8 +201,10 @@ agent-node$ docker logs 828ee17b5fd3
     Deleting zk node...
     Successfully deleted znode 'dcos-service-sample' (code=200), if znode existed.
     Cleanup completed successfully.
-
+```
 如果通过 Marathon 运行脚本，您还会看到以下输出：
 
+```
     Deleting self from Marathon to avoid run loop: /janitor
     Successfully deleted self from marathon (code=200): /janitor
+```

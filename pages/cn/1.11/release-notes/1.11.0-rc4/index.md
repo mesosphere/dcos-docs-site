@@ -71,7 +71,7 @@ DC/OS 1.11 候选版本 4 有许多限制，将在 GA 时解决。
 - DC/OS 1.11 介绍了行业标准容器存储接口 (CSI) 版本 0.1 的实现，它通过在容器编排器 (DC/OS) 和存储设备之间提供通用 API，让开发人员（Mesosphere、社区和合作伙伴）能够提高开发 DC/OS 中存储功能的效率。[查看文档](/services/beta-storage/0.1.0-beta)。[enterprise type="inline" size="small" /]
 - Pod 现在支持永久卷。[查看文档](/cn/1.11/deploying-services/pods)。
 
-**注意：** 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。
+<p class="message--note"><strong>注意: </strong> 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。</p>
 
 ## 更新了 DC/OS 数据服务
 - 现在支持对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的TLS 加密。
@@ -113,4 +113,4 @@ DC/OS 1.11 候选版本 4 有许多限制，将在 GA 时解决。
 - 将 Marathon 更新到 1.6.322 (https://github.com/dcos/dcos/pull/2473 | https://github.com/mesosphere/dcos-enterprise/pull/2278)
 - 将 Mesos 更新到 1.5.x 9840ae1 (https://github.com/dcos/dcos/pull/2472 | https://github.com/mesosphere/dcos-enterprise/pull/2263)
 
-**注意：** Kubernetes 包依赖关系记录 [在此处](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install)。
+<p class="message--note"><strong>注意: </strong> Kubernetes 包依赖关系记录 <a href="https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install">在此处</a>。</p>

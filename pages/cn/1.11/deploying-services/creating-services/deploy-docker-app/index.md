@@ -140,7 +140,7 @@ enterprise: false
 1. 如果您使用 [AWS CloudFormation 模板](/cn/1.11/installing/evaluation/cloud-installation/aws/) 将应用程序公开到应用定义中指定的端口（例如，端口 80），则必须在公共 ELB 上重新设置运行状况检查。
     1. 在 CloudFormation 中，勾选堆栈旁边的复选框。
     2. 单击 **Resources** 选项卡。
-    3. 搜索 **PublicSlavEloadBalancer**。
+    3. 搜索 **PublicSlaveLoadBalancer**。
     4. 单击 Physical ID（物理 ID）列中的链接。
     5. 遵循[更新运行状况检查配置](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html#update-health-check-config)中的说明。
 
@@ -159,5 +159,5 @@ enterprise: false
 
  [1]:https://www.docker.com
  [2]:https://hub.docker.com
- [3]: /1.11/installing/
- [4]: /1.11/cli/install/
+ [3]:/cn/1.11/installing/
+ [4]:/cn/1.11/cli/install/

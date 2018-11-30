@@ -20,7 +20,7 @@ enterprise: true
 /system/v1/backup/v1
 ```
 
-要确定集群的 URL，请参阅 [集群访问](/cn/1.11/api/access/)。
+要确定群集的 URL，请参阅 [群集访问](/cn/1.11/api/access/)。
 
 # 格式
 

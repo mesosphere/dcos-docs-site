@@ -59,8 +59,8 @@ DC/OS 节点是 Mesos 代理节点和/或 Mesos 管理节点进程运行所在�
 DC/OS 管理节点是一个虚拟机或物理机，运行一系列协同工作的 DC/OS 组件来管理集群的其他部分。
 
 - 每个管理节点都包含多个 DC/OS 组件，尤其包括 [Mesos 管理节点](#mesos-master) 进程。
-- 管理节点在 [共识机制] 中工作(https://en.wikipedia.org/wiki/Quorum_%28distributed_computing%29)，以实现集群协调的一致性。要避免 [脑裂](https://en.wikipedia.org/wiki/Split-brain_%28computing%29) 集群分区，集群的管理节点数应始终为奇数。例如，具有三个管理节点允许一个管理节点出故障；具有五个管理节点允许两个管理节点出故障，允许在滚动更新过程中出故障。可添加额外的管理节点，以提高风险承受力。
-- 只有一个管理节点的集群可用于开发，但可用性不高，可能无法从故障中恢复。
+- 管理节点在 [共识机制](https://en.wikipedia.org/wiki/Quorum_%28distributed_computing%29) 中工作，以实现群集协调的一致性。要避免 [脑裂](https://en.wikipedia.org/wiki/Split-brain_%28computing%29) 群集分区，群集的管理节点数应始终为奇数。例如，具有三个管理节点允许一个管理节点出故障；具有五个管理节点允许两个管理节点出故障，允许在滚动更新过程中出故障。可添加额外的管理节点，以提高风险承受力。
+- 只有一个管理节点的群集可用于开发，但可用性不高，可能无法从故障中恢复。
 
 ## <a name="dcos-agent-node"></a>代理节点
 
@@ -133,15 +133,15 @@ Marathon 服务由零个或多个容器化服务实例组成。每个服务实�
 - Marathon 服务可以是 [DC/OS 调度器](#dcos-scheduler)，但并非所有服务都是调度器。
 - Marathon 服务是围绕 Marathon 服务实例的抽象，后者是围绕 Mesos 任务的抽象。DC/OS 作业 (Metronome) 或 Jenkins 等其他调度器有自己的名称，用于围绕 Mesos 任务的抽象。
 
-**示例：** Cassandra（调度器）、Marathon-on-Marathon、Kafka（调度器）、Nginx、Tweeter。
+**示例：** Cassandra（调度器）, Marathon-on-Marathon, Kafka（调度器）, Nginx, Tweeter。
 
 ## <a name="systemd-service"></a>`Systemd`服务
 
 `systemd` 服务包含单个可选的容器化机器操作系统进程，在管理节点或代理节点上运行，由 `systemd` 管理，由 DC/OS 本身拥有。
 
-- 所有 `systemd` 服务目前是主机操作系统服务、DC/OS 依赖关系、DC/OS 组件或系统管理员手动管理的服务。
+- 所有 `systemd` 服务目前是主机操作系统服务, DC/OS 依赖关系, DC/OS 组件或系统管理员手动管理的服务。
 
-**示例：** 大多数 DC/OS 组件、（系统）Marathon。
+**示例：** 大多数 DC/OS 组件, （系统）Marathon。
 
 ## <a name="system-service"></a>系统服务
 
@@ -158,7 +158,7 @@ Marathon 服务由零个或多个容器化服务实例组成。每个服务实�
 
 这种区分是新的，并且随着命名空间转换为系统范围的第一类模式，并映身到细粒度用户和用户组权限而不断发展。
 
-**示例：** Jenkins、Cassandra、Kafka、Tweeter。
+**示例：** Jenkins, Cassandra, Kafka, Tweeter。
 
 # <a name="dcos-service-group"></a>服务组
 
@@ -176,8 +176,8 @@ DC/OS 作业是一组类似的短期作业实例，作为 Mesos 任务运行，�
 DC/OS 调度器是一个 Mesos 调度器，在管理节点上作为 `systemd` 服务运行，在代理节点上作为 Mesos 任务运行。
 
 DC/OS 调度器和 Mesos 调度器之间的主要区别在于它运行的位置和安装的方式。
-- 某些调度器预先安装为 DC/OS 组件（例如，Marathon、DC/OS 作业 (Metronome)）。
-- 某些调度器可以由用户作为用户服务安装（例如，Kafka、Cassandra）。
+- 某些调度器预先安装为 DC/OS 组件（例如，Marathon, DC/OS 作业 (Metronome)）。
+- 某些调度器可以由用户作为用户服务安装（例如，Kafka, Cassandra）。
 - 某些调度器作为多个服务实例运行，以提供高可用性（例如，Marathon）。
 
 在 DC/OS Enterprise 中的某些安全模式下，DC/OS 调度器必须使用服务账户在 Mesos 注册为框架来认证身份并获得授权。
@@ -193,17 +193,17 @@ DC/OS 组件是与 DC/OS 一起发布的 DC/OS 系统服务。
 - 组件可以是 `systemd` 服务或 Marathon 服务。
 - 组件可以以高可用性的配置部署。
 
-大多数组件在管理节点上运行，但有些组件 (likr mesos-agent) 在代理节点上运行。
+大多数组件在管理节点上运行，但有些组件 (`likr mesos-agent`) 在代理节点上运行。
 
-**示例：** Mesos、Marathon、Mesos-DNS、Bouncer、Admin Router、DC/OS 包管理器 (Cosmos)、历史服务等。
+**示例：** Mesos, Marathon, Mesos-DNS, Bouncer, Admin Router, DC/OS 包管理器 (Cosmos), 历史服务等。
 
 # <a name="dcos-package"></a> 软件包
 
-DC/OS 包是指元数据捆绑包，描述如何使用 Marathon 来配置、安装和卸载 DC/OS 服务。
+DC/OS 包是指元数据捆绑包，描述如何使用 Marathon 来配置, 安装和卸载 DC/OS 服务。
 
 # <a name="dcos-package-manager"></a> 软件包管理器
 
-[DC/OS 包管理器 (Cosmos)(https://github.com/dcos/cosmos)) 是管理在 DC/OS 集群上安装和卸载软件包的一个组件。
+[DC/OS 包管理器 (Cosmos)](https://github.com/dcos/cosmos) 是管理在 DC/OS 集群上安装和卸载软件包的一个组件。
 
 - DC/OS GUI 和 DC/OS CLI 充当与 DC/OS 包管理器交互的客户端。
 - [DC/OS 包管理器 API](https://github.com/dcos/cosmos) 允许进行程序化交互。
@@ -263,7 +263,7 @@ Mesos 管理节点是在管理节点上运行的一个进程，以协调集群�
 
 ## <a name="mesos-agent"></a>代理节点
 
-Mesos 代理节点是在代理节点上运行的一个进程，以管理该节点的执行器、任务和资源。
+Mesos 代理节点是在代理节点上运行的一个进程，以管理该节点的执行器, 任务和资源。
 
 - Mesos 代理节点注册节点的部分或全部资源，允许首要 Mesos 管理节点向调度器提供这些资源，调度器则决定运行任务的节点。
 - Mesos 代理节点将任务状态更新报告给首要 Mesos 管理节点，后者则将其报告给相应的调度器。
@@ -280,13 +280,13 @@ Mesos 执行器是 Mesos 代理节点启动任务的一种方法。Mesos 任务�
 
 ## <a name="mesos-scheduler"></a>调度器
 
-Mesos 调度器是定义新的 Mesos 任务并为其分配资源（将其放在特定节点上）的程序。调度器收到描述 CPU、RAM 等的资源邀约，并分配给可由 Mesos 代理节点启动的离散任务。调度器必须在 Mesos 注册为框架。
+Mesos 调度器是定义新的 Mesos 任务并为其分配资源（将其放在特定节点上）的程序。调度器收到描述 CPU, RAM 等的资源邀约，并分配给可由 Mesos 代理节点启动的离散任务。调度器必须在 Mesos 注册为框架。
 
-**示例：** Kafka、Marathon、Cassandra。
+**示例：** Kafka, Marathon, Cassandra。
 
 ## <a name="mesos-framework"></a>框架
 
-Mesos 框架包括调度器、任务和可选的自定义执行器。术语“框架”和“调度器”有时可以互换使用。在 DC/OS 的情况下，我们更喜欢使用“调度器”。
+Mesos 框架包括调度器, 任务和可选的自定义执行器。术语“框架”和“调度器”有时可以互换使用。在 DC/OS 的情况下，我们更喜欢使用“调度器”。
 
 有关框架调度器和执行器的更多信息，请参阅 [应用框架开发指南](http://mesos.apache.org/documentation/latest/app-framework-development-guide/)。
 
@@ -349,7 +349,7 @@ Marathon 应用程序是一个长期运行的服务，可能有一个或多个�
 
 Marathon Pod 是一个长期运行的服务，可能有一个或多个实例与同地协作的 Mesos 任务一对多映射。以 JSON 文件格式为 Marathon 提供 Pod 定义，您可以创建一个 Pod。然后，Marathon 将一个或 Pod 实例作为 Mesos 任务来调度，具体取决于指定了多少定义。
 
-- Pod 实例可能包括共享某些资源的一个或多个任务（例如，IP、端口、卷）。
+- Pod 实例可能包括共享某些资源的一个或多个任务（例如，IP, 端口, 卷）。
 - Pod 需要使用 [Mesos 通用容器运行时](#mesos-containerizer-universal-container-runtime)。
 
 ## <a name="marathon-group"></a>组

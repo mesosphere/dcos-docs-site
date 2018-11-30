@@ -7,7 +7,6 @@ excerpt: 验证与 LDAP 服务器的连接
 enterprise: true
 ---
 
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 在本部分中，您将验证您提供的参数是否允许 DC/OS 连接到 LDAP 服务器。
 

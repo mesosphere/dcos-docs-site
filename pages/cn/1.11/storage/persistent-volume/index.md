@@ -4,7 +4,6 @@ navigationTitle: 本地持久卷
 title: 本地持久卷
 menuWeight: 10
 excerpt: 使用本地持久卷
-
 enterprise: false
 ---
 
@@ -201,7 +200,7 @@ Mesos 中的静态和动态预留均与角色绑定，而不是与框架或框�
 
 但是，如果另一个框架不遵守预期的标签和语义的存在并使用它们，则 Marathon 无法为初始目的回收这些资源。如果其中一个框架使用动态预留，我们建议不要对不同的框架使用相同的角色。HA 模式下的 Marathon 实例不需要具有唯一角色，因为它们在设计上使用相同的角色。
 
-### The Mesos 沙盒
+### Mesos 沙盒
 
 临时 Mesos  沙盒仍然是 `stdout` 和 `stderr` 日志的目标。要查看这些日志，请转到 DC/OS GUI 的 Marathon 窗格。
 
@@ -475,7 +474,7 @@ http GET http://dcos/service/marathon/v2/apps/postgres/tasks
 }
 ```
 
-**注意：**除上述信息外，正在运行的任务还将显示 `stagedAt`、`startedAt` 和 `version`。
+<p class="message--note"><strong>注意: </strong>除上述信息外，正在运行的任务还将显示 <tt>stagedAt</tt>, <tt>startedAt</tt> 和 <tt>version</tt>。</p>
 
 然后，您可以
 

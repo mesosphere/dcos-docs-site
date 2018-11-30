@@ -29,7 +29,7 @@ DC/OS 1.11 包含许多新功能，重点是：
 <a name="new-features"></a>
 ## 新特性和功能
 
-### 集成了 Apache Mesos 1.5、Marathon 1.6 和 Kubernetes 1.9。
+### 集成了 Apache Mesos 1.5, Marathon 1.6 和 Kubernetes 1.9。
 - DC/OS 1.11.0 基于 Mesos 1.5。查看 [Mesos 更改日志](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG)。
 - DC/OS 1.11.0 与最新的 1.6 版 Marathon 集成。有关 Marathon 1.6 的更多信息，请参阅 [Marathon 更改日志](https://github.com/mesosphere/marathon/blob/master/changelog.md)。
 - DC/OS 1.11.0 支持最新的 Kubernetes 1.9 容器调度程序。有关 DC/OS 上 Kubernetes 1.0 的更多信息，[查看文档](https://docs.mesosphere.com/services/kubernetes/1.0.0-1.9.3)。
@@ -64,7 +64,7 @@ DC/OS 1.11 包含许多新功能，重点是：
 - DC/OS 存储服务 0.1 (beta) - DSS 用户能够根据配置文件或策略动态地创建卷，以调整其应用程序的存储要求。该特性利用行业标准容器存储接口 (CSI) 让 Mesosphere、社区和合作伙伴能够提高开发 DC/OS 中存储特性的效率。[查看文档](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /][enterprise type="inline" size="small" /]
 - Pod 现在支持永久卷。[查看文档](/cn/1.11/deploying-services/pods).[beta type="inline" size="small" /]
 
-**注意：** 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是很好地指出项目的前进方向。
+<p class="message--note"><strong>注意: </strong> 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是很好地指出项目的前进方向。</p>
 
 ### 更新了 DC/OS 数据服务
 - 现在支持对 DC/OS Kafka、DC/OS Cassandra、DC/OS Elastic 和 DC/OS HDFS 的TLS 加密。
@@ -96,4 +96,4 @@ DC/OS 1.11 包含许多新功能，重点是：
 - DCOS_OSS-1489 - 在 `dcos-metrics` 中增加对 cgroup blkio 统计信息的支持。
 - DCOS_OSS-2003 - 修改 DC/OS 覆盖网络以配合 ssystemd networkd 使用。
 
-**注意：** Kubernetes 包依赖关系记录 [在此处](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install)。
+<p class="message--note"><strong>注意: </strong> Kubernetes 包依赖关系记录 <a href="https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install">在此处</a>。</p>

@@ -8,7 +8,6 @@ excerpt: 了解 Mesos-DNS 服务命名约定
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 Mesos-DNS 为在 DC/OS 上运行的 Mesos 任务定义 DNS 顶级域 `.mesos`。通过在此 Mesos 域中查找 A 记录以及可选地查找 SRV 记录，可以发现任务和服务。
@@ -27,7 +26,7 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
 * 此任务的网络容器的 IP 地址（由 Mesos containerizer工具提供）
 
 例如，其他 DC/OS 任务可以发现名为 `search` 的任务的 IP 地址，此任务由 `marathon` 启动以查找 `search.marathon.mesos`：
-
+```
  dig search.marathon.mesos
 
  ; <<>> DiG 9.8.4-rpz2+rl005.12-P1 <<>> search.marathon.mesos
@@ -41,9 +40,9 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
 
  ;; ANSWER SECTION:
  search.marathon.mesos. 60 IN A 10.9.87.94
-
+```
 如果启动任务的 Mesos containerizer 工具为任务 `search.marathon.mesos` 提供了容器 IP `10.0.4.1`，则查找结果为：
-
+```
  dig search.marathon.mesos
 
  ; <<>> DiG 9.8.4-rpz2+rl005.12-P1 <<>> search.marathon.mesos
@@ -57,7 +56,7 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
 
  ;; ANSWER SECTION:
  search.marathon.mesos. 60 IN A 10.0.4.1
-
+```
 除 `<task>.<service>.mesos` syntax shown above, Mesos-DNS also generates A records that contain the IP addresses of the agent nodes that are running the task: `<task>.<service>.slave.mesos` 。
 
 例如，查询 `search.marathon.slave.mesos` 的 A 记录显示在 `marathon` 服务上运行 `search` 应用程序的一个或多个实例的每个代理节点的 IP 地址。
@@ -67,7 +66,7 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
 SRV 记录指定服务的主机名和端口。
 
 对于由名为 `myservice` 的服务启动的名为 `mytask` 的任务，Mesos-DNS 生成一个 SRV 记录 `_mytask._protocol.myservice.mesos`，其中 `protocol` 为 `udp` 或 `tcp`。例如，其他 Mesos 任务可以发现名为 `search` 的任务，此任务由 `marathon` 启动以查询 `_search._tcp.marathon.mesos`：
-
+```
  dig _search._tcp.marathon.mesos SRV
 
  ; DiG 9.8.4-rpz2+rl005.12-P1 &lt;&lt;&gt;&gt; _search._tcp.marathon.mesos SRV
@@ -81,8 +80,8 @@ SRV 记录指定服务的主机名和端口。
 
  ;; ANSWER SECTION:
  _search._tcp.marathon.mesos. 60 IN SRV 0 0 31302 10.254.132.41. 
-
-Mesos-DNS 支持使用任务的 DiscoveryInfo 来生成 SRV 记录。在 DC/OS 集群上，代理节点提供端口的方式与 CPU 和内存等其他资源的相同。如果 DiscoveryInfo 不可用，Mesos-DNS 将使用为任务分配的端口。
+```
+Mesos-DNS 支持使用任务的 DiscoveryInfo 来生成 SRV 记录。在 DC/OS 群集上，代理节点提供端口的方式与 CPU 和内存等其他资源的相同。如果 DiscoveryInfo 不可用，Mesos-DNS 将使用为任务分配的端口。
 
 下表显示了对 SRV 生成适用的规则：
 
@@ -221,7 +220,7 @@ Mesos-DNS 遵循关于名称格式的 [RFC 1123][3]。用于构建 A 记录主�
 
 如果某个服务启动多个名称相同的任务，DNS 查找将返回多个记录，每个任务一个。Mesos-DNS 随机改变记录的顺序，以在这些任务之间提供根本的负载均衡。
 
-**警示：** 如果不同服务启动具有相同主机名的任务，则可能会出现名称冲突。如果不同服务启动具有相同 Mesos-DNS 主机名的任务，或者如果 Mesos-DNS 缩短了应用 ID 以创建相同的 Mesos-DNS 主机名，则应用程序会与错误的代理节点通信，并且不可预测地失败。
+<p class="message--warning"><strong>警示：</strong> 如果不同服务启动具有相同主机名的任务，则可能会出现名称冲突。如果不同服务启动具有相同 Mesos-DNS 主机名的任务，或者如果 Mesos-DNS 缩短了应用 ID 以创建相同的 Mesos-DNS 主机名，则应用程序会与错误的代理节点通信，并且不可预测地失败。</p>
 
 # <a name="dns-naming"></a>发现服务的 DNS 名称
 
@@ -235,123 +234,123 @@ Mesos-DNS 遵循关于名称格式的 [RFC 1123][3]。用于构建 A 记录主�
     dcos node ssh --leader --master-proxy
     ```
 
- 如需更多信息，请参阅 SSH [文档](/cn/1.11/administering-clusters/sshcluster/)。
+   如需更多信息，请参阅 SSH [文档](/cn/1.11/administering-clusters/sshcluster/)。
 
-2. 从管理节点运行此命令以查看节点详情：
+1. 从管理节点运行此命令以查看节点详情：
 
     ```bash
     curl -H "Authorization: token=<auth-token>" http://<master-ip>/mesos_dns/v1/enumerate
     ```
 
- 此例中，安装了 Kafka 和 Chronos：
+   此例中，安装了 Kafka 和 Chronos：
 
     ```bash
-       curl -H "Authorization: token=<auth-token>" http://<master-ip>/mesos_dns/v1/enumerate
+   curl -H "Authorization: token=<auth-token>" http://<master-ip>/mesos_dns/v1/enumerate
+   {
+      "frameworks": [
+      {
+         "tasks": null,
+         "name": "chronos"
+      },
+      {
+         "tasks": null,
+         "name": "kafka"
+      },
+      {
+         "tasks": [
          {
-           "frameworks": [
+         "name": "kafka",
+         "id": "kafka.443d5d63-f527-11e5-81a5-2a8c0aaf83b5",
+         "records": [
             {
-             "tasks": null,
-             "name": "chronos"
+            "name": "kafka.marathon.mesos.",
+            "host": "10.0.2.162",
+            "rtype": "A"
             },
             {
-             "tasks": null,
-             "name": "kafka"
+            "name": "kafka-7fdws-s0.marathon.mesos.",
+            "host": "10.0.2.162",
+            "rtype": "A"
             },
             {
-             "tasks": [
-              {
-               "name": "kafka",
-               "id": "kafka.443d5d63-f527-11e5-81a5-2a8c0aaf83b5",
-               "records": [
-                {
-                 "name": "kafka.marathon.mesos.",
-                 "host": "10.0.2.162",
-                 "rtype": "A"
-                },
-                {
-                 "name": "kafka-7fdws-s0.marathon.mesos.",
-                 "host": "10.0.2.162",
-                 "rtype": "A"
-                },
-                {
-                 "name": "kafka.marathon.slave.mesos.",
-                 "host": "10.0.2.162",
-                 "rtype": "A"
-                },
-                {
-                 "name": "kafka-7fdws-s0.marathon.slave.mesos.",
-                 "host": "10.0.2.162",
-                 "rtype": "A"
-                },
-                {
-                 "name": "_kafka._tcp.marathon.slave.mesos.",
-                 "host": "kafka-7fdws-s0.marathon.slave.mesos.:14799",
-                 "rtype": "SRV"
-                },
-                {
-                 "name": "_kafka._udp.marathon.slave.mesos.",
-                 "host": "kafka-7fdws-s0.marathon.slave.mesos.:14799",
-                 "rtype": "SRV"
-                },
-                {
-                 "name": "_kafka._tcp.marathon.mesos.",
-                 "host": "kafka-7fdws-s0.marathon.mesos.:14799",
-                 "rtype": "SRV"
-                }
-               ]
-              },
-              {
-               "name": "chronos",
-               "id": "chronos.40a4f462-f527-11e5-81a5-2a8c0aaf83b5",
-               "records": [
-                {
-                 "name": "chronos.marathon.mesos.",
-                 "host": "10.0.2.162",
-                 "rtype": "A"
-                },
-                {
-                 "name": "chronos-4dj75-s0.marathon.mesos.",
-                 "host": "10.0.2.162",
-                 "rtype": "A"
-                },
-                {
-                 "name": "chronos.marathon.slave.mesos.",
-                 "host": "10.0.2.162",
-                 "rtype": "A"
-                },
-                {
-                 "name": "chronos-4dj75-s0.marathon.slave.mesos.",
-                 "host": "10.0.2.162",
-                 "rtype": "A"
-                },
-                {
-                 "name": "_chronos._tcp.marathon.slave.mesos.",
-                 "host": "chronos-4dj75-s0.marathon.slave.mesos.:9106",
-                 "rtype": "SRV"
-                },
-                {
-                 "name": "_chronos._udp.marathon.slave.mesos.",
-                 "host": "chronos-4dj75-s0.marathon.slave.mesos.:9106",
-                 "rtype": "SRV"
-                },
-                {
-                 "name": "_chronos._tcp.marathon.mesos.",
-                 "host": "chronos-4dj75-s0.marathon.mesos.:9106",
-                 "rtype": "SRV"
-                }
-               ]
-              }
-             ],
-             "name": "marathon"
+            "name": "kafka.marathon.slave.mesos.",
+            "host": "10.0.2.162",
+            "rtype": "A"
+            },
+            {
+            "name": "kafka-7fdws-s0.marathon.slave.mesos.",
+            "host": "10.0.2.162",
+            "rtype": "A"
+            },
+            {
+            "name": "_kafka._tcp.marathon.slave.mesos.",
+            "host": "kafka-7fdws-s0.marathon.slave.mesos.:14799",
+            "rtype": "SRV"
+            },
+            {
+            "name": "_kafka._udp.marathon.slave.mesos.",
+            "host": "kafka-7fdws-s0.marathon.slave.mesos.:14799",
+            "rtype": "SRV"
+            },
+            {
+            "name": "_kafka._tcp.marathon.mesos.",
+            "host": "kafka-7fdws-s0.marathon.mesos.:14799",
+            "rtype": "SRV"
             }
-           ]
+         ]
+         },
+         {
+         "name": "chronos",
+         "id": "chronos.40a4f462-f527-11e5-81a5-2a8c0aaf83b5",
+         "records": [
+            {
+            "name": "chronos.marathon.mesos.",
+            "host": "10.0.2.162",
+            "rtype": "A"
+            },
+            {
+            "name": "chronos-4dj75-s0.marathon.mesos.",
+            "host": "10.0.2.162",
+            "rtype": "A"
+            },
+            {
+            "name": "chronos.marathon.slave.mesos.",
+            "host": "10.0.2.162",
+            "rtype": "A"
+            },
+            {
+            "name": "chronos-4dj75-s0.marathon.slave.mesos.",
+            "host": "10.0.2.162",
+            "rtype": "A"
+            },
+            {
+            "name": "_chronos._tcp.marathon.slave.mesos.",
+            "host": "chronos-4dj75-s0.marathon.slave.mesos.:9106",
+            "rtype": "SRV"
+            },
+            {
+            "name": "_chronos._udp.marathon.slave.mesos.",
+            "host": "chronos-4dj75-s0.marathon.slave.mesos.:9106",
+            "rtype": "SRV"
+            },
+            {
+            "name": "_chronos._tcp.marathon.mesos.",
+            "host": "chronos-4dj75-s0.marathon.mesos.:9106",
+            "rtype": "SRV"
+            }
+         ]
+         }
+         ],
+         "name": "marathon"
+      }
+      ]
     ```
 
 
 
 
 
- [1]: /1.11/overview/concepts/
+ [1]: /cn/1.11/overview/concepts/
  [2]: ../troubleshooting/#leader
  [3]: https://tools.ietf.org/html/rfc1123
  [4]: https://tools.ietf.org/html/rfc952

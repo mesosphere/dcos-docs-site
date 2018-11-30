@@ -5,9 +5,7 @@ title: 教程 - 公开应用程序
 navigationTitle: 公开应用程序
 menuWeight: 6
 ---
-
-
-<p class="message--important"><strong>重要信息：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的仅仅是为了演示功能，它可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您应该进行调整、验证和测试。</p>
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
 欢迎阅读 DC/OS 101 教程第 6 部分。
 
@@ -45,9 +43,9 @@ DC/OS 有两种不同的节点类型：
  2. 直接检查 redis
  * [SSH](/cn/1.11/administering-clusters/sshcluster/) 进入运行 redis 的节点：
 
-           ```bash
-           dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
-           ```
+      ```bash
+      dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
+      ```
  * 因为 Redis 在 Docker 容器中运行，所以您可以使用 `docker ps`列出所有 Docker 容器，并获取 redis 任务的 ContainerID。
  * 使用上一步的 ContainerID ：`sudo docker exec -i -t CONTAINER_ID  /bin/bash` 在正在运行的容器中创建 bash 会话。
  * 启动 Redis CLI：`redis-cli`。

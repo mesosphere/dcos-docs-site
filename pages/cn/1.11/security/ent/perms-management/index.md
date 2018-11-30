@@ -4,10 +4,9 @@ navigationTitle: 权限管理
 title: 权限管理
 menuWeight: 30
 excerpt: 管理权限
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 
 DC/OS 身份和访问管理系统旨在通过细粒度授权来保护资源。
@@ -21,7 +20,7 @@ DC/OS 身份和访问管理系统旨在通过细粒度授权来保护资源。
 
 这三条信息是字符串。
 
-必须从一组固定的操作集中选择操作标识符。可用的操作标识符是 `create`、`read`、`update`、 `delete` 和 `full`。按照惯例，`full` 表示权限支持所有其他操作标识符。标识符 `full` 可能包括任何其他操作标识符不支持的操作。
+必须从一组固定的操作集中选择操作标识符。可用的操作标识符是 `create`, `read`, `update`,  `delete` 和 `full`。按照惯例，`full` 表示权限支持所有其他操作标识符。标识符 `full` 可能包括任何其他操作标识符不支持的操作。
 
 ### 从 CLI 管理权限
 
