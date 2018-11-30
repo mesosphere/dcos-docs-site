@@ -14,7 +14,7 @@ menuWeight: 20
 oauth_enabled: 'false'
 ```
 
-**注意：** 如果已经安装了群集，并且希望禁用此功能，可以使用同一 [配置参数](/cn/1.11/installing/production/advanced-configuration/configuration-reference/) 集进行升级。
+<p class="message--note"><strong>注意: </strong> 如果已经安装了群集，并且希望禁用此功能，可以使用同一 <a href="/cn/1.11/installing/production/advanced-configuration/configuration-reference/">配置参数</a> 集进行升级。</p>
 
 ## 遥测
 
@@ -27,5 +27,5 @@ oauth_enabled: 'false'
     ```
 
 
-**注意：** 如果已经安装了群集，并且希望禁用此功能，可以使用同一 [配置参数](/cn/1.11/installing/production/advanced-configuration/configuration-reference/) 集进行升级。
+<p class="message--note"><strong>注意: </strong>如果已经安装了群集，并且希望禁用此功能，可以使用同一 <a href="/cn/1.11/installing/production/advanced-configuration/configuration-reference/">配置参数</a> 集进行升级。</p>
 
