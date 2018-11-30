@@ -27,7 +27,7 @@ dcos node log [OPTION]
 | `--lines=N` | 10 | 显示最后 N 行。|
 | `--master` | | 此选项已弃用，并替换为 `--leader`。|
 | `--mesos-id=<mesos-id>` | 节点的代理 ID。|
-| `--slave=<agent-id>`   |             | This option is deprecated and is replaced by `--mesos-id`. |
+| `--slave=<agent-id>`   |             | 此选项已弃用，将替换为 `--mesos-id`. |
 
 # 父命令
 

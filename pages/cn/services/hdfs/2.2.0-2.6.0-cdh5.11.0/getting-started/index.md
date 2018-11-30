@@ -16,7 +16,7 @@ render: mustache
  - `strict` [安全模式](/latest/security/ent/#security-modes) 需要服务帐户。
  - `permissive` 安全模式中服务帐户可选。
  - `disabled` 安全模式不需要服务帐户。
-- 您的群集必须至少有 {{ model.install.minNodeCount }} 专用节点。
+- 您的集群必须至少有 {{ model.install.minNodeCount }} 专用节点。
 {{ model.install.customRequirements }}
 
 #include /cn/services/include/getting-started.tmpl

@@ -41,9 +41,9 @@ DC/OS 1.11 候选版本 4 有许多限制，将在 GA 时解决。
 
 ## 平台
 - 故障域感知。利用故障域感知使服务高度可用，并能在需要时增加容量。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
-- 已链接的群集。- 群集链路是一个群集和另一个群集之间的**单向关系**。使用 DC/OS CLI 将一个群集的链接添加到另一个群集或将其删除。设置链接后，您可以使用 CLI 或 UI 轻松在群集之间切换。[查看文档](/cn/1.11/administering-clusters/multiple-clusters/cluster-links)。[enterprise type="inline" size="small" /]
+- 已链接的集群。- 集群链路是一个集群和另一个集群之间的**单向关系**。使用 DC/OS CLI 将一个集群的链接添加到另一个集群或将其删除。设置链接后，您可以使用 CLI 或 UI 轻松在集群之间切换。[查看文档](/cn/1.11/administering-clusters/multiple-clusters/cluster-links)。[enterprise type="inline" size="small" /]
 - 集成远程区域。使“突发”充分利用临时云计算资源。[查看文档](/cn/1.11/deploying-services/fault-domain-awareness)。[enterprise type="inline" size="small" /]
-- [多区域管理](/cn/1.11/deploying-services/fault-domain-awareness)。使 DC/OS 群集能跨越多个数据中心、云和远程分支，同时提供统一的管理和控制群集。
+- [多区域管理](/cn/1.11/deploying-services/fault-domain-awareness)。使 DC/OS 集群能跨越多个数据中心、云和远程分支，同时提供统一的管理和控制集群。
 - 停用节点。支持永久停用节点使得在使用后更容易维护和让“Spot”云实例退役，从而允许立即重新安排任务，而不是延时重新安排任务。
 - UCR
  - 支持 Docker 镜像垃圾收集。[查看文档](/cn/1.11/deploying-services/containerizers)。
@@ -93,12 +93,12 @@ DC/OS 1.11 候选版本 4 有许多限制，将在 GA 时解决。
 - DCOS-19500 - 修复 Marathon 在部署时出现的 cosmos/服务/更新失败。
 - DCOS-20064 - 支持 Azure 和 AWS 模板中的许可证参数。[enterprise type="inline" size="small" /]
 - DCOS-20396 - 测试当旧证书不匹配新的 CSR 时 bootstrap 重新生成证书。
-- DCOS-20492 - 在使用 AWS CloudFormation 模板时，群集有时会在没有许可证的情况下出现。[enterprise type="inline" size="small" /]
+- DCOS-20492 - 在使用 AWS CloudFormation 模板时，集群有时会在没有许可证的情况下出现。[enterprise type="inline" size="small" /]
 - DCOS-20515 - 使得授权时注意版本而防止升级失败。[enterprise type="inline" size="small" /]
 - DCOS-20569 - 仅包括诊断捆绑包上许可证的公共属性。[enterprise type="inline" size="small" /]
 - DCOS-20628 - `dcos-vault`：修复 go-zookeeper 库中的死锁。
 - DCOS-20676 - `csidevices`：修复空字符串布尔值的 lsblk 解析。
-- DCOS-20679 - 在配置升级期间，让许可处理相同主要版本的群集许可证更新。[enterprise type="inline" size="small" /]
+- DCOS-20679 - 在配置升级期间，让许可处理相同主要版本的集群许可证更新。[enterprise type="inline" size="small" /]
 - DCOS-20772 - 更新 znode 创建方案，以存储许可证审核数据。
 - DCOS-21000 - 发布 Marathon 插件，具有资源完整授权漏洞修复。
 - DCOS-21045 - 更新 `dcos-cluster-linker` 使其不允许自我链接。[enterprise type="inline" size="small" /]

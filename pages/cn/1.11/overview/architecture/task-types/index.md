@@ -36,7 +36,7 @@ DC/OS 有两个内置调度器：
 
 ### 用户空间调度器
 
-其他调度器可以从 [Mesosphere Universe](/cn/1.11/overview/concepts/#mesosphere-universe) 或直接通过 Marathon作为 [调度器服务](/cn/1.11/overview/concepts/#dcos-scheduler-service) 安装在 Marathon 上。 
+其他调度器可以从 [Mesosphere Universe](/cn/1.11/overview/concepts/#mesosphere-universe) 或直接通过 Marathon作为 [调度器服务](/cn/1.11/overview/concepts/#dcos-scheduler-service) 安装在 Marathon 上。
 
 用户空间调度器的示例：
 

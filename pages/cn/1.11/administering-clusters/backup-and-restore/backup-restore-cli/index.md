@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: 备份和恢复 CLI
 title: 备份和恢复 CLI
 menuWeight: 0
-excerpt: 使用 CLI 备份和恢复群集
+excerpt: 使用 CLI 备份和恢复集群
 
 enterprise: true
 ---
@@ -13,14 +13,10 @@ enterprise: true
 - [DC/OS CLI](/cn/1.11/cli/install/) 已安装。
 - [DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/) 已安装。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>查看备份和恢复的 <a href="/1.11/administering-clusters/backup-and-restore/#limitations">限制</a> 。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>查看备份和恢复的 <a href="/1.11/administering-clusters/backup-and-restore/#limitations">限制</a> 。</p>
 
 
-# 备份群集
+# 备份集群
 
 备份存储在管理节点的本地文件系统上。备份状态由在群集中运行的服务维护，并通过直接使用此服务来进行备份/恢复操作。
 
@@ -34,7 +30,7 @@ enterprise: true
    dcos backup create --label=<backup-label>
    ```
 
-1. 验证您的备份是否已创建。
+2. 验证您的备份是否已创建。
 
    ```bash
    dcos backup list
@@ -52,13 +48,13 @@ enterprise: true
 
 # 删除备份
 
-1. 删除不需要的备份。
+删除不需要的备份。
 
    ```bash
    dcos backup delete <backup-id>
    ```
 
-# 恢复群集
+# 恢复集群
 
 1. 列出可用备份，选择要恢复的备份并记录下备份 ID。
 

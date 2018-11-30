@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Kubernetes 2.0.1-1.12.2
 title: Kubernetes 2.0.1-1.12.2
-menuWeight: 10
+menuWeight: 20
 excerpt:
 ---
 

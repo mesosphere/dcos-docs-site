@@ -7,8 +7,6 @@ excerpt: 授予访问 Marathon UI 的权限
 
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 您可以授予用户访问 Marathon UI 的权限。新用户默认没有权限。
 

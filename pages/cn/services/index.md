@@ -1,10 +1,9 @@
 ---
-layout: service-docs-landing.pug
-navigationTitle:  Service Docs
-title: Service Docs
+layout: cn-service-docs-landing.pug
+navigationTitle: Chinese Service Docs
+title: Chinese Service Docs
+menuWeight: 15
 menus: ['header']
-menuWeight: 5
 excerpt: Apache Spark is a fast and general-purpose cluster computing system for big data. 
-
 enterprise: false
 ---

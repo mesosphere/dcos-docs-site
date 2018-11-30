@@ -3,18 +3,14 @@ layout: layout.pug
 navigationTitle: 备份和恢复 API
 title: 备份和恢复 API
 menuWeight: 10
-excerpt: 使用 API 备份和恢复群集
+excerpt: 使用 API 备份和恢复集群
 
 enterprise: true
 ---
 
-您可以使用“备份和恢复 API”来创建和恢复群集的备份。
+您可以使用“备份和恢复 API”来创建和恢复集群的备份。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>查看备份和恢复的 <a href="/1.11/administering-clusters/backup-and-restore/#limitations">限制</a> 。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>查看备份和恢复的 <a href="/1.11/administering-clusters/backup-and-restore/#limitations">限制</a> 。</p>
 
 # 路由
 
@@ -61,6 +57,6 @@ Content-Type: application/json
 
 # API 参考
 
-备份和恢复 API 允许您管理 DC/OS 群集上的备份和恢复操作。
+备份和恢复 API 允许您管理 DC/OS 集群上的备份和恢复操作。
 
 [swagger api='/1.11/api/backup-restore.yaml']

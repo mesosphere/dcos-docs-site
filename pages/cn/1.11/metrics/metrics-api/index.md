@@ -6,13 +6,12 @@ menuWeight: 1
 excerpt: 使用度量标准 API
 beta: false
 ---
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-您可以使用度量标准 API 定期轮询有关群集、主机、容器和应用程序的数据。度量标准 API 只是从 DC/OS 获取度量标准的一种方式。它专为针对特定任务和主机的偶尔访问而设计。这并不是了解 DC/OS 上所有度量标准整体情况的最佳方式。对此，请参阅
+您可以使用度量标准 API 定期轮询有关集群、主机、容器和应用程序的数据。度量标准 API 只是从 DC/OS 获取度量标准的一种方式。它专为针对特定任务和主机的偶尔访问而设计。这并不是了解 DC/OS 上所有度量标准整体情况的最佳方式。对此，请参阅
 [DataDog](/cn/1.11/metrics/datadog)、[Prometheus](/cn/1.11/metrics/prometheus) 以及
 [第三方插件](https://github.com/dcos/dcos-metrics/blob/master/plugins/CONTRIBUTING.md) 文档。
 
-度量标准 API 由 [DC/OS 度量标准组件] 支持(/cn/1.11/overview/architecture/components/#dcos-metrics)，后者在群集中的所有节点上运行。
+度量标准 API 由 [DC/OS 度量标准组件] 支持(/1.11/overview/architecture/components/#dcos-metrics)，后者在集群中的所有节点上运行。
 
 有关如何使用度量标准 API 的示例，请参阅 [度量标准快速入门指南](/cn/1.11/metrics/quickstart/)。
 
@@ -31,7 +30,7 @@ beta: false
 /system/v1/agent/{agent_id}/metrics/v0/
 ```
 
-要确定群集的 URL，请参阅 [群集访问](/cn/1.11/api/access/)。节点的代理 ID 为其 Mesos ID。
+要确定集群的 URL，请参阅 [集群访问](/cn/1.11/api/access/)。节点的代理 ID 为其 Mesos ID。
 
 
 # 格式

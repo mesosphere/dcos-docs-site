@@ -130,13 +130,13 @@ render: mustache
 ### 改进
 - Kerberos 支持更改，以使用来自 `spark-core` 的通用代码，而不是自定义实施。
 - 添加了基于文件和环境的密钥支持。
-- 群集模式下从 DC/OS Spark CLI 进行 Kerberos 密钥选项卡/TGT 登录（使用基于文件的密钥）。
+- 集群模式下从 DC/OS Spark CLI 进行 Kerberos 密钥选项卡/TGT 登录（使用基于文件的密钥）。
 - 添加了 CNI 网络标签支持。
 - CLI 不需要在客户机上存在 spark-submit。
 
 ### 漏洞修复
 - 在设定了`--supervise` 标记时，驱动程序成功重新启动。
-- CLI 可在 1.9 和 1.10 DC/OS 群集上使用。
+- CLI 可在 1.9 和 1.10 DC/OS 集群上使用。
 
 ### 断开更改
 - 设置 `spark.app_id` 已删除（例如 `dcos config set spark.app_id） <dispatcher_app_id>`)。要使用给定的

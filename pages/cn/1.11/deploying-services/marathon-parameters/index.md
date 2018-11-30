@@ -10,7 +10,7 @@ enterprise: false
 
 本专题列出了 Marathon 应用定义的所有可用属性，并举例说明了所有所显示属性的 JSON 应用定义文件。
 
-- [ Marathon 属性]（# marathon-properties）
+- Marathon 属性
 - [示例](#example)
 
 # Marathon 属性
@@ -21,11 +21,7 @@ enterprise: false
 ### args
 指定要运行命令的一组字符串。即便使用默认命令执行器，这里的 `args` 字段也可用于替代 `cmd`。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>必须在所有应用定义中指定 [`cmd`](#cmd) 或 `args`。在同一应用程序中同时提供 `cmd` 和 `args` 则无效。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>必须在所有应用定义中指定 <tt>cmd</tt> 或 <tt>args</tt>。在同一应用程序中同时提供 <tt>cmd</tt> 或 <tt>args</tt> 则无效。</p> 
 
 
 ### backoffFactor
@@ -41,11 +37,8 @@ Marathon 尝试再次启动失败任务之前的缓冲时间（秒）。默认�
 ### cmd
 执行的命令。该值由 Mesos 通过 `/bin/sh -c ${app.cmd}` 打包。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>必须在所有应用定义中指定 [`cmd`](#cmd) 或 `args`。在同一应用程序中同时提供 `cmd` 和 `args` 则无效。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>必须在所有应用定义中指定 <tt>cmd</tt> 或 <tt>args</tt>。在同一应用程序中同时提供 <tt>cmd</tt> 或 <tt>args</tt> 则无效。</p> 
+
 
 ### constraints
 控制应用程序运行位置的约束算子，帮助您针对容错或位置进行优化。如需更多信息，请参阅 [约束文档](https://mesosphere.github.io/marathon/docs/constraints.html)。
@@ -121,13 +114,13 @@ URI 包括：
 每个实例所需的 GPU 核数。
 
 ### healthChecks
-针对应用程序任务运行的一系列检查。Marathon 运行状况检查对群集中分布的容器进行定期检查，以确保它们正常运行和响应。如需更多信息，请参阅 [运行状况检查文档](/cn/1.11/deploying-services/creating-services/health-checks/)。
+针对应用程序任务运行的一系列检查。Marathon 运行状况检查对集群中分布的容器进行定期检查，以确保它们正常运行和响应。如需更多信息，请参阅 [运行状况检查文档](/cn/1.11/deploying-services/creating-services/health-checks/)。
 
 运行状况检查包括：
 
 - **gracePeriodSeconds** 指定立即在任务启动后，忽略运行状况检查的时间（秒）；或直至首次运行状况良好的时间。
 - **intervalSeconds** 指定运行状况检查间隔的等待时间（秒）。
-- **maxLogitivEfailures** 指定发生多少次连续运行状况检查故障之后才能关闭任务。
+- **maxConsecutiveFailures** 指定发生多少次连续运行状况检查故障之后才能关闭任务。
 - **path** 如果是 `"protocol": "HTTP"`，则此选项指定任务运行状况端点的路径。例如， `"/path/to/health"`。
 - **portIndex** 指定用于运行状况请求的端口阵列中的端口号。应用程序可借助端口号使用任何端口（例如 `"[0, 0, 0]"`），而且任务可以借助端口环境变量启动，例如 `$PORT1`。
 - **protocol** 指定请求的协议：`HTTP`、`HTTPS`、`TCP` 或 `Command`。
@@ -167,7 +160,7 @@ URI 包括：
 
 
 ### portDefinitions
-代理主机上所必需的端口资源阵列。阵列中的项目数量决定了为每个任务分配的动态端口数。为端口数为零的端口分配并提供全局唯一（群集范围）的服务端口，并作为应用定义的一部分用于负载均衡定义中。如需更多信息，请参阅 [网络文档](/cn/1.11/networking/)。
+代理主机上所必需的端口资源阵列。阵列中的项目数量决定了为每个任务分配的动态端口数。为端口数为零的端口分配并提供全局唯一（集群范围）的服务端口，并作为应用定义的一部分用于负载均衡定义中。如需更多信息，请参阅 [网络文档](/cn/1.11/networking/)。
 
 端口定义包括：
 
@@ -219,7 +212,7 @@ URI 包括：
 - **minimumHealthCapacity** - 在升级期间保持运行良好状态的节点所占的最小百分比（以介于 `0.0` 和 `1.0` 之间的十进制小数表示）。升级期间，Marathon 可保证这种运行良好的实例的数量。默认为 `1.0`，这意味着在部署另一个运行良好的新版本之前，无法停用旧实例。`0.5` 值表示在升级期间，首先停用一半的旧版本实例，为新版本腾出空间。`0` 值表示立即将所有实例删除并替换为新应用程序。
 - **maximumOverCapacity** - 在升级期间任一时候可以启用的新实例所占的最大百分比（以介于 `0.0` 和 `1.0` 之间的十进制小数来表示）。默认为 `1`，这意味着升级过程中，所有新旧实例均可同时存在。`0.1` 值表示在升级过程中，可提供比平时多 10% 的容量供新旧实例使用。`0.0` 值表示即便在升级过程中，也不可提供比平时多的容量供新实例使用。只有在停用旧版本之后，才能部署新实例。
 
-如果是 `"minimumHealthCapacity": 1` 和 `"maximumOverCapacity": 0`，在升级过程开始时就新增了至少一个新实例。。如果该实例运行良好，就会停用一个旧实例。停用后，就会启动另一个新实例，以此类推。
+如果是 `"minimumHealthCapacity": 1` 和 `"maximumOverCapacity": 0`，在升级过程开始时就新增了至少一个新实例。如果该实例运行良好，就会停用一个旧实例。停用后，就会启动另一个新实例，以此类推。
 
 组合使用 `"minimumHealthCapacity": 0.9` 和 `"maximumOverCapacity": 0` 就会导致轮流更新，每次替换 10% 的实例，在升级期间始终保留至少 90% 的应用程序在线。
 

@@ -24,7 +24,7 @@ render: mustache
 
 如果您在宽容模式下安装服务且未指定服务帐户，Metronome 和 Marathon 将按照此服务的请求是由具有 [超级用户权限](/cn/1.11/security/ent/perms-reference/#superuser)的帐户做出的那样行事。
 
-**前提条件：**
+**先决条件：**
 
 - [已安装 DC/OS CLI](/1.9/cli/install/) 并以超级用户身份登录。
 - [已安装 Enterprise DC/OS CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
@@ -39,7 +39,15 @@ render: mustache
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
+<<<<<<< HEAD
 **提示：** 您可以使用 [DC/OS 密钥存储库](/cn/1.11/security/ent/secrets/) 保护密钥对。
+=======
+<<<<<<< HEAD
+**提示：** 您可以使用 [DC/OS 密钥存储库](/cn/1.11/security/ent/secrets/) 保护密钥对。
+=======
+**提示：** 您可以使用 [DC/OS 密钥存储库](/1.11/security/ent/secrets/) 保护密钥对。
+>>>>>>> c64725e8abdf15dd384b89db6535a2113ec4dfa6
+>>>>>>> staging
 
 # <a name="create-a-service-account"></a>创建服务帐户
 

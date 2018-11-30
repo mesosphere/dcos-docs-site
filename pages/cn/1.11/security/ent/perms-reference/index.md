@@ -7,7 +7,6 @@ excerpt: 了解 DC/OS 访问和权限参考
 enterprise: true
 ---
 
-
 您可以通过资源和操作控制 DC/OS 访问。参阅 [权限管理](/cn/1.11/security/ent/perms-management/)，了解如何控制权限的详细信息。此页面为每个可用的 DC/OS 权限提供参考。
 
 执行
@@ -20,7 +19,7 @@ enterprise: true
 | [Mesos 权限](#mesos) (`dcos:mesos`) | | | x |
 | [Marathon 和 Metronome 权限](#marathon-metronome) (`dcos:service`) | | x | x |
 | [密钥存储库权限](#secrets) (`dcos:secrets`)  | x | x | x |
-| [群集链接器权限](#cluster-linker) (`dcos:cluster:linker`) | x | x | x |
+| [集群链接器权限](#cluster-linker) (`dcos:cluster:linker`) | x | x | x |
 | [超级用户权限](#superuser) (`dcos:superuser`) | x | x | x |
 
 # 权限
@@ -30,10 +29,10 @@ enterprise: true
 许多资源标识符包括方括号中的可选部分，可以填写这些部分以进一步缩小授予的权限。如果忽略可选部分，则资源标识符引用所有可能的值。例如，资源标识符 `dcos:mesos:agent:framework:role` 控制对使用任何 [Mesos 角色](/cn/1.11/overview/concepts/#mesos-role) 注册的 DC/OS 服务的查看访问权限，而资源标识符 `dcos:mesos:agent:framework:role:slave_public` 控制对使用角色 `slave_public` 注册的 DC/OS 服务的查看访问权限。
 
 发送到 DC/OS 组件的大多数 HTTP 请求都需要身份认证证明。这些
-包括由 DC/OS CLI, DC/OS UI, DC/OS API 以及
+包括由 DC/OS CLI、DC/OS UI、DC/OS API 以及
 DC/OS 组件之间内部启动的操作。某些端点的 HTTP 请求需要
 额外的授权。许多 DC/OS 组件与 DC/OS 服务
-帐户用户一起发布，并在首次安装群集时
+帐户用户一起发布，并在首次安装集群时
 单独授予必要的权限。
 
 有几个执行请求授权的 DC/OS 组件，
@@ -54,7 +53,7 @@ Admin Router 访问 DC/OS 软件包 API。
 
 ## <a name="admin-router"></a>Admin Router 权限
 
-对 DC/OS 群集发出的大多数 HTTP 请求都通过 Admin Router。对于许多
+对 DC/OS 集群发出的大多数 HTTP 请求都通过 Admin Router。对于许多
 HTTP 端点，Admin Router 自身执行授权。例如，
 由 `uid` 标识的 DC/OS 用户必须具有受保护资源 `dcos:adminrouter:package` 的 `full` 访问权限，
 以便能够
@@ -149,14 +148,14 @@ Marathon 和 Metronome 要求对某些受保护资源发出的 HTTP 请求必须
 | `dcos:secrets:default:[/<path-name>/]<secret-name>`<br> 控制对单个[密钥](/cn/1.11/security/ent/secrets/)的访问。| x | x | x | x | x |
 | `dcos:secrets:list:default:/[<path>]`<br> 控制对[密钥](/cn/1.11/security/ent/secrets/)名称的查看访问权限。| | | x | | |
 
-## <a name="cluster-linker"></a> 群集链接器权限
+## <a name="cluster-linker"></a> 集群链接器权限
 
-DC/OS 用户需要链接群集的权限。
+DC/OS 用户需要链接集群的权限。
 
 | 资源标识符 | 全部 | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
-| `dcos:cluster:linker:<cluster-id>`<br> 控制对单个[群集链接](/cn/1.11/administering-clusters/multiple-clusters/cluster-links/)的访问。| | | x | | |
-| `dcos:cluster:linker:*`<br> 控制对[群集链接](/cn/1.11/administering-clusters/multiple-clusters/cluster-links/)的访问。| | x | x | x | x |
+| `dcos:cluster:linker:<cluster-id>`<br> 控制对单个[集群链接](/cn/1.11/administering-clusters/multiple-clusters/cluster-links/)的访问。| | | x | | |
+| `dcos:cluster:linker:*`<br> 控制对[集群链接](/cn/1.11/administering-clusters/multiple-clusters/cluster-links/)的访问。| | x | x | x | x |
 
 
 ## <a name="superuser"></a>超级用户权限
@@ -168,4 +167,4 @@ DC/OS 用户需要链接群集的权限。
 
 | 资源标识符 | 全部 | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
-| `dcos:superuser`<br> 控制对 DC/OS 群集的完全访问权限。| x | x | x | x | x |
+| `dcos:superuser`<br> 控制对 DC/OS 集群的完全访问权限。| x | x | x | x | x |

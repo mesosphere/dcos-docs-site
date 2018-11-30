@@ -8,9 +8,6 @@ excerpt: 使用具有 Docker Engine 和 Universal Container Runtime 的Container
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 Containerizer 提供围绕特定容器运行时间的容器化和资源隔离的抽取整理。DC/OS containerizer 支持以下容器运行时间：
 
 - [Universal Container Runtime](/cn/1.11/deploying-services/containerizers/ucr/)。
@@ -28,7 +25,7 @@ Universal Container Runtime (UCR) 的优势如下：
 
 - 减少服务停机时间
 - 提高即时可升级性
-- 增加群集稳定性
+- 增加集群稳定性
 
 # Container Runtime 的功能
 
@@ -89,9 +86,9 @@ Universal Container Runtime (UCR) 的优势如下：
 | 功能 | UCR | Docker |
 | --------------------------------------- | ----------- | --------- |
 | **基于令牌的容器验证** | 否 | 是 |
-| **基于令牌的群集验证** | 是 | 是 |
+| **基于令牌的集群验证** | 是 | 是 |
 | **基本容器验证** | 否 | 是 |
-| **基本群集验证** | 是 | 是 |
+| **基本集群验证** | 是 | 是 |
 
 ## 运行状况检查
 

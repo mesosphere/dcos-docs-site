@@ -15,7 +15,7 @@ enterprise: false
 
 #### Mesos
 
-Mesos 可以高可用性模式运行，需要运行三个或五个管理节点。在 HA 模式下运行时，一个管理节点被选为首要节点，其它管理节点则是从属节点。每个管理节点都有一个复制日志，其中包含有关群集的某种状态。ZooKeeper 执行选举以选择首要管理节点。有关这方面的更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/)。
+Mesos 可以高可用性模式运行，需要运行三个或五个管理节点。在 HA 模式下运行时，一个管理节点被选为首要节点，其它管理节点则是从属节点。每个管理节点都有一个复制日志，其中包含有关集群的某种状态。ZooKeeper 执行选举以选择首要管理节点。有关这方面的更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/)。
 
 #### Marathon
 
@@ -42,7 +42,7 @@ DC/OS 中的多个服务使用 ZooKeeper 以保持稳定性。ZooKeeper 可用�
 
 # 消除单一故障点
 
-单个故障点有多种形式。例如，当系统中的所有服务共用一个 ZooKeeper 群集时，类似 ZooKeeper 的服务可能成为单个故障点。您可以通过为不同的服务运行多个 ZooKeeper 群集来降低这些风险。Exhibitor [Universe 包](https://github.com/mesosphere/exhibitor-dcos) 使其变得简单。
+单个故障点有多种形式。例如，当系统中的所有服务共用一个 ZooKeeper 集群时，类似 ZooKeeper 的服务可能成为单个故障点。您可以通过为不同的服务运行多个 ZooKeeper 集群来降低这些风险。Exhibitor [Universe 包](https://github.com/mesosphere/exhibitor-dcos) 使其变得简单。
 
 其他常见的单个故障点包括：
 

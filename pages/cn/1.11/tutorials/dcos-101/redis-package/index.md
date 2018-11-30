@@ -11,7 +11,7 @@ menuWeight: 2
 
 
 # 先决条件
-到目前为止，您应该已经安装并配置了正在运行的 DC/OS 群集和 DC/OS CLI。 如果不是这样，请按照本教程的[第一](/cn/1.11/tutorials/dcos-101/cli/)部分进行操作。
+到目前为止，您应该已经安装并配置了正在运行的 DC/OS 集群和 DC/OS CLI。 如果不是这样，请按照本教程的[第一](/cn/1.11/tutorials/dcos-101/cli/)部分进行操作。
 本教程的下一阶段使用 [jq](https://stedolan.github.io/jq/)，一个命令行 JSON 处理器，以简化一些命令。请遵循[此处](https://stedolan.github.io/jq/download/)的说明为操作系统安装 JQ。
 
 # 目的
@@ -78,8 +78,8 @@ menuWeight: 2
  您刚刚从 Universe 存储库中成功安装了第一个服务，并验证了它正在运行！
 
 # 深入研究
- [Universe](https://github.com/mesosphere/universe) 是可用于 DC/OS 群集的软件包存储库。
- 它使您能够轻松地在群集中安装诸如 Apache Spark 或 Apache Cassandra 等服务，而无需处理手动配置。Universe 软件包由许多不同的贡献者开发和维护。
+ [Universe](https://github.com/mesosphere/universe) 是可用于 DC/OS 集群的软件包存储库。
+ 它使您能够轻松地在集群中安装诸如 Apache Spark 或 Apache Cassandra 等服务，而无需处理手动配置。Universe 软件包由许多不同的贡献者开发和维护。
 
  目前有两类软件包：
  1. 经过测试和认证的策划软件包。

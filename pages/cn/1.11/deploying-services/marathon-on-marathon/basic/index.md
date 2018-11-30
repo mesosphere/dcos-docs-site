@@ -9,23 +9,19 @@ enterprise: true
 
 本专题描述了如何部署具有独立角色、保留和配额的非本地 Marathon 实例。本程序不支持 [密钥](/cn/1.11/security/ent/secrets/) 或细粒度 ACL。如果需要这些功能，您必须使用自定义非本地 Marathon [程序](/cn/1.11/deploying-services/marathon-on-marathon/advanced/)。
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS 和 DC/OS CLI [已安装](/cn/1.11/installing/oss/)。
 - [DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
 - 您必须以超级用户身份登录。
-- 对群集的 SSH 访问。
+- 对集群的 SSH 访问。
 
 # 第 1 步 - 保留资源
 在此步骤中，保留 Mesos 资源。选择 [静态](#static-reservations) 或 [动态](#dynamic-reservations) 保留的程序。
 
 ## 静态保留
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>警告：</strong>此程序将关闭节点上运行的所有任务。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>警告：</strong>此程序将关闭节点上运行的所有任务。</p>
 
 1. [SSH](/cn/1.11/administering-clusters/sshcluster/) 到专用代理节点。
 
@@ -44,31 +40,31 @@ enterprise: true
     sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
     ```
 
-1. 将节点重新添加到群集。
+1. 将节点重新添加到集群。
 
- 1. 重新加载 `systemd` 配置。
+    1. 重新加载 `systemd` 配置。
 
-        ```bash
-        ﻿⁠⁠sudo systemctl daemon-reload
-        ```
+          ```bash
+          sudo systemctl daemon-reload
+          ```
 
- 1. 删除代理节点上的 `latest` 元数据指针：
+    1. 删除代理节点上的 `latest` 元数据指针：
 
-        ```bash
-        ⁠⁠⁠⁠sudo rm /var/lib/mesos/slave/meta/slaves/latest
-        ```
+          ```bash
+          ⁠⁠⁠⁠sudo rm /var/lib/mesos/slave/meta/slaves/latest
+          ```
 
- 1. 使用新配置的属性和资源规范启动代理。
+    1. 使用新配置的属性和资源规范启动代理。
 
-        ```bash
-        sudo systemctl start dcos-mesos-slave
-        ```
+          ```bash
+          sudo systemctl start dcos-mesos-slave
+          ```
 
- 可以使用以下命令检查状态：
+        可以使用以下命令检查状态：
 
-        ```bash
-        sudo systemctl status dcos-mesos-slave
-        ```
+          ```bash
+          sudo systemctl status dcos-mesos-slave
+          ```
 
 1. 对每个附加节点重复上述步骤。
 
@@ -229,12 +225,12 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
  - 完整权限
 
-        ```bash
-        dcos:adminrouter:service:<service-name> full
-        dcos:service:marathon:<service-name>:services:/ full
-        dcos:adminrouter:ops:mesos full
-        dcos:adminrouter:ops:slave full
-        ```
+      ```bash
+      dcos:adminrouter:service:<service-name> full
+      dcos:service:marathon:<service-name>:services:/ full
+      dcos:adminrouter:ops:mesos full
+      dcos:adminrouter:ops:slave full
+      ```
 
  - 禁用安全模式不支持访问单个服务或组。
 
@@ -242,59 +238,59 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
  - **完整权限**
 
-        ```bash
-        dcos:adminrouter:service:<service-name> full
-        dcos:service:marathon:<service-name>:services:/ full
-        dcos:adminrouter:ops:mesos full
-        dcos:adminrouter:ops:slave full
-        ```
+      ```bash
+      dcos:adminrouter:service:<service-name> full
+      dcos:service:marathon:<service-name>:services:/ full
+      dcos:adminrouter:ops:mesos full
+      dcos:adminrouter:ops:slave full
+      ```
 
  - **访问单个服务或组**
 
- 指定服务或组 (`<service-or-group>`) and action (`<action>`). Actions can be either `创建`, `读取`, `更新`, `删除`, or `完整`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
+    指定服务或组 (`<service-or-group>`) and action (`<action>`). 行动可以是 `创建`, `读取`, `更新`, `删除`, 要么 `完整`. 例如，要允许多个操作，请使用逗号分隔它们: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
 
-       ```bash
-       dcos:adminrouter:service:<service-name> full
-       dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
-       dcos:adminrouter:ops:mesos full
-       dcos:adminrouter:ops:slave full
-       ```
+      ```bash
+      dcos:adminrouter:service:<service-name> full
+      dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
+      dcos:adminrouter:ops:mesos full
+      dcos:adminrouter:ops:slave full
+      ```
 
  ### 严格
 
  - **完整权限**
 
-        ```bash
-        dcos:adminrouter:service:<service-name> full
-        dcos:service:marathon:<service-name>:services:/ full
-        dcos:adminrouter:ops:mesos full
-        dcos:adminrouter:ops:slave full
-        dcos:mesos:agent:executor:app_id:/ read
-        dcos:mesos:agent:framework:role:<myrole> read
-        dcos:mesos:agent:sandbox:app_id:/ read
-        dcos:mesos:agent:task:app_id:/ read
-        dcos:mesos:master:executor:app_id:/ read
-        dcos:mesos:master:framework:role:<myrole> read
-        dcos:mesos:master:task:app_id:/ read
-        ```  
+    ```bash
+    dcos:adminrouter:service:<service-name> full
+    dcos:service:marathon:<service-name>:services:/ full
+    dcos:adminrouter:ops:mesos full
+    dcos:adminrouter:ops:slave full
+    dcos:mesos:agent:executor:app_id:/ read
+    dcos:mesos:agent:framework:role:<myrole> read
+    dcos:mesos:agent:sandbox:app_id:/ read
+    dcos:mesos:agent:task:app_id:/ read
+    dcos:mesos:master:executor:app_id:/ read
+    dcos:mesos:master:framework:role:<myrole> read
+    dcos:mesos:master:task:app_id:/ read
+    ```  
 
  - **访问单个服务或组**
 
- 指定服务或组 (`<service-or-group>`), service name (`<service-name>`), role (`<myrole>`), and action (`<action>`). Actions can be either `创建`, `读取`, `更新`, `删除`, or `完整`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
+    指定服务或组 (`<service-or-group>`), 服务名称 (`<service-name>`), 角色 (`<myrole>`), 和行动 (`<action>`). 行动可以是`创建`, `读取`, `更新`, `删除`, 要么 `完整`. 例如，要允许多个操作，请使用逗号分隔它们: `dcos:service:marathon:<service-name>:services:/<service-or-group> read`, `update`。
 
-       ```bash
-       dcos:adminrouter:service:<service-name> full
-       dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
-       dcos:adminrouter:ops:mesos full
-       dcos:adminrouter:ops:slave full
-       dcos:mesos:agent:executor:app_id:/<service-or-group> read
-       dcos:mesos:agent:framework:role:<myrole> read
-       dcos:mesos:agent:sandbox:app_id:/<service-or-group> read
-       dcos:mesos:agent:task:app_id:/<service-or-group> read
-       dcos:mesos:master:executor:app_id:/<service-or-group> read
-       dcos:mesos:master:framework:role:<myrole> read
-       dcos:mesos:master:task:app_id:/<service-or-group> read
-       ```
+    ```bash
+    dcos:adminrouter:service:<service-name> full
+    dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
+    dcos:adminrouter:ops:mesos full
+    dcos:adminrouter:ops:slave full
+    dcos:mesos:agent:executor:app_id:/<service-or-group> read
+    dcos:mesos:agent:framework:role:<myrole> read
+    dcos:mesos:agent:sandbox:app_id:/<service-or-group> read
+    dcos:mesos:agent:task:app_id:/<service-or-group> read
+    dcos:mesos:master:executor:app_id:/<service-or-group> read
+    dcos:mesos:master:framework:role:<myrole> read
+    dcos:mesos:master:task:app_id:/<service-or-group> read
+    ```
 
 1. 单击 **ADD PERMISSIONS**，然后单击 **Close**。
 

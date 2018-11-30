@@ -12,7 +12,7 @@ featureMaturity:
 
 {{ model.techShortName }} is available in the Universe and can be installed by using either the DC/OS web interface or the DC/OS CLI.
 
-**Prerequisites:**
+# Prerequisites
 
 - [DC/OS and DC/OS CLI installed](/latest/installing/)
 - Depending on your [security mode](/latest/security/ent/#security-modes), {{ model.techShortName }} requires service authentication for access to DC/OS. For more information:  
@@ -24,7 +24,7 @@ featureMaturity:
   | Strict        | **Required**          |
 
 
-# Default Installation
+# Default installation
 To install the DC/OS {{ model.techName }} service, run the following command on the DC/OS CLI. This installs the {{ model.techShortName }} DC/OS service, {{ model.techShortName }} CLI, dispatcher, and, optionally, the history server. See [Custom Installation][7] to install the history server.
 
 ```bash
@@ -47,7 +47,7 @@ dcos package install spark --cli
 
 <a name="custom"></a>
 
-# Custom Installation
+# Custom installation
 
 You can customize the default configuration properties by creating a JSON options file and passing it to `dcos package install --options`. For example, to launch the Dispatcher using the Universal Container Runtime (UCR), create a file called `options.json`:
 
@@ -71,7 +71,7 @@ Run this command to see all configuration options:
 dcos package describe spark --config
 ```
 
-## Customize {{ model.techShortName }} Distribution
+## Customize {{ model.techShortName }} distribution
 
 DC/OS {{ model.techName }} does not support arbitrary {{ model.techShortName }} distributions, but Mesosphere does provide multiple pre-built distributions, primarily used to select Hadoop versions.  
 
@@ -85,7 +85,7 @@ To use one of these distributions, select your {{ model.techShortName }} distrib
 }
 ```
 
-# Minimal Installation
+# Minimal installation
 
 For development purposes, you can install {{ model.techShortName }} on a local DC/OS cluster. For this, you can use [dcos-vagrant][16].
 
@@ -109,7 +109,7 @@ For development purposes, you can install {{ model.techShortName }} on a local D
 
 Also, a limited resource environment can restrict how you size your executors, for example with `spark.executor.memory`.
 
-# Multiple Installations
+# Multiple installations
 
 Installing multiple instances of the DC/OS {{ model.techName }} package provides basic multi-team support. Each dispatcher displays only the jobs submitted to it by a given team, and each team can be assigned different resources.
 
@@ -135,11 +135,11 @@ To specify which instance of {{ model.techShortName }} to use add `--name=<servi
 $ dcos spark --name=spark-dev run ...
 ```
 
-# Installation for Strict mode 
+# Installation for strict mode 
 
 If your cluster is set up for [strict](https://docs.mesosphere.com/1.10/security/ent/#strict) security then you will follow these steps to install and run {{ model.techShortName }}.
 
-## Service Accounts and Secrets
+## Service accounts and secrets
 
 1.  Install the `dcos-enterprise-cli` to get CLI security commands (if you have not already done so):
 
@@ -236,6 +236,8 @@ Permissions can also be assigned through the UI.
     ```bash
     dcos security org users grant dcos_marathon dcos:mesos:master:task:user:root create --description "Allow Marathon to launch containers as root"
     ```
+
+If you want to set permissions for Spark jobs running outside of the DC/OS cluster, see [Set permissions for jobs running outside of the cluster](/services/spark/spark-auth/#SetPermsOutsideCluster).
 
 ## Install {{ model.techShortName }} with necessary configuration
 

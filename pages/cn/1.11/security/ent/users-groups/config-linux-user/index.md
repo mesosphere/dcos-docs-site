@@ -7,7 +7,6 @@ excerpt: 覆盖默认 Linux 用户
 enterprise: true
 ---
 
-
 服务或作业的默认 Linux 用户可能因安全模式和容器类型而异 请参阅 [Linux 用户](/cn/1.11/security/ent/#linux-users) 了解更多信息。
 
 覆盖默认 Linux 用户的程序因服务或作业类型而异。

@@ -12,12 +12,12 @@ menuWeight: 5
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/tutorials/dcos-101/cli/)。
-* [app1](/cn/1.11/tutorials/dcos-101/app1/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 集群](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/tutorials/dcos-101/cli/)。
+* [app1](/cn/1.11/tutorials/dcos-101/app1/) 已部署并在您的集群中运行。
 
 
 # 目的
-在本教程[前述部分](/cn/1.11/tutorials/dcos-101/app1/)中，您部署了在群集内部运行的应用程序，与群集中的其他应用程序连接，而不是在外部进行交互。在此部分中，您将部署为用户提供 GUI 的应用程序。您还将本地部署此应用程序，而不依赖于 Docker 作为依赖项，从而降低复杂性。
+在本教程[前述部分](/cn/1.11/tutorials/dcos-101/app1/)中，您部署了在集群内部运行的应用程序，与集群中的其他应用程序连接，而不是在外部进行交互。在此部分中，您将部署为用户提供 GUI 的应用程序。您还将本地部署此应用程序，而不依赖于 Docker 作为依赖项，从而降低复杂性。
 
 # 步骤
  * 了解应用程序
@@ -29,14 +29,14 @@ menuWeight: 5
  * 您有多个选项可以检查应用程序 2 是否成功运行：
  * 通过查看所有 DC/OS 任务: `dcos task`
  * 通过查看所有 Marathon 应用程序：`dcos marathon app list`
- * 从群集中curl  http 服务器（在这种情况下来自主要主管理节点服务器）：
+ * 从集群中curl  http 服务器（在这种情况下来自主要主管理节点服务器）：
        * `dcos node ssh --master-proxy --leader`
        * `curl dcos-101app2.marathon.l4lb.thisdcos.directory:10000`
 
  这应该从 app2 的 web 服务器返回原始 HTML 响应。
 
 
-从群集中访问应用程序并查看原始 HTML 响应证明我们的应用程序正在运行，但在现实世界中，您希望向公众公开应用程序。在本教程的下一部分，您将完全做到这一点。
+从集群中访问应用程序并查看原始 HTML 响应证明我们的应用程序正在运行，但在现实世界中，您希望向公众公开应用程序。在本教程的下一部分，您将完全做到这一点。
 
 # 结果
  您已经部署了第二个使用本地 Mesos 容器化工具的应用程序。

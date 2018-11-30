@@ -8,12 +8,11 @@ excerpt: 授予访问“组件”屏幕的权限
 enterprise: true
 ---
 
-
 您可以授予用户访问 [**组件**屏幕](/cn/1.11/gui/components/) 的权限。新用户默认没有权限。
 
 ## <a name="network-access-via-ui"></a>使用 Web 界面授予访问权限
 
-**前提条件：**
+**先决条件：**
 
 - 不具有 `dcos:superuser` [权限](/cn/1.11/security/ent/users-groups/) 的 DC/OS 用户账户。
 

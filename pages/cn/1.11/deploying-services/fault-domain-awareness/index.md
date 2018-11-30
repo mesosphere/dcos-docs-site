@@ -27,7 +27,7 @@ DC/OS 现在支持树立故障域感知。利用故障域感知使服务高度�
 
 # 安装
 
-请考虑群集中服务的未来需求。您必须在安装时就定义分域和分区,尽管安装后可以在分域和分区中添加或删除节点。如果需要更新故障域检测脚本，就必须重新安装 DC/OS 。
+请考虑集群中服务的未来需求。您必须在安装时就定义分域和分区,尽管安装后可以在分域和分区中添加或删除节点。如果需要更新故障域检测脚本，就必须重新安装 DC/OS 。
 
 Mesos 管理节点必须位于同一分域，因为否则它们之间的延迟就会过高。不过为了容错，它们应该被分散到不同分区。
 
@@ -50,9 +50,9 @@ Mesos 管理节点必须位于同一分域，因为否则它们之间的延迟�
   }
 ```
 
-我们提供 [AWS 和 Azure 节点的故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的群集，可将两者组合为一个脚本。可以使用这些模型为本地群集创建故障域检测脚本。
+我们提供 [AWS 和 Azure 节点的故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的集群，可将两者组合为一个脚本。可以使用这些模型为本地集群创建故障域检测脚本。
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>重要信息：</b>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</td> </tr> </table>
+<p class="message--important"><strong>重要信息：</strong>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</p>
 
 2. 将此脚本添加到 bootstrap 节点的 `genconf` 文件夹。[更多信息](/cn/1.11/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
 
@@ -62,20 +62,21 @@ Mesos 管理节点必须位于同一分域，因为否则它们之间的延迟�
 
  在 DC/OS  CLI 中输入 `dcos node`。您将看到类似以下内容的输出，其中列出了各个节点的分域和分区：
 
-   ```bash
-   HOSTNAME        IP                         ID                    TYPE               REGION      ZONE
-  	10.0.3.188   10.0.3.188  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S1  agent            us-east-1  us-east-1a
-  	10.0.7.224   10.0.7.224  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S0  agent            us-east-1  us-east-1b
-	master.mesos.  10.0.5.41                     N/A                    master              N/A         N/A
-	master.mesos.  10.0.6.95                     N/A                    master           us-east-1  us-east-1b
-	master.mesos.  10.0.7.111    a2ea1578-22ee-430e-aeb8-82ee1b74d88a   master (leader)  us-east-1  us-east-1c
-	```
+  ```bash
+  HOSTNAME        IP                         ID                    TYPE               REGION      ZONE
+  10.0.3.188   10.0.3.188  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S1  agent            us-east-1  us-east-1a
+  10.0.7.224   10.0.7.224  a2ea1578-22ee-430e-aeb8-82ee1b74d88a-S0  agent            us-east-1  us-east-1b
+  master.mesos.  10.0.5.41                     N/A                    master              N/A         N/A
+  master.mesos.  10.0.6.95                     N/A                    master           us-east-1  us-east-1b
+  master.mesos.  10.0.7.111    a2ea1578-22ee-430e-aeb8-82ee1b74d88a   master (leader)  us-east-1  us-east-1c
+  ```
+
 
 或者，单击 DC/OS  GUI 中的 **节点** 选项卡。节点表将显示每个代理的分域和分区栏。
 
 # 使用
 
-用户创建的 Marathon 服务和 Pod 支持树立分区和分域感知。以下 DC/OS 数据服务的 beta 版本支持树立分区感知：Cassandra、Elastic、HDFS、Kafka 和 Spark。请参阅各个服务文档，了解配置 DC/OS 数据服务分区感知的更多信息。<!-- todo: link to appropriate pages when the betas are released -->
+用户创建的 Marathon 服务和 Pod 支持树立分区和分域感知。以下 DC/OS 数据服务的 beta 版本支持树立分区感知：Cassandra、Elastic、HDFS、Kafka 和 Spark。请参阅各个服务文档，了解配置 DC/OS 数据服务分区感知的更多信息。
 
 ## Marathon 服务和 Pod
 
@@ -97,7 +98,7 @@ Mesos 管理节点必须位于同一分域，因为否则它们之间的延迟�
 
 ## 示例
 
-假设您有跨 3 个分域的 Mesos 群集：`aws-us-east1`、`aws-us-east2` 和 `local`。每个分域都有分区 `a`、`b`、`c`、`d`。
+假设您有跨 3 个分域的 Mesos 集群：`aws-us-east1`、`aws-us-east2` 和 `local`。每个分域都有分区 `a`、`b`、`c`、`d`。
 
 ### 仅指定远程分域
 
@@ -128,8 +129,8 @@ Mesos 管理节点必须位于同一分域，因为否则它们之间的延迟�
 
 - 实例全都在 `aws-us-east1` 分域启动并均匀划分到 `aws-us-east1` 的分区 `a`、`b`、`c`、`d`。
 
-### 增加群集容量
+### 增加集群容量
 
-要增加容量，请 [添加新代理](/cn/1.11/administering-clusters/add-a-node/) 到远程分域或群集的分域，然后更新服务以在相应的一个或多个分域启动实例。
+要增加容量，请 [添加新代理](/cn/1.11/administering-clusters/add-a-node/) 到远程分域或集群的分域，然后更新服务以在相应的一个或多个分域启动实例。
 
-**注意：** 您无法将服务配置为在多个分域运行。
+<p class="message--note"><strong>注意: </strong> 您无法将服务配置为在多个分域运行。</p>

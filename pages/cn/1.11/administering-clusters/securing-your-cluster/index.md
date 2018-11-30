@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 保护群集
-title: 保护群集
+navigationTitle: 保护集群
+title: 保护集群
 excerpt: 理解 DC/OS 中的安全特性
 menuWeight: 7
 ---
@@ -24,7 +24,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 
 **管理** 区可通过 HTTP/HTTPS 和 SSH 连接访问，并
 提供对管理节点的访问。它还提供
-通过 URL 路由对群集中的其他节点的反向代理访问。安全起见，DC/OS 云
+通过 URL 路由对集群中的其他节点的反向代理访问。安全起见，DC/OS 云
 模板允许配置白名单，这样仅特定 IP 地址范围
 可以访问管理区。
 
@@ -32,7 +32,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 
 默认情况下，Admin Router 将允许未加密的 HTTP 流量。这被视为
 不安全，您必须提供有效的 TLS 证书并重定向
-所有 HTTP 流量到 HTTPS 以适当地保护对您的群集的访问。
+所有 HTTP 流量到 HTTPS 以适当地保护对您的集群的访问。
 
 在您获得有效的 TLS 证书之后，在每个管理节点上安装证书。
 将证书和私钥复制到一个熟悉的位置，如在此位置下
@@ -70,15 +70,15 @@ CloudFormation 模板，大量公共区端口暴露于
 
 包括 AWS 负载均衡器的典型 AWS 部署如下所示：
 
-![安全区](/cn/1.11/img/security-zones.jpg)
+    ![安全区](/cn/1.11/img/security-zones.jpg)
 
-图 1. 安全区
+    图 1. 安全区
 
-Admin Router
+## Admin Router
 
 Admin Router 控制对管理区的访问。
 
-传入至 DC/OS 群集的 HTTP 请求通过 Admin
+传入至 DC/OS 集群的 HTTP 请求通过 Admin
 Router 代理（在其内核使用 [Nginx](http://nginx.org) 和
 [OpenResty](https://openresty.org)） 对于未经认证的请求，Admin Router 拒绝
 对大多数 HTTP 端点的访问。要让

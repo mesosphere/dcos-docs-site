@@ -57,6 +57,6 @@ License API 还需要通过以下权限授权：
 
 # API 参考
 
-License API 允许您管理 DC/OS 群集上的许可证操作。
+License API 允许您管理 DC/OS 集群上的许可证操作。
 
 [swagger api='/1.11/api/dcos-licensing-component-spec.yaml']

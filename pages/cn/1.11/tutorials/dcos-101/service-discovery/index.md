@@ -6,27 +6,23 @@ navigationTitle: 服务发现
 menuWeight: 4
 ---
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的仅仅是为了演示功能，它可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您应该进行调整、验证和测试。</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
 欢迎阅读 DC/OS 101 教程第 4 部分
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/tutorials/dcos-101/cli/)。
-* [app1](/cn/1.11/tutorials/dcos-101/app1/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 集群](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/tutorials/dcos-101/cli/)。
+* [app1](/cn/1.11/tutorials/dcos-101/app1/) 已部署并在您的集群中运行。
 
 
 # 目的
-本教程前一部分中的 [app] (https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) 使用 `redis.marathon.l4lb.thisdcos.directory` 作为连接 Redis 的地址，端口为 6379。由于 Redis 可能正在群集中的任何代理程序上运行，并且可能在不同的端口上运行，因此该地址如何解析到实际运行的 Redis 实例？
+本教程前一部分中的 [app](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) 使用 `redis.marathon.l4lb.thisdcos.directory` 作为连接 Redis 的地址，端口为 6379。由于 Redis 可能正在集群中的任何代理程序上运行，并且可能在不同的端口上运行，因此该地址如何解析到实际运行的 Redis 实例？
 
 在本部分中，您将通过探索 DC/OS 中应用程序的不同选项，了解 DC/OS 服务发现。
 
 # 服务发现
- [服务发现](/cn/1.11/networking/)使应用程序能够不依赖于于其在群集中的运行位置进行寻址，这在应用程序可能出现故障并在不同主机上重新启动时尤其有用。
+ [服务发现](/cn/1.11/networking/)使应用程序能够不依赖于于其在集群中的运行位置进行寻址，这在应用程序可能出现故障并在不同主机上重新启动时尤其有用。
 
  DC/OS 提供两种服务发现选项：
 
@@ -34,17 +30,17 @@ menuWeight: 4
  1. 命名虚拟 IP。
 
 
-通过 SSH 进入群集中的 Mesos 管理节点，以查看这些不同的服务发现方法的工作方式：
+通过 SSH 进入集群中的 Mesos 管理节点，以查看这些不同的服务发现方法的工作方式：
 
 `dcos node ssh --master-proxy --leader`
 
 # Mesos-DNS
 
- [Mesos-DNS](/cn/1.11/networking/mesos-dns/) 为每个任务分配 DNS 条目，这些条目可从群集中的任何节点解析。这些条目的命名模式为 *task.scheduler.mesos*
+ [Mesos-DNS](/cn/1.11/networking/mesos-dns/) 为每个任务分配 DNS 条目，这些条目可从集群中的任何节点解析。这些条目的命名模式为 *task.scheduler.mesos*
 
  作业的默认调度程序为 [Marathon](/cn/1.11/overview/architecture/components/#marathon)，因此，Redis 服务的 Mesos-DNS 名称为 *redis.marathon.mesos*。
 
- 我们将使用 [dig](https://linux.die.net/man/1/dig) 命令以检索地址记录（也称为 A 记录）。Dig 是一个命令行实用程序，用于查询 DNS 服务器。如果在没有参数的情况下使用，它将使用系统范围配置的 DNS 服务器进行查询，在 DC/OS 群集中将其配置为指向 Mesos-DNS：
+ 我们将使用 [dig](https://linux.die.net/man/1/dig) 命令以检索地址记录（也称为 A 记录）。Dig 是一个命令行实用程序，用于查询 DNS 服务器。如果在没有参数的情况下使用，它将使用系统范围配置的 DNS 服务器进行查询，在 DC/OS 集群中将其配置为指向 Mesos-DNS：
 
   `dig redis.marathon.mesos`
 
@@ -86,16 +82,16 @@ menuWeight: 4
  然后使用以下模式生成全名：
  vip-name.scheduler.l4lb.thisdcos.directory:vip-port
 
- 正如我们从示例[应用程序](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py)中看到的，这是 redis 软件包使用的机制，因此您可以从群集中的 `redis.marathon.l4lb.thisdcos.directory:6379` 访问 Redis 服务。
+ 正如我们从示例[应用程序](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py)中看到的，这是 redis 软件包使用的机制，因此您可以从集群中的 `redis.marathon.l4lb.thisdcos.directory:6379` 访问 Redis 服务。
 
 # 结果
-您知道如何使用服务发现从 DC/OS 群集中连接到您的应用程序，并了解了 DC/OS 中可用的两种服务发现机制。
+您知道如何使用服务发现从 DC/OS 集群中连接到您的应用程序，并了解了 DC/OS 中可用的两种服务发现机制。
 
 # 深入研究
 [Mesos-DNS](#mesos-dns) 和[已命名的 VIP](#named-vips) 之间有什么区别？
 
 ## Mesos-DNS
-Mesos-DNS 是在群集中查找应用程序的简单解决方案。虽然 DNS 受许多应用程序支持，但 Mesos-DNS 具有以下缺点：
+Mesos-DNS 是在集群中查找应用程序的简单解决方案。虽然 DNS 受许多应用程序支持，但 Mesos-DNS 具有以下缺点：
 
  * DNS 缓存：应用程序有时会缓存 DNS 条目以提高效率，因此可能没有更新的地址信息（例如，在任务失败后）。
  * 您需要使用 SRV DNS 记录来检索有关已分配端口的信息。虽然应用程序通常能理解 DNS A 记录，但并非所有应用程序都支持 SRV 记录。

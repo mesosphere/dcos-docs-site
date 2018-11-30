@@ -8,7 +8,7 @@ excerpt: DC/OS API 参考手册
 enterprise: true
 ---
 
-DC/OS API 是由 [DC/OS 组件] (/cn/1.11/overview/architecture/components/) 支持的一组路由，通过名为 [Admin Router] (/cn/1.11/overview/architecture/components/#admin-router)的 API 网关提供。
+DC/OS API 是由 [DC/OS 组件](/1.11/overview/architecture/components/) 支持的一组路由，通过名为 [Admin Router](/1.11/overview/architecture/components/#admin-router)的 API 网关提供。
 
 <!-- Use html img for horizontal centering -->
 <img src="/1.11/img/dcos-api-routing.png" alt="DC/OS API 路由" style="display:block;margin:0 auto"/>
@@ -49,9 +49,9 @@ Admin Router 公开若干路由类型：
 - **重写路由** 将路由转换为其他路由。
 
 
-# 群集访问
+# 集群访问
 
-要确定群集的 URL，请参阅 [群集访问](/cn/1.11/api/access/)。
+要确定集群的 URL，请参阅 [集群访问](/cn/1.11/api/access/)。
 
 
 # 版本控制
@@ -82,7 +82,7 @@ DC/OS API 的部分按组件、路由或资源进行版本控制。
 
 # 路由使用
 
-- 通过 **代理路由**确定一个 API 资源的完整 URL，连接群集 URL、路由和后端组件资源路径。
+- 通过 **代理路由**确定一个 API 资源的完整 URL，连接集群 URL、路由和后端组件资源路径。
 
     ```
     <cluster-url>/<route>/<resource-path>
@@ -96,7 +96,7 @@ DC/OS API 的部分按组件、路由或资源进行版本控制。
     <cluster-url>/<route>/<file-path>
     ```
 
- 例如，从以下获取群集的 DC/OS 版本：`https://dcos.example.com/dcos-metadata/dcos-version.json`
+ 例如，从以下获取集群的 DC/OS 版本：`https://dcos.example.com/dcos-metadata/dcos-version.json`
 
 - **Lua 路由** 立即在 Admin Router 中执行代码，而不是以代理的方式路由到外部后端组件。因此，对于 Lua 路由，路由后无需路径。
 
@@ -104,7 +104,7 @@ DC/OS API 的部分按组件、路由或资源进行版本控制。
     <cluster-url>/<route>
     ```
 
- 例如，从以下获取管理节点的公用 IP 和群集 ID：`https://dcos.example.com/metadata`
+ 例如，从以下获取管理节点的公用 IP 和集群 ID：`https://dcos.example.com/metadata`
 
 - **重写和重定向路由**可能会在返回资源之前穿过一个或多个其他 URL 或路由。因此，对于这些路由，请遵循 URL 和路由链以查找端点。资源路径将取决于最终端点。
 

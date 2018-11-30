@@ -26,12 +26,12 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 <th>描述</th>
 </tr>
 <tr><td>anonymousId</td>
-<td>这是在启动时为每个群集创建的匿名 ID。此 ID 在您的群集中持续存在。例如：
+<td>这是在启动时为每个集群创建的匿名 ID。此 ID 在您的集群中持续存在。例如：
 <pre>
 "anonymousId": "70b28f00-e38f-41b2-a723-aab344f535b9
 </pre></td></tr>
 <tr><td>clusterId</td>
-<td>这是在启动时为每个群集创建的 <code>anonymousID</code> 值。此 ID 在您的群集中持续存在。例如：
+<td>这是在启动时为每个集群创建的 <code>anonymousID</code> 值。此 ID 在您的集群中持续存在。例如：
 <pre>
 "clusterId": "70b28f00-e38f-41b2-a723-aab344f535b9" 
 </pre>

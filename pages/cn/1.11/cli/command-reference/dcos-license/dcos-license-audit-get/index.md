@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: dcos license audit get
 title: dcos license audit get
 menuWeight: 0
-excerpt: 获取群集许可证审计记录
+excerpt: 获取集群许可证审计记录
 
 enterprise: true
 ---
 
 # 说明
-`dcos license audit get` 命令让您查看群集许可证审计记录。
+`dcos license audit get` 命令让您查看集群许可证审计记录。
 
 # 使用
 
@@ -38,7 +38,7 @@ dcos license audit get [<id>|active] [--output <file_path>] [--decrypt]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos license] ](/cn/1.11/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
+| [dcos license](/cn/1.11/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
 
 # 示例
 有关示例，请参阅[许可证](/cn/1.11/administering-clusters/licenses/)。

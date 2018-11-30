@@ -36,6 +36,4 @@ Cosmos. There are Core CLI plugins available in Cosmos for DC/OS 1.10+.
 
 For this to be successful, the user will need to have the
 `dcos:adminrouter:package` permission in order to make calls to Cosmos. Also,
-the system needs access to the internet or a local universe.
-
-
+the system needs access to the internet or a [local universe](/1.12/administering-clusters/deploying-a-local-dcos-universe/).

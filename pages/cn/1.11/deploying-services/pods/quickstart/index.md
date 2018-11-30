@@ -31,7 +31,7 @@ enterprise: false
     }
     ```
 
- **注意：** pod ID（ 上文 pod 规范中的 `id` 参数）一旦创建，将会用于和 Pod 进行的所有交互。
+ <p class="message--note"><strong>注意：</strong> pod ID（ 上文 pod 规范中的 `id` 参数）一旦创建，将会用于和 Pod 进行的所有交互。</p>
 
 1. 使用以下 DC/OS CLI 命令在 DC/OS 上启动 pod：
 

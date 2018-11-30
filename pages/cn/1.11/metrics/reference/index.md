@@ -8,8 +8,6 @@ beta: false
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 这些度量标准由 DC/OS 自动收集。
 
@@ -19,7 +17,7 @@ enterprise: false
 
 | 度量标准 | 描述 |
 |-------------------|------------------------------|
-| cpu.core | 所用核心百分比。|
+| cpu.cores | 所用核心百分比。|
 | cpu.idle | 空闲 CPU 百分比。|
 | cpu.system | 所用系统百分比。|
 | cpu.total | 所用 CPU 百分比。|
@@ -49,7 +47,7 @@ enterprise: false
 | filesystem.inode.total | 按字节计的总索引节点数。|
 | filesystem.inode.used | 按字节计的索引节点数。|
 
-**注意：** 标签 `path` 根据本地文件系统的挂载路径自动填充（例如，`/`、`/boot`等）。
+<p class="message--note"><strong>注意: </strong> 标签 <tt>path</tt> 根据本地文件系统的挂载路径自动填充（例如，<tt>/</tt>、<tt>/boot</tt>等）。</p>
 
 ### 网络接口度量标准
 
@@ -64,14 +62,14 @@ enterprise: false
 | network.out.errors | 出错的已上传字节数。|
 | network.out.packet | 上传的数据包数量。|
 
-**注意：** 标签 `interface` 根据网络接口的类型自动填充（例如，`spartan`、`d-dcos`、`minuteman`等）。
+<p class="message--note"><strong>注意: </strong> 标签 <tt>interface</tt> 根据网络接口的类型自动填充（例如，<tt>spartan</tt>、<tt>d-dcos</tt>、<tt>minuteman</tt>等）。</p>
 
 # 容器
 
 收集以下按容器的资源利用率度量标准。
 
 ### CPU 使用率度量标准
-   <!-- https://github.com/apache/mesos/blob/1.0.1/include/mesos/v1/mesos.proto -->
+   
 
 | 度量标准 | 描述 |
 |-------------------|------------------------------|
@@ -88,7 +86,7 @@ enterprise: false
 | disk.used | 按字节计的已用硬容量。|
 
 ### 内存度量标准
-   <!-- https://github.com/apache/mesos/blob/1.0.1/include/mesos/v1/mesos.proto -->
+   
 
 | 度量标准 | 描述 |
 |-------------------|------------------------------|
@@ -96,7 +94,7 @@ enterprise: false
 | mem.total | RAM 中进程的总内存（与交换时相反）。| 
 
 ### 网络度量标准
-   <!-- http://mesos.apache.org/documentation/latest/port-mapping-isolator -->
+   
 
 | 度量标准 | 描述 |
 |-------------------|------------------------------|
@@ -117,7 +115,7 @@ enterprise: false
 | 维度 | 描述 | 实体 |
 |-----------|-------------|--------|
 | mesos_id | 节点的 Mesos ID。| 节点，容器 |
-| cluster_id | Mesos 群集的 ID。| 节点，容器 |
+| cluster_id | Mesos 集群的 ID。| 节点，容器 |
 | container_id | 容器的 ID。| 公制，容器 |
 | executor_id | 任务执行器的 ID。| 公制，容器 |
 | executor_name | 任务执行器的名称。| 度量标准 |

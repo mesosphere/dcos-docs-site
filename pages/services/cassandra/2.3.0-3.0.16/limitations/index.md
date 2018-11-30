@@ -6,8 +6,8 @@ title: Limitations
 menuWeight: 100
 model: /services/cassandra/data.yml
 render: mustache
----
 
+---
 #include /services/include/limitations.tmpl
 #include /services/include/limitations-zones.tmpl
 #include /services/include/limitations-regions.tmpl
@@ -18,7 +18,7 @@ The service does not support performing backup and restore with authentication/a
 
 ## Node Count
 
-The DC/OS {{ model.techName }} Service must be deployed with at least {{ model.minNodeCount }} nodes.
+The DC/OS {{ model.techName }} Service must be deployed with at least {{ model.install.minNodeCount }} nodes.
 
 ## Security
 

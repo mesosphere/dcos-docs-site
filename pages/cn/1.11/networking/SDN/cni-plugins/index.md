@@ -10,9 +10,9 @@ enterprise: false
 
 从版本 1.8 开始，DC/OS 可配合任何类型的容器网络接口 (CNI) 网络使用。使用 CNI 可以让容器在与它们运行所在的主机隔离时相互通信。
 
-# 为 CNI 配置群集
+# 为 CNI 配置集群
 
-将插件和配置文件添加到群集上的每个代理节点。参阅 [CNI 规范](https://github.com/containernetworking/cni/blob/master/SPEC.md)，进一步了解 CNI 插件和配置。
+将插件和配置文件添加到集群上的每个代理节点。参阅 [CNI 规范](https://github.com/containernetworking/cni/blob/master/SPEC.md)，进一步了解 CNI 插件和配置。
 
 1. 将插件文件添加到 `/opt/mesosphere/active/cni/` 目录。
 

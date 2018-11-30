@@ -4,7 +4,6 @@ navigationTitle: dcos auth logout
 title: dcos auth logout
 menuWeight: 3
 excerpt: 注销 DC/OS 认证
-
 enterprise: false
 ---
 

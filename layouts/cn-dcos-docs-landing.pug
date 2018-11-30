@@ -1,0 +1,116 @@
+- var paths = path.split('/')
+- var semanticVersion = /^[0-9]\.[0-9].*$/
+- var latestDocs = hierarchy.children.find(el => el.path === `/cn`).children.find(el => el.path === `/cn/1.11`)
+- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
+- var sectionTitle = 'DC/OS Docs'
+
+if paths[1] === 'services'
+  - sectionTitle = 'Service Docs'
+
+mixin renderGridToc()
+  div(class='grid-toc')
+    each val, index in latestDocs.children
+      if val.menuWeight != -1
+        div(class='grid-toc__item')
+          h2(class='grid-toc__title')
+            a(href=val.path)!= val.title
+          if val.excerpt
+            - var displayExcerpt = (val.excerpt.length > 100) ? val.excerpt.substring(0, 100) + '…' : val.excerpt
+            p(class='grid-toc__desc')!= displayExcerpt
+          if val.children
+            ul(class='grid-toc__list')
+              for item in val.children.slice(0, 5)
+                li(class='grid-toc__list-item')
+                  a(href=item.path, class='grid-toc__link')!= item.title
+              if val.children.length > 5
+                li(class='grid-toc__list-item')
+                  a(href=val.path, class='grid-toc__link grid-toc__link--all') View All
+                    img(class='grid-toc__link--all__arrow', src='/assets/right-arrow.svg')
+
+mixin renderGrid()
+  div(class='grid')
+    a(href=latestDocs.path + '/installing', class='grid__item')
+      h3(class='grid__header') Install DC/OS
+      div(class='grid__desc__wrapper')
+        p(class='grid__desc') Installation involves configuring your infrastructure and installing DC/OS bits on top, so the infrastructure provider you choose determines your installation method. Select from development, cloud, and on-premises.
+          span(class='grid__desc__ellipsis') &#8230;Read More
+      div(class="grid__link")
+        i(data-feather='arrow-right')
+    a(href='https://support.mesosphere.com', class='grid__item')
+      h3(class='grid__header') Need Support?
+      div(class='grid__desc__wrapper')
+        p(class='grid__desc') Subscription pricing for DC/OS is based on the number of nodes (physical or virtual) in your environment. DC/OS subscriptions may include either Premium (24x7) or Standard (9-5) support.
+          span(class='grid__desc__ellipsis') &#8230;Read More
+      div(class="grid__link")
+        i(data-feather='arrow-right')
+
+doctype html
+html(lang='en')
+  head
+    include partials/head.pug
+  body(class='landing landing--dcos')
+    div(class='layout')
+      header(class='header')
+        a(class='header__drawer')
+          i(class='header__icon', data-feather='menu')
+        a(href='/', class='header__logo')
+          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--mobile
+          img(src='/assets/header--mesosphere-dcos-logo--inverse.svg', alt='Mesosphere').header__logo--desktop
+        div(class='header__main')
+          div(class='header__dropdown')
+            img(class='header__dropdown-icon', src='/assets/header-logo-mark.svg', alt='Mesosphere')
+            strong!= sectionTitle
+            i(data-feather='chevron-down')
+          nav(class='header__menu')
+            ul(class='header__menu-list')
+              each val, index in headerItems
+                if(val.menuWeight !== -1)
+                  - var itemClass = {}
+                  - itemClass['header__menu-item'] = true
+                  - itemClass['header__menu-item--active'] = val.path == '/'
+                  li(class=itemClass)
+                    a(href=val.path)!= val.title
+              li(class='header__menu-item')
+                a(href='https://support.mesosphere.com') Support
+        section(class='header__search', role='search')
+          form(class='header__search-form', action='/search/', method='GET')
+            label(class='header__search-label', for='header-search-input')
+              i(class='header__icon', data-feather='search')
+            input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
+      div(class='landing__hero')
+        form(class='landing__search', action='/search/', method='GET')
+          input(class='landing__search-input', id='landing-search-input', placeholder='Search documentation', tabindex='1', type='text', name='q')
+          button(class='landing__search-button')
+            i(data-feather='search')
+
+      div(class='landing__container')
+        +renderGridToc()
+        +renderGrid()
+        div(class='landing__external')
+          div(class='landing__external-item')
+            i(data-feather='book', class='landing__external-icon')
+            h3(class='landing__external-title')
+              a(class='landing__external-link', href='https://mesosphere.com/training/') Get DC/OS Training
+            p(class='landing__external-description') Learn to use and administer DC/OS in real-time training courses, in person or online, offered by Mesosphere.
+          div(class='landing__external-item')
+            i(data-feather='users', class='landing__external-icon')
+            h3(class='landing__external-title')
+              a(class='landing__external-link', href='https://dcos.io/community/') Join the Community
+            p(class='landing__external-description') Join the DC/OS community to get help via mailing list or Slack.
+          div(class='landing__external-item')
+            i(data-feather='slack', class='landing__external-icon')
+            h3(class='landing__external-title')
+              a(class='landing__external-link', href='http://chat.dcos.io/') Find us on Slack
+            p(class='landing__external-description') Ask questions in the general channel and participate in day 2 ops, networking, packaging, and UX working groups.
+
+      footer(class='landing__footer')
+        div(class='landing__footer__container')
+          a(class='landing__footer__logo__link', href='https://mesosphere.com/')
+            img(class='landing__footer__logo', src='/assets/header-logo-mark.svg')
+          div(class='landing__footer__menu')
+            a(href='https://mesosphere.com/terms/') Terms of Service
+            a(href='https://mesosphere.com/privacy/') Privacy Policy
+          a(class='landing__footer__copyright', href='https://mesosphere.com/')!= copyright
+    script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
+    script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
+    include partials/scripts.pug

@@ -9,81 +9,88 @@ enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+Depending on the version of the DC/OS CLI you have currently installed, you can choose to either update the CLI to the latest version for your cluster or to install a specific version. Also note, if you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely <a href="/1.10/cli/uninstall/">uninstall</a> the CLI then install a new version of the software to upgrade.
 
+# <a name="upgrade"></a>Upgrade the CLI using the web interface
 
-You can update the DC/OS CLI to the latest version or downgrade to an older version.
+The recommended method to install the DC/OS CLI is by getting a preformatted set of commands from the DC/OS web interface and running them in the terminal. If the version of the CLI you have currently installed can be upgraded to the latest build, take the following steps to complete the upgrade.
 
-# <a name="upgrade"></a>Upgrade the CLI
-
-**Important:** If you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely [uninstall](/1.10/cli/uninstall/) the CLI. You cannot upgrade.
-
-You can upgrade an existing DC/OS CLI installation to the latest build.
-
-1.  Remove the current CLI binary. For example, if you installed to `/usr/local/bin/`:
+1. From the terminal, remove the current CLI binary. For example, if it was installed to `/usr/local/bin/`:
 
     ```bash
     rm -rf /usr/local/bin/dcos
     ```
 
-1.  Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`). Update the command with the desired upgrade version (`<version>`):
+1.  Then, navigate to your DC/OS web interface and click the down arrow to the right of your cluster name in the top right corner.
+
+    ![open cluster popup](/1.10/img/open-cluster-popup.png)
+
+    Figure 1. Open cluster popup menu
+
+1. Select **Install CLI** to bring up the installation commands.
+
+    ![CLI install UI](/1.10/img/install-cli.png)
+
+    Figure 2. Select Install CLI
+
+1. Copy and paste the code snippets appropriate to your OS into your terminal and press the return key. This automatically downloads, moves, and runs the setup command for the cluster. The last command to run, `dcos`, will display an overview of the dcos commands.
+
+    ![CLI copy/paste](/1.10/img/install-cli-terminal.png)
+
+    Figure 3. Code snippet window
+
+1. Verify your cluster(s) by listing them:
 
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-<dcos-version>/dcos
+    docs cluster list
+
+                NAME                          ID                    STATUS    VERSION        URL           
+    *  kjdskjd-ds-derr-1     0e2f90b-ded3-458b-8157-0365c8bd1ca4  AVAILABLE  1.10.0         http://example.com
+       mr-clr-714024134      e71432a-8c60-48f0-bb14-ddf287775cdb  AVAILABLE  1.11-dev       http://example-1.com
     ```
 
-    **Important:** The CLI must be installed on a system that is external to your DC/OS cluster.
+# Upgrading/Downgrading to a specific version of the CLI manually
 
-1.  Make the CLI binary executable.
+1. From the terminal, remove the current CLI binary. For example, if it was installed to `/usr/local/bin/`:
 
     ```bash
-    chmod +x dcos
+    rm -rf /usr/local/bin/dcos
     ```
 
-    **Tip:** If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.
-
-1.  Point the CLI to your DC/OS master node. In this example, `http://example.com` is the master node IP address.
+1. Download the DC/OS CLI binary `dcos` to your working directory by running the following command and replacing `<target-os-type>` with the OS type (`darwin`, `linux`, `windows`), and `<dcos-version>` with the version (such as 1.12), that you want to use:
 
     ```bash
-    dcos cluster setup http://example.com
+    curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.10/security/ent/).
-
-    Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.
+    For example, the CLI download for a mac user on DC/OS 1.11 would look like this:
 
     ```bash
-    dcos
-    Command line utility for the Mesosphere Datacenter Operating
-    System (DC/OS). The Mesosphere DC/OS is a distributed operating
-    system built around Apache Mesos. This utility provides tools
-    for easy management of a DC/OS installation.
-
-    Available DC/OS commands:
-
-       auth           	Authenticate to DC/OS cluster
-       config         	Manage the DC/OS configuration file
-       help           	Display help information about DC/OS
-       marathon       	Deploy and manage applications to DC/OS
-       node           	Administer and manage DC/OS cluster nodes
-       package        	Install and manage DC/OS software packages
-       service        	Manage DC/OS services
-       task           	Manage DC/OS tasks
-
-    Get detailed command description with 'dcos <command> --help'.
+    curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.11/dcos -o dcos
     ```
 
-# <a name="downgrade"></a>Downgrade the CLI
-
-You can downgrade an existing DC/OS CLI installation to an older version.
-
-1.  Remove the current CLI binary:
+1.  Move the CLI binary to your local directory, which should be `/usr/local/bin`:
 
     ```bash
-    rm path/to/binary/dcos
+    sudo mv dcos /usr/local/bin
     ```
 
-1.  From the directory you want to install the new DC/OS CLI binary, enter this command to update the DC/OS CLI with the downgrade version (`<version>`) specified:
+1. Make the CLI binary executable:
 
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/<version>/dcos
+    chmod +x /usr/local/bin/dcos
     ```
+
+1. Verify your cluster(s) by listing them:
+
+    ```bash
+    docs cluster list
+
+                NAME                          ID                    STATUS    VERSION        URL           
+    *  kjdskjd-ds-derr-1     0e2f90b-ded3-458b-8157-0365c8bd1ca4  AVAILABLE  1.10.0         http://example.com
+       mr-clr-714024134      e71432a-8c60-48f0-bb14-ddf287775cdb  AVAILABLE  1.11-dev       http://example-1.com
+    ```
+
+If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.
+
+For information about configuration options when using the DC/OS CLI, see [Configuring the command-line interface](/1.10/cli/configure/). For information about authentication and authorization when using the DC/OS CLI, see the appropriate [Security](/1.10/security/) section.

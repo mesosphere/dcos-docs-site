@@ -8,7 +8,7 @@ excerpt: 将代理节点转换为公共或私有代理节点。
 enterprise: false
 ---
 
-您可以将现有 DC/OS 群集的代理节点转换为公共或私有节点。在安装过程中，代理节点被指定为 [公共](/cn/1.11/overview/concepts/#public-agent-node) 或 [私有](/cn/1.11/overview/concepts/#private-agent-node)节点。默认情况下，它们在[安装]期间被指定为私有节点(1.11/installing/evaluation/cloud-installation/)。
+您可以将现有 DC/OS 集群的代理节点转换为公共或私有节点。在安装过程中，代理节点被指定为 [公共](/cn/1.11/overview/concepts/#public-agent-node) 或 [私有](/cn/1.11/overview/concepts/#private-agent-node)节点。默认情况下，它们在[安装](/cn/1.11/installing/evaluation/cloud-installation/)期间被指定为私有节点。
 
 ### 先决条件：
 这些步骤必须在配置为 DC/OS 节点的机器上执行。在此转换过程中在节点上运行的任何任务将被终止。
@@ -21,13 +21,13 @@ enterprise: false
 ### 确定节点类型
 您可以通过从 DC/OS CLI 运行此命令来确定节点类型。
 
-- 运行此命令以确定群集中有多少个私有代理。`0`的结果表示没有私有代理。
+- 运行此命令以确定集群中有多少个私有代理。`0`的结果表示没有私有代理。
 
     ```bash
     dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public == null) | .id' | wc -l
     ```
 
-- 运行此命令以确定群集中有多少个公共代理。`0`的结果表示没有公共代理。
+- 运行此命令以确定集群中有多少个公共代理。`0`的结果表示没有公共代理。
 
     ```bash
     dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l
@@ -85,13 +85,13 @@ enterprise: false
 
 1. 运行此命令以在代理节点上安装 DC/OS。您必须将代理节点指定为公共或私有节点。
 
- 私有代理节点：
+    私有代理节点：
 
     ```bash
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave
     ```
 
- 公共代理节点：
+    公共代理节点：
 
     ```bash
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public

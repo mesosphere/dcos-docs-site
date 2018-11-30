@@ -7,19 +7,17 @@ excerpt: 了解 DC/OS 覆盖网络
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-
-DC/OS 覆盖网络 (Overlay) 是一种 SDN 解决方案，适用于到货时预封装有 DC/OS 的 UCR 和 Docker 容器，默认情况下处于启用状态。DC/OS 覆盖网络可以运行给定 DC/OS 群集中的多个虚拟网络实例。从 DC/OS 1.11 开始，DC/OS 覆盖网络就支持创建 IPv6 网络。
+DC/OS 覆盖网络 (Overlay) 是一种 SDN 解决方案，适用于到货时预封装有 DC/OS 的 UCR 和 Docker 容器，默认情况下处于启用状态。DC/OS 覆盖网络可以运行给定 DC/OS 集群中的多个虚拟网络实例。从 DC/OS 1.11 开始，DC/OS 覆盖网络就支持创建 IPv6 网络。
 
 <p class="message--note"><strong>注意: </strong> IPv6 支持仅适用于 Docker 容器。</p>
 
 DC/OS 覆盖网络提供的功能包括：
-* Mesos 和 Docker 容器均可从单个节点的内部以及在群集上的节点之间通信。
-* 可以创建服务，使其流量与来自群集中任何其他虚拟网络或主机的其他流量隔离。
+* Mesos 和 Docker 容器均可从单个节点的内部以及在集群上的节点之间通信。
+* 可以创建服务，使其流量与来自集群中任何其他虚拟网络或主机的其他流量隔离。
 * 无需担心可能与应用程序中的端口重合，无需使用服务用的非标准端口来避免重合。
 * 可以生成一类任务任意数量的实例，并让它们全部侦听同一端口，使得客户端不必进行端口发现。
-* 可以运行需要群集间连通的应用程序，如 Cassandra、HDFS 和 Riak。
+* 可以运行需要集群间连通的应用程序，如 Cassandra、HDFS 和 Riak。
 * 可以创建多个虚拟网络来隔离您组织的不同部分，如开发、营销和生产。
 
 有关 DC/OS 覆盖网络的设计和实现的详细信息，请参阅 [覆盖简介](/cn/1.11/overview/design/overlay)。DC/OS 覆盖网络的默认配置提供 IPv4 虚拟网络、`dcos`，以及 YAML 配置如下的 IPv6 虚拟网络 `dcos6`：
@@ -91,7 +89,7 @@ DC/OS 虚拟网络只能在安装时进行添加和配置。要替换或添加�
 
 # 检索虚拟网络状态
 
-DC/OS 安装完成后，可从 `https://leader.mesos:5050/overlay-master/state` 端点获得虚拟网络配置。以下片断的 `network` 部分列出了当前覆盖配置，`agents` 部分列出了覆盖是如何跨 Mesos 代理节点分配的。以下内容显示了当名为 `dcos` 的群集中存在单个覆盖时的网络状态。
+DC/OS 安装完成后，可从 `https://leader.mesos:5050/overlay-master/state` 端点获得虚拟网络配置。以下片断的 `network` 部分列出了当前覆盖配置，`agents` 部分列出了覆盖是如何跨 Mesos 代理节点分配的。以下内容显示了当名为 `dcos` 的集群中存在单个覆盖时的网络状态。
 
 ```json
 
@@ -290,7 +288,7 @@ DC/OS 安装完成后，可从 `https://leader.mesos:5050/overlay-master/state` 
 
 ## 覆盖复制日志
 
-DC/OS 覆盖网络使用复制日志跨 Mesos 管理节点重启以保留虚拟网络状态，并在选择新的 Mesos 管理节点时恢复覆盖状态。覆盖复制日志的存储位置为 `/var/lib/dcos/mesos/master/overlay_replicated_log`。当从群集卸载 DC/OS 时，**不会*移除覆盖复制日志，因此您需要在重新安装 DC/OS 之前手动删除此日志。否则，Mesos 管理节点会尝试在启动期间对现有覆盖日志进行核对，如果发现未配置的虚拟网络，管理节点将失败。
+DC/OS 覆盖网络使用复制日志跨 Mesos 管理节点重启以保留虚拟网络状态，并在选择新的 Mesos 管理节点时恢复覆盖状态。覆盖复制日志的存储位置为 `/var/lib/dcos/mesos/master/overlay_replicated_log`。当从集群卸载 DC/OS 时，**不会**移除覆盖复制日志，因此您需要在重新安装 DC/OS 之前手动删除此日志。否则，Mesos 管理节点会尝试在启动期间对现有覆盖日志进行核对，如果发现未配置的虚拟网络，管理节点将失败。
 
 <p class="message--note"><strong>注意: </strong> 覆盖复制日志不同于 <a href="http://mesos.apache.org/documentation/latest/replicated-log-internals/">管理节点的复制日志</a>，其存储位置为 <tt>/var/lib/mesos/master/replicated_log</tt>。移除覆盖复制日志对管理节点的恢复语义没有影响。</p>
 
@@ -315,7 +313,7 @@ DC/OS Web 界面的**网络**选项卡提供了有助于排除故障的信息。
 
 * DC/OS 覆盖网络不允许服务预留 IP 地址，这会造成为虚拟网络上多个化身之间的容器产生临时地址。此限制确保给定客户端连接到正确的服务。
 
-DC/OS 在不同的 [区域] 提供 FQDN(/cn/1.11/networking/DNS)，提供通过可预测的 URL 访问服务的简洁方式。如果使用 DC/OS 覆盖网络，您应使用 DC/OS DNS 服务提供的 FQDN 之一，以便客户端能够轻松发现服务的位置。
+DC/OS 在不同的 [区域](/cn/1.11/networking/DNS) 提供 FQDN，提供通过可预测的 URL 访问服务的简洁方式。如果使用 DC/OS 覆盖网络，您应使用 DC/OS DNS 服务提供的 FQDN 之一，以便客户端能够轻松发现服务的位置。
 
 * DC/OS 覆盖网络上的容器总数的限制与覆盖子网上可用 IP 地址的数量相同。但是，代理上的容器数量限制取决于分配给此代理的子网（将是覆盖子网的子集）。对于给定的代理子网，一半的地址空间分配给 `MesosContainerizer`，另一半分配给 `DockerContainerizer`。
 

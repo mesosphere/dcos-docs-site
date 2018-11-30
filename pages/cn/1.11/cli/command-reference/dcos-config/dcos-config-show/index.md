@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle: dcos config show
 title: dcos config show
 menuWeight: 2
-excerpt: 显示群集配置文件
+excerpt: 显示集群配置文件
 
 enterprise: false
 ---
 
 
 # 说明
-`dcos config show` 命令让您显示当前 [附加的群集] 的 DC/OS 配置文件内容(/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/)。
+`dcos config show` 命令让您显示当前 [附加的群集](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 的 DC/OS 配置文件内容。
 
 # 使用
 

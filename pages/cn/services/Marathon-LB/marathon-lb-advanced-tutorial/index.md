@@ -196,9 +196,9 @@ enterprise: false
       dcos marathon app add nginx-everywhere.json
       ```
 
-## 确认您的应用已部署并可从群集中访问
+## 确认您的应用已部署并可从集群中访问
 
-通过 [SShing][4] 在群集中的一个实例（如主实例）和 `curl` 端点中测试配置：
+通过 [SShing][4] 在集群中的一个实例（如主实例）和 `curl` 端点中测试配置：
 
   ```bash
   # Access to external load balancer

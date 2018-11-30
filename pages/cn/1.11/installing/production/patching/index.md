@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle: 打补丁
 title: 打补丁
 menuWeight: 20
-excerpt: 了解群集补丁
+excerpt: 了解集群补丁
 ---
 
-# 不停机修补实时群集
+# 不停机修补实时集群
 
 DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改进 DC/OS 的特性/功能。软件包含次要变更的单点发布也称为补丁。
 
 补丁流程包括以下内容：
 - 说明修复问题、已知问题/限制，明显变更和安全增强
-- 不会影响工作负载，这是在不停机的情况下修补实时群集重要的一部分
+- 不会影响工作负载，这是在不停机的情况下修补实时集群重要的一部分
 - 帮助用户了解影响 DC/OS 功能的次要变更
 
 
@@ -43,9 +43,9 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 ## 修改 DC/OS 配置
 
- **不能** 在修补到新版本的同时更改群集配置。必须通过对已安装版本的更新进行群集配置更改。例如，您无法同时将群集从 1.10.x 修补到 1.10.y 并添加更多公共代理节点。您可以更新为 1.10.x，然后修补为 1.10.y，或者可以修补到 1.10.y，再在修补后通过更新 1.10.y，添加更多公共代理。
+ **不能** 在修补到新版本的同时更改集群配置。必须通过对已安装版本的更新进行集群配置更改。例如，您无法同时将集群从 1.10.x 修补到 1.10.y 并添加更多公共代理节点。您可以更新为 1.10.x，然后修补为 1.10.y，或者可以修补到 1.10.y，再在修补后通过更新 1.10.y，添加更多公共代理。
 
-要修改您的 DC/OS 配置，必须使用已修改的 `config.yaml` 运行安装工具并使用新的安装文件更新您的群集。更改 DC/OS 配置与修补主机的风险相同。配置错误可能会使主机或整个群集崩溃。
+要修改您的 DC/OS 配置，必须使用已修改的 `config.yaml` 运行安装工具并使用新的安装文件更新您的集群。更改 DC/OS 配置与修补主机的风险相同。配置错误可能会使主机或整个集群崩溃。
 
 只能修改 DC/OS 配置参数的子集。对 DC/OS 上运行的任何软件的不利影响不在本文档探讨范围之内。请联系 Mesosphere 服务支持获取更多信息。
 
@@ -63,17 +63,17 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 安全模式 (`security`) 可以更改，但有特别的注意事项。
 
-- 只能更新到更严格的安全模式。不支持安全降级。例如，如果群集处于 `permissive` 模式，而您希望降级至 `disabled` 模式，则必须重新安装群集并终止所有运行的工作负载。
+- 只能更新到更严格的安全模式。不支持安全降级。例如，如果集群处于 `permissive` 模式，而您希望降级至 `disabled` 模式，则必须重新安装集群并终止所有运行的工作负载。
 - 每次更新时，只能将安全性提高一个级别。例如，您无法直接从 `disabled` 更新到 `strict` 模式。要从 `disabled` 提高到 `strict` 模式，必须首先更新到 `permissive` 模式，然后再从 `permissive` 更新到 `strict` 模式。
 
 有关不同安全模式的更多信息，请参阅安全 [模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)。
 
 # 说明
-必须执行这些步骤才能进行版本补丁和群集配置更改。
+必须执行这些步骤才能进行版本补丁和集群配置更改。
 
 ## 先决条件
 
-- Mesos、Mesos 框架、Marathon、Docker 和群集中的所有运行任务应稳定且处于已知的运行良好的状态。
+- Mesos、Mesos 框架、Marathon、Docker 和集群中的所有运行任务应稳定且处于已知的运行良好的状态。
 - 出于 Mesos 兼容性原因，我们建议将任何运行 Marathon-on-Marathon 实例修补至 Marathon 版本1.3.5，然后进行此 DC/OS 修补。
 - 您必须有权访问与之前 DC/OS 版本一起使用的配置文件的副本：`config.yaml` 和 `ip-detect`。
 - 您必须使用 `systemd` 218 或更新版本才能维持任务状态。
@@ -86,8 +86,8 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 - 确保在开始修补之前， Marathon 事件订阅者已被禁用。完成修补后，保持其禁用状态，因为此功能现已被弃用。
 - **注意：** Marathon 事件订阅者默认为禁用。检查是否已将 `--event_subscriber "http_callback"` 行添加到管理节点上的 `sudo vi /opt/mesosphere/bin/marathon.sh`。如果是，就需要移除该行，以禁用事件订阅者。
 - 确认在开始修补前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
-- [备份您的群集](/cn/1.11/administering-clusters/backup-and-restore/)。
-- **可选** 您可以将自定义 [节点和群集运行状况检查](/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
+- [备份您的集群](/cn/1.11/administering-clusters/backup-and-restore/)。
+- **可选** 您可以将自定义 [节点和集群运行状况检查](/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
 
 ## Bootstrap 节点
 
@@ -106,7 +106,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
  * 在修补期间，您无法更改 `exhibitor_zk_backend` 设置。
  * `config.yaml` 的语法可能与早期版本不同。有关当前 `config.yaml` 语法和参数的详细说明，请参阅 [文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
-1. 更新 config.yaml 的格式后，比较旧的 `config.yaml` 和新的 `config.yaml`。验证路径或配置没有区别。修补时更改这些会导致灾难性群集故障。
+1. 更新 config.yaml 的格式后，比较旧的 `config.yaml` 和新的 `config.yaml`。验证路径或配置没有区别。修补时更改这些会导致灾难性集群故障。
 1. 根据需要修改 `ip-detect` 文件。
 1. 构建安装工具包。
 
@@ -130,7 +130,8 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 <p class="message--important"><strong>重要信息：</strong>从禁用模式修补到宽容安全模式的补丁，您已配置的任何<a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">自定义节点或群集运行状况检查</a>都会失败。未来版本支持绕过运行状况检查。</p>
 
-要将群集从禁用安全模式修补为宽容安全模式，请完成以下步骤：
+
+要将集群从禁用安全模式修补为宽容安全模式，请完成以下步骤：
 
 1. 在 `config.yaml` 中以 `security: permissive` 替换 `security: disabled`。不要对 `config.yaml` 中的路径或配置进行任何其他更改。
 1. 根据需要修改 `ip-detect` 文件。
@@ -150,14 +151,14 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 # <a name="strict"></a>在严格模式下修补 DC/OS 1.11
 该程序的在安全性严格 [模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) 下修补到 DC/OS 1.11。
 
-如果正在更新运行的 DC/OS 群集在 `security: strict` 模式下运行，则请注意，在迁移到严格模式后，安全漏洞可能会持续存在。转到严格模式后，您的服务现在需要身份认证和授权，以便在 Mesos 注册或访问其 HTTP API。在打补丁到严格模式之前，应在宽容模式下测试这些配置，以便在升级期间维护调度程序和脚本正常运行时间。
+如果正在更新运行的 DC/OS 集群在 `security: strict` 模式下运行，则请注意，在迁移到严格模式后，安全漏洞可能会持续存在。转到严格模式后，您的服务现在需要身份认证和授权，以便在 Mesos 注册或访问其 HTTP API。在打补丁到严格模式之前，应在宽容模式下测试这些配置，以便在升级期间维护调度程序和脚本正常运行时间。
 
-**前提条件：**
+**先决条件：**
 
-- 群集必须 [修补到 DC/OS 1.11](#current-security) 并在 [宽容安全模式](#permissive) 下运行，然后才能更新到严格模式。如果群集在修补到 DC/OS 1.11 之前以严格模式运行，则可以跳过该程序。
+- 集群必须 [修补到 DC/OS 1.11](#current-security) 并在 [宽容安全模式](#permissive) 下运行，然后才能更新到严格模式。如果集群在修补到 DC/OS 1.11 之前以严格模式运行，则可以跳过该程序。
 - 如果您在运行 Pod 或者已在自定义配置中启用 Mesos“HTTP 命令执行器”功能，则必须在修补到严格模式之前，以 DC/OS 1.11 宽容安全模式重启这些任务。否则，在修补管理节点时，这些任务将会被重新启动。
 
-要将群集从宽容安全模式更新为严格的安全性，请完成以下步骤：
+要将集群从宽容安全模式更新为严格的安全性，请完成以下步骤：
 
 1. 在 `config.yaml` 中以 `security: strict` 替换 `security: permissive`。不要对 `config.yaml` 中的路径或配置进行任何其他更改。
 1. 根据需要修改 `ip-detect` 文件。
@@ -176,7 +177,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 ## <a name="masters"></a>DC/OS 管理节点
 
-采用以下步骤，继续以任何顺序修补每个管理节点，每次修补一个。完成每次修补后，监控 Mesos 管理节点度量标准，确保节点已重新加入群集并完成了协调。
+采用以下步骤，继续以任何顺序修补每个管理节点，每次修补一个。完成每次修补后，监控 Mesos 管理节点度量标准，确保节点已重新加入集群并完成了协调。
 
 1. 下载并运行节点补丁脚本：
 
@@ -250,7 +251,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 以下命令应提供对修补问题的深度信息：
 
-#### 在所有群集节点上
+#### 在所有集群节点上
 
 ```bash
 sudo journalctl -u dcos-download

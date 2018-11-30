@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-excerpt: 使用 Azure 资源管理器模板安装 DC/OS 群集
+excerpt: 使用 Azure 资源管理器模板安装 DC/OS 集群
 title: 在 Azure 上运行 DC/OS
 navigationTitle: Azure
 menuWeight: 10
@@ -9,9 +9,7 @@ oss: true
 
 本页面说明如何使用 Azure 资源管理器模板安装 DC/OS 1.11。
 
-<p class="message--warning"><strong>免责声明：</strong>请注意，这是 <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">社区推动的项目</a>，未正式获得 Mesosphere 支持。</p>
-
-<p class="message--note"><strong>注意: </strong> 要获得 Azure 市场相关问题的支持，请加入 Azure 市场 <a href="http://join.marketplace.azure.com">Slack 社区</a>。</p>
+<p class="message--note"><strong>注意: </strong>要获得 Azure 市场相关问题的支持，请加入 Azure 市场 <a href="http://join.marketplace.azure.com">Slack 社区</a>。</p>
 
 - 这种安装方法不支持升级。
 
@@ -23,9 +21,9 @@ oss: true
 
 要使用 DC/OS 中提供的所有服务，您应该使用 `Standard_D2`[虚拟机](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/) 选择至少五个 Mesos 代理节点，这是 DC/OS Azure 市场提供的默认大小。建议不要选择较小的 VM，而选择较少的 VM 可能会导致某些资源密集型服务（如分布式数据存储）无法正常工作（从安装问题到操作限制）。
 
-### 生产就绪群集配置 ###
+### 生产就绪集群配置 ###
 
-这些建议的依据是多年来多个 DC/OS 群集的运行，以及在实时生产负载下扩展有状态和无状态服务的组合等经验。您的服务组合可能执行方式不同，但本文讨论的原则和经验仍然适用。
+这些建议的依据是多年来多个 DC/OS 集群的运行，以及在实时生产负载下扩展有状态和无状态服务的组合等经验。您的服务组合可能执行方式不同，但本文讨论的原则和经验仍然适用。
 
 #### 通用机器配置 ####
 我们建议在 VM 上禁用交换。Azure Linux 图像通常默认启用交换。我们发现使用临时固态硬盘交换（通过 WAAgent 配置）
@@ -54,7 +52,7 @@ Azure 上的原始网络性能大致由 VM 大小决定。
 才能实现带宽控制。
 
 #### 磁盘配置 ####
-为了在 Azure 上实现可靠的高性能群集操作，
+为了在 Azure 上实现可靠的高性能集群操作，
 推荐在特定磁盘配置中使用优质固态硬盘。
 托管磁盘 (MD) 比起非托管磁盘 (UMD)，
 更能避免存储帐户的限制。
@@ -94,9 +92,9 @@ Etcd、 Zookeeper 和使用
  - /var/lib/docker - P10
  - /var/lib/mesos/slave - P20
 
-完全有可能可以运行具有较小和/或较少磁盘的群集，
+完全有可能可以运行具有较小和/或较少磁盘的集群，
 但用于生产时，经验证明上述配置具有显著优势，
-适用于任何较大的大小的群集。另外，我们建议使用 Mesos MOUNT 磁盘资源将合适的
+适用于任何较大的大小的集群。另外，我们建议使用 Mesos MOUNT 磁盘资源将合适的
 优质固态硬盘附加到 `/dcos/volume0 ... /dcos/volumeN`
 然后即可专门用于数据
 密集型服务，不会发生 I/O 争用。
@@ -115,7 +113,7 @@ Etcd、 Zookeeper 和使用
 
 需要一个活跃的 [Azure 订阅](https://azure.microsoft.com/en-us/pricing/purchase-options/) 以通过 Azure 市场安装 DC/OS。
 
-另外，如需在 DC/OS 群集中访问节点，则要安装和配置 `ssh`。
+另外，如需在 DC/OS 集群中访问节点，则要安装和配置 `ssh`。
 
 # 安装 DC/OS
 
@@ -134,15 +132,15 @@ Etcd、 Zookeeper 和使用
 
 1. 在部署的输出中查找 `MASTERFQDN`。要查找该值，单击 `Last deployment` 下面的链接（就是这里的 `4/15/2016 (Succeeded)`），您将看到：
 
-![Deployment history](/cn/1.11/img/dcos-azure-marketplace-step2a.png)
+    ![Deployment history](/cn/1.11/img/dcos-azure-marketplace-step2a.png)
 
-图 1. 部署历史记录
+    图 1. 部署历史记录
 
 2. 单击最新部署并复制 `MASTERFQDN` 到 `Outputs` 部分。
 
-![Deployment output](/cn/1.11/img/dcos-azure-marketplace-step2b.png)
+    ![Deployment output](/cn/1.11/img/dcos-azure-marketplace-step2b.png)
 
-图 2. 输出部分
+    图 2. 输出部分
 
 3. 记下您在图 2 `Outputs` 部分找到的 `MASTERFQDN` 值，并在以下步骤中使用。出于安全考虑，您无法默认直接访问 Azure 中的 DC/OS 仪表板。
 
@@ -154,45 +152,45 @@ Etcd、 Zookeeper 和使用
 
 1. 查找管理节点的网络安全组资源，
 
-![Resource - Master Node Network Security Group](/cn/1.11/img/dcos-azure-step2case1a.png)
+    ![Resource - Master Node Network Security Group](/cn/1.11/img/dcos-azure-step2case1a.png)
 
-图 3. 管理节点网络安全组
+    图 3. 管理节点网络安全组
 
 2. 单击左侧的 **入站安全规则** 选项卡。
 
-![Inbound Security Rules](/cn/1.11/img/dcos-azure-step2case1b.png)
+    ![Inbound Security Rules](/cn/1.11/img/dcos-azure-step2case1b.png)
 
-图 4. 入站安全规则
+    图 4. 入站安全规则
 
 3. 添加入站安全规则。
 
-![Add Inbound Security Rules](/cn/1.11/img/dcos-azure-step2case1c.png)
+    ![Add Inbound Security Rules](/cn/1.11/img/dcos-azure-step2case1c.png)
 
-图 5. 添加入站安全规则 
+    图 5. 添加入站安全规则 
 
 4. 查找管理节点的负载均衡器资源。
 
-![Resource - Master Node Load balancer](/cn/1.11/img/dcos-azure-step2case1d.png)
+    ![Resource - Master Node Load balancer](/cn/1.11/img/dcos-azure-step2case1d.png)
 
-图 6. 管理节点负载均衡器
+    图 6. 管理节点负载均衡器
 
 5. 单击左侧的 **入站 NAT 规则** 选项卡，
 
-![Inbound NAT Rules](/cn/1.11/img/dcos-azure-step2case1e.png)
+    ![Inbound NAT Rules](/cn/1.11/img/dcos-azure-step2case1e.png)
 
-图 7. 入站 NAT 规则
+    图 7. 入站 NAT 规则
 
 6. 添加入站 NAT 规则。
 
-![Add Inbound NAT Rules](/cn/1.11/img/dcos-azure-step2case1f.png)
+    ![Add Inbound NAT Rules](/cn/1.11/img/dcos-azure-step2case1f.png)
 
-图 8. 添加入站 NAT 规则
+    图 8. 添加入站 NAT 规则
 
- 现在您可以访问 `http://$MASTERFQDN` 并查看 DC/OS 仪表板。
+    现在您可以访问 `http://$MASTERFQDN` 并查看 DC/OS 仪表板。
 
 ### 案例 2：使用 ssh 隧道
 
-此时需要设置 SSH 隧道，将 Azure 群集上管理节点的 TCP 端口 80 转发到本地机器的 8000 端口。
+此时需要设置 SSH 隧道，将 Azure 集群上管理节点的 TCP 端口 80 转发到本地机器的 8000 端口。
 
 复制您在上一步中找到的 `MASTERFQDN` 值并粘贴到以下命令中：
 
@@ -242,16 +240,16 @@ dcos
 dcos package search
 ```
 
-## 卸下 DC/OS 群集
+## 卸下 DC/OS 集群
 
-如果在部署步骤中创建了新的资源组，就很容易卸下群集并释放所有资源：只需删除资源组即可。如果已将群集部署到现有资源组，您需要找到属于 DC/OS 群集的所有资源，并手动删除它们。
+如果在部署步骤中创建了新的资源组，就很容易卸下集群并释放所有资源：只需删除资源组即可。如果已将集群部署到现有资源组，您需要找到属于 DC/OS 集群的所有资源，并手动删除它们。
 
 ## 后续步骤
 
-- [添加用户到群集][1]
+- [添加用户到集群][1]
 - [安装 DC/OS 命令行界面 (CLI)][2]
 - [扩展注意事项][4]
 
-[1]: /1.11/security/ent/users-groups/
-[2]: /1.11/cli/install/
+[1]: /cn/1.11/security/ent/users-groups/
+[2]: /cn/1.11/cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/

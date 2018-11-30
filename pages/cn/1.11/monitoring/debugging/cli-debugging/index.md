@@ -16,10 +16,10 @@ dcos -—log-level="debug" package install hdfs
 
 # 调试被卡住部署的子命令
 
-DC/OS CLI 提供一组调试子命令，用于排除卡住的服务或 Pod 部署。您也可以从 [DC/OS Web 界面] 使用调试服务和 Pod(/cn/1.11/monitoring/debugging/gui-debugging/)。
+DC/OS CLI 提供一组调试子命令，用于排除卡住的服务或 Pod 部署。您也可以从 [DC/OS Web 界面](/cn/1.11/monitoring/debugging/gui-debugging/) 使用调试服务和 Pod。
 
 ## 先决条件
-- DC/OS 群集
+- DC/OS 集群
 - [DC/OS CLI 已安装](/cn/1.11/cli/install/)
 - 部署时卡住的服务或 Pod
 
@@ -73,9 +73,9 @@ DC/OS CLI 提供一组调试子命令，用于排除卡住的服务或 Pod 部�
 ```bash
 dcos marathon debug list
 
-ID 起始时间 等待启动的实例数 已处理的邀约 未使用的邀约 最后一个未使用的邀约 最后一个使用的邀约 
-/mem-app 2017-02-28T19:08:59.547Z 3 True 13 13 2017-02-28T19:09:35.607Z ---                       
-/stuck-sleep 2017-02-28T19:09:25.56Z 9 True 8 7 2017-02-28T19:09:35.608Z 2017-02-28T19:09:25.566Z
+ID            SINCE                     INSTANCES TO LAUNCH  WAITING  PROCESSED OFFERS  UNUSED OFFERS  LAST UNUSED OFFER         LAST USED OFFER           
+/mem-app      2017-02-28T19:08:59.547Z  3                    True     13                13             2017-02-28T19:09:35.607Z  ---                       
+/stuck-sleep  2017-02-28T19:09:25.56Z   9                    True     8                 7              2017-02-28T19:09:35.608Z  2017-02-28T19:09:25.566Z
 ```
 
 命令的输出表明：
@@ -94,13 +94,13 @@ ID 起始时间 等待启动的实例数 已处理的邀约 未使用的邀约 �
 ```bash
 dcos marathon debug summary /mem-app
 
-资源 请求的 匹配的 百分比 
-角色 [*] 1 / 2 50.00% 
-约束 [['hostname', 'UNIQUE']] 1 / 1 100.00% 
-CPUS 0.1 1 / 1 100.00% 
-MEM 12000 0 / 1 0.00% 
-磁盘 0 0 / 0 ---         
-端口 --- 0 / 0 ---  
+RESOURCE     REQUESTED                 MATCHED  PERCENTAGE  
+ROLE         [*]                       1 / 2    50.00%      
+CONSTRAINTS  [['hostname', 'UNIQUE']]  1 / 1    100.00%     
+CPUS         0.1                       1 / 1    100.00%     
+MEM          12000                     0 / 1    0.00%       
+DISK         0                         0 / 0    ---         
+PORTS        ---                       0 / 0    ---  
 ```
 
 此命令的输出显示了资源、请求的服务或 Pod、匹配的邀约数，以及匹配邀约的百分比。此命令可以快速显示哪些资源请求未被满足。

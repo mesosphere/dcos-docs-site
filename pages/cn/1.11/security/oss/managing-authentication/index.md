@@ -19,7 +19,7 @@ DC/OS 开源通过 CLI 命令提供安全管理；请参阅 [CLI 命令参考](/
 
 DC/OS CLI 将令牌存储在运行 CLI 的用户主目录下的目录 `.dcos` 中的配置文件里。此令牌可与 `curl` 命令一起使用，以访问 DC/OS API，使用 `curl` 或 `wget`。例如，`curl -H 'Authorization: token=<token>' http://cluster`。
 
-1. 在终端提示符下，使用以下命令对群集进行身份认证。
+1. 在终端提示符下，使用以下命令对集群进行身份认证。
 
     ```bash
     dcos auth login
@@ -74,11 +74,11 @@ oauth_enabled: 'false'
 ```
 如需更多信息，请参阅配置[文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
 
-如果您正在 [AWS](1.11/install/evaluation/cloud-installation/aws/) 上进行云安装，则可以在**指定详细信息**步骤上将 `OAuthEnabled` 选项设置为 `false` 以禁用身份认证。
+如果您正在 [AWS](cn/1.11/install/evaluation/cloud-installation/aws/) 上进行云安装，则可以在**指定详细信息**步骤上将 `OAuthEnabled` 选项设置为 `false` 以禁用身份认证。
 
 如果您在 [Azure](/cn/1.11/installing/evaluation/cloud-installation/azure/) 上进行云安装，则无法禁用身份认证。此选项将在未来 版本中与其他选项一起添加以自定义身份认证的选项。
 
-请注意，如果您已经安装了群集并希望就地禁用此功能，则可以使用相同的参数集进行升级。
+请注意，如果您已经安装了集群并希望就地禁用此功能，则可以使用相同的参数集进行升级。
 
 
 ## 延伸阅读
@@ -95,6 +95,6 @@ oauth_enabled: 'false'
 ## 后续步骤
 
 - [了解 DC/OS 安全性](/cn/1.11/administering-clusters/)
-- [了解如何监控 DC/OS 群集](/cn/1.11/monitoring/)
+- [了解如何监控 DC/OS 集群](/cn/1.11/monitoring/)
 
  [1]:https://en.wikipedia.org/wiki/STARTTLS

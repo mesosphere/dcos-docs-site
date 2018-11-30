@@ -8,11 +8,11 @@ enterprise: true
 ---
 
 
-每个 DC/OS Enterprise 群集都有自己的 DC/OS 证书颁发机构 (CA)。默认情况下，CA 使用在安装 DC/OS 期间生成的全局唯一根 CA 证书。根 CA 证书用于为 DC/OS 组件（如 Admin Router）签署证书。您可以将 DC/OS Enterprise 配置为使用自定义 CA 证书，而不是使用自动生成的根 CA 证书，该证书可以是根 CA 证书，也可以是中间 CA 证书。（参见 [以下](#example-use-cases) 示例）
+每个 DC/OS Enterprise 集群都有自己的 DC/OS 证书颁发机构 (CA)。默认情况下，CA 使用在安装 DC/OS 期间生成的全局唯一根 CA 证书。根 CA 证书用于为 DC/OS 组件（如 Admin Router）签署证书。您可以将 DC/OS Enterprise 配置为使用自定义 CA 证书，而不是使用自动生成的根 CA 证书，该证书可以是根 CA 证书，也可以是中间 CA 证书。（参见 [以下](#example-use-cases) 示例）
 
-使用 DC/OS Enterprise 群集的自定义 CA 证书的好处包括：
+使用 DC/OS Enterprise 集群的自定义 CA 证书的好处包括：
 
-- 确保 DC/OS 群集中用于签名和加密的所有 X.509 证书都来自您组织的 X.509 证书层次结构。
+- 确保 DC/OS 集群中用于签名和加密的所有 X.509 证书都来自您组织的 X.509 证书层次结构。
 - 控制验证序号对的安全属性，如类型和强度，用于签署 DC/OS 组件证书。
 - 确保所有 DC/OS 组件（包括 Admin Router）都提供浏览器信任的证书。
 
@@ -98,7 +98,7 @@ bootstrap 节点上 `$DCOS_INSTALL_DIR/genconf/` 目录中的自定义 CA 证书
 ## ca\_certificate\_path
 到包含 OpenSSL PEM 格式的单个 X.509 CA 证书的文件的路径（相对于 `$DCOS_INSTALL_DIR`）。例如：`genconf/dcos-ca-certificate.crt`它是**根 CA 证书**（“自签名”）或是由其他证书颁发机构签署的**中间 CA 证书**（“交叉认证”）。
 
-如果提供，则这是自定义 CA 证书。它用作签名 CA 证书，即 DC/OS CA 将使用此证书签署终端实体证书；本证书的主体将是由 DC/OS CA 签署的证书的发行方。如果未提供，则 DC/OS 群集在初始 bootstrap 阶段中生成唯一根 CA 证书，并将其用作签名 CA 证书。
+如果提供，则这是自定义 CA 证书。它用作签名 CA 证书，即 DC/OS CA 将使用此证书签署终端实体证书；本证书的主体将是由 DC/OS CA 签署的证书的发行方。如果未提供，则 DC/OS 集群在初始 bootstrap 阶段中生成唯一根 CA 证书，并将其用作签名 CA 证书。
 
 与自定义 CA 证书相关联的公共验证序号必须为 RSA 类型。
 
@@ -160,7 +160,7 @@ ca_certificate_chain_path: genconf/dcos-ca-certificate-chain.crt
 按照[高级安装程序文档](/cn/1.11/installing/production/deploying-dcos/installation/#install-dcos)中的说明继续安装。请注意，当执行 `dcos_generate_config.ee.sh` 时，当前工作目录必须是 `$DCOS_INSTALL_DIR` 目录。
 
 ## 验证安装
-验证是否使用自定义 CA 证书正确安装 DC/OS Enterprise 群集的一种方法是启动到 Admin Router 的 TLS 连接，Admin Router 在安装后会显示自定义 CA 签署的证书。为此，您首先需要获取已部署群集的 DC/OS CA 捆绑包。[本页面](/cn/1.11/security/ent/tls-ssl/get-cert/)显示了您如何做到这一点。
+验证是否使用自定义 CA 证书正确安装 DC/OS Enterprise 集群的一种方法是启动到 Admin Router 的 TLS 连接，Admin Router 在安装后会显示自定义 CA 签署的证书。为此，您首先需要获取已部署集群的 DC/OS CA 捆绑包。[本页面](/cn/1.11/security/ent/tls-ssl/get-cert/)显示了您如何做到这一点。
 
 如果您已经获得 DC/OS CA 捆绑包，并将其存储在名为 `dcos-ca.crt` 的文件中，在包含 `dcos-ca.crt` 文件的目录中发出以下命令，以检查管理节点上的 Admin Router 是否使用自定义 CA 签署的证书：
 

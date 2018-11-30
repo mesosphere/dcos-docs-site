@@ -28,7 +28,7 @@ dcos marathon group scale <group-id> <scale-factor> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<group-id>`   |   The group ID. You can view a list of the group IDs with the `dcos marathon group list` 命令。|
+| `<group-id>`   |   组ID。 您可以使用以下命令查看组ID列表 `dcos marathon group list` 命令。|
 | `<scale-factor>` | 应用程序组的扩展因数。|
 
 # 父命令

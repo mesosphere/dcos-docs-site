@@ -12,12 +12,12 @@ enterprise: false
 # 说明
 `dcos config set` 命令让您添加或设置 DC/OS 配置属性。表 1 显示可用属性。
 
-*表 1 - `dcos config set` 属性*
+表 1 - `dcos config set` 属性
 
 | **属性** | **描述** |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | | `core.dcos_acs_token` | DC/OS 认证令牌。当您使用 `dcos auth login` 登录 DC/OS CLI  时，它将认证令牌值存储在本地。有关详细信息，请参阅 [IAM API](/cn/1.11/security/oss/iam-api/)。|
-| | `core.dcos_url` | DC/OS 群集的公共管理节点 URL。|
+| | `core.dcos_url` | DC/OS 集群的公共管理节点 URL。|
 | | `core.mesos_master_url` | Mesos 管理节点 URL。默认为 `core.dcos_url`。|
 | | `core.pagination` | 指示是否标页号输出。默认为 true。|
 | | `core.ssl_verify` | 指示是否验证 SSL 证书或设置 SSL 证书的路径。|

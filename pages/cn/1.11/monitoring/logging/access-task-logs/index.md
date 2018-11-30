@@ -11,16 +11,12 @@ enterprise: true
 
 您可以通过使用 Marathon 群组进行作业和服务，控制用户对任务日志的访问。然后，您可以分配访问这些群组的权限，从而让您可以控制用户可以访问哪些日志。
 
-<table class=“table” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>本文档所述的功能仅在严格安全模式下可用。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>本文档所述的功能仅在严格安全模式下可用。</p>
 
 
 在此过程中，您将在单独的 Marathon 群组中部署服务，并授予用户权限以查看这些 Marathon 群组的任务。
 
-以下是对所需 [权限] 的概述(/cn/1.11/security/ent/perms-reference/)：
+以下是对所需 [权限](/cn/1.11/security/ent/perms-reference/) 的概述：
 
 | 权限字符串 | full | C | R | U | D |
 |----------------------------|------|---|---|---|---|
@@ -35,7 +31,7 @@ enterprise: true
 | `dcos:mesos:master:task:app_id[:<service-or-job-group>]`<br> 控制运行任务的访问权限。| | x | | | |
 
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS 和 DC/OS CLI [已安装](/cn/1.11/installing/)，您以超级用户身份登录。
 
@@ -51,8 +47,8 @@ enterprise: true
 
 1. 新建一个组。
 
- ![生产组(/cn/1.11/img/new-user-group-prod.png)
-
+ ![生产组](/cn/1.11/img/new-user-group-prod.png)
+ 
  图 2. 创建新组屏幕
 
 1. 选择组名，并从**权限**选项卡上单击**添加权限**。

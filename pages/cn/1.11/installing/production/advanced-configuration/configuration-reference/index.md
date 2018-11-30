@@ -11,7 +11,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 本页包含 DC/OS Enterprise 和 DC/OS 开源的配置参数。
 
 
-# 群集设置
+# 集群设置
 
 | 参数 | 描述 |
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -26,13 +26,13 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 | [cluster_docker_credentials](#cluster-docker-credentials) | 要传递给 Docker 的词典。 |
 | [cluster_docker_credentials_enabled](#cluster-docker-credentials-enabled) | 是否传递 Mesos `--docker_config` 选项给 Mesos。 |
 | [cluster_docker_registry_url](#cluster-docker-registry-url) | Mesos 用来从来拉取 Docker 镜像的自定义 URL。 |
-| [cluster_name](#cluster-name) | 群集的名称。 |
+| [cluster_name](#cluster-name) | 集群的名称。 |
 | [cosmos_config](#cosmos-config) | 传递给 [DC/OS 软件包管理器 (Cosmos) ](https://github.com/dcos/cosmos) 的软件包配置词典。 |
 | [custom_checks](#custom-checks) | 添加到默认检查配置进程的自定义安装检查。 |
 | [exhibitor_storage_backend](#exhibitor-storage-backend) | 用于 Exhibitor 的存储后端类型。 |
 | [enable_gpu_isolation](#enable-gpu-isolation) | 指示是否在 DC/OS 中启用 GPU 支持。 |
-| [gpus_are_scarce](#gpus-are-scarce) | 指示是否将 GPU 作为群集中的稀缺资源。 |
-| [ip_detect_public_filename](#ip-detect-public-filename) | 要在群集中使用的 IP 检测文件。 |
+| [gpus_are_scarce](#gpus-are-scarce) | 指示是否将 GPU 作为集群中的稀缺资源。 |
+| [ip_detect_public_filename](#ip-detect-public-filename) | 要在集群中使用的 IP 检测文件。 |
 | [master_discovery](#master-discovery) |（必填）Mesos 管理节点发现方法。 |
 | [master_external_loadbalancer](#master-external-loadbalancer) | 负载均衡器的 DNS 名称或 IP 地址。[enterprise type="inline" size="small" /] |
 | [mesos_container_log_sink](#mesos-container-log-sink) | 容器（任务）的日志管理器。 |
@@ -51,7 +51,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 | [dns_search](#dns-search) | 进入不合格域时尝试的域列表（以空格隔开）。 |
 | [master_dns_bindall](#master-dns-bindall) | 指示管理节点 DNS 端口是否打开。 |
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit) | 指示在响应过大而无法放入单个数据包时，是否设置缩短数位。 |
-| [resolvers](#resolvers) | DC/OS 群集节点 DNS 解析器 的 YAML 嵌套列表（`-`）。|
+| [resolvers](#resolvers) | DC/OS 集群节点 DNS 解析器 的 YAML 嵌套列表（`-`）。|
 | [use_proxy](#use-proxy) | 指示是否启用 DC/OS 代理。 |
 |[enable_ipv6](#enable-ipv6) | 指示 IPv6 网络支持是否在 DC/OS 中可用的布尔值。默认值为 `true`。 |
 | [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) | 指示第 4 层负载均衡是否可用于 IPv6 网络的布尔值。该值仅在 `enable_ipv6` 设置为 `true` 时生效。默认值为 `false`。|
@@ -98,7 +98,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 | [ssh_user](#ssh-user) | SSH 的用户名，例如 `centos`。|
 | [superuser_password_hash](#superuser-password-hash-enterprise) | 必填 - 带井号的超级用户密码。[enterprise type="inline" size="small" /] |
 | [superuser_username](#superuser-username-enterprise) | 必填 - 超级用户的用户名。[enterprise type="inline" size="small" /] |
-| [telemetry_enabled](#telemetry-enabled) | 指示是否为群集启用匿名数据共享。 |
+| [telemetry_enabled](#telemetry-enabled) | 指示是否为集群启用匿名数据共享。 |
 | [zk_super_credentials](#zk-superuser) | ZooKeeper 超级用户凭据。[enterprise type="inline" size="small" /] |
 | [zk_master_credentials](#zk-master) | ZooKeeper 管理凭据。[enterprise type="inline" size="small" /] |
 | [zk_agent_credentials](#zk-agent) | ZooKeeper 代理凭据。[enterprise type="inline" size="small" /] |
@@ -107,11 +107,11 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 [oss type="inline" size="small" /]
 | 参数 | 描述 |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [oauth_enabled](#oauth-enabled-open-source) | 指示是否为群集启用身份认证。[oss type="inline" size="small" /] |
+| [oauth_enabled](#oauth-enabled-open-source) | 指示是否为集群启用身份认证。[oss type="inline" size="small" /] |
 | [ssh_key_path](#ssh-key-path) | 安装工具用来登录到目标节点的路径。 |
 | [ssh_port](#ssh-port) | SSH 的端口，例如 22。|
 | [ssh_user](#ssh-user) | SSH 的用户名，例如 `centos`。|
-| [telemetry_enabled](#telemetry-enabled) | 指示是否为群集启用匿名数据共享。 |
+| [telemetry_enabled](#telemetry-enabled) | 指示是否为集群启用匿名数据共享。 |
 
 # 参数描述
 
@@ -132,7 +132,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 
 建议您不要启用 TLS 1.0，因为该协议被视为不安全。
 
-如果您已经安装了群集，并且想要就地更改此设备，可以通过 [升级](/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_0_enabled` 参数设置为所需值。
+如果您已经安装了集群，并且想要就地更改此设备，可以通过 [升级](/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_0_enabled` 参数设置为所需值。
 
 
 ## adminrouter_tls_1_1_enabled [enterprise type="inline" size="small" /]
@@ -141,7 +141,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 - `adminrouter_tls_1_1_enabled: 'true'` 在 Admin Router 中启用 TLS 1.1 协议。这是默认值。
 - `adminrouter_tls_1_1_enabled: 'false'` 在 Admin Router 中禁用 TLS 1.1 协议。
 
-如果您已经安装了群集，并且想要即时更改此设备，可以通过 [升级](/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_1_enabled` 参数设置为所需值。
+如果您已经安装了集群，并且想要即时更改此设备，可以通过 [升级](/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_1_enabled` 参数设置为所需值。
 
 
 ## adminrouter_tls_1_2_enabled [enterprise type="inline" size="small" /]
@@ -152,7 +152,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 
 建议保持启用此协议版本，因为它是最安全的受支持 TLS 版本。
 
-如果您已经安装了群集，并且想要更改此设备，可以通过 [升级](/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_2_enabled` 参数设置为所需值。
+如果您已经安装了集群，并且想要更改此设备，可以通过 [升级](/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_2_enabled` 参数设置为所需值。
 
 ## adminrouter_tls_cipher_suite [enterprise type="inline" size="small" /]
 提供 TLS 密码套件的自定义列表。该值将直接传递到 Admin Router  [`ssl_ciphers`](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_ciphers) 配置指令。此字符串没有验证。设置错误将导致 DC/OS 安装失败。此配置设置仅影响在 DC/OS 管理节点上运行的 Admin Router 。
@@ -167,7 +167,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 [专用代理](/cn/1.11/overview/concepts/#private-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。
 
 ## auth_cookie_secure_flag [enterprise type="inline" size="small" /]
-指示是否允许 Web 浏览器通过非 HTTPS 连接发送 DC/OS 身份认证 Cookie。DC/OS 身份认证 cookie 允许访问 DC/OS 群集，应通过加密连接发送。
+指示是否允许 Web 浏览器通过非 HTTPS 连接发送 DC/OS 身份认证 Cookie。DC/OS 身份认证 cookie 允许访问 DC/OS 集群，应通过加密连接发送。
 
 * `auth_cookie_secure_flag: false`（默认）浏览器将通过未加密的 HTTP 连接或加密的 HTTPS 连接发送 DC/OS 身份认证 Cookie。
 * `auth_cookie_secure_flag: true` DC/OS 设置的身份认证 Cookie 将包含 [`Secure` 标记](https://www.owasp.org/index.php/SecureFlag)，指示浏览器不在未加密的 HTTP 连接上发送 Cookie。这可能导致身份认证在下列情况下失败。
@@ -202,7 +202,7 @@ bouncer_expiration_auth_token_days: '0.5'
 
 * `cluster_docker_credentials_dcos_owned` 指示是否将凭据文件存储在 `/opt/mesosphere` 或 `/etc/mesosphere/docker_credentials` 中。sysadmin 无法直接编辑 `/opt/mesosphere`。
  * `cluster_docker_credentials_dcos_owned: 'true'` 凭据文件存储在 `/opt/mesosphere` 中。
- * `cluster_docker_credentials_write_to_etc` 是否写入群集凭据文件。
+ * `cluster_docker_credentials_write_to_etc` 是否写入集群凭据文件。
  * `cluster_docker_credentials_write_to_etc: 'true'` 写入凭据文件。该操作在覆盖凭据文件会引起问题（例如，如果文件是机器图像或 AMI 的一部分）的时候很实用。这是默认值。
  * `cluster_docker_credentials_write_to_etc: 'false'` 请勿写入凭据文件。
  * `cluster_docker_credentials_dcos_owned: 'false'` 凭据文件存储在 `/etc/mesosphere/docker_credentials` 中。
@@ -220,7 +220,7 @@ bouncer_expiration_auth_token_days: '0.5'
 Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将配置 Mesos 的 `--docker_registry` 标记到指定 URL。这将更改 Mesos 用于拉取 Docker 镜像的默认 URL。默认使用 `https://registry-1.docker.io`。
 
 ## cluster_name
-群集的名称。
+集群的名称。
 
 ## cosmos_config
 要传递给 [DC/OS 包管理器] 的打包配置词典(https://github.com/dcos/cosmos)。设置后，还必须指定以下选项。
@@ -233,7 +233,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将配置 Mesos 的 
 ## custom_checks
 添加到默认检查配置进程的自定义安装检查。配置用 [DC/OS 诊断组件](/cn/1.11/overview/architecture/components/#dcos-diagnostics) 来执行安装和升级检查。在安装和升级期间，这些自定义检查与默认的启动前和启动后检查一起运行。
 
-- `cluster_checks` - 这组参数指定整个 DC/OS 群集的运行状况检查。
+- `cluster_checks` - 这组参数指定整个 DC/OS 集群的运行状况检查。
 
     - `<check-name>` - 运行状况检查的自定义名称
  - `description` - 指定检查说明
@@ -247,7 +247,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将配置 Mesos 的 
  - `cmd` - 指定运行状况检查命令字符串阵列
  - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常有 `3 (UNKNOWN)` 的状态
 
-有关如何使用这些自定义检查的详细信息，请参阅 [示例](/cn/1.11/installing/ent/custom/configuration/examples/#custom-checks) 以及 [节点和群集运行状况检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/) 文档。
+有关如何使用这些自定义检查的详细信息，请参阅 [示例](/cn/1.11/installing/ent/custom/configuration/examples/#custom-checks) 以及 [节点和集群运行状况检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/) 文档。
 
 
 ## dcos_audit_logging [enterprise type="inline" size="small" /]
@@ -321,7 +321,7 @@ b.contoso.com:
 ## dns_search
 一份以空格隔开列表，列出了输入不合格域时尝试过的域（例如，不包含 &#8216;.&#8217; 的域搜索）。Linux 实施 `/etc/resolv.conf` 将最大域数限制为 6 个，最大字符数可能设置为 256。如需更多信息，请参阅 [man /etc/resolv.conf](http://man7.org/linux/man-pages/man5/resolv.conf.5.html)。
 
-每个群集管理节点的 `/etc/resolv.conf` 文件都添加了一个 `search` 行。 `search` 具有与 `domain` 相同的功能并且可以指定多个域，因而更具可扩展性。
+每个集群管理节点的 `/etc/resolv.conf` 文件都添加了一个 `search` 行。 `search` 具有与 `domain` 相同的功能并且可以指定多个域，因而更具可扩展性。
 
 在本例中， `example.com` 有公共网站 `www.example.com`，而且数据中心的所有主机都具有完全限定的以 `dc1.example.com` 结尾的域名。数据中心中的一个主机具有 `foo.dc1.example.com` 主机名。如果 `dns_search` 设置为 &#8216;dc1.example.com example.com&#8217;，那么每个执行 `foo` 名称查找的 DC/OS 主机都将获得关于 `foo.dc1.example.com` 的 A 记录。如果机器查找 `www`，首先会检查 `www.dc1.example.com`，但它不存在，因此搜索将尝试下一个域，查找 `www.example.com`，找到一条 A 记录就会返回。
 
@@ -342,14 +342,14 @@ dns_search: dc1.example.com dc1.example.com example.com dc1.example.com dc2.exam
 Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`static`）或指定外部存储系统（`ZooKeeper`、`aws_s3`和 `Azure`），使用 Exhibitor 在管理节点上设置和编排 ZooKeeper。在 DC/OS 安装期间，Exhibitor 自动配置管理节点上的 ZooKeeper 安装。
 
 *   `exhibitor_storage_backend: static`
- Exhibitor 存储后端在您的群集内部进行管理。
+ Exhibitor 存储后端在您的集群内部进行管理。
 
       **注意：** 如果 [master_discovery](#master-discovery) 设置为 `master_http_loadbalancer`，那么 exhibitor_storage_backend 就无法设置为 `static`。
 
 *   `exhibitor_storage_backend: zookeeper`
- 用于共享存储库的 ZooKeeper 实例。如果使用 ZooKeeper 实例来引导 Exhibitor，此 ZooKeeper 实例必须与您的 DC/OS 群集分开。您必须始终保有至少 3 个 ZooKeeper 实例才能实现高可用性。如果指定了 `zookeeper`，您还必须指定这些参数。
+ 用于共享存储库的 ZooKeeper 实例。如果使用 ZooKeeper 实例来引导 Exhibitor，此 ZooKeeper 实例必须与您的 DC/OS 集群分开。您必须始终保有至少 3 个 ZooKeeper 实例才能实现高可用性。如果指定了 `zookeeper`，您还必须指定这些参数。
     *   `exhibitor_zk_hosts`
- 以逗号隔开的列表（`<ZK_IP>:<ZK_PORT>, <ZK_IP>:<ZK_PORT>, <ZK_IP:ZK_PORT>`），列举了用于配置内部 Exhibitor 实例的一个或多个 ZooKeeper 节点 IP 和端口地址。Exhibitor 使用此 ZooKeeper 群集编排其配置。建议执行多个 ZooKeeper 实例，解决生产环境中的故障切换。
+ 以逗号隔开的列表（`<ZK_IP>:<ZK_PORT>, <ZK_IP>:<ZK_PORT>, <ZK_IP:ZK_PORT>`），列举了用于配置内部 Exhibitor 实例的一个或多个 ZooKeeper 节点 IP 和端口地址。Exhibitor 使用此 ZooKeeper 集群编排其配置。建议执行多个 ZooKeeper 实例，解决生产环境中的故障切换。
     *   `exhibitor_zk_path`
  Exhibitor 用来存储数据的文件路径。
 *   `exhibitor_storage_backend: aws_s3`
@@ -386,7 +386,7 @@ Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`st
 指示是否在 DC/OS 中启用 GPU 支持。
 
 * `enable_gpu_isolation: 'true'` DC/OS 中安装的任何 GPU 将自动被发现并用作 DC/OS 任务的可占用资源。这是默认值。
-* `enable_gpu_isolation: 'false'` GPU 不可用于群集。
+* `enable_gpu_isolation: 'false'` GPU 不可用于集群。
 
 如需更多信息，请参阅 [GPU 文档](/cn/1.11/deploying-services/gpu/)。
 
@@ -394,7 +394,7 @@ Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`st
 清理执行器目录前等待的最长时间。建议您接受两天作为默认值。
 
 ## gpus_are_scarce
-指示是否将 [GPU](/cn/1.11/deploying-services/gpu/) 作为群集中的稀缺资源。
+指示是否将 [GPU](/cn/1.11/deploying-services/gpu/) 作为集群中的稀缺资源。
 
 * `gpus_are_scarce: 'true'` 将 GPU 视为稀缺资源。这样就把 GPU 完全保留给通过 [Mesos `GPU_RESOURCES` 框架功能](http://mesos.apache.org/documentation/latest/gpu-support/) 选择消耗 GPU 的服务。这是默认值。
 * `gpus_are_scarce: 'false'` 将 GPU 与其他资源同等对待。所有框架，不论是否使用 [Mesos `GPU_RESOURCES` 框架功能](http://mesos.apache.org/documentation/latest/gpu-support/)，都会没有差别地收到 GPU。
@@ -431,12 +431,12 @@ Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadb
  <p class="message--note"><strong>注意: </strong> 内部负载均衡器必须在 TCP 模式下工作，不终止任何 TLS。</p>
        
  * `num_masters` （必填） 
- DC/OS 群集中的 Mesos 管理节点的数量。此后不能更改。负载均衡器后面的管理节点数量不得大于这个数字，但在发生故障时，该数量可以减少。
+ DC/OS 集群中的 Mesos 管理节点的数量。此后不能更改。负载均衡器后面的管理节点数量不得大于这个数字，但在发生故障时，该数量可以减少。
 
 **注意：**
 
 * 如果将 master_discovery 设置为 `master_http_loadbalancer`，那么 [exhibitor_storage_backend](#exhibitor-storage-backend) 就无法设置为 `static`。
-* 在 AWS 等动态分配内部 IP 的平台上，不应使用静态管理节点列表。管理节点实例因任何原因终止，都可能导致群集不稳定。建议为 Exhibitor 存储后端使用 aws_s3，因为我们可依赖 s3 在管理节点不可用时管理 Quorum 大小。
+* 在 AWS 等动态分配内部 IP 的平台上，不应使用静态管理节点列表。管理节点实例因任何原因终止，都可能导致集群不稳定。建议为 Exhibitor 存储后端使用 aws_s3，因为我们可依赖 s3 在管理节点不可用时管理 Quorum 大小。
 
 ## master_dns_bindall
 指示管理节点 DNS 端口是否打开。打开的管理节点 DNS 端口会在管理节点上公开侦听。如果正在升级，请将此参数设置为 `true`。
@@ -450,7 +450,7 @@ Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadb
 
 
 ## mesos_agent_work_dir [oss type="inline" size="small" /]
-代理和公共代理节点上的 Mesos 工作目录的位置。它定义了群集中 Mesos 代理的 `work_dir` 参数。默认为 `/var/lib/mesos/slave`。如需更多信息，请参阅 [Mesos 文档](https://mesos.apache.org/documentation/latest/configuration/agent/)。
+代理和公共代理节点上的 Mesos 工作目录的位置。它定义了集群中 Mesos 代理的 `work_dir` 参数。默认为 `/var/lib/mesos/slave`。如需更多信息，请参阅 [Mesos 文档](https://mesos.apache.org/documentation/latest/configuration/agent/)。
 
 ## mesos_container_log_sink
 容器（任务）的日志管理器。选项包括：
@@ -470,19 +470,19 @@ Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadb
 有关缩短的 DNS 响应和重试 TCP 的详细信息，请参阅 [RFC7766 - 在 TCP 中传输 DNS——实施要求](https://tools.ietf.org/html/rfc7766)。
 
 ## mesos_master_work_dir [oss type="inline" size="small" /]
-管理节点上的 Mesos 工作目录位置。它定义了群集中 Mesos 管理节点的  `work_dir`  参数。默认为 `/var/lib/dcos/mesos/master`。如需更多信息，请参阅 [Mesos 文档](https://mesos.apache.org/documentation/latest/configuration/master/)。
+管理节点上的 Mesos 工作目录位置。它定义了集群中 Mesos 管理节点的  `work_dir`  参数。默认为 `/var/lib/dcos/mesos/master`。如需更多信息，请参阅 [Mesos 文档](https://mesos.apache.org/documentation/latest/configuration/master/)。
 
 ## mesos_max_completed_tasks_per_framework
-Mesos 管理节点在内存中保留的每个框架的完成任务数。在具有大量长时间运行框架的群集中，保留过多已完成的任务可能导致管理节点出现内存问题。如果未指定此参数，请使用 1000 作为 Mesos 默认值 。
+Mesos 管理节点在内存中保留的每个框架的完成任务数。在具有大量长时间运行框架的集群中，保留过多已完成的任务可能导致管理节点出现内存问题。如果未指定此参数，请使用 1000 作为 Mesos 默认值 。
 
 
 ## oauth_enabled [oss type="inline" size="small" /]
-指示是否为群集启用身份认证。<!-- DC/OS auth -->
+指示是否为集群启用身份认证。<!-- DC/OS auth -->
 
-- `oauth_enabled: true` 请启用群集身份认证。这是默认值。
-- `oauth_enabled: false` 请禁用群集身份认证。
+- `oauth_enabled: true` 请启用集群身份认证。这是默认值。
+- `oauth_enabled: false` 请禁用集群身份认证。
 
-如果已经安装了群集，并且希望禁用此功能，可以使用同一参数集进行升级。
+如果已经安装了集群，并且希望禁用此功能，可以使用同一参数集进行升级。
 
 ## platform
 基础架构平台。该值为可选的自由格式，无内容验证，仅用于遥测。提供适当的价值，以帮助通知 DC/OS 平台优先做出决策。示例值：`aws`、 `azure`、`oneview`、`openstack`、`vsphere`、`vagrant-virtualbox`、`onprem` （默认）。
@@ -496,7 +496,7 @@ Mesos 管理节点在内存中保留的每个框架的完成任务数。在具�
 [公共代理](/cn/1.11/overview/concepts/#public-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。
 
 ## resolvers
-DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定 3 个解析器。将此参数设置为您拥有的最权威的域名服务器。
+DC/OS 集群节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定 3 个解析器。将此参数设置为您拥有的最权威的域名服务器。
 
 - 如需解析内部主机名，请将其设置为可解析它们的域名服务器。
 - 如果没有要解析的内部主机名，您可以将其设置为 Google 或 AWS 等公共域名服务器。例如，可以指定 [Google 公共 DNS IP 地址 (Ipv4)](https://developers.google.com/speed/public-dns/docs/using)：
@@ -530,11 +530,13 @@ DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定
 ```
 请查看外部持久卷 [文档](/cn/1.11/storage/external-storage/)，了解有关如何创建配置的信息。
 
-如果提供了 `rexray_config` 参数，则请为 REX-Ray 完全按照参数内容进行设置。这样就可以完全自定义与各种 [外部存储提供商]( https://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/) 集成的 REX-Ray 配置 。然而，如果将群集升级到包含更新版的 REX-Ray 的版本，就必须确保 `rexray_config` 参数与较新版本的 REX-Ray 兼容。
+请查看外部持久卷 [文档](/cn/1.11/storage/external-storage/)，了解有关如何创建配置的信息。
+
+如果提供了 `rexray_config` 参数，则请为 REX-Ray 完全按照参数内容进行设置。这样就可以完全自定义与各种 [外部存储提供商] 集成的 REX-Ray 配置 ( https://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/)。然而，如果将集群升级到包含更新版的 REX-Ray 的版本，就必须确保 `rexray_config` 参数与较新版本的 REX-Ray 兼容。
 
 
 ## rexray_config_preset
-如果您正在 AWS 上运行群集，并希望 DC/OS 与弹性块存储器 (EBS) 集成，而无需关注特定的 REX-Ray 配置，并将 `rexray_config_preset` 参数设置为 `aws`。这样就会将 `rexray_config` 参数设置为与 DC/OS 捆绑的默认 REX-Ray 配置。这一选项的另一优势在于，在您升级到包含已更新 REX-Ray 版本的 DC/OS 版本后，它能自动升级您群集的 REX-Ray 配置。
+如果您正在 AWS 上运行集群，并希望 DC/OS 与弹性块存储器 (EBS) 集成，而无需关注特定的 REX-Ray 配置，并将 `rexray_config_preset` 参数设置为 `aws`。这样就会将 `rexray_config` 参数设置为与 DC/OS 捆绑的默认 REX-Ray 配置。这一选项的另一优势在于，在您升级到包含已更新 REX-Ray 版本的 DC/OS 版本后，它能自动升级您集群的 REX-Ray 配置。
 
 ## security [enterprise type="inline" size="small" /]
 指定 `security: permissive`（默认）以外的安全模式。模式后面是潜在的值。
@@ -561,12 +563,12 @@ SSH 用户名，例如 `centos`。
 超级用户的用户名。此帐户使用 `superuser_password_hash`。如需更多信息，请参阅 [安全文档](/cn/1.11/security/ent/)。
 
 ## telemetry_enabled
-指示是否为群集启用匿名数据共享。<!-- DC/OS auth -->
+指示是否为集群启用匿名数据共享。<!-- DC/OS auth -->
 
 - `telemetry_enabled: 'true'` 请启用匿名数据共享。这是默认值。
 - `telemetry_enabled: 'false'` 请禁用匿名数据共享。
 
-如果已经安装了群集，并且希望禁用此功能，可以使用同一参数集进行 [升级](/cn/1.11/installing/production/upgrading/)。
+如果已经安装了集群，并且希望禁用此功能，可以使用同一参数集进行 [升级](/cn/1.11/installing/production/upgrading/)。
 
 ## use_proxy
 指示是否启用 DC/OS 代理。
@@ -615,11 +617,11 @@ SSH 用户名，例如 `centos`。
 <a id="zk-superuser"></a>
 
 ## zk_super_credentials [enterprise type="inline" size="small" /]
-在 DC/OS `strict` 和 `permissive` 模式群集上， 使用访问控制列表 (ACL) 保护 ZooKeeper 中存储的信息，从而使恶意用户无法连接到 ZooKeeper Quorum，从而不能直接修改服务元数据。ACL 指定与这些 ID 关联的资源 ID (RID) 和操作集合。ZooKeeper 支持可插拔的身份认证方案，并有一些内置方案：`world`、`auth`、`digest`、`host` 和 `ip`。
+在 DC/OS `strict` 和 `permissive` 模式集群上， 使用访问控制列表 (ACL) 保护 ZooKeeper 中存储的信息，从而使恶意用户无法连接到 ZooKeeper Quorum，从而不能直接修改服务元数据。ACL 指定与这些 ID 关联的资源 ID (RID) 和操作集合。ZooKeeper 支持可插拔的身份认证方案，并有一些内置方案：`world`、`auth`、`digest`、`host` 和 `ip`。
 
 DC/OS ZooKeeper 凭据 `zk_super_credentials`、 `zk_master_credentials` 和 `zk_agent_credentials` 使用 `digest` 身份认证。这种身份认证需要 `<uid>:<password>` 字符串，随后用作一个 ID，检查客户端是否可以访问特定资源。
 
-`zk_super_credentials` 支持访问等同于 ZooKeeper 的 `root` 或 `superuser` 的帐户，该账户可以访问所有资源，不受现有 ACL 限制。此凭据支持算子访问 ZooKeeper Quorum 中存储的所有元数据，并由 DC/OS 引导脚本在初始化群集时使用。默认值：`'super:secret'`。
+`zk_super_credentials` 支持访问等同于 ZooKeeper 的 `root` 或 `superuser` 的帐户，该账户可以访问所有资源，不受现有 ACL 限制。此凭据支持算子访问 ZooKeeper Quorum 中存储的所有元数据，并由 DC/OS 引导脚本在初始化集群时使用。默认值：`'super:secret'`。
 
 要加固群集，Mesosphere 建议您将所有凭据的默认值更改为长而复杂的值。设置后，您可以使用在 DC/OS 管理节点上可用的 `/opt/mesosphere/active/exhibitor/usr/zookeeper/bin/zkCli.sh` 进行验证。`zkCli` 默认不作验证，所以 `/dcos` 树中的节点将无法访问。调用 `addauth digest <zk_super_credentials>` in `zkCli`, 可以访问ZooKeeper中的所有节点`zk_master_credentials` and `zk_agent_credentials` 为它们的一个子集提供访问权限。例如：
 

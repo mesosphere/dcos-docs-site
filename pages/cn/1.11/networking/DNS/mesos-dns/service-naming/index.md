@@ -224,7 +224,7 @@ Mesos-DNS 遵循关于名称格式的 [RFC 1123][3]。用于构建 A 记录主�
 
 # <a name="dns-naming"></a>发现服务的 DNS 名称
 
-您可以获得在 DC/OS 群集节点上运行的应用程序的综合列表。
+您可以获得在 DC/OS 集群节点上运行的应用程序的综合列表。
 
 **先决条件：** [DC/OS 和 DC/OS CLI](/cn/1.11/installing/) 已安装。
 

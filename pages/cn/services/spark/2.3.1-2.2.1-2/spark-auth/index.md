@@ -23,7 +23,7 @@ enterprise: true
 
 如果您在宽容模式下安装服务且未指定服务帐户，Metronome 和 Marathon 将按照此服务的请求是由具有 [超级用户权限](/cn/1.11/security/ent/perms-reference/#superuser)的帐户做出的那样行事。
 
-**前提条件：**
+**先决条件：**
 
 - [已安装 DC/OS CLI](/1.9/cli/install/) 并以超级用户身份登录。
 - [已安装 Enterprise DC/OS CLI 0.4.14 或更高版本](/1.9/cli/enterprise-cli/#ent-cli-install)。
@@ -106,7 +106,7 @@ curl -X PUT -k \
 
 ```
 
- **故障排除** 如果这些命令返回 `307 Temporary Redirect` 错误，可能是因为您的群集 URL（`dcos config show core.dcos_url`）未设置为超文本传输协议安全（`https://`）。
+ **故障排除** 如果这些命令返回 `307 Temporary Redirect` 错误，可能是因为您的集群 URL（`dcos config show core.dcos_url`）未设置为超文本传输协议安全（`https://`）。
 
 
 2. 使用以下命令将权限和允许的操作授予服务帐户。
@@ -146,7 +146,7 @@ curl -X PUT -k \
 dcos package install --options=config.json spark
 ```
 
-**注意** 您可以通过将 `root` 替换为上面的 `nobody` 来安装 Spark Mesos Dispatcher 以作为 `root` 运行。如果您正在运行严格的模式群集，您必须给予 Marathon 所需的权限才能启动 Dispatcher 任务。使用以下命令为 Dispatcher 提供适当的权限：
+**注意** 您可以通过将 `root` 替换为上面的 `nobody` 来安装 Spark Mesos Dispatcher 以作为 `root` 运行。如果您正在运行严格的模式集群，您必须给予 Marathon 所需的权限才能启动 Dispatcher 任务。使用以下命令为 Dispatcher 提供适当的权限：
 
 ```bash
 curl -X PUT -k \
@@ -155,7 +155,7 @@ curl -X PUT -k \
 
 ## <a name="Run a Job"></a>运行作业
 
-要在严格的模式群集上运行作业，您必须添加 `principal`到命令行。例如：
+要在严格的模式集群上运行作业，您必须添加 `principal`到命令行。例如：
 ```bash
 dcos spark run --verbose --submit-args=" \
 --conf spark.mesos.principal=spark-principal \

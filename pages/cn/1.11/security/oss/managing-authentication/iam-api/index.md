@@ -7,7 +7,7 @@ title: HTTP API 端点身份认证
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-您可以对 DC/OS 群集中的 HTTP API 端点进行外部调用。您必须首先获取认证令牌，然后将其纳入您的 HTTP 请求中。认证令牌在五天后过期。您可以在 JSON Web 令牌 (JWT) 的 ["exp"（到期时间）要求](https://tools.ietf.org/html/rfc7519#section-4.1.4) 中查看到期时间。重新登录 DC/OS，刷新令牌。
+您可以对 DC/OS 集群中的 HTTP API 端点进行外部调用。您必须首先获取认证令牌，然后将其纳入您的 HTTP 请求中。认证令牌在五天后过期。您可以在 JSON Web 令牌 (JWT) 的 ["exp"（到期时间）要求](https://tools.ietf.org/html/rfc7519#section-4.1.4) 中查看到期时间。重新登录 DC/OS，刷新令牌。
 
 # 获取认证令牌
 

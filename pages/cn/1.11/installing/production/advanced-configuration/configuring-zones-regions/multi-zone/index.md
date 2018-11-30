@@ -7,7 +7,9 @@ excerpt: 设置多区域配置
 beta: true
 ---
 
-DC/OS 支持多个区域 (multi-AZ) 配置。本页介绍设置建议和注意事项。典型的 DC/OS 群集具有同一区域中的所有主节点和代理节点。拥有跨分区管理节点的成本通常超出了收益。
+DC/OS 支持多个区域 (multi-AZ) 配置。本页介绍设置建议和注意事项。典型的 DC/OS 集群具有同一区域中的所有主节点和代理节点。拥有跨分区管理节点的成本通常超出了收益。
+
+<p class="message--important"><strong>重要信息：</strong>以下多 AZ 设置尚未明确测试或验证。</p> 
 
 <p class="message--important"><strong>重要信息：</strong>以下多 AZ 设置尚未明确测试或验证。</p>
 

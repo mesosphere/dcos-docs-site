@@ -10,10 +10,10 @@ excerpt: 管理入口控制器
 ## 运行 ingress 控制器
 
 如果您想将 HTTP/S (L7) 应用程序暴露到外部世界 - 至少
-DC/OS 群集外部 - 您应创建一个
+DC/OS 集群外部 - 您应创建一个
 [Kubernetes `Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress)
 资源。然而，为了让 Ingress 资源工作，Kubernetes
-群集必须具有 **自定义 ingress 控制器** 在运行。此包不会
+集群必须具有 **自定义 ingress 控制器** 在运行。此包不会
 默认安装此控制器，但是允许您选择默认 ingress 控制器。
 
 您至少需要一个 DC/OS 公用代理，自定义 ingress 控制器可以在该代理上
@@ -35,7 +35,7 @@ DC/OS 群集外部 - 您应创建一个
 ```
 
 请确保 `kubernetes.public_node_count` 的设置值
-小于或等于您群集中的公用代理数量。如果您设置
+小于或等于您集群中的公用代理数量。如果您设置
 更高的值，框架将无法安装。
 
 ### 开源 ingress 控制器
@@ -58,7 +58,7 @@ DC/OS 群集外部 - 您应创建一个
 #### 示例：使用 Traefik ingress 控制器
 
 我们将引导您使用 Traefik ingress 控制器来
-公开暴露在 Kubernetes 群集中运行的
+公开暴露在 Kubernetes 集群中运行的
 服务。第一步应该是部署 ingress 控制器本身：
 
 ```yaml
@@ -93,7 +93,7 @@ apiVersion: rbac.authorization.k8s.io/v1beta1
  名称：traefik-ingress-controller
 rolEref:
  apiGroup: rbac.authorization.k8s.io
- kind: 群集角色
+ kind: 集群角色
  名称：traefik-ingress-controller
 subjects:
 - kind: 服务帐户
@@ -163,7 +163,7 @@ apiVersion：应用程序/v1
 ```
 
 创建这些资源将导致 Traefik 被部署为
-您群集中的 ingress 控制器。我们对
+您集群中的 ingress 控制器。我们对
 [official manifests](https://docs.traefik.io/user-guide/kubernetes) 进行了一些补充，因此
 部署按预期工作：
 
@@ -171,7 +171,7 @@ apiVersion：应用程序/v1
  在公用节点上暴露 ingress 控制器的最简单方式，因为 DC/OS
  已经开启公用代理上的 `:80` 端口。但是，当使用 `hostPort` 时，您需要
  负责确保没有其他应用程序
- （在群集中或甚至在 DC/OS 外）在使用每个公用代理上的 `:80` 
+ （在集群中或甚至在 DC/OS 外）在使用每个公用代理上的 `:80` 
  端口。如果端口已被使用，Kubernetes 将无法在特定代理商上
  调度 pod。
 * 利用 pod 反关联，确保 pod 在可用的 
@@ -183,7 +183,7 @@ apiVersion：应用程序/v1
 * 利用 `node-type.kubernetes.dcos.io/public` 节点污点，以便
  pod 实际上可在公用节点上运行。
 
-假设您在群集中有一个附带 IP `<public-agent-ip>` 的公用代理，
+假设您在集群中有一个附带 IP `<public-agent-ip>` 的公用代理，
 ingress 控制器将可以在
 http://<public-agent-ip>`. If you have `N` 公用代理上访问，我们建议
 您将 `.spec.replicas` 设置成与上述实例中的 `N` 相同。就像在一个
@@ -240,8 +240,8 @@ $ aws ec2 authorize-security-group-ingress \
 ```
 
 运行上述命令时，您必须将 `<security-group-id>` 替换为
-管理 DC/OS 群集中的公用代理访问权限的安全组的 ID，
-并将 `<region>` 替换为与您群集部署的区域。请
+管理 DC/OS 集群中的公用代理访问权限的安全组的 ID，
+并将 `<region>` 替换为与您集群部署的区域。请
 注意，此规则可能过于宽容。我们强烈建议您
 设置最严格的防火墙规则集（符合您的场景）。
 

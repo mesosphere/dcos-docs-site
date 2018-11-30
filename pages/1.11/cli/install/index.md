@@ -54,13 +54,19 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 
 ### Installing the DC/OS CLI
 
-1. Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`).
+1. If you do not already have a working directory for the CLI, create one. The preferred location is `/usr/local/bin` and all the instructions will reference this path.
 
     ```bash
-    curl -O https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.11/dcos
+    [ -d usr/local/bin ] || sudo mkdir -p /usr/local/bin
     ```
 
-1. Move the CLI binary to your local bin directory.
+1.  Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`).
+
+    ```bash
+    curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.11/dcos -o dcos
+    ```
+
+1.  Move the CLI binary to your local bin directory.
 
     ```bash
     sudo mv dcos /usr/local/bin
@@ -94,13 +100,19 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 
 ### Installing the DC/OS CLI
 
-1. Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`).
+1. If you do not already have a working directory for the CLI, create one. The preferred location is `/usr/local/bin` and all the instructions will reference this path.
 
     ```bash
-    curl -O https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.11/dcos
+    [ -d usr/local/bin ] || sudo mkdir -p /usr/local/bin
     ```
 
-1. Make the CLI binary executable.
+1.  Download the DC/OS CLI binary (`dcos`) to your local directory (for example, `/usr/local/bin/`).
+
+    ```bash
+    curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.11/dcos -o dcos
+    ```
+
+1.  Make the CLI binary executable.
 
     ```bash
     chmod +x dcos
@@ -113,7 +125,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
     ```
     If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.11/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see [Security](/1.11/security/).
 
     Your CLI should now be authenticated with your cluster! 
 1. Type `dcos` to view usage information and get started.
@@ -127,11 +139,17 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 - You nust disable any security or antivirus software before you start the installation.
 - You must not be using the `noexec` to mount the `/tmp` directory unless you have set a `TMPDIR` environment variable to something other than the `/tmp` directory. Mounting the `/tmp` directory with the `noexec` option can prevent CLI operations.
 
-1. Open the command line environment using the Administrator credentials.
+1.  Run command line environment as Administrator.
 
-1. Download the DC/OS CLI executable to your local directory ([dcos.exe](https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.11/dcos.exe)).
+1.  Download the DC/OS CLI executable to your local directory ([dcos.exe](https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.11/dcos.exe)).
 
-1. Set up the connection from the CLI to your DC/OS cluster. In this example, `http://example.com` is the master node URL.
+1. Change into the directory of the downloaded file if you are not already there.
+
+    ```bash
+    cd path/to/download/directory
+    ```
+
+1.  Set up the connection from the CLI to your DC/OS cluster. In this example, `http://example.com` is the master node URL.
 
     ```powershell
     dcos cluster setup http://example.com

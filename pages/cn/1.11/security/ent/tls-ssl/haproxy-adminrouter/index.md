@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 
-您可以使用 HAProxy 在 DC/OS [Admin Router](/cn/1.11/overview/architecture/components/#admin-router) 前设置 HTTP 代理。例如，如果您想向通过 HTTPS 连接到群集的用户代理程序提供自定义服务器证书，这可能非常有用。DC/OS 当前不支持将您自己的证书直接添加到 Admin Router 中。
+您可以使用 HAProxy 在 DC/OS [Admin Router](/cn/1.11/overview/architecture/components/#admin-router) 前设置 HTTP 代理。例如，如果您想向通过 HTTPS 连接到集群的用户代理程序提供自定义服务器证书，这可能非常有用。DC/OS 当前不支持将您自己的证书直接添加到 Admin Router 中。
 
 HTTP 代理必须执行即时 HTTP 请求和响应报文头修改，因为 DC/OS 不知道用户代理程序用于寻址 HTTP 代理的自定义主机名和端口。
 
@@ -16,7 +16,7 @@ HTTP 代理必须执行即时 HTTP 请求和响应报文头修改，因为 DC/OS
 
 1. 安装 HAProxy [1.6.9](http://www.haproxy.org/#down)。
 
-1. 为 DC/OS 创建 HAProxy 配置。本示例适用于 AWS 上的 DC/OS 群集。有关 HAProxy 配置参数的更多信息，请参阅[文档](https://cbonte.github.io/haproxy-dconv/configuration-1.6.html#3)。
+1. 为 DC/OS 创建 HAProxy 配置。本示例适用于 AWS 上的 DC/OS 集群。有关 HAProxy 配置参数的更多信息，请参阅[文档](https://cbonte.github.io/haproxy-dconv/configuration-1.6.html#3)。
 
     您可以使用代理 IP 地址 DNS 条目找到您的任务 IP。
 

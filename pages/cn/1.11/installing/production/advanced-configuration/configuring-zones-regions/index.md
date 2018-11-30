@@ -27,7 +27,7 @@ DC/OS 管理节点应通过高可用性和低延迟网络链路相互连接。�
 同样，大多数 DC/OS 服务使用 ZooKeeper（或 `etcd`, `consul`等等）实现调度器首要实例选择和状态存储。要实现这一目标，服务调度器必须通过高可用性、低延迟网络链接连接到 ZooKeeper 组件。
 
 ## 路由
-DC/OS 网络需要一个唯一的地址空间。群集实体不能共享相同的 IP 地址。例如，应用程序和 DC/OS 代理必须具有唯一 IP 地址。所有 IP 地址都应在群集内进行路由。
+DC/OS 网络需要一个唯一的地址空间。集群实体不能共享相同的 IP 地址。例如，应用程序和 DC/OS 代理必须具有唯一 IP 地址。所有 IP 地址都应在集群内进行路由。
 
 ## 首要/从属架构
 
@@ -37,7 +37,7 @@ HA 系统中的常见模式是首要/从属概念。这有时也被称为主/从
 
 #### Mesos
 
-Mesos 可以高可用性模式运行，需要运行三个或五个管理节点。在 HA 模式下运行时，一个管理节点被选为首要节点，其他管理节点则是从属节点。每个管理节点都有一个复制日志，其中包含有关群集的某种状态。首要管理节点通过由 ZooKeeper 进行首要节点选举即可选出。如需更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/)。
+Mesos 可以高可用性模式运行，需要运行三个或五个管理节点。在 HA 模式下运行时，一个管理节点被选为首要节点，其他管理节点则是从属节点。每个管理节点都有一个复制日志，其中包含有关集群的某种状态。首要管理节点通过由 ZooKeeper 进行首要节点选举即可选出。如需更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/)。
 
 #### Marathon
 
@@ -63,7 +63,7 @@ HA 服务应当分离，责任在服务之间分派。例如，Web 服务应从�
 
 ## 消除单个故障点
 
-单个故障点有多种形式。例如，当系统中的所有服务共用一个 ZooKeeper 群集时，类似 ZooKeeper 的服务可能成为单个故障点。可以通过运行多个 ZooKeeper 群集分别处理服务来降低风险。Exhibitor [Universe 包](https://github.com/mesosphere/exhibitor-dcos) 可以简化该操作。
+单个故障点有多种形式。例如，当系统中的所有服务共用一个 ZooKeeper 集群时，类似 ZooKeeper 的服务可能成为单个故障点。可以通过运行多个 ZooKeeper 集群分别处理服务来降低风险。Exhibitor [Universe 包](https://github.com/mesosphere/exhibitor-dcos) 可以简化该操作。
 
 其他常见的单个故障点包括：
 

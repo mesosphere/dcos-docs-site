@@ -12,10 +12,10 @@ enterprise: false
 
 每个 DC/OS 群集都有唯一的加密标识符。标识符的 zbase32 编码版本可在 UI 中于**Overview**下找到。
 
-此例中，使用了加密群集 ID `yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo`。
+此例中，使用了加密集群 ID `yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo`。
 
 
-1. 在群集之前安装一个 BIND 服务器。
+1. 在集群之前安装一个 BIND 服务器。
 
 1. 为 DC/OS 管理节点创建一个与此类似的转发条目。
 
@@ -29,7 +29,7 @@ enterprise: false
 
 1. 将管理节点 IP (`<Master-IP>`) 替换为您自己管理节点 IP 的分号分隔列表。
 
-1. 用您自己的加密群集 ID 替换示例加密群集 ID。
+1. 用您自己的加密集群 ID 替换示例加密集群 ID。
 
 
 

@@ -9,7 +9,6 @@ enterprise: true
 ---
 
 
-
 **先决条件：**[DC/OS CA 根证书](/cn/1.11/security/ent/tls-ssl/get-cert/)的本地副本。
 
 添加 DC/OS CA 作为受信任根证书颁发机构的步骤因操作系统和浏览器而异。请参阅与您的浏览器/操作系统对相对应的部分。
@@ -74,7 +73,7 @@ enterprise: true
 
 1. 单击 **Close**。
 
-1. 关闭并重新启动 Chrome，或打开新的 Incognito 会话。访问您的群集 URL 和每个管理节点的公共 IP 地址，以确认这些站点现在显示为 **Secure**。
+1. 关闭并重新启动 Chrome，或打开新的 Incognito 会话。访问您的集群 URL 和每个管理节点的公共 IP 地址，以确认这些站点现在显示为 **Secure**。
 
 
 # <a name="osx-win-firefox"></a>在 OS X 或 Windows 上配置 Mozilla Firefox 以信任您的 DC/OS CA
@@ -95,4 +94,4 @@ enterprise: true
 
 1. 再次单击 **OK**，关闭 **Certificate** 对话框。
 
-1. 在地址栏中键入您的群集 URL 并按 ENTER 键。地址栏中的 DC/OS Web 界面的路径应标记为 **Secure**。您也可以尝试访问每个管理节点的公共 IP 地址，以确认所有主节点均显示为 **Secure**。
+1. 在地址栏中键入您的集群 URL 并按 ENTER 键。地址栏中的 DC/OS Web 界面的路径应标记为 **Secure**。您也可以尝试访问每个管理节点的公共 IP 地址，以确认所有主节点均显示为 **Secure**。

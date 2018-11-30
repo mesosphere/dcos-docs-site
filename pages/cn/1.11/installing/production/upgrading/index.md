@@ -3,10 +3,10 @@ layout: layout.pug
 navigationTitle: 升级
 title: 升级
 menuWeight: 25
-excerpt: 升级 DC/OS 群集
+excerpt: 升级 DC/OS 集群
 ---
 
-升级是指在主要版本之间移动以添加新特性、以新特性/功能替代现有特性或执行主要配置变更的过程。只有您使用高级安装过程在群集上安装 DC/OS 时，才能升级 DC/OS。
+升级是指在主要版本之间移动以添加新特性、以新特性/功能替代现有特性或执行主要配置变更的过程。只有您使用高级安装过程在集群上安装 DC/OS 时，才能升级 DC/OS。
 
 <p class="message--note"><strong>注意: </strong> 升级仅发生在主要发布版本之间。示例：1.X 至 1.Y (1.11 --> 1.12)</p>
 
@@ -33,9 +33,9 @@ excerpt: 升级 DC/OS 群集
 
 # 修改 DC/OS 配置 [enterprise type="inline" size="small" /]
 
-不能在升级到新版本的同时更改群集配置。必须通过对已安装版本的更新进行群集配置更改。例如，您无法同时将群集从 1.10.x 升级到 1.10.y 并添加更多公共代理节点。您可以添加可更新到 1.10.x 的更多公共代理节点，然后升级到 1.10.y。或者，您可以升级到 1.10.y，然后在升级后通过更新 1.10.y 来添加更多公共代理节点。
+不能在升级到新版本的同时更改集群配置。必须通过对已安装版本的更新进行集群配置更改。例如，您无法同时将集群从 1.10.x 升级到 1.10.y 并添加更多公共代理节点。您可以添加可更新到 1.10.x 的更多公共代理节点，然后升级到 1.10.y。或者，您可以升级到 1.10.y，然后在升级后通过更新 1.10.y 来添加更多公共代理节点。
 
-要修改您的 DC/OS 配置，必须使用已修改的 `config.yaml` 运行安装工具并使用新的安装文件更新您的群集。更改 DC/OS 配置与升级主机的风险相同。配置错误可能会使主机或整个群集崩溃。
+要修改您的 DC/OS 配置，必须使用已修改的 `config.yaml` 运行安装工具并使用新的安装文件更新您的集群。更改 DC/OS 配置与升级主机的风险相同。配置错误可能会使主机或整个集群崩溃。
 
 只能修改 DC/OS 配置参数的子集。对 DC/OS 上运行的任何软件的不利影响不在本文档探讨范围之内。请联系 Mesosphere 服务支持获取更多信息。
 
@@ -53,18 +53,18 @@ excerpt: 升级 DC/OS 群集
 
 安全模式 (`security`) 可以更改，但有特别的注意事项。[enterprise type="inline" size="small" /]
 
-- 只能更新到更严格的安全模式。不支持安全降级。例如，如果群集处于 `permissive` 模式，而您希望降级至 `disabled` 模式，则必须重新安装群集并终止所有运行的工作负载。[enterprise type="inline" size="small" /]
+- 只能更新到更严格的安全模式。不支持安全降级。例如，如果集群处于 `permissive` 模式，而您希望降级至 `disabled` 模式，则必须重新安装集群并终止所有运行的工作负载。[enterprise type="inline" size="small" /]
 - 每次更新时，只能将安全性提高一个级别。例如，您无法直接从 `disabled` 更新到 `strict` 模式。要从 `disabled` 提高到 `strict` 模式，必须首先更新到 `permissive` 模式，然后再从 `permissive` 更新到 `strict` 模式。[enterprise type="inline" size="small" /]
 
 有关不同安全模式的更多信息，请参阅安全 [模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。[enterprise type="inline" size="small" /]
 
 # 说明
-必须执行这些步骤才能进行版本升级和群集配置更改。
+必须执行这些步骤才能进行版本升级和集群配置更改。
 
 ## 先决条件
 - 企业用户：DC/OS Enterprise 下载可见 [此处](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads)。[enterprise type="inline" size="small" /]
 - 开源用户：DC/OS Open Source 下载可见 [此处](https://dcos.io/releases/)。[oss type="inline" size="small" /]
-- Mesos、Mesos 框架、Marathon、Docker 和群集中的所有运行任务应稳定且处于已知的运行良好的状态。
+- Mesos、Mesos 框架、Marathon、Docker 和集群中的所有运行任务应稳定且处于已知的运行良好的状态。
 - 出于 Mesos 兼容性原因，我们建议将任何运行Marathon-on-Marathon 实例升级至 Marathon 版本1.3.5，然后进行此 DC/OS 升级。
 - 您必须有权访问与之前 DC/OS 版本一起使用的配置文件的副本：`config.yaml` 和 `ip-detect`。
 - 您必须使用 systemd 218 或更新版本才能维持任务状态。
@@ -76,14 +76,14 @@ excerpt: 升级 DC/OS 群集
 - 升级之前 [对 IAM 数据库截屏](/cn/1.11/installing/ent/faq/#q-how-do-i-backup-the-iam-database)。[enterprise type="inline" size="small" /]
 - 确保在开始升级之前， Marathon 事件订阅者已被禁用。完成升级后，保持其禁用状态，因为此功能现已被弃用。
 
-**注意：** Marathon 事件订阅者默认被禁用，请检查行 `--event_subscriber "http_callback"` 是否已添加到管理节点上的 `sudo vi /opt/mesosphere/bin/marathon.sh`。这种情况下，您需要移除该行，以禁用事件订阅者。[enterprise type="inline" size="small" /]
+<p class="message--note"><strong>注意: </strong> Marathon 事件订阅者默认被禁用，请检查行 <tt>--event_subscriber "http_callback"</tt> 是否已添加到管理节点上的 <tt>sudo vi /opt/mesosphere/bin/marathon.sh</tt>。这种情况下，您需要移除该行，以禁用事件订阅者。</p>[enterprise type="inline" size="small" /]
 
 - 确认在在开始升级前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
-- [备份您的群集](/cn/1.11/administering-clusters/backup-and-restore/)。[enterprise type="inline" size="small" /]
-- 可选：您可以将自定义 [节点和群集健康检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
+- [备份您的集群](/cn/1.11/administering-clusters/backup-and-restore/)。[enterprise type="inline" size="small" /]
+- 可选：您可以将自定义 [节点和集群健康检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
 - 确认所有管理节点都处于运行良好状态：
  - 检查 Exhibitor 共识机制 UI 以确认所有管理节点已成功加入（状态指示灯将显示绿色）。Exhibitor UI 可在 `http://<dcos_master>:8181/` 获得。
- - 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 有指标 `registrar/log/recovered` 价值为 `1`。
+ - 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`。
 
 
 ## Bootstrap 节点
@@ -99,7 +99,7 @@ excerpt: 升级 DC/OS 群集
 - [在严格模式下升级 DC/OS 1.11](#strict)
 
 #### <a name="current-security"></a>升级 DC/OS 1.11 而不更改安全模式 
-此过程将 DC/OS 1.10 群集升级到 DC/OS 1.11 而不更改群集的 [安全模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。
+此过程将 DC/OS 1.10 集群升级到 DC/OS 1.11 而不更改集群的 [安全模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。
 
 1. 将现有 `config.yaml` 和 `ip-detect` 文件复制到 bootstrap 节点上的空 `genconf` 文件夹。文件夹与安装工具应当位于同一个目录中。
 2. 将旧的 `config.yaml` 合并到新的 `config.yaml` 格式中。在大多数情况下，区别都很小。
@@ -128,9 +128,9 @@ excerpt: 升级 DC/OS 群集
 
 - 群集必须 [升级到 DC/OS 1.11](#current-security) 并在 [禁用安全模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) 中运行，然后才能升级到宽容模式。如果群集在升级到 DC/OS 1.10 之前以宽容模式运行，则可以跳过此步骤。
 
-**注意：** 对于从禁用模式升级到宽容安全模式，您已配置的任何 [自定义节点或群集健康检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 将会失败。未来版本支持绕过健康检查。
+<p class="message--note"><strong>注意: </strong>对于从禁用模式升级到宽容安全模式，您已配置的任何 <a href="/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks">自定义节点或群集健康检查</a> 将会失败。未来版本支持绕过健康检查。</p>
 
-要将群集从禁用安全模式修补为宽容安全模式，请完成以下步骤：
+要将集群从禁用安全模式修补为宽容安全模式，请完成以下步骤：
 
 1. 在 `config.yaml` 中以 `security: permissive` 替换 `security: disabled`。不要对 `config.yaml` 中的路径或配置进行任何其他更改。
 2. 根据需要修改 `ip-detect` 文件。
@@ -149,14 +149,14 @@ excerpt: 升级 DC/OS 群集
 #### <a name="strict"></a>在严格模式下升级 DC/OS 1.11 
 此步骤在安全性严格 [模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) 下升级到 DC/OS 1.11。
 
-如果正在更新运行的 DC/OS 群集在 `security: strict` 模式下运行，则请注意，在迁移到严格模式后，安全漏洞可能会持续存在。转到严格模式后，您的服务现在需要身份认证和授权，以便在 Mesos 注册或访问其 HTTP API。在升级到严格模式之前，您应在宽容模式下测试这些配置，以便在升级期间维护调度器和脚本正常运行时间。
+如果正在更新运行的 DC/OS 集群在 `security: strict` 模式下运行，则请注意，在迁移到严格模式后，安全漏洞可能会持续存在。转到严格模式后，您的服务现在需要身份认证和授权，以便在 Mesos 注册或访问其 HTTP API。在升级到严格模式之前，您应在宽容模式下测试这些配置，以便在升级期间维护调度器和脚本正常运行时间。
 
-**前提条件：**
+**先决条件：**
 
-- 群集必须 [升级到 DC/OS 1.11](#current-security) 并在 [宽容安全模式](#permissive) 下运行，然后才能更新到严格模式。如果群集在升级到 DC/OS 1.11 之前以严格模式运行，则可以跳过此步骤。
+- 集群必须 [升级到 DC/OS 1.11](#current-security) 并在 [宽容安全模式](#permissive) 下运行，然后才能更新到严格模式。如果集群在升级到 DC/OS 1.11 之前以严格模式运行，则可以跳过此步骤。
 - 如果您在运行 Pod 或者 Mesos“HTTP 命令执行器”功能已在自定义配置中启用，则必须在升级到严格模式之前，以 DC/OS 1.11 宽容安全模式重启这些任务。否则，在升级管理节点时，这些任务将会被重新启动。
 
-要将群集从宽容安全模式更新为严格的安全性，请完成以下步骤：
+要将集群从宽容安全模式更新为严格的安全性，请完成以下步骤：
 
 1. 在 `config.yaml` 中以 `security: strict` 替换 `security: permissive`。不要对 `config.yaml` 中的路径或配置进行任何其他更改。
 2. 根据需要修改 `ip-detect` 文件。
@@ -178,10 +178,10 @@ excerpt: 升级 DC/OS 群集
 
 1. 复制并更新 DC/OS 1.10 `config.yaml` 和 `ip-detect` 文件到引导节点上新的干净文件夹。
 
-    * 在升级期间，您无法更改 `exhibitor_zk_backend` 设置。
-    * DC/OS 1.11 `config.yaml`的语法不同于先前版本。请参阅 [文档](/cn/1.11/installing/oss/custom/configuration/configuration-parameters/) 以获取最新信息。
+ * 在升级期间，您无法更改 `exhibitor_zk_backend` 设置。
+ * DC/OS 1.11 `config.yaml`的语法不同于先前版本。请参阅 [文档](/cn/1.11/installing/oss/custom/configuration/configuration-parameters/) 以获取最新信息。
 
-1. 更新 `config.yaml` 的格式后，比较旧的 `config.yaml` 和新的 `config.yaml`。验证路径或配置没有区别。升级时更改这些会导致灾难性群集失效。
+1. 更新 `config.yaml` 的格式后，比较旧的 `config.yaml` 和新的 `config.yaml`。验证路径或配置没有区别。升级时更改这些会导致灾难性集群失效。
 
 1. 将 1.10 转换为 `config.yaml` 1.11 `config.yaml` 格式后，您可以构建安装工具包：
 
@@ -198,7 +198,7 @@ excerpt: 升级 DC/OS 群集
 
 ### <a name="masters"></a>DC/OS 管理节点
 
-通过以下步骤，继续以任何顺序升级每个管理节点，每次升级一个。完成每次升级时，监控 Mesos 管理节点度量标准，确保节点已重新加入群集并完成了协调。
+通过以下步骤，继续以任何顺序升级每个管理节点，每次升级一个。完成每次升级时，监控 Mesos 管理节点度量标准，确保节点已重新加入集群并完成了协调。
 
 1. 下载并运行节点升级脚本：
     ```bash
@@ -274,7 +274,7 @@ excerpt: 升级 DC/OS 群集
 
 以下命令应提供对升级问题的提供深度信息：
 
-#### 在所有群集节点上
+#### 在所有集群节点上
 
 ```bash
 sudo journalctl -u dcos-download

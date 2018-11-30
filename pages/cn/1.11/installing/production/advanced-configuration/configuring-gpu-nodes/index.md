@@ -9,7 +9,7 @@ excerpt: 添加图形处理单元到长期运行的 DC/OS 服务
 
 DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服务。在服务中添加 GPU 可以显著加快大数据工作负载。
 
-借助基于 GPU 的计划，您可以共享传统和机器学习工作负载群集资源，还可以在这些群集内动态分配 GPU 资源并在需要时释放它们。您可以为有需要的工作负载预留 GPU 资源，或将这些启用了 GPU 的资源与基础架构的其余部分进行混合，以提高总体利用率。
+借助基于 GPU 的计划，您可以共享传统和机器学习工作负载集群资源，还可以在这些集群内动态分配 GPU 资源并在需要时释放它们。您可以为有需要的工作负载预留 GPU 资源，或将这些启用了 GPU 的资源与基础架构的其余部分进行混合，以提高总体利用率。
 
 在安装好启用了 GPU 的 DC/OS 之后，您可以通过 `gpus` 参数在应用定义中指定 GPU。
 
@@ -42,7 +42,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
 
     <p class="message--important"><strong>重要信息: </strong> 必须运行 <tt>zen.sh</tt> 脚本才能执行下一步。</p>
 
-1. 请根据 [此处](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/) 说明，使用以下 GPU 专用配置创建具有高级 AWS 模板的群集。
+2. 请根据 [此处](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/) 说明，使用以下 GPU 专用配置创建具有高级 AWS 模板的集群。
 
 1. 在 **Create Stack > Specify Details**页面指定您的堆栈信息并单击 **Next**。以下是 GPU 特定设置。
 
@@ -52,9 +52,9 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
         - us-east-1：`ami-5f5d1449`
         - ap-southeast-2：`ami-0d50476e`
 
-    - **MasterInstanceType**——接受默认管理节点实例类型（例如， `m3.xlarge`）。
-    - **PrivateAgentInstanceType**——指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如， `g2.2xlarge`）。
-    - **PublicAgentInstanceType**——指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如， `g2.2xlarge`）。
+ - **MasterInstanceType**——接受默认管理节点实例类型（例如， `m3.xlarge`）。
+ - **PrivateAgentInstanceType**——指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如， `g2.2xlarge`）。
+ - **PublicAgentInstanceType**——指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如， `g2.2xlarge`）。
 
 1. 在 **Options** 页面，接受默认值，然后单击 **Next**。
 

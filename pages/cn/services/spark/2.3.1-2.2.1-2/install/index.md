@@ -11,7 +11,7 @@ render: mustache
 
 DC/OS {{ model.techName }} 可在 Universe 中使用，可通过使用 GUI 或 DC/OS CLI 进行安装。
 
-**前提条件：**
+**先决条件：**
 
 - [已安装 DC/OS 和 DC/OS CLI](https://docs.mesosphere.com/latest/installing/)。
 - 根据您的 [安全模式](https://docs.mesosphere.com/latest/security/ent/#security-modes)，Spark 需要服务身份认证才能访问 DC/OS。更多信息：
@@ -38,7 +38,7 @@ dcos package install {{ model.serviceName }}
 
 ## {{ model.techShortName }} CLI
 
-您可以使用此命令安装 {{ model.techShortName }} CLI。如果您已经拥有运行中的 {{ model.techShortName }} 群集，但需要 {{ model.techShortName }} CLI，则会比较有用。
+您可以使用此命令安装 {{ model.techShortName }} CLI。如果您已经拥有运行中的 {{ model.techShortName }} 集群，但需要 {{ model.techShortName }} CLI，则会比较有用。
 
 
 <p class="message--important"><strong>重要信息：</strong> 如果通过 DC/OS GUI 安装 {{ model.techShortName }}，您必须从 DC/OS CLI 作为单独步骤安装 {{ model.techShortName }} CLI。</p>
@@ -137,7 +137,7 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
 <a name="strict_setting"></a>
 # 严格模式的安装（设置服务身份认证）
 
-如果您的群集设置为 [严格](https://docs.mesosphere.com/latest/security/ent/#strict) 安全，则您需要按照以下步骤安装和运行 Spark。
+如果您的集群设置为 [严格](https://docs.mesosphere.com/latest/security/ent/#strict) 安全，则您需要按照以下步骤安装和运行 Spark。
 
 ## 服务帐户和密钥
 
@@ -202,7 +202,7 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
    ```
 
 ## 分配权限
-必须创建权限，以便 Spark 服务能够启动 Spark 作业，这样作业本身可以启动代表其执行工作的执行程序。根据您的群集，需要记住几点：
+必须创建权限，以便 Spark 服务能够启动 Spark 作业，这样作业本身可以启动代表其执行工作的执行程序。根据您的集群，需要记住几点：
 
 * RHEL/CenTos 用户当前不能作为用户 `nobody`以严格模式运行 Spark，必须作为用户 `root` 才能运行。这是帐户映射到 UID 的方式所致。CorEos 用户不受影响，并可作为 `nobody` 用户运行。以下我们将用户指定为 `{{ model.serviceName }}-user`。
 
@@ -272,7 +272,7 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
 
 ## 在提交时，向您的 Spark 作业添加必要的配置
 
-要在严格的模式群集上运行作业，您必须添加 `principal`到命令行。例如，如果您想使用 [Docker Engine](/latest/deploying-services/containerizers/docker-containerizer/) 而非 [Universal Container Runtime](/latest/deploying-services/containerizers/ucr/)，您必须通过 `SPARK_USER` 环境变量指定用户：
+要在严格的模式集群上运行作业，您必须添加 `principal`到命令行。例如，如果您想使用 [Docker Engine](/latest/deploying-services/containerizers/docker-containerizer/) 而非 [Universal Container Runtime](/latest/deploying-services/containerizers/ucr/)，您必须通过 `SPARK_USER` 环境变量指定用户：
 
 
 

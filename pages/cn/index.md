@@ -1,7 +1,7 @@
 ---
-layout: dcos-docs-landing.pug
-title: DC/OS Docs
-navigationTitle: DC/OS Docs
+layout: cn-dcos-docs-landing.pug
+title: Chinese DC/OS Docs
+navigationTitle: Chinese DC/OS Docs
 menus: ['header']
-menuWeight: 0
+menuWeight: 10
 ---

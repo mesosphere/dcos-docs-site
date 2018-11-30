@@ -170,7 +170,7 @@ HAProxy 的统计报告可用于监控健康、性能，甚至制定调度安排
  
         dcos marathon app add https://gist.githubusercontent.com/brndnmtthws/2ca7e10b985b2ce9f8ee/raw/66cbcbe171afc95f8ef49b70034f2842bfdb0aca/marathon-lb-autoscale.json
 
-The JSON app definition passes 2 important arguments to the tool: `--target-rps` tells marathon-lb-autoscale identifies the target RPS and `--apps` is a comma-separated list of the Marathon apps and service ports to monitor, concatenated with `_`. Each app could expose multiple service ports to the load balancer if configured to do so, and `marathon-lb-autoscale` will scale the app to meet the greatest common denominator for the number of required instances.
+JSON 应用定义将2个重要的参数输入到工具中： `--target-rps` 让 marathon-lb-autoscale 识别目标 RPS 而 `--apps` 是一个需要监控的 Marathon 应用和服务端口的逗号分隔的，也由 `_` 连接的列表。每个应用在设置后可以将多个服务端口公开到负载均衡器，而 `marathon-lb-autoscale` 将为所需实例数将应用扩展到可以满足的最大公因数。
 
         "args":[
           "--marathon", "http://leader.mesos:8080",

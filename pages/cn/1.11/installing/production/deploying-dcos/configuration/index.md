@@ -62,11 +62,11 @@ master_list:
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [agent_list](/1/1.11/installing/production/advanced-configuration/configuration-reference/#agent-list) | 该参数指定您的 [专用代理](/cn/1.11/overview/concepts/#private-agent-node) 主机名的 IPv4 地址的 YAML 嵌套列表 (`-`)。 |
 | [bootstrap_url](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#bootstrap-url) | 这一必填参数指定 DC/OS 安装工具存储自定义 DC/OS 构建文件的 URL 路径。 |
-| [cluster_name](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#cluster-name) | 该参数指定群集的名称。 |
+| [cluster_name](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#cluster-name) | 该参数指定集群的名称。 |
 | [exhibitor_storage_backend](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) | 该参数指定用于 Exhibitor 的存储库后端类型。 |
 | [master_discovery](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#master-discovery-required) | 这一必填参数指定 Mesos 管理节点发现方法。 |
 | [public_agent_list](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#public-agent-list) | 该参数指定您的 [公共代理](/cn/1.11/overview/concepts/#public-agent-node) 主机名的 IPv4 地址的 YAML 嵌套列表 (-) 。 |
-| [resolvers](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#resolvers) | 这一必填参数为您的 DC/OS 群集节点指定一组 DNS 解析器 的 YAML 嵌套列表 (`-`)。 |
+| [resolvers](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#resolvers) | 这一必填参数为您的 DC/OS 集群节点指定一组 DNS 解析器 的 YAML 嵌套列表 (`-`)。 |
 | [security](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) | [enterprise type="inline" size="small" /] 该参数指定安全模式：禁用、宽容、严格。 |
 | [ssh_port](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#ssh-port) | 该参数指定 SSH 端口，例如 22。|
 | [ssh_user](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#ssh-user) |该参数指定 SSH 用户名，例如 `centos`。 |

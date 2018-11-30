@@ -13,7 +13,7 @@ excerpt: 排除 DC/OS 安装问题
 
 ## IP 检测脚本
 
-您必须具有有效的 [ip-detect](/cn/1.11/installing/production/advanced/#create-an-ip-detection-script) 脚本。您可以手动运行群集中所有节点上的 `ip-detect`，或检查现有装置上的 `/opt/mesosphere/bin/detect_ip`，以确保其返回有效的 IP 地址。有效的 IP 地址没有：
+您必须具有有效的 [ip-detect](/cn/1.11/installing/production/advanced/#create-an-ip-detection-script) 脚本。您可以手动运行集群中所有节点上的 `ip-detect`，或检查现有装置上的 `/opt/mesosphere/bin/detect_ip`，以确保其返回有效的 IP 地址。有效的 IP 地址没有：
 
  - 额外的行
  - 空白空格
@@ -23,7 +23,7 @@ excerpt: 排除 DC/OS 安装问题
 
 ## DNS 解析器
 
-您必须具有正常运行的 DNS 解析器，在 [config.yaml](1.11/installing/production/advanced-configuration/configuration-reference/#resolvers) 文件中指定。我们建议您对 FQDN、短主机名和 IP 地址进行正向和反向查找。DC/OS 可以在没有有效 DNS 支持的环境中运行，但以下必须工作才能支持 DC/OS 服务，包括 Spark：
+您必须具有正常运行的 DNS 解析器，在 [config.yaml](cn/1.11/installing/production/advanced-configuration/configuration-reference/#resolvers) 文件中指定。我们建议您对 FQDN、短主机名和 IP 地址进行正向和反向查找。DC/OS 可以在没有有效 DNS 支持的环境中运行，但以下必须工作才能支持 DC/OS 服务，包括 Spark：
 
  - `hostname -f` 返回 FQDN
  - `hostname -s` 返回短主机名
@@ -52,7 +52,7 @@ excerpt: 排除 DC/OS 安装问题
  timedatectl
 ```  
 
-* 确保防火墙和任何其他连接过滤机制不干扰群集组件通信。必须允许 TCP、UDP 和 ICMP。
+* 确保防火墙和任何其他连接过滤机制不干扰集群组件通信。必须允许 TCP、UDP 和 ICMP。
 
 
 * 确保绑定到端口 `53` 的服务（DNS 转发器 (>`dcos-net.service`) 需要此操作）被禁用并停止。例如：
@@ -105,14 +105,37 @@ excerpt: 排除 DC/OS 安装问题
                 ]
     ```
 
+    ```
+    curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
+            [
+                    {
+    "code": 3, 
+    "description": "serving", 
+    "hostname": "10.0.6.70", 
+    "isLeader": false
+                    },
+                    {
+    "code": 3, 
+    "description": "serving", 
+    "hostname": "10.0.6.69", 
+    "isLeader": false
+                    },
+                    {
+    "code": 3, 
+    "description": "serving", 
+    "hostname": "10.0.6.68", 
+    "isLeader": true
+                    }
+                ]
+    ```
 
-<p class="message--note"><strong>注意: </strong> 在多管理节点配置中运行此命令需要 10-15 分钟才能完成。如果 10-15 分钟后未完成，请认真查看 <tt>journalctl -flu dcos-exhibitor</tt>` 日志。</p>
+<p class="message--note"><strong>注意: </strong> 在多管理节点配置中运行此命令需要 10-15 分钟才能完成。如果 10-15 分钟后未完成，请认真查看 <tt>journalctl -flu dcos-exhibitor</tt> 日志。</p>
 
 * 验证您是否可以 ping DNS 转发器 (`ready.spartan`)。如果没有，请查看 DNS 调度器服务日志：
 
-    ```
-    journalctl -flu dcos-net﻿⁠⁠⁠⁠
-    ```
+   ```
+   journalctl -flu dcos-net﻿⁠⁠⁠⁠
+   ```
 
 * 验证您是否可以 ping `⁠⁠⁠⁠leader.mesos` 和 `master.mesos`。如果不可以：
  - 使用此命令查看 Mesos-DNS 服务日志：
@@ -127,7 +150,7 @@ excerpt: 排除 DC/OS 安装问题
     ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
     ```
     ﻿
- Mesos 管理节点必须在 Mesos-DNS 从 `⁠⁠⁠⁠/state` 生成其 DNS 记录之前，与选举的首要实例一起启动并运行。
+Mesos 管理节点必须在 Mesos-DNS 从 `⁠⁠⁠⁠/state` 生成其 DNS 记录之前，与选举的首要实例一起启动并运行。
 
 # <a name="component-logs"></a>组件日志
 
@@ -143,7 +166,7 @@ excerpt: 排除 DC/OS 安装问题
 
 ## <a name="admin-router"></a>Admin Router
 
-Admin Router 在管理节点上启动。Admin Router 为群集中的 DC/OS 服务提供中央认证和代理。这让您可以在没有 VPN 或 SSH 隧道的情况下从网络的外部管理群集进行管理。对于 HA，可以在每个管理节点（负载均衡端口 80）的前面配置一个可选的负载均衡器，以提供故障切换和负载均衡。
+Admin Router 在管理节点上启动。Admin Router 为集群中的 DC/OS 服务提供中央认证和代理。这让您可以在没有 VPN 或 SSH 隧道的情况下从网络的外部管理集群进行管理。对于 HA，可以在每个管理节点（负载均衡端口 80）的前面配置一个可选的负载均衡器，以提供故障切换和负载均衡。
 
 **故障排除：**
 
@@ -164,11 +187,11 @@ Admin Router 在管理节点上启动。Admin Router 为群集中的 DC/OS 服�
 
 DC/OS 专用和公共代理节点启动。已部署的应用程序和服务在专用代理节点上运行。您必须至少有一个专用代理节点。
 
-公共可访问应用程序在公共代理节点上运行。=公共代理节点可设置为允许外部流量访问您的群集。公共代理节点是可选的，没有最小值。您可以在这里运行负载均衡器，从群集内部向外部公众提供服务。
+公共可访问应用程序在公共代理节点上运行。=公共代理节点可设置为允许外部流量访问您的集群。公共代理节点是可选的，没有最小值。您可以在这里运行负载均衡器，从集群内部向外部公众提供服务。
 
 **故障排除：**
 
-* 您可能无法对代理节点执行 SSH，具体取决于群集网络的配置。我们通过 DC/OS CLI 使之更简单易用。如需更多信息，请参阅 [对 DC/OS 群集执行 SSH][6]。
+* 您可能无法对代理节点执行 SSH，具体取决于集群网络的配置。我们通过 DC/OS CLI 使之更简单易用。如需更多信息，请参阅 [对 DC/OS 集群执行 SSH][6]。
 
 * 您可以从 DC/OS 仪表盘的**节点**选项卡获取已注册代理节点的 IP 地址。未注册的节点未显示。
 
@@ -251,7 +274,7 @@ gen_resolvconf 已启动。这是一个帮助代理节点找到管理节点的�
 
 ## <a name="mesos-master-process"></a>Mesos 管理节点进程
 
-Mesos 管理节点进程在管理节点上开始。`mesos-master` 进程在群集中的一个节点上运行，通过接收来自代理节点的资源邀约并将这些资源提供给注册的服务（如 Marathon 或 Chronos）来编排代理节点上任务的运行。如需更多信息，请参阅 [Mesos 管理节点配置][2] 文档。
+Mesos 管理节点进程在管理节点上开始。`mesos-master` 进程在集群中的一个节点上运行，通过接收来自代理节点的资源邀约并将这些资源提供给注册的服务（如 Marathon 或 Chronos）来编排代理节点上任务的运行。如需更多信息，请参阅 [Mesos 管理节点配置][2] 文档。
 
 **故障排除：**
 
@@ -271,7 +294,7 @@ Mesos 管理节点进程在管理节点上开始。`mesos-master` 进程在群�
 
 ## <a name="mesos-dns"></a>Mesos-DNS
 
-Mesos-DNS 在 DC/OS 管理节点上启动。Mesos DNS 在群集内提供服务发现。可选的是，Mesos-DNS 可以将未处理的请求转发到外部 DNS 服务器，具体取决于群集的配置方式。例如，任何未在 `.mesos` 结束的内容将会转发给外部解析器。
+Mesos-DNS 在 DC/OS 管理节点上启动。Mesos DNS 在集群内提供服务发现。可选的是，Mesos-DNS 可以将未处理的请求转发到外部 DNS 服务器，具体取决于集群的配置方式。例如，任何未在 `.mesos` 结束的内容将会转发给外部解析器。
 
 **故障排除：**
 

@@ -16,7 +16,6 @@ Kafka may become unhealthy when it detects any underreplicated partitions. This 
 
 Possible repair actions include [restarting the affected broker](#restarting-a-node) and [destructively replacing the affected broker](#replacing-a-permanently-failed-node). The replace operation is destructive and will irrevocably lose all data associated with the broker. The restart operation is not destructive and indicates an attempt to restart a broker process.
 
-
 ## Broker Shutdown
 
 If the Kafka brokers are not completing the clean shutdown within the configured
