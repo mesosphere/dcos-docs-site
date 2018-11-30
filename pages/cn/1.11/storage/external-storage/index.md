@@ -8,17 +8,12 @@ beta: true
 enterprise: false
 ---
 
-
-
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>警告：</strong>卷大小以在 GiB 指定。</td> 
-</tr> 
-</table>
-
 当容错对您的应用程序至关重要时，请使用外部卷。如果主机发生故障，本地 Marathon 实例会在其他主机上重新安排您的应用程序及其相关数据，而无需用户干预。外部卷通常提供较大的存储量。
 
 Marathon 应用程序通常在终止和重新启动时失去状态。在某些情况下，例如，如果您的应用程序使用 MySQL，您将希望应用程序保存其状态。您可以使用外部存储服务，例如 Amazon 的 Elastic Block Store (EBS)，创建跟随应用程序实例的持久卷。
+
+卷大小以在 GiB 指定。
+
 
 # 创建具有外部持久卷的应用程序
 
@@ -147,7 +142,7 @@ Marathon 应用程序通常在终止和重新启动时失去状态。在某些�
 
 [4]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
 [5]:http://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-provider/
-[6]: /1.11/deploying-services/creating-services/
+[6]: /cn/1.11/deploying-services/creating-services/
 [7]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/#data-directory
 [8]: #implicit-vol
 [9]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/

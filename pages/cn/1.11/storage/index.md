@@ -4,7 +4,6 @@ navigationTitle: 存储
 title: 存储
 menuWeight: 90
 excerpt: 在终止和重新启动时保存您的应用程序
-
 enterprise: false
 ---
 
