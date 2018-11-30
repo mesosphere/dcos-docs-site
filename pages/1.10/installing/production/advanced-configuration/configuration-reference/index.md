@@ -8,7 +8,7 @@ excerpt: Configuration parameters available for DC/OS Enterprise and DC/OS Open 
 
 # Configuration Parameters
 
-This page contains the configuration parameters for both DC/OS Enterprise and DC/OS Open Source. 
+This page contains the configuration parameters for both DC/OS Enterprise and DC/OS Open Source.
 
 
 # Cluster Setup
@@ -292,7 +292,7 @@ Indicates whether to enable DC/OS virtual networks.
         ```
 
         *  `vtep_subnet` A dedicated address space that is used for the VxLAN backend for the virtual network. This address space should not be accessible from outside the agents or master.
-        *  `vtep_mac_oui` The MAC address of the interface connecting to the virtual network in the public node. 
+        *  `vtep_mac_oui` The MAC address of the interface connecting to the virtual network in the public node.
         **Note:** The last three bytes must be `00`.
 
         *  `overlays`
@@ -313,12 +313,12 @@ A sample definition is as follows:
 
 ```yaml
 dns_forward_zones:
-a.contoso.com:
-- "1.1.1.1:53"
-- "2.2.2.2:53"
-b.contoso.com:
-- "3.3.3.3:53"
-- "4.4.4.4:53"
+  a.contoso.com:
+    - "1.1.1.1:53"
+    - "2.2.2.2:53"
+  b.contoso.com:
+    - "3.3.3.3:53"
+    - "4.4.4.4:53"
 ```
 
 In the above example, a DNS query to `myapp.a.contoso.com` will be forwarded to `1.1.1.1:53` or `2.2.2.2:53`. Likewise, a DNS query to `myapp.b.contoso.com` will be forwarded to `3.3.3.3:53` or `4.4.4.4:53`.
@@ -418,7 +418,7 @@ curl -fsSL https://ipinfo.io/ip
 ```
 
 ## license_key_contents [enterprise type="inline" size="small" /]
-A license key helps to administer your cluster in conformance with your license requirements. A license contains the maximum number of nodes attached to a cluster at any given time and the start and end date of the license.The license key must reside in a genconf/license.txt file. This parameter is used when an user wants to directly specify the license in the config.yaml. 
+A license key helps to administer your cluster in conformance with your license requirements. A license contains the maximum number of nodes attached to a cluster at any given time and the start and end date of the license.The license key must reside in a genconf/license.txt file. This parameter is used when an user wants to directly specify the license in the config.yaml.
 Example: `license_key_contents: xyz`.
 
 ## log_directory
@@ -430,8 +430,8 @@ The Mesos master discovery method. The available options are `static` or `master
 *  `master_discovery: static`
    Specifies that Mesos agents are used to discover the masters by giving each agent a static list of master IPs. The masters must not change IP addresses, and if a master is replaced, the new master must take the old master's IP address.
 
-   **Note:** In AWS it is not possible to set a local IP address, thus master_discovery:static can not be utilized. 
-   
+   **Note:** In AWS it is not possible to set a local IP address, thus master_discovery:static can not be utilized.
+
    If you specify `static`, you must also specify this parameter:
 
     *  `master_list`
@@ -439,14 +439,14 @@ The Mesos master discovery method. The available options are `static` or `master
 
 *   `master_discovery: master_http_loadbalancer` The set of masters has an HTTP load balancer in front of them. The agent nodes will know the address of the load balancer. They use the load balancer to access Exhibitor on the masters to get the full list of master IPs. If you specify `master_http_load_balancer`, you must also specify these parameters:
 
-    *  `exhibitor_address` (Required) 
-       The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.12/security/ent/tls-ssl/). The load balancer must accept traffic on ports 443, 2181, 5050, and 8181. If the cluster is running in permissive or disabled security mode, the load balancer may also accept traffic on port 80 and 8080 for non-SSL HTTP access to services in the cluster. 
+    *  `exhibitor_address` (Required)
+       The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.12/security/ent/tls-ssl/). The load balancer must accept traffic on ports 443, 2181, 5050, and 8181. If the cluster is running in permissive or disabled security mode, the load balancer may also accept traffic on port 80 and 8080 for non-SSL HTTP access to services in the cluster.
          **Note:** Access to the cluster over port 80 and 8080 is insecure.
-       The traffic must also be forwarded to 443, 2181, 5050, and 8181 on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up. For more information on security modes, check [security modes documentation](/1.12/security/ent/#security-modes). 
+       The traffic must also be forwarded to 443, 2181, 5050, and 8181 on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up. For more information on security modes, check [security modes documentation](/1.12/security/ent/#security-modes).
 
        **Note:** The internal load balancer must work in TCP mode, without any TLS termination.
-       
-    *  `num_masters` (Required) 
+
+    *  `num_masters` (Required)
        The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
 
 **Note:**
@@ -560,7 +560,7 @@ Specify a security mode other than `security: permissive` (the default). The pos
 - `security: permissive`
 - `security: strict`
 
-**Note:** The disabled security mode is the same as OS security mode. 
+**Note:** The disabled security mode is the same as OS security mode.
 
 Refer to the [security modes](/1.12/security/ent/#security-modes) section for a detailed discussion of each parameter.
 
@@ -623,9 +623,9 @@ Currently, IPv6 networks are supported only for Docker containers. Setting this 
 ## dcos_l4lb_enable_ipv6
 Indicates whether layer-4 load-balancing is available for IPv6 containers.
 *  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.12/networking/load-balancing-vips) for IPv6 containers. This is the default value.
-*  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers. 
+*  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers.
 
-**Note:** Layer-4 load balancing for IPv6 containers should be turned on with caution. 
+**Note:** Layer-4 load balancing for IPv6 containers should be turned on with caution.
 
 ## dcos_ucr_default_bridge_subnet
 Takes an IPv4 subnet. The subnet is allocated to the bridge `ucr-br0` created by the `mesos-bridge` CNI network. The `mesos-bridge` CNI network represents the network that is used to launch UCR containers when bridge-mode networking is selected for UCR containers.
