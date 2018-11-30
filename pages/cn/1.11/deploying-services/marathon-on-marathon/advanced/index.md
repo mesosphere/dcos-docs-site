@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 使用有安全功能的自定义 Marathon 部署服务
 title: 使用有安全功能的自定义 Marathon 部署服务
@@ -290,7 +290,7 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
    for i in $PRIVATE_AGENT_IPS; do scp -o StrictHostKeyChecking=no docker.tar.gz core@$i:~/docker.tar.gz ; done
    ```
 # 第 5 步 - 创建服务帐户密钥
-在此步骤中，为 Marathon 服务帐户创建密钥，并存储在密钥存储库中。创建密钥 (`<path-to-secret-name>`) for your service account. The secret will contain the private key (`<private-key>.pem`) and the name of the service account (`<service-account-id>`).
+在此步骤中，为 Marathon 服务帐户创建密钥，并存储在密钥存储库中。为您的服务账号创建密钥 (`<path-to-secret-name>`)。 这个密钥会包含私钥 (`<private-key>.pem`) 和服务账号名 (`<service-account-id>`)。
 
 ### 已禁用
 
@@ -337,7 +337,7 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
 
 所有 CLI 命令也可通过 [IAM API](/cn/1.11/security/ent/iam-api) 执行。
 
-授予服务帐户 `<service-account-id>` permission to launch Mesos tasks that will execute as Linux user `nobody`。
+授予服务帐户 `<service-account-id>` 将以 Linux 用户 `nobody` 身份执行的启动 Mesos 任务的权限。
 要允许作为不同 Linux 用户执行任务，请将 `nobody` 替换为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请将 `nobody` 替换为以下的 `bob`。
 请注意， `nobody` 和 `root` 是默认出现在所有代理上的，但如果指定自定义 `bob` 用户，必须在可以执行这些任务的每个代理上手动创建（使用 `adduser` 或类似实用程序）。
 
@@ -698,7 +698,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:volume:prin
 
  - **访问单个服务或组**
 
- 指定服务或组 (`<service-or-group>`) and action (`<action>`). Actions can be either `创建`, `读取`, `更新`, `删除`, or `完整`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
+ 指定服务或组 (`<service-or-group>`) 和操作 (`<action>`). 操作可以是 `创建`, `读取`, `更新`, `删除`, 或 `完整`。 如需允许多个操作，用逗号分开，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
 
        ```bash
        dcos:adminrouter:service:<service-name> full

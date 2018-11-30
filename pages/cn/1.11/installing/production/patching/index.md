@@ -22,7 +22,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 ## 重要指南
 
 - 在修补 DC/OS 之前，请先查看 [版本注释](/cn/1.11/release-notes/)。
-- 由于覆盖网络存在集群配置问题，建议在修补或配置新集群时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已修补到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，则在 DC/OS 1.11.3 发布之前不要添加新节点。您可以在我们最新的重要 [产品咨询] 中找到更多信息和更稳固的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。
+- 由于Overlay 网络存在集群配置问题，建议在修补或配置新集群时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已修补到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，则在 DC/OS 1.11.3 发布之前不要添加新节点。您可以在我们最新的重要 [产品咨询] 中找到更多信息和更稳固的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。
 - `config.yaml` 文件中有几个必须在修补前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否已添加到 `config.yaml` 文件中。您可以查看 [此处]的样本文件 (1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file). 
 - 如果 IPv6 在内核中被禁用，则 IPv6 必须在 `config.yaml` 文件中禁用才能确保修补成功。
 - DC/OS Enterprise 现在执行许可证密钥。许可证密钥必须驻留在 genconf/license.txt 文件中，否则修补将失败。[enterprise type="inline" size="small" /]

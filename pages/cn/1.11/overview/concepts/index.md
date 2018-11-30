@@ -108,7 +108,7 @@ bootstrap 机是配置、构建和发布 DC/OS 安装程序工件的机器。
 - bootstrap 机在技术上不被视为是集群的一部分，因为它没有安装 DC/OS。对于大多数安装方法，必须可以通过基础架构网络来对集群中的机器进行 bootstrap 节点来回的访问。
 - bootstrap 机有时用作跳转盒来控制 SSH 访问集群中的其他节点，以提高安全性和日志记录。
 - 允许管理节点更改 IP 的一种方法涉及在 bootstrap 机上运行 ZooKeeper并使用 Exhibitor。其他替代方案包括使用 S3、DNS 或静态 IP，具有各种权衡需要考虑。如需更多信息，请参阅 [配置 Exhibitor 存储后端](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend)。
-- 如果管理主节点 IP 更改不需要使用 bootstrap 机或将其作为 SSH 跳转盒，可在启动后将其关闭并按需运行以 [添加新节点](/cn/1.11/administering-clusters/add-a-node/) 到集群。
+- 如果管理管理节点 IP 更改不需要使用 bootstrap 机或将其作为 SSH 跳转盒，可在启动后将其关闭并按需运行以 [添加新节点](/cn/1.11/administering-clusters/add-a-node/) 到集群。
 
 如需更多信息，请参阅 [系统要求](/cn/1.11/installing/production/system-requirements/#bootstrap-node)。
 
@@ -118,7 +118,7 @@ DC/OS 服务是一组或多个服务实例，可以作为一个组启动和停�
 
 - 服务目前是一个 DC/OS GUI 抽象，可转换为 CLI 和 API 中的 Marathon 应用程序和 Pod。这种区分将随着名称“服务”往上游推送到组件 API 而随时间变化改变。
 - 有时“服务”也可以指主机操作系统上的 `systemd` 服务。这些通常被视为组件，实际上不在 Marathon 或 Mesos 上运行。
-- 服务可以是系统服务或者用户服务。这种区分是新的并且随着命名空间转换为系统范围的第一类模式而不断发展。
+- 服务可以是系统服务或者用户服务。这种区分是新的并且随着命名空间转换为系统范围的一类范式而不断发展。
 
 ## <a name="marathon-service"></a>Marathon 服务
 
@@ -156,7 +156,7 @@ Marathon 服务由零个或多个容器化服务实例组成。每个服务实�
 
 用户服务是非系统服务的 Marathon 服务，它由系统的用户拥有。
 
-这种区分是新的，并且随着命名空间转换为系统范围的第一类模式，并映身到细粒度用户和用户组权限而不断发展。
+这种区分是新的，并且随着命名空间转换为系统范围的一类范式，并映身到细粒度用户和用户组权限而不断发展。
 
 **示例：** Jenkins、Cassandra、Kafka、Tweeter。
 
@@ -165,7 +165,7 @@ Marathon 服务由零个或多个容器化服务实例组成。每个服务实�
 DC/OS 服务组是用于命名空间和组织的分级式（路径式）DC/OS 服务集合。
 
 - 服务组目前仅适用于 Marathon 服务，不适用于 `systemd` 服务。
-- 这种区分可能随着命名空间转换为系统范围的第一类模式而改变。
+- 这种区分可能随着命名空间转换为系统范围的一类范式而改变。
 
 # <a name="dcos-job"></a>作业
 
@@ -242,7 +242,7 @@ Mesosphere Universe 是由 Mesosphere 管理的一个公共包注册表。
 - [框架](#mesos-framework)
 - [角色](#mesos-role)
 - [资源邀约](#mesos-resource-offer)
-- [容器化工具](#mesos-containerizer)
+- [Containerizer](#mesos-containerizer)
  - [通用容器运行时](#mesos-containerizer-universal-container-runtime)
  - [Docker 引擎](#mesos-containerizer-docker-engine)
 - [Exhibitor &amp; ZooKeeper](#mesos-exhibitor-zookeeper)
@@ -270,7 +270,7 @@ Mesos 代理节点是在代理节点上运行的一个进程，以管理该节�
 
 ## <a name="mesos-task"></a>任务
 
-Mesos 任务是一个抽象的工作单位，由 Mesos 执行器进行生命周期管理，在 DC/OS 代理节点上运行。任务通常是进程或线程，但可以只是单线程队列中的内联代码或项目，具体取决于其执行器的设计方式。Mesos 内置命令执行器将每个任务作为一个进程运行，可以由多个 [Mesos 容器化工具](#mesos-containerizer) 的一个进行容器化。
+Mesos 任务是一个抽象的工作单位，由 Mesos 执行器进行生命周期管理，在 DC/OS 代理节点上运行。任务通常是进程或线程，但可以只是单线程队列中的内联代码或项目，具体取决于其执行器的设计方式。Mesos 内置命令执行器将每个任务作为一个进程运行，可以由多个 [Mesos Containerizer](#mesos-containerizer) 的一个进行容器化。
 
 # <a name="mesos-executor"></a>执行器
 

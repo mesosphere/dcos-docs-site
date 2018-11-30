@@ -30,7 +30,7 @@ dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 
 ## 使用 DC/OS Enterprise CLI
 
-在终端提示符下，创建新服务帐户 (`<service-account-id>`) containing the public key (`<your-public-key>.pem`）。
+在终端提示符下，创建新服务帐户 (`<service-account-id>`) 它包括公钥 (`<your-public-key>.pem`）。
 
 ```bash
 dcos security org service-accounts create -p <your-public-key>.pem -d "<description>" <service-account-id>
@@ -60,7 +60,7 @@ dcos security org service-accounts show <service-account-id>
 
 
 # 创建密钥
-创建密钥 (`<secret-name>`) with your service account (`service-account-id>`) and private key specified (`<private-key>.pem`）。
+用您的服务账号 (`service-account-id>`) 和被提供的私钥 (`<private-key>.pem`） 创建密钥 (`<secret-name>`) 。
 
 ## 宽容
 
@@ -69,7 +69,7 @@ dcos security secrets create-sa-secret <private-key>.pem <service-account-id> <s
 ```
 
 ## 严格
-在严格模式下，服务帐户名称 (`<service-account-id>`) must match the name specified in the framework `principal`。
+在严格模式下，服务帐户名称 (`<service-account-id>`) 必须与在 `principal` 框架中的名称相对应。
 ```bash
 dcos security secrets create-sa-secret --strict <private-key>.pem <service-account-id> <secret-name>
 ```

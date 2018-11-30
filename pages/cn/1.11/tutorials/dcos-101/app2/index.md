@@ -43,7 +43,7 @@ menuWeight: 5
 从集群中访问应用程序并查看原始 HTML 响应证明我们的应用程序正在运行，但在现实世界中，您希望向公众公开应用程序。在本教程的下一部分，您将完全做到这一点。
 
 # 结果
- 您已经部署了第二个使用本地 Mesos 容器化工具的应用程序。
+ 您已经部署了第二个使用本地 Mesos Containerizer的应用程序。
 
 # 深入研究
 您现在以两种不同的方式部署了应用程序：
@@ -53,9 +53,9 @@ menuWeight: 5
 
 让我们更详细地探讨一下这些差异。
 
-DC/OS 使用[容器化工具](/cn/1.11/deploying-services/containerizers/)在容器中运行任务。容器中的运行任务提供了许多好处，包括将任务彼此隔离并以编程方式控制任务资源的能力。DC/OS 支持两种类型的容器化工具 - DC/OS Universal Container Runtime 和 Docker 容器化工具。
+DC/OS 使用[Containerizer](/cn/1.11/deploying-services/containerizers/)在容器中运行任务。容器中的运行任务提供了许多好处，包括将任务彼此隔离并以编程方式控制任务资源的能力。DC/OS 支持两种类型的Containerizer - DC/OS Universal Container Runtime 和 Docker Containerizer。
 
-对于第一个应用程序，您使用了 Docker 容器镜像来封装 app1 的依赖项（请记住：永远不要依赖于代理程序上安装的依赖项！），然后使用 了Docker 容器化工具来执行它。由于 Docker 容器化工具在内部使用 [Docker 运行时间](https://docs.docker.com/engine/userguide/intro/)，因此您还使用了 Docker 运行时间。
+对于第一个应用程序，您使用了 Docker 容器镜像来封装 app1 的依赖项（请记住：永远不要依赖于代理程序上安装的依赖项！），然后使用 了Docker Containerizer来执行它。由于 Docker Containerizer在内部使用 [Docker 运行时间](https://docs.docker.com/engine/userguide/intro/)，因此您还使用了 Docker 运行时间。
 
 对于第二个应用程序，您没有任何依赖项，因此可能依赖于默认的 DC/OS Universal Container Runtime。在内部，两个运行时间都使用相同的 OS 功能进行隔离，即 [cgroup](https://en.wikipedia.org/wiki/Cgroups) 和 [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces)。
 这实际上可以使用 DC/OS Universal Container Runtime 来运行 Docker 镜像 - 有关详细信息，请查看 [DC/OS Universal Container Runtime](/cn/1.11/deploying-services/containerizers/) 文档。

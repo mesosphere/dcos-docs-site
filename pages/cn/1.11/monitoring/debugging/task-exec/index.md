@@ -13,7 +13,7 @@ enterprise: false
 
 `dcos task exec` 命令允许您在任务的容器内执行任意命令，并将其输出返回到本地终端，以了解有关某个特定任务如何表现的更多信息。它提供了非常类似于 [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/) 体验，不需要 SSH 密钥。
 
-要使用调试功能，必须使用 Mesos 容器运行时或通用容器运行时来启动服务或作业。调试不能用于用 Docker 运行时启动的容器。如需更多信息，请参阅 [使用 Mesos 容器化工具](/cn/1.11/deploying-services/containerizers/)。
+要使用调试功能，必须使用 Mesos 容器运行时或通用容器运行时来启动服务或作业。调试不能用于用 Docker 运行时启动的容器。如需更多信息，请参阅 [使用 Mesos Containerizer](/cn/1.11/deploying-services/containerizers/)。
 
 您可以在下列模式下执行此命令。
 
@@ -239,4 +239,4 @@ enterprise: false
     ```
  
 ### 提示 
-您可以将简化缩写 `-i` 用于 `--interactive` 或将 `-t` 用于 `--tty`。此外，只有 `<task_id>` are required. For example, if your task ID is `exec-test_20161214195` and there are no other task IDs that begin with the letter `e`, this is valid command syntax: `dcos task exec -i -t e bash` 的起始唯一性字符。如需更多信息，请参阅 CLI 命令 [参考](/cn/1.11/cli/command-reference/)。
+您可以将简化缩写 `-i` 用于 `--interactive` 或将 `-t` 用于 `--tty`。此外，只有 `<task_id>` 是必须的。 例如，如果您的 task ID 是 `exec-test_20161214195` 而没有其他以字母 `e` 开头的 task IDs, 这是合理的指令语法: `dcos task exec -i -t e bash` 的起始唯一性字符。如需更多信息，请参阅 CLI 命令 [参考](/cn/1.11/cli/command-reference/)。

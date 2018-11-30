@@ -94,6 +94,6 @@ DC/OS 1.11 包含许多新功能，重点是：
 - DCOS_OSS-1340 - Spartan "autoip" DNS 解析到桥接网络中 UCR 的主机 IP。
 - DCOS_OSS-1449 - 从 CLI 移除对 `--appId` 的支持。
 - DCOS_OSS-1489 - 在 `dcos-metrics` 中增加对 cgroup blkio 统计信息的支持。
-- DCOS_OSS-2003 - 修改 DC/OS 覆盖网络以配合 ssystemd networkd 使用。
+- DCOS_OSS-2003 - 修改 DC/OS Overlay 网络以配合 ssystemd networkd 使用。
 
 **注意：** Kubernetes 包依赖关系记录 [在此处](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install)。

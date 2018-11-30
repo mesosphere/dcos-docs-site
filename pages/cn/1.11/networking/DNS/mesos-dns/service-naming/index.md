@@ -58,7 +58,7 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
  ;; ANSWER SECTION:
  search.marathon.mesos. 60 IN A 10.0.4.1
 
-除 `<task>.<service>.mesos` syntax shown above, Mesos-DNS also generates A records that contain the IP addresses of the agent nodes that are running the task: `<task>.<service>.slave.mesos` 。
+除上述 `<task>.<service>.mesos` 格式， Mesos-DNS 同时也会生成含有运行任务的代理节点的 IP 地址的 A records: `<task>.<service>.slave.mesos` 。
 
 例如，查询 `search.marathon.slave.mesos` 的 A 记录显示在 `marathon` 服务上运行 `search` 应用程序的一个或多个实例的每个代理节点的 IP 地址。
 

@@ -151,7 +151,7 @@ enterprise: false
     ls -la /etc/systemd/system/dcos-local-universe-*
     ```
 
-1. 将 Universe 加载到本地 Docker 个体实例中。
+1. 将 Universe 加载到本地 Docker 实例中。
 
     ```
     docker load < local-universe.tar.gz

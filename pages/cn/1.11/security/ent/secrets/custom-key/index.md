@@ -28,7 +28,7 @@ enterprise: true
 
 ## <a name="1"></a>编辑 SECRETS_BOOTSTRAP 值
 
-1. [通过 SSH 进入主节点](/cn/1.11/administering-clusters/sshcluster/)。
+1. [通过 SSH 进入管理节点](/cn/1.11/administering-clusters/sshcluster/)。
 
 2. 在您选择的编辑器中打开 `dcos-secrets.env` 文件。
 

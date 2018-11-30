@@ -86,7 +86,7 @@ Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: oom_reaper: rea
 
 ### 一般规律
 
-在我们处理失败任务时，最好检查应用程序和调度程序日志（在本例中，我们的调度程序是 Marathon）。如果这样做不够，可以帮助查看 Mesos 代理节点日志和/或在使用 UCR（或在 Docker 容器化工具中，通过 ssh 进入节点并使用 `docker exec`）时使用 `dcos task exec`。
+在我们处理失败任务时，最好检查应用程序和调度程序日志（在本例中，我们的调度程序是 Marathon）。如果这样做不够，可以帮助查看 Mesos 代理节点日志和/或在使用 UCR（或在 Docker Containerizer中，通过 ssh 进入节点并使用 `docker exec`）时使用 `dcos task exec`。
 
 ### 清除
 

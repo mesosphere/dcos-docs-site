@@ -276,7 +276,7 @@ enable_ipv6: 'false'
 
 **注意：**
 
-- 由于覆盖网络存在集群配置问题，建议在升级或配置新集群时，在 `config.yaml` 中将 `enable_ipv6` 设置为 `false`。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，请不要添加新节点。可以在我们最新的重要 [产品咨询] 中找到更多信息和更详细的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。[enterprise type="inline" size="small" /]
+- 由于Overlay 网络存在集群配置问题，建议在升级或配置新集群时，在 `config.yaml` 中将 `enable_ipv6` 设置为 `false`。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，请不要添加新节点。可以在我们最新的重要 [产品咨询] 中找到更多信息和更详细的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。[enterprise type="inline" size="small" /]
 - 必须生效以下项目才能安装 DC/OS：所有 DC/OS 节点上的 IP 检测脚本、DNS 和 NTP 均已同步时间。参见 [故障排除](/cn/1.11/installing/ent/troubleshooting/)，了解更多信息。
 - 如果出现问题并且您想重新运行设置，请使用集群 [卸载] [11]说明。
 
@@ -342,7 +342,7 @@ enable_ipv6: 'false'
     sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
     ```
 
-3. <A name="masterinstall"></A>在使用自定义生成文件安装 DC/OS 之后，继续在每个主节点上运行以下命令：
+3. <A name="masterinstall"></A>在使用自定义生成文件安装 DC/OS 之后，继续在每个管理节点上运行以下命令：
 
  * SSH 连接到管理节点。
 

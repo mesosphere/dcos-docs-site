@@ -174,7 +174,7 @@ DC/OS 作业（节拍器）编排短期的、计划的或即时的容器化作�
 <a name="universal-container-runtime"></a>
 ## 通用容器运行时
 
-通用容器运行时（Mesos 容器化工具）是内置于 Mesos 代理节点的逻辑组件，严格来说不是一个单独的进程。它使用可配置的隔离器对 Mesos 任务执行容器化。通用容器运行时支持多种图像格式，包括 Docker 镜像，无需使用 Docker 引擎。
+通用容器运行时（Mesos Containerizer）是内置于 Mesos 代理节点的逻辑组件，严格来说不是一个单独的进程。它使用可配置的隔离器对 Mesos 任务执行容器化。通用容器运行时支持多种图像格式，包括 Docker 镜像，无需使用 Docker 引擎。
 
 ### 系统服务
 
@@ -182,7 +182,7 @@ DC/OS 作业（节拍器）编排短期的、计划的或即时的容器化作�
 
 **另请参阅：**
 
-- [Mesos 容器化工具文档](http://mesos.apache.org/documentation/latest/containerizers/)
+- [Mesos Containerizer文档](http://mesos.apache.org/documentation/latest/containerizers/)
 
 <a name="docker-engine"></a>
 ## Docker 引擎

@@ -291,7 +291,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将配置 Mesos 的 
         *  `overlays`
  * `name` 典型名称（参见 [限制](/cn/1.11/networking/virtual-networks/)，了解有关命名虚拟网络的限制）。
  * `subnet` 分配给虚拟网络的子网。
- * `prefix` 分配给每个代理的子网大小，进而定义覆盖网络可运行的代理的数量。子网的大小在覆盖子网中创建。
+ * `prefix` 分配给每个代理的子网大小，进而定义Overlay 网络可运行的代理的数量。子网的大小在 Overlay 子网中创建。
 
  如需更多信息，请参阅 [示例](/cn/1.11/installing/ent/custom/configuration/examples/#overlay) 和 [文档](/cn/1.11/networking/virtual-networks/)。
 
@@ -587,7 +587,7 @@ SSH 用户名，例如 `centos`。
 * `enable_ipv6: 'false'`：请在 DC/OS 中禁用 IPv6 网络。
 
 目前，IPv6 网络仅有 Docker 容器受支持。将此标记设置为 `true`，就可以启用以下功能：
-* 用户可以创建 IPv6 DC/OS 覆盖网络。**注意：** 此操作仅适用于 Docker 容器。
+* 用户可以创建 IPv6 DC/OS Overlay 网络。**注意：** 此操作仅适用于 Docker 容器。
 * IPv6 容器的服务发现将可用。
 * 如果将 [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) 设置为 `true`，IPv6 Docker 容器即可使用第 4 层负载均衡。
 

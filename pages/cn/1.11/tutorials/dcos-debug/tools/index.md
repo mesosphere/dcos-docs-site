@@ -256,7 +256,7 @@ dcos task exec -it <mycontainerid>
 
 **注意** 如果您在以上述方式使用 `dcos task exec` 时更改容器的状态，则必须更新存储的 `app-definition` 并从更新的 `app-definition` 重新启动容器。如果您未能执行此操作，那么您的更改将在下次重新启动容器时丢失。
 
-或者，当使用 docker 容器化工具时，您可以通过 SSH 连接到相关节点并运行 [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/) 来调查正在运行的容器。
+或者，当使用 Docker Containerizer时，您可以通过 SSH 连接到相关节点并运行 [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/) 来调查正在运行的容器。
 
 <a name="endpoints"></a>
 

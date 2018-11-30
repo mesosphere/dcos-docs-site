@@ -16,7 +16,7 @@ excerpt: 升级 DC/OS 集群
 
 
 - 在升级 DC/OS 之前，请先查看 [版本注释](/cn/1.11/release-notes/)。
-- 由于覆盖网络存在集群配置问题，建议在升级或配置新集群时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，则在 DC/OS 1.11.3 发布之前不要添加新节点。可以在我们最新的重要 [产品咨询] 中找到更多信息和更详细的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。[enterprise type="inline" size="small" /]
+- 由于Overlay 网络存在集群配置问题，建议在升级或配置新集群时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，则在 DC/OS 1.11.3 发布之前不要添加新节点。可以在我们最新的重要 [产品咨询] 中找到更多信息和更详细的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。[enterprise type="inline" size="small" /]
 - `config.yaml` 文件中有几个必须在升级前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否已添加到 `config.yaml` 文件中。您可以在 [此处](/latest/installing/ent/custom/advanced/#create-a-configuration-file) 查看示例文件。[enterprise type="inline" size="small" /]
 - 如果 IPv6 在内核中被禁用，则 IPv6 必须在 `config.yaml` 文件中禁用才能确保升级成功。
 - 高级安装方法是 DC/OS 的唯一建议升级路径。建议您熟悉 [高级 DC/OS 安装指南](/cn/1.11/installing/oss/custom/advanced) 后再继续操作。

@@ -23,7 +23,7 @@ dcos node list-components [OPTION]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `--json` | 显示 JSON 格式的数据。|
-| `--leader` | 主节点。|
+| `--leader` | 管理节点。|
 | `--mesos-id=<mesos-id>` | 节点的代理 ID。|
 
 # 父命令

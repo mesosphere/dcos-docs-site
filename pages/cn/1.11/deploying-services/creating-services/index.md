@@ -113,7 +113,7 @@ Marathon 应用程序通常代表长期运行的服务，有许多实例在多�
 
 以下示例使用了 Marathon API 将 Docker 应用程序部署到 DC/OS。Docker 应用程序是基于 Python 的 Web 服务器，使用 [python:3](https://registry.hub.docker.com/_/python/) 镜像。在容器内，Web 服务器在端口 `80`（`containerPort`的值）上运行。 `hostPort` 设置为 `0` 以让 Marathon 在 Mesos 代理节点上分配一个随机端口，该端口映射到容器内的端口 80。
 
-1. 选择是否使用 Universal Container Runtime (UCR) 或 Docker Engine 运行时间。请参阅[使用容器化工具](/cn/1.11/deploying-services/containerizers/)。
+1. 选择是否使用 Universal Container Runtime (UCR) 或 Docker Engine 运行时间。请参阅[使用Containerizer](/cn/1.11/deploying-services/containerizers/)。
  - 若要使用 Universal Container Runtime (UCR)，请将以下 JSON 粘贴到名为 `basic-3-mesos.json` 的文件中：
 
       ```json

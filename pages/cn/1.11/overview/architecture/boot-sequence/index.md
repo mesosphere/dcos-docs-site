@@ -21,7 +21,7 @@ enterprise: false
  1. 处理内部 DNS 转换
  1. 将 .mesos DNS 查找转发给 Mesos-DNS
  1. 初始化 VIP 转换
- 1. 初始化覆盖网络
+ 1. 初始化Overlay 网络
 1. Mesos 管理节点启动
  1. 向本地 ZooKeeper 注册
  1. 发现来自 ZooKeeper 的其他 Mesos 管理节点
@@ -56,7 +56,7 @@ enterprise: false
  1. 处理内部 DNS 转换
  1. 将 .mesos DNS 查找转发给 Mesos-DNS
  1. 初始化 VIP 转换
- 1. 初始化覆盖网络
+ 1. 初始化Overlay 网络
 1. Mesos 代理节点启动
  1. 发现来自 ZooKeeper 的首要 Mesos 管理节点
  1. 向首要 Mesos 管理节点注册
