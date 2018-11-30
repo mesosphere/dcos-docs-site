@@ -9,15 +9,17 @@ oss: true
 
 可以使用 Terraform 在 DigitalOcean 上创建 DC/OS 群集。
 
-随附的 Terraform 模板设置为能在 DigitalOcean 上运行 Mesosphere DC/OS。根据安装的 DC/OS 服务或工作负载所需的计算量，可能须要修改模板才能满足需求。可以修改 Terraform 模板，但 Mesosphere 不能协助完成故障排除。如果需要有关 Droplet 创建或其他相关问题的支持，请发送电子邮件至 support@digitalocean.com，访问非官方的 DigitalOcean IRC 频道（#digitalocean on freenode）或考虑 [DC / OS Enterprise] (https://mesosphere.com/)。
+<p class="message--warning"><strong>免责声明：</strong>请注意，这是 <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">社区推动的项目</a>，未正式获得 Mesosphere 支持。</p>
 
-**免责声明：请注意，这是 [社区推动的项目](https://github.com/dcos/terraform-dcos/tree/master/gcp)，未正式获得 Mesosphere 支持。**
+随附的 Terraform 模板设置为能在 DigitalOcean 上运行 Mesosphere DC/OS。根据安装的 DC/OS 服务或工作负载所需的计算量，可能须要修改模板才能满足需求。可以修改 Terraform 模板，但 Mesosphere 不能协助完成故障排除。如果需要有关 Droplet 创建或其他相关问题的支持，请发送电子邮件至 support@digitalocean.com，访问非官方的 DigitalOcean IRC 频道（#digitalocean on freenode）或考虑 [DC / OS Enterprise](https://mesosphere.com/)。
 
-**注意：** 此安装方法不支持升级。
+
+
+<p class="message--important"><strong>重要信息: </strong>此安装方法不支持升级。</p>
 
 ## 安全
 
-**注意：** 通过 Terraform 部署后，所有节点都默认面向互联网，并且未在开箱时设加防护。将管理节点和代理节点放入安全组需要其他配置。
+<p class="message--note"><strong>注意: </strong> 通过 Terraform 部署后，所有节点都默认面向互联网，并且未在开箱时设加防护。将管理节点和代理节点放入安全组需要其他配置。</p>
 
 ## 环境
 

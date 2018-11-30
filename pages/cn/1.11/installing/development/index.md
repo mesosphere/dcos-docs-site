@@ -5,7 +5,7 @@ title: 开发
 menuWeight: 5
 excerpt: 安装 DC/OS 进行开发和测试
 ---
-
+ 
 以下工具自动执行本地安装 DC/OS 以进行开发和测试：
 
 - [DC/OS Vagrant](https://github.com/dcos/dcos-vagrant/)——在虚拟节点上使用 Vagrant 和 VirtualBox 的 DC/OS

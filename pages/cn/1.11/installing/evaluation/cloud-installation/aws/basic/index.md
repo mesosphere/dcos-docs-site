@@ -17,11 +17,7 @@ excerpt: 使用 DC/OS 模板创建 DC/OS 群集
 
 有关完整的 DC/OS 配置选项集，请参阅 [高级 AWS 安装指南](/cn/1.11/installing/ent/cloud/aws/advanced/)。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>此安装方法不支持升级。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>此安装方法不支持升级。</p>
 
 # 系统要求
 
@@ -56,11 +52,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 3. 在 **选择模板** 页面的**选择模板**字段，单击指定 **Amazon S3 模板 URL** 单选按钮，然后将销售发送的模板 URL 粘贴进去。
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>警告：</strong>请勿单击 <strong>查看/编辑设计程序中的模板</strong> 链接并编辑模板。DC/OS 模板是为运行 DC/OS 配置的。如果修改模板，您可能无法在 DC/OS 群集上运行某些包。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>警告：</strong>请勿单击 <strong>查看/编辑设计程序中的模板</strong> 链接并编辑模板。DC/OS 模板是为运行 DC/OS 配置的。如果修改模板，您可能无法在 DC/OS 群集上运行某些包。</p>
 
  ![Launch stack](/cn/1.11/img/dcos-aws-step2b.png)
 
@@ -90,11 +82,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 3. 在 **指定详情** 页面指定群集名称（`Stack name`）、密钥对（`KeyName`）、是否启用 OAuth 身份认证（`OAuthEnabled`）、公共代理节点数（`PublicSlaveInstanceCount`）、专用代理节点数（`SlaveInstanceCount`），然后单击 **下一步**。
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>警告：</strong>请勿单击 <strong>查看/编辑设计程序中的模板</strong> 链接并编辑模板。DC/OS 模板是为运行 DC/OS 配置的。如果修改模板，您可能无法在 DC/OS 群集上运行某些包。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>警告：</strong>请勿单击 <strong>查看/编辑设计程序中的模板</strong> 链接并编辑模板。DC/OS 模板是为运行 DC/OS 配置的。如果修改模板，您可能无法在 DC/OS 群集上运行某些包。</p>
 
 
 4. 转到“所有用户”部分的第 6 步。
@@ -115,12 +103,8 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 * 群集堆栈启动需要 10 到 15 分钟时间。
 * 状态从 CREATE_IN_PROGRESS 更改为 CREATE_COMPLETE。
 
-**故障排除：** ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅**事件**选项卡。
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅 <strong>事件</strong> 选项卡。</td> 
-</tr> 
-</table>
+
+<p class="message--important"><strong>重要信息：</strong>ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅 <strong>事件</strong> 选项卡。</p>
 
 # <a name="launchdcos"></a>打开并登录 DC/OS GUI
 
@@ -138,7 +122,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
  图 6. DC/OS Web 界面登录画面。
 
- **注意：** 可能需要调整窗口大小以查看此选项卡。可以随时在 [AWS CloudFormation 管理](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fcloudformation%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fcloudformation&forceMobileApp=0) 页面找到 DC/OS 主机名。
+ <p class="message--note"><strong>注意: </strong> 可能需要调整窗口大小以查看此选项卡。可以随时在 <a href="https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fcloudformation%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fcloudformation&forceMobileApp=0">AWS CloudFormation 管理</a> 页面找到 DC/OS 主机名。</p>
 
 4. 输入超级用户帐户的用户名和密码。默认用户名为 `bootstrapuser`，默认密码 `deleteme`。单击 **登录**。[enterprise type="inline" size="small" /]
 

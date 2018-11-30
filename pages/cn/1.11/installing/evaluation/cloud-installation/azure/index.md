@@ -9,7 +9,9 @@ oss: true
 
 本页面说明如何使用 Azure 资源管理器模板安装 DC/OS 1.11。
 
-**注意：** 要获得 Azure 市场相关问题的支持，请加入 Azure 市场 [Slack 社区](http://join.marketplace.azure.com)。
+<p class="message--warning"><strong>免责声明：</strong>请注意，这是 <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">社区推动的项目</a>，未正式获得 Mesosphere 支持。</p>
+
+<p class="message--note"><strong>注意: </strong> 要获得 Azure 市场相关问题的支持，请加入 Azure 市场 <a href="http://join.marketplace.azure.com">Slack 社区</a>。</p>
 
 - 这种安装方法不支持升级。
 

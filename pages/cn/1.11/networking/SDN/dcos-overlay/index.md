@@ -12,7 +12,7 @@ enterprise: false
 
 DC/OS 覆盖网络 (Overlay) 是一种 SDN 解决方案，适用于到货时预封装有 DC/OS 的 UCR 和 Docker 容器，默认情况下处于启用状态。DC/OS 覆盖网络可以运行给定 DC/OS 群集中的多个虚拟网络实例。从 DC/OS 1.11 开始，DC/OS 覆盖网络就支持创建 IPv6 网络。
 
-**注意：** IPv6 支持仅适用于 Docker 容器。
+<p class="message--note"><strong>注意: </strong> IPv6 支持仅适用于 Docker 容器。</p>
 
 DC/OS 覆盖网络提供的功能包括：
 * Mesos 和 Docker 容器均可从单个节点的内部以及在群集上的节点之间通信。

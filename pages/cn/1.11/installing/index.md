@@ -21,7 +21,7 @@ DC/OS 安装方法如下：
 本节提供安装方法的概述。根据您的要求使用以下安装方法。
 
 ## 开发 
-可以使用 [本地安装方法] 运行群集(/cn/1.11/installing/development/)。此方法适合新用户或开发人员用于服务或修改 DC/OS。Vagrant 安装工具提供一种快速免费的方式，在单台机器上部署虚拟群集。
+可以使用 [本地安装方法](/cn/1.11/installing/development/) 运行群集。此方法适合新用户或开发人员用于服务或修改 DC/OS。Vagrant 安装工具提供一种快速免费的方式，在单台机器上部署虚拟群集。
  
 
 ## 评估 
@@ -37,10 +37,10 @@ DC/OS 安装方法如下：
 - [在 Google 云端平台 (GCE) 上提供 DC/OS](/cn/1.11/installing/evaluation/cloud-installation/gce/)：使用安装脚本在 Google 计算引擎 (GCE) 上安装 DC/OS 群集。此安装方法不支持升级。
 - [在 Packet 裸机上提供 DC/OS](/cn/1.11/installing/evaluation/cloud-installation/packet/)：裸机环境是计算机系统或网络，其中的虚拟机直接安装在硬件上，而不是安装在主机操作系统 (OS) 内。使用配置为在 Packet 上运行 Mesosphere DC/OS 的 Terraform 模板在 Packet 裸机上安装 DC/OS 群集。
  
- **注意：** 安装可以就地升级的生产就绪的 DC/OS 的推荐方法是使用 [生产安装] (/cn/1.11/installing/production/) 方法。
+ <p class="message--note"><strong>注意: </strong> 安装可以就地升级的生产就绪的 DC/OS 的推荐方法是使用 <a href="/cn/1.11/installing/production/">生产安装</a> 方法。</p>
 
 ### 本地安装
-[本地安装](/cn/1.11/installing/evaluation/on-premise-installation/) 方法在 [DC/OS labs 存储库] (https://github.com/dcos-labs)作了说明。各种类型的本地安装方法包括：
+[本地安装](/cn/1.11/installing/evaluation/on-premise-installation/) 方法在 [DC/OS labs 存储库](https://github.com/dcos-labs)作了说明。各种类型的本地安装方法包括：
 - [使用 Ansible](https://github.com/dcos-labs/ansible-dcos/blob/master/docs/INSTALL_ONPREM.md)
 - [使用 Chef](https://github.com/dcos-labs/dcos-chef)
 - [使用  Puppet](https://github.com/dcos-labs/dcos-puppet)

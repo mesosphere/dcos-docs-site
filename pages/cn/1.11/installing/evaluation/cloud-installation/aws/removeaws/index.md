@@ -6,7 +6,6 @@ menuWeight: 15
 excerpt: 卸载 AWS EC2 上运行的 DC/OS
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 可以使用本说明卸载 AWS EC2 上运行的 DC/OS。
 
