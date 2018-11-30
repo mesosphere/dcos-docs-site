@@ -4,10 +4,9 @@ navigationTitle: 管理 JSON Web 令牌
 title: 管理 JSON Web 令牌
 menuWeight: 200
 excerpt: 管理 JSON Web 令牌
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 # 刷新令牌
 服务可以使用各种方式刷新其令牌。理想情况下，服务应计算令牌到期之前的时间长度，该时间长度嵌入令牌本身，并在它到期之前请求新的令牌。但是，服务也可以等待，直到其收到 `401` 以请求新令牌。
@@ -46,7 +45,7 @@ curl localhost:8101/acs/api/v1/auth/jwks
 ## 从 JWKS 数据构建公共验证序号
 完全定义 RSA 公钥的两个参数是模数 (`n`)和指数 (`e`)。两者均为整数。在上一个示例中，指数参数以 `e` 的值编码，模数以 `n` 的值编码。
 
-整数是“Base64urLuInt”编码。此编码由 [RFC 7518] 指定(https://tools.ietf.org/html/rfc7518#section-6.3)：
+整数是“Base64urLuInt”编码。此编码由 [RFC 7518](https://tools.ietf.org/html/rfc7518#section-6.3) 指定：
 
 <blockquote>将正整数值或零的值表示为值的无符号大端表示的 base64url 编码作为八位字节序列。八位字节序列 **必须**使用代表值所需的最小八位字节数。零表示为 BASE64URL（单个零值八位字节），即“AA”。</blockquote>
 

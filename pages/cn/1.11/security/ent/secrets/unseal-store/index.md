@@ -4,10 +4,9 @@ navigationTitle: 拆封密钥存储库
 title: 拆封密钥存储库
 menuWeight: 3
 excerpt: 拆封密钥存储库
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 # 关于拆封密钥存储库
 
@@ -46,7 +45,7 @@ enterprise: true
    {"sealed":true,"threshold":1,"shares":1,"progress":0}
    ```
 
- 如果 `"sealed"` 的值是 `false`，则不完成本程序的其余部分。如果密钥存储库未密封，则无法拆封它。
+    如果 `"sealed"` 的值是 `false`，则不完成本程序的其余部分。如果密钥存储库未密封，则无法拆封它。
 
 1. 使用以下 `curl` 命令拆封密钥存储库。
 

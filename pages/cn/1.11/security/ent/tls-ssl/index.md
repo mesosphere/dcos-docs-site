@@ -4,10 +4,8 @@ navigationTitle: 确保与 TLS 通信的安全
 title: 确保与 TLS 通信的安全
 menuWeight: 120
 excerpt: 使用 TLS 证书确保加密通信的安全
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 在 `permissive` 和 `strict` 安全模式下，DC/OS 证书颁发机构 (CA) 签署 TLS 证书，并在 bootstrap 序列期间将其设置好，提供给 systemd-started 服务。这就完成了加密通信，无需手动干预。每个 DC/OS 群集都有自己的 DC/OS CA 和唯一的根证书。因为 DC/OS CA 不会出现在受信任证书颁发机构的任何列表中，来自群集外的请求，如来自浏览器或 `curl` 的请求，将导致警告消息。要建立与 DC/OS 群集的可信通信，并停止警告消息：

@@ -6,7 +6,6 @@ menuWeight: 500
 excerpt: 查看、创建和签署证书 
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 # 关于证书颁发机构 API
@@ -17,7 +16,7 @@ DC/OS 证书颁发机构 API 让您查看 DC/OS Enterprise 所使用的 TLS 证�
 
 API 仅支持 JSON。您必须在 HTTP 报文头中包含 `application/json` 作为 `Content-Type`，如下所示。
 
- Content-Type: application/json
+    Content-Type: application/json
 
 
 ## 主机名和基本路径

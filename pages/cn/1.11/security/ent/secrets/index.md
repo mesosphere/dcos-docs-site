@@ -7,7 +7,6 @@ excerpt: 了解密钥存储库
 
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 DC/OS Enterprise 密钥存储库可以保护敏感信息，如数据库密码、API 令牌和私钥。在密钥路径中存储密钥让您限制哪些服务可以检索值。

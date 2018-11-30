@@ -4,10 +4,9 @@ navigationTitle: 基于身份提供程序的身份认证
 title: 基于身份提供程序的身份认证
 menuWeight: 70
 excerpt: 配置基于身份提供程序的身份认证
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 要在组织中提供单点登录 (SSO)，您可以配置 DC/OS Enterprise 来针对一个或多个外部用户身份提供程序 (Idp) 对用户进行身份认证。与基于目录的身份认证相反，基于身份提供程序的身份认证不是那么丰富（可用的信息较少），但对单个用户而言更灵活。
 

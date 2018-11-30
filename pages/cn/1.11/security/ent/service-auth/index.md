@@ -4,10 +4,9 @@ navigationTitle: 服务认证
 title: 服务认证
 menuWeight: 80
 excerpt: 认证服务帐户
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 服务帐户与公私验证序号对、密钥、权限和认证令牌一起使用，以提供 DC/OS [服务](/cn/1.11/overview/concepts/#dcos-service) 对 DC/OS 的访问权限。服务帐户控制允许服务进行的通信和 DC/OS API 操作。
 

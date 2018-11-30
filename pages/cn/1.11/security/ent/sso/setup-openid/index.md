@@ -4,10 +4,9 @@ navigationTitle: 配置 OpenID Connect IdP
 title: 配置 OpenID 身份提供程序
 menuWeight: 2
 excerpt: 配置 OpenID 身份提供程序
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 
 本页面讨论了 OpenID Idp 的一般要求，并提供了设置 OneLogin IdP 的分步步骤。DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Idp) 集成。以下步骤将采用 Google IdP 作为示例，并引导您完成设置流程的每个步骤。
@@ -22,7 +21,7 @@ enterprise: true
 
 1. 如果您已经有项目，请单击 **Select a Project**，选择项目，然后单击 **Open**。
 
- 如果您还没有项目，请单击 **Create a project**，在 **Project Name** 框中键入项目名称，选择加入或退出电子邮件通信，接受服务条款，然后单击 **Create**。
+    如果您还没有项目，请单击 **Create a project**，在 **Project Name** 框中键入项目名称，选择加入或退出电子邮件通信，接受服务条款，然后单击 **Create**。
 
 1. 在 **Credentials** 对话框中，选择 **OAuth client ID**。
 
@@ -30,15 +29,15 @@ enterprise: true
 
 1. 下一个屏幕允许您提供一系列信息，以便在用户提供凭据时显示给用户。至少，您必须在 **Product name shown to users** 框中指定 IdP 的名称。
 
-1. 点击**保存**。
+1. 点击**Save**。
 
-1. 选择 **Web 应用程序** 作为 **应用程序类型**。
+1. 选择 **Web Application** 作为 **Application type**。
 
 1. 在 **Name** 框中键入 IdP 的名称。
 
 1. 将群集的 URL 粘贴到 **Authorized Javascript origins**框中。示例：`https://jp-ybwutd-elasticl-1r2iui8i0z9b7-1590150926.us-west-2.elb.amazonaws.com`
 
- 如果您的群集前端有负载均衡器（推荐），则群集 URL 将成为负载均衡器的路径。群集 URL 与 DC/OS Web 界面的路径相同，可从浏览器栏复制。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。
+    如果您的群集前端有负载均衡器（推荐），则群集 URL 将成为负载均衡器的路径。群集 URL 与 DC/OS Web 界面的路径相同，可从浏览器栏复制。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。
 
 1. 也将您的群集 URL 粘贴到 **Authorized redirect URIs** 字段。
 
@@ -70,9 +69,9 @@ enterprise: true
 
 1. 将客户端密钥从 Google 粘贴到 **Client Secret** 字段。
 
- ![Google IdP 配置](/cn/1.11/img/oidc-google.png)
+    ![Google IdP 配置](/cn/1.11/img/oidc-google.png)
 
- 图 1. Google IdP 配置
+    图 1. Google IdP 配置
 
 11. 单击 **Submit**。
 
@@ -100,7 +99,7 @@ enterprise: true
 
 1. 单击以允许 DC/OS 访问您的 Google 帐户信息。
 
-1. 您应该看到来自 DC/OS 的**访问被拒绝**消息。这表示登录成功，用户帐户已添加到 DC/OS，但新用户没有权限，因此无法查看 DC/OS Web 界面中的任何内容。
+1. 您应该看到来自 DC/OS 的**Access Denied**消息。这表示登录成功，用户帐户已添加到 DC/OS，但新用户没有权限，因此无法查看 DC/OS Web 界面中的任何内容。
 
 1. 单击 **LOG OUT**。
 
@@ -134,9 +133,9 @@ enterprise: true
 
 1. 您应该看到类似以下内容的消息。
 
- ![CLI IdP 认证令牌](/cn/1.11/img/cli-auth-token.png)
+    ![CLI IdP 认证令牌](/cn/1.11/img/cli-auth-token.png)
 
- 图 2. CLI IdP 认证令牌
+    图 2. CLI IdP 认证令牌
 
 1. 单击 **Copy to clipboard**。
 

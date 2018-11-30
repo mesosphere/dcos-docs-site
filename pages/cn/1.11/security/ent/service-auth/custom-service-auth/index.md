@@ -3,10 +3,8 @@ layout: layout.pug
 title: 认证 DC/OS 服务
 menuWeight: 100
 excerpt: 为自定义应用程序和 pod 配置身份认证
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 本主题详细介绍了如何为在 DC/OS 上启动的自定义应用程序和 Pod 配置身份认证。
 
@@ -120,9 +118,9 @@ dcos security secrets list /
 
 授予权限 (`dcos:mesos:master:framework:role:cassandra-role`) 和允许的操作 (`create`)。
 
-    ```bash
-    dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:cassandra-role create --description "Controls the ability of cassandra-role to register as a framework with the Mesos master"
-    ```
+```bash
+dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:cassandra-role create --description "Controls the ability of cassandra-role to register as a framework with the Mesos master"
+```
 
 ### 使用 Web 界面
 
@@ -130,9 +128,9 @@ dcos security secrets list /
 1. 选择 **Organization > Service Accounts**。
 1. 选择要授予权限的服务账户名称。
 
- ![选择服务帐户](/cn/1.11/img/add-service-account-permission.png)
+    ![选择服务帐户](/cn/1.11/img/add-service-account-permission.png)
 
- 图 3. 选择服务帐户
+    图 3. 选择服务帐户
 
 1. 从 **Permissions** 选项卡中，单击 **ADD PERMISSION**。
 1. 单击 **INSERT PERMISSION STRING** 以切换对话框。

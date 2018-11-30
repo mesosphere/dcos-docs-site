@@ -4,10 +4,9 @@ navigationTitle: 重新初始化密钥存储库
 title: 使用自定义 GPG 密钥对重新初始化密钥存储库
 menuWeight: 15
 excerpt: 使用自定义 GPG 密钥对重新初始化密钥存储库
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 您可以使用自定义 GPG 密钥对重新初始化密钥存储库。执行此操作步骤包括：
 
@@ -78,11 +77,12 @@ enterprise: true
 
 1. 执行以下 ZooKeeper 命令以获得额外权限，必要时使用 ZooKeeper 超级用户的实际用户名和密码替换 `super:secret` 。
 
- **注意：**默认情况下，DC/OS 将 ZooKeeper 超级用户设置为 `super:secret`，但我们建议[更改默认值](1.11/install/production/advanced-configuration/configuration-reference/#zk-superuser)。
+    <p class="message--note"><strong>注意: </strong>
+  默认情况下，DC/OS 将 ZooKeeper 超级用户设置为 <tt>super:secret</tt>，但我们建议<a href="/cn/1.11/install/production/advanced-configuration/configuration-reference/#zk-superuser">更改默认值</a>。</p>
 
-   ```bash
-   addauth digest super:secret
-   ```
+  ```bash
+  addauth digest super:secret
+  ```
 
 3. 删除 `/dcos/vault/default` 和 `rmr /dcos/secrets` 目录，如下所示。
 
@@ -141,13 +141,14 @@ enterprise: true
 
 1. 使用以下命令导出公钥，对其进行 base64 编码并删除换行符。在执行命令之前，将下面的 <key-ID><key-ID>替换为公钥的字母数字 ID。
 
- **注意：**在以下行 `gpg: key CCE6A37D marked as ultimately trusted` 中， `CCE6A37D` 表示公钥的 ID。
+ <p class="message--note"><strong>注意: </strong>
+在以下行 <tt>gpg: key CCE6A37D marked as ultimately trusted</tt> 中， <tt>CCE6A37D</tt> 表示公钥的 ID。</p>
 
    ```bash
    gpg --export <key-ID> | base64 -w 0 | tr '\n' ' '
    ```
 
-1. 复制 GPG 返回的值。这是 base64 编码格式的公共 GPG 密钥。
+5. 复制 GPG 返回的值。这是 base64 编码格式的公共 GPG 密钥。
 
 1. 在您的终端提示符中打开新选项卡。
 
