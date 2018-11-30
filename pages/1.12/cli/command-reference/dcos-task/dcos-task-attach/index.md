@@ -12,11 +12,11 @@ enterprise: false
 
 The `dcos task attach` command allows you to attach the CLI to the stdio of an already running task.
 
-# Usage
-
 ```bash
 dcos task attach [--no-stdin] <task>
 ```
+
+To detach from a task, type the sequence `CTRL-p CTRL-q`.
 
 # Options
 
