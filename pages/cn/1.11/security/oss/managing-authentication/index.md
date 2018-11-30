@@ -6,10 +6,9 @@ title: 身份认证管理
 menuWeight: 20
 ---
 
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-DC/OS 用户数据库通过在路径 `/dcos/users` 下 [znodes](https://zookeeper.apache.org/doc/r3.1.2/zookeeperProgrammers.html#sc-zkDataModel-znodes) 中的管理节点上运行而保留在 ZooKeeper 中。在 HTTP 授权标题中发送至 DC/OS 的令牌必须采用以下格式：`token=<token>`. In future versions `Bearer <token>` 还将受到支持 。
+DC/OS 用户数据库通过在路径 `/dcos/users` 下 [znodes](https://zookeeper.apache.org/doc/r3.1.2/zookeeperProgrammers.html#sc-zkDataModel-znodes) 中的管理节点上运行而保留在 ZooKeeper 中。在 HTTP 授权标题中发送至 DC/OS 的令牌必须采用以下格式：`token=<token>`. 在未来的版本中 `Bearer <token>` 还将受到支持 。
 
 DC/OS 开源通过 CLI 命令提供安全管理；请参阅 [CLI 命令参考](/cn/1.11/cli/command-reference/dcos-auth/)。在 CLI 中，您可以对群集进行身份认证，甚至可以选择退出基于 Auth0 的身份认证。
 
@@ -26,7 +25,7 @@ DC/OS CLI 将令牌存储在运行 CLI 的用户主目录下的目录 `.dcos` �
     dcos auth login
     ```
 
- 以下是输出示例：
+    以下是输出示例：
 
     ```bash
     Please go to the following link in your browser:
@@ -40,15 +39,15 @@ DC/OS CLI 将令牌存储在运行 CLI 的用户主目录下的目录 `.dcos` �
 
 1. 单击与您首选的身份提供程序相对应的按钮。
 
- ![id 提供程序商列表](/cn/1.11/img/auth-login.png)
+    ![id 提供程序商列表](/cn/1.11/img/auth-login.png)
 
- 图 1. 选择身份提供程序
+    图 1. 选择身份提供程序
 
 1. 如果出现提示，请将凭据提供给身份提供程序。如果您在当前浏览器会话期间已经对身份提供程序进行了认证身份，则无需再次执行此操作。
 
- ![auth 登录令牌](/cn/1.11/img/auth-login-token.png)
+    ![auth 登录令牌](/cn/1.11/img/auth-login-token.png)
 
- 图 2. Auth 登录令牌
+    图 2. Auth 登录令牌
 
 1. 单击 **Copy to Clipboard**。
 
@@ -62,9 +61,9 @@ DC/OS CLI 将令牌存储在运行 CLI 的用户主目录下的目录 `.dcos` �
 
 1. 要注销，请运行此命令：
 
-```bash
-dcos auth logout
-```
+    ```bash
+    dcos auth logout
+    ```
 
 ## 身份认证选择退出
 
@@ -85,7 +84,7 @@ oauth_enabled: 'false'
 ## 延伸阅读
 
 - [让我们加密 DC/OS！](https://mesosphere.com/blog/2016/04/06/lets-encrypt-dcos/)：
- 使用 [Let's Encrypt] 的博客帖子(https://letsencrypt.org/)，具有
+ 使用 [Let's Encrypt](https://letsencrypt.org/) 的博客帖子，具有
  在 DC/OS 上运行的服务。
 
 ## 未来工作

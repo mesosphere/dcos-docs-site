@@ -5,8 +5,6 @@ excerpt: 管理 DC/OS 开源部署中的用户访问
 title: 用户访问管理
 menuWeight: 10
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 其他授权用户可授予用户对 DC/OS 的访问权限。首个登录到 DC/OS 群集的用户自动创建默认用户。可从 Web 界面或 CLI 添加用户。
 
@@ -20,7 +18,7 @@ menuWeight: 10
 
 图 1. 添加新用户
 
-**注意：**对 DC/OS 有访问权限的任何用户可以邀请更多用户。每个 DC/OS 用户都是管理员，DC/OS 没有明确的权限概念。
+<p class="message--note"><strong>注意: </strong>对 DC/OS 有访问权限的任何用户可以邀请更多用户。每个 DC/OS 用户都是管理员，DC/OS 没有明确的权限概念。</p>
 
 ## 从 CLI 添加用户
 您可以使用 `dcos_add_user.py` 脚本从终端将用户添加到 DC/OS 群集。默认情况下，您的 DC/OS 安装将包含此脚本。
@@ -51,22 +49,22 @@ menuWeight: 10
 
 ### 从 Web 界面
 
-1. 要退出 DC/OS Web 界面，请单击左上方的用户名，然后选择 **Sign Out**。
+要退出 DC/OS Web 界面，请单击左上方的用户名，然后选择 **Sign Out**。
 
- ![退出](/cn/1.11/img/1-11-user-drop-down-menu.png)
+![退出](/cn/1.11/img/1-11-user-drop-down-menu.png)
 
- 图 3. 下拉用户菜单
+图 3. 下拉用户菜单
 
 现在您可以作为另一用户登录。
 
 ### 从 CLI
 
-1. 要退出 DC/OS CLI，请输入命令：
+要退出 DC/OS CLI，请输入命令：
 
-        ```bash
-        dcos config unset core.dcos_acs_token
-        Removed [core.dcos_acs_token]
-        ```
+```bash
+dcos config unset core.dcos_acs_token
+Removed [core.dcos_acs_token]
+```
 
 现在您可以作为另一用户登录。
 
