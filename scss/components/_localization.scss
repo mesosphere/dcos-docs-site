@@ -1,13 +1,14 @@
 .localization {
   position: relative;
   cursor: pointer;
-  margin-right: 16px;
+  margin-right: 27px;
 
   &-current {
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 35px;
     border-radius: 3px;
     padding: 5px 5px 5px 10px;
     z-index: 10;
@@ -24,7 +25,7 @@
     display: block;
     position: absolute;
     left: 0px;
-    top: 3px;
+    top: 8px;
     height: 0px;
     width: 100%;
     border-radius: 3px;
@@ -33,6 +34,13 @@
     padding: 0;
     transition: height .4s ease;
     overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    &-item {
+      line-height: 1;
+    }
 
     &-item a {
       display: block;
@@ -53,7 +61,7 @@
     font-weight: 400;
     color: $color-grey;
     text-decoration: none;
-    margin-right: 4px;
+    margin-right: 13px;
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
        -khtml-user-select: none; /* Konqueror HTML */
@@ -70,7 +78,7 @@
 
   .show {
     transition: height .4s ease;
-    height: 38px;
+    height: 35px;
   }
 
   .flipped {
