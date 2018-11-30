@@ -17,7 +17,7 @@ enterprise: true
 
 API 仅支持 JSON。您必须在 HTTP 报文头中包含 `application/json` 作为 `Content-Type`，如下所示。
 
- Content-Type: application/json
+    Content-Type: application/json
 
 
 # 主机名和基础路径
@@ -30,7 +30,7 @@ API 仅支持 JSON。您必须在 HTTP 报文头中包含 `application/json` 作
 
 将 `/acs/api/v1` 附加到主机名，如下所示。
 
- https://<host-ip>/acs/api/v1
+     https://<host-ip>/acs/api/v1
 
 
 # 身份验证和授权
