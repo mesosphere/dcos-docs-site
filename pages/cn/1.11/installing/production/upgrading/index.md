@@ -8,24 +8,22 @@ excerpt: 升级 DC/OS 群集
 
 升级是指在主要版本之间移动以添加新特性、以新特性/功能替代现有特性或执行主要配置变更的过程。只有您使用高级安装过程在群集上安装 DC/OS 时，才能升级 DC/OS。
 
-**注意：** 升级仅发生在主要发布版本之间。
+<p class="message--note"><strong>注意: </strong> 升级仅发生在主要发布版本之间。示例：1.X 至 1.Y (1.11 --> 1.12)</p>
 
-示例：1.X 至 1.Y (1.11 --> 1.12)
-
-如果在支持的操作系统上执行升级且所有前提条件均满足，则升级应维持在群集上运行任务的状态。本文档再次使用 [DC/OS 安装指南][安装] 的部分。
+如果在支持的操作系统上执行升级且所有前提条件均满足，则升级应维持在群集上运行任务的状态。本文档再次使用 [DC/OS 安装指南](/cn/1.11/installing/ent/custom/advanced/) 的部分。
 
 - 在升级 DC/OS 之前，请先查看 [版本注释](/cn/1.11/release-notes/)。
-- 由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，则在 DC/OS 1.11.3 发布之前不要添加新节点。可以在我们最新的重要 [产品咨询] 中找到更多信息和更详细的补救程序(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。[enterprise type="inline" size="small" /]
+- 由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，则在 DC/OS 1.11.3 发布之前不要添加新节点。可以在我们最新的重要 [产品咨询](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 中找到更多信息和更详细的补救程序 。[enterprise type="inline" size="small" /]
 - `config.yaml` 文件中有几个必须在升级前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否已添加到 `config.yaml` 文件中。您可以在 [此处](/latest/installing/ent/custom/advanced/#create-a-configuration-file) 查看示例文件。[enterprise type="inline" size="small" /]
 - 如果 IPv6 在内核中被禁用，则 IPv6 必须在 `config.yaml` 文件中禁用才能确保升级成功。
 - 高级安装方法是 DC/OS 的唯一建议升级路径。建议您熟悉 [高级 DC/OS 安装指南](/cn/1.11/installing/oss/custom/advanced) 后再继续操作。
 - DC/OS Enterprise 现在执行许可证密钥。许可证密钥必须驻留在 genconf/license.txt 文件中，否则升级将失败。[enterprise type="inline" size="small" /]
 - 在所有管理节点都升级前，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。
- 出现这种情况时：
- * DC/OS GUI 不能提供准确的服务列表。
- * 对于多管理节点配置，在一个管理节点完成升级后，您可以从端口 8181 上的 Exhibitor UI 监控其余管理节点的运行状况。
+    出现这种情况时：
+    * DC/OS GUI 不能提供准确的服务列表。
+    * 对于多管理节点配置，在一个管理节点完成升级后，您可以从端口 8181 上的 Exhibitor UI 监控其余管理节点的运行状况。
 
-例如：升级后的 DC/OS Marathon 领导者无法连接至领导 Mesos 管理节点，直到它也升级。
+        例如：升级后的 DC/OS Marathon 领导者无法连接至领导 Mesos 管理节点，直到它也升级。
 
 - 升级后的 DC/OS Marathon 领导者无法连接至不安全（未升级的）领导 Mesos 管理节点。在所有管理节点升级之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已升级，Marathon 首要实例可能不是 Mesos 领导者。
 - Mesos UI 中的任务历史记录不会持续到升级。
@@ -73,7 +71,7 @@ excerpt: 升级 DC/OS 群集
 - 所有主机（管理节点和代理节点）必须能够对于 TCP 和 UDP，与所有端口上的所有其他主机通信。
 - 在 CentOS 或 RedHat 中，使用此命令安装 IP 集（在某些 IP 检测脚本中使用）：`sudo yum install -y ipset`
 - 您必须熟悉使用 `systemctl` 和 `journalctl` 命令行工具，以查看和监控服务状态。本 [文档](#故障排除) 结尾部分提供了故障排除说明。
-- 您必须熟悉 [DC/OS 安装指南][安装]。
+- 您必须熟悉 [DC/OS 安装指南](/cn/1.11/installing/ent/custom/advanced/)。
 - 升级之前对 ZooKeeper 截屏。Marathon 支持回滚，但不支持降级。
 - 升级之前 [对 IAM 数据库截屏](/cn/1.11/installing/ent/faq/#q-how-do-i-backup-the-iam-database)。[enterprise type="inline" size="small" /]
 - 确保在开始升级之前， Marathon 事件订阅者已被禁用。完成升级后，保持其禁用状态，因为此功能现已被弃用。
@@ -85,7 +83,7 @@ excerpt: 升级 DC/OS 群集
 - 可选：您可以将自定义 [节点和群集健康检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
 - 确认所有管理节点都处于运行良好状态：
  - 检查 Exhibitor 共识机制 UI 以确认所有管理节点已成功加入（状态指示灯将显示绿色）。Exhibitor UI 可在 `http://<dcos_master>:8181/` 获得。
- - 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`。
+ - 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 有指标 `registrar/log/recovered` 价值为 `1`。
 
 
 ## Bootstrap 节点
@@ -97,7 +95,7 @@ excerpt: 升级 DC/OS 群集
 选择您所需的安全模式，然后按照适用的升级说明进行。
 
 - [升级 DC/OS 1.11 而不更改安全模式](#current-security)
-- [在宽容模式下升级 DC/OS 1.11]](#permissive)
+- [在宽容模式下升级 DC/OS 1.11](#permissive)
 - [在严格模式下升级 DC/OS 1.11](#strict)
 
 #### <a name="current-security"></a>升级 DC/OS 1.11 而不更改安全模式 
@@ -106,28 +104,29 @@ excerpt: 升级 DC/OS 群集
 1. 将现有 `config.yaml` 和 `ip-detect` 文件复制到 bootstrap 节点上的空 `genconf` 文件夹。文件夹与安装工具应当位于同一个目录中。
 2. 将旧的 `config.yaml` 合并到新的 `config.yaml` 格式中。在大多数情况下，区别都很小。
 
- * 在升级期间，您无法更改 `exhibitor_zk_backend` 设置。
- * `config.yaml` 的语法可能与早期版本不同。有关当前 `config.yaml` 语法和参数的详细说明，请参阅 [文档](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/)。
+    * 在升级期间，您无法更改 `exhibitor_zk_backend` 设置。
+    * `config.yaml` 的语法可能与早期版本不同。有关当前 `config.yaml` 语法和参数的详细说明，请参阅 [文档](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/)。
 3. 更新 config.yaml 的格式后，比较旧的 config.yaml 和新的 config.yaml。验证路径或配置没有区别。升级时更改这些会导致灾难性群集错误。
 4. 根据需要修改 `ip-detect` 文件。
 5. 构建安装工具包。
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
- 2. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.8.8`。
-        ```bash
-        dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
-        ```
+ 2. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` 例如，在以下命令中，当前正在要升级的群集上运行DC / OS版本 `1.8.8`。
+
+    ```bash
+    dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
+    ```
  3. 上一步中的命令将在其输出的最后一行产生前缀为 `Node upgrade script URL:` 的 URL。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
- 4. 运行 [nginx][install] 容器以提供安装文件。
+ 4. 运行 [nginx](/cn/1.11/installing/ent/custom/advanced/) 容器以提供安装文件。
 
 6. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
 
 #### <a name="permissive"></a>在宽容模式下升级 DC/OS 1.11 
-此步骤在 [宽容安全模式] 下升级到 DC/OS 1.11(/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。
+此步骤在 [宽容安全模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) 下升级到 DC/OS 1.11。
 
 **先决条件：**
 
-- 群集必须 [升级到 DC/OS 1.11](#current-security) 并在 [禁用安全模式] 中运行(/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)，然后才能升级到宽容模式。如果群集在升级到 DC/OS 1.10 之前以宽容模式运行，则可以跳过此步骤。
+- 群集必须 [升级到 DC/OS 1.11](#current-security) 并在 [禁用安全模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) 中运行，然后才能升级到宽容模式。如果群集在升级到 DC/OS 1.10 之前以宽容模式运行，则可以跳过此步骤。
 
 **注意：** 对于从禁用模式升级到宽容安全模式，您已配置的任何 [自定义节点或群集健康检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 将会失败。未来版本支持绕过健康检查。
 
@@ -138,17 +137,17 @@ excerpt: 升级 DC/OS 群集
 3. 构建安装工具包。
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
- 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.8.8`。
+ 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` 例如，在以下命令中，当前正在要升级的群集上运行DC / OS版本 `1.8.8`。
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
  1. 上一步中的命令将在其输出的最后一行产生前缀为 `Node upgrade script URL:` 的 URL。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
- 1. 运行 [nginx][install] 容器以提供安装文件。
+ 1. 运行 [nginx](/cn/1.11/installing/ent/custom/advanced/) 容器以提供安装文件。
 
 4. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
 
 #### <a name="strict"></a>在严格模式下升级 DC/OS 1.11 
-此步骤在安全性严格 [模式] 下升级到 DC/OS 1.11(/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。
+此步骤在安全性严格 [模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) 下升级到 DC/OS 1.11。
 
 如果正在更新运行的 DC/OS 群集在 `security: strict` 模式下运行，则请注意，在迁移到严格模式后，安全漏洞可能会持续存在。转到严格模式后，您的服务现在需要身份认证和授权，以便在 Mesos 注册或访问其 HTTP API。在升级到严格模式之前，您应在宽容模式下测试这些配置，以便在升级期间维护调度器和脚本正常运行时间。
 
@@ -164,12 +163,12 @@ excerpt: 升级 DC/OS 群集
 3. 构建安装工具包。
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
- 2. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.8.8`。
+ 2. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` 例如，在以下命令中，当前正在要升级的群集上运行DC / OS版本 `1.8.8`。
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
  3. 上一步中的命令将在其输出的最后一行产生前缀为 `Node upgrade script URL:` 的 URL。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
- 4. 运行 [nginx][install] 容器以提供安装文件。
+ 4. 运行 [nginx](/cn/1.11/installing/ent/custom/advanced/) 容器以提供安装文件。
 
 4. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
 
@@ -179,20 +178,21 @@ excerpt: 升级 DC/OS 群集
 
 1. 复制并更新 DC/OS 1.10 `config.yaml` 和 `ip-detect` 文件到引导节点上新的干净文件夹。
 
- * 在升级期间，您无法更改 `exhibitor_zk_backend` 设置。
- * DC/OS 1.11 `config.yaml`的语法不同于先前版本。请参阅 [文档](/cn/1.11/installing/oss/custom/configuration/configuration-parameters/) 以获取最新信息。
+    * 在升级期间，您无法更改 `exhibitor_zk_backend` 设置。
+    * DC/OS 1.11 `config.yaml`的语法不同于先前版本。请参阅 [文档](/cn/1.11/installing/oss/custom/configuration/configuration-parameters/) 以获取最新信息。
 
 1. 更新 `config.yaml` 的格式后，比较旧的 `config.yaml` 和新的 `config.yaml`。验证路径或配置没有区别。升级时更改这些会导致灾难性群集失效。
 
 1. 将 1.10 转换为 `config.yaml` 1.11 `config.yaml` 格式后，您可以构建安装工具包：
 
  1. 下载 `dcos_generate_config.sh` 文件。
- 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.9.2`。
-        ```bash
-        dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
-        ```
+ 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` 例如，在以下命令中，当前正在要升级的群集上运行DC / OS版本 `1.9.2`。
+
+    ```bash
+    dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
+    ```
  1. 上一步中的命令将在其输出的最后一行产生前缀为 `Node upgrade script URL:` 的 URL。记录此 URL 以在后续步骤中使用。它在本文档中被称为“节点升级脚本 URL”。
- 1. 运行 [nginx][install] 容器以提供安装文件。<!-- ?? -->
+ 1. 运行 [nginx](/cn/1.11/installing/ent/custom/advanced/) 容器以提供安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 完成安装。
 
@@ -214,26 +214,30 @@ excerpt: 升级 DC/OS 群集
 
 1. 验证升级情况：
 
- 1. 监视 Exhibitor 并等待其融合到 `http://<master-ip>:8181/exhibitor/v1/ui/index.html`。确认管理节点已成功重新加入 ZooKeeper 共识机制（状态指示灯将变为绿色）。
+   1. 监视 Exhibitor 并等待其融合到 `http://<master-ip>:8181/exhibitor/v1/ui/index.html`。确认管理节点已成功重新加入 ZooKeeper 共识机制（状态指示灯将变为绿色）。
 
- **注意：** 如果要从宽容模式升级到严格模式，此 URL 将为 `https://...`。
- 1. 等到 `dcos-mesos-master` 单元启动并运行。
- 1. 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`。[enterprise type="inline" size="small" /]
+      <p class="message--note"><strong>注意: </strong> 如果要从宽容模式升级到严格模式，此 URL 将为 `https://...`。</p>
 
- **注意：** 如果要从宽容模式升级到严格模式，此 URL 将为 `curl https://...`，并且需要有 JWT 才能访问。[enterprise type="inline" size="small" /]
- 1. 验证 `/opt/mesosphere/bin/mesos-master --version` 表示升级后的管理节点正在运行 Mesos 1.4.2。[enterprise type="inline" size="small" /]
+    1. 等到 `dcos-mesos-master` 单元启动并运行。
+    1. 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 有指标 `registrar/log/recovered` 价值为 `1`。[enterprise type="inline" size="small" /]
+
+         <p class="message--note"><strong>注意: </strong>如果要从宽容模式升级到严格模式，此 URL 将为 <tt>curl https://...</tt>，并且需要有 JWT 才能访问。</p>[enterprise type="inline" size="small" /]
+
+    1. 验证 `/opt/mesosphere/bin/mesos-master --version` 表示升级后的管理节点正在运行 Mesos 1.4.2。[enterprise type="inline" size="small" /]
  1. 验证副本不足范围的数量是否随着 IAM 数据库被复制到新管理节点而已经降至零。可以通过运行以下命令并确认右侧的最后一列是否只显示零来完成。[enterprise type="inline" size="small" /]
- ```bash
- sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
- | id | address | build | updated_at | started_at | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
- | 1 | 172.31.7.32:26257 | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 | 195 | 194 | 195 | 0 | 0 |
- | 2 | 172.31.10.48:26257 | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 | 200 | 199 | 200 | 0 | 0 |
- | 3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 | 187 | 187 | 187 | 0 | 0 |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-		```
- 如果 `ranges_underreplicated` 栏列出任何非零值，则等待一分钟，然后重新运行命令。一旦所有数据被安全地复制，数值将聚合为零。[enterprise type="inline" size="small" /]
+
+    ```bash
+    sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    | id | address | build | updated_at | started_at | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    | 1 | 172.31.7.32:26257 | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 | 195 | 194 | 195 | 0 | 0 |
+    | 2 | 172.31.10.48:26257 | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 | 200 | 199 | 200 | 0 | 0 |
+    | 3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 | 187 | 187 | 187 | 0 | 0 |
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    ```
+
+    如果 `ranges_underreplicated` 栏列出任何非零值，则等待一分钟，然后重新运行命令。一旦所有数据被安全地复制，数值将聚合为零。[enterprise type="inline" size="small" /]
 
 1. 转到 DC/OS 代理节点 [程序](#agents) 以完成安装。
 
@@ -262,9 +266,9 @@ excerpt: 升级 DC/OS 群集
 
 1. 验证升级情况。
 
- - 验证 `curl http://<dcos_agent_private_ip>:5051/metrics/snapshot` has the metric `slave/registered` with a value of `1`。
- - 监控 Mesos UI 以验证升级的节点是否重新加入 DC/OS 群集以及任务是否已协调 (`http://<master-ip>/mesos`)。
- 如果要从宽容模式升级到严格模式，此 URL 将为 `https://<master-ip>/mesos`。
+    - 验证 `curl http://<dcos_agent_private_ip>:5051/metrics/snapshot` 有指标 `slave/registered` 价值为 `1`。
+    - 监控 Mesos UI 以验证升级的节点是否重新加入 DC/OS 群集以及任务是否已协调 (`http://<master-ip>/mesos`)。
+    如果要从宽容模式升级到严格模式，此 URL 将为 `https://<master-ip>/mesos`。
 
 ## <a name="troubleshooting"></a>故障排除建议
 
@@ -278,7 +282,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-如果您的升级因为 [自定义节点或群集检查] 而失败(/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks)，运行以下命令可了解更多详细信息：
+如果您的升级因为 [自定义节点或群集检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 而失败，运行以下命令可了解更多详细信息：
 ```bash
 dcos-diagnostics check node-poststart
 dcos-diagnostics check cluster
@@ -312,4 +316,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - DC/OS 1.11 Universe 中可用的软件包比旧版本 Universe 中的要新。服务在安装 DC/OS 时不会自动升级，因为并非所有 DC/OS 服务都具有保持现有状态的升级路径。
 
-[安装]：/1.11/installing/ent/custom/advanced/
+
