@@ -62,7 +62,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 [/enterprise]
 | 参数 | 描述 |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise) | 一个标记，设定后将启用 DC/OS 中的高级存储功能，包括 Mesos [CSI](https://github.com/container-storage-interface/spec) 支持和预安装的 CSI 设备插件。此功能标志需要打开才能使用 [DC/OS 存储服务 (DSS)](/services/beta-storage) [enterprise type="inline" size="small" /]|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise) | 一个标记，设定后将启用 DC/OS 中的高级存储功能，包括 Mesos [CSI](https://github.com/container-storage-interface/spec) 支持和预安装的 CSI 设备插件。此功能标志需要打开才能使用 [DC/OS 存储服务 (DSS)](/cn/services/beta-storage) [enterprise type="inline" size="small" /]|
 
 # 性能和微调
 
@@ -336,7 +336,7 @@ dns_search: dc1.example.com dc1.example.com example.com dc1.example.com dc2.exam
 指示是否运行 [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) 脚本，一个简单的 Docker 容器和镜像垃圾回收脚本，每小时清理一次失散的 Docker 容器。您可以使用 `/etc/` 配置参数，设置运行时间行为。如需更多信息，请参阅 [文档](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
 * `enable_docker_gc: 'true'` 请每小时运行一次 docker-gc 脚本。这是 [云](/cn/1.11/installing/ent/cloud/) 模板安装的默认值。
-* `enable_docker_gc: 'false'` 请勿每小时运行一次 docker-gc 脚本。这是 [自定义] (/cn/1.11/installing/ent/custom/) 安装的默认值。
+* `enable_docker_gc: 'false'` 请勿每小时运行一次 docker-gc 脚本。这是 [自定义](/cn/1.11/installing/ent/custom/) 安装的默认值。
 
 ## exhibitor_storage_backend
 Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`static`）或指定外部存储系统（`ZooKeeper`、`aws_s3`和 `Azure`），使用 Exhibitor 在管理节点上设置和编排 ZooKeeper。在 DC/OS 安装期间，Exhibitor 自动配置管理节点上的 ZooKeeper 安装。
@@ -612,7 +612,7 @@ SSH 用户名，例如 `centos`。
 ## feature_dcos_storage_enabled [enterprise type="inline" size="small" /]
 支持 DC/OS 中的高级存储功能，包括 Mesos 的 [CSI](https://github.com/container-storage-interface/spec) 支持和支持预安装的 CSI 设备插件。
 * `feature_dcos_storage_enabled: 'false'` 请在 DC/OS 中禁用 CSI 支持。这是默认值。
-* `feature_dcos_storage_enabled: 'true'` 请在 DC/OS 中启用 CSI 支持。有必要使用 [DC/OS 存储服务 (DSS)](/services/beta-storage)
+* `feature_dcos_storage_enabled: 'true'` 请在 DC/OS 中启用 CSI 支持。有必要使用 [DC/OS 存储服务 (DSS)](/cn/services/beta-storage)
 
 <a id="zk-superuser"></a>
 

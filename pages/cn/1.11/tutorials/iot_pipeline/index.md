@@ -65,7 +65,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 3. 单击 **Catalog** 选项卡。查找并单击 *marathon-lb** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。当模态警报提示时，单击 **OPEN SERVICE**。
 
-如果您在 Enterprise 集群上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/services/marathon-lb/mlb-auth/)进行安装。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
+如果您在 Enterprise 集群上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/cn/services/marathon-lb/mlb-auth/)进行安装。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
 
 1. 单击 **Catalog** 选项卡。单击 **zeppelin** 软件包，然后单击 **REVIEW & RUN** 按钮。
     1. 单击左侧的 **spark** 选项卡，并将 `cores_max` 设置为 `8`。

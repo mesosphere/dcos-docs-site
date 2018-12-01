@@ -15,7 +15,7 @@ enterprise: false
 
 
 **先决条件：**
-本教程假设您拥有有效的 Jenkins 安装和许可，可以在 Marathon 上启动应用程序。Jenkins for DC/OS 必须按照 [Jenkins 快速入门](/services/jenkins/quickstart/)页面上的说明进行安装。
+本教程假设您拥有有效的 Jenkins 安装和许可，可以在 Marathon 上启动应用程序。Jenkins for DC/OS 必须按照 [Jenkins 快速入门](/cn/services/jenkins/quickstart/)页面上的说明进行安装。
 
 # 示例项目
 

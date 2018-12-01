@@ -237,4 +237,4 @@ rm -rf mlb-private-key.pem
 dcos package install --options=config.json marathon-lb
 ```
 
-您还可以把 `config.json` 提供给其他人，用于安装 Marathon-LB。请参阅 [Marathon-LB 文档](/services/marathon-lb/usage-ee/) 了解更多信息。
+您还可以把 `config.json` 提供给其他人，用于安装 Marathon-LB。请参阅 [Marathon-LB 文档](/cn/services/marathon-lb/usage-ee/) 了解更多信息。

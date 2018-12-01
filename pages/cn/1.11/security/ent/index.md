@@ -236,7 +236,7 @@ DC/OS 允许您限制：
 | Mesos | 任务在 `root` 下运行。提取和创建的文件归 `root` 所有。| 任务在 `root` 下运行。提取和创建的文件归 `root` 所有。| 任务在 `nobody` 下运行。提取和创建的文件归 `nobody` 所有。
 | Docker | 任务在 `root` 下运行。提取和创建的文件归 `root` 所有。| 任务在 `root` 下运行。提取和创建的文件归 `root` 所有。| 任务在 `root` 下运行。提取和创建的文件归 `nobody` 所有。
 
-默认情况下，Docker 任务在 `root` 下运行，但 Docker 用户权限仅限于 Docker 容器。如果您希望更改默认任务用户，请修改 Docker 容器。有关更多信息，请参考 [Docker 文档](https://docs.docker.com/engine/tutorials/dockerimages/)以及用户服务[文档](/services/)。
+默认情况下，Docker 任务在 `root` 下运行，但 Docker 用户权限仅限于 Docker 容器。如果您希望更改默认任务用户，请修改 Docker 容器。有关更多信息，请参考 [Docker 文档](https://docs.docker.com/engine/tutorials/dockerimages/)以及用户服务[文档](/cn/services/)。
 
 <p class="message--note"><strong>注意: </strong>如果压缩了提取的文件，内部的单个文件将保留文件压缩时分配的权限和所有权，并且不受任何其他配置或设置的影响。</p>
 

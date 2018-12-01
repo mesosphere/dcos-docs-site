@@ -37,4 +37,4 @@ enterprise: false
 
 ## 将客户端连接到端点
 
-请参阅 [连接客户端文档](/services/)（若有），查看正在运行的 DC/OS 服务。
+请参阅 [连接客户端文档](/cn/services/)（若有），查看正在运行的 DC/OS 服务。

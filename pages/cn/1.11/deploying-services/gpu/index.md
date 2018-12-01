@@ -39,7 +39,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 
 
    <p class="message--important"><strong>重要信息：</strong>执行后续步骤前，必须运行“zen.sh”脚本。</p>
 
-1. 按照 [此处](1.11/installing/evaluation/cloud-installation/aws/advanced/) 的说明  使用高级 AWS 模板创建群集，并使用以下 GPU 特定配置。
+1. 按照 [此处](cn/1.11/installing/evaluation/cloud-installation/aws/advanced/) 的说明  使用高级 AWS 模板创建群集，并使用以下 GPU 特定配置。
 
 1. 在 **Create Stack > Specify Details**页面指定您的堆栈信息并单击 **Next**。以下是 GPU 特定设置。
 

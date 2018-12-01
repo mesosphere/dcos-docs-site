@@ -64,7 +64,7 @@ VIP 遵循以下命名约定：
 
 ## 通过 DC/OS 服务使用 VIP
 
-某些 DC/OS 服务（如 [Kafka](/services/kafka/)）在您安装它们时会自动创建 VIP。命名约定是：`broker. <service.name>.l4lb.thisdcos.directory:9092`。
+某些 DC/OS 服务（如 [Kafka](/cn/services/kafka/)）在您安装它们时会自动创建 VIP。命名约定是：`broker. <service.name>.l4lb.thisdcos.directory:9092`。
 
 按照以下步骤查看 Kafka 的 VIP。
 
@@ -79,7 +79,7 @@ VIP 遵循以下命名约定：
 
 ### 通过 CLI
 
-**先决条件：** Kafka 服务和 CLI 必须 [已安装](/services/kafka/)。
+**先决条件：** Kafka 服务和 CLI 必须 [已安装](/cn/services/kafka/)。
 
 1. 运行此命令：
 

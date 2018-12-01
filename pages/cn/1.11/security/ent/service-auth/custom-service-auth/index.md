@@ -114,7 +114,7 @@ dcos security secrets list /
 
 ### 使用 CLI
 
-您可以使用 CLI 分配权限。例如，为将在 DC/OS 上卸载的 [Cassandra 服务](/services/cassandra/cass-auth/)授权：
+您可以使用 CLI 分配权限。例如，为将在 DC/OS 上卸载的 [Cassandra 服务](/cn/services/cassandra/cass-auth/)授权：
 
 授予权限 (`dcos:mesos:master:framework:role:cassandra-role`) 和允许的操作 (`create`)。
 

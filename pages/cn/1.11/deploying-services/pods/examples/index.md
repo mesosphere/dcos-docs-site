@@ -551,7 +551,7 @@ enterprise: false
 
 ## 各 Pod 的 IP 网络
 
-以下 pod 定义指定名为 `dcos` 的虚拟（用户）网络。`networks:mode:container` 字段创建虚拟网络。`name` 字段为可选。如果您已使用 [我们的 AWS 模板] (/cn/1.11/installing/evaluation/cloud-installation/aws/)安装 DC/OS，则默认虚拟网络名称为 `dcos`。<!-- Validated by suzanne 6-23-17 -->
+以下 pod 定义指定名为 `dcos` 的虚拟（用户）网络。`networks:mode:container` 字段创建虚拟网络。`name` 字段为可选。如果您已使用 [我们的 AWS 模板](/cn/1.11/installing/evaluation/cloud-installation/aws/)安装 DC/OS，则默认虚拟网络名称为 `dcos`。<!-- Validated by suzanne 6-23-17 -->
 
 ```json
 {

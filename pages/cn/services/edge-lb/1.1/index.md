@@ -29,7 +29,7 @@ Edge-LB 作为 DC/OS 服务运行，由 [Marathon] 启动(/latest/deploying-serv
 
 外部流量通过硬件负载均衡器进入负载均衡器池。池中的一个 Edge-LB 负载均衡器接受流量，并将其路由到 DC/OS 集群中的相应服务。
 
-![Edge-LB 架构](/services/edge-lb/1.1/img/edge-lb-flow.png)
+![Edge-LB 架构](/cn/services/edge-lb/1.1/img/edge-lb-flow.png)
 
 图 1. Edge-LB 架构
 

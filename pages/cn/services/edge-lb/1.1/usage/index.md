@@ -40,7 +40,7 @@ dcos edgelb update <pool-configuration-file>
 * 重新加载将每 10 秒进行一次。
 
 此重新加载的属性能够实现
-[蓝色/绿色部署这样的策略](/services/edge-lb/1.1/tutorials/blue-green-deploy)。
+[蓝色/绿色部署这样的策略](/cn/services/edge-lb/1.1/tutorials/blue-green-deploy)。
 
 ## 负载均衡器重新启动场景
 
@@ -85,4 +85,4 @@ $ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod replace <pod-id>
 
 这将销毁池服务器，并重新启动新公用代理上的新服务器。
 
-有关 Edge-LB 命令的列表，请参阅 [CLI 参考](/services/edge-lb/1.1/cli-reference/) 页面。
+有关 Edge-LB 命令的列表，请参阅 [CLI 参考](/cn/services/edge-lb/1.1/cli-reference/) 页面。

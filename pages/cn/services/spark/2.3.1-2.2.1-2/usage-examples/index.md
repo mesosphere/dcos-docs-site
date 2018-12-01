@@ -10,7 +10,7 @@ render: mustache
 ---
 # 默认安装示例
 
-1. 按照本主题 [安装和自定义](/services/spark/2.3.1-2.2.1-2/install/)部分中的说明执行默认安装。
+1. 按照本主题 [安装和自定义](/cn/services/spark/2.3.1-2.2.1-2/install/)部分中的说明执行默认安装。
 
 2. 运行 Spark 作业：
 ```

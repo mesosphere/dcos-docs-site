@@ -11,9 +11,9 @@ enterprise: false
 
 ## 先决条件
 
-* 通过使用 AWS [云模板] (/1.10/installing/oss/cloud/aws/) 安装 DC/OS，至少有 3 个 [私有](/1.10/overview/concepts/#private-agent-node) 代理和 1 个 [公共](/1.10/overview/concepts/#public-agent-node) 代理。
+* 通过使用 AWS [云模板](/1.10/installing/oss/cloud/aws/) 安装 DC/OS，至少有 3 个 [私有](/1.10/overview/concepts/#private-agent-node) 代理和 1 个 [公共](/1.10/overview/concepts/#public-agent-node) 代理。
 * DC/OS CLI [已安装][2]。
-* Marathon-LB [已安装](/services/marathon-lb/usage-ee/)。
+* Marathon-LB [已安装](/cn/services/marathon-lb/usage-ee/)。
 
 ## 使用 Marathon-LB 部署外部负载均衡器
 
@@ -41,7 +41,7 @@ enterprise: false
 
  在此选项文件中，我们正在更改应用实例的名称和 HAProxy 组的名称。选项文件还禁用端口 80 和 443 上的 HTTP 和 HTTPS 转发，因为不需要这一功能。
 
-1. [安装](/services/marathon-lb/usage-ee/) 内部 Marathon-LB 实例，并使用指定的自定义选项。
+1. [安装](/cn/services/marathon-lb/usage-ee/) 内部 Marathon-LB 实例，并使用指定的自定义选项。
 
  现在有两个 Marathon-LB 负载均衡器：
 

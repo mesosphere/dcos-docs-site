@@ -17,7 +17,7 @@ enterprise: false
 
 ### 先决条件：
 
-* DC/OS 使用 [自定义] (/cn/1.11/installing/production/deploying-dcos/installation/) 安装方法安装。
+* DC/OS 使用 [自定义](/cn/1.11/installing/production/deploying-dcos/installation/) 安装方法安装。
 * 来自您的[安装](/cn/1.11/installing/evaluation/cloud-installation/)步骤的存档 DC/OS 安装程序文件（`dcos-install.tar`）。
 * 满足 [系统要求] 的可用代理节点(/cn/1.11/installing/production/system-requirements/)。
 * CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation)。
