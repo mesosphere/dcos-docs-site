@@ -9,8 +9,8 @@ navigationTitle: 上安装和自定义 ： 开源
 
 **先决条件：**
 
-- DC/OS [已安装](/1.10/installing/oss/)
-- DC/OS CLI [已安装](/1.10/cli/install/)
+- DC/OS [已安装](/cn/1.11/installing/oss/)
+- DC/OS CLI [已安装](/cn/1.11/cli/install/)
 
 # 默认安装
 

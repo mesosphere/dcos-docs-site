@@ -85,7 +85,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_
 | /system/v1/logs/v2/ | dcos:adminrouter:ops:system-logs |
 | /system/v1/agent/{agent_id}/logs/v2/ | dcos:adminrouter:system:agent |
 
-用户也可以通过 dcos:superuser 权限来到达所有路由。要为您的账户分配权限，请参阅 [权限名称](/1.10/security/ent/perms-reference/)。
+用户也可以通过 dcos:superuser 权限来到达所有路由。要为您的账户分配权限，请参阅 [权限名称](/cn/1.11/security/ent/perms-reference/)。
 
 # 格式
 

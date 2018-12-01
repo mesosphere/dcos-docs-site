@@ -32,7 +32,7 @@ enterprise: true
 
 1. 从**权限**选项卡，选择**添加权限**。
 
-   ![为用户添加权限](/1.10/img/permission-user.png)
+   ![为用户添加权限](/cn/1.11/img/permission-user.png)
 
    图 2. “添加权限”按钮
 

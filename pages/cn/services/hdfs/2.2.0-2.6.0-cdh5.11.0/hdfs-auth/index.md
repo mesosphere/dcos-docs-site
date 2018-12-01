@@ -14,7 +14,7 @@ render: mustache
 
 # 为 HDFS 配置 DC/OS 访问
 
-本主题介绍如何为 HDFS 配置 DC/OS 访问。根据您的 [安全模式](/1.9/security/ent/#security-modes/)，HDFS 需要 [服务身份认证](/cn/1.11/security/ent/service-auth/) 以访问 DC/OS。
+本主题介绍如何为 HDFS 配置 DC/OS 访问。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes/)，HDFS 需要 [服务身份认证](/cn/1.11/security/ent/service-auth/) 以访问 DC/OS。
 
 | 安全模式 | 服务帐户 |
 |---------------|-----------------------|
@@ -26,9 +26,9 @@ render: mustache
 
 **先决条件：**
 
-- [已安装 DC/OS CLI](/1.9/cli/install/) 并以超级用户身份登录。
+- [已安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
 - [已安装 Enterprise DC/OS CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
-- 如果您的 [安全模式](/1.9/security/ent/#security-modes/) 是 `permissive` 或 `strict`，您必须 [获取 root 证书](/cn/1.11/networking/tls-ssl/get-cert/)，才能发出本部分中的 curl 命令。
+- 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes/) 是 `permissive` 或 `strict`，您必须 [获取 root 证书](/cn/1.11/networking/tls-ssl/get-cert/)，才能发出本部分中的 curl 命令。
 
 # <a name="create-a-keypair"></a>创建密钥对
 在此步骤中，通过使用企业 DC/OS CLI，创建了 2048 位 的 RSA 公私密钥对。

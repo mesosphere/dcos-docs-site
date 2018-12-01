@@ -27,7 +27,7 @@ render: mustache
 **先决条件：**
 
 - [已安装 DC/OS CLI](/latest/cli/install/) 并以超级用户身份登录。
-- [已安装 Enterprise DC/OS CLI 0.4.14 或更高版本](/1.9/cli/enterprise-cli/#ent-cli-install)。
+- [已安装 Enterprise DC/OS CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
 - 如果您的 [安全模式](/latest/security/ent/#security-modes/) 是 `permissive` 或 `strict`，您必须 [获取 root 证书](/cn/1.11/networking/tls-ssl/get-cert/)，才能发出本部分中的 curl 命令。
 
 # <a name="create-a-keypair"></a>创建密钥对

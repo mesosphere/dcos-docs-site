@@ -15,7 +15,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
 高级 AWS CloudFormation 模板为创建和扩展 DC/OS 集群带来了优势和灵活性。通过这些模板，您可以从一整套 DC/OS 配置选项中进行选择。
 
  - 在现有的 VPC/子网组合上实例化完整的 DC/OS 集群。
- - 通过添加更多的 [代理](/1.8/overview/concepts/#agent) 节点来扩展和更新现有的 DC/OS 集群。
+ - 通过添加更多的 [代理](/cn/1.11/overview/concepts/#agent) 节点来扩展和更新现有的 DC/OS 集群。
 
 模板一起用于创建 DC/OS 集群。驱动这些模板的是 AWS CloudFormation 用于创建每个堆栈的参数。
 

@@ -43,7 +43,7 @@ Mesosphere 将支持当前发布版本（发布版 N）和前两个特性（主�
 
 例如，如果我们有以下三项技术：DC/OS、Framework 和 Apache Kafka。
 
-![版本政策框架](/1.10/img/version-policy-1.png)
+![版本政策框架](/cn/1.11/img/version-policy-1.png)
 
 图 1. 版本政策框架
 
@@ -66,6 +66,6 @@ Mesosphere 将支持当前发布版本（发布版 N）和前两个特性（主�
 
 # Mesosphere 版本控制和升级政策
 
-![版本政策框架](/1.10/img/version-policy-2.png)
+![版本政策框架](/cn/1.11/img/version-policy-2.png)
 
 图 1. 版本政策框架

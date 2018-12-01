@@ -48,7 +48,7 @@ Kerberos 身份认证依赖中央权限来验证 {{ model.techShortName }} 客�
 - 从 DC/OS 集群可访问的 KDC 的主机名和端口
 - 充分访问 KDC 的权限，以创建 Kerberos principal
 - 充分访问 KDC 的权限，以检索已生成的 principal 的 keytab
-- [DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
+- [DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
 - DC/OS 超级用户权限
 
 #### 配置 Kerberos 身份认证

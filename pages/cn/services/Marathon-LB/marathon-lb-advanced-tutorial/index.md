@@ -11,7 +11,7 @@ enterprise: false
 
 ## 先决条件
 
-* 通过使用 AWS [云模板](/1.10/installing/oss/cloud/aws/) 安装 DC/OS，至少有 3 个 [私有](/1.10/overview/concepts/#private-agent-node) 代理和 1 个 [公共](/1.10/overview/concepts/#public-agent-node) 代理。
+* 通过使用 AWS [云模板](/cn/1.11/installing/oss/cloud/aws/) 安装 DC/OS，至少有 3 个 [私有](/cn/1.11/overview/concepts/#private-agent-node) 代理和 1 个 [公共](/cn/1.11/overview/concepts/#public-agent-node) 代理。
 * DC/OS CLI [已安装][2]。
 * Marathon-LB [已安装](/cn/services/marathon-lb/usage-ee/)。
 
@@ -19,7 +19,7 @@ enterprise: false
 
 验证 Marathon-LB 是否正常工作。查找 [公共节点] 的公用 IP(/1.10/administering-clusters/locate-public-agent/) 并导航至 `<public-agent-IP>:9090/haproxy?stats`。您将看到这样的统计报告页面：
 
- ![lb2](/1.10/img/lb2.jpg)
+ ![lb2](/cn/1.11/img/lb2.jpg)
 
 图 1. HAProxy 统计报告
 
@@ -213,7 +213,7 @@ enterprise: false
 
  每个都应返回 NGINX“欢迎”页面：
 
- ![lb3](/1.10/img/lb3.jpg)
+ ![lb3](/cn/1.11/img/lb3.jpg)
 
  图 2. NGINX 的 HTML 版欢迎页面
 
@@ -223,7 +223,7 @@ Marathon-LB 的一个重要特性是支持虚拟主机（`vhost`）。这允许�
 
 要展示 `vhost` 特性：
 
-1. 查找您的 [公共代理 IP](/1.10/administering-clusters/locate-public-agent/)。
+1. 查找您的 [公共代理 IP](/cn/1.11/administering-clusters/locate-public-agent/)。
 
 1. 修改外部 `nginx` 应用（`nginx-external.json`）以指向您的公共代理 DNS 名称。您可以使用 DC/OS CLI 或 GUI 修改应用。
 
@@ -267,7 +267,7 @@ Marathon-LB 的一个重要特性是支持虚拟主机（`vhost`）。这允许�
 
 1. 对于 **KEY**，输入 `HAPROXY_0_VHOST` ；对于**VALUE**，指定您的公共代理 DNS 名称。
 
-![更新应用](/1.10/img/nginx-external-gui.png)
+![更新应用](/cn/1.11/img/nginx-external-gui.png)
 
 图 3. NGINX 外部服务
 
@@ -279,7 +279,7 @@ Marathon-LB 的一个重要特性是支持虚拟主机（`vhost`）。这允许�
 
 2. 在浏览器中导航至公共代理，您应该看到以下内容：
 
- ![lb6](/1.10/img/lb6.jpg)
+ ![lb6](/cn/1.11/img/lb6.jpg)
 
  图 4. NGINX 欢迎页
 

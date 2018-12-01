@@ -181,7 +181,7 @@ Tweeter 应用程序使用安装在每个 DC/OS 节点上的服务发现和负�
 
 如果您正在使用 DC/OS Enterprise 集群，单击 DC/OS Web 界面中的 **Networking** -> **Service Addresses** 选项卡，然后选择 `1.1.1.1:30000` 虚拟网络，以查看正在执行的负载均衡：
 
-![Tweeter scaled](/1.10/img/tweeter-services8-ee.png)
+![Tweeter scaled](/cn/1.11/img/tweeter-services8-ee.png)
 
 图 5. 扩展的推文
 
