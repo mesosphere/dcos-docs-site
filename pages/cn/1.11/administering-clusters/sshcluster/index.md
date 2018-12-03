@@ -25,23 +25,23 @@ enterprise: false
 
 1. 使用 `chmod` 命令更改 `.pem` 文件权限为所有者读/写权限。
 
-    <p class="message--important"><strong>重要信息：</strong>您的 .pem 文件必须位于 <tt>~/.ssh</tt> 目录。</p> 
-    
+  <p class="message--important"><strong>重要信息：</strong>您的 .pem 文件必须位于 <tt>~/.ssh</tt> 目录。</p> 
 
-    ```bash
-    chmod 600 <private-key>.pem
-    ```
+
+   ```bash
+   chmod 600 <private-key>.pem
+   ```
 
 2. SSH 至集群。
 
     1. 从您的终端，将您的新配置添加到 `.pem` 文件，其中 `<private-key>` is your `.pem` 文件。
 
-        ```bash
-        ssh-add ~/.ssh/<private-key>.pem
-        Identity added: /Users/<yourdir>/.ssh/<private-key>.pem (/Users/<yourdir>/.ssh/<private-key>.pem)
-        ```
+    ```bash
+    ssh-add ~/.ssh/<private-key>.pem
+    Identity added: /Users/<yourdir>/.ssh/<private-key>.pem (/Users/<yourdir>/.ssh/<private-key>.pem)
+    ```
 
- * **要 SSH 至管理节点：**
+    * **要 SSH 至管理节点：**
 
     从 DC/OS CLI，输入以下命令：
 
@@ -55,13 +55,13 @@ enterprise: false
     dcos node ssh --master-proxy --leader --user=centos
     ```
 
- * **要 SSH 至代理节点：**
+   * **要 SSH 至代理节点：**
 
- 1. 从 DC/OS CLI，输入以下命令，其中 `<mesos-id>` 是您的代理 ID。
+   1. 从 DC/OS CLI，输入以下命令，其中 `<mesos-id>` 是您的代理 ID。
 
-            ```bash
-            dcos node ssh --master-proxy --mesos-id=<mesos-id>
-            ```
+    ```bash
+    dcos node ssh --master-proxy --mesos-id=<mesos-id>
+    ```
 
  要查找代理 ID，选择 DC/OS [Web 界面](/cn/1.11/gui/) 中的 **节点** 选项卡并单击 **详细信息**。
 
