@@ -271,11 +271,11 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
     <p class="message--important"><strong>重要信息：</strong>单击“登录到 DC/OS”，浏览器就会显示您的连接不安全的警告。这是因为 DC/OS 使用自签名证书。可以忽略该错误，然后单击以继续。</p> 
 
 
-    ![UI installer success](/cn/1.11/img/gui-installer-success-ee.gif)
+   ![UI installer success](/cn/1.11/img/gui-installer-success-ee.gif)
 
-    图 4. 操作成功的画面
+   图 4. 操作成功的画面
 
-1. 输入超级用户帐户的用户名和密码。
+4. 输入超级用户帐户的用户名和密码。
 
     <p class="message--note"><strong>注意：</strong> 默认用户名为 <tt>bootstrapuser</tt>，默认密码为 <tt>deleteme</tt>。</p>
 
