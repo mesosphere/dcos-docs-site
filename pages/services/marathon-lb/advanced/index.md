@@ -161,8 +161,8 @@ Other options you may want to specify include enabling the [sticky option][3], [
 
 ```json
     "labels":{
-      "HAPROXY_0_STICKY":true,
-      "HAPROXY_0_REDIRECT_TO_HTTPS":true,
+      "HAPROXY_0_STICKY":"true",
+      "HAPROXY_0_REDIRECT_TO_HTTPS":"true",
       "HAPROXY_0_VHOST":"nginx.mesosphere.com"
     }
 ```
