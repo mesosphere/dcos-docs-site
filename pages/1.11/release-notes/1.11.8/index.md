@@ -30,7 +30,7 @@ DC/OS 1.11.8 includes the following components:
 - MARATHON-8317	- This release adds support for enhancements and issues fixed in Marathon 1.6.x. 
 
 ## Mesos
-- COPS-3953	- If launching a task fails to retrieve or read previously-downloaded cached files, the fetch process attempts to download the files using the associated URI.
+- COPS-3953	- The Mesos fetcher process automatically retries downloading files using their associated URI if the previously-downloaded and cached versions of the files are not found.
 - DCOS-43544 - Logic changes enable nested containers to run under the same user account as the user associated with their parent container by default.  By default. Mesos agents use the task executor's user account to run commands the the command executor user is same as the command task user. For tasks in a task group pod, however, the default executor's user is same with the framework user rather than the task. In a scenario where the framework user is a normal user but the task user is root, this change enables the tasks in the nested container to run as the same user as the parent container instead of as the framework user.
 - DCOS-43593 - A helper function collects authorization information for endpoints and detremines whether all authorization requests are successful before completing the approval to authorize an action.
 - DCOS-43670, DCOS-44827 - Updates to the file descriptor code used to poll events for a container enable the file descriptor to wait for a read operation to complete. This change prevents a race condition that leaves the container in an ISOLATING or PROVISIONING state.
@@ -40,8 +40,8 @@ DC/OS 1.11.8 includes the following components:
 - DCOS_OSS-3616	- Changes to Metronome initialization prevent overconsumption of resources for Metronome-scheduled tasks when task execution is suspended.
 
 ## Network
-- DCOS_OSS-1954	- Frameworks wait for an application to start successfully or report a healthly status before distributing tasks to be executed.
-- DCOS_OSS-4398	- This release resolves network issues caused by restarting the s`ystemd-networkd` process when a restart is not required to complete a network connection.
+- COPS-3924, DCOS_OSS-1954	- Frameworks wait for an application to start successfully or report a healthly status before distributing tasks to be executed.
+- COPS-4034, DCOS_OSS-4398	- This release resolves network issues caused by restarting the s`ystemd-networkd` process when a restart is not required to complete a network connection.
 
 # About DC/OS 1.11
 
