@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt: Guide for DC/OS on Azure using Terraform
 title: DC/OS on Azure Terraform
 navigationTitle: Azure Terraform
-menuWeight: 0
+menuWeight: 2
 ---
 
 <p class="message--warning"><strong>DISCLAIMER: </strong>This installation
