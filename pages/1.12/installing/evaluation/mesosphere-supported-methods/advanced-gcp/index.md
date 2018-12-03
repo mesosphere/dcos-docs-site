@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt: Customizing your DC/OS clusters
 title: Advanced GCP
 navigationTitle: Advanced GCP
-menuWeight: 0
+menuWeight: 5
 ---
 You can add variables to your `main.tf` file to customize your DC/OS clusters. The configuration templates using Terraform are designed to be flexible. Below is an example of a customized `main.tf`.
 
