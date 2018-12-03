@@ -1,0 +1,96 @@
+---
+layout: layout.pug
+navigationTitle:  Release Notes for 1.11.8
+title: Release Notes for 1.11.8
+menuWeight: 5
+excerpt: Release notes for DC/OS 1.11.8
+---
+
+DC/OS 1.11.8 was released on December 6, 2018. 
+
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.7/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
+[button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
+
+DC/OS 1.11.8 includes the following components:
+- Apache Mesos 1.5.x [change log](https://github.com/apache/mesos/blob/2ead30d/CHANGELOG).
+- Marathon 1.6.564 [change log](https://github.com/mesosphere/marathon/tree/3fa693b32).
+- Metronome 0.4.5 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.5).
+
+# Issues fixed in DC/OS 1.11.8
+
+## Docker containers
+- COPS-4087	- For applications that use Docker containers with a Virtual IP address, backend port mapping resolves access to the application by using the `host_IP:port_number` instead of the `container_ip:port_number`.
+
+## GUI
+- DCOS_OSS-1961	- Pod lifecycle stages are supported in the DC/OS UI.
+
+## Marathon
+- COPS-3764	- The upgrade to Marathon 1.6.x enables successful secret validation for secrets included in a Marathon JSON app definition file.
+- MARATHON-8317	- This release adds support for enhancements and issues fixed in Marathon 1.6.x. 
+
+## Mesos
+- COPS-3953	- If launching a task fails to retrieve or read previously-downloaded cached files, the fetch process attempts to download the files using the associated URI.
+- DCOS-43544 - Logic changes enable nested containers to run under the same user account as the user associated with their parent container by default.  By default. Mesos agents use the task executor's user account to run commands the the command executor user is same as the command task user. For tasks in a task group pod, however, the default executor's user is same with the framework user rather than the task. In a scenario where the framework user is a normal user but the task user is root, this change enables the tasks in the nested container to run as the same user as the parent container instead of as the framework user.
+- DCOS-43593 - A helper function collects authorization information for endpoints and detremines whether all authorization requests are successful before completing the approval to authorize an action.
+- DCOS-43670, DCOS-44827 - Updates to the file descriptor code used to poll events for a container enable the file descriptor to wait for a read operation to complete. This change prevents a race condition that leaves the container in an ISOLATING or PROVISIONING state.
+
+## Metronome
+- DCOS-45564 - This release adds support for enhancements and issues fixed in Metronome 0.4.5.
+- DCOS_OSS-3616	- Changes to Metronome initialization prevent overconsumption of resources for Metronome-scheduled tasks when task execution is suspended.
+
+## Network
+- DCOS_OSS-1954	- Frameworks wait for an application to start successfully or report a healthly status before distributing tasks to be executed.
+- DCOS_OSS-4398	- This release resolves network issues caused by restarting the s`ystemd-networkd` process when a restart is not required to complete a network connection.
+
+# About DC/OS 1.11
+
+DC/OS 1.11 includes many new capabilities with a focus on:
+- Managing clusters across multiple clouds [enterprise type="inline" size="small" /].
+- Production Kubernetes-as-a-service.
+- Enhanced data security [enterprise type="inline" size="small" /].
+- Updated data services.
+
+Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).
+
+## New features and capabilities in DC/OS 1.11
+
+### Platform
+- Multi-region management - Enables a DC/OS cluster to span multiple datacenters, clouds, and remote branches while providing a unified management and control cluster. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
+- Linked clusters - A cluster link is a unidirectional relationship between one cluster and another. You can add and remove links from one cluster to another cluster using the DC/OS CLI. Once a link is set up, you can easily switch between clusters using the CLI or UI. [View the documentation](/1.11/administering-clusters/multiple-clusters/cluster-links). [enterprise type="inline" size="small" /]
+- Fault domain awareness - Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
+- Decommission nodes - Support for permanently decommissioning nodes makes it easier to manage `spot` cloud instances, allowing for immediate task rescheduling. [View the documentation](/1.11/hybrid-cloud/features/decommission-nodes/)
+- UCR
+  - Support for Docker image garbage collection. [View the documentation](/1.11/deploying-services/containerizers).
+  - Support for Docker image pull secrets. [View the documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/#cluster-docker-credentials). An example for Docker credentials is [here](/1.11/installing/ent/custom/configuration/examples/#docker-credentials). [enterprise type="inline" size="small" /]
+
+### Networking
+- Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
+- IPv6 is now supported for Docker containers.
+- Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`.  Read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
+- The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/production/advanced-configuration/configuration-reference/#dns-forward-zones) to understand its usage.
+
+[enterprise]
+### Security
+[/enterprise]
+- Secrets Management Service
+  - Secrets can now be binary files in addition to environment variables.
+  - Hierarchical access control is now supported.
+
+### Monitoring
+- The DC/OS metrics component now produces metrics in [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) format. [View the documentation](/1.11/metrics).
+- Unified logging API provides simple access to container (task) and system component logs. [View the documentation](/1.11/monitoring/logging/logging-api/logging-v2/).
+
+### Storage
+- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
+- Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods).[beta type="inline" size="small" /]
+
+<p class="message--note"><strong>NOTE: </strong>Because these storage features are beta in 1.11, they must be explicitly enabled in the config.yaml file when installing DC/OS. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.</p>
+
+### Updated DC/OS data services
+- TLS encryption for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS is now supported. [enterprise type="inline" size="small" /]
+- Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [enterprise type="inline" size="small" /]
+- New API endpoint to pause a node for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. Use this endpoint to relaunch a node in an idle command state for debugging purposes.
+- New DC/OS Kafka ZooKeeper service. [View the documentation](/services/kafka-zookeeper).
+- You can now select a DC/OS data service version from a dropdown menu in the DC/OS UI.
+- Improved scalability for all DC/OS data services.
