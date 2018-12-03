@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos job schedule add
 title: dcos job schedule add
@@ -26,7 +26,7 @@ dcos job schedule add <job-id> <schedule-file> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` 命令。|
+| `<job-id>`   |  显示 job ID。您可以使用 `dcos job list` 指令查看 job ID。|
 | `<schedule-file>` | 以 JSON 为格式的作业时间表文件。|
 
 # 父命令

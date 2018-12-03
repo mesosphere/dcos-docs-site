@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon debug details
 title: dcos marathon debug details
@@ -28,7 +28,7 @@ dcos marathon debug details <app-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<app-id>`   |   The application ID.  You can view a list of the application IDs with the `dcos marathon group list` 命令。|
+| `<app-id>`   |   应用 ID。 可以使用 `dcos marathon group list` 指令显示应用ID列表。|
 
 # 父命令
 

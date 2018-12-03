@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 节点和集群运行状况检查
 title: 节点和集群运行状况检查
@@ -69,7 +69,7 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
     dcos node --master-proxy --mesos-id=<agent-node-id>
     ```
 
-1. 运行此命令以查看可用的运行状况检查，需采用指定的检查类型 (`<check-type>`) specified. The check type can be either cluster (`cluster`) or node (`node-poststart`). 
+1. 运行此命令以查看可用的运行状况检查，需采用指定的检查类型 (`<check-type>`) 。检查类型可以为群集 (`cluster`) 或节点 (`node-poststart`)。 
 
     ```bash
     /opt/mesosphere/bin/dcos-shell dcos-diagnostics check <check-type> --list

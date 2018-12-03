@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon app list
 title: dcos marathon app list
@@ -22,7 +22,7 @@ dcos marathon app list [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `--json` | 显示以 JSON 为格式的数据。|
+| `--json` | 显示 JSON 格式的数据。|
 
 # 父命令
 

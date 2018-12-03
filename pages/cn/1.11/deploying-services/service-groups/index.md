@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 授权访问服务和组
 title: 授权访问服务和组
@@ -54,7 +54,7 @@ enterprise: true
 
  - **DC/OS 服务访问：**
 
- 指定您的服务 (`<service-name>`) and action (`<action>`). Actions can be either `创建`, `读取`, `更新`, `删除`, or `完整`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
+ 指定您的服务 (`<service-name>`) 和行动 (`<action>`)。 行动可以是 `创建`, `读取`, `更新`, `删除`, 或 `完整`。若要允许多于一个操作，用逗号隔开他们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
 
        ```bash
        dcos:adminrouter:service:marathon full
@@ -70,7 +70,7 @@ enterprise: true
 
  - **DC/OS 服务访问：**
 
- 指定您的服务 (`<service-name>`) and action (`<action>`). Actions can be either `创建`, `读取`, `更新`, `删除`, or `完整`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
+ 指定您的服务 (`<service-name>`) 和行动 (`<action>`)。行动可以是 `创建`, `读取`, `更新`, `删除`, 或 `完整`。若要允许多于一个操作，用逗号隔开他们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
 
        ```bash
        dcos:adminrouter:service:marathon full
@@ -184,7 +184,7 @@ enterprise: true
 
  - **DC/OS 服务访问：**
 
- 指定您的服务 (`<service-name>`), group (`<gid>`), and action (`<action>`). Actions can be either `创建`, `读取`, `更新`, `删除`, or `完整`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
+ 指定您的服务 (`<service-name>`), 组 (`<gid>`), 和行动 (`<action>`)。行动可以是 `创建`, `读取`, `更新`, `删除`, 或 `完整`。若要允许多于一个操作，用逗号隔开他们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
 
        ```bash
        dcos:adminrouter:service:marathon full
@@ -202,7 +202,7 @@ enterprise: true
 
  - **DC/OS 服务访问：**
 
- 指定您的服务 (`<service-name>`), group (`<gid>`), and action (`<action>`). Actions can be either `创建`, `读取`, `更新`, `删除`, or `完整`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
+ 指定您的服务 (`<service-name>`), 组 (`<gid>`), 和行动 (`<action>`)。 行动可以是 `创建`, `读取`, `更新`, `删除`, 或 `完整`。 若要允许多于一个操作，用逗号隔开他们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
 
        ```bash
        dcos:adminrouter:service:marathon full

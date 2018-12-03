@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 集群连接
 title: 集群连接
@@ -52,7 +52,7 @@ dcosdev*     cf96739f-f800-42ea-95d7-d60acc689194  AVAILABLE     1.11.0    https
 
 ## 重命名集群
 
-您可以使用`dcos cluster rename重命名连接的集群 <name> <new-name>` command. For example, to rename your cluster from `dcosdev` to `dcoslive`:
+您可以使用`dcos cluster rename <name> <new-name>` 指令重命名连接的集群。例如，将您的群集名从 `dcosdev` 更改为 `dcoslive`:
 
 ```bash
 dcos cluster rename dcosdev dcoslive
@@ -62,7 +62,7 @@ dcos cluster rename dcosdev dcoslive
 
 ## 删除集群
 
-您可以用`dcos cluster remove 删除连接的集群 <name>` command. For example, to remove the cluster `dcosdev`:
+您可以用`dcos cluster remove <name>`指令删除连接的集群。 例如，删除 `dcosdev` 群集:
 
 ```bash
 dcos cluster remove dcosdev

@@ -115,7 +115,7 @@ enterprise: true
 1. 对每个附加节点重复上述步骤。
 
 ## 动态保留
-使用 Mesos ID 为非本地 Marathon 实例保留资源 (`<mesos-id>`), user ID (`<userid>`), role (`<myrole>`), and ports (`<begin-port>` and `<end-port>`) 。
+使用 Mesos ID 为非本地 Marathon 实例保留资源 (`<mesos-id>`), 用户 ID (`<userid>`), 角色 (`<myrole>`), 和端口 (`<begin-port>` and `<end-port>`) 。
 
 ```bash
 curl -i -k \
@@ -184,7 +184,7 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
     dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
     ```
 
-1. 创建名为 ` <service-account-id>`, with the public key specified (`<public-key>.pem`）的新服务帐户。
+1. 用指定的公钥 (`<public-key>.pem`）创建名为 ` <service-account-id>`的新服务帐户。
 
     ```bash
     dcos security org service-accounts create -p <public-key>.pem -d "Non-native Marathon service account" <service-account-id>
@@ -727,7 +727,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:volume:prin
 
  - **访问单个服务或组**
 
- 指定服务或组 (`<service-or-group>`), service name (`<service-name>`), role (`<myrole>`), and action (`<action>`). Actions can be either `创建`, `读取`, `更新`, `删除`, or `完整`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
+ 指定服务或组 (`<service-or-group>`), 服务名 (`<service-name>`), 角色 (`<myrole>`), 和行动 (`<action>`)。 行动可以是 `创建`, `读取`, `更新`, `删除`, 或 `完整`。 若要允许多于一个操作，用逗号隔开他们，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
 
        ```bash
        dcos:adminrouter:service:<service-name> full

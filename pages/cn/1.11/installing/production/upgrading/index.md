@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 升级
 title: 升级
@@ -114,7 +114,7 @@ excerpt: 升级 DC/OS 集群
 5. 构建安装工具包。
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
- 2. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.8.8`。
+ 2. 生成安装文件。使用先前命令中使用的 IP 地址用以下指令和 DC/OS 目前正在运行的您准备打补丁的群集的版本替换 `<installed_cluster_version>` ，例如 `1.8.8`。
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
@@ -139,7 +139,7 @@ excerpt: 升级 DC/OS 集群
 3. 构建安装工具包。
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
- 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.8.8`。
+ 1. 生成安装文件。使用先前命令中使用的 IP 地址用以下指令和 DC/OS 目前正在运行的您准备打补丁的群集的版本替换 `<installed_cluster_version>` ，例如 `1.8.8`。
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
@@ -165,7 +165,7 @@ excerpt: 升级 DC/OS 集群
 3. 构建安装工具包。
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
- 2. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.8.8`。
+ 2. 生成安装文件。使用先前命令中使用的 IP 地址用以下指令和 DC/OS 目前正在运行的您准备打补丁的群集的版本替换 `<installed_cluster_version>` ，例如 `1.8.8`。
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
@@ -188,7 +188,7 @@ excerpt: 升级 DC/OS 集群
 1. 将 1.10 转换为 `config.yaml` 1.11 `config.yaml` 格式后，您可以构建安装工具包：
 
  1. 下载 `dcos_generate_config.sh` 文件。
- 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.9.2`。
+ 1. 生成安装文件。使用先前命令中使用的 IP 地址用以下指令和 DC/OS 目前正在运行的您准备打补丁的群集的版本替换 `<installed_cluster_version>` ，例如 `1.8.8`。
         ```bash
         dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
@@ -219,7 +219,7 @@ excerpt: 升级 DC/OS 集群
 
  **注意：** 如果要从宽容模式升级到严格模式，此 URL 将为 `https://...`。
  1. 等到 `dcos-mesos-master` 单元启动并运行。
- 1. 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`。[enterprise type="inline" size="small" /]
+ 1. 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 由此度量 `registrar/log/recovered` 且其值为 `1`。[enterprise type="inline" size="small" /]
 
  **注意：** 如果要从宽容模式升级到严格模式，此 URL 将为 `curl https://...`，并且需要有 JWT 才能访问。[enterprise type="inline" size="small" /]
  1. 验证 `/opt/mesosphere/bin/mesos-master --version` 表示升级后的管理节点正在运行 Mesos 1.4.2。[enterprise type="inline" size="small" /]
@@ -263,7 +263,7 @@ excerpt: 升级 DC/OS 集群
 
 1. 验证升级情况。
 
- - 验证 `curl http://<dcos_agent_private_ip>:5051/metrics/snapshot` has the metric `slave/registered` with a value of `1`。
+ - 验证 `curl http://<dcos_agent_private_ip>:5051/metrics/snapshot` 有此度量 `slave/registered` 且其值为 `1`。
  - 监控 Mesos UI 以验证升级的节点是否重新加入 DC/OS 集群以及任务是否已协调 (`http://<master-ip>/mesos`)。
  如果要从宽容模式升级到严格模式，此 URL 将为 `https://<master-ip>/mesos`。
 

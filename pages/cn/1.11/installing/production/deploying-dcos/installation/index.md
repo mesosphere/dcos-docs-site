@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 生产安装
 title: 生产安装
@@ -336,7 +336,7 @@ enable_ipv6: 'false'
    
  - 要使安装脚本生效，必须首先创建 `genconf/config.yaml` 和 `genconf/ip-detect`。
 
-2. 在主目录中运行以下命令，以通过 NGINX Docker 容器托管 DC/OS 安装包。对于 `<your-port>`, specify the port value that is used in the `bootstrap_url`。
+2. 在主目录中运行以下命令，以通过 NGINX Docker 容器托管 DC/OS 安装包。对于 `<your-port>`, 明确在 `bootstrap_url` 中使用的端口值。
 
     ```bash
     sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
@@ -355,7 +355,7 @@ enable_ipv6: 'false'
         mkdir /tmp/dcos && cd /tmp/dcos
         ```
 
- * 在 NGINX Docker 容器中下载 DC/OS 安装工具，其中 `<bootstrap-ip>` and `<your_port>` are specified in `bootstrap_url`。
+ * 在 NGINX Docker 容器中下载 DC/OS 安装工具，其中 `<bootstrap-ip>` 和 `<your_port>` 在 `bootstrap_url` 中显示。
 
         ```bash
         curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh

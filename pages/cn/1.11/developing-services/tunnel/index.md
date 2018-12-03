@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 title: 使用 DC/OS 隧道
 navigationTitle: 使用 DC/OS 隧道
@@ -178,7 +178,7 @@ DC/OS 隧道可让您从集群内完全访问 DNS、管理节点和代理。Open
 HTTP 代理将 DC/OS SRV 记录作为 URL 披露，采用的形式为 `_<port-name>._<service-name>._tcp.marathon.mesos.mydcos.directory` (transparent mode) or `_<port-name>._<service-name>._tcp.marathon.mesos`（标准模式）。
 
 #### 查找服务名称
-Marathon 应用定义中的 `<service-name>` is the entry in the **ID** field of a service you create from the DC/OS web interface or the value of the `id` 字段。
+Marathon 应用定义中的 `<service-name>` 是您从 DC/OS web 界面创造的服务中 **ID** 栏的内容或 `id` 字段的值。
 
 #### 在 DC/OS Web 界面中添加指定端口
 如需在 DC/OS Web 界面指定端口，请转到 **服务 > 服务** 选项卡，单击服务名称，然后单击 **编辑**。在 **网络** 选项卡上输入端口的名称。

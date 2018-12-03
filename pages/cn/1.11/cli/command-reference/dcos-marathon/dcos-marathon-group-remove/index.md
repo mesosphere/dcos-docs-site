@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon group remove
 title: dcos marathon group remove
@@ -27,7 +27,7 @@ dcos marathon group remove <group-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<group-id>`   |   The group ID. You can view a list of the group IDs with the `dcos marathon group list` 命令。|
+| `<group-id>`   |   组 ID。 可以使用 `dcos marathon group list` 指令显示组ID列表。|
 
 # 父命令
 

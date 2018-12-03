@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 title: 在 AWS EC2 Advanced 上运行 DC/OS
 navigationTitle: Advanced
@@ -235,7 +235,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 在 CloudFormation 中，您会看到：
 
-* 集群堆栈启动需要 15 到 20 分钟时间。您将为其逐个创建堆栈，其中<stack-name>` is the value you specified for **Stack name** and `<stack-id>` 是自动生成的 ID。
+* 集群堆栈启动需要 15 到 20 分钟时间。您将为其逐个创建堆栈，其中<stack-name>` 是您明确的 **Stack name** 值，而 `<stack-id>` 是自动生成的 ID。
 
  ![AWS UI](/cn/1.11/img/aws-advanced-2.png)
 

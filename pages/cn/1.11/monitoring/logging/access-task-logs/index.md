@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 控制对任务日志的访问
 title: 控制对任务日志的访问
@@ -192,7 +192,7 @@ enterprise: true
    -d '{"description":"Grants access to the sandboxes on the Mesos agent inside <gid>"}'
    ```
 
-1. 使用以下命令向用户授予权限 (`<username>`). These will allow her to view the task logs in `<gid>`.
+1. 使用以下命令向用户授予权限 (`<username>`)。这些会允许其显示在 `<gid>` 的任务日志。
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt \

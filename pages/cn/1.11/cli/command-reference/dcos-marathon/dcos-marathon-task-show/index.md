@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon task show
 title: dcos marathon task show
@@ -26,7 +26,7 @@ dcos marathon task show <task-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<task-id>`   |  The task ID. You can view a list of the task IDs with the `dcos marathon task list` 命令。|
+| `<task-id>`   |  任务ID。 可以使用 `dcos marathon task list` 查看任务ID列表。|
 
 # 父命令
 

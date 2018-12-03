@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon app update
 title: dcos marathon app update
@@ -27,8 +27,8 @@ dcos marathon app update <app-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<app-id>`   |  The application ID.  You can view a list of the application IDs with the `dcos marathon group list` 命令。|
-| `<properties>`   |  List of one or more JSON object properties, separated by a space. The list must be formatted as `<key>=<value>`. For example, `cpus=2,0 mem=308`。如果遗漏了，则从 stdin 上提供的 JSON 对象读取属性。|
+| `<app-id>`   |  应用 ID。 可以使用 `dcos marathon group list` 指令显示应用ID列表。|
+| `<properties>`   |  列出一个或多个JSON对象属性，由空格分开。此列表格式必须为 `<key>=<value>`。例如， `cpus=2,0 mem=308` 。如果遗漏了，则从 stdin 上提供的 JSON 对象读取属性。|
 
 
 # 父命令

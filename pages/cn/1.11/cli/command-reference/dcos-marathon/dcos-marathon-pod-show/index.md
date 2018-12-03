@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon pod show
 title: dcos marathon pod show
@@ -26,7 +26,7 @@ dcos marathon pod show <pod-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<pod-id>`   | The pod ID. You can view a list of the pod IDs with the `dcos marathon pod list` 命令。|
+| `<pod-id>`   | Pod ID。 可以使用 `dcos marathon pod list` 查看pod ID列表。|
 
 # 父命令
 

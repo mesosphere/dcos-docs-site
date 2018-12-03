@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 配置参考
 title: 配置参考
@@ -617,7 +617,7 @@ DC/OS ZooKeeper 凭据 `zk_super_credentials`、 `zk_master_credentials` 和 `zk
 
 `zk_super_credentials` 支持访问等同于 ZooKeeper 的 `root` 或 `superuser` 的帐户，该账户可以访问所有资源，不受现有 ACL 限制。此凭据支持算子访问 ZooKeeper Quorum 中存储的所有元数据，并由 DC/OS 引导脚本在初始化集群时使用。默认值：`'super:secret'`。
 
-要加固集群，Mesosphere 建议您将所有凭据的默认值更改为长而复杂的值。设置后，您可以使用在 DC/OS 管理节点上可用的 `/opt/mesosphere/active/exhibitor/usr/zookeeper/bin/zkCli.sh` 进行验证。`zkCli` 默认不作验证，所以 `/dcos` 树中的节点将无法访问。调用 `addauth digest <zk_super_credentials>` in `zkCli`, all the nodes in ZooKeeper will be accessible, with `zk_master_credentials` and `zk_agent_credentials` 为它们的一个子集提供访问权限。例如：
+要加固集群，Mesosphere 建议您将所有凭据的默认值更改为长而复杂的值。设置后，您可以使用在 DC/OS 管理节点上可用的 `/opt/mesosphere/active/exhibitor/usr/zookeeper/bin/zkCli.sh` 进行验证。`zkCli` 默认不作验证，所以 `/dcos` 树中的节点将无法访问。在 `zkCli` 调用 `addauth digest <zk_super_credentials>` , 所有在 ZooKeeper 的节点都可用, 并有 `zk_master_credentials` 和 `zk_agent_credentials` 为它们的一个子集提供访问权限。例如：
 
 ```
 [zk: localhost:2181(CONNECTED) 0] addauth digest super:secret

@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos config
 title: dcos config
@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos config` 命令让您管理您在运行 [dcos cluster setup] 时创建的 DC/OS 配置文件(/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup)。该配置文件位于：`~/.dcos/cluster/<cluster_id>/dcos.toml`. If you have not changed any configuration properties, you should see this output when you run `dcos config show`:
+`dcos config` 命令让您管理您在运行 [dcos cluster setup] 时创建的 DC/OS 配置文件(/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup)。该配置文件位于：`~/.dcos/cluster/<cluster_id>/dcos.toml`。 如果您还未更改任何配置属性，您应会在运行 `dcos config show` 时看到这个输出结果:
 
  cluster.name <cluster_name>
  core.dcos_acs_token ********

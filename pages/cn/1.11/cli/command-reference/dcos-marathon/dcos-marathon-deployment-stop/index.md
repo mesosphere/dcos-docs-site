@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon deployment stop
 title: dcos marathon deployment stop
@@ -26,7 +26,7 @@ dcos marathon deployment stop <deployment-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<deployment-id>`   |   The deployment ID. You can view a list of the deployment IDs with the `dcos marathon deployment list` 命令。|
+| `<deployment-id>`   |   部署ID。 可以使用 `dcos marathon deployment list` 指令显示部署ID列表。|
 
 # 父命令
 

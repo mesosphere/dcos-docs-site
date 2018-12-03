@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon group show
 title: dcos marathon group show
@@ -28,7 +28,7 @@ dcos marathon group show <group-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<group-id>`   |  The group ID. You can view a list of the group IDs with the `dcos marathon group list` 命令。|
+| `<group-id>`   |  组ID。 可以使用 `dcos marathon group list` 查看组ID列表。|
 
 # 父命令
 

@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos job remove
 title: dcos job remove
@@ -28,7 +28,7 @@ dcos job remove <job-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<job-id>`   |  Specify the job ID. You can view the job IDs with the `dcos job list` 命令。|
+| `<job-id>`   |  显示 job ID。您可以使用 `dcos job list` 指令查看 job ID。|
 
 # 父命令
 

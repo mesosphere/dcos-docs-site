@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 打补丁
 title: 打补丁
@@ -111,7 +111,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 1. 构建安装工具包。
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
- 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the command below with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`。
+ 1. 生成安装文件。使用先前命令中使用的 IP 地址用以下指令和 DC/OS 目前正在运行的您准备打补丁的群集的版本替换 `<installed_cluster_version>` ，例如 `1.8.8`。
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
@@ -140,7 +140,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 1. 构建安装工具包。
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
- 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`。
+ 1. 生成安装文件。使用先前命令中使用的 IP 地址用以下指令和 DC/OS 目前正在运行的您准备打补丁的群集的版本替换 `<installed_cluster_version>` ，例如 `1.8.8`。
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
@@ -166,7 +166,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 1. 构建安装工具包。
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
- 1. 生成安装文件。使用先前命令中使用的 IP 地址替换 `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`。
+ 1. 生成安装文件。使用先前命令中使用的 IP 地址用以下指令和 DC/OS 目前正在运行的您准备打补丁的群集的版本替换 `<installed_cluster_version>` ，例如 `1.8.8`。
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
@@ -197,7 +197,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
  **注意：** 如果要从宽容模式修补到严格模式，此 URL 将是 `https://...`。
  1. 等到 `dcos-mesos-master` 单元启动并运行。
- 1. 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`。
+ 1. 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 有此度量 `registrar/log/recovered` 其值为 `1`。
  **注意：** 如果要从宽容模式修补到严格模式，此 URL 将是 `curl https://...`，并且需要有 JWT 才能访问。
  1. 验证 `/opt/mesosphere/bin/mesos-master --version` 表示修补后的管理节点正在运行 Mesos 1.4.0。
  1. 验证副本不足范围的数量是否随着 IAM 数据库被复制到新管理节点而已经降至零。可以通过运行以下命令并确认右侧的最后一列是否只显示零来完成。
@@ -240,8 +240,8 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 1. 验证补丁：
 
- - 验证 `curl http://<dcos_agent_private_ip>:5051/metrics/snapshot` has the metric `slave/registered` with a value of `1`。
- - 监控 Mesos UI 以验证修补的节点是否重新加入 DC/OS 集群以及任务是否已协调 (`http://<master-ip>/mesos`). If you are patching from permissive to strict mode, this URL will be `https://<master-ip>/mesos`。
+ - 验证 `curl http://<dcos_agent_private_ip>:5051/metrics/snapshot` 由此度量 `slave/registered` 且其值为 `1`。
+ - 监控 Mesos UI 以验证修补的节点是否重新加入 DC/OS 集群以及任务是否已协调 (`http://<master-ip>/mesos`)。 如果您从宽容模式打补丁升级到严格模式，这个URL将是 `https://<master-ip>/mesos`。
 
 ## <a name="troubleshooting"></a>故障排除建议
 

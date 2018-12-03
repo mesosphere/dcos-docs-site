@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon deployment rollback
 title: dcos marathon deployment rollback
@@ -25,7 +25,7 @@ dcos marathon deployment rollback <deployment-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<deployment-id>`   |  The deployment ID. You can view a list of the application IDs with the `dcos marathon deployment list` 命令。|
+| `<deployment-id>`   |  部署ID。 可以使用 `dcos marathon deployment list` 指令显示部署ID列表。 |
 
 # 父命令
 

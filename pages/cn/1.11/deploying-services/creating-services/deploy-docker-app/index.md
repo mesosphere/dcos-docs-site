@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 部署基于 Docker 的服务
 title: 部署基于 Docker 的服务
@@ -88,7 +88,7 @@ enterprise: false
 
 # 创建 Docker 应用程序并部署到 DC/OS
 
-1. 使用以下内容创建 Marathon 应用定义，并另存为 `hello-nginx.json`：在 `image` 字段，替换 `<username>在` with your Docker Hub username. In the `type` field, specify `字段中，按您需要的 [containerizer runtime](/cn/1.11/deploying-services/containerizers/) 指定 MESOS` or ` 或 DOCKER。
+1. 使用以下内容创建 Marathon 应用定义，并另存为 `hello-nginx.json`：在 `image` 字段，用您的 Docker Hub 用户名替换 `<username>` 。在 `type` 字段, 按您需要的 [containerizer runtime](/cn/1.11/deploying-services/containerizers/) 指定 `MESOS` 或 `DOCKER`。
 
     ```json
     {

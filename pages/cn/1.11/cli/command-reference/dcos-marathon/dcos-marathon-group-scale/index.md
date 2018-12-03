@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon group scale
 title: dcos marathon group scale
@@ -28,7 +28,7 @@ dcos marathon group scale <group-id> <scale-factor> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<group-id>`   |   The group ID. You can view a list of the group IDs with the `dcos marathon group list` 命令。|
+| `<group-id>`   |   组ID。 可以使用 `dcos marathon group list` 查看组ID列表。|
 | `<scale-factor>` | 应用程序组的扩展因数。|
 
 # 父命令

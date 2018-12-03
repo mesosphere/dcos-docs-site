@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon app add
 title: dcos marathon app add
@@ -26,7 +26,7 @@ dcos marathon app add <app-resource> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<app-resource>`   | Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from `stdin`。有关详细说明，请参阅[文档](/cn/1.11/deploying-services/marathon-api/)。|
+| `<app-resource>`   | 含有应用的 JSON 定义的文件或 HTTP(S) URL 路径。如果省略，该定义将从 `stdin` 读取。有关详细说明，请参阅[文档](/cn/1.11/deploying-services/marathon-api/)。|
 
 # 父命令
 

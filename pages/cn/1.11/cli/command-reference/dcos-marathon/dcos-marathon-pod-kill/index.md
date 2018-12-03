@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon pod kill
 title: dcos marathon pod kill
@@ -26,7 +26,7 @@ dcos marathon pod kill <instance-ids> <pod-id> [OPTION]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `<instance-ids>` | 一个或多个 pod 实例 ID 的列表，以空格分隔。|
-| `<pod-id>`   |  The pod ID. You can view a list of the pod IDs with the `dcos marathon pod list` 命令。|
+| `<pod-id>`   |  Pod ID。 可以使用 `dcos marathon pod list` 查看pod ID列表。|
 
 # 父命令
 

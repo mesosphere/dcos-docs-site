@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 覆盖默认 Linux 用户
 title: 覆盖默认 Linux 用户
@@ -32,7 +32,7 @@ Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 验证序
 - 您已安装并登录到 [DC/OS CLI](/cn/1.11/cli/)。
 - 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须遵守 [下载根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 中的步骤才能发布此部分的 curl 命令。
 - 如果您的[安全模式](/cn/1.11/security/ent/#security-modes)为 `disabled`，则必须在将其发出前从命令中删除 `--cacert dcos-ca.crt`。
-您已经授予权限，以在 `dcos:mesos:master:task:user:上执行 `create` 的操作<linux-user-name>` resource to the `dcos_marathon` DC/OS 服务帐户用户。
+您已经授予权限，以在 `dcos:mesos:master:task:user:<linux-user-name>` 资源上对 `dcos_marathon` DC/OS 服务帐户用户执行 `create` 的操作。
 
 满足这些先决条件后，完成以下步骤以覆盖默认 Linux 用户。
 
@@ -88,7 +88,7 @@ Metronome 作业定义提供 `"user"` 验证序号，可用于覆盖默认 Linux
 - 代理程序上已存在 Linux 用户帐户。
 - 您已安装并登录到 [DC/OS CLI](/cn/1.11/cli/)。
 - 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须遵守 [下载根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 中的步骤才能发布此部分的 curl 命令。如果您的[安全模式](/cn/1.11/security/ent/#security-modes)为 `disabled`，则必须在将其发出前从命令中删除 `--cacert dcos-ca.crt`。
-您已经授予权限，以在 `dcos:mesos:master:task:user:上执行 `create` 的操作<linux-user-name>` resource to the `dcos_metronome` DC/OS 服务帐户用户。
+您已经授予权限，以在 `dcos:mesos:master:task:user:<linux-user-name>` 资源上对 `dcos_marathon` DC/OS 服务帐户用户执行 `create` 的操作。
 
 满足这些先决条件后，完成以下步骤以覆盖默认 Linux 用户。
 

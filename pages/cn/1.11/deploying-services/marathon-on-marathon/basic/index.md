@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 使用自定义 Marathon 实例部署服务
 title: 使用自定义 Marathon 实例部署服务
@@ -73,7 +73,7 @@ enterprise: true
 1. 对每个附加节点重复上述步骤。
 
 ## 动态保留
-使用 Mesos ID 为非本地 Marathon 实例保留资源 (`<mesos-id>`), user ID (`<userid>`), role (`<myrole>`), and ports (`<begin-port>` and `<end-port>`) 。
+使用 Mesos ID 为非本地 Marathon 实例保留资源 (`<mesos-id>`), 用户 ID (`<userid>`), 角色 (`<myrole>`), 和端口 (`<begin-port>` and `<end-port>`) 。
 
 ```bash
 curl -i -k \
@@ -166,7 +166,7 @@ curl -i -k \
     dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
     ```
 
-1. 创建名为 ` <service-account-id>`, with the public key specified (`<public-key>.pem`）的新服务帐户。
+1. 创建名为 ` <service-account-id>`, 明确公钥 (`<public-key>.pem`）的新服务帐户。
 
     ```bash
     dcos security org service-accounts create -p <public-key>.pem -d "Non-native Marathon service account" <service-account-id>
@@ -184,7 +184,7 @@ curl -i -k \
 | 严格 | 必填 |
 
 
-为用户授予权限 `<uid>` to launch Mesos tasks that will execute as Linux user `nobody`。
+为用户授予权限 `<uid>` 来启动将以 Linux 用户 `nobody` 身份执行的 Mesos 任务。
 要允许作为不同 Linux 用户执行任务，请将 `nobody` 替换为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请将 `nobody` 替换为以下的 `bob`。
 请注意， `nobody` 和 `root` 是默认出现在所有代理上的，但如果指定了自定义 `bob` 用户，必须在可以执行这些任务的每个代理上手动创建（使用 `adduser` 或类似实用程序）。
 
@@ -251,7 +251,7 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
  - **访问单个服务或组**
 
- 指定服务或组 (`<service-or-group>`) and action (`<action>`). Actions can be either `创建`, `读取`, `更新`, `删除`, or `完整`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
+ 指定服务或组 (`<service-or-group>`) 和行动 (`<action>`). 行动可以是 `创建`, `读取`, `更新`, `删除`, 或 `完整`。若要允许多于一个操作，用逗号隔开他们，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
 
        ```bash
        dcos:adminrouter:service:<service-name> full
@@ -280,7 +280,7 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
  - **访问单个服务或组**
 
- 指定服务或组 (`<service-or-group>`), service name (`<service-name>`), role (`<myrole>`), and action (`<action>`). Actions can be either `创建`, `读取`, `更新`, `删除`, or `完整`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
+ 指定服务或组 (`<service-or-group>`), 服务名 (`<service-name>`), 角色 (`<myrole>`), 和行动 (`<action>`)。 行动可以是 `创建`, `读取`, `更新`, `删除`, 或 `完整`。若要允许多于一个操作，用逗号隔开他们，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
 
        ```bash
        dcos:adminrouter:service:<service-name> full

@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos job kill
 title: dcos job kill
@@ -28,7 +28,7 @@ dcos job kill <job-id> [OPTION]
 
 | 名称、简写 | D描述 |
 |---------|-------------|
-| `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` 命令。|
+| `<job-id>`   |  显示 job ID。您可以使用 `dcos job list` 指令查看 job ID。|
 
 # 父命令
 

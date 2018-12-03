@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos job show runs
 title: dcos job show runs
@@ -24,7 +24,7 @@ dcos job show runs <job-id> [OPTION]
 |---------|-------------|
 | | `--json` | 显示以 JSON 为格式的列表。|
 | | `--q` | 仅显示运行 ID 的阵列。|
-| `--run-id <run-id>`   |  The ID of a job run.   You can view the job IDs with the `dcos job list` 命令。|
+| `--run-id <run-id>`   |  作业运行的 ID 。可以使用 `dcos job list` 指令查看 job ID。|
 
 # 位置自变量
 

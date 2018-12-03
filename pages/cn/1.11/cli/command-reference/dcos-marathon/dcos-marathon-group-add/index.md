@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos marathon group add
 title: dcos marathon group add
@@ -26,7 +26,7 @@ dcos marathon group add <group-resource> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<group-resource>`   | Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from `stdin`。有关详细说明，请参阅[文档](/cn/1.11/deploying-services/marathon-api/)。|
+| `<group-resource>`   | 包含组JSON定义的文件或HTTP(S) URL路径。 若省略，定义将从 `stdin` 读取。有关详细说明，请参阅[文档](/cn/1.11/deploying-services/marathon-api/)。|
 
 # 父命令
 

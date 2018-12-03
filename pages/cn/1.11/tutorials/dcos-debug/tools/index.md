@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 title: 工具
 excerpt: 教程 - 用于调试 DC/OS 上应用程序的工具
@@ -143,7 +143,7 @@ Mesos 代理节点日志有助于了解代理节点启动应用程序的方式�
 
 图 5. Mesos 代理节点界面
 
-或者，您可以首先使用 `dcos node log --mesos-id=<node-id>` from the DC/OS CLI to locate the corresponding node `ID` 来查找代理日志，以找到相应的节点 ID。输入：
+或者，您可以首先从 DC/OS CLI 使用 `dcos node log --mesos-id=<node-id>` 找到对应的节点 `ID` 来查找代理日志，以找到相应的节点 ID。输入：
 
 ```bash
 $ dcos node
@@ -189,13 +189,13 @@ Mesos 管理节点负责将可用资源与调度程序匹配。它还将任务�
 
 请注意，单个集群通常有多个 Mesos 管理节点。因此，您应该**确定当前主导的 Mesos 管理节点以获得最新日志**。事实上，在某些情况下，从另一个 Mesos 管理节点检索日志甚至是有意义的：例如，管理节点发生故障并且您想要了解原因。
 
-您可以通过从 Mesos Web 界面检索管理节点日志，通过<cluster-name>/mesos`, via `dcos node log --leader`, or for a specific master node using `ssh master` and `journalctl -u dcos-mesos-master` 进行。
+您可以通过从 Mesos Web 界面检索管理节点日志，通过<cluster-name>/mesos`, 通过 `dcos node log --leader`, 或如果是具体的管理节点，用 `ssh master` 和 `journalctl -u dcos-mesos-master` 进行。
 
 <a name="system-logs"></a>
 
 ### 系统日志
 
-我们现在已经介绍了 DC/OS 环境中最重要的日志源，但可用的日志还有很多。每个 DC/OS 组件都写入一个日志。如上所述，[每个 DC/OS 组件](/cn/1.11/overview/architecture/components/) 作为一个 Systemd 单元运行。您可以在特定节点上通过 SSH 进入节点[直接检索日志](/latest/monitoring/logging/#system-logs)，然后键入 `journalctl -u <systemd-unit-name>`. Two of the more common system units to consider during debugging (besides Mesos and Marathon) are the `docker.service` and the `dcos-exhibitor.service`。
+我们现在已经介绍了 DC/OS 环境中最重要的日志源，但可用的日志还有很多。每个 DC/OS 组件都写入一个日志。如上所述，[每个 DC/OS 组件](/cn/1.11/overview/architecture/components/) 作为一个 Systemd 单元运行。您可以在特定节点上通过 SSH 进入节点[直接检索日志](/latest/monitoring/logging/#system-logs)，然后键入 `journalctl -u <systemd-unit-name>`。 排错时两个较常见的系统单元 (除了 Mesos 和 Marathon) 是 `docker.service` 和 `dcos-exhibitor.service`。
 
 例如，考虑 Mesos 代理节点`ffc913d8-4012-4953-b693-1acc33b400ce-S0`上 docker 守护程序的系统单元（重新调用 `dcos node` 命令检索 Mesos ID）。
 
