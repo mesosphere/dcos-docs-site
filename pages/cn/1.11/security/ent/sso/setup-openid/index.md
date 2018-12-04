@@ -28,7 +28,7 @@ enterprise: true
 
 1. 单击 **Configure consent screen**。
 
-1. 下一个屏幕允许您提供一系列信息，以便在用户提供凭据时显示给用户。至少，您必须在 **Product name shown to users** 框中指定 IdP 的名称。
+1. 下一个屏幕让您提供一系列信息，以便在用户提供凭据时显示给用户。至少，您必须在 **Product name shown to users** 框中指定 IdP 的名称。
 
 1. 点击**保存**。
 

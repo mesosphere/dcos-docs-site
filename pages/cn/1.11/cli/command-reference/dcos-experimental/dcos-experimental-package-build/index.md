@@ -21,7 +21,7 @@ dcos experimental package build <build-definition> [OPTION]
 
 | Name<>shorthand | Default | Description |
 |---------|-------------|-------------|
-| | `--json` | | 指定以 JSON 为格式的数据。|
+| | `--json` | | 指定 JSON 格式的数据。|
 | `--output-directory=<output-directory>` | 当前工作目录 | 要存储数据的目录的路径。|
 
 # 位置自变量

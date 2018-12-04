@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos auth logout` 命令允许您登出 DC/OS 认证。
+`dcos auth logout` 命令让您登出 DC/OS 认证。
 
 # 使用
 

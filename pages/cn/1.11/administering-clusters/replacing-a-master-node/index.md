@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 替换管理节点
 title: 替换管理节点
@@ -37,7 +37,7 @@ enterprise: true
 `master_discovery: master_http_loadbalancer`），只需按正常方式安装
 新的管理节点。
 
-### 检查新管理节点是否健康
+### 检查新管理节点是否运行良好
 
 为确认新的管理节点已成功加入集群，您在继续之前，必须验证该程序是否成功。
 

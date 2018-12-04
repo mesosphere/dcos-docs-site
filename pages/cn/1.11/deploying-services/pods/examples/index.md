@@ -51,7 +51,7 @@ enterprise: false
 |  `containers` （必填）| 阵列 | 参见 [pod 容器基础字段](#basic-pod-container-fields)。|
 |  `volumes` | 阵列 | 与 Pod 关联的所有卷。 |
 |  `volumes.name` | 字符串 | 共享卷的名称。 |
-|  `volumes.host` | 字符串 | 代理上文件或目录的绝对路径，或者执行器沙箱中目录的相对路径。有助于映射代理上或执行器沙箱内存在的目录。 |
+|  `volumes.host` | 字符串 | 代理上文件或目录的绝对路径，或者执行器沙盒中目录的相对路径。有助于映射代理上或执行器沙盒内存在的目录。 |
 |  `networks` | 阵列 | 接受以下参数：`mode`、`name` 和 `labels`。|
 |  `networks.mode` | 字符串 | 网络模式： `host` 或 `container`。 `host` 使用主机的网络命名空间。 `container` 使用虚拟网络，并且必须指定虚拟网络名称。 |
 |  `networks:name` | 字符串 | `container` 网络模式必填。 |
@@ -337,7 +337,7 @@ enterprise: false
 |  `scheduling.upgrade.maximumOverCapacity` | 数字 | 0 至 1 之间的数字，表示升级期间启动的最大附加实例数（默认值：1）。|
 |  `placement` | 对象 | 控制 pod 任务的放置。 |
 |  `placement.constraints` | 字符串[] | 约束控制 pod 任务的布局策略。选项：`UNIQUE`、`CLUSTER`、`GROUP_BY`、`LIKE`、`UNLIKE`、`MAX_PER`。|
-|  `placement.acceptedResourceRoles` | 字符串[] | 资源角色列表。Marathon 组件只会考虑在此列表中列出角色，为此 Pod 的任务提供的资源邀请。 |
+|  `placement.acceptedResourceRoles` | 字符串[] | 资源角色列表。Marathon 组件只会考虑在此列表中列出角色，为此 Pod 的任务提供的资源邀约。 |
 |  `killSelection` | 字符串 | 定义应用程序处于过度调配状态时首先被关闭的实例。选项：`YOUNGEST_FIRST`、`OLDEST_FIRST`。 |
 |  `unreachableStrategy` |  代理从管理节点分区后的行为 |
 |  `killSelection.inactiveAfterSeconds` | 整数 | 替换任务前等待的时间（秒）（默认值：900）。|

@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 快速启动
 title: 日志记录快速入门
@@ -128,9 +128,9 @@ enterprise: false
     Thu Dec 15 00:46:22 2016 ip-10-0-1-175.us-west-2.compute.internal spartan-env [2621] 00:46:22.575 [error] Lager event handler error_logger_lager_h exited with reason {'EXIT',{{badmatch,[<0.27147.0>,{info,{tcp_closed,#Port<0.9301>}},{wait_for_query,{state,#Port<0.9301>,{spartan_tcp_listener,{198,51,100,3}},ranch_tcp,<0.27148.0>}},exit,tcp_closed,state_functions,[{gen_statem,loop_event_result,9,[{file,"gen_statem.erl"},{line,978}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,247}]}]]},[{error_logger_lager_h,log_event,2,[{file,"/pkg/src/spartan/_build/default/lib/lager/src/error_logger_lager_h.erl"},{line,155}]},{gen_event,server_update,4,[{file,...},...]},...]}}
     ```
 
-1. 运行这些命令以查看在领导者或代理节点上运行的组件的列表：
+1. 运行这些命令以查看在主节点或代理节点上运行的组件的列表：
 
- - 领导者节点：
+ - 主节点：
 
         ```bash
         dcos node list-components --leader

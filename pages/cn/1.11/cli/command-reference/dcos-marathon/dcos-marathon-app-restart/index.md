@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon app restart` 命令允许您重新启动应用程序。
+`dcos marathon app restart` 命令让您重新启动应用程序。
 
 # 使用
 

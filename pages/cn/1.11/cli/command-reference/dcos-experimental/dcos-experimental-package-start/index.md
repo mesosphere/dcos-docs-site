@@ -22,7 +22,7 @@ dcos experimental service start <package-name> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|------------|
-| | `--json` | 指定以 JSON 为格式的数据。|
+| | `--json` | 指定 JSON 格式的数据。|
 | `--options=<options-file>` | 包含自定义包执行选项的 JSON 文件的路径。 |
 | `--package-version=<package-version>` | 包版本。|
 

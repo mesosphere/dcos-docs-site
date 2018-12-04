@@ -1,25 +1,25 @@
----
+﻿---
 layout: layout.pug
-navigationTitle: 度量标准 API
-title: 度量标准 API
+navigationTitle: 度量 API
+title: 度量 API
 menuWeight: 1
-excerpt: 使用度量标准 API
+excerpt: 使用度量 API
 beta: false
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-您可以使用度量标准 API 定期轮询有关集群、主机、容器和应用程序的数据。度量标准 API 只是从 DC/OS 获取度量标准的一种方式。它专为针对特定任务和主机的偶尔访问而设计。这并不是了解 DC/OS 上所有度量标准整体情况的最佳方式。对此，请参阅
+您可以使用度量 API 定期轮询有关集群、主机、容器和应用程序的数据。度量 API 只是从 DC/OS 获取度量的一种方式。它专为针对特定任务和主机的偶尔访问而设计。这并不是了解 DC/OS 上所有度量整体情况的最佳方式。对此，请参阅
 [DataDog](/cn/1.11/metrics/datadog)、[Prometheus](/cn/1.11/metrics/prometheus) 以及
 [第三方插件](https://github.com/dcos/dcos-metrics/blob/master/plugins/CONTRIBUTING.md) 文档。
 
-度量标准 API 由 [DC/OS 度量标准组件] 支持(/1.11/overview/architecture/components/#dcos-metrics)，后者在集群中的所有节点上运行。
+度量 API 由 [DC/OS 度量组件] 支持(/1.11/overview/architecture/components/#dcos-metrics)，后者在集群中的所有节点上运行。
 
-有关如何使用度量标准 API 的示例，请参阅 [度量标准快速入门指南](/cn/1.11/metrics/quickstart/)。
+有关如何使用度量 API 的示例，请参阅 [度量快速入门指南](/cn/1.11/metrics/quickstart/)。
 
 
 # 路由
 
-对度量标准 API 的访问是通过 Admin Router 向每个节点代理的。当前领导者的统计数据预先确定：
+对度量 API 的访问是通过 Admin Router 向每个节点代理的。当前主节点的统计数据开头为：
 
 ```
 /system/v1/metrics/v0/
@@ -53,11 +53,11 @@ Content-Type: application/json
 
 # 验证
 
-所有度量标准 API 路由需要认证才能使用。
+所有度量 API 路由需要认证才能使用。
 
-要验证 API 请求，请参阅 [获取认证令牌](/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/cn/1.11/security/ent/iam-api/#passing-an-authentication-token)。
+要验证 API 请求，请参阅 [获取认证令牌](/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [通过传递认证令牌](/cn/1.11/security/ent/iam-api/#passing-an-authentication-token)。
 
-度量标准 API 还需要通过以下权限授权：
+度量 API 还需要通过以下权限授权：
 
 | 路由 | 权限 |
 |-------|----------|

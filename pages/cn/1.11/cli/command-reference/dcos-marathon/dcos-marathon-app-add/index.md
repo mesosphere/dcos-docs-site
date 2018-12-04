@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon app add` 命令允许您添加应用程序。
+`dcos marathon app add` 命令让您添加应用程序。
 
 # 使用
 

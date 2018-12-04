@@ -1,21 +1,21 @@
 ---
 layout: layout.pug
-title: 向 Datadog 发送 DC/OS 度量标准
+title: 向 Datadog 发送 DC/OS 度量
 menuWeight: 3
-excerpt: 向 Datadog 发送 DC/OS 度量标准
+excerpt: 向 Datadog 发送 DC/OS 度量
 beta: false
 enterprise: false
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-Datadog 度量标准插件支持直接从 DC/OS 度量标准服务发送度量标准到 [DatadogHQ](https://www.datadoghq.com/)。此插件包括 Datadog 代理的函数。必须在集群中的每个节点上安装此插件。此插件适用于 DC/OS 1.9.4 及更高版本。
+Datadog 度量插件支持直接从 DC/OS 度量服务发送度量到 [DatadogHQ](https://www.datadoghq.com/)。此插件包括 Datadog 代理的函数。必须在集群中的每个节点上安装此插件。此插件适用于 DC/OS 1.9.4 及更高版本。
 
 **先决条件：**
 
 - 必须 [安装 DC/OS CLI](/cn/1.11/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
 
-# 安装 DC/OS Datadog 度量标准插件
+# 安装 DC/OS Datadog 度量插件
 
 对于集群中的每个节点，先传输插件的二进制文件，然后添加一个 `systemd` 单元以管理该服务。此单元在管理节点和代理节点之间略有不同。
 

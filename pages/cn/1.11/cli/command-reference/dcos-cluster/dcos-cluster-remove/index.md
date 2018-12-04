@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos-cluster remove` 命令允许您从 DC/OS CLI 中删除连接的集群。
+`dcos-cluster remove` 命令让您从 DC/OS CLI 中删除连接的集群。
 
 # 使用
 

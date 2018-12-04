@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 使用 Nagios 监控
 title: 使用 Nagios 监控
@@ -34,7 +34,7 @@ Nagios 是分布式主机的常用监控框架。本指南介绍如何使用 [NR
 
 ## 监控内容
 
-在集群上安装 Nagios 并配置了 NRPE 插件后，您可以构建脚本以监控 DC/OS 的资源健康状况。
+在集群上安装 Nagios 并配置了 NRPE 插件后，您可以构建脚本以监控 DC/OS 的资源运行状况。
 
 ### `systemd` 装置
 
@@ -56,7 +56,7 @@ for unit in `ls /etc/systemd/system/dcos.target.wants`; do
 done
 ```
 
-如果组件服务（如 Admin Router）不健康，此脚本将引发故障：
+如果组件服务（如 Admin Router）运行不佳，此脚本将引发故障：
 
 ```bash
 ip-10-0-6-126 core # ./dcos_unit_check.sh
@@ -66,6 +66,6 @@ Status for dcos-adminrouter-reload.service is not 0, got 2
 
 ### Docker
 
-通过 Nagios 监控 Docker 可能很棘手，因为有许多方面要照顾到。如果您的目的是检查服务是否可用且运行（例如，Docker 服务是否根据 `systemd` 在运行、启用且健康），我们建议使用 NRPE 脚本。
+通过 Nagios 监控 Docker 可能很棘手，因为有许多方面要照顾到。如果您的目的是检查服务是否可用且运行（例如，Docker 服务是否根据 `systemd` 在运行、启用且运行良好），我们建议使用 NRPE 脚本。
 
 如果您打算监控容器内部的情况，我们建议您运行一项服务，如 [cAdvisor](https://github.com/google/cadvisor)。

@@ -11,7 +11,7 @@ enterprise: false
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-`dcos task exec` 命令允许您在任务的容器内执行任意命令，并将其输出返回到本地终端，以了解有关某个特定任务如何表现的更多信息。它提供了非常类似于 [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/) 体验，不需要 SSH 密钥。
+`dcos task exec` 命令让您在任务的容器内执行任意命令，并将其输出返回到本地终端，以了解有关某个特定任务如何表现的更多信息。它提供了非常类似于 [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/) 体验，不需要 SSH 密钥。
 
 要使用调试功能，必须使用 Mesos 容器运行时或通用容器运行时来启动服务或作业。调试不能用于用 Docker 运行时启动的容器。如需更多信息，请参阅 [使用 Mesos Containerizer](/cn/1.11/deploying-services/containerizers/)。
 

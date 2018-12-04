@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 故障排除
 title: 故障排除
@@ -127,7 +127,7 @@ excerpt: 排除 DC/OS 安装问题
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
        ```
        ﻿
- Mesos 管理节点必须在 Mesos-DNS 从 `⁠⁠⁠⁠/state` 生成其 DNS 记录之前，与选举的首要实例一起启动并运行。
+ Mesos 管理节点必须在 Mesos-DNS 从 `⁠⁠⁠⁠/state` 生成其 DNS 记录之前，在选择好主节点的情况下启动并运行着。
 
 # <a name="component-logs"></a>组件日志
 
@@ -214,9 +214,9 @@ DC/OS Marathon 在管理节点上启动。本地 Marathon 实例是 DC/OS 的“
  java[1288]: I1118 13:59:39.125100 1363 group.cpp:805] 同步组操作：队列大小 (joins, cancels, datas) = (0, 0, 0)
  java[1288]: I1118 13:59:39.125121 1363 group.cpp:403] 尝试在 ZooKeeper 中创建路径 '/mesos' 
  java[1288]: [2015-11-18 13:59:39,130] INFO 调度器角色就绪 (mesosphere.marathon.MarathonSchedulerActor:marathon-akka.actor.default-dispatcher-5)
- java[1288]: I1118 13:59:39.147804 1363 detector.cpp:156] 检测到新的领导者：(id='1')
+ java[1288]: I1118 13:59:39.147804 1363 detector.cpp:156] 检测到新的主节点：(id='1')
  java[1288]: I1118 13:59:39.147924 1363 group.cpp:674] 尝试在 ZooKeeper 中获取 '/mesos/json.info_0000000001' 
- java[1288]: I1118 13:59:39.148727 1363 detector.cpp:481] 检测到新的领导管理节点 (UPID=master@10.0.7.166:5050)
+ java[1288]: I1118 13:59:39.148727 1363 detector.cpp:481] 检测到新的首要管理节点 (UPID=master@10.0.7.166:5050)
  java[1288]: I1118 13:59:39.148787 1363 sched.cpp:262] 在 master@10.0.7.166:5050 处检测到新的管理节点
  java[1288]: I1118 13:59:39.148952 1363 sched.cpp:272] 未提供凭据。尝试在没有认证的情况下注册
  java[1288]: I1118 13:59:39.150403 1363 sched.cpp:641] 框架已向 cdcb6222-65a1-4d60-83af-33dadec41e92-0000 注册
@@ -285,11 +285,11 @@ Mesos-DNS 在 DC/OS 管理节点上启动。Mesos DNS 在集群内提供服务�
 例如，此处是随着其转为成功状态，Mesos-DNS 日志的一个片段：
 
 
- mesos-dns[1197]: I1118 13:59:34.763885 1197 detect.go:135] 从 "" -> "json.info_0000000001" 更改首要节点
+ mesos-dns[1197]: I1118 13:59:34.763885 1197 detect.go:135] 从 "" -> "json.info_0000000001" 更改主节点
  mesos-dns[1197]: I1118 13:59:34.764537 1197 detect.go:145] 检测到管理节点信息：&MasterInfo{Id:*cdcb6222-65a1-4d60-83af-33dadec41e92,Ip:*2785476618,Port:*5050,Pid:*master@10.0.7.166:5050,Hostname:*10\.0.7.166,Version:*0\.25.0,Address:&Address{Hostname:*10\.0.7.166,Ip:*10\.0.7.166,Port:*5050,XXX_unrecognized:[],},XXX_unrecognized:[],}
- mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 masters.go:47: 更新的首要节点：&MasterInfo{Id:*cdcb6222-65a1-4d60-83af-33dadec41e92,Ip:*2785476618,Port:*5050,Pid:*master@10.0.7.166:5050,Hostname:*10\.0.7.166,Version:*0\.25.0,Address:&Address{Hostname:*10\.0.7.166,Ip:*10\.0.7.166,Port:*5050,XXX_unrecognized:[],},XXX_unrecognized:[],}
+ mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 masters.go:47: 更新的主节点：&MasterInfo{Id:*cdcb6222-65a1-4d60-83af-33dadec41e92,Ip:*2785476618,Port:*5050,Pid:*master@10.0.7.166:5050,Hostname:*10\.0.7.166,Version:*0\.25.0,Address:&Address{Hostname:*10\.0.7.166,Ip:*10\.0.7.166,Port:*5050,XXX_unrecognized:[],},XXX_unrecognized:[],}
  mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 main.go:76: 检测到新的管理节点：[10.0.7.166:5050]
- mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 generator.go:70: Zookeeper 认为首要节点是：10.0.7.166:5050
+ mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 generator.go:70: Zookeeper 认为主节点是：10.0.7.166:5050
  mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 generator.go:162: 从管理节点 10.0.7.166 重新加载
  mesos-dns[1197]: I1118 13:59:34.766005 1197 detect.go:219] 通知管理节点成员变化：[&MasterInfo{Id:*cdcb6222-65a1-4d60-83af-33dadec41e92,Ip:*2785476618,Port:*5050,Pid:*master@10.0.7.166:5050,Hostname:*10\.0.7.166,Version:*0\.25.0,Address:&Address{Hostname:*10\.0.7.166,Ip:*10\.0.7.166,Port:*5050,XXX_unrecognized:[],},XXX_unrecognized:[],}]
  mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 masters.go:56: 更新的管理节点：[&MasterInfo{Id:*cdcb6222-65a1-4d60-83af-33dadec41e92,Ip:*2785476618,Port:*5050,Pid:*master@10.0.7.166:5050,Hostname:*10\.0.7.166,Version:*0\.25.0,Address:&Address{Hostname:*10\.0.7.166,Ip:*10\.0.7.166,Port:*5050,XXX_unrecognized:[],},XXX_unrecognized:[],}]

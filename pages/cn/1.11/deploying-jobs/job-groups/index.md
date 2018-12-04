@@ -63,7 +63,7 @@ enterprise: true
 
  - **DC/OS 作业访问权限：**
 
- 指定作业组 (`<job-group>`), job name (`<job-name>`), and action (`<action>`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`。
+ 指定作业组 (`<job-group>`),, 作业名 (`<job-name>`), 和行动 (`<action>`)。行动可以是 `创建`, `读取`, `更新`, `删除`, 或 `完整`。若要允许多于一个操作，用逗号隔开他们，例如: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`。
 
        ```bash
        dcos:adminrouter:service:metronome full

@@ -26,7 +26,7 @@ dcos job update <job-file> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<job-file>` | 以 JSON 为格式的作业定义。|
+| `<job-file>` |  JSON 格式的作业定义。|
 
 # 父命令
 

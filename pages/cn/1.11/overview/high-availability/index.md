@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 高可用性
 title: 高可用性
@@ -15,7 +15,7 @@ enterprise: false
 
 #### Mesos
 
-Mesos 可以高可用性模式运行，需要运行三个或五个管理节点。在 HA 模式下运行时，一个管理节点被选为首要节点，其它管理节点则是从属节点。每个管理节点都有一个复制日志，其中包含有关集群的某种状态。ZooKeeper 执行选举以选择首要管理节点。有关这方面的更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/)。
+Mesos 可以高可用性模式运行，需要运行三个或五个管理节点。在 HA 模式下运行时，一个管理节点被选为主节点，其它管理节点则是从属节点。每个管理节点都有一个复制日志，其中包含有关集群的某种状态。ZooKeeper 执行选举以选择首要管理节点。有关这方面的更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/)。
 
 #### Marathon
 

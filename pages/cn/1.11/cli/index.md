@@ -132,7 +132,7 @@ export DCOS_LOG_LEVEL=warning
 
 <a name="dcos-debug"></a>
 #### `DCOS_DEBUG`
-指示是否将其他调试消息 print 输出到 `stdout`。默认情况下，这设置为 `false`。例如：
+指示是否将其他调试消息 打印到 `stdout`。默认情况下，这设置为 `false`。例如：
 
 ```bash
 export DCOS_DEBUG=true

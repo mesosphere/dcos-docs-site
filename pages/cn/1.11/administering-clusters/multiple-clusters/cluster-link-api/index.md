@@ -39,7 +39,7 @@ Content-Type: application/json
 
 使用所有 Cluster Link API 路由都需要身份验证。
 
-要验证 API 请求，请参阅 [获取认证令牌](/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/cn/1.11/security/ent/iam-api/#passing-an-authentication-token)。
+要验证 API 请求，请参阅 [获取认证令牌](/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [通过传递认证令牌](/cn/1.11/security/ent/iam-api/#passing-an-authentication-token)。
 
 Cluster Link API 还需要通过以下权限授权：
 
@@ -54,6 +54,6 @@ Cluster Link API 还需要通过以下权限授权：
 
 API 参考
 
-Cluster Link API 允许您管理 DC/OS 集群上的集群链接操作。
+Cluster Link API 让您管理 DC/OS 集群上的集群链接操作。
 
 [api-explorer api='/1.11/api/cluster-link.yaml']

@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 1.11.1 版本注释
 title: 1.11.1 版本注释
@@ -26,7 +26,7 @@ DC/OS 1.11.1 于 2018 年 4 月 18 日发布。
 - DCOS-21337 - DC/OS UI：改善了消耗 Mesos 事件流 HTTP API 时的错误处理情况。
 - DCOS-21359 - 防止在“移除”模式打开时未安装的服务断开 UI。
 - DCOS-21374 - Cosmos：解决了卸载未定义环境的 Marathon 应用程序时出现的崩溃。
-- DCOS-21451 - 修复了 Admin Router 不会拾取 Mesos 管理节点更改的漏洞（引起在使用服务端点时出现意外 404 HTTP 响应）。
+- DCOS-21451 - 修复了 Admin Router 不会拾取 Mesos 主节点更改的漏洞（引起在使用服务端点时出现意外 404 HTTP 响应）。
 - DCOS-21486 - 网络：增强了与 Kubernetes 的兼容性。
 - DCOS-21507 - DC/OS UI：增强了对 DC/OS 存储服务的支持。[enterprise type="inline" size="small" /]
 - DCOS-21557 - 将 cURL 更新到版本 7.59。
@@ -98,7 +98,7 @@ DC/OS 1.11 包含许多新功能，重点是：
  - 现已支持分层访问控制。
 
 ### 监控
-- DC/OS 度量标准组件现在以 [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) 格式产生度量数据。[查看文档](/cn/1.11/metrics)。
+- DC/OS 度量组件现在以 [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) 格式产生度量数据。[查看文档](/cn/1.11/metrics)。
 - 统一日志记录 API 提供对容器（任务）和系统组件日志的简单访问。[查看文档](/cn/1.11/monitoring/logging/logging-api/logging-v2/)。
 
 ### 存储

@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 日志记录
 title: 日志记录
@@ -56,9 +56,9 @@ journalctl -u dcos-nginx -b
 
 您可以在 DC/OS Web 界面的**节点**选项卡上发现哪些组件不正常。
 
-![系统健康](/cn/1.11/img/ui-system-health-logging.png)
+![系统运行状况](/cn/1.11/img/ui-system-health-logging.png)
 
-图 1. 显示节点的系统健康状况日志
+图 1. 显示节点的系统运行状况日志
 
 # 日志聚合
 

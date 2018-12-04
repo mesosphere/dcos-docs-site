@@ -26,11 +26,11 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 - `config.yaml` 文件中有几个必须在修补前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否已添加到 `config.yaml` 文件中。您可以查看 [此处]的样本文件 (1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file). 
 - 如果 IPv6 在内核中被禁用，则 IPv6 必须在 `config.yaml` 文件中禁用才能确保修补成功。
 - DC/OS Enterprise 现在执行许可证密钥。许可证密钥必须驻留在 genconf/license.txt 文件中，否则修补将失败。[enterprise type="inline" size="small" /]
-- 直到全部管理节点都被修补完毕，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。例如，修补后的 DC/OS Marathon 首要实例无法连接到首要的 Mesos 管理节点上，直到该节点也得到修补为止。出现这种情况时：
+- 直到全部管理节点都被修补完毕，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。例如，修补后的 DC/OS Marathon 主节点无法连接到首要的 Mesos 管理节点上，直到该节点也得到修补为止。出现这种情况时：
 
  - DC/OS GUI 不能提供准确的服务列表。
- - 对于多管理节点配置，在一个管理节点完成修补后，您可以从端口 8181 上的 Exhibitor UI 监控其余管理节点的健康状况。
-- 升级后的 DC/OS Marathon 首要实例无法连接至不安全（未打补丁的）首要 Mesos 管理节点。在所有管理节点得到修补之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已修补，Marathon 首要实例可能不是 Mesos 首要实例。
+ - 对于多管理节点配置，在一个管理节点完成修补后，您可以从端口 8181 上的 Exhibitor UI 监控其余管理节点的运行状况。
+- 升级后的 DC/OS Marathon 主节点无法连接至不安全（未打补丁的）首要 Mesos 管理节点。在所有管理节点得到修补之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已修补，Marathon 主节点可能不是 Mesos 主节点。
 - Mesos UI 中的任务历史记录不会持续到修补。
 - DC/OS Enterprise 可在 [此处](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads)下载。[enterprise type="inline" size="small" /]
 
@@ -177,7 +177,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 ## <a name="masters"></a>DC/OS 管理节点
 
-采用以下步骤，继续以任何顺序修补每个管理节点，每次修补一个。完成每次修补后，监控 Mesos 管理节点度量标准，确保节点已重新加入集群并完成了协调。
+采用以下步骤，继续以任何顺序修补每个管理节点，每次修补一个。完成每次修补后，监控 Mesos 管理节点度量，确保节点已重新加入集群并完成了协调。
 
 1. 下载并运行节点补丁脚本：
     ```bash

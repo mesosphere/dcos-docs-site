@@ -23,7 +23,7 @@ dcos experimental package add [OPTION]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `--dcos-package=<dcos-package>` | DC/OS 包的路径。|
-| | `--json` | 指定以 JSON 为格式的数据。|
+| | `--json` | 指定 JSON 格式的数据。|
 | `--package-name=<package-name>` | DC/OS 包的名称。|
 | `--package-version=<package-version>` | 包版本。|
 

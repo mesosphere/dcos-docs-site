@@ -10,7 +10,7 @@ enterprise: true
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-身份和访问管理 API（ IAM API）允许您通过 RESTful 界面管理用户、用户组、权限以及 LDAP 配置设置。它提供比 DC/OS Web 界面更多的功能。
+身份和访问管理 API（ IAM API）让您通过 RESTful 界面管理用户、用户组、权限以及 LDAP 配置设置。它提供比 DC/OS Web 界面更多的功能。
 
 
 # 请求和响应格式
@@ -59,7 +59,7 @@ API 仅支持 JSON。您必须在 HTTP 报文头中包含 `application/json` 作
 dcos config show core.dcos_acs_token
 ```
 
-## 传递认证令牌
+## 通过传递认证令牌
 
 ### 通过 HTTP 报文头
 

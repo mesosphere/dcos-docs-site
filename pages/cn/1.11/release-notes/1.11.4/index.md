@@ -31,14 +31,14 @@ DC/OS 1.11.4 包括以下内容：
 - DCOS-27982/DCOS-38599 - 解决混合工作负载扩展问题。
 - DCOS-34596 - DC/OS IAM：修复在升级后包含多个证书的 SAML 身份提供商元数据文档停止工作时出现的衰退。[enterprise type="inline" size="small" /]
 - DCOS-37451 - 筛选用于防止登记出现在度量数据中的任务标签。
-- DCOS-37452 - 增加 dcos 度量标准的 Mesos 代理节点响应超时。
+- DCOS-37452 - 增加 dcos 度量的 Mesos 代理节点响应超时。
 - DCOS-37588 - 修复因临时连接损失而出现的 Vault/ZK 解锁问题。
-- DCOS-38083 - 改善 dcos 度量标准上 statsd 计时器的特性。
+- DCOS-38083 - 改善 dcos 度量上 statsd 计时器的特性。
 - DCOS-38248 - 修复规模测试集群上 Admin Router 的特性问题。Admin Router 因 worker_connections 耗尽而未能更新状态缓存。
 - DCOS-38258/DCOS_OSS-3307 - 增加 Admin Router 服务器中软件包下载的超时时间。
 - DCOS-38323 - 将 Lua HTTP 客户端的超时时间从 10 秒增加到 60 秒，以容纳上游 DC/OS 组件（例如，Mesos 和 Marathon）的更长响应时间。
 - DCOS-38603 - 提高 Mesos 分配器性能。
-- DCOS_OSS-2360 - DC/OS 度量标准：清理度量标准名称以更好地兼容 Prometheus。
+- DCOS_OSS-2360 - DC/OS 度量：清理度量名称以更好地兼容 Prometheus。
 - DCOS_OSS-3304 - 将任务标签添加为容器度量上的标记。
 - DCOS_OSS-3602 - 解决不稳定问题：L4LB 在新的 VIPS 部署期间不稳定。
 - DCOS_OSS-3613 - 改进诊断捆绑包以包含解决网络问题用的调试信息。
@@ -91,7 +91,7 @@ DC/OS 1.11 包含许多新功能，重点是：
  - 现在支持分层访问控制。
 
 ### 监控
-- DC/OS 度量标准组件现在以 [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) 格式产生度量。[查看文档](/cn/1.11/metrics)。
+- DC/OS 度量组件现在以 [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) 格式产生度量。[查看文档](/cn/1.11/metrics)。
 - 统一日志记录 API 提供对容器（任务）和系统组件日志的简单访问。[查看文档](/cn/1.11/monitoring/logging/logging-api/logging-v2/)。
 
 ### 存储

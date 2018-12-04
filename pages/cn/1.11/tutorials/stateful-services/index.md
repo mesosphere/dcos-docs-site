@@ -117,7 +117,7 @@ APP        HEALTHY          STARTED              HOST     ID
 dcos marathon app stop postgres
 ```
 
-此命令将 `instances` 计数缩减到 0 并终止所有正在运行的任务。如果再次检查任务列表，您会注意到任务仍在那里。该列表提供了有关其被放置的代理节点及其已连接的持久卷的信息，但没有 `startedAt` 值的信息。这允许您使用相同的元数据重新启动服务。
+此命令将 `instances` 计数缩减到 0 并终止所有正在运行的任务。如果再次检查任务列表，您会注意到任务仍在那里。该列表提供了有关其被放置的代理节点及其已连接的持久卷的信息，但没有 `startedAt` 值的信息。这让您使用相同的元数据重新启动服务。
 
 ```
 dcos marathon task list

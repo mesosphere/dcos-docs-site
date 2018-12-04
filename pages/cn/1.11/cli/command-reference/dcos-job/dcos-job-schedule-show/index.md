@@ -22,7 +22,7 @@ dcos job schedule show <job-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| | `--json` | 打印以 JSON 为格式的列表。|
+| | `--json` | 打印 JSON 格式的列表。|
 
 # 位置自变量
 

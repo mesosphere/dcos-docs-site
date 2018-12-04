@@ -26,9 +26,9 @@ excerpt: 升级 DC/OS 集群
  * DC/OS GUI 不能提供准确的服务列表。
  * 对于多管理节点配置，在一个管理节点完成升级后，您可以从端口 8181 上的 Exhibitor UI 监控其余管理节点的运行状况。
 
-例如：升级后的 DC/OS Marathon 领导者无法连接至领导 Mesos 管理节点，直到它也升级。
+例如：升级后的 DC/OS Marathon 主节点无法连接至领导 Mesos 管理节点，直到它也升级。
 
-- 升级后的 DC/OS Marathon 领导者无法连接至不安全（未升级的）领导 Mesos 管理节点。在所有管理节点升级之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已升级，Marathon 首要实例可能不是 Mesos 领导者。
+- 升级后的 DC/OS Marathon 主节点无法连接至不安全（未升级的）首要 Mesos 管理节点。在所有管理节点升级之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已升级，Marathon 主节点可能不是 Mesos 主节点。
 - Mesos UI 中的任务历史记录不会持续到升级。
 
 ## 支持的升级路径
@@ -83,7 +83,7 @@ excerpt: 升级 DC/OS 集群
 
 - 确认在在开始升级前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
 - [备份您的集群](/cn/1.11/administering-clusters/backup-and-restore/)。[enterprise type="inline" size="small" /]
-- 可选：您可以将自定义 [节点和集群健康检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
+- 可选：您可以将自定义 [节点和集群运行状况检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
 - 确认所有管理节点都处于运行良好状态：
  - 检查 Exhibitor 共识机制 UI 以确认所有管理节点已成功加入（状态指示灯将显示绿色）。Exhibitor UI 可在 `http://<dcos_master>:8181/` 获得。
  - 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`。
@@ -130,7 +130,7 @@ excerpt: 升级 DC/OS 集群
 
 - 集群必须 [升级到 DC/OS 1.11](#current-security) 并在 [禁用安全模式] 中运行(/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)，然后才能升级到宽容模式。如果集群在升级到 DC/OS 1.10 之前以宽容模式运行，则可以跳过此步骤。
 
-**注意：** 对于从禁用模式升级到宽容安全模式，您已配置的任何 [自定义节点或集群健康检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 将会失败。未来版本支持绕过健康检查。
+**注意：** 对于从禁用模式升级到宽容安全模式，您已配置的任何 [自定义节点或集群运行状况检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 将会失败。未来版本支持绕过运行状况检查。
 
 要将集群从禁用安全模式修补为宽容安全模式，请完成以下步骤：
 
@@ -199,7 +199,7 @@ excerpt: 升级 DC/OS 集群
 
 ### <a name="masters"></a>DC/OS 管理节点
 
-通过以下步骤，继续以任何顺序升级每个管理节点，每次升级一个。完成每次升级时，监控 Mesos 管理节点度量标准，确保节点已重新加入集群并完成了协调。
+通过以下步骤，继续以任何顺序升级每个管理节点，每次升级一个。完成每次升级时，监控 Mesos 管理节点度量，确保节点已重新加入集群并完成了协调。
 
 1. 下载并运行节点升级脚本：
     ```bash

@@ -72,11 +72,11 @@ HTTP 端点，Admin Router 自身执行授权。例如，
 | `dcos:adminrouter:ops:mesos-dns`<br> 控制对 [Mesos DNS API] 的访问(/1.11/networking/mesos-dns/mesos-dns-api/)。| x | | | | |
 | `dcos:adminrouter:ops:mesos`<br> 控制对 Mesos 管理节点 UI 和 API 的访问。| x | | | | |
 | `dcos:adminrouter:ops:metadata` <br> 控制对 [元数据端点] 的访问(/1.11/api/master-routes/#metadata)。| x | | | | |
-| `dcos:adminrouter:ops:networking`<br> 控制对 [网络度量标准] 端点(/1.11/api/master-routes/#network-metrics)的访问。| x | | | | |
+| `dcos:adminrouter:ops:networking`<br> 控制对 [网络度量] 端点(/1.11/api/master-routes/#network-metrics)的访问。| x | | | | |
 | `dcos:adminrouter:ops:slave`<br> 控制对 Mesos 代理节点 UI 和 API 的访问。| x | | | | |
 | `dcos:adminrouter:ops:system-health` <br> 控制对 [系统运行状况 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
 | `dcos:adminrouter:ops:system-logs` <br> 控制对 [系统日志 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
-| `dcos:adminrouter:ops:system-metrics`<br> 控制对 [系统度量标准 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
+| `dcos:adminrouter:ops:system-metrics`<br> 控制对 [系统度量 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
 | `dcos:adminrouter:licensing` <br> 控制对许可 API 的访问。| x | | | | |
 | `dcos:adminrouter:package` <br> 控制对 [Cosmos API] 的访问(/1.11/api/master-routes/#cosmos)，其提供对 DC/OS Universe 的访问。| x | | | | |
 | `dcos:adminrouter:secrets`<br> 控制对 [密钥](/cn/1.11/security/ent/secrets/) Web 界面和 API 的访问。| x | | | | |
@@ -114,7 +114,7 @@ HTTP 请求授权并检查 `alice` DC/OS 用户是否具有
 | `dcos:mesos:master:endpoint:path[:<path>]`<br> 控制对这些未受保护的 [Mesos 端点](https://mesos.apache.org/documentation/latest/authorization/) 的访问。`logging/toggle`、`/metrics/snapshot` 和 `/files/debug`。| | | x | | |
 | `dcos:mesos:master:executor:app_id[:<service-or-job-group>]`<br> 控制对 [执行器](https://mesos.apache.org/documentation/latest/app-framework-development-guide/) 服务和作业群组的访问。| | | x | | |
 | `dcos:mesos:master:flags`<br> 控制对 [master flag](https://mesos.apache.org/documentation/latest/endpoints/master/flags/) 配置的查看访问权限。| | | x | | |
-| `dcos:mesos:master:framework:principal[:<service-account-id>]`<br> 按服务帐户 ID，控制对 Mesos [tear down](https://mesos.apache.org/documentation/latest/endpoints/master/teardown/) 端点的访问，这允许您卸载 DC/OS 服务。| | | | | x |
+| `dcos:mesos:master:framework:principal[:<service-account-id>]`<br> 按服务帐户 ID，控制对 Mesos [tear down](https://mesos.apache.org/documentation/latest/endpoints/master/teardown/) 端点的访问，这让您卸载 DC/OS 服务。| | | | | x |
 | `dcos:mesos:master:framework:role[:<role-name>]` <br> 按 [Mesos 角色](/cn/1.11/overview/concepts/#mesos-role)，通过 [Mesos](https://mesos.apache.org/documentation/latest/roles/) 控制对作为框架的注册表的访问。| | x | | | |
 | `dcos:mesos:master:log`<br> 控制对 Mesos [主日志](/cn/1.11/monitoring/logging/) 的访问。| | | x | | |
 | `dcos:mesos:master:quota:role[:<role-name>]` <br> 按 [Mesos 角色](/cn/1.11/overview/concepts/#mesos-role)，控制对[资源配额](https://mesos.apache.org/documentation/latest/quota/)的访问。| | | x | x | |

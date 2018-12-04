@@ -15,7 +15,7 @@ DC/OS 附带多个与应用程序调试相关的工具：
 
 - [日志](#logs)
 
-- [度量标准](#metrics)
+- [度量](#metrics)
 
 - [调试任务交互](#interactive)
 
@@ -227,14 +227,14 @@ Apr 09 23:51:51 ip-10-0-3-81.us-west-2.compute.internal dockerd[1262]: time="201
 
 度量数据非常有用，因为它们有助于在潜在问题成为实际错误之前识别它们。例如，想象一个容器耗尽所有已分配内存的情况。如果您在容器处**仍在运行但尚未被终止**时检测到这一点，那么您更有可能及时进行干预。
 
-在 DC/OS 中，度量标准有三个主要端点：
+在 DC/OS 中，度量有三个主要端点：
 
-- [DC/OS 度量标准](https://github.com/dcos/dcos-metrics)
- - 端点暴露来自任务/容器、节点和应用程序的组合度量标准
-- [Mesos 度量标准](http://mesos.apache.org/documentation/latest/monitoring/)
- - 端点暴露特定于 Mesos 的度量标准
-- [Marathon 度量标准](https://mesosphere.github.io/marathon/docs/metrics.html)
- - 端点暴露特定于 Marathon 的度量标准
+- [DC/OS 度量](https://github.com/dcos/dcos-metrics)
+ - 端点暴露来自任务/容器、节点和应用程序的组合度量
+- [Mesos 度量](http://mesos.apache.org/documentation/latest/monitoring/)
+ - 端点暴露特定于 Mesos 的度量
+- [Marathon 度量](https://mesosphere.github.io/marathon/docs/metrics.html)
+ - 端点暴露特定于 Marathon 的度量
 
 利用度量数据来帮助调试的一种方法是设置仪表盘。此仪表盘将包括与您要监控的服务相关的最重要度量数据。例如，您可以[使用 prometheus 和 grafana](https://github.com/dcos/dcos-metrics/blob/master/docs/quickstart/prometheus.md#dcos-metrics-with-prometheus-and-grafana) 创建度量仪表盘。
 

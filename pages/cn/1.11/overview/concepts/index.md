@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 概念
 title: 概念
@@ -18,7 +18,7 @@ DC/OS 是数据中心的 [分布式操作系统](https://en.wikipedia.org/wiki/D
 
 DC/OS 由许多组件构成，尤其是分布式系统内核 ([Mesos](#apache-mesos)) 和容器编排引擎 ([Marathon](#marathon))。
 
-在版本 1.6 之前，DC/OS 被称为数据中心操作系统 (DCOS)。使用版本 1.6，平台被重命名为 DC/OS，并开源化了。虽然 DC/OS 本身是开源，但像 [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) 等高级分布可能包括其他闭源组件和功能，例如多租户、细粒度权限、密钥管理和端对端加密。
+在版本 1.6 之前，DC/OS 被称为分布式云操作系统 (DCOS)。使用版本 1.6，平台被重命名为 DC/OS，并开源化了。虽然 DC/OS 本身是开源，但像 [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) 等高级分布可能包括其他闭源组件和功能，例如多租户、细粒度权限、密钥管理和端对端加密。
 
 ## <a name="dcos-gui"></a>DC/OS GUI
 
@@ -258,7 +258,7 @@ Apache Mesos 是一个分布式系统内核，可管理集群资源和任务。M
 
 Mesos 管理节点是在管理节点上运行的一个进程，以协调集群资源管理并促进任务编排。
 
-- Mesos 管理节点构成共识机制并选举首要节点。
+- Mesos 管理节点构成共识机制并选举主节点。
 - 首要 Mesos 管理节点收集 Mesos 代理节点报告的资源，并向 Mesos 调度器作出资源邀约。调度器然后可以接受资源邀约，并将任务置于其相应节点上。
 
 ## <a name="mesos-agent"></a>代理节点

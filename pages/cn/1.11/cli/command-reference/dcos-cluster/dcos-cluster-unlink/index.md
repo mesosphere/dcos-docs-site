@@ -8,7 +8,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos cluster unlink` 命令允许您取消一个集群和另一个集群的链接。
+`dcos cluster unlink` 命令让您取消一个集群和另一个集群的链接。
 
 # 使用
 

@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon app kill` 命令允许您终止正在运行的应用程序实例。
+`dcos marathon app kill` 命令让您终止正在运行的应用程序实例。
 
 # 使用
 

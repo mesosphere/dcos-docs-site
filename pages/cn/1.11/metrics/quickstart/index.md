@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle: 快速启动
-title: 度量标准快速入门
+title: 度量快速入门
 menuWeight: 0
-excerpt: DC/OS 度量标准入门
+excerpt: DC/OS 度量入门
 beta: false
 ---
 
 
-使用本指南开始使用 DC/OS 度量标准组件。度量标准组件天生与 DC/OS 集成，无需额外设置。
+使用本指南开始使用 DC/OS 度量组件。度量组件天生与 DC/OS 集成，无需额外设置。
 
 **先决条件：**
 
@@ -52,9 +52,9 @@ beta: false
         10.0.0.193  10.0.0.193  7749eada-4974-44f3-aad9-42e2fc6aedaf-S1  
         ```
 
-1. 查看度量标准。
+1. 查看度量。
 
- - **<a name="container-metrics"></a>特定任务的容器度量标准**
+ - **<a name="container-metrics"></a>特定任务的容器度量**
 
  关于特定容器的资源消耗的概述，请运行此命令：
 
@@ -69,14 +69,14 @@ beta: false
         0.17 (1.35%)  0.01GiB (6.46%)  0.00GiB (0.00%)
         ```
 
- - **<a name="task-metrics"></a>特定任务的所有度量标准**
+ - **<a name="task-metrics"></a>特定任务的所有度量**
 
- 要获取与任务相关的所有度量标准的详细列表，请运行此命令：
+ 要获取与任务相关的所有度量的详细列表，请运行此命令：
 
         ```bash
         dcos task metrics details <task-id>
         ```
- 输出是容器资源利用率和工作负载传输的度量标准的组合。例如：
+ 输出是容器资源利用率和工作负载传输的度量的组合。例如：
 
         ```bash
         NAME                                                   VALUE
@@ -96,10 +96,10 @@ beta: false
  CPU、磁盘和内存统计来自 Mesos 提供的容器数据。statsd_tester.time.uptime
  统计数据来自应用程序本身。
 
- - **<a name="host-metrics"></a>主机级度量标准**
+ - **<a name="host-metrics"></a>主机级度量**
 
- 跟任务数据一样，主机级度量标准可用作摘要或详细表格。要查看主机级
- 度量标准，请运行此命令：
+ 跟任务数据一样，主机级度量可用作摘要或详细表格。要查看主机级
+ 度量，请运行此命令：
 
         ```bash
         dcos node metrics details <mesos-id>
@@ -135,9 +135,9 @@ beta: false
         system.uptime              28627
         ```
 
- - **<a name="script-metrics"></a>度量标准的有计划使用**
+ - **<a name="script-metrics"></a>度量的有计划使用**
 
- 所有 dcos-cli 度量标准命令都可以与 `--json` 一起运行，用于脚本。例如：
+ 所有 dcos-cli 度量命令都可以与 `--json` 一起运行，用于脚本。例如：
 
         ```bash
         dcos node metrics summary <mesos-id> --json

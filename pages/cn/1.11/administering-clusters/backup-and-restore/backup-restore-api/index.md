@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 备份和恢复 API
 title: 备份和恢复 API
@@ -46,7 +46,7 @@ Content-Type: application/json
 
 使用所有备份和恢复 API 路由都需要身份验证。
 
-要验证 API 请求，请参阅 [获取认证令牌](/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/cn/1.11/security/ent/iam-api/#passing-an-authentication-token)。
+要验证 API 请求，请参阅 [获取认证令牌](/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [通过传递认证令牌](/cn/1.11/security/ent/iam-api/#passing-an-authentication-token)。
 
 备份和恢复 API 还需要通过以下权限授权：
 
@@ -61,6 +61,6 @@ Content-Type: application/json
 
 # API 参考
 
-备份和恢复 API 允许您管理 DC/OS 集群上的备份和恢复操作。
+备份和恢复 API 让您管理 DC/OS 集群上的备份和恢复操作。
 
 [swagger api='/1.11/api/backup-restore.yaml']

@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 系统要求
 title: 系统要求
@@ -125,7 +125,7 @@ DC/OS 安装到集群节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 
 建议为 DC/OS 安装使用高速互联网连接。DC/OS 服务需要每秒至少 10 MBit。如果工件下载时间超过文件 `/opt/mesosphere/etc/mesos-slave-common` 中 MESOS_EXECUTOR_REGISTRATION_TIMEOUT 的值，某些 DC/OS 服务的安装将失败。MESOS_EXECUTOR_REGISTRATION_TIMEOUT 的默认值为 10 分钟。
 
-# 软件前提条件
+# 软件先决条件
 
 请参阅 [install_preeqs.sh](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) 脚本，了解如何在 CentOS 7 主机上安装 DC/OS 管理节点和代理节点的软件要求的示例。[enterprise type="inline" size="small" /]
 

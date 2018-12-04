@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos cluster` 命令允许您管理与 DC/OS 集群的连接。
+`dcos cluster` 命令让您管理与 DC/OS 集群的连接。
 
 # 使用
 

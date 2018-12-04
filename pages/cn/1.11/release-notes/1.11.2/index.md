@@ -32,7 +32,7 @@ DC/OS 1.11.2 包括以下内容：
 - DCOS-22133 - DC/OS IAM：修复了数据库 bootstrap 事务不会插入某些数据的罕见情况。[enterprise type="inline" size="small" /]
 - DCOS_OSS-2317 - 整合了 pkgpanda 的包下载方法。
 - DCOS_OSS-2335 - 增加了 Mesos 执行器重新注册超时以整合代理故障切换情形。
-- DCOS_OSS-2360 - DC/OS 度量标准：改进了度量标准名称以更好地兼容 Prometheus。
+- DCOS_OSS-2360 - DC/OS 度量：改进了度量名称以更好地兼容 Prometheus。
 - DCOS_OSS-2378 - DC/OS 网络：提高了通过 TLS 的分发协议的稳定性。
 - DC/OS UI：吸纳了 [多个](https://github.com/dcos/dcos/pull/2799) 修复和改进。
 
@@ -91,7 +91,7 @@ DC/OS 1.11 包含许多新功能，重点是：
  - 现已支持分层访问控制。
 
 ### 监控
-- DC/OS 度量标准组件现在以 [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) 格式产生度量数据。[查看文档](/cn/1.11/metrics)。
+- DC/OS 度量组件现在以 [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) 格式产生度量数据。[查看文档](/cn/1.11/metrics)。
 - 统一日志记录 API 提供对容器（任务）和系统组件日志的简单访问。[查看文档](/cn/1.11/monitoring/logging/logging-api/logging-v2/)。
 
 ### 存储

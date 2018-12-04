@@ -14,7 +14,7 @@ enterprise: false
 - [用户界面遥测](#user-interface)
 
 # <a name="core"></a>核心遥测
-[DC/OS 信号](/cn/1.11/overview/architecture/components/#dcos-signal) 组件查询首要管理节点上的诊断服务 `/system/health/v1/report` 端点，并将此数据发送给 [区块](https://segment.com/docs/)，Mesosphere 然后用它来跟踪使用率度量标准和客户支持。
+[DC/OS 信号](/cn/1.11/overview/architecture/components/#dcos-signal) 组件查询首要管理节点上的诊断服务 `/system/health/v1/report` 端点，并将此数据发送给 [区块](https://segment.com/docs/)，Mesosphere 然后用它来跟踪使用率度量和客户支持。
 
 DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 DC/OS 包管理器 (Cosmos)。
 
@@ -277,7 +277,7 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 
 # <a name="user-interface"></a>用户界面遥测
 
-DC/OS UI 向 [区块] 发送两种通知(https://segment.com/docs/)，Mesosphere 然后用它来跟踪使用度量标准和客户支持：
+DC/OS UI 向 [区块] 发送两种通知(https://segment.com/docs/)，Mesosphere 然后用它来跟踪使用度量和客户支持：
 
 - 登录信息
 - 在浏览 UI 时查看的页面

@@ -57,7 +57,7 @@ DC/OS 1.11 包含许多新功能，重点是：
  - 现在支持分层访问控制。
 
 ### 监控
-- DC/OS 度量标准组件现在以 [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) 格式产生度量标准。[查看文档](/cn/1.11/metrics)。
+- DC/OS 度量组件现在以 [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/) 格式产生度量。[查看文档](/cn/1.11/metrics)。
 - 统一日志记录 API 提供对容器（任务）和系统组件日志的简单访问。[查看文档](/cn/1.11/monitoring/logging/logging-api/logging-v2/)。
 
 ### 存储

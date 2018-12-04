@@ -22,7 +22,7 @@ dcos cluster list [--attached --json]
 | 名称、简写 | D 描述 |
 |---------|-------------|
 | | `--attached` | 仅附加的集群。 |
-| | `--json` | 显示以 JSON 为格式的列表。 |
+| | `--json` | 显示 JSON 格式的列表。 |
 
 
 # 父命令

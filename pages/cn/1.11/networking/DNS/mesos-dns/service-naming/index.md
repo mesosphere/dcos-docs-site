@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 服务命名
 title: 服务命名
@@ -211,7 +211,7 @@ Mesos-DNS 生成一些特殊记录：
 </tr> 
 </table>
 
-选者新管理节点和更新 Mesos-DNS 中的首要节点/管理节点记录之间存在延迟。Mesos-DNS 还支持 Mesos 域的 SOA 和 NS 记录请求。对 Mesos 域中其他类型记录的 DNS 请求将返回 `NXDOMAIN`。Mesos-DNS 不支持反向查找所需的 PTR 记录。Mesos-DNS 还会为自己生成 A 记录，列出了 Mesos-DNS 将答复查找请求的所有 IP 地址。这些 A 记录的主机名是 `ns1.mesos`。
+选者新管理节点和更新 Mesos-DNS 中的主节点/管理节点记录之间存在延迟。Mesos-DNS 还支持 Mesos 域的 SOA 和 NS 记录请求。对 Mesos 域中其他类型记录的 DNS 请求将返回 `NXDOMAIN`。Mesos-DNS 不支持反向查找所需的 PTR 记录。Mesos-DNS 还会为自己生成 A 记录，列出了 Mesos-DNS 将答复查找请求的所有 IP 地址。这些 A 记录的主机名是 `ns1.mesos`。
 
 # <a name="naming-conventions"></a>任务和服务命名约定
 

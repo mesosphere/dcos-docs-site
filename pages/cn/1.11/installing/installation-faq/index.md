@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 常见问题
 title: 常见问题
@@ -17,7 +17,7 @@ excerpt: 关于安装 DC/OS 的常见问题
 DC/OS 运行自己的 ZooKeeper，由 Exhibitor 和 `systemd` 监督。
 
 ## 问：创建集群后是否需要维护 bootstrap 节点？
-如果您在集群配置 [文件] (/1.11/installing/production/advanced-configuration/configuration-reference/)中指定的 Exhibitor 存储后端类型不是 `exhibitor_storage_backend: static`，则必须在集群生命周期内一直保留外部存储库，以方便首要实例选用。如果您的集群是任务攸关集群，则应使用 S3 加固外部存储库或运行 bootstrap ZooKeeper 担当 quorum。可以勉强接受外部存储库的服务中断，但永久性的状态丢失可能导致意外状况。
+如果您在集群配置 [文件] (/1.11/installing/production/advanced-configuration/configuration-reference/)中指定的 Exhibitor 存储后端类型不是 `exhibitor_storage_backend: static`，则必须在集群生命周期内一直保留外部存储库，以方便主节点选用。如果您的集群是任务攸关集群，则应使用 S3 加固外部存储库或运行 bootstrap ZooKeeper 担当 quorum。可以勉强接受外部存储库的服务中断，但永久性的状态丢失可能导致意外状况。
 
 ## 问：如何将 Mesos 属性添加到节点以使用 Marathon 限制？
 

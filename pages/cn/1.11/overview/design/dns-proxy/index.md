@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 excerpt: 了解分布式 DNS
 title: 分布式 DNS
@@ -22,7 +22,7 @@ DNS 转发器 (Spartan) 还可实现 ZooKeeper 的高可用性。您始终可以
 除此监视器以外，我们还运行 `genresolv`，用于检查 DNS 转发器 (Spartan) 是否存活以生成 `resolv.conf`。如果它认为 DNS 转发器 (Spartan) 不存活，则会使用已配置到 DC/OS 集群中的上游解析器重写 `resolv.conf`。
 
 ## DNS 转发器接口
-DNS 转发器 (Spartan) 创建自己的网络接口。此网络接口实际上是被称为 `spartan` 的简单设备。此设备主机托管三个 IP：`198.51.100.1/32`、`198.51.100.2/32`、`198.51.100.3/32`。您可以在系统运行状况 [仪表盘][2] 中，监控 DNS 转发器 (Spartan) 组件的健康状况。
+DNS 转发器 (Spartan) 创建自己的网络接口。此网络接口实际上是被称为 `spartan` 的简单设备。此设备主机托管三个 IP：`198.51.100.1/32`、`198.51.100.2/32`、`198.51.100.3/32`。您可以在系统运行状况 [仪表盘][2] 中，监控 DNS 转发器 (Spartan) 组件的运行状况。
 
 [1]: /1.11/installing/production/advanced-configuration/configuration-reference/
 [2]: /1.11/gui/dashboard

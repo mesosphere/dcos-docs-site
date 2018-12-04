@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos job` 命令允许您在 DC/OS 中部署和管理作业。
+`dcos job` 命令让您在 DC/OS 中部署和管理作业。
 
 # 使用
 

@@ -16,7 +16,7 @@ enterprise: false
 # Marathon 属性
 
 ### acceptedResourceRoles
-一系列资源角色。Marathon 仅考虑在此列表中为启动此应用程序的任务提供的资源邀请。如需更多信息，请参阅 [Mesos 文档](http://mesos.apache.org/documentation/latest/roles/)。
+一系列资源角色。Marathon 仅考虑在此列表中为启动此应用程序的任务提供的资源邀约。如需更多信息，请参阅 [Mesos 文档](http://mesos.apache.org/documentation/latest/roles/)。
 
 ### args
 指定要运行命令的一组字符串。即便使用默认命令执行器，这里的 `args` 字段也可用于替代 `cmd`。
@@ -180,7 +180,7 @@ URI 包括：
 
 端口定义仅用于 [`host`](#networks) 网络模式。端口定义（特别是其端口字段）通过 [`requirePorts`](#requireports) 字段的角度解释。如果 `requirePorts` 为假（默认），端口定义的端口被视为服务端口，而 Marathon 会灵活选择主机端口。如果 `requirePorts` 为真，端口定义的端口被视为既是主机端口，也是服务端口。
 
-0 的特殊端口值告诉 Marathon 从 Mesos 资源邀请中选择任何主机端口，并在配置服务端口范围内选择任何服务端口。
+0 的特殊端口值告诉 Marathon 从 Mesos 资源邀约中选择任何主机端口，并在配置服务端口范围内选择任何服务端口。
 
 **注意：**
 

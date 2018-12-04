@@ -21,7 +21,7 @@ Universal Container Runtime (UCR) 的优势如下：
 * 删除您对 Docker Engine 的依赖性。如果 Docker Engine 没有响应，则重新启动引擎会导致主机上的所有容器停止。此外，Docker 必须安装在每个代理节点上，并且每次发布新版本的 Docker 时都必须在代理节点上升级 Docker。
 * 更稳定，允许大规模部署。
 * 提供 Docker Engine 中未提供的功能，例如，GPU 和 CNI 支持。
-* 允许您利用 Mesos 和 DC/OS 中的持续创新，包括每个容器的 IP、严格的容器隔离等功能。有关更多信息，请参阅[功能矩阵](#container-runtime-features)。
+* 让您利用 Mesos 和 DC/OS 中的持续创新，包括每个容器的 IP、严格的容器隔离等功能。有关更多信息，请参阅[功能矩阵](#container-runtime-features)。
 * 支持自动或手动支持容器镜像垃圾收集。
 
 言简意赅地说，使用 UCR 代替 Docker Engine：

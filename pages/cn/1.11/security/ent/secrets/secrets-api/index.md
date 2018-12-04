@@ -64,7 +64,7 @@ dcos config show core.dcos_acs_token
 
 ## 通过传递认证令牌
 
-您可以通过 HTTP 报文头或使用 curl 作为字符串变量或 DC/OS CLI 变量传递认证令牌。
+您可以通过 HTTP 报文头或使用 curl 作为字符串变量或 DC/OS CLI 变量通过传递认证令牌。
 
 ### 通过 HTTP 报文头
 

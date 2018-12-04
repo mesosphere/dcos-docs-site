@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: DC/OS Enterprise 安全性
 title: DC/OS Enterprise 安全性
@@ -85,7 +85,7 @@ DC/OS 集群外部的所有请求都需要认证令牌。根据您的安全模�
 
 DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，默认情况下，在发布后五天到期。默认到期时间可在 [自定义安装或升级] 期间进行修改(/1.11/installing/ent/custom/configuration/configuration-parameters/#bouncer-expiration-auth-token-days-enterprise)。
 
-在  bootstrap 序列期间，DC/OS 使用 ZooKeeper 凭据配置管理节点。这使得管理节点可以将自己指定为潜在的 Mesos 管理节点。
+在  bootstrap 序列期间，DC/OS 使用 ZooKeeper 凭据配置管理节点。这使得管理节点可以将自己指定为潜在的 Mesos 主节点。
 
 <table class=“table” bgcolor=#858585>
 <tr> 
@@ -179,7 +179,7 @@ DC/OS 通信的加密因[安全模式]而异(/1.11/security/ent/#security-modes)
 
 # <a name="spaces"></a>空间
 
-空间允许您：
+空间让您：
 
 - [限制用户对服务和作业的访问](#serv-job) 。
 
@@ -232,7 +232,7 @@ DC/OS 使用 Galois 计数器模式 (GCM) 中的高级加密标准 (AES) 算法�
 
 ## <a name="access"></a>密钥的细粒度访问控制
 
-DC/OS 允许您限制：
+DC/OS 让您限制：
 
 - **用户对密钥的访问：**使用 [权限](/cn/1.11/security/ent/perms-reference/#secrets)控制哪些用户可以访问哪些密钥及其可执行的操作。
 

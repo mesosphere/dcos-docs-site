@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 部署
 excerpt: 部署多个 Marathon 应用程序
@@ -39,4 +39,4 @@ DC/OS 中应用程序或组定义的每个更改都是作为 Marathon 部署执�
 - **运行状况检查**在每个应用程序中指定，并根据任务运行。如果任务的运行状况检查失败，DC/OS 将替换该任务。如需更多信息，请参阅 [文档](/cn/1.11/deploying-services/creating-services/health-checks/)。
 - **准备就绪检查**是临时显示屏，等待您的应用程序准备就绪。准备就绪检查对缓存预热、JIT 预热或迁移非常有用。如果准备就绪检查失败，DC/OS 将等待其成功，然后再继续部署。
 
-您可以使用 `minimumHealthCapacity` 参数来定义某个版本的应用程序在更新过程中必须始终具有的最小健康实例数。此参数在每个应用程序中单独定义。minimumHealthCapacity 是一个百分比，当应用于实例计数时，它定义某个版本的应用程序在更新过程中必须始终具有的健康实例数。
+您可以使用 `minimumHealthCapacity` 参数来定义某个版本的应用程序在更新过程中必须始终具有的最小运行良好的实例数。此参数在每个应用程序中单独定义。minimumHealthCapacity 是一个百分比，当应用于实例计数时，它定义某个版本的应用程序在更新过程中必须始终具有的运行良好的实例数。
