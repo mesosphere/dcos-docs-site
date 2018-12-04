@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: 管理集群
 title: 管理集群
 menuWeight: 60
-enterprise: true
 excerpt: 管理您的 DC/OS 集群
 enterprise: false
 
