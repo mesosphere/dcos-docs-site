@@ -4,7 +4,6 @@ navigationTitle: Planning
 title: Planning
 menuWeight: 5
 excerpt: Planning to use a DC/OS Package Registry
-beta: true
 enterprise: true
 ---
 
