@@ -22,7 +22,7 @@ services:
       - "443:443"
     volumes:
       - build:/src
-      - build-pdf:/src/build-pdf
+      - build-pdf:/src
   pdf:
     image: mesosphere/dcos-docs-pdf
     build:
@@ -31,14 +31,15 @@ services:
       args:
         git_branch: ${GIT_BRANCH}
     volumes:
-      - build-pdf:/src/build-pdf
+      - build-pdf:/src
   test:
     depends_on:
       - docs
     image: 18fgsa/html-proofer
     volumes:
       - build:/src
-    command: /src/build --empty-alt-ignore --url-swap "\/pdf\/:file\:\/\/\/src\/build-pdf\/"
+    command: /src/build --empty-alt-ignore --log-level=debug
+
 volumes:
   build:
   build-pdf:
