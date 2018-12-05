@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Configuring Minio for DC/OS
 title: Configuration
 menuWeight: 20
 model: /services/minio/data.yml

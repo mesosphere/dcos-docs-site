@@ -2,7 +2,10 @@
 
 If you are using DC/OS 1.10 or later and the installed service has a version later than 2.0.0-x, then uninstalling the service is simple.
 
-From the DC/OS CLI, enter `dcos package uninstall --app-id=<service-name> {{ model.packageName }}`.
+From the DC/OS CLI, enter 
+```
+dcos package uninstall --app-id=<service-name> {{ model.packageName }}
+```
 
 ### Uninstall process
 <p class="message--warning"><strong>WARNING: </strong>Once the uninstall operation has begun, it cannot be cancelled because doing so can leave the service in an uncertain, half-destroyed state. Any data stored in reserved disk resources will be irretrievably lost.</p>

@@ -6,23 +6,25 @@ menuWeight: 120
 excerpt: Understanding DC/OS Minio Services package versioning
 featureMaturity:
 enterprise: false
+model: /services/minio/data.yml
+render: mustache
 ---
 
 # Supported Versions
 
 ## Package Versioning Scheme
 
-- Minio: 0.1.0-RELEASE.2018-07-31T02-11-47Z
+- {{ model.techName }}: 0.1.0-RELEASE.2018-07-31T02-11-47Z
 
-Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of Minio. For example, 0.1.0-RELEASE.2018-07-31T02-11-47Z indicates version 0.1.0 of the DC/OS integration and version RELEASE.2018-07-31T02-11-47Z of Minio.
+Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of {{ model.techName }}. For example, 0.1.0-RELEASE.2018-07-31T02-11-47Z indicates version 0.1.0 of the DC/OS integration and version RELEASE.2018-07-31T02-11-47Z of {{ model.techName }}.
 
 ## Version Policy
 
-The DC/OS Minio Service is engineered and tested to work with a specific release of Minio.
+The DC/OS {{ model.techName }} Service is engineered and tested to work with a specific release of {{ model.techName }}.
 
 ## Contacting Technical Support
 
-### Support Email of DCOS Minio Package
+### Support Email of DCOS {{ model.techName }} Package
 
 [Email: support@mesosphere.io](mailto:support@mesosphere.io)
 
