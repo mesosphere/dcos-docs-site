@@ -14,7 +14,6 @@ render: mustache
 
 The DC/OS {{ model.techName }} service allows you to heal buckets and objects on the {{ model.techName }} server, such as in the case of disk/node failure. You must heal the {{ model.techName }} cluster if you intend to add new disks to the cluster. 
 
-
 ## Recover
 
 1. Run the following command to execute the `recover` plan:

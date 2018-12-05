@@ -10,8 +10,7 @@ model: /services/minio/data.yml
 render: mustache
 ---
 
-The {{ model.techName }} service allows you to back up your data to AWS S3-compatible storage. To back up data to an AWS S3-compatible bucket, {{ model.techName }} uses the `mc mirror` command. {{ model.techName }} provides an `rsync`-like command line utility. It mirrors data from one bucket to another. The following information and values are required to back up your data.
-
+The {{ model.techName }} service allows you to back up your data to AWS S3-compatible storage, using the `mc mirror` command. {{ model.techName }} provides an `rsync`-like command line utility. It mirrors data from one bucket to another. 
 ## Prerequisites
 
 The following values are required to back up your data:
@@ -28,9 +27,11 @@ Set your plan parameters as follows:
 }
 ``` 
 
+<!-- The following is incomplete. Please clarify:
+
 Backup will be performed using the following sidecar task:
 
-The backup task is responsible for making a backup of the data in the {{ model.techName }} storage to the AWS S3-compatible storage. 
+The backup task is responsible for making a backup of the data in the {{ model.techName }} storage to the AWS S3-compatible storage.  -->
 
 ## Back up
     
@@ -38,7 +39,7 @@ The backup task is responsible for making a backup of the data in the {{ model.t
 
     ```shell
     {
-    dcos miniod --name=<service_name> plan start <plan_name> -p <plan_parameters>
+    dcos {{ model.packageName }} --name=<service_name> plan start <plan_name> -p <plan_parameters>
     }
     ```
 
@@ -46,15 +47,13 @@ The backup task is responsible for making a backup of the data in the {{ model.t
 
     ```shell
     {
-    dcos miniod --name=<SERVICE_NAME> plan start backup \
+    dcos {{ model.packageName }} --name=<SERVICE_NAME> plan start backup \
       -p ACCESS_KEY_ID=<ACCESS_KEY> \
       -p SECRET_ACCESS_KEY=<SECRET_ACCESS_KEY>
     }
     ````
 
     Once this plan is executed, the backup will be uploaded to S3-compatible storage.
-
-
 
 1. A backup task will run the `mc mirror` command by taking ACCESS_KEY_ID and SECRET_ACCESS_KEY as parameters.
 
@@ -84,7 +83,7 @@ While deploying the service from a catalog, you can specify S3-compatible storag
 
    [<img src="../../img/S3_Compatible_1.png" alt="S3_Compatible_1" width="800"/>](../img/S3_Compatible_1.png)
 
-   Figure 3. - S3 bucket storage
+   Figure 3. - Enter the storage URL
 
    [<img src="../../img/S3_Compatible_2.png" alt="S3_Compatible_2" width="800"/>](../img/S3_Compatible_2.png)
 

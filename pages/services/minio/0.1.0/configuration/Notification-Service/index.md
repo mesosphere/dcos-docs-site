@@ -27,7 +27,8 @@ You can enable Notification Services to monitor events occurring on objects in a
 1. [NATS](#nats)
 
 
-Use client tools like `mc` to set and listen for event notifications using the event [sub-command](https://docs.{{ model.serviceName }}.io/docs/{{ model.serviceName }}-client-complete-guide#events).
+Use client tools like `mc` to set and listen for event notifications using the `event` [sub-command](https://docs.{{ model.serviceName }}.io/docs/{{ model.serviceName }}-client-complete-guide#events).
+<!-- The MC documentation describes this sub-command as "event", but throughout the remainder of this document you use the sub-command "events". Please clarify. -->
 
 # Notification Services
 
@@ -109,7 +110,7 @@ mc events add myminio/images arn:{{ model.techName }}:sqs::1:postgresql --suffix
 
 ### Prerequisite
 
-- Install Apache Kafka from [here](http://kafka.apache.org/).
+- Install [Apache Kafka](http://kafka.apache.org/).
 
 ### Configure
 To enable the Kafka notification service, provide the following configurations through the DC/OS web interface.
@@ -136,7 +137,7 @@ mc events add  myminio/images arn:{{ model.techName }}:sqs::1:kafka --suffix .jp
 
 ### Configure
 
-This notification target supports two formats: namespace and access.
+This notification target supports two formats: `namespace` and `access`.
 
 To enable the Elasticsearch notification service, provide the following configurations through the DC/OS web interface.
 
@@ -179,7 +180,7 @@ mc events add myminio/images arn:{{ model.techName }}:sqs::1:webhook --events pu
 
 ### Prerequisite
 
-- Install MySQL from [here](https://dev.mysql.com/downloads/mysql/).
+- Install [MySQL](https://dev.mysql.com/downloads/mysql/).
 
 ### Configure
 
@@ -204,7 +205,7 @@ mc events add myminio/images arn:{{ model.techName }}:sqs::1:postgresql --suffix
 
 ### Prerequisites
 
-- Install an MQTT Broker from [here](https://mosquitto.org/).
+- Install [an MQTT Broker](https://mosquitto.org/).
 
 ### Configure
 
@@ -226,7 +227,7 @@ mc events add  myminio/images arn:{{ model.techName }}:sqs::1:mqtt --suffix .jpg
 ## NATS
 
 ### Prerequisites
-- Install NATS from [here](https://nats.io/).
+- Install [NATS](https://nats.io/).
 
 ### Configure
 

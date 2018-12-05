@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Backup, restore and recover operations
 title: Operations
 menuWeight: 30
 model: /services/minio/data.yml

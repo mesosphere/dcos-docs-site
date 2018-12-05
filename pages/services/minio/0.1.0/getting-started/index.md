@@ -8,8 +8,5 @@ model: /services/minio/data.yml
 render: mustache
 ---
 
-<!-- This section needs information for minNodeCount and nodeDescription. -->
-
-
 
 #include /services/include/getting-started.tmpl

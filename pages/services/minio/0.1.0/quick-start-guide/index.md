@@ -11,9 +11,11 @@ render: mustache
 
 # How to use {{ model.techName }} with DC/OS 
 
+This section will get you up and running with a basic Minio configuration in a short time.
+
 ## Prerequisites
 
-* A running DC/OS 1.11 cluster (If you do not have one installed, see the instructions in [Getting Started](/services/minio/0.1.0/getting-started/#install-a-basic-cluster).)
+* A running DC/OS 1.11 cluster. (If you do not have one installed, see the instructions in [Getting Started](/services/minio/0.1.0/getting-started/#install-a-basic-cluster).)
 
 * {{ model.techName }} requires {{ model.install.minNodeCount}} to start in distributed mode. ({{ model.techName }} requires that you start {{ model.install.nodeDescription }} in distributed mode.)
 
@@ -37,6 +39,8 @@ The following command will launch installation via the DC/OS CLI:
 ```bash
 dcos package install {{ model.packageName }} 
 ```
+
+<!-- Can you provide a sample output so the user knows when installation has completed? -->
 
 ## Via the web interface
 <!-- Please edit this section to include actual text instructions. -->
@@ -124,3 +128,4 @@ For Edge-LB pool configuration:
 
     [<img src="../img/edgelb_without_tls.png" alt="Without TLS"/>](../img/egdelb_without_tls.png)
     Figure 5. - 
+    <!-- What is Figure 5 showing us? -->
