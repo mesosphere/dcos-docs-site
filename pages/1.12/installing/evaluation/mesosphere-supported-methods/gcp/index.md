@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-excerpt: Guide for DC/OS on GCP using the Universal Installer
 title: Deploying DC/OS on GCP using the Universal Installer
-navigationTitle: GCP
+excerpt: Guide for DC/OS on GCP using the Universal Installer
+navigationTitle: Universal Installer on GCP
 menuWeight: 4
 ---
 
