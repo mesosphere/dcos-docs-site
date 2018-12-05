@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-excerpt: Customizing your DC/OS clusters
-title: Advanced GCP
+title: Advanced Guide for DC/OS on GCP using the Universal Installer
+excerpt: Configuring your DC/OS installation on GCP using the Universal Installer
 navigationTitle: Advanced GCP
 menuWeight: 5
 ---
