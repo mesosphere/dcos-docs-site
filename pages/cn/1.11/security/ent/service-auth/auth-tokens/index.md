@@ -20,10 +20,10 @@ API 使用者应能够在当前认证令牌到期时处理。
 - **到期前续订** 使用此方法，令牌将在到期前刷新。服务可以在到期之前安排异步令牌续订。它可以获取新的认证令牌，而旧的认证令牌仍然有效。这可防止由过期认证令牌引起的延迟峰值。
 
 # RS256 身份认证 JWT 带外验证
-DC/OS 服务可使用公钥加密技术代表 [DC/OS Identity and Access Manager (Bouncer)](/cn/1.11/overview/architecture/components/#dcos-iam) 组件对传入请求进行身份认证。如果客户端显示的认证令牌已由 Bouncer 使用 Bouncer 的验证序号和 RS256 算法签名，则此方法有效。
+DC/OS 服务可使用公钥加密技术代表 [DC/OS Identity and Access Manager (Bouncer)](/cn/1.11/overview/architecture/components/#dcos-iam) 组件对传入请求进行身份认证。如果客户端显示的认证令牌已由 Bouncer 使用 Bouncer 的密钥和 RS256 算法签名，则此方法有效。
 
 ## Bouncer JSON Web Key Set (JWKS) 端点
-Bouncer 的 JWKS 端点（`/auth/jwks`) 提供验证 Bouncer 发布的 RS256 JWTs 类型签名所需的公共验证序号详细信息。该端点发出的 JSON 文档数据结构符合 [RFC 7517](https://tools.ietf.org/html/rfc7517)。在该数据结构内，公钥根据 [RFC 7518](https://tools.ietf.org/html/rfc7518) 进行参数化。
+Bouncer 的 JWKS 端点（`/auth/jwks`) 提供验证 Bouncer 发布的 RS256 JWTs 类型签名所需的公共密钥详细信息。该端点发出的 JSON 文档数据结构符合 [RFC 7517](https://tools.ietf.org/html/rfc7517)。在该数据结构内，公钥根据 [RFC 7518](https://tools.ietf.org/html/rfc7518) 进行参数化。
 
 以下为示例响应：
 
@@ -43,7 +43,7 @@ curl localhost:8101/acs/api/v1/auth/jwks
 }
 ```
 
-## 从 JWKS 数据构建公共验证序号
+## 从 JWKS 数据构建公共密钥
 完全定义 RSA 公钥的两个参数是模数 (`n`)和指数 (`e`)。两者均为整数。在上一个示例中，指数参数以 `e` 的值编码，模数以 `n` 的值编码。
 
 整数是“Base64urLuInt”编码。此编码由 [RFC 7518] 指定(https://tools.ietf.org/html/rfc7518#section-6.3)：
@@ -52,7 +52,7 @@ curl localhost:8101/acs/api/v1/auth/jwks
 
 例如，值 `AQAB` 表示 65537。
 
-使用您选择的工具生成验证认证令牌所需的公共验证序号表示。这是基于加密模块的 Python 示例（使用 OpenSSL 作为其后端）。此示例直接从给定指数和模数生成公共验证序号对象。
+使用您选择的工具生成验证认证令牌所需的公共密钥表示。这是基于加密模块的 Python 示例（使用 OpenSSL 作为其后端）。此示例直接从给定指数和模数生成公共密钥对象。
 
 ```python
 from cryptography.hazmat.backends import default_backend
@@ -64,7 +64,7 @@ public_numbers = rsa.RSAPublicNumbers(n=modulus_int, e=exponent_int)
 public_key = public_numbers.public_key(backend=default_backend())
 ```
 
-## 使用公共验证序号验证认证令牌
+## 使用公共密钥验证认证令牌
 本示例使用 Python [PyJWT 模块](https://pyjwt.readthedocs.io/en/latest/)、认证令牌验证和用户 ID 的提取：
 
 ```python

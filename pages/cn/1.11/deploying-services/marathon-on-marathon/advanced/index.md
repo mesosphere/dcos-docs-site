@@ -8,9 +8,9 @@ enterprise: true
 
 ---
 
-本专题描述了如何部署具有独立角色、保留、配额和安全功能的非本地 Marathon 实例。高级非本地 Marathon 程序只能在您需要 [密钥](/cn/1.11/security/ent/secrets/) 或细粒度 ACL 时使用，否则请使用 [基本程序](/cn/1.11/deploying-services/marathon-on-marathon/basic/)。
+本专题描述了如何部署具有独立角色、保留、配额和安全功能的非本地 Marathon 实例。高级非本地 Marathon 程序只能在您需要 [保密的认证信息](/cn/1.11/security/ent/secrets/) 或细粒度 ACL 时使用，否则请使用 [基本程序](/cn/1.11/deploying-services/marathon-on-marathon/basic/)。
 
-要使用此程序，您必须向销售代表获取自定义非本地 Marathon tarball（<sales@mesosphere.io>）。这一自定义 tarball 包含 Marathon 以及一个密钥和授权插件。这些附加插件帮助您在非本地 Marathon 文件夹层级中使用密码和细粒度访问控制。
+要使用此程序，您必须向销售代表获取自定义非本地 Marathon tarball（<sales@mesosphere.io>）。这一自定义 tarball 包含 Marathon 以及授权插件。这些附加插件帮助您在非本地 Marathon 文件夹层级中使用保密的认证信息和细粒度访问控制。
 
 **先决条件：**
 
@@ -290,7 +290,7 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
    for i in $PRIVATE_AGENT_IPS; do scp -o StrictHostKeyChecking=no docker.tar.gz core@$i:~/docker.tar.gz ; done
    ```
 # 第 5 步 - 创建服务帐户密钥
-在此步骤中，为 Marathon 服务帐户创建密钥，并存储在密钥存储库中。为您的服务账号创建密钥 (`<path-to-secret-name>`)。 这个密钥会包含私钥 (`<private-key>.pem`) 和服务账号名 (`<service-account-id>`)。
+在此步骤中，为 Marathon 服务帐户创建保密的认证信息，并存储在保密认证信息存储库中。为您的服务账号创建保密的认证信息 (`<path-to-secret-name>`)。 这个保密的认证信息会包含私钥 (`<private-key>.pem`) 和服务账号名 (`<service-account-id>`)。
 
 ### 已禁用
 

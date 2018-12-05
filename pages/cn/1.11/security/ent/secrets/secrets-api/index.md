@@ -1,9 +1,9 @@
----
+﻿---
 layout: layout.pug
-navigationTitle: 密钥 API
-title: 密钥 API
+navigationTitle: 保密认证信息 API
+title: 保密认证信息 API
 menuWeight: 6
-excerpt: 了解密钥 API
+excerpt: 了解保密认证信息 API
 
 enterprise: true
 ---
@@ -12,9 +12,9 @@ enterprise: true
 
 
 
-# 关于密钥 API
+# 关于保密认证信息 API
 
-通过密钥 API，您可以管理密钥，并执行一些后端功能，例如密封和拆封密钥存储库。它提供比 DC/OS GUI 更多的功能。
+通过保密认证信息 API，您可以管理保密认证信息，并执行一些后端功能，例如密封和拆封保密认证信息存储库。它提供比 DC/OS GUI 更多的功能。
 
 # 请求和响应格式
 
@@ -40,7 +40,7 @@ API 仅支持 JSON。您必须在 HTTP 报文头中包含 `application/json` 作
 
 # 关于身份认证和授权
 
-所有密钥 API 端点都需要身份认证令牌。
+所有保密认证信息 API 端点都需要身份认证令牌。
 
 # 获取身份认证令牌
 

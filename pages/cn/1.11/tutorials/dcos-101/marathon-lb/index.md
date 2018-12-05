@@ -44,8 +44,8 @@ DC/OS 有两种不同的节点类型：
 
  * 通过 ` <Public IP>10000` 连接到 webapp（从本地机器）。您应该看到网页的呈现版本，包括正在运行的物理节点和端口 app2。
  * 使用 Web 表单添加新“键:值”对
- * 您可以通过以下两种方式验证新验证序号是否已添加：
- 1. 使用 app1 检查验证序号总数：`dcos task log app1`
+ * 您可以通过以下两种方式验证新密钥是否已添加：
+ 1. 使用 app1 检查密钥总数：`dcos task log app1`
  2. 直接检查 redis
  * [SSH](/cn/1.11/administering-clusters/sshcluster/) 进入运行 redis 的节点：
 
@@ -58,4 +58,4 @@ DC/OS 有两种不同的节点类型：
  * 检查值是否存在：`get <newkey>`.
 
 # 结果
-祝贺您！您已使用 Marathon-LB 向公众公开您的应用程序，并使用 Web 前端向 Redis 添加了一个新验证序号。
+祝贺您！您已使用 Marathon-LB 向公众公开您的应用程序，并使用 Web 前端向 Redis 添加了一个新密钥。

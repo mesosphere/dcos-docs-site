@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 密钥
 title: 密钥
@@ -7,7 +7,7 @@ excerpt: 使用“密钥”菜单
 enterprise: true
 ---
 
-可在“密钥”菜单中管理密钥和证书。
+可在“保密的认证信息”菜单中管理保密认证信息和证书。
 ![Secrets](/cn/1.11/img/secrets-ee.png)
 
 图 1. 密钥
@@ -18,4 +18,4 @@ enterprise: true
 
 图 2. “密钥”菜单
 
-如需更多信息，请参阅 [密钥](/cn/1.11/security/ent/secrets/) 和 [证书](/cn/1.11/security/ent/tls-ssl/) 文档。
+如需更多信息，请参阅 [保密的认证信息](/cn/1.11/security/ent/secrets/) 和 [证书](/cn/1.11/security/ent/tls-ssl/) 文档。

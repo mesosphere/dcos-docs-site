@@ -20,7 +20,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 | aws_template_storage_bucket | 包含在 [自定义高级 AWS 模板](/cn/1.11/installing/ent/cloud/aws/advanced/#create-your-templates) 中的 S3 bucket 的名称。 |
 | aws_template_storage_bucket_path | S3 bucket 内模板工件存储位置的路径。
 | aws_template_storage_region_name | 包含 S3 bucket 的分域。 |
-| aws_template_storage_secret_access_key | 拥有 AWS S3 bucket 的帐户的 [密钥访问密钥](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)。 |
+| aws_template_storage_secret_access_key | 拥有 AWS S3 bucket 的帐户的 [访问保密认证信息的密钥](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)。 |
 | aws_template_upload | 是否将自定义高级 AWS 模板上传到 S3 bucket。 |
 | [bootstrap_url](#bootstrap-url) |（必填）DC/OS 安装工具存储定义 DC/OS 构建文件的 URI 路径。 |
 | [cluster_docker_credentials](#cluster-docker-credentials) | 要传递给 Docker 的词典。 |

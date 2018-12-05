@@ -85,7 +85,7 @@ enterprise: true
 
 **先决条件：**
 
-- 必须设置 `group-search` 配置验证序号，如[配置 LDAP 组导入](#Configure-LDAP-group-import) 中所述。
+- 必须设置 `group-search` 配置密钥，如[配置 LDAP 组导入](#Configure-LDAP-group-import) 中所述。
 - 现有组条目必须通过使用 `member`、`uniquemember` 或 `memberuid` 属性列出其成员。
 - 如果您[安全模式](/cn/1.11/security/ent/#security-modes)为 `permissive` 或 `strict`，则在本部分中发出 curl 命令之前，必须遵循[获取 DC/OS CA 根证书]中的步骤(/1.11/security/ent/tls-ssl/get-cert/)。如果您的[安全模式](/cn/1.11/security/ent/#security-modes)为 `disabled`，则必须在将其发出前从命令中删除 `--cacert dcos-ca.crt`。
 

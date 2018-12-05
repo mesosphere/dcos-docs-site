@@ -1,30 +1,30 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 配置服务和 pod
 title: 配置服务和 pod
 menuWeight: 1
-excerpt: 配置服务和 pod 以使用密钥
+excerpt: 配置服务和 pod 以使用保密认证信息
 
 enterprise: true
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-您的服务定义可将密钥以环境变量或文件的方式指代。
+您的服务定义可将保密认证信息以环境变量或文件的方式指代。
 
-## 基于文件的密钥
+## 基于文件的保密认证信息
 
-您可以将密钥以提高其他进程安全性的文件来指代，或者您的服务需要从容器中安装的文件中读取密钥。引用基于文件的密钥对以下内容特别有用：
+您可以将保密认证信息以提高其他进程安全性的文件来指代，或者您的服务需要从容器中安装的文件中读取保密认证信息。引用基于文件的保密认证信息对以下内容特别有用：
 
 - Kerberos keytab 或其他凭据文件。
 - SSL 证书。
 - 包含敏感数据的配置文件。
 
-任务沙盒中提供基于文件的密钥 (`$MESOS_SANDBOX/<configured-path>`).
+任务沙盒中提供基于文件的保密认证信息 (`$MESOS_SANDBOX/<configured-path>`).
 
 ## 先决条件
 
-- 现有密钥。以下示例使用了存储在 `developer` 路径名为 `my-secret` 的密钥。如果您完成[创建密钥]中的步骤(/1.11/security/ent/secrets/create-secrets/)，则您将满足此先决条件。
+- 现有保密认证信息。以下示例使用了存储在 `developer` 路径名为 `my-secret` 的保密认证信息。如果您完成[创建保密认证信息]中的步骤(/1.11/security/ent/secrets/create-secrets/)，则您将满足此先决条件。
 
 - [已安装 DC/OS CLI](/cn/1.11/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
 - 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
@@ -51,14 +51,14 @@ enterprise: true
  - `dcos:adminrouter:ops:mesos full`：查看 **任务** 面板信息。
  - `dcos:adminrouter:ops:slave full`：查看任务的详细信息，包括日志。
 
- 只要密钥的路径和组的路径[匹配正确](/cn/1.11//security/ent/#spaces)，服务将能够访问密钥值。
+ 只要保密认证信息的路径和组的路径[匹配正确](/cn/1.11//security/ent/#spaces)，服务将能够访问保密认证信息值。
 
-该程序根据您是否要将密钥提供给 [pod](/cn/1.11/deploying-services/pods/) 或单个服务而有所不同。
+该程序根据您是否要将保密认证信息提供给 [pod](/cn/1.11/deploying-services/pods/) 或单个服务而有所不同。
 
 - [单个服务](#service)
 - [Pod](#pod)
 
-# <a name="service"></a>配置服务以使用密钥
+# <a name="service"></a>配置服务以使用保密认证信息
 
 程序因网络接口而异。请参阅与您所需网络接口相对应的部分。
 
@@ -66,7 +66,7 @@ enterprise: true
 
 - [Marathon API](#deploying-the-service-via-marathon-app-definition)
 
-## <a name="deploying-the-service-via-the-web-interface"></a>配置服务以通过 Web 界面使用密钥
+## <a name="deploying-the-service-via-the-web-interface"></a>配置服务以通过 Web 界面使用保密认证信息
 
 1. 以具有必要权限的用户身份登录 Web 界面，如 [前面部分](#service) 所述。
 
@@ -82,9 +82,9 @@ enterprise: true
 
 1. 选择默认 JSON 架构的内容并删除它们，以便黑框中不显示任何文本。
 
-1. 复制以下简单应用定义之一，并将其粘贴到黑框中。此应用定义在开发人员组内创建新服务，并引用了存储在开发人员路径内的密钥。
+1. 复制以下简单应用定义之一，并将其粘贴到黑框中。此应用定义在开发人员组内创建新服务，并引用了存储在开发人员路径内的保密认证信息。
 
- 基于环境变量的密钥：
+ 基于环境变量的保密认证信息：
 
    ```json
    {  
@@ -103,9 +103,9 @@ enterprise: true
    }
    ```
 
- 在上述示例中，DC/OS 存储环境变量 `"MY_SECRET"` 下的密钥。观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的密钥。
+ 在上述示例中，DC/OS 存储环境变量 `"MY_SECRET"` 下的保密认证信息。观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的保密认证信息。
 
- 基于文件的密钥：
+ 基于文件的保密认证信息：
 
    ```json
    {
@@ -127,9 +127,9 @@ enterprise: true
    }
    ```
 
- 在上述示例中，密钥将具有文件名 `path`，并且将在任务的沙盒中可用 (`$MESOS_SANDBOX/path`) 。
+ 在上述示例中，保密认证信息将具有文件名 `path`，并且将在任务的沙盒中可用 (`$MESOS_SANDBOX/path`) 。
 
- 由于服务和密钥路径匹配，服务将能够访问该密钥。有关路径的更多详细信息，请参阅[空间](/cn/1.11/security/ent/#spaces)。
+ 由于服务和保密认证信息路径匹配，服务将能够访问该保密认证信息。有关路径的更多详细信息，请参阅[空间](/cn/1.11/security/ent/#spaces)。
 
 1. 单击 **查看并运行**。
 
@@ -143,13 +143,13 @@ enterprise: true
 
 1. 滚动 **Details** 选项卡，查找您的 `DCOS_SECRETS_DIRECTIVE`。
 
-# <a name="deploying-the-service-via-marathon-app-definition"></a>通过 Marathon 应用定义配置服务以使用基于环境变量的密钥
+# <a name="deploying-the-service-via-marathon-app-definition"></a>通过 Marathon 应用定义配置服务以使用基于环境变量的保密认证信息
 
-1. 通过 `dcos auth login` 以具有必要权限的用户身份登录 CLI。请参阅 [关于配置服务和 pod 以使用密钥](#service) 来发现所需的权限。
+1. 通过 `dcos auth login` 以具有必要权限的用户身份登录 CLI。请参阅 [关于配置服务和 pod 以使用保密认证信息](#service) 来发现所需的权限。
 
 1. 在文本编辑器内，为 Marathon 服务创建应用定义。以下应用程序定义在开发人员组内创建新服务，并引用了存储在开发人员路径内的密钥。
 
- 基于环境变量的密钥：
+ 基于环境变量的保密认证信息：
 
    ```json
    {  
@@ -168,9 +168,9 @@ enterprise: true
    }
    ```
 
- 在上述示例中，DC/OS 存储环境变量 `"MY_SECRET"` 下的密钥。观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的密钥。
+ 在上述示例中，DC/OS 存储环境变量 `"MY_SECRET"` 下的保密认证信息。观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的保密认证信息。
 
- 基于文件的密钥：
+ 基于文件的保密认证信息：
 
    ```json
    {
@@ -192,7 +192,7 @@ enterprise: true
    }
    ```
 
- 由于服务组和密钥路径匹配，服务将能够访问密钥。有关路径的更多详细信息，请参阅[空间](/cn/1.11/security/ent/#spaces)。
+ 由于服务组和保密认证信息路径匹配，服务将能够访问保密认证信息。有关路径的更多详细信息，请参阅[空间](/cn/1.11/security/ent/#spaces)。
 
 1. 使用描述性名称保存文件，如 `myservice.json`。
 
@@ -218,13 +218,13 @@ enterprise: true
 
 1. 滚动 **Details** 选项卡，查找您的 `DCOS_SECRETS_DIRECTIVE`。
 
-# <a name="pod"></a>配置 pod 以使用密钥
+# <a name="pod"></a>配置 pod 以使用保密认证信息
 
 1. 通过 `dcos auth login` 以具有必要权限的用户身份登录 CLI。有关权限的更多信息，请参阅 [关于配置服务和 pod 以使用密钥](#service)。
 
-1. 在文本编辑器内，为 pod 创建应用定义。您可以使用 `"environment"` 和 `"secrets"` 对象添加密钥，如下所示。以下简单应用程序在开发人员组内定义新服务，并引用了存储在开发人员路径内的密钥。它将密钥存储在环境变量 `"MY_SECRET"` 下。
+1. 在文本编辑器内，为 pod 创建应用定义。您可以使用 `"environment"` 和 `"secrets"` 对象添加保密认证信息，如下所示。以下简单应用程序在开发人员组内定义新服务，并引用了存储在开发人员路径内的保密认证信息。它将保密认证信息存储在环境变量 `"MY_SECRET"` 下。
 
- 基于环境变量的密钥：
+ 基于环境变量的保密认证信息：
 
     ```json
     {
@@ -263,7 +263,7 @@ enterprise: true
     }
     ```
 
- 基于文件的密钥：
+ 基于文件的保密认证信息：
 
     ```json
     {
@@ -298,7 +298,7 @@ enterprise: true
    }
    ```
 
- **注意：**由于服务组和密钥路径匹配，pod 将能够访问密钥。有关路径的更多详细信息，请参阅[命名空间](/cn/1.11//security/ent/#spaces)。
+ **注意：**由于服务组和保密认证信息路径匹配，pod 将能够访问保密认证信息。有关路径的更多详细信息，请参阅[命名空间](/cn/1.11//security/ent/#spaces)。
 
 1. 使用描述性名称保存文件，如 `mypod.json`。
 
@@ -316,8 +316,8 @@ enterprise: true
 
 1. 单击以打开 **Configuration** 选项卡。
 
-1. 滚动到 **环境变量** 区域，找到您的密钥 `MY_SECRET`。
+1. 滚动到 **环境变量** 区域，找到您的保密认证信息 `MY_SECRET`。
 
 ### 限制
 
- 基于文件的密钥仅与 UCR 配合使用。
+ 基于文件的保密认证信息仅与 UCR 配合使用。

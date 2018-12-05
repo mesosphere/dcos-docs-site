@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 1.11.4 版本注释
 title: 1.11.4 版本注释
@@ -75,7 +75,7 @@ DC/OS 1.11 包含许多新功能，重点是：
 - 停用节点 - 支持永久停用节点使得更容易管理“spot”云实例，实现任务的立即重新调度。[查看文档](/cn/1.11/hybrid-cloud/features/decommission-nodes/)
 - UCR
  - 支持 Docker 镜像垃圾收集。[查看文档](/cn/1.11/deploying-services/containerizers)。
- - 支持 Docker 镜像拉取秘钥。[查看文档](/cn/1.11/deploying-services/containerizers/)。Docker 凭据的示例见 [此处](/cn/1.11/installing/production/deploying-dcos/configuration/examples/#docker-credentials)。[enterprise type="inline" size="small" /]
+ - 支持 Docker 镜像拉取保密认证信息。[查看文档](/cn/1.11/deploying-services/containerizers/)。Docker 凭据的示例见 [此处](/cn/1.11/installing/production/deploying-dcos/configuration/examples/#docker-credentials)。[enterprise type="inline" size="small" /]
 
 # 网络
 - Edge-LB 1.0。[查看文档](https://docs.mesosphere.com/services/edge-lb/1.0/)。[enterprise type="inline" size="small" /]

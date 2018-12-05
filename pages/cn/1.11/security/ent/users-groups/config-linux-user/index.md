@@ -24,7 +24,7 @@ enterprise: true
 
 # <a name="marathon-app-def"></a>通过 Marathon 应用定义覆盖默认 Linux 用户
 
-Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 验证序号。**提示：**参考 [Marathon 文档](/cn/1.11/deploying-services/creating-services/)，了解有关编写 Marathon 服务的更多详细信息。
+Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 密钥。**提示：**参考 [Marathon 文档](/cn/1.11/deploying-services/creating-services/)，了解有关编写 Marathon 服务的更多详细信息。
 
 以下教程将展示所有权如何运作。在开始之前，请确保：
 
@@ -79,7 +79,7 @@ curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/mara
 
 # <a name="metronome-job-def"></a>通过 Metronome 作业定义覆盖默认 Linux 用户
 
-Metronome 作业定义提供 `"user"` 验证序号，可用于覆盖默认 Linux 用户。
+Metronome 作业定义提供 `"user"` 密钥，可用于覆盖默认 Linux 用户。
 
 **注意：**有关创建和部署作业的更多信息，请参阅[作业文档](/cn/1.11/deploying-jobs/quickstart/)。
 

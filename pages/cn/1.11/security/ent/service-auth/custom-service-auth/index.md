@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 title: 认证 DC/OS 服务
 menuWeight: 100
@@ -16,14 +16,14 @@ enterprise: true
 - [已安装 DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
 - 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 `curl` 命令。
 
-# <a name="create-a-keypair"></a>创建验证序号对
-使用 DC/OS Enterprise CLI 创建 2048 位 RSA 公私验证序号对。将每个值保存到当前目录中的单独文件中。
+# <a name="create-a-keypair"></a>创建密钥对
+使用 DC/OS Enterprise CLI 创建 2048 位 RSA 公私密钥对。将每个值保存到当前目录中的单独文件中。
 
 ```bash
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-使用 [DC/OS 密钥存储库](/cn/1.11/security/ent/secrets/) 保护验证序号对。
+使用 [DC/OS 保密认证信息存储库](/cn/1.11/security/ent/secrets/) 保护密钥对。
 
 # <a name="create-a-service-account"></a>创建服务帐户
 您可以使用 DC/OS Enterprise CLI 或 DC/OS Web 界面创建服务帐户。
@@ -52,15 +52,15 @@ dcos security org service-accounts show <service-account-id>
  图 1. 单击服务帐户创建按钮
 
 1. 输入描述并在 **ID** 字段中输入服务帐户 ID。
-1. 将与帐户相关联的公共验证序号粘贴到 **PUBLIC KEY** 字段中。
+1. 将与帐户相关联的公共密钥粘贴到 **PUBLIC KEY** 字段中。
 
  ![创建服务帐户 UI](/cn/1.11/img/create-service-account.png)
 
  图 2. 创建新服务帐户
 
 
-# 创建密钥
-用您的服务账号 (`service-account-id>`) 和被提供的私钥 (`<private-key>.pem`） 创建密钥 (`<secret-name>`) 。
+# 创建保密认证信息
+用您的服务账号 (`service-account-id>`) 和被提供的私钥 (`<private-key>.pem`） 创建保密认证信息 (`<secret-name>`) 。
 
 ## 宽容
 
@@ -74,7 +74,7 @@ dcos security secrets create-sa-secret <private-key>.pem <service-account-id> <s
 dcos security secrets create-sa-secret --strict <private-key>.pem <service-account-id> <secret-name>
 ```
 
-使用此命令列出密钥：
+使用此命令列出保密认证信息：
 
 ```bash
 dcos security secrets list /

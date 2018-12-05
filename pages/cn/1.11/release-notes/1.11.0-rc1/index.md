@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 1.11.0 候选版本 1 的版本注释
 title: 1.11.0 RC 1 版本注释
@@ -45,7 +45,7 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 - 停用节点。支持永久停用节点使得在使用后更容易维护和退役“Spot”云实例，从而允许立即重新安排任务，而不是延时重新安排任务。
 - UCR
  - 支持 Docker 镜像垃圾收集。[查看文档](/cn/1.11/deploying-services/containerizers)。
- - 支持 Docker 镜像拉取秘钥。
+ - 支持 Docker 镜像拉取保密的认证信息。
 
 ## 网络
 [enterprise]

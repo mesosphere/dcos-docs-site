@@ -50,7 +50,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 | Ad min Router权限（`dcos:adminrouter`） | x | x | x |
 | Mesos 权限（`dcos:mesos`） | | | x |
 | Marathon 和 Metronome 权限（`dcos:service`） | | x | x |
-| 密钥存储库权限（`dcos:secrets`） | x | x | x |
+| 保密认证信息存储库权限（`dcos:secrets`） | x | x | x |
 
 有关完整说明，请参阅[权限参考](/cn/1.11/security/ent/perms-reference/)。
 
@@ -148,12 +148,12 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 图中的 `OPT` 序列说明了权限执行如何因安全模式而异。
 
-- Admin Router 和密钥存储库在所有安全模式下执行其权限。
+- Admin Router 和保密认证信息存储库在所有安全模式下执行其权限。
 
 - Metronome 和 Marathon 在 `permissive` 和 `strict` 模式执行其权限。但是，只有在请求者提供认证令牌时才会执行 `permissive` 模式，这在 `permissive` 模式下是可选的。如果集群中的请求者未提供认证令牌，Metronome 和 Marathon 则将按照请求是否由具有 `dcos:superuser` 权限的用户所发出进行操作。
 - Mesos 管理节点的和代理节点仅在 `strict` 安全模式下执行其权限。
 
-该图未显示密钥存储库序列。Admin Router 不会检查向密钥存储库请求的权限。它将这些请求发送给密钥存储库，后者会针对每个请求执行自己的权限。
+该图未显示保密认证信息存储库序列。Admin Router 不会检查向保密认证信息存储库请求的权限。它将这些请求发送给保密认证信息存储库，后者会针对每个请求执行自己的权限。
 
 有关权限的更多信息，请参阅[管理权限](/cn/1.11/security/ent/perms-reference/)。
 
@@ -183,9 +183,9 @@ DC/OS 通信的加密因[安全模式]而异(/1.11/security/ent/#security-modes)
 
 - [限制用户对服务和作业的访问](#serv-job) 。
 
-- [限制对密钥的服务访问](#secrets)。
+- [限制对保密认证信息的服务访问](#secrets)。
 
-我们建议至少使用空间来限制对密钥的服务访问。
+我们建议至少使用空间来限制对保密认证信息的服务访问。
 
 ## <a name="serv-job"></a>服务和作业空间
 
@@ -195,13 +195,13 @@ DC/OS 通信的加密因[安全模式]而异(/1.11/security/ent/#security-modes)
 
 若要了解如何执行此操作，请参阅[控制用户对服务的访问](/cn/1.11/deploying-services/service-groups/)和[控制用户对作业的访问](/cn/1.11/deploying-jobs/job-groups/)。
 
-## <a name="secrets"></a>密钥空间
+## <a name="secrets"></a>保密认证信息空间
 
-密钥路径控制哪些服务可以访问它。如果在存储密钥时未指定路径，则任何服务均可访问它。
+保密认证信息路径控制哪些服务可以访问它。如果在存储保密认证信息时未指定路径，则任何服务均可访问它。
 
-密钥路径与服务组配合使用，以控制访问。但是，您无需让服务组控制对密钥的访问，您也可以使用服务的名称。下表提供了一些示例，以说明其工作方式。
+保密认证信息路径与服务组配合使用，以控制访问。但是，您无需让服务组控制对保密认证信息的访问，您也可以使用服务的名称。下表提供了一些示例，以说明其工作方式。
 
-| 密钥 | 服务 | 服务是否能访问密钥？ |
+| 保密认证信息 | 服务 | 服务是否能访问保密认证信息？ |
 |---------------------|--------------------------|----------------------------|
 | `group/secret` | `/marathon-user/service` | 否 |
 | `group/secret` | `/group/hdfs/service` | 是 |
@@ -210,33 +210,33 @@ DC/OS 通信的加密因[安全模式]而异(/1.11/security/ent/#security-modes)
 
 **注意：**
 
-- 如果只有单个服务需要访问密钥，则将密钥存储在与服务名称匹配的路径中（例如， `hdfs/secret`）。这可防止其他服务访问。
-- 服务组以 `/` 开头，而密钥路径则不是。
+- 如果只有单个服务需要访问保密认证信息，则将保密认证信息存储在与服务名称匹配的路径中（例如， `hdfs/secret`）。这可防止其他服务访问。
+- 服务组以 `/` 开头，而保密认证信息路径则不是。
 
-## 密钥
+## 保密认证信息
 
 为了保护私钥、API 令牌和数据库密码等敏感值，DC/OS提供：
 
 - [安全存储和传输](#storage-transport)
 - [细粒度访问控制](#access)
 
-## <a name="storage-transport"></a>密钥的安全存储和传输
+## <a name="storage-transport"></a>保密认证信息的安全存储和传输
 
-DC/OS 使用 Galois 计数器模式 (GCM) 中的高级加密标准 (AES) 算法将密钥存储库数据存储在 ZooKeeper 中的一个开封密钥中。密钥存储库将解封密钥发送到 ZooKeeper 之前使用开封密钥加密，并在从 ZooKeeper 收到密钥后解密密钥。这可确保密钥在休息和传输时都被加密。TLS 为从 ZooKeeper 传输到密钥存储库的密钥提供了额外的加密层。
+DC/OS 使用 Galois 计数器模式 (GCM) 中的高级加密标准 (AES) 算法将保密认证信息存储库数据存储在 ZooKeeper 中的一个开封密钥中。保密认证信息存储库将解封密钥发送到 ZooKeeper 之前使用开封密钥加密，并在从 ZooKeeper 收到密钥后解密保密的认证信息。这可确保保密认证信息在休息和传输时都被加密。TLS 为从 ZooKeeper 传输到保密认证信息存储库的密钥提供了额外的加密层。
 
-开封密钥在公共 GPG 密钥下加密。对 [Secrets API] 的请求(/1.11/security/ent/secrets/secrets-api/)仅返回加密的开封密钥。当密钥存储库被手动或由于故障而被密封时，必须使用专用 GPG 密钥解密开封密钥并开启密钥存储库。为方便起见，DC/OS 在 bootstrap 序列期间自动生成新的 4096-bit GPG 密钥对。它使用此密钥初始化密钥存储库，并将密钥对存储在 ZooKeeper 中。
+开封密钥在公共 GPG 密钥下加密。对 [Secrets API] 的请求(/1.11/security/ent/secrets/secrets-api/)仅返回加密的开封密钥。当保密认证信息存储库被手动或由于故障而被密封时，必须使用专用 GPG 密钥解密开封密钥并开启保密认证信息存储库。为方便起见，DC/OS 在 bootstrap 序列期间自动生成新的 4096-bit GPG 密钥对。它使用此密钥初始化保密认证信息存储库，并将密钥对存储在 ZooKeeper 中。
 
 <!-- If you wish to generate your own GPG keypair and store it in an alternate location, you can [reinitialize the Secret Store with a custom GPG keypair](/cn/1.11/security/ent/secrets/custom-key/). -->
 
-密钥存储库适用于所有安全模式。默认情况下，您不能存储大于一兆字节的密钥。如果您需要超过此限制，请联系 Mesosphere 支持中心。我们目前不支持替代或额外的密钥存储库。您应只使用 Mesosphere 提供的 `default` 密钥存储库。
+保密认证信息存储库适用于所有安全模式。默认情况下，您不能存储大于一兆字节的密钥。如果您需要超过此限制，请联系 Mesosphere 支持中心。我们目前不支持替代或额外的保密认证信息存储库。您应只使用 Mesosphere 提供的 `default` 保密认证信息存储库。
 
-## <a name="access"></a>密钥的细粒度访问控制
+## <a name="access"></a>保密认证信息的细粒度访问控制
 
 DC/OS 让您限制：
 
-- **用户对密钥的访问：**使用 [权限](/cn/1.11/security/ent/perms-reference/#secrets)控制哪些用户可以访问哪些密钥及其可执行的操作。
+- **用户对保密认证信息的访问：**使用 [权限](/cn/1.11/security/ent/perms-reference/#secrets)控制哪些用户可以访问哪些保密认证信息及其可执行的操作。
 
-- **应用程序对密钥的访问：**使用 [空间](/cn/1.11//security/ent/#spaces)以控制哪些应用程序可以检索哪些密钥。
+- **应用程序对保密认证信息的访问：**使用 [空间](/cn/1.11//security/ent/#spaces)以控制哪些应用程序可以检索哪些保密认证信息。
 
 # <a name="linux-users"></a>Linux 用户帐户
 

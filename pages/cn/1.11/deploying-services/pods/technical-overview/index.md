@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 技术概述
 title: 技术概述
@@ -84,9 +84,9 @@ EP_HOST_HTTPENDPOINT=21528
 }
 ```
 
-## 密钥
+## 保密的认证信息
 
-在 Pod 定义的 `secrets` 字段中指定密钥。论据应该是完全合格的可获取存储库中的密钥的路径。
+在 Pod 定义的 `secrets` 字段中指定密钥。论据应该是完全合格的可获取存储库中的保密的认证信息的路径。
 
 ```json
 {

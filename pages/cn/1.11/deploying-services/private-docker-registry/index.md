@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 使用专用 Docker 注册表
 title: 使用专用 Docker 注册表
@@ -90,9 +90,9 @@ enterprise: false
  Docker 镜像现在将使用提供的安全凭证进行拉取。
 
 <a name="secret-store-instructions"></a>
-# 引用密钥存储库中的专用 Docker 注册表凭据 [enterprise type="inline" size="small" /]
+# 引用保密认证信息存储库中的专用 Docker 注册表凭据 [enterprise type="inline" size="small" /]
 
-按照以下步骤向 [DC/OS Enterprise 密钥存储库] 添加 Docker 注册表凭据(/1.11/security/ent/secrets/)，然后在服务定义中引用该密钥。
+按照以下步骤向 [DC/OS Enterprise 保密认证信息存储库] 添加 Docker 注册表凭据(/1.11/security/ent/secrets/)，然后在服务定义中引用该保密认证信息。
 
 **注意：** 此功能仅适用于 [通用 Containerizer 运行时间](/cn/1.11/deploying-services/containerizers/ucr/)。如果需要使用 Docker Engine，请遵循上述 [URI 说明](#uri-instructions)。
 
@@ -129,25 +129,25 @@ enterprise: false
 
  **注意：** 如果使用的是 Mac OSX，就需要手动编码 `username:password` 字符串并修改您的 `config.json` ，以便与上面的片段匹配。
 
-1. 添加 `config.json` 文件到 DC/OS 密钥存储库。[了解创建密钥的详细信息](/1.9/security/ent/secrets/create-secrets/)。
+1. 添加 `config.json` 文件到 DC/OS 保密认证信息存储库。[了解创建保密的认证信息的详细信息](/1.9/security/ent/secrets/create-secrets/)。
 
- **注意：** 自 DC/OS 版本 1.10.0 开始，您只能使用 DC/OS CLI 将文件添加到密钥存储库。
+ **注意：** 自 DC/OS 版本 1.10.0 开始，您只能使用 DC/OS CLI 将文件添加到保密认证信息存储库。
 
    ```bash
    dcos security secrets create --value-file=config.json <path/to/secret>
    ```
 
- 如果您打算遵循以下示例，请输入以下命令以添加密钥：
+ 如果您打算遵循以下示例，请输入以下命令以添加保密的认证信息：
 
    ```bash
    dcos security secrets create --value-file=config.json mesos-docker/pullConfig
    ```
 
-## 第 2 步：为您的服务或 pod 定义添加密钥
+## 第 2 步：为您的服务或 pod 定义添加保密认证信息
 
 ### 对于服务
 
-1. 在 `secrets` 参数中添加密钥位置，并在 `docker.pullConfig` 参数中引用密钥。
+1. 在 `secrets` 参数中添加保密认证信息位置，并在 `docker.pullConfig` 参数中指向保密认证信息。
 
  **注意：** 此功能**仅** 获得 **通用容器运行时间**支持： `container.type` 必须为 `MESOS`。
 
@@ -185,7 +185,7 @@ enterprise: false
 
 ### 对于 pod
 
-1. 在 `secrets` 参数中添加密钥位置，并在 `containers.image.pullConfig` 参数中指向密钥。
+1. 在 `secrets` 参数中添加保密认证信息位置，并在 `containers.image.pullConfig` 参数中指向保密认证信息。
 
  **注意：** 只有在 `image.kind` 设置为 `DOCKER` 时，支持此功能。
 

@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 配置 OpenID Connect IdP
 title: 配置 OpenID 身份提供程序
@@ -46,7 +46,7 @@ enterprise: true
 
 1. 单击 **Create**。
 
-1. 将客户端 ID 和客户端密钥值复制并粘贴到文本文件中。
+1. 将客户端 ID 和客户端保密认证信息值复制并粘贴到文本文件中。
 
 ## 在 DC/OS 中配置 IdP
 
@@ -68,7 +68,7 @@ enterprise: true
 
 1. 将客户端 ID 值从 Google 粘贴到 **Client ID** 字段。
 
-1. 将客户端密钥从 Google 粘贴到 **Client Secret** 字段。
+1. 将客户端保密认证信息从 Google 粘贴到 **Client Secret** 字段。
 
  ![Google IdP 配置](/cn/1.11/img/oidc-google.png)
 

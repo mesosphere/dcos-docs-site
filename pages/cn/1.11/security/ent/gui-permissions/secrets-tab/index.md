@@ -1,18 +1,18 @@
----
+﻿---
 layout: layout.pug
-navigationTitle: 授予访问“密钥”选项卡的权限
-title: 授予访问“密钥”选项卡的权限
+navigationTitle: 授予访问“保密的认证信息”选项卡的权限
+title: 授予访问“保密的认证信息”选项卡的权限
 menuWeight: 50
-excerpt: 授予访问“密钥”选项卡的权限
+excerpt: 授予访问“保密的认证信息”选项卡的权限
 
 enterprise: true
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-您可以授予用户访问**密钥**选项卡的权限。新用户默认没有权限。
+您可以授予用户访问**保密的认证信息**选项卡的权限。新用户默认没有权限。
 
-**提示：**此过程可授予访问**密钥**选项卡的全部用户权限。如果您正在以 `strict` 或 `permissive` [安全模式](/cn/1.11/security/ent/#security-modes) 运行并希望配置细粒度用户访问权限，请参阅 [文档](/cn/1.11/security/ent/secrets/use-secrets/)。
+**提示：**此过程可授予访问**保密的认证信息**选项卡的全部用户权限。如果您正在以 `strict` 或 `permissive` [安全模式](/cn/1.11/security/ent/#security-modes) 运行并希望配置细粒度用户访问权限，请参阅 [文档](/cn/1.11/security/ent/secrets/use-secrets/)。
 
 ## <a name="network-access-via-ui"></a>使用 GUI 授予访问权限
 

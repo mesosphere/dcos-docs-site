@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 权限参考
 title: 权限参考
@@ -20,7 +20,7 @@ enterprise: true
 | [Admin Router 权限](#admin-router) (`dcos:adminrouter`) | x | x | x |
 | [Mesos 权限](#mesos) (`dcos:mesos`) | | | x |
 | [Marathon 和 Metronome 权限](#marathon-metronome) (`dcos:service`) | | x | x |
-| [密钥存储库权限](#secrets) (`dcos:secrets`)  | x | x | x |
+| [保密认证信息存储库权限](#secrets) (`dcos:secrets`)  | x | x | x |
 | [集群链接器权限](#cluster-linker) (`dcos:cluster:linker`) | x | x | x |
 | [超级用户权限](#superuser) (`dcos:superuser`) | x | x | x |
 
@@ -79,7 +79,7 @@ HTTP 端点，Admin Router 自身执行授权。例如，
 | `dcos:adminrouter:ops:system-metrics`<br> 控制对 [系统度量 API] 的访问(/1.11/api/master-routes/#system)。| x | | | | |
 | `dcos:adminrouter:licensing` <br> 控制对许可 API 的访问。| x | | | | |
 | `dcos:adminrouter:package` <br> 控制对 [Cosmos API] 的访问(/1.11/api/master-routes/#cosmos)，其提供对 DC/OS Universe 的访问。| x | | | | |
-| `dcos:adminrouter:secrets`<br> 控制对 [密钥](/cn/1.11/security/ent/secrets/) Web 界面和 API 的访问。| x | | | | |
+| `dcos:adminrouter:secrets`<br> 控制对 [保密认证信息](/cn/1.11/security/ent/secrets/) Web 界面和 API 的访问。| x | | | | |
 | `dcos:adminrouter:service[:<group-name>]/<service-name>`<br> 控制对已安装的 DC/OS 服务的 Web 界面和 API 的访问。| x | | | | |
 | `dcos:adminrouter:service:marathon` <br>控制对本地 Marathon 的访问。| x | | | | |
 | `dcos:adminrouter:service:metronome`<br> 控制对 [DC/OS 作业 (Metronome)](/cn/1.11/deploying-jobs/) 的访问。| x | | | | |
@@ -139,16 +139,16 @@ Marathon 和 Metronome 要求对某些受保护资源发出的 HTTP 请求必须
 | `dcos:service:metronome:metronome:jobs[:<job-group>]`<br> 控制对[作业和作业组](/cn/1.11/deploying-jobs/)的访问。| x | x | x | x | x |
 
 
-## <a name="secrets"></a>密钥存储库权限
+## <a name="secrets"></a>保密认证信息存储库权限
 
-这些权限控制对[密钥 API](/cn/1.11/security/ent/secrets/secrets-api/) 的访问。Mesos 框架必须
-将权限授予其 DC/OS 服务帐户，以访问给定的密钥。如果您正在寻找有关如何使用密钥
-启动 Marathon 应用程序的信息，请参阅[配置服务和 pod 以使用密钥](/cn/1.11/security/ent/secrets/use-secrets/)。
+这些权限控制对[保密认证信息 API](/cn/1.11/security/ent/secrets/secrets-api/) 的访问。Mesos 框架必须
+将权限授予其 DC/OS 服务帐户，以访问给定的保密认证信息。如果您正在寻找有关如何使用密钥
+启动 Marathon 应用程序的信息，请参阅[配置服务和 pod 以使用保密认证信息](/cn/1.11/security/ent/secrets/use-secrets/)。
 
 | 资源标识符 | 全部 | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
-| `dcos:secrets:default:[/<path-name>/]<secret-name>`<br> 控制对单个[密钥](/cn/1.11/security/ent/secrets/)的访问。| x | x | x | x | x |
-| `dcos:secrets:list:default:/[<path>]`<br> 控制对[密钥](/cn/1.11/security/ent/secrets/)名称的查看访问权限。| | | x | | |
+| `dcos:secrets:default:[/<path-name>/]<secret-name>`<br> 控制对单个[保密认证信息](/cn/1.11/security/ent/secrets/)的访问。| x | x | x | x | x |
+| `dcos:secrets:list:default:/[<path>]`<br> 控制对[保密认证信息](/cn/1.11/security/ent/secrets/)名称的查看访问权限。| | | x | | |
 
 ## <a name="cluster-linker"></a> 集群链接器权限
 

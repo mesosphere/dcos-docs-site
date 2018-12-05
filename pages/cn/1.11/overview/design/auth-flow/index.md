@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 认证架构
 excerpt: 了解认证操作
@@ -18,7 +18,7 @@ menuWeight: 1
 该服务必须有权访问 `dcos.auth0.com` 才能通过
 HTTPS 取得所需的公共密钥。目前不支持使用代理进行此请求。
 
-用来与 HS256 算法签署集群特定令牌的共享秘密
+用来与 HS256 算法签署集群特定令牌的共享加密认证信息
 在集群启动期间生成，并存储在
 每个管理节点上的 `/var/lib/dcos/auth-token-secret` 和
 ZooKeeper 的 `/dcos/auth-token-secret` znode 中。

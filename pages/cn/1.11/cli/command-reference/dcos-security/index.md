@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: dcos security
 title: dcos security
@@ -253,7 +253,7 @@ Options:
 ```
 
 ## dcos security cluster secret-store
-管理密钥存储库设置。
+管理保密认证信息存储库设置。
 
 ```
 Usage: dcos security cluster secret-store seal-status [OPTIONS] STORE_ID

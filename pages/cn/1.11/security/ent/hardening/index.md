@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout.pug
 navigationTitle: 安全强化
 title: 安全强化
@@ -17,12 +17,12 @@ enterprise: true
 
 - [获取 DC/OS CA 的根证书](/cn/1.11/security/ent/tls-ssl/get-cert/#oob) 并手动配置 [浏览器](/cn/1.11/security/ent/tls-ssl/ca-trust-browser/)、[DC/OS CLI](/cn/1.11/security/ent/tls-ssl/ca-trust-cli/)、[curl](/cn/1.11/security/ent/tls-ssl/ca-trust-curl/) 和其他客户端。
 
-- [使用自定义密匙对重新初始化您的密钥存储库](/cn/1.11/security/ent/secrets/custom-key/) 并将自定义密匙存储在非常安全的位置。
+- [使用自定义密匙对重新初始化您的保密认证信息存储库](/cn/1.11/security/ent/secrets/custom-key/) 并将自定义密匙存储在非常安全的位置。
 - [即使在可选的情况下，也可以使用服务帐户配置服务](/cn/1.11/security/ent/service-auth/)。
 
-- [使用密匙来存储敏感信息并将其传递给服务](/cn/1.11/security/ent/secrets/)。
+- [使用保密认证信息来存储敏感信息并将其传递给服务](/cn/1.11/security/ent/secrets/)。
 
-- [使用空间来限制对密匙的服务访问](/cn/1.11//security/ent/#spaces)。
+- [使用空间来限制对保密认证信息的服务访问](/cn/1.11//security/ent/#spaces)。
 
 - 严格限制 SSH 密钥的分发。对于调试，请考虑使用 [`dcos task exec`](/cn/1.11/monitoring/debugging/)。
 

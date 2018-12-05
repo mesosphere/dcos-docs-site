@@ -1,15 +1,15 @@
----
+﻿---
 layout: layout.pug
-navigationTitle: 重新初始化密钥存储库
-title: 使用自定义 GPG 密钥对重新初始化密钥存储库
+navigationTitle: 重新初始化保密认证信息存储库
+title: 使用自定义 GPG 密钥对重新初始化保密认证信息存储库
 menuWeight: 15
-excerpt: 使用自定义 GPG 密钥对重新初始化密钥存储库
+excerpt: 使用自定义 GPG 密钥对重新初始化保密认证信息存储库
 
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-您可以使用自定义 GPG 密钥对重新初始化密钥存储库。执行此操作步骤包括：
+您可以使用自定义 GPG 密钥对重新初始化保密认证信息存储库。执行此操作步骤包括：
 
 1. [编辑](#1) 您的 SECRETS_BOOTSTRAP 值
 1. [停止](#2) 存储库和保管库服务
@@ -45,7 +45,7 @@ enterprise: true
 4. 保存文件并退出编辑器。
 
 ## <a name="2"></a>停止存储库和保管库服务
-1. 停止密钥存储库和保管库服务。
+1. 停止保密认证信息存储库和保管库服务。
 
    ```bash
    sudo systemctl stop dcos-secrets dcos-vault
@@ -102,7 +102,7 @@ enterprise: true
 
 ## <a name="4"></a>启动存储库和保管库服务
 
-1. 启动密钥存储库和保管库服务。
+1. 启动保密认证信息存储库和保管库服务。
 
    ```bash
    sudo systemctl start dcos-secrets dcos-vault
@@ -153,16 +153,16 @@ enterprise: true
 
 ## <a name="6"></a>使用公钥初始化存储库
 
-1. 使用以下 `curl` 命令凭借新的 GPG 公钥初始化密钥存储库。将 `"pgp_keys"` 值替换为上一步中 GPG 返回的值。
+1. 使用以下 `curl` 命令凭借新的 GPG 公钥初始化保密认证信息存储库。将 `"pgp_keys"` 值替换为上一步中 GPG 返回的值。
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -d '{"shares":1,"threshold":1,"pgp_keys":["mQIN...xQPE="]}' $(dcos config show core.dcos_url)/secrets/v1/init/default -H 'Content-Type: application/json'
    ```
 
-1. 密钥存储库服务返回用使用公钥加密的开封密钥，表示成功了。
+1. 保密认证信息存储库服务返回用使用公钥加密的开封密钥，表示成功了。
 
    ```json
    {"keys":["c1c14c03483...c400"],"pgp_fingerprints":["1ff31b0af...d57b464df4"],"root_token":"da8e3b55-8719-4594-5378-4a9f3498387f"}
    ```
 
-祝贺您！您已成功重新初始化密钥存储库。要拆封它，请参阅[使用自定义钥匙拆封密封的密钥存储库](/cn/1.11/security/ent/secrets/unseal-store/#unseal-cust-keys)。
+祝贺您！您已成功重新初始化保密认证信息存储库。要拆封它，请参阅[使用自定义钥匙拆封密封的保密认证信息存储库](/cn/1.11/security/ent/secrets/unseal-store/#unseal-cust-keys)。
