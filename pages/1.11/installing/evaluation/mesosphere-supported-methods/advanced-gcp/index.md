@@ -18,7 +18,7 @@ module "dcos" {
   ssh_public_key_file = "~/.ssh/id_rsa.pub"
   admin_ips = ['198.51.100.0/24']
 
-  dcos_version = "1.12.0"
+  dcos_version = "1.11.4"
   num_masters = "3"
   num_private_agents = "2"
   num_public_agents = "1"
