@@ -6,6 +6,8 @@ menuWeight: 40
 excerpt: Uninstalling DC/OS Minio Services
 featureMaturity:
 enterprise: false
+model: /services/minio/data.yml
+render: mustache
 ---
 
 ## DC/OS 1.11
@@ -17,13 +19,13 @@ To uninstall the service from the DC/OS CLI, enter:
 dcos package uninstall {{ model.packageName }}
 ```
 
-### Uninstall Flow
+### Uninstall process
 
 Uninstalling the service consists of the following steps. 
 
 1. The scheduler is relaunched in Marathon with the environment variable SDK_UNINSTALL set to “true”. This puts the Scheduler in an uninstall mode.
 
-The scheduler uninstalls the package with the following actions:
+1. The scheduler uninstalls the package with the following actions:
 
    1. All running tasks for the service are terminated so that Mesos will reoffer their resources.
    1. As the task resources are offered by Mesos, they are unreserved by the scheduler.
@@ -42,10 +44,10 @@ In the vast majority of cases, this uninstall process goes off without a hitch. 
 This situation is indicated by looking at the deploy plan while the uninstall is proceeding. The deploy plan may be viewed using either of the following methods:
 
 - CLI: 
-```
-dcos {{ model.serviceName }} --name={{ model.serviceName }} plan show deploy
-```
- (after running dcos package install --cli {{ model.serviceName }} if needed)
+   ```
+   dcos {{ model.serviceName }} --name={{ model.serviceName }} plan show deploy
+   ```
+   (after running "dcos package install --cli {{ model.serviceName }}" if needed)
 - HTTP: https://yourcluster.com/service/minio/v1/plans/deploy
 
 ### Manual uninstall    
@@ -53,7 +55,7 @@ dcos {{ model.serviceName }} --name={{ model.serviceName }} plan show deploy
 If all else fails, you can manually perform the uninstall yourself. To do this, perform the following steps:
 
 1. Delete the uninstalling scheduler from Marathon.
-<!-- Please describe how to do this. CLI command? -->
+   <!-- Please describe how to do this. CLI command? -->
 
 1. Unregister the service from Mesos using its UUID as follows:
 

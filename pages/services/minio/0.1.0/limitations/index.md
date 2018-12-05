@@ -13,8 +13,7 @@ render: mustache
 #include /services/include/limitations.tmpl
 
 
-
-<!-- The following limitations are unique to this service. -->
+<!-- Note: The following limitations are unique to this service. -->
 
 ## Scaling Out
 

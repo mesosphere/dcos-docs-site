@@ -16,7 +16,7 @@ DC/OS {{ model.techName }} Service is an automated service that makes it easy to
 DC/OS {{ model.techName }} offers the following benefits:
 1. Based on the proven DC/OS framework/operator SDK underpinning all DC/OS-certified frameworks
 2. {{ model.techName }} is a lightweight object storage server.
-3. {{ model.techName }} deploys Amazon S3 compatible object storage server in seconds.
+3. {{ model.techName }} deploys Amazon S3-compatible object storage servers in seconds.
 4. Provides consistent deployment across multi-cloud environments.
 5. Backup and restore operations use AWS S3 as backing store
 
@@ -27,8 +27,8 @@ DC/OS {{ model.techName }} offers the following benefits:
 4. **Gateway**: {{ model.techName }} adds Amazon S3 compatibility to Azure Blob Storage, GCP and NAS.
 5. **Large Bucket Support**: Allows a single {{ model.techName }} bucket to expand over multiple erasure code deployment sets.
 6. **Disk Cache**: Disk caching allows caching disks to store content closer to  tenants.
-7. **Monitoring**: {{ model.techName }} server exposes monitoring data over an unauthenticated endpoints so monitoring tools can pick the data without you having to share {{ model.techName }} server credentials.
+7. **Monitoring**: {{ model.techName }} server exposes monitoring data over  unauthenticated endpoints, so monitoring tools can pick the data without you having to share {{ model.techName }} server credentials.
 
 ## Dynamic Scaling Out
 
-{{ model.techName }} does not support horizontal scaling;  if a {{ model.techName }} cluster has started with eight {{ model.techName }} servers then a ninth {{ model.techName }} server cannot be added to the {{ model.techName }} cluster.
+{{ model.techName }} does not support horizontal scaling;  if a {{ model.techName }} cluster has started with eight {{ model.techName }} servers then a ninth {{ model.techName }} server cannot be added to the cluster.

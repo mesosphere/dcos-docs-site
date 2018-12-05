@@ -15,8 +15,10 @@ render: mustache
 - DC/OS Superuser permissions for modifying the permissions of the service account.
 - [DC/OS CLI](https://docs.mesosphere.com/1.10/cli/install/) installed and be logged in as a superuser.
 - [Enterprise DC/OS CLI 0.4.14 or later installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/#ent-cli-install).
+<!-- You have called for two different installations of DC/OS. Which one is correct? -->
 - If your [security mode](https://docs.mesosphere.com/1.10/security/ent/) is permissive or strict, you must [get the root cert](https://docs.mesosphere.com/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
+<!-- The following section mostly duplicates the service-account.tmpl. Can it be used instead? -->
 # Service Account Configuration
 This topic describes how to configure DC/OS access for {{ model.techName }}. Depending on your security mode, {{ model.techName }} requires service authentication for access to DC/OS.
 
@@ -79,7 +81,7 @@ You can list the secrets with this command:
    dcos security org users grant dcos_minio dcos:adminrouter:ops:ca:rw full --description "grant permission to adminrouter"
    dcos security org users grant dcos_minio dcos:secrets:default:miniodemo full --description "grant permission to miniodemo"
    ```    
-
+<!-- The following section duplicates much of the security-configure-transport-encryption.tmpl. Can it be used instead? -->
 
 ## Configure Transport Encryption
 
