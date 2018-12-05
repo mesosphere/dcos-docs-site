@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-excerpt: Guide for DC/OS on AWS using the Universal Installer
-title: DC/OS on AWS using the Universal Installer
-navigationTitle: Basic AWS
+title: Deploying DC/OS on AWS using the Universal Installer
+excerpt: Guide for installing DC/OS on AWS using the Universal Installer
+navigationTitle: Universal Installer on AWS
 menuWeight: 0
 ---
 
