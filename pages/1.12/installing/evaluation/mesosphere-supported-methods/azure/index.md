@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-excerpt: Guide for DC/OS on Azure using Terraform
-title: DC/OS on Azure Terraform
-navigationTitle: Azure Terraform
+title: Deploying DC/OS on Azure using the Universal Installer
+excerpt: Guide for installing DC/OS on Azure using the Universal Installer
+navigationTitle: Universal Installer on Azure
 menuWeight: 2
 ---
 
