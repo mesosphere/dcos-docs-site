@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: Advanced Guide for DC/OS on GCP using the Universal Installer
-excerpt: Configuring your DC/OS installation on GCP using the Universal Installer
+title: Advanced DC/OS on GCP
+excerpt: Configuring your DC/OS installation on GCP using the Mesosphere Universal Installer
 navigationTitle: Advanced GCP
 menuWeight: 5
 ---

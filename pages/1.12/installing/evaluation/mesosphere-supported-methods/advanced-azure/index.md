@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: Advanced Guide for DC/OS on Azure using the Universal Installer
-excerpt: Configuring your DC/OS installation on Azure using the Universal Installer
+title: Advanced DC/OS on Azure
+excerpt: Configuring your DC/OS installation on Azure using the Mesosphere Universal Installer
 navigationTitle: Advanced Azure
 menuWeight: 3
 ---
