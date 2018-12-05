@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: Advanced Azure
-excerpt: Customizing your DC/OS clusters
+title: Advanced Guide for DC/OS on Azure using the Universal Installer
+excerpt: Configuring your DC/OS installation on Azure using the Universal Installer
 navigationTitle: Advanced Azure
 menuWeight: 3
 ---
