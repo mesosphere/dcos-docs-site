@@ -23,6 +23,7 @@ DC/OS 1.11.8 includes the following components:
 - COPS-4087	- For applications that use Docker containers with a Virtual IP address, backend port mapping resolves access to the application by using the `host_IP:port_number` instead of the `container_ip:port_number`.
 
 ## GUI
+- COPS-3369 - Updates to the DC/OS UI provide better rendering for elements such as environment variables, secrets, labels, and version information.   
 - DCOS_OSS-1961	- Pod lifecycle stages are supported in the DC/OS UI.
 
 ## Marathon
@@ -31,17 +32,17 @@ DC/OS 1.11.8 includes the following components:
 
 ## Mesos
 - COPS-3953	- The Mesos fetcher process automatically retries downloading files using their associated URI if the previously-downloaded and cached versions of the files are not found.
-- DCOS-43544 - Logic changes enable nested containers to run under the same user account as the user associated with their parent container by default.  By default. Mesos agents use the task executor's user account to run commands the the command executor user is same as the command task user. For tasks in a task group pod, however, the default executor's user is same with the framework user rather than the task. In a scenario where the framework user is a normal user but the task user is root, this change enables the tasks in the nested container to run as the same user as the parent container instead of as the framework user.
-- DCOS-43593 - A helper function collects authorization information for endpoints and detremines whether all authorization requests are successful before completing the approval to authorize an action.
-- DCOS-43670, DCOS-44827 - Updates to the file descriptor code used to poll events for a container enable the file descriptor to wait for a read operation to complete. This change prevents a race condition that leaves the container in an ISOLATING or PROVISIONING state.
+- DCOS-43544 - Logic changes enable nested containers to run under the same user account as the user associated with their parent container by default. For nested containers in a pod, the default executor’s user--that is, the user running the top-level container--has been the framework user. In a scenario where the framework user is a normal user but the nested container user is `root`, the change in this release enables the second-level nested containers to run as the same user--for example, the `root` user--as the parent top-level container instead of as the framework user by default.
+- DCOS-43593 - This release fixes an issue that could cause Mesos master endpoints—-such as `reserveResources` or `createVolume`-—to fail during authorization. For example, before implementing this fix, the authorization requests for an endpoint might fail or be incomplete if there’s extreme load on the IAM service. The change in this release ensures that authorization requests for an endpint are complete before continuing.
+- DCOS-43670, DCOS-44827 - Updates to the `cgroups` event listener code that is used to poll events for a container ensure that the listener closes the file descriptor after the read operation is complete. This change prevents a race condition that can leave the container in an ISOLATING or PROVISIONING state.
 
 ## Metronome
-- DCOS-45564 - This release adds support for enhancements and issues fixed in Metronome 0.4.5.
-- DCOS_OSS-3616	- Changes to Metronome initialization prevent overconsumption of resources for Metronome-scheduled tasks when task execution is suspended.
+- COPS-3573, DCOS-45564, DCOS_OSS-2535 - This release adds support for enhancements and issues fixed in Metronome 0.4.5.
+- DCOS_OSS-3616	- Metronome initialization improvements prevent Metronome from being in an incomplete state that could cause Mesos offers to be held in reserve.
 
 ## Network
-- COPS-3924, DCOS_OSS-1954	- Frameworks wait for an application to start successfully or report a healthly status before distributing tasks to be executed.
-- COPS-4034, DCOS_OSS-4398	- This release resolves network issues caused by restarting the s`ystemd-networkd` process when a restart is not required to complete a network connection.
+- COPS-3924, DCOS_OSS-1954	- The distributed layer-4 load-balancer (`dcos-l4lb`) network component waits to route traffic until application scaling or health check is complete. 
+- COPS-4034, DCOS_OSS-4398	- Changes in this release prevent `dcos-net` from continously restarting `systemd-networkd` on a bare-metal server with bond interfaces.
 
 # About DC/OS 1.11
 
