@@ -140,7 +140,7 @@ Memory and CPU settings of the `mesosphere-kubernetes-engine` pod can be re-conf
 
 Please note that the above example does not set the options `service.service_account` and `service.service_account_secret`.
 Consequently this configuration will only work on DC/OS Open Source.
-For DC/OS Enterprise you must specify the [required options](services/kubernetes/2.0.0-1.12.1/getting-started/install-basic/#installing-mke-on-dcos-enterprise), in addition to those described above.
+For DC/OS Enterprise you must specify the [required options](/services/kubernetes/2.0.0-1.12.1/getting-started/install-basic/#installing-mke-on-dcos-enterprise), in addition to those described above.
 
 ## Kubernetes Cluster
 
@@ -178,7 +178,7 @@ Install the package:
   dcos kubernetes cluster create --options=options.json
   ```
 
-If support for [ingress](../operations/ingress) is desirable, the `kubernetes.public_node_count` package option must be set to the number of desired public Kubernetes nodes. The `kubernetes-cluster` service requires the following resources per public Kubernetes node:
+If support for [ingress](/services/kubernetes/2.0.0-1.12.1/getting-started/ingress) is desirable, the `kubernetes.public_node_count` package option must be set to the number of desired public Kubernetes nodes. The `kubernetes-cluster` service requires the following resources per public Kubernetes node:
 
 |                         | CPUs per instance | MEM (MB) per instance | Disk (MB) per instance |
 | ----------------------- | ---------------- | --------------------- | ---------------------- |
