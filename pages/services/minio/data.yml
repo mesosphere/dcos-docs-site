@@ -30,3 +30,8 @@ operations:
     deploy (serial strategy) (COMPLETE)
     ├─ minioc (serial strategy) (COMPLETE)
     │  └─ recover:[server] (COMPLETE)
+
+install:
+  minNodeCount: at least four nodes
+  nodeDescription: with an even number of nodes
+  minPrivateAgents: at least four private agents
