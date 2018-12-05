@@ -24,4 +24,4 @@ ALGOLIA_INDEX=$ALGOLIA_INDEX \
 ALGOLIA_CLEAR_INDEX=$ALGOLIA_CLEAR_INDEX \
 ALGOLIA_SKIP_SECTIONS=$ALGOLIA_SKIP_SECTIONS \
 METALSMITH_SKIP_SECTIONS=$METALSMITH_SKIP_SECTIONS \
-docker-compose -f ./docker/docker-compose.production.yml build docs
+docker-compose -f ./docker/docker-compose.production.yml build --force-rm docs
