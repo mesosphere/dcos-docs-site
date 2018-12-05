@@ -1,11 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle: Server-Side-Encrytion
-title: Encryption
+navigationTitle: Encryption
+title: Server-Side-Encryption
 menuWeight: 35
-excerpt: Server-Side-Encryption for Minio
+excerpt: Encrypt your data using SSE-C keys
 featureMaturity:
 enterprise: false
+model: /services/minio/data.yml
+render: mustache
 ---
 
-Minio supports S3 server-side-encryption. Users can encrypt their data using SSE-C keys. According to the S3 specification the minio server will reject any SSE-C request made over an insecure (non-TLS) connection. This means that SSE-C **requires** TLS / HTTPS. Users can start Minio server with TLS using [Security Section](../../security). For more information on encrypting objects using SSE-C keys, please refer [how to use minio server side encryption with aws cli](https://github.com/minio/cookbook/blob/master/docs/how-to-use-minio-server-side-encryption-with-aws-cli.md).
+{{ model.techName }} supports S3 server-side-encryption (SSE). You can encrypt your data using SSE-C keys. According to the S3 specification,  the {{ model.serviceName }} server will reject any SSE-C request made over an insecure (non-TLS) connection. This means that SSE-C **requires** TLS/HTTPS. You can start the {{ model.techName }} server with TLS using [Security Section](../../security). For more information on encrypting objects using SSE-C keys, please refer to [How to use {{ model.techName }} server side encryption with AWS CLI](https://github.com/minio/cookbook/blob/master/docs/how-to-use-minio-server-side-encryption-with-aws-cli.md).
