@@ -26,7 +26,7 @@ This section describes a basic and advanced example of how to use DC/OS {{ model
 
         dcos spark run --submit-args="https://downloads.mesosphere.com/spark/examples/dataframe.R"
 
-1. Visit the Spark [cluster dispatcher](http://<dcos-url>/service/spark/) to view the status of your job. Also visit the [Mesos UI](http://<dcos-url>/mesos/) to see job logs.
+1. View the status of your job using the Spark cluster dispatcher or use the Mesos UI to see job logs.
 
 # Advanced
 
@@ -61,4 +61,4 @@ The corresponding `dcos spark` command would be:
         --conf spark.mesos.driverEnv.KRB5_CONFIG_BASE64=W2xpYmRlZmF1bHRzXQpkZWZhdWx0X3JlYWxtID0gTE9DQUwKCltyZWFsbXNdCiAgTE9DQUwgPSB7CiAgICBrZGMgPSBrZGMubWFyYXRob24uYXV0b2lwLmRjb3MudGhpc2Rjb3MuZGlyZWN0b3J5OjI1MDAKICB9Cg== \
         --class MyAppClass <URL_of_jar> [application args]"
 
-<p class="message--note"><strong>NOTE: </strong>There are additional walkthroughs available in the <code>docs/walkthroughs/</code> directory of Mesosphere's <code>spark-build</code> <a href="https://github.com/mesosphere/spark-build/docs/walkthroughs/">repo</a>).</p>
+<p class="message--note"><strong>NOTE: </strong>There are additional walkthroughs available in the <code>docs/walkthroughs/</code> directory of Mesosphere's <a href="https://github.com/mesosphere/spark-build/"><code>spark-build</code></a>.</p>

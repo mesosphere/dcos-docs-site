@@ -11,33 +11,33 @@ render: mustache
 
 Failures such as host, network, JVM, or application failures can affect the behavior of three types of {{ model.techShortName }} components:
 
-- DC/OS {{ model.techName }} Service
+- DC/OS {{ model.techName }} service
 - Batch jobs
 - Streaming jobs
 
-# DC/OS {{ model.techName }} Service
+# DC/OS {{ model.techName }} service
 
-The DC/OS {{ model.techName }} service runs in Marathon and includes the Mesos Cluster Dispatcher and the {{ model.techShortName }} History Server.  The Dispatcher manages jobs you submit via `dcos spark run`.  Job data is persisted to Zookeeper. The {{ model.techShortName }} History Server reads event logs from HDFS. If the service dies, Marathon will restart it, and it will reload data from these highly available stores.
+The DC/OS {{ model.techName }} service runs in Marathon and includes the Mesos Cluster Dispatcher and the {{ model.techShortName }} history server.  The Dispatcher manages jobs you submit using `dcos spark run`.  Job data is persisted to Zookeeper. The {{ model.techShortName }} history server reads event logs from HDFS. If the service dies, Marathon restarts it, and reloads data from these highly available stores.
 
-# Batch Jobs
+# Batch jobs
 
-Batch jobs are resilient to executor failures, but not driver failures.  The Dispatcher will restart a driver if you submit with `--supervise`.
+Batch jobs are resilient to executor failures, but not driver failures. The Dispatcher will restart a driver if you submit it with the `--supervise` option.
 
 ## Driver
 
-When the driver fails, executors are terminated, and the entire {{ model.techShortName }} application fails.  If you submitted your job with `--supervise`, then the Dispatcher will restart the job.
+When the driver fails, executors are terminated, and the entire {{ model.techShortName }} application fails.  If you submitted your job with the `--supervise` option, then the Dispatcher restarts the job.
 
 ## Executors
 
-Batch jobs are resilient to executor failure.  Upon failure, cached data, shuffle files, and partially computed RDDs are lost.  However, {{ model.techShortName }} RDDs are fault-tolerant, and {{ model.techShortName }} will start a new executor to recompute this data from the original data source, caches, or shuffle files.  There is a performance cost as data is recomputed, but an executor failure will not cause a job to fail.
+Batch jobs are resilient to executor failure.  Upon failure, cached data, shuffle files, and partially computed RDDs are lost.  However, {{ model.techShortName }} RDDs are fault-tolerant, and {{ model.techShortName }} will start a new executor to recompute lost data from the original data source, caches, or shuffle files.  There is a performance cost as data is recomputed, but an executor failure will not cause a job to fail.
 
-# Streaming Jobs
+# Streaming jobs
 
 Whereas batch jobs run once and can usually be restarted upon failure, streaming jobs often need to run constantly.  The application must survive driver failures, often with no data loss.
 
-In summary, to experience no data loss, you must run with the WAL enabled.  The one exception is that, if you're consuming from Kafka, you can use the Direct Kafka API.
+To experience no data loss, you must run streaming jobs with write-ahead logging (WAL) enabled. The one exception is that, if you're consuming from Kafka, you can use the Direct Kafka API.
 
-For exactly-once processing semantics, you must use the Direct Kafka API.  All other receivers provide at least once semantics.
+For **exactly-once** processing semantics, you must use the Direct Kafka API.  All other receivers provide **at least once** semantics.
 
 ## Failures
 
@@ -46,7 +46,7 @@ There are two types of failures:
 - Driver
 - Executor
 
-## Job Features
+## Job features
 
 There are a few variables that affect the reliability of your job:
 
@@ -54,7 +54,7 @@ There are a few variables that affect the reliability of your job:
 - [Receiver reliability][2]
 - [Storage level][3]
 
-## Reliability Features
+## Reliability features
 
 The two reliability features of a job are data loss and processing semantics.  Data loss occurs when the source sends data, but the job fails to process it.  Processing semantics describe how many times a received message is processed by the job.  It can be either "at least once" or "exactly once"
 
@@ -64,13 +64,13 @@ A {{ model.techShortName }} job loses data when delivered data does not get proc
 
 - Unreliable receivers
 
-Unreliable receivers do not ack data they receive from the source. This means that buffered data in the receiver will be lost upon executor failure.
+Unreliable receivers do not acknowledge the data they receive from the source. This means that buffered data in the receiver is lost if the executor fails.
 
 executor failure => **data loss** driver failure => **data loss**
 
 - Reliable receivers, unreplicated storage level
 
-This is an unusual configuration.  By default, {{ model.techShortName }} Streaming receivers run with a replicated storage level.  But if you reduce the storage level to be unreplicated, data stored on the receiver but not yet processed will not survive executor failure.
+This is an unusual configuration.  By default, {{ model.techShortName }} streaming receivers run with a replicated storage level.  But if you reduce the storage level to be unreplicated, data stored on the receiver but not yet processed will not survive executor failure.
 
   executor failure => **data loss**  
   driver failure => **data loss**
@@ -82,23 +82,23 @@ This is the default configuration.  Data stored in the receiver is replicated, a
   (single) executor failure => **no data loss**  
   driver failure => **data loss**
 
-- Reliable receivers, WAL
+- Reliable receivers, write-ahead logging
 
-With a WAL enabled, data stored in the receiver is written to a highly available store such as S3 or HDFS.  This means that an app can recover from even a driver failure.
+With write-ahead logging enabled, data stored in the receiver is written to a highly available store such as S3 or HDFS.  This means that an app can recover from even a driver failure.
 
   executor failure => **no data loss**  
   driver failure => **no data loss**
 
-- Direct Kafka Consumer, no checkpointing
+- Direct Kafka consumer, no checkpointing
 
-Since {{ model.techShortName }} 1.3, The {{ model.techShortName }}+Kafka integration has supported an experimental Direct Consumer, which does not use traditional receivers.  With the direct approach, RDDs read directly from kafka, rather than buffering data in receivers.
+Since {{ model.techShortName }} 1.3, the {{ model.techShortName }} + Kafka integration has supported an experimental direct consumer, which does not use traditional receivers.  With the direct consumer approach, RDDs read directly from kafka, rather than buffering data in receivers.
 
-However, without checkpointing, driver restarts mean that the driver will start reading from the latest Kafka offset, rather than where the previous driver left off.
+However, when a driver restarts without checkpointing, the driver starts reading from the latest Kafka offset, rather than where the previous driver left off.
 
   executor failure => **no data loss**  
   driver failure => **data loss**
 
-- Direct Kafka Consumer, checkpointing
+- Direct Kafka consumer, checkpointing
 
 With checkpointing enabled, Kafka offsets are stored in a reliable store such as HDFS or S3.  This means that an application can restart exactly where it left off.
 
@@ -107,24 +107,25 @@ With checkpointing enabled, Kafka offsets are stored in a reliable store such as
 
 ### Processing semantics
 
-Processing semantics apply to how many times received messages get processed.  With {{ model.techShortName }} Streaming, this can be either "at least once" or "exactly-once".
+Processing semantics apply to how many times received messages get processed.  With {{ model.techShortName }} streaming jobs, this can be either "at least once" or "exactly-once".
 
-The semantics below describe apply to {{ model.techShortName }}'s receipt of the data.  To provide an end-to-end exactly-once guarantee, you must additionally verify that your output operation provides exactly-once guarantees. More info [here][4].
+The semantics below describe how "at least once" or "exactly-once" processing apply to {{ model.techShortName }} receipt of the data.  To provide an end-to-end exactly-once guarantee, you must additionally verify that your output operation provides exactly-once guarantees. More info [here][4].
 
 - Receivers
 
   **at least once**
 
-Every {{ model.techShortName }} Streaming consumer, with the exception of the Direct Kafka Consumer described below, uses receivers.  Receivers buffer blocks of data in memory, then write them according to the storage level of the job.  After writing out the data, it will send an ack to the source so the source knows not to re-send.  However, if this ack fails, or the node fails between writing out the data and sending the ack, then an inconsistency arises.  {{ model.techShortName }} believes that the data has been received, but the source does not.  This results in the source re-sending the data, and it being processed twice.
+Every {{ model.techShortName }} streaming consumer, with the exception of the direct Kafka consumer described below, uses receivers.  Receivers buffer blocks of data in memory, then write them according to the storage level of the job.  After writing out the data, receivers send an acknowledgement to the source so the source knows not to re-send the data. 
 
-- Direct Kafka Consumer
+However, if this acknowledgement fails, or the node fails between writing out the data and sending the acknowledgement, then an inconsistency arises.  {{ model.techShortName }} believes that the data has been received, but the source does not.  This results in the source re-sending the data, and it being processed twice.
+
+- Direct Kafka consumer
 
   **exactly-once**
 
-The Direct Kafka Consumer avoids the problem described above by reading directly from Kafka, and storing the offsets itself in the checkpoint directory.
+The direct Kafka consumer avoids the problem described above by reading directly from Kafka, and storing the offsets itself in the checkpoint directory.
 
   More information [here][5].
-
 
 [1]: https://spark.apache.org/docs/1.6.0/streaming-programming-guide.html#requirements
 [2]: https://spark.apache.org/docs/1.6.0/streaming-programming-guide.html#with-receiver-based-sources

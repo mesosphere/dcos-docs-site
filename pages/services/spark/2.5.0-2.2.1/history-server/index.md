@@ -9,7 +9,7 @@ menuWeight: 30
 
 ---
 
-DC/OS {{ model.techName }} includes The [{{ model.techShortName }} History Server][3]. Because the history server requires HDFS, you must explicitly enable it.
+DC/OS {{ model.techName }} includes the [{{ model.techShortName }} History Server][3]. Because the history server requires HDFS, you must explicitly enable it.
 
 # Installing HDFS
 
@@ -32,9 +32,9 @@ DC/OS {{ model.techName }} includes The [{{ model.techShortName }} History Serve
           }
         }
 
-# Installing {{ model.techShortName }} History Server
+# Installing {{ model.techShortName }} history server
 
-1. To install the {{ model.techShortName }} History Server:
+1. To install the {{ model.techShortName }} history server:
 
         dcos package install spark-history --options=spark-history-options.json
 
@@ -58,9 +58,9 @@ DC/OS {{ model.techName }} includes The [{{ model.techShortName }} History Serve
 
         dcos spark run --submit-args="--conf spark.eventLog.enabled=true --conf spark.eventLog.dir=hdfs://hdfs/history ... --class MySampleClass  http://external.website/mysparkapp.jar"
 
-# Confirm History Server installation
+# Confirm history server installation
 
-Visit your job in the dispatcher at `http://<dcos_url>/service/spark/`. It will include a link to the history server entry for that job.
+View your job in the dispatcher at `http://<dcos_url>/service/spark/`. The information displayed includes a link to the history server entry for that job.
 
  [3]: http://spark.apache.org/docs/latest/monitoring.html#viewing-after-the-fact
- [10]: /latest/administering-clusters/sshcluster/
+ [10]: /1.12/administering-clusters/sshcluster/

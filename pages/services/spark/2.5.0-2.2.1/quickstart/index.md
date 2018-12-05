@@ -7,24 +7,22 @@ menuWeight: 1
 model: /services/spark/data.yml
 render: mustache
 featureMaturity:
-
 ---
 
 This introduction will get you up and running in minutes with {{ model.techShortName }}. In this section, you will install the DC/OS {{ model.techName }} service.
 
-**Prerequisites:**
+**Prerequisites**
 
 * [DC/OS and DC/OS CLI installed](/1.12/installing/) with a minimum of {{ model.install.nodeDescription }}
-* Depending on your [security mode](https://docs.mesosphere.com/latest/overview/security/security-modes/), {{ model.techShortName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/services/spark/2.3.1-2.2.1-2/security/#provisioning-a-service-account) for more information.
+* Depending on your [security mode](/1.12/security/ent/), {{ model.techShortName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/services/spark/2.5.0-2.2.1/security/#provision-a-service-account) for more information.
 
-   | Security mode | Service Account |
+   | Security mode | Service account |
    |---------------|-----------------------|
    | Disabled      | Not available   |
    | Permissive    | Optional   |
    | Strict        | Required |
 
-
-1. Install the {{ model.techShortName }} package. This may take a few minutes. This installs the {{ model.techShortName }} DC/OS service, {{ model.techShortName }} CLI, dispatcher, and, optionally, the history server. See the [History Server](/services/spark/2.5.0-2.2.1/history-server/#installing-hdfs) section to install the history server.
+1. Install the {{ model.techShortName }} package. This may take a few minutes. This installs the {{ model.techShortName }} DC/OS service, {{ model.techShortName }} CLI, dispatcher, and, optionally, the history server. See the [History Server](/services/spark/2.5.0-2.2.1/history-server/#installing-hdfs) section for information about how to install the history server.
 
     ```bash
     dcos package install spark
@@ -147,8 +145,8 @@ This introduction will get you up and running in minutes with {{ model.techShort
         1 Justin        
         ```
 
-## Next Steps
+## Next steps
 
-- To view the status of your job, run the `dcos spark webui` command and then visit the {{ model.techShortName }} cluster dispatcher UI at `http://<dcos-url>/service/spark/` .
-- To view the logs, the Mesos UI at `http://<your-master-ip>/mesos`.
+- To view the status of your job, run the `dcos spark webui` command then visit the {{ model.techShortName }} cluster dispatcher UI at `http://<dcos-url>/service/spark/` .
+- To view the logs using the Mesos UI, see `http://<your-master-ip>/mesos`.
 - To view details about your {{ model.techShortName }} job, run the `dcos task log --completed <submissionId>` command.

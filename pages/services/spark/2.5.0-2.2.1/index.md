@@ -26,7 +26,7 @@ DC/OS {{ model.techName }} includes:
 
 *   Utilization: DC/OS {{ model.techName }} leverages Mesos to run {{ model.techShortName }} on the same cluster as other DC/OS services
 *   Improved efficiency
-*   Simple Management
+*   Simple management
 *   Multi-team support
 *   Interactive analytics through notebooks
 *   UI integration
@@ -43,7 +43,7 @@ DC/OS {{ model.techName }} includes:
 *   Zeppelin integration
 *   Kerberos and SSL support
 
-# Related Services
+# Related services
 
 *   [HDFS][4]
 *   [Kafka][5]
