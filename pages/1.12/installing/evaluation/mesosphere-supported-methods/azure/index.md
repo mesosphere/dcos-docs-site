@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-title: Deploying DC/OS on Azure using the Universal Installer
-excerpt: Guide for installing DC/OS on Azure using the Universal Installer
-navigationTitle: Universal Installer on Azure
+title: DC/OS on Azure
+excerpt: Guide for installing DC/OS on Azure using the Mesosphere Universal Installer
+navigationTitle: Azure
 menuWeight: 2
 ---
 

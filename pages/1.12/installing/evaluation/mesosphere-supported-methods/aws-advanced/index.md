@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-title: Advanced Guide for DC/OS on AWS using the Universal Installer
+title: Advanced DC/OS on AWS
 excerpt: Configuring your DC/OS installation on AWS using the Universal Installer
 navigationTitle: Advanced AWS 
 menuWeight: 1

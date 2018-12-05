@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-title: Deploying DC/OS on AWS using the Universal Installer
-excerpt: Guide for installing DC/OS on AWS using the Universal Installer
-navigationTitle: Universal Installer on AWS
+title: DC/OS on AWS 
+excerpt: Guide for installing DC/OS on AWS using the Mesosphere Universal Installer
+navigationTitle: AWS
 menuWeight: 0
 ---
 
