@@ -19,7 +19,7 @@ To upgrade DC/OS {{ model.techName }}, do the following:
 1. Click `Explorer`.
 1. Delete the znode corresponding to your instance of {{ model.techShortName }}.
         By default, the znode instance is `spark_mesos_Dispatcher`.
-1. Select the {{ model.techShortName }} service from the list of Services in DC/OS web interface and click **Delete** or run the following command from the DC/OS CLI:
+1. Select the {{ model.techShortName }} service from the list of Services in the DC/OS web interface and click **Delete** or run the following command from the DC/OS CLI:
 
         dcos package uninstall --app-id=<app-id> spark
 1. Verify that you no longer see your {{ model.techShortName }} service on the **Services** page.
