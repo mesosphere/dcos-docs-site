@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-excerpt: Mesosphere supported installation methods
-title: Mesosphere Supported Methods
-navigationTitle: Mesosphere Supported Methods
+title: Mesosphere Universal Installer
+excerpt: Use the Mesosphere Universal Installer to install DC/OS on AWS, Azure and GCP.
+navigationTitle: Mesosphere Universal Installer
 menuWeight: 5
 ---
 
