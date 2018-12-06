@@ -8,22 +8,22 @@ excerpt: Automatically loading Grafana dashboard configurations.
 
 # Automatically loading Grafana dashboard configurations
 
-The DC/OS Monitoring service can be configured to automatically load Grafana dashboard configurations from a git repository.
+The DC/OS Monitoring service can be configured to automatically load Grafana dashboard configurations from a Git repository.
 
 ## Save Grafana dashboard configurations
 
-You should save your Grafana dashboard configurations (JSON format) in a git repository.
+You should save your Grafana dashboard configurations (JSON format) in a Git repository.
 Assume that the repository is `https://github.com/company/dashboard-configs`.
 
 You may put the Grafana dashboard configurations in a subfolder in the repository.
 For instance, `https://github.com/company/dashboard-configs/production`.
 
-The git repository can be either public or private.
-If the git repository is private, you will need to configure the credentials to access the git repository (see below).
+The Git repository can be either public or private.
+If the Git repository is private, you will need to configure the credentials to access the Git repository (see below).
 
-## Create secrets for git repository credentials
+## Create secrets for Git repository credentials
 
-If the git repository containing the Grafana dashboard configurations is private, you will need to configure the secrets first.
+If the Git repository containing the Grafana dashboard configurations is private, you will need to configure the secrets first.
 Currently, the following Auth types are supported.
 
 ### HTTP Auth
@@ -33,10 +33,10 @@ dcos security secrets create --value=<GITHUB_USERNAME> githubusername
 dcos security secrets create --value=<GITHUB_PASSWORD> githubpassword
 ```
 
-For github, the password can be the API token.
+For Github, the password can be the API token.
 
-Then, create a custom option file (`options.json`) like the following.
-You may omit the `credentials` section if the git repository is public.
+Create a custom option file (`options.json`) like the following.
+You may omit the `credentials` section if the Git repository is public.
 
 ```json
 {
@@ -59,15 +59,15 @@ You may omit the `credentials` section if the git repository is public.
 dcos security secrets create -f <PATH_TO_PRIVATE_KEY> gitsshkey
 ```
 
-For github, please make sure to add [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (i.e., the public key) to the repository.
+For Github, please make sure to add [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (i.e., the public key) to the repository.
 
-Then, create a custom option file (`options.json`) like the following.
+Create a custom option file (`options.json`) like the following.
 
 ```json
 {
   "grafana": {
     "dashboard_config_repository": {
-      "url": "git@github.com:company/dashboard-configs.git",
+      "url": "Git@github.com:company/dashboard-configs.Git",
       "path": "/production",
       "credentials": {
         "deploy_key": "gitsshkey"
@@ -77,13 +77,13 @@ Then, create a custom option file (`options.json`) like the following.
 }
 ```
 
-Note that you'll have to use `git@github.com:<USER>/<REPO>.git` instead of `https` as the scheme of the URL.
+Note that you'll have to use `Git@github.com:<USER>/<REPO>.Git` instead of `https` as the scheme of the URL.
 
-## Fetching from a branch in a git repository
+## Fetching from a branch in a Git repository
 
-By default, the service will fetch from the master branch (i.e., `refs/heads/master`) of the git repository.
+By default, the service will fetch from the master branch (that is, `refs/heads/master`) of the Git repository.
 
-If you want to fetch the Grafana dashboard configurations from another branch in a git repository, you can set the `reference_name` field:
+If you want to fetch the Grafana dashboard configurations from another branch in a Git repository, you can set the `reference_name` field:
 
 ```json
 {

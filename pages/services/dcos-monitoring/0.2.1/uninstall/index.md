@@ -8,7 +8,7 @@ excerpt: Instructions for removing the DC/OS Monitoring Service from a DC/OS clu
 
 # Uninstall the DC/OS Monitoring service
 
-You can simply uninstall the service using the following command:
+You can uninstall the service using the following command:
 
 ```bash
 dcos package uninstall dcos-monitoring
