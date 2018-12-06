@@ -10,7 +10,7 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 
 ## Updates
 
-* Fix documentation.
+* Correct permissions required to run the package.
 
 # Version v0.2.0
 
@@ -35,7 +35,6 @@ Bug fix release.
 ## Updates
 
 * Add missing release notes.
-* Fix documentation.
 
 # Version v0.1.0
 

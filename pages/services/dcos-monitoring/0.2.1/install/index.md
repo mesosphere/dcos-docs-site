@@ -9,7 +9,8 @@ excerpt: Instructions for installing the DC/OS Monitoring service.
 # Prerequisites
 
 - DC/OS Enterprise 1.12 or above.
-- [DC/OS CLI](/latest/cli/install/) is installed and has been logged in as a superuser.
+- [DC/OS CLI](/latest/cli/install/) is installed.
+- You are logged in as a superuser.
 
 ## Install package registry
 
@@ -19,11 +20,14 @@ Please follow these [instructions](https://docs.mesosphere.com/1.12/administerin
 
 ## Download the package
 
-The `.dcos` package of the DC/OS Monitoring Service can be downloaded from Mesosphere support site.
+<!-- Does this require that the user have a service account? Also, please add a link to the support site. -->
+Download the `.dcos` package of the DC/OS Monitoring Service from Mesosphere support site.
+
 
 ## Install the service
 
-Assume that the downloaded package is called `dcos-monitoring.dcos` in the current working directory.
+<!-- At what point is the "dcos registry add" command added? -->
+Install the service with the `dcos registry add` command. Assume that the downloaded package is called `dcos-monitoring.dcos` in the current working directory.
 
 ```bash
 dcos registry add --dcos-file dcos-monitoring.dcos
@@ -41,8 +45,8 @@ dcos dcos-monitoring plan show deploy
 # Integration with DC/OS access controls
 
 The DC/OS Monitoring service may be run on DC/OS clusters in either permissive or strict mode.
-DC/OS access controls has to be used to restrict access to the DC/OS Monitoring service when running on [strict mode](https://docs.mesosphere.com/latest/security/ent/#security-modes) clusters.
-This is done by configuring the DC/OS Monitoring service to authenticate itself using a certificate and only granting permissions needed by the service.
+DC/OS access controls must be used to restrict access to the DC/OS Monitoring service when running on [strict mode](https://docs.mesosphere.com/latest/security/ent/#security-modes) clusters.
+Configure the DC/OS Monitoring service to authenticate itself using a certificate and to  only grant permissions needed by the service.
 
 ## Create a service account
 
@@ -79,8 +83,7 @@ dcos security org users grant dcos-monitoring-principal dcos:secrets:list:defaul
 
 ## Install with custom options
 
-The DC/OS Monitoring service has to know which service account and certificate it should use for authentication.
-This is done by installing the service with a custom configuration that sets the `service_account` field to the principal name and the `service_account_secret` field to the secret where the service certificate is stored.
+You must identify for the DC/OS Monitoring service which service account and certificate it should use for authentication. Do so by installing the service with a custom configuration that sets the `service_account` field to the principal name and sets the `service_account_secret` field to the secret where the service certificate is stored.
 
 Create a custom options file (`options.json`):
 
