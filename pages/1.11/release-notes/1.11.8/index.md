@@ -13,36 +13,34 @@ DC/OS 1.11.8 was released on December 6, 2018.
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 DC/OS 1.11.8 includes the following components:
-- Apache Mesos 1.5.x [change log](https://github.com/apache/mesos/blob/2ead30d/CHANGELOG).
-- Marathon 1.6.564 [change log](https://github.com/mesosphere/marathon/tree/3fa693b32).
+- Apache Mesos 1.5.x [change log](https://github.com/apache/mesos/blob/9c28b265804269de9411f04cfcccefe3bdd8ef1a/CHANGELOG).
+- Marathon 1.6.567 [change log](https://github.com/mesosphere/marathon/tree/2d8b3e438).
 - Metronome 0.4.5 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.5).
 
-# Issues fixed in DC/OS 1.11.8
-
-## Docker containers
-- COPS-4087	- For applications that use Docker containers with a Virtual IP address, backend port mapping resolves access to the application by using the `host_IP:port_number` instead of the `container_ip:port_number`.
+# Issues Fixed in DC/OS 1.11.8
 
 ## GUI
-- COPS-3369 - Updates to the DC/OS UI provide better rendering for elements such as environment variables, secrets, labels, and version information.   
-- DCOS_OSS-1961	- Pod lifecycle stages are supported in the DC/OS UI.
+- COPS-3360, DCOS-43934 - Updates to the DC/OS UI provide better rendering for elements such as environment variables, secrets, labels, and version information.   
+- DCOS-37791, DCOS-42504 - For improved scalability, the DC/OS UI starts loading state information immediately after users log on.
 
 ## Marathon
 - COPS-3764	- The upgrade to Marathon 1.6.x enables successful secret validation for secrets included in a Marathon JSON app definition file.
-- MARATHON-8317	- This release adds support for enhancements and issues fixed in Marathon 1.6.x. 
 
 ## Mesos
+- COPS-3573 - Service endpoints for layer-4 load balancing (`l4lb`) addresses with UCR and CNI can be configured and deployed by using the DC/OS UI or through the DC/OS CLI. A fix ensures that the configuration done through the DC/OS UI is not overwritten by using the DC/OS CLI.
 - COPS-3953	- The Mesos fetcher process automatically retries downloading files using their associated URI if the previously-downloaded and cached versions of the files are not found.
 - DCOS-43544 - Logic changes enable nested containers to run under the same user account as the user associated with their parent container by default. For nested containers in a pod, the default executor’s user--that is, the user running the top-level container--has been the framework user. In a scenario where the framework user is a normal user but the nested container user is `root`, the change in this release enables the second-level nested containers to run as the same user--for example, the `root` user--as the parent top-level container instead of as the framework user by default.
-- DCOS-43593 - This release fixes an issue that could cause Mesos master endpoints—-such as `reserveResources` or `createVolume`-—to fail during authorization. For example, before implementing this fix, the authorization requests for an endpoint might fail or be incomplete if there’s extreme load on the IAM service. The change in this release ensures that authorization requests for an endpint are complete before continuing.
-- DCOS-43670, DCOS-44827 - Updates to the `cgroups` event listener code that is used to poll events for a container ensure that the listener closes the file descriptor after the read operation is complete. This change prevents a race condition that can leave the container in an ISOLATING or PROVISIONING state.
+- DCOS-43593 - This release fixes an issue that could cause Mesos master endpoints—such as `reserveResources` or `createVolume`—to fail during authorization. For example, before implementing this fix, the authorization requests for an endpoint might fail or be incomplete if there’s extreme load on the IAM service. The change in this release ensures that authorization requests for an endpint are complete before continuing.
+- DCOS-43670, DCOS-44827 - The `cgroups` event listener code is used to poll events for a container. An update to this code ensures that the listener closes the file descriptor after read operations are complete. The fix prevents a race condition that can leave the container in an ISOLATING or PROVISIONING state.
 
 ## Metronome
-- COPS-3573, DCOS-45564, DCOS_OSS-2535 - This release adds support for enhancements and issues fixed in Metronome 0.4.5.
-- DCOS_OSS-3616	- Metronome initialization improvements prevent Metronome from being in an incomplete state that could cause Mesos offers to be held in reserve.
+- DCOS-45564, DCOS_OSS-2535 - This release adds support for enhancements and issues fixed in Metronome 0.4.5.
+- DCOS_OSS-3616	- Metronome initialization improvements prevent Metronome from being in an incomplete state that could cause Mesos offers and associated resources to be held in reserve waiting for the offer to be accepted or declined.
 
-## Network
+## Networking
 - COPS-3924, DCOS_OSS-1954	- The distributed layer-4 load-balancer (`dcos-l4lb`) network component waits to route traffic until application scaling or health check is complete. 
-- COPS-4034, DCOS_OSS-4398	- Changes in this release prevent `dcos-net` from continously restarting `systemd-networkd` on a bare-metal server with bond interfaces.
+- COPS-4034, DCOS_OSS-4398	- This release prevents `dcos-net` from continously restarting `systemd-networkd` on a bare-metal server with bond interfaces.
+- COPS-4087	- For applications that use Docker containers with a Virtual IP address, backend port mapping resolves access to the application by using the `host_IP:port_number` instead of the `container_ip:port_number`.
 
 # About DC/OS 1.11
 
@@ -54,7 +52,7 @@ DC/OS 1.11 includes many new capabilities with a focus on:
 
 Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).
 
-## New features and capabilities in DC/OS 1.11
+## New Features and Capabilities in DC/OS 1.11
 
 ### Platform
 - Multi-region management - Enables a DC/OS cluster to span multiple datacenters, clouds, and remote branches while providing a unified management and control cluster. [View the documentation](/1.11/deploying-services/fault-domain-awareness). [enterprise type="inline" size="small" /]
@@ -88,7 +86,7 @@ Provide feedback on the new features and services at [support.mesosphere.com](ht
 
 <p class="message--note"><strong>NOTE: </strong>Because these storage features are beta in 1.11, they must be explicitly enabled in the config.yaml file when installing DC/OS. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.</p>
 
-### Updated DC/OS data services
+### Updated DC/OS Data Services
 - TLS encryption for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS is now supported. [enterprise type="inline" size="small" /]
 - Fault domain awareness for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic and DC/OS HDFS. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. [enterprise type="inline" size="small" /]
 - New API endpoint to pause a node for DC/OS Kafka, DC/OS Cassandra, DC/OS Elastic, and DC/OS HDFS. Use this endpoint to relaunch a node in an idle command state for debugging purposes.
