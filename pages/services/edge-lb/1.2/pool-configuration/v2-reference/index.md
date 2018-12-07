@@ -260,7 +260,7 @@ The pool contains information on resources that the pool needs. Changes made to 
 | check       | object    | Enable health checks. These are by default TCP health checks. For more options see "customCheck". These are required for DNS resolution to function properly. |
 | address     | string    | Server address override, can be used to specify a cluster internal address such as a VIP. Only allowed when using type `ADDRESS`. |
 | port   | integer | Port number.                                                                                  |
-| portName | integer | Name of port.                                                                      |
+| portName | string | Name of port.                                                                      |
 | allPorts  | boolean | Selects all ports defined in service when `true`.                     |
 
 <a name="service-endpoint-check-prop)"></a>
