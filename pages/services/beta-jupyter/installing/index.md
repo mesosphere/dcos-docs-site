@@ -20,7 +20,7 @@ The DC/OS web interface provides a way to deploy the {{ model.techName }} packag
 
 1. Click **Catalog** and search for the {{ model.techName }} package.
 1. Select the package, then click **Review & Run** to display the **Edit Configuration** page.
-1. Configure the package settings, as needed, using the DC/OS UI or by clicking **JSON Editor** and modifying the app definition manually. For example, you might customize the package by enabling HDFS support.
+1. Configure the package settings, as needed, using the DC/OS web interface or by clicking **JSON Editor** and modifying the app definition manually. For example, you might customize the package by enabling HDFS support.
 
     For more information about customizing the configuration, see [Advanced installation options](/services/beta-jupyter/installing/#advanced-installation).
 
@@ -48,7 +48,7 @@ Before you start, make sure your DC/OS cluster runs at least one GPU agent. If y
 
 ## Deploy {{ model.techShortName }} on AWS using Terraform
 
-The instructions below illustrate using a Terraform template to create a DC/OS cluster that consists of one master and one GPU agent node for {{ model.techShortName }}installed on AWS.
+The instructions below illustrate using a Terraform template to create a DC/OS cluster that consists of one master and one GPU agent node for {{ model.techShortName }} installed on AWS.
 
 **Prerequisites**
 - Follow the [Getting Started Guide](https://github.com/dcos/terraform-dcos/blob/master/aws/README.md) available from the Terraform repository.
@@ -117,19 +117,19 @@ The DC/OS web interface provides a way to deploy the {{ model.techShortName }} p
 
 1. Click **Catalog** and search for the {{ model.techShortName }} package.
 1. Select the package, then click **Review & Run** to display the **Edit Configuration** page.
-1. Select **Enabled** for Gpu Support and set the number of GPU agents to one.
-1. Configure any additional package settings, as needed, using the DC/OS UI fields or by clicking **JSON Editor** and modifying the app definition manually. For example, you might customize the package to enable HDFS support.
+1. Select **Enabled** for GPU Support and set the number of GPU agents to one.
+1. Configure any additional package settings, as needed, using the DC/OS web interface fields or by clicking **JSON Editor** and modifying the app definition manually. For example, you might customize the package to enable HDFS support.
 
     For more information about customizing the configuration, see [Advanced installation options](/services/beta-jupyter/installing/#advanced-installation).
 
 1. Click **Review & Run**.
 1. Review the installation notes, then **Run Service** to deploy the {{ model.techName }} package.
 
-The package is several gigabytes in size. The deployment takes approximately 5 minutes to complete on AWS.
+The package is several gigabytes in size. The deployment takes approximately five minutes to complete on AWS.
 
 ## Deploy {{ model.techShortName }} from the command-line
 
-Alternatively, you can deploy the {{ model.techName }} package on the DC/OS cluster from the command-line. 
+Alternatively, you can deploy the {{ model.techName }} package on the DC/OS cluster from the command line. 
 
 1. Run the following command to see what options are available for the {{ model.techName }} package:
 
@@ -166,7 +166,7 @@ Alternatively, you can deploy the {{ model.techName }} package on the DC/OS clus
 
 ## Test {{ model.techShortName }} with GPU support and TensorFlow
 
-After {{ model.techShortName }} is succesfully deployed, authenticate with your password described in the [Quick Start](/services/beta-jupyter/quick-start/) section and create a new notebook in Python 3.
+After {{ model.techShortName }} is succesfully deployed, authenticate with your password as described in the [Quick Start](/services/beta-jupyter/quick-start/) section, and create a new notebook in Python 3.
 
 <p class="message--note"><strong>NOTE: </strong>Make sure <code>Marathon-LB</code> is installed.</p>
 
@@ -225,7 +225,7 @@ To access the {{ model.techShortName }} service from outside the cluster, you mu
 
 A typical advanced installation that provides HDFS support includes the `external_public_agent_hostname` property set to the public host name of the AWS Elastic Load Balancing (ELB) service and the `jupyter_conf_urls` set to the appropriate endpoint. You can create the `options_advanced_hdfs.json` file to provide the options for HDFS support manually or through the DC/OS web interface.
 
-The {{ model.techName }} service supports `HDFS` and using `HDFS` or `S3` is the recommended configuration for collaborating in multi-user environments. You can install  `HDFS` for your cluster in the default settings before you install the {{ model.techShortName }} service. After HDFS is installed, you can set the **Jupyter Conf Urls** (`jupyter_conf_urls`) property under **Environment** settings to the appropriate URL, such as  `http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints` to complete the configuration. If the URL for the HDFS endpoint is not set, the {{ model.techShortName }} service fails.
+The {{ model.techName }} service supports `HDFS`; using `HDFS` or `S3` is the recommended configuration for collaborating in multi-user environments. You can install  `HDFS` for your cluster in the default settings before you install the {{ model.techShortName }} service. After HDFS is installed, you can set the **Jupyter Conf Urls** (`jupyter_conf_urls`) property under **Environment** settings to the appropriate URL, such as  `http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints` to complete the configuration. If the URL for the HDFS endpoint is not set, the {{ model.techShortName }} service fails.
 
 # Terms and conditions
 By deploying from the user interface or command-line, you agree to the [Terms and Conditions](https://mesosphere.com/catalog-terms-conditions/#community-services) that apply to the {{ model.techName }} service.
