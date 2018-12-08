@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Installing Kubernetes on DC/OS
 title: Provisioning and Installing
 menuWeight: 5
-excerpt: Learn to run Kubernetes clusters on DC/OS
+excerpt: Learn to run multiple HD Kubernetes clusters on DC/OS
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
