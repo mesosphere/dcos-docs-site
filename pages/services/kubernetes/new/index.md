@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Kubernetes __VERSION__
-title: Kubernetes __VERSION__
-menuWeight: 10
+navigationTitle: New
+title: New Getting Started Tutorial
+menuWeight: 1
 excerpt:
 ---
 
