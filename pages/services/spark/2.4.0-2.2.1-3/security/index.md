@@ -11,7 +11,7 @@ model: /services/spark/data.yml
 This topic describes how to configure DC/OS service accounts for {{ model.techShortName }}.
 
 When running in [DC/OS strict security mode](https://docs.mesosphere.com/latest/security/), both the dispatcher and jobs
-must authenticate to Mesos using a [DC/OS Service Account](https://docs.mesosphere.com/latest/security/service-auth/).
+must authenticate to Mesos using a DC/OS service account.
 
 #include /services/include/service-account.tmpl
 
@@ -21,7 +21,7 @@ must authenticate to Mesos using a [DC/OS Service Account](https://docs.mesosphe
 
 Use the following `curl` commands to rapidly provision the {{ model.techShortName }} service account with the required permissions. This can also be done through the UI.
 
-When running in [DC/OS strict security mode](/latest/security/), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS Service Account](/latest/security/service-auth/).
+When running in [DC/OS strict security mode](/1.12/security/), both the dispatcher and jobs must authenticate to Mesos using a DC/OS service account.
 
 Follow these instructions to [authenticate in strict mode](https://docs.mesosphere.com/services/spark/spark-auth/).
 
@@ -40,7 +40,7 @@ Replace `spark` when setting these permissions with the appropriate service name
 # Using the secret store
 
 DC/OS Enterprise allows users to add privileged information in the form of a file to the DC/OS secret store. These files can be referenced in {{ model.techShortName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, we use this functionality to pass the Kerberos Keytab. Details about how to use Secrets can be found
-at [official documentation](/latest/security/ent/secrets/).
+at [official documentation](/1.12/security/ent/secrets/).
 
 ## Where to place secrets
 
@@ -155,7 +155,7 @@ three settings below are **required** during job submission. If using a truststo
 In addition, there are a number of {{ model.techShortName }} configuration variables relevant to SSL setup.  These configuration settings
 are **optional**:
 
-| Variable                         | Description           | Default Value |
+| Variable                         | Description           | Default value |
 |----------------------------------|-----------------------|---------------|
 | `spark.ssl.enabledAlgorithms`    | Allowed cyphers       | JVM defaults  |
 | `spark.ssl.protocol`             | Protocol              | TLS           |
@@ -217,4 +217,4 @@ dcos spark run --submit-args="\
  [11]: https://docs.mesosphere.com/latest/overview/architecture/components/
  [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html
  [13]: https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets
- [14]: https://docs.mesosphere.com/latest/security/secrets/
+ [14]: https://docs.mesosphere.com/latest/security/ent/secrets/

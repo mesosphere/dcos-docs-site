@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-excerpt: Guide for DC/OS on GCP using the Universal Installer
-title: Deploying DC/OS on GCP using the Universal Installer
+title: DC/OS on GCP
+excerpt: Guide for DC/OS on GCP using the Mesosphere Universal Installer
 navigationTitle: GCP
-menuWeight: 0
+menuWeight: 4
 ---
 
 You can use the Universal Installer to create DC/OS clusters on the Google Cloud Platform (GCP) for an evaluation or production deployment. The **Universal Installer on GCP** installation method is officially supported by Mesosphere. Upgrades are also supported using this installation method.

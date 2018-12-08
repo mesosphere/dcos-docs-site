@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-excerpt: Guide for DC/OS on Azure using Terraform
-title: DC/OS on Azure Terraform
-navigationTitle: Azure Terraform
-menuWeight: 0
+title: DC/OS on Azure
+excerpt: Guide for installing DC/OS on Azure using the Mesosphere Universal Installer
+navigationTitle: Azure
+menuWeight: 2
 ---
 
 <p class="message--warning"><strong>DISCLAIMER: </strong>This installation

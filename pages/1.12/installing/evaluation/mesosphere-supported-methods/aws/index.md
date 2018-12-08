@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-excerpt: Guide for DC/OS on AWS using the Universal Installer
-title: DC/OS on AWS using the Universal Installer
-navigationTitle: AWS Terraform
+title: DC/OS on AWS 
+excerpt: Guide for installing DC/OS on AWS using the Mesosphere Universal Installer
+navigationTitle: AWS
 menuWeight: 0
 ---
 
