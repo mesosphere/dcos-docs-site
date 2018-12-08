@@ -13,9 +13,10 @@ enterprise: false
 The metrics pipeline for DC/OS 1.12 is [Telegraf](/1.12/overview/architecture/components/#telegraf). Telegraf provides metrics from DC/OS cluster hosts, containers running on those hosts, and from applications running on DC/OS via `statsd`. Telegraf is natively integrated with DC/OS. By default, it exposes metrics in Prometheus format, and in JSON format via an API.
 
 ## Overview
-DC/OS collects three types of metrics as follows:
+DC/OS collects four types of metrics as follows:
 
 * **System:** - Metrics about each node in the DC/OS cluster.
+* **Component:** - Metrics about the components which make up DC/OS.
 * **Container:** - Metrics about cgroup allocations from tasks running in the DC/OS [Universal Container Runtime](/1.12/deploying-services/containerizers/ucr/) or [Docker Engine](/1.12/deploying-services/containerizers/docker-containerizer/) runtime.
 * **Application:** - Metrics emitted from any application running on the Universal Container Runtime.
 
