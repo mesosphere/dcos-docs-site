@@ -31,7 +31,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 - Task history in the Mesos UI will not persist through the upgrade.
 
 ## Supported upgrade paths matrix
-The following matrix table lists the supported upgrade paths for DC/OS 1.11.
+The following matrix table lists the supported upgrade paths for DC/OS 1.12.
 
 
 |**Display Icon** | **Service** |
