@@ -6,194 +6,197 @@ navigationTitle: AWS Terraform
 menuWeight: 0
 ---
 
-To use use the Mesosphere Universal Installer with Amazon Web Services, you must first have an AWS account and the AWS CLI installed on the computer you will be using to manage the instance you create. Since the Mes
+To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Command Line Interface (AWS CLI) must be installed and configured to the security credentials of the AWS S3 account you will be using. The following instructions will guide you through the necessary account creation and credentials to be able to successfully configure your AWS CLI and install Terraform.
 
-# Install and configure the Amazon CLI
+## Prerequisites
+- Python 2 version 2.6.5+ or Python 3 version 3.3+
+- Linux, macOS, or Windows
+- command-line shell terminal such as Bash or PowerShell
 
-1. Set up your Amazon account if you don't already have one. For the purposes of trying out DC/OS on a smaller cluster, the resources offered by the [AWS Free Tier](https://aws.amazon.com/free/) can be an easy way to get started.
+# Install and configuring the Amazon CLI
 
-    Please note that Mesosphere takes no responsibility for cloud charges.
+1. Set up an [Amazon Web Services account](https://aws.amazon.com/) if you don't already have one.
 
-1. install the amazon cli 
+1. Along with that, you will need to install the AWS Command Line Interface. Python users of `pip` can install the latest version of the AWS CLI with the command:
 
-1. run `aws configure`
-    - paste in your Access Key ID and Secret Access Key, 
-    - set the region (required) and default output (optional)
-
-
-1. Set the Default AWS Region
-
-    The current Terraform Provider for AWS requires that the default AWS region be set before it can be used. You can set the default region with the following command:
     ```bash
-    export AWS_DEFAULT_REGION="<desired-aws-region>"
-    ```
-    For Example:
-    ```bash
-    export AWS_DEFAULT_REGION="us-east-1"
+    pip install awscli --upgrade --user
     ```
 
-    Ensure it has been set:
+    For other installation methods please see the [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html#install-tool-bundled).
+
+1. Once you have the AWS CLI, it needs to be connected to the account you would like to use. If you already had the CLI, you may already have your credentials set up. To set up your credentials, or to update them anytime as needed, run:
+
     ```bash
-    > echo $AWS_DEFAULT_REGION
-    us-east-1
+    aws configure
     ```
+    The AWS CLI will request four pieces of inforamtion. Paste or enter in your credentials and a region to associate with the default profile:
 
-Once your credentials are loaded and the region is set, you are ready to move on to installing terraform
+    ```bash
+    AWS Access Key ID [None]: <accesskey>
+    AWS Secret Access Key [None]: <secretkey>
+    Default region name [None]: us-west-2
+    Default output format [None]:
+    ```
+    If you have previously added in any values, they will be listed within the square brackets as [previous value]. Leaving the input blank will preserve the value as it is, adding or changing a value here will update it in the default profile.
 
-# Installing Terraform.
-If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
-```bash
-brew install terraform
-```
+    See [configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) for more information on setting up credentials and user profiles.
 
-Once this command completes, you should be able to run the following command and see output consistent with the version of Terraform you have installed:
-```bash
-$ terraform version
-Terraform v0.11.8
-```
+    Once your credentials are loaded and the region is set, you are ready to install Terraform.
 
-For help installing Terraform on a different OS, please see [here](https://www.terraform.io/downloads.html):
+# Install Terraform
 
+1. Visit the the [Terraform Downloads](https://www.terraform.io/downloads.html) page for bundled installations and support for Linux, macOS and Windows. If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
 
+    ```bash
+    brew install terraform
+    ```
 
 # Install DC/OS on the Cloud using the Mesosphere Universal Installer
 
-## Ensure you have your cloud credentials properly set up
-If you have not properly set up your cloud provider credentials, terraform will not be able to install correctly and the process may simply timeout.
-
-## Enterprise Edition
-
-DC/OS Enterprise Edition also requires a valid license key provided by Mesosphere that we will pass into our `main.tf` as `dcos_license_key_contents`. For this guide we are going to use the default superuser and password to login:
-
-Username: `bootstrapuser`
-Password: `deleteme`
-
-When creating the main.tf file below, change the DC/OS variant grouping to Enterprise, making sure to point the `dcos_license_key_contents` to your DC/OS Enterprise license key. 
-
-```hcl
-  dcos_variant              = "ee"
-  dcos_license_key_contents = "${file("./license.txt")}"
-  # dcos_variant = "open"
-```
-  
-  Please note that this should *NOT* be used in a Production environment and you will need to generate a password hash. 
+<p class="message-important"><strong>Important: </strong>If you have not properly set up your cloud provider credentials, terraform will not be able to interface with the service to provision and manage your infrastructure.</p>
 
 # Creating a DC/OS Cluster
 
-1) Let’s start by creating a local folder and cd'ing into it. This folder will be used as the staging ground for downloading all required Terraform modules and holding the configuration for the cluster you are about to create.
+1. Let’s start by creating a local folder and cd'ing into it. This folder will be used as the staging ground for downloading all required Terraform modules and holding the configuration for the cluster you are about to create.
 
-```bash
-mkdir dcos-aws-demo && cd dcos-aws-demo
-```
+    ```bash
+    mkdir dcos-aws-demo && cd dcos-aws-demo
+    ```
 
-2) Depending on your style, create a file in that folder called `main.tf`, which is the configuration file the Mesosphere Universal Installer will call on each time when creating the plan. 
+1. Create a file in that folder called `main.tf`, which is the configuration file the Mesosphere Universal Installer will call on each time when creating a plan. The name of this file should always be `main.tf`
 
-Below is a sample `main.tf` to get you started on the installation of a basic DC/OS 1.12 cluster with the following nodes:
+    ```bash
+    touch main.tf
+    ```
 
-- 1 Master
-- 2 Private Agents
-- 1 Public Agent
+1. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
 
-```hcl
-module "dcos" {
-  source  = "dcos-terraform/dcos/<your-cloud-provider>"
-  version = "~> 0.1"
+    ```hcl
+    module "dcos" {
+      source  = "dcos-terraform/dcos/<your-cloud-provider>"
+      version = "~> 0.1"
 
-  dcos_instance_os    = "coreos_1855.5.0"
-  cluster_name        = "my-dcos"
-  ssh_public_key_file = "<path-to-public-key-file>"
-  admin_ips           = ["${data.http.whatismyip.body}/32"]
+      dcos_instance_os    = "coreos_1855.5.0"
+      cluster_name        = "my-dcos"
+      ssh_public_key_file = "<path-to-public-key-file>"
+      admin_ips           = ["${data.http.whatismyip.body}/32"]
 
-  num_masters        = "1"
-  num_private_agents = "2"
-  num_public_agents  = "1"
+      num_masters        = "1"
+      num_private_agents = "2"
+      num_public_agents  = "1"
 
-  dcos_version = "1.12.0"
+      dcos_version = "1.12.0"
 
-  # dcos_variant              = "ee"
-  # dcos_license_key_contents = "${file("./license.txt")}"
-  dcos_variant = "open"
+      # dcos_variant              = "ee"
+      # dcos_license_key_contents = "${file("./license.txt")}"
+      dcos_variant = "open"
 
-  dcos_install_mode = "${var.dcos_install_mode}"
-}
+      dcos_install_mode = "${var.dcos_install_mode}"
+    }
 
-variable "dcos_install_mode" {
-  description = "specifies which type of command to execute. Options: install or upgrade"
-  default     = "install"
-}
+    variable "dcos_install_mode" {
+      description = "specifies which type of command to execute. Options: install or upgrade"
+      default     = "install"
+    }
 
-# Used to determine your public IP for forwarding rules
-data "http" "whatismyip" {
-  url = "http://whatismyip.akamai.com/"
-}
+    # Used to determine your public IP for forwarding rules
+    data "http" "whatismyip" {
+      url = "http://whatismyip.akamai.com/"
+    }
 
-output "masters-ips" {
-  value = "${module.dcos.masters-ips}"
-}
+    output "masters-ips" {
+      value = "${module.dcos.masters-ips}"
+    }
 
-output "cluster-address" {
-  value = "${module.dcos.masters-loadbalancer}"
-}
+    output "cluster-address" {
+      value = "${module.dcos.masters-loadbalancer}"
+    }
 
-output "public-agents-loadbalancer" {
-  value = "${module.dcos.public-agents-loadbalancer}"
-}
-```
+    output "public-agents-loadbalancer" {
+      value = "${module.dcos.public-agents-loadbalancer}"
+    }
+    ```
 
-The variables that you must change
-<your-cloud-provider> "gcp", "aws", or "azurerm"
-<path-to-public-key-file> most likely something like "~/.ssh/<my-public-key>"
+1. Set your two main variables to complete the configuration, along with any others.
 
- If you want to change the cluster name or vary the number of masters/agents, feel free to adjust the values directly in this `main.tf`. You can find additional input variables and their descriptions [here](http://registry.terraform.io/modules/dcos-terraform/dcos/aws/).
+    - `source = "dcos-terraform/dcos/<your-cloud-provider>"`: the options are: `gcp`, `aws`, or `azurerm`. For example, AWS users it would look like:
+      ```bash
+      source = "dcos-terraform/dcos/aws"
+      ```
 
-It also specifies that the following output should be printed once cluster creation is complete:
+    - `ssh_public_key_file = "<path-to-public-key-file>"`: the path to the public key for your cluster, most likely something like:
+      ```bash
+      "~/.ssh/aws_key.pub"
+      ```
 
-- `master-ips` A list of Your DC/OS master nodes
-- `cluster-address` The URL you use to access DC/OS UI after the cluster is setup.
-- `public-agent-loadbalancer` The URL of your Public routable services.
+    This sample configuration file will get you started on the installation of an open source DC/OS 1.12 cluster with the following nodes:
 
-It can be helpful to copy/paste this information from your shell to a separate file for reference later. 
+    - 1 Master
+    - 2 Private Agents
+    - 1 Public Agent
 
-3) Next, let’s initialize our modules.  Make sure you are still working in the `dcos-aws-demo` folder where you just created your `main.tf` file.
+    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric characters, and be no longer than 24 characters. You can find additional input variables and their descriptions [here](/1.12/installing/cloud/aws/advanced).
+  
+    There are also simple helpers underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
 
-```bash
-terraform init
-```
+    - `master-ips` A list of Your DC/OS master nodes
+    - `cluster-address` The URL you use to access DC/OS UI after the cluster is setup.
+    - `public-agent-loadbalancer` The URL of your Public routable services.
 
-<p align=center>
-<img src="./images/install/terraform-init.png" />
-</p>
+1. Check that you have inserted your cloud provider and public key paths to `main.tf`, changed or added any other additional variables as wanted, then save and close your file.
 
+1. Now the action of actually creating your cluster and installing DC/OS begins. First, initialize the project's local settings and data.  Always make sure you are still working in the `dcos-aws-demo` folder where you created your `main.tf` file.
 
-4) After Terraform has been initialized, the next step is to run the execution plan and save it to a static file - in this case, `plan.out`.
+    ```bash
+    terraform init
+    ```
 
-```bash
-terraform plan -out=plan.out
-```
+    ```bash
+    Terraform has been successfully initialized!
 
-Writing our execution plan to a file allows us to pass the execution plan to the `apply` command below as well help us guarantee the accuracy of the plan. Note that this file is ONLY readable by Terraform.
+    You may now begin working with Terraform. Try running "terraform plan" to see
+    any changes that are required for your infrastructure. All Terraform commands
+    should now work.
 
-Afterwards, we should see a message like the one below, confirming that we have successfully saved to the `plan.out` file.  This file should appear in your `dcos-aws-demo` folder alongside `main.tf`.
+    If you ever set or change modules or backend configuration for Terraform,
+    rerun this command to reinitialize your environment. If you forget, other
+    commands will detect it and remind you to do so if necessary.
+    ```
 
-<p align=center>
-<img src="./images/install/terraform-plan.png" />
-</p>
+1. After Terraform has been initialized, the next step is to run the execution planner and save the plan to a static file - in this case, `plan.out`.
 
-Every time you run `terraform plan`, the output will always detail the resources your plan will be adding, changing or destroying.  Since we are creating our DC/OS cluster for the very first time, our output tells us that our plan will result in adding 38 pieces of infrastructure/resources.
+      ```bash
+      terraform plan -out=plan.out
+      ```
 
-5) The next step is to get Terraform to build/deploy our plan.  Run the command below.
+    Writing the execution plan to a file allows us to pass the execution plan to the `apply` command below as well help us guarantee the accuracy of the plan. Note that this file is ONLY readable by Terraform.
 
-```bash
-terraform apply plan.out
-```
+    Afterwards, we should see a message like the one below, confirming that we have successfully saved to the `plan.out` file.  This file should appear in your `dcos-aws-demo` folder alongside `main.tf`.
 
-Once Terraform has completed applying our plan, you should see output similar to the following:
+  <p align=center>
+  <img src="./images/install/terraform-plan.png" />
+  </p>
 
-<p align=center>
-<img src="./images/install/terraform-apply.png" />
-</p>
+  Every time you run `terraform plan`, the output will always detail the resources your plan will be adding, changing or destroying.  Since we are creating our DC/OS cluster for the very first time, our output tells us that our plan will result in adding 38 pieces of infrastructure/resources.
 
-And congratulations - you’re done!  In just 4 steps, you’ve successfully installed a DC/OS cluster on AWS!
+1. The next step is to get Terraform to build/deploy our plan.  Run the command below.
+
+    ```bash
+    terraform apply plan.out
+    ```
+
+  Sit back and enjoy! The infrastructure of your DC/OS cluster is being created while you watch. This may take a few minutes.
+
+  Once Terraform has completed applying the plan, you should see output similar to the following:
+
+  <p align=center>
+  <img src="./images/install/terraform-apply.png" />
+  </p>
+
+  And congratulations - you’re done! 
+
+1. To login and start exploring your cluster, navigate to the `cluster-address` listed in the output of the CLI. From here you can choose your provider to create the superuser account.
 
 <p align=center>
 <img src="./images/install/dcos-login.png"
@@ -206,4 +209,7 @@ And congratulations - you’re done!  In just 4 steps, you’ve successfully ins
 
 # Next Steps include:
 
-- Operations
+- Learning to use DC/OS and installing Services
+- Scaling your cluster
+- Upgrading or downgrading DC/OS
+- Configuring production grade DC/OS
