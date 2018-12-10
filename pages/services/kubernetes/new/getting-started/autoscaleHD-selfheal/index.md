@@ -7,6 +7,7 @@ excerpt: Learn to demonstrate High Density DC/OS Kubernetes clusters autoscaling
 ---
 
 Scaling your Kubernetes Cluster
+
 Using the UI
 From the UI, go to Services > kubernetes-cluster1 and select edit
 

@@ -1,23 +1,23 @@
 ---
 layout: layout.pug
 navigationTitle: Configuring Edge-LB
-title: Configure Edge-LB to Connect to Kubernetes
+title: Configuring Edge-LB to Connect to Kubernetes
 menuWeight: 10
 excerpt: Learn to install and configure Edge-LB on top of your DC/OS Enterprise cluster to enable connecting to your Kubernetes clusters
 ---
 
-# Configure Edge-LB on DC/OS to connect to your Kubernetes clusters
+# Configuring Edge-LB on DC/OS to connect to your Kubernetes clusters
 
-To connect to your Kubernetes cluster from outside your DC/OS cluster, you will need to setup and configure the Edge-LB service for secure inbound load-balancing to Kubernetes before moving to the next part of the .
+To connect to your Kubernetes cluster from outside your DC/OS cluster, you will need to setup and configure the Edge-LB service for secure inbound load-balancing to your private Kubernetes clusgerbefore moving to the next part of this [**Getting Started with Kubernetes on DC/OS Enterprise**](services/kubernetes/new/getting-started/).
 
 To setup Edge-LB for DC/OS Kubernetes you will need to:
 
 - [Configure Edge-LB on your cluster]() and [deploy the configured pool]() for Kubernetes including:
     * setting up a service account for Edge-LB
     * installing the [Edge-LB CLI]()
-- [Test your connection to your Kubernetes clusters and view ]
+- [Test your connection to your Kubernetes clusters and view the Kubernetes Dashboard]
 
-## Setting up and Installing Edge-LB with a service account
+## Set up and Install Edge-LB with service account
 
 1. First, add the [Edge-LB repositories](LINK TO SUPPORT PORTAL FOR ENT):
 
@@ -66,9 +66,9 @@ To setup Edge-LB for DC/OS Kubernetes you will need to:
     dcos package install --options=edge-lb-options.json edgelb --yes
     ```
 
-## Create and Launch an Edge-LB configured pool deployment for your Kubernetes services
+## Create and launch an Edge-LB configured pool deployment for your Kubernetes services
 
-1. Now, save the following Kubernetes/Edge-LB Service configuration as `edgelb.json`:
+1. Next, save the following Kubernetes/Edge-LB Service configuration as `edgelb.json`:
 
     ```json
     {
@@ -135,7 +135,7 @@ To setup Edge-LB for DC/OS Kubernetes you will need to:
 
 1. Deploy Edge-LB configured pool for your Kubernetes service:
 
-    In your shell, enter:
+    In your terminal shell, enter:
 
     ```bash
     dcos edgelb create edgelb.json
@@ -183,9 +183,6 @@ To setup Edge-LB for DC/OS Kubernetes you will need to:
 
 <!-- If the above commands do not work to find the public agent IP of the Edge-LB (maybe due to security reasons, etc.) we can determine the Public Agent IPs that we need by following the [Find Public Agent IP Guide here]() -->
 
-# [Next: Test your Kubernetes connections and view the Kubernetes Dashboard]()
+# [Next: Test your Kubernetes connections and view the Kubernetes Dashboard](/services/kubernetes/new/getting-started/connecting-to-kubernetes/test-connect/)
 
-Now that you have
-
-
-[**Getting Started with Kubernetes on DC/OS Enterprise**](services/kubernetes/new/getting-started/).
+Now you have configured Edge-LB to connect to your Kubernetes clusters. Next, [you can test those connections](/services/kubernetes/new/getting-started/connecting-to-kubernetes/) and then - upon success - view the [Kubernetes Dashboard](/services/kubernetes/new/getting-started/connecting-to-kubernetes/) via a web proxy on your browser, completing this second part of the [**Getting Started with Kubernetes on DC/OS Enterprise**](services/kubernetes/new/getting-started/).

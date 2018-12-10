@@ -8,13 +8,13 @@ excerpt: Learn to create Kubernetes clusters on DC/OS using MKE and the DC/OS Ku
 
 # Creating Kubernetes clusters on DC/OS using the DC/OS Kubernetes CLI
 
-At this point in this [**'Getting Started with Kubernetes on DC/OS Enterprise'**](/getting-started/) tutorial, you have [installed MKE](/services/kubernetes/LATEST/getting-started/provision-install/installing-mke/) - using the DC/OS `kubernetes`package - on your DC/OS Enterprise cluster and installed the [latest DC/OS Kubernetes CLI](services/kubernetes/THIS_VERSION/cli).
+At this point in this [**Getting Started with Kubernetes on DC/OS Enterprise**](/services/kubernetes/new/getting-started/) tutorial, you have [installed MKE](/services/kubernetes/new/getting-started/provision-install/installing-mke/) - using the DC/OS `kubernetes`package - on your DC/OS Enterprise cluster and installed the [latest DC/OS Kubernetes CLI](/services/kubernetes/new/getting-started/cli).
 
 Now in a position to create multiple Kubernetes clusters on top of DC/OS. Let's make a pair one at a time.
 
 ## Create a Kubernetes cluster on DC/OS
 
-As when installing the MKE, to run this Kubernetes cluster as a service on our DC/OS Enterprise cluster, we need a service account for it. Like before, to do so we need to first provision a service account for this Kubernetes cluster, then grant it [the necessary permissions]() for operating on DC/OS Enterprise.
+As when installing the MKE, to run this Kubernetes cluster as a service on our DC/OS Enterprise cluster, we need a service account for it. Like before, to do so we need to first provision a service account for this Kubernetes cluster, then grant it [the necessary permissions](NEED REF LINK) for operating on DC/OS Enterprise.
 
 ### Provision a Service Account for DC/OS Kubernetes
 
@@ -266,6 +266,6 @@ We include the use of a different keypair so as to not mix the keypair up with a
 
     <SCREENSHOT HERE NEEDED>
 
-# [Next: Connecting to Kubernetes on DC/OS Enterprise](/services/kubernetes/new/getting-started/connecting-to-kubernetes)
+# [Next: Connecting to Kubernetes on DC/OS Enterprise](/services/kubernetes/new/getting-started/connecting-to-kubernetes/)
 
 Nice work! You now have multiple Kubernetes clusters running throughout your DC/OS Enterprise cluster. With the interal workings of the cluster all set, you can move on to [learning how to connect to your Kubernetes clusters on DC/OS Enterprise](/services/kubernetes/new/getting-started/connecting-to-kubernetes/) and view your Kubernetes dashboard in the next section of [**Getting Started with Kubernetes on DC/OS Enterprise**](/services/kubernetes/new/getting-started/).

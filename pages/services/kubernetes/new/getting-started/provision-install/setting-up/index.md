@@ -3,11 +3,11 @@ layout: layout.pug
 navigationTitle: Setting Up
 title: Setting up the DC/OS cluster
 menuWeight: 1
-excerpt: Setting up the DC/OS cluster to demonstrate Kubernetes on DC/OS Enterprise
+excerpt: Learn to setup the DC/OS cluster to demonstrate Kubernetes on DC/OS Enterprise
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
-# Setting up a DC/OS cluster
+# Setting up your DC/OS Enterprise cluster
 
 This initial section is to get your DC/OS Enterprise cluster setup to facilitate the [learning objectives]() of this tutorial: [**'Getting Started with Kubernetes on DC/OS Enterprise'**]().
 
@@ -20,12 +20,12 @@ You will need superuser access](/1.12/security/ent/users-groups/reset-superuser/
   * 1 Public agent node
   * Each node with resources equivalent or greater to that of an [m4.xlarge AWS EC2 VM]()
 
-Once you have your cluster infrastructure up and ready as specified by the above prerequisites, you will want to install:
+Once you have your cluster infrastructure up and ready as specified by the above prerequisites, you will want to install both:
 
-- [DC/OS CLI](/1.12/cli/install/)
+- the [DC/OS CLI](/1.12/cli/install/)
+- the [DC/OS Enterprise CLI](/1.12/cli/enterprise-cli/) [enterprise type="inline" size="small" /]
 
-- [DC/OS Enterprise CLI](/1.12/cli/enterprise-cli/) [enterprise type="inline" size="small" /]
-
+before continuing on.
 
 ## The Kubernetes HTTPS requirement:
 
@@ -56,6 +56,6 @@ The Mesosphere Kubernetes Engine (MKE) requires access over HTTPS in order to co
 
 # Next Step: [Installing the Mesosphere Kubernetes Engine](/services/kubernetes/new/getting-started/provision-install/installing-mke/)
 
-Now that you have your DC/OS cluster all setup, you are ready to [install the Mesosphere Kubernetes Engine(MKE)](/services/kubernetes/new/getting-started/provision-install/installing-mke/) on top in the next part of the [**Getting Started with Kubernetes on DC/OS Enterprise**](services/kubernetes/new/getting-started/).
+Now that you have your DC/OS cluster all setup, you are ready to [install the Mesosphere Kubernetes Engine(MKE)](/services/kubernetes/new/getting-started/provision-install/installing-mke/) on top in the next part of the [**Getting Started with Kubernetes on DC/OS Enterprise**](/services/kubernetes/new/getting-started/).
 
 <!-- *** COULD USE some links to community slack and whatnot here to drive traffic that way for feedback. -->

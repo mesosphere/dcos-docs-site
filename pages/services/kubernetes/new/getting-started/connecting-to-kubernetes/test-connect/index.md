@@ -1,17 +1,18 @@
 ---
 layout: layout.pug
-navigationTitle: Test Connections
-title: Test your connections to Kubernetes clusters and view the Kuberneters Dashboard
+navigationTitle: Testing Connections
+title: Testing your connections to Kubernetes clusters and viewing the Kuberneters Dashboard
 menuWeight: 10
-excerpt: Learn to connect to private Kubernetes clusters and the Kubernetes dashboard via web proxy
+excerpt: Learn to test your connection to private Kubernetes clusters and view the Kubernetes dashboard via public web proxy
 ---
 
-# Test your Connect to your Kubernetes clusters and view the Kubernetes Dashboard
+# Testing your connections to your Kubernetes clusters and viewing the Kubernetes Dashboard
 
-Now that you have configured Edge-LB, you should be able to connect to your Kubernetes clusters.
+Presumably, you have now [configured Edge-LB to connect to Kubernetes]() in the previous step of this [**Getting Started with Kubernetes on DC/OS Enterprise**](services/kubernetes/new/getting-started/).
+
+In this section, we will test our connections to our Kubernetes clusters one at a time and then finally connect to the Kubernetes Dashboard.
 
 ## Connect to `kubernetes-cluster1` and `kubernetes-cluster2` via NGINX web proxy
-
 
 ### Check that Port `:6443` and `:6444` are open.
 
@@ -161,8 +162,8 @@ In one simple but satisfying validation of our connection into our Kubernetes cl
 
     <!-- better validation here of this step:Screenshot ^^ -->
 
-# [Next: Autoscaling, Self-healing, and High Density Kubernetes Clusters]()
+# [Next: Autoscaling, Self-healing, and High Density Kubernetes Clusters](services/kubernetes/new/getting-started/autoscaleHD-selfheal/)
 
-Well done. You have successfully complete the second part of [**Getting Started with Kubernetes on DC/OS Enterprise**](services/kubernetes/new/getting-started/).
+Well done. You have successfully complete the second part of [**Getting Started with Kubernetes on DC/OS Enterprise**](/services/kubernetes/new/getting-started/).
 
-Now that your cluster is set up to play around with, we can [try out some features that make running Kubernetes on DC/OS stand out]() in the next and final part of the tutorial.
+Now that your cluster is set up to play around with, we can [try out some features that make running Kubernetes on DC/OS stand out](services/kubernetes/new/getting-started/autoscaleHD-selfheal/) in the next and final part of the tutorial.

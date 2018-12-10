@@ -15,4 +15,6 @@ Now that we have setup and configured our cluster with a pair of Kubernetes clus
 
 all from outside the DC/OS cluster's secured perimeter using [DC/OS Edge-LB]() for DC/OS Enterprise.
 
-# Next:
+# Next: [Configure Edge-LB to Connect to Kubernetes](/services/kubernetes/new/getting-started/connecting-to-kubernetes/config-edgelb/)
+
+In the next part of the tutorial, you will [configure Edge-LB to connect to our Kubernetes clusters](/services/kubernetes/new/getting-started/connecting-to-kubernetes/config-edgelb/) we made in the last step of this [**Getting Started with Kubernetes on DC/OS Enterprise**](services/kubernetes/new/getting-started/) tutorial.
