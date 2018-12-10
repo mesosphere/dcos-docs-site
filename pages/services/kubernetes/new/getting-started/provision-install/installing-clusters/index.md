@@ -6,8 +6,6 @@ menuWeight: 10
 excerpt: Learn to create Kubernetes clusters on DC/OS
 ---
 
-<p class="message--note"><strong>NOTE: </strong>Any attempt to install DC/OS Kubernetes on a cluster will fail without having installed MKE first.</p>
-
 # Install a DC/OS Kubernetes Cluster
 
 Now that you have [installed MKE](/services/kubernetes/LATEST) (the `kubernetes`package) on your DC/OS Enterprise cluster, you are now in a position to provision multiple Kubernetes clusters to work together on top of DC/OS.
