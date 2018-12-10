@@ -20,13 +20,11 @@ Please follow these [instructions](https://docs.mesosphere.com/1.12/administerin
 
 ## Download the package
 
-<!-- Does this require that the user have a service account? Also, please add a link to the support site. -->
-Download the `.dcos` package of the DC/OS Monitoring Service from Mesosphere support site.
+Download the `.dcos` package of the DC/OS Monitoring Service from the [Mesosphere support site](https://support.mesosphere.com/s/downloads).
 
 
 ## Install the service
 
-<!-- At what point is the "dcos registry add" command added? -->
 Install the service with the `dcos registry add` command. Assume that the downloaded package is called `dcos-monitoring.dcos` in the current working directory.
 
 ```bash
@@ -46,7 +44,7 @@ dcos dcos-monitoring plan show deploy
 
 The DC/OS Monitoring service may be run on DC/OS clusters in either permissive or strict mode.
 DC/OS access controls must be used to restrict access to the DC/OS Monitoring service when running on [strict mode](https://docs.mesosphere.com/latest/security/ent/#security-modes) clusters.
-Configure the DC/OS Monitoring service to authenticate itself using a certificate and to  only grant permissions needed by the service.
+Configure the DC/OS Monitoring service to authenticate itself using a certificate and to only grant permissions needed by the service.
 
 ## Create a service account
 
@@ -60,7 +58,7 @@ dcos security secrets create-sa-secret --strict dcos-monitoring-private-key.pem 
 
 ## Add service permissions
 
-Grant the `dcos-monitoring-principal` the permissions required to run the DC/OS Monitoring service:
+Grant `dcos-monitoring-principal` the permissions required to run the DC/OS Monitoring service:
 
 ```bash
 dcos security org users grant dcos-monitoring-principal dcos:adminrouter:ops:ca:rw full
