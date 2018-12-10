@@ -67,7 +67,7 @@ Create a custom option file (`options.json`) like the following.
 {
   "grafana": {
     "dashboard_config_repository": {
-      "url": "Git@github.com:company/dashboard-configs.Git",
+      "url": "git@github.com:company/dashboard-configs.git",
       "path": "/production",
       "credentials": {
         "deploy_key": "gitsshkey"
@@ -77,7 +77,7 @@ Create a custom option file (`options.json`) like the following.
 }
 ```
 
-Note that you'll have to use `Git@github.com:<USER>/<REPO>.Git` instead of `https` as the scheme of the URL.
+Note that you'll have to use `git@github.com:<USER>/<REPO>.git` instead of `https` as the scheme of the URL.
 
 ## Fetching from a branch in a Git repository
 

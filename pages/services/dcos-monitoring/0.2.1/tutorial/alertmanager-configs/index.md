@@ -67,7 +67,7 @@ Create a custom option file (`options.json`) like the following.
 {
   "alertmanager": {
     "config_repository": {
-      "url": "Git@github.com:company/alertmanager-configs",
+      "url": "git@github.com:company/alertmanager-configs",
       "path": "/production",
       "credentials": {
         "deploy_key": "gitsshkey"
@@ -77,7 +77,7 @@ Create a custom option file (`options.json`) like the following.
 }
 ```
 
-Note that you'll have to use `Git@github.com:<USER>/<REPO>.Git` instead of `https` as the scheme of the URL.
+Note that you'll have to use `git@github.com:<USER>/<REPO>.git` instead of `https` as the scheme of the URL.
 
 ## Secrets in Alert Manager configuration file
 
