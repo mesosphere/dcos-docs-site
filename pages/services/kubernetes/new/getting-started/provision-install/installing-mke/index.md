@@ -120,3 +120,12 @@ Now that permissions have been granted to the service account, we need to make s
     ```bash
     dcos package install --yes kubernetes --options=mke-options.json
     ```
+
+    Which should result in the following output when things work as expected:
+
+    ```bash
+    Installing Marathon app for package [kubernetes] version [2.1.0-1.12.3]
+    Installing CLI subcommand for package [kubernetes] version [2.1.0-1.12.3]
+    New command available: dcos kubernetes
+    The Mesosphere Kubernetes Engine service is being installed.
+    ```
