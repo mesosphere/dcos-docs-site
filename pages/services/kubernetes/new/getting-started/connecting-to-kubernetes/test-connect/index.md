@@ -8,6 +8,8 @@ excerpt: Learn to connect to private Kubernetes clusters and the Kubernetes dash
 
 # Test your Connect to your Kubernetes clusters and view the Kubernetes Dashboard
 
+Now that you have configured Edge-LB, you should be able to connect to your Kubernetes clusters.
+
 ## Connect to `kubernetes-cluster1` and `kubernetes-cluster2` via NGINX web proxy
 
 
