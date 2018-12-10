@@ -9,16 +9,15 @@ excerpt: Understanding cluster patches
 A DC/OS patch describes a set of changes and supporting data designed to update, fix, or improve the features/functionality of DC/OS. A point release that consists of minor changes is also called a patch.
 
 A patching process includes the following:
-- Addresses fixed issues, known issues/limitations, notable changes and security enhancements
+- Addresses fixed issues, known issues and limitations, notable changes and security enhancements
 - Does not impact workloads which is an essential piece of patching live clusters with no downtime
 - Helps users to understand the minor changes impacting the functionality of DC/OS
 
-<p class="message--note"><strong>NOTE: </strong>These instructions are only appropriate for a change to the cluster configuration or the maintenance version number. Example: DC/OS 1.11.1 --> 1.11.2</p>
+<p class="message--note"><strong>NOTE: </strong>These instructions are only appropriate for a change to the cluster configuration or the maintenance version number. For example, from DC/OS 1.11.1 to 1.11.2.</p>
 
-- To update to a newer major or minor version (e.g. 1.10 to 1.11), refer to the instructions for [upgrading](/1.11/installing/production/upgrading/).
+- To update to a newer major or minor version (for example, from 1.10 to 1.11), refer to the instructions for [upgrading](/1.11/installing/production/upgrading/).
 
 If patching is performed on a supported OS with all prerequisites fulfilled, then the patch **should** preserve the state of running tasks on the cluster.
-
 
 ## Important guidelines
 
@@ -40,19 +39,17 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 
 **DC/OS minor versions for 1.11**
 
-
 |**Display Icon** | **Service** |
 |---------- | ------- |
 | ⚫ | Supported |
 | ◯ | Not Supported |
-
 
 <table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
    <tr>
     <th Rowspan = "20" Align = "center"><strong>Patch<br> From</strong></div></th>
    <tr>
     <th></th>
-    <th Colspan = "7" Align = "center"><strong>Patch To</strong></th>
+    <th Colspan = "8" Align = "center"><strong>Patch To</strong></th>
    </tr>
     <th></th>
     <th>1.11.1</th>
@@ -62,15 +59,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th>1.11.5</th>
     <th>1.11.6</th>
     <th>1.11.7</th>
-   </tr>
-    <th>1.11.0</th>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">◯</td>
+    <th>1.11.8</th>
    </tr>
    <tr>
     <th>1.11.1</th>
@@ -80,6 +69,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
@@ -91,7 +81,8 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">◯</td>
-   </tr>
+    <td Align = "center">◯</td>
+  </tr>
    <tr>
     <th>1.11.3</th>
     <td Align = "center">◯</td>
@@ -101,7 +92,8 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">◯</td>
-   </tr>
+    <td Align = "center">◯</td>
+  </tr>
    <tr>
     <th>1.11.4</th>
     <td Align = "center">◯</td>
@@ -111,7 +103,8 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
-   </tr>
+    <td Align = "center">◯</td>
+  </tr>
    <tr>
     <th>1.11.5</th>
     <td Align = "center">◯</td>
@@ -119,6 +112,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
@@ -131,15 +125,26 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
+       <th>1.11.7</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
   </table>  
 
 ## Modifying DC/OS configuration
 
-You **cannot** change your cluster configuration at the same time that you are patching to a new version. Cluster configuration changes must be done with an update to an already installed version. For example, you cannot simultaneously patch a cluster from 1.10.x to 1.10.y and add more public agents. You can add more public agents with an update to 1.10.x, and then patch to 1.10.y Or you can patch to 1.10.y and then add more public agents by updating 1.10.y after the patch.
+There are limitations to the changes you can make to the cluster configuration when you are applying a patch release to the currently installed version of the software. For example, you cannot change the security mode for a cluster if you are patching a release.
 
-To modify your DC/OS configuration, you must run the installer with the modified `config.yaml` and update your cluster using the new installation files. Changes to the DC/OS configuration have the same risk as patching a host. Incorrect configurations could potentially crash your hosts, or an entire cluster.
+To modify your DC/OS configuration, you must first make the configuration changes in the `config.yaml` file. You can then run the installer with the modified `config.yaml` file to update the cluster to use the new configuration. Changes to the DC/OS configuration have the same risk as patching a host. Incorrect configurations could potentially crash your hosts, or an entire cluster.
 
 Only a subset of DC/OS configuration parameters can be modified. The adverse effects on any software that is running on top of DC/OS is outside of the scope of this document. Contact Mesosphere Support for more information.
 
