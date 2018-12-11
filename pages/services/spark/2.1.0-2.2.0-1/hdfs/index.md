@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Configure Spark for HDFS
 title: Configure Spark for HDFS
 menuWeight: 20
-excerpt:
+excerpt: Configure Spark on HDFS and Kerberos
 featureMaturity:
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->
+# Spark on HDFS
 
 
 You can configure Spark for a specific HDFS cluster.
@@ -45,11 +45,11 @@ ssc.checkpoint(checkpointDirectory)
 ```
 That hdfs directory will be automatically created on hdfs and spark streaming app will work from checkpointed data even in the presence of application restarts/failures.
 
-# HDFS Kerberos
+# Spark on HDFS Kerberos
 
 You can access external (i.e. non-DC/OS) Kerberos-secured HDFS clusters from Spark on Mesos.
 
-## HDFS Configuration
+## Configuration
 
 After you've set up a Kerberos-enabled HDFS cluster, configure Spark to connect to it. See instructions [here](#hdfs).
 
@@ -69,7 +69,9 @@ After you've set up a Kerberos-enabled HDFS cluster, configure Spark to connect 
            }
         }
 
-1. If you've enabled the history server via `history-server.enabled`, you must also configure the principal and keytab for the history server.  **WARNING**: The keytab contains secrets, so you should ensure you have SSL enabled while installing DC/OS Apache Spark.
+1. If you've enabled the history server via `history-server.enabled`, you must also configure the principal and keytab for the history server.  
+
+    **WARNING**: The keytab contains secrets, so you should ensure you have SSL enabled while installing DC/OS Apache Spark.
 
     Base64 encode your keytab:
 

@@ -3,14 +3,12 @@ layout: layout.pug
 navigationTitle:  Configure Spark for HDFS
 title: Configure Spark for HDFS
 menuWeight: 20
-excerpt:
+excerpt: Configure Spark on HDFS and Kerberos
 featureMaturity:
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->
-
-
+# Spark on HDFS
 To configure Spark for a specific HDFS cluster, configure `hdfs.config-url` to be a URL that serves your `hdfs-site.xml` and `core-site.xml`. For example:
 
     {
@@ -24,17 +22,15 @@ where `http://mydomain.com/hdfs-config/hdfs-site.xml` and `http://mydomain.com/h
 
 For DC/OS HDFS, these configuration files are served at `http://api.<hdfs>.marathon.l4lb.thisdcos.directory/v1/endpoints` where `<hdfs>` is the name of the HDFS package configured at installation.
 
-# HDFS Kerberos
+# Spark on HDFS Kerberos
 
 You can access external (i.e. non-DC/OS) Kerberos-secured HDFS clusters from Spark on Mesos.
-
-## HDFS Configuration
 
 Once you've set up a Kerberos-enabled HDFS cluster, configure Spark to connect to it. See instructions [here](#hdfs).
 
 ## Installation
 
-1.  A krb5.conf file tells Spark how to connect to your KDC.  Base64 encode this file:
+1.  A `krb5.conf` file tells Spark how to connect to your KDC.  Base64 encode this file:
 
         $ cat krb5.conf | base64
 
@@ -48,7 +44,9 @@ Once you've set up a Kerberos-enabled HDFS cluster, configure Spark to connect t
            }
         }
 
-1. If you've enabled the history server via `history-server.enabled`, you must also configure the principal and keytab for the history server.  **WARNING**: The keytab contains secrets, so you should ensure you have SSL enabled while installing DC/OS Spark.
+1. If you've enabled the history server via `history-server.enabled`, you must also configure the principal and keytab for the history server.  
+
+    **WARNING**: The keytab contains secrets, so you should ensure you have SSL enabled while installing DC/OS Spark.
 
     Base64 encode your keytab:
 
