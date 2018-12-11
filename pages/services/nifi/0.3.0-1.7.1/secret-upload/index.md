@@ -42,8 +42,7 @@ Install the DC/OS Apache NiFi service with the following options in addition to 
     "name": "nifi"
   },
   "secrets": {
-    "enable": true,
-    "value": "secret"
+    "enable": true
   }
 }
  ```
