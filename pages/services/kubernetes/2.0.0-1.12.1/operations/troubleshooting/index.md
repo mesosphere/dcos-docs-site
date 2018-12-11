@@ -77,7 +77,7 @@ com.mesosphere.mesos.HTTPAdapter.MesosToSchedulerDriverAdapter:subscribe(115): S
 ## A restarting or unhealthy DC/OS task
 
 In rare situations a DC/OS Kubernetes task may become unstable and require manual intervention.
-In this case use the the `dcos kubernetes cluster debug pod` [CLI](../cli#debug-pod-1) to assist in debugging and recovering failed, flapping or otherwise misbehaving tasks.
+In this case use the `dcos kubernetes cluster debug pod` [CLI](../cli#debug-pod-1) to assist in debugging and recovering failed, flapping or otherwise misbehaving tasks.
 
 First run `dcos kubernetes cluster debug pod restart <pod> --cluster-name <cluster-name>` to simply restart the task on the same agent.
 If that does not work or you know that specific agent is unhealthy, run `dcos kubernetes cluster debug pod replace <pod> --cluster-name <cluster-name>` to force the pod to be scheduled on a new agent.
