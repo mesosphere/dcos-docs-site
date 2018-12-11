@@ -105,6 +105,7 @@ You can back up an entire cluster's data and schema to Amazon S3 using the `back
 - `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this backup
 - `AWS_REGION`: the region of the S3 bucket being used to store this backup
 - `S3_BUCKET_NAME`: the name of the S3 bucket in which to store this backup
+- `HTTPS_PROXY`:specifications for the {{ model.TechName }} backup plan, taken from `config.yaml`.
 
 Make sure that you provision your nodes with enough disk space to perform a backup. {{ model.TechName }} backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables, so you will need half of your total available space to be free to back up every keyspace at once.
 
@@ -127,7 +128,9 @@ dcos {{ model.packageName }} --name=<service-name> plan start backup-s3 \
     -p AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
     -p AWS_REGION=$AWS_REGION \
     -p S3_BUCKET_NAME=$S3_BUCKET_NAME
+    -p HTTPS_PROXY=http://internal.proxy:8080
 ```
+It may also be necessary to set the `AWS_SESSION_ID`, depending on how you authenticate with AWS.
 
 If you are backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as in the example above. If the `CASSANDRA_KEYSPACES` parameter isn't supplied, then every keyspace in your cluster will be backed up.
 
