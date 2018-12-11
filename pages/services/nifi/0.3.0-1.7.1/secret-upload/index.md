@@ -13,7 +13,7 @@ enterprise: false
 The DC/OS Apache NiFi service supports NiFi’s Secret upload. The service provides to upload secrets file in all nodes of NiFi inside any existing folder or by creating a new folder.
 
 ## Secret upload
-To upload secret file in nifi node, create a secret with id as nifi/<secret name> in the DC/OS Secret Store. The value of the secret should be in shell scripting for example, if secret file need to be inside a folder named secret, so first write the command to create a directory name secret and then use cat command to create the secret file, after that use << EOF to give the value of the secret file. Enable the secrets and give the name of secret that was created in the Secret Store. 
+To upload secret file in nifi node, create a secret with id as nifi/config-secret in the DC/OS Secret Store. The value of the secret should be in shell scripting for example, if secret file need to be inside a folder named secret, so first write the command to create a directory name secret and then use cat command to create the secret file, after that use << EOF to give the value of the secret file. Enable the secrets and give the name of secret that was created in the Secret Store. 
 
 ```shell
 mkdir secret
@@ -27,7 +27,7 @@ EOF
 _Figure 1. - secret value_
 
 ## Prerequisites
-- [A secret with id as nifi/<secret name> stored in the DC/OS Secret Store.](https://docs.mesosphere.com/1.12/security/ent/secrets/create-secrets/)
+- [A secret with id as nifi/config-secret stored in the DC/OS Secret Store.](https://docs.mesosphere.com/1.12/security/ent/secrets/create-secrets/)
 
 [<img src="../service/secret_folder_content.png" alt="secret in the secret store" width="1000"/>](../service/secret_folder_content.png)
 
