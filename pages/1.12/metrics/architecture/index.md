@@ -7,25 +7,25 @@ excerpt: How DC/OS manages metrics
 enterprise: false
 ---
 
-DC/OS 1.12's metrics pipeline is based on [Telegraf](https://github.com/dcos/telegraf).
+Metrics in DC/OS, version 1.12 and newer, are based on [Telegraf](https://github.com/dcos/telegraf). Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. 
 
-Telegraf runs on each node in a DC/OS cluster, both masters and agents. By default, it gathers metrics from processes running on the same node, processes them, and sends them on to a central metrics database. 
+Telegraf has a plugin-driven architecture. The plugin architecture enables Telegraf to collect information from any supported input plugin and write results to any supported output plugin. The plugins are compiled into the Telegraf binary for execution, and you can selectively enable and customize plugins using configuration file options. 
 
-Telegraf has a plugin-driven architecture, and many plugins are available. Telegraf plugins are included at compile-time, and enabled via configuration files. By default, DC/OS' Telegraf enables the following plugins:
+By default, DC/OS enables the following Telegraf plugins:
 
- 1. `system` input plugin collects information about the node, eg CPU, memory, and disk usage.
- 1. `statsd` input plugin collects statsd metrics from DC/OS components.
- 1. `prometheus` input plugin collects metrics from DC/OS components and mesos tasks.
- 1. `mesos` input plugin collects metrics about the mesos process.
- 1. `dcos_statsd` input plugin starts a new statsd server for each mesos task.
- 1. `dcos_containers` collects resource information about containers from mesos.
- 1. `override` plugin is used to add node-level metadata, eg cluster name.
- 1. `dcos_metadata` plugin is used to add task-level metadata, eg executor name and task name.
- 1. `dcos_api` output plugin serves the dcos-metrics JSON API, used by the CLI.
+ 1. `system` input plugin collects information about the node, for example, CPU, memory, and disk usage.
+ 1. `statsd` input plugin collects `statsd` metrics from DC/OS components.
+ 1. `prometheus` input plugin collects metrics from DC/OS components and `mesos` tasks.
+ 1. `mesos` input plugin collects metrics about the `mesos` process itself.
+ 1. `dcos_statsd` input plugin starts a new `statsd` server for each `mesos` task.
+ 1. `dcos_containers` collects resource information about containers from the `mesos` process.
+ 1. `override` plugin is used to add **node-level** metadata, for example, the cluster name.
+ 1. `dcos_metadata` plugin is used to add **task-level** metadata, for example, the executor name and task name.
+ 1. `dcos_api` output plugin serves the `dcos-metrics` JSON API, which is used by the CLI.
  1. `prometheus_client` output plugin serves metrics in Prometheus format.
 
-Telegraf loads a configuration file and the contents of a configuration directory when it starts. Plugins may be enabled by creating the appropriate configuration and dropping it into `/opt/mesosphere/etc/telegraf/telegraf.d`, before restarting Telegraf. 
+When Telegraf starts on a node, it loads a configuration file and the contents of a configuration directory. You can specify the plugins you want to enable by creating a configuration file with the appropriate settings and copying the file into the `/opt/mesosphere/etc/telegraf/telegraf.d` directory before restarting Telegraf. 
 
-The Telegraf pipeline is intended to abstract the complexity of collecting metrics from every process running in the cluster. It does this by providing a single source for metrics of all kinds on each node. It also resolves the identity of metrics arriving from tasks running on Mesos. These metrics are often identified by nothing more than their originating container ID, a long random hash. The Telegraf pipeline adds metadata such as the originating task name , in order to make them human-readable. 
+Telegraf abstracts the complexity of collecting metrics from every process running in the cluster by providing a single source for metrics on each node. Telegraf also adds identifying metadata--such as the originating task name--to the metrics it collects to make the metric more human-readable. Without this metadata, metrics for tasks running on Mesos would be difficult to identify by their originating container ID, which is a long random hash. 
 
 The [DC/OS fork of Telegraf](https://github.com/dcos/telegraf) includes technical documentation and sample configurations for each plugin.
