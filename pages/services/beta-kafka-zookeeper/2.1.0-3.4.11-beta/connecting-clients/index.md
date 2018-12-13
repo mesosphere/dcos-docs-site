@@ -21,8 +21,8 @@ One of the benefits of running containerized services is that they can be placed
 Once the service is running, you may view information about its endpoints via either of the following methods:
 
 - CLI:
-  - List endpoint types: `dcos kafka-zookeeper endpoints`
-  - View endpoints for an endpoint type: `dcos kafka-zookeeper endpoints <endpoint>`
+  - List endpoint types: `dcos beta-kafka-zookeeper endpoints`
+  - View endpoints for an endpoint type: `dcos beta-kafka-zookeeper endpoints <endpoint>`
 - Web:
   - List endpoint types: `<dcos-url>/service/kafka-zookeeper/v1/endpoints`
   - View endpoints for an endpoint type: `<dcos-url>/service/kafka-zookeeper/v1/endpoints/<endpoint>`
@@ -31,7 +31,7 @@ ZooKeeper returns the following endpoint:
 
 - `clientport`
 
-To see node addresses for the `clientport` endpoints, run `dcos kafka-zookeeper endpoints clientport`. A typical response resembles the following:
+To see node addresses for the `clientport` endpoints, run `dcos beta-kafka-zookeeper endpoints clientport`. A typical response resembles the following:
 
 ```json
 {
@@ -57,9 +57,9 @@ One important use for the DC/OS Apache ZooKeeper service is to have your DC/OS A
 
 Follow the "Alternate ZooKeeper" instructions in the [Kafka documentation](/service-docs/kafka/2.0.2-0.11.0/install/#alternate-zookeeper). To obtain the proper value for the `kafka_zookeeper_uri`, run:
 
-`dcos kafka-zookeeper endpoints clientport`
+`dcos beta-kafka-zookeeper endpoints clientport`
 
-Then, set the `kafka_zookeeper_uri` to the comma-delimited list of DNS addresses.
+Then, set the `beta-kafka_zookeeper_uri` to the comma-delimited list of DNS addresses.
 
 To create a DC/OS Apache Kafka cluster that connects to this already-running ZooKeeper instance, go to the DC/OS web interface and search for the Kafka service under the Catalog tab. Click "Configure" and under the "kafka" tab, paste the vip value above into the "Custom ZooKeeper Path" configuration option. After deployment, navigate back to the native ZooKeeper CLI commands and 'ls' to verify that the proper Kafka znodes have been created, and that your Kafka service is in fact connected to the custom ZooKeeper instance.
 

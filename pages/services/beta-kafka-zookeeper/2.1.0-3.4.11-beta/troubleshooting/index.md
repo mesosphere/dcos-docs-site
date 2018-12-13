@@ -42,12 +42,12 @@ You can also access the logs via the Mesos UI:
 If you must forcibly restart a node, use the following command to restart the node on the same agent node where it currently resides. This will not result in an outage or loss of data.
 
 ```shell
-dcos kafka-zookeeper --name=<service-name> pod restart <node_id>
+dcos beta-kafka-zookeeper --name=<service-name> pod restart <node_id>
 ```
 <a name="replacing-a-node"></a>
 # Replacing a Permanently Failed Node
 The DC/OS Apache ZooKeeper Service is resilient to temporary node failures. However, if a DC/OS agent hosting an Apache ZooKeeper node is permanently lost, manual intervention is required to replace the failed node. The following command should be used to replace the node residing on the failed server.
 
 ```shell
-dcos kafka-zookeeper --name=<service-name> pod replace <node_id>
+dcos beta-kafka-zookeeper --name=<service-name> pod replace <node_id>
 ```

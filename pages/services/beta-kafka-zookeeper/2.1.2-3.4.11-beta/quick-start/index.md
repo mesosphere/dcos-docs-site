@@ -26,12 +26,12 @@ excerpt:
 
 1. Connect a client to Apache ZooKeeper.
    ```shell
-   dcos kafka-zookeeper endpoints
+   dcos beta-kafka-zookeeper endpoints
    [
      "clientport"
    ]
 
-   dcos kafka-zookeeper endpoints clientport
+   dcos beta-kafka-zookeeper endpoints clientport
    {
        "vips": ["clientport.zookeeper.l4lb.thisdcos.directory:1140"],
        "address": [

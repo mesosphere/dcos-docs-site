@@ -51,7 +51,7 @@ A sample valid `options.json` looks like:
 }
 ```
 
-Passing in this file after deployment would increase each node CPU value from the default value of 1.0, and change the ZooKeeper-specific values `maxCilentCnxns` and `minSessionTimeout` as well.  
+Passing in this file after deployment would increase each node CPU value from the default value of 1.0, and change the ZooKeeper-specific values `maxClientCnxns` and `minSessionTimeout` as well.  
 
 ***IMPORTANT***: Reconfiguration changes to node count, service name, ZooKeeper ticktime, and all ZooKeeper-specific port values (client port, follower port, and leader election port) will be blocked. These are blocked for the safety of the service. Please exercise caution when performing reconfigurations, as many configurations are unsafe to change after deployment. Reconfigurations can cause unpredictable behavior and should only be done to debug or increase service performance.
 

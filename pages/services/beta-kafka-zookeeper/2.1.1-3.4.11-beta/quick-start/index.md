@@ -16,7 +16,7 @@ excerpt:
 1. If you are using open source DC/OS, install an Apache Zookeeper cluster with the following command from the DC/OS CLI. If you are using Enterprise DC/OS, you may need to follow additional instructions. See the Install and Customize section for information.
 
    ```shell
-   dcos package install kafka-zookeeper
+   dcos package install beta-kafka-zookeeper
    ```
 
    Alternatively, you can install Apache Zookeeper from [the DC/OS web interface](/latest/usage/webinterface/).
