@@ -8,21 +8,23 @@ excerpt: Troubleshooting slow Docker apps and deployments
 enterprise: false
 ---
 
-If you recently upgraded to DC/OS 1.10 or later, and configured `MESOS_CGROUPS_ENABLE_CFS=true` in your Mesos agent configuration, you may see slow-running Docker applications or slow deployments.
+<p class="message--note"><strong>NOTE: </strong>If you recently upgraded to DC/OS 1.10 or later, and configured <code>MESOS_CGROUPS_ENABLE_CFS=true</code> in your Mesos agent configuration, you may see slow-running Docker applications or slow deployments.</p>
 
 # Strict CPU limitations are now default
 
-When using Apache Mesos, you can choose to use either CPU shares or strict CPU limitations. If you use CPU shares, your task can consume more CPU cycles than initially configured in your Marathon app definition, if your host system has free CPU cycles. If you are using strict CPU limitations, your task can only consume a maximum of CPU time based on your Marathon configuration.
+The Apache Mesos kernel of DC/OS allows you to use either Completely Fair Scheduler strict CPU limitations (CFS CPU) or CPU shares. By default strict CPU limitations are used in DC/OS from version 1.10 onward in order to achieve better performance in high density use cases. However, in some use cases it is desirable to be able to offer up available CPU cycles to apps that take priority. Using CPU shares, DC/OS can be configured to allow Marathon apps to consume more CPU cycles than in their original app definition.
 
-Completely Fair Scheduler (CFS) strict CPU limitations is the default in DC/OS, but this configuration is respected only by the Mesos executor and not by the Docker executor. The fix [MESOS-6134](https://issues.apache.org/jira/browse/MESOS-6134) in the latest Mesos release, and also included in DC/OS 1.10, removes this limitation.
-
-Your services or deployments are likely running slowly because they require more CPU cycles than they are configured to consume.
+Your services or deployments are likely running slowly because they require more CPU cycles than they are configured to consume. 
 
 # Steps to take
 
 ## Increase CPU allocation
 
-If you have slow-running Docker services or deployments due to DC/OS upgrade or configuring `MESOS_CGROUPS_ENABLE_CFS=true`, increase the required CPU amount in your service definition. [From the CLI](/1.12/deploying-services/update-user-service/) or the **Services** tab of the DC/OS GUI, change the `cpus` property of your service definition to a higher value and test if increased CPU allocation solves your issues.
+If you have slow-running Docker services or deployments on DC/OS 1.10 or later, increase the required CPU amount in your service definition. [From the CLI](/1.12/deploying-services/update-user-service/) or the [Services](/1.12/gui/services/) tab of the DC/OS GUI, change the `cpus` property of your service definition to a higher value and test if increased CPU allocation solves your issues.
+
+## Boost resources using DC/OS Pods
+
+Often, containerized applications have resource-intensive startup phases. Traditionally, tasks with high startup requirements were simply allocated extra resources for the duration of their lifetime, at the cost of lower cluster utilization once those resources were no longer needed. By taking advantage of the resource accounting strategy of DC/OS Pods, an "empty" startup container/task can be created to request additional resources and leave them available to the task that actually needs them, then complete and relinquish those resources after a reasonable time has passed. See this [blog post on resource boosting](https://mesosphere.com/blog/application-jvm-startup/) for more information and a sample pod definition.
 
 ## Change Mesos agent configuration
 
@@ -30,7 +32,7 @@ In special cases, you may want to change your Mesos agent configuration to not u
 
 You will need to change the configurations for your DC/OS (or Mesos) installation by changing your Mesos agent configuration. If you are considering changing this configuration, consult the [Mesos oversubscription](http://mesos.apache.org/documentation/latest/oversubscription/) documentation for additional considerations and configuration options.
 
-### Configuration change
+### Configuring the agents to use CPU shares
 
 1. Create or modify the file `/var/lib/dcos/mesos-slave-common` on each agent node.
 

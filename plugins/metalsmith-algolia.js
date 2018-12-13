@@ -309,12 +309,10 @@ const getSharedAttributes = (fileData, hierarchy, semverMap) => {
   if (fileData.excerpt) {
     record.excerpt = fileData.excerpt;
   } else {
-    const excerptPath = pathParts.join('/');
-    const objectHierarchy = hierarchy.findByPath(excerptPath) || '';
-    const excerpt = objectHierarchy.excerpt || '';
-    if (objectHierarchy && excerpt) {
-      record.excerpt = excerpt;
-    }
+    const content = sanitize(fileData.contents, fileData.path);
+    const contentWords = content.split(' ');
+    const excerpt = contentWords.slice(0,40).join(' ');
+    record.excerpt = excerpt;
   }
 
   return record;
@@ -325,7 +323,6 @@ const trim = string => string.replace(/^\s+|\s+$/g, '');
 
 /**
  * Parses buffer to string and sanitizes html.
- * Removes all contained <pre></pre> tags.
  * Removes all tags and replaces with whitespace.
  * @param {Buffer} buffer
  * @param {String} file

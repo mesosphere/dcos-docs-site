@@ -26,19 +26,19 @@ dcos job show <job-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<job-id>`   |   Specify the job ID.  You can view the job IDs with the `dcos job list` 命令。|
+| `<job-id>`   |   指定作业ID。 您可以使用以下命令查看作业ID `dcos job list` 命令。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
 
 # 示例
 
 ## 显示作业定义
 
-在本示例中，显示`my-scheduled-job`作业定义。
+在本示例中，显示了`my-scheduled-job`作业定义。
 
 ```bash
 dcos job show my-scheduled-job

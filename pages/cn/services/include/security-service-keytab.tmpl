@@ -2,12 +2,18 @@
 
 DC/OS {{ model.techName }} 服务使用包含所有节点 principal 的 keytab（服务 keytab）。创建上述 principal 后，生成服务 keytab ，确保包括所有节点 principal。这将作为秘钥存储在 DC/OS 密钥存储库中。
 
-*注意*：DC/OS 1.10 不支持将二进制密钥直接添加到密钥存储库中，仅支持文本文件。而是，先进行文件的 base64 编码，并将其保存到密钥存储库中`/desired/path/__dcos_base64__secret_name`。DC/OS 安全模块将在服务使用文件时处理文件的解码。更多详情参见 [此处](/services/ops-guide/overview/#binary-secrets)。
+<p class="message--note"><strong>注意：</strong>DC/OS 1.10 不支持将二进制密钥直接添加到密钥存储库中，仅支持文本文件。而是，先进行文件的 base64 编码，并将其保存到密钥存储库中`/desired/path/__dcos_base64__secret_name`。DC/OS 安全模块将在服务使用文件时处理文件的解码。</p> 
 
 服务 keytab 应存储在 `service/path/name/service.keytab` （如上文对 DC/OS 1.10 所备注，应为  `__dcos_base64__service.keytab`），在此`service/path/name` 将服务的路径和名称匹配。例如，如果使用这些选项安装
-<```>json<linebreak>{<linebreak>    "service": {<linebreak>        "name": "a/good/example"<linebreak>    }<linebreak>}<linebreak></```>
+```json
+{
+    "service": {
+        "name": "a/good/example"
+    }
+}
+```
 则服务 keytab 应保存在 `a/good/example/service.keytab`。
 
-向密钥存储库添加文件的文档可以参见 [此处](/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)。
+向密钥存储库添加文件的文档可以参见 [此处](/cn/1.11/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)。
 
-*注意*：密钥访问由 [DC/OS Spaces] (/latest/security/ent/#spaces-for-secrets)控制，其功能如命名空间。位于与服务相同 DC/OS 空间中的任何密钥由该服务访问。然而，匹配两个路径是最安全的选项。此外，密钥名称 `service.keytab` 是惯例，而非要求。
+<p class="message--note"><strong>注意</strong> 密钥访问由 <a href="/cn/1.11/security/ent/#spaces-for-secrets">DC/OS Spaces</a>控制，其功能如命名空间。位于与服务相同 DC/OS 空间中的任何密钥由该服务访问。然而，匹配两个路径是最安全的选项。此外，密钥名称 `service.keytab` 是惯例，而非要求。</p>

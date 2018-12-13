@@ -19,7 +19,7 @@ The Logging API has been updated significantly for DC/OS 1.11 and later.
 
 In versions of DC/OS prior to 1.11, task logs were available via [files API](http://mesos.apache.org/documentation/latest/endpoints/#files-1). Now you can leverage the consolidated API *for both component and task logs*.
 
-In versions of DC/OS prior to 1.11, node and component logs were managed by `journald`. However, the [Mesos task journald log sink was disabled](https://github.com/dcos/dcos/pull/1269) due to [journald performance issues](https://github.com/systemd/systemd/issues/5102). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
+In versions of DC/OS prior to 1.11, node and component logs were managed by `journald`. However, the [Mesos task journald log sink was disabled due to [journald performance issues](https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
 
 The following code may be useful:
 

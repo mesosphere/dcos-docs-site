@@ -20,7 +20,7 @@ dcos task [OPTION]
 
 # 选项
 
-| Name<>shorthand | Default | Description |
+| 名称，简写 | 默认值 | 说明 |
 |---------|-------------|-------------|
 | `--completed` | | 打印已完成和正在进行的任务。|
 | `--help, h` | | 打印用法。|
@@ -30,7 +30,7 @@ dcos task [OPTION]
 
 # 位置自变量
 
-| Name<>shorthand | Default | Description |
+| 名称，简写 | 默认值 | 说明 |
 |---------|-------------|-------------|
 | `<task>` | | 完整任务 ID，部分任务 ID 或正则表达式。|
 

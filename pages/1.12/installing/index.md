@@ -11,7 +11,7 @@ The installation of DC/OS involves configuring your infrastructure, and installi
 
 The DC/OS installation methods are as follows:
 
-- **Mesosphere-supported installation:** Use the [Mesosphere-supported installation methods](#mesosphere-supported) to test or demo DC/OS on AWS, Azure, or GCP using an Universal Installer.
+- **Mesosphere-supported installation:** Use the [Mesosphere-supported installation methods](#mesosphere-supported)  to deploy DC/OS on AWS, Azure, or GCP using the Universal Installer.
 
 - **Community-supported installation:** Use the [Community-supported installation methods](#community-supported) to test or demo DC/OS on AWS, Azure, Digital Ocean or Packet.
 
@@ -29,7 +29,7 @@ You can [evaluate](/1.12/installing/evaluation/) the installation process using 
 These installation methods are officially supported by Mesosphere.
 
 Any of the following methods can be used to install DC/OS:
-- [Provision DC/OS on Amazon Web Services(AWS)](/1.12/installing/evaluation/mesosphere-supported-methods/aws/): Install your DC/OS cluster on Amazon Web Services (AWS) by using the DC/OS Terraform templates on AWS.
+- [Provision DC/OS on Amazon Web Services (AWS)](/1.12/installing/evaluation/mesosphere-supported-methods/aws/): Install your DC/OS cluster on Amazon Web Services (AWS) by using the DC/OS Terraform templates on AWS.
 - [Provision DC/OS on Azure](/1.12/installing/evaluation/mesosphere-supported-methods/azure/): Install your DC/OS cluster on Azure by using the DC/OS Terraform templates on Azure.
 - [Provision DC/OS on Google Cloud Platform (GCP)](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/): Install your DC/OS cluster on GCP by using the DC/OS Terraform templates on GCP. 
 

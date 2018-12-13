@@ -56,7 +56,8 @@ Before installing DC/OS, your cluster must meet the software and hardware [requi
 [enterprise]
 # <a name="license"></a>Store license file
 [/enterprise]
-1.  Create a [license file](/1.12/administering-clusters/licenses) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
+
+Create a [license file](/1.12/administering-clusters/licenses) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
 
 # <a name="ip-detect-script"></a>Create an IP detection script
 
@@ -114,38 +115,38 @@ In this step, an IP detection script is created. This script reports the IP addr
 
         [enterprise type="inline" size="small" /]
 
-```bash
-#!/usr/bin/env bash
-set -o nounset -o errexit
-MASTER_IP=172.28.128.3
-echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
-```
+        ```bash
+        #!/usr/bin/env bash
+        set -o nounset -o errexit
+        MASTER_IP=172.28.128.3
+        echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
+        ```
 
-[oss type="inline" size="small" /]
+        [oss type="inline" size="small" /]
 
-```bash
-#!/usr/bin/env bash
-set -o nounset -o errexit -o pipefail
-export PATH=/sbin:/usr/sbin:/bin:/usr/bin:$PATH
-MASTER_IP=$(dig +short master.mesos || true)
-MASTER_IP=${MASTER_IP:-172.28.128.3}
-INTERFACE_IP=$(ip r g ${MASTER_IP} | \
-awk -v master_ip=${MASTER_IP} '
-BEGIN { ec = 1 }
- {
-  if($1 == master_ip) {
-        print $7
-        ec = 0
- } else if($1 == "local") {
-        print $6
-        ec = 0
- }
-      if (ec == 0) exit;
-    }
-      END { exit ec }
-    ')
-    echo $INTERFACE_IP
-```
+        ```bash
+        #!/usr/bin/env bash
+        set -o nounset -o errexit -o pipefail
+        export PATH=/sbin:/usr/sbin:/bin:/usr/bin:$PATH
+        MASTER_IP=$(dig +short master.mesos || true)
+        MASTER_IP=${MASTER_IP:-172.28.128.3}
+        INTERFACE_IP=$(ip r g ${MASTER_IP} | \
+        awk -v master_ip=${MASTER_IP} '
+        BEGIN { ec = 1 }
+        {
+        if($1 == master_ip) {
+                print $7
+                ec = 0
+        } else if($1 == "local") {
+                print $6
+                ec = 0
+        }
+            if (ec == 0) exit;
+            }
+            END { exit ec }
+            ')
+        echo $INTERFACE_IP
+        ```
 
 [enterprise]
 # Create a fault domain detection script
@@ -156,9 +157,21 @@ By default, DC/OS clusters have [fault domain awareness](/1.12/deploying-service
 
 1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain. During installation, the output of this script is passed to Mesos.
 
-   We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>`. We provide [fault domain detect scripts for AWS and Azure](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+    We recommend the format for the script output be:
 
-   <p class="message--warning"><strong>WARNING: </strong>This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
+    ```json
+      {
+        "fault_domain": {
+          "region": {
+            "name": <region>,
+            "zone": <zone>
+          }
+        }
+      }
+    ```
+    We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+
+    <p class="message--important"><strong>IMPORTANT: </strong>This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
 
 
 2. Add your newly created `fault-domain-detect` script to the `/genconf` directory of your bootstrap node.
@@ -193,7 +206,7 @@ In the following instructions, we assume that you are using ZooKeeper for shared
     ```
 
 ## Create the configuration 
-1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started. 
+Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started. 
 
 The Enterprise template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and cloud specific DNS resolvers. [enterprise type="inline" size="small" /]
 
@@ -206,7 +219,7 @@ If your servers are installed with a domain name in your `/etc/resolv.conf`, add
 <p class="message--note"><strong>NOTE: </strong>In AWS, or any other environment where you can not control a node's IP address, master_discovery needs to be set to use <code>master_http_load_balancer</code>, and a load balancer needs to be set up.</p>
 
 [enterprise]
-## Enterprise template
+### Enterprise template
 [/enterprise]
 
 ```bash
@@ -243,7 +256,7 @@ enable_ipv6: 'false'
 ```
 
 [oss]
-## Open Source template
+### Open Source template
 [/oss]
     
     bootstrap_url: http://<bootstrap_ip>:80
@@ -275,8 +288,8 @@ In this step, you will create a custom DC/OS build file on your bootstrap node a
 <p class="message--note"><strong>NOTE: </strong>Due to a cluster configuration issue with overlay networks, we recommend setting <code>enable_ipv6</code> to <code>false</code> in <code>config.yaml</code> when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.12.x without configuring <code>enable_ipv6</code> or if <code>config.yaml</code> file is set to <code>true</code>, then do not add new nodes.</p>
 
 You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
-<p class="message--important"><strong>IMPORTANT: </strong>Do not install DC/OS until you have these items working: <code>ip-detect script</code>, <code>DNS</code>, and <code>NTP</code> on all DC/OS nodes with time synchronized. See <a href="/1.12/installing/ent/troubleshooting/">troubleshooting</a> for more information.</p>
-<p class="message--note"><strong>NOTE: </strong>If something goes wrong and you want to rerun your setup, use the cluster <a href="/1.12/installing/oss/custom/uninstall/">uninstall</a> instructions.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Do not install DC/OS until you have these items working: <code>ip-detect script</code>, <code>DNS</code>, and <code>NTP</code> on all DC/OS nodes with time synchronized. See <a href="https://docs.mesosphere.com/1.11/installing/troubleshooting/">troubleshooting</a> for more information.</p>
+<p class="message--note"><strong>NOTE: </strong>If something goes wrong and you want to rerun your setup, use the cluster <a href="https://docs.mesosphere.com/1.11/installing/production/uninstalling/">uninstall</a> instructions.</p>
 
 **Prerequisites**
 
@@ -301,38 +314,43 @@ The term `dcos_generate_config file` refers to either a `dcos_generate_config.ee
 
     You can view all of the automated command line installer options with:
     * `dcos_generate_config.ee.sh --help`  flag [enterprise type="inline" size="small" /]  
-      OR 
+    OR 
     * `dcos_generate_config.sh --help` flag. [oss type="inline" size="small" /]
 
+    **Enterprise script** [enterprise type="inline" size="small" /]
 
-[enterprise type="inline" size="small" /]
-
+    ```bash
     sudo bash dcos_generate_config.ee.sh
+    ```
 
-At this point your directory structure should resemble:
+    At this point your directory structure should resemble:
 
+    ```bash
     ├── dcos-genconf.c9722490f11019b692-cb6b6ea66f696912b0.tar
     ├── dcos_generate_config.ee.sh
     ├── genconf
     │   ├── config.yaml
     │   ├── ip-detect
     │   ├── license.txt
+    ```
 
+    **Open Source script** [oss type="inline" size="small" /]
 
-[oss type="inline" size="small" /]
+    ```bash
+    sudo bash dcos_generate_config.sh
+    ```
 
-    sudo bash dcos_generate_config.sh    
+    At this point your directory structure should resemble:
 
-At this point your directory structure should resemble:
+    ``` bash
+    ├── dcos-genconf.<HASH>.tar
+    ├── dcos_generate_config.sh
+    ├── genconf
+    │   ├── config.yaml
+    │   ├── ip-detect
+    ```
 
-        ├── dcos-genconf.<HASH>.tar
-        ├── dcos_generate_config.sh
-        ├── genconf
-        │   ├── config.yaml
-        │   ├── ip-detect
-    
-   
-   - For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
+    For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
 
 2.  From your home directory, run the following command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
 

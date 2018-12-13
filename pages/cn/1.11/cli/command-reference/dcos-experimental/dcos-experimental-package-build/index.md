@@ -9,7 +9,7 @@ enterprise: false
 
 
 # 说明
-`dcos experimental package build` 命令允许您在本地构建要添加到 DC/OS 或与 DC/OS Universe 共享的包。
+`dcos experimental package build` 命令让您在本地构建要添加到 DC/OS 或与 DC/OS Universe 共享的软件包。
 
 # 使用
 
@@ -21,7 +21,7 @@ dcos experimental package build <build-definition> [OPTION]
 
 | Name<>shorthand | Default | Description |
 |---------|-------------|-------------|
-| | `--json` | | 指定 JSON 格式化的数据。|
+| | `--json` | | 指定以 JSON 为格式的数据。|
 | `--output-directory=<output-directory>` | 当前工作目录 | 要存储数据的目录的路径。|
 
 # 位置自变量
@@ -34,4 +34,4 @@ dcos experimental package build <build-definition> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos experimental](/1.11/cli/command-reference/dcos-experimental/)  | 管理正在开发并可能发生变化的命令。| 
+| [dcos experimental](/cn/1.11/cli/command-reference/dcos-experimental/)  | 管理正在开发并可能发生变化的命令。| 

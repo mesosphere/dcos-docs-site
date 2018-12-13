@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Managing 
-title: Managing 
+navigationTitle: Managing
+title: Managing
 menuWeight: 35
 excerpt: Managing a DC/OS Package Registry
-beta: true
 enterprise: true
 ---
 

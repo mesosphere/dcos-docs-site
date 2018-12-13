@@ -9,10 +9,10 @@ excerpt: 高级模板参数
 这些高级模板参数是分别在各个 JSON 文件中指定的。在 DC/OS 安装期间，这些模板文件用于生成自定义 DC/OS 构架。
 
 ### Zen 模板
-[Zen](#zen) 模板编排各个组件模板，用于创建 DC/OS 群集。
+[Zen](#zen) 模板编排各个组件模板，用于创建 DC/OS 集群。
 
 ### 代理模板
-[代理](#private-agent) 模板创建 [公共](/1.11/overview/concepts/#public-agent-node) 或 [专用](/1.11/overview/concepts/#private-agent-node) 代理节点，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 群集。
+[代理](#private-agent) 模板创建 [公共](/cn/1.11/overview/concepts/#public-agent-node) 或 [专用](/cn/1.11/overview/concepts/#private-agent-node) 代理节点，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 集群。
 
 ### 管理节点模板
 [管理节点](#master) 模板在已创建基础架构堆栈的顶部创建管理节点。
@@ -83,7 +83,7 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
 
 ## <a name="private-agent"></a>专用代理
 
-专用代理模板（`advanced-priv-agent.json`) 创建代理，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 群集。要配置模板，请指定要加入的 DC/OS 群集的 VPC、子网和管理节点 DNS 地址。
+专用代理模板（`advanced-priv-agent.json`) 创建代理，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 集群。要配置模板，请指定要加入的 DC/OS 集群的 VPC、子网和管理节点 DNS 地址。
 
 <table class="table">
   <tr>
@@ -120,7 +120,7 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
 
 ## <a name="public-agent"></a>公共代理
 
-公共代理模板（`advanced-pub-agent.json`) 创建随后代理，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 群集。要配置模板，请指定要加入的 DC/OS 群集的 VPC、子网和管理节点 DNS 地址。
+公共代理模板（`advanced-pub-agent.json`) 创建随后代理，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 集群。要配置模板，请指定要加入的 DC/OS 集群的 VPC、子网和管理节点 DNS 地址。
 
 <table class="table">
   <tr>
@@ -206,7 +206,7 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
 
 ## <a name="infrastructure"></a>基础架构
 
-基础架构模板（`infra.json`）定义并创建完全兼容已创建 VPC 的 DC/OS 专用基础架构。这是 DC/OS 群集的最基础构建模块，并且在此堆栈中创建的组件由相关模板（管理和代理节点）占用。
+基础架构模板（`infra.json`）定义并创建完全兼容已创建 VPC 的 DC/OS 专用基础架构。这是 DC/OS 集群的最基础构建模块，并且在此堆栈中创建的组件由相关模板（管理和代理节点）占用。
 
 <table class="table">
   <tr>

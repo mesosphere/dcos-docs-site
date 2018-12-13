@@ -7,28 +7,28 @@ excerpt: Release notes for DC/OS Apache Spark 2.4.0-2.2.1-3
 featureMaturity:
 ---
 
-## Version Spark and Spark History 2.4.0-2.2.1-3
+## Version Spark and Spark history 2.4.0-2.2.1-3
 
-### New Features
-- Added service name to dispatcher’s VIP endpoints 
-- Added shell-escape fix to spark-cli (SPARK-21014) 
-- Added spark.mesos.executor.gpus (SPARK-21033) 
-- Added dispatcher and driver metrics 
-- Added statsd sink for spark metrics 
-  - Note: metrics is a beta feature and requires enabling UCR. Production use is not advised.
+### New features
+- Added service name to dispatcher’s VIP endpoints
+- Added shell-escape fix to spark-cli (SPARK-21014)
+- Added spark.mesos.executor.gpus (SPARK-21033)
+- Added dispatcher and driver metrics
+- Added statsd sink for spark metrics
+  <p class="message--note"><strong>NOTE: </strong>Metrics is a beta feature and requires enabling UCR. Production use is not advised.</p>
 
 ### Updates
-- Updated tests, build tools, CLI and vendor packages 
-- Updated bootstrap version to 0.50.0 
-- Updated JRE version to 8u172 
+- Updated tests, build tools, CLI and vendor packages
+- Updated bootstrap version to 0.50.0
+- Updated JRE version to 8u172
 
 ### Bug fixes
-- Fixed duplicate docker image URLs; use resource.json as default 
+- Fixed duplicate docker image URLs; use resource.json as default
 
-### Breaking Changes
+### Breaking changes
 - VIP endpoints for the dispatcher are no longer `spark-dispatcher:<port>` and are now `dispatcher.{{service.name}}:<port>`
 
-## Version Spark and Spark History 2.3.1-2.2.1-2
+## Version Spark and Spark history 2.3.1-2.2.1-2
 
 ### Updates
 - Updated libmesos version version with critical bug fix, [MESOS-8171](https://issues.apache.org/jira/browse/MESOS-8171)
@@ -39,8 +39,8 @@ featureMaturity:
 
 ## Version 2.3.0-2.2.1-2
 
-### New Features
-- Added secrets support in Driver, so a secret can be disseminated to the executors. (SPARK-22131)
+### New features
+- Added secrets support in driver, so a secret can be disseminated to the executors. (SPARK-22131)
 - Added Kerberos ticket renewal. (SPARK-21842)
 - Added Mesos sandbox URI to Dispatcher UI. (SPARK-13041)
 - Added support for Driver<->Executor TLS with file-based secrets.
@@ -51,7 +51,7 @@ featureMaturity:
 - Added configuration to deploy Dispatcher on UCR (default is Docker).
 - Instead of setting the krb5.conf as a base64-encoded blob, the user can now specify service.security.kerberos.kdc.[port|hostname] and service.security.kerberos.realm directly in options.json. The behavior with the base64-encoded blob remains the same, and will overwrite the new configs.
 
-### History Server
+### History server
 - Added Kerberos support for integration with a Kerberized HDFS. See documentation for configuration instructions.
 - Made the user configurable, defaults to root.
 
@@ -65,13 +65,11 @@ featureMaturity:
 - Added support for older SPARK_MESOS_KRB5_CONF_BASE64 environment variable.
 - The spark CLI has "shortcut" command-line args, that are translated into spark.config=setting configurations downstream (such as spark.executor.memory). Fixed a bug where a user sets the configuration directly and is overwritten with the default value for the shortcut argument.
 
-### Breaking Changes
+### Breaking changes
 - Changed the default user to root, in both the Dispatcher and History Server.
 - To configure Kerberos in options.json, a new property service.security.kerberos.enabled must be set to true. This applies to both the Dispatcher and History Server.
 - Removed the security.ssl properties from options.json. These properties are no longer needed for the new Go-based CLI.
 - Removed --dcos-space option from the CLI. Access to secrets is determined by the Spark Dispatcher service name. See the Spark Security doc page for more information about where to place secrets.
-
-
 
 ## Version 2.1.0-2.2.0-1
 

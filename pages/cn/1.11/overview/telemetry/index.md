@@ -14,11 +14,11 @@ enterprise: false
 - [用户界面遥测](#user-interface)
 
 # <a name="core"></a>核心遥测
-[DC/OS 信号](/1.11/overview/architecture/components/#dcos-signal) 组件查询领导管理节点上的诊断服务 `/system/health/v1/report` 端点，并将此数据发送给 [区块](https://segment.com/docs/)，Mesosphere 然后用它来跟踪使用率度量标准和客户支持。
+[DC/OS 信号](/cn/1.11/overview/architecture/components/#dcos-signal) 组件查询首要管理节点上的诊断服务 `/system/health/v1/report` 端点，并将此数据发送给 [区块](https://segment.com/docs/)，Mesosphere 然后用它来跟踪使用率度量标准和客户支持。
 
 DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 DC/OS 包管理器 (Cosmos)。
 
-此数据针对每个类别进行收集：
+对于每个类别都收集此数据：
 
 <table class="table">
 <tr>
@@ -26,12 +26,12 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 <th>描述</th>
 </tr>
 <tr><td>anonymousId</td>
-<td>这是在启动时为每个群集创建的匿名 ID。此 ID 在您的群集中持续存在。例如：
+<td>这是在启动时为每个集群创建的匿名 ID。此 ID 在您的集群中持续存在。例如：
 <pre>
 "anonymousId": "70b28f00-e38f-41b2-a723-aab344f535b9
 </pre></td></tr>
 <tr><td>clusterId</td>
-<td>这是在启动时为每个群集创建的 <code>anonymousID</code> 值。此 ID 在您的群集中持续存在。例如：
+<td>这是在启动时为每个集群创建的 <code>anonymousID</code> 值。此 ID 在您的集群中持续存在。例如：
 <pre>
 "clusterId": "70b28f00-e38f-41b2-a723-aab344f535b9" 
 </pre>
@@ -42,7 +42,7 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 "customerKey": "ab1c23de-45f6-7g8h-9012-i345j6k7lm8n", 
 </pre>
 </td></tr>
-<tr><td>事件</td>
+<tr><td>event</td>
 <td>这是在区块中出现的类别。可能的值为 <code>package_list</code>（包管理器）、<code>health</code>（诊断）和 <code>mesos_track</code> (Mesos)。例如：
 <pre>
 "event": "package_list" 
@@ -54,17 +54,17 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 <pre>
 "environmentVersion": "1.11", 
 </pre></td></tr>
-<tr><td>提供者</td>
+<tr><td>provider</td>
 <td>这是 DC/OS 运行所在的平台。可能的值为 <code>aws</code>、<code>on-prem</code> 和 <code>azure</code>。例如，如果您是在 AWS 上运行：
 <pre>
 "provider": "aws", 
 </pre></td></tr>
-<tr><td>来源</td>
+<tr><td>source</td>
 <td>这是表示群集的硬编码设置。例如：
 <pre>
 "source": "cluster", 
 </pre></td></tr>
-<tr><td>变量</td>
+<tr><td>variant</td>
 <td>这表示群集是 DC/OS 还是 DC/OS Enterprise。例如，如果您使用的是 DC/OS Open Source：
 <pre>
 "variant": "open" 
@@ -75,14 +75,14 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 
 ## 诊断
 
-此信息从 [DC/OS 诊断] (/1.11/overview/architecture/components/#dcos-diagnostics) 组件收集。以下信息针对每一个 `systemd` 单元收集，其中 `<UNIT_NAME>` 是组件名：
+此信息从 [DC/OS 诊断](/cn/1.11/overview/architecture/components/#dcos-diagnostics) 组件收集。对于每一个 `systemd` 单元收集以下信息，其中 `<UNIT_NAME>` 是组件名：
 
 ```
 "health-unit-dcos-<UNIT_NAME>-total": 3, "health-unit-dcos-<UNIT_NAME>-unhealthy": 0,
 ```
 
 ## Mesos
-此信息从 [Apache Mesos] (/1.11/overview/architecture/components/#apache-mesos) 组件收集。
+此信息从 [Apache Mesos](/cn/1.11/overview/architecture/components/#apache-mesos) 组件收集。
 
 <table class="table">
 <tr>
@@ -96,7 +96,7 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 <tr><td>disk_total</td><td>按 MB 计的可用磁盘空间。例如：<pre>"disk_total": 71154, </pre></td></tr>
 <tr><td>disk_used</td><td>按 MB 计的已分配磁盘空间。例如：<pre>"disk_used": 0, </pre></td></tr>
 <tr><td>framework_count</td><td>已安装 DC/OS 服务的数量。例如：<pre>"framework_count": 2, </pre></td></tr>
-<tr><td>框架</td><td>安装了哪些 DC/OS 服务。例如：
+<tr><td>frameworks</td><td>安装了哪些 DC/OS 服务。例如：
 <pre>
 "frameworks": [
                 {
@@ -114,8 +114,8 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 </table>
 
 
-## 包管理器
-此信息从 [DC/OS 包管理器 (Cosmos) ](/1.11/overview/architecture/components/#dcos-package-manager) 组件收集。
+## 软件包管理器
+此信息从 [DC/OS 包管理器 (Cosmos)](/cn/1.11/overview/architecture/components/#dcos-package-manager) 组件收集。
 
 <table class="table">
 <tr>
@@ -137,7 +137,7 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 </tr>
 </table>
 
-以下是收集的 JSON 遥测报告的示例：
+以下是获得的 JSON 遥测报告的示例：
 
 ```json
 {
@@ -285,4 +285,4 @@ DC/OS UI 向 [区块] 发送两种通知(https://segment.com/docs/)，Mesosphere
 ## 选择退出
 
 
-您也可选择退出遥测功能。如需更多信息，请参阅 [文档](/1.11/installing/production/deploying-dcos/opt-out/)。
+您也可选择退出遥测功能。如需更多信息，请参阅 [文档](/cn/1.11/installing/production/deploying-dcos/opt-out/)。

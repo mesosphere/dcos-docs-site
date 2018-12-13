@@ -3,16 +3,16 @@ layout: layout.pug
 navigationTitle: dcos cluster link
 title: dcos cluster link
 menuWeight: 3
-excerpt: 将连接的群集链接到另一群集
+excerpt: 将连接的集群链接到另一集群
 enterprise: true
 ---
 
 # 说明
-`dcos cluster link` 命令允许您配置从一个群集指向一个或多个群集的单向链接。访问群集时，您可以查看与其链接的群集。您可以[附加](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 链接的群集，无需事先运行 `dcos cluster setup`。
+`dcos cluster link` 命令让您配置从一个集群指向一个或多个集群的单向链接。访问集群时，您可以查看与其链接的集群。您可以[附加](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 链接的集群，无需事先运行 `dcos cluster setup`。
 
-**前提条件**
+**先决条件**
 
-- [`dcos cluster setup`](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/)命令用于设置要被链接的群集，必须指定相同的身份认证提供程序。例如：
+-用于设置要被链接的集群的[`dcos cluster setup`](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/)命令，必须指定相同的身份认证提供程序。例如：
 
   ```
   dcos cluster setup <dcos-url-a> --provider=dcos-users
@@ -25,7 +25,7 @@ enterprise: true
 dcos cluster link <dcos-url-a>
 ```
 
-**注意：** 如果群集链接成功，则控制台没有输出。
+<p class="message--note"><strong>注意: </strong> 如果群集链接成功，则控制台没有输出。</p>
 
 # 位置自变量
 
@@ -38,7 +38,7 @@ dcos cluster link <dcos-url-a>
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos cluster] ](/1.11/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
+|  [dcos cluster](/cn/1.11/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
 
 # 示例
-有关示例，请参阅 [群集链接](/1.11/administering-clusters/multiple-clusters/cluster-links/)。
+有关示例，请参阅 [集群链接](/cn/1.11/administering-clusters/multiple-clusters/cluster-links/)。

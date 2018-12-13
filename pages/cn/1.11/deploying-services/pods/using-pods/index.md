@@ -9,7 +9,7 @@ enterprise: false
 
 
 
-您可通过 DC/OS CLI 或通过[Marathon API] 的 `/v2/pods/` 端点创建和管理 Pod(/1.11/deploying-services/marathon-api/)。
+您可通过 DC/OS CLI 或通过[Marathon API](/cn/1.11/deploying-services/marathon-api/) 的 `/v2/pods/` 端点创建和管理 Pod。
 
 # 使用 Pod CLI
 
@@ -18,7 +18,7 @@ Pod CLI 中提供以下命令：
 * `dcos marathon pod add [<pod-resource>]`
 * `dcos marathon pod list [--json]`
 * `dcos marathon pod remove [--force] <pod-id>`
-* “dcos marathon pod show” <pod-id>`
+* `dcos marathon pod show <pod-id>`
 * `dcos marathon pod update [--force] <pod-id>`
 
 ## 添加 Pod

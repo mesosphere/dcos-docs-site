@@ -224,7 +224,6 @@ Repeat this section until you have completed this procedure for all of your mast
    ```
   
 1.  Close the SSH session by typing `exit` or open a new terminal prompt. Repeat steps 28-30 on each agent node.
-
 1.  To verify your success, log into the DC/OS web interface and click the **Catalog** tab. You should see a list of Certified packages. Install one of the packages.
 
 ### FAQ
@@ -267,8 +266,8 @@ included. To view which packages are Certified, click the **Catalog** tab in the
 interface.
 
     ```bash
-    sudo make DCOS_VERSION=1.10 DCOS_PACKAGE_INCLUDE="cassandra:1.0.25-3.0.10,marathon:1.4.2" local-universe
+    sudo make DCOS_VERSION=1.12 DCOS_PACKAGE_INCLUDE="cassandra:1.0.25-3.0.10,marathon:1.4.2" local-universe
     ```
 
-4.  Perform all of the steps as described in [Certified Universe packages][#certified].
+4.  Perform all of the steps as described in [Certified Universe packages](#certified).
 

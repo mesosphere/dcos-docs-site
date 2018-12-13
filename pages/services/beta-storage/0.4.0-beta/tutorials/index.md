@@ -5,6 +5,7 @@ title: Tutorials
 menuWeight: 50
 excerpt: Step by step walkthrough of using DC/OS Storage Service to discover devices and provision a storage profile, local volume provider, and local volume.
 enterprise: true
+beta: true
 ---
 
 The tutorials in this section cover a use case for using DSS to manage local disks using the LVM Plugin bundled with DC/OS Enterprise.

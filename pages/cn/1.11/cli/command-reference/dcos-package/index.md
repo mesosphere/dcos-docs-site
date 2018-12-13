@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos package` 命令允许您安装和管理 DC/OS 软件包。
+`dcos package` 命令让您安装和管理 DC/OS 软件包。
 
 # 使用
 

@@ -4,7 +4,6 @@ navigationTitle: Package Registry
 title: Package Registry
 menuWeight: 1001
 excerpt: Understanding the package registry and its limitations
-beta: true
 enterprise: true
 ---
 

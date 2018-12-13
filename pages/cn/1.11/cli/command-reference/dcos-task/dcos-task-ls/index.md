@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos task ls` 命令显示 Mesos 任务沙盒中的文件列表。
+`dcos task ls` 命令显示 Mesos 任务沙盒文件的列表。
 
 # 使用
 
@@ -26,7 +26,7 @@ dcos task ls <task> <path> [OPTION]
 
 # 位置自变量
 
-| Name<>shorthand | Default | Description |
+| 名称，简写 | 默认值 | 说明 |
 |---------|-------------|-------------|
 | `<task>` | | 完整任务 ID，部分任务 ID 或正则表达式。|
 | `<path>`   |     `.` | Mesos 沙盒目录路径。 |
@@ -35,4 +35,4 @@ dcos task ls <task> <path> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos task](/1.11/cli/command-reference/dcos-task/) | 管理 DC/OS 任务。| 
+| [dcos task](/cn/1.11/cli/command-reference/dcos-task/) | 管理 DC/OS 任务。| 

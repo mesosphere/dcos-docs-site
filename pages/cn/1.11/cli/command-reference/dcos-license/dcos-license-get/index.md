@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: dcos license get
 title: dcos license get
 menuWeight: 1
-excerpt: 显示群集许可证
+excerpt: 显示集群许可证
 
 enterprise: true
 ---
 
 # 说明
-`dcos license get` 命令允许您查看群集许可证。
+`dcos license get` 命令让您查看集群许可证。
 
 # 使用
 
@@ -31,14 +31,14 @@ dcos license get [<id>|active] [--output <file_path>] [--decryption-key]
 | 名称，简写 | 说明 |
 |---------|-------------|
 | `<id> ` | 许可证的 ID。 |
-| | `active` | 活动许可证。 |
+| | `active` | 有效许可证。 |
 | `<file_path>` | 存储许可证的文件的路径 |
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos license] ](/1.11/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
+| [dcos license](/cn/1.11/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
 
 # 示例
-有关示例，请参阅[许可证](/1.11/administering-clusters/licenses/)。
+有关示例，请参阅[许可证](/cn/1.11/administering-clusters/licenses/)。

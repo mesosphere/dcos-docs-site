@@ -1,0 +1,34 @@
+- var paths = path.split('/')
+- var currentPath = '/' + path
+- var item = hierarchy
+- var service = null
+- var versionTitle = ''
+- var semver = /^[0-9]+\.[0-9]+/
+- var semverService = /^(v|)[0-9](.*)/
+- var dropdown = []
+
+
+// Service Docs
+if paths[0] === 'services' && paths[1]
+  - item = hierarchy.findByPath('/' + paths[0] + '/' + paths[1])
+  - var versioned = item.children.reduce((acc, x) => acc + semverService.test(x.id), false)
+  - service = hierarchy.findByPath('/' + paths[0] + '/' + paths[1])
+  if versioned
+    - versionTitle = paths[2]
+    if !semverService.test(paths[2])
+      - versionTitle = navigationTitle || title
+    - dropdown = service.children
+    if paths[2]
+      - tmpItem = hierarchy.findByPath('/' + paths[0] + '/' + paths[1] + '/' + paths[2])
+    if tmpItem
+      - item = tmpItem
+
+// DC/OS Docs
+if semver.test(paths[0])
+  - dropdown = hierarchy.children.filter(item => semver.test(item.id))
+  - item = hierarchy.findByPath('/' + paths[0])
+  - versionTitle = paths[0]
+
+- dropdown = dropdown.filter(item => item.menuWeight != -1)
+
+include sidebar.pug

@@ -19,7 +19,6 @@ Your cluster will become more secure as you move from `permissive` to `strict` [
 
 - [Get the root certificate of your DC/OS CA](/1.12/security/ent/tls-ssl/get-cert/#oob) and manually provision [browsers](/1.12/security/ent/tls-ssl/ca-trust-browser/), [DC/OS CLI](/1.12/security/ent/tls-ssl/ca-trust-cli/), [curl](/1.12/security/ent/tls-ssl/ca-trust-curl/), and other clients with it.
 
-- [Reinitialize your Secret Store with a custom keypair](/1.12/security/ent/secrets/custom-key/) and store the custom key in a very secure location. 
 - [Provision services with service accounts even when optional](/1.12/security/ent/service-auth/).
 
 - [Use secrets to store and pass sensitive information to services](/1.12/security/ent/secrets/).

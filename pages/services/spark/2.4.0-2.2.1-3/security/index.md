@@ -11,26 +11,38 @@ model: /services/spark/data.yml
 This topic describes how to configure DC/OS service accounts for {{ model.techShortName }}.
 
 When running in [DC/OS strict security mode](https://docs.mesosphere.com/latest/security/), both the dispatcher and jobs
-must authenticate to Mesos using a [DC/OS Service Account](https://docs.mesosphere.com/latest/security/service-auth/).
+must authenticate to Mesos using a DC/OS service account.
 
 #include /services/include/service-account.tmpl
 
 <a name="give-perms"></a>
 
-# Create and Assign Permissions
+# Create and assign permissions
 
 Use the following `curl` commands to rapidly provision the {{ model.techShortName }} service account with the required permissions. This can also be done through the UI.
 
-When running in [DC/OS strict security mode](/latest/security/), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS Service Account](/latest/security/service-auth/).
+When running in [DC/OS strict security mode](/1.12/security/), both the dispatcher and jobs must authenticate to Mesos using a DC/OS service account.
 
 Follow these instructions to [authenticate in strict mode](https://docs.mesosphere.com/services/spark/spark-auth/).
 
-# Using the Secret Store
+# Set permissions for jobs running outside of the cluster
+
+You must set the following permissions if you want to execute a Spark job (`dcos spark run`) from outside of the DC/OS cluster:
+
+ ```
+ dcos:adminrouter:service:marathon full 
+ dcos:adminrouter:service:spark full 
+ dcos:service:marathon:marathon:services:/spark read 
+ ```
+
+Replace `spark` when setting these permissions with the appropriate service name if you are not using the default service name.
+
+# Using the secret store
 
 DC/OS Enterprise allows users to add privileged information in the form of a file to the DC/OS secret store. These files can be referenced in {{ model.techShortName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, we use this functionality to pass the Kerberos Keytab. Details about how to use Secrets can be found
-at [official documentation](/latest/security/ent/secrets/).
+at [official documentation](/1.12/security/ent/secrets/).
 
-## Where to Place Secrets
+## Where to place secrets
 
 In order for a secret to be available to {{ model.techShortName }}, it must be placed in a path
 that can be accessed by the {{ model.techShortName }} service. If only {{ model.techShortName }} requires access to a secret, store the secret in a path that matches the name of the {{ model.techShortName }} service (e.g. `spark/secret`).  See the [Secrets Documentation about Spaces][13] for details about how secret paths restrict service access to secrets.
@@ -39,7 +51,7 @@ that can be accessed by the {{ model.techShortName }} service. If only {{ model.
 
 Anyone who has access to the {{ model.techShortName }} (Dispatcher) service instance has access to all secrets available to it. Do not grant users access to the {{ model.techShortName }} Dispatchers instance unless they are also permitted to access all secrets available to the {{ model.techShortName }} Dispatcher instance.
 
-## Binary Secrets
+## Binary secrets
 
 You can store binary files, like a Kerberos keytab, in the DC/OS secrets store. In DC/OS 1.11 and later, you can create secrets from binary files directly, while in DC/OS 1.10 or lower, files must be base64-encoded as specified in RFC 4648 prior to being stored as secrets.
 
@@ -79,7 +91,7 @@ in your {{ model.techShortName }} application.
 
 <p class="message--note"><strong>NOTE: </strong>Make sure to only refer to binary secrets as files since holding binary content in environment variables is discouraged.</p>
 
-# Using Mesos Secrets
+# Using Mesos secrets
 
 Once a secret has been added in the secret store, you can pass it to {{ model.techShortName }} with the `spark.mesos.<task-name>.secret.names` and `spark.mesos.<task-name>.secret.<filenames|envkeys>` configuration parameters, where `<task-name>` is either `driver` or `executor`. Specifying `filenames` or `envkeys` will materialize the secret as either a file-based secret or an environment variable. These configuration parameters take comma-separated lists that are "zipped" together to make the final secret file or environment variable. We recommend using file-based secrets whenever possible as they are more
 secure than environment variables.
@@ -143,7 +155,7 @@ three settings below are **required** during job submission. If using a truststo
 In addition, there are a number of {{ model.techShortName }} configuration variables relevant to SSL setup.  These configuration settings
 are **optional**:
 
-| Variable                         | Description           | Default Value |
+| Variable                         | Description           | Default value |
 |----------------------------------|-----------------------|---------------|
 | `spark.ssl.enabledAlgorithms`    | Allowed cyphers       | JVM defaults  |
 | `spark.ssl.protocol`             | Protocol              | TLS           |
@@ -205,4 +217,4 @@ dcos spark run --submit-args="\
  [11]: https://docs.mesosphere.com/latest/overview/architecture/components/
  [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html
  [13]: https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets
- [14]: https://docs.mesosphere.com/latest/security/secrets/
+ [14]: https://docs.mesosphere.com/latest/security/ent/secrets/

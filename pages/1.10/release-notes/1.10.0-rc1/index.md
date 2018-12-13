@@ -1,9 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  >
-title: >
-  Release Notes for 1.10.0 Release Candidate 1
-menuWeight: 40
+navigationTitle:  Release Notes for 1.10.0 Release Candidate 1
+title: Release Notes for 1.10.0 Release Candidate 1
+menuWeight: 55
 excerpt:
 ---
 
@@ -138,6 +137,8 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
 
 - Marathon-LB 1.11.0 or greater is required for DC/OS 1.10.0. Before upgrading to 1.10.0, uninstall your existing Marathon-LB package and reinstall the updated version.
+
+- Moved file location for the DC/OS CA bundle in the sandbox of Mesos tasks from `$MESOS_SANDBOX/.ssl/ca.crt` to `$MESOS_SANDBOX/.ssl/ca-bundle.crt` and declared the new file path to be stable.
 
 - REX-Ray configuration change.
   DC/OS 1.10.0 upgrades REX-Ray from v03.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray-config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.

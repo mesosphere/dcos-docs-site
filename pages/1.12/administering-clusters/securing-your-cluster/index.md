@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Securing a Cluster
-title: Securing a Cluster
+navigationTitle:  Securing a cluster
+title: Securing a cluster
 excerpt: Understanding the security features in DC/OS
 menuWeight: 7
 ---

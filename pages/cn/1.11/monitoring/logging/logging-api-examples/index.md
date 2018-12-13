@@ -10,13 +10,13 @@ enterprise: false
 
 以下是日志记录 API 的一些常见使用示例。
 
-**前提条件：**
+**先决条件：**
 
 - [Bash](https://www.gnu.org/software/bash/)
 - [Curl](https://curl.haxx.se/)
 - [jq](https://stedolan.github.io/jq/)
-- [DC/OS](/1.11/installing/)
-- 必须安装、配置和登录 [DC/OS CLI](/1.11/cli/)。
+- [DC/OS](/cn/1.11/installing/)
+- 必须安装、配置和登录 [DC/OS CLI](/cn/1.11/cli/)。
 - 从 DC/OS CLI 提取 `DCOS_URL` 和 `DCOS_AUTH_TOKEN`：
 
     ```
@@ -60,12 +60,8 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/agen
 # 容器日志
 
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>以下示例需要进行 journald 任务日志记录，它默认为 <a href="/1.11/monitoring/logging/logging-api/#compatibility">禁用</a>。
-  </td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>以下示例需要进行 journald 任务日志记录，它默认为 <a href="/1.11/monitoring/logging/logging-api/#compatibility">禁用</a>。
+  </p>
 
 从单个组件容器获取最后 100 个日志条目：
 

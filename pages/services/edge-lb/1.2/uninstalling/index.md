@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-<p class="message--warning"><strong>WARNING: Do not use the GUI or CLI (Marathon) to create or destroy services managed by Edge-LB. Operations must be performed exclusively through the Edge-LB CLI or the Edge-LB API.</p>
+<p class="message--warning"><strong>WARNING: </strong>Do not use the DC/OS web interface or CLI (Marathon) to create or destroy services managed by Edge-LB. Operations must be performed exclusively through the Edge-LB CLI or the Edge-LB API.</p>
 
 1.  List the pools which are managed by Edge-LB
 
@@ -29,7 +29,7 @@ enterprise: false
     dcos package uninstall edgelb
     ```
 
-1.  Remove the Universe repositoriess.
+1.  Remove the Universe repositories.
 
     ```bash
     dcos package repo remove edgelb-aws

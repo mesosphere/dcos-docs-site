@@ -24,7 +24,7 @@ dcos package list <package-name> [OPTION]
 |---------|-------------|
 | `--app-id=<app-id>` | 应用程序 ID。|
 | `--cli` | 仅命令行。|
-| `--json` | JSON 格式化的数据。|
+| `--json` | JSON 格式的数据。|
 
 # 位置自变量
 
@@ -36,8 +36,8 @@ dcos package list <package-name> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/cn/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
 
 # 示例
 
-有关示例，请参阅[文档](/1.11/deploying-services/install/)。
+有关示例，请参阅[文档](/cn/1.11/deploying-services/install/)。

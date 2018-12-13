@@ -31,48 +31,86 @@ Marathon-LB has a templating feature for specifying custom HAProxy configuration
 
 ### Global Template
 
-**Note:** The HAPROXY_HEAD section of the template changed in Marathon-LB version 1.12: `daemon` was removed and `stats socket /var/run/haproxy/socket expose-fd listeners` was added to the global section. Ensure that these changes have been made to your custom HAPROXY_HEAD before upgrading to version 1.12.
+<p class="message--note"><strong>NOTE: </strong>The HAPROXY_HEAD section of the template changed in Marathon-LB version 1.12: <code>daemon</code> was removed and <code>stats socket /var/run/haproxy/socket expose-fd listeners</code> was added to the global section. Ensure that these changes have been made to your custom HAPROXY_HEAD before upgrading to version 1.12.</p>
 
 To specify a global template:
 
 1.  On your local machine, create a file called `HAPROXY_HEAD` in a directory called `templates` with the contents below:
 
-        global
-          log /dev/log local0
-          log /dev/log local1 notice
-          maxconn 4096
-          tune.ssl.default-dh-param 2048
-          stats socket /var/run/haproxy/socket expose-fd listeners
-          server-state-file global
-          server-state-base /var/state/haproxy/
-        defaults
-          log global
-          retries 3
-          maxconn 3000
-          timeout connect 5s
-          timeout client 30s
-          timeout server 30s
-          option redispatch
-        listen stats
-          bind 0.0.0.0:9090
-          balance mode http
-          stats enable monitor-uri /_haproxy_health_check
+    ```bash
+    global
+      log /dev/log local0
+      log /dev/log local1 notice
+      spread-checks 5
+      max-spread-checks 15000
+      maxconn 4096
+      tune.ssl.default-dh-param 2048
+      ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:!aNULL:!MD5:!DSS
+      ssl-default-bind-options no-sslv3 no-tlsv10 no-tls-tickets
+      ssl-default-server-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:!aNULL:!MD5:!DSS
+      ssl-default-server-options no-sslv3 no-tlsv10 no-tls-tickets
+      stats socket /var/run/haproxy/socket expose-fd listeners
+      server-state-file global
+      server-state-base /var/state/haproxy/
+      lua-load /marathon-lb/getpids.lua
+      lua-load /marathon-lb/getconfig.lua
+      lua-load /marathon-lb/getmaps.lua
+      lua-load /marathon-lb/signalmlb.lua
+    defaults
+      load-server-state-from-file global
+      log               global
+      retries                   3
+      backlog               10000
+      maxconn                3000
+      timeout connect          5s
+      timeout client          30s
+      timeout server          30s
+      timeout tunnel        3600s
+      timeout http-keep-alive  1s
+      timeout http-request    15s
+      timeout queue           30s
+      timeout tarpit          60s
+      option            dontlognull
+      option            http-server-close
+      option            redispatch
+    listen stats
+      bind 0.0.0.0:9090
+      balance
+      mode http
+      stats enable
+      monitor-uri /_haproxy_health_check
+      acl getpid path /_haproxy_getpids
+      http-request use-service lua.getpids if getpid
+      acl getvhostmap path /_haproxy_getvhostmap
+      http-request use-service lua.getvhostmap if getvhostmap
+      acl getappmap path /_haproxy_getappmap
+      http-request use-service lua.getappmap if getappmap
+      acl getconfig path /_haproxy_getconfig
+      http-request use-service lua.getconfig if getconfig
 
-In the code above, the following items have changed from the default: `maxconn`, `timeout client`, and `timeout server`.
+      acl signalmlbhup path /_mlb_signal/hup
+      http-request use-service lua.signalmlbhup if signalmlbhup
+      acl signalmlbusr1 path /_mlb_signal/usr1
+      http-request use-service lua.signalmlbusr1 if signalmlbusr1
+    ```
 
-**Note:** The current full default HAPROXY_HEAD can be found here:  
+    In the code above, the following items have changed from the default: `maxconn`.
 
-[https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head](https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head).
+    The current `HAPROXY_HEAD`, as well as other Marathon templates, can be [found here](https://github.com/mesosphere/marathon-lb/blob/master/Longhelp.md#haproxy_head").
 
-2.  Tar or zip the file. [Here is a handy script you can use to do this][1].
+2.  Tar or zip the file. 
 
-Take the file you created (`templates.tgz` if you use the script), and make it available from an HTTP server. If you would like to use the sample one, use this URI: <https://downloads.mesosphere.com/marathon/marathon-lb/templates.tgz>
+    ```bash
+    tar czf templates.tgz templates/
+    ```
 
-3.  Augment the Marathon-LB config by saving the following JSON in a file called `options.json`:
+    Take the file you created (`templates.tgz`), and make it available from an HTTP server. 
+
+3.  Augment the Marathon-LB config by copying the following JSON into a file called `options.json`, putting in the URL to your file:
 
         {
           "marathon-lb": {
-            "template-url":"https://downloads.mesosphere.com/marathon/marathon-lb/templates.tgz"
+            "template-url":"<your-http-server-address>/templates.tgz"
           }
         }
 
@@ -123,8 +161,8 @@ Other options you may want to specify include enabling the [sticky option][3], [
 
 ```json
     "labels":{
-      "HAPROXY_0_STICKY":true,
-      "HAPROXY_0_REDIRECT_TO_HTTPS":true,
+      "HAPROXY_0_STICKY":"true",
+      "HAPROXY_0_REDIRECT_TO_HTTPS":"true",
       "HAPROXY_0_VHOST":"nginx.mesosphere.com"
     }
 ```

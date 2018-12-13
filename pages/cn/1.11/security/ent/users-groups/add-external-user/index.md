@@ -4,17 +4,16 @@ navigationTitle: 添加外部用户
 title: 添加外部用户
 menuWeight: 20
 excerpt: 将外部用户添加到 DC/OS
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 在配置目录服务或身份提供程序后，您可以将用户添加到 DC/OS 以便您可以分配权限。
 
 # 先决条件
 
-- 外部 [LDAP 目录](/1.11/security/ent/ldap/)。
-- [OpenID Connect 或 SAML 提供程序](/1.11/security/ent/sso/)。
+- 外部 [LDAP 目录](/cn/1.11/security/ent/ldap/)。
+- [OpenID Connect 或 SAML 提供程序](/cn/1.11/security/ent/sso/)。
 
 # 通过登录尝试添加外部用户
 默认情况下，用户没有 DC/OS 权限。在无任何权限的情况下，任何对 DC/OS 的访问尝试都将失败。但是，如果您已成功配置 LDAP 目录或身份提供程序，且用户提供有效凭据，登录尝试将导致用户帐户被添加到 DC/OS 中。
@@ -44,7 +43,7 @@ enterprise: true
 
 您可以将现有 LDAP 用户组导入到 DC/OS 中。导入 LDAP 组是一次性操作：导入后 ，C/OS 不保持与 LDAP 组的任何连接。
 
-**要求：**LDAP 目录中的组条目必须使用 `member`、`uniquemember` 或 `memberuid` 属性列出其成员。
+<p class="message--important"><strong>重要信息: </strong>LDAP 目录中的组条目必须使用 <tt>member</tt>、<tt>uniquemember</tt> 或 <tt>memberuid</tt> 属性列出其成员。</p>
 
 组大小限制为 100 个用户。要增加此限制数，请联系 Mesosphere 客户支持。如果用户名与现有用户匹配，则不会重新导入。您可以检查日志以确定是否已发生。
 
@@ -52,21 +51,21 @@ enterprise: true
 
 1. 打开 **Settings** -> **LDAP Directory** 选项卡。
 
-2. 单击 **ADD DIRECTORY**。
+1. 单击 **ADD DIRECTORY**。
 
-3. 单击 **Group Import (Optional)**。
+1. 单击 **Group Import (Optional)**。
 
-4. 为应在 **GROUP SEARCH BASE** 字段中搜索的目录树子集提供 DN。例如：`(cn=Users,dc=mesosphere,dc=com)`。
+1. 为应在 **GROUP SEARCH BASE** 字段中搜索的目录树子集提供 DN。例如：`(cn=Users,dc=mesosphere,dc=com)`。
 
-5. 在 **GROUP SEARCH FILTER TEMPLATE** 字段中提供用于将组名称转换为有效 LDAP 搜索筛选器的模板。字符串必须包含 `%(groupname)`。例如：`(&(objectclass=group)(sAMAccountName=%(groupname)s))`。
+1. 在 **GROUP SEARCH FILTER TEMPLATE** 字段中提供用于将组名称转换为有效 LDAP 搜索筛选器的模板。字符串必须包含 `%(groupname)`。例如：`(&(objectclass=group)(sAMAccountName=%(groupname)s))`。
 
-6. 完成后，对话框应如下所示。
+1. 完成后，对话框应如下所示。
 
- ![LDAP 组导入配置](/1.11/img/1-11-ldap-group-import.png)
+    ![LDAP 组导入配置](/cn/1.11/img/ldap-group-import.png)
 
- 图 1. LDAP 组导入配置
+    图 1. LDAP 组导入配置
 
-7. 单击 **ADD DIRECTORY**。
+1. 单击 **ADD DIRECTORY**。
 
 ## 使用 Web 界面导入 LDAP 组
 
@@ -81,17 +80,17 @@ enterprise: true
 
 ## 使用 API 导入 LDAP 组
 
-您可以使用 `/ldap/importuser` [IAM API](/1.11/security/ent/iam-api/) 端点导入一组 LDAP 用户。
+您可以使用 `/ldap/importuser` [IAM API](/cn/1.11/security/ent/iam-api/) 端点导入一组 LDAP 用户。
 
-**前提条件：**
+**先决条件：**
 
-- 必须设置 `group-search` 配置密钥，如[配置 LDAP 组导入](#Configure-LDAP-group-import) 中所述。
+- 必须设置 `group-search` 配置验证序号，如[配置 LDAP 组导入](#Configure-LDAP-group-import) 中所述。
 - 现有组条目必须通过使用 `member`、`uniquemember` 或 `memberuid` 属性列出其成员。
-- 如果您[安全模式](/1.11/security/ent/#security-modes)为 `permissive` 或 `strict`，则在本部分中发出 curl 命令之前，必须遵循[获取 DC/OS CA 根证书]中的步骤(/1.11/security/ent/tls-ssl/get-cert/)。如果您的[安全模式](/1.11/security/ent/#security-modes)为 `disabled`，则必须在将其发出前从命令中删除 `--cacert dcos-ca.crt`。
+- 如果您[安全模式](/cn/1.11/security/ent/#security-modes)为 `permissive` 或 `strict`，则在本部分中发出 curl 命令之前，必须遵循[获取 DC/OS CA 根证书]中的步骤(/cn/1.11/security/ent/tls-ssl/get-cert/)。如果您的[安全模式](/cn/1.11/security/ent/#security-modes)为 `disabled`，则必须在将其发出前从命令中删除 `--cacert dcos-ca.crt`。
 
 在此示例中，导入了名为 `johngroup` 的组。
 
-1. 登录 CLI 以确保您可以引用以下代码样本中所示的群集 URL。
+1. 登录 CLI 以确保您可以引用以下代码样本中所示的集群 URL。
 
 1. 使用此命令启动导入：
 

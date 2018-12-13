@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon deployment watch` 命令允许您监控部署。
+`dcos marathon deployment watch` 命令让您监控部署。
 
 # 使用
 
@@ -30,11 +30,11 @@ dcos marathon deployment watch <deployment-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<deployment-id>`   | The deployment ID. You can view a list of the deployment IDs with the `dcos marathon deployment list` 命令。|
+| `<deployment-id>`   | 部署ID。 您可以使用以下命令查看应用程序ID列表 `dcos marathon deployment list` 命令。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 

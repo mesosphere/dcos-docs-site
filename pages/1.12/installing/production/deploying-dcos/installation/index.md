@@ -156,9 +156,22 @@ By default, DC/OS clusters have [fault domain awareness](/1.12/deploying-service
 
 1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain. During installation, the output of this script is passed to Mesos.
 
-   We recommend the format for the script output be `fault_domain: region: name: <region>, zone: name: <zone>`. We provide [fault domain detect scripts for AWS and Azure](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+    We recommend the format for the script output be:
 
-   <p class="message--warning"><strong>WARNING: </strong>This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
+    ```json
+    {
+      "fault_domain": {
+        "region": {
+          "name": <region>,
+          "zone": <zone>
+        }
+      }
+    }
+    ```
+
+    We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+
+    <p class="message--important"><strong>IMPORTANT: </strong>This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
 
 
 2. Add your newly created `fault-domain-detect` script to the `/genconf` directory of your bootstrap node.
@@ -275,8 +288,8 @@ In this step, you will create a custom DC/OS build file on your bootstrap node a
 <p class="message--note"><strong>NOTE: </strong>Due to a cluster configuration issue with overlay networks, we recommend setting <code>enable_ipv6</code> to <code>false</code> in <code>config.yaml</code> when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.12.x without configuring <code>enable_ipv6</code> or if <code>config.yaml</code> file is set to <code>true</code>, then do not add new nodes.</p>
 
 You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
-<p class="message--important"><strong>IMPORTANT: </strong>Do not install DC/OS until you have these items working: <code>ip-detect script</code>, <code>DNS</code>, and <code>NTP</code> on all DC/OS nodes with time synchronized. See <a href="/1.12/installing/ent/troubleshooting/">troubleshooting</a> for more information.</p>
-<p class="message--note"><strong>NOTE: </strong>If something goes wrong and you want to rerun your setup, use the cluster <a href="/1.12/installing/oss/custom/uninstall/">uninstall</a> instructions.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Do not install DC/OS until you have these items working: <code>ip-detect script</code>, <code>DNS</code>, and <code>NTP</code> on all DC/OS nodes with time synchronized. See <a href="https://docs.mesosphere.com/1.12/installing/troubleshooting/">troubleshooting</a> for more information.</p>
+<p class="message--note"><strong>NOTE: </strong>If something goes wrong and you want to rerun your setup, use the cluster <a href="https://docs.mesosphere.com/1.12/installing/production/uninstalling/">uninstall</a> instructions.</p>
 
 **Prerequisites**
 

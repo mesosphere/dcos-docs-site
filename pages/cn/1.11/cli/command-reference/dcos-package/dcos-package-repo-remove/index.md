@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos package repo remove` 命令允许您从 DC/OS 中删除软件包存储库。
+`dcos package repo remove` 命令让您从 DC/OS 中删除软件包存储库。
 
 # 使用
 
@@ -22,20 +22,20 @@ dcos package repo remove <repo-name> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
+| `<repo-name>`   |   包存储库的名称。 例如, `Universe`. |
 
 # 位置自变量
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
+| `<repo-name>`   |   包存储库的名称。 例如, `Universe`. |
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/cn/1.11/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
 
 # 示例
 
-有关示例，请参阅[文档](/1.11/administering-clusters/repo/)。
+有关示例，请参阅[文档](/cn/1.11/administering-clusters/repo/)。

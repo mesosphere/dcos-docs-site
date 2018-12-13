@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The dcos edgelb ping command lets you test the readiness of the Edge-LB API server. A successful result is the string `pong`. This command will return an HTTP error if the API is not yet available.
+The `dcos edgelb ping` command lets you test the readiness of the Edge-LB API server. A successful result is the string `pong`. This command will return an HTTP error if the API is not yet available.
 
 # Usage
 
@@ -29,8 +29,8 @@ dcos edgelb ping
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) |  Manage Edge-LB. |
+| [dcos edgelb](/services/edge-lb/1.2/cli-reference) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.1/usage).
+See the [Edge-LB Usage](/services/edge-lb/1.2/usage).

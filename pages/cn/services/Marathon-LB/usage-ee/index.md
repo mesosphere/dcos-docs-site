@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-title: Install and Customize on DC/OS Enterprise
+title: 在 DC/OS Enterprise 上安装和自定义
 menuWeight: 2
-excerpt: Installing and customizing Marathon-LB on DC/OS Enterprise
-
+excerpt: 在 DC/OS 企业上安装和自定义 Marathon-LB
+navigationTitle: 上安装和自定义 ： 企业
 enterprise: true
 ---
 
 ## 关于安装 Marathon-LB
 
-安装流程因您的 [安全模式] 而异(/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。有关分步说明，请参阅与安全模式相对应的部分。
+安装流程因您的 [安全模式而异](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。有关分步说明，请参阅与安全模式相对应的部分。
 
 - [`disabled` 和 `permissive` 模式](#mlb-disabled-install)
 - [`strict` 模式](#mlb-strict-perm-install)
@@ -18,9 +18,9 @@ enterprise: true
 
 ### 使用 DC/OS CLI
 
-**前提条件：**
-- [已安装 DC/OS CLI](/1.10/cli/install/)
-- 作为具有 [必要权限] 的用户通过 `dcos auth login` 登录(/1.10/security/ent/perms-reference/)。
+**先决条件：**
+- [已安装 DC/OS CLI](/cn/1.11/cli/install/)
+- 作为具有 [必要权限 的用户通过 `dcos auth login` 登录](/cn/1.11/security/ent/perms-reference/)。
 
 如果您不想更改任何默认设置，您可以使用以下命令安装 Marathon-LB：
 
@@ -42,7 +42,7 @@ dcos package install --options=config.json marathon-lb
 
 ### 使用目录
 
-要在 `disabled` 和 `permissive` 模式中从目录中安装 Marathon-LB，以具有[必要权限]的用户身份登录到 DC/OS Web 界面(/1.10/security/ent/perms-reference/)。
+要在 `disabled` 和 `permissive` 模式中从目录中安装 Marathon-LB，以具有[必要权限的用户身份登录到 DC/OS Web 界面](/cn/1.11/security/ent/perms-reference/)。
 
 1. 单击 **目录** 选项卡。
 2. 找到 **marathon-lb**包。
@@ -52,13 +52,13 @@ dcos package install --options=config.json marathon-lb
 
 ## <a name="mlb-strict-perm-install"></a>以严格模式安装
 
-**前提条件：**
+**先决条件：**
 
-- Marathon-LB 需要一个`strict` [安全模式](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)中的服务帐户。只有具有 `superuser` 权限的用户才能创建服务帐户。请参阅 [Provisioning Marathon-LB](/services/marathon-lb/mlb-auth/) 了解说明。
+- Marathon-LB 需要一个`strict` [安全模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)中的服务帐户。只有具有 `superuser` 权限的用户才能创建服务帐户。请参阅 [Provisioning Marathon-LB](/cn/services/marathon-lb/mlb-auth/) 了解说明。
 
-- [已安装 DC/OS CLI](/1.10/cli/install/) 并作为具有 [必要权限](/1.10/security/ent/perms-reference/)的用户通过 `dcos auth login` 登录。
+- [已安装 DC/OS CLI](/cn/1.11/cli/install/) 并作为具有 [必要权限](/cn/1.11/security/ent/perms-reference/)的用户通过 `dcos auth login` 登录。
 
-需要 [Provisioning Marathon-LB] (/services/marathon-lb/mlb-auth/) 中显示的参数才能安装 Marathon-LB。在安装服务之前，您可能希望修改其他默认值。要查看 Marathon-LB 的配置选项和默认值，请键入以下命令。
+需要 [Provisioning Marathon-LB](/cn/services/marathon-lb/mlb-auth/) 中显示的参数才能安装 Marathon-LB。在安装服务之前，您可能希望修改其他默认值。要查看 Marathon-LB 的配置选项和默认值，请键入以下命令。
 
 ```bash
 dcos package describe --config marathon-lb
@@ -72,9 +72,9 @@ dcos package install --options=config.json marathon-lb
 
 # 后续步骤
 
-- [教程 - 使用 Marathon-LB 部署负载均衡应用](/services/marathon-lb/marathon-lb-basic-tutorial/)
-- [教程 - 使用 Marathon-LB 进行内部和外部负载均衡](/services/marathon-lb/marathon-lb-advanced-tutorial/)
-- 查看高级 Marathon-LB [文档](/services/marathon-lb/advanced/)。
+- [教程 - 使用 Marathon-LB 部署负载均衡应用](/cn/services/marathon-lb/marathon-lb-basic-tutorial/)
+- [教程 - 使用 Marathon-LB 进行内部和外部负载均衡](/cn/services/marathon-lb/marathon-lb-advanced-tutorial/)
+- 查看高级 Marathon-LB [文档](/cn/services/marathon-lb/advanced/)。
 
  [1]: /1.10/installing/oss/
  [2]: /1.10/cli/install/

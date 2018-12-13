@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt: Guide for DC/OS on Azure using the Universal Installer
 title: DC/OS on Azure using the Universal Installer
 navigationTitle: Azure
-menuWeight: 0
+menuWeight: 2
 ---
 This installation method is officially supported by Mesosphere. Upgrades are supported using this installation method.
 

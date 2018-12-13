@@ -74,7 +74,7 @@ docker-pdf-run: ## Run pdf container.
 	docker-compose -f ./docker/docker-compose.production.yml up -d pdf
 
 docker-site-check-links: ## Run link checker test
-	docker-compose -f ./docker/docker-compose.production.yml up test
+	docker-compose -f ./docker/docker-compose.production.yml up --build test
 
 docker-purge:
 	./scripts/docker-purge.sh

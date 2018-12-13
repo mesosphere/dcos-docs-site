@@ -7,7 +7,7 @@ excerpt: 管理 DC/OS 证书颁发机构
 
 enterprise: true
 ---
-`dcos security` 命令允许您管理 DC/OS 证书颁发机构凭据。
+`dcos security` 命令让您管理 DC/OS 证书颁发机构资格。
 
 ## dcos security cluster ca
 管理 DC/OS 证书颁发机构，包括签署证书、生成 CSR 以及签署信息检索。

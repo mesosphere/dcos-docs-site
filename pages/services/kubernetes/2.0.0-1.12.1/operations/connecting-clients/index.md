@@ -20,13 +20,13 @@ excerpt: Accessing the Kubernetes API with and without TLS verification, and man
 
 - Ensure that `dcos` is adequately configured to access the desired DC/OS cluster before proceeding.
 
-<p class="message--warning"><strong>WARNING: </strong><tt>dcos</tt> <strong>MUST</strong> be configured to access the desired DC/OS cluster over HTTPS before proceeding.
+<p class="message--warning"><strong>WARNING: </strong>You <strong>MUST</strong> configure <tt>dcos</tt> to access the desired DC/OS cluster over HTTPS before proceeding.
 </br>The following command must return a URL that starts with <tt>https://</tt>
 </br><tt>$ dcos config show core.dcos_url</tt>
-</br></br>In case the returned URL doesn't start with <tt>https://</tt> run:
-</br><tt>$ dcos config set core.dcos_url https://&lt;master-ip&gt;</tt>
-Also if the TLS certificate used by DC/OS is not trusted you additionally need to run the following command to disable TLS verification:
-</br><<tt>$ dcos config set core.ssl_verify false</tt>
+</br></br>If the returned URL doesn't start with the <tt>https://</tt> string, run the following command:
+</br><tt>$ dcos config set core.dcos_url https://&lt;master-ip&gt;</tt></br></br>
+If the TLS certificate used by DC/OS is not trusted, run the following command to disable TLS verification:
+</br><tt>$ dcos config set core.ssl_verify false</tt>
 </p>
 
 # Without TLS verification

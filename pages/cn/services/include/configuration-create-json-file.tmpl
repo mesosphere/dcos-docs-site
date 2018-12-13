@@ -1,3 +1,11 @@
 ## <a name="create-json"></a>创建自定义配置文件
 创建将用于安装 {{ model.techName }} 的自定义配置文件，并另存为 `config.json`。指定服务帐户 (`<service_account_id>`) and a secret path (`{{ model.packageName }}/<secret-name>`) .
-<```>json<linebreak>{<linebreak>  "service": {<linebreak>    "service_account": "<service_account_id>",<linebreak>    "service_account_secret": "{{ model.packageName }}/<secret-name>"<linebreak>  }<linebreak>}<linebreak></```>
+
+```json
+{
+  "service": {
+    "service_account": "<service_account_id>",
+    "service_account_secret": "{{ model.packageName }}/<secret-name>"
+  }
+}
+```

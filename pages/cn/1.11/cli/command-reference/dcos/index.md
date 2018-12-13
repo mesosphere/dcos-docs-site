@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos` 命令允许您管理 DC/OS 环境变量。
+`dcos` 命令让您管理 DC/OS 环境变量。
 
 # 使用
 
@@ -24,7 +24,7 @@ dcos [options] [<command>] [<args>...]
 |---------|-------------|-------------|
 | | `--debug` | 启用调试模式。|
 | | `--help, h` | 显示使用情况。|
-| `--log-level=<log-level>`  | Set the logging level. This setting does not affect the output sent to `stdout`. |
+| `--log-level=<log-level>`  | 设置日志记录级别。 此设置不会影响发送到的输出 `stdout`. |
 | | `--version, v` | 显示版本信息。 |
 | `<log-level>` | 严重性等级如表 2 所示。|
 

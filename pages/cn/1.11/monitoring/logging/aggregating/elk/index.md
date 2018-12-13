@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle: 使用 ELK 进行日志管理
 title: 使用 ELK 进行日志管理
 menuWeight: 1
-excerpt: 从群集节点管理系统和应用程序日志
+excerpt: 从集群节点管理系统和应用程序日志
 
 enterprise: false
 ---
 
 
 
-您可以将 DC/OS 群集中节点的系统和应用程序日志传输到 Elasticsearch 服务器。这些说明是基于 CentOS 7，可能极大地不同于与其他 Linux 系统分配。
+您可以将 DC/OS 集群中节点的系统和应用程序日志传输到 Elasticsearch 服务器。这些说明是基于 CentOS 7，可能极大地不同于与其他 Linux 系统分配。
 
 
 # 本文档涵盖和不涵盖的内容
@@ -19,14 +19,14 @@ enterprise: false
 
 本文档未介绍如何设置和配置 Elasticsearch 服务器。本文档未介绍如何在 Filebeat 实例和 Elasticsearch 之间建立安全的 TLS 通信。有关如何实现此操作的详细信息，请参阅 [Filebeat][2] 和 [Elasticsearch][5] 文档。
 
-**前提条件**
+**先决条件**
 
 * 现有 Elasticsearch 装置可以消化数据用于索引
 * 所有 DC/OS 节点都必须能够连接到用于在 Elasticsearch 和 Filebeat 之间通信的端口上的 Elasticsearch 服务器（默认情况下为 9200）
 
 ## <a name="all"></a>步骤 1：安装 Filebeat
 
-对于 DC/OS 群集中的所有节点：
+对于 DC/OS 集群中的所有节点：
 
 1. 安装 Elastic 的 [Filebeat][2]。
 
@@ -62,19 +62,16 @@ enterprise: false
       hosts: ["$ELK_HOSTNAME:$ELK_PORT"]
     ```
 
-<table class=“table” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>代理节点 Filebeat 配置要求任务将日志写入 `stdout` 和 `stderr`。某些 DC/OS 服务（包括 Cassandra 和 Kafka）不会将日志写入 `stdout` 和 `stderr`。如果要记录这些服务，您必须自定义代理节点 Filebeat 配置。</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>代理节点 Filebeat 配置要求任务将日志写入 <tt>stdout</tt> 和 <tt>stderr</tt>。某些 DC/OS 服务（包括 Cassandra 和 Kafka）不会将日志写入 <tt>stdout</tt> 和 <tt>stderr</tt>。如果要记录这些服务，您必须自定义代理节点 Filebeat 配置。</p> 
+
 
 ## <a name="all-2"></a>步骤 2：为分析日志设置服务
 
-对于 DC/OS 群集中的所有节点：
+对于 DC/OS 集群中的所有节点：
 
 1. 创建脚本 `/etc/systemd/system/dcos-journalctl-filebeat.service`，该脚本可解析 DC/OS 管理节点 `journalctl` 日志的输出并将其输送到 `/var/log/dcos/dcos.log`。
 
- 此脚本可配合 DC/OS 和 Enterprise DC/OS 使用。不适用的日志条目将被忽略。
+    此脚本可配合 DC/OS 和 Enterprise DC/OS 使用。不适用的日志条目将被忽略。
 
     ```bash
     sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF
@@ -109,7 +106,7 @@ enterprise: false
 
 ### <a name="all"></a>ELK 节点注释
 
-ELK 堆栈将接收、存储、搜索和显示有关以上为群集中所有节点配置的 Filebeat 实例所解析的日志的信息。
+ELK 堆栈将接收、存储、搜索和显示有关以上为集群中所有节点配置的 Filebeat 实例所解析的日志的信息。
 
 本文档介绍如何从 Filebeat 直接传输到 Elasticsearch。此架构中没有使用 Logstash。如果您有兴趣筛选、剖析和了解处于中间 Logstash 阶段的日志，请参阅 Logstash [文档][8]。
 

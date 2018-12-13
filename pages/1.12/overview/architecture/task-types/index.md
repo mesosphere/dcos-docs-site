@@ -12,7 +12,7 @@ DC/OS can run many different kinds of workloads, which are composed of tasks. DC
 
 # Executors
 
-When the [scheduler](/1.12/overview/concepts/#dcos-scheduler) launches a task, it specifies a [Mesos Executor](/1.12/overview/concepts/#mesos-executor), which then executes the task. In Mesos, the scheduler and its executor(s) are called a [framework](/1.12/overview/concepts/#mesos-framework), but within the broader context of DC/OS we often use the terms "scheduler", "executor", and "task" explicitly.
+When the [scheduler](/1.12/overview/concepts/#mesos-scheduler) launches a task, it specifies a [Mesos Executor](/1.12/overview/concepts/#mesos-executor), which then executes the task. In Mesos, the scheduler and its executor(s) are called a [framework](/1.12/overview/concepts/#mesos-framework), but within the broader context of DC/OS we often use the terms "scheduler", "executor", and "task" explicitly.
 
 ### Built-in executors
 
@@ -36,7 +36,7 @@ DC/OS has two built-in schedulers:
 
 ### User space schedulers
 
-Additional schedulers can be installed as [scheduler services](/1.12/overview/concepts/#dcos-scheduler-service) on Marathon, either from the [Mesosphere Universe](/1.12/overview/concepts/#mesosphere-universe) or directly via Marathon.
+Additional schedulers can be installed as [scheduler services](/1.12/overview/concepts/#dcos-scheduler-service) on Marathon, either from the [Mesosphere Universe](/1.12/overview/concepts/#mesosphere-universe) or directly through Marathon.
 
 Example user space schedulers:
 

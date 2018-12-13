@@ -29,7 +29,7 @@ This topic describes how to provision a Marathon-LB instance that interacts with
 
 **Note:** This document assumes the following:
 * `marathon-lb` as the `marathon-lb` `marathon` service name; if you are installing `marathon-lb` in a different location, you will have to change the secret location accordingly.
-* `marathon-lb/service-account-secret` as the the full path for the secret used to store the credentials for the Marathon-LB service account; if you change the `marathon-lb` service name, you will have to change this.
+* `marathon-lb/service-account-secret` as the full path for the secret used to store the credentials for the Marathon-LB service account; if you change the `marathon-lb` service name, you will have to change this.
 * `mlb-private-key.pem` as the name of the file containing the private key.
 * `mlb-public-key.pem` as the name of the file containing the public key.
 

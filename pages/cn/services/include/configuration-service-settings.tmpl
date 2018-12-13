@@ -5,9 +5,12 @@
 布局约束允许您自定义 DC/OS 群集中部署服务的位置。布局约束使用 [Marathon 运营商](http://mesosphere.github.io/marathon/docs/constraints.html) 语法。例如，`[["hostname", "UNIQUE"]]` 确保每个代理最多部署一个 Pod。
 
 通用任务是指定要对其进行部署的白名单系统列表。为此，请使用以下语法用于布局约束：
-<```><linebreak>[["hostname", "LIKE", "10.0.0.159|10.0.1.202|10.0.3.3"]]<linebreak></```>
 
-**注意**：请务必在这种情境中包括超额容量，以便如果白名单系统中的一个系统性能下降，还有足够的容量修复您的服务。
+```
+[["hostname", "LIKE", "10.0.0.159|10.0.1.202|10.0.3.3"]]
+```
+
+<p class="message--important"><strong>注意: </strong>请务必在这种情境中包括超额容量，以便如果白名单系统中的一个系统性能下降，还有足够的容量修复您的服务。</p>
 
 #### 更新布局约束
 
@@ -20,14 +23,22 @@
 **需要：** DC/OS 1.11 Enterprise 或更高版本。
 
 通过引用 `@zone` 键，布局约束可以应用于 DC/OS 区。例如，可以通过包括此约束在最少三个不同区中扩散 Pod：
-<```><linebreak>[["@zone", "GROUP_BY", "3"]]<linebreak></```>
+```
+[["@zone", "GROUP_BY", "3"]]
+```
 
-**注意：** 安装时不带有区约束的服务无法更新为有约束的服务，而安装时带有区约束的服务可能无法删除此约束。
+<p class="message--warning"><strong>注意：</strong> 安装时不带有区约束的服务无法更新为有约束的服务，而安装时带有区约束的服务可能无法删除此约束。</p>
 
 ### 虚拟网络
 
-DC/OS {{ model.techName }} 支持在 DC/OS 的 [虚拟网络] (/latest/networking/virtual-networks/) 上进行部署（包括 `dcos` 覆盖网络），允许每个容器（任务）拥有自己的 IP 地址，而不使用代理机器上的端口资源。这可以通过在安装过程中传递以下配置来指定：
+DC/OS {{ model.techName }} 支持在 DC/OS 的 [虚拟网络](/cn/1.11/networking/virtual-networks/) 上进行部署（包括 `dcos` 覆盖网络），允许每个容器（任务）拥有自己的 IP 地址，而不使用代理机器上的端口资源。这可以通过在安装过程中传递以下配置来指定：
 
-<```>json<linebreak>{<linebreak>  "service": {<linebreak>    "virtual_network_enabled": true<linebreak>  }<linebreak>}<linebreak></```>
+```json
+{
+  "service": {
+    "virtual_network_enabled": true
+  }
+}
+```
 
-**注意：** 服务在虚拟网络上部署后，就无法将其更新以使用主机网络。
+<p class="message--note"><strong>注意：</strong> 服务在虚拟网络上部署后，就无法将其更新以使用主机网络。</p>

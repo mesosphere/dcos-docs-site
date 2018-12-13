@@ -11,7 +11,7 @@ enterprise: false
 
 
 # 说明
-`dcos job run` 命令允许您立即运行作业。
+`dcos job run` 命令让您立即运行作业。
 
 # 使用
 
@@ -33,7 +33,7 @@ dcos job run <job-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
 
 # 示例
 

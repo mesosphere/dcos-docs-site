@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos config validate` 命令允许您验证对配置文件的更改。
+`dcos config validate` 命令让您验证对配置文件的更改。
 
 # 使用
 
@@ -21,4 +21,4 @@ dcos config validate
 
 | 命令 | 说明 |
 |---------|-------------|
-|[dcos config](/1.11/cli/command-reference/dcos-config/) | 管理 DC/OS 配置。 |
+|[dcos config](/cn/1.11/cli/command-reference/dcos-config/) | 管理 DC/OS 配置。 |

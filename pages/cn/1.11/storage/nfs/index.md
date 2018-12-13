@@ -12,22 +12,18 @@ menuWeight: 1
 
 对于某些有状态的服务，如 Jenkins，可以方便地将共享网络驱动器挂载到每个节点。如果使用中的节点不可用，则共享网络驱动器可以在新节点上启动任务。
 
-<table class=“table” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>注意：</strong>此示例使用 CorEos 和 `systemd`，且尚未在其他环境中进行测试。</td> 
-</tr> 
-</table>
+<p class="message--note"><strong>注意：</strong>此示例使用 CoreOS 和 <tt>systemd</tt>，且尚未在其他环境中进行测试。</p>
 
 
 ### 注意
 
-- 这些说明是 CorEos 特定的。
-- 这不是 HA NFS 服务器。它在单个主节点上运行，只能用作概念证明。
+- 这些说明是 CoreOS 专属的。
+- 这不是 HA NFS 服务器。它在单个管理节点上运行，只能用作概念证明。
 - 如果您有权访问预先存在的 NFS 或其他网络存储，请跳转到[配置代理程序以挂载驱动器
 ](#agent)。
-### 使用文件共享配置主节点
+### 使用文件共享配置管理节点
 
-1. 使用 DC/OS 命令行界面登录主节点：
+1. 使用 DC/OS 命令行界面登录管理节点：
 
     ```bash
     dcos node ssh --master-proxy --leader
@@ -64,7 +60,7 @@ menuWeight: 1
 
 ### 配置代理程序以挂载驱动器
 
-1. 列出群集中的节点：
+1. 列出集群中的节点：
 
     ```bash
     dcos node

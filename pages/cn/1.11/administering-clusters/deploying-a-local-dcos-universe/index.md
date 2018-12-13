@@ -13,13 +13,13 @@ enterprise: false
 
 您可以部署包含所有已认证包的本地 Universe（最简单），或包含所选包的本地 Universe（高级）。
 
-**前提条件：**
+**先决条件：**
 
-- [已安装 DC/OS CLI](/1.11/cli/install/)。
+- [已安装 DC/OS CLI](/cn/1.11/cli/install/)。
 
 - 登录到 DC/OS CLI。在 DC/OS Enterprise 上，您必须以具有 `dcos:superuser` 权限的用户登录。
 
-**注意：** 由于 Universe tarball 大小超过 2 GB，将其下载到您的本地驱动器，并将其上传到每个管理节点可能需要一些时间。
+<p class="message--note"><strong>注意: </strong> 由于 Universe tarball 大小超过 2 GB，将其下载到您的本地驱动器，并将其上传到每个管理节点可能需要一些时间。</p>
 
 # <a name="certified"></a>部署包含 Certified Universe 包的本地 Universe
 
@@ -33,15 +33,15 @@ enterprise: false
 
 1. 使用 [安全副本](https://linux.die.net/man/1/scp) 将 Universe 和注册表文件传输到管理节点，先使用管理节点的公用 IP 地址替换 `<master-IP>`，然后再发出以下命令。
 
- **提示：** 您可以在 DC/OS Web 界面的左上角找到管理节点的公用 IP 地址。
+    **提示：** 您可以在 DC/OS Web 界面的左上角找到管理节点的公用 IP 地址。
 
     ```bash
     scp local-universe.tar.gz core@<master-IP>:
-~    scp dcos-local-universe-http.service core@<master-IP>:
-~    scp dcos-local-universe-registry.service core@<master-IP>:
-~    ```
+    scp dcos-local-universe-http.service core@<master-IP>:
+    scp dcos-local-universe-registry.service core@<master-IP>:   
+    ```
 
-1. 使用以下命令 [SSH](/1.11/administering-clusters/sshcluster/) 至管理节点。使用先前命令中使用的 IP 地址替换 `<master-IP>` 。
+1. 使用以下命令 [SSH](/cn/1.11/administering-clusters/sshcluster/) 至管理节点。使用先前命令中使用的 IP 地址替换 `<master-IP>` 。
 
     ```bash
     ssh -A core@<master-IP>
@@ -78,7 +78,7 @@ enterprise: false
     docker load < local-universe.tar.gz
     ```
 
- **提示：** 这可能需要一些时间才能完成。
+    **提示：** 这可能需要一些时间才能完成。
 
 1. 重新启动 systemd 守护程序。
 
@@ -104,23 +104,23 @@ enterprise: false
 
 1. 如果只有一个管理节点，跳转至步骤 25。如果您有多个管理节点，继续下一步。
 
-1. 使用以下命令发现所有管理节点的私有 IP 地址。识别现在从列表中通过 SSH 所进入的管理节点的私有 IP 地址。
+1. 使用以下命令查询所有管理节点的私有 IP 地址。从列表中识别现在通过 SSH 所进入的管理节点的私有 IP 地址。
 
- **提示：** 它将与在您的提示中 `core@ip-` 之后显示的路径匹配，其中连字符变为句号。
+    **提示：** 它将与在您的提示中 `core@ip-` 之后显示的路径匹配，其中连字符变为句号。
 
     ```
     host master.mesos
     ```
 
-1. 使用 [安全副本](https://linux.die.net/man/1/scp) 将 Universe 和注册表文件传输到其他管理节点之一。使用先前命令中使用的 IP 地址替换 `<master-IP>` 用其他管理节点的 IP 地址。
+1. 使用 [安全副本](https://linux.die.net/man/1/scp) 将 Universe 和注册表文件传输到另一个管理节点之一。使用另一个管理节点的 IP 地址替换 `<master-IP>`。
 
     ```bash
     scp local-universe.tar.gz core@<master-IP>:
-~    scp /etc/systemd/system/dcos-local-universe-registry.service core@<master-IP>:
-~    scp /etc/systemd/system/dcos-local-universe-http.service core@<master-IP>:
-~    ```
+    scp /etc/systemd/system/dcos-local-universe-registry.service core@<master-IP>:
+    scp /etc/systemd/system/dcos-local-universe-http.service core@<master-IP>:
+    ```
 
-1. [SSH](/1.11/administering-clusters/sshcluster/) 至收到这些复制文件的管理节点中
+1. [SSH](/cn/1.11/administering-clusters/sshcluster/) 至收到这些复制文件的管理节点中
 
     ```bash
     ssh -A core@<master_IP>
@@ -151,13 +151,13 @@ enterprise: false
     ls -la /etc/systemd/system/dcos-local-universe-*
     ```
 
-1. 将 Universe 加载到本地 Docker 实例中。
+1. 将 Universe 加载到本地 Docker 个体实例中。
 
     ```
     docker load < local-universe.tar.gz
     ```
 
- **提示：** 这可能需要一些时间才能完成。
+    **提示：** 这可能需要一些时间才能完成。
 
 1. 重新启动 Docker 守护程序。
 
@@ -179,29 +179,29 @@ enterprise: false
     sudo systemctl status dcos-local-universe-registry
     ```
 
-1. 重复步骤 14 至 23，直到对所有管理节点完成这一程序。然后继续下一步。
+1. 重复步骤 14 至 23，直到为所有管理节点完成这一程序。然后继续下一步。
 
 1. 通过键入 `exit` 或打开新终端提示关闭 SSH 会话。
 
- **提示：** 如果有多个管理节点，您可能必须退出多个 SSH 会话。
+    **提示：** 如果有多个管理节点，您可能必须退出多个 SSH 会话。
 
-1. （可选）使用以下命令删除群集对默认 Universe 的引用。如果要将默认 Universe 保留在适当位置，只需将本地 Universe 添加为附加资源库，跳至下一步。
+1. （可选）使用以下命令删除集群对默认 Universe 的指向。如果要将默认 Universe 保留在默认状态，只需将本地 Universe 添加为附加资源库，跳至下一步。
 
     ```bash
     dcos package repo remove Universe
     ```
 
- **提示：** 您还可以从 DC/OS Web 界面中的 **设置** > **包资源库** 中删除对默认 Universe 资源库的引用。
+    **提示：** 您还可以从 DC/OS Web 界面中的 **设置** > **包资源库** 中删除对默认 Universe 资源库的指向。
 
-1. 使用以下命令添加对您已添加到每个管理节点的本地 Universe 的引用。
+1. 使用以下命令添加对您已添加到每个管理节点的本地 Universe 的指向。
 
     ```bash
     dcos package repo add local-universe http://master.mesos:8082/repo
     ```
- **注意：** 如果您需要帮助解析 `master.mesos`，请参阅 [安装您自己的 Universe 包集合](https://docs.mesosphere.com/1.9/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages)。
+    <p class="message--note"><strong>注意: </strong> 如果您需要帮助解析 <tt>master.mesos</tt>，请参阅 <a href="https://docs.mesosphere.com/1.9/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages">安装您自己的 Universe 包集合</a>。</p>
 
 
-1. [SSH 至您的代理节点之一。](/1.11/administering-clusters/sshcluster/)
+1. [SSH 至您的代理节点之一。](/cn/1.11/administering-clusters/sshcluster/)
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
@@ -217,20 +217,22 @@ enterprise: false
 
 1. 配置 Apache Mesos 提取程序以信任下载的 Docker 证书。
 
- 1. 复制证书：
-   ```
-   sudo cp /etc/docker/certs.d/master.mesos:5000/ca.crt /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt
-   ```
- 1. 生成哈希：
-   ```
-   cd /var/lib/dcos/pki/tls/certs/
-   openssl x509 -hash -noout -in docker-registry-ca.crt
-   ```
- 1. 创建软链接：
-   ```
-   sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
-   ```
- **注意：** 您需要在公共代理创建 `/pki/tls/certs` 目录。
+    1. 复制证书：
+    ```
+    sudo cp /etc/docker/certs.d/master.mesos:5000/ca.crt /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt
+    ```
+
+    2. 生成哈希：
+    ```
+    cd /var/lib/dcos/pki/tls/certs/
+    openssl x509 -hash -noout -in docker-registry-ca.crt
+    ```
+    
+    3. 创建软链接：
+    ```
+    sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
+    ```
+    <p class="message--note"><strong>注意: </strong> 您需要在公共代理创建 `/pki/tls/certs` 目录。</p>
 
 1. 通过键入 `exit` 或打开新终端提示关闭 SSH 会话。在每个代理节点上重复步骤 28-30。
 
@@ -240,15 +242,15 @@ enterprise: false
 
 * **我无法安装 CLI 子命令**
 
- 包托管于 `master.mesos:8082`。如果您无法从您的 DC/OS CLI 安装解析或连接到 `master.mesos:8082`，您无法安装 CLI 子命令。如果您可以在管理节点上连接到端口 8082，将其中一个管理节点 IP 添加到 `/etc/hosts`。
+ 包托管于 `master.mesos:8082`。如果您无法从您的 DC/OS CLI 安装解决或连接到 `master.mesos:8082`，您无法安装 CLI 子命令。如果您可以在管理节点上连接到端口 8082，将其中一个管理节点 IP 添加到 `/etc/hosts`。
 
 * **镜像破损**
 
- 所有 Universe 组件都托管在您的群集中，包括镜像。组件由 `master.mesos:8082`提供。如果您已经连接到该 IP，您可以将其添加到 `/etc/hosts` 并让镜像工作。
+ 所有 Universe 组件都托管在您的集群中，包括镜像。组件由 `master.mesos:8082`提供。如果您已经连接到该 IP，您可以将其添加到 `/etc/hosts` 并让镜像工作。
 
 * **我没有看到我在找的包**
 
- 默认情况下，仅捆绑已认证的包。如果您想获得其他包，请参阅下一节中的说明。
+ 默认情况下，只有已认证的包会做捆绑处理。如果您想获得其他包，请参阅下一节中的说明。
 
 # <a name="build"></a>部署包含选定包的本地 Universe
 

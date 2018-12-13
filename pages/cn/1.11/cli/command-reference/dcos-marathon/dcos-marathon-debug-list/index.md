@@ -11,7 +11,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon debug list` 命令允许您显示正在等待的 Marathon 应用程序部署的当前队列。
+`dcos marathon debug list` 命令显示正在等待的 Marathon 应用程序部署的当前队列。
 
 # 使用
 
@@ -29,6 +29,6 @@ dcos marathon debug list [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
 有关此命令的更多信息，请参阅[监控部分](https://docs.mesosphere.com/1.11/monitoring/debugging/cli-debugging/#dcos-marathon-debug-list)。

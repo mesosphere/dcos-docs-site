@@ -6,7 +6,6 @@ excerpt: List of third party open source software provided by Mesosphere
 
 ---
 
-
 The table below lists the third party open source software which is provided by Mesosphere in connection with Mesosphere DC/OS.
 
 <table class="table">
@@ -169,6 +168,10 @@ The table below lists the third party open source software which is provided by 
 		<tr>
 			<td>strace</td>
 			<td><a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3-Clause License</a></td>
+		</tr>
+		<tr>
+			<td>telegraf</td>
+			<td><a href="https://github.com/influxdata/telegraf/blob/master/LICENSE">MIT License</a></td>
 		</tr>
 		<tr>
 			<td>toybox</td>

@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos service shutdown` 命令允许您关闭服务。
+`dcos service shutdown` 命令让您关闭服务。
 
 # 使用
 
@@ -32,4 +32,4 @@ dcos service shutdown <service-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos service](/1.11/cli/command-reference/dcos-service/) | 管理 DC/OS 服务。|
+| [dcos service](/cn/1.11/cli/command-reference/dcos-service/) | 管理 DC/OS 服务。|

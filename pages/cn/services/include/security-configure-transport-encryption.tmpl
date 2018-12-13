@@ -1,17 +1,38 @@
 ### 先决条件
-- [DC/OS 服务帐户密钥存储在  DC/OS 密钥存储库中](/latest/security/ent/service-auth/custom-service-auth/)。
+- [DC/OS 服务帐户密钥存储在  DC/OS 密钥存储库中](/cn/1.11/security/ent/service-auth/custom-service-auth/)。
 - DC/OS 超级用户权限，用于修改服务帐户的权限。
 
 ### 配置传输加密
 
 #### 设置服务帐户
 
-[授予](/latest/security/ent/perms-management/) 服务帐户正确的权限。
+[授予](/cn/1.11/security/ent/perms-management/) 服务帐户正确的权限。
 - 在 DC/OS 1.10，所需权限为 `dcos:superuser full`。
 - 在 DC/OS 1.11+ 中，所需权限为：
-<```><linebreak>dcos:secrets:default:/<service name>/* full<linebreak>dcos:secrets:list:default:/<service name> read<linebreak>dcos:adminrouter:ops:ca:rw full<linebreak>dcos:adminrouter:ops:ca:ro full<linebreak></```>
+
+
+```
+dcos:secrets:default:/<service name>/* full
+dcos:secrets:list:default:/<service name> read
+dcos:adminrouter:ops:ca:rw full
+dcos:adminrouter:ops:ca:ro full
+```
+
 其中 `<service name>` 是要安装的服务的名称。
 
 #### 安装服务
 除了自有选项，安装 DC/OS {{ model.techName }} 服务包括以下选项：
-<```>json<linebreak>{<linebreak>    "service": {<linebreak>        "service_account": "<your service account name>",<linebreak>        "service_account_secret": "<full path of service secret>",<linebreak>        "security": {<linebreak>            "transport_encryption": {<linebreak>                "enabled": true{{{ model.security.plaintext }}}<linebreak>            }<linebreak>        }<linebreak>    }{{{ model.security.extras }}}<linebreak>}<linebreak></```>
+
+```json
+{
+    "service": {
+        "service_account": "<your service account name>",
+        "service_account_secret": "<full path of service secret>",
+        "security": {
+            "transport_encryption": {
+                "enabled": true{{{ model.security.plaintext }}}
+            }
+        }
+    }{{{ model.security.extras }}}
+}
+```

@@ -41,3 +41,5 @@ model: /services/spark/data.yml
     resource owned by a user with a different UID, preventing the service from launching. If the hosts in your cluster
     have a UID for `nobody` other than 65534, you will need to maintain the default user (`root`) to run DC/OS {{ model.techShortName }}
     successfully.
+
+*   {{ model.techShortName }} does not support CNI at this time. If {{ model.techShortName }} Drivers and       Executors are deployed on CNI Networks, Shuffle Operations will fail.

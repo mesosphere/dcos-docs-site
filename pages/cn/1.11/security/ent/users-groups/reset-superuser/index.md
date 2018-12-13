@@ -4,18 +4,17 @@ navigationTitle: 重置超级用户
 title: 重置超级用户
 menuWeight: 30
 excerpt: 使用 DC/OS 重置超级用户脚本重置现有用户或创建新用户
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 您可使用 DC/OS 重置超级用户脚本重置现有用户或创建新用户。如果超级用户帐户被锁定或无效，这将非常有用。
 
-**先决条件：**您必须具有 DC/OS 群集的 SSH 访问权限。
+**先决条件：**您必须具有 DC/OS 集群的 SSH 访问权限。
 
-1. [SSH](/1.11/administering-clusters/sshcluster/) 到主节点，使用您选择的方法。
+1. [SSH](/cn/1.11/administering-clusters/sshcluster/) 到主节点，使用您选择的方法。
 
- 例如：
+    例如：
 
     ```bash
     dcos node ssh --master-proxy --leader
@@ -27,14 +26,14 @@ enterprise: true
     sudo /opt/mesosphere/bin/dcos-shell /opt/mesosphere/active/bouncer/bouncer/bin/reset-superuser <username>
     ```
 
-1. 输入用户的新密码，然后按照提示完成程序。
+1. 输入用户的新密码，然后按照提示完成步骤。
 
     ```bash
     Type superuser password:
     Retype superuser password:
     ```
 
- 对于现有用户，输出应当类似：
+    对于现有用户，输出应当类似：
 
     ```bash
     170518-22:11:11.630 INFO: Attempt to create user with uid `<username>`.

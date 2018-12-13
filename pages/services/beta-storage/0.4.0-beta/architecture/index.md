@@ -5,6 +5,7 @@ title: Architecture
 menuWeight: 20
 excerpt: Architectural overview of storage support in DC/OS.
 enterprise: true
+beta: true
 ---
 
 The following figure shows the high level architecture of the storage support in DC/OS.

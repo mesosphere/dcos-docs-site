@@ -26,7 +26,7 @@ function spaceship(val1, val2) {
 }
 
 
-function walk(opts, file, files, array, children = [], level = 0) {
+function walk(opts, file, files, array, possiblePaths, children = [], level = 0) {
   // Get path
   const pathParts = file.split('/');
   pathParts.pop();
@@ -67,12 +67,13 @@ function walk(opts, file, files, array, children = [], level = 0) {
       const elem = $('p').first();
       newChild.excerpt = elem.text();
     }
+    possiblePaths[newChild.path] = newChild;
     children.push(newChild);
   }
   // Walk children
   if (child && array.length > 1) {
     const childChildrenArray = array.slice(1, array.length);
-    const childChildren = walk(opts, file, files, childChildrenArray, child.children, level + 1);
+    const childChildren = walk(opts, file, files, childChildrenArray, possiblePaths, child.children, level + 1);
     child.children = childChildren;
   }
   // Sort
@@ -103,12 +104,6 @@ function plugin(opts) {
     setImmediate(done);
 
     const possiblePaths = {};
-    Object.keys(files).map((f) => {
-      const array = f.split('/');
-      array.pop();
-      finalPath = `/${array.join('/')}`;
-      possiblePaths[finalPath] = true;
-    });
 
     const findByPath = function findByPath(pathArg) {
       let pathToFind = pathArg;
@@ -120,23 +115,8 @@ function plugin(opts) {
         // return;
         throw new Error(`Missing file in path: ${pathToFind}`);
       }
-      // Find
-      const f = function find(array, key, value) {
-        return array.find(item => item[key] === value);
-      };
-      const pathSplit = pathToFind.split('/');
-      pathSplit.splice(0, 1);
-      const start = f(this.children, 'id', pathSplit[0]);
-      pathSplit.splice(0, 1);
-      let index = 0;
-      const currentPage = pathSplit.reduce((value, _next) => {
-        if (value.children && value.children.length) {
-          var found = f(value.children, 'id', pathSplit[index]);
-          index += 1;
-        }
-        return found;
-      }, start);
-      return currentPage;
+
+      return possiblePaths[pathToFind];
     };
 
     const find = function find(key, value) {
@@ -162,18 +142,8 @@ function plugin(opts) {
         pathArg = `/${pathArg}`;
       }
       const pathSplit = pathArg.split('/');
-      pathSplit.splice(0, 1);
-      pathSplit.reverse();
-      let parent;
-      pathSplit.forEach((id) => {
-        const i = pathArg.split('/').indexOf(id);
-        const s = pathArg.split('/').slice(0, i + 1).join('/');
-        const page = this.findByPath(s);
-        if (page && page[key] && page[key] === value) {
-          parent = page;
-        }
-      }, this);
-      return parent;
+      const parentPath = pathSplit.slice(0, pathSplit.length - 1).join('/')
+      return this.findByPath(parentPath);
     };
 
     const checkIfPathExists = function checkIfPathExists(potentialPath) {
@@ -198,7 +168,7 @@ function plugin(opts) {
     Object.keys(files).forEach((file, _index) => {
       const pathParts = file.split('/');
       pathParts.pop();
-      const children = walk(opts, file, files, pathParts, r.children, 0);
+      const children = walk(opts, file, files, pathParts, possiblePaths, r.children, 0);
       r.children = children;
     });
     metalsmith.metadata().hierarchy = r;

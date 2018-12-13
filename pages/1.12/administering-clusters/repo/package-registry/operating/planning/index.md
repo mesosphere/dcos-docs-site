@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Planning 
-title: Planning 
+navigationTitle: Planning
+title: Planning
 menuWeight: 5
 excerpt: Planning to use a DC/OS Package Registry
-beta: true
 enterprise: true
 ---
 
@@ -53,13 +52,13 @@ The default configuration sets the secrets for the service account for the DC/OS
 
 ## Docker Engine Integration
 
-For the Docker daemon to be able to fetch images stored in DC/OS Package Registry, it must be configured to trust the DC/OS Package Registry. Docker provides [configuration documentation](https://docs.docker.com/engine/security/certificates/#understanding-the-configuration) to assist with this. The name of the registry will be `<service-name>.marathon.l4lb.thisdcos.directory` where `<service-name>` is the name of the service used when installing the DC/OS Package Registry. By default, the service name is `registry`. 
+For the Docker daemon to be able to fetch images stored in DC/OS Package Registry, it must be configured to trust the DC/OS Package Registry. Docker provides [configuration documentation](https://docs.docker.com/engine/security/certificates/#understanding-the-configuration) to assist with this. The name of the registry will be `<service-name>.marathon.l4lb.thisdcos.directory` where `<service-name>` is the name of the service used when installing the DC/OS Package Registry. By default, the service name is `registry`.
 
 To configure the Docker daemon in all of the DC/OS Agents (Public and Private) to trust the default configuration of the DC/OS Package Registry execute the following commands:
 
 ```bash
-sudo mkdir -p /etc/docker/certs.d/registry.marathon.l4lb.thisdcos.directory
-sudo cp /run/dcos/pki/CA/ca-bundle.crt /etc/docker/certs.d/registry.marathon.l4lb.thisdcos.directory/ca.crt
+sudo mkdir -p /etc/docker/certs.d/registry.marathon.l4lb.thisdcos.:443
+sudo cp /run/dcos/pki/CA/ca-bundle.crt /etc/docker/certs.d/registry.marathon.l4lb.thisdcos.directory:443/ca.crt
 sudo systemctl restart docker
 ```
 

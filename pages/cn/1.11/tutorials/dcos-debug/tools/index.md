@@ -4,7 +4,7 @@ title: 工具
 excerpt: 教程 - 用于调试 DC/OS 上应用程序的工具
 menuWeight: 11
 ---
-<!-- II. Tools Section -->
+<p class="message--warning"><strong>免责声明：</strong>Mesosphere 不支持本教程、相关脚本或命令，它们不提供任何形式的保证。本教程的目的是为了演示功能，可能不适合在生产环境中使用。在您的环境中使用类似的解决方案之前，您必须进行调整、验证和测试。</p>
 
 <a name="tools"></a>
 
@@ -17,7 +17,7 @@ DC/OS 附带多个与应用程序调试相关的工具：
 
 - [度量标准](#metrics)
 
-- [交互式调试任务](#interactive)
+- [调试任务交互](#interactive)
 
 - [HTTP 端点](#endpoints)
 
@@ -43,9 +43,9 @@ DC/OS 为各种组件提供许多 Web 界面，尤其是在调试应用程序部
 
 **DC/OS Web 界面** 是开始调试的绝佳地方，因为它提供了对以下内容的快速访问：
 
-- **群集资源分配**，以提供可用群集资源的概述
+- **集群资源分配**，以提供可用集群资源的概述
 - **任务日志**，以提供对任务故障的深入了解
-- **任务调试信息**，以提供关于最近任务提供的信息和/或任务未启动的原因
+- **任务调试信息**，以提供关于最近任务邀约的信息和/或任务未启动的原因
 
 ![DC/OS Web 界面图片](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
 
@@ -65,7 +65,7 @@ DC/OS Web 界面显示调试所需的大部分信息。但是，更进一步并�
 
 ### ZooKeeper Web 界面
 
-由于大部分群集和框架状态存储在 Zookeeper 中，因此使用 ZooKeeper/Exhibitor Web 界面检查这些状态有时会很有帮助。Marathon、Kafka 和 Cassandra 等框架使用 Zookeeper 存储信息，因此在调试此类框架时，此资源尤为有用。例如，卸载其中一个框架时出现故障可能会留下条目。因此，当然如果您在重新安装之前卸载的框架时遇到困难，检查此 Web 界面可能非常有用。您可通过 `https://<cluster-address>/exhibitor` 查看状态。
+由于大部分集群和框架状态存储在 Zookeeper 中，因此使用 ZooKeeper/Exhibitor Web 界面检查这些状态有时会很有帮助。Marathon、Kafka 和 Cassandra 等框架使用 Zookeeper 存储信息，因此在调试此类框架时，此资源尤为有用。例如，卸载其中一个框架时出现故障可能会留下条目。因此，当然如果您在重新安装之前卸载的框架时遇到困难，检查此 Web 界面可能非常有用。您可通过 `https://<cluster-address>/exhibitor` 查看状态。
 
 ![ZooKeeper/Exhibitor Web 界面图片](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-13.png)
 
@@ -75,7 +75,7 @@ DC/OS Web 界面显示调试所需的大部分信息。但是，更进一步并�
 
 ## 日志
 
-日志是用于查看事件及其出现之前发生的条件的有用工具。通常，日志包含错误消息，可以提供有关错误原因的有用信息。由于日志记录本身就是一个重要的主题，因此我们建议使用 [DC/OS 日志文档](/1.11/monitoring/logging/#system-logs)，以了解更多信息。
+日志是用于查看事件及其出现之前发生的条件的有用工具。通常，日志包含错误消息，可以提供有关错误原因的有用信息。由于日志记录本身就是一个重要的主题，因此我们建议使用 [DC/OS 日志文档](/cn/1.11/monitoring/logging/#system-logs)，以了解更多信息。
 
 DC/OS 有许多不同的日志源。通常，这些是应用程序调试最有用的日志：
 
@@ -87,11 +87,11 @@ DC/OS 有许多不同的日志源。通常，这些是应用程序调试最有�
 
 在 DC/OS 中，有多个选项用于访问这些日志：**DC/OS Web 界面** **DC/OS CLI** 或 HTTP 端点。此外，DC/OS 默认循环日志，以防止利用所有可用磁盘空间。
 
-**注意：**需要可扩展的方式来管理和搜索日志吗？ 为[日志聚合和筛选构建 ELK 堆栈](/1.11/monitoring/logging/aggregating/filter-elk/)可能是值得的。
+**注意：**需要可扩展的方式来管理和搜索日志吗？ 为[日志聚合和筛选构建 ELK 堆栈](/cn/1.11/monitoring/logging/aggregating/filter-elk/)可能是值得的。
 
-有时它可以帮助提高临时写入日志的详细程度，以为调试获得更详细的故障排除信息。对于大多数组件，可通过访问端点来完成。例如，如果要在服务器接收 AP I调用后将 [Mesos 代理节点的日志级别](http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/)提高 5 分钟，则可以执行以下简单的两步过程：
+有时提高临时写入日志的详细程度很有用，为调试获得更详细的故障排除信息。对于大多数组件，可通过访问端点来完成。例如，如果要在服务器接收 API 调用后将 [Mesos 代理节点的日志级别](http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/)提高 5 分钟，则可以执行以下简单的两步过程：
 
-##### 连接到主节点
+##### 连接到管理节点
 
 ```bash
 $ dcos node ssh --master-proxy --leader
@@ -123,7 +123,7 @@ $ dcos task log --follow <service-name>
 
 ### 调度程序/Marathon 日志
 
-[马拉松](https://mesosphere.github.io/marathon/) 在启动应用程序时是 DC/OS 的默认计划程序。调度程序日志，特别是 Marathon 日志，是一个很好的信息来源，可帮助您了解哪些节点上安排（或不安排）某些事情的原因或方式。调用调度程序将任务与可用资源匹配。因此，由于调度程序还接收任务状态更新，所以日志还包含任务失败的详细信息。
+[马拉松](https://mesosphere.github.io/marathon/) 在启动应用程序时是 DC/OS 的默认调度程序。调度程序日志，特别是 Marathon 日志，是一个很好的信息来源，可帮助您了解哪些节点上安排（或不安排）某些事情的原因或方式。调用调度程序将任务与可用资源匹配。因此，由于调度程序还接收任务状态更新，所以日志还包含任务失败的详细信息。
 
 您可以通过 DC/OS Web 界面中找到的服务列表或通过以下命令检索和查看有关特定服务的调度程序日志：
 
@@ -185,17 +185,17 @@ $ dcos node log --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0 --follow
 
 ### Mesos 管理节点日志
 
-Mesos 管理节点负责将可用资源与调度程序匹配。它还将任务状态更新从 Mesos 代理节点转发到相应的调度程序。这使 Mesos 管理节点日志成为了解群集整体状态的一个很好的资源。
+Mesos 管理节点负责将可用资源与调度程序匹配。它还将任务状态更新从 Mesos 代理节点转发到相应的调度程序。这使 Mesos 管理节点日志成为了解集群整体状态的一个很好的资源。
 
-请注意，单个群集通常有多个 Mesos 管理节点。因此，您应该**确定当前主导的 Mesos 管理节点以获得最新日志**。事实上，在某些情况下，从另一个 Mesos 管理节点检索日志甚至是有意义的：例如，主节点发生故障并且您想要了解原因。
+请注意，单个群集通常有多个 Mesos 管理节点。因此，您应该**确定当前主导的 Mesos 管理节点以获得最新日志**。事实上，在某些情况下，从另一个 Mesos 管理节点检索日志甚至是有意义的：例如，管理节点发生故障并且您想要了解原因。
 
-您可以通过从 Mesos Web 界面检索主节点日志，通过<cluster-name>/mesos`, via `dcos node log --leader`, or for a specific master node using `ssh master` and `journalctl -u dcos-mesos-master` 进行。
+您可以通过从 Mesos Web 界面检索管理节点日志，通过`<cluster-name>/mesos`, via `dcos node log --leader`, 或者使用的特定主节点 `ssh master` 和 `journalctl -u dcos-mesos-master` 进行。
 
 <a name="system-logs"></a>
 
 ### 系统日志
 
-我们现在已经介绍了 DC/OS 环境中最重要的日志源，但可用的日志还有很多。每个 DC/OS 组件都写入一个日志。如上所述，[每个 DC/OS 组件](/1.11/overview/architecture/components/) 作为一个 Systemd 单元运行。您可以在特定节点上通过 SSH 进入节点[直接检索日志](/latest/monitoring/logging/#system-logs)，然后键入 `journalctl -u <systemd-unit-name>`. Two of the more common system units to consider during debugging (besides Mesos and Marathon) are the `docker.service` and the `dcos-exhibitor.service`。
+我们现在已经介绍了 DC/OS 环境中最重要的日志源，但可用的日志还有很多。每个 DC/OS 组件都写入一个日志。如上所述，[每个 DC/OS 组件](/cn/1.11/overview/architecture/components/) 作为一个 Systemd 单元运行。您可以在特定节点上通过 SSH 进入节点[直接检索日志](/latest/monitoring/logging/#system-logs)，然后键入 `journalctl -u <systemd-unit-name>`. 调试期间需要考虑的两个更常见的系统单元（除了Mesos和Marathon）还有`docker.service`和`dcos-exhibitor.service`。
 
 例如，考虑 Mesos 代理节点`ffc913d8-4012-4953-b693-1acc33b400ce-S0`上 docker 守护程序的系统单元（重新调用 `dcos node` 命令检索 Mesos ID）。
 
@@ -223,9 +223,9 @@ Apr 09 23:51:51 ip-10-0-3-81.us-west-2.compute.internal dockerd[1262]: time="201
 
 <a name="metrics"></a>
 
-## 度量标准
+## 度量
 
-度量标准非常有用，因为它们有助于在潜在问题成为实际错误之前识别它们。例如，想象一个容器耗尽所有已分配内存的情况。如果您在容器处**仍在运行但尚未被终止**时检测到这一点，那么您更有可能及时进行干预。
+度量数据非常有用，因为它们有助于在潜在问题成为实际错误之前识别它们。例如，想象一个容器耗尽所有已分配内存的情况。如果您在容器处**仍在运行但尚未被终止**时检测到这一点，那么您更有可能及时进行干预。
 
 在 DC/OS 中，度量标准有三个主要端点：
 
@@ -236,15 +236,15 @@ Apr 09 23:51:51 ip-10-0-3-81.us-west-2.compute.internal dockerd[1262]: time="201
 - [Marathon 度量标准](https://mesosphere.github.io/marathon/docs/metrics.html)
  - 端点暴露特定于 Marathon 的度量标准
 
-利用度量标准来帮助调试的一种方法是设置仪表盘。此仪表盘将包括与您要监控的服务相关的最重要度量标准。例如，您可以[使用 prometheus 和 grafana](https://github.com/dcos/dcos-metrics/blob/master/docs/quickstart/prometheus.md#dcos-metrics-with-prometheus-and-grafana) 创建度量标准仪表盘。
+利用度量数据来帮助调试的一种方法是设置仪表盘。此仪表盘将包括与您要监控的服务相关的最重要度量数据。例如，您可以[使用 prometheus 和 grafana](https://github.com/dcos/dcos-metrics/blob/master/docs/quickstart/prometheus.md#dcos-metrics-with-prometheus-and-grafana) 创建度量仪表盘。
 
-理想情况下，配置仪表盘并运行后，您可以在潜在问题成为实际错误之前识别它们。此外，当出现问题时，此类仪表盘在确定错误原因方面非常有帮助（例如，可能群集没有可用资源）。上面列出的端点项中的每个链接都提供了您应监控该端点的度量标准建议。
+理想情况下，配置仪表盘并运行后，您可以在潜在问题成为实际错误之前识别它们。此外，当出现问题时，此类仪表盘在确定错误原因方面非常有帮助（例如，可能集群没有可用资源）。上面列出的端点项中的每个链接都提供了您应监控该端点的度量数据的建议。
 
 <a name="interactive"></a>
 
 ## 交互式
 
-有时，任务日志提供的帮助不足。在这些情况下，使用您最喜欢的 Linux 工具（例如 `curl`、`cat`、`ping` 等）来获得交互式视角可能是一个值得做的步骤。
+有时，任务日志提供的帮助不足。在这些情况下，使用您最倾向的 Linux 工具（例如 `curl`、`cat`、`ping` 等）来获得交互式视角可能是一个值得做的步骤。
 
 例如，如果您使用 [Universal Container Runtime (UCR)] (https://docs.mesosphere.com/latest/deploying-services/containerizers/ucr/)，则可以使用 `dcos task exec`，如下所示：
 
@@ -268,7 +268,7 @@ DC/OS 具有大量可用于调试的其他端点：
 
 ### `state-summary`
 
-[`state-summary` 端点](http://mesos.apache.org/documentation/latest/endpoints/master/state-summary/) 返回群集内代理节点、任务和框架的 json 编码摘要。在考虑跨群集分配资源时，这尤其有用，因为它显示是否已为特定角色保留了资源（在[下文提供的调试方案之一](#c2)中有更多详细信息）。
+[`state-summary` 端点](http://mesos.apache.org/documentation/latest/endpoints/master/state-summary/) 返回集群内代理节点、任务和框架的 json 编码摘要。在考虑跨集群分配资源时，这尤其有用，因为它显示是否已为特定角色保留了资源（在[下文提供的调试方案之一](#c2)中有更多详细信息）。
 
 **注意** 请参阅 [Mesos 端点的完整列表](http://mesos.apache.org/documentation/latest/endpoints/)。
 
@@ -288,4 +288,4 @@ Marathon [`queue` 端点](https://mesosphere.github.io/marathon/api-console/inde
 
 ## 其他工具
 
-还有其他调试工具 -- [DC/OS 内部](/1.11/monitoring/debugging/) 以及 [Sysdig](https://sysdig.com/blog/monitoring-mesos/) 或 [Instana](https://www.instana.com/) 等外部工具。这些工具对确定非 DC/OS 特定问题（例如，Linux 内核或网络问题）尤为有用。
+还有其他调试工具 -- [DC/OS 内部](/cn/1.11/monitoring/debugging/) 以及 [Sysdig](https://sysdig.com/blog/monitoring-mesos/) 或 [Instana](https://www.instana.com/) 等外部工具。这些工具对确定非 DC/OS 特定问题（例如，Linux 内核或网络问题）尤为有用。

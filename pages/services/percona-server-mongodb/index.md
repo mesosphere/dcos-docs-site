@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Percona-Server-MongoDB
 title: Percona-Server-MongoDB
 menuWeight: 85
-excerpt:
+excerpt: Percona Server for MongoDB is a free, enhanced, fully compatible, open source, drop-in replacement for the MongoDB® Community Server that includes enterprise-grade features and functionality.
 featureMaturity:
 enterprise: false
 ---

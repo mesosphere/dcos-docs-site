@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos help` 命令允许您显示 DC/OS CLI 帮助信息。
+`dcos help` 命令显示 DC/OS CLI 帮助信息。
 
 # 使用
 
@@ -30,7 +30,7 @@ dcos help <subcommand>
 
 ## 显示 dcos config 命令的帮助
 
-`dcos help config` 命令与 [`dcos config --help`](/1.11/cli/command-reference/dcos-config/)一样。
+`dcos help config` 命令与 [`dcos config --help`](/cn/1.11/cli/command-reference/dcos-config/)一样。
 
 ```bash
 dcos help config

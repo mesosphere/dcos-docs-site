@@ -12,19 +12,23 @@ Marathon placement constraints control where services run to allow optimizing fo
 
 # Field Names
 
-## Hostname as field name
+## Agent properties as a field name
 
-Entering `@hostname` as the field name matches the agent node hostnames. All Marathon operators are supported when the field name is `@hostname`. See `UNIQUE operator`, below, for a usage example.
+Constraints with a field name beginning with `@` refer to agent properties.
+
+### Host name
+
+Entering `@hostname` as the field name matches the agent node hostnames. See `UNIQUE operator`, below, for a usage example.
 
 ### Region and zone as field names
 
-Use the `@region` and `@zone` field names to configure [fault domain awareness and capacity extension](/1.11/deploying-services/fault-domain-awareness/).
+Use the `@region` and `@zone` field names to configure [fault domain awareness and capacity extension](/1.12/deploying-services/fault-domain-awareness/).
 
 ## Attribute as field name
 
 If `@hostname`, `@region`, or `@zone` are not specified as field names, then the field name is interpreted as a Mesos agent node attribute. A Mesos agent node attribute allows you to tag an agent node. See `mesos-slave --help` to learn how to set the attributes. If the specified attribute is not defined on the agent node, most operators will refuse to run tasks on it. In fact, only the `UNLIKE` operator will (and always will) accept this offer for now, while other operators will always refuse it.
 
-All Marathon operators are supported when the field name is an attribute. Marathon supports text, scalar, range, and set attribute values. For scalars, ranges, and sets, Marathon will perform a string comparison on the formatted values. The format matches that of the Mesos attribute formatting. For ranges and sets, the format is `[begin-end,...]` and `{item,...}` respectively. For example, you might have a range formatted as `[100-200]` and a set formatted as `{a,b,c}`. Regex is allowed for LIKE and UNLIKE operators; to match ANY value, use the string `.*`.
+Marathon supports text, scalar, range, and set attribute values. For scalars, ranges, and sets, Marathon will perform a string comparison on the formatted values. The format matches that of the Mesos attribute formatting. For ranges and sets, the format is `[begin-end,...]` and `{item,...}` respectively. For example, you might have a range formatted as `[100-200]` and a set formatted as `{a,b,c}`. Regex is allowed for LIKE and UNLIKE operators; to match ANY value, use the string `.*`.
 
 # Operators
 
@@ -90,7 +94,7 @@ Below, the field is named `hostname`, but the value is empty. This tells Maratho
 ## LIKE operator
 **Value** (required): A regular expression for the value of the attribute.
 
-`LIKE` accepts a regular expression as parameter and allows you to run your tasks only on the agent nodes whose field values match the regular expression.
+`LIKE` accepts a regular expression as parameter and allows you to run your tasks only on the agent nodes whose field values match the regular expression. Note that the entire value must be matched (imagine there is an implicit `^` and `$` surrounding the regular expression)
 
 ``` json
 {
@@ -106,7 +110,7 @@ If the attribute in question is a scalar, it is rounded to the nearest thousandt
 ## UNLIKE operator
 **Value** (required): A regular expression for the value of the attribute.
 
-`UNLIKE` is similar to the `LIKE` operator, but instructs Marathon to only run tasks on agent nodes whose field values **do not** match the regular expression.
+`UNLIKE` is similar to the `LIKE` operator, but instructs Marathon to only run tasks on agent nodes whose field values **do not** match the regular expression. Note that the entire value must be matched (imagine there is an implicit `^` and `$` surrounding the regular expression)
 
 ``` json
 {
@@ -197,7 +201,7 @@ When an `IS` constraint is specified, a task is only launched on nodes that have
 }
 ```
 
-#### Comparing scalar values
+### Comparing scalar values
 
 When comparing scalars, the value is compared to the nearest thousandth (using half-even rounding strategy).
 

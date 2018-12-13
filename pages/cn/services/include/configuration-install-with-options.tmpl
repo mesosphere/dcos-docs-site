@@ -6,7 +6,9 @@
 
 在每个例子中，您将使用自定义配置创建一个新的 {{ model.techName }} 实例，如下所示：
 
-<```>bash<linebreak>$ dcos package install {{ model.packageName }} --options=sample-{{ model.serviceName }}.json<linebreak></```>
+```bash
+$ dcos package install {{ model.packageName }} --options=sample-{{ model.serviceName }}.json
+```
 
 **建议：** 将自定义配置存储在源控件中。
 
@@ -14,27 +16,41 @@
 
 默认情况下，{{ model.techName }} 服务安装名称为 `{{ model.serviceName }}` 的服务。您可以使用如下自定义服务配置来指定不同的名称：
 
-<```>json<linebreak>{<linebreak>  "service": {<linebreak>    "name": "{{ model.serviceName }}-other"<linebreak>  }<linebreak>}<linebreak></```>
+```json
+{
+  "service": {
+    "name": "{{ model.serviceName }}-other"
+  }
+}
+```
 
 当上述 JSON 配置通过 `--options` 自变量被传递到 `package install {{ model.packageName }}` 命令时，新服务将使用 JSON 配置中指定的名称：
 
-<```>bash<linebreak>$ dcos package install {{ model.packageName }} --options={{ model.serviceName }}-other.json<linebreak></```>
+```bash
+$ dcos package install {{ model.packageName }} --options={{ model.serviceName }}-other.json
+```
 
 可以通过自定义每个实例的名称将多个 {{ model.techName }} 实例安装到 DC/OS 群集中。例如，您可能有一个名为 `{{ model.serviceName }}-staging` 和另一个名为 `{{ model.serviceName }}-prod`的 {{ model.techName }} 实例，每个都具有各自的自定义配置。
 
 为实例指定自定义名称后，可以使用 `dcos {{ model.packageName }}` CLI 命令或直接通过 HTTP 接触实例，如下所述 [以下](#address-named-instance)。
 
-**注意：** 初次安装后，服务名称 **不能**更改。更改服务名称需要根据新名称安装服务的新实例，然后根据需要复制任何数据到新实例。
+<p class="message--warning"><strong>注意：</strong> 初次安装后，服务名称 <strong>不能</strong>更改。更改服务名称需要根据新名称安装服务的新实例，然后根据需要复制任何数据到新实例。</p>
 
 ### 安装到文件夹中
 
 在 DC/OS 1.10 及更高版本中，可以通过指定斜线分隔的服务名称将服务安装到文件夹中。例如：
 
-<```>json<linebreak>{<linebreak>  "service": {<linebreak>    "name": "/foldered/path/to/{{ model.serviceName }}"<linebreak>  }<linebreak>}<linebreak></```>
+```json
+{
+  "service": {
+    "name": "/foldered/path/to/{{ model.serviceName }}"
+  }
+}
+```
 
 以上示例将在路径 `foldered` => `path` => `to` => `{{ model.serviceName }}` 中安装服务。然后可以使用 `dcos {{ model.packageName }}` CLI 命令或直接通过 HTTP 接触服务，如下所述 [以下](#address-named-instance)。
 
-**注意：** 初次安装后，服务文件夹位置 **不能**更改。更改服务位置需要针对新位置安装服务的新实例，然后根据需要复制任何数据到新实例。
+<p class="message--warning"><strong>注意：</strong>初次安装后，服务文件夹位置 <strong>不能</strong>更改。更改服务位置需要针对新位置安装服务的新实例，然后根据需要复制任何数据到新实例。</p>
 
 ### 寻址已命名实例
 
@@ -42,25 +58,40 @@
 
 例如，如果您有一个名为 `{{ model.serviceName }}-dev`的实例，以下命令将针对它调用 `pod list` 命令：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name={{ model.serviceName }}-dev pod list<linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }}-dev pod list
+```
 
 相同的查询将通过 HTTP 执行，如下所示：
 
-<```>bash<linebreak>$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}-dev/v1/pod<linebreak></```>
+```bash
+$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}-dev/v1/pod
+```
 
 同样，如果您在文件夹中有一个类似 `/foldered/path/to/{{ model.serviceName }}`的实例，以下命令将针对它调用 `pod list` 命令：
 
-<```>bash<linebreak>$ dcos {{ model.packageName }} --name=/foldered/path/to/{{ model.serviceName }} pod list<linebreak></```>
+```bash
+$ dcos {{ model.packageName }} --name=/foldered/path/to/{{ model.serviceName }} pod list
+```
 
 类似地，可以直接通过 HTTP 查询，如下所示：
 
-<```>bash<linebreak>$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/{{ model.serviceName }}-dev/v1/pod<linebreak></```>
+```bash
+$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/{{ model.serviceName }}-dev/v1/pod
+```
 
-**注意：** 您可以添加 `-v` （详细）自变量到任何 `dcos {{ model.packageName }}` 命令以查看正在进行的潜在 HTTP 查询。这是查看 CLI 在何处获取信息的有用工具。在实践中，`dcos {{ model.packageName }}` 命令是由 DC/OS {{ model.techName }} 服务本身提供的 HTTP 接口的瘦包装器。
+您可以添加 `-v` （详细）自变量到任何 `dcos {{ model.packageName }}` 命令以查看正在进行的潜在 HTTP 查询。这是查看 CLI 在何处获取信息的有用工具。在实践中，`dcos {{ model.packageName }}` 命令是由 DC/OS {{ model.techName }} 服务本身提供的 HTTP 接口的瘦包装器。
 
 ### 与 DC/OS 访问控制集成
 
 在 Enterprise DC/OS 中，可以使用 DC/OS 访问控制来限制对服务的访问。要让非超级用户完全访问服务，向其授予以下权限列表：
-<```><linebreak>dcos:adminrouter:service:marathon full<linebreak>dcos:service:marathon:marathon:<service-name> full<linebreak>dcos:adminrouter:ops:mesos full<linebreak>dcos:adminrouter:ops:slave full<linebreak></```>
+
+```
+dcos:adminrouter:service:marathon full
+dcos:service:marathon:marathon:<service-name> full
+dcos:adminrouter:ops:mesos full
+dcos:adminrouter:ops:slave full
+```
+
 
 其中 `<service-name>` 是您的完整服务名称，包括文件夹（如果安装在文件夹中）。

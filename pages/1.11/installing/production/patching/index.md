@@ -24,7 +24,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 
 - Review the [release notes](/1.11/release-notes/) before patching DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when patching or configuring a new cluster. If you have already patched to DC/OS 1.11.x without configuring `enable_ipv6` or if `config.yaml` file is set to `true`, then do not add new nodes until DC/OS 1.11.3 has been released. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302).
-- There are new options in the `config.yaml` file which must be declared prior to patching. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file).
+- There are new options in the `config.yaml` file which must be declared prior to patching. Even if you have previously installed DC/OS successfully with your `config.yaml` file, the file will require new additions to function with DC/OS 1.11. Check if `fault_domain_enabled` and `enable_ipv6` are added in the `config.yaml` file. You can review the sample file [here](/1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file).
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file for the patch to succeed.
 - DC/OS Enterprise now enforces license keys. The license key must reside in a genconf/license.txt file or the patch will fail. [enterprise type="inline" size="small" /]
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been patched. For example, a patched DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been patched. When this occurs:
@@ -43,15 +43,16 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 
 |**Display Icon** | **Service** |
 |---------- | ------- |
-| ⚫| Supported |
-| ◯| Not Supported |
+| ⚫ | Supported |
+| ◯ | Not Supported |
+
 
 <table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
    <tr>
     <th Rowspan = "20" Align = "center"><strong>Patch<br> From</strong></div></th>
    <tr>
     <th></th>
-    <th Colspan = "6" Align = "center"><strong>Patch To</strong></th>
+    <th Colspan = "7" Align = "center"><strong>Patch To</strong></th>
    </tr>
     <th></th>
     <th>1.11.1</th>
@@ -60,6 +61,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th>1.11.4</th>
     <th>1.11.5</th>
     <th>1.11.6</th>
+    <th>1.11.7</th>
    </tr>
     <th>1.11.0</th>
     <td Align = "center">⚫</td>
@@ -68,6 +70,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.1</th>
@@ -77,6 +80,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.2</th>
@@ -86,6 +90,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.3</th>
@@ -95,6 +100,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.4</th>
@@ -104,9 +110,21 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.11.5</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+    <tr>
+    <th>1.11.6</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>

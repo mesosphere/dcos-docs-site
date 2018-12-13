@@ -3,8 +3,7 @@ layout: layout.pug
 navigationTitle: Getting Started with Package Registry
 title: Getting Started with Package Registry
 menuWeight: 1
-excerpt: Start using DC/OS Package Registry 
-beta: true
+excerpt: Start using DC/OS Package Registry
 enterprise: true
 ---
 

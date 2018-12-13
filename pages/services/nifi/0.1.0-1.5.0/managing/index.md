@@ -47,7 +47,7 @@ dcos nifi describe > options.json
 ```
 Make any configuration changes to the `options.json` file.
 
-If you installed DC/OS NiFi Service with an earlier version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://github.com/mesosphere/dcos-nifi/blob/ServiceGuide/docs/install.md).
+If you installed DC/OS NiFi Service with an earlier version of DC/OS, this configuration will not have been persisted by the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://github.com/mesosphere/dcos-nifi/blob/ServiceGuide/docs/install.md).
 
 **Caution:** You must specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values revert to the default values specified by the DC/OS NiFi Service. See the "Recreating `options.json`" section below for information on recovering these values.
 

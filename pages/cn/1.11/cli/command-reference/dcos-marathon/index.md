@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon` 命令允许您将应用程序部署到 DC/OS 并对其进行管理。
+`dcos marathon` 命令让您将应用程序部署到 DC/OS 并对其进行管理。
 
 # 使用
 

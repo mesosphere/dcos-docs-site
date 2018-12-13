@@ -22,12 +22,12 @@ dcos marathon app list [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `--json` | 显示 JSON 格式的数据。|
+| `--json` | 显示以 JSON 为格式的数据。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
 

@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon deployment list` 命令允许您查看当前部署的应用程序列表。
+`dcos marathon deployment list` 命令让您查看当前部署的应用程序列表。
 
 # 使用
 
@@ -34,6 +34,6 @@ dcos marathon deployment list <app-id> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
 

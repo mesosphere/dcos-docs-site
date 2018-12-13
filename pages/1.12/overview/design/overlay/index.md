@@ -24,7 +24,7 @@ Before describing the software architecture we describe the packet flow that wil
 
 ## DC/OS overlay in action
 
-![Agent configuration for containers running on `MesosContainerizer` and Docker once the VxLAN has been configured.](/1.12/img/overlay-fig-1.png)
+![Agent configuration for containers running on `MesosContainerizer` and Docker once the VxLAN has been configured.](/1.12/img/overlay-in-action-redesigned.png)
 
 Figure 1 - Agent configuration  
 
@@ -69,7 +69,7 @@ These challenges must be addressed to make the DC/OS overlay functional. In the 
 
 ## Software Architecture
 
-![Software architecture for DC/OS overlay control plane.](/1.12/img/overlay-fig-2.png)
+![Software architecture for DC/OS overlay control plane.](/1.12/img/overlay-control-plane-redesigned.png)
 
 *Figure 2 - Software architecture for DC/OS overlay control plane*
 
@@ -113,7 +113,7 @@ Once the DC/OS module retrieves the subnet information from the master DC/OS mod
 
 For `MesosContainerizer`, the DC/OS module can generate a CNI config at a specified location. The CNI config will have the bridge information and IPAM information for the network/cni isolator to configure containers on the `m-<virtual network name>` bridge.
 
-For `DockerContainerizer`, the DC/OS module will retrieve the the subnet, and then will create a `docker network` with the canonical name `d-<virtual network name>`. It will do so using the following Docker command:
+For `DockerContainerizer`, the DC/OS module will retrieve the subnet, and then will create a `docker network` with the canonical name `d-<virtual network name>`. It will do so using the following Docker command:
 
 ```sh
 docker network create \

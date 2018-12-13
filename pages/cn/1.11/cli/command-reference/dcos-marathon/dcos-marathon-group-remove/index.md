@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos marathon group remove` 命令允许您从 DC/OS 中删除应用程序。
+`dcos marathon group remove` 命令让您从 DC/OS 中删除应用程序。
 
 # 使用
 
@@ -27,11 +27,11 @@ dcos marathon group remove <group-id> [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| `<group-id>`   |   The group ID. You can view a list of the group IDs with the `dcos marathon group list` 命令。|
+| `<group-id>`   |   组ID。 您可以使用以下命令查看组ID列表 `dcos marathon group list` 命令。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 

@@ -8,21 +8,21 @@ excerpt: Common commands for Edge-LB usage
 enterprise: true
 ---
 
-This page covers common commands for Edge-LB usage. For a more detailed list of CLI commands, consult the [dcos edgelb cli reference](/services/edge-lb/1.1/cli-reference/).
+This page covers common commands for Edge-LB usage. For a more detailed list of CLI commands, consult the [dcos edgelb cli reference](/services/edge-lb/1.2/cli-reference/).
 
 # Prerequisites
 
-- Edge-LB [installed and running](/services/edge-lb/1.1/installing/).
+- Edge-LB [installed and running](/services/edge-lb/1.2/installing/).
 
 # Create pools
 
-After launching a service and creating a [pool configuration file](/services/edge-lb/1.1/pool-configuration), you can use the CLI to deploy it:
+After launching a service and creating a [pool configuration file](/services/edge-lb/1.2/pool-configuration), you can use the CLI to deploy it:
 
 ```bash
 dcos edgelb create <pool-configuration-file>
 ```
 
-Please refer to the [tutorials sections](/services/edge-lb/1.1/tutorials/) for examples of pool configs.
+Please refer to the [tutorials sections](/services/edge-lb/1.2/tutorials/) for examples of pool configs.
 
 # Update pools
 
@@ -43,7 +43,7 @@ A change to a service (such as scaling up) that is load balanced by a pool will 
 * A reload will occur at most once every 3 seconds.
 
 The properties of this reload enable strategies like
-[Blue/Green Deployment](/services/edge-lb/1.1/tutorials/blue-green-deploy).
+[Blue/Green Deployment](/services/edge-lb/1.2/tutorials/blue-green-deploy).
 
 ## Load balancer relaunch scenario
 
@@ -89,4 +89,4 @@ $ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod replace <pod-id>
 
 This will destroy the pool server and re-launch a new one on the new public agent.
 
-For a list of Edge-LB commands, see the [CLI Reference](/services/edge-lb/1.1/cli-reference/) page.
+For a list of Edge-LB commands, see the [CLI Reference](/services/edge-lb/1.2/cli-reference/) page.

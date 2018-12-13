@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos edgelb endpoints` command returns a list of all endpoints for a pool. The internal ip address and ports for a pool can be found with this command.
+The `dcos edgelb endpoints` command returns a list of all endpoints for a pool. The internal IP address and ports for a pool can be found with this command.
 
 
 # Usage
@@ -31,8 +31,8 @@ dcos edgelb endpoints [<flags>] <pool-name>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.1/cli-reference) |  Manage Edge-LB. |
+| [dcos edgelb](/services/edge-lb/1.2/cli-reference) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.1/usage).
+See the [Edge-LB Usage](/services/edge-lb/1.2/usage).

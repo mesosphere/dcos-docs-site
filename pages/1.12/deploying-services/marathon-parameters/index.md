@@ -198,10 +198,10 @@ Set up a stateful application. For more information, see [local persistent volum
 The amount of time (in seconds) between the executor sending SIGTERM to a task and then sending SIGKILL.
 
 ### unreachableStrategy
-Define handling for unreachable instances. The value is a string or an object. The string is "disabled", which disables handling for unreachable instances. If `inactiveAfter = 60` and `expungeAfter = 120`, an instance will be expunged after it has been unreachable for more than 120 seconds and a second instance will be started if it has been unreachable for more than 60 seconds.
+Define handling for unreachable instances. The value is a string or an object. The string is `"disabled"`, which disables handling for unreachable instances. If `inactiveAfterSeconds = 60` and `expungeAfterSeconds = 120`, an instance will be expunged after it has been unreachable for more than 120 seconds and a second instance will be started if it has been unreachable for more than 60 seconds.
 
-- **inactiveAfterSeconds** - If an instance is unreachable for longer than `inactiveAfterSeconds` it is marked as inactive. This will trigger a new instance launch. Must be less than or equal to `expungeAfterSeconds`.
-- **expungeAfterSeconds** - If an instance is unreachable for longer than `expungeAfterSeconds` it will be expunged.  That means it will be killed if it ever comes back. Instances are usually marked as unreachable before they are expunged but they don't have to. This value is required to be greater than `inactiveAfterSeconds` unless both are zero. If the instance has any persistent volumes associated with it, then they will be destroyed and associated data will be deleted.
+- **inactiveAfterSeconds** - If an instance is unreachable for longer than `inactiveAfterSeconds` it is marked as inactive. This will trigger a new instance launch. Must be less than or equal to `expungeAfterSeconds`. The default value is 0 seconds.
+- **expungeAfterSeconds** - If an instance is unreachable for longer than `expungeAfterSeconds` it will be expunged.  That means it will be killed if it ever comes back. Instances are usually marked as unreachable before they are expunged but they don't have to. This value is required to be greater than `inactiveAfterSeconds` unless both are zero. If the instance has any persistent volumes associated with it, then they will be destroyed and associated data will be deleted. The default value is 0 seconds.
 
 ### upgradeStrategy
 The strategy that controls when Marathon stops old versions and launches new versions. During an upgrade all instances of an application are replaced by a new version.

@@ -5,6 +5,7 @@ title: Install
 menuWeight: 30
 excerpt: Instructions for installing the DC/OS Storage Service on a DC/OS cluster.
 enterprise: true
+beta: true
 ---
 
 The cluster administrator can install the DC/OS Storage Service via either of the following ways.
