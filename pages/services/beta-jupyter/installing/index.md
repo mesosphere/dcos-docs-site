@@ -27,7 +27,7 @@ The DC/OS web interface provides a way to deploy the {{ model.techName }} packag
 1. Click **Networking**.
 1. Under External Access, select **Enabled**, and type the public agent host name used to access the {{ model.techShortName }} package.
 1. Click **Review & Run**.
-1. Review the installation notes, then **Run Service** to deploy the {{ model.techName }} package.
+1. Review the installation notes, then click **Run Service** to deploy the {{ model.techName }} package.
 
 ## Deploy {{ model.techShortName }} from the command-line
 
@@ -232,7 +232,7 @@ The DC/OS web interface provides a way to deploy the {{ model.techShortName }} p
 1. Click **Networking**.
 1. Under External Access, select **Enabled**, and type the public agent host name used to access the {{ model.techShortName }} package.
 1. Click **Review & Run**.
-1. Review the installation notes, then **Run Service** to deploy the {{ model.techName }} package.
+1. Review the installation notes, then click **Run Service** to deploy the {{ model.techName }} package.
 
 The package is several gigabytes in size. The deployment takes approximately 5 minutes to complete on AWS.
 
