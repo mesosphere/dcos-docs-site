@@ -114,38 +114,38 @@ In this step, an IP detection script is created. This script reports the IP addr
 
         [enterprise type="inline" size="small" /]
 
-```bash
-#!/usr/bin/env bash
-set -o nounset -o errexit
-MASTER_IP=172.28.128.3
-echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
-```
+        ```bash
+        #!/usr/bin/env bash
+        set -o nounset -o errexit
+        MASTER_IP=172.28.128.3
+        echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
+        ```
 
-[oss type="inline" size="small" /]
+        [oss type="inline" size="small" /]
 
-```bash
-#!/usr/bin/env bash
-set -o nounset -o errexit -o pipefail
-export PATH=/sbin:/usr/sbin:/bin:/usr/bin:$PATH
-MASTER_IP=$(dig +short master.mesos || true)
-MASTER_IP=${MASTER_IP:-172.28.128.3}
-INTERFACE_IP=$(ip r g ${MASTER_IP} | \
-awk -v master_ip=${MASTER_IP} '
-BEGIN { ec = 1 }
- {
-  if($1 == master_ip) {
-        print $7
-        ec = 0
- } else if($1 == "local") {
-        print $6
-        ec = 0
- }
-      if (ec == 0) exit;
-    }
-      END { exit ec }
-    ')
-    echo $INTERFACE_IP
-```
+        ```bash
+        #!/usr/bin/env bash
+        set -o nounset -o errexit -o pipefail
+        export PATH=/sbin:/usr/sbin:/bin:/usr/bin:$PATH
+        MASTER_IP=$(dig +short master.mesos || true)
+        MASTER_IP=${MASTER_IP:-172.28.128.3}
+        INTERFACE_IP=$(ip r g ${MASTER_IP} | \
+        awk -v master_ip=${MASTER_IP} '
+        BEGIN { ec = 1 }
+        {
+        if($1 == master_ip) {
+                print $7
+                ec = 0
+        } else if($1 == "local") {
+                print $6
+                ec = 0
+        }
+            if (ec == 0) exit;
+            }
+            END { exit ec }
+            ')
+            echo $INTERFACE_IP
+        ```
 
 [enterprise]
 # Create a fault domain detection script
@@ -156,18 +156,21 @@ By default, DC/OS clusters have [fault domain awareness](/1.12/deploying-service
 
 1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain. During installation, the output of this script is passed to Mesos.
 
-   We recommend the format for the script output be:
+   The format for the script output is:
 
-```json
-  {
-    "fault_domain": {
-      "region": {
-        "name": <region>,
-        "zone": <zone>
-      }
+    ```json
+    {
+        "fault_domain": {
+            "region": {
+                "name": "<region-name>"
+            },
+            "zone": {
+                "name": "<zone-name>"
+            }
+        }
     }
-  }
-```
+    ```
+
     We provide [fault domain detect scripts for AWS and Azure](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
 
    <p class="message--warning"><strong>WARNING: </strong>This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
