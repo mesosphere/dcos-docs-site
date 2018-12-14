@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Getting started with Percona XtraDB Cluster
 title: Getting Started
 menuWeight: 10
 model: /services/pxc/data.yml

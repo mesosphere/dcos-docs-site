@@ -6,6 +6,8 @@ menuWeight: 130
 excerpt: Release Notes for version 0.1.1-2.3.2
 featureMaturity:
 enterprise: false
+model: /services/pxc/data.yml
+render: mustache
 ---
 
 Release notes for Percona XtraDB Cluster.

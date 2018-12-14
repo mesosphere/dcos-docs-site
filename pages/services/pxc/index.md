@@ -1,11 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle: percona-pxc-mysql
-title: percona-pxc-mysql
+navigationTitle: Percona XtraDB Cluster
+title: Percona XtraDB Cluster
 menuWeight: 87
-excerpt:
+excerpt: Deploy and manage Percona XtraDB Cluster on Mesosphere DC/OS
 featureMaturity:
 enterprise: false
+model: /services/pxc/data.yml
+render: mustache
 ---
 
-Welcome to the documentation for DC/OS percona-pxc-mysql. Choose a version to get started!
+Welcome to the documentation for DC/OS {{ model.techName }}. 

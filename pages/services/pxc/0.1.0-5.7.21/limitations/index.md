@@ -6,6 +6,8 @@ menuWeight: 110
 excerpt: Understanding configuration limitations
 featureMaturity:
 enterprise: false
+model: /services/pxc/data.yml
+render: mustache
 ---
 
 

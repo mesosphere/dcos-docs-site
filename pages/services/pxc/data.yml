@@ -2,7 +2,7 @@
 
 packageName: percona-pxc-mysql
 serviceName: percona-pxc-mysql
-techName:  percona-pxc-mysql
+techName: Percona XtraDB Cluster 
 techShortName: percona-pxc-mysql
 
 # Values specific to certain templates:
