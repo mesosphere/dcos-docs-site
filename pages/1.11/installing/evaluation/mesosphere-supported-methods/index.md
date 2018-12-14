@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Mesosphere Universal Installer
 excerpt: Use the Mesosphere Universal Installer to install DC/OS on AWS, Azure and GCP.
-navigationTitle: Mesosphere Univeral Installer
+navigationTitle: Mesosphere Universal Installer
 menuWeight: 5
 ---
 
