@@ -176,11 +176,11 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
         Figure 7. Add permissions for user 'Cory'
 
-    1.  Copy and paste the permissions in the **Permissions Strings** field. Specify your job group (`dev/batch`), job name (`job1`), and action (`read`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:/dev/batch/job1 read,update`.
+    1.  Copy and paste the permissions in the **Permissions Strings** field. Specify your job group (`dev/batch`), job name (`job1`), and action (`read`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:/dev.batch.job1 read,update`.
 
         ```bash
         dcos:adminrouter:service:metronome full
-        dcos:service:metronome:metronome:jobs:dev/batch/job1 read
+        dcos:service:metronome:metronome:jobs:dev.batch.job1 read
         dcos:adminrouter:ops:mesos full
         dcos:adminrouter:ops:slave full
         dcos:mesos:master:framework:role:* read
