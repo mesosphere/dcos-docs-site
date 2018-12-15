@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Operations
+excerpt: Managing, repairing, and monitoring the service
 title: Operations
 menuWeight: 30
 model: /services/pxc/data.yml

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Supported Versions
 title: Supported Versions
-menuWeight: 120
+menuWeight: 100
 excerpt: Understanding DC/OS Prometheus Services package versioning
 featureMaturity:
 enterprise: false

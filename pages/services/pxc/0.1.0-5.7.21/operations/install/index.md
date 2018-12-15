@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: Install and Customize
-excerpt: Install and Customize
-title: Install and Customize
-menuWeight: 15
+navigationTitle: Install 
+excerpt: Installation guide, best practices and constraints
+title: Install 
+menuWeight: 31
 model: /services/pxc/data.yml
 render: mustache
 ---
 
 
-DC/OS {{ model.techName }} is available in the Universe and can be installed by using either the web interface or the DC/OS CLI.
+DC/OS {{ model.techName }} is available in the DC/OS Universe and can be installed by using either the web interface or the DC/OS CLI.
 
 The default DC/OS {{ model.techName }} Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
@@ -24,16 +24,16 @@ The default DC/OS {{ model.techName }} Service installation provides reasonable 
    ``` 
       vm.swappiness = 0
    ```  
-For the partitions handling the various {{ model.techName }} repos turn off things like `atime`. Doing so can cause a surprising bump in 
+For the partitions handling the various {{ model.techName }} repos, turn off things like `atime`. Doing so can cause a surprising bump in 
 throughput. Edit the `/etc/fstab` file and for the partition(s) of interest add the 'noatime' option.
 
 ## Prerequisites
-<!-- Can we use an include file here? -->
-- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS {{ model.techName }} Service. Only someone with `superuser` permission can create the service account.
-  - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
+- You must have [DC/OS](/latest/in) installed on your cluster.
+- Your cluster must have {{ model.install.minNodeCount }}.
+- If you are using Enterprise DC/OS, you may [need to provision a service account](/1.12/security/ent/service-auth/custom-service-auth/) before installing DC/OS {{ model.techName }} Service. Only someone with `superuser` permission can create the service account.
+  - `strict` [security mode](/1.12/security/ent/service-auth/custom-service-auth/) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
-- Your cluster must have at least 3 private nodes.
 
 # Installing from the DC/OS CLI
 
@@ -65,7 +65,7 @@ For more information on building the `options.json` file, see [DC/OS documentati
 
 Note:  Alternatively, you can install {{ model.serviceName }} from the DC/OS web interface by clicking on Deploy after selecting the app from Catalog.
    
-If you install Percona XtraDB Cluster from the DC/OS web interface, the 
+If you install {{ model.techName }} from the DC/OS web interface, the 
 dcos {{ model.serviceName }} CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
 
@@ -73,14 +73,16 @@ dcos {{ model.serviceName }} CLI commands are not automatically installed to you
    dcos package install {{ model.serviceName }} --cli
    ```
 
+# Customization
+
 ## Installing multiple instances
 
-By default, the Percona XtraDB Cluster service is installed with a service name of {{ model.serviceName }}. You may specify a different name using a custom service configuration as follows:
+By default, the {{ model.techName }} service is installed with a service name of {{ model.serviceName }}. You may specify a different name using a custom service configuration as follows:
 
    ```shell
    {
        "service": {
-           "name": "pxc-other"
+           "name": "{{ model.serviceName }}-other"
        }
    }
    ```
@@ -91,7 +93,7 @@ When the above JSON configuration is passed to the `package install {{ model.ser
    dcos package install {{ model.serviceName }} --options={{ model.serviceName }}-other.json
    ```
    
-Multiple instances of Percona XtraDB Cluster may be installed into your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Percona XtraDB Cluster named {{ model.serviceName }}-staging and another named {{ model.serviceName }}-prod, each with its own custom  configuration.
+Multiple instances of {{ model.techName }} may be installed into your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of {{ model.techName }} named {{ model.serviceName }}-staging and another named {{ model.serviceName }}-prod, each with its own custom  configuration.
 
 After specifying a custom name for your instance, it can be reached using dcos {{ model.serviceName }} CLI commands or directly over HTTP as described below.
 
@@ -137,11 +139,11 @@ Similarly, it could be queried directly over HTTP as follows:
    ```shell
    curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/{{ model.serviceName }}-dev/v1/pod
    ```
-Note: You may add a -v (verbose) argument to any dcos {{ model.serviceName }} command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, dcos {{ model.serviceName }} commands are a thin wrapper around an HTTP interface provided by the DC/OS Percona XtraDB Cluster Service itself.
+<p class="message==note"><strong>NOTE: </strong>You may add a -v (verbose) argument to any dcos {{ model.serviceName }} command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, dcos {{ model.techName }} commands are a thin wrapper around an HTTP interface provided by the DC/OS {{ model.techName }} Service itself. </p>
 
 ## Virtual Networks
 
-DC/OS Percona XtraDB Cluster supports deployment on virtual networks on DC/OS, allowing each container (task) to have its own IP address and not use port resources on the agent machines. This can be specified by passing the following configuration during installation:
+DC/OS {{ model.techName }} supports deployment on virtual networks on DC/OS, allowing each container (task) to have its own IP address and not use port resources on the agent machines. This can be specified by passing the following configuration during installation:
 
    ```shell
    {
@@ -155,8 +157,8 @@ Note: Once the service is deployed on a virtual network, it cannot be updated to
 
 ## Minimal Installation
 
-For development purposes, you may wish to install Percona XtraDB Cluster on a local DC/OS cluster. For this, you can use dcos-docker or dcos-vagrant.
-To start a minimal cluster with a single broker, create a JSON options file named sample-pxc-minimal.json:
+For development purposes, you may wish to install {{ model.techName }} on a local DC/OS cluster. For this, you can use `dcos-docker` or `dcos-vagrant`.
+To start a minimal cluster with a single broker, create a JSON options file named sample-{{ model.serviceName }}-minimal.json:
 
    ```shell
    {

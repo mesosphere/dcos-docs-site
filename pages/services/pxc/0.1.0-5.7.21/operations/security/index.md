@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Security
+excerpt: Encryption, authentication, and authorization mechanisms
 title: Security
-menuWeight: 50
+menuWeight: 32
 model: /services/pxc/data.yml
 render: mustache
 ---

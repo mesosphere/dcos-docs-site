@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle: Service Account
-excerpt:
+excerpt: Setting up a service account
 title: Service Account
-menuWeight: 30
+menuWeight: 35
 model: /services/pxc/data.yml
 render: mustache
 ---
