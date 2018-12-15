@@ -30,16 +30,18 @@ enterprise: true
 
     推荐脚本输出的格式为
 
-      ```json
-        {
-          "fault_domain": {
+    ```json
+    {
+        "fault_domain": {
             "region": {
-              "name": <region>,
-              "zone": <zone>
+                "name": "<region-name>"
+            },
+            "zone": {
+                "name": "<zone-name>"
             }
-          }
         }
-      ```
+    }
+    ```
       
     我们提供 [AWS 和 Azure 节点的故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的集群，可将两者组合为一个脚本。可以使用这些模型为本地集群创建故障域检测脚本。
 

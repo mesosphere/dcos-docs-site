@@ -37,22 +37,24 @@ You must have less than 100ms latency between regions.
 
 1. Create a fault domain detect script to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
 
-We recommend the format for the script output be:
+    We recommend the format for the script output be:
 
-```json
-  {
-    "fault_domain": {
-      "region": {
-        "name": <region>,
-        "zone": <zone>
-      }
+    ```json
+    {
+        "fault_domain": {
+            "region": {
+                "name": "<region-name>"
+            },
+            "zone": {
+                "name": "<zone-name>"
+            }
+        }
     }
-  }
-```
+    ```
 
-We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+    We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
 
-<p class="message--important"> <strong>IMPORTANT:</strong> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
+    <p class="message--important"> <strong>IMPORTANT:</strong> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
 
 2. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.12/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
 

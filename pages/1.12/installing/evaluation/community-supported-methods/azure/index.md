@@ -144,7 +144,7 @@ Figure 2. Outputs section
 
 ### Case 1:
 
-In order to visit the the DC/OS Dashboard, you will need to access TCP port 80 or 443 of the master node. You can add an inbound security rule and an inbound NAT rule.
+In order to visit the DC/OS Dashboard, you will need to access TCP port 80 or 443 of the master node. You can add an inbound security rule and an inbound NAT rule.
 
 1. Find the network security group resource of the master node,
 

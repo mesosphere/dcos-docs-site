@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Export DC/OS Metrics to Prometheus
 navigationTitle: Export DC/OS Metrics to Prometheus
-menuWeight: 4.5
+menuWeight: 5
 excerpt: Monitoring your workload with Prometheus and Grafana self-hosted instances
 enterprise: false
 ---

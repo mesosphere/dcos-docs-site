@@ -1004,7 +1004,7 @@ paths:
             Configuration has been persisted. Basic validation tests passed,
             but the directory service was not contacted. You're encouraged to
             now perform a basic feature check against the directory backend
-            with the newly set configuration by using the the config test
+            with the newly set configuration by using the config test
             endpoint.
 
         400:

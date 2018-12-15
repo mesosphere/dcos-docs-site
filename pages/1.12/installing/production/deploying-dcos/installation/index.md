@@ -114,38 +114,38 @@ In this step, an IP detection script is created. This script reports the IP addr
 
         [enterprise type="inline" size="small" /]
 
-```bash
-#!/usr/bin/env bash
-set -o nounset -o errexit
-MASTER_IP=172.28.128.3
-echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
-```
+        ```bash
+        #!/usr/bin/env bash
+        set -o nounset -o errexit
+        MASTER_IP=172.28.128.3
+        echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
+        ```
 
-[oss type="inline" size="small" /]
+        [oss type="inline" size="small" /]
 
-```bash
-#!/usr/bin/env bash
-set -o nounset -o errexit -o pipefail
-export PATH=/sbin:/usr/sbin:/bin:/usr/bin:$PATH
-MASTER_IP=$(dig +short master.mesos || true)
-MASTER_IP=${MASTER_IP:-172.28.128.3}
-INTERFACE_IP=$(ip r g ${MASTER_IP} | \
-awk -v master_ip=${MASTER_IP} '
-BEGIN { ec = 1 }
- {
-  if($1 == master_ip) {
-        print $7
-        ec = 0
- } else if($1 == "local") {
-        print $6
-        ec = 0
- }
-      if (ec == 0) exit;
-    }
-      END { exit ec }
-    ')
-    echo $INTERFACE_IP
-```
+        ```bash
+        #!/usr/bin/env bash
+        set -o nounset -o errexit -o pipefail
+        export PATH=/sbin:/usr/sbin:/bin:/usr/bin:$PATH
+        MASTER_IP=$(dig +short master.mesos || true)
+        MASTER_IP=${MASTER_IP:-172.28.128.3}
+        INTERFACE_IP=$(ip r g ${MASTER_IP} | \
+        awk -v master_ip=${MASTER_IP} '
+        BEGIN { ec = 1 }
+        {
+        if($1 == master_ip) {
+                print $7
+                ec = 0
+        } else if($1 == "local") {
+                print $6
+                ec = 0
+        }
+            if (ec == 0) exit;
+            }
+            END { exit ec }
+            ')
+            echo $INTERFACE_IP
+        ```
 
 [enterprise]
 # Create a fault domain detection script
@@ -160,12 +160,14 @@ By default, DC/OS clusters have [fault domain awareness](/1.12/deploying-service
 
     ```json
     {
-      "fault_domain": {
-        "region": {
-          "name": <region>,
-          "zone": <zone>
+        "fault_domain": {
+            "region": {
+                "name": "<region-name>"
+            },
+            "zone": {
+                "name": "<zone-name>"
+            }
         }
-      }
     }
     ```
 
