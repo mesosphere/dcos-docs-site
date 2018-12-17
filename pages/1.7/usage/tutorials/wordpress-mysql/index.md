@@ -131,7 +131,7 @@ Next, you will use the VIP to tell WordPress how to reach the database, using en
     "type": "DOCKER",
     "volumes": [],
     "docker": {
-      "image": "wordpress:",
+      "image": "wordpress",
       "network": "BRIDGE",
       "portMappings": [
         {
