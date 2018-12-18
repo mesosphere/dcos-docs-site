@@ -9,8 +9,6 @@ enterprise: false
 
 You can configure DC/OS, version 1.12 or newer, to gather [observability metrics](http://mesos.apache.org/documentation/latest/monitoring/) from each Mesos agent and master. This page explains how to add the appropriate configuration to DC/OS.
 
-<p class="message--note"><strong>NOTE: </strong>This functionality is experimental, and modifying files in `/opt/mesosphere` is not supported. </p>
-
 
 **Prerequisite:**
 
@@ -33,9 +31,9 @@ You can configure DC/OS, version 1.12 or newer, to gather [observability metrics
 
 1. On every master node in your cluster, do the following tasks:
 
-   1. Upload the `mesos-master.conf` file to `/opt/mesosphere/etc/telegraf/telegraf.d/mesos-master.conf`.
+   1. Upload the `mesos-master.conf` file to `/var/lib/dcos/telegraf/telegraf.d/mesos-master.conf`.
    1. Restart the Telegraf process with your new configuration by running `sudo systemctl restart dcos-telegraf` command.
-   
+
 # Collecting metrics from Mesos agent with Telegraf
 
 1. Create a file named `mesos-agent.conf` with the following content:
@@ -53,7 +51,7 @@ You can configure DC/OS, version 1.12 or newer, to gather [observability metrics
 
 1. On every agent node in your cluster, do the following tasks:
 
-   1. Upload the `mesos-agent.conf` file to `/opt/mesosphere/etc/telegraf/telegraf.d/mesos-agent.conf`.
+   1. Upload the `mesos-agent.conf` file to `/var/lib/dcos/telegraf/telegraf.d/mesos-agent.conf`.
    1. Restart the Telegraf process with your new configuration by running `sudo systemctl restart dcos-telegraf` command.
 
 # Viewing metrics for Mesos masters and agents
