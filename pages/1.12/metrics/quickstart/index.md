@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Quick Start
 title: Metrics Quick Start
-menuWeight: 0
+menuWeight: 1
 excerpt: Getting Started with metrics in DC/OS
 beta: false
 ---

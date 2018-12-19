@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Metrics API
 title: Metrics API
-menuWeight: 1
+menuWeight: 6
 excerpt: Using the Metrics API
 beta: false
 ---
