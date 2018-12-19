@@ -39,7 +39,7 @@ DC/OS 1.11.8 includes the following components:
 - DCOS_OSS-3616	- Metronome initialization improvements prevent Metronome from being in an incomplete state that could cause Mesos offers and associated resources to be held in reserve waiting for the offer to be accepted or declined.
 
 ## Networking
-- COPS-3924, DCOS_OSS-1954	- The distributed layer-4 load-balancer (`dcos-l4lb`) network component waits to route traffic until application scaling or health check is complete. 
+- COPS-3924 - The distributed layer-4 load-balancer (dcos-l4lb) network component waits to route traffic until a scale out operation is complete or its health check has passed.
 - COPS-4034, DCOS_OSS-4398	- This release prevents `dcos-net` from continously restarting `systemd-networkd` on a bare-metal server with bond interfaces.
 - COPS-4087	- For applications that use Docker containers with a Virtual IP address, backend port mapping resolves access to the application by using the `host_IP:port_number` instead of the `container_ip:port_number`.
 
