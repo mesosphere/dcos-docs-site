@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-title: The Metrics Pipeline
-navigationTitle: The Metrics Pipeline
-menuWeight: 3
-excerpt: How DC/OS manages metrics
+title: Metrics Plugin Architecture
+navigationTitle: Metrics Plugin Architecture
+menuWeight: 0
+excerpt: How DC/OS collects and publishes metrics
 enterprise: false
 ---
 
