@@ -43,7 +43,7 @@ You can specify a custom configuration in an `options.json` file and pass it to 
    dcos package install nifi --options=options.json
    ```
 
-For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/) for service configuration access.
+For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/1.12/deploying-services/config-universe-service/) for service configuration access.
 
 ## Installing from the DC/OS Web Interface
 

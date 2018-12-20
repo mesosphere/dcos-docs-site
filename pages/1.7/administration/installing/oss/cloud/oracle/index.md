@@ -10,10 +10,10 @@ You can install DC/OS on Oracle Cloud Compute.
 
 # Prerequisites
 
-- You must be an Oracle Compute Cloud Service user with the `service-instance-name.Compute_Operations` role. For more information, see the Oracle Compute Cloud ServicFSSe Roles [documentation](https://docs.oracle.com/cloud/latest/computecs_common/OCSUG/GUID-F89D66BD-85F5-4325-8A1F-F8EEE53A7CF1.htm).
+- You must be an Oracle Compute Cloud Service user with the `service-instance-name.Compute_Operations` role. For more information, see the Oracle Compute Cloud ServicFSSe Roles [documentation](https://docs.oracle.com/en/cloud/index.html).
 - You must be able to log in to the web console of Oracle Compute Cloud Service. For more information, see the Accessing Oracle Compute Cloud Service Using the Web Console [documentation](http://www.oracle.com/pls/topic/lookup?ctx=stcomputecs&id=STCSG-GUID-D5D584FE-BE32-443D-9CB8-067AF73A15A6).
 - The CentOS Linux 7 image (`tar.gz` file) that you are using must be available on the host that you are using to access the Oracle Compute Cloud Service web console.
-- To obtain your REST endpoint, refer to the [REST API for Oracle Compute Cloud Service (IaaS)](https://docs.oracle.com/cloud/latest/stcomputecs/STCSA/SendRequests.html).
+- To obtain your REST endpoint, refer to the [REST API for Oracle Compute Cloud Service (IaaS)](https://docs.oracle.com/en/cloud/iaas/compute-iaas-cloud/stcsa/SendRequests.html).
 
 # System requirements
 

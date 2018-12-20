@@ -31,7 +31,7 @@ dcos cluster setup http://your-cluster.com
 
 ## Installation from the CLI
 
-To start a basic test cluster with three brokers, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Kafka on Enterprise DC/OS](https://github.com/mesosphere/dcos-commons/blob/master/frameworks/kafka/docs/install-and-customize.md#install-enterprise).
+To start a basic test cluster with three brokers, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Kafka on Enterprise DC/OS](https://docs.mesosphere.com/services/confluent-kafka/2.4.0-4.1.1/getting-started/#installing-with-a-custom-config-file).
 
 ```
 dcos package install beta-confluent-kafka
