@@ -10,8 +10,8 @@ render: mustache
 ## Version 2.5.0-2.6.0-cdh5.16.3
 
 ### Bug Fixes
-- This release fixes the bug where quorum would on HDFS when a Journalnode was replaced.
-- This release fixes the bug where, if HDFS had too many files the block reports to the namenodes failed because the reports were too big. The fix sets the env var `ipc.maximum.data.length` to a higher value (default is 64MB).
+- Fix for JournalNodes failing to establish quorum when paxos folder is missing.
+- Hadoop `ipc.maximum.data.length` property is now available in service configuration.
 
 ### Improvements
 - A validator has been added to check the package has a unique name and follows package naming guidelines on universe.
