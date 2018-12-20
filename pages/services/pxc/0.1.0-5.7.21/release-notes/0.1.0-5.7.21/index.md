@@ -27,7 +27,7 @@ Based on the latest stable release of the dcos-commons SDK (Version 0.42.0), thi
 - Integration with DC/OS features such as virtual networking and DC/OS access controls
 - Orchestrated software and configuration update, ability to add new nodes, increase memory and CPU. Installation on a DCOS cluster provides the ability to restart and replace nodes.
 - Placement constraints for pods.
-- Uniform user experience across all {{ model.techAcronym} cluster nodes.
+- Uniform user experience across all {{ model.techAcronym }} cluster nodes.
 - SSL Authentication and Data at Rest encryption
 - PAM with OpenLDAP Authentication
 - Foldered Installation
