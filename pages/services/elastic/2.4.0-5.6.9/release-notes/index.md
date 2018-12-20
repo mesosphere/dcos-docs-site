@@ -119,7 +119,7 @@ render: mustache
 ## Improvements/Features
 
 - Added an option to toggle installation of commercial X-Pack plugin (disabled by default)
-- Increased ingest node default RAM to 2GB [(issue: #908)](https://github.com/mesosphere/dcos-commons/issues/908)
+- Increased ingest node default RAM to 2GB
 - Added a configurable health check user/password to use as Elastic credentials during readiness/health checks
 
 ## Upgrades

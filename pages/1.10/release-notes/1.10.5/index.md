@@ -69,7 +69,7 @@ DC/OS 1.10.5 was released on February 22, 2018.
 # Notable Changes in DC/OS 1.10.2
 
 - Support for RHEL 7.4.
-- Updated to Mesos 1.4.0 ([changelog](https://git-wip-us.apache.org/repos/asf?p=mesos.git;a=blob_plain;f=CHANGELOG;hb=1.4.0)).
+- Updated to Mesos 1.4.0 ([changelog](https://github.com/apache/mesos/blob/92d988c/CHANGELOG)).
 - Updated to Marathon 1.5.2 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.2)).
 - DCOS-17947 - Updated configuration example for a cluster that uses [custom Docker credentials](/1.10/installing/ent/custom/configuration/examples/#docker-credentials). [enterprise type="inline" size="small"/]
 - DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/1.10/installing/ent/custom/configuration/configuration-parameters/#ca-certificate-path-enterprise). [enterprise type="inline" size="small"/]

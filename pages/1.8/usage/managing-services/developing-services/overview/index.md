@@ -139,7 +139,7 @@ Here is a detailed developer workflow for creating a DC/OS service:
 
 # Make your service public
 
-If your service is a Marathon application, you can make it accessible to those outside the cluster by adding labels to your application definition. The DC/OS [Admin Router](https://github.com/mesosphere/adminrouter-public) reads these labels and exposes your app at /service/<marathon-app-name>.
+If your service is a Marathon application, you can make it accessible to those outside the cluster by adding labels to your application definition. The DC/OS [Admin Router](https://docs.mesosphere.com/1.12/overview/architecture/components/#admin-router) reads these labels and exposes your app at /service/<marathon-app-name>.
 
 These labels are
 
