@@ -139,7 +139,7 @@ These steps must be performed for version upgrades.
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [DC/OS Installation Guide][install].
-- Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
+- Take a [snapshot of ZooKeeper](https://support.mesosphere.com/s/article/zk-backup-guano) prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
 - [Take a snapshot of the IAM database](/1.12/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. [enterprise type="inline" size="small" /]
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 
