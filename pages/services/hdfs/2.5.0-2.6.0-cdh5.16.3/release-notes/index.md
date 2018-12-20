@@ -9,16 +9,18 @@ render: mustache
 ---
 ## Version 2.5.0-2.6.0-cdh5.16.3
 
-### Bug Fixes
-- Fix for JournalNodes failing to establish quorum when paxos folder is missing.
+### Feature
 - Hadoop `ipc.maximum.data.length` property is now available in service configuration.
 
+### Bug Fixes
+- Fix for JournalNodes failing to establish quorum when paxos folder is missing.
+
 ### Improvements
-- A validator has been added to check the package has a unique name and follows package naming guidelines on universe.
+- Added validation to verify package names are unique and follow Universe guidelines.
 
 ### Updates
-- Hadoop distribution has been upgraded from cdh5.11 to cdh5.16.1
-- libemesos bundle has been upgraded to 1.12
+- Upgraded Hadoop distribution from cdh5.11.0 to cdh5.16.3
+- Upgraded libmesos-bundle to version 1.12
 
 
 ## Version 2.4.0-2.6.0-cdh5.11.0
