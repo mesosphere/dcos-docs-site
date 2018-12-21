@@ -13,12 +13,13 @@ enterprise: false
 The DC/OS Apache NiFi service supports NiFi’s Secret upload. The service provides to upload secrets file in all nodes of NiFi inside any existing folder or by creating a new folder.
 
 ## Secret upload
-To upload secret file in nifi node, create a secret with id as nifi/config-secret in the DC/OS Secret Store. The value of the secret should be in shell scripting for example, if secret file need to be inside a folder named secret, so first write the command to create a directory name secret and then use cat command to create the secret file, after that use << EOF to give the value of the secret file. Enable the secrets and give the name of secret that was created in the Secret Store. 
+To upload secret file in nifi node, create a secret with id as nifi/config-secret in the DC/OS Secret Store. The value of the secret should be written in shell scripting format as given below (like adding the aws credentials file) and then enable the secrets. 
 
 ```shell
-mkdir secret
-cat > $MESOS_SANDBOX/secret/secret1 << EOF
-... the secret value ...
+cat > file.properties << EOF 
+[default]
+accessKey = <ACCESS_KEY_ID>
+secretKey = <SECRET_KEY_ID>
 EOF
 ```
 
@@ -29,12 +30,10 @@ _Figure 1. - secret value_
 ## Prerequisites
 - [A secret with id as nifi/config-secret stored in the DC/OS Secret Store.](https://docs.mesosphere.com/1.12/security/ent/secrets/create-secrets/)
 
-[<img src="../service/secret_folder_content.png" alt="secret in the secret store" width="1000"/>](../service/secret_folder_content.png)
-
 _Figure 2. - secret in the secret store_
 
 ### Install the Service
-Install the DC/OS Apache NiFi service with the following options in addition to your own:
+Install the DC/OS Apache NiFi service with the following attributes in addition to your own:
 
  ```shell
   {
@@ -55,4 +54,7 @@ _Figure 3. - files in the nifi node_
 [<img src="../service/secret_content.png" alt="content of the secret in nifi node" width="1000"/>](../service/secret_content.png)
 
 _Figure 4. - content of the secret_
+
+### Access file in NiFi UI
+To use any file in NiFi UI like the secret uploaded earlier in the above example can be accessed by using path of the file which will be /mnt/mesos/sandbox/<file_name> i.e., /mnt/mesos/sandbox is base path in addition to your file path.
 
