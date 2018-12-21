@@ -56,5 +56,5 @@ _Figure 3. - files in the nifi node_
 _Figure 4. - content of the secret_
 
 ### Access file in NiFi UI
-To use any file in NiFi UI like the secret uploaded earlier in the above example can be accessed by using path of the file which will be /mnt/mesos/sandbox/<file_name> i.e., /mnt/mesos/sandbox is base path in addition to your file path.
+To use any file in NiFi UI like the secret uploaded earlier in the above example can be accessed by using path of the file which will be `/mnt/mesos/sandbox/<file_name>` i.e., `/mnt/mesos/sandbox` is base path in addition to your file path.
 
