@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle: Overview
 title: Overview
 menuWeight: 20
-excerpt: What's new in DC/OS Kubernetes __VERSION__
+excerpt: What's new in DC/OS Kubernetes 2.1.0-1.12.3
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
 
-When compared with previous versions, DC/OS Kubernetes __VERSION__ brings in a number of important improvements to how Kubernetes clusters are managed, as well as to how they operate.
+When compared with previous versions, DC/OS Kubernetes 2.1.0-1.12.3 brings in a number of important improvements to how Kubernetes clusters are managed, as well as to how they operate.
 
 # High-Density Multi-Kubernetes
 
@@ -57,7 +57,7 @@ The new CLI features a number of other useful commands, which can be listed by r
 dcos kubernetes --help
 ```
 
-See the [CLI](/services/kubernetes/__VERSION__/cli) section for documentation on the new CLI.
+See the [CLI](/services/kubernetes/2.1.0-1.12.3/cli) section for documentation on the new CLI.
 
 # Cluster Manager
 
