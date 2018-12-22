@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: DC/OS on GCP
-excerpt: Guide for DC/OS on GCP using the Mesosphere Universal Installer
+excerpt: Guide for DC/OS on GCP using the Universal Installer
+title: DC/OS on GCP using the Universal Installer
 navigationTitle: GCP
 menuWeight: 4
 ---
