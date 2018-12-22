@@ -45,7 +45,7 @@ The Mesosphere Kubernetes Engine (MKE) requires access over HTTPS in order to co
 
 <!-- *** NEED some validation here. -->
 
-1. <strong>Moreover, if the [TLS certificate](/services/kubernetes/__VERSION__/operations/connecting-clients/) used by DC/OS is not trusted in your case, you can run the following command to disable TLS verification for the purposes of completing this tutorial:</strong>
+1. <strong>Moreover, if the [TLS certificate](/services/kubernetes/2.1.0-1.12.3/operations/connecting-clients/) used by DC/OS is not trusted in your case, you can run the following command to disable TLS verification for the purposes of completing this tutorial:</strong>
 
     ```bash
     dcos config set core.ssl_verify false
@@ -62,6 +62,6 @@ The Mesosphere Kubernetes Engine (MKE) requires access over HTTPS in order to co
 
 ## Next Step: Installing the Mesosphere Kubernetes Engine
 
-Now that you have your DC/OS cluster all set up, you are ready to [install the Mesosphere Kubernetes Engine](/services/kubernetes/__VERSION__/getting-started/installing-mke/).
+Now that you have your DC/OS cluster all set up, you are ready to [install the Mesosphere Kubernetes Engine](/services/kubernetes/2.1.0-1.12.3/getting-started/installing-mke/).
 
 <!-- *** COULD USE some links to community slack and whatnot here to drive traffic that way for feedback. -->

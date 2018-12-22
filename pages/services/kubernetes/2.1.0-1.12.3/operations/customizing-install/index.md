@@ -9,7 +9,7 @@ excerpt: Customizing your installation of Kubernetes on DC/OS
 The default DC/OS Kubernetes package installation provides reasonable defaults.
 However, there are many available options for advanced users to further modify the installation. This section describes those options.
 
-This section continues on from the instructions given in the [Basic Installation](/services/kubernetes/__VERSION__/getting-started/provision-install/) section.
+This section continues on from the instructions given in the [Basic Installation](/services/kubernetes/2.1.0-1.12.3/getting-started/provision-install/) section.
 
 # Advanced Installation
 
@@ -46,7 +46,7 @@ Create an `options.json` file, or edit an existing one:
   }
   ```
 
-See the [Cluster Sizing](/services/kubernetes/__VERSION__/operations/cluster-sizing/) page for a more detailed explanation.
+See the [Cluster Sizing](/services/kubernetes/2.1.0-1.12.3/operations/cluster-sizing/) page for a more detailed explanation.
 
 ## Change the number of Kubernetes nodes
 
@@ -89,7 +89,7 @@ Create an `options.json` file, or edit an existing one and install:
 
 By default, region placement is set to the `local region` of the DC/OS installation.
 If DC/OS spans multiple regions then it is possible to launch Kubernetes in one and only one region of choice.
-It is possible that the region may not have the resources required, make sure to read and understand [Cluster Sizing](/services/kubernetes/__VERSION__/operations/cluster-sizing/) before attempting a deployment.
+It is possible that the region may not have the resources required, make sure to read and understand [Cluster Sizing](/services/kubernetes/2.1.0-1.12.3/operations/cluster-sizing/) before attempting a deployment.
 
 There are two ways to deploy a Kubernetes cluster to a region:
 
@@ -111,7 +111,7 @@ Considerations:
 - Once deployed, region changes are not supported and can leave the scheduler in a crash loop.
 
 
-**NOTE:** Multi-Region deployment is not supported, see [Limitations](/services/kubernetes/__VERSION__/limitations/index).
+**NOTE:** Multi-Region deployment is not supported, see [Limitations](/services/kubernetes/2.1.0-1.12.3/limitations/index).
 
 ## Placement Constraints
 
@@ -173,7 +173,7 @@ In the past, this package supported TLS only when running on DC/OS Enterprise wh
 
 DC/OS does not provide the functionality describe above. The following diagram describes how this was achieved on DC/OS.
 
-![alt text](/services/kubernetes/__VERSION__/img/tls.png "TLS design")
+![alt text](/services/kubernetes/2.1.0-1.12.3/img/tls.png "TLS design")
 
 Figure 1. TLS Design
 

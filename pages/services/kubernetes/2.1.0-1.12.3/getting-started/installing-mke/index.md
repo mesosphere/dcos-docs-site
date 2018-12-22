@@ -7,7 +7,7 @@ excerpt: Install the Mesosphere Kubernetes Engine on your DC/OS Cluster
 enterprise: true
 ---
 
-Now that your DC/OS Enterprise cluster is [ready to install Kubernetes on DC/OS](/services/kubernetes/__VERSION__/getting-started/setting-up/), you will install the Mesosphere Kubernetes Engine (MKE) on top of DC/OS.
+Now that your DC/OS Enterprise cluster is [ready to install Kubernetes on DC/OS](/services/kubernetes/2.1.0-1.12.3/getting-started/setting-up/), you will install the Mesosphere Kubernetes Engine (MKE) on top of DC/OS.
 
 MKE is the engine DC/OS uses to generate DC/OS Kubernetes clusters. Accordingly, it is necessary to install the Mesosphere Kubernetes Engine (MKE) - installed via the `kubernetes` package - before attempting to install DC/OS Kubernetes clusters on DC/OS.
 
@@ -130,14 +130,14 @@ Now that permissions have been granted to the service account, we need to make s
 
     ```bash
     $ dcos package install --yes kubernetes --options=mke-options.json
-    Installing Marathon app for package [kubernetes] version [__VERSION__]
-    Installing CLI subcommand for package [kubernetes] version [__VERSION__]
+    Installing Marathon app for package [kubernetes] version [2.1.0-1.12.3]
+    Installing CLI subcommand for package [kubernetes] version [2.1.0-1.12.3]
     New command available: dcos kubernetes
     The Mesosphere Kubernetes Engine service is being installed.
     ```
 
-For more information on the CLI management commands for DC/OS Kubernetes see [the CLI reference section of this documentation](/services/kubernetes/__VERSION__/cli/).
+For more information on the CLI management commands for DC/OS Kubernetes see [the CLI reference section of this documentation](/services/kubernetes/2.1.0-1.12.3/cli/).
 
 ## Next Step: Creating Kubernetes Clusters on DC/OS Enterprise
 
-Now that MKE is installed on your DC/OS cluster, you can move on to [creating Kubernetes clusters on top of DC/OS Enterprise](/services/kubernetes/__VERSION__/getting-started/creating-clusters/).
+Now that MKE is installed on your DC/OS cluster, you can move on to [creating Kubernetes clusters on top of DC/OS Enterprise](/services/kubernetes/2.1.0-1.12.3/getting-started/creating-clusters/).
