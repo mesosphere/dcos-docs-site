@@ -29,7 +29,7 @@ before continuing on.
 
 The Mesosphere Kubernetes Engine (MKE) requires access over HTTPS in order to connect to the kubernetes-apiserver using `kubectl`. So to finish setting up the cluster and before moving on to installing the MKE, let's go ahead and make sure you are authenticated to the DC/OS CLI using HTTPS:
 
-1. <strong>In your CLI, enter</strong>:
+1. **In your CLI, enter:**
 
     ```bash
     dcos config show core.dcos_url
@@ -37,7 +37,7 @@ The Mesosphere Kubernetes Engine (MKE) requires access over HTTPS in order to co
 
 <!-- *** NEED some validation here. -->
 
-2. <strong>If the returned URL does not start with </strong>`https://`<strong>, enter:</strong>
+2. **If the returned URL does not start with** `https://`**, enter:**
 
     ```bash
     dcos config set core.dcos_url https://<master_public_IP_address>
@@ -45,14 +45,14 @@ The Mesosphere Kubernetes Engine (MKE) requires access over HTTPS in order to co
 
 <!-- *** NEED some validation here. -->
 
-1. <strong>Moreover, if the [TLS certificate](/services/kubernetes/2.1.0-1.12.3/operations/connecting-clients/) used by DC/OS is not trusted in your case, you can run the following command to disable TLS verification for the purposes of completing this tutorial:</strong>
+3. **Moreover, if the [TLS certificate](/services/kubernetes/2.1.0-1.12.3/operations/connecting-clients/) used by DC/OS is not trusted in your case, you can run the following command to disable TLS verification for the purposes of completing this tutorial:**
 
     ```bash
     dcos config set core.ssl_verify false
     ```
 <!-- *** NEED some validation here. -->
 
-1. <strong>To verify that the cluster is connected, or if there was a change to `https`, setup the cluster again, making sure to insert the actual URL of your cluster</strong>:
+4. **To verify that the cluster is connected, or if there was a change to `https`, setup the cluster again, making sure to insert the actual URL of your cluster**:
 
     ```bash
     dcos cluster setup <cluster-url>
