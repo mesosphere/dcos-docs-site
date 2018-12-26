@@ -16,7 +16,7 @@ beta: true
 # Install package registry
 
 <!--- Change the link once https://jira.mesosphere.com/browse/DCOS-39865 is resolved. -->
-Please follow these [instructions](https://github.com/mesosphere/package-registry/blob/master/docs/getting-started.markdown) to install the package registry.
+Please follow these [instructions](https://github.com/mesosphere/package-registry/blob/master/docs/getting-started.md) to install the package registry.
 
 # Download the DSS package
 
