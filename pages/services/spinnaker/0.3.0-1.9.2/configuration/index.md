@@ -158,7 +158,7 @@ mail:
 #            fallback: false
 ```
 
-For more configuration options see [spinnaker/echo](https://github.com/spinnaker/echo/blob/master/echo-web/config/echo.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/echo.yml).
+For more configuration options see [spinnaker/echo](https://github.com/spinnaker/echo/blob/master/echo-web/config/echo.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/tree/master/install).
 
 ### igor-local.yml (optional)
 Igor is the {{ model.techName }} **trigger service**. The following shows how to configure the dockerRegistry trigger plugin in `igor-local.yml`.
