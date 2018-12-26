@@ -23,3 +23,5 @@ This service allows you to run DC/OS Services by storing DC/OS Packages local to
 - Inability to change storage back end after initial deployment
 - Multiple DC/OS clusters with a single DC/OS Package Registry
 - Metrics for local storage (S3 metrics are out of scope). For example, alerts on low disk space are not implemented yet.
+
+<p class="message--note"><strong>NOTE: </strong>Package registry v0.2.1 is supported for DC/OS 1.12.1 and above.</p>
