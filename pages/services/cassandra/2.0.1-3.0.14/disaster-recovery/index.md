@@ -22,6 +22,7 @@ You can backup an entire cluster's data and schema to Amazon S3 using the `backu
 - `AWS_ACCESS_KEY_ID`: the access key ID for the AWS IAM user running this backup.
 - `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this backup.
 - `AWS_REGION`: the region of the S3 bucket being used to store this backup.
+- `AWS_SESSION_TOKEN`: needed if you’re including temporary security credentials in the file
 - `S3_BUCKET_NAME`: the name of the S3 bucket to store this backup in.
 
 Make sure that you provision your nodes with enough disk space to perform a backup. Apache Cassandra backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables, so you'll need half of your total available space to be free to backup every keyspace at once.
@@ -37,6 +38,7 @@ CASSANDRA_KEYSPACES="space1 space2"
 AWS_ACCESS_KEY_ID=<my_access_key_id>
 AWS_SECRET_ACCESS_KEY=<my_secret_access_key>
 AWS_REGION=us-west-2
+AWS_SESSION_TOKEN=AQoDYXdzEJr...<remainder of security token>
 S3_BUCKET_NAME=backups
 dcos cassandra plan start backup-s3 -p SNAPSHOT_NAME=$SNAPSHOT_NAME -p "CASSANDRA_KEYSPACES=$CASSANDRA_KEYSPACES" -p AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -p AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY -p AWS_REGION=$AWS_REGION -p S3_BUCKET_NAME=$S3_BUCKET_NAME
 ```
