@@ -21,7 +21,7 @@ The default DC/OS Apache NiFi Service installation provides reasonable defaults 
  - The `disabled` security mode does not require a service account.
  - Your cluster must have at least three private nodes.
 
-- **Tip:** A complete guide to Configuring DC/OS Access for NiFi can be found [here](../security/serviceaccountdetail.md).
+A complete guide to Configuring DC/OS Access for NiFi can be found [here](../security/serviceaccountdetail.md).
 
 # Installing from the DC/OS CLI
 
@@ -49,7 +49,7 @@ For more information on building the `options.json` file, see [DC/OS documentati
 
 ## Installing from the DC/OS web interface
 
-Note:  Alternatively, you can install DC/OS NiFi Service from the DC/OS web interface. Select the app from the Catalog and choose Deploy.
+Alternatively, you can install DC/OS NiFi Service from the DC/OS web interface. Select the app from the Catalog and choose Deploy.
 
 If you install Apache NiFi from the DC/OS web interface, the `dcos nifi` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
@@ -79,11 +79,11 @@ Multiple instances of Apache NiFi may be installed into your DC/OS cluster by cu
 
 After specifying a custom name for your instance, it can be reached using `dcos nifi` CLI commands or directly over HTTP as described below.
 
-**Caution:** The service name cannot be changed after initial install. Changing the service name would require installing a new instance of the service against the new name, then copying over any data as necessary to the new instance.
+<p class="message--important"><strong>IMPORTANT: </strong>The service name cannot be changed after initial install. Changing the service name would require installing a new instance of the service against the new name, then copying over any data as necessary to the new instance.<p>
 
 ## Installing into folders
 
-In DC/OS 1.10 and above, services may be installed into folders by specifying a slash-delimited service name. The example below will install the service under a path of `foldered => path => to => nifi`.
+In DC/OS 1.10 and later, services may be installed into folders by specifying a slash-delimited service name. The example below will install the service under a path of `foldered => path => to => nifi`.
 
    ```shell
    {
@@ -94,7 +94,7 @@ In DC/OS 1.10 and above, services may be installed into folders by specifying a 
    ```
 It can then be reached using `dcos nifi` CLI commands or directly over HTTP as described below.
 
-**Caution:**  The service folder location cannot be changed after initial install. Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.
+<p class="message--important"><strong>IMPORTANT: </strong>The service folder location cannot be changed after initial install. Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.</p>
 
 ## Addressing named instances
 
@@ -121,7 +121,7 @@ You can make the same query over HTTP:
    ```shell
    curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/nifi-dev/v1/pod
    ```
-**Note:** You may add a `-v` (verbose) argument to any `dcos nifi` command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, `dcos nifi` commands are a thin wrapper around an HTTP interface provided by the DC/OS Apache NiFi Service itself.
+<p class="message--note"><strong>NOTE: </strong> You may add a <tt>-v</tt> (verbose) argument to any <tt>dcos nifi</tt> command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, <tt>dcos nifi</tt> commands are a thin wrapper around an HTTP interface provided by the DC/OS Apache NiFi Service itself.</p>
 
 ## Virtual networks
 
@@ -134,7 +134,7 @@ DC/OS NiFi Service supports deployment on virtual networks on DC/OS, allowing ea
        }
    }
    ```
-**Caution:** Once the service is deployed on a virtual network, it cannot be updated to use the host network.
+<p class="message--note"><strong>NOTE: </strong> Once the service is deployed on a virtual network, it cannot be updated to use the host network.</p>
 
 
 ## Minimal installation
@@ -162,7 +162,7 @@ Customize the defaults by creating a JSON file. Then, pass it to `dcos package i
 
 Sample JSON options file named `sample-nifi-custom.json`:
 
-   ```shell
+   ```json
    {
    "node": {
        "count": 1,
@@ -172,7 +172,8 @@ Sample JSON options file named `sample-nifi-custom.json`:
        "name": "test/integration/nifi",
        "security": {
            "kerberos": {
-               "enabled": true
+               "enabled": true,
+               "cn_dn_node_identity": "testintegrationnifi"
            },
            "tls_ssl": {
                "enable": true
@@ -181,7 +182,6 @@ Sample JSON options file named `sample-nifi-custom.json`:
        "service_account": "dcosnifi",
        "service_account_secret": "dcosnifisecret",
        "virtual_network_enabled": true
-       "cn_dn_node_identity": "testintegrationnifi"
        }
    }
    ```
@@ -190,7 +190,7 @@ The following command creates a cluster using `sample-nifi.json`:
    ```shell
    dcos package install nifi --options=sample-nifi-custom.json
    ```
-**Tip:** Store your custom configuration in source control.
+Store your custom configuration in source control.
 
 Alternatively, you can perform a custom installation from the DC/OS web interface. Choose `ADVANCED INSTALLATION` at install time.
 
@@ -216,7 +216,7 @@ In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service wit
 
   5. Click `CONFIGURE` and change the service name to `/testing/nifi`, then deploy. The slashes in your service name are interpreted as folders. You are deploying `nifi` in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.
 
-**Caution:** Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 and earlier versions do not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.
+<p class="message--important"><strong>IMPORTANT: </strong>Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 and earlier versions do not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p>
 
 ## Interacting with your foldered service
 
@@ -238,7 +238,7 @@ You must include spare capacity in this list, so that if one of the whitelisted 
 
 In order to define placement constraints as part of an install or update of a service, provide them as a JSON encoded string. For example, you can define a placement constraint in an options file as follows:
 
-   ```shell
+   ```json
    cat options.json
    {
        "hello": {
