@@ -4,11 +4,16 @@ navigationTitle: Alert Manager Configurations
 title: Alert Manager Configurations
 menuWeight: 10
 excerpt: Automatically loading Alert Manager configurations.
+model: /services/dcos-monitoring/data.yml
+render: mustache
 ---
+
+#include /services/include/beta-software-warning.tmpl
+
 
 # Automatically loading Alert Manager configurations
 
-The DC/OS Monitoring service can be configured to automatically load Alert Manager configurations from a Git repository.
+The {{ model.techName }} service can be configured to automatically load Alert Manager configurations from a Git repository.
 
 ## Save Alert Manager configurations
 
@@ -102,7 +107,7 @@ dcos security secrets create --value=<SLACK_API_URL> slackapiurl
 
 When installing the service, you must configure the `secrets` section to point to the secret created.
 
-## Install DC/OS Monitoring service
+## Install {{ model.techName }} service
 
 Create a custom option file (`options.json`) like the following.
 You may omit the `credentials` section if the Git repository is public.

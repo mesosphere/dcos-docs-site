@@ -5,8 +5,11 @@ title: Beta DC/OS Monitoring Service
 menuWeight: 128
 beta: true
 excerpt:
+model: /services/dcos-monitoring/data.yml
+render: mustache
 ---
 
-DC/OS Monitoring Service is a service that monitors DC/OS.
+{{ model.techName }} allows you to monitor your DC/OS installation.
 
 #include /services/include/beta-software-warning.tmpl
+

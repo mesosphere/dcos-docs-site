@@ -3,8 +3,13 @@ layout: layout.pug
 navigationTitle: Placement Constraints
 title: Placement Constraints
 menuWeight: 40
-excerpt: Placement Constraints
+excerpt: Customizing placement constraints
+model: /services/dcos-monitoring/data.yml
+render: mustache
 ---
+
+#include /services/include/beta-software-warning.tmpl
+
 
 # Placement constraints
 
@@ -19,13 +24,12 @@ To achieve this, use the following syntax for the placement constraint:
 [["hostname", "LIKE", "10.0.0.159|10.0.1.202|10.0.3.3"]]
 ```
 
-*IMPORTANT*: Be sure to include excess capacity in such a scenario so that if one of the whitelisted systems goes down, there is still enough capacity to repair your service.
+<p class="message--important"><strong>IMPORTANT: </strong> Be sure to include excess capacity in such a scenario so that if one of the whitelisted systems goes down, there is still enough capacity to repair your service.</p>
 
 ## Updating placement constraints
 
 Clusters change, and as such so will your placement constraints.
-However, already running service pods will **not** be affected by changes in placement constraints.
-This is because altering a placement constraint might invalidate the current placement of a running pod, and the pod will not be relocated automatically as doing so is a destructive action.
+However, already running service pods will **not** be affected by changes in placement constraints. This is because altering a placement constraint might invalidate the current placement of a running pod, and the pod will not be relocated automatically as doing so is a destructive action.
 We recommend using the following procedure to update the placement constraints of a pod:
 
 - Update the placement constraint definition in the service.

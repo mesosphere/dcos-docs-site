@@ -3,8 +3,12 @@ layout: layout.pug
 navigationTitle: Grafana UI
 title: Grafana UI
 menuWeight: 50
-excerpt: Access Grafana UI.
+excerpt: Access Grafana UI
+model: /services/dcos-monitoring/data.yml
+render: mustache
 ---
+#include /services/include/beta-software-warning.tmpl
+
 
 # Access Grafana UI
 

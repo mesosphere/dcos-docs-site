@@ -4,6 +4,8 @@ navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 90
 excerpt: Discover the new features, updates, and known limitations in this release of the Beta DC/OS Monitoring Service.
+model: /services/dcos-monitoring/data.yml
+render: mustache
 ---
 
 # Version v0.2.1
@@ -17,16 +19,16 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 ## New features
 
 * Grafana v5.3.4.
-* Support SSH auth when fetching from git repository.
+* Support SSH auth when fetching from Git repository.
 * Add default Grafana dashboards which can be automatically loaded.
 * Support Grafana server placement constraints.
-* Support fetching from a branch in a git repository.
+* Support fetching from a branch in a Git repository.
 
 ## Updates
 
 * Use local persistent volume for Grafana server.
 * Used Docker image for Grafana server.
-* Recursively clone git sub-modules from a git repository.
+* Recursively clone Git sub-modules from a Git repository.
 
 # Version v0.1.1
 
@@ -47,8 +49,8 @@ Initial release.
 * Alert Manager v0.15.2.
 * Push Gateway v0.5.2.
 * Automatically scrape dcos-metrics service endpoints in Prometheus.
-* Automatically load Grafana dashboard configurations from a git repository.
-* Automatically load Alert Manager configurations from a git repository.
+* Automatically load Grafana dashboard configurations from a Git repository.
+* Automatically load Alert Manager configurations from a Git repository.
 * Support strict mode DC/OS cluster.
 * Support launching Grafana server on public agents.
 

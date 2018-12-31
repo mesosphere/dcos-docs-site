@@ -3,12 +3,17 @@ layout: layout.pug
 navigationTitle: Grafana Dashboard Configurations
 title: Grafana Dashboard Configurations
 menuWeight: 10
-excerpt: Automatically loading Grafana dashboard configurations.
+excerpt: Automatically loading Grafana dashboard configurations
+model: /services/dcos-monitoring/data.yml
+render: mustache
 ---
+
+#include /services/include/beta-software-warning.tmpl
+
 
 # Automatically loading Grafana dashboard configurations
 
-The DC/OS Monitoring service can be configured to automatically load Grafana dashboard configurations from a Git repository.
+The {{ model.techName }} service can be configured to automatically load Grafana dashboard configurations from a Git repository.
 
 ## Save Grafana dashboard configurations
 
@@ -98,7 +103,7 @@ If you want to fetch the Grafana dashboard configurations from another branch in
 
 ```
 
-## Install DC/OS Monitoring service
+## Install {{ model.techName }} service
 
 Then, install the service:
 
