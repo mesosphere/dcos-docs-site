@@ -9,7 +9,7 @@ excerpt:
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
-Adjust the following settings to customize the amount of resources allocated to each node. DC/OS Apache ZooKeeper's [system requirements](https://zookeeper.apache.org/doc/trunk/zookeeperAdmin.html#sc_systemReq) must be taken into consideration when adjusting these values. Reducing these values below those requirements may result in adverse performance and/or failures while using the service.
+Adjust the following settings to customize the amount of resources allocated to each node. DC/OS Apache ZooKeeper's [system requirements](https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_systemReq) must be taken into consideration when adjusting these values. Reducing these values below those requirements may result in adverse performance and/or failures while using the service.
 
 <!-- Each of the following settings can be customized under the **node** configuration section. -->
 
@@ -71,7 +71,7 @@ Change this value by modifying the following JSON.
 
 # Heap Size
 
-It is extremely important to carefully define the Java heap size. Heap size is important to prevent swapping, which can seriously degrade ZooKeeper performance. Heap size should always be less than the memory allocated to a task. For more information, consult the [ZooKeeper Administrator's Guide](https://zookeeper.apache.org/doc/trunk/zookeeperAdmin.html#sc_zkMulitServerSetup).
+It is extremely important to carefully define the Java heap size. Heap size is important to prevent swapping, which can seriously degrade ZooKeeper performance. Heap size should always be less than the memory allocated to a task. For more information, consult the [ZooKeeper Administrator's Guide](https://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_zkMulitServerSetup).
 
 Change this value by modifying the following JSON.
 
