@@ -30,13 +30,13 @@ To make configuration changes via scheduler environment updates, perform the fol
 6. Run this following command from the DC/OS CLI.
 
 ```
-dcos kafka-zookeeper update start --options=options.json
+dcos beta-kafka-zookeeper update start --options=options.json
 ```
 
 7. To check the status of the update, run:
 
 ```
-dcos kafka-zookeeper update status
+dcos beta-kafka-zookeeper update status
 ```
 
 A sample valid `options.json` looks like:
@@ -52,7 +52,7 @@ A sample valid `options.json` looks like:
 }
 ```
 
-Passing in this file after deployment would increase each node CPU value from the default value of 1.0, and change the ZooKeeper-specific values `maxCilentCnxns` and `minSessionTimeout` as well.  
+Passing in this file after deployment would increase each node CPU value from the default value of 1.0, and change the ZooKeeper-specific values `maxClientCnxns` and `minSessionTimeout` as well.  
 
 ***IMPORTANT***: Reconfiguration changes to node count, service name, ZooKeeper ticktime, and all ZooKeeper-specific port values (client port, follower port, and leader election port) will be blocked. These are blocked for the safety of the service. Please exercise caution when performing reconfigurations, as many configurations are unsafe to change after deployment. Reconfigurations can cause unpredictable behavior and should only be done to debug or increase service performance.
 
@@ -92,7 +92,7 @@ Let's say we have the following deployment of our nodes:
 	```
 	[["hostname", "LIKE", "10.0.10.3|10.0.10.26|10.0.10.28|10.0.10.84|10.0.10.123"]]
 	```
-2. Redeploy `zookeeper-1-server` from the decommissioned node to somewhere within the new whitelist: `dcos kafka-zookeeper pods replace zookeeper-1`.
+2. Redeploy `zookeeper-1-server` from the decommissioned node to somewhere within the new whitelist: `dcos beta-kafka-zookeeper pods replace zookeeper-1`.
 3. Wait for `zookeeper-1-server` to be up and healthy before continuing with any other replacement operations.
 
 <a name="restarting-a-node"></a>
@@ -100,7 +100,7 @@ Let's say we have the following deployment of our nodes:
 
 This operation will restart a node while keeping it at its current location and with its current persistent volume data. This may be thought of as similar to restarting a system process, but it also deletes any data that is not on a persistent volume.
 
-1. Run `dcos kafka-zookeeper pods restart zookeeper-<NUM>`, e.g. `zookeeper-2`.
+1. Run `dcos beta-kafka-zookeeper pods restart zookeeper-<NUM>`, e.g. `zookeeper-2`.
 
 <a name="replacing-a-node"></a>
 ## Replacing a Node
@@ -110,5 +110,5 @@ This operation will move a node to a new system and will discard the persistent 
 **Note:** Nodes are not moved automatically. You must perform the following steps manually to move nodes to new systems. You can build your own automation to perform node replacement automatically according to your own preferences.
 
 1. Back up ZooKeeper log and directory files in case of cluster outage.
-2. Run `dcos kafka-zookeeper pods replace zookeeper-<NUM>` to halt the current instance (if still running) and launch a new instance elsewhere.
+2. Run `dcos beta-kafka-zookeeper pods replace zookeeper-<NUM>` to halt the current instance (if still running) and launch a new instance elsewhere.
 3. Restore log and directory files if necessary.

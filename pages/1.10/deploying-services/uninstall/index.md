@@ -8,9 +8,8 @@ excerpt: Uninstalling DC/OS services from the CLI
 enterprise: false
 ---
 
+Most services can be uninstalled from the CLI or the DC/OS web interface. If a Universe service has any reserved resources that could not be be cleaned up by the normal uninstall process, you may also need to run the framework cleaner script. The [framework cleaner script](#framework-cleaner) removes the service instance from ZooKeeper, along with any data associated with it.
 
-
-Services can be uninstalled from the CLI. If a Universe service has any reserved resources that could not be be cleaned up by the normal uninstall process, you may also need to run the framework cleaner script. The [framework cleaner script](#framework-cleaner) removes the service instance from ZooKeeper, along with any data associated with it.
 
 # Uninstalling Universe services
 
@@ -30,6 +29,8 @@ dcos package uninstall chronos
 
 ## Web interface
 
+<p class="message--note"><strong>NOTE: </strong>The Edge-LB service cannot be uninstalled using this procedure. Please follow the steps in the <a href="/services/edge-lb/1.2/uninstalling/">Edge-LB uninstall documentation</a>.</p>
+
 You can uninstall services from the DC/OS web interface from the **Services** tab. The Services tab provides a full-featured interface to the native DC/OS Marathon instance.
 
 1.  Navigate to the [**Services**](/1.10/gui/services/) tab in the DC/OS web interface.
@@ -41,7 +42,7 @@ You can uninstall services from the DC/OS web interface from the **Services** ta
 
 1.  Copy and run the displayed command.
 
-## Troubleshooting
+# Troubleshooting
 
 It is possible for an uninstall to fail with the following error message:
 
@@ -77,7 +78,7 @@ For more information, see the [command reference](/1.10/cli/command-reference/dc
 
 ### Web interface
 
-You can uninstall services from the DC/OS web interface, from the **Services**. The Services tab provides a full-featured interface to the native DC/OS Marathon instance.
+You can uninstall services from the DC/OS web interface, from the **Services** tab. The Services tab provides a full-featured interface to the native DC/OS Marathon instance.
 
 ### Services tab
 

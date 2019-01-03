@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Supported Versions
 title: Supported Versions
-menuWeight: 130
+menuWeight: 80
 excerpt: Understanding DC/OS Kubernetes versions and policies
 ---
 

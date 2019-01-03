@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Metrics Reference
 title: Metrics Reference
-menuWeight: 2
+menuWeight: 7
 excerpt: Understanding metrics collected by DC/OS
 beta: false
 enterprise: false

@@ -6,6 +6,7 @@ menuWeight: 10
 excerpt: Instructions for installing the Beta DC/OS Monitoring service
 model: /services/dcos-monitoring/data.yml
 render: mustache
+
 ---
 
 # Prerequisites
@@ -85,6 +86,7 @@ dcos security org users grant {{ model.serviceName }}-principal dcos:secrets:lis
 ## Install with custom options
 
 You must identify for the {{ model.techShortName }} service which service account and certificate it should use for authentication. Do so by installing the service with a custom configuration that sets the `service_account` field to the principal name and sets the `service_account_secret` field to the secret where the service certificate is stored.
+
 
 Create a custom options file (`options.json`):
 

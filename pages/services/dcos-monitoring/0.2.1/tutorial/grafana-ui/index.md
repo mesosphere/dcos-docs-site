@@ -10,6 +10,7 @@ render: mustache
 #include /services/include/beta-software-warning.tmpl
 
 
+
 # Access Grafana UI
 
 Grafana will be installed on a public agent if `public` is set to `true` (default: `false`) in the package config.

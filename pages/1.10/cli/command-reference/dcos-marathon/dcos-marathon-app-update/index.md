@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-Add an application.
+Update an application.
 
 # Usage
 

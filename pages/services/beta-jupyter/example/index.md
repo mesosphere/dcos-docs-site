@@ -36,7 +36,7 @@ The technologies used in this section are as follows:
 - [DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed
 
 ## Optional: Terraform
-If you plan to use GPU support we recommend that you use the [dcos-terraform project](https://github.com/dcos/terraform-dcos/blob/master/aws/README.md#adding-gpu-private-agents) to provision DC/OS. Please refer to the the [GPU Cluster Provisioning section](https://github.com/dcos/examples/tree/master/{{ model.packageName }}/1.11#install-{{ model.packageName }}-with-gpu-support) in the README for more details.
+If you plan to use GPU support we recommend that you use the [dcos-terraform project](https://github.com/dcos/terraform-dcos/blob/master/aws/README.md#adding-gpu-private-agents) to provision DC/OS. Please refer to the [GPU Cluster Provisioning section](https://github.com/dcos/examples/tree/master/{{ model.packageName }}/1.11#install-{{ model.packageName }}-with-gpu-support) in the README for more details.
 
 # Installation
 This section will describe how to install the HDFS service and the Marathon-LB service.

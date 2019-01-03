@@ -21,11 +21,11 @@ In the next sections we present two examples you can follow in order to expose t
 - [The first example](#example-1) provides a way for quickly trying out DC/OS Kubernetes without being concerned about establishing trust. This example also only covers exposing a single Kubernetes API.
 - [The second example](#example-2) is an extension of the first that builds a fully-secured setup exposing multiple instances of the Kubernetes API for multiple Kubernetes clusters.
 
-Alternately, if you are running Marathon-LB and/or Edge-LB in your DC/OS cluster, you may wish to expose the Kubernetes API for a given Kubernetes cluster via one of those. Details on how to do this are documented [here](../exposing-the-kubernetes-api-marathonlb-edgelb).
+Alternately, if you are running Marathon-LB and/or Edge-LB in your DC/OS cluster, you may wish to expose the Kubernetes API for a given Kubernetes cluster via one of those. Details on how to do this are documented [here](/services/kubernetes/2.1.0-1.12.3/operations/exposing-the-kubernetes-api-marathonlb-edgelb).
 
 In order for you to follow the examples successfully, your DC/OS cluster **MUST** have at least one [public agent](/1.12/overview/architecture/node-types/#public-agent-nodes) (that is, an agent that is on a network that allows ingress from outside the cluster). In the examples, `<ip-of-public-agent>` is the IP address you use to reach said public DC/OS agent. You  **MUST** also have SSH access to this DC/OS public agent. Having followed these examples, you will end up with a setup similar to the following:
 
-![Exposing the Kubernetes API using HAProxy](/services/kubernetes/2.1.0-1.12.3/img/haproxy.png "Exposing the Kubernetes API using HAProxy")
+![Exposing the Kubernetes API using HAProxy](/services/kubernetes/2.1.0-1.12.3/img/haproxy.png)
 
 Figure 1. Exposing the Kubernetes API using HAProxy
 
@@ -210,7 +210,7 @@ $ curl -k https://<ip-of-public-agent>:6443
 }
 ```
 
-To configure `kubectl` to access the Kubernetes API using this setup, follow the steps described in the ["Without TLS verification"](../connecting-clients#without-tls-verification) subsection of the [Connecting Clients](../connecting-clients) page.
+To configure `kubectl` to access the Kubernetes API using this setup, follow the steps described in the ["Without TLS verification"](/services/kubernetes/2.1.0-1.12.3/operations/connecting-clients#without-tls-verification) subsection of the [Connecting Clients](/services/kubernetes/2.1.0-1.12.3/operations/connecting-clients) page.
 
 <a name="example-2"></a>
 
@@ -313,4 +313,4 @@ For further information, refer to the [HAProxy documentation](https://cbonte.git
 
 ### Step 4: Configuring `kubectl`
 
-To configure `kubectl` to access the Kubernetes API using this setup, follow the steps described in the ["With TLS verification"](../connecting-clients#with-tls-verification) subsection of the [Connecting Clients](../connecting-clients) page.
+To configure `kubectl` to access the Kubernetes API using this setup, follow the steps described in the ["With TLS verification"](/services/kubernetes/2.1.0-1.12.3/operations/connecting-clients#with-tls-verification) subsection of the [Connecting Clients](/services/kubernetes/2.1.0-1.12.3/operations/connecting-clients/) page.

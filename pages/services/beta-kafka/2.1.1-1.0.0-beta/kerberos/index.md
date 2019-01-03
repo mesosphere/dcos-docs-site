@@ -65,7 +65,7 @@ If a kerberized `kafka-zookeeper` ensemble is available for use with this Apache
 
 In order to determine the endpoints for the ZooKeeper ensemble, the following command can be used:
 ```bash
-$ dcos kafka-zookeeper endpoint clientport
+$ dcos beta-kafka-zookeeper endpoint clientport
 ```
 resulting in output resembling:
 ```json
@@ -105,7 +105,7 @@ Create a `kerberos-zookeeper-options.json` file with the following contents:
     }
 }
 ```
-Note that `service.security.kerberos.enabled_for_zookeeper` is now set to true and that `kafka.kafka_zookeeper_uri` is set to the `"dns"` output of the `dcos kafka-zookeeper endpoint clientport` command.
+Note that `service.security.kerberos.enabled_for_zookeeper` is now set to true and that `kafka.kafka_zookeeper_uri` is set to the `"dns"` output of the `dcos beta-kafka-zookeeper endpoint clientport` command.
 
 Kerberized Kafka can then be deployed as follows:
 ```bash

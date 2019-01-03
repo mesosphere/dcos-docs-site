@@ -12,6 +12,7 @@ render: mustache
 
 # Uninstall the {{ model.techName }} service
 
+
 You can uninstall the service using the following command:
 
 ```bash

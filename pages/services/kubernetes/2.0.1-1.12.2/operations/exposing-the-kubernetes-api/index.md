@@ -307,7 +307,7 @@ frontend frontend_all
     use_backend backend_devkubernetes02 if { ssl_fc_sni devkubernetes02.example.com }
 ```
 
-Notice how `backend_devkubernetes01` and `backend_devkubernetes02` match the the names of the backends defined in the first step.
+Notice how `backend_devkubernetes01` and `backend_devkubernetes02` match the names of the backends defined in the first step.
 Additional forwarding rules can be set up for other domains as required, regardless of whether they correspond to other instances of the Kubernetes API or to completely different services.
 For further information, refer to the [HAProxy documentation](https://cbonte.github.io/haproxy-dconv/1.8/configuration.html).
 

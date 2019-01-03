@@ -26,12 +26,12 @@ excerpt:
 
 1. Connect a client to Apache ZooKeeper.
    ```shell
-   dcos kafka-zookeeper endpoints
+   dcos beta-kafka-zookeeper endpoints
    [
      "clientport"
    ]
 
-   dcos kafka-zookeeper endpoints clientport
+   dcos beta-kafka-zookeeper endpoints clientport
    {
        "vips": ["clientport.zookeeper.l4lb.thisdcos.directory:1140"],
        "address": [
@@ -65,7 +65,7 @@ You will use the values in the `address` field for the final step.
    curl -O http://www.trieuvan.com/apache/zookeeper/zookeeper-3.4.11/zookeeper-3.4.11.tar.gz
    tar -xzf zookeeper-3.4.11.tar.gz
    ```
-1. Run the the `zkCli.sh` script with the proper arguments, including one of the IPs that you found earlier.
+1. Run the `zkCli.sh` script with the proper arguments, including one of the IPs that you found earlier.
 
    ```
    docker run -it zookeeper zkCli.sh -server 10.0.3.206:1140

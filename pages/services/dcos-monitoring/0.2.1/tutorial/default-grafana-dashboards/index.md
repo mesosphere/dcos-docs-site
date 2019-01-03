@@ -14,6 +14,7 @@ render: mustache
 # Load default Grafana dashboards for DC/OS
 
 {{ model.techName }} service ships with a set of default Grafana dashboards for DC/OS.
+
 Those dashboards will be automatically loaded if `grafana.default_dashboards` is set to `true`.
 
 Users can choose to disable this feature by setting `grafana.default_dashboards` to `false.

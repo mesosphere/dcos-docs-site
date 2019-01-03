@@ -41,12 +41,14 @@ You must have less than 100ms latency between regions.
 
     ```json
     {
-      "fault_domain": {
-        "region": {
-          "name": <region>,
-          "zone": <zone>
+        "fault_domain": {
+            "region": {
+                "name": "<region-name>"
+            },
+            "zone": {
+                "name": "<zone-name>"
+            }
         }
-      }
     }
     ```
 

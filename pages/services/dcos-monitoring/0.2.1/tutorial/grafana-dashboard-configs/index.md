@@ -15,6 +15,7 @@ render: mustache
 
 The {{ model.techName }} service can be configured to automatically load Grafana dashboard configurations from a Git repository.
 
+
 ## Save Grafana dashboard configurations
 
 You should save your Grafana dashboard configurations (JSON format) in a Git repository.
@@ -104,6 +105,7 @@ If you want to fetch the Grafana dashboard configurations from another branch in
 ```
 
 ## Install {{ model.techName }} service
+
 
 Then, install the service:
 

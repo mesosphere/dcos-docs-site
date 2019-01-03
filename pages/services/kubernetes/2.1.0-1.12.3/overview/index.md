@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Overview
 title: Overview
-menuWeight: 5
+menuWeight: 20
 excerpt: What's new in DC/OS Kubernetes 2.1.0-1.12.3
 ---
 
@@ -28,6 +28,9 @@ Kubernetes cluster '[dev/kubernetes01]' is being created
 ```
 
 Listing existing Kubernetes clusters is also very intuitive:
+```bash
+dcos kubernetes cluster update --cluster-name dev/kubernetes01 --options options.json
+```
 
 ```shell
 $ dcos kubernetes cluster list
@@ -38,19 +41,23 @@ $ dcos kubernetes cluster list
 
 As another example, updating a Kubernetes cluster can be done via the CLI by specifying its name as a flag:
 
-```shell
+```bash
+dcos kubernetes cluster update --cluster-name dev/kubernetes01 --options options.json
+```
+
+```bash
 $ dcos kubernetes cluster update --cluster-name dev/kubernetes01 --options options.json
-Using Kubernetes cluster: dev/kubernetes01
-2018/10/17 17:20:10 starting update process...
+  Using Kubernetes cluster: dev/kubernetes01
+  2018/10/17 17:20:10 starting update process...
 ```
 
 The new CLI features a number of other useful commands, which can be listed by running:
 
-```shell
-$ dcos kubernetes --help
+```bash
+dcos kubernetes --help
 ```
 
-See the [CLI](../cli) section for documentation on the new CLI.
+See the [CLI](/services/kubernetes/2.1.0-1.12.3/cli) section for documentation on the new CLI.
 
 # Cluster Manager
 
@@ -71,3 +78,6 @@ Control-plane nodes are labeled with `node-role.kubernetes.io/master`, being tai
 In order to make it possible to run multiple private Kubernetes nodes on the same private DC/OS agent, some changes to networking were required.
 The `etcd` members, control-plane nodes and private Kubernetes nodes leverage [DC/OS virtual networking](/1.12/networking/SDN/) and each have their own IP address in the DC/OS cluster.
 Kubernetes cluster pod networking and policy are now powered by [Calico](https://github.com/projectcalico/calico/).
+
+# Community
+Get help and connect with other users on the [mailing list](https://groups.google.com/a/dcos.io/forum/#!forum/kubernetes) or on DC/OS community [Slack](http://chat.dcos.io/) in the #kubernetes channel.

@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
 excerpt: Guide for DC/OS on GCP using the Universal Installer
-title: Deploying DC/OS on GCP using the Universal Installer
+title: DC/OS on GCP using the Universal Installer
 navigationTitle: GCP
-menuWeight: 0
+menuWeight: 4
 ---
 
 You can use the Universal Installer to create DC/OS clusters on the Google Cloud Platform (GCP) for an evaluation or production deployment. The **Universal Installer on GCP** installation method is officially supported by Mesosphere. Upgrades are also supported using this installation method.
@@ -138,7 +138,7 @@ Password: `deleteme`
 
   For simplicity in this example, the configuration values are hard-coded.  If you have a desired cluster name or number of masters/agents, you can adjust the values directly in the `main.tf` configuration file.
 
-  You can find additional input variables and their descriptions [here](http://registry.terraform.io/modules/dcos-terraform/dcos/gcp/).
+  You can find additional input variables and their descriptions [here](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/advanced-gcp).
 
 3) Change to the `dcos-tf-gcp-demo` folder where you just created your `main.tf` file, if needed.
 
@@ -188,7 +188,7 @@ After you log in, the DC/OS dashboard is displayed.
 <img src="./images/install/dcos-ui.png" />
 </p>
 
-For additional information about creating a cluster on GCP with more advanced configuration options, see [Advanced GCP cluster configuration options](#AdvancedGCP).
+For additional information about creating a cluster on GCP with more advanced configuration options, see [Advanced GCP cluster configuration options](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/advanced-gcp/).
 
 # Scaling the cluster
 Terraform makes it easy to scale your cluster to add additional agents (public or private) once the initial cluster has been created. Use the instructions below.
@@ -263,7 +263,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 # Upgrading the cluster
 Terraform also makes it easy to upgrade the DC/OS cluster to a newer version of DC/OS.
 
-Read more about the upgrade procedure that Terraform performs in the official [DC/OS Upgrade](https://docs.mesosphere.com/1.12/installing/production/upgrading/) documentation.
+Read more about the upgrade procedure that Terraform performs in the official [DC/OS Upgrade](/1.12/installing/production/upgrading/) documentation.
 
 To perform an upgrade:
 

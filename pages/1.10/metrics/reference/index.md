@@ -110,24 +110,6 @@ The following per-container resource utilization metrics are collected.
 | mem.limit    | Hard memory limit for a container. |
 | mem.total    | Total memory of a process in RAM (as opposed to in swap). |   
 
-<a name="ConNetwork">
-
-## Network metrics
-   <!-- http://mesos.apache.org/documentation/latest/port-mapping-isolator -->
-
-| Metric            | Description                  |
-|-------------------|------------------------------|
-| net.rx.bytes    | Bytes received. |
-| net.rx.dropped    | Packets dropped on receive.  |
-| net.rx.errors    | Errors reported on receive. |
-| net.rx.packets    |  Packets received.  |
-| net.tx.bytes    |  Bytes sent. |
-| net.tx.dropped    | Packets dropped on send.  |
-| net.tx.errors    | Errors reported on send. |
-| net.tx.packets    | Packets sent. |
-
-<a name="Dimensions">
-
 # Dimensions
 
 Dimensions are metadata about the metrics. The following table lists the available dimensions and the entities where they appear.

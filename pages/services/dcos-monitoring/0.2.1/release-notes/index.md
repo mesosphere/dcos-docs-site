@@ -24,11 +24,13 @@ render: mustache
 * Support Grafana server placement constraints.
 * Support fetching from a branch in a Git repository.
 
+
 ## Updates
 
 * Use local persistent volume for Grafana server.
 * Used Docker image for Grafana server.
 * Recursively clone Git sub-modules from a Git repository.
+
 
 # Version v0.1.1
 
