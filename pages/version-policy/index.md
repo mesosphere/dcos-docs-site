@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: DC/OS version lifecycle and compatibility matrix
 ---
 
-This page was updated on November 7, 2018.
+This page was updated on January 3, 2019.
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
@@ -75,6 +75,17 @@ The following matrix shows the platform components and operating environments on
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    </tr>
+    <tr>
+        <td>CoreOS 1911.5.0</td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td>                    </td>
+    </tr><tr>
+        <td>CoreOS 1911.4.0</td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td>                    </td>
     </tr>
     <tr>
         <td>CoreOS 1911.3.0</td>
@@ -231,6 +242,7 @@ B- This package combination is *beta*.
 <table class="table">
     <tr>
     <th><strong>DC/OS Package for</strong></th>
+    <th><p style="text-align: center;"><strong>DC/OS 1.12</strong></p></th>
     <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
     <th><p style="text-align: center;"><strong>DC/OS 1.10</strong></p></th>
     <th><p style="text-align: center;"><strong>DC/OS 1.9</strong></p></th>
@@ -239,12 +251,14 @@ B- This package combination is *beta*.
     <tr>
         <td>Cassandra 2.0.x-*</td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Cassandra 2.1.x-*</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -256,9 +270,11 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Confluent-Kafka 2.0.x-*</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -269,10 +285,12 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>¹DataStax-DSE 2.0.x-*</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -283,10 +301,12 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>¹DataStax-Ops 2.0.x-*</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -294,6 +314,7 @@ B- This package combination is *beta*.
     </tr>
     <tr>
         <td>¹DataStax-Ops 2.1.x-*</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -305,9 +326,11 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Edge-LB 0.1.8</td>
+        <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -317,11 +340,13 @@ B- This package combination is *beta*.
         <td>Edge-LB 0.1.9</td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
+        <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Edge-LB 1.0.0</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -331,11 +356,13 @@ B- This package combination is *beta*.
         <td>Edge-LB 1.1</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>ElasticSearch 2.0.x-*</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -344,12 +371,14 @@ B- This package combination is *beta*.
     <tr>
         <td>ElasticSearch 2.1.x-*</td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>ElasticSearch 2.2.x-*</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -361,9 +390,11 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>HDFS 2.0.x-*</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -374,10 +405,12 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Jenkins 2.0.x-*</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -387,11 +420,13 @@ B- This package combination is *beta*.
         <td>Jenkins 2.1.x-*</td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Jenkins 3.0.x-*</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -400,12 +435,14 @@ B- This package combination is *beta*.
     <tr>
         <td>Jenkins 3.1.x-*</td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Jenkins 3.2.x-2.60.y</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -416,10 +453,12 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
+        <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Jenkins 3.4.x-2.89.y</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -431,9 +470,11 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Kafka 2.0.x-0.11.0</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -441,6 +482,7 @@ B- This package combination is *beta*.
     </tr>
     <tr>
         <td>Kafka 2.0.x-1.0.0</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -451,6 +493,7 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
@@ -458,10 +501,12 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Kubernetes 1.0.x-*</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -473,9 +518,11 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>MoM (Marathon on Marathon) 1.5</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -483,6 +530,7 @@ B- This package combination is *beta*.
     </tr>
     <tr>
         <td>MoM (Marathon on Marathon) 1.6</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -494,9 +542,11 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Marathon-LB 1.11.x</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -508,9 +558,11 @@ B- This package combination is *beta*.
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Spark 2.0.x-2.2.y</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
@@ -519,6 +571,7 @@ B- This package combination is *beta*.
     <tr>
         <td>Spark 2.1.x-2.2.y</td>
         <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -526,6 +579,7 @@ B- This package combination is *beta*.
     <tr>
     	<td>Spark 2.3.x-2.2.y</td>
     	<td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     	<td><p style="text-align: center;">⚫</p></td>
     	<td><p style="text-align: center;">⚫</p></td>
     	<td><p style="text-align: center;">◯</p></td>
