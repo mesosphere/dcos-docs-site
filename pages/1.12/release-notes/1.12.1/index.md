@@ -6,16 +6,16 @@ menuWeight: 5
 excerpt: Release notes for DC/OS 1.12.1
 ---
 
-DC/OS Version 1.12.1 - Released 3 January 2019
+DC/OS Version 1.12.1 - Released January 3, 2019
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.12.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="purple" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise* [/button]
 
 DC/OS 1.12.1 includes the following components:
-- Apache Mesos 1.5.x [change log](https://github.com/apache/mesos/blob/9c28b265804269de9411f04cfcccefe3bdd8ef1a/CHANGELOG).
-- Marathon 1.6.567 [change log](https://github.com/mesosphere/marathon/tree/2d8b3e438).
-- Metronome 0.4.5 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.5).
+- Apache Mesos 1.7.x [change log](https://github.com/apache/mesos/blob/b97f0ba29d40a279dec00ffe51512e3b5a146049/CHANGELOG).
+- Marathon is 1.7.x [change log](https://github.com/mesosphere/marathon/blob/48bfd6000c544df5ae03de04b42b019d5e9dbd4b/changelog.md)
+- Metronome is 0.5.71 [change log](https://github.com/dcos/metronome/blob/22945457c7cb10cb14d575ceeb137edd8158ba3c/changelog.md)
 
 # Release Summary
 
