@@ -210,7 +210,7 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
     # dcos_variant = "open"
     ```
 
-    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/mesosphere-supported-methods/advanced-azure/).
+    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/mesosphere-supported-methods/azure/advanced-azure/).
 
     There are also simple helpers listed underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
 
@@ -283,7 +283,3 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
 <p align=center>
 <img src="./images/install/dcos-ui.png" />
 </p>
-
-# Next steps:
-
-Now that you have DC/OS installed and have had a chance to take a look around, visit the [Cluster Operations](/1.12/installing/evaluation/mesosphere-supported/operations/) page to see how easy it is to make changes to your cluster. 
