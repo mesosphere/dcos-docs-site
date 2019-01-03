@@ -24,6 +24,11 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 # Issues Fixed in DC/OS 1.12.1
 The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
 
+## Admin Router
+- COPS-4286, DCOS-46277 - This release fixes an issue in the `dcos-adminrouter` component that prevented it from starting properly for some virtual machine configurations.
+
+    For example, if you previously used a server name that exceeded the  maximum size allowed, the `dcos-adminrouter` component might be unable to start the server. With this release, the `packages/adminrouter/extra/src/nginx.master.conf` file has been updated to support a server name hash bucket size of 64 characters.
+
 ## Docker Integration
 - COPS-4012, DCOS_OSS-4415 - The permissions assigned by default to the container sandbox path have changed from 0755 to 0750 to provide better security and access control. This change, however, can prevent read operations for tasks in Docker container images. If a Docker image specifies a user that is not identical to the user specified by task user identifier (UID) or the framework user UID, the user does not have sufficient permissions to run the tasks.
 
@@ -46,13 +51,6 @@ The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, function
 
 ## Marathon
 - COPS-3554 - This release introduces a watcher loop process to monitor and, if necessary, re-register the Marathon leader after reelection.
-
-- COPS-3585 - In previous releases, a deadlock or race condition might prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly. Problems with routing tables and network connectivitity can lead to the following issues:
-    - Incomplete network overlay configuration on certain nodes.
-    - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
-    - DNS records that are missing on certain nodes.
-
-You can restart the `systemd` process on the nodes affected to restore proper network connectivity. 
 
 - COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example,restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable. 
 
@@ -99,30 +97,33 @@ You can restart the `systemd` process on the nodes affected to restore proper ne
 
 - DCOS-44041, DCOS-45416 - The DC/OS dcumentation includes more detailed information about the Telegraf plugin architecture, the input plugins available, and the metrics collected by the plugins.
 
-### Networking
+## Networking
+- COPS-3585 - In previous releases, a deadlock or race condition might prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly. Problems with routing tables and network connectivitity can lead to the following issues:
+    - Incomplete network overlay configuration on certain nodes.
+    - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
+    - DNS records that are missing on certain nodes.
+
+You can restart the `systemd` process on the nodes affected to restore proper network connectivity. This fix is related to the mitigation of a networking issue caused by a secure socket layer (SSL) deadlock in the Erlang library (DC/OS 1.12).
+
 - COPS-3924, DCOS_OSS-1954 - The distributed layer-4 load-balancer (`dcos-l4lb`) network component waits to route traffic until an application scale-up operation is complete or the application health check has passed. The `dcos-l4lb` process does not prevent traffic from being routed if you are scaling down the number of application instances. Network traffic is only suspended if the status of the application is determined to be unhealthy or unknown.
 
-- COPS-4034, DCOS_OSS-4398	- This release prevents `dcos-net` from continously restarting `systemd-networkd` on a bare-metal server with bond interfaces.
+- COPS-4034, DCOS_OSS-4398 - This release prevents `dcos-net` from continously restarting `systemd-networkd` on a bare-metal server with bond interfaces.
 
 - COPS-4078, DCOS_OSS-4395 - You can use a single port to discover UDP and TCP ports on a host network. Previously, if UDP and TCP discovery used the same port number, the `dcos-net` networking process would merge UDP and TCP traffic from the two protocols to a single port. With this release, you can use a single port for TCP-based and UDP-based connections associated with the tasks running on the host network.
 
-- COPS-4099, DCOS-45161 - This release fixes an issue in the DNS forwarder that caused the `dcos-net` process to log errors or application crash messages if DNS resolvers are not reachable.
+- COPS-4099, DCOS-45161 - This release fixes an issue in the DNS forwarder that caused the `dcos-net` process to log errors or application crash messages if more than two DNS upstream servers are set up.
 
 - COPS-4124, DCOS-46132 - A new agent option `--network_cni_root_dir_persist` allows the container node root directory to store network information in a persistent location. This option enables you to specify a container `work_dir` root directory that persists network-related information. By persisting this information, the container network interface (CNI) isolator code can perform proper cleanup operations after rebooting. If rebooting a node does not delete old containers and IP/MAC addresses from `etcd` (which over time can cause pool exhaustion), you should use the `--network_cni_root_dir_persist` option. 
 
 - DCOS-45196 - You can set the `push_ops_timeout` configuration option through the `config.yaml` file.
 
-## NGINX Integration
-- COPS-4286, DCOS-46277 - If you are using NGINX web server in your cluster, the maximum size for the `server_names_hash_bucket_size` is 32 characters. To prevent errors with the server name hash bucket size,you can use the server name setting `registry.component.thisdcos.directory`. The maximum size for this server name setting is 32 characters. If you attempt to use a server name that has more than 32 characters, the `nginx` server cannot build the `server_names_hash` and fails to start. Alternatively, you can add the following to the `packages/adminrouter/extra/src/nginx.master.conf file`: 
-
-    ```
-    server_names_hash_bucket_size 64
-    ```
-
 [enterprise]
 ## Security
 [/enterprise]
 - DCOS-21998, DCOS-44367 - You can install DC/OS cluster nodes with custom RSA-based CA certificates that are signed using an Elastic Cloud (EC) based private key. Previously, a custom CA certificate signed using a trusted EC-based private key would generate a transport security layer (TLS) security alert.
+
+## Upgrade
+- Upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](https://github.com/mesosphere/dcos-storage/blob/master/docs/upgrades/index.md). You must upgrade DC/OS storage before you upgrade cluster nodes to 1.12.1 to prevent Mesos agents from crashing after the upgrade.
 
 # Known Issues and Limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more issue tracking identifiers.
@@ -135,7 +136,7 @@ Metrics in DC/OS, version 1.12 and newer, are based on Telegraf. Telegraf provid
 
 # About DC/OS 1.12 
 
-DC/OS 1.12 includes many new features and capabilities. The key features and enhancement focus on:
+DC/OS 1.12 includes many new features and capabilities. The key features and enhancements focus on:
 - Mesosphere Kubernetes engine
 - Mesosphere Jupyter service
 - Observability and metrics
