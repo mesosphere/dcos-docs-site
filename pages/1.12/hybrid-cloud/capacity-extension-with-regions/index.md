@@ -32,12 +32,14 @@ enterprise: false
 
     ```json
     {
-      "fault_domain": {
-        "region": {
-          "name": <region>,
-          "zone": <zone>
+        "fault_domain": {
+            "region": {
+                "name": "<region-name>"
+            },
+            "zone": {
+                "name": "<zone-name>"
+            }
         }
-      }
     }
     ```
 

@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-title: The Metrics Pipeline
-navigationTitle: The Metrics Pipeline
-menuWeight: 3
-excerpt: How DC/OS manages metrics
+title: Metrics Plugin Architecture
+navigationTitle: Metrics Plugin Architecture
+menuWeight: 0
+excerpt: How DC/OS collects and publishes metrics
 enterprise: false
 ---
 
@@ -24,7 +24,7 @@ By default, DC/OS enables the following Telegraf plugins:
  1. `dcos_api` output plugin serves the `dcos-metrics` JSON API, which is used by the CLI.
  1. `prometheus_client` output plugin serves metrics in Prometheus format.
 
-When Telegraf starts on a node, it loads a configuration file and the contents of a configuration directory. You can specify the plugins you want to enable by creating a configuration file with the appropriate settings and copying the file into the `/opt/mesosphere/etc/telegraf/telegraf.d` directory before restarting Telegraf. 
+When Telegraf starts on a node, it loads a configuration file and the contents of a configuration directory or directories. You can specify the plugins you want to enable by creating a configuration file with the appropriate settings and copying the file into the `/var/lib/dcos/telegraf/telegraf.d` directory before restarting Telegraf. Only files ending with `.conf` will be included in the Telegraf configuration. Note: Any mistakes in the configuration files will prevent Telegraf from starting up successfully.
 
 Telegraf abstracts the complexity of collecting metrics from every process running in the cluster by providing a single source for metrics on each node. Telegraf also adds identifying metadata--such as the originating task name--to the metrics it collects to make the metric more human-readable. Without this metadata, metrics for tasks running on Mesos would be difficult to identify by their originating container ID, which is a long random hash. 
 

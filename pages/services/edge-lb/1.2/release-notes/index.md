@@ -35,7 +35,7 @@ Released on November 27, 2018.
 
 ## Known Issues
 
-* The steps provided in the DC/OS web interface to uninstall Edge-LB are incorrect. Follow these steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
+* The steps provided in the DC/OS 1.10 web interface to uninstall Edge-LB are incorrect. In order to correctly uninstall Edge-LB for any given DC/OS version, please follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
 
@@ -84,7 +84,7 @@ Released on November 15, 2018.
 
 ## Known Issues
 
-* The steps provided in the DC/OS web interface to uninstall Edge-LB are incorrect. Follow these steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
+* The steps provided in the DC/OS 1.10 web interface to uninstall Edge-LB are incorrect. In order to correctly uninstall Edge-LB for any given DC/OS version, please follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
 

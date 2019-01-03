@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Limitations
 title: Limitations
-menuWeight: 105
+menuWeight: 70
 excerpt: Understanding the limitations of Kubernetes on DC/OS
 ---
 

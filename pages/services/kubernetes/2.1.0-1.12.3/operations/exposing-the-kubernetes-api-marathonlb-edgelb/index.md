@@ -12,9 +12,9 @@ excerpt: Setting up HAProxy to expose the Kubernetes API via Marathon-LB or Edge
 
 If you have existing instances of Marathon-LB in your DC/OS cluster, or if you are using Edge-LB (DC/OS Enterprise), you can expose the Kubernetes API for a given Kubernetes cluster via the existing HAProxy built into Marathon-LB or Edge-LB.
 
-These options (as documented below) are slightly less secure than Option 2 from the [Exposing the Kubernetes API](../exposing-the-kubernetes-api) page, because they use a self-signed TLS certificate to expose the Kubernetes API endpoint.
+These options (as documented below) are slightly less secure than Option 2 from the [Exposing the Kubernetes API](/services/kubernetes/2.1.0-1.12.3/operations/exposing-the-kubernetes-api) page, because they use a self-signed TLS certificate to expose the Kubernetes API endpoint.
 Exposing the Kubernetes API endpoint with Marathon-LB and/or Edge-LB using a signed certificate is possible but not covered by the scope of this document.
-Exposing the Kubernetes API for multiple Kubernetes clusters is also out of the scope of this document. This is explained in detail in [Exposing the Kubernetes API](../exposing-the-kubernetes-api).
+Exposing the Kubernetes API for multiple Kubernetes clusters is also out of the scope of this document. This is explained in detail in [Exposing the Kubernetes API](/services/kubernetes/2.1.0-1.12.3/operations/exposing-the-kubernetes-api).
 
 Both of these examples will generate a setup similar to the following:
 
@@ -39,7 +39,7 @@ Here are two examples on how to achieve this:
 * One with no TLS certificate verification.
 * One with TLS verification between HAProxy and the Kubernetes API (but not between the user and HAProxy).
 
-Both of these examples assume that Marathon-LB (version 1.12.1 or later) is already properly installed and configured (following the Marathon-LB [installation instructions](https://docs.mesosphere.com/services/marathon-lb/)).
+Both of these examples assume that Marathon-LB (version 1.12.1 or later) is already properly installed and configured (following the Marathon-LB [installation instructions](/services/marathon-lb/)).
 
 ## Marathon-LB without TLS Certificate Verification
 
@@ -201,7 +201,7 @@ These validations are achievable but are outside the scope of this document.
 If your Kubernetes cluster is called something different from `kubernetes-cluster`, then the `frameworkName` should be modified to match the cluster's name.
 For example, if your Kubernetes service is located at `dev/kubernetes01`, then replace `"frameworkName": "kubernetes-cluster"` with `"frameworkName": "dev/kubernetes01"`.
 
-This example assumes that Edge-LB (version 1.0.3 or later) is already properly installed and configured (following the Edge-LB [installation instructions](https://docs.mesosphere.com/services/edge-lb/)):
+This example assumes that Edge-LB (version 1.0.3 or later) is already properly installed and configured (following the Edge-LB [installation instructions](/services/edge-lb/)):
 
 1. Create a `edgelb-kubernetes-cluster-pool.json` file with the above contents.
 1. Create the Edge-LB pool with the following command:

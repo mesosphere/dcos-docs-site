@@ -1,11 +1,15 @@
-<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-  <ShortName>dcos-docs-site</ShortName>
-  <Description>Search docs site</Description>
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:sfdc="http://salesforce.com/2016/federatedsearch/1.0">
+  <ShortName>DC/OS Docs Search</ShortName>
+  <Contact>awayne@mesosphere.com</Contact>
   <Url type="text/html" template="https://docs.mesosphere.com/search/?s={searchTerms}" method="GET"/>
-  <Url type="application/opensearchdescription+xml" rel="self" template="https://docs.mesosphere.com/assets/opensearch.xml"/>
-  <LongName>DC/OS Docs Site</LongName>
-  <OutputEncoding>UTF-8</OutputEncoding>
+  <Url type="application/atom+xml" sfdc:maxTotalResults="500" template="https://wovccri6j5.execute-api.us-west-2.amazonaws.com/default/support-algolia?q={searchTerms}"/>
+  <Attribution>
+    Copyright 2018, All Rights Reserved
+  </Attribution>
   <InputEncoding>UTF-8</InputEncoding>
+  <OutputEncoding>UTF-8</OutputEncoding>
   <Image height="32" width="32" type="image/png">https://docs.mesosphere.com/assets/favicon.ico</Image>
-  <moz:SearchForm>https://docs.mesosphere.com</moz:SearchForm>
+  <sfdc:Version>1</sfdc:Version>
 </OpenSearchDescription>
+

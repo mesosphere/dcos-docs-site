@@ -94,9 +94,9 @@ recovery (IN_PROGRESS)
 <p class="message--note"><strong>NOTE: </strong>Only the seed node is being placed on a new node, all other nodes are restarted in place with no loss of data.</p>
 
 
-## Back up and Restore
+# Back up and Restore
 
-### Backing Up to S3
+## Backing Up to S3
 
 You can back up an entire cluster's data and schema to Amazon S3 using the `backup-s3` plan. This plan requires the following parameters to run:
 - `SNAPSHOT_NAME`: the name of this snapshot. Snapshots for individual nodes will be stored as S3 folders inside of a top level `snapshot` folder.
@@ -105,6 +105,7 @@ You can back up an entire cluster's data and schema to Amazon S3 using the `back
 - `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this backup
 - `AWS_REGION`: the region of the S3 bucket being used to store this backup
 - `S3_BUCKET_NAME`: the name of the S3 bucket in which to store this backup
+- `HTTPS_PROXY`: specifications for the {{ model.TechName }} backup plan, taken from `config.yaml`.
 
 Make sure that you provision your nodes with enough disk space to perform a backup. {{ model.TechName }} backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables, so you will need half of your total available space to be free to back up every keyspace at once.
 
@@ -127,7 +128,9 @@ dcos {{ model.packageName }} --name=<service-name> plan start backup-s3 \
     -p AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
     -p AWS_REGION=$AWS_REGION \
     -p S3_BUCKET_NAME=$S3_BUCKET_NAME
+    -p HTTPS_PROXY=http://internal.proxy:8080
 ```
+It may also be necessary to set the `AWS_SESSION_ID`, depending on how you authenticate with AWS.
 
 If you are backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as in the example above. If the `CASSANDRA_KEYSPACES` parameter isn't supplied, then every keyspace in your cluster will be backed up.
 
@@ -157,7 +160,7 @@ backup-s3 (IN_PROGRESS)
 
 The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. To see the queries involved, run the above commands with an additional `-v` flag.
 
-### Backing up to Azure
+## Backing up to Azure
 
 You can also back up to Microsoft Azure using the `backup-azure` plan. This plan requires the following parameters to run:
 
@@ -207,11 +210,11 @@ backup-azure (IN_PROGRESS)
 
 The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. To see the queries involved, run the above commands with an additional `-v` flag.
 
-## Restore
+# Restore
 
 All restore plans will restore the schema from every keyspace backed up with the backup plan and populate those keyspaces with the data they contained at the time the snapshot was taken. Downloading and restoration of backups will use the configured backup/restore strategy. This plan assumes that the keyspaces being restored do not already exist in the current cluster, and will fail if any keyspace with the same name is present.
 
-### Restoring From S3
+## Restoring From S3
 
 Restoring cluster data is similar to backing it up. The `restore-s3` plan assumes that your data is stored in an S3 bucket in the format that `backup-s3` uses. The restore plan has the following parameters:
 - `SNAPSHOT_NAME`: the snapshot name from the `backup-s3` plan
@@ -257,7 +260,7 @@ restore-s3 (IN_PROGRESS)
 
 The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. To see the queries involved, run the above commands with an additional `-v` flag.
 
-### Restoring From Azure
+## Restoring From Azure
 
 You can restore from Microsoft Azure using the `restore-azure` plan. This plan requires the following parameters to run:
 

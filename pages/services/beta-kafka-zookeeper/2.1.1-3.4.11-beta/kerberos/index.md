@@ -65,5 +65,5 @@ Note the specification of the secret name as created in the previous step and th
 
 The kerberized Apache ZooKeeper service is then deployed by running:
 ```bash
-$ dcos package install kafka-zookeeper --options=kerberos-options.json
+$ dcos package install beta-kafka-zookeeper --options=kerberos-options.json
 ```

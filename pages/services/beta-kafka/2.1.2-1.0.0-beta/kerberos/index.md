@@ -66,7 +66,7 @@ If a kerberized `kafka-zookeeper` ensemble is available for use with this Apache
 
 In order to determine the endpoints for the ZooKeeper ensemble, the following command can be used:
 ```bash
-$ dcos kafka-zookeeper endpoint clientport
+$ dcos beta-kafka-zookeeper endpoint clientport
 ```
 resulting in output resembling:
 ```json

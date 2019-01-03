@@ -36,3 +36,14 @@ To manage permissions for **users** from the DC/OS Enterprise CLI, use the follo
 
 * `dcos security org users grant [OPTIONS] UID RID ACTION`
 * `dcos security org users revoke [OPTIONS] UID RID ACTION`
+
+### Managing permissions using the API
+
+The [IAM HTTP API](/1.12/security/ent/iam-api/) provides operations to manage permissions for users and groups.
+
+Note that all entities must exist when creating a permission.
+
+A typical pattern to create a permission is:
+
+1. call `PUT /acls/{rid}` to create the access control list for the protected resource `{rid}`, ignoring any returned `409` status code (that indicates that it already exists); then
+1. call `PUT /acls/{rid}/users/{uid}/{action}`  or `PUT /acls/{rid}/groups/{gid}/{action}` to create the specific user or group access control entry.

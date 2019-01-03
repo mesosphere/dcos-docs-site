@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: CLI
 title: CLI
-menuWeight: 100
+menuWeight: 60
 excerpt: CLI commands for DC/OS Kubernetes
 ---
 

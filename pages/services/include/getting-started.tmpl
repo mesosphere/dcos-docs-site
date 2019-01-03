@@ -1,5 +1,7 @@
 
-# Install a basic cluster
+# Install a basic cluster 
+
+## From the CLI
 
 To start a basic test cluster {{ model.install.nodeDescription }}, run the following command on the DC/OS CLI.
 
@@ -15,6 +17,7 @@ All `dcos {{ model.packageName }}` CLI commands have a `--name` argument allowin
 ```bash
 $ dcos {{ model.packageName }} --name={{ model.serviceName }} <cmd>
 ```
+## From the web interface
 
 Alternatively, you can [install from the DC/OS web interface](/latest/deploying-services/install/#installing-a-service-using-the-gui). If you install {{ model.techName }} from the DC/OS web interface, the `dcos {{ model.packageName }}` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 

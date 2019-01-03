@@ -49,9 +49,9 @@ A sample valid `options.json` looks like:
 }
 ```
 
-Passing in this file after deployment would increase each node CPU value from the default value of 1.0, and change the ZooKeeper-specific values `maxCilentCnxns` and `minSessionTimeout` as well.  
+Passing in this file after deployment would increase each node CPU value from the default value of 1.0, and change the ZooKeeper-specific values `maxClientCnxns` and `minSessionTimeout` as well.  
 
-***IMPORTANT***: Reconfiguration changes to node count, service name, ZooKeeper ticktime, and all ZooKeeper-specific port values (client port, follower port, and leader election port) will be blocked. These are blocked for the safety of the service. Please exercise caution when performing reconfigurations, as many configurations are unsafe to change after deployment. Reconfigurations can cause unpredictable behavior and should only be done to debug or increase service performance.
+<p class="message--important"><strong>IMPORTANT: </strong>Reconfiguration changes to node count, service name, ZooKeeper ticktime, and all ZooKeeper-specific port values (client port, follower port, and leader election port) will be blocked. These are blocked for the safety of the service. Please exercise caution when performing reconfigurations, as many configurations are unsafe to change after deployment. Reconfigurations can cause unpredictable behavior and should only be done to debug or increase service performance.</p>
 
 <a name="adding-a-node"></a>
 ## Adding a Node
@@ -63,7 +63,7 @@ The CPU and memory requirements of each node can be increased or decreased as fo
 - CPU (1.0 = 1 core): `NODE_CPUS`.
 - Memory (in MB): `NODE_MEM`.
 
-**Note:** Volume requirements (type and/or size) cannot be changed after initial deployment.
+<p class="message--note"><strong>NOTE: </strong> Volume requirements (type and/or size) cannot be changed after initial deployment.</p>
 
 <a name="updating-placement-constraints"></a>
 ## Updating Placement Constraints
@@ -104,7 +104,7 @@ This operation will restart a node while keeping it at its current location and 
 
 This operation will move a node to a new system and will discard the persistent volumes at the prior system to be rebuilt at the new system. Perform this operation if a given system is about to be offlined or has already been offlined.
 
-**Note:** Nodes are not moved automatically. You must perform the following steps manually to move nodes to new systems. You can build your own automation to perform node replacement automatically according to your own preferences.
+<p class="message--note"><strong>NOTE: </strong> Nodes are not moved automatically. You must perform the following steps manually to move nodes to new systems. You can build your own automation to perform node replacement automatically according to your own preferences.</p>
 
 1. Back up ZooKeeper log and directory files in case of cluster outage.
 2. Run `dcos beta-confluent-kafka-zookeeper pods replace zookeeper-<NUM>` to halt the current instance (if still running) and launch a new instance elsewhere.
