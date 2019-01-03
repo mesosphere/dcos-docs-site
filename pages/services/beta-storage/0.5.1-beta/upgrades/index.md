@@ -8,7 +8,7 @@ enterprise: true
 beta: true
 ---
 
-# Manually upgrade the DSS package to 0.5.0 from 0.4.0
+# Manually upgrade the DSS package to 0.5.x from 0.4.x
 
 DSS 0.5 requires DC/OS Enterprise 1.12.1 or higher.
 Therefore, to upgrade from DSS 0.4 to DSS 0.5, you will also need to upgrade DC/OS Enterprise.
@@ -25,15 +25,15 @@ Please follow these steps to upgrade:
         ```
     1. Remove files under the Mesos resource provider configuration directory.
         ```bash
-        $ rm /opt/mesosphere/etc/mesos/resource-providers/*
-        ```bash
+        $ rm /var/lib/dcos/mesos/resource-providers/*
+        ```
     1. Remove checkpointed CSI volume state.
         ```bash
         $ rm -r /var/lib/mesos/slave/csi/
         ```
-    1. Remove the latest symlink for the agent.
+    1. Remove the latest symlink for each Mesos resource provider.
         ```bash
-        $ rm /var/lib/mesos/slave/slaves/latest
+        $ rm /var/lib/mesos/slave/meta/slaves/latest/resource_providers/org.apache.mesos.rp.local.storage/*/latest
         ```
     1. Remove any DSS-created LVM volume groups and/or volumes.
         ```bash
@@ -42,6 +42,12 @@ Please follow these steps to upgrade:
 1. Upgrade DC/OS Enterprise to 1.12.1.
 1. [Install](../install/) DSS 0.5.
 1. Follow [these steps](../cli-references/dcos-storage-device/) to install device providers on desired nodes.
+
+If DSS 0.4 is not removed before upgrading DC/OS Enterprise to 1.12.1, you might see the following fatal error on agents:
+```
+Check failed: update.status().resource_provider_id() == resourceProvider->info.id()
+```
+If you encounter this error, please downgrade all failed agents to DC/OS Enterprise 1.12.0 and follow the above steps, then upgrade the agents again.
 
 # Manually upgrade the DSS package to 0.4.0 from 0.3.0
 
