@@ -34,13 +34,13 @@ The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, function
 
     To workaround this issue, you can update containers to use the Universal Container Runtime (UCR), remove the user and rebuild the Docker image and remove or modify the application user to run under the root account by setting a parameter key-value pair:
 
-        ```
-        "parameters": [
-            {
-            "key": "user",
-            "value": "root"
-            }
-        ]
+    ```
+    "parameters": [
+        {
+        "key": "user",
+        "value": "root"
+        }
+    ]
     ```
 
 - COPS-4044, DCOS_OSS-4469 - This release changes the logging settings for the `dcos-docker-gc` unit so that any log messages it creates are preserved in the `systemd` journal logging facility on the host system.
@@ -103,7 +103,7 @@ The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, function
     - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
     - DNS records that are missing on certain nodes.
 
-You can restart the `systemd` process on the nodes affected to restore proper network connectivity. This fix is related to the mitigation of a networking issue caused by a secure socket layer (SSL) deadlock in the Erlang library (DC/OS 1.12).
+    You can restart the `systemd` process on the nodes affected to restore proper network connectivity. This fix is related to the mitigation of a networking issue caused by a secure socket layer (SSL) deadlock in the Erlang library (DC/OS 1.12).
 
 - COPS-3924, DCOS_OSS-1954 - The distributed layer-4 load-balancer (`dcos-l4lb`) network component waits to route traffic until an application scale-up operation is complete or the application health check has passed. The `dcos-l4lb` process does not prevent traffic from being routed if you are scaling down the number of application instances. Network traffic is only suspended if the status of the application is determined to be unhealthy or unknown.
 
@@ -156,7 +156,7 @@ This section provides an overview of new features and capabilities introduced in
 - GPU-enabled Spark and distributed TensorFlow.
 - OpenID connect authentication and authorization with support for Windows Integrated Authentication (WIA) and Active Directory Federation Services (ADFS)
 
-### Observability - Metrics
+### Observability and Metrics
 - Introduced a flexible and configurable metrics pipeline with multiple output formats.
 - Enhanced support for application metric types including histograms, counters, timers, and gauges.
 - Support for sample rates and multi-metrics packets. 
