@@ -272,13 +272,9 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 1. To login and start exploring your cluster, navigate to the `cluster-address` listed in the output of the CLI. From here you can choose your provider to create the superuser account [oss type="inline" size="small" /], or login with your specified Enterprise credentials [enterprise type="inline" size="small" /].
 
 <p align=center>
-<img src="./images/install/dcos-login.png"
+<img src="./images/install/dcos-login.png">
 </p>
 
 <p align=center>
-<img src="./images/install/dcos-ui.png"
+<img src="./images/install/dcos-ui.png">
 </p>
-
-# Next steps:
-
-Now that you have DC/OS installed and have had a chance to take a look around, visit the [Cluster Operations](/1.12/installing/evaluation/mesosphere-supported/operations/) page to see how easy it is to make changes to your cluster. 
