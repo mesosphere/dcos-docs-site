@@ -20,8 +20,8 @@ To set up Edge-LB for DC/OS Kubernetes you will need to:
 1. <strong>First, add the Edge-LB repositories, replacing the download links with the [latest available binaries](https://support.mesosphere.com/s/downloads), this example links to DC/OS Edge-LB 1.2.3:</strong>
 
     ```bash
-    dcos package repo add --index=0 edgelb https://downloads.mesosphere.com/edgelb/v1.2.3/assets/stub-universe-edgelb.json
-    dcos package repo add --index=0 edgelb-pool https://downloads.mesosphere.com/edgelb-pool/v1.2.3/assets/stub-universe-edgelb-pool.json
+    dcos package repo add --index=0 edgelb https://<insert download link>/stub-universe-edgelb.json
+    dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-universe-edgelb-pool.json
     ```
 
     <p class="message--important"><strong>IMPORTANT: </strong>If you wish to download the repositories from the support site using your browser, you will need to be logged in with an enterprise customer service account.</p>
