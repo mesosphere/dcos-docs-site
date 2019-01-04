@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 excerpt: Guide for DC/OS on GCP using the Universal Installer
-title: Deploying DC/OS on GCP using the Universal Installer
+title: DC/OS on GCP using the Universal Installer
 navigationTitle: GCP
 menuWeight: 4
 ---
@@ -138,7 +138,7 @@ Password: `deleteme`
 
   For simplicity in this example, the configuration values are hard-coded.  If you have a desired cluster name or number of masters/agents, you can adjust the values directly in the `main.tf` configuration file.
 
-  You can find additional input variables and their descriptions [here](http://registry.terraform.io/modules/dcos-terraform/dcos/gcp/).
+  You can find additional input variables and their descriptions [here](/1.11/installing/evaluation/mesosphere-supported-methods/gcp/advanced-gcp).
 
 3) Change to the `dcos-tf-gcp-demo` folder where you just created your `main.tf` file, if needed.
 
@@ -153,7 +153,6 @@ Password: `deleteme`
   ```
 
   You should see a confirmation message similar to the following:
-
   <p align=center><img src="./images/install/terraform-init.png" /></p>
 
 5) Run the execution plan and save it to a static file. For example, save the output in the `plan.out` file.
@@ -167,7 +166,7 @@ Password: `deleteme`
     The plan output file is created in the `dcos-tf-gcp-demo` folder alongside the `main.tf` file. This file is **only readable** by Terraform, however.
 
     A message similar to the following confirms that you have successfully saved the execution plan to the `plan.out` file. 
-  <p align=center> <img src="./images/install/terraform-plan.png" /></p>
+  <p align=center><img src="./images/install/terraform-plan.png" /></p>
 
 6) Run the following command to deploy the plan that builds the cluster:
 
@@ -180,23 +179,21 @@ Password: `deleteme`
 
 ### Congratulations! 
 You have successfully installed a DC/OS cluster on GCP with minimal configuration or customization. From here, you can log in to begin using the new cluster.
-
 <p align=center>
 <img src="./images/install/dcos-login.png" />
 </p>
 
 After you log in, the DC/OS dashboard is displayed.
-
 <p align=center>
 <img src="./images/install/dcos-ui.png" />
 </p>
 
-For additional information about creating a cluster on GCP with more advanced configuration options, see [Advanced GCP cluster configuration options](#AdvancedGCP).
+For additional information about creating a cluster on GCP with more advanced configuration options, see [Advanced GCP cluster configuration options](/1.11/installing/evaluation/mesosphere-supported-methods/gcp/advanced-gcp/).
 
 # Scaling the cluster
 Terraform makes it easy to scale your cluster to add additional agents (public or private) once the initial cluster has been created. Use the instructions below.
 
-1) Increase the value for the `num_private_agents` and/or `num_public_agents` in your `main.tf` file. In this example, you will scale the cluster from `two` private agents to `three` private agents.
+1)  Increase the value for the `num_private_agents` and/or `num_public_agents` in your `main.tf` file. In this example, you will scale the cluster from `two` private agents to `three` private agents.
 
   ```hcl
   variable "dcos_install_mode" {
@@ -251,11 +248,11 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 
 3) Run the following command to have Terraform deploy the new set of resources:
 
-  ```bash
-  terraform apply plan.out
-  ```
+    ```bash
+    terraform apply plan.out
+    ```
 
-  You should see an output similar to the following:
+    You should see an output similar to the following:
   <p align=center><img src="./images/scale/terraform-apply.png" /></p>
 
 4) Check your DC/OS cluster using the DC/OS UI to verify the additional agents have been added. 
@@ -266,7 +263,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 # Upgrading the cluster
 Terraform also makes it easy to upgrade the DC/OS cluster to a newer version of DC/OS.
 
-Read more about the upgrade procedure that Terraform performs in the official [DC/OS Upgrade](https://docs.mesosphere.com/1.11/installing/production/upgrading/) documentation.
+Read more about the upgrade procedure that Terraform performs in the official [DC/OS Upgrade](/1.11/installing/production/upgrading/) documentation.
 
 To perform an upgrade:
 
@@ -331,14 +328,15 @@ To perform an upgrade:
 
 4) Run the following command to apply the plan.
 
-  ```bash
-  terraform apply plan.out
-  ```
+    ```bash
+    terraform apply plan.out
+    ```
 
 5) Verify the cluster was upgraded using the DC/OS UI.
   <p align=center><img src="./images/upgrade/cluster-details-open.png" /></p>
 
 # Maintaining the cluster
+
 For instructions on how to maintain your cluster, follow the [maintenance](https://github.com/dcos-terraform/terraform-gcp-dcos/tree/master/docs/maintain) documentation.
 
 # Deleting the cluster
@@ -351,7 +349,10 @@ terraform destroy
 <p class="message--note"><strong>NOTE: </strong>This command deletes the entire cluster and all of its associated resources. Execute this command only if you are absolutely sure you no longer need access to your cluster.</p>
 
 Enter `yes` if you want to destroy your cluster.
-<p align=center><img src="./images/destroy/terraform-destory.png" /></p>
+
+<p align=center>
+<img src="./images/destroy/terraform-destory.png" />
+</p>
 
 <a name="AdvancedGCP"></a>
 
@@ -571,4 +572,4 @@ The following lists the output parameters for which you can  return values when 
 |:-----|:-------------|
 | <code>masters-ips</code>| Specifies the list of master IP addresses. |
 | <code>masters-loadbalancer</code> | Specifies the load balancer address used to access the DC/OS UI. |
-| <code>public-agents-loadbalancer</code> | Specifies the load balancer address used to access the DC/OS public agents. |
+| <code>public-agents-loadbalancer</code> | Specifies the load balancer address used to access the DC/OS public agents.
