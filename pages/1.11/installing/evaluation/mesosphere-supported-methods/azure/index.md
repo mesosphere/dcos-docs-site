@@ -1,209 +1,280 @@
 ---
 layout: layout.pug
-excerpt: Guide for DC/OS on Azure using the Universal Installer
+excerpt: Guide for DC/OS on Azure using the Mesosphere Universal Installer
 title: DC/OS on Azure using the Universal Installer
 navigationTitle: Azure
 menuWeight: 2
 ---
-This installation method is officially supported by Mesosphere. Upgrades are supported using this installation method.
 
-If you are new to Terraform and/or want to deploy DC/OS on Azure quickly and effortlessly, use the following instructions:
+To use the Mesosphere Universal Installer with Azure, the Azure command line interface must be installed and configured to the security credentials of the account you will be using for resources. The following instructions will guide you through the necessary account creation and credentials to be able to successfully configure your Azure CLI and install DC/OS.
 
-1) Create an DC/OS Cluster on Azure.
-2) Scale the cluster to a larger number of nodes.
-3) Upgrade the cluster to a newer version of DC/OS.
-4) Destroy the cluster and all Azure resources associated with it.
+## Prerequisites
 
-# Prerequisites:
-Terraform, cloud credentials, and SSH keys:
+- Linux, macOS, or Windows
+- command-line shell terminal such as Bash or PowerShell
+- Python 2 version 2.6.5+ or Python 3 version 3.3+
+- verified Azure Resource Manager account with the necessary permissions
 
-## Install Terraform
-If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
-```bash
-brew install terraform
-```
+# Install Terraform
 
-Once this command completes, you should be able to run the following command and see output consistent with the version of Terraform you have installed:
-```bash
-$ terraform version
-Terraform v0.11.8
-```
+1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
 
-For help installing Terraform on a different OS, see [here](https://www.terraform.io/downloads.html):
+    ```bash
+    brew install terraform
+    ```
 
-## Install Azure CLI
-You have to install the Azure CLI in order to provide credentials for the terraform provider. Use [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) guide to get `az` installed and running.
+# Install and configure the Azure CLI
 
+1. Set up an [Azure Resource Manager account](https://azure.microsoft.com/en-us/free/) if you don't already have on. Make sure to have at least one [user role set up](https://docs.microsoft.com/en-us/azure/security-center/security-center-permissions). 
 
-## Azure Credentials
-To retrieve credentials, issue the following:
+1. [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) guide to get `az` installed and running. For macOS users, it is available using Homebrew:
 
-```
-$ az login
-```
+    ```bash
+    brew install azure-cli
+    ```
 
-The output will show the subscriptions your user has permissions in. 
+1. Once you have the Azure CLI, it needs to be connected to the account you would like to use. If you already had the CLI installed, you may already have your credentials set up. To set up your credentials, or to update them anytime as needed, run:
 
-Ensure to be logged in by listing your accounts subscriptions.
+    ```bash
+    az login
+    ```
 
-```
-$ az account
-[
-  {
-    "cloudName": "AzureCloud",
-    "id": "12345678-abcd-efgh-9876-abc123456789",
-    "isDefault": true,
-    "name": "DC/OS Production Subscription",
-    "state": "Enabled",
-    "tenantId": "987654321-abcd-efgh-9876-abc123456789",
-    "user": {
-      "name": "myaccount@azuremesosphere.onmicrosoft.com",
-      "type": "user"
+  Follow any directions, including signing in from your browser, to enable your CLI.
+
+1. You can insure that you are logged in by listing your account permissions:
+
+    ```bash
+    az account
+    ```
+
+    Which will return something like:
+    ```bash
+    $ az account
+    [
+      {
+        "cloudName": "AzureCloud",
+        "id": "12345678-abcd-efgh-9876-abc123456789",
+        "isDefault": true,
+        "name": "DC/OS Production Subscription",
+        "state": "Enabled",
+        "tenantId": "987654321-abcd-efgh-9876-abc123456789",
+        "user": {
+          "name": "myaccount@azuremesosphere.onmicrosoft.com",
+          "type": "user"
+        }
+      }
+    ]
+    ```
+
+1. Set the `ARM_SUBSCRIPTION_ID`. The current Terraform Provider for Azure requires that the default Azure subscription be set before terraform can start. provide the Azure subscription ID. You can set the default account with the following command:
+
+    ```bash
+    export ARM_SUBSCRIPTION_ID="desired-subscriptionid"
+    ```
+
+    As an example:
+
+    ```bash
+    export ARM_SUBSCRIPTION_ID="12345678-abcd-efgh-9876-abc123456789"
+    ```
+
+    Ensure it is set:
+
+    ```bash
+    echo $ARM_SUBSCRIPTION_ID
+    ```
+
+# Set up SSH credentials for your cluster
+
+1. Terraform uses SSH key-pairs to connect securely to the clusters it creates. If you already have a key-pair available and added to your SSH-Agent, you can skip this step.
+
+    This starts an interactive process to create your key-pair. It will ask you to enter a location to store your keys. For example, to set up a new keypair in your `.ssh` directory:
+
+    ```bash
+    ssh-keygen -t rsa
+    ```
+
+    The full process will look something like this:
+
+    ```bash
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (/Users/<your-username>/.ssh/id_rsa): ~/.ssh/arm-demo-key
+    Enter passphrase (empty for no passphrase): 
+    Enter same passphrase again: 
+    Your identification has been saved in /Users/<your-username>/.ssh/arm-demo-key.
+    Your public key has been saved in /Users/<your-username>/.ssh/arm-demo-key.
+    The key fingerprint is:
+    4a:dd:0a:c6:35:4e:3f:ed:27:38:8c:74:44:4d:93:67 your-email@here
+    The key's randomart image is:
+    +--[ RSA 2048]----+
+    |          .oo.   |
+    |         .  o.E  |
+    |        + .  o   |
+    |     . = = .     |
+    |      = S = .    |
+    |     o + = +     |
+    |      . o + o .  |
+    |           . o   |
+    |                 |
+    +-----------------+
+    ```
+
+1. Add the key to your SSH agent. For example on macOS:
+
+    ```bash
+    ssh-add ~/.ssh/arm-demo-key
+    ```
+
+# Creating a DC/OS Cluster
+
+1. Let’s start by creating a local folder and cd'ing into it. This folder will be used as the staging ground for downloading all required Terraform modules and holding the configuration for the cluster you are about to create.
+
+    ```bash
+    mkdir dcos-tf-azure-demo && cd dcos-tf-azure-demo
+    ```
+
+1. Create a file in that folder called `main.tf`, which is the configuration file the Mesosphere Universal Installer will call on each time when creating a plan. The name of this file should always be `main.tf`.
+
+    ```bash
+    touch main.tf
+    ```
+
+1. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
+
+    ```hcl
+    variable "dcos_install_mode" {
+      description = "specifies which type of command to execute. Options: install or upgrade"
+      default = "install"
     }
-  }
-]
-```
 
-## Ensure Azure Default Subscription
-Provide the Azure subscription ID by exporting `ARM_SUBSCRIPTION_ID`.
+    data "http" "whatismyip" {
+      url = "http://whatismyip.akamai.com/"
+    }
 
-If you do not know your subscription id use `az account` to see a list of your subscriptions and copy the desired subscription id.
+    module "dcos" {
+      source  = "dcos-terraform/dcos/azurerm"
+      version = "~> 0.1"
 
-```bash
-export ARM_SUBSCRIPTION_ID="desired-subscriptionid"
-```
-Example:
-```bash
-export ARM_SUBSCRIPTION_ID="12345678-abcd-efgh-9876-abc123456789"
-```
+      dcos_instance_os    = "coreos_1855.5.0"
+      cluster_name        = "my-dcos"
+      ssh_public_key_file = "<path-to-public-key-file>"
+      admin_ips           = ["${data.http.whatismyip.body}/32"]
+      location            = "West US"
 
-Ensure it is set:
-```bash
-> echo $ARM_SUBSCRIPTION_ID
-12345678-abcd-efgh-9876-abc123456789
-```
+      num_masters        = "1"
+      num_private_agents = "2"
+      num_public_agents  = "1"
 
-## Enterprise Edition
-DC/OS Enterprise Edition also requires a valid license key provided by Mesosphere that will be passed into `main.tf` as `dcos_license_key_contents`. Use the default superuser and password to login:
+      dcos_version = "1.11.4"
 
-Username: `bootstrapuser`
-Password: `deleteme`
+      # dcos_variant              = "ee"
+      # dcos_license_key_contents = "${file("./license.txt")}"
+      dcos_variant = "open"
 
-<p class="message--important"><strong>IMPORTANT: </strong>This should NOT be used in a production environment and you will need to generate a password hash.</p>
+      dcos_install_mode = "${var.dcos_install_mode}"
+    }
 
-# Creating a Cluster
-1) Create a local folder.
+    output "masters-ips" {
+      value       = "${module.dcos.masters-ips}"
+    }
 
-```bash
-mkdir dcos-tf-azure-demo && cd dcos-tf-azure-demo
-```
+    output "cluster-address" {
+      value       = "${module.dcos.masters-loadbalancer}"
+    }
 
-2) Copy and paste the example code below into a new file and save it as `main.tf` in the newly created folder.
+    output "public-agents-loadbalancer" {
+      value = "${module.dcos.public-agents-loadbalancer}"
+    }
+    ```
 
-The example code below creates a DC/OS OSS 1.11.4 cluster on Azure with:
-- 1 Master
-- 2 Private Agents
-- 1 Public Agent
+1. There are two main variables that must be set to complete the `main.tf`, and you can change any others here at this point too.
 
-It also specifies that a the list of `masters-ips`, the `cluster-address`, and the address of the `public-agents-loadbalancer` should be printed out after cluster creation is complete.
+    1. `ssh_public_key_file = "<path-to-public-key-file>"`: the path to the public key for your cluster, following our example it would be:
+        ```bash
+        "~/.ssh/arm-key.pub"
+        ```
 
-It also specifies that the following output should be printed once cluster creation is complete:
-- ```master-ips``` - A list of Your DC/OS Master Nodes.
-- ```cluster-address``` - The URL you use to access DC/OS UI after the cluster is setup.
-- ```public-agent-loadbalancer``` - The URL of your Public routable services.
+    1. `location = "West US"`: The way the AzureRM provider is implemented forces us to specify the `location` in the module. If you want to use a different region replace `location` with your desired region.
 
-The way the AzureRM provider is implemented forces us to specify the `location` in the module. If you want to use a different region replace `location = "West US"` with your desired region.
+1. This sample configuration file will get you started on the installation of an open source DC/OS 1.12 cluster with the following nodes:
 
-```hcl
-variable "dcos_install_mode" {
-  description = "specifies which type of command to execute. Options: install or upgrade"
-  default = "install"
-}
+    - 1 Master
+    - 2 Private Agents
+    - 1 Public Agent
 
-data "http" "whatismyip" {
-  url = "http://whatismyip.akamai.com/"
-}
+    Enterprise users, uncomment/comment the section on for the variant to look like this, inserting the location to your license key. [enterprise type="inline" size="small" /]
 
-module "dcos" {
-  source = "dcos-terraform/dcos/azurerm"
+    ```bash
+    dcos_variant              = "ee"
+    dcos_license_key_contents = "${file("./license.txt")}"
+    # dcos_variant = "open"
+    ```
 
-  cluster_name        = "my-dcos"
-  ssh_public_key_file = "~/.ssh/id_rsa.pub"
-  admin_ips           = ["${data.http.whatismyip.body}/32"]
-  location            = "West US"
+    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.11/installing/evaluation/mesosphere-supported-methods/azure/advanced-azure/).
 
-  num_masters        = "1"
-  num_private_agents = "2"
-  num_public_agents  = "1"
+    There are also simple helpers listed underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
 
-  dcos_version = "1.11.4"
+    - `master-ips` A list of Your DC/OS master nodes
+    - `cluster-address` The URL you use to access DC/OS UI after the cluster is setup.
+    - `public-agent-loadbalancer` The URL of your Public routable services.
 
-  # dcos_variant              = "ee"
-  # dcos_license_key_contents = "${file("./license.txt")}"
-  dcos_variant = "open"
+1. Check that you have inserted your cloud provider and public key paths to `main.tf`, changed or added any other additional variables as wanted, then save and close your file.
 
-  dcos_install_mode = "${var.dcos_install_mode}"
-}
+1. Now the action of actually creating your cluster and installing DC/OS begins. First, initialize the project's local settings and data.  Make sure you are still working in the `dcos-tf-azure-demo` folder where you created your `main.tf` file, and run the initialization.
 
-output "masters-ips" {
-  value       = "${module.dcos.masters-ips}"
-}
+    ```bash
+    terraform init
+    ```
 
-output "cluster-address" {
-  value       = "${module.dcos.masters-loadbalancer}"
-}
+    ```text
+    Terraform has been successfully initialized!
 
-output "public-agents-loadbalancer" {
-  value = "${module.dcos.public-agents-loadbalancer}"
-}
-```
+    You may now begin working with Terraform. Try running "terraform plan" to see
+    any changes that are required for your infrastructure. All Terraform commands
+    should now work.
 
-For simplicity and example purposes, our variables are hard-coded.  If you have a desired cluster name or amount of masters/agents, you can adjust the values directly in the `main.tf`.
+    If you ever set or change modules or backend configuration for Terraform,
+    rerun this command to reinitialize your environment. If you forget, other
+    commands will detect it and remind you to do so if necessary.
+    ```
 
-You can find additional input variables and their descriptions [here](http://registry.terraform.io/modules/dcos-terraform/dcos/azurerm/).
+    <p class="message--note"><strong>Note: </strong>If terraform is not able to connect to your provider, ensure that you are logged in and are exporting your credentials. See the <a href="https://www.terraform.io/docs/providers/azurerm/#creating-credentials">Azure Provider</a> instructions for more information.</p>
 
-3) Next, initialize your modules. You must `cd` into `dcos-tf-azurerm-demo` folder where you just created your `main.tf` file.
+1. After Terraform has been initialized, the next step is to run the execution plan and save it to a static file - in this case, `plan.out`.
 
-```bash
-terraform init
-```
+    ```bash
+    terraform plan -out=plan.out
+    ```
 
-<p align=center>
-<img src="./images/install/terraform-init.png" />
-</p>
+    Writing our execution plan to a file allows us to pass the execution plan to the `apply` command below as well help us guarantee the accuracy of the plan. Note that this file is ONLY readable by Terraform.
 
+    Afterwards, we should see a message like the one below, confirming that we have successfully saved to the `plan.out` file.  This file should appear in your `dcos-tf-azure-demo` folder alongside `main.tf`.
 
-4) After initializing Terraform, the next step is to run the execution plan and save it to a static file - in this case, `plan.out`.
+      <p align=center>
+      <img src="./images/install/terraform-plan.png" />
+      </p>
 
-```bash
-terraform plan -out=plan.out
-```
+    Every time you run `terraform plan`, the output will always detail the resources your plan will be adding, changing or destroying.  Since we are creating our DC/OS cluster for the very first time, our output tells us that our plan will result in adding 38 pieces of infrastructure/resources.
 
-Writing the execution plan to a file allows us to pass the execution plan to the `apply` command below and guarantees the accuracy of the plan. 
+1. The next step is to get Terraform to build/deploy our plan.  Run the command below.
 
-<p class="message--note"><strong>NOTE: </strong>This file is ONLY readable by Terraform.</p>
+    ```bash
+    terraform apply plan.out
+    ```
 
-Now, you should see a message like the one below, confirming that you have successfully saved to the `plan.out` file.  This file should appear in your `dcos-tf-azure-demo` folder alongside `main.tf`.
+    Sit back and enjoy! The infrastructure of your DC/OS cluster is being created while you watch. This may take a few minutes.
 
-<p align=center>  
-<img src="./images/install/terraform-plan.png" />
-</p>
+    Once Terraform has completed applying our plan, you should see output similar to the following:
 
-Every time you run `terraform plan`, the output will always detail the resources your plan will be adding, changing, or destroying. The output tells us that our plan will result in adding 38 pieces of infrastructure/resources, since you are creating the DC/OS cluster for the very first time.
+    <p align=center>
+    <img src="./images/install/terraform-apply.png" />
+    </p>
 
-5) The next step is to get Terraform to build/deploy our plan. Run the command below.
+    And congratulations - you’re up and running!
 
-```bash
-terraform apply plan.out
-```
+# Logging in to DC/OS
 
-Once Terraform has completed applying the plan, you should see output similar to the following:   
-
-<p align=center>
-<img src="./images/install/terraform-apply.png" />
-</p>
-
-Congratulations - you’re done!  In just 4 steps, you’ve successfully installed a DC/OS cluster on Azure!
+1. To login and start exploring your cluster, navigate to the `cluster-address` listed in the output of the CLI. From here you can choose your provider to create the superuser account [oss type="inline" size="small" /], or login with your specified Enterprise credentials [enterprise type="inline" size="small" /].
 
 <p align=center>
 <img src="./images/install/dcos-login.png" />
@@ -212,187 +283,3 @@ Congratulations - you’re done!  In just 4 steps, you’ve successfully install
 <p align=center>
 <img src="./images/install/dcos-ui.png" />
 </p>
-
-# Scaling Your Cluster
-Terraform makes it easy to scale your cluster to add additional agents (public or private) once the initial cluster has been created. Use the following instructions:
-
-1) Increase the value for the `num_private_agents` and/or `num_public_agents` in your `main.tf` file. In this example, you will scale the cluster from `two` private agents to `three` private agents.
-
-
-```hcl
-variable "dcos_install_mode" {
-  description = "specifies which type of command to execute. Options: install or upgrade"
-  default = "install"
-}
-
-data "http" "whatismyip" {
-  url = "http://whatismyip.akamai.com/"
-}
-
-module "dcos" {
-  source = "dcos-terraform/dcos/azurerm"
-
-  cluster_name        = "my-dcos"
-  ssh_public_key_file = "~/.ssh/id_rsa.pub"
-  admin_ips           = ["${data.http.whatismyip.body}/32"]
-  location            = "West US"
-
-  num_masters        = "1"
-  num_private_agents = "3"
-  num_public_agents  = "1"
-
-  dcos_version = "1.11.4"
-
-  # dcos_variant              = "ee"
-  # dcos_license_key_contents = "${file("./license.txt")}"
-  dcos_variant = "open"
-
-  dcos_install_mode = "${var.dcos_install_mode}"
-}
-
-output "masters-ips" {
-  value       = "${module.dcos.masters-ips}"
-}
-
-output "cluster-address" {
-  value       = "${module.dcos.masters-loadbalancer}"
-}
-
-output "public-agents-loadbalancer" {
-  value = "${module.dcos.public-agents-loadbalancer}"
-}
-```
-
-2) The changes are made to `main.tf`, now re-run the new execution plan.  
-
-```bash
-terraform plan -out=plan.out
-```
-
-This step ensures that the state is stable and to confirm that you will create the resources necessary to scale the private agents to the desired number.
-
-<p align=center>
-<img src="./images/scale/terraform-plan.png" />
-</p>
-
-After executing the plan, you should see a message similar to above message. There will be `three` resources added as a result of scaling up the cluster’s private agents (1 instance resource & 2 null resources which handle the DC/OS installation and prerequisites in the background).
-
-
-3) Now, that the plan is set, get Terraform to build/deploy the new set of resources. 
-
-```bash
-terraform apply plan.out
-```
-
-<p align=center>
-<img src="./images/scale/terraform-apply.png" />
-</p>
-
-Once you see an output like the message above image, then check your DC/OS cluster to ensure the additional agents have been added.
-
-Now, you should see `four` total nodes connected like below via the DC/OS UI.
-
-<p align=center>
-<img src="./images/scale/node-count-4.png" />
-</p>
-
-# Upgrading Your Cluster
-Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS.
-
-Read more about the upgrade procedure that Terraform performs in the official [DC/OS Upgrade](https://docs.mesosphere.com/1.11/installing/production/upgrading/) documentation.
-
-1) In order to perform an upgrade, you must go back to `main.tf` and modify the current DC/OS Version (`dcos_version`) to `1.11.5` and also specify an additional parameter (`dcos_install_mode`). By default, this parameter is set to `install`, so it is possible to leave it unset when creating the initial DC/OS cluster and scaling it.
-
-Set this parameter to `upgrade` during upgrade process.
-
-<p class="message--important"><strong>IMPORTANT: </strong>Do not change any number of masters, agents, or public agents while performing an upgrade.</p>
-
-```hcl
-variable "dcos_install_mode" {
-  description = "specifies which type of command to execute. Options: install or upgrade"
-  default = "install"
-}
-
-data "http" "whatismyip" {
-  url = "http://whatismyip.akamai.com/"
-}
-
-module "dcos" {
-  source = "dcos-terraform/dcos/azurerm"
-
-  cluster_name        = "my-dcos"
-  ssh_public_key_file = "~/.ssh/id_rsa.pub"
-  admin_ips           = ["${data.http.whatismyip.body}/32"]
-  location            = "West US"
-
-  num_masters        = "1"
-  num_private_agents = "3"
-  num_public_agents  = "1"
-
-  dcos_version = "1.11.5"
-
-  # dcos_variant              = "ee"
-  # dcos_license_key_contents = "${file("./license.txt")}"
-  dcos_variant = "open"
-
-  dcos_install_mode = "${var.dcos_install_mode}"
-}
-
-output "masters-ips" {
-  value       = "${module.dcos.masters-ips}"
-}
-
-output "cluster-address" {
-  value       = "${module.dcos.masters-loadbalancer}"
-}
-
-output "public-agents-loadbalancer" {
-  value = "${module.dcos.public-agents-loadbalancer}"
-}
-```
-
-2) Re-run our execution plan.  
-
-```bash
-terraform plan -out=plan.out -var dcos_install_mode=upgrade
-```
-
-You should see the following output.
-
-<p align=center>
-<img src="./images/upgrade/terraform-plan.png" />
-</p>
-
-
-3) Apply the plan.
-
-```bash
-terraform apply plan.out
-```
-
-Once the apply completes, you can verify that the cluster was upgraded via the DC/OS UI.
-
-<p align=center>
-<img src="./images/upgrade/cluster-details-open.png" />
-</p>
-
-# Maintenance
-For instructions on how to maintain your cluster, follow the [maintenance](https://github.com/dcos-terraform/terraform-azurerm-dcos/tree/master/docs/maintain/) 
-documentation.
-
-# Deleting Your Cluster
-You can destroy the cluster by executing the following command and wait for it to complete:
-
-```bash
-terraform destroy
-```
-
-<p class="message--note"><strong>NOTE: </strong>When you execute this command it will destroy your entire cluster and all of its associated resources. Execute this command only if you are absolutely sure you no longer need access to your cluster.</p>
-
-Enter `yes` if you want to destroy your cluster.
-
-<p align=center>
-<img src="./images/destroy/terraform-destory.png" />
-</p>
-
-
