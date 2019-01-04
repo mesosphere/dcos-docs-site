@@ -160,12 +160,14 @@ By default, DC/OS clusters have [fault domain awareness](/1.12/deploying-service
 
     ```json
     {
-      "fault_domain": {
-        "region": {
-          "name": <region>,
-          "zone": <zone>
+        "fault_domain": {
+            "region": {
+                "name": "<region-name>"
+            },
+            "zone": {
+                "name": "<zone-name>"
+            }
         }
-      }
     }
     ```
 
