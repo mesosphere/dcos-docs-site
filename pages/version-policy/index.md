@@ -77,14 +77,11 @@ The following matrix shows the platform components and operating environments on
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
     </tr>
     <tr>
-<<<<<<< HEAD
-=======
         <td>CoreOS 1911.5.0</td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
         <td>                    </td>
     </tr><tr>
->>>>>>> LG/RN-1.12.1
         <td>CoreOS 1911.4.0</td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
