@@ -94,7 +94,7 @@ Choose your desired security mode and then follow the applicable patch instructi
 - [Patching to DC/OS 1.12 in strict security mode](#strict)
 
 # <a name="current-security"></a>Patching DC/OS 1.12 without changing security mode
-This procedure patches a DC/OS 1.12 cluster without changing the cluster's [security mode](//1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure patches a DC/OS 1.12 cluster without changing the cluster's [security mode](/1.12/1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 

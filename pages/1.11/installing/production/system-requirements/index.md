@@ -41,7 +41,7 @@ The table below shows the master node hardware requirements:
 
 There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
 
-[0]: /1.12/overview/high-availability/
+[0]: /1.11/overview/high-availability/
 
 
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
@@ -77,7 +77,7 @@ The table below shows the agent node hardware requirements.
 
 The agent nodes must also have:
 
-- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.12/deploying-services/containerizers/).
+- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.11/deploying-services/containerizers/).
 - Network Access to a public Docker repository or to an internal Docker registry.
 - On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that `firewalld` interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
 
@@ -188,7 +188,7 @@ timedatectl
 
 Before installing DC/OS, you **must** ensure that your bootstrap node has the following prerequisites.
 
-<p class="message--important"><strong>IMPORTANT: </strong>If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper`, the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the <a href="/1.12/installing/production/advanced-configuration/configuration-reference/">configuration parameter documentation</a>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper`, the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the <a href="/1.11/installing/production/advanced-configuration/configuration-reference/">configuration parameter documentation</a>.</p>
 
 
 - The bootstrap node must be separate from your cluster nodes.
@@ -286,6 +286,6 @@ localectl set-locale LANG=en_US.utf8
 - [Install Docker from Docker’s yum repository][1]
 - [DC/OS Installation Guide][2]
 
-[1]: /1.12/installing/production/system-requirements/docker-centos/
+[1]: /1.11/installing/production/system-requirements/docker-centos/
 
-[2]: /1.12/installing/production/deploying-dcos/installation/
+[2]: /1.11/installing/production/deploying-dcos/installation/
