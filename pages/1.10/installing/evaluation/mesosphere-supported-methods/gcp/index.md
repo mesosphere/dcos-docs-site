@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 excerpt: Guide for DC/OS on GCP using the Universal Installer
-title: Deploying DC/OS on GCP using the Universal Installer
+title: DC/OS on GCP using the Universal Installer
 navigationTitle: GCP
 menuWeight: 4
 ---
@@ -34,7 +34,7 @@ If you are new to Terraform and want to deploy DC/OS on GCP with minimal configu
   Terraform v0.11.8
   ```
 
-For help installing Terraform on a different OS, see the [Terraform download instructions](https://www.terraform.io/downloads.html).
+For help installing Terraform on a different OS, the [Terraform download instructions](https://www.terraform.io/downloads.html):
 
 ## Get Application Default Credentials for authenticataion
 You must have [Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login) for the GCP provider to authenticate against GCP.
@@ -72,7 +72,7 @@ production-123
 ```
 
 ## Verify you have a license key for Enterprise Edition
-DC/OS Enterprise Edition also requires a valid license key provided by Mesosphere that will be passed into the `main.tf` configuration file as `dcos_license_key_contents`. Use the following default superuser and password to log in:
+DC/OS Enterprise Edition also requires a valid license key provided by Mesosphere that will be passed into the `main.tf` configuration file as `dcos_license_key_contents`. Use the default superuser and password to log in:
 
 Username: `bootstrapuser`<br>
 Password: `deleteme`
@@ -86,171 +86,165 @@ Password: `deleteme`
   mkdir dcos-tf-gcp-demo && cd dcos-tf-gcp-demo
   ```
 
-2) Copy and paste the example code below into a new file and save it as `main.tf` in local folder.
+2) Copy and paste the example code below into a new file and save it as `main.tf` in the local folder.
 
-    The example code below creates a DC/OS OSS 1.11.4 cluster on GCP with:
-    - 1 Master
-    - 2 Private Agents
-    - 1 Public Agent
+  The example code below creates a DC/OS OSS 1.11.4 cluster on GCP with:
+  - 1 Master
+  - 2 Private Agents
+  - 1 Public Agent
 
-    The example also specifies that the following output should be printed once cluster creation is complete:
-    - ```masters-ips``` - Lists the DC/OS master nodes.
-    - ```cluster-address``` - Specifies the URL you use to access DC/OS UI after the cluster is setup.
-    - ```public-agent-loadbalancer``` - Specifies the URL of your Public routable services.
+  The example also specifies that the following output should be printed once cluster creation is complete:
+  - ```masters-ips``` - Lists the DC/OS master nodes.
+  - ```cluster-address``` - Specifies the URL you use to access DC/OS UI after the cluster is set up.
+  - ```public-agent-loadbalancer``` - Specifies the URL of your Public routable services.
 
-    ```hcl
-    variable "dcos_install_mode" {
-      description = "specifies which type of command to execute. Options: install or upgrade"
-      default = "install"
-    }
+  ```hcl
+  variable "dcos_install_mode" {
+    description = "specifies which type of command to execute. Options: install or upgrade"
+    default = "install"
+  }
 
-    module "dcos" {
-      source = "dcos-terraform/dcos/gcp"
+  module "dcos" {
+    source = "dcos-terraform/dcos/gcp"
 
-      cluster_name        = "my-open-dcos"
-      ssh_public_key_file = "~/.ssh/id_rsa.pub"
+    cluster_name        = "my-open-dcos"
+    ssh_public_key_file = "~/.ssh/id_rsa.pub"
 
-      num_masters        = "1"
-      num_private_agents = "2"
-      num_public_agents  = "1"
+    num_masters        = "1"
+    num_private_agents = "2"
+    num_public_agents  = "1"
 
-      dcos_version = "1.11.4"
+    dcos_version = "1.11.4"
 
-      # dcos_variant              = "ee"
-      # dcos_license_key_contents = "${file("./license.txt")}"
-      dcos_variant = "open"
+    # dcos_variant              = "ee"
+    # dcos_license_key_contents = "${file("./license.txt")}"
+    dcos_variant = "open"
 
-      dcos_install_mode = "${var.dcos_install_mode}"
-    }
+    dcos_install_mode = "${var.dcos_install_mode}"
+  }
 
-    output "masters-ips" {
-      value       = "${module.dcos.masters-ips}"
-    }
+  output "masters-ips" {
+    value       = "${module.dcos.masters-ips}"
+  }
 
-    output "cluster-address" {
-      value       = "${module.dcos.masters-loadbalancer}"
-    }
+  output "cluster-address" {
+    value       = "${module.dcos.masters-loadbalancer}"
+  }
 
-    output "public-agents-loadbalancer" {
-      value = "${module.dcos.public-agents-loadbalancer}"
-    }
-    ```
+  output "public-agents-loadbalancer" {
+    value = "${module.dcos.public-agents-loadbalancer}"
+  }
+  ```
 
-    For simplicity in this example, the configurtion values are hard-coded. If you have a desired cluster name or number of masters/agents, you can adjust the values directly in the `main.tf` configuration file.
+  For simplicity in this example, the configuration values are hard-coded.  If you have a desired cluster name or number of masters/agents, you can adjust the values directly in the `main.tf` configuration file.
 
-    You can find additional input variables and their descriptions [here](http://registry.terraform.io/modules/dcos-terraform/dcos/gcp/).
+  You can find additional input variables and their descriptions [here](/1.10/installing/evaluation/mesosphere-supported-methods/gcp/advanced-gcp).
 
 3) Change to the `dcos-tf-gcp-demo` folder where you just created your `main.tf` file, if needed.
 
-    ```bash
-    cd dcos-tf-gcp-demo
-    ```
+  ```bash
+  cd dcos-tf-gcp-demo
+  ```
 
 4) Initialize the Terraform modules.
 
-    ```bash
-    terraform init
-    ```
-    You should see a confirmation message similar to the following:
+  ```bash
+  terraform init
+  ```
 
+  You should see a confirmation message similar to the following:
   <p align=center><img src="./images/install/terraform-init.png" /></p>
 
 5) Run the execution plan and save it to a static file. For example, save the output in the `plan.out` file.
 
-    ```bash
-    terraform plan -out=plan.out
-    ```
+  ```bash
+  terraform plan -out=plan.out
+  ```
 
-    Writing the execution plan to a file allows you to pass the execution plan to the `apply` command and guarantees the accuracy of the plan. Every time you run the `terraform plan` command, its output provides details about the resources the plan will add, change, or destroy. Since this sample installation creates the first DC/OS cluster, the output indicates that execution of the plan adds 38 pieces of infrastructure/resources.
+  Writing the execution plan to a file allows you to pass the execution plan to the `apply` command and guarantees the accuracy of the plan. Every time you run the `terraform plan` command, its output provides details about the resources the plan will add, change, or destroy. Since this sample installation creates the first DC/OS cluster, the output indicates that execution of the plan adds 38 pieces of infrastructure/resources.
 
     The plan output file is created in the `dcos-tf-gcp-demo` folder alongside the `main.tf` file. This file is **only readable** by Terraform, however.
 
     A message similar to the following confirms that you have successfully saved the execution plan to the `plan.out` file. 
-    
-  <p align=center>
-  <img src="./images/install/terraform-plan.png" />
-  </p>
+  <p align=center><img src="./images/install/terraform-plan.png" /></p>
 
 6) Run the following command to deploy the plan that builds the cluster:
 
-    ```bash
-    terraform apply plan.out
-    ```
+  ```bash
+  terraform apply plan.out
+  ```
 
     Once Terraform has completed applying the plan, you should see output similar to the following:
-
   <p align=center><img src="./images/install/terraform-apply.png" /></p>
 
 ### Congratulations! 
 You have successfully installed a DC/OS cluster on GCP with minimal configuration or customization. From here, you can log in to begin using the new cluster.
-
 <p align=center>
 <img src="./images/install/dcos-login.png" />
 </p>
 
 After you log in, the DC/OS dashboard is displayed.
-
 <p align=center>
 <img src="./images/install/dcos-ui.png" />
 </p>
 
-For additional information about creating a cluster on GCP with more advanced configuration options, see [Advanced GCP cluster configuration options](#AdvancedGCP).
+For additional information about creating a cluster on GCP with more advanced configuration options, see [Advanced GCP cluster configuration options](/1.10/installing/evaluation/mesosphere-supported-methods/gcp/advanced-gcp/).
 
 # Scaling the cluster
 Terraform makes it easy to scale your cluster to add additional agents (public or private) once the initial cluster has been created. Use the instructions below.
 
-1) Increase the value for the `num_private_agents` and/or `num_public_agents` in your `main.tf` file. In this example, you will scale the cluster from `two` private agents to `three` private agents.
+1)  Increase the value for the `num_private_agents` and/or `num_public_agents` in your `main.tf` file. In this example, you will scale the cluster from `two` private agents to `three` private agents.
 
-    ```hcl
-    variable "dcos_install_mode" {
-      description = "specifies which type of command to execute. Options: install or upgrade"
-      default = "install"
-    }
+  ```hcl
+  variable "dcos_install_mode" {
+    description = "specifies which type of command to execute. Options: install or upgrade"
+    default = "install"
+  }
 
-    module "dcos" {
-      source = "dcos-terraform/dcos/gcp"
+  module "dcos" {
+    source = "dcos-terraform/dcos/gcp"
 
-      cluster_name        = "my-open-dcos"
-      ssh_public_key_file = "~/.ssh/id_rsa.pub"
+    cluster_name        = "my-open-dcos"
+    ssh_public_key_file = "~/.ssh/id_rsa.pub"
 
-      num_masters        = "1"
-      num_private_agents = "3"
-      num_public_agents  = "1"
+    num_masters        = "1"
+    num_private_agents = "3"
+    num_public_agents  = "1"
 
-      dcos_version = "1.11.4"
+    dcos_version = "1.11.4"
 
-      # dcos_variant              = "ee"
-      # dcos_license_key_contents = "${file("./license.txt")}"
-      dcos_variant = "open"
+    # dcos_variant              = "ee"
+    # dcos_license_key_contents = "${file("./license.txt")}"
+    dcos_variant = "open"
 
-      dcos_install_mode = "${var.dcos_install_mode}"
-    }
+    dcos_install_mode = "${var.dcos_install_mode}"
+  }
 
-    output "masters-ips" {
-      value       = "${module.dcos.masters-ips}"
-    }
+  output "masters-ips" {
+    value       = "${module.dcos.masters-ips}"
+  }
 
-    output "cluster-address" {
-      value       = "${module.dcos.masters-loadbalancer}"
-    }
+  output "cluster-address" {
+    value       = "${module.dcos.masters-loadbalancer}"
+  }
 
-    output "public-agents-loadbalancer" {
-      value = "${module.dcos.public-agents-loadbalancer}"
-    }
-    ```
+  output "public-agents-loadbalancer" {
+    value = "${module.dcos.public-agents-loadbalancer}"
+  }
+  ```
 
-2) Re-run the new execution plan with the changes you have made to the `main.tf`configuration file.  
+2) Re-run the new execution plan with the changes you have made to the `main.tf`configuration file.   
 
-    ```bash
-    terraform plan -out=plan.out
-    ```
+  ```bash
+  terraform plan -out=plan.out
+  ```
 
     This step ensures that the state is stable and confirms that you can create the resources necessary to scale the private agents to the desired number. Executing the plan adds the following resources as a result of scaling up the cluster’s private agents:
     - One instance resource
     - Two null resources which handle the DC/OS installation and prerequisites in the background.
 
     You should see a message similar to the following:
-<p align=center><img src="./images/scale/terraform-plan.png" /></p>
+  <p align=center><img src="./images/scale/terraform-plan.png" /></p>
 
 3) Run the following command to have Terraform deploy the new set of resources:
 
@@ -260,7 +254,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 
     You should see an output similar to the following:
   <p align=center><img src="./images/scale/terraform-apply.png" /></p>
-  
+
 4) Check your DC/OS cluster using the DC/OS UI to verify the additional agents have been added. 
 
     You should see `four` total nodes connected. For example:
@@ -269,68 +263,67 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 # Upgrading the cluster
 Terraform also makes it easy to upgrade the DC/OS cluster to a newer version of DC/OS.
 
-Read more about the upgrade procedure that Terraform performs in the official [DC/OS Upgrade](https://docs.mesosphere.com/1.10/installing/production/upgrading/) documentation.
+Read more about the upgrade procedure that Terraform performs in the official [DC/OS Upgrade](/1.10/installing/production/upgrading/) documentation.
 
 To perform an upgrade:
 
 1) Open the `main.tf` configuration file.
-
 2) Modify the current DC/OS Version (`dcos_version`) to `1.11.5` and set the `dcos_install_mode` parameter to `upgrade`. 
 
     By default, the `dcos_install_mode` parameter value is `install` to enable you to create the initial DC/OS cluster and scale it without explicitly setting its value. To upgrade an existing cluster, however, you must explicitly set the parameter value to `upgrade`.
 
-    <p class="message--important"><strong>IMPORTANT: </strong>Do not change the number of masters, agents, or public agents when performing an upgrade.</p>
+    <p class="message--important"><strong>IMPORTANT: </strong>Do not change the number of masters, agents, or public agents while performing an upgrade.</p>
 
-    ```hcl
-    variable "dcos_install_mode" {
-      description = "specifies which type of command to execute. Options: install or upgrade"
-      default = "install"
-    }
+  ```hcl
+  variable "dcos_install_mode" {
+    description = "specifies which type of command to execute. Options: install or upgrade"
+    default = "install"
+  }
 
-    data "http" "whatismyip" {
-      url = "http://whatismyip.akamai.com/"
-    }
+  data "http" "whatismyip" {
+    url = "http://whatismyip.akamai.com/"
+  }
 
-    module "dcos" {
-      source = "dcos-terraform/dcos/gcp"
+  module "dcos" {
+    source = "dcos-terraform/dcos/gcp"
 
-      cluster_name        = "my-open-dcos"
-      ssh_public_key_file = "~/.ssh/id_rsa.pub"
-      admin_ips           = ["${data.http.whatismyip.body}/32"]
+    cluster_name        = "my-open-dcos"
+    ssh_public_key_file = "~/.ssh/id_rsa.pub"
+    admin_ips           = ["${data.http.whatismyip.body}/32"]
 
-      num_masters        = "1"
-      num_private_agents = "3"
-      num_public_agents  = "1"
+    num_masters        = "1"
+    num_private_agents = "3"
+    num_public_agents  = "1"
 
-      dcos_version = "1.11.5"
+    dcos_version = "1.11.5"
 
-      # dcos_variant              = "ee"
-      # dcos_license_key_contents = "${file("./license.txt")}"
-      dcos_variant = "open"
+    # dcos_variant              = "ee"
+    # dcos_license_key_contents = "${file("./license.txt")}"
+    dcos_variant = "open"
 
-      dcos_install_mode = "${var.dcos_install_mode}"
-    }
+    dcos_install_mode = "${var.dcos_install_mode}"
+  }
 
-    output "masters-ips" {
-      value       = "${module.dcos.masters-ips}"
-    }
+  output "masters-ips" {
+    value       = "${module.dcos.masters-ips}"
+  }
 
-    output "cluster-address" {
-      value       = "${module.dcos.masters-loadbalancer}"
-    }
+  output "cluster-address" {
+    value       = "${module.dcos.masters-loadbalancer}"
+  }
 
-    output "public-agents-loadbalancer" {
-      value = "${module.dcos.public-agents-loadbalancer}"
-    }
-    ```
+  output "public-agents-loadbalancer" {
+    value = "${module.dcos.public-agents-loadbalancer}"
+  }
+  ```
 
 3) Re-run the new execution plan.  
 
-    ```bash
-    terraform plan -out=plan.out -var dcos_install_mode=upgrade
-    ```
+  ```bash
+  terraform plan -out=plan.out -var dcos_install_mode=upgrade
+  ```
 
-    You should see output similar to the following:
+  You should see output similar to the following:
   <p align=center><img src="./images/upgrade/terraform-plan.png" /></p>
 
 4) Run the following command to apply the plan.
@@ -343,6 +336,7 @@ To perform an upgrade:
   <p align=center><img src="./images/upgrade/cluster-details-open.png" /></p>
 
 # Maintaining the cluster
+
 For instructions on how to maintain your cluster, follow the [maintenance](https://github.com/dcos-terraform/terraform-gcp-dcos/tree/master/docs/maintain) documentation.
 
 # Deleting the cluster
@@ -355,6 +349,7 @@ terraform destroy
 <p class="message--note"><strong>NOTE: </strong>This command deletes the entire cluster and all of its associated resources. Execute this command only if you are absolutely sure you no longer need access to your cluster.</p>
 
 Enter `yes` if you want to destroy your cluster.
+
 <p align=center>
 <img src="./images/destroy/terraform-destory.png" />
 </p>
@@ -394,7 +389,7 @@ module "dcos" {
     "169.254.169.254"
   EOF
   dcos_overlay_network = <<EOF
-
+  
   # YAML
     vtep_subnet: 44.128.0.0/20
     vtep_mac_oui: 70:B3:D5:00:00:00
@@ -418,7 +413,7 @@ module "dcos" {
         ignoreusedcount: true
   EOF
   dcos_cluster_docker_credentials = <<EOF
-
+  
   # YAML
     auths:
       'https://index.docker.io/v1/':
@@ -571,7 +566,7 @@ Name	| Description	| Type	| Default	| Required
 <code>ssh_public_key_file</code> | Specifies the path to the SSH public key. This variable is mandatory but it can be set to an empty string if you want to use `ssh_public_key` with the key as a string. | string | - | yes
 
 ## Output
-The following lists the output parameters for which you can return values when customizing your cluster.
+The following lists the output parameters for which you can  return values when customizing your cluster.
 
 | Name | Description |
 |:-----|:-------------|
