@@ -76,7 +76,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [Advanced DC/OS Installation Guide][advanced-install].
-- Take a [snapshot of ZooKeeper](https://support.mesosphere.com/s/article/zk-backup-guano) prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
+- Take a [snapshot of ZooKeeper](/1.10/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano) prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
 - [Take a snapshot of the IAM database](/1.10/installing/ent/faq/#q-how-do-i-backup-the-iam-database) prior to upgrading.
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 - Verify that all Marathon application constraints are valid before beginning the upgrade. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
