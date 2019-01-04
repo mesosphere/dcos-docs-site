@@ -100,19 +100,19 @@ To restore the IAM database from a file `~/iam-backup.sql` run the following com
 
 There may be instances where you need to back up the state of ZooKeeper. For example, you receive a migration-in-progress error during a Marathon upgrade. The solution is:
 
-1. Download the Guano ZooKeeper utility
+1. Download the Guano ZooKeeper utility.
 
 ```bash
 sudo wget https://s3.eu-central-1.amazonaws.com/adyatlov-public/guano-0.1a.jar.zip
 ```
 
-2. Unzip the utility
+2. Unzip the utility.
 
 ```bash
 unzip guano-0.1a.jar.zip
 ```
 
-3. Run the following command to backup your ZooKeeper state
+3. Run the following command to backup your ZooKeeper state.
 
 ```bash
 /opt/mesosphere/bin/dcos-shell java -jar guano-0.1a.jar -u super -p secret -d / -o /tmp/mesos-zk-backup -s $ZKHOST:2181 && tar -zcvf zkstate.tar.gz /tmp/mesos-zk-backup/
