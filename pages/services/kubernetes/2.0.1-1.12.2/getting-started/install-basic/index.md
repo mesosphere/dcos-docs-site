@@ -26,7 +26,7 @@ Prior to installing this package you must install the `kubernetes` package, refe
 
 In order to run the `kubernetes` package on DC/OS Enterprise, a [service account](/1.12/security/ent/service-auth/) with permissions to run tasks with the `kubernetes-role` is required.
 
-1. To provision such a service account, you must first install the [DC/OS Enterprise CLI](/1.12/cli/). Then, run the following:
+1. To provision such a service account, you must first install the [DC/OS Enterprise CLI](/1.12/cli/enterprise-cli/). Then, run the following:
 
     ```shell
     dcos security org service-accounts keypair private-key.pem public-key.pem

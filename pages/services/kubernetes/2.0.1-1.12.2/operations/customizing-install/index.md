@@ -155,7 +155,7 @@ When installing DC/OS Kubernetes on a DC/OS Enterprise cluster, a [service accou
 
 This service account must be setup with adequate permissions in order to manage CA and secrets, and it **MUST** be provisioned before installing DC/OS Kubernetes.
 
-1. In order to provision such service account, first you need to install the [DC/OS Enterprise CLI](/1.12/cli/). Then, run the following:
+1. In order to provision such service account, first you need to install the [DC/OS Enterprise CLI](/1.12/cli/enterprise-cli/). Then, run the following:
 
     ```shell
     dcos security org service-accounts keypair private-key.pem public-key.pem
