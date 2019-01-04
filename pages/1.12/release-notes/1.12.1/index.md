@@ -6,16 +6,16 @@ menuWeight: 5
 excerpt: Release notes for DC/OS 1.12.1
 ---
 
-DC/OS Version 1.12.1 - Released January 3, 2019
+DC/OS Version 1.12.1 was released on January 3, 2019.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.12.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="purple" href="http://downloads.mesosphere.com/dcos-enterprise/stable/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
+[button color="purple" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise [/button]
 
 DC/OS 1.12.1 includes the following components:
 - Apache Mesos 1.7.x [change log](https://github.com/apache/mesos/blob/b97f0ba29d40a279dec00ffe51512e3b5a146049/CHANGELOG).
-- Marathon is 1.7.x [change log](https://github.com/mesosphere/marathon/blob/48bfd6000c544df5ae03de04b42b019d5e9dbd4b/changelog.md)
-- Metronome is 0.5.71 [change log](https://github.com/dcos/metronome/blob/22945457c7cb10cb14d575ceeb137edd8158ba3c/changelog.md)
+- Marathon is 1.7.x [change log](https://github.com/mesosphere/marathon/blob/48bfd6000c544df5ae03de04b42b019d5e9dbd4b/changelog.md).
+- Metronome is 0.5.71 [change log](https://github.com/dcos/metronome/blob/22945457c7cb10cb14d575ceeb137edd8158ba3c/changelog.md).
 
 <p class="message--note"><strong>NOTE: </strong>DC/OS 1.12.1 release supports new CoreOS and Docker versions as listed in the <a href="../../../version-policy">compatibility matrix</a>.</p>
 
@@ -34,7 +34,7 @@ The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, function
 ## Docker Integration
 - COPS-4012, DCOS_OSS-4415 - The permissions assigned by default to the container sandbox path have changed from 0755 to 0750 to provide better security and access control. This change, however, can prevent read operations for tasks in Docker container images. If a Docker image specifies a user that is not identical to the user specified by task user identifier (UID) or the framework user UID, the user does not have sufficient permissions to run the tasks.
 
-    To workaround this issue, you can update containers to use the Universal Container Runtime (UCR), remove the user and rebuild the Docker image and remove or modify the application user to run under the root account by setting a parameter key-value pair:
+    To work around this issue, you can update containers to use the Universal Container Runtime (UCR), remove the user and rebuild the Docker image and remove or modify the application user to run under the root account by setting a parameter key-value pair:
 
     ```
     "parameters": [
@@ -54,7 +54,7 @@ The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, function
 ## Marathon
 - COPS-3554 - This release introduces a watcher loop process to monitor and, if necessary, re-register the Marathon leader after reelection.
 
-- COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example,restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable. 
+- COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable. 
 
     Because this problem affects high availability for Marathon, a workaround (ping zk-1) was introduced for DC/OS 1.11.5 and 1.11.6 to address the issue. In this release, the underlying issue is resolved and you can safely remove the workaround if you have it deployed. For background information about the issue and the steps to remove the workaround, see [Removing the patch for Marathon failing to start if the first DC/OS is not available](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004).
 
@@ -71,7 +71,7 @@ The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, function
 
 - DCOS-43044 - Normally, frameworks are expected to record the agent identifier and the resource provider identifier before accepting an offer. To help ensure frameworks record the agent identifier and resource provider identifier before accepting an offer (OfferOperation), the agent identifier and resource provider have been added to the `OperationStatus` message received by the scheduler. The framework can then issue a proper acknowledgement for the update, even if there's no access to previously-checkpointed information.
 
-- DCOS-43544 - Logic changes enable nested containers to run under the same user account as the user associated with their parent container by default. For nested containers in a pod, the default executor’s user–that is, the user running the top-level container–has been the framework user. In a scenario where the framework user is a normal user but the nested container user is `root`, the change in this release enables the second-level nested containers to run as the same user–for example, the `root` user–as the parent top-level container instead of as the framework user by default.
+- DCOS-43544 - Logic changes enable nested containers to run under the same user account as the user associated with their parent container by default. For nested containers in a pod, the default executor’s user--that is, the user running the top-level container--has been the framework user. In a scenario where the framework user is a normal user but the nested container user is `root`, the change in this release enables the second-level nested containers to run as the same user–for example, the `root` user–as the parent top-level container instead of as the framework user by default.
 
 - DCOS-43593 - This release fixes an issue that could cause Mesos master endpoints—such as reserveResources or createVolume—to fail during authorization. For example, before implementing this fix, the authorization requests for an endpoint might fail or be incomplete if there’s extreme load on the IAM service. The change in this release ensures that authorization requests for an endpint are complete before continuing.
 
