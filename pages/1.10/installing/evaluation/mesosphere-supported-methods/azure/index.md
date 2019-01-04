@@ -165,7 +165,7 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
       num_private_agents = "2"
       num_public_agents  = "1"
 
-      dcos_version = "1.11.4"
+      dcos_version = "1.10.8"
 
       # dcos_variant              = "ee"
       # dcos_license_key_contents = "${file("./license.txt")}"
@@ -196,7 +196,7 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
 
     1. `location = "West US"`: The way the AzureRM provider is implemented forces us to specify the `location` in the module. If you want to use a different region replace `location` with your desired region.
 
-1. This sample configuration file will get you started on the installation of an open source DC/OS 1.12 cluster with the following nodes:
+1. This sample configuration file will get you started on the installation of an open source DC/OS 1.10.8 cluster with the following nodes:
 
     - 1 Master
     - 2 Private Agents

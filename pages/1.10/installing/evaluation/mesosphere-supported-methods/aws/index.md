@@ -152,7 +152,7 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
       num_private_agents = "2"
       num_public_agents  = "1"
 
-      dcos_version = "1.12.0"
+      dcos_version = "1.10.8"
 
       # dcos_variant              = "ee"
       # dcos_license_key_contents = "${file("./license.txt")}"
@@ -191,7 +191,7 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
       "~/.ssh/aws-key.pub"
       ```
 
-1. This sample configuration file will get you started on the installation of an open source DC/OS 1.12 cluster with the following nodes:
+1. This sample configuration file will get you started on the installation of an open source DC/OS 1.10.8 cluster with the following nodes:
 
     - 1 Master
     - 2 Private Agents
@@ -205,7 +205,7 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
         # dcos_variant = "open"
         ```
 
-    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.10/installing/evaluation/mesosphere-supported-methods/aws-advanced/).
+    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.10/installing/evaluation/mesosphere-supported-methods/aws/aws-advanced/).
   
     There are also simple helpers listed underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
 
