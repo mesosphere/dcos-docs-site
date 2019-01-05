@@ -23,4 +23,4 @@ render: mustache
 
 ## Auto Assignment of Ports
 
-Auto assignment of ports is not supported by the {{ model.techName }} framework. {{ model.techName }} must be bound to the same port on each node to start in distributed mode. Enabling auto assignment of ports may result in binding the {{ model.techName }} server to different ports on each Pod.
+Auto assignment of ports is not supported by the {{ model.techName }} framework. {{ model.techName }} must be bound to the same port on each node to start in distributed mode. Enabling auto assignment of ports may result in binding the {{ model.techName }} server to different ports on each pod.

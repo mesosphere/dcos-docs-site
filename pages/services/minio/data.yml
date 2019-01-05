@@ -2,8 +2,8 @@
 
 packageName: miniod
 serviceName: minio
-techName: Minio
-techShortName: minio
+techName: DC/OS Minio
+techShortName: Minio
 minNodeCount: four
 # Values specific to certain templates:
 
