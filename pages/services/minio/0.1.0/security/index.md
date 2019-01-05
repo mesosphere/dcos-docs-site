@@ -22,11 +22,11 @@ render: mustache
 # Service Account Configuration
 This topic describes how to configure DC/OS access for {{ model.techName }}. Depending on your security mode, {{ model.techName }} requires service authentication for access to DC/OS.
 
-    Security Mode     Service Account
-    =============     ===============
-    Disabled          Not available
-    Permissive        Optional
-    Strict 	          **Required**
+| Security mode | Service Account |
+|---------------|-----------------------|
+| Disabled      | Not available   |
+| Permissive    | Optional   |
+| Strict        | **Required** |
 
 If you install a service in permissive mode and do not specify a service account, Metronome and Marathon will act as if requests made by this service are made by an account with the superuser permission.
 
