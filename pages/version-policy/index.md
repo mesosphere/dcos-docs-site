@@ -466,5 +466,5 @@ B - This package combination is *beta*.
 
 ### Footnotes
 
-¹ - *Beta DC/OS Storage Services 0.5.1 requires DC/OS 1.12.1*
-² - *Package maintained and supported solely by DataStax Corporation*.
+- ¹ - *Beta DC/OS Storage Services 0.5.1 requires DC/OS 1.12.1*
+- ² - *Package maintained and supported solely by DataStax Corporation*
