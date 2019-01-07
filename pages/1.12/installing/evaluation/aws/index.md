@@ -12,8 +12,8 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 
 - Linux, macOS, or Windows
 - command-line shell terminal such as Bash or PowerShell
-- Python 2 version 2.6.5+ or Python 3 version 3.3+
 - verified Amazon Web Services (AWS) account and [AWS IAM](https://console.aws.amazon.com/iam/home) user profile with permissions
+- Amazon `aws-cli`, which requires Python 2 version 2.6.5+ or Python 3 version 3.3+
 
 # Install Terraform
 
@@ -191,19 +191,19 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
       "~/.ssh/aws-key.pub"
       ```
 
+1. Enterprise users, uncomment/comment the section for the variant to look like this, inserting the location to your license key. [enterprise type="inline" size="small" /]
+
+    ```bash
+    dcos_variant              = "ee"
+    dcos_license_key_contents = "${file("./license.txt")}"
+    # dcos_variant = "open"
+    ```
+
 1. This sample configuration file will get you started on the installation of an open source DC/OS 1.12 cluster with the following nodes:
 
     - 1 Master
     - 2 Private Agents
     - 1 Public Agent
-
-    Enterprise users, uncomment/comment the section on for the variant to look like this, inserting the location to your license key. [enterprise type="inline" size="small" /]
-
-        ```bash
-        dcos_variant              = "ee"
-        dcos_license_key_contents = "${file("./license.txt")}"
-        # dcos_variant = "open"
-        ```
 
     If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/mesosphere-supported-methods/aws-advanced/).
   
