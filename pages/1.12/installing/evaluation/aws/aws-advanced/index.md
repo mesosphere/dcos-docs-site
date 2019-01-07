@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-title: Advanced DC/OS on AWS
+title: Configuration Reference - AWS
 excerpt: Configuring your DC/OS installation on AWS using the Universal Installer
-navigationTitle: Advanced AWS 
+navigationTitle: Configuration Reference
 menuWeight: 1
 ---
 
