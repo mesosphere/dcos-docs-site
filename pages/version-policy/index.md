@@ -253,7 +253,7 @@ B - This package combination is *beta*.
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>Beta DC/OS Storage Services 0.5.1 (Recommended)</td>
+        <td>¹Beta DC/OS Storage Services 0.5.1 (Recommended)</td>
         <td><p style="text-align: center;">B</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -301,25 +301,25 @@ B - This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>¹DataStax-DSE 2.3.x-5.1.2</td>
+        <td>²DataStax-DSE 2.3.x-5.1.2</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>¹DataStax-DSE 2.4.x-5.1.10 (Recommended)</td>
+        <td>²DataStax-DSE 2.4.x-5.1.10 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>¹DataStax-Ops 2.3.x-6.1.2</td>
+        <td>²DataStax-Ops 2.3.x-6.1.2</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>¹DataStax-Ops 2.4.x-6.1.9 (Recommended)</td>
+        <td>²DataStax-Ops 2.4.x-6.1.9 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -472,4 +472,5 @@ B - This package combination is *beta*.
 
 ### Footnotes
 
-1 - *Package maintained and technical support services solely by DataStax Corporation*.
+¹ - *Beta DC/OS Storage Services 0.5.1 requires DC/OS 1.12.1*
+² - *Package maintained and supported solely by DataStax Corporation*.
