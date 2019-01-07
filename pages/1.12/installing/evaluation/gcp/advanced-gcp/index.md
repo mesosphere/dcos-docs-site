@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-title: Advanced DC/OS on GCP
+title: Configuration Reference -  GCP
 excerpt: Configuring your DC/OS installation on GCP using the Mesosphere Universal Installer
-navigationTitle: Advanced GCP
+navigationTitle: Configuration Reference
 menuWeight: 5
 ---
 The Mesosphere Universal Installer supports a wide range of inputs/variables to add to your `main.tf` and enable you to customize your DC/OS cluster to your needs. These inputs/variables include everything from specifying the operating system (CentOS, CoreOS, RHEL) to setting the garbage collection time of your DC/OS cluster.
