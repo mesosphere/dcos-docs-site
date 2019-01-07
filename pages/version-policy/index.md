@@ -410,7 +410,7 @@ B - This package combination is *beta*.
     </tr>
     <tr>
         <td>Kubernetes 1.3.x-1.10.y</td>
-        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
