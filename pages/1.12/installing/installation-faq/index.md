@@ -70,7 +70,7 @@ The IAM database is restored from the backup file and the cluster is operational
 
 ## Q. How do I backup ZooKeeper using Guano?
 
-There may be instances where you need to back up the state of ZooKeeper. For example, you receive a migration-in-progress error during a Marathon upgrade. The solution is:
+There may be instances where you need to backup the state of ZooKeeper. Use the following steps to backup ZooKeeper using Guano. 
 
 1. Download the Guano ZooKeeper utility.
 
