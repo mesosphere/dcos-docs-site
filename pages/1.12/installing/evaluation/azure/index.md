@@ -12,7 +12,6 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
 
 - Linux, macOS, or Windows
 - command-line shell terminal such as Bash or PowerShell
-- Python 2 version 2.6.5+ or Python 3 version 3.3+
 - verified Azure Resource Manager account with the necessary permissions
 
 # Install Terraform
@@ -196,19 +195,19 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
 
     1. `location = "West US"`: The way the AzureRM provider is implemented forces us to specify the `location` in the module. If you want to use a different region replace `location` with your desired region.
 
-1. This sample configuration file will get you started on the installation of an open source DC/OS 1.12 cluster with the following nodes:
-
-    - 1 Master
-    - 2 Private Agents
-    - 1 Public Agent
-
-    Enterprise users, uncomment/comment the section on for the variant to look like this, inserting the location to your license key. [enterprise type="inline" size="small" /]
+1. Enterprise users, uncomment/comment the section for the variant to look like this, inserting the location to your license key. [enterprise type="inline" size="small" /]
 
     ```bash
     dcos_variant              = "ee"
     dcos_license_key_contents = "${file("./license.txt")}"
     # dcos_variant = "open"
     ```
+
+1. This sample configuration file will get you started on the installation of an open source DC/OS 1.12 cluster with the following nodes:
+
+    - 1 Master
+    - 2 Private Agents
+    - 1 Public Agent
 
     If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/mesosphere-supported-methods/azure/advanced-azure/).
 
