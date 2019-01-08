@@ -67,8 +67,8 @@ class RedirectMap
     File.readlines(filename).map do |line|
       pre_link, post_link = line.split(' ')
 
-      # Remove the semicolon and make replacement correct for gsub
-      formatted_post_link = post_link[0..-2].gsub('$1', '\\\1')
+      # Remove the semicolon
+      formatted_post_link = post_link[0..-2]
 
       if pre_link.start_with?('~')
         RedirectRegex.new(
