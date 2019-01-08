@@ -1,7 +1,9 @@
 require_relative 'lib/redirect_map'
 require_relative 'lib/filename_list'
 
-filename_list = FilenameList.new(file_pattern: 'pages/**/*.{md,tmpl}')
+filename_list = FilenameList.new(
+  file_pattern: 'pages/**/*.{md,tmpl,png}'
+)
 
 redirect_map = RedirectMap.new(
   redirect_filename: 'docker/nginx/redirects-301.map',
@@ -12,16 +14,20 @@ redirect_map = RedirectMap.new(
 
 LINK_REGEX = Regexp.new('\[.*\]\((.*)\)')
 
-#filename_set.each do |filename|
+all_not_found = []
 
-filename = 'pages/example-snippets/index.md'
+filename_list.each do |filename|
+  next if filename.end_with?('png')
+
+  # filename = 'pages/example-snippets/index.md'
   file_content = File.read(filename)
 
   links = file_content.scan(LINK_REGEX).map do |capture_group|
     capture_group[0]
   end
 
-  redirects = redirect_map.find(data: links)
+  redirects, not_found = redirect_map.find(data: links)
+  all_not_found.concat(not_found)
 
   new_content = file_content
 
@@ -30,4 +36,13 @@ filename = 'pages/example-snippets/index.md'
   end
 
   File.write(filename, new_content)
-#end
+end
+
+puts
+if all_not_found.count > 0
+  puts "Could not find redirects for:"
+  puts all_not_found
+else
+  puts "Redirects found for all links"
+end
+puts
