@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Beta DC/OS Monitoring Service 0.3.0
 title: Beta DC/OS Monitoring Service 0.3.0
-menuWeight: 10
+menuWeight: 0
 excerpt:
 render: mustache
 model: data.yml
