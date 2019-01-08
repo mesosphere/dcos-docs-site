@@ -16,6 +16,8 @@ model: ../data.yml
 
 * Allow accessing Grafana UI through Admin Router.
 * Support configuring Grafana admin user credentials.
+* Support Open DC/OS.
+* Support [Package Registry](https://docs.mesosphere.com/latest/administering-clusters/repo/package-registry/).
 
 ## Updates
 
