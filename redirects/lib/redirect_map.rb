@@ -26,9 +26,7 @@ class RedirectMap
         end
       end
 
-      display_problems(not_found: not_found)
-
-      link_redirects
+      [link_redirects, not_found]
     else
       raise "RedirectMap#find only accepts a string or array of strings"
     end
@@ -37,17 +35,6 @@ class RedirectMap
   private
 
   attr_reader :redirects, :existing_filenames
-
-  def display_problems(not_found:)
-    puts
-    if not_found.count > 0
-      puts "Could not find redirects for:"
-      puts not_found
-    else
-      puts "Redirects found for all links"
-    end
-    puts
-  end
 
   def file_exists_for?(link:)
     existing_filenames.file_exists_for?(link: link)
