@@ -8,7 +8,7 @@ menuWeight: 1
 
 The Mesosphere Universal Installer supports a wide range of inputs/variables to add to your `main.tf` and enable you to customize your DC/OS cluster to your needs. These inputs/variables include everything from specifying the operating system (CentOS, CoreOS, RHEL) to setting the garbage collection time of your DC/OS cluster.
 
-The Terraform-based Universal Installer is designed to be flexible with configuration. Below is an example of a custom `main.tf` that provisions a customized DC/OS 1.10.7 cluster on AWS.
+The Terraform-based Universal Installer is designed to be flexible with configuration. Below is an example of a custom `main.tf` that provisions a customized DC/OS 1.10.8 cluster on AWS.
 
 ```hcl
 module "dcos" {
@@ -19,7 +19,7 @@ module "dcos" {
   ssh_public_key_file = "~/.ssh/id_rsa.pub"
   admin_ips = ["198.51.100.0/24"]
 
-  dcos_version = "1.10.7"
+  dcos_version = "1.10.8"
   num_masters = "3"
   num_private_agents = "2"
   num_public_agents = "1"
@@ -185,7 +185,7 @@ module "dcos" {
 | dcos_ucr_default_bridge_subnet | IPv4 subnet allocated to the mesos-bridge CNI network for UCR bridge-mode networking. (optional) | string | `` | no |
 | dcos_use_proxy | To enable use of proxy for internal routing (optional) | string | `` | no |
 | dcos_variant | Main variables. | string | `open` | no |
-| dcos_version | Specifies which DC/OS version instruction to use. Options: `1.9.0`, `1.8.8`, etc. See [dcos_download_path](https://github.com/dcos/tf_dcos_core/blob/master/download-variables.tf) or [dcos_version](https://github.com/dcos/tf_dcos_core/tree/master/dcos-versions) tree for a full list. | string | `1.11.4` | no |
+| dcos_version | Specifies which DC/OS version instruction to use. Options: `1.9.0`, `1.8.8`, etc. See [dcos_download_path](https://github.com/dcos/tf_dcos_core/blob/master/download-variables.tf) or [dcos_version](https://github.com/dcos/tf_dcos_core/tree/master/dcos-versions) tree for a full list. | string | `1.10.8` | no |
 | dcos_zk_agent_credentials | [Enterprise DC/OS] Set the ZooKeeper agent credentials. (recommended) | string | `` | no |
 | dcos_zk_master_credentials | [Enterprise DC/OS] Set the ZooKeeper master credentials. (recommended) | string | `` | no |
 | dcos_zk_super_credentials | [Enterprise DC/OS] Set the ZooKeeper super credentials. (recommended) | string | `` | no |
