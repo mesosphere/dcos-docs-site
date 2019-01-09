@@ -12,7 +12,7 @@ enterprise: false
 
 # Version 3.5.3-2.150.1
 
-3.5.3-2.150.1 release of DC/OS Confluent Kafka.
+3.5.3-2.150.1 release of DC/OS Jenkins Service.
 
 ## Improvements
 - Update to version 2.150.1 of Jenkins.
