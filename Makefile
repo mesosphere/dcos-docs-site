@@ -14,8 +14,11 @@ nginx-test: ## Test and run Nginx config
 	./scripts/nginx-test.sh
 
 #
-# Redirects
+# Link Management
 #
+
+redirects-replace-old:
+	./scripts/links/redirects_replace_old.sh
 
 build-redirects:
 	npm run crawler
