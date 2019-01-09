@@ -9,4 +9,6 @@ class RedirectString < Redirect
   def replace(content:)
     content.gsub(pre, post)
   end
+
+  alias_method :replace_markdown_link, :replace
 end

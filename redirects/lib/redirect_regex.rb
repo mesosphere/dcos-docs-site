@@ -1,4 +1,3 @@
-require 'byebug'
 require_relative 'redirect'
 
 class RedirectRegex < Redirect
@@ -6,8 +5,13 @@ class RedirectRegex < Redirect
     exact_regex.match(link)
   end
 
-  def replace(content:)
+  def replace_markdown_link(content:)
     content.gsub(contains_regex, gsub_markdown_replacement)
+  end
+
+  def replace(content:)
+    gsub_replacement = post.gsub("$1", '\\\1')
+    content.gsub(exact_regex, gsub_replacement)
   end
 
   def exact_regex
@@ -15,9 +19,8 @@ class RedirectRegex < Redirect
   end
 
   def gsub_markdown_replacement
-    #"[\\k<text>](#{post})"
-    gsub_compatible = post.gsub("$1", '\\\2')
-    "[\\1](#{gsub_compatible})"
+    gsub_replacement = post.gsub("$1", '\\\2')
+    "[\\1](#{gsub_replacement})"
   end
 
   def contains_regex

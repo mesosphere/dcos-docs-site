@@ -6,7 +6,8 @@ filename_list = FilenameList.new(
 )
 
 redirect_map = RedirectMap.new(
-  redirect_filename: 'docker/nginx/redirects-301.map',
+  filename_301: 'docker/nginx/redirects-301.map',
+  filename_307: 'docker/nginx/redirects-307.map',
   existing_filenames: filename_list
 )
 
@@ -32,7 +33,7 @@ filename_list.each do |filename|
   new_content = file_content
 
   redirects.each do |redirect|
-    new_content = redirect.replace(content: new_content)
+    new_content = redirect.replace_markdown_link(content: new_content)
   end
 
   File.write(filename, new_content)
