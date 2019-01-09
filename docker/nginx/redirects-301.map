@@ -179,6 +179,7 @@
 ~/1.12/installing/evaluation/cloud-installation/packet/.* /1.12/installing/evaluation/community-supported-methods/packet/;
 ~/1.12/installing/evaluation/cloud-installation/ /1.12/installing/evaluation/mesosphere-supported-methods/;
 ~/1.12/installing/evaluation/on-premise-installation/ /1.12/installing/evaluation/;
+~/1.12/installing/evaluation/mesosphere-supported-methods/(.*)$  /1.12/installing/evaluation/$1;
 /1.11/administering-clusters/cluster-connections/ /1.11/administering-clusters/multiple-clusters/cluster-connections/;
 /1.11/cli/command-reference/dcos-cluster-link/ /1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/;
 /1.11/cli/command-reference/dcos-cluster-unlink/ /1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink/;
@@ -233,6 +234,7 @@
 /1.11/installing/oss/troubleshooting/ /1.11/installing/troubleshooting/;
 /1.11/installing/oss/upgrading/ /1.11/installing/production/upgrading/;
 /1.11/installing/production/advanced-configuration/configuring-zones-and-regions/ /1.11/installing/production/advanced-configuration/configuring-zones-regions/;
+~/1.11/installing/evaluation/mesosphere-supported-methods/(.*)$  /1.11/installing/evaluation/$1;
 /1.11/networking/edge-lb/(.*)$ /services/edge-lb/1.0.0/$1;
 /services/edge-lb/architecture/ /services/edge-lb/1.0.0/;
 /1.11/networking/edge-lb/quickstart/ /services/edge-lb/1.0.0/;
@@ -400,6 +402,7 @@
 /1.10/installing/oss/troubleshooting/ /1.10/installing/troubleshooting/;
 /1.10/installing/production/advanced-configuration/configuring-zones-and-regions/ /1.10/installing/production/advanced-configuration/configuring-zones-regions/;
 /1.10/installing/upgrading/ /1.10/installing/production/upgrading/;
+~/1.10/installing/evaluation/mesosphere-supported-methods/(.*)$  /1.10/installing/evaluation/$1;
 /1.10/monitoring/debugging/cli-debugging/task-exec/ /1.10/monitoring/debugging/task-exec/;
 /1.10/networking/mesos-dns/http-interface/ /1.10/networking/mesos-dns/mesos-dns-api/;
 ~^/1.10/networking/edge-lb/(.*)$ /services/edge-lb/$1;
