@@ -2,11 +2,15 @@
 
 packageName: nifi
 serviceName: nifi
-techName: Apache NiFi
-techShortName: nifi
+techName: NiFi
+techShortName: NiFi
 
 # Values specific to certain templates:
 
 security:
   plaintext:  |
     , "allow_plaintext": <true|false default false>
+
+install:
+  nodeCount: at least 3 private
+  minMemory: 512MB

@@ -6,6 +6,8 @@ menuWeight: 120
 excerpt: Understanding DC/OS NiFi Services package versioning
 featureMaturity:
 enterprise: false
+model: ../../data.yml
+render: mustache
 ---
 
 # Supported Versions
@@ -25,7 +27,7 @@ The use of other versions of Apache NiFi is not supported.
 
 ## Contacting Technical Support
 
-### Support Email of DCOS Apache NiFi Package
+### Support Email of DC/OS {{ model.techName }} Package
 
 [Email: support@mesosphere.io](mailto:support@mesosphere.io)
 
