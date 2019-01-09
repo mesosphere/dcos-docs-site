@@ -3,90 +3,102 @@ layout: layout.pug
 navigationTitle:  Uninstalling
 title: Uninstalling
 menuWeight: 40
-excerpt: Uninstalling DC/OS Apache NiFi Services
+excerpt: Uninstalling DC/OS NiFi Services
 featureMaturity:
 enterprise: false
+model: ../../data.yml
+render: mustache
 ---
 
-## DC/OS 1.10
+# Uninstalling in DC/OS 1.10 or later
 
-If you are using DC/OS 1.10 :
+If you are using DC/OS 1.10 or later:
 
 Uninstall the service from the DC/OS CLI, by entering `dcos package uninstall <package_name> --app-id=<app-id>`.
-For example, to uninstall the Apache Nifi instance named nifi-dev, run:
+For example, to uninstall the {{ model.techName }} instance named {{ model.packageName }}-dev, run:
 
 ```shell
-dcos package uninstall --app-id=nifi-dev nifi
+dcos package uninstall --app-id={{ model.packageName }}-dev {{ model.packageName }}
 ```
 
-### Uninstall Flow
+## Uninstall Flow
+<p class="message--warning"><strong>WARNING: </strong>Any data stored in reserved disk resources will be irretrievably lost.</p>
 
-Uninstalling the service consists of the following steps:
+The scheduler is relaunched in Marathon with the environment variable SDK_UNINSTALL set to “true”. This puts the Scheduler in an uninstall mode.
 
-  The scheduler is relaunched in Marathon with the environment variable SDK_UNINSTALL set to “true”. This puts the Scheduler in an uninstall mode.
+The scheduler performs the uninstall with the following actions:
 
-    The scheduler performs the uninstall with the following actions:
+1. All running tasks for the service are terminated so that Mesos will reoffer their resources.
+1. As the task resources are offered by Mesos, they are unreserved by the scheduler.
+1. Once all known resources have been unreserved, the scheduler’s persistent state in ZooKeeper is deleted.
 
-        1. All running tasks for the service are terminated so that Mesos will reoffer their resources.
-        2. As the task resources are offered by Mesos, they are unreserved by the scheduler.
-**Warning:** Any data stored in reserved disk resources will be irretrievably lost.
-        3. Once all known resources have been unreserved, the scheduler’s persistent state in ZooKeeper is deleted.
+The cluster automatically removes the scheduler task once it advertises the completion of the uninstall process.
 
-    The cluster automatically removes the scheduler task once it advertises the completion of the uninstall process.
+<p class="message--warning"><strong>WARNING: </strong>Once the uninstall operation has begun, it cannot be cancelled because it can leave the service in an uncertain, half-destroyed state.</p>
 
-**Warning** Once the uninstall operation has begun, it cannot be cancelled because it can leave the service in an uncertain, half-destroyed state.
-
-### Debugging an uninstall
+## Debugging an uninstall
 
 In the vast majority of cases, this uninstall process goes off without a hitch. However, in certain situations, there can be snags along the way. For example, perhaps a machine in the cluster has permanently gone away, and the service being uninstalled had some resources allocated on that machine. This can result in the uninstall becoming stuck, because Mesos will never offer those resources to the uninstalling scheduler. As such, the uninstalling scheduler will not be able to successfully unreserve the resources it had reserved on that machine.
 
-This situation is indicated by looking at deploy plan while the uninstall is proceeding. The deploy plan may be viewed using either of the following methods:
+This situation is indicated by looking at the deploy plan while the uninstall is proceeding. The deploy plan may be viewed using either of the following methods:
 
-    1. CLI: dcos nifi --name=nifi plan show deploy (after running dcos package install --cli nifi if needed)
-    2. HTTP: https://yourcluster.com/service/nifi/v1/plans/deploy
+- CLI: 
+    ```
+    dcos {{ model.packageName }} --name={{ model.packageName }} plan show deploy (after running dcos package install --cli {{ model.packageName }} if needed)
+    ```
+- HTTP:
+    ```
+    https://yourcluster.com/service/{{ model.packageName }}/v1/plans/deploy
+    ```
 
 **Deploy Plan in Progress**
 
 ```shell
-dcos nifi --name=nifi plan show deploy
+dcos {{ model.packageName }} --name={{ model.packageName }} plan show deploy
 deploy (serial strategy) (IN_PROGRESS)
 └─ node (serial strategy) (IN_PROGRESS)
-   ├─ nifi-0:[init] (COMPLETE)
-   ├─ nifi-0:[node] (COMPLETE)
-   ├─ nifi-0:[metrics] (STARTING)
-   ├─ nifi-1:[node] (PENDING)
-   └─ nifi-1:[metrics] (PENDING)   
+   ├─ {{ model.packageName }}-0:[init] (COMPLETE)
+   ├─ {{ model.packageName }}-0:[node] (COMPLETE)
+   ├─ {{ model.packageName }}-0:[metrics] (STARTING)
+   ├─ {{ model.packageName }}-1:[node] (PENDING)
+   └─ {{ model.packageName }}-1:[metrics] (PENDING)   
 ```    
 **Deploy Plan after Completion**
 
 ```shell
 deploy (serial strategy) (COMPLETE)
 └─ node (serial strategy) (COMPLETE)
-   ├─ nifi-0:[init] (COMPLETE)
-   ├─ nifi-0:[node] (COMPLETE)
-   ├─ nifi-0:[metrics] (COMPLETE)
-   ├─ nifi-1:[node] (COMPLETE)
-   └─ nifi-1:[metrics] (COMPLETE)
+   ├─ {{ model.packageName }}-0:[init] (COMPLETE)
+   ├─ {{ model.packageName }}-0:[node] (COMPLETE)
+   ├─ {{ model.packageName }}-0:[metrics] (COMPLETE)
+   ├─ {{ model.packageName }}-1:[node] (COMPLETE)
+   └─ {{ model.packageName }}-1:[metrics] (COMPLETE)
 ```       
 As we can see above, some of the resources to unreserve are stuck in a PENDING state. We can force them into a COMPLETE state, and thereby allow the scheduler to finish the uninstall operation. This may be done using either of the following methods:
 
-    1. CLI: dcos nifi --name=nifi plan show deploy
-    2. HTTP: https://yourcluster.com/service/nifi/v1/plans/deploy/forceComplete?phase=unreserve-resources&step=unreserve-<UUID>
+- CLI: 
+    ```
+    dcos {{ model.packageName }} --name={{ model.packageName }} plan show deploy
+    ```
+- HTTP: 
+    ```
+    https://yourcluster.com/service/{{ model.packageName }}/v1/plans/deploy/forceComplete?phase=unreserve-resources&step=unreserve-<UUID>
+    ```
 
 At this point the scheduler should show a COMPLETE state for these steps in the plan, allowing it to proceed normally with the uninstall operation:
 
 ```shell
-dcos nifi --name=nifi plan show deploy
+dcos {{ model.packageName }} --name={{ model.packageName }} plan show deploy
 deploy (serial strategy) (COMPLETE)
 ├─ kill-tasks (parallel strategy) (COMPLETE)
 │  ├─ kill-task- (COMPLETE)
-│  ├─ kill-task-nifi-0-init__4ea667b6-e784-4982-9c68-61af8732f552 (COMPLETE)
-│  ├─ kill-task-nifi-0-metrics__d438f4b5-d6d1-480c-8fd7-439943f5cba9 (COMPLETE)
-│  ├─ kill-task-nifi-0-node__3e16d999-0b72-4ca2-bee4-74c910acd8a3 (COMPLETE)
+│  ├─ kill-task-{{ model.packageName }}-0-init__4ea667b6-e784-4982-9c68-61af8732f552 (COMPLETE)
+│  ├─ kill-task-{{ model.packageName }}-0-metrics__d438f4b5-d6d1-480c-8fd7-439943f5cba9 (COMPLETE)
+│  ├─ kill-task-{{ model.packageName }}-0-node__3e16d999-0b72-4ca2-bee4-74c910acd8a3 (COMPLETE)
 │  ├─ kill-task- (COMPLETE)
 │  ├─ kill-task- (COMPLETE)
-│  ├─ kill-task-nifi-1-metrics__d0d1b9ca-e803-4392-9210-8088ee234df4 (COMPLETE)
-│  ├─ kill-task-nifi-1-node__a7704212-ce1f-4150-aa75-5f08a5fabbab (COMPLETE)
+│  ├─ kill-task-{{ model.packageName }}-1-metrics__d0d1b9ca-e803-4392-9210-8088ee234df4 (COMPLETE)
+│  ├─ kill-task-{{ model.packageName }}-1-node__a7704212-ce1f-4150-aa75-5f08a5fabbab (COMPLETE)
 │  └─ kill-task- (COMPLETE)
 ├─ unreserve-resources (parallel strategy) (COMPLETE)
 │  ├─ unreserve-91283d5b-2b0a-440e-a30d-f992f75320db (COMPLETE)
@@ -129,37 +141,37 @@ deploy (serial strategy) (COMPLETE)
    └─ deregister (COMPLETE)
 ```    
 
-### Manual uninstall    
+## Manual uninstall    
 
-If all else fails, one can simply manually perform the uninstall themselves. To do this, perform the following steps:
+If all else fails, you can manually perform the uninstall yourself. To do this, perform the following steps:
 
-    1. Delete the uninstalling scheduler from Marathon.
-    2. Unregister the service from Mesos using its UUID as follows:
+1. Delete the uninstalling scheduler from Marathon.
+1. Unregister the service from Mesos using its UUID as follows:
 
 ```shell
-dcos service --inactive | grep nifi
-nifi     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
+dcos service --inactive | grep {{ model.packageName }}
+{{ model.packageName }}     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 dcos service shutdown 97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
 ```
 
-### Un-install Operation in DC/OS 1.9
+# Uninstalling in DC/OS 1.9
 
 If you are running DC/OS 1.9, follow these steps:
 
-    1. Stop the service. From the DC/OS CLI, enter
-```shell
-       dcos package uninstall --app-id=<service_name>  <package_name>
-```    
-       For example:
-```shell
-       dcos package uninstall --app-id=/test/nifi nifi
-```                   
-     2. Clean up remaining reserved resources with the framework cleaner script, janitor.py. See [DC/OS documentation](https://docs.mesosphere.com/1.11/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
+1. Stop the service. From the DC/OS CLI, enter
+    ```shell
+    dcos package uninstall --app-id=<service_name>  <package_name>
+    ```    
+    For example:
+    ```shell
+    dcos package uninstall --app-id=/test/{{ model.serviceName }} {{ model.packageName }}
+    ```                   
+1. Clean up remaining reserved resources with the framework cleaner script, janitor.py. See [DC/OS documentation](https://docs.mesosphere.com/latest/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
 
-```shell
-       dcos package uninstall --app-id=/test/nifi nifi
-       dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \
-       -r /test/nifi-role \
-       -p /test/nifi-principal \
-       -z dcos-service-/test/nifi"
-```      
+    ```shell
+    dcos package uninstall --app-id=/test/{{ model.packageName }} {{ model.packageName }}
+    dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \
+    -r /test/{{ model.packageName }}-role \
+    -p /test/{{ model.packageName }}-principal \
+    -z dcos-service-/test/{{ model.packageName }}"
+    ```      
