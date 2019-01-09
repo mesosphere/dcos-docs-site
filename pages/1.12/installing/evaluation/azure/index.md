@@ -164,7 +164,7 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
       num_private_agents = "2"
       num_public_agents  = "1"
 
-      dcos_version = "1.11.4"
+      dcos_version = "1.12.0"
 
       # dcos_variant              = "ee"
       # dcos_license_key_contents = "${file("./license.txt")}"
@@ -328,16 +328,14 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 
 # Upgrading Your Cluster
 
-The current getting started guide has already started you on the latest version of DC/OS, 1.12.0. Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS. If you are interested in learning more about the upgrade procedure that Terraform performs, please see the official [DC/OS Upgrade documentation](/1.12/installing/production/upgrading/).
+Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS. If you are interested in learning more about the upgrade procedure that Terraform performs, please see the official [DC/OS Upgrade documentation](/1.12/installing/production/upgrading/).
 
-<p class="message--warning"><strong>Warning: </strong>Rollbacks are not supported by this method. This example is written for an operator who is starting from DC/OS 1.11.4 and performing a minor upgrade.</p>
-
-1. In order to perform an upgrade, we need to go back to our `main.tf` and modify the current DC/OS Version (`dcos_version`) to a newer version, such as `1.11.5` for this example, and also specify an additional parameter (`dcos_install_mode`). By default this parameter is set to `install`, which is why we were able to leave it unset when creating the initial DC/OS cluster and scaling it.
+1. In order to perform an upgrade, we need to go back to our `main.tf` and modify the current DC/OS Version (`dcos_version`) to a newer version, such as `1.12.1` for this example, and also specify an additional parameter (`dcos_install_mode`). By default this parameter is set to `install`, which is why we were able to leave it unset when creating the initial DC/OS cluster and scaling it.
 
     <p class="message--important"><strong>IMPORTANT: </strong>Do not change any number of masters, agents or public agents while performing an upgrade.</p>
 
     ```hcl
-    dcos_version = "1.11.5"
+    dcos_version = "1.12.1"
     ```
 
 1. Re-run the execution plan, temporarily overriding the default install mode by setting the flag to read in the extra variable.

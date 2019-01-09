@@ -36,7 +36,7 @@ If you are new to Terraform and want to deploy DC/OS on GCP with minimal configu
 
 For help installing Terraform on a different OS, the [Terraform download instructions](https://www.terraform.io/downloads.html):
 
-## Get Application Default Credentials for authenticataion
+## Get Application Default Credentials for authentication
 You must have [Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login) for the GCP provider to authenticate against GCP.
 
 To receive Application Default Credentials:
@@ -88,7 +88,7 @@ Password: `deleteme`
 
 2) Copy and paste the example code below into a new file and save it as `main.tf` in the local folder.
 
-  The example code below creates a DC/OS OSS 1.11.4 cluster on GCP with:
+  The example code below creates a DC/OS OSS 1.12.0 cluster on GCP with:
   - 1 Master
   - 2 Private Agents
   - 1 Public Agent
@@ -114,7 +114,7 @@ Password: `deleteme`
     num_private_agents = "2"
     num_public_agents  = "1"
 
-    dcos_version = "1.11.4"
+    dcos_version = "1.12.0"
 
     # dcos_variant              = "ee"
     # dcos_license_key_contents = "${file("./license.txt")}"
@@ -211,7 +211,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
     num_private_agents = "3"
     num_public_agents  = "1"
 
-    dcos_version = "1.11.4"
+    dcos_version = "1.12.0"
 
     # dcos_variant              = "ee"
     # dcos_license_key_contents = "${file("./license.txt")}"
@@ -233,7 +233,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
   }
   ```
 
-2) Re-run the new execution plan with the changes you have made to the `main.tf`configuration file.   
+2) Re-run the new execution plan with the changes you have made to the `main.tf`configuration file.
 
   ```bash
   terraform plan -out=plan.out
@@ -268,7 +268,7 @@ Read more about the upgrade procedure that Terraform performs in the official [D
 To perform an upgrade:
 
 1) Open the `main.tf` configuration file.
-2) Modify the current DC/OS Version (`dcos_version`) to `1.11.5` and set the `dcos_install_mode` parameter to `upgrade`. 
+2) Modify the current DC/OS Version (`dcos_version`) to `1.12.1` and set the `dcos_install_mode` parameter to `upgrade`. 
 
     By default, the `dcos_install_mode` parameter value is `install` to enable you to create the initial DC/OS cluster and scale it without explicitly setting its value. To upgrade an existing cluster, however, you must explicitly set the parameter value to `upgrade`.
 
@@ -295,7 +295,7 @@ To perform an upgrade:
     num_private_agents = "3"
     num_public_agents  = "1"
 
-    dcos_version = "1.11.5"
+    dcos_version = "1.12.1"
 
     # dcos_variant              = "ee"
     # dcos_license_key_contents = "${file("./license.txt")}"
