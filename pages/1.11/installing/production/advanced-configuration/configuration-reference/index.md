@@ -17,7 +17,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [agent_list](#agent-list)                                              | A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.11/overview/concepts/#private-agent-node) host names. |
 | aws_template_storage_access_key_id         | The [access key ID](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
-| aws_template_storage_bucket                | The name of an S3 bucket to contain [customized advanced AWS templates](/1.11/installing/ent/cloud/aws/advanced/#create-your-templates). |
+| aws_template_storage_bucket                | The name of an S3 bucket to contain [customized advanced AWS templates](/1.11/installing/evaluation/aws/advanced/#create-your-templates). |
 | aws_template_storage_bucket_path           | The path to a location within the S3 bucket to store template artifacts.
 | aws_template_storage_region_name           | The region containing the S3 bucket.  |
 | aws_template_storage_secret_access_key     | The [secret access key](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
@@ -254,7 +254,7 @@ Custom installation checks that are added to the default check configuration pro
     - `cmd` - Specify an array of health check command strings
     - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`
 
-For more information on how these custom checks are used, see the [examples](/1.11/installing/ent/custom/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.11/installing/ent/custom/node-cluster-health-check/) documentation.
+For more information on how these custom checks are used, see the [examples](/1.11/installing/ent/custom/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.11/installing/production/deploying-dcos/node-cluster-health-check/) documentation.
 
 
 ## dcos_audit_logging [enterprise type="inline" size="small" /]
@@ -268,7 +268,7 @@ For more information, see the [security documentation](/1.11/security/ent/).
 ## dcos_overlay_enable
 Indicates whether to enable DC/OS virtual networks.
 
-**Note:** Virtual networks require Docker version 1.12 or later but, if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.11/installing/ent/custom/system-requirements/).
+**Note:** Virtual networks require Docker version 1.12 or later but, if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.11/installing/production/system-requirements/).
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. After the virtual network is enabled, you can also specify the following parameters:
@@ -296,11 +296,11 @@ Indicates whether to enable DC/OS virtual networks.
         **Note:** The last three bytes must be `00`.
 
         *  `overlays`
-            *  `name` The canonical name (see [limitations](/1.11/networking/virtual-networks/) for constraints on naming virtual networks).
+            *  `name` The canonical name (see [limitations](/1.11/networking/SDN/dcos-overlay/) for constraints on naming virtual networks).
             *  `subnet` The subnet that is allocated to the virtual network.
             *  `prefix` The size of the subnet that is allocated to each agent and thus defines the number of agents on which the overlay can run. The size of the subnet is carved from the overlay subnet.
 
- For more information, see the [example](/1.11/installing/ent/custom/configuration/examples/#overlay) and [documentation](/1.11/networking/virtual-networks/).
+ For more information, see the [example](/1.11/installing/ent/custom/configuration/examples/#overlay) and [documentation](/1.11/networking/SDN/dcos-overlay/).
 
 
 ## dns_bind_ip_blacklist
@@ -341,7 +341,7 @@ The amount of time to wait before removing docker containers (i.e., `docker rm`)
 ## enable_docker_gc
 Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. You can configure the runtime behavior by using the `/etc/` config. For more information, see the [documentation](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
-*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.11/installing/ent/cloud/) template installations.
+*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.11/installing/evaluation/) template installations.
 *  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.11/installing/ent/custom/) installations.
 
 ## exhibitor_storage_backend
@@ -525,7 +525,7 @@ A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can 
     - 8.8.4.4
     - 8.8.8.8
     ```
--  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/1.11/networking/mesos-dns/).
+-  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/1.11/networking/DNS/mesos-dns/).
 
 **Caution:** If you set the `resolvers` parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.
 

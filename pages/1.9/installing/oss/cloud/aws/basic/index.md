@@ -22,7 +22,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 *   You have the option of 1 or 3 Mesos master nodes.
 *   5 [private](/1.9/overview/concepts/#private-agent-node) Mesos agent nodes is the template default.
-*   1 [public](/1.9/overview/concepts/#public-agent-node) Mesos agent node is the template default. By default, ports are closed and health checks are configured for [Marathon-LB](/1.9/networking/marathon-lb/). Ports 80 and 443 are configured for the AWS Elastic Load Balancer.
+*   1 [public](/1.9/overview/concepts/#public-agent-node) Mesos agent node is the template default. By default, ports are closed and health checks are configured for [Marathon-LB](/services/marathon-lb/). Ports 80 and 443 are configured for the AWS Elastic Load Balancer.
 
 ## Software
 

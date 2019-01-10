@@ -40,7 +40,7 @@ In most production deployments, administrative access to the cluster should be r
 
 Master nodes and private agent nodes are usually not publicly accessible. For security reasons, ingress to these nodes should be controlled by a router or firewall. To manage the cluster, administrators and operators should use a VPN server inside the firewall, on the same networks as the DC/OS nodes. Using VPN ensures that you can securely access the nodes directly from your workstation.
 
-Public agent nodes are usually publicly accessible. [Marathon-LB](/service-docs/marathon-lb/) running on the public agent nodes can serve as reverse proxy and load balancer to applications running on the private agent nodes. For additional security, use external load balancing, either to intermediate load balancers, applications on the public nodes, or directly to applications on the private nodes. If you want to allow public access to the public nodes, you should configure firewalls to block access to all ports except those required for your applications.
+Public agent nodes are usually publicly accessible. [Marathon-LB](/services/marathon-lb/) running on the public agent nodes can serve as reverse proxy and load balancer to applications running on the private agent nodes. For additional security, use external load balancing, either to intermediate load balancers, applications on the public nodes, or directly to applications on the private nodes. If you want to allow public access to the public nodes, you should configure firewalls to block access to all ports except those required for your applications.
 
 In development or local deployments, you usually have direct access to the nodes by IP.
 

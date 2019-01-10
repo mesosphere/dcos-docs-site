@@ -58,7 +58,7 @@ To set up LDAP authentication:
         
 2.  Click **Add Directory**.
             
-   ![LDAP BIND Parameters](/assets/images/ldap-bind-params.gif)           
+   ![LDAP BIND Parameters](/1.11/img/ldap-bind-params.gif)           
  
 3.  Type the host name or IP address of the LDAP directory server in the **Host** box. 
 

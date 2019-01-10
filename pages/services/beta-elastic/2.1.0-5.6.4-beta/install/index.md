@@ -150,7 +150,7 @@ For more information about TLS in the SDK see [the TLS documentation](https://me
 
 ### Clients
 
-Clients connecting to the Elastic service are required to use [the DC/OS CA bundle](/1.10/networking/tls-ssl/get-cert/) to verify the TLS connections.
+Clients connecting to the Elastic service are required to use [the DC/OS CA bundle](/1.10/security/ent/tls-ssl/get-cert/) to verify the TLS connections.
 
 ### Kibana
 
@@ -327,8 +327,8 @@ Each task in the cluster performs one and only one of the following roles: maste
 
 The default placement strategy specifies no constraint except that all the master nodes are distributed to different agents. You can specify further [Marathon placement constraints](http://mesosphere.github.io/marathon/docs/constraints.html) for each node type. For example, you can specify that data nodes are never colocated, or that ingest nodes are deployed on a rack with high-CPU servers.
 
-![agent](/service-docs/beta-elastic/2.1.0-5.6.4-beta/img/private-nodes-by-agent.png)
-![vip](/service-docs/beta-elastic/2.1.0-5.6.4-beta/img/private-node-by-vip.png)
+![agent](/services/beta-elastic/2.1.0-5.6.4-beta/img/private-nodes-by-agent.png)
+![vip](/services/beta-elastic/2.1.0-5.6.4-beta/img/private-node-by-vip.png)
 
 No matter how big or small the cluster is, there will always be exactly 3 master-only nodes with `minimum_master_nodes = 2`.
 

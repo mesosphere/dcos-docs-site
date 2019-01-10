@@ -86,7 +86,7 @@ dcos spark run --submit-args="\
 ...
 ```
 
-**Note:** Secrets are available only in Enterprise DC/OS 1.9 onwards. [Learn more about the secrets store](/1.9/security/secrets/).
+**Note:** Secrets are available only in Enterprise DC/OS 1.9 onwards. [Learn more about the secrets store](/1.9/security/ent/secrets/).
 
 ### Authorization for Secrets
 

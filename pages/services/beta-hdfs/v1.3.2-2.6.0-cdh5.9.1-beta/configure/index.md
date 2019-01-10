@@ -19,15 +19,15 @@ The HDFS scheduler runs as a Marathon process and can be reconfigured by changin
 
 1.  Go to the **Services** tab of the DC/OS GUI and click the name of the HDFS service to be updated.
 
-	![HFDS in DC/OS GUI](/services/hdfs/beta-hdfs/v1.3.2-2.6.0-cdh5.9.1-beta/img/hdfs-service-gui.gif)
+	![HFDS in DC/OS GUI](/services/beta-hdfs/v1.3.2-2.6.0-cdh5.9.1-beta/img/hdfs-service-gui.png)
 
 1.  Within the HDFS instance details view, click the vertical ellipsis menu in the upper right, then choose **Edit**.
 
-	![Edit tab](/services/hdfs/beta-hdfs/v1.3.2-2.6.0-cdh5.9.1-beta/img/hdfs-service-gui2.gif)
+	![Edit tab](/services/beta-hdfs/v1.3.2-2.6.0-cdh5.9.1-beta/img/hdfs-service-gui2.png)
 
 1.  Click the **Environment** tab and make your updates. For example, to increase the number of nodes, edit the value for `DATA_COUNT`.
 
-	![Edit environment](/services/hdfs/beta-hdfs/v1.3.2-2.6.0-cdh5.9.1-beta/img/hdfs-service-gui3.gif)
+	![Edit environment](/services/beta-hdfs/v1.3.2-2.6.0-cdh5.9.1-beta/img/hdfs-service-gui3.png)
 
 1. Click **REVIEW & RUN** to apply any changes and cleanly reload the HDFS scheduler. The HDFS cluster itself will persist across the change.
 

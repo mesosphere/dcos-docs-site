@@ -214,7 +214,7 @@ The Enterprise template specifies three Mesos masters, static master discovery l
 
 The Open Source template specifies three Mesos masters, three ZooKeeper instances for Exhibitor storage, static master discovery list, internal storage backend for Exhibitor, a custom proxy, and cloud specific DNS resolvers. [oss type="inline" size="small" /]
 
-If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameter descriptions and configuration examples, see the [documentation](/1.10/installing/ent/custom/configuration/configuration-parameters/).
+If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameter descriptions and configuration examples, see the [documentation](/1.10/installing/production/advanced-configuration/configuration-reference/).
 
 <p class="message--note"><strong>NOTE: </strong>If AWS DNS IP is not available in your country, you can replace the AWS DNS IP servers <code>8.8.8.8</code> and <code>8.8.4.4</code> with your local DNS servers.</p>
 <p class="message--note"><strong>NOTE: </strong>If you specify <code>master_discovery: static</code>, you must also create a script to map internal IPs to public IPs on your bootstrap node (for example, <code>genconf/ip-detect-public</code>). This script is then referenced in <code>ip_detect_public_filename: "relative-path-from-dcos-generate-config.sh"</code>.</p>

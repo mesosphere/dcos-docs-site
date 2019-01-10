@@ -12,11 +12,11 @@ The Mesosphere Universal Installer is now the supported installation method for 
 
 ##### Jump to the getting started guide for your cloud provider:
 
-#### [Amazon Web Services](/1.12/installing/evaluation/mesosphere-supported-methods/aws/)
+#### [Amazon Web Services](/1.12/installing/evaluation/aws/)
 
-#### [Azure Resource Manager](/1.12/installing/evaluation/mesosphere-supported-methods/azure/)
+#### [Azure Resource Manager](/1.12/installing/evaluation/azure/)
 
-#### [Google Cloud Platform](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/)
+#### [Google Cloud Platform](/1.12/installing/evaluation/gcp/)
 
 
 ## About the Mesosphere Universal Installer

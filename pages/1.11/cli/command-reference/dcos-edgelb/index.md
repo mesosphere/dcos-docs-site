@@ -29,4 +29,4 @@ dcos edgelb [<flags>] [OPTIONS] [<args> ...]
 | `--custom-cert-path=DCOS_CA_PATH/DCOS_CERT_PATH`   |  Specify a custom TLS CA certificate file to use when querying a service. |
 | `--name="<name>"`   |  Name of the service instance to query. |
 
-See the [Edge-LB Quick Start Guide](/1.11/networking/edge-lb/quickstart/).
+See the [Edge-LB Quick Start Guide](/services/edge-lb/1.0/).

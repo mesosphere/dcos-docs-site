@@ -42,7 +42,7 @@ The Spartan instance on each agent also acts as a DNS server for any service tha
 
 DC/OS offers one load balancing option out-of-the-box: [Minuteman](/1.10/networking/load-balancing-vips/).
 
-Two other load balancers, [Edge-LB](/services/edge-lb/) and [Marathon-LB](/service-docs/marathon-lb/) can be installed as services from the DC/OS Universe package repository.
+Two other load balancers, [Edge-LB](/services/edge-lb/) and [Marathon-LB](/services/marathon-lb/) can be installed as services from the DC/OS Universe package repository.
 
 
 |                                    | Minuteman | Edge-LB | Marathon-LB |
@@ -71,4 +71,4 @@ Edge-LB proxies and load balances traffic to all services that run on DC/OS. In 
 
 
 ## Marathon-LB
-[Marathon-LB](/service-docs/marathon-lb/) is based on HAProxy, a rapid proxy and north-south load balancer. HAProxy provides proxying and load balancing for TCP and HTTP based applications, with features such as SSL support, HTTP compression, health checking, Lua scripting and more. Marathon-LB subscribes to Marathon’s event bus and updates the HAProxy configuration in real time.
+[Marathon-LB](/services/marathon-lb/) is based on HAProxy, a rapid proxy and north-south load balancer. HAProxy provides proxying and load balancing for TCP and HTTP based applications, with features such as SSL support, HTTP compression, health checking, Lua scripting and more. Marathon-LB subscribes to Marathon’s event bus and updates the HAProxy configuration in real time.

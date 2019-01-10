@@ -254,7 +254,7 @@ Custom installation checks that are added to the default check configuration pro
     - `cmd` - Specify an array of health check command strings
     - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`
 
-For more information on how these custom checks are used, see the [examples](/1.10/installing/ent/custom/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.10/installing/ent/custom/node-cluster-health-check/) documentation.
+For more information on how these custom checks are used, see the [examples](/1.10/installing/ent/custom/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.10/installing/production/deploying-dcos/node-cluster-health-check/) documentation.
 
 
 ## dcos_audit_logging [enterprise type="inline" size="small" /]
@@ -268,7 +268,7 @@ For more information, see the [security documentation](/1.10/security/ent/).
 ## dcos_overlay_enable
 Indicates whether to enable DC/OS virtual networks.
 
-**Note:** Virtual networks require Docker version 1.12 or later but, if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.10/installing/ent/custom/system-requirements/).
+**Note:** Virtual networks require Docker version 1.12 or later but, if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.10/installing/production/system-requirements/).
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. After the virtual network is enabled, you can also specify the following parameters:

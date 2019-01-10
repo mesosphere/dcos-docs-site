@@ -41,4 +41,4 @@ beta: true
 
 - 熟悉 DC/OS 服务启动 [流程](/cn/1.11/overview/architecture/boot-sequence/)。
 - 查看安装故障排除 [文档](/cn/1.11/installing/troubleshooting/)。要进行故障排除，必须有所有集群节点的 [SSH 访问权限](/cn/1.11/administering-clusters/sshcluster/)。
-- [DC/OS Slack](/support/) 社区是另一个获得帮助的好地方。
+- [DC/OS Slack](https://support.mesosphere.com) 社区是另一个获得帮助的好地方。

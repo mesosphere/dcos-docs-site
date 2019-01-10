@@ -85,7 +85,7 @@ Launch the DC/OS web interface by entering the Mesos Master hostname:
 
     **Important:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed. 
     
-    ![UI installer success](/assets/images/gui-installer-success-ee.gif)
+    ![UI installer success](/1.11/img/gui-installer-success-ee.gif)
 
 1.  Enter the username and password of the superuser account. 
 

@@ -39,4 +39,4 @@ After you have successfully built and deployed the unmodified DC/OS cloud_images
 
 - Familiarize yourself with the DC/OS service startup [process](/1.11/overview/architecture/boot-sequence/).
 - See the installation troubleshooting [documentation](/1.11/installing/troubleshooting/). To troubleshoot you must have [SSH access](/1.11/administering-clusters/sshcluster/) to all of the cluster nodes.
-- The [DC/OS Slack](/support/) community is another a good place to get help.
+- The [DC/OS Slack](https://support.mesosphere.com) community is another a good place to get help.

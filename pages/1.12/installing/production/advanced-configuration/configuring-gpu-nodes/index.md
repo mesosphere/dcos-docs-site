@@ -29,8 +29,8 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 ## AWS EC2 DC/OS Installation with GPUs
 
 ###  Prerequisites
-- The AWS DC/OS advanced template [system requirements](/1.12/installing/evaluation/cloud-installation/aws/advanced/).
-- The `zen.sh` script copied to your local machine. The script and instructions are [here](/1.12/installing/evaluation/cloud-installation/aws/advanced/).
+- The AWS DC/OS advanced template [system requirements](/1.12/installing/evaluation/aws/).
+- The `zen.sh` script copied to your local machine. The script and instructions are [here](/1.12/installing/evaluation/aws/).
 
 ### Create Dependencies
 
@@ -42,7 +42,7 @@ bash ./zen.sh <stack-name>
 
    <p class="message--important"><strong>IMPORTANT: </strong>You must run the <code>zen.sh</code> script before performing the next steps.</p>
 
-2. Follow the instructions [here](/1.12/installing/evaluation/cloud-installation/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
+2. Follow the instructions [here](/1.12/installing/evaluation/aws/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
 
 3. On the **Create Stack** > **Specify Details** page, specify your stack information and click **Next**. Here are the GPU-specific settings.
 

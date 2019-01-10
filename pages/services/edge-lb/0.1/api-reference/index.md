@@ -47,7 +47,7 @@ The Edge-LB API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see [Assigning permissions](/1.10/security/perms-reference/).
+To assign permissions to your account, see [Assigning permissions](/1.10/security/ent/perms-reference/).
 
 # Resources
 

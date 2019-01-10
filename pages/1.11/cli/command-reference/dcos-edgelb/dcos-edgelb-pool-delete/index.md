@@ -44,4 +44,4 @@ dcos edgelb [<flags>] pool delete <name>
 
 # Examples
 
-See the [Edge-LB Quick Start Guide](/1.11/networking/edge-lb/quickstart/).
+See the [Edge-LB Quick Start Guide](/services/edge-lb/1.0/).

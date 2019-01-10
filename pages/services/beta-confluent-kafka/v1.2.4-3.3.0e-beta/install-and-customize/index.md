@@ -23,7 +23,7 @@ The standard install provides a reasonable default configuration for trying out 
 dcos cluster setup http://your-cluster.com
 ```
 
-- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/1.10/administration/id-and-access-mgt/service-auth/kafka-auth/) before installing Kafka. Only someone with `superuser` permission can create the service account.
+- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/services/kafka/kafka-auth/) before installing Kafka. Only someone with `superuser` permission can create the service account.
 	- `strict` [security mode](https://docs.mesosphere.com/1.10/administration/installing/custom/configuration-parameters/#security) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
