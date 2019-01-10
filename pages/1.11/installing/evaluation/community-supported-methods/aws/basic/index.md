@@ -15,7 +15,7 @@ The basic templates provide:
 
 These instructions provide a basic AWS CloudFormation template that creates a DC/OS cluster that is suitable for demonstrations and POCs. This is the fastest way to get started with the DC/OS templates for AWS CloudFormation.
 
-For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.11/installing/ent/cloud/aws/advanced/).
+For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.11/installing/evaluation/aws/advanced/).
 
 <table class=“table” bgcolor=#858585>
 <tr> 

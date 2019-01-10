@@ -48,7 +48,7 @@ The benefits of using a custom CA certificate for your DC/OS Enterprise cluster 
 
 In order to install DC/OS Enterprise with a custom CA certificate you will need:
 
-- to use the [advanced DC/OS installation method](/1.11/installing/ent/custom/advanced/). Other installation methods are not supported.
+- to use the [advanced DC/OS installation method](/1.11/installing/production/deploying-dcos/installation/). Other installation methods are not supported.
 - A file containing the custom CA certificate.
 - A file containing the private key associated with the custom CA certificate.
 - If the CA is **not** a self-signed root CA, a file containing the certificate chain associated with the custom CA certificate.

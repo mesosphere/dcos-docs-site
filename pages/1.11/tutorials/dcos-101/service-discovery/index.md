@@ -40,7 +40,7 @@ SSH into the Mesos master node in your cluster to see how these different servic
 
 # Mesos-DNS
 
-  [Mesos-DNS](/1.11/networking/mesos-dns/) assigns DNS entries for every task, which are resolvable from any node in the cluster. The naming pattern for these entries is  *task.scheduler.mesos*
+  [Mesos-DNS](/1.11/networking/DNS/mesos-dns/) assigns DNS entries for every task, which are resolvable from any node in the cluster. The naming pattern for these entries is  *task.scheduler.mesos*
 
   The default scheduler for jobs is [Marathon](/1.11/overview/architecture/components/#marathon), so the Mesos-DNS name for your Redis service is *redis.marathon.mesos*.
 

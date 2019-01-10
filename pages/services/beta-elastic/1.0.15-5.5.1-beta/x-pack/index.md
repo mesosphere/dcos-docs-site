@@ -15,7 +15,7 @@ enterprise: false
 
 [X-Pack](https://www.elastic.co/guide/en/x-pack/current/xpack-introduction.html) is an Elastic Stack extension that bundles security, alerting, monitoring, reporting, and graph capabilities into one easy-to-install package. X-Pack is a commercial product of Elastic that requires a license. By default, X-Pack is not installed as part of the DC/OS Elastic service. However, it's easy to enable X-Pack as part of the service configuration:
 
-![x-pack](/services/beta-program/beta-elastic/v1.0.15-5.5.1-beta/img/x-pack.png)
+![x-pack](/services/beta-elastic/1.0.15-5.5.1-beta/img/x-pack.png)
 
 You can toggle this setting at any time. This gives you the option of launching an Elastic cluster without X-Pack and then later enabling it. Or, you can run a cluster with X-Pack enabled to try out the commercial features and, if at the end of the 30-day trial period you don't wish to purchase a license, you can disable it without losing access to your data.
   

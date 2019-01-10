@@ -8,7 +8,7 @@ menuWeight: 1
 
 **Prerequisites:**
 
-- DC/OS [installed](/1.10/installing/oss/)
+- DC/OS [installed](/1.10/installing/)
 - DC/OS CLI [installed](/1.10/cli/install/)
 
 # Default installation

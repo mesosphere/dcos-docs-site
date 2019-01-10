@@ -203,7 +203,7 @@ This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.11.
 2.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the `config.yaml` may be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
+    *  The syntax of the `config.yaml` may be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/1.11/installing/production/advanced-configuration/configuration-reference/).
 3. After updating the format of the config.yaml, compare the old config.yaml and new config.yaml. Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
 4.  Modify the `ip-detect` file as desired.
 5.  Build your installer package.
@@ -225,7 +225,7 @@ This procedure upgrades a DC/OS 1.10 cluster to DC/OS 1.11.
 1.  Copy and update the DC/OS 1.10 `config.yaml` and `ip-detect` files to a new, clean folder on your bootstrap node.
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the DC/OS 1.11 `config.yaml` differs from that of previous versions. See the [documentation](/1.11/installing/oss/custom/configuration/configuration-parameters/) for the latest information.
+    *  The syntax of the DC/OS 1.11 `config.yaml` differs from that of previous versions. See the [documentation](/1.11/installing/production/advanced-configuration/configuration-reference/) for the latest information.
 
 1.  After updating the format of the `config.yaml`, compare the old `config.yaml` and new `config.yaml`.  Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
 

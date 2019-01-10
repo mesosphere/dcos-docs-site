@@ -38,7 +38,7 @@ You must have an AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_
 - An AWS EC2 Key Pair for the same region as your cluster. Key pairs cannot be shared across regions. The AWS key pair uses public-key cryptography to provide secure login to your AWS cluster. For more information about creating an AWS EC2 Key Pair, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">documentation</a>.
 - AWS [Command Line Interface](https://aws.amazon.com/cli/).
 - The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
-- A node that meets the bootstrap node [system requirements](/1.11/installing/ent/custom/system-requirements/).
+- A node that meets the bootstrap node [system requirements](/1.11/installing/production/system-requirements/).
 - An AWS S3 bucket with read-write access.
     - The S3 bucket must have a bucket policy that allows the launched AWS instances to download the files from the s3 bucket. Here is a sample policy that allows anyone to download:
 
@@ -95,7 +95,7 @@ The required parameters for Enterprise and Open Source users are:
     aws_template_storage_secret_access_key: <your-secret-access_key>
 
 
-For parameters descriptions and configuration examples, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
+For parameters descriptions and configuration examples, see the [documentation](/1.11/installing/production/advanced-configuration/configuration-reference/).
 
 3.  Run the DC/OS installer script with the AWS argument specified. This command creates and uploads a custom build of the DC/OS artifacts and templates to the specified S3 bucket.
 

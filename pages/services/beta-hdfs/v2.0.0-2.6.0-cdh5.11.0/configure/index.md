@@ -19,7 +19,7 @@ The HDFS scheduler runs as a Marathon process and can be reconfigured by changin
 
 1.  Go to the **Services** tab of the DC/OS GUI and click the name of the HDFS service to be updated.
 
-	![HFDS in DC/OS GUI](/services/beta-hdfs/v2.0.0-2.6.0-cdh5.11.0/img/hdfs-service-gui.gif)
+	![HFDS in DC/OS GUI](/services/beta-hdfs/v2.0.0-2.6.0-cdh5.11.0/img/hdfs-service-gui2.gif)
 
 1.  Within the HDFS instance details view, click the vertical ellipsis menu in the upper right, then choose **Edit**.
 

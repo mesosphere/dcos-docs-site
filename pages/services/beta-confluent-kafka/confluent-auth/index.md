@@ -10,7 +10,7 @@ featureMaturity:
 enterprise: true
 ---
 
-This topic describes how to configure DC/OS access for Confluent Kafka. Depending on your [security mode](/1.9/overview/security/security-modes/), Confluent Kafka requires [service authentication](/1.9/security/service-auth/) for access to DC/OS.
+This topic describes how to configure DC/OS access for Confluent Kafka. Depending on your [security mode](/1.9/overview/security/security-modes/), Confluent Kafka requires [service authentication](/1.9/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 |---------------|-----------------------|
@@ -35,7 +35,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/1.9/security/secrets/) to secure the key pair.
+**Tip:** You can use the [DC/OS Secret Store](/1.9/security/ent/secrets/) to secure the key pair.
 
 # <a name="create-a-service-account"></a>Create a Service Account
 

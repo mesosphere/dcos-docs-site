@@ -149,7 +149,7 @@ For more information about TLS in the SDK see [the TLS documentation](https://me
 
 ### Clients
 
-Clients connecting to the Elastic service are required to use [the DC/OS CA bundle](/1.10/networking/tls-ssl/get-cert/) to verify the TLS connections.
+Clients connecting to the Elastic service are required to use [the DC/OS CA bundle](/1.10/security/ent/tls-ssl/get-cert/) to verify the TLS connections.
 
 ### Kibana
 

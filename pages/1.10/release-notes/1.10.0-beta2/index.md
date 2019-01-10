@@ -17,7 +17,7 @@ DC/OS 1.10.0 Beta 2 has a number of limitations that will be resolved at GA time
 - DC/OS 1.10 requires CLI version 0.5.3.
   - [Uninstall the existing CLI](/1.10/cli/uninstall/)
   - Install version 0.5.3 using the <strong>Install CLI</strong> instructions in the dropdown in the upper left hand corner of the 1.10 DC/OS GUI.
-- You must upgrade Marathon-LB _before_ upgrading to DC/OS 1.10. See the [upgrade section](/1.10/installing/oss/upgrading/) for more information.
+- You must upgrade Marathon-LB _before_ upgrading to DC/OS 1.10. See the [upgrade section](/1.10/installing/production/upgrading/) for more information.
 *Note:* CLI version 0.5.3 is not compatible with DC/OS 1.9.
 
 Please try out the new features and updated data services. Provide any feedback through our support channel: [support.mesosphere.com](https://support.mesosphere.com/).
@@ -90,7 +90,7 @@ The following updated data services packages are also in beta and are compatible
 
 ## Platform
 - Node and Cluster health checks.
-  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
+  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/production/deploying-dcos/node-cluster-health-check/).
 - Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
 - Enhanced upgrades with pre/post flight checks.
 - UCR. <!-- have there been updates? -->
