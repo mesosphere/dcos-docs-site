@@ -12,21 +12,25 @@ enterprise: true
 
 # DC/OS {{ model.techName }} Security
 
-The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
+-The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
 
-A good overview of these features can be found [here](https://www.confluent.io/blog/apache-kafka-security-authorization-authentication-encryption/), and {{ model.techShortName }}'s security documentation can be found [here](http://kafka.apache.org/documentation/#security).
+-A good overview of these features can be found [here](https://www.confluent.io/blog/apache-kafka-security-authorization-authentication-encryption/), and {{ model.techShortName }}'s security documentation can be found [here](http://kafka.apache.org/documentation/#security).
 
-**Note**: These security features are only available on DC/OS Enterprise 1.10 and later.
+<p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
+
+#include /services/include/service-account.tmpl
+
+#include /services/include/security-create-permissions.tmpl
 
 ## Transport Encryption
 
 #include /services/include/security-transport-encryption-lead-in.tmpl
 
-**Note**: Enabling transport encryption is **required** to use [SSL authentication](#ssl-authentication) for [authentication](#authentication), but is optional for [Kerberos authentication](#kerberos-authentication).
+<p class="message--note"><strong>NOTE: </strong> Enabling transport encryption is **required** to use [SSL authentication](#ssl-authentication) for [authentication](#authentication), but is optional for [Kerberos authentication](#kerberos-authentication).</p>
 
 #include /services/include/security-configure-transport-encryption.tmpl
 
-**Note:** It is possible to update a running DC/OS {{ model.techName }} service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured unless `service.security.transport_encryption.allow_plaintext` is set to true.
+<p class="message--note"><strong>NOTE: </strong>It is possible to update a running DC/OS {{ model.techName }} service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured unless `service.security.transport_encryption.allow_plaintext` is set to true.</p>
 
 #### Verify Transport Encryption Enabled
 
@@ -38,7 +42,7 @@ After service deployment completes, check the list of [{{ model.techShortName }}
 
 DC/OS {{ model.techName }} supports two authentication mechanisms, SSL and Kerberos. The two are supported independently and may not be combined. If both SSL and Kerberos authentication are enabled, the service will use Kerberos authentication.
 
-**Note:** Kerberos authentication can, however, be combined with transport encryption.
+<p class="message--note"><strong>NOTE: </strong> Kerberos authentication can, however, be combined with transport encryption.</p>
 
 ### Kerberos Authentication
 
@@ -116,7 +120,8 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 }
 ```
 
-**Note:** If `service.kerberos.enabled_for_zookeeper` is set to true, then the additional setting `kafka.kafka_zookeeper_uri` must be configured to point at a kerberized {{ model.kafka.zookeeperTechName }} as follows:
+<p class="message--note"><strong>NOTE: </strong> If `service.kerberos.enabled_for_zookeeper` is set to true, then the additional setting `kafka.kafka_zookeeper_uri` must be configured to point at a kerberized {{ model.kafka.zookeeperTechName }} as follows:
+
 ```json
 {
     "kafka": {
@@ -124,9 +129,10 @@ Install the DC/OS {{ model.techName }} service with the following options in add
     }
 }
 ```
-The DC/OS {{ model.kafka.zookeeperTechName }} service (`{{ model.kafka.zookeeperPackageName }}` package) is intended for this purpose and supports Kerberos.
 
-**Note:** It is possible to enable Kerberos after initial installation but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured.
+The DC/OS {{ model.kafka.zookeeperTechName }} service (`{{ model.kafka.zookeeperPackageName }}` package) is intended for this purpose and supports Kerberos.</p>
+
+<p class="message--note"><strong>NOTE: </strong> It is possible to enable Kerberos after initial installation but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured.</p>
 
 
 ### SSL Authentication
