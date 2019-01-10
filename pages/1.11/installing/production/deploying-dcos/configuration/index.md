@@ -7,7 +7,7 @@ excerpt: Configuring your DC/OS parameters using a YAML file
 ---
 
 
-The DC/OS configuration parameters are specified in YAML format in a `config.yaml` file. This file is stored on your [bootstrap node](/1.12/installing/ent/custom/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.
+The DC/OS configuration parameters are specified in YAML format in a `config.yaml` file. This file is stored on your [bootstrap node](/1.11/installing/ent/custom/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.
 
 <p class="message--important"><strong>IMPORTANT: </strong> If you want to modify the configuration file after installation, you must follow the <a href="/1.11/installing/production/upgrading/">DC/OS upgrade process</a>.</p>
 
@@ -60,27 +60,27 @@ Some parameters are dependent on others. These dependent parameters are ignored 
 
 | Parameter                              | Description                                                                                                                                               |
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [agent_list](/1/1.12/installing/production/advanced-configuration/configuration-reference/#agent-list)      | This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.12/overview/concepts/#private-agent-node) host names.                  |
-| [bootstrap_url](/1.12/installing/production/advanced-configuration/configuration-reference/#bootstrap-url)                          | This required parameter specifies the URL path for the DC/OS installer to store the customized DC/OS build files.                                         |
-| [cluster_name](/1.12/installing/production/advanced-configuration/configuration-reference/#cluster-name)                           | This parameter specifies the name of your cluster.    |
-| [exhibitor_storage_backend](/1.12/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend)         | This parameter specifies the type of storage backend to use for Exhibitor.          |
-| [master_discovery](/1.12/installing/production/advanced-configuration/configuration-reference/#master-discovery-required)                          | This required parameter specifies the Mesos master discovery method.         |
-| [public_agent_list](/1.12/installing/production/advanced-configuration/configuration-reference/#public-agent-list)       | This parameter specifies a YAML nested list (-) of IPv4 addresses to your [public agent](/1.12/overview/concepts/#public-agent-node) host names.    |
-| [resolvers](/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers)       | This required parameter specifies a block of YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.   |
-| [security](/1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise)                           | [enterprise type="inline" size="small" /] This parameter specifies the security mode: `permissive` or `strict`.  |
-| [ssh_port](/1.12/installing/production/advanced-configuration/configuration-reference/#ssh-port)                           | This parameter specifies the port to SSH to, for example 22.          |
-| [ssh_user](/1.12/installing/production/advanced-configuration/configuration-reference/#ssh-user)                           | This parameter specifies the SSH username, for example `centos`.     |
-| [superuser_password_hash](/1.12/installing/production/advanced-configuration/configuration-reference/#superuser-password-hash-required-enterprise)            | [enterprise type="inline" size="small" /] This required parameter specifies the hashed superuser password.      |
-| [superuser_username](/1.12/installing/production/advanced-configuration/configuration-reference/#superuser-username-required-enterprise)               | [enterprise type="inline" size="small" /] This required parameter specifies the user name of the superuser.    |
-| [use_proxy](/1.12/installing/production/advanced-configuration/configuration-reference/#use-proxy)        | This parameter specifies whether to enable the DC/OS proxy.     |
+| [agent_list](/1/1.11/installing/production/advanced-configuration/configuration-reference/#agent-list)      | This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.11/overview/concepts/#private-agent-node) host names.                  |
+| [bootstrap_url](/1.11/installing/production/advanced-configuration/configuration-reference/#bootstrap-url)                          | This required parameter specifies the URL path for the DC/OS installer to store the customized DC/OS build files.                                         |
+| [cluster_name](/1.11/installing/production/advanced-configuration/configuration-reference/#cluster-name)                           | This parameter specifies the name of your cluster.    |
+| [exhibitor_storage_backend](/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend)         | This parameter specifies the type of storage backend to use for Exhibitor.          |
+| [master_discovery](/1.11/installing/production/advanced-configuration/configuration-reference/#master-discovery-required)                          | This required parameter specifies the Mesos master discovery method.         |
+| [public_agent_list](/1.11/installing/production/advanced-configuration/configuration-reference/#public-agent-list)       | This parameter specifies a YAML nested list (-) of IPv4 addresses to your [public agent](/1.11/overview/concepts/#public-agent-node) host names.    |
+| [resolvers](/1.11/installing/production/advanced-configuration/configuration-reference/#resolvers)       | This required parameter specifies a block of YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes.   |
+| [security](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)                           | [enterprise type="inline" size="small" /] This parameter specifies the security mode: `permissive` or `strict`.  |
+| [ssh_port](/1.11/installing/production/advanced-configuration/configuration-reference/#ssh-port)                           | This parameter specifies the port to SSH to, for example 22.          |
+| [ssh_user](/1.11/installing/production/advanced-configuration/configuration-reference/#ssh-user)                           | This parameter specifies the SSH username, for example `centos`.     |
+| [superuser_password_hash](/1.11/installing/production/advanced-configuration/configuration-reference/#superuser-password-hash-required-enterprise)            | [enterprise type="inline" size="small" /] This required parameter specifies the hashed superuser password.      |
+| [superuser_username](/1.11/installing/production/advanced-configuration/configuration-reference/#superuser-username-required-enterprise)               | [enterprise type="inline" size="small" /] This required parameter specifies the user name of the superuser.    |
+| [use_proxy](/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)        | This parameter specifies whether to enable the DC/OS proxy.     |
 
 
 # Advanced settings
 
-See the [configuration reference](/1.12/installing/production/advanced-configuration/configuration-reference/#configuration-parameters) and [examples](/1.12/installing/production/deploying-dcos/configuration/examples/).
+See the [configuration reference](/1.11/installing/production/advanced-configuration/configuration-reference/#configuration-parameters) and [examples](/1.11/installing/production/deploying-dcos/configuration/examples/).
 
 # Configure DC/OS for Proxy
 
-By default, the DC/OS [Universe](https://github.com/mesosphere/universe) repository is hosted on the internet. If your DC/OS cluster is behind a corporate proxy, you must specify your proxy configuration in the [configuration file](/1.12/installing/production/advanced-configuration/configuration-reference/#use-proxy) file before installation. This will enable your cluster to connect to the Universe packages.
+By default, the DC/OS [Universe](https://github.com/mesosphere/universe) repository is hosted on the internet. If your DC/OS cluster is behind a corporate proxy, you must specify your proxy configuration in the [configuration file](/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy) file before installation. This will enable your cluster to connect to the Universe packages.
 
 <p class="message--note"><strong>NOTE: </strong>You should also configure an HTTP proxy for <a href="https://docs.docker.com/engine/admin/systemd/#/http-proxy">Docker</a>.</p>

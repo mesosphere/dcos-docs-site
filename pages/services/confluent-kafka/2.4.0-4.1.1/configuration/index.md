@@ -16,27 +16,24 @@ render: mustache
 
 {{ model.techName }} requires a running ZooKeeper ensemble to perform its own internal accounting. By default, the DC/OS {{ model.techName }} Service uses the ZooKeeper ensemble made available on the Mesos masters of a DC/OS cluster at `master.mesos:2181/dcos-service-<servicename>`. At install time, you can configure an alternate ZooKeeper for {{ model.techName }} to use. This enables you to increase {{ model.techName }}'s capacity and removes the DC/OS System ZooKeeper ensemble's involvement in running it.
 
+<p class="message--note"><strong>NOTE: </strong>If you are using the <a href="/services/confluent-zookeeper/">DC/OS Apache ZooKeeper service</a>, use the DNS addresses provided by the <tt>dcos confluent-zookeeper endpoints clientport</tt> command as the value of <tt>kafka_zookeeper_uri</tt>.</p>
 To configure an alternate Zookeeper instance:
 
-1. Create a file named `options.json` with the following contents.
+1. Create a file named `options.json` with the following contents. Here is an example `options.json` which points to a `confluent-zookeeper` instance named `confluent-zookeeper`:
 
-<p class="message--note"><strong>NOTE: </strong>If you are using the <a href="/services/confluent-zookeeper/">DC/OS Apache ZooKeeper service</a>, use the DNS addresses provided by the <tt>dcos confluent-zookeeper endpoints clientport</tt> command as the value of <tt>kafka_zookeeper_uri</tt>.</p>
-
-   Here is an example `options.json` which points to a `confluent-zookeeper` instance named `confluent-zookeeper`:
-
-```json
-{
-  "kafka": {
-    "kafka_zookeeper_uri": "zookeeper-0-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140"
-  }
-}
-```
+    ```json
+    {
+      "kafka": {
+        "kafka_zookeeper_uri": "zookeeper-0-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140"
+      }
+    }
+    ```
 
 1. Install {{ model.techName }} with the options file you created.
 
-```bash
-$ dcos package install {{ model.packageName }} --options="options.json"
-```
+    ```bash
+    $ dcos package install {{ model.packageName }} --options="options.json"
+    ```
 
 You can also update an already-running {{ model.techName }} instance from the DC/OS CLI, in case you need to migrate your ZooKeeper data elsewhere.
 

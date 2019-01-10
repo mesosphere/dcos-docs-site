@@ -11,8 +11,8 @@
 
 ## Prerequisites
 
-    - Docker
-    - Docker Compose
+- Docker
+- Docker Compose
 
 ## Development and Contribution
 

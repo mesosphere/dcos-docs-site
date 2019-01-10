@@ -37,11 +37,11 @@ Custom health checks are user-defined commands that are added to the set of chec
 Optionally, you can configure the checks to output a human-readable message to `stderr` or `stdout`.
 
 ## Specifying Custom Health Checks
-Before installing DC/OS, you must specify custom health checks in the `custom_checks` installation configuration parameter. If you want to modify the configuration file after installation, you must follow the [DC/OS upgrade process](/1.12/installing/production/upgrading/).
+Before installing DC/OS, you must specify custom health checks in the `custom_checks` installation configuration parameter. If you want to modify the configuration file after installation, you must follow the [DC/OS upgrade process](/1.11/installing/production/upgrading/).
 
 If it is an absolute path (for example, if you have an executable in `/usr/bin/`), you can specify it directly in the `cmd`. If you reference an executable by name without an absolute path (for example, `echo` instead of `/usr/bin/echo`), the system will look for it by using this search path, and use the first executable that it finds: `/opt/mesosphere/bin:/usr/bin:/bin:/sbin`.
 
-For a description of this parameter and examples, see the [configuration parameter documentation](/1.12/installing/production/advanced-configuration/configuration-reference/#custom-checks).
+For a description of this parameter and examples, see the [configuration parameter documentation](/1.11/installing/production/advanced-configuration/configuration-reference/#custom-checks).
 
 ## Custom Health Check Executables
 Before installing DC/OS, you may optionally provide a directory of executables at `genconf/check_bins/` that will be distributed to all cluster nodes for use in custom checks. If provided, these executables will be added to the end of the search path for check executables. In order to use custom check executables, reference them in the `custom_checks` parameter by name without an absolute path (for example, to use `genconf/check_bins/custom_script.sh` in a custom check, refer to it as `custom_script.sh`).
@@ -62,7 +62,7 @@ You can run the following commands from your cluster node to invoke custom or pr
 - DC/OS is installed and you are logged in with superuser permission.
 
 
-1.  [SSH to a cluster node](/1.12/administering-clusters/sshcluster/).
+1.  [SSH to a cluster node](/1.11/administering-clusters/sshcluster/).
 
     ```bash
     dcos node --master-proxy --mesos-id=<agent-node-id>

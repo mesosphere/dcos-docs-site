@@ -6,12 +6,11 @@ menuWeight: 5
 excerpt: DC/OS version lifecycle and compatibility matrix
 ---
 
-This page was updated on November 7, 2018.
+This page was updated on January 7, 2019.
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
 This document explains to Mesosphere customers, partners, users, and operators of Mesosphere DC/OS the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined within this document apply to the version of DC/OS and its catalog packages that this document resides in.
-
 
 ## DC/OS Version Lifecycle
 
@@ -39,17 +38,14 @@ Thus, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
 * **Minor Version**: Upon the availability of a new DC/OS Minor version 1.11.0, minor versions prior to and including 1.8.0 will no longer be supported as (N-2) includes 1.11 (N), 1.10 (N-1) and 1.9 (N-2).
 * **Maintenance Version**: Upon the availability of DC/OS Maintenance version 1.10.5, Maintenance versions prior to and including 1.10.0 will no longer be supported as (N-4) includes 1.10.5 (N), 1.10.4 (N-1), 1.10.3 (N-2), 1.10.2 (N-3) and 1.10.1 (N-4).<br>
 
-
 ## DC/OS Platform Version Compatibility Matrix
 
 The following matrix shows the platform components and operating environments on which DC/OS has been tested; DC/OS will run on these components. Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
-
-|Display Icon | Service |
-|---------- | ------- |
-| ⚫| Supported |
-|    | Not Supported |
-
+|Display Icon | Service       |
+|------------ |-------------- |
+| ⚫          | Supported     |
+|             | Not Supported |
 
 <table class="table">
     <tr>
@@ -70,11 +66,17 @@ The following matrix shows the platform components and operating environments on
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
     </tr>
-  <tr>
+    <tr>
         <td>CentOS 7.3</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    </tr>
+    <tr>
+        <td>CoreOS 1911.5.0</td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td>                    </td>
     </tr>
     <tr>
         <td>CoreOS 1911.4.0</td>
@@ -201,13 +203,10 @@ The following matrix shows the platform components and operating environments on
 
 <p class="message--note"><strong>NOTE: </strong>CoreOS 1800.7.0 requires DC/OS 1.11.6 or later releases.</p>
 
-
 ## Customer Advisory for CentOS/RHEL 7.X
 <p class="message--important"><strong>IMPORTANT: </strong>A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. <strong>Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13</strong>. This fork of Docker does not require an RHN subscription. More specific details on the Docker bug and mitigation instructions are located <a href=“https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006“>here</a>.</p>
 
 <p class="message--note"><strong>NOTE: </strong>Because of this kmem bug, <strong>Mesosphere only supports Kubernetes on DC/OS with CentOS/RHEL 7.X when using DC/OS 1.12 or greater and CentOS/RHEL 7.5</strong>.</a>.</p>
-
-
 
 ## Version Compatibility Matrix
 
@@ -223,8 +222,7 @@ Services that are labeled as “Certified” have been tested by Mesosphere for 
 
 The designations are as follows:
 
-⚫ - This combination is tested and compatible with the specified version of DC/OS.
-
+⚫- This combination is tested and compatible with the specified version of DC/OS.
 - This package is within the scope of our technical support organization.
 - This is package is eligible for bug fixes.
 
@@ -236,275 +234,189 @@ The designations are as follows:
 - This combination is not within the scope of our technical support organization.
 - This combination is not eligible for bug fixes.
 
-B- This package combination is *beta*.
+B - This package combination is *beta*.
 - Beta packages are not within the scope of our technical support organization.
 - Beta packages iterate quickly and are not eligible for bug fixes.
 
 ## Certified Packages and DC/OS Versions
 <table class="table">
     <tr>
-    <th><strong>DC/OS Package for</strong></th>
-    <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
-    <th><p style="text-align: center;"><strong>DC/OS 1.10</strong></p></th>
-    <th><p style="text-align: center;"><strong>DC/OS 1.9</strong></p></th>
-    <th><p style="text-align: center;"><strong>DC/OS 1.8</strong></p></th>
+        <th><strong>DC/OS Package for</strong></th>
+        <th><p style="text-align: center;"><strong>DC/OS 1.12</strong></p></th>
+        <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
+        <th><p style="text-align: center;"><strong>DC/OS 1.10</strong></p></th>
     </tr>
     <tr>
-        <td>Cassandra 2.0.x-*</td>
+        <td>Beta DC/OS Storage Services 0.4.0</td>
+        <td><p style="text-align: center;">B</p></td>
         <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>Cassandra 2.1.x-*</td>
+        <td>¹Beta DC/OS Storage Services 0.5.1 (Recommended)</td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>Beta Mesosphere Jupyter Service 1.3.x-0.35.4</td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>Cassandra 2.3.x-3.0.16</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>Confluent-Kafka 1.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Confluent-Kafka 2.0.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Confluent-Kafka 2.1.x-*</td>
+        <td>Cassandra 2.4.x-3.0.16 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>¹DataStax-DSE 2.0.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>¹DataStax-DSE 2.1.x-*</td>
+        <td>Confluent-Kafka 2.3.x-4.0.0e</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>¹DataStax-Ops 2.0.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>¹DataStax-Ops 2.1.x-*</td>
+        <td>Confluent-Kafka 2.4.x-4.1.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>DSE 1.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Edge-LB 0.1.8</td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Edge-LB 0.1.9</td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Edge-LB 1.0.0</td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Edge-LB 1.1</td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>ElasticSearch 2.0.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>ElasticSearch 2.1.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>ElasticSearch 2.2.x-*</td>
+        <td>Confluent-ZooKeeper 2.3.x-4.0.0e</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>HDFS 1.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>HDFS 2.0.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td>◯</td>
-    </tr>
-    <tr>
-        <td>HDFS 2.1.x-*</td>
+        <td>Confluent-ZooKeeper 2.4.x-4.0.0e (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>Jenkins 2.0.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-        <tr>
-        <td>Jenkins 2.1.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Jenkins 3.0.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Jenkins 3.1.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Jenkins 3.2.x-2.60.y</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Jenkins 3.3.x-2.73.y</td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Jenkins 3.4.x-2.89.y</td>
+        <td>²DataStax-DSE 2.3.x-5.1.2</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>²DataStax-DSE 2.4.x-5.1.10 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>²DataStax-Ops 2.3.x-6.1.2</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>²DataStax-Ops 2.4.x-6.1.9 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Edge-LB 1.2.1</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Edge-LB 1.2.2</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Edge-LB 1.2.3 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Elastic 2.2.x-5.6.5</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Elastic 2.3.x-5.6.5 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>HDFS 2.3.x-2.6.0-cdh5.11.0</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>HDFS 2.4.x-2.6.0-cdh5.11.0 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Jenkins 3.5.x-2.107.2</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Jenkins 3.5.x-2.150.1 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Kafka 2.3.x-1.0.0</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Kafka 2.3.x-1.1.0 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Kafka-Zookeeper 2.3.x-3.4.12</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Kafka-Zookeeper 2.4.x-3.4.13 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Kubernetes 1.3.x-1.10.y</td>
+        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>Kafka 1.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Kafka 2.0.x-0.11.0</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Kafka 2.0.x-1.0.0</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Kafka 2.1.x-1.0.0</td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Kafka-Zookeeper 2.0.x-3.4.11</td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Kubernetes 1.0.x-*</td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Marathon-LB 1.2.* 1.9.*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>MoM (Marathon on Marathon) 1.5</td>
-        <td><p style="text-align: center;">⚫</p></td>
+        <td>Kubernetes 2.0.x-1.12.y</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>MoM (Marathon on Marathon) 1.6</td>
+        <td>Kubernetes 2.1.x-1.12.y (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Marathon-LB 1.10.x</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
@@ -512,39 +424,47 @@ B- This package combination is *beta*.
         <td>Marathon-LB 1.11.x</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Spark 1.x-*</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
+        <td>Marathon-LB 1.12.x (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Spark 2.0.x-2.2.y</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
+        <td>MoM (Marathon on Marathon) 1.5.x</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Spark 2.1.x-2.2.y</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◒</p></td>
-        <td><p style="text-align: center;">◯</p></td>
+        <td>MoM (Marathon on Marathon) 1.6.x</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-    	<td>Spark 2.3.x-2.2.y</td>
-    	<td><p style="text-align: center;">⚫</p></td>
-    	<td><p style="text-align: center;">⚫</p></td>
-    	<td><p style="text-align: center;">⚫</p></td>
-    	<td><p style="text-align: center;">◯</p></td>
+        <td>MoM (Marathon on Marathon) 1.7.x (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Spark 2.4.x-2.2.y</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Spark 2.5.x-2.2.y (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
 </table>
 
 ### Footnotes
 
-1 - *Package maintained and technical support services solely by DataStax Corporation*.
+- ¹ - *Beta DC/OS Storage Services 0.5.1 requires DC/OS 1.12.1*
+- ² - *Package maintained and supported solely by DataStax Corporation*
