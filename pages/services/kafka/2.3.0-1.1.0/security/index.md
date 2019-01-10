@@ -169,7 +169,7 @@ $ curl -X POST \
     -d '{"certificate_request": "<json-encoded-value-of-request.csr>"}'
 ```
 
-An example of the content in csr file `<json-encoded-value-of-request.csr>` is repesented in a single line, where new lines are replaced with `\n`. 
+The `<json-encoded-value-of-request.csr>` field represents the content of the `csr` file as a single line, where new lines are replaced with `\n`.
 
 ```bash
 $ curl -X POST \
