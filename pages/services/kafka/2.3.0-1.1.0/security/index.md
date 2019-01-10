@@ -117,6 +117,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 ```
 
 **Note:** If `service.kerberos.enabled_for_zookeeper` is set to true, then the additional setting `kafka.kafka_zookeeper_uri` must be configured to point at a kerberized {{ model.kafka.zookeeperTechName }} as follows:
+
 ```json
 {
     "kafka": {
@@ -168,7 +169,16 @@ $ curl -X POST \
     -d '{"certificate_request": "<json-encoded-value-of-request.csr>"}'
 ```
 
-The response will contain a signed public certificate. Full details on the DC/OS CA API can be found [here](/latest/security/ent/tls-ssl/ca-api/).
+An example of the content in csr file `<json-encoded-value-of-request.csr>` is repesented in a single line, where new lines are replaced with `\n`. 
+
+```bash
+$ curl -X POST \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+    <dcos-cluster>/ca/api/v2/sign \
+    -d '{"certificate_request": ""-----BEGIN CERTIFICATE REQUEST-----\nMIIC<snipped for brevity>o39lBi1w=\n-----END CERTIFICATE REQUEST-----\n""}'
+```
+
+The response will contain a signed public certificate. More information on DC/OS CA API can be found [here](/latest/security/ent/tls-ssl/ca-api/).
 
 ## Authorization
 
@@ -233,7 +243,8 @@ Transport encryption alone does not require any additional changes. Endpoint dis
 
 Kerberos, however, does require slightly different configuration. As noted in the section [Create Principals](#create-principals), the principals of the service depend on the hostname of the service. When creating the Kerberos principals, be sure to use the correct domain.
 
-For example, if installing with these settings:
+For example, if you install with the following settings:
+
 ```json
 {
     "service": {
@@ -251,7 +262,8 @@ For example, if installing with these settings:
     }
 }
 ```
-then the principals to create would be:
+
+The principals to create are as follows:
 ```
 example/kafka-0-broker.agoodexample.cluster-1.example.net@EXAMPLE
 example/kafka-1-broker.agoodexample.cluster-1.example.net@EXAMPLE
