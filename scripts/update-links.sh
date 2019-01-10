@@ -14,12 +14,13 @@
 # Include files
 
 # find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/#include \/cn/#include \/cn/g' {} \;
-find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](\/1.10/](\/cn\/1.11/g' {} \;
-find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](\/1.9/](\/cn\/1.11/g' {} \;
-find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](\/1.8/](\/cn\/1.11/g' {} \;
+#find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](\/1.10/](\/cn\/1.11/g' {} \;
+#find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](\/1.9/](\/cn\/1.11/g' {} \;
+#find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](\/1.8/](\/cn\/1.11/g' {} \;
 
 # Fix double slash links
-find ./pages -name index.md -type f -exec sed -i '' -e 's/\]\(\/\//\]\(\//g' {} \;
+#find ./pages -name index.md -type f -exec sed -i '' -e 's/\]\(\/\//\]\(\//g' {} \;
+find ./pages -name index.md -type f -exec sed -i '' -e 's/\]\: \/\//\]\: \/1\.12\//g' {} \;
 
 # bad code blocks
 

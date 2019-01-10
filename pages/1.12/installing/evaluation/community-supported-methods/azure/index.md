@@ -246,6 +246,6 @@ If you have created a new resource group in the deployment step, it is easy to t
 - [Install the DC/OS Command-Line Interface (CLI)][2]
 - [Scaling considerations][4]
 
-[1]: //security/ent/users-groups/
-[2]: //cli/install/
+[1]: /1.12/security/ent/users-groups/
+[2]: /1.12/cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/
