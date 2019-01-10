@@ -214,10 +214,10 @@ Figure 6. Top Tweeters
  [3]: /services/spark/
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
- [6]: //overview/concepts/
- [9]: //administering-clusters/locate-public-agent/
- [11]: //cli/command-reference/
+ [6]: /1.12/overview/concepts/
+ [9]: /1.12/administering-clusters/locate-public-agent/
+ [11]: /1.12/cli/command-reference/
  [12]: /services/marathon-lb/
  [13]: https://github.com/mesosphere/tweeter
- [14]: //img/tweeter.png
- [16]: //img/top-tweeters.png
+ [14]: /1.12/img/tweeter.png
+ [16]: /1.12/img/top-tweeters.png

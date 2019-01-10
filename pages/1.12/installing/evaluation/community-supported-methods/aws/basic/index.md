@@ -155,7 +155,7 @@ You must install the [DC/OS Command-Line Interface (CLI)][2] to administer your 
 - [Add users to your cluster][3]
 - [Scaling considerations][4]
 
- [1]: //administering-clusters/managing-aws/
- [2]: //cli/install/
- [3]: //security/ent/users-groups/
+ [1]: /1.12/administering-clusters/managing-aws/
+ [2]: /1.12/cli/install/
+ [3]: /1.12/security/ent/users-groups/
  [4]: https://aws.amazon.com/autoscaling/
