@@ -18,6 +18,9 @@ find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](\/1.10/](\/cn\/1.
 find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](\/1.9/](\/cn\/1.11/g' {} \;
 find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](\/1.8/](\/cn\/1.11/g' {} \;
 
+# Fix double slash links
+find ./pages -name index.md -type f -exec sed -i '' -e 's/\]\(\/\//\]\(\//g' {} \;
+
 # bad code blocks
 
 ## Opening
