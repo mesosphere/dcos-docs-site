@@ -22,7 +22,7 @@ This page explains how to get started with metrics in DC/OS. A metrics pipeline 
         {
           "id": "/test-metrics",
           "cmd": "./statsd-emitter",
-          "fetch": [{"uri": "https://downloads.mesosphere.com/dcos-metrics/1.12.0/statsd-emitter", "executable": true}],
+          "fetch": [{"uri": "https://downloads.mesosphere.com/dcos-metrics/1.11.0/statsd-emitter", "executable": true}],
           "cpus": 0.01,
           "instances": 1,
           "mem": 128
