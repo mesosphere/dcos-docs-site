@@ -122,9 +122,9 @@ Auth0-based authentication by adding this parameter to your configuration file (
 oauth_enabled: 'false'
 ```
 
-If you are doing a cloud installation on [AWS](/1.10/installing/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
+If you are doing a cloud installation on [AWS](/1.10/installing/evaluation/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
-If you are doing a cloud installation on [Azure](/1.10/installing/), you currently cannot disable authentication. This will be added in a future release along with other
+If you are doing a cloud installation on [Azure](/1.10/installing/evaluation/azure/), you currently cannot disable authentication. This will be added in a future release along with other
 options to customize authentication.
 
 Note that if you’ve already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same parameter set.

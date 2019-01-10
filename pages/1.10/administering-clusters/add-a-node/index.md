@@ -13,7 +13,7 @@ enterprise: false
 
 You can add agent nodes to an existing DC/OS cluster. 
 
-Agent nodes are designated as [public](/1.10/overview/concepts/#public-agent-node) or [private](/1.10/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during [GUI][1] or [CLI][2] installation.
+Agent nodes are designated as [public](/1.10/overview/concepts/#public-agent-node) or [private](/1.10/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during [installation][1].
 
 **Note:**
 - DC/OS supports adding/replacing agent nodes but does not support adding master nodes.
@@ -81,5 +81,4 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. T
         dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l
         ```
 
- [1]: /1.10/installing/gui/
- [2]: /1.10/installing/cli/
+ [1]: /1.10/installing/
