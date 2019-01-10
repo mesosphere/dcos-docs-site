@@ -24,11 +24,11 @@ The project used in this tutorial is taken from the [cd-demo][4] repository and 
 
 ## Accessing Jenkins for DC/OS
 
-Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menu’s within the [DC/OS web interface](//gui/).
+Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menu’s within the [DC/OS web interface](/gui/).
 
 Click the “Jenkins” service and then "Open Service" to access the Jenkins web interface.
 
-![dcos-velocity-jenkins-ui.png](//img/dcos-velocity-jenkins-ui.png)
+![dcos-velocity-jenkins-ui.png](/img/dcos-velocity-jenkins-ui.png)
 
 Figure 1. Jenkins web interface
 
@@ -38,7 +38,7 @@ Jenkins stores account credentials within its Credential Store, which allows job
 
 Click **Add Credentials** to create a new credential for Docker Hub. The **Kind** drop-down menu should have the "Username with password" option selected. Fill out the rest of the information to match your Docker Hub account.
 
-![dcos-velocity-jenkins-creds-new.png](//img/dcos-velocity-jenkins-creds-new.png)
+![dcos-velocity-jenkins-creds-new.png](/img/dcos-velocity-jenkins-creds-new.png)
 
 Figure 2. Add Jenkins credentials
 
@@ -48,7 +48,7 @@ We will create a new Jenkins job that performs several operations with Docker Hu
 
 Create a new **Freestyle** job with a name that includes only lowercase letters and hyphens. This name will be used later in the Docker image name and possibly as the Marathon application ID.
 
-![dcos-jenkins-new-freestyle.png](//img/dcos-jenkins-new-freestyle.png)
+![dcos-jenkins-new-freestyle.png](/img/dcos-jenkins-new-freestyle.png)
 
 Figure 3. Freestyle project
 
@@ -56,7 +56,7 @@ Figure 3. Freestyle project
 
 From the **Example Project** section above, fill in the Git repository URL with the newly created Git repository. This must be accessible to Jenkins and may require adding credentials to the Jenkins instance.
 
-![dcos-jenkins-repourl.png](//img/dcos-jenkins-repourl.png)
+![dcos-jenkins-repourl.png](/img/dcos-jenkins-repourl.png)
 
 Figure 4. Source Code Management credentials
 
@@ -73,7 +73,7 @@ The Jenkins job performs these actions:
 
 These steps can be performed by a single build step using the **Docker Build and Publish** plugin, which is already included and ready for use. From the **Add build step** drop-down list, select the **Docker Build and Publish** option.
 
-![dcos-velocity-jenkins-build-docker.png](//img/dcos-velocity-jenkins-build-docker.png)
+![dcos-velocity-jenkins-build-docker.png](/img/dcos-velocity-jenkins-build-docker.png)
 
 Figure 5. Docker "Add build step" options
 
@@ -83,7 +83,7 @@ Fill in the following fields:
 * **Tag** with `${GIT_COMMIT}`
 * **Registry credentials** to the credentials for Docker Hub created above
 
-![dcos-velocity-jenkins-build-docker-config.png](//img/dcos-velocity-jenkins-build-docker-config.png)
+![dcos-velocity-jenkins-build-docker-config.png](/img/dcos-velocity-jenkins-build-docker-config.png)
 
 Figure 6. Docker Build and Publish screen
 
@@ -91,7 +91,7 @@ Figure 6. Docker Build and Publish screen
 
 Add a Marathon Deployment post-build action by selecting the **Marathon Deployment** option from the **Add post-build action** drop-down.
 
-![dcos-jenkins-plugin-popup.png](//img/dcos-jenkins-plugin-popup.png)
+![dcos-jenkins-plugin-popup.png](/img/dcos-jenkins-plugin-popup.png)
 
 Figure 6. Marathon Deployment menu
 
@@ -101,7 +101,7 @@ Fill in the following fields:
 * **Application Definition** with the relative path to the marathon application file (`conf/cd-demo-app.json`)
 * **Docker Image** with the image created above (`myusername/${JOB_NAME}:${GIT_COMMIT}`)
 
-![dcos-velocity-marathon-config.png](//img/dcos-velocity-marathon-config.png)
+![dcos-velocity-marathon-config.png](/img/dcos-velocity-marathon-config.png)
 
 Figure 7. Post-Build Actions screen
 
@@ -121,7 +121,7 @@ Save the job configuration.
 
 Click **Build Now** and let the job build.
 
-![dcos-jenkins-build-now.png](//img/dcos-jenkins-build-now.png)
+![dcos-jenkins-build-now.png](/img/dcos-jenkins-build-now.png)
 
 Figure 8. Build the job
 
@@ -135,7 +135,7 @@ When the **Status** has changed to **Running**, the deployment is complete and y
 
 Visit port `80` on the public DC/OS agent to display a Jekyll website.
 
-![dcos-jekyll-site1.png](//img/dcos-jekyll-site1.png)
+![dcos-jekyll-site1.png](/img/dcos-jekyll-site1.png)
 
 Figure 9. Jekyll demo
 
@@ -145,7 +145,7 @@ The content in the `_posts` directory generates a Jekyll website. For this examp
 
 Commit the new post to Git. Shortly after the new commit lands on the master branch, Jenkins will see the change and redeploy to Marathon.
 
-![dcos-jekyll-updated.png](//img/dcos-jekyll-updated.png)
+![dcos-jekyll-updated.png](/img/dcos-jekyll-updated.png)
 
  [1]: https://mesosphere.github.io/marathon/
  [3]: https://mesosphere.github.io/marathon/docs/application-basics.html

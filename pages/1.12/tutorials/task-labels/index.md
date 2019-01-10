@@ -53,7 +53,7 @@ You can attach labels to jobs either via the **Jobs** tab of the DC/OS web inter
 
 From the DC/OS web interface, click the **Jobs** tab, then click on the name of the Job. This will take you to the individual Job page. Click **Edit** in the upper right corner. From the left hand side of the Edit Job page, select **Labels**.
 
-![Job label](//img/job-label.png)
+![Job label](/img/job-label.png)
 
 Figure 1. Assign a job label
 

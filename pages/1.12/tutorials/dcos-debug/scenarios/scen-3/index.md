@@ -25,7 +25,7 @@ Figure 1. Task log showing failures
 
 ## Resolution
 
-As we learned [earlier](//tutorials/dcos-debug/gen-strat/), with application failures the [first step](//tutorials/dcos-debug/gen-strat/#task-strat) is to check the [task logs](//tutorials/dcos-debug/tools/#task-logs).
+As we learned [earlier](/tutorials/dcos-debug/gen-strat/), with application failures the [first step](/tutorials/dcos-debug/gen-strat/#task-strat) is to check the [task logs](/tutorials/dcos-debug/tools/#task-logs).
 
 ![Pic of empty log output](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-18.png)
 
@@ -47,7 +47,7 @@ Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: [201
 Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: ') (mesosphere.marathon.MarathonScheduler:Thread-1723)
 ```
 
-However, this does not shed much light on why the task failed. So then to [Step 3](//tutorials/dcos-debug/gen-strat/#agent-strat) of our [strategy](//tutorials/dcos-debug/gen-strat/): check the [Mesos agent logs](//tutorials/dcos-debug/tools/#agent-logs) using:
+However, this does not shed much light on why the task failed. So then to [Step 3](/tutorials/dcos-debug/gen-strat/#agent-strat) of our [strategy](/tutorials/dcos-debug/gen-strat/): check the [Mesos agent logs](/tutorials/dcos-debug/tools/#agent-logs) using:
 
 ```bash
 $ dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100

@@ -9,7 +9,7 @@ enterprise: false
 
 
 
-You can create and manage your pods via the DC/OS CLI or via the `/v2/pods/` endpoint of the [Marathon API](//deploying-services/marathon-api/).
+You can create and manage your pods via the DC/OS CLI or via the `/v2/pods/` endpoint of the [Marathon API](/deploying-services/marathon-api/).
 
 # Using the Pods CLI
 
