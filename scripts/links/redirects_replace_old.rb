@@ -3,7 +3,7 @@ require_relative 'lib/filename_list'
 require_relative 'lib/link_finder'
 
 filename_list = FilenameList.new(
-  file_pattern: 'pages/test/links/**/*.{md,tmpl,png}'
+  file_pattern: 'pages/**/*.{md,tmpl,png}'
 )
 
 redirect_map = RedirectMap.new(
@@ -24,8 +24,6 @@ filename_list.each do |filename|
   links = LinkFinder.new(content: file_content).links
 
   fixers, not_found = redirect_map.find(data: links)
-
-  debugger
 
   all_not_found.concat(not_found)
 

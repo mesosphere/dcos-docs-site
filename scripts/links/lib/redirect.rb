@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Redirect
   def initialize(pre:, post:)
     @pre = pre
@@ -8,5 +6,5 @@ class Redirect
 
   private
 
-  attr_reader :pre, :post
+  attr_reader :post, :pre
 end
