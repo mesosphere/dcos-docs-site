@@ -47,7 +47,7 @@ The following graphic illustrates the data flow:
 
 ## Prerequisites
 
-*  [DC/OS](/1.10/installing/oss/) or [DC/OS Enterprise](/1.10/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
+*  [DC/OS](/1.10/installing/) or [DC/OS Enterprise](/1.10/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
 
     **Tip** If you are running this tutorial using a DC/OS Enterprise cluster, you will want to make sure [security mode](/1.10/installing/custom/configuration/configuration-parameters/#security-enterprise) is set to permissive or strict. DC/OS installs in permissive security mode by default.
 

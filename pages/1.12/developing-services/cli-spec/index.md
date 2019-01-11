@@ -9,7 +9,7 @@ enterprise: false
 ---
 This document is intended for a developer creating new DC/OS CLI subcommands. See also [Universe Getting Started][1]. 
 
-The [DC/OS command-line interface (CLI)](/1.12/cli) is a utility to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks. The DC/OS CLI is open and extensible: anyone can create a new subcommand and make it available for installation by end users. For example, the [Spark DC/OS service][2] provides CLI extensions for working with Spark. When installed, you can type the following command to submit Spark jobs and query their status:
+The [DC/OS command-line interface (CLI)](/1.12/cli/) is a utility to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks. The DC/OS CLI is open and extensible: anyone can create a new subcommand and make it available for installation by end users. For example, the [Spark DC/OS service][2] provides CLI extensions for working with Spark. When installed, you can type the following command to submit Spark jobs and query their status:
 
     dcos spark [<flags>] <command>
 

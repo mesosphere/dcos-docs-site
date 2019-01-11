@@ -18,7 +18,7 @@ Agent nodes are designated as [public](/1.10/overview/concepts/#public-agent-nod
 ### Prerequisites:
 The following steps must be performed on a machine that is configured as a DC/OS node. Any tasks that are running on the node will be terminated during this conversion process.
 
-*   DC/OS is installed using the [custom](/1.10/installing/oss/custom/) installation method and you have deployed at least one [master](/1.10/overview/concepts/#master) and one [private](/1.10/overview/concepts/#private-agent-node) agent node.
+*   DC/OS is installed using the [custom](/1.10/installing/) installation method and you have deployed at least one [master](/1.10/overview/concepts/#master) and one [private](/1.10/overview/concepts/#private-agent-node) agent node.
 *   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.10/installing/oss/custom/gui/#backup).     
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.

@@ -11,7 +11,7 @@ This topic describes how to deploy a non-native instance of Marathon with isolat
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/1.12/installing/oss/).
+-  DC/OS and DC/OS CLI [installed](/1.12/installing/).
 -  [DC/OS Enterprise CLI 0.4.14 or later](/1.12/cli/enterprise-cli/#ent-cli-install).
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.

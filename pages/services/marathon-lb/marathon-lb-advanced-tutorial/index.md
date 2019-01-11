@@ -15,7 +15,7 @@ In this tutorial, Marathon-LB is used as an internal and external load balancer.
 
 ## Prerequisites
 
-*   DC/OS installed by using the AWS [cloud templates](/1.10/installing/oss/cloud/aws/) with at least three [private](/1.10/overview/concepts/#private-agent-node) agents and one [public](/1.10/overview/concepts/#public-agent-node) agent.
+*   DC/OS installed by using the AWS [cloud templates](/1.10/installing/evaluation/aws/) with at least three [private](/1.10/overview/concepts/#private-agent-node) agents and one [public](/1.10/overview/concepts/#public-agent-node) agent.
 *   DC/OS CLI [installed][2].
 *   Marathon-LB [installed](/services/marathon-lb/usage-ee/).
 

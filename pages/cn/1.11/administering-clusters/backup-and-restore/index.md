@@ -15,6 +15,6 @@ enterprise: true
 # 限制
 
 - 从 DC/OS 1.10 起，备份仅包括管理节点上运行的 Marathon 的状态。
-- 您只能从 DC/OS Enterprise [备份和恢复 CLI](/cn/1.11/administering-clusters/backup-and-restore/backup-restore-cli) 和 [备份和恢复 API](/cn/1.11/administering-clusters/backup-and-restore/backup-restore-api) 执行备份和恢复操作。
+- 您只能从 DC/OS Enterprise [备份和恢复 CLI](/cn/1.11/administering-clusters/backup-and-restore/backup-restore-cli/) 和 [备份和恢复 API](/cn/1.11/administering-clusters/backup-and-restore/backup-restore-api/) 执行备份和恢复操作。
 
 <p class="message--important"><strong>重要信息：</strong>当您执行备份或恢复时，Marathon 被重新启动，以便能够以一致的状态执行操作。这不会影响运行中的任务，但如果当时某项任务正在启动某些操作，系统可能会出现短暂的不可用。</p>

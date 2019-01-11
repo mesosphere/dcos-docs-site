@@ -10,7 +10,7 @@ excerpt: Accessing the Kubernetes API with and without TLS verification, and man
 
 # Prerequisites
 
-- Before attempting to connect to the Kubernetes cluster, ensure that you have correctly exposed the Kubernetes API to outside the DC/OS cluster. This can be achieved, for example, by following the steps described in [Exposing the Kubernetes API](/services/kubernetes/2.1.0-1.12.3/operations/exposing-the-kubernetes-api).
+- Before attempting to connect to the Kubernetes cluster, ensure that you have correctly exposed the Kubernetes API to outside the DC/OS cluster. This can be achieved, for example, by following the steps described in [Exposing the Kubernetes API](/services/kubernetes/2.1.0-1.12.3/operations/exposing-the-kubernetes-api/).
 
 - Also ensure that [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) is installed and available in the terminal session. If you installed the Kubernetes package through the DC/OS UI, you will also need to install the `dcos kubernetes` CLI:
 

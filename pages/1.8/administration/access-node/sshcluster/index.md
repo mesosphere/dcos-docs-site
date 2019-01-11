@@ -61,7 +61,7 @@ These instructions explain how to set up an SSH connection to your DC/OS cluster
             dcos node ssh --master-proxy --mesos-id=<mesos-id>
             ```
             
-            **Tip:** To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/1.8/usage/webinterface) and click **Details**. 
+            **Tip:** To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/1.8/usage/webinterface/) and click **Details**. 
             
             ![Web interface node ID](/1.8/administration/access-node/img/ssh-node-id.png)
 

@@ -138,7 +138,7 @@ Password: `deleteme`
 
   For simplicity in this example, the configuration values are hard-coded.  If you have a desired cluster name or number of masters/agents, you can adjust the values directly in the `main.tf` configuration file.
 
-  You can find additional input variables and their descriptions [here](/1.12/installing/evaluation/gcp/advanced-gcp).
+  You can find additional input variables and their descriptions [here](/1.12/installing/evaluation/gcp/advanced-gcp/).
 
 3) Change to the `dcos-tf-gcp-demo` folder where you just created your `main.tf` file, if needed.
 

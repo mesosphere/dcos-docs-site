@@ -29,7 +29,7 @@ There are many ways to run a Prometheus server. This is the simplest way to get 
 
 You can find the Prometheus UI by hovering your cursor over the prometheus application in the 'monitoring' folder and clicking on the link that appears. This
 Prometheus service is configured to discover all the agents and masters in your cluster and pull metrics from them. Running the statsd-emitter test application
-described in the [quickstart](/1.11/metrics/quickstart) documentation will allow you to query for `statsd_tester_time_uptime`, which should yield a graph that
+described in the [quickstart](/1.11/metrics/quickstart/) documentation will allow you to query for `statsd_tester_time_uptime`, which should yield a graph that
 looks like this:
 
    ![statsd_tester_time_uptime](/1.11/img/statsd_tester_time_uptime.png)

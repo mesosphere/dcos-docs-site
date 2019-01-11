@@ -18,7 +18,7 @@ Edit the runtime environment of the scheduler to make configuration changes. Aft
 
 Nodes are configured with a "readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. In this case, the "readiness check" checks if the node has successfully joined quorum. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
 
-Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](/services/kafka-zookeeper/2.1.2-3.4.11/limitations).
+Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](/services/kafka-zookeeper/2.1.2-3.4.11/limitations/).
 
 To make configuration changes via scheduler environment updates, perform the following steps (documented in full [here](/1.11/deploying-services/config-universe-service/):
 

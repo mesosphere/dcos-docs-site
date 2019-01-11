@@ -138,7 +138,7 @@ In this step, permissions are assigned to the Marathon-on-Marathon instance. Per
 | Permissive | Not available |
 | Strict | Required |
 
-All CLI commands can also be executed via the [IAM API](/1.12/security/ent/iam-api).
+All CLI commands can also be executed via the [IAM API](/1.12/security/ent/iam-api/).
 
 Grant service account `${SERVICE_ACCOUNT}` permission to launch Mesos tasks that will execute as Linux user `nobody`.
 

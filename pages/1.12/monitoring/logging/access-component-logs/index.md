@@ -18,7 +18,7 @@ Here is the [permission](/1.12/security/ent/perms-reference/) that is required t
 
 **Prerequisites:**
 
-- DC/OS and DC/OS CLI are [installed](/1.12/installing/oss/) and you are logged in as a superuser.
+- DC/OS and DC/OS CLI are [installed](/1.12/installing/) and you are logged in as a superuser.
 
 # Via the DC/OS web interface
 

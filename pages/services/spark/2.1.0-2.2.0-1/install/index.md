@@ -33,7 +33,7 @@ dcos package install spark
 
 Go to the **Services** > **Deployments** tab of the DC/OS GUI to monitor the deployment. When it has finished deploying , visit Spark at `http://<dcos-url>/service/spark/`.
 
-You can also [install Spark via the DC/OS GUI](/1.9/gui/universe).
+You can also [install Spark via the DC/OS GUI](/1.9/gui/universe/).
 
 
 ## Spark CLI

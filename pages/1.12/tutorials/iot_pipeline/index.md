@@ -44,7 +44,7 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 
 ## Prerequisites
 
-*  [DC/OS](/installing/) or [DC/OS Enterprise](/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
+*  [DC/OS](/latest/installing/) or [DC/OS Enterprise](/latest/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
 *  [DC/OS CLI](/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
 *   Git:

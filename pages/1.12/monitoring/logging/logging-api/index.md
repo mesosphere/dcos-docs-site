@@ -72,7 +72,7 @@ The parameters used in the request come from mesos `state.json` and are called "
 
 # Auth
 
-All Logging API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](/1.12/security/ent/iam-api/#/obtaining-an-authentication-token) and [Passing an authentication token](/1.12/security/ent/iam-api/#/passing-an-authentication-token).
+All Logging API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](/1.12/security/ent/iam-api/#/obtaining-an-authentication-token/) and [Passing an authentication token](/1.12/security/ent/iam-api/#/passing-an-authentication-token/).
 
 The Logging API also requires authorization via the following permissions:
 | Path |  Permission |

@@ -178,7 +178,7 @@ URI 包括：
 **注意：**
 
 - 在 [`container.portMappings`](#container) 中为 Docker 容器配置端口分配。
-- 如果使用 [通用容器运行时间](/cn/1.11/deploying-services/containerizers/ucr)，请将零作为端口值传递，为各个应用实例生成一个或多个规定的自由端口。
+- 如果使用 [通用容器运行时间](/cn/1.11/deploying-services/containerizers/ucr/)，请将零作为端口值传递，为各个应用实例生成一个或多个规定的自由端口。
 
 如需更多信息，请参阅 [容器](/cn/1.11/deploying-services/containerizers/)。
 

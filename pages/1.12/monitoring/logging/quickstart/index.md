@@ -12,7 +12,7 @@ Use this guide to get started with DC/OS logging. Many of the commands used here
 
 **Prerequisites:**
 
-- You must have DC/OS and the DC/OS CLI [installed](/1.12/installing/oss/).
+- You must have DC/OS and the DC/OS CLI [installed](/1.12/installing/).
 
 - You must be logged in as as a superuser or have been granted user access to logging. For more information, see [Accessing system and component logs](/1.12/monitoring/logging/access-component-logs/) and [Accessing task logs](/1.12/monitoring/logging/access-task-logs/).
 

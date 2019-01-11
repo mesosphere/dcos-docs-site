@@ -31,7 +31,7 @@ enterprise: false
       https://<AWS S3 bucket>/stub-universe-edgelb-pool.json
     ```
 
-1. 安装新的 `apiserver`。使用在安装上一版本时创建的服务帐户；参阅 [Edge-LB 安装指南](/cn/services/edge-lb/1.1/installing)，以了解更多信息。
+1. 安装新的 `apiserver`。使用在安装上一版本时创建的服务帐户；参阅 [Edge-LB 安装指南](/cn/services/edge-lb/1.1/installing/)，以了解更多信息。
 
     ```bash
     tee edgelb-options.json <<EOF

@@ -336,7 +336,7 @@ In this step, permissions are assigned to the Marathon-on-Marathon instance. Per
 | Permissive | Not available |
 | Strict | Required |
 
-All CLI commands can also be executed via the [IAM API](/1.10/security/ent/iam-api).
+All CLI commands can also be executed via the [IAM API](/1.10/security/ent/iam-api/).
 
 1.  Grant the permission for user (`<service-account-id>`) with the `nobody` Linux user account specified. To use a different user account, replace `nobody` with the name of the user account. 
 

@@ -8,7 +8,7 @@ enterprise: false
 
 ---
 
-You connect to multiple DC/OS clusters using [dcos cluster](/1.11/cli/command-reference/dcos-cluster) commands.
+You connect to multiple DC/OS clusters using [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) commands.
 
 The  `dcos cluster` command has subcommands to set up connections to and attach to clusters, and rename and remove clusters.
 
@@ -38,7 +38,7 @@ Status can have the following values:
 
 - AVAILABLE : the cluster was set up locally and is reachable
 - UNAVAILABLE : the cluster was set up locally and is unreachable
-- UNCONFIGURED : the cluster was not set up locally (i.e., the cluster is [linked](/1.11/administering-clusters/multiple-clusters/cluster-links) to the currently attached cluster).
+- UNCONFIGURED : the cluster was not set up locally (i.e., the cluster is [linked](/1.11/administering-clusters/multiple-clusters/cluster-links/) to the currently attached cluster).
 
 In this example, the cluster named `dcosdev` is attached:
 
