@@ -1,4 +1,4 @@
-~(^.*/[^.]*[^/])$ $1/;
+~(^/.*/[^.^#]*[^/])$ $1/;
 ~^/service-docs/(.*)$ /services/$1;
 ~/[0-9]+\.[0-9]+/release-notes/version-policy/ /version-policy/;
 /administration/admin-tutorials/installdatacenter/ /latest/tutorials/dcos-101/redis-package/;

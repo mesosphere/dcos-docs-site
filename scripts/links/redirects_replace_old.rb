@@ -4,7 +4,7 @@ require_relative 'lib/filename_list'
 require_relative 'lib/link_finder'
 
 filename_list = FilenameList.new(
-  file_pattern: 'pages/test/links/*.{md,tmpl,png}'
+  file_pattern: 'pages/test/links/**/*.{md,tmpl,png}'
 )
 
 redirect_map = RedirectMap.new(
