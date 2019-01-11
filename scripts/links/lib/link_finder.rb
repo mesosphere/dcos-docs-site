@@ -6,28 +6,21 @@ class LinkFinder
   end
 
   def links
-    inline_links #+ reference_links
+    inline_links + reference_links
   end
 
   def reference_links
-    regex = Link.reference_link_regex(
-      link: Link.webpage_regex_str,
-      escape: false
-    )
-    find_links(regex: regex)
+    find_links(type: :reference)
   end
 
   def inline_links
-    regex = Link.inline_link_regex(
-      link: Link.webpage_regex_str,
-      escape: false
-    )
-    find_links(regex: regex)
+    find_links(type: :inline)
   end
 
-  def find_links(regex:)
+  def find_links(type:)
+    regex = Link.regex_for(type: type)
     content.scan(regex).map do |capture_group|
-      capture_group[1]
+      Link.new(url: capture_group[1])
     end
   end
 

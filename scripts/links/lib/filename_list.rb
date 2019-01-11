@@ -10,8 +10,8 @@ class FilenameList
     filename_set.include?(filename)
   end
 
-  def file_exists_for?(link:)
-    filename = "pages#{link}index.md"
+  def file_exists_for?(url:)
+    filename = "pages#{url}index.md"
     include?(filename: filename)
   end
 

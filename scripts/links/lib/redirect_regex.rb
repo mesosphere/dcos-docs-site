@@ -1,13 +1,14 @@
 require_relative 'redirect'
 
 class RedirectRegex < Redirect
-  def match?(link:)
-    pre_regex.match(link)
+  def match?(url:)
+    pre_regex.match(url)
   end
   
   def follow_redirect(link:)
-    raise "Not a match" unless match?(link: link)
-    link.gsub(pre_regex, post)
+    raise "Not a match" unless match?(url: link.url)
+
+    Link.new(url: link.url.gsub(pre_regex, post))
   end
 
   private
