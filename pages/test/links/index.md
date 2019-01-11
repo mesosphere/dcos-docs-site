@@ -6,9 +6,12 @@ menuWeight: -1
 ---
 
 [307](/latest/installing/).
-some other [regex redirect](/services/cassandra/) text.
-something [plaintext redirect](/latest/tutorials/dcos-101/redis-package/).
+some other [regex redirect](/service-docs/cassandra/) text.
+something [plaintext redirect](/administration/admin-tutorials/installdatacenter/).
 [correct](/services/cassandra/).
 [not valid](/defnot/).
 
 [swagger api='/services/api/edge-lb-common.yaml']
+
+[1]: /1.12/installing/oss/
+[2]: /1.12/installing/something.png
