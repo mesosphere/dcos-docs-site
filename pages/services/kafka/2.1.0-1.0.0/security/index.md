@@ -17,6 +17,10 @@ A good overview of these features can be found [here](https://www.confluent.io/b
 
 *Note*: These security features are only available on DC/OS Enterprise 1.10 and above.
 
+#include /services/include/service-account.tmpl
+
+#include /services/include/security-create-permissions.tmpl
+
 ## Transport Encryption
 
 #include /services/include/security-transport-encryption-lead-in.tmpl
