@@ -27,7 +27,7 @@ class LinkFinder
 
   def find_links(regex:)
     content.scan(regex).map do |capture_group|
-      capture_group[0]
+      capture_group[1]
     end
   end
 
