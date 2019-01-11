@@ -8,16 +8,15 @@ featureMaturity:
 enterprise: false
 ---
 
-## DC/OS 1.11
 
-If you are using DC/OS 1.11:
+## DC/OS 1.10 or later, and package 2.0.0-x or later
 
-Uninstall the service from the DC/OS CLI, by entering `dcos package uninstall <package_name>`.
+If you are using DC/OS 1.10 or later and the installed service has a version later than 2.0.0-x, then uninstalling the service is simple.
 
-```
+From the DC/OS CLI, enter 
 
-dcos package uninstall mongodbservice
-
+```bash
+$ dcos package uninstall --app-id=<service-name> {{ model.packageName }}
 ```
 
 ### Uninstall Flow

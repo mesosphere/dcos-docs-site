@@ -82,6 +82,8 @@ Below are the steps to be followed to configure Mount Volume:
   12. SSH to the Agent and verify a new resource state.
       Review the journald logs for reference to the new volume /dcos/volume0. In particular, there should be an entry for the   agent starting up and the new volume0 Mounted Disk Resource.
   ```shell
+  dcos node ssh --master-proxy --mesos-id=<Mesos ID of the node>
+
   journalctl -b | grep '/dcos/volume0'
 May 05 19:18:40 dcos-agent-public-01234567000001 systemd[1]: Mounting /dcos/volume0...
 May 05 19:18:42 dcos-agent-public-01234567000001 systemd[1]: Mounted /dcos/volume0.
