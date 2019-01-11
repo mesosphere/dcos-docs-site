@@ -2,13 +2,17 @@ class Link
   WEBPAGE_REGEX = "[A-z0-9/:.\\-_%&?#]+?".freeze
 
   def self.inline_link_regex(link:, escape: true)
-    interpolation = escape ? escape_regex(link) : link
+    interpolation = escape ? escape_regex(link: link) : link
 
-    Regexp.new("\\[.+?\\]\\((#{interpolation})\\)")
+    Regexp.new("\\[(.+?)\\]\\((#{interpolation})\\)")
+  end
+
+  def self.inline_link_replacement(link:)
+    "[\\1](#{link})"
   end
 
   def self.reference_link_regex(link:, escape: true)
-    interpolation = escape ? escape_regex(link) : link
+    interpolation = escape ? escape_regex(link: link) : link
 
     Regexp.new("\\[[0-9]+\\]: (#{interpolation})$")
   end

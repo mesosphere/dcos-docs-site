@@ -10,7 +10,7 @@ class LinkFixer
 
   def replace(content:)
     content = replace_301(content: content)
-    
+
     content
   end
 
@@ -25,9 +25,12 @@ class LinkFixer
   private
 
   def replace_301(content:)
+    # Can't just replace link with redirected link or it will include other
+    # links that include that link in its path
+    redirected_link = redirect_301.follow_redirect(link: link)
     content.gsub(
-      link,
-      redirect_301.follow_redirect(link: link)
+      Link.inline_link_regex(link: link),
+      Link.inline_link_replacement(link: redirected_link)
     )
   end
 end
