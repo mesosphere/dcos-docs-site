@@ -12,7 +12,7 @@ enterprise: true
 - [A DC/OS Service Account with a secret stored in the DC/OS Secret Store.](https://docs.mesosphere.com/latest/security/ent/service-auth/custom-service-auth/)
 - DC/OS Superuser permissions for modifying the permissions of the service account.
 - [DC/OS CLI](https://docs.mesosphere.com/1.10/cli/install/) installed and be logged in as a superuser.
-- [Enterprise DC/OS CLI 0.4.14 or later installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/#ent-cli-install).
+- [Enterprise DC/OS CLI installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/#ent-cli-install).
 - If your [security mode](https://docs.mesosphere.com/1.10/security/ent/) is permissive or strict, you must [get the root cert](https://docs.mesosphere.com/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # Service Account Configuration
