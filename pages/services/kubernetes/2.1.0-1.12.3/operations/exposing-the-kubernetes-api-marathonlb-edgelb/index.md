@@ -12,9 +12,9 @@ excerpt: Setting up HAProxy to expose the Kubernetes API via Marathon-LB or Edge
 
 If you have existing instances of Marathon-LB in your DC/OS cluster, or if you are using Edge-LB (DC/OS Enterprise), you can expose the Kubernetes API for a given Kubernetes cluster via the existing HAProxy built into Marathon-LB or Edge-LB.
 
-These options (as documented below) are slightly less secure than Option 2 from the [Exposing the Kubernetes API](/services/kubernetes/2.1.0-1.12.3/operations/exposing-the-kubernetes-api) page, because they use a self-signed TLS certificate to expose the Kubernetes API endpoint.
+These options (as documented below) are slightly less secure than Option 2 from the [Exposing the Kubernetes API](/services/kubernetes/2.1.0-1.12.3/operations/exposing-the-kubernetes-api/) page, because they use a self-signed TLS certificate to expose the Kubernetes API endpoint.
 Exposing the Kubernetes API endpoint with Marathon-LB and/or Edge-LB using a signed certificate is possible but not covered by the scope of this document.
-Exposing the Kubernetes API for multiple Kubernetes clusters is also out of the scope of this document. This is explained in detail in [Exposing the Kubernetes API](/services/kubernetes/2.1.0-1.12.3/operations/exposing-the-kubernetes-api).
+Exposing the Kubernetes API for multiple Kubernetes clusters is also out of the scope of this document. This is explained in detail in [Exposing the Kubernetes API](/services/kubernetes/2.1.0-1.12.3/operations/exposing-the-kubernetes-api/).
 
 Both of these examples will generate a setup similar to the following:
 

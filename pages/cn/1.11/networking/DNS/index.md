@@ -11,7 +11,7 @@ enterprise: false
 
 DC/OS 提供基于 DNS 的分布式容错性服务发现机制。
 
-DNS 由 DC/OS 中的两个不同组件 [mesos-dns](/cn/1.11/networking/DNS/mesos-dns) 和 [dcos-dns](/cn/1.11/networking/DNS/dcos-dns) 提供。这些组件支持两个顶级域 (TLD) 名，即 `.mesos` 和 `.directory`。请阅读 [建议](#Recommendation) 部分，更好地了解这两个 TLD 的使用。
+DNS 由 DC/OS 中的两个不同组件 [mesos-dns](/cn/1.11/networking/DNS/mesos-dns/) 和 [dcos-dns](/cn/1.11/networking/DNS/dcos-dns/) 提供。这些组件支持两个顶级域 (TLD) 名，即 `.mesos` 和 `.directory`。请阅读 [建议](#Recommendation) 部分，更好地了解这两个 TLD 的使用。
 
 每个 TLD 均由多个区域组成。每个 DC/OS 服务从这些不同区域获取多个 FQDN 条目。通过 Marathon 在 DC/OS 上启动的每个服务都以下列形式获得 FQDN，即 `<service-name>.mesos`. Moreover, **all** running services launched on DC/OS get an FQDN based upon the service that launched it, in the form `<service-name>.<group-name>.<framework-name>.mesos`。
 

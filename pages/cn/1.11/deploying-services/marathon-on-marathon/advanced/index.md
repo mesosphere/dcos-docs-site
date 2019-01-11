@@ -331,7 +331,7 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
 | 宽容 | 不可用 |
 | 严格 | 必填 |
 
-所有 CLI 命令也可通过 [IAM API](/cn/1.11/security/ent/iam-api) 执行。
+所有 CLI 命令也可通过 [IAM API](/cn/1.11/security/ent/iam-api/) 执行。
 
 授予服务帐户 `<service-account-id>` 允许启动将作为Linux用户执行的Mesos任务 `nobody`。
 要允许作为不同 Linux 用户执行任务，请将 `nobody` 替换为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请将 `nobody` 替换为以下的 `bob`。

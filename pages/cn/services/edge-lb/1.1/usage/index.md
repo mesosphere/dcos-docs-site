@@ -15,7 +15,7 @@ enterprise: true
 
 # 创建池
 
-启动服务并创建 [池配置文件](/cn/services/edge-lb/1.1/pool-configuration)后，您可以使用 CLI 来部署它：
+启动服务并创建 [池配置文件](/cn/services/edge-lb/1.1/pool-configuration/)后，您可以使用 CLI 来部署它：
 
 ```
 dcos edgelb create <pool-configuration-file>
@@ -40,7 +40,7 @@ dcos edgelb update <pool-configuration-file>
 * 重新加载将每 10 秒进行一次。
 
 此重新加载的属性能够实现
-[蓝色/绿色部署这样的策略](/cn/services/edge-lb/1.1/tutorials/blue-green-deploy)。
+[蓝色/绿色部署这样的策略](/cn/services/edge-lb/1.1/tutorials/blue-green-deploy/)。
 
 ## 负载均衡器重新启动场景
 

@@ -16,7 +16,7 @@ This page covers common commands for Edge-LB usage. For a more detailed list of 
 
 # Create pools
 
-After launching a service and creating a [pool configuration file](/services/edge-lb/1.2/pool-configuration), you can use the CLI to deploy it:
+After launching a service and creating a [pool configuration file](/services/edge-lb/1.2/pool-configuration/), you can use the CLI to deploy it:
 
 ```bash
 dcos edgelb create <pool-configuration-file>
@@ -43,7 +43,7 @@ A change to a service (such as scaling up) that is load balanced by a pool will 
 * A reload will occur at most once every 3 seconds.
 
 The properties of this reload enable strategies like
-[Blue/Green Deployment](/services/edge-lb/1.2/tutorials/blue-green-deploy).
+[Blue/Green Deployment](/services/edge-lb/1.2/tutorials/blue-green-deploy/).
 
 ## Load balancer relaunch scenario
 

@@ -29,6 +29,6 @@ dcos plugin
 
 | Command | Description |
 |---------|-------------|
-| [dcos plugin add](/1.12/cli/command-reference/dcos-plugin/dcos-plugin-add) | Install a CLI plugin |
-| [dcos plugin list](/1.12/cli/command-reference/dcos-plugin/dcos-plugin-list) | List installed plugins |
-| [dcos plugin remove](/1.12/cli/command-reference/dcos-plugin/dcos-plugin-remove) | Remove a CLI plugin |
+| [dcos plugin add](/1.12/cli/command-reference/dcos-plugin/dcos-plugin-add/) | Install a CLI plugin |
+| [dcos plugin list](/1.12/cli/command-reference/dcos-plugin/dcos-plugin-list/) | List installed plugins |
+| [dcos plugin remove](/1.12/cli/command-reference/dcos-plugin/dcos-plugin-remove/) | Remove a CLI plugin |

@@ -22,7 +22,7 @@ Features provided by DC/OS Overlay are:
 * You can run applications that require intra-cluster connectivity, like Cassandra, HDFS, and Riak.
 * You can create multiple virtual networks to isolate different portions of your organization, for instance, development, marketing, and production.
 
-Details about the design and implementation of DC/OS Overlay can be found in the [Overlay introduction](/1.12/overview/design/overlay). The default configuration of DC/OS Overlay provides an IPv4 virtual network, `dcos`, and an IPv6 virtual network `dcos6` whose YAML configuration is as follows:
+Details about the design and implementation of DC/OS Overlay can be found in the [Overlay introduction](/1.12/overview/design/overlay/). The default configuration of DC/OS Overlay provides an IPv4 virtual network, `dcos`, and an IPv6 virtual network `dcos6` whose YAML configuration is as follows:
 
 ```yaml
  dcos_overlay_network :
@@ -87,7 +87,7 @@ The default network can be overriden, or additional virtual networks can be conf
           prefix: 24
 ```
 
-In the above example, two virtual networks have been defined. The virtual network `dcos` retains the default virtual network, and another virtual network called `dcos-1` with subnet range `192.168.0.0/16` has been added. In DC/OS Overlay, virtual networks must be associated with a name and a subnet. That name is used to launch Marathon tasks and other Mesos framework tasks using this specific virtual network (see [usage](/1.12/networking/SDN/usage)). Due to restrictions on the size of Linux device names, the virtual network name must be less than thirteen characters. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more.
+In the above example, two virtual networks have been defined. The virtual network `dcos` retains the default virtual network, and another virtual network called `dcos-1` with subnet range `192.168.0.0/16` has been added. In DC/OS Overlay, virtual networks must be associated with a name and a subnet. That name is used to launch Marathon tasks and other Mesos framework tasks using this specific virtual network (see [usage](/1.12/networking/SDN/usage/)). Due to restrictions on the size of Linux device names, the virtual network name must be less than thirteen characters. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more.
 
 # Retrieving virtual network state
 
@@ -314,7 +314,7 @@ The **Networking** tab of the DC/OS web interface provides information helpful f
 
 * DC/OS Overlay does not allow services to reserve IP addresses that result in ephemeral addresses for containers across multiple incarnations on the virtual network. This restriction ensures that a given client connects to the correct service.
 
-DC/OS provides FQDNs in different [zones](/1.12/networking/DNS) that offer a clean way of accessing services through predictable URLs. If you are using DC/OS Overlay, you should use one of the FQDNs provided by the DC/OS DNS service to make it easy for clients to discover the location of your service.
+DC/OS provides FQDNs in different [zones](/1.12/networking/DNS/) that offer a clean way of accessing services through predictable URLs. If you are using DC/OS Overlay, you should use one of the FQDNs provided by the DC/OS DNS service to make it easy for clients to discover the location of your service.
 
 * The limitation on the total number of containers on DC/OS Overlay is the same value as the number of IP addresses available on the overlay subnet. However, the limitation on the number of containers on an agent depends on the subnet (which will be a subset of the overlay subnet) allocated to the agent. For a given agent subnet, half the address space is allocated to the `MesosContainerizer` and the other half is allocated to the `DockerContainerizer`.
 

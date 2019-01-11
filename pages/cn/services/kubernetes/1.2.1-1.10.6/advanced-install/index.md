@@ -507,6 +507,6 @@ spec:
 其 Kubernetes 包含内置控制器和与云提供商的集成。
 因此，要使用 `Ingress` AWS 中的资源，您必须部署自定义
 ingress 控制器。请参阅
-[Ingress](/cn/services/kubernetes/1.2.1-1.10.6/ingress)
+[Ingress](/cn/services/kubernetes/1.2.1-1.10.6/ingress/)
 文档，以了解有关在您的
 集群中设置 ingress 的示例和重要信息。

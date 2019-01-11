@@ -30,8 +30,8 @@ dcos edgelb update [<flags>] <pool-file>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.2/cli-reference) |  Manage Edge-LB. |
+| [dcos edgelb](/services/edge-lb/1.2/cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.2/usage).
+See the [Edge-LB Usage](/services/edge-lb/1.2/usage/).

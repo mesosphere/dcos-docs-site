@@ -13,7 +13,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 **Prerequisites:**
 
-- DC/OS Enterprise is [installed](/1.10/installing/ent/) in permissive [mode](/1.10/security/ent/#security-modes).
+- DC/OS Enterprise is [installed](/1.10/installing/) in permissive [mode](/1.10/security/ent/#security-modes).
 
 ## Create users and groups
 

@@ -111,7 +111,7 @@ Considerations:
 - Once deployed, region changes are not supported and can leave the scheduler in a crash loop.
 
 
-**NOTE:** Multi-Region deployment is not supported, see [Limitations](/services/kubernetes/2.1.0-1.12.3/limitations/index).
+**NOTE:** Multi-Region deployment is not supported, see [Limitations](/services/kubernetes/2.1.0-1.12.3/limitations/index/).
 
 ## Placement Constraints
 

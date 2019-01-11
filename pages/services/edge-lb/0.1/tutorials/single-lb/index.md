@@ -12,7 +12,7 @@ This tutorial demonstrates how to load balance a DC/OS service and set it up for
 
 ## Prerequisites
 
-* Edge-LB is installed following the [Edge-LB Installation Guide](/services/edge-lb/0.1/installing).
+* Edge-LB is installed following the [Edge-LB Installation Guide](/services/edge-lb/0.1/installing/).
 * The DC/OS CLI is installed and configured to communicate with the DC/OS cluster, and the `edgelb` CLI package has been installed.
 * At least one DC/OS private agent node, to run the load balanced service (more is preferable).
 * At least one DC/OS public agent node.
@@ -56,7 +56,7 @@ This tutorial demonstrates how to load balance a DC/OS service and set it up for
    dcos marathon app add ping.json
    ```
 
-1. Create a [pool configuration](/services/edge-lb/0.1/pool-configuration).
+1. Create a [pool configuration](/services/edge-lb/0.1/pool-configuration/).
 
    ```json
    {

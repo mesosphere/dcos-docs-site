@@ -34,8 +34,8 @@ dcos edgelb create [<flags>] <pool-file>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.0/cli-reference) |  Manage Edge-LB. |
+| [dcos edgelb](/services/edge-lb/1.0/cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.0/usage).
+See the [Edge-LB Usage](/services/edge-lb/1.0/usage/).

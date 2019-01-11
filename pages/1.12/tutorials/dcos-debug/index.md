@@ -14,7 +14,7 @@ menuWeight: 55
 
 This tutorial merely aims to provide a top-down introduction to debugging applications during and after their deployment on DC/OS. It should not be considered an exhaustive resource for debugging on DC/OS, but rather a starting point.
 
-Debugging application deployment issues in distributed systems is often a challenging task. While DC/OS provides a number of tools for debugging, it might be difficult to choose which tool to apply in your particular situation. You should have a working knowledge of DC/OS in order to complete this tutorial. However, if needed there are plenty of other [tutorials to get you up and running](/tutorials/).
+Debugging application deployment issues in distributed systems is often a challenging task. While DC/OS provides a number of tools for debugging, it might be difficult to choose which tool to apply in your particular situation. You should have a working knowledge of DC/OS in order to complete this tutorial. However, if needed there are plenty of other [tutorials to get you up and running](/latest/tutorials/).
 
 It can be encouraging to keep in mind that failures are highly likely when working with distributed systems. Many components must be configured to precise specifications to function together as intended. This takes detailed  preparation and awareness during installation and initial configuration. Fortunately, this also means that by putting extra care in the general design of the application architecture can potentially prevent many bugs from even arising:
 

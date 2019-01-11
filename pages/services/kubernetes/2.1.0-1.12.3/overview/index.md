@@ -57,7 +57,7 @@ The new CLI features a number of other useful commands, which can be listed by r
 dcos kubernetes --help
 ```
 
-See the [CLI](/services/kubernetes/2.1.0-1.12.3/cli) section for documentation on the new CLI.
+See the [CLI](/services/kubernetes/2.1.0-1.12.3/cli/) section for documentation on the new CLI.
 
 # Cluster Manager
 

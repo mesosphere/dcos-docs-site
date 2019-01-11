@@ -9,7 +9,7 @@ enterprise: true
 
 集群链接是集群和另一集群之间的 **单向** 关系。
 
-您可以使用 DC/OS CLI [dcos cluster link](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link) 和 [dcos cluster unlink](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink) 命令和 [群集链接 API](/cn/1.11/administering-clusters/multiple-clusters/cluster-link-api)添加和删除一个群集到另一个群集的链接。链接设置完成后，您可以使用 CLI 或 UI 轻松在群集之间切换。如果链接通过由 SSO 提供程序设置，您不需要提供凭证即可切换群集。
+您可以使用 DC/OS CLI [dcos cluster link](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) 和 [dcos cluster unlink](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) 命令和 [群集链接 API](/cn/1.11/administering-clusters/multiple-clusters/cluster-link-api/)添加和删除一个群集到另一个群集的链接。链接设置完成后，您可以使用 CLI 或 UI 轻松在群集之间切换。如果链接通过由 SSO 提供程序设置，您不需要提供凭证即可切换群集。
 
 您必须以超级用户身份登录或具有相应的集群链接 [权限](/cn/1.11/security/ent/perms-reference/#cluster-linker)以查看、添加及删除链接和授予权限以查看链接的集群。
 
@@ -54,7 +54,7 @@ Choose the login method and provider to enable switching to this linked cluster:
 
 # 查看已链接的集群
 
-要查看所有已链接的集群，运行 `dcos cluster list` 命令。如果集群已链接，但未设置，其状态为 `UNCONFIGURED`。如果集群已链接和附加，其状态为 `AVAILABLE`。另请参阅 [查看连接的集群](/cn/1.11/administering-clusters/multiple-clusters/cluster-connections)。
+要查看所有已链接的集群，运行 `dcos cluster list` 命令。如果集群已链接，但未设置，其状态为 `UNCONFIGURED`。如果集群已链接和附加，其状态为 `AVAILABLE`。另请参阅 [查看连接的集群](/cn/1.11/administering-clusters/multiple-clusters/cluster-connections/)。
 
 # 删除集群的链接
 

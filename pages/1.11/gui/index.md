@@ -28,7 +28,7 @@ On the left hand side, you will see the web interface navigation menu:
 
 # User menu
 
-Additionally, there is a User Menu on the upper-left side of the web interface that includes links for [cluster overview](/1.11/gui/cluster), [linked clusters](/1.11/administering-clusters/multiple-clusters/cluster-links), documentation, CLI installation, and user sign out.
+Additionally, there is a User Menu on the upper-left side of the web interface that includes links for [cluster overview](/1.11/gui/cluster/), [linked clusters](/1.11/administering-clusters/multiple-clusters/cluster-links/), documentation, CLI installation, and user sign out.
 
 ![DC/OS UI User Menu](/1.11/img/ui-user-menu.png)
 

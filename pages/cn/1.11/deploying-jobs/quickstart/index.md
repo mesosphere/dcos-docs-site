@@ -44,7 +44,7 @@ enterprise: false
 **Label Name** 和 **Label Value** - 将元数据附加到您的作业，以便您可以筛选。[了解有关标签的更多信息](/cn/1.11/tutorials/task-labels/)。
 
 ## 作业组
-您可以将作业添加到现有的作业组，或在创建作业时创建一个组。在作业 ID 中使用点可将作业嵌套在一个组中。例如，如果您输入作业 ID `marketing.myjob`，`myjob` 将在 `marketing` 组中创建。在 DC/OS Enterprise 中，您可以 [使用工作组](/cn/1.11/deploying-jobs/job-groups) 实现细粒度用户访问。
+您可以将作业添加到现有的作业组，或在创建作业时创建一个组。在作业 ID 中使用点可将作业嵌套在一个组中。例如，如果您输入作业 ID `marketing.myjob`，`myjob` 将在 `marketing` 组中创建。在 DC/OS Enterprise 中，您可以 [使用工作组](/cn/1.11/deploying-jobs/job-groups/) 实现细粒度用户访问。
 
 ## 修改、查看或删除作业
 

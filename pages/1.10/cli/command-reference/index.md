@@ -14,7 +14,7 @@ enterprise: false
 
 | Command | Description |
 |---------|-------------|
-| [dcos](/1.10/cli/command-reference/dcos)   | Manage DC/OS environment variables. |
+| [dcos](/1.10/cli/command-reference/dcos/)   | Manage DC/OS environment variables. |
 | [dcos auth](/1.10/cli/command-reference/dcos-auth/)   |  Manage DC/OS identity and access. |
 | [docs cluster](/1.10/cli/command-reference/dcos-cluster/) |  Manage connections to DC/OS clusters. |
 | [dcos config](/1.10/cli/command-reference/dcos-config/) |  Manage the DC/OS configuration file. |

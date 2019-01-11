@@ -155,7 +155,7 @@ To configure it:
 
 1. Create a file named `options.json` with the following contents.
 
-**Note:** If you are using the [DC/OS Apache ZooKeeper service](/services/kafka-zookeeper), use the DNS addresses provided by the `dcos beta-kafka-zookeeper endpoints clientport` command as the value of `kafka_zookeeper_uri`.
+**Note:** If you are using the [DC/OS Apache ZooKeeper service](/services/kafka-zookeeper/), use the DNS addresses provided by the `dcos beta-kafka-zookeeper endpoints clientport` command as the value of `kafka_zookeeper_uri`.
 
 ```json
 {

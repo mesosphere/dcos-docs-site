@@ -77,7 +77,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_
 
 # 认证
 
-所有日志记录 API 路由均需要认证才能使用。要验证 API 请求，请参阅 [获取认证令牌](/cn/1.11/security/ent/iam-api/#/obtaining-an-authentication-token) 和 [传递认证令牌](/cn/1.11/security/ent/iam-api/#/passing-an-authentication-token)。
+所有日志记录 API 路由均需要认证才能使用。要验证 API 请求，请参阅 [获取认证令牌](/cn/1.11/security/ent/iam-api/#/obtaining-an-authentication-token/) 和 [传递认证令牌](/cn/1.11/security/ent/iam-api/#/passing-an-authentication-token/)。
 
 日志记录 API 还需要通过以下权限授权：
 | 路径 | 权限 |

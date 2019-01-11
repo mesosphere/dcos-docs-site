@@ -11,7 +11,7 @@ Kafka is available in the Universe and can be installed by using either the web 
 
 ##  <a name="install-enterprise"></a>Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/services/kafka/2.0.4-1.0.0/kafka-auth) before installing Kafka. Only someone with `superuser` permission can create the service account.
+- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/services/kafka/2.0.4-1.0.0/kafka-auth/) before installing Kafka. Only someone with `superuser` permission can create the service account.
 	- `strict` [security mode](/1.11/installing/production/advanced-configuration/configuration-reference/) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
