@@ -13,5 +13,7 @@ something [plaintext redirect](/administration/admin-tutorials/installdatacenter
 
 [swagger api='/services/api/edge-lb-common.yaml']
 
+some other [regex redirect](/service-docs/cassandra/) text something [plaintext redirect](/administration/admin-tutorials/installdatacenter/).
+
 [1]: /1.12/installing/oss/
 [2]: /1.12/installing/something.png
