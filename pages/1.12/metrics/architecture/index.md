@@ -21,7 +21,7 @@ By default, DC/OS enables the following Telegraf plugins:
  1. `dcos_containers` collects resource information about containers from the `mesos` process.
  1. `override` plugin is used to add **node-level** metadata, for example, the cluster name.
  1. `dcos_metadata` plugin is used to add **task-level** metadata, for example, the executor name and task name.
- 1. `dcos_api` output plugin serves the `dcos-metrics` JSON API, which is used by the CLI.
+ 1. `dcos_metrics` output plugin serves the `dcos-metrics` JSON API, which is used by the CLI.
  1. `prometheus_client` output plugin serves metrics in Prometheus format.
 
 When Telegraf starts on a node, it loads a configuration file and the contents of a configuration directory or directories. You can specify the plugins you want to enable by creating a configuration file with the appropriate settings and copying the file into the `/var/lib/dcos/telegraf/telegraf.d` directory before restarting Telegraf. Only files ending with `.conf` will be included in the Telegraf configuration. Note: Any mistakes in the configuration files will prevent Telegraf from starting up successfully.

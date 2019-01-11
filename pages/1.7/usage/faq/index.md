@@ -19,7 +19,7 @@ This most commonly occurs when an application being launched has higher system r
 
 ## Why is my Marathon app launching on private agent instead of public?
 
-By default apps are launched on private nodes. For more information, see the [documentation][5].
+By default apps are launched on private nodes. For more information, see the [documentation][3].
 
 ## What is meant by service ports in a Marathon app?
 
@@ -40,10 +40,6 @@ A comprehensive overview of a few common service discovery implementations is av
 ## Is it possible to span my cluster over different cloud providers?
 
 This is not currently supported. 
-
-## How to add Mesos roles for a node to dedicate this node for some apps?
-
-Please review this link on [the Mesosphere Knowledge Base][4].
 
 ## How can I upload files to Spark driver/executor?
 
@@ -70,5 +66,4 @@ We recommend using CoreOS, matched with its correct versions and sensible defaul
 
 [1]: /1.7/usage/service-discovery/load-balancing/
 [2]: /1.7/usage/service-discovery/
-[4]: https://support.mesosphere.com/hc/en-us/articles/206474745-How-to-reserve-resources-for-certain-frameworks-in-Mesos-cluster-
-[5]: /1.7/administration/installing/oss/custom/create-public-agent/
+[3]: /1.7/administration/installing/oss/custom/create-public-agent/

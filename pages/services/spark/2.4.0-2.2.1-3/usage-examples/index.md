@@ -61,4 +61,4 @@ The corresponding `dcos spark` command would be:
         --conf spark.mesos.driverEnv.KRB5_CONFIG_BASE64=W2xpYmRlZmF1bHRzXQpkZWZhdWx0X3JlYWxtID0gTE9DQUwKCltyZWFsbXNdCiAgTE9DQUwgPSB7CiAgICBrZGMgPSBrZGMubWFyYXRob24uYXV0b2lwLmRjb3MudGhpc2Rjb3MuZGlyZWN0b3J5OjI1MDAKICB9Cg== \
         --class MyAppClass <URL_of_jar> [application args]"
 
-<p class="message--note"><strong>NOTE: </strong>There are additional walkthroughs available in the <code>docs/walkthroughs/</code> directory of Mesosphere's <code>spark-build</code> <a href="https://github.com/mesosphere/spark-build/docs/walkthroughs/">repo</a>).</p>
+<p class="message--note"><strong>NOTE: </strong>There are additional walkthroughs available in the <code>docs/walkthroughs/</code> directory of Mesosphere's <code>spark-build</code> <a href="https://github.com/mesosphere/spark-build/tree/master/docs/walkthroughs">repo</a>).</p>

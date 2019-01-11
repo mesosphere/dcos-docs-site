@@ -15,7 +15,7 @@ This introduction will get you up and running in minutes with {{ model.techShort
 **Prerequisites:**
 
 * [DC/OS and DC/OS CLI installed](/1.12/installing/) with a minimum of {{ model.install.nodeDescription }}
-* Depending on your [security mode](https://docs.mesosphere.com/latest/overview/security/security-modes/), {{ model.techShortName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/services/spark/2.3.1-2.2.1-2/security/#provisioning-a-service-account) for more information.
+* Depending on your [security mode](https://docs.mesosphere.com/1.12/security/ent/#security-modes), {{ model.techShortName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/services/spark/2.3.1-2.2.1-2/security/#provisioning-a-service-account) for more information.
 
    | Security mode | Service Account |
    |---------------|-----------------------|
