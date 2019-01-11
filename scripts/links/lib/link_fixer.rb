@@ -1,4 +1,6 @@
-class RedirectFixer
+require_relative 'link'
+
+class LinkFixer
   attr_reader :link
   attr_accessor :redirect_307, :redirect_301
 

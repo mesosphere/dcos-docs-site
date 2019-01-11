@@ -1,7 +1,7 @@
 require 'byebug'
 require_relative 'redirect_string'
 require_relative 'redirect_regex'
-require_relative 'redirect_fixer'
+require_relative 'link_fixer'
 
 class RedirectMap
   def initialize(filename_301:, filename_307:, existing_filenames:)
@@ -46,7 +46,7 @@ class RedirectMap
 
   def find_fixer(link:)
     # TODO: optimize by storing fixers by link
-    fixer = RedirectFixer.new(link: link)
+    fixer = LinkFixer.new(link: link)
 
     fixer.redirect_307 = find_307_redirect(link: link)
 

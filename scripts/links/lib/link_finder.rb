@@ -1,8 +1,6 @@
-class LinkFinder
-  WEBPAGE_REGEX = "[A-z0-9/:.\\-_%&?#]+?"
-  INLINE_LINK_REGEX = Regexp.new("\\[.+?\\]\\((#{WEBPAGE_REGEX})\\)")
-  REF_LINK_REGEX = Regexp.new("\\[[0-9]+\\]: (#{WEBPAGE_REGEX})$")
+require_relative 'link'
 
+class LinkFinder
   def initialize(content:)
     @content = content
   end
@@ -12,11 +10,19 @@ class LinkFinder
   end
 
   def reference_links
-    find_links(regex: REF_LINK_REGEX)
+    regex = Link.reference_link_regex(
+      link: Link.webpage_regex_str,
+      escape: false
+    )
+    find_links(regex: regex)
   end
 
   def inline_links
-    find_links(regex: INLINE_LINK_REGEX)
+    regex = Link.inline_link_regex(
+      link: Link.webpage_regex_str,
+      escape: false
+    )
+    find_links(regex: regex)
   end
 
   def find_links(regex:)
