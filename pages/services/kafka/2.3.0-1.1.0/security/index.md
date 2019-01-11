@@ -162,7 +162,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 }
 ```
 
-**Note:** It is possible to enable SSL authentication after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured.
+<p class="message--note"><strong>NOTE: </strong> It is possible to enable SSL authentication after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured.</p>
 
 #### Authenticating a Client
 
@@ -213,7 +213,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 
 `service.security.authorization.super_users` should be set to a semi-colon delimited list of principals to treat as super users (all permissions). The format of the list is `User:<user1>;User:<user2>;...`. Using Kerberos authentication, the "user" value is the Kerberos primary, and for SSL authentication the "user" value is the `CN` of the certificate. The {{ model.techShortName }} brokers themselves are automatically designated as super users.
 
-**Note:**  It is possible to enable Authorization after initial installation, but the service may be unavailable during the transition. Additionally, {{ model.techShortName }} clients may fail to function if they do not have the correct ACLs assigned to their principals. During the transition `service.security.authorization.allow_everyone_if_no_acl_found` can be set to `true` to prevent clients from being failing until their ACLs can be set correctly. After the transition, `service.security.authorization.allow_everyone_if_no_acl_found` should be reversed to `false`
+<p class="message--note"><strong>NOTE: </strong> It is possible to enable Authorization after initial installation, but the service may be unavailable during the transition. Additionally, {{ model.techShortName }} clients may fail to function if they do not have the correct ACLs assigned to their principals. During the transition `service.security.authorization.allow_everyone_if_no_acl_found` can be set to `true` to prevent clients from being failing until their ACLs can be set correctly. After the transition, `service.security.authorization.allow_everyone_if_no_acl_found` should be reversed to `false`</p>
 
 
 ## Securely Exposing DC/OS {{ model.techName }} Outside the Cluster.
