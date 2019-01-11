@@ -1,4 +1,3 @@
-require 'byebug'
 require_relative 'redirect'
 
 class RedirectString < Redirect
@@ -6,9 +5,8 @@ class RedirectString < Redirect
     link == pre
   end
 
-  def replace(content:)
-    content.gsub(pre, post)
+  def follow_redirect(link:)
+    raise "Not a match" unless match?(link: link)
+    post
   end
-
-  alias_method :replace_markdown_link, :replace
 end

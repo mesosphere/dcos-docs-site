@@ -976,4 +976,4 @@
 ~^/services/edge-lb/0.1.9/(.*)$ /services/edge-lb/0.1/$1;
 ~^/services/edge-lb/1.0.0/(.*)$ /services/edge-lb/1.0/$1;
 /support/ https://support.mesosphere.com;
-~^/docs/(?<path>.*)$ /$path;
+~^/docs/(.*)$ /$1;
