@@ -1,10 +1,10 @@
 require 'byebug'
 require_relative 'redirect_string'
 require_relative 'redirect_regex'
+require_relative 'redirect_fixer'
 
 class RedirectMap
   def initialize(filename_301:, filename_307:, existing_filenames:)
-    @redirect_filenames = redirect_filenames
     @existing_filenames = existing_filenames
 
     populate_maps(filename_301: filename_301,
@@ -13,22 +13,22 @@ class RedirectMap
 
   def find(data:)
     if data.is_a?(String)
-      find_redirect(link: data)
+      find_fixer(link: data)
     elsif data.is_a?(Array)
-      link_redirects = []
+      redirect_fixers = []
       not_found = []
 
       data.each do |link|
         next if file_exists_for?(link: link)
-        redirect = find_redirect(link: link)
-        if redirect
-          link_redirects << redirect 
+        fixer = find_fixer(link: link)
+        if fixer
+          redirect_fixers << fixer
         else
           not_found << link
         end
       end
 
-      [link_redirects, not_found]
+      [redirect_fixers, not_found]
     else
       raise "RedirectMap#find only accepts a string or array of strings"
     end
@@ -36,8 +36,7 @@ class RedirectMap
 
   private
 
-  attr_reader :redirect_filenames,
-              :redirects_301,
+  attr_reader :redirects_301,
               :redirects_307,
               :existing_filenames
 
@@ -45,30 +44,27 @@ class RedirectMap
     existing_filenames.file_exists_for?(link: link)
   end
 
-  def find_redirect(link:)
-    # This is much more complicated than just replacing.
-    # If the link is latest, it should be updated but still
-    # contain latest. A little more involved than a simple
-    # replace
-    # corrected_link = replace_307_redirect(link: link)
+  def find_fixer(link:)
+    # TODO: optimize by storing fixers by link
+    fixer = RedirectFixer.new(link: link)
 
-    find_301_redirect(link: link)
+    fixer.redirect_307 = find_307_redirect(link: link)
+
+    fixer.redirect_301 = find_301_redirect(link: link)
+
+    fixer.has_redirect_301? ? fixer : nil
   end
 
-  # Returns corrected link if 307 found, else returns original
-  def replace_307_redirect(link:)
-    redirects_307.each do |redirect|
-      if redirect.match?(link: link)
-        return redirect.replace(content: link)
-      end
-    end
-    
-    link
+  def find_307_redirect(link:)
+    find_redirect(redirects: redirects_307, link: link)
   end
 
-  # Returns redirect if found, else returns nil
   def find_301_redirect(link:)
-    redirects_301.each do |redirect|
+    find_redirect(redirects: redirects_301, link: link)
+  end
+
+  def find_redirect(redirects:, link:)
+    redirects.each do |redirect|
       if redirect.match?(link: link)
         return redirect
       end
@@ -78,10 +74,14 @@ class RedirectMap
   end
 
   def populate_maps(filename_301:, filename_307:)
-    populate_map(name: "redirects_301",
-                 filename: filename_301)
-    populate_map(name: "redirects_307",
-                 filename: filename_307)
+    populate_map(
+      name: "redirects_301",
+      filename: filename_301
+    )
+    populate_map(
+      name: "redirects_307",
+      filename: filename_307
+    )
   end
 
   def populate_map(name:, filename:)

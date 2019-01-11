@@ -1,8 +1,9 @@
 require_relative 'lib/redirect_map'
 require_relative 'lib/filename_list'
+require_relative 'lib/link_finder'
 
 filename_list = FilenameList.new(
-  file_pattern: 'pages/**/*.{md,tmpl,png}'
+  file_pattern: 'pages/test/links/**/*.{md,tmpl,png}'
 )
 
 redirect_map = RedirectMap.new(
@@ -13,27 +14,25 @@ redirect_map = RedirectMap.new(
 
 # Each file
 
-LINK_REGEX = Regexp.new('\[.*\]\((.*)\)')
-
 all_not_found = []
 
 filename_list.each do |filename|
   next if filename.end_with?('png')
 
-  # filename = 'pages/example-snippets/index.md'
   file_content = File.read(filename)
 
-  links = file_content.scan(LINK_REGEX).map do |capture_group|
-    capture_group[0]
-  end
+  links = LinkFinder.new(content: file_content).links
 
-  redirects, not_found = redirect_map.find(data: links)
+  fixers, not_found = redirect_map.find(data: links)
+
+  debugger
+
   all_not_found.concat(not_found)
 
   new_content = file_content
 
-  redirects.each do |redirect|
-    new_content = redirect.replace_markdown_link(content: new_content)
+  fixers.each do |fixer|
+    new_content = fixer.replace(content: new_content)
   end
 
   File.write(filename, new_content)
