@@ -475,7 +475,7 @@ You can find information on the next steps listed below:
 [8]: /1.11/security/ent/users-groups/
 [9]: /1.11/cli/install/
 [12]: /1.11/installing/production/deploying-dcos/node-cluster-health-check/
-[10]: /1.11/installing/oss/troubleshooting/
-[11]: /1.11/installing/oss/custom/uninstall/
+[10]: /1.11/installing/troubleshooting/
+[11]: /1.11/installing/production/uninstalling/
 
 

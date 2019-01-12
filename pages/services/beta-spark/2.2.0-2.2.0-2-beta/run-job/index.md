@@ -173,4 +173,4 @@ The default DC/OS Apache Spark distribution is compiled against Hadoop 2.6 libra
 [16]: https://dcos.io/docs/overview/design/overlay/
 [17]: https://dcos.io/docs/1.9/deploying-services/containerizers/ucr/
 [18]: http://mesos.apache.org/documentation/latest/endpoints/master/teardown/
-[19]: /service-docs/spark/v2.2.0-2.2.0-1/hdfs/
+[19]: /services/spark/v2.2.0-2.2.0-1/hdfs/

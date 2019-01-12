@@ -151,6 +151,6 @@ To install these programs, download the Windows installer <a href="http://www.ch
  [1]: /1.10/cli/command-reference/
  [2]: #unix
  [3]: #windows
- [4]: /1.10/installing/oss/cloud/aws/
+ [4]: /1.10/installing/evaluation/aws/
 
 

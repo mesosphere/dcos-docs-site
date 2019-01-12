@@ -469,7 +469,7 @@ You can find information on the next steps listed below:
 [8]: /1.10/security/ent/users-groups/
 [9]: /1.10/cli/install/
 [12]: /1.10/installing/production/deploying-dcos/node-cluster-health-check/
-[10]: /1.10/installing/oss/troubleshooting/
-[11]: /1.10/installing/oss/custom/uninstall/
+[10]: /1.10/installing/troubleshooting/
+[11]: /1.10/installing/production/uninstalling/
 
 

@@ -283,7 +283,7 @@ Marathon-LB 的一个重要特性是支持虚拟主机（`vhost`）。这允许�
 
  图 4. NGINX 欢迎页
 
- [1]: /1.10/installing/oss/
+ [1]: /1.10/installing/
  [2]: /1.10/cli/install/
  [3]: /1.10/administering-clusters/locate-public-agent/
  [4]: /1.10/administering-clusters/sshcluster/

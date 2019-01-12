@@ -119,7 +119,7 @@ $ dcos package install kafka --options=kafka1.json
 
  [4]: #custom-installation
  [5]: https://github.com/mesosphere/dcos-vagrant
- [6]: /service-docs/kafka/configure/#configuration-options
+ [6]: /services/kafka/configure/#configuration-options
 
 <a name="changing-configuration-at-runtime"></a>
 # Changing Configuration at Runtime

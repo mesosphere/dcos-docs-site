@@ -208,8 +208,8 @@ In this last step, you'll perform real-time analytics on the stream of tweets co
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
  [6]: /1.10/overview/concepts/
- [7]: /1.10/installing/cloud/
- [8]: /1.10/installing/custom/
+ [7]: /1.10/installing/evaluation/
+ [8]: /1.10/installing/evaluation/
  [9]: /1.10/administering-clusters/locate-public-agent/
  [10]: /1.10/img/webui-universe-install.png
  [11]: /1.10/cli/command-reference/
