@@ -6,6 +6,8 @@ menuWeight: -1
 ---
 
 [307](/latest/installing/).
+[301 and 307](/latest/installing/oss/).
+
 some other [regex redirect](/service-docs/cassandra/) text.
 something [plaintext redirect](/administration/admin-tutorials/installdatacenter/).
 [correct](/services/cassandra/).
