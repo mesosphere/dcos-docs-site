@@ -40,7 +40,7 @@ end
 puts
 if all_not_found.count > 0
   puts "Could not find redirects for:"
-  puts all_not_found
+  puts all_not_found.map(&:url)
 else
   puts "Redirects found for all links"
 end
