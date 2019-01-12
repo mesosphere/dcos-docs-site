@@ -26,7 +26,7 @@ class LinkFixer
     content = replace_redirect(
       content: content,
       redirect: redirect_301,
-      link: redirect_307_link
+      link: redirect_307_link(link: link)
     )
 
     content = unreplace_307(
@@ -60,7 +60,7 @@ class LinkFixer
     )
   end
 
-  def redirect_307_link
+  def redirect_307_link(link:)
     redirect_307.follow_redirect(link: link)
   end
 

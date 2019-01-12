@@ -26,7 +26,11 @@ filename_list.each do |filename|
 
   fixers, not_found = redirect_map.find_fixers(links: links)
 
-  all_not_found.concat(not_found)
+  not_found_local = not_found.reject do |link|
+    link.url.start_with?("#", "http", ".")
+  end
+
+  all_not_found.concat(not_found_local)
 
   new_content = file_content
 
