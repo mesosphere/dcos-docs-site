@@ -39,7 +39,12 @@ class RedirectMap
 
     fixer.redirect_307 = find_307_redirect(link: link)
 
-    fixer.redirect_301 = find_301_redirect(link: link)
+    if fixer.has_redirect_307?
+      redirected_link = fixer.redirect_307.follow_redirect(link: link)
+      fixer.redirect_301 = find_301_redirect(link: redirected_link)
+    else
+      fixer.redirect_301 = find_301_redirect(link: link)
+    end
 
     fixer.has_redirect_301? ? fixer : nil
   end
