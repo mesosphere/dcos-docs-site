@@ -24,7 +24,12 @@ class RedirectMap
     links.each do |link|
       next if file_exists_for?(link: link)
       fixer = find_fixer(link: link)
-      if fixer
+      if fixer.has_redirect_307? && !fixer.has_redirect_301?
+        redirected_link = fixer.redirect_307_link(link: link)
+        next if file_exists_for?(link: redirected_link)
+      end
+
+      if fixer.has_redirect_301?
         redirect_fixers << fixer
       else
         not_found << link
@@ -36,6 +41,7 @@ class RedirectMap
 
   def find_fixer(link:)
     fixer = LinkFixer.new(link: link)
+    return fixer if link.url.start_with?("#", "http", ".")
 
     fixer.redirect_307 = find_307_redirect(link: link)
 
@@ -46,7 +52,7 @@ class RedirectMap
       fixer.redirect_301 = find_301_redirect(link: link)
     end
 
-    fixer.has_redirect_301? ? fixer : nil
+    fixer
   end
 
 
