@@ -29,8 +29,6 @@ class LinkFixer
     # links that include that link in its path
     redirected_link = redirect_301.follow_redirect(link: link)
 
-    debugger
-
     inline_fixed = content.gsub(
       link.regex(type: :inline),
       redirected_link.replacement(type: :inline)
