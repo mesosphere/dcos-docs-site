@@ -55,11 +55,11 @@ class Link
   def reference_regex(escape:)
     interpolation = escape ? escape_regex(url: url) : url
 
-    Regexp.new("\\[([0-9]+)\\]: (#{interpolation})")
+    Regexp.new("\\[([0-9]+)\\]: (#{interpolation})\\n")
   end
 
   def reference_replacement
-    "[\\1]: #{url}"
+    "[\\1]: #{url}\n"
   end
 
   def escape_regex(url:)

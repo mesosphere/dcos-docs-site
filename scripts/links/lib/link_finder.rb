@@ -19,6 +19,7 @@ class LinkFinder
 
   def find_links(type:)
     regex = Link.regex_for(type: type)
+
     content.scan(regex).map do |capture_group|
       Link.new(url: capture_group[1])
     end
