@@ -205,5 +205,5 @@ root@7d0aed75e582:/bin# ./kafka-console-consumer.sh --zookeeper master.mesos:218
 Hello, World.
 ```
 
- [13]: /1.9/security/users-groups/
- [14]: /1.9/security/iam-api/
+ [13]: /1.9/security/ent/users-groups/
+ [14]: /1.9/security/ent/iam-api/

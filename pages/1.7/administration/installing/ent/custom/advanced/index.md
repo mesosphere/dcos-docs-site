@@ -285,7 +285,7 @@ Now you can [assign user roles][8].
  [2]: /1.7/administration/installing/ent/custom/uninstall/
  [3]: /1.7/overview/concepts/#public-agent-node
  [4]: /1.7/overview/concepts/#private-agent-node
- [5]: /assets/images/chef-zk-status.png
- [6]: /assets/images/ui-installer-auth2.png
- [7]: /assets/images/dashboard-ee.gif
+ [5]: /1.11/img/chef-zk-status.png
+ [6]: /1.11/img/ui-installer-auth2.png
+ [7]: /1.11/img/dashboard-ee.png
  [8]: /1.7/administration/id-and-access-mgt/ent/

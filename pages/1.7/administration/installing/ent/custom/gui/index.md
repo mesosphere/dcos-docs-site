@@ -194,8 +194,8 @@ Now you can [assign user roles][6].
     ```
 
  [1]: /1.7/administration/installing/ent/custom/system-requirements/
- [2]: /assets/images/gui-installer-setup-ee.gif
+ [2]: /1.11/img/gui-installer-setup-ee.gif
  [3]: /1.7/usage/service-discovery/
  [4]: /assets/images/ui-installer-auth-1-7.gif
- [5]: /assets/images/dashboard-ee.gif
+ [5]: /1.11/img/dashboard-ee.png
  [6]: /1.7/administration/id-and-access-mgt/ent/

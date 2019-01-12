@@ -333,7 +333,7 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
  [9]: /1.9/administering-clusters/locate-public-agent/
  [10]: /1.9/img/webui-universe-install.png
  [11]: /1.9/cli/command-reference/
- [12]: /1.9/networking/marathon-lb/
+ [12]: /services/marathon-lb/
  [13]: https://github.com/mesosphere/tweeter
  [14]: /1.9/img/tweeter.png
  [15]: /1.9/img/network-tab.png

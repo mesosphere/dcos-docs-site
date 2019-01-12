@@ -381,9 +381,9 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
  [7]: /1.8/usage/storage/external-storage/
  [8]: /1.8/administration/installing/ent/custom/advanced/
- [9]: /assets/images/chef-zk-status.png
- [10]: /assets/images/gui-installer-login-ee.gif
- [11]: /assets/images/dashboard-ee.gif
+ [9]: /1.11/img/chef-zk-status.png
+ [10]: /1.11/img/gui-installer-login-ee.gif
+ [11]: /1.11/img/dashboard-ee.png
  [12]: /1.8/administration/id-and-access-mgt/ent/
  [13]: /1.8/administration/installing/ent/custom/system-requirements/#hardware-prerequisites
  [14]: /1.8/administration/installing/ent/custom/system-requirements/#software-prerequisites

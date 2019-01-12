@@ -288,7 +288,7 @@ The label `HAPROXY_0_VHOST`, instructs Marathon-LB to expose NGINX on the extern
     
     Figure 4. NGINX welcome page
 
- [1]: /1.10/installing/oss/
+ [1]: /1.10/installing/
  [2]: /1.10/cli/install/
  [3]: /1.10/administering-clusters/locate-public-agent/
  [4]: /1.10/administering-clusters/sshcluster/

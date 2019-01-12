@@ -171,4 +171,4 @@ dcos confluent-kafka --name=/kafka update start --options=options.json
 
  [4]: #custom-installation
  [5]: https://github.com/mesosphere/dcos-vagrant
- [6]: /service-docs/kafka/configure/#configuration-options
+ [6]: /services/kafka/configure/#configuration-options

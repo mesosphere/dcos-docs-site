@@ -160,5 +160,5 @@ Learn how to load balance your app on a public node using [Marathon-LB](/1.12/ne
 
  [1]: https://www.docker.com
  [2]: https://hub.docker.com
- [3]: /1.12/installing/oss/
+ [3]: /1.12/installing/
  [4]: /1.12/cli/install/
