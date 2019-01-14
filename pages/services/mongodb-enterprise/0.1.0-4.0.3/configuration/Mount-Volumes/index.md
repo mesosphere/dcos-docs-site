@@ -43,12 +43,12 @@ Below are the steps to be followed to configure Mount Volume:
   6. Create an external volume.
   ```shell
   For example :
-  aws ec2 create-volume --size 80 --region us-east-1 --availability-zone us-east-1a --volume-type gp2
+  aws ec2 create-volume --size <value> --region <value> --availability-zone <value> --volume-type gp2
   ```
   7. Attach these volumes to the nodes of the cluster.
   ```shell
   For example :
-  aws ec2 attach-volume --volume-id vol-1234567890abcdef0 --instance-id i-01474ef662b89480 --device /dev/sdf
+  aws ec2 attach-volume --volume-id <value> --instance-id <value> --device /dev/sdf
   ```
   8. Check the name of the device mounted on the respective node of the cluster.
   ```shell
