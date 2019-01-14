@@ -14,11 +14,9 @@ enterprise: false
 If you are using DC/OS 1.10 or later and the installed service has a version later than 2.0.0-x, then uninstalling the service is simple.
 
 From the DC/OS CLI, enter 
-
-```bash
-$ dcos package uninstall --app-id=<service-name> {{ model.packageName }}
 ```
-
+ dcos package uninstall mongodbservice
+```
 ### Uninstall Flow
 
 Uninstalling the service consists of the following steps. The scheduler is relaunched in Marathon with the environment variable SDK_UNINSTALL set to “true”. This puts the Scheduler in an uninstall mode.
