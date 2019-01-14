@@ -346,13 +346,13 @@
 /1.10/developing-services/service-requirements-spec/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.10/development/ /1.10/developing-services/;
 /1.10/installing/cloud/ /1.10/installing/evaluation/;
-/1.10/installing/cloud/aws/ /1.10/installing/evaluation/;
+/1.10/installing/cloud/aws/ /1.10/installing/evaluation/aws/;
 /1.10/installing/custom/ /1.10/installing/evaluation/;
 /1.10/installing/custom/advanced/ /1.10/installing/production/deploying-dcos/installation/;
 /1.10/installing/custom/configuration/configuration-parameters/ /1.10/installing/production/advanced-configuration/configuration-reference/;
 /1.10/installing/custom/configuration-parameters/ /1.10/installing/production/advanced-configuration/configuration-reference/;
 /1.10/installing/custom/system-requirements/ /1.10/installing/production/system-requirements/;
-/1.10/installing/ent/cloud/(.*)$ /1.10/installing/evaluation/mesosphere-supported-methods/;
+~^/1.10/installing/ent/cloud/(.*)$ /1.10/installing/evaluation/mesosphere-supported-methods/;
 /1.10/installing/ent/ /1.10/installing/;
 /1.10/installing/ent/custom/advanced/ /1.10/installing/production/deploying-dcos/installation/;
 /1.10/installing/ent/custom/cli/ /1.10/installing/evaluation/;
@@ -392,7 +392,7 @@
 /1.10/installing/oss/custom/configure-proxy/ /1.10/installing/production/deploying-dcos/configureation/;
 /1.10/installing/oss/custom/gui/ /1.10/installing/;
 /1.10/installing/oss/custom/node-cluster-health-check/ /1.10/installing/production/deploying-dcos/node-cluster-health-check/;
-~/1.10/installing/oss/custom/system-requirements/ /1.10/installing/production/system-requirements/;
+/1.10/installing/oss/custom/system-requirements/ /1.10/installing/production/system-requirements/;
 /1.10/installing/oss/custom/system-requirements/install-docker-centos/ /1.10/installing/production/system-requirements/docker-centos/;
 /1.10/installing/oss/custom/system-requirements/install-docker-RHEL/ /1.10/installing/production/system-requirements/docker-centos/; 
 /1.10/installing/oss/custom/uninstall/ /1.10/installing/production/uninstalling/;
