@@ -78,7 +78,7 @@ These steps must be performed for version patches and cluster configuration chan
 - You must be familiar with the [DC/OS Installation Guide](/1.12/installing/production/deploying-dcos/installation/).
 - Take a snapshot of ZooKeeper prior to patching. Marathon supports rollbacks, but does not support downgrades.
 - [Take a snapshot of the IAM database](/1.12/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to patching.
-- Ensure that Marathon event subscribers are disabled before beginning the patch. Leave them disabled after completing the patch, as this feature is now deprecated.
+- Ensure that Marathon event subscribers are disabled before beginning the patch process. Leave this setting disabled after completing the patch process, as this feature is now deprecated.
 
     <p class="message--note"><strong>NOTE: </strong>Marathon event subscribers are disabled by default. Check to see if the line <code>--event_subscriber "http_callback"</code> has been added to <code>sudo vi /opt/mesosphere/bin/marathon.sh</code> on your master node(s). If this is the case you will need to remove that line in order to disable event subscribers.</p>
 
