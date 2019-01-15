@@ -40,9 +40,20 @@ A disk resource is added to a DC/OS agent after mounting external volumes to it.
     sudo rm -f /var/lib/dcos/mesos-resources
     ``` 
 1. Create an external volume.
+    ```shell
+    For Example:
+    aws ec2 create-volume --size <size> --region <region> --availability-zone <availability-zone> --volume-type gp2
+    ```
     <!-- Please include commands for this step. -->
+    <!-- Done. -->
 1. Attach these volumes to the nodes of the cluster.
+    ```shell
+    For Example:
+    aws ec2 attach-volume --volume-id <volume-id> --instance-id <instance-id> --device /dev/sdf
+    ```
+  
     <!-- Please include commands for this step. -->
+    <!-- Done. -->
 
 1. Check the name of the device mounted on the respective node of the cluster.
     ```shell
@@ -63,7 +74,7 @@ A disk resource is added to a DC/OS agent after mounting external volumes to it.
     sudo mkfs -t ext4 /dev/loop0
     sudo losetup -d /dev/loop0
     ```
-1. Create `fstab` entry and mount. Ensure the volume is mounted automatically at boot time. Something similar can also be done with a Systemd Mount unit.
+1. Create `fstab` entry and mount. Ensure the volume is mounted automatically at boot time. Something similar can also be done with a System Mount unit.
     ```shell
     echo "/dev/xvdf /dcos/volume0 auto loop 0 2" | sudo tee -a /etc/fstab
     sudo mount /dcos/volume0
@@ -73,7 +84,11 @@ A disk resource is added to a DC/OS agent after mounting external volumes to it.
     sudo reboot
     ```
 1. SSH to the agent and verify a new resource state. 
+   ```shell
+   dcos node ssh --master-proxy --mesos-id=<Mesos ID of the node>
+   ```
     <!-- Please include commands for this step. -->
+    <!-- Done. -->
 
 1. Review the `journald` logs for reference to the new volume `/dcos/volume0`. In particular, there should be an entry for the agent starting up and the new volume0 Mounted Disk Resource.
     ```shell
