@@ -8,7 +8,6 @@ featureMaturity:
 enterprise: false
 ---
 
-
 Run your continuous integration, automated testing, and continuous delivery jobs at scale with Jenkins for DC/OS. Instead of the static partitions so typical of other Jenkins clusters, Jenkins for DC/OS  can create and destroy agents as demand increases and decreases. With multiple Jenkins masters sharing a single pool of compute resources, you can achieve much more efficient and resilient automations.
 
 Jenkins for DC/OS runs as a root Marathon application inside a Docker container. The default Docker image contains several Jenkins plugins to get you up and running quickly. You can customize the Docker image to match your specific use case.
