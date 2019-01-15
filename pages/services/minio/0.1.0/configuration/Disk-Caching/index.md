@@ -21,8 +21,53 @@ You must specify
 * cache expiry duration in days
 * any wildcard patterns to exclude from being cached
 
-<!-- Please provide an example of a config.json file which includes these settings. -->
+For Example:
 
+    ```shell
+        "minio_cache_enable": {
+          "title": "Minio cache enable",
+          "description": "Enable Disk Caching in Minio, to store content closer to the tenants",
+          "type": "boolean",
+          "default": true
+        },
+        "minio_cache_expiry": {
+          "title": "Minio cache expiry",
+          "description": "Days to cache expiry",
+          "type": "integer",
+          "default": 90
+        },
+        "minio_cache_exclude": {
+          "title": "Minio cache exclude",
+          "description": "list of wildcard patterns for prefixes to exclude from cache",
+          "type": "string",
+          "default": "*.pdf"
+        },
+        "minio_cache_maxuse": {
+          "title": "Minio cache maxuse",
+          "description": "restricting maximum usage of cache",
+          "type": "integer",
+          "default": 80
+        },
+        "cache_disk": {
+          "title": "Disk size (MB)",
+          "description": "Size of Cache disk (in MB)",
+          "type": "integer",
+          "default": 252
+        },
+        "cache_disk_type": {
+          "title": "Disk type [ROOT, MOUNT]",
+          "description": "Mount volumes require preconfiguration in DC/OS",
+          "enum": [
+            "ROOT",
+            "MOUNT"
+          ],
+          "default": "ROOT"
+        }
+      }
+    ```
+
+<!-- Please provide an example of a config.json file which includes these settings. -->
+<!-- ok. -->
 
 ## Via DC/OS web interface 
 

@@ -24,7 +24,13 @@ The DC/OS {{ model.techName }} service allows you to heal buckets and objects on
    ```
 
 1. The 'recover' task will run the `mc heal` command.
+   ```shell
+   mc admin heal -r minioclient
+   ```
+   [<img src="../../img/Recover1.png" alt="Recover1" width="800"/>](../../img/Recover1.png)
+
 <!-- So what does the mc heal command look like? What will the user see onscreen? Please expand this section. -->
+<!--Done. -->
 <p class="message--important"><strong>NOTE: </strong>The <tt>mc heal</tt> command is only applicable for Minio erasure coded setup (standalone and distributed). See <a href="/0.1.0/configuration/erasure-coding-schemes/">Erasure Coding Scheme in Minio</a> or the <a href="https://docs.minio.io/docs/minio-admin-complete-guide.html#heal">Minio Command Reference</a> for more information.</p>
 
 ### Node replace

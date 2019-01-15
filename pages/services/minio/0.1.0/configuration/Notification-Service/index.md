@@ -11,7 +11,7 @@ render: mustache
 ---
 
 <!-- Every mc command in this section invokes "events". But the mc command list at https://docs.minio.io/docs/minio-client-complete-guide#events shows this command as "event", with no "s". If this is an error, please correct the commands and descriptions in this section. -->
-
+<!-- It is a error. hence Required changes has been done in the commands and description. -->
 # Overview
 
 You can enable Notification Services to monitor events occurring on objects in a bucket. {{ model.techName }} supports the following targets to publish bucket events:
@@ -29,7 +29,7 @@ You can enable Notification Services to monitor events occurring on objects in a
 
 Use client tools like `mc` to set and listen for event notifications using the `event` [sub-command](https://docs.{{ model.serviceName }}.io/docs/{{ model.serviceName }}-client-complete-guide#events).
 <!-- The MC documentation describes this sub-command as "event", but throughout the remainder of this document you use the sub-command "events". Please clarify. -->
-
+<!-- It is a error. hence Required changes has been done in the commands and description. -->
 # Notification Services
 
 <a name="amqp"></a>
@@ -46,9 +46,9 @@ To enable the AMQP notification service, provide the following configurations th
 
 Figure 1. - AMQP Edit Configuration page
 
-Buckets can be configured to generate events through client tools like `mc`. For example, the `mc events add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
+Buckets can be configured to generate event through client tools like `mc`. For example, the `mc event add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
 ```
-mc events add myminio/images arn:{{ model.techName }}:sqs::1:amqp --suffix .jpg
+mc event add myminio/images arn:{{ model.techName }}:sqs::1:amqp --suffix .jpg
 ```
 
 
@@ -70,10 +70,10 @@ To enable the Redis notification service, provide the following configurations t
 
 Figure 2. - Redis Edit Configuration page
 
-Buckets can be configured to generate events through client tools like `mc`. For example, the `mc events add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
+Buckets can be configured to generate event through client tools like `mc`. For example, the `mc event add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
 
 ```
-mc events add  myminio/images arn:{{ model.techName }}:sqs::1:redis --suffix .jpg
+mc event add  myminio/images arn:{{ model.techName }}:sqs::1:redis --suffix .jpg
 ```
 
 
@@ -96,11 +96,11 @@ To enable the PostgreSQL notification service, provide the following configurati
 
 Figure 3. - PostgreSQL Edit Configuration page
 
-Buckets can be configured to generate events through client tools like `mc`. For example, the `mc events add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
+Buckets can be configured to generate event through client tools like `mc`. For example, the `mc event add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
 
 
 ```
-mc events add myminio/images arn:{{ model.techName }}:sqs::1:postgresql --suffix .jpg
+mc event add myminio/images arn:{{ model.techName }}:sqs::1:postgresql --suffix .jpg
 ```
 
 
@@ -119,11 +119,11 @@ To enable the Kafka notification service, provide the following configurations t
 
 Figure 4. - Kafka Edit Configuration page
 
-Buckets can be configured to generate events through client tools like `mc`. For example, the `mc events add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
+Buckets can be configured to generate event through client tools like `mc`. For example, the `mc event add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
 
 
 ```
-mc events add  myminio/images arn:{{ model.techName }}:sqs::1:kafka --suffix .jpg
+mc event add  myminio/images arn:{{ model.techName }}:sqs::1:kafka --suffix .jpg
 ```
 
 
@@ -145,10 +145,10 @@ To enable the Elasticsearch notification service, provide the following configur
 
 Figure 5. - Elasticsearch Edit Configuration page
 
-Buckets can be configured to generate events through client tools like `mc`. For example, the `mc events add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
+Buckets can be configured to generate event through client tools like `mc`. For example, the `mc event add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
 
 ```
-mc events add  myminio/images arn:{{ model.techName }}:sqs::1:elasticsearch --suffix .jpg
+mc event add  myminio/images arn:{{ model.techName }}:sqs::1:elasticsearch --suffix .jpg
 ```
 
 <a name="webhook"></a>
@@ -157,7 +157,12 @@ mc events add  myminio/images arn:{{ model.techName }}:sqs::1:elasticsearch --su
 
 [Webhooks](https://en.wikipedia.org/wiki/Webhook) are a way to receive information when it happens, rather than continually polling for that data.
 
+### Prerequisite
+
+- Install [Webhooks](http://www.webhook.com/docs/).
+
 <!-- Is there a prerequisite installation step missing here? -->
+<!-- Done. -->
 
 ### Configure
 
@@ -167,10 +172,10 @@ To enable the Webhook notification service, provide the following configurations
 
 Figure 6. - Webhook Edit Configuration page
 
-Buckets can be configured to generate events through client tools like `mc`. For example, the `mc events add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
+Buckets can be configured to generate event through client tools like `mc`. For example, the `mc event add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
 
 ```
-mc events add myminio/images arn:{{ model.techName }}:sqs::1:webhook --events put --suffix .jpg
+mc event add myminio/images arn:{{ model.techName }}:sqs::1:webhook --events put --suffix .jpg
 ```
 
 
@@ -192,10 +197,10 @@ To enable the MySQL notification service, provide the following configurations t
 
 Figure 7. - Webhook Edit Configuration page
 
-Buckets can be configured to generate events through client tools like `mc`. For example, the `mc events add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
+Buckets can be configured to generate event through client tools like `mc`. For example, the `mc event add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
 
 ```
-mc events add myminio/images arn:{{ model.techName }}:sqs::1:postgresql --suffix .jpg
+mc event add myminio/images arn:{{ model.techName }}:sqs::1:postgresql --suffix .jpg
 ```
 
 
@@ -215,10 +220,10 @@ To enable the MQTT notification service, provide the following configurations th
 
 Figure 7. - MQTT Edit Configuration page
 
-Buckets can be configured to generate events through client tools like `mc`. For example, the `mc events add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
+Buckets can be configured to generate event through client tools like `mc`. For example, the `mc event add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
 
 ```
-mc events add  myminio/images arn:{{ model.techName }}:sqs::1:mqtt --suffix .jpg
+mc event add  myminio/images arn:{{ model.techName }}:sqs::1:mqtt --suffix .jpg
 ```
 
 
@@ -241,18 +246,18 @@ Figure 8. - NATS Edit Configuration page (top)
 
 Figure 9. - NATS Edit Configuration page (bottom)
 
-Buckets can be configured to generate events through client tools like `mc`. For example, the `mc events add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
+Buckets can be configured to generate event through client tools like `mc`. For example, the `mc event add` command will add an event to a bucket named `images` through the `{{ model.serviceName }}` client named `myminio` when you add or delete objects with the suffix .jpg.
 
 ```
-mc events add  myminio/images arn:{{ model.techName }}:sqs::1:nats --suffix .jpg
+mc event add  myminio/images arn:{{ model.techName }}:sqs::1:nats --suffix .jpg
 ```
 
 # Additional event listing
 
-Additional events can be listed using the following command:
+Additional event can be listed using the following command:
 
 ```
-mc events list myminio/images
+mc event list myminio/images
 ```
 
 For more information visit [{{ model.techName }} Bucket Notification Guide](https://docs.{{ model.techName }}.io/docs/{{ model.techName }}-bucket-notification-guide.html).
