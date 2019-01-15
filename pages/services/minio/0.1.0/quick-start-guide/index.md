@@ -8,7 +8,7 @@ model: /services/minio/data.yml
 render: mustache
 ---
 <!-- This page is incomplete. Please add text to web interface installation procedure. -->
-
+<!-- Done. -->
 # How to use {{ model.techName }} with DC/OS 
 
 This section will get you up and running with a basic Minio configuration in a short time.
@@ -39,93 +39,36 @@ The following command will launch installation via the DC/OS CLI:
 ```bash
 dcos package install {{ model.packageName }} 
 ```
+  
+  [<img src="../img/Package_installed.png" />](../img/Package_installed.png)
 
 <!-- Can you provide a sample output so the user knows when installation has completed? -->
+<!-- Done. -->
 
 ## Via the web interface
 <!-- Please edit this section to include actual text instructions. -->
+<!-- Done. -->
 Shown below are the steps to install {{ model.techName }} using the DC/OS Catalog Web Interface:
 
 1. Navigate to the **Catalog** screen and choose **{{ model.packageName }}** from the list.
 
-1. In service view...
+1. **{{ model.packageName }}** package appear on the screen as shown below 
     [<img src="../img/Catalog_Service_View.png" />](../img/Catalog_Service_View.png)
-    Figure 1. - 
+    Figure 1. - **{{ model.packageName }}** package  
 
-1. Edit configuration
+1. Click on the package and edit the Configuration accordingly and then click the Review & Run button to run the service.
     [<img src="../img/Node_Count1.png" alt="Node Count"/>](../img/Node_Count1.png)
-    Figure 2. - 
-1. Verify up and running
+    Figure 2. - Edit Configuration
+
+1. Once the service is started, verify all the nodes are up and running.
     [<img src="../img/Running_Stage1.png" alt="Running Stage"/>](../img/Running_Stage1.png)
-    Figure 3. - 
+    Figure 3. - Verify Service is up and running
 
-1.  Check output log (why?)
+1.  check the output log to verify that all the node of the Minio server are up and running successfully.
     [<img src="../img/Successful_Execution1.png" alt="Successful Execution"/>](../img/Successful_Execution1.png)
-    Figure 4. - 
+    Figure 4. - Service is Installed Successfully.
 
 
-## Accessing the {{ model.techName }} web interface with Edge-LB configuration
 <!-- Why is this here? If it is REQUIRED for getting a basic installation up and running, it should be so noted in the Prerequisites section. If it is NOT required for a minimal installation, then it should be moved or made into its own page under Configuration or Security. -->
-### Steps
+<!-- This section is moved under Configuration. -->
 
-For Edge-LB pool configuration:
-1. Add repo of `Edge-LB-aws`.
-
-1. Add repo of `Edge-LB-Pool-aws`.
-
-1. Install Edge-LB:
-
-    ```shell
-    dcos package install edgelb --yes
-    ``` 
-
-1. Create the configuration JSON file with required parameters to access {{ model.techName }}. 
-
-      Example without TLS:
-
-      ```json
-      {
-      "apiVersion": "V2",
-      "name": "minio",
-      "count": 1,
-      "haproxy": {
-        "frontends": [
-          {
-            "bindPort": 9001,
-            "protocol": "HTTP",
-            "linkBackend": {
-              "defaultBackend": "miniodemo"
-            }
-          }
-        ],
-        "backends": [
-        {
-          "name": "miniodemo",
-          "protocol": "HTTP",
-          "services": [{
-            "endpoint": {
-              "type": "ADDRESS",
-              "address": "{{ model.packageName }}.miniodemo.l4lb.thisdcos.directory",
-              "port": 9000
-            }
-          }]
-        }
-      ]
-      }
-    }
-      ```
- 
-1. Create `edge-pool` using the JSON configuration file created in the preceding step:
-    ```shell
-    dcos edgelb create edgelb-pool-config.json
-    ```    
-1. Access {{ model.techName }}:
-    ```shell
-    http://<Public IP of the Public Node of the cluster>>:9001/minio
-    ```      
-
-    Now you can connect with the {{ model.techName }} server using the {{ model.techName }} client on the public IP of the public agent running EdgeLB, and the port number at which {{ model.techName }} server is bound at EdgeLB.
-
-    [<img src="../img/edgelb_without_tls.png" alt="Without TLS"/>](../img/egdelb_without_tls.png)
-    Figure 5. - 
-    <!-- What is Figure 5 showing us? -->

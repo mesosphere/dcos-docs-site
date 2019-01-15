@@ -14,6 +14,7 @@ render: mustache
 
 
 <!-- Note: The following limitations are unique to this service. -->
+<!-- Yes. -->
 
 ## Scaling Out
 
