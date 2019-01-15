@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: DC/OS Storage Service 0.3.1
 title: DC/OS Storage Service 0.3.1
-menuWeight: 0
+menuWeight: -1
 excerpt:
 ---
 
