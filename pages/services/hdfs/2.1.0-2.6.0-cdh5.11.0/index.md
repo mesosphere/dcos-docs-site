@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: HDFS 2.1.0-2.6.0-cdh5.11.0
 excerpt:
 title: HDFS 2.1.0-2.6.0-cdh5.11.0
-menuWeight: 10
+menuWeight: -1
 model: /services/hdfs/data.yml
 render: mustache
 ---
