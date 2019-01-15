@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Cassandra 2.4.0-3.0.16
 excerpt: DC/OS Apache Cassandra is an automated service that makes it easy to deploy and manage Apache Cassandra on DC/OS.
 title: Cassandra 2.4.0-3.0.16
-menuWeight: 9
+menuWeight: 0
 model: /services/cassandra/data.yml
 render: mustache
 ---
