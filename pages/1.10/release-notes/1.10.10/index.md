@@ -18,6 +18,7 @@ DC/OS 1.10.9 includes the following:
 - Metronome 0.4.4 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.4).
 
 # Issues Fixed in DC/OS 1.10.10
+The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
 
 ## Command-Line Interface (CLI)
 - DCOS-38213 - Downloading the Mesosphere CLI package requires a network connection to `downloads.mesosphere.com`. Because this connection can be slow, especially from remote or widely-distributed network locations, the session scope for the CLI fixture helps to ensure the CLI package only has to be downloaded once.
