@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Kafka 2.0.4-1.0.0
 title: Kafka 2.0.4-1.0.0
-menuWeight: 20
+menuWeight: -1
 excerpt:
 featureMaturity:
 enterprise: false
