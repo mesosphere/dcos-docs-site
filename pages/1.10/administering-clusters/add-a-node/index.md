@@ -21,13 +21,13 @@ Agent nodes are designated as [public](/1.10/overview/concepts/#public-agent-nod
 ### Prerequisites:
 
 *   DC/OS is installed using the [custom](/1.10/installing/) installation method.
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.10/installing/gui/#backup).
+*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.10/installing/).
 *   Available agent nodes that satisfy the [system requirements](/1.10/installing/system-requirements/).
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
 ### Install DC/OS agent nodes
-Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. This archive is created during the GUI or CLI [installation](/1.10/installing/gui/#backup) method.
+Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. This archive is created during the GUI or CLI [installation](/1.10/installing/) method.
 
 1.  Copy the files to your agent node. For example, you can use Secure Copy (scp) to copy `dcos-install.tar` to your home directory:
 
