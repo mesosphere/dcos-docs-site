@@ -9,15 +9,15 @@ render: mustache
 ---
 ## Version 2.5.0-2.6.0-cdh5.11.0
 ### Feature
-- Hadoop `ipc.maximum.data.length` property is now available in service configuration.
-- Readiness-check interval, timeout and delay are now available as configurable properties.
-- RLIMIT is now a configurable property.
+- Hadoop `ipc.maximum.data.length` property is now a configurable property
+- Readiness-check interval, timeout and delay are now available as configurable properties
+- Number of open files (NOFILE_RLIMIT Linux property) is now a configurable property
 
 ### Bug Fixes
-- Fix for JournalNodes failing to establish quorum when paxos folder is missing.
+- Fix for JournalNodes failing to establish quorum when `paxos` folder is missing
 
 ### Improvements
-- Added validation to verify package names are unique and follow Universe guidelines.
+- Added validation to verify package names are unique and follow Universe guidelines
 
 ### Updates
 - Upgraded libmesos-bundle to version 1.12
