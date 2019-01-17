@@ -10,7 +10,7 @@ render: mustache
 ## Version 2.5.0-2.6.0-cdh5.11.0
 ### Feature
 - Hadoop `ipc.maximum.data.length` property is now a configurable property
-- Readiness-check interval, timeout and delay are now available as configurable properties
+- Readiness-check interval, timeout and delay are now configurable properties
 - Number of open files (NOFILE_RLIMIT Linux property) is now a configurable property
 
 ### Bug Fixes
