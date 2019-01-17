@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-excerpt: Release notes for v. 2.4.0-2.6.0-cdh5.11.0
+excerpt: Release notes for v. 2.5.0-2.6.0-cdh5.11.0
 title: Release Notes
 menuWeight: 10
 model: /services/hdfs/data.yml
