@@ -11,7 +11,7 @@ render: mustache
 ### Feature
 - Hadoop `ipc.maximum.data.length` property is now a configurable property
 - Readiness-check interval, timeout and delay are now configurable properties
-- Number of open files (NOFILE_RLIMIT Linux property) is now a configurable property
+- Number of open files (RLIMIT_NOFILE Linux property) is now a configurable property
 
 ### Bug Fixes
 - Fix for JournalNodes failing to establish quorum when `paxos` folder is missing
