@@ -74,7 +74,7 @@ For Edge-LB pool configuration:
     Now you can connect with the {{ model.techName }} server using the {{ model.techName }} client on the public IP of the public agent running EdgeLB, and the port number at which {{ model.techName }} server is bound at EdgeLB.
 
    
-    [<img src="../img/edgelb_without_tls.png" alt="Without TLS"/>](../img/edgelb_without_tls.png)
+    [<img src="../../img/edgelb_without_tls.png" alt="Without TLS"/>](../../img/edgelb_without_tls.png)
     Figure 5. - Minio Browser without TLS 
     <!-- What is Figure 5 showing us? -->
     <!-- Accessing Minio without TLS and showing non-secure connection in status bar.-->
