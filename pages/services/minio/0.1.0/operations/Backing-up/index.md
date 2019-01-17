@@ -69,11 +69,11 @@ The backup task is responsible for making a backup of the data in the {{ model.t
 
 1. An init script will register both {{ model.techName }} as well as an S3-compatible client.
 
-   [<img src="../../img/Backup.png" alt="Backup" width="800"/>](../img/Backup.png)
+   [<img src="../../img/Backup.png" alt="Backup" width="800"/>](../../img/Backup.png)
 
    Figure 1. - Backing up to S3-compatible storage
 
-   [<img src="../../img/Creating_Bucket_In_S3.png" alt="Creating_Bucket_In_S3" width="800"/>](../img/Backup.png)
+   [<img src="../../img/Creating_Bucket_In_S3.png" alt="Creating_Bucket_In_S3" width="800"/>](../../img/Backup.png)
 
    Figure 2. - Creation of bucket in S3-compatible storage
     
@@ -81,11 +81,11 @@ The backup task is responsible for making a backup of the data in the {{ model.t
 
 While deploying the service from a catalog, you can specify S3-compatible storage by providing the URL of that storage.
 
-   [<img src="../../img/S3_Compatible_1.png" alt="S3_Compatible_1" width="800"/>](../img/S3_Compatible_1.png)
+   [<img src="../../img/S3_Compatible_1.png" alt="S3_Compatible_1" width="800"/>](../../img/S3_Compatible_1.png)
 
    Figure 3. - Enter the storage URL
 
-   [<img src="../../img/S3_Compatible_2.png" alt="S3_Compatible_2" width="800"/>](../img/S3_Compatible_2.png)
+   [<img src="../../img/S3_Compatible_2.png" alt="S3_Compatible_2" width="800"/>](../../img/S3_Compatible_2.png)
 
    Figure 4. - S3-compatible storage (for example,  {{ model.techName }})
 

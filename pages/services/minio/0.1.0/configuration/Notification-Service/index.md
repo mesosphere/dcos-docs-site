@@ -42,7 +42,7 @@ Use client tools like `mc` to set and listen for event notifications using the `
 ### Configure
 To enable the AMQP notification service, provide the following configurations through the DC/OS web interface:
 
-[<img src="../../img/AMQP.png" alt="AMQP" width="800"/>](../img/AMQP.png)
+[<img src="../../img/AMQP.png" alt="AMQP" width="800"/>](../../img/AMQP.png)
 
 Figure 1. - AMQP Edit Configuration page
 
@@ -66,7 +66,7 @@ This notification target supports two formats: `namespace` and `access`.
 
 To enable the Redis notification service, provide the following configurations through the DC/OS web interface:
 
-[<img src="../../img/Redis.png" alt="Redis" width="800"/>](../img/Redis.png)
+[<img src="../../img/Redis.png" alt="Redis" width="800"/>](../../img/Redis.png)
 
 Figure 2. - Redis Edit Configuration page
 
@@ -92,7 +92,7 @@ This notification target supports two formats: `namespace` and `access`.
 
 To enable the PostgreSQL notification service, provide the following configurations through the DC/OS web interface.
 
-[<img src="../../img/PostgreSQL.png" alt="PostgreSQL" width="800"/>](../img/PostgreSQL.png)
+[<img src="../../img/PostgreSQL.png" alt="PostgreSQL" width="800"/>](../../img/PostgreSQL.png)
 
 Figure 3. - PostgreSQL Edit Configuration page
 
@@ -115,7 +115,7 @@ mc event add myminio/images arn:{{ model.techName }}:sqs::1:postgresql --suffix 
 ### Configure
 To enable the Kafka notification service, provide the following configurations through the DC/OS web interface.
 
-[<img src="../../img/Kafka.png" alt="Kafka" width="800"/>](../img/Kafka.png)
+[<img src="../../img/Kafka.png" alt="Kafka" width="800"/>](../../img/Kafka.png)
 
 Figure 4. - Kafka Edit Configuration page
 
@@ -141,7 +141,7 @@ This notification target supports two formats: `namespace` and `access`.
 
 To enable the Elasticsearch notification service, provide the following configurations through the DC/OS web interface.
 
-[<img src="../../img/Elasticsearch.png" alt="Elasticsearch" width="800"/>](../img/Elasticsearch.png)
+[<img src="../../img/Elasticsearch.png" alt="Elasticsearch" width="800"/>](../../img/Elasticsearch.png)
 
 Figure 5. - Elasticsearch Edit Configuration page
 
@@ -168,7 +168,7 @@ mc event add  myminio/images arn:{{ model.techName }}:sqs::1:elasticsearch --suf
 
 To enable the Webhook notification service, provide the following configurations through the DC/OS web interface.
 
-[<img src="../../img/Webhook.png" alt="Webhook" width="800"/>](../img/Webhook.png)
+[<img src="../../img/Webhook.png" alt="Webhook" width="800"/>](../../img/Webhook.png)
 
 Figure 6. - Webhook Edit Configuration page
 
@@ -193,7 +193,7 @@ This notification target supports two formats: `namespace` and `access`.
 
 To enable the MySQL notification service, provide the following configurations through the DC/OS web interface.
 
-[<img src="../../img/Mysql.png" alt="Mysql" width="800"/>](../img/Mysql.png)
+[<img src="../../img/Mysql.png" alt="Mysql" width="800"/>](../../img/Mysql.png)
 
 Figure 7. - Webhook Edit Configuration page
 
@@ -216,7 +216,7 @@ mc event add myminio/images arn:{{ model.techName }}:sqs::1:postgresql --suffix 
 
 To enable the MQTT notification service, provide the following configurations through the DC/OS web interface.
 
-[<img src="../../img/MQTT.png" alt="MQTT" width="800"/>](../img/MQTT.png)
+[<img src="../../img/MQTT.png" alt="MQTT" width="800"/>](../../img/MQTT.png)
 
 Figure 7. - MQTT Edit Configuration page
 
@@ -238,11 +238,11 @@ mc event add  myminio/images arn:{{ model.techName }}:sqs::1:mqtt --suffix .jpg
 
 To enable the NATS notification service, provide the following configurations through the DC/OS web interface.
 
-[<img src="../../img/NATS.png" alt="NATS" width="800"/>](../img/NATS.png)
+[<img src="../../img/NATS.png" alt="NATS" width="800"/>](../../img/NATS.png)
 
 Figure 8. - NATS Edit Configuration page (top)
 
-[<img src="../../img/NATS1.png" alt="NATS1" width="800"/>](../img/NATS1.png)
+[<img src="../../img/NATS1.png" alt="NATS1" width="800"/>](../../img/NATS1.png)
 
 Figure 9. - NATS Edit Configuration page (bottom)
 
