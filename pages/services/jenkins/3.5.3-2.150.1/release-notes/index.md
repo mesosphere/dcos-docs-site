@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
-menuWeight: 5
+menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false
@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-jenkins-service -->
 
  Jenkins 3.5.3-2.150.1 was released on Jan 3, 2019.
- 
+
 # Version 3.5.3-2.150.1
 
 ## Improvements
