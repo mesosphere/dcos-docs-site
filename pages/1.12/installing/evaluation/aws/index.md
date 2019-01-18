@@ -151,7 +151,6 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
       source  = "dcos-terraform/dcos/aws"
       version = "~> 0.1"
 
-      dcos_instance_os    = "coreos_1855.5.0"
       cluster_name        = "my-dcos-demo"
       ssh_public_key_file = "<path-to-public-key-file>"
       admin_ips           = ["${data.http.whatismyip.body}/32"]
@@ -161,6 +160,12 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
       num_public_agents  = "1"
 
       dcos_version = "1.12.0"
+
+      dcos_instance_os    = "centos_7.5"
+      bootstrap_instance_type = "t2.medium"
+      masters_instance_type  = "t2.medium"
+      private_agents_instance_type = "t2.medium"
+      public_agents_instance_type = "t2.medium"
 
       # dcos_variant              = "ee"
       # dcos_license_key_contents = "${file("./license.txt")}"
