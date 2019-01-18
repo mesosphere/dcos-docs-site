@@ -76,13 +76,13 @@ The following matrix shows the platform components and operating environments on
         <td>CoreOS 1911.5.0</td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td>                    </td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
     </tr>
     <tr>
         <td>CoreOS 1911.4.0</td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td>                    </td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
     </tr>
     <tr>
         <td>CoreOS 1911.3.0</td>
