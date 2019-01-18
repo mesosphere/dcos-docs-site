@@ -18,9 +18,9 @@ Marathon-lb exposes the following endpoints on port `9090` by default.
 
 | <b>Endpoint</b> | <b>Description</b> |
 | :--- | :-------- |
-|<code>public-node:9090/haproxy?stats</code> | The HAProxy **sStatistics** endpoint produces an HTML page that provides statistical information about the current HAProxy instance and its load balancing activity. You can view the statistics from this endpoint in your browser. |
+|<code>public-node:9090/haproxy?stats</code> | The **Statistics** endpoint produces an HTML page that provides statistical information about the current HAProxy instance and its load balancing activity. You can view the statistics from this endpoint in your browser. |
 <code>public-node:9090/haproxy?stats;csv</code> | The **Statistics CSV** endpoint provides statistical information about the current HAProxy instance and load balancing activity as comma-separated values (CSV). In CSV format, the information can be consumed by other tools. For example, this endpoint produces the results used in the `zdd.py` script. |
-<code>public-node:9090/_haproxy_health_check</code> | The HAProxy **Health check** endpoint returns 200 OK if HAProxy is healthy. |
+<code>public-node:9090/_haproxy_health_check</code> | The **Health check** endpoint returns 200 OK if HAProxy is healthy. |
 <code>public-node:9090/_haproxy_getconfig</code> | The **Configuration** endpoint returns the HAProxy configuration file as it was when HAProxy was started. Implemented in `getconfig.lua`. |
 <code>public-node:9090/_haproxy_getvhostmap</code> | The **Virtual-host-to-backend** endpoint returns the HAProxy virtual host to backend map if the `--haproxy-map` flag is enabled. If you are not using the `--haproxy-map` option, the endpoint returns an empty string. Implemented in `getmaps.lua`. |
 <code>public-node:9090/_haproxy_getappmap</code> | The **App-ID-to-backend** endpoint returns the HAProxy application identifier to backend map. Like `_haproxy_getvhostmap`, this endpoint requires you to enable the `--haproxy-map` option and returns an empty string otherwise. Also implemented in `getmaps.lua`. |
@@ -28,10 +28,10 @@ Marathon-lb exposes the following endpoints on port `9090` by default.
 <code>public-node:9090/_mlb_signal/hup</code> | The **Reload configuration** endpoint sends a SIGHUP signal to the `marathon-lb` process, causing it to fetch the running apps from Marathon and reload the `HAProxy` configuration as though an event was received from Marathon. |
 <code>public-node:9090/_mlb_signal/usr1</code> | The **Restart configuration** endpoint sends a `SIGUSR1` signal to the `marathon-lb` process, causing it to restart the `HAProxy` load balancer with the existing configuration, without checking Marathon for changes. |
 
-<p class="message--note"><strong>NOTE: </strong>The `/_mlb_signal/hup` and `/_mlb_signal/usr1` endpoints do not function if `marathon-lb` is in `poll` mode. With the `poll` argument, `marathon-lb` exits after each poll, so there is no running `marathon-lb` process to be signaled.</p>
+<p class="message--note"><strong>NOTE: </strong>The <code>/_mlb_signal/hup</code> and <code>/_mlb_signal/usr1</code> endpoints do not function if Marathon-LB is running in <code>poll</code> mode. With the <code>poll</code> argument, Marathon-LB exits after each poll, so there is no running <code>marathon_lb.py</code> process to be signaled.</p>
 
-# Marathon_lb command reference
-You can run the Marathon load balancer (`marathon-lb`) script directly from the command-line in a shell terminal or programmatically. The script accepts the following command-line options and arguments.
+# Marathon-LB command reference
+You can run the Marathon load balancer script (`marathon_lb.py`) directly from the command-line in a shell terminal or programmatically. The script accepts the following command-line options and arguments.
 
 ## Usage 
 <pre>
@@ -59,38 +59,38 @@ marathon_lb.py [-h] [--longhelp] [--marathon MARATHON [MARATHON ...]]
 ## Required arguments
 | <b>Argument</b> | <b>Description</b> |
 | :--- | :--- |
-<code>-m, --marathon MARATHON [MARATHON ...]</code> | Specifies one or more Marathon endpoints [required]. The default is `http://master.mesos:8080`. For example: `-m http://marathon1:8080 http://marathon2:8080`
-<code>--group GROUP </code> | Generates configuration information only for the apps with the specified group names. Use `*` to match all groups, including groups without a group name specified [required]. The default is an empty string [ ].
+<code>-m, --marathon MARATHON [MARATHON ...]</code> | Specifies one or more Marathon endpoints. This argument specifies the location of the Marathon containers for Marathon-LB to use. The default endpoint is `http://master.mesos:8080`. For example, you might use this argument to specify two Marathon instances like this: `-m http://marathon1:8080 http://marathon2:8080`.
+<code>--group GROUP </code> | Generates configuration information only for the apps with the specified group names. Use `*` to match all groups, including groups without a group name specified. The default is an empty string [ ].
 
 ## Optional arguments
 | <b>Argument</b> | <b>Description</b> |
 | :--- | :--- |
 <code>-h, --help</code> | Show this help message and exit.
-<code>--longhelp</code> | Print out configuration details (default: false).
-<code>--haproxy-config HAPROXY_CONFIG</code> | Specifies the location of the `haproxy` configuration file (default: `/etc/haproxy/haproxy.cfg`).
-<code>--command COMMAND, -c COMMAND</code> | If set, run this command to reload haproxy. (default: none).
-<code>--max-reload-retries MAX_RELOAD_RETRIES</code> | Specifies the maximum number if reload retries before failure. Reloads happen every `--reload-interval` seconds. Set to 0 to disable reloading attempts or -1 for infinite retries (default: 10).
-<code>--reload-interval RELOAD_INTERVAL </code> | Waits the sepcified number of seconds between reload retries (default: 10).
-<code>--strict-mode</code> | Enables backends to be advertised only if `HAPROXY_{n}_ENABLED=true`. Strict mode might be enabled by default in a future release (default: false).
-<code>--sse, -s</code> | Uses server-sent events (default: false).
-<code>--archive-versions ARCHIVE_VERSIONS</code> | Specifies the number of configuration versions to archive (default: 5).
-<code>--health-check, -H</code> | Determines Marathon's health check status before adding the app instance into the backend pool (default: false).
-<code>--lru-cache-capacity LRU_CACHE_CAPACITY</code> | Specifies the LRU cache size (in number of items). This argument should be at least as large as the number of tasks exposed to marathon-lb (default: 1000).
-<code>--haproxy-map</code> | Uses HAProxy maps for domain name to backend mapping (default: false).|
-<code>--dont-bind-http-https</code> | Prevents binding to HTTP and HTTPS frontends (default: false). |
-<code>--group-https-by-vhost</code> | Groups https frontends by virtual host (default: false). |
-<code>--ssl-certs SSL_CERTS</code> | Lists SSL certificates separated by commas for frontend marathon_https_in (default: /etc/ssl/cert.pem). For example: `/etc/ssl/site1.co.pem,/etc/ssl/site2.co.pem` |
-<code>--skip-validation</code> | Skips haproxy configuration file validation (default: false). |
-<code>--dry, -d</code> | Only prints configuration information to the console (default: false). |
-<code>--min-serv-port-ip-per-task MIN_SERV_PORT_IP_PER_TASK</code> | Specifies the minimum port number to use when auto-assigning service ports for IP-per-task applications (default: 10050). |
-<code>--max-serv-port-ip-per-task MAX_SERV_PORT_IP_PER_TASK</code> | Specifies the maximum port number to use when auto-assigning service ports for IP-per-task applications (default: 10100). |
-<code>--syslog-socket SYSLOG_SOCKET</code> | Specifies the socket to write syslog messages to. Use `/dev/null` to disable logging to syslog (default: /dev/log). |
-<code>--log-format LOG_FORMAT</code> | Sets the log message format (default: `%(asctime)-15s %(name)s: %(message)s`) |
-<code>--log-level LOG_LEVEL</code> | Sets the  log level (default: DEBUG). |
-<code>--marathon-auth-credential-file MARATHON_AUTH_CREDENTIAL_FILE</code> | Specifies the path to file containing a user name and password for the Marathon HTTP API in the format of `user:pass` (default: none). |
-<code>--auth-credentials AUTH_CREDENTIALS</code> | Specifies the user name and password for the Marathon HTTP API in the format of `user:pass` (default: none). |
-<code>--dcos-auth-credentials DCOS_AUTH_CREDENTIALS</code> | Sepcifies the DC/OS service account credentials (default: none) |
-<code>--marathon-ca-cert MARATHON_CA_CERT</code> | Specifies the CA certificate for Marathon HTTPS connections (default: none). |
+<code>--longhelp</code> | Print out configuration details. The default is false.
+<code>--haproxy-config HAPROXY_CONFIG</code> | Specifies the location of the `haproxy` configuration file. The default is `/etc/haproxy/haproxy.cfg`.
+<code>--command COMMAND, -c COMMAND</code> | If set, run this command to reload haproxy. The default is none.
+<code>--max-reload-retries MAX_RELOAD_RETRIES</code> | Specifies the maximum number if reload retries before failure. Reloads happen every `--reload-interval` seconds. Set to 0 to disable reloading attempts or -1 for infinite retries. The default is 10.
+<code>--reload-interval RELOAD_INTERVAL </code> | Waits the sepcified number of seconds between reload retries. The default is 10.
+<code>--strict-mode</code> | Enables backends to be advertised only if `HAPROXY_{n}_ENABLED=true`. Strict mode might be enabled by default in a future release. The default is false.
+<code>--sse, -s</code> | Uses server-sent events. The default is false.
+<code>--archive-versions ARCHIVE_VERSIONS</code> | Specifies the number of configuration versions to archive. The default is 5.
+<code>--health-check, -H</code> | Determines Marathon's health check status before adding the app instance into the backend pool. The default is false.
+<code>--lru-cache-capacity LRU_CACHE_CAPACITY</code> | Specifies the LRU cache size (in number of items). This argument should be at least as large as the number of tasks exposed to marathon-lb. The defaultis 1000.
+<code>--haproxy-map</code> | Uses HAProxy maps for domain name to backend mapping. The default is false. |
+<code>--dont-bind-http-https</code> | Prevents binding to HTTP and HTTPS frontends. The default is false. |
+<code>--group-https-by-vhost</code> | Groups https frontends by virtual host. The default is false. |
+<code>--ssl-certs SSL_CERTS</code> | Lists SSL certificates separated by commas for frontend `marathon_https_in`. The default is /`etc/ssl/cert.pem`. For example: `/etc/ssl/site1.co.pem,/etc/ssl/site2.co.pem` |
+<code>--skip-validation</code> | Skips haproxy configuration file validation. The default is false. |
+<code>--dry, -d</code> | Only prints configuration information to the console. The default is false. |
+<code>--min-serv-port-ip-per-task MIN_SERV_PORT_IP_PER_TASK</code> | Specifies the minimum port number to use when auto-assigning service ports for IP-per-task applications. The default is 10050. |
+<code>--max-serv-port-ip-per-task MAX_SERV_PORT_IP_PER_TASK</code> | Specifies the maximum port number to use when auto-assigning service ports for IP-per-task applications. The default is 10100. |
+<code>--syslog-socket SYSLOG_SOCKET</code> | Specifies the socket to write syslog messages to. Use `/dev/null` to disable logging to `syslog`. The default is /dev/log. |
+<code>--log-format LOG_FORMAT</code> | Sets the log message format. The default is `%(asctime)-15s %(name)s: %(message)s`. |
+<code>--log-level LOG_LEVEL</code> | Sets the log level, The default is DEBUG. |
+<code>--marathon-auth-credential-file MARATHON_AUTH_CREDENTIAL_FILE</code> | Specifies the path to file containing a user name and password for the Marathon HTTP API in the format of `user:pass`. The default is none. |
+<code>--auth-credentials AUTH_CREDENTIALS</code> | Specifies the user name and password for the Marathon HTTP API in the format of `user:pass`. The default is none. |
+<code>--dcos-auth-credentials DCOS_AUTH_CREDENTIALS</code> | Sepcifies the DC/OS service account credentials. The default is none. |
+<code>--marathon-ca-cert MARATHON_CA_CERT</code> | Specifies the CA certificate for Marathon HTTPS connections. The default is none. |
 
 # Template reference
 The following is a list of the available `HAProxy` configuration **templates**. Some templates are global-only (such as `HAPROXY_HEAD`), but most can be specified on a per service port basis as **app labels** to override the global settings.
@@ -112,11 +112,16 @@ The templates and app labels that can be set per-service-port include an index i
 
 The valid values for the load balancing type include:
 
-* <code>roundrobin</code> - Each server is used in turns, according to their weights. This algorithm is dynamic and ensures processing time remains equally distributed. 
-* <code>static-rr</code> - Each server is used in turns, according to their weights. This algorithm is as similar to roundrobin except that it is static.
-* <code>leastconn</code> - The server with the least number of connections receives the next connection request. Round-robin selection is performed within groups of servers that have the same load to ensure that all servers are used. This algorithm is recommended when long sessions, such as LDAP or SQL sessions are expected, is not appropriate for protocols using short sessions such as HTTP.
-* <code>source</code> - The source IP address is hashed and divided by the total weight of the running servers to designate which server should receive the request. This algorithm ensures that the same client IP address always reaches the same server as long as no server goes down or up. If the hash result changes because the number of running servers has changed, clients  are directed to a different server. This algorithm is generally used with TCP mode or for clients that refuse session cookies.
-* <code>uri</code> - This algorithm hashes either the left part of the URI (before the question mark) or the whole URI (if the "whole" parameter is present) and divides the hash value by the total weight of the running servers. The result designates which server receives the request.The valid values for the connections mode are TCP or HTTP. 
+* <code>roundrobin</code> - Each server is used in turns, according to their weights. 
+  This algorithm is dynamic and ensures processing time remains equally distributed. 
+* <code>static-rr</code> - Each server is used in turns, according to their weights. 
+  This algorithm is as similar to roundrobin except that it is static.
+* <code>leastconn</code> - The server with the least number of connections receives the next connection request. 
+  Round-robin selection is performed within groups of servers that have the same load to ensure that all servers are used. This algorithm is recommended when long sessions, such as LDAP or SQL sessions are expected, is not appropriate for protocols using short sessions such as HTTP.
+* <code>source</code> - The source IP address is hashed and divided by the total weight of the running servers to designate which server should receive the request. 
+  This algorithm ensures that the same client IP address always reaches the same server as long as no server goes down or up. If the hash result changes because the number of running servers has changed, clients  are directed to a different server. This algorithm is generally used with TCP mode or for clients that refuse session cookies.
+* <code>uri</code> - This algorithm hashes either the left part of the URI (before the question mark) or the whole URI (if the "whole" parameter is present) and divides the hash value by the total weight of the running servers. 
+  The result designates which server receives the request.The valid values for the connections mode are TCP or HTTP. 
 
 The default template for `HAPROXY_BACKEND_HEAD` is:
 <code>backend {backend}
@@ -364,7 +369,7 @@ The default template for `HAPROXY_HTTPS_FRONTEND_ACL_WITH_AUTH` is:
 You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTPS_FRONTEND_ACL_WITH_AUTH": "  acl auth_{cleanedUpHostname} http_auth(user_{backend})\n  http-request auth realm \"{realm}\" if {{ ssl_fc_sni {hostname} }} !auth_{cleanedUpHostname}\n  use_backend {backend} if {{ ssl_fc_sni {hostname} }}\n"</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_ACL_WITH_AUTH<br>_AND_PATH |Specifies the ACL that glues a backend to the corresponding virtual host with path of the HAPROXY_HTTPS_FRONTEND_HEAD through HTTP Basic authentication. 
+<tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_ACL_WITH_AUTH<br>_AND_PATH</td><td>Specifies the ACL that glues a backend to the corresponding virtual host with path of the HAPROXY_HTTPS_FRONTEND_HEAD through HTTP Basic authentication. 
 
 The default template for `HAPROXY_HTTPS_FRONTEND_ACL_WITH_AUTH_AND_PATH` is:
 <code> acl auth_{cleanedUpHostname} http_auth(user_{backend})
