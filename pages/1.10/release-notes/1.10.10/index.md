@@ -12,13 +12,13 @@ DC/OS 1.10.10 was released on Jaunary 18, 2019.
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
 # Updated Components in DC/OS 1.10.10
-DC/OS 1.10.9 includes the following:
+DC/OS 1.10.10 includes the following:
 - Apache Mesos 1.4.3 [change log](https://github.com/apache/mesos/blob/3071ff7/CHANGELOG).
 - Marathon 1.5.12 [change log](https://github.com/mesosphere/marathon/releases/tag/v1.5.12).
 - Metronome 0.4.4 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.4).
 
 # Issues Fixed in DC/OS 1.10.10
-The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
+The issues that have been fixed in DC/OS 1.10.10 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
 
 ## Command-Line Interface (CLI)
 - DCOS-38213 - Downloading the Mesosphere CLI package requires a network connection to `downloads.mesosphere.com`. Because this connection can be slow, especially from remote or widely-distributed network locations, the session scope for the CLI fixture helps to ensure the CLI package only has to be downloaded once.
@@ -29,7 +29,7 @@ The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, function
 - COPS-4044, DCOS_OSS-4469 - This release changes the logging settings for the `dcos-docker-gc` unit so that any log messages it creates are preserved in the `systemd` journal logging facility on the host system.
 
 ## Mesos
-- COPS-4320, DCOS-46814 - After an agent host is rebooted, the forked child process id and `libprocess` process id for executor in the agent's meta directory are obsolete and should not be read. This change to the process identifiers read during agent recovery prevents the container from waiting for a process if those process ids are reused after a reboot. 
+- COPS-4320, DCOS-46814 - After an agent host is rebooted, the forked child process id and `libprocess` process id for the executor in the agent's meta directory are obsolete and should not be read. This change to the process identifiers read during agent recovery prevents the container from waiting for a process if those process ids are reused after a reboot. 
 
   Previously, if you rebooted an agent, the agent would wait for the exit status of its container process id (`pid`) before terminating the executor. If a new process with the same `pid` is spawned after the reboot, the agent recovery might stall waiting for the wrong child process id, blocking the executor termination and updates to its tasks.
 
@@ -44,7 +44,7 @@ The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, function
 ## Networking
 - COPS-4124, DCOS-46132, DCOS_OSS-4667 - A new agent option `--network_cni_root_dir_persist` allows the container node root directory to store network information in a persistent location. This option enables you to specify a container `work_dir` root directory that persists network-related information. By persisting this information, the container network interface (CNI) isolator code can perform proper cleanup operations after rebooting. 
 
-  If rebooting a node does not delete old containers and IP/MAC addresses from `etcd` (which over time can cause pool exhaustion), you should set the `--network_cni_root_dir_persist` agent option in the `config.yaml` file to `true`. Note that changing this flag requires rebooting the agent node or shutting down all container processes running on the node. Because a reboot or shutdown of containers is required, the default value for the `--network_cni_root_dir_persist` agent option is `false`. Before changing this option, you should plan for agent maintenance to minimize any service interruption. If you set this option and reboot a node, you should also unset the `CNI_NETNS` environment variable after rebooting using the CNI plugin `DEL` command so that the plugin cleans up as many resources as possible (for example, by releasing IPAM allocations) and returns a successful response.
+  If rebooting a node does not delete old containers and IP/MAC addresses from `etcd` (which over time can cause pool exhaustion), you should set the `--network_cni_root_dir_persist` agent option in the `config.yaml` file to `true`. You should note that changing this flag requires rebooting the agent node or shutting down all container processes running on the node. Because a reboot or shutdown of containers is required, the default value for the `--network_cni_root_dir_persist` agent option is `false`. Before changing this option, you should plan for agent maintenance to minimize any service interruption. If you set this option and reboot a node, you should also unset the `CNI_NETNS` environment variable after rebooting using the CNI plugin `DEL` command so that the plugin cleans up as many resources as possible (for example, by releasing IPAM allocations) and returns a successful response.
 
 ## Security
 - DCOS_OSS-4418 - This release includes an upgrade to the Python requests library used in DC/OS to address moderate security vulnerability reports (CVE-2018-18074). The release upgrades the request library from 2.20.1 to 2.21.0.
@@ -106,7 +106,7 @@ You can try out the new features and updated data services. Provide feedback thr
 - Ability to deploy Data Services into Folders to enable multi team deployments. [enterprise type="inline" size="small" /]
 - Ability to deploy to CNI-Based Virtual Networks.
 
-The following updated data services packages are compatible with DC/OS 1.10.0.
+The following updated data services packages are compatible with DC/OS 1.10.
 
 - Cassandra. [Documentation](/services/cassandra/). [Release Notes](/services/cassandra/v2.0.0-3.0.14/release-notes/).
 
@@ -128,7 +128,7 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
 
 ### CLI
 
-- DC/OS 1.10.0 requires DC/OS CLI 0.5.x.
+- DC/OS 1.10 requires DC/OS CLI 0.5.x.
 - DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands.
 
 
@@ -165,13 +165,13 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - Moved file location for the DC/OS CA bundle in the sandbox of Mesos tasks from `$MESOS_SANDBOX/.ssl/ca.crt` to `$MESOS_SANDBOX/.ssl/ca-bundle.crt` and declared the new file path to be stable.
 
-- Marathon-LB 1.11.0 or greater is required for DC/OS 1.10.0.
+- Marathon-LB 1.11.0 or greater is required for DC/OS 1.10.
 
-  Before upgrading to DC/OS 1.10.0, uninstall your existing Marathon-LB package and reinstall the updated version.
+  Before upgrading to DC/OS 1.10, uninstall your existing Marathon-LB package and reinstall the updated version.
 
 - REX-Ray configuration change.
 
-  DC/OS 1.10.0 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray-config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS.
+  DC/OS 1.10 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray-config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS.
   **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
 
 - New flow to change the `dcos_url` and log in.
