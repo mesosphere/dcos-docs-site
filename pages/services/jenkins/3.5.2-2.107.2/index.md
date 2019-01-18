@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: 3.5.2-2.107.2
 title: 3.5.2-2.107.2
-menuWeight: 70
+menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: false
