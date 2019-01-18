@@ -60,22 +60,6 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 
     See [configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) for more information on setting up credentials and user profile.
 
-1. Set the `AWS_DEFAULT_REGION`. The current Terraform Provider for AWS requires that the default AWS region be set before terraform can start. You can set the default region with the following command:
-
-    ```bash
-    export AWS_DEFAULT_REGION="<desired-aws-region>"
-    ```
-    For example, if you wanted to use `us-west-2`:
-
-    ```bash
-    export AWS_DEFAULT_REGION="us-west-2"
-    ```
-
-    Ensure it has been set:
-    ```bash
-    echo $AWS_DEFAULT_REGION
-    ```
-
 1. Set the `AWS_PROFILE`. Terraform will need to communicate your credentials to AWS. This should be the same profile associated with the access keys entered in when configuring the AWS CLI above.
 
     ```bash
@@ -147,6 +131,11 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 1. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
 
     ```hcl
+    provider "aws" {
+      # Change your default region here
+      region = "us-east-1"
+    }
+
     module "dcos" {
       source  = "dcos-terraform/dcos/aws"
       version = "~> 0.1"
@@ -166,6 +155,10 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
       masters_instance_type  = "t2.medium"
       private_agents_instance_type = "t2.medium"
       public_agents_instance_type = "t2.medium"
+
+      providers = {
+        aws = "aws"
+      }
 
       # dcos_variant              = "ee"
       # dcos_license_key_contents = "${file("./license.txt")}"
@@ -204,6 +197,8 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
       "~/.ssh/aws-key.pub"
       ```
 
+1. `region` is a setting that sets the AWS region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-east-1”, it can be changed to any other region (e.g “us-west-1”, “us-west-2”, “us-east-2”, etc).  For a complete list, please refer to the [configuration reference](/1.12/installing/evaluation/aws/aws-advanced/).
+
 1. Enterprise users, uncomment/comment the section for the variant to look like this, inserting the location to your license key. [enterprise type="inline" size="small" /]
 
     ```bash
@@ -218,7 +213,7 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
     - 2 Private Agents
     - 1 Public Agent
 
-    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/aws-advanced/).
+    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/aws/aws-advanced/).
   
     There are also simple helpers listed underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
 
