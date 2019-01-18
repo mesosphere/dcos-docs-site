@@ -16,10 +16,18 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
 
 # Install Terraform
 
-1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
+1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. 
+    
+    If you're on a Mac environment with [Homebrew](https://brew.sh/) installed, simply run the following command:
 
     ```bash
     brew install terraform
+    ```
+
+    Windows users that have [Chocolatey](https://chocolatey.org/docs/installation) installed, run:
+
+    ```bash
+    choco install terraform -y
     ```
 
 # Install and configure the Azure CLI
