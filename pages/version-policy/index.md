@@ -123,7 +123,7 @@ The following matrix shows the platform components and operating environments on
         </tr>
         <tr>
         <td>RHEL 7.6</td>
-        <td>                    </td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
     </tr>
