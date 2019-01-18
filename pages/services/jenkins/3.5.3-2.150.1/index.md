@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Jenkins
-title: Jenkins
-menuWeight: 60
+navigationTitle: 3.5.3-2.150.1
+title: 3.5.3-2.150.1
+menuWeight: 65
 excerpt:
 featureMaturity:
 enterprise: false
