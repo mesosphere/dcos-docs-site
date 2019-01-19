@@ -13,6 +13,8 @@ A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory c
 
 ## Requirements and Recommendations
 
+Be sure that Docker's [`live-restore` setting is disabled](https://docs.docker.com/config/containers/live-restore/). It should be absent or set to false in a Docker configuration file.
+
 Before installing Docker on CentOS/RHEL, review the general [requirements and recommendations for running Docker on DC/OS][1] and the following CentOS/RHEL-specific recommendations:
 
 * OverlayFS is now the default in Docker CE. There is no longer a need to specify or configure the overlay driver. Prefer the OverlayFS storage driver. OverlayFS avoids known issues with `devicemapper` in `loop-lvm` mode and allows containers to use docker-in-docker, if they want.
@@ -39,19 +41,19 @@ Follow the Docker [RHEL-specific installation instructions][3], keeping in mind 
 
 The following instructions demonstrate how to install Docker on CentOS 7.
 
-### Note: Uninstall the newer version of Docker (if present):
+1. Uninstall the newer version of Docker (if present):
 
     ```bash
     sudo yum remove docker-ce
     ```
 
-1.  Install Docker:
+1. Install Docker:
 
     ```bash
     sudo yum install docker
     ```
 
-1.  Start Docker:
+1. Start Docker:
 
     ```bash
     sudo systemctl start docker
