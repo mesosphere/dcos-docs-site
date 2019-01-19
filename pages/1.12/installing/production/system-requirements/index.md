@@ -146,6 +146,8 @@ Docker must be installed on all bootstrap and cluster nodes. The supported Docke
 
 **Recommendations**
 
+- Be sure that Docker's [`live-restore` setting is disabled](https://docs.docker.com/config/containers/live-restore/). It should be absent or set to false in a Docker configuration file.
+
 - Do not use Docker `devicemapper` storage driver in `loop-lvm` mode. For more information, see [Docker and the Device Mapper storage driver](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/).
 
 - Prefer `OverlayFS` or `devicemapper` in `direct-lvm` mode when choosing a production storage driver. For more information, see Docker's <a href="https://docs.docker.com/engine/userguide/storagedriver/selectadriver/" target="_blank">Select a Storage Driver</a>.
