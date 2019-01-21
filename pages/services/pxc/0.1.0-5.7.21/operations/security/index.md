@@ -26,7 +26,7 @@ The service uses the [DC/OS CA](https://docs.mesosphere.com/latest/security/ent/
 
 ## Configure Transport Encryption
 
-See the [Guide to Configuring DC/OS Access for percona-pxc-mysql](ServiceAccount).
+See the [Guide to Configuring DC/OS Access for percona-pxc-mysql](service-account).
 
 ## Set up the service account
 
@@ -77,7 +77,7 @@ DC/OS percona-pxc-mysql Service supports two authentication mechanisms, SSL and 
 Steps to follow to configure PAM:
 1. Install openLDAP and openLDAP admin in the same cluster from Catalogue.
 2. Go to openLDAP Admin and logon with configurable userid(cn=admin,dc=example,dc=org) and password.
-[<img src="/services/pxc/0.1.0-5.7.21/img/.png" alt="My LDAP login"/>](/services/pxc/0.1.0-5.7.21/img/openldap_login.png)
+[<img src="/services/pxc/0.1.0-5.7.21/img/openldap_login.png" alt="My LDAP login"/>](/services/pxc/0.1.0-5.7.21/img/openldap_login.png)
 
 3. Go to "ou-groups", create admin, developer and user(image)
 4. Create username under user group.

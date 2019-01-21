@@ -27,11 +27,11 @@ If you are using DC/OS Open Source, install {{ model.serviceName }} on the clust
 ```shell
 dcos package install --yes {{ model.serviceName }}
 ```
-If you are using Enterprise DC/OS, you may need to follow additional instructions. See the [Install](/services/pxc/0.1.0-5.7.21/install/) section for more information.
+If you are using Enterprise DC/OS, you may need to follow additional instructions. See the [Install](/services/pxc/0.1.0-5.7.21/operations/install/) section for more information.
 
 ## Installing from the web interface
 
-Alternatively, you can install {{ model.techName }} from the DC/OS web interface. The instructions are [here](/services/pxc/0.1.0-5.7.21/install/#installing-from-the-dcos-web-interface).
+Alternatively, you can install {{ model.techName }} from the DC/OS web interface. The instructions are [here](/services/pxc/0.1.0-5.7.21/operations/install/#installing-from-the-dcos-web-interface).
 
 Once the `install` command is triggered, the service will deploy with a default configuration. You can monitor its deployment via the Services tab of the DC/OS web interface.   
 

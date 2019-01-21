@@ -45,3 +45,13 @@ The “disk” configuration value is denominated in MB. We recommend you set th
 ## OpenID Connect and Apache Knox
 
 OpenID Connect and Apache Knox are not supported.
+
+## Additional Limitations
+
+- Replication works only with InnoDB storage engine
+- Query log cannot be directed to table
+- InnoDB fake changes feature is not supported
+- XA transactions are not supported due to possible rollback on commit
+- The minimal recommended size of cluster is 3 nodes
+- When  running  Percona  XtraDB  Cluster  in  cluster  mode,  avoid ALTER TABLE ... IMPORT/EXPORT workloads. It can lead to node inconsistency if not executed in sync on all nodes
+- Manual restore

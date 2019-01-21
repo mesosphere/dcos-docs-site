@@ -19,6 +19,8 @@ DC/OS {{ model.techName }} offers the following benefits :
 1. Provides self health monitoring
 1. Flexible design to suit design requirement (with/without SSL or PAM authentication)
 1. Supports wide range of integration for data collection and persistence
+1. Provides backup and restore faciltity on AWS compatible storages.
+1. Provides Data at rest encryption facility to store data in a secure manner.
 
 ## Features
 DC/OS {{ model.techName }}'s main features are:

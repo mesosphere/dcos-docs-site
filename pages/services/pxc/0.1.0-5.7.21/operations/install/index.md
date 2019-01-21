@@ -14,7 +14,7 @@ DC/OS {{ model.techName }} is available in the DC/OS Universe and can be install
 The default DC/OS {{ model.techName }} Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
 
-## Configuration Best Practices for Production
+## Deployment Best Practice for Production
   
 - Increase the number of TCP socket ports available. This is particularly important if the flow will be setting up and tearing down a large number of sockets in small period of time.
    ```
