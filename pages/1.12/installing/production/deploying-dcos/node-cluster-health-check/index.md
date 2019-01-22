@@ -49,10 +49,10 @@ Before installing DC/OS, you may optionally provide a directory of executables a
 # Types of Health Checks
 
 ## Cluster Checks
-Cluster checks report the health status of the entire DC/OS cluster. Cluster checks are available across your cluster on all nodes. You can discover which cluster checks have been defined by SSHing to your cluster node and running this command: `/opt/mesosphere/bin/dcos-shell dcos-diagnostics check cluster --list`.
+Cluster checks report the health status of the entire DC/OS cluster. Cluster checks are available across your cluster on all nodes. You can discover which cluster checks have been defined by SSHing to your cluster node and running this command: `/opt/mesosphere/bin/dcos-shell dcos-check-runner check cluster --list`.
 
 ## Node Checks
-Node checks report the status of individual nodes after installation. Node checks can be run post-installation by connecting to an individual node via SSH. You can view which node checks have been defined by SSHing to your cluster node and running this command: `/opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart --list`.
+Node checks report the status of individual nodes after installation. Node checks can be run post-installation by connecting to an individual node via SSH. You can view which node checks have been defined by SSHing to your cluster node and running this command: `/opt/mesosphere/bin/dcos-shell dcos-check-runner check node-poststart --list`.
 
 # Running Health Checks
 You can run the following commands from your cluster node to invoke custom or predefined health checks.
@@ -71,7 +71,7 @@ You can run the following commands from your cluster node to invoke custom or pr
 1.  Run this command to view the available health checks, with your check type (`<check-type>`) specified. The check type can be either cluster (`cluster`) or node (`node-poststart`).
 
     ```bash
-    /opt/mesosphere/bin/dcos-shell dcos-diagnostics check <check-type> --list
+    /opt/mesosphere/bin/dcos-shell dcos-check-runner check <check-type> --list
     ```
 
     Your output should resemble:
@@ -110,13 +110,13 @@ You can run the following commands from your cluster node to invoke custom or pr
 1.  Run checks with the check name (`<checkname>`) specified.
 
     ```bash
-    /opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart <checkname>
+    /opt/mesosphere/bin/dcos-shell dcos-check-runner check node-poststart <checkname>
     ```
 
   For example: To run the `component_agent` check.
 
     ```bash
-    /opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart component_agent
+    /opt/mesosphere/bin/dcos-shell dcos-check-runner check node-poststart component_agent
     ```   
 
   The output should resemble:
@@ -145,13 +145,13 @@ You can run the following commands from your cluster node to invoke custom or pr
 List all cluster checks.
 
 ```
-/opt/mesosphere/bin/dcos-shell dcos-diagnostics check cluster --list
+/opt/mesosphere/bin/dcos-shell dcos-check-runner check cluster --list
 ```
 
 List all node checks.
 
 ```bash
-/opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart --list
+/opt/mesosphere/bin/dcos-shell dcos-check-runner check node-poststart --list
 ```
 
 ## List specific checks
@@ -159,13 +159,13 @@ List all node checks.
 List specific cluster checks (`check1`).
 
 ```bash
-/opt/mesosphere/bin/dcos-shell dcos-diagnostics check cluster --list check1 [check2 [...]]
+/opt/mesosphere/bin/dcos-shell dcos-check-runner check cluster --list check1 [check2 [...]]
 ```
 
 List specific node checks (`check1`).
 
 ```bash
-/opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart --list check1 [check2 [...]]
+/opt/mesosphere/bin/dcos-shell dcos-check-runner check node-poststart --list check1 [check2 [...]]
 ```
 
 ## Run all checks
@@ -173,13 +173,13 @@ List specific node checks (`check1`).
 Run cluster checks.
 
 ```bash
-/opt/mesosphere/bin/dcos-shell dcos-diagnostics check cluster
+/opt/mesosphere/bin/dcos-shell dcos-check-runner check cluster
 ```
 
 Run node checks.
 
 ```bash
-/opt/mesosphere/bin/dcos-shell dcos-diagnostics check node-poststart
+/opt/mesosphere/bin/dcos-shell dcos-check-runner check node-poststart
 ```
 
 ## Run specific checks
@@ -187,11 +187,11 @@ Run node checks.
 Run specific cluster checks (`check1`).
 
 ```bash
-dcos-diagnostics check cluster check1 [check2 [...]]
+dcos-check-runner check cluster check1 [check2 [...]]
 ```
 
 Run specific node checks (`check1`).
 
 ```bash
-dcos-diagnostics check node-poststart check1 [check2 [...]]
+dcos-check-runner check node-poststart check1 [check2 [...]]
 ```
