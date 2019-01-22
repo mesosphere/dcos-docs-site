@@ -10,15 +10,13 @@ model: /services/minio/data.yml
 render: mustache
 ---
 
-<!-- Every mc command in this section invokes "events". But the mc command list at https://docs.minio.io/docs/minio-client-complete-guide#events shows this command as "event", with no "s". If this is an error, please correct the commands and descriptions in this section. -->
-<!-- It is a error. hence Required changes has been done in the commands and description. -->
 # Overview
 
 You can enable Notification Services to monitor events occurring on objects in a bucket. {{ model.techName }} supports the following targets to publish bucket events:
 
 1. [AMQP](#amqp)
 1. [Redis](#redis)
-1. [PostgresSQL](#postgresSQL)
+1. [PostgreSQL](#postgreSQL)
 1. [Apache Kafka](#kafka)
 1. [Elasticsearch](#elasticsearch) 
 1. [Webhook](#webhook) 
@@ -28,8 +26,7 @@ You can enable Notification Services to monitor events occurring on objects in a
 
 
 Use client tools like `mc` to set and listen for event notifications using the `event` [sub-command](https://docs.{{ model.serviceName }}.io/docs/{{ model.serviceName }}-client-complete-guide#events).
-<!-- The MC documentation describes this sub-command as "event", but throughout the remainder of this document you use the sub-command "events". Please clarify. -->
-<!-- It is a error. hence Required changes has been done in the commands and description. -->
+
 # Notification Services
 
 <a name="amqp"></a>
@@ -50,7 +47,6 @@ Buckets can be configured to generate event through client tools like `mc`. For 
 ```
 mc event add myminio/images arn:{{ model.techName }}:sqs::1:amqp --suffix .jpg
 ```
-
 
 
 <a name="redis"></a>
@@ -161,8 +157,6 @@ mc event add  myminio/images arn:{{ model.techName }}:sqs::1:elasticsearch --suf
 
 - Install [Webhooks](http://www.webhook.com/docs/).
 
-<!-- Is there a prerequisite installation step missing here? -->
-<!-- Done. -->
 
 ### Configure
 
@@ -260,4 +254,4 @@ Additional event can be listed using the following command:
 mc event list myminio/images
 ```
 
-For more information visit [{{ model.techName }} Bucket Notification Guide](https://docs.{{ model.techName }}.io/docs/{{ model.techName }}-bucket-notification-guide.html).
+For more information visit the [{{ model.techShortName }} Bucket Notification Guide](https://docs.{{ model.serviceName }}.io/docs/{{ model.serviceName }}-bucket-notification-guide.html).

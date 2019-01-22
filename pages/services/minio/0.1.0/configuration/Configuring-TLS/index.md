@@ -13,10 +13,9 @@ render: mustache
 # Prerequisites
 - [A DC/OS Service Account with a secret stored in the DC/OS Secret Store](https://docs.mesosphere.com/latest/security/ent/service-auth/custom-service-auth/)
 - DC/OS Superuser permissions for modifying the permissions of the service account
-- [DC/OS CLI](https://docs.mesosphere.com/1.10/cli/install/) installed 
-- [Enterprise DC/OS CLI 1.10 or later installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/#ent-cli-install).
-<!-- You are requiring two different versions of the DC/OS CLI. Is this an either/or requirement? Edit to clarify. -->
-<!-- There is no dependency of versions. We can use any version of DC/OS CLI. -->
+- DC/OS CLI installed, either the Open Source or Enterprise version:
+   - [DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed 
+   - [Enterprise DC/OS CLI 1.10 or later installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/#ent-cli-install).
 - You are logged in as a superuser.
 - If your [security mode](https://docs.mesosphere.com/1.10/security/ent/) is permissive or strict, you must [get the root cert](https://docs.mesosphere.com/1.10/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
 

@@ -13,10 +13,10 @@ render: mustache
 # Prerequisites
 - [A DC/OS Service Account with a secret stored in the DC/OS Secret Store.](https://docs.mesosphere.com/latest/security/ent/service-auth/custom-service-auth/)
 - DC/OS Superuser permissions for modifying the permissions of the service account.
-- [DC/OS CLI](https://docs.mesosphere.com/1.10/cli/install/) installed and be logged in as a superuser.
-- [Enterprise DC/OS CLI 1.10 or later installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/#ent-cli-install).
-<!-- You have called for two different installations of DC/OS. Which one is correct? -->
-<!-- There is no dependency of versions. We can use any version of DC/OS CLI. -->
+
+- DC/OS CLI, either Enterprise or Open Source:
+   - [DC/OS CLI](https://docs.mesosphere.com/1.10/cli/install/) installed and be logged in as a superuser.
+   - [Enterprise DC/OS CLI 1.10 or later installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/#ent-cli-install).
 - If your [security mode](https://docs.mesosphere.com/1.10/security/ent/) is permissive or strict, you must [get the root cert](https://docs.mesosphere.com/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 #include /services/include/service-account.tmpl
@@ -25,9 +25,6 @@ render: mustache
 
 ## Accessing the {{ model.techName }} web interface with Edge-LB TLS configuration
 
-<!-- Is this section a duplicate of the Accessing Minion web interface with Edge-LB TLS configuration section in the Quick Start Guide? If so, why? Does it have to be in both places? -->
-<!-- No it is not same. In Quick Start Guide it is Edge-lb without TLS configuration. -->
-
 ### Pre-requisites for EdgeLB with TLS configuration
 1. DC/OS cluster with Service account and Service account secret configured.
 
@@ -35,18 +32,17 @@ render: mustache
 
 ### Steps
 
-<!-- This section is incomplete. Please provide commands for the following steps. Don't make the user look them up somewhere else. -->
-<!-- Done. -->
+
 For Edge-LB pool configuration:
-1. Add repo of Edge-LB-aws.
+1. Add repo of `Edge-LB-aws`.
    ```shell
    dcos package repo add --index=0 edgelb-aws \https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb/stub-universe-edgelb.json
    ```
-1. Add repo of Edge-LB-Pool-aws.
+1. Add repo of `Edge-LB-Pool-aws`.
    ```shell
    dcos package repo add --index=0 edgelb-pool-aws \https://edge-lb-infinity-artifacts.s3.amazonaws.com/autodelete7d/master/edgelb-pool/stub-universe-edgelb-pool.json
    ```
-1. Install the Edge-LB:
+1. Install the Edge-LB package:
    ```shell
    dcos package install edgelb --yes
    ``` 
@@ -131,16 +127,16 @@ For Edge-LB pool configuration:
                }
    }
    ```
-1. TLS service view
+
    [<img src="../img/TLS_Service.png" alt="TLS Service View"/>](../img/TLS_Service.png)
 
    Figure 2. - TLS service view
 1. Running stage view
    [<img src="../img/TLS_Running_Stage.png" alt="TLS Running Stage"/>](../img/Running_Stage1.png)
 
-   Figure 3. - Running stage view
+   Figure 3. - The Running stage view will display the progress of your installation.
 
-1. Successful execution
+1. Verify your installation by viewing the log:
 
    [<img src="../img/TLS_Successful_Execution.png" alt="TLS Successful Execution"/>](../img/TLS_Successful_Execution.png)
 

@@ -27,13 +27,6 @@ Set your plan parameters as follows:
 }
 ``` 
 
-<!-- The following is incomplete. Please clarify:
- 
-Backup will be performed using the following sidecar task:
-
-The backup task is responsible for making a backup of the data in the {{ model.techName }} storage to the AWS S3-compatible storage.  -->
-
-<!-- We can remove these two lines as they are representing reduntant information. Earlier we were having more than one task to perform the backup, hence we wrote these lines. But now we have only one task to perform backup. -->
 
 ## Back up
     
