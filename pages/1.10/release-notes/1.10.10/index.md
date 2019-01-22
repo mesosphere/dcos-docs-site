@@ -67,15 +67,11 @@ You can try out the new features and updated data services. Provide feedback thr
 ## New Features and Capabilities
 
 ### Networking
-- Configurable Spartan upstreams for domains (dnames).
-  You can now configure Spartan to delegate a particular domain (for example, `\*.foo.company.com`) to a particular upstream.
+- You can configure Spartan to delegate a particular domain (for example, `\*.foo.company.com`) to a particular upstream.
 
-- Increased CNI network support.
-  DC/OS now supports any type of CNI network. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
+- DC/OS supports any type of container network interface (CNI) network plugin. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
-- Edge-LB load balancer. [enterprise type="inline" size="small" /]
-
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
+- You can use Edge-LB load balancer to balance Mesos tasks. The Edge-LB load balancer does not support strict security mode. [View the documentation](/services/edge-lb/0.1/).[enterprise type="inline" size="small" /]
 
 [enterprise type="block" size="large"]
 ### Security
@@ -136,13 +132,15 @@ The following updated data services packages are compatible with DC/OS 1.10.
 
    - DC/OS CLI 0.4.x and 0.5.x use a different structure for the location of configuration files. DC/OS CLI 0.4.x has a single configuration file, which by default is stored in `~/.dcos/dcos.toml`. DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default are stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`.
    - DC/OS CLI 0.5.x introduces the `dcos cluster setup` command to configure a connection to a cluster and log into the cluster.
-   - **Note:**
-     -  Updating to the DC/OS CLI 0.5.x and running any CLI command triggers conversion from the old to the new configuration structure.
-     - _After_ you call `dcos cluster setup`, (or after conversion has occurred), if you attempt to update the cluster configuration using a `dcos config set` command, the command prints a warning message saying the command is deprecated and cluster configuration state may now be corrupted.
-  - If you have the `DCOS_CONFIG` environment variable configured:
-    - After conversion to the new configuration structure, `DCOS_CONFIG` is no longer honored.
+  -  Updating to the DC/OS CLI 0.5.x and running any CLI command triggers conversion from the old to the new configuration structure.
+  
+  If you attempt to update the cluster configuration using a `dcos config set` command after using `dcos cluster setup` or converting to DC/OS CLI 0.5.x, the command prints a warning message saying the command is deprecated and that cluster configuration state might now be corrupted.
+  
+  If you have the `DCOS_CONFIG` environment variable configured:
+    - _After+ conversion to the new configuration structure, `DCOS_CONFIG` is no longer honored.
     - _Before_ you call `dcos cluster setup`, you can change the configuration pointed to by `DCOS_CONFIG` using `dcos config set`. This command prints a warning message saying the command is deprecated and recommends using `dcos cluster setup`.
-  - CLI modules are cluster-specific and stored in `~/.dcos/clusters/<cluster_id>/subcommands`. Therefore you must install a CLI module for each cluster. For example, if you connect to cluster 1, and install the Spark module, then connect to cluster 2 which is also running Spark, Spark CLI commands are not available until you install the module for that cluster.
+  
+  CLI modules are cluster-specific and stored in `~/.dcos/clusters/<cluster_id>/subcommands`. Therefore you must install a CLI module for each cluster. For example, if you connect to cluster 1, and install the Spark module, then connect to cluster 2 which is also running Spark, Spark CLI commands are not available until you install the module for that cluster.
 
 ### GUI
 The GUI sidebar tabs have been updated to offer a more intuitive experience.
