@@ -108,7 +108,7 @@ The templates and app labels that can be set per-service-port include an index i
 </tr>
 <tbody valign="top">
 <tr>
-<td><code>HAPROXY_BACKEND_HEAD</code></td><td>Defines the type of load balancing and the connection mode for a backend. The default load balancing type (algorithm) is <code>roundrobin</code>. The default connection mode is <code>HTTP</code>.
+<td><code>HAPROXY_BACKEND_HEAD</code></td><td>Defines the type of load balancing and the connection mode for a backend. The default load balancing type (algorithm) is <code>roundrobin</code>. The default connection mode is <code>tcp</code>.
 
 The valid values for the load balancing type include:
 
@@ -121,7 +121,9 @@ The valid values for the load balancing type include:
 * <code>source</code> - The source IP address is hashed and divided by the total weight of the running servers to designate which server should receive the request. 
   This algorithm ensures that the same client IP address always reaches the same server as long as no server goes down or up. If the hash result changes because the number of running servers has changed, clients  are directed to a different server. This algorithm is generally used with TCP mode or for clients that refuse session cookies.
 * <code>uri</code> - This algorithm hashes either the left part of the URI (before the question mark) or the whole URI (if the "whole" parameter is present) and divides the hash value by the total weight of the running servers. 
-  The result designates which server receives the request.The valid values for the connections mode are TCP or HTTP. 
+  The result designates which server receives the request.
+  
+You can set the connection mode to `tcp`, `http`, or `health`. 
 
 The default template for `HAPROXY_BACKEND_HEAD` is:
 <code>backend {backend}
