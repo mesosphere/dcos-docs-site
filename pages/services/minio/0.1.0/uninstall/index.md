@@ -11,8 +11,8 @@ render: mustache
 ---
 
 ## DC/OS 1.11
-<!-- What about earlier DC/OS versions? Can the instructions from the uninstall.tmpl file be used here? -->
-If you are using DC/OS 1.11:
+
+If you are using DC/OS 1.11 or later:
 
 To uninstall the service from the DC/OS CLI, enter: 
 ```
@@ -20,6 +20,8 @@ dcos package uninstall {{ model.packageName }}
 ```
 
 ### Uninstall process
+
+<p class="message--warning"><strong>WARNING: </strong>Once the uninstall operation has begun, it cannot be cancelled because it can leave the service in an uncertain, half-destroyed state.</p>
 
 Uninstalling the service consists of the following steps. 
 
@@ -31,11 +33,11 @@ Uninstalling the service consists of the following steps.
    1. As the task resources are offered by Mesos, they are unreserved by the scheduler.
    1. Once all known resources have been unreserved, the scheduler’s persistent state in ZooKeeper is deleted.
 
-<p class="message--warning"><strong>WARNING: </strong> Any data stored in reserved disk resources will be irretrievably lost.</p>
+   <p class="message--warning"><strong>WARNING: </strong> Any data stored in reserved disk resources will be irretrievably lost.</p>
 
-The cluster automatically removes the scheduler task once it advertises the completion of the uninstall process.
+1. The cluster automatically removes the scheduler task once it advertises the completion of the uninstall process.
 
-<p class="message--warning"><strong>WARNING: </strong>Once the uninstall operation has begun, it cannot be cancelled because it can leave the service in an uncertain, half-destroyed state.</p>
+
 
 ### Debugging an uninstall
 
@@ -43,19 +45,18 @@ In the vast majority of cases, this uninstall process goes off without a hitch. 
 
 This situation is indicated by looking at the deploy plan while the uninstall is proceeding. The deploy plan may be viewed using either of the following methods:
 
-- CLI: 
+- CLI (after `running dcos package install --cli {{ model.serviceName }}` if needed): 
    ```
    dcos {{ model.serviceName }} --name={{ model.serviceName }} plan show deploy
    ```
-   (after running "dcos package install --cli {{ model.serviceName }}" if needed)
-- HTTP: https://yourcluster.com/service/minio/v1/plans/deploy
+   
+- HTTP: https://yourcluster.com/service/{{ model.serviceName }}/v1/plans/deploy
 
 ### Manual uninstall    
 
 If all else fails, you can manually perform the uninstall yourself. To do this, perform the following steps:
 
 1. Delete the uninstalling scheduler from Marathon.
-   <!-- Please describe how to do this. CLI command? -->
 
 1. Unregister the service from Mesos using its UUID as follows:
 
