@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: Release Notes
 excerpt: Release notes for v. 2.5.0-2.6.0-cdh5.11.0
 title: Release Notes
-menuWeight: 10
+menuWeight: 210
 model: /services/hdfs/data.yml
 render: mustache
 ---
 ## Version 2.5.0-2.6.0-cdh5.11.0
 ### Feature
-- Hadoop `ipc.maximum.data.length` property is now a configurable property
+- Hadoop `ipc.maximum.data.length` is now a configurable property
 - Readiness-check interval, timeout and delay are now configurable properties
 - Number of open file descriptors (`RLIMIT_NOFILE`) is now a configurable property
 
