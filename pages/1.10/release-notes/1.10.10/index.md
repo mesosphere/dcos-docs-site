@@ -46,15 +46,18 @@ The issues that have been fixed in DC/OS 1.10.10 are grouped by feature, functio
 
   If rebooting a node does not delete old containers and IP/MAC addresses from `etcd` (which over time can cause pool exhaustion), you should set the `--network_cni_root_dir_persist` agent option in the `config.yaml` file to `true`. You should note that changing this flag requires rebooting the agent node or shutting down all container processes running on the node. Because a reboot or shutdown of containers is required, the default value for the `--network_cni_root_dir_persist` agent option is `false`. Before changing this option, you should plan for agent maintenance to minimize any service interruption. If you set this option and reboot a node, you should also unset the `CNI_NETNS` environment variable after rebooting using the CNI plugin `DEL` command so that the plugin cleans up as many resources as possible (for example, by releasing IPAM allocations) and returns a successful response.
 
+[enterprise type="block" size="large"]
 ## Security
+[/ enterprise]
+
 - DCOS_OSS-4418 - This release includes an upgrade to the Python requests library used in DC/OS to address moderate security vulnerability reports (CVE-2018-18074). The release upgrades the request library from 2.20.1 to 2.21.0.
 
 # About DC/OS 1.10
 
-DC/OS 1.10 includes many new capabilities for operators and expands the collection of Data & Developer Services with a focus on:
+DC/OS 1.10 includes many new capabilities for operators and expands the collection of Data and Developer Services with a focus on:
 
-- Core DC/OS service continuity - System resilience, IAM scalability & simplified upgrades.
-- Robust security - Custom CA certificate & file-based secrets support. [enterprise type="inline" size="small" /]
+- Core DC/OS service continuity - System resilience, IAM scalability and simplified upgrades.
+- Robust security - Custom CA certificate and file-based secrets support. [enterprise type="inline" size="small" /]
 - Enterprise-ready networking - New DC/OS Edge-LB for higher availability and security. [enterprise type="inline" size="small" /]
 - Kubernetes is now available on DC/OS.
 - Data services enhancements across the board.
@@ -104,15 +107,13 @@ You can try out the new features and updated data services. Provide feedback thr
 
 The following updated data services packages are compatible with DC/OS 1.10.
 
-- Cassandra. [Documentation](/services/cassandra/). [Release Notes](/services/cassandra/v2.0.0-3.0.14/release-notes/).
+- [Cassandra](/services/cassandra/)
+- [Elastic](/services/elastic/)
+- [HDFS](/services/hdfs/)
+- [Kafka](/services/kafka/)
+- [Apache Spark](/services/spark/)
 
-- Elastic. [Documentation](/services/elastic/). [Release Notes](/services/elastic/2.0.1-5.5.1/release-notes/).
-
-- HDFS. [Documentation](/services/hdfs/). [Release Notes](/services/hdfs/v2.0.0-2.6.0-cdh5.11.0/release-notes/).
-
-- Kafka. [Documentation](/services/kafka/). [Release Notes](/services/kafka/v2.0.0-0.11.0/release-notes/).
-
-- Apache Spark. [Documentation](/services/spark/). [Release Notes](https://github.com/mesosphere/spark-build/releases/tag/1.1.1-2.2.0).
+For more information, see the documenation or release notes for the specific data services package in which you are interested.
 
 ### Platform
 - Node and cluster health checks.
