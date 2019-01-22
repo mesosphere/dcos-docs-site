@@ -1,0 +1,14 @@
+# Common values:
+
+packageName: mongodbservice
+serviceName: mongodb 
+techName: MongoDB
+techShortName: MongoDB
+minNodeCount: one
+# Values specific to certain templates:
+
+operations:
+  default-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    ├─ mongodb (serial strategy) (COMPLETE)
+    │  └─ mongod:[server] (COMPLETE)
