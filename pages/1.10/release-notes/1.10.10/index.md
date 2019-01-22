@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt:
 ---
 
-DC/OS 1.10.10 was released on Jaunary 18, 2019.
+DC/OS 1.10.10 was released on Jaunary 24, 2019.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.10/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
