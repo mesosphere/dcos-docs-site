@@ -39,27 +39,21 @@ A disk resource is added to a DC/OS agent after mounting external volumes to it.
     ```shell
     sudo rm -f /var/lib/dcos/mesos-resources
     ``` 
-1. Create an external volume.
+1. Create an external volume. For example:
     ```shell
-    For Example:
     aws ec2 create-volume --size <size> --region <region> --availability-zone <availability-zone> --volume-type gp2
     ```
-    <!-- Please include commands for this step. -->
-    <!-- Done. -->
+   
 1. Attach these volumes to the nodes of the cluster.
     ```shell
-    For Example:
     aws ec2 attach-volume --volume-id <volume-id> --instance-id <instance-id> --device /dev/sdf
     ```
   
-    <!-- Please include commands for this step. -->
-    <!-- Done. -->
-
 1. Check the name of the device mounted on the respective node of the cluster.
     ```shell
     lsblk
     ```
-    For example :
+    For example:
     ```shell
     NAME                          MAJ:MIN RM  SIZE 
     xvdf                           7:0    0  208M 

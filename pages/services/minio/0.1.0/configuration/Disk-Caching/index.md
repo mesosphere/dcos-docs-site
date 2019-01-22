@@ -66,8 +66,6 @@ For Example:
       }
     ```
 
-<!-- Please provide an example of a config.json file which includes these settings. -->
-<!-- ok. -->
 
 ## Via DC/OS web interface 
 

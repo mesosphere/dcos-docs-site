@@ -12,9 +12,9 @@ render: mustache
 
 Release notes for {{ model.techName }}.
 
-<!-- What is the release date? -->
-<!-- PR to add Minio to the universe was raised on Nov 27,2018.  -->
 # Minio Version 0.1.0-release.2018-07-31T02-11-47Z
+
+Release date: 27 November 2018.
 
 This is the first release of the DC/OS {{ model.techName }} framework.
 
