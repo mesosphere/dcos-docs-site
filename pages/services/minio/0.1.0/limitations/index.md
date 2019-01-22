@@ -13,9 +13,6 @@ render: mustache
 #include /services/include/limitations.tmpl
 
 
-<!-- Note: The following limitations are unique to this service. -->
-<!-- Yes. -->
-
 ## Scaling Out
 
 {{ model.techName }} does not support horizontal scaling; if your {{ model.techName }} cluster has started with eight {{ model.techName }} servers, then a ninth {{ model.techName }} server cannot be added to the {{ model.techName }} cluster.
