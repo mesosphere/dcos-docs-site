@@ -23,11 +23,11 @@ Kafka is available in the Universe and can be installed by using either the web 
 - Your cluster must have at least three private nodes.
 
 # Types of Installation Methods
-There are three types of installation methods: 
-- Default installation is the basic installation method. This method is used to install Kafka on a DC/OS cluster using CLI commands.
-- Minimal installation is used to install Kafka on a local C/OS cluster using [dcos-vagrant](https://github.com/mesosphere/dcos-vagrant) and is specific for development purposes.
-- Custom installation is used to install Kafka on DC/OS cluster using a customized JSON file. 
-- Multiple Kafka cluster installation is used to install multiple Kafka clusters using custom configurations. 
+There are four types of installation methods: 
+1. Default installation is the basic installation method. This method is used to install Kafka on a DC/OS cluster using CLI commands.
+2. Minimal installation is used to install Kafka on a local C/OS cluster using [dcos-vagrant](https://github.com/mesosphere/dcos-vagrant) and is specific for development purposes.
+3. Custom installation is used to install Kafka on DC/OS cluster using a customized JSON file. 
+4. Multiple Kafka cluster installation is used to install multiple Kafka clusters using custom configurations. 
 
 ## Default Installation
 
@@ -107,8 +107,6 @@ $ dcos package install --options=sample-kafka-custom.json kafka
 
 <p class="message--important"><strong>IMPORTANT: </strong>It is highly recommended to store your custom configuration in source control.</p>
 
-**Recommendation:** Store your custom configuration in source control.
-
 See [Configuration Options][6] for a list of fields that can be customized via an options JSON file when the Kafka cluster is created.
 
 ## Multiple Kafka cluster installation
@@ -136,7 +134,9 @@ $ dcos package install kafka --options=kafka1.json
 
 You can customize your cluster in-place when it is up and running.
 
-The Kafka scheduler runs as a Marathon process and can be reconfigured by changing values from the DC/OS web interface. Use the following steps to change configurations at runtime. 
+The Kafka scheduler runs as a Marathon process and can be reconfigured by changing values from the DC/OS web interface.
+
+Use the following steps to change configurations at runtime. 
 
 1.  Go to the `Services` tab of the DC/OS web interface. 
 1.  Click the name of the Kafka service to be updated.
@@ -421,8 +421,7 @@ When configured to `MOUNT` disk type, the scheduler selects a disk on an agent w
 
 ## JVM Heap Size
 
-Kafka service allows configuration of JVM Heap Size for the broker JVM process. To configure it:
-* **DC/OS cli options.json**:
+Kafka service allows configuration of JVM Heap Size for the broker JVM process. Use the following configuration options:
 
 ```json
     {
@@ -441,7 +440,9 @@ Kafka service allows configuration of JVM Heap Size for the broker JVM process. 
 ## Alternate ZooKeeper
 
 By default the Kafka framework uses the ZooKeeper ensemble made available on the Mesos masters of a DC/OS cluster. You can configure an alternate ZooKeeper at install time.
-To configure it:
+
+Use the following configuration options:
+
 * **DC/OS CLI options.json**:
 
 ```json
@@ -460,7 +461,7 @@ You can enable automated replacement of brokers and configure the circumstances 
 
 ### Enable Broker Replacement
 
-To enable automated replacement:
+To enable automated replacement using the following options:
 
 * **DC/OS CLI options.json**:
 
@@ -476,7 +477,8 @@ To enable automated replacement:
 
 * **DC/OS web interface**: Set the environment variable `ENABLE_REPLACEMENT`: `true` to enable replacement.
 
-**Warning:** The replacement mechanism is unaware of whether the broker it is destructively replacing had the latest copy of data. Depending on your replication policy and the degree and duration of the permanent failures, you may lose data.
+<p class="message--warning"><strong>WARNING: </strong>text</p>
+**Warning:** The replacement mechanism is not aware of whether the broker has been destructively replaced with the latest copy of data. You may lose data depending on your replication policy, the degree, and duration of the permanent failures.
 
 The following configuration options control the circumstances under which a broker is replaced.
 
