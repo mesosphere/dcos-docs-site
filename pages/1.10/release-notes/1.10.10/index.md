@@ -125,18 +125,15 @@ The following updated data services packages are compatible with DC/OS 1.10.
 ### CLI
 
 - DC/OS 1.10 requires DC/OS CLI 0.5.x.
-- DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands.
-
-
- Multi-cluster support has a number of consequences:
+- DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands. Multi-cluster support has a number of consequences:
 
    - DC/OS CLI 0.4.x and 0.5.x use a different structure for the location of configuration files. DC/OS CLI 0.4.x has a single configuration file, which by default is stored in `~/.dcos/dcos.toml`. DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default are stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`.
    - DC/OS CLI 0.5.x introduces the `dcos cluster setup` command to configure a connection to a cluster and log into the cluster.
-  -  Updating to the DC/OS CLI 0.5.x and running any CLI command triggers conversion from the old to the new configuration structure.
+    -  Updating to the DC/OS CLI 0.5.x and running any CLI command triggers conversion from the old to the new configuration structure.
+    
+    If you attempt to update the cluster configuration using a `dcos config set` command after using `dcos cluster setup` or converting to DC/OS CLI 0.5.x, the command prints a warning message saying the command is deprecated and that cluster configuration state might now be corrupted.
   
-  If you attempt to update the cluster configuration using a `dcos config set` command after using `dcos cluster setup` or converting to DC/OS CLI 0.5.x, the command prints a warning message saying the command is deprecated and that cluster configuration state might now be corrupted.
-  
-  If you have the `DCOS_CONFIG` environment variable configured:
+    If you have the `DCOS_CONFIG` environment variable configured:
     - _After+ conversion to the new configuration structure, `DCOS_CONFIG` is no longer honored.
     - _Before_ you call `dcos cluster setup`, you can change the configuration pointed to by `DCOS_CONFIG` using `dcos config set`. This command prints a warning message saying the command is deprecated and recommends using `dcos cluster setup`.
   
