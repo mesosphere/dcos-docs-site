@@ -30,7 +30,7 @@ To install the {{ model.techName }} Ops Manager on a host machine, please gather
 
 {{ model.techName }} can be installed via either the DC/OS Catalog web interface or from the CLI. 
 
-### Installing via the web interface
+## Installing via the web interface
 Listed below are the steps to install {{ model.techName }} using the DC/OS Catalog web interface:
 
 1. Navigate to the **Catalog** screen and choose **{{ model.packageName }}** from the list. The **{{ model.packageName }}** package will appear on the screen as shown below :
@@ -55,9 +55,11 @@ Listed below are the steps to install {{ model.techName }} using the DC/OS Catal
 
     [<img src="../img/Successful_execution.png" alt="Successful Execution"/>](../img/Successful_execution.png)
 
-    Figure 4. -Log view of successful running of  **{{ model.packageName }}** instance
+    Figure 4. - Log view of successful running of  **{{ model.packageName }}** instance
 
-### Installing via the CLI
+## Installing via the CLI
+Listed below are the steps to install {{ model.techName }} using the DC/OS command line interface:
+
 1. Configure an `options.json` file with installation parameters. The `options.json` file should contain the required key pairs, which are `base_url`,`project_id`, `ops_user_name` and `public_api_key`.
 
     Sample `options.json` file:
@@ -79,10 +81,8 @@ Listed below are the steps to install {{ model.techName }} using the DC/OS Catal
     dcos package install {{ model.packageName }} --yes --options=options.json
     ```
 
-1. Verify the installation of {{ model.packageName }} using the `dcos package install {{ model.packageName }}` command:
-
+1. Verify the installation of {{ model.packageName }}. Your output from the preceding command should look like this:
     ```
-    # dcos package install {{ model.packageName }} --yes --options=options.json
     By Deploying, you agree to the Terms and Conditions https://mesosphere.com/catalog-terms-conditions/#community-services
     Default configuration requires 3 agent nodes each with: 1 CPU | 2048 MB MEM | 1 5120 MB data Disk | 1 2048 MB log Disk.
     Installing Marathon app for package [{{ model.packageName }}] version [snapshot]

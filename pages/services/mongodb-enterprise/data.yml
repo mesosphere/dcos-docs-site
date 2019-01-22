@@ -12,3 +12,10 @@ operations:
     deploy (serial strategy) (COMPLETE)
     ├─ mongodb (serial strategy) (COMPLETE)
     │  └─ mongod:[server] (COMPLETE)
+
+install:
+  minAgentNodes: 3
+  minCPU: 1 CPU
+  minMem: 2048 Mb Memory
+  minDataDisk: 1 5120 Mb data disk
+  minLogDisk: 1 2048 Mb log disk

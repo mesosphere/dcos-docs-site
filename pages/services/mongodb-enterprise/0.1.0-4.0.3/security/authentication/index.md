@@ -29,19 +29,19 @@ If you are using automation to manage your {{  model.techName  }} deployments, O
 
 1. Click on the **Edit Settings** option. A pop-up dialog will appear as **Authentication & TLS/SSL Settings**.
 
-1. Enable the ```Username/Password (MONGODB-CR/SCRAM-SHA-1)``` Authentication Mechanism by ticking the check-box against the option.
+1. Enable the ```Username/Password (MONGODB-CR/SCRAM-SHA-1)``` Authentication mechanism by ticking the check-box against the option.
 
     [<img src="../../img/Authentication_Mechanisms.png" alt="Authentication Mechanisms"/>](../../img/Authentication_Mechanisms.png)
 
-    Figure 3. - Authentication Mechanisms under **Authentication & TLS/SSL Settings**
+    Figure 3. - Authentication mechanisms under **Authentication & TLS/SSL Settings**
 
-1. Click **Next** to continue to the next screen. Keep the Configure TLS/SSL parameter in the default state of `Disabled` (since TLS is not supported in this release).
+1. Click **Next** to continue to the next screen. Keep the **Configure TLS/SSL** parameter in the default state of `Disabled` (since TLS is not supported in this release).
 
     [<img src="../../img/Authentication_Setting.png" alt="Authentication_Setting"/>](../../img/Authentication_Setting.png)
 
     Figure 4. - Authentication & TLS/SSL Settings
 
-1. Click ```Next``` to Configure Ops Manager Agents.
+1. Click ```Next``` to **Configure Ops Manager Agents**.
 
     [<img src="../../img/Authentication_Setting_2.png" alt="Authentication_Setting_2"/>](../../img/Authentication_Setting_2.png)
 
