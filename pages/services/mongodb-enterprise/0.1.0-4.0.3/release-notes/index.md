@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
-menuWeight: 130
+menuWeight: 10
 excerpt: Release Notes for version 0.1.0-4.0.3
 featureMaturity:
 enterprise: true

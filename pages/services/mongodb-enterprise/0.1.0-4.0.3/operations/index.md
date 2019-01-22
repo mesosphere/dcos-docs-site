@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Operations
+excerpt: Plan operations and service metrics in MongoDB Enterprise
 title: Operations
 menuWeight: 30
 model: /services/mongodb-enterprise/data.yml
