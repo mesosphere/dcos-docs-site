@@ -97,7 +97,7 @@ You can try out the new features and updated data services. Provide feedback thr
 
 ### Kubernetes on DC/OS
 
-- Kubernetes on DC/OS is beta with DC/OS 1.10.0. Install from the DC/OS Service Catalog or use the [quickstart](https://github.com/mesosphere/dcos-kubernetes-quickstart).
+- Kubernetes on DC/OS is beta with DC/OS 1.10. You can install the package from the DC/OS Service Catalog or by using the DC/OS Kubernetes [quickstart](https://github.com/mesosphere/dcos-kubernetes-quickstart).
 
 ### Updated DC/OS Data Services
 
