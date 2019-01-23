@@ -6,16 +6,15 @@ navigationTitle: AWS
 menuWeight: 0
 ---
 
-To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Command Line Interface (AWS CLI) must be installed and configured to the security credentials of the AWS account you will be using for resources. The following instructions will guide you through the necessary account creation and credentials to be able to successfully configure your AWS CLI and install DC/OS.
+This guide is meant to guide an operator through all steps necessary for a successfull installation of DC/OS using Terraform. If you are already familiar with the prerequisites, you can jump to [Creating a DC/OS Cluster](#creating).
 
-## Prerequisites
+# Prerequisites
 
 - Linux, macOS, or Windows
 - command-line shell terminal such as Bash or PowerShell
-- verified Amazon Web Services (AWS) account and [AWS IAM](https://console.aws.amazon.com/iam/home) user profile with permissions
-- Amazon `aws-cli`, which requires Python 2 version 2.6.5+ or Python 3 version 3.3+
+- verified Amazon Web Services (AWS) account and [AWS IAM](https://console.aws.amazon.com/iam/home) credentials
 
-# Install Terraform
+## Install Terraform
 
 1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. 
     
@@ -31,88 +30,47 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
     choco install terraform -y
     ```
 
-# Install and configure the Amazon CLI
+## Ensure your cloud provider credentials
 
-1. Set up an [Amazon Web Services account](https://aws.amazon.com/) if you don't already have one. Make sure to have at least one [user role set up in the AWS IAM](https://console.aws.amazon.com/iam/home) to get the necessary access keys.
+There are many ways of passing in your credentials in order for Terraform to authenticate with your cloud provider. Most likely, you already have your cloud provider credentials loaded through the CLI. Terraform will automatically detect those credentials during initialization for you. See [configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) for more information on setting up credentials and user profile.
 
-1. Set up the AWS Command Line Interface (AWS CLI) if you don't already have it. Python users of `pip` can install the latest version of the AWS CLI with the command:
+Alternatively, you can pass in your `access_key` and `secret_key` through the configuration file which you will create. The properties listed here are the three things that Terraform needs on your behalf. See the [provider configuration reference](https://www.terraform.io/docs/configuration/providers.html) for more information on how this works under the hood. Also, please keep in mind storing your credentials outside of your version control for security.
 
-    ```bash
-    pip install awscli --upgrade --user
-    ```
+```bash
+provider "aws" {
+    access_key = "foo"
+    secret_key = "bar"
+    region     = "us-east-1"
+}
+```
 
-    For other installation methods please see the [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html#install-tool-bundled).
+## Set up SSH credentials for your cluster
 
-1. Once you have the AWS CLI, it needs to be connected to the account you would like to use. If you already had the CLI installed, you may already have your credentials set up. To set up your credentials, or to update them anytime as needed, run:
+Terraform will need to send out SSH keys to connect securely to the nodes it creates. If you already have a key-pair available and added to your SSH-agent, you can skip this section.
 
-    ```bash
-    aws configure --profile=<your-profile-name>
-    ```
-    The AWS CLI will request four pieces of information. Paste or enter in your Access Key Id and Secret Access Key that you were given by Amazon, and if you set the region as above, it will already be filled in for you:
-
-    ```bash
-    AWS Access Key ID [None]: <accesskey>
-    AWS Secret Access Key [None]: <secretkey>
-    Default region name [None]: <choose-a-region>
-    Default output format [None]: <if-blank-default-is-json>
-    ```
-    If you have previously added in any values, they will be listed within the square brackets as [previous value]. Leaving the input blank will preserve the value as it is, adding or changing a value here will update it.
-
-    See [configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) for more information on setting up credentials and user profile.
-
-1. Set the `AWS_PROFILE`. Terraform will need to communicate your credentials to AWS. This should be the same profile associated with the access keys entered in when configuring the AWS CLI above.
+1. Not sure if you have a keypair you want to use? List the contents of your ssh directory.
 
     ```bash
-    export AWS_PROFILE="<your-AWS-profile>"
+    ls ~/.ssh
     ```
 
-    Ensure it has been set:
-
-    ```bash
-    echo $AWS_PROFILE
-    <your-AWS-profile>
-    ```
-
-# Set up SSH credentials for your cluster
-
-1. Terraform uses SSH key-pairs to connect securely to the clusters it creates. If you already have a key-pair available and added to your SSH-Agent, you can skip this step.
-
-    This starts an interactive process to create your key-pair. It will ask you to enter a location to store your keys. For example, to set up a new keypair in your `.ssh` directory:
+1. If you don't have one you like, start the ssh-keygen program to create a new key pair, following the prompts.
 
     ```bash
     ssh-keygen -t rsa
     ```
 
-    The full process will look something like this:
+1. Add the key to your SSH agent by starting the agent if it isn't already running and then loading your key:
 
     ```bash
-    Generating public/private rsa key pair.
-    Enter file in which to save the key (/Users/<your-username>/.ssh/id_rsa): ~/.ssh/aws-demo-key
-    Enter passphrase (empty for no passphrase): 
-    Enter same passphrase again: 
-    Your identification has been saved in /Users/<your-username>/.ssh/aws-demo-key.
-    Your public key has been saved in /Users/<your-username>/.ssh/aws-demo-key.
-    The key fingerprint is:
-    4a:dd:0a:c6:35:4e:3f:ed:27:38:8c:74:44:4d:93:67 your-email@here
-    The key's randomart image is:
-    +--[ RSA 2048]----+
-    |          .oo.   |
-    |         .  o.E  |
-    |        + .  o   |
-    |     . = = .     |
-    |      = S = .    |
-    |     o + = +     |
-    |      . o + o .  |
-    |           . o   |
-    |                 |
-    +-----------------+
+    eval "$(ssh-agent -s)"
     ```
 
-1. Add the key to your SSH agent. For example on macOS:
+    ```bash
+    ssh-add ~/.ssh/<your-key-name>
+    ```
 
-  ```bash
-  ssh-add ~/.ssh/aws-demo-key
-  ```
+<a name="creating" />
 
 # Creating a DC/OS Cluster
 
