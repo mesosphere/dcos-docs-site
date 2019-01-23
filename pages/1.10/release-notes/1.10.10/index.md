@@ -178,9 +178,9 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
   DC/OS 1.10 enforces hard CPU limits with CFS isolation for both the Docker and Universal Container Runtimes. This will give more predictable performance across all tasks but might lead to a slowdown for tasks (and thereby also deployments) who have previously have consumed more CPU cycles than allocated. See [MESOS-6134](https://issues.apache.org/jira/browse/MESOS-6134) for more details.
 
-## Known Issues
+<!-- ## Known Issues
 - Upgrade: During upgrade to DC/OS 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
 - CORE-1125 - Docker image pull config is re-used.
 - DCOS-16547 - Task state does not update after the agent running it was removed from the cluster.
 - INFINITY-1809 - [Data Svc] DC/OS Service Update / Config Update / Maintenance. [enterprise type="inline" size="small" /]
-- MARATHON-7736 - Marathon Client Java library does NOT work with Marathon 1.5.
+- MARATHON-7736 - Marathon Client Java library does NOT work with Marathon 1.5. -->
