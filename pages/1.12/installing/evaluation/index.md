@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Guide to Installing DC/OS on cloud environments using the Mesosphere Universal Installer
 ---
 
-<strong>The Mesosphere Universal Installer is the recommended tool for provisioning, deploying, installing, and upgrading DC/OS on the the following cloud providers. Jump to the guide for the cloud provider of your choice to get started: </strong>
+<strong>The Mesosphere Universal Installer is the recommended tool for provisioning, deploying, installing, and upgrading DC/OS on the following cloud providers. Jump to the guide for the cloud provider of your choice to get started: </strong>
 
 #### [DC/OS on Amazon Web Services](/1.12/installing/evaluation/aws/)
 

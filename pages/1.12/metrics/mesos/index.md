@@ -7,52 +7,9 @@ excerpt: Monitoring Mesos with Telegraf
 enterprise: false
 ---
 
-You can configure DC/OS, version 1.12 or newer, to gather [observability metrics](http://mesos.apache.org/documentation/latest/monitoring/) from each Mesos agent and master. This page explains how to add the appropriate configuration to DC/OS.
+You can configure DC/OS, version 1.12 or newer, to gather [observability metrics](http://mesos.apache.org/documentation/latest/monitoring/) from each Mesos agent and master. 
 
-
-**Prerequisite:**
-
-- You must have the [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser by running the `dcos auth login` command.
-
-# Collecting metrics from Mesos masters with Telegraf
-
-1. Create a file named `mesos-master.conf` with the following content:
-
-    ```
-    # Gathers all Mesos metrics
-    [[inputs.mesos]]
-      # The interval at which to collect metrics
-      interval = "60s"
-      # Timeout, in ms.
-      timeout = 30000
-      # A list of Mesos masters.
-      masters = ["http://$DCOS_NODE_PRIVATE_IP:5050"]
-    ```
-
-1. On every master node in your cluster, do the following tasks:
-
-   1. Upload the `mesos-master.conf` file to `/var/lib/dcos/telegraf/telegraf.d/mesos-master.conf`.
-   1. Restart the Telegraf process with your new configuration by running `sudo systemctl restart dcos-telegraf` command.
-
-# Collecting metrics from Mesos agent with Telegraf
-
-1. Create a file named `mesos-agent.conf` with the following content:
-
-    ```
-    # Gathers all Mesos metrics
-    [[inputs.mesos]]
-      # The interval at which to collect metrics
-      interval = "60s"
-      # Timeout, in ms.
-      timeout = 30000
-      # A list of Mesos slaves.
-      slaves = ["http://$DCOS_NODE_PRIVATE_IP:5051"]
-    ```
-
-1. On every agent node in your cluster, do the following tasks:
-
-   1. Upload the `mesos-agent.conf` file to `/var/lib/dcos/telegraf/telegraf.d/mesos-agent.conf`.
-   1. Restart the Telegraf process with your new configuration by running `sudo systemctl restart dcos-telegraf` command.
+The Mesos input plugin in Telegraf is controlled by an option in the `config.yaml` file called `enable_mesos_input_plugin`. To enable the plugin, `enable_mesos_input_plugin` needs to be set to `true` (it is currently defaulted to `false`). Instructions on how to create a configuration file for on-prem installation can be found [here](/1.12/installing/production/deploying-dcos/installation/#create-a-configuration-file). To modify a configuration file on an existing on-prem cluster, you must [patch the existing DC/OS version](/1.12/installing/production/patching/#modifying-dcos-configuration). For cloud installations, configuration and installation instructions for each supported cloud provider can be found [here](/1.12/installing/evaluation/).
 
 # Viewing metrics for Mesos masters and agents
  

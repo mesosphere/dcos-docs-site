@@ -16,7 +16,6 @@ By default, DC/OS enables the following Telegraf plugins:
  1. `system` input plugin collects information about the node, for example, CPU, memory, and disk usage.
  1. `statsd` input plugin collects `statsd` metrics from DC/OS components.
  1. `prometheus` input plugin collects metrics from DC/OS components and `mesos` tasks.
- 1. `mesos` input plugin collects metrics about the `mesos` process itself.
  1. `dcos_statsd` input plugin starts a new `statsd` server for each `mesos` task.
  1. `dcos_containers` collects resource information about containers from the `mesos` process.
  1. `override` plugin is used to add **node-level** metadata, for example, the cluster name.
