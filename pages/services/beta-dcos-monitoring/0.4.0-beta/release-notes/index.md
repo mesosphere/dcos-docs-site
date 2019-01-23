@@ -24,6 +24,12 @@ model: ../data.yml
 * Support configuring Prometheus storage retention.
 * Support configuring Alert Manager resource footprint (i.e., CPU and memory).
 * Universe integration.
+* Update SDK to 0.54.3.
+* New logo.
+
+## Known limitations
+
+* Upgrading from v0.3.0 is not possible.
 
 # Version v0.3.0
 
