@@ -17,10 +17,18 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 
 # Install Terraform
 
-1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
+1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. 
+
+    If you're on a Mac environment with [Homebrew](https://brew.sh/) installed, simply run the following command:
 
     ```bash
     brew install terraform
+    ```
+
+    Windows users that have [Chocolatey](https://chocolatey.org/docs/installation) installed, run:
+
+    ```bash
+    choco install terraform -y
     ```
 
 # Install and configure the Amazon CLI
@@ -143,7 +151,6 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
       source  = "dcos-terraform/dcos/aws"
       version = "~> 0.1"
 
-      dcos_instance_os    = "coreos_1855.5.0"
       cluster_name        = "my-dcos-demo"
       ssh_public_key_file = "<path-to-public-key-file>"
       admin_ips           = ["${data.http.whatismyip.body}/32"]
@@ -153,6 +160,12 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
       num_public_agents  = "1"
 
       dcos_version = "1.10.8"
+
+      dcos_instance_os    = "centos_7.5"
+      bootstrap_instance_type = "t2.medium"
+      masters_instance_type  = "t2.medium"
+      private_agents_instance_type = "t2.medium"
+      public_agents_instance_type = "t2.medium"
 
       # dcos_variant              = "ee"
       # dcos_license_key_contents = "${file("./license.txt")}"
