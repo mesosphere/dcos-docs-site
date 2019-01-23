@@ -80,13 +80,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
     mkdir dcos-aws-demo && cd dcos-aws-demo
     ```
 
-1. Create a file in that folder called `main.tf`, which is the configuration file the Mesosphere Universal Installer will call on each time when creating a plan. The name of this file should always be `main.tf`.
-
-    ```bash
-    touch main.tf
-    ```
-
-1. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
+1. Create a file called `main.tf`, which is the configuration file the Mesosphere Universal Installer will call on each time when creating a plan. The name of this file should always be `main.tf`. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
 
     ```hcl
     provider "aws" {
@@ -144,12 +138,11 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
     }
     ```
 
-1. There is a main variable that must be set to complete the `main.tf`:
+1. There is a main variable that must be set, `ssh_public_key_file`, which sets the public key for connecting securely to each instance. It will probably look something like this:
 
-    - `ssh_public_key_file = "<path-to-public-key-file>"`: the path to the public key for your cluster, following our example it would be:
-      ```bash
-      "~/.ssh/aws-key.pub"
-      ```
+    ```json
+    ssh_public_key_file = "~/.ssh/<your-key>.pub"
+    ```
 
 1. `region` is a setting that sets the AWS region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-east-1”, it can be changed to any other region (e.g “us-west-1”, “us-west-2”, “us-east-2”, etc).  For a complete list, please refer to the [configuration reference](/1.10/installing/evaluation/aws/aws-advanced/).
 
