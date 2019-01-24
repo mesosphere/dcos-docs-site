@@ -23,7 +23,7 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
 
 1.  Then, navigate to your DC/OS web interface and click the down arrow to the right of your cluster name in the top right corner.
 
-    ![open cluster popup](/1.10/img/open-cluster-popup.png)
+    ![open cluster popup](/1.11/img/open-cluster-popup.png)
 
     Figure 1. Open cluster popup menu
 

@@ -43,4 +43,4 @@ In order to confirm that the new master has joined the cluster successfully you 
 
 The procedure is identical to the verification performed following a master node upgrade.
 
-The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.10/installing/ent/upgrading/#dcos-masters) section in the upgrade documentation.
+The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.10/installing/production/upgrading/#dcos-masters) section in the upgrade documentation.

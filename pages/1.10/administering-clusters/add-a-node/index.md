@@ -22,7 +22,7 @@ Agent nodes are designated as [public](/1.10/overview/concepts/#public-agent-nod
 
 *   DC/OS is installed using the [custom](/1.10/installing/) installation method.
 *   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.10/installing/).
-*   Available agent nodes that satisfy the [system requirements](/1.10/installing/system-requirements/).
+*   Available agent nodes that satisfy the [system requirements](/1.10/installing/production/system-requirements/).
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 

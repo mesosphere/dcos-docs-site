@@ -27,8 +27,8 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 
     -  **enable_gpu_isolation**: Indicates whether to enable GPU support in DC/OS. By default, this is set to `enable_gpu_isolation: 'true'`. 
     -  **gpus_are_scarce**: Indicates whether to treat GPUs as a scarce resource in the cluster. By default, this is set to `gpus_are_scarce: 'true'`, which means DC/OS reserves GPU nodes exclusively for services that are configured to consume GPU resources. 
-    
-    For more information, see the [configuration parameter documentation](/1.10/installing/oss/custom/configuration/configuration-parameters/#enable-gpu-isolation) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies). 
+
+  For more information, see the [configuration parameter documentation](/1.10/installing/production/advanced-configuration/configuration-reference/#enable-gpu-isolation) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies). 
 
 ## AWS EC2 DC/OS Installation with GPUs
 
