@@ -12,7 +12,7 @@ DC/OS can run many different kinds of workloads, which are composed of tasks. DC
 
 # Executors
 
-When the [scheduler](/1.11/overview/concepts/#dcos-scheduler) launches a task, it specifies a [Mesos Executor](/1.11/overview/concepts/#mesos-executor), which then executes the task. In Mesos, the scheduler and its executor(s) are called a [framework](/1.11/overview/concepts/#mesos-framework), but within the broader context of DC/OS we often use the terms "scheduler", "executor", and "task" explicitly.
+When the [scheduler](/1.11/overview/concepts/#dcos-scheduler) launches a task, it specifies a [Mesos Executor](/1.11/overview/concepts/#mesos-executor), which then executes the task. In Mesos, the scheduler and its executor(s) are called a [framework](/1.11/overview/concepts/#mesos-framework), but within the broader context of DC/OS we often use the terms "scheduler", "executor", and "task" interchangeably.
 
 ### Built-in executors
 
