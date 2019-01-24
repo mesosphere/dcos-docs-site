@@ -56,7 +56,7 @@ Before installing DC/OS, your cluster must meet the software and hardware [requi
 [enterprise]
 # <a name="license"></a>Store license file
 [/enterprise]
-1.  Create a [license file](/1.10/administering-clusters/licenses/) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
+1.  Create a [license file](/1.11/administering-clusters/licenses/) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
 
 # <a name="ip-detect-script"></a>Create an IP detection script
 
@@ -151,7 +151,7 @@ In this step, an IP detection script is created. This script reports the IP addr
 # Create a fault domain detection script
 [/enterprise]
 
-By default, DC/OS clusters have [fault domain awareness](/1.10/deploying-services/fault-domain-awareness/) enabled, so no changes to your `config.yaml` are required to use this feature. However, you must include a fault domain detection script named `fault-domain-detect` in your `./genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
+By default, DC/OS clusters have [fault domain awareness](/1.11/deploying-services/fault-domain-awareness/) enabled, so no changes to your `config.yaml` are required to use this feature. However, you must include a fault domain detection script named `fault-domain-detect` in your `./genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
 
 
 1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain. During installation, the output of this script is passed to Mesos.

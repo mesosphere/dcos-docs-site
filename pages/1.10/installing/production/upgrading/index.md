@@ -247,7 +247,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-If your upgrade fails because of a [custom node or cluster check](/1.10/installing/ent/custom/node-cluster-health-check/#custom-health-checks), run these commands for more details:
+If your upgrade fails because of a [custom node or cluster check](/1.10/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks), run these commands for more details:
 ```bash
 dcos-diagnostics check node-poststart
 dcos-diagnostics check cluster
@@ -271,4 +271,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.10 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /1.10/installing/ent/custom/advanced/
+[advanced-install]: /1.10/installing/production/deploying-dcos/installation/
