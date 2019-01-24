@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Configuring HDFS
+navigationTitle: Configuration
 excerpt: Configuration options for the DC/OS Apache HDFS service
-title: Configuring HDFS
+title: Configuration
 menuWeight: 20
 model: /services/hdfs/data.yml
 render: mustache
@@ -14,7 +14,7 @@ render: mustache
 
 ## Node Configuration
 
-The node configuration objects correspond to the configuration for nodes in the {{ model.techShortName }} cluster. Node configuration MUST be specified during installation and MAY be modified during configuration updates. All of the properties except `disk` and `disk_type` MAY be modified during the configuration update process.
+The node configuration objects correspond to the configuration for nodes in the {{ model.techShortName }} cluster. Node configuration **must** be specified during installation and **may** be modified during configuration updates. All of the properties except `disk` and `disk_type` may be modified during the configuration update process.
 
 ### A Note on Memory Configuration
 
@@ -48,7 +48,7 @@ In order for {{ model.techShortName }} to function correctly, you must perform s
     <td>/etc/sysctl.conf</td>
     <td>vm.swappiness</td>
     <td>0</td>
-    <td>If the OS swaps out the HDFS processes, they can fail to respond to RPC requests, resulting in the process being marked down by the cluster. This can be particularly troublesome for name nodes and journal nodes.</td>
+    <td>If the OS swaps out the HDFS processes, they can fail to respond to RPC requests, resulting in the process being marked `down` by the cluster. This can be particularly troublesome for name nodes and journal nodes.</td>
   </tr>
 
   <tr>

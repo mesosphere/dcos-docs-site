@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Overview of HDFS
+navigationTitle: Overview 
 excerpt: Advanced features of the DC/OS Apache HDFS service
-title: Overview of HDFS
+title: Overview 
 menuWeight: 20
 model: /services/hdfs/data.yml
 render: mustache
