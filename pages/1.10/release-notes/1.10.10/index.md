@@ -13,7 +13,7 @@ DC/OS 1.10.10 was released on Jaunary 24, 2019.
 
 # Updated Components in DC/OS 1.10.10
 DC/OS 1.10.10 includes the following:
-- Apache Mesos 1.4.3 [change log](https://github.com/apache/mesos/blob/3071ff7/CHANGELOG).
+- Apache Mesos 1.4.3 [change log](https://github.com/apache/mesos/blob/e929d413328e10f6d358899500d5aaedd9d9bc51/CHANGELOG).
 - Marathon 1.5.12 [change log](https://github.com/mesosphere/marathon/releases/tag/v1.5.12).
 - Metronome 0.4.4 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.4).
 
