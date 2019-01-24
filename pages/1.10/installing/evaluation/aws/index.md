@@ -75,44 +75,29 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 
 # Set up SSH credentials for your cluster
 
-1. Terraform uses SSH key-pairs to connect securely to the clusters it creates. If you already have a key-pair available and added to your SSH-Agent, you can skip this step.
+Terraform will need to send out SSH keys to connect securely to the nodes it creates. If you already have a key-pair available and added to your SSH-agent, you can skip this section.
 
-    This starts an interactive process to create your key-pair. It will ask you to enter a location to store your keys. For example, to set up a new keypair in your `.ssh` directory:
+1. Not sure if you have a keypair you want to use? List the contents of your ssh directory.
+
+    ```bash
+    ls ~/.ssh
+    ```
+
+1. If you don't have one you like, start the ssh-keygen program to create a new key pair, following the prompts.
 
     ```bash
     ssh-keygen -t rsa
     ```
 
-    The full process will look something like this:
+1. Add the key to your SSH agent by starting the agent if it isn't already running and then loading your key:
 
     ```bash
-    Generating public/private rsa key pair.
-    Enter file in which to save the key (/Users/<your-username>/.ssh/id_rsa): ~/.ssh/aws-demo-key
-    Enter passphrase (empty for no passphrase): 
-    Enter same passphrase again: 
-    Your identification has been saved in /Users/<your-username>/.ssh/aws-demo-key.
-    Your public key has been saved in /Users/<your-username>/.ssh/aws-demo-key.
-    The key fingerprint is:
-    4a:dd:0a:c6:35:4e:3f:ed:27:38:8c:74:44:4d:93:67 your-email@here
-    The key's randomart image is:
-    +--[ RSA 2048]----+
-    |          .oo.   |
-    |         .  o.E  |
-    |        + .  o   |
-    |     . = = .     |
-    |      = S = .    |
-    |     o + = +     |
-    |      . o + o .  |
-    |           . o   |
-    |                 |
-    +-----------------+
+    eval "$(ssh-agent -s)"
     ```
 
-1. Add the key to your SSH agent. For example on macOS:
-
-  ```bash
-  ssh-add ~/.ssh/aws-demo-key
-  ```
+    ```bash
+    ssh-add ~/.ssh/<your-key-name>
+    ```
 
 # Creating a DC/OS Cluster
 
