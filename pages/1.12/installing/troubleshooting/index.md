@@ -8,8 +8,12 @@ excerpt: Troubleshooting DC/OS installation issues
 
 # <a name="general"></a>General troubleshooting approach
 
-* Verify that you have a valid IP detect script, functioning DNS resolvers to bind the DC/OS services to, and that all nodes are synchronized with NTP.
+Verify that you have 
+- a valid [IP detect script](#ipdetect)
+- functioning [DNS resolvers](#DNS) to bind the DC/OS services to
+- all nodes are synchronized with [NTP](#NTP)
 
+<a name="ipdetect"></a>
 
 ## IP detect script
 
@@ -20,6 +24,8 @@ You must have a valid [ip-detect](/1.12/installing/production/advanced/#create-a
   - special or hidden characters
 
 We recommended that you use the `ip-detect` [examples](/1.12/installing/production/deploying-dcos/installation/).
+
+<a name="DNS"></a>
 
 ## DNS resolvers
 
@@ -42,15 +48,17 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
 
  Be sure to verify that all services are up and healthy on the masters before verifying the agents.
 
- ### NTP
+<a name="NTP"></a>
 
- Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can verify that NTP is enabled by running one of these commands, depending on your OS and configuration:
+## NTP
 
-    
-    ntptime
-    adjtimex -p
-    timedatectl
-    
+Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can verify that NTP is enabled by running one of these commands, depending on your OS and configuration:
+
+```
+ntptime
+adjtimex -p
+timedatectl
+```   
 
 * Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
 
@@ -66,13 +74,13 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
 
     - [SSH](/1.12/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
 
-    ```bash
-    journalctl -flu dcos-exhibitor
-    ```
+        ```bash
+        journalctl -flu dcos-exhibitor
+        ```
 
-* Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log. 
+* Verify that `/tmp` is mounted **without** `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log. 
 
-* To repair `/tmp` mounted with `noexec` run the following command:
+* To repair `/tmp` mounted with `noexec`, run the following command:
 
 
         mount -o remount,exec /tmp
@@ -110,9 +118,9 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
 <p class="message--note"><strong>NOTE: </strong>Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it does not complete after 10-15 minutes, you should carefully review the <code>journalctl -flu dcos-exhibitor</code> logs.</p>
 
 * Verify whether you can ping the DNS Forwarder (`ready.spartan`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
-
-
+```
     journalctl -flu dcos-net﻿⁠⁠⁠⁠
+```
 
 * Verify that you can ping `⁠⁠⁠⁠leader.mesos` and ﻿⁠⁠⁠⁠`master.mesos`. If not:
     - Review the Mesos-DNS service logs with this command: ﻿
@@ -140,6 +148,24 @@ During DC/OS installation, each of the components will converge from a failing s
 - [Mesos DNS](#mesos-dns)
 - [Mesos master process](#mesos-master-process)
 - [ZooKeeper and Exhibitor](#zookeeper-and-exhibitor)
+
+## Creating a DC/OS diagnostic bundle
+In order to effectively troubleshoot DC/OS, it may be necessary to gather a set of logs from all DC/OS components.  The following instructions will provide guidance for that task.  To create a DC/OS diagnostic bundle run these commands from the DC/OS CLI:
+
+```
+dcos node diagnostics create all
+dcos node diagnostics --status
+(wait for progress to reach 100%)
+dcos node diagnostics download <bundle_name>
+```
+<p class="message==note"><strong>NOTE: </strong>You may substitute <tt>all</tt> for <tt>masters</tt> or <tt>ip_of_agent</tt>. In such situations a full log bundle is not required.</p>
+
+While a bundle is preferable, there will be cases where it's not possible to generate a complete bundle. In those cases, you can collect the logs from the node(s) in question using the following command.  Please SSH to each node directly and run the command: 
+```
+d=$(date -u +%Y%m%d-%H%M%S) && mkdir /tmp/journal-logs-${d} && sudo dmesg -T > /tmp/journal-logs-${d}/dmesg_t.log && for unit in $(systemctl list-units --no-legend --no-pager --plain 'dcos-*' | awk '{print $1}'); do echo "Saving logs for ${unit}"; journalctl -au ${unit} > /tmp/journal-logs-${d}/${unit}.log; done && tar -czvf $(hostname -f)-journal-logs-${d}.tgz -C /tmp/journal-logs-${d}/ .
+```
+This will produce a file called `{hostname}-journal-logs-{date}.tgz`, which you can then upload to the ticket.
+
 
 ## <a name="admin-router"></a>Admin Router
 
