@@ -30,7 +30,11 @@ DC/OS includes highly available, distributed, DNS-based service discovery. The s
 Mesos DNS is a centralized, replicated, DNS server that runs on every master. Every task started by DC/OS gets a well-known DNS name. This provides a replicated highly available DNS service on each of the masters. Every instance of Mesos DNS polls the leading Mesos master and generates a fully qualified domain name (FQDN) for every service running in DC/OS with the domain `*.mesos`.  For more information, see the [Mesos DNS documentation](/1.10/networking/mesos-dns/).
 
 ## DNS Forwarder (Spartan)
-Spartan acts as a DNS masquerade for Mesos DNS on each agent. The Spartan instance on each agent is configured to listen to three different local interfaces on the agent and the nameservers on the agent are set to these three interfaces. This allows containers to perform up to three retries on a DNS request. To provide a highly available DNS service, Spartan forwards each request it receives to the different Mesos DNS instances which are running on each master.
+Spartan acts as a DNS masquerade for Mesos DNS on each agent. 
+
+The Spartan instance on each agent is configured to listen to three different local interfaces: `198.51.100.1`, `198.51.100.2`, and `198.51.100.3`. The `nameserver` option in the `/etc/resolv.conf` on the agent is set to these three interfaces. 
+
+This allows containers to perform up to three retries on a DNS request. To provide a highly available DNS service, Spartan forwards each request it receives to the different Mesos DNS instances which are running on each master.
 
 - Scale-out DNS Server on DC/OS masters with replication.
 - DNS server Proxy with links to all Active/Active DNS server daemons.
