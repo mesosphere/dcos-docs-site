@@ -31,7 +31,7 @@ Based on the latest stable release of the dcos-commons SDK (Version 0.42.1), thi
 - SSL Authentication and Data at Rest encryption
 - PAM with OpenLDAP Authentication
 - Foldered Installation
-- Backup to and restore from all S3-compatible storages.
+- Back up to and restore from all S3-compatible storage.
 
 ### Bug Fixes
 
