@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: Operating HDFS
-navigationTitle: Operating HDFS
+title: Operations
+navigationTitle: Operations
 excerpt: Plan and pod operations in DC/OS Apache HDFS service
 menuWeight: 30
 model: /services/hdfs/data.yml

@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Troubleshooting HDFS
+navigationTitle: Troubleshooting 
 excerpt: Diagnosing service problems
-title: Troubleshooting HDFS
+title: Troubleshooting 
 menuWeight: 70
 model: /services/hdfs/data.yml
 render: mustache
