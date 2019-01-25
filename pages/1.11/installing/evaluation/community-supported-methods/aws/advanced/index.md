@@ -195,7 +195,7 @@ Use the `zen.sh` script to create the template dependencies. These dependencies 
 
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
 
-- On the **Select Template** page, upload the [Zen](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#zen) template from your workstation and click **Next**.
+- On the **Select Template** page, upload the [Zen](/1.11/installing/evaluation/community-supported-methods/aws/advanced/template-reference/#zen) template from your workstation and click **Next**.
 
 Template examples:
 
@@ -300,7 +300,7 @@ Now that your advanced template DC/OS installation is up and running, you can ad
 
 ### Add more agent nodes
 
-You can add more agent nodes by creating a new stack. Use the [advanced-priv-agent.json](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#private-agent) or [advanced-pub-agent.json](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#public-agent) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
+You can add more agent nodes by creating a new stack. Use the [advanced-priv-agent.json](/1.11/installing/evaluation/community-supported-methods/aws/advanced/template-reference/#private-agents) or [advanced-pub-agent.json](/1.11/installing/evaluation/community-supported-methods/aws/advanced/template-reference/#public-agents) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
 
 Use the output values from the `zen.sh` script and your Master and Infra stacks. These new agent nodes will automatically be added to your DC/OS cluster.
 

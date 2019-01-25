@@ -20,5 +20,5 @@ You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS 
 - Updates of DC/OS on AWS CloudFormation have not been automated, validated, or documented.
 - Modified CloudFormation templates are not supported by Mesosphere, Inc.
 
-The recommended way to install production-ready DC/OS that can be upgraded in-place is to use the [Installation method](1.11/installing/production/deploying-dcos/installation/).
+The recommended way to install production-ready DC/OS that can be upgraded in-place is to use the [Installation method](/1.11/installing/production/deploying-dcos/installation/).
 [/message]

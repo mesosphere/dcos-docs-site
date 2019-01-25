@@ -50,7 +50,7 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
     ```
     If you have previously added in any values, they will be listed within the square brackets as [previous value]. Leaving the input blank will preserve the value as it is, adding or changing a value here will update it.
 
-    See [configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) for more information on setting up credentials and user profile.
+See [configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) for more information on setting up credentials and user profile.
 
 1. Set the `AWS_DEFAULT_REGION`. The current Terraform Provider for AWS requires that the default AWS region be set before terraform can start. You can set the default region with the following command:
 

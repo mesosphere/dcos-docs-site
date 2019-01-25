@@ -13,7 +13,7 @@ enterprise: true
 - [DC/OS CLI installed](/1.10/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
 - [GNU Privacy Guard (GPG) installed](http://brewformulas.org/Gnupg)
-- If your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. [SSH into your master](/1.10/administering-clusters/sshcluster/).
 
@@ -62,7 +62,7 @@ enterprise: true
 
 12. Execute the following ZooKeeper command to gain additional privileges, replacing `super:secret` if necessary with the actual user name and password of the ZooKeeper superuser.
 
-   **Tip:** By default, DC/OS sets the ZooKeeper superuser to `super:secret` but we recommend [changing the default](/1.10/installing/ent/custom/configuration/configuration-parameters/#zk-superuser).
+   **Tip:** By default, DC/OS sets the ZooKeeper superuser to `super:secret` but we recommend [changing the default](//1.10/installing/production/advanced-configuration/configuration-reference/#zk-superuser).
 
    ```bash
    addauth digest super:secret
