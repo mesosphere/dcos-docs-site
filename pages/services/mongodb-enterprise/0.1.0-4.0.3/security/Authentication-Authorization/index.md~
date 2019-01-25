@@ -73,14 +73,14 @@ If you are using Automation to manage your MongoDB deployments, Ops Manager auto
 
  _Figure 9. - Connect to replica set with Authentication
 
-12. In order to connect to replica set and access the ```mongo``` shell, there is need to connect to the DC/OS MongoDB task.
+12. In order to connect to replica set and access the ```mongod``` shell, there is need to connect to the DC/OS MongoDB task.
 To enter the DC/OS MongoDB task shell, execute the following command over DC/OS CLI:
 
 ```bash
   dcos task exec -ti <dcos-task-id> bash
 ```
 
-Now, Enter the command to connect with Replica Set in the CLI instance to access the ```mongo``` shell using authentication mechanism.
+Now, Enter the command to connect with Replica Set in the CLI instance to access the ```mongod``` shell using authentication mechanism.
 
 [<img src="../../img/Final_Connection.png" alt="Final Connection"/>](../../img/Final_Connection.png)
 

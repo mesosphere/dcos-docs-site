@@ -24,8 +24,6 @@ render: mustache
 
 * Whitelist the IP of host in the OpsManager.
 
-The default configuration of the service requires 3 agent nodes each with 1 CPU, 2048 MB memory, 5120 MB data disk and 2048 MB log disk. The Production environment configuration may vary as per the usage.
-
 
 ## Install MongoDB OpsManager
 

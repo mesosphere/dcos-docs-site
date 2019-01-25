@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes
+navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 130
 excerpt: Release Notes for version 0.1.0-4.0.3
 featureMaturity:
-enterprise: false
+enterprise: true
 ---
 
 Release notes for MongoDB Enterprise.

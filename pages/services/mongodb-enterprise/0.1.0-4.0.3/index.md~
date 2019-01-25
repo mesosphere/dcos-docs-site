@@ -15,8 +15,7 @@ DC/OS {{ model.techName }} Service is an automated service that makes it easy to
 ## Benefits
 DC/OS {{ model.techName }} offers the following benefits:
 1. Based on the battle-proven DC/OS framework/operator SDK underpinning all DC/OS-certified frameworks.
-2. MongoDB is a cross-platform document-oriented database.
-3. MongoDB provides high performance, high availability, and automatic scaling.
+2. MongoDB provides high performance, high availability, and automatic scaling.
 
 ## DC/OS {{ model.techName }}'s main features are:
 **1. High Performance:** MongoDB Support for embedded data models reduces I/O activity on database system.Indexes support faster queries and can include keys from embedded documents and arrays.

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Supported Versions
+navigationTitle:  Supported Versions
 title: Supported Versions
 menuWeight: 120
 excerpt: Understanding DC/OS MongoDB Services package versioning

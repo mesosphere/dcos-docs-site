@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Security
-title: Security
+title:  Security
 menuWeight: 50
 excerpt: DC/OS MongoDB Security
 featureMaturity:
