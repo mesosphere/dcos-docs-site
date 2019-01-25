@@ -30,6 +30,7 @@ model: ../data.yml
 ## Known limitations
 
 * Upgrading from v0.3.0 is not possible.
+* Do not support loading Prometheus alert rules recursively from a directory.
 
 # Version v0.3.0
 
