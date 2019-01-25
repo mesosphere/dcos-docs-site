@@ -28,15 +28,20 @@ Released on November 27, 2018.
 * LB task getting killed intermittently leading to outage for apps being load balanced.
  
 
-## Known Limitations
+## Known issues and limitations
 
-* Edge-LB currently does not support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
+* Edge-LB supports all [security modes](/1.12/security/ent/#security-modes) in DC/OS 1.11 and later.
+
+* Edge-LB supports `permissive` and `disabled` security in DC/OS 1.10, but does not support `strict` security mode on DC/OS 1.10.
+
+* Edge-LB is not supported for DC/OS 1.9, or earlier, clusters.
+
 * Edge-LB currently does not support self-service configuration. All configuration must be handled centrally.
 
-## Known Issues
-
 * The steps provided in the DC/OS 1.10 web interface to uninstall Edge-LB are incorrect. In order to correctly uninstall Edge-LB for any given DC/OS version, please follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
+
 * Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
+
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
 
 # v1.2.2
