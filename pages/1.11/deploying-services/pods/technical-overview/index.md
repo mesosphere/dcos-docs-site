@@ -19,7 +19,7 @@ DC/OS handles and represents pods as single services. Containers in pods share n
 # Networking
 Marathon pods only support the [DC/OS Universal container runtime](/1.11/deploying-services/containerizers/), which supports multiple image formats, including Docker.
 
-The Universal container runtime simplifies networking by allowing the containers of each pod instance to share a network namespace and communicate over a VLAN or private network. If you specify a container network without a name in a pod definition, it will be assigned to the default network. If you have installed DC/OS using [AWS templates](/1.11/installing/evaluation/cloud-installation/aws/), the default network is `dcos`.
+The Universal container runtime simplifies networking by allowing the containers of each pod instance to share a network namespace and communicate over a VLAN or private network. If you specify a container network without a name in a pod definition, it will be assigned to the default network. If you have installed DC/OS using [AWS templates](/1.11/installing/evaluation/aws/), the default network is `dcos`.
 
 If other applications need to communicate with your pod, specify an endpoint in your pod definition. Other applications will communicate with your pod by addressing those endpoints. See [the Examples section](/1.11/deploying-services/pods/examples/) for more information.
 

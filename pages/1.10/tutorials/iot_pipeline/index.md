@@ -49,7 +49,7 @@ The following graphic illustrates the data flow:
 
 *  [DC/OS](/1.10/installing/) or [DC/OS Enterprise](/1.10/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
 
-    **Tip** If you are running this tutorial using a DC/OS Enterprise cluster, you will want to make sure [security mode](/1.10/installing/custom/configuration/configuration-parameters/#security-enterprise) is set to permissive or strict. DC/OS installs in permissive security mode by default.
+    **Tip** If you are running this tutorial using a DC/OS Enterprise cluster, you will want to make sure [security mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) is set to permissive or strict. DC/OS installs in permissive security mode by default.
 
 *  [DC/OS CLI](/1.10/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.

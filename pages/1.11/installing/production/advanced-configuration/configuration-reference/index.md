@@ -214,7 +214,7 @@ You can use the following options to further configure the Docker credentials:
             *  `cluster_docker_credentials_write_to_etc: 'false'` Do not write a credentials file.
     *  `cluster_docker_credentials_dcos_owned: 'false'` The credentials file is stored in `/etc/mesosphere/docker_credentials`.
 
-For more information, see the [examples](/1.11/installing/ent/custom/configuration/examples/#docker-credentials).
+For more information, see the [examples](/1.11/installing/production/deploying-dcos/configuration/examples/#docker-credentials).
 
 ## cluster_docker_credentials_enabled
 Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_credentials`](#cluster-docker-credentials) to Mesos.
@@ -254,7 +254,7 @@ Custom installation checks that are added to the default check configuration pro
     - `cmd` - Specify an array of health check command strings
     - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`
 
-For more information on how these custom checks are used, see the [examples](/1.11/installing/ent/custom/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.11/installing/production/deploying-dcos/node-cluster-health-check/) documentation.
+For more information on how these custom checks are used, see the [examples](/1.11/installing/production/deploying-dcos/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.11/installing/production/deploying-dcos/node-cluster-health-check/) documentation.
 
 
 ## dcos_audit_logging [enterprise type="inline" size="small" /]
@@ -300,7 +300,7 @@ Indicates whether to enable DC/OS virtual networks.
             *  `subnet` The subnet that is allocated to the virtual network.
             *  `prefix` The size of the subnet that is allocated to each agent and thus defines the number of agents on which the overlay can run. The size of the subnet is carved from the overlay subnet.
 
- For more information, see the [example](/1.11/installing/ent/custom/configuration/examples/#overlay) and [documentation](/1.11/networking/SDN/dcos-overlay/).
+ For more information, see the [example](/1.11/installing/production/deploying-dcos/configuration/examples/#overlay) and [documentation](/1.11/networking/SDN/dcos-overlay/).
 
 
 ## dns_bind_ip_blacklist
@@ -342,7 +342,7 @@ The amount of time to wait before removing docker containers (i.e., `docker rm`)
 Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. You can configure the runtime behavior by using the `/etc/` config. For more information, see the [documentation](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
 *  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.11/installing/evaluation/) template installations.
-*  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.11/installing/ent/custom/) installations.
+*  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.11/installing/production/) installations.
 
 ## exhibitor_storage_backend
 The type of storage backend to use for Exhibitor. You can use internal DC/OS storage (`static`) or specify an external storage system (`ZooKeeper`, `aws_s3`, and `Azure`) for configuring and orchestrating ZooKeeper with Exhibitor on the master nodes. Exhibitor automatically configures your ZooKeeper installation on the master nodes during your DC/OS installation.
@@ -608,7 +608,7 @@ Indicates whether to enable the DC/OS proxy.
 
         **Note:** Wildcard characters (`*`) are not supported.
 
-For more information, see the [examples](/1.11/installing/ent/custom/configuration/examples/#http-proxy).
+For more information, see the [examples](/1.11/installing/production/deploying-dcos/configuration/examples/#http-proxy).
 
 **Note:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
 
