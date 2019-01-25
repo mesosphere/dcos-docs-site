@@ -16,7 +16,9 @@ You can install and run DC/OS services on a datacenter without internet access w
 
 - Logged into the DC/OS CLI via `dcos auth login`. On DC/OS Enterprise, you must be logged in as a user with the `dcos:superuser` permission.
 
-**Note:** As the Universe tarball is over two gigabytes in size it may take some time to download it to your local drive and upload it to each master.
+<p class="message--note"><strong>NOTE: </strong>Creation of a local universe on MacOS is not supported.</p>
+
+<p class="message--note"><strong>NOTE: </strong>As the Universe tarball is over two gigabytes in size, it may take some time to download it to your local drive and upload it to each master.</p>
 
 # <a name="default"></a>Installing the default Universe packages
 
