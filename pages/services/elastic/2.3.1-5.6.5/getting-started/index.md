@@ -21,15 +21,18 @@ $ dcos package install elastic
 
 This command creates a new Elasticsearch cluster with the default name `elastic`. Two clusters cannot share the same name, so installing additional clusters beyond the default cluster requires customizing the `name` at install time for each additional instance.
 
-**Note:** You can also install Elastic from the **Universe** > **Packages** tab of the DC/OS web interface. If you install Elastic from the web interface, you must install the Elastic DC/OS CLI subcommands separately. From the DC/OS CLI, enter:
+<p class="message--note"><strong>NOTE: </strong>You can also install Elastic from the **Universe** > **Packages** tab of the DC/OS web interface. If you install Elastic from the web interface, you must install the Elastic DC/OS CLI subcommands separately.</p>
 
+Execute the following CLI command.
 ```bash
 dcos package install elastic --cli
 ```
 
 # Custom Installation
 
-You can customize the Elastic cluster in a variety of ways by specifying a JSON options file. For example, here is a sample JSON options file that customizes the service name, master transport port, and plugins:
+You can customize the Elastic cluster in a variety of ways by specifying a JSON options file. 
+
+For example, here is a sample JSON options file that customizes the service name, master transport port, and plugins.
 
 ```json
 {
@@ -52,7 +55,7 @@ The command below creates a cluster using a `options.json` file:
 $ dcos package install elastic --options=options.json
 ```
 
-**Recommendation:** Store your custom configuration in source control.
+<p class="message--note"><strong>NOTE: </strong>It is highly recommended to store your custom configuration in source control.</p>
 
 # Multiple Elastic Cluster Installation
 
@@ -73,7 +76,7 @@ The command below creates a cluster using `another-cluster.json`:
 $ dcos package install elastic --options=another-cluster.json
 ```
 
-See the Configuring section for a list of fields that can be customized via an options JSON file when the Elastic cluster is created.
+See the configuring section for a list of fields that can be customized via an options JSON file when the Elastic cluster is created.
 
 ## Virtual networks
 Elastic supports deployment [virtual networks](/1.10/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network), allowing each container (task) to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:

@@ -462,7 +462,9 @@ If you query the plan again, the response will look like this (notice `status: "
 }
 ```
 
-**Note:** The interrupt command can’t stop a block that is `STARTING`, but it will stop the change on the subsequent blocks.
+
+<p class="message--note"><strong>NOTE: </strong>The interrupt command can’t stop a block that is `STARTING`, but it will stop the change on the subsequent blocks.
+</p>
 
 Enter the `continue` command to resume the update process.
 
@@ -567,7 +569,10 @@ After you execute the continue operation, the plan will look like this:
 
 # Configuration Options
 
-The following describes the most commonly used features of DC/OS Apache Cassandra and how to configure them via the DC/OS CLI and the DC/OS GUI. There are two methods of configuring a HDFS cluster. The configuration may be specified using a JSON file during installation via the DC/OS command line (See the Installation section) or via modification to the Service Scheduler’s DC/OS environment at runtime (See the Configuration Update section). Note that some configuration options may only be specified at installation time.
+The following describes the most commonly used features of DC/OS Apache Cassandra and how to configure them via the DC/OS CLI and the DC/OS GUI. There are two methods of configuring a HDFS cluster. The configuration may be specified using a JSON file during installation via the DC/OS command line (See the Installation section) or via modification to the Service Scheduler’s DC/OS environment at runtime (See the Configuration Update section). 
+
+
+<p class="message--note"><strong>NOTE: </strong>Some configuration options may only be specified at installation time.</p>
 
 ## Service Configuration
 
@@ -663,13 +668,13 @@ Example node configuration:
   <tr>
     <td>disk</td>
     <td>integer</td>
-    <td>The amount of disk, in MB, allocated to node. **Note:** Once this value is configured, it can not be changed.</td>
+    <td>The amount of disk, in MB, allocated to node. Remember that if this value is configured, it can not be changed.</td>
   </tr>
 
   <tr>
     <td>disk_type</td>
     <td>string</td>
-    <td>The type of disk to use for storing data. Possible values: <b>ROOT</b> (default) and <b>MOUNT</b>. <b>Note:</b> Once this value is configured, it can not be changed.
+    <td>The type of disk to use for storing data. Possible values: <b>ROOT</b> (default) and <b>MOUNT</b>. Remember that if this value is configured, it can not be changed.
     <ul>
     <li><b>ROOT:</b> Data is stored on the same volume as the agent work directory and the node tasks use the configured amount of <i>disk</i> space.</li>
     <li><b>MOUNT:</b> Data will be stored on a dedicated, operator-formatted volume attached to the agent. Dedicated MOUNT volumes have performance advantages and a disk error on these MOUNT volumes will be correctly reported to HDFS.</li>
