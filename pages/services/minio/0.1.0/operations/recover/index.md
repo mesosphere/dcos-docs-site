@@ -12,7 +12,7 @@ render: mustache
 
 # Recover
 
-The DC/OS {{ model.techName }} service allows you to heal buckets and objects on the {{ model.techName }} server, such as in the case of disk/node failure. You must heal the {{ model.techName }} cluster if you intend to add new disks to the cluster. 
+The DC/OS {{ model.techName }} service allows you to heal buckets and objects on the DC/OS {{ model.techName }} server, such as in the case of disk/node failure. You must heal the DC/OS  {{ model.techName }} cluster if you intend to add new disks to the cluster. 
 
 ## Recover
 
@@ -30,7 +30,7 @@ The DC/OS {{ model.techName }} service allows you to heal buckets and objects on
    [<img src="../../img/Recover1.png" alt="Recover1" width="800"/>](../../img/Recover1.png)
 
 
-<p class="message--important"><strong>NOTE: </strong>The <tt>mc heal</tt> command is only applicable for Minio erasure coded setup (standalone and distributed). See <a href="/0.1.0/configuration/erasure-coding-schemes/">Erasure Coding Scheme in Minio</a> or the <a href="https://docs.minio.io/docs/minio-admin-complete-guide.html#heal">Minio Command Reference</a> for more information.</p>
+<p class="message--important"><strong>NOTE: </strong>The <tt>mc heal</tt> command is only applicable for a DC/OS  {{ model.techName}} erasure coded setup (standalone and distributed). See <a href="/0.1.0/configuration/erasure-coding-schemes/">Erasure Coding Scheme in {{ model.techName}} </a> or the <a href="https://docs.minio.io/docs/minio-admin-complete-guide.html#heal">{{ model.techName}}  Command Reference</a> for more information.</p>
 
 ### Node replace
 

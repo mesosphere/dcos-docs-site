@@ -10,22 +10,22 @@ render: mustache
 
 # How to use {{ model.techName }} with DC/OS 
 
-This section will get you up and running with a basic {{ model.techName }} configuration in a short time.
+This section will get you up and running with a basic DC/OS {{ model.techName }} configuration in a short time.
 
 ## Prerequisites
 
 * A running DC/OS 1.11 cluster. (If you do not have one installed, see the instructions in [Getting Started](/services/minio/0.1.0/getting-started/#install-a-basic-cluster).)
 
-* {{ model.techName }} requires {{ model.install.minNodeCount}} to start in distributed mode. ({{ model.techName }} requires that you start {{ model.install.nodeDescription }} in distributed mode.)
+* DC/OS {{ model.techName }} requires {{ model.install.minNodeCount}} to start in distributed mode. (DC/OS {{ model.techName }} requires that you start {{ model.install.nodeDescription }} in distributed mode.)
 
 * Your DC/OS cluster must contain {{ model.install.minPrivateAgents }}. 
 
-* If DC/OS Secrets are enabled to specify credentials of {{ model.techName }},  then the following Secrets must be created:
+* If DC/OS Secrets are enabled to specify credentials for DC/OS {{ model.techName }}, then the following Secrets must be created:
 
   * `service.name/access_key`
   * `service.name/secret_key`
 
-  where `service.name` is the name with which {{ model.techName }} service is installed on DC/OS.
+  where `service.name` is the name by which {{ model.techName }} service is installed on DC/OS.
 
 # Install
 
@@ -58,11 +58,11 @@ Shown below are the steps to install {{ model.techName }} using the DC/OS Catalo
     [<img src="../img/Node_Count1.png" alt="Node Count"/>](../img/Node_Count1.png)
     Figure 2. - Edit Configuration
 
-1. Once the service is started, verify all the nodes are up and running by viewing the Tasks tab.
+1. Once the service is started, verify that all the nodes are up and running by viewing the Tasks tab.
     [<img src="../img/Running_Stage1.png" alt="Running Stage"/>](../img/Running_Stage1.png)
     Figure 3. - Verify service is up and running
 
-1.  Check the output log to verify that all the nodes of the {{ model.techName }} server are up and running.
+1.  Check the output log to verify that all the nodes of the DC/OS {{ model.techName }} server are up and running.
     [<img src="../img/Successful_Execution1.png" alt="Successful Execution"/>](../img/Successful_Execution1.png)
     Figure 4. - Service is installed successfully
 

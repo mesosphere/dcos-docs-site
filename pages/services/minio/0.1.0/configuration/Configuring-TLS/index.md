@@ -45,7 +45,7 @@ In DC/OS 1.10 and later, the required permission is `dcos:superuser full`, where
 
 Install the DC/OS {{ model.techName }} service, including the following options in addition to your own:
 
-   ```shell
+   ```json
    {
     "service": {
        "service_account": "<your service account name>",
