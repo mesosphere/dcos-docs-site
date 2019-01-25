@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes
-title: Release Notes
-menuWeight: 0
-excerpt: Release notes for Edge-LB 1.2
+navigationTitle:  Related Documentation
+title: Related Documentation
+menuWeight: 50
+excerpt: Provides a historical summary of Edge-LB released features and limitations 
 enterprise: false
 ---
 
