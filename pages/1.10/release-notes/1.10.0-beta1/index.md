@@ -59,7 +59,7 @@ DC/OS 1.10 includes many new capabilities and expands the collection of data and
 [/ enterprise]
 
 - Custom CA certificate support.
-  Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
+  Installation time [configuration options](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 
 - Increased Admin Router security. <!-- ie TLS not supported out-of-the-box; where is the doc? is this enterprise-only?-->
 
