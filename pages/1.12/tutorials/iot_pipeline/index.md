@@ -17,11 +17,11 @@ In this tutorial you will install and deploy a containerized Ruby on Rails app n
 
 You will learn:
 
-*   How to install DC/OS services.
-*   How to add apps to DC/OS Marathon.
-*   How to route public traffic to the private application with Marathon-LB.
-*   How your apps are discovered.
-*   How to scale your apps.
+*   How to install DC/OS services
+*   How to add apps to DC/OS Marathon
+*   How to route public traffic to the private application with Marathon-LB
+*   How your apps are discovered
+*   How to scale your apps
 
 This tutorial uses DC/OS to launch and deploy these microservices to your cluster:
 
@@ -71,7 +71,7 @@ If you are having trouble getting Marathon-LB up and running on an Enterprise cl
 
     ![Services tab with all services shown.](/img/tweeter-services6-ee.png)
 
-    Figure 1. Services tab showing Tweeter services 
+    Figure 1. Services tab showing Tweeter services
 
 ## Deploy the containerized app
 
@@ -82,10 +82,10 @@ In this step you deploy the containerized Tweeter app to a public node.
 2.  Add the `HAPROXY_0_VHOST` definition with the public IP address of your [public agent][9] node to your `tweeter.json` file.
 
     <table class=“table” bgcolor=#858585>
-    <tr> 
+    <tr>
     <td align=justify style=color:white><strong>Important:</strong> You must remove the leading "http://" and the trailing "/".
-    </td> 
-    </tr> 
+    </td>
+    </tr>
     </table>
 
     ```json
