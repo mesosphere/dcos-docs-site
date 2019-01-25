@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Limitations
+navigationTitle: Limitations
 title: Limitations
 menuWeight: 110
 excerpt: Understanding configuration limitations
