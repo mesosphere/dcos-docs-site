@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Uninstall
+navigationTitle: Uninstall
 title: Uninstall
-menuWeight: 40
+menuWeight: 75
 excerpt: Uninstalling DC/OS Minio Services
 featureMaturity:
 enterprise: false

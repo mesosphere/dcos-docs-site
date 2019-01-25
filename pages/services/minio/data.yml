@@ -2,10 +2,11 @@
 
 packageName: miniod
 serviceName: minio
-techName: DC/OS Minio
+techName: Minio
 techShortName: Minio
-minNodeCount: four
+
 # Values specific to certain templates:
+
 
 operations:
   default-deploy: |

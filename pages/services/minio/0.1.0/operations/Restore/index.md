@@ -21,7 +21,7 @@ The following values are required to restore your data:
    3. S3_BUCKET
 
 
-The restore task is responsible for restoring the data in {{ model.techName }} storage system. The restore plan must be launched against each backed-up S3-compatible storage bucket. Once this plan is executed, it will restore the data in the specified bucket in AWS S3-compatible storage to DC/OS {{ model.techName }}.
+The restore task is responsible for restoring the data in the DC/OS {{ model.techName }} storage system. The restore plan must be launched against each backed-up S3-compatible storage bucket. Once this plan is executed, it will restore the data in the specified bucket in AWS S3-compatible storage to DC/OS {{ model.techName }}.
 
 ## Restore
 
@@ -38,7 +38,7 @@ The restore task is responsible for restoring the data in {{ model.techName }} s
 
 1. The restore task will run the `mc mirror` command, taking `ACCESS_KEY_ID`, `SECRET_ACCESS_KEY` and `S3_BUCKET` as parameters. 
 
-1. The restore task will create a bucket with the same name which was in the {{ model.techName }} storage system previously; it will drop the prefix service name from the bucket which was attached in S3-compatible storage in the backup plan.
+1. The restore task will create a bucket with the same name which was in the DC/OS {{ model.techName }} storage system previously; it will drop the prefix service name from the bucket which was attached in S3-compatible storage in the backup plan.
 
    [<img src="../../img/Restore.png" alt="Restore" width="800"/>](../img/Restore.png)
 

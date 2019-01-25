@@ -10,7 +10,7 @@ model: /services/minio/data.yml
 render: mustache
 ---
 
-The {{ model.techName }} service allows you to back up your data to AWS S3-compatible storage, using the `mc mirror` command. {{ model.techName }} provides an `rsync`-like command line utility. It mirrors data from one bucket to another. 
+The DC/OS {{ model.techName }} service allows you to back up your data to AWS S3-compatible storage, using the `mc mirror` command. {{ model.techName }} provides an `rsync`-like command line utility. It mirrors data from one bucket to another. 
 ## Prerequisites
 
 The following values are required to back up your data:

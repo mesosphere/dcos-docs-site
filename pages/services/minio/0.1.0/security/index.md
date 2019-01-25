@@ -46,7 +46,7 @@ For Edge-LB pool configuration:
    ```shell
    dcos package install edgelb --yes
    ``` 
-1. Create the configuration JSON file with required parameters to access {{ model.techName }}:
+1. Create the configuration JSON file with required parameters to access DC/OS {{ model.techName }}:
    ```json
    {
    "apiVersion": "V2",
