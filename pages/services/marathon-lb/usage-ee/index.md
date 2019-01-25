@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Install and Customize on DC/OS Enterprise
-menuWeight: 2
+menuWeight: -1
 excerpt: Installing and customizing Marathon-LB on DC/OS Enterprise
 
 enterprise: true

@@ -2,7 +2,7 @@
 layout: layout.pug
 excerpt: Installing and customizing Marathon-LB on DC/OS Open Source
 title: Installing and Customizing on DC/OS Open Source
-menuWeight: 1
+menuWeight: -1
 ---
 
 
