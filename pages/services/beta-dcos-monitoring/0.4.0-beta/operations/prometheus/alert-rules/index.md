@@ -22,7 +22,7 @@ Assume that the repository is `https://github.com/company/alert-rules`.
 You may put the alert rules in a subfolder in the repository.
 For instance, `https://github.com/company/alert-rules/production`.
 
-<p class="message--important"><strong>IMPORTANT: </strong>Make sure that each of the alert rule file has suffix `.yml` and is a direct child of the subfolder (i.e., not nested under another subfolder).</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Make sure that each of the alert rule files has suffix `.yml` and is a direct child of the subfolder (i.e., not nested under another subfolder).</p>
 
 The Git repository can be either public or private.
 If the Git repository is private, you will need to configure the credentials to access the Git repository (see below).
