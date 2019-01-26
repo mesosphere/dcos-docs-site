@@ -16,20 +16,22 @@ model: ../data.yml
 
 * Allow accessing Alert Manager UI through Admin Router.
 * Allow accessing Prometheus UI through Admin Router.
-* Support reloading Alert Manager configurations after install.
 * Support loading Prometheus alert rules from a git repository.
+* Support reloading Alert Manager configurations after install.
+* Support DC/OS Storage Service (DSS) volume profiles.
 
 ## Updates
 
-* Support configuring Prometheus storage retention.
-* Support configuring Alert Manager resource footprint (i.e., CPU and memory).
-* Universe integration.
-* Update SDK to 0.54.3.
+* Support for configuring Prometheus storage retention.
+* Support for configuring Alert Manager resource footprint (i.e., CPU and memory).
+* Installable from the Universe.
+* Updated SDK to 0.55.2.
 * New logo.
 
 ## Known limitations
 
-* Upgrading from v0.3.0 is not possible.
+* Upgrading from v0.3.0 is not supported at this time.
+* Does not support loading Prometheus alert rules recursively from a directory.
 
 # Version v0.3.0
 
