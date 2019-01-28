@@ -1,49 +1,34 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.11.7
-title: Release Notes for 1.11.7
-menuWeight: 15
-excerpt: Release notes for DC/OS 1.11.7
+navigationTitle: Release Notes for 1.11.9
+title: Release Notes for 1.11.9
+menuWeight: 5
+excerpt: Release notes for DC/OS 1.11.9
 ---
 
-DC/OS 1.11.7 was released on November 1, 2018. 
+DC/OS Version 1.11.9 was released on January 31, 2019.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.7/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.9/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="light" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise[/button]
 
+DC/OS 1.11.9 includes the following components:
+- Apache Mesos 1.5.x [change log](https://github.com/apache/mesos/blob/9c28b265804269de9411f04cfcccefe3bdd8ef1a/CHANGELOG).
+- Marathon 1.6.567 [change log](https://github.com/mesosphere/marathon/tree/2d8b3e438).
+- Metronome 0.4.5 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.5).
 
-DC/OS 1.11.7 includes the following components:
-- Apache Mesos 1.5.x [change log](https://github.com/apache/mesos/blob/2ead30d/CHANGELOG).
-- Marathon 1.6.564 [change log](https://github.com/mesosphere/marathon/tree/3fa693b32).
-- Metronome 0.4.4 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.4).
+# Release Summary
 
+DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
 
-# Issues Fixed in DC/OS 1.11.7
+# Issues Fixed in DC/OS 1.11.9
+The issues that have been fixed in DC/OS 1.11.9 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
 
-## GUI
-- DCOS-20222 - Add an error message when environment variables are input without keys. 
-- DCOS-42365 - Set total resource counts to display in the pods table.
-- DCOS_OSS-1961 - Secure pod container fields to prevent instances of unprompted swallowing when pod is edited via JSON Editor. 
+## 
 
-## Marathon
-- DCOS_OSS-4193 - Resolve [MSPH-2018-0004](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004)(Mesosphere Customer Advisory) where Marathon fails to launch if the first DC/OS master is down with the introduction of ping zk-1 in DC/OS 1.11.5.
+# Known Issues and Limitations
+This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more issue tracking identifiers.
 
-## Mesos
-- COPS-3172/DCOS-40120/DCOS-42667 - Fix instances where parent containers may get stuck in `DESTROYING` state when there is a simultaneous health check running to create nested containers.
-
-## Metrics
-- DCOS-39103 - Consolidate DC/OS metrics agent service error messages in instances when the Docker daemon becomes unresponsive.
-- DCOS_OSS-3918 - Downrate logs to debug in occurrences of NaN data point values to reduce log size and free disk space. 
-
-## Platform
-- DCOS_OSS-4127 - Add additional data (timestamp for `dmesg`, `timedatectl`, distro version, systemd unit status, pods endpoint) into DC/OS diagnostics bundle.
-
-[enterprise]
-## Security
-[/enterprise]
-- DCOS-42156 - Add root permissions to `dcos_marathon` in order to launch MoM.
-- DCOS-42814 - Upgrade CockroachDB from 1.1.8 to 1.1.9.
 
 # About DC/OS 1.11
 
@@ -55,7 +40,7 @@ DC/OS 1.11 includes many new capabilities with a focus on:
 
 Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).
 
-## New Features and Capabilities
+## New Features and Capabilities in DC/OS 1.11
 
 ### Platform
 - Multi-region management - Enables a DC/OS cluster to span multiple datacenters, clouds, and remote branches while providing a unified management and control cluster. [View the documentation](/1.11/deploying-services/fault-domain-awareness/). [enterprise type="inline" size="small" /]
@@ -96,5 +81,3 @@ Provide feedback on the new features and services at [support.mesosphere.com](ht
 - New DC/OS Kafka ZooKeeper service. [View the documentation](/services/kafka-zookeeper/).
 - You can now select a DC/OS data service version from a dropdown menu in the DC/OS UI.
 - Improved scalability for all DC/OS data services.
-
-
