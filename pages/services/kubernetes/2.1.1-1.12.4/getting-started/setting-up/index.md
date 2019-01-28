@@ -18,6 +18,9 @@ You will need [superuser access](/1.12/security/ent/users-groups/reset-superuser
   * 1 public agent node
   * Each node with resources equivalent or greater to that of an `m4.xlarge` AWS EC2 VM
 
+Important: If you have configured your DC/OS cluster to use a proxy, please follow the next steps to set up your `config.yaml` to include the required changes specific to Kubernetes on DC/OS at:
+https://docs.mesosphere.com/services/kubernetes/2.1.0-1.12.3/operations/customizing-install/#when-you-have-a-proxy
+
 Once you have your cluster infrastructure up and ready as specified by the above minimum prerequisites, you will next install both DC/OS CLIs:
 
 - the [DC/OS CLI](/1.12/cli/install/)
