@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: 0.1.0-5.7.21
+navigationTitle: 0.2.0-5.7.21
 title: Release Notes
 menuWeight: 10
-excerpt: Release Notes for version 0.1.0-5.7.21
+excerpt: Release Notes for version 0.2.0-5.7.21
 featureMaturity:
 enterprise: false
 model: /services/pxc/data.yml
@@ -12,7 +12,7 @@ render: mustache
 
 
 
-## Version 0.1.0-5.7.21
+## Version 0.2.0-5.7.21
 
 This is the first release of the DC/OS {{ model.techName }} service. The  latest stable release version of {{ model.techName }} installation will be supported on DCOS cluster 1.10 and above. This has been built using the current stable version of SDK (Version 0.42.1).
 

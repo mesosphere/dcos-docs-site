@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Percona XtraDB Cluster 0.1.0-5.7.21
-title: Percona XtraDB Cluster 0.1.0-5.7.21
+navigationTitle: Percona XtraDB Cluster 0.2.0-5.7.21
+title: Percona XtraDB Cluster 0.2.0-5.7.21
 menuWeight: 50
-excerpt: Overview of DC/OS Percona XtraDB Cluster 0.1.0-5.7.21
+excerpt: Overview of DC/OS Percona XtraDB Cluster 0.2.0-5.7.21
 featureMaturity:
 enterprise: false
 model: /services/pxc/data.yml

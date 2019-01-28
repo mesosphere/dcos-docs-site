@@ -16,9 +16,9 @@ DC/OS and certified package version support policy are described in detail [here
 
 ## Package Versioning Scheme
 
-- Percona XtraDB Cluster: 0.1.0-5.7.21
+- Percona XtraDB Cluster: 0.2.0-5.7.21
 
-Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of Percona XtraDB Cluster. For example, 0.1.0-5.7.21 indicates version 0.1.0 of the DC/OS integration and version 5.7.21 of Percona XtraDB Cluster.
+Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of Percona XtraDB Cluster. For example, 0.2.0-5.7.21 indicates version 0.2.0 of the DC/OS integration and version 5.7.21 of Percona XtraDB Cluster.
 
 ## Version Policy
 

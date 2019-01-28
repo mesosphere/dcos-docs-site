@@ -27,7 +27,7 @@ Install Grafana from the service catalog as well. It can be used as a graphing t
 dcos package install --yes grafana
 ```
 
-[<img src="/services/pxc/0.1.0-5.7.21/img/prom_install.png" alt="Prometheus Install"/>](/services/pxc/0.1.0-5.7.21/img/prom_install.png)
+[<img src="/services/pxc/0.2.0-5.7.21/img/prom_install.png" alt="Prometheus Install"/>](/services/pxc/0.2.0-5.7.21/img/prom_install.png)
 
 
 The framework provides options to enter the Prometheus, AlertManager and Rules config. The default Prometheus configuration scrapes a DC/OS master and agents in the clusters. Append any new config to the end.
@@ -132,7 +132,7 @@ Promtheus UI:
 http://<public-agent-ip>:9092
 ```
 
-[<img src="/services/pxc/0.1.0-5.7.21/img/prom_dashboard.png" alt="Prometheus Dashboard"/>](/services/pxc/0.1.0-5.7.21/img/prom_dashboard.png)
+[<img src="/services/pxc/0.2.0-5.7.21/img/prom_dashboard.png" alt="Prometheus Dashboard"/>](/services/pxc/0.2.0-5.7.21/img/prom_dashboard.png)
 
 
 This is the console view within the `Graph` tab.
@@ -155,7 +155,7 @@ As another example, enter the following expression to graph the per-second rate 
 
 `rate(prometheus_tsdb_head_chunks_created_total[1m])`
 
-[<img src="/services/pxc/0.1.0-5.7.21/img/prom_graphing.png" alt="Prometheus Graphing"/>](/services/pxc/0.1.0-5.7.21/img/prom_graphing.png)
+[<img src="/services/pxc/0.2.0-5.7.21/img/prom_graphing.png" alt="Prometheus Graphing"/>](/services/pxc/0.2.0-5.7.21/img/prom_graphing.png)
 
 ## Using Grafana with Prometheus
 
@@ -165,14 +165,14 @@ http://<public-agent-ip>:9094
 
 Credentials: admin / admin
 
-[<img src="/services/pxc/0.1.0-5.7.21/img/grafana_login.png" alt="Grafana Logging"/>](/services/pxc/0.1.0-5.7.21/img/grafana_login.png)
+[<img src="/services/pxc/0.2.0-5.7.21/img/grafana_login.png" alt="Grafana Logging"/>](/services/pxc/0.2.0-5.7.21/img/grafana_login.png)
 
 which takes you to the Grafana console.
 
 
 You can add Prometheus as a data source:
 
-[<img src="/services/pxc/0.1.0-5.7.21/img/grafana_datasource.png" alt="Grafana Data Source"/>](/services/pxc/0.1.0-5.7.21/img/grafana_datasource.png)
+[<img src="/services/pxc/0.2.0-5.7.21/img/grafana_datasource.png" alt="Grafana Data Source"/>](/services/pxc/0.2.0-5.7.21/img/grafana_datasource.png)
 
 
 Save and Test. Now you are ready to use Prometheus as a data source in Grafana.
@@ -181,4 +181,4 @@ To create a graph, select your `Prometheus` datasource, and enter any Prometheus
 
 The following shows an example Prometheus graph configuration:
 
-[<img src="/services/pxc/0.1.0-5.7.21/img/grafana_prom.png" alt="Grafana Prom Graph"/>](/services/pxc/0.1.0-5.7.21/img/grafana_prom.png)
+[<img src="/services/pxc/0.2.0-5.7.21/img/grafana_prom.png" alt="Grafana Prom Graph"/>](/services/pxc/0.2.0-5.7.21/img/grafana_prom.png)
