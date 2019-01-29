@@ -11,16 +11,16 @@ render: mustache
 # Prerequisites
 
 * A running DC/OS cluster
-
 * Ops Manager base URL (host URL or path where the Ops Manager is hosted)
-
 * Project ID (obtained after creating a project on Ops Manager)
-
 * Generate a new or use an existing public API key from the Ops Manager.
-
 * Username of the registered user at Ops Manager organization.
-
 * Whitelist the IP of host in the Ops Manager.
+* You will need the following values for both the CLI and web interface methods of installation:
+    - `base_URL`
+    - `project_ID`
+    - `public_api_key`
+    - `ops username`
 
 ## Installing {{ model.techName }} Ops Manager
 
