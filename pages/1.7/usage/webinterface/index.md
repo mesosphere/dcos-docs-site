@@ -21,7 +21,7 @@ There are three major views in the DC/OS web interface: Dashboard, Services, and
 
 The dashboard is the home page of the DC/OS web interface and provides an overview of your DC/OS cluster.
 
-![Dashboard](/assets/images/dashboard-ee.gif)
+![Dashboard](/1.11/img/dashboard-ee.png)
 
 From the dashboard you can easily monitor the health of your cluster.
 
@@ -41,7 +41,7 @@ From the dashboard you can easily monitor the health of your cluster.
 
 The Services page provides a comprehensive view of all of the services that you are running. You can view a graph that shows the allocation percentage rate for CPU, memory, or disk. You can filter services by health status or service name.
 
-![Services](/assets/images/services-ee.gif)
+![Services](/1.11/img/services-ee.gif)
 
 By default all of your services are displayed, sorted by service name. You can also sort the services by health status, number of tasks, CPU, memory, or disk space allocated.
 
@@ -60,13 +60,13 @@ Clicking the service name opens the Services side panel, which provides CPU, mem
 
 The Nodes page provides a comprehensive view of all of the nodes that are used across your cluster. You can view a graph that shows the allocation percentage rate for CPU, memory, or disk.
 
-![Nodes](/assets/images/nodes-ee.gif)
+![Nodes](/1.11/img/nodes-donuts-ee.png)
 
 By default all of your nodes are displayed in **List** view, sorted by hostname. You can filter nodes by service type or hostname. You can also sort the nodes by number of tasks or percentage of CPU, memory, or disk space allocated.
 
 You can switch to **Grid** view to see a "donuts" percentage visualization.
 
-![Nodes](/assets/images/nodes-donuts-ee.gif)
+![Nodes](/1.11/img/nodes-donuts-ee.png)
 
 Clicking on a node opens the Nodes side panel, which provides CPU, memory, and disk usage graphs and lists all tasks on the node. Use the dropdown or a custom filter to sort tasks and click on details for more information. Click on a task listed on the Nodes side panel to see detailed information about the task’s CPU, memory, and disk usage and the task’s files and directory tree.
 
@@ -74,13 +74,13 @@ Clicking on a node opens the Nodes side panel, which provides CPU, memory, and d
 
 The Network page provides a comprehensive view of the health of your VIPs. For more information, see the [documentation](/1.7/usage/service-discovery/virtual-ip-addresses/).
 
-![UI Network](/assets/images/network-2.png)
+![UI Network](/1.11/img/network-2.png)
 
 # <a name="universe"></a>Universe
 
 The Universe page shows all of the available DC/OS services. You can install packages from the DC/OS Universe with a single click. The packages can be installed with defaults or customized directly in the web interface.
 
-![universe](/assets/images/ui-universe-ee.gif)
+![universe](/1.11/img/ui-universe-ee.gif)
 
 # <a name="system"></a>System
 

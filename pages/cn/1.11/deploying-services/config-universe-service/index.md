@@ -73,4 +73,4 @@ enterprise: false
     dcos package install --options=marathon-config.json marathon
     ```
 
-如需更多信息，请参阅 [dcos package](/cn/1.11/cli/command-reference/dcos-package) 文档。
+如需更多信息，请参阅 [dcos package](/cn/1.11/cli/command-reference/dcos-package/) 文档。

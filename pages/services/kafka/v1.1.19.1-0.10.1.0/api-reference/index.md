@@ -28,7 +28,7 @@ export AUTH_TOKEN=uSeR_t0k3n
 
 The `curl` examples in this document assume that an auth token has been stored in an environment variable named `AUTH_TOKEN`.
 
-If you are using Enterprise DC/OS, the security mode of your installation may also require the `--ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in cURL requests](/1.9/administration/tls-ssl/#get-dcos-cert) for information on how to use the `--cacert` flag. [If your security mode is `disabled`](/1.9/administration/tls-ssl/), do not use the `--ca-cert` flag.
+If you are using Enterprise DC/OS, the security mode of your installation may also require the `--ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in cURL requests](/1.9/networking/tls-ssl/#get-dcos-cert) for information on how to use the `--cacert` flag. [If your security mode is `disabled`](/1.9/networking/tls-ssl/), do not use the `--ca-cert` flag.
 
 For ongoing maintenance of the Kafka cluster itself, the Kafka service exposes an HTTP API whose structure is designed to roughly match the tools provided by the Kafka distribution, such as `bin/kafka-topics.sh`.
 

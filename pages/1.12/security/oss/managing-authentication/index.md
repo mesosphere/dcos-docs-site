@@ -77,7 +77,7 @@ For more information, see the configuration [documentation](/1.12/installing/pro
 
 If you are doing a cloud installation on [AWS](/1.12/installing/oss/cloud/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
-If you are doing a cloud installation on [Azure](/1.12/installing/evaluation/cloud-installation/azure/), you cannot disable authentication. This option will be added in a future releasealong with other options to customize authentication.
+If you are doing a cloud installation on [Azure](/1.12/installing/evaluation/azure/), you cannot disable authentication. This option will be added in a future releasealong with other options to customize authentication.
 
 Note that if you have already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same parameter set.
 

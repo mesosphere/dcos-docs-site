@@ -23,18 +23,18 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 ## Custom DC/OS Installation with GPUs
 
 1.  Install the [NVIDIA Management Library (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml) on each node of your cluster that has GPUs. The minimum required NVIDIA driver version is 340.29. For detailed installation instructions, see the [Mesos GPU support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
-1.  Install DC/OS using the [custom advanced installation instructions](/1.10/installing/oss/custom/advanced/). Here are the GPU-specific configuration parameters:
+1.  Install DC/OS using the [custom advanced installation instructions](/1.10/installing/production/deploying-dcos/installation/). Here are the GPU-specific configuration parameters:
 
     -  **enable_gpu_isolation**: Indicates whether to enable GPU support in DC/OS. By default, this is set to `enable_gpu_isolation: 'true'`. 
     -  **gpus_are_scarce**: Indicates whether to treat GPUs as a scarce resource in the cluster. By default, this is set to `gpus_are_scarce: 'true'`, which means DC/OS reserves GPU nodes exclusively for services that are configured to consume GPU resources. 
-    
-    For more information, see the [configuration parameter documentation](/1.10/installing/oss/custom/configuration/configuration-parameters/#enable-gpu-isolation) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies). 
+
+  For more information, see the [configuration parameter documentation](/1.10/installing/production/advanced-configuration/configuration-reference/#enable-gpu-isolation) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies). 
 
 ## AWS EC2 DC/OS Installation with GPUs
 
 ###  Prerequisites
-- The AWS DC/OS advanced template [system requirements](/1.10/installing/oss/cloud/aws/advanced/).
-- The `zen.sh` script copied to your local machine. The script and instructions are [here](/1.10/installing/oss/cloud/aws/advanced/).
+- The AWS DC/OS advanced template [system requirements](/1.10/installing/).
+- The `zen.sh` script copied to your local machine. The script and instructions are [here](/1.10/installing/).
 
 ### Create Dependencies
 
@@ -46,7 +46,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
    
    **Important:** You must run the `zen.sh` script before performing the next steps.
 
-1. Follow the instructions [here](/1.10/installing/oss/cloud/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
+1. Follow the instructions [here](/1.10/installing/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
 
 1. On the **Create Stack** > **Specify Details** page, specify your stack information and click **Next**. Here are the GPU-specific settings.
    

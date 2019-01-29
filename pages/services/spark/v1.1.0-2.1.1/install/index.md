@@ -31,7 +31,7 @@ This command installs the dispatcher, and, optionally, the history server. See [
 Go to the **Services** > **Deployments** tab of the DC/OS web interface to monitor the deployment. Once it is
 complete, visit Spark at `http://<dcos-url>/service/spark/`.
 
-You can also [install Spark via the DC/OS web interface](/1.9/gui/universe).
+You can also [install Spark via the DC/OS web interface](/1.9/gui/universe/).
 
 **Note:** If you install Spark via the web interface, run the following command from the DC/OS CLI to install the Spark CLI:
 

@@ -180,7 +180,7 @@ The special port value of 0 tells Marathon to select any host port from a Mesos 
 **Notes:**
 
 - Configure ports assignment for Docker containers in [`container.portMappings`](#container).
-- If you use the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr), pass zeros as port values to generate one or more arbitrary free ports for each application instance.
+- If you use the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), pass zeros as port values to generate one or more arbitrary free ports for each application instance.
 
 For more information, see [Containerizers](/1.10/deploying-services/containerizers/).
 

@@ -44,7 +44,7 @@ Check the **Run on a Schedule** to reveal the following fields.
 **Label Name** and **Label Value** - Attach metadata to your jobs so you can filter them. [Learn more about labels](/1.11/tutorials/task-labels/).
 
 ## Job Groups
-You can add a job to a an existing job group or create one when you create the job. Use dots in your job ID to nest the job in a group. For instance, if you enter job ID `marketing.myjob`, `myjob` will be created in the `marketing` group. In DC/OS Enterprise, you can [use job groups](/1.11/deploying-jobs/job-groups) to implement fine-grained user access.
+You can add a job to a an existing job group or create one when you create the job. Use dots in your job ID to nest the job in a group. For instance, if you enter job ID `marketing.myjob`, `myjob` will be created in the `marketing` group. In DC/OS Enterprise, you can [use job groups](/1.11/deploying-jobs/job-groups/) to implement fine-grained user access.
 
 ## Modify, view, or remove a job
 

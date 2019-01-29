@@ -285,7 +285,7 @@ A container registry is a repository of pre-built container images. The [Univers
 
 A cloud template is an infrastructure-specific method of declaratively describing a DC/OS cluster.
 
-For more information about deploying using a cloud template, see [Mesosphere installation methods](/1.12/installing/evaluation/mesosphere-supported-methods/).
+For more information about deploying using a cloud template, see [Mesosphere installation methods](/1.12/installing/evaluation/).
 
 <a name="mesos-concepts"></a>
 

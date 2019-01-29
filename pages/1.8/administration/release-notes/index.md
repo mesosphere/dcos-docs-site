@@ -25,7 +25,7 @@ The release notes provide a list of useful topics and links for DC/OS.
 # <a name="whats-new"></a>What's New
 
 ## Apache Mesos 1.0 and Marathon 1.3 integrated
-- Apache Mesos 1.0 [CHANGELOG](https://github.com/apache/mesos/blob/1.0.x/CHANGELOG).
+- Apache Mesos 1.0 [CHANGELOG](https://github.com/apache/mesos/blob/1.0.0/CHANGELOG).
 - Marathon 1.3 [release notes](https://github.com/mesosphere/marathon/releases).
 
 ## Container Orchestration
@@ -76,7 +76,7 @@ For more information, see the [documentation](/1.8/administration/virtual-networ
 [/preview]
 DC/OS 1.8 introduces DNS Named Service Addresses for VIPs. With DNS Named VIPs, clients connect with a service address instead of an IP address. Due to the way DNS Named VIPs are generated in DC/OS, the risk of collision associated with IP VIPs does not exist. This means that administrators do not need to carefully manage DNS Named VIPs to avoid collision. This also means DNS Named VIPs can be automatically created at the time of service installation. 
 
-For more information, see the [documentation](/1.8/usage/service-discovery/load-balancing-vips/name-based-vips/).
+For more information, see the [documentation](/1.8/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/).
 
 [experimental]
 #### Network Isolation of Virtual Network Subnets

@@ -7,7 +7,7 @@ excerpt: Configuring your DC/OS parameters using a YAML file
 ---
 
 
-The DC/OS configuration parameters are specified in YAML format in a `config.yaml` file. This file is stored on your [bootstrap node](/1.10/installing/ent/custom/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.
+The DC/OS configuration parameters are specified in YAML format in a `config.yaml` file. This file is stored on your [bootstrap node](/1.10/installing/production/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.
 
 <p class="message--important"><strong>IMPORTANT: </strong>If you want to modify the configuration file after installation, you must follow the <a href="/1.10/installing/production/upgrading/">DC/OS upgrade process</a>.</p>
 
@@ -60,7 +60,7 @@ Some parameters are dependent on others. These dependent parameters are ignored 
 
 | Parameter                              | Description                                                                                                                                               |
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [agent_list](/1/1.10/installing/production/advanced-configuration/configuration-reference/#agent-list)      | This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.10/overview/concepts/#private-agent-node) host names.                  |
+| [agent_list](/1.10/installing/production/advanced-configuration/configuration-reference/#agent-list)      | This parameter specifies a YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.10/overview/concepts/#private-agent-node) host names.                  |
 | [bootstrap_url](/1.10/installing/production/advanced-configuration/configuration-reference/#bootstrap-url)                          | This required parameter specifies the URL path for the DC/OS installer to store the customized DC/OS build files.                                         |
 | [cluster_name](/1.10/installing/production/advanced-configuration/configuration-reference/#cluster-name)                           | This parameter specifies the name of your cluster.    |
 | [exhibitor_storage_backend](/1.10/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend)         | This parameter specifies the type of storage backend to use for Exhibitor.          |

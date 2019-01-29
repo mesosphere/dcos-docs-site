@@ -21,20 +21,20 @@ If you are new to Terraform and want to deploy DC/OS on GCP with minimal configu
 - SSH keys
 
 ## Install using Terraform
-1) Run the following command if you are on a Mac environment with [homebrew](https://brew.sh/) installed:
 
-  ```bash
-  brew install terraform
-  ```
+1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. 
+    
+    If you're on a Mac environment with [Homebrew](https://brew.sh/) installed, simply run the following command:
 
-2) Run the following command to verify the output is consistent with the version of Terraform you have installed:
+    ```bash
+    brew install terraform
+    ```
 
-  ```bash
-  $ terraform version
-  Terraform v0.11.8
-  ```
+    Windows users that have [Chocolatey](https://chocolatey.org/docs/installation) installed, run:
 
-For help installing Terraform on a different OS, the [Terraform download instructions](https://www.terraform.io/downloads.html):
+    ```bash
+    choco install terraform -y
+    ```
 
 ## Get Application Default Credentials for authentication
 You must have [Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login) for the GCP provider to authenticate against GCP.
@@ -138,7 +138,7 @@ Password: `deleteme`
 
   For simplicity in this example, the configuration values are hard-coded.  If you have a desired cluster name or number of masters/agents, you can adjust the values directly in the `main.tf` configuration file.
 
-  You can find additional input variables and their descriptions [here](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/advanced-gcp).
+  You can find additional input variables and their descriptions [here](/1.12/installing/evaluation/gcp/advanced-gcp/).
 
 3) Change to the `dcos-tf-gcp-demo` folder where you just created your `main.tf` file, if needed.
 
@@ -188,7 +188,7 @@ After you log in, the DC/OS dashboard is displayed.
 <img src="./images/install/dcos-ui.png" />
 </p>
 
-For additional information about creating a cluster on GCP with more advanced configuration options, see [Advanced GCP cluster configuration options](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/advanced-gcp/).
+For additional information about creating a cluster on GCP with more advanced configuration options, see [Advanced GCP cluster configuration options](/1.12/installing/evaluation/gcp/advanced-gcp/).
 
 # Scaling the cluster
 Terraform makes it easy to scale your cluster to add additional agents (public or private) once the initial cluster has been created. Use the instructions below.

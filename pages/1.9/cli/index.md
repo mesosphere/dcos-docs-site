@@ -13,7 +13,7 @@ enterprise: false
 
 You can use the DC/OS command-line interface (CLI) to manage your cluster nodes, install DC/OS packages, inspect the cluster state, and administer the DC/OS service subcommands. 
 
-You can quickly [install](/1.9/cli/install) the CLI from the DC/OS web interface.
+You can quickly [install](/1.9/cli/install/) the CLI from the DC/OS web interface.
 
 DC/OS 1.9 requires the DC/OS CLI 0.4.x.
 

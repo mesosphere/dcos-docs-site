@@ -15,14 +15,14 @@ Metrics in DC/OS, version 1.12 or newer, use [Telegraf](/1.12/overview/architect
 ## Overview
 DC/OS collects four types of metrics as follows:
 
-* **System:** - Metrics about each node in the DC/OS cluster.
-* **Component:** - Metrics about the components which make up DC/OS.
-* **Container:** - Metrics about `cgroup` allocations from tasks running in the DC/OS [Universal Container Runtime](/1.12/deploying-services/containerizers/ucr/) or [Docker Engine](/1.12/deploying-services/containerizers/docker-containerizer/) runtime.
-* **Application:** - Metrics emitted from any application running on the Universal Container Runtime.
+* **System:** Metrics about each node in the DC/OS cluster.
+* **Component:** Metrics about the components which make up DC/OS.
+* **Container:** Metrics about `cgroup` allocations from tasks running in the DC/OS [Universal Container Runtime](/1.12/deploying-services/containerizers/ucr/) or [Docker Engine](/1.12/deploying-services/containerizers/docker-containerizer/) runtime.
+* **Application:** Metrics emitted from any application running on the Universal Container Runtime.
 
-Telegraf is included in the DC/OS distribution and runs on every host in the cluster. Because Telegraf provides a plug9n-driven architecture, custom DC/OS plugins provide metrics on the performance of DC/OS workloads and DC/OS itself. Telegraf collects application and custom metrics through the `statsd` process. A dedicated `statsd` server is started for each new task. Any metrics received by the `statsd` server are tagged with the task name and its service name. The address of the server is provided by environment variables (`STATSD_UDP_HOST` and `STATSD_UDP_PORT`). 
+Telegraf is included in the DC/OS distribution and runs on every host in the cluster. Because Telegraf provides a plugin-driven architecture, custom DC/OS plugins provide metrics on the performance of DC/OS workloads and DC/OS itself. Telegraf collects application and custom metrics through the `statsd` process. A dedicated `statsd` server is started for each new task. Any metrics received by the `statsd` server are tagged with the task name and its service name. The address of the server is provided by environment variables (`STATSD_UDP_HOST` and `STATSD_UDP_PORT`). 
 
-For more informaiton about the list of metrics that are automatically collected by DC/OS, read [Metrics Reference](/1.12/metrics/reference/) documentation.
+For more information about the list of metrics that are automatically collected by DC/OS, read [Metrics Reference](/1.12/metrics/reference/) documentation.
 
 ## Upgrading from 1.11
 DC/OS 1.12 includes an updated `statsd` server implementation for application metrics. The `statsd` update fixes an issue with the `statsd` server implementation in 1.11, which treated all application metrics as gauges, regardless of `statsd` type. 

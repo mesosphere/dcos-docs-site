@@ -10,7 +10,7 @@ enterprise: false
 
 # Description
 
-This command allows you to authenticate to DC/OS. The [dcos cluster setup](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup) command also runs `dcos auth login`.
+This command allows you to authenticate to DC/OS. The [dcos cluster setup](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command also runs `dcos auth login`.
 
 # Usage
 

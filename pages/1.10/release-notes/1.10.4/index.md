@@ -46,10 +46,10 @@ DC/OS 1.10.4 was released on January 16, 2018.
 # Notable Changes in DC/OS 1.10.2
 
 - Support for RHEL 7.4.
-- Updated to Mesos 1.4.0 ([changelog](https://git-wip-us.apache.org/repos/asf?p=mesos.git;a=blob_plain;f=CHANGELOG;hb=1.4.0)).
+- Updated to Mesos 1.4.0 ([changelog](https://github.com/mesosphere/mesos/blob/1.0.x/CHANGELOG)).
 - Updated to Marathon 1.5.2 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.2)).
-- DCOS-17947 - Updated configuration example for a cluster that uses [custom Docker credentials](/1.10/installing/ent/custom/configuration/examples/#docker-credentials).
-- DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/1.10/installing/ent/custom/configuration/configuration-parameters/#ca-certificate-path-enterprise).
+- DCOS-17947 - Updated configuration example for a cluster that uses [custom Docker credentials](/1.10/installing/production/deploying-dcos/configuration/examples/#docker-credentials).
+- DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/1.10/installing/production/advanced-configuration/configuration-reference/#ca-certificate-path-enterprise).
 - DOCS-1925 - Clarified how operators can [recover from a full agent disk](/1.10/administering-clusters/recovering-agent-disk-space/).
 - DOCS-2153 - Updated [Metrics names](/1.10/metrics/reference/).
 
@@ -165,7 +165,7 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
 
 ## Platform
 - Node and cluster health checks.
-  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
+  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/production/deploying-dcos/node-cluster-health-check/).
 - Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks. [enterprise type="inline" size="small" /]
 - Universal Container Runtime (UCR).
   Adds port mapping support for containers running on the CNI network. Port mapping support allows UCR to have a default bridge network, similar to Docker's default bridge network. This gives UCR feature parity with Docker Engine enabling use of Mesos Runtime as the default container runtime.
@@ -174,7 +174,7 @@ The following updated data services packages are compatible with DC/OS 1.10.0.
 ## CLI
 
 - DC/OS 1.10.0 requires DC/OS CLI 0.5.x.
-- DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands. Multi-cluster support has a number of consequences:
+- DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster/) commands. Multi-cluster support has a number of consequences:
 
    - DC/OS CLI 0.4.x and 0.5.x use a different structure for the location of configuration files. DC/OS CLI 0.4.x has a single configuration file, which by default is stored in `~/.dcos/dcos.toml`. DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default are stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`.
    - DC/OS CLI 0.5.x introduces the `dcos cluster setup` command to configure a connection to a cluster and log into the cluster.
@@ -214,7 +214,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - REX-Ray configuration change.
 
-  DC/OS 1.10.0 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray-config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
+  DC/OS 1.10.0 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/production/advanced-configuration/configuration-reference/#rexray-config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS. **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
 
 - New flow to change the `dcos_url` and log in.
 

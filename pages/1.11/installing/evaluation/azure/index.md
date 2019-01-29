@@ -16,10 +16,18 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
 
 # Install Terraform
 
-1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. If you're on a Mac environment with [homebrew](https://brew.sh/) installed, simply run the following command:
+1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. 
+
+    If you're on a Mac environment with [Homebrew](https://brew.sh/) installed, simply run the following command:
 
     ```bash
     brew install terraform
+    ```
+
+    Windows users that have [Chocolatey](https://chocolatey.org/docs/installation) installed, run:
+
+    ```bash
+    choco install terraform -y
     ```
 
 # Install and configure the Azure CLI
@@ -209,7 +217,7 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
     - 2 Private Agents
     - 1 Public Agent
 
-    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.11/installing/evaluation/mesosphere-supported-methods/azure/advanced-azure/).
+    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.11/installing/evaluation/azure/advanced-azure/).
 
     There are also simple helpers listed underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
 

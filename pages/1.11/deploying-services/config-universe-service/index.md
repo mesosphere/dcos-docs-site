@@ -73,4 +73,4 @@ This topic describes how to use the DC/OS CLI to configure services. You can als
     dcos package install --options=marathon-config.json marathon
     ```
 
-For more information, see the [dcos package](/1.11/cli/command-reference/dcos-package) documentation.
+For more information, see the [dcos package](/1.11/cli/command-reference/dcos-package/) documentation.

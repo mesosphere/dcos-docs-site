@@ -17,7 +17,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [agent_list](#agent-list) |  [专用代理](/cn/1.11/overview/concepts/#private-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。|
 | aws_template_storage_access_key_id | 拥有 AWS S3 bucket 的帐户 [访问密钥 ID](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) 。 |
-| aws_template_storage_bucket | 包含在 [自定义高级 AWS 模板](/cn/1.11/installing/ent/cloud/aws/advanced/#create-your-templates) 中的 S3 bucket 的名称。 |
+| aws_template_storage_bucket | 包含在 [自定义高级 AWS 模板](/cn/1.11/installing/evaluation/aws/advanced/#create-your-templates) 中的 S3 bucket 的名称。 |
 | aws_template_storage_bucket_path | S3 bucket 内模板工件存储位置的路径。
 | aws_template_storage_region_name | 包含 S3 bucket 的分域。 |
 | aws_template_storage_secret_access_key | 拥有 AWS S3 bucket 的帐户的 [密钥访问密钥](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)。 |
@@ -62,7 +62,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 [/enterprise]
 | 参数 | 描述 |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise) | 一个标记，设定后将启用 DC/OS 中的高级存储功能，包括 Mesos [CSI](https://github.com/container-storage-interface/spec) 支持和预安装的 CSI 设备插件。此功能标志需要打开才能使用 [DC/OS 存储服务 (DSS)](/cn/services/beta-storage) [enterprise type="inline" size="small" /]|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise) | 一个标记，设定后将启用 DC/OS 中的高级存储功能，包括 Mesos [CSI](https://github.com/container-storage-interface/spec) 支持和预安装的 CSI 设备插件。此功能标志需要打开才能使用 [DC/OS 存储服务 (DSS)](/cn/services/beta-storage/) [enterprise type="inline" size="small" /]|
 
 # 性能和微调
 
@@ -335,7 +335,7 @@ dns_search: dc1.example.com dc1.example.com example.com dc1.example.com dc2.exam
 ## enable_docker_gc
 指示是否运行 [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) 脚本，一个简单的 Docker 容器和镜像垃圾回收脚本，每小时清理一次失散的 Docker 容器。您可以使用 `/etc/` 配置参数，设置运行时间行为。如需更多信息，请参阅 [文档](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
-* `enable_docker_gc: 'true'` 请每小时运行一次 docker-gc 脚本。这是 [云](/cn/1.11/installing/ent/cloud/) 模板安装的默认值。
+* `enable_docker_gc: 'true'` 请每小时运行一次 docker-gc 脚本。这是 [云](/cn/1.11/installing/evaluation/) 模板安装的默认值。
 * `enable_docker_gc: 'false'` 请勿每小时运行一次 docker-gc 脚本。这是 [自定义](/cn/1.11/installing/ent/custom/) 安装的默认值。
 
 ## exhibitor_storage_backend
@@ -599,7 +599,7 @@ SSH 用户名，例如 `centos`。
 
 ## dcos_l4lb_enable_ipv6
 指示第 4 层负载均衡是否可用于 IPv6 容器。
-* `dcos_l4lb_enable_ipv6: 'false'` 请为 IPv6 容器禁用 [第 4 层负载均衡](/cn/1.11/networking/load-balancing-vips)。这是默认值。
+* `dcos_l4lb_enable_ipv6: 'false'` 请为 IPv6 容器禁用 [第 4 层负载均衡](/cn/1.11/networking/load-balancing-vips/)。这是默认值。
 * `dcos_l4lb_enable_ipv6: 'true'` 请为 IPv6 容器启用第 4 层负载均衡。**注意：** 为 IPv6 容器打开第 4 层负载均衡时应保持谨慎。`[DCOS_OSS-2010](https://jira.mesosphere.com/browse/DCOS_OSS-2010)
 
 ## dcos_ucr_default_bridge_subnet
@@ -612,7 +612,7 @@ SSH 用户名，例如 `centos`。
 ## feature_dcos_storage_enabled [enterprise type="inline" size="small" /]
 支持 DC/OS 中的高级存储功能，包括 Mesos 的 [CSI](https://github.com/container-storage-interface/spec) 支持和支持预安装的 CSI 设备插件。
 * `feature_dcos_storage_enabled: 'false'` 请在 DC/OS 中禁用 CSI 支持。这是默认值。
-* `feature_dcos_storage_enabled: 'true'` 请在 DC/OS 中启用 CSI 支持。有必要使用 [DC/OS 存储服务 (DSS)](/cn/services/beta-storage)
+* `feature_dcos_storage_enabled: 'true'` 请在 DC/OS 中启用 CSI 支持。有必要使用 [DC/OS 存储服务 (DSS)](/cn/services/beta-storage/)
 
 <a id="zk-superuser"></a>
 

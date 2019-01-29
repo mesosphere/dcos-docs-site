@@ -36,7 +36,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
 - 与群集相同分域的 AWS EC2 密钥对。密钥对不能跨分域共享。AWS 密钥对使用公钥加密功能提供对 AWS 群集的安全登录。有关创建 AWS EC2 密钥对的详细信息，请参阅 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">文档</a>。
 - AWS [命令行界面](https://aws.amazon.com/cli/)。
 - CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation)。
-- 符合 bootstrap 节点 [系统要求](/cn/1.11/installing/ent/custom/system-requirements/) 的节点。
+- 符合 bootstrap 节点 [系统要求](/cn/1.11/installing/production/system-requirements/) 的节点。
 - 具有读写访问权限的 AWS s3 bucket。
  - S3 bucket 必须具备 bucket 策略，以便让启动的 AWS 实例从 s3 bucket下载文件。以下是任何人均可下载的示例政策：
 
@@ -211,7 +211,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 集群
     图 1. AWS Advanced Web 界面
 
  * **StackName** 指定集群名称。
- * **CustomAMI** 可选：指定 AMI ID。如需更多信息，请参阅 [使用自定义 AMI 进行安装](/cn/1.11/installing/ent/cloud/aws/advanced/aws-ami)。
+ * **CustomAMI** 可选：指定 AMI ID。如需更多信息，请参阅 [使用自定义 AMI 进行安装](/cn/1.11/installing/evaluation/aws/advanced/aws-ami/)。
  * **InternetGateway** 指定 `zen.sh` 脚本的 `InternetGatewayID` 输出值。互联网网关 ID 必须附加于 VPC。该互联网网关用于所有节点向外互联网访问。
  * **KeyName** 指定 AWS EC2 密钥对。
  * **MasterInstanceType** 指定 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。

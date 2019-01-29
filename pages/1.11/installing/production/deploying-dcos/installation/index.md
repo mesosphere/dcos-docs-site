@@ -57,7 +57,7 @@ Before installing DC/OS, your cluster must meet the software and hardware [requi
 # <a name="license"></a>Store license file
 [/enterprise]
 
-Create a [license file](/1.11/administering-clusters/licenses) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
+Create a [license file](/1.11/administering-clusters/licenses/) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
 
 # <a name="ip-detect-script"></a>Create an IP detection script
 
@@ -215,7 +215,7 @@ The Enterprise template specifies three Mesos masters, static master discovery l
 
 The Open Source template specifies three Mesos masters, three ZooKeeper instances for Exhibitor storage, static master discovery list, internal storage backend for Exhibitor, a custom proxy, and cloud specific DNS resolvers. [oss type="inline" size="small" /]
 
-If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameter descriptions and configuration examples, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
+If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameter descriptions and configuration examples, see the [documentation](/1.11/installing/production/advanced-configuration/configuration-reference/).
 
 <p class="message--note"><strong>NOTE: </strong>If AWS DNS IP is not available in your country, you can replace the AWS DNS IP servers <code>8.8.8.8</code> and <code>8.8.4.4</code> with your local DNS servers.</p>
 <p class="message--note"><strong>NOTE: </strong>If you specify <code>master_discovery: static</code>, you must also create a script to map internal IPs to public IPs on your bootstrap node (for example, <code>genconf/ip-detect-public</code>). This script is then referenced in <code>ip_detect_public_filename: "relative-path-from-dcos-generate-config.sh"</code>.</p>
@@ -422,7 +422,7 @@ The term `dcos_generate_config file` refers to either a `dcos_generate_config.ee
             sudo bash dcos_install.sh slave_public
             ```
 
-    __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.11/installing/ent/custom/system-requirements/#port-and-protocol) documentation.
+    __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.11/installing/production/system-requirements/#port-and-protocol) documentation.
 
 5.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
 
@@ -475,7 +475,7 @@ You can find information on the next steps listed below:
 [8]: /1.11/security/ent/users-groups/
 [9]: /1.11/cli/install/
 [12]: /1.11/installing/production/deploying-dcos/node-cluster-health-check/
-[10]: /1.11/installing/oss/troubleshooting/
-[11]: /1.11/installing/oss/custom/uninstall/
+[10]: /1.11/installing/troubleshooting/
+[11]: /1.11/installing/production/uninstalling/
 
 

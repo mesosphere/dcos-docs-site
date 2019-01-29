@@ -60,7 +60,7 @@ Your cluster must meet the software and hardware [requirements][1].
 
 3.  Click **Begin Installation**. 
 
-    ![UI installer begin](/assets/images/gui-installer-begin-ee.gif)
+    ![UI installer begin](/1.11/img/gui-installer-begin-ee.gif)
 
 4.  Specify your Deployment and DC/OS Environment settings:
     
@@ -142,7 +142,7 @@ Your cluster must meet the software and hardware [requirements][1].
 
     **Important:** After clicking **Log In To DC/OS**, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed. 
     
-    ![UI installer success](/assets/images/gui-installer-success-ee.gif)
+    ![UI installer success](/1.11/img/gui-installer-success-ee.gif)
 
 9.  Enter the username and password of the superuser account. 
 
@@ -178,7 +178,7 @@ Now you can [assign user roles][6].
 
 
  [1]: /1.8/administration/installing/ent/custom/system-requirements/
- [2]: /assets/images/gui-installer-setup-ee.gif
+ [2]: /1.11/img/gui-installer-setup-ee.gif
  [3]: /1.8/usage/service-discovery/
  [4]: /assets/images/ui-installer-auth-1-7.gif
  [6]: /1.8/administration/id-and-access-mgt/ent/

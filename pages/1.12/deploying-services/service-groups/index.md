@@ -8,16 +8,16 @@ excerpt: Implementing fine-grained user access to services using the web interfa
 enterprise: true
 ---
 
-You can implement fine-grained user access to services using either the DC/OS web interface or the [API](//security/ent/iam-api/), or the CLI.
+You can implement fine-grained user access to services using either the DC/OS web interface or the [API](/security/ent/iam-api/), or the CLI.
 
-The [Marathon permissions](//security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to services on either a per service or a per service group basis. This section walks you through the steps to accomplish this.  
+The [Marathon permissions](/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to services on either a per service or a per service group basis. This section walks you through the steps to accomplish this.  
 
-[Marathon permissions](//security/ent/perms-reference/#marathon-metronome) and [Mesos permissions](//security/ent/perms-reference/#mesos) do not distinguish between service names, job names, service groups, or job groups. Therefore your naming must be unique.
+[Marathon permissions](/security/ent/perms-reference/#marathon-metronome) and [Mesos permissions](/security/ent/perms-reference/#mesos) do not distinguish between service names, job names, service groups, or job groups. Therefore your naming must be unique.
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](//cli/install/) and be logged in as a superuser.
-- A [user account](//security/ent/users-groups/) to assign permissions to.
+- You must have the [DC/OS CLI installed](/cli/install/) and be logged in as a superuser.
+- A [user account](/security/ent/users-groups/) to assign permissions to.
 
 # <a name="root-service"></a>Granting access to a service
 
@@ -41,7 +41,7 @@ The [Marathon permissions](//security/ent/perms-reference/#marathon-metronome) a
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](//security/ent/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/security/ent/#security-modes).
 
     ![Add permission](/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
@@ -92,7 +92,7 @@ The [Marathon permissions](//security/ent/perms-reference/#marathon-metronome) a
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](//cli/install/) and be logged in as a superuser.
+- You must have the [DC/OS CLI installed](/cli/install/) and be logged in as a superuser.
 
 - To grant permissions to a group instead of a user, replace `users grant <uid>` with `groups grant <gid>`.
 
@@ -169,7 +169,7 @@ The [Marathon permissions](//security/ent/perms-reference/#marathon-metronome) a
 
     Figure 5. Add permission
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](//security/ent/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/security/ent/#security-modes).
 
     ### Permissive
 
@@ -220,7 +220,7 @@ The [Marathon permissions](//security/ent/perms-reference/#marathon-metronome) a
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](//cli/install/) and be logged in as a superuser.
+- You must have the [DC/OS CLI installed](/cli/install/) and be logged in as a superuser.
 
 **Tips:**
 
@@ -299,7 +299,7 @@ The [Marathon permissions](//security/ent/perms-reference/#marathon-metronome) a
 
     Figure 7. Add permissions
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](//security/ent/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/security/ent/#security-modes).
 
     ### Permissive
 
@@ -350,7 +350,7 @@ The [Marathon permissions](//security/ent/perms-reference/#marathon-metronome) a
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](//cli/install/) and be logged in as a superuser.
+- You must have the [DC/OS CLI installed](/cli/install/) and be logged in as a superuser.
 
 **Tips:**
 

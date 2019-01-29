@@ -1,4 +1,4 @@
-~(^.*/[^.]*[^/])$ $1/;
+~(^/.*/[^.^#]*[^/])$ $1/;
 ~^/service-docs/(.*)$ /services/$1;
 ~/[0-9]+\.[0-9]+/release-notes/version-policy/ /version-policy/;
 /administration/admin-tutorials/installdatacenter/ /latest/tutorials/dcos-101/redis-package/;
@@ -42,12 +42,11 @@
 /install/removeaws/ /latest/installing/oss/custom/uninstall/;
 /install/sshcluster/ /latest/administering-clusters/sshcluster/;
 /intro-course/ /latest/tutorials/dcos-101/;
-/latest/installing/custom/advanced/ /latest/installing/;
 /overview/release-notes/dcos1-4/ /latest/release-notes/;
 /overview/universe/ /latest/deploying-services/config-universe-service/;
-/pages/1.11/networking/DNS/mesos-dns/ /latest/networking/DNS/mesos-dns/;
-/pages/1.11/networking/load-balancing-vips/ /latest/usage/service-discovery/load-balancing-vips/;
-/pages/1.11/networking/load-balancing-vips/virtual-ip-addresses/ /latest/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/;
+/pages/1.11/networking/DNS/mesos-dns/ /1.11/networking/DNS/mesos-dns/;
+/pages/1.11/networking/load-balancing-vips/ /1.11/usage/service-discovery/load-balancing-vips/;
+/pages/1.11/networking/load-balancing-vips/virtual-ip-addresses/ /1.11/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/;
 /pages/services/edge-lb/ /services/edge-lb/;
 /pages/services/marathon-lb/ /services/marathon-lb/;
 /services/beta-cassandra/2.1.0-3.0.15-beta/install/quick-start.md/ /services/beta-cassandra/2.1.0-3.0.15-beta/quick-start/;
@@ -171,6 +170,7 @@
 /services/hdfs/2.2.0-2.6.0-cdh5.11.0/11-release-notes/ /services/hdfs/2.2.0-2.6.0-cdh5.11.0/release-notes/;
 /1.12/installing/oss/opt-out/ /1.12/installing/production/deploying-dcos/opt-out/;
 /1.12/release-notes/1.12/ /1.12/release-notes/1.12.0/;
+/1.12/installing/custom/advanced/ /1.12/installing/;
 /1.12/installing/development/ /1.12/installing/evaluation/mesosphere-supported-methods/;
 ~/1.12/installing/evaluation/cloud-installation/aws/.* /1.12/installing/evaluation/mesosphere-supported-methods/aws/;
 ~/1.12/installing/evaluation/cloud-installation/azure/.* /1.12/installing/evaluation/mesosphere-supported-methods/azure/;
@@ -346,13 +346,13 @@
 /1.10/developing-services/service-requirements-spec/ https://github.com/mesosphere/universe/blob/version-3.x/tutorial/GetStarted.md;
 /1.10/development/ /1.10/developing-services/;
 /1.10/installing/cloud/ /1.10/installing/evaluation/;
-/1.10/installing/cloud/aws/ /1.10/installing/evaluation/;
+/1.10/installing/cloud/aws/ /1.10/installing/evaluation/aws/;
 /1.10/installing/custom/ /1.10/installing/evaluation/;
 /1.10/installing/custom/advanced/ /1.10/installing/production/deploying-dcos/installation/;
 /1.10/installing/custom/configuration/configuration-parameters/ /1.10/installing/production/advanced-configuration/configuration-reference/;
 /1.10/installing/custom/configuration-parameters/ /1.10/installing/production/advanced-configuration/configuration-reference/;
 /1.10/installing/custom/system-requirements/ /1.10/installing/production/system-requirements/;
-/1.10/installing/ent/cloud/(.*)$ /1.10/installing/evaluation/mesosphere-supported-methods/;
+~^/1.10/installing/ent/cloud/(.*)$ /1.10/installing/evaluation/mesosphere-supported-methods/;
 /1.10/installing/ent/ /1.10/installing/;
 /1.10/installing/ent/custom/advanced/ /1.10/installing/production/deploying-dcos/installation/;
 /1.10/installing/ent/custom/cli/ /1.10/installing/evaluation/;
@@ -381,6 +381,8 @@
 /1.10/installing/oss/custom/ /1.10/installing/;
 /1.10/installing/oss/patching/ /1.10/installing/production/patching/;
 /1.10/installing/oss/upgrading/ /1.10/installing/production/upgrading/;
+~/1.10/installing/oss/cloud/aws/(.*)$ /1.10/installing/evaluation/aws/;
+~/1.10/installing/oss/cloud/azure/(.*)$ /1.10/installing/evaluation/azure/;
 ~/1.10/installing/oss/cloud/(.*)$ /1.10/installing/;
 /1.10/installing/oss/custom/advanced/ /1.10/installing/production/deploying-dcos/installation/;
 /1.10/installing/oss/custom/cli/ /1.10/installing/evaluation/;
@@ -390,7 +392,7 @@
 /1.10/installing/oss/custom/configure-proxy/ /1.10/installing/production/deploying-dcos/configureation/;
 /1.10/installing/oss/custom/gui/ /1.10/installing/;
 /1.10/installing/oss/custom/node-cluster-health-check/ /1.10/installing/production/deploying-dcos/node-cluster-health-check/;
-~/1.10/installing/oss/custom/system-requirements/ /1.10/installing/production/system-requirements/;
+/1.10/installing/oss/custom/system-requirements/ /1.10/installing/production/system-requirements/;
 /1.10/installing/oss/custom/system-requirements/install-docker-centos/ /1.10/installing/production/system-requirements/docker-centos/;
 /1.10/installing/oss/custom/system-requirements/install-docker-RHEL/ /1.10/installing/production/system-requirements/docker-centos/; 
 /1.10/installing/oss/custom/uninstall/ /1.10/installing/production/uninstalling/;
@@ -958,8 +960,8 @@
 /development/ /latest/development/;
 /documentation/ /latest/;
 /installing/ /latest/installing/;
-/latest/installing/ent/ /latest/installing/;
-/latest/installing/oss/ /latest/installing/;
+/1.12/installing/ent/ /1.12/installing/;
+/1.12/installing/oss/ /1.12/installing/;
 /overview/components/ /1.7/overview/components/;
 /release-notes/open-source-attribution/ /1.10/release-notes/open-source-attribution/;
 /services/beta-cassandra/v1.0.30-3.0.13-beta/ /services/beta-cassandra/1.0.30-3.0.13-beta/;
@@ -973,6 +975,5 @@
 /services/beta-kafka/v1.1.26-0.10.1.0-beta/ /services/beta-kafka/1.1.26-0.10.1.0-beta/;
 ~^/services/edge-lb/0.1.9/(.*)$ /services/edge-lb/0.1/$1;
 ~^/services/edge-lb/1.0.0/(.*)$ /services/edge-lb/1.0/$1;
-~^/services/edge-lb/latest/(.*)$ /services/edge-lb/1.0/$1;
 /support/ https://support.mesosphere.com;
-~^/docs/(?<path>.*)$ /$path;
+~^/docs/(.*)$ /$1;

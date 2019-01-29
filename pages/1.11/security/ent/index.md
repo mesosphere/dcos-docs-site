@@ -43,7 +43,7 @@ Figure 1. Security zone typical deployment
 
 # <a name="security-modes"></a>Security Modes
 
-You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are disabled, permissive, and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.11/installing/ent/custom/advanced/) and can only be changed by performing an upgrade.
+You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are disabled, permissive, and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.11/installing/production/deploying-dcos/installation/) and can only be changed by performing an upgrade.
 
 | Permission Category                                 | Disabled | Permissive | Strict |
 |-----------------------------------------------------|:--------:|:----------:|:------:|
@@ -64,7 +64,7 @@ This mode provides some of the security features, but does not include the Mesos
 This mode provides the most robust security posture and requires a significant amount of configuration.
 
 ## <a name="set"></a>Setting your security mode
-The security mode is set during [DC/OS installation](/1.11/installing/ent/custom/advanced/) and can only be changed by performing an [upgrade](/1.11/installing/ent/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+The security mode is set during [DC/OS installation](/1.11/installing/production/deploying-dcos/installation/) and can only be changed by performing an [upgrade](/1.11/installing/production/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 <table class=“table” bgcolor=#858585>
 <tr> 

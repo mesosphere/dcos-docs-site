@@ -293,8 +293,8 @@ sudo systemctl | grep dcos
 
 If your upgrade fails because of a [custom node or cluster check](/1.12/installing/ent/custom/node-cluster-health-check/#custom-health-checks), run these commands for more details:
 ```bash
-dcos-diagnostics check node-poststart
-dcos-diagnostics check cluster
+dcos-check-runner check node-poststart
+dcos-check-runner check cluster
 ```
 
 #### On DC/OS Masters

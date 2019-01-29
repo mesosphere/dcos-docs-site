@@ -20,21 +20,21 @@ If you are new to Terraform and want to deploy DC/OS on GCP with minimal configu
 - Cloud credentials
 - SSH keys
 
-## Install using Terraform
-1) Run the following command if you are on a Mac environment with [homebrew](https://brew.sh/) installed:
+## Install Terraform
 
-  ```bash
-  brew install terraform
-  ```
+1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. 
 
-2) Run the following command to verify the output is consistent with the version of Terraform you have installed:
+    If you're on a Mac environment with [Homebrew](https://brew.sh/) installed, simply run the following command:
 
-  ```bash
-  $ terraform version
-  Terraform v0.11.8
-  ```
+    ```bash
+    brew install terraform
+    ```
 
-For help installing Terraform on a different OS, the [Terraform download instructions](https://www.terraform.io/downloads.html):
+    Windows users that have [Chocolatey](https://chocolatey.org/docs/installation) installed, run:
+
+    ```bash
+    choco install terraform -y
+    ```
 
 ## Get Application Default Credentials for authentication
 You must have [Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login) for the GCP provider to authenticate against GCP.
@@ -191,7 +191,7 @@ After you log in, the DC/OS dashboard is displayed.
 <img src="./images/install/dcos-ui.png" />
 </p>
 
-For additional information about creating a cluster on GCP with more advanced configuration options, see [Advanced GCP cluster configuration options](#AdvancedGCP).
+For additional information about creating a cluster on GCP with more advanced configuration options, see [Advanced GCP cluster configuration options](/1.10/installing/evaluation/gcp/advanced-gcp/).
 
 # Scaling the cluster
 Terraform makes it easy to scale your cluster to add additional agents (public or private) once the initial cluster has been created. Use the instructions below.

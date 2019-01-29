@@ -55,7 +55,7 @@ In general, the `.thisdcos` endpoints will only work from within the same DC/OS 
 
 One important use for the DC/OS Apache ZooKeeper service is to have your DC/OS Apache Kafka service connect to it. This enables you to increase Kafka's capacity and removes the system ZooKeeper's involvment in the service.
 
-Follow the "Alternate ZooKeeper" instructions in the [Kafka documentation](/service-docs/kafka/2.0.2-0.11.0/install/#alternate-zookeeper). To obtain the proper value for the `kafka_zookeeper_uri`, run:
+Follow the "Alternate ZooKeeper" instructions in the [Kafka documentation](/services/kafka/2.0.2-0.11.0/install/#alternate-zookeeper). To obtain the proper value for the `kafka_zookeeper_uri`, run:
 
 `dcos beta-kafka-zookeeper endpoints clientport`
 

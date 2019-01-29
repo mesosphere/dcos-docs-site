@@ -10,14 +10,14 @@ enterprise: true
 
 This topic describes how to deploy a non-native instance of Marathon (Marathon on Marathon) with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/1.11/security/ent/secrets/) or fine-grain ACLs. Otherwise, use the [basic procedure](/1.11/deploying-services/marathon-on-marathon/basic/).
 
-For this procedure, we are assuming that you have obtained an enterprise version of Marathon from your sales representative (<sales@mesosphere.io>). This is delivered as a Docker image file and contains Marathon plus plugins for Marathon that enable DC/OS Enterprise features such as secrets and fine-grained access control.
+For this procedure, we are assuming that you have obtained an enterprise version of Marathon from a support team member. If you still need the enterprise artifact, you will want to first file a ticket via the [Mesosphere support portal](https://support.mesosphere.com/s/). This is delivered as a Docker image file and contains Marathon plus plugins for Marathon that enable DC/OS Enterprise features such as secrets and fine-grained access control.
 
 **Prerequisites:**
 
 -  DC/OS and DC/OS CLI [installed](/1.11/installing/).
 -  [DC/OS Enterprise CLI 0.4.14 or later](/1.11/cli/enterprise-cli/#ent-cli-install).
 -  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/1.11/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)).
--  Custom non-native Marathon image [deployed in your private Docker registry](/1.11/deploying-services/private-docker-registry#tarball-instructions). Contact your sales representative or <sales@mesosphere.io> for obtain the enterprise Marathon image file.
+-  Custom non-native Marathon image [deployed in your private Docker registry](/1.11/deploying-services/private-docker-registry#tarball-instructions). File a ticket with via the [support portal](https://support.mesosphere.com) to obtain the enterprise Marathon image file.
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
 
@@ -126,7 +126,7 @@ In this step, a secret is created for the Marathon service account and stored in
      dcos security secrets list /
      ```
 
-  *  Review your secret to ensure that it contains the correct service account ID, private key, and `login_endpoint` URL. If you're in `strict` it should be HTTPS, in `permissive` mode it should be HTTP. If the URL is incorrect, try [upgrading the DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it. 
+  *  Review your secret to ensure that it contains the correct service account ID, private key, and `login_endpoint` URL. If you're in `strict` it should be HTTPS, in `permissive` mode it should be HTTP. If the URL is incorrect, try [upgrading the DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
 
       You can use this commands to view the contents (requires [jq 1.5 or later](https://stedolan.github.io/jq/download) installed):
 
@@ -146,7 +146,7 @@ In this step, permissions are assigned to the Marathon-on-Marathon instance. Per
 | Permissive | Not available |
 | Strict | Required |
 
-All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api).
+All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api/).
 
 Grant service account `${SERVICE_ACCOUNT}` permission to launch Mesos tasks that will execute as Linux user `nobody`.
 
@@ -461,7 +461,7 @@ By now, your new Marathon instance is accessible only by the DC/OS superusers. I
     dcos security org users grant ${USER_ACCOUNT} dcos:adminrouter:ops:mesos full
     dcos security org users grant ${USER_ACCOUNT} dcos:adminrouter:ops:slave full
 
-    # (Optionally) Access to the Marathon instance that runs on the root 
+    # (Optionally) Access to the Marathon instance that runs on the root
     # Marathon and can be controlled via the DC/OS UI
     dcos security org users grant ${USER_ACCOUNT} dcos:adminrouter:service:marathon full
     dcos security org users grant ${USER_ACCOUNT} dcos:service:marathon:marathon:services:/${MARATHON_INSTANCE_NAME} full
@@ -478,7 +478,7 @@ By now, your new Marathon instance is accessible only by the DC/OS superusers. I
     dcos security org users grant ${USER_ACCOUNT} dcos:adminrouter:ops:mesos full
     dcos security org users grant ${USER_ACCOUNT} dcos:adminrouter:ops:slave full
 
-    # (Optionally) Access to the Marathon instance that runs on the root 
+    # (Optionally) Access to the Marathon instance that runs on the root
     # Marathon and can be controlled via the DC/OS UI
     dcos security org users grant ${USER_ACCOUNT} dcos:adminrouter:service:marathon full
     dcos security org users grant ${USER_ACCOUNT} dcos:service:marathon:marathon:services:/${MARATHON_INSTANCE_NAME} full
@@ -506,7 +506,7 @@ By now, your new Marathon instance is accessible only by the DC/OS superusers. I
     dcos security org users grant ${USER_ACCOUNT} dcos:mesos:master:framework:role:${MESOS_ROLE} read
     dcos security org users grant ${USER_ACCOUNT} dcos:mesos:master:task:app_id:/ read
 
-    # (Optionally) Access to the Marathon instance that runs on the root 
+    # (Optionally) Access to the Marathon instance that runs on the root
     # Marathon and can be controlled via the DC/OS UI
     dcos security org users grant ${USER_ACCOUNT} dcos:adminrouter:service:marathon full
     dcos security org users grant ${USER_ACCOUNT} dcos:service:marathon:marathon:services:/${MARATHON_INSTANCE_NAME} full
@@ -530,7 +530,7 @@ By now, your new Marathon instance is accessible only by the DC/OS superusers. I
     dcos security org users grant ${USER_ACCOUNT} dcos:mesos:master:framework:role:${MESOS_ROLE} read
     dcos security org users grant ${USER_ACCOUNT} dcos:mesos:master:task:app_id:/${CHILD_SERVICE_NAME} read
 
-    # (Optionally) Access to the Marathon instance that runs on the root 
+    # (Optionally) Access to the Marathon instance that runs on the root
     # Marathon and can be controlled via the DC/OS UI
     dcos security org users grant ${USER_ACCOUNT} dcos:adminrouter:service:marathon full
     dcos security org users grant ${USER_ACCOUNT} dcos:service:marathon:marathon:services:/${MARATHON_INSTANCE_NAME} full
@@ -554,7 +554,7 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 # Next Steps
 
 - You can configure the DC/OS CLI to interact with your non-native Marathon instance using the following command:
-    
+
     ```sh
     dcos config set marathon.url \
       $(dcos config show core.dcos_url)/service/${MARATHON_INSTANCE_NAME}
@@ -578,4 +578,3 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 - When using custom users (e.g. `bob`), the user must exist on the agent, or in the case of using containers, within the container.
 
 - When using a new user (e.g. `bob`), remember to give the Marathon service account permissions to run tasks as this user.
-

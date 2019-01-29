@@ -30,7 +30,7 @@ export auth_token=uSeR_t0k3n
 
 The `curl` examples in this document assume that an auth token has been stored in an environment variable named `auth_token`.
 
-If your DC/OS Enterprise installation requires encryption, you must also use the `ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in cURL requests](/1.9/networking/tls-ssl/get-cert) for information on how to use the `--cacert` flag. [If encryption is not required](/1.9/networking/tls-ssl/), you can omit the --cacert flags.
+If your DC/OS Enterprise installation requires encryption, you must also use the `ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in cURL requests](/1.9/networking/tls-ssl/get-cert/) for information on how to use the `--cacert` flag. [If encryption is not required](/1.9/networking/tls-ssl/), you can omit the --cacert flags.
 
 # Configuration
 

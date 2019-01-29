@@ -22,13 +22,13 @@ In the user menu, there is a link for user sign out:
 
 Figure 2. Header Bar User Menu
 
-In the cluster menu, there are links for: [Cluster Overview](/1.12/gui/cluster), Documentation and CLI Installation.
+In the cluster menu, there are links for: [Cluster Overview](/1.12/gui/cluster/), Documentation and CLI Installation.
 
 ![DC/OS UI Cluster Menu](/1.12/img/header-bar-cluster-dropdown-1-12.png)
 
 Figure 3. Header Bar Cluster Menu
 
-For DC/OS Enterprise, there is also a link for administering [linked clusters](/1.12/administering-clusters/multiple-clusters/cluster-links).
+For DC/OS Enterprise, there is also a link for administering [linked clusters](/1.12/administering-clusters/multiple-clusters/cluster-links/).
 
 ![DC/OS UI Cluster Menu with Linked Cluster](/1.12/img/switch-cluster-1-12.png)
 

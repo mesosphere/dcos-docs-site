@@ -17,7 +17,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [agent_list](#agent-list)                                              | A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.10/overview/concepts/#private-agent-node) host names. |
 | aws_template_storage_access_key_id         | The [access key ID](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
-| aws_template_storage_bucket                | The name of an S3 bucket to contain [customized advanced AWS templates](/1.10/installing/ent/cloud/aws/advanced/#create-your-templates). |
+| aws_template_storage_bucket                | The name of an S3 bucket to contain [customized advanced AWS templates](/1.10/installing/production/advanced-configuration/configuring-gpu-nodes/). |
 | aws_template_storage_bucket_path           | The path to a location within the S3 bucket to store template artifacts.
 | aws_template_storage_region_name           | The region containing the S3 bucket.  |
 | aws_template_storage_secret_access_key     | The [secret access key](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
@@ -63,7 +63,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 [/enterprise]
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage) [enterprise type="inline" size="small" /]|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage/) [enterprise type="inline" size="small" /]|
 
 # Performance and Tuning
 
@@ -214,7 +214,7 @@ You can use the following options to further configure the Docker credentials:
             *  `cluster_docker_credentials_write_to_etc: 'false'` Do not write a credentials file.
     *  `cluster_docker_credentials_dcos_owned: 'false'` The credentials file is stored in `/etc/mesosphere/docker_credentials`.
 
-For more information, see the [examples](/1.10/installing/ent/custom/configuration/examples/#docker-credentials).
+For more information, see the [examples](/1.10/installing/production/deploying-dcos/configuration/examples/#docker-credentials).
 
 ## cluster_docker_credentials_enabled
 Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_credentials`](#cluster-docker-credentials) to Mesos.
@@ -254,7 +254,7 @@ Custom installation checks that are added to the default check configuration pro
     - `cmd` - Specify an array of health check command strings
     - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`
 
-For more information on how these custom checks are used, see the [examples](/1.10/installing/ent/custom/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.10/installing/ent/custom/node-cluster-health-check/) documentation.
+For more information on how these custom checks are used, see the [examples](/1.10/installing/production/deploying-dcos/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.10/installing/production/deploying-dcos/node-cluster-health-check/) documentation.
 
 
 ## dcos_audit_logging [enterprise type="inline" size="small" /]
@@ -268,7 +268,7 @@ For more information, see the [security documentation](/1.10/security/ent/).
 ## dcos_overlay_enable
 Indicates whether to enable DC/OS virtual networks.
 
-**Note:** Virtual networks require Docker version 1.12 or later but, if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.10/installing/ent/custom/system-requirements/).
+**Note:** Virtual networks require Docker version 1.12 or later but, if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.10/installing/production/system-requirements/).
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. After the virtual network is enabled, you can also specify the following parameters:
@@ -300,7 +300,7 @@ Indicates whether to enable DC/OS virtual networks.
             *  `subnet` The subnet that is allocated to the virtual network.
             *  `prefix` The size of the subnet that is allocated to each agent and thus defines the number of agents on which the overlay can run. The size of the subnet is carved from the overlay subnet.
 
- For more information, see the [example](/1.10/installing/ent/custom/configuration/examples/#overlay) and [documentation](/1.10/networking/virtual-networks/).
+ For more information, see the [example](/1.10/installing/production/deploying-dcos/configuration/examples/#overlay) and [documentation](/1.10/networking/virtual-networks/).
 
 
 ## dns_bind_ip_blacklist
@@ -341,8 +341,8 @@ The amount of time to wait before removing docker containers (i.e., `docker rm`)
 ## enable_docker_gc
 Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. You can configure the runtime behavior by using the `/etc/` config. For more information, see the [documentation](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
-*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.10/installing/ent/cloud/) template installations.
-*  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.10/installing/ent/custom/) installations.
+*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.10/installing/evaluation/) template installations.
+*  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.10/installing/production/) installations.
 
 ## exhibitor_storage_backend
 The type of storage backend to use for Exhibitor. You can use internal DC/OS storage (`static`) or specify an external storage system (`ZooKeeper`, `aws_s3`, and `Azure`) for configuring and orchestrating ZooKeeper with Exhibitor on the master nodes. Exhibitor automatically configures your ZooKeeper installation on the master nodes during your DC/OS installation.
@@ -396,7 +396,7 @@ Indicates whether to enable GPU support in DC/OS.
 For more information, see the [GPU documentation](/1.10/deploying-services/gpu/).
 
 ## fault_domain_enabled
-By default, DC/OS clusters have [fault domain awareness](/1.10/deploying-services/fault-domain-awareness/) enabled, so no changes to your config.yaml are required to use this feature.
+By default, DC/OS clusters have [fault domain awareness](/1.12/deploying-services/fault-domain-awareness/) enabled, so no changes to your config.yaml are required to use this feature.
 
 ## gc_delay
 The maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of two days.
@@ -607,7 +607,7 @@ Indicates whether to enable the DC/OS proxy.
 
         **Note:** Wildcard characters (`*`) are not supported.
 
-For more information, see the [examples](/1.10/installing/ent/custom/configuration/examples/#http-proxy).
+For more information, see the [examples](/1.10/installing/production/deploying-dcos/configuration/examples/#http-proxy).
 
 **Note:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
 
@@ -622,7 +622,7 @@ Currently, IPv6 networks are supported only for Docker containers. Setting this 
 
 ## dcos_l4lb_enable_ipv6
 Indicates whether layer-4 load-balancing is available for IPv6 containers.
-*  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.10/networking/load-balancing-vips) for IPv6 containers. This is the default value.
+*  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.10/networking/load-balancing-vips/) for IPv6 containers. This is the default value.
 *  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers.
 
 **Note:** Layer-4 load balancing for IPv6 containers should be turned on with caution.
@@ -640,7 +640,7 @@ The only constraint in selecting an IPv4 subnet for `dcos_ucr_default_bridge_sub
 [/enterprise]
 Enables advanced storage features in DC/OS including [CSI](https://github.com/container-storage-interface/spec) support for Mesos, and support for pre-installed CSI device plugins.
 * `feature_dcos_storage_enabled: 'false'` Disables CSI support in  DC/OS. This is the default value.
-* `feature_dcos_storage_enabled: 'true'` Enables CSI support in DC/OS. This is necessary to use the [DC/OS Storage Service (DSS)](/services/beta-storage)
+* `feature_dcos_storage_enabled: 'true'` Enables CSI support in DC/OS. This is necessary to use the [DC/OS Storage Service (DSS)](/services/beta-storage/)
 
 <a id="zk-superuser"></a>
 

@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 
-本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/cn/1.11/deploying-services/marathon-parameters)。
+本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/cn/1.11/deploying-services/marathon-parameters/)。
 
 # 带注释的简单 Pod 定义
 

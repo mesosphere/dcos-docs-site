@@ -9,9 +9,9 @@ enterprise: true
 
 DC/OS Enterprise CLI 为 DC/OS Enterprise 功能提供命令：
 
-- [`dcos backup`](/cn/1.11/cli/command-reference/dcos-backup)
-- [`dcos license`](/cn/1.11/cli/command-reference/dcos-license)
-- [`dcos security`](/cn/1.11/cli/command-reference/dcos-security)
+- [`dcos backup`](/cn/1.11/cli/command-reference/dcos-backup/)
+- [`dcos license`](/cn/1.11/cli/command-reference/dcos-license/)
+- [`dcos security`](/cn/1.11/cli/command-reference/dcos-security/)
 
 # <a name="ent-cli-install"></a>安装 DC/OS Enterprise CLI
 

@@ -58,6 +58,7 @@ Here is a list of the parameters that you can modify:
     - [`http_proxy`](/1.12/installing/production/advanced-configuration/configuration-reference/#use-proxy)
     - [`https_proxy`](/1.12/installing/production/advanced-configuration/configuration-reference/#use-proxy)
     - [`no_proxy`](/1.12/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+- [`enable_mesos_input_plugin`](/1.12/installing/production/advanced-configuration/configuration-reference/#enable-mesos-input-plugin)
 
 The security mode (`security`) can be changed but only to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `strict` mode and you want to downgrade to `permissive` mode, you must reinstall the cluster and terminate all running workloads.
 
@@ -229,8 +230,8 @@ sudo systemctl | grep dcos
 
 If your patch fails because of a [custom node or cluster check](/1.12/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks), run these commands for more details:
 ```bash
-dcos-diagnostics check node-poststart
-dcos-diagnostics check cluster
+dcos-check-runner check node-poststart
+dcos-check-runner check cluster
 ```
 ### On DC/OS Masters
 

@@ -17,7 +17,7 @@ Edit the runtime environment of the scheduler to make configuration changes. Aft
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence. However, this basic check is not foolproof and reasonable care should be taken to ensure that a given configuration change will not negatively affect the behavior of the service.
 
-Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](/services/beta-cassandra/v1.0.30-3.0.13/limitations).
+Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](/services/beta-cassandra/1.0.30-3.0.13-beta/limitations/).
 
 To see a full listing of available options, run `dcos package describe --config beta-cassandra` in the CLI, or browse the DC/OS Apache Cassandra Service install dialog in the DC/OS Dashboard.
 

@@ -69,7 +69,7 @@ terraform apply -var gcp_project="your_existing_project"
 
 默认变量在 [variables.tf](https://github.com/dcos/terraform-dcos/blob/master/gcp/variables.tf) 文件内跟踪。但是，如果您为了抓取新发布的 DC/OS 升级而运行 `terraform get --updates`，这个文件就可能会被覆盖。因此，最好使用 [desired_cluster_profile.tfvars](https://github.com/dcos/terraform-dcos/blob/master/gcp/desired_cluster_profile.tfvars.example) 并设置自定义 Terraform 和 DC/OS 标记。这样在集群的整个生命周期中，只跟踪一个能够用于管理的文件就可以了。
 
-如需这一存储库支持的操作系统列表，请参阅 [此处](https://docs.mesosphere.com/1.10/installing/oss/custom/system-requirements/) 的 DC/OS 推荐。您可以在 [此处](http://github.com/bernadinm/tf_dcos_core) 找到 Terraform 支持的列表。
+如需这一存储库支持的操作系统列表，请参阅 [此处](https://docs.mesosphere.com/1.10/installing/production/system-requirements/) 的 DC/OS 推荐。您可以在 [此处](http://github.com/bernadinm/tf_dcos_core) 找到 Terraform 支持的列表。
 
 要应用配置文件，请运行以下命令：
 

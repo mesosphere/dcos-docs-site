@@ -183,7 +183,7 @@ dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id fu
 dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
 ```
 
-有关所需权限的详细信息，请参阅 [Edge-LB 权限](/cn/services/edge-lb/1.1/permissions)
+有关所需权限的详细信息，请参阅 [Edge-LB 权限](/cn/services/edge-lb/1.1/permissions/)
 
 # <a name="create-json"></a>为服务身份认证创建配置文件
 配置服务身份认证后，您必须使用凭据创建 JSON 选项文件。安装 Edge-LB 时，此文件将传递到 DC/OS。
@@ -232,5 +232,5 @@ until dcos edgelb ping; do sleep 1; done
 pong
 ```
 
-- 有关配置 Edge-LB 的详细信息，请参阅 [Edge-LB 配置](/cn/services/edge-lb/1.1/pool-configuration) 部分。
-- 有关可用 Edge-LB 命令的详细信息，请参阅 [Edge-LB 命令参考](/cn/services/edge-lb/1.1/cli-reference)。
+- 有关配置 Edge-LB 的详细信息，请参阅 [Edge-LB 配置](/cn/services/edge-lb/1.1/pool-configuration/) 部分。
+- 有关可用 Edge-LB 命令的详细信息，请参阅 [Edge-LB 命令参考](/cn/services/edge-lb/1.1/cli-reference/)。

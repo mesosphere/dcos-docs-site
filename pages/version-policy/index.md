@@ -25,9 +25,9 @@ Mesosphere tests DC/OS Enterprise with specific components and operating systems
 
 ### Version Lifecycle
 
-Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS. While these versions are outlined in the Mesosphere DC/OS Version-Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification. Thus, Mesosphere shall provide support services for those versions of DC/OS that are either the current, N, or up to two (2) Minor versions behind. <br>
+Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS. While these versions are outlined in the Mesosphere DC/OS Version-Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification. Thus, Mesosphere shall provide support services for those versions of DC/OS that are either the current, N, or up to two Minor versions behind. <br>
 
- *Examples* follow:
+ Examples of Major and Minor versions are as follows:
 
 * **Major Version**: Upon the availability of a new DC/OS Major version, 2.0.0, Maintenance versions prior to (N-2) Minor versions of the previous (N-1) major release would not be supported. Major Versions also count towards advancing the Minor number version.<br>
 
@@ -54,7 +54,7 @@ The following matrix shows the platform components and operating environments on
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
-      <tr>
+    <tr>
         <td>CentOS 7.5</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
@@ -68,6 +68,30 @@ The following matrix shows the platform components and operating environments on
     </tr>
     <tr>
         <td>CentOS 7.3</td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    </tr>
+    <tr>
+        <td>RHEL 7.6</td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    </tr>
+    <tr>
+        <td>RHEL 7.5</td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    </tr>
+    <tr>
+        <td>RHEL 7.4</td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+    </tr>
+    <tr>
+        <td>RHEL 7.3</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
@@ -103,24 +127,6 @@ The following matrix shows the platform components and operating environments on
         <td>                    </td>
     </tr>
     <tr>
-        <td>CoreOS 1800.7.0</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td>                    </td>
-    </tr>
-    <tr>
-        <td>CoreOS 1800.6.0</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.03.1</li></ul></p></td>
-        <td>                    </td>
-    </tr>
-    <tr>
-        <td>CoreOS Stable 1235.12.0</td>
-        <td>                    </td>
-        <td>                    </td>
-        <td><p style="text-align: center;"><ul><li>Docker Engine 1.13</li></ul></p><p style="text-align: center;"><ul><li>Docker Engine 1.12</li></ul></p><p style="text-align: center;"><ul><li>Docker Engine 1.11</li></ul></p></td>
-    </tr>
-        </tr>
         <tr>
         <td>RHEL 7.6</td>
         <td>                    </td>
@@ -204,9 +210,9 @@ The following matrix shows the platform components and operating environments on
 <p class="message--note"><strong>NOTE: </strong>CoreOS 1800.7.0 requires DC/OS 1.11.6 or later releases.</p>
 
 ## Customer Advisory for CentOS/RHEL 7.X
-<p class="message--important"><strong>IMPORTANT: </strong>A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. <strong>Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13</strong>. This fork of Docker does not require an RHN subscription. More specific details on the Docker bug and mitigation instructions are located <a href=“https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006“>here</a>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>A recently discovered bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) causes instability for the entire system when the `kmem` accounting feature is activated. Customers may notice tasks or commands getting stuck indefinitely and kernel-related error messages in the system logs. <strong>Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to install and use RedHat’s fork of Docker 1.13</strong>. This fork of Docker does not require an RHN subscription. More specific details on the Docker bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a>.</p>
 
-<p class="message--note"><strong>NOTE: </strong>Because of this kmem bug, <strong>Mesosphere only supports Kubernetes on DC/OS with CentOS/RHEL 7.X when using DC/OS 1.12 or greater and CentOS/RHEL 7.5</strong>.</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>Because of the kmem bug, <strong>Mesosphere only supports Kubernetes on DC/OS with CentOS/RHEL 7.X when using DC/OS 1.12 or greater and CentOS/RHEL 7.5</strong>.</a></p>
 
 ## Version Compatibility Matrix
 

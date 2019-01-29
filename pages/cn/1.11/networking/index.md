@@ -54,7 +54,7 @@ DC/OS 为第 4 层和第 7 层负载均衡提供了不同的选项。以下章�
 [dcos-l4lb](/cn/1.11/networking/load-balancing-vips/) 是默认安装的分布式第 4 层东西向负载均衡器。它具有高度可扩展性和高可用性，提供零跃负载均衡，没有单个阻塞点，并容忍主机故障。 `dcos-l4lb` 作为 Erlang 虚拟机中的应用程序运行 `dcos-net`，其在集群中的所有代理节点和管理节点上运行。
 
 ## 第 7 层
-DC/OS 中有两个软件包，即 [Edge-LB](/cn/services/edge-lb) 和 [Marathon-LB](/cn/services/marathon-lb)，为 DC/OS 服务提供第 7 层负载均衡。这两个软件包均使用 HAProxy 作为其数据平面，对进入集群的南北向流量进行负载均衡。虽然这些软件包主要用于提供第 7 层负载均衡（支持 HTTP 和 HTTPS），但它们也可为 TCP 和 SSL 流量提供第 4 层负载均衡。尽管这两个软件包使用的数据平面基本相同，但其提供的控制平面却截然不同。
+DC/OS 中有两个软件包，即 [Edge-LB](/cn/services/edge-lb/) 和 [Marathon-LB](/cn/services/marathon-lb/)，为 DC/OS 服务提供第 7 层负载均衡。这两个软件包均使用 HAProxy 作为其数据平面，对进入集群的南北向流量进行负载均衡。虽然这些软件包主要用于提供第 7 层负载均衡（支持 HTTP 和 HTTPS），但它们也可为 TCP 和 SSL 流量提供第 4 层负载均衡。尽管这两个软件包使用的数据平面基本相同，但其提供的控制平面却截然不同。
 
 ### Edge-LB [enterprise type="small"]
 Edge-LB 可支持 HAProxy 负载均衡实例池，可实现多租户支持。它配有自己的 CLI，可配置和启动实体池；它不仅支持 Marathon 应用程序，还支持由其他希望将其应用程序公开到集群之外 Mesos 框架管理的应用程序。Edge-LB 仅适用于 DC/OS Enterprise。

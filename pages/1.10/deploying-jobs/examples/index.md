@@ -12,7 +12,7 @@ These examples provide common usage scenarios for jobs.
 
 **Prerequisite:**
 
-- [DC/OS](/1.10/installing/oss/) and the [DC/OS CLI installed](/1.10/cli/install/).
+- [DC/OS](/1.10/installing/) and the [DC/OS CLI installed](/1.10/cli/install/).
 
 # <a name="create-job"></a>Creating a Simple Job
 

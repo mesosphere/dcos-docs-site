@@ -53,7 +53,7 @@ Fault domain isolation is an important part of building HA systems. To correctly
  * Physical domains: this includes machine, rack, datacenter, region, and availability zone.
  * Network domains: machines within the same network may be subject to network partitions. For example, a shared network switch may fail or have invalid configuration.
 
-For more information, see the [multi-zone](/1.11/installing/high-availability/multi-zone/) and [multi-region](/1.11/installing/high-availability/multi-region/) documentation.
+For more information, see the [multi-zone](/1.11/installing/production/advanced-configuration/configuring-zones-and-regions/multi-zone/) and [multi-region](/1.11/installing/production/advanced-configuration/configuring-zones-and-regions/multi-region/) documentation.
 
 Applications which require HA should also be distributed across fault domains. With Marathon, this can be accomplished by using the [`UNIQUE`  and `GROUP_BY` constraints operator](https://mesosphere.github.io/marathon/docs/constraints.html).
 
@@ -83,7 +83,7 @@ When failures do occur, failover [should be as fast as possible](https://en.wiki
 
 A fast failover can be achieved by:
 
- * Using an HA load balancer like [Marathon-LB](/1.11/networking/marathon-lb/), or the internal [Layer 4 load balancer](/1.11/networking/load-balancing-vips/).
+ * Using an HA load balancer like [Marathon-LB](/services/marathon-lb/), or the internal [Layer 4 load balancer](/1.11/networking/load-balancing-vips/).
  * Building apps in accordance with the [12-factor app](http://12factor.net/) manifesto.
  * Following REST best practices when building services: in particular, avoiding storing client state on the server between requests.
 

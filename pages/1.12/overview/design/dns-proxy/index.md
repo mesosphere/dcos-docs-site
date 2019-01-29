@@ -17,7 +17,7 @@ DNS Forwarder (Spartan) is very simple. It has dual-dispatch logic and hosts a d
 DNS Forwarder (Spartan) also enables high availability of ZooKeepers. You can always use the addresses `zk-1.zk`, `zk-2.zk`, `zk-3.zk`, `zk-4.zk`, `zk-5.zk`. If there are fewer than five ZooKeepers, DNS Forwarder (Spartan) will point multiple records at a single ZooKeeper.
 
 ## Watchdog
-Since DNS is such a specialized, sensitive subsystem we have chosen to protect it with a watchdog. There is a service installed on each node that runs every five minutes and checks whether or not it can query `ready.spartan`. To avoid harmonic effects, it sleeps for one minute past its initial start time, to avoid racing Spartan. You can monitor the system health of the watchdog as DNS Forwarder (Spartan) Watchdog in the system health [dashboard](/1.12/gui/dashboard).
+Since DNS is such a specialized, sensitive subsystem we have chosen to protect it with a watchdog. There is a service installed on each node that runs every five minutes and checks whether or not it can query `ready.spartan`. To avoid harmonic effects, it sleeps for one minute past its initial start time, to avoid racing Spartan. You can monitor the system health of the watchdog as DNS Forwarder (Spartan) Watchdog in the system health [dashboard](/1.12/gui/dashboard/).
 
 In addition to this watchdog, we also run `genresolv`, which checks whether or not DNS Forwarder (Spartan) is alive to generate the `resolv.conf`. If it believes DNS Forwarder (Spartan) not to be alive, it then rewrites the `resolv.conf` with the upstream resolvers that you have configured into your DC/OS cluster.
 

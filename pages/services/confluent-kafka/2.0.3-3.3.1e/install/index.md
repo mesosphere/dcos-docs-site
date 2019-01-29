@@ -15,7 +15,7 @@ Kafka is available in the Universe and can be installed by using either the web 
 
 ##  <a name="install-enterprise"></a>Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/service-docs/kafka/kafka-auth/) before installing Confluent Kafka. Only someone with `superuser` permission can create the service account.
+- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/services/kafka/kafka-auth/) before installing Confluent Kafka. Only someone with `superuser` permission can create the service account.
 	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
@@ -145,7 +145,7 @@ To configure it:
 
 1. Create a file named `options.json` with the following contents.
 
-**Note:** If you are using the [DC/OS Apache ZooKeeper service](/service-docs/kafka-zookeeper), use the DNS addresses provided by the `dcos kafka-zookeeper endpoints clientport` command as the value of `kafka_zookeeper_uri`.
+**Note:** If you are using the [DC/OS Apache ZooKeeper service](/services/kafka-zookeeper/), use the DNS addresses provided by the `dcos kafka-zookeeper endpoints clientport` command as the value of `kafka_zookeeper_uri`.
 
 ```json
 {
@@ -171,4 +171,4 @@ dcos confluent-kafka --name=/kafka update start --options=options.json
 
  [4]: #custom-installation
  [5]: https://github.com/mesosphere/dcos-vagrant
- [6]: /service-docs/kafka/configure/#configuration-options
+ [6]: /services/kafka/configure/#configuration-options

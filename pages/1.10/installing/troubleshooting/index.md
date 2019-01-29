@@ -13,7 +13,7 @@ excerpt: Troubleshooting DC/OS installation issues
 
 ## IP detect script
 
-You must have a valid [ip-detect](/1.10/installing/production/advanced/#create-an-ip-detection-script) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
+You must have a valid [ip-detect](/1.10/installing/production/deploying-dcos/installation/#create-an-ip-detection-script) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
 
   - extra lines
   - white space

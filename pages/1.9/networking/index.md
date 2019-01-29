@@ -40,7 +40,7 @@ Spartan acts as a DNS masquerade for Mesos DNS on each agent. The Spartan instan
 The Spartan instance on each agent also acts as a DNS server for any service that is load balanced using the DC/OS internal load balancer called [Minuteman](/1.9/networking/mesos-dns/). Any service that is load balanced by Minuteman gets a [virtual-ip-address (VIP)](/1.9/networking/mesos-dns/) and an FQDN in the `"*.l4lb.thisdcos.directory"` domain. The FQDN allocated to a load-balanced service is then stored in Spartan. All Spartans instances exchange the records they have discovered locally from Minuteman by using GOSSIP. This provides a highly available distributed DNS service for any task that is load balanced by Minuteman. For more information, see the [Spartan repository](https://github.com/dcos/spartan).
 
 # Load Balancing
-East-west load balancing is provided by Minuteman. North-south load balancing is provided by [Marathon LB](/1.9/networking/marathon-lb/). Marathon-LB is based on HAProxy, a rapid proxy and load balancer. It is installed as a DC/OS Universe package.
+East-west load balancing is provided by Minuteman. North-south load balancing is provided by [Marathon LB](/services/marathon-lb/). Marathon-LB is based on HAProxy, a rapid proxy and load balancer. It is installed as a DC/OS Universe package.
 
 ## Minuteman
 Minuteman is a distributed layer 4 virtual IP east-west load balancer that is installed by default. It provides:
