@@ -31,11 +31,14 @@ Marathon-lb exposes the following endpoints on port `9090` by default.
 <p class="message--note"><strong>NOTE: </strong>The <code>/_mlb_signal/hup</code> and <code>/_mlb_signal/usr1</code> endpoints do not function if Marathon-LB is running in <code>poll</code> mode. With the <code>poll</code> argument, Marathon-LB exits after each poll, so there is no running <code>marathon_lb.py</code> process to be signaled.</p>
 
 # Marathon-LB command reference
-Working with the marathon-lb script
 Marathon-LB manages operations for the `HAProxy` program to provide high availability for applications running on high-volume websites. Marathon-LB relies on the `marathon_lb.py` script to perform the following key tasks:
 * Connects to the Marathon API to retrieve information about all running apps.
 * Generates and validates the Marathon-LB `HAProxy` configuration file settings.
-* Reloads the `HAProxy` program. 
+* Reloads the `HAProxy` program.
+
+    <p>
+    <img src="/services/img/simple-mlb-haproxy.png" alt="Marathon-LB works with HAProxy configuration settings to provide load balancing">
+    </p>
 
 By default, Marathon-LB binds to the service port of every application and sends incoming requests to the application instances. Services are exposed on their service port as defined in their Marathon app definition. Furthermore, apps are only exposed on the load balancers that have the same load balancer `group` setting. The `group` setting is defined globally or in the app definition file by specifying the `HAPROXY_GROUP` label for individual applications. 
 
@@ -57,9 +60,9 @@ You can also provide credentials from the VAULT if you define the following envi
 * `VAULT_TOKEN`
 * `VAULT_HOST`
 * `VAULT_PORT`
-* `VAULT_PATH 
-`
-If you set these environment variables, be sure `VAULT_PATH` is set to the root path where your user and password are located.
+* `VAULT_PATH`
+
+If you set these environment variables, you should set the `VAULT_PATH` to the root path where your user account and password are located.
 
 ## Skipping configuration validation
 Running the `marathon-lb.py` script refreshes the `haproxy.cfg` configuration file. If there are any changes to the configuration file, the script automatically reloads the `HAProxy` program with the changes. You can skip the configuration file validation process if you don't have `HAProxy` installed or if you are running `HAProxy` on Docker containers.
@@ -73,43 +76,44 @@ To skip validation of configuration settings, run the following command:
 If you run the `marathon-lb.py` script directly from the command line, you can specify additional functionality such as sticky sessions, HTTP to HTTPS redirection, SSL offloading, virtual host support, and the configuration templates to use.
 
 To get the full command reference, run the following command:
+
 ```
 ./marathon_lb.py --help
 ```
 
-## Running Docker commands for marathon-lb
-Marathon supports both Universal Container Runtime (using `cgroups`) and Docker containers and images. You can run a command similar to the following for Docker.
+## Running Docker commands for Marathon-LB
+Marathon supports both Universal Container Runtime (using `cgroups`) and Docker containers and images. You can run Marathon-LB using a command similar to the following for Docker images:
 
 ```
 docker run -e PORTS=$portnumber --net=host mesosphere/marathon-lb ...
 ```
 
-This command uses the `-e` option to set the `PORTS` environment variable. The port number is required to allow the HAProxy program bind to this port. The `-net` option enables the command to connect a container to a specified network.
+This command uses the `-e` option to set the `PORTS` environment variable. The port number is required to allow the `HAProxy` program bind to this port. The `-net` option enables the command to connect a container to a specified network.
 
-For example, to expose load-balanced applications from a docker image on port 9090: 
+For example, to expose load-balanced applications from a Docker image on port 9090, you might run the following command:
+
 ```
-docker run -e PORTS=9090 mesosphere/marathon-lb sse [other args]
+docker run -e PORTS=9090 mesosphere/marathon-lb sse [other arguments]
 ```
 
-If you specify the `sse` option, the Marathon-LB script connects to the Marathon events endpoint to get notified about state changes. 
+### Using server-sent events (sse)
+If you specify the `sse` option, the Marathon-LB script connects to the Marathon events endpoint to get notified about state changes.
 You can use a command similar to the following to capture server-sent events (`sse`).
 
 ```
-docker run mesosphere/marathon-lb sse [other args]
+docker run mesosphere/marathon-lb sse [other arguments]
 ```
 
+### Determining the current status for Marathon-LB instances
 If you can't use the HTTP callbacks, you can run a command similar to the following to poll the scheduler state periodically:
 
 ```
 docker run mesosphere/marathon-lb poll [other args]
 ```
 
-You can also use environment variables to set other configuration options. For example:
-* You can set the `POLL_INTERVAL` to change the poll interval from its default of 60 seconds.
-* You can set the `HAPROXY_SSL_CERT` environment variable to provide your own secure socket layer (SSL) certificates for the frontend. 
-* You can set the `HAPROXY_SSL_CERT0` to `HAPROXY_SSL_CERT100` environment variables to specify additional SSL certificates.
+You can also use environment variables to set other configuration options for Marathon-LB. For example, you can set the `POLL_INTERVAL` environment variable to change the poll interval from its default of 60 seconds.
 
-## Marathon-LB command reference
+## Usage and command arguments
 You can run the Marathon load balancer script (`marathon_lb.py`) directly from the command-line in a shell terminal or programmatically. The script accepts the following command-line options and arguments.
 
 ### Usage 
