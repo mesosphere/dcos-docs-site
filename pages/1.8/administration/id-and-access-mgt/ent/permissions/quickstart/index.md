@@ -37,7 +37,7 @@ By default, a new user has no permissions and cannot view the DC/OS web interfac
 
 This procedure describes how to grant a user access to the **Services** tab and all the services inside of it.
 
-**Tip:** If you are running in `strict` or `permissive` [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) and don't want to give the user access to all of the services in the **Services** tab, see [Controlling user access to services](/1.8/administration/id-and-access-mgt/ent/permissions/service-groups).
+**Tip:** If you are running in `strict` or `permissive` [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) and don't want to give the user access to all of the services in the **Services** tab, see [Controlling user access to services](/1.8/administration/id-and-access-mgt/ent/permissions/service-groups/).
 
 The steps to accomplish this vary based on your preferred method.
 
@@ -184,7 +184,7 @@ The steps to accomplish this vary based on your preferred method.
 
 This procedure describes how to grant a user access to the **Jobs** tab and all the jobs inside of it.
 
-**Tip:** If you don't want to give the user access to all of the jobs in the **Jobs** tab, see [Controlling user access to jobs](/1.8/administration/id-and-access-mgt/ent/permissions/job-groups).
+**Tip:** If you don't want to give the user access to all of the jobs in the **Jobs** tab, see [Controlling user access to jobs](/1.8/administration/id-and-access-mgt/ent/permissions/job-groups/).
 
 The steps to accomplish this vary based on your preferred method.
 
@@ -234,18 +234,13 @@ The steps to accomplish this vary based on your preferred method.
 
 1. Log out and log back in as the user you just gave these permissions to. You should be able to view the DC/OS web interface and all the jobs in the **Jobs** tab. If you granted the user access to the task details and logs, you should be able to access these too.
 
-
 ## <a name="jobs-access-via-api"></a>Via the IAM API
 
 **Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and be logged in as a superuser via `dcos auth login`.
 
-<<<<<<< HEAD:1.8/administration/id-and-access-mgt/ent/permissions/quickstart.md
 - If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
-=======
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
->>>>>>> 19e0832c49f545af62fd3509f6654bfd4ee41023:1.8/administration/id-and-access-mgt/permissions/quickstart.md
 
 **Tip:** To grant a permission to a group instead of a user, replace `/users/alice` in the commands below with `/groups/<group-name>`, where `<group-name>` is the name of the group. The group must contain at least one user account without the `superuser` permission that you can use to verify your success.
 
@@ -363,11 +358,7 @@ The steps to accomplish this vary based on your preferred method.
 
 - You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and be logged in as a superuser via `dcos auth login`.
 
-<<<<<<< HEAD:1.8/administration/id-and-access-mgt/ent/permissions/quickstart.md
 - If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
-=======
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
->>>>>>> 19e0832c49f545af62fd3509f6654bfd4ee41023:1.8/administration/id-and-access-mgt/permissions/quickstart.md
 
 **Note:** When using the API to manage permissions, you must first create the permission and then assign it. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation message and proceed to assign the permission.
 
@@ -437,11 +428,7 @@ The steps to accomplish this vary based on your preferred method.
 
 - You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and be logged in as a superuser via `dcos auth login`.
 
-<<<<<<< HEAD:1.8/administration/id-and-access-mgt/ent/permissions/quickstart.md
 - If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
-=======
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
->>>>>>> 19e0832c49f545af62fd3509f6654bfd4ee41023:1.8/administration/id-and-access-mgt/permissions/quickstart.md
 
 **Note:** When using the API to manage permissions, you must first create the permission and then assign it. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation message and proceed to assign the permission.
 
@@ -517,11 +504,7 @@ The steps to accomplish this vary based on your preferred method.
 
 - You must have the [DC/OS CLI installed](/1.8/usage/cli/install/) and be logged in as a superuser via `dcos auth login`.
 
-<<<<<<< HEAD:1.8/administration/id-and-access-mgt/ent/permissions/quickstart.md
 - If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
-=======
-- If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `permissive` or `strict`, you must follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.8/administration/tls-ssl/ent/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
->>>>>>> 19e0832c49f545af62fd3509f6654bfd4ee41023:1.8/administration/id-and-access-mgt/permissions/quickstart.md
 
 **Note:** When using the API to manage permissions, you must first create the permission and then assign it. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation message and proceed to assign the permission.
 

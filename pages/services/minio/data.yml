@@ -1,0 +1,38 @@
+# Common values:
+
+packageName: miniod
+serviceName: minio
+techName: Minio
+techShortName: Minio
+
+# Values specific to certain templates:
+
+
+operations:
+  default-deploy: |
+    deploy (parallel strategy) (COMPLETE)
+    ├─ miniod (serial strategy) (COMPLETE)
+    │  └─ node:[server] (COMPLETE)
+
+  backup-plan-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    ├─ minioc (serial strategy) (COMPLETE)
+    │  └─ init:[server] (COMPLETE)
+    │  └─ delete-previous-snapshot:[server] (COMPLETE)
+    │  └─ backup:[server] (COMPLETE)
+
+  restore-plan-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    ├─ minioc (serial strategy) (COMPLETE)
+    │  └─ init:[server] (COMPLETE)
+    │  └─ restore:[server] (COMPLETE)
+
+  recover-plan-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    ├─ minioc (serial strategy) (COMPLETE)
+    │  └─ recover:[server] (COMPLETE)
+
+install:
+  minNodeCount: at least four nodes
+  nodeDescription: with an even number of nodes
+  minPrivateAgents: at least four private agents

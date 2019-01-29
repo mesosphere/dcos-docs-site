@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The [DC/OS command-line interface (CLI)](/1.10/cli) is a utility to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.
+The [DC/OS command-line interface (CLI)](/1.10/cli/) is a utility to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.
 
 The DC/OS CLI is open and extensible: anyone can create a new subcommand and make it available for installation by end users. For example, the [Spark DC/OS service][2] provides CLI extensions for working with Spark. When installed, you can type the following command to submit Spark jobs and query their status:
 
@@ -35,7 +35,7 @@ or
 
 The same [packaging format and repository][11] is used for both DC/OS services and CLI subcommands.
 
-**Note:** CLI modules are [cluster-specific](/1.10/cli/multi-cluster-cli) and stored in `~/.dcos/clusters/<cluster_id>/subcommands`. You must install a CLI module for each cluster. For example, if you connect to cluster 1, and install the Spark module, then connect to cluster 2 which is also running Spark, Spark CLI commands are not available until you install the module for that cluster.
+**Note:** CLI modules are [cluster-specific](/1.10/cli/multi-cluster-cli/) and stored in `~/.dcos/clusters/<cluster_id>/subcommands`. You must install a CLI module for each cluster. For example, if you connect to cluster 1, and install the Spark module, then connect to cluster 2 which is also running Spark, Spark CLI commands are not available until you install the module for that cluster.
 
 ## Creating a DC/OS CLI subcommand
 

@@ -1,0 +1,12 @@
+<!-- Use this file in the Configuration section. -->
+
+## <a name="create-json"></a>Create a Custom Configuration File
+Create a custom configuration file that will be used to install {{ model.techName }} and save as `config.json`. Specify the service account (`<service_account_id>`) and a secret path (`{{ model.packageName }}/<secret-name>`) .
+```json
+{
+  "service": {
+    "service_account": "<service_account_id>",
+    "service_account_secret": "{{ model.packageName }}/<secret-name>"
+  }
+}
+```

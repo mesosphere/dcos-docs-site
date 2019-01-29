@@ -4,7 +4,4 @@ navigationTitle:  Service Docs
 title: Service Docs
 menus: ['header']
 menuWeight: 5
-excerpt:
-
-enterprise: false
 ---

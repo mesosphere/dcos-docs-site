@@ -3,13 +3,14 @@ layout: layout.pug
 navigationTitle:  Disaster Recovery
 title: Disaster Recovery
 menuWeight: 80
-excerpt:
+excerpt: Backing up and restoring your Cassandra service
 featureMaturity:
 enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
+<p class="message--warning"><strong>WARNING: </strong>The limitation described in the <a href="/services/cassandra/2.0.2-3.0.14/limitations/#service-user">Service user section</a> of the Limitations topic is crucial for the data backup procedure described below. Be sure to review that section before proceeding with any backup or restore operations.</p>
 
 # Backup
 
@@ -42,7 +43,7 @@ dcos cassandra plan start backup-s3 -p SNAPSHOT_NAME=$SNAPSHOT_NAME -p "CASSANDR
 
 If you're backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as in the example above. If the `CASSANDRA_KEYSPACES` parameter isn't supplied, then every keyspace in your cluster will be backed up.
 
-**IMPORTANT**: To ensure that sensitive information, such as your AWS secret access key, remains secure, make sure that you've set the `core.dcos_url` configuration property in the DC/OS CLI to an HTTPS URL.
+<p class="message--important"><strong>IMPORTANT: </strong>To ensure that sensitive information, such as your AWS secret access key, remains secure, make sure that you have set the <code>core.dcos_url</code> configuration property in the DC/OS CLI to an HTTPS URL.</p>
 
 ## Backing up to Azure
 
@@ -82,7 +83,7 @@ AWS_ACCESS_KEY_ID=<my_access_key_id>
 AWS_SECRET_ACCESS_KEY=<my_secret_access_key>
 AWS_REGION=us-west-2
 S3_BUCKET_NAME=backups
-dcos cassandra plan start backup-s3 "SNAPSHOT_NAME=$SNAPSHOT_NAME,AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY,AWS_REGION=$AWS_REGION,S3_BUCKET_NAME=$S3_BUCKET_NAME"
+dcos cassandra plan start restore-s3 "SNAPSHOT_NAME=$SNAPSHOT_NAME,AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY,AWS_REGION=$AWS_REGION,S3_BUCKET_NAME=$S3_BUCKET_NAME"
 ```
 
 ## Restoring From Azure

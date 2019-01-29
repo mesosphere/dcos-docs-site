@@ -16,7 +16,7 @@ This tutorial will get you up and running with Cassandra in minutes. You will in
 **Prerequisites:**
 
 -  [DC/OS and DC/OS CLI installed](/1.9/installing/) with a minimum of three agent nodes with eight GB of memory and ten GB of disk available on each agent.
--  Depending on your [security mode](/1.9/security/ent/#security-modes/), Cassandra requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Cassandra](/services/cassandra/cassandra-auth/).
+-  Depending on your [security mode](/1.9/security/ent/#security-modes/), Cassandra requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Cassandra](/services/cassandra/2.2.0-3.0.16/security/).
 
    | Security mode | Service Account |
    |---------------|-----------------------|

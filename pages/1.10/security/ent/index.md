@@ -45,7 +45,7 @@ A typical deployment, including load balancers is shown below:
 
 # <a name="security-modes"></a>Security Modes
 
-You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are disabled, permissive, and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.10/installing/ent/custom/advanced/) and can only be changed by performing an upgrade.
+You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are disabled, permissive, and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.10/installing/production/deploying-dcos/installation/) and can only be changed by performing an upgrade.
 
 | Permission Category                                 | Disabled | Permissive | Strict |
 |-----------------------------------------------------|:--------:|:----------:|:------:|
@@ -66,7 +66,7 @@ This mode provides some of the security features, but does not include the Mesos
 This mode provides the most robust security posture and requires a significant amount of configuration.
 
 ## <a name="set"></a>Setting Your Security Mode
-The security mode is set during [DC/OS installation](/1.10/installing/ent/custom/advanced/) and can only be changed by performing an [upgrade](/1.10/installing/ent/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+The security mode is set during [DC/OS installation](/1.10/installing/production/deploying-dcos/installation/) and can only be changed by performing an [upgrade](/1.10/installing/production/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 **Important:** You can only move from `disabled` to `permissive`, and from `permissive` to `strict` during an upgrade.
 
@@ -81,7 +81,7 @@ You can use either of the following methods to determine the security mode of an
 # <a name="authentication"></a>Authentication
 All requests from outside of the DC/OS cluster require an authentication token. Depending on your security mode, in-cluster authentication tokens may be required. For more information, see the [Service Accounts documentation](/1.10/security/ent/service-auth/).
 
-The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/1.10/installing/ent/custom/configuration/configuration-parameters/#bouncer-expiration-auth-token-days-enterprise).
+The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/1.10/installing/production/advanced-configuration/configuration-reference/#bouncer-expiration-auth-token-days-enterprise).
 
 DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequence. This allows the masters to nominate themselves as potential Mesos leaders.
 
@@ -213,8 +213,6 @@ The unseal key is encrypted under a public GPG key. Requests to the [Secrets API
 
 As a convenience, DC/OS automatically generates a new 4096-bit GPG keypair during the bootstrap sequence. It uses this keypair to initialize the Secret Store and stores the keypair in ZooKeeper.
 
-<!-- If you wish to generate your own GPG keypair and store it in an alternate location, you can [reinitialize the Secret Store with a custom GPG keypair](/1.10/security/ent/secrets/custom-key/). -->
-
 The Secret Store is available in all security modes.
 
 By default, you cannot store a secret larger than one megabyte. If you need to exceed this limit, contact Mesosphere support.
@@ -233,13 +231,13 @@ DC/OS allows you to restrict:
 
 The default Linux user for tasks and sandbox files varies according to your [security mode](/1.10/security/ent/#security-modes) and the [type of container](/1.10/deploying-services/containerizers/) the task runs inside of.
 
-By default, all tasks will run inside of Mesos containers. However, a user service can be configured to run tasks inside of Docker containers instead. Please see [Deploying a Docker-based Service to Marathon](/1.10/deploying-services/creating-services/deploy-docker-app/) for an example.
+By default, all tasks will run inside of Docker containers. Please see [Deploying a Docker-based Service to Marathon](/1.10/deploying-services/creating-services/deploy-docker-app/) for an example.
 
 The following table identifies the default Linux user in each situation.
 
 | Container type | Disabled                                                               | Permissive                                                             | Strict                                                                     |
 |----------------|------------------------------------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
-| Mesos          | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `nobody`. Fetched and created files are owned by `nobody`. |
+| Mesos (UCR)    | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `nobody`. Fetched and created files are owned by `nobody`. |
 | Docker         | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `nobody`.   |
 
 Docker tasks run under `root` by default, but Docker user privileges are confined to the Docker container. Should you wish to change the default task user, modify the Docker container. Please reference the [Docker documentation](https://docs.docker.com/engine/tutorials/dockerimages/) for more information, as well as the user service [documentation](/services/).

@@ -13,7 +13,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 **Prerequisites:**
 
-- DC/OS Enterprise is [installed](/1.10/installing/ent/) in permissive [mode](/1.10/security/ent/#security-modes).
+- DC/OS Enterprise is [installed](/1.10/installing/) in permissive [mode](/1.10/security/ent/#security-modes).
 
 ## Create users and groups
 
@@ -94,7 +94,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 1.  Select **Organization > Users** and select **Nick**.
 
-1.  Select **Group Membership** and then type `prod-bgroup` in the search box, then click to select.
+1.  Select **Group Membership** and then type `prod-b-group` in the search box, then click to select.
 
 
 ## Log in to the DC/OS GUI as user

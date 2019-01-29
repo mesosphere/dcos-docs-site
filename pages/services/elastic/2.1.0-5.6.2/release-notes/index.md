@@ -14,7 +14,7 @@ enterprise: false
 ## Version 2.1.0-5.6.2
 
 ### New Features
-* Custom configuration can now be passed to Elastic plugins. See [the documentation](/services/elastic/2.1.0-5.6.2/custom-elasticsearch-yaml). 
+* Custom configuration can now be passed to Elastic plugins. See [the documentation](/services/elastic/2.1.0-5.6.2/custom-elasticsearch-yaml/). 
 
 ### Bugs
 * Uninstall now handles failed tasks correctly.

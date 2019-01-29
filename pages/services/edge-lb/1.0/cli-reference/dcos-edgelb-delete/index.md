@@ -2,14 +2,15 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb delete
 title: dcos edgelb delete
-menuWeight: 60
-excerpt:
+menuWeight: 10
+excerpt: Delete and uninstall an existing pool
 
 enterprise: false
 ---
 
 # Description
-Deletes and uninstalls an existing pool.
+The `dcos edgelb delete` command deletes a pool and uninstalls the deployed load balancers.
+
 
 # Usage
 
@@ -21,7 +22,7 @@ dcos edgelb delete <pool-name>
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |
@@ -33,8 +34,8 @@ dcos edgelb delete <pool-name>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.0/cli-reference) |  Manage Edge-LB. |
+| [dcos edgelb](/services/edge-lb/1.0/cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.0/usage).
+See the [Edge-LB Usage](/services/edge-lb/1.0/usage/).

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Creating Jobs
 title: Creating Jobs
 menuWeight: 10
-excerpt: How to create jobs
+excerpt: Creating and administering jobs using the web interface, the CLI, or the API
 beta: true
 enterprise: false
 ---
@@ -21,18 +21,20 @@ From the DC/OS web interface, click the **Jobs** tab, then the **Create a Job** 
 
 ![Create JOB UI](/1.11/img/create-job.png)
 
+Figure 1. New job menu
+
 ### **General** Tab
 * **ID** - The ID of your job.
 * **Description** - A description of your job.
 * **CPUs** - The amount of CPU your job requires.
-* **Mem** - The amount of memory, in MiB, your job requires.
-* **Disk space** - The amount of disk space, in MiB, your job requires.
+* **Mem** - The amount of memory, in MB, your job requires.
+* **Disk space** - The amount of disk space, in MB, your job requires.
 * **Command** - The command your job will execute. Leave this blank if you will use a Docker image.
 
 ### **Schedule** Tab
 Check the **Run on a Schedule** to reveal the following fields.
 * **Cron Schedule** - Specify the schedule in cron format. Use [this crontab generator](http://crontab.guru) for help.
-* **Time Zone** - Enter the time zone in [TZ format](http://www.timezoneconverter.com/cgi-bin/zonehelp), e.g. America/New_York.
+* **Time Zone** - Enter the time zone in [TZ format](http://www.timezoneconverter.com/cgi-bin/zonehelp), for example, America/New_York.
 * **Starting Deadline** - This is the time, in seconds, to start the job if it misses scheduled time for any reason. Missed jobs executions will be counted as failed ones.
 
 ### **Docker Container** Tab
@@ -42,7 +44,7 @@ Check the **Run on a Schedule** to reveal the following fields.
 **Label Name** and **Label Value** - Attach metadata to your jobs so you can filter them. [Learn more about labels](/1.11/tutorials/task-labels/).
 
 ## Job Groups
-You can add a job to a an existing job group or create one when you create the job. Use dots in your job ID to nest the job in a group. For instance, if you enter job ID `marketing.myjob`, `myjob` will be created in the `marketing` group. In DC/OS Enterprise, you can [use job groups](/1.11/deploying-jobs/job-groups) to implement fine-grained user access.
+You can add a job to a an existing job group or create one when you create the job. Use dots in your job ID to nest the job in a group. For instance, if you enter job ID `marketing.myjob`, `myjob` will be created in the `marketing` group. In DC/OS Enterprise, you can [use job groups](/1.11/deploying-jobs/job-groups/) to implement fine-grained user access.
 
 ## Modify, view, or remove a job
 

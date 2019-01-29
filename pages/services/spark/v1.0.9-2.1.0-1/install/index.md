@@ -31,7 +31,7 @@ This command installs the dispatcher, and, optionally, the history server. See [
 Go to the **Services** > **Deployments** tab of the DC/OS web interface to monitor the deployment. Once it is
 complete, visit Spark at `http://<dcos-url>/service/spark/`.
 
-You can also [install Spark via the DC/OS web interface](/1.9/gui/universe).
+You can also [install Spark via the DC/OS web interface](/1.9/gui/universe/).
 
 **Note:** If you install Spark via the web interface, run the following command from the DC/OS CLI to install the Spark CLI:
 
@@ -70,23 +70,26 @@ DC/OS Spark does not support arbitrary Spark distributions, but Mesosphere does 
 
 # Minimal Installation
 
-For development purposes, you may wish to install Spark on a local DC/OS cluster. For this, you can use [dcos-vagrant][16].
+For development purposes, you can install Spark on a local DC/OS cluster. For this, you can use [dcos-vagrant][16].
 
-1. Install DC/OS Vagrant:
-
-	Install a minimal DC/OS Vagrant according to the instructions [here][16].
+1. Install a minimal DC/OS Vagrant according to the instructions [here][16].
 
 1. Install Spark:
 
-        $ dcos package install spark
+   ```bash
+   dcos package install spark
+   ```
 
 1. Run a simple Job:
 
-        $ dcos spark run --submit-args="--class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com.s3.amazonaws.com/assets/spark/spark-examples_2.10-1.5.0.jar"
+   ```bash
+   dcos spark run --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com.s3.amazonaws.com/assets/spark/spark-examples_2.10-1.5.0.jar"
+   ```
 
-NOTE: A limited resource environment such as DC/OS Vagrant restricts some of the features available in DC/OS Spark.  For example, unless you have enough resources to start up a 5-agent cluster, you will not be able to install DC/OS HDFS, and you thus won't be able to enable the history server.
+**Note:** A limited resource environment such as DC/OS Vagrant restricts some of the features available in DC/OS Apache Spark.  For example, unless you have enough resources to start up a 5-agent cluster, you will not be able to install DC/OS HDFS, and you thus won't be able to enable the history server.
 
 Also, a limited resource environment can restrict how you size your executors, for example with `spark.executor.memory`.
+
 
 # Multiple Installations
 

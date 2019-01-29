@@ -15,7 +15,7 @@ HDFS is available in the Universe and can be installed by using either the web i
 
 ## Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/service-docs/hdfs/hdfs-auth/) before installing HDFS. Only someone with `superuser` permission can create the service account.
+- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/services/hdfs/hdfs-auth/) before installing HDFS. Only someone with `superuser` permission can create the service account.
 	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
@@ -326,7 +326,7 @@ $ dcos beta-hdfs describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
 
 **Note:** You must specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 
@@ -398,15 +398,21 @@ These are the general steps to follow:
 
 1.  Go to the **Services** tab of the DC/OS GUI and click the name of the HDFS service to be updated.
 
-	![HFDS in DC/OS GUI](/img/hdfs-service-gui.png)
+	![HDFS IN DC/OS GUI](/services/img/hdfs-service-gui.png "HDFS in DC/OS GUI")
+
+	Figure 1. - HDFS service in DC/OS web interface
 
 1.  Within the HDFS instance details view, click the vertical ellipsis menu in the upper right, then choose **Edit**.
 
-	![Edit tab](/img/hdfs-service-gui2.png)
+	![Edit tab](/services/img/hdfs-service-gui2.png "Edit tab")
+
+	Figure 2. - Edit tab
 
 1.  Click the **Environment** tab and make your updates. For example, to increase the number of nodes, edit the value for `DATA_COUNT`.
 
-	![Edit environment](/img/hdfs-service-gui3.png)
+	![Edit environment](/services/img/hdfs-service-gui3.png "Edit environment")
+
+	Figure 3. - Environment tab
 
 1. Click **REVIEW & RUN** to apply any changes and cleanly reload the HDFS scheduler. The HDFS cluster itself will persist across the change.
 

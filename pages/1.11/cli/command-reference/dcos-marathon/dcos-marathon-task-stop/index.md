@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon task stop
 title: dcos marathon task stop
 menuWeight: 31
-excerpt:
+excerpt: Stopping a task
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Stop a task.
+The `dcos marathon task stop` command allows you to stop a task.
 
 # Usage
 
@@ -22,15 +20,15 @@ dcos marathon task stop <task-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--wipe`   |             | Wipe persistent data. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--wipe`   |  Wipe persistent data. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<task-id>`   |             |  The task ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<task-id>`   |    The task ID. You can view a list of the task IDs with the `dcos marathon task list` command. |
 
 # Parent command
 
@@ -38,4 +36,3 @@ dcos marathon task stop <task-id> [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->

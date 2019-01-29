@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  dcos cluster link
 title: dcos cluster link
 menuWeight: 3
-excerpt: How to link a connected cluster to another cluster.
+excerpt: Linking a connected cluster to another cluster
 enterprise: true
 ---
 
 # Description
-You can configure uni-directional links from cluster to one or more clusters. When accessing a cluster you can view the clusters it is linked to. You can [attach](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) to a linked cluster without needing to run `dcos cluster setup` beforehand.
+The `dcos cluster link` command allows you to configure uni-directional links from a cluster to one or more clusters. When accessing a cluster you can view the clusters linked to it. You can [attach](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) to a linked cluster without needing to run `dcos cluster setup` beforehand.
 
 **Prerequisites**
 
@@ -29,10 +29,9 @@ dcos cluster link <dcos-url-a>
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<dcos-url-a>`   |             | A URL or IP address to an accessible master node. |
-
+| Name, shorthand | Description |
+|---------|-------------|
+| `<dcos-url-a>`   | A URL or IP address to an accessible master node. |
 
 
 # Parent command

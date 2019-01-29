@@ -4,11 +4,11 @@
 
 ### Configure Transport Encryption
 
-#### Setup the Service Account
+#### Set up the Service Account
 
 [Grant](/latest/security/ent/perms-management/) the service account the correct permissions.
 - In DC/OS 1.10, the required permission is `dcos:superuser full`.
-- In DC/OS 1.11+ the required permissions are:
+- In DC/OS 1.11 and later, the required permissions are:
 ```
 dcos:secrets:default:/<service name>/* full
 dcos:secrets:list:default:/<service name> read
@@ -26,9 +26,9 @@ Install the DC/OS {{ model.techName }} service including the following options i
         "service_account_secret": "<full path of service secret>",
         "security": {
             "transport_encryption": {
-                "enabled": true{{ model.security.plaintext }}
+                "enabled": true{{{ model.security.plaintext }}}
             }
         }
-    }{{ model.security.extras }}
+    }{{{ model.security.extras }}}
 }
 ```

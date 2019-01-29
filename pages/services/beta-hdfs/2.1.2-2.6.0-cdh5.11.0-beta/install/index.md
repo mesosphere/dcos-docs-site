@@ -1,33 +1,30 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Install and Customize
+excerpt: Installing and customizing HDFS from CLI or web interface
 title: Install and Customize
 menuWeight: 20
 
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
-
-
 HDFS is available in the Universe and can be installed by using either the web interface or the DC/OS CLI.
 
-## Prerequisites
+# Prerequisites
 
 - Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/services/hdfs/hdfs-auth/) before installing HDFS. Only someone with `superuser` permission can create the service account.
-	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.
-	- `permissive` security mode a service account is optional.
-	- `disabled` security mode does not require a service account.
-- A minimum of five agent nodes with eight GiB of memory and ten GiB of disk available on each agent.
-- Each agent node must have these ports available: 8019, 8480, 8485, 9000, 9001, 9002, 9003, 9005, and 9006.
+- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.
+- `permissive` security mode a service account is optional.
+- `disabled` security mode does not require a service account.
+- A minimum of five agent nodes with 0.9 of CPU, 6144 Mb of memory, and 10 GiB of disk space available on each agent.
+- Each agent node must have these ports available: 8019, 8480, 8485, 9000, 9001, 9002, 9003, 9005, 9006, and 9007.
 
 # Installation
 
-Install HDFS from the DC/OS web interface. Find the package in Universe and perform an advanced installation. On the **Service** tab, scroll to the bottom and click the box next to **AGREE TO BETA TERMS**. Then, click **REVIEW AND INSTALL**.
+To install HDFS from the DC/OS web interface, find the package in Universe and perform an advanced installation. On the **Service** tab, scroll to the bottom and click the box next to **AGREE TO BETA TERMS**. Then, click **REVIEW AND INSTALL**.
 
-This command creates a new HDFS cluster with two name nodes, three journal nodes, and five data nodes. Two clusters cannot share the same name. To install more than one HDFS cluster, customize the `name` at install time for each additional instance. See the Custom Installation section for more information.
+This command creates a new HDFS cluster with two name nodes, three journal nodes, and five data nodes. Two clusters cannot share the same name. To install more than one HDFS cluster, customize the `name` at install time for each additional instance. See the [Custom Installation](#custom-install) section for more information.
 
-The default installation may not be sufficient for a production deployment, but all cluster operations will work. If you are planning a production deployment with 3 replicas of each value and with local quorum consistency for read and write operations (a very common use case), this configuration is sufficient for development and testing purposes, and it can be scaled to a production deployment.
+The default installation may not be sufficient for a production deployment, but all cluster operations will work. If you are planning a production deployment with three replicas of each value and with local quorum consistency for read and write operations (a very common use case), this configuration is sufficient for development and testing purposes, and it can be scaled to a production deployment.
 
 Once you have installed HDFS, install the CLI.
 
@@ -41,6 +38,7 @@ $ dcos package install beta-hdfs --cli
 
 Each instance of HDFS in a given DC/OS cluster must be configured with a different service name. You can configure the service name in the service section of the advanced installation section of the DC/OS web interface or with a JSON options file when installing from the DC/OS CLI. See [Multiple HDFS Cluster Installation](#multiple-install) for more information. The default service name (used in many examples here) is `beta-hdfs`.
 
+<a name="custom-install'></a>
 # Custom Installation
 
 If you are ready to ship into production, you will likely need to customize the deployment to suit the workload requirements of your application(s). Customize the default deployment by creating a JSON file, then pass it to `dcos package install` using the `--options` parameter.
@@ -61,7 +59,7 @@ The command below creates a cluster using `sample-hdfs.json`:
 $ dcos package install --options=sample-hdfs.json hdfs
 ```
 
-**Recommendation:** Store your custom configuration in source control.
+<p class="message--note"><strong>NOTE: </strong>We recommend that you store your custom configuration in source control.</p>
 
 This cluster will have 10 data nodes instead of the default value of 3.
 See the Configuration section for a list of fields that can be customized via a options JSON file when the HDFS cluster is created.
@@ -89,11 +87,9 @@ $ dcos package install beta-hdfs --options=hdfs1.json
 
 Use the `--name` argument after install time to specify which HDFS instance to query. All `dcos hdfs` CLI commands accept the `--name` argument. If you do not specify a service name, the CLI assumes the default value, `hdfs`.
 
-<!-- THIS BLOCK DUPLICATES THE OPERATIONS GUIDE -->
-
 # Integration with DC/OS access controls
 
-In Enterprise DC/OS 1.10 and above, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, `staging/hdfs` and `production/hdfs`.
+In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. Do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services; for instance, you can create `staging/hdfs` and `production/hdfs`.
 
 Steps:
 
@@ -112,29 +108,21 @@ Steps:
 
    The slashes in your service name are interpreted as folders. You are deploying HDFS in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.
 
-**Important:**
-- Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders.
-- DC/OS 1.9 and earlier does not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.
+
+<p class="message--important"><strong>IMPORTANT: </strong>Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. Also, DC/OS 1.9 and earlier does not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p> 
 
 ## Interacting with your foldered service
 
 - Interact with your foldered service via the DC/OS CLI with this flag: `--name=/path/to/myservice`.
 - To interact with your foldered service over the web directly, use `http://<dcos-url>/service/path/to/myservice`. E.g., `http://<dcos-url>/service/testing/hdfs/v1/endpoints`.
 
-<!-- END DUPLICATE BLOCK -->
-
 # Zones
 
-Placement constraints can be applied to zones by referring to the `@zone` key. For example, one could spread pods across a minimum of 3 different zones by specifying the constraint `[["@zone", "GROUP_BY", "3"]]`.
+Placement constraints can be applied to zones by referring to the `@zone` key. For example, you could spread pods across a minimum of three different zones by specifying the constraint `[["@zone", "GROUP_BY", "3"]]`.
 
-<!--
-When the region awareness feature is enabled, the `@region` key can also be referenced for defining placement constraints. Any placement constraints that do not reference the `@region` key are constrained to the local region.
--->
 ## Example
 
 Suppose we have a Mesos cluster with zones `a`,`b`,`c`.
-
-## Balanced Placement for a Single Region
 
 ```
 {
@@ -144,7 +132,7 @@ Suppose we have a Mesos cluster with zones `a`,`b`,`c`.
 }
 ```
 
-- Instances will all be evenly divided between zones `a`,`b`,`c`.
+Instances will all be evenly divided between zones `a`,`b`,`c`.
 
 # Colocation
 
@@ -312,7 +300,6 @@ Clients connecting to HDFS over a TLS connection must connect to an HTTPS specif
 
 Clients can connect only over the TLS version 1.2.
 
-<!-- THIS CONTENT DUPLICATES THE DC/OS OPERATION GUIDE -->
 ## Placement Constraints
 
 Placement constraints allow you to customize where a service is deployed in the DC/OS cluster. Depending on the service, some or all components may be configurable using [Marathon operators (reference)](http://mesosphere.github.io/marathon/docs/constraints.html) with this syntax: `field:OPERATOR[:parameter]`. For example, if the reference lists `[["hostname", "UNIQUE"]]`, you should  use `hostname:UNIQUE`.
@@ -333,30 +320,26 @@ Placement constraints can be applied to zones by referring to the `@zone` key. F
 
 When the region awareness feature is enabled (currently in beta), the `@region` key can also be referenced for defining placement constraints. Any placement constraints that do not reference the `@region` key are constrained to the local region.
 
-<!-- end duplicate block -->
-
-
 
 # Changing Configuration at Runtime
 
 You can customize your cluster in-place when it is up and running.
 
-<!-- THIS CONTENT DUPLICATES THE DC/OS OPERATION GUIDE -->
-
 The instructions below describe how to update the configuration for a running DC/OS service.
 
-## Enterprise DC/OS 1.10
+## Enterprise DC/OS 1.10 and later
 
-Enterprise DC/OS 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
+Enterprise DC/OS 1.10 introduced a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
 
 ### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer
-+ Service with a version greater than 2.0.0-x
-+ [The DC/OS CLI](/latest/cli/install/)installed and available
-+ The service's subcommand available and installed on your local machine
-  + You can install just the subcommand CLI by running `dcos package install --cli beta-hdfs`.
-  + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
+- Enterprise DC/OS 1.10 or later
+- Service with a version greater than 2.0.0-x
+- [The DC/OS CLI](/latest/cli/install/)installed and available
+- The service's subcommand available and installed on your local machine
+- You can install just the subcommand CLI by running `dcos package install --cli beta-hdfs`.
+- If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
+
     ```bash
     dcos package uninstall --cli beta-hdfs
     dcos package install --cli beta-hdfs
@@ -364,7 +347,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 ### Preparing configuration
 
-If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed the service with Enterprise DC/OS 1.10 or later, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```bash
 $ dcos beta-hdfs describe > options.json
@@ -372,9 +355,9 @@ $ dcos beta-hdfs describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
 
-**Note:** You must specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
+<p class="message--note"><strong>NOTE: </strong>You must specify all configuration values in the <code>options.json</code> file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating <code>options.json</code>" section below for information on recovering these values.</p>
 
 #### Recreating `options.json` (optional)
 
@@ -409,7 +392,7 @@ First, we'll fetch the default application's environment, current application's 
 	$ dcos package describe $SERVICE_NAME --app > marathon.json.mustache
 	```
 
-Now that you have these files, we'll attempt to recreate the `options.json`.
+	Now that you have these files, we'll attempt to recreate the `options.json`.
 
 1. Use JQ and `diff` to compare the two:
 	```bash
@@ -439,20 +422,25 @@ See [Advanced update actions](#advanced-update-actions) for commands you can use
 
 If you do not have Enterprise DC/OS 1.10 or later, the CLI commands above are not available. For Open Source DC/OS of any version, or Enterprise DC/OS 1.9 and earlier, you can perform changes from the DC/OS GUI.
 
-<!-- END DUPLICATE BLOCK -->
-These are the general steps to follow:
+These are the general steps to follow: 
 
 1.  Go to the **Services** tab of the DC/OS GUI and click the name of the HDFS service to be updated.
 
-	![HFDS in DC/OS GUI](/img/hdfs-service-gui.png)
+	![HDFS IN DC/OS GUI](/services/img/hdfs-service-gui.png "HDFS in DC/OS GUI")
+
+	Figure 1. - HDFS service in DC/OS web interface
 
 1.  Within the HDFS instance details view, click the vertical ellipsis menu in the upper right, then choose **Edit**.
 
-	![Edit tab](/img/hdfs-service-gui2.png)
+	![Edit tab](/services/img/hdfs-service-gui2.png "Edit tab")
+
+	Figure 2. - Edit tab
 
 1.  Click the **Environment** tab and make your updates. For example, to increase the number of nodes, edit the value for `DATA_COUNT`.
 
-	![Edit environment](/img/hdfs-service-gui3.png)
+	![Edit environment](/services/img/hdfs-service-gui3.png "Edit environment")
+
+	Figure 3. - Environment tab
 
 1. Click **REVIEW & RUN** to apply any changes and cleanly reload the HDFS scheduler. The HDFS cluster itself will persist across the change.
 
@@ -573,7 +561,6 @@ If you want to interrupt a configuration update that is in progress, enter the `
 $ curl -X -H "Authorization: token=$(dcos config show core.dcos_acs_token)" POST http:/<dcos_url>/service/hdfs/v1/plans/deploy/interrupt
 ```
 
-
 If you query the plan again, the response will look like this (notice `status: "Waiting"`):
 
 ```json
@@ -669,7 +656,7 @@ If you query the plan again, the response will look like this (notice `status: "
 }
 ```
 
-**Note:** The interrupt command can’t stop a block that is `STARTING`, but it will stop the change on the subsequent blocks.
+<p class="message--note"><strong>NOTE: </strong>The interrupt command can’t stop a block that is STARTING, but it will stop the change on the subsequent blocks.</p>
 
 Enter the `continue` command to resume the update process.
 

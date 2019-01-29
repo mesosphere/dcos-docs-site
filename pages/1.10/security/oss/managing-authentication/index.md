@@ -115,16 +115,16 @@ sudo journalctl -u dcos-oauth.service
 
 ## Authentication opt-out
 
-If you are doing an [advanced installation](/1.10/installing/oss/custom/advanced/), you can opt out of
-Auth0-based authentication by adding this parameter to your configuration file (`genconf/config.yaml`). For more information, see the configuration [documentation](/1.10/installing/oss/custom/configuration/configuration-parameters/).
+If you are doing an [advanced installation](/1.10/installing/production/deploying-dcos/installation/), you can opt out of
+Auth0-based authentication by adding this parameter to your configuration file (`genconf/config.yaml`). For more information, see the configuration [documentation](/1.10/installing/production/advanced-configuration/configuration-reference/).
 
 ```yaml
 oauth_enabled: 'false'
 ```
 
-If you are doing a cloud installation on [AWS](/1.10/installing/oss/cloud/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
+If you are doing a cloud installation on [AWS](/1.10/installing/evaluation/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
-If you are doing a cloud installation on [Azure](/1.10/installing/oss/cloud/azure/), you currently cannot disable authentication. This will be added in a future release along with other
+If you are doing a cloud installation on [Azure](/1.10/installing/evaluation/azure/), you currently cannot disable authentication. This will be added in a future release along with other
 options to customize authentication.
 
 Note that if you’ve already installed your cluster and would like to disable this in-place, you can go through an upgrade with the same parameter set.

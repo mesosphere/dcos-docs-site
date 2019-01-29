@@ -1,0 +1,20 @@
+nav(class='localization')
+  div(class='localization-current')
+    strong(class='localization-language')!= isChinese ? '中文 (简体)' : 'English'
+    svg(class="localization-svg")
+      path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
+  ul(class='localization-list')
+    if isChinese
+      - var enPath = `/${paths.slice(1).join('/')}`
+      li(class='localization-list-item')
+        a(href=enPath) English
+    else
+      - function findLongestCnPath(enPaths)
+        if enPaths.length == 0
+          - return '/cn/'
+        - var currPath = `/cn/${enPaths.join('/')}`
+        if hierarchy.checkIfPathExists(currPath)
+          - return currPath
+        - return findLongestCnPath(enPaths.slice(0, enPaths.length - 1))
+      li(class='localization-list-item')
+        a(href=findLongestCnPath(paths)) 中文 (简体)

@@ -205,7 +205,7 @@ Publicly accessible applications are run in the public agent node. Public agent 
  [2]: https://open.mesosphere.com/reference/mesos-master/
  [3]: /1.7/administration/installing/oss/custom/configuration-parameters/#master-discovery
  [4]: /1.7/overview/architecture/#boot
- [5]: /1.7/administration/installing/oss/custom/configuration-parameters
+ [5]: /1.7/administration/installing/oss/custom/configuration-parameters/
  [6]: /1.7/administration/sshcluster/
  [7]: /1.7/usage/webinterface/
 

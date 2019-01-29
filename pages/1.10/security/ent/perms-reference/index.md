@@ -59,6 +59,9 @@ package API through Admin Router.
 
 ## <a name="admin-router"></a>Admin Router Permissions
 
+#include /include/permissions-inheritance-disclaimer.tmpl
+
+
 Most HTTP requests made to a DC/OS cluster pass through Admin Router. For many
 HTTP endpoints Admin Router performs authorization itself. For example, the DC/OS
 user identified by `uid` must have `full` access to the protected resource
@@ -137,10 +140,10 @@ a new Marathon app in the `/dev` service group.
 
 |                                                                                                                                 Resource identifier                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
-| `dcos:service:marathon:marathon:admin:config`<br>  Controls access to the [GET /v2/info Marathon endpoint](/1.10/deploying-services/marathon-api/#/info).                                                                                                                         |      |   | x |   |   |
-| `dcos:service:marathon:marathon:admin:events` <br>Controls view access to the Marathon events endpoint [GET /v2/events](/1.10/deploying-services/marathon-api/#/events).                                                                                                           |      |   | x |   |   |
-| `dcos:service:marathon:marathon:admin:leader` <br> Controls access to the [GET/DELETE /v2/leader](/1.10/deploying-services/marathon-api/#/leader) endpoint.                                                                                                                       | x    |   | x | x |   |
-| `dcos:service:marathon:marathon:services:/[<service-group>]` Controls access to [DC/OS services](/1.10/deploying-services) launched by the native Marathon instance.                                                                                                                | x    | x | x | x | x |
+| `dcos:service:marathon:marathon:admin:config`<br>  Controls access to the [GET /v2/info Marathon endpoint](/1.10/deploying-services/marathon-api/#/info/).                                                                                                                         |      |   | x |   |   |
+| `dcos:service:marathon:marathon:admin:events` <br>Controls view access to the Marathon events endpoint [GET /v2/events](/1.10/deploying-services/marathon-api/#/events/).                                                                                                           |      |   | x |   |   |
+| `dcos:service:marathon:marathon:admin:leader` <br> Controls access to the [GET/DELETE /v2/leader](/1.10/deploying-services/marathon-api/#/leader/) endpoint.                                                                                                                       | x    |   | x | x |   |
+| `dcos:service:marathon:marathon:services:/[<service-group>]` Controls access to [DC/OS services](/1.10/deploying-services/) launched by the native Marathon instance.                                                                                                                | x    | x | x | x | x |
 | `dcos:service:metronome:metronome:jobs[:<job-group>]`<br>  Controls access to [jobs and job groups](/1.10/deploying-jobs/).                                                                                                                                                        | x    | x | x | x | x |
 
 
@@ -158,7 +161,7 @@ Marathon applications using secrets see [Configuring services and pods to use se
 ## <a name="superuser"></a>Superuser Permissions
 
 Similar to the Windows `Administrator` or Linux `root` accounts, DC/OS has the
-concept of the `superuser`. A user with permission to perform any action on the `dcos:superuser` resource has complete, unrestricted access to any operation
+concept of the `superuser`. A user with at least one permission out of `create`, `read`, `update`, `delete` or `full` on the `dcos:superuser` resource has complete, unrestricted access to any operation
 throughout DC/OS. This is extremely powerful and this permission should be
 granted sparingly.
 

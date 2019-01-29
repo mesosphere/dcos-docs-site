@@ -15,12 +15,14 @@ services:
         algolia_private_key: ${ALGOLIA_PRIVATE_KEY}
         algolia_index: ${ALGOLIA_INDEX}
         algolia_clear_index: ${ALGOLIA_CLEAR_INDEX}
+        algolia_skip_sections: ${ALGOLIA_SKIP_SECTIONS}
+        metalsmith_skip_sections: ${METALSMITH_SKIP_SECTIONS}
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - build:/src
-      - build-pdf:/src/build-pdf
+      - build-pdf:/src
   pdf:
     image: mesosphere/dcos-docs-pdf
     build:
@@ -29,14 +31,15 @@ services:
       args:
         git_branch: ${GIT_BRANCH}
     volumes:
-      - build-pdf:/src/build-pdf
+      - build-pdf:/src
   test:
     depends_on:
       - docs
     image: 18fgsa/html-proofer
     volumes:
       - build:/src
-    command: /src/build --empty-alt-ignore --url-swap "\/pdf\/:file\:\/\/\/src\/build-pdf\/"
+    command: /src/build --empty-alt-ignore --log-level=debug --url-swap \/latest\/(.*):'/1.12/\1'
+
 volumes:
   build:
   build-pdf:

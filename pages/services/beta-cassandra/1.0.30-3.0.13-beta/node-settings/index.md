@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Node Settings
 title: Node Settings
 menuWeight: 50
-excerpt:
+excerpt: Customize your node resource settings
 featureMaturity:
 enterprise: false
 ---
@@ -79,11 +79,12 @@ The service supports two volume types:
 
 Using `MOUNT` volumes requires [additional configuration on each DC/OS agent system](/1.9/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you should configure `MOUNT` volumes on the machines that will run the service in your cluster and then configure the following as `MOUNT` volumes:
 
-**Note:** It is not currently possible to change disk types on an existing deployment as data will not be migrated.  For an existing deployment, data should be backed up, the cluster re-deployed with the new disk type, and data restored.
-
 To configure the disk type:
 *   **In DC/OS CLI options.json**: `disk_type`: string (default: `ROOT`)
 *   **DC/OS web interface**: `CASSANDRA_DISK_TYPE`: `string`
+
+#include /services/include/node-disk-type-warning.tmpl
+
 
 # Placement Constraints
 

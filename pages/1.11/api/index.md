@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  API Reference
 title: API Reference
 menuWeight: 150
-excerpt: This section contains the DC/OS API reference manual.
+excerpt: DC/OS API reference manual
 
 enterprise: true
 ---
@@ -13,6 +13,7 @@ The DC/OS API is a collection of routes backed by [DC/OS components](/1.11/overv
 <!-- Use html img for horizontal centering -->
 <img src="/1.11/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
 
+Figure 1. DC/OS API routing schematic
 
 # API Gateway
 

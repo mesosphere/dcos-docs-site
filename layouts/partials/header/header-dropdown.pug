@@ -1,0 +1,16 @@
+- var paths = path.split('/')
+- var semanticVersion = /^[0-9]+\.[0-9]+/
+- var pages = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
+
+div(class='header-dropdown')
+  ul(class='header-dropdown__list')
+    each val, index in pages
+      if(val.menuWeight !== -1)
+        - var itemClass = {}
+        - itemClass['header-dropdown__item'] = true
+        - itemClass['header-dropdown__item--active'] = (val.path == '/' && semanticVersion.test(paths[0])) || (val.path != '/' && ('/' + path).includes(val.path))
+        li(class=itemClass)
+          a(href=val.path)!= val.title
+    if (!isChinese)
+      li(class='header-dropdown__item')
+        a(href='https://support.mesosphere.com') Support

@@ -17,9 +17,9 @@ The DC/OS DataStax Enterprise (DSE) Service implements a REST API that may be ac
 # REST API Authentication
 REST API requests must be authenticated. This authentication is only applicable for interacting with the DSE REST API directly. You do not need the token to access the DSE nodes themselves.
 
-If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](/1.10/security/ent/iam-api/), but you will need to manually refresh the token.
+If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](/latest/security/ent/service-auth/custom-service-auth/#using-the-dcos-enterprise-cli/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](/latest/security/ent/iam-api/#obtaining-an-authentication-token/), but you will need to manually refresh the token.
 
-If you are using open source DC/OS, follow these instructions to [pass your HTTP API token to the DC/OS endpoint]/1.10/security/oss/iam-api/).
+If you are using open source DC/OS, follow these instructions to [pass your HTTP API token to the DC/OS endpoint](/latest/security/oss/managing-authentication/iam-api/#passing-your-authentication-token-to-dcos-endpoints).
 
 Once you have the authentication token, you can store it in an environment variable and reference it in your REST API calls:
 
@@ -29,7 +29,7 @@ $ export auth_token=uSeR_t0k3n
 
 The `curl` examples in this document assume that an auth token has been stored in an environment variable named `auth_token`.
 
-If you are using Enterprise DC/OS, the security mode of your installation may also require the `--ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in cURL requests](/1.9/networking/tls-ssl/get-cert) for information on how to use the `--cacert` flag. [If your security mode is `disabled`](/1.9/networking/tls-ssl/), do not use the `--ca-cert` flag.
+If you are using Enterprise DC/OS, the security mode of your installation may also require the `--ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in cURL requests](/1.9/networking/tls-ssl/get-cert/) for information on how to use the `--cacert` flag. [If your security mode is `disabled`](/1.9/networking/tls-ssl/), do not use the `--ca-cert` flag.
 
 # Plan API
 The Plan API provides endpoints for monitoring and controlling service installation and configuration updates.

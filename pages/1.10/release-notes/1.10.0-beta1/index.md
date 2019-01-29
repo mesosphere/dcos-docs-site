@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.10.0 Beta 1
 title: Release Notes for 1.10.0 Beta 1
-menuWeight: 50
+menuWeight: 65
 excerpt:
 ---
 These are the release notes for DC/OS 1.10.0 Beta 1.
@@ -59,7 +59,7 @@ DC/OS 1.10 includes many new capabilities and expands the collection of data and
 [/ enterprise]
 
 - Custom CA certificate support.
-  Installation time [configuration options](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
+  Installation time [configuration options](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates.
 
 - Increased Admin Router security. <!-- ie TLS not supported out-of-the-box; where is the doc? is this enterprise-only?-->
 
@@ -77,19 +77,19 @@ DC/OS 1.10 includes many new capabilities and expands the collection of data and
 
 The following updated data services packages are also in beta and are compatible with DC/OS 1.10.
 
-- Beta Cassandra. [Documentation](/services/beta-cassandra/v1.0.31-3.0.13-beta/). [Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/cassandra-1.0.31-3.0.13-beta).
+- Beta Cassandra. [Documentation](/services/beta-cassandra/1.0.31-3.0.13-beta/). [Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/cassandra-1.0.31-3.0.13-beta).
 
-- Beta Elastic. [Documentation](/services/beta-elastic/v1.0.15-5.5.1-beta/). [Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/elastic-1.0.15-5.5.1-beta).
+- Beta Elastic. [Documentation](/services/beta-elastic/1.0.15-5.5.1-beta/). [Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/elastic-1.0.15-5.5.1-beta).
 
 - Beta HDFS. [Documentation](/services/beta-hdfs/v1.3.3-2.6.0-cdh5.11.0-beta/). [Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/hdfs-1.3.3-2.6.0-cdh5.9.1-beta).
 
-- Beta Kafka. [Documentation](/services/beta-kafka/v1.1.26-0.10.1.0-beta/). [Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/kafka-1.1.26-0.10.1.0-beta).
+- Beta Kafka. [Documentation](/services/beta-kafka/1.1.26-0.10.1.0-beta/). [Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/kafka-1.1.26-0.10.1.0-beta).
 
 - Spark. [Documentation](/services/spark/v1.1.1-2.2.0/). [Release Notes](https://github.com/mesosphere/spark-build/releases/tag/1.1.1-2.2.0).
 
 ## Platform
 - Node and Cluster health checks.
-  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
+  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/production/deploying-dcos/node-cluster-health-check/).
 - Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
 - Enhanced upgrades with pre/post flight checks.
 - UCR. <!-- have there been updates? -->
@@ -119,11 +119,12 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 - TLS 1.0 is no longer enabled by default in Admin Router. [enterprise type="inline" size="small" /]
 
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
-
 <!-- relevant to beta 2
 ## Latest version of Marathon-LB is required for 1.10
 Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinstall the updated version.
 -->
+
+- Moved file location for the DC/OS CA bundle in the sandbox of Mesos tasks from `$MESOS_SANDBOX/.ssl/ca.crt` to `$MESOS_SANDBOX/.ssl/ca-bundle.crt` and declared the new file path to be stable.
 
 - REX-Ray configuration change
   DC/OS 1.10 upgrades REX-Ray from v03.3. to v0.9.0 and therefore the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the `rexray_config` parameter of your `config.yaml` file, change the parameter to `rexray_config_preset: aws`.

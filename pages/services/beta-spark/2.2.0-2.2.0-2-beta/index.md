@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/mesosphere/spark-build -->
 
 
-Welcome to the documentation for the DC/OS Apache Spark. For more information about new and changed features, see the [release notes](https://github.com/mesosphere/spark-build/releases/).
+Welcome to the documentation for Apache DC/OS Spark Beta. For the latest information, see the [release notes](/services/beta-spark/2.2.0-2.2.0-2-beta/release-notes/).
 
 Apache Spark is a fast and general-purpose cluster computing system for big data. It provides high-level APIs in Scala, Java, Python, and R, and an optimized engine that supports general computation graphs for data analysis. It also supports a rich set of higher-level tools including Spark SQL for SQL and DataFrames, MLlib for machine learning, GraphX for graph processing, and Spark Streaming for stream processing. For more information, see the [Apache Spark documentation][1].
 
@@ -54,8 +54,8 @@ DC/OS Apache Spark includes:
  [1]: http://spark.apache.org/documentation.html
  [2]: http://spark.apache.org/docs/latest/running-on-mesos.html#cluster-mode
  [3]: http://spark.apache.org/docs/latest/monitoring.html#viewing-after-the-fact
- [4]: /service-docs/hdfs/
- [5]: /service-docs/kafka/
+ [4]: /services/hdfs/
+ [5]: /services/kafka/
  [6]: https://zeppelin.incubator.apache.org/
  [17]: https://github.com/mesosphere/spark
  [18]: https://github.com/mesosphere/spark-build

@@ -13,7 +13,7 @@ menuWeight: 40
 This topic describes how to configure DC/OS service accounts for Spark.
 
 When running in [DC/OS strict security mode](/1.9/security/), both the dispatcher and jobs
-must authenticate to Mesos using a [DC/OS Service Account](/1.9/security/service-auth/).
+must authenticate to Mesos using a [DC/OS Service Account](/1.9/security/ent/service-auth/).
 
 Follow these instructions to [authenticate in strict mode](/services/spark/spark-auth/).
 
@@ -168,8 +168,8 @@ are server.jks and trust.jks, respectively, then use the following commands to a
 store: 
 
 ```bash
-dcos security secrets create /spark/keystore --value-file server.jks
-dcos security secrets create /spark/truststore --value-file trust.jks
+dcos security secrets create /spark/keystore --file server.jks
+dcos security secrets create /spark/truststore --file trust.jks
 ```
 
 You must add the following configurations to your `dcos spark run ` command.

@@ -31,7 +31,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 + Enterprise DC/OS 1.10 or newer
 + Service with a version greater than 2.0.0-x
-+ [The DC/OS CLI](/latest/cli/install/)installed and available
++ [The DC/OS CLI](/latest/cli/install/) installed and available 
 + The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli beta-kafka`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
@@ -50,7 +50,7 @@ $ dcos beta-kafka describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
 
 **Note:** You must specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 

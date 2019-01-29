@@ -3,16 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos help
 title: dcos help
 menuWeight: 7
-excerpt:
+excerpt: Displaying DC/OS CLI help information
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
-Display DC/OS CLI help information.
+The `dcos help` command allows you to display DC/OS CLI help information.
 
 # Usage
 
@@ -22,18 +19,18 @@ dcos help <subcommand>
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--help, h`   |             |  Print usage. |
-| `--info`   |             |  Print a short description of this subcommand. |
-| `--version, v`   |             | Print version information. |
-| `<subcommand>`   |             | The subcommand name. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--help, h`   |   Display usage. |
+| `--info`   |   Display a short description of this subcommand. |
+| `--version, v`   |  Display version information. |
+| `<subcommand>`   | The subcommand name. |
 
 # Examples
 
 ## Display help for dcos config command
 
-The `dcos help config` command is the same as `dcos config --help`.
+The `dcos help config` command is the same as [`dcos config --help`](/1.11/cli/command-reference/dcos-config/).
 
 ```bash
 dcos help config
@@ -52,7 +49,7 @@ Commands:
     set
         Add or set a DC/OS configuration property.
     show
-        Print the DC/OS configuration file contents.
+        Display the DC/OS configuration file contents.
     unset
         Remove a property from the configuration file.
     validate
@@ -60,11 +57,11 @@ Commands:
 
 Options:
     -h, --help
-        Print usage.
+        Display usage.
     --info
-        Print a short description of this subcommand.
+        Display a short description of this subcommand.
     --version
-        Print version information.
+        Display version information.
 
 Positional Arguments:
     <name>

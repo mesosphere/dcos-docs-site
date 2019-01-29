@@ -53,7 +53,7 @@ $ dcos confluent-kafka describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
 
 <strong>Note:</strong> You need to specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 

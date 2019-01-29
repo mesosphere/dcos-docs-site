@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Using a Private Docker Registry
 title: Using a Private Docker Registry
 menuWeight: 4
-excerpt:
+excerpt: Creating an archive for a private Docker registry
 
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 To supply credentials to pull from a private Docker registry, create an archive of your Docker credentials, then add it as a URI in your service or pod definition. In DC/OS Enterprise, you can also [upload your private Docker registry credentials to the DC/OS Secret store](#secret-store-instructions) and reference it in your service or pod definition.
@@ -21,10 +19,10 @@ To supply credentials to pull from a private Docker registry, create an archive 
 1. Log in to the private registry manually. Login creates a `.docker` folder and a `.docker/config.json` file in your home directory.
 
     ```bash
-      docker login some.docker.host.com
-      Username: foo
-      Password:
-      Email: foo@bar.com
+    docker login some.docker.host.com
+    Username: foo
+    Password:
+    Email: foo@bar.com
     ```
 
 1. Compress the `.docker` folder and its contents.
@@ -48,7 +46,8 @@ To supply credentials to pull from a private Docker registry, create an archive 
     cp docker.tar.gz /etc/
     ```
 
-    **Important:** The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like [Amazon S3](http://aws.amazon.com/s3/). Consider the security implications of your chosen approach carefully.
+
+<p class="message--important"><strong>IMPORTANT: </strong> The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like <a href="http://aws.amazon.com/s3/">Amazon S3</a>. Consider the security implications of your chosen approach carefully.</p>
 
 ## Step 2: Add URI path to service definition
 
@@ -91,7 +90,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
 
 Follow these steps to add your Docker registry credentials to the [DC/OS Enterprise secrets store](/1.11/security/ent/secrets/), and then reference that secret in your service definition.
 
-**Note:** This functionality is available only with the [Universal Containerizer Runtime](/1.11/deploying-services/containerizers/ucr/). If you need to use the Docker Engine, follow the [URI instructions](#uri-instructions) above.
+<p class="message--important"><strong>IMPORTANT: </strong>This functionality is available only with the <a href="/1.11/deploying-services/containerizers/ucr/">Universal Container Runtime</a>). If you need to use the Docker Engine, follow the URI instructions above.</p>
 
 ## Step 1: Create a credentials file
 
@@ -124,20 +123,24 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
     }
     ```
 
-    **Note:** If you are using Mac OSX, you will need to manually encode your `username:password` string and modify your `config.json` to match the snippet above.
+    If you are using Mac OS, you will need to manually encode your `username:password` string and modify your `config.json` to match the snippet above. Be sure to omit a trailing new-line when base64 encoding the pair:
+
+    ```bash
+    echo -n myuser@domain.com:hard-to-guess-password | base64
+    ```
 
 1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](/1.9/security/ent/secrets/create-secrets/).
 
-   **Note:** As of DC/OS version 1.10.0, you can add a file to the secret store only using the DC/OS CLI.
+   <p class="message--note"><strong>NOTE: </strong>As of DC/OS version 1.10.0, you can add a file to the secret store only using the DC/OS CLI.</p>
 
    ```bash
-   dcos security secrets create --value-file=config.json <path/to/secret>
+   dcos security secrets create --file=config.json <path/to/secret>
    ```
 
    If you plan to follow the example below, enter the following command to add the secret:
 
    ```bash
-   dcos security secrets create --value-file=config.json mesos-docker/pullConfig
+   dcos security secrets create --file=config.json mesos-docker/pullConfig
    ```
 
 ## Step 2: Add the secret to your service or pod definition
@@ -146,7 +149,7 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 
 1. Add a location for the secret in the `secrets` parameter and a reference to the secret in the `docker.pullConfig` parameter.
 
-   **Note:** This functionality is _only_ supported with the Universal Container Runtime: `container.type` must be `MESOS`.
+   <p class="message--important"><strong>IMPORTANT: </strong>This functionality is <strong>only</strong> supported with the Universal Container Runtime: <code>container.type</code> must be <code>MESOS</code>.</p>
 
    ```json
    {
@@ -184,7 +187,7 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 
 1. Add a location for the secret in the `secrets` parameter and a reference to the secret in the `containers.image.pullConfig` parameter.
 
-   **Note:** This functionality is only supported if `image.kind` is set to `DOCKER`.
+   <p class="message--important"><strong>IMPORTANT: </strong>This functionality is only supported if <code>image.kind</code> is set to <code>DOCKER</code>.</p>
 
    ```json
    {
@@ -230,3 +233,48 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
       ```
 
    The Docker image will now pull using the provided security credentials.
+
+
+<a name="tarball-instructions"></a>
+# Pushing a custom image to a private registry from a tarball
+
+If you asked your sales representative for an enterprise version of Marathon, you may have been given a Docker image in a `.tar` archive. Follow these steps to deploy it to your registry:
+
+## Step 1: Import in the local machine
+
+1. Load the tarball into your local Docker client, passing the path to your custom tarball. For example, `marathon-dcos-ee.<version>.tar`:
+   ```bash
+   docker load -i marathon-dcos-ee.<version>.tar
+   ```
+
+    **Tip:** You can view the Marathon image with this command.
+
+    ```
+    docker images
+    ```
+
+    You should see output similar to this:
+
+    ```bash
+    REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+    mesosphere/marathon-dcos-ee   1.4.0-RC4_1.9.4     d1ffa68a50c0        3 months ago        926.4 MB
+    ```
+
+## Step 2: Push the image to the repository
+
+1. Re-tag the file to match the repository that you are using in your private Docker registry:
+   ```bash
+   docker tag \
+    mesosphere/marathon-dcos-ee:<mesosphere-tag> \
+    <your-repo>/marathon-dcos-ee:<your-tag>
+   ```
+
+   Where:
+
+   - `<mesosphere-tag>` is the tag of the image from Mesosphere. Typically, this will match the version number in the filename.
+   - `<your-repo>` is the name of the private repository that you want to store the image in.
+   - `<your-tag>` is the tag for the image. It is recommended that you use the same tag as the Mesosphere image.
+1. Push the new image to your private Docker registry:
+   ```bash
+   docker push <your-repo>/marathon-dcos-ee:<your-tag>
+   ```

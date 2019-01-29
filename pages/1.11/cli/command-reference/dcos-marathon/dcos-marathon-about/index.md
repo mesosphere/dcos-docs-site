@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon about
 title: dcos marathon about
 menuWeight: 0
-excerpt:
+excerpt: Displays the info.json file for DC/OS Marathon
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Print `info.json` for DC/OS Marathon.
+The `dcos marathon about` command will display the `info.json` file for DC/OS Marathon.
 
 # Usage
 
@@ -30,4 +28,3 @@ None.
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->

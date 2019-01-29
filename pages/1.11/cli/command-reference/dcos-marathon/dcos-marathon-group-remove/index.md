@@ -3,16 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos marathon group remove
 title: dcos marathon group remove
 menuWeight: 19
-excerpt:
+excerpt: Removing a Marathon application from DC/OS
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 # Description
-Deploy and manage applications to DC/OS.
+The `dcos marathon group remove` command allows you to remove applications from DC/OS.
 
 # Usage
 
@@ -22,15 +19,15 @@ dcos marathon group remove <group-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--force`   |             | Disable checks in Marathon during updates. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--force`   |  Disable checks in Marathon during updates. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<group-id>`   |             |  The group ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<group-id>`   |   The group ID. You can view a list of the group IDs with the `dcos marathon group list` command.|
 
 # Parent command
 
@@ -38,4 +35,3 @@ dcos marathon group remove <group-id> [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->

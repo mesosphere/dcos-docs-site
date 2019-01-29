@@ -1,0 +1,66 @@
+mixin renderSidebarHeader()
+  - var showDropdown = true
+  if !dropdown.length || (dropdown.length == 1 && semverService.test(dropdown[0].id))
+    - showDropdown = false
+  header(class='sidebar__header')
+    div(class='sidebar__dropdown')
+      if showDropdown
+        ul(class='sidebar__dropdown__list')
+          each val, index in dropdown
+            if val.navigationTitle || val.title
+              li(class='sidebar__dropdown__item')
+                a(href=val.path, class='sidebar__dropdown__link')!= val.navigationTitle || val.title
+      div(class='sidebar__dropdown__toggle')
+        p(class='sidebar__dropdown__text')
+          span(class='sidebar__dropdown__text__title')!= (service) ? service.title : 'Mesosphere DC/OS'
+          span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
+        if showDropdown
+          i(class='sidebar__dropdown__icon', data-feather='chevron-down')
+
+mixin renderSidebarNavListItem(item, depth)
+  - var itemClassList = {}
+  - itemClassList['sidebar__nav__item'] = true
+  - itemClassList['sidebar__nav__item--active'] = currentPath.indexOf(item.path) !== -1
+  - itemClassList['sidebar__nav__item--active-on'] = currentPath == item.path
+  - var hasChildren = Object.keys(item.children).length !== 0
+  - itemClassList['sidebar__nav__item--parent'] = hasChildren
+  if item.navigationTitle || item.title
+    li(class=itemClassList)
+      - var itemContainerClassList = {}
+      - itemContainerClassList['sidebar__nav__item__container'] = true
+      - itemContainerClassList['sidebar__nav__item__container--depth-' +  depth] = true
+      a(href=item.path, class=itemContainerClassList)
+        if(hasChildren)
+          i(class='sidebar__nav__icon', data-feather='chevron-right')
+        div(class='sidebar__nav__text')!= item.navigationTitle || item.title
+    if(hasChildren)
+      - var listClassList = {}
+      - listClassList['sidebar__nav__list'] = true
+      - listClassList['sidebar__nav__list--active'] = currentPath.indexOf(item.path) !== -1
+      ul(class=listClassList)
+        each val, index in item.children
+          if val.menuWeight != -1
+            +renderSidebarNavListItem(val, depth + 1)
+
+mixin renderSidebarNav()
+  nav(role='navigation', class='sidebar__nav')
+    - var listClassList = {}
+    - listClassList['sidebar__nav__list'] = true
+    - listClassList['sidebar__nav__list--active'] = true
+    ul(class=listClassList)
+      each val, index in item.children
+        if val.menuWeight != -1
+          +renderSidebarNavListItem(val, 0)
+
+mixin renderSidebarFooter()
+  footer(class='sidebar__footer')
+    div(class='sidebar__footer-links')
+      a(href='https://mesosphere.com/terms/') Terms of Service
+      a(href='https://mesosphere.com/privacy/') Privacy Policy
+    a(class='sidebar__footer-copyright', href='https://mesosphere.com/')!= copyright
+
+div(class='layout__sidebar layout__drawer')
+  section(class='sidebar')
+    +renderSidebarHeader()
+    +renderSidebarNav()
+    +renderSidebarFooter()

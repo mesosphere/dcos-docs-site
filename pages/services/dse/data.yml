@@ -4,11 +4,16 @@ packageName: datastax-dse
 serviceName: datastax-dse
 techName: DataStax Enterprise
 techShortName: DSE
+techMidName: DataStax
+techOpsName: OpsCenter
+opsPackageName: datastax-ops
+
 
 # Values specific to certain templates:
 
 security:
-  plaintext: ", \"allow_plaintext\": <true|false default false>"
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
 
 operations:
   complete-deploy: |

@@ -49,7 +49,7 @@ You can also install DC/OS Apache Cassandra from [the DC/OS web interface](/late
 
    ```bash
    $ dcos node ssh --master-proxy --leader
-   $ docker run -it cassandra:3.0.14 cqlsh node-0-server.cassandra.autoip.dcos.thisdcos.directory
+   $ docker run -it cassandra:3.0.15 cqlsh node-0-server.cassandra.autoip.dcos.thisdcos.directory
    node-0-server.cassandra.autoip.dcos.thisdcos.directory:9042
    > CREATE KEYSPACE space1 WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
    > USE space1;

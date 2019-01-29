@@ -2,22 +2,23 @@
 # Util
 #
 
+
 clean: ## Remove all build folders
 	./scripts/clean.sh
 
 reduce-pages:
 	./scripts/reduce-pages.sh
 
-#
-# Migration
-#
 
-migration:
-	./scripts/migration.sh
+nginx-test: ## Test and run Nginx config
+	./scripts/nginx-test.sh
 
 #
-# Redirects
+# Link Management
 #
+
+redirects-replace-old:
+	./scripts/links/redirects_replace_old.sh
 
 build-redirects:
 	npm run crawler
@@ -26,6 +27,7 @@ build-redirects:
 # Build
 #
 
+## Rebuild nginx, swagger, and static content
 build-development: build-api
 	npm run dev
 
@@ -75,7 +77,7 @@ docker-pdf-run: ## Run pdf container.
 	docker-compose -f ./docker/docker-compose.production.yml up -d pdf
 
 docker-site-check-links: ## Run link checker test
-	docker-compose -f ./docker/docker-compose.production.yml up test
+	docker-compose -f ./docker/docker-compose.production.yml up --build test
 
 docker-purge:
 	./scripts/docker-purge.sh

@@ -1,14 +1,19 @@
 ---
 layout: layout.pug
-excerpt:
-title: Connecting Apps/Service Discovery
+excerpt: Part 4  - Connecting Apps/Service Discovery
+title: Tutorial - Connecting Apps/Service Discovery
 navigationTitle: Service Discovery
 menuWeight: 4
 ---
 
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> 
+</tr> 
+</table>
+
 Welcome to part 4 of the DC/OS 101 Tutorial
 
-<table class="table" bgcolor="#FAFAFA"> <tr> <td align=justify style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;">**Important:** Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is purely to demonstrate capabilities, and it may not be suited for use in a production environment. Before using a similar solution in your environment, you should adapt, validate, and test.</td> </tr> </table>
 
 # Prerequisites
 * A [running DC/OS cluster](/1.11/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.11/tutorials/dcos-101/cli/).
@@ -23,23 +28,23 @@ In this section, you will learn about DC/OS service discovery by exploring the d
 # Service Discovery
   [Service discovery](/1.11/networking/) enables addressing of applications independently of where they are running in the cluster, which is particularly useful in cases where applications may fail and be restarted on a different host.
 
-  DC/OS provides two options for service discovery: 
+  DC/OS provides two options for service discovery:
 
   1. Mesos-DNS
   1. Named Virtual IPs.
 
 
-SSH into the Mesos master node in your cluster to see how these different service discovery methods work: 
+SSH into the Mesos master node in your cluster to see how these different service discovery methods work:
 
 `dcos node ssh --master-proxy --leader`
 
 # Mesos-DNS
-  
-  [Mesos-DNS](/1.11/networking/mesos-dns/) assigns DNS entries for every task, which are resolvable from any node in the cluster. The naming pattern for these entries is  *task.scheduler.mesos*
-  
+
+  [Mesos-DNS](/1.11/networking/DNS/mesos-dns/) assigns DNS entries for every task, which are resolvable from any node in the cluster. The naming pattern for these entries is  *task.scheduler.mesos*
+
   The default scheduler for jobs is [Marathon](/1.11/overview/architecture/components/#marathon), so the Mesos-DNS name for your Redis service is *redis.marathon.mesos*.
-  
-  Let's use the [dig](https://linux.die.net/man/1/dig) command to retrieve the address record (also called the A record). Dig is a command line utility to query DNS servers. When used without argument, it will use the system-wide configured DNS servers to query against, which in a DC/OS cluster is configured to point at Mesos-DNS: 
+
+  We will use the [dig](https://linux.die.net/man/1/dig) command to retrieve the address record (also called the A record). Dig is a command line utility to query DNS servers. When used without argument, it will use the system-wide configured DNS servers to query against, which in a DC/OS cluster is configured to point at Mesos-DNS:
 
   `dig redis.marathon.mesos`
 
@@ -54,10 +59,10 @@ SSH into the Mesos master node in your cluster to see how these different servic
 
   The A record only contains IP address information about the host. To connect to the service, you also need to know the port. In order to achieve this, Mesos-DNS also assigns a Service, or SRV, record for each Marathon app, containing the port number.
 
-  Use the following dig command to access the SRV record: 
+  Use the following dig command to access the SRV record:
 
   `dig srv _redis._tcp.marathon.mesos`
-  
+
   The answer should look similar to this response:
 
   ```
@@ -71,16 +76,15 @@ SSH into the Mesos master node in your cluster to see how these different servic
   This output tells you that your Redis service is running on `10.0.0.43:30585`
 
 # Named Virtual IPs
-  
-  * [Named VIPs](/1.11/networking/load-balancing-vips/) allow you to assign name/port pairs to your apps, which means you can give your apps meaningful names with a predictable port. They also provide built-in load balancing when using multiple instances of an application. 
-  For example, you can assign a named VIP to your Redis service by adding the following to the package definition:
+
+  * [Named VIPs](/1.11/networking/load-balancing-vips/) allow you to assign name/port pairs to your apps, which means you can give your apps meaningful names with a predictable port. They also provide built-in load balancing when using multiple instances of an application. For example, you can assign a named VIP to your Redis service by adding the following to the package definition:
 
   ```
   "VIP_0": "/redis:6379"
   ```
 
   The full name is then generated using the following schema:
-  *vip-name.scheduler.l4lb.thisdcos.directory:vip-port*. 
+  vip-name.scheduler.l4lb.thisdcos.directory:vip-port
 
   As we can see from the example [application](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py), this is the mechanism used by the redis package, and so you can access the Redis service from within the cluster at `redis.marathon.l4lb.thisdcos.directory:6379`.
 

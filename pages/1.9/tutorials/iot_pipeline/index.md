@@ -192,7 +192,7 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
 1.  Click the **Catalog** tab. Click the **zeppelin** package and click the **CONFIGURE** button.
     1.  Click the **spark** tab and set `cores_max` to `8`.
     1.  Click **REVIEW AND DEPLOY** and click **DEPLOY**. Click **GO TO SERVICE**.
-1.  Install Marathon-LB by following [these instructions](/1.9/networking/marathon-lb/mlb-auth/). Depending on your [security mode](/1.9/security/ent/#security-modes), Marathon-LB requires service authentication for access to DC/OS. 
+1.  Install Marathon-LB by following [these instructions](/services/marathon-lb/mlb-auth/). Depending on your [security mode](/1.9/security/ent/#security-modes), Marathon-LB requires service authentication for access to DC/OS. 
 2.  Monitor the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
     ![Services tab with all services shown.](/1.9/img/tweeter-services6-ee.png)
@@ -333,7 +333,7 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
  [9]: /1.9/administering-clusters/locate-public-agent/
  [10]: /1.9/img/webui-universe-install.png
  [11]: /1.9/cli/command-reference/
- [12]: /1.9/networking/marathon-lb/
+ [12]: /services/marathon-lb/
  [13]: https://github.com/mesosphere/tweeter
  [14]: /1.9/img/tweeter.png
  [15]: /1.9/img/network-tab.png

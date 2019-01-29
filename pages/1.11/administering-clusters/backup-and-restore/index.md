@@ -15,6 +15,10 @@ You may wish to back up your cluster before performing an upgrade or downgrade. 
 # Limitations
 
 - As of DC/OS 1.10, backups include only the state of Marathon running on master nodes.
-- You can perform backup and restore operations only from the DC/OS Enterprise [backup and restore CLI](/1.11/administering-clusters/backup-and-restore/backup-restore-cli) and the [backup and restore API](/1.11/administering-clusters/backup-and-restore/backup-restore-api).
+- You can perform backup and restore operations only from the DC/OS Enterprise [backup and restore CLI](/1.11/administering-clusters/backup-and-restore/backup-restore-cli/) and the [backup and restore API](/1.11/administering-clusters/backup-and-restore/backup-restore-api/).
 
-**Important:** When you perform a backup or restore, Marathon is rebooted in order to be able to perform the operation in a consistent state. This will not affect running tasks, but if a task is launching something at that time, you can experience brief unavailability.
+<table class=“table” bgcolor=#858585>
+<tr> 
+  <td align=justify style=color:white><strong>Important:</strong> When you perform a backup or restore, Marathon is rebooted in order to be able to perform the operation in a consistent state. This will not affect running tasks, but if a task is launching something at that time, you can experience brief unavailability.</td> 
+</tr> 
+</table>

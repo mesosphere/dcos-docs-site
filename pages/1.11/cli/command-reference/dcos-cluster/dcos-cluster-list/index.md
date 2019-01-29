@@ -2,15 +2,14 @@
 layout: layout.pug
 navigationTitle:  dcos cluster list
 title: dcos cluster list
-menuWeight: 3
-excerpt: How to list the clusters that are connected to the DC/OS CLI.
-
+menuWeight: 4
+excerpt: Listing the clusters that are connected to the DC/OS CLI
 
 enterprise: false
 ---
 
 # Description
-The dcos-cluster list command will list the clusters that are connected to the DC/OS CLI.
+The `dcos-cluster list` command allows you to list the clusters that are connected to the DC/OS CLI.
 
 # Usage
 
@@ -20,10 +19,10 @@ dcos cluster list [--attached --json]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--attached`   |             | Attached clusters only. |
-| `--json`   |             |  Print JSON-formatted list. |
+| Name, shorthand | D Description |
+|---------|-------------|
+| `--attached`   | Attached clusters only. |
+| `--json`   |  Display a JSON-formatted list. |
 
 
 # Parent command

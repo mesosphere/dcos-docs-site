@@ -1,17 +1,17 @@
-## Enterprise DC/OS 1.10 and Above
+## Enterprise DC/OS 1.10 and later
 
 Enterprise DC/OS 1.10 introduced a convenient command line option that allows for easier updates to a service's configuration and version, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
 
-In Enterprise DC/OS 1.11 and above, configuration updates may be done from the UI as well as from the CLI, but managing the phases and steps of an update must be done from the CLI. Service version updates must always be done from the CLI.
+In Enterprise DC/OS 1.11 and later, configuration updates may be done from the UI as well as from the CLI, but managing the phases and steps of an update must be done from the CLI. Service version updates must always be done from the CLI.
 
 #### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer
-+ A DC/OS SDK-based Service with a version greater than 2.0.0-x
++ Enterprise DC/OS 1.10 or later
++ A DC/OS SDK-based Service with a version later than 2.0.0-x
 + [The DC/OS CLI](/latest/cli/install/) installed and available
 + The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli {{ model.packageName }}`.
-  + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
+  + If you are running an older version of the subcommand CLI that does not have the `update` command, uninstall and reinstall your CLI.
     ```bash
     dcos package uninstall --cli {{ model.packageName }}
     dcos package install --cli {{ model.packageName }}
@@ -41,7 +41,7 @@ Package can be upgraded to: ["1.0.2-1.2.3"]
 $ dcos package uninstall --cli {{ model.packageName }}
 $ dcos package install --cli {{ model.packageName }} --package-version="<version>"
 ```
-1. Once the CLI subcommand has been updated, call the update start command, passing in the version
+2. After the CLI subcommand has been updated, call the `update start` command, passing in the version
 ```bash
 $ dcos {{ model.packageName }} update start --package-version="<version>"
 ```
@@ -82,11 +82,12 @@ If the service was previously installed on DC/OS 1.9, and the cluster has now be
 
 Using the version controlled options file of the service, start a configuration update:
 ```bash
-dcos {{ model.pacakgeName }} update start --options=<options-file>
+dcos {{ model.packageName }} update start --options=<options-file>
 ```
-This will update the service metadata with the correct stored options. The service scheduler will be restarted, but service tasks will not. Going forwards you can use the `update` commands as described elsewhere.
+This will update the service metadata with the correct stored options. The service scheduler will be restarted, but service tasks will not. Going forward, you can use the `update` commands as described elsewhere.
 
-<strong>Note:</strong> It is critical to do the update with the exact options the service is currently running with in this upgrade step, any option not specified in the options file will be lost and the default used.
+<p class="message--warning"><strong>WARNING: </strong>It is critical to do the update with the exact options the service is currently running with in this upgrade step. Any option not specified in the options file will be lost and the default used.</p>
+
 
 #### Starting the update
 
@@ -102,7 +103,7 @@ See [Advanced update actions](#advanced-update-actions) for commands you can use
 
 ### Advanced update actions
 
-The following sections describe advanced commands that be used to interact with an update in progress.
+The following sections describe advanced commands that may be used to interact with an update in progress.
 
 #### Monitoring the update
 
@@ -131,7 +132,7 @@ You will receive an error message if the plan has already completed or has alrea
 If the update is in a `WAITING` state, as a result of being paused or reaching a breakpoint that requires manual operator verification, you can use the `resume` command to continue the update:
 
 ```bash
-$ dcos {{ model.packagename }} update resume
+$ dcos {{ model.packageName }} update resume
 ```
 
 You will receive an error message if you attempt to `resume` an update that is already in progress or has already completed.
@@ -148,7 +149,7 @@ The names of the phases and the steps can be determined by running the `update s
 
 #### Force Restart
 
-Similar to force complete, you can also force a restart. This can either be done for an entire update, a phase of the update, or just for a specific step within a phase.
+Similar to `force complete`, you can also force a restart. This can either be done for an entire update, a phase of the update, or just for a specific step within a phase.
 
 To restart the entire update:
 ```bash
@@ -182,7 +183,7 @@ For Open Source DC/OS of any version, or Enterprise DC/OS 1.9 and earlier, you c
 
 #### Finding the correct environment variable
 
-While DC/OS Enterprise 1.10 and above support changing the configuration using the option schema directly, DC/OS Open and versions 1.9 and earlier require mapping those options to the environment variables that are passed to the service scheduler.
+While DC/OS Enterprise 1.10 and later support changing the configuration using the option schema directly, DC/OS Open Source and versions 1.9 and earlier require mapping those options to the environment variables that are passed to the service scheduler.
 
 The correct environment variable for a given setting can vary depending on the service. For instance, some services have multiple types of nodes, each with separate count settings.
 

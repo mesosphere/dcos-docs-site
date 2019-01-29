@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Agent Routes
 title: Agent Routes
 menuWeight: 11
-excerpt: Learn how to use the Admin Router Agent running on DC/OS agent nodes.
+excerpt: Using the Admin Router Agent running on DC/OS agent nodes
 
 ---
 The Admin Router Agent runs on DC/OS agent nodes. It exposes the following API routes.

@@ -68,9 +68,9 @@ Following are the steps for Edge-LB Pool configuration:
   ```
   2. **Get the DNS address using the following:**
   ```shell
-  dcos nifi endpoints web --name=<service_name>
+  dcos nifi endpoints node --name=<service_name>
   ```  
-  3. **Create the configration json file with required parameters to access nifi web.**
+  3. **Create the configration json file with required parameters to access nifi.**
 
   Example as follows (Without TLS and Kerberos):
 

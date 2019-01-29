@@ -3,19 +3,19 @@ layout: layout.pug
 navigationTitle:  Upgrading Edge-LB
 title: Upgrading Edge-LB
 menuWeight: 25
-excerpt:
+excerpt: Upgrading an Edge-LB installation
 
 enterprise: false
 ---
 
 Perform an Edge-LB upgrade by following this procedure.
 
-1. Uninstall the apiserver.
+1. Uninstall the `apiserver`.
 
     ```bash
     dcos package uninstall edgelb --yes
     ```
-    
+
 1. Remove the old package repositories.
 
     ```bash
@@ -31,8 +31,8 @@ Perform an Edge-LB upgrade by following this procedure.
     dcos package repo add --index=0 edgelb-pool-aws \
       https://<AWS S3 bucket>/stub-universe-edgelb-pool.json
     ```
-    
-1. Install the new apiserver (use the service account created when installing the previous version, see [Edge-LB Installation Guide](/services/edge-lb/1.0/installing) for more information).
+
+1. Install the new `apiserver`. Use the service account created when installing the previous version; see [Edge-LB Installation Guide](/services/edge-lb/1.0/installing/) for more information.
 
     ```bash
     tee edgelb-options.json <<EOF
@@ -47,7 +47,8 @@ Perform an Edge-LB upgrade by following this procedure.
     dcos package install --options=edgelb-options.json edgelb
     ```
 
-1. Upgrade each pool.
+
+Upgrade each pool.
 
     ```bash
     dcos edgelb update <pool-file>

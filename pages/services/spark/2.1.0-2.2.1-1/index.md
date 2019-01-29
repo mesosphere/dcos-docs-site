@@ -2,16 +2,15 @@
 layout: layout.pug
 navigationTitle:  Spark 2.1.0-2.2.1-1
 title: Spark 2.1.0-2.2.1-1
-menuWeight: 30
-excerpt:
+menuWeight: 4
+excerpt: Welcome to the documentation for DC/OS Apache Spark. 
 featureMaturity:
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
-Welcome to the documentation for the DC/OS Apache Spark. For more information about new and changed features, see the [release notes](https://github.com/mesosphere/spark-build/releases/).
+Welcome to the documentation for DC/OS Apache Spark. For more information about new and changed features, see the [release notes](/services/spark/2.1.0-2.2.1-1/release-notes/).
 
 Apache Spark is a fast and general-purpose cluster computing system for big data. It provides high-level APIs in Scala, Java, Python, and R, and an optimized engine that supports general computation graphs for data analysis. It also supports a rich set of higher-level tools including Spark SQL for SQL and DataFrames, MLlib for machine learning, GraphX for graph processing, and Spark Streaming for stream processing. For more information, see the [Apache Spark documentation][1].
 

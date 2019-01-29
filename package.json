@@ -8,8 +8,10 @@
     "node": "8.1.2"
   },
   "scripts": {
-    "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
-    "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
+    "dev:tutorials": "RENDER_PATH_PATTERN=1.11/tutorials/** NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
+    "dev:services": "RENDER_PATH_PATTERN=services/cassandra/2.2.0-3.0.16/** NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
+    "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
+    "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
     "build-pdf": "NODE_ENV=pdf DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
     "webpack": "webpack --progress --colors",
     "eslint": "eslint js/**.js",
@@ -20,6 +22,9 @@
   "devDependencies": {
     "algoliasearch": "^3.24.3",
     "autoprefixer": "^7.1.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "bootprint": "^1.0.0",
     "bootprint-openapi": "^1.1.0",
     "browser-sync": "^2.18.12",
@@ -49,6 +54,7 @@
     "metalsmith-copy": "^0.4.0",
     "metalsmith-data-loader": "^1.1.2",
     "metalsmith-headings": "^0.2.0",
+    "metalsmith-ignore": "^0.1.2",
     "metalsmith-layouts": "^1.8.1",
     "metalsmith-markdownit": "^0.4.0",
     "metalsmith-permalinks": "^0.5.0",

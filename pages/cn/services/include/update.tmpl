@@ -1,0 +1,199 @@
+## Enterprise DC/OS 1.10 及更高版本
+
+Enterprise DC/OS 1.10 引入了方便的命令行选项，允许更快更新服务的配置和版本，允许用户检查更新状态、暂停和恢复更新以及必要时重新启动或完成步骤。
+
+在 Enterprise DC/OS 1.11 及更高版本中，可以从 UI 和 CLIT 完成配置更新，但是管理更新的阶段和步骤必须从 CLI 完成 。服务版本更新必须始终从 CLI 完成。
+
+#### 先决条件 
+
++ Enterprise DC/OS 1.10 或更高版本
++ 基于 DC/OS SDK 的服务，版本高于 2.0.0-x
++ [DC/OS CLI](/cn/1.11/cli/install/) 已安装并可用
++ 服务子命令可用并已安装在您的本地机器上
+ + 您可以通过运行`dcos package install --cli {{ model.packageName }}`仅安装子命令 CLI。
+ + 如果您运行没有 `update` 命令的子命令 CLI 的较旧版本，卸载并重新安装 CLI。
+
+      ```bash
+    dcos package uninstall --cli {{ model.packageName }}
+    dcos package install --cli {{ model.packageName }}
+    ```
+
+
+### 更新服务版本
+
+#### 查看可用版本
+
+`update package-versions` 命令允许您查看您可以升级或降级的 {{ model.techName }} 服务的版本。
+
+CLI 命令为：
+```bash
+$ dcos {{ model.packageName }} update package-versions
+```
+
+结果将为如下形式：
+```bash
+Current package version is: "1.0.1-1.2.3"
+Package can be downgraded to: ["1.0.0-1.2.3"]
+Package can be upgraded to: ["1.0.2-1.2.3"]
+```
+
+#### 升级或降级服务
+
+1. 在更新服务本身之前，将其 CLI 子命令更新为新版本：
+```bash
+$ dcos package uninstall --cli {{ model.packageName }}
+$ dcos package install --cli {{ model.packageName }} --package-version="<version>"
+```
+
+2. CLI 子命令更新后，调用 `update start` 命令，传递于版本
+```bash
+$ dcos {{ model.packageName }} update start --package-version="<version>"
+```
+如果您缺少强制性配置参数，该 `update` 命令将返回错误。
+
+若要提供缺失配置值或覆盖配置值，您也可以提供 `options.json` 文件（请参见下面的 [更新配置](#updating-configuration) ：
+```bash
+$ dcos {{ model.packageName }} update start --options=options.json --package-version="<version>"
+```
+
+更新的默认行为是按“默认”、“已存储”和“已提供”配置的顺序进行合并，然后
+按架构进行验证。在某些情况下，例如，删除架构选项时，默认行为
+可能导致配置无效。您可以通过 `--replace=true` 加以解决，其被指定时
+将使用“已提供”选项覆盖“已存储”选项。
+```bash
+$ dcos {{ model.packageName }} update start --options=options.json --replace=true --package-version="<version>"
+```
+
+请参阅 [高级更新操作](#advanced-update-actions)，了解用于在启动后检查和操作更新的命令。
+
+### 更新配置
+
+#### 准备配置
+
+如果您使用 Enterprise DC/OS 1.10 安装服务，您可以获取服务的完整配置（包括安装期间应用的任何默认值）。
+
+```bash
+$ dcos {{ model.packageName }} describe > options.json
+```
+对此`options.json`文件进行任何配置更改。
+
+
+##### 在 DC/OS 1.9 至 DC/OS 1.10 升级后的更新
+
+如果该服务之前已安装在 DC/OS 1.9 上，且群集现已升级到 DC/OS 1.10，它将不具备 `update` 命令成功执行所需要的元数据。您需要执行初始更新以创建元数据。
+
+使用服务的版本控制选项文件，启动配置更新：
+```bash
+dcos {{ model.pacakgeName }} update start --options=<options-file>
+```
+这将使用正确的存储选项更新服务元数据。服务调度程序将重新启动，但服务任务不会重启。继续执行，您可以如其他地方描述的那样使用 `update` 命令。
+
+<p class="message--warning"><strong>注意：</strong>在此升级步骤中，使用当前正在运行的服务的确切选项进行更新至关重要。选项文件中未指定的任何选项将丢失并使用默认值。</p>
+
+#### 开始更新
+
+您准备好开始时，即可使用 DC/OS CLI 初始化更新，在已更新的 `options.json` 文件中传递：
+
+```bash
+$ dcos {{ model.packageName }} update start --options=options.json
+```
+
+您将收到确认消息，DC/OS 包管理程序将重新启动服务调度程序，后者将继续更新服务。
+
+请参阅 [高级更新操作](#advanced-update-actions)，了解用于在启动后检查和操作更新的命令。
+
+### 高级更新操作
+
+以下部分描述可用于与正在进行的更新进行交互的高级命令。
+
+#### 监控更新
+
+服务调度程序重新启动后，其将在系统使用新配置重新启动各个 Pod 时开始新的部署计划。根据正在被更新的服务的高可用性特性，您可能遇到服务中断。
+
+您可以按如下方式查询更新状态：
+
+```bash
+$ dcos {{ model.packageName }} update status
+```
+
+如果服务调度程序仍在重新启动，DC/OS 将无法向其路由，且此命令将返回错误消息。稍等，然后重试。您也可以转到 DC/OS GUI 的“服务”选项卡，检查重新启动的状态。
+
+#### 暂停
+
+要暂停正在进行的更新，发出暂停命令：
+
+```bash
+$ dcos {{ model.packageName }} update pause
+```
+
+如果计划已经完成或已暂停，您将收到错误消息。完成后，更新将进入 `WAITING` 状态。
+
+#### 恢复
+
+如果更新因为暂停或达到需要手动操作员验证的断点而处于 `WAITING` 状态，您可以使用 `resume` 命令继续更新：
+
+```bash
+$ dcos {{ model.packagename }} update resume
+```
+
+如果您尝试 `resume` 正在进行或已完成的更新，您将会收到错误消息。
+
+#### 强制完成
+
+为了手动“完成”步骤（使服务调度程序停止尝试启动任务），您可以发出 `force-complete` 命令。这将指示服务调度程序在更新的一个阶段内标记一个特定步骤为完成。您需要指定阶段和步骤：
+
+
+```bash
+$ dcos {{ model.packageName }} update force-complete <phase> <step>
+```
+
+
+阶段的名称和步骤的名称可通过运行 `update status` 命令确定（如上所述）。
+
+#### 强制重启
+
+类似于 `force complete`，您也可以强制重新启动。可以对整个更新、更新的一个阶段，或仅针对阶段中的特定步骤执行此操作。
+
+重新启动整个更新：
+```bash
+$ dcos {{ model.packageName }} update force-restart
+```
+或单个阶段的所有步骤：
+```bash
+$ dcos {{ model.packageName }} update force-restart <phase>
+```
+或特定阶段中的特定步骤：
+```bash
+$ dcos {{ model.packageName }} update force-restart <phase> <step>
+```
+## 开源 DC/OS、DC/OS 1.9 及更早版本
+
+如果您没有 Enterprise DC/OS 1.10 或更高版本，上述 `update` 命令不可用。
+
+### 配置更新
+
+对于任何版本开源 DC/OS，或 Enterprise DC/OS 1.9 和更早版本，您可以通过编辑服务调度程序的配置来从 DC/OS GUI 执行更改。
+
+1. 转到 DC/OS GUI 的 **服务** 选项卡，然后单击您要更改的服务。
+1. 单击服务调度程序任务（它将具有服务的名称）。
+1. 单击页面右侧的三个点，然后选择 **编辑**。
+1. 查找环境变量列表中要更改的配置参数。
+1. 更改参数并单击 `Change and deploy`。
+1. 服务调度程序将重新启动，并将配置更改铺展至服务。
+
+#### 找到正确的环境变量
+
+DC/OS Enterprise 1.10 及更高版本支持直接使用选项模式更改配置，DC/OS Open Source 和 1.9 版本以及更早版本需要将这些选项映射到传递给服务调度程序的环境变量。
+
+给定设置的正确环境变量可能因服务而异。例如，某些服务有多种节点，每个节点具有单独的计数设置。
+
+要查找正确的环境变量，从服务配置到服务调度程序的 Marathon 环境映射。但是大多数环境变量名称是一目了然的。
+
+### 服务版本更新
+1. 在 DC/OS Web 界面中，销毁要更新的 `{{ model.serviceName }}`服务调度程序。
+1. 验证您不再在 DC/OS Web 界面中看到它。
+1. 使用受版本控制服务选项安装最新版本的 {{ model.packageName }} 包：
+
+```bash
+$ dcos package install {{ model.packageName }} -—options=options.json
+```

@@ -3,17 +3,15 @@ layout: layout.pug
 navigationTitle:  Monitoring Services
 title: Monitoring Services
 menuWeight: 3
-excerpt:
+excerpt: Monitoring deployed DC/OS services from the CLI and web interface
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 You can monitor deployed DC/OS services from the CLI and web interface.
 
-# Monitoring Universe services 
+# Monitoring Universe services
 
 ## CLI
 
@@ -47,4 +45,4 @@ suzanne-simple-service  10.0.3.224  root    R    suzanne-simple-service.47359150
 
 ## Web interface
 
-See the monitoring [documentation](/1.11/monitoring/).
+See the monitoring [documentation](/1.11/monitoring/). 

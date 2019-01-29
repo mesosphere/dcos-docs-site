@@ -153,7 +153,7 @@ In this tutorial, you create a custom Docker app and add it to Marathon.
     /nginx   64  0.1    0/1    ---      scale       DOCKER   None
     ```
     
-1.  If you used the [AWS CloudFormation templates](/1.10/installing/cloud/aws/), you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80). 
+1.  If you used the [AWS CloudFormation templates](/1.10/installing/evaluation/), you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80). 
 
 1.  Go to your public agent to see the site running. To find your public agent IP address, see [Finding a Public Agent IP](/1.10/administering-clusters/locate-public-agent/).
 
@@ -163,7 +163,7 @@ In this tutorial, you create a custom Docker app and add it to Marathon.
     
 # Next steps
 
-Learn how to load balance your app on a public node using [Marathon-LB](/service-docs/marathon-lb/marathon-lb-basic-tutorial/).
+Learn how to load balance your app on a public node using [Marathon-LB](/services/marathon-lb/marathon-lb-basic-tutorial/).
     
 
  [1]: https://www.docker.com

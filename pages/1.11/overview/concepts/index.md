@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Concepts
 title: Concepts
 menuWeight: 5
-excerpt: Understanding DC/OS terminology
+excerpt: Understanding DC/OS concepts and terms
 
 enterprise: false
 ---
@@ -14,17 +14,17 @@ DC/OS is made up of many open source components, several of which existed before
 
 DC/OS is a [distributed operating system](https://en.wikipedia.org/wiki/Distributed_operating_system) for the datacenter.
 
-- Unlike traditional distributed operating systems, DC/OS is also a container platform that manages containerized tasks based on native executables or container images, like [Docker images](https://docs.docker.com/engine/tutorials/dockerimages/).
-- Unlike traditional [operating systems](https://en.wikipedia.org/wiki/Operating_system), DC/OS runs on a [cluster of nodes](#cluster), instead of a single machine. Each DC/OS node also has a [host operating system](#host-operating-system) that manages the underlying machine.
-- DC/OS is made up of many components, most notably a distributed systems kernel ([Mesos](#apache-mesos)) and a container orchestration engine ([Marathon](#marathon)).
-- Prior to version 1.6, DC/OS was known as The Datacenter Operating System (DCOS). With version 1.6 the platform was renamed to DC/OS and open sourced.
-- While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features such as multitenancy, fine-grained permissions, secrets management, and end-to-end encryption.
+Unlike traditional distributed operating systems, DC/OS is also a container platform that manages containerized tasks based on native executables or container images, like [Docker images](https://docs.docker.com/engine/tutorials/dockerimages/). Also unlike traditional [operating systems](https://en.wikipedia.org/wiki/Operating_system), DC/OS runs on a [cluster of nodes](#cluster), instead of a single machine. Each DC/OS node also has a [host operating system](#host-operating-system) that manages the underlying machine.
 
-# <a name="dcos-gui"></a>DC/OS GUI
+DC/OS is made up of many components, most notably a distributed systems kernel ([Mesos](#apache-mesos)) and a container orchestration engine ([Marathon](#marathon)).
+
+While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features such as multitenancy, fine-grained permissions, secrets management, and end-to-end encryption.
+
+## <a name="dcos-gui"></a>DC/OS GUI
 
 The [DC/OS graphical user interface (GUI)](/1.11/gui/) is an interface for remotely controlling and managing a DC/OS cluster from a web browser. The GUI is also sometimes called the DC/OS UI or DC/OS web interface.
 
-# <a name="dcos-cli"></a>DC/OS CLI
+## <a name="dcos-cli"></a>DC/OS CLI
 
 The [DC/OS command line interface (CLI)](/1.11/cli/) is an interface for remotely controlling and managing a DC/OS cluster from a terminal.
 
@@ -42,7 +42,7 @@ An infrastructure network is a physical or virtual network provided by the infra
 
 ## <a name="dcos-virtual-network"></a>Virtual Network
 
-A DC/OS virtual network is specifically a virtual network internal to the cluster that connects DC/OS components and containerized tasks running on DC/OS.
+A DC/OS virtual network is specifically a virtual network internal to the cluster, that connects DC/OS components and containerized tasks running on DC/OS.
 
 - The virtual network provided by DC/OS is VXLAN managed by the Virtual Network Service (Navstar).
 - Virtual networks must be configured by an administrator before being used by tasks.
@@ -73,7 +73,7 @@ For more information, see [Network Security](/1.11/administering-clusters/) and 
 
 # <a name="private-agent-node"></a>Private Agent Node
 
-A private agent node is an agent node that is on a network that *does not* allow ingress from outside of the cluster via the cluster’s infrastructure networking.
+A private agent node is an agent node that is on a network that **does not allow** access from outside of the cluster via the cluster’s infrastructure networking.
 
 - The Mesos agent on each private agent node is, by default, configured with none of its resources allocated to any specific Mesos roles (`*`).
 - Most service packages install by default on private agent nodes.
@@ -81,10 +81,10 @@ A private agent node is an agent node that is on a network that *does not* allow
 
 # <a name="public-agent-node"></a>Public Agent Node
 
-A public agent node is an agent node that is on a network that *does* allow ingress from outside of the cluster via the cluster’s infrastructure networking.
+A public agent node is an agent node that is on a network that **allows** access from outside of the cluster via the cluster’s infrastructure networking.
 
 - The Mesos agent on each public agent node is configured with the `public_ip:true` agent attribute and all of its resources allocated to the `slave_public` role.
-- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/1.11/networking/marathon-lb/).
+- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/services/marathon-lb/).
 - Clusters generally have only a few public agent nodes, because a single load balancer can handle proxying multiple services.
 
 For more information, see [Converting Agent Node Types](/1.11/administering-clusters/convert-agent-type/).
@@ -93,26 +93,31 @@ For more information, see [Converting Agent Node Types](/1.11/administering-clus
 
 A host operating system is the [operating system](https://en.wikipedia.org/wiki/Operating_system) that runs on each DC/OS node underneath the DC/OS components, manages the local hardware and software resources, and provides common services for running other programs and services.
 
-- DC/OS currently supports the following host operating systems: [CentOS](https://www.centos.org/), [RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux), and [CoreOS](https://coreos.com/).
-- While the host OS manges local tasks and machine resources, DC/OS manages cluster tasks and resources so that the user does not generally need to interact with the host operating systems on the nodes.
+- DC/OS currently supports the following host operating systems:
+
+- [CentOS](https://www.centos.org/)
+- [RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
+- [CoreOS](https://coreos.com/)
+
+While the host OS manages local tasks and machine resources, DC/OS manages cluster tasks and resources so that you do not need to interact with the host operating systems on the nodes.
 
 # <a name="bootstrap-machine"></a>Bootstrap Machine
 
 A bootstrap machine is the machine on which the DC/OS installer artifacts are configured, built, and distributed.
 
-- The bootstrap machine is not technically considered part of the cluster since it does not have DC/OS installed on it (this may change in the future). For most installation methods, the bootstrap node must be accessible to and from the machines in the cluster via infrastructure networking.
+- The bootstrap machine is not technically considered part of the cluster since it does not have DC/OS installed on it. For most installation methods, the bootstrap node must be accessible to and from the machines in the cluster via infrastructure networking.
 - The bootstrap machine is sometimes used as a jumpbox to control SSH access into other nodes in the cluster for added security and logging.
-- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using S3, DNS, or static IPs, with various tradeoffs. For more information, see [configuring the exhibitor storage backend](/1.11/installing/oss/custom/configuration/configuration-parameters/#exhibitor-storage-backend).
+- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using S3, DNS, or static IPs, with various tradeoffs. For more information, see [configuring the exhibitor storage backend](/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend).
 - If a bootstrap machine is not required for managing master node IP changes or as an SSH jumpbox, it can be shut down after bootstrapping and spun up on demand to [add new nodes](/1.11/administering-clusters/add-a-node/) to the cluster.
 
-For more information, see the [system requirements](/1.11/installing/oss/custom/system-requirements/#bootstrap-node).
+For more information, see the [system requirements](/1.11/installing/production/system-requirements/#bootstrap-node).
 
 # <a name="dcos-service"></a>Service
 
 A DC/OS service is a set of one or more service instances that can be started and stopped as a group and restarted automatically if they exit before being stopped.
 
 - Service is currently a DC/OS GUI abstraction that translates to Marathon apps and pods in the CLI and API. This distinction will change over time as the name "service" is pushed upstream into component APIs.
-- Sometimes "service" may also refer to a systemd service on the host OS. These are generally considered components and do not actually run on Marathon or Mesos.
+- Sometimes "service" may also refer to a `systemd` service on the host operating system. These are generally considered components and do not actually run on Marathon or Mesos.
 - A service may be either a system service or a user service. This distinction is new and still evolving as namespacing is transformed into a system-wide first class pattern.
 
 ## <a name="marathon-service"></a>Marathon Service
@@ -128,24 +133,24 @@ A Marathon service consists of zero or more containerized service instances. Eac
 - A Marathon service may be a [DC/OS scheduler](#dcos-scheduler), but not all services are schedulers.
 - A Marathon service is an abstraction around Marathon service instances which are an abstraction around Mesos tasks. Other schedulers such as DC/OS Jobs (Metronome) or Jenkins have their own names for abstractions around Mesos tasks.
 
-Examples: Cassandra (scheduler), Marathon-on-Marathon, Kafka (scheduler), Nginx, Tweeter.
+**Examples:** Cassandra (scheduler), Marathon-on-Marathon, Kafka (scheduler), Nginx, Tweeter.
 
-## <a name="systemd-service"></a>Systemd Service
+## <a name="systemd-service"></a>`Systemd` Service
 
-A systemd service is a service that consists of a single, optionally containerized, machine operating system process, running on the master or agent nodes, managed by systemd, owned by DC/OS itself.
+A `systemd` service is a service that consists of a single, optionally containerized, machine operating system process, running on the master or agent nodes, managed by `systemd`, owned by DC/OS itself.
 
-- All systemd services are currently either host OS service, DC/OS dependencies, DC/OS components, or services manually managed by the system administrator.
+- All `systemd` services are currently either host OS services, DC/OS dependencies, DC/OS components, or services manually managed by the system administrator.
 
-Examples: Most DC/OS components, (system) Marathon.
+**Examples:** Most DC/OS components, (system) Marathon.
 
 ## <a name="system-service"></a>System Service
 
-A system service is a service that implements or enhances the functionality of DC/OS itself, run as either a Marathon service or a systemd service, owned by the system (admin) user or DC/OS itself.
+A system service is a service that implements or enhances the functionality of DC/OS itself, run as either a Marathon service or a `systemd` service, owned by the system (admin) user or DC/OS itself.
 
 - A system service may require special permissions to interact with other system services.
 - Permission to operate as a system service on an DC/OS Enterprise cluster requires specific fine-grained permissions, while on open DC/OS all logged in users have the same administrative permissions.
 
-Examples: All DC/OS components.
+**Examples:** All DC/OS components.
 
 ## <a name="user-service"></a>User Service
 
@@ -153,46 +158,44 @@ A user service is a Marathon service that is not a system service, owned by a us
 
 - This distinction is new and still evolving as namespacing is transformed into a system-wide first class pattern and mapped to fine-grained user and user group permissions.
 
-Examples: Jenkins, Cassandra, Kafka, Tweeter.
+**Examples:** Jenkins, Cassandra, Kafka, Tweeter.
 
 # <a name="dcos-service-group"></a>Service Group
 
 A DC/OS service group is a hierarchical (path-like) set of DC/OS services for namespacing and organization.
 
-- Service groups are currently only available for Marathon services, not systemd services.
+- Service groups are currently only available for Marathon services, not `systemd` services.
 - This distinction may change as namespacing is transformed into a system-wide first class pattern.
 
 # <a name="dcos-job"></a>Job
 
-A DC/OS job is a set of similar short-lived job instances, running as Mesos tasks, managed by the DC/OS Jobs (Metronome) component.
-
-- A job can be created to run only once, or may run regularly on a schedule.
+A DC/OS job is a set of similar short-lived job instances, running as Mesos tasks, managed by the DC/OS Jobs (Metronome) component. A job can be created to run only once, or may run regularly on a schedule.
 
 # <a name="dcos-scheduler"></a>Scheduler
 
-A DC/OS scheduler is a Mesos scheduler that runs as a systemd service on master nodes or Mesos task on agent nodes.
+A DC/OS scheduler is a Mesos scheduler that runs as a `systemd` service on master nodes or Mesos task on agent nodes.
 
-- The key differences between a DC/OS scheduler and Mesos scheduler are where it runs and how it is installed.
-- Some schedulers come pre-installed as DC/OS components (e.g. Marathon, DC/OS Jobs (Metronome)).
+The key differences between a DC/OS scheduler and Mesos scheduler are where it runs and how it is installed.
+- Some schedulers come pre-installed as DC/OS components (for example, Marathon, DC/OS Jobs (Metronome)).
 - Some schedulers can be installed by users as user services (e.g Kafka, Cassandra).
-- Some schedulers run as multiple service instances to provide high availability (e.g. Marathon).
-- In certain security modes within DC/OS Enterprise, a DC/OS scheduler must authenticate and be authorized using a service account to register with Mesos as a framework.
+- Some schedulers run as multiple service instances to provide high availability (for example, Marathon).
+
+In certain security modes within DC/OS Enterprise, a DC/OS scheduler must authenticate and be authorized using a service account to register with Mesos as a framework.
 
 # <a name="dcos-scheduler-service"></a>Scheduler Service
 
-A DC/OS scheduler service is a long-running DC/OS scheduler that runs as a DC/OS service (Marathon or systemd).
-
-- Since DC/OS schedulers can also be run as short-lived tasks, not all schedulers are services.
+A DC/OS scheduler service is a long-running DC/OS scheduler that runs as a DC/OS service (Marathon or `systemd`). Since DC/OS schedulers can also be run as short-lived tasks, not all schedulers are services.
 
 # <a name="dcos-component"></a>Component
 
 A DC/OS component is a DC/OS system service that is distributed with DC/OS.
 
-- Components may be systemd services or Marathon services.
+- Components may be `systemd` services or Marathon services.
 - Components may be deployed in a high availability configuration.
-- Most components run on the master nodes, but some (e.g. mesos-agent) run on the agent nodes.
 
-Examples: Mesos, Marathon, Mesos-DNS, Bouncer, Admin Router, DC/OS Package Manager (Cosmos), History Service, etc.
+Most components run on the master nodes, but some (likr mesos-agent) run on the agent nodes.
+
+**Examples:** Mesos, Marathon, Mesos-DNS, Bouncer, Admin Router, DC/OS Package Manager (Cosmos), History Service, etc.
 
 # <a name="dcos-package"></a>Package
 
@@ -207,9 +210,7 @@ The [DC/OS Package Manager (Cosmos)(https://github.com/dcos/cosmos)) is a compon
 
 # <a name="dcos-package-registry"></a>Package Registry
 
-A DC/OS package registry is a repository of DC/OS packages.
-
-- The [DC/OS Package Manager](#dcos-package-manager) may be configured to install packages from one or more package registries.
+A DC/OS package registry is a repository of DC/OS packages. The [DC/OS Package Manager](#dcos-package-manager) may be configured to install packages from one or more package registries.
 
 # <a name="mesosphere-universe"></a>Mesosphere Universe
 
@@ -219,15 +220,13 @@ For more information, see the [Universe repository](https://github.com/mesospher
 
 # <a name="container-registry"></a>Container Registry
 
-A container registry is a repository of pre-built container images.
-
-The [Universal Container Runtime](#mesos-containerizer-universal-container-runtime) and [Docker Engine](#mesos-containerizer-docker-engine) can both run Docker images from public or private Docker container registries.
+A container registry is a repository of pre-built container images. The [Universal Container Runtime](#mesos-containerizer-universal-container-runtime) and [Docker Engine](#mesos-containerizer-docker-engine) can both run Docker images from public or private Docker container registries.
 
 # <a name="cloud-template"></a>Cloud Template
 
 A cloud template is an infrastructure-specific method of declaratively describing a DC/OS cluster.
 
-For more information, see [Cloud Installation Options](/1.11/installing/oss/cloud/).
+For more information, see [Cloud Installation Options](/1.11/installing/evaluation/cloud-installation/).
 
 
 # <a name="mesos-concepts"></a>Mesos Concepts
@@ -251,9 +250,7 @@ The following terms are contextually correct when talking about Apache Mesos, bu
 
 ## <a name="apache-mesos"></a>Apache Mesos
 
-Apache Mesos is a distributed systems kernel that manages cluster resources and tasks.
-
-- Mesos is one of the core components of DC/OS that predates DC/OS itself, bringing maturity and stability to the platform.
+Apache Mesos is a distributed systems kernel that manages cluster resources and tasks. Mesos is one of the core components of DC/OS that predates DC/OS itself, bringing maturity and stability to the platform.
 
 For more information, see the [Mesos website](http://mesos.apache.org/).
 
@@ -273,52 +270,40 @@ A Mesos agent is a process that runs on agent nodes to manage the executors, tas
 
 ## <a name="mesos-task"></a>Task
 
-A Mesos task is an abstract unit of work, lifecycle managed by a Mesos executor, that runs on a DC/OS agent node.
-
-- Tasks are often processes or threads, but could even just be inline code or items in a single-threaded queue, depending on how their executor is designed.
-- The Mesos built-in command executor runs each task as a process that can be containerized by one of several [Mesos containerizers](#mesos-containerizer).
+A Mesos task is an abstract unit of work, lifecycle managed by a Mesos executor, that runs on a DC/OS agent node. Tasks are often processes or threads, but could just be inline code or items in a single-threaded queue, depending on how their executor is designed. The Mesos built-in command executor runs each task as a process that can be containerized by one of several [Mesos containerizers](#mesos-containerizer).
 
 ## <a name="mesos-executor"></a>Executor
 
-A Mesos executor is a method by which Mesos agents launch tasks.
-
-- Executor processes are launched and managed by Mesos agents on the agent nodes.
-- Mesos tasks are defined by their scheduler to be run by a specific executor (or the default executor).
-- Each executor runs in its own container.
+A Mesos executor is a method by which Mesos agents launch tasks. Mesos tasks are defined by their scheduler to be run by a specific executor (or the default executor). Each executor runs in its own container.
 
 For more information about framework schedulers and executors, see the [Application Framework development guide](http://mesos.apache.org/documentation/latest/app-framework-development-guide/).
 
 ## <a name="mesos-scheduler"></a>Scheduler
 
-A Mesos scheduler is a program that defines new Mesos tasks and assigns resources to them (placing them on specific nodes).
+A Mesos scheduler is a program that defines new Mesos tasks and assigns resources to them (placing them on specific nodes). A scheduler receives resource offers describing CPU, RAM, etc., and allocates them for discrete tasks that can be launched by Mesos agents. A scheduler must register with Mesos as a framework.
 
-- A scheduler receives resource offers describing CPU, RAM, etc., and allocates them for discrete tasks that can be launched by Mesos agents.
-- A scheduler must register with Mesos as a framework.
-
-Examples: Kafka, Marathon, Cassandra.
+**Examples:** Kafka, Marathon, Cassandra.
 
 ## <a name="mesos-framework"></a>Framework
 
-A Mesos framework consists of a scheduler, tasks, and optionally custom executors.
-
-- The term framework and scheduler are sometimes used interchangeably. Prefer scheduler within the context of DC/OS.
+A Mesos framework consists of a scheduler, tasks, and optionally custom executors. The terms "framework" and "scheduler" are sometimes used interchangeably. We prefer "scheduler" within the context of DC/OS.
 
 For more information about framework schedulers and executors, see the [Application Framework development guide](http://mesos.apache.org/documentation/latest/app-framework-development-guide/).
 
 ## <a name="mesos-role"></a>Role
 
-A Mesos role is a group of Mesos frameworks that share reserved resources, persistent volumes, and quota. These frameworks are also grouped together in Mesos' hierarchical Dominant Resource Fairness (DRF) share calculations.
-
-- Roles are often confused as groups of resources, because of the way they can be statically configured on the agents. The assignment is actually the inverse: resources are assigned to roles.
-- Role resource allocation can be configured statically on the Mesos agent or changed at runtime using the Mesos API.
+A Mesos role is a group of Mesos frameworks that share reserved resources, persistent volumes, and quota. These frameworks are also grouped together in Mesos' hierarchical Dominant Resource Fairness (DRF) share calculations. Roles are often confused as groups of resources, because of the way they can be statically configured on the agents. The assignment is actually the inverse: resources are assigned to roles. Role resource allocation can be configured statically on the Mesos agent or changed at runtime using the Mesos API.
 
 ## <a name="mesos-resource-offer"></a>Resource Offer
 
-A Mesos resource offer provides a set of unallocated resources (e.g. cpu, disk, memory) from an agent to a scheduler so that the scheduler may allocate those resources to one or more tasks. Resource offers are constructed by the leading Mesos master, but the resources themselves are reported by the individual agents.
+A Mesos resource offer provides a set of unallocated resources (such as CPU, disk, memory) from an agent to a scheduler so that the scheduler may allocate those resources to one or more tasks. Resource offers are constructed by the leading Mesos master, but the resources themselves are reported by the individual agents.
 
 ## <a name="mesos-containerizer"></a>Containerizer
 
-A containerizer provides a containerization and resource isolation abstraction around a specific container runtime. The supported runtimes are the Universal Container Runtime and Docker Engine.
+A containerizer provides a containerization and resource isolation abstraction around a specific container runtime. The supported runtimes are
+
+- Universal Container Runtime
+- Docker Engine
 
 ### <a name="mesos-containerizer-universal-container-runtime"></a>Universal Container Runtime
 
@@ -328,7 +313,7 @@ The Universal Container Runtime launches Mesos containers from binary executable
 
 The [Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images.
 
-## <a name="mesos-exhibitor-zookeeper"></a>Exhibitor &amp; ZooKeeper
+## <a name="mesos-exhibitor-zookeeper"></a>Exhibitor and ZooKeeper
 
 Mesos depends on ZooKeeper, a high-performance coordination service to manage the cluster state. Exhibitor automatically configures and manages ZooKeeper on the [master nodes](#master-node).
 
@@ -336,11 +321,11 @@ Mesos depends on ZooKeeper, a high-performance coordination service to manage th
 
 Mesos-DNS is a DC/OS component that provides service discovery within the cluster. Mesos-DNS allows applications and services that are running on Mesos to find each other by using the domain name system (DNS), similar to how services discover each other throughout the Internet.
 
-For more information, see the [Mesos-DNS documentation](/1.11/networking/mesos-dns/).
+For more information, see the [Mesos-DNS documentation](/1.11/networking/DNS/mesos-dns/).
 
 # <a name="marathon-concepts"></a>Marathon Concepts
 
-The following terms are contextually correct when talking about Marathon, but may be hidden by other abstraction within DC/OS.
+The following terms are contextually correct when talking about Marathon, but may be hidden by other abstractions within DC/OS.
 
 - [Marathon](#marathon)
 - [Application](#marathon-application)
@@ -349,26 +334,23 @@ The following terms are contextually correct when talking about Marathon, but ma
 
 ## <a name="marathon"></a>Marathon
 
-Marathon is a container orchestration engine for Mesos and DC/OS.
-
-- Marathon is one of the core components of DC/OS that predates DC/OS itself, bringing maturity and stability to the platform.
+Marathon is a container orchestration engine for Mesos and DC/OS. Marathon is one of the core components of DC/OS that predates DC/OS itself, bringing maturity and stability to the platform.
 
 For more information, see the [Marathon website](https://mesosphere.github.io/marathon/).
 
 ## <a name="marathon-application"></a>Application
 
-A Marathon application is a long-running service that may have one or more instances that map one to one with Mesos tasks.
+A Marathon application is a long-running service that may have one or more instances that map one to one with Mesos tasks. The user creates an application by providing Marathon with an application definition (JSON). Marathon then schedules one or more application instances as Mesos tasks, depending on how many the definition specified. Applications currently support the use of either
 
-- The user creates an application by providing Marathon with an application definition (JSON). Marathon then schedules one or more application instances as Mesos tasks, depending on how many the definition specified.
-- Applications currently support the use of either the [Mesos Universal Container Runtime](#mesos-containerizer-universal-container-runtime) or the [Docker Runtime](#mesos-containerizer-docker-engine).
+- [Mesos Universal Container Runtime](#mesos-containerizer-universal-container-runtime) or
+-  the [Docker Runtime](#mesos-containerizer-docker-engine)
 
 ## <a name="marathon-pod"></a>Pod
 
-A Marathon pod is a long-running service that may have one or more instances that map one to many with colocated Mesos tasks.
+A Marathon pod is a long-running service that may have one or more instances that map one to many with colocated Mesos tasks. You create a pod by providing Marathon with a pod definition in a JSON file format. Marathon then schedules one or more pod instances as Mesos tasks, depending on how many the definition specified.
 
-- The user creates a pod by providing Marathon with a pod definition (JSON). Marathon then schedules one or more pod instances as Mesos tasks, depending on how many the definition specified.
-- Pod instances may include one or more tasks that share certain resources (e.g. IPs, ports, volumes).
-- Pods currently require the use of the [Mesos Universal Container Runtime](#mesos-containerizer-universal-container-runtime).
+- Pod instances may include one or more tasks that share certain resources (for example, IPs, ports, volumes).
+- Pods require the use of the [Mesos Universal Container Runtime](#mesos-containerizer-universal-container-runtime).
 
 ## <a name="marathon-group"></a>Group
 

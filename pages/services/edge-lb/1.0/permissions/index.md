@@ -3,12 +3,11 @@ layout: layout.pug
 navigationTitle:  Edge-LB Permissions
 title: Edge-LB Permissions
 menuWeight: 50
-excerpt:
+excerpt: Service account and user permissions required to use the Edge-LB package
 
 enterprise: false
 ---
 
-Service account and user permissions required to use the Edge-LB package.
 
 Edge-LB is installed as a DC/OS service, not as a built-in component. Superuser permissions (`dcos:superuser`) or the user or group permissions listed below are required to use Edge-LB.
 
@@ -49,7 +48,7 @@ Or, if you prefer to grant only the individual permissions necessary, grant the 
 - `dcos:mesos:master:task:user:root`
 - `dcos:mesos:master:task:app_id`
 
-Additionally, this permission needs to be granted **for each Edge-LB pool created**:
+Additionally, this permission must be granted **for each Edge-LB pool created**:
 
 - `dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME>`
 
@@ -62,7 +61,7 @@ To grant limited permission to manage only a single Edge-LB pool, the user must 
 - `dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME>`
 - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<POOL-NAME>`
 
-The following permissions for endpoints are used by the `dcos edgelb` CLI subcommand, and permissions can be granted individually:
+The following permissions for endpoints are used by the `dcos edgelb` CLI subcommand. Permissions can be granted individually:
 
 - Ping:
     - `dcos:adminrouter:service:edgelb:/ping`

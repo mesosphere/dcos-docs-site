@@ -1,0 +1,188 @@
+DC/OS {{ model.techName }} 服务提供强大的 API（HTTP 或 DC/OS CLI 可访问），用于管理、维修和监控服务。此处，为简洁起见，仅谈及 CLI 版本，但请参阅 [API 参考](#api-reference) 了解 HTTP 说明。
+
+## 计划操作
+
+DC/OS  {{ model.techName }} 服务实例根本上是一套计划（如何运行服务）和一组 Pod（运行什么）。服务主要由两个计划驱动，`deploy` 和 `recovery`。
+
+`deploy` 计划在初始安装以及配置和服务更新期间使用。`recovery` 计划是一项始终运行的计划，可确保应该运行的 Pod 和任务保持运行。其他计划（“sidecars”）用于二次操作。
+
+每个计划由一组阶段组成，每个阶段由一个或多个步骤组成。
+
+### 列表计划 
+
+可使用 CLI 命令检索计划列表：
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan list
+```
+### 检查计划
+
+使用 CLI 命令查看计划的当前状态：
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan status <plan-name>
+```
+
+例如，服务计划已部署完成的状态为：
+
+```bash
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan status deploy
+{{ model.operations.complete-deploy}}
+```
+
+<p class="message--note"><strong>注意：</strong>传递 --json 标记给 <tt>status</tt> 命令将返回 <tt>JSON</tt> 应答，其中包含计划的阶段和步骤的 UUID。这些 UUID 对于其他计划命令可能有用。</p>
+
+### 运行计划
+
+#### 开始
+
+使用 CLI 命令启动计划：
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan start <plan-name>
+```
+
+#### 暂停
+使用提供的阶段名称（或 UUID）暂停计划或该计划中的特定阶段。
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan pause <plan (required)> <phase (optional)>
+```
+
+#### 停止
+使用提供的名称停止运行中的计划。
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan stop <plan>
+```
+
+计划停止与计划暂停不同，区别如下：
+* 可以为计划中的特定阶段或所有阶段发出暂停。只能为计划发出停止。
+* 暂停更新基础的阶段/步骤状态。停止既是停止执行，也停止计划，并将计划重置为初始待定状态。
+
+#### 恢复
+使用提供的阶段名称（或 UUID）恢复计划或该计划的特定阶段。
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan resume <plan (required)> <phase (optional)>
+```
+
+#### 强制重启
+重新启动指定的步骤、阶段（如果未指定步骤）或计划（如果未指定阶段）。
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} force-restart <plan (required)> <phase (optional)> <step (optional)>
+```
+
+#### 强制完成
+强制完成计划中所提供阶段的特定步骤。通过 CLI，只能强制完成一个步骤。HTTP API 支持强制整体完成各个阶段和计划。
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} force-complete <plan (required)> <phase (required)> <step (required)>
+```
+
+## Pod 操作
+
+已部署的 DC/OS  {{ model.techName }} 服务实例由一组运行中的 Pod 组成。使用 pod API 可以管理这些 Pod 的生命周期，以及调查 Pod 及其任务的故障。
+
+<p class="message--note"><strong>注意：</strong> 管理 Pod 计数通过服务配置完成，没有直接 API。</p>
+
+### 列表
+
+要列出服务的所有 Pod，运行 CLI 命令：
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod list
+```
+### 状态
+
+要查看所有 Pod 的状态，或者选择查看一个 Pod 的状态，运行 CLI 命令：
+
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod <pod-name (optional)>
+```
+
+这将显示 Pod 及其任务的任何状态覆盖。
+
+### 重新启动
+
+要重新启动 Pod，使用 CLI 命令：
+
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod restart <pod-name>
+```
+
+这将终止 Pod 的任务并将其重新启动到位。重新启动的进度可通过查看服务的 `recovery` 计划进行监控。
+
+### 替换
+
+ **仅** 当 Pod 当前实例应该被完全销毁时，才能使用替换。Pod 的所有持久数据（读取：卷）将被销毁。在移除 DC/OS 代理、永久停工或需要更新 Pod 布局约束时应使用替换。
+
+通过运行 CLI 命令发出替换：
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace <pod-name>
+```
+
+### 暂停
+
+暂停 Pod 会以空闲命令状态将其重新启动。这允许您调试 Pod 的内容，可能会进行更改以修补问题，同时仍可以访问 Pod 的所有上下文（如卷）
+
+使用暂停和 `dcos task exec` 是非常强大的调试工具。要暂停 Pod，使用 CLI 命令：
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause <pod-name>
+```
+
+要暂停 Pod 的特定任务，附加“-t” <task-name>` 标记，
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause <pod-name> -t <task-name>
+```
+使用 `pod status` 命令以检查哪些任务和 Pod 处于覆盖状态。
+
+### 恢复
+
+要恢复暂停的 Pod 或任务，使用 CLI 命令：
+```bash
+$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod resume <pod-name> [-t <task-name>]
+```
+
+检查 `pod status` 命令以验证是否已正确恢复 Pod（或任务）。
+
+
+## 服务度量标准
+
+DC/OS {{ model.techName }} 服务将度量标准推送到 DC/OS 度量标准系统。有关其使用情况的详细信息可参阅 [DC/OS 度量标准系统](/cn/1.11/metrics/) 文档。
+
+
+## 记录
+
+DC/OS 有三种访问服务调度程序和服务任务日志的方法。
+1. 通过 DC/OS GUI
+1. 通过 Mesos GUI
+1. 通过 DC/OS CLI
+
+### DC/OS GUI
+
+通过在 **服务** 选项卡中选择服务，可访问服务日志。在此视图中，服务调度程序和服务任务并排显示。要查看任务沙盒（文件）及其 `stdout` 和 `stderr`，单击任务。
+
+### Mesos GUI
+
+Mesos GUI 提供与 DC/OS UI 相似的访问，但服务调度程序与服务任务分开。所有服务任务均可在与服务名称相同的框架下的 **框架** 选项卡中找到。服务调度程序可在 Marathon 框架中找到，它是与服务名称相同的任务。
+
+单击 `sandbox` 链接可访问服务的文件和日志。
+
+
+### DC/OS CLI
+
+这里的 `dcos task log` 子命令允许您同时从多个任务中拉取日志。`dcos task log <task-pattern>”命令将获取与前缀模式匹配的所有任务的日志。有关子命令的完整详细信息，请参阅该子命令的帮助。
+
+### Mesos 代理日志
+
+有时候，检查给定的 Mesos 代理节点正在做什么也很有用。Mesos 代理节点处理在集群中在给定物理系统中部署 Mesos 任务。每个系统上运行一个 Mesos 代理节点。这些日志可用于确定是否存在系统级别的导致该系统上跨多个服务的警报的问题。
+
+Mesos 代理节点日志可通过 Mesos GUI 或直接在代理上访问。此处描述了 GUI 方法。
+
+在查看任务时，单击面包屑导航中的“代理”项目直接从任务导航至要查看的代理（这将直接转到运行该任务的代理），或者通过在屏幕顶部的“代理”菜单项目导航（您需要从列表中选择所需的代理）。
+
+在代理视图中，您将看到在该代理上出现的框架的列表。在左侧窗格中，您将看到名为“LOG”的普通链接。点击该链接查看代理日志。
+

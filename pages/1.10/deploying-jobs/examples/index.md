@@ -12,7 +12,7 @@ These examples provide common usage scenarios for jobs.
 
 **Prerequisite:**
 
-- [DC/OS](/1.10/installing/oss/) and the [DC/OS CLI installed](/1.10/cli/install/).
+- [DC/OS](/1.10/installing/) and the [DC/OS CLI installed](/1.10/cli/install/).
 
 # <a name="create-job"></a>Creating a Simple Job
 
@@ -163,13 +163,13 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
     
         ![Add permissions cory](/1.10/img/job-ex5.png)
         
-    1.  Copy and paste the permissions in the **Permissions Strings** field. Specify your job group (`dev/batch`), job name (`job1`), and action (`read`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:/dev/batch/job1 read,update`.
+    1.  Copy and paste the permissions in the **Permissions Strings** field. Specify your job group (`dev/batch`), job name (`job1`), and action (`read`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:/dev.batch.job1 read,update`.
     
         **Important:** Your [security mode](/1.10/security/ent/#security-modes) must be either `permissive` or `strict`.
         
         ```bash
         dcos:adminrouter:service:metronome full
-        dcos:service:metronome:metronome:jobs:dev/batch/job1 read
+        dcos:service:metronome:metronome:jobs:dev.batch.job1 read
         dcos:adminrouter:ops:mesos full
         dcos:adminrouter:ops:slave full
         dcos:mesos:master:framework:role:* read

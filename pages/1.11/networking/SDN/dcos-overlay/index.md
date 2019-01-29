@@ -3,30 +3,26 @@ layout: layout.pug
 navigationTitle:  DC/OS Overlay
 title: DC/OS Overlay
 menuWeight: 10
-excerpt: Understanding DC/OS overlay
+excerpt: Understanding DC/OS Overlay
 enterprise: false
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-DC/OS overlay is an SDN solution for UCR and Docker containers that comes pre-packaged with DC/OS and is enabled by default.
+DC/OS Overlay is an SDN solution for UCR and Docker containers that comes pre-packaged with DC/OS and is enabled by default. DC/OS Overlay can run multiple virtual network instances in a given DC/OS cluster. Starting with DC/OS 1.11, DC/OS Overlay has support for creating IPv6 networks. 
 
-DC/OS overlay has the ability to run multiple virtual network instances in a given DC/OS cluster.
+**Note:** IPv6 support is available only for Docker containers.
 
-Starting DC/OS 1.11, DC/OS overlay has support for creating IPv6 networks (*NOTE: IPv6 support is available only for Docker containers*).
-
-Features provided by DC/OS overlay are:
+Features provided by DC/OS Overlay are:
 * Both Mesos and Docker containers can communicate from within a single node and between nodes on a cluster.
 * Services can be created such that their traffic is isolated from other traffic coming from any other virtual network or host in the cluster.
 * Removes the need to worry about potentially overlapping ports in applications, or the need to use nonstandard ports for services to avoid overlapping.
-* User can generate any number of instances of a class of tasks and have them all listen on the same port so that clients don’t have to do port discovery.
-* User can run applications that require intra-cluster connectivity, like Cassandra, HDFS, and Riak.
-* User can create multiple virtual networks to isolate different portions of your organization, for instance, development, marketing, and production.
+* You can generate any number of instances of a class of tasks and have them all listen on the same port so that clients do not have to do port discovery.
+* You can run applications that require intra-cluster connectivity, like Cassandra, HDFS, and Riak.
+* You can create multiple virtual networks to isolate different portions of your organization, for instance, development, marketing, and production.
 
-Details about the design and implementation of DC/OS overlay can be found in this [document](/1.11/overview/design/overlay).
-
-The default configuration of DC/OS overlay provides an IPv4 virtual network, `dcos`, and an IPv6 virtual network `dcos6` whose YAML configuration is as follows:
+Details about the design and implementation of DC/OS Overlay can be found in the [Overlay introduction](/1.11/overview/design/overlay/). The default configuration of DC/OS Overlay provides an IPv4 virtual network, `dcos`, and an IPv6 virtual network `dcos6` whose YAML configuration is as follows:
 
 ```yaml
  dcos_overlay_network :
@@ -46,11 +42,15 @@ Each virtual network is identified by a canonical `name` (see [limitations](#lim
 
 ![Virtual network address space](/1.11/img/overlay-network-address-space.png)
 
-The bits reserved for ContainerID (6 in this example) are then subdivided into two equal groups (of 5 bits in this example) that are used for Mesos containers and Docker containers respectively. With the default configuration, each agent will be able to host a maximum of 2^5=32 Mesos containers and 32 docker containers. With this specific configuration, if a service tries to launch more than 32 tasks on the Mesos containerizer or the Docker containerizer, it will receive a `TASK_FAILED`. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more about this constraint.
+Figure 1. Virtual network address space
 
-While the above example is specifically for an IPv4 virtual network, the same logic can be applied to the IPv6 virtual network `dcos6` as well. The only caveat being that currently IPv6 is supported only for Docker containers. `(NOTE: Trying to launch a UCR container on` *dcos6*`, will result in a container launch failure.)`
+The bits reserved for ContainerID (6 in this example) are then subdivided into two equal groups (of 5 bits, in this example) that are used for Mesos containers and Docker containers respectively. With the default configuration, each agent will be able to host a maximum of 2^5=32 Mesos containers and 32 docker containers. With this specific configuration, if a service tries to launch more than 32 tasks on the Mesos containerizer or the Docker containerizer, it will receive a `TASK_FAILED`. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more about this constraint.
 
-The operator can modify the default virtual network configuration and can add more virtual networks if needed. Currently, the operator can only add or delete a virtual network at install time. Addition, deletion and modification of virtual networks are described in the following sections.
+While the above example is specifically for an IPv4 virtual network, the same logic can be applied to the IPv6 virtual network `dcos6` as well. The only difference is that currently IPv6 is supported only for Docker containers. 
+
+**Note:** Trying to launch a UCR container on` *dcos6*`, will result in a container launch failure.
+
+You can modify the default virtual network configuration and can add more virtual networks if needed. Currently, you can only add or delete a virtual network at install time. 
 
 # Adding virtual networks during installation
 
@@ -87,7 +87,7 @@ The default network can be overriden, or additional virtual networks can be conf
           prefix: 24
 ```
 
-In the above example, two virtual networks have been defined. The virtual network `dcos` retains the default virtual network, and another virtual network called `dcos-1` with subnet range `192.168.0.0/16` has been added. In DC/OS overlay, virtual networks must be associated with a name and a subnet. That name is used to launch Marathon tasks and other Mesos framework tasks using this specific virtual network (see [usage](/1.11/networking/SDN/usage)). Due to restrictions on the size of Linux device names, the virtual network name must be less than thirteen characters. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more.
+In the above example, two virtual networks have been defined. The virtual network `dcos` retains the default virtual network, and another virtual network called `dcos-1` with subnet range `192.168.0.0/16` has been added. In DC/OS Overlay, virtual networks must be associated with a name and a subnet. That name is used to launch Marathon tasks and other Mesos framework tasks using this specific virtual network (see [usage](/1.11/networking/SDN/usage/)). Due to restrictions on the size of Linux device names, the virtual network name must be less than thirteen characters. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more.
 
 # Retrieving virtual network state
 
@@ -290,9 +290,9 @@ To delete a virtual network, uninstall DC/OS, then delete the overlay replicated
 
 ## The Overlay Replicated Log
 
-DC/OS overlay uses a replicated log to persist the virtual network state across Mesos master reboots and to recover overlay state when a new Mesos master is elected. The overlay replicated log is stored at `/var/lib/dcos/mesos/master/overlay_replicated_log`. The overlay replicated log is **not** removed when DC/OS is uninstalled from the cluster, so you need to delete this log manually before reinstalling DC/OS. Otherwise, the Mesos master will try to reconcile the existing overlay replicated log during startup and will fail if it finds a virtual network that was not configured.
+DC/OS Overlay uses a replicated log to persist the virtual network state across Mesos master reboots and to recover overlay state when a new Mesos master is elected. The overlay replicated log is stored at `/var/lib/dcos/mesos/master/overlay_replicated_log`. The overlay replicated log is **not** removed when DC/OS is uninstalled from the cluster, so you need to delete this log manually before reinstalling DC/OS. Otherwise, the Mesos master will try to reconcile the existing overlay replicated log during startup and will fail if it finds a virtual network that was not configured.
 
-**Note:** The overlay replicated log is different from the [master's replicated log](http://mesos.apache.org/documentation/latest/replicated-log-internals/), which is stored at /var/lib/mesos/master/replicated_log. Removing the *overlay* replicated log will have no effect on the master's recovery semantics.
+**Note:** The overlay replicated log is different from the [master's replicated log](http://mesos.apache.org/documentation/latest/replicated-log-internals/), which is stored at /var/lib/mesos/master/replicated_log. Removing the overlay replicated log will have no effect on the master's recovery semantics.
 
 ## iptables
 The virtual networks install IPMASQ rules to allow containers to talk outside the virtual network. When you delete or replace virtual networks, you must remove the rules associated with the previous virtual networks. To remove the IPMASQ rules associated with each overlay, remove the IPMASQ rule from the POSTROUTING change of the NAT table that corresponds to the virtual networks subnet. Remove these rules on each agent node.
@@ -304,9 +304,9 @@ To replace your virtual network, uninstall DC/OS and delete the overlay replicat
 
 # Troubleshooting
 
-The **Networking** tab of the DC/OS web interface provides information helpful for troubleshooting. It contains information about the virtual networks from DC/OS overlay that a container is associated with and the IP address of the container on that virtual network.
+The **Networking** tab of the DC/OS web interface provides information helpful for troubleshooting. It contains information about the virtual networks from DC/OS Overlay that a container is associated with and the IP address of the container on that virtual network.
 
-`NOTE: The network tab currently displays information about containers that are associated with virtual networks managed by DC/OS overlay. It does not have information about containers running on virtual networks managed by any other CNI/CNM provider`.
+`NOTE: The network tab currently displays information about containers that are associated with virtual networks managed by DC/OS Overlay. It does not have information about containers running on virtual networks managed by any other CNI/CNM provider`.
 
 <a name="limitations"></a>
 ### Limitations
@@ -314,13 +314,13 @@ The **Networking** tab of the DC/OS web interface provides information helpful f
 
 * DC/OS Overlay does not allow services to reserve IP addresses that result in ephemeral addresses for containers across multiple incarnations on the virtual network. This restriction ensures that a given client connects to the correct service.
 
-DC/OS provides FQDNs in different [zones](/1.11/networking/DNS) that offer a clean way of accessing services through predictable URLs. If you are using DC/OS Overlay, you should use one of the FQDNs provided by the DC/OS DNS service to make it easy for clients to discover the location of your service.
+DC/OS provides FQDNs in different [zones](/1.11/networking/DNS/) that offer a clean way of accessing services through predictable URLs. If you are using DC/OS Overlay, you should use one of the FQDNs provided by the DC/OS DNS service to make it easy for clients to discover the location of your service.
 
 * The limitation on the total number of containers on DC/OS Overlay is the same value as the number of IP addresses available on the overlay subnet. However, the limitation on the number of containers on an agent depends on the subnet (which will be a subset of the overlay subnet) allocated to the agent. For a given agent subnet, half the address space is allocated to the `MesosContainerizer` and the other half is allocated to the `DockerContainerizer`.
 
-* In DC/OS overlay, the subnet of a virtual network is sliced into smaller subnets and these smaller subnets are allocated to agents. When an agent has exhausted its allocated address range and a service tries to launch a container on the virtual network on this agent, the container launch will fail and the service will receive a `TASK_FAILED` message.
+* In DC/OS Overlay, the subnet of a virtual network is sliced into smaller subnets and these smaller subnets are allocated to agents. When an agent has exhausted its allocated address range and a service tries to launch a container on the virtual network on this agent, the container launch will fail and the service will receive a `TASK_FAILED` message.
 
-  Since there is no API to report the exhaustion of addresses on an agent, it is up to the service to infer that containers cannot be launched on a virtual network due to lack of IP addresses on the agent. This limitation has a direct impact on the behavior of services, such as Marathon, that try to launch services with a specified number of instances. Due to this limitation, services such as Marathon might not be able to complete their obligation of launching a service on a virtual network if they try to launch instances of a service on an agent that has exhausted its allocated IP address range.
+  Since there is no API to report the exhaustion of addresses on an agent, it is up to the service to conclude that containers cannot be launched on a virtual network due to lack of IP addresses on the agent. This limitation has a direct impact on the behavior of services, such as Marathon, that try to launch services with a specified number of instances. Due to this limitation, services such as Marathon might not be able to complete their obligation of launching a service on a virtual network if they try to launch instances of a service on an agent that has exhausted its allocated IP address range.
 
   Keep this limitation in mind when debugging issues on frameworks that use a virtual network and you see the `TASK_FAILED` message.
 
@@ -330,7 +330,7 @@ DC/OS provides FQDNs in different [zones](/1.11/networking/DNS) that offer a cle
 
 * [Marathon health checks](/1.11/deploying-services/creating-services/health-checks/) will not work with certain DC/OS Overlay configurations. If you are not using the default DC/OS Overlay configuration and Marathon is isolated from the virtual network, health checks will fail consistently even if the service is healthy.
 
-  Marathon health checks _will_ work in any of the following circumstances:
+  Marathon health checks will work in any of the following circumstances:
 
   * You are using the default DC/OS Overlay configuration.
   * Marathon has access to the virtual network.

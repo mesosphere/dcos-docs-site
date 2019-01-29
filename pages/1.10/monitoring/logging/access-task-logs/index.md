@@ -31,7 +31,7 @@ Here is an overview of the [permissions](/1.10/security/ent/perms-reference/) th
 
 **Prerequisites:**
 
-- DC/OS and DC/OS CLI are [installed](/1.10/installing/oss/) and you are logged in as a superuser.
+- DC/OS and DC/OS CLI are [installed](/1.10/installing/) and you are logged in as a superuser.
 
 # Via the DC/OS GUI
 

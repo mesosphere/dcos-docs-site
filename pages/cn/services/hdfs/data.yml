@@ -1,0 +1,46 @@
+# Common values:
+
+packageName: hdfs
+serviceName: hdfs
+techName: Apache HDFS
+techShortName: HDFS
+
+# Values specific to certain templates:
+
+install:
+  minNodeCount: 五个
+  customRequirements: “- 每个代理节点必须有 4 GB 的内存和 5 GiB 的磁盘空间，且每个代理节点都必须有以下这些端口：8480、8485、9000、9001、9002、9005、 9006 和 9007。”
+  nodeDescription: 有三个 journal 节点、两个名称节点和三个数据节点
+  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/hdfs/hdfs-auth/
+
+managing:
+  podType: 数据
+  taskType: 节点
+
+supportedVersions:
+  techExampleVersion: 2.9.0
+  techLink: "[HDFS](http://hadoop.apache.org/releases.html)" 
+
+security:
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
+
+kerberos:
+  spn: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory
+  upn: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+  principal: example/name-0-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
+
+operations:
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    ├─ journal (serial strategy) (COMPLETE)
+    │  ├─ journal-0:[node] (COMPLETE)
+    │  ├─ journal-1:[node] (COMPLETE)
+    │  └─ journal-2:[node] (COMPLETE)
+    ├─ name (serial strategy) (COMPLETE)
+    │  ├─ name-0:[node, zkfc] (COMPLETE)
+    │  └─ name-1:[node, zkfc] (COMPLETE)
+    └─ data (serial strategy) (COMPLETE)
+       ├─ data-0:[node] (COMPLETE)
+       ├─ data-1:[node] (COMPLETE)
+       └─ data-2:[node] (COMPLETE)

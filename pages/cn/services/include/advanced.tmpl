@@ -1,0 +1,377 @@
+# 高级
+
+DC/OS  {{ model.techName }} 服务的高级特性。
+
+## 组件
+
+以下各个组件协同部署和维护 DC/OS {{ model.techName }} 服务。
+
+- Scheduler
+
+ Scheduler 是服务的“管理层”。它启动服务节点并保持其运行。它还公开端点，以允许最终用户控制服务和诊断问题。Scheduler 由群集的“init 系统” Marathon 维持运行。Scheduler 本身实际上是 Java 应用程序，它通过已传递的配置选项进行配置。
+
+- Mesos
+
+ Mesos 是 DC/OS 群集的基础。Mesos 分配资源并管理群集内启动的一切。典型的 Mesos 群集具有一个或三个管理节点，可管理整个群集的资源。在 DC/OS 上，运行 Mesos 管理节点的机器通常也会运行作为本地系统进程的其他群集服务，例如 Marathon 和 Cosmos。代理机与管理节点所在的机器分开；代理机是运行集群内进程的地方。有关 Mesos 架构的更多信息，请参阅 [Apache Mesos 文档](https://mesos.apache.org/documentation/latest/architecture/)。有关 DC/OS 架构的更多信息，请参阅 [DC/OS 架构文档](/latest/overview/architecture/)。
+
+- ZooKeeper
+
+ ZooKeeper 是 DC/OS 系统组件（如 Marathon 和 Mesos）的常见基础。它为配置、同步、名称注册和群集状态存储提供分布式键值存储。DC/OS 安装时默认配有 ZooKeeper，通常每个 DC/OS 管理节点有一个实例。DC/OS {{ model.techName }} 调度程序使用默认 ZooKeeper 实例在重新启动时存储持久状态（在名为 'dcos-service-' `znodes` <svcname>下）。这允许系统随时终止 Scheduler，并使其在中断的地方继续。
+
+- Marathon
+
+ Marathon 是 DC/OS 群集的“init 系统”。Marathon 启动群集中的任务，并保持其运行。从 Mesos 角度而言，Marathon 本身就是另一个运行自己任务的 Scheduler 。Marathon 比 DC/OS {{ model.techName }} 调度程序的专门化程序低，主要关注不需要管理本地持久状态的任务。DC/OS {{ model.techName}} 服务依赖 Marathon 运行 Scheduler ，并通过环境变量为其提供配置。然而，Scheduler 维护服务任务时没有 Marathon 的直接参与。
+
+- 包装
+
+ {{ model.techName }} 包装用于在 DC/OS 上部署。DC/OS 包遵循 [Universe 架构](https://github.com/mesosphere/universe)，其定义了包如何在初始安装时显示自定义选项。在集群上安装包时，包装服务（名为“Cosmos”）创建一个 Marathon 应用，其中包含由包提供的 `marathon.json.mustache` 模板的渲染版本。对于 DC/OS {{ model.techName }}，此 Marathon 应用是服务的调度程序。
+
+有关 DC/OS 组件的进一步讨论，请参阅 [架构文档](/latest/overview/architecture/components/)。
+
+## 部署
+
+从内部而言，DC/OS {{ model.techName }} 服务将“部署”视为从一个状态移至另一个状态。根据此定义，“部署”适用于许多情境：
+
+- 当 {{ model.packageName }} 包首次安装时，部署是从 Null 配置移至已部署的配置。
+- 在通过更新服务更改已部署配置时，部署是从初始运行配置移至新的拟定配置。
+
+在本部分，我们将介绍如何由 Scheduler 处理这些情境。
+
+### 初始安装
+
+这是部署服务新实例的流程：
+
+#### 由 DC/OS 群集处理的步骤
+
+1. 用户在 DC/OS CLI 中运行 `dcos package install {{ model.packageName }}` 或在 DC/OS 仪表盘上单击给定包的 `Install`。
+
+1. 系统发送一份请求至 Cosmos 包装服务以部署所请求的包以及一组配置选项。
+
+1. Cosmos 使用该请求中提供的配置选项渲染 {{ model.packageName }} 包的 `marathon.json.mustache` 并由此创建一份 Marathon 应用定义，其代表该服务的调度程序。Cosmos POSTs 至 Marathon，以创建应用。
+
+1. Marathon 使用 Cosmos 提供的已渲染的应用定义在集群中的某个位置启动 {{ model.packageName }} 包的调度程序。
+
+1. {{ model.packageName }} 包的调度程序已启动。从此点开始，由 Scheduler 处理部署。
+
+#### 由 Scheduler 处理的步骤
+
+{{ model.packageName }}的 `main()` 函数像任何其他 Java 应用程序一样运行。Scheduler 启动时要有以下状态：
+
+- 代表服务配置的 `svc.yml` 模板。
+- Marathon 提供的环境变量，应用于 `svc.yml` 模板。
+
+1. `svc.yml` 模板使用 Marathon 提供的环境变量进行渲染。
+
+1. 已渲染的 `svc.yml` “服务规范”包含 ZooKeeper 实例的主机/端口，Scheduler 在持久配置/状态存储时要用到该信息。默认为 `master.mesos:2181`，但可以手动配置以使用不同的 ZooKeeper 实例。Scheduler 始终在名为“dcos-service-” 的 znode 下存储其信息<svcname>`.
+
+1. 服务调度程序在 `master.mesos:2181` 连接 DC/OS ZooKeeper 实例，并检查 znode `dcos-service-<svcname>`，查看其是否曾经为自己存储了一个 Mesos Framework ID。
+
+ - 如果存在 Framework ID，调度程序将尝试使用该 ID 重新连接到 Mesos。如果 Mesos 没有识别到该 Framework ID，则可能导致“Framework 已删除”错误，表示卸载不完全。
+
+ - 如果 Framework ID 不存在，调度程序将尝试作为 Framework 向 Mesos 注册。如果注册成功，所得的 Framework ID 随后会立即被存储。
+
+1. 现在 Scheduler 已注册为 Mesos Framework，它能够开始与 Mesos 交互和接收各种供应了。开始时，Scheduler 将开始运行 [供应周期]（#offer-cycle）并部署服务。有关详细信息，请参阅该部分。
+
+1. Scheduler 从 ZooKeeper 检索其部署的任务状态，并发现存在应该启动的任务。这是首次启动，因此所有任务都需要启动。
+
+1. Scheduler 通过 Mesos 供应周期部署那些缺失的任务，使用 [部署计划]（#计划）确定该部署的排序。
+
+1. Scheduler 启动缺失的任务后，其当前配置应与从 `svc.yml`提取的“服务规范”定义的所需配置匹配。
+
+ 1. 在当前配置与所需配置匹配时，Scheduler 将告诉 Mesos 暂停发送新的供应，因为当前没有需要执行的任务。
+ 1. Scheduler 进入空闲状态，直到其收到来自 Mesos 的通知其任务状态更改的 RPC、收到最终用户从其中一个 HTTP API 发来的 RPC，或者直到其由于配置更改而被 Marathon 终止。
+
+### 重新配置
+
+这是发布配置更新时，运行服务实例的过程。
+
+#### 由 DC/OS 群集处理的步骤
+
+1. 用户使用 Scheduler CLI 的 `update` 命令或者通过 DC/OS Web 界面编辑 Scheduler 的配置。
+1. DC/OS 包管理程序指示 Marathon 终止当前 Scheduler，并使用更新后的配置启动新 Scheduler。
+
+#### 由 Scheduler 处理的步骤
+
+与上述的初始安装一样，此时系统使用之前同样的两个信息来源重新启动 Scheduler：
+- `svc.yml` 模板
+- 新的环境变量
+
+此外， Scheduler 现在还有一个附加块：
+- ZooKeeper 中的已有状态
+
+Scheduler 重新配置与初始部署略有不同，因为 Scheduler 现在正将其当前状态与前非空状态进行比较，并确定需要更改的内容。
+
+1. Scheduler 根据新的环境变量完成 `svc.yml` 的渲染之后，它有两个服务规格，反映两个不同的配置。
+ 1. 一个是刚刚渲染的服务规范，其反映配置的更改。
+ 1. 一个是先前存储在 ZooKeeper 中的服务规范（或“目标配置”）。
+1. Scheduler 自动比较新旧服务规范之间的更改。
+ 1. __更改验证__：目前不支持某些更改，如编辑卷和缩降。
+ - 如果检测到无效的更改，Scheduler 将发送错误消息，并拒绝继续操作，直到用户使用先前的配置在 Marathon 中重新启动 Scheduler 应用收回更改为止。
+ - 如果更改有效，新配置作为新的目标配置存储在 ZooKeeper 中，更改部署按如下所述继续进行。
+ 1. __更改部署__：Scheduler 生成一个位于当前状态和某种未来状态之间的 `diff`，包括实现目标所需的所有 Mesos 调用（预留、取消预订、启动、销毁等）。例如，如果任务数量增加，则 Scheduler 将启动正确数量的新任务。如果任务配置设置更改，Scheduler 将通过重新启动任务将该更改部署到相关受影响的任务上。不受配置更改影响的任务将保留原样。
+
+### 卸载
+
+这是卸载 DC/OS {{ model.techName }} 服务的流程。
+
+#### 由群集处理的步骤
+
+1. 用户使用 DC/OS CLI 的 `dcos package uninstall` 命令来卸载服务。
+1. DC/OS 包管理程序指示 Marathon 终止当前 Scheduler，环境变量`SDK_UNINSTALL`设置为“true”，然后启动新的调度程序 。
+
+#### 由 Scheduler 处理的步骤
+
+在卸载模式下启动时，Scheduler 执行以下操作：
+- 所有运行的服务任务都被终止。
+- 任何 Mesos 资源保留均被取消保留。
+ - **警告**：在保留的磁盘资源中存储的任何数据都将无法恢复。
+- ZooKeeper 中先前存在的状态被删除。DC/OS ZooKeeper 的 znode `dcos-service-<svc-name>` 将落在后面. 这是由于根（`/`）上的ACL结构。
+
+## 供应周期
+
+供应周期是一个核心的 Mesos 概念，通常是在 Mesos 运行服务时的混乱来源。
+
+Mesos 将定期通知已预订的 Scheduler，告知群集中的资源情况。Scheduler 预期应接受提供的资源或拒绝资源。在此结构中，Scheduler 从未掌握集群的整体情况，其只知道在任何给定时间会获得哪些确切的资源。这允许 Mesos 可以选择仅向特定 Scheduler 宣传特定资源，不需要 Scheduler 方作出任何更改，但也意味着 Scheduler 无法确定知道其是否看到群集中任何可用的资源。
+
+服务调度程序收到 Mesos 的供应时执行以下操作：
+
+1. __任务调和__：Mesos 是群集上运行情况的实况来源。任务调和允许 Mesos 传达由服务管理的所有任务的状态。Scheduler 将在初始启动期间请求任务调和，Mesos 将发送该 Scheduler 的任务的当前状态。这允许 Scheduler 能够赶上在其上次运行之后其任务所发生的任何潜在状态更改。Mesos 的常见模式是保留任务的大多数信息，因此这只包含状态信息，而非一般任务信息。Scheduler 在 ZooKeeper 中保留其对任务所知情况的自有副本。在初始部署期间，此过程非常快，因为当时尚未启动任何任务。
+1. __供应接受__：Scheduler 完成任务调和后，将开始评估其收到的资源供应，以确定其是否与要启动的下一个任务的要求相匹配。此时，小群集上的用户可能发现 Scheduler 没有在启动任务。这一般是因为在所提供的机器中，Scheduler 无法找到具有足够空间以适应任务的机器。要修复此问题，将更多/更大的机器添加到群集，或降低服务的要求。
+1. __资源清理__：Mesos 提供的供应包括保留信息，如果这些资源之前由 Scheduler 保留的话。Scheduler 将自动请求任何未识别但保留的资源自动取消保留。这可能会在几种情况下出现；例如，如果代理机有数天不可用，然后又变得可用，其资源由服务保留时可能还被视为由 Mesos 保留，而 Scheduler 并没有保留。此时，Scheduler 将自动清除这些资源。
+
+服务调度程序“永久”拒绝所有与目前正在尝试启动的项目不匹配的任何供应。如果调度程序的工作集变更，它将恢复从 Mesos 获得供应。Mesos 还将向调度程序发送任何“新的”供应，例如在移除不同的服务和代理上新资源变得可用时。
+
+#### 永久和临时恢复
+
+恢复有两种类型：永久性和临时性。其差异主要是要恢复的任务是否应留在同一机器上以及由此引起的副作用。
+
+- __临时性__ 恢复：
+ - 当任务或主机发生错误时，会触发临时恢复。
+ - 恢复包括在之前同一机器上重新启动任务。
+ - 自动恢复。
+ - 任务持久卷中的任何数据在中断中保留下来。
+ - 可通过 `pod restart` 命令手动触发。
+- __永久性__ 恢复：
+ - 当主机发生永久故障或主机按计划停工时，可以请求永久恢复。
+ - 恢复涉及丢弃 Pod 在主机上所有的任何持久卷。
+ - 仅通过手动 `pod replace` 命令才会进行恢复（或者您可以构建自己的工具来调用 `replace` 命令）。
+
+触发永久性恢复是破坏性操作，因为它丢弃当前被恢复的 Pod 的任何先前的持久卷。当操作员知道早先的机器不会回来时，这是合适的操作。为安全起见，服务本身**永远不会**自动触发永久性恢复。
+
+## 持久卷
+
+卷由 Meso 作为资源进行宣传，Mesos 提供多种类型的持久卷。DC/OS {{ model.techName }} 服务支持以下两种类型：ROOT 卷和 MOUNT 卷。
+
+- __ROOT__ 卷：
+ - 使用共享文件系统树。
+ - 与该文件系统上的其他任何内容共享 I/O。
+ - 在新部署中默认受支持，不需要额外的群集级配置。
+ - 被准确分配所请求的磁盘空间量。
+
+- __MOUNT__ 卷：
+ - 使用专用分区。
+ - 为该分区设置专用 I/O。
+ - 设置 DC/OS 群集时需要 [其他配置](/latest/storage/mount-disk-resources/) 。
+ - 被分配整个分区，所以分配的空间可能远远超过最初请求的空间。不能在服务之间进一步细分 MOUNT 卷。
+
+不能在服务之间再细分 MOUNT 卷意味着：如果多个服务使用 MOUNT 卷进行部署，则除非每个代理上都创建了许多 MOUNT 卷，否则 MOUNT 卷可能很快就无法在集群中密集地共置。让我们来看看以下在三个 DC/OS 代理机的部署情景，每个代理机都带有标记为 A 和 B 的两个 MOUNT 卷：
+
+```bash
+Agent 1: A B
+Agent 2: A B
+Agent 3: A B
+```
+
+现在，我们将安装有两个节点的服务 X，每个节点都使用一个挂载卷。该服务消耗代理 1 和 3 上的卷 A：
+
+```bash
+Agent 1: X B
+Agent 2: A B
+Agent 3: X B
+```
+
+现在，安装了带有两个节点的服务 Y，每个节点都使用两个挂载卷。该服务消耗在代理 2 上的卷 A 和 B，但随后卡住，因为无法部署其他任何内容：
+
+```bash
+Agent 1: X B
+Agent 2: Y Y
+Agent 3: X B
+```
+
+配置 `ROOT` 与 `MOUNT` 卷可能取决于服务。有些服务可以在存在关联时自定义此设置，而其他服务可能会假定其中一个或另一个。
+
+## 密钥
+
+Enterprise DC/OS 提供了一个密钥存储库，以支持访问敏感数据，如数据库密码、私钥和 API 令牌。DC/OS 管理安全运输密钥数据、访问控制和授权以及安全存储密钥内容。
+
+<p class="message--note"><strong>注意: </strong>密钥仅适用于 Enterprise DC/OS 1.11 及更高版本。<a href="/cn/1.11/security/ent/secrets/">详细了解密钥存储库</a>。</p>
+
+
+### 密钥授权
+
+密钥的路径定义了哪些服务 ID 可以访问它。您可以将密钥路径视为命名空间。**只有**位于同一命名空间下的服务才能读取密钥的内容。
+
+
+| 密钥 | 服务 ID | 服务可以访问密钥吗？ |
+|--------------------------------------|-------------------------------------|----------------------------|
+| | `Secret_Path1` | | `/user` | 是 |
+| | `Secret_Path1` | | `/dev1/user` | 是 |
+| | `secret-svc/Secret_Path1` | | `/user` | 否 |
+| | `secret-svc/Secret_Path1` | | `/user/dev1` | 否 |
+| | `secret-svc/Secret_Path1` | | `/secret-svc` | 是 |
+| | `secret-svc/Secret_Path1` | | `/secret-svc/dev1` | 是 |
+| | `secret-svc/Secret_Path1` | | `/secret-svc/instance2/dev2` | 是 |
+| | `secret-svc/Secret_Path1` | | `/secret-svc/a/b/c/dev3` | 是 |
+| | `secret-svc/instance1/Secret_Path2` | | `/secret-svc/dev1` | 否 |
+| | `secret-svc/instance1/Secret_Path2` | | `/secret-svc/instance2/dev3` | 否 |
+| | `secret-svc/instance1/Secret_Path2` | | `/secret-svc/instance1` | 是 |
+| | `secret-svc/instance1/Secret_Path2` | | `/secret-svc/instance1/dev3` | 是 |
+| | `secret-svc/instance1/Secret_Path2` | | `/secret-svc/instance1/someDir/dev3`| 是 |
+
+
+
+<p class="message--note"><strong>注意: </strong>不支持密钥绝对路径（带有前沿斜线的路径）。密钥的文件路径必须与沙盒相关。</p>
+
+### 二进制密钥
+
+您可以将二进制文件，如 Kerberos keytab，存储在 DC/OS 密钥存储库中。在 DC/OS 1.11 和更高版本中，您可以直接从二进制文件创建密钥。在 DC/OS 1.10 或更早版本中，文件必须按照 RFC 4648 中的规定进行 base64 编码，才能作为密钥存储起来。
+
+#### DC/OS 1.11 及更高版本
+
+要使用 `kerb5.keytab` 二进制内容创建名为 `mysecret`的密钥，运行：
+
+```bash
+$ dcos security secrets create --file kerb5.keytab mysecret
+```
+
+#### DC/OS 1.10 或更早版本
+
+要创建带有`kerb5.keytab` 二进制内容的名为 `mysecret` 的密钥，首先使用 `base64` 命令行实用程序将其编码。以下示例使用 BSD `base64` （Mac OS 中默认）。
+
+```bash
+$ base64 --input krb5.keytab > kerb5.keytab.base64-encoded
+```
+
+或者，GNU `base64`（Linux 中默认）默认在编码数据中插入行馈送。使用 `-w 0` 自变量禁用自动换行。
+
+```bash
+$ base64 -w 0 krb5.keytab > kerb5.keytab.base64-encoded
+```
+
+现在文件已编码，可以将其作为密钥存储。
+
+```bash
+$ dcos security secrets create --value-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret
+```
+
+<p class="message--note"><strong>注意: </strong> 密钥名称 **必须**具有前缀 <tt>__dcos_base64__</tt>。</p>
+
+当 `some/path/__dcos_base64__mysecret` 密钥是 [在您的服务定义中引用](https://mesosphere.github.io/dcos-commons/developer-guide.html)时，其 base64 解码内容将作为 [临时文件](http://mesos.apache.org/documentation/latest/secrets/#file-based-secrets) 在您的服务任务容器中提供。
+
+<p class="message--note"><strong>注意: </strong> 确保仅作为文件引用二进制密钥，因为不鼓励在环境变量中使用二进制内容。</p>
+
+
+## 服务调度程序度量标准
+服务调度程序记录了一些度量标准，可用于诊断调度程序的问题并监控调度程序的性能。度量标准可以通过 DC/OS 度量标准使用或直接从服务调度程序中拉取。
+
+在服务调度程序的 `/v1/metrics` 端点提供度量标准的 JSON 表示。
+
+####### JSON
+
+```json
+{
+	"version": "3.1.3",
+	"gauges": {},
+	"counters": {
+		"declines.long": {
+			"count": 15
+		},
+		"offers.processed": {
+			"count": 18
+		},
+		"offers.received": {
+			"count": 18
+		},
+		"operation.create": {
+			"count": 5
+		},
+		"operation.launch_group": {
+			"count": 3
+		},
+		"operation.reserve": {
+			"count": 20
+		},
+		"revives": {
+			"count": 3
+		},
+		"task_status.task_running": {
+			"count": 6
+		}
+	},
+	"histograms": {},
+	"meters": {},
+	"timers": {
+		"offers.process": {
+			"count": 10,
+			"max": 0.684745927,
+			"mean": 0.15145255818999337,
+			"min": 5.367950000000001E-4,
+			"p50": 0.0035879090000000002,
+			"p75": 0.40317217800000005,
+			"p95": 0.684745927,
+			"p98": 0.684745927,
+			"p99": 0.684745927,
+			"p999": 0.684745927,
+			"stddev": 0.24017017290826104,
+			"m15_rate": 0.5944843686231079,
+			"m1_rate": 0.5250565015924039,
+			"m5_rate": 0.583689104996544,
+			"mean_rate": 0.3809369986002824,
+			"duration_units": "seconds",
+			"rate_units": "calls/second"
+		}
+	}
+}
+```
+
+在服务调度程序的 `/v1/metrics/prometheus` 端点提供度量标准的 Prometheus 表示。
+
+####### Prometheus
+```
+# HELP declines_long Generated from Dropwizard metric import (metric=declines.long, type=com.codahale.metrics.Counter)
+# TYPE declines_long gauge
+declines_long 20.0
+# HELP offers_processed Generated from Dropwizard metric import (metric=offers.processed, type=com.codahale.metrics.Counter)
+# TYPE offers_processed gauge
+offers_processed 24.0
+# HELP offers_received Generated from Dropwizard metric import (metric=offers.received, type=com.codahale.metrics.Counter)
+# TYPE offers_received gauge
+offers_received 24.0
+# HELP operation_create Generated from Dropwizard metric import (metric=operation.create, type=com.codahale.metrics.Counter)
+# TYPE operation_create gauge
+operation_create 5.0
+# HELP operation_launch_group Generated from Dropwizard metric import (metric=operation.launch_group, type=com.codahale.metrics.Counter)
+# TYPE operation_launch_group gauge
+operation_launch_group 4.0
+# HELP operation_reserve Generated from Dropwizard metric import (metric=operation.reserve, type=com.codahale.metrics.Counter)
+# TYPE operation_reserve gauge
+operation_reserve 20.0
+# HELP revives Generated from Dropwizard metric import (metric=revives, type=com.codahale.metrics.Counter)
+# TYPE revives gauge
+revives 4.0
+# HELP task_status_task_finished Generated from Dropwizard metric import (metric=task_status.task_finished, type=com.codahale.metrics.Counter)
+# TYPE task_status_task_finished gauge
+task_status_task_finished 1.0
+# HELP task_status_task_running Generated from Dropwizard metric import (metric=task_status.task_running, type=com.codahale.metrics.Counter)
+# TYPE task_status_task_running gauge
+task_status_task_running 8.0
+# HELP offers_process Generated from Dropwizard metric import (metric=offers.process, type=com.codahale.metrics.Timer)
+# TYPE offers_process summary
+offers_process{quantile="0.5",} 2.0609500000000002E-4
+offers_process{quantile="0.75",} 2.2853200000000001E-4
+offers_process{quantile="0.95",} 0.005792643
+offers_process{quantile="0.98",} 0.005792643
+offers_process{quantile="0.99",} 0.111950848
+offers_process{quantile="0.999",} 0.396119612
+offers_process_count 244.0
+```

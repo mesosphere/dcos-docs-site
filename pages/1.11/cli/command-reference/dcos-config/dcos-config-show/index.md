@@ -3,32 +3,27 @@ layout: layout.pug
 navigationTitle:  dcos config show
 title: dcos config show
 menuWeight: 2
-excerpt: How to show the cluster configuration file
+excerpt: Showing the cluster configuration file
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-The dcos config show command will display the DC/OS configuration file contents of the currently [attached](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster.
+The `dcos config show` command allows you to display the DC/OS configuration file contents of the currently [attached cluster](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/).
 
 # Usage
 
 ```bash
-dcos config show <name> [OPTION]
+dcos config show <name>
 ```
 
-# Options
-
-None.
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<name>`   |             |  The name of the property. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<name>`   |  The name of the property. |
 
 # Parent command
 

@@ -4,11 +4,10 @@ navigationTitle:  What is DC/OS
 title: What is DC/OS?
 menuWeight: 1
 excerpt: Understanding DC/OS
-
 enterprise: false
 ---
 
-As a datacenter operating system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
+As a distributed system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.
 
 ## Distributed System
 
@@ -20,14 +19,14 @@ As a cluster manager, DC/OS manages both resources and tasks running on the agen
 
 ## Container Platform
 
-As a container platform, DC/OS includes two built-in task schedulers (Marathon and DC/OS Jobs (Metronome)) and two container runtimes (Docker and Mesos). Combined, this functionality is commonly referred to as container orchestration. In addition to the built-in schedulers for services and jobs, DC/OS also supports custom schedulers for handling more complex application-specific operational logic. Stateful services like databases and message queues often take advantage of these custom schedulers to handle advanced scenarios (e.g. setup, tear down, backup, restore, migration, synchronization, rebalancing, etc).
+As a container platform, DC/OS includes two built-in task schedulers (Marathon and DC/OS Jobs (Metronome)) and two container runtimes (Docker and Mesos). Combined, this functionality is commonly referred to as container orchestration. In addition to the built-in schedulers for services and jobs, DC/OS also supports custom schedulers for handling more complex application-specific operational logic. Stateful services like databases and message queues often take advantage of these custom schedulers to handle advanced scenarios such as setup, tear down, backup, restore, migration, synchronization, and rebalancing.
 
-All tasks on DC/OS are containerized. Containers can be started from images downloaded from a container repository (e.g. [Docker Hub](https://hub.docker.com/)) or they can be native executables (e.g. binaries or scripts) containerized at runtime. While Docker is currently required on every node, it may become optional in the future, as components and packages migrate to using the Mesos Universal Container Runtime for imaged and native workloads.
+All tasks on DC/OS are containerized. Containers can be started from images downloaded from a container repository (such as [Docker Hub](https://hub.docker.com/)) or they can be native executables (such as binaries or scripts) containerized at runtime. While Docker is currently required on every node, it may become optional in the future, as components and packages migrate to using the Mesos Universal Container Runtime for imaged and native workloads.
 
 ## Operating System
 
-As an operating system, DC/OS abstracts the cluster hardware and software resources and provides common services to applications. On top of cluster management and container orchestration functionality, these common services additionally provide package management, networking, logging and metrics, storage and volumes, and identity management.
+As an operating system, DC/OS abstracts the cluster hardware and software resources and provides common services to applications. On top of cluster management and container orchestration functionality, these common services also provide package management, networking, logging and metrics, storage and volumes, and identity management.
 
-Similar to Linux, DC/OS has both system space (aka kernel space) and user space. The system space is a protected area that is not accessible to users and involves low-level operations such as resource allocation, security, and process isolation. The user space is where the user applications, jobs, and services live. The built-in package manager can be used to install services into the user space.
+Similar to Linux, DC/OS has both system space (aka kernel space) and user space. The system space is a protected area that is not accessible to users and involves low-level operations such as resource allocation, security, and process isolation. The user space is where the user applications, jobs, and services are located. The built-in package manager can be used to install services into the user space.
 
 Unlike Linux, DC/OS is not a [host operating system](/1.11/overview/concepts/#host-operating-system). DC/OS spans multiple machines, but relies on each machine to have its own host operating system and host kernel.

@@ -2,14 +2,14 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb create
 title: dcos edgelb create
-menuWeight: 30
-excerpt:
+menuWeight: 5
+excerpt: Create a single pool given a definition file written in JSON or YAML
 
 enterprise: false
 ---
 
 # Description
-Creates a single pool given a definition file written in JSON or YAML.
+The `dcos edgelb create` command creates a single pool from a definition file written in JSON or YAML.
 
 # Usage
 
@@ -21,7 +21,7 @@ dcos edgelb create [<flags>] <pool-file>
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--help, h`   | Print usage. |
+| `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 | `--force-insecure`   | Allow unverified TLS certificates when querying service. |
 | `--custom-auth-token=DCOS_AUTH_TOKEN`   | Specify a custom auth token to use when querying a service. |
@@ -34,8 +34,8 @@ dcos edgelb create [<flags>] <pool-file>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.0/cli-reference) |  Manage Edge-LB. |
+| [dcos edgelb](/services/edge-lb/1.0/cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.0/usage).
+See the [Edge-LB Usage](/services/edge-lb/1.0/usage/).

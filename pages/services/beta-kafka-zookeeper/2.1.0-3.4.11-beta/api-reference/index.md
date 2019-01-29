@@ -19,7 +19,7 @@ The DC/OS Apache Zookeeper Service implements a REST API that can be accessed fr
 # REST API Authentication
 REST API requests must be authenticated. This authentication is only applicable for interacting with the DC/OS Apache Zookeeper REST API directly. You do not need the token to access the Apache Zookeeper nodes themselves.
 
-If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](/1.10/security/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](/1.9/security/iam-api/), but you will need to manually refresh the token.
+If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](/1.9/security/ent/iam-api/), but you will need to manually refresh the token.
 
 If you are using open source DC/OS, follow these instructions to [pass your HTTP API token to the DC/OS endpoint](https://dcos.io/docs/latest/security/iam-api/).
 
@@ -49,7 +49,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper plan list
+dcos beta-kafka-zookeeper plan list
 ```
 
 ## Plan status
@@ -65,7 +65,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper plan status deploy
+dcos beta-kafka-zookeeper plan status deploy
 ```
 
 **Tip:** To view the full JSON from the CLI, pass the `--json` flag.
@@ -83,7 +83,7 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zooke
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper plan start deploy
+dcos beta-kafka-zookeeper plan start deploy
 ```
 
 ## Pause installation
@@ -99,7 +99,7 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zooke
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper plan pause deploy
+dcos beta-kafka-zookeeper plan pause deploy
 ```
 
 ## Resume installation
@@ -115,7 +115,7 @@ curl -X PUT -H "Authorization:token=$auth_token" <dcos_surl>/service/kafka-zooke
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper plan resume deploy
+dcos beta-kafka-zookeeper plan resume deploy
 ```
 
 # Connection API
@@ -133,7 +133,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper endpoints
+dcos beta-kafka-zookeeper endpoints
 ```
 
 ## Display endpoints
@@ -145,7 +145,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/
 ```
 
 ```shell
-dcos kafka-zookeeper endpoints clientport
+dcos beta-kafka-zookeeper endpoints clientport
 ```
 
 # Nodes API
@@ -165,7 +165,7 @@ curl  -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper pod list
+dcos beta-kafka-zookeeper pod list
 ```
 
 ## Node Info
@@ -181,7 +181,7 @@ curl  -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper pod info zookeeper-0
+dcos beta-kafka-zookeeper pod info zookeeper-0
 ```
 
 HTTP Example
@@ -202,7 +202,7 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zooke
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper pod replace <node-id>
+dcos beta-kafka-zookeeper pod replace <node-id>
 ```
 
 If the operation succeeds, a `200 OK` is returned.
@@ -220,7 +220,7 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zooke
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper pod restart <node-id>
+dcos beta-kafka-zookeeper pod restart <node-id>
 ```
 
 If the operation succeeds a `200 OK` is returned.
@@ -242,7 +242,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper config target
+dcos beta-kafka-zookeeper config target
 ```
 
 ## List Configs
@@ -258,7 +258,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper config list
+dcos beta-kafka-zookeeper config list
 ```
 
 ## View Specified Config
@@ -274,7 +274,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/kafka-zookeeper/v1/
 ### CLI Example
 
 ```shell
-dcos kafka-zookeeper config show 9a8d4308-ab9d-4121-b460-696ec3368ad6
+dcos beta-kafka-zookeeper config show 9a8d4308-ab9d-4121-b460-696ec3368ad6
 ```
 
 # Service Status Info
@@ -291,5 +291,5 @@ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka-zookeeper/v
 ### CLI example
 
 ```shell
-dcos kafka-zookeeper debug state property suppressed
+dcos beta-kafka-zookeeper debug state property suppressed
 ```

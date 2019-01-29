@@ -17,4 +17,6 @@ require('./js/swagger-ui.js');
 require('./js/toc-scroll.js');
 require('./js/analytics.js');
 require('./js/tooltip.js');
+require('./js/tabs.js');
 require('./js/ellipsis.js');
+require('./js/localization.js');

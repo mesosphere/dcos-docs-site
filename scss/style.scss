@@ -27,8 +27,8 @@
 @import "base/print-toc";
 @import "base/print";
 @import "base/search";
-
 @import "pages/landing";
+@import "base/printer-styling";
 
 /* Components */
 @import "components/sidebar";
@@ -37,6 +37,8 @@
 @import "components/grid-toc";
 @import "components/prism";
 @import "components/form";
+@import "components/tabs";
+@import "components/localization";
 
 /* Shortcodes */
 @import "shortcodes/message";

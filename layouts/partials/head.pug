@@ -14,9 +14,7 @@ if currentDocs && paths[0] != currentDocs.id && semanticVersion.test(paths[0])
   - var p = path.split('/')
   - p[0] = currentDocs.id
   - var newUrl = '/' + p.join('/')
-  script.
-    console.log(!{JSON.stringify(newUrl)})
-  if hierarchy.findByPath(newUrl)
+  if hierarchy.checkIfPathExists(newUrl)
     - canonicalHref = url + newUrl
 
 meta(charset='UTF-8')

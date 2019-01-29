@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  System Requirements
 title: System Requirements
 menuWeight: 0
-excerpt:
+excerpt: Hardware and software requirements for DC/OS Open Source
 
 ---
 
@@ -74,7 +74,7 @@ The agent nodes must also have:
 
     **Important:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
 
-*   Do not mount `/tmp` with `noexec`. This will prevent Exhibitor and ZooKeeper from running.
+*   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.  
 
 ### <a name="port-and-protocol"></a>Port and Protocol Configuration
 
@@ -94,6 +94,10 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 **Tip:** Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/1.9.1/cloud_images/centos7/install_prereqs.sh) for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.
 
+* Refer to [install_prereqs.sh](https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh) script for an example of how to install the software requirements for DC/OS masters and agents on a CentOS 7 host.[enterprise type="inline" size="small" /]
+
+* When using OverlayFS over XFS, the XFS volume should be created with the -n ftype=1 flag. Please see the [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.2_release_notes/technology-preview-file_systems) and [Mesos](http://mesos.apache.org/documentation/latest/container-image/#provisioner-backends) documentation for more details.
+
 ## All Nodes
 
 ### Docker
@@ -104,7 +108,7 @@ Docker must be installed on all bootstrap and cluster nodes. The supported Docke
 
 * Do not use Docker `devicemapper` storage driver in `loop-lvm` mode. For more information, see [Docker and the Device Mapper storage driver](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/).
 
-* Prefer `OverlayFS` or `devicemapper` in `direct-lvm` mode when choosing a production storage driver. For more information, see Docker's <a href="https://docs.docker.com/engine/userguide/storagedriver/selectadriver/" target="_blank">Select a Storage Driver</a>.
+* Choose `OverlayFS` or `devicemapper` in `direct-lvm` mode when choosing a production storage driver. For more information, see Docker's <a href="https://docs.docker.com/engine/userguide/storagedriver/selectadriver/" target="_blank">Select a Storage Driver</a>.
 
 * Manage Docker on CentOS with systemd. systemd handles starting Docker on boot and restarting it when it crashes.
 
@@ -172,7 +176,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 ### <a name="setup-file"></a>DC/OS setup file
 
-[Download and save](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) the DC/OS setup file to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file.
+[Download and save](https://dcos.io/releases/) the DC/OS setup file to your bootstrap node. This file is used to create your customized DC/OS build file. Contact your sales representative or <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> for access to this file.
 
 ### Docker Nginx (advanced installer)
 
@@ -212,10 +216,20 @@ On each of your cluster nodes, use the following command to:
     sudo reboot
     ```
 
-    **Tip:** It may take a few minutes for your node to come back online after reboot.
+    **Note:** It may take a few minutes for your node to come back online after reboot.
 
 ### Locale requirements
-You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.    
+You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
+
+- For info on setting these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
+
+- On Linux:
+````
+localectl set-locale LANG=en_US.utf8
+````
+
+- For info on setting these variable in CentOS7, see [How to set up system locale on CentOS 7](https://www.rosehosting.com/blog/how-to-set-up-system-locale-on-centos-7/).
+
 
 # Next steps
 

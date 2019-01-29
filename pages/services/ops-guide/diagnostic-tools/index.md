@@ -68,7 +68,7 @@ In the Agent view, you'll see a list of frameworks with a presence on that Agent
 
 ## Logs via the CLI
 
-You can also access logs via the [DC/OS CLI](https://dcos.io/docs/latest/usage/cli/install/) using the `dcos task log` command. For example, lets assume the following list of tasks in a cluster:
+You can also access logs via the [DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) using the `dcos task log` command. For example, lets assume the following list of tasks in a cluster:
 
 ```bash
 $ dcos task

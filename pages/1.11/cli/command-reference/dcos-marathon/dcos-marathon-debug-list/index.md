@@ -3,16 +3,15 @@ layout: layout.pug
 navigationTitle:  dcos marathon debug list
 title: dcos marathon debug list
 menuWeight: 12
-excerpt:
+excerpt: Displaying the current queue of Marathon app deployments
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description
-List the current queue of Marathon application deployments that are waiting.
+The `dcos marathon debug list` command allows you to display the current queue of Marathon application deployments that are waiting.
 
 # Usage
 
@@ -22,9 +21,9 @@ dcos marathon debug list [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  Print JSON-formatted data. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--json`   |  Displays JSON-formatted data. |
 
 # Parent command
 
@@ -32,4 +31,4 @@ dcos marathon debug list [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->
+More information about this command can be found in the [Monitoring section](https://docs.mesosphere.com/1.11/monitoring/debugging/cli-debugging/#dcos-marathon-debug-list).

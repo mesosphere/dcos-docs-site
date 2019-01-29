@@ -87,4 +87,4 @@ menuWeight: 40
 
 See also [Connecting clients][1].
 
- [1]: /services/kafka/connecting-clients/
+ [1]: /services/kafka/2.0.4-1.0.0/connecting-clients/

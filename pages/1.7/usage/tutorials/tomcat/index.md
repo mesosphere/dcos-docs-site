@@ -70,7 +70,7 @@ It should look like this:
 
 Here we've defined the app (`.id`) to be `/tomcat` all applications run on Marathon must have a unique id. We want Marathon to run one instance of Tomcat for us on our cluster, each instance will require one cpu share (`.cpus`), 512 MB of ram (`.mem`) and port 80 (`.container.docker.portMappings[0].hostPort`). We then tell Marathon the container image we want Tomcat to be ran from, in this case we're running `tomcat:8.5` from [DockerHub](https://hub.docker.com/_/tomcat/) (`.container.docker.image`).
 
-We've specified that Marathon should run the Docker image using [Bridge Networking](https://docs.docker.com/engine/userguide/networking/default_network/) (`.container.docker.network`), and specified that TCP port 80 on the host (`.container.docker.portMappings[0].hostPort`) should be forwarded to TCP port 8080 inside the container (`.container.docker.portMappings[0].containerPort`).
+We've specified that Marathon should run the Docker image using [Bridge Networking](https://docs.docker.com/network/bridge/) (`.container.docker.network`), and specified that TCP port 80 on the host (`.container.docker.portMappings[0].hostPort`) should be forwarded to TCP port 8080 inside the container (`.container.docker.portMappings[0].containerPort`).
 
 We next tell Marathon that we have to run on port 80 by setting `.requirePorts` to true.
 

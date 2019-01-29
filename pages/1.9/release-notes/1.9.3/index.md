@@ -2,10 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.9.3
 title: Release Notes for 1.9.3
-menuWeight: 40
+menuWeight: 35
 excerpt:
 ---
-These are the release notes for DC/OS 1.9.3.
+
+DC/OS 1.9.3 was released on September 1, 2017.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.9.3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -113,7 +114,7 @@ For more information, see the [documentation](/1.9/metrics/).
 - DC/OS Identity and Access Management (IAM) highlights:
 
   - LDAP group import: support importing `posixGroup` objects according to [RFC2307](https://www.ietf.org/rfc/rfc2307) and [RFC2307bis](https://tools.ietf.org/html/draft-howard-rfc2307bis-02), and ensure compatibility with [FreeIPA](https://www.freeipa.org) and [OpenLDAP](https://www.openldap.org/).
-  - SAML 2.0: ensure that the authentication flow works against [Shibboleth](https://shibboleth.net/products/identity-provider.html) and improve compatibility with a wide range of identity provider configurations.
+  - SAML 2.0: ensure that the authentication flow works against [Shibboleth](https://www.shibboleth.net/products/identity-provider/) and improve compatibility with a wide range of identity provider configurations.
   - OpenID Connect: ensure that the authentication flow works against [dex](https://github.com/coreos/dex) as well as against [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/), and allow for customizing the identity provider certificate verification in back-channel communication. Enhance configuration validation for a better user experience.
 
 - DC/OS CLI highlights:

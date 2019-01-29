@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
 navigationTitle: 
-excerpt:
+excerpt: Overview of job scheduling options
 title: Job Scheduling
 menuWeight: 110
 featureMaturity:
-
+model: /services/spark/data.yml
+render: mustache
 ---
 
 This document is a simple overview of material described in greater detail in the Apache Spark documentation [here][1]
@@ -16,9 +17,10 @@ and [here][2].
 Spark on Mesos supports two modes of operation: coarse-grained mode and fine-grained mode. Coarse-grained mode
 provides lower latency, whereas fine-grained mode provides higher utilization. More info [here][2].
 
-# Coarse-grained mode
+<a name="spark-coarse"></a>
+## Coarse-grained mode
 
-"Coarse-grained" mode is so-called because each Spark **executor** is represented by a single Mesos task. As a result,
+"Coarse-grained" mode is so-called because each Spark executor is represented by a single Mesos task. As a result,
 executors have a constant size throughout their lifetime.
 
 *   **Executor memory**: `spark.executor.memory`
@@ -27,36 +29,30 @@ executors have a constant size throughout their lifetime.
     `spark.cores.max` is reached. Executors survive for duration of the job.
 *   **Executors per agent**: Multiple
 
-Notes:
+**Note:** We highly recommend that you [set `spark.cores.max`](#set-spark-cores-max). If you do not, your Spark job may consume all available resources in your cluster, resulting in unhappy peers.
 
-*   We highly recommend you set `spark.cores.max`. If you do not, your Spark job may consume all available resources in
-    your cluster, resulting in unhappy peers.
+# Quotas for Drivers and Executors
 
-# Quota for Drivers and Executors
-
-Setting [Mesos Quota](http://mesos.apache.org/documentation/latest/quota/) for the Drivers prevents the Dispatcher from
-greedily consuming too many resources and assists queueing behavior. To control the concurrent number of Drivers the
-Spark service will run concurrently, we **strongly** recommend setting Quota for the Drivers. The Quota will both
-guarantee that the Spark Dispatcher has resources available to launch Drivers _and limit_ the total impact on the
-cluster due to Drivers.  Optionally, set Quota for the Drivers to consume, this ensures that Drivers will not be starved
+Setting [Mesos Quota](http://mesos.apache.org/documentation/latest/quota/) for the Drivers prevents the Dispatcher from consuming too many resources, and assists queueing behavior. To control the concurrent number of Drivers, the
+Spark service will run concurrently. We strongly recommend setting a Quota for the Drivers. The Quota will both
+guarantee that the Spark Dispatcher has resources available to launch Drivers, and limit the total impact on the
+cluster due to Drivers.  Optionally, set a Quota for the Drivers to consume, to ensure that Drivers will not be starved
 of resources by other frameworks as well as make sure they do not consume too much of the cluster (see coarse-grained
 mode above).
 
-## Setting Quota for the Drivers
+## Setting Quotas for the Drivers
 
-Quota for the Drivers allows the operator of the cluster to ensure that only a given number of Drivers are concurrently
-running. As additional Drivers are submitted, they will be enqueued by the Spark Dispatcher. Below are the recommended
-steps for setting Quota for the Drivers:
+Setting a Quota for the Drivers allows the cluster administrator to ensure that only a given number of Drivers are concurrently running. As additional Drivers are submitted, they will be enqueued by the Spark Dispatcher. Below are the recommended steps for setting Quotas for the Drivers:
 
-1.  Set the Quota conservatively, keeping in mind that it will effect the number of jobs that can run concurrently.
+1.  Set the Quota conservatively, keeping in mind that it will affect the number of jobs that can run concurrently.
 1.  Decide how much of your cluster's resources to allocate to running Drivers. These resources will only be used for
-    the Spark Drivers, meaning that here we can decide roughly how many concurrent jobs we’d like to have running at a
-    time. As additional jobs are submitted, they will be enqueued and run with first-in-first-out semantics.
-1.  For the most predictable behavior, enforce uniform driver resource requirements and a particular Quota size for the
-    Dispatcher.  If each driver consumes 1.0 cpu and it is desirable to run up to 5 Spark jobs concurrently, Quota with
-    5 cpus should be created.
+    the Spark Drivers, meaning that here we can decide roughly how many concurrent jobs we would like to have running at a time. As additional jobs are submitted, they will be enqueued and run with first-in-first-out semantics.
+1.  For the most predictable behavior, enforce uniform Driver resource requirements and a particular Quota size for the
+    Dispatcher.  If each Driver consumes 1.0 CPU and it is desirable to run up to five Spark jobs concurrently, a Quota with 5 CPUs should be created:
         
-ssh to the Mesos master and set the Quota for a role (`dispatcher` in this example):
+Example:
+
+SSH to the Mesos master and set the Quota for a role (`dispatcher` in this example):
 
 ```bash
 $ cat dispatcher-quota.json
@@ -78,7 +74,7 @@ $ cat dispatcher-quota.json
 $ curl -d @dispatcher-quota.json -X POST http://<master>:5050/quota
 ```
 
-Then install the Spark service with the following options (at a minimum):
+4. Install the Spark service with the following options (at a minimum):
 
 ```bash
 $ cat options.json
@@ -90,18 +86,16 @@ $ cat options.json
 $ dcos package install spark --options=options.json
 ```
 
-## Setting Quota for the Executors
+## Setting Quotas for the Executors
         
-It is recommended to allocate Quota for Spark job executors.  Allocating Quota for the Spark executors provides:
-1.  A guarantee that Spark jobs will receive the requested amount of resources.
-1.  Additional assurance that even misconfigured (e.g. greedy Driver with unset `spark.cores.max`) Spark jobs do not consume
-    too many resources impacting other tenants on the cluster.
+It is recommended to allocate Quotas for Spark job executors.  Allocating Quotas for the Spark executors provides:
+-  A guarantee that Spark jobs will receive the requested amount of resources.
+-  Additional assurance that even misconfigured Spark jobs (for example, a Driver with unset `spark.cores.max`)  do not consume too many resources, impacting other tenants on the cluster.
 
-The drawback to allocating Quota to the Executors is that Quota resources cannot be used by other frameworks in the
+The drawback to allocating Quotas to the Executors is that Quota resources cannot be used by other frameworks in the
 cluster.
 
-Quota can be allocated for Spark executors in the same way it was allocated for Spark dispatchers.  If we assume we want
-to be able to run 100 executors concurrently each with 1.0 cpu and 4096 MB of memory we should do the following:
+Quotas can be allocated for Spark executors in the same way they are allocated for Spark dispatchers.  If we assume we want to be able to run 100 executors concurrently, each with 1.0 CPU and 4096 MB of memory, we should do the following:
 
 ```bash
 $ cat executor-quota.json
@@ -124,8 +118,9 @@ $ curl -d @executor-quota.json -X POST http://<master>:5050/quota
 
 ```
 
-When Spark jobs are submitted they must indicate the role for which the Quota has been set in order to consume resources
-from this quota, for example:
+When Spark jobs are submitted, they must indicate the role for which the Quota has been set in order to consume resources from this quota.
+
+Example:
 
 ```bash
 $ dcos spark run --verbose --name=spark --submit-args="\
@@ -138,16 +133,13 @@ http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 3000"
 
 ```
 
-**Special consideration for streaming and long-running Spark jobs**: to prevent a single long-running or streaming Spark
-job from consuming the entire Quota the max CPUs for that Spark job should be set to roughly one “job’s worth” of the
-Quota’s resources. This ensures that the Spark job will get sufficient resources to make progress, setting the max CPUs
-ensures it will not starve other Spark jobs of resources as well as predictable offer suppression semantics.
+### Special considerations for streaming and long-running Spark jobs
 
-## Permissions when using Quota with Strict mode 
+To prevent a single long-running or streaming Spark job from consuming the entire Quota, the max CPUs for that Spark job should be set to roughly one “job’s worth” of the Quota’s resources. This ensures that the Spark job will get sufficient resources to make progress, and setting the max CPUs ensures that it will not starve other Spark jobs of resources; it will also predictably offer suppression semantics.
 
-Strict mode clusters (see [security modes](https://docs.mesosphere.com/1.10/security/ent/#security-modes)) require extra
-permissions to be set in order to use Quota. Follow the instructions in
-[installing](https://github.com/mesosphere/spark-build/blob/master/docs/install.md) and add the additional permissions
+## Permissions when using Quotas with Strict mode 
+
+Strict mode clusters (see [security modes](https://docs.mesosphere.com/1.10/security/ent/#security-modes)) require extra permissions to be set in order to use Quota. Follow the instructions in [installing](https://github.com/mesosphere/spark-build/blob/master/docs/install.md) and add the additional permissions
 for the roles you intend to use, detailed below. Following the example above they would be set as follows:
 
 1.    First set Quota for the Dispatcher's role (`dispatcher`)
@@ -171,14 +163,17 @@ for the roles you intend to use, detailed below. Following the example above the
     }
     ```
 
-    Then set the Quota *from your local machine*, this assumes you've downloaded the CA certificate,`dcos-ca.crt` to
-    your local machine via the `https://<dcos_url>/ca/dcos-ca.crt` endpoint:
+     Download the CA certificate,`dcos-ca.crt` to your local machine via the `https://<dcos_url>/ca/dcos-ca.crt` endpoint.
+
     
     ```bash
     curl -X POST --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/mesos/quota -d @dispatcher-quota.json -H 'Content-Type: application/json'
     ```
 
-1.    Optionally set Quota for the executors also, this is the same as above:
+     Then set the Quota **from your local machine**.
+
+
+2.    Optionally set Quota for the executors also, this is the same as above:
 
     ```bash
     $ cat executor-quota.json
@@ -205,7 +200,7 @@ for the roles you intend to use, detailed below. Following the example above the
     curl -X POST --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/mesos/quota -d @executor-quota.json -H 'Content-Type: application/json'
     ```
 
-1.    Install Spark with these minimal configurations:
+3.    Install Spark with these minimal configurations:
 
     ```bash
     { 
@@ -218,7 +213,7 @@ for the roles you intend to use, detailed below. Following the example above the
     }
     ```
 
-1.    Now you're ready to run a Spark job using the principal you set and the roles:
+4.    Now you are ready to run a Spark job using the principal you set and the roles:
 
     ```bash
     dcos spark run --verbose --submit-args=" \
@@ -228,11 +223,11 @@ for the roles you intend to use, detailed below. Following the example above the
     --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
     ```
 
-# Setting `spark.cores.max`
+<a name="set-spark-cores-max"></a>
+## Setting `spark.cores.max`
 
-To improve Spark job execution reliability, set the maximum number of cores consumed by any given job.  This avoids
-any particular Spark job consuming too many resources in a cluster.  It is highly recommended that each Spark job be
-submitted with a limitation on the maximum number of cores (cpus) it can consume. This is especially important for
+To improve Spark job execution reliability, set the maximum number of cores consumed by any given job.  This prevents
+any particular Spark job from consuming too many resources in a cluster.  It is highly recommended that each Spark job be submitted with a limit on the maximum number of cores (CPUs) it can consume. This is especially important for
 long-running and streaming Spark jobs. 
 
 ```bash
@@ -244,7 +239,7 @@ $ dcos spark run --verbose --name=spark --submit-args="\
 http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 3000"
 ```
 
-When running multiple concurrent Spark jobs, consider setting spark.cores.max between
+When running multiple concurrent Spark jobs, consider setting `spark.cores.max` between
 `<total_executor_quota>/<max_concurrent_jobs>` and `<total_executor_quota>`, depending on your workload characteristics
 and goals.
 
@@ -252,50 +247,53 @@ and goals.
 
 **Note** Fine-grained mode has been deprecated and does not have all of the features of coarse-grained mode.
 
-In "fine-grained" mode, each Spark **task** is represented by a single Mesos task. When a Spark task finishes, the
-resources represented by its Mesos task are relinquished. Fine-grained mode enables finer-grained resource allocation at
-the cost of task startup latency.
+In "fine-grained" mode, each Spark task is represented by a single Mesos task. When a Spark task finishes, the
+resources represented by its Mesos task are relinquished. Fine-grained mode enables finer-grained resource allocation at the cost of task startup latency.
 
 *   **Executor memory**: `spark.executor.memory`
-*   **Executor CPUs**: Increases and decreases as tasks start and terminate.
-*   **Number of Executors**: Increases and decreases as tasks start and terminate.
-*   **Executors per agent**: At most 1
+*   **Executor CPUs**: Increases and decreases as tasks start and terminate
+*   **Number of Executors**: Increases and decreases as tasks start and terminate
+*   **Executors per agent**: One at most
 
 # Properties
 
 The following is a description of the most common Spark on Mesos scheduling properties. For a full list, see the [Spark
 configuration page][1] and the [Spark on Mesos configuration page][2].
 
+
+
 <table class="table">
 <tr>
-<th>property</th>
-<th>default</th>
-<th>description</th>
+<th>Property</th>
+<th>Default</th>
+<th>Description</th>
 </tr>
 	
 <tr>
-<td>spark.mesos.coarse</td>
-<td>true</td>
+<td>`spark.mesos.coarse`</td>
+<td>True</td>
 <td>Described above.</td>
 </tr>
 
 <tr>
-<td>spark.executor.memory</td>
-<td>1g</td>
+<td>`spark.executor.memory`</td>
+<td>1 Gb</td>
 <td>Executor memory allocation.</td>
 </tr>
 
 <tr>
-<td>spark.executor.cores</td>
+<td>`spark.executor.cores`</td>
 <td>All available cores in the offer</td>
 <td>Coarse-grained mode only. DC/OS Apache Spark >= 1.6.1. Executor CPU allocation.</td>
 </tr>
 
 <tr>
-<td>spark.cores.max</td>
-<td>unlimited</td>
-<td>Maximum total number of cores to allocate.</td>
+<td>`spark.cores.max`</td>
+<td>Unlimited</td>
+<td>Maximum number of cores to allocate.</td>
 </tr>
 </table>
- [1]: http://spark.apache.org/docs/latest/configuration.html
- [2]: http://spark.apache.org/docs/latest/running-on-mesos.html
+
+
+[1]: http://spark.apache.org/docs/latest/configuration.html
+[2]: http://spark.apache.org/docs/latest/running-on-mesos.html

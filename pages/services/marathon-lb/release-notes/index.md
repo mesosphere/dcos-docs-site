@@ -3,10 +3,8 @@ layout: layout.pug
 navigationTitle: Marathon-LB Release Notes
 title: Marathon-LB Release Notes
 menuWeight: 0
-excerpt:
+excerpt: Release notes for Marathon-LB
 ---
-
-Release notes for Marathon-LB.
 
 # v1.12.0
 

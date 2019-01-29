@@ -20,13 +20,14 @@ Your cluster will become more secure as you move from `disabled` to `permissive`
 
 However, there are a number of settings that you can modify independent of your security mode to increase the security of your cluster.
 
-- <a name="secure-flag"></a>In `permissive` and `strict` modes, set the [`auth_cookie_secure_flag`](/1.10/installing/ent/custom/configuration/configuration-parameters/#auth-cookie-secure-flag-enterprise) to `true`.
+- Ensure the network is setup according to the information for [securing your cluster](/1.10/administering-clusters/securing-your-cluster/).
 
-- <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/1.10/installing/ent/custom/configuration/configuration-parameters/#zk-superuser), [`zk_master_credentials`](/1.10/installing/ent/custom/configuration/configuration-parameters/#zk-master), and [`zk_agent_credentials`](/1.10/installing/ent/custom/configuration/configuration-parameters/#zk-agent).
+- <a name="secure-flag"></a>In `permissive` and `strict` modes, set the [`auth_cookie_secure_flag`](/1.10/installing/production/advanced-configuration/configuration-reference/#auth-cookie-secure-flag-enterprise) to `true`.
+
+- <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/1.10/installing/production/advanced-configuration/configuration-reference/#zk-superuser), [`zk_master_credentials`](/1.10/installing/production/advanced-configuration/configuration-reference/#zk-master), and [`zk_agent_credentials`](/1.10/installing/production/advanced-configuration/configuration-reference/#zk-agent).
 
 - [Get the root certificate of your DC/OS CA](/1.10/security/ent/tls-ssl/get-cert/#oob) and manually provision [browsers](/1.10/security/ent/tls-ssl/ca-trust-browser/), [DC/OS CLI](/1.10/security/ent/tls-ssl/ca-trust-cli/), [curl](/1.10/security/ent/tls-ssl/ca-trust-curl/), and other clients with it.
-<!--
-- [Reinitialize your Secret Store with a custom keypair](/1.10/security/ent/secrets/custom-key/) and store the custom key in a very secure location. -->
+
 - [Provision services with service accounts even when optional](/1.10/security/ent/service-auth/).
 
 - [Use secrets to store and pass sensitive information to services](/1.10/security/ent/secrets/).

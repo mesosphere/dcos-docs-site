@@ -85,7 +85,7 @@ Before installing DC/OS, your cluster must have the software and hardware [requi
 
 3.  Click **Begin Installation**. 
 
-    ![UI installer begin](/assets/images/gui-installer-begin-ee.gif)
+    ![UI installer begin](/1.11/img/gui-installer-begin-ee.gif)
 
 4.  Specify your Deployment and DC/OS Environment settings:
     
@@ -130,19 +130,19 @@ Before installing DC/OS, your cluster must have the software and hardware [requi
 
 6.  Click **Deploy** to install DC/OS on your cluster. If errors any errors are found, fix and then click **Retry**.
     
-    ![UI installer deploy](/assets/images/ui-installer-deploy1.png)
+    ![UI installer deploy](/1.11/img/ui-installer-deploy1.png)
     
     **Tip:** This step might take a few minutes, depending on the size of your cluster.
 
 7.  Click **Run Post-Flight**. If errors any errors are found, fix and then click **Retry**.
     
-    ![UI installer post flight](/assets/images/ui-installer-post-flight1.png)
+    ![UI installer post flight](/1.11/img/ui-installer-post-flight1.png)
     
     **Tip:** You can click **Download Logs** to view your logs locally.
 
 8.  Click **Log In To DC/OS**.
     
-    ![UI installer success](/assets/images/gui-installer-success-ee.gif)
+    ![UI installer success](/1.11/img/gui-installer-success-ee.gif)
 
 9.  Enter the username and password of the superuser account.
     
@@ -194,8 +194,8 @@ Now you can [assign user roles][6].
     ```
 
  [1]: /1.7/administration/installing/ent/custom/system-requirements/
- [2]: /assets/images/gui-installer-setup-ee.gif
+ [2]: /1.11/img/gui-installer-setup-ee.gif
  [3]: /1.7/usage/service-discovery/
  [4]: /assets/images/ui-installer-auth-1-7.gif
- [5]: /assets/images/dashboard-ee.gif
+ [5]: /1.11/img/dashboard-ee.png
  [6]: /1.7/administration/id-and-access-mgt/ent/

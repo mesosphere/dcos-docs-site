@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-Command line utility for the Mesosphere Datacenter Operating System (DC/OS).
+Command line utility for the Mesosphere Distributed Cloud Operating System (DC/OS).
 
 # Usage
 

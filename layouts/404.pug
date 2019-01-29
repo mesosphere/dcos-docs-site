@@ -1,0 +1,27 @@
+- var containerClass = headings.length > 0 ? 'content__container content__container--with-sections' : 'content__container'
+- var isChinese = path.split('/')[0] == 'cn'
+
+doctype html
+html(lang='en')
+  head
+    include partials/head.pug
+  body
+    div(class='layout')
+      if isChinese
+        include partials/sidebar/cn-sidebar.pug
+      else
+        include partials/sidebar/en-sidebar.pug
+      div(role='main', class='layout__content')
+        if isChinese
+          include partials/header/cn-header.pug
+        else
+          include partials/header/en-header.pug
+        main(class='content content__404')
+          div(class=containerClass)
+            div(class='content__header')
+              div(class='content__header__row')
+                h1(class='content__header-title')!= title
+            article(class='content__article ')
+              != contents
+        include partials/search-results.pug
+    include partials/scripts.pug

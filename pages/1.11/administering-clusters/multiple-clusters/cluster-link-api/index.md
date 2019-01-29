@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Cluster Link API
 title: Cluster Link API
 menuWeight: 3
-excerpt: Learn to manage cluster links with the Cluster Link API.
+excerpt: Managing cluster links with the Cluster Link API
 enterprise: true
 ---
 
@@ -56,4 +56,4 @@ To assign permissions to your account, see the [permissions reference](/1.11/sec
 
 The Cluster Link API allows you to manage cluster link operations on your DC/OS cluster.
 
-[api-explorer api='/1.11/api/cluster-link.yaml']
+[swagger api='/1.11/api/cluster-link.yaml']

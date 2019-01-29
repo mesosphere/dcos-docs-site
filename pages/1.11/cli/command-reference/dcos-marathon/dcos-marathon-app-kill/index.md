@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos marathon app kill
 title: dcos marathon app kill
 menuWeight: 2
-excerpt:
+excerpt: Killing an active application instance
 
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 # Description
-Kill a running application instance.
+The `dcos marathon app kill` command allows you to kill a running application instance.
 
 # Usage
 
@@ -22,16 +20,16 @@ dcos marathon app kill <app-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--host=<host>`   |             | The hostname that is running app. |
-| `--scale`   |             | Scale the app down after performing the operation.  |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `--host=<host>`   | The hostname that is running app. |
+| `--scale`   |  Scale the app down after performing the operation.  |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<app-id>`   |             |  The application ID. |
+| Name, shorthand |  Description |
+|---------|-------------|
+| `<app-id>`   |   The application ID. You can view a list of the application IDs with the `dcos marathon app list` command. |
 
 # Parent command
 
@@ -39,4 +37,3 @@ dcos marathon app kill <app-id> [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-<!-- # Examples -->

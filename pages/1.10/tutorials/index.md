@@ -10,4 +10,4 @@ enterprise: false
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-This is a collection of tutorials about using DC/OS. Learn how to run services and operate services in production.
+This is a small collection of introductory tutorials aimed at understanding the basics of operating DC/OS.

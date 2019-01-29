@@ -1,7 +1,8 @@
 ---
 layout: layout.pug
 title: Problems
-excerpt: What sorts of problems might arise for application deployments?
+navigationTitle:  Problems
+excerpt: Tutorial - Troubleshooting issues on DC/OS deployments
 menuWeight: 1
 ---
 

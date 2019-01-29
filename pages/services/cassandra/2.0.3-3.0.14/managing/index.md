@@ -3,12 +3,10 @@ layout: layout.pug
 navigationTitle:  Managing
 title: Managing
 menuWeight: 60
-excerpt:
+excerpt: Managing your Cassandra configuration
 featureMaturity:
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
 # Updating Configuration
@@ -31,7 +29,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 + Enterprise DC/OS 1.10 or newer
 + Service with a version greater than 2.0.0-x
-+ [The DC/OS CLI](/1.10/cli/install/)installed and available
++ [The DC/OS CLI](/1.10/cli/install/) installed and available 
 + The service's subcommand available and installed on your local machine
   + You can install just the subcommand CLI by running `dcos package install --cli cassandra`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
@@ -50,7 +48,7 @@ $ dcos cassandra describe > options.json
 
 Make any configuration changes to this `options.json` file.
 
-If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
+If you installed the service with a prior version of DC/OS, this configuration will not have been persisted by the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/).
 
 <strong>Note:</strong> You need to specify all configuration values in the `options.json` file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating `options.json`" section below for information on recovering these values.
 
@@ -187,11 +185,7 @@ dcos cassandra pod replace node-2
 ```
 
 ## Seed nodes
-Cassandra seed nodes are those nodes with indices smaller than the seed node count.  By default, Cassandra is deployed
-with a seed node count of two.  So, node-0 and node-1 are seed nodes. When a replace operation is performed on one these
-nodes, all other nodes must be restarted to be brought up to date regarding the ip address of the new seed node. This
-operation is performed automatically.
-
+Cassandra seed nodes are those nodes with indices smaller than the seed node count.  By default, Cassandra is deployed with a seed node count of two; therefore, node-0 and node-1 are seed nodes. When a replace operation is performed on one of these nodes, all other nodes must be restarted to be brought up to date with the IP address of the new seed node. This operation is performed automatically.
 For example if `node-0` needed to be replaced we would execute:
 
 ```bash
