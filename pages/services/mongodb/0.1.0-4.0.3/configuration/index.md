@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Configuring MongoDB with options and service settings
 title: Configuration
 menuWeight: 20
-model: /services/mongodb-enterprise/data.yml
+model: /services/mongodb/data.yml
 render: mustache
 ---
 

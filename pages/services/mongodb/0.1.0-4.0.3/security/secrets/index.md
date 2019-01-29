@@ -6,9 +6,10 @@ menuWeight: 50
 excerpt: Configuring a Secret Store on DC/OS
 featureMaturity:
 enterprise: true
-model: /services/mongodb-enterprise/data.yml
+model: /services/mongodb/data.yml
 render: mustache
 ---
+This section will show how to configure a service account in order to create a secret to be stored in the DC/OS Secret Store. You can then configure TLS encryption.
 
 # Prerequisites
 - [A DC/OS Service Account with a secret stored in the DC/OS Secret Store.](https://docs.mesosphere.com/latest/security/ent/service-auth/custom-service-auth/)
@@ -55,7 +56,7 @@ In this step, you will create a 2048-bit RSA public-private key pair using the E
 
 Create a secret `{{  model.serviceName  }}/<secret-name>` with your service account `<service-account-id>` and private key specified `<private-key>.pem`.
 
-<p class="message--note"><strong>NOTE: </strong>If you store your secret in a path that matches the service name, for example, service name and secret path are {{  model.serviceName  }}, then only the service named {{  model.serviceName  }} can access it.</p>
+<p class="message--note"><strong>NOTE: </strong>If you store your secret in a path that matches the service name, for example, the service name and secret path are <code>{{  model.serviceName  }}</code>, then only the service named <code>{{  model.serviceName  }}</code> can access it.</p>
 
 ### Permissive     
 

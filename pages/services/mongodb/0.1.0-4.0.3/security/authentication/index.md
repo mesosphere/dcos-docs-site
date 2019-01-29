@@ -5,7 +5,7 @@ title: Authentication
 menuWeight: 50
 excerpt: Connecting to MongoDB replica set using authentication and authorization
 featureMaturity:
-model: /services/mongodb-enterprise/data.yml
+model: /services/mongodb/data.yml
 render: mustache
 enterprise: false
 ---
@@ -73,14 +73,14 @@ If you are using automation to manage your {{  model.techName  }} deployments, O
 
     Figure 9. - Connect to replica set with Authentication
 
-1. In order to connect to the Replica Set and access the ```mongo``` shell, you must connect to the DC/OS {{  model.techName  }} task.
+1. In order to connect to the Replica Set and access the `mongo` shell, you must connect to the DC/OS {{  model.techName  }} task.
 To enter the DC/OS {{  model.techName  }} task shell, execute the following command over DC/OS CLI:
 
     ```bash
       dcos task exec -ti <dcos-task-id> bash
     ```
 
-1. Enter the command to connect with the Replica Set in the CLI instance to access the ```mongo``` shell using authentication mechanism.
+1. Enter the command to connect with the Replica Set in the CLI instance to access the `mongo` shell using authentication mechanism.
 
     [<img src="../../img/Final_Connection.png" alt="Final Connection"/>](../../img/Final_Connection.png)
 

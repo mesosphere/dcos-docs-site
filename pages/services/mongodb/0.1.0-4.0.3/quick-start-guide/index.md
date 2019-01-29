@@ -4,7 +4,7 @@ navigationTitle: Quick Start
 excerpt: How to use MongoDB with DC/OS
 title: Quick Start
 menuWeight: 15
-model: /services/mongodb-enterprise/data.yml
+model: /services/mongodb/data.yml
 render: mustache
 ---
 

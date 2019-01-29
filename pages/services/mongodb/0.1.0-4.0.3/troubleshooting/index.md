@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Troubleshooting
 menuWeight: 70
-model: /services/mongodb-enterprise/data.yml
+model: /services/mongodb/data.yml
 render: mustache
 ---
 

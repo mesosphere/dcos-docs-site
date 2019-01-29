@@ -4,7 +4,7 @@ navigationTitle: MongoDB 0.1.0-4.0.3
 title: MongoDB 0.1.0-4.0.3
 menuWeight: 50
 excerpt: Documentation for DC/OS MongoDB 0.1.0-4.0.3
-model: /services/mongodb-enterprise/data.yml
+model: /services/mongodb/data.yml
 render: mustache
 featureMaturity:
 enterprise: false
@@ -12,13 +12,17 @@ enterprise: false
 
 DC/OS {{ model.techName }} Service is an automated service that makes it easy to deploy and manage {{ model.techName }} on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on {{ model.techName }}, see the [{{ model.techName }} documentation](https://docs.mongodb.com/).
 
+This service guide is based on the {{ model.techName }} Enterprise (paid) version of {{ model.techName }}.
+
 ## Benefits
+
 DC/OS {{ model.techName }} offers the following benefits:
 1. Based on the proven DC/OS framework/operator SDK underpinning all DC/OS-certified frameworks.
-2. {{ model.techName }} is an open-source document database.
+2. {{ model.techName }} is a cross-platform document-oriented database.
 3. {{ model.techName }} provides high performance, high availability, and automatic scaling.
 
-## DC/OS {{ model.techName }}'s main features are:
+## Main Features 
+
 1. **High Performance:** {{ model.techName }} Support for embedded data models reduces I/O activity on database system. Indexes support faster queries and can include keys from embedded documents and arrays.
 
 1. **Rich Query Language:** {{ model.techName }} supports read and write operations, data aggregation, text search and geospatial queries.

@@ -6,7 +6,7 @@ menuWeight: 110
 excerpt: Understanding configuration Limitations
 featureMaturity:
 enterprise: false
-model: /services/mongodb-enterprise/data.yml
+model: /services/mongodb/data.yml
 render: mustache
 ---
 

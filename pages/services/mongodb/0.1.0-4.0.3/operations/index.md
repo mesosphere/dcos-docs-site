@@ -4,7 +4,7 @@ navigationTitle: Operations
 excerpt: Plan operations and service metrics in MongoDB Enterprise
 title: Operations
 menuWeight: 30
-model: /services/mongodb-enterprise/data.yml
+model: /services/mongodb/data.yml
 render: mustache
 ---
 

@@ -5,8 +5,8 @@ title: Supported Versions
 menuWeight: 120
 excerpt: Understanding DC/OS MongoDB Services package versioning
 featureMaturity:
-enterprise: true
-model: /services/mongodb-enterprise/data.yml
+enterprise: false
+model: /services/mongodb/data.yml
 render: mustache
 ---
 

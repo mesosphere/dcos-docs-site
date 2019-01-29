@@ -6,7 +6,7 @@ menuWeight: 40
 excerpt: Configuring Mount Volumes for MongoDB
 featureMaturity:
 enterprise: false
-model: /services/mongodb-enterprise/data.yml
+model: /services/mongodb/data.yml
 render: mustache
 ---
  
