@@ -22,15 +22,28 @@ In this tutorial, you will:
 # Download the app definition and container
 This tutorial uses a sample app definition file that you can download from the `dcos-website` GitHub repository.
 
-1. Copy `dcos-website/dcos-website.json` from the `dcos-website` GitHub repository.
+1. Copy [`dcos-website/dcos-website.json`](https://github.com/dcos/dcos-website/blob/develop/dcos-website.json) from the `dcos-website` GitHub repository.
 
-1. Go to the `mesosphere/dcos-website` Docker repository and copy the latest `image` tag.
+1. Go to the [`mesosphere/dcos-website`](https://hub.docker.com/r/mesosphere/dcos-website/tags) Docker repository and copy the latest `image` tag.
+
+  <p>
+  <img src="/1.12/img/dockerhub.png" alt="Mesosphere Docker Hub">
+  </p>
+
+  For example, after clicking **Tags**, you might see an identifier similar to this:
+  <code>cff383e4f5a51bf04e2d0177c5023e7cebcab3cc</code> 
+
+  <p>
+  <img src="/services/img/docker-repo-tag.png" alt="Sample image tag">
+  </p>
 
 # Modify the app image tag and public IP address
 
-1. Open the `dcos-website/dcos-website.json` app definition file.
+1. Open the `dcos-website.json` app definition file you downloaded from the repository.
 
-1. Replace the `image-tag` in the `docker:image` field with the Docker image tag.
+1. Add the `image-tag` in the `docker:image` field with the Docker image tag.
+
+    For example:
 
     ```json
     {
@@ -67,55 +80,56 @@ This tutorial uses a sample app definition file that you can download from the `
 
     Be sure to remove the leading `http://` and the trailing slash () from the IP address, and to add a comma after the preceding field.
 
-The complete JSON app definition file should resemble the following:
+    The complete JSON app definition file should resemble the following:
 
-  ```json
-    {
-      "id": "dcos-website",
-      "container": {
-        "type": "DOCKER",
-        "portMappings": [
-          { "hostPort": 0, "containerPort": 80, "servicePort": 10004 }
-        ],
-        "docker": {
-          "image": "mesosphere/dcos-website:cff383e4f5a51bf04e2d0177c5023e7cebcab3cc"
+    ```json
+      {
+        "id": "dcos-website",
+        "container": {
+          "type": "DOCKER",
+          "portMappings": [
+            { "hostPort": 0, "containerPort": 80, "servicePort": 10004 }
+          ],
+          "docker": {
+            "image": "mesosphere/dcos-website:cff383e4f5a51bf04e2d0177c5023e7cebcab3cc"
+          }
+        },
+        "instances": 3,
+        "cpus": 0.25,
+        "mem": 100,
+        "network": "BRIDGE",
+        "healthChecks": [{
+            "protocol": "HTTP",
+            "path": "/",
+            "portIndex": 0,
+            "timeoutSeconds": 2,
+            "gracePeriodSeconds": 15,
+            "intervalSeconds": 3,
+            "maxConsecutiveFailures": 2
+        }],
+        "labels":{
+          "HAPROXY_DEPLOYMENT_GROUP":"dcos-website",
+          "HAPROXY_DEPLOYMENT_ALT_PORT":"10005",
+          "HAPROXY_GROUP":"external",
+          "HAPROXY_0_REDIRECT_TO_HTTPS":"true",
+          "HAPROXY_0_VHOST": "64.172.103.2"
         }
-      },
-      "instances": 3,
-      "cpus": 0.25,
-      "mem": 100,
-      "network": "BRIDGE",
-      "healthChecks": [{
-          "protocol": "HTTP",
-          "path": "/",
-          "portIndex": 0,
-          "timeoutSeconds": 2,
-          "gracePeriodSeconds": 15,
-          "intervalSeconds": 3,
-          "maxConsecutiveFailures": 2
-      }],
-      "labels":{
-        "HAPROXY_DEPLOYMENT_GROUP":"dcos-website",
-        "HAPROXY_DEPLOYMENT_ALT_PORT":"10005",
-        "HAPROXY_GROUP":"external",
-        "HAPROXY_0_REDIRECT_TO_HTTPS":"true",
-        "HAPROXY_0_VHOST": "64.172.103.2"
       }
-    }
-  ```
+    ```
 
-Only apps with the label `HAPROXY_GROUP=external` will be exposed using this Marathon-LB configuration.
+  Only apps with the label `HAPROXY_GROUP=external` will be exposed using this Marathon-LB configuration.
 
 # Add the load-balanced application and check its status 
 1. Run the service from the DC/OS CLI using the following command:
 
-  ``` bash
-  dcos marathon app add dcos-website.json
-  ```
+    ``` bash
+    dcos marathon app add dcos-website.json
+    ```
 
-1. Go to the **Services** tab of the DC/OS web interface to verify that your application is healthy.
+1. Open the DC/OS web-based console URL in a browser, then click **Services** to verify that your application is deployed and running.
 
+    <p>
+    <img src="/1.12/img/healthy-dcos-website.png" alt="Healthy service">
+    </p>
 
-Figure 2. Health check
-
-1. Go to your public agent to see the site running.
+1. In the web browser, navigate to the IP address for your public agent node to verify the site you have deployed is running.
