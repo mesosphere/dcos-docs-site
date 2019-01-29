@@ -4,7 +4,7 @@ excerpt: Installing Marathon-LB using default or custom options for a DC/OS clus
 title: Installing Marathon-LB
 # model: /services/marathon-lb/data.yml
 # render: mustache
-menuWeight: 1
+menuWeight: 10
 ---
 # Installing Marathon-LB on DC/OS
 You can install Marathon-LB on a DC/OS open source or DC/OS enterprise cluster. You can install the Marathon-LB package and customize its configuration settings using the DC/OS web-based administrative console or by running DC/OS commands in a shell terminal.
@@ -249,7 +249,7 @@ Regardless of whether you install using the web-based console or the CLI, the st
 1. Run the following command to install Marathon-LB using the settings in the customized `marathon-lb-options.json` file:
 
   ``` bash
-  dcos package install --options=marathon-lb-options.json marathon-lb
+  dcos package install marathon-lb --options=marathon-lb-options.json --yes
   ```
 
 ## Install on a cluster with a provisioned service account
@@ -270,9 +270,15 @@ If you currently running the cluster in permissive mode and plan to upgrade to s
 <a name="create-key-pair">
 
 ### Create a public-private key pair
-You must generate a 2048-bit RSA public-private key pair to use to encrypt and decrypt certificates for secure socket layer (SSL) connections. One convenient way to generate the key pair is by using the DC/OS Enterprise CLI. The DC/OS command-line interface returns the keys in the .pem format required by DC/OS.
+You must generate a 2048-bit RSA public-private key pair to use to encrypt and decrypt certificates for secure socket layer (SSL) connections. One convenient way to generate the key pair is by using the DC/OS Enterprise CLI. The DC/OS command-line interface returns the keys in the `.pem` format required by DC/OS.
 
 1. Open a terminal and connect to the DC/OS enterprise cluster from a computer where the DC/OS CLI is available.
+
+1. Install the DC/OS Enterprise command-line interface (CLI), if necessary.
+
+    ``` bash
+    dcos package install dcos-enterprise-cli --yes
+    ```
 
 1. Run the following command to create a public-private key pair and save each value into a separate file within the current directory.
 
@@ -414,9 +420,10 @@ You can run the following commands to provision the Marathon-LB service account 
 1. Grant permissions and allowed actions to the service account using the following commands.
 
     ``` bash
-      dcos security org users grant marathon-lb-sa dcos:service:marathon:marathon:services:/ read --description "Allows access to any service launched by the native Marathon instance"
+      dcos security org users grant marathon-lb-sa dcos:service:marathon:marathon:services:/ read
       dcos security org users grant marathon-lb-sa dcos:service:marathon:marathon:admin:events read --description "Allows access to Marathon events"
     ```
+    You can optionally specify a description for the permissions granted. However, the `--description` argument is ignored if an access control list (ACL) already exists for the service account you are modifying.
 
 1. Add the service account secret to the configuration file by modifying the `marathon-lb-options.json` file to include the secret name.
     * For **strict** or **permissive** security, copy and paste the following JSON into the `marathon-lb-options.json` file. Replace `marathon-lb/service-account-secret` with the secret name you used, if necessary:
@@ -443,14 +450,14 @@ You can run the following commands to provision the Marathon-LB service account 
       ```
 
 ### Install Marathon-LB
-You can modify other default values before installing the service. To view the configuration options and default values for Marathon-LB, type the following command.
+You can modify other default values before installing the service. To view the configuration options and default values for Marathon-LB, type the following command:
 
 ``` bash
 dcos package describe --config marathon-lb
 ```
 
-After you have reviewed the default `config.json` file and modified it to include the appropriate required and optional parameters, use the following command to install.
+After you have reviewed the default `config.json` file and modified it to include the appropriate required and optional parameters, use a command similar to the following to install the package with the modified `marathon-lb-options.json` configuration file:
 
 ``` bash
-dcos package install --options=config.json marathon-lb
+dcos package install marathon-lb --options=marathon-lb-options.json --yes
 ```

@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  Marathon-LB Reference
-title: Marathon-LB Reference
-menuWeight: 4
+navigationTitle:  Marathon-LB temaplate reference
+title: Marathon-LB template reference
+menuWeight: 45
 excerpt:
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+<!-- This source repo for this topic is https://github.com/dcos/dcos-docs 
 
 # Marathon-LB HAProxy endpoints
 Marathon-LB automatically generates configuration information for the HAProxy program, then reloads and restarts HAProxy, as needed. Marathon-LB generates the HAProxy configuration based on application data available from the Marathon API. It can also subscribe to the [Marathon Event Bus](https://mesosphere.github.io/marathon/docs/event-bus.html) for real-time updates. 
@@ -91,7 +91,7 @@ marathon_lb.py [-h] [--longhelp] [--marathon MARATHON [MARATHON ...]]
 <code>--auth-credentials AUTH_CREDENTIALS</code> | Specifies the user name and password for the Marathon HTTP API in the format of `user:pass`. The default is none. |
 <code>--dcos-auth-credentials DCOS_AUTH_CREDENTIALS</code> | Sepcifies the DC/OS service account credentials. The default is none. |
 <code>--marathon-ca-cert MARATHON_CA_CERT</code> | Specifies the CA certificate for Marathon HTTPS connections. The default is none. |
-
+-->
 # Template reference
 The following is a list of the available `HAProxy` configuration **templates**. Some templates are global-only (such as `HAPROXY_HEAD`), but most can be specified on a per service port basis as **app labels** to override the global settings.
 

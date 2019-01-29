@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Tutorial - Deploying an Internally and Externally Load Balanced App with Marathon-LB
-title: Deploying an Internally and Externally Load Balanced App with Marathon-LB
-menuWeight: 6
-excerpt: Tutorial - Using Marathon-LB as an internal and external load balancer
-
+navigationTitle: Tutorial - Internal and external load balancing
+title: Tutorial - Advanced internal and external load balancing
+menuWeight: 30
+excerpt: How to use Marathon-LB for both internal and external load balancing
 enterprise: false
 ---
 
