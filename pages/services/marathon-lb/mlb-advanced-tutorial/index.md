@@ -7,31 +7,40 @@ excerpt: How to use Marathon-LB for both internal and external load balancing
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
+This tutorial guides you through the steps for configuring Marathon-LB to be used as an internal and external load balancer. 
+- The **external load balancer** is used to route external HTTP traffic into the cluster.
+- The **internal load balancer** is used for internal service discovery and load balancing within the cluster. 
 
+This tutorial illustrates a DC/OS cluster running on an AWS instance, with external traffic routed directly to an external load balancer first. The external load balancer is configured to expose the “public” agent nodes in the DC/OS cluster. The public agent nodes route inbound requests that then run as containerized DC/OS services for a website.
 
-In this tutorial, Marathon-LB is used as an internal and external load balancer. The external load balancer is used to route external HTTP traffic into the cluster, and the internal load balancer is used for internal service discovery and load balancing. Since we will be doing this on an AWS instance, external traffic will first hit an external load balancer configured to expose our "public" agent nodes.
+After completing this tutorial, you will have hands-on practice configuring Marathon-LB for a cluster running on an AWS instance with Marathon-LB providing internal and external load balancing using a sample application.
 
-## Prerequisites
+# Before you begin
+* You must have a DC/OS cluster installed by using [AWS cloud templates](/1.12/installing/evaluation/aws/) and credentials.
+* The DC/OS cluster must have at least one master node, at least three private agent nodes, and at least one public agent node.
+* You must have an account with access to the DC/OS web-based administrative console or DC/OS command-line interface.
+* You must have Marathon-LB installed.
 
-*   DC/OS installed by using the AWS [cloud templates](/1.10/installing/oss/cloud/aws/) with at least three [private](/1.10/overview/concepts/#private-agent-node) agents and one [public](/1.10/overview/concepts/#public-agent-node) agent.
-*   DC/OS CLI [installed][2].
-*   Marathon-LB [installed](/services/marathon-lb/usage-ee/).
+# Verify Marathon-LB is installed and running
+Before you configure load balancing for external or internal applications, you should verify that you have Marathon-LB installed and working properly. 
 
-## Deploy an external load balancer with Marathon-LB
+To verify you have Marathon-LB installed and running:
 
-Verify that Marathon-LB is working. Find the public IP for your [public node](/1.10/administering-clusters/locate-public-agent/) and navigate to `<public-agent-IP>:9090/haproxy?stats`. You will see a statistics report page like this:
+1. Find the public IP address for your [public node](/1.12/administering-clusters/locate-public-agent/).
+Navigate to the `http://<public-agent-IP>:9090/haproxy?stats` endpoint.
 
-![lb2](/1.10/img/lb2.jpg)
+1. Review the statistics report page.
 
-Figure 1. HAProxy statistics report
+    <p>
+    <img src="/1.12/img/lb2.jpg" alt="Marathon-LB HAProxy statistics">
+    </p>
+  
+# Deploy internal load balancing
+To set up Marathon-LB for internal load balancing, you must first specify some configuration options for the Marathon-LB package. The following steps illustrate how to modify a sample configuration file for **internal load balancing**.
 
-## Deploy an internal load balancer with Marathon-LB
-Set up your internal load balancer. To do this, we must first specify some configuration options for the Marathon-LB package.
+1. Create a file called `marathon-lb-internal.json` with the following contents:
 
-1.  Create a file called `marathon-lb-internal.json` with the following contents:
-
-    ```json
+    ```
     {
       "marathon-lb":{
         "name":"marathon-lb-internal",
@@ -42,22 +51,27 @@ Set up your internal load balancer. To do this, we must first specify some confi
     }
     ```
 
-    In this options file, we are changing the name of the app instance and the name of the HAProxy group. The options file also disables the HTTP and HTTPS forwarding on ports 80 and 443 because it is not needed.
+    The sample configuration file:
+    * Changes the name of the app instance to `marathon-lb-internal`.
+    * Sets the name of the `HAProxy` group for load balancing to `internal`.
+    * Disables HTTP and HTTPS forwarding on ports 80 and 443 because it is not needed.
 
-1.  [Install](/services/marathon-lb/usage-ee/) the internal Marathon-LB instance with the custom options specified.
+1. Install the internal Marathon-LB instance to use the custom options specified by running the following command:
 
-    There are now two Marathon-LB load balancers:
+    ``` bash
+    dcos package install marathon-lb --options=marathon-lb-internal.json --yes
+    ```
 
-    - Internal (`marathon-lb-internal`)
-    - External (`marathon-lb`)
+    There are now two Marathon-LB load balancer instances:
+    * Internal (`marathon-lb-internal`)
+    * External (`marathon-lb`)
 
-## Deploy an external facing NGINX app
+# Deploy an external-facing NGINX app
+The following steps illustrate how to modify a sample configuration file to use Marathon-LB to handle load balancing for an external-facing application.
 
-1.  Launch an external NGINX app on DC/OS.
+1. Copy the JSON below into a file and name it `nginx-external.json`.
 
-1.  Copy the JSON below into a file and name it `nginx-external.json`.
-
-    ```json
+    ``` json
     {
       "id": "nginx-external",
       "container": {
@@ -89,21 +103,20 @@ Set up your internal load balancer. To do this, we must first specify some confi
     }
     ```
 
-    The application definition includes the `"HAPROXY_GROUP":"external"` label which instructs Marathon-LB to expose the application. The external Marathon-LB (`marathon-lb`) was deployed with the `--group` parameter set to `external`, which is the default.
+    The sample application definition includes the `"HAPROXY_GROUP":"external"` label. The `HAPROXY_GROUP` label instructs the external Marathon-LB (`marathon-lb`) instance to expose the application because `marathon-lb` was deployed with the `--group` parameter set to the default `external` value.
 
-1.  Deploy the external NGINX app on DC/OS using this command:
+1. Deploy the external NGINX app on DC/OS using this command:
 
-    ```bash
+    ``` bash 
     dcos marathon app add nginx-external.json
     ```
 
-## Deploy an internal facing NGINX app
+# Deploy an internal-facing NGINX app
+The following steps illustrate how to modify a sample configuration file to use Marathon-LB to handle load balancing for an internal-facing application.
 
-1.  Launch an internal NGINX app on DC/OS.
+1. Copy the JSON below into a file and name it `nginx-internal.json`.
 
-1.  Copy the JSON below into a file and name it `nginx-internal.json`.
-
-    ```json
+    ``` json
     {
       "id": "nginx-internal",
       "networks": [
@@ -143,21 +156,20 @@ Set up your internal load balancer. To do this, we must first specify some confi
     }
     ```
 
-    Note that the app definition specifies the `servicePort` parameter. This parameter exposes this service on Marathon-LB. By default, port 10000 through to 10100 are reserved for Marathon-LB services, so you should begin numbering your service ports from 10000.
+    This sample app definition specifies the `servicePort` parameter to expose the internal NGINX app service to Marathon-LB on port 10001. By default, ports 10000 through to 10100 are reserved for Marathon-LB services. Unless you modify the reserved port range, you should begin numbering your service ports from 10000.
 
-1.  Deploy the internal NGINX app on DC/OS using this command:
+1. Deploy the internal NGINX app on DC/OS using this command:
 
-    ```bash
+    ``` bash
     dcos marathon app add nginx-internal.json
     ```
 
-## Deploy an external and internal facing NGINX app
+# Deploy an external and internal facing NGINX app
+The following steps illustrate how to modify a sample configuration file to do load balancing for an application that is accessible both externally from a public agent IP address and internally from within the cluster.
 
-1.  Launch an NGINX everywhere app on DC/OS.
+1. Copy the JSON below into a file and name it `nginx-everywhere.json`. 
 
-1.  Copy the JSON below into a file and name it `nginx-everywhere.json`. This instance exposes the app both internally and externally.
-
-    ```json
+    ``` json
     {
       "id": "nginx-everywhere",
       "networks": [
@@ -191,103 +203,65 @@ Set up your internal load balancer. To do this, we must first specify some confi
     }
     ```
 
-    Note the `servicePort` is unique and does not overlap with the other NGINX instances. Service ports can be defined either by using port mappings (as in the examples above), or with the `ports` parameter in the Marathon app definition.
+    This sample configuration file exposes the app both internally and externally with a unique `servicePort` setting that does not overlap with the other NGINX instances. Service ports can be defined either by using `portMappings` like the examples in this tutorial, or with the `ports` parameter in the Marathon app definition.
 
-1.  Deploy the NGINX everywhere app on DC/OS using this command:
+1. Deploy the NGINX everywhere app on DC/OS using this command:
 
-    ```bash
+    ``` bash
     dcos marathon app add nginx-everywhere.json
     ```
 
-## Confirm that your apps are deployed and accessible from within cluster
+# Confirm apps are deployed and accessible
+You can test your load balancing configurations by opening a [secure shell (SSH)](/1.12/administering-clusters/sshcluster/) into one of the instances in the cluster (such as a master), and running `curl` for the endpoints. For example, run the following commands:
 
-Test the configuration by opening a secure shell [(SSH)][4] into one of the instances in the cluster (such as a master), and running `curl` for the endpoints:
+!!!!! # Access to external load balancer 
+curl http://marathon-lb.marathon.mesos:10000
 
-  ```bash
-  # Access to external load balancer
-  curl http://marathon-lb.marathon.mesos:10000/
-  # Access to internal load balancer
-  curl http://marathon-lb-internal.marathon.mesos:10001
-  # Access to nginx app from external load balancer
-  curl http://marathon-lb.marathon.mesos:10002/
-  #Access to nginx app from internal load balancer
-  curl http://marathon-lb-internal.marathon.mesos:10002/
-  ```
+# Access to internal load balancer
+curl http://marathon-lb-internal.marathon.mesos:10001
 
-Each of these should return the NGINX ‘Welcome’ page:
+# Access to nginx app from external load balancer
+curl http://marathon-lb.marathon.mesos:10002/
 
-![lb3](/1.10/img/lb3.jpg)
+# Access to nginx app from internal load balancer
+curl http://marathon-lb-internal.marathon.mesos:10002/
+Each of these commands should return the NGINX ‘Welcome’ page similar to the following:
 
 Figure 2. HTML version of NGINX welcome page
-
-## Virtual hosts
-
-An important feature of Marathon-LB is support for virtual hosts (`vhost`). This allows you to route HTTP traffic for multiple hosts (FQDNs) and route requests to the correct endpoint. For example, you could have two distinct web properties, `ilovesteak.com` and `steaknow.com`, with DNS for both pointing to the same LB on the same port, and HAProxy will route traffic to the correct endpoint based on the domain name.
-
-To demonstrate the `vhost` feature:
-
-1.  Find your [public agent IP](/1.10/administering-clusters/locate-public-agent/).
-
-1.  Modify the external `nginx` app (`nginx-external.json`) to point to your public agent DNS name. You can modify your app by using the DC/OS CLI or GUI.
-
-**DC/OS CLI**
-
-1.  Add the `HAPROXY_0_VHOST` label to your local `nginx-external.json` file. In this example, the public DNS name is `brenden-j-publicsl-1ltlkzeh6b2g6-1145355943.us-west-2.elb.amazonaws.com`.
-
-  ```json
-  ...
-    "labels":{
-      "HAPROXY_GROUP":"external",
-      "HAPROXY_0_VHOST":"brenden-j-publicsl-1ltlkzeh6b2g6-1145355943.us-west-2.elb.amazonaws.com"
-    }
+Using virtual hosts
+An important feature of Marathon-LB is support for virtual hosts (vhost). Virtual hosts enable you to route HTTP traffic for multiple hosts (FQDNs) and route requests to the correct endpoint. For example, you could have two distinct web properties, ilovesteak.com and steaknow.com, with DNS for both pointing to the same load balancer on the same port. You can use virtual host information to ensure HAProxy routes traffic to the correct endpoint based on the domain name.
+To demonstrate how to use virtual hosts:
+Find your public agent IP address.
+Modify the app definition to point to the public agent DNS name. 
+You can modify your app by using the DC/OS command-line interface or web-based console. 
+If you are working with the external nginx app and the nginx-external.json app definition file and using the DC/OS CLI: 
+Add the HAPROXY_0_VHOST label to your local nginx-external.json file. In this example, the public DNS name is brenden-j-publicsl-1ltlkzeh6b2g6-1145355943.us-west-2.elb.amazonaws.com.
+...
+  "labels":{
+    "HAPROXY_GROUP":"external",
+    "HAPROXY_0_VHOST":"brenden-j-publicsl-1ltlkzeh6b2g6-1145355943.us-west-2.elb.amazonaws.com"
   }
-  ```
-  
-  <p class="message--important"><strong>IMPORTANT: </strong> Do not include the leading `http://`trailing slash (`/`) in your public DNS name.</p>
+}
+Do not include the leading `http://` or the trailing slash (`/`) in the public DNS name.
+Run the following command to replace the contents of the deployed nginx-external.json with your modified local copy:
+cat nginx-external.json | dcos marathon app update nginx-external
 
-2.  Run this command to replace the contents of the deployed `nginx-external.json` with your modified local copy:
-
-  ```bash
-  cat nginx-external.json | dcos marathon app update nginx-external
-  ```
 
 You should see output similar to this:
+Created deployment 5f3e06ff-e077-48ee-afc0-745f167bc105
 
-  ```bash
-  Created deployment 5f3e06ff-e077-48ee-afc0-745f167bc105
-  ```
 
-3. Deploy the modified NGINX external app on DC/OS using this command:
+Deploy the modified NGINX external app on DC/OS using this command:
+dcos marathon app add nginx-external.json
 
-  ```bash
-  dcos marathon app add nginx-external.json
-  ```
 
-**DC/OS GUI**
-
-1.  Navigate to the **Services > Services > nginx-external** service, click the vertical ellipsis at the far right, and select **Edit**.
-
-1.  Select **Environment > ADD LABEL**.
-
-1.  Enter `HAPROXY_0_VHOST` for **KEY** and specify your public agent DNS name for **VALUE**.
-
-![Update app](/1.10/img/nginx-external-gui.png)
+If you are working with the external nginx app and the nginx-external.json app definition file and using the DC/OS web-based console: 
+Navigate to the Services > Services > nginx-external service, click the vertical ellipsis at the far right, and select Edit.
+Select Environment > Add Label.
+Enter HAPROXY_0_VHOST for KEY and specify your public agent DNS name for VALUE.
 
 Figure 3. NGINX external service
-
-<p class="message--important"><strong>IMPORTANT: </strong>Do not include the leading `http://`trailing slash (`/`) in your public DNS name.</p>
-
-1.  Select **REVIEW & RUN** and **RUN SERVICE**.
-
-The label `HAPROXY_0_VHOST`, instructs Marathon-LB to expose NGINX on the external load balancer with a virtual host. The `0` in the label key corresponds to the servicePort index, beginning from 0. If you had multiple servicePort definitions, you would iterate them as 0, 1, 2, and so on. Note that if you _do_ specify a vhost, you aren't required to provide a service port, because Marathon will assign one by default.
-
-2.  Navigate to the public agent in your browser and you should see the following:
-
-    ![lb6](/1.10/img/lb6.jpg)
-    
-    Figure 4. NGINX welcome page
-
- [1]: /1.10/installing/oss/
- [2]: /1.10/cli/install/
- [3]: /1.10/administering-clusters/locate-public-agent/
- [4]: /1.10/administering-clusters/sshcluster/
+The label HAPROXY_0_VHOST, instructs Marathon-LB to expose NGINX on the external load balancer with a virtual host. 
+The 0 in the label key corresponds to the servicePort index, beginning from 0. If you have multiple servicePort definitions, you would iterate them as 0, 1, 2, and so on. If you do specify a virtual host, you aren’t required to provide a service port, because Marathon assigns one by default.
+Select Review & Run and Run Service.
+Navigate to the public agent in your browser and you should see the NGINX welcome page.
