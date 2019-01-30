@@ -90,7 +90,7 @@ DC/OS net component now supports **Cluster Identity** functionality using the va
 
 By enabling this feature, you can prevent nodes from communicating across clusters when a node is moved from one cluster to a different cluster. The cluster identity option ensure that each node has unique identifier that prevents unauthorized "cross-talk" connections.
 
-If you are upgrading the nodes in the cluster to use the cluster identity functionality, the upgraded node (agent or master) with the flag enabled will not be able communicate with the `dcos-net` service on any nodes that have not been upgraded. Because of this behavior change, you might expereince a minor disruption of networking operationg during the upgrade until all nodes in the cluster are upgraded with this flag enabled. 
+If you are upgrading the nodes in the cluster to use the cluster identity functionality, the upgraded node (agent or master) with the flag enabled will not be able communicate with the `dcos-net` service on any nodes that have not been upgraded. Because of this behavior change, you might experience a minor disruption of networking operationg during the upgrade until all nodes in the cluster are upgraded with this flag enabled. 
 
 During a phased upgrade process, you might see that DNS or L4LB do not function as expected across all of the nodes in the cluster. If you make changes--such as adding a new application, task, or service or deleting an existing application, task, or service--these changes might not be reflected in the information available until after the upgrade is complete.
 
