@@ -130,10 +130,10 @@ Marathon 和 Metronome 要求对某些受保护资源发出的 HTTP 请求必须
 
 | 资源标识符 | 全部 | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|
-| `dcos:service:marathon:marathon:admin:config`<br> 控制对 [GET /v2/info Marathon 端点](/cn/1.11/deploying-services/marathon-api/#/info) 的访问。| | | x | | |
-| `dcos:service:marathon:marathon:admin:events` <br>控制对 Marathon 事件端点 [GET /v2/events](/cn/1.11/deploying-services/marathon-api/#/events) 的访问。| x | | x | | |
-| `dcos:service:marathon:marathon:admin:leader` <br> 控制对 [GET/DELETE /v2/leader](/cn/1.11/deploying-services/marathon-api/#/leader) 端点的访问。| x | | x | x | |
-| `dcos:service:marathon:marathon:services:/[<service-group>]` <br> 控制对本地 Marathon 实例启动的 [DC/OS 服务](/cn/1.11/deploying-services)的访问。<br> [POST /v2/group](/cn/1.11/deploying-services/marathon-api/#/groups) 需要 `full` 操作。| x | x | x | x | x |
+| `dcos:service:marathon:marathon:admin:config`<br> 控制对 [GET /v2/info Marathon 端点](/cn/1.11/deploying-services/marathon-api/#/info/) 的访问。| | | x | | |
+| `dcos:service:marathon:marathon:admin:events` <br>控制对 Marathon 事件端点 [GET /v2/events](/cn/1.11/deploying-services/marathon-api/#/events/) 的访问。| x | | x | | |
+| `dcos:service:marathon:marathon:admin:leader` <br> 控制对 [GET/DELETE /v2/leader](/cn/1.11/deploying-services/marathon-api/#/leader/) 端点的访问。| x | | x | x | |
+| `dcos:service:marathon:marathon:services:/[<service-group>]` <br> 控制对本地 Marathon 实例启动的 [DC/OS 服务](/cn/1.11/deploying-services/)的访问。<br> [POST /v2/group](/cn/1.11/deploying-services/marathon-api/#/groups/) 需要 `full` 操作。| x | x | x | x | x |
 | `dcos:service:metronome:metronome:jobs[:<job-group>]`<br> 控制对[作业和作业组](/cn/1.11/deploying-jobs/)的访问。| x | x | x | x | x |
 
 

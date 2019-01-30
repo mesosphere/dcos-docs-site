@@ -178,7 +178,7 @@ Install the package:
   dcos kubernetes cluster create --options=options.json
   ```
 
-If support for [ingress](/services/kubernetes/2.0.0-1.12.1/getting-started/ingress) is desirable, the `kubernetes.public_node_count` package option must be set to the number of desired public Kubernetes nodes. The `kubernetes-cluster` service requires the following resources per public Kubernetes node:
+If support for [ingress](/services/kubernetes/2.0.0-1.12.1/getting-started/ingress/) is desirable, the `kubernetes.public_node_count` package option must be set to the number of desired public Kubernetes nodes. The `kubernetes-cluster` service requires the following resources per public Kubernetes node:
 
 |                         | CPUs per instance | MEM (MB) per instance | Disk (MB) per instance |
 | ----------------------- | ---------------- | --------------------- | ---------------------- |

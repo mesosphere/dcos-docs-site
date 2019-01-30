@@ -33,7 +33,7 @@ Returned endpoints will include the following:
 - A direct IP address for accessing the service if `.autoip.dcos.thisdcos.directory` hostnames are not resolvable.
 - If your service is on a virtual network such as the `dcos` overlay network, then the IP will be from the subnet allocated to the host that the task is running on. It will not be the host IP. To resolve the host IP use Mesos DNS (`<task>.<service>.mesos`).
 
-In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use direct IPs or set up a proxy service that acts as a frontend to your service instance. For development and testing purposes, you can use [DC/OS Tunnel](//developing-services/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
+In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use direct IPs or set up a proxy service that acts as a frontend to your service instance. For development and testing purposes, you can use [DC/OS Tunnel](/developing-services/tunnel/) to access services from outside the cluster, but this option is not suitable for production use.
 
 ## Connecting clients to endpoints
 

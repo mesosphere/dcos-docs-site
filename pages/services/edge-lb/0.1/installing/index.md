@@ -163,7 +163,7 @@ Use the following CLI commands to provision the Edge-LB service account with the
     dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools full --description "Allow access to update pools"
     ```
 
-For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/0.1/permissions)
+For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/0.1/permissions/)
 
 # <a name="create-json"></a>Create a configuration file for service authentication
 After configuring service authentication, you must create a JSON options file with your credentials. This file will be passed to DC/OS when you install Edge-LB.
@@ -199,5 +199,5 @@ You should receive this message when ready:
 pong
 ```
 
-- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/0.1/pool-configuration) section.
-- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/0.1/cli-reference).
+- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/0.1/pool-configuration/) section.
+- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/0.1/cli-reference/).

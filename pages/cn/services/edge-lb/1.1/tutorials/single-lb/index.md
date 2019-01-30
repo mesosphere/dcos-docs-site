@@ -55,7 +55,7 @@ enterprise: false
    dcos marathon app add ping.json
    ```
 
-1. 创建一个 [池配置](/cn/services/edge-lb/1.1/pool-configuration) 名称 `sample-minimal.json`。
+1. 创建一个 [池配置](/cn/services/edge-lb/1.1/pool-configuration/) 名称 `sample-minimal.json`。
 
    ```json
    {

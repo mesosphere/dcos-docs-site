@@ -16,7 +16,7 @@ You may manage user access from the Organization menu. The Organization menu com
 
 The Users menu will display the username and full name of all registered users. You can sort the list by Local and External users.
 
-![Users](/1.11/img/organization-ee.png)
+![Users](/1.11/img/organization-ee-users.png)
 
 Figure 1. Organization > Users menu
 

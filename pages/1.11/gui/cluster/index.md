@@ -15,4 +15,4 @@ Figure 1. Cluster > Overview menu
 The Cluster menu has two tabs:
 
 - Overview - Provides cluster details
-- Linked Clusters - Provides details about [linked clusters](/1.11/administering-clusters/multiple-clusters/cluster-links) [enterprise type="inline" size="small" /]
+- Linked Clusters - Provides details about [linked clusters](/1.11/administering-clusters/multiple-clusters/cluster-links/) [enterprise type="inline" size="small" /]

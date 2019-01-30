@@ -63,7 +63,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 [/enterprise]
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage) [enterprise type="inline" size="small" /]|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/services/beta-storage/) [enterprise type="inline" size="small" /]|
 
 # Performance and Tuning
 
@@ -114,6 +114,12 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
 | [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
 | [telemetry_enabled](#telemetry-enabled)                  | Indicates whether to enable sharing of anonymous data for your cluster.  |
+
+# Metrics
+
+| Parameter                    | Description                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [enable_mesos_input_plugin](#enable-mesos-input-plugin)    | Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Default value is `false`. |
 
 # Parameter Descriptions
 
@@ -341,6 +347,11 @@ Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#ex
 
 *  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/1.12/installing/ent/cloud/) template installations.
 *  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/1.12/installing/ent/custom/) installations.
+
+
+### enable_mesos_input_plugin
+
+Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Options: `true` or `false`. Default value is `false`. For more information, see the [documentation](/1.12/metrics/mesos/).
 
 <a name="exhibitor_storage_backend"></a>
 
@@ -620,7 +631,7 @@ Currently, IPv6 networks are supported only for Docker containers. Setting this 
 
 ### dcos_l4lb_enable_ipv6
 Indicates whether layer-4 load-balancing is available for IPv6 containers.
-*  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.12/networking/load-balancing-vips) for IPv6 containers. This is the default value.
+*  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.12/networking/load-balancing-vips/) for IPv6 containers. This is the default value.
 *  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers.
 
 **Note:** Layer-4 load balancing for IPv6 containers should be turned on with caution.
@@ -638,7 +649,7 @@ The only constraint in selecting an IPv4 subnet for `dcos_ucr_default_bridge_sub
 [/enterprise]
 Enables advanced storage features in DC/OS including [CSI](https://github.com/container-storage-interface/spec) support for Mesos, and support for pre-installed CSI device plugins.
 * `feature_dcos_storage_enabled: 'false'` Disables CSI support in  DC/OS. This is the default value.
-* `feature_dcos_storage_enabled: 'true'` Enables CSI support in DC/OS. This is necessary to use the [DC/OS Storage Service (DSS)](/services/beta-storage)
+* `feature_dcos_storage_enabled: 'true'` Enables CSI support in DC/OS. This is necessary to use the [DC/OS Storage Service (DSS)](/services/beta-storage/)
 
 <a id="zk-superuser"></a>
 

@@ -17,11 +17,11 @@ In this tutorial you will install and deploy a containerized Ruby on Rails app n
 
 You will learn:
 
-*   How to install DC/OS services.
-*   How to add apps to DC/OS Marathon.
-*   How to route public traffic to the private application with Marathon-LB.
-*   How your apps are discovered.
-*   How to scale your apps.
+*   How to install DC/OS services
+*   How to add apps to DC/OS Marathon
+*   How to route public traffic to the private application with Marathon-LB
+*   How your apps are discovered
+*   How to scale your apps
 
 This tutorial uses DC/OS to launch and deploy these microservices to your cluster:
 
@@ -44,8 +44,8 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 
 ## Prerequisites
 
-*  [DC/OS](//installing/) or [DC/OS Enterprise](//installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
-*  [DC/OS CLI](//cli/install/) installed.
+*  [DC/OS](/latest/installing/) or [DC/OS Enterprise](/latest/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
+*  [DC/OS CLI](/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
 *   Git:
     *   **macOS:** Get the installer from [Git downloads](http://git-scm.com/download/mac).
@@ -53,7 +53,7 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 
 ## Install DC/OS services
 
-In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS web interface [**Catalog**](//gui/catalog/) tab. You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
+In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS web interface [**Catalog**](/gui/catalog/) tab. You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
 1.  Find and click the **cassandra** package, click **REVIEW & RUN**, and accept the default installation, by clicking **REVIEW & RUN** again, then **RUN SERVICE**. Cassandra spins up to 3 nodes. When prompted by the modal alert, click **OPEN SERVICE**.
 
@@ -61,7 +61,7 @@ In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC
 
 3.  Click the **Catalog** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
 
-If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/mlb-auth/). Depending on your [security mode](//security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
+If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/mlb-auth/). Depending on your [security mode](/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
 
 4.  Click the **Catalog** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.
@@ -69,9 +69,9 @@ If you are having trouble getting Marathon-LB up and running on an Enterprise cl
 
 5.  Click the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
-    ![Services tab with all services shown.](//img/tweeter-services6-ee.png)
+    ![Services tab with all services shown.](/img/tweeter-services6-ee.png)
 
-    Figure 1. Services tab showing Tweeter services 
+    Figure 1. Services tab showing Tweeter services
 
 ## Deploy the containerized app
 
@@ -82,10 +82,10 @@ In this step you deploy the containerized Tweeter app to a public node.
 2.  Add the `HAPROXY_0_VHOST` definition with the public IP address of your [public agent][9] node to your `tweeter.json` file.
 
     <table class=“table” bgcolor=#858585>
-    <tr> 
+    <tr>
     <td align=justify style=color:white><strong>Important:</strong> You must remove the leading "http://" and the trailing "/".
-    </td> 
-    </tr> 
+    </td>
+    </tr>
     </table>
 
     ```json
@@ -126,7 +126,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 
 4.  Go to the **Services** tab to verify your app is up and healthy.
 
-    ![Tweeter deployed](//img/tweeter-services7.png)
+    ![Tweeter deployed](/img/tweeter-services7.png)
 
     Figure 2. Tweeter deployed
 
@@ -150,7 +150,7 @@ In this step you deploy an app that automatically posts a large number of tweets
 
 3.  After the `post-tweets.json` is running, refresh your browser to see the incoming Shakespeare tweets.
 
-    ![Shakespeare tweets](//img/tweeter-shakespeare.png)
+    ![Shakespeare tweets](/img/tweeter-shakespeare.png)
 
     Figure 4. Shakespeare tweets
 
@@ -214,10 +214,10 @@ Figure 6. Top Tweeters
  [3]: /services/spark/
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
- [6]: //overview/concepts/
- [9]: //administering-clusters/locate-public-agent/
- [11]: //cli/command-reference/
+ [6]: /1.12/overview/concepts/
+ [9]: /1.12/administering-clusters/locate-public-agent/
+ [11]: /1.12/cli/command-reference/
  [12]: /services/marathon-lb/
  [13]: https://github.com/mesosphere/tweeter
- [14]: //img/tweeter.png
- [16]: //img/top-tweeters.png
+ [14]: /1.12/img/tweeter.png
+ [16]: /1.12/img/top-tweeters.png

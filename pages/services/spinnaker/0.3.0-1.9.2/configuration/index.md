@@ -65,7 +65,7 @@ dcos security secrets create -v <your-aws-secret-access-key> spinnaker/aws_secre
 dcos security secrets create -v <your-gcp-key> spinnaker/gcp_key
 ```
 
-For more configuration options see [spinnaker/front50](https://github.com/spinnaker/front50/blob/master/front50-web/config/front50.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/front50.yml).
+For more configuration options see [spinnaker/front50](https://github.com/spinnaker/front50/blob/master/front50-web/config/front50.yml).
 
 ### clouddriver-local.yml
 Clouddriver is the {{ model.techName }} **cloud provider service**. The following shows how to configure the DC/OS and Kubernetes provider plugin in `clouddriver-local.yml`.
@@ -111,8 +111,7 @@ dcos:
 
 <p class="message--note"><strong>NOTE: </strong>The configured DC/OS user needs to have superuser privileges.</p>
 
-For more configuration options see [spinnaker/clouddriver](https://github.com/spinnaker/clouddriver/blob/master/clouddriver-web/config/clouddriver.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/clouddriver.yml).
-
+For more configuration options see [spinnaker/clouddriver](https://github.com/spinnaker/clouddriver/blob/master/clouddriver-web/config/clouddriver.yml)
 ### gate-local.yml (optional)
 Gate is the {{ model.techName }} **api service**. The following shows how to configure OAuth2 in `gate-local.yml`.
 
@@ -158,7 +157,7 @@ mail:
 #            fallback: false
 ```
 
-For more configuration options see [spinnaker/echo](https://github.com/spinnaker/echo/blob/master/echo-web/config/echo.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/echo.yml).
+For more configuration options see [spinnaker/echo](https://github.com/spinnaker/echo/blob/master/echo-web/config/echo.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/tree/master/install).
 
 ### igor-local.yml (optional)
 Igor is the {{ model.techName }} **trigger service**. The following shows how to configure the dockerRegistry trigger plugin in `igor-local.yml`.
@@ -168,9 +167,8 @@ dockerRegistry:
   enabled: true
 ```
 
-For more configuration options see [spinnaker/igor](https://github.com/spinnaker/igor/blob/master/igor-web/config/igor.yml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/blob/master/config/igor.yml).
+For more configuration options see [spinnaker/igor](https://github.com/spinnaker/igor/blob/master/igor-web/config/igor.yml).
 
-## DC/OS console install
 When installing the {{ model.techName }} service via the DC/OS console you have sections for each of the {{ model.techName }} services where you can enter the respective yml configuration.
 
 Here the sample for the Clouddriver service.

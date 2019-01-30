@@ -11,7 +11,7 @@ render: mustache
 This topic describes how to configure DC/OS service accounts for {{ model.techShortName }}.
 
 When running in [DC/OS strict security mode](https://docs.mesosphere.com/latest/security/), both the dispatcher and jobs
-must authenticate to Mesos using a [DC/OS Service Account](https://docs.mesosphere.com/latest/security/service-auth/).
+must authenticate to Mesos using a [DC/OS Service Account](https://docs.mesosphere.com/latest/security/ent/service-auth/).
 
 #include /services/include/service-account.tmpl
 
@@ -265,4 +265,4 @@ dcos {{ model.serviceName }} run --submit-args="\
  [11]: https://docs.mesosphere.com/latest/overview/architecture/components/
  [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html
  [13]: https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets
- [14]: https://docs.mesosphere.com/latest/security/secrets/
+ [14]: https://docs.mesosphere.com/latest/security/ent/secrets/

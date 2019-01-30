@@ -76,7 +76,7 @@ dcos package install --options=config.json marathon-lb
 - [教程 - 使用 Marathon-LB 进行内部和外部负载均衡](/cn/services/marathon-lb/marathon-lb-advanced-tutorial/)
 - 查看高级 Marathon-LB [文档](/cn/services/marathon-lb/advanced/)。
 
- [1]: /1.10/installing/oss/
+ [1]: /1.10/installing/
  [2]: /1.10/cli/install/
  [3]: /1.10/administering-clusters/managing-aws/
  [4]: /1.10/administering-clusters/sshcluster/

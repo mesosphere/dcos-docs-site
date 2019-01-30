@@ -180,7 +180,7 @@ To configure it:
 
 1. Create a file named `options.json` with the following contents.
 
-**Note:** If you are using the [DC/OS Apache ZooKeeper service](/services/beta-kafka-zookeeper/2.1.2-3.4.11-beta/), use the DNS addresses provided by the `dcos kafka-zookeeper endpoints clientport` command as the value of `kafka_zookeeper_uri`.
+**Note:** If you are using the [DC/OS Apache ZooKeeper service](/services/beta-kafka-zookeeper/2.1.2-3.4.11-beta/), use the DNS addresses provided by the `dcos beta-kafka-zookeeper endpoints clientport` command as the value of `kafka_zookeeper_uri`.
 
 ```json
 {

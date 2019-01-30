@@ -12,12 +12,12 @@ Welcome to part 5 of the DC/OS 101 Tutorial
 
 
 # Prerequisites
-* A [running DC/OS cluster](//tutorials/dcos-101/cli/) with [the DC/OS CLI installed](//tutorials/dcos-101/cli/).
-* [app1](//tutorials/dcos-101/app1/) deployed and running in your cluster.
+* A [running DC/OS cluster](/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/tutorials/dcos-101/cli/).
+* [app1](/tutorials/dcos-101/app1/) deployed and running in your cluster.
 
 
 # Objective
-[Earlier](//tutorials/dcos-101/app1/) in this tutorial you deployed an app that operates internally in your cluster, interfacing with other applications in the cluster as opposed to interacting externally. In this part you will deploy an app which provides a GUI to users. You will also deploy this app natively, without relying on Docker as a dependency and therefore reducing complexity.
+[Earlier](/tutorials/dcos-101/app1/) in this tutorial you deployed an app that operates internally in your cluster, interfacing with other applications in the cluster as opposed to interacting externally. In this part you will deploy an app which provides a GUI to users. You will also deploy this app natively, without relying on Docker as a dependency and therefore reducing complexity.
 
 # Steps
   * Understand the application
@@ -49,9 +49,9 @@ You have now deployed apps in two different ways:
 
 Let's explore the differences in some more detail.
 
-DC/OS uses [containerizers](//deploying-services/containerizers/) to run tasks in containers. Running tasks in containers offers a number of benefits, including the ability to isolate tasks from one another and control task resources programmatically. DC/OS supports two types of containerizers - the DC/OS Universal Container Runtime, and the Docker containerizer.
+DC/OS uses [containerizers](/deploying-services/containerizers/) to run tasks in containers. Running tasks in containers offers a number of benefits, including the ability to isolate tasks from one another and control task resources programmatically. DC/OS supports two types of containerizers - the DC/OS Universal Container Runtime, and the Docker containerizer.
 
 For your first app, you used a Docker container image to package app1's dependencies ( Remember: never rely on dependencies being installed on an agent! ) and then used the Docker containerizer to execute it. Because the Docker containerizer internally uses the [Docker runtime](https://docs.docker.com/engine/userguide/intro/), you also used the Docker runtime.
 
 For your second app, you did not have any dependencies and therefore could rely on the default DC/OS Universal Container Runtime. Internally, both runtimes use the same OS features for isolation, namely [cgroups](https://en.wikipedia.org/wiki/Cgroups) and [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces).
-This actually makes it possible to use the DC/OS Universal Container Runtime for running Docker images - check the [DC/OS Universal Container Runtime](//deploying-services/containerizers/) documentation for details.
+This actually makes it possible to use the DC/OS Universal Container Runtime for running Docker images - check the [DC/OS Universal Container Runtime](/deploying-services/containerizers/) documentation for details.

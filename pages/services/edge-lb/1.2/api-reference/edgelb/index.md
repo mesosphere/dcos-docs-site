@@ -18,7 +18,7 @@ The Edge-LB API was initially released alongside DC/OS 1.10.0 and requires DC/OS
 
 A new top level configuration field named `apiVersion` was introduced in Edge-LB v1.0.0. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in apiVersion `V1`) has been replaced with `pool.haproxy.backends.services`, with a more intuitive way to select services/backends for HAProxy.
 
-The V1 and V2 specifications were merged into a single spec; however, there are still separate [v1](/pool-configuration/v1-examples) and [v2](/pool-configuration/v2-examples) docs for reference configs, pool examples, etc.
+The V1 and V2 specifications were merged into a single spec; however, there are still separate [v1](/pool-configuration/v1-examples/) and [v2](/pool-configuration/v2-examples/) docs for reference configs, pool examples, etc.
 
 # Routes
 

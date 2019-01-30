@@ -144,4 +144,4 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
  </table>   
 
 
-There are no specific instructions for patching since it occurs as a part of the release. Refer to [Upgrading instructions](/1.10/installing/ent/upgrading/#instructions) for upgrading DC/OS.
+There are no specific instructions for patching since it occurs as a part of the release. Refer to [Upgrading instructions](/1.10/installing/production/upgrading/#instructions) for upgrading DC/OS.

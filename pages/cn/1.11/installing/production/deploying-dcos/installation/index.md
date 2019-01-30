@@ -57,7 +57,7 @@ mkdir -p genconf
 [enterprise]
 # <a name="license"></a>存储许可证文件
 [/enterprise]
-1. 创建 [许可证文件](/cn/1.11/administering-clusters/licenses)（包含您的授权支持联系人发送的电子邮件中提供的许可文本）并另存为 `genconf/license.txt`。
+1. 创建 [许可证文件](/cn/1.11/administering-clusters/licenses/)（包含您的授权支持联系人发送的电子邮件中提供的许可文本）并另存为 `genconf/license.txt`。
 
 # <a name="ip-detect-script"></a>创建 IP 检测脚本
 

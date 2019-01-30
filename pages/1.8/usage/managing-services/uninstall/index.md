@@ -136,7 +136,7 @@ Get the auth token, connect to the leader, and start the script:
 
 Find and note your auth token using the instructions above.
 
-From the DC/OS [**Services**](/1.8/usage/webinterface) tab, use the JSON editor to add the following as a Marathon task. Replace the values passed to `-r`/`-p`/`-z` according to what needs to be cleaned up and the value of `<token>` with your auth token.
+From the DC/OS [**Services**](/1.8/usage/webinterface/) tab, use the JSON editor to add the following as a Marathon task. Replace the values passed to `-r`/`-p`/`-z` according to what needs to be cleaned up and the value of `<token>` with your auth token.
 
     {
       "id": "janitor",

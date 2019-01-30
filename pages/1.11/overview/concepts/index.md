@@ -84,7 +84,7 @@ A private agent node is an agent node that is on a network that **does not allow
 A public agent node is an agent node that is on a network that **allows** access from outside of the cluster via the cluster’s infrastructure networking.
 
 - The Mesos agent on each public agent node is configured with the `public_ip:true` agent attribute and all of its resources allocated to the `slave_public` role.
-- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/1.11/networking/marathon-lb/).
+- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/services/marathon-lb/).
 - Clusters generally have only a few public agent nodes, because a single load balancer can handle proxying multiple services.
 
 For more information, see [Converting Agent Node Types](/1.11/administering-clusters/convert-agent-type/).
@@ -321,7 +321,7 @@ Mesos depends on ZooKeeper, a high-performance coordination service to manage th
 
 Mesos-DNS is a DC/OS component that provides service discovery within the cluster. Mesos-DNS allows applications and services that are running on Mesos to find each other by using the domain name system (DNS), similar to how services discover each other throughout the Internet.
 
-For more information, see the [Mesos-DNS documentation](/1.11/networking/mesos-dns/).
+For more information, see the [Mesos-DNS documentation](/1.11/networking/DNS/mesos-dns/).
 
 # <a name="marathon-concepts"></a>Marathon Concepts
 

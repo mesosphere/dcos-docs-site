@@ -58,6 +58,7 @@ Here is a list of the parameters that you can modify:
     - [`http_proxy`](/1.12/installing/production/advanced-configuration/configuration-reference/#use-proxy)
     - [`https_proxy`](/1.12/installing/production/advanced-configuration/configuration-reference/#use-proxy)
     - [`no_proxy`](/1.12/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+- [`enable_mesos_input_plugin`](/1.12/installing/production/advanced-configuration/configuration-reference/#enable-mesos-input-plugin)
 
 The security mode (`security`) can be changed but only to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `strict` mode and you want to downgrade to `permissive` mode, you must reinstall the cluster and terminate all running workloads.
 
@@ -94,7 +95,7 @@ Choose your desired security mode and then follow the applicable patch instructi
 - [Patching to DC/OS 1.12 in strict security mode](#strict)
 
 # <a name="current-security"></a>Patching DC/OS 1.12 without changing security mode
-This procedure patches a DC/OS 1.12 cluster without changing the cluster's [security mode](//1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure patches a DC/OS 1.12 cluster without changing the cluster's [security mode](/1.12/1.12/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
@@ -229,8 +230,8 @@ sudo systemctl | grep dcos
 
 If your patch fails because of a [custom node or cluster check](/1.12/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks), run these commands for more details:
 ```bash
-dcos-diagnostics check node-poststart
-dcos-diagnostics check cluster
+dcos-check-runner check node-poststart
+dcos-check-runner check cluster
 ```
 ### On DC/OS Masters
 

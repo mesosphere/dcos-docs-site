@@ -18,7 +18,7 @@ Kafka is available in the Universe and can be installed by using either the web 
 
 ##  <a name="install-enterprise"></a>Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/service-docs/kafka/kafka-auth/) before installing Kafka. Only someone with `superuser` permission can create the service account.
+- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/services/kafka/kafka-auth/) before installing Kafka. Only someone with `superuser` permission can create the service account.
 	- `strict` [security mode](/1.9/installing/custom/configuration-parameters/#security) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
@@ -119,7 +119,7 @@ $ dcos package install kafka --options=kafka1.json
 
  [4]: #custom-installation
  [5]: https://github.com/mesosphere/dcos-vagrant
- [6]: /service-docs/kafka/configure/#configuration-options
+ [6]: /services/kafka/configure/#configuration-options
 
 <a name="changing-configuration-at-runtime"></a>
 # Changing Configuration at Runtime

@@ -15,7 +15,7 @@ In this tutorial, Marathon-LB is used as an internal and external load balancer.
 
 ## Prerequisites
 
-*   DC/OS installed by using the AWS [cloud templates](/1.10/installing/oss/cloud/aws/) with at least three [private](/1.10/overview/concepts/#private-agent-node) agents and one [public](/1.10/overview/concepts/#public-agent-node) agent.
+*   DC/OS installed by using the AWS [cloud templates](/1.10/installing/evaluation/aws/) with at least three [private](/1.10/overview/concepts/#private-agent-node) agents and one [public](/1.10/overview/concepts/#public-agent-node) agent.
 *   DC/OS CLI [installed][2].
 *   Marathon-LB [installed](/services/marathon-lb/usage-ee/).
 
@@ -288,7 +288,7 @@ The label `HAPROXY_0_VHOST`, instructs Marathon-LB to expose NGINX on the extern
     
     Figure 4. NGINX welcome page
 
- [1]: /1.10/installing/oss/
+ [1]: /1.10/installing/
  [2]: /1.10/cli/install/
  [3]: /1.10/administering-clusters/locate-public-agent/
  [4]: /1.10/administering-clusters/sshcluster/

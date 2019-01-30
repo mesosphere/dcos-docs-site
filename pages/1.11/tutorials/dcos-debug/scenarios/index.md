@@ -16,7 +16,7 @@ In this section, there are three basic debugging scenarios to practice. We encou
 
 ## Prerequisites
 
-- running [DC/OS cluster](/1.11/installing/oss/)
+- running [DC/OS cluster](/1.11/installing/)
     - 4 private agent nodes
     - 1 public agent node
 - configured [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/install/)

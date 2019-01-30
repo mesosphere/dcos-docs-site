@@ -142,7 +142,7 @@ We used `pool.haproxy.frontend.linkBackend.pathBeg` in this example to match on 
 
 # Internal (East / West) Load Balancing
 
-Sometimes it is desired or necessary to use Edge-LB for load balancing traffic inside of a DC/OS cluster. This can also be done using [Minuteman VIPs](/latest/networking/load-balancing-vips), but if you need layer 7 functionality, Edge-LB can be configured for internal only traffic.
+Sometimes it is desired or necessary to use Edge-LB for load balancing traffic inside of a DC/OS cluster. This can also be done using [Minuteman VIPs](/latest/networking/load-balancing-vips/), but if you need layer 7 functionality, Edge-LB can be configured for internal only traffic.
 
 The changes necessary are:
 

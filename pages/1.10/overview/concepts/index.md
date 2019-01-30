@@ -120,7 +120,7 @@ A private agent node is an agent node that is on a network that *does not* allow
 A public agent node is an agent node that is on a network that *does* allow ingress from outside of the cluster via the cluster’s infrastructure networking.
 
 - The Mesos agent on each public agent node is configured with the `public_ip:true` agent attribute and all of its resources allocated to the `slave_public` role.
-- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/service-docs/marathon-lb/).
+- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/services/marathon-lb/).
 - Clusters generally have only a few public agent nodes, because a single load balancer can handle proxying multiple services.
 
 For more information, see [Converting Agent Node Types](/1.10/administering-clusters/convert-agent-type/).
@@ -138,7 +138,7 @@ A bootstrap machine is the machine on which the DC/OS installer artifacts are co
 
 - The bootstrap machine is not technically considered part of the cluster since it does not have DC/OS installed on it (this may change in the future). For most installation methods, the bootstrap node must be accessible to and from the machines in the cluster via infrastructure networking.
 - The bootstrap machine is sometimes used as a jumpbox to control SSH access into other nodes in the cluster for added security and logging.
-- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using S3, DNS, or static IPs, with various tradeoffs. For more information, see [configuring the exhibitor storage backend](/1.10/installing/custom/configuration/configuration-parameters/#exhibitor_storage_backend).
+- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using S3, DNS, or static IPs, with various tradeoffs. For more information, see [configuring the exhibitor storage backend](/1.10/installing/production/advanced-configuration/configuration-reference/#exhibitor_storage_backend).
 - If a bootstrap machine is not required for managing master node IP changes or as an SSH jumpbox, it can be shut down after bootstrapping and spun up on demand to [add new nodes](/1.10/administering-clusters/add-a-node/) to the cluster.
 
 For more information, see the [system requirements](/1.10/installing/custom/system-requirements/#bootstrap-node).
@@ -263,7 +263,7 @@ The [Universal Container Runtime](#mesos-containerizer-universal-container-runti
 
 A cloud template is an infrastructure-specific method of declaratively describing a DC/OS cluster.
 
-For more information, see [Cloud Installation Options](/1.10/installing/cloud/).
+For more information, see [Cloud Installation Options](/1.10/installing/evaluation/).
 
 
 # <a name="mesos-concepts"></a>Mesos Concepts

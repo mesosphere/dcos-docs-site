@@ -25,7 +25,7 @@ In this session, you will scale your application to multiple instances and learn
 # Steps
 Load-balancers decide which instance of an app internal or external services should use. With DC/OS, you have two different built-in load-balancer options:
 
-1. [Marathon-LB](/1.11/networking/marathon-lb/)
+1. [Marathon-LB](/services/marathon-lb/)
 1. [Named VIPs](/1.11/networking/load-balancing-vips/).
 
 You have already explored these load balancing mechanisms in the context of [service discovery](/1.11/tutorials/dcos-101/service-discovery/), and in a [previous](/1.11/tutorials/dcos-101/marathon-lb/) tutorial you used Marathon-LB to publicly expose app2. Now let's explore them a bit more.
@@ -52,5 +52,5 @@ You used Marathon-LB and VIPs to load balance requests for two different instanc
 # Deep Dive
 Consider these features and benefits when choosing the load balancing mechanism.
 
-   * [Marathon-LB](/1.11/networking/marathon-lb/) is a layer 7 load balancer that is mostly used for external requests. It is based on the well-known HAProxy load balancer and uses Marathon’s event bus to update its configuration in real time. Being a layer 7 load balancer, it supports session-based features such as HTTP sticky sessions and zero-downtime deployments.
+   * [Marathon-LB](/services/marathon-lb/) is a layer 7 load balancer that is mostly used for external requests. It is based on the well-known HAProxy load balancer and uses Marathon’s event bus to update its configuration in real time. Being a layer 7 load balancer, it supports session-based features such as HTTP sticky sessions and zero-downtime deployments.
    * [Named VIPs](/1.11/networking/load-balancing-vips/) are a layer 4 load balancer mechanism used for internal TCP traffic. As they are tightly integrated with the kernel, they provide a load balanced IP address which can be used from anywhere within the cluster.

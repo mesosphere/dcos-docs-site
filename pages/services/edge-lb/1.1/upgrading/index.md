@@ -32,7 +32,7 @@ Perform an Edge-LB upgrade by following this procedure.
       https://<insert download link>/stub-universe-edgelb-pool.json
     ```
 
-1. Install the new `apiserver`. Use the service account created when installing the previous version; see [Edge-LB Installation Guide](/services/edge-lb/1.1/installing) for more information. The configuration file below matches the one created while following the install instructions.
+1. Install the new `apiserver`. Use the service account created when installing the previous version; see [Edge-LB Installation Guide](/services/edge-lb/1.1/installing/) for more information. The configuration file below matches the one created while following the install instructions.
 
     ```bash
     tee edgelb-options.json <<EOF

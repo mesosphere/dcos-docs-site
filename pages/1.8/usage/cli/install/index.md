@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The recommended method to install the DC/OS CLI is by clicking the quick-launch icon on the lower-left panel of the DC/OS [web interface](/1.8/usage/webinterface). Or, you can manually install the CLI by following these instructions.
+The recommended method to install the DC/OS CLI is by clicking the quick-launch icon on the lower-left panel of the DC/OS [web interface](/1.8/usage/webinterface/). Or, you can manually install the CLI by following these instructions.
 
 *   [Installing the DC/OS CLI on Linux](#linux)
 *   [Installing the DC/OS CLI on macOS](#osx)

@@ -88,7 +88,7 @@ To enable support for both TLS encrypted and non-TLS plaintext connections set t
 
 ## Clients
 
-Clients connecting to the Cassandra service are required to use [the DC/OS CA bundle](/1.10/networking/tls-ssl/get-cert/) to verify the TLS connections.
+Clients connecting to the Cassandra service are required to use [the DC/OS CA bundle](/1.10/security/ent/tls-ssl/get-cert/) to verify the TLS connections.
 
 ## cqlsh
 

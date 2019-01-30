@@ -15,7 +15,7 @@ enterprise: false
 
 You can run Spark commands interactively in the Spark shell. The Spark shell is available in Scala, Python, and R.
 
-1. [Launch a long-running interactive bash session using `dcos task exec`](https://dcos.io/docs/1.9/monitoring/debugging/cli-debugging/task-exec/#launch-a-long-running-interactive-bash-session).
+1. [Launch a long-running interactive bash session using `dcos task exec`](https://docs.mesosphere.com/1.12/monitoring/debugging/task-exec/#launch-a-long-running-interactive-bash-session).
 
 1. From your interactive bash session, pull and run a Spark Docker image.
 

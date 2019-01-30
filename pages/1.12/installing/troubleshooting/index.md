@@ -23,7 +23,7 @@ We recommended that you use the `ip-detect` [examples](/1.12/installing/producti
 
 ## DNS resolvers
 
-You must have working DNS resolvers, specified in your [config.yaml](1.12/installing/production/advanced-configuration/configuration-reference/#resolvers) file. We recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
+You must have working DNS resolvers, specified in your [config.yaml](/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers) file. We recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
 
   - `hostname -f` returns the FQDN
   - `hostname -s` returns the short hostname

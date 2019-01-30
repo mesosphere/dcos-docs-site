@@ -11,7 +11,7 @@ enterprise: false
 
 ## 先决条件
 
-* 通过使用 AWS [云模板](/cn/1.11/installing/oss/cloud/aws/) 安装 DC/OS，至少有 3 个 [私有](/cn/1.11/overview/concepts/#private-agent-node) 代理和 1 个 [公共](/cn/1.11/overview/concepts/#public-agent-node) 代理。
+* 通过使用 AWS [云模板](/cn/1.11/installing/evaluation/cloud-installation/aws/) 安装 DC/OS，至少有 3 个 [私有](/cn/1.11/overview/concepts/#private-agent-node) 代理和 1 个 [公共](/cn/1.11/overview/concepts/#public-agent-node) 代理。
 * DC/OS CLI [已安装][2]。
 * Marathon-LB [已安装](/cn/services/marathon-lb/usage-ee/)。
 
@@ -283,7 +283,7 @@ Marathon-LB 的一个重要特性是支持虚拟主机（`vhost`）。这允许�
 
  图 4. NGINX 欢迎页
 
- [1]: /1.10/installing/oss/
+ [1]: /1.10/installing/
  [2]: /1.10/cli/install/
  [3]: /1.10/administering-clusters/locate-public-agent/
  [4]: /1.10/administering-clusters/sshcluster/

@@ -31,7 +31,7 @@ Let's start with a simple example: a service that prints `Hello Marathon` to std
 
     In the above example, `cmd` is the command that gets executed. Its value is wrapped by the underlying Mesos executor via `/bin/sh -c ${cmd}`.
 
-1. Use the [DC/OS CLI](/1.10/cli) to add the service to DC/OS.
+1. Use the [DC/OS CLI](/1.10/cli/) to add the service to DC/OS.
 
     ```bash
     dcos marathon app add <your-service-name>.json

@@ -25,4 +25,4 @@ DNS 转发器 (Spartan) 还可实现 ZooKeeper 的高可用性。您始终可以
 DNS 转发器 (Spartan) 创建自己的网络接口。此网络接口实际上是被称为 `spartan` 的简单设备。此设备主机托管三个 IP：`198.51.100.1/32`、`198.51.100.2/32`、`198.51.100.3/32`。您可以在系统运行状况 [仪表盘][2] 中，监控 DNS 转发器 (Spartan) 组件的健康状况。
 
 [1]: /cn/1.11/installing/production/advanced-configuration/configuration-reference/
-[2]: /cn/1.11/gui/dashboard
+[2]: /cn/1.11/gui/dashboard/

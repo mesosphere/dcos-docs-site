@@ -25,4 +25,4 @@ In addition to this watchdog, we also run `genresolv`, which checks whether or n
 DNS Forwarder (Spartan) creates its own network interface. This interface is actually a dummy device called `spartan`. This device hosts three IPs: `198.51.100.1/32`, `198.51.100.2/32`, `198.51.100.3/32`. You can monitor the health of the DNS Forwarder (Spartan) component in the system health [dashboard][2].
 
 [1]: /1.11/installing/production/advanced-configuration/configuration-reference/
-[2]: /1.11/gui/dashboard
+[2]: /1.11/gui/dashboard/

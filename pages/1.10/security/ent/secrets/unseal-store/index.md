@@ -49,7 +49,7 @@ A sealed Secret Store cannot be accessed from the GUI. Secret values cannot be r
    /opt/mesosphere/packages/exhibitor--*/usr/zookeeper/bin/zkCli.sh
    ```
 
-1. Execute the following ZooKeeper command to gain additional privileges, specifying the user name and password of the ZooKeeper superuser. By default, this is set to `super:secret` but we recommend [changing the default](/1.10/installing/ent/custom/configuration/configuration-parameters/#zk-superuser).
+1. Execute the following ZooKeeper command to gain additional privileges, specifying the user name and password of the ZooKeeper superuser. By default, this is set to `super:secret` but we recommend [changing the default](/1.10/installing/production/advanced-configuration/configuration-reference/#zk-superuser).
 
    ```bash
    addauth digest super:secret

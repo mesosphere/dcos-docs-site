@@ -20,7 +20,7 @@ A cluster license file contains all of the information to determine if the terms
 
 # Configuring the cluster license
 
-You specify the license file when you configure a cluster installation. To configure a cluster license, create the `genconf/license.txt`file and add the license key text you received in the email sent to you by your Authorized Support Contact. For additional information about this step, see the instructions for [running the installer](/1.11/installing/production/deploying-dcos/installation).
+You specify the license file when you configure a cluster installation. To configure a cluster license, create the `genconf/license.txt`file and add the license key text you received in the email sent to you by your Authorized Support Contact. For additional information about this step, see the instructions for [running the installer](/1.11/installing/production/deploying-dcos/installation/).
 
 The DC/OS licensing component will launch successfully only if the information in the license is legitimate. Once the DC/OS licensing component launches, the deployment of the DC/OS components is resumed and validated. If the license is missing or invalid, the deployment will fail.
 

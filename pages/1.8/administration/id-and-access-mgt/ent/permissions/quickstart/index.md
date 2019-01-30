@@ -37,7 +37,7 @@ By default, a new user has no permissions and cannot view the DC/OS web interfac
 
 This procedure describes how to grant a user access to the **Services** tab and all the services inside of it.
 
-**Tip:** If you are running in `strict` or `permissive` [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) and don't want to give the user access to all of the services in the **Services** tab, see [Controlling user access to services](/1.8/administration/id-and-access-mgt/ent/permissions/service-groups).
+**Tip:** If you are running in `strict` or `permissive` [security mode](/1.8/administration/installing/ent/custom/configuration-parameters/#security) and don't want to give the user access to all of the services in the **Services** tab, see [Controlling user access to services](/1.8/administration/id-and-access-mgt/ent/permissions/service-groups/).
 
 The steps to accomplish this vary based on your preferred method.
 
@@ -184,7 +184,7 @@ The steps to accomplish this vary based on your preferred method.
 
 This procedure describes how to grant a user access to the **Jobs** tab and all the jobs inside of it.
 
-**Tip:** If you don't want to give the user access to all of the jobs in the **Jobs** tab, see [Controlling user access to jobs](/1.8/administration/id-and-access-mgt/ent/permissions/job-groups).
+**Tip:** If you don't want to give the user access to all of the jobs in the **Jobs** tab, see [Controlling user access to jobs](/1.8/administration/id-and-access-mgt/ent/permissions/job-groups/).
 
 The steps to accomplish this vary based on your preferred method.
 

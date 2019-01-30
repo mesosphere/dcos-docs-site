@@ -10,7 +10,7 @@ featureMaturity:
 enterprise: true
 ---
 
-This topic describes how to configure DC/OS access for Confluent Kafka. Depending on your [security mode](/1.9/overview/security/security-modes/), Confluent Kafka requires [service authentication](/1.9/security/service-auth/) for access to DC/OS.
+This topic describes how to configure DC/OS access for Confluent Kafka. Depending on your [security mode](/1.9/security/ent/#security-modes/), Confluent Kafka requires [service authentication](/1.9/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 |---------------|-----------------------|
@@ -24,7 +24,7 @@ If you install a service in permissive mode and do not specify a service account
 
 - [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
 - [Enterprise DC/OS CLI 0.4.14 or later installed](/1.9/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/1.9/overview/security/security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- If your [security mode](/1.9/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # <a name="create-a-keypair"></a>Create a Key Pair
 In this step, a 2048-bit RSA public-private key pair is created uses the Enterprise DC/OS CLI.
@@ -35,7 +35,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/1.9/security/secrets/) to secure the key pair.
+**Tip:** You can use the [DC/OS Secret Store](/1.9/security/ent/secrets/) to secure the key pair.
 
 # <a name="create-a-service-account"></a>Create a Service Account
 

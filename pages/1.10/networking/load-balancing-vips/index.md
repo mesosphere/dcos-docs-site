@@ -27,7 +27,7 @@ When you launch a set of tasks, DC/OS distributes them to a set of nodes in the 
 
 -  Do not firewall traffic between the nodes (allow all TCP/UDP).
 -  Do not change `ip_local_port_range`.
--  You must use a supported [operating system](/1.10/installing/oss/custom/system-requirements/).
+-  You must use a supported [operating system](/1.10/installing/production/system-requirements/).
 
 #### Persistent Connections
 Keep long-running persistent connections, otherwise, you can quickly fill up the TCP socket table. The default local port range on Linux allows source connections from 32768 to 61000. This allows 28232 connections to be established between a given source IP and a destination address and port pair. TCP connections must go through the time wait state prior to being reclaimed. The Linux kernel's default TCP time wait period is 120 seconds. Without persistent connections, you would exhaust the connection table by only making 235 new connections per second.

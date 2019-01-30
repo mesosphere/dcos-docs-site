@@ -12,7 +12,7 @@ render: mustache
 ## Version 2.3.0-1.1.0
 
 ### Updates
-- Upgrade {{ model.techShortName }} base tech to version 1.1.0. See [{{ model.techShortName }}'s Release Notes](https://www.apache.org/dist/kafka/1.1.0/RELEASE_NOTES.html) for details.
+- Upgrade {{ model.techShortName }} base tech to version 1.1.0. See [{{ model.techShortName }}'s Release Notes](https://kafka.apache.org/11/documentation.html#upgrade_110_notable) for details.
 
 ## Version 2.3.0-1.0.0
 

@@ -9,9 +9,9 @@ enterprise: true
 
 The DC/OS Enterprise CLI provides commands for DC/OS Enterprise features:
 
-- [`dcos backup`](/1.11/cli/command-reference/dcos-backup)
-- [`dcos license`](/1.11/cli/command-reference/dcos-license)
-- [`dcos security`](/1.11/cli/command-reference/dcos-security)
+- [`dcos backup`](/1.11/cli/command-reference/dcos-backup/)
+- [`dcos license`](/1.11/cli/command-reference/dcos-license/)
+- [`dcos security`](/1.11/cli/command-reference/dcos-security/)
 
 # <a name="ent-cli-install"></a>Installing the DC/OS Enterprise CLI
 

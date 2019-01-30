@@ -40,8 +40,8 @@ dcos edgelb [<flags>] pool delete <name>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/0.1/cli-reference)  |  Manage Edge-LB. |
+| [dcos edgelb](/services/edge-lb/0.1/cli-reference/)  |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/0.1/usage).
+See the [Edge-LB Usage](/services/edge-lb/0.1/usage/).

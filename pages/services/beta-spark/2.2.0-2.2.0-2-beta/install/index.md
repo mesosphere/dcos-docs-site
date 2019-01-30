@@ -16,7 +16,7 @@ Spark is available in the Universe and can be installed by using either the GUI 
 **Prerequisites:**
 
 - [DC/OS and DC/OS CLI installed](/1.9/installing/).
-- Depending on your [security mode](/1.9/overview/security/security-modes/), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](/service-docs/spark/spark-auth/).
+- Depending on your [security mode](/1.9/security/ent/#security-modes/), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](/services/spark/spark-auth/).
   
   | Security mode | Service Account |
   |---------------|-----------------------|
@@ -33,7 +33,7 @@ dcos package install spark
 
 Go to the **Services** > **Deployments** tab of the DC/OS GUI to monitor the deployment. When it has finished deploying , visit Spark at `http://<dcos-url>/service/spark/`.
 
-You can also [install Spark via the DC/OS GUI](/1.9/gui/universe).
+You can also [install Spark via the DC/OS GUI](/1.9/gui/universe/).
 
 
 ## Spark CLI

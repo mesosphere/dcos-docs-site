@@ -31,7 +31,7 @@ export auth_token=uSeR_t0k3n
 
 The `curl` examples in this document assume that an auth token has been stored in an environment variable named `auth_token`.
 
-If you are using Enterprise DC/OS, the security mode of your installation may also require the `--ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in cURL requests](/1.9/networking/tls-ssl/get-cert) for information on how to use the `--cacert` flag. [If your security mode is `disabled`](/1.9/networking/tls-ssl/), do not use the `--ca-cert` flag.
+If you are using Enterprise DC/OS, the security mode of your installation may also require the `--ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in cURL requests](/1.9/networking/tls-ssl/get-cert/) for information on how to use the `--cacert` flag. [If your security mode is `disabled`](/1.9/networking/tls-ssl/), do not use the `--ca-cert` flag.
 
 # Plan API
 The Plan API provides endpoints for monitoring and controlling service installation and configuration updates.

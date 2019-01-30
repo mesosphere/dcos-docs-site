@@ -16,7 +16,7 @@ This tutorial will get you up and running in minutes with Spark. You will instal
 **Prerequisites:**
 
 -  [DC/OS and DC/OS CLI installed](/1.9/installing/) with a minimum of three agent nodes with eight GB of memory and ten GB of disk available on each agent.
--  Depending on your [security mode](/1.9/overview/security/security-modes/), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](/service-docs/spark/spark-auth/).
+-  Depending on your [security mode](/1.9/security/ent/#security-modes/), Spark requires service authentication for access to DC/OS. For more information, see [Configuring DC/OS Access for Spark](/services/spark/spark-auth/).
 
    | Security mode | Service Account |
    |---------------|-----------------------|
@@ -25,7 +25,7 @@ This tutorial will get you up and running in minutes with Spark. You will instal
    | Strict        | Required |
 
 
-1.  Install the Spark package. This may take a few minutes. This installs the Spark DC/OS service, Spark CLI, dispatcher, and, optionally, the history server. See [Custom Installation](/service-docs/spark/v1.0.9-2.1.0-1/install/#custom) to install the history server.
+1.  Install the Spark package. This may take a few minutes. This installs the Spark DC/OS service, Spark CLI, dispatcher, and, optionally, the history server. See [Custom Installation](/services/spark/v1.0.9-2.1.0-1/install/#custom) to install the history server.
 
     ```bash
     dcos package install spark
@@ -47,7 +47,7 @@ This tutorial will get you up and running in minutes with Spark. You will instal
     
     -  You can view the status of your Spark installation from the DC/OS GUI **Services** tab.
        
-       ![Verify spark installation](/img/spark-gui-install.png)
+       ![Verify spark installation](/services/spark/v2.0.1-2.2.0-1/img/spark-gui-install.png)
        
     -  Type `dcos spark` to view the Spark CLI options.
     -  You can install the Spark CLI with this command:

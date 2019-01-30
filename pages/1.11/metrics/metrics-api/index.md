@@ -9,7 +9,7 @@ beta: false
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications. The Metrics API is just one way to get metrics from DC/OS. It is designed for occasional targeted access to specific tasks and hosts. It is not the best way to get a comprehensive picture of all metrics on DC/OS. For this, please refer
-to the [DataDog](/1.11/metrics/datadog), [Prometheus](/1.11/metrics/prometheus), and
+to the [DataDog](/1.11/metrics/datadog/), [Prometheus](/1.11/metrics/prometheus/), and
 [third-party plugins](https://github.com/dcos/dcos-metrics/blob/master/plugins/CONTRIBUTING.md) documents.
 
 The Metrics API is backed by the [DC/OS Metrics component](/1.11/overview/architecture/components/#dcos-metrics), which runs on all nodes in the cluster.

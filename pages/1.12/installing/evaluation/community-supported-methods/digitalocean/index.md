@@ -106,7 +106,7 @@ The following have default values and may be changed depending on your requireme
 
   Figure 1. Terraform apply output
 
-You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel to become available on the master node. After 15 or 20 minutes, check out the [troubleshooting](1.12/installing/troubleshooting/) documentation.
+You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel to become available on the master node. After 15 or 20 minutes, check out the [troubleshooting](/1.12/installing/troubleshooting/) documentation.
 
 # Launch DC/OS
 Launch the DC/OS web interface by entering the Mesos master IP address:

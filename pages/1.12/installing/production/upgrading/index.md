@@ -139,8 +139,8 @@ These steps must be performed for version upgrades.
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [DC/OS Installation Guide][install].
-- Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
-- [Take a snapshot of the IAM database](/1.12/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. [enterprise type="inline" size="small" /]
+- Take a [snapshot of ZooKeeper](/1.12/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano) prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
+- Take a [snapshot of the IAM database](/1.12/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. [enterprise type="inline" size="small" /]
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 
 <p class="message--note"><strong>NOTE: </strong>Marathon event subscribers are disabled by default. Check to see if the line <code>--event_subscriber "http_callback"</code> has been added to <code>sudo vi /opt/mesosphere/bin/marathon.sh</code> on your master node(s). In such a case, you must remove that line in order to disable event subscribers.</p>
@@ -293,8 +293,8 @@ sudo systemctl | grep dcos
 
 If your upgrade fails because of a [custom node or cluster check](/1.12/installing/ent/custom/node-cluster-health-check/#custom-health-checks), run these commands for more details:
 ```bash
-dcos-diagnostics check node-poststart
-dcos-diagnostics check cluster
+dcos-check-runner check node-poststart
+dcos-check-runner check cluster
 ```
 
 #### On DC/OS Masters

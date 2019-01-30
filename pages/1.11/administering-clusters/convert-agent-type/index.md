@@ -8,13 +8,13 @@ excerpt: Converting agent nodes to public or private agent nodes.
 enterprise: false
 ---
 
-You can convert agent nodes to public or private for an existing DC/OS cluster. Agent nodes are designated as [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during [installation](1.11/installing/evaluation/cloud-installation/).
+You can convert agent nodes to public or private for an existing DC/OS cluster. Agent nodes are designated as [public](/1.11/overview/concepts/#public-agent-node) or [private](/1.11/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during [installation](1.11/installing/evaluation/).
 
 ### Prerequisites:
 These steps must be performed on a machine that is configured as a DC/OS node. Any tasks that are running on the node will be terminated during this conversion process.
 
 *   DC/OS is installed using the [custom](/1.11/installing/production/deploying-dcos/installation/) installation method and you have deployed at least one [master](/1.11/overview/concepts/#master) and one [private](/1.11/overview/concepts/#private-agent-node) agent node.
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.11/installing/evaluation/cloud-installation/).     
+*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.11/installing/evaluation/).     
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
@@ -57,7 +57,7 @@ You can determine the node type by running this command from the DC/OS CLI.
     ```
 
 ### Install DC/OS and convert agent node
-Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that that is being converted. This archive is created during the GUI or CLI [installation](/1.11/installing/evaluation/cloud-installation/) method.
+Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that that is being converted. This archive is created during the GUI or CLI [installation](/1.11/installing/evaluation/) method.
 
 1.  Copy the files to your agent node. For example, you can use Secure Copy (scp) to copy `dcos-install.tar` to your home directory:
 

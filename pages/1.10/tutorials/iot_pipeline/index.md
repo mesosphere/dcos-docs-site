@@ -47,9 +47,9 @@ The following graphic illustrates the data flow:
 
 ## Prerequisites
 
-*  [DC/OS](/1.10/installing/oss/) or [DC/OS Enterprise](/1.10/installing/ent/) installed with at least 5 [private agents][6] and 1 [public agent][6].
+*  [DC/OS](/1.10/installing/) or [DC/OS Enterprise](/1.10/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
 
-    **Tip** If you are running this tutorial using a DC/OS Enterprise cluster, you will want to make sure [security mode](/1.10/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is set to permissive or strict. DC/OS installs in permissive security mode by default.
+    **Tip** If you are running this tutorial using a DC/OS Enterprise cluster, you will want to make sure [security mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) is set to permissive or strict. DC/OS installs in permissive security mode by default.
 
 *  [DC/OS CLI](/1.10/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
@@ -208,8 +208,8 @@ In this last step, you'll perform real-time analytics on the stream of tweets co
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
  [6]: /1.10/overview/concepts/
- [7]: /1.10/installing/cloud/
- [8]: /1.10/installing/ent/custom/
+ [7]: /1.10/installing/evaluation/
+ [8]: /1.10/installing/evaluation/
  [9]: /1.10/administering-clusters/locate-public-agent/
  [10]: /1.10/img/webui-universe-install.png
  [11]: /1.10/cli/command-reference/

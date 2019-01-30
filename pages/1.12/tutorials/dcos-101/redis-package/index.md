@@ -13,7 +13,7 @@ Welcome to part 2 of the DC/OS 101 Tutorial.
 
 
 # Prerequisites
-By now, you should have a running DC/OS cluster and the DC/OS CLI installed and configured. If that isn't the case, please follow the [first](//tutorials/dcos-101/cli/) part of this tutorial.
+By now, you should have a running DC/OS cluster and the DC/OS CLI installed and configured. If that isn't the case, please follow the [first](/tutorials/dcos-101/cli/) part of this tutorial.
 The next stage of this tutorial uses [jq](https://stedolan.github.io/jq/), a command line JSON processor to simplify some of the commands. Follow the instructions [here](https://stedolan.github.io/jq/download/) to install JQ for your operating system.
 
 # Objective
@@ -41,7 +41,7 @@ By the end of this session you will have installed your first service - [Redis](
       * By looking at all Marathon apps: `dcos marathon app list`. This command will show us all running Marathon apps. Since services are started via Marathon, you should see Redis here as well. Note that the health status (i.e. 1/1) is also shown here.
       * By looking at the Redis log: `dcos task log redis`. This command will show us the logs (stdout and stderr) of the redis task. This allows you to check whether the actual startup was successful. You can increase the number of log lines displayed by using the `--lines=` argument, the default is 10.  
   * Let's use Redis by storing a key manually via the redis-cli command
-      * [SSH](//administering-clusters/sshcluster/) into the node where redis is running:
+      * [SSH](/administering-clusters/sshcluster/) into the node where redis is running:
 
         ```bash
         dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
@@ -83,4 +83,4 @@ By the end of this session you will have installed your first service - [Redis](
   1. Curated packages that have undergone testing and certification.
   1. Community contributed packages, which may not be as well tested.
 
-  You can also add your own repo that includes your custom packages. See the [documentation](//administering-clusters/repo/) for details.
+  You can also add your own repo that includes your custom packages. See the [documentation](/administering-clusters/repo/) for details.

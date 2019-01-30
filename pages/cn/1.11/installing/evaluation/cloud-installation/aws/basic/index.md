@@ -15,7 +15,7 @@ excerpt: 使用 DC/OS 模板创建 DC/OS 集群
 
 这些说明提供了一个基础的 AWS CloudFormation 模板，可以创建适合演示和 POC 的 DC/OS 集群。这是开始使用 AWS CloudFormation 的 DC/OS 模板的最快方式。
 
-有关完整的 DC/OS 配置选项集，请参阅 [高级 AWS 安装指南](/cn/1.11/installing/ent/cloud/aws/advanced/)。
+有关完整的 DC/OS 配置选项集，请参阅 [高级 AWS 安装指南](/cn/1.11/installing/evaluation/aws/advanced/)。
 
 <p class="message--important"><strong>重要信息：</strong>此安装方法不支持升级。</p> 
 

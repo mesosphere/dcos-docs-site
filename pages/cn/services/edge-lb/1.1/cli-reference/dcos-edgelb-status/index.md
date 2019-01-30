@@ -37,8 +37,8 @@ dcos edgelb status [<flags>] <pool-name>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference) | 管理 Edge-LB。 |
+| [dcos edgelb](/cn/services/edge-lb/1.1/cli-reference/) | 管理 Edge-LB。 |
 
 # 示例
 
-请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage)。
+请参阅 [Edge-LB 使用](/cn/services/edge-lb/1.1/usage/)。

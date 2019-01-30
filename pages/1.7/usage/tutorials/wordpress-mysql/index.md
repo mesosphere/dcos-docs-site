@@ -31,7 +31,7 @@ You are now going to see how easy it is to make use of this feature in DC/OS.
 
 ## Prerequisites
 
-- A [DC/OS cluster](/1.7/administration/installing/oss) with at least 1 private agent and 1 public agent.
+- A [DC/OS cluster](/1.7/administration/installing/oss/) with at least 1 private agent and 1 public agent.
 - The [public IP address](/1.7/administration/locate-public-agent/) of your DCOS public agent.
 
 ## Deploying your apps

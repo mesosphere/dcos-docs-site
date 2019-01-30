@@ -38,7 +38,7 @@ You must have an AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_
 - An AWS EC2 Key Pair for the same region as your cluster. Key pairs cannot be shared across regions. The AWS key pair uses public-key cryptography to provide secure login to your AWS cluster. For more information about creating an AWS EC2 Key Pair, see the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">documentation</a>.
 - AWS [Command Line Interface](https://aws.amazon.com/cli/).
 - The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
-- A node that meets the bootstrap node [system requirements](/1.11/installing/ent/custom/system-requirements/).
+- A node that meets the bootstrap node [system requirements](/1.11/installing/production/system-requirements/).
 - An AWS S3 bucket with read-write access.
     - The S3 bucket must have a bucket policy that allows the launched AWS instances to download the files from the s3 bucket. Here is a sample policy that allows anyone to download:
 
@@ -95,7 +95,7 @@ The required parameters for Enterprise and Open Source users are:
     aws_template_storage_secret_access_key: <your-secret-access_key>
 
 
-For parameters descriptions and configuration examples, see the [documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/).
+For parameters descriptions and configuration examples, see the [documentation](/1.11/installing/production/advanced-configuration/configuration-reference/).
 
 3.  Run the DC/OS installer script with the AWS argument specified. This command creates and uploads a custom build of the DC/OS artifacts and templates to the specified S3 bucket.
 
@@ -195,7 +195,7 @@ Use the `zen.sh` script to create the template dependencies. These dependencies 
 
 1.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
 
-- On the **Select Template** page, upload the [Zen](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#zen) template from your workstation and click **Next**.
+- On the **Select Template** page, upload the [Zen](/1.11/installing/evaluation/community-supported-methods/aws/advanced/template-reference/#zen) template from your workstation and click **Next**.
 
 Template examples:
 
@@ -300,7 +300,7 @@ Now that your advanced template DC/OS installation is up and running, you can ad
 
 ### Add more agent nodes
 
-You can add more agent nodes by creating a new stack. Use the [advanced-priv-agent.json](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#private-agent) or [advanced-pub-agent.json](/1.11/installing/evaluation/cloud-installation/aws/advanced/template-reference/#public-agent) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
+You can add more agent nodes by creating a new stack. Use the [advanced-priv-agent.json](/1.11/installing/evaluation/community-supported-methods/aws/advanced/template-reference/#private-agents) or [advanced-pub-agent.json](/1.11/installing/evaluation/community-supported-methods/aws/advanced/template-reference/#public-agents) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
 
 Use the output values from the `zen.sh` script and your Master and Infra stacks. These new agent nodes will automatically be added to your DC/OS cluster.
 

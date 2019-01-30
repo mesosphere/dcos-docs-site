@@ -7,11 +7,11 @@ excerpt: Understanding configured ports for DC/OS deployment
 ---
 This section describes each pre-configured port in your DC/OS deployment. 
 
-[DC/OS components](/1.12/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
+[DC/OS components](/1.11/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
 
 - For DC/OS to install and function as intended, these ports must be accessible upon initial installation.
 - The ports must be open between the indicated source and destination nodes, including over cluster zones.
-- You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [network security](/1.12/administering-clusters/securing-your-cluster/#network-security).
+- You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [network security](/1.11/administering-clusters/securing-your-cluster/#network-security).
 
 DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 

@@ -79,4 +79,4 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
 
 For more information, see the [Marathon-Autoscale GitHub](https://github.com/mesosphere/marathon-autoscale) repository.
 
- [1]: //installing/
+ [1]: /1.12/installing/

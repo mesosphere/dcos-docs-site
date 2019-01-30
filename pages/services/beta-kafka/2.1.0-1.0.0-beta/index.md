@@ -40,4 +40,4 @@ DC/OS Kafka provides the following features:
 *   [DC/OS Spark][2]
 
  [1]: http://kafka.apache.org/documentation.html
- [2]: /service-docs/spark/
+ [2]: /services/spark/
