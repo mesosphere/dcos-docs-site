@@ -43,7 +43,7 @@ const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
 const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
-const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN;
+const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
 const ALGOLIA_SKIP_SECTIONS = splitCommasOrEmptyArray(process.env.ALGOLIA_SKIP_SECTIONS);
 const METALSMITH_SKIP_SECTIONS = splitCommasOrEmptyArray(process.env.METALSMITH_SKIP_SECTIONS);
 
