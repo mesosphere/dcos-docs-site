@@ -14,7 +14,7 @@ The DC/OS network stack provides
 - [IP connectivity to containers](#IP-connectivity)
 - built-in [DNS-based service discovery](#DNS-discovery)
 - layer 4 and layer 7 [load balancing](#load-balancing)
--
+- unique [cluster identity](#cluster-id) option
 
 # <a name="IP-connectivity"></a>IP connectivity
 A container running on DC/OS can obtain an IP address using one of the three networking modes:
@@ -82,13 +82,20 @@ While both Marathon-LB and Edge-LB are designed for handling north-south ingress
 | zero-hop load balancing               |     X     |         |             |
 | No single point of failure         |     X     |         |             |
 
-# Cluster Identity using dcos-net component
-DC/OS net component now supports **Cluster Identity** functionality using the variable `dcos_net_cluster_identity`. To use the cluster identity feature, edit the `config.yml` file to add the parameter:
-<code>
-"dcos_net_cluster_identity": "true"
-</code>
+#<a name="cluster-id">Specifying a cluster identity for network connections</a>
+The DC/OS networking component (`dcos-net`) supports setting a **cluster identity** option for cluster nodes. By enabling this feature, you can prevent nodes from communicating across clusters when a node is moved from one cluster to another. The cluster identity option ensures that the nodes within a cluster are part of the same cluster with a specific and unique cluster identifier that prevents unauthorized "cross-talk" connections.
 
-By enabling this feature, you can prevent nodes from communicating across clusters when a node is moved from one cluster to a different cluster. The cluster identity option ensure that each node has unique identifier that prevents unauthorized "cross-talk" connections.
+To use thw cluster identity feature:
+1. Open the `config.yml` file for each node in the cluster in a text editor.
+
+1. Add the new `dcos_net_cluster_identity` configuration parameter to the `config.yml` configuration file.
+
+1. Set the parameter value to `true` to enable the use of a cluster identity.
+
+    For example:
+    <code>
+    "dcos_net_cluster_identity": "true"
+    </code>
 
 If you are upgrading the nodes in the cluster to use the cluster identity functionality, the upgraded node (agent or master) with the flag enabled will not be able communicate with the `dcos-net` service on any nodes that have not been upgraded. Because of this behavior change, you might experience a minor disruption of networking operationg during the upgrade until all nodes in the cluster are upgraded with this flag enabled. 
 
@@ -98,4 +105,3 @@ During a phased upgrade process, you might see that DNS or L4LB do not function 
 In DC/OS 1.11 and later, most of the networking components such as `dcos-dns`, `dcos-l4lb`, and `dcos-overlay` are applications that run as part of a single `systemd` unit called `dcos-net`, running on all the nodes of the cluster. Prior to DC/OS 1.11, each of the applications `dcos-dns`, `dcos-l4lb`, and `dcos-overlay` ran as separate `systemd` units. Prior to DC/OS 1.11, the role of `dcos-dns` was fulfilled by `spartan`, `dcos-l4lb` was fulfilled by `minuteman` and `dcos-overlay` was fulfilled by `navstar`. In DC/OS 1.11, the different `systemd` units were aggregated into a single service. The main advantage of following this operational pattern is that it led to more efficient use of resources (lower CPU consumption and lower memory), and also made the networking services a lot more robust. This approach also made it easier to maintain the code.
 
 These updates provide the same or better functionality compared to prior versions of DC/OS, but use resources more efficiently. Thus, even though this software re-architecture has changed the internal machinery for providing networking services within DC/OS, from a functional standpoint you should not see any difference.
-

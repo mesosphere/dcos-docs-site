@@ -82,13 +82,21 @@ While both Marathon-LB and Edge-LB are designed for handling north-south ingress
 | zero-hop load balancing               |     X     |         |             |
 | No single point of failure         |     X     |         |             |
 
-#<a name="cluster-id"> Cluster Identity using dcos-net component</a>
-DC/OS net component now supports **Cluster Identity** functionality using the variable `dcos_net_cluster_identity`. To use the cluster identity feature, edit the `config.yml` file to add the parameter:
-<code>
-"dcos_net_cluster_identity": "true"
-</code>
+#<a name="cluster-id"> Specifying a cluster identity for network connections</a>
+The DC/OS networking component (`dcos-net`) supports setting a **cluster identity** option for cluster nodes. By enabling this feature, you can prevent nodes from communicating across clusters when a node is moved from one cluster to another. The cluster identity option ensures that the nodes within a cluster are part of the same cluster with a specific and unique cluster identifier that prevents unauthorized "cross-talk" connections.
 
-By enabling this feature, you can prevent nodes from communicating across clusters when a node is moved from one cluster to a different cluster. The cluster identity option ensure that each node has unique identifier that prevents unauthorized "cross-talk" connections.
+To use thw cluster identity feature:
+1. Open the `config.yml` file for each node in the cluster in a text editor.
+
+1. Add the new `dcos_net_cluster_identity` configuration parameter to the `config.yml` configuration file.
+
+1. Set the parameter value to `true` to enable the use of a cluster identity.
+
+    For example:
+    
+    <code>
+    "dcos_net_cluster_identity": "true"
+    </code>
 
 If you are upgrading the nodes in the cluster to use the cluster identity functionality, the upgraded node (agent or master) with the flag enabled will not be able communicate with the `dcos-net` service on any nodes that have not been upgraded. Because of this behavior change, you might experience a minor disruption of networking operationg during the upgrade until all nodes in the cluster are upgraded with this flag enabled. 
 
