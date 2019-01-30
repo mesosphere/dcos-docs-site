@@ -82,7 +82,7 @@ While both Marathon-LB and Edge-LB are designed for handling north-south ingress
 | zero-hop load balancing               |     X     |         |             |
 | No single point of failure         |     X     |         |             |
 
-#<a name="cluster-id"> Specifying a cluster identity for network connections</a>
+# <a name="cluster-id"></a>Specifying a cluster identity for network connections
 The DC/OS networking component (`dcos-net`) supports setting a **cluster identity** option for cluster nodes. By enabling this feature, you can prevent nodes from communicating across clusters when a node is moved from one cluster to another. The cluster identity option ensures that the nodes within a cluster are part of the same cluster with a specific and unique cluster identifier that prevents unauthorized "cross-talk" connections.
 
 To use thw cluster identity feature:
@@ -93,7 +93,7 @@ To use thw cluster identity feature:
 1. Set the parameter value to `true` to enable the use of a cluster identity.
 
     For example:
-    
+
     <code>
     "dcos_net_cluster_identity": "true"
     </code>
