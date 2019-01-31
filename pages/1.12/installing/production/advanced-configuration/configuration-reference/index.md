@@ -10,7 +10,6 @@ excerpt: Configuration parameters available for DC/OS Enterprise and DC/OS Open 
 
 This page contains the configuration parameters for both DC/OS Enterprise and DC/OS Open Source.
 
-
 # Cluster Setup
 
 | Parameter                              | Description                                                                                                                                               |
@@ -56,7 +55,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 |[enable_ipv6](#enable-ipv6)                            | A boolean that indicates if IPv6 networking support is available in DC/OS. Default value is `true`. |
 | [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if `enable_ipv6` is set to `true`. Default value is `false`.|
 |[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. |
-
+|[network_cni_root_dir_persist](#network_cni_root_dir_persist|A boolean that specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node.|
 
 [enterprise]
 # Storage
@@ -226,7 +225,6 @@ Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_c
 *  `cluster_docker_credentials_enabled: 'true'` Pass the Mesos `--docker_config` option to Mesos. It will point to a file that contains the provided `cluster_docker_credentials` data.
 *  `cluster_docker_credentials_enabled: 'false'` Do not pass the Mesos `--docker_config` option to Mesos.
 
-
 ### cluster_docker_registry_url
 The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used.
 
@@ -337,7 +335,6 @@ In this example, `example.com` has the public website `www.example.com` and all 
 ```yaml
 dns_search: dc1.example.com dc1.example.com example.com dc1.example.com dc2.example.com example.com
 ```
-
 
 #### docker_remove_delay
 The amount of time to wait before removing docker containers (i.e., `docker rm`) after Mesos regards the container as TERMINATED (e.g., 3days, 2weeks, etc). This only applies for the Docker Containerizer. It is recommended that you accept the default value 1 hour.
@@ -471,7 +468,6 @@ Indicates whether the master DNS port is open. An open master DNS port listens p
 *  `master_dns_bindall: 'true'` The master DNS port is open. This is the default value.
 *  `master_dns_bindall: 'false'` The master DNS port is closed.
 
-
 ### master_external_loadbalancer [enterprise type="inline" size="small" /]
 The DNS name or IP address for the load balancer. If specified, this is included as subject alternative name in the [DC/OS certificate](/1.12/security/ent/tls-ssl/) of the Admin Router on the master nodes.
 
@@ -503,6 +499,8 @@ The location of the Mesos work directory on master nodes. This defines the `work
 ### mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
 
+### network_cni_root_dir_persist
+Specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node.
 
 ### oauth_enabled [oss type="inline" size="small" /]
 Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
@@ -561,7 +559,6 @@ See the external persistent volumes [documentation](/1.12/storage/external-stora
 
 If the `rexray_config` parameter is provided, its contents are used verbatim for REX-Ray's configuration. This lets you define completely custom REX-Ray configurations which integrate with various [external storage providers]( https://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/). However, if you upgrade your cluster to a version that includes an updated version of REX-Ray, you must ensure that your `rexray_config` parameter is compatible with the newer version of REX-Ray.
 
-
 ### rexray_config_preset
 If you are running your cluster on AWS, and want DC/OS to integrate with the Elastic Block Storage (EBS) without caring about the specific REX-Ray configuration, set the `rexray_config_preset` parameter to `aws`. This sets the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option also has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS that contains an updated REX-Ray version.
 
@@ -576,12 +573,12 @@ Refer to the [security modes](/1.12/security/ent/#security-modes) section for a 
 ### ssh_key_path
 The path that the installer uses to log into the target nodes. By default this is set to `/genconf/ssh_key`. This parameter should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
 
-**Note:** The ssh_key_path is not required for the production installer.
+**Note:** The `ssh_key_path` is not required for the production installer.
 
 ### ssh_port
 The port to SSH to, for example `22`.
 
-**Note:** The ssh_port is not required for the production installer.
+**Note:** The `ssh_port` is not required for the production installer.
 
 ### ssh_user
 The SSH username, for example `centos`.
