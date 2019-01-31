@@ -25,49 +25,35 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 The issues that have been fixed in DC/OS 1.11.9 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
 
 ## GUI 
-- DCOS-40640, DCOS-45803 - In system tests, we use isolation to run tests in parallel. When we reuse `node_modules` it is important to link them in an isolation directory. In version 3.x, cypress caches its binary in a different folder. It is important to link the `.cache` folder. Cypress cache installation is required to speed up the build. Therefore, an automated bump of DC/OS UI to version v1.26.2 resolves this issue. 
+- DCOS-45803 - The multi-container JSON editor deletes properties that are not supported by the form. When you run a Pod, the UI deletes `backoff`, `upgrade`, `killSelection`, and `unreachableStrategy` fields from the JSON app definition before sending the request to the server.
 
 ## Installing
-- DCOS-40442 - A fix to handle `AzureException` during storage upload.
+- DCOS_OSS-4040 - The `dcos-diagnostic` bundle files are stored in `/var/lib/dcos/dcos-diagnostics/diag-bundles` and `/var/lib/dcos` is not a separate partition. It belongs to the root directory and there are many other critical data in the same directory on the masters, which could seriously damage a cluster if diagnostics bundle takes most of the space. The workaround is to add a configuration option that can be used to specify where to store diagnostic bundles on the masters.
 
 ## Mesos 
 - COPS-4320, DCOS-46753 - This issue occurs due to a race between `.discard()` triggered by check container `TIMEOUT` and `IOSB` extracting `ContainerIO` object. This race could be exposed by overloaded/slow agent process if there are frequent check containers launched on an agent with heavy loads. This release fixes the issue by discarding `launch`, so the container I/O is cleaned up and therefore all FDs are closed.
 - DCOS-29474 - Occasionally flakes in `test_srv_records` are traced down to frameworks that are not correctly unregistered. This release validates that the framework is correctly unregistered, and throws an exception (triggering log collection) if the check fails after an uninstall. 
-- DCOS-46388 - If there is a validation error for `LAUNCH_GROUP`, or if there are multiple authorization errors for some of the tasks in a `LAUNCH_GROUP`, the master skips to process the remaining authorization results. Bump Mesos to nightly 1.7.x b97f0ba. 
-- DCOS-46574 - Few tests do not have a `maintainer` metadata. Example:`test_ldap_sync.py` does not show a `maintainer` tag. This release enforces up-to-date maintainer tag on all tests. 
-- DCOS-46814 - When an agent host reboots, all of its containers fail but the agent will try to recover from its checkpoint state after reboot. The agent will soon discover that all the `cgroup` hierarchies have failed and assume that the containers are destroyed. However, when trying to terminate the executor, the agent will first try to wait for the `exit` status of its container by `waitpid` on the checkpointed child process `pid`. If an agent host reboots and a new process with the same `pid` gets spawned then the parent waits for the wrong child process. This process will block the executor termination and future task status updates. Bump Mesos to nightly 1.5.x 5f6225b.
-- DCOS_OSS-4040 - The `dcos-diagnostic` bundle files are stored in `/var/lib/dcos/dcos-diagnostics/diag-bundles` and `/var/lib/dcos` is not a separate partition. It belongs to the root directory and there are many other critical data in the same directory on the masters, which could seriously damage a cluster if diagnostics bundle takes most of the space. The workaround is to move the destination directory (read volume) from root partition to a different partition than all these other directories which allows `dcos-diagnostics` bundles location to be configured. 
-- DCOS_OSS-4531 - This issue is specific to the integration test suite. In one test, the fact is that all files in the diagnostics bundle are gzipped. But, Mesos only zips the files if they are over 1024 bytes big. Sometimes, the files would be empty or really small, thus resulting in a failure. In order to achieve correct test results, the tests are hardened to check for gzipped or non-gzipped files.
+- DCOS-46388 - If there is a validation error for `LAUNCH_GROUP`, or if there are multiple authorization errors for some of the tasks in a `LAUNCH_GROUP`, the master skips to process the remaining authorization results.
+- DCOS-46814 - When an agent host reboots, all of its containers fail but the agent will try to recover from its checkpoint state after reboot. The agent will soon discover that all the `cgroup` hierarchies have failed and assume that the containers are destroyed. However, when trying to terminate the executor, the agent will first try to wait for the `exit` status of its container by `waitpid` on the checkpointed child process `pid`. If an agent host reboots and a new process with the same `pid` gets spawned then the parent waits for the wrong child process. This process will block the executor termination and future task status updates. 
 
 ## Metrics
 - DCOS_OSS-3863 - This release fixes a bug in `dcos-metrics` that caused Prometheus exporter to omit some metrics data on the agent nodes. 
 
 ## Networking 
-- COPS-3743 - Erlang cookie serves as a membership token in a distributed system. Having it configurable would allow different DC/OS clusters to co-exist without interfering each other. The requirement is to have a unique and persistent Erlang cookie during the lifecycle for a given DC/OS cluster. This release uses `cluster_id` to satisfy the requirements.
-- COPS-4323, DCOS_OSS-4620 - Erlang has a concept of [cookie](http://erlang.org/doc/reference_manual/distributed.html#security) which allows/disallows a node to make a connection with the other nodes in the cluster. Only nodes with the same cookie strings are allowed to make connections. Currently, this cookie is a fixed string and not configurable in DC/OS. If nodes from different DC/OS clusters are reachable to each other then there is a possibility of "cross talk" between the two clusters. This fix is to make the cookie configurable.
-- DCOS-19790, DCOS-41896 - Mute two flaky tests till docker version is upgraded to 17.12.
+- COPS-3743, COPS-4323, DCOS_OSS-4620 - Erlang has a concept of [cookie](http://erlang.org/doc/reference_manual/distributed.html#security) which allows/disallows a node to make a connection with the other nodes in the cluster. Only nodes with the same cookie strings are allowed to make connections. Currently, this cookie is a fixed string and not configurable in DC/OS. If nodes from different DC/OS clusters are reachable to each other then there is a possibility of "cross talk" between the two clusters. This fix is to make the cookie configurable.
 - DCOS-40539, DCOS-46506 - Currently, the configuration option `enable_ipv6` is not passed to the frontend. The UI is not aware that the cluster does not support the `dcos6` network type. This release passes the configuration option to the frontend configuration file and uses it to conditionally show the `dcos6` option for the network types. Therefore, this issue fixes the validation of overlay backends by marking `dcos6` overlay network as disabled, if `enable_ipv6` is set to false. 
 - DCOS-46915 - In OTP 20 and earlier, all Erlang distribution protocol connections over TLS are initialized by `ssl_tls_dist_proxy` one at a time. This approach causes a bottleneck and is resolved in the newest OTP versions. If the node connects to a non-existing node, it takes up to 30 seconds to get an error. Lashup tries to connect to such nodes every `n` seconds which causes a message storm in `ssl_tls_dist_proxy`. The workaround is to restart the entire virtual machine, if there are more than `m` messages in the queue. It is recommended not to kill the `ssl_tls_dist_proxy` since it will break all new and old distribution protocol connections.
 - DCOS_OSS-3736 - Marathon randomly assigns host ports. In rare cases, it causes port conflicts in the networking integration tests. The fix is to assign unique port numbers manually and update Marathon app configuration to match Marathon 1.5 syntax.
+- DCOS_OSS-4667 - Mesos recently introduced a flag to toggle CNI root directory to persist across reboot. Now, you can expose the Mesos flag through DC/OS config.yaml file. 
 
 ## Package Management
 - DCOS_OSS-4418 - The requests package before 2.20.0 for python sends a `HTTP` authorization header to a `HTTP URI` upon receiving a same host name `https-to-http` redirect, which makes it easier for remote attackers to discover credentials by sniffing the network. This causes a vulnerability in the requests library necessitating an upgrade. This release upgrades the version of the requests library to an updated and more secure version 2.20.1 and urllib3 to 1.24.1.
-
-[enterprise]
-## Security
-[/enterprise]
-- DCOS_OSS-4742 - Currently, if the `validate_success` or `validate_error` function fails during gen unit tests; the user is not aware of the full output on why the assert failed. This release adds proper `AssertionError` reporting to resolve this issue. 
 
 # Known Issues and Limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more issue tracking identifiers.
 
 ## Mesos
-- DCOS-43987 - Restore accidently deleted tests.
 - DCOS-44935, DCOS_OSS_3877, DCOS_OSS-4658 - The diagnostics bundle is the standard way of collecting the debugging information from a cluster to debug and fix critical issues on customer sites. Most of the powerful debugging information is lost since the diagnostic bundle is not created as the root user and network information is not collected as part of the diagnostic bundle. To resolve this issue, create `dcos-diagnostics` as the root user which will collect the best possible diagnostic information in order to effectively debug issues.
-
-## Networking 
-- DCOS_OSS-4667 - Mesos recently introduced a flag to toggle CNI root directory to persist across reboot. Now, you can expose the Mesos flag through DC/OS config.yaml file.
-
 
 # About DC/OS 1.11
 
