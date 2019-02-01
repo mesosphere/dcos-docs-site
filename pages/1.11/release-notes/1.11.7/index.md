@@ -48,9 +48,9 @@ DC/OS 1.11.7 includes the following components:
 # About DC/OS 1.11
 
 DC/OS 1.11 includes many new capabilities with a focus on:
-- Managing clusters across multiple clouds [enterprise type="inline" size="small" /].
+- Managing clusters across multiple clouds. [enterprise type="inline" size="small" /]
 - Production Kubernetes-as-a-service.
-- Enhanced data security [enterprise type="inline" size="small" /].
+- Enhanced data security. [enterprise type="inline" size="small" /]
 - Updated data services.
 
 Provide feedback on the new features and services at [support.mesosphere.com](https://support.mesosphere.com).
