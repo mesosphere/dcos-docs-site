@@ -30,12 +30,12 @@ You could then add this setting as an environment variable for the Marathon-LB c
 <code> "HAPROXY_HTTPS_FRONTEND_HEAD": "\\nfrontend new_frontend_label\\n  bind *:443 ssl {sslCerts}\\n  mode http"</code>
 
 ## Overriding settings using files in the templates directory
-Alternatively, you could place a file called `HAPROXY_HTTPS_FRONTEND_HEAD ` in the `templates` directory through the use of an artifact URI. At periodic intervals, `marathon-lb` checks the `templates` directory for new or changed configuration settings.
+Alternatively, you could place a file called `HAPROXY_HTTPS_FRONTEND_HEAD ` in the `templates` directory through the use of an artifact URI. At periodic intervals, Marathon-LB checks the `templates` directory for new or changed configuration settings.
 
-You can add your own custom templates to the Docker image directly, or provide them in the `templates` directory that `marathon-lb` reads at startup.
+You can add your own custom templates to the Docker image directly, or provide them in the `templates` directory that Marathon-LB reads at startup.
 
 ## Overriding settings using app labels
-Most of the `marathon-lb` template settings can be overridden using app labels. By using app labels, you can override template settings per service port. App labels are specified in the Marathon app definition. For example, the following app definition excerpt uses app labels to specify the `external` load balancing group for an application with a virtual host named `service.mesosphere.com`:
+Most of the Marathon-LB template settings can be overridden using app labels. By using app labels, you can override template settings per service port. App labels are specified in the Marathon app definition. For example, the following app definition excerpt uses app labels to specify the `external` load balancing group for an application with a virtual host named `service.mesosphere.com`:
 
 <pre>
 {
@@ -75,7 +75,7 @@ To add the `httplog` option and keep the existing defaults, you could specify:
 HAPROXY_GLOBAL_DEFAULT_OPTIONS=redispatch,http-server-close,dontlognull,httplog.
 </code>
 
-The setting takes effect the next time `marathon-lb` checks for configuration changes. The setting does not take effect if the `HAPROXY_HEAD` template has been overridden.
+The setting takes effect the next time Marathon-LB checks for configuration changes. The setting does not take effect if the `HAPROXY_HEAD` template has been overridden.
 
 # Creating a sample global template
 Templates and app definition labels enable you to set custom `HAProxy` configuration parameters. Templates can be set either globally for all apps, or defined on a per-app basis using labels. The following steps summarize how to create a sample global template, add it as an archive file to the `templates` directory, and restart load balancing to use the new global template. 
@@ -257,7 +257,7 @@ To use SSL certificates, you can:
 - Provide the certificate path using the `--ssl-certs` command line option and have the `HAProxy` configuration file use that path.
 - Provide the full SSL certificate text in the `HAPROXY_SSL_CERT` environment variable. The environment variable contents are then written to the  `/etc/ssl/cert.pem` file and used if you don’t specify any additional certificate paths.
 
-If you don’t specify the SSL certificate when you run `marathon-lb` on the command line, by using the Docker run script, or from the Docker image, `HAProxy` automatically creates a self-signed certificate in the default `/etc/ssl/cert.pem` location and the configuration file then uses the self-signed certificate.
+If you don’t specify the SSL certificate when you run Marathon-LB (`marathon_lb.py`) on the command line, by using the Docker run script, or from the Docker image, `HAProxy` automatically creates a self-signed certificate in the default `/etc/ssl/cert.pem` location and the configuration file then uses the self-signed certificate.
 
 ## Specifying multiple SSL certificates
 You can specify multiple SSL certificates per frontend. You can include the additional SSL certificates by passing a list of paths with the `--ssl-certs` command line option. You can also add multiple SSL certificates by specifying the `HAPROXY_SSL_CERT` environment variable in your application definition.
@@ -305,9 +305,9 @@ If you're trying to run a TCP service that uses long-lived sockets through HAPro
 ```
 
 ## Terminating SSL requests at an Elastic Load Balancer
-In some cases, you might want to allow an Elastic Load Balancer (ELB) to terminate a secure socket connection for you, but want marathon-lb to continue to redirect non-HTTPS requests. In this scenario, the Elastic Load Balancer uses HTTP headers to communicate that the request it received came over a secure channel and has been decrypted. Specifically, the `X-Forwarded-Proto` header is set to `https`, indicating that the request was decrypted by the Elastic Load Balancer. If HAProxy isn’t configured to look for the `X-Forwarded-Proto` header, the request is processed as if it is unencrypted and is redirected using the standard redirection rules.
+In some cases, you might want to allow an Elastic Load Balancer (ELB) to terminate a secure socket connection for you, but want Marathon-LB to continue to redirect non-HTTPS requests. In this scenario, the Elastic Load Balancer uses HTTP headers to communicate that the request it received came over a secure channel and has been decrypted. Specifically, the `X-Forwarded-Proto` header is set to `https`, indicating that the request was decrypted by the Elastic Load Balancer. If HAProxy isn’t configured to look for the `X-Forwarded-Proto` header, the request is processed as if it is unencrypted and is redirected using the standard redirection rules.
 
-The following configuration setting illustrates how to have marathon-lb generate a backend rule that looks for the X-Forwarded-Proto header or a regular TLS connection and redirects the request if neither are specified.
+The following configuration setting illustrates how to have Marathon-LB generate a backend rule that looks for the X-Forwarded-Proto header or a regular TLS connection and redirects the request if neither are specified.
 
 ```
 "labels": {
@@ -316,7 +316,7 @@ The following configuration setting illustrates how to have marathon-lb generate
 ```
 
 ## Disabling service port binding
-If you do not want marathon-lb to listen on service ports, the following example illustrates how you can disable the frontend definitions:
+If you do not want Marathon-LB to listen on service ports, the following example illustrates how you can disable the frontend definitions:
 
 ```
  {
@@ -473,19 +473,19 @@ You can use HAProxy maps to speed up virtual hosts to backend lookup requests.
 
 This configuration setting is very useful for large installations where the traditional virtual-host-to-backend rules comparison takes considerable time because each rule is evaluated sequentially. HAProxy map creates a hash-based lookup table so that it is faster than the traditional rules-based approach. 
 
-You can add HAProxy maps for `marathon-lb` by using the `--haproxy-map` flag. For example:
+You can add HAProxy maps for Marathon-LB by using the `--haproxy-map` flag. For example:
 
 ```
 ./marathon_lb.py --marathon http://localhost:8080 --group external --haproxy-map
 ```
-This command creates a lookup dictionary for the host header (both HTTP and HTTPS) and X-Marathon-App-Id header. For path-based routing and authentication, marathon-lb continues to use the backend rules comparison.
+This command creates a lookup dictionary for the host header (both HTTP and HTTPS) and X-Marathon-App-Id header. For path-based routing and authentication, Marathon-LB continues to use the backend rules comparison.
 
 ## Running multiple instances
-For practical purposes, you should consider running three or more instances of `marathon-lb` to provide high availability for production workloads. You should never run a single load balancing instance because a single instance cannot provide high-availability or fault tolerance for applications. Except in the case of extreme processing load, running five or more load-balancing instances does not typically add significant value in term of application availability or performance.
+For practical purposes, you should consider running three or more instances of Marathon-LB to provide high availability for production workloads. You should never run a single load balancing instance because a single instance cannot provide high-availability or fault tolerance for applications. Except in the case of extreme processing load, running five or more load-balancing instances does not typically add significant value in term of application availability or performance.
 
 The specific number of Marathon-LB instances you should run to best suit your environment depends on the workload you expect, characteristics of the application itself, and the level of failure tolerance required. 
 
-You should not run `marathon-lb` on every node in your cluster. Running too many instances of `marathon-lb` can affect processing, efficiency, and overall performance because of additional calls to the Marathon API and excess health checking.
+You should not run Marathon-LB on every node in your cluster. Running too many instances of Marathon-LB can affect processing, efficiency, and overall performance because of additional calls to the Marathon API and excess health checking.
 
 ## Using internal and external groups for load balancing
 You should consider using a dedicated load balancer in front of Marathon-LB to simplify upgrades and changes. Common choices for a dedicated load balancer to work with Marathon-LB include an Elastic Load Balancer (on AWS) or a hardware load balancer for on-premise installations.

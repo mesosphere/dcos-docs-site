@@ -14,7 +14,7 @@ Marathon-LB automatically generates configuration information for the HAProxy pr
 
 When an application starts, stops, relocates, or has any change in health status, Marathon-LB automatically regenerates the HAProxy configuration and reloads HAProxy.
 
-Marathon-lb exposes the following endpoints on port `9090` by default.
+Marathon-LB exposes the following endpoints on port `9090` by default.
 
 | <b>Endpoint</b> | <b>Description</b> |
 | :--- | :-------- |
