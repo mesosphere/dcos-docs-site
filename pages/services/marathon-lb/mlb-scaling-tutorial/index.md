@@ -19,9 +19,9 @@ After completing this tutorial, you will have hands-on practice configuring a sa
 
 # Measuring application requests-per-second
 
-For a given application, you can measure performance in terms of **requests-per-second** for a given set of resources. If the application is stateless and scales horizontally, you can then scale the number of app instances proportionally to the average number of requests-per-second over a certain number of intervals. T
+For a given application, you can measure performance in terms of **requests-per-second** for a given set of resources. If the application is stateless and scales horizontally, you can then scale the number of app instances proportionally to the average number of requests-per-second over a certain number of intervals.
 
-As part of thie tutorial, the `marathon-lb-autoscale` script polls the HAProxy `stats` endpoint and automatically scales application instances based on the incoming number of requests.
+As part of this tutorial, the `marathon-lb-autoscale` script polls the HAProxy `stats` endpoint and automatically scales application instances based on the incoming number of requests.
 
 <p>
 <img src="/services/img/marathon-lb-autoscale.png" alt="Using Marathon-LB statistics for automatic scaling">
