@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
-excerpt: Installing Marathon-LB
+excerpt: Installing Marathon-LB using default or custom options for a DC/OS cluster
 title: Installing Marathon-LB
-model: /services/marathon-lb/data.yml
-render: mustache
-
-menuWeight: 1
+# model: /services/marathon-lb/data.yml
+# render: mustache
+menuWeight: 10
 ---
 # Installing Marathon-LB on DC/OS
 You can install Marathon-LB on a DC/OS open source or DC/OS enterprise cluster. You can install the Marathon-LB package and customize its configuration settings using the DC/OS web-based administrative console or by running DC/OS commands in a shell terminal.
@@ -15,14 +14,14 @@ You can install Marathon-LB on a DC/OS open source or DC/OS enterprise cluster. 
 * You must have access to the DC/OS web-based administrative console or DC/OS command-line interface.
 * You must have an account with administrative privileges to provision a service account and to store a secret to secure the cluster.
 
-If you are installing on DC/OS Enterprise, you must log in as a user with the appropriate permissions for the security mode--disabled, permissive, or strict--associated with the cluster. For more information about the permissions required when using different security modes, see [necessary permissions](/1.12/security/ent/perms-reference/).
+If you are installing on DC/OS Enterprise, you must log in as a user with the appropriate permissions for the security mode--disabled, permissive, or strict--associated with the cluster. For more information about the permissions required when using different security modes, see [Permissions reference](/1.12/security/ent/perms-reference/).
 
 ## Install with the default configuration options
 You can install Marathon-LB with its default configuration settings on a DC/OS open source cluster or on a DC/OS enterprise cluster by using either the DC/OS web-based administrative console or by running DC/OS commands in a shell terminal. 
 
 ### To install with the default settings using the web-based DC/OS console:
 1. Log in to your DC/OS cluster using a web browser.
-1. Click **Catalog** and search for the {{ model.techName }} package.
+1. Click **Catalog** and search for the Marathon-LB package.
 1. Select the package, then click **Review & Run** to display the **Edit Configuration** page.
 1. Configure the package settings, as needed, using the DC/OS UI or by clicking **JSON Editor** and modifying the app definition manually. 
 
@@ -31,7 +30,7 @@ You can install Marathon-LB with its default configuration settings on a DC/OS o
     For more information about customizing the configuration and the configuration settings available, see [Install with custom configuration options](#custom-config-options).
 
 1. Click **Review & Run**.
-1. Review the installation notes, then click **Run Service** to deploy the {{ model.techName }} package.
+1. Review the installation notes, then click **Run Service** to deploy the Marathon-LB package.
 
 ### To install with the default settings using the DC/OS CLI:
 1. Open a terminal and connect to the DC/OS enterprise cluster from a computer where the DC/OS CLI is available.
@@ -56,11 +55,11 @@ Regardless of whether you install using the web-based console or the CLI, the st
 1. Open a terminal and connect to the DC/OS cluster from a computer where the DC/OS CLI is available.
 1. Run the following command to view all of the available Marathon-LB configuration options:
 
-  ``` bash
-  dcos package describe --config marathon-lb
-  ```
-
-    You can redirect the output from this command to a file to save the configuration properties for editing. The default app definition for {{ model.techName }} looks like this:
+    ``` bash
+    dcos package describe --config marathon-lb
+    ```
+  
+      You can redirect the output from this command to a file to save the configuration properties for editing. The default app definition for Marathon-LB looks like this:
 
     ``` json
     {
@@ -213,10 +212,10 @@ Regardless of whether you install using the web-based console or the CLI, the st
 
 1. Edit the JSON configuration file with your customizations. 
 
-    You can choose an arbitrary file name, but you might want to choose a file name that includes a package identifier, such as `marathon-lb-options.json`, in the name. 
+    You can choose an any file name, However, you might want to choose a file name that includes a package identifier, such as `marathon-lb-options.json`, in the name. 
 
     For example:
-    * Change the CPU shares allocated to each Marathon-LB instance to 3:
+    * Change the CPU shares allocated to each Marathon-LB instance to `3`:
 
         ```
           "cpus": {
@@ -227,7 +226,7 @@ Regardless of whether you install using the web-based console or the CLI, the st
           },
         ```
 
-    * Set the load balancing group to na-external:
+    * Set the load balancing group to `na-external`:
 
         ```
           "haproxy-group": {
@@ -237,7 +236,7 @@ Regardless of whether you install using the web-based console or the CLI, the st
           },
         ```
 
-    * Set the memory allocation to 2048:
+    * Set the memory allocation to `2048`:
         ```
           "mem": {
             "default": 2048.0,
@@ -250,7 +249,7 @@ Regardless of whether you install using the web-based console or the CLI, the st
 1. Run the following command to install Marathon-LB using the settings in the customized `marathon-lb-options.json` file:
 
   ``` bash
-  dcos package install --options=marathon-lb-options.json marathon-lb
+  dcos package install marathon-lb --options=marathon-lb-options.json --yes
   ```
 
 ## Install on a cluster with a provisioned service account
@@ -271,9 +270,15 @@ If you currently running the cluster in permissive mode and plan to upgrade to s
 <a name="create-key-pair">
 
 ### Create a public-private key pair
-You must generate a 2048-bit RSA public-private key pair to use to encrypt and decrypt certificates for secure socket layer (SSL) connections. One convenient way to generate the key pair is by using the DC/OS Enterprise CLI. The DC/OS command-line interface returns the keys in the .pem format required by DC/OS.
+You must generate a 2048-bit RSA public-private key pair to use to encrypt and decrypt certificates for secure socket layer (SSL) connections. One convenient way to generate the key pair is by using the DC/OS Enterprise CLI. The DC/OS command-line interface returns the keys in the `.pem` format required by DC/OS.
 
 1. Open a terminal and connect to the DC/OS enterprise cluster from a computer where the DC/OS CLI is available.
+
+1. Install the DC/OS Enterprise command-line interface (CLI), if necessary.
+
+    ``` bash
+    dcos package install dcos-enterprise-cli --yes
+    ```
 
 1. Run the following command to create a public-private key pair and save each value into a separate file within the current directory.
 
@@ -286,9 +291,9 @@ You must generate a 2048-bit RSA public-private key pair to use to encrypt and d
 1. Verify the contents of each file.
 
 ### Create a service account
-You can create a service account to use with marathon-lb by running DC/OS Enterprise commands or by using the DC/OS web-based administrative console.
+You can create a service account to use with Marathon-LB by running DC/OS Enterprise commands or by using the DC/OS web-based administrative console.
 
-### To create a service account using the DC/OS Enterprise CLI:
+#### To create a service account using the DC/OS Enterprise CLI:
 1. Open a terminal and connect to the DC/OS enterprise cluster from a computer where the DC/OS CLI is available.
 1. Run the following command to set your login authentication level to superuser.
 
@@ -296,7 +301,7 @@ You can create a service account to use with marathon-lb by running DC/OS Enterp
     dcos auth login
     ```
 
-1.	Run the following command to create a new service account called marathon-lb-sa containing the public key you just generated.
+1.	Run the following command to create a new service account called `marathon-lb-sa` containing the public key you just generated.
 
     ``` bash
     dcos security org service-accounts create -p mlb-public-key.pem -d "Marathon-LB service account" marathon-lb-sa
@@ -308,16 +313,16 @@ You can create a service account to use with marathon-lb by running DC/OS Enterp
     dcos security org service-accounts show marathon-lb-sa
     ```
 
-### To create a service account using the DC/OS Enterprise web-based console:
+#### To create a service account using the DC/OS Enterprise web-based console:
 1. In the DC/OS web interface, navigate to the Organization > Service Accounts tab.
 1. Click **New Service Account**.
 1. Enter a description and the service account ID. 
-1. Copy the contents of the relevant public key file, for example, `mlb-public-key.pem` into the Public Key field.
+1. Copy the contents of the relevant public key file, for example, `mlb-public-key.pem` into the **Public Key** field.
 
 ### Create a secret for the service account
 For additional security, you can create a secret associated with the service account that contains the private key. You can create the secret by running DC/OS Enterprise commands or by using the DC/OS web-based administrative console.
 
-To create a secret for a service account using the DC/OS Enterprise CLI:
+#### To create a secret for a service account using the DC/OS Enterprise CLI:
 1. Open a terminal and connect to the DC/OS enterprise cluster from a computer where the DC/OS CLI is available.
 1. Run the following command to set your login authentication level to superuser.
 
@@ -327,13 +332,13 @@ To create a secret for a service account using the DC/OS Enterprise CLI:
 
 1. Run one of the following commands to create a new secret called `service-account-secret` in the marathon-lb path. 
 
-    * For strict or permissive security:
+    * For **strict** or **permissive** security:
 
       ``` bash
       dcos security secrets create-sa-secret --strict mlb-private-key.pem marathon-lb-sa marathon-lb/service-account-secret
       ```
 
-    * For disabled security:
+    * For **disabled** security:
 
       ``` bash
       dcos security secrets create-sa-secret mlb-private-key.pem marathon-lb-sa marathon-lb/service-account-secret
@@ -353,22 +358,24 @@ To create a secret for a service account using the DC/OS Enterprise CLI:
       dcos security secrets get /marathon-lb/service-account-secret --json | jq -r .value | jq
       ```
 
-    If you review the secret, ensure that the `login_endpoint` URL uses HTTPS if you’re in strict or permissive mode and HTTP if you are in disabled mode. If the URL begins with https and you are in disabled mode, try upgrading the DC/OS Enterprise CLI, deleting the secret, and recreating it.
+      If the cluster uses strict or permissive security, verify that the `login_endpoint` URL uses HTTPS protocol. If security is disabled for the cluster, the `login_endpoint` should use HTTP. If the URL begins with `https` and the cluster is in disabled mode, try upgrading the DC/OS Enterprise CLI, deleting the secret, and recreating it.
 
-  Now that you have stored the private key in the DC/OS secret store, you should delete the private key file from your file system. Deleting the private key prevents unauthorized users from using the private key to authenticate to DC/OS.
+1. Delete the private key file from your file system.
+
+    After you have stored the private key in the DC/OS secret store, you should delete your copy of the private key to prevent unauthorized users from using it to authenticate to DC/OS.
 
     ``` bash
     rm -rf mlb-private-key.pem
     ```
 
-### To create a secret for a service account using the DC/OS web-based console:
+#### To create a secret for a service account using the DC/OS web-based console:
 
 1. Log in to the DC/OS web-based administrative console as a user with the superuser permission.
 1. Click **System**, then click **Security**.
 1. Click **New Secret**.
 1. Type `marathon-lb/service-account-secret` into the ID field to create a new secret called `service-account-secret` in the `marathon-lb` path. Locating the secret inside the `marathon-lb` path ensures that only the Marathon-LB service can access it.
 
-    If you have a strict or permissive cluster, paste the following JSON into the Value field.
+    If you have a **strict** or **permissive** cluster, paste the following JSON into the Value field.
 
     ``` bash
     {
@@ -379,7 +386,7 @@ To create a secret for a service account using the DC/OS Enterprise CLI:
     }
     ```
 
-    If you have a disabled cluster, paste the following JSON into the Value field.
+    If you have a **disabled** cluster, paste the following JSON into the Value field.
 
     ```  bash
     {
@@ -388,14 +395,14 @@ To create a secret for a service account using the DC/OS Enterprise CLI:
       "private_key": "<private-key-value>",
       "login_endpoint": "http://master.mesos/acs/api/v1/auth/login"
     }
-  ```
+    ```
 
 1. Replace <private-key-value> with the value of the private key created in [Create a public-private key pair](#create-key-pair).
 1. Click **Create** to store the secret.
 1. Copy the path to your secret into a text editor. You will need this later.
 
 #### Changing the service name or location
-If you are not using `marathon-lb` as the marathon service name or if you are installing Marathon-LB in a custom location, keep in mind that you must change the secret location accordingly. The sample commands also use `marathon-lb/service-account-secret` as the full path for the secret used to store the credentials for the Marathon-LB service account. If you change the `marathon-lb` service name, you must also change this value.
+If you are not using `marathon-lb` as the marathon service name or if you are installing Marathon-LB in a custom location, keep in mind that you must change the secret location accordingly. The sample commands also use `marathon-lb/service-account-secret` as the full path for the secret used to store the credentials for the Marathon-LB service account. If you change the `marathon-lb` service name, you must also change this path.
 
 #### Modifying the command strings for storing a secret
 If you use the names included in the examples, you can copy and paste the commands directly into a terminal. If you decide to change any names, make sure to modify the commands before issuing them. You should note that storing the secret in the `marathon-lb/service-account-secret` path protects the secret from other services, so Mesosphere recommends you leave the path unchanged.
@@ -413,12 +420,13 @@ You can run the following commands to provision the Marathon-LB service account 
 1. Grant permissions and allowed actions to the service account using the following commands.
 
     ``` bash
-      dcos security org users grant marathon-lb-sa dcos:service:marathon:marathon:services:/ read --description "Allows access to any service launched by the native Marathon instance"
+      dcos security org users grant marathon-lb-sa dcos:service:marathon:marathon:services:/ read
       dcos security org users grant marathon-lb-sa dcos:service:marathon:marathon:admin:events read --description "Allows access to Marathon events"
     ```
+    You can optionally specify a description for the permissions granted. However, the `--description` argument is ignored if an access control list (ACL) already exists for the service account you are modifying.
 
 1. Add the service account secret to the configuration file by modifying the `marathon-lb-options.json` file to include the secret name.
-    * For **strict** or **permissive** security, copy and paste the following JSON into the `marathon-lb-options.json` file :
+    * For **strict** or **permissive** security, copy and paste the following JSON into the `marathon-lb-options.json` file. Replace `marathon-lb/service-account-secret` with the secret name you used, if necessary:
 
       ``` bash
       {
@@ -429,9 +437,9 @@ You can run the following commands to provision the Marathon-LB service account 
       }
       ```
 
-      This code snippet illustrates changing the port used to communicate with Marathon to 8443. Changing the port to 8443 is not required for clusters configured for permissive security. However, changing this setting is recommended because it ensures that communication between Marathon-LB and Marathon is encrypted.
+      This example illustrates changing the port used to communicate with Marathon to 8443. Changing the port is not required for clusters configured for `permissive` security. However, changing this setting is recommended because it ensures that communication between Marathon-LB and Marathon is encrypted.
 
-    * For **disabled** security, copy and paste the following JSON into the `marathon-lb-options.json` file:
+    * For **disabled** security, copy and paste the following JSON into the `marathon-lb-options.json` file. Replace `marathon-lb/service-account-secret` with the secret name you used, if necessary:
 
       ``` bash
       {
@@ -441,17 +449,15 @@ You can run the following commands to provision the Marathon-LB service account 
       }
       ```
 
-    Replace `marathon-lb/service-account-secret` with the secret name you used, if necessary.
-
 ### Install Marathon-LB
-You can modify other default values before installing the service. To view the configuration options and default values for Marathon-LB, type the following command.
+You can modify other default values before installing the service. To view the configuration options and default values for Marathon-LB, type the following command:
 
 ``` bash
 dcos package describe --config marathon-lb
 ```
 
-After you have reviewed the default `config.json` file and modified it to include the appropriate required and optional parameters, use the following command to install.
+After you have reviewed the default `config.json` file and modified it to include the appropriate required and optional parameters, use a command similar to the following to install the package with the modified `marathon-lb-options.json` configuration file:
 
 ``` bash
-dcos package install --options=config.json marathon-lb
+dcos package install marathon-lb --options=marathon-lb-options.json --yes
 ```
