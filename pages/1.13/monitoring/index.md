@@ -98,8 +98,8 @@ If you have any problems, you can check if the diagnostics service is running by
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html
- [6]: /1.12/security/
- [7]: /1.12/networking/load-balancing-vips/
- [8]: /1.12/overview/concepts/#private-agent-node
- [9]: /1.12/overview/concepts/#public-agent-node
+ [6]: /1.13/security/
+ [7]: /1.13/networking/load-balancing-vips/
+ [8]: /1.13/overview/concepts/#private-agent-node
+ [9]: /1.13/overview/concepts/#public-agent-node
  [10]: http://mesos.apache.org/documentation/latest/persistent-volume/

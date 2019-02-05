@@ -460,16 +460,16 @@ You can find information on the next steps listed below:
 - [Uninstalling DC/OS][11]
 
 
-[1]: /1.12/installing/production/system-requirements/
-[2]: /1.12/overview/concepts/#public
-[3]: /1.12/overview/concepts/#private
-[5]: /1.12/img/ui-installer-auth2.png
-[6]: /1.12/img/dashboard-ee.png
-[7]: /1.12/security/ent/users-groups/
-[8]: /1.12/security/ent/users-groups/
-[9]: /1.12/cli/install/
-[12]: /1.12/installing/production/deploying-dcos/node-cluster-health-check/
-[10]: /1.12/installing/oss/troubleshooting/
-[11]: /1.12/installing/oss/custom/uninstall/
+[1]: /1.13/installing/production/system-requirements/
+[2]: /1.13/overview/concepts/#public
+[3]: /1.13/overview/concepts/#private
+[5]: /1.13/img/ui-installer-auth2.png
+[6]: /1.13/img/dashboard-ee.png
+[7]: /1.13/security/ent/users-groups/
+[8]: /1.13/security/ent/users-groups/
+[9]: /1.13/cli/install/
+[12]: /1.13/installing/production/deploying-dcos/node-cluster-health-check/
+[10]: /1.13/installing/oss/troubleshooting/
+[11]: /1.13/installing/oss/custom/uninstall/
 
 

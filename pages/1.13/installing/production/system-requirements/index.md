@@ -41,7 +41,7 @@ The table below shows the master node hardware requirements:
 
 There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
 
-[0]: /1.12/overview/high-availability/
+[0]: /1.13/overview/high-availability/
 
 
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
@@ -287,6 +287,6 @@ localectl set-locale LANG=en_US.utf8
 - [Install Docker from Docker’s yum repository][1]
 - [DC/OS Installation Guide][2]
 
-[1]: /1.12/installing/production/system-requirements/docker-centos/
+[1]: /1.13/installing/production/system-requirements/docker-centos/
 
-[2]: /1.12/installing/production/deploying-dcos/installation/
+[2]: /1.13/installing/production/deploying-dcos/installation/

@@ -328,10 +328,10 @@ For example, here is a snippet of the Exhibitor log as it converges to a success
 
 
 
- [1]: /1.12/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend
+ [1]: /1.13/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend
  [2]: https://open.mesosphere.com/reference/mesos-master/
- [3]: /1.12/installing/production/advanced-configuration/configuration-reference/
- [4]: /1.12/overview/architecture/boot-sequence/
- [5]: /1.12/installing/production/advanced-configuration/configuration-reference/
- [6]: /1.12/administering-clusters/sshcluster/
+ [3]: /1.13/installing/production/advanced-configuration/configuration-reference/
+ [4]: /1.13/overview/architecture/boot-sequence/
+ [5]: /1.13/installing/production/advanced-configuration/configuration-reference/
+ [6]: /1.13/administering-clusters/sshcluster/
 

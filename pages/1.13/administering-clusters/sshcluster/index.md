@@ -164,6 +164,6 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
                     ssh core@<agent-node-hostname>
 
- [1]: /1.12/cli/command-reference/
+ [1]: /1.13/cli/command-reference/
  [2]: #unix
  [3]: #windows

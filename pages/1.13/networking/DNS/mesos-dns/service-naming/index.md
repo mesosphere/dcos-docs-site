@@ -355,7 +355,7 @@ You can get a comprehensive list of the apps running on your DC/OS cluster nodes
 
 
 
- [1]: /1.12/overview/concepts/
+ [1]: /1.13/overview/concepts/
  [2]: ../troubleshooting/#leader
  [3]: https://tools.ietf.org/html/rfc1123
  [4]: https://tools.ietf.org/html/rfc952

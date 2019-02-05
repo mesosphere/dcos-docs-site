@@ -62,7 +62,7 @@ For more information, see the installation [documentation](/1.13/installing/).
 
 We recommend using CoreOS, matched with its correct versions and sensible defaults of Docker, filesystem, and other settings.
 
-[1]: /1.12/networking/load-balancing-vips/
-[2]: /1.12/networking/
+[1]: /1.13/networking/load-balancing-vips/
+[2]: /1.13/networking/
 [4]: https://support.mesosphere.com/hc/en-us/articles/206474745-How-to-reserve-resources-for-certain-frameworks-in-Mesos-cluster-
-[5]: /1.12/administering-clusters/convert-agent-type/
+[5]: /1.13/administering-clusters/convert-agent-type/

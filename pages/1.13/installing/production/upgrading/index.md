@@ -325,4 +325,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.12 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[install]: /1.12/installing/ent/custom/advanced/
+[install]: /1.13/installing/ent/custom/advanced/
