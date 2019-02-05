@@ -1,8 +1,6 @@
 {
   "master": {
     "DO_NOT_BUILD": [
-      "1.7/**",
-      "1.8/**",
       "1.13/**",
       "test/**",
       "services/beta-storage/0.3.1-beta/**",
@@ -11,10 +9,7 @@
     "DO_NOT_INDEX": []
   },
   "staging": {
-    "DO_NOT_BUILD": [
-      "1.7/**",
-      "1.8/**"
-    ],
+    "DO_NOT_BUILD": [],
     "DO_NOT_INDEX": []
   },
   "general": {
