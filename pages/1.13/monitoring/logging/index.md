@@ -69,4 +69,4 @@ Streaming logs from machines in your cluster is not always viable. Sometimes you
 - [Log Management with ELK](/1.13/monitoring/logging/aggregating/elk/)
 - [Log Management with Splunk](/1.13/monitoring/logging/aggregating/splunk/)
 
-[5]: /1.12/administering-clusters/sshcluster/
+[5]: /1.13/administering-clusters/sshcluster/

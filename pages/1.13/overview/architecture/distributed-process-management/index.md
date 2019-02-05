@@ -42,5 +42,5 @@ In detail, here are the steps:
 1. Scheduler reports process status to client.
 
 
-[auth]: /1.12/security/
-[components]: /1.12/overview/architecture/components/
+[auth]: /1.13/security/
+[components]: /1.13/overview/architecture/components/
