@@ -20,7 +20,7 @@ enterprise: false
 1. Deleting pools will automatically uninstall managed load balancers. Delete each pool from the previous step with this command.
 
     ```bash
-    dcos edgelb pool delete <name>
+    dcos edgelb delete <pool-name>
     ```
 
 1.  Uninstall the Edge-LB API server.
