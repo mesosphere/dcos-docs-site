@@ -43,7 +43,7 @@ You can read/write files to S3 using environment-based secrets to pass your AWS 
 
 ```
 dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
-dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY> 
+dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
 ```
 Then your Spark jobs can get these credentials directly:
 
@@ -57,4 +57,4 @@ dcos spark run --submit-args="\
 ```
 
 [8]: http://spark.apache.org/docs/latest/configuration.html#inheriting-hadoop-cluster-configuration
-[9]: /services/spark/2.1.0-2.2.0-1/limitations/
+[9]: /services/spark/2.3.0-2.2.1-2/limitations/

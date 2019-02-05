@@ -1,37 +1,40 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Usage Example
+navigationTitle: Usage Examples
+excerpt: Using DC/OS Apache Spark
+title: Usage Examples
 menuWeight: 10
 featureMaturity:
-
+render: mustache
+model: /services/spark/data.yml
 ---
+This section describes a basic and advanced example of how to use DC/OS {{ model.techName }}.
 
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
+# Basic
 
+1. Perform a default installation by following the instructions in the [Install and Customize](/services/spark/2.6.0-2.3.2/install/) section.
 
-1.  Perform a default installation by following the instructions in the Install and Customize section of this topic.
+1. Run a {{ model.techShortName }} job:
 
-1.  Run a Spark job:
+        dcos spark run --submit-args="--class org.apache.spark.examples.SparkPi https://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.3.2.jar 30"
 
-        dcos spark run --submit-args="--class org.apache.spark.examples.SparkPi https://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 30"
-
-1.  Run a Python Spark job:
+1. Run a Python {{ model.techShortName }} job:
 
         dcos spark run --submit-args="https://downloads.mesosphere.com/spark/examples/pi.py 30"
 
-1.  Run an R Spark job:
+1. Run an R {{ model.techShortName }} job:
 
         dcos spark run --submit-args="https://downloads.mesosphere.com/spark/examples/dataframe.R"
 
-1.  View your job:
+1. View the status of your job using the Spark cluster dispatcher or use the Mesos UI to see job logs.
 
-Visit the Spark cluster dispatcher at `http://<dcos-url>/service/spark/` to view the status of your job. Also visit the Mesos UI at `http://<dcos-url>/mesos/` to see job logs.
+# Advanced
 
-## Advanced
+Run a {{ model.techShortName }} Streaming job with Kafka.
 
-*   Run an Spark Streaming job with Kafka: Examples of Spark Streaming applications that connect to a secure Kafka cluster can be found at [spark-build](https://github.com/mesosphere/spark-build/blob/2.3.0-2.2.1-2/tests/jobs/scala/src/main/scala/KafkaJobs.scala]. As mentioned in the [kerberos][/services/spark/2.3.0-2.2.1-2/kerberos/] section, Spark requires a JAAS file, the `krb5.conf`, and the keytab. An example of the JAAS file is:
+Examples of {{ model.techShortName }} Streaming applications that connect to a secure Kafka cluster can be found at [spark-build](https://github.com/mesosphere/spark-build/blob/2.6.0-2.3.2/tests/jobs/scala/src/main/scala/KafkaJobs.scala). As mentioned in the [Kerberos](/services/spark/2.6.0-2.3.2/kerberos/) section, {{ model.techShortName }} requires a JAAS file, the `krb5.conf`, and the keytab.
+
+An example of a JAAS file is:
 
         KafkaClient {
             com.sun.security.auth.module.Krb5LoginModule required
@@ -43,7 +46,7 @@ Visit the Spark cluster dispatcher at `http://<dcos-url>/service/spark/` to view
             principal="client@LOCAL";
         };
 
-    The corresponding `dcos spark` command would be:
+The corresponding `dcos spark` command would be:
 
         dcos spark run --submit-args="\
         --conf spark.mesos.containerizer=mesos \  # required for secrets
@@ -58,6 +61,4 @@ Visit the Spark cluster dispatcher at `http://<dcos-url>/service/spark/` to view
         --conf spark.mesos.driverEnv.KRB5_CONFIG_BASE64=W2xpYmRlZmF1bHRzXQpkZWZhdWx0X3JlYWxtID0gTE9DQUwKCltyZWFsbXNdCiAgTE9DQUwgPSB7CiAgICBrZGMgPSBrZGMubWFyYXRob24uYXV0b2lwLmRjb3MudGhpc2Rjb3MuZGlyZWN0b3J5OjI1MDAKICB9Cg== \
         --class MyAppClass <URL_of_jar> [application args]"
 
-
-
-*Note* There are additional walkthroughs available in the `docs/walkthroughs/` directory of Mesosphere's `spark-build` [repo](https://github.com/mesosphere/spark-build/tree/master/docs/walkthroughs/)
+<p class="message--note"><strong>NOTE: </strong>There are additional walkthroughs available in the <code>docs/walkthroughs/</code> directory of Mesosphere's <a href="https://github.com/mesosphere/spark-build/"><code>spark-build</code></a>.</p>

@@ -88,7 +88,7 @@ To use one of these distributions, select your {{ model.techShortName }} distrib
 
 # Minimal Installation
 
-For development purposes, you can install {{ model.techShortName }} on a local DC/OS cluster. For this, you can use [dcos-vagrant][16].
+For development purposes, use [dcos-vagrant][16] to install {{ model.techShortName }} on a local DC/OS cluster.
 
 1. Install a minimal DC/OS Vagrant according to the instructions [here][16].
 
@@ -104,7 +104,7 @@ For development purposes, you can install {{ model.techShortName }} on a local D
    dcos {{ model.serviceName }} run --class org.apache.{{ model.serviceName }}.examples.SparkPi http://downloads.mesosphere.com.s3.amazonaws.com/assets/{{ model.serviceName }}/{{ model.serviceName }}-examples_2.10-1.5.0.jar"
    ```
 
-**Note:** A limited resource environment such as DC/OS Vagrant restricts some of the features available in DC/OS {{ model.techName }}.  For example, unless you have enough resources to start up a 5-agent cluster, you will not be able to install DC/OS HDFS, and you thus won't be able to enable the history server.
+**Note:** A limited resource environment such as DC/OS Vagrant restricts some of the features available in DC/OS {{ model.techName }}.  For example, you must have enough resources to start up a 5-agent cluster, otherwise you will not be able to install DC/OS HDFS an enable the history server.
 
 Also, a limited resource environment can restrict how you size your executors, for example with `{{ model.serviceName }}.executor.memory`.
 
