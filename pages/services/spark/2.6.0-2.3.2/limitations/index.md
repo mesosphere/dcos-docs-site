@@ -33,13 +33,8 @@ model: /services/spark/data.yml
     for executor containers to register with the Driver and retrieve the delegation tokens. To secure delegation token
     distribution, use the `--executor-auth-secret` option.
 
-*   {{ model.techShortName }} runs all of its components in Docker containers. Since the Docker image contains a full Linux userspace with
-    its own `/etc/users` file, it is possible for the user `nobody` to have a different UID inside the
-    container than on the host system. Although user `nobody` has UID 65534 by convention on many systems, this is not
-    always the case. As Mesos does not perform UID mapping between Linux user namespaces, specifying a service user of
-    `nobody` in this case will cause access failures when the container user attempts to open or execute a filesystem
-    resource owned by a user with a different UID, preventing the service from launching. If the hosts in your cluster
-    have a UID for `nobody` other than 65534, you will need to maintain the default user (`root`) to run DC/OS {{ model.techShortName }}
-    successfully.
-
-*   {{ model.techShortName }} does not support CNI at this time. If {{ model.techShortName }} Drivers and       Executors are deployed on CNI Networks, Shuffle Operations will fail.
+*   CNI limitations:
+  * Configuration of network plugin labels from DC/OS UI supported only in JSON editing mode.
+  * Network plugin labels are not supported by Docker containerizer.
+  * Currently, DC/OS Admin Router doesn't support virtual networks so DC/OS {{ model.techShortName }} endpoints
+  will not be accessible from CLI and jobs need to be submitted from a routable network.

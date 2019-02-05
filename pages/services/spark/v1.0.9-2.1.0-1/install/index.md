@@ -86,7 +86,7 @@ For development purposes, you can install Spark on a local DC/OS cluster. For th
    dcos spark run --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com.s3.amazonaws.com/assets/spark/spark-examples_2.10-1.5.0.jar"
    ```
 
-**Note:** A limited resource environment such as DC/OS Vagrant restricts some of the features available in DC/OS Apache Spark.  For example, unless you have enough resources to start up a 5-agent cluster, you will not be able to install DC/OS HDFS, and you thus won't be able to enable the history server.
+**Note:** A limited resource environment such as DC/OS Vagrant restricts some of the features available in DC/OS Apache Spark.  For example, you must have enough resources to start up a 5-agent cluster, otherwise you will not be able to install DC/OS HDFS an enable the history server.
 
 Also, a limited resource environment can restrict how you size your executors, for example with `spark.executor.memory`.
 

@@ -98,7 +98,7 @@ The DC/OS {{ model.techName }} Docker image contains OpenJDK 8 and Python 2.7.6.
 
 DC/OS {{ model.techName }} distributions 1.X are compiled with Scala 2.10.  DC/OS {{ model.techName }} distributions 2.X are compiled with Scala 2.11.  Scala is not binary compatible across minor verions, so your {{ model.techShortName }} job must be compiled with the same Scala version as your version of DC/OS {{ model.techName }}.
 
-The default DC/OS {{ model.techName }} distribution is compiled against Hadoop 2.7 libraries.  However, you can choose a different version by following the instructions in [Customize {{ model.techShortName }} distribution](/services/spark/2.5.0-2.2.1/install/#custom-dist/).
+The default DC/OS {{ model.techName }} distribution is compiled against Hadoop 2.7 libraries.  However, you can choose a different version by following the instructions in [Customize {{ model.techShortName }} distribution](/services/spark/2.6.0-2.3.2/install/#custom-dist/).
 
 
 [13]: http://spark.apache.org/docs/latest/submitting-applications.html
