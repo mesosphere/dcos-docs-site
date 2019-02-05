@@ -33,4 +33,4 @@ If you have configured dynamic master discovery in your config.yaml (for example
 
 To confirm that the new master has joined the cluster successfully, you must validate that the procedure was successful before proceeding. The procedure is identical to the verification performed following a master node upgrade.
 
-The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.12/installing/production/upgrading/#dcos-masters) section in the [Upgrading documentation](/1.12/installing/production/upgrading/).
+The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.13/installing/production/upgrading/#dcos-masters) section in the [Upgrading documentation](/1.13/installing/production/upgrading/).

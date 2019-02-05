@@ -29,19 +29,19 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 
 1. At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
-    ![open cluster popup](/1.12/img/open-cluster-popup.png)
+    ![open cluster popup](/1.13/img/open-cluster-popup.png)
 
     Figure 1. Open cluster popup menu
 
 1. Select **Install CLI**.
 
-    ![CLI install UI](/1.12/img/install-cli.png)
+    ![CLI install UI](/1.13/img/install-cli.png)
 
     Figure 2. Select Install CLI
 
 1. Copy and paste the code snippets appropriate to your OS into your terminal, and press the return key.
 
-    ![CLI copy/paste](/1.12/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
+    ![CLI copy/paste](/1.13/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
 
     Figure 3. Code snippet window
 
@@ -87,9 +87,9 @@ It is strongly recommended that you copy and paste the installation commands fro
     dcos cluster setup http://example.com
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see [Security](/1.12/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see [Security](/1.13/security/).
 
-    Your CLI should now be authenticated with your cluster! Enter `dcos` to get started. You can learn more about managing your cluster connections [here](/1.12/cli/command-reference/dcos-cluster/).
+    Your CLI should now be authenticated with your cluster! Enter `dcos` to get started. You can learn more about managing your cluster connections [here](/1.13/cli/command-reference/dcos-cluster/).
 
 <a name="macos"></a>
 
@@ -108,19 +108,19 @@ It is strongly recommended that you copy and paste the installation commands fro
 
 1. At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
-    ![open cluster popup](/1.12/img/open-cluster-popup.png)
+    ![open cluster popup](/1.13/img/open-cluster-popup.png)
 
     Figure 1. Open cluster popup menu
 
 1. Select **Install CLI**.
 
-    ![CLI install UI](/1.12/img/install-cli.png)
+    ![CLI install UI](/1.13/img/install-cli.png)
 
     Figure 2. Select Install CLI
 
 1. Copy and paste the code snippets appropriate to your OS into your terminal.
 
-    ![CLI copy/paste](/1.12/img/CLI-Installation-GUI_Popup_OSX-1.12.png)
+    ![CLI copy/paste](/1.13/img/CLI-Installation-GUI_Popup_OSX-1.12.png)
 
     Figure 3. Code snippet window
 
@@ -153,7 +153,7 @@ It is strongly recommended that you copy and paste the installation commands fro
     ```
     If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.</p>
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.12/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.13/security/).
 
     Your CLI should now be authenticated with your cluster!
     
@@ -175,19 +175,19 @@ It is strongly recommended that you copy and paste the installation commands fro
 
 1. At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
-    ![open cluster popup](/1.12/img/open-cluster-popup.png)
+    ![open cluster popup](/1.13/img/open-cluster-popup.png)
 
     Figure 1. Open cluster popup menu
 
 1. Select **Install CLI**.
 
-    ![CLI install UI](/1.12/img/install-cli.png)
+    ![CLI install UI](/1.13/img/install-cli.png)
 
     Figure 2. Select Install CLI
 
 1. Follow the commands listed in the dialog.
 
-    ![CLI copy/paste](/1.12/img/CLI-Installation-GUI_Popup_Windows-1.12.png)
+    ![CLI copy/paste](/1.13/img/CLI-Installation-GUI_Popup_Windows-1.12.png)
 
     Figure 3. Code snippet window
 
@@ -223,7 +223,7 @@ It is strongly recommended that you copy and paste the installation commands fro
 
     <p class="message--note"><strong>NOTE: </strong>If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.</p>
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.12/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.13/security/).
 
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.
 

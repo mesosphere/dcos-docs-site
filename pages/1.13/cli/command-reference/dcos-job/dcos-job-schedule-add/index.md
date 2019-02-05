@@ -33,8 +33,8 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.12/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 
-For examples using `job add`, see the [documentation](/1.12/deploying-jobs/examples/#create-job-schedule).
+For examples using `job add`, see the [documentation](/1.13/deploying-jobs/examples/#create-job-schedule).

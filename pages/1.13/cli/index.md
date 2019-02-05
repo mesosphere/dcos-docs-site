@@ -10,7 +10,7 @@ enterprise: false
 
 The DC/OS command line interface (DC/OS CLI) utility allows you to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.
 
-DC/OS 1.12 requires the DC/OS CLI >= 0.7. To install it, [follow the instructions](/1.12/cli/install/).
+DC/OS 1.12 requires the DC/OS CLI >= 0.7. To install it, [follow the instructions](/1.13/cli/install/).
 
 To list available commands, run `dcos` with no parameters:
 
@@ -84,13 +84,13 @@ The DC/OS CLI supports the following environment variables, which can be set dyn
 <a name="dcos-cluster"></a>
 #### `DCOS_CLUSTER` (DC/OS CLI 0.5.x and higher only)
 
-The [attached](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
+The [attached](/1.13/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
 
 ```bash
 dcos cluster setup <cluster-url>
 ```
 
-After following the login procedure, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/1.12/cli/plugins/), dcos-core-cli and, if applicable, dcos-enterprise-cli, which is automatically installed as part of the setup command.
+After following the login procedure, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/1.13/cli/plugins/), dcos-core-cli and, if applicable, dcos-enterprise-cli, which is automatically installed as part of the setup command.
 
 <a name="dcos-config"></a>
 #### `DCOS_CONFIG` (DC/OS CLI 0.4.x only)

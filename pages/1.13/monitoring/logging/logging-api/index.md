@@ -11,7 +11,7 @@ enterprise: false
 
 The Logging API exposes node, component, and container (task) logs.
 
-The Logging API is backed by the [DC/OS Log component](/1.12/overview/architecture/components/#dcos-log), which runs on all nodes in the cluster. For more information about using the Logging API, see [Logging](/1.12/monitoring/logging/). For usage examples, see [Logging API Examples](/1.12/monitoring/logging/logging-api-examples/).
+The Logging API is backed by the [DC/OS Log component](/1.13/overview/architecture/components/#dcos-log), which runs on all nodes in the cluster. For more information about using the Logging API, see [Logging](/1.13/monitoring/logging/). For usage examples, see [Logging API Examples](/1.13/monitoring/logging/logging-api-examples/).
 
 # Compatibility
 
@@ -60,7 +60,7 @@ Access to the Logging API of the agent nodes is proxied through the master node 
 /system/v1/agent/{agent_id}/
 ```
 
-To determine the address of your cluster, see [Cluster Access](/1.12/api/access/).
+To determine the address of your cluster, see [Cluster Access](/1.13/api/access/).
 
 
 ## Discovery Endpoints
@@ -72,7 +72,7 @@ The parameters used in the request come from mesos `state.json` and are called "
 
 # Auth
 
-All Logging API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](/1.12/security/ent/iam-api/#/obtaining-an-authentication-token/) and [Passing an authentication token](/1.12/security/ent/iam-api/#/passing-an-authentication-token/).
+All Logging API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](/1.13/security/ent/iam-api/#/obtaining-an-authentication-token/) and [Passing an authentication token](/1.13/security/ent/iam-api/#/passing-an-authentication-token/).
 
 The Logging API also requires authorization via the following permissions:
 | Path |  Permission |
@@ -80,7 +80,7 @@ The Logging API also requires authorization via the following permissions:
 | /system/v1/logs/v2/ | dcos:adminrouter:ops:system-logs |
 | /system/v1/agent/{agent_id}/logs/v2/ | dcos:adminrouter:system:agent |
 
-All routes may also be reached by users with the _dcos:superuser_ permission. To assign permissions to your account, see [Permissions Reference](/1.12/security/ent/perms-reference/).
+All routes may also be reached by users with the _dcos:superuser_ permission. To assign permissions to your account, see [Permissions Reference](/1.13/security/ent/perms-reference/).
 
 # Format
 

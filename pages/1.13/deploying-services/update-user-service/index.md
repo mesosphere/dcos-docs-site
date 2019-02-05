@@ -11,7 +11,7 @@ enterprise: false
 
 You can easily view and update the configuration of a deployed app by using the `dcos marathon` command.
 
-The process for updating packages from the [DC/OS Catalog](/1.12/gui/catalog/) is different. For more information, see the [documentation](/1.12/deploying-services/config-universe-service/).
+The process for updating packages from the [DC/OS Catalog](/1.13/gui/catalog/) is different. For more information, see the [documentation](/1.13/deploying-services/config-universe-service/).
 
 # Update all Environment Variables
 

@@ -14,7 +14,7 @@ This tutorial shows how to scale a service using the web interface and the CLI.
 
 1. From the **Services** tab, click the menu dots to the right side to access **More Actions**.  
 1. Click the menu symbol and choose **Scale By**.
-   ![menu symbol](/1.12/img/GUI-Services-List_View_Item_More_Actions_Menu-1_12.png)
+   ![menu symbol](/1.13/img/GUI-Services-List_View_Item_More_Actions_Menu-1_12.png)
 
    Figure 1. More Actions menu
 

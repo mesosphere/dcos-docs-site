@@ -41,8 +41,8 @@ dcos node ssh <command> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.12/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/1.13/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 # Examples
 
-For an example, see the [documentation](/1.12/administering-clusters/sshcluster/).
+For an example, see the [documentation](/1.13/administering-clusters/sshcluster/).

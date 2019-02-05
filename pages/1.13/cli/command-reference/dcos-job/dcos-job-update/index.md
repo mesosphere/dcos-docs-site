@@ -32,6 +32,6 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.12/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 

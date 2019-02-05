@@ -27,10 +27,10 @@ dcos job add <job-file> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.12/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 
-For job examples, see the [Create a Job](/1.12/deploying-jobs/examples/#create-job).
+For job examples, see the [Create a Job](/1.13/deploying-jobs/examples/#create-job).
 
-For information on how to create a job using this command, see [Add a job](/1.12/deploying-jobs/quickstart/#add-a-job-2).
+For information on how to create a job using this command, see [Add a job](/1.13/deploying-jobs/quickstart/#add-a-job-2).
