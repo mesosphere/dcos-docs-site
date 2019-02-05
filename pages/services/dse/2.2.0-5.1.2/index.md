@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: DSE 2.2.0-5.1.2
 title: DSE 2.2.0-5.1.2
-menuWeight: 9
+menuWeight: -1
 excerpt:
 
 ---

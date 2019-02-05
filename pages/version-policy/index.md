@@ -46,6 +46,7 @@ The following matrix shows the platform components and operating environments on
 |------------ |-------------- |
 | ⚫          | Supported     |
 |             | Not Supported |
+| B           | Beta          |
 
 <table class="table">
     <tr>
