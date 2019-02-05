@@ -130,7 +130,7 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
     echo -n myuser@domain.com:hard-to-guess-password | base64
     ```
 
-1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](/1.9/security/ent/secrets/create-secrets/).
+1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](/1.13/security/ent/secrets/create-secrets/).
 
    <p class="message--note"><strong>NOTE: </strong>As of DC/OS version 1.10.0, you can add a file to the secret store only using the DC/OS CLI.</p>
 
