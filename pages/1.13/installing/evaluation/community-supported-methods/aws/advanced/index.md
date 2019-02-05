@@ -14,9 +14,9 @@ You can create and extend DC/OS clusters with AWS CloudFormation templates. The 
 The advanced AWS CloudFormation templates bring power and flexibility to creating and extending DC/OS clusters. With these templates you can choose from the complete set of DC/OS configuration options.
 
  - Instantiate a complete DC/OS cluster on an existing VPC/Subnet combination.
- - Extend and update existing DC/OS clusters by adding more [agent](/1.8/overview/concepts/#agent) nodes.
+ - Extend and update existing DC/OS clusters by adding more [agent](/1.13/overview/concepts/#agent-nodes) nodes.
 
-The templates are used together to create a DC/OS cluster. The templates are driven by parameters that AWS CloudFormation uses to create each stack.  
+The templates are used together to create a DC/OS cluster. The templates are driven by parameters that AWS CloudFormation uses to create each stack.
 
 <table class=“table” bgcolor=#858585>
 <tr> 
