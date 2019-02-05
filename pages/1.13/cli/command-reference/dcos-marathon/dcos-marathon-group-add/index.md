@@ -26,11 +26,11 @@ None.
 
 | Name, shorthand |  Description |
 |---------|-------------|
-| `<group-resource>`   | Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description see the [documentation](/1.12/deploying-services/marathon-api/). |
+| `<group-resource>`   | Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description see the [documentation](/1.13/deploying-services/marathon-api/). |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

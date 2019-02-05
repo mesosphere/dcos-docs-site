@@ -20,4 +20,4 @@ dcos node decommission <mesos-id>
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.12/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/1.13/cli/command-reference/dcos-node/) | View DC/OS node information. |

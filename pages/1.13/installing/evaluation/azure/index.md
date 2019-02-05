@@ -217,7 +217,7 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
     - 2 Private Agents
     - 1 Public Agent
 
-    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/azure/advanced-azure/).
+    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.13/installing/evaluation/azure/advanced-azure/).
 
     There are also simple helpers listed underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
 
@@ -336,7 +336,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 
 # Upgrading Your Cluster
 
-Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS. If you are interested in learning more about the upgrade procedure that Terraform performs, please see the official [DC/OS Upgrade documentation](/1.12/installing/production/upgrading/).
+Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS. If you are interested in learning more about the upgrade procedure that Terraform performs, please see the official [DC/OS Upgrade documentation](/1.13/installing/production/upgrading/).
 
 1. In order to perform an upgrade, we need to go back to our `main.tf` and modify the current DC/OS Version (`dcos_version`) to a newer version, such as `1.12.1` for this example, and also specify an additional parameter (`dcos_install_mode`). By default this parameter is set to `install`, which is why we were able to leave it unset when creating the initial DC/OS cluster and scaling it.
 

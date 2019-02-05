@@ -35,4 +35,4 @@ dcos plugin install <resource> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos plugin](/1.12/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS software plugins. |
+| [dcos plugin](/1.13/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS software plugins. |

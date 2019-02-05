@@ -38,7 +38,7 @@ dcos license audit get [<id>|active] [--output <file_path>] [--decrypt]
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/1.12/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](/1.13/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
 
 # Examples
-For examples, see [Licenses](/1.12/administering-clusters/licenses/).
+For examples, see [Licenses](/1.13/administering-clusters/licenses/).

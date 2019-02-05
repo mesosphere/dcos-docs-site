@@ -77,7 +77,7 @@ The table below shows the agent node hardware requirements.
 
 The agent nodes must also have:
 
-- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.12/deploying-services/containerizers/).
+- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.13/deploying-services/containerizers/).
 - Network Access to a public Docker repository or to an internal Docker registry.
 - On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that `firewalld` interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
 

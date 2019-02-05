@@ -10,7 +10,7 @@ enterprise: false
 
 As of DC/OS 1.12, deleting a node involves two steps: telling DC/OS to mark the node as `GONE`, and stopping the corresponding Mesos slave systemd unit.
 
-If your node has gone down in an unplanned way, you only have to [Decommission the node](/1.12/administering-clusters/delete-node/#decommission-the-node/).
+If your node has gone down in an unplanned way, you only have to [Decommission the node](/1.13/administering-clusters/delete-node/#decommission-the-node/).
 
 # Decommission the node
 
@@ -49,7 +49,7 @@ Once the node has been decommissioned (this is equivalent to using the `MARK_AGE
 
 If the DC/OS node is still running, the Mesos slave process will continue to try to register (and be disallowed, due to the agent being marked gone).  You can stop these attempts by stopping the Mesos slave process, which is run as a systemd unit.
 
-1. [SSH to the agent node](/1.12/administering-clusters/sshcluster/) you wish to shut down.
+1. [SSH to the agent node](/1.13/administering-clusters/sshcluster/) you wish to shut down.
 
 1. Enter the following commands to stop the node.
 
