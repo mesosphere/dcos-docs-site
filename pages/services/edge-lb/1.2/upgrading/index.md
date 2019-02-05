@@ -47,13 +47,12 @@ Perform an Edge-LB upgrade by following this procedure.
     dcos package install --options=edgelb-options.json edgelb
     ```
 
-EdgeLB also needs the following options to be specified. Their values depend on the security mode of the cluster it is running on:
+    EdgeLB also needs the following options to be specified. Their values depend on the security mode of the cluster it is running on:
 
-* `service.mesosProtocol`: `"https"` for Permissive and Strict security modes, `"http"` (default) for Disabled security mode
-* `service.mesosAuthNZ`: `true` (default) for Permissive and Strict security modes, `false` for Disabled security mode. Parameter is available begining version v1.1.
+    * `service.mesosProtocol`: `"https"` for Permissive and Strict security modes, `"http"` (default) for Disabled security mode
+    * `service.mesosAuthNZ`: `true` (default) for Permissive and Strict security modes, `false` for Disabled security mode. Parameter is available begining version v1.1.
 
-
-Upgrade each pool.
+1. Upgrade each pool.
 
     ```bash
     dcos edgelb update <pool-file>
