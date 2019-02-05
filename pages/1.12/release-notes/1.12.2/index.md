@@ -29,10 +29,6 @@ The issues that have been fixed in DC/OS 1.12.2 are grouped by feature, function
 ## Command-Line Interface (CLI)
 - DCOS_OSS_3877, DCOS_OSS-4275 - The `dcos-diagnostics` command you use to create diagnostic bundles for logged information runs as the `root` user. Running the command to generate the diagnostic bundle using the root user account enables you to collect sensitive information that is only available to the superuser.
 
-## 
-- 
-- 
-
 ## Job Scheduling (Metronome)
 - DCOS_OSS-4717 - Diagnostic bundles include information about Metronome jobs.
 
