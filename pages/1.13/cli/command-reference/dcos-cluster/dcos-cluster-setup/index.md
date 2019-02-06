@@ -9,7 +9,10 @@ enterprise: false
 ---
 
 # Description
+
 The `dcos cluster setup` command will configure the connection to a DC/OS cluster, authenticate to DC/OS, and attach to the cluster.
+
+It will also automatically install the [Core and Enterprise CLI plugins](/1.13/cli/plugins/).
 
 # Usage
 
