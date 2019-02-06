@@ -12,21 +12,30 @@ These are the release notes for Edge-LB 1.3.
 Released on February 6, 2019.
 
 # Noteworthy Changes
+
 - Simplify and optimize the HAProxy reload loop.
 - Improve the update strategy for the Edge-LB pool.
 - Bump the SDK version to 0.55.2.
 - Add protection against installing a pool while its previous version is still uninstalling.
 - Improve sidecars runs.
 - Improve integration test coverage.
+- Improve error messages with better logging
 
 # Features
-- Expose tasks without specifying ports.
-- Dynamic allocation of the HAProxy STATS port.
-- Dynamic allocation of the HAProxy Frontend port.
-- Scale down Edge-LB pool instances.
+
+- Expose tasks without specifying ports
+- Dynamic allocation of the HAProxy STATS port
+- Dynamic allocation of the HAProxy Frontend port
+- Scale down Edge-LB pool instances
 
 # Bug Fixes
-- LB task getting killed intermittently leading to outage for apps being load balanced.
+
+- COPS-4272, DCOS-46189 - 	Edge-LB assets is missing on downloads site
+- DCOS-46043 - Fix Edge-LB API Server's file comparison functions
+- DCOS-46510 - Edge-LB may create haproxy configuration with duplicate backends
+- DCOS-46837 - Framework scheduler can crash after installing
+- DCOS-48009 - ENVFILE Certificates written in wrong location
+- DCOS-46181 - Integration test does not use artifacts uploaded from its PR
 
 # Known Limitations
 
