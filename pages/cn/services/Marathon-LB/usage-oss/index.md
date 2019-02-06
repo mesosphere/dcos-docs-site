@@ -72,6 +72,6 @@ navigationTitle: 上安装和自定义 ： 开源
 
 ## 后续步骤
 
-- [教程 - 使用 Marathon-LB 部署负载均衡应用](/cn/services/marathon-lb/marathon-lb-basic-tutorial/)
+- [教程 - 使用 Marathon-LB 部署负载均衡应用](/cn/services/marathon-lb/mlb-basic-tutorial/)
 - [教程 - 使用 Marathon-LB 进行内部和外部负载均衡](/cn/services/marathon-lb/marathon-lb-advanced-tutorial/)
 - 查看高级 Marathon-LB [文档](/cn/services/marathon-lb/advanced/)。

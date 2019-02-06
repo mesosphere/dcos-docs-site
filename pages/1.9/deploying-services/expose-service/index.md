@@ -82,4 +82,4 @@ To launch a service on a public node, you must create a Marathon app definition 
 
 ## Next steps
 
-Learn how to load balance your app on a public node using [Marathon-LB](/services/marathon-lb/marathon-lb-basic-tutorial/).
+Learn how to load balance your app on a public node using [Marathon-LB](/services/marathon-lb/mlb-basic-tutorial/).
