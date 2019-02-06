@@ -50,12 +50,12 @@ const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
 const ALGOLIA_SKIP_SECTIONS = config[GIT_BRANCH] ? (
   config[GIT_BRANCH]['DO_NOT_INDEX']
 ) : (
-  config['general']['DO_NOT_INDEX']
+  config['local']['DO_NOT_INDEX']
 );
 const METALSMITH_SKIP_SECTIONS = config[GIT_BRANCH] ? (
   config[GIT_BRANCH]['DO_NOT_BUILD']
 ) : (
-  config['general']['DO_NOT_BUILD']
+  config['local']['DO_NOT_BUILD']
 );
 
 //
