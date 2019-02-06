@@ -140,40 +140,136 @@ marathon_lb.py [-h] [--longhelp] [--marathon MARATHON [MARATHON ...]]
 </pre>
 
 ### Required arguments
-| <b>Argument</b> | <b>Description</b> |
-| :--- | :--- |
-<code>-m, --marathon MARATHON [MARATHON ...]</code> | Specifies one or more Marathon endpoints. This argument specifies the location of the Marathon containers for Marathon-LB to use. The default endpoint is `http://master.mesos:8080`. For example, you might use this argument to specify two Marathon instances like this: `-m http://marathon1:8080 http://marathon2:8080`.
-<code>--group GROUP </code> | Generates configuration information only for the apps with the specified group names. Use `*` to match all groups, including groups without a group name specified. The default is an empty string [ ].
+<table class="table">
+  <tr>
+    <th style="font-weight:bold">Argument</th>
+    <th style="font-weight:bold">Description</th>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">-m, --marathon MARATHON [MARATHON ...]</span></td>
+    <td>Specifies one or more Marathon endpoints. This argument specifies the location of the Marathon containers for Marathon-LB to use. The default endpoint is <span style="background-color: #D3D3D3">http://master.mesos:8080</span>. For example, you can use this argument to specify two Marathon instances like this: <span style="background-color: #D3D3D3">-m http://marathon1:8080 http://marathon2:8080</span>.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--group GROUP</span></td>
+    <td>Generates configuration information only for the apps with the specified group names. Use `*` to match all groups, including groups without a group name specified. The default is an empty string.</td>
+  </tr>
+</table>
 
 ### Optional arguments
-| <b>Argument</b> | <b>Description</b> |
-| :--- | :--- |
-<code>-h, --help</code> | Show this help message and exit.
-<code>--longhelp</code> | Print out configuration details. The default is false.
-<code>--haproxy-config HAPROXY_CONFIG</code> | Specifies the location of the `haproxy` configuration file. The default is `/etc/haproxy/haproxy.cfg`.
-<code>--command COMMAND, -c COMMAND</code> | If set, run this command to reload haproxy. The default is none.
-<code>--max-reload-retries MAX_RELOAD_RETRIES</code> | Specifies the maximum number if reload retries before failure. Reloads happen every `--reload-interval` seconds. Set to 0 to disable reloading attempts or -1 for infinite retries. The default is 10.
-<code>--reload-interval RELOAD_INTERVAL </code> | Waits the sepcified number of seconds between reload retries. The default is 10.
-<code>--strict-mode</code> | Enables backends to be advertised only if `HAPROXY_{n}_ENABLED=true`. Strict mode might be enabled by default in a future release. The default is false.
-<code>--sse, -s</code> | Uses server-sent events. The default is false.
-<code>--archive-versions ARCHIVE_VERSIONS</code> | Specifies the number of configuration versions to archive. The default is 5.
-<code>--health-check, -H</code> | Determines Marathon's health check status before adding the app instance into the backend pool. The default is false.
-<code>--lru-cache-capacity LRU_CACHE_CAPACITY</code> | Specifies the LRU cache size (in number of items). This argument should be at least as large as the number of tasks exposed to marathon-lb. The defaultis 1000.
-<code>--haproxy-map</code> | Uses HAProxy maps for domain name to backend mapping. The default is false. |
-<code>--dont-bind-http-https</code> | Prevents binding to HTTP and HTTPS frontends. The default is false. |
-<code>--group-https-by-vhost</code> | Groups https frontends by virtual host. The default is false. |
-<code>--ssl-certs SSL_CERTS</code> | Lists SSL certificates separated by commas for frontend `marathon_https_in`. The default is /`etc/ssl/cert.pem`. For example: `/etc/ssl/site1.co.pem,/etc/ssl/site2.co.pem` |
-<code>--skip-validation</code> | Skips haproxy configuration file validation. The default is false. |
-<code>--dry, -d</code> | Only prints configuration information to the console. The default is false. |
-<code>--min-serv-port-ip-per-task MIN_SERV_PORT_IP_PER_TASK</code> | Specifies the minimum port number to use when auto-assigning service ports for IP-per-task applications. The default is 10050. |
-<code>--max-serv-port-ip-per-task MAX_SERV_PORT_IP_PER_TASK</code> | Specifies the maximum port number to use when auto-assigning service ports for IP-per-task applications. The default is 10100. |
-<code>--syslog-socket SYSLOG_SOCKET</code> | Specifies the socket to write syslog messages to. Use `/dev/null` to disable logging to `syslog`. The default is /dev/log. |
-<code>--log-format LOG_FORMAT</code> | Sets the log message format. The default is `%(asctime)-15s %(name)s: %(message)s`. |
-<code>--log-level LOG_LEVEL</code> | Sets the log level, The default is DEBUG. |
-<code>--marathon-auth-credential-file MARATHON_AUTH_CREDENTIAL_FILE</code> | Specifies the path to file containing a user name and password for the Marathon HTTP API in the format of `user:pass`. The default is none. |
-<code>--auth-credentials AUTH_CREDENTIALS</code> | Specifies the user name and password for the Marathon HTTP API in the format of `user:pass`. The default is none. |
-<code>--dcos-auth-credentials DCOS_AUTH_CREDENTIALS</code> | Sepcifies the DC/OS service account credentials. The default is none. |
-<code>--marathon-ca-cert MARATHON_CA_CERT</code> | Specifies the CA certificate for Marathon HTTPS connections. The default is none. |
+<table class="table">
+  <tr>
+    <th style="font-weight:bold">Argument</th>
+    <th style="font-weight:bold">Description</th>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">-h, --help</span></td>
+    <td>Show this help message and exit.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--longhelp</span></td>
+    <td>Print out configuration details. The default is false.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--haproxy-config HAPROXY_CONFIG</span></td>
+    <td>Specifies the location of the `haproxy` configuration file. The default is <span style="background-color: #D3D3D3">/etc/haproxy/haproxy.cfg</span></td>.
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--command COMMAND, -c COMMAND</span></td>
+    <td>If set, run this command to reload haproxy. The default is none.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--max-reload-retries MAX_RELOAD_RETRIES</span></td>
+    <td>Specifies the maximum number if reload retries before failure. Reloads happen every <span style="background-color: #D3D3D3">--reload-interval</span> seconds. Set to 0 to disable reloading attempts or -1 for infinite retries. The default is 10.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--reload-interval RELOAD_INTERVAL</span></td>
+    <td>Waits the specified number of seconds between reload retries. The default is 10.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--strict-mode</span></td>
+    <td>Enables backends to be advertised only if <span style="background-color: #D3D3D3">HAPROXY_{n}_ENABLED=true</span>. Strict mode might be enabled by default in a future release. The default is false.</td>
+  </tr>
+   <tr>
+    <td><span style="background-color: #D3D3D3">--sse, -s</span></td>
+    <td>Uses server-sent events. The default is false.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--archive-versions ARCHIVE_VERSIONS</span></td>
+    <td>Specifies the number of configuration versions to archive. The default is 5.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--health-check, -H</span></td>
+    <td>Determines Marathon's health check status before adding the app instance into the backend pool. The default is false.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--lru-cache-capacity LRU_CACHE_CAPACITY</span></td>
+    <td>Specifies the LRU cache size (in number of items). This argument should be at least as large as the number of tasks exposed to marathon-lb. The default is 1000.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--haproxy-map</span></td>
+    <td>Uses HAProxy maps for domain name to backend mapping. The default is false.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--dont-bind-http-https</span></td>
+    <td>Prevents binding to HTTP and HTTPS frontends. The default is false.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--group-https-by-vhost</span></td>
+    <td>Groups https frontends by virtual host. The default is false.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--ssl-certs SSL_CERTS</span></td>
+    <td>Lists SSL certificates separated by commas for frontend <span style="background-color: #D3D3D3">marathon_https_in</span>. The default is <span style="background-color: #D3D3D3">/etc/ssl/cert.pem</span>. For example: <span style="background-color: #D3D3D3">/etc/ssl/site1.co.pem,/etc/ssl/site2.co.pem</span></td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #D3D3D3">--skip-validation</span></td>
+    <td>Skips haproxy configuration file validation. The default is false.</td>
+  </tr> 
+  <tr>
+    <td><span style="background-color: #D3D3D3">--dry, -d</span></td>
+    <td>Only prints configuration information to the console. The default is false.</td>
+  </tr> 
+  <tr>
+    <td><span style="background-color: #D3D3D3">--min-serv-port-ip-per-task MIN_SERV_PORT_IP_PER_TASK</span></td>
+    <td>Specifies the minimum port number to use when auto-assigning service ports for IP-per-task applications. The default is 10050.</td>
+  </tr> 
+  <tr>
+    <td><span style="background-color: #D3D3D3">--max-serv-port-ip-per-task MAX_SERV_PORT_IP_PER_TASK</span></td>
+    <td>Specifies the maximum port number to use when auto-assigning service ports for IP-per-task applications. The default is 10100.</td>
+  </tr> 
+  <tr>
+    <td><span style="background-color: #D3D3D3">--syslog-socket SYSLOG_SOCKET</span></td>
+    <td>Specifies the socket to write syslog messages to. Use <span style="background-color: #D3D3D3">/dev/null</span> to disable logging to <span style="background-color: #D3D3D3">syslog</span>. The default is <span style="background-color: #D3D3D3">/dev/log</span>.</td>
+  </tr> 
+  <tr>
+    <td><span style="background-color: #D3D3D3">-log-format LOG_FORMAT</span></td>
+    <td>Sets the log message format. The default is <span style="background-color: #D3D3D3">%(asctime)-15s %(name)s: %(message)s</span>.</td>
+  </tr> 
+  <tr>
+    <td><span style="background-color: #D3D3D3">--log-level LOG_LEVEL</span></td>
+    <td>Sets the log level, The default is DEBUG.</td>
+  </tr> 
+  <tr>
+    <td><span style="background-color: #D3D3D3">--marathon-auth-credential-file MARATHON_AUTH_CREDENTIAL_FILE</span></td>
+    <td>Specifies the path to file containing a user name and password for the Marathon HTTP API in the format of <span style="background-color: #D3D3D3">user:pass</span>. The default is none.</td>
+  </tr> 
+  <tr>
+    <td><span style="background-color: #D3D3D3">--auth-credentials AUTH_CREDENTIALS</span></td>
+    <td>Specifies the user name and password for the Marathon HTTP API in the format of <span style="background-color: #D3D3D3">user:pass</span>. The default is none.</td>
+  </tr> 
+  <tr>
+    <td><span style="background-color: #D3D3D3">--dcos-auth-credentials DCOS_AUTH_CREDENTIALS</span></td>
+    <td>Specifies the DC/OS service account credentials. The default is none.</td>
+  </tr> 
+  <tr>
+    <td><span style="background-color: #D3D3D3">--dcos-auth-credentials DCOS_AUTH_CREDENTIALS</span></td>
+    <td>Specifies the DC/OS service account credentials. The default is none.</td>
+  </tr> 
+  <tr>
+    <td><span style="background-color: #D3D3D3">--marathon-ca-cert MARATHON_CA_CERT</span></td>
+    <td>Specifies the CA certificate for Marathon HTTPS connections. The default is none.</td>
+  </tr> 
+</table>
 
 # Template and label reference
 The following is a list of the available `HAProxy` configuration **templates**. Some templates are global-only (such as `HAPROXY_HEAD`), but most can be specified on a per service port basis as **app labels** to override the global settings.
