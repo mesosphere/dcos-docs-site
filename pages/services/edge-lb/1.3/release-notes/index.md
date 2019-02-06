@@ -9,6 +9,8 @@ enterprise: false
 
 These are the release notes for Edge-LB 1.3.
 
+# Edge-LB v1.3.0
+
 Released on February 6, 2019.
 
 # Noteworthy Changes
@@ -30,7 +32,7 @@ Released on February 6, 2019.
 
 # Bug Fixes
 
-- COPS-4272, DCOS-46189 - 	Edge-LB assets is missing on downloads site
+- COPS-4272, DCOS-46189 - Edge-LB assets is missing on downloads site
 - DCOS-46043 - Fix Edge-LB API Server's file comparison functions
 - DCOS-46510 - Edge-LB may create haproxy configuration with duplicate backends
 - DCOS-46837 - Framework scheduler can crash after installing
