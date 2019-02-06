@@ -29,6 +29,10 @@ The issues that have been fixed in DC/OS 1.12.2 are grouped by feature, function
 ## Command-Line Interface (CLI)
 - DCOS_OSS_3877, DCOS_OSS-4275 - The `dcos-diagnostics` command you use to create diagnostic bundles for logged information runs as the `root` user. Running the command to generate the diagnostic bundle using the root user account enables you to collect sensitive information that is only available to the superuser.
 
+## Installation
+- COPS-4263 - If you run the `dcos_generate_config` command with the `--validate` option, the command validates the configuration settings in your `config.yaml` file. In some cases, this option issued warning messages that validation failed for parameters that are no longer used. For example, some secure shell parameters, such and `ssh_key_path` and `ssh_user`, have been deprecated. Previously, if you ran `dcos_generate_config` with the `--validate` option to check your configuration settings and these parameters were not specified, the command reported that the 
+validation of configuration parameters had failed. With this release, the `--validate` option does not return validation failure messages for parameters that are no longer required for installation.
+
 ## Job Scheduling (Metronome)
 - DCOS_OSS-4717 - Diagnostic bundles include information about Metronome jobs.
 
@@ -62,7 +66,7 @@ The issues that have been fixed in DC/OS 1.12.2 are grouped by feature, function
 - DCOS_OSS-4679 - The metrics API for the `/containers` endpoint has been modified to include a timestamp that specifies when the metric returned was collected. The timestamp field is used to determine the age of the metric and to ensure cached metrics expire and are removed properly when the cache is refreshed. The timestamp prevents metrics from returning misleading 204 No Content HTTP responses.
 
 ## Networking
-- COPS-3585 - In previous releases, a deadlock or race condition might prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly. Problems with routing tables and network connectivitity can lead to the following issues:
+- COPS-3585 - In previous releases, a deadlock or race condition might prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly. Problems with routing tables and network connectivity can lead to the following issues:
     - Incomplete network overlay configuration on certain nodes.
     - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
     - DNS records that are missing on certain nodes.
