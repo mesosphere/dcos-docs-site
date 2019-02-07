@@ -288,6 +288,7 @@ Use the following template and app labels to configure backend settings for the 
 <th style="font-weight:bold">Template name</th>
 <th style="font-weight:bold">Description and examples</th>
 </tr>
+<tbody valign="top">
 <tr>
 <td><code>HAPROXY_BACKEND_HEAD</code></td><td>Defines the type of load balancing and the connection mode for a backend. The default load balancing type (algorithm) is <code>roundrobin</code>. The default connection mode is <code>tcp</code>.
 
@@ -510,6 +511,7 @@ The default template for `HAPROXY_TCP_BACKEND_NETWORK_ALLOWED_ACL` is:
 
 You can override this template with the following app label for the first port (`0`) of a given app: 
 <code>"HAPROXY_0_TCP_BACKEND_NETWORK_ALLOWED_ACL": "  acl network_allowed src {network_allowed}\n"</code></td></tr>
+</tbody>
 </table>
 
 ## Frontend template settings
@@ -524,6 +526,7 @@ Use the following template and app labels to configure frontend settings for the
 <th style="font-weight:bold">Template name</th>
 <th style="font-weight:bold">Description and examples</th>
 </tr>
+<tbody valign="top">
 <tr><td><code>HAPROXY_FRONTEND_BACKEND_GLUE </code></td><td>Glues the backend to the frontend. 
 
 The default template for `HAPROXY_FRONTEND_BACKEND_GLUE` is:
@@ -802,6 +805,7 @@ The default template for `HAPROXY_MAP_HTTP_FRONTEND_APPID_ACL` is:
 You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_MAP_HTTP_FRONTEND_APPID_ACL": "  use_backend %[req.hdr(x-marathon-app-id),lower,map({haproxy_dir}/app2backend.map)]\n"</code>
 </td></tr>
+</tbody>
 </table>
 
 ## User authentication list setting
@@ -816,6 +820,7 @@ Use the following template and app label to configure basic user name and passwo
 <th style="font-weight:bold">Template name</th>
 <th style="font-weight:bold">Description and examples</th>
 </tr>
+<tbody valign="top">
 <tr><td><code>HAPROXY_USERLIST_HEAD </code></td><td>Specifies the user list for HTTP Basic authentication. 
 
 The default template for `HAPROXY_USERLIST_HEAD` is:
@@ -824,6 +829,7 @@ The default template for `HAPROXY_USERLIST_HEAD` is:
 
 You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_USERLIST_HEAD": "\nuserlist user_{backend}\n  user {user} password {passwd}\n"</code></td></tr>
+</tbody>
 </table>
 
 ## Global header settings
@@ -838,6 +844,7 @@ Use the following template to configure default header settings for the load bal
 <th style="font-weight:bold">Template name</th>
 <th style="font-weight:bold">Description and examples</th>
 </tr>
+<tbody valign="top">
 <tr><td><code>HAPROXY_HEAD </code></td><td>Specifies header information for the HAProxy configuration file. This template contains global settings and defaults. This template cannot be overridden by service port or application-based settings.
 
 The default template for `HAPROXY_HEAD` is:
@@ -898,6 +905,7 @@ listen stats
   http-request use-service lua.signalmlbusr1 if signalmlbusr1
   </pre>
   </td></tr>
+</tbody>
 </table>
 
 ## Additional application labels
