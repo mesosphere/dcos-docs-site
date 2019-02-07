@@ -146,11 +146,11 @@ marathon_lb.py [-h] [--longhelp] [--marathon MARATHON [MARATHON ...]]
     <th style="font-weight:bold">Description</th>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">-m, --marathon MARATHON [MARATHON ...]</span></td>
-    <td>Specifies one or more Marathon endpoints. This argument specifies the location of the Marathon containers for Marathon-LB to use. The default endpoint is <span style="background-color: #D3D3D3">http://master.mesos:8080</span>. For example, you can use this argument to specify two Marathon instances like this: <span style="background-color: #D3D3D3">-m http://marathon1:8080 http://marathon2:8080</span>.</td>
+    <td><span style="background-color: #f2f2f2">-m, --marathon MARATHON [MARATHON ...]</span></td>
+    <td>Specifies one or more Marathon endpoints. This argument specifies the location of the Marathon containers for Marathon-LB to use. The default endpoint is <span style="background-color: #f2f2f2">http://master.mesos:8080</span>. For example, you can use this argument to specify two Marathon instances like this: <span style="background-color: #f2f2f2">-m http://marathon1:8080 http://marathon2:8080</span>.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--group GROUP</span></td>
+    <td><span style="background-color: #f2f2f2">--group GROUP</span></td>
     <td>Generates configuration information only for the apps with the specified group names. Use `*` to match all groups, including groups without a group name specified. The default is an empty string.</td>
   </tr>
 </table>
@@ -162,111 +162,111 @@ marathon_lb.py [-h] [--longhelp] [--marathon MARATHON [MARATHON ...]]
     <th style="font-weight:bold">Description</th>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">-h, --help</span></td>
+    <td><span style="background-color: #f2f2f2">-h, --help</span></td>
     <td>Show this help message and exit.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--longhelp</span></td>
+    <td><span style="background-color: #f2f2f2">--longhelp</span></td>
     <td>Print out configuration details. The default is false.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--haproxy-config HAPROXY_CONFIG</span></td>
-    <td>Specifies the location of the `haproxy` configuration file. The default is <span style="background-color: #D3D3D3">/etc/haproxy/haproxy.cfg</span></td>.
+    <td><span style="background-color: #f2f2f2">--haproxy-config HAPROXY_CONFIG</span></td>
+    <td>Specifies the location of the `haproxy` configuration file. The default is <span style="background-color: #f2f2f2">/etc/haproxy/haproxy.cfg</span></td>.
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--command COMMAND, -c COMMAND</span></td>
+    <td><span style="background-color: #f2f2f2">--command COMMAND, -c COMMAND</span></td>
     <td>If set, run this command to reload haproxy. The default is none.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--max-reload-retries MAX_RELOAD_RETRIES</span></td>
-    <td>Specifies the maximum number if reload retries before failure. Reloads happen every <span style="background-color: #D3D3D3">--reload-interval</span> seconds. Set to 0 to disable reloading attempts or -1 for infinite retries. The default is 10.</td>
+    <td><span style="background-color: #f2f2f2">--max-reload-retries MAX_RELOAD_RETRIES</span></td>
+    <td>Specifies the maximum number if reload retries before failure. Reloads happen every <span style="background-color: #f2f2f2">--reload-interval</span> seconds. Set to 0 to disable reloading attempts or -1 for infinite retries. The default is 10.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--reload-interval RELOAD_INTERVAL</span></td>
+    <td><span style="background-color: #f2f2f2">--reload-interval RELOAD_INTERVAL</span></td>
     <td>Waits the specified number of seconds between reload retries. The default is 10.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--strict-mode</span></td>
-    <td>Enables backends to be advertised only if <span style="background-color: #D3D3D3">HAPROXY_{n}_ENABLED=true</span>. Strict mode might be enabled by default in a future release. The default is false.</td>
+    <td><span style="background-color: #f2f2f2">--strict-mode</span></td>
+    <td>Enables backends to be advertised only if <span style="background-color: #f2f2f2">HAPROXY_{n}_ENABLED=true</span>. Strict mode might be enabled by default in a future release. The default is false.</td>
   </tr>
    <tr>
-    <td><span style="background-color: #D3D3D3">--sse, -s</span></td>
+    <td><span style="background-color: #f2f2f2">--sse, -s</span></td>
     <td>Uses server-sent events. The default is false.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--archive-versions ARCHIVE_VERSIONS</span></td>
+    <td><span style="background-color: #f2f2f2">--archive-versions ARCHIVE_VERSIONS</span></td>
     <td>Specifies the number of configuration versions to archive. The default is 5.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--health-check, -H</span></td>
+    <td><span style="background-color: #f2f2f2">--health-check, -H</span></td>
     <td>Determines Marathon's health check status before adding the app instance into the backend pool. The default is false.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--lru-cache-capacity LRU_CACHE_CAPACITY</span></td>
+    <td><span style="background-color: #f2f2f2">--lru-cache-capacity LRU_CACHE_CAPACITY</span></td>
     <td>Specifies the LRU cache size (in number of items). This argument should be at least as large as the number of tasks exposed to marathon-lb. The default is 1000.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--haproxy-map</span></td>
+    <td><span style="background-color: #f2f2f2">--haproxy-map</span></td>
     <td>Uses HAProxy maps for domain name to backend mapping. The default is false.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--dont-bind-http-https</span></td>
+    <td><span style="background-color: #f2f2f2">--dont-bind-http-https</span></td>
     <td>Prevents binding to HTTP and HTTPS frontends. The default is false.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--group-https-by-vhost</span></td>
+    <td><span style="background-color: #f2f2f2">--group-https-by-vhost</span></td>
     <td>Groups https frontends by virtual host. The default is false.</td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--ssl-certs SSL_CERTS</span></td>
-    <td>Lists SSL certificates separated by commas for frontend <span style="background-color: #D3D3D3">marathon_https_in</span>. The default is <span style="background-color: #D3D3D3">/etc/ssl/cert.pem</span>. For example: <span style="background-color: #D3D3D3">/etc/ssl/site1.co.pem,/etc/ssl/site2.co.pem</span></td>
+    <td><span style="background-color: #f2f2f2">--ssl-certs SSL_CERTS</span></td>
+    <td>Lists SSL certificates separated by commas for frontend <span style="background-color: #f2f2f2">marathon_https_in</span>. The default is <span style="background-color: #f2f2f2">/etc/ssl/cert.pem</span>. For example: <span style="background-color: #f2f2f2">/etc/ssl/site1.co.pem,/etc/ssl/site2.co.pem</span></td>
   </tr>
   <tr>
-    <td><span style="background-color: #D3D3D3">--skip-validation</span></td>
+    <td><span style="background-color: #f2f2f2">--skip-validation</span></td>
     <td>Skips haproxy configuration file validation. The default is false.</td>
   </tr> 
   <tr>
-    <td><span style="background-color: #D3D3D3">--dry, -d</span></td>
+    <td><span style="background-color: #f2f2f2">--dry, -d</span></td>
     <td>Only prints configuration information to the console. The default is false.</td>
   </tr> 
   <tr>
-    <td><span style="background-color: #D3D3D3">--min-serv-port-ip-per-task MIN_SERV_PORT_IP_PER_TASK</span></td>
+    <td><span style="background-color: #f2f2f2">--min-serv-port-ip-per-task MIN_SERV_PORT_IP_PER_TASK</span></td>
     <td>Specifies the minimum port number to use when auto-assigning service ports for IP-per-task applications. The default is 10050.</td>
   </tr> 
   <tr>
-    <td><span style="background-color: #D3D3D3">--max-serv-port-ip-per-task MAX_SERV_PORT_IP_PER_TASK</span></td>
+    <td><span style="background-color: #f2f2f2">--max-serv-port-ip-per-task MAX_SERV_PORT_IP_PER_TASK</span></td>
     <td>Specifies the maximum port number to use when auto-assigning service ports for IP-per-task applications. The default is 10100.</td>
   </tr> 
   <tr>
-    <td><span style="background-color: #D3D3D3">--syslog-socket SYSLOG_SOCKET</span></td>
-    <td>Specifies the socket to write syslog messages to. Use <span style="background-color: #D3D3D3">/dev/null</span> to disable logging to <span style="background-color: #D3D3D3">syslog</span>. The default is <span style="background-color: #D3D3D3">/dev/log</span>.</td>
+    <td><span style="background-color: #f2f2f2">--syslog-socket SYSLOG_SOCKET</span></td>
+    <td>Specifies the socket to write syslog messages to. Use <span style="background-color: #f2f2f2">/dev/null</span> to disable logging to <span style="background-color: #f2f2f2">syslog</span>. The default is <span style="background-color: #f2f2f2">/dev/log</span>.</td>
   </tr> 
   <tr>
-    <td><span style="background-color: #D3D3D3">-log-format LOG_FORMAT</span></td>
-    <td>Sets the log message format. The default is <span style="background-color: #D3D3D3">%(asctime)-15s %(name)s: %(message)s</span>.</td>
+    <td><span style="background-color: #f2f2f2">-log-format LOG_FORMAT</span></td>
+    <td>Sets the log message format. The default is <span style="background-color: #f2f2f2">%(asctime)-15s %(name)s: %(message)s</span>.</td>
   </tr> 
   <tr>
-    <td><span style="background-color: #D3D3D3">--log-level LOG_LEVEL</span></td>
+    <td><span style="background-color: #f2f2f2">--log-level LOG_LEVEL</span></td>
     <td>Sets the log level, The default is DEBUG.</td>
   </tr> 
   <tr>
-    <td><span style="background-color: #D3D3D3">--marathon-auth-credential-file MARATHON_AUTH_CREDENTIAL_FILE</span></td>
-    <td>Specifies the path to file containing a user name and password for the Marathon HTTP API in the format of <span style="background-color: #D3D3D3">user:pass</span>. The default is none.</td>
+    <td><span style="background-color: #f2f2f2">--marathon-auth-credential-file MARATHON_AUTH_CREDENTIAL_FILE</span></td>
+    <td>Specifies the path to file containing a user name and password for the Marathon HTTP API in the format of <span style="background-color: #f2f2f2">user:pass</span>. The default is none.</td>
   </tr> 
   <tr>
-    <td><span style="background-color: #D3D3D3">--auth-credentials AUTH_CREDENTIALS</span></td>
-    <td>Specifies the user name and password for the Marathon HTTP API in the format of <span style="background-color: #D3D3D3">user:pass</span>. The default is none.</td>
+    <td><span style="background-color: #f2f2f2">--auth-credentials AUTH_CREDENTIALS</span></td>
+    <td>Specifies the user name and password for the Marathon HTTP API in the format of <span style="background-color: #f2f2f2">user:pass</span>. The default is none.</td>
   </tr> 
   <tr>
-    <td><span style="background-color: #D3D3D3">--dcos-auth-credentials DCOS_AUTH_CREDENTIALS</span></td>
+    <td><span style="background-color: #f2f2f2">--dcos-auth-credentials DCOS_AUTH_CREDENTIALS</span></td>
     <td>Specifies the DC/OS service account credentials. The default is none.</td>
   </tr> 
   <tr>
-    <td><span style="background-color: #D3D3D3">--dcos-auth-credentials DCOS_AUTH_CREDENTIALS</span></td>
+    <td><span style="background-color: #f2f2f2">--dcos-auth-credentials DCOS_AUTH_CREDENTIALS</span></td>
     <td>Specifies the DC/OS service account credentials. The default is none.</td>
   </tr> 
   <tr>
-    <td><span style="background-color: #D3D3D3">--marathon-ca-cert MARATHON_CA_CERT</span></td>
+    <td><span style="background-color: #f2f2f2">--marathon-ca-cert MARATHON_CA_CERT</span></td>
     <td>Specifies the CA certificate for Marathon HTTPS connections. The default is none.</td>
   </tr> 
 </table>
