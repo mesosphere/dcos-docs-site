@@ -163,7 +163,7 @@ In this tutorial, you create a custom Docker app and add it to Marathon.
     
 # Next steps
 
-Learn how to load balance your app on a public node using [Marathon-LB](/services/marathon-lb/marathon-lb-basic-tutorial/).
+Learn how to load balance your app on a public node using [Marathon-LB](/services/marathon-lb/mlb-basic-tutorial/).
     
 
  [1]: https://www.docker.com

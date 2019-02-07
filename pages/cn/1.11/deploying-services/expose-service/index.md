@@ -89,4 +89,4 @@ DC/OS 代理节点在 [安装](/cn/1.11/installing/)过程中可被指定为[公
 
 ## 后续步骤
 
-了解如何使用 [Marathon-LB](/cn/1.11/networking/marathon-lb/marathon-lb-basic-tutorial/) 在公共节点上对应用程序进行负载均衡。
+了解如何使用 [Marathon-LB](/cn/1.11/networking/marathon-lb/mlb-basic-tutorial/) 在公共节点上对应用程序进行负载均衡。
