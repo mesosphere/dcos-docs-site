@@ -37,7 +37,7 @@ You can add your own custom templates to the Docker image directly, or provide t
 ## Overriding settings using app labels
 Most of the Marathon-LB template settings can be overridden using app labels. By using app labels, you can override template settings per service port. App labels are specified in the Marathon app definition. For example, the following app definition excerpt uses app labels to specify the `external` load balancing group for an application with a virtual host named `service.mesosphere.com`:
 
-<pre>
+```json
 {
   "id": "http-service",
   "labels": {
@@ -45,11 +45,11 @@ Most of the Marathon-LB template settings can be overridden using app labels. By
     "HAPROXY_0_VHOST":"service.mesosphere.com"
   }
 }
-</pre>
+```
 
 The following example illustrates settings for a service called `http-service` that requires `http-keep-alive` to be disabled:
 
-<pre>
+```json
 {
   "id": "http-service",
   "labels":{
@@ -57,7 +57,7 @@ The following example illustrates settings for a service called `http-service` t
     "HAPROXY_0_BACKEND_HTTP_OPTIONS":"  option forwardfor\n  no option http-keep-alive\n  http-request set-header X-Forwarded-Port %[dst_port]\n  http-request add-header X-Forwarded-Proto https if { ssl_fc }\n"
   }
 }
-</pre>
+```
 
 ### Specifying strings in app labels
 In specifying labels for load balancing, keep in mind that strings are interpreted as literal `HAProxy` configuration parameters, with substitutions respected. The `HAProxy` configuration file settings are validated before reloading the `HAProxy` program after you make changes. Because the configuration is checked before reloading, problems with `HAProxy` labels can prevent the `HAProxy` service from restarting with the updated configuration.
@@ -84,10 +84,10 @@ To create a custom global template:
 
 1. On your local computer, create a file called `HAPROXY_HEAD` in a directory called `templates` using commands similar to the following: 
 
-  ``` bash
-  mkdir -p templates
-  cat > templates/HAPROXY_HEAD
-  ```
+    ```bash
+    mkdir -p templates
+    cat > templates/HAPROXY_HEAD
+    ```
 
 1. Open the `HAPROXY_HEAD` file and add content similar to the following:
 
@@ -168,7 +168,7 @@ To create a custom global template:
 
     For example, you might create a new file called `marathon-lb-template-options.json` with the following lines:
 
-    ```
+    ```bash
     {
       "marathon-lb": {
         "template-url":"https://downloads.mesosphere.com/marathon/marathon-lb/templates.tgz"
@@ -178,7 +178,7 @@ To create a custom global template:
 
 1. Restart Marathon-LB with the new configuration settings:
 
-    ```
+    ```bash
     dcos package install marathon-lb --options=marathon-lb-template-options.json --yes
     ```
 
@@ -188,7 +188,8 @@ To create a custom global template:
 To create a template for an individual app, modify the application definition. In the example below, the default template for the external NGINX application definition (`nginx-external.json`) has been modified to disable HTTP keep-alive. While this is an artificial example, there may be cases where you need to override certain defaults on a per-application basis.
 
 1. Copy the following lines into the `nginx-external.json` app definition file:
-    ```
+
+    ```json
     {
         "id": "nginx-external",
         "container": {
@@ -223,7 +224,7 @@ To create a template for an individual app, modify the application definition. I
 
 1. Deploy the external NGINX app on DC/OS using the following command:
 
-    ``` bash
+    ```bash
     dcos marathon app add nginx-external.json
     ```
 
@@ -234,7 +235,7 @@ Other options you might want to specify using customized app definition labels i
 
 For example:
 
-```
+```json
    "labels":{
       "HAPROXY_0_STICKY":"true",
       "HAPROXY_0_REDIRECT_TO_HTTPS":"true",
@@ -264,7 +265,7 @@ You can specify multiple SSL certificates per frontend. You can include the addi
 
 If you do not specify at least one SSL certificate, Marathon-LB generates a self-signed certificate at startup. If you are using multiple SSL certificates, you can select the SSL certificate per app service port by specifying the `HAPROXY_{n}_SSL_CERT` app label that corresponds to the file path for the SSL certificates you want to use. For example, you might have:
 
-```
+```json
    "labels": {
       "HAPROXY_0_VHOST":"nginx.mesosphere.com",
       "HAPROXY_0_SSL_CERT":"/etc/ssl/certs/nginx.mesosphere.com"
@@ -277,24 +278,22 @@ The SSL certificates must be pre-loaded into the container for Marathon-LB to lo
 The following examples illustrate some common load balancer operational behavior and corresponding configuration settings. For simplicity, the examples only provide relevant segments of JSON configuration settings rather than complete JSON application defintions.
 
 ## Adding HTTP headers to the health check
-The following example adds the Host header to the health check executed by HAProxy:
+The following code example adds the Host header to the health check executed by HAProxy:
 
-```
+```json
 {
-  ```
   "id":"app",
   "labels": {
     "HAPROXY_GROUP": "external",
     "HAPROXY_0_BACKEND_HTTP_HEALTHCHECK_OPTIONS": "  option  httpchk GET {healthCheckPath} HTTP/1.1\\r\\nHost:\\ www\n  timeout check {healthCheckTimeoutSeconds}s\n"
   }
-  ```
 }
 ```
 
 ## Setting timeout for long-lived socket connections
 If you're trying to run a TCP service that uses long-lived sockets through HAProxy, such as a MySQL instance, you should set longer timeouts for the backend. The following example sets the client and server timeout to 30 minutes for the specified backend.
 
-```
+```json
 {
   "id":"app",
   "labels":{
@@ -309,7 +308,7 @@ In some cases, you might want to allow an Elastic Load Balancer (ELB) to termina
 
 The following configuration setting illustrates how to have Marathon-LB generate a backend rule that looks for the X-Forwarded-Proto header or a regular TLS connection and redirects the request if neither are specified.
 
-```
+```json
 "labels": {
   "HAPROXY_0_BACKEND_HTTP_OPTIONS": "  acl is_proxy_https hdr(X-Forwarded-Proto) https\n  redirect scheme https unless { ssl_fc } or is_proxy_https\n"
 }
@@ -318,7 +317,7 @@ The following configuration setting illustrates how to have Marathon-LB generate
 ## Disabling service port binding
 If you do not want Marathon-LB to listen on service ports, the following example illustrates how you can disable the frontend definitions:
 
-```
+```json
  {
     "labels": {
       "HAPROXY_GROUP": "external",
@@ -334,12 +333,11 @@ To create a virtual host or hosts the `HAPROXY_{n}_VHOST` label needs to be set 
 
 All applications are also exposed on port 9091, using the X-Marathon-App-Id HTTP header. For more information, see `HAPROXY_HTTP_FRONTEND_APPID_HEAD` in the templates section.
 
-You can access the HAProxy statistics using the `haproxy_sta
-ts` endpoint, and you can retrieve the current HAProxy configuration settings from the `haproxy_getconfig` endpoint.
+You can access the HAProxy statistics using the `haproxy_stats` endpoint, and you can retrieve the current HAProxy configuration settings from the `haproxy_getconfig` endpoint.
 
-If you want all subdomains for a given domain to resolve to a particular backend (for example, HTTP and HTTPS), use the following labels. Note that there is a period (.) required before the {hostname} in the `HAPROXY_0_HTTPS_FRONTEND_ACL` label. Note that you should disable virtual host mapping by removing the `--haproxy-map` argument, if you have not previously removed it.
+If you want all subdomains for a given domain to resolve to a particular backend (for example, HTTP and HTTPS), use the following labels. Note that there is a period (.) required before the `{hostname}` in the `HAPROXY_0_HTTPS_FRONTEND_ACL` label. Note that you should disable virtual host mapping by removing the `--haproxy-map` argument, if you have not previously removed it.
 
-```
+```json
 {
   "labels": {
     "HAPROXY_0_BACKEND_WEIGHT": "-1",
@@ -357,116 +355,120 @@ HAProxy uses socket-based logging. It is configured by default to log informatio
 After you enable logging, you can examine the log file results with the `journalctl` facility.
 
 1. Mount the volume into your /marathon-lb app:
-  ```
-  {
-    "id": "/marathon-lb",
-    "container": {
-      "type": "DOCKER",
-      "volumes": [
-        {
-          "containerPath": "/dev/log",
-          "hostPath": "/dev/log",
-          "mode": "RW"
+
+    ```json
+    {
+      "id": "/marathon-lb",
+      "container": {
+        "type": "DOCKER",
+        "volumes": [
+          {
+            "containerPath": "/dev/log",
+            "hostPath": "/dev/log",
+            "mode": "RW"
+          }
+        ],
+        "docker": {
+          "image": "mesosphere/marathon-lb:latest",
+          "network": "HOST",
+          "privileged": true,
+          "parameters": [],
+          "forcePullImage": true
         }
-      ],
-      "docker": {
-        "image": "mesosphere/marathon-lb:latest",
-        "network": "HOST",
-        "privileged": true,
-        "parameters": [],
-        "forcePullImage": true
       }
     }
-  }
-  ```
+    ```
 
 1. Set option `httplog` on one backend to enable logging. In this example, the backend is `my_crappy_website`:
 
-  ```
-  {
-    "id": "/my-crappy-website",
-    "cmd": null,
-    "cpus": 0.5,
-    "mem": 64,
-    "disk": 0,
-    "instances": 2,
-    "container": {
-      "type": "DOCKER",
-      "volumes": [],
-      "docker": {
-        "image": "brndnmtthws/my-crappy-website",
-        "network": "BRIDGE",
-        "portMappings": [
-          {
-            "containerPort": 80,
-            "hostPort": 0,
-            "servicePort": 10012,
-            "protocol": "tcp",
-            "labels": {}
-          }
-        ],
-        "privileged": false,
-        "parameters": [],
-        "forcePullImage": true
-      }
-    },
-    "healthChecks": [
-      {
-        "path": "/",
-        "protocol": "HTTP",
-        "portIndex": 0,
-        "gracePeriodSeconds": 10,
-        "intervalSeconds": 15,
-        "timeoutSeconds": 2,
-        "maxConsecutiveFailures": 3,
-        "ignoreHttp1xx": false
-      }
-    ],
-    "labels": {
-      "HAPROXY_0_USE_HSTS": "true",
-      "HAPROXY_0_REDIRECT_TO_HTTPS": "true",
-      "HAPROXY_GROUP": "external",
-      "HAPROXY_0_BACKEND_HTTP_OPTIONS": "  option httplog\n  option forwardfor\n  http-request set-header X-Forwarded-Port %[dst_port]\n  http-request add-header X-Forwarded-Proto https if { ssl_fc }\n",
-      "HAPROXY_0_VHOST": "diddyinc.com,www.diddyinc.com"
-    },
-    "portDefinitions": [
-      {
-        "port": 10012,
-        "protocol": "tcp",
-        "labels": {}
-      }
-    ]
-  }
-  ```
+    ```json
+    {
+      "id": "/my-crappy-website",
+      "cmd": null,
+      "cpus": 0.5,
+      "mem": 64,
+      "disk": 0,
+      "instances": 2,
+      "container": {
+        "type": "DOCKER",
+        "volumes": [],
+        "docker": {
+          "image": "brndnmtthws/my-crappy-website",
+          "network": "BRIDGE",
+          "portMappings": [
+            {
+              "containerPort": 80,
+              "hostPort": 0,
+              "servicePort": 10012,
+              "protocol": "tcp",
+              "labels": {}
+            }
+          ],
+          "privileged": false,
+          "parameters": [],
+          "forcePullImage": true
+        }
+      },
+      "healthChecks": [
+        {
+          "path": "/",
+          "protocol": "HTTP",
+          "portIndex": 0,
+          "gracePeriodSeconds": 10,
+          "intervalSeconds": 15,
+          "timeoutSeconds": 2,
+          "maxConsecutiveFailures": 3,
+          "ignoreHttp1xx": false
+        }
+      ],
+      "labels": {
+        "HAPROXY_0_USE_HSTS": "true",
+        "HAPROXY_0_REDIRECT_TO_HTTPS": "true",
+        "HAPROXY_GROUP": "external",
+        "HAPROXY_0_BACKEND_HTTP_OPTIONS": "  option httplog\n  option forwardfor\n  http-request set-header X-Forwarded-Port %[dst_port]\n  http-request add-header X-Forwarded-Proto https if { ssl_fc }\n",
+        "HAPROXY_0_VHOST": "diddyinc.com,www.diddyinc.com"
+      },
+      "portDefinitions": [
+        {
+          "port": 10012,
+          "protocol": "tcp",
+          "labels": {}
+        }
+      ]
+    }
+    ```
 
-  Enabling the `httplog` option only affects the backend for the service port. To enable logging for ports 80 and 443, you must modify the global HAProxy template.
+      Enabling the `httplog` option only affects the backend for the service port. To enable logging for ports 80 and 443, you must modify the global HAProxy template.
+
 1. Open a secure shell (SSH) on any public agent node.
+
 1. View the logs using `journalctl`:
 
-  ```
-  journalctl -f -l SYSLOG_IDENTIFIER=haproxy
-  ```
+    ```bash
+    journalctl -f -l SYSLOG_IDENTIFIER=haproxy
+    ```
 
 ## Adding a custom HAProxy error response
 You can specify a custom HAProxy error response by overriding the default errorfile directive in a template or an app definition label. For example, you could customize the template to return a redirect to a different backend if no backends are available. 
 
 To illustrate using a custom error response:
 1. Open the application definition file for the application.
+
 1. Add a template URI to your Marathon-LB app definition like this:
 
-  ```
-  {
-      "id":"/marathon-lb",
-      "fetch":["https://downloads.mesosphere.com/marathon/marathon-lb/templates-custom-500-response.tar.gz"]
-    }
-  ```
+    ```json
+    {
+        "id":"/marathon-lb",
+        "fetch":["https://downloads.mesosphere.com/marathon/marathon-lb/templates-custom-500-response.tar.gz"]
+      }
+    ```
 
-  This example returns a custom 503 page by updating the `templates/500.http` file within the `templates-custom-500-response.tar.gz` archive file.  Alternatively, you could return a redirect to a URI by updating the `templates-custom-500-response.tar.gz` archive file like this:
+    This example returns a custom 503 page by updating the `templates/500.http` file within the `templates-custom-500-response.tar.gz` archive file.  Alternatively, you could return a redirect to a URI by updating the `templates-custom-500-response.tar.gz` archive file like this:
 
-  ```
-  HTTP/1.1 302 Found
-  Location: http://my-redirect-handler.computers.com/
-  ```
+    ```bash
+    HTTP/1.1 302 Found
+    Location: http://my-redirect-handler.computers.com/
+    ```
 
 ## Using HAProxy maps for backend lookup
 You can use HAProxy maps to speed up virtual hosts to backend lookup requests.
@@ -475,7 +477,7 @@ This configuration setting is very useful for large installations where the trad
 
 You can add HAProxy maps for Marathon-LB by using the `--haproxy-map` flag. For example:
 
-```
+```bash
 ./marathon_lb.py --marathon http://localhost:8080 --group external --haproxy-map
 ```
 This command creates a lookup dictionary for the host header (both HTTP and HTTPS) and X-Marathon-App-Id header. For path-based routing and authentication, Marathon-LB continues to use the backend rules comparison.
@@ -492,7 +494,7 @@ You should consider using a dedicated load balancer in front of Marathon-LB to s
 
 Use separate Marathon-LB groups (specified with the `–group` option) for internal and external load balancing. On DC/OS, the default group is `external`. The basic configuration setting for an internal load balancer would be:
 
-```
+```json
  {
     "marathon-lb": {
       "name": "marathon-lb-internal",
@@ -522,13 +524,13 @@ For example, if you want to configure access to an app with the ID tweeter:
 
 1. From the master node, run the following command:
 
-    ``` bash
+    ```bash
     curl -vH “X-Marathon-App-Id: /tweeter” marathon-lb.marathon.mesos:9091/
     ```
 
 1. Review the connection result.
 
-    ```
+    ```bash
     $ curl -vH "X-Marathon-App-Id: /tweeter" marathon-lb.marathon.mesos:9091/
     *   Trying 10.0.5.190...
     * TCP_NODELAY set
@@ -554,7 +556,7 @@ For example, if you want to configure access to an app with the ID tweeter:
 ## Collecting container and HAProxy information
 You can collect detailed information about containers and HAProxy activity to analyze and troubleshoot operations, identify potential problems, and view connections for frontends and backends. You collect this information by setting the `HAPROXY_SYSLOGD` environment variable or the `container-syslogd` value in a custom `options.json` file like this:
 
-```
+```json
   {
     "marathon-lb": {
       "container-syslogd": true
