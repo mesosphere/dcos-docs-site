@@ -25,7 +25,7 @@ Released on February 6, 2019.
 
 # Features
 
-- Expose tasks without specifying ports
+- Expose task without pre-defined mesos-assinged ports
 - Dynamic allocation of the HAProxy STATS port
 - Dynamic allocation of the HAProxy Frontend port
 - Scale down Edge-LB pool instances
