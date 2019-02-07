@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Marathon-LB Reference
-title: Marathon-LB Reference
+navigationTitle:  Reference information
+title: Reference information
 menuWeight: 50
 excerpt: Marathon-LB endpoints, command-line reference, and configuration templates and labels
 enterprise: false
@@ -276,6 +276,9 @@ The following is a list of the available `HAProxy` configuration **templates**. 
 
 The templates and app labels that can be set per-service-port include an index identifier {n} in the template or label name. The index identifier corresponds to the service port index, beginning at 0, to which the app label applies. For example, you could specify `HAPROXY_0_BACKEND_HEAD` to override the global template `HAPROXY_BACKUP_HEAD` for the first port of a given application.
 
+## Backend template settings
+Use the following template and app labels to configure backend settings for the load balancer.
+
 <table class="table" style="table-layout: fixed">
 <colgroup>
     <col span="1" width="45px">
@@ -444,6 +447,83 @@ The following example sets a timeout check:
 You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_BACKEND_TCP_HEALTHCHECK_OPTIONS": ""</code></td></tr>
 
+<tr><td><code>HAPROXY_HTTPS_GROUPED<br>_VHOST_BACKEND_HEAD </code></td><td>Defines the HTTPS backend for vhost. 
+
+You must enable the `group-https-by-vhost` option to use this setting. This template is a global template that cannot be modified by service port or per application.
+
+The default template for `HAPROXY_HTTPS_GROUPED_VHOST_BACKEND_HEAD` is:
+<code>backend {name}
+  server loopback-for-tls abns@{name} send-proxy-v2</code></td></tr>
+
+<tr><td><code>HAPROXY_HTTP_BACKEND<br>_ACL_ALLOW_DENY </code></td><td>Denies access for all IP addresses (or IP ranges) that are not explicitly allowed to access the HTTP backend. Use this template with HAPROXY_HTTP_BACKEND_NETWORK_ALLOWED_ACL. This template is a global template that cannot be modified by service port or per application. 
+
+The default template for `HAPROXY_HTTP_BACKEND_ACL_ALLOW_DENY` is:
+<code> http-request allow if network_allowed
+  http-request deny</code></td></tr>
+
+<tr><td><code>HAPROXY_HTTP_BACKEND<br>_NETWORK_ALLOWED_ACL </code></td><td>Specifies the IP addresses (or IP  ranges) that have access to the HTTP backend. This template is a global template that cannot be modified by service port or per application. 
+
+The default template for `HAPROXY_HTTP_BACKEND_NETWORK_ALLOWED_ACL` is:
+<code>acl network_allowed src {network_allowed}</code>
+
+You can override this template with the following app label for the first port (`0`) of a given app:
+<code>"HAPROXY_0_HTTP_BACKEND_NETWORK_ALLOWED_ACL": "  acl network_allowed src {network_allowed}\n"</code></td></tr>
+
+<tr><td><code>HAPROXY_HTTP_BACKEND<br>_PROXYPASS_GLUE</code></td><td>Specifies the backend glue for HAPROXY_{n}_HTTP_BACKEND_PROXYPASS_PATH. 
+
+The default template for `HAPROXY_HTTP_BACKEND_PROXYPASS_GLUE` is:
+<code>http-request set-header Host {hostname}
+  reqirep  "^([^ :]*)\ {proxypath}/?(.*)" "\1\ /\2" </code>
+
+You can override this template with the following app label for the first port (`0`)of a given app:
+<code>"HAPROXY_0_HTTP_BACKEND_PROXYPASS_GLUE": "  http-request set-header Host {hostname}\n  reqirep  \"^([^ :]*)\\ {proxypath}/?(.*)\" \"\\1\\ /\\2\"\n"</code></td></tr>
+
+<tr><td><code>HAPROXY_HTTP_BACKEND_REDIR </code></td><td>Sets the path to which you want to redirect the root of the domain. 
+
+The default template for `HAPROXY_HTTP_BACKEND_REDIR` is:
+<code>acl is_root path -i /
+  acl is_domain hdr(host) -i {hostname}
+  redirect code 301 location {redirpath} if is_domain is_root</code>
+
+You can override this template with the following app label for the first port (`0`) of a given app:
+<code>"HAPROXY_0_HTTP_BACKEND_REDIR": "  acl is_root path -i /\n  acl is_domain hdr(host) -i {hostname}\n  redirect code 301 location {redirpath} if is_domain is_root\n"</code></td></tr>
+
+<tr><td><code>HAPROXY_HTTP_BACKEND<br>_REVPROXY_GLUE </code></td><td>Specifies the backend glue for HAPROXY_{n}_HTTP_BACKEND_REVPROXY_PATH. 
+
+The default template for `HAPROXY_HTTP_BACKEND_REVPROXY_GLUE` is:
+<code>acl hdr_location res.hdr(Location) -m found
+  rspirep "^Location: (https?://{hostname}(:[0-9]+)?)?(/.*)" "Location:   {rootpath} if hdr_location"</code>
+
+You can override this template with the following app label for the first port (`0`)of a given app:
+<code>"HAPROXY_0_HTTP_BACKEND_REVPROXY_GLUE": "  acl hdr_location res.hdr(Location) -m found\n  rspirep \"^Location: (https?://{hostname}(:[0-9]+)?)?(/.*)\" \"Location:   {rootpath} if hdr_location\"\n"</code></td></tr>
+
+<tr><td><code>HAPROXY_TCP_BACKEND<br>_ACL_ALLOW_DENY </code></td><td>Denies access for all IP addresses (or IP address ranges) that are not explicitly allowed to access the TCP backend. This global template cannot be overridden by service port or application. 
+
+The default template for `HAPROXY_TCP_BACKEND_ACL_ALLOW_DENY` is:
+<code>tcp-request content accept if network_allowed
+  tcp-request content reject</code></td></tr>
+
+<tr><td><code>HAPROXY_TCP_BACKEND<br>_NETWORK_ALLOWED_ACL </code></td><td>Specifies the IP addresses (or IP address ranges) that have been granted access to the TCP backend. 
+
+The default template for `HAPROXY_TCP_BACKEND_NETWORK_ALLOWED_ACL` is:
+<code>acl network_allowed src {network_allowed}</code>
+
+You can override this template with the following app label for the first port (`0`) of a given app: 
+<code>"HAPROXY_0_TCP_BACKEND_NETWORK_ALLOWED_ACL": "  acl network_allowed src {network_allowed}\n"</code></td></tr>
+</table>
+
+## Frontend template settings
+Use the following template and app labels to configure frontend settings for the load balancer.
+
+<table class="table" style="table-layout: fixed">
+<colgroup>
+    <col span="1" width="45px">
+    <col span="1" width="80px">
+</colgroup>
+<tr>
+<th style="font-weight:bold">Template name</th>
+<th style="font-weight:bold">Description and examples</th>
+</tr>
 <tr><td><code>HAPROXY_FRONTEND_BACKEND_GLUE </code></td><td>Glues the backend to the frontend. 
 
 The default template for `HAPROXY_FRONTEND_BACKEND_GLUE` is:
@@ -461,67 +541,6 @@ The default template for `HAPROXY_FRONTEND_HEAD` is:
 
 You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_FRONTEND_HEAD": "\nfrontend {backend}\n  bind {bindAddr}:{servicePort}{sslCert}{bindOptions}\n  mode {mode}\n"</code></td></tr>
-
-<tr><td><code>HAPROXY_HEAD </code></td><td>Specifies header information for the HAProxy configuration file. This template contains global settings and defaults. This template cannot be overridden by service port or application-based settings.
-
-The default template for `HAPROXY_HEAD` is:
-<pre>
-global
-  log /dev/log local0
-  log /dev/log local1 notice
-  spread-checks 5
-  max-spread-checks 15000
-  maxconn 50000
-  tune.ssl.default-dh-param 2048
-  ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:!aNULL:!MD5:!DSS
-  ssl-default-bind-options no-sslv3 no-tlsv10 no-tls-tickets
-  ssl-default-server-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:!aNULL:!MD5:!DSS
-  ssl-default-server-options no-sslv3 no-tlsv10 no-tls-tickets
-  stats socket /var/run/haproxy/socket expose-fd listeners
-  server-state-file global
-  server-state-base /var/state/haproxy/
-  lua-load /marathon-lb/getpids.lua
-  lua-load /marathon-lb/getconfig.lua
-  lua-load /marathon-lb/getmaps.lua
-  lua-load /marathon-lb/signalmlb.lua
-defaults
-  load-server-state-from-file global
-  log               global
-  retries                   3
-  backlog               10000
-  maxconn               10000
-  timeout connect          3s
-  timeout client          30s
-  timeout server          30s
-  timeout tunnel        3600s
-  timeout http-keep-alive  1s
-  timeout http-request    15s
-  timeout queue           30s
-  timeout tarpit          60s
-  option            dontlognull
-  option            http-server-close
-  option            redispatch
-listen stats
-  bind 0.0.0.0:9090
-  balance
-  mode http
-  stats enable
-  monitor-uri /_haproxy_health_check
-  acl getpid path /_haproxy_getpids
-  http-request use-service lua.getpids if getpid
-  acl getvhostmap path /_haproxy_getvhostmap
-  http-request use-service lua.getvhostmap if getvhostmap
-  acl getappmap path /_haproxy_getappmap
-  http-request use-service lua.getappmap if getappmap
-  acl getconfig path /_haproxy_getconfig
-  http-request use-service lua.getconfig if getconfig
-
-  acl signalmlbhup path /_mlb_signal/hup
-  http-request use-service lua.signalmlbhup if signalmlbhup
-  acl signalmlbusr1 path /_mlb_signal/usr1
-  http-request use-service lua.signalmlbusr1 if signalmlbusr1
-  </pre>
-  </td></tr>
 
 <tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_ACL </code></td><td>Specifies the ACL that performs the SNI based hostname matching for the HAPROXY_HTTPS_FRONTEND_HEAD template. 
 
@@ -609,14 +628,6 @@ The default template for `HAPROXY_HTTPS_GROUPED_FRONTEND_HEAD` is:
   tcp-request inspect-delay 5s
   tcp-request content accept if { req_ssl_hello_type 1 }</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTPS_GROUPED<br>_VHOST_BACKEND_HEAD </code></td><td>Defines the HTTPS backend for vhost. 
-
-You must enable the `group-https-by-vhost` option to use this setting. This template is a global template that cannot be modified by service port or per application.
-
-The default template for `HAPROXY_HTTPS_GROUPED_VHOST_BACKEND_HEAD` is:
-<code>backend {name}
-  server loopback-for-tls abns@{name} send-proxy-v2</code></td></tr>
-
 <tr><td><code>HAPROXY_HTTPS_GROUPED<br>_VHOST_FRONTEND_ACL </code></td><td>Specifies a route rule HTTPS entrypoint. 
 
 You must enable the `group-https-by-vhost` option to use this setting. This template is a global template that cannot be modified by service port or per application.
@@ -630,48 +641,6 @@ You must enable the `group-https-by-vhost` option to use this setting. This temp
 <code>frontend {name}
   mode http
   bind abns@{name} accept-proxy ssl {sslCerts}{bindOpts}</code></td></tr>
-
-<tr><td><code>HAPROXY_HTTP_BACKEND<br>_ACL_ALLOW_DENY </code></td><td>Denies access for all IP addresses (or IP ranges) that are not explicitly allowed to access the HTTP backend. Use this template with HAPROXY_HTTP_BACKEND_NETWORK_ALLOWED_ACL. This template is a global template that cannot be modified by service port or per application. 
-
-The default template for `HAPROXY_HTTP_BACKEND_ACL_ALLOW_DENY` is:
-<code> http-request allow if network_allowed
-  http-request deny</code></td></tr>
-
-<tr><td><code>HAPROXY_HTTP_BACKEND<br>_NETWORK_ALLOWED_ACL </code></td><td>Specifies the IP addresses (or IP  ranges) that have access to the HTTP backend. This template is a global template that cannot be modified by service port or per application. 
-
-The default template for `HAPROXY_HTTP_BACKEND_NETWORK_ALLOWED_ACL` is:
-<code>acl network_allowed src {network_allowed}</code>
-
-You can override this template with the following app label for the first port (`0`) of a given app:
-<code>"HAPROXY_0_HTTP_BACKEND_NETWORK_ALLOWED_ACL": "  acl network_allowed src {network_allowed}\n"</code></td></tr>
-
-<tr><td><code>HAPROXY_HTTP_BACKEND<br>_PROXYPASS_GLUE</code></td><td>Specifies the backend glue for HAPROXY_{n}_HTTP_BACKEND_PROXYPASS_PATH. 
-
-The default template for `HAPROXY_HTTP_BACKEND_PROXYPASS_GLUE` is:
-<code>http-request set-header Host {hostname}
-  reqirep  "^([^ :]*)\ {proxypath}/?(.*)" "\1\ /\2" </code>
-
-You can override this template with the following app label for the first port (`0`)of a given app:
-<code>"HAPROXY_0_HTTP_BACKEND_PROXYPASS_GLUE": "  http-request set-header Host {hostname}\n  reqirep  \"^([^ :]*)\\ {proxypath}/?(.*)\" \"\\1\\ /\\2\"\n"</code></td></tr>
-
-<tr><td><code>HAPROXY_HTTP_BACKEND_REDIR </code></td><td>Sets the path to which you want to redirect the root of the domain. 
-
-The default template for `HAPROXY_HTTP_BACKEND_REDIR` is:
-<code>acl is_root path -i /
-  acl is_domain hdr(host) -i {hostname}
-  redirect code 301 location {redirpath} if is_domain is_root</code>
-
-You can override this template with the following app label for the first port (`0`) of a given app:
-<code>"HAPROXY_0_HTTP_BACKEND_REDIR": "  acl is_root path -i /\n  acl is_domain hdr(host) -i {hostname}\n  redirect code 301 location {redirpath} if is_domain is_root\n"</code></td></tr>
-
-<tr><td><code>HAPROXY_HTTP_BACKEND<br>_REVPROXY_GLUE </code></td><td>Specifies the backend glue for HAPROXY_{n}_HTTP_BACKEND_REVPROXY_PATH. 
-
-The default template for `HAPROXY_HTTP_BACKEND_REVPROXY_GLUE` is:
-<code>acl hdr_location res.hdr(Location) -m found
-  rspirep "^Location: (https?://{hostname}(:[0-9]+)?)?(/.*)" "Location:   {rootpath} if hdr_location"</code>
-
-You can override this template with the following app label for the first port (`0`)of a given app:
-<code>"HAPROXY_0_HTTP_BACKEND_REVPROXY_GLUE": "  acl hdr_location res.hdr(Location) -m found\n  rspirep \"^Location: (https?://{hostname}(:[0-9]+)?)?(/.*)\" \"Location:   {rootpath} if hdr_location\"\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTP_FRONTEND_ACL </code></td><td>Specifies the access control list (ACL) that glues a backend to the corresponding virtual host of the HAPROXY_HTTP_FRONTEND_HEAD. 
 
@@ -833,21 +802,20 @@ The default template for `HAPROXY_MAP_HTTP_FRONTEND_APPID_ACL` is:
 You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_MAP_HTTP_FRONTEND_APPID_ACL": "  use_backend %[req.hdr(x-marathon-app-id),lower,map({haproxy_dir}/app2backend.map)]\n"</code>
 </td></tr>
+</table>
 
-<tr><td><code>HAPROXY_TCP_BACKEND<br>_ACL_ALLOW_DENY </code></td><td>Denies access for all IP addresses (or IP address ranges) that are not explicitly allowed to access the TCP backend. This global template cannot be overridden by service port or application. 
+## User authentication list setting
+Use the following template and app label to configure basic user name and password settings for the load balancer.
 
-The default template for `HAPROXY_TCP_BACKEND_ACL_ALLOW_DENY` is:
-<code>tcp-request content accept if network_allowed
-  tcp-request content reject</code></td></tr>
-
-<tr><td><code>HAPROXY_TCP_BACKEND<br>_NETWORK_ALLOWED_ACL </code></td><td>Specifies the IP addresses (or IP address ranges) that have been granted access to the TCP backend. 
-
-The default template for `HAPROXY_TCP_BACKEND_NETWORK_ALLOWED_ACL` is:
-<code>acl network_allowed src {network_allowed}</code>
-
-You can override this template with the following app label for the first port (`0`) of a given app: 
-<code>"HAPROXY_0_TCP_BACKEND_NETWORK_ALLOWED_ACL": "  acl network_allowed src {network_allowed}\n"</code></td></tr>
-
+<table class="table" style="table-layout: fixed">
+<colgroup>
+    <col span="1" width="45px">
+    <col span="1" width="80px">
+</colgroup>
+<tr>
+<th style="font-weight:bold">Template name</th>
+<th style="font-weight:bold">Description and examples</th>
+</tr>
 <tr><td><code>HAPROXY_USERLIST_HEAD </code></td><td>Specifies the user list for HTTP Basic authentication. 
 
 The default template for `HAPROXY_USERLIST_HEAD` is:
@@ -858,8 +826,83 @@ You can override this template with the following app label for the first port (
 <code>"HAPROXY_0_USERLIST_HEAD": "\nuserlist user_{backend}\n  user {user} password {passwd}\n"</code></td></tr>
 </table>
 
-# Additional app labels
+## Global header settings
+Use the following template to configure default header settings for the load balancer.
+
+<table class="table" style="table-layout: fixed">
+<colgroup>
+    <col span="1" width="45px">
+    <col span="1" width="80px">
+</colgroup>
+<tr>
+<th style="font-weight:bold">Template name</th>
+<th style="font-weight:bold">Description and examples</th>
+</tr>
+<tr><td><code>HAPROXY_HEAD </code></td><td>Specifies header information for the HAProxy configuration file. This template contains global settings and defaults. This template cannot be overridden by service port or application-based settings.
+
+The default template for `HAPROXY_HEAD` is:
+<pre>
+global
+  log /dev/log local0
+  log /dev/log local1 notice
+  spread-checks 5
+  max-spread-checks 15000
+  maxconn 50000
+  tune.ssl.default-dh-param 2048
+  ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:!aNULL:!MD5:!DSS
+  ssl-default-bind-options no-sslv3 no-tlsv10 no-tls-tickets
+  ssl-default-server-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:!aNULL:!MD5:!DSS
+  ssl-default-server-options no-sslv3 no-tlsv10 no-tls-tickets
+  stats socket /var/run/haproxy/socket expose-fd listeners
+  server-state-file global
+  server-state-base /var/state/haproxy/
+  lua-load /marathon-lb/getpids.lua
+  lua-load /marathon-lb/getconfig.lua
+  lua-load /marathon-lb/getmaps.lua
+  lua-load /marathon-lb/signalmlb.lua
+defaults
+  load-server-state-from-file global
+  log               global
+  retries                   3
+  backlog               10000
+  maxconn               10000
+  timeout connect          3s
+  timeout client          30s
+  timeout server          30s
+  timeout tunnel        3600s
+  timeout http-keep-alive  1s
+  timeout http-request    15s
+  timeout queue           30s
+  timeout tarpit          60s
+  option            dontlognull
+  option            http-server-close
+  option            redispatch
+listen stats
+  bind 0.0.0.0:9090
+  balance
+  mode http
+  stats enable
+  monitor-uri /_haproxy_health_check
+  acl getpid path /_haproxy_getpids
+  http-request use-service lua.getpids if getpid
+  acl getvhostmap path /_haproxy_getvhostmap
+  http-request use-service lua.getvhostmap if getvhostmap
+  acl getappmap path /_haproxy_getappmap
+  http-request use-service lua.getappmap if getappmap
+  acl getconfig path /_haproxy_getconfig
+  http-request use-service lua.getconfig if getconfig
+
+  acl signalmlbhup path /_mlb_signal/hup
+  http-request use-service lua.signalmlbhup if signalmlbhup
+  acl signalmlbusr1 path /_mlb_signal/usr1
+  http-request use-service lua.signalmlbusr1 if signalmlbusr1
+  </pre>
+  </td></tr>
+</table>
+
+## Additional application labels
 You can use the following labels to configure additional application settings.
+
 <table>
   <colgroup>
     <col span="1" width="20px">
