@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes
+navigationTitle: Release notes
 title: Release notes
 menuWeight: 80
 excerpt: Release notes for Marathon-LB
