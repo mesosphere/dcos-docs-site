@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Marathon-LB Overview
+navigationTitle:  Marathon-LB overview
 title: Marathon-LB overview
 excerpt: Marathon-LB provides proxy and load balancing services for Marathon-orchestrated apps running on DC/OS
 menuWeight: 5
