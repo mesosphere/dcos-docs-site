@@ -32,6 +32,22 @@ Update a pool's configuration with the following command:
 dcos edgelb update <pool-configuration-file>
 ```
 
+# Scale down Edge-LB pool instances
+
+To scale down Edge-LB pool instances change the count to a lower number. E.g. if the previous count in the Edge-LB pool config was 5, change it to 2.
+
+An Example config file for Edge-LB pool config:
+
+```json
+{
+  "id": "/my-app",
+  ...
+  "name": "sample-minimal",
+  "count": 2,
+  ...
+}
+```
+
 # Exposing mesos task without pre-defined mesos-assigned ports
 
 This feature allows you to expose task without mesos assigend port. 
