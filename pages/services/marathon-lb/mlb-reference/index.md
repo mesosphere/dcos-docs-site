@@ -180,7 +180,7 @@ The following is a list of the available `HAProxy` configuration **templates**. 
 
 The templates and app labels that can be set per-service-port include an index identifier {n} in the template or label name. The index identifier corresponds to the service port index, beginning at 0, to which the app label applies. For example, you could specify `HAPROXY_0_BACKEND_HEAD` to override the global template `HAPROXY_BACKUP_HEAD` for the first port of a given application.
 
-<table style="max-width:80%">
+<table class="table" style="width:80%">
   <colgroup>
     <col span="1" width="20px">
     <col span="1" width="60px">
