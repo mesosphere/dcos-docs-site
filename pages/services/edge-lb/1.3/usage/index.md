@@ -48,7 +48,7 @@ An Example config file for Edge-LB pool config:
 }
 ```
 
-# Exposing mesos task without pre-defined mesos-assigned ports
+# Exposing task without predefined mesos-assigned ports
 
 This feature allows you to expose task without mesos assigend port. 
 
@@ -60,12 +60,100 @@ This feature allows allocating Stats port dynamically if there is more than on p
 
 Prior to this feature, it wasn't possible to disable Stats port 9090 for a pool. This results in having only one Edge-LB pool per agent. Thus, it wasn't possible to deploy two Edge-LB pools on the same agent without manually setting different values for Stats port. By leveraging this feature, multiple pools on the same agent can have Stats port without port conflict.
 
+An example config for Edge-LB pool where `stats` port (haproxy.stats.bindPort) is `0` instead of typical `9090`:
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "test-https-pool",
+  "count": 1,
+  "haproxy": {
+    "stats": {
+      "bindPort": 0
+    },
+    "frontends": [
+      {
+        "bindPort": 443,
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
+      }
+    ],
+    "backends": [
+      {
+        "name": "host-httpd",
+        "protocol": "HTTP",
+        "services": [
+          {
+            "framework": {
+              "value": "marathon"
+            },
+            "marathon": {
+              "serviceID": "/host-httpd"
+            },
+            "endpoint": {
+              "portName": "web"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 # Allow dynamic allocation of the HAProxy frontend port
 
 This feature allows allocating Frontend port dynamically if there is more than on pool on an agent node. 
 
 When a public cloud LB like AWS ELB is sitting in front of Edge-LB, the ELB will handle the proxy/ load-balancing between the Client and Edge-LB pool. In such scenarios having frontend ports doesn't provide much value. By leveraging this feature, you can have multiple Frontend ports allocated dynamiccaly for multiple Edge-LB pools on the same agent for better resource utilization.
 
+An example config for Edge-LB pool where `frontend` port (i.e. haproxy.frontend.bindPort) is `443` instead of typical `0`: 
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "test-https-pool",
+  "count": 1,
+  "autoCertificate": true,
+  "haproxy": {
+    "stats": {
+      "bindPort": 9091
+    },
+    "frontends": [
+      {
+        "bindPort": 0,
+        "protocol": "HTTPS",
+        "certificates": [
+          "$AUTOCERT"
+        ],
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
+      }
+    ],
+    "backends": [
+      {
+        "name": "host-httpd",
+        "protocol": "HTTP",
+        "services": [
+          {
+            "framework": {
+              "value": "marathon"
+            },
+            "marathon": {
+              "serviceID": "/host-httpd"
+            },
+            "endpoint": {
+              "portName": "web"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 ## Normal reload scenario
 
