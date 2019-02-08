@@ -10,7 +10,9 @@ enterprise: false
 
 # Description
 
-Manage DC/OS tasks.
+Manage Mesos tasks on DC/OS.
+
+Mesos tasks are run by [DC/OS services](/1.13/cli/command-reference/dcos-service/).
 
 # Usage
 

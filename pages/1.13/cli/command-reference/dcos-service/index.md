@@ -10,7 +10,7 @@ enterprise: false
 
 # Description
 
-The `dcos service` commands allow you to manage your DC/OS services.
+The `dcos service` commands allow you to manage your [DC/OS services](/1.13/cli/developing-services/).
 
 # Usage
 
