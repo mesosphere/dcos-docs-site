@@ -331,12 +331,6 @@ B - This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Edge-LB 1.2.3</td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
         <td>Edge-LB 1.3.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
