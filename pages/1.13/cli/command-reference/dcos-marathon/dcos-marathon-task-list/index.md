@@ -10,7 +10,10 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon task list` command displays a list of all tasks.
+
+A Marathon task is an instance of a Marathon application.
 
 # Usage
 
