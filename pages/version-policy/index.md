@@ -265,7 +265,7 @@ B - This package combination is *beta*.
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>Beta Mesosphere Jupyter Service 1.3.x-0.35.4</td>
+        <td>Beta Mesosphere Jupyter Service 1.3.x-0.35.4 (Recommended)</td>
         <td><p style="text-align: center;">B</p></td>
         <td><p style="text-align: center;">B</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -331,31 +331,25 @@ B - This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Edge-LB 1.2.1</td>
+        <td>Edge-LB 1.2.3</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Edge-LB 1.2.2</td>
+        <td>Edge-LB 1.3.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Edge-LB 1.2.3 (Recommended)</td>
+        <td>Elastic 2.4.x-5.6.5</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Elastic 2.2.x-5.6.5</td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-        <td>Elastic 2.3.x-5.6.5 (Recommended)</td>
+        <td>Elastic 2.5.x-6.3.2 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -409,19 +403,31 @@ B - This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
+        <td>Kibana 2.4.x-5.6.5</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Kibana 2.5.x-6.3.2 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
         <td>Kubernetes 1.3.x-1.10.y</td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>Kubernetes 2.0.x-1.12.y</td>
+        <td>Kubernetes 2.1.x-1.12.y</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>Kubernetes 2.1.x-1.12.y (Recommended)</td>
+        <td>Kubernetes 2.2.x-1.13.y (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -457,13 +463,13 @@ B - This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Spark 2.4.x-2.2.y</td>
+        <td>Spark 2.5.x-2.2.1</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Spark 2.5.x-2.2.y (Recommended)</td>
+        <td>Spark 2.6.x-2.3.2 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
