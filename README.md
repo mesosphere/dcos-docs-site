@@ -18,5 +18,5 @@
 
 [Wiki](https://github.com/mesosphere/dcos-docs-site/wiki) contains all development information and [contribution guidelines](https://github.com/mesosphere/dcos-docs-site/wiki/Contributing).
 
-To report a bug, file an issue [here](https://jira.mesosphere.com/secure/CreateIssueDetails!init.jspa?pid=14107&issuetype=10600&summary=Enter+a+brief+description+here).
+To report a bug or issue, please file an issue [here](https://jira.mesosphere.com/secure/CreateIssueDetails!init.jspa?pid=10006&issuetype=3&priority=3&components&summary=Enter+a+brief+description+here).
 
