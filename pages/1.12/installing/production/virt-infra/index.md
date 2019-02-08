@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Virtual Infra
+navigationTitle:  Virtual Infrastructure
 title: Virtual Infrastructure
 menuWeight: 1
 excerpt: Operating DC/OS on Virtualized Infrastructure - Best Practices
