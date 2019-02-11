@@ -2,11 +2,7 @@
 layout: layout.pug
 navigationTitle: Kubernetes 1.3.0-1.10.8
 title: Kubernetes 1.3.0-1.10.8
-<<<<<<< HEAD
-menuWeight: 70
-=======
-menuWeight: -1
->>>>>>> Changed menuweights to reflect Version Policy page.
+menuWeight: 40
 excerpt:
 ---
 
