@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Kafka ZooKeeper 2.4.0-3.4.13
 title: Kafka ZooKeeper 2.4.0-3.4.13
-menuWeight: 5
+menuWeight: 1
 excerpt:
 
 model: /services/kafka-zookeeper/data.yml
