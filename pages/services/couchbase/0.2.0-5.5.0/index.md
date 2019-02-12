@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Couchbase 0.2.0-5.5.0
 title: Couchbase 0.2.0-5.5.0
-menuWeight: 50
+menuWeight: 1
 excerpt: Documentation for DC/OS Couchbase 0.2.0-5.5.0
 model: /services/couchbase/data.yml
 render: mustache

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Minio 0.1.0
 title: Minio 0.1.0
-menuWeight: 50
+menuWeight: 1
 excerpt: Documentation for DC/OS Minio 0.1.0
 model: /services/minio/data.yml
 render: mustache
