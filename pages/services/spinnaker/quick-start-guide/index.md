@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Quick Start
-excerpt: Configuring and installing Spinnaker with default values
-title: Quick Start
-menuWeight: 12
+navigationTitle: Configuring DC/OS access for Spinakker
+excerpt: How to use Spinakker with DC/OS
+title: Configuring DC/OS access for Spinakker
+menuWeight: 2
 model: /services/spinnaker/data.yml
 render: mustache
 ---

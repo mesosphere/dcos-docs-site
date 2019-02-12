@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Upgrading
 title: Upgrading
-menuWeight: 60
+menuWeight: -1
 excerpt:
 featureMaturity:
 enterprise: false

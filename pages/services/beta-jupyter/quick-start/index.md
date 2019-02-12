@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Quick Start
-title: Quick Start
-menuWeight: 20
-excerpt: Getting up and running with JupyterLab
+navigationTitle: Configuring DC/OS access for Beta Mesosphere Jupyter Service
+title: Configuring DC/OS access for Beta Mesosphere Jupyter Service 
+menuWeight: 2
+excerpt: How to use JupyterLab with DC/OS
 featureMaturity:
 enterprise: false
 model: /services/beta-jupyter/data.yml

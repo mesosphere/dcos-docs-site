@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Quick Start
-excerpt: Using Couchbase Server and Couchbase Sync Gateway with DC/OS
-title: Quick Start
-menuWeight: 15
+navigationTitle: Configuring DC/OS access for Couchbase
+excerpt: How to use Couchbase Server and Couchbase Sync Gateway with DC/OS
+title: Configuring DC/OS access for Couchbase
+menuWeight: 2
 model: /services/couchbase/data.yml
 render: mustache
 ---

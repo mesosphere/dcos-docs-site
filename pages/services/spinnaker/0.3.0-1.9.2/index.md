@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Spinnaker 0.3.0-1.9.2
 title: Spinnaker 0.3.0-1.9.2
-menuWeight: 50
+menuWeight: 1
 excerpt: Documentation for DC/OS Spinnaker 0.3.0-1.9.2
 model: /services/spinnaker/data.yml
 render: mustache

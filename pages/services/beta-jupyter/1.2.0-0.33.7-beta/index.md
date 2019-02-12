@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Beta Mesosphere Jupyter Service 
-title: Beta Mesosphere Jupyter Service
-menuWeight: 155
+navigationTitle:  Beta Mesosphere Jupyter Service 1.2.0-0.33.7
+title: Beta Mesosphere Jupyter Service 1.2.0-0.33.7
+menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
