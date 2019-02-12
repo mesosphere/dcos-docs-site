@@ -118,7 +118,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [enable_mesos_input_plugin](#enable-mesos-input-plugin)    | Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Default value is `false`. |
+| [enable_mesos_input_plugin](#enable-mesos-input-plugin)    | Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Default value is `true`. **NOTE:** DC/OS 1.13 supports the Mesos input plugin by default. |
 
 # Parameter Descriptions
 
@@ -348,7 +348,7 @@ Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#ex
 
 ### enable_mesos_input_plugin
 
-Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Options: `true` or `false`. Default value is `false`. For more information, see the [documentation](/1.13/metrics/mesos/).
+Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Options: `true` or `false`. Default value is `true`. For more information, see the [documentation](/1.13/metrics/mesos/).
 
 <a name="exhibitor_storage_backend"></a>
 
