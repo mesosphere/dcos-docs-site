@@ -1,57 +1,34 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes for 1.10.10.1
-title: Release Notes for 1.10.10.1
-menuWeight: 4
+navigationTitle:  Release Notes for 1.10.11
+title: Release Notes for 1.10.11
+menuWeight: 3
 excerpt:
 ---
 
 
-DC/OS 1.10.10.1 was released on February 11, 2019.
+DC/OS 1.10.11 was released on February 12, 2019.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.10.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
-[button color="light" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.10.10.1/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.11/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="light" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.10.11/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
 
-# Updated Components in DC/OS 1.10.10.1
-DC/OS 1.10.10.1 includes the following:
+# Updated Components in DC/OS 1.10.11
+DC/OS 1.10.11 includes the following:
 - Apache Mesos 1.4.3 [change log](https://github.com/apache/mesos/blob/e929d413328e10f6d358899500d5aaedd9d9bc51/CHANGELOG).
 - Marathon 1.5.12 [change log](https://github.com/mesosphere/marathon/releases/tag/v1.5.12).
 - Metronome 0.4.4 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.4).
 
-# Issues Fixed in DC/OS 1.10.10.1
-The issues that have been fixed in DC/OS 1.10.10.1 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
+# Issues Fixed in DC/OS 1.10.11
+This release of DC/OS 1.11.10 addresses a security vulnerablity for container runtimes as identified by the RunC community and registered in the [Common Vulnerabilities and Exposures (CVR)](https://cve.mitre.org/) database.
 
-## Command-Line Interface (CLI)
-- DCOS-38213 - Downloading the Mesosphere CLI package requires a network connection to `downloads.mesosphere.com`. Because this connection can be slow, especially from remote or widely-distributed network locations, the session scope for the CLI fixture helps to ensure the CLI package only has to be downloaded once.
+For information about other issues fixed or known issues for the most recent release of DC/OS 1.10 prior to this security fix, see the [release notes](https://docs.mesosphere.com/1.10/release-notes/1.10.1/).
 
-- DCOS-44238 - You can download the latest version of the `core-cli` for a cluster without specifying a patch version or using automatic installation.
+## Mesos 
+- DCOS-48052 - An update to the containerizer launch binary prevents a malicious user from exploiting the `init` helper function used by container runtimes--including DockerD, containerD, and UCR. Without this change, a malicious user could gain access to a container's root-level permissions and use those permissions to execute potentially malicious code on the host.
 
-## Docker Integration
-- COPS-4044, DCOS_OSS-4469 - This release changes the logging settings for the `dcos-docker-gc` unit so that any log messages it creates are preserved in the `systemd` journal logging facility on the host system.
+  This issue has been reported by the RunC community (CVE-2019-5736) and affects the Docker Engine and Mesosphere Kubernetes Engine (MKE) container runtime components. The issue has also been reported by the Apache Mesos community for the Mesosphere Universal Container Runtime (UCR). All existing versions of DC/OS, Mesosphere Kuberentes Engine, and Docker Engine are affected by this vulnerability. However, this vulnerability does not affect DC/OS clusters or UCR containers if the cluster runs using the `strict` security mode and uses the default `nobody` user account to launch UCR containers.
 
-## Mesos
-- COPS-4320, DCOS-46814 - After an agent host is rebooted, the forked child process id and `libprocess` process id for the executor in the agent's meta directory are obsolete and should not be read. This change to the process identifiers read during agent recovery prevents the container from waiting for a process if those process ids are reused after a reboot. 
-
-  Previously, if you rebooted an agent, the agent would wait for the exit status of its container process id (`pid`) before terminating the executor. If a new process with the same `pid` is spawned after the reboot, the agent recovery might stall waiting for the wrong child process id, blocking the executor termination and updates to its tasks.
-
-- DCOS-43670, DCOS-44827 - The `cgroups` event listener code is used to poll events for a container. An update to this code ensures that the listener closes the file descriptor after read operations are complete. The fix prevents a race condition that can leave the container in an ISOLATING or PROVISIONING state.
-  
-- DCOS-46388 - The master node completes the processing of all authorization results for a `LAUNCH_GROUP` before performing other operations. This change prevents subsequent operations from failing if any authorization request is denied.
-
-- DCOS-46753 - This release improves how failed or discontinued launch operations are handled to ensure container input and output operations are resolved correctly and all file descriptors are closed properly. 
-
-  Previously, if the containerizer launch failed or was discarded after the I/O switchboard server started but before the container process completed execution, the file descriptor used to signal a redirect to the I/O switchboard could fail, preventing the containerizer from completing its clean-up operations. You might see this issue if you have frequent health or readiness checks for containers launching on an agent with heavy processing load.
-
-## Networking
-- COPS-4124, DCOS-46132, DCOS_OSS-4667 - A new agent option `--network_cni_root_dir_persist` allows the container node root directory to store network information in a persistent location. This option enables you to specify a container `work_dir` root directory that persists network-related information. By persisting this information, the container network interface (CNI) isolator code can perform proper cleanup operations after rebooting. 
-
-  If rebooting a node does not delete old containers and IP/MAC addresses from `etcd` (which over time can cause pool exhaustion), you should set the `--network_cni_root_dir_persist` agent option in the `config.yaml` file to `true`. You should note that changing this flag requires rebooting the agent node or shutting down all container processes running on the node. Because a reboot or shutdown of containers is required, the default value for the `--network_cni_root_dir_persist` agent option is `false`. Before changing this option, you should plan for agent maintenance to minimize any service interruption. If you set this option and reboot a node, you should also unset the `CNI_NETNS` environment variable after rebooting using the CNI plugin `DEL` command so that the plugin cleans up as many resources as possible (for example, by releasing IPAM allocations) and returns a successful response.
-
-[enterprise type="block" size="large"]
-## Security
-[/ enterprise]
-
-- DCOS_OSS-4418 - This release includes an upgrade to the Python requests library used in DC/OS to address moderate security vulnerability reports (CVE-2018-18074). The release upgrades the request library from 2.20.1 to 2.21.0.
+  For additional information about this vulnerability and its effect on DC/OS, see [Container runtime vulnerability](https://support.mesosphere.com/s/article/Known-Issue-Container-Runtime-Vulnerability-MSPH-2019-0003) and the [Docker Engine release notes](https://docs.docker.com/engine/release-notes/).
 
 # About DC/OS 1.10
 
