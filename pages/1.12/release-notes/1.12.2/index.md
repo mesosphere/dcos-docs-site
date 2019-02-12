@@ -60,7 +60,7 @@ validation of configuration parameters had failed. With this release, the `--val
 
 This issue has been reported by the RunC community (CVE-2019-5736) and affects the Docker Engine and Mesosphere Kubernetes Engine (MKE) container runtime components. The issue has also been reported by the Apache Mesos community for the Mesosphere Universal Container Runtime (UCR). All existing versions of DC/OS, Mesosphere Kuberentes Engine, and Docker Engine are affected by this vulnerability. However, this vulnerability does not affect DC/OS clusters or UCR containers if the cluster runs using the `strict` security mode and uses the default `nobody` user account to launch UCR containers.
 
-For additional information about this vulnerability and its effect on DC/OS, see [Container runtime init helper at risk of being overwritten by a malicious container](https://support.mesosphere.com/s/article/Known-Issue-xxx-MSPH-2019-xxxx) and the [Docker Engine release notes](https://docs.docker.com/engine/release-notes/).
+For additional information about this vulnerability and its effect on DC/OS, see [Container runtime vulnerability](https://support.mesosphere.com/s/article/Known-Issue-Container-Runtime-Vulnerability-MSPH-2019-0003) and the [Docker Engine release notes](https://docs.docker.com/engine/release-notes/).
 
 ## Metrics
 - COPS-3279, COPS-3576, DCOS-37703, DCOS-37703, DCOS-39703 - This release corrects service endpoint values and service address-based statistics that are returned when the `statsd` metrics input plugin is enabled.
