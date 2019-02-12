@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Quick Start
-excerpt: Configuring Minio - Quick Start
-title: Quick Start
-menuWeight: 11
+navigationTitle: Configuring DC/OS access for Minio
+title: Configuring DC/OS access for Minio
+menuWeight: 2
+excerpt: How to use Minio with DC/OS
 model: /services/minio/data.yml
 render: mustache
 ---

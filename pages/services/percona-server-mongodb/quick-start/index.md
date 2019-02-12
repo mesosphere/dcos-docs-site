@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Quick Start
-title: Quick Start
-menuWeight: 20
-excerpt: Getting Started with Percona Server for MongoDB
+navigationTitle:  Configuring DC/OS access for Percona-Server-MongoDB
+title: Configuring DC/OS access for Percona-Server-MongoDB
+menuWeight: 3
+excerpt: How to use Percona-Server-MongoDB with DC/OS
 featureMaturity:
 enterprise: false
 model: /services/percona-server-mongodb/data.yml

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Beta DC/OS Monitoring Service 0.1.0
 title: Beta DC/OS Monitoring Service 0.1.0
-menuWeight: 0
+menuWeight: 8
 excerpt:
 ---
 

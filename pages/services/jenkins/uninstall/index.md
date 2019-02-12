@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Uninstalling
 title: Uninstalling
-menuWeight: 70
+menuWeight: -1
 excerpt:
 featureMaturity:
 enterprise: false

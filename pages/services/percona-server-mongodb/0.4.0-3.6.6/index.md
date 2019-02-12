@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Percona-Server-MongoDB 0.4.0-3.6.6
 title: Percona-Server-MongoDB 0.4.0-3.6.6
-menuWeight: 10
+menuWeight: 2
 excerpt: Percona-Server-MongoDB 0.4.0-3.6.6
 featureMaturity:
 enterprise: false
