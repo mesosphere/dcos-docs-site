@@ -21,7 +21,7 @@ DC/OS 1.10.11 includes the following:
 # Issues Fixed in DC/OS 1.10.11
 This release of DC/OS 1.11.10 addresses a security vulnerablity for container runtimes as identified by the RunC community and registered in the [Common Vulnerabilities and Exposures (CVR)](https://cve.mitre.org/) database.
 
-For information about other issues fixed or known issues for the most recent release of DC/OS 1.10 prior to this security fix, see the [release notes](https://docs.mesosphere.com/1.10/release-notes/1.10.1/).
+For information about other issues fixed or known issues for the most recent release of DC/OS 1.10 prior to this security fix, see the [release notes](https://docs.mesosphere.com/1.10/release-notes/1.10.10/).
 
 ## Mesos 
 - DCOS-48052 - An update to the containerizer launch binary prevents a malicious user from exploiting the `init` helper function used by container runtimes--including DockerD, containerD, and UCR. Without this change, a malicious user could gain access to a container's root-level permissions and use those permissions to execute potentially malicious code on the host.
