@@ -25,8 +25,7 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 This release of DC/OS 1.11.10 addresses a security vulnerablity for container runtimes as identified by the RunC community and registered in the [Common Vulnerabilities and Exposures (CVR)](https://cve.mitre.org/) database.
 
-
-For information about other issues fixed or known issues for the most recent release of DC/OS 1.11 prior to this security fix, see the [release notes](https://docs.mesosphere.com/1.11/release-notes/1.11.9/).
+For information about other issues fixed or known issues for the most recent release of DC/OS 1.11 prior to this security fix, see the [release notes 1.11.9](https://docs.mesosphere.com/1.11/release-notes/1.11.9/).
 
 ## Mesos 
 - DCOS-48052 - An update to the containerizer launch binary prevents a malicious user from exploiting the `init` helper function used by container runtimes--including DockerD, containerD, and UCR. Without this change, a malicious user could gain access to a container's root-level permissions and use those permissions to execute potentially malicious code on the host.

@@ -21,7 +21,7 @@ DC/OS 1.10.11 includes the following:
 # Issues Fixed in DC/OS 1.10.11
 This release of DC/OS 1.11.10 addresses a security vulnerablity for container runtimes as identified by the RunC community and registered in the [Common Vulnerabilities and Exposures (CVR)](https://cve.mitre.org/) database.
 
-For information about other issues fixed or known issues for the most recent release of DC/OS 1.10 prior to this security fix, see the [release notes](https://docs.mesosphere.com/1.10/release-notes/1.10.10/).
+For information about other issues fixed or known issues for the most recent release of DC/OS 1.10 prior to this security fix, see the [release notes 1.10.10](https://docs.mesosphere.com/1.10/release-notes/1.10.10/).
 
 ## Mesos 
 - DCOS-48052 - An update to the containerizer launch binary prevents a malicious user from exploiting the `init` helper function used by container runtimes--including DockerD, containerD, and UCR. Without this change, a malicious user could gain access to a container's root-level permissions and use those permissions to execute potentially malicious code on the host.
@@ -39,9 +39,9 @@ DC/OS 1.10 includes many new capabilities for operators and expands the collecti
 - Enterprise-ready networking - New DC/OS Edge-LB for higher availability and security. [enterprise type="inline" size="small" /]
 - Kubernetes is now available on DC/OS.
 - Data services enhancements across the board.
-  - Rolling configuration update and upgrade support via the CLI. [enterprise type="inline" size="small" /]
-  - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
   - Ability to deploy to CNI-Based virtual networks.
+  - Rolling configuration update and upgrade support from the CLI. [enterprise type="inline" size="small" /]
+  - Ability to deploy Data Services into folders to enable multi team deployments. [enterprise type="inline" size="small" /]
 
 You can try out the new features and updated data services. Provide feedback through our support channel: <a href="https://support.mesosphere.com/">support.mesosphere.com</a>.
 
@@ -78,10 +78,11 @@ You can try out the new features and updated data services. Provide feedback thr
 - Kubernetes on DC/OS is beta with DC/OS 1.10. You can install the package from the DC/OS Service Catalog or by using the DC/OS Kubernetes [quickstart](https://github.com/mesosphere/dcos-kubernetes-quickstart).
 
 ### Updated DC/OS Data Services
+- Ability to deploy to CNI-Based Virtual Networks.
 
 - Rolling Configuration Update and Upgrades support via the CLI. [enterprise type="inline" size="small" /]
+
 - Ability to deploy Data Services into Folders to enable multi team deployments. [enterprise type="inline" size="small" /]
-- Ability to deploy to CNI-Based Virtual Networks.
 
 The following updated data services packages are compatible with DC/OS 1.10.
 
@@ -102,7 +103,6 @@ For more information, see the documenation or release notes for the specific dat
 - Scale and performance limits.
 
 ### CLI
-
 - DC/OS 1.10 requires DC/OS CLI 0.5.x.
 - DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands. Multi-cluster support has a number of consequences:
 
@@ -126,9 +126,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 - The "Universe" tab has been renamed to "Catalog" and the "Installed" subpage has been removed.
 - The "System Overview" tab has been renamed to "Overview".
 
-
 ## Breaking Changes
-
 - Marathon Networking API Changes in 1.5.
 
   The networking section of the Marathon API has changed significantly in version 1.5. Marathon can still accept requests using the 1.4 version of the API, but it will always reply with the 1.5 version of the app definition. This will break tools that consume networking-related fields of the service definition. [View the documentation](https://github.com/mesosphere/marathon/blob/master/docs/docs/networking.md).
@@ -146,7 +144,8 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 - REX-Ray configuration change.
 
   DC/OS 1.10 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray-config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS.
-  **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
+
+  <p class="message--note"><strong>NOTE: </strong>The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.<p>
 
 - New flow to change the `dcos_url` and log in.
 
@@ -155,10 +154,3 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 - Hard CFS CPU limits enabled by default.
 
   DC/OS 1.10 enforces hard CPU limits with CFS isolation for both the Docker and Universal Container Runtimes. This will give more predictable performance across all tasks but might lead to a slowdown for tasks (and thereby also deployments) who have previously have consumed more CPU cycles than allocated. See [MESOS-6134](https://issues.apache.org/jira/browse/MESOS-6134) for more details.
-
-<!-- ## Known Issues
-- Upgrade: During upgrade to DC/OS 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.
-- CORE-1125 - Docker image pull config is re-used.
-- DCOS-16547 - Task state does not update after the agent running it was removed from the cluster.
-- INFINITY-1809 - [Data Svc] DC/OS Service Update / Config Update / Maintenance. [enterprise type="inline" size="small" /]
-- MARATHON-7736 - Marathon Client Java library does NOT work with Marathon 1.5. -->
