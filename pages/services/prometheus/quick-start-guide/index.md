@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Quick Start
+navigationTitle: Configuring DC/OS access for Prometheus
 excerpt: How to use Prometheus with DC/OS
-title: Quick Start
-menuWeight: 15
+title: Configuring DC/OS access for Prometheus
+menuWeight: 3
 ---
 
 This section will explain how to configure Prometheus for use with DC/OS.

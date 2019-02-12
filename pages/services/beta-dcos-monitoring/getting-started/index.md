@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Getting Started
-title: Getting Started
-menuWeight: 10
-excerpt: Get up and running quickly with the service
+navigationTitle: Configuring DC/OS access for Beta DC/OS Monitoring Service
+title: Configuring DC/OS access for Beta DC/OS Monitoring Service
+menuWeight: 9
+excerpt: How to use Beta DC/OS Monitoring Service with DC/OS
 render: mustache
 model: ../data.yml
 ---

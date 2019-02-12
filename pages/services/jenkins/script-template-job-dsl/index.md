@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Scripting and templating your jobs
 title: Scripting and templating your jobs
-menuWeight: 30
+menuWeight: -1
 excerpt:
 featureMaturity:
 enterprise: false
