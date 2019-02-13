@@ -6,10 +6,10 @@ menuWeight: 3
 excerpt:
 ---
 
-
 DC/OS 1.10.11 was released on February 12, 2019.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.10.11/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
 [button color="light" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.10.11/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
 
 # Updated Components in DC/OS 1.10.11
