@@ -78,6 +78,7 @@ You can try out the new features and updated data services. Provide feedback thr
 - Kubernetes on DC/OS is beta with DC/OS 1.10. You can install the package from the DC/OS Service Catalog or by using the DC/OS Kubernetes [quickstart](https://github.com/mesosphere/dcos-kubernetes-quickstart).
 
 ### Updated DC/OS Data Services
+
 - Ability to deploy to CNI-Based Virtual Networks.
 
 - Rolling Configuration Update and Upgrades support via the CLI. [enterprise type="inline" size="small" /]
@@ -97,9 +98,12 @@ For more information, see the documenation or release notes for the specific dat
 ### Platform
 - Node and cluster health checks.
   Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
+
 - Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks. [enterprise type="inline" size="small" /]
+
 - Universal Container Runtime (UCR).
   Adds port mapping support for containers running on the CNI network. Port mapping support allows UCR to have a default bridge network, similar to Docker's default bridge network. This gives UCR feature parity with Docker Engine enabling use of Mesos Runtime as the default container runtime.
+
 - Scale and performance limits.
 
 ### CLI
@@ -122,8 +126,11 @@ For more information, see the documenation or release notes for the specific dat
 The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - The "Deployments" subpage under the "Services" tab has been moved to a toggle-able modal in the "Services" page.
+
 - The "Security" tab has been removed. The "Secrets" tab that used to be under "Security" is now a top-level tab. [enterprise type="inline" size="small" /]
+
 - The "Universe" tab has been renamed to "Catalog" and the "Installed" subpage has been removed.
+
 - The "System Overview" tab has been renamed to "Overview".
 
 ## Breaking Changes
