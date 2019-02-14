@@ -48,4 +48,4 @@ This will generate a local `hosts` file, which is an Ansbile compatible inventor
 
 ## Using the Mesosphere DC/OS Ansible roles for on-premise setups
 
-Using Ansible to automate DC/OS installation, upgrades and configuration on on-premise setups is supported by Mesosphere. The [Mesosphere provided Ansible roles](https://galaxy.ansible.com/dcos/dcos_ansible) will work with any setup that follows the [Mesosphere DC/OS System Requirements](http://localhost:3000/1.12/installing/production/system-requirements/) and runs with CentOS/RHEL.
+Using Ansible to automate DC/OS installation, upgrades and configuration on on-premise setups is supported by Mesosphere. The [Mesosphere provided Ansible roles](https://galaxy.ansible.com/dcos/dcos_ansible) will work with any setup that follows the [Mesosphere DC/OS System Requirements](/1.12/installing/production/system-requirements/) and runs with CentOS/RHEL.
