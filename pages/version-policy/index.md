@@ -74,6 +74,12 @@ The following matrix shows the platform components and operating environments on
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
     </tr>
     <tr>
+        <td>CoreOS 1976.6.0</td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+    </tr>
+    <tr>
         <td>CoreOS 1976.5.0</td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
         <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
@@ -86,28 +92,22 @@ The following matrix shows the platform components and operating environments on
         <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
     </tr>
     <tr>
-        <td>CoreOS 1911.4.0</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-    </tr>
-    <tr>
         <td>RHEL 7.6</td>
-        <td>                    </td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
     </tr>
     <tr>
         <td>RHEL 7.5</td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
     </tr>
     <tr>
         <td>RHEL 7.4</td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
+        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
     <tr>
         <td>Oracle Linux 7.5 (RHCK)</td>
         <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
