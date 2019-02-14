@@ -8,16 +8,18 @@ excerpt: Automated installation, upgrade and configuration of Enterprise and Ope
 
 ## Introducing Mesosphere DC/OS Ansible roles
 
-The Mesosphere DC/OS Ansible roles are now a supported life cycle management method for DC/OS along side the Mesosphere Universal Installer. For users that are already using Ansible to manage their infrastructure and applications, the Ansible roles will be useable without many changes to their existing stack, as they have been developed with isolations and strict name spacing in mind. While they have been developed to work with infrastructure provisioned with the Mesosphere Universal Installer, they can be used in combination with any cloud and on-premise setups.
+The Mesosphere DC/OS Ansible roles are now a supported life cycle management method for DC/OS alongside the Mesosphere Universal Installer. For users that are already using Ansible to manage their infrastructure and applications, the Ansible roles will be usable with only a few changes to their existing stack, as they have been developed with isolations and strict name spacing in mind. While they have been developed to work with infrastructure provisioned with the Mesosphere Universal Installer, they can be used in combination with any cloud and on-premise setups.
 
 
 ## About the Mesosphere DC/OS Ansibles roles
 
-Use the [Mesosphere DC/OS Ansible roles](https://github.com/dcos/dcos-ansible) to install, upgrade and configure one ore more DC/OS clusters using [Ansible](https://www.ansible.com/). The roles can be used in a both a new or existing Ansible setups and be downloaded from [the official Ansible Galaxy](https://galaxy.ansible.com/dcos/dcos_ansible).
+Use the [Mesosphere DC/OS Ansible roles](https://github.com/dcos/dcos-ansible) to install, upgrade and configure one or more DC/OS clusters using [Ansible](https://www.ansible.com/). The roles can be used in a both a new or existing Ansible setups and be downloaded from [the official Ansible Galaxy](https://galaxy.ansible.com/dcos/dcos_ansible).
+
+<p class="message--note"><strong>NOTE: </strong>DC/OS Ansible roles are only available for CentOS and RHEL platforms at this time.</p>
 
 ## Using the Mesosphere DC/OS Ansible roles in combination with the Mesosphere Universal Installer
 
-Mesosphere supports the use of a conbination of the [Universal Installer](/1.12/installing/evaluation/mesosphere-supported-methods/) for infrastructure, a special [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge) and Ansible to manage the life cycle of the DC/OS software.
+Mesosphere supports the use of a combination of the [Universal Installer](/1.12/installing/evaluation/mesosphere-supported-methods/) for infrastructure, a special [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge) and Ansible to manage the life cycle of the DC/OS software.
 
 ```hcl
 module "dcos-ansible-bridge" {
@@ -47,4 +49,3 @@ This will generate a local `hosts` file, which is an Ansbile compatible inventor
 ## Using the Mesosphere DC/OS Ansible roles for on-premise setups
 
 Using Ansible to automate DC/OS installation, upgrades and configuration on on-premise setups is supported by Mesosphere. The [Mesosphere provided Ansible roles](https://galaxy.ansible.com/dcos/dcos_ansible) will work with any setup that follows the [Mesosphere DC/OS System Requirements](http://localhost:3000/1.12/installing/production/system-requirements/) and runs with CentOS/RHEL.
-<p class="message--note"><strong>NOTE: </strong>Currently CoreOS is not supported.</p>
