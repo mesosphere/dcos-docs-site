@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt: Guide for DC/OS on GCP using the Universal Installer
 title: DC/OS on GCP using the Universal Installer
 navigationTitle: GCP
-menuWeight: 4
+menuWeight: 10
 ---
 
 You can use the Universal Installer to create DC/OS clusters on the Google Cloud Platform (GCP) for an evaluation or production deployment. The **Universal Installer on GCP** installation method is officially supported by Mesosphere. Upgrades are also supported using this installation method.
@@ -22,8 +22,8 @@ If you are new to Terraform and want to deploy DC/OS on GCP with minimal configu
 
 ## Install using Terraform
 
-1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. 
-    
+1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows.
+
     If you're on a Mac environment with [Homebrew](https://brew.sh/) installed, simply run the following command:
 
     ```bash
@@ -40,7 +40,7 @@ If you are new to Terraform and want to deploy DC/OS on GCP with minimal configu
 You must have [Application Default Credentials](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login) for the GCP provider to authenticate against GCP.
 
 To receive Application Default Credentials:
-1) Run the following command:  
+1) Run the following command:
 
   ```bash
   $ gcloud auth application-default login
@@ -165,7 +165,7 @@ Password: `deleteme`
 
     The plan output file is created in the `dcos-tf-gcp-demo` folder alongside the `main.tf` file. This file is **only readable** by Terraform, however.
 
-    A message similar to the following confirms that you have successfully saved the execution plan to the `plan.out` file. 
+    A message similar to the following confirms that you have successfully saved the execution plan to the `plan.out` file.
   <p align=center><img src="./images/install/terraform-plan.png" /></p>
 
 6) Run the following command to deploy the plan that builds the cluster:
@@ -177,7 +177,7 @@ Password: `deleteme`
     Once Terraform has completed applying the plan, you should see output similar to the following:
   <p align=center><img src="./images/install/terraform-apply.png" /></p>
 
-### Congratulations! 
+### Congratulations!
 You have successfully installed a DC/OS cluster on GCP with minimal configuration or customization. From here, you can log in to begin using the new cluster.
 <p align=center>
 <img src="./images/install/dcos-login.png" />
@@ -255,7 +255,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
     You should see an output similar to the following:
   <p align=center><img src="./images/scale/terraform-apply.png" /></p>
 
-4) Check your DC/OS cluster using the DC/OS UI to verify the additional agents have been added. 
+4) Check your DC/OS cluster using the DC/OS UI to verify the additional agents have been added.
 
     You should see `four` total nodes connected. For example:
   <p align=center><img src="./images/scale/node-count-4.png" /></p>
@@ -268,7 +268,7 @@ Read more about the upgrade procedure that Terraform performs in the official [D
 To perform an upgrade:
 
 1) Open the `main.tf` configuration file.
-2) Modify the current DC/OS Version (`dcos_version`) to `1.12.1` and set the `dcos_install_mode` parameter to `upgrade`. 
+2) Modify the current DC/OS Version (`dcos_version`) to `1.12.1` and set the `dcos_install_mode` parameter to `upgrade`.
 
     By default, the `dcos_install_mode` parameter value is `install` to enable you to create the initial DC/OS cluster and scale it without explicitly setting its value. To upgrade an existing cluster, however, you must explicitly set the parameter value to `upgrade`.
 
@@ -317,7 +317,7 @@ To perform an upgrade:
   }
   ```
 
-3) Re-run the new execution plan.  
+3) Re-run the new execution plan.
 
   ```bash
   terraform plan -out=plan.out -var dcos_install_mode=upgrade

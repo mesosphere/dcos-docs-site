@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt: Guide for DC/OS on Azure using the Mesosphere Universal Installer
 title: DC/OS on Azure using the Universal Installer
 navigationTitle: Azure
-menuWeight: 2
+menuWeight: 5
 ---
 
 To use the Mesosphere Universal Installer with Azure, the Azure command line interface must be installed and configured to the security credentials of the account you will be using for resources. The following instructions will guide you through the necessary account creation and credentials to be able to successfully configure your Azure CLI and install DC/OS.
@@ -16,8 +16,8 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
 
 # Install Terraform
 
-1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. 
-    
+1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows.
+
     If you're on a Mac environment with [Homebrew](https://brew.sh/) installed, simply run the following command:
 
     ```bash
@@ -32,7 +32,7 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
 
 # Install and configure the Azure CLI
 
-1. Set up an [Azure Resource Manager account](https://azure.microsoft.com/en-us/free/) if you don't already have on. Make sure to have at least one [user role set up](https://docs.microsoft.com/en-us/azure/security-center/security-center-permissions). 
+1. Set up an [Azure Resource Manager account](https://azure.microsoft.com/en-us/free/) if you don't already have on. Make sure to have at least one [user role set up](https://docs.microsoft.com/en-us/azure/security-center/security-center-permissions).
 
 1. [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) guide to get `az` installed and running. For macOS users, it is available using Homebrew:
 
@@ -106,8 +106,8 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
     ```bash
     Generating public/private rsa key pair.
     Enter file in which to save the key (/Users/<your-username>/.ssh/id_rsa): ~/.ssh/arm-demo-key
-    Enter passphrase (empty for no passphrase): 
-    Enter same passphrase again: 
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
     Your identification has been saved in /Users/<your-username>/.ssh/arm-demo-key.
     Your public key has been saved in /Users/<your-username>/.ssh/arm-demo-key.
     The key fingerprint is:
