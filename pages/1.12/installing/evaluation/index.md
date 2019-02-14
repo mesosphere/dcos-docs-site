@@ -42,10 +42,10 @@ The following is required in order to use Terraform templates to deploy DC/OS on
 These installation methods are used for fast demos and proofs of concept, as well as production clusters. Upgrades are supported with the following installation methods.
 
 Any of the following methods can be used to install DC/OS:
-- [Amazon Web Services (AWS)](/1.12/installing/evaluation/mesosphere-supported-methods/aws/): Install DC/OS on AWS by using the Mesosphere Universal Installer.
-- [Azure](/1.12/installing/evaluation/mesosphere-supported-methods/azure/): Install DC/OS on Microsoft Azure by using the Mesosphere Universal Installer.
-- [Google Cloud Platform (GCP)](/1.12/installing/evaluation/mesosphere-supported-methods/gcp/): Install DC/OS on Google Cloud Platform (GCP) by using the Mesosphere Universal Installer.
-- [Any cloud](/1.12/installing/dcos-ansible/): Connect your Mesosphere Universal Installer created infrastructure to an existing Ansible setup and use Mesosphere provided Ansible roles to manage the DC/OS clusters lifecycle.
+- [Amazon Web Services (AWS)](/1.12/installing/evaluation/aws/): Install DC/OS on AWS by using the Mesosphere Universal Installer.
+- [Azure](/1.12/installing/evaluation/azure/): Install DC/OS on Microsoft Azure by using the Mesosphere Universal Installer.
+- [Google Cloud Platform (GCP)](/1.12/installing/evaluation/gcp/): Install DC/OS on Google Cloud Platform (GCP) by using the Mesosphere Universal Installer.
+- [Any cloud](/1.12/installing/evaluation/dcos-ansible/): Connect your Mesosphere Universal Installer created infrastructure to an existing Ansible setup and use Mesosphere provided Ansible roles to manage the DC/OS clusters lifecycle.
 
 ## Other Installation Methods
 These installation methods are provided by the community and are not tested by Mesosphere. Upgrading DC/OS is not a supported feature when using the following installations.
