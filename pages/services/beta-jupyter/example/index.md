@@ -10,7 +10,7 @@ model: /services/beta-jupyter/data.yml
 render: mustache
 ---
 
-In this section we will assume the role of a Data Scientist and use [{{ model.techShortName }}](https://github.com/{{ model.packageName }}/{{ model.packageName }}) to pre-process and analyze datasets with Spark and TensorFlow.
+The examples in this section assume you are a data scientist using [{{ model.techShortName }}](https://github.com/{{ model.packageName }}/{{ model.packageName }}) to pre-process and analyze datasets with Spark and TensorFlow.
 
 The technologies used in this section are as follows:
 
@@ -24,89 +24,103 @@ The technologies used in this section are as follows:
 - Estimated time for completion (manual installation): 20 minutes
 - Target audience: Anyone interested in Data Analytics.
 
-**Table of Contents**:
-
-- [Prerequisites](#prerequisites)
-- [Installation](#install)
-- [Use the demo](#demo)
-
-
 # Prerequisites
 - A cluster running [DC/OS 1.11](https://dcos.io/releases/) or later,  with at least {{ model.example.nodeDescription }}. Each agent should have {{ model.example.nodeAgent }} available. 
 - [DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed
 
 ## Optional: Terraform
-If you plan to use GPU support we recommend that you use the [dcos-terraform project](https://github.com/dcos/terraform-dcos/blob/master/aws/README.md#adding-gpu-private-agents) to provision DC/OS. Please refer to the [GPU Cluster Provisioning section](https://github.com/dcos/examples/tree/master/{{ model.packageName }}/1.11#install-{{ model.packageName }}-with-gpu-support) in the README for more details.
+If you plan to use GPU support, you should use the [dcos-terraform project](https://github.com/dcos/terraform-dcos/blob/master/aws/README.md#adding-gpu-private-agents) to provision DC/OS. Please refer to the [GPU Cluster Provisioning section](https://github.com/dcos/examples/tree/master/{{ model.packageName }}/1.11#install-{{ model.packageName }}-with-gpu-support) in the README for more details.
 
 # Installation
 This section will describe how to install the HDFS service and the Marathon-LB service.
 
 ## HDFS
 
-You can install the HDFS service from the DC/OS web interface or directly from the CLI:
+You can install the HDFS service from the DC/OS web-based interface or directly from the CLI. For example, run the following command:
 
 ```bash
 $ dcos package install hdfs
 ```
 
-To learn more about HDFS Service or advanced installation options, see the [HDFS service documentation](/services/hdfs/).
+To learn more about HDFS or advanced HDFS installation options, see the [HDFS service documentation](/services/hdfs/).
 
 ## Marathon-LB
 
-In order to expose {{ model.techShortName }} externally we install [Marathon-LB](/services/marathon-lb/) using
+To expose {{ model.techShortName }} externally, install [Marathon-LB](/services/marathon-lb/) using the following command:
 
 ```bash
 $ dcos package install marathon-lb
 ```
-To learn more about Marathon-LB or advanced installation options, see the [Marathon-LB documentation](/services/marathon-lb/).
+To learn more about Marathon-LB or advanced Marathon-LB installation options, see the [Marathon-LB documentation](/services/marathon-lb/).
 
 ## {{ model.techShortName }}
 
-We can install {{ model.techShortName }} also from the web interface or CLI. In both cases we need to change two parameters:
+You can install {{ model.techShortName }} from the DC/OS web-based interface or CLI. In both cases, you need to change two parameters:
+- the virtual host (VHOST)
+- the configuration file URLs
 
-1. First the `VHOST` for exposing the service on a [public agent](https://docs.mesosphere.com/latest/overview/architecture/node-types/) externally must be changed. This means changing the `networking.external_access.external_public_agent_hostname` to the externally reachable VHOST (e.g., the Public Agent ELB in an AWS environment).
-We can check this using the web interface:
+1. Expose the service on a [public agent](https://docs.mesosphere.com/latest/overview/architecture/node-types/) by changing the `networking.external_access.external_public_agent_hostname` setting to an externally reachable virtual host (`VHOST`).
 
-![VHOST configuration](/services/beta-jupyter/img/jupyterlab-VHOST_UI.png)
+    For example, you might specify the Public Agent ELB in an AWS environment.
 
-Figure 1. VHOST configuration
+    You can configure this setting using the DC/OS web-based interface or by customizing the {{ model.techShortName }} configuration file.
+  
+    For example:
 
-Or using a [{{ model.packageName }}_options.json](./{{ model.packageName }}_options.json) file where we need to configure the following setting;
-```
-"external_access": {
-    "enabled": true,
-    "external_public_agent_hostname": "<ADD YOUR VHOST NAME HERE *WITHOUT* trailing / NOR http://>"
-}
-```
-2. Since we want to access datasets in HDFS during this demo, we need to configure access to HDFS by exposing the necessary config files from the previously installed HDFS. This can be done with the web interface install:
+    ![VHOST configuration](/services/beta-jupyter/img/jupyterlab-VHOST_UI.png)
 
-![HDFS configuration](/services/beta-jupyter/img/{{ model.packageName }}-hdfs_ui.png)
+    Figure 1. VHOST configuration
 
-Figure 2. HDFS configuration
+    If you are modifying the {{ model.packageName }}configuration file, modify the following setting;
 
-Or use the [{{ model.packageName }}_options.json](./{{ model.packageName }}_options.json) with the following setting:
-```
-"jupyter_conf_urls": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints",
-```
-3. Furthermore, for better monitoring and debugging, we can enable the following two parameters either via the web interface or in [{{ model.packageName }}_options.json](./{{ model.packageName }}_options.json):
-``` json
-"start_spark_history_server": true,
-"start_tensorboard": true,
-```
-4. After configuring these settings, we can install {{ model.techShortName }} either by clicking **Run Service** in the web interface:
+    ```
+    "external_access": {
+        "enabled": true,
+        "external_public_agent_hostname": "<ADD YOUR VHOST NAME HERE *WITHOUT* http:// or the trailing slash (/)>"
+    }
+    ```
 
-![Install](/services/beta-jupyter/img/jupyterlab-install_ui.png)
+1. Specify the configuration file URLs.
 
-Figure 3. Run Service
+    For this demonstration, you are using the HDFS data set from the HDFS package you have installed. 
 
-or from the CLI:
+    From the DC/OS web-based interface:
 
-```
-dcos package install {{ model.packageName }} --options={{ model.packageName }}_options.json
-```
+    ![HDFS configuration](/services/beta-jupyter/img/{{ model.packageName }}-hdfs_ui.png)
 
-For more options for installing {{ model.techShortName }}, please refer to the [installation section](/services/jupyterlab/#deploy-via-cli).
+    Figure 2. HDFS configuration
 
+    Alternatively, you can modify the {{ model.packageName }}configuration file with the following setting:
+
+    ```
+    "jupyter_conf_urls": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints",
+    ```
+
+1. Enable the following two parameters for better monitoring and debugging using the DC/OS web-based interface or the {{ model.packageName }} configuration file. 
+
+    For example, customize the configuration file with the following settings:
+
+    ``` json
+    "start_spark_history_server": true,
+    "start_tensorboard": true,
+    ```
+    For more information about viewing and changing configuration settings, see 
+
+1. Install {{ model.techShortName }} either by clicking **Run Service** in the DC/OS web-based interface or from the CLI.
+
+    For example, in the DC/OS web-based interface:
+
+    ![Install](/services/beta-jupyter/img/jupyterlab-install_ui.png)
+
+    Figure 3. Run Service
+
+    Alternatively, install using the CLI and a customized configuration file by running the following command:
+
+    ```
+    dcos package install {{ model.packageName }} --options={{ model.packageName }}_options.json
+    ```
+
+  For more information about the options for installing {{ model.techShortName }}, see [installation](/services/beta-jupyter/installing/).
 
 # Demo
 
