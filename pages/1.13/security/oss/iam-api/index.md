@@ -3,14 +3,13 @@ layout: layout.pug
 navigationTitle:  Identity and Access Management API
 title: Identity and Access Management API
 menuWeight: 110
-excerpt: Managing users and permissions with the IAM API
+excerpt: Managing users with the IAM API
 
-enterprise: true
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-The Identity and Access Management API allows you to manage users, user groups, permissions, and LDAP configuration settings through a RESTful interface. It offers more functionality than the DC/OS web interface.
+The Identity and Access Management API allows you to manage users through a RESTful interface. It offers more functionality than the DC/OS web interface.
 
 
 # Request and response format
@@ -35,7 +34,7 @@ Append `/acs/api/v1` to the host name, as shown below.
 
 # Authentication and authorization
 
-All IAM endpoints require an authentication token and the `dcos:superuser` permission---except the `auth` endpoints. The `auth` endpoints do not require authentication tokens because their purpose is to return authentication tokens upon successful login.
+All IAM endpoints require an authentication token---except the `auth` endpoints. The `auth` endpoints do not require authentication tokens because their purpose is to return authentication tokens upon successful login.
 
 ## Obtaining an authentication token
 
@@ -87,12 +86,12 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## Refreshing the authentication token
 
-Authentication tokens expire after five days, by default. If your program needs to run longer than five days, you will need a service account. See [provisioning custom services](/1.13/security/ent/service-auth/custom-service-auth/) for more information.
+Authentication tokens expire after five days, by default. If your program needs to run longer than five days, you will need a service account.
 
 
 # API reference
 
-[swagger api='/1.13/api/ent-iam.yaml']
+[swagger api='/1.13/api/oss-iam.yaml']
 
 
 # Logging
