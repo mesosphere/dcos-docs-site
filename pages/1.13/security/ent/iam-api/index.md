@@ -22,11 +22,11 @@ The API supports JSON only. You must include `application/json` as your `Content
 
 # Host name and base path
 
-The host name to use will vary depending on where your app is running.
+The host name to use will vary depending on where your program is running.
 
-* If your app runs outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS web interface and copying the domain name from the browser. Alternatively, you can log in to the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the path to the load balancer which sits in front of your masters.
+* If your program runs outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS web interface and copying the domain name from the browser. Alternatively, you can log in to the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the path to the load balancer which sits in front of your masters.
 
-* If your app runs inside of the cluster, use `master.mesos`.
+* If your program runs inside of the cluster, use `master.mesos`.
 
 Append `/acs/api/v1` to the host name, as shown below.
 
@@ -41,13 +41,49 @@ All IAM endpoints require an authentication token and the `dcos:superuser` permi
 
 ### Via the IAM API
 
-To get an authentication token, pass a user name and password in the body of a request to `/auth/login`. It returns an authentication token as shown below.
+To get an authentication token, pass the credentials of a local user or service accout in the body of a `POST` request to `/auth/login`.
+
+To log in local user accounts supply `uid` and `password` in the request.
+
+**NOTE**: Read how to [establish trust in curl commands](https://docs.mesosphere.com/1.13/security/ent/tls-ssl/ca-trust-curl/) with DC/OS.
+
+```bash
+curl -i -X POST https://<host-ip>/acs/api/v1/auth/login -d '{"uid": "<uid>", "password": "<password>"}' -H 'Content-Type: application/json'
+```
+
+To log in service accounts supply user ID and a service login token in the request. The service login token is a RFC 7519 JWT of type RS256. It must be constructed by combining the service account (`uid`) and an expiration time (`exp`) claim in the JWT format. The JWT requirements for a service login token are:
+
+1. Header
+```json
+{
+    "alg": "RS256",
+    "typ": "JWT"
+}
+```
+
+2. Payload
+```json
+{
+    "uid": "<uid>",
+    "exp": "<expiration_time>"
+}
+```
+
+The provided information must then be encrypted using the service account's private key. This can be done manually using [jwt.io](https://jwt.io) or programmatically with your favorite JWT library. The final encoding step should result in a `base64` encoded JWT which can be passed to the IAM.
+
+```bash
+curl -X POST https://<host-ip>/acs/api/v1/auth/login -d '{"uid": "<service-account-id>", "token": "<service-login-token>"}' -H 'Content-Type: application/json'
+```
+
+Both requests return a DC/OS authentication token as shown below.
 
 ```json
 {
   "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg"
 }
 ```
+
+The DC/OS authentication token is also a RFC 7519 JWT of type RS256.
 
 ### Via the DC/OS CLI
 
@@ -92,7 +128,7 @@ Authentication tokens expire after five days, by default. If your program needs 
 
 # API reference
 
-[swagger api='/1.12/api/iam.yaml']
+[swagger api='/1.13/api/ent-iam.yaml']
 
 
 # Logging
