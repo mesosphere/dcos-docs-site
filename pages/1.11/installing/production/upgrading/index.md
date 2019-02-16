@@ -40,13 +40,12 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
 | ⚫| Supported |
 | ◯| Not Supported |
 
-<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+<table class="table" style="table-layout: fixed; border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
    <tr>
-    <th Rowspan = "20" Align = "center"><strong>Upgrade<br> From</strong></div></th>
-   <tr>
+    <th Rowspan = "20" Align = "center"><strong>From</strong></div></th>
     <th></th>
     <th Colspan = "10" Align = "center"><strong>Upgrade To</strong></th>
-   </tr>
+    <tr style="font-size: smaller;">
     <th></th>
     <th>1.11.0</th>
     <th>1.11.1</th>
@@ -60,7 +59,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <th>1.11.9</th>
    </tr>
    <tr>
-    <th>1.10.0</th>
+    <th style="font-size: smaller;">1.10.0</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -73,7 +72,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
    </tr>
    <tr>
-    <th>1.10.1</th>
+    <th style="font-size: smaller;">1.10.1</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -86,7 +85,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
    </tr>
    <tr>
-    <th>1.10.2</th>
+    <th style="font-size: smaller;">1.10.2</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -99,7 +98,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
    </tr>
     <tr>
-    <th>1.10.3</th>
+    <th style="font-size: smaller;">1.10.3</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -112,7 +111,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
    </tr>
    <tr>
-    <th>1.10.4</th>
+    <th style="font-size: smaller;">1.10.4</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -125,7 +124,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
    </tr>
    <tr>
-    <th>1.10.5</th>
+    <th style="font-size: smaller;">1.10.5</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -138,7 +137,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">◯</td>
    </tr>
    <tr>
-    <th>1.10.6</th>
+    <th style="font-size: smaller;">1.10.6</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -151,7 +150,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">⚫</td>
    </tr>
    <tr>
-    <th>1.10.7</th>
+    <th style="font-size: smaller;">1.10.7</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -164,7 +163,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">⚫</td>
    </tr>
    <tr>
-    <th>1.10.8</th>
+    <th style="font-size: smaller;">1.10.8</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -177,7 +176,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">⚫</td>
    </tr>
    <tr>
-    <th>1.10.9</th>
+    <th style="font-size: smaller;">1.10.9</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -190,7 +189,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.11.
     <td Align = "center">⚫</td>
    </tr>
    <tr>
-    <th>1.10.10</th>
+    <th style="font-size: smaller;">1.10.10</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
