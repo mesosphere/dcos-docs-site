@@ -1,16 +1,16 @@
 ---
 layout: layout.pug
-navigationTitle: CLI
-title: CLI
-menuWeight: 60
+navigationTitle: CLI Reference
+title: CLI Reference
+menuWeight: 30
 excerpt: CLI commands for DC/OS Kubernetes
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
 
-# DC/OS Kubernetes CLI
+# Mesosphere Kubernetes Engine (MKE) CLI
 
-A CLI is provided as a way to interact with the cluster manager and allow complete control over the life-cycle of Kubernetes clusters running on DC/OS.
+A MKE CLI is provided as a way to interact with the cluster manager and allow complete control over the life-cycle of Kubernetes clusters running on DC/OS.
 
 - [Commands](#commands)
   - [Manager Commands](#manager-commands)
@@ -20,9 +20,9 @@ A CLI is provided as a way to interact with the cluster manager and allow comple
     - [Manager Update](#manager-update)
     - [Manager Debug](#manager-debug)
   - [Cluster Commands](#cluster-commands)
-    - [Cluster List](#cluster-list)  
+    - [Cluster List](#cluster-list)
     - [Cluster Default](#cluster-default)
-    - [Cluster Kubeconfig](#cluster-kubeconfig)  
+    - [Cluster Kubeconfig](#cluster-kubeconfig)
     - [Cluster Describe](#cluster-describe)
     - [Cluster Create](#cluster-create)
     - [Cluster Update](#cluster-update)
@@ -169,7 +169,7 @@ $ dcos kubernetes manager pod info <pod>
 Restarts a given pod without moving it to a new agent:
 
 ```shell
-$ dcos kubernetes manager pod restart <pod>  
+$ dcos kubernetes manager pod restart <pod>
 ```
 
 ##### Pod Replace

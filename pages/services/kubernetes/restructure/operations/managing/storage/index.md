@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Storage
 title: Storage
-menuWeight: 55
+menuWeight: 15
 excerpt: How MKE leverages the Amazon EBS CSI driver to manage shared volumes
 ---
 

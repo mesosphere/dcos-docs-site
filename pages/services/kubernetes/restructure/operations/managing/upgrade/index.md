@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Upgrade
 title: Upgrade
-menuWeight: 30
+menuWeight: 78
 excerpt: Upgrade options for DC/OS Kubernetes
 ---
 
@@ -161,7 +161,7 @@ The following differences were detected between service configurations (CHANGED,
 
 The components of the cluster will be updated according to the changes in the options file [new_options.json].
 
-Updating these components means the Kubernetes cluster may experience some downtime or, in the worst-case scenario, cease to function properly.  
+Updating these components means the Kubernetes cluster may experience some downtime or, in the worst-case scenario, cease to function properly.
 Before updating proceed cautiously and always back up your data.
 
 This operation is long-running and has to run to completion.

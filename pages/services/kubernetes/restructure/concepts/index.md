@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle: Overview
-title: Overview
-menuWeight: 20
-excerpt: What's new in DC/OS Kubernetes 2.2.0-1.13.3
+navigationTitle: Key Concepts
+title: Key Concepts
+menuWeight: 40
+excerpt: Learn how DC/OS's Mesosphere Kubernetes Engine makes it easy to create and manage your Kubernetes clusters at scale
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
 
-When compared with previous versions, DC/OS Kubernetes 2.2.0-1.13.3 brings in a number of important improvements to how Kubernetes clusters are managed, as well as to how they operate.
+Mesosphere's Kubernetes Engine makes creating and managing
 
 # High-Density Multi-Kubernetes
 

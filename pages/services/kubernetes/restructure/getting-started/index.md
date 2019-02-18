@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: Quickstart - MKE on DC/OS Enterprise
-title: Quickstart - Mesosphere Kubernetes Engine on DC/OS Enterprise
-menuWeight: 40
+navigationTitle: Quickstart
+title: Quickstart
+menuWeight: 10
 excerpt: Learn how to get up and running using Kubernetes with Mesosphere Kubernetes Engine on DC/OS Enterprise
 enterprise: true
 ---
 
 ## Learning Objectives
 
-In this guided tutorial, you will learn many of the basics of using Kubernetes on top of DC/OS Enterprise. Specifically, you will be:
+In this Quickstart, you will learn many of the basics of using Kubernetes on top of DC/OS Enterprise. Specifically, you will be:
 
     * setting up the DC/OS Enterprise cluster to be able to connect to the Kubernetes command line (`kubectl`)
     * configuring and securing service accounts for MKE and each Kubernetes cluster to be created
