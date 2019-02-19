@@ -21,18 +21,18 @@ The API supports JSON only. You must include `application/json` as your `Content
 
 # Host name and base path
 
-The host name to use will vary depending on where your app is running.
+The host name to use will vary depending on where your program is running.
 
-* If your app runs outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS web interface and copying the domain name from the browser. Alternatively, you can log in to the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the path to the load balancer which sits in front of your masters.
+* If your program runs outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS web interface and copying the domain name from the browser. Alternatively, you can log in to the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the path to the load balancer which sits in front of your masters.
 
-* If your app runs inside of the cluster, use `master.mesos`.
+* If your program runs inside of the cluster, use `master.mesos`.
 
 Append `/acs/api/v1` to the host name, as shown below.
 
     https://<host-ip>/acs/api/v1
 
 
-# Authentication and authorization
+# Authentication
 
 All IAM endpoints require an authentication token---except the `auth` endpoints. The `auth` endpoints do not require authentication tokens because their purpose is to return authentication tokens upon successful login.
 
@@ -40,13 +40,47 @@ All IAM endpoints require an authentication token---except the `auth` endpoints.
 
 ### Via the IAM API
 
-To get an authentication token, pass a user name and password in the body of a request to `/auth/login`. It returns an authentication token as shown below.
+To get an authentication token, pass the credentials of a local user or service accout in the body of a `POST` request to `/auth/login`.
+
+To log in regular user accounts supply user ID and password in the request.
+
+```bash
+curl -ki -X POST https://<host-ip>/acs/api/v1/auth/login -d '{"uid": "<username>", "password": "<password>"}' -H 'Content-Type: application/json'
+```
+
+To log in service accounts supply user ID and a service login token in the request. The service login token is a RFC 7519 JWT of type RS256. It must be constructed by combining the service account user ID and an expiry (`exp`) claim in the JWT format. The JWT requirements for a service login token are:
+
+1. Header
+```json
+{
+    "alg": "RS256",
+    "typ": "JWT"
+}
+```
+
+2. Payload
+```json
+{
+    "uid": "<service-account-id>",
+    "exp": "<expiration time>"
+}
+```
+
+The provided information must then be encrypted using the service account's private key. The final encoding step results in a token in `base64` encoded JWT format which can be passed to the IAM.
+
+```bash
+curl -k -X POST https://<host-ip>/acs/api/v1/auth/login -d '{"uid": "<service-account-id>", "token": "<service-login-token>"}' -H 'Content-Type: application/json'
+```
+
+Both requests return a DC/OS authentication token as shown below.
 
 ```json
 {
   "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg"
 }
 ```
+
+The DC/OS authentication token is also a RFC 7519 JWT of type RS256.
 
 ### Via the DC/OS CLI
 
@@ -60,7 +94,7 @@ dcos config show core.dcos_acs_token
 
 ## Passing an authentication token
 
-### Via the HTTP header
+### Using the HTTP header field
 
 Copy the token value and pass it in the `Authorization` field of the HTTP header, as shown below.
 
@@ -68,7 +102,9 @@ Copy the token value and pass it in the `Authorization` field of the HTTP header
 Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg
 ```
 
-### Via `curl` as a string value
+### Using the `curl`
+
+#### Via `curl` as a string value
 
 Using `curl`, for example, you would pass this value as follows.
 
@@ -76,7 +112,7 @@ Using `curl`, for example, you would pass this value as follows.
 curl -H "Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg"
 ```
 
-### Via `curl` as a DC/OS CLI variable
+#### Via `curl` as a DC/OS CLI variable
 
 You can then reference this value in your `curl` commands, as shown below.
 

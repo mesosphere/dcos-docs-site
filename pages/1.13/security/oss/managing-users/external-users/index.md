@@ -7,13 +7,13 @@ menuWeight: 10
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-An external user is automatically created for the first user who logs in to the DC/OS cluster via the web interface.
+An external user is automatically created for the first user who logs in to the DC/OS cluster via a single sign-on flow through Auth0.
 
 # Log in external users via the web interface
 
 1.  Launch the DC/OS web interface.
 
-2.  Log in with your username (Google, GitHub, and Microsoft) and password.
+2.  Log in through a single sign-on flow using the identity provider of your choice (Google, GitHub, and Microsoft).
 
 **NOTE**: Additional users must be added by another authorized user before they can log in to DC/OS.
 

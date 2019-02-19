@@ -11,10 +11,21 @@ During testing, we have observed issues with loading the DC/OS UI login page whe
 
 ## Debugging
 
-To debug authentication problems, check the Admin Router and `dcos-bouncer` logs on the masters using the following commands.
+### Login
+
+The IAM is the only entity emitting DC/OS authentication tokens.
+To debug login problems, check the IAM (Bouncer) on the masters using the following commands.
+
+```bash
+sudo journalctl -u dcos-bouncer.service
+```
+
+### Authentication
+
+Admin Router is the only entity verfiying DC/OS authentication tokens.
+To debug authentication problems, check the Admin Router on the masters using the following commands.
 
 ```bash
 sudo journalctl -u dcos-adminrouter.service
-sudo journalctl -u dcos-bouncer.service
 ```
 
