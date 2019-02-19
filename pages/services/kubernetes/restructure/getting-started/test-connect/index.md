@@ -182,7 +182,7 @@ When the Kubernetes login screen is shown, you should choose the **Kubeconfig** 
 
 **Note:** When accessed, and depending on whether you are running DC/OS or DC/OS EE (as well as on your browser's configuration) you may be presented a warning indicating that the TLS certificate being used by the Kubernetes Dashboard is not trusted. It is generally safe to permanently trust this TLS certificate by adding an exception in your browser, or to skip past it. To learn more about TLS certificates, visit the [Kubernetes Dashboard](/services/kubernetes/2.2.0-1.13.3/operations/kubernetes-dashboard/) section.
 
-    <!-- better validation here of this step:Screenshot ^^ -->
+<!-- better validation screenshot here -->
 
 ## Mission Complete!
 

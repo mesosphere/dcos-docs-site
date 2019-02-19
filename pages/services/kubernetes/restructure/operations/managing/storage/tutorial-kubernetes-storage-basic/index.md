@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle: Quick Start
-title: Quick Start - Managing volumes with Kubernetes CSI
+navigationTitle: Quickstart
+title: Quickstart - Managing volumes with Kubernetes CSI
 menuWeight: 1
-excerpt: Getting started using both dynamic and pre-provisioned Kubernetes volumes
+excerpt: The basics if using both dynamic and pre-provisioned Kubernetes volumes
 ---
 
-This simple tutorial demonstrates how to setup Kubernetes deployments with Kubernetes [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) using the [Amazon EBS CSI driver](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) for volume lifecycle management.
+This simple quickstart demonstrates how to setup Kubernetes deployments with Kubernetes [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) using the [Amazon EBS CSI driver](https://github.com/kubernetes-sigs/aws-ebs-csi-driver) for volume lifecycle management.
 The instructions in what follows assume you have `kubectl` access to your Kubernetes cluster being managed by [MKE](https://docs.mesosphere.com/services/kubernetes/2.2.0-1.13.3/overview/).
 
 # Prerequisites

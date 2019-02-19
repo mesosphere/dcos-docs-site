@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Upgrade
-title: Upgrade
+navigationTitle: Upgrading
+title: Upgrading
 menuWeight: 78
-excerpt: Upgrade options for DC/OS Kubernetes
+excerpt: Upgrade options for Mesosphere Kubernetes Engine (MKE)
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->

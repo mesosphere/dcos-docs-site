@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Backup & Restore
-title: Backup & Restore
+navigationTitle: Backing up & Restoring
+title: Backing up & Restoring
 menuWeight: 8
 excerpt: Backing up and restoring a Kubernetes cluster
 ---

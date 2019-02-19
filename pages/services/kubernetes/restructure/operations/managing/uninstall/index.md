@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Uninstall
-title: Uninstall
+navigationTitle: Uninstalling
+title: Uninstalling
 menuWeight: 79
 excerpt: Uninstalling DC/OS Kubernetes
 ---
