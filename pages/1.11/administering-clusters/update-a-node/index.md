@@ -52,11 +52,7 @@ You can define a maintenance schedule to evacuate your tasks prior to changing a
 
 1.  Invoke the `⁠⁠⁠⁠machine/down` endpoint with the machine JSON definition specified. For example, [here](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) is a script that calls `/machine/down/`.
 
-    <table class=“table” bgcolor=#858585>
-    <tr> 
-     <td align=justify style=color:white><strong>Important:</strong> Invoking "machine/down" sends a ⁠⁠⁠⁠TASK_LOST⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS service guides and the Mesos maintenance primitives <a href="https://mesos.apache.org/documentation/latest/maintenance/">documentation</a>.</td> 
-    </tr> 
-    </table>
+    <p class="message--important"><strong>IMPORTANT: </strong>Invoking "machine/down" sends a ⁠⁠⁠⁠TASK_LOST⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS service guides and the Mesos maintenance primitives <a href="https://mesos.apache.org/documentation/latest/maintenance/">documentation</a>.</p>
     
 1.  Perform your maintenance.
 1.  Add the nodes back to your cluster by invoking the `⁠⁠⁠⁠machine/up` endpoint with the add agents JSON definition specified. For example:
