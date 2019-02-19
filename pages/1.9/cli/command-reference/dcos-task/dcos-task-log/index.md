@@ -8,7 +8,6 @@ excerpt:
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
 # Description
@@ -34,6 +33,16 @@ dcos task log <task> <file> [OPTION]
 |---------|-------------|-------------|
 | `<task>`   |             |  A full task ID, a partial task ID, or a regular expression. |
 | `<file>`   |  stdout  |  Specify the sandbox file to print. |
+
+The log file parameters should be paths relative to the Mesos sandbox. For example:
+```
+dcos task log [mesosID] /mnt/mesos/sandbox/exporter.log
+```
+will return an error message. Instead, use this format:
+
+```
+dcos task log [mesosID] exporter.log
+```
 
 # Parent command
 
