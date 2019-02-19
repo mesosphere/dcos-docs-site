@@ -4,10 +4,10 @@ navigationTitle:  Configuring a Custom CA Certificate
 title: Configuring a Custom CA Certificate
 menuWeight: 50
 excerpt: Configuring DC/OS Enterprise to use a custom CA certificate
-
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 
 Each DC/OS Enterprise cluster has its own DC/OS certificate authority (CA). By default, that CA uses a globally unique root CA certificate generated during the installation of DC/OS. That root CA certificate is used for signing certificates for the components of DC/OS, such as Admin Router. Instead of using the auto-generated root CA certificate, you can configure DC/OS Enterprise to use a custom CA certificate, which is either a root CA certificate or an intermediate CA certificate. (See examples [below](#example-use-cases))
