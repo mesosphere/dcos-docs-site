@@ -94,20 +94,17 @@ Draining nodes by using terminate signal, SIGUSR1, is easy to integrate with aut
     ﻿⁠⁠sudo systemctl daemon-reload
     ```
     
-  If you are performing agent maintenance without changing agent attributes or resources, reloading the `systemd` configuration completes the node update and no other steps are needed.
+    If you are performing agent maintenance without changing agent attributes or resources, continue to the next step after reloading the `systemd` configuration. If you are changing agent attributes or resources as part of updating the node, however, you should delete the `latest` symbolic link on the agent node.
 
-  If you are changing agent attributes or resources as part of updating the node, however, you should delete the `latest` symbolic link on the agent node to complete maintenance.
-
-## Removing agent metadata after maintenance
-To remove the `latest` metadata pointer on the agent node:
-
-1. Run the following command on the private and public agent nodes where you are changing agent settings:
+    To remove the `latest` metadata pointer on the agent node, run the following command on the private and public agent nodes where you are changing agent settings:
 
     ```bash
     ⁠⁠⁠⁠sudo rm /var/lib/mesos/slave/meta/slaves/latest
     ```
 
-1. Restart agents with the newly configured attributes and resource specification⁠⁠ by running the appropriate command.
+    Continue to the next step after removing the `latest` metadata symbolic link.
+
+1. Restart agents by running the appropriate command.
 
     - For **private agents**, run:
 
