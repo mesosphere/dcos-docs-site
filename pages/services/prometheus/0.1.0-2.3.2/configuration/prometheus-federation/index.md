@@ -28,7 +28,8 @@ global:
 # Here it's Prometheus itself.# Alert Rules
 rule_files:
  - alert.rules.ymlscrape_configs:
- # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.    # Self Monitoring
+ # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.    
+ # Self Monitoring
  - job_name: prometheus
    static_configs:
      - targets: ['localhost:9090']  - job_name: agent-metrics
@@ -44,13 +45,13 @@ rule_files:
     - targets: ['Slave Prometheus endpoint1','Slave Prometheus endpoint2']
 ```
 
-## Use Case: Simple cluster service implementation (Global Prometheus servers)
+## Use Case
 
-Global prometheus Service: To federate data from two or more Prometheus servers, we must to launch the  Prometheus service as a Global Prometheus service and pass Global Prometheus server endpoints as targets to the `slave prometheus` service.
+Global Prometheus Service: To federate data from two or more Prometheus servers, we must to launch the  Prometheus service as a Global Prometheus service and pass Global Prometheus server endpoints as targets to the `slave prometheus` service.
 
 To launch a Global Prometheus server, check the template given in the previous section.
 
-**Note:** A Global Prometheus service will only help with federated data from other Prometheus servers and would not be monitoring anything, unlike another `-prometheus` server.
+<p class="message--note"><strong>NOTE: </strong> A Global Prometheus service will only help with federated data from other Prometheus servers and would not be monitoring anything, unlike another <code>-prometheus</code> server.</p>
 
 Prometheus Service1, Prometheus Service2: Cluster of two prometheus servers monitoring different targets and federating data to global prometheus servers.
 

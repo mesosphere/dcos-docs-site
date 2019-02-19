@@ -16,7 +16,7 @@ Federation allows you to pull aggregates up the hierarchy to a global Prometheus
 - **match:** match[] here requests all job-level time series.
 - **global prometheus:** The Prometheus server which will recieve data from slave Prometheus server.
 
-Template for global prometheus server configuration:
+Template for global Prometheus server configuration:
 
 ```
 # my global config
@@ -47,11 +47,11 @@ global:
     - targets: ['Slave Prometheus endpoint1','Slave Prometheus endpoint2']
 ```
 
-### Use Case: Simple cluster service implementation (Global Prometheus Service)
+### Use Case
 
 To federate data from two or more Prometheus servers, we must launch the Prometheus service as a Global Prometheus Service and pass Global Prometheus server endpoints as targets to the `slave prometheus` service. To launch a Global Prometheus server, check the template given in the previous section.
 
-**Note:** A Global Prometheus service will only help with federated data from other Prometheus servers and would not be monitoring anything, unlike another `-prometheus` server.
+<p class="message--note"><strong>NOTE: </strong> A Global Prometheus service will only help with federated data from other Prometheus servers and would not be monitoring anything, unlike another <code>-prometheus</code> server.</p>
 
 Prometheus Service1, Prometheus Service2: Cluster of two prometheus servers monitoring different targets and federating data to Global Prometheus servers.
 
