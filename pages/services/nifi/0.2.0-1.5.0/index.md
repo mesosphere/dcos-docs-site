@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: NiFi 0.2.0-1.5.0
 title: NiFi 0.2.0-1.5.0
-menuWeight: 50
+menuWeight: 2
 excerpt: Overview of DC/OS Apache NiFi 0.2.0-1.5.0
 featureMaturity:
 enterprise: false
