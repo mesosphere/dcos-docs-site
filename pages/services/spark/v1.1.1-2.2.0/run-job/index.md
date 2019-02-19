@@ -12,7 +12,7 @@ enterprise: false
 
 1.  Run the job.
 
-        dcos spark run --submit-args=`--class MySampleClass http://external.website/mysparkapp.jar 30`
+        dcos spark run --submit-args="--class MySampleClass http://external.website/mysparkapp.jar 30"
 
         dcos spark run --submit-args="--py-files mydependency.py http://external.website/mysparkapp.py 30"
 
@@ -45,7 +45,7 @@ Certain common properties have their own special names. You can view these throu
 using `--supervise`:
 
     dcos spark run --submit-args="--conf spark.executor.memory=4g --supervise --class MySampleClass
-http://external.website/mysparkapp.jar 30`
+http://external.website/mysparkapp.jar 30"
 
 ## Configuration file
 

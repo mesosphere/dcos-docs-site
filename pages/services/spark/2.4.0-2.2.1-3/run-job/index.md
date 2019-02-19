@@ -35,7 +35,7 @@ model: /services/spark/data.yml
 
 All properties are submitted through the `--submit-args` option to `dcos spark run`. There are a few unique options to DC/OS that are not in {{ model.techShortName }} Submit (for example `--keytab-secret-path`).  View `dcos spark run --help` for a list of all these options. All `--conf` properties supported by {{ model.techShortName }} can be passed through the command-line with within the `--submit-args` string. 
 
-    dcos spark run --submit-args="--conf spark.executor.memory=4g --supervise --class MySampleClass http://external.website/mysparkapp.jar 30`
+    dcos spark run --submit-args="--conf spark.executor.memory=4g --supervise --class MySampleClass http://external.website/mysparkapp.jar 30"
 
 ## Setting automatic configuration defaults
 
