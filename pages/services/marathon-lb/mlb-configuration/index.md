@@ -237,6 +237,7 @@ For example:
 ```
    "labels":{
       "HAPROXY_0_STICKY":"true",
+      "HAPROXY_0_BACKEND_STICKY_OPTIONS": " cookie JSESSIONID prefix nocache "
       "HAPROXY_0_REDIRECT_TO_HTTPS":"true",
       "HAPROXY_0_VHOST":"nginx.mesosphere.com"
     }
