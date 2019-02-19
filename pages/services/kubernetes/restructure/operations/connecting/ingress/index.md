@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: External Ingress
-title: External Ingress
+navigationTitle: Connecting to Kubernetes Services
+title: Connecting to Kubernetes Services
 menuWeight: 7
-excerpt: Creating an Ingress controller for your Kubernetes cluster
+excerpt: Creating an Ingress controller to connect to services on your Kubernetes cluster
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
