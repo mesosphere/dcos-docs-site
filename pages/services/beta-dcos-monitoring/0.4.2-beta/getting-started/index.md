@@ -56,7 +56,7 @@ Assuming the service name is `{{ model.serviceName }}` (default), you should be 
 https://<CLUSTER_URL>/service/{{ model.serviceName }}/grafana/
 ```
 
-See more details in [Accessing the Grafana UI](operations/grafana/ui/).
+See more details in [Accessing the Grafana UI](../operations/grafana/ui/).
 
 # Running {{ model.techName }} service on DC/OS clusters securely
 
