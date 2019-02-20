@@ -14,4 +14,4 @@ You may manage user access from the Organization menu. The Organization menu com
 
 ![Organization Tab EE](/1.12/img/GUI-Organization-Users-Users_List_Empty-1_12.png)
 
-<p><i>Figure 1 - Organization > Users tab</i></p>
+Figure 1 - Organization > Users tab

@@ -3,10 +3,10 @@ layout: layout.pug
 navigationTitle:  GUI
 title: GUI
 menuWeight: 40
-excerpt: Using the web interface for DC/OS management
+excerpt: Using the GUI for DC/OS management
 ---
 
-The DC/OS web interface provides a rich graphical view of your DC/OS cluster. With the web interface you can view the current state of your entire cluster and DC/OS services. The web interface is installed as a part of your DC/OS installation.
+The DC/OS GUI provides a rich graphical view of your DC/OS cluster. With the GUI you can view the current state of your entire cluster and DC/OS services. The GUI is installed as a part of your DC/OS installation.
 
 ![Dashboard](/1.12/img/dashboard-ee-1-12.png)
 
