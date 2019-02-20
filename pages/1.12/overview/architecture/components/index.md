@@ -556,7 +556,10 @@ Most DC/OS components run as [systemd services](/1.12/overview/concepts/#systemd
 
 To see a list of the `systemd` components running on any particular node, list the contents of the `/etc/systemd/system/dcos.target.wants/` directory or execute `systemctl | grep dcos-` to see their current status.
 
+
+[enterprise]
 ## Master node
+[/enterprise]
 
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
@@ -603,11 +606,14 @@ dcos-vault.service
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
+dcos-checks-api.service
+dcos-checks-api.socket
+dcos-checks-poststart.service
+dcos-checks-poststart.timer
 dcos-diagnostics.service
 dcos-diagnostics.socket
 dcos-docker-gc.service
 dcos-docker-gc.timer
-dcos-epmd.service
 dcos-gen-resolvconf.service
 dcos-gen-resolvconf.timer
 dcos-log-agent.service
@@ -615,15 +621,13 @@ dcos-log-agent.socket
 dcos-logrotate-agent.service
 dcos-logrotate-agent.timer
 dcos-mesos-slave.service
-dcos-metrics-agent.service
-dcos-metrics-agent.socket
-dcos-navstar.service
+dcos-net-watchdog.service
+dcos-net.service
 dcos-pkgpanda-api.service
 dcos-rexray.service
 dcos-signal.timer
-dcos-spartan.service
-dcos-spartan-watchdog.service
-dcos-spartan-watchdog.timer
+dcos-telegraf.service
+dcos-telegraf.socket
 ```
 
 ## Public agent node
@@ -631,25 +635,26 @@ dcos-spartan-watchdog.timer
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
+dcos-checks-api.service
+dcos-checks-api.socket
+dcos-checks-poststart.service
+dcos-checks-poststart.timer
 dcos-diagnostics.service
 dcos-diagnostics.socket
 dcos-docker-gc.service
 dcos-docker-gc.timer
-dcos-epmd.service
 dcos-gen-resolvconf.service
 dcos-gen-resolvconf.timer
 dcos-log-agent.service
 dcos-log-agent.socket
 dcos-logrotate-agent.service
 dcos-logrotate-agent.timer
-dcos-mesos-slave-public.service
-dcos-metrics-agent.service
-dcos-metrics-agent.socket
-dcos-navstar.service
+dcos-mesos-slave.service
+dcos-net-watchdog.service
+dcos-net.service
 dcos-pkgpanda-api.service
 dcos-rexray.service
 dcos-signal.timer
-dcos-spartan.service
-dcos-spartan-watchdog.service
-dcos-spartan-watchdog.timer
+dcos-telegraf.service
+dcos-telegraf.socket
 ```
