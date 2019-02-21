@@ -33,7 +33,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/1.12/security/ent/secrets/) to secure the key pair.
+<p class="message--note"><strong>NOTE: </strong>You can use the <a href="https://docs.mesosphere.com/1.12/security/ent/secrets/">DC/OS Secret Store</a>to secure the key pair.</p>
 
 # <a name="create-a-service-account"></a>Create a Service Account
 
@@ -43,7 +43,7 @@ From a terminal prompt, create a new service account (`<service-account-id>`) co
 dcos security org service-accounts create -p <your-public-key>.pem -d "dcos_nifi" <service-name>
 ```
 
-**Tip:** You can verify your new service account using the following command.
+You can verify your new service account using the following command.
 
 ```bash
 dcos security org service-accounts show <service-account-id>
@@ -52,7 +52,7 @@ dcos security org service-accounts show <service-account-id>
 # <a name="create-a-secret"></a>Create a Secret
 Create a secret (`nifi/<secret-name>`) with your service account (`<service-account-id>`) and private key specified (`<private-key>.pem`).
 
-**Tip:** If you store your secret in a path that matches the service name (e.g. service name and secret path are `nifi`), then only the service named `nifi` can access it.
+If you store your secret in a path that matches the service name (e.g. service name and secret path are `nifi`), then only the service named `nifi` can access it.
 
 ## Permissive
 
@@ -66,7 +66,7 @@ dcos security secrets create-sa-secret <private-key>.pem <service-name> <service
 dcos security secrets create-sa-secret --strict <private-key>.pem <service-name> <service name secret>
 ```
 
-**Tip:**
+
 You can list the secrets with the following command:
 
 ```bash
