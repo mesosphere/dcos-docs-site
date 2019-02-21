@@ -18,7 +18,7 @@
     min-height: 275px;
     margin-bottom: 20px;
     padding: 20px;
-    border-top: 4px $color-purple-light solid;
+    border-top: 4px $color-purple-d3 solid;
     border-radius: 2px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); //  &:hover {
     //   background: $color-purple-light;
@@ -44,8 +44,8 @@
       border: 1px solid $color-grey;
     }
     &--enterprise {
-      color: $color-purple-light;
-      border: 1px solid $color-purple-light;
+      color: $color-purple-d3;
+      border: 1px solid $color-purple-d3;
     }
     &--beta {
       color: $color-pink;
@@ -101,7 +101,7 @@
       line-height: 1.75;
       color: $color-grey;
       &:hover {
-        color: $color-purple-light;
+        color: $color-purple-d3;
       }
       background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
     }
@@ -116,7 +116,7 @@
       float: right;
       width: 28px;
       height: 28px;
-      color: $color-purple-light;
+      color: $color-purple-d3;
     }
   }
   @include pre-md {
