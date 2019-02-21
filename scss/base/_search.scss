@@ -7,7 +7,7 @@
     display: flex;
     width: 100%;
     margin-top: 3rem;
-    border-bottom: 2px $color-purple-light solid;
+    border-bottom: 2px $color-purple-d3 solid;
     border-radius: 5px;
     background: $color-light;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -30,7 +30,7 @@
       display: inline-block;
       width: 25px;
       height: 25px;
-      color: $color-purple-light;
+      color: $color-purple-d3;
     }
   }
   &__filters {
