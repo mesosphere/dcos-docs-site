@@ -37,7 +37,7 @@ You can add your own custom templates to the Docker image directly, or provide t
 ## Overriding settings using app labels
 Most of the Marathon-LB template settings can be overridden using app labels. By using app labels, you can override template settings per service port. App labels are specified in the Marathon app definition. For example, the following app definition excerpt uses app labels to specify the `external` load balancing group for an application with a virtual host named `service.mesosphere.com`:
 
-<pre>
+```json
 {
   "id": "http-service",
   "labels": {
@@ -45,11 +45,11 @@ Most of the Marathon-LB template settings can be overridden using app labels. By
     "HAPROXY_0_VHOST":"service.mesosphere.com"
   }
 }
-</pre>
+```
 
 The following example illustrates settings for a service called `http-service` that requires `http-keep-alive` to be disabled:
 
-<pre>
+```json
 {
   "id": "http-service",
   "labels":{
@@ -57,7 +57,7 @@ The following example illustrates settings for a service called `http-service` t
     "HAPROXY_0_BACKEND_HTTP_OPTIONS":"  option forwardfor\n  no option http-keep-alive\n  http-request set-header X-Forwarded-Port %[dst_port]\n  http-request add-header X-Forwarded-Proto https if { ssl_fc }\n"
   }
 }
-</pre>
+```
 
 ### Specifying strings in app labels
 In specifying labels for load balancing, keep in mind that strings are interpreted as literal `HAProxy` configuration parameters, with substitutions respected. The `HAProxy` configuration file settings are validated before reloading the `HAProxy` program after you make changes. Because the configuration is checked before reloading, problems with `HAProxy` labels can prevent the `HAProxy` service from restarting with the updated configuration.
@@ -84,10 +84,10 @@ To create a custom global template:
 
 1. On your local computer, create a file called `HAPROXY_HEAD` in a directory called `templates` using commands similar to the following: 
 
-  ``` bash
-  mkdir -p templates
-  cat > templates/HAPROXY_HEAD
-  ```
+    ```bash
+    mkdir -p templates
+    cat > templates/HAPROXY_HEAD
+    ```
 
 1. Open the `HAPROXY_HEAD` file and add content similar to the following:
 
@@ -279,15 +279,13 @@ The following examples illustrate some common load balancer operational behavior
 ## Adding HTTP headers to the health check
 The following example adds the Host header to the health check executed by HAProxy:
 
-```
+```json
 {
-  ```
   "id":"app",
   "labels": {
     "HAPROXY_GROUP": "external",
     "HAPROXY_0_BACKEND_HTTP_HEALTHCHECK_OPTIONS": "  option  httpchk GET {healthCheckPath} HTTP/1.1\\r\\nHost:\\ www\n  timeout check {healthCheckTimeoutSeconds}s\n"
   }
-  ```
 }
 ```
 
