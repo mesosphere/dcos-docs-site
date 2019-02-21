@@ -235,8 +235,45 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 
    The Docker image will now pull using the provided security credentials.
 
+<a name="docker-repo-certs"></a>
+
+# Configuring the Docker registry to use a custom certificate
+As an alternative to providing user credentials to authorize access to the private Docker registry, you can use a custom certificate to authorize access to the private Docker registry.
+
+To configure a custom certificate for accessing the private Docker registry and DC/OS UCR:
+
+1. Create or identify a custom certificate that you want to use as a trusted certificate for accessing the Docker registry.
+
+    You can use OpenSSL, DC/OS Enterprise CLI, or another program for generating public and private keys, certificate requests, and encrypted client and server certificates.
+
+1. Download or copy the certificate to the appropriate location.
+
+   For example, if you want to configure the DC/OS `ca.crt` certificate as a trusted certificate, you can download a copy of the `ca.crt` file to a local directory and set it as trusted using a command similar to the following:
+
+    ```bash
+    sudo cp /etc/docker/certs.d/master.mesos:5000/ca.crt /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt
+    ```
+
+1. Generate a hash for the file by running a command similar to the following:
+
+    ```bash
+    cd /var/lib/dcos/pki/tls/certs/
+    openssl x509 -hash -noout -in docker-registry-ca.crt
+
+1. Create the /pki/tls/certs directory on the public agent for storing trusted certificates.
+
+    ```bash
+    sudo mkdir /pki/tls/certs
+    ```
+
+1. Create a symbolic link from the trusted certificate to the `/pki/tls/certs` directory on the public agent.
+
+    ```bash
+    sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
+    ```
 
 <a name="tarball-instructions"></a>
+
 # Pushing a custom image to a private registry from a tarball
 
 If you asked your sales representative for an enterprise version of Marathon, you may have been given a Docker image in a `.tar` archive. Follow these steps to deploy it to your registry:
