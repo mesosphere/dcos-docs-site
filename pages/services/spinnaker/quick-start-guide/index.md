@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Configuring DC/OS access for Spinnaker
 excerpt: How to use Spinakker with DC/OS
-title: Configuring DC/OS access for Spinakker
+title: Configuring DC/OS access for Spinnaker
 menuWeight: 2
 model: /services/spinnaker/data.yml
 render: mustache
