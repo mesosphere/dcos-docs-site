@@ -11,7 +11,7 @@ render: mustache
 
 ## Upgrades
 
-- Cassandra version upgraded to 3.11.3
+- {{ model.techShortName }} version upgraded to 3.11.3
 - SDK library upgraded to version 0.55.2
 
 ## New Features
@@ -56,7 +56,7 @@ render: mustache
 
 ## New Features
 
-- The {{ model.TechShortName }} tasks no longer run inside a Docker container. This removes the requirement that on Centos based distributions the service must be run as root.
+- The {{ model.TechShortName }} tasks no longer run inside a Docker container. This removes the requirement that the service must be run as root on CentOS based distributions.
 - Support for the automated provisioning of TLS artifacts to secure {{ model.TechShortName }} communication.
 - Automatic configuration of the system tables on initial deployment.
 - Support for `Zone` placement constraints in DC/OS 1.11.
