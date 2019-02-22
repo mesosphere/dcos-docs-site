@@ -13,17 +13,17 @@ Your cluster will become more secure as you move from `permissive` to `strict` [
 
 - Ensure the network is setup according to the information for [securing your cluster](/1.12/administering-clusters/securing-your-cluster/).
 
-- <a name="secure-flag"></a>Set the [`auth_cookie_secure_flag`](/1.12/installing/ent/custom/configuration/configuration-parameters/#auth-cookie-secure-flag-enterprise) to `true`.
+- <a name="secure-flag"></a>Set the [`auth_cookie_secure_flag`](/1.12/installing/production/advanced-configuration/configuration-reference/#auth-cookie-secure-flag-enterprise) to `true`.
 
-- <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/1.12/installing/ent/custom/configuration/configuration-parameters/#zk-superuser), [`zk_master_credentials`](/1.12/installing/ent/custom/configuration/configuration-parameters/#zk-master), and [`zk_agent_credentials`](/1.12/installing/ent/custom/configuration/configuration-parameters/#zk-agent).
+- <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/1.12/installing/production/advanced-configuration/configuration-reference/#zk-super-credentials-enterprise), [`zk_master_credentials`](/1.12/installing/production/advanced-configuration/configuration-reference/#zk-master-credentials-enterprise), and [`zk_agent_credentials`](/1.12/installing/production/advanced-configuration/configuration-reference/#zk-agent-credentials-enterprise).
 
 - [Get the root certificate of your DC/OS CA](/1.12/security/ent/tls-ssl/get-cert/#oob) and manually provision [browsers](/1.12/security/ent/tls-ssl/ca-trust-browser/), [DC/OS CLI](/1.12/security/ent/tls-ssl/ca-trust-cli/), [curl](/1.12/security/ent/tls-ssl/ca-trust-curl/), and other clients with it.
 
-- [Provision services with service accounts even when optional](/1.12/security/ent/service-auth/).
+- Provision services with [service accounts](/1.12/security/ent/service-auth/) even when optional.
 
-- [Use secrets to store and pass sensitive information to services](/1.12/security/ent/secrets/).
+- Use [secrets](/1.12/security/ent/secrets/) to store and pass sensitive information to services].
 
-- [Use spaces to restrict service access to secrets](/1.12//security/ent/#spaces).
+- Use [spaces](/1.12//security/ent/#spaces) to restrict service access to secrets.
 
 - Tightly restrict the distribution of SSH keys. For debugging, consider using [`dcos task exec`](/1.12/monitoring/debugging/) instead.
 
