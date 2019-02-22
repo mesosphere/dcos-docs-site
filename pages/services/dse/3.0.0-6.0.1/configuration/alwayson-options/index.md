@@ -22,7 +22,7 @@ render: mustache
 
 ## Set up and configure the AlwaysOn SQL
 
-  The AlwaysOn SQL configurable options are present in Configuration section for `dse` has options for setting the ports, timeout values, log location, and other Spark or Hive configuration settings.
+  The AlwaysOn SQL configurable options are present in the Configuration section for `dse` and has options for setting the ports, timeout values, log location, and other Spark or Hive configuration settings.
 
 The template for AlwaysOn SQL Configuration is below:
 
