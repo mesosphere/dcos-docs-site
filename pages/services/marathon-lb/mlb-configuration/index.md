@@ -185,7 +185,7 @@ To create a custom global template:
   Your customized Marathon-LB instance now runs using the new template.
 
 # Creating a sample per-app template
-To create a template for an individual app, modify the application definition. In the example below, the default template for the external NGINX application definition (`nginx-external.json`) has been modified to disable HTTP keep-alive. While this is an artificial example, there may be cases where you need to override certain defaults on a per-application basis.
+To create a template for an individual app, modify the application definition. In the example below, the default template for the external NGINX application definition (`nginx-external.json`) has been modified to disable the HTTP keep-alive setting. While this is not a common scenario, there may be cases where you need to override certain default values on a per-application basis.
 
 1. Copy the following lines into the `nginx-external.json` app definition file:
     ```
