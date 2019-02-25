@@ -8,6 +8,17 @@ enterprise: false
 ---
 This section covers potential issues and troubleshooting techniques for Marathon-LB load balancer running on DC/OS clusters.
 
+# Collecting container and HAProxy information
+You can collect detailed information about containers and HAProxy activity to analyze and troubleshoot operations, identify potential problems, and view connections for frontends and backends. You collect this information by setting the `HAPROXY_SYSLOGD` environment variable or the `container-syslogd` value in a custom `options.json` file like this:
+
+```json
+  {
+    "marathon-lb": {
+      "container-syslogd": true
+    }
+  }
+```
+
 # Removing orphaned processes
 `HAProxy` typically produces orphan processes because of its two-step reloading process. In most cases, Marathon-LB removes the orphan processes it generates using the tini program. The Tini program runs transparently on a container as a single child process. It is responsible for removing orphan processes and performing signal forwarding.
 
