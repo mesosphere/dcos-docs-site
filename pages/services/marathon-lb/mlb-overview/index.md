@@ -91,7 +91,7 @@ The following scenarios represent the most common load balancing strategies and 
 
 If none of these common load balancing strategies suits your organization, you might want to use a combination of internal and external load balancers, with different services exposed on different load balancers.
 
-## Running multiple load balancer instances
+# Running multiple load balancer instances
 For practical purposes, you should consider running three or more instances of Marathon-LB to provide high availability for production workloads. You should never run a single load balancing instance because a single instance cannot provide high-availability or fault tolerance for applications. Except in the case of extreme processing load, running five or more load-balancing instances does not typically add significant value in term of application availability or performance.
 
 The specific number of Marathon-LB instances you should run to best suit your environment depends on the workload you expect, characteristics of the application itself, and the level of failure tolerance required. 

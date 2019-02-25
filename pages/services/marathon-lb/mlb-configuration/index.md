@@ -479,13 +479,6 @@ You can add HAProxy maps for Marathon-LB by using the `--haproxy-map` flag. For 
 ```
 This command creates a lookup dictionary for the host header (both HTTP and HTTPS) and X-Marathon-App-Id header. For path-based routing and authentication, Marathon-LB continues to use the backend rules comparison.
 
-## Running multiple instances
-For practical purposes, you should consider running three or more instances of Marathon-LB to provide high availability for production workloads. You should never run a single load balancing instance because a single instance cannot provide high-availability or fault tolerance for applications. Except in the case of extreme processing load, running five or more load-balancing instances does not typically add significant value in term of application availability or performance.
-
-The specific number of Marathon-LB instances you should run to best suit your environment depends on the workload you expect, characteristics of the application itself, and the level of failure tolerance required. 
-
-You should not run Marathon-LB on every node in your cluster. Running too many instances of Marathon-LB can affect processing, efficiency, and overall performance because of additional calls to the Marathon API and excess health checking.
-
 ## Using internal and external groups for load balancing
 You should consider using a dedicated load balancer in front of Marathon-LB to simplify upgrades and changes. Common choices for a dedicated load balancer to work with Marathon-LB include an Elastic Load Balancer (on AWS) or a hardware load balancer for on-premise installations.
 
@@ -551,7 +544,7 @@ For example, if you want to configure access to an app with the ID tweeter:
     * Closing connection 0
 
 ## Assigning ports for IP-per-task apps
-Marathon-LB supports load balancing for applications that are assigned an IP address and port on a per-task basis. If each task is assigned its own unique IP address, access to the task is routed directly through the application’s service discovery port. If the service ports are not defined, Marathon-LB automatically assigns port values from a configurable range. 
+Marathon-LB supports load balancing for applications that are assigned an IP address and port on a per-task basis. If each task is assigned its own unique IP address, access to the task is routed directly through the application’s service discovery port. If the service ports are not defined, Marathon-LB automatically assigns port values from a configurable range.
 
 You can configure the range for port assignment values using the `--min-serv-port-ip-per-task` and `--max-serv-port-ip-per-task` options. 
 
