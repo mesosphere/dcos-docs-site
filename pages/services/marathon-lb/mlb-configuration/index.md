@@ -491,7 +491,7 @@ You should consider using a dedicated load balancer in front of Marathon-LB to s
 
 Use separate Marathon-LB groups (specified with the `–group` option) for internal and external load balancing. On DC/OS, the default group is `external`. The basic configuration setting for an internal load balancer would be:
 
-```
+```json
  {
     "marathon-lb": {
       "name": "marathon-lb-internal",
@@ -549,17 +549,6 @@ For example, if you want to configure access to an app with the ID tweeter:
     </body></html>
     * Curl_http_done: called premature == 0
     * Closing connection 0
-
-## Collecting container and HAProxy information
-You can collect detailed information about containers and HAProxy activity to analyze and troubleshoot operations, identify potential problems, and view connections for frontends and backends. You collect this information by setting the `HAPROXY_SYSLOGD` environment variable or the `container-syslogd` value in a custom `options.json` file like this:
-
-```
-  {
-    "marathon-lb": {
-      "container-syslogd": true
-    }
-  }
-```
 
 ## Assigning ports for IP-per-task apps
 Marathon-LB supports load balancing for applications that are assigned an IP address and port on a per-task basis. If each task is assigned its own unique IP address, access to the task is routed directly through the application’s service discovery port. If the service ports are not defined, Marathon-LB automatically assigns port values from a configurable range. 
