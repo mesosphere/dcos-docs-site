@@ -11,13 +11,13 @@ render: mustache
 
 ## Upgrades
 
-- {{ model.techShortName }} version upgraded to 3.11.3
-- SDK library upgraded to version 0.55.2
+- Upgrade {{ model.techShortName }} to version `3.11.3`
+- Upgraded SDK library to version `0.55.2`
 
 ## New Features
 
-- Readiness-check interval, timeout, and delay are now configurable properties 
-- The number of open file descriptors (RLIMIT_NOFILE) is now a configurable property 
+- Readiness-check `interval`, `timeout`, and `delay` are now configurable properties 
+- The number of open file descriptors (`RLIMIT_NOFILE`) is now a configurable property 
 
 ## Improvements
 - Service names are now validated with a regex
