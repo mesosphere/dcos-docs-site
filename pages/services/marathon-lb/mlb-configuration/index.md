@@ -451,7 +451,7 @@ After you enable logging, you can examine the log file results with the `journal
   ```
 
 ## Adding a custom HAProxy error response
-You can specify a custom HAProxy error response by overriding the default errorfile directive in a template or an app definition label. For example, you could customize the template to return a redirect to a different backend if no backends are available. 
+You can specify a custom HAProxy error response by overriding the default `errorfile` directive in a template or an app definition label. For example, you could customize the template to return a redirect to a different backend if no backends are available. 
 
 To illustrate using a custom error response:
 1. Open the application definition file for the application.
