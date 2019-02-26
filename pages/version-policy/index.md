@@ -228,13 +228,13 @@ B - This package combination is *beta*.
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>Cassandra 2.3.x-3.0.16</td>
+        <td>Cassandra 2.4.x-3.0.16</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Cassandra 2.4.x-3.0.16 (Recommended)</td>
+        <td>Cassandra 2.5.x-3.11.3 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
