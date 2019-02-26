@@ -7,7 +7,7 @@ menuWeight: 10
 model: /services/cassandra/data.yml
 render: mustache
 ---
-#Version 2.5.0-3.11.3
+# Version 2.5.0-3.11.3
 
 ## Upgrades
 
