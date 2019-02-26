@@ -290,7 +290,7 @@ DC/OS 安装完成后，可从 `https://leader.mesos:5050/overlay-master/state` 
 
 DC/OS 覆盖网络使用复制日志跨 Mesos 管理节点重启以保留虚拟网络状态，并在选择新的 Mesos 管理节点时恢复覆盖状态。覆盖复制日志的存储位置为 `/var/lib/dcos/mesos/master/overlay_replicated_log`。当从集群卸载 DC/OS 时，**不会**移除覆盖复制日志，因此您需要在重新安装 DC/OS 之前手动删除此日志。否则，Mesos 管理节点会尝试在启动期间对现有覆盖日志进行核对，如果发现未配置的虚拟网络，管理节点将失败。
 
-<p class="message--note"><strong>注意: </strong> 覆盖复制日志不同于 <a href="http://mesos.apache.org/documentation/latest/replicated-log-internals/">管理节点的复制日志</a>，其存储位置为 <tt>/var/lib/mesos/master/replicated_log</tt>。移除覆盖复制日志对管理节点的恢复语义没有影响。</p>
+<p class="message--note"><strong>注意: </strong> 覆盖复制日志不同于 <a href="http://mesos.apache.org/documentation/latest/replicated-log-internals/">管理节点的复制日志</a>，其存储位置为 <tt>/var/lib/dcos/mesos/master/replicated_log</tt>。移除覆盖复制日志对管理节点的恢复语义没有影响。</p>
 
 ## iptables
 虚拟网络安装 IPMASQ 规则，让容器可以在虚拟网络之外进行通信。删除或替换虚拟网络时，必须移除与之前虚拟网络关联的规则。要移除与每个覆盖关联的 IPMASQ 规则，请从对应于虚拟网络子网的 POSTROUTING 更改的 NAT 表中移除 IPMASQ 规则。移除每个代理节点上的这些规则。
