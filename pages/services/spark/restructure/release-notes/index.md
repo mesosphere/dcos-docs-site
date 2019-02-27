@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
-menuWeight: 145
+menuWeight: 1
 excerpt: Release notes for DC/OS Apache Spark 2.6.0-2.3.2
 featureMaturity:
 ---
