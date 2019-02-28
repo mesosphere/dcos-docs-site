@@ -62,7 +62,7 @@ enterprise: true
 
 12. Execute the following ZooKeeper command to gain additional privileges, replacing `super:secret` if necessary with the actual user name and password of the ZooKeeper superuser.
 
-   **Tip:** By default, DC/OS sets the ZooKeeper superuser to `super:secret` but we recommend [changing the default](//1.10/installing/production/advanced-configuration/configuration-reference/#zk-superuser).
+   **Tip:** By default, DC/OS sets the ZooKeeper superuser to `super:secret` but we recommend [changing the default](//1.10/installing/production/advanced-configuration/configuration-reference/#zk-super-credentials-enterprise).
 
    ```bash
    addauth digest super:secret
