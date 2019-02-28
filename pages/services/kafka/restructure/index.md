@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Kafka
+navigationTitle: Kafka
 title: Kafka
 menuWeight: 70
 excerpt:
