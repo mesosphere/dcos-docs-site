@@ -36,7 +36,7 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
     ```
 
-    **Tip:** Run `dcos node` to get the available node IDs.
+    Run `dcos node` to get the available node IDs.
 
 1.  Clone the [autoscale Github repository](https://github.com/mesosphere/marathon-autoscale) to your node.
 

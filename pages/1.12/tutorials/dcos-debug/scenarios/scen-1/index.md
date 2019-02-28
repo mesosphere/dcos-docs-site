@@ -19,21 +19,21 @@ For this first scenario, deploy [this app definition](https://raw.githubusercont
 $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json
 ```
 
-Check the application status using the DC/OS web interface, you should see something like the following:
+Check the application status using the DC/OS GUI, you should see something like the following:
 
-![Pic of web interface](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-14.png)
+![Pic of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-14.png)
 
-Figure 1. DC/OS web interface showing app status
+Figure 1. DC/OS GUI showing app status
 
 with the status of the application most likely to be “Waiting” followed by some number of thousandths “x/1000”. "Waiting" refers to the overall application status and the number; "x" here represents how many instances have successfully deployed (6 in this example).
 
 You can also check this status from the CLI:
 
 ```bash
-$ dcos marathon app list
+dcos marathon app list
 ```
 
-would produce the following output in response:
+which produces the following output in response:
 
 ```bash
 ID              MEM   CPUS  TASKS   HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
@@ -44,7 +44,7 @@ ID              MEM   CPUS  TASKS   HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 Or, if you want to see all ongoing deployments, enter:
 
 ```bash
-$ dcos marathon deployment list
+dcos marathon deployment list
 ```
 
 to see something like the following:
@@ -67,25 +67,25 @@ If we look at the DC/OS dashboard, we should see a pretty high CPU allocation si
 
 Figure 2. DC/OS resource allocation display
 
-Since we are not yet at 100% allocation, but we are still waiting to deploy, something interesting is going on. So let’s look at the recent resource offers in the debug view of the DC/OS web interface.
+Since we are not yet at 100% allocation, but we are still waiting to deploy, something interesting is going on. So let’s look at the recent resource offers in the debug view of the DC/OS GUI.
 
-![Pic of relevant instance of web interface](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
+![Pic of relevant instance of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
 
 Figure 3. Recent resource offers
 
 We can see that there are no matching CPU resources. But again, the overall CPU allocation is only at 75%. Further puzzling, when we take a look at the 'Details' section further below, we see that the latest offers from a different host match the resource requirements of our application. So, for example, the first offer coming from host `10.0.0.96` matched the role, constraint (not present in this `app-definition`) memory, disk, port resource requirements --- but failed the CPU resource requirements. The offer before this also seemed like it should have met the resource requirements. **So despite it looking like we have enough CPU resources available, the application seems to be failing for just this reason**.
 
-Let's look at the 'Details' more closely.
+Let's look at the details more closely.
 
 ![Pic of details](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-22.png)
 
 Figure 4. Rsource allocation details
 
-Interesting. According to this, some of the remaining CPU resources are allocated to a different [Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application (it runs in role '*', the default role).
+According to this, some of the remaining CPU resources are allocated to a different [Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application (it runs in role '*', the default role).
 
-To check the roles of different resources let us have a [look at the state-summary endpoint](/tutorials/dcos-debug/tools/#state-summary), which you can access at `https://<master-ip>/mesos/state-summary`.
+To check the roles of different resources let us have a [look at the state-summary endpoint](/1.12/tutorials/dcos-debug/tools/#state-summary), which you can access at `https://<master-ip>/mesos/state-summary`.
 
-That endpoint will give us a rather long json output, so it is helpful to use jq to make the output readable:
+That endpoint will give us a rather long JSON output, so it is helpful to use jq to make the output readable:
 
 ```bash
 curl -skSL
@@ -115,12 +115,14 @@ We now know that **the issue is that there are not enough resources in the desir
 
 ### General Pattern
 
-##### When your application framework (e.g. Marathon) is not accepting resource offers, check whether there are sufficient resources available in the respective resource role.
+<p class="message--note"><strong>NOTE: </strong>When your application framework (e.g. Marathon) is not accepting resource offers, check whether there are sufficient resources available in the respective resource role.</p>
 
-This was a straightforward scenario with too few CPU resources. Typically resource issues are more likely caused by more complex factors - such as improperly configured [port resources](/deploying-services/service-ports/) or [placement constraints](/deploying-services/marathon-constraints/). Nonetheless, this general workflow pattern still applies.
+This was a straightforward scenario with too few CPU resources. Typically resource issues are more likely caused by more complex factors - such as improperly configured [port resources](/1.12/deploying-services/service-ports/) or [placement constraints](/1.12/deploying-services/marathon-constraints/). Nonetheless, this general workflow pattern still applies.
 
 ### Cleanup
 
 Remove the application from the cluster with:
 
-`$ dcos marathon app remove /app-scaling-1`
+```
+dcos marathon app remove /app-scaling-1
+```
