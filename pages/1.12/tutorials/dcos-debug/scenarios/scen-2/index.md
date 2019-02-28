@@ -45,7 +45,7 @@ The log output “Eating Memory” is a pretty generous hint that the issue migh
 As suspected, this might be an application-related issue, and this application is scheduled via Marathon. So let’s check the Marathon logs using the CLI:
 
 ```bash
-$ dcos service log marathon
+dcos service log marathon
 ```
 We see a log entry similar to:
 
@@ -54,9 +54,9 @@ Mar 27 00:46:37 ip-10-0-6-109.us-west-2.compute.internal marathon.sh[5866]: [201
 ```
 <p class="message--note"><strong>NOTE: </strong> One helpful time-saving tip can be to <code>grep</code> for </code>TASK_FAILED</code>.</p>
 
-**Now we have confirmed that we exceeded the previously set container memory limit in [`app-oom.json`](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6)**
+Now we have confirmed that we exceeded the previously set container memory limit in [`app-oom.json`](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6).
 
-If you’ve been paying close attention you might shout now “wait a sec” because you noticed that the memory limit we set in the app definition is 32 MB, but the error message mentions 64MB. DC/OS automatically reserves some overhead memory for the [executor](/1.12/overview/architecture/task-types/#executors) which in this case is 32 MB.
+You might have noticed that the memory limit we set in the app definition is 32 MB, but the error message mentions 64MB. DC/OS automatically reserves some overhead memory for the [executor](/1.12/overview/architecture/task-types/#executors) which in this case is 32 MB.
 
 Please note that OOM `kill` is performed by the Linux kernel itself, hence we can also check the kernel logs directly:
 
@@ -93,5 +93,5 @@ As we are dealing with a failing task it is good to check the application and sc
 Remove the application with
 
 ```bash
-$ dcos marathon app remove /app-oom
+dcos marathon app remove /app-oom
 ```

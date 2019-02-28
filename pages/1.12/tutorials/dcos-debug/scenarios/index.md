@@ -7,8 +7,6 @@ menuWeight: 31
 ---
 #include /include/tutorial-disclaimer.tmpl
 
-<!-- IV. Hands On Examples Section -->
-
 <a name=hands-on></a>
 
 # Practice Deployment Debugging on DC/OS
