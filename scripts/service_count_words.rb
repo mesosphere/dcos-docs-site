@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-file_names = Dir["pages/#{ARGV[0]}/**/*.md"]
+file_names = Dir["#{ARGV[0]}/**/*.md"]
 puts "Number of files: #{file_names.count}"
 
 word_count = 0
@@ -8,7 +8,7 @@ word_count = 0
 # curr_version = ""
 
 file_names.each do |filename|
-  next if filename.include?('beta')
+  # next if filename.include?('beta')
   # path = filename.split('/')
   # if path[2] != curr_package || path[3] != curr_version
   #   puts "#{curr_package} #{curr_version} #{word_count}"
