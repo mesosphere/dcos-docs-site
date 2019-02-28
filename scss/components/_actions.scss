@@ -16,7 +16,7 @@
   &__link {
     display: flex;
     align-items: center;
-    color: $color-grey;
+    color: $color-light-grey-d4;
     text-decoration: none;
     &:hover {
       color: $color-purple-d3;
@@ -29,7 +29,7 @@
     width: 22px;
     height: 22px;
     &--rss {
-      fill: $color-grey;
+      fill: $color-light-grey-d4;
     }
   }
   &__text {
