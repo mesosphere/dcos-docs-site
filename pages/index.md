@@ -5,3 +5,5 @@ navigationTitle: DC/OS Docs
 menus: ['header']
 menuWeight: 0
 ---
+
+Hi!
