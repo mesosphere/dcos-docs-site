@@ -28,7 +28,7 @@
       overflow: hidden;
       &__title {
         color: $color-light;
-        opacity: 0.8;
+        opacity: 0.6;
       }
       &__version {
         color: $color-light;
@@ -98,9 +98,9 @@
     padding-top: 1rem;
     overflow-y: scroll;
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.6);
     a {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.6);
     }
     &__list {
       display: none;
@@ -115,12 +115,12 @@
       width: 20px;
       height: 20px;
       margin: -1px 3px 0 -23px;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.6);
       user-select: none;
     }
     &__text {
       font-weight: 400;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.6);
     }
     &__item {
       position: relative;
