@@ -12,7 +12,7 @@ In Spark 2.3.1-2.2.1-2 and later, these topics have been divided up among the Ge
 
 # Configuring DC/OS Access
 
-This topic describes how to configure DC/OS access for Spark. Depending on your [security mode](/1.9/security/ent/#security-modes/), Spark requires [service authentication](/1.10/security/ent/service-auth/) for access to DC/OS.
+This topic describes how to configure DC/OS access for Spark. Depending on your [security mode](/1.12/security/ent/#security-modes/), Spark requires [service authentication](/1.12/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 |---------------|-----------------------|
@@ -20,17 +20,17 @@ This topic describes how to configure DC/OS access for Spark. Depending on your 
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in permissive mode and do not specify a service account, Metronome and Marathon will act as if requests made by this service are made by an account with the [superuser permission](/1.11/security/ent/perms-reference/#superuser).
+If you install a service in `permissive` mode and do not specify a service account, Metronome and Marathon will act as if requests made by this service are made by an account with the [superuser permission](/1.12/security/ent/perms-reference/#superuser).
 
 ## Prerequisites
 
-- [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser.
-- [Enterprise DC/OS CLI 0.4.14 or later installed](/1.9/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/1.9/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser.
+- [Enterprise DC/OS CLI 0.4.14 or later installed](/1.12/cli/enterprise-cli/#ent-cli-install).
+- If your [security mode](/1.12/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 <a name="SetPermsOutsideCluster"></a>
 
-## Set permissions for jobs running outside of the cluster
+## Set permissions 
 You must set the following permissions if you want to execute a Spark job (`dcos spark run`) from outside of the DC/OS cluster:
 
  ```
@@ -44,7 +44,7 @@ Replace `spark` when setting these permissions with the appropriate service name
 <a name="create-a-keypair"></a>
 
 # Create a key pair
-In this step, a 2048-bit RSA public-private key pair is created uses the Enterprise DC/OS CLI (install with `dcos package install dcos-enterprise-cli` if you haven't already).
+In this step, a 2048-bit RSA public-private key pair is created using the Enterprise DC/OS CLI (install with `dcos package install dcos-enterprise-cli` if you haven't already).
 
 Create a public-private key pair and save each value into a separate file within the current directory.
 
@@ -52,7 +52,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-**Tip:** You can use the [DC/OS Secret Store](/1.10/security/ent/secrets/) to secure the key pair.
+<p class="message--note"><strong>NOTE: </strong>You can use the <a href="https://docs.mesosphere.com/1.12/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
 
 <a name="create-a-service-account"></a>
 
@@ -64,7 +64,7 @@ From a terminal prompt, create a new service account (`<service-account-id>`) co
 dcos security org service-accounts create -p <your-public-key>.pem -d "Spark service account" <service-account-id>
 ```
 
-**Tip:** You can verify your new service account using the following command.
+Use the following command to verify your new service account.
 
 ```bash
 dcos security org service-accounts show <service-account-id>
@@ -75,7 +75,7 @@ dcos security org service-accounts show <service-account-id>
 # Create a secret
 Create a secret (`spark/<secret-name>`) with your service account (`<service-account-id>`) and private key specified (`<private-key>.pem`).
 
-**Tip:** If you store your secret in a path that matches the service name (for example, the service name and secret path are both `spark`), then only the service named `spark` can access the secret.
+<p class="message--note"><strong>NOTE: </strong>If you store your secret in a path that matches the service name (for example, the service name and secret path are both `spark`), then only the service named `spark` can access the secret.</p>
 
 ## Permissive
 
@@ -89,8 +89,8 @@ dcos security secrets create-sa-secret <private-key>.pem <service-account-id> sp
 dcos security secrets create-sa-secret --strict <private-key>.pem <service-account-id> spark/<secret-name>
 ```
 
-**Tip:**
-You can list the secrets with this command:
+
+Use the following command to list the secrets.
 
 ```bash
 dcos security secrets list /
@@ -104,11 +104,13 @@ Use the following curl commands to rapidly provision the Spark service account w
 **Tips:**
 
 - Any `/` character in a resource must be replaced with `%252F` before it can be passed in a curl command.
-- When using the API to manage permissions, you must first create the permissions and then assign them. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can regard this as a confirmation and continue to the next command.
+- When using the API to manage permissions, you must first create the permissions and then assign them. Sometimes, the permission may already exist. In this case, the API returns an informative message. You can consider this as a confirmation and continue to the next command.
 
 1.  Create the permissions. Some of these permissions may exist already.
 
-    **Important:** Spark runs by default under the [Mesos default role](http://mesos.apache.org/documentation/latest/roles/), which is represented by the `*` symbol. You can deploy multiple instances of Spark without modifying this default. If you want to override the default Spark role, you must modify these code samples accordingly.
+<p class="message--important"><strong>IMPORTANT: </strong>Spark runs by default under the <a href="http://mesos.apache.org/documentation/latest/roles/">Mesos default role</a>, which is represented by the `*` symbol. You can deploy multiple instances of Spark without modifying this default.</p>
+
+If you want to override the default Spark role, you must modify these code samples accordingly.
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \
@@ -126,8 +128,7 @@ Use the following curl commands to rapidly provision the Spark service account w
 
     ```
 
-    **Troubleshooting** If these commands return a `307 Temporary Redirect` error it can be because your cluster url (`dcos config show core.dcos_url`) is not set as Hyper Text Transfer Protocol Secure (`https://`).  
-
+<p class="message--warning"><strong>WARNING: </strong>If these commands return a `307 Temporary Redirect` error it can be because your cluster url (`dcos config show core.dcos_url`) is not set as Hyper Text Transfer Protocol Secure (`https://`).</p>
 
 1.  Grant the permissions and the allowed actions to the service account using the following commands.
 
@@ -171,7 +172,9 @@ Now, Spark can be installed with this command:
 dcos package install --options=config.json spark
 ```
 
-**Note** You can install the Spark Mesos Dispatcher to run as `root` by substituting `root` for `nobody` above. If you are running a strict mode cluster, you must give Marathon the necessary permissions to launch the Dispatcher task. Use the following command to give Marathon the appropriate permissions:
+<p class="message--note"><strong>NOTE: </strong>You can install the Spark Mesos Dispatcher to run as `root` by substituting `root` for `nobody` above. If you are running a strict mode cluster, you must give Marathon the necessary permissions to launch the Dispatcher task.</p>
+
+Use the following command to give Marathon the appropriate permissions.
 
 ```bash
 curl -X PUT -k \
@@ -182,7 +185,9 @@ curl -X PUT -k \
 
 ## Run Spark jobs
 
-To run a job on a strict mode cluster, you must add the `principal` to the command line. For example:
+To run a job on a strict mode cluster, you must add the `principal` to the command line. 
+
+For example:
 ```bash
 dcos spark run --verbose --submit-args=" \
 --conf spark.mesos.principal=spark-principal \

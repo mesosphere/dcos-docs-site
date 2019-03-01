@@ -9,7 +9,7 @@ render: mustache
 featureMaturity:
 ---
 
-This introduction will get you up and running in minutes with {{ model.techShortName }}. In this section, you will install the DC/OS {{ model.techName }} service.
+This page explains how to install the DC/OS {{ model.techName }} service.
 
 **Prerequisites**
 
@@ -22,13 +22,13 @@ This introduction will get you up and running in minutes with {{ model.techShort
    | Permissive    | Optional   |
    | Strict        | Required |
 
-1. Install the {{ model.techShortName }} package. This may take a few minutes. This installs the {{ model.techShortName }} DC/OS service, {{ model.techShortName }} CLI, dispatcher, and, optionally, the history server. See the [History Server](/services/spark/2.6.0-2.3.2/history-server/#installing-hdfs) section for information about how to install the history server.
+1. Install the {{ model.techShortName }} package. This may take a few minutes. This step installs the {{ model.techShortName }} DC/OS service, {{ model.techShortName }} CLI, dispatcher, and, optionally, the history server. See the [History Server](/services/spark/2.6.0-2.3.2/history-server/#installing-hdfs) section for information about how to install the history server.
 
     ```bash
     dcos package install spark
     ```
 
-    Your output should resemble:
+Expected output:
 
     ```bash
     Installing Marathon app for package [{{ model.packageName }}] version [2.6.0-2.3.2]
@@ -40,22 +40,22 @@ This introduction will get you up and running in minutes with {{ model.techShort
     	Issues: https://docs.mesosphere.com/support/
     ```
 
-    <p class="message--note"><strong>NOTES: </strong>
+<p class="message--note"><strong>NOTES: </strong>
     * Type `dcos spark` to view the {{ model.techShortName }} CLI options.
-    * You can install the {{ model.techShortName }} CLI with this command:
-
-           dcos package install spark --cli
+    * You can install the {{ model.techShortName }} CLI using `dcos package install spark --cli`
     </p>
 
-1. Run the sample SparkPi jar for DC/OS. This runs a {{ model.techShortName }} job which calculates the value of Pi. You can view the example source [here](https://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.3.2.jar).
+1. Run the sample SparkPi jar for DC/OS. 
 
-    1. Run this command:
+You can view the example source [here](https://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.3.2.jar).
+
+    1. Use the following command to run a {{ model.techShortName }} job which calculates the value of Pi. 
 
         ```bash
         dcos spark run --submit-args="--class org.apache.spark.examples.SparkPi https://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 30"
         ```
 
-        Your output should resemble:
+        Expected output:
 
         ```bash
         2017/08/24 15:42:07 Using docker image mesosphere/spark:2.6.0-2.3.2-hadoop-2.7 for drivers
@@ -70,21 +70,21 @@ This introduction will get you up and running in minutes with {{ model.techShort
         dcos spark log driver-20170824224209-0001
         ```
 
-        Your output should resemble:
+        Expected output:
 
         ```bash
         Pi is roughly 3.141853333333333
         ```
 
-1. Run a Python SparkPi jar. This runs a Python {{ model.techShortName }} job which calculates the value of Pi. You can view the example source [here](https://downloads.mesosphere.com/spark/examples/pi.py).
+1. Run a Python SparkPi jar. You can view the example source [here](https://downloads.mesosphere.com/spark/examples/pi.py).
 
-    1. Run this command:
+    1. Use the following command to run a Python {{ model.techShortName }} job which calculates the value of Pi.
 
         ```bash
         dcos spark run --submit-args="https://downloads.mesosphere.com/spark/examples/pi.py 30"
         ```
 
-        Your output should resemble:
+        Expected output:
 
         ```bash
         2017/08/24 15:44:20 Parsing application as Python job
@@ -100,7 +100,7 @@ This introduction will get you up and running in minutes with {{ model.techShort
         dcos task log --completed driver-20170616213917-0002
         ```
 
-        Your output should resemble:
+        Expected output:
 
         ```bash
         Pi is roughly 3.142715
@@ -108,13 +108,13 @@ This introduction will get you up and running in minutes with {{ model.techShort
 
 1. Run an R job. You can view the example source [here](https://downloads.mesosphere.com/spark/examples/dataframe.R).
 
-    1. Run this command:
+    1. Use the following command to run an R job. 
 
         ```bash
         dcos spark run --submit-args="https://downloads.mesosphere.com/spark/examples/dataframe.R"
         ```
 
-        Your output should resemble:
+        Expected output:
 
         ```bash
         2017/08/24 15:45:21 Parsing application as R job
@@ -124,13 +124,13 @@ This introduction will get you up and running in minutes with {{ model.techShort
         Run job succeeded. Submission id: driver-20170824224524-0003
         ```
 
-    1. View the standard output from your job:
+    1. Use the following command to view the standard output from your job.
 
         ```bash
         dcos spark log --lines_count=10 driver-20170824224524-0003
         ```
 
-        Your output should resemble:
+        Expected output:
 
         ```bash
         In Filter(nzchar, unlist(strsplit(input, ",|\\s"))) :
