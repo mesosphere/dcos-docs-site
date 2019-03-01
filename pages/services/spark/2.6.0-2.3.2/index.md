@@ -11,7 +11,13 @@ featureMaturity:
 
 Welcome to the documentation for the DC/OS {{ model.techName }}. For more information about new and changed features, see the [release notes](/services/spark/2.6.0-2.3.2/release-notes/).
 
-{{ model.techName }} is a fast and general-purpose cluster computing system for big data. It provides high-level APIs in Scala, Java, Python, and R, and an optimized engine that supports general computation graphs for data analysis. It also supports a rich set of higher-level tools including {{ model.techShortName }} SQL for SQL and DataFrames, MLlib for machine learning, GraphX for graph processing, and {{ model.techShortName }} Streaming for stream processing. For more information, see the [{{ model.techName }} documentation][1].
+{{ model.techName }} is a fast and general-purpose cluster computing system for big data. It provides high-level APIs in Scala, Java, Python, and R, and an optimized engine that supports general computation graphs for data analysis. It also supports a rich set of higher-level tools including the following:
+- {{ model.techShortName }} SQL for SQL and DataFrames
+- MLlib for machine learning
+- GraphX for graph processing
+- {{ model.techShortName }} Streaming for stream processing. 
+
+For more information, see the [{{ model.techName }} documentation][1].
 
 DC/OS {{ model.techName }} consists of [{{ model.techName }} with a few custom commits][17] along with [DC/OS-specific packaging][18].
 
