@@ -8,6 +8,9 @@ enterprise: true
 beta: true
 ---
 
+#include /services/include/beta-software-warning.tmpl
+
+
 The following figure shows the high level architecture of the storage support in DC/OS.
 
 ![Storage support in DC/OS](../img/dcos-storage-architecture.png)

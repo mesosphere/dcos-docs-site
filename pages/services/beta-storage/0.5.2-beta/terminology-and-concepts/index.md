@@ -7,6 +7,8 @@ excerpt: Common definitions and terms used throughout DC/OS Storage Service docu
 enterprise: true
 beta: true
 ---
+#include /services/include/beta-software-warning.tmpl
+
 
 We use the following terminology throughout the documentation.
 
@@ -46,7 +48,7 @@ Each volume provider integrates with Mesos through a single instance of a Storag
 There can be many instances of a given kind of volume provider.
 For example, "lvm volume group" is a kind of volume provider but there can be multiple LVM2 volume groups where each volume group is configured as a separate volume provider.
 
-Example for volume providers, multiple of which can appear on the same cluster or agent:
+Example for volume providers, multiples of which can appear on the same cluster or agent:
 
 1. LVM2 Volume Group (via the LVM2 CSI plugin).
 2. NFS mount (via some NFS CSI plugin).

@@ -7,15 +7,19 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 enterprise: true
 beta: true
 ---
+#include /services/include/beta-software-warning.tmpl
+
 
 # Version 0.5.2
 
-* This is a bug fix release, see the 0.5.0 release notes for major changes between 0.4.x and 0.5.x.
+* This is a bug fix release, see the [version 0.5.0](#version_050) release notes for major changes between 0.4.x and 0.5.x.
 
 ## Updates
 
 * LVM plugin performance improvements.
 * Documentation corrections and updates.
+
+<a name="version_050">
 
 # Version 0.5.0
 
@@ -25,10 +29,10 @@ beta: true
 ## Updates
 
 * More robust coordination with Mesos in regard to resource reservations and create/remove volume operations.
-* Configurable logrotate maximal stdout/stderr size for the DC/OS Storage Service itself.
+* Configurable logrotate maximal `stdout`/`stderr` size for the DC/OS Storage Service itself.
 * LVM provider names are now limited to 64 characters in length.
 * The `devices` and `lvm` plugins have been updated with fixes.
-* Added `log-journald` package configuration option to redirect storage service logs to journald.
+* Added `log-journald` package configuration option to redirect storage service logs to `journald`.
 * Provider and volume records are purged from DSS history upon successful removal.
 * Increase default CPU requirements to reduce CPU throttling and API tail latencies.
 * Various other bug/performance fixes and documentation corrections.
