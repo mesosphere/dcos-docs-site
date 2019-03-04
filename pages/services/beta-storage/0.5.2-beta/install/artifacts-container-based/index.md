@@ -3,10 +3,12 @@ layout: layout.pug
 navigationTitle: Via Artifacts Container
 title: Via Artifacts Container
 menuWeight: 30
-excerpt: Instructions for installing the DC/OS Storage Service using the artifacts container
+excerpt: Installing the DC/OS Storage Service using the artifacts container
 enterprise: true
 beta: true
 ---
+
+#include /services/include/beta-software-warning.tmpl
 
 <p class="message--note"><strong>NOTE: </strong> This install method is <strong>deprecated</strong>.
 Please consider switching to the <a href="../package-registry-based/">package registry based install</a> method.</p>
@@ -48,51 +50,58 @@ Notice, that the `<SHA>` will be replaced with a real SHA1 value, reflecting the
 
 <p class="message--note"><strong>NOTE: </strong>* Do not change the SHA value during the instruction workflow.</p>
 
-```bash
+
 ==========
 Next Steps
 ==========
 
 1. Push the docker image 'user/storage-artifacts:<SHA>'
-:; docker push user/storage-artifacts:<SHA>
-
-2. Run the following marathon app in your cluster
-:; dcos marathon app add /dev/stdin <<EOF
-{
-  "id": "/storage-artifacts/<SHA>",
-  "instances": 1,
-  "cpus": 0.25,
-  "mem": 128,
-  "container": {
-    "type": "MESOS",
-    "docker": {
-      "image": "user/storage-artifacts:<SHA>",
-      "forcePullImage": true
-    },
-    "portMappings": [
-      {
-        "containerPort": 80,
-        "labels": {
-          "VIP_0": "/storage-artifacts/<SHA>:10000"
-        },
-        "protocol": "tcp"
-      }
-    ]
-  },
-  "networks": [
+    ```bash
+    :; docker push user/storage-artifacts:<SHA>
+    ```
+1. Run the following marathon app in your cluster
+    ```bash
+    :; dcos marathon app add /dev/stdin <<EOF
+    ```
+    ```bash
     {
-      "mode": "container/bridge"
+      "id": "/storage-artifacts/<SHA>",
+      "instances": 1,
+      "cpus": 0.25,
+      "mem": 128,
+      "container": {
+        "type": "MESOS",
+        "docker": {
+          "image": "user/storage-artifacts:<SHA>",
+          "forcePullImage": true
+        },
+        "portMappings": [
+          {
+            "containerPort": 80,
+            "labels": {
+              "VIP_0": "/storage-artifacts/<SHA>:10000"
+            },
+            "protocol": "tcp"
+          }
+        ]
+      },
+      "networks": [
+        {
+          "mode": "container/bridge"
+        }
+      ]
     }
-  ]
-}
-EOF
+    EOF
+    ```
+1. Add the custom package repository
+    ```bash
+    :; dcos package repo add storage-artifacts-<SHA> http://storage-artifacts<SHA>.marathon.l4lb.thisdcos.directory:10000/repo.json --index=0
+    ```
 
-3. Add the custom package repository
-:; dcos package repo add storage-artifacts-<SHA> http://storage-artifacts<SHA>.marathon.l4lb.thisdcos.directory:10000/repo.json --index=0
-
-4. Install the package
-:; dcos package install beta-storage --package-version=<VERSION>
-```
+1. Install the package
+    ```bash
+    :; dcos package install beta-storage --package-version=<VERSION>
+    ```
 
 Follow the instructions and push the newly built docker image to a docker registry accessible in the cluster.
 

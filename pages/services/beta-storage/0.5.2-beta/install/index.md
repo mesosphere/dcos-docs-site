@@ -7,6 +7,7 @@ excerpt: Instructions for installing the DC/OS Storage Service on a DC/OS cluste
 enterprise: true
 beta: true
 ---
+#include /services/include/beta-software-warning.tmpl
 
 The cluster administrator can install the DC/OS Storage Service via either of the following ways.
 
