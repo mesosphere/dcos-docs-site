@@ -279,7 +279,7 @@ To direct traffic based on the hostname to multiple backends for a single port (
           "hostEq": "nginx.example.com",
           "backend": "nginx"
         },{
-          "hostReg": "*.httpd.example.com",
+          "hostReg": ".*.httpd.example.com",
           "backend": "httpd"
         }]
       }
@@ -291,7 +291,7 @@ To direct traffic based on the hostname to multiple backends for a single port (
           "hostEq": "nginx.example.com",
           "backend": "nginx"
         },{
-          "hostReg": "*.httpd.example.com",
+          "hostReg": ".*.httpd.example.com",
           "backend": "httpd"
         }]
       }
