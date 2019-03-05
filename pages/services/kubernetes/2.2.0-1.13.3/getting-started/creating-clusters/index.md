@@ -7,13 +7,18 @@ excerpt: Learn to create Kubernetes clusters on DC/OS using MKE and the DC/OS Ku
 enterprise: true
 ---
 
-At this point, you should have [installed MKE](/services/kubernetes/2.2.0-1.13.3/getting-started/installing-mke/) - using the DC/OS `kubernetes` package on your DC/OS Enterprise cluster and installed the [latest DC/OS Kubernetes CLI](/services/kubernetes/2.2.0-1.13.3/cli/). As when installing the MKE, to run this Kubernetes cluster as a service on our DC/OS Enterprise cluster, we need a service account for it. Like before, to do so we need to first provision a service account for this Kubernetes cluster, then grant it the necessary permissions for operating on DC/OS Enterprise.
+At this point, you should have 
+
+- [installed MKE](/services/kubernetes/2.2.0-1.13.3/getting-started/installing-mke/) - using the DC/OS `kubernetes` package on your DC/OS Enterprise cluster  
+- installed the [latest DC/OS Kubernetes CLI](/services/kubernetes/2.2.0-1.13.3/cli/). 
+
+As when installing the MKE, to run this Kubernetes cluster as a service on our DC/OS Enterprise cluster, we need a service account for it. As before, we need to first provision a service account for this Kubernetes cluster, then grant it the necessary permissions for operating on DC/OS Enterprise.
 
 ## Provision a Service Account for DC/OS Kubernetes
 
-As with MKE on DC/OS Enterprise, when installing DC/OS Kubernetes on a DC/OS Enterprise cluster, configuring a service account for DC/OS Kubernetes on Enterprise is necessary. Since the pattern is similar here, we will move through it just a little faster than when [provisioning the service account for MKE](/services/kubernetes/2.2.0-1.13.3/getting-started/installing-mke/) earlier.
+As with MKE on DC/OS Enterprise, when installing DC/OS Kubernetes on a DC/OS Enterprise cluster, we must configure a service account for DC/OS Kubernetes on Enterprise. Since the pattern is similar, we will move through it just a little faster than when [provisioning the service account for MKE](/services/kubernetes/2.2.0-1.13.3/getting-started/installing-mke/) earlier.
 
-1. <strong>Start by creating a unique keypair to use for the service account, here we specify </strong>`kube1-priv.pem`<strong> and</strong> `kube1-pub.pem`<strong>:</strong>
+1. Start by creating a unique keypair to use for the service account, here we specify `kube1-priv.pem` and `kube1-pub.pem`:
 
     ```bash
     dcos security org service-accounts keypair kube1-priv.pem kube1-pub.pem
@@ -21,31 +26,29 @@ As with MKE on DC/OS Enterprise, when installing DC/OS Kubernetes on a DC/OS Ent
 
     You will find the resulting keypair in your working directory. As before, no other output is produced when the command is run successfully.
 
-1. <strong>Now, create a service account this first Kuberneters cluster, </strong>`kubernetes-cluster1`<strong>, associated with the public key</strong>.
-
-    In this case, enter:
+1. Create a service account this first Kuberneters cluster, `kubernetes-cluster1`, associated with the public key.
 
     ```bash
     dcos security org service-accounts create -p kube1-pub.pem -d 'Service account for kubernetes-cluster1' kubernetes-cluster1
     ```
 
-1. <strong>Then, associate a secret with the cluster's service account using the newly generated private key.</strong>
+1. Associate a secret with the cluster's service account using the newly generated private key.
 
     ```bash
     dcos security secrets create-sa-secret kube1-priv.pem kubernetes-cluster1 kubernetes-cluster1/sa
     ```
 
-    Again, it is expected behavior in these steps for no output from the CLI to happen unless an error has occurred.
+    Again, it is expected behavior in these steps for no output from the CLI to appear unless an error has occurred.
 
 ## Grant Permisions
 
-We provide code snippets here for ease of granting the necessary permissions. After all, you have already learned some of this pattern when [setting up the service account for MKE](/services/kubernetes/2.2.0-1.13.3/getting-started/installing-mke/) previously. The list of commands is certainly a fair bit more extensive here but the pattern is similar.
+We provide code snippets for ease of granting the necessary permissions. After all, you have already learned some of this pattern when [setting up the service account for MKE](/services/kubernetes/2.2.0-1.13.3/getting-started/installing-mke/) previously. The list of commands is a bit more extensive here but the pattern is similar.
 
 #### Copy and Paste in Groups
 
-If everything has gone right up until here, you should be able to paste these permissions in the following grouping of `dcos security` commands at a time without any errors. Here we have the Mesos master node permissions for creating and deleting tasks and reservations, followed by the secret permissions for the cluster, admin router permissions, and public agent node permissions.
+If everything has gone right up until now, you should be able to paste these permissions in the following grouping of `dcos security` commands at a time without any errors. Here we have the Mesos master node permissions for creating and deleting tasks and reservations, followed by the secret permissions for the cluster, admin router permissions, and public agent node permissions.
 
-1. <strong>Enter master node permissions:</strong>
+1. Enter master node permissions:
 
     ```bash
     dcos security org users grant kubernetes-cluster1 dcos:mesos:master:framework:role:kubernetes-cluster1-role create
@@ -57,21 +60,21 @@ If everything has gone right up until here, you should be able to paste these pe
     dcos security org users grant kubernetes-cluster1 dcos:mesos:master:volume:principal:kubernetes-cluster1 delete
     ```
 
-1. <strong>Enter secret permissions:</strong>
+1. Enter secret permissions:
 
     ```bash
     dcos security org users grant kubernetes-cluster1 dcos:secrets:default:/kubernetes-cluster1/* full
     dcos security org users grant kubernetes-cluster1 dcos:secrets:list:default:/kubernetes-cluster1 read
     ```
 
-1. <strong>Enter Admin Router permissions:</strong>
+1. Enter Admin Router permissions:
 
     ```bash
     dcos security org users grant kubernetes-cluster1 dcos:adminrouter:ops:ca:rw full
     dcos security org users grant kubernetes-cluster1 dcos:adminrouter:ops:ca:ro full
     ```
 
-1. <strong>Enter public agent permissions:</strong>
+1. Enter public agent permissions:
 
     ```bash
     dcos security org users grant kubernetes-cluster1 dcos:mesos:master:framework:role:slave_public/kubernetes-cluster1-role create
@@ -82,23 +85,21 @@ If everything has gone right up until here, you should be able to paste these pe
     dcos security org users grant kubernetes-cluster1 dcos:mesos:agent:framework:role:slave_public read
     ```
 
-    Again, as before, you should not receive any feedback in your CLI when these commands run successfully.
+    As before, you should not receive any feedback in your CLI when these commands run successfully.
 
 ## Create your first Kubernetes cluster
 
 Now that permissions have been granted to the service account, we need to make sure that the package installer is aware of the account.
 
-1. <strong>First, open the options JSON file associated with the account. If you do not already have an options JSON file, create a new one. In the CLI, enter:</strong>
+1. First, open the options JSON file associated with the account. If you do not already have an options JSON file, create a new one. In the CLI, enter:
 
     ```bash
     touch kubernetes1-options.json
     ```
 
-    This will create the file in your current working directory, in this example we name the file `kubernetes1-options.json`.
+    This will create the file in your current working directory: in this example we name the file `kubernetes1-options.json`.
 
-1. <strong>Open the file in a text editor and add the service account information.</strong>
-
-    Place the following snippet in the newly configured `kubernetes1-options.json` file:
+1. Open the file in a text editor and add the service account information. Place the following snippet in the newly configured `kubernetes1-options.json` file:
 
     ```json
     {
@@ -111,20 +112,18 @@ Now that permissions have been granted to the service account, we need to make s
     ```
     Save and close the file.
 
-1. <strong>Initiate the Kubernetes cluster creation using the associated</strong> `kubernetes1-options.json` <strong>configured for the package in last step.</strong>.
-
-    In the CLI, enter:
+1. Initiate the Kubernetes cluster creation using the associated `kubernetes1-options.json` configured for the package in last step.    In the CLI, enter:
 
     ```bash
     dcos kubernetes cluster create --options=kubernetes1-options.json --yes
     ```
-    You can easily use the DC/OS Kubernetes CLI to **monitor your Kubernetes cluster creation by running the following:**
+    You can easily use the DC/OS Kubernetes CLI to monitor your Kubernetes cluster creation by running the following:
 
     ```bash
     dcos kubernetes cluster debug plan status deploy --cluster-name=kubernetes-cluster1
     ```
 
-    When successful, you will see the complete cluster plan, like shown here:
+    When successful, you will see the complete cluster plan, as shown here:
 
     ```bash
     $ dcos kubernetes cluster debug plan status deploy --cluster-name=kubernetes-cluster1
@@ -147,9 +146,9 @@ Now that permissions have been granted to the service account, we need to make s
 
 You are now going to follow the same pattern to create `kubernetes-cluster2` as used to create the first cluster, `kubernetes-cluster1`.
 
-It is a good practice to use of a different keypair to be used with the service account, so as to not mix this keypair up with any of the others we are using. As before, paste in the following snippets to your CLI, just as we just did for the first cluster:
+It is a good practice to use a different keypair with the service account, so as to not mix this keypair up with any of the others we are using. As before, paste in the following snippets to your CLI, just as we just did for the first cluster:
 
-1. <strong>Create the</strong> `kubernetes-cluster2` <strong>service account:</strong>
+1. Create the `kubernetes-cluster2` service account:
 
     ```bash
     dcos security org service-accounts keypair kube2-priv.pem kube2-pub.pem
@@ -157,7 +156,7 @@ It is a good practice to use of a different keypair to be used with the service 
     dcos security secrets create-sa-secret kube2-priv.pem kubernetes-cluster2 kubernetes-cluster2/sa
     ```
 
-1. <strong>Grant the</strong> `kubernetes-cluster2` <strong>service account the required permissions for Kubernetes clusters</strong>:
+1. Grant the `kubernetes-cluster2` service account the required permissions for Kubernetes clusters:
 
     ```bash
     dcos security org users grant kubernetes-cluster2 dcos:mesos:master:framework:role:kubernetes-cluster2-role create
@@ -187,9 +186,7 @@ It is a good practice to use of a different keypair to be used with the service 
 
     As usual, no output is expected upon successfully granting permissions.
 
-1. <strong>Next, create an options JSON file for this cluster named</strong> `kubernetes2-options.json`<strong>:</strong>
-
-    This options JSON provides an example of some of the configuration options available, listing some of the variable names and their default values. In this example, we will be deploying with `"kube_cpus": 1`, instead of the default value of `2`.
+1. Next, create an `options.JSON` file for this cluster named `kubernetes2-options.json`. This `options.JSON` file provides an example of some of the configuration options available, listing some of the variable names and their default values. In this example, we will be deploying with `"kube_cpus": 1`, instead of the default value of `2`.
 
     Use the following to create `kubernetes2-options.json`:
 
@@ -226,23 +223,21 @@ It is a good practice to use of a different keypair to be used with the service 
     }
     ```
 
-1. <strong>Create the</strong> `kubernetes-cluster2` <strong>cluster with the options JSON file you just created:</strong>
-
-    Using the DC/OS Kubernetes CLI, enter the following command:
+1. Create the `kubernetes-cluster2` cluster with the options JSON file you just created. From the DC/OS Kubernetes CLI, enter the following command:
 
     ```bash
     dcos kubernetes cluster create --options=kubernetes2-options.json --yes
     ```
 
-    and your Kubernetes cluster service should start spinning up.
+    Your Kubernetes cluster service should start spinning up.
 
-1. <strong>As above, to monitor</strong> `kubernetes-cluster2` <strong>while being created, use the DC/OS Kubernetes CLI:</strong>
+1. As above, to monitor `kubernetes-cluster2` while being created, use the DC/OS Kubernetes CLI:
 
     ```bash
     dcos kubernetes cluster debug plan status deploy --cluster-name=kubernetes-cluster2
     ```
 
-    And you should receive output similar to the following:
+    You should receive output similar to the following:
 
     ```bash
     $ dcos kubernetes cluster debug plan status deploy --cluster-name=kubernetes-cluster2
@@ -259,10 +254,10 @@ It is a good practice to use of a different keypair to be used with the service 
     └─ public-node (dependency strategy) (COMPLETE)
     ```
 
-    If you use your GUI, you should see both clusters and the MKE as services in under **Services**.
+    In your GUI, you should see both clusters and the MKE as services under **Services**.
 
 <!-- *** NEED SCREENSHOT FOR VALIDATION HERE. -->
 
-## Next Step: Connecting to Kubernetes on DC/OS Enterprise
+**Next Step: Connecting to Kubernetes on DC/OS Enterprise**
 
 Nice work! You now have multiple Kubernetes clusters running throughout your DC/OS Enterprise cluster. With the internal workings of the cluster all set, you can move on to [Configuring Edge-LB](/services/kubernetes/2.2.0-1.13.3/getting-started/config-edgelb-for-k8s/) to set up a load balancer for your cluster.

@@ -17,15 +17,13 @@ To install MKE on an DC/OS Enterprise cluster, we must first provision a service
 
 In order to run Mesosphere Kubernetes Engine - the `kubernetes` package - on DC/OS Enterprise, a service account with permissions to run tasks under the `kubernetes-role` is required. However, to provision such a service account, we will need to carry out a few security steps:
 
-1. <strong>Start by creating a unique keypair to use for the service account.</strong>
-
-    The basic format looks like this:
+1. Start by creating a unique keypair to use for the service account. The basic format looks like this:
 
     ```bash
     dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
     ```
 
-    where you replace `<private-key>` with the name of the private key to associate with the service account, and, of course, likewise for `<public-key>`. For example, if you wanted to use a naming convention of `mke-priv` and `mke-pub`, enter this on the command line:
+    where you replace `<private-key>` with the name of the private key to associate with the service account, and likewise for `<public-key>`. For example, if you wanted to use a naming convention of `mke-priv` and `mke-pub`, enter this on the command line:
 
     ```bash
     dcos security org service-accounts keypair mke-priv.pem mke-pub.pem
@@ -33,13 +31,13 @@ In order to run Mesosphere Kubernetes Engine - the `kubernetes` package - on DC/
 
     This will create a keypair in the working directory as `mke-priv.pem` and `mke-pub.pem`.
 
-1. <strong>Next, create the service account using the public key you just generated.</strong>
+1. Next, create the service account using the public key you just generated.
 
     ```bash
     dcos security org service-accounts create -p <public-key>.pem -d '<Description>' kubernetes
     ```
 
-    Which will look like this if using the `mke-pub.pem` from above:
+    Which will look like this if you are using the `mke-pub.pem` from above:
 
     ```bash
     dcos security org service-accounts create -p mke-pub.pem -d 'Kubernetes service account' kubernetes
@@ -47,7 +45,7 @@ In order to run Mesosphere Kubernetes Engine - the `kubernetes` package - on DC/
 
     You should see no output from CLI in response. This is the expected behavior.
 
-1. <strong>Last, associate a secret with the service account using the private key</strong>.
+1. Associate a secret with the service account using the private key.
 
     ```bash
     dcos security secrets create-sa-secret <private-key>.pem kubernetes kubernetes/sa
@@ -65,7 +63,7 @@ In order to run Mesosphere Kubernetes Engine - the `kubernetes` package - on DC/
 
 Now that a service account is provisioned for MKE, we need to grant certain permissions to the service account under a Mesos role, in this case `kubernetes-role`. To grant the permissions to MKE:
 
-1. <strong>First, grant</strong> `mesos master reservation role` <strong> permissions to the kubernetes service account under</strong>`kubernetes-role`</strong>:
+1. Grant `mesos master reservation role`  permissions to the kubernetes service account under</strong>`kubernetes-role`:
 
     In the CLI, enter:
 
@@ -73,15 +71,15 @@ Now that a service account is provisioned for MKE, we need to grant certain perm
     dcos security org users grant kubernetes dcos:mesos:master:reservation:role:kubernetes-role create
     ```
 
-    Again, like in the procedure above, these `dcos-security` commands will not respond with output in the CLI. However, some conditions will cause corresponding errors to register, such as already having granted the permissions trying to be granted.
+    Again, as in the procedure above, these `dcos-security` commands will not respond with output in the CLI. However, some conditions will cause corresponding errors to register, such as already having granted the permissions trying to be granted.
 
-1. <strong>Next, grant </strong> `mesos master framework` <strong> permission under the same role. </strong>
+1. Next, grant  `mesos master framework`  permission under the same role. 
 
     ```bash
     dcos security org users grant kubernetes dcos:mesos:master:framework:role:kubernetes-role create
     ```
 
-1. <strong> Finally, grant</strong> `mesos master task` <strong>permission: </strong>
+1. Grant `mesos master task` permission: 
 
     ```bash
     dcos security org users grant kubernetes dcos:mesos:master:task:user:nobody create
@@ -93,9 +91,7 @@ Now that a service account is provisioned for MKE, we need to grant certain perm
 
 Now that permissions have been granted to the service account, we need to make sure that the package installer is aware of the account.
 
-1. <strong>First, open the options JSON file associated with the account</strong>.
-
-    If you do not already have an options JSON file, you can easily create one. In your CLI, enter:
+1. Open the options JSON file associated with the account. If you do not already have an options JSON file, you can easily create one. In your CLI, enter:
 
     ```bash
     touch mke-options.json
@@ -103,9 +99,7 @@ Now that permissions have been granted to the service account, we need to make s
 
     This will create the file in your current working directory, in this example we name the file `mke-options.json`.
 
-1. <strong>Open the file in a text editor and add the service account information</strong>.
-
-    Place the following snippet in the newly configured `mke-options.json` file:
+1. Open the file in a text editor and add the service account information. Place the following snippet in the newly configured `mke-options.json` file:
 
     ```json
     {
@@ -116,17 +110,15 @@ Now that permissions have been granted to the service account, we need to make s
     }
     ```
 
-    Save and close the file to be used to install the package.
+1. Save and close the file to be used to install the package.
 
-1. <strong>Install the package using the associated</strong> `mke-options.json`<strong> configured for the package in the last step.</strong>
-
-    In the CLI, enter:
+1. Install the package using the associated `mke-options.json` configured for the package in the last step. In the CLI, enter:
 
     ```bash
     dcos package install --yes kubernetes --options=mke-options.json
     ```
 
-    Which should result in the following output when things work as expected:
+    This should result in the following output:
 
     ```bash
     $ dcos package install --yes kubernetes --options=mke-options.json
@@ -138,6 +130,6 @@ Now that permissions have been granted to the service account, we need to make s
 
 For more information on the CLI management commands for DC/OS Kubernetes see [the CLI reference section of this documentation](/services/kubernetes/2.2.0-1.13.3/cli/).
 
-## Next Step: Creating Kubernetes Clusters on DC/OS Enterprise
+**Next Step: Creating Kubernetes Clusters on DC/OS Enterprise**
 
 Now that MKE is installed on your DC/OS cluster, you can move on to [creating Kubernetes clusters on top of DC/OS Enterprise](/services/kubernetes/2.2.0-1.13.3/getting-started/creating-clusters/).
