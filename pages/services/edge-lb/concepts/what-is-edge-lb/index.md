@@ -37,4 +37,4 @@ Some benefits of Edge-LB are:
 	
 Leveraging DC/OS’s support for CNI (Container Network Interface), Edge-LB builds upon this industry standard model to enable the load balancer instances to reside on CNI-based networks and be further decoupled from the transport layer underneath.
 
-While Edge-LB provides North-South loadbalancing, if you are interested in East-West (internal to internal) load balancing in the DC/OS cluster, you can use the DC/OS layer-4 load balancer [`dcos-l4lb`](/1.13/networking/#load-balancing).
+While Edge-LB provides North-South load balancing, if you are interested in East-West (internal to internal) load balancing in the DC/OS cluster, you can use the DC/OS layer-4 load balancer [`dcos-l4lb`](/1.13/networking/#load-balancing).
