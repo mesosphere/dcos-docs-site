@@ -115,7 +115,7 @@ Password: `deleteme`
 
   module "dcos" {
     source = "dcos-terraform/dcos/gcp"
-    version = "~> 0.1"
+    version = "~> 0.1.0"
 
     cluster_name        = "my-open-dcos"
     ssh_public_key_file = "~/.ssh/id_rsa.pub"
