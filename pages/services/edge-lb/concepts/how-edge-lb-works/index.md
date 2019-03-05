@@ -20,9 +20,9 @@ The following diagram provides a simplified architectural view of Edge-LB:
 
 # Basic workflow
 This diagram illustrates the basic workflow for Edge-LB operations that can be summarized as: 
-	- Deploy a service on DC/OS cluster.
-	- Install an Edge-LB API server.
-	- Deploy an Edge-LB pool instance to expose and access the service.
+- Deploy a service on DC/OS cluster.
+- Install an Edge-LB API server.
+- Deploy an Edge-LB pool instance to expose and access the service.
 
 In the event of the update, you simply update the pool configuration and deploy the updated Edge-LB pool configuration to reflect the changes.
 
@@ -35,7 +35,9 @@ Both Edge-LB API server and the pool server run as a Marathon service on the DC/
 
 ## Edge-LB API server
 
-The API server presents an API to submit configurations to the Edge-LB pool and handles the generation of the configuration file. The API server executes requests from the CLI client to manage the pools in the cluster. The API server provides two functionalities for the traffic ingressing into the cluster:
+The API server presents an API to submit configurations to the Edge-LB pool and handles the generation of the configuration file. The API server executes requests from the CLI client to manage the pools in the cluster. 
+
+The API server provides two functionalities for the traffic ingressing into the cluster:
 - Performs create, read, update, and delete (CRUD) actions on Edge-LB pool(s)
 - Responds to Edge-LB pool-related API endpoints queries
 
