@@ -61,17 +61,17 @@ You can install {{ model.techShortName }} from the DC/OS web-based interface or 
 
 1. Expose the service on a [public agent](https://docs.mesosphere.com/latest/overview/architecture/node-types/) by changing the `networking.external_access.external_public_agent_hostname` setting to an externally reachable virtual host (`VHOST`).
 
-    For example, you might specify the Public Agent ELB in an AWS environment.
+  For example, you might specify the Public Agent ELB in an AWS environment.
 
-    You can configure this setting using the DC/OS web-based interface or by customizing the {{ model.techShortName }} configuration file.
+  You can configure this setting using the DC/OS web-based interface or by customizing the {{ model.techShortName }} configuration file.
   
-    For example:
+  For example:
 
-    ![VHOST configuration](/services/beta-jupyter/img/jupyterlab-VHOST_UI.png)
+  [<img src="/services/beta-jupyter/img/jupyterlab-VHOST_UI.png" alt="VHOST configuration" width="400"/>](/services/beta-jupyter/img/jupyterlab-VHOST_UI.png)
+   
+  Figure 1. VHOST configuration
 
-    Figure 1. VHOST configuration
-
-    If you are modifying the {{ model.packageName }}configuration file, modify the following setting;
+  If you are modifying the {{ model.packageName }}configuration file, modify the following setting;
 
     ```
     "external_access": {
@@ -82,15 +82,15 @@ You can install {{ model.techShortName }} from the DC/OS web-based interface or 
 
 1. Specify the configuration file URLs.
 
-    For this demonstration, you are using the HDFS data set from the HDFS package you have installed. 
+  For this demonstration, you are using the HDFS data set from the HDFS package you have installed. 
 
-    From the DC/OS web-based interface:
+  From the DC/OS web-based interface:
+   
+  [<img src="/services/beta-jupyter/img/{{ model.packageName }}-hdfs_ui.png" alt="HDFS configuration" width="400"/>](/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-hdfs_ui.png)
+   
+  Figure 2. HDFS configuration
 
-    ![HDFS configuration](/services/beta-jupyter/img/{{ model.packageName }}-hdfs_ui.png)
-
-    Figure 2. HDFS configuration
-
-    Alternatively, you can modify the {{ model.packageName }}configuration file with the following setting:
+  Alternatively, you can modify the {{ model.packageName }}configuration file with the following setting:
 
     ```
     "jupyter_conf_urls": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints",
@@ -98,21 +98,20 @@ You can install {{ model.techShortName }} from the DC/OS web-based interface or 
 
 1. Enable the following two parameters for better monitoring and debugging using the DC/OS web-based interface or the {{ model.packageName }} configuration file. 
 
-    For example, customize the configuration file with the following settings:
+   For example, customize the configuration file with the following settings:
 
     ``` json
     "start_spark_history_server": true,
     "start_tensorboard": true,
     ```
-    For more information about viewing and changing configuration settings, see 
-
+   
 1. Install {{ model.techShortName }} either by clicking **Run Service** in the DC/OS web-based interface or from the CLI.
 
-    For example, in the DC/OS web-based interface:
+  For example, in the DC/OS web-based interface:
 
-    ![Install](/services/beta-jupyter/img/jupyterlab-install_ui.png)
-
-    Figure 3. Run Service
+  [<img src="/services/beta-jupyter/img/jupyterlab-install_ui.png" alt="Run service" width="400"/>](/services/beta-jupyter/img/jupyterlab-install_ui.png)
+    
+  Figure 3. Run Service
 
     Alternatively, install using the CLI and a customized configuration file by running the following command:
 
@@ -127,19 +126,19 @@ You can install {{ model.techShortName }} from the DC/OS web-based interface or 
 ## Login
 1. Log in to {{ model.techShortName }}. If we have used the default name and VHOST setting above it should be reachable via `<VHOST>/{{ model.packageName }}-notebook`.
 
-![Login](/services/beta-jupyter/img/jupyterlab-login.png)
+[<img src="/services/beta-jupyter/img/jupyterlab-login.png" alt="{{ model.techShortName }} login" width="400"/>](/services/beta-jupyter/img/jupyterlab-login.png)
 
 Figure 4. {{ model.techShortName }} login
 
 The default password with the above settings is `jupyter`.
 
-![UI](/services/beta-jupyter/img/jupyterlab-jupyterlab_ui.png)
+[<img src="/services/beta-jupyter/img/jupyterlab-jupyterlab_ui.png alt="Default password {{ model.techPassword }}" width="400"/>](/services/beta-jupyter/img/jupyterlab-jupyterlab_ui.png)
 
 Figure 5. Default password {{ model.techPassword }}
 
 2. Once logged in you should be able to see the {{ model.techShortName }} Launcher:
 
-![{{ model.techShortName }} Launcher](/services/beta-jupyter/img/jupyterlab-jupyterlab_ui.png)
+[<img src="/services/beta-jupyter/img/jupyterlab-jupyterlab_ui.png alt="{{ model.techShortName }} Launcher" width="400"/>](/services/beta-jupyter/img/jupyterlab-jupyterlab_ui.png)
 
 Figure 6. {{ model.techShortName }} launcher
 
@@ -192,7 +191,7 @@ val count2 = spark.sparkContext.parallelize(1 to NUM_SAMPLES).map{i =>
 println("Pi is roughly " + 4.0 * count2 / NUM_SAMPLES)
 ```
 
-![SparkPiToree](/services/beta-jupyter/img/{{ model.packageName }}-SparkPi_Toree.png)
+[<img src="/services/beta-jupyter/img/{{ model.packageName }}-SparkPi_Toree.png alt="SparkPiToree on {{ model.techShortName }}" width="400"/>](/services/beta-jupyter/img/{{ model.packageName }}-SparkPi_Toree.png)
 
 Figure 9. SparkPiToree on {{ model.techShortName }}
 
@@ -214,7 +213,7 @@ print(get_available_devices())
 
 ```
 
-![GPU](/services/beta-jupyter/img/jupyterlab-gpu.png)
+[<img src="/services/beta-jupyter/img/jupyterlab-gpu.png alt="GPU on {{ model.techShortName }}" width="400"/>](/services/beta-jupyter/img/jupyterlab-gpu.png)
 
 Figure 10. GPU on {{ model.techShortName }}
 
@@ -309,8 +308,8 @@ Let us briefly confirm that HDFS is working as expected and the `mnist` director
   ```
 
   As we configured TensorBoard to be enabled, we can go to `<VHOST>/{{ model.packageName }}-notebook/tensorboard` and check the Training progress.
-    
-![TensorBoard](/services/beta-jupyter/img/jupyterlab-TensorBoard.png)
+
+[<img src="/services/beta-jupyter/img/jupyterlab-TensorBoard.png alt="TensorBoard on {{ model.techShortName }}" width="400"/>](/services/beta-jupyter/img/jupyterlab-TensorBoard.png)    
 
 Figure 11. TensorBoard on {{ model.techShortName }}
 
