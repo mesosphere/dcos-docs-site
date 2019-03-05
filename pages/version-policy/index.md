@@ -179,6 +179,7 @@ Mesosphere maintains and certifies several packages for DC/OS.
 
 Mesosphere does not offer support services for the base technology (e.g. Jenkins). The base technology version is denoted as the second version in the package number (e.g. 1.2.3-4.5.6).
 
+
 ### Certified Package Designations
 
 Services that are labeled as “Certified” have been tested by Mesosphere for interoperability with DC/OS, but Mesosphere disclaims all warranties, and makes no promises, including with respect to the services’ operation or production readiness. Support for the integration may be available from Mesosphere or the creator of the service. The matrix below lists certified packages and the current state of what packages are tested on what version of DC/OS, and what is within the best effort scope of our technical support organization.
@@ -197,10 +198,6 @@ The designations are as follows:
 - This combination is not within the scope of our technical support organization.
 - This combination is not eligible for bug fixes.
 
-B - This package combination is *beta*.
-- Beta packages are not within the scope of our technical support organization.
-- Beta packages iterate quickly and are not eligible for bug fixes.
-
 ## Certified Packages and DC/OS Versions
 <table class="table">
     <tr>
@@ -208,24 +205,6 @@ B - This package combination is *beta*.
         <th><p style="text-align: center;"><strong>DC/OS 1.12</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.10</strong></p></th>
-    </tr>
-    <tr>
-        <td>Beta DC/OS Storage Services 0.4.0</td>
-        <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>¹Beta DC/OS Storage Services 0.5.1 (Recommended)</td>
-        <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Beta Mesosphere Jupyter Service 1.3.x-0.35.4 (Recommended)</td>
-        <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Cassandra 2.4.x-3.0.16</td>
@@ -436,6 +415,47 @@ B - This package combination is *beta*.
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+</table>
+
+### Beta Package Designations
+Services that are labeled as “Beta” are not ready for production. 
+
+The designations are as follows:
+
+◯ - This package combination has not been tested.
+- This combination is not within the scope of our technical support organization.
+- This combination is not eligible for bug fixes.
+
+B - This package combination is *beta*.
+- Beta packages are not within the scope of our technical support organization.
+- Beta packages iterate quickly and are not eligible for bug fixes.
+
+## Beta Packages and DC/OS Versions
+<table class="table">
+    <tr>
+        <th><strong>DC/OS Package for</strong></th>
+        <th><p style="text-align: center;"><strong>DC/OS 1.12</strong></p></th>
+        <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
+        <th><p style="text-align: center;"><strong>DC/OS 1.10</strong></p></th>
+    </tr>
+    <tr>
+        <td>Beta DC/OS Storage Services 0.4.0</td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>¹Beta DC/OS Storage Services 0.5.1 (Recommended)</td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>Beta Mesosphere Jupyter Service 1.3.x-0.35.4 (Recommended)</td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">◯</p></td>
     </tr>
 </table>
 
