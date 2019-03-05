@@ -272,7 +272,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 
   ```bash
   terraform plan -out=plan.out
-GG  ```
+  ```
 
     This step ensures that the state is stable and confirms that you can create the resources necessary to scale the private agents to the desired number. Executing the plan adds the following resources as a result of scaling up the cluster’s private agents:
     - One instance resource
