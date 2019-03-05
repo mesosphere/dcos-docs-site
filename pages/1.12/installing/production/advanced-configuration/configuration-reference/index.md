@@ -277,38 +277,41 @@ For more information, see the [system requirements](/1.12/installing/ent/custom/
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. After the virtual network is enabled, you can also specify the following parameters:
 
-    *  `dcos_overlay_config_attempts` Specifies how many failed configuration attempts are allowed before the overlay configuration modules stop trying to configure a virtual network.
-<p class="message--note"><strong>NOTE: </strong>The failures might be related to a malfunctioning Docker daemon.</p>
-        
-    *  `dcos_overlay_mtu` The maximum transmission unit (MTU) of the Virtual Ethernet (vEth) on the containers that are launched on the overlay.
+  *  `dcos_overlay_config_attempts` Specifies how many failed configuration attempts are allowed before the overlay configuration modules stop trying to configure a virtual network.
+  <p class="message--note"><strong>NOTE: </strong>The failures might be related to a malfunctioning Docker daemon.</p>
 
-    *  `dcos_overlay_network` This group of parameters defines a virtual network for DC/OS.  The default configuration of DC/OS provides a virtual network named `dcos` with this YAML configuration:
+  *  `dcos_overlay_mtu` The maximum transmission unit (MTU) of the Virtual Ethernet (vEth) on the containers that are launched on the overlay.
 
-        ```yaml
-        dcos_overlay_network:
-            vtep_subnet: 44.128.0.0/20
-            vtep_mac_oui: 70:B3:D5:00:00:00
-            overlays:
-              - name: dcos
-                subnet: 9.0.0.0/8
-                prefix: 26
-        ```
+  *  `dcos_overlay_network` This group of parameters defines a virtual network for DC/OS.  The default configuration of DC/OS provides a virtual network named `dcos` with this YAML configuration:
 
-        *  `vtep_subnet` A dedicated address space that is used for the VxLAN backend for the virtual network. This address space should not be accessible from outside the agents or master.
-        *  `vtep_mac_oui` The MAC address of the interface connecting to the virtual network in the public node.
+      ```yaml
+      dcos_overlay_network:
+          vtep_subnet: 44.128.0.0/20
+          vtep_mac_oui: 70:B3:D5:00:00:00
+          overlays:
+            - name: dcos
+              subnet: 9.0.0.0/8
+              prefix: 26
+      ```
+
+      *  `vtep_subnet` A dedicated address space that is used for the VxLAN backend for the virtual network. This address space should not be accessible from outside the agents or master.
+      *  `vtep_mac_oui` The MAC address of the interface connecting to the virtual network in the public node.
         <p class="message--note"><strong>NOTE: </strong>The last three bytes must be `00`.</p>
-        *  `overlays`
-            *  `name` The canonical name (see [limitations](/1.12/networking/virtual-networks/) for constraints on naming virtual networks).
-            *  `subnet` The subnet that is allocated to the virtual network.
-            *  `prefix` The size of the subnet that is allocated to each agent and thus defines the number of agents on which the overlay can run. The size of the subnet is carved from the overlay subnet.
 
- For more information, see the [example](/1.12/installing/ent/custom/configuration/examples/#overlay) and [documentation](/1.12/networking/virtual-networks/).
+      *  `overlays`
 
+          * `name` The canonical name (see [limitations](/1.12/networking/virtual-networks/) for constraints on naming virtual networks).
+          * `subnet` The subnet that is allocated to the virtual network.
+          * `prefix` The size of the subnet that is allocated to each agent and thus defines the number of agents on which the overlay can run. The size of the subnet is carved from the overlay subnet.
+
+      For more information, see the [example](/1.12/installing/ent/custom/configuration/examples/#overlay) and [documentation](/1.12/networking/virtual-networks/).
 
 ### dns_bind_ip_blacklist
+
 A list of IP addresses that DC/OS DNS resolvers cannot bind to.
 
 ### dns_forward_zones
+
 A list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. A DNS zone is mapped to a set of DNS resolvers.
 
 A sample definition is as follows:
@@ -357,7 +360,7 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
 *   `exhibitor_storage_backend: static`
     The Exhibitor storage backend is managed internally within your cluster.
 <p class="message--note"><strong>NOTE: </strong>If <a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#master-discovery">master_discovery</a> is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.</p>
-    
+
 *   `exhibitor_storage_backend: zookeeper`
     The ZooKeeper instance for shared storage. If you use a ZooKeeper instance to bootstrap Exhibitor, this ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability. If you specify `zookeeper`, you must also specify these parameters.
     *   `exhibitor_zk_hosts`
@@ -424,37 +427,38 @@ curl -fsSL https://ipinfo.io/ip
 ```
 
 ### license_key_contents [enterprise type="inline" size="small" /]
+
 A license key helps to administer your cluster in conformance with your license requirements. A license contains the maximum number of nodes attached to a cluster at any given time and the start and end date of the license.The license key must reside in a genconf/license.txt file. This parameter is used when an user wants to directly specify the license in the config.yaml.
 Example: `license_key_contents: xyz`.
 
 ### log_directory
+
 The path to the installer host logs from the SSH processes. By default, this is set to `/genconf/logs`. In most cases this should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
 
 ### master_discovery (Required)
+
 The Mesos master discovery method. The available options are `static` or `master_http_loadbalancer`.
 
 *  `master_discovery: static`
    Specifies that Mesos agents are used to discover the masters by giving each agent a static list of master IPs. The masters must not change IP addresses, and if a master is replaced, the new master must take the old master's IP address.
 
-<p class="message--note"><strong>NOTE: </strong>In AWS it is not possible to set a local IP address, thus `master_discovery:static` can not be utilized.</p>
-   
-   If you specify `static`, you must also specify this parameter:
+  <p class="message--note"><strong>NOTE: </strong>In AWS it is not possible to set a local IP address, thus `master_discovery:static` can not be utilized.</p>
 
-    *  `master_list`
-       A YAML nested list (`-`) of static master IP addresses.
+  If you specify `static`, you must also specify this parameter:
+
+  *  `master_list` A YAML nested list (`-`) of static master IP addresses.
 
 *   `master_discovery: master_http_loadbalancer` The set of masters has an HTTP load balancer in front of them. The agent nodes will know the address of the load balancer. They use the load balancer to access Exhibitor on the masters to get the full list of master IPs. If you specify `master_http_load_balancer`, you must also specify these parameters:
 
     *  `exhibitor_address` (Required)
-       The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.12/security/ent/tls-ssl/). The load balancer must accept traffic on ports 443, 2181, 5050, and 8181. If the cluster is running in permissive security mode, the load balancer may also accept traffic on port 80 and 8080 for non-SSL HTTP access to services in the cluster.
-       <p class="message--note"><strong>NOTE: </strong>Access to the cluster over port 80 and 8080 is insecure.</p>
-       The traffic must also be forwarded to 443, 2181, 5050, and 8181 on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up. For more information on security modes, check [security modes documentation](/1.12/security/ent/#security-modes).
+      The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.12/security/ent/tls-ssl/). The load balancer must accept traffic on ports 443, 2181, 5050, and 8181. If the cluster is running in permissive security mode, the load balancer may also accept traffic on port 80 and 8080 for non-SSL HTTP access to services in the cluster.
+      <p class="message--note"><strong>NOTE: </strong>Access to the cluster over port 80 and 8080 is insecure.</p>
 
-<p class="message--note"><strong>NOTE: </strong>The internal load balancer must work in TCP mode, without any TLS termination.</p>
-       
+      The traffic must also be forwarded to 443, 2181, 5050, and 8181 on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up. For more information on security modes, check [security modes documentation](/1.12/security/ent/#security-modes).
 
-    *  `num_masters` (Required)
-       The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
+      <p class="message--note"><strong>NOTE: </strong>The internal load balancer must work in TCP mode, without any TLS termination.</p>
+
+    *  `num_masters` (Required) The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
 
 **Note:**
 
@@ -604,14 +608,14 @@ If you have already installed your cluster and would like to disable this in pla
 ### use_proxy
 Indicates whether to enable the DC/OS proxy.
 
-*  `use_proxy: 'false'` Do not configure DC/OS [components](/1.12/overview/architecture/components/) to use a custom proxy. This is the default value.
-*  `use_proxy: 'true'` Configure DC/OS [components](/1.12/overview/architecture/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
+* `use_proxy: 'false'` Do not configure DC/OS [components](/1.12/overview/architecture/components/) to use a custom proxy. This is the default value.
+* `use_proxy: 'true'` Configure DC/OS [components](/1.12/overview/architecture/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
 
-<p class="message--note"><strong>NOTE: </strong>The specified proxies must be resolvable from the provided list of <a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers">resolvers.</a></p>
-    
-    *  `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` The HTTP proxy.
-    *  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` The HTTPS proxy.
-    *  `no_proxy`: A YAML nested list (`-`) of subdomains to exclude from forwarding to the `https_proxy`. If the address matches one of these strings, or the host is within the domain of one of these strings, http(s) requests to that node are not proxied. For example, the `no_proxy` list can be a list of internal IP addresses.
+  <p class="message--note"><strong>NOTE: </strong>The specified proxies must be resolvable from the provided list of <a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers">resolvers.</a></p>
+
+    * `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` The HTTP proxy.
+    * `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` The HTTPS proxy.
+    * `no_proxy`: A YAML nested list (`-`) of subdomains to exclude from forwarding to the `https_proxy`. If the address matches one of these strings, or the host is within the domain of one of these strings, http(s) requests to that node are not proxied. For example, the `no_proxy` list can be a list of internal IP addresses.
 
 <p class="message--note"><strong>NOTE: </strong>Wildcard characters (`*`) are not supported.</p>
 
@@ -651,7 +655,7 @@ Enables advanced storage features in DC/OS including [CSI](https://github.com/co
 * `feature_dcos_storage_enabled: 'true'` Enables CSI support in DC/OS. This is necessary to use the [DC/OS Storage Service (DSS)](/services/beta-storage/)
 
 [enterprise]
-### zk_super_credentials 
+### zk_super_credentials
 [/enterprise]
 On DC/OS `strict` and `permissive` mode clusters the information stored in ZooKeeper is protected using access control lists (ACLs), so that a malicious user cannot connect to the ZooKeeper Quorum and directly modify service metadata. ACLs specify sets of resource IDs (RIDs) and actions that are associated with those IDs. ZooKeeper supports pluggable authentication schemes and has a few built in schemes: `world`, `auth`, `digest`, `host`, and `ip`.
 
@@ -670,11 +674,11 @@ To harden clusters, Mesosphere recommends that you change the defaults of all cr
 ```
 
 [enterprise]
-### zk_master_credentials 
+### zk_master_credentials
 [/enterprise]
 Credentials used by the bootstrapping processes to access the credentials of the services that will be running on the DC/OS master nodes.
 
 [enterprise]
-### zk_agent_credentials 
+### zk_agent_credentials
 [/enterprise]
 Credentials used by the bootstrapping processes to access the credentials of the services that will be running on the DC/OS agent nodes.
