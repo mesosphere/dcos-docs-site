@@ -100,7 +100,7 @@ Password: `deleteme`
 
   ```hcl
   provider "google" {
-    version = "~> 1.0"
+    version = "~> 1.18.0"
   }
 
   # Used to determine your public IP for forwarding rules
@@ -212,7 +212,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 
   ```hcl
   provider "google" {
-    version = "~> 1.0"
+    version = "~> 1.18.0"
   }
 
   variable "dcos_install_mode" {
@@ -304,7 +304,7 @@ To perform an upgrade:
 
   ```hcl
   provider "google" {
-    version = "~> 1.0"
+    version = "~> 1.18.0"
   }
 
   variable "dcos_install_mode" {
