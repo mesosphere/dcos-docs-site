@@ -3,27 +3,26 @@ layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 5
-excerpt: Release Notes for version 0.3.0-1.7.1
+excerpt: Discover the new features, updates, and known limitations in this release of the NiFi Service
 featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache
 ---
 
+# Release Notes for NiFi Service version 0.3.0-1.7.1
 
-## Version 0.3.0-1.7.1
-
-### Updates 
+## Updates 
 - Upgrade {{ model.packageName }} base tech to version 1.7.1. See [Apache NiFi's Release Notes](https://cwiki.apache.org/confluence/display/NIFI/Release+Notes#ReleaseNotes-Version1.7.1) for details.
 - Removing HTTP Port and HTTPS Port configuration.
 
-### New Features
+## New Features
 - Support for secrets file upload.
 
-### Bug Fix
+## Bug Fix
 - Fixed `cn_dn_node_identity` value for default installation of DC/OS {{model.techName }}.
 
-
+<!-- 
 ## Version 0.2.0-1.5.0
 
 ### New Features
@@ -57,3 +56,4 @@ Based on the latest stable release of the dcos-commons SDK (Version 0.40.2), thi
 ### Bug Fixes
 
 This is the first release to Universe. Reported bugs will be fixed in subsequent releases.
+ -->

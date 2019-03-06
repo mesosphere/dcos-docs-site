@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes
+navigationTitle: Release Notes
 title: Release Notes
-menuWeight: 0
-excerpt:
+menuWeight: 1
+excerpt: excerpt: Discover the new features, updates, and known limitations in this release of the Jenkins Service
 featureMaturity:
 enterprise: false
 ---
@@ -12,7 +12,7 @@ enterprise: false
 
  Jenkins 3.5.3-2.150.1 was released on Jan 3, 2019.
 
-# Version 3.5.3-2.150.1
+# Release Notes for Jenkins Service version 3.5.3-2.150.1
 
 ## Improvements
 - Update to version 2.150.1 of Jenkins.

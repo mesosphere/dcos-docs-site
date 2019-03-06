@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Release notes for 2.3.0-3.4.12
+excerpt: Discover the new features, updates, and known limitations in this release of the Kafka ZooKeeper Service
 title: Release Notes
 menuWeight: 120
 model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 
-# Version 2.3.0-3.4.12
+# Release Notes for Kafka ZooKeeper Service version 2.3.0-3.4.12
 
 ## Features
 - Support for launching the service in a remote region.
@@ -23,7 +23,7 @@ render: mustache
 - The `zookeeper.autopurge_purge_interval` in the configuration options is now used when configuring the system. Previously, the  `zookeeper.autopurge_snap_retain_count` value with a default of 3 was used (#98)
 - Metrics have been fixed on DC/OS 1.9 clusters (#99)
 
-# Version 2.2.0-3.4.11
+<!-- # Version 2.2.0-3.4.11
 
 ## Features
 
@@ -41,3 +41,4 @@ This is the initial GA release of the DC/OS Apache ZooKeeper service.
 - Support for Zone placement constraints in DC/OS 1.11 (beta versions of DC/OS 1.11 coming soon).
 - Support for 3 or 5 ZooKeeper nodes.
 - Support for pausing ZooKeeper nodes for debugging and recovery purposes.
+ -->

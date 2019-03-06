@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Discover the new features, updates, and known limitations in this release of the Elastic Service
 title: Release Notes
 menuWeight: 120
 model: /services/elastic/data.yml
 render: mustache
 ---
 
-# Version 2.4.0-5.6.9
+# Release notes for Elastic Service version 2.4.0-5.6.9
 
 ## New Features
 

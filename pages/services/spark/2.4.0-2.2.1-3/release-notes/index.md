@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 145
-excerpt: Release notes for DC/OS Apache Spark 2.4.0-2.2.1-3
+excerpt: Discover the new features, updates, and known limitations in this release of the DC/OS Apache Spark Service
 featureMaturity:
 ---
 
-## Version Spark and Spark history 2.4.0-2.2.1-3
+# Release Notes for DC/OS Apache Spark Service version 2.4.0-2.2.1-3
 
-### New features
+## New features
 - Added service name to dispatcher’s VIP endpoints
 - Added shell-escape fix to spark-cli (SPARK-21014)
 - Added spark.mesos.executor.gpus (SPARK-21033)
@@ -17,17 +17,17 @@ featureMaturity:
 - Added statsd sink for spark metrics
   <p class="message--note"><strong>NOTE: </strong>Metrics is a beta feature and requires enabling UCR. Production use is not advised.</p>
 
-### Updates
+## Updates
 - Updated tests, build tools, CLI and vendor packages
 - Updated bootstrap version to 0.50.0
 - Updated JRE version to 8u172
 
-### Bug fixes
+## Bug fixes
 - Fixed duplicate docker image URLs; use resource.json as default
 
-### Breaking changes
+## Breaking changes
 - VIP endpoints for the dispatcher are no longer `spark-dispatcher:<port>` and are now `dispatcher.{{service.name}}:<port>`
-
+<!-- 
 ## Version Spark and Spark history 2.3.1-2.2.1-2
 
 ### Updates
@@ -171,3 +171,4 @@ dispatcher use `dcos spark --name <dispatcher_app_id>`.
 ## Version 1.0.9-2.1.0-1
 
 - The history server has been removed from the "spark" package, and put into a dedicated "spark-history" package.
+ -->
