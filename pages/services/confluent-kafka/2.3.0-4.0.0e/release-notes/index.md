@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Discover the new features, updates, and known limitations in this release of the Confluent Kafka Service
 title: Release Notes
 menuWeight: 120
 model: /services/confluent-kafka/data.yml
@@ -9,13 +9,13 @@ render: mustache
 ---
 
 
-# Version 2.3.0-4.0.0e
+# Release Notes for Confluent Kafka service version 2.3.0-4.0.0e
 
 ## New Features
 
 - Support for configuring Kafka transport encryption ciphers with secure defaults.
 
-# Version 2.2.0-4.0.0e
+<!-- # Version 2.2.0-4.0.0e
 
 ## New Features
 
@@ -81,3 +81,4 @@ See [Confluent Platform 3.3.1 release notes](https://docs.confluent.io/3.3.1/rel
 
 ## Breaking Changes
 - This is a major release.  You cannot upgrade to 2.0.0-3.3.0e from a 1.0.x version of the package.  To upgrade, you must perform a fresh install and replicate data across clusters.
+ -->

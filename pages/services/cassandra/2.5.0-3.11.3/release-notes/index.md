@@ -1,13 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes  
-excerpt: Release notes for all versions
-title: Release Notes v. 2.5.0-3.11.3
+excerpt: Discover the new features, updates, and known limitations in this release of the Cassandra Service
+title: Release Notes 
 menuWeight: 10
 model: /services/cassandra/data.yml
 render: mustache
 ---
-# Version 2.5.0-3.11.3
+
+# Release Notes for Cassandra Service version 2.5.0-3.11.3
 
 ## Upgrades
 
@@ -20,8 +21,9 @@ render: mustache
 - The number of open file descriptors (`RLIMIT_NOFILE`) is now a configurable property 
 
 ## Improvements
-- Service names are now validated with a regex
 
+- Service names are now validated with a regex
+<!-- 
 # Version 2.4.0-3.0.16
 
 ## Bug Fixes
@@ -31,8 +33,8 @@ render: mustache
 ## Updates
 
 - Upgrade JRE to 1.8u192 to address CVEs
-
-# Version 2.3.0-3.0.16
+ -->
+<!-- # Version 2.3.0-3.0.16
 
 ## New Features
 
@@ -113,3 +115,4 @@ render: mustache
 
 ## Breaking Changes
 - This is a major release.  You cannot upgrade to 2.0.0-3.0.14 from a 1.0.x version of the package.  To upgrade, you must perform a fresh install and restore from a backup.
+ -->
