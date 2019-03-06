@@ -40,4 +40,4 @@ dcos package list <package-name> [OPTION]
 
 # Examples
 
-For an example, see the [documenation](/1.11/deploying-services/install/).
+For an example, see the [documentation](/1.11/deploying-services/install/).
