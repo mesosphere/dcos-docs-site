@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 10
-excerpt: 
+excerpt: iscover the new features, updates, and known limitations in this release of the Beta DC/OS Storage Service
 enterprise: true
 beta: true
 ---
@@ -19,7 +19,7 @@ beta: true
 * LVM plugin performance improvements.
 * Documentation corrections and updates.
 
-<a name="version_050">
+<!-- <a name="version_050">
 
 # Release notes for Beta DC/OS Storage Service version 0.5.0
 
@@ -56,7 +56,7 @@ DC/OS Storage Service is currently in Beta and has the following known bugs.
 * Deleting a volume may fail with "Cannot allocate memory" on CoreOS; please use a [supported version](/latest/version-policy/#dcos-platform-version-compatibility-matrix) of CoreOS.
 * Kernels from (including) 3.10.0-862.6.3.el7 up to (including) 3.10.0-862.11.6.el7 may panic as a result of LVM operations (https://access.redhat.com/solutions/3520511).
 
-<!-- # Version 0.4.0
+# Version 0.4.0
 
 * This version of the DC/OS Storage Service requires DC/OS Enterprise version 1.12 or later.
 

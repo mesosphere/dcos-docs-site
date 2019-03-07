@@ -2,14 +2,13 @@
 layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
-menuWeight: 80
-excerpt: 
-enterprise: true
+menuWeight: 10
+excerpt: Discover the new features, updates, and known limitations in this release of the Beta DC/OS Storage Service
 enterprise: true
 beta: true
 ---
 
-# Release Notes for Beta DC/OS Storage service version 0.4.0
+# Release Notes for Beta DC/OS Storage Service version 0.4.0
 
 * This version of the DC/OS Storage Service requires DC/OS version 1.12 or later.
 

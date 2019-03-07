@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Terminology and Concepts
 title: Terminology and Concepts
-menuWeight: 15
+menuWeight: 30
 excerpt: Common definitions and terms used throughout DC/OS Storage Service documentation.
 enterprise: true
 beta: true
