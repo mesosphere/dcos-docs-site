@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
-menuWeight: 1
+menuWeight: 5
 excerpt: excerpt: Discover the new features, updates, and known limitations in this release of the Jenkins Service
 featureMaturity:
 enterprise: false

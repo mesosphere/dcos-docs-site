@@ -34,9 +34,9 @@ This is the first release to Universe. Reported bugs will be fixed in subsequent
 
 ## Documentation
 
-Released first version of Service Guide with following topics:
+Released first version of Service guide with following topics:
 
-# Table of Contents
+### Table of Contents
 
 - [Overview](overview/index.md)
 - [Install and Customize](install/index.md)

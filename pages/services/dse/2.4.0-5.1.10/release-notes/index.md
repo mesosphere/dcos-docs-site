@@ -12,7 +12,7 @@ render: mustache
 
 ## Improvements
 - Update to {{ model.shortTechName }} 5.1.10 and OpsCenter 6.1.9
-
+<!-- 
 # Version 2.3.0-5.1.2
 
 ## New Features
@@ -23,7 +23,7 @@ render: mustache
 
 - The SDK tests now validate missing values for `svc.yml` Mustache variables. ([#2527](https://github.com/mesosphere/dcos-commons/pull/2527))
 
-<!-- # Version 2.2.0-5.1.2
+# Version 2.2.0-5.1.2
 
 ## New Features
 - Support for deploying the service in a remote region.

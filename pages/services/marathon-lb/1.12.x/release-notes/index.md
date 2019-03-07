@@ -37,4 +37,4 @@ $ git shortlog v1.11.3..HEAD
 
 # Previous Versions
 
-Click [here](https://github.com/mesosphere/marathon-lb/releases)to view the release notes prior to Marathon-LB Service version 1.12.0.
+Click [here](https://github.com/mesosphere/marathon-lb/releases) to view the release notes prior to Marathon-LB Service version 1.12.0.
