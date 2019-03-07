@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 10
-excerpt: iscover the new features, updates, and known limitations in this release of the Beta DC/OS Storage Service
+excerpt: Discover the new features, updates, and known limitations in this release of the Beta DC/OS Storage Service
 enterprise: true
 beta: true
 ---
