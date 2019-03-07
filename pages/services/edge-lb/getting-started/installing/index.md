@@ -4,23 +4,32 @@ navigationTitle:  Installing
 title: Installing
 menuWeight: 5
 excerpt: Configuring a service account and installing Edge-LB
-enterprise: false
+enterprise: true
 ---
+This section guides you through the basic steps to prepare and install Edge-LB for load balancing in a DC/OS Enterprise cluster.
 
+The steps to follow depend on deployment scenario you want to implement. For example, if you are setting up a demonstration or small-scale cluster for testing, evaluation, or personal use, you can use an account that is a member of the `superusers` group and using the default configuration settings to get started without creating a dedicated service account with specific permissions and a signed certificate. For most production deployments, however, you should create a unique service account for installing and managing Edge-LB.
+
+# Before you begin
+- [DC/OS CLI is installed](/1.13/cli/install/)
+- You must be logged in with an account that has `superuser` permission or the permissions listed in [Installation permissions](/services/edge-lb/reference/permissions/#installation-permissions).
+- The [DC/OS Enterprise CLI is installed](/1.13/cli/enterprise-cli/).
+- You must have a registered customer account to log in to the [Mesosphere support portal](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Fdownloads%3Ft%3D1551917897670) to download the remote Edge-LB repositories.
+You must have network access to [the remote Edge-LB repositories](https://support.mesosphere.com/s/downloads?t=1551917897670) or a local repository that has the Edge-LB repositories.
+
+<p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
+
+# Add Edge-LB package repositories
+The Edge-LB package comprises two components:
+
+- The **Edge-LB API server** is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers.
+
+- An **Edge-LB pool** can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
+
+You must install Universe repositories for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB.
+
+-----
 To configure a service account and install the Edge-LB package, use the instructions below.
-
-# Prerequisites
-
-- [DC/OS CLI is installed](/1.12/cli/install/)
-- You are logged in as a superuser.
-- The [DC/OS Enterprise CLI is installed](/1.12/cli/enterprise-cli/).
-- You have access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
-
-<p class="message--important"><strong>IMPORTANT: </strong>You must have a customer service account to log in as a superuser and download the remote Edge-LB repositories.</p>
-
-## Limitations
-
-- Edge-LB supports all [security modes](/1.12/security/ent/#security-modes) in DC/OS 1.11 and later. It supports Permissive, Disabled in DC/OS 1.10. DC/OS 1.9 or earlier is not supported.
 
 # Add Edge-LB package repositories
 The Edge-LB package comprises two components:

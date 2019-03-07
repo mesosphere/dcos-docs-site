@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle: Edge-LB pool configuration
-title: Pool configuration reference (V2)
+title: Pool configuration (REST API V2)
 menuWeight: 84
-excerpt: Provides reference information and examples for Edge-LB pool configurations options in the V2 API
+excerpt: Provides reference information for Edge-LB pool configurations settings (REST API V2)
 enterprise: true
 ---
 
@@ -21,8 +21,9 @@ If you plan to modify the Edge-LB pool configuration options, you should keep th
 - Swagger only validates enumerated (enum) data values if the configuration option is a top level definition.
 
 # API version compatibility
-There are two versions of the Edge-LB API specification. The top-level configuration field `apiVersion` is used to distinguish between the two versions of the API specification. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in `apiVersion` V1) has been replaced with `pool.haproxy.backends.services` to a more intuitive way to select services and backends for HAProxy load balancers. Because the specifications are nearly identical, the reference information in this section provides details for the latest version of the Edge-LB API specification (V2). If you need information or examples for the older specification, see [Edge-LB pool configuration (v1)](/services/edge-lb/reference/v1-reference/).
+There are two versions of the Edge-LB API specification. The top-level configuration field `apiVersion` is used to distinguish between the two versions of the API specification. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in `apiVersion` V1) has been replaced with `pool.haproxy.backends.services` to a more intuitive way to select services and backends for HAProxy load balancers. 
 
+Because the specifications are nearly identical, the reference information in this section provides details for the latest version of the Edge-LB API specification (V2). If you need pool configuration information for working with the older specification, see [Edge-LB pool configuration (REST API V1)](/services/edge-lb/reference/v1-reference/).
 
 # Configuration file input format
 Edge-LB accepts configuration files in either YAML or JSON format. In most cases, however, you should use JSON and migrate any previous configuration settings from YAML format to JSON. 
