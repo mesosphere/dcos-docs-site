@@ -9,7 +9,7 @@ enterprise: true
 
 The Edge-LB API enables users to create and manage pools of Edge-LB load balancers. There are two versions of the Edge-LB API. The two models are almost identical, with one important difference: the `pool.haproxy.backends.servers` configuration setting has been replaced with [`pool.haproxy.backends.services`](/services/edge-lb/api-reference/pool-configuration-reference/#pool.haproxy.backends.services) in the latest version of the Edge-LB API. This change provides a more intuitive way to select services and backends for HAProxy. In addition, the Edge-LB API includes a top-level `apiVersion` configuration field to specify which version of an API call you want to use. 
 
-Because of the similarity between the Edge-LB API version 1 (`V1`) and version 2 (`V2`), the configuration reference information and examples reflect the Edge-LB API V2 specification. If you require documentation specifically for the Edge-LB API V1 specification, see [Edge-LB API v1](/services/edge-lb/reference/v1-reference/).
+Because of the similarity between the Edge-LB API version 1 (`V1`) and version 2 (`V2`), the configuration reference information and examples reflect the Edge-LB API V2 specification. If you require documentation specifically for the Edge-LB API V1 specification, see [Edge-LB API v1](/services/edge-lb/reference/v1-reference/#api-v1).
 
 # Routes
 
@@ -35,10 +35,10 @@ The Edge-LB API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see [Assigning permissions](/1.12/security/ent/perms-reference/).
+To assign permissions to your account, see [Assigning permissions](/1.13/security/ent/perms-reference/).
 
 # API specification
 
 The following resources are available:
 
-[swagger api='/services/api/edge-lb.swagger-1.2.yaml']
+[swagger api='/services/api/edge-lb-v2.yaml']

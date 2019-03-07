@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  Uninstalling
-title: Uninstalling
+navigationTitle:  Uninstalling Edge-LB
+title: Uninstalling Edge-LB
 menuWeight: 50
 excerpt: How to uninstall the Edge-LB package
-
-enterprise: false
+enterprise: true
 ---
 
 <p class="message--warning"><strong>WARNING: </strong>Do not use the DC/OS web interface or CLI (Marathon) to create or destroy services managed by Edge-LB. Operations must be performed exclusively through the Edge-LB CLI or the Edge-LB API.</p>

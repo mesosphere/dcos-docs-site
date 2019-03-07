@@ -30,11 +30,11 @@ dcos edgelb [<flags>] [OPTIONS] [<arguments> ...]
 Depending on the operation you want to perform, the Edge-LB service account or user account that manages Edge-LB pools might need specific permissions. For operations that require read access to an Edge-LB pool, the service or user account must have the following permission:
 
 <code>
-dcos:adminrouter:service:edgelb:/pools/<POOL-NAME>
+dcos:adminrouter:service:edgelb:/pools/<pool-name>
 </code>
 
 # dcos edgelb create
-Use this command to create a single pool given a definition file written in JSON or YAML.
+Use this command to create a single pool given a pool configuration file written in JSON.
 
 ### Usage
 
@@ -96,7 +96,7 @@ dcos edgelb delete <pool-name>
 ### Permissions
 To delete an existing pool and uninstall the deployed load balancers, the Edge-LB service account or user account must have the following permission for a specified pool:
 
-`dcos:adminrouter:service:edgelb:/v2/pools/<POOL-NAME> full`
+`dcos:adminrouter:service:edgelb:/v2/pools/<pool-name> full`
 
 ### Examples
 To delete an existing Edge-LB pool named `aqua01` and uninstall the deployed load balancer instances for this pool:
@@ -213,7 +213,7 @@ To test the connection to the `sanfrancisco05` Edge-LB pool by sending a `ping` 
 # dcos edgelb show
 Use this command to show the pool definition for a given pool name. If you don't specify a pool name, the command returns information for all pool configurations.
 
-You can also use this command to convert YAML files to their equivalent JSON format. Edge-LB accepts configuration files in either YAML or JSON format. Because the YAML file format is intended for deprecation in favor or JSON format, however, you should use JSON and migrate any previous configuration settings from YAML format to their equivalent JSON format. 
+You can also use this command to convert YAML files to their equivalent JSON format. If you have configuration files previously written using YAML, you should use this command to convert the configuration settings to their equivalent JSON format. 
 
 ### Usage
 
@@ -377,15 +377,15 @@ dcos edgelb update [<flags>] <pool-file>
 To update an existing pool, the Edge-LB service account or user account must have the following permissions for a specified pool:
 
 <code>
-dcos:adminrouter:service:edgelb:/v2/pools/<POOL-NAME> full
-dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<POOL-NAME> full
+dcos:adminrouter:service:edgelb:/v2/pools/<pool-name> full
+dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name> full
 </code>
 
 If you are working with the API specification for v1, the permissions required are:
 
 <code>
-dcos:adminrouter:service:edgelb:/v1/loadbalancers/<POOL-NAME>
-dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<POOL-NAME>
+dcos:adminrouter:service:edgelb:/v1/loadbalancers/<pool-name>
+dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>
 </code>
 
 ### Examples

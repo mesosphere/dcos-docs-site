@@ -32,7 +32,6 @@ For example, to grant installation permissions to the user account `patsmith`:
 `dcos security org users grant patsmith dcos:adminrouter:package full`
 
 # Service account permissions
-
 The [service account](/services/edge-lb/1.2/installing/#create-a-service-account/) used for Edge-LB operations must be configured with sufficient administrative permissions. For simplicity, you can add the service account principal to the `superusers` group. However, if you are using the principle of least privilege to secure administrative activity for the cluster, you can grant the specific individual permissions necessary. 
 
 If you are using the principle of least privilege, follow the steps for creating a public/private key pair and a service account principal described in [preparing a service account](/services/edge-lb/how-to-tasks/installing), then grant the following permissions to the service account principal:
@@ -59,7 +58,7 @@ If you are using the principle of least privilege, follow the steps for creating
 
 Additionally, grant the following permission **for each Edge-LB pool created**:
 
-- `dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME>`
+- `dcos:adminrouter:service:dcos-edgelb/pools/<pool-name>`
 
 ## Adding specific permissions for a service principal
 You can add the permissions required for the service account by running a command similar to this:
@@ -78,8 +77,8 @@ To grant limited permissions to manage only a single Edge-LB pool, the user must
 
 - `dcos:adminrouter:package`
 - `dcos:adminrouter:service:marathon`
-- `dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME>`
-- `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<POOL-NAME>`
+- `dcos:adminrouter:service:dcos-edgelb/pools/<pool-name>`
+- `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>`
 
 You can add the permissions required for managing a pool in a multi-tenant environment to an account by running a command similar to this:
 `dcos security org users grant [OPTIONS] UID RID ACTION`
@@ -92,19 +91,19 @@ The following permissions for endpoints are used by the `dcos edgelb` CLI subcom
 
 - Ping:
     - `dcos:adminrouter:service:edgelb:/ping`
-- List Pools:
+- List pools:
     - `dcos:adminrouter:service:edgelb:/config`
-- Read Pool:
-    - `dcos:adminrouter:service:edgelb:/pools/<POOL-NAME>`
-- Create V1 Pool:
+- Read pool:
+    - `dcos:adminrouter:service:edgelb:/pools/<pool-name>`
+- Create V1 pool:
     - `dcos:adminrouter:service:edgelb:/v1/loadbalancers`
-- Update V1 Pool:
-    - `dcos:adminrouter:service:edgelb:/v1/loadbalancers/<POOL-NAME>`
-    - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<POOL-NAME>`
-- Create V2 Pool:
+- Update V1 pool:
+    - `dcos:adminrouter:service:edgelb:/v1/loadbalancers/<pool-name>`
+    - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>`
+- Create V2 pool:
     - `dcos:adminrouter:service:edgelb:/v2/pools`
-- Update V2 Pool:
-    - `dcos:adminrouter:service:edgelb:/v2/pools/<POOL-NAME>`
-    - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<POOL-NAME>`
-- Delete Pool
-    - `dcos:adminrouter:service:edgelb:/v2/pools/<POOL-NAME>`
+- Update V2 pool:
+    - `dcos:adminrouter:service:edgelb:/v2/pools/<pool-name>`
+    - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>`
+- Delete pool
+    - `dcos:adminrouter:service:edgelb:/v2/pools/<pool-name>`
