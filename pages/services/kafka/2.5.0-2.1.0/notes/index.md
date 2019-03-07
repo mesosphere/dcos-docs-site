@@ -10,6 +10,40 @@ render: mustache
 
 ## Version 2.5.0-2.1.0
 
+### Important Notes
+
+* The `inter_broker_protocol_version` now defaults to the newer, `2.1`. This has a few implications, as described below:
+
+    - Kafka 1.1.0 supports `inter_broker_protocol_version`: `1.1` maximum, and by default it is set to `1.0`.
+    - Kafka 2.1.0 supports `inter_broker_protocol_version`s up to `2.1`. 
+    - If you haven't specified a `inter_broker_protocol_version` in your options file, the new default will be used and changed to `2.1`.
+
+    The problem with this is that it will cause downtime - during the upgrade, some Kafka nodes will be on Kafka 1.1.0 using `inter_broker_protocol_version` `1.0` and others will be on Kafka 2.1.0 using protocol `2.1`.
+
+    To avoid any potential downtime caused by this, change the protocol version used when upgrading Kafka.
+
+    - Set up CLI to connect to a soak cluster
+    - Update your `options_file.json` with the following contents:
+        ```
+        {
+            ...
+            "kafka": {
+                ...
+                "inter_broker_protocol_version": "1.0"
+                ...
+            }
+            ...
+        }
+        ```
+
+    - And update your service like so:
+       ```
+       ~$ dcos package install --cli --yes kafka
+       ~$ dcos kafka --name=data-services/kafka update start \
+           --package-version=2.5.0-2.1.0 \
+           --options=options_file.json
+       ```
+
 ### Updates
 - Upgrade {{ model.techShortName }} base tech to version 2.1.0. See [{{ model.techShortName }}'s Release Notes](https://kafka.apache.org/21/documentation.html#upgrade_210_notable) more for details.
 
