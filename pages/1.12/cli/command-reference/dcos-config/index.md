@@ -28,7 +28,8 @@ dcos config
 
 # Options
 
-| Name, shorthand |  Description |
+
+| Name |  Description |
 |---------|-------------|
 | `--help, h`   |   Display usage. |
 | `--info`   |  Display a short description of this subcommand. |
