@@ -20,16 +20,10 @@ dcos auth
 
 # Options
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|-------------|
 | `--help, h`   | Display usage. |
 | `--info`   |  Display a short description of this subcommand. |
 | `--version, v`   | Display version information. |
 
-# Child commands
 
-| Command | Description |
-|---------|-------------|
-|[dcos auth list-providers](/1.12/cli/command-reference/dcos-auth/dcos-auth-list-providers/) | List configured authentication providers for your DC/OS cluster. |
-| [dcos auth login](/1.12/cli/command-reference/dcos-auth/dcos-auth-login/)   |   Log in to DC/OS authentication.  |
-| [dcos auth logout](/1.12/cli/command-reference/dcos-auth/dcos-auth-logout/)   |  Log out of DC/OS authentication.  |

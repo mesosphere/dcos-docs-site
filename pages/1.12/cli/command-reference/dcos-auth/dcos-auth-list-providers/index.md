@@ -19,13 +19,15 @@ dcos auth list-providers <dcos-url> [OPTION]
 
 # Options
 
-| Name, shorthand | Description |
+
+| Name | Description |
 |---------|-------------|
 | `--json`   | Specify a JSON-formatted list of authentication providers. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
+
+| Name | Default | Description |
 |---------|-------------|-------------|
 | `<dcos-url>`   |             | A URL or IP address to an accessible master node. |
 

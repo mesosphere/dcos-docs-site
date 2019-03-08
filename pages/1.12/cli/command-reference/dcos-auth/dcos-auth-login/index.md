@@ -20,13 +20,14 @@ dcos auth login [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
+
+| Name |  Description |
 |---------|-------------|-------------|
-|  `--password-file=<password_file>`  |  | The path to a file that contains the password for login. |
-|  `--password=<password>`  |            | Specify the password for login on the command line. This is insecure.  |
-|  `--private-key=<key_path>`  |         | The path to a file that contains the private key.  |
-|  `--provider=<provider_id>`  |         | [enterprise type="inline" size="small" /] The authentication provider to use for login.  |
-|  `--username=<username>`  |            | The username for login. |
+|  `--password-file=<password_file>`  |  The path to a file that contains the password for login. |
+|  `--password=<password>`  |     Specify the password for login on the command line. This is insecure.  |
+|  `--private-key=<key_path>`  |   The path to a file that contains the private key.  |
+|  `--provider=<provider_id>`  |   [enterprise type="inline" size="small" /] The authentication provider to use for login.  |
+|  `--username=<username>`  |      The username for login. |
 
 ## TLS options
 
