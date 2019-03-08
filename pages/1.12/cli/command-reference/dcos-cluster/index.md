@@ -20,7 +20,9 @@ dcos cluster
 
 # Options
 
-| Name, shorthand |  Description |
+Table 1 - Options
+
+| Name |  Description |
 |---------|-------------|
 | `--help, h`   |  Display usage. |
 | `--info`   |   Display a short description of this subcommand. |

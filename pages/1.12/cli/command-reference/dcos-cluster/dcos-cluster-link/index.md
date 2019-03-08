@@ -12,7 +12,7 @@ You can configure uni-directional links from a cluster to one or more clusters. 
 
 **Prerequisites**
 
-- The [`dcos cluster setup`](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command used to set up the clusters to be linked must specify the same authentication provider. For example:
+- The [`dcos cluster setup`](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command you used to set up the clusters to be linked must specify the same authentication provider. For example:
 
   ```
   dcos cluster setup <dcos-url-a> --provider=dcos-users
@@ -29,7 +29,7 @@ If the cluster links successfully there is no output to the console.
 
 # Positional arguments
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|-------------|
 | `<dcos-url-a>`   | A URL or IP address to an accessible master node. |
 

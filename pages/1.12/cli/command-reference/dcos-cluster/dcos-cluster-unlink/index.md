@@ -4,7 +4,6 @@ navigationTitle:  dcos cluster unlink
 title: dcos cluster unlink
 menuWeight: 3
 excerpt: Unlinking a cluster from another cluster
-
 enterprise: true
 ---
 
@@ -19,10 +18,10 @@ dcos cluster unlink [<linked-cluster-name> | <linked-cluster-id> ]
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|-------------|
-| `<linked-cluster-name>`   | ID of linked cluster.  |
-| `<linked-cluster-id>`   |  ID of linked cluster.  |
+| `<linked-cluster-name>`   | Name of linked cluster  |
+| `<linked-cluster-id>`   |  ID of linked cluster  |
 
 If the cluster links successfully there is no output to the console.
 
