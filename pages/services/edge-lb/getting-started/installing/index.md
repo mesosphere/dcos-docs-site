@@ -14,49 +14,34 @@ The steps to follow depend on deployment scenario you want to implement. For exa
 - [DC/OS CLI is installed](/1.13/cli/install/)
 - You must be logged in with an account that has `superuser` permission or the permissions listed in [Installation permissions](/services/edge-lb/reference/permissions/#installation-permissions).
 - The [DC/OS Enterprise CLI is installed](/1.13/cli/enterprise-cli/).
-- You must have a registered customer account to log in to the [Mesosphere support portal](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Fdownloads%3Ft%3D1551917897670) to download the remote Edge-LB repositories.
-You must have network access to [the remote Edge-LB repositories](https://support.mesosphere.com/s/downloads?t=1551917897670) or a local repository that has the Edge-LB repositories.
+- You must have a registered customer account to log in to the [Mesosphere support portal](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Fdownloads%3Ft%3D1551917897670).
+- You must have network access to download the [remote Edge-LB repositories](https://support.mesosphere.com/s/downloads?t=1551917897670) or a local repository that has the Edge-LB repositories.
 
-<p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
+  If your cluster is behind a firewall, is restricted to an internal network with no access to the internet, or unable to access the public catalog for any reason, then you must add Edge-LB packages using a **local catalog**. For more information about installing using a local catalog, see [Install using the local package registry](#package-registry).
 
-# Add Edge-LB package repositories
-The Edge-LB package comprises two components:
+# Identify the Edge-LB package location
+You must have access to the following Edge-LB packages:
+- The **Edge-LB API server** package provides the Edge-LB REST API that is used to manages one or more Edge-LB pools.
+- The **Edge-LB pool** package provides the Edge-LB command-line interface, configuration templates, and load balancer program.
 
-- The **Edge-LB API server** is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers.
+These packages are available for download from the Mesosphere support portal. You must be able to access the repositories for bothe the Edge-LB API server and Edge-LB pool packages to install Edge-LB.
 
-- An **Edge-LB pool** can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
+Depending on whether you have internet access, follow the corresponding instructions to get the Edge-LB packages:
+- [Download artifacts directly](#download-artifacts) from the internet.
+- Create a local repository and add artifacts to the local catalog.
 
-You must install Universe repositories for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB.
+<a name="download-artifacts">
 
------
-To configure a service account and install the Edge-LB package, use the instructions below.
-
-# Add Edge-LB package repositories
-The Edge-LB package comprises two components:
-
-- The **Edge-LB API server** is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers.
-
-- An **Edge-LB pool** can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
-
-You must install Universe repositories for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB.
-
-<p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
-
-
-## Obtaining package artifacts
-
-
-In order to install both packages, you need to obtain package artifacts. They can be downloaded from <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>.
+# Download package artifacts if you have access to the internet
+If you have a registered customer account and internet access from the bootstrap node or another computer in your organization, you can download the Edge-LB API server and Edge-LB pool packages from the <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>.
 
 <p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without logging in using your customer service account.</p>
 
-Once you have these artifacts, they need to be made accesible to the cluster via an HTTP server. The address of the HTTP server will be used in the next step.
-
+Once you have these artifacts, they need to be made accesible to the cluster from an HTTP server. The address of the HTTP server will be used in the next step.
 
 ## Add them to the package repository
 
 Having the address where the artifacts for the Edge-LB API server and Edge-LB pool repos are available, use the following command to add them to the universe package repository:
-
 
 ```bash
 dcos package repo add --index=0 edgelb  https://<insert download link>/stub-universe-edgelb.json
@@ -67,7 +52,9 @@ dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-
 ```
 
 [enterprise]
-## <a name="build"></a>Deploying a local Universe containing Edge-LB
+<a name="build"></a>
+
+# Deploying a local Universe containing Edge-LB
 [/enterprise]
 
 If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](https://docs.mesosphere.com/1.12/administering-clusters/deploying-a-local-dcos-universe/#certified).
