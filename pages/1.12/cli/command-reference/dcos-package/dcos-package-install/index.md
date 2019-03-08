@@ -20,7 +20,7 @@ dcos package install <package-name> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--app`   |    Application only. |
 | `--app-id=<app-id>`   |   The application ID. |
@@ -31,7 +31,7 @@ dcos package install <package-name> [OPTION]
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<package-name>`   |   Name of the DC/OS package. |
 

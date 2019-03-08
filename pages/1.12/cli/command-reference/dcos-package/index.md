@@ -20,7 +20,7 @@ dcos package
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--config-schema`   |  Show the configuration schema for the subcommand. |
 | `--help, h`   |   Displays usage. |

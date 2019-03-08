@@ -19,7 +19,7 @@ dcos package uninstall <package-name> [OPTION]
 
 # Options
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|
 | `--all`   |   All packages. |
 | `--app`   |  Application only. |
@@ -28,7 +28,7 @@ dcos package uninstall <package-name> [OPTION]
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<package-name>`   |   Name of the DC/OS package. |
 

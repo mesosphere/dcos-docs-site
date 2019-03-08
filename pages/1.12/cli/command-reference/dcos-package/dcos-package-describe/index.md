@@ -20,7 +20,7 @@ dcos package describe <package-name> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--app`   |   Application only. |
 | `--cli`   |   Command line only. |
@@ -32,7 +32,7 @@ dcos package describe <package-name> [OPTION]
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<package-name>`   |   Name of the DC/OS package. |
 

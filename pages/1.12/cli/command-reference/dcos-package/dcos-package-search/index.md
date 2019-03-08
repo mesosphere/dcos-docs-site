@@ -19,13 +19,13 @@ dcos package search <query> [OPTION]
 
 # Options
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|
 | `--json`   |   JSON-formatted data. |
 
 # Positional arguments
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|
 | `<query>`   |   Pattern to use for searching the package repository.  You can use complete or partial values. |
 

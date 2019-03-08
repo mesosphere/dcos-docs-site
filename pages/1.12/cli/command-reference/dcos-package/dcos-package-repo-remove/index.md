@@ -20,13 +20,13 @@ dcos package repo remove <repo-name> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
 
