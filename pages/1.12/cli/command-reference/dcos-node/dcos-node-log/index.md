@@ -20,7 +20,7 @@ dcos node log [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
 | `--leader`   |             |  The leading master. |
 | `--follow`   |             |  Dynamically update the log. |

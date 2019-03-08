@@ -24,7 +24,7 @@ None.
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<bundle>`   |   The bundle filename. For example, `bundle-2017-02-01T00:33:48-110930856.zip`. |
 

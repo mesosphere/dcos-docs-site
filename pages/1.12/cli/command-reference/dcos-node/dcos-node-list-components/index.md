@@ -20,7 +20,7 @@ dcos node list-components [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   | Displays JSON-formatted data. |
 | `--leader`   |  The leading master. |
