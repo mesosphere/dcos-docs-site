@@ -24,7 +24,7 @@ None.
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<service-id>`   |  The DC/OS service ID. |
 
