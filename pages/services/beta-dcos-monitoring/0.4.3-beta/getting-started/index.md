@@ -24,9 +24,7 @@ Please follow these [instructions](https://docs.mesosphere.com/1.12/administerin
 
 # Install {{ model.techName }} service
 
-## Download the package
-
-Download the `.dcos` package of the {{ model.techName }} service from the [Mesosphere support site](https://support.mesosphere.com/s/downloads).
+The `dcos-monitoring` package is installable via the catalog, it does not require installation from the support portal.
 
 ## Install the service
 
