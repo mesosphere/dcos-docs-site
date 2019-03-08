@@ -11,7 +11,7 @@ enterprise: false
 
 # Description
 
-Install a plugin.
+The `dcos plugin add` command allows you to install a plugin.
 
 # Usage
 
@@ -21,13 +21,13 @@ dcos plugin install <resource> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
 | `--update, u    | `-u`            | The plugin version. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
 | `<resource>`   |             |  Path to the plugin resource. This can be either a `.zip` file or a URL |
 
