@@ -20,7 +20,6 @@ dcos [options] [<command>] [<args>...]
 
 # Options
 
-*Table 1 - Options*
 
 | Name | Description |
 |---------|-------------|-------------|
@@ -28,14 +27,13 @@ dcos [options] [<command>] [<args>...]
 | `--help, h`   |  Display usage. |
 | `--log-level=<log-level>`  | Set the logging level. This setting does not affect the output sent to `stdout`.  |
 |  `--version, v`  |  Display version information.  |
-| `<log-level>` | The severity levels are shown in Table 2. |
+| `<log-level>` | The severity levels are shown below. |
 
-*Table 2 - `log-level` severity levels*
 
 | Name |  Description |
 |---------|-------------|
-| debug | Displays all messages.|
-|info | Displays informational, warning, error, and critical messages.|
-| warning | Displays warning, error, and critical messages. |
-| error | Displays error and critical messages. |
-| critical | Displays only critical messages to `stderr`. |
+| `debug` | Displays all messages.|
+|`info` | Displays informational, warning, error, and critical messages.|
+| `warning` | Displays warning, error, and critical messages. |
+| `error` | Displays error and critical messages. |
+| `critical` | Displays only critical messages to `stderr`. |
