@@ -16,7 +16,7 @@ The default DC/OS NiFi Service installation provides reasonable defaults for try
 
 - If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
 - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
-    A complete guide to Configuring DC/OS Access for Nifi can be found [here](../security/serviceaccountdetail.md).
+    A complete guide to Configuring DC/OS Access for Nifi can be found [here](https://docs.mesosphere.com/services/nifi/configure-dcos-access/).
 - In `permissive` security mode a service account is optional.
 - `disabled` security mode does not require a service account.
 - Your cluster must have at least 3 private nodes.
@@ -286,4 +286,4 @@ Likewise, this file can be referenced to update a `nifi` service.
    ```
 
 ## Secured Installation
-Please refer to the Security Guide for info about a secured installation of [NiFi](../security/index.md)
+Please refer to the Security guide for info about a secured installation of [NiFi](https://docs.mesosphere.com/services/nifi/0.3.0-1.7.1/security/)
