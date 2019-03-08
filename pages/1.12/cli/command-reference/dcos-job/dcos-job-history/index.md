@@ -20,14 +20,14 @@ dcos job history <job-id> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   |   Display JSON-formatted list. |
 | `--show-failures`   |  Show the failure table and statistics for history. |
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<job-id>`   |   Specify the job ID. |
 

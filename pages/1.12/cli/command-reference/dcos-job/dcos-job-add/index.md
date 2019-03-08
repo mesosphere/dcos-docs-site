@@ -19,7 +19,7 @@ dcos job add <job-file> [OPTION]
 
 # Positional arguments
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|
 | `<job-file>`   | Specifies a JSON-formatted job definition. |
 
