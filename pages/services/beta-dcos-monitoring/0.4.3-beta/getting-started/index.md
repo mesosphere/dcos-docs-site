@@ -24,7 +24,7 @@ The `dcos-monitoring` package is installable via the [catalog](https://docs.meso
 
 ## Install the service
 
-Assume that the downloaded package is called `{{ model.packageName }}.dcos` in the current working directory.
+Use the following command to install the service.
 
 ```bash
 dcos package install {{ model.packageName }} --package-version=<VERSION>
