@@ -33,7 +33,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can use the <a href="https://docs.mesosphere.com/1.12/security/ent/secrets/">DC/OS Secret Store</a>to secure the key pair.</p>
+<p class="message--note"><strong>NOTE: </strong>You can use the <a href="https://docs.mesosphere.com/1.12/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
 
 # <a name="create-a-service-account"></a>Create a Service Account
 
