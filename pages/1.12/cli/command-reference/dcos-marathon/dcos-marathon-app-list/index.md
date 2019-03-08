@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon app list` will display a list of the installed applications.
 
 # Usage
@@ -20,7 +21,7 @@ dcos marathon app list [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   |   Displays JSON-formatted data. |
 

@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon app remove` command allows you to remove an application.
 
 # Usage
@@ -20,13 +21,13 @@ dcos marathon app remove <app-id> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--force`   |  Disable checks in Marathon during updates. |
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<app-id>`   |  The application ID.  You can view a list of the application IDs with the `dcos marathon app list` command. |
 

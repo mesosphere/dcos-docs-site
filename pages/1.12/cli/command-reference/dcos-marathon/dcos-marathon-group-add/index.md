@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon group add` command allows you to add a Marathon group.
 
 # Usage
@@ -24,7 +25,7 @@ None.
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<group-resource>`   | Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description see the [documentation](/1.12/deploying-services/marathon-api/). |
 

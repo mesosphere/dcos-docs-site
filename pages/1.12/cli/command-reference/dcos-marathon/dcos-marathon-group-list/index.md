@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon group list` command allows you to view the list of groups.
 
 # Usage
@@ -20,7 +21,7 @@ dcos marathon group list [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   |  Displays JSON-formatted data. |
 
