@@ -19,7 +19,7 @@ dcos license audit get [<id>|active] [--output <file_path>] [--decrypt]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--output`   |  Store the audit records in a file. |
 | `--decrypt`   |   Decrypt the license audit records checksum. |
@@ -27,7 +27,7 @@ dcos license audit get [<id>|active] [--output <file_path>] [--decrypt]
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<id> `   |  The ID of the license. |
 | `active`   |   The active license. |
