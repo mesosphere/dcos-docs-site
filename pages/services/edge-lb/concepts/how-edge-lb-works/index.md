@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: How Edge-LB works
 title: How Edge-LB works
 menuWeight: 10
-excerpt: Edge-LB proxies and load balances traffic to all services that run on DC/OS.
+excerpt: Highlights the basic workflow and key components for Edge-LB operations
 enterprise: true
 ---
 Edge-LB is a powerful load balancer with a simplified design that is built to handle a distributed architecture with robust functionality and stellar performance. Edge-LB provides core load balancing and proxying features, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. It provides first class support for zero-downtime service deployment strategies like blue/green deployment. 
