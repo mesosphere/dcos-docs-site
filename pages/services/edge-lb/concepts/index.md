@@ -3,11 +3,10 @@ layout: layout.pug
 navigationTitle: Edge-LB concepts
 title: Edge-LB concepts
 menuWeight: 5
-excerpt: Edge-LB proxies and load balances traffic for services that run on DC/OS Enterprise clusters
+excerpt: Edge-LB provides production-grade load balancing for services that run on DC/OS Enterprise clusters
 enterprise: true
 ---
-
-For most organizations, Edge-LB provides load balancing and workload distribution for external client requests wanting access to services running inside of the cluster. The application name, node, and port define the **frontend** for the inbound request. The load balancer applies its configuration rules and routes the inbound traffic to the appropriate **backend** servers that are configured to respond to the service request.
+At its core, Edge-LB provides secure communication, load balancing, and workload distribution for external client requests wanting access to services running inside of DC/OS clusters. The application name, node, and port define the **frontend** for the inbound request. The load balancer applies its configuration rules and routes the inbound traffic to the appropriate **backend** servers that are configured to respond to the service request.
 
 Although this type of **external-to-internal** or **North-South** load balancing is the most common scenario, you can also use Edge-LB for load balancing and workload distribution when both the clients requesting access and the services available are both running inside of the DC/OS cluster. This type of **internal-only** or **East-West** load balancing is most often managed through the DC/OS networking layer (`dcos-net`) by the distributed layer-4 load balancer `dcos-l4lb` (previously known as Minuteman). For more information about the network stack and using the native layer-4 load balancer, see [load balancing](/1.13/networking/#load-balancing).
 
@@ -23,7 +22,12 @@ Edge-LB also supports zero-downtime service deployment strategies. Zero-downtime
 
 <!--One of the most important ways you can manage cluster operations is through efficient load balancing of access requests and workload processing. Load balancing improves the performance, reliability, and network efficiency for web-nased properties, applications, databases, and other services by distributing workload across multiple servers.
 
-Without load balancing, users or clients attempting to access a service can be blocked by server failures, network downtime, system overload, or too many simultaneous processing requests. You can mitigate these potential problems by introducing a load balancer and additional nodes on the backend to handle the demand. 
+Without load balancing, users or clients attempting to access a service can be blocked by server failures, network downtime, system overload, or too many simultaneous processing requests. You can mitigate these potential problems by introducing a load balancer and additional nodes on the backend to handle the demand. -->
 
-Conceptually, the load balancer provides a network communication layer for distributing client requests to applications. The load balancer is configured to accept the inbound requests for access to application services. The application name, node, and port define the **frontend** for the inbound request. The load balancer routes the inbound traffic to the appropriate **backend** servers that are configured to respond to the service request.
+Conceptually, a load balancer provides a network communication layer for distributing client requests to applications. The load balancer is configured to accept the inbound requests for access to application services. The application name, node, and port define the **frontend** for the inbound request. The load balancer routes the inbound traffic to the appropriate **backend** servers that are configured to respond to the service request.
 
+<!-- One of the most important ways you can manage cluster operations is through efficient load balancing of access requests and workload processing. Load balancing improves the performance, reliability, and network efficiency for web-based properties, applications, databases, and other services by distributing workload across multiple servers.
+
+Without load balancing, users or clients attempting to access a service can be blocked by server failures, network downtime, system overload, or too many simultaneous processing requests. You can mitigate these potential problems by introducing a load balancer like Edge-LB to handle the demand. With Edge-LB, you can distribute the traffic for all services that run on a DC/OS Enterprise cluster. 
+
+If you are a new user deploying Edge-LB for the first time, you should get the latest version of the package and take an introductory tour using the [Getting started](/services/edge-lb/getting-started/) topics. If you are familiar with Edge-LB but need help installing, configuring, or troubleshooting an Edge-LB deployment, get the latest version of the package available, then review the concepts, tutorials, how-to tasks, and reference information to get the most from your deployment.
