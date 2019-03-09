@@ -157,4 +157,4 @@ You do not **have** to use GPG to generate the keypair. We provide these instruc
    {"keys":["c1c14c03483...c400"],"pgp_fingerprints":["1ff31b0af...d57b464df4"],"root_token":"da8e3b55-8719-4594-5378-4a9f3498387f"}
    ```
 
-Congratulations! You have successfully reinitialized your Secret Store. To unseal it, refer to [Unsealing a Secret Store sealed with custom keys](/1.12/security/ent/secrets/unseal-store/#unseal-cust-keys).
+Congratulations! You have successfully reinitialized your Secret Store. 
