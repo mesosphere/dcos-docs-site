@@ -16,7 +16,7 @@ The steps to follow depend on the deployment scenario you want to implement. For
 - You must have a registered customer account to log in to the [Mesosphere support portal](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Fdownloads%3Ft%3D1551917897670).
 - You must have network access to download the [remote Edge-LB repositories](https://support.mesosphere.com/s/downloads?t=1551917897670) or a local repository that has the Edge-LB packages.
 
-  If your cluster is behind a firewall, is restricted to an internal network with no access to the internet, or unable to access the public catalog for any reason, then you must add Edge-LB packages using a **local catalog**. For more information about installing using a local catalog, see [Install using the local package registry](##create-local-repo).
+  If your cluster is behind a firewall, is restricted to an internal network with no access to the internet, or unable to access the public catalog for any reason, then you must add Edge-LB packages using a **local catalog**. For more information about installing using a local catalog, see [Deploy using a local catalog](#create-local-repo).
 
 # Identify the Edge-LB package location
 You must have access to the following Edge-LB packages:
@@ -41,7 +41,7 @@ To download the Edge-LB packages:
     <img src="/services/edge-lb/img/support-login-sample.png" alt="Log in with a registered email address and password">
     </p>
 
-    You must have an account to download the Edge-LB pacakges. If you have not previously registered an email address for an account, click [**create a new account**](https://support.mesosphere.com/CommunitiesSelfReg) to get started.
+    You must have an account to download the Edge-LB pacakges. If you have not previously registered an email address for an account, click [create a new account](https://support.mesosphere.com/CommunitiesSelfReg) to get started.
 
 1. Open [Downloads](https://support.mesosphere.com/s/downloads?t=1551917897670) directly or click **My Account**, then click [Downloads](https://support.mesosphere.com/s/downloads) to view the list of packages available for download.
     <p>
@@ -108,7 +108,7 @@ If you have successfully downloaded and added Edge-LB packages, you can continue
 
 <a name="create-local-repo"></a>
 
-# Deploying using a local catalog
+# Deploy using a local catalog
 If you have an isolated network that cannot connect directly to the internet, you need to deploy a local catlog containing your own set of packages. To create the local catalog, you must build a customized Docker image repository before you can add the Edge-LB packages. 
 
 For detailed instructions about creating a local catalog, see [DC/OS universe deployment](/1.13/administering-clusters/deploying-a-local-dcos-universe/#certified).
