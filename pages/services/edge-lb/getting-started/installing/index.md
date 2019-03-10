@@ -62,10 +62,6 @@ To download the Edge-LB packages:
 
     Each **Download** link identifies a package URL for a JSON file you use to add the packages to the repository. You can copy the contents of each file to a local directory or use the HTTPS URL in the command for adding Edge-LB to the package repository.
 
-https://downloads.mesosphere.com/edgelb/v1.3.0/assets/stub-universe-edgelb.json
-
-https://downloads.mesosphere.com/edgelb-pool/v1.3.0/assets/stub-universe-edgelb-pool.json
-
 ## Add Edge-LB to the package repository
 After you download or copy the content of each Edge-LB package JSON file, you need to make the artifacts accesible to the cluster from an HTTP or HTTPS server by adding them to the package repository.
 
