@@ -36,7 +36,7 @@ If you have a registered customer account and internet access from the bootstrap
 
 To download the Edge-LB packages:
 
-1. Log in to the [Mesosphere support portal]((https://support.mesosphere.com/s/login/) using your registered account email address and password.
+1. Log in to the [Mesosphere support portal](https://support.mesosphere.com/s/login/) using your registered account email address and password.
     <p>
     <img src="/services/edge-lb/img/support-login-sample.png" alt="Log in with a registered email address and password">
     </p>
