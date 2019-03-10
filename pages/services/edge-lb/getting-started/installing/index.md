@@ -55,7 +55,7 @@ To download the Edge-LB packages:
 
 1. Locate the versions of the Edge-LB API server and pool packages to download.
     <p>
-    <img src="/services/edge-lb/img/edge-lb-artifacts.png" alt="Edge-LB API and pool packages available for download">
+    <img src="/services/edge-lb/img/Edge-LB-artifacts.png" alt="Edge-LB API and pool packages available for download">
     </p>
 
 1. Click **Download** to download each package to your working directory.
