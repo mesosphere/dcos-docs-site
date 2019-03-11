@@ -8,7 +8,8 @@ beta: true
 enterprise: false
 ---
 
-You can create and administer jobs using any of the following: - DC/OS web interface
+You can create and administer jobs using any of the following:
+- DC/OS web interface
 - DC/OS CLI
 - DC/OS API
 
