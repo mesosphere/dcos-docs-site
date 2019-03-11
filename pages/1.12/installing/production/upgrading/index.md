@@ -178,7 +178,7 @@ This procedure upgrades a DC/OS 1.11 cluster to DC/OS 1.12.
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     3.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    4.  Run the [nginx][install] container to serve the installation files.
+    4.  Run the nginx container to serve the [installation files][install] using the Docker [run][cmd] command.
 
 6.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
@@ -202,7 +202,7 @@ This procedure upgrades a DC/OS 1.11 cluster to DC/OS 1.12.
         dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    1.  Run the [nginx][install] container to serve the installation files. <!-- ?? -->
+    1.  Run the nginx container to serve the [installation files][install] using the Docker [run][cmd] command.
 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
@@ -325,4 +325,5 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.12 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[install]: /1.12/installing/ent/custom/advanced/
+[install]: /1.12/installing/production/deploying-dcos/installation/#custom-build-file
+[cmd]: /1.12/installing/production/deploying-dcos/installation/#nginx-cmd
