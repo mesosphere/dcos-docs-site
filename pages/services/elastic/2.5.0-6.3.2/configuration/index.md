@@ -94,7 +94,7 @@ You can set up a minimal development/staging cluster without ingest nodes, or co
 Note that the default monitoring behavior is to try to write to an ingest node every few seconds. Without an ingest node, you will see frequent warnings in your master node error logs. While they can be ignored, you can turn them off by disabling X-Pack monitoring in your cluster, like this:
 
 ```bash
-$ curl -XPUT -u elastic:changeme master.<service-dns>.l4lb.thisdcos.directory:9200/_cluster/settings -d '{
+curl -XPUT -u elastic:changeme master.<service-dns>.l4lb.thisdcos.directory:9200/_cluster/settings -d '{
     "persistent" : {
         "xpack.monitoring.collection.interval" : -1
     }
@@ -116,60 +116,84 @@ You can do this base64 encoding as part of your automated workflow, or you can d
 
 ## Kibana
 
-[Kibana](https://www.elastic.co/products/kibana) lets you visualize your Elasticsearch data and navigate the Elastic Stack. You can install Kibana like any other DC/OS package via the **Universe** > **Packages** tab of the DC/OS web interface or the DC/OS CLI:
+[Kibana](https://www.elastic.co/products/kibana) lets you visualize your Elasticsearch data and navigate the Elastic Stack. You can install Kibana like any other DC/OS package via the **Catalog** tab of the DC/OS UI or the DC/OS CLI with:
 
 ```bash
-$ dcos package install kibana
+dcos package install kibana
 ```
 
-### Access Kibana
+This will install Kibana using the default name "kibana". The service name can be configured via the `service.name` option. Check the configuration guidelines below for more details.
+```bash
+dcos package install kibana --options=kibana.json
+```
 
-1. Log into your DC/OS cluster so that you can see the Dashboard. You should see your Elastic service and your Kibana service running under Services.
+### Accessing the Kibana UI
 
-1. Make sure Kibana is ready for use. If you look in the stdout log for Kibana, you will see this:
+#### Make sure that Kibana is up and running
 
-  ```
-  {"type":"log","@timestamp":"2016-12-08T22:37:46Z","tags":["listening","info"],"pid":12263,"message":"Server running at http://0.0.0.0:5601"}
-  ```
+Services usually take a moment to finish being installed and ready to use. We can check if our Kibana service is ready with the following command:
 
-1. If you enabled X-Pack Security, go to the following URL:
-  ```
-  http://<dcos_url>/service/kibana/login
-  ```
-  and log in with `elastic`/`changeme`.
+```bash
+dcos marathon app show kibana | jq -r '.tasksHealthy'
+```
 
-  Otherwise, go to the following URL:
-  ```
-  http://<dcos_url>/service/kibana
-  ```
+If it outputs a `1` it means Kibana is up and running. A `0` means that it is still probably being installed.
+
+Another good indication that Kibana is ready is when the following line appears in the in the `stdout` log for the Kibana task.
+```
+{"type":"log","@timestamp":"2016-12-08T22:37:46Z","tags":["listening","info"],"pid":12263,"message":"Server running at http://0.0.0.0:5601"}
+```
+
+#### Kibana without X-Pack Security enabled
+
+If Kibana was installed without X-Pack Security enabled you should be able to access it through the default DC/OS UI Service link (`https://<cluster-url>/service/<kibana-service-name>`).
+
+#### Kibana with X-Pack Security enabled
+
+Otherwise, due to a currently known [limitation](/services/elastic/2.5.0-6.3.2/limitations#kibana-configured-with-x-pack-security-enabled) you won't be able to access it through the default DC/OS UI Service link.
+
+In this case you'll have to [expose Kibana using EdgeLB](/services/elastic/2.5.0-6.3.2/how-to-guides#expose-kibana-using-edgelb).
 
 ### Configuration Guidelines
 
-- Service name: This needs to be unique for each instance of the service that is running.
-- Service user: This must be a non-root user that already exists on each agent. The default user is `nobody`.
-- If you have X-Pack Security enabled in Elastic, you must also have it enabled in Kibana.
-- Elasticsearch credentials: If you have X-Pack Security enabled, Kibana will use these credentials for authorization. The default user is `kibana`.
-- Elasticsearch URL: This is a required configuration parameter. The default value `http://coordinator.<service-dns>.l4lb.thisdcos.directory:9200` corresponds to the named VIP that exists when the Elastic package is launched with its own default configuration.
-
+- Service name (`service.name`): This needs to be unique for each instance of the service that is running. The default is `kibana`.
+- Service user (`service.user`): This must be a non-root user that already exists on each agent. The default user is `nobody`.
+- If you have X-Pack Security enabled in Elastic (`elasticsearch.xpack_security_enabled: true`), you must also have it enabled in Kibana (`kibana.elasticsearch_xpack_security_enabled: true`).
+- Elasticsearch credentials (`kibana.user` and `kibana.password`): If you have X-Pack Security enabled, Kibana will use these credentials for authorized requests to Elasticsearch. The default user is `kibana`, and the password must be configured through the service options.
+- Elasticsearch URL: This is a required configuration parameter. The default value `http://coordinator.<elastic-service-name>.l4lb.thisdcos.directory:9200` corresponds to the named VIP that exists when the Elastic package is launched with its own default configuration.
 
 ### Configuring Kibana
-You can customize the Kibana installation in a variety of ways by specifying a JSON options file. For example, here is a sample JSON options file that enables X-Pack Security and customizes the service name and Elasticsearch URL:
 
+You can customize the Kibana installation in a variety of ways by specifying a JSON options file. For example, here is a sample JSON options file that:
+
+1. Sets the service name to `another-kibana`
+2. Sets the password for Kibana requests to an Elasticsearch cluster configured with authentication
+3. Configures Kibana to [communicate with Elasticsearch via TLS](https://www.elastic.co/guide/en/kibana/current/configuring-tls.html)
+4. Turns on X-Pack Security, so that Kibana works against an Elasticsearch configured with the same
+
+`another_kibana.json`
 ```json
 {
     "service": {
         "name": "another-kibana"
     },
     "kibana": {
-        "elasticsearch_url": "http://my.elasticsearch.cluster:9200",
-        "xpack_security_enabled": true
+        "password": "0cb46ab2d7790f30ceb32bd3d43fff35",
+        "elasticsearch_tls": true,
+        "elasticsearch_url": "https://coordinator.elastic.l4lb.thisdcos.directory:9200",
+        "elasticsearch_xpack_security_enabled": true
     }
 }
-
 ```
 
-The command below installs Kibana using a `options.json` file:
+The command below installs Kibana using a JSON options file:
 
 ```bash
-$ dcos package install kibana --options=options.json
+dcos package install kibana --options=another_kibana.json
+```
+
+To see a list of all possible options run the following command to show the configuration [schema](http://json-schema.org/learn/getting-started-step-by-step.html):
+
+```bash
+dcos package describe kibana |  jq -r '.package.config'
 ```
