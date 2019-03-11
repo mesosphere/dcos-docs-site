@@ -25,4 +25,3 @@ dcos package
 | `--config-schema`   |  Show the configuration schema for the subcommand. |
 | `--help, h`   |   Displays usage. |
 | `--info`   |   Displays a short description of this subcommand. |
-| `--version, v`   |  Displays version information. |
