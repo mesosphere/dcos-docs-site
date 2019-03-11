@@ -140,7 +140,7 @@ echo "{
       }
     ]
   }
-}"
+}" > kibana_pool.json
 ```
 
 Which will end up looking like:
