@@ -10,7 +10,7 @@ render: mustache
 
 ## Configuration via elasticsearch.yml and/or Elastic APIs
 
-Elasticsearch provides two ways of updating settings: persistent (through `elasticsearch.yml` file) and transient (through Elastic Settings Update API). The service's Configuration Options are carried over to the tasks' `elasticsearch.yml` file automatically. Out-of-band configuration changes (either via Elasticsearch's Update API or externally modifying `elasticsearch.yml` files) will not persist in case of a restart, failure recovery, or upgrade.
+Elasticsearch provides two ways of updating settings: persistent (through `elasticsearch.yml` file) and transient (through [Elasticsearch Cluster Update Settings API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-update-settings.html)). The service's Configuration Options are carried over to the tasks' `elasticsearch.yml` file automatically. Out-of-band configuration changes (either via Elasticsearch's Cluster Update Settings API or externally modifying `elasticsearch.yml` files) will not persist in case of a restart, failure recovery, or upgrade.
 
 #include /services/include/limitations.tmpl
 #include /services/include/limitations-zones.tmpl
@@ -18,11 +18,11 @@ Elasticsearch provides two ways of updating settings: persistent (through `elast
 
 ## Upgrades and configuration updates
 
-Upgrades and rolling configuration updates do not wait for a green status. During deployment and upgrades, the `serial` strategy does not wait for the Elastic service to reach green before proceeding to the next node.
+Upgrades and rolling configuration updates do not wait for a cluster green health status. During deployment and upgrades, the `serial` strategy does not wait for the Elasticsearch cluster to reach green health before proceeding to the next node.
 
 ## Security
 
-Elastic's native authentication and authorization mechanisms are not supported at this time.
+Elasticsearch's native authentication and authorization mechanisms are not *officially* supported at this time.
 
 ### Transport Encryption
 
