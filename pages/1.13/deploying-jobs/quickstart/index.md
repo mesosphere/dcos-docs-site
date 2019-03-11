@@ -111,9 +111,9 @@ You can use the DC/OS command-line interface to run jobs with or without a sched
 
 To run a job on-demand without using a schedule, run a command similar to the following:
 
-    ```
-    dcos job run <job-id>
-    ```
+```
+dcos job run <job-id>
+```
 
 ## Remove a job
 
