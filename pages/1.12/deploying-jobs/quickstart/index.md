@@ -8,8 +8,9 @@ beta: true
 enterprise: false
 ---
 
-
-You can create and administer jobs in the DC/OS web interface, from the DC/OS CLI, or via the API.
+You can create and administer jobs using any of the following: - DC/OS web interface
+- DC/OS CLI
+- DC/OS API
 
 # DC/OS Web interface
 
@@ -103,6 +104,15 @@ If you use the same schedule for more than one job, you can create a separate JS
     "startingDeadlineSeconds": 900,
     "timezone": "UTC"
 }
+```
+
+## Run a job without a schedule
+You can use the DC/OS command-line interface to run jobs with or without a schedule. Running a job without using a schedule is equivalent to clicking **Run now** when you are managing jobs using the web interface.
+
+To run a job on-demand without using a schedule, run a command similar to the following:
+
+```
+dcos job run <job-id>
 ```
 
 ## Remove a job
@@ -239,4 +249,13 @@ The following command adds a schedule to a job:
 
 ```
 curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<job-id>/schedules -d@/Users/<your-username>/<schedule-file>.json
+```
+
+## Run a job without a schedule
+You can use the DC/OS API to run jobs with or without a schedule. Running a job without using a schedule is equivalent to clicking **Run now** when you are managing jobs using the web interface.
+
+To run a job on-demand without using a schedule, use a REST API call similar to the following:
+
+```
+curl -X POST -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/{jobId}/runs
 ```
