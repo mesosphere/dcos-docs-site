@@ -279,8 +279,8 @@ enable_ipv6: 'false'
     - 'foo.bar.com'
     - '.baz.com'
 
-
-# <a name="install-bash"></a>Install DC/OS
+<a name="custom-build-file"></a>
+# Install DC/OS
 
 In this step, you will create a custom DC/OS build file on your bootstrap node and then install DC/OS onto your cluster. With this method you
 1. Package the DC/OS distribution yourself
@@ -310,15 +310,13 @@ The term `dcos_generate_config file` refers to either a `dcos_generate_config.ee
     ```bash
     curl -O https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
     ```
-
-
+<a name="bash-steps"></a>
 1.  From the bootstrap node, run the DC/OS installer shell script to generate a customized DC/OS build file. The setup script extracts a Docker container that uses the generic DC/OS install files to create customized DC/OS build files for your cluster. The build files are output to `./genconf/serve/`.
 
     You can view all of the automated command line installer options with:
     * `dcos_generate_config.ee.sh --help`  flag [enterprise type="inline" size="small" /]  
       OR 
     * `dcos_generate_config.sh --help` flag. [oss type="inline" size="small" /]
-
 
 [enterprise type="inline" size="small" /]
 
@@ -348,8 +346,9 @@ At this point your directory structure should resemble:
     
    
    - For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
-
-2.  From your home directory, run the following command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
+<a name="nginx-cmd"></a>   
+   
+2. From your home directory, run the following command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
 
     ```bash
     sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
