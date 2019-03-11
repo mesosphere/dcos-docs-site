@@ -68,7 +68,7 @@ port on the agent machine is open.
 
 In this example we'll expose a Kibana service named
 `/production/kibana` through HTTP, on port `80`. It will be accessible
-on http://$public_agent_ip_or_url:80.
+on `http://$public_agent_ip_or_url:80`.
 
 Note that in this example:
 - the EdgeLB pool that will be created is named `kibana`
@@ -206,7 +206,7 @@ dcos edgelb status kibana
 ```
 
 At this point, Kibana should already be accessible through
-http://$public_agent_ip_or_url:80.
+`http://$public_agent_ip_or_url:80`.
 
 ## 3. Accessing Kibana
 
@@ -233,7 +233,7 @@ Now that we have the public agent IP address where the EdgeLB Kibana
 pool task is running we should be able to access Kibana.
 
 If Kibana has X-Pack Security enabled you'll first need access
-http://$public_agent_ip_or_address/login to authenticate with the
+`http://$public_agent_ip_or_address/login` to authenticate with the
 Kibana server. Use credentials that are stored in your Elasticsearch
 cluster.
 
@@ -251,7 +251,7 @@ command -v xdg-open && xdg-open "${kibana_login_url}" || open "${kibana_login_ur
 
 *After authenticating*, or if Kibana doesn't have X-Pack Security
 enabled, Kibana should be available at
-http://$public_agent_ip_or_url/service/kibana/app/kibana.
+`http://$public_agent_ip_or_url/service/kibana/app/kibana`.
 
 ```bash
 kibana_authenticated_url="${kibana_url}/service/${kibana_service_name}/app/kibana"
