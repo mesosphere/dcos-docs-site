@@ -292,7 +292,7 @@ The complete JSON application definition reads as follows:
 
 ## Stateful PostgreSQL on Marathon
 
-Creating an app definition for PostgreSQL on Marathon is similar to creating a defintion for MySQL. To prevent Postgres from storing data in a `/pgdata` folder that is not persisted or in a location that must be owned by `root`, you should avoid using the `$PGDATA` environment variable. Instead, you can use the app definitions to configure two persistent volumes with settings similar to the following:
+Creating an app definition for PostgreSQL on Marathon is similar to creating a defintion for MySQL. To prevent Postgres from storing data in a `/pgdata` folder that is not persisted or in a location that must be owned by `root`, you should avoid using the `$PGDATA` environment variable. Instead, you can use the app definition to configure two persistent volumes with settings similar to the following:
 
 ```json
 {
