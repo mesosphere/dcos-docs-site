@@ -28,21 +28,45 @@ The issues that have been fixed in DC/OS 1.12.3 are grouped by feature, function
 
 ## Command-Line Interface (CLI)
 
-
 ## Installation
-
+ - COPS-4282, DCOS_OSS-4613 - If you run the `dcos_generate_config` command with the `-validate` option, the command validates the configuration settings in your `config.yaml` file. In some cases, this option issued warning messages that validation failed for parameters that are no longer used. For example, some SSH parameters, such as `ssh_key_path` and `ssh_user`, have been deprecated. Previously, if you ran `dcos_generate_config` with the `-validate` option to check your configuration settings and these parameters were not specified, the command reported that the validation of configuration parameters had failed. With this release, the `--validate` option does not return validation failure messages for parameters that are no longer required for installation.
 
 ## Job Scheduling (Metronome)
 
 
 ## Marathon
+- COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable. Because this problem affects high availability for Marathon, a workaround (ping zk-1) was introduced for DC/OS 1.11.5 and 1.11.6 to address the issue. In this release, the underlying issue is resolved and you can safely remove the workaround if you have it deployed. For background information about the issue and the steps to remove the workaround, see [Removing the patch for Marathon failing to start if the first DC/OS is not available](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004).
 
+- COPS-3554 - The watcher loop process monitors and, if necessary, re-registers the Marathon leader after reelection.
 
 ## Mesos
+- COPS-4104 - This release fixes an issue that caused container and agent recovery to fail under the following circumstances: - The checkpointed Docker volumes file for a container does not exist. - The checkpointed Docker volumes file for a container exists but is empty. Prior to this fix,  the missing or empty file could prevent the agent from restarting and returning to normal operation. With this release, recovery from an empty or missing docker/volume file is handled by the containerizer or by the `docker/volume` isolator's `recover` method.
+
+- DCOS-46554 - This change forces Mesos master to have port resources in every offer unless the offer contains disks. This helps to reduce the number of offers with no ports which are not useful for most frameworks.
 
 ## Metrics
+- DCOS-47991, DCOS_OSS-4760 - In the MWST 1.13, there are gaps in various Mesos grafana dashboards. Further investigation revealed that metrics were occasionally missing the `framework_name=<framework_name>` tag but with an additional `role_name=<framework_name>` tag. This exercise revealed a bug in the Mesos input plugin in Telegraf that may be causing this. The solution is to fix the hashing function to avoid potentially mapping fields to wrong tags.
+
+- DCOS_OSS-4624 - Currently, you cannot view the disk usage of a Mesos persistent volume (only Mesos sandbox is shown) for instance and the disk space used by Prometheus. The fix is to add the missing container metrics such as `DiskStatistics`, `Perf`, `NetTrafficControlStatistics` and `NetSNMPStatistics` from mesos-go and also add all available `blkio stats`.
 
 ## Networking
+- COPS-3279, COPS-3576, DCOS-37703, DCOS-37703, DCOS-39703 - Service endpoint values and service address-based statistics return the correct number of successful and failture connections when you enable the `statsd` metrics input plugin and view backend activity.
+
+- COPS-3585 - In previous releases, a deadlock or race condition might prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly. Problems with routing tables and network connectivity can lead to the following issues:
+  - Incomplete network overlay configuration on certain nodes.
+  - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
+  - DNS records that are missing on certain nodes.
+You can restart the `systemd` process on the nodes affected to restore proper network connectivity. This fix is related to the mitigation of a networking issue caused by a secure socket layer (SSL) deadlock in the Erlang library (DC/OS 1.12).
+
+
+[enterprise]
+## Security
+[/enterprise]
+- DCOS-46381, DCOS-47348 - The Marathon app definition format has changed from [1.4 to 1.5](https://github.com/mesosphere/marathon/blob/master/docs/docs/upgrade/network-api-migration.md#example-definitions). Current Admin Router code supports only v1.4 app definition. The Admin Router is not able to expose apps requiring `ip-per-container` feature at `/service/` endpoint. This release adds a routing logic for Marathon v1.5 app definition. 
+
+- DCOS-47687 - The ZooKeeper snapshot and log files contain sensitive data and are readable by any user on a master node, so it is important to tighten up permissions for ZooKeeper data directories. This fix ensures that `/var/lib/dcos/exhibitor/zookeeper` is owned by `dcos_exhibitor` and only has owner permissions.
+
+
 
 # Known Issues and Limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more issue tracking identifiers.
