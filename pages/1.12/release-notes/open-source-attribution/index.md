@@ -71,7 +71,7 @@ The table below lists the third party open source software which is provided by 
 		</tr>
 		<tr>
 			<td>flask</td>
-			<td><a href="http://flask.pocoo.org/docs/0.11/license/#flask-license">Flask License</a></td>
+			<td><a href="http://flask.pocoo.org/docs/1.0/license/#flask-license">Flask License</a></td>
 		</tr>
 		<tr>
 			<td>hadoop</td>
@@ -83,7 +83,7 @@ The table below lists the third party open source software which is provided by 
 		</tr>
 		<tr>
 			<td>java</td>
-			<td><U><FONT COLOR="#0000FF"><A HREF="http://www.oracle.com/technetwork/java/javase/downloads/jre-6u21-license-159054.txt">http://www.oracle.com/technetwork/java/javase/downloads/jre-6u21-license-159054.txt</A></U></td>
+			<td><U><FONT COLOR="#0000FF"><A HREF="https://www.oracle.com/technetwork/java/javase/downloads/jdk-6u21-license-159167.txt">Oracle License for JDK, Version 6</A></U></td>
 		</tr>
 		<tr>
 			<td>libevent</td>
