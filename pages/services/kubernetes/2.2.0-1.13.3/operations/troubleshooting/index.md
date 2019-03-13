@@ -213,12 +213,12 @@ This snapshot can be later used to restore an `etcd` cluster running outside DC/
 
 ```shell
 dcos task exec <SERVICE_NAME>__etcd-0-peer \
-    find . -name etcdctl -exec {} \
-    --endpoints https://etcd-0-peer.<SERVICE_NAME>.mesos:2379 \
+    etcdctl \
+    --endpoints https://etcd-0-peer.<SERVICE_NAME>.autoip.dcos.thisdcos.directory:2379 \
     --cacert ca-crt.pem \
     --cert etcd-crt.pem \
     --key etcd-key.pem \
-    snapshot save etcd-0-peer.db \;
+    snapshot save etcd-0-peer.db
 ```
 
 This will create a file named `etcd-0-peer.db` in the working directory of the `etcd-0-peer` task containing a snapshot of the `etcd` keyspace.
