@@ -16,7 +16,7 @@ The DC/OS {{ model.techName }} service uses a Docker image to manage its depende
 
 To determine the UID of `nobody`, run the command `id nobody` on a host in your cluster:
     ```shell
-    $ id nobody
+    id nobody
     uid=65534(nobody) gid=65534(nobody) groups=65534(nobody)
     ```
 
@@ -71,7 +71,7 @@ For safety, the service enforces the following:
 2. The {{ model.dbName }} Key must be 1023 to 1024 characters long. The following OpenSSL command is recommended to generate this:
 
     ```bash
-    $ openssl rand -base64 756
+    openssl rand -base64 756
     ```
 
 ## Removing a node
