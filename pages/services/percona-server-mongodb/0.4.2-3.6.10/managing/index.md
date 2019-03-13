@@ -164,7 +164,11 @@ Placement constraints may be updated after initial deployment using the followin
 	```
 	hostname:LIKE:10.0.10.3|10.0.10.26|10.0.10.28|10.0.10.84|10.0.10.123
 	```
-1. Redeploy `mongo-rs-1` from the decommissioned node to somewhere within the new whitelist: `dcos {{ model.serviceName }} pod replace mongo-rs-1`
+1. Redeploy `mongo-rs-1` from the decommissioned node to somewhere within the new whitelist: 
+
+	```
+	dcos {{ model.serviceName }} pod replace mongo-rs-1
+	```
 1. Wait for `mongo-rs-1` to be up and healthy before continuing with any other replacement operations.
 
 <a name="restarting-a-node"></a>
@@ -173,7 +177,11 @@ Placement constraints may be updated after initial deployment using the followin
 
 This operation will restart a node, while keeping it at its current location and with its current persistent volume data. This may be thought of as similar to restarting a system process, but it deletes any data that is not on a persistent volume.
 
-Run `dcos {{ model.serviceName }} pod restart mongo-rs-<NUM>`, such as, `mongo-rs-2`.
+Replace `mongo-rs-<NUM>` with a variable such as `mongo-rs-2`.
+
+```
+dcos {{ model.serviceName }} pod restart mongo-rs-<NUM>
+```
 
 <a name="replacing-a-node"></a>
 
@@ -251,19 +259,21 @@ dcos {{ model.serviceName }} update package-versions
 ## Upgrading or downgrading a service
 
 1. Before updating the service itself, update its CLI subcommand to the new version:
-```shell
-dcos package uninstall --cli {{ model.serviceName }}
-dcos package install --cli {{ model.serviceName }} -package-version="0.4.2-3.6.10"
-```
+	```shell
+	dcos package uninstall --cli {{ model.serviceName }}
+	dcos package install --cli {{ model.serviceName }} -package-version="0.4.2-3.6.10"
+	```
 1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS {{ model.techName }} Service to version `0.4.2-3.6.10`:
-```shell
-dcos {{ model.serviceName }} update start --package-version="0.4.2-3.6.10"
-```
+
+	```shell
+	dcos {{ model.serviceName }} update start --package-version="0.4.2-3.6.10"
+	```
 
 If you are missing mandatory configuration parameters, the `update` command will return an error. To supply missing values, you can also provide an `options.json` file (see [Updating configuration](#updating-configuration)):
-```shell
-dcos {{ model.serviceName }} update start --options=options.json --package-version="0.4.2-3.6.10"
-```
+
+	```shell
+	dcos {{ model.serviceName }} update start --options=options.json --package-version="0.4.2-3.6.10"
+	```
 
 See [Advanced update actions](#advanced-update-actions) for commands you can use to inspect and manipulate an update after it has started.
 
