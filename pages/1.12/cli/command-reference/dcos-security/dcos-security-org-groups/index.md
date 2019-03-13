@@ -4,7 +4,7 @@ navigationTitle:  dcos security org groups
 title: dcos security org groups
 menuWeight: 120
 excerpt: Managing groups and group membership
-enterprise: trun e
+enterprise: true
 ---
 # Description
 
@@ -51,3 +51,4 @@ Commands:
   revoke    Revoke permission for the group with the...
   show      Print basic information about a group or...
 ```
+
