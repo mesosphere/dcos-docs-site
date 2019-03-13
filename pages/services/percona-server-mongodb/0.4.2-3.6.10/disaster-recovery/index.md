@@ -64,7 +64,7 @@ To troubleshoot problems with backups, add the flag `--backup-verbose` to the ba
 
 # Restoring
 
-Restoring a mongodump-based backup stored on Amazon S3 is possible via the DC/OS web interface and CLI tool, including backups created by the service.
+You can restore a mongodump-based backup stored on Amazon S3 using the DC/OS GUI and CLI tool, including backups created by the service.
 
 ## Using backups created by {{ model.techName }}
 
@@ -75,15 +75,15 @@ To restore the replica set `rs` to a backup located at AWS S3 URL `s3://my-s3-bu
 
 ## Restoring at Replica Set initiation
 
-The service supports running a restore after the initiation of the {{ model.dbName }} Replica Set. This is useful for migrations to the `{{ model.serviceName }}` service, cloning environments, and so on.
+The service supports running a restoration after the initiation of the {{ model.dbName }} Replica Set. This is useful for migrations to the `{{ model.serviceName }}` service, cloning environments, and so on.
 
 Steps:
 1. In the DC/OS web interface, go to **Catalog**.
 1. Find the **{{ model.serviceName }}** service.
 1. Press **Review & Run**.
 1. Go to the **Backup Restore** tab in the service configuration. 
-1. Set your AWS Access Key (`accessKey`) and Secret Key (`secretKey`) in the **Aws s3 configuration** section. This user must have access to the read the backup.
-1. Enter the AWS S3 URL to the `dump` backup directory that was outputted by mongodump into the `s3Url` field.
+1. Set your AWS Access Key (`accessKey`) and Secret Key (`secretKey`) in the **Aws s3 configuration** section. This user must have access to read the backup.
+1. Enter the AWS S3 URL to the `dump` backup directory that was output by mongodump into the `s3Url` field.
 1. Check the `restoreAfterInit` field, to enable the restore once the replica set has been initiated.
 1. Wait for the task `restore-0-restore-s3` to reach the **FINISHED** state.
 
@@ -91,16 +91,16 @@ Steps:
 
 Start a manual restoration using the {{ model.techName }} CLI module's `restore` command.
 
-If the AWS Access Key and Secret Keyare already defined in your service options, the following will start a restore:
+If the AWS Access Key and Secret Key are already defined in your service options, the following will start a restore:
 
     ```shell
-    $ dcos {{ model.serviceName }} restore run s3 s3://my-s3-bucket-name-here/backup/dump
+    dcos {{ model.serviceName }} restore run s3 s3://my-s3-bucket-name-here/backup/dump
     ```
 
 If the AWS configuration/credentials are not defined in the service options or you would like to override them, define the options on the command line with the following:
 
     ```shell
-    $ dcos {{ model.serviceName }} restore run s3 \
+    dcos {{ model.serviceName }} restore run s3 \
         --access-key=XXXXXXXXXXXXXXXXXXX \
         --secret-key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \
         s3://my-s3-bucket-name-here/backup/dump
@@ -111,7 +111,7 @@ If the AWS configuration/credentials are not defined in the service options or y
 To stop a running backup restore process:
 
     ```shell
-    $ dcos {{ model.serviceName }} restore stop s3
+    dcos {{ model.serviceName }} restore stop s3
     ```
 
 ### Troubleshooting a restore process
