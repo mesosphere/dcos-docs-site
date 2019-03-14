@@ -13,7 +13,7 @@ DC/OS Version 1.12.3 was released on March 14, 2019.
 [button color="purple" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise [/button]
 
 DC/OS 1.12.3 includes the following components:
-- Apache Mesos 1.7.x [change log](https://github.com/apache/mesos/blob/1.7.x/CHANGELOG).
+- Apache Mesos 1.7.3 [change log](https://github.com/apache/mesos/blob/5e234c8d8edc1bb73ba557f5774c609fa460c9e7/CHANGELOG).
 - Marathon 1.7.203 [change log](https://github.com/mesosphere/marathon/blob/b26a8b310561934071c5f347ee5e184a3279cabd/changelog.md).
 - Metronome 0.5.71 [change log](https://github.com/dcos/metronome/blob/cf8887dd836d3629e3f5ac071624e055bdffcec8/changelog.md ).
 
