@@ -12,15 +12,15 @@ render: mustache
 
 ### Important Notes
 
-* The `inter_broker_protocol_version` now defaults to the newer, `2.1`. This has a few implications, as described below:
+* The `inter_broker_protocol_version` now defaults to the newer, `2.1` version. This has a few implications, as described below:
 
     - Kafka 1.1.0 supports `inter_broker_protocol_version`: `1.1` maximum, and by default it is set to `1.0`.
     - Kafka 2.1.0 supports `inter_broker_protocol_version`s up to `2.1`. 
     - If you haven't specified a `inter_broker_protocol_version` in your options file, the new default will be used and changed to `2.1`.
 
-    The problem with this is that it will cause downtime - during the upgrade, some Kafka nodes will be on Kafka 1.1.0 using `inter_broker_protocol_version` `1.0` and others will be on Kafka 2.1.0 using protocol `2.1`.
+    The problem with this is that it will cause downtime;  during the upgrade, some Kafka nodes will be on Kafka 1.1.0 using `inter_broker_protocol_version` `1.0` and others will be on Kafka 2.1.0 using protocol `2.1`.
 
-    To avoid any potential downtime caused by this, change the protocol version used when upgrading Kafka.
+    To avoid any potential downtime, change the protocol version used when upgrading Kafka.
 
     - Set up CLI to connect to a soak cluster
     - Update your `options_file.json` with the following contents:

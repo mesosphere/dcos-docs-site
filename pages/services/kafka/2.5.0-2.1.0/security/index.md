@@ -120,7 +120,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 }
 ```
 
-<p class="message--note"><strong>NOTE: </strong> If `service.kerberos.enabled_for_zookeeper` is set to true, then the additional setting `kafka.kafka_zookeeper_uri` must be configured to point at a kerberized {{ model.kafka.zookeeperTechName }} as follows:
+<p class="message--note"><strong>NOTE: </strong> If <tt>service.kerberos.enabled_for_zookeeper</tt> is set to true, then the additional setting <tt>kafka.kafka_zookeeper_uri</tt> must be configured to point at a kerberized {{ model.kafka.zookeeperTechName }} as follows:
 
 ```json
 {
@@ -168,7 +168,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 
 To authenticate a client against DC/OS {{ model.techName }}, you will need to configure it to use a certificate signed by the DC/OS CA. After generating a [certificate signing request](https://www.ssl.com/how-to/manually-generate-a-certificate-signing-request-csr-using-openssl/), you can issue it to the DC/OS CA by calling the API `<dcos-cluster>/ca/api/v2/sign`. Using `curl` the request would look like:
 ```bash
-$ curl -X POST \
+curl -X POST \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     <dcos-cluster>/ca/api/v2/sign \
     -d '{"certificate_request": "<json-encoded-value-of-request.csr>"}'
@@ -177,7 +177,7 @@ $ curl -X POST \
 The `<json-encoded-value-of-request.csr>` field represents the content of the `csr` file as a single line, where new lines are replaced with `\n`.
 
 ```bash
-$ curl -X POST \
+curl -X POST \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     <dcos-cluster>/ca/api/v2/sign \
     -d '{"certificate_request": ""-----BEGIN CERTIFICATE REQUEST-----\nMIIC<snipped for brevity>o39lBi1w=\n-----END CERTIFICATE REQUEST-----\n""}'
