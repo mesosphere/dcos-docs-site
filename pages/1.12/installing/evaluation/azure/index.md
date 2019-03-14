@@ -146,7 +146,9 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
     touch main.tf
     ```
 
-1. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
+1. Open the file in the code editor of your choice and paste in the following. 
+Note, the cluster_name variable must contain only lowercase alphanumeric characters, numbers and hyphens. It must start with a letter and end only with a number or letter.
+Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
 
     ```hcl
     variable "dcos_install_mode" {
