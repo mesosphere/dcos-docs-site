@@ -11,7 +11,7 @@ model: /services/spark/data.yml
 
 You can customize DC/OS {{ model.techName }} in-place when it is up and running.
 
-1. Go to the DC/OS web interface.
+1. Go to the DC/OS GUI.
 
 1. Click the **Services** tab, then the name of the {{ model.techShortName }} framework to be updated.
 

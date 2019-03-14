@@ -32,13 +32,13 @@ featureMaturity:
     - `virtual_network_plugin_labels`
 - Spark Dispatcher by default launches Spark Drivers and Executors in the same virtual network it was launched in itself
 
-<div class="message--note"><strong>NOTE: </strong>Limitations of current Spark CNI support:
+<p class="message--note"><strong>NOTE: </strong>Limitations of current Spark CNI support:
 <ul>
   <li>Configuration of network plugin labels from DC/OS UI supported only in JSON editing mode</li>
   <li>Network plugin labels are not supported by Docker containerizer</li>
   <li>Currently, DC/OS AdminRouter doesn't support virtual networks so DC/OS {{ model.techShortName }} endpoints will not be accessible from CLI, and jobs need to be submitted from a routable network</li>
 </ul>
-</div>
+</p>
 
 ### Updates
 - `SPARK_HOME` environment variable defaults to `/opt/spark` in Dockerfile and executable scripts
