@@ -5,6 +5,8 @@ title: Release Notes
 menuWeight: 145
 excerpt: Release notes for DC/OS Apache Spark 2.7.0-2.4.0
 featureMaturity:
+render: mustache
+model: /services/spark/data.yml
 ---
 
 ## Version Spark and Spark history 2.7.0-2.4.0
