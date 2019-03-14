@@ -18,32 +18,30 @@ render: mustache
 
 To configure an alternate Zookeeper instance:
 
-1. Create a file named `options.json` with the following contents.
+1. Create a file named `options.json` with the following contents. If you are using the [DC/OS Apache ZooKeeper service](/services/{{ model.kafka.zookeeperPackageName }}), use the DNS addresses provided by the `dcos {{ model.kafka.zookeeperPackageName }} endpoints clientport` command as the value of `kafka_zookeeper_uri`.
 
-**Note:** If you are using the [DC/OS Apache ZooKeeper service](/services/{{ model.kafka.zookeeperPackageName }}), use the DNS addresses provided by the `dcos {{ model.kafka.zookeeperPackageName }} endpoints clientport` command as the value of `kafka_zookeeper_uri`.
+    Here is an example `options.json` which points to a `{{ model.kafka.zookeeperPackageName }}` instance named `{{ model.kafka.zookeeperServiceName }}`:
 
-Here is an example `options.json` which points to a `{{ model.kafka.zookeeperPackageName }}` instance named `{{ model.kafka.zookeeperServiceName }}`:
-
-```json
-{
-  "kafka": {
-    "kafka_zookeeper_uri": "zookeeper-0-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140"
-  }
-}
-```
+    ```json
+    {
+      "kafka": {
+        "kafka_zookeeper_uri": "zookeeper-0-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-1-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140,zookeeper-2-server.{{ model.kafka.zookeeperServiceName }}.autoip.dcos.thisdcos.directory:1140"
+      }
+    }
+    ```
 
 1. Install {{ model.techName }} with the options file you created.
 
-```bash
-$ dcos package install {{ model.packageName }} --options="options.json"
-```
+    ```bash
+    dcos package install {{ model.packageName }} --options="options.json"
+    ```
 
 You can also update an already-running {{ model.techName }} instance from the DC/OS CLI, in case you need to migrate your ZooKeeper data elsewhere.
 
-**Note:** Before performing this configuration change, you must first copy the data from your current ZooKeeper ensemble to the new ZooKeeper ensemble. The new location must have the same data as the previous location during the migration.
+<p class="message--note"><strong>NOTE: </strong> Before performing this configuration change, you must first copy the data from your current ZooKeeper ensemble to the new ZooKeeper ensemble. The new location must have the same data as the previous location during the migration.</p>
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json
+dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json
 ```
 
 ## Extend the Kill Grace Period

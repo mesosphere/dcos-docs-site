@@ -34,7 +34,7 @@ There are four types of installation methods:
 To start a basic test cluster with three brokers, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Kafka on Enterprise DC/OS](#install-enterprise).
 
 ```bash
-$ dcos package install kafka
+dcos package install kafka
 ```
 
 This command creates a new Kafka cluster with the default name `kafka`. Two clusters cannot share the same name, so installing additional clusters beyond the default cluster requires [customizing the `name` at install time][4] for each additional instance.
@@ -42,7 +42,7 @@ This command creates a new Kafka cluster with the default name `kafka`. Two clus
 All `dcos kafka` CLI commands have a `--name` argument allowing the user to specify which Kafka instance to query. If you do not specify a service name, the CLI assumes the default value, `kafka`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
 ```bash
-$ dcos kafka --name=<kafka-dev> <cmd>
+dcos kafka --name=<kafka-dev> <cmd>
 ```
 
 <p class="message--note"><strong>NOTE: </strong>Alternatively, you can <a href="https://docs.mesosphere.com/1.9/deploying-services/install/">install Kafka from the DC/OS web interface</a>. If you install Kafka from the web interface, you must install the Kafka DC/OS CLI subcommands separately. </p>
@@ -50,7 +50,7 @@ $ dcos kafka --name=<kafka-dev> <cmd>
 Enter the following command from the DC/OS CLI:
 
 ```bash
-$ dcos package install kafka --cli
+dcos package install kafka --cli
 ```
 
 ## Minimal Installation
@@ -72,7 +72,7 @@ To start a minimal cluster with a single broker, create a JSON options file name
 The command below creates a cluster using `sample-kafka-minimal.json`:
 
 ```bash
-$ dcos package install --options=sample-kafka-minimal.json kafka
+dcos package install --options=sample-kafka-minimal.json kafka
 ```
 
 
@@ -102,7 +102,7 @@ Sample JSON options file named `sample-kafka-custom.json`:
 The command below creates a cluster using `sample-kafka.json`:
 
 ```bash
-$ dcos package install --options=sample-kafka-custom.json kafka
+dcos package install --options=sample-kafka-custom.json kafka
 ```
 
 <p class="message--important"><strong>IMPORTANT: </strong>It is highly recommended to store your custom configuration in source control.</p>
@@ -116,14 +116,14 @@ Installing multiple Kafka clusters is identical to installing Kafka clusters wit
 See the example below:
 
 ```
-$ cat kafka1.json
+cat kafka1.json
 {
     "service": {
         "name": "kafka1"
     }
 }
 
-$ dcos package install kafka --options=kafka1.json
+dcos package install kafka --options=kafka1.json
 ```
 
  [4]: #custom-installation
@@ -150,7 +150,7 @@ Use the following steps to change configurations at runtime.
 Make the REST request below to view the current deployment plan. See the REST API Authentication part of the [REST API Reference](api-reference.md) section for information on how this request must be authenticated.
 
 ```bash
-$ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
+curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
 
 {
     "phases": [
@@ -242,7 +242,7 @@ When using the `STAGE` deployment strategy, an update plan will initially pause 
 Enter the `continue` command to execute the first step:
 
 ```bash
-$ curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan?cmd=continue"
+curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan?cmd=continue"
 PUT <dcos_url>/service/kafka/v1/continue HTTP/1.1
 
 {
@@ -253,7 +253,7 @@ PUT <dcos_url>/service/kafka/v1/continue HTTP/1.1
 After you execute the continue operation, the plan will look like the following code block:
 
 ```bash
-$ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
+curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
 GET <dcos_url>/service/kafka/v1/plan HTTP/1.1
 
 {
@@ -306,7 +306,7 @@ GET <dcos_url>/service/kafka/v1/plan HTTP/1.1
 If you enter `continue` a second time, the rest of the plan will be executed without further interruption. If you want to interrupt a configuration update that is in progress, enter the `interrupt` command:
 
 ```bash
-$ curl -X PUT -H "Authorization: token=$auth_token"  "<dcos_url>/service/kafka/v1/plan?cmd=interrupt"
+curl -X PUT -H "Authorization: token=$auth_token"  "<dcos_url>/service/kafka/v1/plan?cmd=interrupt"
 PUT <dcos_url>/service/kafka/v1/interrupt HTTP/1.1
 
 {
