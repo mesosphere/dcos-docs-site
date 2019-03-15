@@ -6,6 +6,7 @@ menuWeight: 160
 excerpt: Revoke permission for a group to act on a resource
 enterprise: true
 ---
+
 # Description
 
 The `dcos security org service-accounts` command allows you to manage your security accounts.
