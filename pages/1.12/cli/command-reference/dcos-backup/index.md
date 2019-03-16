@@ -9,8 +9,11 @@ enterprise: true
 ---
 
 
-## dcos backup
+## Description
+
 The `dcos backup` command will let you create backups and restore from them.
+
+# Usage
 
 ```
 dcos backup
@@ -25,6 +28,7 @@ Usage:
     dcos backup delete <id>
 ```
 
+# Options
 
 | Name | Description |
 |---------|-------------|
