@@ -16,8 +16,8 @@ The `dcos security org users show` command will display information about a user
 | Name |  Description |
 |---------|-------------|
 |  `-h`, `--help` |  Show this message and exit.|
-|  `-j`, `--jso`n | Output data in JSON format.|
-| `UID` | User ID. (Required)|
+|  `-j`, `--json` | Output data in JSON format.|
+| `UID` | User ID. |
 
 
 # Usage

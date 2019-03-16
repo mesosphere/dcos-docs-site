@@ -10,7 +10,7 @@ enterprise: false
 
 # Description
 
-Manage DC/OS tasks.
+The `dcos task` commands let you manage DC/OS tasks.
 
 # Usage
 
@@ -25,7 +25,7 @@ dcos task [OPTION]
 | `--completed`   |  Print completed and in-progress tasks. |
 | `--help`, `h`   |    Print usage. |
 | `--info`   |   Print a short description of this subcommand. |
-| `--json`   |   JSON-formatted data. |
+| `--json`   |   Output as JSON-formatted data. |
 | `--version, v`   | Print version information. |
 
 # Positional arguments

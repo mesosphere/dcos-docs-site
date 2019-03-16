@@ -126,7 +126,7 @@ It is strongly recommended that you copy and paste the installation commands fro
 
     Figure 3. Code snippet window
 
-1. Once the dcos information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
+1. Once the `dcos` information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
 
 ## Installing the CLI on macOS manually
 
@@ -193,7 +193,7 @@ It is strongly recommended that you copy and paste the installation commands fro
 
     Figure 3. Code snippet window
 
-1. Once the dcos information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
+1. Once the `dcos` information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
 
 ## Installing the CLI on Windows manually
 

@@ -4,7 +4,6 @@ navigationTitle:  dcos plugin add
 title: dcos plugin add
 menuWeight: 1
 excerpt: Installing a plugin
-
 enterprise: false
 ---
 

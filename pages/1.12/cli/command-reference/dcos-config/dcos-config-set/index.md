@@ -11,10 +11,10 @@ enterprise: false
 
 The `dcos config set` command will add or set DC/OS configuration properties. Table 1 show the available properties.
 
-Table 1 - `dcos config set` properties
+# Options
 
-| **Property**  | **Description** |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name  | Description |
+|-----------------------|------------------------------------------------|
 | `core.dcos_acs_token`   | The DC/OS authentication token. When you log into the DC/OS CLI using `dcos auth login`, it stores the authentication token value locally. For more information, see [the IAM API](/1.12/security/oss/iam-api/). |
 | `core.dcos_url`         | The public master URL of your DC/OS cluster|
 | `core.mesos_master_url` | The Mesos master URL. Defaults to `core.dcos_url` |

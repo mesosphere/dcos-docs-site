@@ -20,15 +20,15 @@ dcos [options] [<command>] [<args>...]
 
 # Options
 
-
 | Name | Description |
 |---------|-------------|-------------|
-| `--debug`   |  Enable debug mode. |
 | `--help, h`   |  Display usage. |
-| `--log-level=<log-level>`  | Set the logging level. This setting does not affect the output sent to `stdout`.  |
-|  `--version, v`  |  Display version information.  |
-| `<log-level>` | The severity levels are shown below. |
+|  `--vv`, `v`  |  Output verbosity (verbose or very verbose)  |
+| `--version` | Display version information. |
+| `--log-level=<log-level>`  | Set the logging level. This setting does not affect the output sent to `stdout`.  See below for severity levels. |
 
+
+# Log level severity
 
 | Name |  Description |
 |---------|-------------|

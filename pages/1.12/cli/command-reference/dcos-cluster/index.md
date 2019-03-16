@@ -20,8 +20,6 @@ dcos cluster
 
 # Options
 
-Table 1 - Options
-
 | Name |  Description |
 |---------|-------------|
 | `--help, h`   |  Display usage. |
