@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon group show
 title: dcos marathon group show
 menuWeight: 21
 excerpt: Display a list of groups
-
 enterprise: false
 ---
 
@@ -16,7 +15,7 @@ The `dcos marathon group show` command displays a detailed list of groups.
 # Usage
 
 ```bash
-dcos marathon group show <group-id> [OPTION]
+dcos marathon group show [--group-version=<group-version>] <group-id>
 ```
 
 # Options

@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon group update
 title: dcos marathon group update
 menuWeight: 22
 excerpt: Updating Marathon group properties
-
 enterprise: false
 ---
 
@@ -16,7 +15,7 @@ The `dcos marathon group update` command allows you to update Marathon group pro
 # Usage
 
 ```bash
-dcos marathon group update <group-id> <properties> <key>=<value> [OPTION]
+dcos marathon group update [--force] <group-id> [<properties>...]
 ```
 
 # Options

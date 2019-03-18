@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon app restart
 title: dcos marathon app restart
 menuWeight: 5
 excerpt: Restarting an application
-
 enterprise: false
 ---
 
@@ -16,7 +15,7 @@ The `dcos marathon app restart` command allows you to restart an application.
 # Usage
 
 ```bash
-dcos marathon app restart <app-id> [OPTION]
+dcos marathon app restart [--force] <app-id>
 ```
 
 # Options

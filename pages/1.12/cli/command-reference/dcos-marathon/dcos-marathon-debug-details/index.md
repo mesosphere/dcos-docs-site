@@ -4,19 +4,18 @@ navigationTitle:  dcos marathon debug details
 title: dcos marathon debug details
 menuWeight: 11
 excerpt: Displaying debugging information for Marathon applications
-
 enterprise: false
 ---
 
 
 # Description
 
-The `dcos marathon app debug details` command allows you to view debugging information for Marathon application deployments that are waiting.
+The `dcos marathon app debug details` command displays detailed information for a queued instance launch for debugging purposes.
 
 # Usage
 
 ```bash
-dcos marathon debug details <app-id> [OPTION]
+dcos marathon debug details <app-id> [--json]
 ```
 
 # Options

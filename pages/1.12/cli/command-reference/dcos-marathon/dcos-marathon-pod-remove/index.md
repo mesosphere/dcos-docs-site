@@ -15,7 +15,7 @@ The `dcos marathon pod remove` command allows you to remove a pod.
 # Usage
 
 ```bash
-dcos marathon pod remove <pod-id> [OPTION]
+dcos marathon pod remove [--force] <pod-id>
 ```
 
 # Options

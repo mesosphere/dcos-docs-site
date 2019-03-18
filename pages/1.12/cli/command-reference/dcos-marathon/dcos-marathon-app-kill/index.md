@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon app kill
 title: dcos marathon app kill
 menuWeight: 2
 excerpt: Killing an active application instance
-
 enterprise: false
 ---
 
@@ -16,7 +15,7 @@ The `dcos marathon app kill` command allows you to kill a running application in
 # Usage
 
 ```bash
-dcos marathon app kill <app-id> [OPTION]
+dcos marathon app kill [--scale] [--host=<host>] <app-id>
 ```
 
 # Options
@@ -38,3 +37,9 @@ dcos marathon app kill <app-id> [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
+# Example
+
+```bash
+dcos marathon app kill kafka
+Killed tasks: []
+```

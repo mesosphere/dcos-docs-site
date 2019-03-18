@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon task show
 title: dcos marathon task show
 menuWeight: 30
 excerpt: Displaying information about a specific task
-
 enterprise: false
 ---
 
@@ -15,7 +14,7 @@ The `dcos marathon task show` command allows you to list a specific task.
 # Usage
 
 ```bash
-dcos marathon task show <task-id> [OPTION]
+dcos marathon task show <task-id> 
 ```
 
 # Options

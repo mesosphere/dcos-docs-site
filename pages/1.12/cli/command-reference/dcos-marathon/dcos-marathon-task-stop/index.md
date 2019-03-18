@@ -15,7 +15,7 @@ the `dcos marathon task stop` command allows you to stop a task.
 # Usage
 
 ```bash
-dcos marathon task stop <task-id> [OPTION]
+dcos marathon task stop [--wipe] <task-id>
 ```
 
 # Options

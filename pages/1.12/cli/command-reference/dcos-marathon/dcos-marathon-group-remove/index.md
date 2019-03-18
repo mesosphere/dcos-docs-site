@@ -15,7 +15,7 @@ The `dcos marathon group remove` command allows you to remove applications from 
 # Usage
 
 ```bash
-dcos marathon group remove <group-id> [OPTION]
+dcos marathon group remove [--force] <group-id>
 ```
 
 # Options

@@ -4,18 +4,17 @@ navigationTitle:  dcos marathon debug summary
 title: dcos marathon debug summary
 menuWeight: 13
 excerpt: Display the debugging queue of waiting Marathon app deployments
-
 enterprise: false
 ---
 
 
 # Description
-The `dcos marathon debug summary` command allows you to view the current queue and debugging information of Marathon application deployments that are waiting.
+The `dcos marathon debug summary` command displays summarized information for a queued instance launch for debugging purpose..
 
 # Usage
 
 ```bash
-dcos marathon debug summary <app-id> [OPTION]
+dcos marathon debug summary <app-id> [--json]
 ```
 
 # Options

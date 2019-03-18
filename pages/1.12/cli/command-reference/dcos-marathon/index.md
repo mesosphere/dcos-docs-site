@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon
 title: dcos marathon
 menuWeight: 10
 excerpt: Deploying and managing applications to DC/OS using Marathon
-
 enterprise: false
 ---
 
@@ -15,7 +14,7 @@ The `dcos marathon` commands allow you to deploy and manage applications to DC/O
 # Usage
 
 ```bash
-dcos marathon
+dcos marathon [OPTIONS] COMMAND
 ```
 
 # Options

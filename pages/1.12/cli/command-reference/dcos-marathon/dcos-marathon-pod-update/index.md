@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon pod update
 title: dcos marathon pod update
 menuWeight: 28
 excerpt: Updating a Marathon pod
-
 enterprise: false
 ---
 
@@ -15,7 +14,7 @@ The `dcos marathon pod update` command allows you to update a pod.
 # Usage
 
 ```bash
-dcos marathon pod update <pod-id> [OPTION]
+dcos marathon pod update [--force] <pod-id>
 ```
 
 # Options

@@ -16,7 +16,7 @@ The `dcos marathon app version list` command allows you to list the version hist
 # Usage
 
 ```bash
-dcos marathon app version list <app-id> [OPTION]
+dcos marathon app version list [--max-count=<max-count>] <app-id>
 ```
 
 # Options

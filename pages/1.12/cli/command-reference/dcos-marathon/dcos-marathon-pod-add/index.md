@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon pod add
 title: dcos marathon pod add
 menuWeight: 23
 excerpt: Adding a pod
-
 enterprise: false
 ---
 
@@ -15,7 +14,7 @@ The `dcos marathon pod add` command allows you to add a pod.
 # Usage
 
 ```bash
-dcos marathon pod add <pod-resource> [OPTION]
+dcos marathon pod add [<pod-resource>]
 ```
 
 # Options

@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon pod show
 title: dcos marathon pod show
 menuWeight: 27
 excerpt: Displaying detailed information for a specific pod
-
 enterprise: false
 ---
 
@@ -15,7 +14,7 @@ The `dcos marathon pod show` command allows you to view detailed information for
 # Usage
 
 ```bash
-dcos marathon pod show <pod-id> [OPTION]
+dcos marathon pod show <pod-id> 
 ```
 
 # Options

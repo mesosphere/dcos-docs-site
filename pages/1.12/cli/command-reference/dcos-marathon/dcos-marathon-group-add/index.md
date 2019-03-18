@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon group add
 title: dcos marathon group add
 menuWeight: 17
 excerpt: Adding a Marathon group
-
 enterprise: false
 ---
 
@@ -16,7 +15,7 @@ The `dcos marathon group add` command allows you to add a Marathon group.
 # Usage
 
 ```bash
-dcos marathon group add <group-resource> [OPTION]
+dcos marathon group add [<group-resource>]
 ```
 
 # Options
