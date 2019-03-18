@@ -277,7 +277,7 @@ DC/OS 服务通常作为 Marathon 框架上的应用程序运行。要为 Marath
           "hostEq": "nginx.example.com",
           "backend": "nginx"
         },{
-          "hostReg": "*.httpd.example.com",
+          "hostReg": ".*.httpd.example.com",
           "backend": "httpd"
         }]
       }
@@ -289,7 +289,7 @@ DC/OS 服务通常作为 Marathon 框架上的应用程序运行。要为 Marath
           "hostEq": "nginx.example.com",
           "backend": "nginx"
         },{
-          "hostReg": "*.httpd.example.com",
+          "hostReg": ".*.httpd.example.com",
           "backend": "httpd"
         }]
       }

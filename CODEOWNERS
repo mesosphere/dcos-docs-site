@@ -1,8 +1,12 @@
 # Aaron is the default to cover all current and future code
-* @niartenyaw
+* @niartenyaw @jpe442
 
 # Pavi take over all content from Aaron
-/pages/ @pavisandhu
+/pages/ @jpe442
 
 # Sarah takes on services
 /pages/services/ @SarahStegall
+
+# Networking
+/pages/services/edge-lb/ @networking-team @SarahStegall
+/pages/*/networking/ @networking-team @jpe442

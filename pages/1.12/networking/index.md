@@ -14,6 +14,7 @@ The DC/OS network stack provides
 - [IP connectivity to containers](#IP-connectivity)
 - built-in [DNS-based service discovery](#DNS-discovery)
 - layer 4 and layer 7 [load balancing](#load-balancing)
+- unique [cluster identity](#cluster-id) option
 
 # <a name="IP-connectivity"></a>IP connectivity
 A container running on DC/OS can obtain an IP address using one of the three networking modes:
@@ -81,6 +82,23 @@ While both Marathon-LB and Edge-LB are designed for handling north-south ingress
 | zero-hop load balancing               |     X     |         |             |
 | No single point of failure         |     X     |         |             |
 
+# <a name="cluster-id"></a>Specifying a cluster identity for network connections
+The DC/OS networking component (`dcos-net`) supports setting a **cluster identity** option on a node for DC/OS cluster. By enabling this feature, you can prevent nodes from communicating across clusters when a node is moved from one cluster to another. This feature ensures that the nodes from a cluster has a unique identifier and prevents unauthorized "cross-talk" between clusters.
+
+To use thw cluster identity feature:
+1. Edit the `config.yaml` file for each node in the cluster to add the `dcos_net_cluster_identity` configuration parameter.
+
+1. Set the parameter value to `true` to enable the use of a cluster identity.
+
+    For example:
+
+    <code>
+    "dcos_net_cluster_identity": "true"
+    </code>
+
+If you are upgrading the nodes in the cluster to use the cluster identity functionality, the upgraded node (agent or master) with the flag enabled will not be able communicate with the `dcos-net` service on any nodes that have not been upgraded. Because of this behavior change, you might experience a minor disruption of networking operations during the upgrade until all nodes in the cluster are upgraded with this flag enabled. 
+
+During a phased upgrade process, you might see that DNS or L4LB do not function as expected across all of the nodes in the cluster. If you make changes--such as adding a new application, task, or service or deleting an existing application, task, or service--these changes might not be reflected in the information available until after the upgrade is complete.
 
 # A note on software re-architecture
 In DC/OS 1.11 and later, most of the networking components such as `dcos-dns`, `dcos-l4lb`, and `dcos-overlay` are applications that run as part of a single `systemd` unit called `dcos-net`, running on all the nodes of the cluster. Prior to DC/OS 1.11, each of the applications `dcos-dns`, `dcos-l4lb`, and `dcos-overlay` ran as separate `systemd` units. Prior to DC/OS 1.11, the role of `dcos-dns` was fulfilled by `spartan`, `dcos-l4lb` was fulfilled by `minuteman` and `dcos-overlay` was fulfilled by `navstar`. In DC/OS 1.11, the different `systemd` units were aggregated into a single service. The main advantage of following this operational pattern is that it led to more efficient use of resources (lower CPU consumption and lower memory), and also made the networking services a lot more robust. This approach also made it easier to maintain the code.

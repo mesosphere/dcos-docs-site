@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Cassandra 2.0.1-3.0.14
 title: Cassandra 2.0.1-3.0.14
-menuWeight: 100
+menuWeight: -1
 excerpt:
 featureMaturity:
 enterprise: false

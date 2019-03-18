@@ -103,7 +103,7 @@ Now you will do the same to test `kubernetes`
     ```
 
     Or use the flag `--context kubernetes-cluster1` in commands like so:
-    
+
     ```bash
     kubectl get nodes --context kubernetes-cluster1
     ```

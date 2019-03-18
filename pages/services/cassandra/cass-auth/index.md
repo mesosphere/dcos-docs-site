@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Configuring DC/OS Access for Cassandra
-menuWeight: 270
+menuWeight: 10
 excerpt: Configuring DC/OS Access for versions before 2.3.0-3.0.16
 featureMaturity:
 enterprise: true

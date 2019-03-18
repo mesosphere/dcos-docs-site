@@ -118,6 +118,7 @@ The agent nodes must also have:
 -   Secure shell (SSH) must be enabled on all nodes.
 -   Internet Control Message Protocol (ICMP) must be enabled on all nodes.
 -   All hostnames (FQDN and short hostnames) must be resolvable in DNS; both forward and reverse lookups must succeed. [enterprise type="inline" size="small" /]
+- All DC/OS node host names should resolve to  **locally bindable** IP addresses. Most applications require host names to resolve by binding to a local IP address to function correctly. Applications that cannot resolve the host name of a node by binding to a local IP address might fail to function or behave in unexpected ways. [enterprise type="inline" size="small" /]w
 -   Each node is network accessible from the bootstrap node.
 -   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
 -   All ports should be open for communication from the master nodes to the agent nodes and vice versa. [enterprise type="inline" size="small" /]

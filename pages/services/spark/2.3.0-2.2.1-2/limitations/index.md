@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Limitations
 menuWeight: 135
@@ -31,9 +31,9 @@ featureMaturity:
 
 *   When using Kerberos and HDFS, the Spark Driver generates delegation tokens and distributes them to it's Executors
     via RPC.  Authentication of the Executors with the Driver is done with a [shared
-    secret][https://spark.apache.org/docs/latest/security.html#spark-security]. Without authentication, it is possible
+    secret](https://spark.apache.org/docs/latest/security.html#spark-security). Without authentication, it is possible
     for executor containers to register with the Driver and retrieve the delegation tokens. To secure delegation token
-    distribution, use the `--executor-auth-secret` option. 
+    distribution, use the `--executor-auth-secret` option.
 
 *   Spark runs all of its components in Docker containers. Since the Docker image contains a full Linux userspace with
     its own `/etc/users` file, it is possible for the user `nobody` to have a different UID inside the

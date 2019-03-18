@@ -10,10 +10,10 @@ menuWeight: 20
 
 # HDFS
 
-If you plan to read and write from HDFS using {{ model.techShortName }}, there are two Hadoop configuration files that should be included on {{ model.techShortName }}'s classpath: 
+If you plan to read and write from HDFS using {{ model.techShortName }}, there are two Hadoop configuration files that should be included on {{ model.techShortName }}'s classpath:
 
-- `hdfs-site.xml`, which provides default behaviors for the HDFS client 
-- `core-site.xml`, which sets the default filesystem name. 
+- `hdfs-site.xml`, which provides default behaviors for the HDFS client
+- `core-site.xml`, which sets the default filesystem name.
 
 You can specify the location of these files at install time or for each job.
 
@@ -30,7 +30,7 @@ Within the {{ model.techShortName }} service configuration, set `hdfs.config-url
 This can also be done through the UI. If you are using the default installation of HDFS from Mesosphere this is probably `http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints`.
 
 ## Adding HDFS configuration files per-job
-To add the configuration files manually for a job, use `--conf spark.mesos.uris=<location_of_hdfs-site.xml>,<location_of_core-site.xml>`. This will download the files to the sandbox of the Driver {{ model.techShortName }} application, and DC/OS {{ model.techShortName }} will automatically load these files into the correct location. 
+To add the configuration files manually for a job, use `--conf spark.mesos.uris=<location_of_hdfs-site.xml>,<location_of_core-site.xml>`. This will download the files to the sandbox of the Driver {{ model.techShortName }} application, and DC/OS {{ model.techShortName }} will automatically load these files into the correct location.
 
 <p class="message--important"><strong>IMPORTANT: </strong>It is important these files are called <code>hdfs-site.xml</code> and <code>core-site.xml</code>.</p>
 
@@ -49,7 +49,7 @@ You can read/write files to S3 using environment-based secrets to pass your AWS 
 
 ```
 dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
-dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY> 
+dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
 ```
 Then your {{ model.techShortName }} jobs can get these credentials directly:
 
@@ -63,4 +63,4 @@ dcos {{ model.serviceName }} run --submit-args="\
 ```
 
 [8]: http://spark.apache.org/docs/latest/configuration.html#inheriting-hadoop-cluster-configuration
-[9]: https://docs.mesosphere.com/services/spark/2.1.0-2.2.0-1/limitations/
+[9]: https://docs.mesosphere.com/services/spark/2.4.0-2.2.1-3/limitations/

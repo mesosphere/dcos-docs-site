@@ -104,6 +104,7 @@ You can back up an entire cluster's data and schema to Amazon S3 using the `back
 - `AWS_ACCESS_KEY_ID`: the access key ID for the AWS IAM user running this backup
 - `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this backup
 - `AWS_REGION`: the region of the S3 bucket being used to store this backup
+- `AWS_SESSION_TOKEN`: needed if you’re including temporary security credentials in the file
 - `S3_BUCKET_NAME`: the name of the S3 bucket in which to store this backup
 - `HTTPS_PROXY`: specifications for the {{ model.TechName }} backup plan, taken from `config.yaml`.
 
@@ -120,6 +121,7 @@ CASSANDRA_KEYSPACES="space1 space2"
 AWS_ACCESS_KEY_ID=<my_access_key_id>
 AWS_SECRET_ACCESS_KEY=<my_secret_access_key>
 AWS_REGION=us-west-2
+AWS_SESSION_TOKEN=AQoDYXdzEJr...<remainder of security token>
 S3_BUCKET_NAME=backups
 dcos {{ model.packageName }} --name=<service-name> plan start backup-s3 \
     -p SNAPSHOT_NAME=$SNAPSHOT_NAME \

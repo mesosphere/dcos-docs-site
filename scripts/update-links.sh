@@ -1,5 +1,8 @@
 # Links and Images
 
+find ./pages/1.13/ -name index.md -type f -exec sed -i '' -e 's/](\/1.12/](\/1.13/g' {} \;
+find ./pages/1.13/ -name index.md -type f -exec sed -i '' -e 's/]: \/1.12/]: \/1.13/g' {} \;
+
 ## Update 1.11
 #find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](\/1.11/](\/cn\/1.11/g' {} \;
 #find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](1.11/](cn\/1.11/g' {} \;
@@ -20,7 +23,7 @@
 
 # Fix double slash links
 #find ./pages -name index.md -type f -exec sed -i '' -e 's/\]\(\/\//\]\(\//g' {} \;
-find ./pages -name index.md -type f -exec sed -i '' -e 's/\]\: \/\//\]\: \/1\.12\//g' {} \;
+# find ./pages -name index.md -type f -exec sed -i '' -e 's/\]\: \/\//\]\: \/1\.12\//g' {} \;
 
 # bad code blocks
 

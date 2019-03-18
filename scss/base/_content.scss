@@ -23,7 +23,8 @@ $sections-size: 20%;
     &-title {
       padding: 0;
       margin: 0;
-      font-weight: 700;
+      font-weight: 500;
+      //orign 700
       font-size: 36px;
     }
     &-description {
@@ -62,7 +63,7 @@ $sections-size: 20%;
           & .content__anchor {
             visibility: visible;
             &:hover .feather {
-              fill: $color-purple-light;
+              fill: $color-purple-d3;
             }
           }
         }
@@ -157,7 +158,7 @@ $sections-size: 20%;
           color: $color-dark;
         }
         & .active {
-          color: $color-purple-light;
+          color: $color-purple-d3;
         }
         &--h2 {
           padding-left: 0.5rem;

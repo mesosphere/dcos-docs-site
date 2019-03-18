@@ -38,3 +38,4 @@ Currently, the DC/OS Kubernetes package has the following limitations:
 * Cloud-provider integration is not supported.
 * Using custom versions of etcd, Docker and Kubernetes is not supported.
 * External etcd clusters are not supported.
+* Using the Docker default bridge CIDR `172.17.0.0/16` as the Kubernetes service CIDR or Calico network CIDR will result in an overlap and the cluster will not be usable.

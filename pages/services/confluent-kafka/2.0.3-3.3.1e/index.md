@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Confluent Kafka 2.0.3-3.3.1e
 title: Confluent Kafka 2.0.3-3.3.1e
-menuWeight: 20
+menuWeight: -1
 excerpt:
 featureMaturity:
 enterprise: false

@@ -11,8 +11,8 @@
     cursor: pointer;
     text-transform: uppercase;
     &--active {
-      color: $color-purple-light;
-      border-bottom: 1px solid $color-purple-light;
+      color: $color-purple-d3;
+      border-bottom: 1px solid $color-purple-d3;
     }
   }
   &__filter-spacer {

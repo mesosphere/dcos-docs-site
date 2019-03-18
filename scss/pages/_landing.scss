@@ -25,7 +25,7 @@
     max-width: 600px;
     min-width: 275px;
     width: 75%;
-    border-bottom: 2px $color-purple-light solid;
+    border-bottom: 2px $color-purple-d3 solid;
     &-button {
       position: absolute;
       top: 50%;
@@ -34,7 +34,7 @@
       transform: translateY(-50%);
       border: none;
       background: transparent;
-      color: $color-purple-light !important;
+      color: $color-purple-d3 !important;
       cursor: pointer;
       svg {
         stroke-width: 3px;
@@ -91,7 +91,7 @@
       &:hover {
         background-color: #f9f9f9;
         & .landing__results-title {
-          color: $color-purple-light;
+          color: $color-purple-d3;
         }
       }
     }

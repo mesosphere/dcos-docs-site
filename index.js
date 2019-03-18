@@ -1,4 +1,5 @@
 // Packages
+const fs               = require('fs');
 const Metalsmith       = require('metalsmith');
 const markdown         = require('metalsmith-markdownit');
 const layouts          = require('metalsmith-layouts');
@@ -29,6 +30,8 @@ const shortcodes              = require('./plugins/metalsmith-shortcodes');
 const wkhtmltopdfLinkResolver = require('./plugins/metalsmith-wkhtmltopdf-link-resolver');
 
 // Configs
+const configData = fs.readFileSync('config.json');
+const config = JSON.parse(configData);
 const shortcodesConfig = require('./shortcodes');
 
 function splitCommasOrEmptyArray(val) {
@@ -43,9 +46,17 @@ const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
 const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
-const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN;
-const ALGOLIA_SKIP_SECTIONS = splitCommasOrEmptyArray(process.env.ALGOLIA_SKIP_SECTIONS);
-const METALSMITH_SKIP_SECTIONS = splitCommasOrEmptyArray(process.env.METALSMITH_SKIP_SECTIONS);
+const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
+const ALGOLIA_SKIP_SECTIONS = config[GIT_BRANCH] ? (
+  config[GIT_BRANCH]['DO_NOT_INDEX']
+) : (
+  config['local']['DO_NOT_INDEX']
+);
+const METALSMITH_SKIP_SECTIONS = config[GIT_BRANCH] ? (
+  config[GIT_BRANCH]['DO_NOT_BUILD']
+) : (
+  config['local']['DO_NOT_BUILD']
+);
 
 //
 // Errors

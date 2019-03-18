@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle: HDFS 2.5.0-2.6.0-cdh5.11.0
-excerpt: HFDS is a managed service that makes it easy to deply and manage clusters on DC/OS
+excerpt: HFDS is a managed service that makes it easy to deploy and manage clusters on DC/OS
 title: HDFS 2.5.0-2.6.0-cdh5.11.0
-menuWeight: 9
+menuWeight: 1
 model: /services/hdfs/data.yml
 render: mustache
 ---

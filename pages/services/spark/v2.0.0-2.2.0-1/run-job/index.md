@@ -15,7 +15,7 @@ enterprise: false
 
 1.  Run the job.
 
-        dcos spark run --submit-args=`--class MySampleClass http://external.website/mysparkapp.jar 30`
+        dcos spark run --submit-args="--class MySampleClass http://external.website/mysparkapp.jar 30"
 
         dcos spark run --submit-args="--py-files mydependency.py http://external.website/mysparkapp.py 30"
 
@@ -39,7 +39,7 @@ Spark job settings are controlled by configuring [Spark properties][14].
 
 All properties are submitted through the `--submit-args` option to `dcos spark run`. There are a few unique options to DC/OS that are not in Spark Submit (for example `--keytab-secret-path`).  View `dcos spark run --help` for a list of all these options. All `--conf` properties supported by Spark can be passed through the command-line with within the `--submit-args` string. 
 
-    dcos spark run --submit-args="--conf spark.executor.memory=4g --supervise --class MySampleClass http://external.website/mysparkapp.jar 30`
+    dcos spark run --submit-args="--conf spark.executor.memory=4g --supervise --class MySampleClass http://external.website/mysparkapp.jar 30"
 
 ## Setting automatic configuration defaults
 

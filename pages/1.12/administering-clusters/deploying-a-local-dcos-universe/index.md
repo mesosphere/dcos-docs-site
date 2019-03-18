@@ -8,14 +8,19 @@ enterprise: false
 ---
 
 
-You can install and run DC/OS services on a datacenter without internet access with a local [Universe](https://github.com/mesosphere/universe). You can deploy a local Universe that includes all Certified packages (easiest), or a local Universe that includes selected packages (advanced).
+You can install and run DC/OS services on a datacenter without internet access with a local [Universe](https://github.com/mesosphere/universe). 
+
+You can deploy a local Universe that includes all Certified packages (easiest), or a local Universe that includes selected packages (advanced).
 
 **Prerequisites:**
 
 - [DC/OS CLI installed](/1.12/cli/install/).
 
 - Logged into the DC/OS CLI. On DC/OS Enterprise, you must be logged in as a user with the `dcos:superuser` permission.
-<p class="message--note"><strong>NOTE: </strong>As the Universe tarball is over two gigabytes in size it may take some time to download it to your local drive and upload it to each master.</p>
+
+<p class="message--note"><strong>NOTE: </strong>As the Universe tarball is over two gigabytes in size, it may take some time to download it to your local drive and upload it to each master.</p>
+
+<p class="message--note"><strong>NOTE: </strong>Creation of a local universe on MacOS is not supported.</p>
 
 # <a name="certified"></a>Certified Universe packages
 

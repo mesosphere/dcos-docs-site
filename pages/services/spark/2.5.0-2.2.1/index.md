@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Spark 2.5.0-2.2.1
 navigationTitle: Spark 2.5.0-2.2.1
-menuWeight: 1
+menuWeight: 2
 excerpt: Documentation for DC/OS Apache Spark 2.5.0-2.2.1
 model: /services/spark/data.yml
 render: mustache

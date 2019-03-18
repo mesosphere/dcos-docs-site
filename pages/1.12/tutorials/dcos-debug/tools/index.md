@@ -4,7 +4,6 @@ title: Tools
 excerpt: Tutorial - Tools for debugging applications on DC/OS
 menuWeight: 11
 ---
-<!-- II. Tools Section -->
 
 #include /include/tutorial-disclaimer.tmpl
 
@@ -14,7 +13,7 @@ menuWeight: 11
 
 DC/OS comes with several tools relevant for application debugging:
 
-- [DC/OS web interfaces](#dcos-web)
+- [DC/OS GUIs](#guis)
 
 - [Logs](#logs)
 
@@ -28,51 +27,51 @@ DC/OS comes with several tools relevant for application debugging:
 
 - [Other tools](#other-tools)
 
-<a name="dcos-web"></a>
+<a name="guis"></a>
 
-## DC/OS web interfaces
+## DC/OS GUIs
 
-DC/OS provides many web interfaces for various components, these are particularly when debugging application deployment issues:
+DC/OS provides many GUIs for various components, these are particularly when debugging application deployment issues:
 
-- [DC/OS web interface](#dcos-ui)
+- [DC/OS GUI](#dcos-gui)
 
-- [Mesos web interface](#mesos-ui)
+- [Mesos GUI](#mesos-gui)
 
-- [Zookeeper/Exhibitor web interface](#zoo-ui)
+- [Zookeeper/Exhibitor GUI](#zoo-gui)
 
-<a name="dcos-ui"></a>
+<a name="dcos-gui"></a>
 
-### DC/OS web interface
+### DC/OS GUI
 
-The **DC/OS web interface** is a great place to start debugging as it provides quick access to:
+The **DC/OS GUI** is a great place to start debugging as it provides quick access to:
 
 - **Cluster Resource Allocation** to provide an overview of available cluster resources
 - **Task Logs** to provide insight into tasks failures
 - **Task Debug Information** to provide information about the most recent task offers and/or why a task did not start
 
-![Pic of DC/OS web interface](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
+![Pic of DC/OS GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
 
 Figure 1. Task debug interface
 
-<a name="mesos-ui"></a>
+<a name="mesos-gui"></a>
 
-### Mesos web interface
+### Mesos GUI
 
-The DC/OS web interface shows the majority of the information you need for debugging. However, sometimes going a step further and accessing the Mesos web interface can be helpful -- especially when checking failed tasked or registered frameworks. The Mesos web interface can be accessed via `https://<cluster-address>/mesos`.
+The DC/OS GUI shows the majority of the information you need for debugging. However, sometimes going a step further and accessing the Mesos GUI can be helpful -- especially when checking failed tasked or registered frameworks. The Mesos GUI can be accessed via `https://<cluster-address>/mesos`.
 
-![Pic of Mesos web interface](https://mesosphere.com/wp-content/uploads/2018/04/Screen-Shot-2018-04-15-at-17.56.16.png)
+![Pic of Mesos GUI](https://mesosphere.com/wp-content/uploads/2018/04/Screen-Shot-2018-04-15-at-17.56.16.png)
 
-Figure 2. Mesos web interface
+Figure 2. Mesos GUI
 
-<a name="zoo-ui"></a>
+<a name="zoo-gui"></a>
 
-### ZooKeeper web interface
+### ZooKeeper GUI
 
-As much of the cluster and framework state is stored in Zookeeper, it can sometimes be helpful to check these states using the ZooKeeper/Exhibitor web interface. Frameworks such as Marathon, Kafka, and Cassandra store information with Zookeeper, so this resource can be particularly useful when debugging such frameworks. For example, a failure while uninstalling of one of these frameworks can leave entries behind. So then for sure, if you experience difficulties when reinstalling a framework you have uninstalled earlier, checking this web interface could be very helpful. You can access it via `https://<cluster-address>/exhibitor`.
+As much of the cluster and framework state is stored in Zookeeper, it can sometimes be helpful to check these states using the ZooKeeper/Exhibitor GUI. Frameworks such as Marathon, Kafka, and Cassandra store information with Zookeeper, so this resource can be particularly useful when debugging such frameworks. For example, a failure while uninstalling of one of these frameworks can leave entries behind. So then for sure, if you experience difficulties when reinstalling a framework you have uninstalled earlier, checking this GUI could be very helpful. You can access it via [https://<cluster-address>/exhibitor](https://<cluster-address>/exhibitor).
 
-![Pic of ZooKeeper/Exhibitor web interface](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-13.png)
+![Pic of ZooKeeper/Exhibitor GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-13.png)
 
-Figure 3. ZooKeeper/Exhibitor web interface
+Figure 3. ZooKeeper/Exhibitor GUI
 
 <a name="logs"></a>
 
@@ -88,7 +87,7 @@ DC/OS has a number of different sources for logs. In general, these are the most
 - [Mesos Master Logs](#master-logs)
 - [System Logs](#system-logs)
 
-In DC/OS, there are multiple options for accessing any of these logs: the **DC/OS web interface** the **DC/OS CLI**, or HTTP endpoints. Moreover, DC/OS rotate logs by default to prevent utilizing all available disk space.
+In DC/OS, there are multiple options for accessing any of these logs: the **DC/OS GUI** the **DC/OS CLI**, or HTTP endpoints. Moreover, DC/OS rotate logs by default to prevent utilizing all available disk space.
 
 <p class="message--note"><strong>NOTE: </strong>Need a scalable way to manage and search your logs? It could be worth building an <a href="/1.12/monitoring/logging/aggregating/filter-elk/">ELK stack</a> for log aggregation and filtering.</p>
 
@@ -97,20 +96,20 @@ Sometimes it can help to increase the level of detail written to a log temporari
 ##### Connect to Master Node
 
 ```bash
-$ dcos node ssh --master-proxy --leader
+dcos node ssh --master-proxy --leader
 ```
 
 ##### Raise Log Level on Mesos Agent 10.0.2.219
 
 ```bash
-$ curl -X POST 10.0.2.219:5051/logging/toggle?level=3&duration=5mins
+curl -X POST 10.0.2.219:5051/logging/toggle?level=3&duration=5mins
 ```
 
 <a name="task-logs"></a>
 
 ### Task/Application Logs
 
-Task/application logs are often helpful in understanding the state of the problematic application. By default, applications logs are written (together with execution logs) to the `STDERR` and `STDOUT` files in the task work directory. When looking at the task in the DC/OS web interface, you can just simply view the logs as shown below.
+Task/application logs are often helpful in understanding the state of the problematic application. By default, applications logs are written (together with execution logs) to the `STDERR` and `STDOUT` files in the task work directory. When looking at the task in the DC/OS GUI, you can just simply view the logs as shown below.
 
 ![Pic of task log](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-16.png)
 
@@ -119,7 +118,7 @@ Figure 4. Task log
 You can also do the same from the DC/OS CLI:
 
 ```bash
-$ dcos task log --follow <service-name>
+dcos task log --follow <service-name>
 ```
 
 <a name="scheduler-logs"></a>
@@ -128,10 +127,10 @@ $ dcos task log --follow <service-name>
 
 [Marathon](https://mesosphere.github.io/marathon/) is DC/OS's default scheduler when starting an application. Scheduler logs, and Marathon logs in particular, are a great source of information to help you understand why or how something was scheduled (or not) on which node. Recall that the scheduler matches tasks to available resources. So then because the scheduler also receives task status updates, the log also contains detailed information about task failures.
 
-You can retrieve and view a scheduler log about a specific service through the list of services found in the DC/OS web interface, or via the following command:
+You can retrieve and view a scheduler log about a specific service through the list of services found in the DC/OS GUI, or via the following command:
 
 ```bash
-$ dcos service log --follow <scheduler-service-name>
+dcos service log --follow <scheduler-service-name>
 ```
 
 Note that since Marathon is the “Init” system of DC/OS, it is running as a SystemD unit (same with respect to the other DC/OS system components). Due to this fact, you need the CLI command to access its logs.
@@ -140,7 +139,7 @@ Note that since Marathon is the “Init” system of DC/OS, it is running as a S
 
 ### Mesos Agent Logs
 
-Mesos agent logs are helpful for understanding how an application was started by the agent and how it may have failed. You can launch the Mesos web interface by navigating to `https://<cluster_name>/mesos` and examining the agent logs as shown below.
+Mesos agent logs are helpful for understanding how an application was started by the agent and how it may have failed. You can launch the Mesos GUI by navigating to `https://<cluster_name>/mesos` and examining the agent logs as shown below.
 
 ![Pic of Mesos agent UI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-23.png)
 
@@ -149,7 +148,7 @@ Figure 5. Mesos agent interface
 Alternatively, you can view the agent logs by first using `dcos node log --mesos-id=<node-id>` from the DC/OS CLI to locate the corresponding node `ID`. Enter:
 
 ```bash
-$ dcos node
+dcos node
 ```
 
 where you will see something similar to the following output:
@@ -173,7 +172,7 @@ master.mesos.  10.0.4.215    ffc913d8-4012-4953-b693-1acc33b400ce   master (lead
 Then, in this case, you can enter:
 
 ```bash
-$ dcos node log --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0 --follow
+dcos node log --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0 --follow
 ```
 
 and get the following log output:
@@ -192,7 +191,7 @@ The Mesos Master is responsible for matching available resources to the schedule
 
 Be aware that there are typically multiple Mesos Masters for a single cluster. So you should **identify the current leading Mesos Master to get the most recent logs**. In fact, in some cases it might even make sense to retrieve logs from another Mesos master as well: e.g., a master node failed and you want to understand why.
 
-You can either retrieve the master logs from the Mesos web interface via `<cluster-name>/mesos`, via `dcos node log --leader`, or for a specific master node using `ssh master` and `journalctl -u dcos-mesos-master`.
+You can either retrieve the master logs from the Mesos GUI via `<cluster-name>/mesos`, via `dcos node log --leader`, or for a specific master node using `ssh master` and `journalctl -u dcos-mesos-master`.
 
 <a name="system-logs"></a>
 
@@ -205,13 +204,13 @@ As an example, consider the system unit for the docker daemon on the Mesos agent
 First, we can SSH into that agent using the corresponding SSH key:
 
 ```bash
-$ dcos node ssh --master-proxy --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0
+dcos node ssh --master-proxy --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0
 ```
 
 Then we can use `journatlctl`, to look at the Docker logs:
 
 ```bash
-$ journalctl -u docker
+journalctl -u docker
 ```
 
 which outputs something like this:

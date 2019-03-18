@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Elastic 2.4.0-5.6.9
 excerpt:
 title: Elastic 2.4.0-5.6.9
-menuWeight: 8
+menuWeight: 2
 model: /services/elastic/data.yml
 render: mustache
 ---

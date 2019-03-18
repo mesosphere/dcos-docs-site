@@ -1,4 +1,6 @@
 ~(^/.*/[^.^#]*[^/])$ $1/;
+~^/1.7/.+ /1.7/;
+~^/1.8/.+ /1.8/;
 ~^/service-docs/(.*)$ /services/$1;
 ~/[0-9]+\.[0-9]+/release-notes/version-policy/ /version-policy/;
 /administration/admin-tutorials/installdatacenter/ /latest/tutorials/dcos-101/redis-package/;
@@ -168,6 +170,7 @@
 /services/cassandra/2.1.0-3.0.16/11-release-notes/ /services/cassandra/2.1.0-3.0.16/release-notes/;
 /services/elastic/2.3.0-5.6.5/11-release-notes/ /services/elastic/2.3.0-5.6.5/release-notes/;
 /services/hdfs/2.2.0-2.6.0-cdh5.11.0/11-release-notes/ /services/hdfs/2.2.0-2.6.0-cdh5.11.0/release-notes/;
+/administration/id-and-access-mgt/service-auth/mlb-auth/ /1.12/security/ent/service-auth/custom-service-auth/;
 /1.12/installing/oss/opt-out/ /1.12/installing/production/deploying-dcos/opt-out/;
 /1.12/release-notes/1.12/ /1.12/release-notes/1.12.0/;
 /1.12/installing/custom/advanced/ /1.12/installing/;
@@ -190,7 +193,7 @@
 /1.11/installing/ent/ /1.11/installing/;
 /1.11/installing/ent/custom/advanced/ /1.11/installing/production/deploying-dcos/installation/;
 /1.11/installing/ent/custom/cli/ /1.11/installing/evaluation/;
-/1.11/installing/ent/custom/configuration/ /1.11/production/deploying-dcos/configuration/;          
+/1.11/installing/ent/custom/configuration/ /1.11/production/deploying-dcos/configuration/;
 /1.11/installing/ent/custom/configuration/configuration-parameters/ /1.11/installing/production/advanced-configuration/configuration-reference/;
 /1.11/installing/ent/custom/configuration/examples/ /1.11/installing/production/deploying-dcos/configuration/examples/;
 /1.11/installing/ent/custom/configure-proxy/ /1.11/installing/production/deploying-dcos/configuration/;
@@ -198,7 +201,7 @@
 /1.11/installing/ent/custom/node-cluster-health-check/ /1.11/installing/production/deploying-dcos/node-cluster-health-check/;
 ~/1.11/installing/ent/custom/system-requirements/(.*)$ /1.11/installing/production/system-requirements/$1;
 /1.11/installing/ent/custom/system-requirements/install-docker-centos/ /1.11/installing/production/system-requirements/docker-centos/;
-/1.11/installing/ent/custom/system-requirements/install-docker-RHEL/ /1.11/installing/production/system-requirements/docker-centos/; 
+/1.11/installing/ent/custom/system-requirements/install-docker-RHEL/ /1.11/installing/production/system-requirements/docker-centos/;
 /1.11/installing/ent/custom/uninstall/ /1.11/installing/production/uninstall/;
 /1.11/installing/ent/faq/ /1.11/installing/installation-faq/;
 ~/1.11/installing/ent/high-availability/(.*)$ /1.11/installing/production/advanced-configuration/configuring-zones-and-regions/$1;
@@ -216,14 +219,14 @@
 /1.11/installing/oss/custom/advanced/ /1.11/installing/production/deploying-dcos/installation/;
 /1.11/installing/oss/custom/cli/ /1.11/installing/evaluation/cloud-installation/;
 /1.11/installing/oss/custom/configuration/ /1.11/production/deploying-dcos/configuration/;
-/1.11/installing/oss/custom/configuration/configuration-parameters/ /1.11/installing/production/advanced-configuration/configuration-reference/; 
+/1.11/installing/oss/custom/configuration/configuration-parameters/ /1.11/installing/production/advanced-configuration/configuration-reference/;
 /1.11/installing/oss/custom/configuration/examples/ /1.11/installing/production/deploying-dcos/configuration/examples/;
 /1.11/installing/oss/custom/configure-proxy/ /1.11/installing/production/deploying-dcos/configuration/;
 /1.11/installing/oss/custom/gui/ /1.11/installing/;
 /1.11/installing/oss/custom/node-cluster-health-check/ /1.11/installing/production/deploying-dcos/node-cluster-health-check/;
 ~/1.11/installing/oss/custom/system-requirements/ /1.11/installing/production/system-requirements/;
 /1.11/installing/oss/custom/system-requirements/install-docker-centos/ /1.11/installing/production/system-requirements/docker-centos/;
-/1.11/installing/oss/custom/system-requirements/install-docker-RHEL/ /1.11/installing/production/system-requirements/docker-centos/; 
+/1.11/installing/oss/custom/system-requirements/install-docker-RHEL/ /1.11/installing/production/system-requirements/docker-centos/;
 /1.11/installing/oss/custom/uninstall/ /1.11/installing/production/uninstalling/;
 /1.11/installing/oss/faq/ /1.11/installing/installation-faq/;
 ~/1.11/installing/oss/high-availability/(.*)$ /1.11/installing/production/advanced-configuration/configuring-zones-regions/$1;
@@ -356,7 +359,7 @@
 /1.10/installing/ent/ /1.10/installing/;
 /1.10/installing/ent/custom/advanced/ /1.10/installing/production/deploying-dcos/installation/;
 /1.10/installing/ent/custom/cli/ /1.10/installing/evaluation/;
-/1.10/installing/ent/custom/configuration/ /1.10/production/deploying-dcos/configuration/;          
+/1.10/installing/ent/custom/configuration/ /1.10/production/deploying-dcos/configuration/;
 /1.10/installing/ent/custom/configuration/configuration-parameters/ /1.10/installing/production/advanced-configuration/configuration-reference/;
 /1.10/installing/ent/custom/configuration/examples/ /1.10/installing/production/deploying-dcos/configuration/examples/;
 /1.10/installing/ent/custom/configure-proxy/ /1.10/1.12/installing/production/deploying-dcos/configuration/;
@@ -364,7 +367,7 @@
 /1.10/installing/ent/custom/node-cluster-health-check/ /1.10/installing/production/deploying-dcos/node-cluster-health-check/;
 ~/1.10/installing/ent/custom/system-requirements/(.*)$ /1.10/installing/production/system-requirements/$1;
 /1.10/installing/ent/custom/system-requirements/install-docker-centos/ /1.10/installing/production/system-requirements/docker-centos/;
-/1.10/installing/ent/custom/system-requirements/install-docker-RHEL/ /1.10/installing/production/system-requirements/docker-centos/; 
+/1.10/installing/ent/custom/system-requirements/install-docker-RHEL/ /1.10/installing/production/system-requirements/docker-centos/;
 /1.10/installing/ent/custom/uninstall/ /1.10/installing/production/uninstalling/;
 /1.10/installing/ent/faq/ /1.10/installing/installation-faq/;
 ~/1.10/installing/ent/high-availability/(.*)$ /1.10/installing/production/advanced-configuration/configuring-zones-and-regions/$1;
@@ -387,14 +390,14 @@
 /1.10/installing/oss/custom/advanced/ /1.10/installing/production/deploying-dcos/installation/;
 /1.10/installing/oss/custom/cli/ /1.10/installing/evaluation/;
 /1.10/installing/oss/custom/configuration/ /1.10/production/deploying-dcos/configuration/;
-/1.10/installing/oss/custom/configuration/configuration-parameters/ /1.10/installing/production/advanced-configuration/configuration-reference/; 
+/1.10/installing/oss/custom/configuration/configuration-parameters/ /1.10/installing/production/advanced-configuration/configuration-reference/;
 /1.10/installing/oss/custom/configuration/examples/ /1.10/installing/production/deploying-dcos/configuration/examples/;
 /1.10/installing/oss/custom/configure-proxy/ /1.10/installing/production/deploying-dcos/configureation/;
 /1.10/installing/oss/custom/gui/ /1.10/installing/;
 /1.10/installing/oss/custom/node-cluster-health-check/ /1.10/installing/production/deploying-dcos/node-cluster-health-check/;
 /1.10/installing/oss/custom/system-requirements/ /1.10/installing/production/system-requirements/;
 /1.10/installing/oss/custom/system-requirements/install-docker-centos/ /1.10/installing/production/system-requirements/docker-centos/;
-/1.10/installing/oss/custom/system-requirements/install-docker-RHEL/ /1.10/installing/production/system-requirements/docker-centos/; 
+/1.10/installing/oss/custom/system-requirements/install-docker-RHEL/ /1.10/installing/production/system-requirements/docker-centos/;
 /1.10/installing/oss/custom/uninstall/ /1.10/installing/production/uninstalling/;
 /1.10/installing/oss/faq/ /1.10/installing/installation-faq/;
 ~/1.10/installing/oss/high-availability/(.*)$ /1.10/installing/production/advanced-configuration/configuring-zones-regions/$1;

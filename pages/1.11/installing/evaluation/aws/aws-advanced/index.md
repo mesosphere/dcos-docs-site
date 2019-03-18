@@ -73,6 +73,47 @@ module "dcos" {
 }
 ```
 
+## Supported DC/OS Versions
+
+Currently, the Universal Installer defaults to `1.11.4` if none is specified. The following versions of DC/OS are currently supported. It is always recommended to specify a version.
+
+```json
+dcos_version: "1.12.0"
+```
+
+<table style="text-align: center" >
+  <tr>
+    <th style="font-weight: bold"> DC/OS Release </th><th>1.12</th><th>1.11</th><th>1.10</th>
+  </tr>
+  <tr><td>Latest</td><td> "1.12.1" </td><td> “1.11.8” </td><td> “1.10.9” </td></tr>
+  <tr><td> - </td><td> “1.12.0” </td><td> “1.11.7” </td><td> “1.10.8” </td></tr>
+  <tr><td> - </td><td> - </td><td> “1.11.6” </td><td> “1.10.7” </td></tr>
+  <tr><td> - </td><td> - </td><td> “1.11.5” </td><td> “1.10.6” </td></tr>
+  <tr><td> - </td><td> - </td><td> “1.11.4” </td><td> “1.10.5” </td></tr>
+  <tr><td> - </td><td> - </td><td> “1.11.3” </td><td> “1.10.4” </td></tr>
+  <tr><td> - </td><td> - </td><td> “1.11.2” </td><td> “1.10.3” </td></tr>
+  <tr><td> - </td><td> - </td><td> “1.11.1” </td><td> “1.10.2” </td></tr>
+  <tr><td> - </td><td> - </td><td> “1.11.0” </td><td> “1.10.1” </td></tr>
+  <tr><td> - </td><td> - </td><td> - </td><td> “1.10.0” </td></tr>
+</table>
+
+## Supported Instance (Node) OS Versions
+
+The default instance OS is currently `centos_7.5`, and will be applied unless specified in the configuration. The following instance operating systems are supported by DC/OS. To change the default OS, the following paramaters can be changed:
+
+```json
+dcos_instance_os = "centos_7.5"
+```
+
+<table style="width: 50%; text-align: center" >
+    <tr><th>Instance OS Version</th><th>Value</th></tr>
+    <tr><td>CentOS 7.5</td><td>“centos_7.5”</td></tr>
+    <tr><td>CentOS 7.4</td><td>“centos_7.4”</td></tr>
+    <tr><td>CentOS 7.3</td><td>“centos_7.3”</td></tr>
+    <tr><td>Core OS</td><td>“coreos_1855.5.0”</td></tr>
+    <tr><td>RHEL</td><td>“rhel_7.3”</td></tr>
+</table>
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -201,6 +242,7 @@ module "dcos" {
 | num_public_agents | Specify the amount of public agents. These agents will host marathon-lb and edgelb. | string | `1` | no |
 | private_agents_associate_public_ip_address | [PRIVATE AGENTS] Associate a public IP address with there instances | string | `true` | no |
 | private_agents_aws_ami | [PRIVATE AGENTS] AMI to be used. | string | `` | no |
+| private_agents_extra_volumes | [PRIVATE AGENTS] Extra volumes for each private agent | string | `<list>` | no |
 | private_agents_instance_type | [PRIVATE AGENTS] Instance type. | string | `m4.xlarge` | no |
 | private_agents_os | [PRIVATE AGENTS] Operating system to use. Instead of using your own AMI you could use a provided OS. | string | `` | no |
 | private_agents_root_volume_size | [PRIVATE AGENTS] Root volume size in GB. | string | `120` | no |

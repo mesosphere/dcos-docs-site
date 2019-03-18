@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Provisioning Jenkins
 title: Provisioning Jenkins
-menuWeight: 15
+menuWeight: 10
 excerpt: >
   This topic describes when and how to
   provision Jenkins with a service

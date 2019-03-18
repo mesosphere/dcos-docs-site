@@ -77,7 +77,7 @@ To launch a service on a public node, you must create a Marathon app definition 
 1.  Configure an edge load balancer and service discovery mechanism.
 
     - AWS users: If you installed DC/OS by using the [AWS CloudFormation templates](/1.12/installing/oss/cloud/aws/), an ELB is included. However, you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80).
-    - All other users: You can use [Marathon-LB](/1.12/networking/marathon-lb/), a rapid proxy and load balancer that is based on HAProxy.
+    - All other users: You can use [Marathon-LB](/services/marathon-lb/), a rapid proxy and load balancer that is based on HAProxy.
 
 1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/1.12/administering-clusters/locate-public-agent/).
 
@@ -89,4 +89,4 @@ To launch a service on a public node, you must create a Marathon app definition 
 
 ## Next steps
 
-Learn how to load balance your app on a public node using [Marathon-LB](/1.12/networking/marathon-lb/marathon-lb-basic-tutorial/).
+Learn how to load balance your app on a public node using [Marathon-LB](/1.12/tutorials/dcos-101/marathon-lb/).

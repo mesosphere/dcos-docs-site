@@ -56,7 +56,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 |[enable_ipv6](#enable-ipv6)                            | A boolean that indicates if IPv6 networking support is available in DC/OS. Default value is `true`. |
 | [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if `enable_ipv6` is set to `true`. Default value is `false`.|
 |[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. |
-
+|[network_cni_root_dir_persist](#network_cni_root_dir_persist) |A boolean that specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node. NOTE: It requires Host reboot for this flag to take effect|
 
 [enterprise]
 # Storage
@@ -124,7 +124,6 @@ Controls whether the Admin Router authorization cache is enabled.
 *   `adminrouter_auth_cache_enabled: false` (default) Every authorization check Admin Router performs will load the user's permissions from the IAM.
 *   `adminrouter_auth_cache_enabled: true` Admin Router will cache the user's permissions for 5 seconds after performing an authorization check.
 
-
 ## adminrouter_tls_1_0_enabled [enterprise type="inline" size="small" /]
 Indicates whether to enable TLS 1.0 in Admin Router. Changing this setting has no effect on internal Admin Router configuration on agent nodes.
 
@@ -135,7 +134,6 @@ You are advised not to enable TLS 1.0 as the protocol is considered insecure.
 
 If you have already installed your cluster and would like to change this in place, you can go through an [upgrade](/1.10/installing/production/upgrading/) with the `adminrouter_tls_1_0_enabled` parameter set to the desired value.
 
-
 ## adminrouter_tls_1_1_enabled [enterprise type="inline" size="small" /]
 Indicates whether to enable TLS 1.1 in Admin Router. Changing this setting has no effect on internal Admin Router configuration on agent nodes.
 
@@ -143,7 +141,6 @@ Indicates whether to enable TLS 1.1 in Admin Router. Changing this setting has n
 - `adminrouter_tls_1_1_enabled: 'false'` Disable the TLS 1.1 protocol in Admin Router.
 
 If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade](/1.10/installing/production/upgrading/) with the `adminrouter_tls_1_1_enabled` parameter set to the desired value.
-
 
 ## adminrouter_tls_1_2_enabled [enterprise type="inline" size="small" /]
 Indicates whether to enable TLS 1.2 in Admin Router. Changing this setting has no effect in internal Admin Router configuration on agent nodes.
@@ -222,7 +219,6 @@ Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_c
 *  `cluster_docker_credentials_enabled: 'true'` Pass the Mesos `--docker_config` option to Mesos. It will point to a file that contains the provided `cluster_docker_credentials` data.
 *  `cluster_docker_credentials_enabled: 'false'` Do not pass the Mesos `--docker_config` option to Mesos.
 
-
 ## cluster_docker_registry_url
 The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used.
 
@@ -255,7 +251,6 @@ Custom installation checks that are added to the default check configuration pro
     - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`
 
 For more information on how these custom checks are used, see the [examples](/1.10/installing/production/deploying-dcos/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.10/installing/production/deploying-dcos/node-cluster-health-check/) documentation.
-
 
 ## dcos_audit_logging [enterprise type="inline" size="small" /]
 Indicates whether security decisions (authentication, authorization) are logged for Mesos, Marathon, and Jobs.
@@ -302,7 +297,6 @@ Indicates whether to enable DC/OS virtual networks.
 
  For more information, see the [example](/1.10/installing/production/deploying-dcos/configuration/examples/#overlay) and [documentation](/1.10/networking/virtual-networks/).
 
-
 ## dns_bind_ip_blacklist
 A list of IP addresses that DC/OS DNS resolvers cannot bind to.
 
@@ -333,7 +327,6 @@ In this example, `example.com` has the public website `www.example.com` and all 
 ```yaml
 dns_search: dc1.example.com dc1.example.com example.com dc1.example.com dc2.example.com example.com
 ```
-
 
 ### docker_remove_delay
 The amount of time to wait before removing docker containers (i.e., `docker rm`) after Mesos regards the container as TERMINATED (e.g., 3days, 2weeks, etc). This only applies for the Docker Containerizer. It is recommended that you accept the default value 1 hour.
@@ -491,6 +484,10 @@ The location of the Mesos work directory on master nodes. This defines the `work
 ## mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
 
+### network_cni_root_dir_persist
+Specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node.
+
+**Note:** It requires Host reboot for this flag to take effect.
 
 ## oauth_enabled [oss type="inline" size="small" /]
 Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->

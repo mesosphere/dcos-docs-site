@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Volume Plugins
 title: Volume Plugins
-menuWeight: 70
+menuWeight: 80
 excerpt: Learn how the DC/OS Storage Service integrates with CSI plugins in order to support multiple storage provisioning backends.
 enterprise: true
 beta: true

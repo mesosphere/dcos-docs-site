@@ -8,7 +8,12 @@ if (isHeadings || relatedPages)
           for heading in headings
             - var headClass = 'content__sections-item--' + heading.tag
             li(class=headClass + ' content__sections-item')
-              a(href='#' + heading.id)!= heading.text
+              if heading.id
+                a(href='#' + heading.id)!= heading.text
+              else
+                - var h_text = heading.text.trim()
+                - h_text = h_text.replace(/\s+/g, '-').toLowerCase()
+                a(href='#' + h_text)!= heading.text
 
       if (relatedPages)
         ul(class='content__sections-list')

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.0
 title: Release Notes for 1.11.0
-menuWeight: 40
+menuWeight: 50
 excerpt: Release notes for DC/OS 1.11.0
 ---
 
@@ -14,10 +14,10 @@ DC/OS 1.11.0 was released on March 8, 2018.
 
 
 DC/OS 1.11 includes many new capabilities, with a focus on:
-- Managing clusters across multiple clouds
-- Production Kubernetes-as-a-service
-- Enhanced data security
-- Updated data services
+- Managing clusters across multiple clouds. [enterprise type="inline" size="small" /]
+- Production Kubernetes-as-a-service.
+- Enhanced data security. [enterprise type="inline" size="small" /]
+- Updated data services.
 
 Provide feedback on the new features and services at: [support.mesosphere.com](https://support.mesosphere.com).
 

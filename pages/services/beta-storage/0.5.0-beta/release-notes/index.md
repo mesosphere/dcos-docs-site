@@ -8,7 +8,7 @@ enterprise: true
 beta: true
 ---
 
-# Version 0.5.0
+# Release Notes for Beta DC/OS Storage Service version 0.5.0
 
 * This version of the DC/OS Storage Service requires DC/OS Enterprise version 1.12.1 or later.
 * Upgrading DSS from v0.4.x to v0.5.x requires [manual intervention](../upgrades/). Simply upgrading the `beta-storage` package is not sufficient.
@@ -43,7 +43,7 @@ DC/OS Storage Service is currently in Beta and has the following known bugs.
 * Deleting a volume may fail with "Cannot allocate memory" on CoreOS; please use a [supported version](/latest/version-policy/#dcos-platform-version-compatibility-matrix) of CoreOS.
 * Kernels from (including) 3.10.0-862.6.3.el7 up to (including) 3.10.0-862.11.6.el7 may panic as a result of LVM operations (https://access.redhat.com/solutions/3520511).
 
-# Version 0.4.0
+<!-- # Version 0.4.0
 
 * This version of the DC/OS Storage Service requires DC/OS Enterprise version 1.12 or later.
 
@@ -176,3 +176,4 @@ DC/OS Storage Service is currently in Beta and has the following known limitatio
 * Volume profile deactivation is not supported.
 * Cannot list devices or create volume provider on public agents.
 * Only linear target is supported by the LVM volume plugin.
+ -->

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Beta Jupyter
-title: Beta Jupyter
+navigationTitle: Beta Mesosphere Jupyter Service 
+title: Beta Mesosphere Jupyter Service
 menuWeight: 155
 excerpt:
 featureMaturity:

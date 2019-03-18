@@ -22,7 +22,7 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 - You must have a **separate computer** that is not part of the DC/OS cluster on which you can install the CLI.
 - You must have network access from the external system hosting the CLI to the DC/OS cluster.
 - You must be able to open a command-line shell terminal on the external system hosting the CLI.
-- You nust be able to run `cURL` program on the system hosting the CLI. The `curl` command is installed by default on most Linux distributions.
+- You must be able to run `cURL` program on the system hosting the CLI. The `curl` command is installed by default on most Linux distributions.
 - You must not be using the `noexec` to mount the `/tmp` directory unless you have set a `TMPDIR` environment variable to something other than the `/tmp` directory. Mounting the `/tmp` directory with the `noexec` option can prevent CLI operations.
 
 ## Installing the CLI on Linux from the web interface

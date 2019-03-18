@@ -19,9 +19,9 @@
     color: $color-grey;
     text-decoration: none;
     &:hover {
-      color: $color-purple-light;
+      color: $color-purple-d3;
       & .actions__icon--rss {
-        fill: $color-purple-light;
+        fill: $color-purple-d3;
       }
     }
   }

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt: Limitations of DC/OS Apache Spark 
+navigationTitle:
+excerpt: Limitations of DC/OS Apache Spark
 title: Limitations
 menuWeight: 135
 featureMaturity:
@@ -20,7 +20,7 @@ model: /services/spark/data.yml
     dependency management.
 
 *   With {{ model.techShortName }} SSL/TLS enabled, if you specify environment-based secrets with
-    `{{ model.serviceName }}.mesos.[driver|executor].secret.envkeys, the keystore and truststore secrets will also show up as
+    `{{ model.serviceName }}.mesos.[driver|executor].secret.envkeys`, the keystore and truststore secrets will also show up as
     environment-based secrets, due to the way secrets are implemented. You can ignore these extra environment variables.
 
 *   Anyone who has access to the {{ model.techShortName }} (Dispatcher) service instance has access to all secrets available to it. Do not
@@ -29,9 +29,9 @@ model: /services/spark/data.yml
 
 *   When using Kerberos and HDFS, the {{ model.techShortName }} Driver generates delegation tokens and distributes them to it's Executors
     via RPC.  Authentication of the Executors with the Driver is done with a [shared
-    secret][https://{{ model.serviceName }}.apache.org/docs/latest/security.html#{{ model.serviceName }}-security]. Without authentication, it is possible
+    secret](https://docs.mesosphere.com/services/{{ model.serviceName }}/latest/security/#using-the-secret-store). Without authentication, it is possible
     for executor containers to register with the Driver and retrieve the delegation tokens. To secure delegation token
-    distribution, use the `--executor-auth-secret` option. 
+    distribution, use the `--executor-auth-secret` option.
 
 *   {{ model.techShortName }} runs all of its components in Docker containers. Since the Docker image contains a full Linux userspace with
     its own `/etc/users` file, it is possible for the user `nobody` to have a different UID inside the

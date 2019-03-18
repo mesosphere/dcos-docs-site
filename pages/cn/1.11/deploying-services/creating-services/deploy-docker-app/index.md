@@ -154,7 +154,7 @@ enterprise: false
 
 # 后续步骤
 
-了解如何使用 [Marathon-LB](/cn/1.11/networking/marathon-lb/marathon-lb-basic-tutorial/) 在公共节点上对应用程序进行负载均衡。
+了解如何使用 [Marathon-LB](/cn/1.11/networking/marathon-lb/mlb-basic-tutorial/) 在公共节点上对应用程序进行负载均衡。
 
 
  [1]:https://www.docker.com

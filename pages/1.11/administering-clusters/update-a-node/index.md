@@ -52,11 +52,7 @@ You can define a maintenance schedule to evacuate your tasks prior to changing a
 
 1.  Invoke the `⁠⁠⁠⁠machine/down` endpoint with the machine JSON definition specified. For example, [here](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) is a script that calls `/machine/down/`.
 
-    <table class=“table” bgcolor=#858585>
-    <tr> 
-     <td align=justify style=color:white><strong>Important:</strong> Invoking "machine/down" sends a ⁠⁠⁠⁠TASK_LOST⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS service guides and the Mesos maintenance primitives <a href="https://mesos.apache.org/documentation/latest/maintenance/">documentation</a>.</td> 
-    </tr> 
-    </table>
+    <p class="message--important"><strong>IMPORTANT: </strong>Invoking "machine/down" sends a ⁠⁠⁠⁠TASK_LOST⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS service guides and the Mesos maintenance primitives <a href="https://mesos.apache.org/documentation/latest/maintenance/">documentation</a>.</p>
     
 1.  Perform your maintenance.
 1.  Add the nodes back to your cluster by invoking the `⁠⁠⁠⁠machine/up` endpoint with the add agents JSON definition specified. For example:
@@ -71,49 +67,55 @@ You can define a maintenance schedule to evacuate your tasks prior to changing a
 # Updating nodes by manually killing agents
 Draining nodes by using terminate signal, SIGUSR1, is easy to integrate with automation tools that can execute tasks on nodes in parallel, for example Ansible, Chef, and Puppet.
 
-1.  [SSH to the agent nodes](/1.11/administering-clusters/sshcluster/).
-1.  Stop the agents.
+1. Open a secure shell [SSH](/1.11/administering-clusters/sshcluster/) on the agent nodes.
 
-    -  **Private agent**
+1. Stop the agents by running the appropriate command.
+    -  For **private agents**, run:
 
        ```bash
        sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
        ```
-    -  **Public agent**
+
+    - For **public agents**, run:
 
        ```bash
        ⁠⁠⁠⁠sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave-public && systemctl stop dcos-mesos-slave-public'
        ```
 
 1.  Perform your maintenance.
-1.  Add the nodes back to your cluster.
-    1.  Reload the systemd configuration.
 
-        ```bash
-        ﻿⁠⁠sudo systemctl daemon-reload
-        ```
+1.  Add the nodes back to your cluster by reloading the `systemd` configuration.
 
-    1.  Remove the `latest` metadata pointer on the agent node:
+    ```bash
+    ﻿⁠⁠sudo systemctl daemon-reload
+    ```
+    
+    If you are performing agent maintenance without changing agent attributes or resources, continue to the next step after reloading the `systemd` configuration. If you are changing agent attributes or resources as part of updating the node, however, you should delete the `latest` symbolic link on the agent node.
 
-        ```bash
-        ⁠⁠⁠⁠sudo rm /var/lib/mesos/slave/meta/slaves/latest
-        ```
+    To remove the `latest` metadata pointer on the agent node, run the following command on the private and public agent nodes where you are changing agent settings:
 
-    1.  Start your agents with the newly configured attributes and resource specification⁠⁠.
+    ```bash
+    ⁠⁠⁠⁠sudo rm /var/lib/mesos/slave/meta/slaves/latest
+    ```
 
-        -  **Private agent**
+    Continue to the next step after removing the `latest` metadata symbolic link.
 
-            ```bash
-            sudo systemctl start dcos-mesos-slave
-            ```
-        -  **Public agent**
+1. Restart agents by running the appropriate command.
 
-            ```bash
-            sudo systemctl start dcos-mesos-slave-public
-            ```
+    - For **private agents**, run:
 
-        **Tip:** You can check the status with this command:
+    ```bash
+    sudo systemctl start dcos-mesos-slave
+    ```
 
-        ```bash
-        sudo systemctl status dcos-mesos-slave
-        ```
+    - For **public agents**, run:
+
+    ```bash
+    sudo systemctl start dcos-mesos-slave-public
+    ```
+
+1. Check the status of the change by running the following command:
+
+    ```bash
+    sudo systemctl status dcos-mesos-slave
+    ```

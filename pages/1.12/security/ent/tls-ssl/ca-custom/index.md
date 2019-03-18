@@ -98,6 +98,7 @@ The [Example use cases](#example-use-cases) section below shows how to set these
 
 # <a name="config-ref"></a>Configuration parameter reference
 ## ca\_certificate\_path
+
 Path (relative to the `$DCOS_INSTALL_DIR`) to a file containing a single X.509 CA certificate in the OpenSSL PEM format. For example: `genconf/dcos-ca-certificate.crt`. It is either a **root CA certificate** (“self-signed”) or an **intermediate CA certificate** (“cross-certificate”) signed by some other certificate authority.
 
 If provided, this is the custom CA certificate. It is used as the signing CA certificate, that is, the DC/OS CA will use this certificate for signing end-entity certificates; the subject of this certificate will be the issuer for certificates signed by the DC/OS CA. If not provided, the DC/OS cluster generates a unique root CA certificate during the initial bootstrap phase and uses that as the signing CA certificate.
@@ -105,9 +106,10 @@ If provided, this is the custom CA certificate. It is used as the signing CA cer
 The public key associated with the custom CA certificate must be of type RSA.
 
 ## ca\_certificate\_key\_path
+
 Path (relative to the `$DCOS_INSTALL_DIR`) to a file containing the private key corresponding to the custom CA certificate, encoded in the OpenSSL (PKCS#8) PEM format. For example: `genconf/CA_cert.key`.
 
-This is highly sensitive data. The configuration processor accesses this file only for configuration validation purposes, and does not copy the data. After successful configuration validation this file needs to be placed out-of-band into the file system of all DC/OS master nodes to the path `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` before most DC/OS `systemd` units start up. The file must be readable by the root user, and should have have 0600 permissions set.
+<p class="message--caution"><strong>CAUTION: </strong> This is highly sensitive data. The configuration processor accesses this file only for configuration validation purposes, and does not copy the data. After successful configuration validation this file needs to be placed out-of-band into the file system of all DC/OS master nodes to the path <code>/var/lib/dcos/pki/tls/CA/private/custom_ca.key</code> before most DC/OS systemd units start up. The file must be readable by the root user, and should have have 0600 permissions set.</p>
 
 This path is required if `ca_certificate_path` is specified.
 
@@ -193,7 +195,7 @@ verify return:1
 ## Example use cases
 This section describes how the three configuration parameters `ca_certificate_path`, `ca_certificate_key_path` and `ca_certificate_chain_path` must be specified in the `$DCOS_INSTALL_DIR/genconf/config.yaml` DC/OS configuration file for the most common use cases of a custom CA certificate hierarchy.
 
-### Use case 1: 
+### Use case 1 
 The custom CA certificate is a self-signed root CA certificate. The CA does not have a “parent” CA, hence the CA certificate chain is empty.
 
 The following files are present:
@@ -223,7 +225,7 @@ ca_certificate_path: genconf/dcos-ca-certificate.crt
 ca_certificate_key_path: genconf/dcos-ca-certificate-key.key
 ```
 
-### Use case 2: 
+### Use case 2 
 
 In this case the custom CA certificate is an intermediate one, issued directly by a root CA. The CA certificate chain consists of just that root CA certificate. The following files are present:
 
@@ -265,7 +267,7 @@ ca_certificate_key_path: genconf/dcos-ca-certificate-key.key
 ca_certificate_chain_path: genconf/dcos-ca-certificate-chain.crt
 ```
 
-### Use case 3: 
+### Use case 3 
 
 In this case the custom CA certificate is an intermediate one, issued directly by another intermediate CA that, in turn, has its certificate issued by a root CA.
 

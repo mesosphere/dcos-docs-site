@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Confluent ZooKeeper 2.3.0-4.0.0e
 title: Confluent ZooKeeper 2.3.0-4.0.0e
-menuWeight: 5
+menuWeight: 2
 excerpt:
 
 model: /services/confluent-zookeeper/data.yml
