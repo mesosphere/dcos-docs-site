@@ -106,10 +106,6 @@ If you have the `DCOS_CONFIG` environment variable configured:
 - After conversion to the [new configuration structure](#configuration-files), `DCOS_CONFIG` is no longer honored.
 - Before you call `dcos cluster setup`, you can change the configuration pointed to by `DCOS_CONFIG` using `dcos config set`. This command displays a warning message saying the command is deprecated and recommends using `dcos cluster setup`.
 
-# Listing your clusters
-
-The DC/OS CLI can work with multiple clusters. The following command displays the latest configured cluster:
-
 <a name="dcos-dir"></a>
 #### `DCOS_DIR` (DC/OS CLI 0.5.x and later only)
 
@@ -121,16 +117,24 @@ export DCOS_DIR=/home/jdoe/config
 
 Optionally set `DCOS_DIR` and run `dcos cluster setup` command.
 
-    ```
-    export DCOS_DIR=<path/to/config_dir> (optional, default when not set is ~/.dcos)
-    dcos cluster setup <url>
-    ```
+```bash
+export DCOS_DIR=<path/to/config_dir> (optional, default when not set is ~/.dcos)
+dcos cluster setup <url>
+```
 
-   This setting generates and updates per cluster configuration under `$DCOS_DIR/clusters/<cluster_id>`. Sets newly set up cluster as the attached one.
+This setting generates and updates per cluster configuration under `$DCOS_DIR/clusters/<cluster_id>`. It sets the newly set up cluster as the attached one.
 
 <a name="dcos-ssl-verify"></a>
 #### `DCOS_SSL_VERIFY`
 This command indicates whether to verify SSL certificates or set the path to the SSL certificates. You must set this variable manually. Setting this environment variable is equivalent to setting the `dcos config set core.ssl_verify` option in the DC/OS configuration [file](#configuration-files). For example, to indicate that you want to set the path to SSL certificates:
+
+```bash
+export DCOS_SSL_VERIFY=false
+```
+
+# Listing your clusters
+
+The DC/OS CLI can work with multiple clusters. The following command displays the latest configured cluster:
 
 ```bash
 $ dcos cluster list
