@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle:  dcos license audit 
 title: dcos license audit 
-menuWeight: 0
+menuWeight: 1
 excerpt: Getting the cluster license audit records
-
 enterprise: true
 ---
 
@@ -14,30 +13,20 @@ The `dcos license audit` command allows you to retrieve audit data for your DC/O
 # Usage
 
 ```bash
-dcos license audit get [<id>|active] [--output <file_path>] [--decrypt]
+dcos license audit [OPTIONS] COMMAND [ARGS]...
 ```
 
 # Options
 
 | Name |  Description |
 |---------|-------------|
-| `--output`   |  Store the audit records in a file. |
-| `--decrypt`   |   Decrypt the license audit records checksum. |
+| `--help`   |  Show this message and exit. |
 
 # Commands
 
 | Name | Description |
 |---------------|--------------------|
 | `get` | Retrieve the audit file associated with a specific license. |
-
-
-# Positional arguments
-
-| Name |  Description |
-|---------|-------------|
-| `<id> `   |  The ID of the license. |
-| `active`   |   The active license. |
-| `<file_path>`    |  The path to a file to store the audit records. |
 
 
 # Parent command
