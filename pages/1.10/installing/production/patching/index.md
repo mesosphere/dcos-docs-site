@@ -33,12 +33,15 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
 
 <table class="table">
     <tr>
-    <th><p style="text-align: center;"><strong>Patch From</strong></p></th>
+    <th><p style="text-align: center;"><strong>Patch From </strong></p></th>
     <th></th>
     <th></th>
     <th></th>
     <th></th>
     <th><p style="text-align: center;"><strong>Patch To</strong></p></th>
+    <th></th>
+    <th></th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -53,6 +56,9 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
     <th><p style="text-align: center;">1.10.6</p></th>
     <th><p style="text-align: center;">1.10.7</p></th>
     <th><p style="text-align: center;">1.10.8</p></th>
+    <th><p style="text-align: center;">1.10.9</p></th>
+    <th><p style="text-align: center;">1.10.10</p></th>
+    <th><p style="text-align: center;">1.10.11</p></th>
     </tr>
     <tr>
        <td><p style="text-align: center;">1.10.0</p></td>
@@ -63,6 +69,9 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
        <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">◯</p></td>
        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
@@ -75,11 +84,17 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
        <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">◯</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
        <td><p style="text-align: center;">1.10.2</p></td>
        <td><p style="text-align: center;">◯</p></td>
        <td><p style="text-align: center;">◯</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
+       <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">⚫</p></td>
        <td><p style="text-align: center;">⚫</p></td>
@@ -96,6 +111,9 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
       <td><p style="text-align: center;">⚫</p></td>
       <td><p style="text-align: center;">⚫</p></td>
       <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
     </tr>
     </tr>
       <td><p style="text-align: center;">1.10.4</p></td>
@@ -103,6 +121,9 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
       <td><p style="text-align: center;">◯</p></td>
       <td><p style="text-align: center;">◯</p></td>
       <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
       <td><p style="text-align: center;">⚫</p></td>
       <td><p style="text-align: center;">⚫</p></td>
       <td><p style="text-align: center;">⚫</p></td>
@@ -118,6 +139,9 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
       <td><p style="text-align: center;">⚫</p></td>
       <td><p style="text-align: center;">⚫</p></td>
       <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
     </tr>
      </tr>
       <td><p style="text-align: center;">1.10.6</p></td>
@@ -129,9 +153,57 @@ Example: DC/OS 1.X.A to 1.X.B (1.10.1 --> 1.10.2)
       <td><p style="text-align: center;">◯</p></td>
       <td><p style="text-align: center;">⚫</p></td>
       <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
     </tr>
     </tr>
       <td><p style="text-align: center;">1.10.7</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    </tr>
+      <td><p style="text-align: center;">1.10.8</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    </tr>
+      <td><p style="text-align: center;">1.10.9</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+      <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    </tr>
+      <td><p style="text-align: center;">1.10.10</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
+      <td><p style="text-align: center;">◯</p></td>
       <td><p style="text-align: center;">◯</p></td>
       <td><p style="text-align: center;">◯</p></td>
       <td><p style="text-align: center;">◯</p></td>
