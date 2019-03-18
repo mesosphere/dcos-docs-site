@@ -19,14 +19,14 @@ dcos license list --output <file_path>
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--output`   |   Store the license in a file. |
 
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<file_path>`    |  The path to a file to store the license. |
 

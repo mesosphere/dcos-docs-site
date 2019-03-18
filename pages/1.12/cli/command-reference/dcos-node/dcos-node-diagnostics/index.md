@@ -20,7 +20,7 @@ dcos node diagnostics [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--cancel`   |  Cancel a running diagnostics job. |
 | `--list`   |  List the available diagnostics bundles. |

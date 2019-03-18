@@ -24,7 +24,7 @@ None.
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` command. |
 | `<schedule-file>`   |  A JSON formatted job schedule file. |

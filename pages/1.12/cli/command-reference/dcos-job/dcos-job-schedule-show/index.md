@@ -20,13 +20,13 @@ dcos job schedule show <job-id> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   |   Print JSON-formatted list. |
 
 # Positional arguments
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|
 | `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` command.|
 

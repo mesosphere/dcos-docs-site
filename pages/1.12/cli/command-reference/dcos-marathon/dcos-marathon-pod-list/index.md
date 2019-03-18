@@ -19,7 +19,7 @@ dcos marathon pod list [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--config-schema`   | Show the configuration schema for the Marathon subcommand. |
 | `--json`   |   Displays JSON-formatted data. |

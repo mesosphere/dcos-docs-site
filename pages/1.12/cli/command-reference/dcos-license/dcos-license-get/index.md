@@ -19,7 +19,7 @@ dcos license get [<id>|active] [--output <file_path>] [--decryption-key]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 |   |   |
 | `--output`   |   Store the license in a file. |
@@ -28,7 +28,7 @@ dcos license get [<id>|active] [--output <file_path>] [--decryption-key]
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<id> `   |   The ID of the license. |
 | `active`   |   The active license. |

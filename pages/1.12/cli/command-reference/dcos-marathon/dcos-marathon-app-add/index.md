@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon app add` command allows you to add an application.
 
 # Usage
@@ -24,7 +25,7 @@ None.
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<app-resource>`   | Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description, see the [documentation](/1.12/deploying-services/marathon-api/). |
 
@@ -71,7 +72,7 @@ In this example, a simple app is deployed to DC/OS Marathon.
 
     If this is added successfully, there is no output.
 
-1.  Verify that the app is added with this command:
+1.  Verify that the app has been added with this command:
 
     ```bash
     dcos marathon app list

@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon app debug details` command allows you to view debugging information for Marathon application deployments that are waiting.
 
 # Usage
@@ -20,13 +21,13 @@ dcos marathon debug details <app-id> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   |  Displays JSON-formatted data. |
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<app-id>`   |   The application ID.  You can view a list of the application IDs with the `dcos marathon app list` command. |
 

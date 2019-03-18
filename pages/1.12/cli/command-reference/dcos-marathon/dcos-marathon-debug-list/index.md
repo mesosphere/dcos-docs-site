@@ -21,7 +21,7 @@ dcos marathon debug list [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   |  Displays JSON-formatted data. |
 

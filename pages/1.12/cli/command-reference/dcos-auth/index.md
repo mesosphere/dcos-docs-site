@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos auth` command manages DC/OS identity and access.
+The `dcos auth` command authenticates a user to the DC/OS cluster.
 
 # Usage
 
@@ -20,16 +20,14 @@ dcos auth
 
 # Options
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|-------------|
 | `--help, h`   | Display usage. |
-| `--info`   |  Display a short description of this subcommand. |
-| `--version, v`   | Display version information. |
 
-# Child commands
+# Commands
 
-| Command | Description |
-|---------|-------------|
-|[dcos auth list-providers](/1.12/cli/command-reference/dcos-auth/dcos-auth-list-providers/) | List configured authentication providers for your DC/OS cluster. |
-| [dcos auth login](/1.12/cli/command-reference/dcos-auth/dcos-auth-login/)   |   Log in to DC/OS authentication.  |
-| [dcos auth logout](/1.12/cli/command-reference/dcos-auth/dcos-auth-logout/)   |  Log out of DC/OS authentication.  |
+| Name | Description |
+|---------|-------------|-------------|
+| `list-providers` |  List available login providers for a cluster. |
+|  `login`   |   Log in to the current cluster |
+|  `logout` |     Log out the CLI from the current cluster |

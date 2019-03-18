@@ -16,6 +16,13 @@ The `dcos config validate` command will validate changes to the configuration fi
 ```bash
 dcos config validate
 ```
+You will get a message that your configuration has been validated:
+
+```
+dcos config validate
+Validating /Users/<username>/.dcos/clusters/00548eb6-0001-47f8-9076-d57b56752325/dcos.toml ...
+Congratulations, your configuration is valid!
+```
 
 # Parent command
 

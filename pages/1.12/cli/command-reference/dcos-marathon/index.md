@@ -20,9 +20,9 @@ dcos marathon
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--config-schema`   |   Show the configuration schema for the Marathon subcommand. |
-| `--help, h`   | Displays usage. |
+| `--help`, `h`   | Displays usage. |
 | `--info`   |   Displays a short description of this subcommand. |
-| `--version, v`   |  Displays version information. |
+| `--version`, `v`   |  Displays version information. |

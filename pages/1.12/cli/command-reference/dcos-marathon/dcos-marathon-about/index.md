@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon about` command will display the `info.json` file for DC/OS Marathon.
 
 # Usage

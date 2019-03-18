@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon deployment list` command allows you to view a list of currently deployed applications.
 
 # Usage
@@ -20,13 +21,13 @@ dcos marathon deployment list <app-id> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   |  Displays JSON-formatted data. |
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<app-id>`   |   The application ID.  |
 

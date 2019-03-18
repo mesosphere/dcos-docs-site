@@ -19,7 +19,7 @@ dcos license renew  --filename <file_path>
 
 # Options
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
 |   |   |   |
 | `--filename`   |             |  Specify the name of a license file. |
@@ -27,7 +27,7 @@ dcos license renew  --filename <file_path>
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `PATH`  |   The path to a file containing the license. |
 

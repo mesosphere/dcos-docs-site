@@ -24,7 +24,7 @@ None.
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<task-id>`   |  The task ID. You can view a list of the task IDs with the `dcos marathon task list` command. |
 

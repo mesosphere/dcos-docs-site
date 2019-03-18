@@ -19,7 +19,7 @@ dcos license status  [--terms] [--breaches]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--terms`   |   Displays the terms of contract. |
 | `--breaches`   |   Displays the number of breaches. |

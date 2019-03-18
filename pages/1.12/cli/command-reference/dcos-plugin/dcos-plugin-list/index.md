@@ -11,7 +11,7 @@ enterprise: false
 
 # Description
 
-Print a list of the installed DC/OS plugins.
+The `dcos plugin list` command will print a list of the installed DC/OS plugins.
 
 # Usage
 
@@ -21,7 +21,7 @@ dcos plugin list [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
 | `--json`   |             |  JSON-formatted list. |
 

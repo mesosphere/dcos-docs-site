@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-This command allows you to log out of DC/OS authentication.
+The `dcos auth logout` command allows you to log out of DC/OS authentication.
 
 # Usage
 
@@ -23,3 +23,4 @@ dcos auth logout
 | Command | Description |
 |---------|-------------|
 | [dcos auth](/1.12/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+

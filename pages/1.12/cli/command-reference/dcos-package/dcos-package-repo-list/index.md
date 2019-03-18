@@ -20,7 +20,7 @@ dcos package repo list [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   |   JSON-formatted data. |
 

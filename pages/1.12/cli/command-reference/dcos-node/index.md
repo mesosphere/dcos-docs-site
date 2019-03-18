@@ -20,7 +20,7 @@ dcos node [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--help, h`   |   Displays usage. |
 | `--info`   |  Displays a short description of this subcommand. |

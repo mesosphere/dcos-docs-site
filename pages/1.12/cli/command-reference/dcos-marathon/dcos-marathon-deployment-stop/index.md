@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon deployment stop` command allows you to cancel the in-progress deployment of an application.
 
 # Usage
@@ -24,7 +25,7 @@ None.
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<deployment-id>`   |   The deployment ID. You can view a list of the deployment IDs with the `dcos marathon deployment list` command. |
 

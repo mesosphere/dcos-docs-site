@@ -17,3 +17,13 @@ Usage:
   dcos license status [--terms] [--breaches]
   dcos license renew [OPTIONS] PATH
 ```
+
+# Options
+
+| Name |  Description |
+|---------|-------------|
+| `list` | Display the cluster licenses |
+| `get` | Display the cluster licenses | 
+| `audit get` | Get the cluster license audit records |
+| `status` | Review the cluster license status |
+| `renew` | Renew a cluster license |

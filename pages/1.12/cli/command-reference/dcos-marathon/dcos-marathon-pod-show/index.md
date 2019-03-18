@@ -24,7 +24,7 @@ None.
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<pod-id>`   | The pod ID. You can view a list of the pod IDs with the `dcos marathon pod list` command.|
 
