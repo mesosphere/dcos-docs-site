@@ -29,12 +29,7 @@ edgelb-pool  v1.3.0   True      True       EdgeLB Pool on DC/OS
 
 If it does, you can skip the `dcos package repo add` commands below.
 
-*Otherwise*, if you see a `No packages found` message you'll need to
-add a couple of package repositories to your cluster. These are for
-EdgeLB version 1.3.0, which is the latest at the time of writing. Take
-a look at the [EdgeLB service
-documentation](https://docs.mesosphere.com/services/edge-lb/) to check
-if that's the latest version.
+*Otherwise*, if you see a `No packages found` message you'll need to add a couple of package repositories to your cluster. These are for EdgeLB version 1.3.0, which is the latest at the time of writing. Take a look at the [EdgeLB service documentation](https://docs.mesosphere.com/services/edge-lb/) to check if that's the latest version.
 
 ```bash
 dcos package repo add edgelb https://downloads.mesosphere.com/edgelb/v1.3.0/assets/stub-universe-edgelb.json
@@ -47,11 +42,9 @@ Now install EdgeLB with:
 dcos package install edgelb
 ```
 
-For more details please check out the [EdgeLB installation
-instructions](https://docs.mesosphere.com/services/edge-lb/1.3/installing/).
+For more details please check out the [EdgeLB installation instructions](https://docs.mesosphere.com/services/edge-lb/1.3/installing/).
 
-The installation will take a moment. The following command can be
-used to determine if EdgeLB is up and running:
+The installation will take a moment. The following command can be used to determine if EdgeLB is up and running:
 
 ```bash
 dcos edgelb --name edgelb ping
@@ -61,35 +54,22 @@ An output of `pong` means that it's ready.
 
 ## 2. Create an EdgeLB pool for Kibana
 
-The following command will create an EdgeLB pool task running on one
-of your DC/OS cluster's public agents, which will allow Kibana to be
-accessed from outside the cluster network, given that the selected
-port on the agent machine is open.
+The following command will create an EdgeLB pool task running on one of your DC/OS cluster's public agents, which will allow Kibana to be accessed from outside the cluster network, given that the selected port on the agent machine is open.
 
-In this example we'll expose a Kibana service named
-`/production/kibana` through HTTP, on port `80`. It will be accessible
-on `http://$public_agent_ip_or_url:80`.
+In this example we'll expose a Kibana service named `/production/kibana` through HTTP, on port `80`. It will be accessible on `http://$public_agent_ip_or_url:80`.
 
 Note that in this example:
 - the EdgeLB pool that will be created is named `kibana`
 - its backend name is `kibana-backend`
 
-It is not a requirement that these match any configuration options
-related to the actual Kibana service, so one could name them
-differently.
+It is not a requirement that these match any configuration options related to the actual Kibana service, so one could name them differently.
 
-The pool fields that actually map to the actual Kibana service are
-under `haproxy.backends`:
-- `rewriteHttp.path.fromPath` should match the Kibana Marathon app
-service path
-- `services.endpoint.portName` should match the Kibana Marathon app
-port name
+The pool fields that actually map to the actual Kibana service are under `haproxy.backends`:
+- `rewriteHttp.path.fromPath` should match the Kibana Marathon app service path
+- `services.endpoint.portName` should match the Kibana Marathon app port name
 - `services.marathon.serviceID` should match the Kibana service name
 
-Let's get the remaining configuration parameters that will map the
-EdgeLB pool to the actual Kibana service. We'll use them in the pool
-configuration. Make sure to use a different name or port based on your
-needs.
+Let's get the remaining configuration parameters that will map the EdgeLB pool to the actual Kibana service. We'll use them in the pool configuration. Make sure to use a different name or port based on your needs.
 
 ```bash
 kibana_service_name="/production/kibana"
@@ -197,31 +177,23 @@ Now you can install the Kibana EdgeLB pool with:
 dcos edgelb create kibana_pool.json
 ```
 
-Again, installation will take a moment. If `TASK_RUNNING` appears in
-the output of the following command it means that the pool is up and
-running.
+Again, installation will take a moment. If `TASK_RUNNING` appears in the output of the following command it means that the pool is up and running.
 
 ```bash
 dcos edgelb status kibana
 ```
 
-At this point, Kibana should already be accessible through
-`http://$public_agent_ip_or_url:80`.
+At this point, Kibana should already be accessible through `http://$public_agent_ip_or_url:80`.
 
 ## 3. Accessing Kibana
 
-If you only have one public agent and you know its IP address, it
-should be easy to access Kibana. If not, there's a few commands that
-might help you out.
+If you only have one public agent and you know its IP address, it should be easy to access Kibana. If not, there's a few commands that might help you out.
 
 ### Get IP address of public agent running Kibana pool
 
-This step requires that you have SSH access to the DC/OS cluster
-nodes. Make sure you do before proceding.
+This step requires that you have SSH access to the DC/OS cluster nodes. Make sure you do before proceding.
 
-Here we're using the `kibana` pool name in the `dcos edgelb status`
-command. If you named the pool something else make sure to use it
-instead.
+Here we're using the `kibana` pool name in the `dcos edgelb status` command. If you named the pool something else make sure to use it instead.
 
 ```bash
 agent_private_ip="$(dcos edgelb status kibana --json | jq -r '.[0].status.containerStatus.networkInfos[0].ipAddresses[0].ipAddress')"
@@ -229,13 +201,9 @@ agent_public_ip="$(dcos node ssh --option StrictHostKeyChecking=no --option LogL
 ```
 ### Authenticate with Kibana
 
-Now that we have the public agent IP address where the EdgeLB Kibana
-pool task is running we should be able to access Kibana.
+Now that we have the public agent IP address where the EdgeLB Kibana pool task is running we should be able to access Kibana.
 
-If Kibana has X-Pack Security enabled you'll first need access
-`http://$public_agent_ip_or_address/login` to authenticate with the
-Kibana server. Use credentials that are stored in your Elasticsearch
-cluster.
+If Kibana has X-Pack Security enabled you'll first need access `http://$public_agent_ip_or_address/login` to authenticate with the Kibana server. Use credentials that are stored in your Elasticsearch cluster.
 
 ```bash
 kibana_url="http://${agent_public_ip}"
@@ -249,9 +217,7 @@ kibana_login_url="${kibana_url}/login"
 command -v xdg-open && xdg-open "${kibana_login_url}" || open "${kibana_login_url}"
 ```
 
-*After authenticating*, or if Kibana doesn't have X-Pack Security
-enabled, Kibana should be available at
-`http://$public_agent_ip_or_url/service/kibana/app/kibana`.
+*After authenticating*, or if Kibana doesn't have X-Pack Security enabled, Kibana should be available at `http://$public_agent_ip_or_url/service/kibana/app/kibana`.
 
 ```bash
 kibana_authenticated_url="${kibana_url}/service/${kibana_service_name}/app/kibana"
