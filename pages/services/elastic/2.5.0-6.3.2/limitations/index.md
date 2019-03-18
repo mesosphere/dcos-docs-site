@@ -28,7 +28,7 @@ Upgrades and rolling configuration updates do not wait for a cluster green healt
 
 ## Security
 
-Elasticsearch's native authentication and authorization mechanisms are not *officially* supported at this time.
+Elasticsearch's built-in authentication mechanisms ([realms](https://www.elastic.co/guide/en/elastic-stack-overview/6.6/setting-up-authentication.html)) cannot currently be configured through service configuration options (e.g. on package installs or service updates). However, since the [native](https://www.elastic.co/guide/en/elasticsearch/reference/6.6/configuring-native-realm.html) realm is enabled by default by Elasticsearch it's possible to configure it through the [security APIs](https://www.elastic.co/guide/en/elasticsearch/reference/6.6/security-api.html). These APIs include both authentication and authorization mechanisms.
 
 ### Transport Encryption
 
