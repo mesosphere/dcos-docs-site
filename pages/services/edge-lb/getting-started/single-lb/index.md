@@ -3,19 +3,20 @@ layout: layout.pug
 navigationTitle: Expose and load balance a service
 title: Expose and load balance a sample service
 menuWeight: 10
-excerpt: Illustrates the basic steps for load balancing a single service runs on DC/OS
+excerpt: Illustrates the basic steps for load balancing a single service running on DC/OS
 enterprise: true
 ---
 
-This tutorial demonstrates how to load balance a DC/OS service and set it up for access outside of the cluster.
+This tutorial demonstrates how to prepare load balancing for access to a single DC/OS service. For this tutorial, the access requests originate outside of the DC/OS cluster and are routed into the cluster through a public-facing IP address. This scenario illustrates the most common way orgnaizations get started with a load balancing solution.
 
-## Prerequisites
+# Before you begin
+* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster
+* You must have the `edgelb` command-line interface (CLI) installed.
+* You must have an active and properly-configured DC/OS Enterprise cluster.
+* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
-* Edge-LB is installed following the [Edge-LB Installation](/services/edge-lb/1.2/installing) instructions.
-* The DC/OS CLI is installed and configured to communicate with the DC/OS cluster, and the `edgelb` CLI package has been installed.
-* At least one DC/OS private agent node, to run the load balanced service (more is preferable).
-* At least one DC/OS public agent node.
-
+# Create the sample app definition
 1. Create a Marathon application definition containing the service. We will call it `ping.json`. It will start one instance.
 
    ```json
@@ -55,7 +56,7 @@ This tutorial demonstrates how to load balance a DC/OS service and set it up for
    dcos marathon app add ping.json
    ```
 
-1. Create a [pool configuration](/services/edge-lb/1.2/pool-configuration) name `sample-minimal.json`.
+1. Create a [pool configuration](/services/edge-lb/1.2/pool-configuration) named `sample-minimal.json`.
 
    ```json
    {
@@ -86,18 +87,22 @@ This tutorial demonstrates how to load balance a DC/OS service and set it up for
    }
    ```
 
-1. Deploy the Edge-LB configuration.
+1. Deploy the Edge-LB pool configuration.
 
    ```bash
    dcos edgelb create sample-minimal.json
    ```
 
-1. After the pool and service have been deployed, access the `host-httpd` service at `http://<public-ip>/`.
-
-   You can find the private IP(s) (that DC/OS was configured with) of the node(s) that the Edge-LB load balancers are running on with the following command:
+1. Find the private IP addresses of the node(s) that the Edge-LB load balancers are running on with the following command:
 
    ```
    dcos edgelb endpoints sample-minimal
    ```
 
-   You can then use this information to determine the public IP that you would like to use to access the load balancer. You can also use this technique to discover public IP addresses for your cluster: [Finding a Public Agent IP](https://docs.mesosphere.com/1.12/administering-clusters/locate-public-agent/).
+   You can then use this information to determine the public IP address to use to access the load balancer.
+   
+   For more information about finding public IP addresses for your cluster, see [Finding a public agent IP](/1.13/administering-clusters/locate-public-agent/).
+
+1. After the pool and service have been deployed, access the load-balanced service at `http://<public-ip>/`.
+
+1. Verify you have access to the app.
