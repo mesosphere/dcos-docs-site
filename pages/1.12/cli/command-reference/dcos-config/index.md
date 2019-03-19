@@ -45,3 +45,6 @@ core.dcos_acs_token ********
 core.dcos_url <cluster_url>
 core.ssl_verify `true` or `false`
 ```
+
+# Commands
+
