@@ -560,18 +560,24 @@ $ ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter.service
 dcos-backup-master.service
 dcos-backup-master.socket
-dcos-bouncer-legacy.service
 dcos-bouncer.service
 dcos-ca.service
+dcos-checks-poststart.service
+dcos-checks-poststart.timer
+dcos-cluster-linker.service
+dcos-cluster-linker.socket
+dcos-cockroachdb-config-change.service
+dcos-cockroachdb-config-change.timer
 dcos-cockroach.service
 dcos-cosmos.service
 dcos-diagnostics.service
 dcos-diagnostics.socket
-dcos-epmd.service
 dcos-exhibitor.service
 dcos-gen-resolvconf.service
 dcos-gen-resolvconf.timer
 dcos-history.service
+dcos-licensing.service
+dcos-licensing.socket
 dcos-log-master.service
 dcos-log-master.socket
 dcos-logrotate-master.service
@@ -582,16 +588,13 @@ dcos-mesos-master.service
 dcos-metrics-master.service
 dcos-metrics-master.socket
 dcos-metronome.service
-dcos-navstar.service
-dcos-networking_api.service
+dcos-net.service
+dcos-net-watchdog.service
 dcos-pkgpanda-api.service
 dcos-secrets.service
 dcos-secrets.socket
 dcos-signal.service
 dcos-signal.timer
-dcos-spartan.service
-dcos-spartan-watchdog.service
-dcos-spartan-watchdog.timer
 dcos-vault.service
 ```
 
@@ -600,11 +603,12 @@ dcos-vault.service
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
+dcos-checks-poststart.service
+dcos-checks-poststart.timer
 dcos-diagnostics.service
 dcos-diagnostics.socket
 dcos-docker-gc.service
 dcos-docker-gc.timer
-dcos-epmd.service
 dcos-gen-resolvconf.service
 dcos-gen-resolvconf.timer
 dcos-log-agent.service
@@ -614,13 +618,11 @@ dcos-logrotate-agent.timer
 dcos-mesos-slave.service
 dcos-metrics-agent.service
 dcos-metrics-agent.socket
-dcos-navstar.service
+dcos-net.service
+dcos-net-watchdog.service
 dcos-pkgpanda-api.service
 dcos-rexray.service
 dcos-signal.timer
-dcos-spartan.service
-dcos-spartan-watchdog.service
-dcos-spartan-watchdog.timer
 ```
 
 ## Public Agent Node
@@ -628,11 +630,12 @@ dcos-spartan-watchdog.timer
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
+dcos-checks-poststart.service
+dcos-checks-poststart.timer
 dcos-diagnostics.service
 dcos-diagnostics.socket
 dcos-docker-gc.service
 dcos-docker-gc.timer
-dcos-epmd.service
 dcos-gen-resolvconf.service
 dcos-gen-resolvconf.timer
 dcos-log-agent.service
@@ -642,11 +645,9 @@ dcos-logrotate-agent.timer
 dcos-mesos-slave-public.service
 dcos-metrics-agent.service
 dcos-metrics-agent.socket
-dcos-navstar.service
+dcos-net.service
+dcos-net-watchdog.service
 dcos-pkgpanda-api.service
 dcos-rexray.service
 dcos-signal.timer
-dcos-spartan.service
-dcos-spartan-watchdog.service
-dcos-spartan-watchdog.timer
 ```
