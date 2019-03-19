@@ -25,3 +25,6 @@ dcos marathon [OPTIONS] COMMAND
 | `--help`, `h`   | Displays usage. |
 | `--info`   |   Displays a short description of this subcommand. |
 | `--version`, `v`   |  Displays version information. |
+
+
+# Commands 
