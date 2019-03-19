@@ -152,10 +152,8 @@ Available DC/OS commands:
 	backup         	Access DC/OS backup functionality
 	cluster        	Manage your DC/OS clusters
 	config         	Manage the DC/OS configuration file
-	edgelb         	Edgelb DC/OS CLI Module
 	help           	Display help information about DC/OS
 	job            	Deploy and manage jobs in DC/OS
-	kubernetes     	Kubernetes DC/OS CLI Module
 	license        	Manage your DC/OS licenses
 	marathon       	Deploy and manage applications to DC/OS
 	node           	View DC/OS node information
