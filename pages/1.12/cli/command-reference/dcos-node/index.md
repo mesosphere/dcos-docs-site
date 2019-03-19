@@ -37,3 +37,6 @@ dcos node
   10.0.5.54    10.0.5.54   02b1bdc8-2bac-44a0-81ff-65816936b97b-S0  agent            aws/us-west-2  aws/us-west-2a  
 master.mesos.  10.0.6.122    02b1bdc8-2bac-44a0-81ff-65816936b97b   master (leader)  aws/us-west-2  aws/us-west-2a  
 ```
+
+# Commands
+
