@@ -553,7 +553,10 @@ Most DC/OS components run as [systemd services](/1.11/overview/concepts/#systemd
 
 To see a list of the `systemd` components running on any particular node, list the contents of the `/etc/systemd/system/dcos.target.wants/` directory or execute `systemctl | grep dcos-` to see their current status.
 
+
+[enterprise]
 ## Master Node
+[/enterprise]
 
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
@@ -598,7 +601,10 @@ dcos-signal.timer
 dcos-vault.service
 ```
 
+
+[enterprise]
 ## Private Agent Node
+[/enterprise]
 
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
@@ -625,7 +631,10 @@ dcos-rexray.service
 dcos-signal.timer
 ```
 
+
+[enterprise]
 ## Public Agent Node
+[/enterprise]
 
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
@@ -651,3 +660,15 @@ dcos-pkgpanda-api.service
 dcos-rexray.service
 dcos-signal.timer
 ```
+
+[oss]
+## Master node
+[/oss]
+
+[oss]
+## Private agent node
+[/oss]
+
+[oss]
+## Public agent node
+[/oss]

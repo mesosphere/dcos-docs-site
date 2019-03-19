@@ -556,7 +556,6 @@ Most DC/OS components run as [systemd services](/1.12/overview/concepts/#systemd
 
 To see a list of the `systemd` components running on any particular node, list the contents of the `/etc/systemd/system/dcos.target.wants/` directory or execute `systemctl | grep dcos-` to see their current status.
 
-
 [enterprise]
 ## Master node
 [/enterprise]
@@ -609,7 +608,9 @@ dcos-telegraf.socket
 dcos-vault.service
 ```
 
+[enterprise]
 ## Private agent node
+[/enterprise]
 
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
@@ -638,7 +639,10 @@ dcos-telegraf.service
 dcos-telegraf.socket
 ```
 
+
+[enterprise]
 ## Public agent node
+[/enterprise]
 
 ```
 $ ls /etc/systemd/system/dcos.target.wants/ -1
@@ -666,3 +670,17 @@ dcos-signal.timer
 dcos-telegraf.service
 dcos-telegraf.socket
 ```
+
+
+[oss]
+## Master node
+[/oss]
+
+[oss]
+## Private agent node
+[/oss]
+
+[oss]
+## Public agent node
+[/oss]
+
