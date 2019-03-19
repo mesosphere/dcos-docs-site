@@ -9,3 +9,5 @@ enterprise: true
 The `dcos security cluster` commands allow you to change security-related cluster settings.
 
 
+# Commands
+
