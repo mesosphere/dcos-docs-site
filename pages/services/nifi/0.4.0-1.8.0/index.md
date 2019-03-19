@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: NiFi 0.3.0-1.7.1
-title: NiFi 0.3.0-1.7.1
+navigationTitle: NiFi 0.4.0-1.8.0
+title: NiFi 0.4.0-1.7.1
 menuWeight: 1
-excerpt: Overview of DC/OS Apache NiFi 0.3.0-1.7.1
+excerpt: Overview of DC/OS Apache NiFi 0.4.0-1.8.0
 featureMaturity:
 enterprise: false
 model: ../data.yml
