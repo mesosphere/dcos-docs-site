@@ -5,7 +5,7 @@ title: 示例
 menuWeight: 5
 excerpt: DC/OS Enterprise 的常见示例配置
 ---
- 
+
 此页面提供多种常见示例配置。除非另有明确指示，配置参数同时适用于 [DC/OS 开源](https://dcos.io/) 和 [DC/OS Enterprise](https://mesosphere.com/product/)。这些评论在本示例 `config.yaml` 用于指示 DC/OS 产品类型。
 
 - `# DC/OS Open Source only` - 仅适用于 DC/OS。[oss type="inline" size="small" /]
@@ -41,6 +41,7 @@ package_storage_uri: <permanent-path-to-files>
 ca_certificate: <path-to-certificate>
 ca_certificate_key: <path-to-private-key>
 ca_certificate_chain: <path-to-certificate-chain>
+customer_key: <customer-key>
 custom_checks:
   cluster_checks:
     custom-check-1:
@@ -145,7 +146,7 @@ zk_agent_credentials: 'dcos-agent:<long, random string>'
 
 
 # <a name="examples1"></a>示例配置
-DC/OS 集群，带有内部托管的三个管理节点、五个专用代理和 Exhibitor/ZooKeeper：
+DC/OS 群集，带有内部管理的三个管理节点、五个专用代理和 Exhibitor/ZooKeeper：
 
 ```yaml
 ---
@@ -157,6 +158,7 @@ agent_list:
 - <agent-private-ip-5>
 bootstrap_url: 'file:///opt/dcos_install_tmp' 
 仅限 DC/OS Enterprise
+customer_key：<customer-key>
 cluster_name: ' <cluster-name>'
 log_directory: /genconf/logs
 master_discovery: static
@@ -174,7 +176,7 @@ ssh_user: <username>
 ```
 
 ## <a name="aws"></a>AWS
-DC/OS 集群，带有三个管理节点、一个通过 AWS s3 bucket 备份的 Exhibitor/ZooKeeper、五个专用代理和一个公共代理节点：
+DC/OS 群集，带有三个管理节点、一个通过 AWS s3 bucket 备份的 Exhibitor/ZooKeeper、五个专用代理和一个公共代理节点：
 
 ```yaml
 ---
@@ -209,7 +211,7 @@ ssh_user: <username>
 ```
 
 ## <a name="zk"></a>ZooKeeper
-DC/OS 集群，带有三个管理节点、一个通过 ZooKeeper 备份的 Exhibitor/ZooKeeper、前面带有 HTTP 负载均衡器的管理节点、一个公共代理节点、五个专用代理和 Google DNS：
+DC/OS 群集，带有三个管理节点、一个通过 ZooKeeper 备份的 Exhibitor/ZooKeeper、前面带有 HTTP 负载均衡器的管理节点、一个公共代理节点、五个专用代理和 Google DNS：
 
 ```yaml
 ---
@@ -222,6 +224,7 @@ agent_list:
 bootstrap_url: file:///tmp/dcos
 cluster_name: zk-example
 仅限 DC/OS Enterprise
+customer_key：<customer-key>
 exhibitor_storage_backend: zookeeper
 exhibitor_zk_hosts: 10.0.0.1:2181, 10.0.0.2:2181, 10.0.0.3:2181
 exhibitor_zk_path: /zk-example
@@ -241,7 +244,7 @@ ssh_user: <username>
 ```
 
 ## <a name="overlay"></a>覆盖
-DC/OS 集群，带有三个管理节点、一个内部托管的 Exhibitor/ZooKeeper、两个 DC/OS 虚拟网络、两个专用代理和 Google DNS：
+DC/OS 群集，带有三个管理节点、一个内部管理的 Exhibitor/ZooKeeper、两个 DC/OS 虚拟网络、两个专用代理和 Google DNS：
 
 ```yaml
 agent_list:
@@ -278,7 +281,7 @@ dcos_overlay_network:
 ```
 
 ## <a name="http-proxy"></a>HTTP 代理
-DC/OS 集群，带有三个管理节点、一个内部托管的 Exhibitor/ZooKeeper、一个自定义 HTTP 代理、两个专用代理和 Google DNS：
+DC/OS 群集，带有三个管理节点、一个内部管理的 Exhibitor/ZooKeeper、一个自定义 HTTP 代理、两个专用代理和 Google DNS：
 
 ```yaml
 agent_list:
@@ -308,7 +311,7 @@ no_proxy:
 ```
 
 ## <a name="docker-credentials"></a>Docker 凭据
-DC/OS 集群，带有三个管理节点、一个内部托管的 Exhibitor/ZooKeeper、自定义 Docker 凭据、两个专用代理和 Google DNS：
+DC/OS 群集，带有三个管理节点、一个内部管理的 Exhibitor/ZooKeeper、自定义 Docker 凭据、两个专用代理和 Google DNS：
 
 ```yaml
 agent_list:
@@ -340,7 +343,7 @@ ssh_user: centos
 ```
 
 ## <a name="cosmos-config"></a>Cosmos 配置
-DC/OS 集群，带有一个管理节点、一个内部托管的 Exhibitor/ZooKeeper 、三个专用代理、谷歌 DNS 和配置永久存储库的 DC/OS 包管理器 (Cosmos) ：
+DC/OS 群集，带有一个管理节点、一个内部管理的 Exhibitor/ZooKeeper 、三个专用代理、谷歌 DNS 和配置永久存储库的 DC/OS 包管理器 (Cosmos) ：
 
 ```yaml
 agent_list:
@@ -367,7 +370,7 @@ cosmos_config:
 
 
 ## <a name="custom-checks"></a>自定义检查
-DC/OS 集群，带有一个管理节点、一个内部托管的 Exhibitor/ZooKeeper、三个专用代理、谷歌DNS和为此定义的自定义运行状况检查：
+DC/OS 群集，带有一个管理节点、一个内部管理的 Exhibitor/ZooKeeper、三个专用代理、谷歌DNS和自定义运行状况检查，确定用于：
 
 - 用户 Marathon 实例（`user-marathon-on-marathon`）
 - 管理节点上的本地装载（`master-mounts`）
