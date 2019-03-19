@@ -70,6 +70,12 @@ value (for example, 2^64 TB) will lead to undetermined results.</p>
 
 ## Logrotate Options
 
+<p class="message--important"><strong>IMPORTANT: </strong>
+As of DC/OS 1.12.4, these custom options are disabled to prevent abuse
+of <code>postrotate</code> clauses and other injection attacks.
+See <a href="https://issues.apache.org/jira/browse/MESOS-9564">MESOS-9564</a>
+for more information.</p>
+
 The `CONTAINER_LOGGER_LOGROTATE_STDOUT_OPTIONS` and
 `CONTAINER_LOGGER_LOGROTATE_STDERR_OPTIONS` options control the parameters
 passed to `logrotate` for each rotation.  There are no restrictions on
