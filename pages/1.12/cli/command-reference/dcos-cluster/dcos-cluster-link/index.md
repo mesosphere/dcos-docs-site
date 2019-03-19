@@ -8,7 +8,7 @@ enterprise: true
 ---
 
 # Description
-You can configure uni-directional links from a cluster to one or more clusters. When accessing a cluster you can view the clusters linked to it. You can [attach](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/) to a linked cluster without needing to run `dcos cluster setup` beforehand.
+The `dcos cluster link` command lets you configure uni-directional links from a cluster to one or more clusters. When accessing a cluster you can view the clusters linked to it. You can [attach](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/) to a linked cluster without needing to run `dcos cluster setup` beforehand.
 
 **Prerequisites**
 

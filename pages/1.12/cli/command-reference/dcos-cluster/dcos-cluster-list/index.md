@@ -4,7 +4,6 @@ navigationTitle:  dcos cluster list
 title: dcos cluster list
 menuWeight: 3
 excerpt: Listing the clusters that are connected to the DC/OS CLI
-
 enterprise: false
 ---
 
@@ -26,7 +25,6 @@ MyCluster  00548eb6-9626-47d8-9076-d57b56752225  AVAILABLE    1.12    https://10
 ```
 
 # Options
-
 
 | Name | Description |
 |---------|-------------|
