@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle:  dcos service log
 title: dcos service log
-menuWeight: 0
+menuWeight: 1
 excerpt: Displaying the service logs
-
 enterprise: false
 ---
 
@@ -17,7 +16,7 @@ The `dcos service log` command displays the service logs.
 # Usage
 
 ```bash
-dcos service log <file> <service> [OPTION]
+dcos service log [--follow --lines=N --ssh-config-file=<path>] <service> [<file>]
 ```
 
 # Options

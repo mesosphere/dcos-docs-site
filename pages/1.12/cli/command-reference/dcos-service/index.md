@@ -28,3 +28,7 @@ dcos service [OPTION]
 | `--info`   |   Displays a short description of this subcommand. |
 | `--json`   |    JSON-formatted data. |
 | `--version, v`   |   Displays version information. |
+
+
+# Commands
+
