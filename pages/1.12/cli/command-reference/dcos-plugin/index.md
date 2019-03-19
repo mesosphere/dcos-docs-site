@@ -24,25 +24,6 @@ dcos plugin
 |-----------------|---------|-------------|
 | `--help, h`     |         |  Print usage. |
 
-# Usage
 
-```
-dcos plugin
-Manage CLI plugins
+# Commands
 
-Usage:
-  dcos plugin [command]
-
-Commands:
-  add
-      Add a CLI plugin
-  list
-      List CLI plugins
-  remove
-      Remove a CLI plugin
-
-Options:
-  -h, --help   help for plugin
-
-Use "dcos plugin [command] --help" for more information about a command.
-```
