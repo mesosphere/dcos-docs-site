@@ -20,7 +20,7 @@ Output of `dcos help` (without options) should look like this:
 
 ```
 Description:
-    The Mesosphere Datacenter Operating System (DC/OS) spans all of the machines in
+The Mesosphere Datacenter Operating System (DC/OS) spans all of the machines in
 your datacenter or cloud and treats them as a single, shared set of resources.
 
 Usage:
