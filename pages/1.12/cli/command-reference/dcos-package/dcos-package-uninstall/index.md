@@ -4,7 +4,6 @@ navigationTitle:  dcos package uninstall
 title: dcos package uninstall
 menuWeight: 7
 excerpt: Uninstalling a package
-
 enterprise: false
 ---
 
@@ -14,17 +13,18 @@ The `dcos package uninstall` command allows you to uninstall a package.
 # Usage
 
 ```bash
-dcos package uninstall <package-name> [OPTION]
+dcos package uninstall <package-name> [--cli | [--app [--app-id=<app-id> | --all] --yes]]
 ```
 
 # Options
 
 | Name | Description |
 |---------|-------------|
-| `--all`   |   All packages. |
+| `--all`   |  All packages. |
 | `--app`   |  Application only. |
 | `--app-id=<app-id>`   |   The application ID. |
 | `--cli`   |   Command line only. |
+| `--yes` | Disable interactive mode and assume "yes" is the answer to all prompts.|
 
 # Positional arguments
 

@@ -4,7 +4,6 @@ navigationTitle:  dcos package search
 title: dcos package search
 menuWeight: 6
 excerpt: Searching the package repository
-
 enterprise: false
 ---
 
@@ -14,7 +13,7 @@ The `dcos package search` command allows you to search the package repository.
 # Usage
 
 ```bash
-dcos package search <query> [OPTION]
+dcos package search <query> [--json]
 ```
 
 # Options
