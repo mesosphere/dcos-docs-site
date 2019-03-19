@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos task exec
 title: dcos task exec
-menuWeight: 0
+menuWeight: 2
 excerpt: Launching a process inside of a task's container
 
 enterprise: false
