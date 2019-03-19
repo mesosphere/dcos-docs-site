@@ -24,10 +24,3 @@ dcos license [OPTIONS] COMMAND [ARGS]...
 
 # Commands
 
-| Name |  Description |
-|---------|-------------|
-| `list` | List all licenses associated with this cluster. |
-| `get` | Retrieve a specific license associated with this cluster. | 
-| `audit` | Retrieve audit data for your DC/OS licenses. |
-| `status` | Retrieve the active license terms and breach information. |
-| `renew` | Associate a new DC/OS license with the cluster and make it active. |

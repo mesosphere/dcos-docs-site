@@ -50,3 +50,6 @@ dcos license status --breaches
 
 
 For examples, see [Licenses](/1.12/administering-clusters/licenses/).
+
+
+# Commands
