@@ -15,7 +15,7 @@ The `dcos auth list-providers` command lists configured authentication providers
 # Usage
 
 ```bash
-dcos auth list-providers <dcos-url> [OPTION]
+dcos auth list-providers [--json] [<dcos-url>] 
 ```
 
 # Options
@@ -26,7 +26,6 @@ dcos auth list-providers <dcos-url> [OPTION]
 | `--json`   | Specify a JSON-formatted list of authentication providers. |
 
 # Positional arguments
-
 
 | Name |  Description |
 |---------|------------|

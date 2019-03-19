@@ -15,7 +15,7 @@ The `dcos auth` command authenticates a user to the DC/OS cluster.
 # Usage
 
 ```bash
-dcos auth
+dcos auth <command> [OPTIONS]
 ```
 
 # Options
@@ -23,11 +23,8 @@ dcos auth
 | Name | Description |
 |---------|-------------|-------------|
 | `--help, h`   | Display usage. |
+| `--info`   | Display a short description of this subcommand. |
+| `--version`   | Display version information. |
 
 # Commands
 
-| Name | Description |
-|---------|-------------|-------------|
-| `list-providers` |  List available login providers for a cluster. |
-|  `login`   |   Log in to the current cluster |
-|  `logout` |     Log out the CLI from the current cluster |

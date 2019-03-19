@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos auth login
 title: dcos auth login
 menuWeight: 2
-excerpt: Authenticating to DC/OS
+excerpt: Logging in to your DC/OS cluster
 
 enterprise: false
 ---
@@ -15,7 +15,7 @@ The `dcos auth login` command allows you to authenticate to DC/OS. The [dcos clu
 # Usage
 
 ```bash
-dcos auth login [OPTION]
+dcos auth login [--provider=<provider_id>] [--username=<username>] [--password=<password> | --password-file=<password_file> | --password-env=<password_env> | --private-key=<key_path>]
 ```
 
 # Options
@@ -23,11 +23,15 @@ dcos auth login [OPTION]
 
 | Name |  Description |
 |---------|-------------|-------------|
+| `--help, h`   | Display usage. |
+| `--info`   | Display a short description of this subcommand. |
+| `--version`   | Display version information. |
 |  `--password-file=<password_file>`  |  The path to a file that contains the password for login. |
 |  `--password=<password>`  |     Specify the password for login on the command line. This is insecure.  |
 |  `--private-key=<key_path>`  |   The path to a file that contains the private key.  |
 |  `--provider=<provider_id>`  |   [enterprise type="inline" size="small" /] The authentication provider to use for login.  |
 |  `--username=<username>`  |      The username for login. |
+
 
 ## TLS options
 
