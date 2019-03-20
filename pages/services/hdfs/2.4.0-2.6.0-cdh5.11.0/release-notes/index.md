@@ -1,25 +1,25 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-excerpt: Release notes for v. 2.4.0-2.6.0-cdh5.11.0
+excerpt: Discover the new features, updates, and known limitations in this release of the HDFS Service
 title: Release Notes
 menuWeight: 10
 model: /services/hdfs/data.yml
 render: mustache
 ---
 
-## Version 2.4.0-2.6.0-cdh5.11.0
+# Release Notes for HDFS Service version 2.4.0-2.6.0-cdh5.11.0
 
-### Bug Fixes
+## Bug Fixes
 - Fix a bug where an out of date configuration ID would be selected when restarting or replacing pods. This could lead to configuration updates being reverted to the values with which the service was initially deployed. ([#2694](https://github.com/mesosphere/dcos-commons/pull/2694))
 
-### Improvements
+## Improvements
 - The `hdfs.auth_to_local` setting no longer need to be specified for the {{ model.techShortName }}-specific principals when installing kerberized {{ model.techShortName }}.
 
-### Updates
+## Updates
 - Upgrade JRE to 1.8u192 to address CVEs
 
-## Version 2.3.0-2.6.0-cdh5.11.0
+<!-- ## Version 2.3.0-2.6.0-cdh5.11.0
 
 ### New Features
 
@@ -92,3 +92,4 @@ render: mustache
 ### Documentation
 - Pre-install notes include five agent pre-requisite
 - Updated CLI documentation
+ -->

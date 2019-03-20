@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Percona-Server-MongoDB 0.4.1-3.6.8
 title: Percona-Server-MongoDB 0.4.1-3.6.8
-menuWeight: 1
+menuWeight: 5
 excerpt: Percona-Server-MongoDB 0.4.1-3.6.8
 featureMaturity:
 enterprise: false
@@ -12,7 +12,7 @@ render: mustache
 
 DC/OS {{ model.techName }} is an automated service that makes it easy to deploy and manage [{{ model.techName }}](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all of the complexity traditionally associated with managing a cluster of {{ model.techName }} nodes.
 
-## Features 
+## Features
 
 [{{ model.techName }}](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is a free, enhanced, fully compatible, open source, drop-in replacement for the MongoDB® Community Server. It includes enterprise-grade features and functionality.[{{ model.techName }}](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) provides enterprises all the cost and agility benefits provided by free, proven open source software that delivers all the latest MongoDB Community Edition features, with additional Enterprise features and a greater choice of storage engines. Along with improved insight into the database environment, the solution provides enhanced control options for optimizing a wider range of database workloads with greater reliability and security.
 

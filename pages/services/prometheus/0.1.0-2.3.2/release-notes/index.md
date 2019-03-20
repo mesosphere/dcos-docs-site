@@ -3,14 +3,12 @@ layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 130
-excerpt: Release Notes for version 0.1.0-2.3.2
+excerpt: Discover the new features, updates, and known limitations in this release of the Prometheus Service
 featureMaturity:
 enterprise: false
 ---
 
-Release notes for Prometheus.
-
-# 0.1.0-2.3.2
+# Release Notes for Prometheus Service version 0.1.0-2.3.2
 
 This is the first release of DC/OS Prometheus framework.
 

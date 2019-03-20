@@ -1,30 +1,27 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes v. 2.4.0-4.1.1
-excerpt: Release Notes for version 2.4.0-4.1.1
+navigationTitle: Release Notes 
+excerpt: Discover the new features, updates, and known limitations in this release of the Confluent Kafka Service
 title: Release Notes
 menuWeight: 10
 model: /services/confluent-kafka/data.yml
 render: mustache
 ---
 
-# Version 2.4.0-4.1.1
+# Release Notes for Confluent Kafka Service version 2.4.0-4.1.1
 
 ## Updates
 
 - Update to Confluent Kafka version 4.1.1
 - Upgrade JRE to 1.8u192 to address CVEs
-
-## New Features
-
-
+<!-- 
 # Version 2.3.0-4.0.0e
 
 ## New Features
 
 - Support for configuring Kafka transport encryption ciphers with secure defaults.
 
-# Version 2.2.0-4.0.0e
+ --><!-- # Version 2.2.0-4.0.0e
 
 ## New Features
 
@@ -90,3 +87,4 @@ See [Confluent Platform 3.3.1 release notes](https://docs.confluent.io/3.3.1/rel
 
 ## Breaking Changes
 - This is a major release.  You cannot upgrade to 2.0.0-3.3.0e from a 1.0.x version of the package.  To upgrade, you must perform a fresh install and replicate data across clusters.
+ -->

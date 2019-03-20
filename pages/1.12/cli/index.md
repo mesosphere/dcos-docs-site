@@ -201,6 +201,7 @@ The DC/OS CLI can work with multiple clusters, using the following commands.
 
 The following command displays the latest configured cluster:
 
+
 <a name="dcos-dir"></a>
 
 ## `DCOS_DIR` (DC/OS CLI 0.5.x and later only)
@@ -224,6 +225,14 @@ This setting generates and updates per cluster configuration under `$DCOS_DIR/cl
 
 ## `DCOS_SSL_VERIFY`
 This command indicates whether to verify SSL certificates or set the path to the SSL certificates. You must set this variable manually. Setting this environment variable is equivalent to setting the `dcos config set core.ssl_verify` option in the DC/OS configuration [file](#configuration-files). For example, to indicate that you want to set the path to SSL certificates:
+
+```bash
+export DCOS_SSL_VERIFY=false
+```
+
+# Listing your clusters
+
+The DC/OS CLI can work with multiple clusters. The following command displays the latest configured cluster:
 
 ```bash
 $ dcos cluster list

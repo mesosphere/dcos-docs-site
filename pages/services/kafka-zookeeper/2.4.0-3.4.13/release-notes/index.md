@@ -1,20 +1,21 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt: Release notes for 2.4.0-3.4.13
+navigationTitle: Release Notes
+excerpt: Discover the new features, updates, and known limitations in this release of the Kafka ZooKeeper Service
 title: Release Notes
 menuWeight: 120
 model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 
-# Version 2.4.0-3.4.13
+# Release Notes for Kafka ZooKeeper Service version 2.4.0-3.4.13
+
 ## Updates
 - The service now uses Apache ZooKeeper 3.4.13
 ## Bug Fixes
 - [DCOS-40634] Fix a bug where restarting more than one server in an ensemble at a time would cause the servers to not be able to start due to waiting for other servers that are also down.
 
-# Version 2.3.0-3.4.12
+<!-- # Version 2.3.0-3.4.12
 
 ## Features
 - Support for launching the service in a remote region.
@@ -47,3 +48,4 @@ This is the initial GA release of the DC/OS Apache ZooKeeper service.
 - Support for Zone placement constraints in DC/OS 1.11 (beta versions of DC/OS 1.11 coming soon).
 - Support for 3 or 5 ZooKeeper nodes.
 - Support for pausing ZooKeeper nodes for debugging and recovery purposes.
+ -->

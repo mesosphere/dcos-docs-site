@@ -3,18 +3,18 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 145
-excerpt: Release notes for DC/OS Apache Spark 2.5.0-2.2.1
+excerpt: Discover the new features, updates, and known limitations in this release of the DC/OS Apache Spark Service
 featureMaturity:
 ---
 
-## Version Spark and Spark history 2.5.0-2.2.1
+# Release Notes for DC/OS Apache Spark Service version 2.5.0-2.2.1
 
-### New features
+## New features
 - Added unique Mesos Task IDs for Spark executors.
 - Added trusted Ubuntu 18.04 base Docker image.
 - Added `nobody` user support on RHEL/CentOS (through configuration).
 
-### Updates
+## Updates
 - Changed the default user for the Docker container from `root` to `nobody`.
 - Upgraded JRE to 1.8.192.
 - Upgraded to Ubuntu 18.04`
@@ -23,16 +23,16 @@ featureMaturity:
 - Updated Jackson dependencies from 2.6.5 to 2.9.6 (fixes CVE-2017-15095, CVE-2017-17485, CVE-2017-7525, CVE-2018-7489, CVE-2016-3720).
 - Updated ZooKeeper dependencies from 3.4.6 to 3.4.13.
 
-### Bug fixes
+## Bug fixes
 - `dcos task log` now works because of unique Mesos Tasks IDs of Spark executors.
 - Fixed unstable health checks for Spark dispatcher and history server.
 - Spark dispatcher task output now redirects to stdout and is available in logs.
 
-### Breaking changes
+## Breaking changes
 - Added a new configuration option `docker_user` to overridw the user when running Spark using Docker containerizer.
 - The default Hadoop dependency is now 2.7 and not 2.6.
 
-## Version Spark and Spark history 2.4.0-2.2.1-3
+<!-- ## Version Spark and Spark history 2.4.0-2.2.1-3
 
 ### New features
 - Added service name to dispatcher’s VIP endpoints.
@@ -193,3 +193,4 @@ dispatcher, use `dcos spark --name <dispatcher_app_id>`.
 ## Version 1.0.9-2.1.0-1
 
 - The history server has been removed from the "spark" package, and put into a dedicated "spark-history" package.
+ -->
