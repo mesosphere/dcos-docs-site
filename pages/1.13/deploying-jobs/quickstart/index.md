@@ -8,54 +8,59 @@ beta: true
 enterprise: false
 ---
 
-You can create and administer jobs using any of the following: - DC/OS web interface
-- DC/OS CLI
-- DC/OS API
+You can create and administer jobs for the DC/OS cluster in any of the following ways:
+- interactively with the DC/OS web-based administrative console GUI.
+- interactively or programmatically with DC/OS command-line interface (CLI) programs.
+- directly through calls to the DC/OS application programming interface (API) for job-related operations.
 
-# DC/OS Web interface
+The DC/OS application programming interface (API) for job-related operations provides the underlying funtionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
 
-<p class="message--note"><strong>NOTE: </strong>The DC/OS web interface provides a subset of the CLI and API functionality. For advanced job configurations, use the <a href="/1.12/cli/command-reference/dcos-job">dcos job</a> commands or the <a href="/1.12/deploying-jobs/quickstart/#jobs-api">Jobs API</a>.</p>
+# Managing jobs with the DC/OS web-based interface
+You can manage the most common job-related activity interactively through the DC/OS web-based interface. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS web-based interface only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/1.13/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.13/deploying-jobs/quickstart/#jobs-api).
 
 ## Add a job
+1. Navigate to the URL for the DC/OS web-based console in a web browser.
 
-From the DC/OS web interface, click the **Jobs** tab, then the **Create a Job** button. Fill in the following fields, or toggle to JSON mode to edit the JSON directly.
+1. Click **Jobs**, then click **Create a Job** to display the New Job settings. 
 
-![Create JOB UI](/1.13/img/GUI-Jobs-New_Job_Modal-1_12.png)
+    ![Create JOB UI](/1.13/img/New-Job-General.png)
 
-Figure 1. New job menu
+    You can configure the job using the fields displayed or click **JSON Editor** to edit the JSON directly.
 
-### **General** Tab
-* **ID** - The ID of your job
-* **Description** - A description of your job
-* **CPUs** - The amount of CPU your job requires
-* **Mem** - The amount of memory, in MB, your job requires
-* **Disk space** - The amount of disk space, in MB, your job requires
-* **Command** - The command your job will execute. Leave this blank if you will use a Docker image.
+1. Click **General** to edit the most basic job settings, such as the kob identifier, CPU, memory, and disk requirements.
 
-### **Schedule** Tab
-Check the **Run on a Schedule** to reveal the following fields.
-* **Cron Schedule** - Specify the schedule in cron format. Use [this crontab generator](http://crontab.guru) for help.
-* **Time Zone** - Enter the time zone in [TZ format](http://www.timezoneconverter.com/cgi-bin/zonehelp), for example, America/New_York.
-* **Starting Deadline** - This is the time, in seconds, to start the job if it misses scheduled time for any reason. Missed jobs executions will be counted as failed ones.
+    * **ID** - The ID of your job.
+    * **Description** - A description of your job.
+    * **CPUs** - The amount of CPU your job requires.
+    * **Mem** - The amount of memory, in MB, your job requires.
+    * **Disk space** - The amount of disk space, in MB, your job requires.
+    * **Command** - The command your job will execute. Leave this blank if you will use a Docker image.
 
-### **Docker Container** Tab
-* **Image** - Enter the Docker image you will use to specify the action of your job, if you are using one.
+1. Click **Schedule**, then click **Run on a Schedule** to specify a schedule for when the job runs.
 
-### **Labels**
-**Label Name** and **Label Value** - Attach metadata to your jobs so you can filter them. [Learn more about labels](/1.13/tutorials/task-labels/).
+    After you select **Run on a Schedule**, you can use the following settings to define the schedule:
+    - Select **Cron Schedule**  to specify the schedule in `cron` format. Use [this crontab generator](http://crontab.guru) for help.
+    - Select **Time Zone**  to enter the time zone in [TZ format](http://www.timezoneconverter.com/cgi-bin/zonehelp), for example, America/New_York.
+    - Select **Starting Deadline** to set the time, in seconds, to start the job if it misses its scheduled time for any reason. Missed job executions are counted as failed jobs.
 
-## Job Groups
-You can add a job to a an existing job group or create one when you create the job. Use dots in your job ID to nest the job in a group. For instance, if you enter job ID `marketing.myjob`, `myjob` will be created in the `marketing` group. In DC/OS Enterprise, you can [use job groups](/1.13/deploying-jobs/job-groups/) to implement fine-grained user access.
+1. Click **Docker Container** to specifiy the Docker image for the new job, if you are using one.
+
+1. Click **Docker Parameters** to specify the Docker parameters for the new job, if applicable.
+
+1. Click **Labels** to specify a **Label Name** and **Label Value** you want to attach as metadata to the new job. You can then use the job label to filter jobs. For more information about using labels, see [Labeling tasks and jobs](/1.13/tutorials/task-labels/).
+
+## Add a job to a job group
+You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.13/deploying-jobs/job-groups/).
 
 ## Modify, view, or remove a job
 
 From the **Jobs** tab, click the name of your job and then the menu on the upper right to modify or delete it. While the job is running you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
 
-# DC/OS CLI
+# Managing jobs with the DC/OS CLI
 
-You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To see a full list of available commands, run `dcos job --help`.
+You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To see a full list of available commands with usage information, run `dcos job --help`.
 
-## Add a job
+## Create a JSON file for a new job
 
 1. Create a job file in JSON format. The `id` parameter is the job ID. You will use this ID later to manage your job. You can assign only one schedule to a job.
 
