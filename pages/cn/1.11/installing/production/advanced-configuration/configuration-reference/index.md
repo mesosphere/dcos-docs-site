@@ -14,8 +14,8 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 # 群集设置
 
 | 参数 | 描述 |
-|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [agent_list](#agent-list) |  [专用代理] (/1.11/overview/concepts/#private-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。|
+|--------------------|------------------------|
+| [agent_list](#agent-list) |  [专用代理](/1.11/overview/concepts/#private-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。|
 | aws_template_storage_access_key_id | 拥有 AWS S3 bucket 的帐户 [访问密钥 ID](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) 。 |
 | aws_template_storage_bucket | 包含 [自定义高级 AWS 模板](/1.11/installing/evaluation/aws/advanced/#create-your-templates) 的 S3 bucket 的名称。 |
 | aws_template_storage_bucket_path | S3 bucket 内模板工件存储位置的路径。
@@ -37,7 +37,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 | [master_external_loadbalancer](#master-external-loadbalancer) | 负载均衡器的 DNS 名称或 IP 地址。[enterprise type="inline" size="small" /] |
 | [mesos_container_log_sink](#mesos-container-log-sink) | 容器（任务）的日志管理器。 |
 | [platform](#platform) | 基础架构平台。 |
-| [public_agent_list](#public-agent-list) | [公共代理] (/1.11/overview/concepts/#public-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。|
+| [public_agent_list](#public-agent-list) | [公共代理](/1.11/overview/concepts/#public-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。|
 | [rexray_config](#rexray-config) | 在 Marathon 中启用外部持久卷的 [REX-Ray](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/) 配置方法。不能同时指定 `rexray_config` 和 `rexray_config_preset`。|
 | [rexray_config_preset](#rexray-config-preset) | 如果您在 AWS 上运行 DC/OS，将此参数设置为 `aws`，请将 `rexray_config` 参数设置为与 DC/OS 本身捆绑的合理默认 REX-Ray 配置。不能同时指定 `rexray_config` 和 `rexray_config_preset`。|
 
@@ -58,17 +58,17 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 |[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |分配给 `mesos-bridge` CNI 网络，供 UCR 构建桥接模式网络的 IPv4 子网。 |
 
 
-[企业]
+[enterprise]
 # 存储
 [/enterprise]
 | 参数 | 描述 |
-|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------------------|--------------------|
 | [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise) | 一个标记，设定后将启用 DC/OS 中的高级存储功能，包括 Mesos [CSI](https://github.com/container-storage-interface/spec) 支持和预安装的 CSI 设备插件。此功能标志需要打开才能使用 [DC/OS 存储服务 (DSS)](/services/beta-storage/) [enterprise type="inline" size="small" /]|
 
 # 性能和微调
 
 | 参数 | 描述 |
-|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------------------|-----------------|
 | [docker_remove_delay](#docker-remove-delay) | 在 Mesos 将 docker 容器（即 `docker rm`）视为终止后删除该容器之前的等待时间。 |
 | [dcos_audit_logging](#dcos-audit-logging-enterprise) | 指示是否为 Mesos、Marathon 和作业记录安全决策（身份认证、授权）。[enterprise type="inline" size="small" /] |
 | [enable_docker_gc](#enable-docker-gc) | 指示是否运行 [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) 脚本，一个简单的 Docker 容器和镜像垃圾回收脚本，每小时清理一次失散的 Docker 容器。|
@@ -82,7 +82,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 [enterprise type="inline" size="small" /]
 
 | 参数 | 描述 |
-|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------|-------------------------------------|
 | [adminrouter_auth_cache_enabled](#adminrouter-auth-cache-enabled-enterprise) | 控制 Admin Router 授权缓存的启用。[enterprise type="inline" size="small" /] |
 | [adminrouter_tls_1_0_enabled](#adminrouter-tls-1-0-enabled) | 指示是否在管理路由器中启用 TLSv1 支持。|
 | [adminrouter_tls_1_1_enabled](#adminrouter-tls-1-1-enabled) | 指示是否在 Admin Router 中启用 TLSv1.1 支持。|
@@ -107,7 +107,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 
 [oss type="inline" size="small" /]
 | 参数 | 描述 |
-|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|------------------------------------|---------------|
 | [oauth_enabled](#oauth-enabled-open-source) | 指示是否为群集启用身份认证。[oss type="inline" size="small" /] |
 | [ssh_key_path](#ssh-key-path) | 安装工具用来登录到目标节点的路径。 |
 | [ssh_port](#ssh-port) | SSH 的端口，例如 22。|
@@ -117,7 +117,8 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 # 参数描述
 
 ## adminrouter_auth_cache_enabled [enterprise type="inline" size="small" /]
-_此选项已添加到 DC/OS 1.12.1。_
+
+<p class="message--note"><strong>注意: </strong>此选项已添加到 DC/OS 1.12.1。</p>
 
 控制 Admin Router 授权缓存的启用。
 
@@ -158,16 +159,16 @@ _此选项已添加到 DC/OS 1.12.1。_
 ## adminrouter_tls_cipher_suite [enterprise type="inline" size="small" /]
 提供 TLS 密码套件的自定义列表。该值将直接传递到 Admin Router  [`ssl_ciphers`](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_ciphers) 配置指令。此字符串没有验证。设置错误将导致 DC/OS 安装失败。此配置设置仅影响在 DC/OS 管理节点上运行的 Admin Router 。
 
-如果未提供值，则使用默认值 `EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;`。
+如果未提供值，则使用默认值 (EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;)。
 
 要验证所提供值的准确性，请使用 `openssl ciphers` 实用程序并提供您自己的值：`openssl ciphers <cipher-suites>`。如需所有可用密码的列表，请参阅 [OpenSSL 文档](https://www.openssl.org/docs/man1.0.2/apps/ciphers.html)。
 
-**注意：** 由于 Java 管辖区限制，不能仅使用 AES256 加密套件安装 DC/OS。
+<p class="message--note"><strong>注意: </strong> 由于 Java 管辖区限制，不能仅使用 AES256 加密套件安装 DC/OS。</p>
 
 ## agent_list
-[专用代理] (/1.11/overview/concepts/#private-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。
+[专用代理](/1.11/overview/concepts/#private-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。
 
-**注意：** agent_list 不是生产安装工具的必需参数。
+<p class="message--note"><strong>注意: </strong> agent_list 不是生产安装工具的必需参数。</p>
 
 ## auth_cookie_secure_flag [enterprise type="inline" size="small" /]
 指示是否允许 Web 浏览器通过非 HTTPS 连接发送 DC/OS 身份认证 Cookie。DC/OS 身份认证 cookie 允许访问 DC/OS 群集，应通过加密连接发送。
@@ -238,21 +239,21 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--
  添加 DC/OS 包时，临时存储包的位置。值必须是一个文件 URL，例如 `file:///var/lib/dcos/cosmos/staged-packages`。
 
 ## custom_checks
-添加到默认检查配置进程的自定义安装检查。配置用于 [DC/OS 诊断组件] (/1.11/overview/architecture/components/#dcos-diagnostics) 执行安装和升级检查。在安装和升级期间，这些自定义检查与默认的启动前和启动后检查一起运行。
+添加到默认检查配置进程的自定义安装检查。配置用于 [DC/OS 诊断组件](/1.11/overview/architecture/components/#dcos-diagnostics) 执行安装和升级检查。在安装和升级期间，这些自定义检查与默认的启动前和启动后检查一起运行。
 
 - `cluster_checks` - 这组参数指定整个 DC/OS 群集的运行状况检查。
 
     - `<check-name>` - 运行状况检查的自定义名称
- - `description` - 指定检查说明
- - `cmd` - 指定运行状况检查命令字符串阵列
- - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常状态为 `3 (UNKNOWN)`
+   - `description` - 指定检查说明
+   - `cmd` - 指定运行状况检查命令字符串阵列
+   - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常状态为 `3 (UNKNOWN)`
 
 - `node_checks` - 这组参数指定节点运行状况检查。
 
     - `<check-name>` - 运行状况检查的自定义名称
- - `description` - 指定检查说明
- - `cmd` - 指定运行状况检查命令字符串的阵列
- - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常状态为 `3 (UNKNOWN)`
+   - `description` - 指定检查说明
+   - `cmd` - 指定运行状况检查命令字符串的阵列
+   - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常状态为 `3 (UNKNOWN)`
 
 有关如何使用这些自定义检查的详细信息，请参阅 [示例](/1.11/installing/production/deploying-dcos/configuration/examples/#custom-checks) 以及 [节点和群集运行状况检查](/1.11/installing/production/deploying-dcos/node-cluster-health-check/) 文档。
 
@@ -268,37 +269,37 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--
 ## dcos_overlay_enable
 指示是否启用 DC/OS 虚拟网络。
 
-**注意：** 虚拟网络需要 Docker 1.12 或更高版本，但如果您使用 Docker 1.12 或更早版本，则必须指定 `dcos_overlay_enable: 'false'`。如需更多信息，请参阅 [系统要求](/1.11/installing/production/system-requirements/)。
+<p class="message--note"><strong>注意: </strong> 虚拟网络需要 Docker 1.12 或更高版本，但如果您使用 Docker 1.12 或更早版本，则必须指定 <code>dcos_overlay_enable: 'false'</code>。如需更多信息，请参阅 <a href="/1.11/installing/production/system-requirements/">系统要求</a>。</p>
 
 * `dcos_overlay_enable: 'false'` 请勿启用 DC/OS 虚拟网络。
 * `dcos_overlay_enable: 'true'` 请启用 DC/OS 虚拟网络。这是默认值。启用虚拟网络后，您还可以指定以下参数：
 
- * `dcos_overlay_config_attempts` 指定配置尝试失败多少次之后，覆盖配置模块才会停止配置虚拟网络。
+   * `dcos_overlay_config_attempts` 指定配置尝试失败多少次之后，覆盖配置模块才会停止配置虚拟网络。
 
- **注意：** 故障可能与功能异常的 Docker 守护程序有关。
+      <p class="message--note"><strong>注意: </strong> 故障可能与功能异常的 Docker 守护程序有关。</p>
 
- * `dcos_overlay_mtu` 在覆盖层上启动的容器中，虚拟以太网 (Veth) 的最大传输单元 (MTU)。
+   * `dcos_overlay_mtu` 在覆盖层上启动的容器中，虚拟以太网 (Veth) 的最大传输单元 (MTU)。
 
- * `dcos_overlay_network` 这组参数定义 DC/OS 的虚拟网络。DC/OS 的默认配置提供了名为 `dcos` 的虚拟网络，具有以下 YAML 配置：
+   * `dcos_overlay_network` 这组参数定义 DC/OS 的虚拟网络。DC/OS 的默认配置提供了名为 `dcos` 的虚拟网络，具有以下 YAML 配置：
 
-        ```yaml
-        dcos_overlay_network:
-            vtep_subnet: 44.128.0.0/20
-            vtep_mac_oui: 70:B3:D5:00:00:00
-            overlays:
-              - name: dcos
-                subnet: 9.0.0.0/8
-                prefix: 26
-        ```
+      ```yaml
+      dcos_overlay_network:
+         vtep_subnet: 44.128.0.0/20
+         vtep_mac_oui: 70:B3:D5:00:00:00
+         overlays:
+            - name: dcos
+               subnet: 9.0.0.0/8
+               prefix: 26
+      ```
 
- * `vtep_subnet` 用于虚拟网络 VxLAN 后端的专用地址空间。无法从代理或管理节点外部访问此地址空间。
- * `vtep_mac_oui` 连接到公共节点中虚拟网络接口的 MAC 地址。
- **注意：** 最后三个字节必须为 `00`。
+      * `vtep_subnet` 用于虚拟网络 VxLAN 后端的专用地址空间。无法从代理或管理节点外部访问此地址空间。
+      * `vtep_mac_oui` 连接到公共节点中虚拟网络接口的 MAC 地址。
 
-        *  `overlays`
- * `name` 典型名称（参见 [限制](/1.11/networking/SDN/dcos-overlay/)，了解有关命名虚拟网络的限制）。
- * `subnet` 分配给虚拟网络的子网。
- * `prefix` 分配给每个代理的子网大小，进而定义覆盖网络可运行的代理的数量。子网的大小在来自覆盖子网。
+         <p class="message--note"><strong>注意: </strong>  最后三个字节必须为 <code>00</code>。</p>
+
+      *  `overlays`
+      
+      
 
  如需更多信息，请参阅 [示例](/1.11/installing/production/deploying-dcos/configuration/examples/#overlay) 和 [文档](/1.11/networking/SDN/dcos-overlay/)。
 
@@ -341,8 +342,8 @@ dns_search: dc1.example.com dc1.example.com example.com dc1.example.com dc2.exam
 ## enable_docker_gc
 指示是否运行 [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) 脚本，一个简单的 Docker 容器和镜像垃圾回收脚本，每小时清理一次失散的 Docker 容器。您可以使用 `/etc/` 配置参数，设置运行时间行为。如需更多信息，请参阅 [文档](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
-* `enable_docker_gc: 'true'` 请每小时运行一次 docker-gc 脚本。这是 [云] (/1.11/installing/evaluation/) 模板安装的默认值。
-* `enable_docker_gc: 'false'` 请勿每小时运行一次 docker-gc 脚本。这是 [自定义] (/1.11/installing/production/) 安装的默认值。
+* `enable_docker_gc: 'true'` 请每小时运行一次 docker-gc 脚本。这是 [云](/1.11/installing/evaluation/) 模板安装的默认值。
+* `enable_docker_gc: 'false'` 请勿每小时运行一次 docker-gc 脚本。这是 [自定义](/1.11/installing/production/) 安装的默认值。
 
 ## exhibitor_storage_backend
 Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`static`）或指定外部存储系统（`ZooKeeper`、`aws_s3`和 `Azure`），使用 Exhibitor 在管理节点上配置和编排 ZooKeeper。在 DC/OS 安装期间，Exhibitor 自动配置管理节点上的 ZooKeeper 安装。
@@ -350,7 +351,7 @@ Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`st
 *   `exhibitor_storage_backend: static`
  Exhibitor 存储后端在您的群集内部进行管理。
 
- **注意：** 如果 [master_discovery](#master-discovery) 设置为 `master_http_loadbalancer`，那么 exhibitor_storage_backend 就无法设置为 `static`。
+      <p class="message--note"><strong>注意: </strong> \ 如果 <a href="https://docs.mesosphere.com/1.11/installing/production/advanced-configuration/configuration-reference/#master-discovery">master_discovery</a> 设置为 <code>master_http_loadbalancer</code>，那么 exhibitor_storage_backend 就无法设置为 <code>static</code>。</p>
 
 *   `exhibitor_storage_backend: zookeeper`
  用于共享存储库的 ZooKeeper 实例。如果使用 ZooKeeper 实例来 bootstrap Exhibitor，此 ZooKeeper 实例必须与您的 DC/OS 群集分开。您必须始终保有至少 3 个 ZooKeeper 实例才能实现高可用性。如果指定了 `zookeeper`，您还必须指定这些参数。
@@ -377,7 +378,7 @@ Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`st
     *  `s3_prefix`
  用于 Exhibitor 使用的 S3 bucket 中的 S3 前缀。
 
- **注意：** 不支持 AWS EC2 Classic。
+         <p class="message--note"><strong>注意: </strong> 不支持 AWS EC2 Classic。</p>
 *   `exhibitor_storage_backend: azure`
  用于共享存储库的 Azure 存储帐户。数据将存储在名为 `dcos-exhibitor` 的容器中。如果指定了 `azure`，您还必须指定这些参数：
     *  `exhibitor_azure_account_name`
@@ -430,23 +431,23 @@ Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadb
 *  `master_discovery: static`
  指定使用 Mesos 代理节点，通过向每个代理提供管理节点 IP 的静态列表来发现管理节点。管理节点不得更改 IP 地址，而如果管理节点被替代，新管理节点必须采用旧管理节点的 IP 地址。
 
- **注意：** 在 AWS 中，由于无法设置本地 IP 地址，因而不能使用 master_discovery:static。
+   <p class="message--note"><strong>注意: </strong> 在 AWS 中，由于无法设置本地 IP 地址，因而不能使用 master_discovery:static。</p>
 
- 如果制定了 `static`，还必须指定以下参数：
+   如果制定了 `static`，还必须指定以下参数：
 
-    *  `master_list`
- 静态管理节点 IP 地址的 YAML 嵌套列表（`-`）。
+      *  `master_list`
+   静态管理节点 IP 地址的 YAML 嵌套列表（`-`）。
 
 * `master_discovery: master_http_loadbalancer` 这组管理节点的开头有一个 HTTP 负载均衡器。代理节点会得知负载均衡器的地址。它们使用负载均衡器访问管理节点中的 Exhibitor ，获取管理节点 IP 的完整列表。如果指定了 `master_http_load_balancer`，您还必须指定这些参数：
 
- * `exhibitor_address` （必填）
+   * `exhibitor_address` （必填）
  管理节点前面负载均衡器的地址（最好是 IP 地址）。如果需要替换管理节点，该地址成为代理用来查找新管理节点的静态地址。对于 DC/OS Enterprise，该地址包含在 [DC/OS 证书](/1.11/security/ent/tls-ssl/) 中。负载均衡器必须接受端口 443、2181、5050 和 8181 上的流量。如果群集在宽容或禁用安全模式下运行，负载均衡器也可以接受端口 80 和 8080 上的流量，以便对群集中的服务进行非 SSL HTTP 访问。
  **注意：** 通过端口 80 和 8080 访问群集不安全。
  流量也必须转发到管理节点上的 443、2181、5050 和 8181 端口。例如，负载均衡器上的 Mesos 端口 5050 应转发到管理节点的端口 5050 上。管理节点应通过循环调度转发任何新连接，并且应避免对 Mesos 端口 5050 的请求未做出响应的机器以确保管理节点保持运行。有关安全模式的更多信息，请查阅 [安全模式文档](/1.11/security/ent/#security-modes)。
 
- **注意：** 内部负载均衡器必须在 TCP 模式，不终止任何 TLS 的情况下工作。
+      <p class="message--note"><strong>注意：</strong> 内部负载均衡器必须在 TCP 模式，不终止任何 TLS 的情况下工作。</p>
 
- * `num_masters` （必填）
+   * `num_masters` （必填）
  DC/OS 群集中的 Mesos 管理节点的数量。此后不能更改。负载均衡器后面的管理节点数量不得大于这个数字，但在发生故障时，该数量可能会减少。
 
 **注意：**
@@ -468,13 +469,13 @@ Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadb
 代理和公共代理节点上的 Mesos 工作目录的位置。它定义了群集中 Mesos 代理的 `work_dir` 参数。默认为 `/var/lib/mesos/slave`。如需更多信息，请参阅 [Mesos 文档](https://mesos.apache.org/documentation/latest/configuration/agent/)。
 
 ## mesos_container_log_sink
-- DC/OS 可以将任务日志的副本发送到主机的 journald，但是，由于 [systemd](https://github.com/systemd/systemd/issues/5102) 中的已知性能问题，默认已禁用此功能。问题已于 2017 年 7 月 31 日 [修复](https://github.com/systemd/systemd/pull/6392)，并包含在 systemd v235 中。但是，某些 Linux 分发版本不使用此版本的 systemd，例如，截至 2018 年 7 月，CentOS 7.4 使用 systemd v219。因此，默认情况下 DC/OS 没有启用 logrotate 和 journald。如果需要此功能，为了避免此 systemd 性能问题，应确保使用的是新版 systemd。
+- DC/OS 可以将任务日志的副本发送到主机的 journald，但是，由于 [`systemd`](https://github.com/systemd/systemd/issues/5102) 中的已知性能问题，默认已禁用此功能。问题已于 2017 年 7 月 31 日 [修复](https://github.com/systemd/systemd/pull/6392)，并包含在 `systemd v235` 中。但是，某些 Linux 分发版本不使用此版本的 `systemd，例如，截至` 2018 年 7 月，CentOS 7.4 使用 systemd v219。因此，默认情况下 DC/OS 没有启用 logrotate 和 `journald`。如果需要此功能，为了避免此 `systemd` 性能问题，应确保使用的是新版 `systemd。`
 
 容器（任务）的日志管理器。选项包括：
 
-* `'journald'` - 仅将任务日志发送到 journald
-* `'logrotate'` - 仅将任务日志发送到文件系统（即 stdout/err 文件）
-* `'journald+logrotate'` - 将日志发送到 journald 和文件系统
+* `journald` - 仅将任务日志发送到 journald
+* `logrotate` - 仅将任务日志发送到文件系统（即 stdout/err 文件）
+* `journald+logrotate` - 将日志发送到 journald 和文件系统
 
 默认为 `logrotate`。由于性能问题， 不推荐 `journald`。如需更多信息，请参阅 [记录 API](/1.11/monitoring/logging/logging-api/#compatibility)。
 
@@ -507,12 +508,12 @@ Mesos 管理节点在内存中保留的每个框架的完成任务数。在具�
 ## process_timeout
 在进程分叉之后等待开始操作所允许的时间（以秒为单位）。这个参数不是完整的进程时间。默认值为 120 秒。
 
-**注意：** 对于较慢的网络，请考虑更改为 `process_timeout: 600`。
+<p class="message--note"><strong>注意：</strong> 对于较慢的网络，请考虑更改为 <code>process_timeout: 600</code>。</p>
 
 ## public_agent_list
 [公共代理] (/1.11/overview/concepts/#public-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。
 
-**注意：** public_agent_list 不是生产安装工具的必需参数。
+<p class="message--note"><strong>注意：</strong> <code>public_agent_list</code> 不是生产安装工具的必需参数。</p>
 
 ## resolvers
 DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定 3 个解析器。将此参数设置为您拥有的最权威的域名服务器。
@@ -527,28 +528,28 @@ DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定
     ```
 - 如果没有 DNS 基础架构且没有权限访问互联网 DNS 服务器，您可以指定 `resolvers: []`。指定该设置后，发送到非 `.mesos` 的所有请求都将回复一个错误。如需更多信息，请参阅 Mesos-DNS [文档](/1.11/networking/DNS/mesos-dns/)。
 
-**注意：** 如果设置的 `resolvers` 参数不正确，您将永久损坏配置，必须重新安装 DC/OS。
+<p class="message--note"><strong>注意：</strong>如果设置的 <code>resolvers</code> 参数不正确，您将永久损坏配置，必须重新安装 DC/OS。</p>
 
 ## rexray_config
 <a href="https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/" target="_blank"> REX-Ray</a> 配置，用于在 Marathon 中启用外部持久卷。REX-Ray 是一个存储编排引擎。以下为示例配置。
-
+```bash
  rexray_config:
- rexray:
- loglevel: info
- service: ebs
- libstorage:
- integration:
- volume:
- operations:
- unmount:
- ignoreusedcount: true
- server:
- tasks:
- logTimeout: 5m
-
+      rexray:
+         loglevel: info
+         service: ebs
+      libstorage:
+         integration:
+            volume:
+               operations:
+                  unmount:
+                     ignoreusedcount: true
+      server:
+         tasks:
+            logTimeout: 5m
+```
 请查看外部持久卷 [文档](/1.11/storage/external-storage/)，了解有关如何创建配置的信息。
 
-如果提供了 `rexray_config` 参数，则请逐字使用其内容进行 REX-Ray 配置。这样就可以完全自定义与各种 [外部存储提供商] 集成的 REX-Ray 配置 ( https://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/)。然而，如果将群集升级到包含更新版的 REX-Ray 的版本，就必须确保 `rexray_config` 参数与较新版本的 REX-Ray 兼容。
+如果提供了 `rexray_config` 参数，则请逐字使用其内容进行 REX-Ray 配置。这样就可以完全自定义与各种 [外部存储提供商 集成的 REX-Ray 配置]( https://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/)。然而，如果将群集升级到包含更新版的 REX-Ray 的版本，就必须确保 `rexray_config` 参数与较新版本的 REX-Ray 兼容。
 
 
 ## rexray_config_preset
@@ -561,24 +562,24 @@ DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定
 - `security: permissive`
 - `security: strict`
 
-**注意：** 禁用安全模式与操作系统安全模式相同。
+<p class="message--note"><strong>注意：</strong> 禁用安全模式与操作系统安全模式相同。</p>
 
 请参阅 [安全模式](/1.11/security/ent/#security-modes) 部分，了解对于每个参数的详细探讨。
 
 ## ssh_key_path
 安装工具用于登录到目标节点的路径。该参数默认设置为 `/genconf/ssh_key`。该参数不能更改，因为 `/genconf` 是容器运行安装工具的本地路径，还是一个挂载卷。
 
-**注意：** ssh_key_path 不是生产安装工具的必需参数。
+<p class="message--note"><strong>注意：</strong> ssh_key_path 不是生产安装工具的必需参数。</p>
 
 ## ssh_port
 SSH 端口，例如 `22`。
 
-**注意：** ssh_port 不是生产安装工具的必需参数。
+<p class="message--note"><strong>注意：</strong> ssh_port 不是生产安装工具的必需参数。</p>
 
 ## ssh_user
 SSH 用户名，例如 `centos`。
 
-**注意：** ssh_user 不是生产安装工具的必需参数。
+<p class="message--note"><strong>注意：</strong> ssh_user 不是生产安装工具的必需参数。</p>
 
 ## superuser_password_hash (Required) [enterprise type="inline" size="small" /]
 带井号的超级用户密码。`superuser_password_hash` 通过使用安装工具 `--hash-password` 标记生成。第一个超级用户帐户用于提供登录 DC/OS 的方法，其中可添加其他管理帐户。如需更多信息，请参阅 [安全文档](/1.11/security/ent/)。
@@ -600,17 +601,17 @@ SSH 用户名，例如 `centos`。
 * `use_proxy: 'false'` 请勿配置 DC/OS [组件](/1.11/overview/architecture/components/) 以使用自定义代理。这是默认值。
 * `use_proxy: 'true'` 请配置 DC/OS [组件](/1.11/overview/architecture/components/) 以使用自定义代理。如果指定了 `use_proxy: 'true'`，您还可以指定这些参数：
 
- **注意：** 指定的代理必须在提供的 [解析器](#resolvers) 列表中解析。
+   <p class="message--note"><strong>注意：</strong> 指定的代理必须在提供的 []<a href="#resolvers">解析器</a> 列表中解析。</p>
 
  * `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` HTTP 代理。
  * `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` HTTPS 代理。
  * `no_proxy`：子域的 YAML 嵌套列表（`-`），避免此类子域转发到 `https_proxy`。如果地址与其中一个字符串匹配，或主机位于其中一个字符串的域中，则不代理 http(s) 向该节点发送的请求。例如，`no_proxy` 列表可以是内部 IP 地址列表。
 
- **注意：** 不支持通配符（`*`）。
+   <p class="message--note"><strong>注意：</strong> 不支持通配符（<code>*</code>）。</p>
 
 如需更多信息，请参阅 [示例](/1.11/installing/production/deploying-dcos/configuration/examples/#http-proxy)。
 
-**注意：** 还应为 [Docker] 配置 HTTP 代理 (https://docs.docker.com/engine/admin/systemd/#/http-proxy)。
+   <p class="message--note"><strong>注意：</strong> 还应为  <a href="https://docs.docker.com/engine/admin/systemd/#/http-proxy">Docker 配置 HTTP 代理</a>。</p>
 
 ## enable_ipv6
 * `enable_ipv6: 'true'`：请在 DC/OS 中启用 IPv6 网络。这是默认值。
@@ -626,7 +627,7 @@ SSH 用户名，例如 `centos`。
 * `dcos_l4lb_enable_ipv6: 'false'` 请为 IPv6 容器禁用 [第 4 层负载均衡](/1.11/networking/load-balancing-vips/)。这是默认值。
 * `dcos_l4lb_enable_ipv6: 'true'` 请为 IPv6 容器启用第 4 层负载均衡。
 
-**注意：** 为 IPv6 容器打开第 4 层负载均衡时应保持谨慎。
+<p class="message--note"><strong>注意：</strong> 为 IPv6 容器打开第 4 层负载均衡时应保持谨慎。</p>
 
 ## dcos_ucr_default_bridge_subnet
 取得 IPv4 子网。子网被分配到`mesos-bridge` CNI 网络创建的桥接 `ucr-br0`。`mesos-bridge` CNI 网络代表的网络用于在为 UCR 容器选中桥接模式网络时，启动 UCR 容器。
@@ -636,7 +637,7 @@ SSH 用户名，例如 `centos`。
 为 `dcos_ucr_default_bridge_subnet` 选择 IPv4 子网的唯一限制是不应在代理连接的网络上使用子网。换言之，只能在代理中访问这一子网。
 
 
-[企业]
+[enterprise]
 ### feature_dcos_storage_enabled
 [/enterprise]
 支持 DC/OS 中的高级存储功能，包括 Mesos 的 [CSI](https://github.com/container-storage-interface/spec) 支持和支持预安装的 CSI 设备插件。
@@ -654,7 +655,7 @@ DC/OS ZooKeeper 凭据 `zk_super_credentials`、 `zk_master_credentials` 和 `zk
 
 要加固群集，Mesosphere 建议您将所有凭据的默认值更改为长而复杂的值。设置后，您可以使用在 DC/OS 管理节点上可用的 `/opt/mesosphere/active/exhibitor/usr/zookeeper/bin/zkCli.sh` 进行验证。`zkCli` 默认不作验证，所以 `/dcos` 树中的节点将无法访问。当 `addauth digest <zk_super_credentials>` 在 `zkCli` 调用后, 所有 ZooKeeper 中的节点都会可用, 而 `zk_master_credentials` 和 `zk_agent_credentials` 提供其中一个子集的访问权限。例如：
 
-```
+```bash
 [zk: localhost:2181(CONNECTED) 0] addauth digest super:secret
 [zk: localhost:2181(CONNECTED) 1] ls /dcos
 [backup, agent, RootCA, secrets, vault, CAChainInclRoot, CAChain, CACertKeyType, ca, master]

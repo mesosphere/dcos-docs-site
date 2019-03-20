@@ -67,7 +67,7 @@ DC/OS 安装会创建以下文件夹：
 
 <p class="message--note"><strong>注意：</strong>脚本必须返回与 <code>config.yaml</code> 中指定的相同 IP 地址。例如，如果将 <code>config.yaml</code> 中的专用管理节点 IP 指定为 <code>10.2.30.4</code>，您的脚本在管理节点上运行时应返回相同的值。</p>
 
-1. 为您的环境创建 IP 检测脚本，并另存为 `genconf/ip-detect`。此脚本需要 `UTF-8` 编码并具备有效的 [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix) 行。可以使用以下示例。
+1. 为您的环境创建 IP 检测脚本，并另存为 `genconf/ip-detect`。此脚本需要 `UTF-8` 编码并具备有效的 [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) 行。可以使用以下示例。
 
  * #### 使用 AWS 元数据服务器
 
@@ -177,7 +177,7 @@ DC/OS 群集默认启用 [故障域意识](/1.11/deploying-services/fault-domain
     <p class="message--important"><strong>重要信息：</strong>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</p>
 
 
-2. 添加新创建的 `fault-domain-detect` 脚本到 bootstrap 节点的 `/genconf` 目录。
+1. 添加新创建的 `fault-domain-detect` 脚本到 bootstrap 节点的 `/genconf` 目录。
 
 
 # 创建配置文件
