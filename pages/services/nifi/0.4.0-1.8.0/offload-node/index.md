@@ -19,7 +19,7 @@ The DC/OS {{model.techName }} service supports offload node feature of {{model.t
 Following are the steps for offloading node:
 
 1. Go to `Cluster`
-
+   <br><br>
    <img src="../img/cluster_option.png" alt="cluster option" width="1000" border="2"/>
 
    Figure 1. - cluster option in NiFi UI
