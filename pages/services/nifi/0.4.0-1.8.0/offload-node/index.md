@@ -20,27 +20,36 @@ Following are the steps for offloading node:
 
 1. Go to `Cluster`
 
-   <img src="../img/showing_cluster.png" alt="cluster option" width="1000" border="2"/>
+   <img src="../img/cluster_option.png" alt="cluster option" width="1000" border="2"/>
 
    Figure 1. - cluster option in NiFi UI
+   
+   
 
    <img src="../img/cluster_view.png" alt="cluster view" width="1000" border="2"/>
 
    Figure 2. - cluster view in NiFi UI
+   
+   
 
 2. `Disconnect` node you want to offload
    
    <img src="../img/node_disconnect.png" alt="disconnect node" width="1000" border="2"/>
    
    Figure 3. - disconnect node through NiFi UI
+   
+   
 
    <img src="../img/disconnect_confirmation.png" alt="disconnect node confirmation" width="1000" border="2"/>
 
    Figure 4. - disconnect node confirmation NiFi UI
+   
+   
 
    <img src="../img/disconnected_node.png" alt="disconnect node confirmation" width="1000" border="2"/>
 
-   Figure 5. - disconnect node in NiFi UI
+   Figure 5. - disconnected node in NiFi UI
+
 
 
 3. Select `Offload`
@@ -48,26 +57,37 @@ Following are the steps for offloading node:
    <img src="../img/offload_node.png" alt="offload node" width="1000" border="2"/>
 
    Figure 6. - offload node in NiFi UI
+   
+   
 
    <img src="../img/offload_node_confirmation.png" alt="offload node confirmation" width="1000" border="2"/>
 
    Figure 7. offload node cofirmation in NiFi UI
+   
+   
 
    <img src="../img/offloading_node.png" alt="offloaded node" width="1000" border="2"/>
 
    Figure 9. offloading node in NiFi UI
+   
+   
 
    <img src="../img/offloaded_node.png" alt="offloaded node" width="1000" border="2"/>
 
    Figure 10. offloaded node in NiFi UI
+
+
 
 4. Delete `offloaded` node
 
   <img src="../img/delete_offloaded_node.png" alt="delete node" width="1000" border="2"/>
 
    Figure 11. - delete offloaded node option in NiFi UI
+   
+   
 
   <img src="../img/delete_offloaded_node_confirmation.png" alt="delete node" width="1000" border="2"/>
 
    Figure 12. - delete offloaded node option in NiFi UI
+
 
