@@ -9,7 +9,7 @@ excerpt: 安装生产就绪的 DC/OS
 
 本页概括如何安装 DC/OS 用于生产。使用这种方法，您可以打包 DC/OS 分发并手动连接到每个节点，以运行 DC/OS 安装命令。若要与现有系统集成，或者您没有群集的 SSH 访问权限，则推荐使用这种安装方法。
 
-DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和专用代理节点。可以查看 [节点](/1.11/overview/concepts/#node) 文档以了解更多信息。
+DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和专用代理节点。可以查看 [节点](/cn/1.11/overview/concepts/#node) 文档以了解更多信息。
 
 # 生产安装流程
 
@@ -19,7 +19,7 @@ DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和
 1. 在管理节点上安装 DC/OS
 1. 在代理节点上安装 DC/OS
 
-![Production Installation Process](/1.11/img/advanced-installer.png)
+![Production Installation Process](/cn/1.11/img/advanced-installer.png)
 图 1. 生产安装流程
 
 
@@ -35,7 +35,7 @@ DC/OS 安装会创建以下文件夹：
 |  /opt/mesosphere | 包含 DC/OS 二进制文件、库和群集配置。请勿修改。 |
 |  /etc/systemd/system/dcos.target.wants | 包含启动 systemd 组件的 systemd 服务。它们因受 systemd 限制而必须位于 `/opt/mesosphere` 之外。 |
 | /etc/systemd/system/dcos. `<units>`      | 包含在 `/etc/systemd/system/dcos.target.wants` 中单元的复制。他们必须在最上面的文件夹，同时也在 `dcos.target.wants` 里面。 |
-|  /var/lib/dcos/exhibitor/zookeeper | 包含 [ZooKeeper](/1.11/overview/concepts/#exhibitor-zookeeper) 数据。 |
+|  /var/lib/dcos/exhibitor/zookeeper | 包含 [ZooKeeper](/cn/1.11/overview/concepts/#exhibitor-zookeeper) 数据。 |
 |  /var/lib/docker | 包含 Docker 数据。 |
 |  /var/lib/dcos | 包含 DC/OS 数据。 |
 |  /var/lib/mesos | 包含 Mesos 数据。 |
@@ -43,7 +43,7 @@ DC/OS 安装会创建以下文件夹：
 <p class="message--warning"><strong>警告：</strong>不支持更改为 <code>/opt/mesosphere</code>。它们可能导致 DC/OS 中出现不可预测的行为，并防止升级。</p>
 
 ## 前提条件
-您的群集必须符合软件和硬件 [要求](/1.11/installing/production/system-requirements/)，才能安装 DC/OS。
+您的群集必须符合软件和硬件 [要求](/cn/1.11/installing/production/system-requirements/)，才能安装 DC/OS。
 
 
 # <a name="configure-cluster"></a>配置您的群集
@@ -57,13 +57,13 @@ DC/OS 安装会创建以下文件夹：
 # <a name="license"></a>存储许可证文件
 [/enterprise]
 
-创建 [许可证文件](/1.11/administering-clusters/licenses/)（包含您的授权支持联系人发送的电子邮件中提供的许可文本）并另存为 `genconf/license.txt`。
+创建 [许可证文件](/cn/1.11/administering-clusters/licenses/)（包含您的授权支持联系人发送的电子邮件中提供的许可文本）并另存为 `genconf/license.txt`。
 
 # <a name="ip-detect-script"></a>创建 IP 检测脚本
 
 在这一步创建 IP 检测脚本。这一脚本报告群集中每个节点的 IP 地址。DC/OS 群集中的每个节点都有一个唯一的 IP 地址，用于在群集中的节点之间进行通信。每次在节点上启动 DC/OS 时，IP 检测脚本都会将节点的唯一 IPv4 地址打印到 STDOUT。
 
-<p class="message--note"><strong>注意：</strong>在节点上安装 DC/OS 后，节点的 IP 地址不能更改。例如，当重新启动节点或更新 DHCP 租约时，IP 地址不应更改。如果节点的 IP 地址发生更改，该节点必须<a href="/1.11/installing/production/uninstalling/">卸载</a>。</p>
+<p class="message--note"><strong>注意：</strong>在节点上安装 DC/OS 后，节点的 IP 地址不能更改。例如，当重新启动节点或更新 DHCP 租约时，IP 地址不应更改。如果节点的 IP 地址发生更改，该节点必须<a href="/cn/1.11/installing/production/uninstalling/">卸载</a>。</p>
 
 <p class="message--note"><strong>注意：</strong>脚本必须返回与 <code>config.yaml</code> 中指定的相同 IP 地址。例如，如果将 <code>config.yaml</code> 中的专用管理节点 IP 指定为 <code>10.2.30.4</code>，您的脚本在管理节点上运行时应返回相同的值。</p>
 
@@ -152,7 +152,7 @@ DC/OS 安装会创建以下文件夹：
 # 创建故障域检测脚本
 [/enterprise]
 
-DC/OS 群集默认启用 [故障域意识](/1.11/deploying-services/fault-domain-awareness/)，所以必须更改 `config.yaml` 才能使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `config.yaml` 文件中的 `fault_domain_enabled` 参数设置为 `false`。
+DC/OS 群集默认启用 [故障域意识](/cn/1.11/deploying-services/fault-domain-awareness/)，所以必须更改 `config.yaml` 才能使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `config.yaml` 文件中的 `fault_domain_enabled` 参数设置为 `false`。
 
 
 1. 创建名为 `fault-domain-detect` 的故障域检测脚本，在每个节点上运行，以检测节点的故障域。安装过程中此脚本的输出被传递到 Mesos。
@@ -215,7 +215,7 @@ Enterprise 指定三个Mesos 管理节点、静态管理节点发现列表、Exh
 
 该开源模板指定三个 Mesos 管理节点、三个用于 Exhibitor 存储的 ZooKeeper 实例、静态管理节点发现列表、Exhibitor 的内部存储后端、一个自定义代理，以及云专用的 DNS 解析器。[oss type="inline" size="small" /]
 
-如果服务器在您的 `/etc/resolv.conf` 中安装时带有域名，请添加 `dns_search` 参数。有关参数描述和配置示例，请参阅 [文档](/1.11/installing/production/advanced-configuration/configuration-reference/)。
+如果服务器在您的 `/etc/resolv.conf` 中安装时带有域名，请添加 `dns_search` 参数。有关参数描述和配置示例，请参阅 [文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
 
 <p class="message--note"><strong>注意：</strong>如果 AWS DNS IP 在您的国家/地区不可用，可以使用本地 DNS 服务器替换 AWS DNS IP 服务器 <code>8.8.8.8</code> 和 <code>8.8.4.4</code>。</p>
 <p class="message--note"><strong>注意：</strong>- 如果您指定 <code>master_discovery: static</code>，则还必须创建脚本，以将内部 IP 映射到 bootstrap 节点上的公共 IP（例如，<code>genconf/ip-detect-public</code>）。然后，此脚本在 <code>ip_detect_public_filename: "relative-path-from-dcos-generate-config.sh"</code> 中引用。</p>
@@ -291,8 +291,8 @@ enable_ipv6: 'false'
 <p class="message--note"><strong>注意：</strong>由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 <code>config.yaml</code> 中将 <code>enable_ipv6</code> 设置为 <code>false</code>。如果已升级到 DC/OS 1.12.x 而没有配置 <code>enable_ipv6</code>，或者 <code>config.yaml</code> 文件设置为 <code>true</code>，请不要添加新节点。</p>
 
 您可以在我们最新重要的 [产品咨询 中找到更多信息和更详细的补救流程](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302)。[enterprise type="inline" size="small" /]
-<p class="message--important"><strong>重要信息：</strong>必须让以下项目生效才能安装 DC/OS：所有 DC/OS 节点上的 <code>ip-detect script</code>、<code>DNS</code> 和 <code>NTP</code> 均已同步时间。参见<a href="https://docs.mesosphere.com/1.11/installing/troubleshooting/">故障排除</a>，了解更多信息。</p>
-<p class="message--note"><strong>注意：</strong>如果出现问题并且您想重新运行设置，请使用群集<a href="https://docs.mesosphere.com/1.11/installing/production/uninstalling/">卸载</a>说明。</p>
+<p class="message--important"><strong>重要信息：</strong>必须让以下项目生效才能安装 DC/OS：所有 DC/OS 节点上的 <code>ip-detect script</code>、<code>DNS</code> 和 <code>NTP</code> 均已同步时间。参见<a href="https://docs.mesosphere.com/cn/1.11/installing/troubleshooting/">故障排除</a>，了解更多信息。</p>
+<p class="message--note"><strong>注意：</strong>如果出现问题并且您想重新运行设置，请使用群集<a href="https://docs.mesosphere.com/cn/1.11/installing/production/uninstalling/">卸载</a>说明。</p>
 
 **前提条件**
 
@@ -422,13 +422,13 @@ enable_ipv6: 'false'
             sudo bash dcos_install.sh slave_public
             ```
 
-    <p class="message--note"><strong>注意： </strong>如果遇到错误（例如在 journald 中的 <code>Time is marked as bad</code>、<code>adjtimex</code> 或 <code>Time not in sync</code>），请验证是否在所有节点都启用了网络时间协议 (NTP)。如需更多信息，请参阅 <a href="/1.11/installing/production/system-requirements/#port-and-protocol">系统要求</a> 文档。</p>
+    <p class="message--note"><strong>注意： </strong>如果遇到错误（例如在 journald 中的 <code>Time is marked as bad</code>、<code>adjtimex</code> 或 <code>Time not in sync</code>），请验证是否在所有节点都启用了网络时间协议 (NTP)。如需更多信息，请参阅 <a href="/cn/1.11/installing/production/system-requirements/#port-and-protocol">系统要求</a> 文档。</p>
 
 1. 监视 Exhibitor 并等待其在 `http://<master-ip>:8181/exhibitor/v1/ui/index.html` 汇合。
 
     <p class="message--note"><strong>注意：</strong>此过程可能大约 10 分钟。在此期间，您将看到管理节点在 Exhibitor 控制台上可见并上线，并且最后会显示一个绿灯图标。</p>
 
-    ![Exhibitor for ZooKeeper](/1.11/img/chef-zk-status.png)
+    ![Exhibitor for ZooKeeper](/cn/1.11/img/chef-zk-status.png)
 
     图 2. Exhibitor for ZooKeeper
 
@@ -440,24 +440,24 @@ enable_ipv6: 'false'
 
 1. 输入您的管理员用户名和密码。
 
-    ![Login screen](/1.11/img/ui-installer-auth2.png)
+    ![Login screen](/cn/1.11/img/ui-installer-auth2.png)
 
     图 3. 登录对话
 
 
 成功了！现在将显示 UI 仪表板。
 
-![UI dashboard](/1.11/img/dashboard-ee.png)
+![UI dashboard](/cn/1.11/img/dashboard-ee.png)
 
 图 4. DC/OS UI 仪表板
 
-<p class="message--note"><strong>注意：</strong>您也可以使用 <a href="https://docs.mesosphere.com/1.11/installing/evaluation/mesosphere-supported-methods/">Universal 安装工具</a>在 AWS、Azure 或 GCP 上部署 DC/OS 用于生产。</p>
+<p class="message--note"><strong>注意：</strong>您也可以使用 <a href="https://docs.mesosphere.com/cn/1.11/installing/evaluation/mesosphere-supported-methods/">Universal 安装工具</a>在 AWS、Azure 或 GCP 上部署 DC/OS 用于生产。</p>
 
 ### 后续步骤：Enterprise 和开源用户
 
 下列链接提供了后续步骤的信息：
 - [分配用户角色][7]。
-- [系统要求](/1.11/installing/production/system-requirements/)
+- [系统要求](/cn/1.11/installing/production/system-requirements/)
 - [公共代理节点][2]
 - [专用代理节点][3]
 - [安装 DC/OS 命令行界面 (CLI)][9]
@@ -466,16 +466,16 @@ enable_ipv6: 'false'
 - [卸载 DC/OS][11]
 
 
-[1]: /1.11/installing/production/system-requirements/
-[2]: /1.11/overview/concepts/#public
-[3]: /1.11/overview/concepts/#private
-[5]: /1.11/img/ui-installer-auth2.png
-[6]: /1.11/img/dashboard-ee.png
-[7]: /1.11/security/ent/users-groups/
-[8]: /1.11/security/ent/users-groups/
-[9]: /1.11/cli/install/
-[12]: /1.11/installing/production/deploying-dcos/node-cluster-health-check/
-[10]: /1.11/installing/troubleshooting/
-[11]: /1.11/installing/production/uninstalling/
+[1]: /cn/1.11/installing/production/system-requirements/
+[2]: /cn/1.11/overview/concepts/#public
+[3]: /cn/1.11/overview/concepts/#private
+[5]: /cn/1.11/img/ui-installer-auth2.png
+[6]: /cn/1.11/img/dashboard-ee.png
+[7]: /cn/1.11/security/ent/users-groups/
+[8]: /cn/1.11/security/ent/users-groups/
+[9]: /cn/1.11/cli/install/
+[12]: /cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/
+[10]: /cn/1.11/installing/troubleshooting/
+[11]: /cn/1.11/installing/production/uninstalling/
 
 
