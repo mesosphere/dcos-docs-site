@@ -19,16 +19,38 @@ Following are the steps for offloading node:
 
    <img src="../img/showing_cluster.png" alt="cluster option" width="1000" border="2"/>
 
+   Figure 1. - cluster option in NiFi UI
+
+   <img src="../img/cluster_view.png" alt="cluster view" width="1000" border="2"/>
+
+   Figure 2. - cluster view in NiFi UI
+
 2. `Disconnect` node you want to offload
    
-   <img src="../img/showing_cluster.png" alt="cluster view" width="1000" border="2"/>
+   <img src="../img/disconnect_node.png" alt="disconnect node" width="1000" border="2"/>
+   
+   Figure 3. - disconnect node through NiFi UI
+
+   <img src="../img/disconnect_node_confirmation.png" alt="disconnect node confirmation" width="1000" border="2"/>
+
+   Figure 4. - disconnect node confirmation NiFi UI
 
 3. Select `Offload`
 
-   <img src="../img/offload_node.png" alt="offload node " width="1000" border="2"/>
+   <img src="../img/offload_node.png" alt="offload node" width="1000" border="2"/>
 
-   <img src="../img/offloaded_node.png" alt="offloaded node " width="1000" border="2"/>
+   Figure 5. - offload node in NiFi UI
+
+   <img src="../img/offload_node_confirmation.png" alt="offload node confirmation" width="1000" border="2"/>
+
+   Figure 6. offloaded node in NiFi UI
+
+   <img src="../img/offloaded_node.png" alt="offloaded node" width="1000" border="2"/>
+
+   Figure 7. offloaded node in NiFi UI
 
 <p class="message--important"><strong>IMPORTANT: </strong> It is not recommended to use offload feature as Mesosphere does not support scale down. So after offloading if you delete the node, it is not going to remove from the cluster. Although if you see cluster view in NiFi UI it will not show up but it still runs and consumes resources.<p>
 
   <img src="../img/delete_node.png" alt="delete node" width="1000" border="2"/>
+
+   Figure 8. - delete node option in NiFi UI
