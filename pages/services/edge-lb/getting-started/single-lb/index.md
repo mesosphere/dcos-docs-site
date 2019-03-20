@@ -11,7 +11,7 @@ This tutorial demonstrates how to prepare load balancing for access to a single 
 
 # Before you begin
 * You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster
+* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * You must have the `edgelb` command-line interface (CLI) installed.
 * You must have an active and properly-configured DC/OS Enterprise cluster.
 * The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
@@ -99,10 +99,6 @@ This tutorial demonstrates how to prepare load balancing for access to a single 
    dcos edgelb endpoints sample-minimal
    ```
 
-   You can then use this information to determine the public IP address to use to access the load balancer.
-   
-   For more information about finding public IP addresses for your cluster, see [Finding a public agent IP](/1.13/administering-clusters/locate-public-agent/).
+   You can then use this information to determine the public IP address to use to access the load balancer. For more information about finding public IP addresses for your cluster, see [Finding a public agent IP](/1.13/administering-clusters/locate-public-agent/).
 
-1. After the pool and service have been deployed, access the load-balanced service at `http://<public-ip>/`.
-
-1. Verify you have access to the app.
+1. Access the load-balanced service at `http://<public-ip>/` to verify you have access to the app.
