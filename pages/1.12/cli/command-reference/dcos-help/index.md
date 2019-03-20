@@ -43,7 +43,6 @@ Usage:
     dcos config set <name> <value>
     dcos config show [<name>]
     dcos config unset <name>
-    dcos config validate
 
 Commands:
     set
@@ -52,8 +51,6 @@ Commands:
         Display the DC/OS configuration file contents.
     unset
         Remove a property from the configuration file.
-    validate
-        Validate changes to the configuration file.
 
 Options:
     -h, --help
