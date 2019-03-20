@@ -4,7 +4,6 @@ navigationTitle:  dcos config show
 title: dcos config show
 menuWeight: 2
 excerpt: Showing the cluster configuration file
-
 enterprise: false
 ---
 
@@ -21,15 +20,15 @@ dcos config show <name>
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
-| `<name>`   |  The name of the property. |
+| `<name>`   |  The name of the property |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/1.12/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
+| [dcos config](/1.12/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |
 
 # Examples
 

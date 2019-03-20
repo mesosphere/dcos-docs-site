@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos node list-components
 title: dcos node list-components
-menuWeight: 4
+menuWeight: 7
 excerpt: Displaying the available DC/OS components on a specified node
 
 enterprise: false
@@ -20,7 +20,7 @@ dcos node list-components [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   | Displays JSON-formatted data. |
 | `--leader`   |  The leading master. |

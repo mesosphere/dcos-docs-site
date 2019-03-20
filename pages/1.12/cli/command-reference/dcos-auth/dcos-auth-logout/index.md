@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  dcos auth logout
 title: dcos auth logout
 menuWeight: 3
-excerpt: Logging out of DC/OS authentication
+excerpt: Logging out of a DC/OS cluster
 
 enterprise: false
 ---
 
 
 # Description
-This command allows you to log out of DC/OS authentication.
+The `dcos auth logout` command allows you to log out of your DC/OS cluster.
 
 # Usage
 
@@ -23,3 +23,4 @@ dcos auth logout
 | Command | Description |
 |---------|-------------|
 | [dcos auth](/1.12/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+

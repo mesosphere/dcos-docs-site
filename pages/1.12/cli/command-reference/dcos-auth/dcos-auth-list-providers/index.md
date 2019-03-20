@@ -9,25 +9,27 @@ enterprise: true
 ---
 
 # Description
-This command lists configured authentication providers for your DC/OS cluster. For more information, see [Service Accounts](/1.12/security/ent/service-auth/).
+
+The `dcos auth list-providers` command lists configured authentication providers for your DC/OS cluster. For more information, see [Service Accounts](/1.12/security/ent/service-auth/).
 
 # Usage
 
 ```bash
-dcos auth list-providers <dcos-url> [OPTION]
+dcos auth list-providers [--json] [<dcos-url>] 
 ```
 
 # Options
 
-| Name, shorthand | Description |
+
+| Name | Description |
 |---------|-------------|
 | `--json`   | Specify a JSON-formatted list of authentication providers. |
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<dcos-url>`   |             | A URL or IP address to an accessible master node. |
+| Name |  Description |
+|---------|------------|
+| `<dcos-url>`   |  A URL or IP address to an accessible master node. |
 
 # Parent command
 

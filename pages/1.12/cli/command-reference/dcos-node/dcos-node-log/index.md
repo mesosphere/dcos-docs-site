@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos node log
 title: dcos node log
-menuWeight: 5
+menuWeight: 9
 excerpt: Displaying Mesos logs for nodes
 
 enterprise: false
@@ -20,7 +20,7 @@ dcos node log [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
 | `--leader`   |             |  The leading master. |
 | `--follow`   |             |  Dynamically update the log. |

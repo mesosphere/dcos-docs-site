@@ -2,15 +2,14 @@
 layout: layout.pug
 navigationTitle:  dcos task attach
 title: dcos task attach
-menuWeight: 0
+menuWeight: 1
 excerpt: Attaching a process inside of a task's container
-
 enterprise: false
 ---
 
 # Description
 
-The `dcos task attach` command allows you to attach the CLI to the stdio of an already running task.
+The `dcos task attach` command allows you to attach the CLI to the `stdio` of an already running task.
 
 ```bash
 dcos task attach [--no-stdin] <task>

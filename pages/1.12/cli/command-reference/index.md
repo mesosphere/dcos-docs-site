@@ -8,4 +8,4 @@ excerpt: Exploring the unique DC/OS commands
 enterprise: false
 ---
 
-This Command Reference describes commands that are unique to DC/OS.
+This Command Reference describes CLI commands that are unique to DC/OS.

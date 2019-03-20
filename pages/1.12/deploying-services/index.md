@@ -12,7 +12,7 @@ DC/OS uses Marathon to manage your processes and services.
 
 Marathon is the "init system" for DC/OS. Marathon starts and monitors your applications and services, automatically healing failures.
 
-A native Marathon instance is installed as a part of DC/OS installation. After DC/OS has started, you can manage the native Marathon instance through the DC/OS CLI with the `dcos marathon` command.
+A native Marathon instance is installed as a part of DC/OS installation. After DC/OS has started, you can manage the native Marathon instance through the DC/OS CLI with [the `dcos marathon` command](../cli/command-reference/dcos-marathon/).
 
 DC/OS services are Marathon applications that are deployed on DC/OS. DC/OS services are available from a package repository, such as the [Mesosphere Universe](/1.12/overview/concepts/#mesosphere-universe), or you can create your own.
 

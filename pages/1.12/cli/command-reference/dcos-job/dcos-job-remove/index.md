@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 The `dcos job remove` command allows you to remove jobs.
 
 # Usage
@@ -20,13 +21,13 @@ dcos job remove <job-id> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--stop-current-job-runs`   |  Remove all running jobs. |
 
 # Positional arguments
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|
 | `<job-id>`   |  Specify the job ID. You can view the job IDs with the `dcos job list` command. |
 

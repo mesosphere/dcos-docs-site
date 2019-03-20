@@ -4,27 +4,25 @@ navigationTitle:  dcos cluster unlink
 title: dcos cluster unlink
 menuWeight: 3
 excerpt: Unlinking a cluster from another cluster
-
 enterprise: true
 ---
 
 # Description
-The `dcos cluster unlink` command will unlink a cluster from another cluster.
+The `dcos cluster unlink` command will unlink a cluster.
 
 # Usage
 
 ```bash
-dcos cluster unlink [<linked-cluster-name> | <linked-cluster-id> ]
+dcos cluster unlink <name>
 ```
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|-------------|
-| `<linked-cluster-name>`   | ID of linked cluster.  |
-| `<linked-cluster-id>`   |  ID of linked cluster.  |
+| `<name>`   | Name of linked cluster  |
 
-If the cluster links successfully there is no output to the console.
+If the cluster unlinks successfully there is no output to the console.
 
 # Parent command
 

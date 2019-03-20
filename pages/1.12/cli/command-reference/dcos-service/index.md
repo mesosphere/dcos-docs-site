@@ -20,7 +20,7 @@ dcos service [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--completed`   |  Show the completed and active services. Completed services have either been disconnected from master and reached their failover timeout, or have been explicitly shutdown via the `/shutdown` endpoint. |
 | `--help, h`   |  Displays usage. |
@@ -28,3 +28,7 @@ dcos service [OPTION]
 | `--info`   |   Displays a short description of this subcommand. |
 | `--json`   |    JSON-formatted data. |
 | `--version, v`   |   Displays version information. |
+
+
+# Commands
+

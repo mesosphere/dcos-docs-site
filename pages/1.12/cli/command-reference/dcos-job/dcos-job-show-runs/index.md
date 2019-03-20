@@ -20,7 +20,7 @@ dcos job show runs <job-id> [OPTION]
 
 # Options
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|
 | `--json`   |   Displays JSON-formatted list. |
 | `--q`   | Displays an array of run IDs only. |
@@ -28,7 +28,7 @@ dcos job show runs <job-id> [OPTION]
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<job-id>`   |  Specify the job ID. |
 

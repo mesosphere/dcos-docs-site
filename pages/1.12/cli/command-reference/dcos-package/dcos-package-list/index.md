@@ -20,7 +20,7 @@ dcos package list <package-name> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--app-id=<app-id>`   |   The application ID. |
 | `--cli`   |   Command line only. |
@@ -28,7 +28,7 @@ dcos package list <package-name> [OPTION]
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<package-name>`   |   Name of the DC/OS package. |
 

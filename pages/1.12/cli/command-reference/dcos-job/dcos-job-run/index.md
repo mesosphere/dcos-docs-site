@@ -4,7 +4,6 @@ navigationTitle:  dcos job run
 title: dcos job run
 menuWeight: 5
 excerpt: Running a DC/OS job
-
 enterprise: false
 ---
 
@@ -25,7 +24,7 @@ None.
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<job-id>`   |   Specify the job ID. You can view the job IDs with the `dcos job list` command.|
 
