@@ -84,6 +84,8 @@ sudo wget https://s3.eu-central-1.amazonaws.com/adyatlov-public/guano-0.1a.jar.z
 unzip guano-0.1a.jar.zip
 ```
 
+<p class="message--note"><strong>NOTE: </strong>Before you run the backup command, you must set the variable `$ZKHOST` to a `ZK DNS name` like `zk-1.zk` OR explicitly specify a `ZK host name` instead of the variable in the command line.</p>
+
 3. Run the following command to backup your ZooKeeper state.
 
 ```bash
