@@ -14,7 +14,7 @@ The DC/OS {{model.techName }} service supports offload node feature of {{model.t
 
 ## Steps
 
-<p class="message--important"><strong>IMPORTANT: </strong> It is not recommended to use offload feature as Mesosphere does not support scale down. So after offloading if you delete the node, it is not going to remove from the cluster. Although if you see cluster view in NiFi UI it will not show up but it still runs and consumes resources.<p>
+<p class="message--important"><strong>IMPORTANT: </strong> It is not recommended to use offload feature as Mesosphere does not support scale down. So after offloading if you delete the node, it is not going to remove from the cluster. Although if you see cluster view in NiFi UI it will not shown but it still runs and consumes resources of your dc/os.<p>
 
 Following are the steps for offloading node:
 
@@ -79,13 +79,13 @@ Following are the steps for offloading node:
 
 4. Delete `offloaded` node
 
-  <img src="../img/delete_offloaded_node.png" alt="delete node" width="1000" border="2"/>
+   <img src="../img/delete_offloaded_node.png" alt="delete node" width="1000" border="2"/>
 
    Figure 10. - delete offloaded node option in NiFi UI
    <br><br><br>
    
 
-  <img src="../img/delete_offloaded_node_confirmation.png" alt="delete node" width="1000" border="2"/>
+   <img src="../img/delete_offloaded_node_confirmation.png" alt="delete node" width="1000" border="2"/>
 
    Figure 11. - delete offloaded node option in NiFi UI
    <br><br><br>
