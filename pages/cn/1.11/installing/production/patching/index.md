@@ -178,7 +178,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 - 修补之前要对 ZooKeeper 进行实时捕捉。Marathon 支持回滚，但不支持降级。
 - 修补之前 [对 IAM 数据库进行实时捕捉](/1.11/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise)。
 - 确保在开始修补之前， Marathon 事件订阅者已被禁用。完成修补后，保持其禁用状态，因为此功能现已被弃用。
-- **注意：** Marathon 事件订阅者默认为禁用。检查是否已将 `--event_subscriber "http_callback"` 行添加到管理节点上的 `sudo vi /opt/mesosphere/bin/marathon.sh`。如果是，就需要移除该行，以禁用事件订阅者。
+    <p class="message--note"><strong>注意：</strong> Marathon 事件订阅者默认为禁用。检查是否已将 <code>--event_subscriber "http_callback"</code> 行添加到管理节点上的 <code>sudo vi /opt/mesosphere/bin/marathon.sh</code>。如果是，就需要移除该行，以禁用事件订阅者。</p>
 - 确认在开始修补前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
 - [备份您的群集](/1.11/administering-clusters/backup-and-restore/)。
 - **可选** 您可以将自定义 [节点和群集运行状况检查](/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
@@ -234,7 +234,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
     dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
     ```
 1. 上一步骤的命令将在其输出的最后一行产生 URL，前缀为 `Node patch script URL:`。记下此 URL 以供后续使用。它在本文档中被称为“节点补丁脚本 URL”。
-1. 运行 [nginx][install] 容器以服务安装文件。
+1. 运行 [nginx](/1.11/installing/production/deploying-dcos/installation/) 容器以服务安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 以完成安装。
 
@@ -262,7 +262,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
     dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
     ```
  1. 上一步骤的命令将在其输出的最后一行产生 URL，前缀为 `Node patch script URL:`。记下此 URL 以供后续使用。它在本文档中被称为“节点补丁脚本 URL”。
- 1. 运行 [nginx][install] 容器以服务安装文件。
+ 1. 运行 [nginx](/1.11/installing/production/deploying-dcos/installation/) 容器以服务安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 以完成安装。
 

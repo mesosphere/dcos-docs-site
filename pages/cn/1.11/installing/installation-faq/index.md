@@ -17,7 +17,7 @@ excerpt: 关于安装 DC/OS 的常见问题
 DC/OS 运行自己的 ZooKeeper，由 Exhibitor 和 `systemd` 监督。
 
 ## 问：创建群集后是否需要维护 bootstrap 节点？
-如果您在群集配置 [文件] (/1.11/installing/production/advanced-configuration/configuration-reference/)中指定的 Exhibitor 存储后端类型不是 `exhibitor_storage_backend: static`，则必须保留在群集生命周期内一直保留外部存储库，方便首要实例选举。如果您的群集是任务攸关群集，则应使用 S3 加固外部存储库或运行 bootstrap ZooKeeper 担当 quorum。可以容忍外部存储库的服务中断，但永久性的状态丢失可能导致意外状况。
+如果您在群集配置 [文件](/1.11/installing/production/advanced-configuration/configuration-reference/)中指定的 Exhibitor 存储后端类型不是 `exhibitor_storage_backend: static`，则必须保留在群集生命周期内一直保留外部存储库，方便首要实例选举。如果您的群集是任务攸关群集，则应使用 S3 加固外部存储库或运行 bootstrap ZooKeeper 担当 quorum。可以容忍外部存储库的服务中断，但永久性的状态丢失可能导致意外状况。
 
 ## 问：如何将 Mesos 属性添加到节点以使用 Marathon 限制？
 
@@ -51,17 +51,17 @@ DC/OS 运行自己的 ZooKeeper，由 Exhibitor 和 `systemd` 监督。
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave-public && sudo systemctl stop dcos-mesos-slave-public
     ```
 
-[企业]
+[enterprise]
 ## 问：如何备份 IAM 数据库？
 [/enterprise]
 
 要将 IAM 数据库备份到文件，请在其中一个管理节点上运行以下命令：
 
-    ```bash
-    sudo /opt/mesosphere/bin/cockroach dump --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) iam > ~/iam-backup.sql
-    ```
+```bash
+sudo /opt/mesosphere/bin/cockroach dump --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) iam > ~/iam-backup.sql
+```
 
-[企业]
+[enterprise]
 ## 问：如何恢复 IAM 数据库？
 [/enterprise]
 
