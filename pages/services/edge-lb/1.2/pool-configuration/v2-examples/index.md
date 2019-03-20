@@ -279,9 +279,11 @@ To direct traffic based on the hostname to multiple backends for a single port (
   -----END RSA PRIVATE KEY-----
   ```
 
+  For more information about creating and storing secrets, see [Secrets](/1.12/security/ent/secrets/).
+
 ## Sample configuration
 After you have created or identified the SSL certificate and stored it securely in DC/OS Secrets, you can route traffic to multiple backends using the `pool.haproxy.frontend.linkBackend` setting as illustrated in the following example:
----
+
 ```json
 {
   "apiVersion": "V2",
