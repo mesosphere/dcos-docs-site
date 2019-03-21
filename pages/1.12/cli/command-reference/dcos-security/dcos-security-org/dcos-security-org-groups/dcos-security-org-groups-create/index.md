@@ -9,20 +9,23 @@ enterprise: true
 # Description
 The `dcos security org groups create` command allows you to create a new group.
 
+# Usage
+
+```bash
+dcos security org groups create [OPTIONS] GID
+```
+
+
 # Options
 
 | Name |  Description |
 |---------|-------------|
 | `d`, `--description <text>` | Description of group.|
 |  `-h`, `--help` |  Show this message and exit.|
+
+# Positional Arguments
+
+| Name |  Description |
+|---------|-------------|
 | `GID` | Group ID. (Required)|
 
-```
-Usage: dcos security org groups create [OPTIONS] GID
-
-  Create a group.
-
-Options:
-  -d, --description TEXT
-  -h, --help              Show this message and exit.
-```
