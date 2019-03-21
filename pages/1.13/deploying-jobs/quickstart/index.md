@@ -62,7 +62,7 @@ You can add a job to a an existing job group or create a new job group when you 
 
 ## Modify, view, or remove a job
 
-From the **Jobs** tab, click the name of your job and then the menu on the upper right to modify or delete it. While the job is running you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
+From the **Jobs** tab, click the name of your job and then the menu on the upper right to modify or delete it. While the job is running, you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
 
 # Managing jobs with the DC/OS CLI
 You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To see a full list of available commands with usage information, run `dcos job --help`.
@@ -197,19 +197,28 @@ Starting a job manually from the command-line or through the DC/OS web-based con
 If a schedule is used to start a job, however, the job's concurrency policy determines whether a new job run instance is triggered. Being able to control whether jobs run concurrently is one of the main differences between triggering a job to run manually or using a schedule.
 
 ## Remove a job from the command-line
-1. Enter the following command on the DC/OS CLI:
+You can remove a job using the command-line program dcos job remove <job-id> as long as the job does not have any active job instances running. If a job has any currently active running instances, you must stop all of the currently-active jobs. After you stop all running job instances, you can remove the job using the `dcos job remove <job-id>` command. 
 
-    ```
-    dcos job remove <job-id>
+To remove a job:
+1. Check the status of active jobs by running a command similar to the following:
+
+    ```bash
+    dcos job list
     ```
 
-1. Go to the **Jobs** tab of the DC/OS web interface to verify that you have removed your job, or verify from the CLI:
+1. Stop all running job instances for the job you want to delete and remove the job by running the following command:
+
+    ```bash
+    dcos job remove <job-id> --stop-current-job-runs
+    ```
+
+1. Verify that you have removed the specified job by running the following command:
 
     ```
     dcos job list
     ```
 
-## Modify a job
+## Modify a job from the command line
 To modify your job, update your JSON job file, then run
 
 ```

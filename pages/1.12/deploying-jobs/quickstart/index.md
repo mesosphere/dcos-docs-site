@@ -60,9 +60,9 @@ You can manage the most common job-related activity interactively through the DC
 
 ## Add a job to a job group
 You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.13/deploying-jobs/job-groups/).
-## Modify, view, or remove a job
 
-From the **Jobs** tab, click the name of your job and then the menu on the upper right to modify or delete it. While the job is running you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
+## Modify, view, or remove a job
+From the **Jobs** tab, click the name of your job and then the menu on the upper right to modify or delete it. While the job is running, you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
 
 # Managing jobs with the DC/OS CLI
 You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To see a full list of available commands with usage information, run `dcos job --help`.
@@ -196,7 +196,7 @@ Starting a job manually from the command-line or through the DC/OS web-based con
 
 If a schedule is used to start a job, however, the job's concurrency policy determines whether a new job run instance is triggered. Being able to control whether jobs run concurrently is one of the main differences between triggering a job to run manually or using a schedule.
 
-## Remove a job
+## Remove a job from the command line
 You can remove a job using the command-line program dcos job remove <job-id> as long as the job does not have any active job instances running. If a job has any currently active running instances, you must stop all of the currently-active jobs. After you stop all running job instances, you can remove the job using the `dcos job remove <job-id>` command. 
 
 To remove a job:
@@ -218,7 +218,7 @@ To remove a job:
     dcos job list
     ```
 
-## Modify a job
+## Modify a job from the command line
 To modify an existing job:
 1. Open JSON file for the job in a text editor.
 
