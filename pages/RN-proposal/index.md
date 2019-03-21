@@ -1,11 +1,12 @@
 ---
-# layout: layout.pug
+layout: layout.pug
 navigationTitle: Mesosphere Release Notes Proposal
 title: Mesosphere Release Notes Proposal
 menuWeight: 0
-excerpt: Background and suggestions for improving the content in release notes
+
 ---
-29 January 2019
+
+21 March 2019
 
 # Purpose
 The purpose of this proposal is to start a conversation about ways to improve the information we provide in the form of release notes. To be effective, release notes depend on a collaborative effort that draws on the strengths of people in different roles:
@@ -52,7 +53,7 @@ There are a few stylistic and formatting changes we could make to improve the re
 * Use sentence style capitalization for headings. It’s easier to read than initial capitalization and reduces the chance of misuse.
 * Use active voice with explicit sentence subjects, whenever possible. It’s easier to read, comprehend, and (usually) translate.
 
-## Executive summary and samples
+## Executive summary and sample queries
 The two sample excerpts illustrate:
 * Setting context with an introductory paragraph
 * Using simplified broad categories
@@ -78,9 +79,6 @@ This section is primarily for major releases, but occasionally minor and patch r
 **Sample query** for issues that are intended for DC/OS 1.12 but that have not been resolved:
 
 <code>fixVersion in versionMatches("DC/OS 1.12") AND resolution is EMPTY AND reporter != automation-bot</code>
-
-### Customer Advisory 
-This section lists resources (Knowledge Base articles) from Mesosphere’s support site that are essential for customers to be aware of in a particular release.
 
 # Additional process suggestions
 1. Add a required JIRA field to identify as early as possible the potential issues to include.
@@ -114,3 +112,7 @@ This section lists resources (Knowledge Base articles) from Mesosphere’s suppo
     JIRA tickets <> Release Notes: Review and re-use the description of individual issues from the JIRA tickets to the corresponding issues listed in the Release Notes to maintain content consistency.
 
     In case of missing descriptions, contact the bug/issue reporter/assignee for information and document the description in JIRA ticket and Release Notes.
+
+# Samples
+- [Patch release example](./sample-patch-release-notes/)
+- [Major or minor release example](./sample-full-release-notes/)
