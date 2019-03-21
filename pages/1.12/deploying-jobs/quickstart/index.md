@@ -15,7 +15,7 @@ You can create and administer jobs for the DC/OS cluster in any of the following
 The DC/OS application programming interface (API) for job-related operations provides the underlying funtionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
 
 # Managing jobs with the DC/OS web-based interface
-You can manage the most common job-related activity interactively through the DC/OS web-based interface. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS web-based interface only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/1.13/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.13/deploying-jobs/quickstart/#jobs-api).
+You can manage the most common job-related activity interactively through the DC/OS web-based interface. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS web-based interface only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/1.12/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.12/deploying-jobs/quickstart/#jobs-api).
 
 ## Add a job
 1. Navigate to the URL for the DC/OS web-based console in a web browser.
@@ -231,7 +231,6 @@ dcos job update <job-file>.json
 ```
 
 ### Modify a job's schedule
-
 You can update the schedule of your job in two ways, depending if your job has a schedule specified in the `<job-file>.json` or if your job's schedule is kept in a separate file.
 
 #### Modify a job with a schedule
@@ -243,7 +242,6 @@ dcos job update <job-file>.json
 ```
 
 #### Modify a job with a separate schedule file
-
 Modify `<schedule-file>.json`. Then, run one of the following commands:
 
 ```bash
@@ -253,7 +251,6 @@ dcos job schedule update <job-id> <schedule-file>.json
 ```
 
 ## View job details
-
 List all jobs:
 
 ```
@@ -279,7 +276,6 @@ dcos job schedule show <job-id>
 ```
 
 ### View job logs
-
 To view the log for your job:
 
 ```
@@ -292,11 +288,12 @@ To get the log for only a specific job run, use a job run ID from `dcos job hist
 dcos task log --completed <job-run-id>
 ```
 
-# <a name="jobs-api"></a>Jobs API
+# <a name="jobs-api"></a>Using the Jobs API
+You can also create and administer jobs through calls to the Jobs API endpoints. This section highlights the most common tasks you perform through job-related API calls. For more complete information about the Jobs API, see the  [Jobs API reference](http://dcos.github.io/metronome/docs/generated/api.html) information.
 
-You can also create and administer jobs via the API. [View the full API here](http://dcos.github.io/metronome/docs/generated/api.html).
+The code examples in this section illustrate how to include Jobs API calls to perform job-related tasks with the client URL (cURL) program. For detailed information about using `curl` command, see the [`curl` man page](https://curl.haxx.se/docs/manpage.html). 
 
-<p class="message--important"><strong>IMPORTANT: </strong>The DC/OS CLI and web interface support a combined JSON format (accessed using the <code>/v0</code> endpoint) that allows you to specify a schedule in the job descriptor. To schedule a job using the API, use two calls: one to add an unscheduled job, and another to associate a <code><schedule-file>.json</code> with the job.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>The DC/OS CLI and web-based console support a combined JSON format (accessed using the <code>/v0</code> endpoint) that allows you to specify a schedule in the job descriptor. To schedule a job using the API, use two calls: one to add an unscheduled job, and another to associate a <code><schedule-file>.json</code> with the job.</p>
 
 ## Add a job using an API call
 The following command adds a job called `myjob.json`.
@@ -335,11 +332,10 @@ curl -X POST -H "Authorization: token=$(dcos config show core.dcos_acs_token)" "
 <a name="add-sched"></a>
 
 ## Add a schedule to a job
-
 The following command adds a schedule to a job:
 
 ```
-curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<job-id>/schedules -d@/Users/<your-username>/<schedule-file>.json
+curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<job-id>/schedules -d@<schedule-file>.json
 ```
 
 ## Start a job using an API call

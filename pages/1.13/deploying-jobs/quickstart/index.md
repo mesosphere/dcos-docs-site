@@ -45,9 +45,17 @@ You can manage the most common job-related activity interactively through the DC
 
 1. Click **Docker Container** to specifiy the Docker image for the new job, if you are using one.
 
-1. Click **Docker Parameters** to specify the Docker parameters for the new job, if applicable.
+    Optionally, you can select **privileged** to run the specified Docker image in privileged mode.
 
-1. Click **Labels** to specify a **Label Name** and **Label Value** you want to attach as metadata to the new job. You can then use the job label to filter jobs. For more information about using labels, see [Labeling tasks and jobs](/1.13/tutorials/task-labels/).
+1. Click **Docker Parameters** to specify any additional Docker runtime parameters for the new job, if applicable.
+
+    You can add multiple parameter names and corresponding values.
+
+1. Click **Labels** to specify a **Label Name** and **Label Value** you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. For more information about using labels, see [Labeling tasks and jobs](/1.13/tutorials/task-labels/).
+
+1. Verify that you have added the new job by clicking **Jobs**.
+
+    ![Jobs List](/1.13/img/GUI-Job-List.png/)
 
 ## Add a job to a job group
 You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.13/deploying-jobs/job-groups/).
@@ -57,12 +65,20 @@ You can add a job to a an existing job group or create a new job group when you 
 From the **Jobs** tab, click the name of your job and then the menu on the upper right to modify or delete it. While the job is running you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
 
 # Managing jobs with the DC/OS CLI
-
 You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To see a full list of available commands with usage information, run `dcos job --help`.
 
-## Create a JSON file for a new job
+<a name="cli-add-job"></a>
 
-1. Create a job file in JSON format. The `id` parameter is the job ID. You will use this ID later to manage your job. You can assign only one schedule to a job.
+## Create a JSON file for a new job
+1. Open a new file in a text editor to create a job file in JSON format. 
+
+1. In the new file, specify the basic parameters required to define the job, including the following:
+    - the job `id` you use to manage the job
+    - the specific command to run
+    - the CPU, memory, and disk requirements
+    - the job schedule
+
+    For example, the JSON file for a new job might look similar to this:
 
     ```json
     {
@@ -84,44 +100,103 @@ You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To 
         ]
     }
     ```
-  
-1. Add the job. You can choose any name for your job file.
+
+1. Save the JSON file for the new job using an easily-identifiable file name. For example, you might save the job information as `mysleepjob.json`.
+
+1. Add the job by running a command similar to the following:
+
     ```bash
     dcos job add <myjob>.json
     ```
-  
-1. Go to the **Jobs** tab of the DC/OS web interface to verify that you have added your job, or verify from the CLI:
+    
+    For example:
+
+    ```bash
+    dcos job add mysleepjob.json
+    ```
+1. Verify that you have added the new job by running a command similar to the following:
+
+    ```bash
+    dcos job list
+    ```
+    
+## Set a concurrency policy for scheduled jobs
+If you use a schedule to start a job, you can define a concurrency policy for the job. A concurrency policy determines whether a new job run instance is triggered if there's already a job instance running. 
+
+For example, assume you have a job scheduled to start every day at 3:00AM, and you have set the concurrency policy for the job set to FORBID. If there is an instance of that job already running at 3:00AM--either because a previously-triggered job run is still active or has been triggered manually outside of the schedule--the scheduled start time will not trigger a new job to run. If there are no jobs running at the next scheduled start time, a new job instance starts and runs as scheduled.
+
+If you want to allow scheduled jobs to be triggered while  other instances of the same job are running, you can set the `concurrencyPolicy` to ALLOW. 
+
+## Create a schedule-only JSON file
+If you specify a schedule for a job in the JSON file for that job, you can assign only one schedule for the job to run under.
+
+If you want to use the same schedule for more than one job, however, you can create a separate JSON file specifically for the schedule. You can then use the `dcos job schedule add <job-id> <schedule-file>` command to associate a job with the schedule.
+
+1. Open a file in a text editor to [create a new job](#cli-add-job) file in JSON format, if necessary.
+
+    You must use the job `id` you define for the job to associate a schedule JSON file with the job. To prevent schedule conflicts or unexpected job runs, you should not define schedule parameters for a job if you want to use the schedule-only JSON file to control when a job runs.
+
+1. Open a new file in a text editor to create the schedule you want to use in JSON format.
+
+    For example, the JSON file for a new schedule might look similar to this:
+
+    ```json
+    {
+        "concurrencyPolicy": "ALLOW",
+        "cron": "20 0 * * *",
+        "enabled": true,
+        "id": "nightly",
+        "nextRunAt": "2016-07-26T00:20:00.000+0000",
+        "startingDeadlineSeconds": 900,
+        "timezone": "UTC"
+    }
+    ```
+
+1. Save the JSON file for the new schedule using an easily-identifiable file name. For example, you might save the schedule information as `my-cron-def.json`.
+
+1. Associate the job with the schedule by running a command similar to the following:
+
+    ```bash
+    dcos job schedule add <job-id> <schedule-file>
+    ```
+
+    For example:
+
+    ```bash
+    dcos job schedule add mytestjob my-cron-def.json
+    ```
+
+1. Verify that you have added the new job schedule by running a command similar to the following:
+
     ```bash
     dcos job list
     ```
 
-## Schedule-Only JSON
+## Start a job from the command line
+You can trigger a job to run:
+- manually on-demand
+- automatically based on a schedule you have defined 
+- programmatically through automation with or without a schedule
 
-If you use the same schedule for more than one job, you can create a separate JSON file for the schedule. Use the `dcos job schedule add  <job-id> <schedule-file>` command to associate a job with the schedule.
+You can use any of these approaches to start a job instance that is referred to as a job run. For example, you can use the DC/OS command-line interface to start jobs regardless of whether you have defined a schedule or not. Starting a job manually from the command-line is similar to starting a job by clicking **Run now** using the DC/OS web-based console.
 
-```json
-{
-    "concurrencyPolicy": "ALLOW",
-    "cron": "20 0 * * *",
-    "enabled": true,
-    "id": "nightly",
-    "nextRunAt": "2016-07-26T00:20:00.000+0000",
-    "startingDeadlineSeconds": 900,
-    "timezone": "UTC"
-}
-```
+To start a job run on-demand outside of any scheduled job activity, run a command similar to the following:
 
-## Run a job without a schedule
-You can use the DC/OS command-line interface to run jobs with or without a schedule. Running a job without using a schedule is equivalent to clicking **Run now** when you are managing jobs using the web interface.
-
-To run a job on-demand without using a schedule, run a command similar to the following:
-
-```
+```bash
 dcos job run <job-id>
 ```
 
-## Remove a job
+For example, if the job id is `mytestjob`, run:
 
+```bash
+dcos job run mytestjob
+```
+
+Starting a job manually from the command-line or through the DC/OS web-based console triggers a new job run each time the command is executed. Jobs that are triggered manually on-demand ignore concurrency policy settings. 
+
+If a schedule is used to start a job, however, the job's concurrency policy determines whether a new job run instance is triggered. Being able to control whether jobs run concurrently is one of the main differences between triggering a job to run manually or using a schedule.
+
+## Remove a job from the command-line
 1. Enter the following command on the DC/OS CLI:
 
     ```
@@ -135,7 +210,6 @@ dcos job run <job-id>
     ```
 
 ## Modify a job
-
 To modify your job, update your JSON job file, then run
 
 ```
@@ -143,11 +217,9 @@ dcos job update <job-file>.json
 ```
 
 ### Modify a job's schedule
-
 You can update the schedule of your job in two ways, depending if your job has a schedule specified in the `<job-file>.json` or if your job's schedule is kept in a separate file.
 
 #### Modify a job with a schedule
-
 Modify the `schedules` parameter of your `<job-file>.json`. Then run
 
 ```
@@ -155,7 +227,6 @@ dcos job update <job-file>.json
 ```
 
 #### Modify a job with a separate schedule file
-
 Modify `<schedule-file>.json`. Then, run one of the following commands:
 
 ```bash
@@ -165,7 +236,6 @@ dcos job schedule update <job-id> <schedule-file>.json
 ```
 
 ## View job details
-
 List all jobs:
 
 ```
@@ -191,7 +261,6 @@ dcos job schedule show <job-id>
 ```
 
 ### View job logs
-
 To view the log for your job:
 
 ```
@@ -204,22 +273,24 @@ To get the log for only a specific job run, use a job run ID from `dcos job hist
 dcos task log --completed <job-run-id>
 ```
 
-# <a name="jobs-api"></a>Jobs API
+# <a name="jobs-api"></a>Using the Jobs API
+You can also create and administer jobs through calls to the Jobs API endpoints. This section highlights the most common tasks you perform through job-related API calls. For more complete information about the Jobs API, see the  [Jobs API reference](http://dcos.github.io/metronome/docs/generated/api.html) information.
 
-You can also create and administer jobs using the DC/OS API. [View the full API here](http://dcos.github.io/metronome/docs/generated/api.html).
+## Preparing to use API cals
+The code examples in this section illustrate how to include Jobs API calls to perform job-related tasks with the client URL (cURL) program. For detailed information about using `curl` command, see the [`curl` man page](https://curl.haxx.se/docs/manpage.html). 
 
-<p class="message--important"><strong>IMPORTANT: </strong>The DC/OS CLI and web interface support a combined JSON format (accessed via the <code>/v0</code> endpoint) that allows you to specify a schedule in the job descriptor. To schedule a job via the API, use two calls: one to add an unscheduled job, and another to associate a <code><schedule-file>.json</code> with the job.</p>
+In addition, one important difference between using the DC/OS command-line interface or web-based console and the API is how you configure the job schedule. The DC/OS CLI and web-based console support a combined JSON format that allows you to specify a schedule in the job descriptor. To schedule a job using the Jobs API, you must use two separate calls: 
+- Use one call to add an **unscheduled** job.
+- Use a second call to associate a specific [schedule file](#add-sched) (`schedule-file.json`) with the job.
 
-## Add a job
-
+## Add a job using an API call
 The following command adds a job called `myjob.json`.
 
 ```
 curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs -d@/Users/<your-username>/<myjob>.json
 ```
 
-## Remove a job
-
+## Remove a job using an API call
 The following command removes a job regardless of whether the job is running:
 ```
 curl -X DELETE -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<myjob>?stopCurrentJobRuns=true
@@ -227,8 +298,7 @@ curl -X DELETE -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 To remove a job only if it is not running, set `stopCurrentJobRuns` to `False`.
 
-## Modify or view a job
-
+## Modify or view a job using an API call
 The following command shows all jobs:
 
 ```
@@ -248,18 +318,18 @@ curl -X POST -H "Authorization: token=$(dcos config show core.dcos_acs_token)" "
 ```
 
 <a name="add-sched"></a>
-## Add a schedule to a job
 
+## Add a schedule to a job
 The following command adds a schedule to a job:
 
 ```
-curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<job-id>/schedules -d@/Users/<your-username>/<schedule-file>.json
+curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<job-id>/schedules -d@<schedule-file>.json
 ```
 
-## Run a job without a schedule
-You can use the DC/OS API to run jobs with or without a schedule. Running a job without using a schedule is equivalent to clicking **Run now** when you are managing jobs using the web interface.
+## Start a job using an API call
+You can use the DC/OS API to start jobs programmatically. Similar to starting a job using the web-based console or command-line interface, you must specify the job identifer in the call.
 
-To run a job on-demand without using a schedule, use a REST API call similar to the following:
+To trigger a job run to start you can use a REST API call similar to the following:
 
 ```
 curl -X POST -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/{jobId}/runs
