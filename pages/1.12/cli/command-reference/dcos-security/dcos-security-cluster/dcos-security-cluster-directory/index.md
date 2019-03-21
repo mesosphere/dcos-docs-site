@@ -27,12 +27,4 @@ dcos security cluster directory [OPTIONS] COMMAND [ARGS]...
 
 # Commands
 
-| Name | Description |
-|------|-------------------|
-| `get_config` |    Retrieve current LDAP configuration.|
-|  `import_group` |  Import an LDAP group.|  
-| `import_user`  | Import an LDAP user.|
-|  `test`  |        Test connection to the LDAP backend.|
-
-
 

@@ -9,7 +9,7 @@ enterprise: true
 
 # Description
 
-The `dcos security cluster ca sign` command allows you to sign a CSR.
+The `dcos security cluster ca sign` command allows you to sign a Certificate Signing Request (CSR).
 
 # Usage
 

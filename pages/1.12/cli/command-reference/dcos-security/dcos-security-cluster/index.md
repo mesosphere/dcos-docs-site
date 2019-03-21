@@ -6,8 +6,22 @@ menuWeight: 10
 excerpt: Cluster management commands
 enterprise: true
 ---
+
+# Description
+
 The `dcos security cluster` commands allow you to change security-related cluster settings.
 
+# Usage
+
+```bash
+dcos security cluster [OPTIONS] COMMAND [ARGS]...
+```
+
+# Options
+
+| Name |  Description |
+|---------|-------------|
+|  `-h`, `--help` |  Show this message and exit.|
 
 # Commands
 
