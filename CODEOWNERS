@@ -1,4 +1,4 @@
-# Aaron should see all code changes (not in /pages)
+# Aaron should see all code changes (things not in /pages)
 # Josh should see ALL PRs
 * @niartenyaw @jpe442
 
@@ -11,3 +11,6 @@
 # Networking
 /pages/services/edge-lb/ @networking-team @SarahStegall @jpe442
 /pages/*/networking/ @networking-team @jpe442
+
+# Storage
+/pages/services/beta-storage/ @SarahStegall @jpe442 @mesosphere/mesosphere-storage
