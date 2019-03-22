@@ -676,11 +676,96 @@ dcos-telegraf.socket
 ## Master node
 [/oss]
 
+```
+dcos-adminrouter.service
+dcos-checks-api.service
+dcos-checks-api.socket
+dcos-checks-poststart.service
+dcos-checks-poststart.timer
+dcos-cosmos.service
+dcos-diagnostics.service
+dcos-diagnostics.socket
+dcos-exhibitor.service
+dcos-gen-resolvconf.service
+dcos-gen-resolvconf.timer
+dcos-history.service
+dcos-log-master.service
+dcos-log-master.socket
+dcos-logrotate-master.service
+dcos-logrotate-master.timer
+dcos-marathon.service
+dcos-mesos-dns.service
+dcos-mesos-master.service
+dcos-metronome.service
+dcos-net.service
+dcos-net-watchdog.service
+dcos-oauth.service
+dcos-pkgpanda-api.service
+dcos-signal.service
+dcos-signal.timer
+dcos-telegraf.service
+dcos-telegraf.socket
+```
+
 [oss]
 ## Private agent node
 [/oss]
 
+```
+$ ls /etc/systemd/system/dcos.target.wants/ -1
+dcos-adminrouter-agent.service
+dcos-checks-api.service
+dcos-checks-api.socket
+dcos-checks-poststart.service
+dcos-checks-poststart.timer
+dcos-diagnostics.service
+dcos-diagnostics.socket
+dcos-docker-gc.service
+dcos-docker-gc.timer
+dcos-gen-resolvconf.service
+dcos-gen-resolvconf.timer
+dcos-log-agent.service
+dcos-log-agent.socket
+dcos-logrotate-agent.service
+dcos-logrotate-agent.timer
+dcos-mesos-slave.service
+dcos-net.service
+dcos-net-watchdog.service
+dcos-pkgpanda-api.service
+dcos-rexray.service
+dcos-signal.timer
+dcos-telegraf.service
+dcos-telegraf.socket
+```
+
 [oss]
 ## Public agent node
 [/oss]
+
+```
+$ ls /etc/systemd/system/dcos.target.wants/ -1
+dcos-adminrouter-agent.service
+dcos-checks-api.service
+dcos-checks-api.socket
+dcos-checks-poststart.service
+dcos-checks-poststart.timer
+dcos-diagnostics.service
+dcos-diagnostics.socket
+dcos-docker-gc.service
+dcos-docker-gc.timer
+dcos-gen-resolvconf.service
+dcos-gen-resolvconf.timer
+dcos-log-agent.service
+dcos-log-agent.socket
+dcos-logrotate-agent.service
+dcos-logrotate-agent.timer
+dcos-mesos-slave-public.service
+dcos-net.service
+dcos-net-watchdog.service
+dcos-pkgpanda-api.service
+dcos-rexray.service
+dcos-signal.timer
+dcos-telegraf.service
+dcos-telegraf.socket
+```
 
