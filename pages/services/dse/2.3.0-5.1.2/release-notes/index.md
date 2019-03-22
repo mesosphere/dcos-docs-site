@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Release Notes
+excerpt: Discover the new features, updates, and known limitations in this release of the DSE Service 
 title: Release Notes
 menuWeight: 120
 model: /services/dse/data.yml
 render: mustache
 ---
 
-# Version 2.3.0-5.1.2
+# Release Notes for DSE Service version 2.3.0-5.1.2
 
 ## New Features
 
@@ -18,7 +18,7 @@ render: mustache
 
 - The SDK tests now validate missing values for `svc.yml` Mustache variables. ([#2527](https://github.com/mesosphere/dcos-commons/pull/2527))
 
-# Version 2.2.0-5.1.2
+<!-- # Version 2.2.0-5.1.2
 
 ## New Features
 - Support for deploying the service in a remote region.
@@ -155,3 +155,4 @@ render: mustache
 
 ## Breaking Changes
 - This is a major release available for DC/OS 1.9 or higher. You cannot upgrade to version 2.0.0-5.1.2 from any previous versions of the  package. This is due to the separation of the core DSE nodes from Opscenter.
+ -->

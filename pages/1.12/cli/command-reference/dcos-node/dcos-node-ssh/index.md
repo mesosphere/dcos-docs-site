@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos node ssh
 title: dcos node ssh
-menuWeight: 6
+menuWeight: 15
 excerpt: Establishing an SSH connection to master or agent nodes
 
 enterprise: false
@@ -20,7 +20,7 @@ dcos node ssh <command> [OPTION]
 
 # Options
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
 | `--config-file=<path>`   |             | Path to SSH configuration file. |
 | `--leader`   |             |  The leading master. |
@@ -33,7 +33,7 @@ dcos node ssh <command> [OPTION]
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
 | `<command>`   |             | Command to execute on the DCOS cluster node. |
 

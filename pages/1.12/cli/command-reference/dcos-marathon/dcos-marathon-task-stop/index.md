@@ -15,18 +15,18 @@ the `dcos marathon task stop` command allows you to stop a task.
 # Usage
 
 ```bash
-dcos marathon task stop <task-id> [OPTION]
+dcos marathon task stop [--wipe] <task-id>
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--wipe`   |  Wipe persistent data. |
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<task-id>`   |    The task ID. You can view a list of the task IDs with the `dcos marathon task list` command. |
 

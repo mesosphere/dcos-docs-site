@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Upgrades
 title: Upgrades
-menuWeight: 35
+menuWeight: 40
 excerpt: Instructions for upgrading the DC/OS Storage Service on a DC/OS cluster.
 enterprise: true
 beta: true

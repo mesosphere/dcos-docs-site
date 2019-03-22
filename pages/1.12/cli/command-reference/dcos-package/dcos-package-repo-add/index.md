@@ -4,7 +4,6 @@ navigationTitle:  dcos package repo add
 title: dcos package repo add
 menuWeight: 3
 excerpt: Adding a package repository to DC/OS
-
 enterprise: false
 ---
 
@@ -19,13 +18,13 @@ dcos package repo add <repo-name> <repo-url> [OPTION]
 
 # Options
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|
 | `--index=<index>`   | The numerical position in the package repository list. Package repositories are searched in descending order. By default, the Universe repository first in the list. |
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
 | `<repo-url>`   |   URL of the package repository. For example, https://universe.mesosphere.com/repo. |

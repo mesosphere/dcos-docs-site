@@ -20,7 +20,7 @@ dcos job list [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   |   Display a JSON-formatted list. |
 

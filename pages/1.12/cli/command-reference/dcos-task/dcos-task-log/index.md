@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle:  dcos task log
 title: dcos task log
-menuWeight: 1
+menuWeight: 5
 excerpt: Displaying the task log
-
 enterprise: false
 ---
 
@@ -15,7 +14,7 @@ The `dcos task log` command displays the task log.
 # Usage
 
 ```bash
-dcos task log <task> <file> [OPTION]
+dcos task log [--all | --completed] [--follow --lines=N] [<task>] [<file>]
 ```
 
 # Options
@@ -34,6 +33,7 @@ dcos task log <task> <file> [OPTION]
 | `<file>`   |  `stdout`  |  Specify the sandbox file to Displays. |
 
 The log file parameters should be paths relative to the Mesos sandbox. For example:
+
 ```
 dcos task log [mesosID] /mnt/mesos/sandbox/exporter.log
 ```

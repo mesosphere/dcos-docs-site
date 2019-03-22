@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle:  dcos package repo list
 title: dcos package repo list
-menuWeight: 4
+menuWeight: 6
 excerpt: Displaying the package repository sources
-
 enterprise: false
 ---
 
@@ -15,12 +14,12 @@ The `dcos package repo list` command displays the package repository sources. Po
 # Usage
 
 ```bash
-dcos package repo list [OPTION]
+dcos package repo list [--json]
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   |   JSON-formatted data. |
 

@@ -10,6 +10,7 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon app start` command allows you to start an application.
 
 # Usage
@@ -20,14 +21,14 @@ dcos marathon app start <app-id> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--force`   |  Disable checks in Marathon during updates. |
 | `--instances`   |  The number of instances. |
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<app-id>`   |   The application ID.  You can view a list of the application IDs with the `dcos marathon app list` command.  |
 

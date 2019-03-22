@@ -3,10 +3,10 @@ layout: layout.pug
 navigationTitle: Release notes
 title: Release notes
 menuWeight: 80
-excerpt: Release notes for Marathon-LB
+excerpt: Discover the new features, updates, and known limitations in this release of the Marathon-LB Service
 ---
 
-# v1.12.0
+# Release Notes for Marathon-LB Service version 1.12.0
 
 ## Noteworthy changes:
 
@@ -37,4 +37,4 @@ $ git shortlog v1.11.3..HEAD
 
 # Previous Versions
 
-Please check [https://github.com/mesosphere/marathon-lb/releases](https://github.com/mesosphere/marathon-lb/releases) for release notes prior to v1.12.0.
+Click [here](https://github.com/mesosphere/marathon-lb/releases) to view the release notes prior to Marathon-LB Service version 1.12.0.

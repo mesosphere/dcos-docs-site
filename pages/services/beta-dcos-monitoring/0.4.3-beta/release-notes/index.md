@@ -3,21 +3,21 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 30
-excerpt: New features, updates, and known limitations
+excerpt: Discover the new features, updates, and known limitations in this release of the Beta DC/OS Monitoring Service
 render: mustache
 model: ../data.yml
 ---
 
 #include /services/include/beta-software-warning.tmpl
 
-# Version v0.4.3
+# Release Notes for Beta DC/OS Monitoring Service version 0.4.3
 
 ## Updates
 
 * Fixed the issues when the service is installed in a folder.
 * Fixed a regression related to deploy key support.
 
-# Version v0.4.2
+<!-- # Version v0.4.2
 
 ## Updates
 
@@ -116,3 +116,4 @@ Initial release.
 * No persistent storage for Grafana dashboard configurations.
 * No external storage for Prometheus data.
 * No backup for Prometheus data.
+ -->

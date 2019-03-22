@@ -4,7 +4,6 @@ navigationTitle:  dcos cluster rename
 title: dcos cluster rename
 menuWeight: 5
 excerpt: Renaming a cluster
-
 enterprise: false
 ---
 
@@ -19,16 +18,16 @@ dcos cluster rename <name> <new-name>
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|-------------|
-| `<name>`   |  Name of connected cluster. |
-| `<new-name>`   |  New name of connected cluster. |
+| `<name>`   |  Name of connected cluster |
+| `<new-name>`   |  New name of connected cluster |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster](/1.12/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters. |
+| [dcos cluster](/1.12/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters |
 
 # Examples
 For examples, see [Cluster Connections](/1.12/administering-clusters/multiple-clusters/cluster-connections/).

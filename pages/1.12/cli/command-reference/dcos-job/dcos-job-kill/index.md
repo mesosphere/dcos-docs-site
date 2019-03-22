@@ -19,14 +19,14 @@ dcos job kill <job-id> [OPTION]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `run-id`   |  The job run ID. |
 | `--all`   |  Kill all job runs. |
 
 # Positional arguments
 
-| Name, shorthand | DDescription |
+| Name | Description |
 |---------|-------------|
 | `<job-id>`   |  Specify the job ID. |
 

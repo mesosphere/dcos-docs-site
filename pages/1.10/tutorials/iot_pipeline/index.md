@@ -75,6 +75,8 @@ In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.
     2.  Click **REVIEW AND RUN** and click **RUN**. Click **OPEN SERVICE**.
 
+<p class="message--note"><strong>NOTE: </strong>Zeppelin supported version for this tutorial is 0.6.0. Any other version fails when executing the Zeppelin notebook.</p>
+
 5.  Click the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
     ![Services tab with all services shown.](/1.10/img/tweeter-services6.png)

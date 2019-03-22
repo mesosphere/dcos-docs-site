@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Install
 title: Install
-menuWeight: 30
+menuWeight: 40
 excerpt: Instructions for installing the DC/OS Storage Service on a DC/OS cluster
 enterprise: true
 beta: true

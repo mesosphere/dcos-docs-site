@@ -9,23 +9,24 @@ enterprise: false
 ---
 
 # Description
+
 The `dcos marathon group remove` command allows you to remove applications from DC/OS.
 
 # Usage
 
 ```bash
-dcos marathon group remove <group-id> [OPTION]
+dcos marathon group remove [--force] <group-id>
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--force`   |  Disable checks in Marathon during updates. |
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<group-id>`   |   The group ID. You can view a list of the group IDs with the `dcos marathon group list` command.|
 
