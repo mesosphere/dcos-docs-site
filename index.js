@@ -47,12 +47,14 @@ const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
-const ALGOLIA_SKIP_SECTIONS = config[GIT_BRANCH] ? (
+
+const ALGOLIA_SKIP_SECTIONS = config['always']['DO_NOT_INDEX'] + config[GIT_BRANCH] ? (
   config[GIT_BRANCH]['DO_NOT_INDEX']
 ) : (
   config['local']['DO_NOT_INDEX']
 );
-const METALSMITH_SKIP_SECTIONS = config[GIT_BRANCH] ? (
+
+const METALSMITH_SKIP_SECTIONS = config['always']['DO_NOT_BUILD'] + config[GIT_BRANCH] ? (
   config[GIT_BRANCH]['DO_NOT_BUILD']
 ) : (
   config['local']['DO_NOT_BUILD']
