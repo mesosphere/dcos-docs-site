@@ -66,12 +66,11 @@ html(lang='en')
           nav(class='header__menu')
             ul(class='header__menu-list')
               each val, index in headerItems
-                if(val.menuWeight !== -1)
-                  - var itemClass = {}
-                  - itemClass['header__menu-item'] = true
-                  - itemClass['header__menu-item--active'] = val.path == '/'
-                  li(class=itemClass)
-                    a(href=val.path)!= val.title
+                - var itemClass = {}
+                - itemClass['header__menu-item'] = true
+                - itemClass['header__menu-item--active'] = val.path == '/'
+                li(class=itemClass)
+                  a(href=val.path)!= val.title
               li(class='header__menu-item')
                 a(href='https://support.mesosphere.com') Support
         nav(id="landing-localization" class='localization')

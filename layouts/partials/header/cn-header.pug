@@ -1,16 +1,22 @@
 - var semanticVersion = /^[0-9]+\.[0-9]+/
 - var pages = hierarchy.find('menus').filter(page => page.menus.indexOf('cn-header') != -1)
-- var sectionTitle = 'DC/OS文档'
 
 - function isItemActive(itemPath)
   if itemPath == '/cn'
     if path == '/cn'
       - return true
     - return semanticVersion.test(paths[1])
-  else
-    - return `/${path}`.startsWith(itemPath)
+  if itemPath == '/cn/services'
+    if `/${path}`.startsWith(itemPath)
+      - return !`/${path}`.startsWith(`${itemPath}/kubernetes`)
+    - return false
+  - return `/${path}`.startsWith('/cn/services/kubernetes')
 
+- var sectionTitle = 'DC/OS文档'
 if paths[1] === 'services'
-  - sectionTitle = '服务文档'
+  if paths[2] == 'kubernetes'
+    - sectionTitle = 'Kubernetes'
+  else
+    - sectionTitle = '服务文档'
 
 include header.pug
