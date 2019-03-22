@@ -4,7 +4,7 @@ navigationTitle:  Creating Jobs
 title: Creating Jobs
 menuWeight: 10
 excerpt: Creating and administering jobs using the web interface, the CLI, or the API
-beta: true
+# beta: true
 enterprise: false
 ---
 
