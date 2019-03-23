@@ -14,8 +14,6 @@ ARG algolia_clear_index
 ARG algolia_skip_sections
 ARG metalsmith_skip_sections
 
-RUN if [ $git_branch == ""]; then echo "GIT_BRANCH not set"; raise error; fi;
-
 RUN apt-get update -qq
 RUN apt-get install -y build-essential python
 

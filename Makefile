@@ -71,13 +71,13 @@ docker-pdf-build: ## Build pdf docker image.
 	./scripts/build-pdf.sh
 
 docker-site-run: ## Run site container.
-	docker-compose -f ./docker/docker-compose.production.yml up -d docs
+	docker-compose up -d docs
 
 docker-pdf-run: ## Run pdf container.
-	docker-compose -f ./docker/docker-compose.production.yml up -d pdf
+	docker-compose up -d pdf
 
 docker-site-check-links: ## Run link checker test
-	docker-compose -f ./docker/docker-compose.production.yml up --build test
+	docker-compose up --build test
 
 docker-purge:
 	./scripts/docker-purge.sh

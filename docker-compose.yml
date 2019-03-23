@@ -4,8 +4,8 @@ services:
   docs:
     image: mesosphere/dcos-docs-site
     build:
-      context: ../
-      dockerfile: ./docker/Dockerfile.docs
+      context: .
+      dockerfile: "./docker/Dockerfile.${ENV}"
       args:
         nginx_dir: ./docker/nginx
         git_branch: ${GIT_BRANCH}
@@ -16,22 +16,16 @@ services:
         algolia_index: ${ALGOLIA_INDEX}
         algolia_clear_index: ${ALGOLIA_CLEAR_INDEX}
         algolia_skip_sections: ${ALGOLIA_SKIP_SECTIONS}
+        metalsmith_skip_sections: ${METALSMITH_SKIP_SECTIONS}
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - build:/src/build
-      - build-pdf:/src/build-pdf
-  pdf:
-    image: openlabs/docker-wkhtmltopdf-aas
+      - ./build:/src/build
+  test:
+    depends_on:
+      - docs
+    image: 18fgsa/html-proofer
     volumes:
-      - ../:/tmp/pdf
-    ports:
-     - "8002:80"
-volumes:
-  build:
-    driver_opts:
-      type: none
-      device: ${PWD}/build
-      o: bind
-  build-pdf:
+      - ./build:/src/build
+    command: /src/build --empty-alt-ignore --log-level=debug --url-swap \/latest\/(.*):'/1.12/\1'
