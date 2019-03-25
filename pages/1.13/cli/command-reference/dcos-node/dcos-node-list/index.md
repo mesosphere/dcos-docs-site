@@ -1,25 +1,21 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos node
-title: dcos node
-menuWeight: 11
-excerpt: Displaying DC/OS node information
-
-enterprise: false
+navigationTitle:  dcos node list
+excerpt: Show all nodes in the cluster
+title: dcos node list
+menuWeight: 1
 ---
 
 
 # Description
-The `dcos node` commands allow you to view DC/OS node information.
+The `dcos node list` commands allow you to show all nodes in the cluster.
 This command shows the hostname, private IP, public IP(s), Mesos ID, type,
 region, and zone of each node.
-
-This command is deprecated, please use `dcos node list` instead.
 
 # Usage
 
 ```bash
-dcos node [OPTION]
+dcos node list [OPTION]
 ```
 
 # Options
