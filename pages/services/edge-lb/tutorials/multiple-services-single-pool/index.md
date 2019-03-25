@@ -7,176 +7,256 @@ excerpt: How to load balance multiple services in a single Edge-LB instance
 enterprise: true
 ---
 
-This tutorial demonstrates how to set up a single Edge-LB pool instance to handle the load balancing duties for multiple services. You typically implement this type of deployment scenario if you have multiple services that can be effectively distributed using the same pool configuration settings.
-
 # Before you begin
 
 * Edge-LB is installed following the [installation instructions](/services/edge-lb/getting-started/installing).
 * The DC/OS CLI is installed and configured to communicate with the DC/OS cluster, and the `edgelb` CLI package has been installed.
-* At least one DC/OS private agent node to run the load balanced service (more is better).
-* Multiple (two or more) DC/OS public agent nodes in a single VPC. In order to use an AWS ALB or NLB, the agent nodes must be in multiple AZs.
-* Permissions to create AWS Load Balancers.
 
-# Environment Set Up
+This tutorial demonstrates how to set up three services with a single Edge-LB pool instance. This flexibility allows you to configure Edge-LB pool depending on your need to achieve high availability in your environment. For example, if you have 90 services running on the DC/OS cluster, you can configure 30 Edge-LB pool instance with 3 services each to load-balance all 90 services.
 
-1. Create a Marathon application definition containing the sample service, `customer.json`. It will start four instances.
+1. Example app definition for the `ping.json` file:
 
-   ```json
+```json
+{
+  "id": "/ping",
+  "cpus": 0.1,
+  "mem": 32,
+  "instances": 1,
+  "cmd": "echo \"pong\" > index.html && python -m http.server $PORT0",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "python:3"
+    }
+  },
+  "healthChecks": [
    {
-     "id": "/customer",
-     "instances": 4,
-     "cpus": 0.1,
-     "mem": 32,
-     "cmd": "sed -i 's:Welcome to nginx!:Customer Application:g' /usr/share/nginx/html/index.html; nginx -g 'daemon off;'",
-     "container": {
-       "portMappings": [{
-         "containerPort": 80,
-         "hostPort": 0,
-         "protocol": "tcp",
-         "servicePort": 0,
-         "name": "nginx-80"
-       }],
-       "type": "DOCKER",
-       "volumes": [],
-       "docker": {
-         "image": "nginx"
-       }
-     },
-     "networks": [{
-       "mode": "container/bridge"
-     }]
+    "protocol": "MESOS_HTTP",
+    "path": "/",
+    "portIndex": 0,
+    "gracePeriodSeconds": 5,
+    "intervalSeconds": 10,
+    "timeoutSeconds": 10,
+    "maxConsecutiveFailures": 3
    }
-   ```
-
-1. Deploy the sample service.
-
-   ```bash
-   dcos marathon app add customer.json
-   ```
-
-1. Create an Edge-LB JSON configuration file with a single Edge-LB pool that has multiple load balancer instances. We will call this file `multi-lb.json`.
-
-   ```json
+  ],
+  "portDefinitions": [
    {
-     "apiVersion": "V2",
-     "name": "multi-lb",
-     "count": 2,
-     "haproxy": {
-       "frontends": [{
-         "bindPort": 80,
-         "protocol": "HTTP",
-         "linkBackend": {
-           "defaultBackend": "customer-backend"
-         }
-       }],
-       "backends": [{
-         "name": "customer-backend",
-         "protocol": "HTTP",
-         "services": [{
-           "marathon": {
-             "serviceID": "/customer"
-           },
-           "endpoint": {
-             "portName": "nginx-80"
-           }
-         }]
-       }],
-       "stats": {
-         "bindAddress": "0.0.0.0",
-         "bindPort": 9090
-       }
-     }
+    "protocol": "tcp",
+    "port": 0,
+    "name": "pong-port"
    }
-   ```
+  ],
+  "requirePorts": true
+}
+```
 
-1. Deploy the Edge-LB configuration.
+2. Deploy the `ping.json` app:
 
-   ```bash
-   dcos edgelb create multi-lb.json
-   ```
+```bash
+dcos marathon app add ping.json
+```
 
-1. Navigate to the public IP address of each your public nodes. You should be able to see the NGINX web server initial UI.
+3. Example app definition for the `nginx.json` file:
 
-# Load Balancer Set Up: AWS Classic Load Balancer
+```json
+{
+  "id": "/nginx",
+  "cpus": 0.1,
+  "instances": 1,
+  "mem": 128,
+  "container": {
+    "portMappings": [
+    	{
+        "containerPort": 80,
+        "protocol": "tcp",
+        "name": "nginx-port"
+      }
+     ],
+    "type": "MESOS",
+    "docker": {
+    	"image": "nginx"
+    }
+  },
+  "networks": [
+  	{
+  	  "mode": "container/bridge"
+  	}
+ ]
+}
+```
 
-The AWS Classic Elastic Load Balancer (Classic ELB) supports both TCP and HTTP connections.
+4. Deploy the app for Nginx using `nginx.json` file:
 
-1. In the AWS UI, navigate to the EC2 Load Balancer configuration page: **Services** > **Compute** > **EC2**.
+```bash
+dcos marathon app add nginx.json
+```
 
-1. Under the 'Load Balancing' section in the menu bar on the left, click on **Load Balancers**.
+5. Example app definition for the `echo.json` file:
 
-1. Click **Create Load Balancer**.
+```json
+{
+  "id": "/echo",
+  "args": [
+    "-listen", ":80",
+    "-text", "\"Hello from Marathon!\""
+  ],
+  "cpus": 0.1,
+  "instances": 1,
+  "mem": 128,
+  "container": {
+    "portMappings": [
+    	{
+        "containerPort": 80,
+        "protocol": "tcp",
+        "name": "echo-port"
+      }
+     ],
+    "type": "MESOS",
+    "docker": {
+    	"image": "hashicorp/http-echo"
+    }
+  },
+  "networks": [
+  	{
+  	  "mode": "container/bridge"
+  	}
+ ]
+}
+```
 
-1. Under "Classic Load Balancer", click **Create**.
+5. Deploy the echo app using `echo.json` file:
 
-1. On the "Define Load Balancer" page, select these options:
-    * Provide a name for your Classic Load Balancer.
-    * Select the VPC that your instances are part of.
-    * Under "Load Balancer Protocol", specify these settings:
-        - Protocol: HTTP
-        - Load Balancer Port: 80
-        - Instance Protocol: HTTP
-        - Instance Port: 80
-    * Click the `+` sign next to the subnets that each of your instances are part of.
+```bash
+dcos marathon app add echo.json
+```
 
-1. Click **Assign Security Groups**.
+6. Example Edge-LB pool definition for `multi-lb-pool.json` file:
 
-1. Create a security group that allows in TCP port 80 from 0.0.0.0/0 (or specify an existing security group), click **Next: Configure Security Settings**, then click **Next: Configure Health Check**.
+```json
+{
+  "apiVersion": "V2",
+  "name": "multi-lb",
+  "count": 1,
+  "haproxy": {
+    "frontends": [
+    {
+      "bindPort": 15001,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "ping-backend"
+      }
+    },
+    {
+      "bindPort": 15002,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "nginx-backend"
+      }
+    },
+    {
+      "bindPort": 15003,
+      "protocol": "HTTP",
+      "linkBackend": {
+        "defaultBackend": "echo-backend"
+      }
+    }
+   ],
+    "backends": [
+    {
+      "name": "ping-backend",
+      "protocol": "HTTP",
+      "services": [
+       {
+        "marathon": {
+          "serviceID": "/ping"
+        },
+        "endpoint": {
+          "portName": "pong-port"
+        }
+      }
+     ]
+    },
+    {
+      "name": "nginx-backend",
+      "protocol": "HTTP",
+      "services": [
+        {
+        "marathon": {
+          "serviceID": "/nginx"
+        },
+        "endpoint": {
+          "portName": "nginx-port"
+        }
+      }
+     ]
+    },
+    {
+      "name": "echo-backend",
+      "protocol": "HTTP",
+      "services": [
+       {
+        "marathon": {
+          "serviceID": "/echo"
+        },
+        "endpoint": {
+          "portName": "echo-port"
+        }
+      }
+     ]
+    }
+  ],
+    "stats": {
+      "bindPort": 0
+    }
+  }
+}
+```
 
-1. On the "Configure Health Check" page, select these options:
-    * Ping Protocol: TCP.
-    * Ping Port: 80.
-    * Response Timeout: 2.
-    * Interval: 5.
-    * Unhealthy Threshold: 2.
-    * Healthy Threshold: 2.
+7. Deploy single Edge-LB pool instance to expose and access all 3 services using `multi-lb.json` file:
 
-1. Click **Next: Add EC2 Instances**.
+```bash
+dcos edgelb create multi-lb-pool.json
+```
 
-1. On the "Add EC2 Instances" page, select the instances that correspond to your public agent nodes, then click **Next: Add Tags**.
+8. Verify all services and the pool instance has been deployed sucessfully: 
 
-1. Optionally, specify tags for your ELB so you can identify it later, click **Review and Create**, then click **Create**.
+```bash
+dcos marathon app list
+```
 
-On the Load Balancer page, you can check the status of your load balancer by going to **Instances**. It may take a little bit of time for the instances to be registered. Once your instances are properly registered, you can access the load balancer via the Load Balancer name.
+8. Verify the pool configuration for frontend and stats ports using below command: 
 
-# Load Balancer Set Up: AWS Application Load Balancer / Network Load Balancer
+```bash
+dcos edgelb list
+```
 
-The AWS Application Load Balancer (ALB) is a Layer 7 Load Balancer that does HTTP processing; the AWS Network Load Balancer is a Layer 4 Load Balancer that does TCP load balancing. Conceptually they operate as follows:
+9. Verify the all pool related configuration using below command: 
 
-- ALB: HTTP Load Balancer: HTTP connections terminate on ALB.  
-- NLB: TCP Load Balancer: HTTP connections terminate on the EC2 instance itself (in this case, directly on the Edge-LB Load Balancer instance).
+```bash
+dcos edgelb show multi-lb
+```
 
-Configuration of the two is roughly identical:
+9. Verify the mesos task relevant to services and the pool instances using the below command: 
 
-1. In the AWS UI, navigate to the EC2 Load Balancer configuration page: **Services** > **Compute** > **EC2**.
+```bash
+dcos task
+```
 
-1. Under the 'Load Balancing' section in the menu bar on the left, click **Load Balancers**.
+10. Verify that the Edge-LB pool instance was deployed successfully with the configured frontend and backend ports: 
 
-1. Click **Create Load Balancer**.
+```bash
+dcos edgelb endpoints multi-lb
+```
 
-1. Under "Application Load Balancer" (or "Network Load Balancer"), click `Create`.
+11. Finally verify that you can access all deployed services using the Public IP and the front-end ports. You should be able to see a page for `pong`, a page for `Welcome to Nginx`, and a page for `"Hello from Marathon!"`: 
 
-1. On the "Configure Load Balancer" page, select these options:
-    * Provide a name for your Application Load Balancer (or Network Load Balancer).
-    * Select **internet-facing** and **ipv4**.
-    * In the **Listeners** section, specify **HTTP** and **80** (or **TCP** for a Network Load Balancer).
-    * Select the VPC that your instances are part of, and then select the Subnets that your instances are part of.
+```bash
+http://<public_agent_public_IP>:15001
 
-1. Click **Next: Configure Security Settings**, then **Next: Configure Security Groups**.
+http://<public_agent_public_IP>:15002
 
-1. Create a security group that allows in TCP port 80 from 0.0.0.0/0 (or specify an existing security group), then click **Next: Configure Routing**.
+http://<public_agent_public_IP>:15003
+```
 
-1. On the "Configure Routing" page, make the following selections:
-  * Target Group: New Target Group.
-  * Name: (Specify a name for your target group).
-  * Protocol: HTTP (or TCP for Network Load Balancer).
-  * Port: 80.
-  * Target Type: Instance.
-  * Health Checks: Protocol: HTTP (or TCP for Network Load Balancer).
-  * Health Checks: Path: /.
-
-1. Click **Register Targets**.
-
-1. Select your instances, click **Add to Registered**, then click **Next: Review**, and then click **Create**.
-
-There will be a short wait. Your instances will be available via the DNS name in your newly-generated load balancer.
+**NOTE**: If you cannot access one of the pages, please ensure that all Edge-LB front-end port does not have conflict with other port that may be in use.
