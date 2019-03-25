@@ -25,7 +25,7 @@ After making a change, the scheduler will be restarted, and it will automaticall
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence.
 
-Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](../limitations/index.md).
+Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](../limitations).
 
 
 The instructions below describe how to update the configuration for a running DC/OS service.
@@ -37,8 +37,8 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 #### Prerequisites
 
 - Enterprise DC/OS 1.10 or later.
-- Service with 1.5.0 version.
-- [The DC/OS CLI](/latest/cli/install/) installed and available.
+- Service with 1.5.0 version or later.
+- [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
 - The service's subcommand available and installed on your local machine.
   - You can install just the subcommand CLI by running 
     ```shell
@@ -60,7 +60,7 @@ dcos {{ model.serviceName }} describe > options.json
 
 Make any configuration changes to the `options.json` file.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](https://github.com/mesosphere/dcos-{{ model.serviceName }}/blob/ServiceGuide/docs/install.md).
+If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](../install).
 
 <p class="message--note"><strong>NOTE: </strong> You need to specify all configuration values in the <tt>options.json</tt> file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating <tt>options.json</tt>" section below for information on recovering these values.</p>
 
@@ -102,7 +102,7 @@ Now that you have these files, we'll attempt to recreate the `options.json`.
 	```shell
 	less marathon.json.mustache
 	```
-1. Use the variable names (e.g. `{{service.name}}`) to create a new `options.json` file as described in [Initial service configuration](#initial-service-configuration).
+1. Use the variable names (e.g. \{\{service.name\}\} ) to create a new `options.json` file as described in [Initial service configuration](#initial-service-configuration).
 
 #### Starting the update
 
@@ -188,13 +188,13 @@ Modify the COUNT `"node":{"count":3}` environment variable to update the node co
 
 The CPU and memory requirements of each node can be increased or decreased as follows:
 - CPU: 
-```shell
+```json
 "node":{
    "cpus":<CPU Value>
 }
 ```
 - Memory (in MB): 
-```shell
+```json
 "node":{
    "mem":4096
 }
@@ -406,7 +406,7 @@ To execute the DC/OS {{model.techName }} Administration Toolkit commands, run  a
 To check for `dcos` tasks:
 
 ```shell
->> dcos task
+dcos task
 
 NAME            HOST         USER   STATE  ID                                                    MESOS ID                                 
 {{ model.serviceName }}            10.0.0.196   root     R    {{ model.serviceName }}.9b11498f-415f-11e8-81a4-e25c6192ea05             1d166af3-8666-4f3e-8add-dcaad139c900-S3  
@@ -465,4 +465,4 @@ To check the metrics for the DC/OS {{model.techName }} instances on individual a
     ```shell
     curl -k -H "Authorization: token=<acs_token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
     ````  
-More details about Metrics can be found [here](/latest/metrics/quickstart/).
+More details about Metrics can be found [here](https://docs.mesosphere.com/latest/metrics/quickstart/).
