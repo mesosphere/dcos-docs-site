@@ -71,7 +71,7 @@ If you install DC/OS {{model.techName }} from the DC/OS web interface, the
 
 By default, the DC/OS {{model.techName }} service is installed with a service name of `{{ model.packageName }}`. You may specify a different name using a custom service configuration as follows:
 
-   ```shell
+   ```json
    {
        "service": {
            "name": "{{ model.packageName }}-other"
@@ -94,7 +94,7 @@ After specifying a custom name for your instance, it can be reached using `dcos 
 
 In DC/OS 1.10 and later, services may be installed into folders by specifying a slash-delimited service name. For example:
 
-   ```shell
+   ```json
    {
        "service": {
            "name": "/foldered/path/to/{{ model.packageName }}"
@@ -136,7 +136,7 @@ Similarly, it could be queried directly over HTTP as follows:
 
 DC/OS {{model.techName }} supports deployment on virtual networks on DC/OS, allowing each container (task) to have its own IP address and not use port resources on the agent machines. This can be specified by passing the following configuration during installation:
 
-   ```shell
+   ```json
    {
        "service": {
            "virtual_network_enabled": true
@@ -151,7 +151,7 @@ DC/OS {{model.techName }} supports deployment on virtual networks on DC/OS, allo
 For development purposes, you may wish to install DC/OS {{model.techName }} on a local DC/OS cluster. For this, you can use `dcos-docker` or `dcos-vagrant`.
 To start a minimal cluster with a single node, create a JSON options file named `sample-{{ model.packageName }}-minimal.json`:
 
-   ```shell
+   ```json
    {
        "node": {
        "count": 1,
@@ -172,7 +172,7 @@ Customize the defaults by creating a JSON file. Then, pass it to `dcos package i
 
 Sample JSON options file named `sample-{{ model.packageName }}-custom.json`:
 
-   ```shell
+   ```json
    {
    "node": {
        "count": 1,
@@ -215,7 +215,7 @@ In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service wit
 
 1. Select the group or user you created. Select ADD PERMISSION and then toggle to INSERT PERMISSION STRING. Add each of the following permissions to your user or group, and then click ADD PERMISSIONS.
 
-   ```shell
+   ```json
    dcos:adminrouter:service:marathon full
    dcos:service:marathon:marathon:services:/testing full
    dcos:adminrouter:ops:mesos full
@@ -248,17 +248,16 @@ To interact with your foldered service over the web directly, use `http://<dcos-
 Placement constraints allow you to customize where a service is deployed in the DC/OS cluster. Depending on the service, some or all components may be configurable using Marathon operators (reference). For example, [["`hostname`", "`UNIQUE`"]] ensures that at most one pod instance is deployed per agent.
 
 A common task is to specify a list of whitelisted systems to deploy to. To achieve this, use the following syntax for the placement constraint:
-   ```shell
+   ```json
    [["hostname", "LIKE", "10.0.0.159|10.0.1.202|10.0.3.3"]]
    ```
 <p class="message--important"><strong>IMPORTANT: </strong>You must include spare capacity in this list, so that if one of the whitelisted systems goes down, there is still enough room to repair your service (via <tt>pod replace</tt>) without requiring that system.</p>
 
 **Example**
 
-In order to define placement constraints as part of an install or update of a service they should be provided as a JSON encoded string. For example, you can define a placement constraint in an options file as follows:
+In order to define placement constraints as part of an install or update of a service they should be provided as a JSON encoded string. For example, you can define a placement constraint in an options.json file as follows:
 
-   ```shell
-   cat options.json
+   ```json
    {
        "hello": {
        "placement": "[[\"hostname\", \"UNIQUE\"]]"
