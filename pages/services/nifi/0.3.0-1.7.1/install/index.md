@@ -27,7 +27,7 @@ The default DC/OS {{model.techName }} service installation provides reasonable d
 The minimum memory requirement for DC/OS {{ model.techName }} installation is {{ model.install.minMemory }}. DC/OS {{model.techName }} installation will take time since the DC/OS {{model.techName }} application is approximately 1.10GB. The approximate installation time required would be around 20~25 minutes for a two node cluster.
 
 
-<p class="message--note"><strong>NOTE: </strong>A complete guide to Configuring DC/OS Access for Nifi can be found [here](../security/serviceaccountdetail.md).
+<p class="message--note"><strong>NOTE: </strong>A complete guide to Configuring DC/OS Access for Nifi can be found <a href="../../configure-dcos-access">here</a>.
 
 # Installing from the DC/OS CLI
 
