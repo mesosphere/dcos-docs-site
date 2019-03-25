@@ -28,7 +28,7 @@ For the partitions handling the various DC/OS {{model.techName }} repos turn off
 
 The following image shows the recommended hardware for a DC/OS {{model.techName }} production installation:
 
-[<img src="../img/HardwareRecommendation.png" alt="Hardware Recommendation" width="700"/>](../img/HardwareRecommendation.png)
+![Hardware Recommendation](../img/HardwareRecommendation.png)
 
 Figure 1. Hardware sizing recommendations for DC/OS {{model.techName }}
 
