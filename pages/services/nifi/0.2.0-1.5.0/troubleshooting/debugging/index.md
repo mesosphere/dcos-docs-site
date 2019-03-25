@@ -20,8 +20,8 @@ dcos nifi --name=nifi-dev plan show deploy
 
 Logs for the scheduler and all service nodes can be viewed from the DC/OS web interface.
 
-    - Scheduler logs are useful for determining why a node isn’t being launched (this is under the purview of the Scheduler).
-    - Node logs are useful for examining problems in the service itself.
+- Scheduler logs are useful for determining why a node isn’t being launched (this is under the purview of the Scheduler).
+- Node logs are useful for examining problems in the service itself.
 
 In all cases, logs are generally piped to files named stdout and/or stderr.
 
@@ -98,9 +98,9 @@ If you want to bring the scheduler back, you can do a dcos package install using
 
 Long story short, you forgot to run janitor.py the last time you ran the service. See Uninstall for steps on doing that. In case you’re curious, here’s what happened:
 
-    1. You ran dcos package nifi --app-id nifi. This destroyed the scheduler and its associated tasks, but didn’t clean up its reserved resources.
-    2. Later on, you tried to reinstall the service. The scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by janitor.py. The scheduler tried to re-register using that framework ID.
-    3. Mesos returned an error because it knows that framework ID is no longer valid. Hence the confusing ‘Framework has been removed’ error.
+1. You ran dcos package nifi --app-id nifi. This destroyed the scheduler and its associated tasks, but didn’t clean up its reserved resources.
+2. Later on, you tried to reinstall the service. The scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by janitor.py. The scheduler tried to re-register using that framework ID.
+3. Mesos returned an error because it knows that framework ID is no longer valid. Hence the confusing ‘Framework has been removed’ error.
 
 # Stuck deployments
 
