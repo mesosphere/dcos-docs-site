@@ -237,7 +237,7 @@ DC/OS 服务通常作为 Marathon 框架上的应用程序运行。要为 Marath
       "services": [{
         "mesos": {
           "frameworkName": "beta-confluent-kafka",
-          "taskNamePattern": "^broker-*$"
+          "taskNamePattern": "^broker-.*$"
         },
         "endpoint": {
           "port": 1025
