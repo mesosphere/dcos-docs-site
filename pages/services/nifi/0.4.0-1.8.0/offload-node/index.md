@@ -14,18 +14,18 @@ The DC/OS {{model.techName }} service supports offload node feature of {{model.t
 
 ## Steps
 
-<p class="message--important"><strong>IMPORTANT: </strong> It is not recommended to use offload feature as Mesosphere does not support scale down. So after offloading if you delete the node, it is not going to remove from the cluster. Although if you see cluster view in NiFi UI it will not shown but it still runs and consumes resources of your dc/os.<p>
+<p class="message--important"><strong>IMPORTANT: </strong> We do not recommend using the offload feature, as Mesosphere does not support scaling down. After offloading, if you delete the node it will not be removed from the cluster. If you run cluster view in the NiFi GUI, the node will not be displayed, but it is still running and will consume DC/OS resources.<p>
 
 Following are the steps for offloading node:
 
 1. Go to `Cluster`
    <br><br>
-   <img src="../img/cluster_option.png" alt="cluster option" width="1000" border="2"/>
+   ![Cluster option](../img/cluster_option.png)
 
    Figure 1. - cluster option in NiFi UI
    <br><br><br>
 
-   <img src="../img/cluster_view.png" alt="cluster view" width="1000" border="2"/>
+   ![Cluster view](../img/cluster_view.png)
 
    Figure 2. - cluster view in NiFi UI
    <br><br><br>
@@ -33,19 +33,19 @@ Following are the steps for offloading node:
 
 2. `Disconnect` node you want to offload
    
-   <img src="../img/node_disconnect.png" alt="disconnect node" width="1000" border="2"/>
+   ![Disconnect node](../img/node_disconnect.png)
    
    Figure 3. - disconnect node through NiFi UI
    <br><br><br>
    
 
-   <img src="../img/disconnect_confirmation.png" alt="disconnect node confirmation" width="1000" border="2"/>
+   ![Disconnect node confirmation](../img/disconnect_confirmation.png)
 
    Figure 4. - disconnect node confirmation NiFi UI
    <br><br><br>
    
 
-   <img src="../img/disconnected_node.png" alt="disconnect node confirmation" width="1000" border="2"/>
+   ![Disconnect node confirmation](../img/disconnected_node.png)
 
    Figure 5. - disconnected node in NiFi UI
    <br><br><br>
@@ -53,25 +53,25 @@ Following are the steps for offloading node:
 
 3. Select `Offload`
 
-   <img src="../img/offload_node.png" alt="offload node" width="1000" border="2"/>
+   ![Offload node](../img/offload_node.png)
 
    Figure 6. - offload node in NiFi UI
    <br><br><br>
    
 
-   <img src="../img/offload_node_confirmation.png" alt="offload node confirmation" width="1000" border="2"/>
+   ![Offload node confirmation](../img/offload_node_confirmation.png)
 
    Figure 7. offload node cofirmation in NiFi UI
    <br><br><br>
    
 
-   <img src="../img/offloading_node.png" alt="offloaded node" width="1000" border="2"/>
+   ![Offloaded node](../img/offloading_node.png)
 
    Figure 8. offloading node in NiFi UI
    <br><br><br>
    
 
-   <img src="../img/offloaded_node.png" alt="offloaded node" width="1000" border="2"/>
+   ![Offloaded node](../img/offloaded_node.png)
 
    Figure 9. offloaded node in NiFi UI
    <br><br><br>
@@ -79,14 +79,13 @@ Following are the steps for offloading node:
 
 4. Delete `offloaded` node
 
-   <img src="../img/delete_offloaded_node.png" alt="delete node" width="1000" border="2"/>
+   ![Delete node](../img/delete_offloaded_node.png)
 
    Figure 10. - delete offloaded node option in NiFi UI
    <br><br><br>
    
 
-   <img src="../img/delete_offloaded_node_confirmation.png" alt="delete node" width="1000" border="2"/>
+   ![Delete node](../img/delete_offloaded_node_confirmation.png)
 
    Figure 11. - delete offloaded node option in NiFi UI
    <br><br><br>
-
