@@ -23,7 +23,7 @@ For example, CN={{ model.serviceName }}-0-node.demonifi, O="Mesosphere, Inc", L=
 
 The service uses the [DC/OS CA](https://docs.mesosphere.com/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the DC/OS CA will consider the service’s certificates valid.
 
-<p class="message--note"><strong>NOTE: </strong>Enabling transport encryption is required to use <a href="https://docs.mesosphere.com/1.10/security/ent/tls-ssl/">SSL authentication</a> for authentication, but is optional for Kerberos authentication.</p>
+<p class="message--note"><strong>NOTE: </strong>Enabling transport encryption is required to use <a href="https://docs.mesosphere.com/latest/security/ent/tls-ssl/">SSL authentication</a> for authentication, but is optional for Kerberos authentication.</p>
 
 ## Prerequisites
 - A DC/OS Service Account with a secret stored in the [DC/OS Secret Store.](https://docs.mesosphere.com/latest/security/ent/service-auth/custom-service-auth/)
@@ -149,9 +149,9 @@ If you install a service in permissive mode and do not specify a service account
 
 ### Prerequisites:
 
-- [DC/OS CLI](https://docs.mesosphere.com/1.10/cli/install/) installed and be logged in as a superuser.
-- [Enterprise DC/OS CLI 0.4.14 or later installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](https://docs.mesosphere.com/1.10/security/ent/) is permissive or strict, you must [get the root cert](https://docs.mesosphere.com/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- [DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and be logged in as a superuser.
+- [Enterprise DC/OS CLI 0.4.14 or later installed](https://docs.mesosphere.com/latest/cli/enterprise-cli/#ent-cli-install).
+- If your [security mode](https://docs.mesosphere.com/latest/security/ent/) is permissive or strict, you must [get the root cert](https://docs.mesosphere.com/latest/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 ## Create a Key Pair
 
@@ -205,4 +205,3 @@ You can list the secrets with this command:
    ```shell
    dcos security org users grant <service name> dcos:superuser full --description "grant permission to superuser" 
    ```    
-
