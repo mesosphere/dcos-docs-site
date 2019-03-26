@@ -10,13 +10,18 @@ enterprise: false
 
 
 # Description
-The `dcos auth logout` command allows you to log out of your DC/OS cluster.
+The `dcos auth logout` command will log out the CLI from the current cluster.
 
 # Usage
 
 ```bash
-dcos auth logout 
+dcos auth logout [flags] 
 ```
+# Options
+
+| Name |  Description |
+|---------|-------------|-------------|
+| `--help, h`   | Display usage. |
 
 # Parent command
 
