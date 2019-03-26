@@ -28,5 +28,11 @@ dcos security cluster oidc modify [OPTIONS] OIDC_ID
 |  `-c`, `--client-secret <text>` |  Client secret for the OIDC provider.  (Required)|
 |  `--client-id <text>` |          Client ID of the new OIDC provider.  (Required) |
 |  `-h`, `--help` |                Show this message and exit.|
-| `OIDC_ID` | ID of OIDC configuration. |
+
+
+## Positional Arguments
+
+| Name | Description |
+|--------|------------------|
+| `OIDC_ID` | OpenID Connect provider ID. |
 
