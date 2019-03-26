@@ -87,6 +87,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [adminrouter_tls_1_1_enabled](#adminrouter-tls-1-1-enabled)    | Indicates whether to enable TLSv1.1 support in Admin Router. |
 | [adminrouter_tls_1_2_enabled](#adminrouter-tls-1-2-enabled)    | Indicates whether to enable TLSv1.2 support in Admin Router. |
 | [adminrouter_tls_cipher_suite](#adminrouter-tls-cipher-suite)    | Override the default TLS cipher suite in Admin Router. |
+| [adminrouter_x_frame_options](#adminrouter-x-frame-options)    | Set the `X-Frame-Options` header value for the DC/OS UI. Default is set to `SAMEORIGIN` |
 | [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)    | Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. [enterprise type="inline" size="small" /] |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) | Sets the auth token time-to-live (TTL) for Identity and Access Management. [enterprise type="inline" size="small" /]|
 | ca_certificate_path                   | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.12/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
