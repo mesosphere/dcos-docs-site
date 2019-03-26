@@ -23,9 +23,12 @@ The `dcos license get` command retrieves a specific license associated with this
 |-------------------|-------------------|
 | `--help`   |    Show this message and exit. |
 | `--decryption-key`   |  Get the key to decrypt license audit records. |
+
+## Positional Arguments
+
+| Name |  Description |
+|-------------------|-------------------|
 | `LICENSE_ID` | ID of license to be retrieved. If no `LICENSE_ID` parameter is passed, the current license will be retrieved. |
-
-
 
 # Examples
 
