@@ -23,8 +23,10 @@ dcos marathon task stop [--wipe] <task-id>
 | Name |  Description |
 |---------|-------------|
 | `--wipe`   |  Wipe persistent data. |
+| `-h`, `--help` | Display info about usage of this command. |
 
-# Positional arguments
+
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

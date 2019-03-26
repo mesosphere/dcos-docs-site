@@ -16,27 +16,23 @@ The `dcos marathon app stop` command allows you to stop an application.
 # Usage
 
 ```bash
-dcos marathon app stop <app-id> [OPTION]
+dcos marathon app stop [--force] <app-id>
 ```
 
 # Options
 
 | Name |  Description |
 |---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 | `--force`   |  Disable checks in Marathon during updates. |
-| `--instances`   |  The number of instances. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
 | `<app-id>`   |   The application ID.  You can view a list of the application IDs with the `dcos marathon app list` command. |
 
-# Parent command
 
-| Command | Description |
-|---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Example
 
@@ -54,3 +50,9 @@ ID      MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 /kafka  1024   1     0/0    0/0       ---      False       N/A     export...      
 /spark  1024   1     1/1    1/1       ---      False      DOCKER   /sbin/init.sh  
 ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

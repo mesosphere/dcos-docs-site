@@ -22,6 +22,7 @@ dcos marathon group remove [--force] <group-id>
 
 | Name |  Description |
 |---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 | `--force`   |  Disable checks in Marathon during updates. |
 
 # Positional arguments

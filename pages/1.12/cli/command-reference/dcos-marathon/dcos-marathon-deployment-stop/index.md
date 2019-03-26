@@ -20,19 +20,17 @@ dcos marathon deployment stop <deployment-id>
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
 | `<deployment-id>`   |   The deployment ID. You can view a list of the deployment IDs with the `dcos marathon deployment list` command. |
 
-# Parent command
 
-| Command | Description |
-|---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 
 # Example
@@ -47,3 +45,9 @@ dcos marathon deployment stop 09db9c92-5662-4613-bff1-d20c3c876466
 dcos marathon deployment list
 There are no deployments
 ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

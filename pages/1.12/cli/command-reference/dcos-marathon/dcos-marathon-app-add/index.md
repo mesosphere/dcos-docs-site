@@ -16,24 +16,21 @@ The `dcos marathon app add` command allows you to add an application.
 # Usage
 
 ```bash
-dcos marathon app add <app-resource> [OPTION]
+dcos marathon app add <app-resource> 
 ```
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+| `--help`   |  Show this message and exit. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
 | `<app-resource>`   | Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description, see the [documentation](/1.12/deploying-services/marathon-api/). |
 
-# Parent command
-
-| Command | Description |
-|---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 
@@ -84,3 +81,9 @@ In this example, a simple app is deployed to DC/OS Marathon.
      ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  CONTAINER  CMD
     /myApp   64  0.1    0/1    ---      scale       DOCKER   None
     ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

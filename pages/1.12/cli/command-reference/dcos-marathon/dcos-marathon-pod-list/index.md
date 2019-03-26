@@ -22,6 +22,7 @@ dcos marathon pod list [--json|--quiet]
 |---------|-------------|
 | `--json`   |   Displays JSON-formatted data. |
 | `-q`, `--quiet` | Display IDs only for list. |
+| `-h`, `--help` | Display info about usage of this command. |
 
 # Parent command
 

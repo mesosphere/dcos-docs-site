@@ -21,19 +21,16 @@ dcos marathon pod update [--force] <pod-id>
 
 | Name |  Description |
 |---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 | `--force`   |   Disable checks in Marathon during updates. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
 | `<pod-id>`   |  The pod ID. You can view a list of the pod IDs with the `dcos marathon pod list` command.|
 
-# Parent command
 
-| Command | Description |
-|---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 
@@ -45,3 +42,9 @@ dcos marathon pod update <pod-id> < <new-pod-definition>
 ```
 
 If the pod is currently deploying, you will not be able to update the pod. To update the pod anyway, run the command with the `--force` flag.
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
