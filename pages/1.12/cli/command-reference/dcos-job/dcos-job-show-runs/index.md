@@ -26,7 +26,7 @@ dcos job show runs <job-id> [--run-id <run-id>][--json|--quiet]
 | `--json`   |   Displays JSON-formatted list. |
 | `-q`, `--quiet`   | Indicates a quiet mode which results in just an array of run IDs. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

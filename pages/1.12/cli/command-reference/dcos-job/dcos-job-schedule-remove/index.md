@@ -29,7 +29,7 @@ dcos job schedule remove <job-id> <schedule-id>
 | Name |  Description |
 |---------|-------------|
 | `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` command.|
-| `<schedule-file>`   |   A JSON formatted job schedule file. |
+| `<schedule-id>`   |   The schedule ID. |
 
 
 

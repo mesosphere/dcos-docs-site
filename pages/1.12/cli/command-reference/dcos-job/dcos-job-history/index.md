@@ -25,8 +25,7 @@ dcos job history <job-id> [--json|--quiet] [--failures --last]
 | `--json`   |   Display JSON-formatted list. |
 | `-q`, `--quiet` | Indicates a quiet mode which results in just an array of run ids. |
 | `-f`, `failures`   |  Show the failure table and statistics for history. |
-| `-l`, `--last` |
-   Shows the last ID for history job.|  
+| `-l`, `--last` |   Shows the last ID for history job.|  
 
 # Positional arguments
 
