@@ -14,7 +14,7 @@ The `dcos job show` command displays a job definition.
 # Usage
 
 ```bash
-dcos job show <job-id> 
+dcos job schedule show <job-id> [--json]
 ```
 
 # Options
@@ -23,7 +23,7 @@ dcos job show <job-id>
 |---------|-------------|
 |`-h`, `--help` |   Print usage. |
 
-# Positional arguments
+## Positional arguments
 
 | Name | Description |
 |---------|-------------|
