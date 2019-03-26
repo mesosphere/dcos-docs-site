@@ -2,7 +2,7 @@
 # Build MS
 #
 
-FROM node:8.1.2-slim as ms-builder
+FROM node:8-stretch-slim as ms-builder
 
 ARG git_branch
 ARG algolia_update
