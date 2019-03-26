@@ -14,16 +14,16 @@ The `dcos job` commands allow you to deploy and manage jobs in DC/OS.
 # Usage
 
 ```bash
-dcos job
+dcos job <flags>
 ```
 
 # Options
 
 | Name |  Description |
 |---------|-------------|
-| `--config-schema`   |  Show the configuration schema for the subcommand |
-| `--help, h`   |   Displays usage |
-| `--info`   |   Displays a short description of this subcommand |
-| `--version, v`   |  Displays version information |
+|`-h`, `--help` |   Print usage. |
+| `--version`  |  Print version information. |
+| `--config-schema` | Show the configuration schema for the Metronome subcommand. |
+| `--info` |  Print a short description of this subcommand. |
 
 # Commands
