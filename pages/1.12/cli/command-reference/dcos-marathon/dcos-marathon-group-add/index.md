@@ -20,9 +20,12 @@ dcos marathon group add [<group-resource>]
 
 # Options
 
-None.
+| Name | Description |
+|---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 
-# Positional arguments
+
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

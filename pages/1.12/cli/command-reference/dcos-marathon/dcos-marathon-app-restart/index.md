@@ -22,6 +22,7 @@ dcos marathon app restart [--force] <app-id>
 
 | Name |  Description |
 |---------|-------------|
+| `--help`   |  Show this message and exit. |
 | `--force`   |  Disable checks in Marathon during updates. |
 
 # Positional arguments

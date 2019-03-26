@@ -19,19 +19,16 @@ dcos marathon pod add [<pod-resource>]
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
 | `<pod-resource>`   |  Path to a file or HTTP(S) URL that contains the pod's JSON definition. If omitted, the definition is read from stdin. |
 
-# Parent command
-
-| Command | Description |
-|---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Examples
 
@@ -41,3 +38,9 @@ To add a pod, first create a JSON pod definition. Then, run the following comman
 ```
 dcos marathon pod add <pod-json-file>
 ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

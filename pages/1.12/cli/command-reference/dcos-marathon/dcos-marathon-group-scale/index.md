@@ -16,16 +16,17 @@ The `dcos marathon group scale` command allows you to scale a group.
 # Usage
 
 ```bash
-dcos marathon group scale <group-id> <scale-factor> [OPTION]
+dcos marathon group scale [--force] <group-id> <scale-factor> 
 ```
 
 # Options
 
 | Name | Description |
 |---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 | `--force`   | Disable checks in Marathon during updates. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

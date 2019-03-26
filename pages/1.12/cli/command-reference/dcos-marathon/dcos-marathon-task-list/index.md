@@ -23,8 +23,10 @@ dcos marathon task list [--json|--quiet] [<app-id>]
 |---------|-------------|
 | `--json`   |  Displays JSON-formatted data. |
 | `-q`, `--quiet` | Display IDs only for list. |
+| `-h`, `--help` | Display info about usage of this command. |
 
-# Positional arguments
+
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

@@ -11,7 +11,7 @@ enterprise: false
 
 # Description
 
-The `dcos marathon about` command will print a `info.json` file for DC/OS Marathon..
+The `dcos marathon about` command will print an `info.json` file for DC/OS Marathon..
 
 # Usage
 
@@ -21,13 +21,11 @@ dcos marathon about
 
 # Options
 
-None.
-
-# Parent command
-
-| Command | Description |
+| Name |  Description |
 |---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| `--help`   |  Show this message and exit. |
+
+
 
 # Example
 
@@ -106,3 +104,9 @@ dcos marathon about
   }
 }
 ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

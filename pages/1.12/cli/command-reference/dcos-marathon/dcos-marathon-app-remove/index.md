@@ -22,6 +22,7 @@ dcos marathon app remove [--force] <app-id>
 
 | Name |  Description |
 |---------|-------------|
+| `--help`   |  Show this message and exit. |
 | `--force`   |  Disable checks in Marathon during updates. |
 
 # Positional arguments
@@ -30,11 +31,7 @@ dcos marathon app remove [--force] <app-id>
 |---------|-------------|
 | `<app-id>`   |  The application ID.  You can view a list of the application IDs with the `dcos marathon app list` command. |
 
-# Parent command
 
-| Command | Description |
-|---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 
 # Example
@@ -69,3 +66,9 @@ ID           MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 /kubernetes  1024   1     0/1    0/0      scale     True        N/A     export...      
 /spark       1024   1     1/1    1/1       ---      False      DOCKER   /sbin/init.sh  
 ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
