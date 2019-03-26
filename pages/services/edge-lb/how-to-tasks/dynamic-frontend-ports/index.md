@@ -1,13 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Allocating ports
-title: Allocating ports
+navigationTitle: Configuring a frontend port dynamically
+title: Configuring a frontend port dynamically
 menuWeight: 22
-excerpt: How to allocating ports dynamically for Edge-LB load balancing
+excerpt: How to configure a frontend port dynamically for Edge-LB load balancing
 enterprise: true
 ---
-
-This page covers common commands for Edge-LB usage. For a more detailed list of CLI commands, consult the [dcos edgelb cli reference](/services/edge-lb/1.2/cli-reference/).
 
 # Before you begin
 

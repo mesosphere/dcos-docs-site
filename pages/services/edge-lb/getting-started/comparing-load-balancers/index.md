@@ -26,13 +26,15 @@ Edge-LB provides high availability and fault tolerance with multiple pool instan
 # Support for container network standards
 Edge-LB supports industry-standard container network interface (CNI) based networks thereby providing you with increased deployment options for your load-balancing strategy.
 
-# Benefits at-a-glance
+# Benefits of Edge-LB over Marathon-LB at-a-glance
 The key benefits of the load balancing provided by Edge-LB over those provided by Marathon-LB are: 
 - Edge-LB supports all applications in DC/OS cluster, not just Marathon-based apps.
 -	Edge-LB has high-availability with multiple Edge-LB pool for high availability.
 -	Edge-LB provides better configuration validation during installation.
 
-# Sample configuration for Marathon-LB
+# Example comparison of Marathon-LB and Edge-LB
+
+<!--# Sample configuration for Marathon-LB
 The following JSON example illustrates the contents of a Marathon app definition for the service minitwit.json that uses Marathon-LB load balancing:
 
 ```json
@@ -157,3 +159,4 @@ The following table provides an overview of the differences between Edge-LB and 
 | Operators deploy individual pool server and load balancers (specific to tenants, groups of applications that share a specific config, or other business rules). | Application developers specify templates or service-specific labels within their app definitions. The labels are picked by the Marathon-LB service from the Marathon Event bus. |
 | Designed to scale and provide granular control and differentiated service | Marathon-LB is most often deployed as a single container service with cluster-wide configuration. |
 | Applications are explicitly added to the load balancer by administrative users. The load balancer pool is configured for the specific backend service by deploying a new pool configuration. | The service automatically generates load balancer configuration based on the labels and reloads the HAProxy service.
+-->

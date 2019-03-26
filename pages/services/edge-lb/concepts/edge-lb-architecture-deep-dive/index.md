@@ -7,7 +7,7 @@ excerpt: Provides a more detailed view of Edge-LB components within the network 
 enterprise: true
 ---
 
-Edge-LB provides the ingress load balancing and proxying functionality for layer-7. As discussed previously, the two main core components of Edge-LB are the Edge-LB API server and Edge-LB pool. This section provides a deeper view into the details of the Edge-LB architecture and how it works. 
+Edge-LB provides the inbound load balancing and proxying functionality for layer-7. The two main components of Edge-LB are the Edge-LB API server and Edge-LB pool. This section provides a deeper view into the details of the Edge-LB architecture and how it works. 
 
 The following diagram provides a more detailed representation of the Edge-LB architecture.
 
@@ -18,17 +18,17 @@ The following diagram provides a more detailed representation of the Edge-LB arc
 # A closer look at the Edge-LB API server
 The Edge-LB API interacts with the CLI clients and provides Create, Read, Update and Delete (CRUD) functionality for Edge-LB pools. It takes the end-user request for creating, deleting, and updating Edge-LB pool instances. The API server also serves the API endpoint requests for Edge-LB pool(s) instances.
 
-## EdgeLB and Zookeeper
-The Edge-LB API server uses the persistent storage of Zookeeper to store the configuration file for the load balancer. It communicates to the Edge-LB pool instances through the Zookeeper. This allows Edge-LB to be fault tolerant. In the event of an API server failure, the Edge-LB pool instances continue to load-balance traffic to the proper backend. When the Edge-LB API server comes back online, it re-establishes the communication between itself and the pool instances.
+<!--## ZooKeeper communication-->
+The Edge-LB API server uses the persistent storage of ZooKeeper to store the configuration file for the load balancer. It communicates to the Edge-LB pool instances through the ZooKeeper. This allows Edge-LB to be fault tolerant. In the event of an API server failure, the Edge-LB pool instances continue to load-balance traffic to the proper backend. When the Edge-LB API server comes back online, it re-establishes the communication between itself and the pool instances.
 
 The Edge-LB API server has two sub-components:
 - Mesos listener
-- DCOS template
+- DC/OS template
 
-## Edge-LB and the Mesos listener
+## Mesos listener
 The `mesos-listener` sub-component is always up by default. It subscribes to the Mesos event stream, translates the event stream data into internal data structure, and serves useful metadata through the API server. It also runs a gRPC server to serve the Mesos task information to other Edge-LB components like `dcos-template`.
 
-## Edge-LB and the DCOS template
+## DC/OS template
 The `dcos-template` sub-component dynamically renders the load balancer configuration information for HAProxy by combining the `mesos-listener` output and the Edge-LB pool configuration provided by the Edge-LB CLI client. The template then signals the `lbmgr` sub-component to take appropriate action on the HAProxy load balancer instance.
 
 In the event of Edge-LB pool update, the `dcos-template` re-generates the HAProxy load balancer configuration from the Edge-LB pool configuration file and signals `lbmgr` to reload the existing HAProxy configuration in real-time.

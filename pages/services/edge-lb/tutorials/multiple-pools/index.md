@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Multiple pools for a single service
-title: Multiple pools for a single service
+navigationTitle: Exposing multiple services using multiple pools
+title: Exposing multiple services using multiple pools
+
 menuWeight: 7
-excerpt: How to set up load balancing with multiple pool instances for a single service
+excerpt: How to set up load balancing for multiple services using multiple Edge-LB pool instances
 enterprise: true
 ---
 

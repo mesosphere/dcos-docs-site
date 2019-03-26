@@ -7,7 +7,7 @@ excerpt: Summarizes supported versions for Edge-LB
 enterprise: true
 ---
 
-Although Edge-LB relies on some core functionality provided by HAProxy, it is released as a separate package on a regular schedule to provide updates and bug fixes optimized for working with DC/OS clusters. In general, you should always install the latest version of Edge-LB available that supports the DC/OS release you have deployed. 
+Edge-LB is released as an independent package on a regular schedule to provide updates and bug fixes optimized for working with DC/OS clusters. In general, you should always install the latest version of Edge-LB available that supports the DC/OS release you have deployed. 
 
 The following is a simplified version of the Edge-LB support and compatibility matrix for the most recent versions of DC/OS and Edge-LB:
 | Edge-LB version | DC/OS Enterprise version |

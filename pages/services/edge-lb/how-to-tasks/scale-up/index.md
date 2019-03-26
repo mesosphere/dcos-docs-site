@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Scaling load-balancer instances
-title: Scaling load-balancer instances
+navigationTitle: Scaling up load-balancer instances
+title: Scaling up load-balancer instances
 menuWeight: 25
-excerpt: How to scale up and scale down load balancer instances
+excerpt: How to scale up load balancer instances
 enterprise: true
 ---
 

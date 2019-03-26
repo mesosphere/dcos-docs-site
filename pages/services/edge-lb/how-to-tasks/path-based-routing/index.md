@@ -4,7 +4,7 @@ navigationTitle: Path-based routing
 title: Path-based routing
 menuWeight: 21
 excerpt: How to configure path-based routing for Edge-LB
-enterprise: false
+enterprise: true
 ---
 
 This section provides code examples that illustrate how to set Edge-LB pool configuration options for path-based routing of inbound traffic.

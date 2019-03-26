@@ -10,7 +10,7 @@ enterprise: true
 Depending on the configuration of Edge_LB and your cluster environment, you might experience some limitations in Edge-LB features or functionality. Unlike issues that are typically found and fixed in minor or patch version updates, technical limitations can span multiple versions. 
 
 ## Current limitations
-* Edge-LB supports all [security modes](/1.13/security/ent/#security-modes) in DC/OS 1.11 and later.
+<!--* Edge-LB supports all [security modes](/1.13/security/ent/#security-modes) in DC/OS 1.11 and later.-->
 
 * Edge-LB supports `permissive` and `disabled` security in DC/OS 1.10, but does not support `strict` security mode on DC/OS 1.10.
 

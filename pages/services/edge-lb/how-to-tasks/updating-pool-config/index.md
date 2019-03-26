@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Upgrading Edge-LB
-title: Upgrading Edge-LB
+navigationTitle:  Updating the Edge-LB pool configuration
+title: Updating the Edge-LB pool configuration
 menuWeight: 45
-excerpt: Upgrading an Edge-LB installation
+excerpt: Updating the Edge-LB pool configuration
 enterprise: true
 ---
 In general, you should regularly update or upgrade the Edge-LB pacakge you have installed to the latest version available to ensure you can take advantage of any fixes and new features that are included in the most recent release.

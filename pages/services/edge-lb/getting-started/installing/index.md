@@ -44,13 +44,17 @@ To download the Edge-LB packages:
     You must have an account to download the Edge-LB pacakges. If you have not previously registered an email address for an account, click [create a new account](https://support.mesosphere.com/CommunitiesSelfReg) to get started.
 
 1. Open [Downloads](https://support.mesosphere.com/s/downloads?t=1551917897670) directly or click **My Account**, then click [Downloads](https://support.mesosphere.com/s/downloads) to view the list of packages available for download.
+
+    By default, the most recent DC/OS packages that are available for download are listed.
+
+1. Select the list of Mesosphere Product Downloads to change the filter for the list of packages available for download.
     <p>
-    <img src="/services/edge-lb/img/Support-Download-list.png" alt="Latest DC/OS packages available for download">
+    <img src="/services/edge-lb/img/support-default-packages-list.png" alt="Filter the packages available for download">
     </p>
 
 1. Select **GA Edge-LB Releases** from the list view of releases available for download.
     <p>
-    <img src="/services/edge-lb/img/list-packages-filter.png" alt="Filter the list of packages to display Edge-LB">
+    <img src="/services/edge-lb/img/list-edgelb-releases.png" alt="Filter the list of packages to display Edge-LB">
     </p>
 
 1. Locate the versions of the Edge-LB API server and pool packages to download.
@@ -60,9 +64,9 @@ To download the Edge-LB packages:
 
 1. Click **Download** to download each package to your working directory.
 
-    Each **Download** link identifies a package URL for a JSON file you use to add the packages to the repository. For example, the **Download** link for the Edge-LB pool package is `https://downloads.mesosphere.com/edgelb-pool/v1.3.0/assets/stub-universe-edgelb-pool.json`. 
+    Each **Download** link identifies a package URL for a JSON file you use to add the packages to the repository. <!--For example, the **Download** link for the Edge-LB pool package is `https://downloads.mesosphere.com/edgelb-pool/v1.3.0/assets/stub-universe-edgelb-pool.json`. -->
     
-    You can copy the contents of each file to a local directory or use the HTTPS URL in the command for adding Edge-LB to the package repository.
+    You can copy the contents of each file to a local directory or include the HTTPS URL path in the command line you use to add Edge-LB to the package repository.
 
 ## Add Edge-LB to the package repository
 After you download or copy the content of each Edge-LB package JSON file, you need to make the artifacts accesible to the cluster from an HTTP or HTTPS server by adding them to the package repository.
@@ -76,24 +80,23 @@ To add the Edge-LB API server and pool packages to the package repository:
     ```bash
     dcos package repo add --index=0 edgelb  https://<download-link>/stub-universe-edgelb.json
     ```
-    For example:
+    <!--For example:
 
     ```bash
     dcos package repo add --index=0 edgelb
     https://downloads.mesosphere.com/edgelb/v1.3.0/assets/stub-universe-edgelb.json
-    ```
+    ``` -->
 
 1. Add the **Edge-LB pool** package to the repository by running a command similar to the following:
 
     ```bash
     dcos package repo add --index=0 edgelb-pool https://<download-link>/stub-universe-edgelb-pool.json
     ```
-
-    For example:
+    <!--For example:
 
     ```bash
     dcos package repo add --index=0 edgelb-pool https://https://downloads.mesosphere.com/edgelb-pool/v1.3.0/assets/stub-universe-edgelb-pool.json
-    ```
+    ``` -->
 
 1. Open the DC/OS web-based console, then click **Catalog** to verify the Edge-LB and Edge-LB pool services have been added.
     <p>
