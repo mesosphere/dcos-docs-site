@@ -27,5 +27,10 @@ dcos security cluster saml modify [OPTIONS] SAML_ID
 |  `-i`, `--idp-metadata <filename>` |  File containing IDP metadata in XML format.  (Required) |
 |  `-b`, `--sp-base-url <text> ` |      The base URL for the service provider. (Required) |
 |  `-h`, `--help` |   Show this message and exit. |
+
+## Positional Arguments
+
+| Name | Description |
+|--------|------------------|
 | `SAML_ID` | ID of SAML provider. |
 
