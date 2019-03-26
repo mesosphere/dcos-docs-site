@@ -15,13 +15,14 @@ The `dcos node list-components` command displays a list of available DC/OS compo
 # Usage
 
 ```bash
-dcos node list-components [OPTION]
+dcos node list-components [--leader --mesos-id=<mesos-id> --json]
 ```
 
 # Options
 
 | Name |  Description |
 |---------|-------------|
+| `--help, h`   |   Displays usage. |
 | `--json`   | Displays JSON-formatted data. |
 | `--leader`   |  The leading master. |
 | `--mesos-id=<mesos-id>`   |  The agent ID of a node. |
