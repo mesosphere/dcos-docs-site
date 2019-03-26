@@ -15,27 +15,29 @@ The `dcos package repo remove` command allows you to remove a package repository
 # Usage
 
 ```bash
-dcos package repo remove <repo-name> 
+dcos package repo remove <repo-names>...
 ```
 
 # Options
 
 | Name |  Description |
 |---------|-------------|
-| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
+| `-h`, `--help` | Display usage. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
 | `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
+
+
+
+# Examples
+
+For an example, see the [documentation](/1.12/administering-clusters/repo/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
 | [dcos package](/1.12/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
-
-# Examples
-
-For an example, see the [documentation](/1.12/administering-clusters/repo/).
