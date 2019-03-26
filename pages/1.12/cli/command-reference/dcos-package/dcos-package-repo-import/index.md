@@ -14,10 +14,23 @@ The `dcos package repo import` command lets you import a file containing a packa
 # Usage
 
 ```
-dcos package repo import <repo-file>
+dcos package repo import <repos-file>
 ```
-# Positional Arguments
+
+# Options
+
+| Name | Description |
+|---------|-------------|
+| `-h`, `--help` | Display usage. |
+
+## Positional Arguments
 
 | Name |  Description |
 |---------|-------------|
 | `<repo-file>` | A file containing package repositories, listed in the format of `dcos package list --json`.|
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos package](/1.12/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
