@@ -24,7 +24,7 @@ Usage: dcos license renew [OPTIONS] PATH
 | `--help`   |  Show this message and exit. |
 
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
