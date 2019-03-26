@@ -15,7 +15,11 @@ The `dcos backup` command will let you create backups and restore from them.
 # Usage
 
 ```
-dcos backup [flags] <command>
+dcos backup [flags]
+```
+
+```
+dcos backup [command]
 ```
 
 # Options
