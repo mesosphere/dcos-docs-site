@@ -14,7 +14,7 @@ The `dcos node diagnostics` command allows you to view the details of diagnostic
 # Usage
 
 ```bash
-dcos node diagnostics [OPTION]
+dcos node diagnostics (--list | --status | --cancel) [--json]
 ```
 
 # Options
@@ -25,6 +25,7 @@ dcos node diagnostics [OPTION]
 | `--list`   |  List the available diagnostics bundles. |
 | `--json`   |   Displays JSON-formatted data. |
 | `--status`   |    Displays diagnostics job status. |
+| `--help, h`   |   Displays usage. |
 
 
 # Examples

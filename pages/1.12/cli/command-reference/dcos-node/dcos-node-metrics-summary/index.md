@@ -21,11 +21,14 @@ dcos node metrics summary <mesos-id> [--json]
 
 | Name |  Description |
 |---------|-------------|
+| `--help, h`   |   Displays usage. |
 | `--json`   |   Displays JSON-formatted data. |
+| `<mesos-id>` | ID number of agent node. |
 
-# Positional arguments
 
-| Name |  Description |
+# Parent command
+
+| Command | Description |
 |---------|-------------|
-| `<mesos-id>` | ID number of agent node.
+| [dcos node](/1.12/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
