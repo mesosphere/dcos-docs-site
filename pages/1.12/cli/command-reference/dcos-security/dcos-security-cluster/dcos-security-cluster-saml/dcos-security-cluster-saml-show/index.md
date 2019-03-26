@@ -23,7 +23,12 @@ dcos security cluster saml show [OPTIONS] [SAML_ID]...
 
 | Name | Description |
 |-----------------|-----------------|
-| `SAML_ID` | ID of SAML provider. |
 |  `-h`, `--help` |   Show this message and exit. |
 |  `-j`, `--json` |   Output data in JSON format. |
+
+## Positional Arguments
+
+| Name | Description |
+|--------|------------------|
+| `SAML_ID` | ID of SAML provider. |
 

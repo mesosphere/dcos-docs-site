@@ -23,6 +23,12 @@ dcos security cluster saml delete [OPTIONS] SAML_ID
 | Name | Description |
 |-------------------|------------------|
 | `-h`, `--help` |  Show this message and exit.|
+
+
+## Positional Arguments
+
+| Name | Description |
+|--------|------------------|
 | `SAML_ID` | ID of SAML provider. |
 
 
