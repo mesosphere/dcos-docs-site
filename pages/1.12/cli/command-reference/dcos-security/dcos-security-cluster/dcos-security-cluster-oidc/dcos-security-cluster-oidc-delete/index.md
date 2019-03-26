@@ -22,5 +22,11 @@ dcos security cluster oidc delete [OPTIONS] OIDC_ID
 | Name | Description |
 |---------|-----------------|
 | `-h`, `--help` |  Show this message and exit.|
-| `OIDC_ID` | ID of OIDC configuration. |
+
+
+## Positional Arguments
+
+| Name | Description |
+|--------|------------------|
+| `OIDC_ID` | OpenID Connect provider ID. |
 

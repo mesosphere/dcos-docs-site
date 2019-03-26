@@ -30,4 +30,8 @@ dcos security cluster oidc add [OPTIONS] OIDC_ID
 | `--client-id <text>` |          Client ID for the new OIDC provider.  (Required) | 
 |  `-h`, `--help` |   Show this message and exit.|
 
+## Positional Arguments
 
+| Name | Description |
+|--------|------------------|
+| `OIDC_ID` | OpenID Connect provider ID. |
