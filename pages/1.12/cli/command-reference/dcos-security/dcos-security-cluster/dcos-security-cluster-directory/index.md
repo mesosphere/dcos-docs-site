@@ -23,7 +23,6 @@ dcos security cluster directory [OPTIONS] COMMAND [ARGS]...
 | Name | Description |
 |------|-------------------|
 | `-h`, `--help` | Show this message and exit.|
-|  `-j`, `--json` | Output data in JSON format.|
 
 # Commands
 

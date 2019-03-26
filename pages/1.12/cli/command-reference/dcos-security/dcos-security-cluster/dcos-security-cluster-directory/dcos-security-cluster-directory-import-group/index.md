@@ -14,7 +14,7 @@ The `dcos security cluster directory import_group` command imports a group of us
 # Usage
 
 ```
-dcos security cluster directory import_user [OPTIONS] UID
+dcos security cluster directory import_user [OPTIONS] GID
 ```
 
 # Options
@@ -22,4 +22,10 @@ dcos security cluster directory import_user [OPTIONS] UID
 | Name | Description |
 |--------|-------------------|
 | `-h`, `--help` |  Show this message and exit.|
+
+## Positional Arguments
+
+| Name | Description |
+|--------|-------------------|
+| `GID` | Group ID. |
 

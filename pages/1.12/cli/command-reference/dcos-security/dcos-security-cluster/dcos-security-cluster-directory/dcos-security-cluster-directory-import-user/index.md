@@ -24,3 +24,8 @@ dcos security cluster directory import_user [OPTIONS] UID
 |----------|---------|
 | `-h`, `--help` |  Show this message and exit.|
 
+## Positional Arguments
+
+| Name | Description |
+|--------|-------------------|
+| `UID` | User ID. |

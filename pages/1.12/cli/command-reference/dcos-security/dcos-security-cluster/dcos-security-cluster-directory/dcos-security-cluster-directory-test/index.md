@@ -21,6 +21,11 @@ dcos security cluster directory test [OPTIONS] UID PASSWORD
 | Name | Description |
 | `-j`, `--json` |  Output data in JSON format.|
 | `-h`, `--help` |  Show this message and exit. |
+
+
+## Positional Arguments
+
+| Name | Description |
 | `UID` | User ID (Required) |
 | `PASSWORD` | Password for UID.|
 
