@@ -6,7 +6,21 @@ menuWeight: 10
 excerpt: Security secrets commands
 enterprise: true
 ---
+
+# Description
+
 The `dcos security secrets` commands allow you to manage your secrets.
+
+# Usage
+
+```
+dcos security secrets [OPTIONS] COMMAND [ARGS]...
+```
+ # Options
+
+| Name |  Description |
+|------------------|----------------------|
+|  `-h`, `--help`        |   Show this message and exit. |
 
 # Commands
 

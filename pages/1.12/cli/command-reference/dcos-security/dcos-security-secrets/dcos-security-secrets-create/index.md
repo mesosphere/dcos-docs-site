@@ -10,6 +10,11 @@ enterprise: true
 # Description
 
 The `dcos security secrets create` command allows you to create and store secrets under a specific path.
+# Usage
+
+```
+dcos security secrets create [OPTIONS] PATH
+```
 
 # Options
  
@@ -21,25 +26,8 @@ The `dcos security secrets create` command allows you to create and store secret
 |  `-t`, `--text-file`, `--value-file <filename>` |  Treat contents of the file as value of the secret. The contents are assumed to be text encoded via UTF-8.|
 |  `-f`, `--file <filename>`   |     Use the raw file contents as the value of the secret: pass the unmodified byte sequence to DC/OS Secrets service.|
 
-# Usage
+## Positional Arguments
 
-```
-Usage: dcos security secrets create [OPTIONS] PATH
-
-  Create a secret.
-
-  Store a secret under the path PATH.
-
-Options:
-  -s, --store-id TEXT             Secrets backend to use.
-  -v, --value TEXT                Value of the secret.
-  -t, --text-file, --value-file FILENAME
-                                  Treat contents of the file as value of the
-                                  secret. The contents are assumed to be text
-                                  encoded via UTF-8.
-  -f, --file FILENAME             Use the raw file contents as the value of
-                                  the secret: pass the unmodified byte
-                                  sequence to DC/OS Secrets service.
-  -h, --help                      Show this message and exit.
-
-  ```
+| Name |  Description |
+|---------|-------------|
+| `PATH` | URL or IP address of path of secret. |

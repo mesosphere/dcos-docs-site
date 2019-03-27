@@ -11,6 +11,12 @@ enterprise: true
 
 The `dcos security secrets delete` command deletes a secret, including secrets stored under the path PATH.
 
+# Usage
+
+```
+dcos security secrets delete [OPTIONS] PATH
+```
+
 # Options
 
 | Name |  Description |
@@ -18,17 +24,8 @@ The `dcos security secrets delete` command deletes a secret, including secrets s
 |`-s`, `--store-id <text>` | Secrets backend to use.|
 |  `-h`, `--help`        |   Show this message and exit. |
 
+## Positional Arguments
 
-# Usage
-
-```
-Usage: dcos security secrets delete [OPTIONS] PATH
-
-  Delete a secret.
-
-  Deletes a secret stored under the path PATH.
-
-Options:
-  -s, --store-id TEXT  Secrets backend to use.
-  -h, --help           Show this message and exit.
-```
+| Name |  Description |
+|---------|-------------|
+| `PATH` | URL or IP address of path of secret. |
