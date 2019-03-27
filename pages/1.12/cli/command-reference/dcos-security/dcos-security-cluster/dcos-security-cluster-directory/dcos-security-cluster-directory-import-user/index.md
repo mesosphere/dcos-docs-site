@@ -29,3 +29,9 @@ dcos security cluster directory import_user [OPTIONS] UID
 | Name | Description |
 |--------|-------------------|
 | `UID` | User ID. |
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos security cluster directory](/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |

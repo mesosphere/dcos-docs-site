@@ -36,3 +36,8 @@ dcos security cluster oidc modify [OPTIONS] OIDC_ID
 |--------|------------------|
 | `OIDC_ID` | OpenID Connect provider ID. |
 
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos security cluster oidc](/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-oidc/) | Manage your OIDC settings. |

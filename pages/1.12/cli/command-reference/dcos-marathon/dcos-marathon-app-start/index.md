@@ -26,7 +26,7 @@ dcos marathon app start [--force] <app-id> [<instances>]
 | `-h`, `--help` | Display info about usage of this command. |
 
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

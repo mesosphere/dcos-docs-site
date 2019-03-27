@@ -28,3 +28,9 @@ dcos security org groups revoke [OPTIONS] GID RID ACTION
 |---------|-------------|
 | `GID` | Group ID. (Required)|
 | `RID` | Resource ID. (Required)|
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos security cluster org groups](/1.12/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |

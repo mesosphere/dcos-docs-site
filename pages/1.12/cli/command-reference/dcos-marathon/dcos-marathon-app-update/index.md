@@ -25,7 +25,7 @@ dcos marathon app update [--force] <app-id> [<properties>...]
 | `-h`, `--help` | Display info about usage of this command. |
 | `--force`   | Disable checks in Marathon during updates. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

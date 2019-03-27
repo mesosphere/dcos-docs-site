@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos auth` command authenticates a user to the DC/OS cluster.
+The `dcos auth` commands authenticate a user to the DC/OS cluster.
 
 # Usage
 

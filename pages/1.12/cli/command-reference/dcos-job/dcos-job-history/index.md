@@ -27,7 +27,7 @@ dcos job history <job-id> [--json|--quiet] [--failures --last]
 | `-f`, `failures`   |  Show the failure table and statistics for history. |
 | `-l`, `--last` |   Shows the last ID for history job.|  
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

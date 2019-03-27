@@ -52,3 +52,9 @@ a1kssNxEO96o+6yHC3ACLQKDY5s/3W/eIPtV0wtdZb0JiZd7FECb8AzL0D2Z1Rsw
 ndLcnv0dj2WTDCQihd6DNFnoCYNSAMUtSc6Kd6kqvbVVe+1ZzeOc
 -----END CERTIFICATE-----
 ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos security cluster ca](/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | View DC/OS security cluster certificate authority information. |

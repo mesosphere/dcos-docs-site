@@ -23,7 +23,7 @@ dcos job schedule update <job-id> <schedule-file>
 |---------|-------------|
 |`-h`, `--help` |   Print usage. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

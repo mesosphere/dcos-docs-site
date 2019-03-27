@@ -28,7 +28,7 @@ dcos service log [--follow --lines=N --ssh-config-file=<path> --user=<user>] <se
 | `--ssh-config-file=<path>`   |           | The path to the SSH config file. This is used to access the Marathon logs. |
 | `--user=<user>` | User ID. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

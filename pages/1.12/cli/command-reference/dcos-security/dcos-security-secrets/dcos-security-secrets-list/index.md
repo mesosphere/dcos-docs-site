@@ -30,3 +30,9 @@ dcos security secrets list [OPTIONS] PATH
 | Name |  Description |
 |---------|-------------|
 | `PATH` | URL or IP address of path of secret. |
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos security secrets](/1.12/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

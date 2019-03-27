@@ -61,3 +61,10 @@ See the documentation for [`dcos backup list`](/../dcos-backup/dcos-backup-list/
     backup2-c55c20e9-ba3f-46a6-b944-20a790b5491a     1.12.0      STATUS_READY          2019-03-18 23:15:47.639999548 +0000 UTC
     backup3-317c19df-34e4-41a0-93c9-d66c7f307208     1.12.0      STATUS_BACKING_UP     2019-03-18 23:16:33.265478871 +0000 UTC
     ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos backup](/1.12/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+

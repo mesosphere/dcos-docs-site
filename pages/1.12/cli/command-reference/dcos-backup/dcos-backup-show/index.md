@@ -57,3 +57,10 @@ dcos backup show <backup id> [flags]
         "status": "STATUS_READY"
     }
     ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos backup](/1.12/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+
