@@ -32,3 +32,11 @@ dcos security cluster saml show [OPTIONS] [SAML_ID]...
 |--------|------------------|
 | `SAML_ID` | ID of SAML provider. |
 
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos security cluster saml](/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | Manage your Security Assertion Markup Language (SAML) settings. |
+
+
+/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml/

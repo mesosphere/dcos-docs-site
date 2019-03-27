@@ -46,3 +46,8 @@ default:
     initialized: true
     sealed: false
 ```
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos security cluster secret-store](/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | Display settings for your secret store. |

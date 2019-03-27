@@ -33,3 +33,8 @@ dcos security secrets create-sa-secret [OPTIONS] SA_PRIVATE_KEY SA_UID SECRET_PA
 |  `SA_UID` | Service account user ID. |
 |  `SECRET_PATH` | Secret path allows you to restrict which services can retrieve the value. |
 
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos security secrets](/1.12/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

@@ -29,4 +29,8 @@ dcos security cluster directory test [OPTIONS] UID PASSWORD
 | `UID` | User ID (Required) |
 | `PASSWORD` | Password for UID.|
 
+# Parent command
 
+| Command | Description |
+|---------|-------------|
+| [dcos security cluster directory](/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |

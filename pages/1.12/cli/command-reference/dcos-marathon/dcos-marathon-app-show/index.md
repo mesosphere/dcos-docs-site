@@ -25,7 +25,7 @@ dcos marathon app show [--app-version=<app-version>] <app-id>
 | `-h`, `--help` | Display info about usage of this command. |
 | `--app-version=<app-version>`   |  The version of the application to use. It can be specified as an absolute or relative value. Absolute values must be in ISO8601 date format. Relative values must be specified as a negative integer and represent the version from the currently deployed application definition. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

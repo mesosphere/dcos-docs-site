@@ -30,4 +30,8 @@ dcos security org groups add_user [OPTIONS] GID UID
 | `GID` | Group ID. (Required)|
 | `UID` | User ID. (Required)|
 
+# Parent command
 
+| Command | Description |
+|---------|-------------|
+| [dcos security cluster org groups](/1.12/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |

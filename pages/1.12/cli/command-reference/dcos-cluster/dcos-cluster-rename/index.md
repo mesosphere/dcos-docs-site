@@ -28,11 +28,12 @@ dcos cluster rename <cluster> <name> [flags]
 | `<cluster>`   |  Name of connected cluster |
 | `<name>`   |  New name of connected cluster |
 
+
+# Examples
+For examples, see [Cluster Connections](/1.12/administering-clusters/multiple-clusters/cluster-connections/).
+
 # Parent command
 
 | Command | Description |
 |---------|-------------|
 | [dcos cluster](/1.12/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters |
-
-# Examples
-For examples, see [Cluster Connections](/1.12/administering-clusters/multiple-clusters/cluster-connections/).

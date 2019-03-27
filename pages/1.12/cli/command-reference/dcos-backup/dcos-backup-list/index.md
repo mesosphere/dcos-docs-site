@@ -51,3 +51,10 @@ BACKUP ID                                         VERSION     STATUS           T
 ---------                                         -------     ------           ---------
 backup-1-fd4bdc87-889c-48c3-a656-9f8e96474b27     1.12.0      STATUS_READY     2019-03-18 23:06:41.836197172 +0000 UTC
 ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos backup](/1.12/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+

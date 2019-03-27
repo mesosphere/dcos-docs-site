@@ -9,7 +9,7 @@ enterprise: false
 
 # Description
 
-The `dcos auth login` command allows you to log in to the current cluster
+The `dcos auth login` command allows you to log in to the current cluster.
 
 # Usage
 

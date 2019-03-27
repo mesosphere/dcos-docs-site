@@ -26,7 +26,7 @@ dcos marathon app version list [--max-count=<max-count>] <app-id>
 | `-h`, `--help` | Display info about usage of this command. |
 | `--max-count=<max-count>`   | Maximum number of entries to fetch and return. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

@@ -23,3 +23,10 @@ The `dcos security cluster directory get_config` command will retrieve the curre
 ```
 dcos security cluster directory get_config [OPTIONS]
 ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos security cluster directory](/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |
+

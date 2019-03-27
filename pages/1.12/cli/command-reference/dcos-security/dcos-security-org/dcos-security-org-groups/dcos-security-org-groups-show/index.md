@@ -30,3 +30,8 @@ dcos security org groups show [OPTIONS] [GIDS]...
 |---------|-------------|
 | `GID` | Group ID. (Required)|
 
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos security cluster org groups](/1.12/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |
