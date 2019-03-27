@@ -10,20 +10,21 @@ enterprise: true
 
 The `dcos security org groups delete` command allows you to remove a group.
 
+# Usage
+
+```
+dcos security org groups delete [OPTIONS] GID
+```
+
 # Options
 
 | Name |  Description |
 |---------|-------------|
 |  `-h`, `--help` |  Show this message and exit.|
+
+## Positional Arguments
+
+| Name |  Description |
+|---------|-------------|
 | `GID` | Group ID. (Required)|
 
-# Usage
-
-```
-Usage: dcos security org groups delete [OPTIONS] GID
-
-  Remove a group.
-
-Options:
-  -h, --help  Show this message and exit.
-```
