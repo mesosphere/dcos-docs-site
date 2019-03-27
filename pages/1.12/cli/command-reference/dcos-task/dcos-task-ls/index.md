@@ -20,10 +20,11 @@ dcos task ls [--all | --completed] [--long] [<task>] [<path>]
 
 | Name |  Description |
 |---------|-------------|
+| `--all`   | Print completed and in-progress tasks. |
 | `--completed`   | Displays completed and in-progress tasks. |
 | `--long`   |  Displays full Mesos sandbox file attributes. |
 
-# Positional arguments
+## Positional arguments
 
 | Name | Default | Description |
 |---------|-------------|-------------|
