@@ -36,8 +36,12 @@ The key benefits of the load balancing provided by Edge-LB over those provided b
 This tutorial demonstrates exposing and accessing the `nginx` service by using Marathon-LB and Edge-LB. It demonstrates the differences in configuration in terms of both load balancers. 
 
 # Before you begin
-- You must have Marathon-LB installed.
-- You must have Edge-LB API Server installed.
+* You must have the Edge-LB API server installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* You must have the `edgelb` command-line interface (CLI) installed.
+* You must have an active and properly-configured DC/OS Enterprise cluster.
+* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+* You must have Marathon-LB installed as described in the Marathon-LB [installation instructions](/services/marathon-lb/1.12.x/mlb-install).
 
 # Marathon-LB configuration
 
@@ -239,13 +243,13 @@ dcos edgelb create nginx-elb.json
 1. Example screen shot of accessing statistics of load balancing information for the service exposed through Marahon-LB:
 
     <p>
-    <img src="/services/edge-lb/img/Edge-LB-welcome-nginx.png" alt="Welcome page for a service using Edge-LB">
+    <img src="/services/edge-lb/img/Edge-HAProxy-stats.png" alt="Statistics for a service exposed using Marathon-LB">
     </p>
 
 1. Example screen shot of accessing the app that was exposed through Edge-LB: 
 
     <p>
-    <img src="/services/edge-lb/img/Edge-HAProxy-stats.png" alt="Statistics for a service exposed using Marathon-LB">
+    <img src="/services/edge-lb/img/Edge-LB-welcome-nginx.png" alt="Welcome page for a service using Edge-LB">
     </p>
 
 1. Example screen shot of accessing statistics of load balancing information for the service exposed through Edge-LB:

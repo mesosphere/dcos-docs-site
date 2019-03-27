@@ -25,89 +25,89 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
 # Create the sample app definition
 1. Open a text editor, then copy and paste the following sample app definition to create the `ping.json` file:
 
-  ```json
-  {
-    "id": "/ping",
-    "cpus": 0.1,
-    "mem": 32,
-    "instances": 1,
-    "cmd": "echo \"pong\" > index.html && python -m http.server $PORT0",
-    "container": {
-      "type": "DOCKER",
-      "docker": {
-        "image": "python:3"
+    ```json
+    {
+      "id": "/ping",
+      "cpus": 0.1,
+      "mem": 32,
+      "instances": 1,
+      "cmd": "echo \"pong\" > index.html && python -m http.server $PORT0",
+      "container": {
+        "type": "DOCKER",
+        "docker": {
+          "image": "python:3"
+        }
+      },
+      "healthChecks": [
+      {
+        "protocol": "MESOS_HTTP",
+        "path": "/",
+        "portIndex": 0,
+        "gracePeriodSeconds": 5,
+        "intervalSeconds": 10,
+        "timeoutSeconds": 10,
+        "maxConsecutiveFailures": 3
       }
-    },
-    "healthChecks": [
-    {
-      "protocol": "MESOS_HTTP",
-      "path": "/",
-      "portIndex": 0,
-      "gracePeriodSeconds": 5,
-      "intervalSeconds": 10,
-      "timeoutSeconds": 10,
-      "maxConsecutiveFailures": 3
+      ],
+      "portDefinitions": [
+      {
+        "protocol": "tcp",
+        "port": 0,
+        "name": "pong-port"
+      }
+      ],
+      "requirePorts": true
     }
-    ],
-    "portDefinitions": [
-    {
-      "protocol": "tcp",
-      "port": 0,
-      "name": "pong-port"
-    }
-    ],
-    "requirePorts": true
-  }
-  ```
+    ```
 
-  In this sample app defintion, notice that the `portDefinitions.name` field matches the `haproxy.backends.endpoint.portName` setting. If these fields don't match, the pool will not deploy successfully.
+    In this sample app defintion, notice that the `portDefinitions.name` field matches the `haproxy.backends.endpoint.portName` setting. If these fields don't match, the pool will not deploy successfully.
 
 1. Deploy the `ping` service by installing the `ping.json` app definition:
 
-  ```bash
-  dcos marathon app add ping.json
-  ```
+    ```bash
+    dcos marathon app add ping.json
+    ```
 
 # Create the Edge-LB pool configuration file
 1. Open a text editor, then copy and paste the following Edge-LB pool configuration settings to create the `ping-lb.json` Edge-LB pool instance:
 
-```json
-{
-  "apiVersion": "V2",
-  "name": "ping-lb",
-  "count": 5,
-  "haproxy": {
-    "frontends": [
+    ```json
     {
-      "bindPort": 15001,
-      "protocol": "HTTP",
-      "linkBackend": {
-        "defaultBackend": "ping-backend"
-      }
-    }
-   ],
-    "backends": [
-    {
-      "name": "ping-backend",
-      "protocol": "HTTP",
-      "services": [
-       {
-        "marathon": {
-          "serviceID": "/ping"
-        },
-        "endpoint": {
-          "portName": "pong-port"
+      "apiVersion": "V2",
+      "name": "ping-lb",
+      "count": 5,
+      "haproxy": {
+        "frontends": [
+        {
+          "bindPort": 15001,
+          "protocol": "HTTP",
+          "linkBackend": {
+            "defaultBackend": "ping-backend"
+          }
+        }
+      ],
+        "backends": [
+        {
+          "name": "ping-backend",
+          "protocol": "HTTP",
+          "services": [
+          {
+            "marathon": {
+              "serviceID": "/ping"
+            },
+            "endpoint": {
+              "portName": "pong-port"
+            }
+          }
+        ]
+        }
+      ],
+        "stats": {
+          "bindPort": 0
         }
       }
-     ]
     }
-  ],
-    "stats": {
-      "bindPort": 0
-    }
-  }
-}
-```
+    ```
 
 1. Review the configuration settings to verify they meet the following requirements:
     - The `name` indicates the pool instance name. In this sample pool configuration file, the instance name is `ping-lb` and you must have this information to edit, update, or delete the Edge-LB pool instance after you deploy it.
@@ -121,9 +121,9 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
 
 1. Deploy the `ping-lb.json` pool configuration file to create the `ping-lb` pool instance for load balancing access to the `ping` service:
 
-  ```bash
-  dcos edgelb create ping-lb.json
-  ```
+    ```bash
+    dcos edgelb create ping-lb.json
+    ```
 
 1. Verify the services and the pool instance has been deployed sucessfully by running the following command: 
 
@@ -150,6 +150,7 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     ```
 
     For example, you might see output similar to the following:
+
     ```bash
     dcos edgelb endpoints ping-lb
       NAME            PORT   INTERNAL IP
@@ -187,7 +188,7 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
 
 The public IP of the public agent is 34.211.65.249. You could access the `pong` service by going to: 34.211.65.249:15001 and the stats for HAProxy by going to 34.211.65.249:15001/haproxy?stats page
 
-**NOTE**: If you cannot access one of the pages, please ensure that configured Edge-LB frontend ports do not have conflict with other port that may be in use.
+If you cannot access one of the pages, please ensure that configured Edge-LB frontend ports do not have conflict with other ports in use.
 
 When deploying multiple edge-lb pool instances, be careful to have the Edge-LB pool instance names are unique. For example in this tutorial, the pool instances were `ping-lb`, `nginx-lb`, and `echo-lb`. 
 
