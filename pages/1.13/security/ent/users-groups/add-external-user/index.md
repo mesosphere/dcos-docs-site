@@ -25,7 +25,7 @@ Because you will need the user account in DC/OS before you can add any permissio
 
 # Importing external LDAP users individually from the web interface
 
-To import an external user:
+Use the following instructions to import an external user:
 
 1. Select **Organization > Users** and create a new user.
 
@@ -49,6 +49,8 @@ You can import existing LDAP user groups into DC/OS. Starting in DC/OS Enterpris
 Group size is limited to 100 users. To increase this limit, contact Mesosphere customer support. If the user name matches an existing user, it is not reimported. You can check the logs to determine if this has occurred.
 
 ## Configuring LDAP group import
+
+Use the following instructions to configure LDAP group import:
 
 1. Open the **Settings** -> **LDAP Directories** tab.
 
@@ -89,17 +91,17 @@ You can import a group of LDAP users by using the `/ldap/importuser` [IAM API](/
 - The existing group entries must list their members by using the `member`, `uniquemember`, or `memberuid` attribute.
 - You must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.13/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
-In this example a group named `johngroup` is imported.
+In this example, a group named `johngroup` is imported.
 
 1.  Log in to the CLI to ensure that you can reference the cluster URL as shown in the following code samples.
 
-1.  Initiate import with this command:
+1.  Initiate import using the following command.
 
     ```bash
     curl -i -X POST --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data '{"groupname": "johngroup"}' --header "Content-Type: application/json" $(dcos config show core.dcos_url)/acs/api/v1/ldap/importgroup
     ```
 
-1.  Confirm that `johngroup` is added:
+1.  Confirm that `johngroup` is added.
 
     ```bash
     curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/groups/johngroup
