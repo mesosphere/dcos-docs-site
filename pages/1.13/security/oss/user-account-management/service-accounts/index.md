@@ -62,7 +62,7 @@ curl -i -X GET "http://<host-ip>/acs/api/v1/users?type=service" -H 'Content-Type
 **Prerequisite:**
 - [DC/OS Authentication token](/1.13/security/oss/authentication/authentication-token/) exported into the environment as `TOKEN`.
 
-To change a service account's public key using the DC/OS [Identity and Access Management (IAM) API](/1.13/security/oss/iam-api/) supply a new public key in the `public-key.pem` file. Then replace `<uid>` in the following command and execute it:
+To change a service account's public key using the DC/OS [Identity and Access Management (IAM) API](/1.13/security/oss/iam-api/) provide a new public key in the `public-key.pem` file. Then replace `<uid>` in the following command and execute it:
 
 ```bash
 curl -i -X PATCH http://<host-ip>/acs/api/v1/users/<uid> -d '{"public_key": "'"$(sed ':a;N;$!ba;s/\n/\\n/g' public-key.pem)"'"}' -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"

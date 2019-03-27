@@ -60,7 +60,7 @@ Group size is limited to 100 users. To increase this limit, contact Mesosphere c
 
 5. Provide a template to be used to translate a group name to a valid LDAP search filter in the **GROUP SEARCH FILTER TEMPLATE** field. The string must contain `%(groupname)`. Example: `(&(objectclass=group)(sAMAccountName=%(groupname)s))`.
 
-6. When completed, your dialog should look something like the following.
+6. When completed, the LDAP group import configuration dialog appears as shown in Figure 1.
 
    ![LDAP Group Import Configuration](/1.13/img/ldap-group-import.png)
 
