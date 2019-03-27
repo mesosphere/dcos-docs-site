@@ -19,14 +19,14 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--interactive, -i`   |  Attach a STDIN stream to the remote command for an interactive session. |
 | `--tty, -t`   |   Attach a TTY to the remote stream. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<args>`   |  Additional arguments to pass to the command (`<cmd>`). |
 | `<cmd>`   |  The command to run inside the remote task's container. For example: `/bin/bash`. |

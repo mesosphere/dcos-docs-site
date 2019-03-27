@@ -19,11 +19,11 @@ To detach from a task, type the sequence `CTRL-p CTRL-q`.
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
-| `--no-stdin`   |  Don't attach the stdin of the CLI to the task. |
+| `--no-stdin`   |  Do not attach the `stdin` of the CLI to the task. |
 
-# Positional arguments
+## Positional arguments
 
 | Name, shorthand |  Description |
 |---------|-------------|
