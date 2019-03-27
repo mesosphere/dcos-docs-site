@@ -59,7 +59,7 @@ For information about what's new or fixed in any release, see th Edge-LB [releas
         - `"http"` (default) for disabled security
 
     - `service.mesosAuthNZ`
-        = `true` (default) for permissive or strict security
+        - `true` (default) for permissive or strict security
         - `false` for disabled security mode
 
 1. Upgrade each pool.
