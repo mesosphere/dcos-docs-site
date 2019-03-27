@@ -11,22 +11,21 @@ enterprise: true
 
 The `dcos security org service-accounts show` command displays the details of a service account identified by its SID.
 
+# Usage
+
+```
+dcos security org service-accounts show [OPTIONS] [SIDS]...
+```
+
 # Options
 
 | Name |  Description |
 |---------|-------------|
 |  `-h`, `--help` |  Show this message and exit.|
 | `-j`, `--j` | Output data in JSON format.|
+
+## Positional Arguments
+
+| Name |  Description |
+|---------|-------------|
 | `SID` | Service Account ID. (Required)|
-
-# Usage
-
-```
-Usage: dcos security org service-accounts show [OPTIONS] [SIDS]...
-
-  Print details of a service account identified by SID.
-
-Options:
-  -j, --json  Output data in JSON format.
-  -h, --help  Show this message and exit.
-```

@@ -11,20 +11,20 @@ enterprise: true
 
 The `dcos security org service-accounts delete` command allows you to delete a service account identified by a Service Account ID (SID).
 
+# Usage
+
+```
+dcos security org service-accounts delete [OPTIONS] SID
+```
+
 # Options
 
 | Name |  Description |
 |---------|-------------|
 |  `-h`, `--help` |  Show this message and exit.|
+
+## Positional Arguments
+
+| Name |  Description |
+|---------|-------------|
 | `SID` | Service account ID. (Required)|
-
-# Usage
-
-```
-Usage: dcos security org service-accounts delete [OPTIONS] SID
-
-  Delete service account identified by SID.
-
-Options:
-  -h, --help  Show this message and exit.
-```
