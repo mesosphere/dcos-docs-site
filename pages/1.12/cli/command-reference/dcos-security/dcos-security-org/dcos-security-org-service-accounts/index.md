@@ -9,37 +9,24 @@ enterprise: true
 
 # Description
 
-The `dcos security org service-accounts` command allows you to manage your security accounts.
+The `dcos security org service-accounts` commands allow you to manage your security accounts.
+
+# Usage
+
+```
+dcos security org service-accounts [OPTIONS] COMMAND [ARGS]...
+```
 
 # Options
 
 | Name |  Description |
 |---------|-------------|
 |  `-h`, `--help` |  Show this message and exit.|
-| `SID` | Service account ID. (Required)|
 
-# Commands
+## Positional Arguments
 
 | Name |  Description |
 |---------|-------------|
-|  `create` |  Create service account identified by SID.|
-|`delete`   |Delete service account identified by SID.|
-|  `keypair` | Create public-private keypair for use with service account|
-|  `show`  |   Print details of a service account identified by SID.|
+| `SID` | Service account ID. (Required)|
 
-# Usage
-
-```
-Usage: dcos security org service-accounts [OPTIONS] COMMAND [ARGS]...
-
-  Service accounts manipulation.
-
-Options:
-  -h, --help  Show this message and exit.
-
-Commands:
-  create   Create service account identified by SID.
-  delete   Delete service account identified by SID.
-  keypair  Create public-private keypair for use with...
-  show     Print details of a service account identified...
-```
+# Commands
