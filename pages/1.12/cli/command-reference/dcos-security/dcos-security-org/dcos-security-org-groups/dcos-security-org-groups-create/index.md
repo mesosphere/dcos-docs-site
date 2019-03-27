@@ -15,7 +15,6 @@ The `dcos security org groups create` command allows you to create a new group.
 dcos security org groups create [OPTIONS] GID
 ```
 
-
 # Options
 
 | Name |  Description |
@@ -23,7 +22,7 @@ dcos security org groups create [OPTIONS] GID
 | `d`, `--description <text>` | Description of group.|
 |  `-h`, `--help` |  Show this message and exit.|
 
-# Positional Arguments
+## Positional Arguments
 
 | Name |  Description |
 |---------|-------------|

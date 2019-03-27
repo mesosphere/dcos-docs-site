@@ -10,22 +10,21 @@ enterprise: true
 
 The `dcos security org groups members` command will list all the members in a group.
 
+# Usage
+
+```
+dcos security org groups members [OPTIONS] GID
+```
+
 # Options
 
 | Name |  Description |
 |---------|-------------|
 |  `-h`, `--help` |  Show this message and exit.|
 | `-j`, `--json` | Output data in JSON format. |
+
+## Positional Arguments
+
+| Name |  Description |
+|---------|-------------|
 | `GID` | Group ID. (Required)|
-
-# Usage
-
-```
-Usage: dcos security org groups members [OPTIONS] GID
-
-  List members of a group.
-
-Options:
-  -j, --json  Output data in JSON format.
-  -h, --help  Show this message and exit.
-```

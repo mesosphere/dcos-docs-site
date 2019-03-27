@@ -7,6 +7,15 @@ excerpt: Viewing information about a group
 enterprise: true
 ---
 
+# Description
+
+The `dcos security org groups show` command displays basic information about a group or groups.
+
+# Usage
+
+```
+dcos security org groups show [OPTIONS] [GIDS]...
+```
 
 # Options
 
@@ -14,23 +23,10 @@ enterprise: true
 |---------|-------------|
 |  `-h`, `--help` |  Show this message and exit.|
 | `-j`, `--json` | Output data in JSON format. |
+
+## Positional Arguments
+
+| Name |  Description |
+|---------|-------------|
 | `GID` | Group ID. (Required)|
-| `RID` | Resource ID. (Required)|
-| `description <text>` | The description of the ACL with the given RID. If an ACL exists with the given RID then the description will not be overwritten. Default: "Created with the security CLI". |
 
-# Usage
-
-```
-dcos security org groups grant [OPTIONS] GID RID ACTION
-
-    Grant the group with the given GID permission to enact a given ACTION on the
-    resource with the given RID.
-
-Options:
-    --description TEXT
-        The description of the ACL with the given RID. If an ACL
-        exists with the given RID then the description will not be
-        overwritten. Default: "Created with the security CLI".
-    -h, --help
-        Show this message and exit.
-```

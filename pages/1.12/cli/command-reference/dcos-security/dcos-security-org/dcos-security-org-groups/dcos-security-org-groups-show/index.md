@@ -11,6 +11,11 @@ enterprise: true
 
 The `dcos security org groups show` command will display basic information about a group or groups.
 
+# Usage
+
+```
+dcos security org groups show [OPTIONS] [GIDS]...
+```
 
 # Options
 
@@ -18,17 +23,10 @@ The `dcos security org groups show` command will display basic information about
 |---------|-------------|
 |  `-h`, `--help` |  Show this message and exit.|
 | `-j`, `--json` | Output data in JSON format. |
+
+## Positional Arguments
+
+| Name |  Description |
+|---------|-------------|
 | `GID` | Group ID. (Required)|
 
-
-# Usage
-
-```
-Usage: dcos security org groups show [OPTIONS] [GIDS]...
-
-  Print basic information about a group or groups.
-
-Options:
-  -j, --json  Output data in JSON format.
-  -h, --help  Show this message and exit.
-```

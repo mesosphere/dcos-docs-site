@@ -10,22 +10,22 @@ enterprise: true
 
 The `dcos security org groups del_user` command allows you to delete a user from a group.
 
+# Usage
+
+```
+dcos security org groups del_user [OPTIONS] GID UID
+```
+
 # Options
 
 | Name |  Description |
 |---------|-------------|
 |  `-h`, `--help` |  Show this message and exit.|
-| `UID` | User ID. (Required)|
+
+## Positional Arguments
+
+| Name |  Description |
+|---------|-------------|
 | `GID` | Group ID. (Required)|
+| `UID` | User ID. (Required)|
 
-
-# Usage
-
-```
-Usage: dcos security org groups del_user [OPTIONS] GID UID
-
-  Remove user identified by UID from group GID.
-
-Options:
-  -h, --help  Show this message and exit.
-```
