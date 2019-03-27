@@ -21,7 +21,7 @@ To add a local user account using the DC/OS [Identity and Access Management (IAM
 curl -i -X PUT http://<host-ip>/acs/api/v1/users/<uid> -d '{"password": "<password>"}' -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"
 ```
 
-**NOTE**: The password must be at least 5 characters long.
+<p class="message--note"><strong>NOTE: </strong>The password must be at least five characters long.</p>
 
 # List local user accounts
 
@@ -36,7 +36,7 @@ To list all configured user accounts using the DC/OS [Identity and Access Manage
 curl -i -X GET http://<host-ip>/acs/api/v1/users -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"
 ```
 
-**NOTE**: This will include external user accounts. Local user accounts are listed as `provider_type: internal`.
+<p class="message--note"><strong>NOTE: </strong>This will include external user accounts. Local user accounts are listed as `provider_type: internal`.</p>
 
 # Change a local user password
 
@@ -51,7 +51,7 @@ To change a local user account's password using the DC/OS [Identity and Access M
 curl -i -X PATCH http://<host-ip>/acs/api/v1/users/<uid> -d '{"password": "<password>"}' -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"
 ```
 
-**NOTE**: The password must be at least 5 characters long.
+<p class="message--note"><strong>NOTE: </strong>The password must be at least 5 characters long.</p>
 
 # Remove a local user account
 

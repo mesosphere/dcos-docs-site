@@ -37,7 +37,7 @@ DC/OS Authentication tokens can be inspected via [jwt.io](https://jwt.io) or via
 
 # Lifetime and renewal
 
-In Open DC/OS Authentication tokens are valid for five days after they have been issued. After five days, you will need to log in again to obtain a new token. Using [service accounts](/1.13/security/oss/user-account-management/service-accounts/) and the [service login](/1.13/security/oss/login/service-login/) make it easy to automate this process when deploying long-running services.
+In DC/OS  Authentication tokens are valid for five days after they have been issued. After five days, you will need to log in again to obtain a new token. Using [service accounts](/1.13/security/oss/user-account-management/service-accounts/) and the [service login](/1.13/security/oss/login/service-login/) make it easy to automate this process when deploying long-running services.
 
 # Obtain a DC/OS Authentication token
 
@@ -61,4 +61,4 @@ A DC/OS Authentication token must be passed in the `Authorization` HTTP header. 
 Authorization: token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNDgyNjE1NDU2fQ.j3_31keWvK15shfh_BII7w_10MgAj4ay700Rub5cfNHyIBrWOXbedxdKYZN6ILW9vLt3t5uCAExOOFWJkYcsI0sVFcM1HSV6oIBvJ6UHAmS9XPqfZoGh0PIqXjE0kg0h0V5jjaeX15hk-LQkp7HXSJ-V7d2dXdF6HZy3GgwFmg0Ayhbz3tf9OWMsXgvy_ikqZEKbmPpYO41VaBXCwWPmnP0PryTtwaNHvCJo90ra85vV85C02NEdRHB7sqe4lKH_rnpz980UCmXdJrpO4eTEV7FsWGlFBuF5GAy7_kbAfi_1vY6b3ufSuwiuOKKunMpas9_NfDe7UysfPVHlAxJJgg
 ```
 
-Other formats like `Bearer <token>` are not supported.
+<p class="message--important"><strong>IMPORTANT: </strong>Other formats like `Bearer <token>` are not supported.</p>
