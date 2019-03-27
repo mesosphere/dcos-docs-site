@@ -40,8 +40,8 @@ dcos config set <name> <value> [flags]
 | `core.pagination`       | Indicates whether to paginate output. Defaults to true.|
 | `core.ssl_verify`       | Indicates whether to verify SSL certificates or set the path to the SSL certificates|
 | `core.timeout`          | The request timeout in seconds, with a minimum value of 1 second. Defaults to 3 minutes.|
-| `core.ssh_user` |   |
-| `core.ssh_proxy_ip`  |   |
+| `core.ssh_user` | The user used when using `ssh` to connect to a node of your DC/OS cluster. Defaults to "core". |
+| `core.ssh_proxy_ip`  | The public IP of a node that will be used as a proxy when using ssh to connect to a private node of your DC/OS cluster |
 |  `core.reporting` | |
 | `core.prompt_login` |  |
 
