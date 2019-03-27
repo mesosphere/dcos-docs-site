@@ -28,14 +28,14 @@ Third-party entities can be enabled to become authenticators for DC/OS Authentic
 ## Disabling authentication
 
 You can disable authentication using one of the following ways:
-1. Using [advanced installation](/1.13/installing/production/deploying-dcos/installation/): You can disable authentication by adding this parameter to your configuration file (`genconf/config.yaml`). 
+1. Disable authentication using [advanced installation](/1.13/installing/production/deploying-dcos/installation/): You can disable authentication by adding this parameter to your configuration file (`genconf/config.yaml`). 
 ```yaml
 oauth_enabled: 'false'
 ```
 For more information, see the configuration [documentation](/1.13/installing/production/advanced-configuration/configuration-reference/).
 
-2. Using cloud installation on [AWS](/1.13/installing/oss/cloud/aws/): You can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
+2. Disable authentication using cloud installation on [AWS](/1.13/installing/oss/cloud/aws/): You can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
-<p class="message--warning"><strong>WARNING: </strong>Using cloud installation on <a href ="https://docs.mesosphere.com/1.13/installing/evaluation/azure/">Azure</a>: You cannot disable authentication.</p>
+<p class="message--warning"><strong>WARNING: </strong>You cannot disable authentication using cloud installation on <a href ="https://docs.mesosphere.com/1.13/installing/evaluation/azure/">Azure</a></p>
 
 <p class="message--note"><strong>NOTE: </strong>If you have already installed your cluster and would like to disable this in-place, you can go through an upgrade with the configuration parameter set.</p>

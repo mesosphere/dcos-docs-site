@@ -39,7 +39,7 @@ All IAM endpoints require an authentication token and the `dcos:superuser` permi
 
 ## Obtaining an authentication token
 
-### Via the IAM API
+### Using the IAM API
 
 To get an authentication token, pass the credentials of a local user or service accout in the body of a `POST` request to `/auth/login`.
 

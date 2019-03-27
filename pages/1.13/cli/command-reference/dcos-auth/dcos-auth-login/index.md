@@ -30,7 +30,7 @@ dcos auth login [OPTION]
 
 ## TLS options
 
-If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--ca-certs`, the CA certificate is downloaded from the cluster and a `sha256` fingerprint of the certificate is presented to you for verification.
+If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--ca-certs`, the CA certificate is downloaded from the cluster and a `sha256` fingerprint of the certificate is provided to you for verification.
 
 # Environment variables
 
