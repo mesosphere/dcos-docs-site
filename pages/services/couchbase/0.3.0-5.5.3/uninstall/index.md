@@ -16,10 +16,10 @@ If you are using DC/OS 1.10 or later:
 
 Uninstall the service from the DC/OS CLI with the command `dcos package uninstall <package_name>`. For example, to uninstall the {{ model.techName }} instance named `couchbase-dev`, run:
 
-    ```
-    dcos package uninstall couchbase-dev
-    ```
-
+  ```bash
+  dcos package uninstall couchbase-dev
+  ```
+  
 ### Uninstall procedure
 
 Uninstalling the service consists of the following steps. The scheduler is relaunched in Marathon with the environment variable SDK_UNINSTALL set to “true”. This puts the Scheduler in an uninstall mode.
