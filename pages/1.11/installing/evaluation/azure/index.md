@@ -159,7 +159,7 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
     }
 
     provider "azurerm" {
-      version = "~> 1.16.0"
+      version = "~> 1.0"
     }
 
     module "dcos" {
