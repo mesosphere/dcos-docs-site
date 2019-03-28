@@ -35,11 +35,8 @@ A dedicate `backpumgr service` node must be launched; see the respective section
 
 The `backupmgr` node is set up with a connection to an AWS S3 (compatible) store (default is `minio`). The tasks use the `aws s3 sync` command to keep the incremental snapshots on the `backupmgr` node and in the connected s3 bucket in sync.
 
-<table class=“table note” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>Note:</strong> In your AWS S3 store, you must create a bucket with the name that you specified in the "backupmgr" configuration.</td> 
-</tr> 
-</table>
+<p class="message--note"><strong>NOTE: </strong> In your AWS S3 store, you must create a bucket with the name that you specified in the "backupmgr" configuration.</p> 
+
 
 
 `backupmgr-backup` creates a incremental snapshot and syncs it with the AWS S3 bucket.
@@ -50,11 +47,8 @@ dcos {{ model.packageName }} plan start backupmgr-backup
 
 `backupmgr-restore` syncs with an AWS S3 bucket, then restores the backup. Empty {{ model.techName }} buckets have to be created before you attempt a restore.
 
-<table class=“table note” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>Note:</strong> Before you use the command, make sure that the buckets exist. They have to exist even if they are empty.</td> 
-</tr> 
-</table>
+<p class="message--note"><strong>NOTE: </strong> Before you use the command, make sure that the buckets exist. They have to exist even if they are empty.</p> 
+
 
 ```
 dcos {{ model.packageName }} plan start backupmgr-restore
