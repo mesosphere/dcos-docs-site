@@ -30,19 +30,13 @@ The scheduler performs the uninstall with the following actions:
    1. As the task resources are offered by Mesos, they are unreserved by the scheduler.
    1. Once all known resources have been unreserved, the scheduler’s persistent state in ZooKeeper is deleted.
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>WARNING:</strong> Any data stored in reserved disk resources will be irretrievably lost.</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>WARNING: </strong> Any data stored in reserved disk resources will be irretrievably lost.</p> 
+
 
 The cluster automatically removes the scheduler task once it advertises the completion of the uninstall process.
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>Warning:</strong> Once the uninstall operation has begun, it cannot be cancelled. Doing so may leave the service in an uncertain, half-destroyed state.</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>WARNING: </strong> Any data stored in reserved disk resources will be irretrievably lost.</p>  Once the uninstall operation has begun, it cannot be cancelled. Doing so may leave the service in an uncertain, half-destroyed state.</p> 
+
 
 
 ### Debugging an uninstall
