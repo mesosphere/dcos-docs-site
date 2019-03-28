@@ -51,6 +51,8 @@ The issues that have been fixed in DC/OS 1.12.3 are grouped by feature, function
  
    Prior to this fix, the missing or empty file could prevent the agent from restarting and returning to normal operation. With this release, recovery from an empty or missing docker/volume file is handled by the containerizer or by the `docker/volume` isolator's `recover` method.
 
+- ASF-2731, COPS-4504 - Nvidia changed the container runtime settings in CUDA 10 images causing the GPU isolator in UCR to disable CUDA 10 images. Specifically, the new CUDA images relies on the `libnvidia-container` [library](https://github.com/NVIDIA/libnvidia-container) to set up the container runtime. This release updates the GPU isolator in UCR to workaround the changes required to support the image. 
+
 - DCOS-46554 - This change forces Mesos master to have port resources in every offer unless the offer contains disks. This helps to reduce the number of offers with no ports, which are not useful for most frameworks.
 
 ## Metrics
@@ -129,7 +131,10 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 - Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
 - Restructured [Mesosphere installation documentation](https://docs.mesosphere.com/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
 - Expanded DC/OS upgrade paths enable Mesosphere to skip specific [upgrade paths](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move) and to skip upgrade paths between supported major to major versions of DC/OS (for example, enabling you to upgrade from 1.11.7 to 1.12.1 in one move).
-- If you have installed the optional DC/OS Storage Service package, then upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](/services/beta-storage/0.5.2-beta/upgrades/). You must upgrade DC/OS storage **before** you upgrade cluster nodes to 1.12.1 to prevent Mesos agents from crashing after the upgrade.
+- If you have installed the optional DC/OS Storage Service package, then upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](/services/beta-storage/0.5.2-beta/upgrades/). 
+
+<p class="message--note"><strong>NOTE: </strong>You must upgrade DC/OS storage before you upgrade cluster nodes to 1.12.1 to prevent Mesos agents from crashing after the upgrade.</p>
+
 
 <a name="ldap-net"></a>
 
