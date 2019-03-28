@@ -14,7 +14,7 @@ menuWeight: 10
 **Prerequisite:**
 - [DC/OS CLI](/1.13/cli/)
 
-1.  To log in to the DC/OS CLI, enter the [auth login](/1.13/cli/command-reference/dcos-auth/dcos-auth-login/) command:
+1.  To log in to the DC/OS CLI, enter the following [auth login](/1.13/cli/command-reference/dcos-auth/dcos-auth-login/) command.
 
 ```bash
 dcos auth login --provider dcos-oidc-auth0
@@ -32,9 +32,9 @@ Enter OpenID Connect ID Token:
 
 4. Paste the `OpenID Connect ID token` into the DC/OS CLI for login completion.
 
-**NOTE**: The `--provider` argument is set to `dcos-oidc-auth0` by default.
+<p class="message--note"><strong>NOTE: </strong>The `--provider` argument is set to `dcos-oidc-auth0` by default.</p>
 
-5. Display the DC/OS Authentication token by executing the following command:
+5. Display the DC/OS Authentication token by executing the following command.
 
 ```bash
 dcos config show core.dcos_acs_token
@@ -49,5 +49,6 @@ export TOKEN=$(dcos config show core.dcos_acs_token)
 1.  Launch the DC/OS web interface.
 2.  Log in through a single sign-on flow using the identity provider of your choice (Google, GitHub, or Microsoft).
 
-**NOTE**: The Single Sign-On flow will result in the DC/OS Authentication token being stored in a browser cookie.
+<p class="message--note"><strong>NOTE: </strong>The Single Sign-On flow will result in the DC/OS Authentication token being stored in a browser cookie.</p>
+
 
