@@ -90,9 +90,49 @@ To add the Edge-LB API server and pool packages to the package repository:
     <img src="/services/edge-lb/img/edge-lb-catalog-tiles.png" alt="Edge-LB and Edge-LB pool services displayed in the catalog">
     </p>
 
+## Preparing a service account
 After you download the package artifacts and add the Edge-LB packages to the repository, you are ready to create and configure permissions for the service account you want to use to manage Edge-LB server and load balancer operations.
 
 If you have successfully downloaded and added Edge-LB packages, you can continue to the instructions for [creating a service account](#create-service-account).
+
+## Editing settings before adding a service account
+If you are not configuring a dedicated service account for managing Edge-LB pools, you can begin configuring Edge-LB settings by selecting the Edge-LB tiles in the Catalog, then clicking **Review & Run**.
+
+1. Open the DC/OS web-based console, then click **Catalog**.
+
+1. Type a string such as `edge` in the **Search catalog** field.
+
+1. Click **edgelb** to display the service summary.
+    <p>
+    <img src="/services/edge-lb/img/edgelb-review-run-summary.png" alt="Configuring Edge-LB settings from the catalog">
+    </p>
+
+1. Click **Review & Run** to edit the Edge-LB configuration settings by modifying the fields displayed or by clicking JSON Editor to edit the JSON file directly. 
+    <p>
+    <img src="/services/edge-lb/img/edgelb-api-config-settings.png" alt="Configuring Edge-LB API settings">
+    </p>
+
+1. Click **Review & Run**, then click **Run Service** to install the Edge-LB API server package with the configuration settings specified.
+
+1. Repeat steps 1 through 4 to configure **Service** settings for the Edge-LB pool. 
+    <p>
+    <img src="/services/edge-lb/img/edgelb-pool-config-settings.png" alt="Configuring Edge-LB API settings">
+    </p>
+
+1. Click **Edgelbpool** to specify the following required properties:
+    - count
+    - cpus
+    - mem
+    - disk 
+
+    You can specify additional pool configuration properties, as needed, then click **Review & Run**.
+
+1. Click **Run Service** to install the Edge-LB pool service.
+
+1. Click **Services** to verify the Edge-LB API and Edge-LB pool services are installed and running.
+    <p>
+    <img src="/services/edge-lb/img/edgelb-deployment-status.png" alt="Configuring Edge-LB API settings">
+    </p>
 
 <a name="create-local-repo"></a>
 
@@ -183,7 +223,7 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
 
     This code sample creates the keys in the current directory. You must have write permission for the directory for the command to complete the operation successfully. Executing this command creates a 2048-bit RSA public/private key pair.
 
-1. Create the security principal (`edge-lb-principal`) for the new service account containing the public key (`edge-lb-public-key.pem`)created in the previous step by running a command similar to the following:
+1. Create the security principal (`edge-lb-principal`) for the new service account containing the public key (`edge-lb-public-key.pem`) created in the previous step by running a command similar to the following:
 
     ```bash
     dcos security org service-accounts create -p edge-lb-public-key.pem -d "Edge-LB service account" edge-lb-principal
@@ -237,6 +277,11 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
     ```bash
     dcos security secrets list /
     ```
+    This command displays output similar to the following:
+
+    ```
+    - dcos-edgelb/edge-lb-secret
+    ```
 
 1. Provision the Edge-LB service account with the required permissions by doing one of the following:
     - Adding the service account principal to the `superusers` group.
@@ -267,12 +312,10 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
     dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id full
     ```
 
-    These sample permissions also enable Edge-LB pool framework schedulers to register with Mesos master nodes and to launch load-balancer tasks.
-    
-    You must also grant the following permission for each Edge-LB pool created:
+    These sample permissions also enable Edge-LB pool framework schedulers to register with Mesos master nodes and to launch load-balancer tasks. You must also grant the following permission for **each Edge-LB pool** created:
 
     ```bash
-    dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
+    dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<pool-name> full
     ```
 
 For more information about the permissions required to perform specific tasks, see the Edge-LB [Permissions](/services/edge-lb/reference/permissions) reference section.
@@ -282,7 +325,12 @@ For more information about the permissions required to perform specific tasks, s
 # Create a configuration file for service authentication
 After configuring service authentication, you must create a JSON options file with your credentials. This file is passed to DC/OS when you install Edge-LB.
 
-1. Open a new file in a text editor.
+1. Open a new file for Edge-LB configuration options in a text editor.
+
+For example:
+```bash
+vi edge-lb-options.json
+```
 
 1. Edit the file to specify the service account secret (`dcos-edgelb/edge-lb-secret`) that you created earlier.
 
@@ -335,7 +383,7 @@ After configuring service authentication, you must create a JSON options file wi
 
 1. Save the configuration file with a name, such as `edge-lb-options.json`. 
 
-1. Add the configuration file to source control so that you can  update configuration at a later time.
+1. Add the configuration file to source control so that you can update configuration at a later time.
 
 <a name="install-edge-lb"></a>
 
@@ -345,7 +393,7 @@ After you have added the packages to the cluster catalog, created a secure servi
 1. Install Edge-LB by running the following command:
 
     ```bash
-    dcos package install --options=edge-lb-options.json edgelb
+    dcos package install --options=edge-lb-options.json edgelb --yes
     ```
     
 1. Run a command similar to the following to determine whether the Edge-LB service is ready for use:
