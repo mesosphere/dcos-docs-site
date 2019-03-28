@@ -62,10 +62,15 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
 
     In this sample app defintion, notice that the `portDefinitions.name` field matches the `haproxy.backends.endpoint.portName` setting. If these fields don't match, the pool will not deploy successfully.
 
-1. Deploy the `ping` service by installing the `ping.json` app definition:
+1. Deploy the `ping` service by installing the `ping.json` app definition by running the following command:
 
     ```bash
     dcos marathon app add ping.json
+    ```
+
+    This command displays a confirmation message similar to the following if deployment is successful:
+    ```
+    Created deployment dfeec06f-5d64-44e0-b6f2-4ddb61fb0887
     ```
 
 # Create the Edge-LB pool configuration file
@@ -110,12 +115,23 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     ```
 
 1. Review the configuration settings to verify they meet the following requirements:
-    - The `name` indicates the pool instance name. In this sample pool configuration file, the instance name is `ping-lb` and you must have this information to edit, update, or delete the Edge-LB pool instance after you deploy it.
-    - The `haproxy.frontends.linkBackend.defaultBackend` must match the `haproxy.backends.name` value. In this sample pool configuration file, the backend name is `ping-backend`. 
-    - The `haproxy.backends.endpoint.portName` in the pool configuration file must match the `portDefinitions.name` in the app definition file. In this sample pool configuration file, the name is `pong-port`. 
-    - The `haproxy.frontends.bindPort` setting indicates the port used to access the app. In this sample pool configuration file, the app is accessible on port 15001.
-    - The `haproxy.stats.bindPort` setting indicates that the port for load-balancing statistics will be dynamically allocated.
-    - The `haproxy.backends.marathon.serviceID` must match the name of the app definition. In this sample pool configuration file, the service name is `\ping`.
+    - The `name` indicates the pool instance name. 
+      In this sample pool configuration file, the instance name is `ping-lb` and you must have this information to edit, update, or delete the Edge-LB pool instance after you deploy it.
+
+    - The `haproxy.frontends.linkBackend.defaultBackend` must match the `haproxy.backends.name` value. 
+      In this sample pool configuration file, the backend name is `ping-backend`. 
+    
+    - The `haproxy.backends.endpoint.portName` in the pool configuration file must match the `portDefinitions.name` in the app definition file. 
+      In this sample pool configuration file, the name is `pong-port`.
+
+    - The `haproxy.frontends.bindPort` setting indicates the port used to access the app. 
+      In this sample pool configuration file, the app is accessible on port 15001.
+      
+    - The `haproxy.stats.bindPort` setting indicates that the port for accessing load-balancing statistics.
+    In this sample configuration file, the setting of `0` specifies that the port be dynamically allocated.
+
+    - The `haproxy.backends.marathon.serviceID` must match the name of the app definition. 
+      In this sample pool configuration file, the service name is `\ping`.
 
 # Deploy a Edge-LB pool to expose the service
 
@@ -125,10 +141,23 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     dcos edgelb create ping-lb.json
     ```
 
-1. Verify the services and the pool instance has been deployed sucessfully by running the following command: 
+    This command displays a confirmation message similar to the following:
+    ```
+    Successfully created ping-lb. Check "dcos edgelb show ping-lb" or "dcos edgelb status ping-lb" for deployment status
+    ```
+
+1. Verify the service and the pool instance have been deployed sucessfully by running the following command: 
 
     ```bash
     dcos marathon app list
+    ```
+
+    This command displays information similar to the following:
+    ```
+    ID                          MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD                             
+    /dcos-edgelb/api            1024   1     1/1    1/1       ---      False      MESOS    cp -vR /dcosfilestmp/*...       
+    /dcos-edgelb/pools/ping-lb  2048   1     1/1    1/1       ---      False      MESOS    export...                       
+    /ping                        32   0.1    1/1    1/1       ---      False      DOCKER   echo "pong" > index.html &&...
     ```
 
 1. Verify the pool configuration for the frontend and statistics ports by running the following command: 
@@ -136,11 +165,23 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     ```bash
     dcos edgelb list
     ```
+    This command displays information similar to the following:
+    ```
+    NAME     APIVERSION  COUNT  ROLE          PORTS     
+    ping-lb  V2          5      slave_public  0, 15001
+    ```
 
 1. Verify the tasks associated with the deployed services and the pool instance by running the following command: 
 
     ```bash
     dcos task
+    ```
+    This command displays information similar to the following:
+    ```
+    NAME                       HOST        USER  STATE  ID                                                              MESOS ID                                     REGION          ZONE       
+    api.dcos-edgelb            10.0.2.231  root    R    dcos-edgelb_api.17a52ec2-5177-11e9-9149-e2160eee24f2            e9153020-fe99-49d7-9d10-773adf12e726-S1  aws/us-west-2  aws/us-west-2c  
+    ping                       10.0.2.231  root    R    ping.1b56da33-5179-11e9-9149-e2160eee24f2                       e9153020-fe99-49d7-9d10-773adf12e726-S1  aws/us-west-2  aws/us-west-2c  
+    ping-lb.pools.dcos-edgelb  10.0.2.231  root    R    dcos-edgelb_pools_ping-lb.88344f14-517a-11e9-9149-e2160eee24f2  e9153020-fe99-49d7-9d10-773adf12e726-S1  aws/us-west-2  aws/us-west-2c
     ```
 
 1. Verify that the Edge-LB pool instance was deployed successfully with the configured frontend and backend ports by running the following command: 
@@ -148,50 +189,59 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     ```bash
     dcos edgelb endpoints ping-lb
     ```
+    This command displays information similar to the following:
+
+    ```
+    NAME            PORT   INTERNAL IP  
+    frontend_port0  15001  10.0.5.105   
+    stats_port      1025   10.0.5.105   
+
+    Optionally, you can view the Edge-LB pool configuration as formatted output or in JSON file format by running one of the the following command: 
+
+    ```bash
+    dcos edgelb show ping-lb
+    
+    dcos edgelb show ping-lb --json
+    ```
 
     For example, you might see output similar to the following:
 
     ```bash
-    dcos edgelb endpoints ping-lb
-      NAME            PORT   INTERNAL IP
-      frontend_port0  15001  10.0.5.202
-      stats_port      1025   10.0.5.202
+    Summary:
+      NAME         ping-lb          
+      APIVERSION   V2               
+      COUNT        5                
+      ROLE         slave_public     
+      CONSTRAINTS  hostname:UNIQUE  
+      STATSPORT    0                
+
+    Frontends:
+      NAME                    PORT   PROTOCOL  
+      frontend_0.0.0.0_15001  15001  HTTP      
+
+    Backends:
+      FRONTEND                NAME          PROTOCOL  BALANCE     
+      frontend_0.0.0.0_15001  ping-backend  HTTP      roundrobin  
+
+    Marathon Services:
+      BACKEND       TYPE     SERVICE  CONTAINER  PORT       CHECK    
+      ping-backend  AUTO_IP  /ping               pong-port  enabled  
+
+    Mesos Services:
+      BACKEND  TYPE  FRAMEWORK  TASK  PORT  CHECK  
     ```
 
-    In this example, the `ping-lb` pool instance uses the frontend port 15001 and the statistics port 1025. 
+# Access the sample load balanced service
+After you have configured and tested the `ping` service and `ping-lb` pool configuration file, you can verify you have access the service.
 
-1. Verify the Edge-LB pool configuration status by running the following command:
+1. Open a web browser and navigate to the public-facing IP address.
 
-    ```bash
-    dcos edgelb status ping-lb
-    ```
+    For information about finding the public IP address for a public agent node, see [Finding a public agent IP](1.13/administering-clusters/locate-public-agent/).
 
-1. View the Edge-LB pool configuration file in JSON format by running the following command: 
-
-    ```bash
-    dcos edgelb show ping-lb --json
-    ```
-
-# Access the services
-1. Verify that you can access the following deployed services by opening a web browser and navigating to the public-facing IP address and the frontend port 15001:
+1. Verify that you can access the deployed service using the public-facing IP address and the frontend port 15001:
 
     ```bash
     http://<public_agent_public_IP>:15001
     ```
 
-    If the services and load balancing pool are properly configured and deployed, you can verify access to the following pages:
-    - `pong`
-    - `Welcome to Nginx`
-    - `Hello from Marathon!`
-
-1. Example Edge-LB pool config files for these deployed services: 
-
-The public IP of the public agent is 34.211.65.249. You could access the `pong` service by going to: 34.211.65.249:15001 and the stats for HAProxy by going to 34.211.65.249:15001/haproxy?stats page
-
-If you cannot access one of the pages, please ensure that configured Edge-LB frontend ports do not have conflict with other ports in use.
-
-When deploying multiple edge-lb pool instances, be careful to have the Edge-LB pool instance names are unique. For example in this tutorial, the pool instances were `ping-lb`, `nginx-lb`, and `echo-lb`. 
-
-You can then use this information to determine the public IP address to use to access the load balancer. For more information about finding public IP addresses for your cluster, see [Finding a public agent IP](/1.13/administering-clusters/locate-public-agent/).
-
-Access the load-balanced service at `http://<public-ip>/` to verify you have access to the app.
+    For example, if the public IP address for the public agent node is 34.211.65.249, access the `pong` service by opening `http://34.211.65.249:15001`.

@@ -76,7 +76,7 @@ To add the Edge-LB API server and pool packages to the package repository:
 1. Add the **Edge-LB API server** package to the repository by running a command similar to the following:
 
     ```bash
-    dcos package repo add --index=0 edgelb  https://<download-link>/stub-universe-edgelb.json
+    dcos package repo add --index=0 edgelb https://<download-link>/stub-universe-edgelb.json
     ```
 
 1. Add the **Edge-LB pool** package to the repository by running a command similar to the following:
@@ -293,6 +293,8 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
     dcos security org groups add_user superusers edge-lb-principal
     ```
 
+    After adding the service principal to the `supergroups` group, you can continue to [Create a configuration file for service authentication](#create-json) and complete the installation.
+
     **Granting specific permissions to the service account**:  If you follow the principle of least-privilege, you should not add the service account principal to the `superusers` group. Instead, you should limit the permissions granted to only allow management of DC/OS packages, Marathon tasks, and Edge-LB pool-related activity. You can grant specific permissions to the service account principal by running commands similar to the following:
 
     ```bash
@@ -318,7 +320,9 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
     dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<pool-name> full
     ```
 
-For more information about the permissions required to perform specific tasks, see the Edge-LB [Permissions](/services/edge-lb/reference/permissions) reference section.
+    For more information about the permissions required to perform specific tasks, see the Edge-LB [Permissions](/services/edge-lb/reference/permissions) reference section.
+
+After you have created a service account principal, stored the certificate as a secret, and assigned appropriate permissions, you are ready to [create a configuration file](#create-json) and complete the installation.
 
 <a name="create-json"></a>
 
@@ -348,13 +352,7 @@ vi edge-lb-options.json
     - Set to `"https"` for permissive or strict security 
     - Set to `"http"` for disabled security
 
-    For example:
-
-    ```json
-      {
-      "service.mesosProtocol": "https"
-      }
-    ```
+    In this sample configuration file, the `service.mesosProtocol` setting is `"https"`.
 
 1. Set the `service.mesosAuthNZ` configuration setting based on the security mode of the cluster:
     - Set to `true` (default) for permissive or strict security
@@ -364,24 +362,37 @@ vi edge-lb-options.json
 
     ```json
     {
-    "service.mesosAuthNZ": "true"
+    "service": {
+        "secretName": "dcos-edgelb/edge-lb-secret",
+        "principal": "edge-lb-principal",
+        "mesosProtocol": "https",
+        "mesosAuthNZ": true,
+        "logLevel": "info"
+        }
     }
     ``` 
 
 1. Specify other configuration settings, as needed.
 
-    For example, you can specify the service path for the `apiserver` where `dcos-edgelb` corresponds to the `pool.namespace` when [configuring pools](/services/edge-lb/reference/pool-configuration-reference/). Other common configuration settings specify the log level (`debug`, `info`, `warn`, or `error`), CPU, and memory.
+    For example, you can specify the service path for the `apiserver` where `dcos-edgelb` corresponds to the `pool.namespace` when [configuring pools](/services/edge-lb/reference/pool-configuration-reference/). Other common configuration settings specify the CPU, memory, disk, and log level (`debug`, `info`, `warn`, or `error`).
     
     ```json
     {
-      "service.name": "dcos-edgelb/api"
-      "service.logLevel": "info"
-      "service.cpus": "1.1"
-      "service.mem": "1024"
+        "service": {
+            "name": "dcos-edgelb/api",
+            "cpus": 1,
+            "mem": 1024,
+            "disk": 10,
+            "secretName": "dcos-edgelb/edge-lb-secret",
+            "principal": "edge-lb-principal",
+            "mesosProtocol": "https",
+            "mesosAuthNZ": true,
+            "logLevel": "info"
+        }
     }
     ```
 
-1. Save the configuration file with a name, such as `edge-lb-options.json`. 
+1. Save the configuration file. 
 
 1. Add the configuration file to source control so that you can update configuration at a later time.
 
@@ -393,9 +404,25 @@ After you have added the packages to the cluster catalog, created a secure servi
 1. Install Edge-LB by running the following command:
 
     ```bash
-    dcos package install --options=edge-lb-options.json edgelb --yes
+    dcos package install --options=edge-lb-options.json edgelb
     ```
-    
+
+   This command prompts you to accept the terms and conditions to continue.
+
+    ```
+    By Deploying, you agree to the Terms and Conditions https://mesosphere.com/catalog-terms-conditions/#certified-services
+    Continue installing? [yes/no]
+    ```
+
+1. Enter yes to continue and review the output.
+
+    ```
+    Installing Marathon app for package [edgelb] version [v1.3.0]
+    Installing CLI subcommand for package [edgelb] version [v1.3.0]
+    New command available: dcos edgelb
+    DC/OS edgelb is being installed!
+    ```
+
 1. Run a command similar to the following to determine whether the Edge-LB service is ready for use:
 
     ```bash
