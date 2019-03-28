@@ -16,21 +16,15 @@ Refer to the [Couchbase documentation](https://developer.couchbase.com/documenta
 
 The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
 
-<table class=“table note” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>NOTE:</strong> These security features are only available on DC/OS Enterprise 1.10 and later.</td> 
-</tr> 
-</table>
+<p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p> 
+
 
 ## Transport Encryption
 
 With transport encryption enabled, DC/OS {{ model.techName }} will automatically deploy all nodes with the correct configuration to encrypt communication via SSL.
 
-<table class=“table note” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>NOTE:</strong> Couchbase Server currently supports TLS for client interactions and cross data center replication. There is no TLS for the node to node communication. See the Couchbase documentation for more details.</td> 
-</tr> 
-</table>
+<p class="message--note"><strong>NOTE: </strong> Couchbase Server currently supports TLS for client interactions and cross data center replication. There is no TLS for the node to node communication. See the Couchbase documentation for more details.</p> 
+
 
 The service uses the [DC/OS CA](/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the DC/OS CA will consider the service's certificates valid.
 
@@ -59,11 +53,8 @@ Service account and service account secret plus enabling TLS can also be configu
 18096: Eventing (SSL) (5.5+)
 ```
 
-<table class=“table note” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>NOTE:</strong> Even if TLS is enabled, the non-TLS Couchbase ports stay open.</td> 
-</tr> 
-</table>
+<p class="message--note"><strong>NOTE: </strong> Even if TLS is enabled, the non-TLS Couchbase ports stay open.</p> 
+
 
 
 
@@ -83,11 +74,8 @@ SSLKey: node.key
 
 DC/OS {{ model.techName }} supports the {{ model.techName }} native authentication mechanism. More details can be found [here](https://developer.couchbase.com/documentation/server/current/security/security-authentication.html).
 
-<table class=“table note” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>NOTE:</strong> Non-native methods like LDAP and PAM are not supported at this time.</td> 
-</tr> 
-</table>
+<p class="message--note"><strong>NOTE: </strong> Non-native methods like LDAP and PAM are not supported at this time.</p> 
+
 
 
 
