@@ -41,10 +41,14 @@ dcos config set <name> <value> [flags]
 | `core.ssl_verify`       | Indicates whether to verify SSL certificates or set the path to the SSL certificates|
 | `core.timeout`          | The request timeout in seconds, with a minimum value of 1 second. Defaults to 3 minutes.|
 | `core.ssh_user` | The user used when using `ssh` to connect to a node of your DC/OS cluster. Defaults to "core". |
-| `core.ssh_proxy_ip`  | The public IP of a node that will be used as a proxy when using ssh to connect to a private node of your DC/OS cluster |
-|  `core.reporting` | |
-| `core.prompt_login` |  |
-
+| `core.ssh_proxy_ip`  | Whether to use a fixed ssh proxy host (Bastion) for node SSH access. |
+|  `core.reporting` | Whether to report usage events to Mesosphere. |
+| `core.prompt_login` | Whether to prompt the user to log in when token expired; otherwise automatically initiate login. |
+| `cluster.name`   | Human readable name of cluster. |
+| `job.url`   | Api URL for talking to the Metronome scheduler. |
+| `job.service_name`   | The name of the metronome cluster. |
+| `marathon.url`   | Base URL for talking to Marathon. It overwrites the value specified in `core.dcos_url`. |
+| `package.cosmos_url` | Base URL for talking to Cosmos. It overwrites the value specified in `core.dcos_url`. |
 
 
 # Examples
