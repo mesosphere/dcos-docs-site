@@ -32,6 +32,8 @@ The key benefits of the load balancing provided by Edge-LB over those provided b
 -	Edge-LB has high-availability with multiple Edge-LB pool for high availability.
 -	Edge-LB provides better configuration validation during installation.
 
+To see the difference between loading balancing using Marathon-LB and Edge-LB for access to services in the cluster, see [Comparing Edge-LB to Marathon-LB](services/edge-lb/getting-started/edge-lb-mlb-example/).
+
 # Example comparison of Marathon-LB and Edge-LB
 This tutorial demonstrates exposing and accessing the `nginx` service by using Marathon-LB and Edge-LB. It demonstrates the differences in configuration in terms of both load balancers. 
 

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Configuring the statistics port
 title: Configuring the statistics port
-menuWeight: 22
+menuWeight: 32
 excerpt: How to configure the statistics port dynamically for Edge-LB load balancing
 enterprise: true
 ---

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Comparing Edge-LB to Marathon-LB
 title: Comparing Edge-LB to Marathon-LB
-menuWeight: 15
+menuWeight: 16
 excerpt: Demonstrates differences between Marathon-LB and Edge-LB load balancing services
 enterprise: true
 ---
@@ -31,6 +31,7 @@ The key benefits of the load balancing provided by Edge-LB over those provided b
 - Edge-LB supports all applications in DC/OS cluster, not just Marathon-based apps.
 -	Edge-LB has high-availability with multiple Edge-LB pool for high availability.
 -	Edge-LB provides better configuration validation during installation.
+
 
 # Example comparison of Marathon-LB and Edge-LB
 This tutorial demonstrates exposing and accessing the `nginx` service by using Marathon-LB and Edge-LB. It demonstrates the differences in configuration in terms of both load balancers. 

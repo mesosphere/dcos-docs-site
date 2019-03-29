@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Security certificates and secrets
 title: Security certificates and secrets
-menuWeight: 24
+menuWeight: 22
 excerpt: Provides examples for configuring security settings for Edge-LB pools
 enterprise: true
 ---

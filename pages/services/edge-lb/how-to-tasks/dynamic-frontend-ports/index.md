@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Configuring a frontend port dynamically
 title: Configuring a frontend port dynamically
-menuWeight: 22
+menuWeight: 31
 excerpt: How to configure a frontend port dynamically for Edge-LB load balancing
 enterprise: true
 ---

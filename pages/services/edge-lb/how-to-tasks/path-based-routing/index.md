@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Path-based routing
 title: Path-based routing
-menuWeight: 21
+menuWeight: 24
 excerpt: How to configure path-based routing for Edge-LB
 enterprise: true
 ---

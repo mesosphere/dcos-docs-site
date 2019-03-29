@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Verifying the Edge-LB installed version
 title: Verifying the Edge-LB installed version
-menuWeight: 22
+menuWeight: 44
 excerpt: How to a verify the version of Edge-LB you have installed
 enterprise: true
 ---

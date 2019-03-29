@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Technical architecture deep-dive
+navigationTitle: Architectural deep-dive
 title: Architectural deep-dive
 menuWeight: 20
 excerpt: Provides a more detailed view of Edge-LB components within the network topology for a cluster

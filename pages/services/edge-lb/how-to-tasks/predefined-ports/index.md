@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Exposing tasks using a pre-assigned port
 title: Exposing tasks using a pre-assigned port
-menuWeight: 22
+menuWeight: 30
 excerpt: How to expose tasks using a pre-assigned port for Edge-LB load balancing
 enterprise: true
 ---
