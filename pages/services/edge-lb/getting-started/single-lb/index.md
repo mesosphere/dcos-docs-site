@@ -194,7 +194,8 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     ```
     NAME            PORT   INTERNAL IP  
     frontend_port0  15001  10.0.5.105   
-    stats_port      1025   10.0.5.105   
+    stats_port      1025   10.0.5.105
+    ```   
 
     Optionally, you can view the Edge-LB pool configuration as formatted output or in JSON file format by running one of the the following command: 
 
