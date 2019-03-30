@@ -6,25 +6,29 @@ menuWeight: 44
 excerpt: How to a verify the version of Edge-LB you have installed
 enterprise: true
 ---
+You can use the DC/OS CLI client to find the Edge-LB version that you have currently deployed on the DC/OS cluster. 
 
 # Before you begin
+* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* You must have the `edgelb` command-line interface (CLI) installed.
+* You must have an active and properly-configured DC/OS Enterprise cluster.
 
-- Edge-LB [installed and running](/services/edge-lb/getting-started/installing/).
+# To verify the Edge-LB version
+1. Run the following command to find the Edge-LB version:
 
-# Exposing a task without pre-assigned ports
+    ```bash
+    dcos edgelb version
+    ```
+1. Review the command output.
 
-This feature allows you to expose task without a Mesos-assigned port. 
+    The `version` command displays the current Edge-LB version similar to the following:
 
-Prior to this feature, Edge-LB only exposed task that have ports assigned by mesos. Its not a requirement for Mesos tasks to have port assigned always. By leveraging this feature, when there is no port assigned for task, an Operator can specify a port in the pool config to expose that task.
+    ```bash
+    client = v1.3.0
+    server = v1.3.0
+    ```
 
-# Allow dynamic allocation of the HAProxy Stats port
+    This example output indicates that the current Edge-LB API server version is v1.3.0 and the CLI client that is interacting with the Edge-LB server is also version v1.3.0.
 
-This feature allows allocating Stats port dynamically if there is more than on pool on an agent node. 
-
-Prior to this feature, it wasn't possible to disable Stats port 9090 for a pool. This results in having only one Edge-LB pool per agent. Thus, it wasn't possible to deploy two Edge-LB pools on the same agent without manually setting different values for Stats port. By leveraging this feature, multiple pools on the same agent can have Stats port without port conflict.
-
-# Allow dynamic allocation of the HAProxy frontend port
-
-This feature allows allocating Frontend port dynamically if there is more than on pool on an agent node. 
-
-When a public cloud LB like AWS ELB is sitting in front of Edge-LB, the ELB will handle the proxy/ load-balancing between the Client and Edge-LB pool. In such scenarios having frontend ports doesn't provide much value. By leveraging this feature, you can have multiple Frontend ports allocated dynamiccaly for multiple Edge-LB pools on the same agent for better resource utilization.
+    For more specific information about the latest supported Egde-LB version and Edge-LB compatibility with the latest releases of DC/OS, see the Edge-LB [version policy](/services/edge-lb/related-documentation/version-support/) summary and the [version compatibility matrix](/version-policy/#certified-packages-and-dcos-versions).

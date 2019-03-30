@@ -6,8 +6,7 @@ menuWeight: 35
 excerpt: How to configure weighted backends Edge-LB load balancing
 enterprise: true
 ---
-
-This section provides code examples that illustrate how to set Edge-LB pool configuration options using the Edge-LB REST API with application definitions and sample pool configuration settings.
+By default, Edge-LB use a round-robin algorithm to distribute network traffic evenly to the appropriate backends. You can modify how workload is distributed, however, by modifying Edge-LB pool configuration settings.
 
 # Before you begin
 Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use and have previously downloaded and installed the latest Edge-LB packages. 
