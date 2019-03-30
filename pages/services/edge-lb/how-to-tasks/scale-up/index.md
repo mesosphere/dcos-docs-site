@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Scaling load-balancer instances
 title: Scaling load-balancer instances
 menuWeight: 33
-excerpt: How to scale up load balancer instances
+excerpt: How to scale up and scale down load balancer instances
 enterprise: true
 ---
 As you refine the deployment of agent nodes and services for your DC/OS Enterprise cluster, you might find that you need to add or reduce the number of load balancing pool instances that are distributing workload to your backend servers. 
@@ -23,7 +23,7 @@ The following steps illustrate how to create an Edge-LB pool configuration file 
 
     ```bash
     vi scaleup-nginx-lb.json
-  ```
+    ```
 
 1. Copy and paste the following sample JSON settings to create a baseline `scaleup-nginx-lb.json` pool configuration file:
 
