@@ -6,7 +6,6 @@ menuWeight: 10
 excerpt: Illustrates the basic steps for load balancing a single service running on DC/OS
 enterprise: true
 ---
-
 This tutorial demonstrates how to prepare load balancing for access to a single DC/OS service. For this tutorial, the access requests originate outside of the DC/OS cluster and are routed into the cluster through a public-facing IP address. This scenario illustrates the most common way orgnaizations get started with a load balancing solution.
 
 # Before you begin
