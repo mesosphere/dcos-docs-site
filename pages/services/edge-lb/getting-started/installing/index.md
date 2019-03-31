@@ -134,6 +134,8 @@ If you are not configuring a dedicated service account for managing Edge-LB pool
     <img src="/services/edge-lb/img/edgelb-deployment-status.png" alt="Configuring Edge-LB API settings">
     </p>
 
+Although you can add and modify settings directly in the web-based console from the Catalog, do not start the services until after you have created the service account principal, configured the appropriate permissions, and completed the remaining installation steps. If you attempt to start the Edge-LB pool service without completing the other installation steps, the deployment will start but not be able to resolve to a healthy Running state.
+
 <a name="create-local-repo"></a>
 
 # Deploy using a local catalog

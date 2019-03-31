@@ -13,6 +13,12 @@ If you need to update pool configuration settings after deployment, you can choo
 - Update and maintain a single pool configuration file for a service to simplify pool management.
 - Keep different pool configuration settings in separate files for a service to simplify how you respond to and adapt load balancing operations to address changing network traffic patterns or cluster requirements.
 
+# Before you begin
+* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* You must have the `edgelb` command-line interface (CLI) installed.
+* You must have an active and properly-configured DC/OS Enterprise cluster.
+
 # To update a pool configuration
 1. Open a text editor, then copy and paste the following sample Edge-LB pool configuration to create the `nginx-lb.json` file:
 
