@@ -45,6 +45,8 @@ The issues that have been fixed in DC/OS 1.12.3 are grouped by feature, function
 - COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable. Because this problem affects high availability for Marathon, a workaround (ping zk-1) was introduced for DC/OS 1.11.5 and 1.11.6 to address the issue. In this release, the underlying issue is resolved and you can safely remove the workaround if you have it deployed. For background information about the issue and the steps to remove the workaround, see the [product advisory documentation](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004).
 
 ## Mesos
+- ASF-2719 - Agent could not recover due to empty docker volume checkpointed files.
+
 - COPS-4104 - This release fixes an issue that caused container and agent recovery to fail under the following circumstances:
    - The checkpointed Docker volumes file for a container does not exist. 
    - The checkpointed Docker volumes file for a container exists but is empty. 
