@@ -8,11 +8,11 @@ model: /services/elastic/data.yml
 render: mustache
 ---
 
-# Expose Kibana using EdgeLB
+# Expose Kibana using Edge-LB
 
-## 1. Install EdgeLB
+## 1. Install Edge-LB
 
-First, check if EdgeLB is available on your DC/OS cluster by running:
+First, check if Edge-LB is available on your DC/OS cluster by running:
 
 ```bash
 dcos package search edgelb
@@ -29,37 +29,39 @@ edgelb-pool  v1.3.0   True      True       EdgeLB Pool on DC/OS
 
 If it does, you can skip the `dcos package repo add` commands below.
 
-*Otherwise*, if you see a `No packages found` message you'll need to add a couple of package repositories to your cluster. These are for EdgeLB version 1.3.0, which is the latest at the time of writing. Take a look at the [EdgeLB service documentation](https://docs.mesosphere.com/services/edge-lb/) to check if that's the latest version.
+*Otherwise*, if you see a `No packages found` message you'll need to add a couple of package repositories to your cluster. For information about the current Edge-LB version support and compatibility, see the [Edge-LB documentation](/services/edge-lb/) and the [Certified packages and DC/OS versions](/version-policy/#certified-packages-and-dcos-versions/) to compatibility matrix.
 
 ```bash
-dcos package repo add edgelb https://downloads.mesosphere.com/edgelb/v1.3.0/assets/stub-universe-edgelb.json
-dcos package repo add edgelb-pool https://downloads.mesosphere.com/edgelb-pool/v1.3.0/assets/stub-universe-edgelb-pool.json
+dcos package repo add edgelb https://<insert download link>/stub-universe-edgelb.json
+
+dcos package repo add edgelb-pool https://<insert download link>/stub-universe-edgelb-pool.json
 ```
 
-Now install EdgeLB with:
+Now install Edge-LB with:
 
 ```bash
 dcos package install edgelb
 ```
 
-For more details please check out the [EdgeLB installation instructions](https://docs.mesosphere.com/services/edge-lb/1.3/installing/).
+For more infomation about installing and configuring Edge-LB, see the installation instructions in the [Edge-LB documentation](/services/edge-lb/).
+<!-- [Edge-LB installation instructions](/services/edge-lb/getting-started/installing/). -->
 
-The installation will take a moment. The following command can be used to determine if EdgeLB is up and running:
+The installation will take a moment. You can determine if Edge-LB is installed and has been deployed successfully by running the following command:
 
 ```bash
 dcos edgelb --name edgelb ping
 ```
 
-An output of `pong` means that it's ready.
+An output of `pong` means that Edge-LB is ready.
 
-## 2. Create an EdgeLB pool for Kibana
+## 2. Create an Edge-LB pool for Kibana
 
-The following command will create an EdgeLB pool task running on one of your DC/OS cluster's public agents, which will allow Kibana to be accessed from outside the cluster network, given that the selected port on the agent machine is open.
+The following command will create an Edge-LB pool task running on one of your DC/OS cluster's public agents, which will allow Kibana to be accessed from outside the cluster network, given that the selected port on the agent machine is open.
 
-In this example we'll expose a Kibana service named `/production/kibana` through HTTP, on port `80`. It will be accessible on `http://$public_agent_ip_or_url:80`.
+In this example, we'll expose a Kibana service named `/production/kibana` through HTTP, on port `80`. It will be accessible on `http://$public_agent_ip_or_url:80`.
 
 Note that in this example:
-- the EdgeLB pool that will be created is named `kibana`
+- the Edge-LB pool that will be created is named `kibana`
 - its backend name is `kibana-backend`
 
 It is not a requirement that these match any configuration options related to the actual Kibana service, so one could name them differently.
@@ -69,7 +71,7 @@ The pool fields that actually map to the actual Kibana service are under `haprox
 - `services.endpoint.portName` should match the Kibana Marathon app port name
 - `services.marathon.serviceID` should match the Kibana service name
 
-Let's get the remaining configuration parameters that will map the EdgeLB pool to the actual Kibana service. We'll use them in the pool configuration. Make sure to use a different name or port based on your needs.
+Let's get the remaining configuration parameters that will map the Edge-LB pool to the actual Kibana service. We'll use them in the pool configuration. Make sure to use a different name or port based on your needs.
 
 ```bash
 kibana_service_name="/production/kibana"
@@ -171,7 +173,7 @@ Which will end up looking like:
 }
 ```
 
-Now you can install the Kibana EdgeLB pool with:
+Now you can install the Kibana Edge-LB pool with:
 
 ```bash
 dcos edgelb create kibana_pool.json
@@ -201,7 +203,7 @@ agent_public_ip="$(dcos node ssh --option StrictHostKeyChecking=no --option LogL
 ```
 ### Authenticate with Kibana
 
-Now that we have the public agent IP address where the EdgeLB Kibana pool task is running we should be able to access Kibana.
+Now that we have the public agent IP address where the Edge-LB Kibana pool task is running we should be able to access Kibana.
 
 If Kibana has X-Pack Security enabled you'll first need access `http://$public_agent_ip_or_address/login` to authenticate with the Kibana server. Use credentials that are stored in your Elasticsearch cluster.
 
