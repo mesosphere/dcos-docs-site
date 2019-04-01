@@ -9,7 +9,8 @@ enterprise: true
 This section provides examples that illustrate how to set some of the most basic Edge-LB pool configuration options.
 
 # Before you begin
-Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use and have previously downloaded and installed the latest Edge-LB packages. 
+Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use and have previously downloaded and installed the latest Edge-LB packages.
+
 * You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
 * You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * You must have the `edgelb` command-line interface (CLI) installed.
