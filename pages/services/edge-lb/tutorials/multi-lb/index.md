@@ -3,22 +3,23 @@ layout: layout.pug
 navigationTitle: Highly-available load balancing on AWS
 title: Highly-available load balancing on AWS
 menuWeight: 5
-excerpt: How to set up multiple load balancer instances
+excerpt: How to set up multiple load balancer instances for a DC/OS cluster running on AWS
 enterprise: true
 ---
-
-This tutorial demonstrates how to set up multiple load balancer instances in a single pool behind a single AWS Classic Load Balancer. Similar steps could be followed for AWS Application Load Balancers or AWS Network Load Balancers. Multiple Edge-LB instances enable you to create a highly-available load balanced environment and support increased throughput.
+This tutorial demonstrates how to set up multiple Edge-LB load balancer instances in a single pool behind a single Amazon Web Services (AWS) Classic Load Balancer. You can perform similar steps to configure Edge-LB load balancers for AWS Application Load Balancers or AWS Network Load Balancers. In the scenario for this tutorial, you can use multiple Edge-LB pool instances to create a highly-available load balanced environment on a DC/OS cluster running on a public cloud instance. Using Edge-LB in combination with a public cloud load balancing service like AWS Classis Load Balancer improves network efficiency, application performance, and processing throughput.
 
 # Before you begin
+* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* You must have the `edgelb` command-line interface (CLI) installed.
+* You must have an active and properly-configured DC/OS Enterprise cluster.
+* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service.
+* The DC/OS Enterprise cluster must have two or more **public agent** nodes running in the virtual private cloud (VPC) of shared computing resources 
+* You must have a cloud provider account with sufficient permissions to create and manage AWS load balancers.
 
-* Edge-LB is installed following the [Edge-LB Installation Guide](/services/edge-lb/getting-started/installing).
-* The DC/OS CLI is installed and configured to communicate with the DC/OS cluster, and the `edgelb` CLI package has been installed.
-* At least one DC/OS private agent node to run the load balanced service (more is better).
-* Multiple (two or more) DC/OS public agent nodes in a single VPC. In order to use an AWS ALB or NLB, the agent nodes must be in multiple AZs.
-* Permissions to create AWS Load Balancers.
+If you plan to adapt this tutorial to use Edge-LB with AWS Application Load Balancers or AWS Network Load Balancers, you must have the DC/OS agent nodes configured for multiple AWS availability zones.
 
-# Environment Set Up
-
+# Create the sample app definition
 1. Create a Marathon application definition containing the sample service, `customer.json`. It will start four instances.
 
    ```json
