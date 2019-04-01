@@ -11,6 +11,12 @@ This section describes the common reload and relaunch scenarios for Edge-LB pool
 # Before you begin
 Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use and have previously downloaded and installed the latest Edge-LB packages. 
 
+* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* You must have the `edgelb` command-line interface (CLI) installed.
+* You must have an active and properly-configured DC/OS Enterprise cluster.
+* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+
 For information about installing Edge-LB packages, see the [installation](/services/edge-lb/getting-started/installing/) instructions.
 
 # Normal reload scenario
@@ -34,8 +40,8 @@ During this type of load balancer relaunch scenario, you can expect the followin
 * Only one load balancer is stopped in the pool during the update at a time.
 
 * The load balancer will be relaunched on the same node (unless the node itself has failed).
-
-<p class="message--warning"><strong> WARNING: </strong>The number of instances of load balancers cannot be scaled down. This limitation will be addressed in a future Edge-LB release.</p>
+<!--
+<p class="message--warning"><strong> WARNING: </strong>The number of instances of load balancers cannot be scaled down. This limitation will be addressed in a future Edge-LB release.</p> -->
 
 # Replacing a failed pod
 By default, Edge-LB load balancer instances are tied to a given node. when the node goes down, Edge-LB does not automatically relocate the pod containing the Edge-LB load balancer instance to a new node. You must issue a `pod replace` command to the pool scheduler to tell it to start the load balancer instance on a new node. If a machine hosting a pod is permanently lost, manual intervention is required to discard the missing pod and start it on a new node.

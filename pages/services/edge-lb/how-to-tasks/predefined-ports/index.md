@@ -16,7 +16,6 @@ You can expose tasks for load balancing using a pre-assigned port or by assignin
 * The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 # Exposing a task without pre-assigned ports
+This feature allows you to expose task without a preassigned port.
 
-This feature allows you to expose task without a Mesos-assigned port.
-
-Prior to this feature, Edge-LB only exposed task that have ports assigned by mesos. Its not a requirement for Mesos tasks to have port assigned always. By leveraging this feature, when there is no port assigned for task, an operator can specify a port in the pool config to expose that task.
+Prior to this feature, Edge-LB only exposed tasks that had a port assigned by the Mesos framework. Although most Mesos tasks are assigned a port for execution, the port assignment is not always required. For load balancing, however, a port assignment is required. To satisfy this requirement when you are using Edge-LB, you can manually specify a port in the pool configuration file to expose the task if no port has been previously assigned for that task.

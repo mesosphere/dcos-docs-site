@@ -56,7 +56,7 @@ Because you control this setting in the pool configuration file, and therefore, 
     }
     ```
 
-    In this sample configuration file, the `haproxy.stats.bindPort` setting is `0`. This setting indicates that you want Edge-LB to pick automatically select the port to use for the `stats` endpoint.
+    In this sample configuration file, the `haproxy.stats.bindPort` setting is `0`. This setting indicates that you want Edge-LB to automatically select the port to use for the `stats` endpoint.
 
 1. Deploy the Edge-LB pool configuration by running the following command:
 
@@ -85,7 +85,7 @@ Because you control this setting in the pool configuration file, and therefore, 
     ```
 
 # Changing a previously-configured port
-If you have manualy configured an Edge-LB pool to use a specific port for accessing HAProxy statistics, updating the pool configuration file to use auto-assignment for the stats port does not update the port used. For example, if you previously configured port 9090 as the statistics port and update the Edge-LB pool configuration `haproxy.stats.bindPort` setting to `0` for dynamic allocation, Edge-LB will continue to use port 9090 for HAProxy statistics.
+If you have manually configured an Edge-LB pool to use a specific port for accessing HAProxy statistics, updating the pool configuration file to use auto-assignment for the stats port does not update the port used. For example, if you previously configured port 9090 as the statistics port and update the Edge-LB pool configuration `haproxy.stats.bindPort` setting to `0` for dynamic allocation, Edge-LB will continue to use port 9090 for HAProxy statistics.
 
 To use dynamic port selection, delete the previous pool configuration and create and deploy a new pool configuration file with the `haproxy.stats.bindPort: 0` setting.
 

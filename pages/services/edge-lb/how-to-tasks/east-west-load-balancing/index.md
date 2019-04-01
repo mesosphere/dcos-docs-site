@@ -15,6 +15,12 @@ This section illustrates how to set Edge-LB pool configuration options to enable
 # Before you begin
 Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use and have previously downloaded and installed the latest Edge-LB packages. 
 
+* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* You must have the `edgelb` command-line interface (CLI) installed.
+* You must have an active and properly-configured DC/OS Enterprise cluster.
+* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+
 For information about installing Edge-LB packages, see the [installation](/services/edge-lb/getting-started/installing/) instructions.
 
 # Configure internal (East / West) load balancing
@@ -23,6 +29,7 @@ If you have client requests originating inside of a cluster for access to applic
 ## To configure Edge-LB for internal load balancing
 
 1. Open a text editor, then copy and paste the following sample settings to create the `internal-lb.json` pool configuration file:
+
     ```json
     {
       "apiVersion": "V2",

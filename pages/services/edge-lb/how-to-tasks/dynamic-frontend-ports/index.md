@@ -52,8 +52,7 @@ With Edge-LB, you can dynamically assign the port used to access load balancing 
     }
     }
     ```
-
-NOTE the haproxy.frontends.bindPort is 0. This will allow Edge-LB to pick auto generated frontend port.
+    In this sample configuration file, the `haproxy.frontends.bindPort` setting is `0`. This setting indicates that you want Edge-LB to automatically select the port to use for the `frontend` endpoint.
 
 1. Deploy the Edge-LB pool by running the following command:
 
@@ -61,38 +60,40 @@ NOTE the haproxy.frontends.bindPort is 0. This will allow Edge-LB to pick auto g
     dcos edgelb create nginx-lb.json
     ```
 
-1. Verify that Edge-LB frontend port is chosen dynamically by the pool:
+1. Verify that Edge-LB frontend port is chosen dynamically for the pool by running the following command:
 
     ```
     dcos edgelb endpoints nginx-lb
     ```
 
-Example output of the frontend port that was picked dynamically. In the example below, the nginx-lb pool automatically assigned stats port 1025.
-Mesospheres-MacBook-Pro-22268: dan$ 
-Mesospheres-MacBook-Pro-22268: dan$ dcos edgelb endpoints sample-minimal
-  NAME            PORT   INTERNAL IP           
-  frontend_port0  1025  10.0.5.119, 10.0.6.5  
-  stats_port      9090   10.0.5.119, 10.0.6.5  
-Mesospheres-MacBook-Pro-22268: dan$
-Mesospheres-MacBook-Pro-22268: dan$
+    This command displays endpoint information including the frontend port that was dynamically selected:
 
-1. Go to the below URL to see the statistics of the Edge-LB pools. Please don't forget to replace the public IP of the public agents:
+    ```
+    NAME            PORT   INTERNAL IP           
+    frontend_port0  1025  10.0.5.119, 10.0.6.5  
+    stats_port      9090   10.0.5.119, 10.0.6.5
+    ```
+
+    In this example, the `nginx-lb` is pool automatically assigned the frontend port 1025.
+
+1. Navigate to the URL to see the frontend for the nginx service routed through the Edge-LB `nginx-lb` pool configuration using the public IP address of the public agent.
+
+    For example:
 
     ```
     http://<public_agent_public_IP>:1025
     ```
+# Changing a previously-configured port
+If you have manually configured an Edge-LB pool to use a specific frontend port for a service, updating the pool configuration file to use auto-assignment for the frontend port does not update the port used. For example, if you previously configured port 15000 as the frontend port and update the Edge-LB pool configuration `haproxy.frontends.bindPort` setting to `0` for dynamic allocation, Edge-LB will continue to use port 15000 as the frontend port.
 
-NOTE: If you have already configured the frontend port manually with specific port, then if you update the pool config with auto-assigned frontend port, the frontend port will stay the same. For example, If you previously configured 15000 as the frontend port and update the Edge-LB pool config with frontend port '0', then the Edge-LB will still have 15000 as the frontend port.
+To use dynamic port selection, delete the previous pool configuration and create and deploy a new pool configuration file with the `haproxy.frontends.bindPort: 0` setting.
 
+# Enabling dynamic port allocation for multiple pools
+Assigning a frontend port dynamically enables you to deploy more than one pool on an agent node without manually setting different values for each pool.  
 
-# Exposing a task without pre-assigned ports
+By leveraging dynamic port allocation:
+- You can deploy multiple pools on the same agent without worrying about port conflicts.
+- You can avoid the limitations imposed by using the default stats port 9090 which restricted you to deploying only one Edge-LB pool per agent. 
+- You can eliminate the need to identify and specify manual port assignments for Edge-LB pools running on the same agent.
 
-This feature allows you to expose task without a Mesos-assigned port. 
-
-Prior to this feature, Edge-LB only exposed task that have ports assigned by mesos. Its not a requirement for Mesos tasks to have port assigned always. By leveraging this feature, when there is no port assigned for task, an Operator can specify a port in the pool config to expose that task.
-
-# Allow dynamic allocation of the HAProxy frontend port
-
-This feature allows allocating Frontend port dynamically if there is more than on pool on an agent node. 
-
-When a public cloud LB like AWS ELB is sitting in front of Edge-LB, the ELB will handle the proxy/ load-balancing between the Client and Edge-LB pool. In such scenarios having frontend ports doesn't provide much value. By leveraging this feature, you can have multiple Frontend ports allocated dynamiccaly for multiple Edge-LB pools on the same agent for better resource utilization.
+When a public cloud load balancer like Amazon Web Services (AWS) Elastic load balancer (ELB) is positioned as an access point in front of an Edge-LB pool, the Elastic load balancer managed the proxy and load-balancing responsibilities between the client and the Edge-LB pool. In this type of scenario, assigning the frontend port dynamically enables you to use multiple frontend ports for multiple Edge-LB pools on the same agent, which results in more efficient resource consumption and utilization.
