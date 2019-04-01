@@ -6,11 +6,11 @@ menuWeight: 5
 excerpt: DC/OS version lifecycle and compatibility matrix
 ---
 
-This page was updated on January 7, 2019.
+This page was updated on April 1, 2019.
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
-This document explains to Mesosphere customers, partners, users, and operators of Mesosphere DC/OS the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined within this document apply to the version of DC/OS and its catalog packages that this document resides in.
+This document explains to Mesosphere customers, partners, users, and operators of Mesosphere DC/OS the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined in this document applies to the version of DC/OS and its catalog packages.
 
 ## DC/OS Version Lifecycle
 
