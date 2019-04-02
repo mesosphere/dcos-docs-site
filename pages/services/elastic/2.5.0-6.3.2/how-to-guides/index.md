@@ -43,7 +43,7 @@ Now install Edge-LB with:
 dcos package install edgelb
 ```
 
-For more infomation about installing and configuring Edge-LB, see the installation instructions in the [Edge-LB documentation](/services/edge-lb/).
+For more information about installing and configuring Edge-LB, see the installation instructions in the [Edge-LB documentation](/services/edge-lb/).
 <!-- [Edge-LB installation instructions](/services/edge-lb/getting-started/installing/). -->
 
 The installation will take a moment. You can determine if Edge-LB is installed and has been deployed successfully by running the following command:
