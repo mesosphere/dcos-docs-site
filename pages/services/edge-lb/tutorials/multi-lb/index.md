@@ -209,17 +209,15 @@ To configure an application or network load balancer to work with DC/OS:
     Alternatively, you can specify an existing security group that allows inbound traffic on port 80 if you have previously configured an appropriate security group.
 
 1. Click **Next: Configure Routing**, then set the following options:
-  * Select **New Target Group**.
-  * Specify a **Name** for the new target group.
-  * Set the **Protocol** to HTTP for an Application Load Balancer or to TCP for a Network Load Balancer.
-  * Set the **Port** to 80.
-  * Set the **Target Type** to Instance.
-  * Set the **Health Checks Protocol** to HTTP for an Application Load Balancer or to TCP for a Network Load Balancer.
-  * Set the **Health Checks Path** to the root directory /.
+    * Select **New Target Group**.
+    * Specify a **Name** for the new target group.
+    * Set the **Protocol** to HTTP for an Application Load Balancer or to TCP for a Network Load Balancer.
+    * Set the **Port** to 80.
+    * Set the **Target Type** to Instance.
+    * Set the **Health Checks Protocol** to HTTP for an Application Load Balancer or to TCP for a Network Load Balancer.
+    * Set the **Health Checks Path** to the root directory /.
 
-1. Click **Register Targets**.
-
-1. Select your instances, then click **Add to Registered**.
+1. Click **Register Targets** to select your instances, then click **Add to Registered**.
 
 1. Click **Next: Review** to verify your settings, then click **Create**.
 
