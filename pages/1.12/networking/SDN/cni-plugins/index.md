@@ -58,3 +58,4 @@ Add the `ipAddress.networkName` parameter to your service definition. `networkNa
 # Known Limitations
 
 - When DC/OS is used on RHEL 7.5 with dcos-cni plugin and UCR (Universal Runtime Container), the layer-4 load-balancing functionality will not work as expected.
+- When upgrading DC/OS, CNI plugin configurations residing in /opt/mesosphere may be removed. Please manually backup and restore them.
