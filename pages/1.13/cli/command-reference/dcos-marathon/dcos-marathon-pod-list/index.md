@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon pod list
 title: dcos marathon pod list
 menuWeight: 25
 excerpt: Viewing the deployed pods
-
 enterprise: false
 ---
 
@@ -14,15 +13,16 @@ The `dcos marathon pod list` command displays a list of deployed pods.
 # Usage
 
 ```bash
-dcos marathon pod list [OPTION]
+dcos marathon pod list [--json|--quiet]
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
-| `--config-schema`   | Show the configuration schema for the Marathon subcommand. |
 | `--json`   |   Displays JSON-formatted data. |
+| `-q`, `--quiet` | Display IDs only for list. |
+| `-h`, `--help` | Display info about usage of this command. |
 
 # Parent command
 
@@ -30,10 +30,3 @@ dcos marathon pod list [OPTION]
 |---------|-------------|
 | [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-# Examples
-
-## List Pods
-List pods and the number of containers they have with the following command:
-```
-dcos marathon pod list
-```

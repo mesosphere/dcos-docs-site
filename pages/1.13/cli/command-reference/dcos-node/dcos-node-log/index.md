@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos node log
 title: dcos node log
-menuWeight: 5
+menuWeight: 9
 excerpt: Displaying Mesos logs for nodes
 
 enterprise: false
@@ -15,19 +15,20 @@ The `dcos node log` command displays the Mesos logs for the leading master node,
 # Usage
 
 ```bash
-dcos node log [OPTION]
+dcos node log [--follow --lines=N --leader --mesos-id=<mesos-id>]  [--component=<component-name> --filter=<filter>...]
 ```
 
 # Options
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
+| `--help, h`   |   |   Displays usage. |
 | `--leader`   |             |  The leading master. |
 | `--follow`   |             |  Dynamically update the log. |
 | `--lines=N`   |     10      |  Displays the last N lines. |
-| `--master`   |             |  This option is deprecated and is replaced by `--leader`. |
 | `--mesos-id=<mesos-id>`   |             | The agent ID of a node. |
-| `--slave=<agent-id>`   |             | This option is deprecated and is replaced by `--mesos-id`. |
+| `--component=<component-name>` |    |    Show DC/OS component logs.|
+| `--filter=<filter>`  |     |  Filter logs by field and value. Filter must be a string separated by colon. For example: `--filter _PID:0 --filter _UID:1`.|
 
 # Parent command
 

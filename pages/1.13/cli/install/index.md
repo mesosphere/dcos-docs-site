@@ -14,18 +14,28 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 - [Installing on macOS](#macos)
 - [Installing on Windows](#windows)
 
-<a name="linux"></a>
+# Prerequisites
 
-# Installing on Linux
-
-## Prerequisites
+## Common prerequisites
 - You must have a **separate computer** that is not part of the DC/OS cluster on which you can install the CLI.
 - You must have network access from the external system hosting the CLI to the DC/OS cluster.
 - You must be able to open a command-line shell terminal on the external system hosting the CLI.
-- You nust be able to run `cURL` program on the system hosting the CLI. The `curl` command is installed by default on most Linux distributions.
 - You must not be using the `noexec` to mount the `/tmp` directory unless you have set a `TMPDIR` environment variable to something other than the `/tmp` directory. Mounting the `/tmp` directory with the `noexec` option can prevent CLI operations.
 
-## Installing the CLI on Linux from the web interface
+# Prerequisites for Linux
+- You must be able to run `cURL` program on the system hosting the CLI. The `curl` command is installed by default on most Linux distributions.
+
+
+# Prerequisites for macOS
+-  macOS 10.10 Yosemite (deprecated), or later. The next version of the DC/OS CLI will require macOS 10.11 El Capitan or later.
+- A model running on a Haswell CPU (2014), or later.
+- You must be able to run `cURL` program on the system hosting the CLI. If you don't have `cURL`, follow the instructions in [Install curl on macOS](http://macappstore.org/curl/) to install it.
+
+# Prerequisites for Windows
+- Windows 10 64-bit or later.
+- You must disable any security or antivirus software before you start the installation.
+
+# Installing the CLI using the web interface
 
 1. At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
@@ -41,13 +51,11 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 
 1. Copy and paste the code snippets appropriate to your OS into your terminal, and press the return key.
 
-    ![CLI copy/paste](/1.13/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
+1. Once the dcos information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established.
 
-    Figure 3. Code snippet window
+<a name="linux"></a>
 
-1. Once the dcos information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
-
-## Installing the DC/OS CLI manually
+# Installing the DC/OS CLI manually on Linux
 
 It is strongly recommended that you copy and paste the installation commands from the web interface of the cluster to which you want to connect. Following below are the instructions for step by step installation of the CLI.
 
@@ -57,16 +65,16 @@ It is strongly recommended that you copy and paste the installation commands fro
     [ -d usr/local/bin ] || sudo mkdir -p /usr/local/bin
     ```
 
-1. Download the DC/OS CLI binary to your local directory by running the following command and replacing `<target-os-type>` with the OS type (`darwin`, `linux`, `windows`), and `<dcos-version>` with the version (such as 1.12), that you want to use.
+1. Download the DC/OS CLI binary to your local directory by running the following command and replacing `<target-os-type>` with the OS type (`darwin`, `linux`, `windows`), and `<dcos-version>` with the version (such as 1.13), that you want to use.
 
     ```bash
     curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
     ```
 
-    For example, the CLI download for a Linux user on DC/OS 1.12 would look like this:
+    For example, the CLI download for a Linux user on DC/OS 1.13 would look like this:
 
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.12/dcos -o dcos
+    curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.13/dcos -o dcos
     ```
 
 1.  Move the CLI binary to your local bin directory.
@@ -93,51 +101,20 @@ It is strongly recommended that you copy and paste the installation commands fro
 
 <a name="macos"></a>
 
-# Installing on macOS
+# Installing the DC/OS CLI manually on macOS
 
-## Prerequisites
-- You must have a separate computer that is not part of the DC/OS cluster on which you can install the CLI.
-    *  MacOS X Yosemite (10.10), or later.
-    *  A model running on a Haswell CPU (2014), or later.
-- You must have network access from the external system hosting the CLI to the DC/OS cluster.
-- You must be able to open a command-line environment, such as Terminal, on the external system hosting the CLI.
-- You nust be able to run `cURL` program on the system hosting the CLI. If you don't have `cURL`, follow the instructions in [Install curl on Mac OSX](http://macappstore.org/curl/) to install it.
-- You must not be using `noexec` to mount the `/tmp` directory unless you have set a `TMPDIR` environment variable to something other than the `/tmp` directory. Mounting the `/tmp` directory with the `noexec` option can prevent CLI operations.
+**The first two steps of this tutorial can be replaced by a simple `brew install dcos-cli` if you have [Homebrew](https://brew.sh) installed.**
 
-## Installing the CLI on macOS from the web interface
-
-1. At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
-
-    ![open cluster popup](/1.13/img/open-cluster-popup.png)
-
-    Figure 1. Open cluster popup menu
-
-1. Select **Install CLI**.
-
-    ![CLI install UI](/1.13/img/install-cli.png)
-
-    Figure 2. Select Install CLI
-
-1. Copy and paste the code snippets appropriate to your OS into your terminal.
-
-    ![CLI copy/paste](/1.13/img/CLI-Installation-GUI_Popup_OSX-1.12.png)
-
-    Figure 3. Code snippet window
-
-1. Once the dcos information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
-
-## Installing the CLI on macOS manually
-
-1. Download the DC/OS CLI binary `dcos` to your working directory by running the following command and replacing `<target-os-type>` with the OS type (`darwin`, `linux`, `windows`), and `<dcos-version>` with the version (such as 1.12), that you want to use:
+1. Download the DC/OS CLI binary `dcos` to your working directory by running the following command and replacing `<target-os-type>` with the OS type (`darwin`, `linux`, `windows`), and `<dcos-version>` with the version (such as 1.13), that you want to use:
 
     ```bash
     curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
     ```
 
-    For example, the CLI download for a Mac user on DC/OS 1.12 would look like this:
+    For example, the CLI download for a Mac user on DC/OS 1.13 would look like this:
 
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.12/dcos -o dcos
+    curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.13/dcos -o dcos
     ```
 
 1.  Make the CLI binary executable.
@@ -156,57 +133,25 @@ It is strongly recommended that you copy and paste the installation commands fro
     Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.13/security/).
 
     Your CLI should now be authenticated with your cluster!
-    
+
 1. Type `dcos` to view usage information and get started.
 
 <a name="windows"></a>
 
-# Installing on Windows
-
-## Prerequisites
-- You must have a separate computer that is not part of the DC/OS cluster on which you can install the CLI.
-    - Windows 10 64-bit or later.
-- You must have network access from the external system hosting the CLI to the DC/OS cluster.
-- You must be able to open a command-line environment, such as Windows PowerShell or the `cmd.exe` program, on the external system hosting the CLI. Windows PowerShell is installed by default on Windows 7, and later.
-- You nust disable any security or antivirus software before you start the installation.
-- You must not be using the `noexec` to mount the `/tmp` directory unless you have set a `TMPDIR` environment variable to something other than the `/tmp` directory. Mounting the `/tmp` directory with the `noexec` option can prevent CLI operations.
-
-## Installing the CLI on Windows from the web interface
-
-1. At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
-
-    ![open cluster popup](/1.13/img/open-cluster-popup.png)
-
-    Figure 1. Open cluster popup menu
-
-1. Select **Install CLI**.
-
-    ![CLI install UI](/1.13/img/install-cli.png)
-
-    Figure 2. Select Install CLI
-
-1. Follow the commands listed in the dialog.
-
-    ![CLI copy/paste](/1.13/img/CLI-Installation-GUI_Popup_Windows-1.12.png)
-
-    Figure 3. Code snippet window
-
-1. Once the dcos information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
-
-## Installing the CLI on Windows manually
+# Installing the DC/OS CLI manually on Windows
 
 1. Open the command line environment using the Administrator credentials.
 
-1. Download the DC/OS CLI binary `dcos` to your working directory by running the following command and replacing `<target-os-type>` with the OS type (`darwin`, `linux`, `windows`), and `<dcos-version>` with the version (such as 1.12), that you want to use:
+1. Download the DC/OS CLI binary `dcos` to your working directory by running the following command and replacing `<target-os-type>` with the OS type (`darwin`, `linux`, `windows`), and `<dcos-version>` with the version (such as 1.13), that you want to use:
 
     ```bash
     curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
     ```
 
-    For example, the CLI download for a Windows user on DC/OS 1.12 would look like this:
+    For example, the CLI download for a Windows user on DC/OS 1.13 would look like this:
 
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.12/dcos -o dcos
+    curl https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.13/dcos.exe -o dcos
     ```
 
 1. Change into the directory of the downloaded file if you are not already there.
