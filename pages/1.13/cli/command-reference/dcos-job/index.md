@@ -4,7 +4,6 @@ navigationTitle:  dcos job
 title: dcos job
 menuWeight: 8
 excerpt: Deploying and managing jobs in DC/OS
-
 enterprise: false
 ---
 
@@ -15,13 +14,16 @@ The `dcos job` commands allow you to deploy and manage jobs in DC/OS.
 # Usage
 
 ```bash
-dcos job
+dcos job <flags>
 ```
 
 # Options
 
-| Name, shorthand |  Description |
-|---------|--------------|
-| `--help, h`   |  Display usage. |
-| `--info`   |   Display a short description of this subcommand. |
-| `--version, v`   |  Display version information. |
+| Name |  Description |
+|---------|-------------|
+|`-h`, `--help` |   Print usage. |
+| `--version`  |  Print version information. |
+| `--config-schema` | Show the configuration schema for the Metronome subcommand. |
+| `--info` |  Print a short description of this subcommand. |
+
+# Commands
