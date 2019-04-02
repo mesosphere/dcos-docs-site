@@ -148,5 +148,5 @@ You can view the example source [here](https://downloads.mesosphere.com/spark/as
 ## Next steps
 
 - To view the status of your job, run the `dcos spark webui` command then visit the {{ model.techShortName }} cluster dispatcher UI at `http://<dcos-url>/service/spark/` .
-- To view the logs using the Mesos UI, see `http://<your-master-ip>/mesos`.
+- To view the logs, see the documentation for [Mesosphere DC/OS monitoring](https://docs.mesosphere.com/1.12/monitoring/logging/).
 - To view details about your {{ model.techShortName }} job, run the `dcos task log --completed <submissionId>` command.
