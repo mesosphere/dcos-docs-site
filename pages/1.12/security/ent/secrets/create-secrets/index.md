@@ -80,6 +80,8 @@ This procedure describes how to create a key/value pair secret called `my-secret
    dcos security secrets create --value=top-secret developer/my-secret
    ```
 
+<p class="message--note"><strong>NOTE: </strong>Where DC/OS is configured in [Strict mode](/1.12/security/ent/#security-modes) and working with [Service Authentication](1.12/security/ent/service-auth/) please note the use of `--strict` when creating [Service Account secrets](1.12/security/ent/service-auth/custom-service-auth/#strict).</p>
+
 # Creating secrets from a file via the DC/OS Enterprise CLI
 
 This procedure describes how to use a file to create a secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI.
