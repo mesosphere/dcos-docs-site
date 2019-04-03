@@ -24,12 +24,16 @@ To view public IP addresses by using the DC/OS web-based console:
 
 1. Click **Nodes** to display information about your agent nodes.
 
-1. Check the **Public IP** column to determine the public-facing IP address for the node you want to expose.
+1. Check the **Public IP** column to determine the public-facing IP address for the agent node you want to expose.
 
     For example:
     <p>
     <img src="/1.13/img/node-public-ip-address.png" alt="Viewing the public-facing IP address for cluster nodes">
     </p>
+
+    In most cases, looking up the public-facing IP address for an agent node is sufficient. You can, however, also look up the public IP address for master nodes, if needed. 
+
+1. Click Masters then check the **Public IP** column to determine the public-facing IP address for the master node you want to expose.
 
 # Listing public IP addresses from the command line
 You can list the public agent IP addresses for the nodes in a cluster interactively or programmatically by using the DC/OS core command-line interface (CLI).
