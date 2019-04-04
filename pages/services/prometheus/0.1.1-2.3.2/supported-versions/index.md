@@ -15,7 +15,7 @@ enterprise: false
 - Prometheus: 2.3.2
 - AlertManager 0.15.1
 - PushGateway 0.5.2
-- DC/OS: 1.10 and 1.11
+- DC/OS: 1.10+
 
 Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of Prometheus. For example, 0.1.1-2.3.2 indicates version 0.1.1 of the DC/OS integration and version 2.3.2 of Prometheus.
 
