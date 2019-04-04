@@ -203,9 +203,12 @@ Unified Service accounts across DC/OS and Enterprise DC/OS enabling broader set 
 - 
 
 # Known issues and limitations
+This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
+
+## Deprecated or decommissioned features
 - Mesos endpoints with the <code>.json</code> suffix are deprecated and should not be used in DC/OS 1.13.</p>
 
-- The following `dcos_generate_config.sh` command-line options have been deprecated and decommissioned:
+- Some of the configuration parameters previously used to install DC/OS cluster components are no longer vallid. The following `dcos_generate_config.sh` command-line options have been deprecated and decommissioned:
     * `--set-superuser-password`
     * `--offline`
     * `--cli-telemetry-disabled`
@@ -215,5 +218,5 @@ Unified Service accounts across DC/OS and Enterprise DC/OS enabling broader set 
     * `--deploy`
     * `--post-flight`
 
-    If you have scripts or programs that use any of the deprecated options, you should update them.
+    If you have scripts or programs that use any of the deprecated options, you should update them (DCOS-50263).
 
