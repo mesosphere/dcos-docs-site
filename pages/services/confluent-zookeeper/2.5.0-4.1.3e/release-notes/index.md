@@ -8,11 +8,16 @@ model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 
+# Release Notes for Confluent ZooKeeper Service version 2.5.0-4.1.3e 
+
+- Update to Confluent Zookeeper version 4.1.3 
+
+<!--
 # Release Notes for Confluent ZooKeeper Service version 2.4.0-4.0.0e
 
 ## Bug Fixes
 - [DCOS-40634] Fix a bug where restarting more than one server in an ensemble at a time would cause the servers to not be able to start due to waiting for other servers that are also down.
-
+-->
 <!-- 
 # Version 2.3.0-4.0.0e
 
