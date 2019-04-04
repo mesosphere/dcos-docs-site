@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Kafka 2.4.0-1.1.0
+navigationTitle: Kafka 2.4.0-1.1.1
 excerpt:
-title: Kafka 2.4.0-1.1.0
+title: Kafka 2.4.0-1.1.1
 menuWeight: 1
 model: /services/kafka/data.yml
 render: mustache
