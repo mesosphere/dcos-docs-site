@@ -48,7 +48,7 @@ You can specify Portworx as a volume driver in a task being launched via Maratho
         }, 
         {
           "key":"volume",
-          "value": "repl=3,size=500,name=px_vol:/data"
+          "value": "repl=3,size=500,name=px_vol1:/data"
         }
        ]
      },
@@ -78,7 +78,7 @@ You can specify Portworx as a volume driver in a task being launched via Maratho
          "external": 
          {
              "size": 500,
-             "name": "px_vol",
+             "name": "px_vol2",
              "provider": "dvdi",
              "options": 
               {
