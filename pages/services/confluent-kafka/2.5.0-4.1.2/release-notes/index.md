@@ -7,13 +7,22 @@ menuWeight: 10
 model: /services/confluent-kafka/data.yml
 render: mustache
 ---
+# Release Notes for Confluent Kafka Service version 2.5.0-4.1.2
 
+## Updates
+
+- Update to Confluent Kafka version 4.1.2
+- Upgrade to sdk 0.55.2
+
+<!--
 # Release Notes for Confluent Kafka Service version 2.4.0-4.1.1
 
 ## Updates
 
 - Update to Confluent Kafka version 4.1.1
 - Upgrade JRE to 1.8u192 to address CVEs
+-->
+
 <!-- 
 # Version 2.3.0-4.0.0e
 

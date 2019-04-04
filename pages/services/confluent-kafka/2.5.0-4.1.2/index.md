@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Confluent Kafka 2.4.0-4.1.1
+navigationTitle: Confluent Kafka 2.5.0-4.1.2
 excerpt: DC/OS Confluent Kafka is an automated service that makes it easy to deploy and manage Confluent Kafka on Mesosphere DC/OS.
-title: Confluent Kafka 2.4.0-4.1.1
+title: Confluent Kafka 2.5.0-4.1.2
 menuWeight: 1
 model: /services/confluent-kafka/data.yml
 render: mustache
