@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Edge-LB HAProxy templates
 title: Edge-LB HAProxy templates
-menuWeight: 86
+menuWeight: -1
 excerpt: Lists configuration templates you can use for HAProxy load balancers
 enterprise: true
 ---
