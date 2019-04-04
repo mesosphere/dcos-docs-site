@@ -41,9 +41,9 @@ You can specify Portworx as a volume driver in a task being launched via Maratho
       "image": "alpine:3.1",
       "network": "HOST",
       "forcePullImage": true
-       "parameters": [
+      "parameters": [
         {
-           "key": "volume-driver",
+          "key": "volume-driver",
            "value": "pxd"
         }, 
         {
@@ -69,7 +69,7 @@ You can specify Portworx as a volume driver in a task being launched via Maratho
   "mem": 32,
   "cmd": "date >> /data/test.txt; cat /data/test.txt",
   "container": 
-    {
+  {
       "type": "MESOS",
       "volumes": [
       {
@@ -91,7 +91,7 @@ You can specify Portworx as a volume driver in a task being launched via Maratho
     "upgradeStrategy": {
     "minimumHealthCapacity": 0,
     "maximumOverCapacity": 0
-   }
+  }
 }
 ```
 
