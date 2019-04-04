@@ -14,7 +14,7 @@ After you have installed DC/OS with a public agent node declared, you can naviga
 - You must have the [jq](https://github.com/stedolan/jq/wiki/Installation) language installed if you want to format the output from an API call.
 - You must have [secure shell (SSH)](/1.13/administering-clusters/sshcluster/) installed and configured to allow remote session access to cluster nodes.
 
-<p class="message--note"><strong>NOTE: </strong>You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes when DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
+<p class="message--note"><strong>NOTE: </strong>You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
 # Viewing public IP addresses in the DC/OS console
 You can view the public agent IP addresses for the nodes in a cluster interactively from the DC/OS web-based administrative console.
@@ -83,7 +83,7 @@ To find public IP addresses by using the DC/OS API:
 1. Use the following REST API `net/v1/nodes` endpoint to find the public IP of the public agents:
 
     ```bash
-    <Cluster URL>/net/v1/nodes
+    <cluster-url>/net/v1/nodes
     ```
 
     For example, you might issue a call with a cluster URL similar to the following to specify where the DC/OS cluster is running:
