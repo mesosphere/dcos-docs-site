@@ -12,25 +12,24 @@ render: mustache
 
 ## Updates
 - Upgraded DSE to version `6.7.2` and OpsCenter to version `6.7.1`
-- Upgraded SDK to `0.55.x-SNAPSHOT` (still need to get GA build)
+- Upgraded SDK to `0.55.4` 
 
 ## New Features
-- Added pod plan command: `nodetool` [PR #314](https://github.com/mesosphere/dse-private/pull/314):
+- Added pod plan commands: `nodetool-ser` and `nodetool-par` for executing `nodetool` commands either serially or in parallel across all nodes in the cluster [PR #314](https://github.com/mesosphere/dse-private/pull/314):
 	- Now users can issue nodetool commands against all nodes in their cluster via command:
 	```
-	dcos datastax-dse plan start nodetool \
+	dcos datastax-dse plan start nodetool-ser \
 	  -p NODETOOL_CONNECTION_OPTS='<connection_options>'  \
 	  -p NODETOOL_SUBCOMMAND='<subcommand>'  \
 	  -p NODETOOL_CMD_ARGS='<subcommand_arguments>'
 	```
 	- for example:
 	```
-	dcos datastax-dse plan start nodetool \
+	dcos datastax-dse plan start nodetool-ser \
 	  -p NODETOOL_CONNECTION_OPTS='-p 7199'  \
 	  -p NODETOOL_SUBCOMMAND='upgradesstables'  \
 	  -p NODETOOL_CMD_ARGS='-a'
 	```
-	- The nodetool command is executed on every node one-by-one. You can change the `nodetool_execution_strategy` to `parallel` if you'd like to execute the command on all nodes at the same time. You can also pause or stop the execution via `dcos datastax-dse plan [pause/stop] nodetool`.
 - Upgrading the SDK from the 0.4x series to 0.5x comes with significant framework and scheduler improvements such as:
 	- adding [multi-service support](https://github.com/mesosphere/dcos-commons/releases/tag/0.50.0) and region-/zone-awareness
 	- [scheduler metrics](https://github.com/mesosphere/dcos-commons/releases/tag/0.52.0)
@@ -43,7 +42,7 @@ In order to upgrade your cluster from DSE 5 to DSE 6 you must do two things:
 	- this will run a script to drop `COMPACT_STORAGE` from all keyspaces and then upgrade each DSE node to version 6.7.2
 - Separately:
 	```
-	dcos datastax-dse plan start nodetool \
+	dcos datastax-dse plan start nodetool-ser \
 	  [-p NODETOOL_CONNECTION_OPTS='-p 7199']  \  ## optional
 	  -p NODETOOL_SUBCOMMAND='upgradesstables'  \
 	  -p NODETOOL_CMD_ARGS='-a'
