@@ -127,7 +127,11 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 
 - Accurate Service Status (Part 1: Plan Tab) (DCOS-43460)
 
-    DC/OS 1.13 GUI now includes a new tab in the details section of every SDK based services. With this new tab, Operator will have a clear indication of the status and progress of sdk-services during its lifecycle such as installing, upgrade. Customers can have a details about the specific plans running or just finished up to the execution of each task so that they can easily track the progress among those plans
+    DC/OS 1.13 GUI now includes a new tab in the details section of every SDK based services. With this new tab, Operator will have a clear indication of the status and progress of sdk-services during its lifecycle such as installing, upgrade. Customers can have a details about the specific plans running or just finished up to the execution of each task so that they can easily track the progress among those plans.
+
+- Internationalization and localization (I18N and L10N - Chinese) <!--(DCOS-39557)-->
+
+    Mesosphere DC/OS 1.13 GUI has now been translated to Mandarin Chinese. Mandarin-speaking customers and users can now easily switch the GUI language in the UI and will be able to interact with DC/OS operations and functions in English or Chinese. The DC/OS documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there's sufficient customer demand.
 
 ## Installation
 - Multi-Region Support on Universal Installer (DCOS-45727)
@@ -161,10 +165,6 @@ Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/in
 - Update Rexray to support NVMe EBS volumes (DCOS-50047)
 
     In DC/OS 1.13.0, REX-ray support has been updated to include EBS NVMe volumes.
-
-- [UI] Internationalization I18N & L10N (Chinese) (DCOS-39557)
-
-    Mesosphere DC/OS 1.13 GUI has now been translated to Mandarin Chinese. Our Mandarin-speaking customers and users can now easily switch the GUI language in the UI and will be able to interact with DC/OS operations and functions. Our documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there's sufficient customer demand.
 
 <!-- not in 1.13 Docs in RN filter 
 - Retention policies for dcos-monitoring data (DCOS-46818)
