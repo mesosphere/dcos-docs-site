@@ -12,7 +12,8 @@ render: mustache
 ## Updates
 
 - Update to Confluent Kafka version 4.1.2
-- Upgrade to sdk 0.55.2
+- Update dcos-coommons sdk version to 0.55.2
+- Update Zookeeper Client version to 3.4.13
 
 <!--
 # Release Notes for Confluent Kafka Service version 2.4.0-4.1.1
