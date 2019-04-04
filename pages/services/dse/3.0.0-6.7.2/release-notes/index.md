@@ -40,6 +40,7 @@ render: mustache
 In order to upgrade your cluster from DSE 5 to DSE 6 you must do two things:
 - `dcos datastax-dse update start --package-version=3.0.0-6.7.2`
 	- this will run a script to drop `COMPACT_STORAGE` from all keyspaces and then upgrade each DSE node to version 6.7.2
+	- **IMPORTANT**: before upgrading, make sure the agent running `dse-0-node` has > `0.25 CPU` available. This is required to run the `compact-storage` task. You may have to move other services running on that agent to accommodate.
 - Separately:
 	```
 	dcos datastax-dse plan start nodetool-ser \
