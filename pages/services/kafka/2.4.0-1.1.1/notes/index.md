@@ -11,7 +11,9 @@ render: mustache
 ## Version 2.4.0-1.1.1
 
 ### Updates
+- Upgrade {{ model.techShortName }} base tech to version 1.1.1. See [{{ model.techShortName }}'s Release Notes](https://archive.apache.org/dist/kafka/1.1.1/RELEASE_NOTES.html) for details.
 - Upgrade the base dcos-commons SDK version to 0.55.2.
+- Upgrade Zookeeper Client version to 3.4.13.
 
 ### New Features
 - Number of open file descriptors is now configurable via the `RLIMIT_NOFILE_SOFT` and `RLIMIT_NOFILE_HARD` configuration parameters.
