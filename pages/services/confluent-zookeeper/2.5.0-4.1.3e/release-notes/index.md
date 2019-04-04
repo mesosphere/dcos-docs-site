@@ -11,6 +11,7 @@ render: mustache
 # Release Notes for Confluent ZooKeeper Service version 2.5.0-4.1.3e 
 
 - Update to Confluent Zookeeper version 4.1.3 
+- Update dcos-commons sdk version to 0.55.4 
 
 <!--
 # Release Notes for Confluent ZooKeeper Service version 2.4.0-4.0.0e
