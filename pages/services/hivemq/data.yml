@@ -1,0 +1,16 @@
+# Common values:
+
+packageName: hivemq
+serviceName: hivemq
+techName: HiveMQ
+techShortName: HiveMQ
+
+# Values specific to certain templates:
+
+security:
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
+
+install:
+  nodeCount: at least 1 private
+  minMemory: 4096MB

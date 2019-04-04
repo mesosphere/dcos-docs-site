@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  HiveMQ
 title: HiveMQ
 menuWeight: 30
-excerpt: HiveMQ is an enterprise grade MQTT broker. It allows you to connect millions of devices using the MQTT protocol.
+excerpt: HiveMQ is a highly scalable MQTT broker. It allows you to connect millions of devices using the MQTT protocol.
 
 enterprise: false
 ---
