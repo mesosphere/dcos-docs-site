@@ -12,15 +12,15 @@ Using Portworx volumes, you can:
 * Avoid fragile block device mount/unmount operations that block or delay failover operations
 * Encrypt data at rest and in flight at the container level
 
-## Installing Portworx with DCOS
+## Installing Portworx with DC/OS
 
-It is fairly straightforward to install Portworx with DCOS. 
+It is fairly straightforward to install Portworx with DC/OS. 
 For detailed instructions, visit https://docs.portworx.com/install-with-other/dcos/#installation
 
 ## Building applications
 
-For developers building applications using DCOS, Portworx offers an alternative way (to local volumes) to provision storage with high availability, data protection, encryption and a host of other attributes. Portworx volumes are created, instantiated, and managed by DCOS. Portworx volumes can be used with both Docker containers and Mesos/UCR container.
-Portworx supports passing the volume spec inline along with the volume name. This is useful when creating a volume with DCOS through a marathon application template. Using the inline spec, volumes can be created dynamically and all attributes, such as volume size, encryption keys etc can be passed in through marathon.
+For developers building applications using DC/OS, Portworx offers an alternative way (to local volumes) to provision storage with high availability, data protection, encryption and a host of other attributes. Portworx volumes are created, instantiated, and managed by DC/OS. Portworx volumes can be used with both Docker containers and Mesos/UCR container.
+Portworx supports passing the volume spec inline along with the volume name. This is useful when creating a volume with DC/OS through a marathon application template. Using the inline spec, volumes can be created dynamically and all attributes, such as volume size, encryption keys etc can be passed in through marathon.
 
 ### Using Docker containers in Marathon 
 
@@ -38,7 +38,9 @@ You can specify Portworx as a volume driver in a task being launched via Maratho
      "type": "DOCKER",
      "docker": 
      {
-       ...
+      "image": "alpine:3.1",
+      "network": "HOST",
+      "forcePullImage": true
        "parameters": [
         {
            "key": "volume-driver",
