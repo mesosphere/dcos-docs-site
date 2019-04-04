@@ -28,7 +28,11 @@ You can specify Portworx as a volume driver in a task being launched via Maratho
 
 ```json
 {
-  ...
+  "id": "hello",
+  "instances": 1,
+  "cpus": 0.1,
+  "mem": 32,
+  "cmd": "date >> /data/test.txt; cat /data/test.txt",
   "container": 
   {
      "type": "DOCKER",
@@ -45,8 +49,10 @@ You can specify Portworx as a volume driver in a task being launched via Maratho
           "value": "repl=3,size=500,name=px_vol:/data"
         }
        ]
-     }
-    ...
+     },
+    "upgradeStrategy": {
+    "minimumHealthCapacity": 0,
+    "maximumOverCapacity": 0
    }
 }
 ```
@@ -55,9 +61,12 @@ You can specify Portworx as a volume driver in a task being launched via Maratho
 
 ```json
 {
-...
-  "cmd": ...,
-    "container": 
+  "id": "/test-docker",
+  "instances": 1,
+  "cpus": 0.1,
+  "mem": 32,
+  "cmd": "date >> /data/test.txt; cat /data/test.txt",
+  "container": 
     {
       "type": "MESOS",
       "volumes": [
@@ -77,7 +86,9 @@ You can specify Portworx as a volume driver in a task being launched via Maratho
          }   
       }
     ],
-   ...
+    "upgradeStrategy": {
+    "minimumHealthCapacity": 0,
+    "maximumOverCapacity": 0
    }
 }
 ```
