@@ -8,7 +8,7 @@ excerpt: HiveMQ is a highly scalable MQTT broker. It allows you to connect milli
 enterprise: false
 ---
 
-HiveMQ is a MQTT broker tailored specifically for enterprises, which find themselves in the emerging age of Machine-to-Machine communication (M2M) and the Internet of Things.
+[HiveMQ](https://www.hivemq.com/) is a [MQTT](http://mqtt.org/) broker tailored specifically for enterprises, which find themselves in the emerging age of Machine-to-Machine communication (M2M) and the Internet of Things.
 
 It was built from the ground up with maximum scalability and enterprise-ready security concepts in mind.
 
