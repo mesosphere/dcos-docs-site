@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Release Notes
 menuWeight: 120
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
