@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Troubleshooting
+excerpt: Diagnosing and fixing problems
 title: Troubleshooting
 menuWeight: 70
 model: /services/confluent-zookeeper/data.yml

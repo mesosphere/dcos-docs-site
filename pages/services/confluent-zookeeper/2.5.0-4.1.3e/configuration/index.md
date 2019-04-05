@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Configuration
+excerpt: Additional configuration options
 title: Configuration
 menuWeight: 20
 model: /services/confluent-zookeeper/data.yml

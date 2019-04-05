@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
-title: Limitations
+navigationTitle: Limitations
+excerpt: Limitations
+title: Limitations to ZooKeeper and Kerberos settings
 menuWeight: 100
 model: /services/confluent-zookeeper/data.yml
 render: mustache

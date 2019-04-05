@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Security
+excerpt: Creating service accounts and assigning permissions
 title: Security
 menuWeight: 50
 model: /services/confluent-zookeeper/data.yml
