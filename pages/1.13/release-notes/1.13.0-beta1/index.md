@@ -190,8 +190,9 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 [enterprise]
 ## Security
 [/enterprise]
-- [Security] Unify AuthN architecture across OSS and Enterprise (OSS Service Accounts) (DCOS-28672)
-Unified Service accounts across DC/OS and Enterprise DC/OS enabling broader set of packages to leverage service accounts that are required when running in Enterprise DC/OS 'strict' mode.
+- This release extends the DC/OS authentication architecture to apply to both DC/OS Open Source (OSS) and DC/OS Enterprise clusters. <!--(DCOS-28672)-->
+
+You can now create unified service accounts that can be used across DC/OS OSS and DC/OS Enterprise clusters. By extending support for service accounts that can be used for all DC/OS clusters, you have the option to install, configure, and manage additional packages, including packages that require a service account when you are running DC/OS Enterprise DC/OS in `strict` mode.
 
 [enterprise]
 ## 
@@ -206,6 +207,8 @@ Unified Service accounts across DC/OS and Enterprise DC/OS enabling broader set 
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
 
 ## Deprecated or decommissioned features
+- In DC/OS 1.13, the DC/OS history service has transitioned into the retired state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/1.13/overview/feature-maturity/).
+
 - Mesos endpoints with the <code>.json</code> suffix are deprecated and should not be used in DC/OS 1.13.</p>
 
 - Some of the configuration parameters previously used to install DC/OS cluster components are no longer vallid. The following `dcos_generate_config.sh` command-line options have been deprecated and decommissioned:
