@@ -159,7 +159,7 @@ The following tables represent the support matrix for platform components and op
 ## Web Browser and CLI Matrix
 Use the following legend table to see the supported/not supported service for the operating environments on which DC/OS has been tested. 
 
-### Legend for web browser and CLI support matrix
+### Legend for Web Browser and CLI support matrix
 |Display Icon | Service       |
 |------------ |-------------- |
 | ⚫          | Supported     |
