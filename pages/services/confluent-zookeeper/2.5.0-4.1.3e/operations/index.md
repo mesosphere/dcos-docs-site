@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Operations
 menuWeight: 30
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
