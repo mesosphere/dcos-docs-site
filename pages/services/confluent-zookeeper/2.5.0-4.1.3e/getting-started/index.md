@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Getting Started
+excerpt: Starting a basic test cluster
 title: Getting Started
 menuWeight: 10
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

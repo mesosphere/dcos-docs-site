@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Advanced features of the DC/OS Confluent ZooKeeper service
 title: Advanced
 menuWeight: 80
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Limitations
+excerpt: Limitations to your Confluent-ZooKeeper configuration
 title: Limitations
 menuWeight: 100
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
@@ -21,7 +21,7 @@ Reconfiguration of certain ZooKeeper settings is not allowed after deployment:
 
 ## Kerberos settings
 
-Running Kerberized Apache ZooKeeper currently requires that principals be added to the shared keytab for the hostnames of the agents on which the nodes of the ZooKeeper ensemble are running as well as the DC/OS DNS addresses.
+Running Kerberized Apache ZooKeeper currently requires that principals be added to the shared keytab for the hostnames of the agents on which the nodes of the ZooKeeper ensemble are running, as well as the DC/OS DNS addresses.
 
 #include /services/include/limitations.tmpl
 #include /services/include/limitations-zones.tmpl

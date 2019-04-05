@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Uninstall
+excerpt: Uninstalling the DC/OS Confluent-ZooKeeper service
 title: Uninstall
 menuWeight: 60
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

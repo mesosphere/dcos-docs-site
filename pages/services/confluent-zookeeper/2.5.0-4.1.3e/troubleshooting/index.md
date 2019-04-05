@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Troubleshooting
+excerpt: Diagnosing and correcting issues
 title: Troubleshooting
 menuWeight: 70
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

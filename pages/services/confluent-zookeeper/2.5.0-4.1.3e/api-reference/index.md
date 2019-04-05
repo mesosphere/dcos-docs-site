@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: API Reference
+excerpt: A REST API that may be accessed from outside the cluster
 title: API Reference
 menuWeight: 90
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

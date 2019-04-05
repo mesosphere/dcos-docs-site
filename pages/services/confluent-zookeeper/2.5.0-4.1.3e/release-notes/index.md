@@ -4,13 +4,13 @@ navigationTitle:
 excerpt: Discover the new features, updates, and known limitations in this release of the Confluent ZooKeeper Service
 title: Release Notes
 menuWeight: 120
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
 # Release Notes for Confluent ZooKeeper Service version 2.5.0-4.1.3e 
 
-- Update to Confluent Zookeeper version 4.1.3 
+- Update to Confluent ZooKeeper version 4.1.3 
 - Update dcos-commons sdk version to 0.55.4 
 
 <!--

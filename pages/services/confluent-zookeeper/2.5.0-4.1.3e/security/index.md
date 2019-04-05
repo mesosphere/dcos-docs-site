@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Security
+excerpt: Creating service accounts and assigning permissions
 title: Security
 menuWeight: 50
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
@@ -16,7 +16,7 @@ render: mustache
 
 An overview of the {{ model.techShortName }} Kerberos security features can be found [here](https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeper+and+SASL).
 
-*Note*: These security features are only available on DC/OS Enterprise 1.10 and above.
+<p class="message--note"><strong>NOTE: </strong> These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
 #include /services/include/service-account.tmpl
 
@@ -101,7 +101,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 }
 ```
 
-*Note*: It is possible to enable Kerberos after initial installation but the service may be unavailable during the transition. Additionally, your ZooKeeper clients will need to be reconfigured. For more information see the [Enabling Kerberos after deployement](#enabling-kerberos-after-deployment) section.
+<p class="message--note"><strong>NOTE: </strong>It is possible to enable Kerberos after initial installation, but the service may be unavailable during the transition. Additionally, your ZooKeeper clients will need to be reconfigured. For more information, see the following section.</p>
 
 #### Enabling Kerberos After Deployment
 
@@ -179,7 +179,7 @@ deploy (serial strategy) (COMPLETE)
    ├─ zookeeper-1:[server, metrics] (COMPLETE)
    └─ zookeeper-2:[server, metrics] (COMPLETE)
 ```
-deploying a {{ model.techName }} instance that *requires* Kerberos authentication between learners in the leader election.
+deploying a {{ model.techName }} instance that **requires** Kerberos authentication between learners in the leader election.
 
 As the next step in the rolling update process, create a `kerberos-toggle-step-3.json` file with the following contents:
 ```json
@@ -238,11 +238,11 @@ deploy (serial strategy) (COMPLETE)
 
 Unauthenticated clients will now only be allowed to ping, create a session, close a session, or authenticate when communicating with the {{ model.techName }} instance.
 
-*Note*: The default settings for `service.security.kerberos.advanced.required_for_quorum_learner`, `service.security.kerberos.advanced.required_for_quorum_server`, `service.security.kerberos.advanced.required_for_client` are all `true`.
+<p class="message--note"><strong>NOTE: </strong> The default settings for <code>service.security.kerberos.advanced.required_for_quorum_learner</code>, <code>service.security.kerberos.advanced.required_for_quorum_server</code>, <code>service.security.kerberos.advanced.required_for_client</code> are all <code>true</code>.</p>
 
 #### Disabling Kerberos After Deployment
 
-*Note*: Disabling Kerberos after deployment is **not** supported.
+<p class="message--note"><strong>NOTE: </strong>Disabling Kerberos after deployment is <strong>not</strong> supported. </p>
 
 ## Securely Exposing DC/OS {{ model.techName }} Outside the Cluster.
 
