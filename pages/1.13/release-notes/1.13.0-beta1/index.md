@@ -194,14 +194,15 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 
     You can now create unified service accounts that can be used across DC/OS OSS and DC/OS Enterprise clusters. By extending support for service accounts that can be used for all DC/OS clusters, you have the option to install, configure, and manage additional packages, including packages that require a service account when you are running DC/OS Enterprise DC/OS in `strict` mode.
 
-    For more information about authentication and managing accounts, see [User account management](/1.13/security/oss/user-account-management/)
+    For more information about authentication and managing accounts, see [User account management](/1.13/security/oss/user-account-management/).
 
 [enterprise]
 ## 
 [/enterprise]
 - 
 
-# Issues fixed in this release 
+# Issues fixed in this release
+The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
 - 
 - 
 
@@ -225,3 +226,17 @@ This section covers any known issues or limitations that don’t necessarily aff
 
     If you have scripts or programs that use any of the deprecated options, you should update them (DCOS-50263).
 
+# Updated components change lists
+For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
+
+- Apache Mesos 1.5.x [change log]().
+- Marathon 1.6.564 [change log]().
+- Metronome 0.4.4 [change log]().
+- DC/OS 1.13 [change log]().
+
+# Previous releases
+To review changes from a recent previous release, see the following links:
+
+[Release version 1.10.11](/1.10/release-notes/1.10.11/) - 12 February 2019.
+[Release version 1.11.10](/1.11/release-notes/1.11.10/) - 12 February 2019.
+[Release version 1.12.3](/1.12/release-notes/1.12.3/) - 14 March 2019.
