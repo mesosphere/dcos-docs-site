@@ -16,7 +16,7 @@ render: mustache
 
 An overview of the {{ model.techShortName }} Kerberos security features can be found [here](https://cwiki.apache.org/confluence/display/ZOOKEEPER/ZooKeeper+and+SASL).
 
-*Note*: These security features are only available on DC/OS Enterprise 1.10 and above.
+<p class="message--note"><strong>NOTE: </strong> These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
 #include /services/include/service-account.tmpl
 
@@ -238,11 +238,11 @@ deploy (serial strategy) (COMPLETE)
 
 Unauthenticated clients will now only be allowed to ping, create a session, close a session, or authenticate when communicating with the {{ model.techName }} instance.
 
-*Note*: The default settings for `service.security.kerberos.advanced.required_for_quorum_learner`, `service.security.kerberos.advanced.required_for_quorum_server`, `service.security.kerberos.advanced.required_for_client` are all `true`.
+<p class="messge--note"><strong>NOTE: </strong> The default settings for <code>service.security.kerberos.advanced.required_for_quorum_learner</code>, <code>service.security.kerberos.advanced.required_for_quorum_server</code>, <code>service.security.kerberos.advanced.required_for_client</code> are all <code>true`.</p>
 
 #### Disabling Kerberos After Deployment
 
-*Note*: Disabling Kerberos after deployment is **not** supported.
+<p class="messge--note"><strong>NOTE: </strong> Disabling Kerberos after deployment is <strong>not</strong> supported.</p>
 
 ## Securely Exposing DC/OS {{ model.techName }} Outside the Cluster.
 
