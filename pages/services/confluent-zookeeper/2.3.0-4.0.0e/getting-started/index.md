@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Getting Started
 menuWeight: 10
-model: /services/confluent-zookeeper/data.yml
+model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 
