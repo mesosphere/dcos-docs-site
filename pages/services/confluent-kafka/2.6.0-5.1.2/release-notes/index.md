@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes v. 2.6.0-5.1.2
+navigationTitle: Release Notes 
 excerpt: Release Notes for version 2.6.0-5.1.2
 title: Release Notes
 menuWeight: 10
