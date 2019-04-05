@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle: Confluent ZooKeeper 2.5.0-4.1.3e 
 title: Confluent ZooKeeper 2.5.0-4.1.3e 
 menuWeight: 1
-excerpt: DC/OS Confluent ZooKeeper is a centralized service for maintaining configuration and naming information.
+excerpt:
+
 model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---

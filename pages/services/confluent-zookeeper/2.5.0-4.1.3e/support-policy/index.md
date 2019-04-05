@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Support Policy
+navigationTitle:
 title: Support Policy
 menuWeight: 110
-excerpt: DC/OS and certified package version support policy
-model: /services/confluent-zookeeper/data.yml
+excerpt:
+model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 

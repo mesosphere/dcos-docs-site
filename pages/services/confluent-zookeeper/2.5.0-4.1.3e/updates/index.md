@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Updating
-excerpt: Updating the DC/OS Confluent-ZooKeeper service
-title: Updating
+navigationTitle:
+excerpt:
+title: Updates
 menuWeight: 40
-model: /services/confluent-zookeeper/data.yml
+model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 

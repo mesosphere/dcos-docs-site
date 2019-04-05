@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Configuration
-excerpt: Configuring your Confluent-ZooKeeper installation
+navigationTitle:
+excerpt:
 title: Configuration
 menuWeight: 20
-model: /services/confluent-zookeeper/data.yml
+model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 

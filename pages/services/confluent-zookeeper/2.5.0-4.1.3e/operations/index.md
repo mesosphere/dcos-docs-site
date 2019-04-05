@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Operations
-excerpt: Managing, repairing and maintaining the service
+navigationTitle:
+excerpt:
 title: Operations
 menuWeight: 30
-model: /services/confluent-zookeeper/data.yml
+model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 
@@ -26,4 +26,4 @@ This command puts you in your Mesos sandbox in an interactive bash environment. 
 
 To restore a cluster to a particular state, stop the cluster, restore the latest (or desired) log file to the `zookeeper-log-path`, and restart the cluster from that state.
 
-It is best practice to keep three to five of the latest log files available, in case the restored log file restores the cluster to an invalid state with ephemeral nodes. You can update ZooKeeper-specific configurations like `autopurge.Interval` to manage the purging of superfluous files.
+It is best practice to keep 3-5 of the latest, desired log files in case the restored log file restores the cluster to an invalid state with ephemeral nodes. You can update ZooKeeper-specific configurations like `autopurge.Interval` to manage the purging of superfluous files.
