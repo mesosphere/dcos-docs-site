@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Getting Started with Confluent Kafka
+navigationTitle: Getting Started
 excerpt: Getting started with Confluent Kafka
 title: Getting Started
 menuWeight: 12

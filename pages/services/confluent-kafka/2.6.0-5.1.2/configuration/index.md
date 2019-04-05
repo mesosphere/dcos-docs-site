@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Configuring 
 excerpt: Configuring Confluent Kafka
-title: Configuring Confluent Kafka
+title: Configuring 
 menuWeight: 20
 model: /services/confluent-kafka/data.yml
 render: mustache
