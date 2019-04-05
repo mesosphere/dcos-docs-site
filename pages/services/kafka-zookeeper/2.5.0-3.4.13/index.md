@@ -3,8 +3,7 @@ layout: layout.pug
 navigationTitle: Kafka ZooKeeper 2.5.0-3.4.13
 title: Kafka ZooKeeper 2.5.0-3.4.13
 menuWeight: 1
-excerpt:
-
+excerpt: ZooKeeper is a centralized service for maintaining configuration and naming information, as well as providing distributed synchronization and group services.
 model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
