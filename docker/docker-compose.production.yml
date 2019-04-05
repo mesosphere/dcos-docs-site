@@ -20,8 +20,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    # volumes:
-    #   - build:/src/build
+    volumes:
+      - build:/src/build
     #   - build-pdf:/src/build-pdf
   pdf:
     image: mesosphere/dcos-docs-pdf
