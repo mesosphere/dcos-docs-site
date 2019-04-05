@@ -4,6 +4,7 @@ navigationTitle: Confluent ZooKeeper 2.4.0-4.0.0e
 title: Confluent ZooKeeper 2.4.0-4.0.0e
 menuWeight: 1
 excerpt:
+
 model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
