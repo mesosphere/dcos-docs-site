@@ -14,7 +14,7 @@ render: mustache
 
 ## Updates
 
-- Update to Confluent Kafka version `5.1.2`.
+- Update to {{ model.techName }} version `5.1.2`.
 - SDK bumped to `0.55.2`.
 
 ## New Features
