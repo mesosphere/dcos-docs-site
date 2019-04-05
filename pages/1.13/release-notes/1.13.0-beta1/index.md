@@ -194,6 +194,8 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 
     You can now create unified service accounts that can be used across DC/OS OSS and DC/OS Enterprise clusters. By extending support for service accounts that can be used for all DC/OS clusters, you have the option to install, configure, and manage additional packages, including packages that require a service account when you are running DC/OS Enterprise DC/OS in `strict` mode.
 
+    For more information about authentication and managing accounts, see [User account management](/1.13/security/oss/user-account-management/)
+
 [enterprise]
 ## 
 [/enterprise]
