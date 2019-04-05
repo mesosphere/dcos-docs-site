@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Troubleshooting
 menuWeight: 70
-model: /services/kafka-zookeeper/data.yml
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
