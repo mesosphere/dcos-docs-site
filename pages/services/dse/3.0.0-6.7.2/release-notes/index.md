@@ -23,7 +23,7 @@ render: mustache
 	  -p NODETOOL_SUBCOMMAND='<subcommand>'  \
 	  -p NODETOOL_CMD_ARGS='<subcommand_arguments>'
 	```
-	- for example:
+	- For example:
 	```
 	dcos datastax-dse plan start nodetool-ser \
 	  -p NODETOOL_CONNECTION_OPTS='-p 7199'  \
@@ -39,8 +39,9 @@ render: mustache
 ## Upgrading your cluster from DSE 5 to 6
 In order to upgrade your cluster from DSE 5 to DSE 6 you must do two things:
 - `dcos datastax-dse update start --package-version=3.0.0-6.7.2`
-	- this will run a script to drop `COMPACT_STORAGE` from all keyspaces and then upgrade each DSE node to version 6.7.2
-	- **IMPORTANT**: before upgrading, make sure the agent running `dse-0-node` has > `0.25 CPU` available. This is required to run the `compact-storage` task. You may have to move other services running on that agent to accommodate.
+	- This will run a script to drop `COMPACT_STORAGE` from all keyspaces and then upgrade each DSE node to version 6.7.2
+	<p class="message--important"><strong>IMPORTANT: </strong>Before upgrading, make sure the agent running <code>dse-0-node</code> has more than 0.25 CPU available. This is required to run the <code>compact-storage</code> task. You may have to move other services running on that agent to accommodate.</p>
+
 - Separately:
 	```
 	dcos datastax-dse plan start nodetool-ser \
@@ -48,7 +49,7 @@ In order to upgrade your cluster from DSE 5 to DSE 6 you must do two things:
 	  -p NODETOOL_SUBCOMMAND='upgradesstables'  \
 	  -p NODETOOL_CMD_ARGS='-a'
 	```
-	- this will convert all your sstables to the proper version. Note: this cannot be undone and you should plan for increased load activity on your cluster. Should any problems arise, `pause` the plan and investigate.
+	- This will convert all your sstables to the proper version. Note that this action cannot be undone, and you should plan for increased load activity on your cluster. Should any problems arise, `pause` the plan and investigate.
 
 
 # Version 2.4.0-5.1.10

@@ -12,7 +12,7 @@ render: mustache
 
 The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s native transport encryption mechanisms. The service provides automation and orchestration to simplify the usage of these important features.
 
-*Note*: These security features are only available on DC/OS Enterprise 1.10 and above.
+<p class="message--note"><strong>NOTE: </strong> These security features are only available on DC/OS Enterprise 1.10 and later. </p>
 
 ## Transport Encryption
 
@@ -46,7 +46,7 @@ To enable {{ model.shortTechName }} authentication/authorization, follow these s
 ## {{ model.shortTechName }} LDAP Configuration
 When you enable LDAP authentication in DataStax Enterprise, users and groups that are managed by external LDAP servers can be authenticated by DataStax Enterprise.  To enable LDAP authentication with your {{ model.shortTechName }} cluster, you need to configure the followings:
 
-   1. In Advanced Installation wizard, you need to configure the following fields according to your LDAP settings:
+   1. In the Advanced Installation wizard, you need to configure the following fields according to your LDAP settings:
       ```
       In "dse" tab,
       Check ldap's enabled checkbox
