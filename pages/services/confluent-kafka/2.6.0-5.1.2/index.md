@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Confluent Kafka 2.6.0-5.1.2
-excerpt: DC/OS Confluent Kafka is an automated service that makes it easy to deploy and manage Confluent Kafka on Mesosphere DC/OS.
+excerpt: DC/OS Confluent Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees.
 title: Confluent Kafka 2.6.0-5.1.2
 menuWeight: 4
 model: /services/confluent-kafka/data.yml
