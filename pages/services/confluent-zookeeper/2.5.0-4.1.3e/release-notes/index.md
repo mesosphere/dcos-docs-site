@@ -13,6 +13,10 @@ render: mustache
 - Update to {{ model.techName }} version 4.1.3 
 - Update dcos-commons sdk version to 0.55.4 
 
+## Features
+
+- Number of open file descriptors is now configurable via the `RLIMIT_NOFILE_SOFT` and `RLIMIT_NOFILE_HARD` configuration parameters.
+
 <!--
 # Release Notes for Confluent ZooKeeper Service version 2.4.0-4.0.0e
 
