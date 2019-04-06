@@ -139,11 +139,11 @@ where it is important to note the `service.security.kerberos.advanced` section t
 
 Using this config file, update your DC/OS {{ model.techName }} service:
 ```bash
-$ dcos kafka-zookeeper --name=<service name> update start --options=kerberos-toggle-step-1.json
+$ dcos confluent-zookeeper --name=<service name> update start --options=kerberos-toggle-step-1.json
 ```
 and wait for the deploy (update) plan to complete:
 ```bash
-$ dcos kafka-zookeeper --name=<service name> plan show deploy
+$ dcos confluent-zookeeper --name=<service name> plan show deploy
 deploy (serial strategy) (COMPLETE)
 └─ node-update (serial strategy) (COMPLETE)
    ├─ zookeeper-0:[server, metrics] (COMPLETE)
@@ -171,8 +171,8 @@ Create a `kerberos-toggle-step-2.json` file with the following contents (note th
 ```
 and deploy this as a configuration update:
 ```bash
-$ dcos kafka-zookeeper --name=<service name> update start --options=kerberos-toggle-step-2.json
-$ dcos kafka-zookeeper --name=<service name> plan show deploy
+$ dcos confluent-zookeeper --name=<service name> update start --options=kerberos-toggle-step-2.json
+$ dcos confluent-zookeeper --name=<service name> plan show deploy
 deploy (serial strategy) (COMPLETE)
 └─ node-update (serial strategy) (COMPLETE)
    ├─ zookeeper-0:[server, metrics] (COMPLETE)
@@ -199,8 +199,8 @@ As the next step in the rolling update process, create a `kerberos-toggle-step-3
 ```
 and deploy this as a configuration update:
 ```bash
-$ dcos kafka-zookeeper --name=<service name> update start --options=kerberos-toggle-step-3.json
-$ dcos kafka-zookeeper --name=<service name> plan show deploy
+$ dcos confluent-zookeeper --name=<service name> update start --options=kerberos-toggle-step-3.json
+$ dcos confluent-zookeeper --name=<service name> plan show deploy
 deploy (serial strategy) (COMPLETE)
 └─ node-update (serial strategy) (COMPLETE)
    ├─ zookeeper-0:[server, metrics] (COMPLETE)
@@ -227,8 +227,8 @@ The final step is to require Kerberos authentication for clients connecting to t
 ```
 which is deployed:
 ```bash
-$ dcos kafka-zookeeper --name=<service name> update start --options=kerberos-toggle-step-3.json
-$ dcos kafka-zookeeper --name=<service name> plan show deploy
+$ dcos confluent-zookeeper --name=<service name> update start --options=kerberos-toggle-step-3.json
+$ dcos confluent-zookeeper --name=<service name> plan show deploy
 deploy (serial strategy) (COMPLETE)
 └─ node-update (serial strategy) (COMPLETE)
    ├─ zookeeper-0:[server, metrics] (COMPLETE)
