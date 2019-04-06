@@ -39,8 +39,8 @@ To avoid any potential downtime caused by this, change the protocol version used
 
 - And update your service like so:
  ```
- ~$ dcos package install --cli --yes kafka
- ~$ dcos kafka --name=data-services/kafka update start \
-	 --package-version=2.5.0-2.1.0 \
+ ~$ dcos package install --cli --yes {{ model.packageName }}
+ ~$ dcos {{ model.packageName }} --name={{ model.serviceName }} update start \
+	 --package-version=2.6.0-5.1.2 \
 	 --options=options_file.json
 ```
