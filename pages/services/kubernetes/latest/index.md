@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: DC/OS Kubernetes
-title: DC/OS Kubernetes
+navigationTitle: Kubernetes Docs
+title: Kubernetes Docs
 menus: ['header']
 menuWeight: -1
 enterprise: false
