@@ -156,7 +156,7 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 
 <!-- not in 1.13 Docs with RN filter 
 - Universal Installer to provision EBS volumes (DCOS-47221)
-The Universal Installer now provides the ability to provision AWS EBS volumes and attach them to the Private Agents within a cluster.
+The Universal Installer now provides the ability to provision AWS EBS volumes and attach them to the private agents within a cluster.
 
 Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/
 -->
@@ -172,9 +172,13 @@ Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/in
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
 ## Platform
-- Update Rexray to support NVMe EBS volumes <!--(DCOS-50047)-->
+- Update Rex-Ray to support NVMe EBS volumes. <!--(DCOS-50047)-->
 
-    In DC/OS 1.13.0, REX-ray support has been updated to include EBS NVMe volumes.
+    REX-Ray is a container storage orchestration engine that enables persistence for cloud-native workloads. With Rex-Ray, you can manage native Docker Volume Driver operations through a command-line interface (CLI).
+
+    Amazon Elastic Block Store (Amazon EBS) provides block-level storage volumes for Amazon Elastic Cloud (EC2) instances. Amazon EBS volumes can be attached to any running EC2 instance hosted in the same Amazon availability zone to provide persistent storage that is independent of the deployed instance. EBS storage volumes can be exposed using NVMe (non-volatile memory express) as a host controller interface and storage protocol. NVMe devices enable you to accelerate the transfer of data between nodes and solid-state drives (SSDs) over a computer's connection gateway.
+
+    With this release, DC/OS updates REX-Ray to support NVMe storage when the DC/OS cluster runs on an Amazon instance. To work with NVMe devices, however, you must provide your own `udev` rules and  `nvme-cli` package. For more information about using Rex-Ray, see the [REX-Ray](https://rexray.io/) website and [github repository](https://github.com/rexray).
 
 <!-- not in 1.13 Docs in RN filter 
 - Retention policies for dcos-monitoring data (DCOS-46818)
@@ -190,12 +194,18 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 -->
 
 ## Service automation
-[Marathon] Support seccomp `unconfined` whitelisting in ContainerInfo.LinuxInfo.SeccompInfo <!--(DCOS-49134)-->
-<no RN content>
+- Support secure computing mode (seccomp) profiles. <!--(DCOS-49134)-->
+
+    Secure computing mode (seccomp) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within a container. You can enable secure computing mode for Docker containers to universal runtime containers (URC) if the operating system your are using supports it.
+
+    WIth DC/OS, you can use a seccomp profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls. 
+
+    Using a secure computing mode profiles is an important option if you need to secure access to containers and operations using the principle of least privilege. 
 
 ## Storage
-- AWS EBS CSI Driver for MKE to enable MKE users to deploy stateful applications in AWS <!--(DCOS-44789)-->
-<already in release notes>
+- Provide a driver that enables AWS Elastic Block Store (EBS) volumes for the Mesosphere Kubernetes Engine (MKE). <!--(DCOS-44789)-->
+
+    You can use the AWS EBS Container Storage Interface (CSI) driver to manage storage volumes for the Mesosphere Kubernetes Engine (MKE). This driver enables MKE users to deploy stateful applications running in a DC/OS cluster on an AWS cloud instance.
 
 [enterprise]
 ## Security
