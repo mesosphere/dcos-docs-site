@@ -1,18 +1,28 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt: Discover the new features, updates, and known limitations in this release of the Confluent ZooKeeper Service
+navigationTitle: Release Notes
+excerpt: Release Notes for Confluent ZooKeeper Service version 2.5.0-4.1.3e 
 title: Release Notes
 menuWeight: 120
 model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
+# Release Notes for {{ model.techName }} Service version 2.5.0-4.1.3e 
+
+- Update to {{ model.techName }} version 4.1.3 
+- Update dcos-commons sdk version to 0.55.4 
+
+## Features
+
+- Number of open file descriptors is now configurable via the `RLIMIT_NOFILE_SOFT` and `RLIMIT_NOFILE_HARD` configuration parameters.
+
+<!--
 # Release Notes for Confluent ZooKeeper Service version 2.4.0-4.0.0e
 
 ## Bug Fixes
 - [DCOS-40634] Fix a bug where restarting more than one server in an ensemble at a time would cause the servers to not be able to start due to waiting for other servers that are also down.
-
+-->
 <!-- 
 # Version 2.3.0-4.0.0e
 
