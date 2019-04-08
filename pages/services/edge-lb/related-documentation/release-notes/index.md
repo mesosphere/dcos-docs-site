@@ -17,20 +17,20 @@ This section summarizes changes integrated into Edge-LB for Edge-LB 1.3 (Februar
 ### Edge-LB 1.3.0
 Released on February 6, 2019.
 
-* Simplify and optimize the HAProxy reload loop.
-* Improve the update strategy for the Edge-LB pool.
-* Bump the SDK version to 0.55.2.
-* Add protection against installing a pool while its previous version is still uninstalling.
-* Improve sidecars runs.
-* Improve integration test coverage.
-* Improve error messages and provide better logging.
+* Simplifies and optimizes the HAProxy load balancer reload loop.
+* Improves the update strategy for the Edge-LB pool.
+* Updates the SDK version used by Edge-LB to 0.55.2.
+* Adds protection against installing a pool while its previous version is still uninstalling.
+* Improves sidecars runs.
+* Improves integration test coverage.
+* Provides better error messages and logging.
 
 #### Issues fixed in this release
-* COPS-4272, DCOS-46189 - Edge-LB artifacts that were missing on the Mesosphere Edge-LB Downloads page have been restored.
-* DCOS-46043 - Edge-LB API server’s file comparison functions have been updated to provide more accurate information.
-* DCOS-46510 - Edge-LB supports load balancer configuration settings that include duplicate backends.
-* DCOS-46837 - Edge-LB now protects against installing a pool with given name while a different poll with the same name is still uninstalling to prevent the framework scheduler from crashing caused by conflicting uninstall and install operations.
-* DCOS-48009 - The location used for `$ENVFILE` certificates has been updated to match the location where the Edge-LB load balancer expects to find them.
+* COPS-4272, DCOS-46189 - Restores Edge-LB artifacts that were missing on the Mesosphere Edge-LB Downloads page.
+* DCOS-46043 - Updates the Edge-LB API server’s file comparison functions to provide more accurate information.
+* DCOS-46510 - Supports load balancer configuration settings that include duplicate backends.
+* DCOS-46837 - Protects against installing a pool with given name while a different pool with the same name is still uninstalling. This change prevents the framework scheduler from crashes caused by conflicting uninstall and install operations.
+* DCOS-48009 - Updates the location used for `$ENVFILE` certificates to match the location where the Edge-LB load balancer expects to find them.
 
 # Edge-LB 1.2
 This section summarizes changes integrated into Edge-LB from Edge-LB 1.2.0 (September 2018) to Edge-LB 1.2.3 (November 2018), with the most recent changes listed first.
@@ -38,23 +38,23 @@ This section summarizes changes integrated into Edge-LB from Edge-LB 1.2.0 (Sept
 ### Edge-LB 1.2.3
 Released on November 27, 2018.
 
-* `lbmgr`: Enforce the timeout during the connection phase of the healthcheck command.
-* `apiserver`: Make health checks for pool tasks configurable using the following new pool parameters:
-  * `poolHealthcheckGracePeriod` - Defines the period of time after start of the pool container when failed healtchecks will be ignored (default: 180s).
-  * `poolHealthcheckInterval` - Defines healthcheck execution interval. At most one healtcheck is going to execute at any given time (default: 12s).
-  * `poolHealthcheckMaxFail` - Defines how many consecutive failures mark the task as failed and force Mesos to kill it (default: 5).
+* `lbmgr`: Enforces the timeout during the connection phase of the health check command.
+* `apiserver`: Makes health checks for pool tasks configurable using the following new pool parameters:
+  * `poolHealthcheckGracePeriod` - Defines the period of time after start of the pool container when failed healt checks will be ignored (default: 180s).
+  * `poolHealthcheckInterval` - Defines the health check execution interval. At most, one health check is going to execute at any given time (default: 12s).
+  * `poolHealthcheckMaxFail` - Defines how many consecutive failures mark the task as failed before forcing Mesos to kill it (default: 5).
   * `poolHealthcheckTimeout` - Defines the timeout enforced by Mesos on the healthcheck execution. It includes the container startup (fetch, setup, start, etc...) as well as the time spent by the healthcheck command executing the test.
 
 #### Issues fixed in this release
-* COPS-3951, DCOS-43677 - LB task getting killed intermittently leading to outage for apps being load balanced.
-* COPS-4127, DCOS-45184 - Edge-LB Pools being KILLED to due missing `/var/state/haproxy/global` files.
+* COPS-3951, DCOS-43677 - Prevents load balancing tasks from being killed intermittently. This change helps to prevent service outages for applications that are being load balanced.
+* COPS-4127, DCOS-45184 - Prevents Edge-LB pools from being KILLED to due missing `/var/state/haproxy/global` files.
  
 ### Edge-LB 1.2.2
 Released on November 15, 2018.
 
 * lbmgr:
   * Instead of shelling out to use the `socat` utility, `lbmgr` now natively handles communication with the HAProxy load balancer.
-  * Adds more information about status for successful and failed health checks, including the size of the reply, the time it took to write the command, the time required to fetch the result, and the total time for the operation to complete.
+  * Adds more information about successful and failed health checks, including the size of the reply, the time it took to write the command, the time required to fetch the result, and the total time for the operation to complete.
     * Sets the health check timeout to 9 seconds. This timeout expires one second sooner than the default Mesos health check. This change helps you identify when the timeout occurred.
 * mesos-listener:
     * Adds support for TASK_GONE_BY_OPERATOR events.
