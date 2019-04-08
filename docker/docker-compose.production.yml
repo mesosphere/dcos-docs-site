@@ -21,11 +21,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-<<<<<<< HEAD
-      - build:/src
-=======
       - build:/src/build
->>>>>>> 9a7940f2faad542f58386c4c47927264ceee879f
     #   - build-pdf:/src/build-pdf
   pdf:
     image: mesosphere/dcos-docs-pdf
