@@ -45,37 +45,40 @@ Some highlights for this release include:
 
     In DC/OS 1.13, dcos-telegraf automatically collects Mesos metrics by default. Previously, you were required to manually enable the metrics plug-in by updating the agent configuration or by setting the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `true`.  With this release, manually enabling this feature is no longer required. Instead, the default value for the parameter is now set to true. You can set the `enable_mesos_input_plugin` parameter in the `config.yaml` file to false if you want to disable the automatic collection of Mesos metrics.
 
-- The DC/OS monitoring service enables you to mport curated alerting rules <!--(DCOS-47666)-->
+- The DC/OS monitoring service enables you to import curated alerting rules <!--(DCOS-47666)-->
 
-    With this release, deploying the DC/OS monitoring service enables you to import Mesosphere-provided Prometheus Alert Rules from a github repository. These predefined alert rules enable you to create meaningful alerts concerning the condition of the DC/OS cluster, including successful or failed operations and node activity. Repo is located here: https://github.com/dcos/prometheus-alert-rules
+    With this release, deploying the DC/OS monitoring service enables you to import Mesosphere-provided Prometheus Alert Rules from a [github repository](https://github.com/dcos/prometheus-alert-rules). These predefined alert rules enable you to create meaningful alerts concerning the condition of the DC/OS cluster, including successful or failed operations and node activity.
 
     Prometheus alert rules are automatically included as part of the DC/OS monitoring service. Each DC/OS component or framework available for monitoring should have a single rule file that contains all its alert rules. These alert rules are passed to Prometheus using the `rule_files` configuration parameter and are configured to specify one of the following severity levels:
     - **Warning** alerts identify issues that require notification, but do not require immediate action. For example, an alert identified as a warning might send email notification to an administrator but not require an immediate response.
     - **Critical** alerts identify issues that require immediate attention. For example, a critical alert might trigger a pager notification to signal that immediate action is required.
 
-- Create Curated Dashboard Collection for installation by customers in existing Prometheus/Grafana (DCOS-44740)
-Operators deploying dcos-monitoring can now leverage Mesosphere provided Grafana dashboards.  These dashboards can be automatically retrieved by the dcos-monitoring service and enable the operator to quickly get up to speed in visualizing the metrics that the dcos-monitoring package is collecting from the cluster and its' hosted applications.  Dashboard repository is located here: https://github.com/dcos/grafana-dashboards
+- Automatically create a curated collection of Prometheus-driven Grafana dashboards for DC/OS  <!--(DCOS-44740)-->
+If you deploy DC/OS monitoring, you can leverage Mesosphere-provided Grafana-based dashboards. By installing and configuring the `dcos-monitoring` service, you can automatically create dashboards that enable you to quickly visualize the metrics that the dcos-monitoring package is collecting from the DC/OS cluster and DC/OS-hosted applications. For more information about using Grafana dashboards, see the [dashboard repository](https://github.com/dcos/grafana-dashboards).
 
 <!-- not in the 1.13 Docs in RN filter
 - Standardized log collection and forwarding via fluentbit (DCOS-43412)
 Application and DC/OS cluster component logs are now aggregated and Operators can configure forwarding to a third party log storage, search and reporting application. Previously, Operators had to install 3rd party Agents on cluster nodes to perform this task. With the introduction of support for fluent bit, Operators can now leverage easy to configure plugins to perform log filtering and forwarding to a log collection, search and reporting system.
 -->
 
-- Deprecate and remove the DC/OS history service <!--(DCOS-50304)-->
-In DC/OS 1.13, the  DC/OS history service has transitioned into the **retired** state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/1.13/overview/feature-maturity/).
-
 ## Command-line interface
-- Easily obtainable Public-IP of the public agents through DC/OS CLI (DCOS-44697)
-Operators can now obtain the public IP address of a public agent by running the command {{dcos node list}}.
+- Identify the public-facing IP address for public agent nodes through DC/OS CLI. <!--(DCOS-44697)-->
 
-- Auto Install Enterprise CLI (DCOS-39775)
-For customers running DC/OS Enterprise Edition, the Enterprise CLI is now automatically installed when the non-Enteprise CLI is installed.
+    With this release, you can now retrieve the public-facing IP address for a public agent node by running the `dcos node list` command.
 
-- Basic Tab Completion (DCOS-39774)
-Operators can now use "tab completion" to assist with quickly executing DC/OS commands.
+    You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a **public cloud provider** such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
-- Dynamic auto-complete for dcos cluster attach / remove (DCOS-47214)
-Operators can now hit "tab" for the commands {{dcos cluster attach}} and {{dcos cluster remove}} to auto-fill in or auto-complete the possible clusters for this command.
+- Automatically install the DC/OS Enterprise command-line interface (CLI). <!--(DCOS-39775)-->
+
+    If you have deployed a DC/OS Enterprise cluster, ypu can now automatically install the DC/OS Enterprise CLI when you install the base CLI package. Previously, the DC/OS Enterprise CLI could only be installed manually after the successful installation of the base DC/OS CLI.
+
+- Basic auto-completion using the TAB key. <!--(DCOS-39774)-->
+
+    You can now use the TAB key to provide automatic completion when typing DC/OS commands. Auto-completion enables you to execute commands in a shell terminal more quickly by attempting to predict the rest of a command or subcommand you are typing. If the suggested text matches the command you intended, you can press the TAB key to accept the suggestion and execute the command.
+
+- Dynamic auto-completion cluster names for `dcos cluster attach` and `dcos cluster remove` commands.<!--(DCOS-47214)-->
+
+    You can now use the TAB key to provide automatic completion for potential cluster names when you run the `dcos cluster attach` or `dcos cluster remove` commands.
 
 - CLI support for macOS using Homebrew <!--(DCOS-47562)-->
 
@@ -88,11 +91,12 @@ Operators can now hit "tab" for the commands {{dcos cluster attach}} and {{dcos 
     For more information about installing and using Homebrew, see https://brew.sh/ or the GitHub repository https://github.com/Homebrew/brew.
 
 ## Data services
-- [Kubernetes] Edge-LB TLS/SNI Integration (DCOS-47322)
+- [Kubernetes] Edge-LB TLS/SNI Integration. <!-- (DCOS-47322) -->
 <no content>
-- Add Unique version number to Edge-LB Pool package (DCOS-40527)
 
-You can find the version number of the Edge-LB pool packages. Using the version number, you can check to see if the pool version and the Edge-LB API server version matches. The Edge-LB API server and the pool package version should always match. For example, if the pool package is v1.3.0, the API server version should be v1.3.0 as well.
+- Add a unique version number to Edge-LB pool packages. <!--(DCOS-40527)-->
+
+    You can run a command to return the version number for the Edge-LB pool package you have installed. Using the version number returned by the `edgelb version` command, you can verify whether the Edge-LB pool and the Edge-LB API server versions match. The Edge-LB API server and the Edge-LB pool version numbers should always match. For example, if you have the Edge-LB pool package version v1.3.0 installed, the API server version should be v1.3.0 as well.
 
 <!-- not in the 1.13 Docs in RN filter
 - [Kubernetes] Multi-Kubernetes Regional Placement (DCOS-40924)
@@ -114,35 +118,39 @@ You can find the version number of the Edge-LB pool packages. Using the version 
 You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on your public and private agents. You can automatically provision the NLB from a Kubernetes cluster as well. After the NLB is provisioned, you can fetch the DNS metadata endpoint to access the service that is exposed through the NLB.
 -->
 
-- [Kubernetes] Kubernetes EdgeLB Integration: TCP/HTTP (DCOS-28246)
+- Kubernetes Edge=LB Integration: TCP/HTTP <!--(DCOS-28246)-->
 <no content>
 
-- [Kubernetes] Edge-LB TLS/SNI Integration (DCOS-47322)
+- Edge-LB TLS/SNI Integration <!--(DCOS-47322)-->
 <no content>
 
 ## GUI
-- Independent Upgrade of DC/OS UI (DCOS-47632)
+- Support for independent upgrade of the DC/OS GUI <!--(DCOS-47632)-->
 
-    Customers will now be able to get and updated version of the DC/OS GUI without having to upgrade DC/OS.  New Updates in DC/OS will be published to the DC/OS catalog and will also be available as .dcos file for our on-premise customers. This will allow our customers to easily get the latest fixes and capabilities in our GUI. Customers will  also be able to roll back to the original GUI version that was shipped with their version of DC/OS if they need to.
+    You can now install and update the DC/OS GUI without having to upgrade the DC/OS cluster. New Updates in DC/OS will be published to the DC/OS catalog and will also be available as .dcos file for our on-premise customers. This will allow our customers to easily get the latest fixes and capabilities in our GUI. Customers will  also be able to roll back to the original GUI version that was shipped with their version of DC/OS if they need to.
 
-- Accurate Service Status (Part 1: Plan Tab) (DCOS-43460)
+- Accurate status information for services <!--(DCOS-43460)-->
 
-    DC/OS 1.13 GUI now includes a new tab in the details section of every SDK based services. With this new tab, Operator will have a clear indication of the status and progress of sdk-services during its lifecycle such as installing, upgrade. Customers can have a details about the specific plans running or just finished up to the execution of each task so that they can easily track the progress among those plans.
+    DC/OS 1.13 GUI now includes a new tab in the Details section of every SDK-based data service. This new tab provides a clear indication of the status and progress of SDK-based services during the service life cycle, including installation and upgrade activity. From the Details tab, you can see information about the specific operational plans that are currently running or have just completed. You can also view the execution of each task so that you can easily track the progress of the plans you have deployed.
+
+- Identify the public-facing IP address for public agent nodes in the DC/OS GUI. <!--(DCOS-49987)-->
+
+   You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
 - Internationalization and localization (I18N and L10N - Chinese) <!--(DCOS-39557)-->
 
     Mesosphere DC/OS 1.13 GUI has now been translated to Mandarin Chinese. Mandarin-speaking customers and users can now easily switch the GUI language in the UI and will be able to interact with DC/OS operations and functions in English or Chinese. The DC/OS documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there's sufficient customer demand.
 
 ## Installation
-- Multi-Region Support on Universal Installer (DCOS-45727)
+- Multi-region support using the Universal Installer <!--(DCOS-45727)-->
 
     Multi-region deployments enable higher availability for DC/OS clusters and is a crucial item to have for customers that are wanting to achieve uptime without being susceptible for regional outages.
 
-- Dynamic Masters on Universal Installer (DCOS-45725)
+- Dynamic masters on the Universal Installer <!--(DCOS-45725)-->
 
     Dynamic masters is the ability to create, destroy and recover master nodes. This enables users on the Universal Installer to be able to downscale or upscale their clusters from not just the agent nodes (which is currently supported), but also from the master nodes as well - if they deem necessary.
 
-- Universal Installer & on-premise DC/OS lifecycle management w/Ansible (DCOS-45724)
+- Universal Installer and on-premise DC/OS life cycle management with Ansible <!--(DCOS-45724)-->
 
     dcos-ansible is a Mesosphere provided and supported ansible roles for installing and upgrading Mesosphere DC/OS and DC/OS Enterprise on any user provided infrastructure.
 
@@ -154,15 +162,17 @@ Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/in
 -->
 
 ## Metrics
-- [dcos-telegraf] Instrument and Transmit telegraf Metrics to via telegraf (DCOS-39012)
+- [dcos-telegraf] Instrument and transmit telegraf Metrics to using the telegraf plugin <!--(DCOS-39012)-->
 
     dcos-telegraf collects and forwards metrics about itself for storage and reporting via dcos-monitoring or third party monitoring services.
 
 ## Networking
-- Easily obtainable Public-IP of the public agents through DC/OS Net API endpoint (DCOS-28127)
+- Add a new networking API endpoint to retrieve the public-facing IP address for public agent nodes. <!--(DCOS-28127)-->
+
+    You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
 ## Platform
-- Update Rexray to support NVMe EBS volumes (DCOS-50047)
+- Update Rexray to support NVMe EBS volumes <!--(DCOS-50047)-->
 
     In DC/OS 1.13.0, REX-ray support has been updated to include EBS NVMe volumes.
 
@@ -180,11 +190,11 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 -->
 
 ## Service automation
-[Marathon] Support seccomp `unconfined` whitelisting in ContainerInfo.LinuxInfo.SeccompInfo (DCOS-49134)
+[Marathon] Support seccomp `unconfined` whitelisting in ContainerInfo.LinuxInfo.SeccompInfo <!--(DCOS-49134)-->
 <no RN content>
 
 ## Storage
-- AWS EBS CSI Driver for MKE to enable MKE users to deploy stateful applications in AWS (DCOS-44789)
+- AWS EBS CSI Driver for MKE to enable MKE users to deploy stateful applications in AWS <!--(DCOS-44789)-->
 <already in release notes>
 
 [enterprise]
@@ -204,15 +214,15 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 # Issues fixed in this release
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
 <!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
-- Fixed issue where Metronome did not handle restart policy is ON_FAILURE correctly, not restarting the task. (DCOS_OSS-4636 )
+- Fixed issue where Metronome did not handle restart policy is ON_FAILURE correctly, not restarting the task(DCOS_OSS-4636).
 
-- Prefix illegal prometheus metric names with an underscore (DCOS_OSS-4899)
+- Prefix illegal prometheus metric names with an underscore (DCOS_OSS-4899).
 
-- Fix dcos-net-setup.py failing when systemd network directory did not exist (DCOS-49711)
+- Fix dcos-net-setup.py failing when systemd network directory did not exist (DCOS-49711).
 
-- Updated REX-Ray version to 0.11.4 (DCOS_OSS-4316) (COPS-3961) rexray v0.11.4
+- Updated REX-Ray version to 0.11.4 (DCOS_OSS-4316,COPS-3961).
 
-- Telegraf is upgraded to 1.9.4. (DCOS_OSS-4675)
+- Telegraf is upgraded to 1.9.4 (DCOS_OSS-4675).
 
 - Add SELinux details to diagnostics bundle (DCOS_OSS-4123)
 
@@ -224,29 +234,29 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 
 - Allow the DC/OS installer to be used when there is a space in its path (DCOS_OSS-4429).
 
-- Admin Router logs to non-blocking socket. (DCOS-43956)
+- Admin Router logs to non-blocking socket (DCOS-43956).
 
-- Add path-based routing to AR to routing requests to dcos-net (DCOS_OSS-1837)
+- Add path-based routing to AR to routing requests to dcos-net (DCOS_OSS-1837).
 
-- Mark dcos6 overlay network as disabled if enable_ipv6 is set to false (DCOS-40539)
+- Mark dcos6 overlay network as disabled if enable_ipv6 is set to false (DCOS-40539).
 
-- Fix CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679)
+- Fix CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679).
 
-- Improve error message in case Docker is not running at start of installation (DCOS-15890)
+- Improve error message in case Docker is not running at start of installation (DCOS-15890).
 
-- Stop requiring ssh_user attribute in config.yaml when using parts of deprecated CLI installer (DCOS_OSS-4613)
+- Stop requiring ssh_user attribute in config.yaml when using parts of deprecated CLI installer (DCOS_OSS-4613).
 
-- Add a warning to the installer to let the user know if case kernel modules required by DSS are not loaded (DCOS-49088)
+- Add a warning to the installer to let the user know if case kernel modules required by DSS are not loaded (DCOS-49088).
 
-- Enable ipv6 support for l4lb by default (DCOS_OSS-1993)
+- Enable ipv6 support for l4lb by default (DCOS_OSS-1993).
 
-- Upgrade OTP version to 21.3 (DCOS_OSS-4902)
+- Upgrade OTP version to 21.3 (DCOS_OSS-4902).
 
-- Fix a race condition in L4LB (DCOS_OSS-4939)
+- Fix a race condition in L4LB (DCOS_OSS-4939).
 
-- Fix IPv6 VIP support in L4LB (DCOS-50427)
+- Fix IPv6 VIP support in L4LB (DCOS-50427).
 
-- DC/OS UI X-Frame-Options default value has been changed from SAMEORIGIN to DENY. This is now configurable using the adminrouter_x_frame_options configuration value (DCOS-49594) 
+- DC/OS UI X-Frame-Options default value has been changed from SAMEORIGIN to DENY. This is now configurable using the adminrouter_x_frame_options configuration value (DCOS-49594).
 
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
@@ -254,7 +264,7 @@ This section covers any known issues or limitations that don’t necessarily aff
 ### Deprecated or decommissioned features
 - In DC/OS 1.13, the DC/OS history service has transitioned into the retired state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/1.13/overview/feature-maturity/).
 
-- Mesos endpoints with the <code>.json</code> suffix are deprecated and should not be used in DC/OS 1.13.</p>
+- Mesos endpoints with the <code>.json</code> suffix are deprecated and should not be used in DC/OS 1.13.
 
 - Some of the configuration parameters previously used to install DC/OS cluster components are no longer vallid. The following `dcos_generate_config.sh` command-line options have been deprecated and decommissioned:
     * `--set-superuser-password`
