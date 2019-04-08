@@ -16,7 +16,6 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
    * @param {string} options.projectIds
    * @param {string} options.privateKey
    * @param {string} options.index
-   * @param {boolean} options.clearIndex
    * @param {array} options.skipSections
    * @param {string} options.renderPathPattern
    */
@@ -67,57 +66,38 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
     // Build semver map
     const semverMap = buildSemverMap(files, options.skipSections, options.renderPathPattern);
 
-    // Start promise chain
-    let start;
+    // Remove objects that no longer exist
+    const start = new Promise((resolve, reject) => {
+      const browser = index.browseAll();
+      let hits = [];
 
-    // Clear index
-    if (options.clearIndex === true) {
-      start = new Promise((resolve, reject) => {
-        index.clearIndex((err) => {
-          if (err) {
-            console.error('Algolia: Error while cleaning index:', err);
-            reject();
-          } else {
-            console.log('Algolia: Cleared index');
-            resolve();
-          }
+      browser.on('result', function onResult(content) {
+        hits = hits.concat(content.hits);
+      });
+
+      browser.on('error', function onError(err) {
+        throw err;
+      });
+
+      browser.on('end', function onEnd() {
+        const existingFiles = Object.keys(files).filter(file => extname(file) === '.html');
+        debug('%d local files', existingFiles.length);
+        const indexObjectIDs = hits.map(hit => hit.objectID);
+        debug('%d existing objectIDs in index', indexObjectIDs.length);
+
+        const objectIDsToDelete = indexObjectIDs.filter(id => !files[id])
+        debug('Deleting %d old objectIDs from index...', objectIDsToDelete.length);
+
+        index.deleteObjects(objectIDsToDelete, () => {
+          resolve();
         });
       });
-    } else {
-      start = Promise.resolve();
-    }
+    });
 
     // Initialize indexing
     start.then(() => {
       const promises = [];
       const objects = [];
-
-      const transformations = {
-        '&nbsp;': ' ',
-        '&lt;': '<',
-        '&gt;': '>',
-        '&amp;': '&',
-        '&quot;': '"',
-        '&apos;': '\'',
-        '&cent;': '¢',
-        '&pound;': '£',
-        '&yen;': '¥',
-        '&euro;': '€',
-        '&copy;': '©',
-        '&reg;': '®',
-        '\\n': ' ',
-      };
-
-      const transform = (content) => {
-        let replacedContent = content;
-        Object.keys(transformations).forEach((htmlEntity) => {
-          const replacement = transformations[htmlEntity];
-          const htmlEntRegex = new RegExp(htmlEntity, 'g');
-          replacedContent = replacedContent.replace(htmlEntRegex, replacement);
-        });
-
-        return replacedContent;
-      };
 
       // Loop through metalsmith object
       Object.keys(files).forEach((file) => {
@@ -131,8 +111,9 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         postParts.forEach((value, _index) => {
           const record = getSharedAttributes(fileData, hierarchy, semverMap);
           if (!record) return;
-          record.objectID = `${file}-${index.indexName}`;
+          record.objectID = file;
           record.content = transform(value);
+          record.createIfNotExists = true;
           objects.push(record);
         });
       });
@@ -141,12 +122,12 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         const object = objects[i];
         promises.push(
           new Promise((resolve, reject) => {
-            index.addObject(object, (err, _content) => {
+            index.partialUpdateObject(object, (err, _content) => {
               if (err) {
                 console.error(`Algolia: Skipped "${object.objectID}": ${err.message}`);
                 reject(err);
               } else {
-                // console.log(`Algolia: Updating "${object.objectID}"`);
+                // debug(`Algolia: Updating "${object.objectID}"`);
               }
               resolve();
             });
@@ -161,6 +142,33 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
       });
     });
   };
+};
+
+const transformations = {
+  '&nbsp;': ' ',
+  '&lt;': '<',
+  '&gt;': '>',
+  '&amp;': '&',
+  '&quot;': '"',
+  '&apos;': '\'',
+  '&cent;': '¢',
+  '&pound;': '£',
+  '&yen;': '¥',
+  '&euro;': '€',
+  '&copy;': '©',
+  '&reg;': '®',
+  '\\n': ' ',
+};
+
+const transform = (content) => {
+  let replacedContent = content;
+  Object.keys(transformations).forEach((htmlEntity) => {
+    const replacement = transformations[htmlEntity];
+    const htmlEntRegex = new RegExp(htmlEntity, 'g');
+    replacedContent = replacedContent.replace(htmlEntRegex, replacement);
+  });
+
+  return replacedContent;
 };
 
 // File paths caught here will not be indexed for search.
