@@ -120,9 +120,9 @@ You can assign permissions using the CLI. For example, to authorize the [Cassand
 
 Grant the permissions (`dcos:mesos:master:framework:role:cassandra-role`) and the allowed actions (`create`).
 
-    ```bash
-    dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:cassandra-role create --description "Controls the ability of cassandra-role to register as a framework with the Mesos master"
-    ```
+```bash
+dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:cassandra-role create --description "Controls the ability of cassandra-role to register as a framework with the Mesos master"
+```
 
 ### Using the web interface
 

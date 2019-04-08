@@ -4,7 +4,6 @@ navigationTitle:  dcos job show
 title: dcos job show
 menuWeight: 10
 excerpt: Displaying job definitions
-
 enterprise: false
 ---
 
@@ -15,24 +14,21 @@ The `dcos job show` command displays a job definition.
 # Usage
 
 ```bash
-dcos job show <job-id> [OPTION]
+dcos job schedule show <job-id> [--json]
 ```
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+|`-h`, `--help` |   Print usage. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|
 | `<job-id>`   |   Specify the job ID.  You can view the job IDs with the `dcos job list` command.|
 
-# Parent command
-
-| Command | Description |
-|---------|-------------|
-| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 
@@ -69,3 +65,8 @@ Here is the output:
   }
 }
 ```
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
