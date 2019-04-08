@@ -203,8 +203,50 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 
 # Issues fixed in this release
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
-- 
-- 
+<!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
+- Fixed issue where Metronome did not handle restart policy is ON_FAILURE correctly, not restarting the task. (DCOS_OSS-4636 )
+
+- Prefix illegal prometheus metric names with an underscore (DCOS_OSS-4899)
+
+- Fix dcos-net-setup.py failing when systemd network directory did not exist (DCOS-49711)
+
+- Updated REX-Ray version to 0.11.4 (DCOS_OSS-4316) (COPS-3961) rexray v0.11.4
+
+- Telegraf is upgraded to 1.9.4. (DCOS_OSS-4675)
+
+- Add SELinux details to diagnostics bundle (DCOS_OSS-4123)
+
+- Add external Mesos master/agent logs in the diagnostic bundle (DCOS_OSS-4283)
+
+- Update Java to 8u192. (DCOS_OSS-4380)
+
+- Docker-GC will now log to journald. (COPS-4044)
+
+- Allow the DC/OS installer to be used when there is a space in its path (DCOS_OSS-4429).
+
+- Admin Router logs to non-blocking socket. (DCOS-43956)
+
+- Add path-based routing to AR to routing requests to dcos-net (DCOS_OSS-1837)
+
+- Mark dcos6 overlay network as disabled if enable_ipv6 is set to false (DCOS-40539)
+
+- Fix CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679)
+
+- Improve error message in case Docker is not running at start of installation (DCOS-15890)
+
+- Stop requiring ssh_user attribute in config.yaml when using parts of deprecated CLI installer (DCOS_OSS-4613)
+
+- Add a warning to the installer to let the user know if case kernel modules required by DSS are not loaded (DCOS-49088)
+
+- Enable ipv6 support for l4lb by default (DCOS_OSS-1993)
+
+- Upgrade OTP version to 21.3 (DCOS_OSS-4902)
+
+- Fix a race condition in L4LB (DCOS_OSS-4939)
+
+- Fix IPv6 VIP support in L4LB (DCOS-50427)
+
+- DC/OS UI X-Frame-Options default value has been changed from SAMEORIGIN to DENY. This is now configurable using the adminrouter_x_frame_options configuration value (DCOS-49594) 
 
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
@@ -228,15 +270,13 @@ This section covers any known issues or limitations that don’t necessarily aff
 
 # Updated components change lists
 For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
-
-- Apache Mesos 1.5.x [change log]().
-- Marathon 1.6.564 [change log]().
-- Metronome 0.4.4 [change log]().
-- DC/OS 1.13 [change log]().
+- Apache Mesos 1.7.3 [change log](https://github.com/apache/mesos/blob/5e234c8d8edc1bb73ba557f5774c609fa460c9e7/CHANGELOG).
+- Marathon 1.7.203 [change log](https://github.com/mesosphere/marathon/blob/b26a8b310561934071c5f347ee5e184a3279cabd/changelog.md).
+- Metronome 0.5.71 [change log](https://github.com/dcos/metronome/blob/cf8887dd836d3629e3f5ac071624e055bdffcec8/changelog.md).
+- DC/OS 1.13 [change log](https://github.com/dcos/dcos/blob/master/CHANGES.md).
 
 # Previous releases
 To review changes from a recent previous release, see the following links:
-
-[Release version 1.10.11](/1.10/release-notes/1.10.11/) - 12 February 2019.
-[Release version 1.11.10](/1.11/release-notes/1.11.10/) - 12 February 2019.
-[Release version 1.12.3](/1.12/release-notes/1.12.3/) - 14 March 2019.
+- [Release version 1.10.11](/1.10/release-notes/1.10.11/) - 12 February 2019.
+- [Release version 1.11.10](/1.11/release-notes/1.11.10/) - 12 February 2019.
+- [Release version 1.12.3](/1.12/release-notes/1.12.3/) - 14 March 2019.
