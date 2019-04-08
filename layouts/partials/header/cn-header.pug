@@ -1,5 +1,7 @@
 - var semanticVersion = /^[0-9]+\.[0-9]+/
-- var pages = hierarchy.find('menus').filter(page => page.menus.indexOf('cn-header') != -1)
+- var menuPages = hierarchy.find('menus')
+- var headerPages = menuPages.filter(page => page.menus.indexOf('cn-header') != -1)
+- var pages = headerPages.sort((a, b) => a.menuWeight - b.menuWeight)
 
 - function isItemActive(itemPath)
   if itemPath == '/cn'
