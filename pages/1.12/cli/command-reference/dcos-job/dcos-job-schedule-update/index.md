@@ -4,30 +4,31 @@ navigationTitle:  dcos job schedule update
 title: dcos job schedule update
 menuWeight: 9
 excerpt: Updating a job schedule
-
 enterprise: false
 ---
 
 
 # Description
-The `dcos job schedule update` command allows you to update a job schedule.
+The `dcos job schedule update` command allows you to update a schedule on a job.
 
 # Usage
 
 ```bash
-dcos job schedule update <job-id> <schedule-file> [OPTION]
+dcos job schedule update <job-id> <schedule-file>
 ```
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+|`-h`, `--help` |   Print usage. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` command.|
-| `<schedule-file>`   |   A JSON formatted job schedule file. |
+| `<schedule-file>`   |   A JSON formatted file of a job schedule. |
 
 # Parent command
 

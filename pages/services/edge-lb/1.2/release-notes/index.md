@@ -3,15 +3,12 @@ layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 0
-excerpt: Release notes for Edge-LB 1.2
+excerpt: Discover the new features, updates, and known limitations in this release of the Edge-LB Service
 enterprise: false
 ---
 
-These are the release notes for Edge-LB 1.2.
-
-# v1.2.3
-
-Released on November 27, 2018.
+# Release notes for Edge-LB Service version 1.2.3
+Edge-LB Service version 1.2.3 was released on November 27, 2018.
 
 ## Notable Changes
 
@@ -39,9 +36,9 @@ Released on November 27, 2018.
 * Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
 
-# v1.2.2
+# Release Notes for Edge-LB Service version 1.2.2
 
-Released on November 15, 2018.
+Edge-LB Service version 1.2.2 was released on November 15, 2018.
 
 ## Notable Changes
 
@@ -68,7 +65,6 @@ Released on November 15, 2018.
   * Now only necessary artifacts are copied into the container during the build (i.e., no more Dockerfile)
   * Verbose when copying files during the container start
 
-
 ## Bug Fixes
 
 * In DC/OS 1.11.3 EE (strict mode), non-superuser access needed to Edge-LB pool logs
@@ -87,10 +83,9 @@ Released on November 15, 2018.
 * The steps provided in the DC/OS 1.10 web interface to uninstall Edge-LB are incorrect. In order to correctly uninstall Edge-LB for any given DC/OS version, please follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.2/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
-
-# v1.2.1
-
-Released on September 17, 2018.
+<!-- 
+# Release Notes for Edge-LB Service version 1.2.1
+Edge-LB Service version 1.2.1 was released on September 17, 2018.
 
 ## Notable Changes
 
@@ -111,9 +106,8 @@ Released on September 17, 2018.
 * Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
 
-# v1.2.0
-
-Released on September 11, 2018.
+# Release Notes for Edge-LB Service version 1.2.0
+Edge-LB Service version 1.2.0 was released on September 11, 2018.
 
 ## Notable Changes
 
@@ -141,3 +135,4 @@ Released on September 11, 2018.
 * The steps presented in the web interface to uninstall Edge-LB are incorrect. Follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.1/uninstalling/).
 * Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with ext4 may have connection issues.
 * If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion.  It must be removed manually.
+ -->

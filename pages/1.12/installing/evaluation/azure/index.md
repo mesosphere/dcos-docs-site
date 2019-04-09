@@ -158,9 +158,13 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
       url = "http://whatismyip.akamai.com/"
     }
 
+    provider "azurerm" {
+      version = "~> 1.16.0"
+    }
+
     module "dcos" {
       source  = "dcos-terraform/dcos/azurerm"
-      version = "~> 0.1"
+      version = "~> 0.1.0"
 
       dcos_instance_os    = "coreos_1855.5.0"
       cluster_name        = "my-dcos"
@@ -177,6 +181,10 @@ To use the Mesosphere Universal Installer with Azure, the Azure command line int
       # dcos_variant              = "ee"
       # dcos_license_key_contents = "${file("./license.txt")}"
       dcos_variant = "open"
+
+      providers = {
+        azurerm = "azurerm"
+      }
 
       dcos_install_mode = "${var.dcos_install_mode}"
     }

@@ -22,7 +22,7 @@ services:
       - "443:443"
     volumes:
       - build:/src
-      - build-pdf:/src
+    #   - build-pdf:/src/build-pdf
   pdf:
     image: mesosphere/dcos-docs-pdf
     build:

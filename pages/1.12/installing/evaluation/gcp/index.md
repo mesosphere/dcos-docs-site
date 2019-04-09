@@ -99,6 +99,15 @@ Password: `deleteme`
   - ```public-agent-loadbalancer``` - Specifies the URL of your Public routable services.
 
   ```hcl
+  provider "google" {
+    version = "~> 1.18.0"
+  }
+
+  # Used to determine your public IP for forwarding rules
+  data "http" "whatismyip" {
+    url = "http://whatismyip.akamai.com/"
+  }
+
   variable "dcos_install_mode" {
     description = "specifies which type of command to execute. Options: install or upgrade"
     default = "install"
@@ -106,15 +115,21 @@ Password: `deleteme`
 
   module "dcos" {
     source = "dcos-terraform/dcos/gcp"
+    version = "~> 0.1.0"
 
     cluster_name        = "my-open-dcos"
     ssh_public_key_file = "~/.ssh/id_rsa.pub"
+    admin_ips           = ["${data.http.whatismyip.body}/32"]
 
     num_masters        = "1"
     num_private_agents = "2"
     num_public_agents  = "1"
 
     dcos_version = "1.12.0"
+
+    providers = {
+      google = "google"
+    }
 
     # dcos_variant              = "ee"
     # dcos_license_key_contents = "${file("./license.txt")}"
@@ -196,9 +211,17 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 1)  Increase the value for the `num_private_agents` and/or `num_public_agents` in your `main.tf` file. In this example, you will scale the cluster from `two` private agents to `three` private agents.
 
   ```hcl
+  provider "google" {
+    version = "~> 1.18.0"
+  }
+
   variable "dcos_install_mode" {
     description = "specifies which type of command to execute. Options: install or upgrade"
     default = "install"
+  }
+
+  data "http" "whatismyip" {
+    url = "http://whatismyip.akamai.com/"
   }
 
   module "dcos" {
@@ -206,12 +229,17 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 
     cluster_name        = "my-open-dcos"
     ssh_public_key_file = "~/.ssh/id_rsa.pub"
+    admin_ips           = ["${data.http.whatismyip.body}/32"]
 
     num_masters        = "1"
     num_private_agents = "3"
     num_public_agents  = "1"
 
     dcos_version = "1.12.0"
+
+    providers = {
+      google = "google"
+    }
 
     # dcos_variant              = "ee"
     # dcos_license_key_contents = "${file("./license.txt")}"
@@ -275,6 +303,10 @@ To perform an upgrade:
     <p class="message--important"><strong>IMPORTANT: </strong>Do not change the number of masters, agents, or public agents while performing an upgrade.</p>
 
   ```hcl
+  provider "google" {
+    version = "~> 1.18.0"
+  }
+
   variable "dcos_install_mode" {
     description = "specifies which type of command to execute. Options: install or upgrade"
     default = "install"
@@ -296,6 +328,10 @@ To perform an upgrade:
     num_public_agents  = "1"
 
     dcos_version = "1.12.1"
+
+    providers = {
+      google = "google"
+    }
 
     # dcos_variant              = "ee"
     # dcos_license_key_contents = "${file("./license.txt")}"

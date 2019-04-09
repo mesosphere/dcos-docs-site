@@ -10,7 +10,7 @@ enterprise: false
 
 # Description
 
-Uninstall a plugin.
+The `docs plugin remove` command will uninstall a plugin.
 
 # Usage
 
@@ -20,9 +20,9 @@ dcos plugin remove <plugin>
 
 # Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<plugin>`   |             |  Name of the DC/OS plugin. |
+| Name | Description |
+|---------|-------------|
+| `<plugin>`   |  Name of the DC/OS plugin. |
 
 # Parent command
 

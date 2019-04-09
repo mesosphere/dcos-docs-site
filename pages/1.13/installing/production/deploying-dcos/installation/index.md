@@ -6,7 +6,6 @@ menuWeight: 15
 excerpt: Installing production-ready DC/OS 
 ---
 
-
 This page outlines how to install DC/OS for production. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
 
 The DC/OS installation process requires a bootstrap node, master node, public agent node, and a private agent node. You can view the [nodes](/1.13/overview/concepts/#node) documentation for more information.
@@ -279,8 +278,8 @@ enable_ipv6: 'false'
     - 'foo.bar.com'
     - '.baz.com'
 
-
-# <a name="install-bash"></a>Install DC/OS
+<a name="custom-build-file"></a>
+# Install DC/OS
 
 In this step, you will create a custom DC/OS build file on your bootstrap node and then install DC/OS onto your cluster. With this method you
 1. Package the DC/OS distribution yourself
@@ -346,8 +345,9 @@ At this point your directory structure should resemble:
         │   ├── config.yaml
         │   ├── ip-detect
     
-   
    - For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
+
+   <a name="nginx-cmd"></a>
 
 2.  From your home directory, run the following command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
 

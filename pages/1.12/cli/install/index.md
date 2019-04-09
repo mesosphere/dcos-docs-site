@@ -7,8 +7,10 @@ excerpt: Installing the DC/OS command line interface
 
 enterprise: false
 ---
+These instructions will show you how to install the core DC/OS CLI commands on your cluster. 
+For instructions on installing DC/OS Enterprise CLI commands, see the [DC/OS Enterprise CLI section](/1.12/cli/enterprise-cli/).
 
-The recommended method to install the DC/OS CLI is by getting the preformatted set of commands from the DC/OS web interface and running them in the terminal. See the prerequisites and instructions for your operating system for more information:
+The recommended method to install the DC/OS CLI is by getting the preformatted set of commands from the DC/OS GUI and running them in the terminal. See the prerequisites and instructions for your operating system for more information:
 
 - [Installing on Linux](#linux)
 - [Installing on macOS](#macos)
@@ -25,9 +27,9 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 - You must be able to run `cURL` program on the system hosting the CLI. The `curl` command is installed by default on most Linux distributions.
 - You must not be using the `noexec` to mount the `/tmp` directory unless you have set a `TMPDIR` environment variable to something other than the `/tmp` directory. Mounting the `/tmp` directory with the `noexec` option can prevent CLI operations.
 
-## Installing the CLI on Linux from the web interface
+## Installing the CLI on Linux from the GUI
 
-1. At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
+1. At the top-right corner of the DC/OS GUI, click the down arrow to the right of your cluster name.
 
     ![open cluster popup](/1.12/img/open-cluster-popup.png)
 
@@ -45,11 +47,11 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 
     Figure 3. Code snippet window
 
-1. Once the dcos information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
+1. Once the DC/OS information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
 
 ## Installing the DC/OS CLI manually
 
-It is strongly recommended that you copy and paste the installation commands from the web interface of the cluster to which you want to connect. Following below are the instructions for step by step installation of the CLI.
+It is strongly recommended that you copy and paste the installation commands from the GUI of the cluster to which you want to connect. Following are the instructions for step by step installation of the CLI.
 
 1. If you do not already have a working directory for the CLI, create one. The preferred location is `/usr/local/bin` and all the instructions will reference this path.
 
@@ -101,12 +103,12 @@ It is strongly recommended that you copy and paste the installation commands fro
     *  A model running on a Haswell CPU (2014), or later.
 - You must have network access from the external system hosting the CLI to the DC/OS cluster.
 - You must be able to open a command-line environment, such as Terminal, on the external system hosting the CLI.
-- You nust be able to run `cURL` program on the system hosting the CLI. If you don't have `cURL`, follow the instructions in [Install curl on Mac OSX](http://macappstore.org/curl/) to install it.
+- You must be able to run `cURL` program on the system hosting the CLI. If you don't have `cURL`, follow the instructions in [Install curl on Mac OSX](http://macappstore.org/curl/) to install it.
 - You must not be using `noexec` to mount the `/tmp` directory unless you have set a `TMPDIR` environment variable to something other than the `/tmp` directory. Mounting the `/tmp` directory with the `noexec` option can prevent CLI operations.
 
-## Installing the CLI on macOS from the web interface
+## Installing the CLI on macOS from the GUI
 
-1. At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
+1. At the top-right corner of the DC/OS GUI, click the down arrow to the right of your cluster name.
 
     ![open cluster popup](/1.12/img/open-cluster-popup.png)
 
@@ -114,7 +116,7 @@ It is strongly recommended that you copy and paste the installation commands fro
 
 1. Select **Install CLI**.
 
-    ![CLI install UI](/1.12/img/install-cli.png)
+    ![CLI install GUI](/1.12/img/install-cli.png)
 
     Figure 2. Select Install CLI
 
@@ -124,7 +126,7 @@ It is strongly recommended that you copy and paste the installation commands fro
 
     Figure 3. Code snippet window
 
-1. Once the dcos information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
+1. Once the `dcos` information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
 
 ## Installing the CLI on macOS manually
 
@@ -171,9 +173,9 @@ It is strongly recommended that you copy and paste the installation commands fro
 - You nust disable any security or antivirus software before you start the installation.
 - You must not be using the `noexec` to mount the `/tmp` directory unless you have set a `TMPDIR` environment variable to something other than the `/tmp` directory. Mounting the `/tmp` directory with the `noexec` option can prevent CLI operations.
 
-## Installing the CLI on Windows from the web interface
+## Installing the CLI on Windows from the GUI
 
-1. At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
+1. At the top-right corner of the DC/OS GUI, click the down arrow to the right of your cluster name.
 
     ![open cluster popup](/1.12/img/open-cluster-popup.png)
 
@@ -191,7 +193,7 @@ It is strongly recommended that you copy and paste the installation commands fro
 
     Figure 3. Code snippet window
 
-1. Once the dcos information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
+1. Once the `dcos` information screen has been displayed, run the command `dcos cluster list` to verify the connection to the cluster has been established. 
 
 ## Installing the CLI on Windows manually
 

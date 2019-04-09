@@ -394,7 +394,7 @@ paths:
           examples:
             text/plain: >
               {
-                "apps": [
+                "app": [
                   {
                     "id": "/myapp",
                     "cmd": "env && sleep 60",

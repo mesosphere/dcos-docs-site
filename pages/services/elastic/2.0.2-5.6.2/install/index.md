@@ -6,14 +6,16 @@ menuWeight: 20
 excerpt:
 featureMaturity:
 enterprise: false
+model: /services/elastic/data.yml
+render: mustache
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
+
 
 
 # Default Installation
 
-To start a basic cluster with three master nodes, two data nodes, and one coordinator node, run the following command on the DC/OS CLI:
+To start a basic cluster with {{ model.install.nodeDescription }}, run the following command on the DC/OS CLI:
 
 ```bash
 $ dcos package install elastic

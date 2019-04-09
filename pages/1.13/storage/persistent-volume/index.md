@@ -8,8 +8,6 @@ excerpt: Using local persistent volumes
 enterprise: false
 ---
 
-
-
 When you specify a local volume or volumes, tasks and their associated data are "pinned" to the node they are first launched on and will be relaunched on that node if they terminate. The resources the application requires are also reserved. Marathon will implicitly reserve an appropriate amount of disk space (as declared in the volume via `persistent.size`) in addition to the sandbox `disk` size you specify as part of your application definition.
 
 # Benefits of using local persistent volumes
@@ -206,62 +204,8 @@ However, if another framework does not respect the presence of labels and the se
 The temporary Mesos sandbox is still the target for the `stdout` and `stderr` logs. To view these logs, go to the Marathon pane of the DC/OS GUI.
 
 # Examples
-
-## Stateful PostgreSQL on Marathon
-
-A model app definition for PostgreSQL on Marathon would look like the following. Note that we set the PostgreSQL data folder to `pgdata`, which is relative to the Mesos sandbox (as contained in the `$MESOS_SANDBOX` variable). This enables us to set up a persistent volume with a `containerPath` of `pgdata`. This path is is not nested and relative to the sandbox as required:
-
-
-```json
-{
-  "id": "/postgres",
-  "cpus": 1,
-  "instances": 1,
-  "mem": 512,
-  "networks": [
-    {
-      "mode": "container/bridge"
-    }
-  ],
-  "container": {
-    "type": "DOCKER",
-    "volumes": [
-      {
-        "containerPath": "pgdata",
-        "mode": "RW",
-        "persistent": {
-          "type": "mount",
-          "size": 524288,
-          "maxSize": 1048576,
-          "constraints": [["path", "LIKE", "/mnt/ssd-.+"]]
-        }
-      }
-    ],
-    "docker": {
-      "image": "postgres:latest"
-    },
-    "portMappings": [
-      {
-        "containerPort": 5432,
-        "hostPort": 0,
-        "protocol": "tcp",
-        "name": "postgres"
-      }
-    ]
-  },
-  "env": {
-    "POSTGRES_PASSWORD": "password",
-    "PGDATA": "pgdata"
-  },
-  "unreachableStrategy": "disabled",
-  "upgradeStrategy": {
-    "maximumOverCapacity": 0,
-    "minimumHealthCapacity": 0
-  }
-}
-```
-
 <a name="stateful-sql"></a>
+
 ## Stateful MySQL on Marathon
 
 The default MySQL Docker image does not allow you to change the data folder. Since we cannot define a persistent volume with an absolute nested `containerPath` like `/var/lib/mysql`, we configure a workaround to set up a Docker mount from hostPath `mysqldata` (relative to the Mesos sandbox) to `/var/lib/mysql` (the path that MySQL attempts to read/write):
@@ -341,6 +285,60 @@ The complete JSON application definition reads as follows:
   "upgradeStrategy": {
     "minimumHealthCapacity": 0,
     "maximumOverCapacity": 0
+  }
+}
+```
+<a name="stateful-postgres"></a>
+
+## Stateful PostgreSQL on Marathon
+
+Creating an app definition for PostgreSQL on Marathon is similar to creating a defintion for MySQL. To prevent Postgres from storing data in a `/pgdata` folder that is not persisted or in a location that must be owned by `root`, you should avoid using the `$PGDATA` environment variable. Instead, you can use the app definition to configure two persistent volumes with settings similar to the following:
+
+```json
+{
+  "id": "/postgres",
+  "cpus": 1,
+  "instances": 1,
+  "mem": 512,
+  "networks": [
+    {
+      "mode": "container/bridge"
+    }
+  ],
+  "container": {
+    "type": "DOCKER",
+    "volumes": [
+      {
+        "containerPath": "pgdata",
+        "mode": "RW",
+        "persistent": {
+          "type": "mount",
+          "size": 524288,
+          "maxSize": 1048576,
+          "constraints": [["path", "LIKE", "/mnt/ssd-.+"]]
+        }
+      }
+    ],
+    "docker": {
+      "image": "postgres:latest"
+    },
+    "portMappings": [
+      {
+        "containerPort": 5432,
+        "hostPort": 0,
+        "protocol": "tcp",
+        "name": "postgres"
+      }
+    ]
+  },
+  "env": {
+    "POSTGRES_PASSWORD": "password",
+    "PGDATA": "pgdata"
+  },
+  "unreachableStrategy": "disabled",
+  "upgradeStrategy": {
+    "maximumOverCapacity": 0,
+    "minimumHealthCapacity": 0
   }
 }
 ```

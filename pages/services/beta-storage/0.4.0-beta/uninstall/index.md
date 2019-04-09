@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Uninstall
 title: Uninstall
-menuWeight: 40
+menuWeight: 50
 excerpt: Instructions for removing the DC/OS Storage Service from a DC/OS cluster.
 enterprise: true
 beta: true

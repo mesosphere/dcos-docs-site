@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon task list
 title: dcos marathon task list
 menuWeight: 29
 excerpt: Displaying all tasks
-
 enterprise: false
 ---
 
@@ -15,18 +14,21 @@ The `dcos marathon task list` command displays a list of all tasks.
 # Usage
 
 ```bash
-dcos marathon task list <app-id> [OPTION]
+dcos marathon task list [--json|--quiet] [<app-id>]
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
-| `--json`   |   Displays JSON-formatted data. |
+| `--json`   |  Displays JSON-formatted data. |
+| `-q`, `--quiet` | Display IDs only for list. |
+| `-h`, `--help` | Display info about usage of this command. |
 
-# Positional arguments
 
-| Name, shorthand |  Description |
+## Positional arguments
+
+| Name |  Description |
 |---------|-------------|
 | `<app-id>`   |   The application ID. |
 

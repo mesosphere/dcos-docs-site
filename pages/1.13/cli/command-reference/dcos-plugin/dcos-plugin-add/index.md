@@ -3,33 +3,33 @@ layout: layout.pug
 navigationTitle:  dcos plugin add
 title: dcos plugin add
 menuWeight: 1
-excerpt: Installing a plugin
-
+excerpt: Adding a CLI plugin
 enterprise: false
 ---
 
 
 # Description
 
-Install a plugin.
+The `dcos plugin add` command allows you to add a CLI plugin.
 
 # Usage
 
 ```bash
-dcos plugin install <resource> [OPTION]
+dcos plugin add <resource> [flags]
 ```
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--update, u    | `-u`            | The plugin version. |
+| Name |  Description |
+|---------|-------------|
+| `--update`, `-u`     | The plugin version. |
+| `--help, h`     | Print usage. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<resource>`   |             |  Path to the plugin resource. This can be either a `.zip` file or a URL |
+| Name |  Description |
+|---------|-------------|
+| `<resource>`   |   Path to the plugin resource. This can be either a `.zip` file or a URL |
 
 # Parent command
 

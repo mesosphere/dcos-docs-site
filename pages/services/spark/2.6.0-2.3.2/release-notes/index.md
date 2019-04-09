@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 145
-excerpt: Release notes for DC/OS Apache Spark 2.6.0-2.3.2
+excerpt: Discover the new features, updates, and known limitations in this release of the DC/OS Apache Spark Service 
 featureMaturity:
 ---
 
-## Version Spark and Spark history 2.6.0-2.3.2
+# Release Notes for DC/OS Apache Spark Service version 2.6.0-2.3.2
 
-### New features
+## New features
 - Upgraded Spark and Spark History Server to 2.3.2
 - Added DC/OS Spark CLI support for `--jars`
 - Added CNI Support for Dispatcher, Driver, and Executors for Docker and Mesos containerizers
@@ -28,16 +28,16 @@ featureMaturity:
 </ul>
 </div>
 
-### Updates
+## Updates
 - `SPARK_HOME` environment variable defaults to `/opt/spark` in Dockerfile and executable scripts
 - Switched to Spark's own StatsD Sink instead of 3rd-party dependency
 - Updated [dcos-commons](https://github.com/mesosphere/dcos-commons/) bootstrap version to 0.55.2
 
-### Bug fixes
+## Bug fixes
 - Fixed bug for Dispatcher restarting duplicate Spark drivers after agent restart in `--supervised` mode
 - Fixed bug for CLI incorrect `--jars` parsing resulting in submit failure
 
-## Version Spark and Spark history 2.5.0-2.2.1
+<!-- ## Version Spark and Spark history 2.5.0-2.2.1
 
 ### New features
 - Added unique Mesos Task IDs for Spark executors.
@@ -244,3 +244,4 @@ dispatcher, use `dcos spark --name <dispatcher_app_id>`.
 ## Version 1.0.9-2.1.0-1
 
 - The history server has been removed from the "spark" package, and put into a dedicated "spark-history" package.
+ -->

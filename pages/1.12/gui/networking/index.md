@@ -10,4 +10,4 @@ The Networking menu provides a comprehensive view of the health of your virtual 
 
 ![Tweeter scaled](/1.12/img/GUI-Networking-Networks_View-1_12.png)
 
-<p><i>Figure 1 - Networking tab</i></p>
+Figure 1 - Networking tab

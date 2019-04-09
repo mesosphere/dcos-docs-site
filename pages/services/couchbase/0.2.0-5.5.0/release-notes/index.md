@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 130
-excerpt: Release Notes for version 0.2.0-5.5.0
+excerpt: Discover the new features, updates, and known limitations in this release of the Couchbase Service
 featureMaturity:
 enterprise: false
 model: /services/couchbase/data.yml
 render: mustache
 ---
 
-Release notes for {{ model.techName }}.
-
-# Version 0.2.0-5.5.0
+# Release Notes for {{ model.techName }} Service version 0.2.0-5.5.0
 
 ## New Features
 * Based on {{ model.techName }} v5.5.0, {{ model.syncGatewayName }} v2.0.0
