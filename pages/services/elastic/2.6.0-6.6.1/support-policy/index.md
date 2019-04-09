@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle: Support Policy
 title: Support Policy
 menuWeight: 110
-excerpt:
+excerpt: Version and support policies
 model: /services/elastic/data.yml
 render: mustache
 ---

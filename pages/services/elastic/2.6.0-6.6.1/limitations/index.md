@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Limitations
+excerpt: Some limitations of the DC/OS Elastic service
 title: Limitations
 menuWeight: 100
 model: /services/elastic/data.yml

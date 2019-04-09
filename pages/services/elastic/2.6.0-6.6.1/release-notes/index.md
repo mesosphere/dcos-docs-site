@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 excerpt: Discover the new features, updates, and known limitations in this release of the Elastic Service
 title: Release Notes
-menuWeight: 120
+menuWeight: 10
 model: /services/elastic/data.yml
 render: mustache
 ---

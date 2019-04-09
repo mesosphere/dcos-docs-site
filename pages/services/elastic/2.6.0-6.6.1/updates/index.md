@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Updates
+excerpt: Updating the DC/OS Elastic service
 title: Updates
 menuWeight: 40
 model: /services/elastic/data.yml

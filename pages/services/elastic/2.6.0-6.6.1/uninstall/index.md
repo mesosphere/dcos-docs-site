@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Uninstall
+excerpt: Uninstalling DC/OS Elastic
 title: Uninstall
 menuWeight: 60
 model: /services/elastic/data.yml

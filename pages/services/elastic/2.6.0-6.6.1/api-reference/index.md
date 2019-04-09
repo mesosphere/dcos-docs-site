@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: API Reference
+excerpt: REST API reference
 title: API Reference
 menuWeight: 90
 model: /services/elastic/data.yml

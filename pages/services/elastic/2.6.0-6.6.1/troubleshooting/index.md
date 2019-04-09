@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Troubleshooting
+excerpt: Diagnosing DC/OS Elastic issues
 title: Troubleshooting
 menuWeight: 70
 model: /services/elastic/data.yml

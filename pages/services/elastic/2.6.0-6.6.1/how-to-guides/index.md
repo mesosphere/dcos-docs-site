@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: How-To Guides
+excerpt: Optional operations
 title: How-To Guides
 menuWeight: 120
 model: /services/elastic/data.yml
@@ -29,7 +29,7 @@ edgelb-pool  v1.3.0   True      True       EdgeLB Pool on DC/OS
 
 If it does, you can skip the `dcos package repo add` commands below.
 
-*Otherwise*, if you see a `No packages found` message you'll need to add a couple of package repositories to your cluster. For information about the current Edge-LB version support and compatibility, see the [Edge-LB documentation](/services/edge-lb/) and the [Certified packages and DC/OS versions](/version-policy/#certified-packages-and-dcos-versions/) to compatibility matrix.
+**Otherwise**, if you see a `No packages found` message you'll need to add a couple of package repositories to your cluster. For information about the current Edge-LB version support and compatibility, see the [Edge-LB documentation](/services/edge-lb/) and the [Certified packages and DC/OS versions](/version-policy/#certified-packages-and-dcos-versions/) to compatibility matrix.
 
 ```bash
 dcos package repo add edgelb https://<insert download link>/stub-universe-edgelb.json
@@ -64,7 +64,7 @@ Note that in this example:
 - the Edge-LB pool that will be created is named `kibana`
 - its backend name is `kibana-backend`
 
-It is not a requirement that these match any configuration options related to the actual Kibana service, so one could name them differently.
+It is not a requirement that these match any configuration options related to the actual Kibana service, so you could name them differently.
 
 The pool fields that actually map to the actual Kibana service are under `haproxy.backends`:
 - `rewriteHttp.path.fromPath` should match the Kibana Marathon app service path
@@ -189,7 +189,7 @@ At this point, Kibana should already be accessible through `http://$public_agent
 
 ## 3. Accessing Kibana
 
-If you only have one public agent and you know its IP address, it should be easy to access Kibana. If not, there's a few commands that might help you out.
+If you only have one public agent and you know its IP address, it should be easy to access Kibana. If not, there are a few commands that might help you out.
 
 ### Get IP address of public agent running Kibana pool
 
@@ -203,9 +203,9 @@ agent_public_ip="$(dcos node ssh --option StrictHostKeyChecking=no --option LogL
 ```
 ### Authenticate with Kibana
 
-Now that we have the public agent IP address where the Edge-LB Kibana pool task is running we should be able to access Kibana.
+Now that we have the public agent IP address where the Edge-LB Kibana pool task is running, we should be able to access Kibana.
 
-If Kibana has X-Pack Security enabled you'll first need access `http://$public_agent_ip_or_address/login` to authenticate with the Kibana server. Use credentials that are stored in your Elasticsearch cluster.
+If Kibana has X-Pack Security enabled, you'll first need to access `http://$public_agent_ip_or_address/login` to authenticate with the Kibana server. Use credentials that are stored in your Elasticsearch cluster.
 
 ```bash
 kibana_url="http://${agent_public_ip}"
