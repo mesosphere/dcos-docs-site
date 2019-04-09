@@ -51,7 +51,11 @@ In order to upgrade your cluster from DSE 5.1 to DSE 6.7 you must:
 	- This will run a script to drop `COMPACT_STORAGE` from all keyspaces and then upgrade each DSE node to version `6.7.2`
 	<p class="message--important"><strong>IMPORTANT: </strong>Before upgrading, make sure the agent running <code>dse-0-node</code> has more than 0.25 CPU available. This is required to run the <code>compact-storage</code> task. You may have to move other services running on that agent to accommodate.</p>
 
-- After upgrade succeeds, run the following command to convert sstables to the proper version:
+- After DSE upgrade, you can upgrade OpsCenter with the following command: 
+  ```
+  dcos datastax-ops update start --package-version=3.0.0-6.7.1
+  ```
+- After OpsCenter upgrade succeeds, run the following command to convert sstables to the proper version:
 	```
 	dcos datastax-dse plan start nodetool-ser \
 	  [-p NODETOOL_CONNECTION_OPTS='-p 7199']  \  ## optional
@@ -59,10 +63,6 @@ In order to upgrade your cluster from DSE 5.1 to DSE 6.7 you must:
 	  -p NODETOOL_CMD_ARGS='-a'
 	```
 	<p class="message--important"><strong>IMPORTANT: </strong>This action cannot be undone and you should plan for increased load activity on your cluster. This task should be scheduled for off-peak hours. Should any problems arise, `pause` the plan and investigate.
-- After DSE upgrade, you can upgrade OpsCenter with the following command: 
-  ```
-  dcos datastax-ops update start --package-version=3.0.0-6.7.1
-  ```
 
 
 # Version 2.4.0-5.1.10
