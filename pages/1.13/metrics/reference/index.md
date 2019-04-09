@@ -140,4 +140,6 @@ Dimensions are metadata about the metrics. The following table lists the availab
 | task_name   | The task name.  | container |
 
 
-For more information, see the [dcos-metrics repository](https://github.com/dcos/dcos-metrics) documentation. 
+Read the following resources for more information on Metrics:
+1. [Additional Mesos volume and Network metrics](http://mesos.apache.org/documentation/latest/monitoring/) documentation.
+2. [dcos-metrics repository](https://github.com/dcos/dcos-metrics) documentation. 
