@@ -21,11 +21,14 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./build:/src/build
+      - build:/src
   test:
     depends_on:
       - docs
     image: 18fgsa/html-proofer
     volumes:
-      - ./build:/src/build
+      - build:/src
     command: /src/build --empty-alt-ignore --log-level=debug --url-swap \/latest\/(.*):'/1.12/\1'
+
+volumes:
+  build:
