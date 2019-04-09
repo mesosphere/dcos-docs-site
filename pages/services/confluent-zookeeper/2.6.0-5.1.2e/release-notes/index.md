@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 excerpt:
 title: Release Notes
-menuWeight: 120
+menuWeight: 10
 model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
