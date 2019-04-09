@@ -13,7 +13,7 @@ You can create and administer jobs for the DC/OS cluster in any of the following
 - interactively or programmatically with DC/OS command-line interface (CLI) programs.
 - directly through calls to the DC/OS application programming interface (API) for job-related operations.
 
-The DC/OS application programming interface (API) for job-related operations provides the underlying funtionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
+The DC/OS application programming interface (API) for job-related operations provides the underlying functionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
 
 # Managing jobs with the DC/OS web-based interface
 You can manage the most common job-related activity interactively through the DC/OS web-based interface. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS web-based interface only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/1.13/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.13/deploying-jobs/quickstart/#jobs-api).
@@ -27,42 +27,70 @@ You can manage the most common job-related activity interactively through the DC
 
     You can configure the job using the fields displayed or click **JSON Editor** to edit the JSON directly.
 
-1. Click **General** to edit the most basic job settings, such as the kob identifier, CPU, memory, and disk requirements.
+1. Click **General** to edit the most basic job settings, such as the job identifier, CPU, memory, and disk requirements.
 
-    * **ID** - The ID of your job.
-    * **Description** - A description of your job.
-    * **CPUs** - The amount of CPU your job requires.
-    * **Mem** - The amount of memory, in MB, your job requires.
-    * **Disk space** - The amount of disk space, in MB, your job requires.
-    * **Command** - The command your job will execute. Leave this blank if you will use a Docker image.
+    * **Job ID** - Defines a unique identifier for the new job. The Job ID is a required field. You also use this setting to manage job operations.
+    * **Description** - Provides an optional description of the new job.
+    * **CPUs** - Specifies the number of CPU cores your job requires.
+    * **Mem** - Specifies the amount of memory, in MB, your job requires.
+    * **Disk** - Specifies the amount of disk space, in MB, your job requires.
+    * **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job.
 
-1. Click **Schedule**, then click **Run on a Schedule** to specify a schedule for when the job runs.
+1. Select the appropriate Job Type to run one or more specific commands or a Docker container image.
+    * Select **Command Only** to specify one or more commands you want the new job to execute. When the command you specify is executed, it is automatically wrapped by the command `/bin/sh -c job.cmd`. You must include either `cmd` or `args` in the command to be executed. It is invalid to supply both `cmd` and `args` in the same job.
+    * Select **Container Image** to specify a container image for the new job. If you select this option, type the name of the container image you want to run. For example, you can type a container image name such as `ubuntu:14.04`. You can then use the **Command** field to specify the command and any additional runtime parameters available in the container for running the new job.
 
-    After you select **Run on a Schedule**, you can use the following settings to define the schedule:
-    - Select **Cron Schedule**  to specify the schedule in `cron` format. Use [this crontab generator](http://crontab.guru) for help.
-    - Select **Time Zone**  to enter the time zone in [TZ format](http://www.timezoneconverter.com/cgi-bin/zonehelp), for example, America/New_York.
+1. Click **Container Runtime** to specify whether the container for the new job runs using the Universal Container Runtime or the Docker engine. 
+
+    * If you select **Universal Container Runtime**, you can select Force Pull Image On Launch to automatically pull the latest image before launching each instance.
+    
+    * If you select **Docker Engine**, you can select the following additional options:
+        - Select **Force Pull Image On Launch** to automatically pull the latest image before launching each instance.
+        - Select **Grant Runtime Privileges** to run the specified Docker image in privileged mode.
+        - Click **Add Parameter** to specify additional Docker runtime parameter names and values for the new job, if applicable. You can add multiple parameter names and corresponding values by clicking **Add Parameter** for each parameter name and value you want to include.
+        - Click **Add Arg** to specify additional command-line arguments for the new job, if applicable. You can add multiple arguments by clicking **Add Arg** for each argument you want to include.
+
+1. Click **Schedule**, then click **Enable Schedule** to specify a schedule for when the job runs.
+
+    After you select **Enable Schedule**, you can use the following settings to define the schedule:
+
+    - Type a **Schedule ID** to define a unique identifier for the job schedule. The schedule identifier must be a string with at least 2 characters and it can only contain digits (`0-9`), dashes (`-`), and lowercase letters (`a-z`). The schedule identifier must not begin or end with a dash.
+
+    - Select **CRON Schedule**  to specify the schedule in `cron` format. Use [this crontab generator](http://crontab.guru) for help. You can also set a **Time Zone** to apply to the cron schedule. For example, you might have nodes in different time zones and want to run the job using a standardized UTC time or a specific local time zone such as America/New_York.
+
     - Select **Starting Deadline** to set the time, in seconds, to start the job if it misses its scheduled time for any reason. Missed job executions are counted as failed jobs.
 
-1. Click **Docker Container** to specifiy the Docker image for the new job, if you are using one.
+    - Select **Concurrency Policy** if you want to allow new job instances to run if there's already a job instance running. 
 
-    Optionally, you can select **privileged** to run the specified Docker image in privileged mode.
+1. Click **Run Configuration** to specify advanced settings for the new job.
 
-1. Click **Docker Parameters** to specify any additional Docker runtime parameters for the new job, if applicable.
+    - Set **Max Launch Delay**  to specify the maximum number of seconds to wait for a job to start running after it is launched by a scheduled job run or manually by a user. If the job does not start running within the maximum number of seconds allowed, the job is aborted.
 
-    You can add multiple parameter names and corresponding values.
+    - Set **Kill Grace Period**  to configure the number of seconds between escalating from `SIGTERM` to `SIGKILL` when signalling tasks to terminate. During this grace period, tasks should perform an orderly shut down immediately upon receiving SIGTERM.
 
-1. Click **Labels** to specify a **Label Name** and **Label Value** you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. For more information about using labels, see [Labeling tasks and jobs](/1.13/tutorials/task-labels/).
+    - Set **User name** to identify the user account that runs the tasks on the agent.
+
+    - Select **Add Artifact** to provide one or more artifact URIs you want passed to fetcher module and resolved at runtime and the action--Execute, Extract, or Cache--you want to perform for each URI.
+
+        ![Adding an artifact URI and action for a job](/1.13/img/job-artifacts-uri.png/)
+
+    - Select a **Restart Policy** to determine the steps to take if a job fails.  You can choose **Never** if you never want to attempt to restart a failed job. If you choose **On Failure**, you can set a time limit for attempting to restart the job using the **Keep Trying Time** field. If no value is set for Keep Trying Time, attempts to restart the job after a failure will continue indefinitely.
+
+    - Click **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/1.13/tutorials/task-labels/).
 
 1. Verify that you have added the new job by clicking **Jobs**.
 
-    ![Jobs List](/1.13/img/GUI-Job-List.png/)
+    ![Jobs List](/1.13/img/job-list-scheduled.png/)
 
 ## Add a job to a job group
 You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.13/deploying-jobs/job-groups/).
 
-## Modify, view, or remove a job
+## View, modify, or remove a specific job
+You can view and modify job-related information, including details about the run history and configuration settings interactively through the DC/OS web-based interface. From the **Jobs** tab, click the name of your job. You can then use the menu on the upper right to edit, run, disable, or delete a selected job. 
 
-From the **Jobs** tab, click the name of your job and then the menu on the upper right to modify or delete it. While the job is running, you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
+![Viewing and modifying job details](/1.13/img/job-menu-options.png/)
+
+While the job is running, you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
 
 # Managing jobs with the DC/OS CLI
 You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To see a full list of available commands with usage information, run `dcos job --help`.
