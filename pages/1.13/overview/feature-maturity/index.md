@@ -58,7 +58,7 @@ A deprecated feature is a feature for which Mesosphere no longer provides enhanc
 <a name="retired"></a>
 ## Retired
 
-A retired feature is one that has reached the end of its maturity lifecycle within Mesosphere DC/OS but is still part of the product.  Customers using a retired feature are strongly urged to migrate away from the retired feature and instead employ a GA feature, as GA is the last state in the Mesosphere DC/OS lifecycle in which the feature is still present.
+A retired feature is one that has reached the end of its maturity lifecycle within Mesosphere DC/OS but is still part of the product. Customers using a retired feature are strongly urged to migrate away from the retired feature and instead employ a GA feature, as retired is the last state in the Mesosphere DC/OS lifecycle in which the feature is still present.
 
 1. Enhancements to the feature should not be expected.
 2. Bugs or defects should not be expected to be fixed.

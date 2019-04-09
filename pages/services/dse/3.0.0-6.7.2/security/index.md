@@ -41,7 +41,9 @@ To enable {{ model.shortTechName }} authentication/authorization, follow these s
       Set ROLE_MANAGEMENT_OPTIONS_MODE to either internal or ldap, according to your needs
       Check AUTHORIZATION_OPTIONS_ENABLED checkbox (optional to enable authorization)
       ```
-   1. If you are using only internal auth, no further configuration is required for {{ model.shortTechName }}. If you are also using ldap, then follow the sections below to configure ldap based on your needs.
+
+   1. If you are using only internal auth, no further configuration is required for {{ model.shortTechName }}. If you are also using LDAP, then follow the sections below to configure LDAP authentication based on your needs.
+
 
 ## {{ model.shortTechName }} LDAP Configuration
 When you enable LDAP authentication in DataStax Enterprise, users and groups that are managed by external LDAP servers can be authenticated by DataStax Enterprise.  To enable LDAP authentication with your {{ model.shortTechName }} cluster, you need to configure the followings:
@@ -105,7 +107,9 @@ Configure LDAP (Lightweight Directory Access Protocol) for users accessing OpsCe
 
 ## OpsCenter Internal Authentication Configuraton
 
-   1. In Advanced Installation wizard, you need to configure the following fields:
+
+   1. In the Advanced Installation wizard, you need to configure the following fields:
+
       ```
       In "opscenter" tab,
       Check Authentication Configuration's checkbox

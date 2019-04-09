@@ -13,4 +13,4 @@ The Cluster menu has two tabs:
 
 ![Cluster](/1.12/img/GUI-Cluster-OSS-Cluster_View-1_12.png)
 
-<p><i>Figure 1 - Cluster > Overview tab</i></p>
+Figure 1 - Cluster > Overview tab

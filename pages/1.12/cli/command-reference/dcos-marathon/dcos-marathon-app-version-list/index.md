@@ -10,23 +10,25 @@ enterprise: false
 
 
 # Description
+
 The `dcos marathon app version list` command allows you to list the version history of an application.
 
 # Usage
 
 ```bash
-dcos marathon app version list <app-id> [OPTION]
+dcos marathon app version list [--max-count=<max-count>] <app-id>
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 | `--max-count=<max-count>`   | Maximum number of entries to fetch and return. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<app-id>`   |   The application ID. |
 

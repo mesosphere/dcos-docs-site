@@ -6,11 +6,11 @@ menuWeight: 5
 excerpt: DC/OS version lifecycle and compatibility matrix
 ---
 
-This page was updated on January 7, 2019.
+The Version Policy page was updated on April 5, 2019.
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
-This document explains to Mesosphere customers, partners, users, and operators of Mesosphere DC/OS the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined within this document apply to the version of DC/OS and its catalog packages that this document resides in.
+This page explains to Mesosphere customers, partners, users, and operators of Mesosphere DC/OS the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined in this document applies to the version of DC/OS and its catalog packages.
 
 ## DC/OS Version Lifecycle
 
@@ -25,7 +25,7 @@ Mesosphere tests DC/OS Enterprise with specific components and operating systems
 
 ### Version Lifecycle
 
-Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS. While these versions are outlined in the Mesosphere DC/OS Version-Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification. Thus, Mesosphere shall provide support services for those versions of DC/OS that are either the current, N, or up to two Minor versions behind. <br>
+Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS. While these versions are outlined in the Mesosphere DC/OS Version Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification. Thus, Mesosphere shall provide support services for those versions of DC/OS that are either the current, N, or up to two Minor versions behind. <br>
 
  Examples of Major and Minor versions are as follows:
 
@@ -40,14 +40,44 @@ Thus, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
 
 ## DC/OS Platform Version Compatibility Matrix
 
-The following matrix shows the platform components and operating environments on which DC/OS has been tested; DC/OS will run on these components. Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement; the term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
+DC/OS will run on the tested platform components and operating environments. The list of support matrix for platform components and operating environments are as follows:
 
-|Display Icon | Service       |
-|------------ |-------------- |
-| ⚫          | Supported     |
-|             | Not Supported |
-| B           | Beta          |
+##### [CoreOS support matrix](#CoreOS-support-matrix)
+##### [CentOS support matrix](#CentOS-support-matrix)
+##### [RHEL support matrix](#RHEL-support-matrix)
+##### [Oracle support matrix](#Oracle-support-matrix)
 
+Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement. The term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
+
+### <a name="CoreOS-support-matrix"></a>CoreOS support matrix
+<table class="table">
+    <tr>
+    <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
+    </tr>
+    <tr>
+        <td>CoreOS 1967.6.0</td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+    </tr>
+    <tr>
+        <td>CoreOS 1967.5.0</td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+    </tr>
+    <tr>
+        <td>CoreOS 1911.5.0</td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+    </tr>
+</table>
+
+### <a name="CentOS-support-matrix"></a>CentOS support matrix 
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -57,77 +87,97 @@ The following matrix shows the platform components and operating environments on
     </tr>
     <tr>
         <td>CentOS 7.6</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.09.2</li></ul></p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>CentOS 7.5</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.09.2</li></ul></p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>CentOS 7.4</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
+</table>
+
+### <a name="RHEL-support-matrix"></a>RHEL support matrix
+<table class="table">
     <tr>
-        <td>CoreOS 1967.6.0</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-    </tr>
-    <tr>
-        <td>CoreOS 1967.5.0</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-    </tr>
-    <tr>
-        <td>CoreOS 1911.5.0</td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker CE 18.06.1</li></ul></p></td>
+    <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>RHEL 7.6</td>
-        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br> Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br> Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>RHEL 7.5</td>
-        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>RHEL 7.4</td>
-        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>Docker EE 18.09.2</li></ul></p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+    </tr>
+</table>
+
+### <a name="Oracle-support-matrix"></a>Oracle support matrix 
+<table class="table">
+    <tr>
+    <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
+    </tr>
     <tr>
         <td>Oracle Linux 7.5 (RHCK)</td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.4 (RHCK)</td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.3 (RHCK)</td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
-        <td><p style="text-align: center;"><ul><li>RH Fork of Docker CE 1.13.1<sup>*</sup></li></ul></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
+</table>
+
+## Web Browser and CLI Matrix
+Use the following legend table to see the supported/not supported service for the operating environments on which DC/OS has been tested. 
+
+### Legend for Web Browser and CLI support matrix
+|Display Icon | Service       |
+|------------ |-------------- |
+| ⚫          | Supported     |
+|             | Not Supported |
+
+
+### Web Browser support matrix
+<table class="table">
     <tr>
     <th><strong>Web Browser</strong></th>
+    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Chrome</td>
@@ -141,9 +191,16 @@ The following matrix shows the platform components and operating environments on
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
+</table>
+
+### CLI support matrix
+<table class="table">
     <tr>
     <th><strong>CLI</strong></th>
-    </tr>
+    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
+    </tr>    
     <tr>
         <td>DC/OS CLI 0.4.x</td>
         <td></td>

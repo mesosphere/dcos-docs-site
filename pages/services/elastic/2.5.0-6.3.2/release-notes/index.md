@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Discover the new features, updates, and known limitations in this release of the Elastic Service
 title: Release Notes
-menuWeight: 120
+menuWeight: 10
 model: /services/elastic/data.yml
 render: mustache
 ---
 
-# Version 2.5.0-6.3.2
+# Release notes for Elastic Service version 2.5.0-6.3.2
 
 ## Upgrades
 
@@ -33,7 +33,7 @@ render: mustache
 - Added `service_account_credential` parameter with file name value to scheduler Marathon app's ClassicRPCAuthenticatee Mesos module. ([#2777)](https://github.com/mesosphere/dcos-commons/commit/11fa91b42941cbad2fe6015436664744476fab04)
 - Move Elastic and Kibana artifacts to downloads.mesosphere.com. ([#2762)](https://github.com/mesosphere/dcos-commons/commit/54c13d866b6348caa495f40738edb8efb41fef6d)
 
-# Version 2.4.0-5.6.9
+<!-- # Release notes for Elastic Service version 2.4.0-5.6.9
 
 ## New Features
 
@@ -42,8 +42,8 @@ render: mustache
 ## Improvements
 
 - The SDK tests now validate missing values for `svc.yml` Mustache variables. ([#2527](https://github.com/mesosphere/dcos-commons/pull/2527))
-
-# Version 2.3.1-5.6.5
+ -->
+<!-- # Version 2.3.1-5.6.5
 
 ## New Features
 
@@ -152,3 +152,4 @@ render: mustache
 - Upgraded to Elastic 5.4.0
 - Upgraded to Support Diagnostics Version 5.12
 - Upgraded to dcos-commons-0.16.0
+ -->

@@ -83,10 +83,14 @@ git rm -rf docs/
 rm -rf docs/
 
 # Update sort order of index files
-weight=10
+# Skipping any files with a menuWeight of -1 
+weight=1
 for i in $( ls -r ./pages/services/$name/*/index.md ); do
-  sedi "s/^menuWeight:.*$/menuWeight: ${weight}/" $i
-  weight=$(expr ${weight} + 10)
+  cw=$(grep 'menuWeight: ' $i | sed 's/^.*: //')
+  if [ "$cw" -ne "-1" ]; then
+    sedi "s/^menuWeight:.*$/menuWeight: ${weight}/" $i
+    weight=$(expr ${weight} + 1)
+  fi
 done
 
 echo "------------------------------"

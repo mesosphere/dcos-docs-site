@@ -14,4 +14,5 @@ The DC/OS Enterprise Secret Store is a place to secure sensitive information lik
 
 [Authorized Marathon services](/1.12//security/ent/#spaces) can retrieve the secrets at deployment and store their values under environment variables. In addition, the [Secrets API](/1.12/security/ent/secrets/secrets-api/) allows you to [seal](/1.12/security/ent/secrets/seal-store/) and [unseal](/1.12/security/ent/secrets/unseal-store/) the Secret Store.
 
-Find more information about secrets in the [Permissions Reference](/1.12/security/ent/perms-reference/#secrets) section.
+
+Find more information about secrets in the [Permissions Reference](/1.12/security/ent/perms-reference/#secrets) section. Also, learn more about the functionality to backup and restore secrets easily from this [blog](https://mesosphere.com/blog/backup-restore-secrets/).

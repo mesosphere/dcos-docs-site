@@ -2,13 +2,13 @@
 layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
-menuWeight: 80
-excerpt: Discover the new features, updates, and known limitations in this release of the Beta DC/OS Storage Service.
+menuWeight: 10
+excerpt: Discover the new features, updates, and known limitations in this release of the Beta DC/OS Storage Service
 enterprise: true
 beta: true
 ---
 
-# Version 0.4.0
+# Release Notes for Beta DC/OS Storage Service version 0.4.0
 
 * This version of the DC/OS Storage Service requires DC/OS version 1.12 or later.
 
@@ -50,7 +50,7 @@ DC/OS Storage Service is currently in Beta and has the following known bugs.
 * The `devices` provider plugin does not witness new or removed devices on the agent until the agent is restarted.
 * Multiple storage providers with the same name can be created, but only uniquely named providers are listed.
 * `dcos storage` CLI sub-commands may fail with a gateway timeout error, but still complete successfully in the background.
-
+<!-- 
 # Version 0.3.2
 
 * This version of the DC/OS Storage Service requires DC/OS version 1.12 or later.
@@ -141,3 +141,4 @@ DC/OS Storage Service is currently in Beta and has the following known limitatio
 * Volume profile deactivation is not supported.
 * Cannot list devices or create volume provider on public agents.
 * Only linear target is supported by the LVM volume plugin.
+ -->

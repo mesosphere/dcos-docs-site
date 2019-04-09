@@ -4,7 +4,6 @@ navigationTitle:  dcos config show
 title: dcos config show
 menuWeight: 2
 excerpt: Showing the cluster configuration file
-
 enterprise: false
 ---
 
@@ -15,25 +14,26 @@ The `dcos config show` command will display the DC/OS configuration file content
 # Usage
 
 ```bash
-dcos config show <name>
+dcos config set <name> <value> [flags]
 ```
+# Options
 
+| Name |  Description |
+|---------|-------------|
+| `--help, h`   |   Display usage. |
 
 # Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
-| `<name>`   |  The name of the property. |
+| `<name>`   |  The name of the property |
+| `<value>` | The value of the property |
 
-# Parent command
 
-| Command | Description |
-|---------|-------------|
-| [dcos config](/1.12/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
 
 # Examples
 
-## View a specific config value
+## View a specific configuration value
 
 In this example, the DC/OS URL is shown.
 
@@ -47,7 +47,7 @@ Here is the output:
 https://your-cluster-9vqnkrq5pt2n-2781474.cloue-1.elb.amazonaws.com
 ```
 
-## View all config values
+## View all configuration values
 
 In this example, all config values are shown.
 
@@ -58,6 +58,13 @@ dcos config show
 Here is the output:
 
 ```bash
-core.dcos_url https://your-cluster-9vqnkrq5pt2n-2781474.cloue-1.elb.amazonaws.com
-core.ssl_verify false
+cluster.name MyCluster
+core.dcos_acs_token ********
+core.dcos_url http://mycluster-elasticl-7qbh2zcfyz6h-4734.us-east-1.elb.amazonaws.com
 ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos config](/1.12/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |

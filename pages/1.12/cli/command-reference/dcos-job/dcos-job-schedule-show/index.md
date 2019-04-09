@@ -15,26 +15,24 @@ The `dcos job schedule show` command allows you to view a job schedule.
 # Usage
 
 ```bash
-dcos job schedule show <job-id> [OPTION]
+dcos job schedule show <job-id> [--json]
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
-| `--json`   |   Print JSON-formatted list. |
+|`-h`, `--help` |   Print usage. |
+| `--json`   |  Print JSON-formatted list instead of a table.|
 
-# Positional arguments
 
-| Name, shorthand | Description |
+## Positional arguments
+
+| Name | Description |
 |---------|-------------|
 | `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` command.|
 
-# Parent command
 
-| Command | Description |
-|---------|-------------|
-| [dcos job](/1.12/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 
@@ -52,3 +50,8 @@ Here is the output:
 ID             CRON        ENABLED            NEXT RUN            CONCURRENCY POLICY
 sleep-nightly  20 0 * * *    True   2017-02-19T00:20:00.000+0000        ALLOW
 ```
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos job](/1.12/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

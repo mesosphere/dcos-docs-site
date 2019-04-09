@@ -25,7 +25,7 @@ Because you will need the user account in DC/OS before you can add any permissio
 
 # Importing external LDAP users individually from the web interface
 
-To import an external user:
+Use the following instructions to import an external user:
 
 1. Select **Organization > Users** and create a new user.
 
@@ -50,6 +50,8 @@ Group size is limited to 100 users. To increase this limit, contact Mesosphere c
 
 ## Configuring LDAP group import
 
+Use the following instructions to configure LDAP group import:
+
 1. Open the **Settings** -> **LDAP Directories** tab.
 
 2. Click **ADD DIRECTORY**.
@@ -60,9 +62,9 @@ Group size is limited to 100 users. To increase this limit, contact Mesosphere c
 
 5. Provide a template to be used to translate a group name to a valid LDAP search filter in the **GROUP SEARCH FILTER TEMPLATE** field. The string must contain `%(groupname)`. Example: `(&(objectclass=group)(sAMAccountName=%(groupname)s))`.
 
-6. When completed, your dialog should look something like the following.
+6. When completed, the LDAP group import configuration dialog appears as shown in Figure 1.
 
-   ![LDAP Group Import Configuration](/1.13/img/1-11-ldap-group-import.png)
+   ![LDAP Group Import Configuration](/1.13/img/ldap-group-import.png)
 
    Figure 1. LDAP group import configuration
 
@@ -89,17 +91,17 @@ You can import a group of LDAP users by using the `/ldap/importuser` [IAM API](/
 - The existing group entries must list their members by using the `member`, `uniquemember`, or `memberuid` attribute.
 - You must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.13/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
-In this example a group named `johngroup` is imported.
+In this example, a group named `johngroup` is imported.
 
 1.  Log in to the CLI to ensure that you can reference the cluster URL as shown in the following code samples.
 
-1.  Initiate import with this command:
+1.  Initiate import using the following command.
 
     ```bash
     curl -i -X POST --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" --data '{"groupname": "johngroup"}' --header "Content-Type: application/json" $(dcos config show core.dcos_url)/acs/api/v1/ldap/importgroup
     ```
 
-1.  Confirm that `johngroup` is added:
+1.  Confirm that `johngroup` is added.
 
     ```bash
     curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/groups/johngroup

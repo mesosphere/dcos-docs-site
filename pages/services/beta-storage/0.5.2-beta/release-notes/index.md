@@ -10,7 +10,7 @@ beta: true
 #include /services/include/beta-software-warning.tmpl
 
 
-# Version 0.5.2
+# Release notes for Beta DC/OS Storage Service version 0.5.2
 
 * This is a bug fix release, see the [version 0.5.0](#version_050) release notes for major changes between 0.4.x and 0.5.x.
 
@@ -19,9 +19,9 @@ beta: true
 * LVM plugin performance improvements.
 * Documentation corrections and updates.
 
-<a name="version_050">
+<!-- <a name="version_050">
 
-# Version 0.5.0
+# Release notes for Beta DC/OS Storage Service version 0.5.0
 
 * This version of the DC/OS Storage Service requires DC/OS Enterprise version 1.12.1 or later.
 * Upgrading DSS from v0.4.x to v0.5.x requires [manual intervention](../upgrades/). Simply upgrading the `beta-storage` package is not sufficient.
@@ -189,3 +189,4 @@ DC/OS Storage Service is currently in Beta and has the following known limitatio
 * Volume profile deactivation is not supported.
 * Cannot list devices or create volume provider on public agents.
 * Only linear target is supported by the LVM volume plugin.
+ -->

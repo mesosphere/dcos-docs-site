@@ -4,7 +4,6 @@ navigationTitle:  Multiple Zones
 title: Multiple Zones
 menuWeight: 5
 excerpt: Setting up multiple-zone configurations
-beta: true
 ---
 
 DC/OS supports multiple zone (multi-AZ) configurations. This page describes the setup recommendations and caveats. A typical DC/OS cluster has all master and agent nodes in the same zone. The cost of having masters spread across zones usually outweighs the benefits.

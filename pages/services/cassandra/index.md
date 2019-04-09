@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Cassandra
 title: Cassandra
-menuWeight: 0
+menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false

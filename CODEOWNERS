@@ -1,12 +1,16 @@
-# Aaron is the default to cover all current and future code
+# Aaron should see all code changes (things not in /pages)
+# Josh should see ALL PRs
 * @niartenyaw @jpe442
 
-# Pavi take over all content from Aaron
+# Josh take over all content (remove Aaron)
 /pages/ @jpe442
 
-# Sarah takes on services
-/pages/services/ @SarahStegall
+# Sarah for services
+/pages/services/ @SarahStegall @jpe442
 
 # Networking
-/pages/services/edge-lb/ @networking-team @SarahStegall
+/pages/services/edge-lb/ @networking-team @SarahStegall @jpe442
 /pages/*/networking/ @networking-team @jpe442
+
+# Storage
+/pages/services/beta-storage/ @SarahStegall @jpe442 @mesosphere/mesosphere-storage

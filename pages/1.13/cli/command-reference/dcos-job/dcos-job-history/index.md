@@ -15,27 +15,24 @@ The `dcos job history` command allows you to view your job run history.
 # Usage
 
 ```bash
-dcos job history <job-id> [OPTION]
+dcos job history <job-id> [--json|--quiet] [--failures --last]
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `--json`   |   Display JSON-formatted list. |
-| `--show-failures`   |  Show the failure table and statistics for history. |
+| `-q`, `--quiet` | Indicates a quiet mode which results in just an array of run ids. |
+| `-f`, `failures`   |  Show the failure table and statistics for history. |
+| `-l`, `--last` |   Shows the last ID for history job.|
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<job-id>`   |   Specify the job ID. |
 
-# Parent command
-
-| Command | Description |
-|---------|-------------|
-| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 
@@ -73,3 +70,9 @@ In this example, a job history is shown.
 
     <p class="message--important"><strong>IMPORTANT: </strong>Be sure to specify the <code>--json</code> option to view the JSON app definition (for example, <code>dcos job history my-scheduled-job</code>).</p>
 
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

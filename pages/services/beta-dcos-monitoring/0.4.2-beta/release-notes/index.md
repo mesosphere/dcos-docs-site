@@ -3,16 +3,20 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 30
-excerpt: New features, updates, and known limitations
+excerpt: Discover the new features, updates, and known limitations in this release of the Beta DC/OS Monitoring Service
 render: mustache
 model: ../data.yml
 ---
 
 #include /services/include/beta-software-warning.tmpl
 
-# Version v0.4.0
+# Release Notes for Beta DC/OS Monitoring Service version 0.4.2
 
-## New features
+## Updates
+
+* Workaround the UI bug for package install.
+
+<!-- ## New features
 
 * Allow accessing Alert Manager UI through Admin Router.
 * Allow accessing Prometheus UI through Admin Router.
@@ -97,3 +101,4 @@ Initial release.
 * No persistent storage for Grafana dashboard configurations.
 * No external storage for Prometheus data.
 * No backup for Prometheus data.
+ -->

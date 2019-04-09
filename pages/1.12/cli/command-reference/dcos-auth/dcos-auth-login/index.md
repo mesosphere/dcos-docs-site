@@ -3,44 +3,32 @@ layout: layout.pug
 navigationTitle:  dcos auth login
 title: dcos auth login
 menuWeight: 2
-excerpt: Authenticating to DC/OS
-
+excerpt: Logging in to your DC/OS cluster
 enterprise: false
 ---
 
 # Description
 
-This command allows you to authenticate to DC/OS. The [dcos cluster setup](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command also runs `dcos auth login`.
+The `dcos auth login` command allows you to log in to the current cluster.
 
 # Usage
 
 ```bash
-dcos auth login [OPTION]
+dcos auth login [flags]
 ```
 
 # Options
 
-| Name, shorthand | Default | Description |
+| Name |  Description |
 |---------|-------------|-------------|
-|  `--password-file=<password_file>`  |  | The path to a file that contains the password for login. |
-|  `--password=<password>`  |            | Specify the password for login on the command line. This is insecure.  |
-|  `--private-key=<key_path>`  |         | The path to a file that contains the private key.  |
-|  `--provider=<provider_id>`  |         | [enterprise type="inline" size="small" /] The authentication provider to use for login.  |
-|  `--username=<username>`  |            | The username for login. |
+| `--help, h`   | Display usage. |
+| `--password string`  |    Specify the password on the command line (insecure).|
+| `--password-file string` | Specify the path to a file that contains the password.|
+| `--private-key string` | Specify the path to a file that contains the service account private key. |
+| `--provider string`  |   Specify the login provider to use.|
+|  `--username string`  |   Specify the username for login. |
+|
 
-## TLS options
-
-If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--ca-certs`, the CA certificate is downloaded from the cluster and a `sha256` fingerprint of the certificate is presented to you for verification.
-
-# Environment variables
-
-## <a name="dcos-username"></a> `DCOS_USERNAME`
-
-Specify the username for login. When set, the `--username` flag takes precedence over this environment variable.
-
-## <a name="dcos-username"></a> `DCOS_PASSWORD`
-
-Specify the password for login. When set, the password flags take precedence over this environment variable.
 
 # Parent command
 

@@ -12,6 +12,10 @@ render: mustache
 #include /services/include/limitations-zones.tmpl
 #include /services/include/limitations-regions.tmpl
 
+## JVM options
+
+Custom JVM options are not currently supported in this or previous versions.
+
 ## Backup/Restore
 
 The service does not support performing backup and restore with authentication/authorization enabled in this or previous versions.

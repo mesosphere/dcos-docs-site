@@ -39,12 +39,12 @@ The table below shows the master node hardware requirements:
 | Hard disk   | 120 GB    | 120 GB      |
 &ast; For business critical deployments, three master nodes are required rather than one master node.
 
-There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
+Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
 
 [0]: /1.12/overview/high-availability/
 
 
-Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
+There are many mixed workloads on the masters. Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
 
 - Solid-state drive (SSD)
 - RAID controllers with a BBU
@@ -52,7 +52,7 @@ Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeep
 - If separation of storage mount points is possible, the following storage mount points are recommended on the master node. These recommendations will optimize the performance of a busy DC/OS cluster by isolating the I/O of various services.
   | Directory Path | Description |
   |:-------------- | :---------- |
-  | _/var/lib/dcos_ | A majority of the I/O on the master nodes will occur within this directory structure. If you are planning a cluster with hundreds of nodes or intend to have a high rate of deploying and deleting workloads, isolating this directory to dedicated SSD storage is recommended.
+  | _/var/lib/dcos_ | A majority of the I/O on the master nodes will occur within this directory structure. If you are planning a cluster with hundreds of nodes or intend to have a high rate of deploying and deleting workloads, isolating this directory to dedicated SSD storage is recommended. |
 
 - Further breaking down this directory structure into individual mount points for specific services is recommended for a cluster which will grow to thousands of nodes.
 
@@ -62,7 +62,8 @@ Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeep
   | _/var/lib/dcos/cockroach_ | CockroachDB [enterprise type="inline" size="small" /] |
   | _/var/lib/dcos/navstar_ | for Mnesia database |
   | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] | 
-  | _/var/lib/dcos/exhibitor_ | Zookeeper database |
+  | _/var/lib/dcos/exhibitor_ | ZooKeeper snapshot database |
+  | _/var/lib/dcos/exhibitor/zookeeper/transactions_ | The ZooKeeper transaction logs are very sensitive to delays in disk writes. If you can only provide limited SSD space, this is the directory to place there. A minimum of 2 GB must be available for these logs. |
 
 ### Agent nodes
 
@@ -116,7 +117,8 @@ The agent nodes must also have:
 
 -   Secure shell (SSH) must be enabled on all nodes.
 -   Internet Control Message Protocol (ICMP) must be enabled on all nodes.
--   All hostnames (FQDN and short hostnames) must be resolvable in DNS; both forward and reverse lookups must succeed. [enterprise type="inline" size="small" /]
+-   All fully-qualified domain name (FQDN) and alias host names must be resolvable in DNS. Both forward and reverse lookups must succeed. [enterprise type="inline" size="small" /]
+- All DC/OS node host names should resolve to  **locally bindable** IP addresses. Most applications require host names to resolve by binding to a local IP address to function correctly. Applications that cannot resolve the host name of a node by binding to a local IP address might fail to function or behave in unexpected ways. [enterprise type="inline" size="small" /]
 -   Each node is network accessible from the bootstrap node.
 -   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
 -   All ports should be open for communication from the master nodes to the agent nodes and vice versa. [enterprise type="inline" size="small" /]
