@@ -12,7 +12,7 @@ render: mustache
 #include /services/include/configuration-install-with-options.tmpl
 
 ## Datastax Opscenter
-The DC/OS Datastax Opscenter can be installed from the `datastax-ops` package. It is managed identically to `datastax-dse`. This guide primarily covers `datastax-dse` for conciseness. See the later sections of the guide for any configuration specifics of DC/OS Datastax Opscenter.
+The DC/OS Datastax Opscenter can be installed from the `{{ model.opsPackageName }}` package. It is managed identically to `{{ model.serviceName }}`. This guide primarily covers `{{ model.serviceName }}` for conciseness. See the later sections of the guide for any configuration specifics of DC/OS Datastax Opscenter.
 
 #include /services/include/configuration-service-settings.tmpl
 
@@ -29,15 +29,15 @@ The following settings may be adjusted to customize the amount of resources allo
 Each of the following settings may be customized under the **dsenode** configuration section.
 
 ### Node Count
-Customize the `Node Count` setting (default 3). Consult the {{ model.shortTechName }} docs for minimum node requirements.
+Customize the `Node Count` setting (default 3). Consult the {{ model.shortTechName }} documentation for minimum node requirements.
 
 ### CPU
-The amount of CPU allocated to each {{ model.shortTechName }} Node may be customized. A value of `1.0` equates to one full CPU core on a machine. This value may be customized by editing the **cpus** value under the **dsenode** configuration section.
+The amount of CPU allocated to each {{ model.shortTechName }} Node may be customized. A value of `1.0` equates to one full CPU core on a machine. This value may be customized by editing the `cpus` value under the **dsenode** configuration section.
 
 ### Memory
-The amount of RAM allocated to each {{ model.shortTechName }} Node may be customized. This value may be customized by editing the **mem** value (in MB) under the **dsenode** configuration section.
+The amount of RAM allocated to each {{ model.shortTechName }} Node may be customized. This value may be customized by editing the `mem` value (in MB) under the **dsenode** configuration section.
 
-If the allocated memory is customized, you must also update the **heap** value under that section as well. As a rule of thumb we recommend that **heap** be set to half of **mem**. For example, for a **mem** value of `32000`, **heap** should be `16000`. If you do not do this, you may see restarted `dse-#-node` tasks due to memory errors.
+If the allocated memory is customized, you must also update the `heap` value under that section as well. As a rule of thumb we recommend that `heap` be set to half of `mem`. For example, for a `mem` value of `32000`, `heap` should be `16000`. If you do not do this, you may see restarted `dse-#-node` tasks due to memory errors.
 
 ### Ports
 Each port exposed by {{ model.shortTechName }} components may be customized via the service configuration. If you wish to install multiple instances of {{ model.shortTechName }} and have them colocate on the same machines, you must ensure that **no** ports are common between those instances. Customizing ports is only needed if you require multiple instances sharing a single machine. This customization is optional otherwise.
@@ -90,17 +90,17 @@ Nearly all settings for `dse.yaml` and `cassandra.yaml` are exposed as configura
 For more information on each setting, view Datastax's documentation for [dse.yaml](https://docs.datastax.com/en/latest-dse/datastax_enterprise/config/configDseYaml.html) and [cassandra.yaml](https://docs.datastax.com/en/cassandra/3.0/cassandra/configuration/configCassandra_yaml.html).
 
 ## Use Built-In or External OpsCenter
-{{ model.shortTechName }} DC/OS provides the **datastax-ops** package, which you can install to get a default OpsCenter dashboard.  If you prefer to use an external OpsCenter instance, you can configure the **dse** service to point to an externally managed OpsCenter.
+{{ model.shortTechName }} DC/OS provides the **{{ model.opsPackageName }}** package, which you can install to get a default OpsCenter dashboard.  If you prefer to use an external OpsCenter instance, you can configure the **dse** service to point to an externally managed OpsCenter.
 
 Follow these steps to configure **dse** to use an external **opscenter** (in the OpsCenter section of the **dse** installation screen).
 
 1. Check the **ENABLE DATASTAX OPSCENTER** checkbox.
 1. Set the **OPSCENTER HOST NAME** field to the hostname of your external OpsCenter instance.
 
-If you choose to run an instance of the **datastax-ops** package, this field can be populated as `opscenter-0-node.<service-name>.autoip.dcos.thisdcos.directory`. For example `opscenter-0-node.datastax-ops-1.autoip.dcos.thisdcos.directory` if the **datastax-ops** service is named `datastax-ops-1`
+If you choose to run an instance of the {{ model.opsPackageName }} package, this field can be populated as `opscenter-0-node.<service-name>.autoip.dcos.thisdcos.directory`. For example `opscenter-0-node.{{ model.opsPackageName }}-1.autoip.dcos.thisdcos.directory` if the {{ model.opsPackageName }} service is named `{{ model.opsPackageName }}-1`
 
 ## Installation with {{ model.shortTechName }} Multi-Datacenter
-Each {{ model.shortTechName }} Datacenter must be configured with the seed nodes of the other {{ model.shortTechName }} Datacenters. For example, let's deploy three Datacenters (as separate DC/OS services in DC/OS terms), named `datastax-dse-1`, `datastax-dse-2`, and `datastax-dse-3`, and then link them all together. Here is an example timeline from start to finish:
+Each {{ model.shortTechName }} Datacenter must be configured with the seed nodes of the other {{ model.shortTechName }} Datacenters. For example, let's deploy three Datacenters (as separate DC/OS services in DC/OS terms), named `{{ model.serviceName }}-1`, `{{ model.serviceName }}-2`, and `{{ model.serviceName }}-3`, and then link them all together. Here is an example timeline from start to finish:
 
 <p class="message--note"><strong>NOTE: </strong>These instructions are an example and should be vetted by Datastax for the correct ordering of operations (when to add seed nodes, etc.).</p>
 
@@ -110,48 +110,48 @@ Each {{ model.shortTechName }} Datacenter must be configured with the seed nodes
 
 Follow these instructions for DC/OS 1.10 and later. If you are using DC/OS 1.9 or earlier, follow [these instructions](#1.9-and-earlier).
 
-1. Add a {{ model.shortTechName }} service from the DC/OS Universe. Deploy `datastax-dse-1` with the following customizations:
-    - In **service**, set `Service Name` = `datastax-dse-1`
+1. Add a {{ model.shortTechName }} service from the DC/OS Universe. Deploy `{{ model.serviceName }}-1` with the following customizations:
+    - In **service**, set `Service Name` = `{{ model.serviceName }}-1`
     - In **cluster**, set `{{ model.shortTechName }} Datacenter` = `dc_datastax_1`
-1. Wait for `datastax-dse-1` to finish deploying before continuing with the other DCs.
-1. Add a second {{ model.shortTechName }} service from the DC/OS Universe. Deploy `datastax-dse-2` with the following customizations:
+1. Wait for `{{ model.serviceName }}-1` to finish deploying before continuing with the other DCs.
+1. Add a second {{ model.shortTechName }} service from the DC/OS Universe. Deploy `{{ model.serviceName }}-2` with the following customizations:
     - In **service**, set:
-        - `Service Name` = `datastax-dse-2`
+        - `Service Name` = `{{ model.serviceName }}-2`
     - In **cluster**, set:
         - `{{ model.shortTechName }} Datacenter` = `dc_datastax_2`
-        - `External Seed Nodes` = `dse-0-node.datastax-dse-1.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-1.autoip.dcos.thisdcos.directory` (point `datastax-dse-2` to `datastax-dse-1`'s seeds)
+        - `External Seed Nodes` = `dse-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-2` to `{{ model.serviceName }}-1`'s seeds)
     - In **opscenter**, set:
-        - `OPSCENTER HOSTNAME` = `opscenter-0-node.datastax-dse-1.autoip.dcos.thisdcos.directory` (point `datastax-dse-2` to `datastax-dse-1`'s OpsCenter)
-1. Add a third {{ model.shortTechName }} service from the DC/OS Universe. Deploy `datastax-dse-3` with the following customizations:
+        - `OPSCENTER HOSTNAME` = `opscenter-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-2` to `{{ model.serviceName }}-1`'s OpsCenter)
+1. Add a third {{ model.shortTechName }} service from the DC/OS Universe. Deploy `{{ model.serviceName }}-3` with the following customizations:
     - In **service**, set:
-        - `Service Name` = `datastax-dse-3`
+        - `Service Name` = `{{ model.serviceName }}-3`
     - In **cluster**, set:
         - `{{ model.shortTechName }} Datacenter` = `dc_datastax_3`
-        - `External Seed Nodes` = `dse-0-node.datastax-dse-1.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-1.autoip.dcos.thisdcos.directory` (point `datastax-dse-3` to `datastax-dse-1`'s seeds)
+        - `External Seed Nodes` = `dse-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-3` to `{{ model.serviceName }}-1`'s seeds)
     - In **opscenter**, set:
-        - `OPSCENTER HOSTNAME` = `opscenter-0-node.datastax-dse-1.autoip.dcos.thisdcos.directory` (point `datastax-dse-3` to `datastax-dse-1`'s OpsCenter)
-1. Wait for `datastax-dse-2` and `datastax-dse-3` to finish deploying. Then, update the seed nodes across all the instances:
+        - `OPSCENTER HOSTNAME` = `opscenter-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-3` to `{{ model.serviceName }}-1`'s OpsCenter)
+1. Wait for `{{ model.serviceName }}-2` and `{{ model.serviceName }}-3` to finish deploying. Then, update the seed nodes across all the instances:
     1. Create a local file called `dse-1-options.json`. Paste the following into the file.
 
        ```json
        {
          "cluster": {
-           "external_seeds": "dse-0-node.datastax-dse-2.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-2.autoip.dcos.thisdcos.directory,dse-0-node.datastax-dse-3.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-3.autoip.dcos.thisdcos.directory"
+           "external_seeds": "dse-0-node.{{ model.serviceName }}-2.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-2.autoip.dcos.thisdcos.directory,dse-0-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory"
          },
        }
        ```
-       This points `datastax-dse-1` to `datastax-dse-2` and `datastax-dse-3`.
+       This points `{{ model.serviceName }}-1` to `{{ model.serviceName }}-2` and `{{ model.serviceName }}-3`.
 
     1. From the DC/OS CLI, update the service to the new configuration.
 
        ```json
-       dcos datastax-dse update start --options=dse-1-options.json
+       dcos {{ model.serviceName }} update start --options=dse-1-options.json
        ```
 
-    1. Wait for the seed update to roll out across `datastax-dse-1` nodes.
-    1. Perform the same operation for `datastax-dse-2` and `datastax-dse-3`.
-       - For `datastax-dse-2`, set `cluster.external_seeds` to `dse-0-node.datastax-dse-1.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-1.autoip.dcos.thisdcos.directory,dse-0-node.datastax-dse-3.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-3.autoip.dcos.thisdcos.directory`.
-       - For `datastax-dse-3`, set `cluster.external_seeds` to `dse-0-node.datastax-dse-2.autoip.dcos.thisdcos.directory,dse-2-node.datastax-dse-1.autoip.dcos.thisdcos.directory,dse-0-node.datastax-dse-3.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-3.autoip.dcos.thisdcos.directory`.
+    1. Wait for the seed update to roll out across `{{ model.serviceName }}-1` nodes.
+    1. Perform the same operation for `{{ model.serviceName }}-2` and `{{ model.serviceName }}-3`.
+       - For `{{ model.serviceName }}-2`, set `cluster.external_seeds` to `dse-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-0-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory`.
+       - For `{{ model.serviceName }}-3`, set `cluster.external_seeds` to `dse-0-node.{{ model.serviceName }}-2.autoip.dcos.thisdcos.directory,dse-2-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-0-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory`.
 
 1. Now, each of the three DCs has seed nodes configured for the other DCs. Because we used `.autoip.dcos.thisdcos.directory` hostnames, which automatically update to follow the tasks, we won't need to reconfigure seeds if they're moved between systems in the DC/OS cluster.
 
@@ -159,31 +159,31 @@ Follow these instructions for DC/OS 1.10 and later. If you are using DC/OS 1.9 o
 
 ### DC/OS 1.9 and earlier
 
-1. Add a {{ model.shortTechName }} service from the DC/OS Universe. Deploy `datastax-dse-1` with the following customizations:
-    - In **service**, set `Service Name` = `datastax-dse-1`
+1. Add a {{ model.shortTechName }} service from the DC/OS Universe. Deploy `{{ model.serviceName }}-1` with the following customizations:
+    - In **service**, set `Service Name` = `{{ model.serviceName }}-1`
     - In **cluster**, set `{{ model.shortTechName }} Datacenter` = `dc_datastax_1`
-1. Wait for `datastax-dse-1` to finish deploying before continuing with the other DCs.
-1. Add a second {{ model.shortTechName }} service from the DC/OS Universe. Deploy `datastax-dse-2` with the following customizations:
+1. Wait for `{{ model.serviceName }}-1` to finish deploying before continuing with the other DCs.
+1. Add a second {{ model.shortTechName }} service from the DC/OS Universe. Deploy `{{ model.serviceName }}-2` with the following customizations:
     - In **service**, set:
-        - `Service Name` = `datastax-dse-2`
+        - `Service Name` = `{{ model.serviceName }}-2`
     - In **cluster**, set:
         - `{{ model.shortTechName }} Datacenter` = `dc_datastax_2`
-        - `External Seed Nodes` = `dse-0-node.datastax-dse-1.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-1.autoip.dcos.thisdcos.directory` (point `datastax-dse-2` to `datastax-dse-1`'s seeds)
+        - `External Seed Nodes` = `dse-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-2` to `{{ model.serviceName }}-1`'s seeds)
     - In **opscenter**, set:
-        - `OPSCENTER HOSTNAME` = `opscenter-0-node.datastax-dse-1.autoip.dcos.thisdcos.directory` (point `datastax-dse-2` to `datastax-dse-1`'s OpsCenter)
-1. Add a third {{ model.shortTechName }} service from the DC/OS Universe. Deploy `datastax-dse-3` with the following customizations:
+        - `OPSCENTER HOSTNAME` = `opscenter-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-2` to `{{ model.serviceName }}-1`'s OpsCenter)
+1. Add a third {{ model.shortTechName }} service from the DC/OS Universe. Deploy `{{ model.serviceName }}-3` with the following customizations:
     - In **service**, set:
-        - `Service Name` = `datastax-dse-3`
+        - `Service Name` = `{{ model.serviceName }}-3`
     - In **cluster**, set:
         - `{{ model.shortTechName }} Datacenter` = `dc_datastax_3`
-        - `External Seed Nodes` = `dse-0-node.datastax-dse-1.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-1.autoip.dcos.thisdcos.directory` (point `datastax-dse-3` to `datastax-dse-1`'s seeds)
+        - `External Seed Nodes` = `dse-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-3` to `{{ model.serviceName }}-1`'s seeds)
     - In **opscenter**, set:
-        - `OPSCENTER HOSTNAME` = `opscenter-0-node.datastax-dse-1.autoip.dcos.thisdcos.directory` (point `datastax-dse-3` to `datastax-dse-1`'s OpsCenter)
-1. Wait for `datastax-dse-2` and `datastax-dse-3` to finish deploying. Then, update the seed nodes across all the instances:
-    1. Go to the service view of `datastax-dse-1` in the DC/OS UI. Click the menu in the upper right and then choose **Edit**. Go to the **Environment** tab and set `{{ model.shortTechName }}_EXTERNAL_SEEDS` = `dse-0-node.datastax-dse-2.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-2.autoip.dcos.thisdcos.directory,dse-0-node.datastax-dse-3.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-3.autoip.dcos.thisdcos.directory` (point `datastax-dse-1` to `datastax-dse-2` and `datastax-dse-3`).
-    1. Wait for the seed update to roll out across `datastax-dse-1` nodes.
-    1. Go to the service view of `datastax-dse-2` in the DC/OS UI. Click the menu in the upper right and then choose **Edit**. Go to the **Environment** tab and update `{{ model.shortTechName }}_EXTERNAL_SEEDS` = `dse-0-node.datastax-dse-1.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-1.autoip.dcos.thisdcos.directory,dse-0-node.datastax-dse-3.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-3.autoip.dcos.thisdcos.directory` (point `datastax-dse-2` to `datastax-dse-1` and `datastax-dse-3`).
-    1. Wait for the seed update to roll out across `datastax-dse-2` nodes.
-    1. Go to the service view of `datastax-dse-3` in the DC/OS UI. Click the menu in the upper right and then choose **Edit**. Go to the **Environment** tab and update `{{ model.shortTechName }}_EXTERNAL_SEEDS` = `dse-0-node.datastax-dse-2.autoip.dcos.thisdcos.directory,dse-2-node.datastax-dse-1.autoip.dcos.thisdcos.directory,dse-0-node.datastax-dse-3.autoip.dcos.thisdcos.directory,dse-1-node.datastax-dse-3.autoip.dcos.thisdcos.directory` (point `datastax-dse-3` to `datastax-dse-1` and `datastax-dse-2`).
-    1. Wait for the seed update to roll out across `datastax-dse-3` nodes.
+        - `OPSCENTER HOSTNAME` = `opscenter-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-3` to `{{ model.serviceName }}-1`'s OpsCenter)
+1. Wait for `{{ model.serviceName }}-2` and `{{ model.serviceName }}-3` to finish deploying. Then, update the seed nodes across all the instances:
+    1. Go to the service view of `{{ model.serviceName }}-1` in the DC/OS UI. Click the menu in the upper right and then choose **Edit**. Go to the **Environment** tab and set `{{ model.shortTechName }}_EXTERNAL_SEEDS` = `dse-0-node.{{ model.serviceName }}-2.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-2.autoip.dcos.thisdcos.directory,dse-0-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-1` to `{{ model.serviceName }}-2` and `{{ model.serviceName }}-3`).
+    1. Wait for the seed update to roll out across `{{ model.serviceName }}-1` nodes.
+    1. Go to the service view of `{{ model.serviceName }}-2` in the DC/OS UI. Click the menu in the upper right and then choose **Edit**. Go to the **Environment** tab and update `{{ model.shortTechName }}_EXTERNAL_SEEDS` = `dse-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-0-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-2` to `{{ model.serviceName }}-1` and `{{ model.serviceName }}-3`).
+    1. Wait for the seed update to roll out across `{{ model.serviceName }}-2` nodes.
+    1. Go to the service view of `{{ model.serviceName }}-3` in the DC/OS UI. Click the menu in the upper right and then choose **Edit**. Go to the **Environment** tab and update `{{ model.shortTechName }}_EXTERNAL_SEEDS` = `dse-0-node.{{ model.serviceName }}-2.autoip.dcos.thisdcos.directory,dse-2-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-0-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-3` to `{{ model.serviceName }}-1` and `{{ model.serviceName }}-2`).
+    1. Wait for the seed update to roll out across `{{ model.serviceName }}-3` nodes.
 1. Now, each of the three DCs has seed nodes configured for the other DCs. Because we used `.autoip.dcos.thisdcos.directory` hostnames, which automatically update to follow the tasks, we won't need to reconfigure seeds if they're moved between systems in the DC/OS cluster.
