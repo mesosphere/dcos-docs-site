@@ -11,8 +11,9 @@ After you have installed DC/OS with a public agent node declared, you can naviga
 # Before you begin
 - You must have DC/OS installed with at least one master node and at least one [public agent](/1.13/overview/concepts/#public-agent-node) node.
 - You must have the most recent version of the DC/OS [CLI](/1.13/cli/) installed.
-- You must have the [jq](https://github.com/stedolan/jq/wiki/Installation) language installed if you want to format the output from an API call.
 - You must have [secure shell (SSH)](/1.13/administering-clusters/sshcluster/) installed and configured to allow remote session access to cluster nodes.
+- You should have [jq](https://github.com/stedolan/jq/wiki/Installation) or [Python](https://www.python.org/) installed if you want to format the output from an API call.
+  You can also use a `jq` query or another program to find public agent IP addresses if you are using an older version of the DC/OS cluster. 
 
 <p class="message--note"><strong>NOTE: </strong>You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
@@ -75,7 +76,7 @@ To list public IP addresses by using the DC/OS CLI:
 <a name="public-ip-api">
 
 # Finding a public IP address using an API call
-The DC/OS application programming interface (API) provides the underlying funtionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you only use the API directly if you are integrating the functionality with a custom program or automation script. However, you can retrieve the public IP addresses for public agents directly through calls to the DC/OS application programming interface (API) for networking, if needed.
+The DC/OS application programming interface (API) provides the underlying functionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you only use the API directly if you are integrating the API call within a custom program or automation script. However, you can retrieve the public IP addresses for public agents directly through calls to the DC/OS application programming interface (API) for networking, if needed.
 
 To find public IP addresses by using the DC/OS API:
 1. Identify the URL for a DC/OS cluster running on a public cloud instance.
@@ -93,33 +94,22 @@ To find public IP addresses by using the DC/OS API:
 
 1. Review the command output.
 
-    This API call returns information similar to the following in an unfiltered format:
-
-    ```bash
-    [{"updated":"2019-01-07T22:22:22.171Z","public_ips":["34.212.37.79"],"private_ip":"10.0.6.210","hostname":"ip-10-0-6-210"},{"updated":"2019-01-07T22:22:22.119Z","public_ips":["52.25.254.97"],"private_ip":"10.0.6.181","hostname":"ip-10-0-6-181"},{"updated":"2019-01-07T22:21:09.585Z","public_ips":["54.218.23.75"],"private_ip":"10.0.6.148","hostname":"ip-10-0-6-148"},{"updated":"2019-01-07T22:22:28.582Z","public_ips":[],"private_ip":"10.0.1.139","hostname":"ip-10-0-1-139"},{"updated":"2019-01-07T22:22:28.649Z","public_ips":[],"private_ip":"10.0.0.138","hostname":"ip-10-0-0-138"}]
-    ```
-
-    In this example, there are three IP addresses for the public agents:
-    - 34.212.37.79
-    - 52.25.254.97
-    - 54.218.23.75
-
-    There are no public IP addresses available for the private nodes. 
+    If you have a user account that is authorized to access the cluster and retrieve node information, this API call returns node and IP information in an unfiltered format.
 
 ## Looking up addresses from a master node
-You can also find the public IP addresses by using the client URL (`cURL`) command from a master node. For example, you can find the public-facing IP addresses for public agents using the following cURL command: 
+If you are calling the API endpoint directly, you can find the public IP addresses by using the client URL (`cURL`) command from a master node. For example, you can find the public-facing IP addresses for public agents using the following cURL command: 
 
 ```bash
 curl -skSL -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/net/v1/nodes
 ```
 
-This command returns output similar to the following: 
+This command sets the authorization token and identifies the cluster URL using the `dcos config show` commands and returns raw output similar to the following: 
 
 ```bash
 [{"updated":"2019-01-07T22:22:22.171Z","public_ips":["34.212.37.79"],"private_ip":"10.0.6.210","hostname":"ip-10-0-6-210"},{"updated":"2019-01-07T22:22:22.119Z","public_ips":["52.25.254.97"],"private_ip":"10.0.6.181","hostname":"ip-10-0-6-181"},{"updated":"2019-01-07T22:21:09.585Z","public_ips":["54.218.23.75"],"private_ip":"10.0.6.148","hostname":"ip-10-0-6-148"},{"updated":"2019-01-07T22:22:28.582Z","public_ips":[],"private_ip":"10.0.1.139","hostname":"ip-10-0-1-139"},{"updated":"2019-01-07T22:22:28.649Z","public_ips":[],"private_ip":"10.0.0.138","hostname":"ip-10-0-0-138"}]
 ```
 
-You can also execute the cURL command directly on a master node find the public IP addresses for public agents from a central location: 
+<!--You can also execute the cURL command directly on a master node to find the public IP addresses for public agents from a central location using a command similar to the following: 
 
 ```bash
 curl http://localhost:62080/v1/nodes
@@ -138,11 +128,13 @@ This command output displays the public IP addresses of the same public agents t
     - 54.218.23.75
 
     As with the previous example, there are no public IP addresses available for the private nodes. 
+-->
 
-## Formatting API output using jq
-If you have `jq` installed, you can parse the output to display the information using more readable JSON formatting: 
+## Formatting API output
+If you have `jq` or `python` installed, you can parse the API output to display node information using more readable JSON formatting. 
 
-For example:
+For example, you can execute the API call and pass the output to `jq` for formatting by running the following command:
+
 ```bash
 curl -skSL -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/net/v1/nodes | jq
 [
@@ -184,6 +176,13 @@ curl -skSL -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 
   }
 ]
 ```
+
+In these examples, there are three public IP addresses for the public agent and master nodes:
+- 34.212.37.79
+- 52.25.254.97
+- 54.218.23.75
+
+In the example, there are no public IP addresses available for the private nodes.
 
 # Executing a query to return the public IP addresses
 If you are working with an older version of the DC/OS cluster, you can find your public agent IP address by executing a `jq` query in a script or from the command-line in a shell terminal. The following sample script uses a `jq` query to open a secure shell (SSH) session on the DC/OS cluster to obtain cluster information then queries [ifconfig.co](https://ifconfig.co/) to determine the public IP address.
