@@ -31,7 +31,10 @@ dcos node list [OPTION]
 | Name, shorthand |  Description |
 |---------|-------------|
 | `--field dcos node`   |  Specifies the name of one or more additional fields you want to include in the output of the dcos node command. You can include this option multiple times to add multiple fields. |
-| `--json`   | Displays JSON-formatted data. |
+| `--help, h`   |   Displays usage. |
+| `--info`   |  Displays a short description of this subcommand. |
+| `--json`   |    Displays JSON-formatted data. |
+| `--version`   |  Displays version information. |
 
 # Parent command
 
