@@ -4,6 +4,7 @@ packageName: elastic
 serviceName: elastic
 techName: Elastic
 techShortName: Elastic
+searchEngine: Elasticsearch
 
 # Values specific to certain templates:
 
