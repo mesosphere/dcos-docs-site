@@ -4,7 +4,6 @@ navigationTitle:  dcos package describe
 title: dcos package describe
 menuWeight: 0
 excerpt: Fetching details for a package
-
 enterprise: false
 ---
 
@@ -15,24 +14,20 @@ The `dcos package describe` command allows you to view specific details for pack
 # Usage
 
 ```bash
-dcos package describe <package-name> [OPTION]
+dcos package describe <package-name> --package-versions
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
-| `--app`   |   Application only. |
-| `--cli`   |   Command line only. |
-| `--config`   |  Displays the configurable properties of the `marathon.json` file. |
-| `--options=<file>`   |  Path to a JSON file that contains customized package installation options. |
+| `-h`, `--help`   |   Show usage. |
 | `--package-versions`   |  Displays all versions for this package. |
-| `--package-version=<package-version>`   |  The package version. |
-| `--render`   |   Collate the `marathon.json` package template with values from the `config.json` and `--options`. If not provided, Displays the raw templates. |
 
-# Positional arguments
 
-| Name, shorthand |  Description |
+## Positional arguments
+
+| Name |  Description |
 |---------|-------------|
 | `<package-name>`   |   Name of the DC/OS package. |
 

@@ -29,6 +29,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
    * For multi-master configurations, after one master has finished upgrading, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
 - An upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
+- Any custom configuration files placed in `/opt/mesosphere` such as CNI plugin configurations, may be removed during an upgrade and should be backed up and replaced.
 
 ## Supported upgrade paths matrix
 The following matrix table lists the supported upgrade paths for DC/OS 1.12.
@@ -149,7 +150,7 @@ These steps must be performed for version upgrades.
 
 - Verify that all Marathon application constraints are valid before beginning the upgrade. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
 - [Back up your cluster](/1.12/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
-- Optional: You can add custom [node and cluster health checks](/1.12/installing/ent/custom/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
+- Optional: You can add custom [node and cluster health checks](/1.12/installing/production/deploying-dcos/node-cluster-health-check) to your `config.yaml`.
 - Verify that all your masters are in a healthy state:
    - Check the Exhibitor UI to confirm that all masters have joined the quorum successfully (the status indicator will show green). The Exhibitor UI is available at `http://<dcos_master>:8181/`.
    - Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1` for each master.
@@ -167,7 +168,7 @@ This procedure upgrades a DC/OS 1.11 cluster to DC/OS 1.12.
 2.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the `config.yaml` may be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/1.12/installing/ent/custom/configuration/configuration-parameters/).
+    *  The syntax of the `config.yaml` file can be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [advanced configuration reference](/1.12/installing/production/advanced-configuration/configuration-reference/).
 3. After updating the format of the config.yaml, compare the old config.yaml and new config.yaml. Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
 4.  Modify the `ip-detect` file as desired.
 5.  Build your installer package.
@@ -178,7 +179,7 @@ This procedure upgrades a DC/OS 1.11 cluster to DC/OS 1.12.
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     3.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    4.  Run the [nginx][install] container to serve the installation files.
+    4.  Run the nginx container to serve the [installation files][install] using the Docker [run][cmd] command.
 
 6.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
@@ -190,7 +191,7 @@ This procedure upgrades a DC/OS 1.11 cluster to DC/OS 1.12.
 1.  Copy and update the DC/OS 1.10 `config.yaml` and `ip-detect` files to a new, clean folder on your bootstrap node.
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the DC/OS 1.12 `config.yaml` differs from that of previous versions. See the [documentation](/1.12/installing/oss/custom/configuration/configuration-parameters/) for the latest information.
+    *  The syntax of the DC/OS 1.12 `config.yaml` file differs from that of previous versions. For a detailed description of the current `config.yaml` syntax and parameters, see the [advanced configuration reference](/1.12/installing/production/advanced-configuration/configuration-reference/).
 
 1.  After updating the format of the `config.yaml`, compare the old `config.yaml` and new `config.yaml`.  Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
 
@@ -202,7 +203,7 @@ This procedure upgrades a DC/OS 1.11 cluster to DC/OS 1.12.
         dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    1.  Run the [nginx][install] container to serve the installation files. <!-- ?? -->
+    1.  Run the nginx container to serve the [installation files][install] using the Docker [run][cmd] command.
 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
@@ -325,4 +326,5 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.12 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[install]: /1.12/installing/ent/custom/advanced/
+[install]: /1.12/installing/production/deploying-dcos/installation/#custom-build-file
+[cmd]: /1.12/installing/production/deploying-dcos/installation/#nginx-cmd

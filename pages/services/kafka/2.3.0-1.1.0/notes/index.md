@@ -1,20 +1,19 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Release notes for 2.3.0-1.1.0
+excerpt: Discover the new features, updates, and known limitations in this release of the Kafka Service
 title: Release Notes
 menuWeight: 120
 model: /services/kafka/data.yml
 render: mustache
 ---
 
+# Release Notes for Kafka Service version 2.3.0-1.1.0
 
-## Version 2.3.0-1.1.0
-
-### Updates
+## Updates
 - Upgrade {{ model.techShortName }} base tech to version 1.1.0. See [{{ model.techShortName }}'s Release Notes](https://kafka.apache.org/11/documentation.html#upgrade_110_notable) for details.
 
-## Version 2.3.0-1.0.0
+<!-- ## Version 2.3.0-1.0.0
 
 ### New Features
 - Support for configuring {{ model.techShortName }} transport encryption ciphers with secure defaults.
@@ -86,3 +85,4 @@ render: mustache
 
 ## Breaking Changes
 - This is a major release.  You cannot upgrade to version 2.0.0-0.11.0 from a 1.0.x version of the package. To upgrade, you must perform a fresh install and replicate data across clusters.
+ -->

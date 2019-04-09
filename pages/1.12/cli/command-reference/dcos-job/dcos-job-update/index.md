@@ -4,7 +4,6 @@ navigationTitle:  dcos job update
 title: dcos job update
 menuWeight: 12
 excerpt: Updating a job
-
 enterprise: false
 ---
 
@@ -15,18 +14,20 @@ The `dcos job update` command allows you to update a job.
 # Usage
 
 ```bash
-dcos job update <job-file> [OPTION]
+dcos job update <job-file>
 ```
 
 # Options
 
-None.
-
-# Positional arguments
-
-| Name, shorthand |  Description |
+| Name | Description |
 |---------|-------------|
-| `<job-file>`   |   A JSON-formatted job definition. |
+|`-h`, `--help` |   Print usage. |
+
+## Positional arguments
+
+| Name |  Description |
+|---------|-------------|
+| `<job-file>`   |   A JSON formatted file of a job. |
 
 # Parent command
 

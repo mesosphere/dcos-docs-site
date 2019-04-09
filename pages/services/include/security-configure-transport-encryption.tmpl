@@ -4,7 +4,7 @@
 
 ### Configure Transport Encryption
 
-#### Set up the Service Account
+#### Set up the service account
 
 [Grant](/latest/security/ent/perms-management/) the service account the correct permissions.
 - In DC/OS 1.10, the required permission is `dcos:superuser full`.
@@ -16,6 +16,15 @@ dcos:adminrouter:ops:ca:rw full
 dcos:adminrouter:ops:ca:ro full
 ```
 where `<service name>` is the name of the service to be installed.
+
+<!-- Not clear if this is the right location DCOS-39455 --> 
+Run the following DC/OS Enterprise CLI commands to set permissions for the service account on a strict cluster:
+
+```
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:task:app_id:<service/name> create
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:reservation:principal:dev_hdfs create
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:principal:dev_hdfs create
+```
 
 #### Install the service
 Install the DC/OS {{ model.techName }} service including the following options in addition to your own:

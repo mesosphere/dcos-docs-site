@@ -12,6 +12,10 @@ render: mustache
 #include /services/include/limitations-zones.tmpl
 #include /services/include/limitations-regions.tmpl
 
+## JVM Options
+
+Custom JVM options are not currently supported in this or previous versions.
+
 ## Security
 
 ### Toggling Kerberos

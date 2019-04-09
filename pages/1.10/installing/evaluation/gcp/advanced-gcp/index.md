@@ -169,7 +169,7 @@ dcos_instance_os = "centos_7.5"
 | dcos_exhibitor_azure_account_name | The Azure account name for Exhibitor storage. (optional but required with `dcos_exhibitor_address`) | string | `` | no |
 | dcos_exhibitor_azure_prefix | The Azure account name for Exhibitor storage. (optional but required with `dcos_exhibitor_address`) | string | `` | no |
 | dcos_exhibitor_explicit_keys | Set whether you are using AWS API keys to grant Exhibitor access to S3. (optional) | string | `` | no |
-| dcos_exhibitor_storage_backend | Options are `aws_s3`, `azure`, or `zookeeper` (recommended) | string | `static` | no |
+| dcos_exhibitor_storage_backend | Options are `static`, `aws_s3`, `azure`, or `zookeeper` (recommended) | string | `static` | no |
 | dcos_exhibitor_zk_hosts | A comma-separated list of one or more ZooKeeper node IP and port addresses to use for configuring the internal Exhibitor instances. (not recommended but required with `exhibitor_storage_backend` set to `zookeeper`. Use `aws_s3` or `azure` instead. Assumes external ZooKeeper is already online.) | string | `` | no |
 | dcos_exhibitor_zk_path | The filepath that Exhibitor uses to store data. (not recommended but required with `exhibitor_storage_backend` set to `zookeeper`. Use `aws_s3` or `azure` instead. Assumes external ZooKeeper is already online.) | string | `` | no |
 | dcos_fault_domain_detect_contents | [Enterprise DC/OS] Fault domain script contents. Optional but required if no `fault-domain-detect` script present. | string | `` | no |

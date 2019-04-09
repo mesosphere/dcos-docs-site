@@ -18,23 +18,15 @@ In this section, you will download and install the {{ model.techName }} service.
 - [DC/OS CLI](/latest/cli/install/) is installed.
 - You are logged in as a superuser.
 
-## Install package registry
-
-Please follow these [instructions](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/quickstart/) to install the package registry.
-
 # Install {{ model.techName }} service
 
-## Download the package
-
-Download the `.dcos` package of the {{ model.techName }} service from the [Mesosphere support site](https://support.mesosphere.com/s/downloads).
+The `dcos-monitoring` package is installable via the [catalog](https://docs.mesosphere.com/1.12/gui/catalog/).
 
 ## Install the service
 
-Install the service with the `dcos registry add` command.
-Assume that the downloaded package is called `{{ model.packageName }}.dcos` in the current working directory.
+Use the following command to install the service.
 
 ```bash
-dcos registry add --dcos-file {{ model.packageName }}.dcos
 dcos package install {{ model.packageName }} --package-version=<VERSION>
 ```
 

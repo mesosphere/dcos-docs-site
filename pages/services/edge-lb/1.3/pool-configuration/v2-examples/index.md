@@ -263,63 +263,113 @@ Other useful fields for selecting frameworks and tasks in `pool.haproxy.backend.
 
 # Hostname / SNI Routing with VHOSTS
 
-To direct traffic based on the hostname to multiple backends for a single port (such as 80 or 443), use `pool.haproxy.frontend.linkBackend`.
+To direct traffic based on the hostname to multiple backends for a single port (such as 80 or 443), you can use the `pool.haproxy.frontend.linkBackend` setting.
 
+## Before you begin
+- You must have at least one secure socket layer (SSL) certificiate for the Edge-LB service account. Depending on the security requirements of the cluster, you might have additional SSL certificates that you want to use for access to the linked backend.
+- You should create and store a DC/OS secret for each unique SSL certificate you are using. However, one secret is enough if the SSL certificate includes a wildcard that matches several separate websites with the same layer-2 domain namespace. For example, you only need to create and store one secret if you have a certificate to trust any website in the `*.ajuba.net` domain.
+
+- Each secret should contain sections similar to the following:
+
+  ```
+  -----BEGIN CERTIFICATE-----
+  ...certificate body here...
+  -----END CERTIFICATE-----
+  -----BEGIN RSA PRIVATE KEY-----
+  ...private key body here...
+  -----END RSA PRIVATE KEY-----
+  ```
+
+For more information about creating and storing secrets, see [Secrets](/1.12/security/ent/secrets/).
+
+## Sample configuration
+After you have created or identified the SSL certificate and stored it securely in DC/OS Secrets, you can route traffic to multiple backends using the `pool.haproxy.frontend.linkBackend` setting as illustrated in the following example:
+s
 ```json
 {
   "apiVersion": "V2",
   "name": "vhost-routing",
   "count": 1,
+  "secrets": [
+    {
+      "secret": "mysslsecret1",
+      "file": "mysecretfile1"
+    },
+    {
+      "secret": "mysslsecret2",
+      "file": "mysecretfile2"
+    }
+    ],
   "haproxy": {
-    "frontends": [{
-      "bindPort": 80,
-      "protocol": "HTTP",
-      "linkBackend": {
-        "map": [{
-          "hostEq": "nginx.example.com",
-          "backend": "nginx"
-        },{
-          "hostReg": ".*.httpd.example.com",
-          "backend": "httpd"
-        }]
-      }
-    },{
-      "bindPort": 443,
-      "protocol": "HTTPS",
-      "linkBackend": {
-        "map": [{
-          "hostEq": "nginx.example.com",
-          "backend": "nginx"
-        },{
-          "hostReg": ".*.httpd.example.com",
-          "backend": "httpd"
-        }]
-      }
-    }],
-    "backends": [{
-      "name": "httpd",
-      "protocol": "HTTP",
-      "services": [{
-        "marathon": {
-          "serviceID": "/host-httpd"
-        },
-        "endpoint": {
-          "portName": "web"
+    "frontends": [
+      {
+        "bindPort": 80,
+        "protocol": "HTTP",
+        "linkBackend": {
+          "map": [
+          {
+            "hostEq": "nginx.example.com",
+            "backend": "nginx"
+          },
+          {
+            "hostReg": ".*.httpd.example.com",
+            "backend": "httpd"
+          }
+          ]
         }
-      }]
-    },{
+      },
+    {
+      "bindPort": 443,
+      "protocol": "TLS",
+      "certificates": [
+        "$SECRETS/mysecretfile1",
+        "$SECRETS/mysecretfile2"
+      ],
+      "linkBackend": {
+        "map": [
+          {
+            "hostEq": "nginx.example.com",
+            "backend": "nginx"
+          },
+          {
+            "hostReg": ".*.httpd.example.com",
+            "backend": "httpd"
+          }
+        ]
+      }
+    }
+    ],
+      "backends": [
+        {
+          "name": "httpd",
+          "protocol": "HTTP",
+          "services": [
+            {
+              "marathon": {
+                "serviceID": "/host-httpd"
+                },
+              "endpoint": {
+                "portName": "web"
+              }
+            }
+          ]
+        },
+    {
       "name": "nginx",
       "protocol": "HTTP",
-      "services": [{
-        "mesos": {
-          "frameworkName": "marathon",
-          "taskName": "bridge-nginx"
-        },
-        "endpoint": {
-          "portName": "web"
+      "services": [
+        {
+          "mesos": {
+            "frameworkName": "marathon",
+            "taskName": "bridge-nginx"
+            },
+          "endpoint": {
+            "portName": "web"
+            }
         }
-      }]
-    }]
+      ]
+    }
+    ]
   }
 }
 ```

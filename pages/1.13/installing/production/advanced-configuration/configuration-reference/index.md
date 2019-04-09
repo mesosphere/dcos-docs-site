@@ -21,7 +21,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | aws_template_storage_region_name           | The region containing the S3 bucket.  |
 | aws_template_storage_secret_access_key     | The [secret access key](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
 | aws_template_upload                        | Whether to upload the customized advanced AWS templates to an S3 bucket. |
-| [bootstrap_url](#bootstrap-url)                                       | (Required) The URI path for the DC/OS installer to store the customized DC/OS build files. |
+| [bootstrap_url](#bootstrap-url-required)                                       | (Required) The URI path for the DC/OS installer to store the customized DC/OS build files. |
 | [cluster_docker_credentials](#cluster-docker-credentials)             | The dictionary of Docker credentials to pass. |
 | [cluster_docker_credentials_enabled](#cluster-docker-credentials-enabled)   |  Whether to pass the Mesos `--docker_config` option to Mesos. |
 | [cluster_docker_registry_url](#cluster-docker-registry-url)           | The custom URL that Mesos uses to pull Docker images from. |
@@ -35,8 +35,6 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
 | [master_external_loadbalancer](#master-external-loadbalancer)         | The DNS name or IP address for the load balancer.  [enterprise type="inline" size="small" /]      |
 | [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
-| [mesos_seccomp_enabled](#mesos-seccomp-enabled)                       | Indicates whether to enable Seccomp support for UCR containers. |
-| [mesos_seccomp_profile_name](#mesos-seccomp-profile-name)             | The name of the default Seccomp profile. |
 | [platform](#platform)                                                 | The infrastructure platform. |
 | [public_agent_list](#public-agent-list)                               | A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.13/overview/concepts/#public-agent-node) host names.  |
 | [rexray_config](#rexray-config)                                       | The [REX-Ray](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/) configuration method for enabling external persistent volumes in Marathon. You cannot specify both `rexray_config` and `rexray_config_preset`.|
@@ -99,8 +97,10 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
 | [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
-| [superuser_password_hash](#superuser-password-hash-enterprise) | Required - The hashed superuser password. [enterprise type="inline" size="small" /] |
-| [superuser_username](#superuser-username-enterprise)           | Required - The user name of the superuser. [enterprise type="inline" size="small" /] |
+| [superuser_password_hash](#superuser-password-hash-required-enterprise) | Required - The hashed superuser password. [enterprise type="inline" size="small" /] |
+| [superuser_service_account_public_key](#superuser-service-account-public-key) | The public key used for authenticating the superuser service account. |
+| [superuser_service_account_uid](#superuser-service-account-uid) | The user ID of the superuser service account |
+| [superuser_username](#superuser-username-required-enterprise)           | Required - The user name of the superuser. [enterprise type="inline" size="small" /] |
 | [telemetry_enabled](#telemetry-enabled)                  | Indicates whether to enable sharing of anonymous data for your cluster.  |
 | [zk_super_credentials](#zk-superuser)            | The ZooKeeper superuser credentials.  [enterprise type="inline" size="small" /] |
 | [zk_master_credentials](#zk-master)          | The ZooKeeper master credentials. [enterprise type="inline" size="small" /] |
@@ -114,6 +114,8 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
 | [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
+| [superuser_service_account_uid](#superuser-service-account-uid) | The user ID of the superuser service account |
+| [superuser_service_account_public_key](#superuser-service-account-public-key) | The public key used for authenticating the superuser service account |
 | [telemetry_enabled](#telemetry-enabled)                  | Indicates whether to enable sharing of anonymous data for your cluster.  |
 
 # Metrics
@@ -360,7 +362,7 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
 *   `exhibitor_storage_backend: static`
     The Exhibitor storage backend is managed internally within your cluster.
 
-    **Note:** If [master_discovery](#master-discovery) is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.
+<p class="message--note"><strong>NOTE: </strong>If <a href ="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#master-discovery-required">master_discovery</a> is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.</p>
 
 *   `exhibitor_storage_backend: zookeeper`
     The ZooKeeper instance for shared storage. If you use a ZooKeeper instance to bootstrap Exhibitor, this ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability. If you specify `zookeeper`, you must also specify these parameters.
@@ -440,7 +442,7 @@ The Mesos master discovery method. The available options are `static` or `master
 *  `master_discovery: static`
    Specifies that Mesos agents are used to discover the masters by giving each agent a static list of master IPs. The masters must not change IP addresses, and if a master is replaced, the new master must take the old master's IP address.
 
-   **Note:** In AWS it is not possible to set a local IP address, thus master_discovery:static can not be utilized.
+   <p class="message--note"><strong>NOTE: </strong>In AWS it is not possible to set a local IP address, thus master_discovery:static can not be utilized.</p>
 
    If you specify `static`, you must also specify this parameter:
 
@@ -451,10 +453,12 @@ The Mesos master discovery method. The available options are `static` or `master
 
     *  `exhibitor_address` (Required)
        The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.13/security/ent/tls-ssl/). The load balancer must accept traffic on ports 443, 2181, 5050, and 8181. If the cluster is running in permissive security mode, the load balancer may also accept traffic on port 80 and 8080 for non-SSL HTTP access to services in the cluster.
-         **Note:** Access to the cluster over port 80 and 8080 is insecure.
+         <p class="message--note"><strong>NOTE: </strong>Access to the cluster over port 80 and 8080 is insecure.</p>
+         
        The traffic must also be forwarded to 443, 2181, 5050, and 8181 on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up. For more information on security modes, check [security modes documentation](/1.13/security/ent/#security-modes).
 
-       **Note:** The internal load balancer must work in TCP mode, without any TLS termination.
+   <p class="message--note"><strong>NOTE: </strong>The internal load balancer must work in TCP mode, without any TLS termination.</p>
+       
 
     *  `num_masters` (Required)
        The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
@@ -501,26 +505,10 @@ The location of the Mesos work directory on master nodes. This defines the `work
 ### mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
 
-### mesos_seccomp_enabled
-Indicates whether to enable Seccomp support for UCR containers.
-
-*  `mesos_seccomp_enabled: 'true'` Enables Seccomp isolator on Mesos agents. Seccomp isolator is used to set up a Seccomp profile for UCR containers.
-*  `mesos_seccomp_enabled: 'false'` Seccomp are not available for use in the cluster. This is the default value.
-
-For more information, see the [Seccomp documentation](http://mesos.apache.org/documentation/latest/isolators/linux-seccomp/).
-
-**Note**: DC/OS provides a default Seccomp profile, which can be enabled for UCR containers via the [`mesos_seccomp_profile_name`](#mesos-seccomp-profile-name) option.
-
-### mesos_seccomp_profile_name
-
-Specifies the name of the default Seccomp profile which is applied cluster-wide for UCR containers. If unset, a Seccomp profile is not applied by default. If you set this configuration option to `default.json`, Mesos agents will use built-in Seccomp profile. This profile is a slightly modified version of a Docker default profile. It can be found in `/opt/mesosphere/etc/dcos/mesos/seccomp`. It is highly recommended to use the built-in default Seccomp profile.
-
-**Note**: This option requires the [`mesos_seccomp_enable`](#mesos-seccomp-enable) option to be turned on.
-
 ### network_cni_root_dir_persist
 Specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node.
 
-**Note:** It requires Host reboot for this flag to take effect.
+<p class="message--note"><strong>NOTE: </strong>It requires Host reboot for this flag to take effect.</p>
 
 ### oauth_enabled [oss type="inline" size="small" /]
 Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
@@ -536,7 +524,7 @@ The infrastructure platform. The value is optional, free-form with no content va
 ### process_timeout
 The allowable amount of time, in seconds, for an action to begin after the process forks. This parameter is not the complete process time. The default value is 120 seconds.
 
-**Note:** For a slower network, consider changing to `process_timeout: 600`.
+<p class="message--note"><strong>NOTE: </strong>For a slower network, consider changing to `process_timeout: 600`.</p>
 
 ### public_agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.13/overview/concepts/#public-agent-node) host names.
@@ -593,20 +581,30 @@ Refer to the [security modes](/1.13/security/ent/#security-modes) section for a 
 ### ssh_key_path
 The path that the installer uses to log into the target nodes. By default this is set to `/genconf/ssh_key`. This parameter should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
 
-**Note:** The `ssh_key_path` is not required for the production installer.
+<p class="message--note"><strong>NOTE: </strong>The `ssh_key_path` is not required for the production installer.
+</p>
 
 ### ssh_port
 The port to SSH to, for example `22`.
 
-**Note:** The `ssh_port` is not required for the production installer.
+<p class="message--note"><strong>NOTE: </strong>The `ssh_port` is not required for the production installer.
+</p>
 
 ### ssh_user
 The SSH username, for example `centos`.
 
-**Note:** The ssh_user is not required for the production installer.
+<p class="message--note"><strong>NOTE: </strong>The `ssh_user` is not required for the production installer.</p>
 
 ### superuser_password_hash (Required) [enterprise type="inline" size="small" /]
 The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. This first super user account is used to provide a method of logging into DC/OS, at which point additional administrative accounts can be added. For more information, see the [security documentation](/1.13/security/ent/).
+
+### superuser_service_account_uid
+This service account authenticates using its public key specified by `superuser_service_account_public_key` configuration parameter.
+
+### superuser_service_account_public_key
+The superuser service account public key.
+This additional superuser account provides a method to automate tasks against a DC/OS cluster with superuser privileges.
+The operator can create a RSA key-pair and supply the generated public key in X.509 PEM public key format.
 
 ### superuser_username (Required) [enterprise type="inline" size="small" /]
 The user name of the superuser. This account uses the `superuser_password_hash`. For more information, see the [security documentation](/1.13/security/ent/).
@@ -631,18 +629,19 @@ Indicates whether to enable the DC/OS proxy.
     *  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` The HTTPS proxy.
     *  `no_proxy`: A YAML nested list (`-`) of subdomains to exclude from forwarding to the `https_proxy`. If the address matches one of these strings, or the host is within the domain of one of these strings, http(s) requests to that node are not proxied. For example, the `no_proxy` list can be a list of internal IP addresses.
 
-        **Note:** Wildcard characters (`*`) are not supported.
+   <p class="message--note"><strong>NOTE: </strong>Wildcard characters (`*`) are not supported.</p>
+
 
 For more information, see the [examples](/1.13/installing/ent/custom/configuration/examples/#http-proxy).
 
-**Note:** You should also configure an HTTP proxy for [Docker](https://docs.docker.com/engine/admin/systemd/#/http-proxy).
+<p class="message--note"><strong>NOTE: </strong>You should also configure an HTTP proxy for <a href="https://docs.docker.com/engine/admin/systemd/#/http-proxy">Docker</a></p>
 
 ### enable_ipv6
 * `enable_ipv6: 'true'`: Enables IPv6 networking in DC/OS. This is the default value.
 * `enable_ipv6: 'false'`: Disables IPv6 networking in DC/OS.
 
 Currently, IPv6 networks are supported only for Docker containers. Setting this flag to `true` will allow the following features to be enabled:
-* Users can create IPv6 DC/OS overlay networks. **Note:** This will work only for Docker containers.
+* Users can create IPv6 DC/OS overlay networks. This will work only for Docker containers.
 * Service discovery for IPv6 containers will be available.
 * Layer-4 load-balancing will be available for IPv6 Docker containers if [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) is set to `true`.
 
@@ -651,7 +650,7 @@ Indicates whether layer-4 load-balancing is available for IPv6 containers.
 *  `dcos_l4lb_enable_ipv6: 'false'` Disables [layer-4 load balancing](/1.13/networking/load-balancing-vips/) for IPv6 containers. This is the default value.
 *  `dcos_l4lb_enable_ipv6: 'true'` Enables layer-4 load balancing for IPv6 containers.
 
-**Note:** Layer-4 load balancing for IPv6 containers should be turned on with caution.
+<p class="message--note"><strong>NOTE: </strong>Layer-4 load balancing for IPv6 containers should be turned on with caution.</p>
 
 ### dcos_ucr_default_bridge_subnet
 Takes an IPv4 subnet. The subnet is allocated to the bridge `ucr-br0` created by the `mesos-bridge` CNI network. The `mesos-bridge` CNI network represents the network that is used to launch UCR containers when bridge-mode networking is selected for UCR containers.

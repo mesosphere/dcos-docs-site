@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Tutorials
 title: Tutorials
-menuWeight: 50
+menuWeight: 60
 excerpt: Step by step walkthrough of using DC/OS Storage Service to discover devices and provision a storage profile, local volume provider, and local volume.
 enterprise: true
 beta: true

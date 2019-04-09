@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle:  dcos node diagnostics download
 title: dcos node diagnostics download
-menuWeight: 3
+menuWeight: 5
 excerpt: Downloading the diagnostics bundle
-
 enterprise: false
 ---
 
@@ -16,18 +15,19 @@ The `dcos node diagnostics download` command allows you to download the diagnost
 # Usage
 
 ```bash
-dcos node diagnostics download <bundle> [OPTION]
+dcos node diagnostics download <bundle> [--location=<location>]
 ```
 
 # Options
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
+| `--help, h`   |   |  Displays usage. |
 | `--location=<location>`   |  Current directory |  Download the diagnostics bundle to a specific location. If not set, the default location is your current working directory. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<bundle>`   |  The bundle filename. For example, `bundle-2017-02-01T00:33:48-110930856.zip`. |
 

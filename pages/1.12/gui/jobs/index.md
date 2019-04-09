@@ -10,4 +10,4 @@ The Jobs menu provides native support for creating and managing scheduled jobs. 
 
 ![Jobs](/1.12/img/GUI-Jobs-Jobs_Table-1_12.png)
 
-<p><i>Figure 1 - Jobs tab</i></p>
+Figure 1 - Jobs tab

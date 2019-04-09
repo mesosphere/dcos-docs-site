@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Discover the new features, updates, and known limitations in this release of the HDFS Service
 title: Release Notes
 menuWeight: 120
 model: /services/hdfs/data.yml
 render: mustache
 ---
 
-## Version 2.3.0-2.6.0-cdh5.11.0
+# Release Notes for HDFS Service version 2.3.0-2.6.0-cdh5.11.0
 
 ## New Features
 
@@ -22,7 +22,7 @@ render: mustache
 
 - The SDK tests now validate missing values for `svc.yml` Mustache variables. ([#2527](https://github.com/mesosphere/dcos-commons/pull/2527))
 
-## Version 2.2.0-2.6.0-cdh5.11.0
+<!-- ## Version 2.2.0-2.6.0-cdh5.11.0
 
 ### New Features
 - Support for deploying the service in a remote region.
@@ -81,3 +81,4 @@ render: mustache
 ### Documentation
 - Pre-install notes include five agent pre-requisite
 - Updated CLI documentation
+ -->

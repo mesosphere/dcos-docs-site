@@ -1,18 +1,18 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-excerpt: Release Notes for DSE v. 2.4.0-5.1.10
+excerpt: Discover the new features, updates, and known limitations in this release of the DSE Service 
 title: Release Notes
 menuWeight: 10
 model: /services/dse/data.yml
 render: mustache
 ---
 
-# Version 2.4.0-5.1.10
+# Release Notes for DSE Service version 2.4.0-5.1.10
 
 ## Improvements
 - Update to {{ model.shortTechName }} 5.1.10 and OpsCenter 6.1.9
-
+<!-- 
 # Version 2.3.0-5.1.2
 
 ## New Features
@@ -160,3 +160,4 @@ render: mustache
 
 ## Breaking Changes
 - This is a major release available for DC/OS 1.9 or higher. You cannot upgrade to version 2.0.0-5.1.2 from any previous versions of the  package. This is due to the separation of the core {{ model.shortTechName }} nodes from Opscenter.
+ -->

@@ -4,25 +4,25 @@ navigationTitle:  dcos marathon debug list
 title: dcos marathon debug list
 menuWeight: 12
 excerpt: Displaying the current queue of Marathon app deployments
-
 enterprise: false
 ---
 
 
 
 # Description
-The `dcos marathon debug list` command allows you to display the current queue of Marathon application deployments that are waiting.
+The `dcos marathon debug list` command allows you to display a list of currently queued instance launches for debugging purpose.
 
 # Usage
 
 ```bash
-dcos marathon debug list [OPTION]
+dcos marathon debug list [--json]
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 | `--json`   |  Displays JSON-formatted data. |
 
 # Parent command

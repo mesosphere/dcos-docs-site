@@ -161,5 +161,5 @@ Figure 1. Services tab showing Spark
 ## Next Steps
 
 - To view the status of your job, run the `dcos spark webui` command and then visit the Spark cluster dispatcher UI at `http://<dcos-url>/service/spark/` .
-- To view the logs, the Mesos UI at `http://<your-master-ip>/mesos`.
+- To view the logs, see the documentation for [Mesosphere DC/OS monitoring](https://docs.mesosphere.com/1.12/monitoring/logging/).
 - To view details about your Spark job, run the `dcos task log --completed <submissionId>` command.

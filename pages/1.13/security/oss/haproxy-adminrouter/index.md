@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt: Configuring HAProxy in front of an Admin Router
 title: HAProxy and Admin Router
 navigationTitle: HAProxy and Admin Router
-menuWeight: 30
+menuWeight: 50
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

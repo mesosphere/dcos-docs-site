@@ -1,18 +1,19 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Discover the new features, updates, and known limitations in this release of the Confluent ZooKeeper Service
 title: Release Notes
-menuWeight: 120
-model: /services/kafka-zookeeper/data.yml
+menuWeight: 10
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
-# Version 2.4.0-4.0.0e
+# Release Notes for Confluent ZooKeeper Service version 2.4.0-4.0.0e
 
 ## Bug Fixes
 - [DCOS-40634] Fix a bug where restarting more than one server in an ensemble at a time would cause the servers to not be able to start due to waiting for other servers that are also down.
 
+<!-- 
 # Version 2.3.0-4.0.0e
 
 ## Features
@@ -40,3 +41,4 @@ This is the initial GA release of the DC/OS Confluent ZooKeeper service.
 - Support for Zone placement constraints in DC/OS 1.11 (beta versions of DC/OS 1.11 coming soon).
 - Support for 3 or 5 ZooKeeper nodes.
 - Support for pausing ZooKeeper nodes for debugging and recovery purposes.
+ -->

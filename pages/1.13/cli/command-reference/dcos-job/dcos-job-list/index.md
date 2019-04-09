@@ -4,7 +4,6 @@ navigationTitle:  dcos job list
 title: dcos job list
 menuWeight: 3
 excerpt: Displaying all job definitions
-
 enterprise: false
 ---
 
@@ -15,14 +14,16 @@ The `dcos jobs list` command allows you to display all job definitions.
 # Usage
 
 ```bash
-dcos job list [OPTION]
+dcos job list [--json|--quiet]
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
-| `--json`   |   Display a JSON-formatted list. |
+| `-h`, `--help` | Displays usage for this command. |
+| `--json`   |   Print JSON-formatted list instead of a table. |
+| `-q`, `--quiet` | Indicates a quiet mode which results in just an array of run ids. |
 
 # Parent command
 

@@ -3,24 +3,23 @@ layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 130
-excerpt: Release Notes for version 0.2.0-1.5.0
+excerpt: Discover the new features, updates, and known limitations in this release of the NiFi Service 
 featureMaturity:
 enterprise: false
 ---
 
+# Release Notes for NiFi Service version 0.2.0-1.5.0
 
-## Version 0.2.0-1.5.0
-
-### New Features
+## New Features
 - Support for Kerberos and SSL authorization and authentication.
 - Support for Nifi CLI.
 - Support for Nifi Metrics using DCOS Metrics API
 
-### Updates
+## Updates
 - Removing configurable settings for Nifi like container path and some default configurations.
 - Renamed web endpoint to node endpoint.
 
-## Version 0.1.0-1.5.0
+<!-- ## Version 0.1.0-1.5.0
 
 This is the first release of Apache Nifi to Universe. Based on the latest stable release version of Apache Nifi, version 1.5.0, this installation would be supported on DCOS cluster 1.9 and above. This has been built using current stable version of SDK (Version 0.40.2).
 
@@ -61,3 +60,4 @@ Released first version of Service Guide with following topics:
     - Supported Versions
     - Release Notes
     - Upgrade
+ --> -->

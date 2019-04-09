@@ -1,0 +1,57 @@
+You can edit and install the configuration file for your service from the DC/OS GUI. You can also download the `config.json` file for reference.
+
+1. From the DC/OS GUI, click on **Catalog** in the left hand navigation menu. The Catalog will appear.
+
+    ![Catalog](/1.12/img/GUI-Catalog-Main_View-1_12.png)
+
+    Figure 3. Catalog screen
+
+1. From the Catalog, choose your service. In this case, we will choose Elastic by clicking on the Elastic image. The Elastic service isntance page will appear. 
+
+1. From the Elastic service instance page, click on the **REVIEW & RUN** button.
+
+    ![Review button](/1.12/img/1.12-gui-config-2.png)
+
+    Figure 4. Review & Run button
+    
+1. The Edit Configuration page will appear. If you need to see the code, click on the **JSON Editor** button at the top right.
+
+    ![JSON editor](/1.12/img/1.12-gui-config-3.png)
+
+    Figure 5. JSON Editor button
+
+1. The screen will split, showing you the Edit Configuration page and a text editor. Any changes you make to the Edit Configuration page are reflected in the JSON file shown on the right.
+
+    ![Split screen](/1.12/img/1.12-gui-config-4.png)
+
+    Figure 6. Edit Configuration split screen
+    
+1. When you finish making your changes, click the **REVIEW & RUN** button. The **Review Configuration** page will appear. This will show the Preinstall Notes, reminding you of the prerequisites for this service. You have the opportunity to review and edit your configuration file, or download it.
+
+    ![Review Config](/1.12/img/1.12-gui-config-5.png)
+
+    Figure 7. Review Configuration page
+
+1. If you have more changes to make, click the **Edit Config** button. You may also download the `config.json` file by clicking on the **Download Config** button. This will start a download to your system's designated download folder. This is useful to have as reference, upgrading and for backup.
+
+    ![Split screen](/1.12/img/1.12-gui-config-7.png)
+
+    Figure 8. Download Config button
+
+1. When you have finished configuring your installation, click the **Run Service** button on the top right. 
+
+    ![Run Service](/1.12/img/1.12-gui-config-6.png)
+
+    Figure 9. Run Service button
+
+1. DC/OS will install your service and display a success screen.
+
+    ![Success screen](/1.12/img/elastic-install-success.png)
+
+    Figure 10. Success screen
+
+1. From the **Services** tab, you can see that your service is now running.
+
+    ![Services tab](/1.12/img/1.12-gui-config-8.png)
+
+    Figure 11. Services screen showing Elastic service
