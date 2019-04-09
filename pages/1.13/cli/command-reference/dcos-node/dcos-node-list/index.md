@@ -8,6 +8,7 @@ enterprise: false
 ---
 
 # Description
+
 The `dcos node list-` command displays a list of DC/OS master and agent nodes with identifying information, including:
 - Hostname
 - IP address
@@ -18,6 +19,7 @@ The `dcos node list-` command displays a list of DC/OS master and agent nodes wi
 - Availability zone      
 
 You can use this command to look up the public agent IP address if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or on a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
+
 
 # Usage
 
