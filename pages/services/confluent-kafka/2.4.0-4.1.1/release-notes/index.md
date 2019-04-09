@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes 
+navigationTitle: Release Notes
 excerpt: Discover the new features, updates, and known limitations in this release of the Confluent Kafka Service
 title: Release Notes
 menuWeight: 10
@@ -14,14 +14,15 @@ render: mustache
 
 - Update to Confluent Kafka version 4.1.1
 - Upgrade JRE to 1.8u192 to address CVEs
-<!-- 
+<!--
 # Version 2.3.0-4.0.0e
 
 ## New Features
 
 - Support for configuring Kafka transport encryption ciphers with secure defaults.
 
- --><!-- # Version 2.2.0-4.0.0e
+ -->
+ <!-- # Version 2.2.0-4.0.0e
 
 ## New Features
 
