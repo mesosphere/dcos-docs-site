@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Advanced
+excerpt: Advanced features of Elastic
 title: Advanced
 menuWeight: 80
 model: /services/elastic/data.yml
