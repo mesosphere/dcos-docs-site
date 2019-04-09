@@ -15,7 +15,7 @@ render: mustache
 - Upgraded SDK to `0.55.4` 
 
 ## New Features
-- Added pod plan commands: `nodetool-ser` and `nodetool-par` for executing `nodetool` commands either serially or in parallel across all nodes in the cluster [PR #314](https://github.com/mesosphere/dse-private/pull/314):
+- Added pod plan commands: `nodetool-ser` and `nodetool-par` for executing `nodetool` commands either serially or in parallel across all nodes in the cluster.
 	- Now users can issue nodetool commands against all nodes in their cluster via command:
 	```
 	dcos datastax-dse plan start nodetool-ser \
@@ -31,25 +31,38 @@ render: mustache
 	  -p NODETOOL_CMD_ARGS='-a'
 	```
 - Upgrading the SDK from the 0.4x series to 0.5x comes with significant framework and scheduler improvements such as:
-	- adding [multi-service support](https://github.com/mesosphere/dcos-commons/releases/tag/0.50.0) and region-/zone-awareness
-	- [scheduler metrics](https://github.com/mesosphere/dcos-commons/releases/tag/0.52.0)
-	- improving logging, debuggability, and bug fixes
+	- Adding [multi-service support](https://github.com/mesosphere/dcos-commons/releases/tag/0.50.0) and region-/zone-awareness
+	- [Scheduler metrics](https://github.com/mesosphere/dcos-commons/releases/tag/0.52.0)
+	- Improving logging, debuggability, and bug fixes
 	- Please read SDK-related release notes to learn more: https://github.com/mesosphere/dcos-commons/releases
 
-## Upgrading your cluster from DSE 5 to 6
-In order to upgrade your cluster from DSE 5 to DSE 6 you must do two things:
-- `dcos datastax-dse update start --package-version=3.0.0-6.7.2`
-	- This will run a script to drop `COMPACT_STORAGE` from all keyspaces and then upgrade each DSE node to version 6.7.2
+## Upgrading your cluster from DSE 5.1 to 6.7
+Due to the complexity of upgrading to DSE 6.7, it is highly advised that you attempt the upgrade on a test cluster before upgrading in your production environment.
+
+In order to upgrade your cluster from DSE 5.1 to DSE 6.7 you must:
+- Review official DSE upgrade docs: https://docs.datastax.com/en/upgrade/doc/upgrade/datastax_enterprise/upgdDSE51to67.html
+  - follow instructions in the [Upgrade restrictions and limitations](https://docs.datastax.com/en/upgrade/doc/upgrade/datastax_enterprise/upgdDSE51to67.html#Upgraderestrictionsandlimitations)
+  - if using CFS, copy your data from it
+  - Using `cqlsh`, drop CFS keyspaces: `cfs` and `cfs_archive`
+- Run the following command to upgrade your DSE package: 
+  ```
+  dcos datastax-dse update start --package-version=3.0.0-6.7.2
+  ```
+	- This will run a script to drop `COMPACT_STORAGE` from all keyspaces and then upgrade each DSE node to version `6.7.2`
 	<p class="message--important"><strong>IMPORTANT: </strong>Before upgrading, make sure the agent running <code>dse-0-node</code> has more than 0.25 CPU available. This is required to run the <code>compact-storage</code> task. You may have to move other services running on that agent to accommodate.</p>
 
-- Separately:
+- After upgrade succeeds, run the following command to convert sstables to the proper version:
 	```
 	dcos datastax-dse plan start nodetool-ser \
 	  [-p NODETOOL_CONNECTION_OPTS='-p 7199']  \  ## optional
 	  -p NODETOOL_SUBCOMMAND='upgradesstables'  \
 	  -p NODETOOL_CMD_ARGS='-a'
 	```
-	- This will convert all your sstables to the proper version. Note that this action cannot be undone, and you should plan for increased load activity on your cluster. Should any problems arise, `pause` the plan and investigate.
+	<p class="message--important"><strong>IMPORTANT: </strong>This action cannot be undone and you should plan for increased load activity on your cluster. This task should be scheduled for off-peak hours. Should any problems arise, `pause` the plan and investigate.
+- After DSE upgrade, you can upgrade OpsCenter with the following command: 
+  ```
+  dcos datastax-ops update start --package-version=3.0.0-6.7.1
+  ```
 
 
 # Version 2.4.0-5.1.10
