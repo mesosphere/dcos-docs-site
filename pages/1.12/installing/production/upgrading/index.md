@@ -29,6 +29,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
    * For multi-master configurations, after one master has finished upgrading, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
 - An upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
+- Any custom configuration files placed in `/opt/mesosphere` such as CNI plugin configurations, may be removed during an upgrade and should be backed up and replaced.
 
 ## Supported upgrade paths matrix
 The following matrix table lists the supported upgrade paths for DC/OS 1.12.

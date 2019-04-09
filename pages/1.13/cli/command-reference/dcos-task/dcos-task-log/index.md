@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle:  dcos task log
 title: dcos task log
-menuWeight: 1
+menuWeight: 5
 excerpt: Displaying the task log
-
 enterprise: false
 ---
 
@@ -15,25 +14,26 @@ The `dcos task log` command displays the task log.
 # Usage
 
 ```bash
-dcos task log <task> <file> [OPTION]
+dcos task log [--all | --completed] [--follow --lines=N] [<task>] [<file>]
 ```
 
 # Options
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
 | `--completed`   |             | Displays completed and in-progress tasks. |
 | `--follow`   |             |  Dynamically update the log. |
 | `--lines=N`   |     10      |  Displays the last N lines. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand | Default | Description |
+| Name | Default | Description |
 |---------|-------------|-------------|
 | `<task>`   |             |  A full task ID, a partial task ID, or a regular expression. |
-| `<file>`   |  `stdout`  |  Specify the sandbox file to Displays. |
+| `<file>`   |  `stdout`  |  Specify the sandbox file to print. The default is `stdout`. |
 
 The log file parameters should be paths relative to the Mesos sandbox. For example:
+
 ```
 dcos task log [mesosID] /mnt/mesos/sandbox/exporter.log
 ```
@@ -43,12 +43,15 @@ will return an error message. Instead, use this format:
 dcos task log [mesosID] exporter.log
 ```
 
+# Examples
+
+For an example, see the [logging documentation](/1.13/monitoring/logging/).
+
+
 # Parent command
 
 | Command | Description |
 |---------|-------------|
 | [dcos task](/1.13/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
 
-# Examples
 
-For an example, see the [documentation](/1.13/monitoring/logging/).
