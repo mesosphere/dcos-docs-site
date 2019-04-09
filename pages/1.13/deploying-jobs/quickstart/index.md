@@ -23,7 +23,7 @@ You can manage the most common job-related activity interactively through the DC
 
 1. Click **Jobs**, then click **Create a Job** to display the New Job settings. 
 
-    ![Create JOB UI](/1.13/img/job-new-general.png)
+    ![Create JOB UI](/1.13/img/job-new-general-fields.png)
 
     You can configure the job using the fields displayed or click **JSON Editor** to edit the JSON directly. If you click **Jobs** and see a list of previously-created jobs, click the plus (+) sign displayed above and to the right of the job list to create a new job.
 
