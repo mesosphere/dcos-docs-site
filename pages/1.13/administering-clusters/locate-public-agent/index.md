@@ -185,7 +185,7 @@ In these API examples, there are three public IP addresses for the public agent 
 - 52.25.254.97
 - 54.218.23.75
 
-In the example, there are no public IP addresses available for the private nodes.
+As illustrated in the example, there are no public IP addresses available for the private agent nodes. For private agent nodes, the API call returns an empty value for the setting (`"public_ips": []`).
 
 # Executing a query to return the public IP addresses
 If you are working with an older version of the DC/OS cluster, you can find your public agent IP address by executing a `jq` query in a script or from the command-line in a shell terminal. The following sample script uses a `jq` query to open a secure shell (SSH) session on the DC/OS cluster to obtain cluster information then queries [ifconfig.co](https://ifconfig.co/) to determine the public IP address.
