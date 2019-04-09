@@ -9,28 +9,35 @@ enterprise: false
 
 # Description
 
-The `dcos job add` command lets you add a job by creating a JSON format configuration file.
+The `dcos job add` command lets you add a job from a JSON-formated configuration file.
 
 # Usage
 
 ```bash
-dcos job add <job-file> [OPTION]
+dcos job add <job-file>
 ```
+# Options
 
-# Positional arguments
+| Name |  Description |
+|---------|-------------|
+|`-h`, `--help` |   Print usage. |
 
-| Name, shorthand | Description |
+## Positional arguments
+
+| Name | Description |
 |---------|-------------|
 | `<job-file>`   | Specifies a JSON-formatted job definition. |
 
-# Parent command
 
-| Command | Description |
-|---------|-------------|
-| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 
 For job examples, see the [Create a Job](/1.13/deploying-jobs/examples/#create-job).
 
 For information on how to create a job using this command, see [Add a job](/1.13/deploying-jobs/quickstart/#add-a-job-2).
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

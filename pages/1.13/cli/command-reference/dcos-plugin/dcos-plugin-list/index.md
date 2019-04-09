@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  dcos plugin list
 title: dcos plugin list
 menuWeight: 2
-excerpt: Displaying a list of the installed DC/OS plugins
+excerpt: Displaying a list of the installed CLI plugins
 
 enterprise: false
 ---
@@ -11,19 +11,20 @@ enterprise: false
 
 # Description
 
-Print a list of the installed DC/OS plugins.
+The `dcos plugin list` command will print a list of the installed CLI plugins.
 
 # Usage
 
 ```bash
-dcos plugin list [OPTION]
+dcos plugin list [flags]
 ```
 
 # Options
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `--json`   |             |  JSON-formatted list. |
+| Name |  Description |
+|---------|------------|
+| `--help, h`     |  Print usage. |
+| `--json`   |   JSON-formatted list. |
 
 # Parent command
 

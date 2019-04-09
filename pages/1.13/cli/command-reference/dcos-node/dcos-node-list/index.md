@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  dcos node list
 title: dcos node list
-menuWeight: 4
+menuWeight: 6
 excerpt: Displaying identifying information such as host namees, IP addresses, and regions for cluster nodes
 enterprise: false
 ---

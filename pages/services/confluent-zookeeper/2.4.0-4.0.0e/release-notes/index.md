@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:
 excerpt: Discover the new features, updates, and known limitations in this release of the Confluent ZooKeeper Service
 title: Release Notes
-menuWeight: 120
-model: /services/kafka-zookeeper/data.yml
+menuWeight: 10
+model: /services/confluent-zookeeper/data.yml
 render: mustache
 ---
 
@@ -12,6 +12,7 @@ render: mustache
 
 ## Bug Fixes
 - [DCOS-40634] Fix a bug where restarting more than one server in an ensemble at a time would cause the servers to not be able to start due to waiting for other servers that are also down.
+
 <!-- 
 # Version 2.3.0-4.0.0e
 

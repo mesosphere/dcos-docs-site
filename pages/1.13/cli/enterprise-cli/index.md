@@ -15,7 +15,14 @@ The DC/OS Enterprise CLI provides commands for DC/OS Enterprise features:
 
 # <a name="ent-cli-install"></a>Installing the DC/OS Enterprise CLI
 
-## Prerequisite
+The DC/OS Enterprise CLI **is automatically installed** when setting up the connection from the CLI to your DC/OS cluster.
+
+To confirm that the dcos-enterprise-cli is installed, run `dcos plugin list`. You can see the enterprise CLI there as it is now a standard plugin. To manage, read [our documentation about CLI plugins](/1.13/cli/plugins/).
+
+The previous installation process using `dcos package install dcos-enterprise-cli` is deprecated since DC/OS 1.13 and the DC/OS CLI 0.8.
+
+## Deprecated installation (DC/OS <= 1.12)
+### Prerequisite
 
 The DC/OS CLI must already be [installed](/1.13/cli/install/).
 
@@ -30,7 +37,7 @@ dcos package install dcos-enterprise-cli
 **Note:** Do not use `sudo`.
 
 
-# <a name="ent-cli-upgrade"></a>Upgrading the DC/OS Enterprise CLI
+### <a name="ent-cli-upgrade"></a>Upgrading the DC/OS Enterprise CLI
 
 A reinstall of the DC/OS Enterprise CLI upgrades the package.
 
@@ -39,7 +46,7 @@ dcos package install dcos-enterprise-cli
 ```
 
 
-# <a name="ent-cli-uninstall"></a>Uninstalling the DC/OS Enterprise CLI
+### <a name="ent-cli-uninstall"></a>Uninstalling the DC/OS Enterprise CLI
 
 To uninstall the DC/OS Enterprise CLI, issue the following command.
 
