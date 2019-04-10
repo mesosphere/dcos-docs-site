@@ -22,7 +22,7 @@ dcos cluster list [flags]
 
 | Name | Description |
 |---------|-------------|
-| `--attached`   | Returnes attached clusters only. |
+| `--attached`   | Returns attached clusters only. |
 | `--json`   |  Displays a JSON-formatted list. |
 |  `-h`, `--help`  | Displays help for this command. |
 
