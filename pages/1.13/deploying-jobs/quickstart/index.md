@@ -148,6 +148,14 @@ You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To 
     dcos job list
     ```
     
+    The command displays the list of jobs similar to the following:
+    
+    ```bash
+        ID       STATUS    LAST RUN  
+    mysleepjob  Scheduled  N/A       
+    mypingjob   Running    N/A       
+    ```
+
 ## Set a concurrency policy for scheduled jobs
 If you use a schedule to start a job, you can define a concurrency policy for the job. A concurrency policy determines whether a new job run instance is triggered if there's already a job instance running. 
 
@@ -194,10 +202,22 @@ If you want to use the same schedule for more than one job, however, you can cre
     dcos job schedule add mytestjob my-cron-def.json
     ```
 
+    If you attempt to add a schedule definition to a job that already has a schedule defined, the command displays an error similar to the following:
+    ``` 
+    Error: 409 - requirement failed: A schedule with id nightly already exists
+    ```
+
 1. Verify that you have added the new job schedule by running a command similar to the following:
 
     ```bash
-    dcos job list
+    dcos job schedule show mytestjob
+    ```
+
+    This command displays schedule information for the specified job similar to the following:
+
+    ```bash
+    ID        CRON     ENABLED            NEXT RUN            CONCURRENCY POLICY  
+    nightly  20 0 * * *  True     2019-04-11T00:20:00.000+0000  ALLOW
     ```
 
 ## Start a job from the command line
