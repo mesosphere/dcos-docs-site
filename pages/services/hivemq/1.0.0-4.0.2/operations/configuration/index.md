@@ -34,7 +34,7 @@ render: mustache
 
 # <a name="sidecar-plans"></a>Sidecar plans
 
-The DC/OS { model.techName } service also provides several sidecar plans, which allow you to modify the configuration of cluster nodes at runtime.
+The DC/OS {{ model.techName }} service also provides several sidecar plans, which allow you to modify the configuration of cluster nodes at runtime.
 
 <p class="message--warning"><strong>These plans will apply changes to all currently deployed nodes. Newly created nodes will not receive these changes.</strong>
 

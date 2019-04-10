@@ -8,7 +8,9 @@ model: /services/hivemq/data.yml
 render: mustache
 ---
 
-<!-- copied and modified from security-configure-transport-encryption.tmpl -->
+<!-- copied and modified from security-configure-transport-encryption.tmpl
+   TODO: fix the json and try if it works
+ -->
 
 ### Prerequisites
 - [A DC/OS Service Account with a secret stored in the DC/OS Secret Store](/latest/security/ent/service-auth/custom-service-auth/).

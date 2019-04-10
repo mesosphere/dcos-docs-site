@@ -82,16 +82,6 @@ HiveMQ supports deployment [virtual networks](/1.10/networking/virtual-networks/
 ```
 As mentioned in the [developer guide](https://mesosphere.github.io/dcos-commons/developer-guide.html) once the service is deployed on a virtual network, it cannot be updated to use the host network.
 
-# Changing Configuration at Runtime
-
-You can customize your cluster in-place when it is up and running. These are the general steps to follow:
-
-1.  View your DC/OS dashboard at `http://$DCOS_URI/#/services/overview`
-1.  In the list of `Applications`, click the name of the hivemq service to be updated.
-1.  Within the hivemq instance details view, click the `Configuration` tab, then click `Edit`.
-1.  In the dialog that appears, expand the `Environment Variables` section and update any field(s) to their desired value(s). For example, to increase the number of data nodes, edit the value for `DATA_NODE_COUNT`. Do not edit the value for `FRAMEWORK_NAME`, `MASTER_NODE_TRANSPORT_PORT`, or any of the disk type/size fields.
-1.  Click `Change and deploy configuration` to apply any changes and cleanly reload the hivemq service scheduler. The hivemq cluster itself will persist across the change.
-
 # Configuration Guidelines
 
 - Service name: This needs to be unique for each instance of the service that is running. It is also used as your cluster name.
