@@ -162,9 +162,6 @@ EBS volumes present as non-volatile memory express (NVMe) devices on certain new
     KERNEL=="nvme[0-9]*n[0-9]*", ENV{DEVTYPE}=="disk", ATTRS{model}=="Amazon Elastic Block Store", PROGRAM="/usr/local/bin/ebs-nvme-mapping /dev/%k", SYMLINK+="%c"
     EOF
     $ cat <<EOF > /usr/local/bin/ebs-nvme-mapping
-    ```
-
-    ```bash
     #!/bin/bash
     #/usr/local/bin/ebs-nvme-mapping
     vol=$(/usr/sbin/nvme id-ctrl --raw-binary "${1}" | \
@@ -179,7 +176,7 @@ EBS volumes present as non-volatile memory express (NVMe) devices on certain new
 
 ## External volumes   
 
-To troubleshoot external volumes, consult the agent or system logs. If you are using REX-Ray on DC/OS, you can also consult the `systemd` journal.
+To troubleshoot external volumes, consult the agent or system logs. If you are using REX-Ray on DC/OS, you can also consult the `systemd` journal for the `dcos-rexray.service` unit logs.
 
 [4]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
 [5]: http://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/
