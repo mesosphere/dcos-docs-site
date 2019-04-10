@@ -56,6 +56,10 @@ Some highlights for this release include:
 - Automatically create a curated collection of Prometheus-driven Grafana dashboards for DC/OS  <!--(DCOS-44740)-->
 If you deploy DC/OS monitoring, you can leverage Mesosphere-provided Grafana-based dashboards. By installing and configuring the `dcos-monitoring` service, you can automatically create dashboards that enable you to quickly visualize the metrics that the dcos-monitoring package is collecting from the DC/OS cluster and DC/OS-hosted applications. For more information about using Grafana dashboards, see the [dashboard repository](https://github.com/dcos/grafana-dashboards).
 
+- [dcos-telegraf] Instrument and transmit telegraf metrics to using the telegraf plugin <!--(DCOS-39012)-->
+
+    dcos-telegraf collects and forwards metrics about itself for storage and reporting via dcos-monitoring or third party monitoring services.
+
 <!-- not in the 1.13 Docs in RN filter
 - Standardized log collection and forwarding via fluentbit (DCOS-43412)
 Application and DC/OS cluster component logs are now aggregated and Operators can configure forwarding to a third party log storage, search and reporting application. Previously, Operators had to install 3rd party Agents on cluster nodes to perform this task. With the introduction of support for fluent bit, Operators can now leverage easy to configure plugins to perform log filtering and forwarding to a log collection, search and reporting system.
@@ -64,7 +68,7 @@ Application and DC/OS cluster component logs are now aggregated and Operators ca
 ## Command-line interface
 - Identify the public-facing IP address for public agent nodes through DC/OS CLI. <!--(DCOS-44697)-->
 
-    With this release, you can now retrieve the public-facing IP address for a public agent node by running the `dcos node list` command.
+    With this release, you can retrieve the public-facing IP addresses for the nodes in a cluster by running the `dcos node list` command. For more information about using the new command for retrieving public IP addresses, see the [dcos node](/1.13/cli/command-reference/dcos-node/) command reference.
 
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a **public cloud provider** such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
@@ -135,6 +139,8 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 
 - Identify the public-facing IP address for public agent nodes in the DC/OS GUI. <!--(DCOS-49987)-->
 
+    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS GUI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS GUI, see the [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
+
    You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
 - Internationalization and localization (I18N and L10N - Chinese) <!--(DCOS-39557)-->
@@ -161,24 +167,12 @@ The Universal Installer now provides the ability to provision AWS EBS volumes an
 Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/
 -->
 
-## Metrics
-- [dcos-telegraf] Instrument and transmit telegraf Metrics to using the telegraf plugin <!--(DCOS-39012)-->
-
-    dcos-telegraf collects and forwards metrics about itself for storage and reporting via dcos-monitoring or third party monitoring services.
-
 ## Networking
 - Add a new networking API endpoint to retrieve the public-facing IP address for public agent nodes. <!--(DCOS-28127)-->
 
+    This release introduces a new API endpoint for accessing public-facing IP addresses for the nodes in a cluster. For more information about retrieving and viewing public IP addresses, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
+    
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
-
-## Platform
-- Update Rex-Ray to support NVMe EBS volumes. <!--(DCOS-50047)-->
-
-    REX-Ray is a container storage orchestration engine that enables persistence for cloud-native workloads. With Rex-Ray, you can manage native Docker Volume Driver operations through a command-line interface (CLI).
-
-    Amazon Elastic Block Store (Amazon EBS) provides block-level storage volumes for Amazon Elastic Cloud (EC2) instances. Amazon EBS volumes can be attached to any running EC2 instance hosted in the same Amazon availability zone to provide persistent storage that is independent of the deployed instance. EBS storage volumes can be exposed using NVMe (non-volatile memory express) as a host controller interface and storage protocol. NVMe devices enable you to accelerate the transfer of data between nodes and solid-state drives (SSDs) over a computer's connection gateway.
-
-    With this release, DC/OS updates REX-Ray to support NVMe storage when the DC/OS cluster runs on an Amazon instance. To work with NVMe devices, however, you must provide your own `udev` rules and  `nvme-cli` package. For more information about using Rex-Ray, see the [REX-Ray](https://rexray.io/) website and [github repository](https://github.com/rexray).
 
 <!-- not in 1.13 Docs in RN filter 
 - Retention policies for dcos-monitoring data (DCOS-46818)
@@ -196,13 +190,21 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 ## Service automation
 - Support secure computing mode (seccomp) profiles. <!--(DCOS-49134)-->
 
-    Secure computing mode (seccomp) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within a container. You can enable secure computing mode for Docker containers to universal runtime containers (URC) if the operating system your are using supports it.
+    Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within a container. You can enable secure computing mode for Docker containers and Universal Runtime Containers (URC) if the operating system you are using supports it.
 
     WIth DC/OS, you can use a seccomp profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls. 
 
-    Using a secure computing mode profiles is an important option if you need to secure access to containers and operations using the principle of least privilege. 
+    Using a secure computing mode profile is an important option if you need to secure access to containers and operations using the principle of least privilege. 
 
 ## Storage
+- Update Rex-Ray to support NVMe EBS volumes. <!--(DCOS-50047)-->
+
+    REX-Ray is a container storage orchestration engine that enables persistence for cloud-native workloads. With Rex-Ray, you can manage native Docker Volume Driver operations through a command-line interface (CLI).
+
+    Amazon Elastic Block Store (Amazon EBS) provides block-level storage volumes for Amazon Elastic Cloud (EC2) instances. Amazon EBS volumes can be attached to any running EC2 instance hosted in the same Amazon availability zone to provide persistent storage that is independent of the deployed instance. EBS storage volumes can be exposed using NVMe (non-volatile memory express) as a host controller interface and storage protocol. NVMe devices enable you to accelerate the transfer of data between nodes and solid-state drives (SSDs) over a computer's connection gateway.
+
+    With this release, DC/OS updates REX-Ray to support NVMe storage when the DC/OS cluster runs on an Amazon instance. To work with NVMe devices, however, you must provide your own `udev` rules and  `nvme-cli` package. For more information about using Rex-Ray, see the [REX-Ray](https://rexray.io/) website and [github repository](https://github.com/rexray).
+
 - Provide a driver that enables AWS Elastic Block Store (EBS) volumes for the Mesosphere Kubernetes Engine (MKE). <!--(DCOS-44789)-->
 
     You can use the AWS EBS Container Storage Interface (CSI) driver to manage storage volumes for the Mesosphere Kubernetes Engine (MKE). This driver enables MKE users to deploy stateful applications running in a DC/OS cluster on an AWS cloud instance.
@@ -215,11 +217,6 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
     You can now create unified service accounts that can be used across DC/OS OSS and DC/OS Enterprise clusters. By extending support for service accounts that can be used for all DC/OS clusters, you have the option to install, configure, and manage additional packages, including packages that require a service account when you are running DC/OS Enterprise DC/OS in `strict` mode.
 
     For more information about authentication and managing accounts, see [User account management](/1.13/security/oss/user-account-management/).
-
-[enterprise]
-## 
-[/enterprise]
-- 
 
 # Issues fixed in this release
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
