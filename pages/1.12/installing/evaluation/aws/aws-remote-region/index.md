@@ -76,7 +76,7 @@ The first Change we have to apply to your `main.tf` is adding a specific provide
 
 This needs to be done so our modules know we region / account / credentials should be used.
 
-_HINT:_ some resources have name length limitations which is the reason we we shorten our region name.
+<p class="message--note"><strong>Note:</strong> some resources have name length limitations which is the reason we we shorten our region name.</p>
 
 ```hcl
 provider "aws" {
@@ -113,7 +113,7 @@ locals {
 ### Internal Subnetworks
 Part of the shared information is what internal subnets are used in our infrastructure. This information needs to be known by all parts of the DC/OS Infrastructure so traffic can be routed and is getting allowed in security groups. If you did not specify `subnet_range` terraform is using the default which is `172.16.0.0/16` by default. The remote region we want to specify needs its own subnet.
 
-_HINT:_ You should not take the next free network of `172.16/12` as `172.17.0.0/16` is dockers internal network default which will lead to problems.
+<p class="message--important"><strong>IMPORTANT:</strong> You should not take the next free network of <code>172.16/12</code> as <code>172.17.0.0/16</code> is dockers internal network default which will lead to problems.</p>
 
 To have a clear separation between our master and our remote regions we will take `10.128.0.0/16` as our remote regions subnet. Also we will use a [map](https://www.terraform.io/docs/configuration-0-11/variables.html#maps) variable to assign the networks to regions. This will make it extremly easy adding additional regions in the future.
 
