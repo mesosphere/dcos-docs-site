@@ -315,7 +315,6 @@ Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS.
 1. In order to perform an upgrade, we need to go back to our `main.tf` and modify the current DC/OS Version (`dcos_version`) to a newer version, such as `1.12.3` for this example.
 .
 
-    <p class="message--important"><strong>IMPORTANT: </strong>Do not change any number of masters, agents or public agents while performing an upgrade.</p>
 
     ```hcl
     dcos_version = "1.12.3"
