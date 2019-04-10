@@ -5,11 +5,8 @@ serviceName: hivemq
 techName: HiveMQ
 techShortName: HiveMQ
 
-# Values specific to certain templates:
-
-security:
-  plaintext:  |
-    , "allow_plaintext": <true|false default false>
+managing:
+  podType: node
 
 install:
   nodeCount: at least 1 private
