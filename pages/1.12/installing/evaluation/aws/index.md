@@ -175,11 +175,11 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
       "~/.ssh/aws-key.pub"
       ```
 
-1. `region` is a setting that sets the AWS region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-east-1”, it can be changed to any other region (e.g “us-west-1”, “us-west-2”, “us-east-2”, etc).  For a complete list, please refer to the [configuration reference](/1.12/installing/evaluation/aws/aws-advanced/).
+1. `region` is a setting that sets the AWS region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-east-1”, it can be changed to any other region (e.g “us-west-1”, “us-west-2”, “us-east-2”, etc).  For a complete list, please refer to the [configuration reference](/1.12/installing/evaluation/aws/).
 
 1. Enterprise users, uncomment/comment the section for the variant to look like this, inserting the location to your license key. [enterprise type="inline" size="small" /]
 
-    ```bash
+    ```hcl
     dcos_variant              = "ee"
     dcos_license_key_contents = "${file("./license.txt")}"
     # dcos_variant = "open"
@@ -270,7 +270,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 
 1. Increase the value for the `num_private_agents` and/or `num_public_agents` in your `main.tf` file. In this example we are going to scale our cluster from 2 private agents to 3, changing just that line, and saving the file.
 
-    ```bash
+    ```hcl
     num_masters        = "1"
     num_private_agents = "3"
     num_public_agents  = "1"
