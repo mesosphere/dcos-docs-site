@@ -56,9 +56,9 @@ Some highlights for this release include:
 - Create Curated Dashboard Collection for installation by customers in existing Prometheus/Grafana (DCOS-44740)
 Operators deploying dcos-monitoring can now leverage Mesosphere provided Grafana dashboards.  These dashboards can be automatically retrieved by the dcos-monitoring service and enable the operator to quickly get up to speed in visualizing the metrics that the dcos-monitoring package is collecting from the cluster and its' hosted applications.  Dashboard repository is located here: https://github.com/dcos/grafana-dashboards
 
-- [dcos-telegraf] Instrument and transmit telegraf metrics to using the telegraf plugin <!--(DCOS-39012)-->
+- Instrument and transmit metrics that track the health and performance of the DC/OS telegraf plugin <!--(DCOS-39012)-->
 
-    dcos-telegraf collects and forwards metrics about itself for storage and reporting via dcos-monitoring or third party monitoring services.
+    DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
 
 <!-- not in the 1.13 Docs in RN filter
 - Standardized log collection and forwarding via fluentbit (DCOS-43412)
