@@ -2,7 +2,7 @@
 layout: layout.pug
 excerpt: Guide for DC/OS on AWS using the Universal Installer adding a remote region
 title: Multi-region DC/OS on AWS using the Universal Installer
-navigationTitle: AWS
+navigationTitle: AWS multi-region support
 menuWeight: 0
 ---
 
@@ -302,7 +302,7 @@ module "dcos" {
 }
 ```
 
-## `main.tf` Example
+# `main.tf` Example
 Here is the complete `main.tf` you should see once you completed this guide.
 
 ```hcl
