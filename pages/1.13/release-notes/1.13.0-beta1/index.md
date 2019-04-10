@@ -56,13 +56,26 @@ Some highlights for this release include:
 - Create Curated Dashboard Collection for installation by customers in existing Prometheus/Grafana (DCOS-44740)
 Operators deploying dcos-monitoring can now leverage Mesosphere provided Grafana dashboards.  These dashboards can be automatically retrieved by the dcos-monitoring service and enable the operator to quickly get up to speed in visualizing the metrics that the dcos-monitoring package is collecting from the cluster and its' hosted applications.  Dashboard repository is located here: https://github.com/dcos/grafana-dashboards
 
+- [dcos-telegraf] Instrument and transmit telegraf metrics to using the telegraf plugin <!--(DCOS-39012)-->
+
+    dcos-telegraf collects and forwards metrics about itself for storage and reporting via dcos-monitoring or third party monitoring services.
+
 <!-- not in the 1.13 Docs in RN filter
 - Standardized log collection and forwarding via fluentbit (DCOS-43412)
 Application and DC/OS cluster component logs are now aggregated and Operators can configure forwarding to a third party log storage, search and reporting application. Previously, Operators had to install 3rd party Agents on cluster nodes to perform this task. With the introduction of support for fluent bit, Operators can now leverage easy to configure plugins to perform log filtering and forwarding to a log collection, search and reporting system.
 -->
 
+<<<<<<< HEAD
 - Deprecate and remove the DC/OS history service <!--(DCOS-50304)-->
 In DC/OS 1.13, the  DC/OS history service has transitioned into the **retired** state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/1.13/overview/feature-maturity/).
+=======
+## Command-line interface
+- Identify the public-facing IP address for public agent nodes through DC/OS CLI. <!--(DCOS-44697)-->
+
+    With this release, you can retrieve the public-facing IP addresses for the nodes in a cluster by running the `dcos node list` command. For more information about using the new command for retrieving public IP addresses, see the [dcos node](/1.13/cli/command-reference/dcos-node/) command reference.
+
+    You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a **public cloud provider** such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
+>>>>>>> ec3b8aafe... 1.13 RN BETA WIP
 
 ## Command-line interface
 - Easily obtainable Public-IP of the public agents through DC/OS CLI (DCOS-44697)
@@ -127,7 +140,13 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 
 - Accurate Service Status (Part 1: Plan Tab) (DCOS-43460)
 
+<<<<<<< HEAD
     DC/OS 1.13 GUI now includes a new tab in the details section of every SDK based services. With this new tab, Operator will have a clear indication of the status and progress of sdk-services during its lifecycle such as installing, upgrade. Customers can have a details about the specific plans running or just finished up to the execution of each task so that they can easily track the progress among those plans.
+=======
+    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS GUI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS GUI, see the [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
+
+   You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
+>>>>>>> ec3b8aafe... 1.13 RN BETA WIP
 
 - Internationalization and localization (I18N and L10N - Chinese) <!--(DCOS-39557)-->
 
@@ -153,6 +172,7 @@ The Universal Installer now provides the ability to provision AWS EBS volumes an
 Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/
 -->
 
+<<<<<<< HEAD
 ## Metrics
 - [dcos-telegraf] Instrument and Transmit telegraf Metrics to via telegraf (DCOS-39012)
 
@@ -166,6 +186,15 @@ Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/in
 
     In DC/OS 1.13.0, REX-ray support has been updated to include EBS NVMe volumes.
 
+=======
+## Networking
+- Add a new networking API endpoint to retrieve the public-facing IP address for public agent nodes. <!--(DCOS-28127)-->
+
+    This release introduces a new API endpoint for accessing public-facing IP addresses for the nodes in a cluster. For more information about retrieving and viewing public IP addresses, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
+    
+    You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
+
+>>>>>>> ec3b8aafe... 1.13 RN BETA WIP
 <!-- not in 1.13 Docs in RN filter 
 - Retention policies for dcos-monitoring data (DCOS-46818)
 The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: https://docs.mesosphere.com/services/beta-dcos-monitoring/0.4.3-beta/operations/prometheus/storage/
@@ -180,12 +209,35 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 -->
 
 ## Service automation
+<<<<<<< HEAD
 [Marathon] Support seccomp `unconfined` whitelisting in ContainerInfo.LinuxInfo.SeccompInfo (DCOS-49134)
 <no RN content>
 
 ## Storage
 - AWS EBS CSI Driver for MKE to enable MKE users to deploy stateful applications in AWS (DCOS-44789)
 <already in release notes>
+=======
+- Support secure computing mode (seccomp) profiles. <!--(DCOS-49134)-->
+
+    Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within a container. You can enable secure computing mode for Docker containers and Universal Runtime Containers (URC) if the operating system you are using supports it.
+
+    WIth DC/OS, you can use a seccomp profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls. 
+
+    Using a secure computing mode profile is an important option if you need to secure access to containers and operations using the principle of least privilege. 
+
+## Storage
+- Update Rex-Ray to support NVMe EBS volumes. <!--(DCOS-50047)-->
+
+    REX-Ray is a container storage orchestration engine that enables persistence for cloud-native workloads. With Rex-Ray, you can manage native Docker Volume Driver operations through a command-line interface (CLI).
+
+    Amazon Elastic Block Store (Amazon EBS) provides block-level storage volumes for Amazon Elastic Cloud (EC2) instances. Amazon EBS volumes can be attached to any running EC2 instance hosted in the same Amazon availability zone to provide persistent storage that is independent of the deployed instance. EBS storage volumes can be exposed using NVMe (non-volatile memory express) as a host controller interface and storage protocol. NVMe devices enable you to accelerate the transfer of data between nodes and solid-state drives (SSDs) over a computer's connection gateway.
+
+    With this release, DC/OS updates REX-Ray to support NVMe storage when the DC/OS cluster runs on an Amazon instance. To work with NVMe devices, however, you must provide your own `udev` rules and  `nvme-cli` package. For more information about using Rex-Ray, see the [REX-Ray](https://rexray.io/) website and [github repository](https://github.com/rexray).
+
+- Provide a driver that enables AWS Elastic Block Store (EBS) volumes for the Mesosphere Kubernetes Engine (MKE). <!--(DCOS-44789)-->
+
+    You can use the AWS EBS Container Storage Interface (CSI) driver to manage storage volumes for the Mesosphere Kubernetes Engine (MKE). This driver enables MKE users to deploy stateful applications running in a DC/OS cluster on an AWS cloud instance.
+>>>>>>> ec3b8aafe... 1.13 RN BETA WIP
 
 [enterprise]
 ## Security
@@ -194,6 +246,7 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 
     You can now create unified service accounts that can be used across DC/OS OSS and DC/OS Enterprise clusters. By extending support for service accounts that can be used for all DC/OS clusters, you have the option to install, configure, and manage additional packages, including packages that require a service account when you are running DC/OS Enterprise DC/OS in `strict` mode.
 
+<<<<<<< HEAD
 [enterprise]
 ## 
 [/enterprise]
@@ -202,6 +255,56 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 # Issues fixed in this release 
 - 
 - 
+=======
+    For more information about authentication and managing accounts, see [User account management](/1.13/security/oss/user-account-management/).
+
+# Issues fixed in this release
+The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
+<!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
+- Fixed issue where Metronome did not handle restart policy is ON_FAILURE correctly, not restarting the task(DCOS_OSS-4636).
+
+- Prefix illegal prometheus metric names with an underscore (DCOS_OSS-4899).
+
+- Fix dcos-net-setup.py failing when systemd network directory did not exist (DCOS-49711).
+
+- Updated REX-Ray version to 0.11.4 (DCOS_OSS-4316,COPS-3961).
+
+- Telegraf is upgraded to 1.9.4 (DCOS_OSS-4675).
+
+- Add SELinux details to diagnostics bundle (DCOS_OSS-4123)
+
+- Add external Mesos master/agent logs in the diagnostic bundle (DCOS_OSS-4283)
+
+- Update Java to 8u192. (DCOS_OSS-4380)
+
+- Docker-GC will now log to journald. (COPS-4044)
+
+- Allow the DC/OS installer to be used when there is a space in its path (DCOS_OSS-4429).
+
+- Admin Router logs to non-blocking socket (DCOS-43956).
+
+- Add path-based routing to AR to routing requests to dcos-net (DCOS_OSS-1837).
+
+- Mark dcos6 overlay network as disabled if enable_ipv6 is set to false (DCOS-40539).
+
+- Fix CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679).
+
+- Improve error message in case Docker is not running at start of installation (DCOS-15890).
+
+- Stop requiring ssh_user attribute in config.yaml when using parts of deprecated CLI installer (DCOS_OSS-4613).
+
+- Add a warning to the installer to let the user know if case kernel modules required by DSS are not loaded (DCOS-49088).
+
+- Enable ipv6 support for l4lb by default (DCOS_OSS-1993).
+
+- Upgrade OTP version to 21.3 (DCOS_OSS-4902).
+
+- Fix a race condition in L4LB (DCOS_OSS-4939).
+
+- Fix IPv6 VIP support in L4LB (DCOS-50427).
+
+- DC/OS UI X-Frame-Options default value has been changed from SAMEORIGIN to DENY. This is now configurable using the adminrouter_x_frame_options configuration value (DCOS-49594).
+>>>>>>> ec3b8aafe... 1.13 RN BETA WIP
 
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
