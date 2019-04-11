@@ -63,7 +63,7 @@ You can manage the most common job-related activity interactively through the DC
 
 1. Click **Schedule**, then click **Enable Schedule** to specify a schedule for when the job runs.
 
-    After you select **Enable Schedule**, you can use the following settings to define the schedule:
+    Select **Enable Schedule** if you want to run the job using the schedule you define with the following settings:
 
     - Type a **Schedule ID** to define a unique identifier for the job schedule. The schedule identifier must be a string with at least 2 characters and it can only contain digits (`0-9`), dashes (`-`), and lowercase letters (`a-z`). The schedule identifier must not begin or end with a dash.
 
@@ -71,7 +71,9 @@ You can manage the most common job-related activity interactively through the DC
 
     - Select **Starting Deadline** to set the time, in seconds, to start the job if it misses its scheduled time for any reason. Missed job executions are counted as failed jobs.
 
-    - Select **Concurrency Policy** if you want to allow new job instances to run if there's already a job instance running. 
+    - Select **Concurrency Policy** if you want to allow new job instances to run if there's already a job instance running.
+
+    After you define the schedule, you can activate or deactivate it by selecting or deselecting the **Enable Schedule** option. You can also modify or remove the schedule when needed after you have submitted the new job definition.
 
 1. Click **Run Configuration** to specify advanced settings for the new job.
 
@@ -85,7 +87,11 @@ You can manage the most common job-related activity interactively through the DC
 
         ![Adding an artifact URI and action for a job](/1.13/img/job-artifacts-uri.png/)
 
-    - Select a **Restart Policy** to determine the steps to take if a job fails.  You can choose **Never** if you never want to attempt to restart a failed job. If you choose **On Failure**, you can set a time limit for attempting to restart the job using the **Keep Trying Time** field. If no value is set for Keep Trying Time, attempts to restart the job after a failure will continue indefinitely.
+    - Select a **Restart Policy** to determine the steps to take if a job fails. 
+    
+        - You can choose **Never** if you never want to attempt to restart a failed job. 
+        
+        - If you choose **On Failure**, you can set a time limit for attempting to restart the job using the **Keep Trying Time** field. For example, set the **Keep Trying Time** to 30 if you want to try restarting the job after waiting for 30 seconds. If no value is set for Keep Trying Time, DC/OS will continue attempting to restart the failed job indefinitely.
 
     - Click **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/1.13/tutorials/task-labels/).
 
