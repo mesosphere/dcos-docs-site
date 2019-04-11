@@ -41,9 +41,15 @@ You can manage the most common job-related activity interactively through the DC
     
     If you select **Command Only**, you must specify the command or command arguments to execute. When the command you specify is executed, it is automatically wrapped by the command `/bin/sh -c job.cmd`. You must include either `cmd` or `args` in the command to be executed. It is invalid to supply both `cmd` and `args` in the same job.
 
-    If you select the Command Only option, none of the Container Runtime settings are applicable for the job and you can continue to defining a **Schedule** settings or advanced **Run Configuration** options.
+    If you select the **Command Only** option, none of the **Container Runtime** settings are applicable for the job. You can continue creating the job by defining **Schedule** settings, adding advanced **Run Configuration** options, or clicking **Submit**.
 
-    * Select **Container Image** to specify a container image for the new job. If you select this option, type the name of the container image you want to run. For example, you can type a container image name such as `ubuntu:14.04`. You can then use the **Command** field to specify the command and any additional runtime parameters available in the container for running the new job.
+    * Select **Container Image** to specify a container image for the new job. If you select this option, type the name of the container image you want to run. For example, you can type a container image name such as `ubuntu:14.04`. You can then use the **Command** field to specify the command and any additional runtime parameters available in the container for running the new job. 
+    
+    If you select the **Container Image** option, you can continue creating the job by:
+    - Configuring **Container Runtime** settings for the job.
+    - Defining a job **Schedule**, if applicable.
+    - Adding advanced **Run Configuration** options, if applicable.
+    - Clicking **Submit**.
 
 1. Click **Container Runtime** to specify whether the container for the new job runs using the Universal Container Runtime or the Docker engine. 
 
