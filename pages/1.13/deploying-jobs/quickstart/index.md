@@ -39,17 +39,17 @@ You can manage the most common job-related activity interactively through the DC
 1. Select the appropriate Job Type to run one or more specific commands or a Docker container image.
     * Select **Command Only** to specify one or more commands you want the new job to execute. 
     
-    If you select **Command Only**, you must specify the command or command arguments to execute. When the command you specify is executed, it is automatically wrapped by the command `/bin/sh -c job.cmd`. You must include either `cmd` or `args` in the command to be executed. It is invalid to supply both `cmd` and `args` in the same job.
+        If you select **Command Only**, you must specify the command or command arguments to execute. When the command you specify is executed, it is automatically wrapped by the command `/bin/sh -c job.cmd`. You must include either `cmd` or `args` in the command to be executed. It is invalid to supply both `cmd` and `args` in the same job.
 
-    If you select the **Command Only** option, none of the **Container Runtime** settings are applicable for the job. You can continue creating the job by defining **Schedule** settings, adding advanced **Run Configuration** options, or clicking **Submit**.
+        If you select the **Command Only** option, none of the **Container Runtime** settings are applicable for the job. You can continue creating the job by defining **Schedule** settings, adding advanced **Run Configuration** options, or clicking **Submit**.
 
     * Select **Container Image** to specify a container image for the new job. If you select this option, type the name of the container image you want to run. For example, you can type a container image name such as `ubuntu:14.04`. You can then use the **Command** field to specify the command and any additional runtime parameters available in the container for running the new job. 
     
-    If you select the **Container Image** option, you can continue creating the job by:
-    - Configuring **Container Runtime** settings for the job.
-    - Defining a job **Schedule**, if applicable.
-    - Adding advanced **Run Configuration** options, if applicable.
-    - Clicking **Submit**.
+        If you select the **Container Image** option, you can continue creating the job by:
+        - Configuring **Container Runtime** settings for the job.
+        - Defining a job **Schedule**, if applicable.
+        - Adding advanced **Run Configuration** options, if applicable.
+        - Clicking **Submit**.
 
 1. Click **Container Runtime** to specify whether the container for the new job runs using the Universal Container Runtime or the Docker engine. 
 
@@ -88,6 +88,8 @@ You can manage the most common job-related activity interactively through the DC
     - Select a **Restart Policy** to determine the steps to take if a job fails.  You can choose **Never** if you never want to attempt to restart a failed job. If you choose **On Failure**, you can set a time limit for attempting to restart the job using the **Keep Trying Time** field. If no value is set for Keep Trying Time, attempts to restart the job after a failure will continue indefinitely.
 
     - Click **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/1.13/tutorials/task-labels/).
+
+1. Click **Submit** to create the job.
 
 1. Verify that you have added the new job by clicking **Jobs**.
 
