@@ -31,13 +31,18 @@ You can manage the most common job-related activity interactively through the DC
 
     * **Job ID** - Defines a unique identifier for the new job. The Job ID is a required field. You also use this setting to manage job operations.
     * **Description** - Provides an optional description of the new job.
-    * **CPUs** - Specifies the number of CPU cores your job requires.
-    * **Mem** - Specifies the amount of memory, in MB, your job requires.
-    * **Disk** - Specifies the amount of disk space, in MB, your job requires.
-    * **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job.
+    * **CPUs** - Specifies the number of CPU cores your job requires. This field is required for all jobs.
+    * **Mem** - Specifies the amount of memory, in MB, your job requires. This field is required for all jobs.
+    * **Disk** - Specifies the amount of disk space, in MB, your job requires. This field is required for all jobs.
+    * **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores.
 
 1. Select the appropriate Job Type to run one or more specific commands or a Docker container image.
-    * Select **Command Only** to specify one or more commands you want the new job to execute. When the command you specify is executed, it is automatically wrapped by the command `/bin/sh -c job.cmd`. You must include either `cmd` or `args` in the command to be executed. It is invalid to supply both `cmd` and `args` in the same job.
+    * Select **Command Only** to specify one or more commands you want the new job to execute. 
+    
+    If you select **Command Only**, you must specify the command or command arguments to execute. When the command you specify is executed, it is automatically wrapped by the command `/bin/sh -c job.cmd`. You must include either `cmd` or `args` in the command to be executed. It is invalid to supply both `cmd` and `args` in the same job.
+
+    If you select the Command Only option, none of the Container Runtime settings are applicable for the job and you can continue to defining a **Schedule** settings or advanced **Run Configuration** options.
+
     * Select **Container Image** to specify a container image for the new job. If you select this option, type the name of the container image you want to run. For example, you can type a container image name such as `ubuntu:14.04`. You can then use the **Command** field to specify the command and any additional runtime parameters available in the container for running the new job.
 
 1. Click **Container Runtime** to specify whether the container for the new job runs using the Universal Container Runtime or the Docker engine. 
