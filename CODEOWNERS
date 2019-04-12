@@ -1,11 +1,9 @@
 # changes 4-12-19 CK
 # Aaron should see all code changes (things not in /pages)
-# change to only notify Aaron here
 * @niartenyaw
 
-# Josh take over all content (remove Aaron)
-# change to not notify
-# /pages/ @jpe442
+# Leave out notifications for pages by leaving blank
+/pages/
 
 # Sarah for services
 # change to not notify
