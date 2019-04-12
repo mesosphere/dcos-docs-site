@@ -228,6 +228,64 @@ HDFS supports deployment on [virtual networks](/1.10/networking/virtual-networks
 ```
 Once the service is deployed on a virtual network, it cannot be updated to use the host network.
 
+<<<<<<< HEAD:pages/services/hdfs/2.4.0-2.6.0-cdh5.11.0/getting-started/index.md
+=======
+## TLS
+
+HDFS can be launched with TLS encryption. Enabling TLS is only possible in `permissive` and `strict` cluster security modes on Enterprise DC/OS. Both modes require a service account. Additionally, a service account must have the `dcos:superuser` permission. If the permission is missing the HDFS scheduler will not abe able to provision TLS artifacts.
+
+Sample JSON options file named `hdfs-tls.json`:
+```json
+{
+  "service": {
+    "service_account_secret": "hdfs",
+    "service_account": "hdfs",
+    "security": {
+      "transport_encryption": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
+
+For more information about TLS in the SDK see [the TLS documentation](https://mesosphere.github.io/dcos-commons/developer-guide.html#tls).
+
+### Clients
+
+Clients connecting to HDFS over a TLS connection must connect to an HTTPS specific port. Each node type (`journal`, `name` and `data`) can be configured with different port numbers for TLS connections.
+
+Clients can connect only over the TLS version 1.2.
+
+## Placement Constraints
+
+Placement constraints allow you to customize where a service is deployed in the DC/OS cluster. Depending on the service, some or all components may be configurable using [Marathon operators (reference)](http://mesosphere.github.io/marathon/docs/constraints.html) with this syntax: `field:OPERATOR[:parameter]`. For example, if the reference lists `[["hostname", "UNIQUE"]]`, you should  use `hostname:UNIQUE`.
+
+A common task is to specify a list of whitelisted systems to deploy to. To achieve this, use the following syntax for the placement constraint:
+```
+hostname:LIKE:10.0.0.159|10.0.1.202|10.0.3.3
+```
+
+```
+{
+...
+"constraints": [["hostname", "LIKE", "10.0.0.159|10.0.1.202|10.0.3.3"]]
+}
+```
+
+You must include spare capacity in this list, so that if one of the whitelisted systems goes down, there is still enough room to repair your service (via [`pod replace`](#replace-a-pod)) without requiring that system.
+
+### Regions and Zones
+
+Placement constraints can be applied to zones by referring to the `@zone` key. For example, one could spread pods across a minimum of 3 different zones by specifying the constraint:
+```
+[["@zone", "GROUP_BY", "3"]]
+```
+
+When the region awareness feature is enabled (currently in beta), the `@region` key can also be referenced for defining placement constraints. Any placement constraints that do not reference the `@region` key are constrained to the local region.
+
+
+>>>>>>> HDFS placement constraints should also show Marathon constraint examples:pages/services/beta-hdfs/2.1.2-2.6.0-cdh5.11.0-beta/install/index.md
 # Changing Configuration at Runtime
 
 You can customize your cluster in-place when it is up and running.
