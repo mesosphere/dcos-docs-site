@@ -13,6 +13,9 @@ By default the Universal Installer is using a static master list to form the quo
 - The account you're using is able to create AWS buckets.
 
 # Fully Managed Replaceable Masters
+
+<p class="message--important"><strong>IMPORTANT:</strong> Do not apply this change on an already running cluster.</p>
+
 With Universal Installer `0.2` we offer the ability of fully managed replaceable masters based on a AWS S3 Bucket. To enable this feature set `with_replaceable_masters=true`. Once set this option will lead to the creation of a S3 bucket in the location your cluster will be placed. The bucket name is `cluster_name` + a 16 Byte random hex string. As bucket names are global we have to attach a random string to your cluster name to avoid collisions. Beside creating a bucket we will inject these DC/OS config defaults.
 
 ```hcl
@@ -24,8 +27,6 @@ dcos_exhibitor_address         = <<master load balancer address>>
 dcos_num_masters               = <<the number oh masters set>>
 dcos_exhibitor_storage_backend = "aws_s3"
 ```
-
-<p class="message--important"><strong>IMPORTANT:</strong> Do not apply this change on an already running cluster.</p>
 
 ## Example
 Here is a simply example with enabled `with_replaceable_masters`
@@ -60,7 +61,7 @@ module "dcos" {
   dcos_version              = "1.12.3"
   dcos_license_key_contents = "${file("~/license.txt")}"
 
-  with_replaceable_masters = false
+  with_replaceable_masters = true
 }
 
 output "elb.masters_dns_name" {
