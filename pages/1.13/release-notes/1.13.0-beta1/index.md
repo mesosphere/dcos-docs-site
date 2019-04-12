@@ -176,9 +176,9 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 
     Dynamic masters is the ability to create, destroy and recover master nodes. This enables users on the Universal Installer to be able to downscale or upscale their clusters from not just the agent nodes (which is currently supported), but also from the master nodes as well - if they deem necessary.
 
-- Universal Installer and on-premise DC/OS life cycle management with Ansible. <!--(DCOS-45724)-->
+- Enable Universal Installer and on-premise DC/OS life cycle management with Ansible. <!--(DCOS-45724)-->
 
-    dcos-ansible is a Mesosphere provided and supported ansible roles for installing and upgrading Mesosphere DC/OS and DC/OS Enterprise on any user provided infrastructure.
+    The DC/OS Ansible (dcos-ansible) component is a Mesosphere-provided version of the Ansible open-source provisioning, configuration management, and deployment tool that enables you to use supported Ansible roles for installing and upgrading DC/OS OSS and DC/OS Enterprise clusters on the infrastructure you choose.
 
 <!-- not in 1.13 Docs with RN filter 
 - Universal Installer to provision EBS volumes (DCOS-47221)
