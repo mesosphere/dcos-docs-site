@@ -125,7 +125,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.12.
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
-Youv **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.10 to 1.11 and add more public agents. You can add more public agents with a patch to 1.11, and then upgrade to 1.12. Or you can upgrade to 1.12 and then add more public agents by [patching 1.12](/1.12/installing/production/patching/) after the upgrade.
+You **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.10 to 1.11 and add more public agents. You can add more public agents with a patch to 1.11, and then upgrade to 1.12. Or you can upgrade to 1.12 and then add more public agents by [patching 1.12](/1.12/installing/production/patching/) after the upgrade.
 
 # Instructions
 These steps must be performed for version upgrades.
