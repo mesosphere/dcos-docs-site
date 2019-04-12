@@ -29,21 +29,31 @@ Some highlights for this release include:
 - Tighter integration between the Mesosphere Kubernetes Engine (MKE) and Edge-LB load balancing
 
 ## Monitoring and metrics for cluster operations
-- The DC/OS monitoring service (`dcos-monitoring`) uses DC/OS storage service (DSS) volumes to store time-series data. <!--(DCOS-47725)-->
+- The DC/OS monitoring service (`dcos-monitoring`) can be configured to use DC/OS storage service (DSS) volumes to store time-series data. <!--(DCOS-47725)-->
 
-    With this release, you can store the information collected by the DC/OS monitoring service (`dcos-monitoring`, version 0.4.3) in the profile-based storage provided by the DC/OS Storage Service. By using the DC/OS Storage Service to store the monitoring data used in Prometheus queries and Grafana dashboards, you can improve the performance and reliability of the Prometheus and Grafana monitoring components.
+    With this release, you can store the information collected by the DC/OS monitoring service (`dcos-monitoring`) in the profile-based storage provided by the DC/OS Storage Service. By using the DC/OS Storage Service to store the monitoring data used in Prometheus queries and Grafana dashboards, you can improve the performance and reliability of the Prometheus and Grafana monitoring components.
 
     When you install the DC/OS monitoring service, you can select the volume size and a volume profile for the file system where you want to storing the Prometheus time-series database (`tsdb`). By specifying a volume managed by the DC/OS Storage Service, you can take advantage of the durability, performance, and flexibility DSS provides for your collected data. 
     
-    For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/beta-dcos-monitoring/0.4.3-beta/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/beta-storage/0.5.3-beta/).
+    For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/beta-dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/beta-storage/0.5.3-beta/).
 
 - New volume and network metrics are available. <!--(DCOS-47722)-->
 
     The metrics collection service, dcos-telegraf can now collect additional metrics for Mesos volumes and network information. For a complete list of the Mesos metrics you can collect and report, see the latest list of metrics provided here: http://mesos.apache.org/documentation/latest/monitoring/.
 
+        For more information about collecting metrics and configuring metrics plugins, see the following topics:
+    - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
+    - [Mesos Metrics](/1.13/metrics/mesos/)
+    - [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/)
+
 - Key metrics are collected by default. <!--(DCOS-47719)-->
 
     In DC/OS 1.13, dcos-telegraf automatically collects Mesos metrics by default. Previously, you were required to manually enable the metrics plug-in by updating the agent configuration or by setting the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `true`.  With this release, manually enabling this feature is no longer required. Instead, the default value for the parameter is now set to true. You can set the `enable_mesos_input_plugin` parameter in the `config.yaml` file to false if you want to disable the automatic collection of Mesos metrics.
+
+    For more information about collecting metrics and configuring metrics plugins, see the following topics:
+    - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
+    - [Mesos Metrics](/1.13/metrics/mesos/)
+    - [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/)
 
 - The DC/OS monitoring service enables you to import curated alerting rules. <!--(DCOS-47666)-->
 
@@ -61,10 +71,12 @@ Some highlights for this release include:
 
     DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
 
-<!-- not in the 1.13 Docs in RN filter
-- Standardized log collection and forwarding via fluentbit (DCOS-43412)
-Application and DC/OS cluster component logs are now aggregated and Operators can configure forwarding to a third party log storage, search and reporting application. Previously, Operators had to install 3rd party Agents on cluster nodes to perform this task. With the introduction of support for fluent bit, Operators can now leverage easy to configure plugins to perform log filtering and forwarding to a log collection, search and reporting system.
--->
+<!-- not in the 1.13 Docs in RN filter-->
+- Standardized log collection and forwarding through Fluent Bit <!--(DCOS-43412)-->
+
+    Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to a third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting services.
+
+    <!--For more information about how to configure logging to integrate with Fluent Bit, see [XX]().-->
 
 ## Command-line interface
 - Identify the public-facing IP address for public agent nodes through DC/OS CLI. <!--(DCOS-44697)-->
@@ -77,17 +89,23 @@ Application and DC/OS cluster component logs are now aggregated and Operators ca
 
     If you have deployed a DC/OS Enterprise cluster, ypu can now automatically install the DC/OS Enterprise CLI when you install the base CLI package. Previously, the DC/OS Enterprise CLI could only be installed manually after the successful installation of the base DC/OS CLI.
 
+    For more information about installing the command-line interface (CLI) and CLI plugins, see [Installing the CLI](/1.13/cli/install) and [Installing the DC/OS Enterprise CLI](/1.13/cli/enterprise-cli/).
+
 - Basic auto-completion using the TAB key. <!--(DCOS-39774)-->
 
     You can now use the TAB key to provide automatic completion when typing DC/OS commands. Auto-completion enables you to execute commands in a shell terminal more quickly by attempting to predict the rest of a command or subcommand you are typing. If the suggested text matches the command you intended, you can press the TAB key to accept the suggestion and execute the command.
+
+    For more information about using auto-completion when you are working with the command-line interface (CLI) and CLI plugins, see [Enabling autocompletion for the CLI](/1.13/cli/autocompletion/).
 
 - Dynamic auto-completion of cluster names for `dcos cluster attach` and `dcos cluster remove` commands.<!--(DCOS-47214)-->
 
     You can now use the TAB key to provide automatic completion for potential cluster names when you run the `dcos cluster attach` or `dcos cluster remove` commands.
 
+    For more information about using auto-completion when you are working with the command-line interface (CLI) and CLI plugins, see [Enabling autocompletion for the CLI](/1.13/cli/autocompletion/).
+
 - CLI support for macOS using Homebrew. <!--(DCOS-47562)-->
 
-    Homebrew is a software package management program you can use to install and configure packages for computers running macOS or Linus operating systems. With this release, you can install the DC/OS command-line interface (CLI) packages using the Mac OSX `homebrew` utility. Previously, you were required to download all DC/OS CLI plug-ins directly from the DC/OS cluster. By adding support for the Homebrew package manager, operators and developers can keep their CLI packages up-to-date using the `brew` command. For example, you can update the core CLI package by running the following command:
+    Homebrew is a software package management program you can use to install and configure packages for computers running macOS or Linus operating systems. With this release, you can install the DC/OS command-line interface (CLI) packages using the Mac OSX `homebrew` utility. Previously, you were required to download all DC/OS CLI plug-ins directly from the DC/OS cluster. By adding support for the Homebrew package manager, operators and developers can keep their CLI packages up-to-date using the `brew` command. For example, you can install the core CLI package by running the following command:
 
     ```bash
     brew install dcos-cli
@@ -127,11 +145,15 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 ## GUI
 - Support for independent upgrade of the DC/OS GUI. <!--(DCOS-47632)-->
 
-    You can now install and update the DC/OS GUI without having to upgrade the DC/OS cluster. New Updates in DC/OS will be published to the DC/OS catalog and will also be available as .dcos file for our on-premise customers. This will allow our customers to easily get the latest fixes and capabilities in our GUI. Customers will  also be able to roll back to the original GUI version that was shipped with their version of DC/OS if they need to.
+    You can now install and update the DC/OS GUI without having to upgrade the DC/OS cluster. This feature enables new updates for DC/OS to be published to the DC/OS catalog and also be available as `.dcos` files for on-premise customers. The ability to install and update the DC/OS GUI without upgrading the DC/OS cluster enables you to easily get the latest fixes and capabilities available in the DC/OS GUI without affecting cluster operations. You also now have the ability to roll back an update, enabling you to use the DC/OS GUI version that was originally shipped with your version of DC/OS if you need to.
+    <!--
+    For more information about installing or updating the DC/OS GUI independent of changes to other components of the DC/OS deployment, see [XX](). -->
 
 - Accurate status information for services. <!--(DCOS-43460)-->
 
     DC/OS 1.13 GUI now includes a new tab in the Details section of every SDK-based data service. This new tab provides a clear indication of the status and progress of SDK-based services during the service life cycle, including installation and upgrade activity. From the Details tab, you can see information about the specific operational plans that are currently running or have just completed. You can also view the execution of each task so that you can easily track the progress of the plans you have deployed.
+    <!--
+    For more information about viewing up-to-date status information for services and operational plans, see [XX]().-->
 
 - Identify the public-facing IP address for public agent nodes in the DC/OS GUI. <!--(DCOS-49987)-->
 
@@ -142,6 +164,8 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 - Add support for internationalization and localization (I18N and L10N - Chinese). <!--(DCOS-39557)-->
 
     Mesosphere DC/OS 1.13 GUI has now been translated to Mandarin Chinese. Mandarin-speaking customers and users can now easily switch the GUI language in the UI and will be able to interact with DC/OS operations and functions in English or Chinese. The DC/OS documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there's sufficient customer demand.
+
+    <!--For information about changing the language displayed, see [XX]().-->
 
 ## Installation
 - Multi-region support using the Universal Installer. <!--(DCOS-45727)-->
@@ -162,6 +186,10 @@ The Universal Installer now provides the ability to provision AWS EBS volumes an
 
 Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/
 -->
+## Mesos platform and containerization
+- UCR to support Schema2_v2 formatted docker images <!--(DCOS-43871)-->
+
+    DC/OS Universal Container Runtime (UCR) now fully supports Docker images that are formatted using the Docker v2_schema2 specification. DC/OS Universal Container Runtime (UCR) also continues to support Docker images that use the v2_schema1 format.
 
 ## Networking
 - Add a new networking API endpoint to retrieve the public-facing IP address for public agent nodes. <!--(DCOS-28127)-->
@@ -174,28 +202,11 @@ Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/in
 - Retention policies for dcos-monitoring data (DCOS-46818)
 The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: https://docs.mesosphere.com/services/beta-dcos-monitoring/0.4.3-beta/operations/prometheus/storage/
 -->
-<!-- not in 1.13 Docs in RN filter 
-- UCR to support Schema2_v2 formatted docker images (DCOS-43871)
-Universal Container Runtime (UCR) now fully supports Docker Image format v2_schema2 in addition to supporting v2_schema1
--->
+
 <!-- not in 1.13 Docs in RN filter 
 - Display Grafana dashboards on unsupervised displays (DCOS-51133)
 dcos-monitoring now enables Grafana dashboards to be displayed on read-only devices such as SmartTVs, kiosks or public panels.
 -->
-
-## Storage
-- Update Rex-Ray to support NVMe EBS volumes. <!--(DCOS-50047)-->
-
-    REX-Ray is a container storage orchestration engine that enables persistence for cloud-native workloads. With Rex-Ray, you can manage native Docker Volume Driver operations through a command-line interface (CLI).
-
-    Amazon Elastic Block Store (Amazon EBS) provides block-level storage volumes for Amazon Elastic Cloud (EC2) instances. Amazon EBS volumes can be attached to any running EC2 instance hosted in the same Amazon availability zone to provide persistent storage that is independent of the deployed instance. EBS storage volumes can be exposed using NVMe (non-volatile memory express) as a host controller interface and storage protocol. NVMe devices enable you to accelerate the transfer of data between nodes and solid-state drives (SSDs) over a computer's connection gateway.
-
-    With this release, DC/OS updates REX-Ray to support NVMe storage when the DC/OS cluster runs on an Amazon instance. To work with NVMe devices, however, you must provide your own `udev` rules and  `nvme-cli` package. For more information about using Rex-Ray, see the [REX-Ray](https://rexray.io/) website and [github repository](https://github.com/rexray).
-
-- Provide a driver that enables AWS Elastic Block Store (EBS) volumes for the Mesosphere Kubernetes Engine (MKE). <!--(DCOS-44789)-->
-
-    You can use the AWS EBS Container Storage Interface (CSI) driver to manage storage volumes for the Mesosphere Kubernetes Engine (MKE). This driver enables MKE users to deploy stateful applications running in a DC/OS cluster on an AWS cloud instance.
-
 [enterprise]
 ## Security
 [/enterprise]
@@ -209,9 +220,22 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 
     Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within a container. You can enable secure computing mode for Docker containers and Universal Runtime Containers (URC) if the operating system you are using supports it.
 
-    WIth DC/OS, you can use a seccomp profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls. 
+    WIth DC/OS, you can use a `seccomp` profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls. 
 
     Using a secure computing mode profile is an important option if you need to secure access to containers and operations using the principle of least privilege. 
+
+## Storage
+- Update Beta Rex-Ray to support NVMe EBS volumes. <!--(DCOS-50047)-->
+
+    REX-Ray is a container storage orchestration engine that enables persistence for cloud-native workloads. With Rex-Ray, you can manage native Docker Volume Driver operations through a command-line interface (CLI).
+
+    Amazon Elastic Block Store (Amazon EBS) provides block-level storage volumes for Amazon Elastic Cloud (EC2) instances. Amazon EBS volumes can be attached to any running EC2 instance hosted in the same Amazon availability zone to provide persistent storage that is independent of the deployed instance. EBS storage volumes can be exposed using NVMe (non-volatile memory express) as a host controller interface and storage protocol. NVMe devices enable you to accelerate the transfer of data between nodes and solid-state drives (SSDs) over a computer's connection gateway.
+
+    With this release, DC/OS updates REX-Ray to support NVMe storage when the DC/OS cluster runs on an Amazon instance. To work with NVMe devices, however, you must provide your own `udev` rules and  `nvme-cli` package. For more information about using Rex-Ray, see the [REX-Ray](https://rexray.io/) website and [github repository](https://github.com/rexray).
+
+- Provide a driver that enables AWS Elastic Block Store (EBS) volumes for the Mesosphere Kubernetes Engine (MKE). <!--(DCOS-44789)-->
+
+    You can use the AWS EBS Container Storage Interface (CSI) driver to manage storage volumes for the Mesosphere Kubernetes Engine (MKE). This driver enables MKE users to deploy stateful applications running in a DC/OS cluster on an AWS cloud instance.
 
 # Issues fixed in this release
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
