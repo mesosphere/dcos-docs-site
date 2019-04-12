@@ -1,16 +1,21 @@
+# changes 4-12-19 CK
 # Aaron should see all code changes (things not in /pages)
-# taking off from ALL @jpe442
+# change to only notify Aaron here
 * @niartenyaw
 
 # Josh take over all content (remove Aaron)
+# change to not notify
 # /pages/ @jpe442
 
 # Sarah for services
+# change to not notify
 # /pages/services/ @SarahStegall @jpe442
 
 # Networking
-# /pages/services/edge-lb/ @networking-team @SarahStegall @jpe442
-# /pages/*/networking/ @networking-team @jpe442
+# change to notify networking team only 
+/pages/services/edge-lb/ @networking-team
+/pages/*/networking/ @networking-team
 
 # Storage
-# /pages/services/beta-storage/ @SarahStegall @jpe442 @mesosphere/mesosphere-storage
+# change to notify storage team only
+/pages/services/beta-storage/ @mesosphere/mesosphere-storage
