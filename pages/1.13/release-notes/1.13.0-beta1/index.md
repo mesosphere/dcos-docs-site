@@ -241,49 +241,51 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
 <!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
 
+<!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
+
 - Job scheduling (Metronome) has been improved to handle the restart policy when a job fails. If a job fails to run, restarting the task should depend on the setting you have defined for the ON_FAILURE result (DCOS_OSS-4636).
 
-- Prefix illegal prometheus metric names with an underscore (DCOS_OSS-4899).
+- Prefix illegal Prometheus metric names with an underscore (DCOS_OSS-4899).
 
-- Fix dcos-net-setup.py failing when systemd network directory did not exist (DCOS-49711).
+- Fix an issue that cause `dcos-net-setup.py` to fail when the `systemd` network directory did not exist (DCOS-49711).
 
-- Updated REX-Ray version to 0.11.4 (DCOS_OSS-4316,COPS-3961).
+- Update support for REX-Ray to the most recent stable version (DCOS_OSS-4316,COPS-3961).
 
-- Telegraf is upgraded to 1.9.4 (DCOS_OSS-4675).
+- Upgrade the version of the Telegraf metrics plugin supported to leverage recent bug fixes and feature improvements (DCOS_OSS-4675).
 
-- Add SELinux details to diagnostics bundle (DCOS_OSS-4123)
+- Add SELinux details to the DC/OS diagnostics bundle to provide additional information for troubleshooting and analysis (DCOS_OSS-4123).
 
-- Add external Mesos master/agent logs in the diagnostic bundle (DCOS_OSS-4283)
+- Add external Mesos master and agent logs in the diagnostic bundle to provide additional information for troubleshooting and analysis (DCOS_OSS-4283).
 
-- Update Java to 8u192. (DCOS_OSS-4380)
+- Update the supported version of Java to 8u192 (DCOS_OSS-4380).
 
-- Docker-GC will now log to journald. (COPS-4044)
+- Add logging for Docker-GC to the `journald` system logging facility (COPS-4044).
 
 - Allow the DC/OS installer to be used when there is a space in its path (DCOS_OSS-4429).
 
-- Admin Router logs to non-blocking socket (DCOS-43956).
+- Enable Admin Router to log information to a non-blocking socket (DCOS-43956).
 
-- Add path-based routing to AR to routing requests to dcos-net (DCOS_OSS-1837).
+- Add path-based routing to AR to support routing of requests to the DC/OS networking (`dcos-net`) component (DCOS_OSS-1837).
 
-- Mark dcos6 overlay network as disabled if enable_ipv6 is set to false (DCOS-40539).
+- Mark the dcos6 overlay network as disabled if the `enable_ipv6` parameter is set to false (DCOS-40539).
 
-- Fix CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679).
+- Fix the CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679).
 
-- Improve error message in case Docker is not running at start of installation (DCOS-15890).
+- Improve error messages returned if Docker is not running at start of a DC/OS installation (DCOS-15890).
 
-- Stop requiring ssh_user attribute in config.yaml when using parts of deprecated CLI installer (DCOS_OSS-4613).
+- Stop requiring the `ssh_user` attribute to be set in the `config.yaml` file when using parts of the deprecated CLI installer (DCOS_OSS-4613).
 
-- Add a warning to the installer to let the user know if case kernel modules required by DSS are not loaded (DCOS-49088).
+- Add a warning to the installer to let the user know if case kernel modules required by the DC/OS storage service (DSS) are not loaded (DCOS-49088).
 
-- Enable ipv6 support for l4lb by default (DCOS_OSS-1993).
+- Enable ipv6 support for layer-4 load balancing (l4lb) by default (DCOS_OSS-1993).
 
-- Upgrade OTP version to 21.3 (DCOS_OSS-4902).
+- Upgrade the support for the Erlang/OTP framework to Erlang/OTP version 21.3 (DCOS_OSS-4902).
 
-- Fix a race condition in L4LB (DCOS_OSS-4939).
+- Fix a race condition in the layer-4 load balancing (l4lb) network component (DCOS_OSS-4939).
 
-- Fix IPv6 VIP support in L4LB (DCOS-50427).
+- Fix IPv6 VIP support in the layer-4 load balancing (l4lb) network component (DCOS-50427).
 
-- DC/OS UI X-Frame-Options default value has been changed from SAMEORIGIN to DENY. This is now configurable using the adminrouter_x_frame_options configuration value (DCOS-49594).
+- Change the default value for DC/OS UI X-Frame-Options from SAMEORIGIN to DENY. This setting is also now configurable using the `adminrouter_x_frame_options` configuration parameter (DCOS-49594).
 
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
@@ -311,6 +313,10 @@ For access to the logs that track specific changes to components that are includ
 - Marathon 1.7.203 [change log](https://github.com/mesosphere/marathon/blob/b26a8b310561934071c5f347ee5e184a3279cabd/changelog.md).
 - Metronome 0.5.71 [change log](https://github.com/dcos/metronome/blob/cf8887dd836d3629e3f5ac071624e055bdffcec8/changelog.md).
 - DC/OS 1.13 [change log](https://github.com/dcos/dcos/blob/master/CHANGES.md).
+- REX-Ray 0.11.4 [release information](https://github.com/rexray/rexray/releases).
+- Telegraf 1.9.x [change log](https://github.com/influxdata/telegraf/blob/master/CHANGELOG.md).
+- Erlang/OTP 21.3 [release information](http://erlang.org/download/otp_src_21.3.readme).
+- Java 8 [release information](https://java.com/en/download/faq/release_changes.xml).
 
 # Previous releases
 To review changes from a recent previous release, see the following links:
