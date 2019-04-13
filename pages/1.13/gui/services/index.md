@@ -25,14 +25,17 @@ By default, all of your services are displayed, sorted by service name. You can 
 | Disk | The amount of disk space in use |
 | GPU | The amount of GPU in use |
 
+## Tabs
 
 Click the service name to open the Services Instance page, which lists all tasks using the service and their CPU, memory and GPU usage. 
 
 ![Instances](/1.13/img/services-instances-panel.png)
 
-<p>Figure 2. Instances panel</p>
+Figure 2. Instances panel
 
-## Tasks tab
+
+
+When you click on the name of a service in the Services menu 
 
 For each task, there is also information about its zone, region, status, health and when it was last updated. Click a task to see its complete configuration, working directory and logs.
 
