@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: DSE 2.4.0-5.1.10
 title: DSE 2.4.0-5.1.10
-menuWeight: 1
+menuWeight: 2
 excerpt: 
 model: /services/dse/data.yml
 render: mustache
