@@ -48,4 +48,4 @@ The key benefits of the load balancing provided by Edge-LB over those provided b
 -	Edge-LB enables you to define multiple Edge-LB pool instances and multiple Edge-LB pools for more granular control and high availability.
 -	Edge-LB provides better configuration validation before, during, and after installation.
 
-To see the difference between loading balancing using Marathon-LB and Edge-LB for access to services in the cluster, see [Comparing Edge-LB to Marathon-LB](services/edge-lb/getting-started/edge-lb-mlb-example/).
+To see the difference between loading balancing using Marathon-LB and Edge-LB for access to services in the cluster, see [Comparing Edge-LB to Marathon-LB](/services/edge-lb/getting-started/edge-lb-mlb-example/).
