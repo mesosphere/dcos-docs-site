@@ -10,7 +10,7 @@ This tutorial demonstrates exposing and accessing the `nginx` service by using M
 
 # Before you begin
 * You must have the Edge-LB API server installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* You must have the DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * You must have the `edgelb` command-line interface (CLI) installed.
 * You must have an active and properly-configured DC/OS Enterprise cluster.
 * The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
