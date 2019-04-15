@@ -65,6 +65,13 @@ The issues that have been fixed in DC/OS 1.12.3 are grouped by feature, function
 ## Networking
 - COPS-3279, COPS-3576, DCOS-37703, DCOS-37703, DCOS-39703 - Service endpoint values and service address-based statistics return the correct number of successful and failure connections when you enable the `statsd` metrics input plugin and view backend activity.
 
+- COPS-3585 - In previous releases, a deadlock or race condition might prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly. Problems with routing tables and network connectivity can lead to the following issues:
+  - Incomplete network overlay configuration on certain nodes.
+  - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
+  - DNS records that are missing on certain nodes.
+
+This release includes a fix to the networking issue that was caused by a secure socket layer (SSL) deadlock in the Erlang library (DC/OS 1.12). It is no longer necessary for you to restart the `systemd` process to fix the routing table to restore network connectivity. 
+
 [enterprise]
 ## Security
 [/enterprise]
@@ -74,13 +81,6 @@ The issues that have been fixed in DC/OS 1.12.3 are grouped by feature, function
 
 # Known Issues and Limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more issue tracking identifiers.
-
-## Networking
-- COPS-3585 - In previous releases, a deadlock or race condition might prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly. Problems with routing tables and network connectivity can lead to the following issues:
-  - Incomplete network overlay configuration on certain nodes.
-  - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
-  - DNS records that are missing on certain nodes.
-You can restart the `systemd` process on the nodes affected to restore proper network connectivity. This fix is related to the mitigation of a networking issue caused by a secure socket layer (SSL) deadlock in the Erlang library (DC/OS 1.12).
 
 # About DC/OS 1.12 
 DC/OS 1.12 includes many new features and capabilities. The key features and enhancements focus on:
