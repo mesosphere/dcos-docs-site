@@ -67,7 +67,7 @@ Some highlights for this release include:
 
     If you deploy DC/OS monitoring, you can leverage Mesosphere-provided Grafana-based dashboards. By installing and configuring the `dcos-monitoring` service, you can automatically create dashboards that enable you to quickly visualize the metrics that the dcos-monitoring package is collecting from the DC/OS cluster and DC/OS-hosted applications. For more information about using Grafana dashboards, see the [dashboard repository](https://github.com/dcos/grafana-dashboards).
 
-- Instrument and transmit metrics that track the health and performance of the DC/OS telegraf plugin <!--(DCOS-39012)-->
+- Instrument and transmit metrics that track the health and performance of the DC/OS Telegraf plugin <!--(DCOS-39012)-->
 
     DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
 
@@ -87,7 +87,7 @@ Some highlights for this release include:
 
 - Automatically install the DC/OS Enterprise command-line interface (CLI). <!--(DCOS-39775)-->
 
-    If you have deployed a DC/OS Enterprise cluster, ypu can now automatically install the DC/OS Enterprise CLI when you install the base CLI package. Previously, the DC/OS Enterprise CLI could only be installed manually after the successful installation of the base DC/OS CLI.
+    If you have deployed a DC/OS Enterprise cluster, you can now automatically install the DC/OS Enterprise CLI when you install the base CLI package. Previously, the DC/OS Enterprise CLI could only be installed manually after the successful installation of the base DC/OS CLI.
 
     For more information about installing the command-line interface (CLI) and CLI plugins, see [Installing the CLI](/1.13/cli/install) and [Installing the DC/OS Enterprise CLI](/1.13/cli/enterprise-cli/).
 
@@ -170,11 +170,11 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 ## Installation
 - Multi-region support using the Universal Installer. <!--(DCOS-45727)-->
 
-    Multi-region deployments enable higher availability for DC/OS clusters and is a crucial item to have for customers that are wanting to achieve uptime without being susceptible for regional outages.
+    Multi-region deployments enable higher availability for DC/OS clusters and is a crucial item to have for customers that want to achieve uptime without being susceptible to regional outages.
 
 - Dynamic masters on the Universal Installer. <!--(DCOS-45725)-->
 
-    Dynamic masters is the ability to create, destroy and recover master nodes. This enables users on the Universal Installer to be able to downscale or upscale their clusters from not just the agent nodes (which is currently supported), but also from the master nodes as well - if they deem necessary.
+    Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters from not just the agent nodes (which is currently supported), but also from the master nodes--if you deem it necessary to do so.
 
 - Enable Universal Installer and on-premise DC/OS life cycle management with Ansible. <!--(DCOS-45724)-->
 
@@ -190,6 +190,14 @@ Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/in
 - UCR to support Schema2_v2 formatted docker images <!--(DCOS-43871)-->
 
     DC/OS Universal Container Runtime (UCR) now fully supports Docker images that are formatted using the Docker v2_schema2 specification. DC/OS Universal Container Runtime (UCR) also continues to support Docker images that use the v2_schema1 format.
+
+- Add a communication heartbeat to improve resiliency
+
+    DC/OS clusters now include executor and agent communication channel heartbeats to ensure platform resiliency even if `IPFilter` is enabled with `conntrack`, which usually times out a connection every five days.
+
+- DC/OS supports for zero-downtime for tasks through layer-4 load balancing
+
+    DC/OS cluster health checks now provide task-readiness information. This information enables zero-downtime for load balancing when services are scaled out. With this feature, load balanced traffic is not redirected to containers before the container health check returns a 'ready' status.
 
 ## Networking
 - Add a new networking API endpoint to retrieve the public-facing IP address for public agent nodes. <!--(DCOS-28127)-->
@@ -216,7 +224,7 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 
     For more information about authentication and managing accounts, see [User account management](/1.13/security/oss/user-account-management/).
 
-- Support secure computing mode (seccomp) profiles. <!--(DCOS-49134)-->
+- Support secure computing mode (seccomp) profiles. <!--(DCS-28442, DCOS-49134)-->
 
     Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within a container. You can enable secure computing mode for Docker containers and Universal Runtime Containers (URC) if the operating system you are using supports it.
 
@@ -257,7 +265,7 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 
 - Add external Mesos master and agent logs in the diagnostic bundle to provide additional information for troubleshooting and analysis (DCOS_OSS-4283).
 
-- Update the supported version of Java to 8u192 (DCOS_OSS-4380).
+- Update the supported version of Java to 8u192 to address known critical and high security vulnerabilities (DCOS-43938, DCOS_OSS-4380).
 
 - Add logging for Docker-GC to the `journald` system logging facility (COPS-4044).
 
