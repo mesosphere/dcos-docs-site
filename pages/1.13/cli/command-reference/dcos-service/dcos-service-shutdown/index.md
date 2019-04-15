@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle:  dcos service shutdown
 title: dcos service shutdown
-menuWeight: 1
+menuWeight: 2
 excerpt: Shutting down a service
-
 enterprise: false
 ---
 
@@ -15,16 +14,18 @@ The `dcos service shutdown` command allows you to shut down a service.
 # Usage
 
 ```bash
-dcos service shutdown <service-id> [OPTION]
+dcos service shutdown <service-id>
 ```
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+| `-h`, `--help` | Print usage. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<service-id>`   |  The DC/OS service ID. |
 

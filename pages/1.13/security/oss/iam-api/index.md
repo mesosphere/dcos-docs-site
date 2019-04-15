@@ -13,7 +13,7 @@ The Identity and Access Management API allows you to manage users through a REST
 
 # Request and response format
 
-The API supports JSON only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
+The API supports `JSON` only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
 
     Content-Type: application/json
 
@@ -35,7 +35,7 @@ All IAM endpoints require an authentication token---except the `auth` endpoints.
 
 # User management
 
-Open DC/OS supports three types of users that can be managed via the `/users` API endpoint.
+DC/OS Open Source supports three types of users that can be managed via the `/users` API endpoint.
 
 The [User account management](/1.13/security/oss/user-account-management/) documentation covers invocation of available operations in detail.
 

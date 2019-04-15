@@ -15,14 +15,14 @@ The `dcos plugin` command allows you to install and manage DC/OS CLI plugins. Un
 # Usage
 
 ```bash
-dcos plugin
+dcos plugin [command]
 ```
 
 # Options
 
-| Name | Default | Description |
-|-----------------|---------|-------------|
-| `--help, h`     |         |  Print usage. |
+| Name |  Description |
+|-----------------|-------------|
+| `--help, h`     |  Print usage. |
 
 
 # Commands

@@ -19,9 +19,11 @@ dcos marathon task show <task-id>
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

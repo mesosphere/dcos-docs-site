@@ -22,6 +22,7 @@ dcos marathon debug list [--json]
 
 | Name |  Description |
 |---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 | `--json`   |  Displays JSON-formatted data. |
 
 # Parent command

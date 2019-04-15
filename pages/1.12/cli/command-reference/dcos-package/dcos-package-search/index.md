@@ -13,27 +13,30 @@ The `dcos package search` command allows you to search the package repository.
 # Usage
 
 ```bash
-dcos package search <query> [--json]
+dcos package search [<query> --json]
 ```
 
 # Options
 
 | Name | Description |
 |---------|-------------|
-| `--json`   |   JSON-formatted data. |
+| `-h`, `--help` | Display usage. |
+| `--json`   | Display output as  JSON-formatted data. |
 
-# Positional arguments
+## Positional arguments
 
 | Name | Description |
 |---------|-------------|
 | `<query>`   |   Pattern to use for searching the package repository.  You can use complete or partial values. |
+
+
+
+# Examples
+
+For an example, see the [documentation](/1.12/administering-clusters/repo/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
 | [dcos package](/1.12/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
-
-# Examples
-
-For an example, see the [documentation](/1.12/administering-clusters/repo/).

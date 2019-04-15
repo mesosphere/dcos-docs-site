@@ -15,12 +15,13 @@ The `dcos marathon pod kill` command allows you to kill one or more running pod 
 ```bash
 dcos marathon pod kill <pod-id> [<instance-ids>...]
 ```
-
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

@@ -20,24 +20,27 @@ dcos package uninstall <package-name> [--cli | [--app [--app-id=<app-id> | --all
 
 | Name | Description |
 |---------|-------------|
-| `--all`   |  All packages. |
+| `-h`, `--help` | Display usage. |
+| `--all`   |  All applications. |
 | `--app`   |  Application only. |
 | `--app-id=<app-id>`   |   The application ID. |
 | `--cli`   |   Command line only. |
 | `--yes` | Disable interactive mode and assume "yes" is the answer to all prompts.|
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
 | `<package-name>`   |   Name of the DC/OS package. |
+
+
+# Examples
+
+For an example, see the [documentation](/1.12/deploying-services/uninstall/).
+
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
 | [dcos package](/1.12/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
-
-# Examples
-
-For an example, see the [documentation](/1.12/deploying-services/uninstall/).

@@ -4,33 +4,33 @@ navigationTitle:  dcos config unset
 title: dcos config unset
 menuWeight: 3
 excerpt: Removing a property from the configuration file
-
 enterprise: false
 ---
 
 
 # Description
-The `dcos config unset` command will remove a property from the configuration file.
+The `dcos config unset` command will remove a property from the configuration file used for the current cluster.
 
 # Usage
 
 ```bash
-dcos config unset <name>
+dcos config unset <name> [flags]
 ```
+# Options
+
+| Name |  Description |
+|---------|-------------|
+| `--help, h`   |   Display usage. |
 
 
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
 | `<name>`   |  The name of the property |
 
-# Parent command
 
-| Command | Description |
-|---------|-------------|
-| [dcos config](/1.12/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |
 
 # Examples
 
@@ -47,3 +47,8 @@ Here is the output:
 ```bash
 Removed [core.ssl_verify]
 ```
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos config](/1.12/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |

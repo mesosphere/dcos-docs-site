@@ -22,9 +22,10 @@ dcos marathon group show [--group-version=<group-version>] <group-id>
 
 | Name |  Description |
 |---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 | `--group-version=<group-version>`   |   The group version to use for the command. It can be specified as an absolute or relative value. Absolute values must be in ISO8601 date format. Relative values must be specified as a negative integer and they represent the version from the currently deployed group definition. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

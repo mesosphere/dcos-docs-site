@@ -21,12 +21,19 @@ dcos node dns <dns-name> [--json]
 
 | Name |  Description |
 |---------|-------------|
+| `--help, h`   |   Displays usage. |
 | `--json`   |   Displays JSON-formatted data. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
-| `<dns-name>` | DNS service name.
+| `<dns-name>` | DNS service name.|
 
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos node](/1.12/cli/command-reference/dcos-node/) | View DC/OS node information. |
 

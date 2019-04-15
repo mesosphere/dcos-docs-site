@@ -20,8 +20,8 @@ DC/OS handles multiple user types. User accounts can be managed via the [IAM API
 Different login methods exist for different user types but each one yields a DC/OS authentication token:
 
 * **External user login**: External user accounts can only log in via single sign-on through Auth0 (using their Google, GitHub, or Microsoft credentials).
-* **Local user login**: A local user logs in by supplying a password which is compared to the password hash stored inside DC/OS.
-* **Service login**: A service logs in by supplying a short-lived "service login token" of which the signature is verified using the service account public key stored inside DC/OS.
+* **Local user login**: A local user logs in by entering a password which is compared to the password hash stored inside DC/OS.
+* **Service login**: A service logs in by entering a short-lived "service login token" of which the signature is verified using the service account public key stored inside DC/OS.
 
 # User logout
 

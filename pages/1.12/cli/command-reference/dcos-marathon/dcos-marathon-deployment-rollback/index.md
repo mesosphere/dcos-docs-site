@@ -19,19 +19,17 @@ dcos marathon deployment rollback <deployment-id>
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
 | `<deployment-id>`   |  The deployment ID. You can view a list of the application IDs with the `dcos marathon deployment list` command. |
 
-# Parent command
 
-| Command | Description |
-|---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Example
 
@@ -49,3 +47,9 @@ APP          POD  ACTION  PROGRESS  ID
 ~$ dcos marathon deployment list
 There are no deployments
 ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

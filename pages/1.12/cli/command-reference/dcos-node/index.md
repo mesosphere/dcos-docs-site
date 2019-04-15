@@ -25,7 +25,7 @@ dcos node [OPTION]
 | `--help, h`   |   Displays usage. |
 | `--info`   |  Displays a short description of this subcommand. |
 | `--json`   |    Displays JSON-formatted data. |
-| `--version, v`   |  Displays version information. |
+| `--version`   |  Displays version information. |
 
 
 # Example

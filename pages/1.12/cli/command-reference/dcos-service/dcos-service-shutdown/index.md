@@ -19,9 +19,11 @@ dcos service shutdown <service-id>
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+| `-h`, `--help` | Print usage. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

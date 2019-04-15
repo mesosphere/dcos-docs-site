@@ -21,9 +21,10 @@ dcos marathon debug summary <app-id> [--json]
 
 | Name |  Description |
 |---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 | `--json`   |  Displays JSON-formatted data. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

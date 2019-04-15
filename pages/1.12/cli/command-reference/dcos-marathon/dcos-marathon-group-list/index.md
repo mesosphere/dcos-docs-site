@@ -22,7 +22,8 @@ dcos marathon group list [--json]
 
 | Name |  Description |
 |---------|-------------|
-| `--json`   |  Displays JSON-formatted data. |
+| `--json`   |  Displays JSON-formatted data. |.
+| `-h`, `--help` | Display info about usage of this command. |
 
 # Parent command
 

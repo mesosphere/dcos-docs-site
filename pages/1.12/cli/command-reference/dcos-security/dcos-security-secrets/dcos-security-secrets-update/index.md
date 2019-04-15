@@ -11,6 +11,12 @@ enterprise: true
  
 The `dcos security secrets update` command lets you update an existing secret stored in a specified path.
 
+# Usage
+ 
+ ```
+dcos security secrets update [OPTIONS] PATH
+ ```
+
 # Options
 
 | Name |  Description |
@@ -20,28 +26,15 @@ The `dcos security secrets update` command lets you update an existing secret st
 | `-t`, `--text-file`, `--value-file <filename>` | Treat contents of the file as value of the secret. The contents are assumed to be text encoded via UTF-8. |
 |  `-f`, `--file <filename>`     |        Use the raw file contents as the value of the secret: pass the unmodified byte sequence to DC/OS Secrets service. |
 |  `-h`, `--help`        |   Show this message and exit. |
-| `PATH` | Secrets path. |
 
+## Positional Arguments
 
+| Name |  Description |
+|---------|-------------|
+| `PATH` | URL or IP address of path of secret. |
 
-# Usage
- 
- ```
- Usage: dcos security secrets update [OPTIONS] PATH
+# Parent command
 
-  Update a secret.
-
-  Update an existing secret stored under the path PATH.
-
-Options:
-  -s, --store-id TEXT             Secrets backend to use.
-  -v, --value TEXT                Value of the secret.
-  -t, --text-file, --value-file FILENAME
-                                  Treat contents of the file as value of the
-                                  secret. The contents are assumed to be text
-                                  encoded via UTF-8.
-  -f, --file FILENAME             Use the raw file contents as the value of
-                                  the secret: pass the unmodified byte
-                                  sequence to DC/OS Secrets service.
-  -h, --help                      Show this message and exit.
-```
+| Command | Description |
+|---------|-------------|
+| [dcos security secrets](/1.12/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

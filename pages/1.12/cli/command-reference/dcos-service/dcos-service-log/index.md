@@ -16,18 +16,19 @@ The `dcos service log` command displays the service logs.
 # Usage
 
 ```bash
-dcos service log [--follow --lines=N --ssh-config-file=<path>] <service> [<file>]
+dcos service log [--follow --lines=N --ssh-config-file=<path> --user=<user>] <service> [<file>]
 ```
 
 # Options
 
 | Name | Default | Description |
 |---------|-------------|-------------|
-| `--follow`   |             |  Dynamically update the log. |
+| `--follow`   |             |  Print data as the log file grows. |
 | `--lines=N`   |     10      |  Displays the last N lines. |
 | `--ssh-config-file=<path>`   |           | The path to the SSH config file. This is used to access the Marathon logs. |
+| `--user=<user>` | User ID. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

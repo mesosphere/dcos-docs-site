@@ -24,19 +24,19 @@ Usage: dcos license renew [OPTIONS] PATH
 | `--help`   |  Show this message and exit. |
 
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
 | `PATH`  |   The path to a file containing the license. |
-| `license-file` |  |
 
+
+
+# Examples
+For examples, see [Licenses](/1.12/administering-clusters/licenses/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
 | [dcos license](/1.12/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
-
-# Examples
-For examples, see [Licenses](/1.12/administering-clusters/licenses/).

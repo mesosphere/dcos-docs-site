@@ -13,14 +13,16 @@ The `dcos node diagnostics create` command allows you to create a diagnostics bu
 # Usage
 
 ```bash
-dcos node diagnostics create <nodes> [OPTION]
+dcos node diagnostics create (<nodes>) 
 ```
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+| `--help, h`   |   Displays usage. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|-------------|

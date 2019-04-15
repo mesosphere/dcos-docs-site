@@ -11,6 +11,12 @@ enterprise: true
 
 The `dcos security secrets get` command allows you to retrieve a secret from the secrets store by a specified path.
 
+# Usage 
+
+```
+dcos security secrets get [OPTIONS] PATH
+```
+
 # Options
 
 | Name |  Description |
@@ -19,17 +25,14 @@ The `dcos security secrets get` command allows you to retrieve a secret from the
 |`-j`, `--json`       |    Output data in JSON format.|
 |  `-h`, `--help`        |   Show this message and exit. |
 
-# Usage 
+## Positional Arguments
 
-```
-Usage: dcos security secrets get [OPTIONS] PATH
+| Name |  Description |
+|---------|-------------|
+| `PATH` | URL or IP address of path of secret. |
 
-  Get a secret from the store by its path.
+# Parent command
 
-  Get a secret stored under the path PATH.
-
-Options:
-  -s, --store-id TEXT  Secrets backend to use.
-  -j, --json           Output data in JSON format.
-  -h, --help           Show this message and exit.
-```
+| Command | Description |
+|---------|-------------|
+| [dcos security secrets](/1.12/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

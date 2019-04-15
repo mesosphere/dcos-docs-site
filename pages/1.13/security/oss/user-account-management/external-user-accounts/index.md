@@ -7,7 +7,7 @@ menuWeight: 10
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-**NOTE**: An external user is automatically created for the first user who logs in to the DC/OS cluster via the web interface.
+<p class="message--note"><strong>NOTE: </strong>An external user is automatically created for the first user who logs in to the DC/OS cluster via the web interface.</p>
 
 # Add an external user account
 

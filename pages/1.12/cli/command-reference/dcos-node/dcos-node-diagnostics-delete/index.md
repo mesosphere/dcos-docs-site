@@ -14,14 +14,16 @@ The dcos node diagnostics delete command allows you to view the details of diagn
 # Usage
 
 ```bash
-dcos node diagnostics delete <bundle> [OPTION]
+dcos node diagnostics delete <bundle> 
 ```
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+| `--help, h`   |   Displays usage. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

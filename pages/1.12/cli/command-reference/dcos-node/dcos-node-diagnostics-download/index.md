@@ -15,16 +15,17 @@ The `dcos node diagnostics download` command allows you to download the diagnost
 # Usage
 
 ```bash
-dcos node diagnostics download <bundle> [OPTION]
+dcos node diagnostics download <bundle> [--location=<location>]
 ```
 
 # Options
 
 | Name | Default | Description |
 |---------|-------------|-------------|
+| `--help, h`   |   |  Displays usage. |
 | `--location=<location>`   |  Current directory |  Download the diagnostics bundle to a specific location. If not set, the default location is your current working directory. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|

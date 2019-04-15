@@ -15,7 +15,7 @@ The `dcos cluster` command lets you manage your DC/OS clusters.
 # Usage
 
 ```bash
-dcos cluster
+dcos cluster [command]
 ```
 
 # Options
@@ -23,7 +23,6 @@ dcos cluster
 | Name |  Description |
 |---------|-------------|
 | `--help, h`   |  Display usage. |
-| `--info`   |   Display a short description of this subcommand. |
-| `--version, v`   |  Display version information. |
+
 
 # Commands

@@ -8,26 +8,32 @@ enterprise: false
 ---
 
 # Description
-The `dcos cluster rename` command will rename a cluster.
+The `dcos cluster rename` command will rename a configured cluster.
 
 # Usage
 
 ```bash
-dcos cluster rename <name> <new-name>
+dcos cluster rename <cluster> <name> [flags]
 ```
 
-# Positional arguments
+# Options
+| Name |  Description |
+|---------|-------------|
+|  `-h`, `--help`   | Help for this command. |
+
+## Positional arguments
 
 | Name |  Description |
-|---------|-------------|-------------|
-| `<name>`   |  Name of connected cluster |
-| `<new-name>`   |  New name of connected cluster |
+|---------|-------------|
+| `<cluster>`   |  Name of connected cluster |
+| `<name>`   |  New name of connected cluster |
+
+
+# Examples
+For examples, see [Cluster Connections](/1.12/administering-clusters/multiple-clusters/cluster-connections/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
 | [dcos cluster](/1.12/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters |
-
-# Examples
-For examples, see [Cluster Connections](/1.12/administering-clusters/multiple-clusters/cluster-connections/).

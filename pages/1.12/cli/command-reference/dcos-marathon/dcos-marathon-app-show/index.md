@@ -22,19 +22,16 @@ dcos marathon app show [--app-version=<app-version>] <app-id>
 
 | Name |  Description |
 |---------|-------------|
+| `-h`, `--help` | Display info about usage of this command. |
 | `--app-version=<app-version>`   |  The version of the application to use. It can be specified as an absolute or relative value. Absolute values must be in ISO8601 date format. Relative values must be specified as a negative integer and represent the version from the currently deployed application definition. |
 
-# Positional arguments
+## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
 | `<app-id>`   |   The application ID.  You can view a list of the application IDs with the `dcos marathon app list` command. |
 
-# Parent command
 
-| Command | Description |
-|---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 # Example
 
@@ -192,3 +189,9 @@ dcos marathon app show spark
   }
 }
 ```
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
