@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Kubernetes Docs
-title: Kubernetes Docs
+navigationTitle: Kubernetes
+title: Kubernetes
 menuWeight: -1
 menus: ['cn-header']
 excerpt:

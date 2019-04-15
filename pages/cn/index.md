@@ -1,7 +1,7 @@
 ---
 layout: cn-dcos-docs-landing.pug
-title: DC/OS文档
-navigationTitle: DC/OS文档
+title: DC/OS
+navigationTitle: DC/OS
 menus: ['cn-header']
 menuWeight: -2
 ---
