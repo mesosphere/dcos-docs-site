@@ -21,7 +21,7 @@ In this section you will set up the authentication method and parameters for you
         uid=read-only-user,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org
         uid=read-only-user,ou=users,dc=example,dc=com
 
-  **Tip:** We recommend a read-only user account.
+    <p class="message--note"><strong>NOTE: </strong>We recommend a read-only user account.</p>
 
 1. Provide the password of the account in the **Lookup Password** field.
 
