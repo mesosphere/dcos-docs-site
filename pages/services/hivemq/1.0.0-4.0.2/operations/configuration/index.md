@@ -38,7 +38,7 @@ The DC/OS {{ model.techName }} service also provides several sidecar plans, whic
 <p class="message--warning"><strong>These plans will apply changes to all currently deployed nodes. Newly created nodes will not receive these changes. You can however re-execute the plans with the same parameters after adding nodes if required.</strong>
 
 
-<p class="message--note"><strong>If any of these plans fail, you should stop their execution. See <a href="/services/hivemq/1.0.0-4.0.2/operations/#stop">Operations</a>.</strong>
+<p class="message--note"><strong>If any of these plans fail (e.g. due to invalid parameters), you should stop their execution. See <a href="/services/hivemq/1.0.0-4.0.2/operations/#stop">Operations</a>.</strong>
 
 ## Add license
 
@@ -79,7 +79,13 @@ $ dcos {{ model.serviceName }} --name=<service_name> plan start add-config -p PA
 Extensions can be enabled or disabled at any cluster nodes' runtime as well. To do so, you can use the `enable-extension` or `disable-extension` plans. Both plans require the parameter `EXTENSION` parameter which corresponds to the extension's folder name, e.g.
 
 ```bash
-$ dcos {{ model.serviceName }} --name=<service_name> plan start disable-extension -p EXTENSION=file-rbac-extension
+$ dcos {{ model.serviceName }} --name=<service_name> plan start disable-extension -p EXTENSION=hivemq-file-rbac-extension
 ```
 
-<p class="message--warning"><strong>This plan will fail execution if the extension specified does not exist.</strong>
+### Delete extension
+
+You can also delete extensions using the `delete-extension` plan. This plan requires the sole parameter `EXTENSION` which corresponds to the extension's folder name.
+
+```bash
+$ dcos {{ model.serviceName }} --name=<service_name> plan start delete-extension -p EXTENSION=hivemq-file-rbac-extension
+```

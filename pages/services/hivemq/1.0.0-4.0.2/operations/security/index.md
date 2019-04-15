@@ -41,17 +41,20 @@ dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:princi
 ```
 
 #### Install the service
-Install the DC/OS {{ model.techName }} service including the following options in addition to your own:
+Install the DC/OS {{ model.techName }} service including the following options in addition to your own. This example enables only the MQTT-TLS listener (on port 8883 by default).
+
+You can also enable Cluster transport TLS (only when initially deploying), WebSocket TLS and Control Center TLS listeners.
+
 ```json
 {
     "service": {
         "service_account": "<your service account name>",
         "service_account_secret": "<full path of service secret>",
-        "security": {
-            "transport_encryption": {
-                "enabled": true{{{ model.security.plaintext }}}
+        "hivemq": {
+            "listener_configuration": {
+                "mqtt_tls_enabled": true
             }
         }
-    }{{{ model.security.extras }}}
+    }
 }
 ```
