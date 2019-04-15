@@ -39,3 +39,48 @@ See [Discovering the DNS names for a service](/1.12/networking/DNS/mesos-dns/ser
 <p class="message--note"><strong>You can customize the port of all VIPs in the service configuration except for the default listener.</strong>
 
 <p class="message--important"><strong>While our service can provide TLS listeners, it usually makes sense to offload TLS termination to an external loadbalancer to reduce the CPU load on the brokers.</strong>
+
+[enterprise]
+## Using Edge-LB
+[/enterprise]
+
+You can also use [Edge-LB](/services/edge-lb/) for connecting your MQTT clients to the brokers. After setting up Edge-LB, [create a pool](/services/edge-lb/1.3/tutorials/single-lb/) using the following `hivemq-pool.json`. Customize the frontend port and framework name according to your required configuration.
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "hivemq",
+  "count": 1,
+  "haproxy": {
+    "stats": {
+      "bindPort": 9090
+    },
+    "frontends": [{
+      "bindPort": 1883,
+      "protocol": "TCP",
+      "linkBackend": {
+        "defaultBackend": "mqtt"
+      }
+    }],
+    "backends": [{
+      "name": "mqtt",
+      "protocol": "TCP",
+      "services": [{
+        "mesos": {
+          "frameworkName": "hivemq",
+          "taskNamePattern": ".*-node"
+        },
+        "endpoint": {
+          "portName": "mqtt"
+        }
+      }]
+    }]
+  }
+}
+```
+
+This will create a minimal, single instance pool for connecting your clients using a public node.
+
+See [V2 Pool Reference](/services/edge-lb/latest/pool-configuration/v2-reference/) for advanced configuration options.
+
+<p class="message--warning"><strong>For larger deployments with >50k connections, you should run multiple instances (increase the count of the pool).</strong>

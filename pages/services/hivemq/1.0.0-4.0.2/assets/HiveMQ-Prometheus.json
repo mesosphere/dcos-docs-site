@@ -2,7 +2,7 @@
   "__inputs": [
     {
       "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
+      "label": "prometheus",
       "description": "",
       "type": "datasource",
       "pluginId": "prometheus",
@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "5.4.3"
+      "version": "5.1.3"
     },
     {
       "type": "panel",
@@ -46,7 +46,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1554197826801,
+  "iteration": 1555334302251,
   "links": [],
   "panels": [
     {
@@ -89,7 +89,8 @@
         {
           "alias": "cpu.total - $tag_node",
           "dsType": "influxdb",
-          "expr": "com_hivemq_system_os_global_cpu_total_total",
+          "expr": "com_hivemq_system_os_global_cpu_total_total{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -220,7 +221,8 @@
         {
           "alias": "mem.total - $tag_node",
           "dsType": "influxdb",
-          "expr": "com_hivemq_system_os_global_memory_total - com_hivemq_system_os_global_memory_available",
+          "expr": "com_hivemq_system_os_global_memory_total{service_name = \"$service_name\"} - com_hivemq_system_os_global_memory_available{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -269,7 +271,8 @@
           "tags": []
         },
         {
-          "expr": "com_hivemq_system_os_global_memory_total",
+          "expr": "com_hivemq_system_os_global_memory_total{service_name = \"$service_name\"}",
+          "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
           "legendFormat": "{{instance}} mem.total",
@@ -362,7 +365,8 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "com_hivemq_jvm_memory_heap_max",
+          "expr": "com_hivemq_jvm_memory_heap_max{service_name = \"$service_name\"}",
+          "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} heap.max",
           "metric": "com_hivemq_jvm_memory_heap_max",
@@ -370,7 +374,8 @@
           "step": 10
         },
         {
-          "expr": "com_hivemq_jvm_memory_heap_init",
+          "expr": "com_hivemq_jvm_memory_heap_init{service_name = \"$service_name\"}",
+          "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} heap.init",
           "metric": "com_hivemq_jvm_memory_heap_init",
@@ -379,7 +384,8 @@
         },
         {
           "dsType": "influxdb",
-          "expr": "com_hivemq_jvm_memory_heap_used",
+          "expr": "com_hivemq_jvm_memory_heap_used{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -510,7 +516,8 @@
         {
           "alias": "",
           "dsType": "influxdb",
-          "expr": "com_hivemq_system_os_process_memory_resident_set_size",
+          "expr": "com_hivemq_system_os_process_memory_resident_set_size{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -635,7 +642,7 @@
         {
           "alias": "",
           "dsType": "influxdb",
-          "expr": "com_hivemq_cluster_nodes_count",
+          "expr": "com_hivemq_cluster_nodes_count{service_name = \"$service_name\"}",
           "format": "time_series",
           "groupBy": [
             {
@@ -761,7 +768,8 @@
       "targets": [
         {
           "dsType": "influxdb",
-          "expr": "{__name__=~\"com_hivemq_persistence_executor_.*_tasks\"}",
+          "expr": "{__name__=~\"com_hivemq_persistence_executor_.*_tasks\", service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -801,19 +809,22 @@
           "tags": []
         },
         {
-          "expr": "{__name__=~\"com_hivemq_persistence_executor_.*_tasks.*\"}",
+          "expr": "{__name__=~\"com_hivemq_persistence_executor_.*_tasks.*\", service_name = \"$service_name\"}",
+          "format": "time_series",
           "intervalFactor": 2,
           "refId": "D",
           "step": 10
         },
         {
-          "expr": "{__name__=~\"com_hivemq_persistence_executor_.*_.*_tasks\"}",
+          "expr": "{__name__=~\"com_hivemq_persistence_executor_.*_.*_tasks\", service_name = \"$service_name\"}",
+          "format": "time_series",
           "intervalFactor": 2,
           "refId": "B",
           "step": 10
         },
         {
-          "expr": "{__name__=~\"com_hivemq_persistence_executor_.*_.*_tasks.*\"}",
+          "expr": "{__name__=~\"com_hivemq_persistence_executor_.*_.*_tasks.*\", service_name = \"$service_name\"}",
+          "format": "time_series",
           "intervalFactor": 2,
           "refId": "C",
           "step": 10
@@ -903,7 +914,8 @@
         {
           "alias": "$4 - $tag_host",
           "dsType": "influxdb",
-          "expr": "{__name__=~\"com_hivemq_cluster_sent_.*\"}",
+          "expr": "{__name__=~\"com_hivemq_cluster_sent_.*\", service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -1040,7 +1052,8 @@
         {
           "alias": "retained-messages - $tag_host",
           "dsType": "influxdb",
-          "expr": "com_hivemq_messages_retained_current",
+          "expr": "com_hivemq_messages_retained_current{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -1172,7 +1185,8 @@
         {
           "alias": "MQTT Sessions - $tag_host",
           "dsType": "influxdb",
-          "expr": "com_hivemq_sessions_overall_current",
+          "expr": "com_hivemq_sessions_overall_current{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -1305,7 +1319,8 @@
         {
           "alias": "before-publish-send - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_dropped_publish_inbound_intercepted_count[1m])",
+          "expr": "delta(com_hivemq_messages_dropped_publish_inbound_intercepted_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -1359,7 +1374,8 @@
         {
           "alias": "inflight-window-full - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_dropped_message_too_large_count[1m])",
+          "expr": "delta(com_hivemq_messages_dropped_message_too_large_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -1412,7 +1428,8 @@
         {
           "alias": "internal-error - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_dropped_not_writable_count[1m])",
+          "expr": "delta(com_hivemq_messages_dropped_not_writable_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -1465,7 +1482,8 @@
         {
           "alias": "not-connected - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_dropped_qos_0_memory_exceeded_count[1m])",
+          "expr": "delta(com_hivemq_messages_dropped_qos_0_memory_exceeded_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -1518,7 +1536,8 @@
         {
           "alias": "not-writeable - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_dropped_queue_full_count[1m])",
+          "expr": "delta(com_hivemq_messages_dropped_queue_full_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -1571,7 +1590,8 @@
         {
           "alias": "qos0-queue-not-empty - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_dropped_internal_error_count[1m])",
+          "expr": "delta(com_hivemq_messages_dropped_internal_error_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -1592,6 +1612,7 @@
               "type": "fill"
             }
           ],
+          "interval": "",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} internal-error",
           "measurement": "com.hivemq.messages.dropped.qos-0-queue-not-empty.count",
@@ -1707,7 +1728,8 @@
         {
           "alias": "mqtt.incoming - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_incoming_total_count[1m])",
+          "expr": "delta(com_hivemq_messages_incoming_total_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -1755,7 +1777,8 @@
         {
           "alias": "mqtt.outgoing - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_outgoing_total_count[1m])",
+          "expr": "delta(com_hivemq_messages_outgoing_total_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -1886,7 +1909,8 @@
         {
           "alias": "connections - $tag_host",
           "dsType": "influxdb",
-          "expr": "com_hivemq_networking_connections_current",
+          "expr": "com_hivemq_networking_connections_current{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -2018,7 +2042,8 @@
         {
           "alias": "connect.rate - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_incoming_connect_count[1m])",
+          "expr": "delta(com_hivemq_messages_incoming_connect_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -2153,7 +2178,8 @@
         {
           "alias": "closed_connections.rate - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_networking_connections_closed_total_count[1m])",
+          "expr": "delta(com_hivemq_networking_connections_closed_total_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -2288,7 +2314,8 @@
         {
           "alias": "subscribe.count - $tag_host",
           "dsType": "influxdb",
-          "expr": "com_hivemq_subscriptions_overall_current",
+          "expr": "com_hivemq_subscriptions_overall_current{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -2423,7 +2450,8 @@
         {
           "alias": "subscribe.rate - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_incoming_subscribe_count[1m])",
+          "expr": "delta(com_hivemq_messages_incoming_subscribe_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -2556,7 +2584,8 @@
         {
           "alias": "unsubscribe.rate - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_incoming_unsubscribe_count[1m])",
+          "expr": "delta(com_hivemq_messages_incoming_unsubscribe_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -2690,7 +2719,8 @@
         {
           "alias": "publish.incoming - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_incoming_publish_count[1m])",
+          "expr": "delta(com_hivemq_messages_incoming_publish_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -2821,7 +2851,8 @@
         {
           "alias": "publish.outgoing - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_outgoing_publish_count[1m])",
+          "expr": "delta(com_hivemq_messages_outgoing_publish_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -2951,7 +2982,8 @@
         {
           "alias": "ping.incoming - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_incoming_pingreq_count[1m])",
+          "expr": "delta(com_hivemq_messages_incoming_pingreq_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -3086,7 +3118,8 @@
         {
           "alias": "ping.outgoing - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_messages_outgoing_pingresp_count[1m])",
+          "expr": "delta(com_hivemq_messages_outgoing_pingresp_count{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -3220,7 +3253,8 @@
         {
           "alias": "Network Bytes Received - $tag_node",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_system_os_network_interface_eth0_bytes_received[1m])",
+          "expr": "delta(com_hivemq_system_os_network_interface_eth0_bytes_received{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -3353,7 +3387,8 @@
         {
           "alias": "Network Bytes Sent - $tag_node",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_system_os_network_interface_eth0_bytes_sent[1m])",
+          "expr": "delta(com_hivemq_system_os_network_interface_eth0_bytes_sent{service_name = \"$service_name\"}[1m])",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -3486,7 +3521,7 @@
         {
           "alias": "GC M&S - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_jvm_garbage_collector_marksweepcompact_count[1m])",
+          "expr": "delta(com_hivemq_jvm_garbage_collector_marksweepcompact_count{service_name = \"$service_name\"}[1m])",
           "format": "time_series",
           "groupBy": [
             {
@@ -3621,7 +3656,7 @@
         {
           "alias": "GC Young Time - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_jvm_garbage_collector_marksweepcompact_time[1m])",
+          "expr": "delta(com_hivemq_jvm_garbage_collector_marksweepcompact_time{service_name = \"$service_name\"}[1m])",
           "format": "time_series",
           "groupBy": [
             {
@@ -3674,7 +3709,7 @@
         {
           "alias": "GC Old Time - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_jvm_garbage_collector_marksweepcompact_time[1m])",
+          "expr": "delta(com_hivemq_jvm_garbage_collector_marksweepcompact_time{service_name = \"$service_name\"}[1m])",
           "format": "time_series",
           "groupBy": [
             {
@@ -3806,7 +3841,8 @@
       "targets": [
         {
           "dsType": "influxdb",
-          "expr": "com_hivemq_jvm_threads_count",
+          "expr": "com_hivemq_jvm_threads_count{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -3934,7 +3970,7 @@
         {
           "alias": "not_responsible - $tag_host",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_cluster_internal_response_not_responsible[1m])",
+          "expr": "delta(com_hivemq_cluster_internal_response_not_responsible{service_name = \"$service_name\"}[1m])",
           "format": "time_series",
           "groupBy": [
             {
@@ -4071,7 +4107,7 @@
         {
           "alias": "Disk Bytes Read - $tag_node",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_system_os_disks__dev_${diskdevice}_read_bytes[1m])",
+          "expr": "delta(com_hivemq_system_os_disks__dev_${diskdevice}_read_bytes{service_name = \"$service_name\"}[1m])",
           "format": "time_series",
           "groupBy": [
             {
@@ -4125,7 +4161,7 @@
         {
           "alias": "Disk Bytes Write - $tag_node",
           "dsType": "influxdb",
-          "expr": "delta(com_hivemq_system_os_disks__dev_${diskdevice}_write_bytes[1m])",
+          "expr": "delta(com_hivemq_system_os_disks__dev_${diskdevice}_write_bytes{service_name = \"$service_name\"}[1m])",
           "format": "time_series",
           "groupBy": [
             {
@@ -4259,7 +4295,8 @@
         {
           "alias": "Overload Protection level - $tag_host",
           "dsType": "influxdb",
-          "expr": "com_hivemq_overload_protection_level",
+          "expr": "com_hivemq_overload_protection_level{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -4383,7 +4420,8 @@
         {
           "alias": "",
           "dsType": "influxdb",
-          "expr": "com_hivemq_overload_protection_clients_average_credits",
+          "expr": "com_hivemq_overload_protection_clients_average_credits{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -4514,7 +4552,8 @@
         {
           "alias": "",
           "dsType": "influxdb",
-          "expr": "com_hivemq_overload_protection_credits_per_tick",
+          "expr": "com_hivemq_overload_protection_credits_per_tick{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -4638,7 +4677,8 @@
         {
           "alias": "Active backpressure - $tag_host",
           "dsType": "influxdb",
-          "expr": "com_hivemq_overload_protection_clients_backpressure_active",
+          "expr": "com_hivemq_overload_protection_clients_backpressure_active{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -4763,7 +4803,8 @@
         {
           "alias": "Using Credits - $tag_host",
           "dsType": "influxdb",
-          "expr": "com_hivemq_overload_protection_clients_using_credits",
+          "expr": "com_hivemq_overload_protection_clients_using_credits{service_name = \"$service_name\"}",
+          "format": "time_series",
           "groupBy": [
             {
               "params": [
@@ -4779,6 +4820,7 @@
             }
           ],
           "hide": false,
+          "interval": "",
           "intervalFactor": 2,
           "legendFormat": "{{instance}} Using Credits",
           "measurement": "com.hivemq.overload-protection.clients.using-credits",
@@ -4888,7 +4930,7 @@
         {
           "alias": "Execution duration - $tag_host",
           "dsType": "influxdb",
-          "expr": "com_hivemq_supervision_scheduled_executor_duration_m1_rate",
+          "expr": "com_hivemq_supervision_scheduled_executor_duration_m1_rate{service_name = \"$service_name\"}",
           "format": "time_series",
           "groupBy": [
             {
@@ -5012,6 +5054,26 @@
         "query": "sda,vda,hda",
         "skipUrlSync": false,
         "type": "custom"
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_PROMETHEUS}",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "service_name",
+        "options": [],
+        "query": "label_values(com_hivemq_messages_incoming_connect_count, service_name)",
+        "refresh": 1,
+        "regex": "",
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
       }
     ]
   },
@@ -5047,5 +5109,5 @@
   "timezone": "browser",
   "title": "HiveMQ Prometheus",
   "uid": "ML74c76mz",
-  "version": 2
+  "version": 3
 }
