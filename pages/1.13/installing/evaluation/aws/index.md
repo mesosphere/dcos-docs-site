@@ -123,7 +123,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
 
     module "dcos" {
       source  = "dcos-terraform/dcos/aws"
-      version = "~> 0.1"
+      version = "~> 0.1.0"
 
       cluster_name        = "my-dcos-demo"
       ssh_public_key_file = "<path-to-public-key-file>"

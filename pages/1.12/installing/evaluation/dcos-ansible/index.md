@@ -24,7 +24,7 @@ Mesosphere supports the use of a combination of the [Universal Installer](/1.12/
 ```hcl
 module "dcos-ansible-bridge" {
   source  = "dcos-terraform/dcos-ansible-bridge/local_file"
-  version = "~> 0.1"
+  version = "~> 0.1.0"
 
   bootstrap_ip         = "${module.dcos-infrastructure.bootstrap.public_ip}"
   master_ips           = ["${module.dcos-infrastructure.masters.public_ips}"]
@@ -37,7 +37,7 @@ module "dcos-ansible-bridge" {
 
 module "dcos-infrastructure" {
   source  = "dcos-terraform/infrastructure/aws"
-  version = "~> 0.1"
+  version = "~> 0.1.0"
 
   [...]
 

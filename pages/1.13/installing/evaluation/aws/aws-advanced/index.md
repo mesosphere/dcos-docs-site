@@ -13,7 +13,7 @@ The Terraform-based Universal Installer is designed to be flexible with configur
 ```hcl
 module "dcos" {
   source  = "dcos-terraform/dcos/aws"
-  version = "~> 0.1"
+  version = "~> 0.1.0"
 
   cluster_name = "mydcoscluster"
   ssh_public_key_file = "~/.ssh/id_rsa.pub"

@@ -13,7 +13,7 @@ Mesosphere Universal 安装工具支持各种输入/变量，以便添加到您�
 ```hcl
 module "dcos" {
   source  = "dcos-terraform/dcos/azurerm"
-  version = "~> 0.1"
+  version = "~> 0.1.0"
 
   cluster_name = "mydcoscluster"
   ssh_public_key_file = "~/.ssh/id_rsa.pub"
