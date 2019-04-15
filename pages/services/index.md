@@ -1,7 +1,7 @@
 ---
 layout: service-docs-landing.pug
-navigationTitle:  Service Docs
-title: Service Docs
+navigationTitle: Services
+title: Services
 menus: ['header']
 menuWeight: 5
 ---
