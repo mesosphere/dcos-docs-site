@@ -22,7 +22,7 @@ All agent nodes will have the same volume configurations specified.
 ```hcl
 module "dcos" {
   source  = "dcos-terraform/dcos/aws"
-  version = "~> 0.1"
+  version = "~> 0.1.0"
 
   # ......
 
