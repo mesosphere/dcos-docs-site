@@ -265,11 +265,7 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 
 - Add external Mesos master and agent logs in the diagnostic bundle to provide additional information for troubleshooting and analysis (DCOS_OSS-4283).
 
-<<<<<<< HEAD
 - Update the supported version of Java to 8u192 to address known critical and high security vulnerabilities (DCOS-43938, DCOS_OSS-4380).
-=======
-- Update the supported version of Java to 8u192 (DCOS_OSS-4380).
->>>>>>> 7082697cc... Copy edited raw changelog into the issues fixed, add bullets/links for other component updates.
 
 - Add logging for Docker-GC to the `journald` system logging facility (COPS-4044).
 
