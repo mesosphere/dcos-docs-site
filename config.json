@@ -1,7 +1,6 @@
 {
   "master": {
     "DO_NOT_BUILD": [
-      "1.13/**",
       "test/**",
       "services/beta-storage/0.3.1-beta/**",
       "services/beta-storage/0.3.2-beta/**"
