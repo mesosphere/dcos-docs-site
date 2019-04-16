@@ -6,7 +6,7 @@ menuWeight: 1
 beta: true
 excerpt: Release notes for DC/OS 1.13 (Beta), including Open Source attribution and version policy.
 ---
-DC/OS 1.13.0 (Beta) was released on April 16, 2019.
+DC/OS 1.13.0 (Beta) was released on April 17, 2019.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/testing/1.13.0-beta1/commit/a55cf6cd18bea6961e2cc3c957ac8d0ee47583d5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -320,9 +320,9 @@ For access to the logs that track specific changes to components that are includ
 - Apache Mesos 1.8.0 [change log](https://github.com/apache/mesos/blob/0c503b01d3a9428ec9db35d09da5e237d737c570/CHANGELOG).
 - Marathon 1.8.x [change log](https://github.com/mesosphere/marathon/blob/b00f71136a7e35cb76c7df136d49b16b9ead2689/changelog.md).
 - Metronome 0.6.18 [change log](https://github.com/dcos/metronome/blob/90557686a08d97ef6bb7e55ac9c3a48d72e2a53d/changelog.md).
-<!--- DC/OS 1.13 [change log](https://github.com/dcos/dcos/blob/master/CHANGES.md).
-- REX-Ray 0.11.4 [release information](https://github.com/rexray/rexray/releases).
-- Telegraf 1.9.x [change log](https://github.com/influxdata/telegraf/blob/master/CHANGELOG.md).
+<!--- DC/OS 1.13 [change log](https://github.com/dcos/dcos/blob/1.13/CHANGES.md).
+- REX-Ray 0.11.4 [release information](https://github.com/rexray/rexray/releases/tag/v0.11.4).
+- Telegraf 1.9.x [change log](https://github.com/influxdata/telegraf/blob/release-1.9/CHANGELOG.md).
 - Erlang/OTP 21.3 [release information](http://erlang.org/download/otp_src_21.3.readme).
 - Java 8 [release information](https://java.com/en/download/faq/release_changes.xml). -->
 
