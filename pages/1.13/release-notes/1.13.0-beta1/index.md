@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle: Release notes for 1.13.0 (Beta)
 title: Release notes for 1.13.0 (Beta)
-menuWeight: 15
+menuWeight: 1
 beta: true
-excerpt: Release notes for DC/OS 1.13.0 (Beta)
+excerpt: Release notes for DC/OS 1.13 (Beta), including Open Source attribution and version policy.
 ---
-DC/OS 1.13.0 (Beta) was released on April 25, 2019.
+DC/OS 1.13.0 (Beta) was released on April 16, 2019.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/testing/1.13.0-beta1/commit/a55cf6cd18bea6961e2cc3c957ac8d0ee47583d5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -121,7 +121,7 @@ Some highlights for this release include:
 <!-- not in the 1.13 Docs in RN filter
 - [Kubernetes] Edge-LB TLS/SNI Integration. <!-- (DCOS-47322)
 <no content>
-- Kubernetes Edge=LB Integration: TCP/HTTP <!--(DCOS-28246)
+- Kubernetes Edge-LB Integration: TCP/HTTP <!--(DCOS-28246)
 <no content>
 - [Kubernetes] Multi-Kubernetes Regional Placement (DCOS-40924)
 <already in release notes>
@@ -249,15 +249,13 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
 <!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
 
-<!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
-
 - Job scheduling (Metronome) has been improved to handle the restart policy when a job fails. If a job fails to run, restarting the task should depend on the setting you have defined for the ON_FAILURE result (DCOS_OSS-4636).
 
 - Prefix illegal Prometheus metric names with an underscore (DCOS_OSS-4899).
 
-- Fix an issue that cause `dcos-net-setup.py` to fail when the `systemd` network directory did not exist (DCOS-49711).
+- Fix an issue that previously caused the `dcos-net-setup.py` script to fail when the `systemd` network directory did not exist (DCOS-49711).
 
-- Update support for REX-Ray to the most recent stable version (DCOS_OSS-4316,COPS-3961).
+- Update support for REX-Ray to the most recent stable version (DCOS_OSS-4316, COPS-3961).
 
 - Upgrade the version of the Telegraf metrics plugin supported to leverage recent bug fixes and feature improvements (DCOS_OSS-4675).
 
@@ -285,13 +283,13 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 
 - Add a warning to the installer to let the user know if case kernel modules required by the DC/OS storage service (DSS) are not loaded (DCOS-49088).
 
-- Enable ipv6 support for layer-4 load balancing (l4lb) by default (DCOS_OSS-1993).
+- Enable IPv6 support for layer-4 load balancing (l4lb) by default (DCOS_OSS-1993).
 
 - Upgrade the support for the Erlang/OTP framework to Erlang/OTP version 21.3 (DCOS_OSS-4902).
 
 - Fix a race condition in the layer-4 load balancing (l4lb) network component (DCOS_OSS-4939).
 
-- Fix IPv6 VIP support in the layer-4 load balancing (l4lb) network component (DCOS-50427).
+- Fix IPv6 virtual IP support in the layer-4 load balancing (l4lb) network component (DCOS-50427).
 
 - Change the default value for DC/OS UI X-Frame-Options from SAMEORIGIN to DENY. This setting is also now configurable using the `adminrouter_x_frame_options` configuration parameter (DCOS-49594).
 
@@ -317,9 +315,9 @@ This section covers any known issues or limitations that don’t necessarily aff
 
 # Updated components change lists
 For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
-- Apache Mesos 1.7.3 [change log](https://github.com/apache/mesos/blob/5e234c8d8edc1bb73ba557f5774c609fa460c9e7/CHANGELOG).
-- Marathon 1.7.203 [change log](https://github.com/mesosphere/marathon/blob/b26a8b310561934071c5f347ee5e184a3279cabd/changelog.md).
-- Metronome 0.5.71 [change log](https://github.com/dcos/metronome/blob/cf8887dd836d3629e3f5ac071624e055bdffcec8/changelog.md).
+- Apache Mesos 1.7.3 [change log](https://github.com/apache/mesos/blob/0c503b01d3a9428ec9db35d09da5e237d737c570/CHANGELOG).
+- Marathon 1.7.203 [change log](https://github.com/mesosphere/marathon/blob/b00f71136a7e35cb76c7df136d49b16b9ead2689/changelog.md).
+- Metronome 0.5.71 [change log](https://github.com/dcos/metronome/blob/90557686a08d97ef6bb7e55ac9c3a48d72e2a53d/changelog.md).
 - DC/OS 1.13 [change log](https://github.com/dcos/dcos/blob/master/CHANGES.md).
 - REX-Ray 0.11.4 [release information](https://github.com/rexray/rexray/releases).
 - Telegraf 1.9.x [change log](https://github.com/influxdata/telegraf/blob/master/CHANGELOG.md).
