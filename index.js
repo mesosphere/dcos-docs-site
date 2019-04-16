@@ -63,6 +63,8 @@ const branchDoNotBuild = config[GIT_BRANCH] ? (
 );
 
 const METALSMITH_SKIP_SECTIONS = config['always']['DO_NOT_BUILD'] + branchDoNotBuild;
+console.log("Metalsmith Sections");
+console.log(METALSMITH_SKIP_SECTIONS);
 
 //
 // Errors
