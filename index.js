@@ -59,12 +59,10 @@ const ALGOLIA_SKIP_SECTIONS = config['always']['DO_NOT_INDEX'] + branchDoNotInde
 const branchDoNotBuild = config[GIT_BRANCH] ? (
   config[GIT_BRANCH]['DO_NOT_BUILD']
 ) : (
-  []
+  config['local']['DO_NOT_BUILD']
 );
 
-const METALSMITH_SKIP_SECTIONS = config['always']['DO_NOT_BUILD'] + branchDoNotBuild;
-console.log("Metalsmith Sections");
-console.log(METALSMITH_SKIP_SECTIONS);
+const METALSMITH_SKIP_SECTIONS = config.always.DO_NOT_BUILD.concat(branchDoNotBuild);
 
 //
 // Errors
