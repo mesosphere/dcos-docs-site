@@ -16,9 +16,9 @@ Figure 1 - Dashboard
 
 On the header bar, the username and cluster name are displayed as menus.
 
-In the user menu, there is a link for user sign out:
+In the user menu, there is a link to let you sign out or change the language of the display:
 
-![DC/OS UI User Menu](/1.13/img/header-bar-user-dropdown-1-12.png)
+![DC/OS UI User Menu](/1.13/img/GUI-change-UI-language-selector.png)
 
 Figure 2 - Header Bar User Menu
 
@@ -36,26 +36,44 @@ Figure 4 - Cluster Menu with Switch Cluster Option
 
 # Change UI language
 
-You can change the language in which the UI is displayed. The videos below show the steps involved.
+You can change the language in which the UI is displayed. 
 
-**From the username**
+**From the header bar**
 
-1. Click on your username in the upper right corner.
-1. From the drop-down menu, select "Change (language)".
-1. Click "Save".
+1. Click on your username in the header bar.
 
-![Change language from username](/1.13/img/change-ui-language-from-username.mp4)
+    ![Username Menu](/1.13/img/GUI-change-UI-settings-menu-3.png)
 
-Figure 5 - Change display language from user name
+    Figure 5 - User name menu
 
+1. From the drop-down menu, select "English (change)".
+
+    ![Drop Down menu](/1.13/img/GUI-change-UI-language-selector.png)
+
+    Figure 6 - Username menu
+
+1. From the Language Preferences window, select your language.
+
+    ![Language Preferences](/1.13/img/GUI-change-UI-settings-menu-2.png)
+
+    Figure 7 - Language preferences menu
+
+1. Click **Save**.
 
 **From the Settings menu**
 
-1. Click on Settings > UI Settings.
-1. Click on the "Edit" button.
-1. From the drop-down menu, select "Change (language)".
-1. Click "Save".
+1. Click on **Settings > UI Settings**.
 
-![Change language from Settings menu](/1.13/img/change-ui-language-from-settings-menu.mp4)
+    ![UI settings tab](/1.13/img/GUI-change-UI-settings-menu-1.png)
 
-Figure 6 - Change display language from username
+    Figure 8 - UI Settings tab
+
+1. Click on the **Edit** button.
+
+1. From the Language Preferences window, select your language.
+
+    ![Language Preferences](/1.13/img/GUI-change-UI-settings-menu-2.png)
+
+    Figure 9 - Language preferences menu
+1. Click **Save**.
+
