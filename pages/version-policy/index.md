@@ -40,11 +40,16 @@ Thus, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
 
 ## DC/OS Platform Version Compatibility Matrix
 
+DC/OS will run on the tested platform components and operating environments. The list of support matrix for platform components and operating environments are as follows:
+
+##### [CoreOS support matrix](#CoreOS-support-matrix)
+##### [CentOS support matrix](#CentOS-support-matrix)
+##### [RHEL support matrix](#RHEL-support-matrix)
+##### [Oracle support matrix](#Oracle-support-matrix)
+
 Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement. The term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
-The following tables represent the support matrix for platform components and operating environments on which DC/OS has been tested. DC/OS will run on the following platform components. 
-
-### CoreOS support matrix
+### <a name="CoreOS-support-matrix"></a>CoreOS support matrix
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -72,7 +77,7 @@ The following tables represent the support matrix for platform components and op
     </tr>
 </table>
 
-### CentOS support matrix
+### <a name="CentOS-support-matrix"></a>CentOS support matrix 
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -100,7 +105,7 @@ The following tables represent the support matrix for platform components and op
     </tr>
 </table>
 
-### RHEL support matrix
+### <a name="RHEL-support-matrix"></a>RHEL support matrix
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -128,7 +133,7 @@ The following tables represent the support matrix for platform components and op
     </tr>
 </table>
 
-### Oracle support matrix
+### <a name="Oracle-support-matrix"></a>Oracle support matrix 
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -159,7 +164,7 @@ The following tables represent the support matrix for platform components and op
 ## Web Browser and CLI Matrix
 Use the following legend table to see the supported/not supported service for the operating environments on which DC/OS has been tested. 
 
-### Legend for web browser and CLI support matrix
+### Legend for Web Browser and CLI support matrix
 |Display Icon | Service       |
 |------------ |-------------- |
 | ⚫          | Supported     |

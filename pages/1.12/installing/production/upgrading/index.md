@@ -16,9 +16,11 @@ An upgrade is the process of moving between major releases to add new features o
 
 If upgrading is performed on a supported OS with all prerequisites fulfilled, then the upgrade **should** preserve the state of running tasks on the cluster.
 
+<p class="message--warning"><strong>WARNING: </strong> During an upgrade, any custom configuration files in /opt/mesosphere/ may be deleted irretrievably.</p>
+
 ## Important guidelines
 
-- The Production installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [DC/OS Deployment Guide](/1.12/installing/production/deploying-dcos/) before proceeding.
+- The Production installation method is the **only** recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [DC/OS Deployment Guide](/1.12/installing/production/deploying-dcos/) before proceeding.
 - Review the [release notes](/1.12/release-notes/) before upgrading DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster.  You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file.
@@ -124,7 +126,7 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.12.
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
-You _cannot_ change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.10 to 1.11 and add more public agents. You can add more public agents with a patch to 1.11, and then upgrade to 1.12. Or you can upgrade to 1.12 and then add more public agents by [patching 1.12](/1.12/installing/production/patching/) after the upgrade.
+You **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.10 to 1.11 and add more public agents. You can add more public agents with a patch to 1.11, and then upgrade to 1.12. Or you can upgrade to 1.12 and then add more public agents by [patching 1.12](/1.12/installing/production/patching/) after the upgrade.
 
 # Instructions
 These steps must be performed for version upgrades.

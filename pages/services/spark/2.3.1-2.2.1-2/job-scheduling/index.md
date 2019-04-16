@@ -55,7 +55,7 @@ Example:
 SSH to the Mesos master and set the Quota for a role (`dispatcher` in this example):
 
 ```bash
-$ cat dispatcher-quota.json
+cat dispatcher-quota.json
 {
  "role": "dispatcher",
  "guarantee": [
@@ -71,19 +71,19 @@ $ cat dispatcher-quota.json
    }
  ]
 }
-$ curl -d @dispatcher-quota.json -X POST http://<master>:5050/quota
+curl -d @dispatcher-quota.json -X POST http://<master>:5050/quota
 ```
 
 4. Install the Spark service with the following options (at a minimum):
 
 ```bash
-$ cat options.json
+cat options.json
 {
     "service": {
         "role": "dispatcher"
     }
 }
-$ dcos package install spark --options=options.json
+dcos package install spark --options=options.json
 ```
 
 ## Setting Quotas for the Executors
@@ -98,7 +98,7 @@ cluster.
 Quotas can be allocated for Spark executors in the same way they are allocated for Spark dispatchers.  If we assume we want to be able to run 100 executors concurrently, each with 1.0 CPU and 4096 MB of memory, we should do the following:
 
 ```bash
-$ cat executor-quota.json
+cat executor-quota.json
 {
   "role": "executor",
   "guarantee": [
@@ -114,7 +114,7 @@ $ cat executor-quota.json
     }
   ]
 }
-$ curl -d @executor-quota.json -X POST http://<master>:5050/quota
+curl -d @executor-quota.json -X POST http://<master>:5050/quota
 
 ```
 
@@ -123,7 +123,7 @@ When Spark jobs are submitted, they must indicate the role for which the Quota h
 Example:
 
 ```bash
-$ dcos spark run --verbose --name=spark --submit-args="\
+dcos spark run --verbose --name=spark --submit-args="\
 --driver-cores=1 \
 --driver-memory=1024M \
 --conf spark.cores.max=8 \
@@ -145,7 +145,7 @@ for the roles you intend to use, detailed below. Following the example above the
 1.    First set Quota for the Dispatcher's role (`dispatcher`)
 
     ```bash
-    $ cat dispatcher-quota.json
+    cat dispatcher-quota.json
     {
      "role": "dispatcher",
      "guarantee": [
@@ -176,7 +176,7 @@ for the roles you intend to use, detailed below. Following the example above the
 2.    Optionally set Quota for the executors also, this is the same as above:
 
     ```bash
-    $ cat executor-quota.json
+    cat executor-quota.json
     {
       "role": "executor",
       "guarantee": [
@@ -231,7 +231,7 @@ any particular Spark job from consuming too many resources in a cluster.  It is 
 long-running and streaming Spark jobs. 
 
 ```bash
-$ dcos spark run --verbose --name=spark --submit-args="\
+dcos spark run --verbose --name=spark --submit-args="\
 --driver-cores=1 \
 --driver-memory=1024M \
 --conf spark.cores.max=8 \ #<< Very important!

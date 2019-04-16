@@ -133,11 +133,50 @@ If you scale your app down to 0 instances, the volume is detached from the agent
 *   Volumes are namespaced by their storage provider. Choose unique volume names to avoid conflicts.
 *   If you are using Docker, you must use a compatible Docker version. Refer to the [REX-Ray documentation][11] to learn which versions of Docker are compatible with the REX-Ray volume driver.
 *   Launch time might increase for applications that create volumes implicitly. The amount of the increase depends on several factors which include the size and type of the volume. Your storage provider's method of handling volumes can also influence launch time for implicitly created volumes.
-*   EBS specific:
-    * Volumes created on the same AWS account share a namespace. Choose unique volume names to avoid conflicts when multiple clusters are launched under the same account.
-    * EBS volumes are also namespaced by their availability zone (AZ), and an EBS volume [can only be attached to an EC2 instance in the same AZ][12]. As a result, attempts to launch a task in an agent running in a different AZ will lead to the creation of a new volume of the same name. If you create a cluster in one AZ, destroy it, be sure to create your cluster in the same AZ if you wish to reuse any external volumes. If a cluster spans multiple AZs, use Marathon constraints to only launch an instance in the same AZ.
-    * REX-Ray by default will fail after 13 EBS volumes are attached. While REX-Ray [0.11.0 introduced the config option `useLargeDeviceRange` to extend this limit][13], DC/OS v1.12.0 bundles REX-Ray 0.9.0.
-*   For troubleshooting external volumes, consult the agent or system logs. If you are using REX-Ray on DC/OS, you can also consult the systemd journal.
+
+##   EBS specific
+Volumes created on the same AWS account share a namespace. Choose unique volume names to avoid conflicts when multiple clusters are launched under the same account.
+
+EBS volumes are also namespaced by their availability zone (AZ), and an EBS volume [can only be attached to an EC2 instance in the same AZ][12]. As a result, attempts to launch a task in an agent running in a different AZ will lead to the creation of a new volume of the same name. If you create a cluster in one AZ, destroy it, be sure to create your cluster in the same AZ if you wish to reuse any external volumes. If a cluster spans multiple AZs, use Marathon constraints to only launch an instance in the same AZ.
+
+
+REX-Ray by default will fail after 13 EBS volumes are attached. While REX-Ray [0.11.0 introduced the config option `useLargeDeviceRange` to extend this limit][13], DC/OS v1.12.0 bundles REX-Ray 0.9.0.
+
+
+EBS volumes present as non-volatile memory express (NVMe) devices on certain newer EC2 instance types. Support for NVMe was only added to RexRay in v0.11.4. You will need to take the following prerequisite steps for RexRay to work with NVMe devices on CentOS (on newer CoreOS AMIs this is unnecessary):
+
+   
+1. Install the NVMe CLI command.
+    
+    ```bash
+    $ yum install -y nvme-cli
+    ```
+
+1. Install the necessary udev rule and helper script. These are taken from the [RexRay user guide](https://github.com/rexray/rexray/blob/362035816046e87f7bc5a6ca745760d09a69a40c/.docs/user-guide/storage-providers/aws.md#nvme-support).
+
+    ```bash
+    $ cat <<EOF > /etc/udev/rules/999-aws-ebs-nvme.rules
+    ```
+1. Set EBS NVME devices.
+    ```bash
+    KERNEL=="nvme[0-9]*n[0-9]*", ENV{DEVTYPE}=="disk", ATTRS{model}=="Amazon Elastic Block Store", PROGRAM="/usr/local/bin/ebs-nvme-mapping /dev/%k", SYMLINK+="%c"
+    EOF
+    $ cat <<EOF > /usr/local/bin/ebs-nvme-mapping
+    #!/bin/bash
+    #/usr/local/bin/ebs-nvme-mapping
+    vol=$(/usr/sbin/nvme id-ctrl --raw-binary "${1}" | \
+          cut -c3073-3104 | tr -s ' ' | sed 's/ $//g')
+    vol=${vol#/dev/}
+    [ -n "${vol}" ] && echo "${vol/xvd/sd} ${vol/sd/xvd}"
+    EOF
+    $ chown root:root /usr/local/bin/ebs-nvme-mapping
+    $ chmod 700 /usr/local/bin/ebs-nvme-mapping
+    $ udevadm control --reload
+    ```
+
+## External volumes   
+
+To troubleshoot external volumes, consult the agent or system logs. If you are using REX-Ray on DC/OS, you can also consult the `systemd` journal for the `dcos-rexray.service` unit logs.
 
 [4]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
 [5]: http://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/

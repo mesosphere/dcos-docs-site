@@ -19,6 +19,7 @@ A patching process includes the following:
 
 If patching is performed on a supported OS with all prerequisites fulfilled, then the patch **should** preserve the state of running tasks on the cluster.
 
+<p class="message--warning"><strong>WARNING: </strong> During an upgrade, any custom configuration files in /opt/mesosphere/ may be deleted irretrievably.</p>
 
 ## Important guidelines
 

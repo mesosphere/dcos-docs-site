@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
-menuWeight: 145
+menuWeight: 10
 excerpt: Discover the new features, updates, and known limitations in this release of the DC/OS Apache Spark Service
 featureMaturity:
 ---

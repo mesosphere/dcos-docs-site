@@ -239,7 +239,7 @@ For Mesos frameworks and DC/OS services that run tasks which are not managed by 
       "services": [{
         "mesos": {
           "frameworkName": "beta-confluent-kafka",
-          "taskNamePattern": "^broker-*$"
+          "taskNamePattern": "^broker-.*$"
         },
         "endpoint": {
           "port": 1025

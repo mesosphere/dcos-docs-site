@@ -41,7 +41,7 @@ You can also [install {{ model.techShortName }} via the DC/OS GUI](/latest/gui/#
 You can install the {{ model.techShortName }} CLI with this command. This is useful if you already have a {{ model.techShortName }} cluster running, but need the {{ model.techShortName }} CLI.
 
 
-**Important:** If you install {{ model.techShortName }} via the DC/OS GUI, you must install the {{ model.techShortName }} CLI as a separate step from the DC/OS CLI.
+<p class="message--important"><strong>IMPORTANT: </strong> If you install {{ model.techShortName }} via the DC/OS GUI, you must install the {{ model.techShortName }} CLI as a separate step from the DC/OS CLI.</p>
 
 ```bash
 dcos package install {{ model.serviceName }} --cli
@@ -66,7 +66,7 @@ Install {{ model.techShortName }} with the configuration specified in the `optio
 dcos package install --options=options.json {{ model.serviceName }}
 ```
 
-**Tip:** Run this command to see all configuration options:
+Run this command to see all configuration options:
 
 ```bash
 dcos package describe {{ model.serviceName }} --config
@@ -104,7 +104,7 @@ For development purposes, use [dcos-vagrant][16] to install {{ model.techShortNa
    dcos {{ model.serviceName }} run --class org.apache.{{ model.serviceName }}.examples.SparkPi http://downloads.mesosphere.com.s3.amazonaws.com/assets/{{ model.serviceName }}/{{ model.serviceName }}-examples_2.10-1.5.0.jar"
    ```
 
-**Note:** A limited resource environment such as DC/OS Vagrant restricts some of the features available in DC/OS {{ model.techName }}.  For example, you must have enough resources to start up a 5-agent cluster, otherwise you will not be able to install DC/OS HDFS an enable the history server.
+<p class="message--note"><strong>NOTE: </strong>A limited resource environment such as DC/OS Vagrant restricts some of the features available in DC/OS {{ model.techName }}.  For example, you must have enough resources to start up a 5-agent cluster, otherwise you will not be able to install DC/OS HDFS an enable the history server.</p>
 
 Also, a limited resource environment can restrict how you size your executors, for example with `{{ model.serviceName }}.executor.memory`.
 
@@ -132,7 +132,7 @@ dcos package install --options=multiple.json {{ model.serviceName }}
 To specify which instance of Spark to use add `--name=<service_name>` to your CLI, for example
 
 ```bash
-$ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
+  dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
 ```
 <a name="strict_setting"></a>
 # Installation for Strict mode (setting service authentication)
@@ -144,14 +144,14 @@ If your cluster is set up for [strict](https://docs.mesosphere.com/latest/securi
 1.  Install the `dcos-enterprise-cli` to get CLI security commands (if you haven't already):
 
     ```bash
-    $ dcos package install dcos-enterprise-cli
+      dcos package install dcos-enterprise-cli
     ```
 
 1.  Create a key pair, a 2048-bit RSA public-private key pair is created using the Enterprise DC/OS CLI. Create a
     public-private key pair and save each value into a separate file within the current directory.
 
     ```bash
-    $ dcos security org service-accounts keypair <your-private-key>.pem <your-public-key>.pem
+    dcos security org service-accounts keypair <your-private-key>.pem <your-public-key>.pem
     ```
 
     For example:
@@ -164,33 +164,32 @@ If your cluster is set up for [strict](https://docs.mesosphere.com/latest/securi
     `your-public-key.pem`.
 
     ```bash
-    $ dcos security org service-accounts create -p <your-public-key>.pem -d "Spark service account" <service-account>
+    dcos security org service-accounts create -p <your-public-key>.pem -d "Spark service account" <service-account>
     ```
 
     For example:
 
     ```bash
     dcos security org service-accounts create -p public-key.pem -d "Spark service account" {{ model.serviceName }}-principal
-
     ```
 
 
     In the Mesos parlance a `service-account` is called a `principal` and so we use the terms interchangeably here.
 
 
-    **Note** You can verify your new service account using the following command.
+    <p class="message--note"><strong>NOTE: </strong>You can verify your new service account using the following command.</p>
 
     ```bash
-    $ dcos security org service-accounts show <service-account>
+      dcos security org service-accounts show <service-account>
     ```
 
 1.  Create a secret (e.g. `{{ model.serviceName }}/<secret-name>`) with your service account, `service-account`, and private key specified, `your-private-key.pem`.
 
     ```bash
     # permissive mode
-    $ dcos security secrets create-sa-secret <your-private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
+      dcos security secrets create-sa-secret <your-private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
     # strict mode
-    $ dcos security secrets create-sa-secret --strict <private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
+      dcos security secrets create-sa-secret --strict <private-key>.pem <service-account> {{ model.serviceName }}/<secret-name>
     ```
 
     For example, on a strict-mode DC/OS cluster:
@@ -199,10 +198,10 @@ If your cluster is set up for [strict](https://docs.mesosphere.com/latest/securi
     dcos security secrets create-sa-secret --strict private-key.pem {{ model.serviceName }}-principal {{ model.serviceName }}/{{ model.serviceName }}-secret
     ```
 
-    **Note** Use the `dcos security secrets list /` command to verify that the secrets were created:
+    <p class="message--note"><strong>NOTE: </strong>Use the <code>dcos security secrets list /</code> command to verify that the secrets were created.</p>
 
     ```bash
-    $ dcos security secrets list /
+      dcos security secrets list /
     ```
 
 ## Assigning permissions
@@ -216,9 +215,9 @@ Permissions can also be assigned through the UI.
 
 1.  Run the following to create the required permissions for Spark:
     ```bash
-    $ dcos security org users grant <service-account> dcos:mesos:master:task:user:<user> create --description "Allows the Linux user to execute tasks"
-    $ dcos security org users grant <service-account> dcos:mesos:master:framework:role:<{{ model.serviceName }}-service-role> create --description "Allows a framework to register with the Mesos master using the Mesos default role"
-    $ dcos security org users grant <service-account> dcos:mesos:master:task:app_id:/<service_name> create --description "Allows reading of the task state"
+      dcos security org users grant <service-account> dcos:mesos:master:task:user:<user> create --description "Allows the Linux user to execute tasks"
+      dcos security org users grant <service-account> dcos:mesos:master:framework:role:<{{ model.serviceName }}-service-role> create --description "Allows a framework to register with the Mesos master using the Mesos default role"
+      dcos security org users grant <service-account> dcos:mesos:master:task:app_id:/<service_name> create --description "Allows reading of the task state"
     ```
 
     Note that above the `dcos:mesos:master:task:app_id:/<service_name>` will likely be `dcos:mesos:master:task:app_id:/{{ model.serviceName }}`
@@ -244,7 +243,7 @@ Permissions can also be assigned through the UI.
 
 1.  Make a configuration file with the following before installing Spark, these settings can also be set through the UI:
     ```json
-    $ cat {{ model.serviceName }}-strict-options.json
+      cat {{ model.serviceName }}-strict-options.json
     {
     "service": {
             "service_account": "<service-account-id>",
@@ -269,7 +268,7 @@ Permissions can also be assigned through the UI.
     Then install:
 
     ```bash
-    $ dcos package install {{ model.serviceName }} --options={{ model.serviceName }}-strict-options.json
+    dcos package install {{ model.serviceName }} --options={{ model.serviceName }}-strict-options.json
     ```
 
 
@@ -279,12 +278,8 @@ To run a job on a strict mode cluster, you must add the `principal` to the comma
 
 
 
-
-
-
-
 ```bash
-$ dcos {{ model.serviceName }} run --verbose --submit-args=" \
+dcos {{ model.serviceName }} run --verbose --submit-args=" \
 --conf {{ model.serviceName }}.mesos.principal=<service-account> \
 --conf {{ model.serviceName }}.mesos.containerizer=mesos \
 --class org.apache.{{ model.serviceName }}.examples.SparkPi http://downloads.mesosphere.com/{{ model.serviceName }}/assets/{{ model.serviceName }}-examples_2.11-2.0.1.jar 100"

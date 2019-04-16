@@ -8,6 +8,7 @@ excerpt: Release notes for DC/OS 1.13 (Beta), including Open Source attribution 
 ---
 DC/OS 1.13.0 (Beta) was released on April 15, 2019.
 
+
 [button color="purple" href="https://downloads.dcos.io/dcos/testing/1.13.0-beta1/commit/a55cf6cd18bea6961e2cc3c957ac8d0ee47583d5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="light" href="https://downloads.mesosphere.io/dcos-enterprise/testing/1.13.0-beta1/commit/9d2ee649f1ddb90728757ea24d912189aaef9a52/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
@@ -248,11 +249,6 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 # Issues fixed in this release
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
 <!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
-<<<<<<< HEAD
-
-<!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
-=======
->>>>>>> 146a9a2fb... Post checkout staging, fetch, checkout RN branch, rebase staging.
 
 - Job scheduling (Metronome) has been improved to handle the restart policy when a job fails. If a job fails to run, restarting the task should depend on the setting you have defined for the ON_FAILURE result (DCOS_OSS-4636).
 
@@ -320,6 +316,7 @@ This section covers any known issues or limitations that don’t necessarily aff
 
 # Updated components change lists
 For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
+
 - Apache Mesos 1.7.3 [change log](https://github.com/apache/mesos/blob/0c503b01d3a9428ec9db35d09da5e237d737c570/CHANGELOG).
 - Marathon 1.7.203 [change log](https://github.com/mesosphere/marathon/blob/b00f71136a7e35cb76c7df136d49b16b9ead2689/changelog.md).
 - Metronome 0.5.71 [change log](https://github.com/dcos/metronome/blob/90557686a08d97ef6bb7e55ac9c3a48d72e2a53d/changelog.md).
