@@ -95,7 +95,7 @@ RFC 4648 prior to being stored as secrets.
 To create a secret called `mysecret` with the binary contents of `kerb5.keytab` run:
 
 ```bash
-$ dcos security secrets create --file kerb5.keytab mysecret
+dcos security secrets create --file kerb5.keytab mysecret
 ```
 
 #### DC/OS 1.10 or earlier
@@ -104,20 +104,20 @@ To create a secret called `mysecret` with the binary contents of `kerb5.keytab`,
 `base64` command line utility. The following example uses BSD `base64` (default on macOS).
 
 ```bash
-$ base64 -i krb5.keytab -o kerb5.keytab.base64-encoded
+base64 -i krb5.keytab -o kerb5.keytab.base64-encoded
 ```
 
 Alternatively, GNU `base64` (the default on Linux) inserts line-feeds in the encoded data by default.
 Disable line-wrapping with the `-w 0` argument.
 
 ```bash
-$ base64 -w 0 -i krb5.keytab > kerb5.keytab.base64-encoded
+base64 -w 0 -i krb5.keytab > kerb5.keytab.base64-encoded
 ```
 
 Now that the file is encoded it can be stored as a secret.
 
 ```bash
-$ dcos security secrets  create -f kerb5.keytab.base64-encoded  some/path/__dcos_base64__mysecret
+dcos security secrets  create -f kerb5.keytab.base64-encoded  some/path/__dcos_base64__mysecret
 ```
 
 **Note:** The secret name **must** be prefixed with `__dcos_base64__`.
