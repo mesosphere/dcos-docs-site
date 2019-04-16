@@ -56,7 +56,7 @@ You can manage the most common job-related activity interactively through the DC
 
 1. Verify that you have added the new job by clicking **Jobs**.
 
-    ![Jobs List](/1.12/img/GUI-Job-List.png/)
+    ![Jobs List](/1.12/img/GUI-Job-List.png)
 
 ## Add a job to a job group
 You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.13/deploying-jobs/job-groups/).
