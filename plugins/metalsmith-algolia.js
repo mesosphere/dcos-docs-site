@@ -49,24 +49,21 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
   });
 
   return function metalsmithAlgoliaMiddleware(files, metalsmith, done) {
-    // Get metadata
     const metadata = metalsmith.metadata();
     if (!metadata) {
       console.error('Metadata must be configured');
       return;
     }
 
-    // Get hierarchy
     const hierarchy = metadata.hierarchy;
     if (!hierarchy) {
       console.error('Hierarchy must be configured');
       return;
     }
 
-    // Build semver map
     const semverMap = buildSemverMap(files, options.skipSections, options.renderPathPattern);
 
-    // Remove objects that no longer exist
+    // Remove index objects that no longer exist
     const start = new Promise((resolve, reject) => {
       const browser = index.browseAll();
       let hits = [];
@@ -94,12 +91,12 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
       });
     });
 
-    // Initialize indexing
+    // Update index objects with current file info
+    // TODO: only update files that have changed since last commit
     start.then(() => {
       const promises = [];
       const objects = [];
 
-      // Loop through metalsmith object
       Object.keys(files).forEach((file) => {
         if (inExcludedSection(file, options.skipSections, options.renderPathPattern)) {
           return;
