@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
-menuWeight: 145
+menuWeight: 10
 excerpt: Release notes for DC/OS Apache Spark 2.7.0-2.4.0
 featureMaturity:
 render: mustache

@@ -25,7 +25,7 @@ Example: CN=nifi-0-node.demonifi, O="Mesosphere, Inc", L=San Francisco, ST=CA, C
 
 The service uses the [DC/OS CA](https://docs.mesosphere.com/latest/security/ent/tls-ssl/) to generate the SSL artifacts to secure the service. Any client that trusts the DC/OS CA will consider the service’s certificates valid.
 
-**Note:** Transport encryption must be enabled in order to use [SSL authentication](https://docs.mesosphere.com/1.10/security/ent/tls-ssl/) for authentication, but is optional for Kerberos authentication.
+**Note:** Transport encryption must be enabled in order to use [SSL authentication](https://docs.mesosphere.com/latest/security/ent/tls-ssl/) for authentication, but is optional for Kerberos authentication.
 
 ## Prerequisites
 - [A DC/OS Service Account with a secret stored in the DC/OS Secret Store.](https://docs.mesosphere.com/latest/security/ent/service-auth/custom-service-auth/)
@@ -99,7 +99,7 @@ Kerberos authentication relies on a central authority to verify that NiFi users'
 - The hostname and port of a KDC reachable from your DC/OS cluster
 - Sufficient access to the KDC to create Kerberos principals
 - Sufficient access to the KDC to retrieve a keytab for the generated principals
-- [The DC/OS Enterprise CLI](https://docs.mesosphere.com/1.10/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
+- [The DC/OS Enterprise CLI](https://docs.mesosphere.com/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
 - DC/OS Superuser permissions
 
 ## Configure Kerberos authentication

@@ -4,7 +4,6 @@ navigationTitle:  dcos package repo add
 title: dcos package repo add
 menuWeight: 3
 excerpt: Adding a package repository to DC/OS
-
 enterprise: false
 ---
 
@@ -14,28 +13,30 @@ The `dcos package repo add` command allows you to add a package repository to DC
 # Usage
 
 ```bash
-dcos package repo add <repo-name> <repo-url> [OPTION]
+dcos package repo add <repo-name> <repo-url> [--index=<index>]
 ```
 
 # Options
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|
+| `-h`, `--help` | Display usage. |
 | `--index=<index>`   | The numerical position in the package repository list. Package repositories are searched in descending order. By default, the Universe repository first in the list. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
 | `<repo-url>`   |   URL of the package repository. For example, https://universe.mesosphere.com/repo. |
+
+
+# Examples
+
+For an example, see the [documentation](/1.12/administering-clusters/repo/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
 | [dcos package](/1.12/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
-
-# Examples
-
-For an example, see the [documentation](/1.12/administering-clusters/repo/).

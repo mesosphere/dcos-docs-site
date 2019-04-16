@@ -15,25 +15,23 @@ The `dcos job schedule remove` command allows you to remove a job schedule.
 # Usage
 
 ```bash
-dcos job schedule remove <job-id> <schedule-file> [OPTION]
+dcos job schedule remove <job-id> <schedule-id>
 ```
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+|`-h`, `--help` |   Print usage. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<job-id>`   |  Specify the job ID.  You can view the job IDs with the `dcos job list` command.|
-| `<schedule-file>`   |   A JSON formatted job schedule file. |
+| `<schedule-id>`   |   The schedule ID. |
 
-# Parent command
 
-| Command | Description |
-|---------|-------------|
-| [dcos job](/1.12/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 # Examples
 
@@ -46,3 +44,8 @@ dcos job remove my-job
 ```
 
 
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos job](/1.12/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

@@ -3,37 +3,32 @@ layout: layout.pug
 navigationTitle:  dcos auth list-providers
 title: dcos auth list-providers
 menuWeight: 1
-excerpt: Discovering configured authentication providers for your cluster
-
+excerpt: Listing login providers for a cluster
 enterprise: true
 ---
 
 # Description
-This command lists configured authentication providers for your DC/OS cluster. For more information, see [Service Accounts](/1.12/security/ent/service-auth/).
+
+The `dcos auth list-providers` command lists available login providers for a cluster.
 
 # Usage
 
 ```bash
-dcos auth list-providers <dcos-url> [OPTION]
+dcos auth list-providers <url> [flags]
 ```
 
 # Options
 
-| Name, shorthand | Description |
+| Name | Description |
 |---------|-------------|
-| `--json`   | Specify a JSON-formatted list of authentication providers. |
+| `--json`   | Returns a list of providers in JSON format. |
+| `-h`, `--help` | Displays help for list providers. |
 
-# Positional arguments
+## Positional Arguments
 
-| Name, shorthand | Default | Description |
-|---------|-------------|-------------|
-| `<dcos-url>`   |             | A URL or IP address to an accessible master node. |
-
-# Parent command
-
-| Command | Description |
+| Name | Description |
 |---------|-------------|
-| [dcos auth](/1.12/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| `<url>`  |    | 
 
 # Example
 
@@ -51,4 +46,8 @@ dcos-services  Authenticate using a DC/OS service user account (using username a
 dcos-users     Authenticate using a standard DC/OS user account (using username and password)
 ```
 
-For more information, see [Service Accounts](/1.12/security/ent/service-auth/).
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [dcos auth](/1.12/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |

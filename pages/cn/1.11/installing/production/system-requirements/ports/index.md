@@ -7,11 +7,13 @@ excerpt: 了解为 DC/OS 部署配置的端口
 ---
 本节将介绍 DC/OS 部署中的每个预配置端口。
 
-[DC/OS 组件](/cn/1.11/overview/architecture/components/) 监听每个节点上的多个端口。为确保成功安装，这些端口必须可用。DC/OS 将其他端口分配给在 DC/OS 之上运行的服务。安装服务时，需要使用这些端口。
+[DC/OS 组件](/cn/1.11/overview/architecture/components/) 监听每个节点上的多个端口。为确保成功安装，这些端口必须可用。
 
-- 这些端口不得用于节点或集群区域之间的防火墙配置。
-- 为让 DC/OS 按照预期安装和运行，这些端口在首次安装时必须打开且可访问。
-- 因此，特定网络安全措施（从集群外部以及在内部集群节点和区域之间）应针对上述每个端口进行评估，必要时，在安装和实现 DC/OS 之前，由网络管理员落实到位。此外，DC/OS 安全模式（“禁用”、“宽容”和“严格”）并不影响对这些端口的访问。
+- 为让 DC/OS 按照预期安装和运行，这些端口在首次安装时必须可访问。
+- 指定的源节点和目标节点（包括群集区域上）之间的端口必须打开。
+- 您必须采用适当的网络机制，防止未经授权访问群集节点。请参阅 [网络安全](/cn/1.11/administering-clusters/securing-your-cluster/#network-security) 上的文档。
+
+DC/OS 将其他端口分配给在 DC/OS 之上运行的服务。安装服务时，需要使用这些端口。
 
 ## 所有节点
 
@@ -34,17 +36,16 @@ excerpt: 了解为 DC/OS 部署配置的端口
 | 53 | DC/OS Net | `dcos-net.service` | 代理/管理 | 代理/管理 | 
 | 64000 | DC/OS Net | `dcos-net.service` | 代理/管理 | 代理/管理 | 
 
-<p class="message--note"><strong>注意: </strong> UDP 端口 123 用于与 NTP 通信而开启。</p>
+<p class="message--note"><strong>注意：</strong>UDP 端口 123 打开用于与 NTP 通信。</p>
 
 ## 管理节点
 
 ### TCP
 
-| 端口 | DC/OS 组件 | systemd单元 | 来源 | 目标 |
+| 端口 | DC/OS 组件 | 系统单元 | 来源 | 目标 |
 |---|---|---|---|---|
 | 80 | Admin Router 管理节点 (HTTP) | `dcos-adminrouter.service` |公共 IP| 管理 |
 | 443 | Admin Router 管理节点 (HTTPS) | `dcos-adminrouter.service`|公共 IP| 管理 |
-| 1337 | DC/OS 秘密 | `dcos-secrets.service` | 本地主机| 本地主机（管理）[enterprise type="inline" size="small" /] |
 | 2181 | ZooKeeper | `dcos-exhibitor.service` | 代理/管理 | 管理 |
 | 3888 | Exhibitor 或 ZooKeeper 和 Exhibitor | `dcos-exhibitor.service` | 代理/管理 | 管理 |
 | 5050 | Mesos 管理节点 | `dcos-mesos-master.service` | 代理/管理 | 管理 |
@@ -54,6 +55,7 @@ excerpt: 了解为 DC/OS 部署配置的端口
 | 8123 | Mesos DNS | `dcos-mesos-dns.service` | 本地主机 | 本地主机 |
 | 8181 | Exhibitor 和 ZooKeeper | `dcos-exhibitor.service` | 代理/管理 | 管理 |
 | 8200 | Vault | `dcos-vault.service` | 本地主机| 本地主机（管理）[enterprise type="inline" size="small" /] |
+| 8201 | Vault HA | `dcos-vault.service` | 管理| 管理 [enterprise type="inline" size="small" /] |
 | 8443 | Marathon SSL | `dcos-marathon.service` | 代理/管理 | 管理 |
 | 8888 | DC/OS 证书颁发机构 | `dcos-ca.service` | 本地主机| 本地主机（管理）[enterprise type="inline" size="small" /] |
 | 9090 | DC/OS 作业 (Metronome) | `dcos-metronome.service`| 代理/管理 | 管理 |
@@ -62,6 +64,7 @@ excerpt: 了解为 DC/OS 部署配置的端口
 | 15055 | DC/OS 历史记录 | `dcos-history-service.service` | 本地主机| 本地主机（管理）|
 | 15101 | Marathon libprocess | `dcos-marathon.service` | 管理 | 代理/管理 |
 | 15201 | DC/OS 作业 (Metronome) libprocess | `dcos-metronome.service`| 管理 | 代理/管理 |
+| 26257 | CockroachDB | `dcos-cockroach.service` | 管理 | 管理 [enterprise type="inline" size="small" /] |
 | 61053 | Mesos DNS | `dcos-mesos-net.service` | 代理/管理 | 管理 | 
 | 61430 | DC/OS Net | `dcos-net.service` | 代理/管理 | 管理 [enterprise type="inline" size="small" /]|
 | Ephemeral | DC/OS 组件包理器 (Pkgpanda) | `dcos-pkgpanda-api.service` | 无 | 无 |

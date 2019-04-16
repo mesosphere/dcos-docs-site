@@ -4,11 +4,8 @@ navigationTitle:  dcos node diagnostics create
 title: dcos node diagnostics create
 menuWeight: 3
 excerpt: Creating a diagnostics bundle
-
 enterprise: false
 ---
-
-
 
 # Description
 The `dcos node diagnostics create` command allows you to create a diagnostics bundle.
@@ -16,18 +13,28 @@ The `dcos node diagnostics create` command allows you to create a diagnostics bu
 # Usage
 
 ```bash
-dcos node diagnostics create <nodes> [OPTION]
+dcos node diagnostics create (<nodes>)
 ```
 
 # Options
 
-None.
+| Name |  Description |
+|---------|-------------|
+| `--help, h`   |   Displays usage. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|-------------|
-| `<nodes>`   |   Node to run command upon. A node can be any of the following: IP address, hostname, Mesos ID, or the keywords "all", "masters", "agents". You must use quotation marks around keywords. |
+| `<nodes>`   |   Node to run command upon. A node can be any of the following: IP address, hostname, Mesos ID, or the keywords "`all`", "`masters`", "`agents`". You must use quotation marks around keywords. |
+
+# Example
+
+```bash
+dcos node diagnostics create 10.0.2.221
+
+Job has been successfully started, available bundle: bundle-2019-03-18-1552932773.zip
+```
 
 # Parent command
 

@@ -49,9 +49,10 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th Rowspan = "20" Align = "center"><strong>Patch<br> From</strong></div></th>
    <tr>
     <th></th>
-    <th Colspan = "8" Align = "center"><strong>Patch To</strong></th>
+    <th Colspan = "20" Align = "center"><strong>Patch To</strong></th>
    </tr>
     <th></th>
+    <th>1.11.0</th>
     <th>1.11.1</th>
     <th>1.11.2</th>
     <th>1.11.3</th>
@@ -60,51 +61,79 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th>1.11.6</th>
     <th>1.11.7</th>
     <th>1.11.8</th>
+    <th>1.11.9</th>
+    <th>1.11.10</th>
+   </tr>
+   <tr>
+    <th>1.11.0</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.1</th>
     <td Align = "center">◯</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
     <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.11.2</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
     <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
-  </tr>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
    <tr>
     <th>1.11.3</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
     <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
-  </tr>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
    <tr>
     <th>1.11.4</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
     <td Align = "center">◯</td>
-  </tr>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
    <tr>
     <th>1.11.5</th>
     <td Align = "center">◯</td>
@@ -112,12 +141,46 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
-    <tr>
+   <tr>
     <th>1.11.6</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.7</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.8</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -128,7 +191,10 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
    </tr>
    <tr>
-       <th>1.11.7</th>
+    <th>1.11.9</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -138,7 +204,21 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
    </tr>
-  </table>  
+   <tr>
+    <th>1.11.10</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+   </tr>
+</table>  
 
 ## Modifying DC/OS configuration
 
@@ -180,7 +260,7 @@ These steps must be performed for version patches and cluster configuration chan
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [DC/OS Installation Guide](/1.11/installing/production/deploying-dcos/installation/).
-- Take a snapshot of ZooKeeper prior to patching. Marathon supports rollbacks, but does not support downgrades.
+- [Take a snapshot of ZooKeeper](/1.11/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano) prior to patching. Marathon supports rollbacks, but does not support downgrades.
 - [Take a snapshot of the IAM database](/1.11/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to patching.
 - Ensure that Marathon event subscribers are disabled before beginning the patch. Leave them disabled after completing the patch, as this feature is now deprecated.
 - **Note:** Marathon event subscribers are disabled by default. Check to see if the line `--event_subscriber "http_callback"` has been added to `sudo vi /opt/mesosphere/bin/marathon.sh` on your master node(s). If this is the case you will need to remove that line in order to disable event subscribers.

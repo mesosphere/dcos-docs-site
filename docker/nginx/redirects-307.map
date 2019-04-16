@@ -20,3 +20,4 @@
 ~^/services/dcos-monitoring/latest/(.*) /services/dcos-monitoring/0.1.0/$1;
 ~^/services/beta-storage/latest/(.*) /services/beta-storage/0.3.0-beta/$1;
 ~^/services/neta-jupyter/latest/(.*) /services/beta-jupyter/$1;
+~^/cn/services/kubernetes/latest/(.*) /cn/services/kubernetes/1.2.1-1.10.6/$1;

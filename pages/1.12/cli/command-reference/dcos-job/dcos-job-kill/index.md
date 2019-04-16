@@ -14,21 +14,24 @@ The `dcos job kill` command allows you to kill the specified job.
 # Usage
 
 ```bash
-dcos job kill <job-id> [OPTION]
+dcos job kill <job-id> (<run-id>|--all)
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
-| `run-id`   |  The job run ID. |
-| `--all`   |  Kill all job runs. |
+|`-h`, `--help` |   Print usage. |
+| `--all` | Instead of specifying a `run_id` to kill, indicates all runs should be killed. |
 
-# Positional arguments
 
-| Name, shorthand | DDescription |
+## Positional Arguments
+
+| Name |  Description |
 |---------|-------------|
-| `<job-id>`   |  Specify the job ID. |
+| `run-id`   |  The run ID of a job run. |
+| `job-id`   | The job ID. |
+
 
 # Parent command
 

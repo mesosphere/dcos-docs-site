@@ -4,29 +4,30 @@ navigationTitle:  dcos marathon app restart
 title: dcos marathon app restart
 menuWeight: 5
 excerpt: Restarting an application
-
 enterprise: false
 ---
 
 
 # Description
+
 The `dcos marathon app restart` command allows you to restart an application.
 
 # Usage
 
 ```bash
-dcos marathon app restart <app-id> [OPTION]
+dcos marathon app restart [--force] <app-id>
 ```
 
 # Options
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
+| `--help`   |  Show this message and exit. |
 | `--force`   |  Disable checks in Marathon during updates. |
 
-# Positional arguments
+## Positional arguments
 
-| Name, shorthand |  Description |
+| Name |  Description |
 |---------|-------------|
 | `<app-id>`   |  The application ID.  You can view a list of the application IDs with the `dcos marathon app list` command. |
 

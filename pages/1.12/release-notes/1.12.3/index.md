@@ -45,11 +45,15 @@ The issues that have been fixed in DC/OS 1.12.3 are grouped by feature, function
 - COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable. Because this problem affects high availability for Marathon, a workaround (ping zk-1) was introduced for DC/OS 1.11.5 and 1.11.6 to address the issue. In this release, the underlying issue is resolved and you can safely remove the workaround if you have it deployed. For background information about the issue and the steps to remove the workaround, see the [product advisory documentation](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004).
 
 ## Mesos
+- ASF-2719 - Agent could not recover due to empty docker volume checkpointed files.
+
 - COPS-4104 - This release fixes an issue that caused container and agent recovery to fail under the following circumstances:
    - The checkpointed Docker volumes file for a container does not exist. 
    - The checkpointed Docker volumes file for a container exists but is empty. 
  
    Prior to this fix, the missing or empty file could prevent the agent from restarting and returning to normal operation. With this release, recovery from an empty or missing docker/volume file is handled by the containerizer or by the `docker/volume` isolator's `recover` method.
+
+- ASF-2731, COPS-4504 - Nvidia changed the container runtime settings in CUDA 10 images causing the GPU isolator in UCR to disable CUDA 10 images. Specifically, the new CUDA images relies on the `libnvidia-container` [library](https://github.com/NVIDIA/libnvidia-container) to set up the container runtime. This release updates the GPU isolator in UCR to workaround the changes required to support the image. 
 
 - DCOS-46554 - This change forces Mesos master to have port resources in every offer unless the offer contains disks. This helps to reduce the number of offers with no ports, which are not useful for most frameworks.
 
@@ -61,6 +65,13 @@ The issues that have been fixed in DC/OS 1.12.3 are grouped by feature, function
 ## Networking
 - COPS-3279, COPS-3576, DCOS-37703, DCOS-37703, DCOS-39703 - Service endpoint values and service address-based statistics return the correct number of successful and failure connections when you enable the `statsd` metrics input plugin and view backend activity.
 
+- COPS-3585 - In previous releases, a deadlock or race condition might prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly. Problems with routing tables and network connectivity can lead to the following issues:
+  - Incomplete network overlay configuration on certain nodes.
+  - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
+  - DNS records that are missing on certain nodes.
+
+This release includes a fix to the networking issue that was caused by a secure socket layer (SSL) deadlock in the Erlang library (DC/OS 1.12). It is no longer necessary for you to restart the `systemd` process to fix the routing table to restore network connectivity. 
+
 [enterprise]
 ## Security
 [/enterprise]
@@ -70,13 +81,6 @@ The issues that have been fixed in DC/OS 1.12.3 are grouped by feature, function
 
 # Known Issues and Limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more issue tracking identifiers.
-
-## Networking
-- COPS-3585 - In previous releases, a deadlock or race condition might prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly. Problems with routing tables and network connectivity can lead to the following issues:
-  - Incomplete network overlay configuration on certain nodes.
-  - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
-  - DNS records that are missing on certain nodes.
-You can restart the `systemd` process on the nodes affected to restore proper network connectivity. This fix is related to the mitigation of a networking issue caused by a secure socket layer (SSL) deadlock in the Erlang library (DC/OS 1.12).
 
 # About DC/OS 1.12 
 DC/OS 1.12 includes many new features and capabilities. The key features and enhancements focus on:
@@ -129,7 +133,10 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 - Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
 - Restructured [Mesosphere installation documentation](https://docs.mesosphere.com/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
 - Expanded DC/OS upgrade paths enable Mesosphere to skip specific [upgrade paths](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move) and to skip upgrade paths between supported major to major versions of DC/OS (for example, enabling you to upgrade from 1.11.7 to 1.12.1 in one move).
-- If you have installed the optional DC/OS Storage Service package, then upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](/services/beta-storage/0.5.2-beta/upgrades/). You must upgrade DC/OS storage **before** you upgrade cluster nodes to 1.12.1 to prevent Mesos agents from crashing after the upgrade.
+- If you have installed the optional DC/OS Storage Service package, then upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](/services/beta-storage/0.5.2-beta/upgrades/). 
+
+<p class="message--note"><strong>NOTE: </strong>You must upgrade DC/OS storage before you upgrade cluster nodes to 1.12.1 to prevent Mesos agents from crashing after the upgrade.</p>
+
 
 <a name="ldap-net"></a>
 

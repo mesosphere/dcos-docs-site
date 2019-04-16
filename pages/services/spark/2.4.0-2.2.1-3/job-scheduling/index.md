@@ -44,7 +44,7 @@ Quota for the Drivers allows the operator of the cluster to ensure that only a g
 1. SSH to the Mesos master and set the Quota for a role (`dispatcher` in this example):
 
     ```bash
-    $ cat dispatcher-quota.json
+    cat dispatcher-quota.json
     {
     "role": "dispatcher",
     "guarantee": [
@@ -60,19 +60,19 @@ Quota for the Drivers allows the operator of the cluster to ensure that only a g
       }
     ]
     }
-    $ curl -d @dispatcher-quota.json -X POST http://<master>:5050/quota
+    curl -d @dispatcher-quota.json -X POST http://<master>:5050/quota
     ```
 
 1. Install the {{ model.techShortName }} service with the following options (at a minimum):
 
     ```bash
-    $ cat options.json
+    cat options.json
     {
         "service": {
             "role": "dispatcher"
         }
     }
-    $ dcos package install spark --options=options.json
+    dcos package install spark --options=options.json
     ```
 
 ## Best practices for the Executors
@@ -88,7 +88,7 @@ The drawback to allocating Quota to the Executors is that Quota resources cannot
 Quota can be allocated for {{ model.techShortName }} executors in the same way it was allocated for {{ model.techShortName }} dispatchers.  If we assume we want to be able to run 100 executors concurrently, each with 1.0 cpu and 4096 MB of memory, we should do the following:
 
 ```bash
-$ cat executor-quota.json
+cat executor-quota.json
 {
   "role": "executor",
   "guarantee": [
@@ -104,14 +104,14 @@ $ cat executor-quota.json
     }
   ]
 }
-$ curl -d @executor-quota.json -X POST http://<master>:5050/quota
+curl -d @executor-quota.json -X POST http://<master>:5050/quota
 
 ```
 
 When {{ model.techShortName }} jobs are submitted they must indicate the role for which the Quota has been set in order to consume resources from this quota, for example:
 
 ```bash
-$ dcos spark run --verbose --name=spark --submit-args="\
+dcos spark run --verbose --name=spark --submit-args="\
 --driver-cores=1 \
 --driver-memory=1024M \
 --conf spark.cores.max=8 \
@@ -132,7 +132,7 @@ Following the example above they would be set as follows:
 1. First set Quota for the Dispatcher's role (`dispatcher`):
 
     ```bash
-    $ cat dispatcher-quota.json
+    cat dispatcher-quota.json
     {
       "role": "dispatcher",
       "guarantee": [
@@ -159,7 +159,7 @@ Following the example above they would be set as follows:
 1. Optionally, set Quota for the Executors also; this is the same as above:
 
     ```bash
-    $ cat executor-quota.json
+    cat executor-quota.json
     {
       "role": "executor",
       "guarantee": [
@@ -211,7 +211,7 @@ To improve {{ model.techShortName }} job execution reliability, set the maximum 
 submitted with a limitation on the maximum number of cores (CPUs) it can consume. This is especially important for long-running and streaming {{ model.techShortName }} jobs. 
 
   ```bash
-  $ dcos spark run --verbose --name=spark --submit-args="\
+  dcos spark run --verbose --name=spark --submit-args="\
   --driver-cores=1 \
   --driver-memory=1024M \
   --conf spark.cores.max=8 \ #<< Very important!

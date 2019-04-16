@@ -10,7 +10,7 @@ enterprise: false
 
 The DC/OS command line interface (DC/OS CLI) utility allows you to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.
 
-DC/OS 1.12 requires the DC/OS CLI >= 0.7. To install it, [follow the instructions](/1.13/cli/install/).
+DC/OS 1.13 requires the DC/OS CLI >= 0.8. To install it, [follow the instructions](/1.13/cli/install/).
 
 To list available commands, run `dcos` with no parameters:
 
@@ -135,7 +135,7 @@ This command indicates whether to verify SSL certificates or set the path to the
 ```bash
 $ dcos cluster list
         NAME               ID                        STATUS     VERSION      URL
-  *   cluster 26f72c2f-8d03-47d7-b95f-972b1fd3dea2  AVAILABLE    1.12  <cluster-url>
+  *   cluster 26f72c2f-8d03-47d7-b95f-972b1fd3dea2  AVAILABLE    1.13  <cluster-url>
 ```
 
 <p class="message--note"><strong>NOTE: </strong>The * indicates that the CLI is currently attached to the cluster name. If you run the setup command again with another cluster, you will see a new item in the list.</p>

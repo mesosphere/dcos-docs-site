@@ -25,15 +25,15 @@ The `.dcos` package of the DC/OS Storage Service (DSS) can be downloaded from [M
 
 # Install the DSS package
 
-1. Assume that the downloaded package is called `beta-storage.dcos` in the current working directory. Run the `dcos registry add` command to add it.
+1. Assume that the downloaded package is called `beta-storage.dcos` in the current working directory. Run the `dcos package repo add` command to add it.
 
     ```bash
-    $ dcos registry add --dcos-file beta-storage.dcos
+    dcos package repo add Universe beta-storage.dcos
     ```
 1. Run the `dcos package install` command to install your beta-storage app:
 
     ```
-    $ dcos package install beta-storage --package-version=<VERSION>
+    dcos package install beta-storage --package-version=<VERSION>
     ```
 
 # Verify that the DSS is running
@@ -41,5 +41,5 @@ The `.dcos` package of the DC/OS Storage Service (DSS) can be downloaded from [M
 Run the `dcos storage version` command and wait for the DSS to be ready.
 
 ```bash
-$ dcos storage version
+dcos storage version
 ```

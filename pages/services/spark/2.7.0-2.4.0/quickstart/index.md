@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Quick Start
 excerpt: Introduction to DC/OS Apache Spark service
 title: Quick Start
-menuWeight: 1
+menuWeight: 11
 model: /services/spark/data.yml
 render: mustache
 featureMaturity:
@@ -16,11 +16,11 @@ This page explains how to install the DC/OS {{ model.techName }} service.
 * [DC/OS and DC/OS CLI installed](/1.12/installing/) with a minimum of {{ model.install.nodeDescription }}
 * Depending on your [security mode](/1.12/security/ent/), {{ model.techShortName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/services/spark/2.7.0-2.4.0/security/#provision-a-service-account) for more information.
 
-| Security mode  | Service account  |
-|---------------|-----------------|
-| Disabled      | Not available   |
-| Permissive    | Optional   |
-| Strict        | Required |
+    | Security mode  | Service account  |
+    |---------------|-----------------|
+    | Disabled      | Not available   |
+    | Permissive    | Optional   |
+    | Strict        | Required |
 
 1. Install the {{ model.techShortName }} package. This may take a few minutes. This step installs the {{ model.techShortName }} DC/OS service, {{ model.techShortName }} CLI, dispatcher, and, optionally, the history server. See the [History Server](/services/spark/2.7.0-2.4.0/history-server/#installing-hdfs) section for information about how to install the history server.
 
@@ -145,5 +145,5 @@ This page explains how to install the DC/OS {{ model.techName }} service.
 ## Next steps
 
 - To view the status of your job, run the `dcos spark webui` command then visit the {{ model.techShortName }} cluster dispatcher UI at `http://<dcos-url>/service/spark/` .
-- To view the logs using the Mesos UI, see `http://<your-master-ip>/mesos`.
+- To view the logs, see the documentation for [Mesosphere DC/OS monitoring](https://docs.mesosphere.com/1.12/monitoring/logging/).
 - To view details about your {{ model.techShortName }} job, run the `dcos task log --completed <submissionId>` command.

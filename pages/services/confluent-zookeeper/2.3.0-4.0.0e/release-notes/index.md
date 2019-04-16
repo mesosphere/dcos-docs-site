@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 excerpt: Discover the new features, updates, and known limitations in this release of the Confluent ZooKeeper Service
 title: Release Notes
-menuWeight: 120
+menuWeight: 10
 model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---

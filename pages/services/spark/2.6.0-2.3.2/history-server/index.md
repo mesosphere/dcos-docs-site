@@ -25,12 +25,13 @@ DC/OS {{ model.techName }} includes the [{{ model.techShortName }} History Serve
         ./bin/hdfs dfs -mkdir /history
 
 1. Create `spark-history-options.json`:
-
+    ```json
         {
           "service": {
             "hdfs-config-url": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints"
           }
         }
+     ```   
 
 # Installing {{ model.techShortName }} history server
 
@@ -40,16 +41,16 @@ DC/OS {{ model.techName }} includes the [{{ model.techShortName }} History Serve
 
 1. Create `spark-dispatcher-options.json`:
 
-```json
-        {
-          "service": {
-            "spark-history-server-url": "http://<dcos_url>/service/spark-history"
-          },
-          "hdfs": {
-            "config-url": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints"
-          }
-        }
-```
+   ```json
+          {
+           "service": {
+           "spark-history-server-url": "http://<dcos_url>/service/spark-history"
+           },
+           "hdfs": {
+           "config-url": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints"
+           }
+            }
+   ```
 1.  Install the {{ model.techShortName }} dispatcher:
 
         dcos package install spark --options=spark-dispatcher-options.json
