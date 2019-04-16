@@ -8,7 +8,7 @@ render: mustache
 model: /services/spark/data.yml
 ---
 
-This topic describes how to configure secure DC/OS service accounts for {{ model.techShortName }}.
+This section describes how to configure secure DC/OS service accounts for {{ model.techShortName }}.
 
 When running in [DC/OS strict security mode](https://docs.mesosphere.com/latest/security/ent/#security-modes), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS service account](/services/spark/2.7.0-2.4.0/security/#provision-a-service-account).
 
@@ -181,7 +181,10 @@ This section discusses executor authentication and BlockTransferService encrypti
 
 ```bash
 dcos spark secret <secret_path>
-# for example
+```
+For example:
+
+```
 dcos spark secret /spark/sparkAuthSecret
 ```
 This example generates a random secret and uploads it to the [DC/OS secrets store][14] at the designated path. To use this secret for RPC authentication, add the following configutations to your CLI command:

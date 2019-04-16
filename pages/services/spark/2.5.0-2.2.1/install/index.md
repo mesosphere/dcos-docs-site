@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Install and Customize
 excerpt: Installing and customizing your DC/OS Apache Spark service
 title: Install and Customize
-menuWeight: 2
+menuWeight: 12
 model: /services/spark/data.yml
 render: mustache
 featureMaturity:

@@ -23,9 +23,7 @@ model: /services/spark/data.yml
     For example:
 
         dcos spark run --submit-args=--class MySampleClass http://external.website/mysparkapp.jar"
-
         dcos spark run --submit-args="--py-files mydependency.py http://external.website/mysparkapp.py"
-
         dcos spark run --submit-args="http://external.website/mysparkapp.R"
 
     If your job runs successfully, you will get a message with the job’s submission ID:

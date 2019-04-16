@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Install and Customize
 excerpt: Installing and customizing your DC/OS Apache Spark service
 title: Install and Customize
-menuWeight: 2
+menuWeight: 12
 model: /services/spark/data.yml
 render: mustache
 featureMaturity:
@@ -16,11 +16,11 @@ featureMaturity:
 - [DC/OS and DC/OS CLI installed](/1.12/installing/)
 - Depending on your [security mode](/1.12/security/ent/), {{ model.techShortName }} requires service authentication for access to DC/OS.
 
-  | Security mode | Service account       |
-  |---------------|-----------------------|
-  | Disabled      | Not available         |
-  | Permissive    | Optional              |
-  | Strict        | **Required**          |
+| Security mode | Service account       |
+|---------------|-----------------------|
+| Disabled      | Not available         |
+| Permissive    | Optional              |
+| Strict        | **Required**          |
 
 For more information about service accounts, see [Security](/1.12/security/):  
 
@@ -53,25 +53,25 @@ You can customize the default configuration properties by creating a JSON option
 To customize the installation:
 1. Create the `options.json` configuration file.
 
-  ```json
-  {
-    "service": {
-      "UCR_containerizer": true
+    ```json
+    {
+      "service": {
+        "UCR_containerizer": true
+      }
     }
-  }
-  ```
+    ```
 
 1. Install {{ model.techShortName }} with the configuration specified in the `options.json` file:
 
-  ```bash
-  dcos package install --options=options.json  {{ model.packageName }}
-  ```
+    ```bash
+    dcos package install --options=options.json  {{ model.packageName }}
+    ```
 
 1. Run this command to see all configuration options:
 
-  ```bash
-  dcos package describe  {{ model.packageName }} --config
-  ```
+    ```bash
+    dcos package describe  {{ model.packageName }} --config
+    ```
 <a name="custom-dist"></a>
 ## Customize {{ model.techShortName }} distribution
 
@@ -317,7 +317,7 @@ Permissions can also be assigned through the GUI.
     }
     ```
 
-    Then install:
+1. Then install:
 
     ```bash
     dcos package install {{ model.packageName }} --options={{ model.packageName }}-strict-options.json
