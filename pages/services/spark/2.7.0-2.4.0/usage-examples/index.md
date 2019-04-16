@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle: Usage Examples
 excerpt: Using DC/OS Apache Spark
 title: Usage Examples
-menuWeight: 10
+menuWeight: 15
 featureMaturity:
 render: mustache
 model: /services/spark/data.yml
 ---
 This section describes a basic and advanced example of how to use DC/OS {{ model.techName }}.
 
-# Basic
+# Basic 
 
 1. Perform a default installation by following the instructions in the [Install and Customize](/services/spark/2.7.0-2.4.0/install/) section.
 
