@@ -248,8 +248,11 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 # Issues fixed in this release
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
 <!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
+<<<<<<< HEAD
 
 <!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
+=======
+>>>>>>> 146a9a2fb... Post checkout staging, fetch, checkout RN branch, rebase staging.
 
 - Job scheduling (Metronome) has been improved to handle the restart policy when a job fails. If a job fails to run, restarting the task should depend on the setting you have defined for the ON_FAILURE result (DCOS_OSS-4636).
 
