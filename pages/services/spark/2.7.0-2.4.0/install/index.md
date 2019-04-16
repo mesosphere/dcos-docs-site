@@ -188,7 +188,7 @@ To install multiple instances of the DC/OS {{ model.techName }} package, set eac
 1. To specify which instance of {{ model.techShortName }} to use add `--name=<service_name>` to your CLI, for example
 
     ```bash
-    $ dcos {{ model.packageName }} --name={{ model.packageName }}-dev run ...
+    dcos {{ model.packageName }} --name={{ model.packageName }}-dev run ...
     ```
 
 # Installation for strict mode
@@ -200,13 +200,13 @@ If your cluster is set up for [strict](/1.12/security/ent/#strict) security then
 1.  Install the `dcos-enterprise-cli` to get CLI security commands (if you have not already done so):
 
     ```bash
-    $ dcos package install dcos-enterprise-cli
+    dcos package install dcos-enterprise-cli
     ```
 
 1.  Create a 2048-bit RSA public-private key pair using the Enterprise DC/OS CLI. Create a public-private key pair and save each value into a separate file within the current directory.
 
     ```bash
-    $ dcos security org service-accounts keypair <your-private-key>.pem <your-public-key>.pem
+    dcos security org service-accounts keypair <your-private-key>.pem <your-public-key>.pem
     ```
 
     For example:
@@ -219,7 +219,7 @@ If your cluster is set up for [strict](/1.12/security/ent/#strict) security then
     `your-public-key.pem`.
 
     ```bash
-    $ dcos security org service-accounts create -p <your-public-key>.pem -d "{{ model.techShortName }} service account" <service-account>
+    dcos security org service-accounts create -p <your-public-key>.pem -d "{{ model.techShortName }} service account" <service-account>
     ```
 
     For example:
@@ -233,16 +233,16 @@ If your cluster is set up for [strict](/1.12/security/ent/#strict) security then
     You can verify your new service account using the following command.
 
     ```bash
-    $ dcos security org service-accounts show <service-account>
+    dcos security org service-accounts show <service-account>
     ```
 
 1.  Create a secret (for example, `{{ model.packageName }}/<secret-name>`) with your service account, `service-account`, and private key specified, `your-private-key.pem`.
 
     ```bash
     # permissive mode
-    $ dcos security secrets create-sa-secret <your-private-key>.pem <service-account> {{ model.packageName }}/<secret-name>
+    dcos security secrets create-sa-secret <your-private-key>.pem <service-account> {{ model.packageName }}/<secret-name>
     # strict mode
-    $ dcos security secrets create-sa-secret --strict <private-key>.pem <service-account> {{ model.packageName }}/<secret-name>
+    dcos security secrets create-sa-secret --strict <private-key>.pem <service-account> {{ model.packageName }}/<secret-name>
     ```
 
     For example, on a strict-mode DC/OS cluster:
@@ -254,7 +254,7 @@ If your cluster is set up for [strict](/1.12/security/ent/#strict) security then
 1. Use the `dcos security secrets list /` command to verify that the secrets were created:
 
     ```bash
-    $ dcos security secrets list /
+    dcos security secrets list /
     ```
 
 ## Assigning permissions
@@ -266,9 +266,9 @@ Permissions can also be assigned through the GUI.
 
 1.  Run the following to create the required permissions for {{ model.techShortName }}:
     ```bash
-    $ dcos security org users grant <service-account> dcos:mesos:master:task:user:<user> create --description "Allows the Linux user to execute tasks"
-    $ dcos security org users grant <service-account> dcos:mesos:master:framework:role:< {{ model.packageName }}-service-role> create --description "Allows a framework to register with the Mesos master using the Mesos default role"
-    $ dcos security org users grant <service-account> dcos:mesos:master:task:app_id:/<service_name> create --description "Allows reading of the task state"
+    dcos security org users grant <service-account> dcos:mesos:master:task:user:<user> create --description "Allows the Linux user to execute tasks"
+    dcos security org users grant <service-account> dcos:mesos:master:framework:role:< {{ model.packageName }}-service-role> create --description "Allows a framework to register with the Mesos master using the Mesos default role"
+    dcos security org users grant <service-account> dcos:mesos:master:task:app_id:/<service_name> create --description "Allows reading of the task state"
     ```
 
     Note that above the `dcos:mesos:master:task:app_id:/<service_name>` will likely be `dcos:mesos:master:task:app_id:/{{ model.packageName }}`
@@ -295,7 +295,7 @@ Permissions can also be assigned through the GUI.
 
 1.  Make a configuration file with the following before installing {{ model.techShortName }}, these settings can also be set through the GUI:
     ```json
-    $ cat  {{ model.packageName }}-strict-options.json
+    cat  {{ model.packageName }}-strict-options.json
     {
     "service": {
             "service_account": "<service-account-id>",
@@ -320,7 +320,7 @@ Permissions can also be assigned through the GUI.
     Then install:
 
     ```bash
-    $ dcos package install {{ model.packageName }} --options={{ model.packageName }}-strict-options.json
+    dcos package install {{ model.packageName }} --options={{ model.packageName }}-strict-options.json
     ```
 
 # Additional configuration for {{ model.techShortName }} jobs
@@ -332,7 +332,7 @@ You must add configuration parameters to your {{ model.techShortName }} jobs whe
 To run a job on a strict mode cluster, you must add the `principal` to the command line. For example:
 
 ```bash
-$ dcos  {{ model.packageName }} run --verbose --submit-args=" \
+dcos  {{ model.packageName }} run --verbose --submit-args=" \
 --conf  {{ model.packageName }}.mesos.principal=<service-account> \
 --conf  {{ model.packageName }}.mesos.containerizer=mesos \
 --class org.apache. {{ model.packageName }}.examples. {{ model.packageName }}Pi http://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar 100"
@@ -347,7 +347,7 @@ If you run Dispatcher as `root` and want to submit a job as a different user e.g
 For UCR containerizer it is sufficient to provide ` {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody` configuration property when submitting a job:
 
 ```bash
-$ dcos  {{ model.packageName }} run --verbose --submit-args="\
+dcos  {{ model.packageName }} run --verbose --submit-args="\
 --conf  {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody \
 --class org.apache. {{ model.packageName }}.examples.SparkPi http://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar 100"
 ```
@@ -356,7 +356,7 @@ $ dcos  {{ model.packageName }} run --verbose --submit-args="\
 If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify ` {{ model.packageName }}.mesos.executor.docker.parameters=user=nobody` in addition to ` {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody` to run the Docker container as this user:
 
 ```bash
-$ dcos  {{ model.packageName }} run --verbose --submit-args="\
+dcos  {{ model.packageName }} run --verbose --submit-args="\
 --conf  {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody \
 --conf  {{ model.packageName }}.mesos.executor.docker.parameters=user=nobody \
 --class org.apache. {{ model.packageName }}.examples.SparkPi http://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar 100"
@@ -366,7 +366,7 @@ If the hosts in your cluster have a UID for `nobody` other than 65534 (see [Cust
 `--conf  {{ model.packageName }}.mesos.executor.docker.parameters=user=UID`:
 
 ```bash
-$ dcos  {{ model.packageName }} run --verbose --submit-args="\
+dcos  {{ model.packageName }} run --verbose --submit-args="\
 --conf  {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody \
 --conf  {{ model.packageName }}.mesos.executor.docker.parameters=user=99 \
 --class org.apache. {{ model.packageName }}.examples.SparkPi http://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar 100"
@@ -379,7 +379,7 @@ To run a job in a virtual network and/or with network plugin labels assigned, on
 in submit arguments:
 
 ```bash
-$ dcos  {{ model.packageName }} run --verbose --submit-args="\
+dcos  {{ model.packageName }} run --verbose --submit-args="\
 --conf  {{ model.packageName }}.mesos.network.name=dcos \
 --conf  {{ model.packageName }}.mesos.network.labels=key_1:value_1,key_2:value_2 \
 --class org.apache. {{ model.packageName }}.examples.GroupByTest http://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar"
