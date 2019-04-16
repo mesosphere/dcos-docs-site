@@ -18,7 +18,7 @@ By default the Universal Installer is using a static master list to form the quo
 
 With Universal Installer `0.2` we offer the ability of fully managed replaceable masters based on a AWS S3 Bucket. To enable this feature set `with_replaceable_masters=true`. Once set this option will lead to the creation of a S3 bucket in the location your cluster will be placed. The bucket name is `cluster_name` + a 16 Byte random hex string. As bucket names are global we have to attach a random string to your cluster name to avoid collisions. Beside creating a bucket we will inject these DC/OS config defaults.
 
-```hcl
+```bash
 dcos_s3_prefix                 = "exhibitor"
 dcos_exhibitor_explicit_keys   = "false"
 dcos_aws_region                = <<the current region>>
@@ -31,7 +31,7 @@ dcos_exhibitor_storage_backend = "aws_s3"
 ## Example
 Here is a simply example with enabled `with_replaceable_masters`
 
-```hcl
+```bash
 provider "aws" {
   region = "us-east-1"
 }

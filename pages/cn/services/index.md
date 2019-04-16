@@ -1,7 +1,7 @@
 ---
 layout: cn-service-docs-landing.pug
-navigationTitle: 服务文档
-title: 服务文档
+navigationTitle: 服务
+title: 服务
 menuWeight: 15
 menus: ['cn-header']
 ---

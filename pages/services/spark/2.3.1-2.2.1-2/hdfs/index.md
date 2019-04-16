@@ -30,14 +30,14 @@ This can also be done through the web interface. If you are using the default in
 ## Adding HDFS configuration files per-job
 To add the configuration files manually for a job, use `--conf {{ model.serviceName }}.mesos.uris=<location_of_hdfs-site.xml>,<location_of_core-site.xml>`. This will download the files to the sandbox of the Driver {{ model.techShortName }} application, and DC/OS {{ model.techName}} will automatically load these files into the correct location. 
 
-**Note:** It is important these files are called `hdfs-site.xml` and `core-site.xml`.
+<p class="message--note"><strong>NOTE: </strong> It is important these files are called <code>hdfs-site.xml</code> and <code>core-site.xml</code>.</p>
 
 ### {{ model.techShortName }} Checkpointing
 
 In order to use {{ model.techShortName }} with checkpointing, make sure you follow the instructions [here](https://spark.apache.org/docs/latest/streaming-programming-guide.html#checkpointing) and use an HDFS directory as the checkpointing directory. 
 
 For example:
-```
+```bash
 val checkpointDirectory = "hdfs://hdfs/checkpoint"
 val ssc = ...
 ssc.checkpoint(checkpointDirectory)
@@ -47,13 +47,13 @@ That HDFS directory will be automatically created on HDFS and the {{ model.techS
 # S3
 You can read/write files to S3 using environment-based secrets to pass your AWS credentials. Your credentials must first be uploaded to the DC/OS secret store:
 
-```
+```bash
 dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
 dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY> 
 ```
 Then your {{ model.techShortName }} jobs can get these credentials directly:
 
-```
+```bash
 dcos {{ model.serviceName }} run --submit-args="\
 ...
 --conf {{ model.serviceName }}.mesos.containerizer=mesos  # required for secrets

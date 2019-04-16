@@ -11,9 +11,6 @@ The dashboard is the home page of the DC/OS web interface. It provides an overvi
 
 Figure 1 - Dashboard
 
-*Figure 1 - Dashboard*
-
-<p><i>Figure 1 - Dashboard tab</i></p>
 
 From the dashboard you can easily monitor the health of your cluster.
 

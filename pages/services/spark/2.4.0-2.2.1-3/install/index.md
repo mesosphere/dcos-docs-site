@@ -132,7 +132,7 @@ dcos package install --options=multiple.json spark
 To specify which instance of {{ model.techShortName }} to use add `--name=<service_name>` to your CLI, for example
 
 ```bash
-$ dcos spark --name=spark-dev run ...
+dcos spark --name=spark-dev run ...
 ```
 
 # Installation for strict mode 
@@ -144,13 +144,13 @@ If your cluster is set up for [strict](https://docs.mesosphere.com/1.10/security
 1.  Install the `dcos-enterprise-cli` to get CLI security commands (if you have not already done so):
 
     ```bash
-    $ dcos package install dcos-enterprise-cli
+    dcos package install dcos-enterprise-cli
     ```
 
 1.  Create a 2048-bit RSA public-private key pair using the Enterprise DC/OS CLI. Create a public-private key pair and save each value into a separate file within the current directory.
 
     ```bash
-    $ dcos security org service-accounts keypair <your-private-key>.pem <your-public-key>.pem
+    dcos security org service-accounts keypair <your-private-key>.pem <your-public-key>.pem
     ```
 
     For example:
@@ -163,7 +163,7 @@ If your cluster is set up for [strict](https://docs.mesosphere.com/1.10/security
     `your-public-key.pem`.
 
     ```bash
-    $ dcos security org service-accounts create -p <your-public-key>.pem -d "{{ model.techShortName }} service account" <service-account>
+    dcos security org service-accounts create -p <your-public-key>.pem -d "{{ model.techShortName }} service account" <service-account>
     ```
 
     For example:
@@ -177,16 +177,16 @@ If your cluster is set up for [strict](https://docs.mesosphere.com/1.10/security
     You can verify your new service account using the following command.
 
     ```bash
-    $ dcos security org service-accounts show <service-account>
+    dcos security org service-accounts show <service-account>
     ```
 
 1.  Create a secret (e.g. `spark/<secret-name>`) with your service account, `service-account`, and private key specified, `your-private-key.pem`.
 
     ```bash
     # permissive mode
-    $ dcos security secrets create-sa-secret <your-private-key>.pem <service-account> spark/<secret-name>
+    dcos security secrets create-sa-secret <your-private-key>.pem <service-account> spark/<secret-name>
     # strict mode
-    $ dcos security secrets create-sa-secret --strict <private-key>.pem <service-account> spark/<secret-name>
+    dcos security secrets create-sa-secret --strict <private-key>.pem <service-account> spark/<secret-name>
     ```
 
     For example, on a strict-mode DC/OS cluster:
@@ -198,7 +198,7 @@ If your cluster is set up for [strict](https://docs.mesosphere.com/1.10/security
 1. Use the `dcos security secrets list /` command to verify that the secrets were created:
 
     ```bash
-    $ dcos security secrets list /
+    dcos security secrets list /
     ```
 
 ## Assigning permissions
@@ -212,9 +212,9 @@ Permissions can also be assigned through the UI.
 
 1.  Run the following to create the required permissions for {{ model.techShortName }}:
     ```bash
-    $ dcos security org users grant <service-account> dcos:mesos:master:task:user:<user> create --description "Allows the Linux user to execute tasks"
-    $ dcos security org users grant <service-account> dcos:mesos:master:framework:role:<spark-service-role> create --description "Allows a framework to register with the Mesos master using the Mesos default role"
-    $ dcos security org users grant <service-account> dcos:mesos:master:task:app_id:/<service_name> create --description "Allows reading of the task state"
+    dcos security org users grant <service-account> dcos:mesos:master:task:user:<user> create --description "Allows the Linux user to execute tasks"
+    dcos security org users grant <service-account> dcos:mesos:master:framework:role:<spark-service-role> create --description "Allows a framework to register with the Mesos master using the Mesos default role"
+    dcos security org users grant <service-account> dcos:mesos:master:task:app_id:/<service_name> create --description "Allows reading of the task state"
     ```
 
     Note that above the `dcos:mesos:master:task:app_id:/<service_name>` will likely be `dcos:mesos:master:task:app_id:/spark`
@@ -243,7 +243,7 @@ If you want to set permissions for Spark jobs running outside of the DC/OS clust
 
 1.  Make a configuration file with the following before installing {{ model.techShortName }}, these settings can also be set through the UI:
     ```json
-    $ cat spark-strict-options.json
+    cat spark-strict-options.json
     {
     "service": {
             "service_account": "<service-account-id>",
@@ -268,7 +268,7 @@ If you want to set permissions for Spark jobs running outside of the DC/OS clust
     Then install:
 
     ```bash
-    $ dcos package install spark --options=spark-strict-options.json
+    dcos package install spark --options=spark-strict-options.json
     ```
 
 
@@ -279,7 +279,7 @@ You must add configuration parameters to your {{ model.techShortName }} jobs whe
 To run a job on a strict mode cluster, you must add the `principal` to the command line. For example:
 
 ```bash
-$ dcos spark run --verbose --submit-args=" \
+dcos spark run --verbose --submit-args=" \
 --conf spark.mesos.principal=<service-account> \
 --conf spark.mesos.containerizer=mesos \
 --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
@@ -288,7 +288,7 @@ $ dcos spark run --verbose --submit-args=" \
 If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable:
 
 ```bash
-$ dcos spark run --verbose --submit-args="\
+dcos spark run --verbose --submit-args="\
 --conf spark.mesos.principal=<service-account> \
 --conf spark.mesos.driverEnv.SPARK_USER=nobody \
 --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"

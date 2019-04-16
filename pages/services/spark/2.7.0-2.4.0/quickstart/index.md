@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Quick Start
 excerpt: Introduction to DC/OS Apache Spark service
 title: Quick Start
-menuWeight: 1
+menuWeight: 11
 model: /services/spark/data.yml
 render: mustache
 featureMaturity:

@@ -115,7 +115,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
 
 1. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
 
-    ```hcl
+    ```bash
     provider "aws" {
       # Change your default region here
       region = "us-east-1"
@@ -179,7 +179,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
 
 1. Enterprise users, uncomment/comment the section for the variant to look like this, inserting the location to your license key. [enterprise type="inline" size="small" /]
 
-    ```hcl
+    ```bash
     dcos_variant              = "ee"
     dcos_license_key_contents = "${file("./license.txt")}"
     # dcos_variant = "open"
@@ -270,7 +270,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 
 1. Increase the value for the `num_private_agents` and/or `num_public_agents` in your `main.tf` file. In this example we are going to scale our cluster from 2 private agents to 3, changing just that line, and saving the file.
 
-    ```hcl
+    ```bash
     num_masters        = "1"
     num_private_agents = "3"
     num_public_agents  = "1"
@@ -316,7 +316,7 @@ Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS.
 .
 
 
-    ```hcl
+    ```bash
     dcos_version = "1.12.3"
     ```
 

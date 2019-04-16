@@ -19,7 +19,7 @@ You will learn how to place additional infrastructure into a AWS remote region. 
 # Getting Started with remote region
 We expect your already running DC/OS clusters `main.tf` will look similar to this example. To deploy a remote region we have to do some changes to your `main.tf`
 
-```hcl
+```bash
 provider "aws" {
   # Change your default region here
   region = "us-east-1"
@@ -78,7 +78,7 @@ This needs to be done so our modules know we region / account / credentials shou
 
 <p class="message--note"><strong>Note:</strong> some resources have name length limitations which is the reason we we shorten our region name.</p>
 
-```hcl
+```bash
 provider "aws" {
   # Change your default region here
   region = "us-east-1"
@@ -97,7 +97,7 @@ provider "aws" {
 ## Shared config options
 To spawn the remote region and its infrastructure we will use the same underlying modules as in our master region. This also means there will be a lot shared informations between those two infrastructures like `cluster_name`, `admin_ips` or `ssh_public_key_file`. To make the operation easier you should define local variables in your `main.tf` that will be used in every module.
 
-```hcl
+```bash
 #...
 
 // lets define variables which are shared between all regions
@@ -119,7 +119,7 @@ To have a clear separation between our master and our remote regions we will tak
 
 The locals section will now look like this
 
-```hcl
+```bash
 #...
 
 // lets define variables which are shared between all regions
@@ -143,7 +143,7 @@ To let our main region allowing traffic from the remote region and vice versa we
 
 The locals section will now look like this
 
-```hcl
+```bash
 #...
 
 // lets define variables which are shared between all regions
@@ -172,7 +172,7 @@ Another important topic to mention is naming. To distinguish between instances o
 
 In the following example you will also find the [Shared config options](#Shared-config-options) being used in the module call referenced by e.g. `local.admin_ips` and the [Provider](#Remote-region-provider) we specified for the region
 
-```hcl
+```bash
 #...
 
 module "dcos-usw2" {
@@ -209,7 +209,7 @@ The only informations this module needs to receive are the outputs of our `dcos`
 
 Here is the example vpc-peering-section
 
-```hcl
+```bash
 #...
 
 module "vpc-connection-master-usw2" {
@@ -259,7 +259,7 @@ This nearly the most important new variable. This tells the DC/OS installation m
 ### change the `providers` section
 As we change to explicit alias providers we have to point our dcos module to this specific provider
 
-```hcl
+```bash
 providers = {
   aws = "aws.master"
 }
@@ -268,7 +268,7 @@ providers = {
 ### Example `dcos` module
 After the changes above got applied your `dcos` module should look like this
 
-```hcl
+```bash
 module "dcos" {
   source  = "dcos-terraform/dcos/aws"
   version = "~> 0.2.0"
@@ -305,7 +305,7 @@ module "dcos" {
 # `main.tf` Example
 Here is the complete `main.tf` you should see once you completed this guide.
 
-```hcl
+```bash
 provider "aws" {
   # Change your default region here
   region = "us-east-1"

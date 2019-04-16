@@ -3,15 +3,7 @@ swagger: '2.0'
 info:
   version: "0.0.1"
   title: DC/OS Log API v1
-  description: >
-    The first version of the DC/OS Log API.
-    Note that the endpoints in this spec are all *service-specific*. dcos-log
-    is designed to be put behind Admin Router, which provides security for these
-    endpoints. Therefore, on a DC/OS cluster, the final URL to query will resemble:
-    `http://{cluster-url}/system/v1/agent/{agent-id}/logs/v1/{resource-path}`
-    For more information, see
-    [DC/OS Logging](http://dcos.io/docs/latest/monitoring/logging/) or
-    the [DC/OS Log Source](https://github.com/dcos/dcos-log).
+  description: ' '
 basePath: "/v1"
 parameters:
   filter:
