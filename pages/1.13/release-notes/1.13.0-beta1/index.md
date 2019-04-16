@@ -41,26 +41,20 @@ Some highlights for this release include:
 
     The metrics collection service, dcos-telegraf can now collect additional metrics for Mesos volumes and network information. For a complete list of the Mesos metrics you can collect and report, see the latest list of metrics provided here: http://mesos.apache.org/documentation/latest/monitoring/.
 
-<<<<<<< HEAD
         For more information about collecting metrics and configuring metrics plugins, see the following topics:
     - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
     - [Mesos Metrics](/1.13/metrics/mesos/)
     - [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/)
 
-=======
->>>>>>> staging
 - Key metrics are collected by default. <!--(DCOS-47719)-->
 
     In DC/OS 1.13, dcos-telegraf automatically collects Mesos metrics by default. Previously, you were required to manually enable the metrics plug-in by updating the agent configuration or by setting the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `true`.  With this release, manually enabling this feature is no longer required. Instead, the default value for the parameter is now set to true. You can set the `enable_mesos_input_plugin` parameter in the `config.yaml` file to false if you want to disable the automatic collection of Mesos metrics.
 
-<<<<<<< HEAD
     For more information about collecting metrics and configuring metrics plugins, see the following topics:
     - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
     - [Mesos Metrics](/1.13/metrics/mesos/)
     - [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/)
 
-=======
->>>>>>> staging
 - The DC/OS monitoring service enables you to import curated alerting rules. <!--(DCOS-47666)-->
 
     With this release, deploying the DC/OS monitoring service enables you to import Mesosphere-provided Prometheus Alert Rules from a [github repository](https://github.com/dcos/prometheus-alert-rules). These predefined alert rules enable you to create meaningful alerts concerning the condition of the DC/OS cluster, including successful or failed operations and node activity.
@@ -101,20 +95,13 @@ Some highlights for this release include:
 
     You can now use the TAB key to provide automatic completion when typing DC/OS commands. Auto-completion enables you to execute commands in a shell terminal more quickly by attempting to predict the rest of a command or subcommand you are typing. If the suggested text matches the command you intended, you can press the TAB key to accept the suggestion and execute the command.
 
-<<<<<<< HEAD
     For more information about using auto-completion when you are working with the command-line interface (CLI) and CLI plugins, see [Enabling autocompletion for the CLI](/1.13/cli/autocompletion/).
 
-=======
->>>>>>> staging
 - Dynamic auto-completion of cluster names for `dcos cluster attach` and `dcos cluster remove` commands.<!--(DCOS-47214)-->
 
     You can now use the TAB key to provide automatic completion for potential cluster names when you run the `dcos cluster attach` or `dcos cluster remove` commands.
 
-<<<<<<< HEAD
     For more information about using auto-completion when you are working with the command-line interface (CLI) and CLI plugins, see [Enabling autocompletion for the CLI](/1.13/cli/autocompletion/).
-=======
-- CLI support for macOS using Homebrew. <!--(DCOS-47562)-->
->>>>>>> staging
 
 - CLI support for macOS using Homebrew. <!--(DCOS-47562)-->
 
@@ -189,11 +176,7 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 
     Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters from not just the agent nodes (which is currently supported), but also from the master nodes--if you deem it necessary to do so.
 
-<<<<<<< HEAD
 - Enable Universal Installer and on-premise DC/OS life cycle management with Ansible. <!--(DCOS-45724)-->
-=======
-- Universal Installer and on-premise DC/OS life cycle management with Ansible. <!--(DCOS-45724)-->
->>>>>>> staging
 
     The DC/OS Ansible (dcos-ansible) component is a Mesosphere-provided version of the Ansible open-source provisioning, configuration management, and deployment tool that enables you to use supported Ansible roles for installing and upgrading DC/OS OSS and DC/OS Enterprise clusters on the infrastructure you choose.
 
@@ -239,7 +222,6 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 
     You can now create unified service accounts that can be used across DC/OS OSS and DC/OS Enterprise clusters. By extending support for service accounts that can be used for all DC/OS clusters, you have the option to install, configure, and manage additional packages, including packages that require a service account when you are running DC/OS Enterprise DC/OS in `strict` mode.
 
-<<<<<<< HEAD
     For more information about authentication and managing accounts, see [User account management](/1.13/security/oss/user-account-management/).
 
 - Support secure computing mode (seccomp) profiles. <!--(DCS-28442, DCOS-49134)-->
@@ -250,8 +232,6 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 
     Using a secure computing mode profile is an important option if you need to secure access to containers and operations using the principle of least privilege. 
 
-=======
->>>>>>> staging
 ## Storage
 - Update Beta Rex-Ray to support NVMe EBS volumes. <!--(DCOS-50047)-->
 
@@ -265,35 +245,8 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 
     You can use the AWS EBS Container Storage Interface (CSI) driver to manage storage volumes for the Mesosphere Kubernetes Engine (MKE). This driver enables MKE users to deploy stateful applications running in a DC/OS cluster on an AWS cloud instance.
 
-<<<<<<< HEAD
 # Issues fixed in this release
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
-<!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
-=======
-[enterprise]
-## Security
-[/enterprise]
-- Extend the DC/OS authentication architecture to apply to both DC/OS Open Source (OSS) and DC/OS Enterprise clusters. <!--(DCOS-28672)-->
-
-    You can now create unified service accounts that can be used across DC/OS OSS and DC/OS Enterprise clusters. By extending support for service accounts that can be used for all DC/OS clusters, you have the option to install, configure, and manage additional packages, including packages that require a service account when you are running DC/OS Enterprise DC/OS in `strict` mode.
-
-    For more information about authentication and managing accounts, see [User account management](/1.13/security/oss/user-account-management/).
-
-- Support secure computing mode (seccomp) profiles. <!--(DCOS-49134)-->
-
-    Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within a container. You can enable secure computing mode for Docker containers and Universal Runtime Containers (URC) if the operating system you are using supports it.
-
-    WIth DC/OS, you can use a seccomp profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls. 
-
-    Using a secure computing mode profile is an important option if you need to secure access to containers and operations using the principle of least privilege. 
-
-# Issues fixed in this release
-The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
-<!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
-
-- Job scheduling (Metronome) has been improved to handle the restart policy when a job fails. If a job fails to run, restarting the task should depend on the setting you have defined for the ON_FAILURE result (DCOS_OSS-4636).
->>>>>>> staging
-
 <!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
 
 - Job scheduling (Metronome) has been improved to handle the restart policy when a job fails. If a job fails to run, restarting the task should depend on the setting you have defined for the ON_FAILURE result (DCOS_OSS-4636).
