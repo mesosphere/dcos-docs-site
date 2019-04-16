@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Usage Examples
 excerpt: Using DC/OS Apache Spark
 title: Usage Examples
-menuWeight: 10
+menuWeight: 12
 featureMaturity:
 render: mustache
 model: /services/spark/data.yml

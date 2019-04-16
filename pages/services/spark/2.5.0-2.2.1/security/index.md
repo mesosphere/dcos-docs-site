@@ -181,7 +181,11 @@ This section discusses executor authentication and BlockTransferService encrypti
 
 ```bash
 dcos spark secret <secret_path>
-# for example
+```
+
+For example:
+
+```
 dcos spark secret /spark/sparkAuthSecret
 ```
 This example generates a random secret and uploads it to the [DC/OS secrets store][14] at the designated path. To use this secret for RPC authentication, add the following configutations to your CLI command:

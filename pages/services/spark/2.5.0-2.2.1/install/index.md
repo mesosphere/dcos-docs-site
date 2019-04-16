@@ -53,25 +53,25 @@ You can customize the default configuration properties by creating a JSON option
 To customie the installation:
 1. Create the `options.json` configuration file.
 
-  ```json
-  {
-    "service": {
-      "UCR_containerizer": true
+    ```json
+    {
+      "service": {
+        "UCR_containerizer": true
+      }
     }
-  }
-  ```
+    ```
 
 1. Install {{ model.techShortName }} with the configuration specified in the `options.json` file:
 
-  ```bash
-  dcos package install --options=options.json spark
-  ```
+    ```bash
+    dcos package install --options=options.json spark
+    ```
 
 1. Run this command to see all configuration options:
 
-  ```bash
-  dcos package describe spark --config
-  ```
+    ```bash
+    dcos package describe spark --config
+    ```
 <a name="custom-dist"></a>
 ## Customize {{ model.techShortName }} distribution
 
@@ -265,7 +265,7 @@ Permissions can also be assigned through the UI.
     }
     ```
 
-    Then install:
+1. Then install:
 
     ```bash
     dcos package install spark --options=spark-strict-options.json
