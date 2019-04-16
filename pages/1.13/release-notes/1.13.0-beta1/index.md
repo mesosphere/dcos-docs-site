@@ -301,7 +301,7 @@ This section covers any known issues or limitations that don’t necessarily aff
 
 - Mesos endpoints with the <code>.json</code> suffix are deprecated and should not be used in DC/OS 1.13.
 
-- Some of the configuration parameters previously used to install DC/OS cluster components are no longer vallid. The following `dcos_generate_config.sh` command-line options have been deprecated and decommissioned:
+- Some of the configuration parameters previously used to install DC/OS cluster components are no longer valid. The following `dcos_generate_config.sh` command-line options have been deprecated and decommissioned:
     * `--set-superuser-password`
     * `--offline`
     * `--cli-telemetry-disabled`
@@ -312,6 +312,8 @@ This section covers any known issues or limitations that don’t necessarily aff
     * `--post-flight`
 
     If you have scripts or programs that use any of the deprecated options, you should update them (DCOS-50263).
+
+- The CLI command `dcos node` has been replaced by the new command `dcos node list`. Running the `dcos node` command after installing this release automatically redirects to the output of the `dcos node list` command. The `dcos node list` command provides the same output plus includes an additional column that indicates the public IP address of each node.
 
 # Updated components change lists
 For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
