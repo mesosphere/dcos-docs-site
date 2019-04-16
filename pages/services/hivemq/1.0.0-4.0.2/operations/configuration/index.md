@@ -31,6 +31,8 @@ render: mustache
 
 6. (optional) select the {{ model.techName }} deployment you want to monitor using the `service_name` variable
 
+<p class="message--note"><strong>If you wish to adjust the metrics resolution / interval, both the {{ model.techName }} service's interval property and the Prometheus service's scrape interval have to be adjusted.</strong>
+
 # <a name="sidecar-plans"></a>Sidecar plans
 
 The DC/OS {{ model.techName }} service also provides several sidecar plans, which allow you to modify the configuration of cluster nodes at runtime.
