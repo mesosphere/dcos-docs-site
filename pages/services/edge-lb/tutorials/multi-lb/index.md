@@ -144,10 +144,10 @@ for the sample service in the `multi-lb-config.json` file:
     This command displays a list of deployed services similar to the following:
 
     ```bash
-    ID                                  MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD                        
-/customer                            32   0.1    4/4    N/A       ---      False      DOCKER   sed -i 's:Welcome to...    
-/dcos-edgelb/api                    1024   1     1/1    1/1       ---      False      MESOS    cp -vR /dcosfilestmp/*...  
-/dcos-edgelb/pools/multi-lb-config  2048   1     1/1    1/1       ---      False      MESOS    export...
+    ID                                  MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
+    /customer                            32   0.1    4/4    N/A       ---      False      DOCKER   sed -i 's:Welcome to...    
+    /dcos-edgelb/api                    1024   1     1/1    1/1       ---      False      MESOS    cp -vR /dcosfilestmp/*...  
+    /dcos-edgelb/pools/multi-lb-config  2048   1     1/1    1/1       ---      False      MESOS    export...
     ```
 
 1. Navigate to the public IP address of each your public nodes. You should be able to see the Customer Application welcome page.
@@ -252,7 +252,7 @@ To configure an application or network load balancer to work with DC/OS:
     * Select the VPC that your instances are part of.
     * Select the Subnets that your instances are part of.
 
-    You can only specify one subnet for each Availability Zone. You must specify a subnet from at least two Availability Zones to support high-availability load balancing. Because of this requirement, you must have at least two Availability Zones and two subnets to configure the Amazon application or network load balancer.
+    You can only specify one subnet for each Availability Zone. You must specify a subnet from at least two availability zones to support high-availability load balancing. Because of this requirement, you must have at least two availability zones and two subnets to configure the Amazon application or network load balancer.
 
 1. Click **Next: Configure Security Settings** to continue.
 
