@@ -13,7 +13,7 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
 
 ## Docker Registry Support
 
-UCR uses [Docker v2 registry API](https://docs.docker.com/registry/spec/api/) to fetch Docker images/layers. Both docker manifest [v1 schema1](https://docs.docker.com/registry/spec/manifest-v2-1/) and [v2 schema2](https://docs.docker.com/registry/spec/manifest-v2-2/) are supported (v2 schema2 is supported starting from DC/OS 1.13.0).
+UCR uses [Docker v2 registry API](https://docs.docker.com/registry/spec/api/) to fetch Docker images/layers. Both docker manifest [v2 schema1](https://docs.docker.com/registry/spec/manifest-v2-1/) and [v2 schema2](https://docs.docker.com/registry/spec/manifest-v2-2/) are supported (v2 schema2 is supported starting from DC/OS 1.13.0).
 
 # DC/OS web interface
 Use this procedure to provision a container with the UCR from the DC/OS web interface.
