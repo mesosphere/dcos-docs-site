@@ -13,10 +13,12 @@
     "DO_NOT_INDEX": []
   },
   "local": {
-    "DO_NOT_BUILD": []
+    "DO_NOT_BUILD": [],
+    "DO_NOT_INDEX": []
   },
   "christina": {
-    "DO_NOT_BUILD": []
+    "DO_NOT_BUILD": [],
+    "DO_NOT_INDEX": []
   },
   "always": {
     "DO_NOT_BUILD": [
@@ -112,6 +114,7 @@
       "services/spark/2.1.0-2.2.0-1/**",
       "services/spark/v2.0.1-2.2.0-1/**",
       "services/spark/v2.0.0-2.2.0-1/**"
-    ]
+    ],
+    "DO_NOT_INDEX": []
   }
 }
