@@ -8,7 +8,7 @@ enterprise: true
 ---
 A blue/green deployment strategy provides a method for achieving zero-downtime when you need to run two versions of the same service--that is, a "blue" version and a "green" version--simultaneously. With a blue/green deployment, you can have two fully-scaled versions of the same service running at the same time on the same cluster. You can then use the load balancer to switch between the two versions, as needed.
 
-This type of deployment supports rolling updates where one version of a service can be taken down and upgraded or rolled back without distrupting access to the other version of the same service. Similarly, if something goes wrong with one version of a service, you can quickly switch to routing requests to the other version of the service by adjusting the load balancer settings.
+This type of deployment supports rolling updates where one version of a service can be taken down and upgraded or rolled back without disrupting access to the other version of the same service. Similarly, if something goes wrong with one version of a service, you can quickly switch to routing requests to the other version of the service by adjusting the load balancer settings.
 
 # Before you begin
 Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use and have previously downloaded and installed the latest Edge-LB packages.
@@ -175,9 +175,13 @@ for the sample service in the `sample-deployment-config.json` file:
     http://<public_agent_public_IP>
     ```
     
-    You don't need to specify the port in this example because the access to the service is routed through the default port 80 for HTTP traffic.
+    You don't need to specify the port in this example because the access to the service is routed through the default port 80 for HTTP traffic. If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console or by running the following command:
 
-    For information about how to find the IP address for a public agent, see [Finding a public agent IP](/1.13/administering-clusters/locate-public-agent/).
+    ```bash
+    dcos node list
+    ```
+
+    For more information about how to find the IP address for a public agent, see [Finding a public agent IP](/1.13/administering-clusters/locate-public-agent/).
 
 # Deploy the "green" version of the sample service
 1. Start deployment for the `svc-green.json` app definition by running the following command:
@@ -186,7 +190,7 @@ for the sample service in the `sample-deployment-config.json` file:
    dcos marathon app add svc-green.json
    ```
 
-1. Verify the blue and green versions of the sample service and the Edge-LB pool instance have been deployed sucessfully by running the following command: 
+1. Verify the blue and green versions of the sample service and the Edge-LB pool instance have been deployed successfully by running the following command: 
 
     ```bash
     dcos marathon app list
@@ -237,3 +241,4 @@ for the sample service in the `sample-deployment-config.json` file:
     http://<public_agent_public_IP>
     ```
     
+    If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console or by running the `dcos node list` command.
