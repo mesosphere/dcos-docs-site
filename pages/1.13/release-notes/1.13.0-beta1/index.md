@@ -188,7 +188,7 @@ The Universal Installer now provides the ability to provision AWS EBS volumes an
 Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/
 -->
 ## Mesos platform and containerization
-- UCR to support Schema2_v2 formatted docker images <!--(DCOS-43871)-->
+- UCR to support Docker Registry on Manifest Spec v2_schema2 images <!--(DCOS-43871)-->
 
     DC/OS Universal Container Runtime (UCR) now fully supports Docker images that are formatted using the Docker v2_schema2 specification. DC/OS Universal Container Runtime (UCR) also continues to support Docker images that use the v2_schema1 format.
 
