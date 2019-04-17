@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Illustrates the basic steps for load balancing a single service running on DC/OS
 enterprise: true
 ---
-This tutorial demonstrates how to prepare load balancing for access to a single DC/OS service. For this tutorial, the access requests originate outside of the DC/OS cluster and are routed into the cluster through a public-facing IP address. This scenario illustrates the most common way orgnaizations get started with a load balancing solution.
+This tutorial demonstrates how to prepare load balancing for access to a single DC/OS service. For this tutorial, the access requests originate outside of the DC/OS cluster and are routed into the cluster through a public-facing IP address. This scenario illustrates the most common way organizations get started with a load balancing solution.
 
 # Before you begin
 * You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
@@ -236,7 +236,13 @@ After you have configured and tested the `ping` service and `ping-lb` pool confi
 
 1. Open a web browser and navigate to the public-facing IP address.
 
-    For information about finding the public IP address for a public agent node, see [Finding a public agent IP](1.13/administering-clusters/locate-public-agent/).
+    If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console or by running the following command:
+
+    ```bash
+    dcos node list
+    ```
+
+    For more information about finding the public IP address for a public agent node, see [Finding a public agent IP](1.13/administering-clusters/locate-public-agent/).
 
 1. Verify that you can access the deployed service using the public-facing IP address and the frontend port 15001:
 
