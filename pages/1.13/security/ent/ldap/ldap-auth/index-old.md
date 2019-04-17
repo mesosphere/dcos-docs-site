@@ -11,30 +11,16 @@ enterprise: true
 
 In this section you will set up the authentication method and parameters for your LDAP directory.
 
-# Authentication methods
+# Selecting the authentication method
 
-There are two authentication methods available to you.
+1. Once you have finished specifying your connection parameters in the **Connection** tab, click **Authentication**.
 
-## Simple bind
-
-Authentication by simple bind is the most common way to authenticate an LDAP client. You can either bind Anonymously (using a simple bind DN) or you can provide LDAP credentials such as a lookup DN and lookup password. In either case, you must provide a user DN template.
-
-
-## Search bind
-
-While the simple bind connection takes place in a single step, the search/bind operation requires two steps. First the directory is searched for the user name attribute. If located, a bind operation ensues to check the user's credentials against the external directory. You must specify a user search base and a user search filter template. In some methods, you must also specify a lookup DN and lookup password.
-
-
-
-
-1. In the **Add Directory** window, click **Authentication**.
-1. Select your Authentication Method from the radio buttons.
 1.  Provide the full DN of the user account you will use to connect to the LDAP server to import users, groups, and check user credentials in the **Lookup DN** field. A few examples follow.
-```
-    cn=read-only-user,dc=los-pollos,dc=io
-    uid=read-only-user,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org
-    uid=read-only-user,ou=users,dc=example,dc=com
-```
+
+        cn=read-only-user,dc=los-pollos,dc=io
+        uid=read-only-user,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org
+        uid=read-only-user,ou=users,dc=example,dc=com
+
     <p class="message--note"><strong>NOTE: </strong>We recommend a read-only user account.</p>
 
 1. Provide the password of the account in the **Lookup Password** field.
@@ -72,7 +58,7 @@ While the simple bind connection takes place in a single step, the search/bind o
 
 # Specifying search/bind parameters
 
-
+While the simple bind connection takes place in a single step, the search/bind operation requires two steps. First the directory is searched for the user name attribute. If located, a bind operation ensues to check the user's credentials against the external directory.
 
 1.  In the **User Search Base** field, specify where in the directory to begin the search for the LDAP user name. This should be the DN of the [search base object](https://technet.microsoft.com/en-us/library/cc978021.aspx). Example: `cn=Users,dc=example,dc=com`
 
