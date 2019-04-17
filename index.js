@@ -54,7 +54,11 @@ const branchDoNotIndex = config[GIT_BRANCH] ? (
   []
 );
 
-const ALGOLIA_SKIP_SECTIONS = config.always.DO_NOT_INDEX.concat(branchDoNotIndex);
+const ALGOLIA_SKIP_SECTIONS = branchDoNotIndex ? (
+  config.always.DO_NOT_INDEX.concat(branchDoNotIndex)
+) : (
+  config.always.DO_NOT_INDEX
+);
 
 const branchDoNotBuild = config[GIT_BRANCH] ? (
   config[GIT_BRANCH].DO_NOT_BUILD
