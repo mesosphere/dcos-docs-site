@@ -150,15 +150,15 @@ for the sample service in the `multi-lb-config.json` file:
     /dcos-edgelb/pools/multi-lb-config  2048   1     1/1    1/1       ---      False      MESOS    export...
     ```
 
-1. Navigate to the public IP address of each your public nodes. You should be able to see the Customer Application welcome page.
+1. Navigate to the public IP address of each public node to see the deployed Customer Application welcome page.
 
-    You can find the IP address endpoints for the node running the Edge-LB load balancer using the following command:
+    You can find the IP address endpoints and port information for the node running the Edge-LB load balancer using the following command:
 
     ```bash
     dcos edgelb endpoints multi-lb-config
     ```
 
-    You can then use the information returned to navigate to the public IP address used to access the sample service through the load balancer.
+    When DC/OS is deployed on an AWS cloud instance, however, you must find the public-facing IP address provided by Amazon that is associated with the node to view the sample service. You can then specify that information in the browser to access the sample service through the load balancer. The public-facing IP address provided by Amazon for the node might be a concatenated string similar to `http://luxi-test-publicsl-1jqww865xiuoa-1008229330.us-west-2.elb.amazonaws.com:80`.
 
     ![Sample service](/services/edge-lb/img/customer-sample-app.png)
 
