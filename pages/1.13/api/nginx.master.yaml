@@ -262,6 +262,7 @@ routes:
   /dcos-history-service/:
     group: History
     matcher: path
+    deprecated: This service will be removed in a future version
     proxy:
       path: $historyservice_upstream
     path: /dcos-history-service/
