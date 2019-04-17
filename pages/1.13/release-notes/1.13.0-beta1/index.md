@@ -6,7 +6,7 @@ menuWeight: 1
 beta: true
 excerpt: Release notes for DC/OS 1.13 (Beta), including Open Source attribution and version policy.
 ---
-DC/OS 1.13.0 (Beta) was released on April 17, 2019.
+DC/OS 1.13.0 (Beta) was released on April 18, 2019.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/testing/1.13.0-beta1/commit/a55cf6cd18bea6961e2cc3c957ac8d0ee47583d5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
