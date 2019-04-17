@@ -170,15 +170,16 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 ## Installation
 - Multi-region support using the Universal Installer. <!--(DCOS-45727)-->
 
-    Multi-region deployments enable higher availability for DC/OS clusters and is a crucial item to have for customers that want to achieve uptime without being susceptible to regional outages.
+    Multi-region deployments enable higher availability for DC/OS clusters and is a crucial item to have for customers that want to achieve uptime without being susceptible to regional outages. For more information, see the documentation for [multi-region deployment](/1.13/installing/evaluation/aws/aws-remote-region/).
+
 
 - Dynamic masters on the Universal Installer. <!--(DCOS-45725)-->
 
-    Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters from not just the agent nodes (which is currently supported), but also from the master nodes--if you deem it necessary to do so.
+    Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters from not just the agent nodes (which is currently supported), but also from the master nodes--if you deem it necessary to do so. For more information, see the documentation for [replaceable masters](/1.13/installing/evaluation/aws/aws-replaceable-masters/).
 
 - Enable Universal Installer and on-premise DC/OS life cycle management with Ansible. <!--(DCOS-45724)-->
 
-    The DC/OS Ansible (dcos-ansible) component is a Mesosphere-provided version of the Ansible open-source provisioning, configuration management, and deployment tool that enables you to use supported Ansible roles for installing and upgrading DC/OS OSS and DC/OS Enterprise clusters on the infrastructure you choose.
+    The DC/OS Ansible (dcos-ansible) component is a Mesosphere-provided version of the Ansible open-source provisioning, configuration management, and deployment tool that enables you to use supported Ansible roles for installing and upgrading DC/OS OSS and DC/OS Enterprise clusters on the infrastructure you choose. For more information, see the documentation for [Ansible](/1.13/installing/evaluation/).
 
 <!-- not in 1.13 Docs with RN filter 
 - Universal Installer to provision EBS volumes (DCOS-47221)
