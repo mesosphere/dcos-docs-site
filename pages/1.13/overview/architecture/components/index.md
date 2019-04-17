@@ -323,6 +323,10 @@ Read the following documentation resources to learn more about DC/OS Signal:
 
 The DC/OS history service caches and exposes the historical system state to facilitate cluster usage statistics in the GUI.
 
+### Deprecated
+
+This service is deprecated and will be removed in a future version.
+
 ### System service
 
 - `dcos-history.service`
