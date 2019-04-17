@@ -49,17 +49,17 @@ const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
 
 const branchDoNotIndex = config[GIT_BRANCH] ? (
-  config[GIT_BRANCH]['DO_NOT_INDEX']
+  config[GIT_BRANCH].DO_NOT_INDEX
 ) : (
   []
 );
 
-const ALGOLIA_SKIP_SECTIONS = config['always']['DO_NOT_INDEX'] + branchDoNotIndex;
+const ALGOLIA_SKIP_SECTIONS = config.always.DO_NOT_INDEX.concat(branchDoNotIndex);
 
 const branchDoNotBuild = config[GIT_BRANCH] ? (
-  config[GIT_BRANCH]['DO_NOT_BUILD']
+  config[GIT_BRANCH].DO_NOT_BUILD
 ) : (
-  config['local']['DO_NOT_BUILD']
+  config.local.DO_NOT_BUILD
 );
 
 const METALSMITH_SKIP_SECTIONS = config.always.DO_NOT_BUILD.concat(branchDoNotBuild);
