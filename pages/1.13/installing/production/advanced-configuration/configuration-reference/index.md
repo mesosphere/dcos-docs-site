@@ -362,7 +362,7 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
 *   `exhibitor_storage_backend: static`
     The Exhibitor storage backend is managed internally within your cluster.
 
-<p class="message--note"><strong>NOTE: </strong>If <a href ="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#master-discovery-required">master_discovery</a> is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.</p>
+<p class="message--note"><strong>NOTE: </strong>If <a href ="https://docs.mesosphere.com/1.13/installing/production/advanced-configuration/configuration-reference/#master-discovery-required">master_discovery</a> is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.</p>
 
 *   `exhibitor_storage_backend: zookeeper`
     The ZooKeeper instance for shared storage. If you use a ZooKeeper instance to bootstrap Exhibitor, this ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability. If you specify `zookeeper`, you must also specify these parameters.
@@ -454,11 +454,11 @@ The Mesos master discovery method. The available options are `static` or `master
     *  `exhibitor_address` (Required)
        The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.13/security/ent/tls-ssl/). The load balancer must accept traffic on ports 443, 2181, 5050, and 8181. If the cluster is running in permissive security mode, the load balancer may also accept traffic on port 80 and 8080 for non-SSL HTTP access to services in the cluster.
          <p class="message--note"><strong>NOTE: </strong>Access to the cluster over port 80 and 8080 is insecure.</p>
-         
+
        The traffic must also be forwarded to 443, 2181, 5050, and 8181 on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up. For more information on security modes, check [security modes documentation](/1.13/security/ent/#security-modes).
 
    <p class="message--note"><strong>NOTE: </strong>The internal load balancer must work in TCP mode, without any TLS termination.</p>
-       
+
 
     *  `num_masters` (Required)
        The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.

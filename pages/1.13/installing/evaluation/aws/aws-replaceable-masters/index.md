@@ -9,7 +9,7 @@ menuWeight: 2
 By default the Universal Installer uses a static master list to form the quorum needed by DC/OS. This adds some problems to dynamic cloud environments. The master IP addresses shouldn't change, and most cases this will not happen as long as you do not destroy or taint a master instance. But in a complete lifecycle of a DC/OS cluster you might face situations where you want to be able to recreate a master instance without deep manual interaction. This feature will enable you simply taint and reinstall a minority of your master nodes without any dataloss as long as the majority of the initial masters is still alive.
 
 # Prerequisites
-- Same as in [Guide for DC/OS on AWS using the Universal Installer](/1.12/installing/evaluation/aws/).
+- Same as in [Guide for DC/OS on AWS using the Universal Installer](/1.13/installing/evaluation/aws/).
 - The account you're using is able to create AWS buckets.
 
 # Fully Managed Replaceable Masters
