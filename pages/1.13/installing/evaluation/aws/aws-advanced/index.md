@@ -3,7 +3,7 @@ layout: layout.pug
 title: Configuration Reference - AWS
 excerpt: Configuring your DC/OS installation on AWS using the Universal Installer
 navigationTitle: Configuration Reference
-menuWeight: 1
+menuWeight: 3
 ---
 
 The Mesosphere Universal Installer supports a wide range of inputs/variables to add to your `main.tf` and enable you to customize your DC/OS cluster to your needs. These inputs/variables include everything from specifying the operating system (CentOS, CoreOS, RHEL) to setting the garbage collection time of your DC/OS cluster.
