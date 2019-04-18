@@ -35,7 +35,7 @@ At least one volume must be available for Prometheus to use. For more on creatin
 
 When configuring Prometheus, select `MOUNT` for its volume `type`, choose the minimum `size` for the volume in MB, and enter the `profile` for the volume. For more on volume profiles, see the [DSS documentation](https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/cli-references/dcos-storage-profile/).
 
-The following configuration will deploy Prometheus with a `fast` DSS volume that is 25 GB or larger. If there is no such volume available, Prometheus will fail to deploy.
+The following configuration will deploy Prometheus to a volume with a profile of `fast` that is 25 GB or larger. If there is no such volume available, Prometheus will fail to deploy.
 
 ```json
 {

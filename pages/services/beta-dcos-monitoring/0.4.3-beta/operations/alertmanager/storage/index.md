@@ -20,7 +20,7 @@ At least one volume must be available for Alert Manager to use. For more on crea
 
 When configuring Alert Manager, select `MOUNT` for its volume `type`, choose the minimum `size` for the volume in MB, and enter the `profile` for the volume. For more on volume profiles, see the [DSS documentation](https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/cli-references/dcos-storage-profile/).
 
-The following configuration will deploy Alert Manager with a `fast` DSS volume that is 512 MB or larger. If there is no such volume available, Alert Manager will fail to deploy.
+The following configuration will deploy Alert Manager to a volume with a profile of `fast` that is 512 MB or larger. If there is no such volume available, Alert Manager will fail to deploy.
 
 ```json
 {

@@ -20,7 +20,7 @@ At least one volume must be available for Grafana to use. For more on creating v
 
 When configuring Grafana, select `MOUNT` for its volume `type`, choose the minimum `size` for the volume in MB, and enter the `profile` for the volume. For more on volume profiles, see the [DSS documentation](https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/cli-references/dcos-storage-profile/).
 
-The following configuration will deploy Grafana with a `fast` DSS volume that is 512 MB or larger. If there is no such volume available, Grafana will fail to deploy.
+The following configuration will deploy Grafana to a volume with a profile of `fast` that is 512 MB or larger. If there is no such volume available, Grafana will fail to deploy.
 
 ```json
 {
