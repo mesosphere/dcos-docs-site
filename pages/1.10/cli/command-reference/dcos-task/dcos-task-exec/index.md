@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-Launch a process (`<cmd>`) inside of a task's (`<task>`) container.
+Launch a process (`<cmd>`) inside of a task's (`<task>`) container. To use this command, the task must be in a Universal Containerizer Runtime (UCR) container.
 
 # Usage
 
