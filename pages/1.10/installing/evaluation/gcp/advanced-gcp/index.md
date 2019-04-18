@@ -16,7 +16,7 @@ module "dcos" {
 
   cluster_name = "mydcoscluster"
   ssh_public_key_file = "~/.ssh/id_rsa.pub"
-  admin_ips = ['198.51.100.0/24']
+  admin_ips = ["198.51.100.0/24"]
 
   dcos_version = "1.11.4"
   num_masters = "3"
