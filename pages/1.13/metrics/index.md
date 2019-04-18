@@ -24,6 +24,9 @@ Telegraf is included in the DC/OS distribution and runs on every host in the clu
 
 For more information about the list of metrics that are automatically collected by DC/OS, read [Metrics Reference](/1.13/metrics/reference/) documentation.
 
+## Monitoring and Visualization
+We recommend installing the DC/OS Monitoring Service to monitor and visualize metrics in your DC/OS cluster. See the [service documentation](/services/dcos-monitoring/) for instructions on how to install and use the service.
+
 ## Upgrading from 1.11
 DC/OS 1.12 includes an updated `statsd` server implementation for application metrics. The `statsd` update fixes an issue with the `statsd` server implementation in 1.11, which treated all application metrics as gauges, regardless of `statsd` type. 
 
