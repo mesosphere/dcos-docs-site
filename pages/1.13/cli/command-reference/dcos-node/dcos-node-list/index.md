@@ -9,7 +9,7 @@ enterprise: false
 
 # Description
 
-The `dcos node list-` command displays a list of DC/OS master and agent nodes with identifying information, including:
+The `dcos node list` command displays a list of DC/OS master and agent nodes with identifying information, including:
 - Hostname
 - IP address
 - Public IP address
