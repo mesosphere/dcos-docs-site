@@ -66,7 +66,6 @@ module "dcos" {
   EOF
 
   # dcos_variant              = "ee"
-  # dcos_security             = "permissive"
   # dcos_license_key_contents = "${file("./license.txt")}"
   dcos_variant = "open"
 }
