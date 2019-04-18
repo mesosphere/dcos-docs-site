@@ -11,20 +11,32 @@ The Lightweight Directory Access Protocol (LDAP) provides a lightweight client-s
 # Common issues when using Microsoft Active Directory
 Microsoft Windows Server Active Directory is the LDAP-based identity store for Windows forests and domains. Active Directory stores details about users, groups, computers, roles, and organizations in LDAP-compliant objects and attributes and returns the information you search for using LDAP queries in the same format as other LDAP services such as OpenLDAP.
 
-## Error: Cannot connect to Active Directory
-If you attempt to retrieve information from Active Directory, but the connection fails and you see this error message, the problem is most often caused by one of the following issues:
+Because integrating Active Directory authentication into a multi-platform environment can present challenges that you are less likely to encounter when you use ApacheDS, OpenLDAP, or other LDAP services, the most common issues with LDAP authentication and configuration involve communication with the Active Directory domain controllers or replication across Active Directory domains.
+
+## Error: Cannot connect to the directory backend
+If you attempt to retrieve information from Active Directory but the connection fails, you might see the following error message:
+
+![Cannot connect to the directory](/1.13/img/ldap-cannot-open-connection.png)
+
+If you see an error message indicating the connection to the backend directory failed, the problem is most often caused by one of the following issues:
 
 - A required port is closed to all traffic or protected by firewall rules.
 
-Specific port requirements depend on the version of Active Directory you are using and the type of communication traffic. For example, most LDAP traffic requires port 389 for TCP or UDP connections to handle directory and replication services, user and computer authentication, and group policy distribution. 
+    Specific port requirements depend on the version of Active Directory you are using and the type of communication traffic. For example, most LDAP traffic requires port 389 for TCP or UDP connections to handle directory and replication services, user and computer authentication, and group policy distribution. 
 
-To handle the same type of traffic over a secure communications chaneel, LDAP requires port 636 for TCP connections to deliver encrypted messages over a secure socket layer (SSL).
+    To handle the same type of traffic over a secure communications chaneel, LDAP requires port 636 for TCP connections to deliver encrypted messages over a secure socket layer (SSL).
 
 - DNS cannot resolve the name or IP address for the Active Directory domain controller.
 
 If you encounter this error, check whether the computer where you saw the error has the correct IP address for the network interface and the domain controller. You can check the current IP address and network settings for domain connections using the DHCP server role or manually in the network adapter settings. For example, you can retrieve the current network settings for the computer using `ipconfig` or a similar operating system command to display network configuration details.
 
-If there is a problem with the port number, host name, or host IP address, edit the values in the Connection tab to specify the correct port, host name, or host IP address.
+If there is a problem with the port number, host name, or host IP address, edit the values in the LDAP directory settings to specify the correct port, host name, or host IP address.
+
+1. Log in to the DC/OS web-based console.
+
+1. Click **Settings**, then click **LDAP Directory**.
+
+Click Add Directory.
 
 ## Error: Transport layer security (TLS) setting
 If you have a problem connecting to Active Directory when using secure socket layer (SSL) connections, check whether the LDAP server is configured to allow SSL/TLS connections. Edit the Select SSL/TLS setting section and select another option.
