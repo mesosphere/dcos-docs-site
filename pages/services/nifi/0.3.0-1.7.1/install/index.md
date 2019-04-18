@@ -105,6 +105,8 @@ The above example will install the service under a path of `foldered => path => 
 
 <p class="message--important"><strong>IMPORTANT: </strong>The service folder location cannot be changed after initial install. Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.</p>
 
+<p class="message--note"><strong>NOTE: </strong>cn dn node identity parameter specify initial node identity for TLS which will used inside authorizers.xml file for CN value.</p>
+
 ## Addressing named instances
 
 After you’ve installed the service under a custom name or under a folder, it may be accessed from all `dcos {{ model.packageName }}` CLI commands using the `--name` argument. By default, the `--name` value defaults to the name of the package, or {{ model.packageName }}.

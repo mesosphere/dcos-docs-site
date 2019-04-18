@@ -20,7 +20,7 @@ render: mustache
 - Support for secrets file upload.
 
 ## Bug Fix
-- Fixed `cn_dn_node_identity` value for default installation of DC/OS {{model.techName }}.
+- Fixed `cn dn node identity` value for default installation of DC/OS {{model.techName }}.
 
 <!-- 
 ## Version 0.2.0-1.5.0
