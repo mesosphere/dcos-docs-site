@@ -76,7 +76,7 @@ Some highlights for this release include:
 
     Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to a third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting services.
 
-    <!--For more information about how to configure logging to integrate with Fluent Bit, see [XX]().-->
+    For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/1.13/monitoring/logging/).-->
 
 ## Command-line interface
 - Identify the public-facing IP address for public agent nodes through DC/OS CLI. <!--(DCOS-44697)-->
@@ -223,7 +223,7 @@ dcos-monitoring now enables Grafana dashboards to be displayed on read-only devi
 
     You can now create unified service accounts that can be used across DC/OS OSS and DC/OS Enterprise clusters. By extending support for service accounts that can be used for all DC/OS clusters, you have the option to install, configure, and manage additional packages, including packages that require a service account when you are running DC/OS Enterprise DC/OS in `strict` mode.
 
-    For more information about authentication and managing accounts, see [User account management](/1.13/security/oss/user-account-management/).
+    For more information about authentication and managing accounts, see [Security](/1.13/security) and [User account management](/1.13/security/oss/user-account-management/).
 
 - Support secure computing mode (seccomp) profiles. <!--(DCS-28442, DCOS-49134)-->
 
