@@ -8,9 +8,9 @@ excerpt: Release notes for DC/OS 1.13 (Beta), including Open Source attribution 
 ---
 DC/OS 1.13.0 (Beta) was released on April 18, 2019.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/testing/1.13.0-beta1/commit/a55cf6cd18bea6961e2cc3c957ac8d0ee47583d5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.13.0-beta/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="light" href="https://downloads.mesosphere.io/dcos-enterprise/testing/1.13.0-beta1/commit/9d2ee649f1ddb90728757ea24d912189aaef9a52/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
+[button color="light" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0-beta/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
 
 # Release summary
 The DC/OS 1.13.0 (Beta) release is intended for testing and evaluation purposes. You should not deploy this release in a production environment or attempt to upgrade any cluster components using this version of the software. You should only use this Beta release to install new, non-production clusters.
