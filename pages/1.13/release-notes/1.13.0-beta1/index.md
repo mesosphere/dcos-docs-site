@@ -39,7 +39,7 @@ Some highlights for this release include:
 
 - New volume and network metrics are available. <!--(DCOS-47722)-->
 
-    The metrics collection service, dcos-telegraf can now collect additional metrics for Mesos volumes and network information. For a complete list of the Mesos metrics you can collect and report, see the latest list of metrics provided here: http://mesos.apache.org/documentation/latest/monitoring/.
+    The metrics collection service, dcos-telegraf can now collect additional metrics for Mesos volumes and network information. For a complete list of the Mesos metrics you can collect and report, see the latest [list of metrics](http://mesos.apache.org/documentation/latest/monitoring/).
 
     For more information about collecting metrics and configuring metrics plugins, see the following topics:
     - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
@@ -76,7 +76,7 @@ Some highlights for this release include:
 
     Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to a third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting services.
 
-    For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/1.13/monitoring/logging/).-->
+    For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/1.13/monitoring/logging/).
 
 ## Command-line interface
 - Identify the public-facing IP address for public agent nodes through DC/OS CLI. <!--(DCOS-44697)-->
@@ -152,8 +152,8 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 - Accurate status information for services. <!--(DCOS-43460)-->
 
     DC/OS 1.13 GUI now includes a new tab in the Details section of every SDK-based data service. This new tab provides a clear indication of the status and progress of SDK-based services during the service life cycle, including installation and upgrade activity. From the Details tab, you can see information about the specific operational plans that are currently running or have just completed. You can also view the execution of each task so that you can easily track the progress of the plans you have deployed.
-    <!--
-    For more information about viewing up-to-date status information for services and operational plans, see [XX]().-->
+    
+    For more information about viewing up-to-date status information for services and operational plans, see [Services](/1.13/gui/services/).
 
 - Identify the public-facing IP address for public agent nodes in the DC/OS GUI. <!--(DCOS-49987)-->
 
@@ -165,7 +165,7 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 
     Mesosphere DC/OS 1.13 GUI has now been translated to Mandarin Chinese. Mandarin-speaking customers and users can now easily switch the GUI language in the UI and will be able to interact with DC/OS operations and functions in English or Chinese. The DC/OS documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there's sufficient customer demand.
 
-    <!--For information about changing the language displayed, see [XX]().-->
+    For information about changing the language displayed, see the [GUI](/1.13/gui/) documentation.
 
 ## Installation
 - Multi-region support using the Universal Installer. <!--(DCOS-45727)-->
@@ -191,6 +191,8 @@ Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/in
 - UCR to support Schema2_v2 formatted docker images <!--(DCOS-43871)-->
 
     DC/OS Universal Container Runtime (UCR) now fully supports Docker images that are formatted using the Docker v2_schema2 specification. DC/OS Universal Container Runtime (UCR) also continues to support Docker images that use the v2_schema1 format.
+
+    For more information, see [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/).
 
 - Add a communication heartbeat to improve resiliency
 
