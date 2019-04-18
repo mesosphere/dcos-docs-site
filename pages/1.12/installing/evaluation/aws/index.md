@@ -17,8 +17,8 @@ To use the Mesosphere Universal Installer with Amazon Web Services, the AWS Comm
 
 # Install Terraform
 
-1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows. 
-    
+1. Visit the the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows.
+
     If you're on a Mac environment with [Homebrew](https://brew.sh/) installed, simply run the following command:
 
     ```bash
@@ -115,7 +115,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
 
 1. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
 
-    ```hcl
+    ```bash
     provider "aws" {
       # Change your default region here
       region = "us-east-1"
@@ -123,7 +123,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
 
     module "dcos" {
       source  = "dcos-terraform/dcos/aws"
-      version = "~> 0.1.0"
+      version = "~> 0.2.0"
 
       cluster_name        = "my-dcos-demo"
       ssh_public_key_file = "<path-to-public-key-file>"
@@ -133,7 +133,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
       num_private_agents = "2"
       num_public_agents  = "1"
 
-      dcos_version = "1.12.0"
+      dcos_version = "1.12.2"
 
       dcos_instance_os    = "centos_7.5"
       bootstrap_instance_type = "t2.medium"
@@ -148,13 +148,6 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
       # dcos_variant              = "ee"
       # dcos_license_key_contents = "${file("./license.txt")}"
       dcos_variant = "open"
-
-      dcos_install_mode = "${var.dcos_install_mode}"
-    }
-
-    variable "dcos_install_mode" {
-      description = "specifies which type of command to execute. Options: install or upgrade"
-      default     = "install"
     }
 
     # Used to determine your public IP for forwarding rules
@@ -182,7 +175,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
       "~/.ssh/aws-key.pub"
       ```
 
-1. `region` is a setting that sets the AWS region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-east-1”, it can be changed to any other region (e.g “us-west-1”, “us-west-2”, “us-east-2”, etc).  For a complete list, please refer to the [configuration reference](/1.12/installing/evaluation/aws/aws-advanced/).
+1. `region` is a setting that sets the AWS region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-east-1”, it can be changed to any other region (e.g “us-west-1”, “us-west-2”, “us-east-2”, etc).  For a complete list, please refer to the [configuration reference](/1.12/installing/evaluation/aws/).
 
 1. Enterprise users, uncomment/comment the section for the variant to look like this, inserting the location to your license key. [enterprise type="inline" size="small" /]
 
@@ -198,8 +191,8 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
     - 2 Private Agents
     - 1 Public Agent
 
-    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/aws/aws-advanced/).
-  
+    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '\_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/aws/aws-advanced/).
+
     There are also simple helpers listed underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
 
     - `master-ips` A list of Your DC/OS master nodes
@@ -319,19 +312,18 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 
 Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS. If you are interested in learning more about the upgrade procedure that Terraform performs, please see the official [DC/OS Upgrade documentation](/1.12/installing/production/upgrading/).
 
-1. In order to perform an upgrade, we need to go back to our `main.tf` and modify the current DC/OS Version (`dcos_version`) to a newer version, such as `1.12.1` for this example, and also specify an additional parameter (`dcos_install_mode`). By default this parameter is set to `install`, which is why we were able to leave it unset when creating the initial DC/OS cluster and scaling it
+1. In order to perform an upgrade, we need to go back to our `main.tf` and modify the current DC/OS Version (`dcos_version`) to a newer version, such as `1.12.3` for this example.
 .
 
-    <p class="message--important"><strong>IMPORTANT: </strong>Do not change any number of masters, agents or public agents while performing an upgrade.</p>
 
-    ```hcl
-    dcos_version = "1.12.1"
+    ```bash
+    dcos_version = "1.12.3"
     ```
 
 1. Re-run the execution plan, temporarily overriding the default install mode by setting the flag to read in the extra variable.
 
     ```bash
-    terraform plan -out=plan.out -var dcos_install_mode=upgrade
+    terraform plan -out=plan.out
     ```
 
     You should see an output like below, with your `main.tf` now set for normal operations on a new version of DC/OS.
