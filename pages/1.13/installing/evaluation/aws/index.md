@@ -313,14 +313,12 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS. If you are interested in learning more about the upgrade procedure that Terraform performs, please see the official [DC/OS Upgrade documentation](/1.13/installing/production/upgrading/).
 
 1. In order to perform an upgrade, we need to go back to our `main.tf` and modify the current DC/OS Version (`dcos_version`) to a newer version, such as `1.12.3` for this example.
-.
-
 
     ```bash
     dcos_version = "1.12.3"
     ```
 
-1. Re-run the execution plan, temporarily overriding the default install mode by setting the flag to read in the extra variable.
+1. Re-run the execution plan, terraform will notice the change in version and run accordingly.
 
     ```bash
     terraform plan -out=plan.out
