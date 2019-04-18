@@ -7,7 +7,7 @@ menuWeight: 1
 enterprise: true
 ---
 
-This guide expects that you already have a running DC/OS cluster based on Universal Installer `0.2`. To learn more about running DC/OS with the Universal Installer have a look into the [Guide for DC/OS on AWS using the Universal Installer](/1.12/installing/evalation/aws/).
+This guide expects that you already have a running DC/OS cluster based on Universal Installer `0.2`. To learn more about running DC/OS with the Universal Installer have a look into the [Guide for DC/OS on AWS using the Universal Installer](/1.13/installing/evalation/aws/).
 
 You will learn how to place additional infrastructure into a AWS remote region. Remote regions will be connected to each other by using the [AWS VPC Peering Feature](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-peering.html).
 

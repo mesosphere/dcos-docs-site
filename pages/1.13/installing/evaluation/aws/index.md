@@ -175,7 +175,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
       "~/.ssh/aws-key.pub"
       ```
 
-1. `region` is a setting that sets the AWS region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-east-1”, it can be changed to any other region (e.g “us-west-1”, “us-west-2”, “us-east-2”, etc).  For a complete list, please refer to the [configuration reference](/1.12/installing/evaluation/aws/).
+1. `region` is a setting that sets the AWS region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-east-1”, it can be changed to any other region (e.g “us-west-1”, “us-west-2”, “us-east-2”, etc).  For a complete list, please refer to the [configuration reference](/1.13/installing/evaluation/aws/).
 
 1. Enterprise users, uncomment/comment the section for the variant to look like this, inserting the location to your license key. [enterprise type="inline" size="small" /]
 
@@ -191,7 +191,7 @@ Terraform will need to send out SSH keys to connect securely to the nodes it cre
     - 2 Private Agents
     - 1 Public Agent
 
-    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '\_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.12/installing/evaluation/aws/aws-advanced/).
+    If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '\_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/1.13/installing/evaluation/aws/aws-advanced/).
 
     There are also simple helpers listed underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
 
@@ -310,7 +310,7 @@ Terraform makes it easy to scale your cluster to add additional agents (public o
 
 # Upgrading Your Cluster
 
-Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS. If you are interested in learning more about the upgrade procedure that Terraform performs, please see the official [DC/OS Upgrade documentation](/1.12/installing/production/upgrading/).
+Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS. If you are interested in learning more about the upgrade procedure that Terraform performs, please see the official [DC/OS Upgrade documentation](/1.13/installing/production/upgrading/).
 
 1. In order to perform an upgrade, we need to go back to our `main.tf` and modify the current DC/OS Version (`dcos_version`) to a newer version, such as `1.12.3` for this example.
 .
