@@ -350,9 +350,9 @@ routes:
     matcher: path
     description: Exposes the public IP addresses for nodes in a cluster
     proxy:
-      path: 
-      backend: 
-    path: /net/v1/nodes/   
+      path:
+      backend:
+    path: /net/v1/nodes/
   /networking/api/v1/:
     group: Network Metrics
     matcher: path
