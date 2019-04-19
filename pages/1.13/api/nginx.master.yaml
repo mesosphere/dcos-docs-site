@@ -345,6 +345,14 @@ routes:
     lua:
       file: conf/lib/metadata.lua
     path: /metadata
+  /net/v1/nodes:
+    group: Networking
+    matcher: path
+    description: Exposes the public IP addresses for nodes in a cluster
+    proxy:
+      path:
+      backend:
+    path: /net/v1/nodes/
   /networking/api/v1/:
     group: Network Metrics
     matcher: path
