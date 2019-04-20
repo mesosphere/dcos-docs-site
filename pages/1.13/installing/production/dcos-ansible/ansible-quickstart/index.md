@@ -7,13 +7,13 @@ excerpt: Guided walkthrough of installing DC/OS using Ansible.
 ---
 
 If you’re new to Ansible and/or want to deploy DC/OS using Ansible quickly and effortlessly - please follow this guide. We’ll walk you through step-by-step on how to:
-1. Downloading DC/OS Ansible Content
-2. Configuring Ansible for DC/OS
-3. Create an Open Source DC/OS Cluster with Ansible
-4. Upgrade the cluster to a newer version of DC/OS
+- Download DC/OS Ansible Content
+- Configure Ansible for DC/OS
+- Create a DC/OS cluster with Ansible
+- Upgrade the cluster to a newer version of DC/OS
 
-## Prerequisites
-1. [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) and [Mazer](https://galaxy.ansible.com/docs/mazer/install.html) installed. See links for additional installation information.
+## Prerequisites and Setup
+1. You will need to have [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) and [Mazer](https://galaxy.ansible.com/docs/mazer/install.html) installed. See links for additional installation information.
      With Mac you can brew install and then use your version of pip to install mazer:
      ```bash
      brew install ansible && pip install mazer
@@ -25,16 +25,17 @@ If you’re new to Ansible and/or want to deploy DC/OS using Ansible quickly and
       ```
      For windows installation please refer to the [Ansible documentation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#control-machine-requirements) for more information on how to install ansible on windows, or you can SSH to the bootstrap host (see below) and deploy and run ansible from there.
 
-2. Nodes configured with SSH access.
-   You will also need a minimum of 4 nodes (CentOS or RedHat) already available with SSH connectivity via a user with root level privileges:
+2. A list of your cluster nodes configured with SSH access. You will need a minimum of 4 nodes (CentOS or RedHat), available with SSH connectivity via a user with root level privileges:
    - 1 Bootstrap
    - 1 Master
    - 1 Private Agent
    - 1 Public Agent
 
-Please see [minimum system requirements](/1.13/installing/production/system-requirements/) and supported CentOS and Redhat Enterprise Linux (RHEL) [versions for your nodes](/version-policy/#dcos-platform-version-compatibility-matrix/), especially when planning for production environments.
+Please see the [minimum system requirements](/1.13/installing/production/system-requirements/) and supported CentOS and Redhat Enterprise Linux (RHEL) [versions for your nodes](/version-policy/#dcos-platform-version-compatibility-matrix/), especially when planning for production environments.
 For more information on setting up SSH connections for Ansible see the [remote connections documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#remote-connection-information).
 If you are installing DC/OS Enterprise Edition, you will also need an appropriate license key.
+
+<p class="message--note"><strong>Note: </strong>Registered Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, please contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> for more information.</p>
 
 ## Downloading the Content
 We maintain and host our [DC/OS Ansible project on the Ansible Galaxy](https://galaxy.ansible.com/dcos/dcos_ansible) for easy consumption. Currently we, as well as RedHat, propose using the Mazer tool for downloading all the necessary content locally to your machine. For more information on the Mazer tool and how to configure it see the [project docs here](https://galaxy.ansible.com/docs/mazer/index.html).
@@ -70,7 +71,7 @@ You may use DC/OS Ansible to install both DC/OS and DC/OS Enterprise. Please fol
      mv group_vars/all/dcos.yaml.example group_vars/all/dcos.yml
      ```
 
-2. Place each of your corresponding nodes, mentioned in prereqs, under the desired groups in the `inventory` file for `[bootstrap]`, `[masters]`, `[agents_private]` and `[agents_public]` groups. If you are deploying on a public cloud, those are the external IPs of the nodes.
+2. Place each of your corresponding nodes, as mentioned in the prerequisites, under the desired groups in the `inventory` file for `[bootstrap]`, `[masters]`, `[agents_private]` and `[agents_public]` groups. If you are deploying on a public cloud, those are the external IPs of the nodes.
 
 3. In the variables file (`group_vars/all/dcos.yml`), set the following values under `dcos` according to your variant:
 
@@ -146,7 +147,8 @@ ansible-playbook dcos.yml
 **Note: Prior to DC/OS Install you will be required to either press ENTER to continue with install or CTRL-C to cancel install.**
 
 ```bash
-TASK [DCOS.bootstrap : Double check the prefix/cluster name and version] ******************************************************************************************************************************************************************************************************************************************************************************************
+TASK [DCOS.bootstrap : Double check the prefix/cluster name and version]
+****************************************************************************************************************
 [DCOS.bootstrap : Double check the prefix/cluster name and version]
 Please double check the prefix/cluster name and version of this cluster:
 
@@ -161,7 +163,7 @@ PRESS *ENTER* OR CANCEL NOW IF IT ISN'T CORRECT
 When ansible is completed, you should see an output with no errors like below:
 
 ```bash
-PLAY RECAP ******************************************************************************************************************************************************************************************
+PLAY RECAP ****************************************************************************************************************
 bootstrap                  : ok=24   changed=5    unreachable=0    failed=0
 master                     : ok=24   changed=5    unreachable=0    failed=0
 private_agent              : ok=24   changed=5    unreachable=0    failed=0
@@ -173,9 +175,8 @@ With very little effort we have created a DC/OS version running version 1.12.2. 
 ## Logging In
 To access the user interface, you will be asked to log in.
 
-[enterprise type="inline" size="small" /]
+If you installed DC/OS Enterprise, you can login with default demo credentials. [enterprise type="inline" size="small" /]
 
-If you installed DC/OS Enterprise, you can login with default credentials of:
 ```
 user: bootstrapuser
 password: deleteme
@@ -183,14 +184,13 @@ password: deleteme
 ![enterprise-Login-Page](/1.13/img/dcos-ee-login.png)
 
 
-[oss /]
 
-If you installed DC/OS Open Source, select the OAuth provider of your choice.
+If you installed DC/OS Open Source, select the OAuth provider of your choice. [oss type="inline" size="small" /]
 
 ![oss-login-page](/1.13/img/dcos-oe-login.png)
 
 
-### Easy instances with terraform:
+## Creating test instances on AWS with terraform
 If you would like to test the above steps on AWS and are familiar with terraform, please [download and use this terraform script](https://gist.github.com/geekbass/45eb978fb420ae0da13f00fdfa0cd1c5) to deploy a sample infrastructure so that you can deploy DC/OS on it using the ansible script above. The script is not officially supported by Mesosphere and is provided only for testing purposes.
 
 To deploy the infra using the script:
