@@ -30,7 +30,7 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
     <img src="/services/edge-lb/img/download-edge-lb.png" alt="Downloading Edge-LB from Mesosphere Support">
     </p>
     
-    Alternatively, you can run commands similar to the following to download DC/OS Edge-LB packages:
+    Alternatively, you can run commands similar to the following to downlaod DC/OS Edge-LB packages:
 
     ```bash
     dcos package repo add --index=0 edgelb https://<insert download link>/stub-universe-edgelb.json
