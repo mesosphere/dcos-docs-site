@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release notes for 1.13.0 (Beta)
 title: Release notes for 1.13.0 (Beta)
-menuWeight: 5
+menuWeight: 1
 beta: true
 excerpt: Release notes for DC/OS 1.13 (Beta), including Open Source attribution and version policy.
 ---
@@ -170,22 +170,20 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 ## Installation
 - Multi-region support using the Universal Installer. <!--(DCOS-45727)-->
 
-    Multi-region deployments enable higher availability for DC/OS clusters and is a crucial item to have for customers that want to achieve uptime without being susceptible to regional outages. For more information, see the documentation for [multi-region deployment](/1.13/installing/evaluation/aws/aws-remote-region/).
+    Multi-region deployments enable higher availability for DC/OS clusters and is a crucial item to have for customers who want to achieve uptime without being susceptible to regional outages. For more information, see the documentation for [multi-region deployment](/1.13/installing/evaluation/aws/aws-remote-region/).
 
 
 - Dynamic masters on the Universal Installer. <!--(DCOS-45725)-->
 
-    Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters from not just the agent nodes (which is currently supported), but also from the master nodes--if you deem it necessary to do so. For more information, see the documentation for [replaceable masters](/1.13/installing/evaluation/aws/aws-replaceable-masters/).
+    Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters not just from the agent nodes (which is currently supported), but also from the master nodes--if you deem it necessary to do so. For more information, see the documentation for [replaceable masters](/1.13/installing/evaluation/aws/aws-replaceable-masters/).
 
 - Enable Universal Installer and on-premise DC/OS life cycle management with Ansible. <!--(DCOS-45724)-->
 
-    The DC/OS Ansible (dcos-ansible) component is a Mesosphere-provided version of the Ansible open-source provisioning, configuration management, and deployment tool that enables you to use supported Ansible roles for installing and upgrading DC/OS OSS and DC/OS Enterprise clusters on the infrastructure you choose. For more information, see the documentation for [Ansible](/1.13/installing/evaluation/).
+    The DC/OS Ansible (`dcos-ansible`) component is a Mesosphere-provided version of the Ansible open-source provisioning, configuration management, and deployment tool that enables you to use supported Ansible roles for installing and upgrading DC/OS OSS and DC/OS Enterprise clusters on the infrastructure you choose. For more information, see the documentation for [Ansible](/1.13/installing/evaluation/).
 
 <!-- not in 1.13 Docs with RN filter 
 - Universal Installer to provision EBS volumes (DCOS-47221)
-The Universal Installer now provides the ability to provision AWS EBS volumes and attach them to the private agents within a cluster.
-
-Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/
+The Universal Installer now provides the ability to provision AWS EBS volumes and attach them to the private agents within a cluster. Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/
 -->
 ## Mesos platform and containerization
 - Update the Universal Container Runtime (UCR) to support Docker registry manifest specification v2_schema2 images. <!--(DCOS-43871)-->
