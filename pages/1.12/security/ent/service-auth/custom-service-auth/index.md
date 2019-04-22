@@ -100,13 +100,13 @@ Determine what access your service account requires by using this procedure. Thi
     This command will return a list of the audit logs that are generated when your service was denied access due to insufficient permissions or a bad token. The rejection messages should include the permission that was missing. You might need to repeat this process several times to determine the full list of required permissions.
 
 
-###Troubleshooting
+### Troubleshooting
 
 You can grant your service superuser permission to rule out any functional issues. All valid services should be able to run as superuser.
 
    ```bash
-   curl -x put --cacert dcos-ca.crt \
-   -h "authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:superuser/users/<service-account-id>/full
+   curl -X PUT --cacert dcos-ca.crt \
+   -H "authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:superuser/users/<service-account-id>/full
    ```
 
 For more information, see the [permissions reference](/1.12/security/ent/perms-reference/).
