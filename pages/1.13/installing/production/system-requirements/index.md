@@ -76,7 +76,9 @@ The table below shows the agent node hardware requirements.
 | Memory      | 16 GB RAM | 16 GB RAM   |
 | Hard disk   | 60 GB     | 60 GB       |
 
-The agent nodes must also have:
+In planning memory requirements for agent nodes, you should ensure that agents are configured minimize the use of swap space. The recommended best practice is optimize cluster performance and reduce potential resource consumption issues to disable memory swapping for all agents in the cluster, if possible.
+
+In addition to these general hardware requirements, the agent nodes must also have:
 
 - A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.13/deploying-services/containerizers/).
 - Network Access to a public Docker repository or to an internal Docker registry.
