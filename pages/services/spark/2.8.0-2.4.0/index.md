@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-title: Spark 2.6.0-2.3.2
-navigationTitle: Spark 2.6.0-2.3.2
-menuWeight: 3
-excerpt: Documentation for DC/OS Apache Spark 2.6.0-2.3.2
+title: Spark 2.8.0-2.4.0
+navigationTitle: Spark 2.8.0-2.4.0
+menuWeight: 1
+excerpt: Documentation for DC/OS Apache Spark 2.8.0-2.4.0
 model: /services/spark/data.yml
 render: mustache
 featureMaturity:
 ---
 
-Welcome to the documentation for the DC/OS {{ model.techName }}. For more information about new and changed features, see the [release notes](/services/spark/2.6.0-2.3.2/release-notes/).
+Welcome to the documentation for the DC/OS {{ model.techName }}. For more information about new and changed features, see the [release notes](/services/spark/2.8.0-2.4.0/release-notes/).
 
 {{ model.techName }} is a fast and general-purpose cluster computing system for big data. It provides high-level APIs in Scala, Java, Python, and R, and an optimized engine that supports general computation graphs for data analysis. It also supports a rich set of higher-level tools including the following:
 - {{ model.techShortName }} SQL for SQL and DataFrames
