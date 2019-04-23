@@ -17,19 +17,19 @@ menuWeight: 0
 
 # 安装 Terraform
 
-1. 访问 [Terraform 下载页](https://www.terraform.io/downloads.html)，获得适用于 Linux、macOS 和 Windows 的捆绑安装和支持。
-    
- 如果您在安装了 [Homebrew](https://brew.sh/) 的 Mac 环境中，只需运行以下命令：
+访问 [Terraform 下载页](https://www.terraform.io/downloads.html)，获得适用于 Linux、macOS 和 Windows 的捆绑安装和支持。
+  
+  如果您在安装了 [Homebrew](https://brew.sh/) 的 Mac 环境中，只需运行以下命令：
 
-    ```bash
-    brew install terraform
-    ```
+  ```bash
+  brew install terraform
+  ```
 
- 已安装 [Chocolatey](https://chocolatey.org/docs/installation) 的 Windows 用户，请运行：
+  已安装 [Chocolatey](https://chocolatey.org/docs/installation) 的 Windows 用户，请运行：
 
-    ```bash
-    choco install terraform -y
-    ```
+  ```bash
+  choco install terraform -y
+  ```
 
 # 安装和配置 Amazon CLI
 
@@ -41,14 +41,14 @@ menuWeight: 0
     pip install awscli --upgrade --user
     ```
 
- 有关其他安装方法，请参阅 [安装 AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html#install-tool-bundled)。
+    有关其他安装方法，请参阅 [安装 AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html#install-tool-bundled)。
 
-1. 在您拥有 Azure CLI 后，需要将其连接到您想要使用的帐户。如果您已经安装 CLI，则您可能已经设置了凭据。要设置您的凭据，或根据需要随时更新凭据，请运行：
+1. 在您拥有 AWS CLI 后，需要将其连接到您想要使用的帐户。如果您已经安装 CLI，则您可能已经设置了凭据。要设置您的凭据，或根据需要随时更新凭据，请运行：
 
     ```bash
     aws configure --profile=<your-profile-name>
     ```
- AWS CLI 将请求四个信息。粘贴或输入 Amazon 提供给您的访问密钥 ID 和秘密访问密钥，如果您设置了上述区域，则已经为您填写：
+    AWS CLI 将请求四个信息。粘贴或输入 Amazon 提供给您的访问密钥 ID 和秘密访问密钥，如果您设置了上述区域，则已经为您填写：
 
     ```bash
     AWS Access Key ID [None]: <accesskey>
@@ -56,9 +56,9 @@ menuWeight: 0
     Default region name [None]: <choose-a-region>
     Default output format [None]: <if-blank-default-is-json>
     ```
- 如果您以前添加了任何值，都会作为 [先前的值] 在方括号内列出。保持输入空白将会保留该值不变，在此添加或更改某个值将会更新该值。
+    如果您以前添加了任何值，都会作为 [先前的值] 在方括号内列出。保持输入空白将会保留该值不变，在此添加或更改某个值将会更新该值。
 
- 参阅 [配置 AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)，了解有关设置凭据和用户配置文件的更多信息。
+    参阅 [配置 AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)，了解有关设置凭据和用户配置文件的更多信息。
 
 1. 设置 `AWS_PROFILE`。Terraform 需要将您的凭据传达给 AWS。这应该是与在上面配置 AWS CLI 时输入的访问密钥相关联的同一配置文件。
 
@@ -66,7 +66,7 @@ menuWeight: 0
     export AWS_PROFILE="<your-AWS-profile>"
     ```
 
- 确保已设置：
+    确保已设置：
 
     ```bash
     echo $AWS_PROFILE
@@ -177,12 +177,12 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
 
 1. 有一个主要变量，必须设置该变量才能完成 `main.tf`：
 
- - `ssh_public_key_file = "<path-to-public-key-file>"`：您群集的公钥的路径，按照我们的示例，该路径为：
-      ```bash
-      "~/.ssh/aws-key.pub"
-      ```
+    - `ssh_public_key_file = "<path-to-public-key-file>"`：您群集的公钥的路径，按照我们的示例，该路径为：
+        ```bash
+        "~/.ssh/aws-key.pub"
+        ```
 
-1. `region` 是设定 AWS 区域的一项设置，此 DC/OS 群集将在该区域上启动。虽然此项设置目前设为 “us-east-1”，但也可以更改为任何其他区域（例如 “us-west-1”、“us-west-2”、“us-east-2” 等）。如需完整列表，请参阅 [配置参考](/1.12/installing/evaluation/aws/aws-advanced/)。
+1. `region` 是设定 AWS 区域的一项设置，此 DC/OS 群集将在该区域上启动。虽然此项设置目前设为 “us-east-1”，但也可以更改为任何其他区域（例如 “us-west-1”、“us-west-2”、“us-east-2” 等）。如需完整列表，请参阅 [配置参考](/cn/1.12/installing/evaluation/aws/aws-advanced/)。
 
 1. 企业用户可以对该区段取消注释/添加注释，实现类似于以下注释，将该位置插入到许可证密钥。[enterprise type="inline" size="small" /]
 
@@ -194,17 +194,17 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
 
 1. 此示例配置文件将使您开始安装具有以下节点的开源 DC/OS 1.12.0 群集：
 
- - 1 个管理节点
- - 2 个专用代理
- - 1 个公共代理
+    - 1 个管理节点
+    - 2 个专用代理
+    - 1 个公共代理
 
- 如果您想更改群集名称或改变管理/代理节点数量，也可以调整这些值。群集名称必须唯一，包含字母数字字符、'-'、'_' 或 '.'，开头和结尾均为字母数字字符，且不超过 24 个字符。您可以在此查阅其他 [输入变量及其描述](/1.12/installing/evaluation/aws/aws-advanced/)。
-  
- 模块下方还列出一些简单的助手工具，可找到您的公共 IP，并指定在群集创建完成后应打印以下输出：
+    如果您想更改群集名称或改变管理/代理节点数量，也可以调整这些值。群集名称必须唯一，包含字母数字字符、'-'、'_' 或 '.'，开头和结尾均为字母数字字符，且不超过 24 个字符。您可以在此查阅其他 [输入变量及其描述](/cn/1.12/installing/evaluation/aws/aws-advanced/)。
+      
+    模块下方还列出一些简单的助手工具，可找到您的公共 IP，并指定在群集创建完成后应打印以下输出：
 
- - `master-ips` 您的 DC/OS 管理节点列表
- - `cluster-address` 在设置群集后用来访问 DC/OS UI 的 URL。
- - `public-agent-loadbalancer` 您的公共可路由服务的 URL。
+    - `master-ips` 您的 DC/OS 管理节点列表
+    - `cluster-address` 在设置群集后用来访问 DC/OS UI 的 URL。
+    - `public-agent-loadbalancer` 您的公共可路由服务的 URL。
 
 1. 检查您是否已将云提供商和公钥路径插入到 `main.tf`，按需要更改或添加任何其他变量，然后保存并关闭您的文件。
 
@@ -226,7 +226,7 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
     commands will detect it and remind you to do so if necessary.
     ```
 
- <p class="message--note"><strong>注意：</strong>如果 terraform 无法连接到您的提供程序，确保您已登录并导出凭据。请参阅 <a href="https://www.terraform.io/docs/providers/aws/index.html">AWS 提供程序</a>说明，了解更多信息。</p>
+    <p class="message--note"><strong>注意：</strong>如果 terraform 无法连接到您的提供程序，确保您已登录并导出凭据。请参阅 <a href="https://www.terraform.io/docs/providers/aws/index.html">AWS 提供程序</a>说明，了解更多信息。</p>
 
 1. 在初始化 Terraform 之后，下一步是运行执行计划器并将计划保存到静态文件 - 在本例中，即 `plan.out`。
 
@@ -234,15 +234,15 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
       terraform plan -out=plan.out
       ```
 
- 将执行计划写入文件可以让我们将执行计划传递给以下 `apply` 命令，并帮助我们保证计划的准确性。请注意，此文件只能由 Terraform 读取。
+    将执行计划写入文件可以让我们将执行计划传递给以下 `apply` 命令，并帮助我们保证计划的准确性。请注意，此文件只能由 Terraform 读取。
 
- 此后，我们应该看到类似下面的消息，确认我们已成功保存到 `plan.out` 文件。此文件应显示在您的 `dcos-aws-demo` 文件夹中的 `main.tf` 旁边。
+    此后，我们应该看到类似下面的消息，确认我们已成功保存到 `plan.out` 文件。此文件应显示在您的 `dcos-aws-demo` 文件夹中的 `main.tf` 旁边。
 
     <p align=center>
     <img src="./images/install/terraform-plan.png" />
     </p>
 
- 您每次运行 `terraform plan` 时，输出总是详细列出您的计划将要添加、更改或销毁的资源。由于我们是首次创建 DC/OS 群集，因此输出告诉我们，我们的计划将导致添加 38 件基础设施/资源。
+    您每次运行 `terraform plan` 时，输出总是详细列出您的计划将要添加、更改或销毁的资源。由于我们是首次创建 DC/OS 群集，因此输出告诉我们，我们的计划将导致添加 38 件基础设施/资源。
 
 1. 下一步是让 Terraform 构建/部署我们的计划。运行以下命令。
 
@@ -250,19 +250,19 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
     terraform apply plan.out
     ```
 
- 坐下来放松一下，等一等吧！您的 DC/OS 群集的基础架构正在您的注视下创建。这可能需要几分钟。
+    坐下来放松一下，等一等吧！您的 DC/OS 群集的基础架构正在您的注视下创建。这可能需要几分钟。
 
- 在 Terraform 完成应用计划后，您应该看到类似于下面的输出：
+    在 Terraform 完成应用计划后，您应该看到类似于下面的输出：
 
-  <p align=center>
-  <img src="./images/install/terraform-apply.png" />
-  </p>
+      <p align=center>
+      <img src="./images/install/terraform-apply.png" />
+      </p>
 
- 祝贺您，成功启动并运行！
+    祝贺您，成功启动并运行！
 
 # 登录 DC/OS
 
-1. 要登录并开始浏览您的群集，请导航到 CLI 的输出中列出的 `cluster-address`。您可以从这里选择您的提供程序，创建超级用户帐户 [oss type="inline" size="small" /]，或使用您的特定企业凭据登录 [enterprise type="inline" size="small" /]。
+要登录并开始浏览您的群集，请导航到 CLI 的输出中列出的 `cluster-address`。您可以从这里选择您的提供程序，创建超级用户帐户 [oss type="inline" size="small" /]，或使用您的特定企业凭据登录 [enterprise type="inline" size="small" /]。
 
 <p align=center>
 <img src="./images/install/dcos-login.png">
@@ -285,17 +285,17 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
 
 1. 既然我们已经更改 `main.tf`，我们需要重新运行新的执行计划。
 
-    ```bash
-    terraform plan -out=plan.out
-    ```
+      ```bash
+      terraform plan -out=plan.out
+      ```
 
- 这样做有助于我们确保状态稳定，并确认我们只会创建必要的资源，将我们的专用代理扩展到所需的数量。
+    这样做有助于我们确保状态稳定，并确认我们只会创建必要的资源，将我们的专用代理扩展到所需的数量。
 
-    <p align=center>
-    <img src="./images/scale/terraform-plan.png" />
-    </p>
+      <p align=center>
+      <img src="./images/scale/terraform-plan.png" />
+      </p>
 
- 您应该看到类似以上内容的消息。扩展集群的专用代理的结果是，将会添加 3 个资源（1 个实例资源和 2 个空资源，在幕后处理 DC/OS 安装和先决条件）。
+    您应该看到类似以上内容的消息。扩展集群的专用代理的结果是，将会添加 3 个资源（1 个实例资源和 2 个空资源，在幕后处理 DC/OS 安装和先决条件）。
 
 1. 现在，我们的计划已设置，就像前面一样，我们来让 Terraform 构建/部署该计划。
 
@@ -307,9 +307,9 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
     <img src="./images/scale/terraform-apply.png" />
     </p>
 
- 当您看到类似于以上消息的输出后，检查您的 DC/OS 群集，确保已添加其他代理。
+    当您看到类似于以上消息的输出后，检查您的 DC/OS 群集，确保已添加其他代理。
 
- 您现在应该看到总共 4 个通过 DC/OS UI 连接的节点，如下所示。
+    您现在应该看到总共 4 个通过 DC/OS UI 连接的节点，如下所示。
 
     <p align=center>
     <img src="./images/scale/node-count-4.png" />
@@ -317,12 +317,12 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
 
 # 升级群集
 
-Terraform 还可以轻松地将我们的群集升级到更新版本的 DC/OS。如果您有兴趣了解有关 Terraform 执行的升级程序的更多信息，请参阅官方 [DC/OS 升级文档](/1.12/installing/production/upgrading/)。
+Terraform 还可以轻松地将我们的群集升级到更新版本的 DC/OS。如果您有兴趣了解有关 Terraform 执行的升级程序的更多信息，请参阅官方 [DC/OS 升级文档](/cn/1.12/installing/production/upgrading/)。
 
 1. 为了执行升级，我们需要返回到我们的 `main.tf` 并将当前 DC/OS 版本 (`dcos_version`) 修改为较新版本，如本示例的 `1.12.1`，同时还需指定另一个参数 (`dcos_install_mode`)。默认情况下，此参数设置为 `install`，这就是我们在创建初始 DC/OS 群集和扩展群集时能够不设置该参数的原因
 .
 
- <p class="message--important"><strong>重要信息：</strong>在执行升级时，不要更改任何管理节点、代理或公共节点的数量。</p>
+    <p class="message--important"><strong>重要信息：</strong>在执行升级时，不要更改任何管理节点、代理或公共节点的数量。</p>
 
     ```hcl
     dcos_version = "1.12.1"
@@ -334,7 +334,7 @@ Terraform 还可以轻松地将我们的群集升级到更新版本的 DC/OS。�
     terraform plan -out=plan.out -var dcos_install_mode=upgrade
     ```
 
- 您应该看到如下的输出，`main.tf` 现在设置为在新版本的 DC/OS 上正常操作。
+    您应该看到如下的输出，`main.tf` 现在设置为在新版本的 DC/OS 上正常操作。
 
     <p align=center>
     <img src="./images/upgrade/terraform-plan.png" />
@@ -342,11 +342,11 @@ Terraform 还可以轻松地将我们的群集升级到更新版本的 DC/OS。�
 
 1. 应用该计划。
 
-    ```bash
-    terraform apply plan.out
-    ```
+      ```bash
+      terraform apply plan.out
+      ```
 
- 应用完成后，您可以验证群集是否已通过 DC/OS UI 升级。
+    应用完成后，您可以验证群集是否已通过 DC/OS UI 升级。
 
     <p align=center>
     <img src="./images/upgrade/cluster-details-open.png" />

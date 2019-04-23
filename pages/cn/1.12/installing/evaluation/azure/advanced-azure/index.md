@@ -192,7 +192,7 @@ dcos_instance_os = "centos_7.5"
 | dcos_master_dns_bindall | 指示管理节点 DNS 端口是否打开。（可选） | 字符串 | `` | 否 |
 | dcos_master_external_loadbalancer | [企业 DC/OS] 允许 DC/OS 围绕外部负载均衡器名称配置证书。如果未使用，则会出现 SSL 验证问题。（建议） | 字符串 | `` | 否 |
 | dcos_master_list | 静态设置管理节点（不建议，但 ``exhibitor_storage_backend`` 设置为 `static` 时为必选。改用 `aws_s3` 或 `azure`，这样您可以在云中更改管理节点。） | 字符串 | `` | 否 |
-| dcos_mesos_container_log_sink | 容器（任务）的日志管理器。选项是将日志发送到：' journald'、'logrotate'、'journald+logrotate'。（可选） | 字符串 | `` | 否 |
+| dcos_mesos_container_log_sink | 容器（任务）的日志管理器。选项是将日志发送到： `journald`、`logrotate`、`journald+logrotate`。（可选） | 字符串 | `` | 否 |
 | dcos_mesos_dns_set_truncate_bit | 指示在响应过大而无法放入单个数据包时，是否设置截断数位。（可选） | 字符串 | `` | 否 |
 | dcos_mesos_max_completed_tasks_per_framework | Mesos 管理节点在内存中保留的每个框架的完成任务数。（可选） | 字符串 | `` | 否 |
 | dcos_no_proxy | 从代理中排除的地址的 YAML 嵌套列表 (-)。（可选） | 字符串 | `` | 否 |

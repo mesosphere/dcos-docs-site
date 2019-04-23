@@ -22,21 +22,21 @@ enterprise: false
 
 1. 那就导航到 DC/OS Web 界面，单击右上角群集名称右侧的向下箭头。
 
- ![打开群集弹出窗口](/1.12/img/open-cluster-popup.png)
+    ![打开群集弹出窗口](/1.12/img/open-cluster-popup.png)
 
- 图 1. 打开群集弹出菜单
+    图 1. 打开群集弹出菜单
 
 1. 选择** 安装 CLI **以显示安装命令。
 
- ![CLI 安装 UI](/1.12/img/install-cli.png)
+    ![CLI 安装 UI](/1.12/img/install-cli.png)
 
- 图 2. 选择安装 CLI
+    图 2. 选择安装 CLI
 
 1. 将适合您操作系统的代码片段复制并粘贴到您的终端，然后按返回键。这会自动下载、移动并运行群集的“设置”命令。要运行的最后一个命令 `dcos` 将显示 DCOS 命令概述。
 
- ![CLI 复制/粘贴](/1.12/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
+    ![CLI 复制/粘贴](/1.12/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
 
- 图 3. 代码片段窗口
+    图 3. 代码片段窗口
 
 1. 列出群集进行验证：
 
@@ -62,7 +62,7 @@ enterprise: false
     curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
     ```
 
- 例如，DC/OS 1.12 上的 Mac 用户的 CLI 下载是这样的：
+    例如，DC/OS 1.12 上的 Mac 用户的 CLI 下载是这样的：
 
     ```bash
     curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.12/dcos -o dcos

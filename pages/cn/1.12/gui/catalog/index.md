@@ -10,4 +10,4 @@ excerpt: 使用目录菜单
 
 ![Catalog](/1.12/img/GUI-Catalog-Main_View-1_12.png)
 
-<p><i>图 1 - 目录选项卡</i></p>
+图 1 - 目录选项卡

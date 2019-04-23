@@ -14,4 +14,4 @@ excerpt: 使用“组织”菜单
 
 ![Organization Tab EE](/1.12/img/GUI-Organization-Users-Users_List_Empty-1_12.png)
 
-<p><i>图 1 - 组织 > 用户选项卡</i></p>
+图 1 - 组织 > 用户选项卡

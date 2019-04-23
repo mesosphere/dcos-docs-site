@@ -11,7 +11,7 @@ enterprise: false
 
 可以使用 `dcos marathon` 命令轻松查看和更新已部署应用程序的配置。
 
-在 [DC/OS 目录] (/1.12/gui/catalog/)中更新包的流程不同。如需更多信息，请参阅 [文档](/1.12/deploying-services/config-universe-service/)。
+在 [DC/OS 目录] (/cn/1.12/gui/catalog/)中更新包的流程不同。如需更多信息，请参阅 [文档](/cn/1.12/deploying-services/config-universe-service/)。
 
 # 更新所有环境变量
 
@@ -33,32 +33,32 @@ dcos marathon app show test-app | jq '.env'
 
 1. 将现有环境变量保存到文件：
 
-```bash
-dcos marathon app show test-app | jq .env >env_vars.json
-```
+    ```bash
+    dcos marathon app show test-app | jq .env >env_vars.json
+    ```
 
-文件将包含 `env` 字段的 JSON：
+    文件将包含 `env` 字段的 JSON：
 
-```json
-{ "SCHEDULER_DRIVER_PORT": "25501", }
-```
+    ```json
+    { "SCHEDULER_DRIVER_PORT": "25501", }
+    ```
 
-2. 编辑 `env_vars.json` 文件。使用 `{ "env" :}` 括起文件内容并添加更新，将 JSON 变为有效对象：
+1. 编辑 `env_vars.json` 文件。使用 `{ "env" :}` 括起文件内容并添加更新，将 JSON 变为有效对象：
 
-```json
-{ "env" : { "APISERVER_PORT" : "25502", "SCHEDULER_DRIVER_PORT" : "25501" } }
-```
+    ```json
+    { "env" : { "APISERVER_PORT" : "25502", "SCHEDULER_DRIVER_PORT" : "25501" } }
+    ```
 
-3. 使用指定的 JSON 文件指定此 CLI 命令：
+1. 使用指定的 JSON 文件指定此 CLI 命令：
 
-```bash
-dcos marathon app update test-app < env_vars.json
-```
+    ```bash
+    dcos marathon app update test-app < env_vars.json
+    ```
 
-4. 查看更新结果：
+1. 查看更新结果：
 
-```bash
-dcos marathon app show test-app | jq '.env'
-```
+    ```bash
+    dcos marathon app show test-app | jq '.env'
+    ```
 
- [1]: /1.12/cli/
+ [1]: /cn/1.12/cli/
