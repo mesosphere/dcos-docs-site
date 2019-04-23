@@ -28,4 +28,4 @@ enterprise: false
 
 ![调试屏幕](/1.12/img/debug-ui.png)
 
-图 2. 调试页面
+图 2. 调试页面 
