@@ -12,7 +12,7 @@ model: /services/spark/data.yml
 ## Version Spark and Spark history 2.8.0-2.4.0
 
 ### New features
-- Mesos checkpointing support for Spark Drivers submitted to Dispatcher. For more information check [fault tolerance][21] documentation
+- Mesos checkpointing support for Spark Drivers submitted to Dispatcher. For more information check [fault tolerance](https://docs.mesosphere.com/services/{{model.packageName}}/2.8.0-2.4.0/fault-tolerance/#mesos-checkpointing) documentation.
 
 ### Updates
 - Upgraded Hadoop dependency to 2.9.2
@@ -274,5 +274,3 @@ dispatcher, use `dcos spark --name <dispatcher_app_id>`.
 ## Version 1.0.9-2.1.0-1
 
 - The history server has been removed from the "spark" package, and put into a dedicated "spark-history" package.
-
-[21] https://docs.mesosphere.com/services/{{ model.packageName }}/2.8.0-2.4.0/fault-tolerance/#mesos-checkpointing
