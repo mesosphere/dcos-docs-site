@@ -489,7 +489,7 @@ The log manager for containers (tasks). The options are:
 * `'logrotate'` - send task logs only to the file system (i.e. a stdout/err file)
 * `'journald+logrotate'` - send logs to both journald and the file system
 
-The default is `logrotate`. Due to performance issues, `journald` is not recommended. For details, see [Logging API](/1.13/monitoring/logging/logging-api/#compatibility).
+The default is `logrotate`. Due to performance issues, `journald` is not recommended. For details, see [Logging Reference](/1.13/monitoring/logging/logging-reference/#compatibility).
 
 ### mesos_dns_set_truncate_bit
 Indicates whether Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet.

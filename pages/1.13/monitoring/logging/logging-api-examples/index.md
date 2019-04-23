@@ -59,7 +59,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/agen
 
 # Container Logs
 
-**Important:** The following example requires journald task logging, which by default is [disabled](/1.13/monitoring/logging/logging-api/#compatibility).
+**Important:** The following example requires journald task logging, which by default is [disabled](/1.13/monitoring/logging/logging-reference/#compatibility).
 
 Get the last 100 journal entries from a single service container:
 
