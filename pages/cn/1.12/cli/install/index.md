@@ -31,21 +31,21 @@ enterprise: false
 
 1. 在 DC/OS GUI 的右上角，单击群集名称右侧的向下箭头。
 
- ![打开群集弹出窗口](/1.12/img/open-cluster-popup.png)
+    ![打开群集弹出窗口](/1.12/img/open-cluster-popup.png)
 
- 图 1. 打开群集弹出菜单
+    图 1. 打开群集弹出菜单
 
 1. 选择 **安装 CLI**。
 
- ![CLI 安装 UI](/1.12/img/install-cli.png)
+    ![CLI 安装 UI](/1.12/img/install-cli.png)
 
- 图 2. 选择安装 CLI
+    图 2. 选择安装 CLI
 
 1. 将适合您操作系统的代码片段复制并粘贴到您的终端，然后按返回键。
 
- ![CLI 复制/粘贴](/1.12/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
+    ![CLI 复制/粘贴](/1.12/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
 
- 图 3. 代码片段窗口
+    图 3. 代码片段窗口
 
 1. 显示 DC/OS 信息画面后，运行命令 `dcos cluster list` 确认已建立与群集的连接。
 
@@ -65,7 +65,7 @@ enterprise: false
     curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
     ```
 
- 例如，DC/OS 1.12 上的 Linux 用户的 CLI 下载是这样的：
+    例如，DC/OS 1.12 上的 Linux 用户的 CLI 下载是这样的：
 
     ```bash
     curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.12/dcos -o dcos
@@ -91,7 +91,7 @@ enterprise: false
 
  遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/cn/1.12/security/)。
 
- 您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。可在 [此处](/1.12/cli/command-reference/dcos-cluster/) 了解有关管理群集连接的更多信息。
+ 您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。可在 [此处](/cn/1.12/cli/command-reference/dcos-cluster/) 了解有关管理群集连接的更多信息。
 
 <a name="macos"></a>
 
@@ -110,21 +110,21 @@ enterprise: false
 
 1. 在 DC/OS GUI 的右上角，单击群集名称右侧的向下箭头。
 
- ![打开群集弹出窗口](/1.12/img/open-cluster-popup.png)
+    ![打开群集弹出窗口](/1.12/img/open-cluster-popup.png)
 
- 图 1. 打开群集弹出菜单
+    图 1. 打开群集弹出菜单
 
 1. 选择 **安装 CLI**。
 
- ![CLI install GUI](/1.12/img/install-cli.png)
+    ![CLI install GUI](/1.12/img/install-cli.png)
 
- 图 2. 选择安装 CLI
+    图 2. 选择安装 CLI
 
 1. 将适合您操作系统的代码片段复制并粘贴到您的终端。
 
- ![CLI 复制/粘贴](/1.12/img/CLI-Installation-GUI_Popup_OSX-1.12.png)
+    ![CLI 复制/粘贴](/1.12/img/CLI-Installation-GUI_Popup_OSX-1.12.png)
 
- 图 3. 代码片段窗口
+    图 3. 代码片段窗口
 
 1. 显示 `dcos` 信息屏幕后，运行命令 `dcos cluster list` 以验证是否已建立与群集的连接。
 
@@ -136,7 +136,7 @@ enterprise: false
     curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
     ```
 
- 例如，DC/OS 1.12 上的 Mac 用户的 CLI 下载是这样的：
+    例如，DC/OS 1.12 上的 Mac 用户的 CLI 下载是这样的：
 
     ```bash
     curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.12/dcos -o dcos
@@ -153,11 +153,11 @@ enterprise: false
     ```bash
     dcos cluster setup http://example.com
     ```
- 如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。</p>
+    如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。</p>
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.12/security/)。
+    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.12/security/)。
 
- 您的 CLI 现在应通过您的群集进行身份认证！
+    您的 CLI 现在应通过您的群集进行身份认证！
     
 1. 键入 `dcos` 查看使用信息并开始操作。
 
@@ -177,21 +177,21 @@ enterprise: false
 
 1. 在 DC/OS GUI 的右上角，单击群集名称右侧的向下箭头。
 
- ![打开群集弹出窗口](/1.12/img/open-cluster-popup.png)
+    ![打开群集弹出窗口](/1.12/img/open-cluster-popup.png)
 
- 图 1. 打开群集弹出菜单
+    图 1. 打开群集弹出菜单
 
 1. 选择 **安装 CLI**。
 
- ![CLI 安装 UI](/1.12/img/install-cli.png)
+    ![CLI 安装 UI](/1.12/img/install-cli.png)
 
- 图 2. 选择安装 CLI
+    图 2. 选择安装 CLI
 
 1. 按照对话框中列出的命令操作。
 
- ![CLI 复制/粘贴](/1.12/img/CLI-Installation-GUI_Popup_Windows-1.12.png)
+    ![CLI 复制/粘贴](/1.12/img/CLI-Installation-GUI_Popup_Windows-1.12.png)
 
- 图 3. 代码片段窗口
+    图 3. 代码片段窗口
 
 1. 显示 `dcos` 信息屏幕后，运行命令 `dcos cluster list` 以验证是否已建立与群集的连接。
 
@@ -205,7 +205,7 @@ enterprise: false
     curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
     ```
 
- 例如，DC/OS 1.12 上的 Windows 用户的 CLI 下载是这样的：
+    例如，DC/OS 1.12 上的 Windows 用户的 CLI 下载是这样的：
 
     ```bash
     curl https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.12/dcos -o dcos

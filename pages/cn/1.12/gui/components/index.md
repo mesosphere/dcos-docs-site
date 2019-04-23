@@ -10,4 +10,4 @@ excerpt: 使用组件菜单
 
 ![Components](/1.12/img/GUI-Components-Main_View-1_12.png)
 
-<p><i>图 1 - 组件选项卡</i></p>
+图 1 - 组件选项卡

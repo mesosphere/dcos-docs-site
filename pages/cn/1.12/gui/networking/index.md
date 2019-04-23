@@ -10,4 +10,4 @@ excerpt: 使用网络菜单
 
 ![扩展的 Tweeter](/1.12/img/GUI-Networking-Networks_View-1_12.png)
 
-<p><i>图 1 - 网络连接选项卡</i></p>
+图 1 - 网络连接选项卡

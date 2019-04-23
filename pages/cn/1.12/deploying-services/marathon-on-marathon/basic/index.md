@@ -7,12 +7,12 @@ excerpt: 使用基础非本地 Marathon 实例
 enterprise: true
 ---
 
-本专题描述了如何部署具有独立角色、保留和配额的非本地 Marathon 实例。本程序不支持 [密钥](/1.12/security/ent/secrets/) 或细粒度 ACL。如果需要这些功能，您必须使用自定义非本地 Marathon [程序](/1.12/deploying-services/marathon-on-marathon/advanced/)。
+本专题描述了如何部署具有独立角色、保留和配额的非本地 Marathon 实例。本程序不支持 [密钥](/cn/1.12/security/ent/secrets/) 或细粒度 ACL。如果需要这些功能，您必须使用自定义非本地 Marathon [程序](/cn/1.12/deploying-services/marathon-on-marathon/advanced/)。
 
 **前提条件：**
 
-- DC/OS 和 DC/OS CLI [已安装](/1.12/installing/)。
-- [DC/OS Enterprise CLI 0.4.14 或更高版本](/1.12/cli/enterprise-cli/#ent-cli-install)。
+- DC/OS 和 DC/OS CLI [已安装](/cn/1.12/installing/)。
+- [DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.12/cli/enterprise-cli/#ent-cli-install)。
 - 您必须以超级用户身份登录。
 - 对群集的 SSH 访问。
 
@@ -26,7 +26,7 @@ enterprise: true
 </table>
 
 
-1. [SSH](/1.12/administering-clusters/sshcluster/) 到专用代理节点。
+1. [SSH](/cn/1.12/administering-clusters/sshcluster/) 到专用代理节点。
 
    ```bash
    dcos node ssh --master-proxy --mesos-id=<agent-id>
@@ -54,11 +54,11 @@ enterprise: true
         sudo systemctl start dcos-mesos-slave
         ```
 
- 可以使用以下命令检查状态：
+    可以使用以下命令检查状态：
 
-        ```bash
-        sudo systemctl status dcos-mesos-slave
-        ```
+      ```bash
+      sudo systemctl status dcos-mesos-slave
+      ```
 
 1. 对每个附加节点重复上述步骤。
 
@@ -138,7 +138,7 @@ curl -i -k \
     dcos package install --options=marathon-config.json marathon
     ```
 # 第 3 步 - 创建 Marathon 服务帐户
-步骤创建了 Marathon 服务帐户。Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/1.12/security/ent/#security-modes)。
+步骤创建了 Marathon 服务帐户。Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/cn/1.12/security/ent/#security-modes)。
 
 | 安全模式 |  Marathon 服务帐户 |
 |---------------|----------------------|
@@ -160,7 +160,7 @@ curl -i -k \
 # 第 4 步 - 分配权限（仅限严格模式）
 在此步骤中，权限被分配至 Marathon-on-Marathon 实例。在严格模式下需要权限，而在宽容安全模式将其忽略即可。
 
-所有 CLI 命令也可通过 [IAM API] 执行(/1.12/security/ent/iam-api/)。
+所有 CLI 命令也可通过 [IAM API] 执行(/cn/1.12/security/ent/iam-api/)。
 
 | 安全模式 | 权限 |
 |---------------|----------------------|
@@ -187,87 +187,87 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
- ![登录](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
+    ![登录](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
- 图 1. DC/OS Web 界面登录画面。
+    图 1. DC/OS Web 界面登录画面。
 
 1. 选择**组织**，然后选择**用户**或**组**。
 
 1. 选择要授予权限的用户名或组名。
 
- ![添加 cory 权限](/1.12/img/GUI-Organization-Users-List_View-1_12.png)
+    ![添加 cory 权限](/1.12/img/GUI-Organization-Users-List_View-1_12.png)
 
- 图 2. 选择用户或组权限
+    图 2. 选择用户或组权限
 
 1. 在 **权限** 选项卡中，单击 **添加权限**。
 
 1. 单击**插入权限字符串**以切换对话框。
 
- ![添加权限](/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
+    ![添加权限](/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
- 图 3. 添加权限。
+    图 3. 添加权限。
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/1.12/security/ent/#security-modes)。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/cn/1.12/security/ent/#security-modes)。
 
- ### 宽容
+### 宽容
 
- - **完整权限**
+- **完整权限**
 
-        ```bash
-        dcos:adminrouter:service:<service-name> full
-        dcos:service:marathon:<service-name>:services:/ full
-        dcos:adminrouter:ops:mesos full
-        dcos:adminrouter:ops:slave full
-        ```
+    ```bash
+    dcos:adminrouter:service:<service-name> full
+    dcos:service:marathon:<service-name>:services:/ full
+    dcos:adminrouter:ops:mesos full
+    dcos:adminrouter:ops:slave full
+    ```
 
- - **访问单个服务或组**
+- **访问单个服务或组**
 
- 指定服务或组 (`<service-or-group>`) 和操作 (`<action>`)。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
+  指定服务或组 (`<service-or-group>`) 和操作 (`<action>`)。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
 
-       ```bash
-       dcos:adminrouter:service:<service-name> full
-       dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
-       dcos:adminrouter:ops:mesos full
-       dcos:adminrouter:ops:slave full
-       ```
+  ```bash
+  dcos:adminrouter:service:<service-name> full
+  dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
+  dcos:adminrouter:ops:mesos full
+  dcos:adminrouter:ops:slave full
+  ```
 
- ### 严格
+### 严格
 
- - **完整权限**
+- **完整权限**
 
-        ```bash
-        dcos:adminrouter:service:<service-name> full
-        dcos:service:marathon:<service-name>:services:/ full
-        dcos:adminrouter:ops:mesos full
-        dcos:adminrouter:ops:slave full
-        dcos:mesos:agent:executor:app_id:/ read
-        dcos:mesos:agent:framework:role:<myrole> read
-        dcos:mesos:agent:sandbox:app_id:/ read
-        dcos:mesos:agent:task:app_id:/ read
-        dcos:mesos:master:executor:app_id:/ read
-        dcos:mesos:master:framework:role:<myrole> read
-        dcos:mesos:master:task:app_id:/ read
-        ```  
+    ```bash
+    dcos:adminrouter:service:<service-name> full
+    dcos:service:marathon:<service-name>:services:/ full
+    dcos:adminrouter:ops:mesos full
+    dcos:adminrouter:ops:slave full
+    dcos:mesos:agent:executor:app_id:/ read
+    dcos:mesos:agent:framework:role:<myrole> read
+    dcos:mesos:agent:sandbox:app_id:/ read
+    dcos:mesos:agent:task:app_id:/ read
+    dcos:mesos:master:executor:app_id:/ read
+    dcos:mesos:master:framework:role:<myrole> read
+    dcos:mesos:master:task:app_id:/ read
+    ```  
 
- - **访问单个服务或组**
+- **访问单个服务或组**
 
- 指定服务或组（`<service-or-group>`）、服务名称（`<service-name>`）、角色（`<myrole>`）和操作（`<action>`）。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
+  指定服务或组（`<service-or-group>`）、服务名称（`<service-name>`）、角色（`<myrole>`）和操作（`<action>`）。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
 
-       ```bash
-       dcos:adminrouter:service:<service-name> full
-       dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
-       dcos:adminrouter:ops:mesos full
-       dcos:adminrouter:ops:slave full
-       dcos:mesos:agent:executor:app_id:/<service-or-group> read
-       dcos:mesos:agent:framework:role:<myrole> read
-       dcos:mesos:agent:sandbox:app_id:/<service-or-group> read
-       dcos:mesos:agent:task:app_id:/<service-or-group> read
-       dcos:mesos:master:executor:app_id:/<service-or-group> read
-       dcos:mesos:master:framework:role:<myrole> read
-       dcos:mesos:master:task:app_id:/<service-or-group> read
-       ```
+    ```bash
+    dcos:adminrouter:service:<service-name> full
+    dcos:service:marathon:<service-name>:services:/<service-or-group> <action>
+    dcos:adminrouter:ops:mesos full
+    dcos:adminrouter:ops:slave full
+    dcos:mesos:agent:executor:app_id:/<service-or-group> read
+    dcos:mesos:agent:framework:role:<myrole> read
+    dcos:mesos:agent:sandbox:app_id:/<service-or-group> read
+    dcos:mesos:agent:task:app_id:/<service-or-group> read
+    dcos:mesos:master:executor:app_id:/<service-or-group> read
+    dcos:mesos:master:framework:role:<myrole> read
+    dcos:mesos:master:task:app_id:/<service-or-group> read
+    ```
 
-1. 单击 **ADD PERMISSIONS**，然后单击 **Close**。
+单击 **ADD PERMISSIONS**，然后单击 **Close**。
 
 # 第 6 步 - 访问非本地 Marathon 实例
 在此步骤中，您以授权用户身份登录非本地 Marathon DC/OS 服务。
@@ -276,12 +276,12 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
 1. 输入您的用户名和密码，然后单击 **登录**。
 
- ![Log in DC/OS](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
+    ![Log in DC/OS](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
- 图 4. DC/OS 登录屏幕
+    图 4. DC/OS 登录屏幕
 
- 成功了！
+    成功了！
 
- ![Marathon on Marathon](/1.12/img/mom-marathon-gui.png)
+    ![Marathon on Marathon](/1.12/img/mom-marathon-gui.png)
 
- 图 5. 操作成功的画面。
+    图 5. 操作成功的画面。

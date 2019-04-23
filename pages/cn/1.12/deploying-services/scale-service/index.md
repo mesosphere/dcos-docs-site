@@ -14,19 +14,19 @@ enterprise: false
 
 1. 在 **服务** 选项卡中，单击右侧的菜单点以访问 **更多操作**。
 1. 单击菜单符号并选择 **扩展条件**。
- ![menu symbol](/1.12/img/GUI-Services-List_View_Item_More_Actions_Menu-1_12.png)
+    ![menu symbol](/1.12/img/GUI-Services-List_View_Item_More_Actions_Menu-1_12.png)
 
- 图 1. 更多操作菜单
+    图 1. 更多操作菜单
 
 1. 输入您想要的实例总数，然后单击**扩展服务**。
- ![scale](/img/scale-services.png)
+    ![scale](/img/scale-services.png)
 
- 图 2. 选择实例数
+    图 2. 选择实例数
 
 1. 单击服务名称查看扩展的服务。
- ![post scale](/img/post-scale-services.png)
+    ![post scale](/img/post-scale-services.png)
 
- 图 3. 服务列表
+    图 3. 服务列表
 
 # 通过 CLI 扩展服务
 

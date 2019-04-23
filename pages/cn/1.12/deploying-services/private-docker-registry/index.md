@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-若要从专用 Docker 注册表中提供拉取凭据，请创建 Docker 凭据的存档，然后将其添加为服务或 pod 定义中的 URI。在 DC/OS Enterprise 中，您还可以将 Docker 注册表凭据上传到 DC/OS 密钥存储库]（#secret-store-instructions），并在服务或 pod 定义中进行引用。
+若要从专用 Docker 注册表中提供拉取凭据，请创建 Docker 凭据的存档，然后将其添加为服务或 pod 定义中的 URI。在 DC/OS Enterprise 中，您还可以将 Docker 注册表凭据上传到 [DC/OS 密钥存储库](#secret-store-instructions)，并在服务或 pod 定义中进行引用。
 
 <a name="uri-instructions"></a>
 # 将专用 Docker 注册表凭据引用为 URI
@@ -52,39 +52,39 @@ enterprise: false
 
 ## 步骤 2：将 URI 路径添加到服务定义
 
-1. 将存档文件登录凭据的路径添加到服务定义。
+将存档文件登录凭据的路径添加到服务定义。
 
-    ```bash
+  ```bash
+  "fetch": [
+    {
+      "uri": "file:///etc/docker.tar.gz"
+    }
+  ]
+  ```
+
+  例如：
+
+  ```json
+  {  
+    "id": "/some/name/or/id",
+    "cpus": 1,
+    "mem": 1024,
+    "instances": 1,
+    "container": {
+      "type": "DOCKER",
+      "docker": {
+        "image": "some.docker.host.com/namespace/repo"
+      }
+    },
     "fetch": [
       {
         "uri": "file:///etc/docker.tar.gz"
       }
     ]
-    ```
+  }
+  ```
 
- 例如：
-
-    ```json
-    {  
-      "id": "/some/name/or/id",
-      "cpus": 1,
-      "mem": 1024,
-      "instances": 1,
-      "container": {
-        "type": "DOCKER",
-        "docker": {
-          "image": "some.docker.host.com/namespace/repo"
-        }
-      },
-      "fetch": [
-        {
-          "uri": "file:///etc/docker.tar.gz"
-        }
-      ]
-    }
-    ```
-
- Docker 镜像现在将使用提供的安全凭证进行拉取。
+Docker 镜像现在将使用提供的安全凭证进行拉取。
 
 <a name="secret-store-instructions"></a>
 # 引用密钥存储库中的专用 Docker 注册表凭据 [enterprise type="inline" size="small" /]
@@ -111,7 +111,7 @@ enterprise: false
     config.json
     ```
 
- 您的 `config.json` 文件应该是这样的，其中 `auth` 的值是基于 64 位编码的 `username:password` 字符串。
+    您的 `config.json` 文件应该是这样的，其中 `auth` 的值是基于 64 位编码的 `username:password` 字符串。
 
     ```json
     {
@@ -124,7 +124,7 @@ enterprise: false
     }
     ```
 
- 如果使用的是 Mac OS，就需要手动编码 `username:password` 字符串并修改您的 `config.json` ，以便与上面的片段匹配。使用 base64 为密钥对编码时，请务必省略后面的换行符：
+    如果使用的是 Mac OS，就需要手动编码 `username:password` 字符串并修改您的 `config.json` ，以便与上面的片段匹配。使用 base64 为密钥对编码时，请务必省略后面的换行符：
 
     ```bash
     echo -n myuser@domain.com:hard-to-guess-password | base64
@@ -150,7 +150,7 @@ enterprise: false
 
 1. 在 `secrets` 参数中添加密钥位置，并在 `docker.pullConfig` 参数中引用密钥。
 
- <p class="message--important"><strong>重要信息：</strong>此功能 <strong>仅</strong> 获得通用容器运行时的支持：<code>container.type</code> 必须为 <code>MESOS</code>。</p>
+   <p class="message--important"><strong>重要信息：</strong>此功能 <strong>仅</strong> 获得通用容器运行时的支持：<code>container.type</code> 必须为 <code>MESOS</code>。</p>
 
    ```json
    {
@@ -188,7 +188,7 @@ enterprise: false
 
 1. 在 `secrets` 参数中添加密钥位置，并在 `containers.image.pullConfig` 参数中引用密钥。
 
- <p class="message--important"><strong>重要信息：</strong>仅当 <code> image.kind </code>设置为<code> DOCKER </code>时，才支持此功能。</p>
+    <p class="message--important"><strong>重要信息：</strong>仅当 <code> image.kind </code>设置为<code> DOCKER </code>时，才支持此功能。</p>
 
    ```json
    {
@@ -246,9 +246,9 @@ enterprise: false
 
 1. 创建或标识要用作访问 Docker 注册表的可信证书的自定义证书。
 
- 您可以使用 OpenSSL、DC/OS Enterprise CLI 或其他程序生成公钥和私钥、证书请求以及加密的客户端和服务器证书。
+    您可以使用 OpenSSL、DC/OS Enterprise CLI 或其他程序生成公钥和私钥、证书请求以及加密的客户端和服务器证书。
 
- 创建或标识证书后，可以按照注册表提供程序提供的说明将注册表配置为使用此证书。
+    创建或标识证书后，可以按照注册表提供程序提供的说明将注册表配置为使用此证书。
 
 1. 将证书下载或复制到每个代理的以下两个位置。
 
@@ -257,9 +257,9 @@ enterprise: false
     /var/lib/dcos/pki/tls/certs/<something>.crt
     ```
 
- 对于每个代理上可信 CA 证书的路径，请将 `<registry_name>` 和 `<registry_port>` 替换为适合您的安装的特定注册表名称和端口号。
+    对于每个代理上可信 CA 证书的路径，请将 `<registry_name>` 和 `<registry_port>` 替换为适合您的安装的特定注册表名称和端口号。
 
- 例如，如果要将 DC/OS `ca.crt` 证书配置为可信证书并且本地 Docker 注册表引用为 `registry.mycompany.com:5000`，则可以下载 `ca.crt` 文件的副本并使用类似如下的命令将其设置为受信任：
+    例如，如果要将 DC/OS `ca.crt` 证书配置为可信证书并且本地 Docker 注册表引用为 `registry.mycompany.com:5000`，则可以下载 `ca.crt` 文件的副本并使用类似如下的命令将其设置为受信任：
 
     ```bash
     sudo mkdir -p /etc/docker/certs.d/registry.mycompany.com:5000
@@ -276,7 +276,7 @@ enterprise: false
 1. Create a symbolic link from the trusted certificate to the `/var/lib/dcos/pki/tls/certs` directory on the public agent.
 
     ```bash
- sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
+    sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
     ```
 
 <a name="tarball-instructions"></a>
@@ -287,32 +287,32 @@ If you asked your sales representative for an enterprise version of Marathon, yo
 
 ## Step 1: Import in the local machine
 
-1. Load the tarball into your local Docker client, passing the path to your custom tarball. For example, `marathon-dcos-ee.<version>.tar`:
+Load the tarball into your local Docker client, passing the path to your custom tarball. For example, `marathon-dcos-ee.<version>.tar`:
    ```bash
- docker load -i marathon-dcos-ee.<version>.tar
+   docker load -i marathon-dcos-ee.<version>.tar
    ```
 
-    **Tip:** You can view the Marathon image with this command.
+  You can view the Marathon image with this command.
 
-    ```
- Docker 镜像
-    ```
+  ```
+  Docker 镜像
+  ```
 
-    You should see output similar to this:
+  You should see output similar to this:
 
-    ```bash
- 存储库标记镜像 ID 创建大小
- mesosphere/marathon-dcos-ee 1.4.0-RC4_1.9.4 d1ffa68a50c0 3 months ago 926.4 MB
-    ```
+```bash
+存储库标记镜像 ID 创建大小
+mesosphere/marathon-dcos-ee 1.4.0-RC4_1.9.4 d1ffa68a50c0 3 months ago 926.4 MB
+```
 
 ## Step 2: Push the image to the repository
 
 1. Re-tag the file to match the repository that you are using in your private Docker registry:
-   ```bash
- docker tag \
- mesosphere/marathon-dcos-ee:<mesosphere-tag> \
- <your-repo>/marathon-dcos-ee:<your-tag>
-   ```
+    ```bash
+    docker tag \
+    mesosphere/marathon-dcos-ee:<mesosphere-tag> \
+    <your-repo>/marathon-dcos-ee:<your-tag>
+    ```
 
    Where:
 
@@ -320,6 +320,6 @@ If you asked your sales representative for an enterprise version of Marathon, yo
    - `<your-repo>` is the name of the private repository that you want to store the image in.
    - `<your-tag>` is the tag for the image. It is recommended that you use the same tag as the Mesosphere image.
 1. Push the new image to your private Docker registry:
-   ```bash
- 靠泊装置推送 <your-repo>/Marathon-DCOS-EE：<your-tag>
-   ```
+    ```bash
+    靠泊装置推送 <your-repo>/Marathon-DCOS-EE：<your-tag>
+    ```

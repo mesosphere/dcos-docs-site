@@ -16,7 +16,7 @@ enterprise: false
 dcos package install [--options=<config-file-name>.json] <servicename>
 ```
 
-使用可选 `--options` 标记指定您在 [高级配置] 中创建的自定义 JSON 文件的名称(/1.12/deploying-services/config-universe-service/)。
+使用可选 `--options` 标记指定您在 [高级配置](/cn/1.12/deploying-services/config-universe-service/) 中创建的自定义 JSON 文件的名称。
 
 例如，您将使用以下命令安装具有默认参数的 Chronos。
 
@@ -26,30 +26,30 @@ dcos package install chronos
 
 ## 使用 Web 界面安装服务
 
-在 DC/OS Web 界面，可以在 **服务** 或 **目录** 选项卡中安装服务。“目录”选项卡显示包 [存储库] 中所有可用的 DC/OS 服务(/1.12/administering-clusters/repo/)。“服务”选项卡为本地 DC/OS Marathon 实例提供了完整的功能界面。
+在 DC/OS Web 界面，可以在 **服务** 或 **目录** 选项卡中安装服务。“目录”选项卡显示包 [存储库](/cn/1.12/administering-clusters/repo/) 中所有可用的 DC/OS 服务。“服务”选项卡为本地 DC/OS Marathon 实例提供了完整的功能界面。
 
 
 ### 目录选项卡
 
-1. 导航至 DC/OS 中的 [**目录**](/1.12/gui/catalog/) 选项卡。
+1. 导航至 DC/OS 中的 [**目录**](/cn/1.12/gui/catalog/) 选项卡。
 
- ![universe](/1.12/img/GUI-Catalog-Main_View-1_12.png)
+    ![universe](/1.12/img/GUI-Catalog-Main_View-1_12.png)
 
- 图 1. Universe 目录
+    图 1. Universe 目录
 
-2. 单击包。
- 1. 单击 **审查并运行**。
- 2. 可选择单击 [**编辑**](/1.12/deploying-services/config-universe-service/)，自定义参数，然后单击 **查看并运行**。
- 3. 单击 **运行服务**。
+1. 单击包。
+    1. 单击 **审查并运行**。
+    2. 可选择单击 [**编辑**](/cn/1.12/deploying-services/config-universe-service/)，自定义参数，然后单击 **查看并运行**。
+    3. 单击 **运行服务**。
 
 ### Services 选项卡
 
-1. 导航至 DC/OS Web 界面中的 [**服务**](/1.12/gui/services/) 选项卡。
+1. 导航至 DC/OS Web 界面中的 [**服务**](/cn/1.12/gui/services/) 选项卡。
 1. 单击 **运行服务**，并指定您的 Marathon 应用定义。
 
- ![service tab](/1.12/img/GUI-Services-No_Services_Running-1_12.png)
+    ![service tab](/1.12/img/GUI-Services-No_Services_Running-1_12.png)
 
- 图 2. 服务画面
+    图 2. 服务画面
 
 ## 验证安装
 
@@ -61,7 +61,7 @@ dcos package list
 
 ### Web 界面
 
-转到 **服务** 选项卡，确认服务正在运行。如需详细信息，请参阅 Web 界面 [文档](/1.12/gui/services/)。
+转到 **服务** 选项卡，确认服务正在运行。如需详细信息，请参阅 Web 界面 [文档](/cn/1.12/gui/services/)。
 
 ![Services](/1.12/img/GUI-Services-Running_Services_View-1_12.png)
 

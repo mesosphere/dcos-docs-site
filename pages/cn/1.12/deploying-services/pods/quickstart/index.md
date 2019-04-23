@@ -9,8 +9,8 @@ enterprise: false
 
 
 ## 先决条件
-- DC/OS [已安装](/1.12/installing/)
-- DC/OS CLI [已安装](/1.12/cli/install/)
+- DC/OS [已安装](/cn/1.12/installing/)
+- DC/OS CLI [已安装](/cn/1.12/cli/install/)
 
 # 在 DC/OS CLI 中启动 Pod
 
@@ -31,7 +31,7 @@ enterprise: false
     }
     ```
 
- <p class="message--note"><strong>注意：</strong>pod ID（上文 pod 规范中的<code> id </code>参数）用于创建 pod 后与 pod 进行的所有交互。</p>
+    <p class="message--note"><strong>注意：</strong>pod ID（上文 pod 规范中的<code> id </code>参数）用于创建 pod 后与 pod 进行的所有交互。</p>
 
 1. 使用以下 DC/OS CLI 命令在 DC/OS 上启动 pod：
 
@@ -47,7 +47,7 @@ enterprise: false
 
 # 在 DC/OS web 界面启动 Pod
 
-您也可以在 DC/OS 的 [**服务**] (/1.12/gui/) 选项卡中启动 Pod。选择 **服务 -> 服务 -> 运行服务 -> 多容器 (Pod)**，然后切换到 JSON 模式并粘贴上述应用定义。
+您也可以在 DC/OS 的 [**服务**] (/cn/1.12/gui/) 选项卡中启动 Pod。选择 **服务 -> 服务 -> 运行服务 -> 多容器 (Pod)**，然后切换到 JSON 模式并粘贴上述应用定义。
 
 如果您已经运行了其他服务，请转到 **服务 -> 服务**，然后单击右上角的 **+**。
 

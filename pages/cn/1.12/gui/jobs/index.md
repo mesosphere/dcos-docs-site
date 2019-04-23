@@ -10,4 +10,4 @@ excerpt: 使用“作业”菜单
 
 ![Jobs](/1.12/img/GUI-Jobs-Jobs_Table-1_12.png)
 
-<p><i>图 1 - 作业选项卡</i></p>
+图 1 - 作业选项卡

@@ -28,7 +28,7 @@ enterprise: false
 
 1. 创建故障域检测脚本以在每个节点上运行，从而检测节点的故障域（仅限企业）。安装过程中此脚本的输出被传递到 Mesos。
 
- 脚本输出的推荐格式为：
+    脚本输出的推荐格式为：
 
     ```json
     {
@@ -47,13 +47,13 @@ enterprise: false
 
  <p class="message--important"><strong>重要信息：</strong>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</p>
 
-1. 将此脚本添加到 bootstrap 节点的 `genconf` 文件夹。[更多信息](/1.12/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
+1. 将此脚本添加到 bootstrap 节点的 `genconf` 文件夹。[更多信息](/cn/1.12/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
 
-1. [安装 DC/OS ](/1.12/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
+1. [安装 DC/OS ](/cn/1.12/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
 
 1. 测试安装。
 
- 在 DC/OS  CLI 中输入 `dcos node`。您将看到类似以下内容的输出，其中列出了各个节点的分域和分区：
+    在 DC/OS  CLI 中输入 `dcos node`。您将看到类似以下内容的输出，其中列出了各个节点的分域和分区：
 
    ```bash
    HOSTNAME        IP                         ID                    TYPE               REGION      ZONE     
@@ -73,7 +73,7 @@ enterprise: false
 
 ## Marathon 服务和 Pod
 
-在 Marathon 服务或 pod 定义中，可以使用 [布局约束](/1.12/deploying-services/marathon-constraints/)，以便：
+在 Marathon 服务或 pod 定义中，可以使用 [布局约束](/cn/1.12/deploying-services/marathon-constraints/)，以便：
 
 - 为您的服务或 pod 指定分区和分域，从而将所有实例都安排在该分域和分区。
 
@@ -124,6 +124,6 @@ enterprise: false
 
 ### 增加群集容量
 
-要增加容量，请 [添加新代理](/1.12/administering-clusters/add-a-node/) 到群集的远程分域或分区，然后更新服务以在相应的一个或多个分域启动实例。
+要增加容量，请 [添加新代理](/cn/1.12/administering-clusters/add-a-node/) 到群集的远程分域或分区，然后更新服务以在相应的一个或多个分域启动实例。
 
 <p class="message--note"><strong>注意：</strong>您无法将服务配置为在多个分域运行。</p>
