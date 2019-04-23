@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Working with Linux security profiles
-title: Working with Linux security profiles
+navigationTitle:  Working with secure computing profiles
+title: Working with secure computing profiles
 menuWeight: 31
 excerpt: Describes how you can work with Linux secure computing (seccomp) profiles 
 enterprise: true
