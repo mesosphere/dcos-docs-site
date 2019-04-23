@@ -51,7 +51,7 @@ DC/OS 代理节点是用户任务运行所在的节点。代理节点包含几�
 
 ### 公共代理节点
 
-公共代理节点是位于网络上的代理节点，允许通过群集的 [基础架构网络] 从群集外部进入(/1.12/overview/concepts/#infrastructure-network)。
+公共代理节点是位于网络上的代理节点，允许通过群集的 [基础架构网络](/cn/1.12/overview/concepts/#infrastructure-network) 从群集外部进入。
 
 公共代理节点上的资源默认配置为仅分配给指定 `slave_public` 角色的任务。公共代理节点上的 Mesos 代理节点还具有 `public_ip:true` 代理属性以协助其发现。
 
@@ -61,18 +61,18 @@ DC/OS 代理节点是用户任务运行所在的节点。代理节点包含几�
 
 ### 专用代理节点
 
-专用代理节点是位于网络上的代理节点，不允许通过群集的 [基础架构网络] 从群集外部访问(/1.12/overview/concepts/#infrastructure-network)。
+专用代理节点是位于网络上的代理节点，不允许通过群集的 [基础架构网络](/cn/1.12/overview/concepts/#infrastructure-network) 从群集外部访问。
 
 专用代理节点上的资源默认配置为允许无差别的分配。更准确地说，资源被提供给 `*` 角色，从而允许将其分配给未指定角色的任务。有关详细信息，请参阅 [Mesos 资源角色](http://mesos.apache.org/documentation/latest/roles/)。
 
-因为这些资源无差别，因此大多数任务都安排在专用代理节点上且无法从群集外部访问，从而减少恶意攻击者可访问的表面积。所以，群集一般由大部分专用代理节点组成。同样，大部分 [Mesosphere Universe](/1.12/overview/concepts/#mesosphere-universe) 包默认安装在专用代理节点上。
+因为这些资源无差别，因此大多数任务都安排在专用代理节点上且无法从群集外部访问，从而减少恶意攻击者可访问的表面积。所以，群集一般由大部分专用代理节点组成。同样，大部分 [Mesosphere Universe](/cn/1.12/overview/concepts/#mesosphere-universe) 包默认安装在专用代理节点上。
 
 ## 更多信息
 
-有关管理节点组件和代理节点组件的更多信息，请参阅 [组件](/1.12/overview/architecture/components/)。
+有关管理节点组件和代理节点组件的更多信息，请参阅 [组件](/cn/1.12/overview/architecture/components/)。
 
-有关安全的更多信息，请参阅 [保护您的群集](/1.12/administering-clusters/securing-your-cluster/)。
+有关安全的更多信息，请参阅 [保护您的群集](/cn/1.12/administering-clusters/securing-your-cluster/)。
 
-有关扩展群集的更多信息，请参阅 [添加代理节点](/1.12/administering-clusters/add-a-node/)。
+有关扩展群集的更多信息，请参阅 [添加代理节点](/cn/1.12/administering-clusters/add-a-node/)。
 
-有关配置公共节点的更多信息，请参阅 [转换代理节点类型](/1.12/administering-clusters/convert-agent-type/)。
+有关配置公共节点的更多信息，请参阅 [转换代理节点类型](/cn/1.12/administering-clusters/convert-agent-type/)。
