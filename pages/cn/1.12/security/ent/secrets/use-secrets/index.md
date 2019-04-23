@@ -24,11 +24,11 @@ enterprise: true
 
 ## 先决条件
 
-- 现有密钥。以下示例使用了存储在 `developer` 路径名为 `my-secret` 的密钥。如果您完成[创建密钥]中的步骤(/1.12/security/ent/secrets/create-secrets/)，则您将满足此先决条件。
+- 现有密钥。以下示例使用了存储在 `developer` 路径名为 `my-secret` 的密钥。如果您完成[创建密钥]中的步骤(/cn/1.12/security/ent/secrets/create-secrets/)，则您将满足此先决条件。
 
-- [已安装 DC/OS CLI](/1.12/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/1.12/cli/enterprise-cli/#ent-cli-install)。
-- 您必须 [获取根证书](/1.12/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
-- 您的[安全模式]的适当权限(/1.12/security/ent/#security-modes)。
+- [已安装 DC/OS CLI](/cn/1.12/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/cn/1.12/cli/enterprise-cli/#ent-cli-install)。
+- 您必须 [获取根证书](/cn/1.12/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
+- 您的[安全模式]的适当权限(/cn/1.12/security/ent/#security-modes)。
 
   <table class="table">
     <tr>
@@ -50,9 +50,9 @@ enterprise: true
  - `dcos:adminrouter:ops:mesos full`：查看 **任务** 面板信息。
  - `dcos:adminrouter:ops:slave full`：查看任务的详细信息，包括日志。
 
- 只要密钥的路径和组的路径[匹配正确](/1.12/security/ent/#spaces)，服务将能够访问密钥值。
+ 只要密钥的路径和组的路径[匹配正确](/cn/1.12/security/ent/#spaces)，服务将能够访问密钥值。
 
-该程序根据您是否要将密钥提供给 [pod](/1.12/deploying-services/pods/) 或单个服务而有所不同。
+该程序根据您是否要将密钥提供给 [pod](/cn/1.12/deploying-services/pods/) 或单个服务而有所不同。
 
 - [单个服务](#service)
 - [Pod](#pod)
@@ -67,15 +67,15 @@ enterprise: true
 
 ## <a name="deploying-the-service-via-the-web-interface"></a>配置服务以通过 Web 界面使用密钥
 
-1. 作为具有必要权限的用户登录 Web 界面，如 [权限管理] (/1.12/security/ent/perms-management/) 和 [授予访问密钥选项卡] (/1.12/security/ent/gui-permissions/secrets-tab/) 中所述。
+1. 作为具有必要权限的用户登录 Web 界面，如 [权限管理](/cn/1.12/security/ent/perms-management/) 和 [授予访问密钥选项卡](/cn/1.12/security/ent/gui-permissions/secrets-tab/) 中所述。
 
 1. 单击 **Services** 选项卡。
 
 1. 单击右上方的 **+** 图标。
 
- ![添加服务](/1.12/img/add-service.png)
+    ![添加服务](/1.12/img/add-service.png)
 
- 图 1. 运行服务
+    图 1. 运行服务
 
 1. 单击 **JSON Editor** 切换按钮。
 
@@ -83,53 +83,53 @@ enterprise: true
 
 1. 复制以下简单应用定义之一，并将其粘贴到黑框中。此应用定义在开发人员组内创建新服务，并引用了存储在开发人员路径内的密钥。
 
- 基于环境变量的密钥：
+    基于环境变量的密钥：
 
-   ```json
-   {  
-      "id":"/developer/service",
-      "cmd":"sleep 100",
-      "env":{  
-         "MY_SECRET":{  
-            "secret":"secret0"
-         }
-      },
-      "secrets":{  
-         "secret0":{  
-            "source":"developer/my-secret"
-         }
+      ```json
+      {  
+          "id":"/developer/service",
+          "cmd":"sleep 100",
+          "env":{  
+            "MY_SECRET":{  
+                "secret":"secret0"
+            }
+          },
+          "secrets":{  
+            "secret0":{  
+                "source":"developer/my-secret"
+            }
+          }
       }
-   }
-   ```
+      ```
 
- 在上述示例中，DC/OS 存储环境变量 `"MY_SECRET"` 下的密钥。观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的密钥。
+    在上述示例中，DC/OS 存储环境变量 `"MY_SECRET"` 下的密钥。观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的密钥。
 
- 基于文件的密钥：
+    基于文件的密钥：
 
-   ```json
-   {
-     "id": "developer/service",
-     "cmd": "sleep 100",
-     "container": {
-        "type": "MESOS",
-        "volumes": [
-         {
-           "containerPath": "path",
-           "secret": "secretpassword"
-         }
-       ]
-     },
-     "secrets": {
-       "secretpassword": {
-         "source": "developer/databasepassword"
-       }
-     }
-   }
-   ```
+      ```json
+      {
+        "id": "developer/service",
+        "cmd": "sleep 100",
+        "container": {
+            "type": "MESOS",
+            "volumes": [
+            {
+              "containerPath": "path",
+              "secret": "secretpassword"
+            }
+          ]
+        },
+        "secrets": {
+          "secretpassword": {
+            "source": "developer/databasepassword"
+          }
+        }
+      }
+      ```
 
- 在上述示例中，密钥将具有文件名 `path`，并且将在任务的沙盒中可用 (`$MESOS_SANDBOX/path`) 。
+    在上述示例中，密钥将具有文件名 `path`，并且将在任务的沙盒中可用 (`$MESOS_SANDBOX/path`) 。
 
- 由于服务和密钥路径匹配，服务将能够访问该密钥。有关路径的更多详细信息，请参阅[空间](/1.12/security/ent/#spaces)。
+    由于服务和密钥路径匹配，服务将能够访问该密钥。有关路径的更多详细信息，请参阅[空间](/cn/1.12/security/ent/#spaces)。
 
 1. 单击 **审查并运行**。
 
@@ -143,29 +143,29 @@ enterprise: true
 
 1. 滚动浏览**详细信息**选项卡，找到基于环境变量的密钥 `DCOS_SECRETS_DIRECTIVE`。
 
- 如果要测试基于文件的密钥是否成功，可以将 `cat path` 添加到应用程序 `cmd`，以将密钥打印到 `stdout` 日志。
+      如果要测试基于文件的密钥是否成功，可以将 `cat path` 添加到应用程序 `cmd`，以将密钥打印到 `stdout` 日志。
 
- 例如：
-    ```json
-    {
-      "id": "developer/service",
-      "cmd": "cat path && sleep 100",
-      "container": {
-        "type": "MESOS",
-        "volumes": [
+      例如：
+      ```json
       {
-        "containerPath": "path",
-        "secret": "secretpassword"
-      }
-      ]
-      },
-        "secrets": {
-          "secretpassword": {
-            "source": "developer/databasepassword"
+        "id": "developer/service",
+        "cmd": "cat path && sleep 100",
+        "container": {
+          "type": "MESOS",
+          "volumes": [
+        {
+          "containerPath": "path",
+          "secret": "secretpassword"
+        }
+        ]
+        },
+          "secrets": {
+            "secretpassword": {
+              "source": "developer/databasepassword"
+          }
         }
       }
-    }
-    ```
+      ```
 
 # <a name="deploying-the-service-via-marathon-app-definition"></a>通过 Marathon 应用定义配置服务以使用基于环境变量的密钥
 
@@ -173,28 +173,28 @@ enterprise: true
 
 1. 在文本编辑器内，为 Marathon 服务创建应用定义。以下应用程序定义在开发人员组内创建新服务，并引用了存储在开发人员路径内的密钥。
 
- 基于环境变量的密钥：
+    基于环境变量的密钥：
 
-   ```json
-   {  
-      "id":"/developer/service",
-      "cmd":"sleep 100",
-      "env":{  
-         "MY_SECRET":{  
-            "secret":"secret0"
-         }
-      },
-      "secrets":{  
-         "secret0":{  
-            "source":"developer/my-secret"
-         }
+      ```json
+      {  
+          "id":"/developer/service",
+          "cmd":"sleep 100",
+          "env":{  
+            "MY_SECRET":{  
+                "secret":"secret0"
+            }
+          },
+          "secrets":{  
+            "secret0":{  
+                "source":"developer/my-secret"
+            }
+          }
       }
-   }
-   ```
+      ```
 
- 在上述示例中，DC/OS 存储环境变量 `"MY_SECRET"` 下的密钥。观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的密钥。
+    在上述示例中，DC/OS 存储环境变量 `"MY_SECRET"` 下的密钥。观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的密钥。
 
- 基于文件的密钥：
+    基于文件的密钥：
 
    ```json
    {
@@ -217,7 +217,7 @@ enterprise: true
    }
    ```
 
- 由于服务组和密钥路径匹配，服务将能够访问密钥。有关路径的更多详细信息，请参阅[空间](/1.12/security/ent/#spaces)。
+    由于服务组和密钥路径匹配，服务将能够访问密钥。有关路径的更多详细信息，请参阅[空间](/cn/1.12/security/ent/#spaces)。
 
 1. 使用描述性名称保存文件，如 `myservice.json`。
 
@@ -227,7 +227,7 @@ enterprise: true
    dcos marathon app add myservice.json
    ```
 
- 或者，使用 Marathon API 部署应用程序，如下所示。
+    或者，使用 Marathon API 部署应用程序，如下所示。
 
    ```bash
    curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
@@ -243,9 +243,9 @@ enterprise: true
 
 1. 滚动浏览**详细信息**标签，找到基于环境变量的密钥 `DCOS_SECRETS_DIRECTIVE`。
 
- 如果要测试基于文件的密钥是否成功，可以将 `cat path` 添加到应用程序 `cmd`，以将密钥打印到 `stdout` 日志。
+    如果要测试基于文件的密钥是否成功，可以将 `cat path` 添加到应用程序 `cmd`，以将密钥打印到 `stdout` 日志。
 
- 例如：
+   例如：
     ```json
     {
       "id": "developer/service",
@@ -273,46 +273,46 @@ enterprise: true
 
 1. 在文本编辑器内，为 pod 创建应用定义。您可以使用 `"environment"` 和 `"secrets"` 对象添加密钥，如下所示。以下简单应用程序在开发人员组内定义新服务，并引用了存储在开发人员路径内的密钥。它将密钥存储在环境变量 `"MY_SECRET"` 下。
 
- 基于环境变量的密钥：
+    基于环境变量的密钥：
 
-    ```json
-    {
-      "id": "/developer/pod-secret",
-      "environment": {
-        "MY_SECRET": {
-          "secret": "secret0"
-        }
-      },
-      "secrets": {
-        "secret0": { "source": "developer/my-secret"}
-      },
-      "containers": [
-        {
-          "name": "container-1",
-          "resources": {
-            "cpus": 0.1,
-            "mem": 128
-          },
-          "exec": {
-            "command": {
-              "shell": "sleep 3600"
+      ```json
+      {
+        "id": "/developer/pod-secret",
+        "environment": {
+          "MY_SECRET": {
+            "secret": "secret0"
+          }
+        },
+        "secrets": {
+          "secret0": { "source": "developer/my-secret"}
+        },
+        "containers": [
+          {
+            "name": "container-1",
+            "resources": {
+              "cpus": 0.1,
+              "mem": 128
+            },
+            "exec": {
+              "command": {
+                "shell": "sleep 3600"
+              }
             }
           }
-        }
-      ],
-      "scaling": {
-        "kind": "fixed",
-        "instances": 1
-      },
-      "networks": [
-        {
-          "mode": "host"
-        }
-      ]
-    }
-    ```
+        ],
+        "scaling": {
+          "kind": "fixed",
+          "instances": 1
+        },
+        "networks": [
+          {
+            "mode": "host"
+          }
+        ]
+      }
+      ```
 
- 基于文件的密钥：
+     基于文件的密钥：
 
     ```json
     {
@@ -347,7 +347,7 @@ enterprise: true
      }
    }
    ```
- <p class="message--note"><strong>注意：</strong>由于服务组和密钥路径匹配，pod 将能够访问密钥。有关路径的更多详细信息，请参阅<a href="/1.12/security/ent/#spaces">命名空间</a>。</p>
+    <p class="message--note"><strong>注意：</strong>由于服务组和密钥路径匹配，pod 将能够访问密钥。有关路径的更多详细信息，请参阅<a href="/1.12/security/ent/#spaces">命名空间</a>。</p>
 
 1. 使用描述性名称保存文件，如 `mypod.json`。
 

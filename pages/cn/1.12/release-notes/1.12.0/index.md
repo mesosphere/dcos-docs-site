@@ -24,7 +24,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 - 高密度多 Kubernetes (HDMK) 使操作者能够在 DC/OS 上运行多个 Kubernetes 群集时充分利用智能资源池。与每个虚拟机运行单个 Kubernetes 节点的其他 Kubernetes 发行版相比，Mesosphere HDMK 使用其智能资源池将多个 Kubernetes 节点打包到连接裸机、虚拟机和公共云实例的同一服务器上，从而显著节省成本并提高资源利用效率。[详细了解 DC/OS 上的 Kubernetes](/services/kubernetes/2.0.0-1.12.1/)。
 
 ### Mesosphere Jupyter 服务 (MJS)
-- 提供安全的 [云原生 Jupyter] (https://docs.mesosphere.com/services/beta-jupyter/)笔记本即服务，使数据科学家能够在弹性 GPU 池上执行分析和分布式机器学习，并可访问大型快速数据服务。
+- 提供安全的 [云原生 Jupyter](https://docs.mesosphere.com/services/beta-jupyter/)笔记本即服务，使数据科学家能够在弹性 GPU 池上执行分析和分布式机器学习，并可访问大型快速数据服务。
 - 安全连接到 S3 和（Kerberose 授权的）HDFS 上的数据湖和数据集。
 - 支持 GPU 的 Spark 和分布式 TensorFlow。
 - OpenID Connect 身份认证和授权，支持 Windows 集成身份认证（WIA）和活动目录联合服务（ADFS）
@@ -33,7 +33,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 - 引入了具有多种输出格式的灵活且可配置的度量标准管道
 - 增强对应用程序度量标准类型（包括直方图、计数器、计时器和计量器）的支持。
 - 支持提高采样率和多度量标准数据包。
-- Mesos 框架度量标准现在 [可用]（http://mesos.apache.org/documentation/latest/monitoring/#frameworks）。
+- Mesos 框架度量标准现在 [可用](http://mesos.apache.org/documentation/latest/monitoring/#frameworks)。
 - 在 1.11 中通过 Prometheus 终点收集度量标准时，不再需要修改。
 
 [企业]
@@ -56,13 +56,13 @@ DC/OS 1.12.0 新增以下特性和功能：
 [企业]
 ### 动态 LDAP 同步
 [/enterprise]
-- 自动同步 [LDAP 用户帐户组] (https://docs.mesosphere.com/1.12/security/ent/users-groups/)，而无需使用导入 DC/OS 的帐户手动同步 [LDAP 目录] (https://docs.mesosphere.com/1.12/security/ent/ldap/)。
+- 自动同步 [LDAP 用户帐户组](https://docs.mesosphere.com/1.12/security/ent/users-groups/)，而无需使用导入 DC/OS 的帐户手动同步 [LDAP 目录](https://docs.mesosphere.com/1.12/security/ent/ldap/)。
 
 ### 通用安装程序 
 - 引入一种统一的基于 Terraform 的开源工具，用于在 AWS、GCP 和 Azure 上配置、部署、安装、升级和停用 DC/OS。
 - 通过快速启动过程实现直观简化的安装，只需 10-15 分钟即可通过几个简单的步骤启动 DC/OS 群集。
 - 正式推荐为 Mesosphere 支持的安装方法，内置最佳实践（即持续升级的顺序管理节点和并行代理节点）。
-- 重组 [Mesosphere 安装文档] (https://docs.mesosphere.com/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
+- 重组 [Mesosphere 安装文档](https://docs.mesosphere.com/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
 
 # 网络
 - 网络组件增强功能，有 150 多个错误修复，具有受限的可见性记录。
@@ -76,11 +76,11 @@ DC/OS 1.12.0 新增以下特性和功能：
 - 改进了 Edge-LB 的日志记录。[enterprise type="inline" size="small" /]
 
 ### 扩展了 DC/OS 升级路径 
-- Mesosphere 现在能够在支持的 DC/OS 补丁版本中执行跨越 [升级路径] (https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) 的特定操作（即一次完成从 1.11.1 => 1.11.5 的升级）。
+- Mesosphere 现在能够在支持的 DC/OS 补丁版本中执行跨越 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) 的特定操作（即一次完成从 1.11.1 => 1.11.5 的升级）。
 - Mesosphere 现在支持执行跨越 DC/OS 支持的主要版本之间的升级路径的特定操作（即一次完成从 1.10.7 => 1.11.4 的升级）。
 
 ### 服务（Marathon）增强功能
-- [优先GPU调度] （http://mesosphere.github.io/marathon/docs/preferential-gpu-scheduling.html）增强了其他选项，以实现更加细分的资源管理。
+- [优先GPU调度](http://mesosphere.github.io/marathon/docs/preferential-gpu-scheduling.html)增强了其他选项，以实现更加细分的资源管理。
 - 为 `--max_running_deployments` 引入新参数以设置运行部署的限制。
 - 添加了对 pod 实例端点的 `wipe=true` 支持。
 - 从 `/var/lib/mesosphere/marathon/environment` 轻松配置 Marathon 配置选项。
@@ -220,7 +220,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 ## 突破性变更
 - DCOS_OSS-2256 - 删除 DC/OS web 安装程序。
 - DCOS_OSS-3714 - 已将 `dcos-metrics` 替换为 Telegraf。
-- DCOS_OSS-4243 - Marathon 将默认拒绝 [维护模式] (https://github.com/mesosphere/marathon/blob/master/changelog.md#maintenance-mode-support-production-ready-now-default) 中的代理 offer。向 Marathon 事件 API (/v2/events when queried directly) 请求备用实例时，得出的响应不再是代理，而是重定向。应当更新使用 Marathon 事件 API 的客户端，以遵循重定向。上述跟随重定向进行更新的组件；例如，Marathon-LB 至少应更新到版本 v1.12.3。[查看更多详情](https://github.com/mesosphere/marathon/blob/master/changelog.md#non-leaderstandby-marathon-instances-respond-to-v2events-with-a-redirect-rather-than-proxy)。
+- DCOS_OSS-4243 - Marathon 将默认拒绝 [维护模式](https://github.com/mesosphere/marathon/blob/master/changelog.md#maintenance-mode-support-production-ready-now-default) 中的代理 offer。向 Marathon 事件 API (/v2/events when queried directly) 请求备用实例时，得出的响应不再是代理，而是重定向。应当更新使用 Marathon 事件 API 的客户端，以遵循重定向。上述跟随重定向进行更新的组件；例如，Marathon-LB 至少应更新到版本 v1.12.3。[查看更多详情](https://github.com/mesosphere/marathon/blob/master/changelog.md#non-leaderstandby-marathon-instances-respond-to-v2events-with-a-redirect-rather-than-proxy)。
 
 ## 客户咨询 
 - [对于 DC/OS 1.12 的 Kubernetes 支持的要求](https://support.mesosphere.com/s/article/Critical-Issue-Kubernetes-Upgrade-MSPH-2018-0007)。
