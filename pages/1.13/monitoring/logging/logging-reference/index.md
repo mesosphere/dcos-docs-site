@@ -1,19 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle:  Logging API
-title: Logging API
+navigationTitle:  Logging Reference
+title: Logging Reference
 menuWeight: 3
-excerpt: Using the Logging API
+excerpt:
 beta: false
 enterprise: false
 ---
 
+# Logging API
 
 The Logging API exposes node, component, and container (task) logs.
 
 The Logging API is backed by the [DC/OS Log component](/1.13/overview/architecture/components/#dcos-log), which runs on all nodes in the cluster. For more information about using the Logging API, see [Logging](/1.13/monitoring/logging/). For usage examples, see [Logging API Examples](/1.13/monitoring/logging/logging-api-examples/).
 
-# Compatibility
+## Compatibility
 
 The Logging API has been updated significantly for DC/OS 1.11 and later.
 
@@ -46,7 +47,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_
 ```
 
 <a name="routes"></a>
-# Routes
+## Routes
 
 Access to the Logging API is proxied through Admin Router on each node using the following route:
 
@@ -63,14 +64,14 @@ Access to the Logging API of the agent nodes is proxied through the master node 
 To determine the address of your cluster, see [Cluster Access](/1.13/api/access/).
 
 
-## Discovery Endpoints
+### Discovery Endpoints
 
 Master routes which are serving task logs are also called *'discovery endpoints'*. When the user makes a GET request to a discovery endpoint, the user is redirected to the agent node with the desired endpoint.
 
 The parameters used in the request come from mesos `state.json` and are called "task metadata".
 
 
-# Auth
+## Auth
 
 All Logging API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](/1.13/security/ent/iam-api/#/obtaining-an-authentication-token/) and [Passing an authentication token](/1.13/security/ent/iam-api/#/passing-an-authentication-token/).
 
@@ -82,7 +83,7 @@ The Logging API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the _dcos:superuser_ permission. To assign permissions to your account, see [Permissions Reference](/1.13/security/ent/perms-reference/).
 
-# Format
+## Format
 
 The API request header can be any of the following:
 
@@ -92,7 +93,7 @@ The API request header can be any of the following:
 
 DC/OS Logging follows the [Server-Sent-Event specifications](https://www.w3.org/TR/2009/WD-eventsource-20090421/). It supports reading the log entry from a specific cursor position, if the client specifies a request header Last-Event-ID as defined in SSE specifications. Every log entry in SSE format contains an ID with a token ID: <token>. This allows the client to know the current log entry and gives you the ability to resume logs consumption if it was interrupted.
 
-# Resources
+## Resources
 
  The following resources are available under both of the [above routes](#routes):
 
