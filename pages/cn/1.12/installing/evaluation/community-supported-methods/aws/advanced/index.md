@@ -208,7 +208,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
     图 1. AWS Advanced Web 界面
 
     * **堆栈名称** 指定群集名称。
-    * **CustomAMI** 可选：指定 AMI ID。如需更多信息，请参阅 [使用自定义 AMI 进行安装](/1.12/installing/production/system-requirements/custom-ami/)。
+    * **CustomAMI** 可选：指定 AMI ID。如需更多信息，请参阅 [使用自定义 AMI 进行安装](/cn/1.12/installing/production/system-requirements/custom-ami/)。
     * **InternetGateway** 指定 `InternetGatewayID` 脚本的 `zen.sh` 输出值。互联网网关 ID 必须附加于 VPC。该互联网网关用于所有节点向外互联网访问。
     * **KeyName** 指定 AWS EC2 密钥对。
     * **MasterInstancEtype** 指定 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。

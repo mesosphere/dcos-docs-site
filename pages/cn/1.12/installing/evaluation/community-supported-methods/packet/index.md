@@ -35,7 +35,7 @@ oss: true
 
 ## 安装 DC/OS
 
-<p class="message--important"><strong>重要信息：</strong>使用此方法就会默认打开网络。因此<a href="/1.12/administering-clusters/securing-your-cluster/#network-security">网络安全</a>是一个需要谨慎的问题，管理员应尽快解决。</p>
+<p class="message--important"><strong>重要信息：</strong>使用此方法就会默认打开网络。因此<a href="/cn/1.12/administering-clusters/securing-your-cluster/#network-security">网络安全</a>是一个需要谨慎的问题，管理员应尽快解决。</p>
 
 1. 使用“先决条件”部分提供的链接上的说明下载和安装 Terraform。
 
@@ -89,7 +89,7 @@ oss: true
 
  图 1. Terraform apply" 输出
 
-这时，可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/1.12/installing/troubleshooting/) 文档。
+这时，可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/cn/1.12/installing/troubleshooting/) 文档。
 
 # 启动 DC/OS
 输入 Mesos 管理节点 IP 地址启动 DC/OS Web 界面：

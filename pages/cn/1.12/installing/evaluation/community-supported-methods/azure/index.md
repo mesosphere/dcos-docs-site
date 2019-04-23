@@ -128,19 +128,19 @@ Etcd、 Zookeeper 和使用
 
 1. 在部署的输出中查找 `MASTERFQDN`。要查找该值，单击 `Last deployment` 下面的链接（就是这里的 `4/15/2016 (Succeeded)`），您将看到：
 
-![Deployment history](/1.12/img/dcos-azure-marketplace-step2a.png)
+    ![Deployment history](/1.12/img/dcos-azure-marketplace-step2a.png)
 
-图 1. 部署历史记录
+    图 1. 部署历史记录
 
-2. 单击最新部署并复制 `MASTERFQDN` 到 `Outputs` 部分。
+1. 单击最新部署并复制 `MASTERFQDN` 到 `Outputs` 部分。
 
-![Deployment output](/1.12/img/dcos-azure-marketplace-step2b.png)
+    ![Deployment output](/1.12/img/dcos-azure-marketplace-step2b.png)
 
-图 2. 输出部分
+    图 2. 输出部分
 
-3. 记下您在图 2 `MASTERFQDN` 部分找到的 `Outputs` 值，并在以下步骤中使用。出于安全考虑，您无法默认直接访问 Azure 中的 DC/OS 仪表板。
+1. 记下您在图 2 `MASTERFQDN` 部分找到的 `Outputs` 值，并在以下步骤中使用。出于安全考虑，您无法默认直接访问 Azure 中的 DC/OS 仪表板。
 
-4. 选择以下一种解决方案，访问 Azure 中的 DC/OS 仪表板：
+1. 选择以下一种解决方案，访问 Azure 中的 DC/OS 仪表板：
 
 ### 案例 1：
 
@@ -148,41 +148,41 @@ Etcd、 Zookeeper 和使用
 
 1. 查找管理节点的网络安全组资源，
 
-![Resource - Master Node Network Security Group](/1.12/img/dcos-azure-step2case1a.png)
+    ![Resource - Master Node Network Security Group](/1.12/img/dcos-azure-step2case1a.png)
 
-图 3. 管理节点网络安全组
+    图 3. 管理节点网络安全组
 
-2. 单击左侧的 **入站安全规则** 选项卡。
+1. 单击左侧的 **入站安全规则** 选项卡。
 
-![Inbound Security Rules](/1.12/img/dcos-azure-step2case1b.png)
+    ![Inbound Security Rules](/1.12/img/dcos-azure-step2case1b.png)
 
-图 4. 入站安全规则
+    图 4. 入站安全规则
 
-3. 添加入站安全规则。
+1. 添加入站安全规则。
 
-![Add Inbound Security Rules](/1.12/img/dcos-azure-step2case1c.png)
+    ![Add Inbound Security Rules](/1.12/img/dcos-azure-step2case1c.png)
 
-图 5. 添加入站安全规则 
+    图 5. 添加入站安全规则 
 
-4. 查找管理节点的负载均衡器资源。
+1. 查找管理节点的负载均衡器资源。
 
-![Resource - Master Node Load balancer](/1.12/img/dcos-azure-step2case1d.png)
+    ![Resource - Master Node Load balancer](/1.12/img/dcos-azure-step2case1d.png)
 
-图 6. 管理节点负载均衡器
+    图 6. 管理节点负载均衡器
 
-5. 单击左侧的 **入站 NAT 规则** 选项卡，
+1. 单击左侧的 **入站 NAT 规则** 选项卡，
 
-![Inbound NAT Rules](/1.12/img/dcos-azure-step2case1e.png)
+    ![Inbound NAT Rules](/1.12/img/dcos-azure-step2case1e.png)
 
-图 7. 入站 NAT 规则
+    图 7. 入站 NAT 规则
 
-6. 添加入站 NAT 规则。
+1. 添加入站 NAT 规则。
 
-![Add Inbound NAT Rules](/1.12/img/dcos-azure-step2case1f.png)
+    ![Add Inbound NAT Rules](/1.12/img/dcos-azure-step2case1f.png)
 
-图 8. 添加入站 NAT 规则
+    图 8. 添加入站 NAT 规则
 
- 现在您可以访问 `http://$MASTERFQDN` 并查看 DC/OS 仪表板。
+    现在您可以访问 `http://$MASTERFQDN` 并查看 DC/OS 仪表板。
 
 ### 案例 2：使用 ssh 隧道
 
@@ -246,6 +246,6 @@ dcos package search
 - [安装 DC/OS 命令行界面 (CLI)][2]
 - [扩展注意事项][4]
 
-[1]: /1.12/security/ent/users-groups/
-[2]: /1.12/cli/install/
+[1]: /cn/1.12/security/ent/users-groups/
+[2]: /cn/1.12/cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/
