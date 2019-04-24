@@ -12,24 +12,30 @@ The Linux kernel provides a native computer security facility that you can confi
 In a distributed network environment, you can use the secure computing mode (Seccomp) to isolate applications running inside of containers from critical system resources and programs. The secure computing mode isolates containers and tasks by enabling you to restrict access to certain system calls through a secure computing profile. By configuring a seccomp profile, you can specify a list of restricted and permitted system calls for containers launched by the DC/OS Universal Container Runtime (UCR).
 
 The seccomp profile identifies:
-- individual system calls, such as `exit()`, `sigreturn()`, `read()`, or `write()`.
-- filters for system calls, similar to `prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, filter)` and `prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0)`.
+- individual restricted or permitted system calls, such as `exit()`, `sigreturn()`, `read()`, or `write()`.
+- filters for system calls by `syscall` arguments, similar to `prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, filter)` and `prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0)`.
 - the action to take when a program attempts to use any of those system calls. For example, you can specify whether a restricted system call results in a KILL, TRAP, ERRNO, TRACE, or ALLOW action.
 
 For example, you can use the seccomp profile to automatically terminate any program that attempts to use any of the restricted system calls, reducing the potential for programs to exploit vulnerabilities and compromise systems where containers are launched.
 
 # Default secure computing profile
-DC/OS provides a default seccomp profile that you can use for UCR or Docker containers. The default DC/OS seccomp profile provides the same level of seccomp compatibility as the default [Docker seccomp profile](https://docs.docker.com/engine/security/seccomp/). You can enable the DC/OS default seccomp profile for all UCR and Docker containers in the cluster to secure your workloads from potential kernel-level exploits.
+DC/OS provides a default seccomp profile that you can use for UCR or Docker containers. The default DC/OS seccomp profile provides the same level of seccomp compatibility as the default [Docker seccomp profile](https://docs.docker.com/engine/security/seccomp/). You can enable the DC/OS default seccomp profile for all UCR containers in the cluster to secure your workloads from potential kernel-level exploits.
+
+Although the DC/OS default seccomp profile is Docker-compatible and can, therefore, be used for services in Docker containers, the recommended best practice is to use the DC/OS default seccomp profile without modification to ensure proper operation and isolation for DC/OS services. For example, you might have DC/OS services that rely on custom executors that are not compatible with the Docker seccomp profile.
+
+To ensure your cluster and workloads are adequately protected, you should not modify the DC/OS default seccomp profile. The default seccomp profile restricts system calls--such as `perf_event_open`, `keyctl`, and `reboot`--that are known to be vulnerable to security breaches. Modifying the default seccomp profile could have unintended consequences and make systems vulnerable to kernel-level attacks. 
 
 # Enabling secure computing
 You can use advanced configuration parameters when you install or update the DC/OS cluster to deploy the [default DC/OS seecomp profile](https://github.com/moby/moby/blob/v1.13.1/profiles/seccomp/default.json) on agent nodes.
 
-For information about the cnfiguration parameters used to enable secure computing mode on DC/OS clusters, see the [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/).
+For information about the configuration parameters used to enable secure computing mode on DC/OS clusters, see the [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/).
+
+<!-- Leaving out next sections as too low-level per Andrei Budnik 
 
 # Secure computing isolator and filters
 DC/OS provides support secure computing mode on Linux through the `linux/seccomp` isolator and seccomp filters. The DC/OS seccomp isolator for Linux implements filters by grouping system calls into a set of commands that are specifically denied (blacklist) and a set of command that are explicitly allowed (whitelist).
 
-Seccomp filters reduce the attack surface of the Linux kernel by providing a mechanism for filtering of certain system calls. If you have agent nodes in the cluster with the Linux operating system, kernel version 3.5, or newer, you can use seccomp filters for containers launched using the DC/OS Universal Container Runtime (UCR) or Docker containers.
+Seccomp filters reduce the attack surface of the Linux kernel by providing a mechanism for filtering of certain system calls. If you have agent nodes in the cluster with the Linux operating system, kernel version 3.5, or newer, you can use seccomp filters for containers launched using the DC/OS Universal Container Runtime (UCR) containers.
 
 Seccomp filters are defined in seccomp profiles using JSON formatting similar to this [sample seccomp profile](http://mesos.apache.org/documentation/latest/examples/seccomp_default.json).
 
@@ -68,3 +74,4 @@ sudo mesos-agent --master=<master ip> --ip=<agent ip> --work_dir=/var/lib/mesos 
 
 # Overriding the seccomp profile for a task
 For maximum flexibility, you can configure tasks to override an agent’s default seccomp profile. To override an agent's seccomp profile, a task should declare the required profile in the `LinuxInfo` field of its `ContainerInfo`. For example, if the agent is launched with the default seccomp profile enabled, a framework can disable that profile for a particular task by setting an `unconfined` field in the corresponding `SeccompInfo`.
+-->
