@@ -83,7 +83,7 @@ DC/OS 安装工具（`dcos_generate_config.ee.sh`）生成安装工件并安装 
 - [文档](/cn/1.12/installing/)
 - [来源](https://github.com/dcos/dcos)
 
-[企业]
+[enterprise]
 <a name="dcos-backup"></a>
 
 ## DC/OS 备份
@@ -223,7 +223,7 @@ Docker GC 定期收集 Docker“垃圾”容器和图像。
 没有任何软件能完美运行，尤其是在首次运行时。在整个群集分配任务以及分析和调试这些服务的正常模式都会变得繁琐。DC/OS 包括多个组件，通过聚合、缓存和流式传输日志、度量标准和群集状态元数据来减轻调试分布式系统的辛苦。
 
 <a name="dcos-network-metrics"></a>
-[企业]
+[enterprise]
 
 ## DC/OS 网络度量标准
 [/enterprise]
@@ -437,7 +437,7 @@ DC/OS 组件包管理器 (Pkgpanda) 安装和管理 DC/OS 组件。
 - [来源](https://github.com/dcos/dcos/tree/master/pkgpanda)
 - [API 参考](/cn/1.12/administering-clusters/component-management/)
 
-[企业]
+[enterprise]
 # IAM 和安全
 [/enterprise]
 

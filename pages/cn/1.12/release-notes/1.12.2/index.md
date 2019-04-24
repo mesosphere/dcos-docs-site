@@ -135,7 +135,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 
 <a name="private-reg"></a>
 
-[企业]
+[enterprise]
 ### 专用包注册表
 [/enterprise]
 - 已启用 [本地包分发和管理](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/)。
@@ -157,7 +157,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 
 <a name="ldap-net"></a>
 
-[企业]
+[enterprise]
 ### LDAP 和网络增强功能
 [/enterprise]
 - 匿名 LDAP 绑定符合标准化企业 LDAP 集成模式，无需专用的 DC/OS 集成 LDAP 用户。
