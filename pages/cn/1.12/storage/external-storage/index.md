@@ -137,11 +137,11 @@ Marathon 应用程序通常在终止和重新启动时失去状态。在某些�
  * 在同一 AWS 帐户上创建的卷共享命名空间。选择唯一的卷名称以避免在同一帐户下启动多个群集时的冲突。
  * EBS 卷也由其可用性区 (AZ) 命名，并且 EBS 卷[只能连接到同一 AZ 的 EC2 实例][12]。因此，尝试在不同的 AZ 中运行的代理程序中启动任务将导致创建同名的新卷。如果您在一个 AZ 中创建群集，请将其销毁，如果您希望重用任何外部卷，请确保在同一 AZ 中创建群集。如果群集跨越多个 AZ，请使用 Marathon 限制仅在同一 AZ 中启动实例。
  * 默认情况下，REX-Ray 将在连接 13 个 EBS 卷后失败。尽管 REX-Ray [0.11.0 引入了配置选项 `useLargeDeviceRange` 来扩展此限制][13]，但 DC/OS v1.12.0 捆绑了 REX-Ray 0.9.0。
-* 有关外部卷的故障排除，请参阅代理程序或系统日志。如果您在 DC/OS 上使用 REX-Ray，还可以查阅 systemd 日志。
+* 有关外部卷的故障排除，请参阅代理程序或系统日志。如果您在 DC/OS 上使用 REX-Ray，还可以查阅 `systemd` 日志。
 
 [4]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
 [5]:http://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-provider/
-[6]: /1.12/deploying-services/creating-services/
+[6]: /cn/1.12/deploying-services/creating-services/
 [7]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/#data-directory
 [8]: #implicit-vol
 [9]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/
