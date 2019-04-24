@@ -30,11 +30,20 @@ dcos node list [OPTION]
 
 | Name, shorthand |  Description |
 |---------|-------------|
-| `--field dcos node`   |  Specifies the name of one or more additional fields you want to include in the output of the dcos node command. You can include this option multiple times to add multiple fields. |
+| `--field name`   |  Specifies the name of one or more additional fields you want to include in the output of the dcos node command. You can include this option multiple times to add multiple fields. |
 | `--help, h`   |   Displays usage. |
 | `--info`   |  Displays a short description of this subcommand. |
 | `--json`   |    Displays JSON-formatted data. |
 | `--version`   |  Displays version information. |
+
+# Permissions
+
+To use this command to return public-facing IP addresses, your service or user account must have the following administrative permission:
+<p>
+<code>dcos:adminrouter:ops:networking full</code>
+</p>
+
+If you run the `dcos node list` command without this permission, the command returns node information but does not include the Public IP address column in the output. For more information about setting and managing permissions, see [Permissions Management](/1.13/security/ent/perms-management/) and [Permissions Reference](/1.13/security/ent/perms-reference/).
 
 # Parent command
 
