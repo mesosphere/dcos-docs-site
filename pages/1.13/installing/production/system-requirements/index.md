@@ -76,7 +76,7 @@ The table below shows the agent node hardware requirements.
 | Memory      | 16 GB RAM | 16 GB RAM   |
 | Hard disk   | 60 GB     | 60 GB       |
 
-In planning memory requirements for agent nodes, you should ensure that agents are configured minimize the use of swap space. The recommended best practice is optimize cluster performance and reduce potential resource consumption issues to disable memory swapping for all agents in the cluster, if possible.
+In planning memory requirements for agent nodes, you should ensure that agents are configured to minimize the use of swap space. The recommended best practice to optimize cluster performance and reduce potential resource consumption issues is to disable memory swapping for all agents in the cluster, if possible.
 
 In addition to these general hardware requirements, the agent nodes must also have:
 
