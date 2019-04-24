@@ -31,7 +31,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 - Task history in the Mesos UI will not persist through the upgrade.
 
 ## Supported upgrade paths matrix
-The following matrix table lists the supported upgrade paths for DC/OS 1.12.
+The following matrix table lists the supported upgrade paths for DC/OS 1.13.
 
 
 |**Display Icon** | **Service** |
@@ -42,13 +42,13 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.12.
 
 <table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
    <tr>
-    <th Rowspan = "20" Align = "center"><strong>Upgrade<br>From</strong></th>
+    <th Rowspan = "26" Align = "center"><strong>Upgrade<br>From</strong></th>
    <tr>
     <th></th>
     <th Colspan = "1" Align = "center"><strong>Upgrade To</strong></th>
    </tr>
     <th></th>
-    <th Align = "center">1.12.0</th>
+    <th Align = "center">1.13.0</th>
    </tr>
    <tr>
     <th>1.10.0</th>
@@ -76,15 +76,15 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.12.
    </tr>
    <tr>
     <th>1.10.6</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.7</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.8</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.0</th>
@@ -104,19 +104,19 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.12.
    </tr>
    <tr>
     <th>1.11.4</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.5</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.6</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.7</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.8</th>
@@ -128,6 +128,18 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.12.
    </tr>
    <tr>
     <th>1.11.10</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.12.1</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.12.2</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.12.3</th>
     <td Align = "center">⚫</td>
    </tr>
   </table>
