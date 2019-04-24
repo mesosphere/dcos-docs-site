@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: 教程 - 在 DC/OS 上运行有状态服务
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /cn/include/tutorial-disclaimer.tmpl
 
 本教程向您展示如何在 DC/OS 上安装和运行有状态服务。有状态服务对持久数据起作用。每次启动时，简单**无**状态服务在空沙盒中运行。相反，**有**状态服务使用驻留在群集中代理节点上的持久卷，直到被明确销毁。
 
@@ -147,9 +147,9 @@ dcos marathon app remove postgres
 
 ## 附录
 
-有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/1.12/storage/)。
+有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/cn/1.12/storage/)。
 
 
-[1]: /1.12/installing/
-[2]: /1.12/cli/install/
+[1]: /cn/1.12/installing/
+[2]: /cn/1.12/cli/install/
 [4]: postgres.marathon.json

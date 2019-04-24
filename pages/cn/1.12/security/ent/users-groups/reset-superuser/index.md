@@ -13,9 +13,9 @@ enterprise: true
 
 **先决条件：**您必须具有 DC/OS 群集的 SSH 访问权限。
 
-1. [SSH](/1.12/administering-clusters/sshcluster/) 到主节点，使用您选择的方法。
+1. [SSH](/cn/1.12/administering-clusters/sshcluster/) 到主节点，使用您选择的方法。
 
- 例如：
+    例如：
 
     ```bash
     dcos node ssh --master-proxy --leader
@@ -34,7 +34,7 @@ enterprise: true
     Retype superuser password:
     ```
 
- 对于现有用户，输出应当类似：
+    对于现有用户，输出应当类似：
 
     ```bash
     170518-22:11:11.630 INFO: Attempt to create user with uid `<username>`.

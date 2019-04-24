@@ -39,9 +39,9 @@ Jenkins 在其凭据库内存储帐户凭据，这允许作业以安全方式使
 
 1. 单击 **Add Credentials**，为 Docker Hub 创建新凭据。**Kind** 下拉菜单中应选择“Username with password”选项。填写其余信息以匹配您的 Docker Hub 帐户。
 
- ![Kind drop-down menu](/1.12/img/dcos-velocity-jenkins-creds-new.png)
+    ![Kind drop-down menu](/1.12/img/dcos-velocity-jenkins-creds-new.png)
 
- 图 2. 类型下拉菜单
+    图 2. 类型下拉菜单
 
 # 作业
 
@@ -49,15 +49,15 @@ Jenkins 在其凭据库内存储帐户凭据，这允许作业以安全方式使
 
 1. 创建一个新的 **Freestyle** 作业，其名称仅包含小写字母和连字符。此名称将稍后在 Docker 镜像名称中使用，并可能作为 Marathon 应用程序 ID 使用。
 
- ![Freestyle page](/1.12/img/dcos-jenkins-new-freestyle.png)
+    ![Freestyle page](/1.12/img/dcos-jenkins-new-freestyle.png)
 
- 图 3. Freestyle 项目
+    图 3. Freestyle 项目
 
 1. SCM/Git 在以上**示例项目**部分中，使用新创建的 Git 存储库填写 Git 存储库 URL。Jenkins 必须可以访问它，且可能需要向 Jenkins 实例添加凭据。
 
- ![dcos-jenkins-repourl.png](/1.12/img/dcos-jenkins-repourl.png)
+    ![dcos-jenkins-repourl.png](/1.12/img/dcos-jenkins-repourl.png)
 
- 图 4. 源代码管理凭据
+    图 4. 源代码管理凭据
 
 1. 构建触发器。选择 **Poll SCM** 构建触发器，其时间表为：`*/5 * * * *`。这将每五分钟检查一次 Git 存储库是否有更改。
 
@@ -68,13 +68,13 @@ Jenkins 作业执行以下操作：
 1. 建立新的 Docker 镜像。
 1. 将新镜像推至 Docker Hub。
 
-这些步骤可以使用 **Docker Build and Publish** 插件通过单个构建步骤执行，这已经包含并可供使用。
+    这些步骤可以使用 **Docker Build and Publish** 插件通过单个构建步骤执行，这已经包含并可供使用。
 
 1. 在 **Add build step** 下拉列表中选择 **Docker Build and Publish** 选项。
 
- ![dcos-velocity-jenkins-build-docker.png](/1.12/img/dcos-velocity-jenkins-build-docker.png)
+    ![dcos-velocity-jenkins-build-docker.png](/1.12/img/dcos-velocity-jenkins-build-docker.png)
 
- 图 5. Docker “Add build step” 选项
+    图 5. Docker “Add build step” 选项
 
 1. 填写以下字段：
 
@@ -82,17 +82,17 @@ Jenkins 作业执行以下操作：
 * **标签**，具有 `$GIT_COMMIT`
 * **注册表凭据**，以上创建的 Docker Hub 的凭据
 
- ![dcos-velocity-jenkins-build-docker-config.png](/1.12/img/dcos-velocity-jenkins-build-docker-config.png)
+    ![dcos-velocity-jenkins-build-docker-config.png](/1.12/img/dcos-velocity-jenkins-build-docker-config.png)
 
- 图 6. Docker 构建和发布屏幕
+    图 6. Docker 构建和发布屏幕
 
 # Marathon 部署
 
 1. 通过从 **Add post-build action**下拉菜单中选择 **Marathon Deployment** 选项，添加 Marathon 部署构建后操作。
 
- ![dcos-jenkins-plugin-popup.png](/1.12/img/dcos-jenkins-plugin-popup.png)
+    ![dcos-jenkins-plugin-popup.png](/1.12/img/dcos-jenkins-plugin-popup.png)
 
- 图 7. Marathon 部署菜单
+    图 7. Marathon 部署菜单
 
 1. 填写以下字段：
 
@@ -100,9 +100,9 @@ Jenkins 作业执行以下操作：
 * **应用定义**，具有与 marathon 应用程序文件 (`conf/cd-demo-app.json`) 相对的路径
 * **Docker 镜像**，具有以上创建的镜像 (`myusername/${JOB_NAME}:${GIT_COMMIT}`)
 
- ![dcos-velocity-marathon-config.png](/1.12/img/dcos-velocity-marathon-config.png)
+    ![dcos-velocity-marathon-config.png](/1.12/img/dcos-velocity-marathon-config.png)
 
- 图 8. 构建后操作屏幕
+    图 8. 构建后操作屏幕
 
 ## 如何运行
 

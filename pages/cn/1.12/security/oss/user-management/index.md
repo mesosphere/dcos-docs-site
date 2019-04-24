@@ -27,9 +27,9 @@ menuWeight: 10
 
 **前提条件：**
 
-- DC/OS [已安装](/1.12/installing/)
+- DC/OS [已安装](/cn/1.12/installing/)
 
-1. [SSH](/1.12/administering-clusters/sshcluster/) 到主节点并运行此命令，其中 `<email>` 是用户的电子邮件：
+1. [SSH](/cn/1.12/administering-clusters/sshcluster/) 到主节点并运行此命令，其中 `<email>` 是用户的电子邮件：
 
     ```bash
     sudo -i dcos-shell /opt/mesosphere/bin/dcos_add_user.py <email>
@@ -41,9 +41,9 @@ menuWeight: 10
 1. 在 **Users** 屏幕中，选择用户名，然后单击 **Delete**。
 2. 单击 **Delete** 以确认操作。
 
-<img src="/1.12/img/1-11-delete-user.png" alt="delete-user" width="350" height="300" border="2">
+    <img src="/1.12/img/1-11-delete-user.png" alt="delete-user" width="350" height="300" border="2">
 
- 图 2. 删除用户
+    图 2. 删除用户
 
 ## 切换用户 
 
@@ -51,7 +51,7 @@ menuWeight: 10
 
 ### 从 Web 界面
 
-1. 要退出 DC/OS Web 界面，请单击右上方的用户名，然后选择 **Sign Out**。
+要退出 DC/OS Web 界面，请单击右上方的用户名，然后选择 **Sign Out**。
 
 ![退出](/1.12/img/1-11-user-drop-down-menu.png)
 
@@ -62,7 +62,7 @@ menuWeight: 10
 
 ### 从 CLI
 
-1. 要退出 DC/OS CLI，请输入命令：
+要退出 DC/OS CLI，请输入命令：
 
 ```bash
 dcos config unset core.dcos_acs_token
@@ -73,4 +73,4 @@ Removed [core.dcos_acs_token]
 
 ## 后续步骤
 
-有关安全的更多信息，请检查[安全和身份认证](/1.12/security/oss/)
+有关安全的更多信息，请检查[安全和身份认证](/cn/1.12/security/oss/)
