@@ -240,9 +240,9 @@ A DC/OS component is a DC/OS system service that is distributed with DC/OS.
 - Components may be `systemd` services or Marathon services.
 - Components may be deployed in a high availability configuration.
 
-Most components run on the master nodes, but some (likr mesos-agent) run on the agent nodes.
+Most components run on the master nodes, but some (like mesos-agent) run on the agent nodes.
 
-**Examples:** Mesos, Marathon, Mesos-DNS, Bouncer, Admin Router, DC/OS Package Manager (Cosmos), History Service, etc.
+**Examples:** Mesos, Marathon, Mesos-DNS, Bouncer, Admin Router, DC/OS Package Manager (Cosmos), etc.
 
 <a name="dcos-package"></a>
 

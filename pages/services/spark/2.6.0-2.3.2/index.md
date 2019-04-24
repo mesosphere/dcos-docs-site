@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Spark 2.6.0-2.3.2
 navigationTitle: Spark 2.6.0-2.3.2
-menuWeight: 1
+menuWeight: 3
 excerpt: Documentation for DC/OS Apache Spark 2.6.0-2.3.2
 model: /services/spark/data.yml
 render: mustache
@@ -15,7 +15,7 @@ Welcome to the documentation for the DC/OS {{ model.techName }}. For more inform
 - {{ model.techShortName }} SQL for SQL and DataFrames
 - MLlib for machine learning
 - GraphX for graph processing
-- {{ model.techShortName }} Streaming for stream processing. 
+- {{ model.techShortName }} Streaming for stream processing.
 
 For more information, see the [{{ model.techName }} documentation][1].
 
