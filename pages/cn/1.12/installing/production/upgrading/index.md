@@ -20,7 +20,7 @@ excerpt: 升级 DC/OS 群集
 
 - 生产安装方法是 DC/OS 的唯一建议升级路径。建议您熟悉 [DC/OS 部署指南](/1.12/installing/production/deploying-dcos/) 后再继续操作。
 - 在升级 DC/OS 之前，请先查看 [版本注释](/1.12/release-notes/)。
-- 由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 `enable_ipv6` 中将 `config.yaml` 设为“false”。您可以在我们最新重要的 [产品咨询] 中找到更多信息和更详细的补救流程(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302)。[enterprise type="inline" size="small" /]
+- 由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 `enable_ipv6` 中将 `config.yaml` 设为“false”。您可以在我们最新重要的 [产品咨询](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 中找到更多信息和更详细的补救流程。[enterprise type="inline" size="small" /]
 - 如果 IPv6 在内核中被禁用，则必须在 `config.yaml` 文件中禁用 IPv6。
 - DC/OS 企业版许可证密钥必须驻留在 `genconf/license.txt` 文件中。[enterprise type="inline" size="small" /]
 - 直到所有管理节点都升级到位，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。
@@ -138,14 +138,14 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
 - 所有主机（管理和代理节点）必须能够与所有其他主机通信，如 [网络安全](/1.12/administering-clusters/securing-your-cluster/#network-security) 所述。
 - 在 CentOS 或 RedHat 中，使用此命令安装 IP 集（在某些 IP 检测脚本中使用）：`sudo yum install -y ipset`
 - 您必须熟悉使用 `systemctl` 和 `journalctl` 命令行工具，以查看和监控服务状态。故障排除说明可在本 [文档](#故障排除) 结尾部分找到。
-- 您必须熟悉 [DC/OS 安装指南][安装]。
+- 您必须熟悉 [DC/OS 安装指南][安装](/cn/1.12/installing/production/deploying-dcos/installation/#custom-build-file)。
 - 升级之前抓取 [ZooKeeper 的快照](/1.12/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano)。Marathon 支持回滚，但不支持降级。
 - 升级之前 [对 IAM 数据库进行快照](/1.12/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise)。[enterprise type="inline" size="small" /]
 - 确保在开始升级之前， Marathon 事件订阅者已被禁用。完成升级后，保持其禁用状态，因为此功能现已被弃用。
 
-<p class="message--note"><strong>注意：</strong>Marathon 事件订阅者默认为禁用。勾选查看是否已将行 <code>  -  event_subscriber“http_callback”</code> 添加到管理节点上的 <code> sudo vi /opt/mesosphere/bin/marathon.sh</code>。这种情况下，必须移除该行，以禁用事件订阅者。</p>
+  <p class="message--note"><strong>注意：</strong>Marathon 事件订阅者默认为禁用。勾选查看是否已将行 <code>  -  event_subscriber“http_callback”</code> 添加到管理节点上的 <code> sudo vi /opt/mesosphere/bin/marathon.sh</code>。这种情况下，必须移除该行，以禁用事件订阅者。</p>
 
-[enterprise type="inline" size="small" /]
+  [enterprise type="inline" size="small" /]
 
 - 确认在在开始升级前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
 - [备份您的群集](/1.12/administering-clusters/backup-and-restore/)。[enterprise type="inline" size="small" /]
@@ -157,7 +157,7 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
 
 ## bootstrap 节点
 
-[企业]
+[enterprise]
 ### 企业用户
 [/enterprise]
 
@@ -174,11 +174,12 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
 
  1. 下载 `dcos_generate_config.ee.sh` 文件。
  2. 生成安装文件。将以下命令中的 `<installed_cluster_version>` 替换为当前在要升级的群集上运行的 DC/OS 版本，例如 `1.11.6`。
-        ```bash
-        dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
-        ```
+
+      ```bash
+      dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
+      ```
  3. 上一步骤的命令将在其输出的最后一行产生 URL，前缀为 `Node upgrade script URL:`。记下此 URL 以供后续使用。它在本文档中被称为“节点升级脚本 URL”。
- 4. 使用 Docker [运行] [cmd] 命令运行 nginx 容器以提供 [安装文件] [安装]。
+ 4. 使用 Docker [运行](/cn/1.12/installing/production/deploying-dcos/installation/#nginx-cmd) 命令运行 nginx 容器以提供 [安装文件](/cn/1.12/installing/production/deploying-dcos/installation/#custom-build-file)。
 
 6. 转到 DC/OS 管理节点 [程序](#masters) 以完成安装。
 
@@ -198,11 +199,11 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
 
  1. 下载 `dcos_generate_config.sh` 文件。
  1. 生成安装文件。将以下命令中的 `<installed_cluster_version>` 替换为当前在要升级的群集上运行的 DC/OS 版本，例如 `1.9.2`。
-        ```bash
-        dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
-        ```
+      ```bash
+      dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
+      ```
  1. 上一步骤的命令将在其输出的最后一行产生 URL，前缀为 `Node upgrade script URL:`。记下此 URL 以供后续使用。它在本文档中被称为“节点升级脚本 URL”。
- 1. 使用 Docker [运行] [cmd] 命令运行 nginx 容器以提供 [安装文件] [安装]。
+ 1. 使用 Docker [运行](/cn/1.12/installing/production/deploying-dcos/installation/#nginx-cmd) 命令运行 nginx 容器以提供 [安装文件] [安装](/cn/1.12/installing/production/deploying-dcos/installation/#custom-build-file)。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 以完成安装。
 
@@ -224,29 +225,31 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
 
 1. 验证升级情况：
 
- 1. 监视 Exhibitor 并等待其在 `http://<master-ip>:8181/exhibitor/v1/ui/index.html` 中聚合。确认管理节点已成功重新加入 ZooKeeper quorum（状态指示灯将变为绿色）。
+    1. 监视 Exhibitor 并等待其在 `http://<master-ip>:8181/exhibitor/v1/ui/index.html` 中聚合。确认管理节点已成功重新加入 ZooKeeper quorum（状态指示灯将变为绿色）。
 
- <p class="message--note"><strong>注意：</strong>如果要从宽容模式升级到严格模式，此 URL 将为 "https://..."。</p>
+        <p class="message--note"><strong>注意：</strong>如果要从宽容模式升级到严格模式，此 URL 将为 "https://..."。</p>
 
- 1. 等到 `dcos-mesos-master` 单元启动并运行。
- 1. 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 的度量标准 `registrar/log/recovered` 的值为 `1`。
+    1. 等到 `dcos-mesos-master` 单元启动并运行。
+    1. 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 的度量标准 `registrar/log/recovered` 的值为 `1`。
 
- <p class="message--note"><strong>注意：</strong>如果要从宽容模式升级到严格模式，此 URL 将为 <code>curl https://...</code>，并且需要有 JWT 才能访问。</p>
- [enterprise type="inline" size="small" /]
+          <p class="message--note"><strong>注意：</strong>如果要从宽容模式升级到严格模式，此 URL 将为 <code>curl https://...</code>，并且需要有 JWT 才能访问。</p>
+        [enterprise type="inline" size="small" /]
 
- 1. 验证 `/opt/mesosphere/bin/mesos-master --version` 表示升级后的管理节点正在运行 [发行说明](/1.12/release-notes/) 中指定的 Mesos 版本，例如 `1.5.1`。
- 1. 验证副本不足范围的数量是否随着 IAM 数据库被复制到新管理节点而已经降至零。这可以通过运行以下命令并确认右侧的最后一列是否只显示零来完成。[enterprise type="inline" size="small" /]
-	    ```bash
-        sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-        | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-        |  1 | 172.31.7.32:26257   | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 |              195 |                   194 |    195 |                  0 |                      0 |
-        |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
-        |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-		```
- 如果 `ranges_underreplicated` 列列出了任何非零值，则等待一分钟，然后重新运行此命令。一旦所有数据被安全地复制，数值将聚合为零。[enterprise type="inline" size="small" /]
+  1. 验证 `/opt/mesosphere/bin/mesos-master --version` 表示升级后的管理节点正在运行 [发行说明](/1.12/release-notes/) 中指定的 Mesos 版本，例如 `1.5.1`。
+  1. 验证副本不足范围的数量是否随着 IAM 数据库被复制到新管理节点而已经降至零。这可以通过运行以下命令并确认右侧的最后一列是否只显示零来完成。[enterprise type="inline" size="small" /]
+
+      ```bash
+      sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
+      +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+      | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
+      +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+      |  1 | 172.31.7.32:26257   | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 |              195 |                   194 |    195 |                  0 |                      0 |
+      |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
+      |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
+      +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+      ```
+    
+      如果 `ranges_underreplicated` 列列出了任何非零值，则等待一分钟，然后重新运行此命令。一旦所有数据被安全地复制，数值将聚合为零。[enterprise type="inline" size="small" /]
 
 1. 转到 DC/OS 代理节点 [程序](#agents) 以完成安装。
 
@@ -291,7 +294,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-如果您的升级因为 [自定义节点或群集检查] 而失败(/1.12/installing/ent/custom/node-cluster-health-check/#custom-health-checks)，运行以下命令可了解更多详细信息：
+如果您的升级因为 [自定义节点或群集检查](/cn/1.12/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 而失败，运行以下命令可了解更多详细信息：
 ```bash
 dcos-check-runner check node-poststart
 dcos-check-runner check cluster
@@ -325,5 +328,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - DC/OS 1.12 Universe 中可用的软件包比旧版本 Universe 中的要新。服务在安装 DC/OS 时不会自动升级，因为并非所有 DC/OS 服务都具有保持现有状态的升级路径。
 
-[安装]：/1.12/installing/production/deploying-dcos/installation/#custom-build-file
-[cmd]: /1.12/installing/production/deploying-dcos/installation/#nginx-cmd
+

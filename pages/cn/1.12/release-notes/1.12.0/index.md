@@ -36,7 +36,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 - Mesos 框架度量标准现在 [可用](http://mesos.apache.org/documentation/latest/monitoring/#frameworks)。
 - 在 1.11 中通过 Prometheus 终点收集度量标准时，不再需要修改。
 
-[企业]
+[enterprise]
 ### 专用包注册表
 [/enterprise]
 - 已启用 [本地包分发和管理](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/)。
@@ -48,12 +48,12 @@ DC/OS 1.12.0 新增以下特性和功能：
 ### SELinux 强化操作系统安装支持
 - 完全支持在 SELinux 强化操作系统上安装和操作集群，SE Linux 采用目标执行模式，适用于所有经过强化的非 DC/OS组件。
 
-[企业]
+[enterprise]
 ### 匿名 LDAP 绑定支持
 [/enterprise]
 - 符合标准化企业 LDAP 集成模式，无需专用的 DC/OS 集成 LDAP 用户。
 
-[企业]
+[enterprise]
 ### 动态 LDAP 同步
 [/enterprise]
 - 自动同步 [LDAP 用户帐户组](https://docs.mesosphere.com/1.12/security/ent/users-groups/)，而无需使用导入 DC/OS 的帐户手动同步 [LDAP 目录](https://docs.mesosphere.com/1.12/security/ent/ldap/)。
@@ -194,7 +194,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 - DCOS_OSS-4040 - 允许配置 DCOS 诊断捆绑位置。
 - DCOS_OSS-4287 - 在启动 Exhibitor 之前检查系统时钟是否已同步。
 
-[企业]
+[enterprise]
 ### 安全
 [/enterprise]
 - 突出  CVE-2017-11427 的 `python3-saml`。
@@ -251,7 +251,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 - DCOS-43857 - RHEL 7.5 上的 1.12.0-rc3 和 1.11.6 `test_dcos_cni_l4lb` 失败。
 - COPS-4078/DCOS_OSS-4395 - `dcos-net` 忽略了主机网络上任务的某些 TCP/UDP 发现端口。
 
-[企业]
+[enterprise]
 ### 安全
 [/enterprise]
 - DCOS-9929 - 缺少密钥访问权限可能会阻止执行部署。
