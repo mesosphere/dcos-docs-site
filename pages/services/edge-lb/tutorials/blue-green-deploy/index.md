@@ -242,3 +242,5 @@ for the sample service in the `sample-deployment-config.json` file:
     ```
     
     If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console or by running the `dcos node list` command.
+
+    In most cases, the `dcos node list` command returns information that includes both the private and public IP addresses for each node. You should keep in mind, however, that the public and private IP addresses returned might not be accurate if the Edge-LB pool uses virtual networks.
