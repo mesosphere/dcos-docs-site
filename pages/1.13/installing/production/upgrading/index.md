@@ -10,7 +10,7 @@ An upgrade is the process of moving between major releases to add new features o
 
 <p class="message--important"><strong>IMPORTANT: </strong>An upgrade is required only when changing the major or minor version of your DC/OS installation. Example: 1.11 --> 1.12</p>
 
-- To update to a newer maintenance version (e.g. 1.11.6 to 1.11.8), refer to the instructions for [patching](/1.13/installing/production/patching/).
+- To update to a newer maintenance version (for example, 1.11.6 to 1.11.8), refer to the instructions for [patching](/1.13/installing/production/patching/).
 - To modify the cluster configuration, refer to the instructions for [patching](/1.13/installing/production/patching/).
 - The `disabled` security mode has been removed from DC/OS Enterprise 1.12. To upgrade a `disabled` mode 1.11 cluster to 1.12, first [patch the 1.11 cluster from disabled to permissive mode](/installing/production/patching/#patching-dcos-111-in-permissive-mode) as a separate step before upgrading from 1.11 to 1.12. [enterprise type="inline" size="small" /]
 
@@ -118,8 +118,19 @@ The following matrix table lists the supported upgrade paths for DC/OS 1.12.
     <th>1.11.7</th>
     <td Align = "center">⚫</td>
    </tr>
+   <tr>
+    <th>1.11.8</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.9</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.10</th>
+    <td Align = "center">⚫</td>
+   </tr>
   </table>
-
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
