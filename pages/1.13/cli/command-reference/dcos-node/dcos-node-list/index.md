@@ -20,6 +20,8 @@ The `dcos node list` command displays a list of DC/OS master and agent nodes wit
 
 You can use this command to look up the public agent IP address if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or on a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
+In most cases, you can use this command to return both the private and public IP addresses for each node. You should keep in mind, however, that the public and private IP addresses returned might not be accurate if the Edge-LB pool uses virtual networks.
+
 # Usage
 
 ```bash
