@@ -40,6 +40,14 @@ dcos node list [OPTION]
 
 # Permissions
 
+Running this command requires your service or user account to have the following administrative permissions:
+<p>
+<code>dcos:adminrouter:ops:mesos full<br>
+dcos:adminrouter:ops:mesos-dns full</code>
+</p>
+
+If you don't have an account with at least these permissions, the command returns an error.
+
 To use this command to return public-facing IP addresses, your service or user account must have the following administrative permission:
 <p>
 <code>dcos:adminrouter:ops:networking full</code>
