@@ -2,7 +2,8 @@
 
 ## Portworx
 
-Portworx solves the operational and data management problems enterprises encounter when running stateful applications on DC/OS. 
+Portworx is integrated with DC/OS to solve the operational and data management problems enterprises encounter when running stateful applications.
+
 Using Portworx volumes, you can:
 
 * Dynamically create volumes for tasks at run time, no more submitting tickets for storage provisioning
