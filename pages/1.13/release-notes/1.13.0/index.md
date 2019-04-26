@@ -316,22 +316,22 @@ In this release, jobs and job schedules are created in two separate steps. Becau
 - job: JSON definition that specifies the job identifier and job configuration details.
 - schedule: JSON definition the specifies the schedule details for the job.
 
-This two-step approach to creating JSON files for jobs is different from previous releases in which jobs and schedules could be created in one step. In previous releases, the job could have its schedule embedded in its JSON file. 
+This two-step approach to creating JSON for jobs is different from previous releases in which jobs and schedules could be created in one step. In previous releases, the job could have its schedule embedded in its JSON configuration. 
 
-If you have an existing JSON file that has an embedded schedule and you want to view or modify that file using the job form JSON editor, you must:
+If you have an existing JSON configuration that has an embedded schedule and you want to view or modify that file using the job form JSON editor, you must:
 1. Add the JSON object as the value for the `job` property in the editor. 
 
-    The job must be formatted according to the [Jobs specification](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/jobspec.schema.json).
+    The job must be formatted according to the latest[Jobs API specification](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/jobspec.schema.json). This API specification (v1) replaces the previous Jobs API specification (v0).
 
-1. Copy the `schedules: [ scheduleJSON ]` from the existing job JSON file and add it **below the job property** as `schedule: scheduleJSON`. 
+1. Copy the `schedules: [ scheduleJSON ]` from the existing job JSON configuration and add it at the same level after the job property as `schedule: scheduleJSON`. 
 
-    The schedule must be formatted according to the [Jobs Schedule specification](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/schedulespec.schema.json). 
+    The schedule must be formatted according to the [Jobs API Schedule specification](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/schedulespec.schema.json). This API specification (v1) replaces the previous Jobs API specification (v0).
     
 1. Verify that the schedule section is not an array.
 
-1. Remove the `schedules` property from the job JSON file.
+1. Remove the `schedules` property from the job's JSON configuration settings.
 
-The following example illustrates the changes required when you have job definition JSON file that includes an embedded schedule.
+The following example illustrates the changes required when you have job definition that includes an embedded schedule.
 
 ```json
 {
