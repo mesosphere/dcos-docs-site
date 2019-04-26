@@ -310,6 +310,131 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
 
+### Using separate JSON files for job scheduling
+In this release, jobs and job schedules are created in two separate steps. Because of this change, you must structure the job definition in the JSON editor in distinct sections similar to this:
+
+- job: JSON definition that specifies the job identifier and job configuration details.
+- schedule: JSON definition the specifies the schedule details for the job.
+
+This two-step approach to creating JSON files for jobs is different from previous releases in which jobs and schedules could be created in one step. In previous releases, the job could have its schedule embedded in its JSON file. 
+
+If you have an existing JSON file that has an embedded schedule and you want to view or modify that file using the job form JSON editor, you must:
+1. Add the JSON object as the value for the `job` property in the editor. 
+
+    The job must be formatted according to the [Jobs specification](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/jobspec.schema.json).
+
+1. Copy the `schedules: [ scheduleJSON ]` from the existing job JSON file and add it **below the job property** as `schedule: scheduleJSON`. 
+
+    The schedule must be formatted according to the [Jobs Schedule specification](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/schedulespec.schema.json). 
+    
+1. Verify that the schedule section is not an array.
+
+1. Remove the `schedules` property from the job JSON file.
+
+The following example illustrates the changes required when you have job definition JSON file that includes an embedded schedule.
+
+```json
+{
+  "id": "test-schedule",
+  "labels": {
+    
+  },
+  "run": {
+    "cpus": 1,
+    "mem": 128,
+    "disk": 0,
+    "gpus": 0,
+    "cmd": "sleep 100",
+    "env": {
+      
+    },
+    "placement": {
+      "constraints": [
+        
+      ]
+    },
+    "artifacts": [
+      
+    ],
+    "maxLaunchDelay": 3600,
+    "volumes": [
+      
+    ],
+    "restart": {
+      "policy": "NEVER"
+    },
+    "secrets": {
+      
+    }
+  },
+  "schedules": [
+    {
+      "id": "test",
+      "cron": "* * * * *",
+      "timezone": "UTC",
+      "startingDeadlineSeconds": 900,
+      "concurrencyPolicy": "ALLOW",
+      "enabled": true,
+      "nextRunAt": "2019-04-26T16:28:00.000+0000"
+    }
+  ],
+  "activeRuns": [
+    
+  ],
+  "history": {
+    "successCount": 0,
+    "failureCount": 0,
+    "lastSuccessAt": null,
+    "lastFailureAt": null,
+    "successfulFinishedRuns": [
+      
+    ],
+    "failedFinishedRuns": [
+      
+    ]
+  }
+}
+```
+
+To add this job definition to the JSON editor, you would modify the existing JSON as follows:
+
+```json
+{
+  "job": {
+    "id": "test-schedule",
+    "labels": {
+    },
+    "run": {
+      "cpus": 1,
+      "mem": 128,
+      "disk": 0,
+      "gpus": 0,
+      "cmd": "sleep 100",
+      "env": {
+      },
+      "placement": {
+        "constraints": [
+        ]
+      },
+      "artifacts": [ ], 
+      "maxLaunchDelay": 3600, 
+      "volumes": [ ], 
+      "restart": { "policy": "NEVER" }, 
+      "secrets": { }
+    }
+  },
+  "schedule": {
+    "id": "test",
+    "cron": "* * * * *",
+    "timezone": "UTC",
+    "startingDeadlineSeconds": 900,
+    "concurrencyPolicy": "ALLOW",
+    "enabled": true,
+    "nextRunAt": "2019-04-26T16:28:00.000+0000"
+  }
+}
+```
+
 ### Deprecated or decommissioned features
 - In DC/OS 1.13, the DC/OS history service has transitioned into the retired state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/1.13/overview/feature-maturity/).
 
