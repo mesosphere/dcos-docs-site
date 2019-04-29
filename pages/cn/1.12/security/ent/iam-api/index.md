@@ -17,7 +17,7 @@ enterprise: true
 
 API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为 `Content-Type`，如下所示。
 
-     Content-Type: application/json
+ Content-Type: application/json
 
 
 # 主机名和基础路径
@@ -30,7 +30,7 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 
 将 `/acs/api/v1` 附加到主机名，如下所示。
 
-    https://<host-ip>/acs/api/v1
+ https://<host-ip>/acs/api/v1
 
 
 # 身份验证和授权
@@ -51,7 +51,7 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 
 ### 通过 DC/OS CLI
 
-使用 `dcos auth login` 登录 [DC/OS CLI](/cn/1.12/cli/) 时，它会在本地存储认证令牌值。您可以在 `curl` 命令中将此值引用为变量（在下一部分中讨论）。
+使用 `dcos auth login` 登录 [DC/OS CLI](/1.12/cli/) 时，它会在本地存储认证令牌值。您可以在 `curl` 命令中将此值引用为变量（在下一部分中讨论）。
 
 或者，您可以使用以下命令获取认证令牌值。
 
@@ -87,13 +87,14 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## 刷新认证令牌
 
-默认情况下，认证令牌在五天后过期。如果您的程序需要运行超过五天，则需要一个服务帐户。有关更多信息，请参阅[配置自定义服务](/cn/1.12/security/ent/service-auth/custom-service-auth/)。
+默认情况下，认证令牌在五天后过期。如果您的程序需要运行超过五天，则需要一个服务帐户。有关更多信息，请参阅[配置自定义服务](/1.12/security/ent/service-auth/custom-service-auth/)。
 
-
-# 日志记录
-
-虽然 API 会返回信息性错误消息，但您也可能会发现检查服务日志很有用。有关说明，请参阅[服务和任务日志记录](/cn/1.12/monitoring/logging/)。
 
 # API 参考
 
 [swagger api='/1.12/api/iam.yaml']
+
+
+# 日志记录
+
+虽然 API 会返回信息性错误消息，但您也可能会发现检查服务日志很有用。有关说明，请参阅[服务和任务日志记录](/1.12/monitoring/logging/)。

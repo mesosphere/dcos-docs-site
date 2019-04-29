@@ -12,13 +12,13 @@ enterprise: true
 
 您可以授予用户访问**Services**选项卡的权限。新用户默认没有权限。
 
-**提示：**此过程可授予访问**Services**选项卡的全部用户权限。如果您希望配置更加细分的用户访问权限，请参阅 [文档](/cn/1.12/deploying-services/service-groups/)。
+**提示：**此过程可授予访问**Services**选项卡的全部用户权限。如果您希望配置更加细分的用户访问权限，请参阅 [文档] (/1.12/deploying-services/service-groups/)。
 
 # <a name="services-access-via-ui"></a>使用 GUI 授予访问权限
 
 **前提条件：**
 
-- 不具有 `dcos:superuser` [权限](/cn/1.12/security/ent/users-groups/) 的 DC/OS 用户账户。
+- 不具有 `dcos:superuser` [权限](/1.12/security/ent/users-groups/) 的 DC/OS 用户账户。
 
 1. 以具有 `dcos:superuser` 权限的用户身份登录 DC/OS GUI。
 
@@ -42,7 +42,7 @@ enterprise: true
 
  图 3. 插入权限字符串
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的 [安全模式](/cn/1.12/security/ent/#security-modes) 选择权限字符串，单击**添加权限**，然后单击**关闭**。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的 [安全模式] 选择权限字符串(/1.12/security/ent/#security-modes)，单击**添加权限**，然后单击**关闭**。
 
 
 ## 宽容
@@ -98,8 +98,8 @@ dcos:mesos:agent:sandbox:app_id read
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/cn/1.12/cli/install/) 并以超级用户登户身份登录。
-- 您必须 [获取根证书](/cn/1.12/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
+- 必须 [安装 DC/OS CLI](/1.12/cli/install/) 并以超级用户登户身份登录。
+- 您必须 [获取根证书](/1.12/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
 
 **提示：**
 
@@ -127,7 +127,7 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
     ```
 
-    <p class="message--note"><strong>提示：</strong> 要向组而不是向用户授予权限，应将 <code>/users/<uid></code> 替换为 <code>/groups/<gid></code>。</p>
+ **提示：** 要向组而不是向用户授予权限，应将 `/users/<uid>` 替换为 `/groups/<gid>`。
 
 ### 授予对 DC/OS 服务任务详细信息和日志的访问权限
 
@@ -153,7 +153,7 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
     ```
 
-    <p class="message--note"><strong>提示：</strong> 要向组而不是向用户授予权限，应将 <code>/users/<uid></code> 替换为 <code>/groups/<gid></code>。</p>
+ **提示：** 要向组而不是向用户授予权限，应将 `/users/<uid>` 替换为 `/groups/<gid>`。
 
 ### 授予对 Services 选项卡中所有服务的访问权限
 
@@ -173,7 +173,7 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F/users/<uid>/full
     ```
 
-    <p class="message--note"><strong>提示：</strong> 要向组而不是向用户授予权限，应将 <code>/users/<uid></code> 替换为 <code>/groups/<gid></code>。</p>
+ **提示：** 要向组而不是向用户授予权限，应将 `/users/<uid>` 替换为 `/groups/<gid>`。
 
 ## 严格
 
@@ -195,7 +195,7 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
     ```
 
-    <p class="message--note"><strong>提示：</strong> 要向组而不是向用户授予权限，应将 <code>/users/<uid></code> 替换为 <code>/groups/<gid></code>。</p>
+ **提示：** 要向组而不是向用户授予权限，应将 `/users/<uid>` 替换为 `/groups/<gid>`。
 
 ### 授予对 DC/OS 服务任务详细信息和日志的访问权限
 
@@ -263,7 +263,7 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:agent:sandbox:app_id/users/<uid>/read
     ```
 
-    <p class="message--note"><strong>提示：</strong>要向组而不是向用户授予权限，应将 <code>/users/<uid></code> 替换为 <coee>/groups/<gid></code>。</p>
+ **提示：** 要向组而不是向用户授予权限，应将 `/users/<uid>` 替换为 `/groups/<gid>`。
 
 ### 授予对 Services 选项卡中所有服务的访问权限
 
@@ -283,4 +283,4 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F/users/<uid>/full
     ```
 
-    <p class="message--note"><strong>提示：</strong> 要向组而不是向用户授予权限，应将 <code>/users/<uid></code> 替换为 <code>/groups/<gid></code>。</p>
+ **提示：** 要向组而不是向用户授予权限，应将 `/users/<uid>` 替换为 `/groups/<gid>`。

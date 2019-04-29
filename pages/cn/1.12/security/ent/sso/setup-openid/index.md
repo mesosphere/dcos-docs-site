@@ -22,7 +22,7 @@ enterprise: true
 
 1. 如果您已经有项目，请单击 **Select a Project**，选择项目，然后单击 **Open**。
 
-    如果您还没有项目，请单击 **Create a project**，在 **Project Name** 框中键入项目名称，选择加入或退出电子邮件通信，接受服务条款，然后单击 **Create**。
+ 如果您还没有项目，请单击 **Create a project**，在 **Project Name** 框中键入项目名称，选择加入或退出电子邮件通信，接受服务条款，然后单击 **Create**。
 
 1. 在 **Credentials** 对话框中，选择 **OAuth client ID**。
 
@@ -38,7 +38,7 @@ enterprise: true
 
 1. 将群集的 URL 粘贴到 **Authorized Javascript origins**框中。示例：`https://jp-ybwutd-elasticl-1r2iui8i0z9b7-1590150926.us-west-2.elb.amazonaws.com`
 
-    如果您的群集前端有负载均衡器（推荐），则群集 URL 将成为负载均衡器的路径。群集 URL 与 DC/OS Web 界面的路径相同，可从浏览器栏复制。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。
+ 如果您的群集前端有负载均衡器（推荐），则群集 URL 将成为负载均衡器的路径。群集 URL 与 DC/OS Web 界面的路径相同，可从浏览器栏复制。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。
 
 1. 也将您的群集 URL 粘贴到 **Authorized redirect URIs** 字段。
 
@@ -70,13 +70,13 @@ enterprise: true
 
 1. 将客户端密钥从 Google 粘贴到 **Client Secret** 字段。
 
-    ![Google IdP 配置](/1.12/img/oidc-google.png)
+ ![Google IdP 配置](/1.12/img/oidc-google.png)
 
-    图 1. Google IdP 配置
+ 图 1. Google IdP 配置
 
-1. 单击 **Submit**。
+11. 单击 **Submit**。
 
-1. 您现在应该在 DC/OS Web 界面中看到新的 IdP。
+12. 您现在应该在 DC/OS Web 界面中看到新的 IdP。
 
 
 ## 验证 IdP
@@ -110,11 +110,11 @@ enterprise: true
 
 1. 您应该看到所列的新用户。
 
-1. 为此用户分配适当的[权限](/cn/1.12/security/ent/perms-reference/)。
+1. 为此用户分配适当的[权限](/1.12/security/ent/perms-reference/)。
 
 ### <a name="using-cli"></a>使用 DC/OS CLI
 
-**先决条件：**[已安装 DC/OS CLI](/cn/1.12/cli/install/)。
+**先决条件：**[已安装 DC/OS CLI](/1.12/cli/install/)。
 
 1. 使用以下命令以新用户身份登录。
 
@@ -134,9 +134,9 @@ enterprise: true
 
 1. 您应该看到类似以下内容的消息。
 
-    ![CLI IdP 认证令牌](/1.12/img/cli-auth-token.png)
+ ![CLI IdP 认证令牌](/1.12/img/cli-auth-token.png)
 
-    图 2. CLI IdP 认证令牌
+ 图 2. CLI IdP 认证令牌
 
 1. 单击 **Copy to clipboard**。
 

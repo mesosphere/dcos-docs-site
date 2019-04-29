@@ -60,14 +60,14 @@ DC/OS 是一种分布式操作系统，使您可以在本地、云或混合群�
 
  这一问题已经被 RunC 社区 (CVE-2019-5736) 通报，并且会影响 Docker 引擎和 Mesosphere Kubernetes 引擎（MKE）容器运行时组件。Apache Mesos 社区也针对 Mesosphere 通用容器运行时间 (UCR) 报告了该问题。所有现有版本的 DC/OS、Mesosphere Kuberentes 引擎和 Docker 引擎都会受此漏洞影响。但是，如果群集使用 `strict` 安全模式运行并使用默认的 `nobody` 用户帐户启动 UCR 容器，则此漏洞不会影响 DC/OS 群集或 UCR 容器。
 
- 有关此漏洞及其对 DC/OS 的影响的更多信息，请参阅 [容器运行时漏洞](https://support.mesosphere.com/s/article/Known-Issue-Container-Runtime-Vulnerability-MSPH-2019-0003)和 [Docker 引擎版本注释](https://docs.docker.com/engine/release-notes/)。
+ 有关此漏洞及其对 DC/OS 的影响的更多信息，请参阅 [容器运行时漏洞] (https://support.mesosphere.com/s/article/Known-Issue-Container-Runtime-Vulnerability-MSPH-2019-0003)和 [Docker 引擎版本注释] (https://docs.docker.com/engine/release-notes/)。
 
 ## 度量标准
 - COPS-3279、COPS-3576、DCOS-37703、DCOS-37703、DCOS-39703 - 此版本更正了在启用 `statsd` 度量标准输入插件时返回的服务端点值和基于服务地址的统计信息。
 
 - DCOS-47301、DCOS_OSS-4688 - 此版本包括一个新的群集配置选项 `enable_mesos_input_plugin`，允许您启用或禁用 Telegraf 的 Mesos 度量标准输入插件。此选项启用后，无需将文件上传到群集中的每个节点即可收集度量标准。
 
- 可以通过在 `config.yaml` 文件中将 `enable_mesos_input_plugin` 选项设置为 `true`，启用输入插件。默认值为 `false`。如果您使用 [Mesosphere 通用安装程序](/cn/1.12/installing/evaluation/)或使用自定义[配置文件](/cn/1.12/installing/production/advanced-configuration/)手动安装，则此配置设置会成为高级配置选项。
+ 可以通过在 `config.yaml` 文件中将 `enable_mesos_input_plugin` 选项设置为 `true`，启用输入插件。默认值为 `false`。如果您使用 [Mesosphere 通用安装程序] (/1.12/installing/evaluation/)或使用自定义[配置文件] (/1.12/installing/production/advanced-configuration/)手动安装，则此配置设置会成为高级配置选项。
 
 - DCOS_OSS-4679 - 已修改 `/containers` 端点的度量标准 API，以包含指定何时收集返回的度量标准的时间戳。时间戳字段用于确定度量标准的年龄，并确保在刷新缓存时确定缓存的度量标准过期并予以删除。时间戳防止度量标准返回误导性的 204 无内容 HTTP 响应。
 
@@ -119,7 +119,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 <a name="jupyter"></a>
 
 ### Mesosphere Jupyter 服务 (MJS)
-- 提供安全的 [云原生 Jupyter](https://docs.mesosphere.com/services/beta-jupyter/)笔记本即服务，使数据科学家能够在弹性 GPU 池上执行分析和分布式机器学习，并可访问大型快速数据服务。
+- 提供安全的 [云原生 Jupyter] (https://docs.mesosphere.com/services/beta-jupyter/)笔记本即服务，使数据科学家能够在弹性 GPU 池上执行分析和分布式机器学习，并可访问大型快速数据服务。
 - 安全连接到 S3 和（Kerberose 授权的）HDFS 上的数据湖和数据集。
 - 支持 GPU 的 Spark 和分布式 TensorFlow。
 - OpenID Connect 身份认证和授权，支持 Windows 集成身份认证（WIA）和活动目录联合服务（ADFS）。
@@ -130,7 +130,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - 引入了具有多种输出格式的灵活且可配置的度量标准管道
 - 增强对应用程序度量标准类型（包括直方图、计数器、计时器和计量器）的支持。
 - 支持提高采样率和多度量标准数据包。
-- Mesos 框架度量标准现在 [可用](http://mesos.apache.org/documentation/latest/monitoring/#frameworks)。
+- Mesos 框架度量标准现在 [可用]（http://mesos.apache.org/documentation/latest/monitoring/#frameworks）。
 - 在 1.11 中通过 Prometheus 终点收集度量标准时，不再需要修改。
 
 <a name="private-reg"></a>
@@ -151,8 +151,8 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - 引入一种统一的基于 Terraform 的开源工具，用于在 AWS、GCP 和 Azure 上配置、部署、安装、升级和停用 DC/OS。
 - 通过快速启动过程实现直观简化的安装，只需 10-15 分钟即可通过几个简单的步骤启动 DC/OS 群集。
 - 正式推荐为 Mesosphere 支持的安装方法，内置最佳实践（即持续升级的顺序管理节点和并行代理节点）。
-- 重组 [Mesosphere 安装文档](https://docs.mesosphere.com/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
-- 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越特定的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
+- 重组 [Mesosphere 安装文档] (https://docs.mesosphere.com/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
+- 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越特定的 [升级路径] (https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
 - 如果已安装可选的 DC/OS 存储服务包，则从 1.12.0 升级到 1.12.1 要求您首先按照 [手动将 DSS 软件包从 0.4.x 升级到 0.5.x](/services/beta-storage/0.5.2-beta/upgrades/) 中提供的说明进行操作。在升级 DC/OS 存储 **之前**，必须将群集节点升级到 1.12.1，以防在升级后发生 Mesos 代理节点崩溃。
 
 <a name="ldap-net"></a>
@@ -161,7 +161,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 ### LDAP 和网络增强功能
 [/enterprise]
 - 匿名 LDAP 绑定符合标准化企业 LDAP 集成模式，无需专用的 DC/OS 集成 LDAP 用户。
-= 动态 LDAP 同步功能自动同步 [LDAP 用户帐户组](https://docs.mesosphere.com/1.12/security/ent/users-groups/)，而无需使用导入 DC/OS 的帐户手动同步 [LDAP 目录](https://docs.mesosphere.com/1.12/security/ent/ldap/)。
+= 动态 LDAP 同步功能自动同步 [LDAP 用户帐户组] (https://docs.mesosphere.com/1.12/security/ent/users-groups/)，而无需使用导入 DC/OS 的帐户手动同步 [LDAP 目录] (https://docs.mesosphere.com/1.12/security/ent/ldap/)。
 - 网络组件增强功能，有 150 多个错误修复，具有受限的可见性记录。
 - 改进了 DNS  聚合时间（亚秒）性能。
 - 可覆盖网络的可配置 MTU。
