@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-#include /cn/include/tutorial-disclaimer.tmpl
+#include /include/tutorial-disclaimer.tmpl
 
 本教程说明如何使用 DC/OS GUI 和 Marathon HTTP API 定义标签，以及如何根据标签值条件查询与正在运行的应用程序和作业有关的信息。
 
@@ -54,9 +54,9 @@ enterprise: false
 
 从 DC/OS GUI 中单击 **Jobs** 选项卡，然后单击作业名称。这将带您进入单独的作业页面。单击右上角的 **Edit**。在“编辑作业”页面左侧，选择 **Labels**。
 
-  ![作业标签](/1.12/img/job-label.png)
+![作业标签](/1.12/img/job-label.png)
 
-  图 1. 分配工作标签
+图 1. 分配工作标签
 
 ## DC/OS CLI
 
@@ -94,14 +94,14 @@ enterprise: false
 您还可以使用 DC/OS CLI 中的 Marathon HTTP API，根据标签值条件查询正在运行的应用程序。
 
 下面的代码片段显示了向 Marathon HTTP API 发出的 HTTP 请求。此示例中使用 curl 程序提交 HTTP GET 请求，但您可以使用任何能够发送 HTTP GET/PUT/DELETE 请求的程序。您可以看到 HTTP 端点是 `https://52.88.210.228/marathon/v2/apps`，以及随 HTTP 请求发送的参数包括标签条件 `?label=COST_CENTER==0001`：
-```bash
+
  curl --insecure \
  > https://52.88.210.228/marathon/v2/apps?label=COST_CENTER==0001 \
  > | python -m json.tool | more
-```
+
 您还可以指定多个标签条件，如下所示：
 
-```bash
+```
 ?label=COST_CENTER==0001,COST_CENTER==0002
 ```
 

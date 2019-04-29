@@ -9,7 +9,7 @@ menuWeight: 2
 本教程指导您在 DC/OS 群集上设置 [Microscaling Systems][2] 的 Microscaling 演示。
 
 
-#include /cn/include/tutorial-disclaimer.tmpl
+#include /include/tutorial-disclaimer.tmpl
 
 [Microscaling][1] 调整计算群集内运行的任务的平衡。
 这允许您的基础架构
@@ -25,7 +25,7 @@ Microscaling 可监控较高优先级任务是否符合性能目标。在本教�
 
 在本教程中，microscaling 可根据 Azure 存储队列中的项目数量调整两个任务（一个高优先级和一个后台）之间的平衡。
 
-![microscaling-queue.png](/cn/1.12/img/microscaling-queue.png)
+![microscaling-queue.png](/1.12/img/microscaling-queue.png)
  
  图 1. - Microscaling 队列
 
@@ -145,7 +145,7 @@ export MSS_MARATHON_API=http://localhost/marathon
 [2]:http://microscaling.com
 [3]:http://azure.microsoft.com
 [4]:https://azure.microsoft.com/en-us/pricing/free-trial/
-[5]: /cn/1.12/installing/
+[5]: /1.12/installing/
 [6]:https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/
 
 [8]:https://www.ruby-lang.org/en/documentation/installation/

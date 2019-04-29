@@ -13,7 +13,7 @@ menuWeight: 2
 
 
 # 先决条件
-到目前为止，您应该已经安装并配置了正在运行的 DC/OS 群集和 DC/OS CLI。如果不是这样，请按照本教程的[第一](/cn/1.12/tutorials/dcos-101/cli/)部分进行操作。
+到目前为止，您应该已经安装并配置了正在运行的 DC/OS 群集和 DC/OS CLI。如果不是这样，请按照本教程的[第一](/1.12/tutorials/dcos-101/cli/)部分进行操作。
 本教程的下一阶段使用 [jq](https://stedolan.github.io/jq/)，一个命令行 JSON 处理器，以简化一些命令。请遵循[此处](https://stedolan.github.io/jq/download/)的说明为操作系统安装 JQ。
 
 # 目的
@@ -23,17 +23,17 @@ menuWeight: 2
  * 安装 Redis
  * 在 Universe 存储库中搜索 Redis 软件包：
 
-    ```bash
-    dcos package search redis
-    ```
+        ```bash
+        dcos package search redis
+        ```
 
-   这应该返回两个条目（mr-redis 和 redis）。
+ 这应该返回两个条目（mr-redis 和 redis）。
 
  * 您想要 `redis` 软件包，它安装单个 Redis 容器。使用此命令安装软件包：
 
-    ```bash
-    dcos package install redis
-    ```
+        ```bash
+        dcos package install redis
+        ```
 
  * 您可以使用以下任何方法检查 Redis 是否正在运行：
  * 通过查看 GUI：Redis 任务应显示在“Service Health”选项卡中，并显示运行状况。
@@ -41,36 +41,36 @@ menuWeight: 2
  * 通过查看所有 Marathon 应用程序：`dcos marathon app list`。此命令将向我们显示所有正在运行 Marathon 应用程序。由于服务是通过 Marathon 启动的，所以您还应该在此处看到 Redis。请注意，此处还显示了运行状况（即 1/1）。
  * 通过查看 Redis 日志：`dcos task log redis`。此命令将向我们显示 redis 任务的日志（`stdout` 和 `stderr`）。这允许您检查实际启动是否成功。您可以使用 `--lines=` 参数增加显示的日志行数；默认值为 10。
  *让我们通过 `redis-cli` 命令手动存储密钥来使用 Redis
- * [SSH](/cn/1.12/administering-clusters/sshcluster/) 进入运行 redis 的节点：
+ * [SSH](/1.12/administering-clusters/sshcluster/) 进入运行 redis 的节点：
 
-    ```bash
-    dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r  '.[] | .slave_id')
-    ```
+        ```bash
+        dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
+        ```
 
  * 因为 Redis 在 Docker 容器中运行，所以您可以使用 `docker ps`列出所有 Docker 容器，并获取运行 Redis 服务的容器的 ContainerID。
  * 在正在运行的容器中启动 bash 会话，将 CONTAINER_ID 替换为您从上一个命令中获得的 ContainerID：
 
-   ```bash
-   sudo docker exec -i -t CONTAINER_ID  /bin/bash
-   ```
+        ```bash
+        sudo docker exec -i -t CONTAINER_ID  /bin/bash
+        ```
 
  * 启动 Redis CLI：
 
-    ```bash
-    redis-cli
-    ```
+        ```bash
+        redis-cli
+        ```
 
  * 设置具有值的密钥：
 
-   ```bash
-   set mykey key1
-   ```
+        ```bash
+        set mykey key1
+        ```
 
  * 检查值是否存在：
 
-   ```bash
-   get mykey
-   ```
+        ```bash
+        get mykey
+        ```
 
 # 结果
  您刚刚从目录中成功安装了第一个服务，并验证它正在运行！
@@ -83,6 +83,6 @@ menuWeight: 2
  1. 经过测试和认证的策划软件包。
  1. 社区贡献的软件包，可能未经过良好测试。
 
- 您还可以添加自己的存储库，其包含您的自定义软件包。有关详细信息，请参阅[文档](/cn/1.12/administering-clusters/repo/)。
+ 您还可以添加自己的存储库，其包含您的自定义软件包。有关详细信息，请参阅[文档](/1.12/administering-clusters/repo/)。
 
-在[下一部分](/cn/1.12/tutorials/dcos-101/app1/) 中，您将部署连接到 Redis 的简单应用程序。
+在[下一部分] (/1.12/tutorials/dcos-101/app1/) 中，您将部署连接到 Redis 的简单应用程序。

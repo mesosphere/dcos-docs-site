@@ -7,14 +7,14 @@ menuWeight: 7
 ---
 
 
-#include /cn/include/tutorial-disclaimer.tmpl
+#include /include/tutorial-disclaimer.tmpl
 
 欢迎阅读 DC/OS 101 教程第 7 部分。
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/cn/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.12/tutorials/dcos-101/cli/)。
-* [`app2`] (/cn/1.12/tutorials/dcos-101/app2/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 群集](/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/1.12/tutorials/dcos-101/cli/)。
+* [`app2`] (/1.12/tutorials/dcos-101/app2/) 已部署并在您的群集中运行。
 
 # 目的
 
@@ -43,7 +43,7 @@ menuWeight: 7
 
 * 以上 `cpus`、`mem`、`disk` 和 `gpus` 参数指定分配的资源，从而定义任务可使用的最大资源量。此数字不一定与任务实际使用的资源量相同。该数字通常较低。
 
-* 您会注意到 [`app1`](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json) 和 [`app2`](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) 应用定义中分配的 ID 以 `/dcos-101/` 为前缀。这定义了应用程序所属的[应用程序组](https://mesosphere.github.io/marathon/docs/application-groups.html)。应用程序组允许将配置和依赖项同时应用于一组应用程序。
+* 您会注意到 [`app1`] (https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json) 和 [`app2`] (https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) 应用定义中分配的 ID 以 `/dcos-101/` 为前缀。这定义了应用程序所属的[应用程序组](https://mesosphere.github.io/marathon/docs/application-groups.html)。应用程序组允许将配置和依赖项同时应用于一组应用程序。
 
 ## 扩展应用程序
 
@@ -89,7 +89,7 @@ menuWeight: 7
     dcos marathon app update /dcos-101/app2 instances=3
     ```
 
-    请注意，这些将逐步应用于现有应用定义。
+ 请注意，这些将逐步应用于现有应用定义。
 
 1. 检查 `app2` 是否已扩展：
     ```
@@ -143,7 +143,7 @@ menuWeight: 7
     dcos marathon app update /dcos-101/app2 instances=100
     ```
 
-    如果您有大型群集，则可能必须增加此数字。
+ 如果您有大型群集，则可能必须增加此数字。
 1. 使用 `dcos marathon app list` 检查 `scale` 部署是否卡住。
     ```
     dcos marathon deployment list
@@ -203,7 +203,7 @@ dcos marathon app update /dcos-101/app2 --force cpus=1
 
 1. 您会看到它一遍又一遍地重新启动……
 
-    检查 Marathon 日志。可能您会在此处看到 Out of Memory 错误，但遗憾的是并非总是如此 - 因为内核正在终止应用程序，这可能不总是对 DC/OS 可见。
+ 检查 Marathon 日志。可能您会在此处看到 Out of Memory 错误，但遗憾的是并非总是如此 - 因为内核正在终止应用程序，这可能不总是对 DC/OS 可见。
 
 1. 通过 SSH 连接到应用程序已在其中运行的代理程序：
 
@@ -217,7 +217,7 @@ dcos marathon app update /dcos-101/app2 --force cpus=1
     journalctl -f _TRANSPORT=kernel
     ```
 
-    此时，您可以看到以下内容：
+ 此时，您可以看到以下内容：
 
     ```
         Memory cgroup out of memory: Kill process 10106 (oomApp) score 925 or sacrifice child; Killed process 10390 (oomApp) total-vm:3744760kB, anon-rss:60816kB, file-rss:1240kB, shmem-rss:0kB`
@@ -242,4 +242,4 @@ dcos marathon app update /dcos-101/app2 --force cpus=1
 
 祝贺您！您已经学习了如何将应用部署到 DC/OS、将这些应用程序联网、使用负载均衡器将它们公开到群集外部、扩展它们以及调试潜在的资源问题！您几乎是专业人士了！
 
-在[下一部分](/cn/1.12/tutorials/dcos-101/loadbalancing/) 中，您将您的应用程序扩展到多个实例，并了解内部和外部服务在应用程序扩展后如何选择使用的实例。
+在[下一部分] (/1.12/tutorials/dcos-101/loadbalancing/) 中，您将您的应用程序扩展到多个实例，并了解内部和外部服务在应用程序扩展后如何选择使用的实例。
