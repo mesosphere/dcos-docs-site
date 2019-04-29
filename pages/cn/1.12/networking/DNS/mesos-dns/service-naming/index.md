@@ -27,7 +27,7 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
 * 此任务的网络容器的 IP 地址（由 Mesos 容器化工具提供）
 
 例如，其他 DC/OS 任务可以发现名为 `search` 的任务的 IP 地址，此任务由 `marathon` 启动以查找 `search.marathon.mesos`：
-```bash
+
  dig search.marathon.mesos
 
  ; <<>> DiG 9.8.4-rpz2+rl005.12-P1 <<>> search.marathon.mesos
@@ -41,9 +41,9 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
 
  ;; ANSWER SECTION:
  search.marathon.mesos. 60 IN A 10.9.87.94
-```
+
 如果启动任务的 Mesos 容器化工具为任务 `search.marathon.mesos` 提供了容器 IP `10.0.4.1`，则查找结果为：
-```bash
+
  dig search.marathon.mesos
 
  ; <<>> DiG 9.8.4-rpz2+rl005.12-P1 <<>> search.marathon.mesos
@@ -57,7 +57,7 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
 
  ;; ANSWER SECTION:
  search.marathon.mesos. 60 IN A 10.0.4.1
-```
+
 除了上面显示的 `<task>.<service>.mesos` 语法之外，Mesos-DNS 还生成 A 记录，其中包含运行任务的代理节点 IP 地址：`<task>.<service>.slave.mesos`。
 
 例如，查询 `search.marathon.slave.mesos` 的 A 记录显示在 `marathon` 服务上运行 `search` 应用程序一个或多个实例的每个代理节点的 IP 地址。
@@ -67,7 +67,7 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
 SRV 记录指定服务的主机名和端口。
 
 对于由名为 `myservice` 的服务启动的名为 `mytask` 的任务，Mesos-DNS 生成一个 SRV 记录 `_mytask._protocol.myservice.mesos`，其中 `protocol` 为 `udp` 或 `tcp`。例如，其他 Mesos 任务可以发现名为 `search` 的任务，此任务由 `marathon` 启动以查询 `_search._tcp.marathon.mesos`：
-```bash
+
  dig _search._tcp.marathon.mesos SRV
 
  ; DiG 9.8.4-rpz2+rl005.12-P1 &lt;&lt;&gt;&gt; _search._tcp.marathon.mesos SRV
@@ -81,7 +81,7 @@ SRV 记录指定服务的主机名和端口。
 
  ;; ANSWER SECTION:
  _search._tcp.marathon.mesos. 60 IN SRV 0 0 31302 10.254.132.41. 
-```
+
 Mesos-DNS 支持使用任务的 DiscoveryInfo 来生成 SRV 记录。在 DC/OS 群集上，代理节点提供端口的方式与 CPU 和内存等其他资源的相同。如果 DiscoveryInfo 不可用，Mesos-DNS 将使用为任务分配的端口。
 
 下表显示了对 SRV 生成适用的规则：
@@ -205,7 +205,11 @@ Mesos-DNS 生成一些特殊记录：
 * 对于每个已知的 DC/OS 管理节点：A 记录 (`master.mesos`)
 * 对于每个已知的 DC/OS 代理节点：A 记录 (`slave.mesos`) 和 SRV 记录 (`_slave._tcp.mesos`)
 
-<p class="message--important"><strong>重要信息：</strong>要查询领导管理节点，应始终查询"leader.mesos"，而不是"master.mesos"。如需更多信息，请参阅 <a href="/cn/1.12/networking/DNS/mesos-dns/troubleshooting/#leader">此 FAQ 条目</a>。</p>
+<table class=“table” bgcolor=#858585>
+<tr> 
+ <td align=justify style=color:white><strong>重要信息：</strong>要查询领导管理节点，应始终查询"leader.mesos"，而不是"master.mesos"。如需更多信息，请参阅 <a href="/1.12/networking/DNS/mesos-dns/troubleshooting/#leader">此 FAQ 条目</a>。</td>
+</tr> 
+</table>
 
 选者新管理节点和更新 Mesos-DNS 中的领导者/管理节点记录之间存在延迟。Mesos-DNS 还支持 Mesos 域的 SOA 和 NS 记录请求。对 Mesos 域中其他类型记录的 DNS 请求将返回 `NXDOMAIN`。Mesos-DNS 不支持反向查找所需的 PTR 记录。Mesos-DNS 还会为自己生成 A 记录，列出了 Mesos-DNS 将答复查找请求的所有 IP 地址。这些 A 记录的主机名是 `ns1.mesos`。
 
@@ -227,7 +231,7 @@ Mesos-DNS 遵循关于名称格式化的 [RFC 1123][3]。用于构建 A 记录�
 
 您可以获得在 DC/OS 群集节点上运行的应用程序的综合列表。
 
-**前提条件：** [DC/OS 和 DC/OS CLI](/cn/1.12/installing/) 已安装。
+**前提条件：** [DC/OS 和 DC/OS CLI](/1.12/installing/) 已安装。
 
 1. SSH 到您的节点。例如，使用以下命令对管理节点执行 [SSH]：
 
@@ -235,15 +239,15 @@ Mesos-DNS 遵循关于名称格式化的 [RFC 1123][3]。用于构建 A 记录�
     dcos node ssh --leader --master-proxy
     ```
 
-   如需更多信息，请参阅 SSH [文档](/cn/1.12/administering-clusters/sshcluster/)。
+ 如需更多信息，请参阅 SSH [文档](/1.12/administering-clusters/sshcluster/)。
 
-1. 从管理节点运行此命令以查看节点详情：
+2. 从管理节点运行此命令以查看节点详情：
 
     ```bash
     curl -H "Authorization: token=<auth-token>" http://<master-ip>/mesos_dns/v1/enumerate
     ```
 
-   此例中，安装了 Kafka 和 Chronos：
+ 此例中，安装了 Kafka 和 Chronos：
 
     ```bash
        curl -H "Authorization: token=<auth-token>" http://<master-ip>/mesos_dns/v1/enumerate
@@ -351,7 +355,7 @@ Mesos-DNS 遵循关于名称格式化的 [RFC 1123][3]。用于构建 A 记录�
 
 
 
- [1]: /cn/1.12/overview/concepts/
- [2]: ../cn/1.12/troubleshooting/#leader
+ [1]: /1.12/overview/concepts/
+ [2]: ../troubleshooting/#leader
  [3]: https://tools.ietf.org/html/rfc1123
  [4]: https://tools.ietf.org/html/rfc952

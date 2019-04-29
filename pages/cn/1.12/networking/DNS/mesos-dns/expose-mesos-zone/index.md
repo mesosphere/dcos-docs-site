@@ -71,7 +71,7 @@ enterprise: false
     @       IN      DNAME   mesos.yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo.dcos.directory.
     ```
 
-    `@` 给区域的最高级取别名，例如 `contoso.com`。
+ `@` 给区域的最高级取别名，例如 `contoso.com`。
 
 - 要给高级域取别名，请在 DNAME 记录中指定该值。此例中，`foo` 的别名为 `foo.contoso.com`：
 

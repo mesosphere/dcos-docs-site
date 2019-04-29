@@ -22,9 +22,9 @@ DC/OS 由 Apache Mesos 提供支持，用作一组计算机的分布式内核，
 
 DC/OS 应用程序用作其分布式用户空间中的系统组件。系统 Marathon 组件对于 DC/OS 是分布式 `init`，但这还包括 Admin Router 服务、Mesos-DNS 服务、Exhibitor，以及用户进程使用的以及管理主节点和代理节点的其他系统范围组件。
 
-有关 DC/OS 更全面的架构描述，请参阅 [DC/OS 架构](/cn/1.12/overview/architecture/)。
+有关 DC/OS 更全面的架构描述，请参阅 [DC/OS 架构](/1.12/overview/architecture/)。
 
-关于更完整的组件讨论，请参阅 [DC/OS 组件](/cn/1.12/overview/architecture/components/)。
+关于更完整的组件讨论，请参阅 [DC/OS 组件](/1.12/overview/architecture/components/)。
 
 ### 为什么选择 DC/OS 而不是 Mesos？
 

@@ -10,7 +10,7 @@ enterprise: false
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-DC/OS 可配合任何类型的容器网络接口 (CNI) 网络使用。使用 CNI 可以让容器在与它们运行所在的主机隔离时相互通信。
+从版本 1.8 开始，DC/OS 可配合任何类型的容器网络接口 (CNI) 网络使用。使用 CNI 可以让容器在与它们运行所在的主机隔离时相互通信。
 
 # 为 CNI 配置群集
 

@@ -37,32 +37,32 @@ VIP 遵循以下命名约定：
 
 ## 创建 VIP
 
-1. 从 DC/OS [GUI](/cn/1.12/gui/)，单击**服务**选项卡，然后单击**运行服务**。
-1. 在**网络**选项卡上，选择**网络类型** > **虚拟网络：dcos**。
-1. 展开**添加服务端点**，为以下内容提供回复：
+1. 从 DC/OS [GUI](/1.12/gui/)，单击**服务**选项卡，然后单击**运行服务**。
+ 1. 在**网络**选项卡上，选择**网络类型** > **虚拟网络：dcos**。
+ 2. 展开**添加服务端点**，为以下内容提供回复：
 
-    - **容器端口**
-    - **服务端点名称**
-    - **端口映射**
-    - **负载均衡服务地址**
+ - **容器端口**
+ - **服务端点名称**
+ - **端口映射**
+ - **负载均衡服务地址**
 
-    在填写这些字段时，Marathon 设置的服务地址将出现在屏幕底部。您可以单击**添加服务端点**，将多个 VIP 分配到您的应用程序。
+ 在填写这些字段时，Marathon 设置的服务地址将出现在屏幕底部。您可以单击**添加服务端点**，将多个 VIP 分配到您的应用程序。
 
-    ![VIP 服务定义](/1.12/img/vip-service-definition.png)
+ ![VIP 服务定义](/1.12/img/vip-service-definition.png)
 
-    图 1. VIP 服务定义屏幕
+ 图 1. VIP 服务定义屏幕
 
-    在图 1 中，客户端可以访问位于 `my-service.marathon.l4lb.thisdcos.directory:5555` 的服务。
+ 在图 1 中，客户端可以访问位于 `my-service.marathon.l4lb.thisdcos.directory:5555` 的服务。
 
-1. 单击**查看和运行**和**运行服务**。
+ 1. 单击**查看和运行**和**运行服务**。
 
-    您可以单击**网络**选项卡，查看服务的网络详情。
+您可以单击**网络**选项卡，查看服务的网络详情。
 
-    ![VIP 输出](/1.12/img/vip-service-definition-output.png)
-    
-    图 2. 服务定义输出
+![VIP 输出](/1.12/img/vip-service-definition-output.png)
+ 
+图 2. 服务定义输出
 
-有关端口配置的更多信息，请参阅 [Marathon 端口文档](/cn/1.12/deploying-services/service-ports/)。
+有关端口配置的更多信息，请参阅 [Marathon 端口文档](/1.12/deploying-services/service-ports/)。
 
 ## 通过 DC/OS 服务使用 VIP
 
@@ -83,26 +83,26 @@ VIP 遵循以下命名约定：
 
 **前提条件：** Kafka 服务和 CLI 必须 [已安装](/services/kafka/)。
 
-运行此命令：
+1. 运行此命令：
 
-  ```bash
-  dcos kafka endpoints broker
-  ```
+    ```bash
+    dcos kafka endpoints broker
+    ```
 
-输出应类似于：
+ 输出应类似于：
 
-  ```json
-  {
-    "address": [
-      "10.0.2.199:9918"
-    ],
-    "zookeeper": "master.mesos:2181/dcos-service-kafka",
-    "dns": [
-      "broker-0.kafka.mesos:9918"
-    ],
-    "vip": "broker.kafka.l4lb.thisdcos.directory:9092"
-  }
-  ```
+    ```json
+    {
+      "address": [
+        "10.0.2.199:9918"
+      ],
+      "zookeeper": "master.mesos:2181/dcos-service-kafka",
+      "dns": [
+        "broker-0.kafka.mesos:9918"
+      ],
+      "vip": "broker.kafka.l4lb.thisdcos.directory:9092"
+    }
+    ```
 您可以用此 VIP 为群集中的任何一个 Kafka 中间人分配地址。
 
 
@@ -112,4 +112,4 @@ VIP 遵循以下命名约定：
 
 数据库等长时间连接的应用程序（如 Postgresql）通常会出现这种情况。若要修复，请尝试开启 keepalive。keepalive 可以是应用程序特定的机制（如心跳），或是 TCP keepalive 等协议中的某些内容。需要有 keepalive，因为负载均衡器无法区分空闲连接或死机连接，原因是数据包在任何一种情况下都不会被发送。默认超时取决于内核配置，但通常为 5 分钟。
 
- [1]: /cn/1.12/deploying-services/service-ports/
+ [1]: /1.12/deploying-services/service-ports/
