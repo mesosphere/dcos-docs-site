@@ -306,7 +306,7 @@ To replace your virtual network, uninstall DC/OS and delete the overlay replicat
 
 The **Networking** tab of the DC/OS web interface provides information helpful for troubleshooting. It contains information about the virtual networks from DC/OS Overlay that a container is associated with and the IP address of the container on that virtual network.
 
-`NOTE: The network tab currently displays information about containers that are associated with virtual networks managed by DC/OS Overlay. It does not have information about containers running on virtual networks managed by any other CNI/CNM provider`.
+<p class="message--note"><strong>NOTE: </strong> The network tab currently displays information about containers that are associated with virtual networks managed by DC/OS Overlay. It does not have information about containers running on virtual networks managed by any other CNI/CNM provider.</p>
 
 <a name="limitations"></a>
 ### Limitations
