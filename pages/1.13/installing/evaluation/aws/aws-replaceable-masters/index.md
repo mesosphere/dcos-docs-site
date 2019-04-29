@@ -59,7 +59,7 @@ module "dcos" {
 
   dcos_variant              = "ee"
   dcos_version              = "1.12.3"
-  dcos_license_key_contents = "${file("~/license.txt")}"
+  dcos_license_key_contents = "${file("./license.txt")}"
 
   with_replaceable_masters = true
 }
