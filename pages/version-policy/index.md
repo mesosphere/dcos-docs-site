@@ -288,7 +288,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Confluent-ZooKeeper 2.3.x-4.1.3e</td>
+        <td>Confluent-ZooKeeper 2.5.x-4.1.3e</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
