@@ -43,7 +43,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 # 创建 DC/OS 群集堆栈 
 
-[enterprise]
+[企业]
 ## Enterprise 用户 
 [/enterprise]
 
@@ -51,20 +51,20 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 1. 单击 **创建堆栈**。
 
-2. 在 **选择模板** 页面的**选择模板**字段，单击 **指定 Amazon S3 模板 URL** 单选按钮，然后将销售发送的模板 URL 粘贴进去。
+1. 在 **选择模板** 页面的**选择模板**字段，单击 **指定 Amazon S3 模板 URL** 单选按钮，然后将销售发送的模板 URL 粘贴进去。
 
-<p class="message--important"><strong>警告：</strong>请勿单击 <strong>查看/编辑设计程序中的模板</strong> 链接并编辑模板。DC/OS 模板是为运行 DC/OS 配置的。如果修改模板，您可能无法在 DC/OS 群集上运行某些包。</p>
+    <p class="message--important"><strong>警告：</strong>请勿单击 <strong>查看/编辑设计程序中的模板</strong> 链接并编辑模板。DC/OS 模板是为运行 DC/OS 配置的。如果修改模板，您可能无法在 DC/OS 群集上运行某些包。</p>
 
 
-![Launch stack](/1.12/img/dcos-aws-step2b.png)
+    ![Launch stack](/1.12/img/dcos-aws-step2b.png)
 
-图 1. 启动堆栈
+    图 1. 启动堆栈
 
-3. 单击 **Next**。
+1. 单击 **Next**。
 
-4. 在 **指定详情** 页面指定群集名称（`Stack name`）、密钥对（`KeyName`）、公共代理（`PublicSlaveInstanceCount`）和专用代理（`SlaveInstanceCount`）。单击 **Next**。创建群集后，根据您安装的 DC/OS 服务，可能需要更改代理节点数。如需更多信息，请参阅 [在 AWS 中扩展 DC/OS 群集][1]。
+1. 在 **指定详情** 页面指定群集名称（`Stack name`）、密钥对（`KeyName`）、公共代理（`PublicSlaveInstanceCount`）和专用代理（`SlaveInstanceCount`）。单击 **Next**。创建群集后，根据您安装的 DC/OS 服务，可能需要更改代理节点数。如需更多信息，请参阅 [在 AWS 中扩展 DC/OS 群集][1]。
 
-5. 跳过开源用户部分，转到第 6 步。
+1. 跳过开源用户部分，转到第 6 步。
 
 ![Create stack](/1.12/img/dcos-aws-step2c-ee.png)
 
@@ -80,7 +80,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
     ![Launch stack](/1.12/img/dcos-aws-step2b.png)
 
-   图 3. 启动堆栈
+    图 3. 启动堆栈
 
 1. 在 **指定详情** 页面指定群集名称（`Stack name`）、密钥对（`KeyName`）、是否启用 OAuth 身份认证（`OAuthEnabled`）、公共代理节点数（`PublicSlaveInstanceCount`）、专用代理节点数（`SlaveInstanceCount`），然后单击 **下一步**。
 
@@ -89,9 +89,9 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 1. 转到“所有用户”部分的第 6 步。
 
-   ![Create stack](/1.12/img/dcos-aws-step2c.png)
+    ![Create stack](/1.12/img/dcos-aws-step2c.png)
 
-   图 4. 创建堆栈
+    图 4. 创建堆栈
 
 ## 所有用户
 1. 在 **选项** 页面，接受默认值，然后单击 **下一步**。在“高级”部分，您可以选择是否退回查看故障。默认情况下，此选项设置为 **是**。

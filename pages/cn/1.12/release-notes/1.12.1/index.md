@@ -119,7 +119,7 @@ Admin Router
 
 - DCOS-45196 - 可以通过 `config.yaml` 文件设置 `push_ops_timeout` 配置选项。
 
-[enterprise]
+[企业]
 ## 安全
 [/enterprise]
 - DCOS-21998、DCOS-44367 - 您可以使用基于 RSA 的自定义 CA 证书安装 DC/OS 群集节点，该证书使用弹性云（EC）签名。以前，使用基于 EC 的可信私钥签名的自定义 CA 证书会生成传输安全层（TLS）安全警报。
@@ -165,7 +165,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - Mesos 框架度量标准现在 [可用](http://mesos.apache.org/documentation/latest/monitoring/#frameworks)。
 - 在 1.11 中通过 Prometheus 终点收集度量标准时，不再需要修改。
 
-[enterprise]
+[企业]
 ### 专用包注册表
 [/enterprise]
 - 已启用 [本地包分发和管理](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/)。
@@ -182,7 +182,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - 重组 [Mesosphere 安装文档](https://docs.mesosphere.com/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
 - 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越特定的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
 
-[enterprise]
+[企业]
 ### LDAP 和网络增强功能
 [/enterprise]
 - 匿名 LDAP 绑定符合标准化企业 LDAP 集成模式，无需专用的 DC/OS 集成 LDAP 用户。

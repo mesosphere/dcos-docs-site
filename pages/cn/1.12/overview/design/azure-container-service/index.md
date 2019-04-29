@@ -6,9 +6,9 @@ navigationTitle: ACS
 menuWeight: 2
 ---
 
-[Azure 容器服务](https://azure.microsoft.com/documentation/articles/container-service-deployment/) 是对已优化 DC/OS 的参考实现，以充分利用 Microsoft Azure 基础架构的特性。如果您已拥有 Azure 帐户，则可以通过 [创建 Azure 容器服务群集](https://aka.ms/acscreate)，尝试参考实现在 Microsoft Azure 上构建的 DC/OS。（若没有账户，请首先获得 [免费 Azure 试用帐户](https://azure.microsoft.com/pricing/free-trial/)。）
+[Azure 容器服务](https://azure.microsoft.com/documentation/articles/container-service-deployment/) 是对已优化 DC/OS 的参考实现，以充分利用 Microsoft Azure 基础架构的特性。如果您已拥有 Azure 帐户，则可以通过 [创建 Azure 容器服务群集]，尝试参考实现在 Microsoft Azure 上构建的 DC/OS(https://aka.ms/acscreate)。（若没有账户，请首先获得 [免费 Azure 试用帐户](https://azure.microsoft.com/pricing/free-trial/)。）
 
-<p class="message--note"><strong>注意：</strong> Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即便是使用 Microsoft Azure 时。</p>
+**注意：** Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即便是使用 Microsoft Azure 时。
 
 本文档介绍了：
 
@@ -91,7 +91,7 @@ Azure 容器服务实现为您带来了其他好处：
 
 ![使用 DC/OS 的 Azure 容器服务架构。](/1.12/img/dcos-acs.png)
 
-图 1 - 使用 DC/OS 的 Azure 容器服务架构
+*图 1 - 使用 DC/OS 的 Azure 容器服务架构*
 
 ## DC/OS 组件列表
 

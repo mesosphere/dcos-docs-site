@@ -53,7 +53,7 @@ DC/OS 安装会创建以下文件夹：
     ```bash
     mkdir -p genconf
     ```
-[enterprise]
+[企业]
 # <a name="license"></a>存储许可证文件
 [/enterprise]
 1. 创建 [许可证文件](/1.12/administering-clusters/licenses/)（包含您的授权支持联系人发送的电子邮件中提供的许可文本）并另存为 `genconf/license.txt`。
@@ -66,45 +66,45 @@ DC/OS 安装会创建以下文件夹：
 
 <p class="message--note"><strong>注意：</strong>脚本必须返回与 <code>config.yaml</code> 中指定的相同 IP 地址。例如，如果将 <code>config.yaml</code> 中的专用管理节点 IP 指定为 <code>10.2.30.4</code>，您的脚本在管理节点上运行时应返回相同的值。</p>
 
-1. 为您的环境创建 IP 检测脚本，并另存为 `genconf/ip-detect`。此脚本需要 `UTF-8` 编码并具备有效的 [shebang](https://en.wikipedia.org/wiki/Shebang_Unix) 行。可以使用以下示例。
+1. 为您的环境创建 IP 检测脚本，并另存为 `genconf/ip-detect`。此脚本需要 `UTF-8` 编码并具备有效的 [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix) 行。可以使用以下示例。
 
  * #### 使用 AWS 元数据服务器
 
-   此方法使用 AWS 元数据服务获取 IP 地址：
+ 此方法使用 AWS 元数据服务获取 IP 地址：
 
-   ```bash
-   #!/bin/sh
-   # Example ip-detect script using an external authority
-   # Uses the AWS Metadata Service to get the node's internal
-   # ipv4 address
-   curl -fsSL http://169.254.169.254/latest/meta-data/local-ipv4
-   ```
+        ```bash
+        #!/bin/sh
+        # Example ip-detect script using an external authority
+        # Uses the AWS Metadata Service to get the node's internal
+        # ipv4 address
+        curl -fsSL http://169.254.169.254/latest/meta-data/local-ipv4
+        ```
 
  * #### 使用 GCE 元数据服务器
 
-   此方法使用 GCE 元数据服务器获取 IP 地址：
+ 此方法使用 GCE 元数据服务器获取 IP 地址：
 
-    ```bash
-    #!/bin/sh
-    # Example ip-detect script using an external authority
-    # Uses the GCE metadata server to get the node's internal
-    # ipv4 address
+        ```bash
+        #!/bin/sh
+        # Example ip-detect script using an external authority
+        # Uses the GCE metadata server to get the node's internal
+        # ipv4 address
 
-    curl -fsSl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/ip
-    ```
+        curl -fsSl -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/network-interfaces/0/ip
+        ```
 
  * #### 使用现有接口的 IP 地址
 
-   此方法发现节点特定接口的 IP 地址。
+ 此方法发现节点特定接口的 IP 地址。
 
-   如果有带有不同内部 IP 地址的多代硬件，可以在主机之间更改接口名称。IP 检测脚本必须考虑接口名称更改。如果将多个 IP 地址连接到同一个接口，或建立复杂的 Linux 网络等，则也会混淆示例脚本。
+ 如果有带有不同内部 IP 地址的多代硬件，可以在主机之间更改接口名称。IP 检测脚本必须考虑接口名称更改。如果将多个 IP 地址连接到同一个接口，或建立复杂的 Linux 网络等，则也会混淆示例脚本。
 
-    ```bash
-     #!/usr/bin/env bash
-     set -o nounset -o errexit
-     export PATH=/usr/sbin:/usr/bin:$PATH
-     echo $(ip addr show eth0 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
-     ```
+        ```bash
+        #!/usr/bin/env bash
+        set -o nounset -o errexit
+        export PATH=/usr/sbin:/usr/bin:$PATH
+        echo $(ip addr show eth0 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
+        ```
 
  * #### 使用 Mesos 管理节点的网络路由
 
@@ -147,7 +147,7 @@ BEGIN { ec = 1 }
     echo $INTERFACE_IP
 ```
 
-[enterprise]
+[企业]
 # 创建故障域检测脚本
 [/enterprise]
 
@@ -156,7 +156,7 @@ DC/OS 群集默认启用 [故障域意识](/1.12/deploying-services/fault-domain
 
 1. 创建名为 `fault-domain-detect` 的故障域检测脚本，在每个节点上运行，以检测节点的故障域。安装过程中此脚本的输出被传递到 Mesos。
 
-   脚本输出的推荐格式为：
+ 脚本输出的推荐格式为：
 
     ```json
     {
@@ -171,12 +171,12 @@ DC/OS 群集默认启用 [故障域意识](/1.12/deploying-services/fault-domain
     }
     ```
 
-   我们提供 [AWS 和 Azure 节点的故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的群集，可将两者组合为一个脚本。可以使用这些模型为本地群集创建故障域检测脚本。
+ 我们提供 [AWS 和 Azure 节点的故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的群集，可将两者组合为一个脚本。可以使用这些模型为本地群集创建故障域检测脚本。
 
-   <p class="message--important"><strong>重要信息：</strong>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</p>
+ <p class="message--important"><strong>重要信息：</strong>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</p>
 
 
-1. 添加新创建的 `fault-domain-detect` 脚本到 bootstrap 节点的 `/genconf` 目录。
+2. 添加新创建的 `fault-domain-detect` 脚本到 bootstrap 节点的 `/genconf` 目录。
 
 
 # 创建配置文件
@@ -196,7 +196,7 @@ DC/OS 群集默认启用 [故障域意识](/1.12/deploying-services/fault-domain
     sudo bash dcos_generate_config.ee.sh --hash-password <superuser_password>
     ```
 
-   以下是散列密码输出的示例。
+ 以下是散列密码输出的示例。
 
     ```
     Extracting an image from this script and loading it into a docker daemon, can take a few minutes.
@@ -208,7 +208,7 @@ DC/OS 群集默认启用 [故障域意识](/1.12/deploying-services/fault-domain
     ```
 
 ## 创建配置 
- 创建配置文件并另存为 `genconf/config.yaml`。可以使用此模板开始创建。
+1. 创建配置文件并另存为 `genconf/config.yaml`。可以使用此模板开始创建。
 
 Enterprise 指定三个Mesos 管理节点、静态管理节点发现列表、Exhibitor 的内部存储后端、一个自定义代理、指定的安全模式，以及云专用的 DNS 解析器。[enterprise type="inline" size="small" /]
 
@@ -220,7 +220,7 @@ Enterprise 指定三个Mesos 管理节点、静态管理节点发现列表、Exh
 <p class="message--note"><strong>注意：</strong>- 如果您指定 <code>master_discovery: static</code>，则还必须创建脚本，以将内部 IP 映射到 bootstrap 节点上的公共 IP（例如，<code>genconf/ip-detect-public</code>）。然后，此脚本在 <code>ip_detect_public_filename: " relative-path-from-dcos-generate-config.sh"</code> 中引用。</p>
 <p class="message--note"><strong>注意：</strong>在 AWS 或任何其他无法控制节点的 IP 地址的环境中，都需要设置 master_discovery 才能使用 <code>master_http_load_balancer</code>，并且需要设置负载均衡器。</p>
 
-[enterprise]
+[企业]
 ## Enterprise 模板
 [/enterprise]
 
@@ -289,7 +289,7 @@ enable_ipv6: 'false'
 
 <p class="message--note"><strong>注意：</strong>由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 <code>config.yaml</code> 中将 <code>enable_ipv6</code> 设置为 <code>false</code>。如果已升级到 DC/OS 1.12.x 而没有配置 <code>enable_ipv6</code>，或者 <code>config.yaml</code> 文件设置为 <code>true</code>，请不要添加新节点。</p>
 
-您可以在我们最新重要的 [产品咨询](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 中找到更多信息和更详细的补救流程。[enterprise type="inline" size="small" /]
+您可以在我们最新重要的 [产品咨询] 中找到更多信息和更详细的补救流程(https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302)。[enterprise type="inline" size="small" /]
 <p class="message--important"><strong>重要信息：</strong>必须让以下项目生效才能安装 DC/OS：所有 DC/OS 节点上的 <code>ip-detect script</code>、<code>DNS</code> 和 <code>NTP</code> 均已同步时间。参见<a href="https://docs.mesosphere.com/1.12/installing/troubleshooting/">故障排除</a>，了解更多信息。</p>
 <p class="message--note"><strong>注意：</strong>如果出现问题并且您想重新运行设置，请使用群集<a href="https://docs.mesosphere.com/1.12/installing/production/uninstalling/">卸载</a>说明。</p>
 
@@ -319,32 +319,31 @@ enable_ipv6: 'false'
  * `dcos_generate_config.sh --help` 标记。[oss type="inline" size="small" /]
 
 [enterprise type="inline" size="small" /]
-```bash
+
  sudo bash dcos_generate_config.ee.sh
- ```
 
 此时，目录结构应类似于：
-```bash
+
  ├── dcos-genconf.c9722490f11019b692-cb6b6ea66f696912b0.tar
  ├── dcos_generate_config.ee.sh
  ├── genconf
  │ ├── config.yaml
  │ ├── ip-detect
  │ ├── license.txt
-```
+
 
 [oss type="inline" size="small" /]
-```bash
+
  sudo bash dcos_generate_config.sh 
-```
+
 此时，目录结构应类似于：
-```bash
+
  ├── dcos-genconf.<HASH>.tar
  ├── dcos_generate_config.sh
  ├── genconf
  │ ├── config.yaml
  │ ├── ip-detect
-```    
+    
    
  - 要使安装脚本生效，必须首先创建 `genconf/config.yaml` 和 `genconf/ip-detect`。
 <a name="nginx-cmd"></a>   
@@ -359,62 +358,62 @@ enable_ipv6: 'false'
 
  * SSH 连接到管理节点。
 
-    ```bash
-    ssh <master-ip>
-    ```
+        ```bash
+        ssh <master-ip>
+        ```
  * 创建并导航至新目录。
 
-    ```bash
-    mkdir /tmp/dcos && cd /tmp/dcos
-    ```
+        ```bash
+        mkdir /tmp/dcos && cd /tmp/dcos
+        ```
 
  * 在 NGINX Docker 容器中下载 DC/OS 安装工具，其中 `<bootstrap-ip>` 和 `<your_port>` 在 `bootstrap_url`中指定。
 
-   ```bash
-    curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
-    ```
+        ```bash
+        curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
+        ```
 
  * 运行以下命令，在管理节点上安装 DC/OS。
 
-    ```bash
-    sudo bash dcos_install.sh master
-    ```
+        ```bash
+        sudo bash dcos_install.sh master
+        ```
 
-   <p class="message--note"><strong>注意：</strong>直到所有管理节点都设置完毕，DC/OS 可能会发出多个错误消息，尽管这对群集 DC/OS 没有实际损害。</p>
+ <p class="message--note"><strong>注意：</strong>直到所有管理节点都设置完毕，DC/OS 可能会发出多个错误消息，尽管这对群集 DC/OS 没有实际损害。</p>
 
 4. <A name="slaveinstall"></A>在每个代理节点上运行以下命令，使用自定义构建文件安装 DC / OS：
 
  * SSH 连接到代理节点。
 
-    ```bash
-    ssh <agent-ip>
-    ```
+        ```bash
+        ssh <agent-ip>
+        ```
 
  * 创建并导航至新目录。
 
-    ```bash
-    mkdir /tmp/dcos && cd /tmp/dcos
-    ```
+        ```bash
+        mkdir /tmp/dcos && cd /tmp/dcos
+        ```
 
  * 在 NGINX Docker 容器中下载 DC/OS 安装工具，其中 `<bootstrap-ip>` 和 `<your_port>` 在 `bootstrap_url`中指定。
 
-    ```bash
-    curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
-    ```
+        ```bash
+        curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
+        ```
 
  * 运行此命令，在代理节点上安装 DC/OS。您必须将代理节点指定为 [公共代理节点][2] 或 [专用代理节点][3]。
 
  * 专用代理节点：
 
-    ```bash
-     sudo bash dcos_install.sh slave
-    ```
+            ```bash
+            sudo bash dcos_install.sh slave
+            ```
 
  * 公共代理节点：
 
-   ```bash
-    sudo bash dcos_install.sh slave_public
-    ```
+            ```bash
+            sudo bash dcos_install.sh slave_public
+            ```
 
  __注意：__ 如果遇到错误（例如在 journald 中的 `Time is marked as bad`、`adjtimex` 或 `Time not in sync`），请验证是否在所有节点都启用了网络时间协议 (NTP)。如需更多信息，请参阅 [系统要求](/1.12/installing/ent/custom/system-requirements/#port-and-protocol) 文档。
 
