@@ -10,7 +10,6 @@ ARG algolia_project_id
 ARG algolia_public_key
 ARG algolia_private_key
 ARG algolia_index
-ARG algolia_clear_index
 ARG algolia_skip_sections
 ARG metalsmith_skip_sections
 
