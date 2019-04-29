@@ -103,7 +103,7 @@ To create the remote region and its infrastructure we will use the same underlyi
 locals {
   ssh_public_key_file       = "~/.ssh/id_rsa.pub"
   cluster_name              = "my-dcos-demo"
-  admin_ips           = ["${data.http.whatismyip.body}/32"]
+  admin_ips                 = ["${data.http.whatismyip.body}/32"]
 }
 
 #...
@@ -156,7 +156,7 @@ locals {
     "usw2"   = "10.128.0.0/16"
   }
 
-  accepted_internal_networks = ["${values(local.region_networks)}"]
+  accepted_internal_networks = "${values(local.region_networks)}"
 }
 
 #...
@@ -184,7 +184,7 @@ module "dcos-usw2" {
   name_prefix = "usw2"
 
   cluster_name               = "${local.cluster_name}"
-  accepted_internal_networks = "${local.accepted_internal_networks}"
+  accepted_internal_networks = "${values(local.region_networks)}"
 
   num_masters        = 0
   num_private_agents = 1
@@ -215,14 +215,14 @@ Here is the example vpc-peering-section
 
 module "vpc-connection-master-usw2" {
   source  = "dcos-terraform/vpc-peering/aws" // module init the peering
-  version = "~> 0.2.0"
+  version = "~> 1.0.0"
 
   providers = {
     "aws.local"  = "aws.master"
     "aws.remote" = "aws.usw2"
   }
 
-  local_vpc_id        = "${module.dcos.infrastructure.vpc_id}"
+  local_vpc_id        = "${module.dcos.infrastructure.vpc.id}"
   local_subnet_range  = "${local.region_networks["master"]}"
   remote_vpc_id       = "${module.dcos-usw2.vpc.id}"
   remote_subnet_range = "${local.region_networks["usw2"]}"
@@ -238,7 +238,7 @@ In general this change is not needed but we wanted to make your example pretty s
 
 2. add `accepted_internal_networks`
 Same as in the remote region we need to specify the internal networks to allow internal traffic flow.
-`accepted_internal_networks = "${local.accepted_internal_networks}"`
+`accepted_internal_networks = "${values(local.region_networks)}"`
 
 3. change `cluster_name`
 As this is a shared resource we will make use of the local variable
@@ -291,11 +291,11 @@ module "dcos" {
   private_agents_instance_type = "t2.medium"
   public_agents_instance_type = "t2.medium"
 
-  accepted_internal_networks = "${local.accepted_internal_networks}"
+  accepted_internal_networks = "${values(local.region_networks)}"
   additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]
 
   providers = {
-    aws = "aws"
+    aws = "aws.master"
   }
 
   dcos_variant              = "ee"
@@ -330,8 +330,6 @@ locals {
     "master" = "172.16.0.0/16" // this is the default
     "usw2"   = "10.128.0.0/16"
   }
-
-  accepted_internal_networks = ["${values(local.region_networks)}"]
 }
 
 module "dcos" {
@@ -340,7 +338,7 @@ module "dcos" {
 
   cluster_name        = "local.cluster_name"
   ssh_public_key_file = "local.ssh_public_key_file"
-  admin_ips           = ["${local.admin_ips}"`]
+  admin_ips           = ["${local.admin_ips}"]
   subnet_range        = "${local.region_networks["master"]}"
 
   num_masters        = "1"
@@ -355,11 +353,11 @@ module "dcos" {
   private_agents_instance_type = "t2.medium"
   public_agents_instance_type = "t2.medium"
 
-  accepted_internal_networks = "${local.accepted_internal_networks}"
+  accepted_internal_networks   = "${values(local.region_networks)}"
   additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]
 
   providers = {
-    aws = "aws"
+    aws = "aws.master"
   }
 
   dcos_variant              = "ee"
@@ -391,7 +389,7 @@ module "dcos-usw2" {
   name_prefix = "usw2"
 
   cluster_name               = "${local.cluster_name}"
-  accepted_internal_networks = "${local.accepted_internal_networks}"
+  accepted_internal_networks = "${values(local.region_networks)}"
 
   num_masters        = 0
   num_private_agents = 1
@@ -410,14 +408,14 @@ module "dcos-usw2" {
 
 module "vpc-connection-master-usw2" {
   source  = "dcos-terraform/vpc-peering/aws" // module init the peering
-  version = "~> 0.2.0"
+  version = "~> 1.0.0"
 
   providers = {
     "aws.local"  = "aws.master"
     "aws.remote" = "aws.usw2"
   }
 
-  local_vpc_id        = "${module.dcos.infrastructure.vpc_id}"
+  local_vpc_id        = "${module.dcos.infrastructure.vpc.id}"
   local_subnet_range  = "${local.region_networks["master"]}"
   remote_vpc_id       = "${module.dcos-usw2.vpc.id}"
   remote_subnet_range = "${local.region_networks["usw2"]}"
