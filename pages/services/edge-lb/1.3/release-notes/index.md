@@ -7,6 +7,45 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 enterprise: false
 ---
 
+# Release Notes for Edge-LB Service version 1.3.1
+Edge-LB Service version 1.3.1 was released April 29, 2019.
+
+# Noteworthy Changes
+
+- Support for Mesos health check in forming the list of active backends
+- Edge-LB artifacts as .dcos bundle
+- Bump SDK version from 0.55.2 to 0.55.4
+- Update Haproxy to 1.9.4
+- Fixes issue with dynamic Frontend ports
+- Display frontend name in dcos edgelb endpoints
+- Stability and scalability related improvements in dcos-template and mesos-listener
+- More tests coverage and improvements in existing integration tests
+
+# Features
+
+- Create .dcos package for Edge-LB
+- Update haproxy to 1.9.4
+
+# Bug Fixes
+
+- DCOS-45719 - Edge-LB routes traffic until the first failed health check
+- DCOS-47839 - User should specify either Edge-LB pool frontend `name` or `port`
+- DCOS-44077 - Mesos listener tests coverage improvements and refactorings
+- DCOS-51865 - Improvements in Edge-LB CI
+- DCOS-48059 - task status in pod info is null but the task is right there
+- DCOS-46502 - validate regular expression from user input
+- DCOS-48132 - Get 503 errors on a EdgeLB pool when another pool is updated 
+
+# Known Limitations
+
+- Edge-LB currently does not support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
+
+# Known Issues
+
+- The steps provided in the DC/OS 1.10 web interface to uninstall Edge-LB are incorrect. In order to correctly uninstall Edge-LB for any given DC/OS version, please follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.3/uninstalling/).
+- Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with `ext4` may have connection issues.
+- If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
+
 # Release Notes for Edge-LB Service version 1.3.0
 Edge-LB Service version 1.3.0 was released February 6, 2019.
 
