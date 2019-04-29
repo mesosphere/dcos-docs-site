@@ -10,7 +10,7 @@ excerpt: 使用“服务”菜单
 
 ![Services](/1.12/img/services-ee.png)
 
-图 1. 服务选项卡
+<p>图 1. 服务选项卡</p>
 
 默认显示所有服务，并按服务名称排序。也可以按运行状况、版本、区域、实例、CPU、磁盘空间或 GPU 的使用情况对服务进行排序。
 
@@ -28,13 +28,9 @@ excerpt: 使用“服务”菜单
 
 ![Instances](/1.12/img/services-instances-panel.png)
 
-图 2. 实例面板
+<p>图 2. 实例面板</p>
 
-对于带有 Web 界面的服务，将鼠标悬停在服务名称上并单击 
-
-![open service](/1.12/img/open-service.png) 
-
-查看服务。可以在 `<hostname>/mesos` 访问 Mesos Web 界面。
+对于带有 Web 界面的服务，将鼠标悬停在服务名称上并单击 ![open service](/1.12/img/open-service.png) 查看服务。可以在 `<hostname>/mesos` 访问 Mesos Web 界面。
 
 # 服务状态
 

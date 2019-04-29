@@ -16,19 +16,19 @@ menuWeight: 5
 
 # 安装 Terraform
 
-访问 [Terraform 下载页](https://www.terraform.io/downloads.html)，获得适用于 Linux、macOS 和 Windows 的捆绑安装和支持。
+1. 访问 [Terraform 下载页](https://www.terraform.io/downloads.html)，获得适用于 Linux、macOS 和 Windows 的捆绑安装和支持。
 
-如果您在安装了 [Homebrew](https://brew.sh/) 的 Mac 环境中，只需运行以下命令：
+ 如果您在安装了 [Homebrew](https://brew.sh/) 的 Mac 环境中，只需运行以下命令：
 
-  ```bash
-  brew install terraform
-  ```
+    ```bash
+    brew install terraform
+    ```
 
-已安装 [Chocolatey](https://chocolatey.org/docs/installation) 的 Windows 用户，请运行：
+ 已安装 [Chocolatey](https://chocolatey.org/docs/installation) 的 Windows 用户，请运行：
 
-  ```bash
-  choco install terraform -y
-  ```
+    ```bash
+    choco install terraform -y
+    ```
 
 # 安装和配置 Azure CLI
 
@@ -46,7 +46,7 @@ menuWeight: 5
     az login
     ```
 
-    遵循任何指示，包括从浏览器登录，以启用 CLI。
+ 遵循任何指示，包括从浏览器登录，以启用 CLI。
 
 1. 您可以通过列出您的帐户权限来确保登录：
 
@@ -54,9 +54,9 @@ menuWeight: 5
     az account
     ```
 
-    这将返回如下内容：
+ 这将返回如下内容：
     ```bash
-    az account
+    $ az account
     [
       {
         "cloudName": "AzureCloud",
@@ -79,13 +79,13 @@ menuWeight: 5
     export ARM_SUBSCRIPTION_ID="desired-subscriptionid"
     ```
 
-    例如：
+ 例如：
 
     ```bash
     export ARM_SUBSCRIPTION_ID="12345678-abcd-efgh-9876-abc123456789"
     ```
 
-    确保设置完毕：
+ 确保设置完毕：
 
     ```bash
     echo $ARM_SUBSCRIPTION_ID
@@ -95,36 +95,36 @@ menuWeight: 5
 
 1. Terraform 使用 SSH 密钥对，安全地连接到它创建的群集。如果您已经有了一个密钥对，并已添加到您的 SSH 代理，则可以跳过此步骤。
 
-    这将开始创建您的密钥对的交互式过程。将会要求您输入用来存储密钥的位置。例如，要在您的 `.ssh` 目录中设置新的密钥对：
+ 这将开始创建您的密钥对的交互式过程。将会要求您输入用来存储密钥的位置。例如，要在您的 `.ssh` 目录中设置新的密钥对：
 
-      ```bash
-      ssh-keygen -t rsa
-      ```
+    ```bash
+    ssh-keygen -t rsa
+    ```
 
-    完整的流程看起来像这样：
+ 完整的流程看起来像这样：
 
-      ```bash
-      Generating public/private rsa key pair.
-      Enter file in which to save the key (/Users/<your-username>/.ssh/id_rsa): ~/.ssh/arm-demo-key
-      Enter passphrase (empty for no passphrase):
-      Enter same passphrase again:
-      Your identification has been saved in /Users/<your-username>/.ssh/arm-demo-key.
-      Your public key has been saved in /Users/<your-username>/.ssh/arm-demo-key.
-      The key fingerprint is:
-      4a:dd:0a:c6:35:4e:3f:ed:27:38:8c:74:44:4d:93:67 your-email@here
-      The key's randomart image is:
-      +--[ RSA 2048]----+
-      |          .oo.   |
-      |         .  o.E  |
-      |        + .  o   |
-      |     . = = .     |
-      |      = S = .    |
-      |     o + = +     |
-      |      . o + o .  |
-      |           . o   |
-      |                 |
-      +-----------------+
-      ```
+    ```bash
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (/Users/<your-username>/.ssh/id_rsa): ~/.ssh/arm-demo-key
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
+    Your identification has been saved in /Users/<your-username>/.ssh/arm-demo-key.
+    Your public key has been saved in /Users/<your-username>/.ssh/arm-demo-key.
+    The key fingerprint is:
+    4a:dd:0a:c6:35:4e:3f:ed:27:38:8c:74:44:4d:93:67 your-email@here
+    The key's randomart image is:
+    +--[ RSA 2048]----+
+    |          .oo.   |
+    |         .  o.E  |
+    |        + .  o   |
+    |     . = = .     |
+    |      = S = .    |
+    |     o + = +     |
+    |      . o + o .  |
+    |           . o   |
+    |                 |
+    +-----------------+
+    ```
 
 1. 将密钥添加到您的 SSH 代理。例如，在 macOS 上：
 
@@ -221,17 +221,17 @@ menuWeight: 5
 
 1. 此示例配置文件将使您开始安装具有以下节点的开源 DC/OS 1.12 群集：
 
-    - 1 个管理节点
-    - 2 个专用代理
-    - 1 个公共代理
+ - 1 个管理节点
+ - 2 个专用代理
+ - 1 个公共代理
 
-    如果您想更改群集名称或改变管理/代理节点数量，也可以调整这些值。群集名称必须唯一，包含字母数字字符、'-'、'_' 或 '.'，开头和结尾均为字母数字字符，且不超过 24 个字符。您可以在此查阅其他 [输入变量及其描述](/cn/1.12/installing/evaluation/azure/advanced-azure/)。
+ 如果您想更改群集名称或改变管理/代理节点数量，也可以调整这些值。群集名称必须唯一，包含字母数字字符、'-'、'_' 或 '.'，开头和结尾均为字母数字字符，且不超过 24 个字符。您可以在此查阅其他 [输入变量及其描述](/1.12/installing/evaluation/azure/advanced-azure/)。
 
-    模块下方还列出一些简单的助手工具，可找到您的公共 IP，并指定在群集创建完成后应打印以下输出：
+ 模块下方还列出一些简单的助手工具，可找到您的公共 IP，并指定在群集创建完成后应打印以下输出：
 
-    - `master-ips` 您的 DC/OS 管理节点列表
-    - `cluster-address` 在设置群集后用来访问 DC/OS UI 的 URL。
-    - `public-agent-loadbalancer` 您的公共可路由服务的 URL。
+ - `master-ips` 您的 DC/OS 管理节点列表
+ - `cluster-address` 在设置群集后用来访问 DC/OS UI 的 URL。
+ - `public-agent-loadbalancer` 您的公共可路由服务的 URL。
 
 1. 检查您是否已将云提供商和公钥路径插入到 `main.tf`，按需要更改或添加任何其他变量，然后保存并关闭您的文件。
 
@@ -253,7 +253,7 @@ menuWeight: 5
     commands will detect it and remind you to do so if necessary.
     ```
 
-    <p class="message--note"><strong>注意：</strong>如果 terraform 无法连接到您的提供程序，确保您已登录并导出凭据。请参阅 <a href="https://www.terraform.io/docs/providers/azurerm/#creating-credentials">Azure 提供程序</a>说明，了解更多信息。</p>
+ <p class="message--note"><strong>注意：</strong>如果 terraform 无法连接到您的提供程序，确保您已登录并导出凭据。请参阅 <a href="https://www.terraform.io/docs/providers/azurerm/#creating-credentials">Azure 提供程序</a>说明，了解更多信息。</p>
 
 1. 在初始化 Terraform 之后，下一步是运行执行计划并将其保存到静态文件 - 在本例中，即 `plan.out`。
 
@@ -261,15 +261,15 @@ menuWeight: 5
     terraform plan -out=plan.out
     ```
 
-    将我们的执行计划写入文件允许我们将执行计划传递给以下 `apply` 命令，并帮助我们保证计划的准确性。请注意，此文件只能由 Terraform 读取。
+ 将我们的执行计划写入文件允许我们将执行计划传递给以下 `apply` 命令，并帮助我们保证计划的准确性。请注意，此文件只能由 Terraform 读取。
 
-    此后，我们应该看到类似下面的消息，确认我们已成功保存到 `plan.out` 文件。此文件应显示在您的 `dcos-tf-azure-demo` 文件夹中的 `main.tf` 旁边。
+ 此后，我们应该看到类似下面的消息，确认我们已成功保存到 `plan.out` 文件。此文件应显示在您的 `dcos-tf-azure-demo` 文件夹中的 `main.tf` 旁边。
 
       <p align=center>
       <img src="./images/install/terraform-plan.png" />
       </p>
 
-    您每次运行 `terraform plan` 时，输出总是详细列出您的计划将要添加、更改或销毁的资源。由于我们是首次创建 DC/OS 群集，因此输出告诉我们，我们的计划将导致添加 38 件基础设施/资源。
+ 您每次运行 `terraform plan` 时，输出总是详细列出您的计划将要添加、更改或销毁的资源。由于我们是首次创建 DC/OS 群集，因此输出告诉我们，我们的计划将导致添加 38 件基础设施/资源。
 
 1. 下一步是让 Terraform 构建/部署我们的计划。运行以下命令。
 
@@ -277,9 +277,9 @@ menuWeight: 5
     terraform apply plan.out
     ```
 
-    坐下来放松一下，等一等吧！您的 DC/OS 群集的基础架构正在您的注视下创建。这可能需要几分钟。
+ 坐下来放松一下，等一等吧！您的 DC/OS 群集的基础架构正在您的注视下创建。这可能需要几分钟。
 
-    在 Terraform 完成应用我们的计划后，您应该看到类似于下面的输出：
+ 在 Terraform 完成应用我们的计划后，您应该看到类似于下面的输出：
 
     <p align=center>
     <img src="./images/install/terraform-apply.png" />
@@ -289,7 +289,7 @@ menuWeight: 5
 
 # 登录 DC/OS
 
-要登录并开始浏览您的群集，请导航到 CLI 的输出中列出的 `cluster-address`。您可以从这里选择您的提供程序，创建超级用户帐户 [oss type="inline" size="small" /]，或使用您的特定企业凭据登录 [enterprise type="inline" size="small" /]。
+1. 要登录并开始浏览您的群集，请导航到 CLI 的输出中列出的 `cluster-address`。您可以从这里选择您的提供程序，创建超级用户帐户 [oss type="inline" size="small" /]，或使用您的特定企业凭据登录 [enterprise type="inline" size="small" /]。
 
 <p align=center>
 <img src="./images/install/dcos-login.png" />
@@ -316,13 +316,13 @@ menuWeight: 5
     terraform plan -out=plan.out
     ```
 
-    这样做有助于我们确保状态稳定，并确认我们只会创建必要的资源，将我们的专用代理扩展到所需的数量。
+ 这样做有助于我们确保状态稳定，并确认我们只会创建必要的资源，将我们的专用代理扩展到所需的数量。
 
     <p align=center>
     <img src="./images/scale/terraform-plan.png" />
     </p>
 
-    您应该看到类似以上内容的消息。扩展集群的专用代理的结果是，将会添加 3 个资源（1 个实例资源和 2 个空资源，在幕后处理 DC/OS 安装和先决条件）。
+ 您应该看到类似以上内容的消息。扩展集群的专用代理的结果是，将会添加 3 个资源（1 个实例资源和 2 个空资源，在幕后处理 DC/OS 安装和先决条件）。
 
 1. 现在，我们的计划已设置，就像前面一样，我们来让 Terraform 构建/部署该计划。
 
@@ -334,9 +334,9 @@ menuWeight: 5
     <img src="./images/scale/terraform-apply.png" />
     </p>
 
-    当您看到类似于以上消息的输出后，检查您的 DC/OS 群集，确保已添加其他代理。
+ 当您看到类似于以上消息的输出后，检查您的 DC/OS 群集，确保已添加其他代理。
 
-    您现在应该看到总共 4 个通过 DC/OS UI 连接的节点，如下所示。
+ 您现在应该看到总共 4 个通过 DC/OS UI 连接的节点，如下所示。
 
     <p align=center>
     <img src="./images/scale/node-count-4.png" />
@@ -344,11 +344,11 @@ menuWeight: 5
 
 # 升级群集
 
-Terraform 还可以轻松地将我们的群集升级到更新版本的 DC/OS。如果您有兴趣了解有关 Terraform 执行的升级程序的更多信息，请参阅官方 [DC/OS 升级文档](/cn/1.12/installing/production/upgrading/)。
+Terraform 还可以轻松地将我们的群集升级到更新版本的 DC/OS。如果您有兴趣了解有关 Terraform 执行的升级程序的更多信息，请参阅官方 [DC/OS 升级文档](/1.12/installing/production/upgrading/)。
 
 1. 为了执行升级，我们需要返回到我们的 `main.tf` 并将当前 DC/OS 版本 (`dcos_version`) 修改为较新版本，如本示例的 `1.12.1`，同时还需指定另一个参数 (`dcos_install_mode`)。默认情况下，此参数设置为 `install`，这就是我们在创建初始 DC/OS 群集和扩展群集时能够不设置该参数的原因。
 
-    <p class="message--important"><strong>重要信息：</strong>在执行升级时，不要更改任何管理节点、代理或公共节点的数量。</p>
+ <p class="message--important"><strong>重要信息：</strong>在执行升级时，不要更改任何管理节点、代理或公共节点的数量。</p>
 
     ```hcl
     dcos_version = "1.12.1"
@@ -360,7 +360,7 @@ Terraform 还可以轻松地将我们的群集升级到更新版本的 DC/OS。�
     terraform plan -out=plan.out -var dcos_install_mode=upgrade
     ```
 
-    您应该看到如下的输出，`main.tf` 现在设置为在新版本的 DC/OS 上正常操作。
+ 您应该看到如下的输出，`main.tf` 现在设置为在新版本的 DC/OS 上正常操作。
 
     <p align=center>
     <img src="./images/upgrade/terraform-plan.png" />
@@ -372,7 +372,7 @@ Terraform 还可以轻松地将我们的群集升级到更新版本的 DC/OS。�
     terraform apply plan.out
     ```
 
-    应用完成后，您可以验证群集是否已通过 DC/OS UI 升级。
+ 应用完成后，您可以验证群集是否已通过 DC/OS UI 升级。
 
     <p align=center>
     <img src="./images/upgrade/cluster-details-open.png" />

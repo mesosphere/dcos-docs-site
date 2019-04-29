@@ -43,7 +43,7 @@ enterprise: false
     docker build -t <username>/simple-docker .
     ```
 
-    输出应类似于：
+ 输出应类似于：
 
     ```bash
     Sending build context to Docker daemon 3.072 kB
@@ -74,7 +74,7 @@ enterprise: false
     docker push <username>/simple-docker
     ```
 
-    输出应类似于：
+ 输出应类似于：
 
     ```bash
     The push refers to a repository [docker.io/<username>/simple-docker]
@@ -88,7 +88,7 @@ enterprise: false
 
 # 创建 Docker 应用程序并部署到 DC/OS
 
-1. 使用以下内容创建 Marathon 应用定义，并另存为 `hello-nginx.json`：在 `image` 字段中，将 `<username>` 替换为您的 Docker Hub 用户名。在 `type` 字段中，根据您偏好的[容器化工具运行时](/cn/1.12/deploying-services/containerizers/) 指定 `MESOS` 或 `DOCKER`。
+1. 使用以下内容创建 Marathon 应用定义，并另存为 `hello-nginx.json`：在 `image` 字段中，将 `<username>` 替换为您的 Docker Hub 用户名。在 `type` 字段中，根据您偏好的[容器化工具运行时] (/1.12/deploying-services/containerizers/) 指定 `MESOS` 或 `DOCKER`。
 
     ```json
     {
@@ -120,17 +120,17 @@ enterprise: false
     }
     ```
 
-    此文件指定了一个名为 `hello-nginx` 的简单 Marathon 应用程序，该应用程序在公共节点上运行自身的一个实例。
+ 此文件指定了一个名为 `hello-nginx` 的简单 Marathon 应用程序，该应用程序在公共节点上运行自身的一个实例。
 
-1. 使用 DC/OS 命令将 `hello-nginx` 应用程序添加到 Marathon：
+3. 使用 DC/OS 命令将 `hello-nginx` 应用程序添加到 Marathon：
 
     ```bash
     dcos marathon app add hello-nginx.json
     ```
 
-    如果添加成功，则没有输出。
+ 如果添加成功，则没有输出。
 
-1. 如果您选择了 MESOS 运行时间，在您确认添加了该应用程序时，您将看到以下内容：
+4. 如果您选择了 MESOS 运行时间，在您确认添加了该应用程序时，您将看到以下内容：
 
     ```bash
     dcos marathon app list
@@ -138,24 +138,24 @@ enterprise: false
     /hello-nginx   64  0.1    1/1    N/A       ---      False      MESOS    N/A
     ```
 
-1. 如果您使用 [AWS CloudFormation 模板](/cn/1.12/installing/oss/cloud/aws/) 将应用程序公开到应用定义中指定的端口（例如，端口 80），则必须在公共 ELB 上重新配置运行状况检查。
+1. 如果您使用 [AWS CloudFormation 模板](/1.12/installing/oss/cloud/aws/) 将应用程序公开到应用定义中指定的端口（例如，端口 80），则必须在公共 ELB 上重新配置运行状况检查。
  1. 在 CloudFormation 中，勾选堆栈旁边的复选框。
  2. 单击 **Resources** 选项卡。
  3. 搜索 **PublicSlavEloadBalancer**。
  4. 单击 Physical ID（物理 ID）列中的链接。
- 5. 按照 [更新运行状况检查配置](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html#update-health-check-config)中的说明进行操作。
+ 5. 按照 [更新运行状况检查配置] （http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html#update-health-check-config）中的说明进行操作。
 
-1. 转到公共代理节点，查看网站是否正在运行。若要查找公共代理 IP 地址，请参阅[查找公共代理 IP](/cn/1.12/administering-clusters/locate-public-agent/)。
+1. 转到公共代理节点，查看网站是否正在运行。若要查找公共代理 IP 地址，请参阅[查找公共代理 IP](/1.12/administering-clusters/locate-public-agent/)。
 
-    您应在浏览器中看到以下消息：
+ 您应在浏览器中看到以下消息：
 
-    ![Hello Brave World](/1.12/img/helloworld.png)
+ ![Hello Brave World](/1.12/img/helloworld.png)
 
-    图 1. Hello World 消息 
+ 图 1. Hello World 消息 
 
 # 后续步骤
 
-了解如何使用 [Marathon-LB](/cn/1.12/networking/marathon-lb/mlb-basic-tutorial/) 在公共节点上对应用程序进行负载均衡。
+了解如何使用 [Marathon-LB](/1.12/networking/marathon-lb/mlb-basic-tutorial/) 在公共节点上对应用程序进行负载均衡。
 
 
  [1]:https://www.docker.com

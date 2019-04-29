@@ -235,7 +235,7 @@ export DCOS_SSL_VERIFY=false
 DC/OS CLI 可以与多个群集配合使用。以下命令显示最新配置的群集：
 
 ```bash
-dcos cluster list
+$ dcos cluster list
         NAME               ID                        STATUS     VERSION      URL
   *   cluster 26f72c2f-8d03-47d7-b95f-972b1fd3dea2  AVAILABLE    1.12  <cluster-url>
 ```

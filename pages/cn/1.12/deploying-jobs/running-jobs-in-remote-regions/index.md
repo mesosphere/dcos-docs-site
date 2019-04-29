@@ -7,7 +7,7 @@ menuWeight: 3
 enterprise: false
 ---
 
-如 [故障域感知和服务容量扩展](/cn/1.12/deploying-services/fault-domain-awareness/)中所述，DC/OS 支持故障域感知。如果您的群集配置在多个区域或分区上，则可以安排 Metronome 作业在远程区域或特定分区中运行。
+如 [故障域感知和服务容量扩展] (/1.12/deploying-services/fault-domain-awareness/)中所述，DC/OS 支持故障域感知。如果您的群集配置在多个区域或分区上，则可以安排 Metronome 作业在远程区域或特定分区中运行。
 
 # 本地和远程分域
 
@@ -27,13 +27,13 @@ enterprise: false
 
 ## 示例
 
-有关如何配置故障域感知群集的说明，请参见[服务的故障域感知和容量扩展](/cn/1.12/deploying-services/fault-domain-awareness/) 中的“安装”。
+有关如何配置故障域感知群集的说明，请参见[服务的故障域感知和容量扩展] (/1.12/deploying-services/fault-domain-awareness/) 中的“安装”。
 
 假设您有跨 3 个分域的 Mesos 群集：`aws-us-east1`、`aws-us-east2` 和 `local`。每个分域都有分区 `a`、`b`、`c`、`d`。
 
 ### 在远程区域和特定分区运行作业
 
-以下作业使用 [Metronome 约束](../metronome-constraints/)指定作业应在区域 `aws-us-east1`、分区 `b` 中运行
+以下作业使用 [Metronome 约束]（../ metronome-constraints /）指定作业应在区域 `aws-us-east1`、分区 `b` 中运行
 
 ```json
 {

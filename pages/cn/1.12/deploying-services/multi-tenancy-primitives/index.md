@@ -58,12 +58,12 @@ excerpt: DC/OS 中多租户的引物
 - [部署非本地 Marathon 实例](https://docs.mesosphere.com/1.12/deploying-services/marathon-on-marathon/)
 - [Spark 配额](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/job-scheduling/#setting-quotas-for-the-drivers)
 
-在下面的示例中，建议从安装了 [DC/OS CLI](https://docs.mesosphere.com/1.12/cli/) 的主机运行应用程序。
+在下面的示例中，建议从安装了 [DC / OS CLI] (https://docs.mesosphere.com/1.12/cli/) 的主机运行应用程序。
 
 <p class="message--note"><strong>注意：</strong>在复制和粘贴到编辑器或终端时，需要清除下面的 JSON 示例中的所有双引号。</p>
 
 ## 角色
-[角色](https://mesos.apache.org/documentation/latest/roles/) 指的是分配给框架、任务或代理的标记或标签。默认角色名为 <sup> `*` </sup>，群集中的所有现有角色都可以通过 Mesos UI 查看：`https://<cluster-name-or-IP>/mesos/#/roles`。
+[角色] (https://mesos.apache.org/documentation/latest/roles/) 指的是分配给框架、任务或代理的标记或标签。默认角色名为 <sup> `*` </sup>，群集中的所有现有角色都可以通过 Mesos UI 查看：`https://<cluster-name-or-IP>/mesos/#/roles`。
 
 
 在以下示例中，在运行时将名为 `high` 的角色分配给 Spark 任务。可以执行 Spark 任务的多个实例，确保它们都能从与高层及相关联的资源管理中受益。
@@ -77,7 +77,7 @@ DC/OS 目录中的应用程序（如 Kafka 和 Cassandra）将使用通用角色
 角色不需要显式管理（例如配置新角色并将其分配给任务），它们是在部署任务或配置权重或配额时按需创建的。同样也不应删除角色，它们要在群集的持续时间内一直存在。
 
 ## 保留
-[预留](https://mesos.apache.org/documentation/latest/reservation/)可以手动配置并由 SDK 框架使用。在这两种情况下都必须声明授权用户，称为主体/框架或操作者。对于 DC/OS 中的 SDK 框架，这也称为服务帐户。
+[预留] (https://mesos.apache.org/documentation/latest/reservation/)可以手动配置并由 SDK 框架使用。在这两种情况下都必须声明授权用户，称为主体/框架或操作者。对于 DC/OS 中的 SDK 框架，这也称为服务帐户。
 
 ### 添加
 在 ID 为 `312dc1dc-9b39-474f-8295-87fc43872e7c-S0` 的特定代理上为低级角色添加预留资源，保证 `four` CPU 份额和 `512MB` RAM。当具有低请求角色的任何任务提供与此代理程序预留的资源匹配时，该任务在代理本身的资源空间将会得到保证。
@@ -86,7 +86,7 @@ DC/OS 目录中的应用程序（如 Kafka 和 Cassandra）将使用通用角色
 
 必须更改群集上代理 ID 的 `agent_id`。使用 `$dcos node` 查找代理 ID。
 
-```json
+```
 tee add-reservation.json << EOF
 {
   "type": "RESERVE_RESOURCES",
@@ -162,7 +162,7 @@ curl -i -k \
 
 <p class="message--note"><strong>注意：</strong>更改 agent_id 以匹配群集上的代理 ID（如上例所示）。</p>
 
-```json
+```
 tee remove-reservation.json << EOF
 {
   "type": "UNRESERVE_RESOURCES",
@@ -230,7 +230,7 @@ curl -i -k \
 ### 添加
 配额一旦申请就无法更新，必须将其删除然后重新添加，才能更新。以下示例将 `two` CPU 份额和 `4GB` RAM 的配额应用于名为 `high` 的角色。
 
-```json
+```
 tee set-quota.json << EOF
 {
   "type": "SET_QUOTA",
@@ -273,7 +273,7 @@ curl -i -k \
 
 ### 检查
 
-```json
+```
 tee get-quota.json << EOF
 {
   "type": "GET_QUOTA"
@@ -299,7 +299,7 @@ Connection: keep-alive
 
 ### 删除
 
-```json
+```
 tee remove-quota.json << EOF
 {
   "type": "REMOVE_QUOTA",
@@ -330,7 +330,7 @@ Connection: keep-alive
 ### 应用
 该设置会应用权重 `five` 到角色 `perf`。
 
-```json
+```
 tee set-weight.json << EOF
 {
   "type": "UPDATE_WEIGHTS",
@@ -356,7 +356,7 @@ curl -i -k \
 成功之后，预计会有 `HTTP/1.1 200 OK` 响应。
 
 ### 检查
-```json
+```
 tee get-weight.json << EOF
 {
   "type": "GET_WEIGHTS"
