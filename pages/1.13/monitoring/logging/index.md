@@ -64,7 +64,7 @@ Figure 1. System health log showing nodes
 
 # Log aggregation
 
-Streaming logs from machines in your cluster is not always the best solution for examing events and debugging issues. 
+Streaming logs from machines in your cluster is not always the best solution for examining events and debugging issues.
 
 In cases where you need a history of what has happened, you require a method for storing and aggregating logs. DC/OS comes with a built-in log pipeline based on [Fluent Bit](https://fluentbit.io/), an open source log processor and forwarder. Fluent Bit runs on each node, both masters and agents, in DC/OS. It gathers metrics from each component by tailing logs from journald. Tasks running on Mesos can also optionally [transmit metrics to Fluent Bit](/1.13/monitoring/logging/configure-task-logs/). 
 
