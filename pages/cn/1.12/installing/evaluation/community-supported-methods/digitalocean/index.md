@@ -41,72 +41,72 @@ oss: true
 
 1. 使用上述链接上的说明下载并安装 Terraform。
 
-1. [在 GiThub 中下载 DC/OS Terraform 表单](https://github.com/jmarhee/digitalocean-dcos-terraform) 到本地目录。
+2. [在 GiThub 中下载 DC/OS Terraform 表单](https://github.com/jmarhee/digitalocean-dcos-terraform) 到本地目录。
 
     ```bash
     git clone https://github.com/jmarhee/digitalocean-dcos-terraform
     ```
 
-1. 在该目录生成一个 `ssh` 密钥。
+3. 在该目录生成一个 `ssh` 密钥。
 
     ```bash
     ssh-keygen -t rsa -f ./do-key
     ```
 
-1. 获取用于 API 的令牌。可以 [根据文档操作](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2)。
+4. 获取用于 API 的令牌。可以 [根据文档操作](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2)。
 
-1. 将密钥添加到 DigitalOcean。
+5. 将密钥添加到 DigitalOcean。
 
     ```bash
     curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" -d '{"name":"dcos-key","public_key":"<public-key>"}' "https://api.digitalocean.com/v2/account/keys"
     ```
 
-1. 获取密钥 ID。
+6. 获取密钥 ID。
 
     ```bash
     curl -X GET -H 'Content-Type: application/json' -H 'Authorization: Bearer $TOKEN' "https://api.digitalocean.com/v2/account/keys"
     ```
 
-1. 复制 `sample.terraform.tfvars` 到名为 `terraform.tfvars` 的新文件，并编辑新文件，填写合适的值。以下字段为空；如果未填写，必要时 Terraform 会提示您：
+7. 复制 `sample.terraform.tfvars` 到名为 `terraform.tfvars` 的新文件，并编辑新文件，填写合适的值。以下字段为空；如果未填写，必要时 Terraform 会提示您：
 
-    - `digitalocean_token` - 您的 DigitalOcean API 密钥
+ - `digitalocean_token` - 您的 DigitalOcean API 密钥
 
-    - `ssh_key_fingerprint` - 上文提供的密钥 ID
+ - `ssh_key_fingerprint` - 上文提供的密钥 ID
 
-    - `dcos_installer_url` - 在哪获得 DC/OS
-    https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
+ - `dcos_installer_url` - 在哪获得 DC/OS
+ https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh
 
-    以下字段具有默认值，可根据您的要求进行更改：
+以下字段具有默认值，可根据您的要求进行更改：
 
-    - `region` - DigitalOcean 设施：[NYC1|NYC2|NYC3|SGP1|LON1|AMS2|AMS3|SFO1|TOR1|FRA1]
-    为您的群集选择 DigitalOcean 数据中心——默认 NYC2
+ - `region` - DigitalOcean 设施：[NYC1|NYC2|NYC3|SGP1|LON1|AMS2|AMS3|SFO1|TOR1|FRA1]
+ 为您的群集选择 DigitalOcean 数据中心——默认 NYC2
 
-    - `agent_size` - 用于 DC/OS 代理的 DigitalOcean Droplet 大小：[4GB|8GB|16GB|32GB|48GB|64GB]
-    选择用于 DC/OS 专用代理的 DigitalOcean Droplet 大小——默认为 4GB
+ - `agent_size` - 用于 DC/OS 代理的 DigitalOcean Droplet 大小：[4GB|8GB|16GB|32GB|48GB|64GB]
+ 选择用于 DC/OS 专用代理的 DigitalOcean Droplet 大小——默认为 4GB
 
-    - `master_size` - 用于 DC/OS Master 的 DigitalOcean Droplet 大小：[4GB|8GB|16GB|32GB|48GB|64GB]
-    选择用于 DC/OS 管理节点的 DigitalOcean Droplet 大小——默认为 4GB
+ - `master_size` - 用于 DC/OS Master 的 DigitalOcean Droplet 大小：[4GB|8GB|16GB|32GB|48GB|64GB]
+ 选择用于 DC/OS 管理节点的 DigitalOcean Droplet 大小——默认为 4GB
 
-    - `boot_size` - 用于 DC/OS 引导节点的 DigitalOcean Droplet 大小：[4GB|8GB|16GB|32GB|48GB|64GB]
-    选择用于 DC/OS 引导服务器的 DigitalOcean Droplet 大小 ——默认为 4GB
+ - `boot_size` - 用于 DC/OS 引导节点的 DigitalOcean Droplet 大小：[4GB|8GB|16GB|32GB|48GB|64GB]
+ 选择用于 DC/OS 引导服务器的 DigitalOcean Droplet 大小 ——默认为 4GB
 
-    - `dcos_cluster_name` - DC/OS 群集的名称 ——默认为 digitalocean-dcos
+ - `dcos_cluster_name` - DC/OS 群集的名称 ——默认为 digitalocean-dcos
 
-    - `dcos_agent_count` - 要部署的专用代理数 ——默认为 4
+ - `dcos_agent_count` - 要部署的专用代理数 ——默认为 4
 
-    - `dcos_public_agent_count` - 要部署的公共代理数 ——默认为 1
+ - `dcos_public_agent_count` - 要部署的公共代理数 ——默认为 1
 
-    - `dcos_init_pubkey` - 在第 4 步中创建的 ssh 公钥路径 ——默认为 ./do-key.pub
+ - `dcos_init_pubkey` - 在第 4 步中创建的 ssh 公钥路径 ——默认为 ./do-key.pub
 
-    - `key_file_path` - 在第 4 步中创建的 ssh 私钥路径 ——默认为 ./do-key
+ - `key_file_path` - 在第 4 步中创建的 ssh 私钥路径 ——默认为 ./do-key
 
-1. 还是在这一目录中运行 `terraform init`，然后运行 `terraform apply`，将服务器部署到您在 DigitalOcean 的项目中，并运行 DC/OS 安装步骤。完成后，您将看到和以下内容相似，但带有分配给您服务器的 IP 地址的输出：
+8. 还是在这一目录中运行 `terraform init`，然后运行 `terraform apply`，将服务器部署到您在 DigitalOcean 的项目中，并运行 DC/OS 安装步骤。完成后，您将看到和以下内容相似，但带有分配给您服务器的 IP 地址的输出：
 
  ![terraform apply output](/1.12/img/digitalocean_terraform_output.png)
 
  图 1. Terraform 应用输出
 
-可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/cn/1.12/installing/troubleshooting/) 文档。
+可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/1.12/installing/troubleshooting/) 文档。
 
 # 启动 DC/OS
 输入 Mesos 管理节点 IP 地址启动 DC/OS Web 界面：

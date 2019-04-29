@@ -8,12 +8,12 @@ beta: true
 ---
 
 
-DC/OS 1.12 通过 [Telegraf] 发送度量标准(/cn/1.12/overview/architecture/components/#telegraf)，可以配置为将度量标准导出到 Datadog。无需像在 DC/OS 1.9 、1.10 和 1.11 中一样安装度量标准插件。本页说明如何将适当的配置添加到 DC/OS 中。
+DC/OS 1.12 通过 [Telegraf] 发送度量标准(/1.12/overview/architecture/components/#telegraf)，可以配置为将度量标准导出到 Datadog。无需像在 DC/OS 1.9 、1.10 和 1.11 中一样安装度量标准插件。本页说明如何将适当的配置添加到 DC/OS 中。
 
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/cn/1.12/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
+- 必须 [安装 DC/OS CLI](/1.12/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
 
 # 配置 Telegraf 以将度量标准导出到 Datadog
 

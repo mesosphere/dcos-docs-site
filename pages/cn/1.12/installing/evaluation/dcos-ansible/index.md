@@ -13,13 +13,13 @@ excerpt: 自动安装、升级和配置 DC/OS 的 Enterprise 和开源版本
 
 ## 关于 Mesosphere DC/OS Ansibles 的角色
 
-使用 [Mesosphere DC/OS Ansible 角色](https://github.com/dcos/dcos-ansible)安装、升级和配置一个或多个使用 [Ansible](https://www.ansible.com/)的 DC/OS 群集。这些角色既可以在新的或现有的 Ansible 设置中使用，也可以从 [官方的 Ansible Galaxy](https://galaxy.ansible.com/dcos/dcos_ansible)下载。
+使用 [Mesosphere DC/OS Ansible 角色] (https://github.com/dcos/dcos-ansible)安装、升级和配置一个或多个使用 [Ansible] (https://www.ansible.com/)的 DC/OS 群集。这些角色既可以在新的或现有的 Ansible 设置中使用，也可以从 [官方的 Ansible Galaxy] (https://galaxy.ansible.com/dcos/dcos_ansible)下载。
 
 <p class="message--note"><strong>注意：</strong>DC/OS Ansible 角色目前仅适用于 CentOS 和 RHEL 平台。</p>
 
 ## 将 Mesosphere DC/OS Ansible 角色与 Mesosphere 通用安装工具结合使用
 
-Mesosphere 支持使用一组 [通用安装工具](/cn/1.12/installing/evaluation/mesosphere-supported-methods/)构建基础架构，专门采用 [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge)和 Ansible 来管理 DC/OS 软件的生命周期。
+Mesosphere 支持使用一组 [通用安装工具] (/1.12/installing/evaluation/mesosphere-supported-methods/)构建基础架构，专门采用 [Terraform-Ansible-Bridge-module] (https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge)和 Ansible 来管理 DC/OS 软件的生命周期。
 
 ```hcl
 module "dcos-ansible-bridge" {
@@ -44,8 +44,8 @@ module "dcos-infrastructure" {
 }
 ```
 
-这将生成一个本地 `hosts` 文件，它是一个 Ansible 兼容的清单文件，可用于告知 Ansible 通用安装工具创建的群集节点。它还将生成一个 Ansible 兼容的主机变量文件 `dcos.yml`，该文件将由群集引导程序和管理节点地址填充。然后可以使用这两个文件来调用针对群集的任何 Ansible playbook，例如 [提供的示例 1](https://github.com/dcos/dcos-ansible/blob/master/dcos.yml)，从而将角色铺展到其相应的节点。
+这将生成一个本地 `hosts` 文件，它是一个 Ansible 兼容的清单文件，可用于告知 Ansible 通用安装工具创建的群集节点。它还将生成一个 Ansible 兼容的主机变量文件 `dcos.yml`，该文件将由群集引导程序和管理节点地址填充。然后可以使用这两个文件来调用针对群集的任何 Ansible playbook，例如 [提供的示例 1] (https://github.com/dcos/dcos-ansible/blob/master/dcos.yml)，从而将角色铺展到其相应的节点。
 
 ## 使用 Mesosphere DC/OS Ansible 角色进行本地设置
 
-Mesosphere 支持使用可用于自动化 DC/OS 安装、升级和配置本地设置的 Ansible。[Mesosphere 提供的 Ansible 角色](https://galaxy.ansible.com/dcos/dcos_ansible) 将使用遵循 [Mesosphere DC/OS 系统要求](/cn/1.12/installing/production/system-requirements/) 的任何设置 并与 CentOS/RHEL 一起运行。
+Mesosphere 支持使用可用于自动化 DC/OS 安装、升级和配置本地设置的 Ansible。[Mesosphere 提供的 Ansible 角色](https://galaxy.ansible.com/dcos/dcos_ansible) 将使用遵循 [Mesosphere DC/OS 系统要求] 的任何设置(/1.12/installing/production/system-requirements/) 并与 CentOS/RHEL 一起运行。
