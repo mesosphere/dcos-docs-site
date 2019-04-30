@@ -222,5 +222,3 @@ private_agents = 34.207.192.11
 public-agents-loadbalancer = ext-dcosansible-1616099901.us-east-1.elb.amazonaws.com
 public_agents = 3.86.34.141
 ```
-
-

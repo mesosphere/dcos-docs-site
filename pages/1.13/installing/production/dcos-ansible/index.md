@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
-title: Managing a Mesosphere DC/OS clusters life cycle with Ansible
-navigationTitle: DC/OS Ansible roles
+title: Installing and Managing DC/OS using Ansible
+navigationTitle: DC/OS with Ansible
 menuWeight: 16
-excerpt: Automated installation, upgrade and configuration of Enterprise and Open Source versions of DC/OS
+excerpt: Creating and managing your infrastructure and installation using Ansible modules.
 ---
-
 ## Introducing Mesosphere DC/OS Ansible roles
 
 The Mesosphere DC/OS Ansible roles are now a supported life cycle management method for DC/OS alongside the Mesosphere Universal Installer. For users that are already using Ansible to manage their infrastructure and applications, the Ansible roles will be usable with only a few changes to their existing stack, as they have been developed with isolations and strict name spacing in mind. While they have been developed to work with infrastructure provisioned with the Mesosphere Universal Installer, they can be used in combination with any cloud and on-premise setups.
