@@ -30,9 +30,9 @@ For more information about the list of metrics that are automatically collected 
 It is recommended to install the DC/OS Monitoring service to monitor and visualize metrics in your DC/OS cluster. See the [service documentation](/services/beta-dcos-monitoring/0.4.3-beta/operations/install/) for instructions on how to install and use the service.
 
 ## Upgrading from 1.11
-DC/OS 1.12 includes an updated `statsd` server implementation for application metrics. The `statsd` update fixes an issue with the `statsd` server implementation in 1.11, which treated all application metrics as gauges, regardless of `statsd` type. 
+DC/OS 1.13 includes an updated `statsd` server implementation for application metrics. The `statsd` update fixes an issue with the `statsd` server implementation in 1.11, which treated all application metrics as gauges, regardless of `statsd` type.
 
-Dashboards and alerts that rely on counters, histograms, or sets behave differently in 1.12 than in 1.11 as follows:
+Dashboards and alerts that rely on counters, histograms, or sets behave differently in 1.13 than in 1.11 as follows:
 - Gauges report the last received value. There is no change from 1.11 functionality. 
 - Counters report the sum of all received values. In 1.11, counters reported the last received value.
 - Histograms and timers report `_sum`, `_min` and `_max` metrics. In 1.11, histograms reported the last received value.
