@@ -5,9 +5,15 @@ navigationTitle: DC/OS with Ansible
 menuWeight: 16
 excerpt: Creating and managing your infrastructure and installation using Ansible modules.
 ---
-## Introducing Mesosphere DC/OS Ansible roles
 
 The Mesosphere DC/OS Ansible roles are now a supported life cycle management method for DC/OS alongside the Mesosphere Universal Installer. For users that are already using Ansible to manage their infrastructure and applications, the Ansible roles will be usable with only a few changes to their existing stack, as they have been developed with isolations and strict name spacing in mind. While they have been developed to work with infrastructure provisioned with the Mesosphere Universal Installer, they can be used in combination with any cloud and on-premise setups.
+
+We have broken down the lifecycle management of DC/OS into 4 roles to handle the different management aspects of DC/OS such as cluster prerequisites, bootstrap tasks, master tasks, private agent tasks and public agent tasks. Each role can be read about more below:
+
+- Prerequisites - This roles handles all of the [requirements to run DC/OS](https://docs.mesosphere.com/1.12/installing/production/system-requirements/#software-prerequisites).
+- Bootstrap - The Boostrap role handles all tasks associated with downloading, generating and serving the DC/OS install and upgrade scripts to all nodes in the cluster.
+- Master - These tasks include downloading install and upgrade files from the Bootstrap node as well as handling some checks to ensure that upgrade has gone accordingly. It will back out upgrades if there problems keeping the cluster from going into an undesired state.
+- Agents - These task handle all upgrade and installation tasks for ALL agent types.
 
 
 ## About the Mesosphere DC/OS Ansibles roles
