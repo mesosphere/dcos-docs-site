@@ -177,10 +177,10 @@ To access the user interface, you will be asked to log in.
 
 If you installed DC/OS Enterprise, you can login with default demo credentials. [enterprise type="inline" size="small" /]
 
-```
-user: bootstrapuser
-password: deleteme
-```
+
+`user: bootstrapuser`
+`password: deleteme`
+
 ![enterprise-Login-Page](/1.13/img/dcos-ee-login.png)
 
 

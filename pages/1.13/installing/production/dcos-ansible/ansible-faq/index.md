@@ -1,47 +1,33 @@
 ---
 layout: layout.pug
-title: DC/OS Ansible FAQs/Troubleshooting
+title: DC/OS Ansible FAQs and Troubleshooting
 navigationTitle: DC/OS Ansible FAQ
 menuWeight: 2
-excerpt: Frequently asked questions and common issues when working with Ansible
+excerpt: Frequently asked questions and common issues when working with Ansible for DC/OS
 ---
-#
-
-For convenient and customizable DC/OS Cluster lifecycle management, we have created the DC/OS Ansible project which utilizes Ansible for its simplified and flexible configuration management benefits. These roles are responsible for handling DC/OS installation as well as DC/OS upgrades procedures across all cluster nodes automatically. These roles have been built with intelligence to make decisions based on facts, handle error checking as well as idempotent so that undesired changed are not made unless specified.
-
-We have broken down the lifecycle management of DC/OS into 4 roles to handle the different management aspects of DC/OS such as cluster prerequisites, bootstrap tasks, master tasks, private agent tasks and public agent tasks. Each role can be read about more below:
-
-- Prerequisites - This roles handles all of the [requirements to run DC/OS](https://docs.mesosphere.com/1.12/installing/production/system-requirements/#software-prerequisites).
-- Bootstrap - The Boostrap role handles all tasks associated with downloading, generating and serving the DC/OS install and upgrade scripts to all nodes in the cluster.
-- Master - These tasks include downloading install and upgrade files from the Bootstrap node as well as handling some checks to ensure that upgrade has gone accordingly. It will back out upgrades if there problems keeping the cluster from going into an undesired state.
-- Agents - These task handle all upgrade and installation tasks for ALL agent types.
-
-Currently these roles support Centos7 and RHEL7 operating systems. These couple potentially be in cloud environments such as AWS, Azure or GCP as well as on prem deployments.
-
-
 
 ### Table of Contents
 - [Official Docs and Links](#official-docs-and-links)
 - [New to Ansible](#new-to-ansible)
-- [Setting up ssh](#setting-up-ssh)
+- [Setting up SSH](#setting-up-ssh)
 - [Connection timeout to node](#connection-timeout-to-node)
 - [No inventory file provided](#no-inventory-file-provided)
 - [Wrong remote_user configured](#wrong-remoteuser-configured)
 - [Failure downloading URL](#failure-downloading-url)
 - [Mazer install directory](#mazer-install-directory)
-- [DC/OS Install or Upgrade fails after replacing Bootstrap Node](#dcos-install-or-upgrade-fails-after-replacing-bootstrap-node)
-- [Config changes and/or Upgrading DC/OS Versions](#config-changes-andor-upgrading-dcos-versions)
+- [DC/OS installation or upgrade fails after replacing bootstrap node](#dcos-installation-or-upgrade-fails-after-replacing-bootstrap-node)
+- [Config changes and/or upgrading DC/OS versions](#config-changes-andor-upgrading-dcos-versions)
 
 
 ## Official Docs and Links
-DC/OS Ansible repo is hosted on Github publicly [here](https://github.com/dcos/dcos-ansible):
+DC/OS Ansible repo is hosted on [Github publicly here](https://github.com/dcos/dcos-ansible)
 
-The official Ansible Galaxy page and versions can be found [here](https://galaxy.ansible.com/dcos/dcos_ansible):
+The official Ansible Galaxy page and versions [can be found here](https://galaxy.ansible.com/dcos/dcos_ansible).
 
 ## New to Ansible
 If you are new to Ansible, it is highly recommended that you first have a look at the [Getting Started](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#remote-connection-information) guide. This will better explain and show how we use Ansible to successfully manage the DC/OS Lifecycle.
 
-## Setting up ssh
+## Setting up SSH
 SSH is the protocol that which Ansible uses to connect and manage hosts via an inventory file. If you need to setup ssh connections between your Ansible control machine and its managed nodes, see the following [Ansible docs](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#remote-connection-information).
 
 You can then test connection via the following:
@@ -98,8 +84,9 @@ The above error is not actually an Ansible error but an error that is being issu
 ## Failure downloading URL
 Ensure that you have specified a correct URL for your version of DC/OS that you are trying to install. You can find the available links via the following:
 
-- [EE](https://support.mesosphere.com/s/downloads)
-- [Open](https://dcos.io/releases/)
+- [DC/OS Enterprise](https://support.mesosphere.com/s/downloads)  [enterprise type="inline" size="small" /]
+
+- [DC/OS](https://dcos.io/releases/)  [oss type="inline" size="small" /]
 
 ## Mazer install directory
 Different versions of Mazer or custom Mazer installations are maintained via a mazer configuration file. One of these configurations that is maintained in this configuration file is the content_path which is where the content gets installed that is pulled from the galaxy. If you are having issues locating either the content path or the mazer configuration file, please issue the following command to locate the mazer configuration file:
@@ -109,7 +96,7 @@ mazer version | grep config
 
 Inside mazer config file, check the `content_path`. You can see more about the Mazer configuration file here as well as more options.
 
-## DC/OS Install or Upgrade fails after replacing Bootstrap Node
+## DC/OS installation or upgrade fails after replacing bootstrap node
 If you need to replace the bootstrap node instance in your cluster you will need to update the new inventory file to reflect as well as the `bootstrap_url` in your variables file. If you receive the following error after you replace the bootstrap node, please ensure that you have updated the variables file as well.
 
 ```
@@ -119,7 +106,7 @@ fatal: [172.12.8.139]: FAILED! => {"changed": true, "cmd": "set -o pipefail; ./d
 
 ```
 
-## Config changes and/or Upgrading DC/OS Versions
+## Config changes and/or upgrading DC/OS versions
 Upgrading versions of DC/OS or DC/OS Config changes are two types of cluster upgrade scenarios that we support. We have made this extremely simple and require very minimal change. Our dcos-ansible tool is able to determine what type of upgrade scenario that you are trying to perform.
 
 - If you are attempting to upgrade the version of DC/OS to a new one, simply modify the `download` and `version` variables in your `dcos.yml` (variable file) to your desired version. Then simply re-run the playbook for the changes to take effect.
