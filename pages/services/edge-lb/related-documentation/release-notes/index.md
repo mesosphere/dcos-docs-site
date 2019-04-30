@@ -12,7 +12,28 @@ The Edge-LB release notes summarize release-specific changes to fix issues or up
 If you have DC/OS deployed in a production environment, see [Known issues and limitations](/services/edge-lb/related-documentation/known-limitations) to see if any potential operational changes for specific scenarios apply to your environment.
 
 # Edge-LB 1.3
-This section summarizes changes integrated into Edge-LB for Edge-LB 1.3 (February 2019). 
+This section summarizes changes integrated into Edge-LB for Edge-LB 1.3.0 (February 2019) through Edge-LB 1.3.1 (April 2019), with the most recent changes listed first. 
+
+### Edge-LB 1.3.1
+Released April 29, 2019.
+
+* Includes Mesos health checks when generating the list of active backends.
+* Provides Edge-LB artifacts as a .dcos package bundle.
+* Updates the SDK version from 0.55.2 to 0.55.4.
+* Updates the HAProxy version to 1.9.4.
+* Improves support for dynamically-allocated frontend ports.
+* Displays the frontend name in the output for the dcos edgelb endpoints command.
+* Improves the stability and scalability for the Edge-LB pool dcos-template and in the `mesos-listener` program.
+* Provides additional test coverage and other improvements in existing Edge-LB integration tests.
+
+#### Issues fixed in this release
+* DCOS-45719 - Edge-LB waits for load balanced applications to to be running in a healthy state before routing traffic to them. This change prevents Edge-LB from routing traffic to an application before it completes its startup operations and its first health check.
+* DCOS-47839 - Users can specify the Edge-LB pool frontend using either the name or port setting.
+* DCOS-44077 - The mesos-listener program that communicates with Edge-LB includes improvements to tests coverage and code refactoring.
+* DCOS-51865 - Edge-LB contiuous integration has been enhanced through testing and code refactoring.
+* DCOS-48059 - Edge-LB can successfully return the task id and task status for both server and sidecar tasks.
+* DCOS-46502 - Validates regular expressions from user input.
+* DCOS-48132 - The Edge-LB dcos-template monitors and reloads its configuration file to prevent Edge-LB pool updates from generating errors when there are frequent pool changes.
 
 ### Edge-LB 1.3.0
 Released on February 6, 2019.
