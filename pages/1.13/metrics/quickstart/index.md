@@ -81,19 +81,22 @@ This page explains how to get started with metrics in DC/OS. A metrics pipeline 
         The output is a combination of container resource utilization and metrics transmitted by the workload. 
         For example:
 
+
         ```bash
-        NAME                                                   VALUE
-        cpus.limit                                             0.10
-        cpus.system.time                                       0.07
-        cpus.throttled.time                                    34.75
-        cpus.user.time                                         0.18
-        disk.limit                                             0.00GiB
-        disk.used                                              0.00GiB
-        mem.limit                                              0.16GiB
-        mem.rss                                                0.01GiB
-        mem.swap                                               0.00GiB
-        mem.total                                              0.01GiB
-        statsd_tester.time.uptime                              4469331
+        NAME                      VALUE
+        cpus.limit                0.20            
+        cpus.nr_periods           1272            
+        cpus.nr_throttled         8               
+        cpus.system_time_secs     0.23            
+        cpus.throttled_time_secs  0.45            
+        cpus.user_time_secs       0.15            
+        mem.anon_bytes            9359360         
+        mem.cache_bytes           106496          
+        mem.file_bytes            106496          
+        mem.limit_bytes           44040192        
+        mem.rss_bytes             9359360         
+        mem.total_bytes           9465856      
+        perf.timestamp            1556720487.68
         ```
 
         The CPU, disk, and memory statistics come from container data supplied by Mesos. The `statsd_tester.time.uptime`
