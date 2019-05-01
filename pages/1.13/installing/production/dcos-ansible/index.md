@@ -22,6 +22,41 @@ Use the [Mesosphere DC/OS Ansible roles](https://github.com/dcos/dcos-ansible) t
 
 <p class="message--note"><strong>NOTE: </strong>DC/OS Ansible roles are only available for CentOS and RHEL platforms at this time.</p>
 
+## Creating test instances on AWS with terraform
+If you would like to test out our Ansible solutions using pre-configured instances on AWS and are familiar with terraform, please [download and use this terraform script](https://gist.github.com/geekbass/45eb978fb420ae0da13f00fdfa0cd1c5) to deploy a sample infrastructure so that you can deploy DC/OS on it using the ansible script above. The script is not officially supported by Mesosphere and is provided only for testing purposes.
+
+To deploy the infra using the script:
+
+1. Create a new folder
+2. Copy the above script to a file named main.tf
+3. Initialize terraform: terraform init
+4. Deploy the infrastructure using terraform apply
+
+Final output should be something like this:
+
+```bash
+Apply complete! Resources: 32 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+bootstrap_private_ip = 172.12.15.101
+bootstraps = 3.87.63.8
+cluster-address = dcosansible-660064571.us-east-1.elb.amazonaws.com
+masters = 100.27.19.199
+54.196.221.181
+35.168.16.40
+masters_private_ips = 172.12.6.95
+172.12.29.65
+172.12.42.160
+private_agents = 34.207.192.11
+3.80.226.211
+3.85.31.136
+public-agents-loadbalancer = ext-dcosansible-1616099901.us-east-1.elb.amazonaws.com
+public_agents = 3.86.34.141
+```
+
+To learn more about using Terraform as your deployment manager visit the [Universal Installer page](/1.12/installing/evaluation/).
+
 ## Using the Mesosphere DC/OS Ansible roles in combination with the Mesosphere Universal Installer
 
 Mesosphere supports the use of a combination of the [Universal Installer](/1.12/installing/evaluation/mesosphere-supported-methods/) for infrastructure, a special [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge) and Ansible to manage the life cycle of the DC/OS software.

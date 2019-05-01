@@ -4,7 +4,10 @@ title: DC/OS Ansible FAQs and Troubleshooting
 navigationTitle: DC/OS Ansible FAQ
 menuWeight: 2
 excerpt: Frequently asked questions and common issues when working with Ansible for DC/OS
+model: ../data.yml
+render: mustache
 ---
+{{ model.latest }}
 
 ### Table of Contents
 - [Official Docs and Links](#official-docs-and-links)
@@ -87,6 +90,10 @@ Ensure that you have specified a correct URL for your version of DC/OS that you 
 - [DC/OS Enterprise](https://support.mesosphere.com/s/downloads)  [enterprise type="inline" size="small" /]
 
 - [DC/OS](https://dcos.io/releases/)  [oss type="inline" size="small" /]
+
+[button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+
+[button color="purple" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
 ## Mazer install directory
 Different versions of Mazer or custom Mazer installations are maintained via a mazer configuration file. One of these configurations that is maintained in this configuration file is the content_path which is where the content gets installed that is pulled from the galaxy. If you are having issues locating either the content path or the mazer configuration file, please issue the following command to locate the mazer configuration file:
