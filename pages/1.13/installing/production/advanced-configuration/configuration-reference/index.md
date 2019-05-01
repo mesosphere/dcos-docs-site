@@ -126,6 +126,11 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [enable_mesos_input_plugin](#enable-mesos-input-plugin)    | Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Default value is `true`. **NOTE:** DC/OS 1.13 supports the Mesos input plugin by default. |
 
+# Support
+| Parameter                    | Description                                                                                                                                                       |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [intercom_enabled](#intercom-enabled)       | Indicates whether to enable the Intercom plugin in the GUI dashboard for additional customer support. Boolean. Default is `true`.  |
+
 # Parameter Descriptions
 
 ### adminrouter_auth_cache_enabled [enterprise type="inline" size="small" /]
@@ -420,6 +425,9 @@ Indicates whether to treat [GPUs](/1.13/deploying-services/gpu/) as a scarce res
 
 *  `gpus_are_scarce: 'true'` Treat GPUs as a scarce resource. This reserves the GPUs exclusively for services that opt-in to consume GPUs via the [Mesos `GPU_RESOURCES` framework capability](http://mesos.apache.org/documentation/latest/gpu-support/). This is the default value.
 *  `gpus_are_scarce: 'false'` Treat GPUs like any other resource. GPUs will be offered indiscriminately to all frameworks, regardless of whether they use the [Mesos `GPU_RESOURCES` framework capability](http://mesos.apache.org/documentation/latest/gpu-support/) or not.
+
+### intercom_enabled
+Indicates whether to enable the Intercom plugin in the GUI dashboard for additional customer support. Boolean. Default is `true`.
 
 ### ip_detect_public_filename
 The path to a file (`/genconf/ip-detect-public`) on your bootstrap node that contains a shell script to map internal IPs to a public IP. For example:
