@@ -71,7 +71,7 @@ You may use DC/OS Ansible to install both DC/OS and DC/OS Enterprise. Please fol
      mv group_vars/all/dcos.yaml.example group_vars/all/dcos.yml
      ```
 
-2. Place each of your corresponding nodes, as mentioned in the prerequisites, under the desired groups in the `inventory` file for `[bootstrap]`, `[masters]`, `[agents_private]` and `[agents_public]` groups. If you are deploying on a public cloud, those are the external IPs of the nodes.
+2. Open the `inventory` file. List each of your corresponding node IPs, as mentioned in the prerequisites, under the desired groups for `[bootstrap]`, `[masters]`, `[agents_private]` and `[agents_public]`. If you are deploying on a public cloud, those are the external IPs of the nodes.
 
 3. In the variables file (`group_vars/all/dcos.yml`), set the following values under `dcos` according to your variant:
 
@@ -188,3 +188,32 @@ If you installed DC/OS Enterprise, you can login with default demo credentials. 
 If you installed DC/OS Open Source, select the OAuth provider of your choice. [oss type="inline" size="small" /]
 
 ![oss-login-page](/1.13/img/dcos-oe-login.png)
+
+## Upgrading and managing your cluster
+Upgrading your cluster to a newer version of DC/OS and making configuration changes is incredibly easy with Ansible. The modules have been designed to automatically detect the state of your cluster and nodes, and automatically get them to the newer declared state. It is even possible to change your agents configuration and upgrade DC/OS at the same time.
+
+1. For example, to upgrade: in the variables file (`group_vars/all/dcos.yml`), set the following values under `dcos` according to your variant:
+
+    [enterprise type="inline" size="small" /]
+    ```bash
+    # ...
+    download: “http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0/dcos_generate_config.ee.sh”`
+    # ...
+    ```
+
+    [oss type="inline" size="small" /]
+    ```bash
+    # ...
+    download: “https://downloads.dcos.io/dcos/stable/1.13.0/dcos_generate_config.sh”
+    version: “1.13.0"
+    enterprise_dcos: false
+    # ...
+    ```
+
+2. To add extra agents: First get them spun up and available. Then, open the `inventory` file. List each of your corresponding node IPs, as mentioned in the prerequisites, under the desired groups for `[agents_private]` and `[agents_public]`.
+
+3. Save all changes and run the playbook again to update your cluster. The ansible modules will automatically calculate the changes and execute them in order.
+
+    ```bash
+    ansible-playbook dcos.yml
+    ```
