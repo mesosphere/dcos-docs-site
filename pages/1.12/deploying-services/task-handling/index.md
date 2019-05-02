@@ -12,7 +12,7 @@ Marathon sorts tasks into three categories: initial, non-terminal, and terminal.
 
 You can also  [configure Marathon's behavior when a task is unreachable](/deploying-services/task-handling/configure-task-handling/).
 
-![Task Handling Flow](/img/task-handling-corrected.png)
+![Task Handling Flow](/1.12/img/task-handling-corrected.png)
 
 Figure 1. Task handling diagram
 
