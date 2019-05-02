@@ -42,7 +42,9 @@ The task was running on an agent that has been shutdown (e.g., the agent become 
 ```
 case TASK_GONE_BY_OPERATOR => Gone
 ```
-The task was running on an agent that the master cannot contact; the operator has asserted that the agent has been shutdown, but this has not been directly confirmed by the master. If the operator is correct, the task is not running and this is a terminal state; if the operator is mistaken, the task might still be running, and might return to the RUNNING state in the future. After Marathon marks the task as failed, it expunges the task and starts a new one.    
+The task was running on an agent that the master cannot contact; the operator has asserted that the agent has been shutdown, but this has not been directly confirmed by the master. If the operator is correct, the task is not running and this is a terminal state; if the operator is mistaken, the task might still be running, and might return to the RUNNING state in the future. After Marathon marks the task as failed, it expunges the task and starts a new one.
+
+If the task was configured to use [Local Persistent Volumes](../../storage/persistent-volume), these will be abandoned given that the agent is considered to be gone and not able to offer those volumes. A new task will be created as a replacement, with new volumes for its use.
 
 ```
 case TASK_FINISHED => Finished
@@ -52,7 +54,7 @@ The task finished successfully.
 ```
 case TASK_UNKNOWN => Unknown
 ```
-The master has no knowledge of the task. This is typically because either (a) the master never had knowledge of the task, or (b) the master forgot about the task because it garbaged collected its metadata about the task. The task may or may not still be running. When Marathon receives the Unknown message, it expunges the task and starts a new one.
+The master has no knowledge of the task. This is typically because either (a) the master never had knowledge of the task, or (b) the master forgot about the task because it garbage collected its metadata about the task. The task may or may not still be running. When Marathon receives the Unknown message, it expunges the task and starts a new one.
 
 ```
 case TASK_KILLED => Killed
