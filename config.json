@@ -6,6 +6,7 @@
       "services/beta-storage/0.3.2-beta/**"
     ],
     "DO_NOT_INDEX": [
+      "^1.13"
     ]
   },
   "staging": {
