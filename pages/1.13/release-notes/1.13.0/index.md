@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Release notes for 1.13.0
 title: Release notes for 1.13.0 
 menuWeight: 1
-excerpt: Release notes for DC/OS 1.13.0, including Open Source attribution and version policy.
+excerpt: Release notes for DC/OS 1.13.0, including Open Source attribution, and version policy.
 ---
 DC/OS 1.13.0 was released on May 8, 2019.
 
@@ -11,7 +11,7 @@ DC/OS 1.13.0 was released on May 8, 2019.
 
 [button color="purple" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
-<p class="message--warning"><strong>WARNING: </strong>Registered Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, please contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> when installing DC/OS Enterprise Edition.</p>
+Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, please contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
 # Release summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
@@ -25,7 +25,7 @@ DC/OS 1.13 includes new features and capabilities to enhance the installation an
 
 ## Highlights of what's new
 Some highlights for this release include:
-- Unified service accounts and authentication architecture.
+- Unified service accounts and authentication architecture
 - Monitoring and metrics for cluster operations
 - Improvements to the Universal installer and upgrade process
 - New features and options for command-programs
@@ -34,7 +34,7 @@ Some highlights for this release include:
 
 Features and capabilities that are introduced in DC/OS 1.13 are grouped by functional area or component and include links to view additional documentation, if applicable.
 
-##
+## Unified service accounts and authentication architecture
 The core of the DC/OS Enterprise identity and access management service (IAM) has been open-sourced and added to DC/OS, replacing dcos-oauth. CockroachDB was added as a DC/OS component as a highly available database serving the IAM.
 With that DC/OS now supports service accounts. Service accounts allow individual tools and applications to interact with a DC/OS cluster using their own identity. A successful service account login results in authentication proof -- the DC/OS authentication token. A valid DC/OS authentication token is required in order to access DC/OS services and components through Master Admin Router.
 This change also aligned the authentication architectures between DC/OS Enterprise and DC/OS: the HTTP API for service account management as well as for service account login is now the same in both systems. The DC/OS authentication token implementation details are equivalent in both systems: it is a JSON Web Token (JWT) of type RS256 which can be validated by any component in the system after consulting the IAM's JSON Web Key Set (JWKS) endpoint.
@@ -80,7 +80,21 @@ This change also aligned the authentication architectures between DC/OS Enterpri
 
 - Collect and report metrics that track the health and performance of the DC/OS Telegraf plugin. <!--(DCOS-39012)-->
 
-    DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
+    DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. 
+    
+    With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
+
+- Add internal metrics for UDP activity to the Telegraf `statsd` input plugin. <!--DCOS_OSS-4759-->
+
+    You can collect and report metrics for the number of incoming messages that have been dropped because of a full queue. This information is provided by the Telegraf `statsd` input plugin with the `internal_statsd_dropped_messages` metric. 
+
+- Add process-level metrics for DC/OS agents and masters. <!--DCOS-50778-->
+
+    You can collect and report process-level metrics for agent and master node processes. This information is provided by the Telegraf `procstat` input plugin. This plugin returns information about CPU and memory usage using the `procstat_cpu_usage` and `procstat_memory_rss` metrics.
+
+- Add metrics for Admin Router instances running on DC/OS master nodes. <!--DCOS_OSS-4562-->
+
+    You can collect and report metrics for DC/OS Admin Router using NGINX Virtual Hosts metrics. This information is provided by Telegraf and NGINX input plugins and is enabled by default. You can view the NGNIX instance metrics using the `/nginx/status` endpoint on each DC/OS master node.
 
 - Standardized log collection and forwarding through Fluent Bit. <!--(DCOS-43412)-->
 
@@ -194,8 +208,8 @@ This change also aligned the authentication architectures between DC/OS Enterpri
     The DC/OS Ansible (`dcos-ansible`) component is a Mesosphere-provided version of the Ansible open-source provisioning, configuration management, and deployment tool that enables you to use supported Ansible roles for installing and upgrading DC/OS Open Source and DC/OS Enterprise clusters on the infrastructure you choose. For more information, see the documentation for [Ansible](/1.13/installing/evaluation/).
 
 <!-- not in 1.13 Docs with RN filter 
-- Universal Installer to provision EBS volumes (DCOS-47221)
-    The Universal Installer now provides the ability to provision AWS EBS volumes and attach them to the private agents within a cluster. Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/
+- Universal Installer to provision Elastic Block Store (EBS) volumes. (DCOS-47221)
+    The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/).
 -->
 ## Mesos platform and containerization
 - Update the Universal Container Runtime (UCR) to support Docker registry manifest specification v2_schema2 images. <!--(DCOS-43871)-->
@@ -208,9 +222,15 @@ This change also aligned the authentication architectures between DC/OS Enterpri
 
     DC/OS clusters now include executor and agent communication channel heartbeats to ensure platform resiliency even if `IPFilter` is enabled with `conntrack`, which usually times out a connection every five days.
 
-- DC/OS supports for zero-downtime for tasks through layer-4 load balancing,
+- DC/OS supports zero-downtime for tasks through layer-4 load balancing.
 
     DC/OS cluster health checks now provide task-readiness information. This information enables zero-downtime for load balancing when services are scaled out. With this feature, load balanced traffic is not redirected to containers until the container health check returns a 'ready' status.
+
+- Add support for CUDA 10 image processing for applications that use graphics processing unit (GPU) resources and are based on the NVIDIA Container Runtime.<!--(COPS-4504)-->
+
+    CUDA provides a parallel computing platform that enables you to use GPU resources for general purpose processing. The CUDA platform provides direct access to the GPU virtual instruction set using common programming languages such as C and C++. The NVIDIA Container Runtime is a container runtime that supports CUDA image processing and is compatible with the Open Containers Initiative (OCI) specification. 
+    
+    With this release, DC/OS adds support for CUDA, NVIDIA Container Runtime containers, and applications that use GPU resources to enable you to build and deploy containers for GPU-accelerated workloads.
 
 ## Networking
 - Add a new networking API endpoint to retrieve the public-facing IP address for public agent nodes. <!--(DCOS-28127)-->
@@ -258,6 +278,10 @@ This change also aligned the authentication architectures between DC/OS Enterpri
 
     You can use the AWS EBS Container Storage Interface (CSI) driver to manage storage volumes for the Mesosphere Kubernetes Engine (MKE). This driver enables MKE users to deploy stateful applications running in a DC/OS cluster on an AWS cloud instance.
 
+- Update support for the Container Storage Interface (CSI) specification. <!--DCOS-51279,DCOS-50136, DCOS-47222-->
+
+    With this release, DC/OS supports the Container Storage Interface (CSI) API, version 1 (v1), specification. You can deploy plugins that are compatible with either the Container Storage Interface (CSI) API, v0 or v1, specification to create persistent volumes through local storage resource providers. DC/OS automatically detects the CSI versions that are supported by the plugins you deploy.
+
 # Issues fixed in this release 
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
 <!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
@@ -273,6 +297,16 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 - Add logging for Docker-GC to the `journald` system logging facility (COPS-4044).
 
 - Enable Admin Router to log information to a non-blocking socket (DCOS-43956).
+
+- Allow the DC/OS Storage Service (DSS) endpoint for collecting diagnostics to be marked as optional (DCOS_OSS-5031).
+
+    The DC/OS Storage Service (DSS) provides an HTTP endpoint for collecting diagnostics. If you want the DC/OS diagnostics request to succeed when the storage service diagnostics endpoint is not available, you can configure the DC/OS diagnostics HTTP endpoint as optional. By specifying that the diagnostic endpoint is optional, you can ensure that failures to query the endpoint do not cause DC/OS diagnostics reporting to fail. 
+    
+    If the storage service diagnostics endpoint is optional when you generate a diagnostics report, DC/OS records a log message indicating that the endpoint is unavailable and ignored because it was marked as optional.
+
+- Prevent cloud provider access or account keys from being included in diagnostic reports (DCOS-51751).
+
+    With this release, the configuration parameters `aws_secret_access_key` and `exhibitor_azure_account_key` are marked as secret and not visible in the `user.config.yaml` file on cluster nodes. This information is only visible in `user.config.full.yaml` file. This file has stricter read permissions and is not included in DC/OS Diagnostics bundles.
 
 ## GUI
 - Change the default value for DC/OS UI X-Frame-Options from SAMEORIGIN to DENY. This setting is also now configurable using the `adminrouter_x_frame_options` configuration parameter (DCOS-49594).
@@ -304,6 +338,14 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 - Fix a race condition in the layer-4 load balancing (l4lb) network component (DCOS_OSS-4939).
 
 - Fix IPv6 virtual IP support in the layer-4 load balancing (l4lb) network component (DCOS-50427).
+
+- Update `iptable` rules to allow the same port to be used for port mapping and virtual IP addresses (DCOS_OSS-4970).
+
+    DC/OS now allows you to use the same port for traffic routed to virtual IP addresses and to containers that use port mapping (for example, network traffice routed to a container using bridge networking). Previously, if you configured a virtual IP address listening on the same port as the host port specified for port mapping, the `iptable` rules identified the port conflict and prevented the virtual IP traffic from being routed to its intended destination.
+
+- Update `lashup` to check that all master nodes are reachable (DCOS_OSS-4328).    
+
+    Lashup is an internal DC/OS building block for a distributed control operations. It is not an independent module, but used in conjunction with other components. This fix helps to ensure Lashup convergence to prevent connectivity issues and nodes creating multiple "sub-clusters" within a single DC/OS cluster.
 
 ## Third-party updates and compatibility
 - Update support for REX-Ray to the most recent stable version (DCOS_OSS-4316,COPS-3961).

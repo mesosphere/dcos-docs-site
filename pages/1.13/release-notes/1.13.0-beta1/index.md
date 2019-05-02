@@ -2,9 +2,9 @@
 layout: layout.pug
 navigationTitle: Release notes for 1.13.0 (Beta)
 title: Release notes for 1.13.0 (Beta)
-menuWeight: 1
+menuWeight: -1
 beta: true
-excerpt: Release notes for DC/OS 1.13 (Beta), including Open Source attribution and version policy.
+excerpt: Release notes for DC/OS 1.13 (Beta), including Open Source attribution, and version policy.
 ---
 DC/OS 1.13.0 (Beta) was released on April 18, 2019.
 
