@@ -64,7 +64,7 @@ In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC
 
 3.  Click the **Catalog** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
 
-If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/mlb-auth/). Depending on your [security mode](/1.11/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
+If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/1.12/mlb-auth/). Depending on your [security mode](/1.11/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
 
 4.  Click the **Catalog** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.
@@ -74,7 +74,7 @@ If you are having trouble getting Marathon-LB up and running on an Enterprise cl
 
     ![Services tab with all services shown.](/1.11/img/tweeter-services6-ee.png)
 
-    Figure 1. Services tab showing Tweeter services 
+    Figure 1. Services tab showing Tweeter services
 
 ## Deploy the containerized app
 
@@ -85,10 +85,10 @@ In this step you deploy the containerized Tweeter app to a public node.
 2.  Add the `HAPROXY_0_VHOST` definition with the public IP address of your [public agent][9] node to your `tweeter.json` file.
 
     <table class=“table” bgcolor=#858585>
-    <tr> 
+    <tr>
     <td align=justify style=color:white><strong>Important:</strong> You must remove the leading "http://" and the trailing "/".
-    </td> 
-    </tr> 
+    </td>
+    </tr>
     </table>
 
     ```json
@@ -220,7 +220,7 @@ Figure 6. Top Tweeters
  [6]: /1.11/overview/concepts/
  [9]: /1.11/administering-clusters/locate-public-agent/
  [11]: /1.11/cli/command-reference/
- [12]: /services/marathon-lb/
+ [12]: /services/marathon-lb/1.12/
  [13]: https://github.com/mesosphere/tweeter
  [14]: /1.11/img/tweeter.png
  [16]: /1.11/img/top-tweeters.png
