@@ -155,7 +155,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
 
 # Next steps
 
-Learn how to load balance your app on a public node using [Marathon-LB](/services/marathon-lb/1.12.x/mlb-basic-tutorial/).
+Learn how to load balance your app on a public node using [Marathon-LB](/services/marathon-lb/1.12/1.12/mlb-basic-tutorial/).
 
 
  [1]: https://www.docker.com

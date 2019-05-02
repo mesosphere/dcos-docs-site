@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-DC/OS provides a number of tools out-of-the-box, ranging from basic network connectivity between containers to more advanced features, such as load balancing and service discovery. 
+DC/OS provides a number of tools out-of-the-box, ranging from basic network connectivity between containers to more advanced features, such as load balancing and service discovery.
 
 # IP Per Container
 Allows containers to run on any type of IP-based virtual networks, with each container having its own network namespace.
@@ -30,9 +30,9 @@ DC/OS includes highly available, distributed, DNS-based service discovery. The s
 Mesos DNS is a centralized, replicated, DNS server that runs on every master. Every task started by DC/OS gets a well-known DNS name. This provides a replicated highly available DNS service on each of the masters. Every instance of Mesos DNS polls the leading Mesos master and generates a fully qualified domain name (FQDN) for every service running in DC/OS with the domain `*.mesos`.  For more information, see the [Mesos DNS documentation](/1.9/networking/mesos-dns/).
 
 ## DNS Forwarder (Spartan)
-Spartan acts as a DNS masquerade for Mesos DNS on each agent. 
+Spartan acts as a DNS masquerade for Mesos DNS on each agent.
 
-The Spartan instance on each agent is configured to listen to three different local interfaces: `198.51.100.1`, `198.51.100.2`, and `198.51.100.3`. The `nameserver` option in the `/etc/resolv.conf` on the agent is set to these three interfaces. 
+The Spartan instance on each agent is configured to listen to three different local interfaces: `198.51.100.1`, `198.51.100.2`, and `198.51.100.3`. The `nameserver` option in the `/etc/resolv.conf` on the agent is set to these three interfaces.
 
 This allows containers to perform up to three retries on a DNS request. To provide a highly available DNS service, Spartan forwards each request it receives to the different Mesos DNS instances which are running on each master.
 
@@ -44,7 +44,7 @@ This allows containers to perform up to three retries on a DNS request. To provi
 The Spartan instance on each agent also acts as a DNS server for any service that is load balanced using the DC/OS internal load balancer called [Minuteman](/1.9/networking/mesos-dns/). Any service that is load balanced by Minuteman gets a [virtual-ip-address (VIP)](/1.9/networking/mesos-dns/) and an FQDN in the `"*.l4lb.thisdcos.directory"` domain. The FQDN allocated to a load-balanced service is then stored in Spartan. All Spartans instances exchange the records they have discovered locally from Minuteman by using GOSSIP. This provides a highly available distributed DNS service for any task that is load balanced by Minuteman. For more information, see the [Spartan repository](https://github.com/dcos/spartan).
 
 # Load Balancing
-East-west load balancing is provided by Minuteman. North-south load balancing is provided by [Marathon LB](/services/marathon-lb/). Marathon-LB is based on HAProxy, a rapid proxy and load balancer. It is installed as a DC/OS Universe package.
+East-west load balancing is provided by Minuteman. North-south load balancing is provided by [Marathon LB](/services/marathon-lb/1.12/). Marathon-LB is based on HAProxy, a rapid proxy and load balancer. It is installed as a DC/OS Universe package.
 
 ## Minuteman
 Minuteman is a distributed layer 4 virtual IP east-west load balancer that is installed by default. It provides:

@@ -8,7 +8,7 @@ excerpt:
 ---
 
 In this tutorial you install and deploy a containerized Ruby on Rails app named Tweeter. Tweeter is an app similar to Twitter that you can use to post 140-character messages to the internet. Then, you use Zeppelin to perform real-time analytics on the data created by Tweeter.
- 
+
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
 # Overview
@@ -24,7 +24,7 @@ This tutorial demonstrates how you can build a complete load-balanced data pipel
 This tutorial uses DC/OS to launch and deploy these microservices to your cluster:
 
 ### Cassandra
-The [Cassandra][1] database is used on the backend to store the Tweeter app data. 
+The [Cassandra][1] database is used on the backend to store the Tweeter app data.
 
 ### Kafka
 The [Kafka][2] publish-subscribe message service receives tweets from Cassandra and routes them to Zeppelin for real-time analytics.
@@ -192,7 +192,7 @@ __Tip:__ You can also install DC/OS packages from the DC/OS CLI with the [`dcos 
 1.  Click the **Catalog** tab. Click the **zeppelin** package and click the **CONFIGURE** button.
     1.  Click the **spark** tab and set `cores_max` to `8`.
     1.  Click **REVIEW AND DEPLOY** and click **DEPLOY**. Click **GO TO SERVICE**.
-1.  Install Marathon-LB by following [these instructions](/services/marathon-lb/mlb-install/). Depending on your [security mode](/1.9/security/ent/#security-modes), Marathon-LB requires service authentication for access to DC/OS. 
+1.  Install Marathon-LB by following [these instructions](/services/marathon-lb/1.12/mlb-install/). Depending on your [security mode](/1.9/security/ent/#security-modes), Marathon-LB requires service authentication for access to DC/OS.
 2.  Monitor the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
     ![Services tab with all services shown.](/1.9/img/tweeter-services6-ee.png)
@@ -308,7 +308,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 Next, you'll perform real-time analytics on the stream of tweets coming in from Kafka.
 
 1. Navigate to Zeppelin at `https://<master_ip>/service/zeppelin/`.
-   
+
    **Tip:** Your master IP address is the URL of the DC/OS web interface.
 2. Click **Import Note** and import `tweeter-analytics.json`. Zeppelin is preconfigured to execute Spark jobs on the DC/OS cluster, so there is no further configuration or setup required. Be sure to use `https://`, not `http://`.
 
@@ -333,7 +333,7 @@ Next, you'll perform real-time analytics on the stream of tweets coming in from 
  [9]: /1.9/administering-clusters/locate-public-agent/
  [10]: /1.9/img/webui-universe-install.png
  [11]: /1.9/cli/command-reference/
- [12]: /services/marathon-lb/
+ [12]: /services/marathon-lb/1.12/
  [13]: https://github.com/mesosphere/tweeter
  [14]: /1.9/img/tweeter.png
  [15]: /1.9/img/network-tab.png
