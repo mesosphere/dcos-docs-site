@@ -284,7 +284,11 @@ This change also aligned the authentication architectures between DC/OS Enterpri
 
 # Issues fixed in this release 
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
-<!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
+
+## Admin Router
+- Enable Admin Router to handle long server names (COPS-4286, DCOS-46277). <!--listed previously in 1.12.1 RN-->
+
+    This release fixes an issue in Admin Router that prevented it from starting properly for some virtual machine configurations. For example, if you previously used a server name that exceeded the maximum size allowed, the `dcos-adminrouter` component might be unable to start the server. With this release, the `packages/adminrouter/extra/src/nginx.master.conf` file has been updated to support a server name hash bucket size of 64 characters.
 
 ## Command-line interface (CLI) 
 - Fix the CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679). 
@@ -346,6 +350,20 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 - Update `lashup` to check that all master nodes are reachable (DCOS_OSS-4328).    
 
     Lashup is an internal DC/OS building block for a distributed control operations. It is not an independent module, but used in conjunction with other components. This fix helps to ensure Lashup convergence to prevent connectivity issues and nodes creating multiple "sub-clusters" within a single DC/OS cluster.
+
+- Allow agents to store network information in a persistent location (COPS-4124, DCOS-46132, DCOS_OSS-4667).<!--listed previously in 1.10.10 RN-->
+
+    A new agent option `--network_cni_root_dir_persist` allows the container node root directory to store network information in a persistent location. This option enables you to specify a container `work_dir` root directory that persists network-related information. By persisting this information, the container network interface (CNI) isolator code can perform proper cleanup operations after rebooting. 
+
+    If rebooting a node does not delete old containers and IP/MAC addresses from `etcd` (which over time can cause pool exhaustion), you should set the `--network_cni_root_dir_persist` agent option in the `config.yaml` file to `true`. You should note that changing this flag requires rebooting the agent node or shutting down all container processes running on the node. Because a reboot or shutdown of containers is required, the default value for the `--network_cni_root_dir_persist` agent option is `false`. 
+    
+    Before changing this option, you should plan for agent maintenance to minimize any service interruption. If you set this option and reboot a node, you should also unset the `CNI_NETNS` environment variable after rebooting using the CNI plugin `DEL` command so that the plugin cleans up as many resources as possible (for example, by releasing IPAM allocations) and returns a successful response.
+
+- Applications that use Docker containers with a virtual IP address resolve access to the application by using the `host_IP:port_number` instead of the `container_ip:port_number` for backend port mapping (COPS-4087).<!--listed previously in 1.12.1 RN-->
+
+- The distributed layer-4 load-balancer (`dcos-l4lb`) network component waits to route traffic until an application scale-up operation is complete or the application health check has passed (COPS-3924, DCOS_OSS-1954).<!--listed previously in 1.12.1 RN-->
+
+    The `dcos-l4lb` process does not prevent traffic from being routed if you are scaling down the number of application instances. Network traffic is only suspended if the status of the application is determined to be unhealthy or unknown.
 
 ## Third-party updates and compatibility
 - Update support for REX-Ray to the most recent stable version (DCOS_OSS-4316,COPS-3961).
