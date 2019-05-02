@@ -9,7 +9,7 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-In this section you will set up the authentication method and parameters for your LDAP directory. There are two bind types and two authentication methods you can use.
+In this section you will set up the authentication method and parameters for your LDAP directory. There are two bind types and two authentication methods you can use. .
 
 # Bind Types
 
@@ -17,14 +17,14 @@ Bind operations are used to authenticate clients to the directory server,  estab
 
 There are two bind types available to you: 
 
-- Anonymous Bind - Uses a simple bind DN and a user DN template. Anyone can connect to the LDAP server. This bind type does not require a **Lookup DN** or **Lookup Password**. 
+- Anonymous Bind - Uses a simple bind or a search bind. Anyone can connect to the LDAP server. This bind type does not require a **Lookup DN** or **Lookup Password**. 
 - LDAP Credentials - Requires a **Lookup DN** and **Lookup Password**. LDAP credentials must be previously established.
 
 # Authentication methods
 
 There are two authentication methods available to you.
 
-- Simple bind. Authentication by simple bind is the most common way to authenticate an LDAP client. You can either bind Anonymously (using a simple bind DN) or you can provide LDAP credentials such as a lookup DN and lookup password. In either case, you must provide a user DN template. Choose Simple bind if your LDAP user name is part of your [distinguished name (DN)](https://www.ldap.com/ldap-dns-and-rdns).     
+- Simple bind. Authentication by simple bind is the most common way to authenticate an LDAP client, but you can also choose a search bind authentication method. You can either bind Anonymously, or you can provide LDAP credentials such as a lookup DN and lookup password. In either case, you must provide a user DN template. Choose Simple bind if your LDAP user name is part of your [distinguished name (DN)](https://www.ldap.com/ldap-dns-and-rdns).     
 
 - Search bind. While the simple bind connection takes place in a single step, the search/bind operation requires two steps. First the directory is searched for the user name attribute. If located, a bind operation ensues to check the user's credentials against the external directory. You must specify a user search base and a user search filter template. In some methods, you must also specify a lookup DN and lookup password. Choose Search bind if you have an LDAP user name that is **not** a part of the [distinguished name (DN)](https://www.ldap.com/ldap-dns-and-rdns).
 
