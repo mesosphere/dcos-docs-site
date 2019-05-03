@@ -10,7 +10,6 @@ enterprise: true
 
 这些示例为作业提供常见的使用情景。
 
-<<<<<<< HEAD
 **先决条件：**
 
 - [DC/OS](/cn/1.12/installing/) 和 [DC/OS CLI](/cn/1.12/cli/install/) 已安装。
@@ -18,15 +17,6 @@ enterprise: true
 # <a name="create-job"></a>创建简单的作业
 
 此 JSON 文件创建了一项无计划的简单作业。
-=======
-**前提条件：**
-
-- 数据中心操作系统和数据中心操作系统 CLI [已安装](/cn/1.12/installing/)。
-
-# <a name="create-job"></a>创建简单的作业
-
-此 JSON 文件创建了一项没有计划的简单作业。
->>>>>>> staging
 
 1. 使用以下内容创建 JSON 文件。
     ```json

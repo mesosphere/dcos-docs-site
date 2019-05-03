@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Installing the CLI
-title: Installing the CLI
+navigationTitle: 安装 CLI
+title: 安装 CLI
 menuWeight: 1
 excerpt: 安装 DC/OS 命令行界面
-
 enterprise: false
 ---
 这些说明将向您展示如何在群集上安装核心 DC/OS CLI 命令。

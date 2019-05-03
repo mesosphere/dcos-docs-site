@@ -4,7 +4,6 @@ navigationTitle: 更新 CLI
 title: 更新 CLI
 menuWeight: 3
 excerpt: 更新命令行界面
-
 enterprise: false
 ---
 

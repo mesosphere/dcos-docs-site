@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Mesosphere DC/OS 1.11
 title: Mesosphere DC/OS 1.11 文档
-menuWeight: 0
+menuWeight: 20
 excerpt: 学习 DC/OS
 ---
 

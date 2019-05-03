@@ -33,13 +33,8 @@ enterprise: false
 
 ### **Schedule** 选项卡
 检查 **Run on a Schedule** 以显示以下字段。
-<<<<<<< HEAD
 * **Cron Schedule** - 指定 cron 格式的时间表。使用 [this crontab generator](http://crontab.guru)获取帮助。
 * **时区** - 以 [TZ 格式](http://www.timezoneconverter.com/cgi-bin/zonehelp) 输入时区，例如 America/New_York。
-=======
-* **Cron Schedule** - 指定 cron 格式的时间表。使用 [this crontab generator]（http://crontab.guru）获取帮助。
-* **时区** - 以 [TZ 格式] （http://www.timezoneconverter.com/cgi-bin/zonehelp）输入时区，例如 America/New_York。
->>>>>>> staging
 * **Starting Deadline** -  如果由于任何原因错过了计划时间，这是开始作业的时间（以秒为单位）。错过的作业执行将被视为失败的作业执行。
 
 ### **Docker Container** 选项卡
