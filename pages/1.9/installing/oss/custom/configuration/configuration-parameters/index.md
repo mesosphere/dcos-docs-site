@@ -1,3 +1,4 @@
+---
 layout: layout.pug
 navigationTitle:  Configuration Reference
 excerpt: List of all configuration parameters for DC/OS Open Source installations
@@ -20,7 +21,7 @@ This topic provides all available configuration parameters. Except where explici
 | [bootstrap_url](#bootstrap-url)                          | (Required) The URI path for the DC/OS installer to store the customized DC/OS build files.                                         |
 | [cluster_docker_credentials](#cluster-docker-credentials)             | The dictionary of Docker credentials to pass.                                                                                      |
 | [cluster_docker_credentials_enabled](#cluster-docker-credentials-enabled)   |  Whether to pass the Mesos `--docker_config` option to Mesos. |
-| [cluster_docker_registry_url](#cluster-docker-registry-url)            | The custom URL that Mesos uses to pull Docker images from.                                                                         |
+| [cluster_docker_registry_url](#cluster-docker-registry-url)            | The custom URL that Mesos uses to pull Docker images from. If changed from the default, you will need to import a local universe into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local universe](/1.9/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/1.9/deploying-services/private-docker-registry/) for more information. |
 | [cluster_name](#cluster-name)                           | The name of your cluster.                                                                                                        |
 | [cosmos_config](#cosmos-config)                          | The dictionary of packaging configuration to pass to the [DC/OS Package Manager (Cosmos)](https://github.com/dcos/cosmos).         |
 | [exhibitor_storage_backend](#exhibitor-storage-backend)                          | The type of storage backend to use for Exhibitor.          |
@@ -140,7 +141,7 @@ Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_c
 
 
 ### cluster_docker_registry_url
-The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used.
+The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used. If changed from the default, you will need to import a local universe into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local universe](/1.9/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/1.9/deploying-services/private-docker-registry/) for more information.
 
 ### cluster_name
 The name of your cluster.
@@ -352,7 +353,7 @@ The path to the installer host logs from the SSH processes. By default this is s
        The load balancer must accept traffic on ports 80, 443, 2181, 5050, 8080, 8181. The traffic must also be forwarded to the same ports on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up.
 
        **Note:** The internal load balancer must work in TCP mode, without any TLS termination.
-       
+
     *  **num_masters**
        (Required) The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
 

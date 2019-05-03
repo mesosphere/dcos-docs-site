@@ -3,8 +3,7 @@ layout: layout.pug
 navigationTitle:  Examples
 title: Examples
 menuWeight: 700
-excerpt:
-
+excerpt: Configuration Examples
 enterprise: false
 ---
 
@@ -17,7 +16,7 @@ This topic provides common example configurations. Except where explicitly indic
 - `# DC/OS Enterprise Only` - Applies to DC/OS Enterprise only.
 
 # All parameters
-This sample config.yaml file includes all of the available configuration parameters for DC/OS. 
+This sample config.yaml file includes all of the available configuration parameters for DC/OS.
 
 ```yaml
 agent_list:
@@ -54,7 +53,7 @@ dcos_overlay_network:
     - name: <name>
       subnet: <address>
       prefix: <size>
-dns_search: <domain1 domain2 domain3>  
+dns_search: <domain1 domain2 domain3>
 docker_remove_delay: <num>hrs
 enable_docker_gc: `<true|false>`
 exhibitor_storage_backend: static
@@ -84,7 +83,7 @@ exhibitor_address: <loadbalancer-ip>
 master_dns_bindall: `<true|false>`
 num_master: <num-of-masters>
 # DC/OS only
-oauth_enabled: `<true|false>`  
+oauth_enabled: `<true|false>`
 public_agent_list:
 - <agent-private-ip>
 platform: <platform>
@@ -278,7 +277,7 @@ use_proxy: 'true'
 http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
 https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
 no_proxy:
-- 'foo.bar.com'    
+- 'foo.bar.com'
 - '.baz.com'
 ```
 
