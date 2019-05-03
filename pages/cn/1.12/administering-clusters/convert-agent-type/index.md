@@ -10,12 +10,12 @@ enterprise: false
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-您可以将代理节点转换为现有 DC/OS 群集的公共或私有节点。
+您可以将代理节点转换为现有 DC/OS 群集的公共或私用节点。
 
-在安装过程中，代理节点被指定为 [公共](/cn/1.12/overview/concepts/#public-agent-node) 或 [私有](/cn/1.12/overview/concepts/#private-agent-node)节点。默认情况下，它们在 [GUI][1] 或 [CLI][2] 安装中被指定为私有节点。
+在安装过程中，代理节点被指定为 [公共](/cn/1.12/overview/concepts/#public-agent-node) 或 [私用](/cn/1.12/overview/concepts/#private-agent-node)节点。默认情况下，它们在 [GUI][1] 或 [CLI][2] 安装中被指定为私用节点。
 
 ### 先决条件：
-这些步骤必须在配置为 DC/OS 节点的机器上执行。在此转换过程中将终止在节点上运行的任何任务。
+这些步骤必须在配置为 DC/OS 节点的机器上执行。在此转换过程中将终止在节点上运行的所有任务。
 
 * DC/OS 是使用 [自定义](/cn/1.12/installing/evaluation/)安装方式安装的，您已部署至少一个 [管理节点](/cn/1.12/overview/concepts/#master) 和一个 [私有](/cn/1.12/overview/concepts/#private-agent-node) 代理节点。
 * 来自您的[安装](/cn/1.12/installing/evaluation/#backup)的存档 DC/OS 安装程序文件（`dcos-install.tar`）。
@@ -25,7 +25,7 @@ enterprise: false
 ### 确定节点类型
 您可以通过从 DC/OS CLI 运行此命令来确定节点类型。
 
-- 运行此命令以确定群集中有多少个私有代理。`0`的结果表示没有私人代理。
+- 运行此命令以确定群集中有多少个私用代理。`0`的结果表示没有私用代理。
 
     ```bash
     dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public == null) | .id' | wc -l
@@ -37,7 +37,7 @@ enterprise: false
     dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l
     ```
 
-### 卸载 DC/OS 私有代理软件
+### 卸载 DC/OS 私用代理软件
 
 1. 卸载代理节点上的 DC/OS。
 
@@ -87,9 +87,9 @@ enterprise: false
     sudo tar xf dcos-install.tar -C /opt/dcos_install_tmp
     ```
 
-1. 运行此命令以在代理节点上安装 DC/OS。您必须将代理节点指定为公共或私有节点。
+1. 运行此命令以在代理节点上安装 DC/OS。您必须将代理节点指定为公共或私用节点。
 
-    私有代理节点：
+    私用代理节点：
 
     ```bash
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave

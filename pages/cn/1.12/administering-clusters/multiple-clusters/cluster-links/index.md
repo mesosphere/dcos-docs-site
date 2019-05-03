@@ -90,28 +90,28 @@ dcos cluster attach <linked-cluster>
 
     ![swi 集群](/1.12/img/switch-cluster-1-12.png)
 
-    图 2. 切换集群
+    图 2. 切换群集
 
 1. 单击要切换到的群集名称。
 
     ![swi 链接的集群](/1.12/img/switch-linked-cluster.png)
 
-    图 3. 切换到链接的群集
+    图 3. 切换到已连接的群集
 
-如果您以超级用户身份登录，您也可以在“链接群集”选项卡中切换到链接的群集。
+如果您以超级用户身份登录，您也可以在“已连接群集”选项卡中切换到已连接的群集。
 
-1. 选择 **群集 -> 链接群集**。
+1. 选择 **群集 -> 已连接群集**。
 
 1. 在切换目标群集的最右侧单击垂直椭圆，然后选择 **切换**。
 
     ![swi linked cluster2](/1.12/img/switch-linked-cluster2.png)
 
-    图 4. 切换到链接的群集
+    图 4. 切换到已连接的群集
 
 
 # 链接和切换群集示例
 
-## 以超级用户操作员通过 CLI 链接群集
+## 以超级用户操作员通过 CLI 连接群集
 
 1. 使用 `dcos-user` 提供程序设置群集 `cluster-a` 。
 
@@ -119,7 +119,7 @@ dcos cluster attach <linked-cluster>
    dcos cluster setup --provider=dcos-users https://cluster-a.us-west-2.elb.amazonaws.com
     ```
     响应请求您验证群集证书捆绑包中的指纹，其必须通过响应`yes`接受。
-    CLI 提示提供超级用户凭证。提供凭证。
+    CLI 提示提供超级用户凭证。此时提供凭证。
 
 1. 使用 `dcos-user` 提供程序设置 `cluster-b`。
 
@@ -128,7 +128,7 @@ dcos cluster attach <linked-cluster>
     ```
 
     响应请求您验证群集证书捆绑包中的指纹，其必须通过响应`yes`接受。
- CLI 提示提供超级用户凭证。提供凭证。
+    CLI 提示提供超级用户凭证。此时提供凭证。
 
 1. 附加到群集 `cluster-a` 并列示。
 
@@ -140,7 +140,7 @@ dcos cluster attach <linked-cluster>
     cluster-a*  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.12-dev  https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
-1. 从群集 `cluster-a` 链接到群集 `cluster-b`。
+1. 从群集 `cluster-a` 连接到群集 `cluster-b`。
 
     ```
     dcos cluster link https://cluster-b.us-west-2.elb.amazonaws.com
@@ -167,7 +167,7 @@ dcos cluster attach <linked-cluster>
     $ dcos cluster attach cluster-b
     ```
 
-1. 从群集 `cluster-b` 链接到群集 `cluster-a`。
+1. 从群集 `cluster-b` 连接到群集 `cluster-a`。
 
     ```
     dcos cluster link https://cluster-a.us-west-2.elb.amazonaws.com
@@ -202,7 +202,7 @@ dcos cluster attach <linked-cluster>
 
 ### 使用 UI 和 Google SSO 切换群集
 
-您可以使用 Google OpenID 提供程序轻松切换到已设置的链接群集。
+您可以使用 Google OpenID 提供程序轻松切换到已设置的已连接群集。
 
 
 1. 作为外部用户，使用 Google 凭证登录群集的 DC/OS UI `cluster-a` 。
@@ -217,12 +217,12 @@ dcos cluster attach <linked-cluster>
 
     图 6. 切换集群
 
-1. 单击 **切换群集**。在“链接群集”窗格中，选择群集 `cluster-b`。群集 `cluster-b`的 UI 显示。
+1. 单击 **切换群集**。在“已连接群集”窗格中，选择群集 `cluster-b`。群集 `cluster-b`的 UI 显示。
 
 
 ### 使用 CLI 和 Google SSO 切换群集
 
-您可以使用 Google OpenID 提供程序轻松切换到已设置的链接群集。
+您可以使用 Google OpenID 提供程序轻松切换到已设置的已连接群集。
 
 1. 列出身份验证提供程序。
 

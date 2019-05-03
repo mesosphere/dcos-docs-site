@@ -19,7 +19,7 @@ enterprise: true
 
 ## 添加新的管理节点
 
-添加新管理节点以替换在上一步中下线的管理节点的程序非常简单。
+添加新管理节点以替换在上一步中下线的管理节点的步骤非常简单。
 
 ### `master_discovery: static`
 
@@ -29,8 +29,8 @@ enterprise: true
 
 如果已在 config.yaml 中配置了动态管理节点发现（例如，`master_discovery: master_http_loadbalancer`），则按正常方式安装新的管理节点。
 
-## 确认新管理节点是否健康
+## 确认新管理节点是否运行良好
 
-要确认新的管理节点已成功加入群集，您在继续之前，必须验证该程序是否成功。该程序与管理节点升级后执行的验证程序相同。
+要确认新的管理节点已成功加入群集，您在继续之前，必须验证该步骤是否成功。该步骤与管理节点升级后执行的验证步骤相同。
 
 确切步骤参见 [升级文档](/cn/1.12/installing/production/upgrading/) 中 [升级管理节点](/cn/1.12/installing/production/upgrading/#dcos-masters) 部分的“验证升级”。

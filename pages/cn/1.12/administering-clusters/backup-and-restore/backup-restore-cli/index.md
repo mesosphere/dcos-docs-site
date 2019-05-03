@@ -13,7 +13,7 @@ enterprise: true
 - [DC/OS CLI](/cn/1.12/cli/install/) 已安装。
 - [DC/OS Enterprise CLI](/cn/1.12/cli/enterprise-cli/) 已安装。
 
-<p class="message--important"><strong>重要信息：</strong>查看备份和恢复部分的 <a href="/latest/administering-clusters/backup-and-restore/#limitations">限制</a>。</p>
+<p class="message--important"><strong>重要信息：</strong>查看备份和恢复的 <a href="/latest/administering-clusters/backup-and-restore/#limitations">限制</a>部分。</p>
 
 
 # 备份群集
@@ -44,7 +44,7 @@ enterprise: true
 
  备份最初将过渡到 `STATUS_BACKING_UP` 状态，并且最终应进入 `STATUS_READY`状态。如果出现错误，它将显示一个 `STATUS_ERROR`状态。使用 `dcos backup show <backup-id>` 检查在备份过程中 Marathon 出错的原因。
 
-1. 在后续命令中使用由 `dcos backup list` 产生的 ID 引用您的备份。备份 ID 类似于 `<backup-label>-ea6b49f5-79a8-4767-ae78-3f874c90e3da`。
+1. 在后续命令中使用由 `dcos backup list` 产生的 ID 以指向您的备份。备份 ID 类似于 `<backup-label>-ea6b49f5-79a8-4767-ae78-3f874c90e3da`。
 
 ## 删除备份
 

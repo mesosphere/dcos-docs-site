@@ -13,9 +13,9 @@ enterprise: false
 
 # 停用节点
 
-当 Mesos 检测到某个节点已停止时，它将节点置于 `UNREACHABLE` 状态，因为 Mesos 不知道节点是暂时停止并将重新上线，还是永久停止。如果您知道节点不会返回，您可以明确告诉 Mesos 将节点置于 `GONE` 状态。
+当 Mesos 检测到某个节点已停止时，它将节点置于 `UNREACHABLE` 状态，因为 Mesos 不知道节点是暂时停止并将重新上线，还是永久停止。如果您知道节点不会重新上线，您可以明确告诉 Mesos 将节点置于 `GONE` 状态。
 
-节点停用后，对应的代理 ID 被内部标记为 `GONE` 并且不允许返回和在管理节点上重新注册。节点上运行的任务已过渡到 `TASK_GONE_BY_OPERATOR` 状态。
+节点停用后，对应的代理 ID 被内部标记为 `GONE` 并且不允许返回及在管理节点上重新注册。节点上运行的任务已过渡到 `TASK_GONE_BY_OPERATOR` 状态。
 
 您应该在以下情况下停用节点。
 
@@ -52,7 +52,7 @@ dcos node decommission <mesos-agent-id>
 
 1. 输入以下命令，停止节点。
 
- - **私有代理**
+ - **私用代理**
 
   ```bash
   sudo sh -c 'systemctl stop dcos-mesos-slave'
