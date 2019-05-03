@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security cluster oidc show` 命令为回顾已配置的 OpenID Connect 提供程序。它将显示有关给定提供程序或概述的详细信息，具体取决于提供程序 ID 是否已指定或备注。
+`dcos security cluster oidc show` 命令显示已配置的 OpenID Connect 提供程序的概览。它将显示有关给定提供程序或概述的详细信息，具体取决于提供程序 ID 是否已指定或备注。
 
 如果指定了多个提供程序，则仅评估第一个 ID。
 

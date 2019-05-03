@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security cluster saml modify` 命令允许您修改现有 SAML 提供程序配置。
+`dcos security cluster saml modify` 命令让您可以修改现有 SAML 提供程序配置。
 
 
 # 使用

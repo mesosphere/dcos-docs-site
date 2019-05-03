@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security org users grant` 命令允许您授予由特定 UID 权限标识的用户在标识的资源上执行指定操作的权限。
+`dcos security org users grant` 命令让您授予由特定 UID 权限标识的用户在标识的资源上执行指定操作的权限。
 
 # 选项
  

@@ -20,7 +20,7 @@ DC/OS CLI 必须已经是 [已安装](/cn/1.12/cli/install/)。
 
 <p class="message--note"><strong>注意：</strong>必须从 DC/OS CLI 安装 DC/OS Enterprise CLI。无法在 Web 界面中从 Catalog 安装 DC/OS Enterprise CLI。</p>
 
-若要安装 DC/OS Enterprise CLI，请从终端提示符发出以下命令。
+若要安装 DC/OS Enterprise CLI，请从终端提示符发出以下指令。
 
 ```bash
 dcos package install dcos-enterprise-cli
@@ -31,7 +31,7 @@ dcos package install dcos-enterprise-cli
 
 # <a name="ent-cli-upgrade"></a>升级 DC/OS Enterprise CLI
 
-重新安装 DC/OS Enterprise CLI 升级软件包。
+重新安装 DC/OS Enterprise CLI 会升级软件包。
 
 ```bash
 dcos package install dcos-enterprise-cli
@@ -40,7 +40,7 @@ dcos package install dcos-enterprise-cli
 
 # <a name="ent-cli-uninstall"></a>卸载 DC/OS Enterprise CLI
 
-若要卸载 DC/OS Enterprise CLI，请发出以下命令。
+若要卸载 DC/OS Enterprise CLI，请发出以下指令。
 
 ```bash
 dcos package uninstall dcos-enterprise-cli

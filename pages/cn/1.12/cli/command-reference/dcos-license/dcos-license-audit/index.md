@@ -8,7 +8,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos license audit` 命令允许您检索您的 DC/OS 许可证的审核数据。
+`dcos license audit` 命令可以让您检索您的 DC/OS 许可证的审核数据。
 
 # 使用
 

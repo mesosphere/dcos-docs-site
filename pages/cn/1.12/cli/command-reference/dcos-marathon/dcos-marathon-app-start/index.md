@@ -10,7 +10,7 @@ enterprise: false
 
 # 说明
 
-`dcos marathon app start` 命令允许您启动应用程序。
+`dcos marathon app start` 命令让您可以启动应用程序。
 
 # 使用
 

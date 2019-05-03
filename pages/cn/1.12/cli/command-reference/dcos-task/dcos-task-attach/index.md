@@ -9,7 +9,7 @@ enterprise: false
 
 # 说明
 
-`dcos task attach` 命令允许您将 CLI 连接到已经运行任务的 `stdio`。
+`dcos task attach` 命令让您将 CLI 连接到已经运行任务的 `stdio`。
 
 ```bash
 dcos task attach [--no-stdin] <task>

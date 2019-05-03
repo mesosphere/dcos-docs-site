@@ -9,7 +9,7 @@ enterprise: false
 
 
 # 说明
-`dcos node diagnostics` 命令允许您查看诊断捆绑包的详细信息。
+`dcos node diagnostics` 命令让您可以查看诊断捆绑包的详细信息。
 
 # 使用
 

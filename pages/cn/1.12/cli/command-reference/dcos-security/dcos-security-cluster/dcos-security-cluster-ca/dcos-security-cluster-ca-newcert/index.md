@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security cluster ca newcert` 命令允许您创建并签署新证书。您只能根据下面提供的命令行选项创建新证书。
+`dcos security cluster ca newcert` 命令让您可以创建并签署新证书。您只能根据下面提供的命令行选项创建新证书。
 
 # 使用
 

@@ -49,7 +49,7 @@ https://your-cluster-9vqnkrq5pt2n-2781474.cloue-1.elb.amazonaws.com
 
 ## 查看所有配置值
 
-在此示例中，所有配置值显示。
+在此示例中，显示了所有配置值。
 
 ```bash
 dcos config show

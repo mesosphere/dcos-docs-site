@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos job schedule add` 命令允许您将时间表添加到作业中。
+`dcos job schedule add` 命令让您将时间表添加到作业中。
 
 # 使用
 

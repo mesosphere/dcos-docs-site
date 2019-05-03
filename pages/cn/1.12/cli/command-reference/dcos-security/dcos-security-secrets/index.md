@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security secrets` 命令允许您管理密钥。
+`dcos security secrets` 命令让您管理密钥。
 
 # 使用
 

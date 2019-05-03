@@ -9,7 +9,7 @@ enterprise: false
 
 
 # 说明
-`dcos job schedule update` 命令允许您更新作业的时间表。
+`dcos job schedule update` 命令可以让您更新作业的时间表。
 
 # 使用
 

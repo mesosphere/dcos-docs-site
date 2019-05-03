@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos node diagnostics create` 命令允许您创建诊断捆绑包。
+`dcos node diagnostics create` 命令让您可以创建诊断捆绑包。
 
 # 使用
 

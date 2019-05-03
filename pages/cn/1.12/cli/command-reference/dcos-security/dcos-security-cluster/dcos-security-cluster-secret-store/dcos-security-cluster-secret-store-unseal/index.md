@@ -8,7 +8,7 @@ enterprise: true
 ---
 # 说明
 
-`dcos security cluster secret-store unseal` 命令允许您拆封给定存储库。
+`dcos security cluster secret-store unseal` 命令让您拆封给定存储库。
 
 # 使用
 

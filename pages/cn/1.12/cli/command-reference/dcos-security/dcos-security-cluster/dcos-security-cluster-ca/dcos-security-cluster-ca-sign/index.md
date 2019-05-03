@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security cluster ca sign` 命令允许您签署证书签名请求 (CSR)。
+`dcos security cluster ca sign` 命令让您签署证书签名请求 (CSR)。
 
 # 使用
 

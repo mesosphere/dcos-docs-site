@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security cluster oidc delete` 命令允许您删除 OpenID Connect 提供程序配置。
+`dcos security cluster oidc delete` 命令让您删除 OpenID Connect 提供程序配置。
 
 # 使用
 

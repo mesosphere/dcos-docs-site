@@ -9,7 +9,7 @@ enterprise: false
 
 # 说明
 
-`dcos marathon deployment rollback` 命令允许您删除部署的应用程序。
+`dcos marathon deployment rollback` 命令让您可以删除部署的应用程序。
 
 # 使用
 

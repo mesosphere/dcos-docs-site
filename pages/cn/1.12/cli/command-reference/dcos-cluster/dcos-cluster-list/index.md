@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos-cluster list` 命令将列出已配置的群集以及链接到当前群集的群集。
+`dcos-cluster list` 命令将列出已配置的群集以及已连接到当前群集的群集。
 
 # 使用
 
@@ -23,7 +23,7 @@ dcos cluster list [flags]
 | 名称 | 说明 |
 |---------|-------------|
 | `--attached` | 仅返回已连接的集群。 |
-| `--json` | 显示 JSON 格式化列表。|
+| `--json` | 显示 JSON 格式的列表。|
 | `-h`，`--help` | 显示此命令的帮助。 |
 
 

@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos job history` 命令允许您查看您的作业运行历史记录。
+`dcos job history` 命令让您查看您的作业运行历史记录。
 
 # 使用
 
@@ -22,7 +22,7 @@ dcos job history <job-id> [--json|--quiet] [--failures --last]
 
 | 名称 | 说明 |
 |---------|-------------|
-|  `--json` | 显示 JSON 格式化列表。 |
+|  `--json` | 显示 JSON 格式的列表。 |
 | `-q`，`--quiet` | 表示仅导致运行 ID 阵列的静默模式。 |
 | `-f`，`failures` | 显示故障表和历史记录统计信息。 |
 | `-l`，`--last` | 显示历史作业的最后一个 ID。| 

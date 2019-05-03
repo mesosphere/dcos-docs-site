@@ -9,7 +9,7 @@ enterprise: false
 
 
 # 说明
-`dcos package describe` 命令允许您查看软件包的特定详细信息。
+`dcos package describe` 命令让您可以查看软件包的特定详细信息。
 
 # 使用
 

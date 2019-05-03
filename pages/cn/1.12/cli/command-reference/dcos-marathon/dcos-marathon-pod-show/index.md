@@ -9,7 +9,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon pod show` 命令允许您查看特定 pod 的详细信息。
+`dcos marathon pod show` 命令让您查看特定 pod 的详细信息。
 
 # 使用
 
@@ -27,7 +27,7 @@ dcos marathon pod show <pod-id>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<pod-id>` | POD ID。您可以使用 `dcos marathon pod list` 命令查看 pod ID 列表。|
+| `<pod-id>` | Pod ID。您可以使用 `dcos marathon pod list` 命令查看 pod ID 列表。|
 
 
 

@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security secrets get` 命令允许您通过指定路径从密钥存储库检索密码。
+`dcos security secrets get` 命令让您通过指定路径从密钥存储库检索密码。
 
 # 使用 
 

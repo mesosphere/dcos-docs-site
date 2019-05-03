@@ -9,7 +9,7 @@ enterprise: false
 
 # 说明
 
-`dcos package repo import` 命令允许您导入包含带有 `<repo-file>` 标识的软件包存储库的文件。
+`dcos package repo import` 命令让您可以导入包含带有 `<repo-file>` 标识的软件包存储库的文件。
 
 # 使用
 

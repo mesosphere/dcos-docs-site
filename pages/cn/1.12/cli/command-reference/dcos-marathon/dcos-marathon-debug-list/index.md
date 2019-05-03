@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos marathon debug list` 命令允许您显示当前队列实例启动列表，用于调试。
+`dcos marathon debug list` 命令让您显示当前队列实例启动列表，用于调试。
 
 # 使用
 

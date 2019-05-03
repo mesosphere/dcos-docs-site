@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos node diagnostics download` 命令允许您将诊断捆绑包下载到特定位置。
+`dcos node diagnostics download` 命令让您将诊断捆绑包下载到特定位置。
 
 # 使用
 

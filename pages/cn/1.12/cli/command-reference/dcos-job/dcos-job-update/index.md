@@ -9,7 +9,7 @@ enterprise: false
 
 
 # 说明
-`dcos job update` 命令允许您更新作业。
+`dcos job update` 命令可以让您更新作业。
 
 # 使用
 

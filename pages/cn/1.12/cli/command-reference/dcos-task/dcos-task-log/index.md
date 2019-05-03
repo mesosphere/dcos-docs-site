@@ -32,7 +32,7 @@ dcos task log [--all | --completed] [--follow --lines=N] [<task>] [<file>]
 | `<task>` | | 完整任务 ID、部分任务 ID 或正则表达式。|
 | `<file>` | `stdout` | 指定要打印的沙盒文件。默认为 `stdout`。|
 
-日志文件参数应为关联 Mesos 沙盒的路径。例如：
+日志文件参数应为相对于 Mesos 沙盒的路径。例如：
 
 ```
 dcos task log [mesosID] /mnt/mesos/sandbox/exporter.log

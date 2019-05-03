@@ -10,7 +10,7 @@ enterprise: true
 
 # 说明
 
-`dcos security cluster ca` 命令允许您与 DC/OS 群集 CA 进行交互 - 签署证书、生成 CSR 和签名信息检索。
+`dcos security cluster ca` 命令让您与 DC/OS 群集 CA 进行交互 - 签署证书、生成 CSR 和签名信息检索。
 
 # 使用
 

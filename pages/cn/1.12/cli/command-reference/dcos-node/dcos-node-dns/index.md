@@ -9,7 +9,7 @@ enterprise: false
 
 # 说明
 
-`dcos node dns` 命令允许您查看您的 DC/OS 群集的域名服务配置。
+`dcos node dns` 命令让您可以查看您的 DC/OS 群集的域名服务配置。
 
 # 使用
 

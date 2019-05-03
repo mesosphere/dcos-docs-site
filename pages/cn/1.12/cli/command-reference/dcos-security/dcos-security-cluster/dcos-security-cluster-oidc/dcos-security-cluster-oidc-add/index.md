@@ -10,7 +10,7 @@ enterprise: true
 
 # 说明
 
-`dcos security cluster oidc add` 命令允许您配置新的 OpenID Connect 提供程序。
+`dcos security cluster oidc add` 命令让您配置新的 OpenID Connect 提供程序。
 
 
 # 使用
