@@ -3,8 +3,7 @@ layout: layout.pug
 navigationTitle:  Configuration
 title: Configuration
 menuWeight: 600
-excerpt:
-
+excerpt: Configuring DC/OS
 enterprise: false
 ---
 
