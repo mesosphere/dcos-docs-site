@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos task exec`命令允许您在任务的（`<task>`）容器内启动进程（`<cmd>`）。
+`dcos task exec`命令让您在任务的（`<task>`）容器内启动进程（`<cmd>`）。
 
 # 使用
 

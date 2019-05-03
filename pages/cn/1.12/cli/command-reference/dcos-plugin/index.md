@@ -10,7 +10,7 @@ enterprise: false
 
 # 说明
 
-`dcos plugin` 命令允许您安装和管理 DC/OS CLI 插件。和 `dcos package` 不同，`dcos plugin` 仅用于在计算机上本地管理 CLI 插件，并且对群集没有影响。
+`dcos plugin` 命令让您安装和管理 DC/OS CLI 插件。和 `dcos package` 不同，`dcos plugin` 仅用于在计算机上本地管理 CLI 插件，并且对群集没有影响。
 
 # 使用
 

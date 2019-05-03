@@ -15,7 +15,7 @@ DC/OS 包注册表包含在 DC/OS Enterprise 1.12 中。如有需要，请先按
 
 ## 删除 Universe 存储库（可选）
 
-如果 DC/OS 群集没有对 Universe 存储库的网络访问权限，或者如果您对该存储库中的 DC/OS 包不感兴趣，请使用以下命令将其删除：
+如果 DC/OS 群集没有对 Universe 存储库的网络访问权限，或者如果您不需要该存储库中的 DC/OS 包，请使用以下命令将其删除：
 
 ```bash
 dcos package repo remove Universe

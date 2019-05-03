@@ -21,7 +21,7 @@ enterprise: true
 
 # 格式
 
-Cluster Link API 请求和响应主体在 JSON 中格式化。
+Cluster Link API 请求和响应主体格式为 JSON 。
 
 请求必须包含接受标题：
 
@@ -52,8 +52,8 @@ Cluster Link API 还需要通过以下权限授权：
 要为您的帐户分配权限，请参阅 [权限参考](/cn/1.12/security/ent/perms-reference/)。
 
 
-API 参考
+# API 参考
 
-Cluster Link API 允许您管理 DC/OS 群集上的群集链接操作。
+Cluster Link API 让您可以管理 DC/OS 群集上的群集链接操作。
 
 [swagger api='/1.12/api/cluster-link.yaml']

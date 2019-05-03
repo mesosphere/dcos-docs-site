@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos auth list-providers` 命令列出群集可用的登录提供商。
+`dcos auth list-providers` 命令列出群集可用的登录提供程序。
 
 # 使用
 
@@ -21,8 +21,8 @@ dcos auth list-providers <url> [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--json` | 返回 JSON 格式的提供商列表。 |
-| `-h`，`--help` | 显示列表提供商的帮助。 |
+| `--json` | 返回 JSON 格式的提供程序列表。 |
+| `-h`，`--help` | 显示列表提供程序的帮助。 |
 
 ## 位置自变量
 

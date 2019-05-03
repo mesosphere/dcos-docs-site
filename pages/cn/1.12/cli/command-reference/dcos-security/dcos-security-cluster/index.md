@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security cluster` 命令允许您更改与安全相关的群集设置。
+`dcos security cluster` 命令让您更改与安全相关的群集设置。
 
 # 使用
 

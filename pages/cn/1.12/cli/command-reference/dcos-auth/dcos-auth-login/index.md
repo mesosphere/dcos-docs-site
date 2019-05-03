@@ -9,7 +9,7 @@ enterprise: false
 
 # 说明
 
-`dcos auth login` 命令允许您登录当前群集。
+`dcos auth login` 命令让您可以登录当前群集。
 
 # 使用
 

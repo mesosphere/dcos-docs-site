@@ -7,7 +7,7 @@ excerpt: 向现有 DC/OS 群集添加代理节点
 enterprise: false
 ---
 
-在安装过程中，代理节点被指定为 [公共](/latest/overview/concepts/#public-agent-node) 或 [私有](/latest/overview/concepts/#private-agent-node)节点。默认情况下，它们在 GUI 或 CLI [安装](/latest/installing/evaluation/) 中被指定为私有节点。
+在安装过程中，代理节点被指定为 [公共](/latest/overview/concepts/#public-agent-node) 或 [私用](/latest/overview/concepts/#private-agent-node)节点。默认情况下，它们在 GUI 或 CLI [安装](/latest/installing/evaluation/) 中被指定为私用节点。
 
 ## 前提条件：
 
@@ -63,13 +63,13 @@ enterprise: false
 您可以通过从 DC/OS CLI 运行这些命令来验证节点类型。
 
 
-- 运行此命令以计算私有代理数。
+- 运行此命令以计算私用代理数量。
 
     ```bash
     dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public == null) | .id' | wc -l
      ```
  
-- 运行此命令以计算公共代理数。
+- 运行此命令以计算公共代理数量。
 
     ```bash
     dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l

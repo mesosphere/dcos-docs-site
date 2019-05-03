@@ -8,7 +8,7 @@ excerpt: 了解 DC/OS 中的命令行界面实用程序
 enterprise: false
 ---
 
-DC/OS 命令行界面 (DC/OS CLI) 实用程序允许您管理群集节点、安装和管理软件包、检查群集状态以及管理服务和任务。
+DC/OS 命令行界面 (DC/OS CLI) 实用程序让您可以管理群集节点、安装和管理软件包、检查群集状态以及管理服务和任务。
 
 DC/OS 1.12 需要 DC/OS CLI >= 0.7。安装时，[请遵循说明](/cn/1.12/cli/install/)。
 
@@ -58,7 +58,7 @@ Get detailed command description with 'dcos <command> --help'.
 | 名称 | 说明 |
 |---------|-------------|
 | `--version` |  打印版本信息|
-| `-v`, `-vv` | 输出复杂度（复杂或非常复杂）|
+| `-v`, `-vv` | 输出详细信息（详细或非常详细）|
 | `-h`, `--help` | 显示用法帮助。使用“DCOS [命令] -帮助”获取有关命令的更多信息。 |
 
 
@@ -131,7 +131,7 @@ username@10.15.150.126's password: <password>
 
 ### DC/OS Enterprise CLI
 
-[`dcos cluster setup`](/cn/1.12/CLI/Command-Reference/DCOS-Cluster/DCOS-Cluster-Setup/) 命令安装 [插件](/cn/1.12/cli/plugins/) 和 `dcos-core-cli`，但不是 `dcos-enterprise-cli`。DC/OS Enterprise CLI 必须单独安装。请参阅 [安装 DC/OS Enterprise CLI](/cn/1.12/CLI/enterprise-cli/#install-the-dcos-enterprise-cli)。
+[`dcos cluster setup`](/cn/1.12/CLI/Command-Reference/DCOS-Cluster/DCOS-Cluster-Setup/) 命令安装 [插件](/cn/1.12/cli/plugins/) 和 `dcos-core-cli`，但不安装 `dcos-enterprise-cli`。DC/OS Enterprise CLI 必须单独安装。请参阅 [安装 DC/OS Enterprise CLI](/cn/1.12/CLI/enterprise-cli/#install-the-dcos-enterprise-cli)。
 
 安装 DC/OS Enterprise CLI 后，您将看到添加的新命令：
 

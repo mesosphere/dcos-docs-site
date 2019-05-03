@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`cos security cluster oidc modify` 命令允许您修改现有 OIDC 提供程序配置。
+`cos security cluster oidc modify` 命令让您可以修改现有 OIDC 提供程序配置。
 
 # 使用
 
@@ -23,7 +23,7 @@ dcos security cluster oidc modify [OPTIONS] OIDC_ID
 | 名称 | 说明 |
 |--------------|-----------------|
 | ` -d`, `--description <text>` | OIDC 提供程序的描述。（必填）|
-| `-i`, `--issuer <text>` | OIDC 提供程序的发行人。(必填) |
+| `-i`, `--issuer <text>` | OIDC 提供程序的发行方。(必填) |
 | `-b`, `--base-url <text>` | OIDC 提供程序的基准 URL。（必填）|
 | `-c`, `--client-secret <text>` | OIDC 提供程序的客户端密钥。（必填）|
 | `--client-id <text>` | 新的 OIDC 提供程序的客户 ID。(必填) |

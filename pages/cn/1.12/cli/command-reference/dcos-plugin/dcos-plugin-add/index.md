@@ -10,7 +10,7 @@ enterprise: false
 
 # 说明
 
-`dcos plugin add` 命令允许您添加 CLI 插件。
+`dcos plugin add` 命令让您可以添加 CLI 插件。
 
 # 使用
 

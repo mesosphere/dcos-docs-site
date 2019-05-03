@@ -10,13 +10,13 @@ enterprise: true
 
 这些示例为作业提供常见的使用情景。
 
-**前提条件：**
+**先决条件：**
 
-- 数据中心操作系统和数据中心操作系统 CLI [已安装](/cn/1.12/installing/)。
+- [DC/OS](/cn/1.12/installing/) 和 [DC/OS CLI](/cn/1.12/cli/install/) 已安装。
 
 # <a name="create-job"></a>创建简单的作业
 
-此 JSON 文件创建了一项没有计划的简单作业。
+此 JSON 文件创建了一项无计划的简单作业。
 
 1. 使用以下内容创建 JSON 文件。
     ```json
@@ -105,7 +105,11 @@ enterprise: true
 
 # 创建分区作业环境
 
+<<<<<<< HEAD
+在此示例中，使用 DC/OS Web 界面创建分区作业环境。这让您可以限制每项作业或每个作业组的用户访问。作业是在名为 `batch` 的作业组中创建，该作业组是名为 `dev` 作业组的子级。
+=======
 在此示例中，使用 DC/OS Web 界面创建分区作业环境。这允许您限制每项作业或每个作业组的用户访问。作业是在名为 `batch` 的作业组中创建，该作业组是名为 `dev` 作业组的子级。
+>>>>>>> staging
 
 ```
 ├── dev
@@ -116,11 +120,19 @@ enterprise: true
 
 然后作业组被分配给用户 `Cory` 和 `Alice` 以限制访问的权限。
 
+<<<<<<< HEAD
+**先决条件：**
+
+- 您必须以 `superuser` 身份登录。
+
+1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
+=======
 **前提条件：**
 
 - 您必须以 `superuser` 身份登录。
 
 1. 以具有 `superuser` 权限的用户身份登录数据中心操作系统 Web 界面。
+>>>>>>> staging
 
     ![登录](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 

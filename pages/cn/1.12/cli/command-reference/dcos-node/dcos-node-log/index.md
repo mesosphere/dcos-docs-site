@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos node log` 命令显示主导主节点、代理节点或两者的 Mesos 日志。
+`dcos node log` 命令显示主导管理节点、代理节点或两者的 Mesos 日志。
 
 # 使用
 
@@ -23,7 +23,7 @@ dcos node log [--follow --lines=N --leader --mesos-id=<mesos-id>]  [--component=
 | 名称 | 默认 | 说明 |
 |---------|-------------|-------------|
 | `--help, h` | | 显示用法。 |
-| `--leader` | | 主节点。|
+| `--leader` | | 主管理节点。|
 | `--follow` | | 动态更新日志。|
 | `--lines=N` | 10 | 显示最后 N 行。|
 | `--mesos-id=<mesos-id>` | | 节点的代理 ID。|

@@ -9,7 +9,7 @@ enterprise: false
 
 
 # 说明
-`dcos job schedule remove` 命令允许您删除作业时间表。
+`dcos job schedule remove` 命令让您删除作业时间表。
 
 # 使用
 

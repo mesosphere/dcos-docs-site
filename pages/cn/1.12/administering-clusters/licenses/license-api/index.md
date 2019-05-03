@@ -50,7 +50,7 @@ License API 还需要通过以下权限授权：
 |-------------|--------|
 | `dcos:adminrouter:licensing` | `full` |
 
-所有路由也可以被具有 `dcos:superuser` 权限的用户抵达。
+所有路由也可以被具有 `dcos:superuser` 权限的用户使用。
 
 要为您的帐户分配权限，请参阅 [权限参考](/cn/1.12/security/ent/perms-reference/)。
 

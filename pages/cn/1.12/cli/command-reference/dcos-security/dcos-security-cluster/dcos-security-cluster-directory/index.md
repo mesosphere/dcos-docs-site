@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security cluster directory` 命令允许您导入、测试和检索 LDAP 配置。
+`dcos security cluster directory` 命令让您可以导入、测试和检索 LDAP 配置。
 
 # 使用
 

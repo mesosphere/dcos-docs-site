@@ -4,20 +4,19 @@ navigationTitle: 授予对作业的访问权限
 title: 授予对作业的访问权限
 menuWeight: 200
 excerpt: 使用 CLI 或 Web 界面授予对作业的访问权限
-
 enterprise: true
 ---
 
-您可以使用 DC/OS Web 界面、CLI 或 [API](/cn/1.12/security/ent/iam-api/) 来实现对作业的细粒度用户访问。[Metronome 权限](/cn/1.12/security/ent/perms-reference/#marathon-metronome) 允许您在每项作业或每个作业组上限制用户对作业的访问。该部分为您介绍实现这一切的步骤。
+您可以使用 DC/OS Web 界面、CLI 或 [API](/cn/1.12/security/ent/iam-api/) 来实现对作业的细粒度用户访问。[Metronome 权限](/cn/1.12/security/ent/perms-reference/#marathon-metronome) 让您可以在每项作业或每个作业组上限制用户对作业的访问。该部分为您介绍实现这一切的步骤。
 
-**前提条件：**
+**先决条件：**
 
 - 必须 [安装 DC/OS CLI](/cn/1.12/cli/install/) 并以超级用户登户身份登录。
 - 用于分配权限的[用户帐户](/cn/1.12/security/ent/users-groups/)。
 
 # <a name="job-group-access-via-ui"></a>通过 DC/OS Web 界面
 
-1. 以具有 `superuser` 权限的用户身份登录数据中心操作系统 Web 界面。
+1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
  ![登录](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
@@ -89,7 +88,7 @@ dcos:mesos:agent:sandbox:app_id:/<job-group>/<job-name> read
 
 # <a name="job-group-access-via-cli"></a>通过 CLI
 
-**前提条件：**
+**先决条件：**
 
 - 必须 [安装 DC/OS CLI](/cn/1.12/cli/install/) 并以超级用户登户身份登录。
 

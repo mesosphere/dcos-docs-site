@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos job run` 命令允许您立即运行作业。
+`dcos job run` 命令让您立即运行作业。
 
 # 使用
 
@@ -23,7 +23,7 @@ dcos job run <job-id> [--json]
 | 名称 | 说明 |
 |---------|-------------|
 |`-h`，`--help` | 打印用法。 |
-| `--json` | 打印 JSON 格式列表而不是表格。 |
+| `--json` | 打印 JSON 格式的列表而不是表格。 |
 
 
 ## 位置自变量

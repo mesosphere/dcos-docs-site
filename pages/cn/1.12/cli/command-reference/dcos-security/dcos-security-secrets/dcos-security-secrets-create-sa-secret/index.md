@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security secrets create-sa-secret` 命令允许您创建服务帐户密钥，或创建一个可供 DC/OS 上运行的服务用于登录到服务帐户的密钥。
+`dcos security secrets create-sa-secret` 命令让您创建服务帐户密钥，或创建一个可供 DC/OS 上运行的服务用于登录到服务帐户的密钥。
 
 # 使用
 
@@ -31,7 +31,11 @@ dcos security secrets create-sa-secret [OPTIONS] SA_PRIVATE_KEY SA_UID SECRET_PA
 |---------|-------------|
 | `SA_PRIVATE_KEY` | 属于服务帐户的私钥。 |
 | `SA_UID` | 服务帐户用户 ID。 |
+<<<<<<< HEAD
+| `SECRET_PATH` | 密钥路径让您可限制哪些服务可以检索值。 |
+=======
 | `SECRET_PATH` | 密钥路径允许您限制哪些服务可以检索值。 |
+>>>>>>> staging
 
 # 父命令
 

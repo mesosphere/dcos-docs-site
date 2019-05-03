@@ -9,7 +9,7 @@ enterprise: false
 
 
 # 说明
-`dcos service shutdown` 命令允许您关闭服务。
+`dcos service shutdown` 命令让您关闭服务。
 
 # 使用
 

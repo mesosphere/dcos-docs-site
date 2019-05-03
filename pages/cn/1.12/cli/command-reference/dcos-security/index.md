@@ -7,7 +7,7 @@ excerpt: 管理您的 DC/OS 群集安全
 
 enterprise: true
 ---
-`dcos security` 命令允许您管理 DC/OS 群集安全。
+`dcos security` 命令可以让您管理 DC/OS 群集安全。
 
 # 选项
 

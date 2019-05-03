@@ -39,4 +39,4 @@ dcos task metrics details registry | sort
 
 ## 灾难恢复
 
-DC/OS 包注册表不提供对于灾难恢复的本机支持。相反，建议您先备份所有 DC/OS 包，然后再将它们添加到 DC/OS 包注册表。
+DC/OS 包注册表不提供对于灾难恢复的本机支持。然而，建议您先备份所有 DC/OS 包，然后再将它们添加到 DC/OS 包注册表。

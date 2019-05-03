@@ -10,7 +10,7 @@ enterprise: true
 
 您可以使用“备份和恢复 API”来创建和恢复群集的备份。
 
-<p class="message--important"><strong>重要信息：</strong>查看备份和恢复部分的 <a href="/latest/administering-clusters/backup-and-restore/#limitations">限制</a>。</p>
+<p class="message--important"><strong>重要信息：</strong>查看备份和恢复的 <a href="/latest/administering-clusters/backup-and-restore/#limitations">限制</a>部分。</p>
 
 
 # 路由
@@ -25,7 +25,7 @@ enterprise: true
 
 # 格式
 
-备份和恢复 API 请求和响应主体在 JSON 中格式化。请求必须包含 `accept` 标题：
+备份和恢复 API 请求和响应主体以 JSON 作为格式。请求必须包含 `accept` 标题：
 
 ```
 Accept: application/json
@@ -49,13 +49,13 @@ Content-Type: application/json
 |-------------|--------|
 | `dcos:adminrouter:ops:system-backup` | `full` |
 
-所有路由也可以被具有 `dcos:superuser` 权限的用户抵达。
+所有路由也可以被具有 `dcos:superuser` 权限的用户使用。
 
 要为您的帐户分配权限，请参阅 [权限参考](/latest/security/ent/perms-reference/)。
 
 
 # API 参考
 
-备份和恢复 API 允许您管理 DC/OS 群集上的备份和恢复操作。
+备份和恢复 API 让您管理 DC/OS 群集上的备份和恢复操作。
 
 [swagger api='/1.12/api/backup-restore.yaml']

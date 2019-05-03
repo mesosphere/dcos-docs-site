@@ -17,7 +17,7 @@ dcos package install package-registry --cli
 
 ## 下载包
 
-有关 DC/OS 包注册表支持的 DC/OS 包的列表，请参阅 [支持包的虚拟列表](https://downloads.mesosphere.com/universe/packages/packages.html)。
+有关 DC/OS 包注册表支持的 DC/OS 包的列表，请参阅 [被支持包的正式列表](https://downloads.mesosphere.com/universe/packages/packages.html)。
 
 **示例**：下载 Jenkins 的一个版本：
 

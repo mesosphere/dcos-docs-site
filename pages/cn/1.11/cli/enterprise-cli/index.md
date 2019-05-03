@@ -3,7 +3,6 @@ layout: layout.pug
 title: DC/OS Enterprise CLI
 menuWeight: 5
 excerpt: 配置 DC/OS Enterprise 命令行界面
-
 enterprise: true
 ---
 

@@ -8,7 +8,7 @@ menuWeight: 1
 
 # 说明
 
-`dcos node decommission` 命令允许您将代理程序标记为已消失。
+`dcos node decommission` 命令让您可以将代理程序标记为已消失。
 
 # 使用
 

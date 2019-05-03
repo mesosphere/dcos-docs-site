@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security org users create` 命令允许您创建新用户并为其分配用户 ID (UID)。
+`dcos security org users create` 命令让您创建新用户并为其分配用户 ID (UID)。
 
 # 选项
  

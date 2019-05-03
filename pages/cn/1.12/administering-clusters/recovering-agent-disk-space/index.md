@@ -11,7 +11,7 @@ enterprise: false
 
 如果任务填满代理节点的保留卷，有一些选项可以恢复空间：
 
-- 检查每个组件的健康状况并重新启动每个组件。
+- 检查每个组件的运行状况并重新启动每个组件。
 
 - 如果工作目录位于单独的卷上（如按建议在 [代理节点](/cn/1.12/installing/production/system-requirements/#agent-nodes) 中），则您可以清空此卷并重新启动该代理。
 

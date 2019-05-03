@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Configuring the CLI
-title: Configuring the CLI
+navigationTitle: 配置 CLI
+title: 配置 CLI
 menuWeight: 2
 excerpt: 配置命令行界面
-
 enterprise: false
 ---
 
@@ -24,7 +23,7 @@ export DCOS_CLUSTER=<cluster_name>
 ```
 
 * pip 版本 7.1.0 或更高版本。
-* `http_proxy` 和 `https_proxy` 环境变量定义为使用 `pip`。
+* `http_proxy` 和 `https_proxy` 环境变量为使用 `pip` 而定义。
 
 <a name="dcos-dir"></a>
 #### `DCOS_DIR`

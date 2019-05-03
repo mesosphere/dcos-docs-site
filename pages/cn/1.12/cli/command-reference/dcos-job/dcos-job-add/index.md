@@ -26,7 +26,7 @@ dcos job add <job-file>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<job-file>` | 指定 JSON 格式化的作业定义。|
+| `<job-file>` | 指定 JSON 格式的作业定义。|
 
 
 

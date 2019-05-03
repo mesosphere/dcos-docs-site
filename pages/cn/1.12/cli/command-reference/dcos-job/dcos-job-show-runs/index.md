@@ -23,8 +23,8 @@ dcos job show runs <job-id> [--run-id <run-id>][--json|--quiet]
 | 名称 | 说明 |
 |---------|-------------|
 |`-h`，`--help` | 打印用法。 |
-| | `--json` | 显示 JSON 格式化列表。|
-| `-q`，`--quiet` | 表示仅导致运行 ID 阵列的静默模式。 |
+| | `--json` | 显示 JSON 格式的列表。|
+| `-q`，`--quiet` | 表示仅输出运行 ID 阵列的静默模式。 |
 
 ## 位置自变量
 

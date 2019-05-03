@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Updating the CLI
-title: Updating the CLI
+navigationTitle: 更新 CLI
+title: 更新 CLI
 menuWeight: 3
 excerpt: 更新命令行界面
-
 enterprise: false
 ---
 
@@ -12,7 +11,7 @@ enterprise: false
 
 # <a name="upgrade"></a>使用 Web 界面升级 CLI
 
-安装 DC/OS CLI 的建议方法是从 DC/OS web 界面获取预先格式化的命令集，然后在终端中运行这些命令。如果当前安装的 CLI 版本可以升级到最新版本，请执行以下步骤以完成升级。
+安装 DC/OS CLI 的建议方法是从 DC/OS web 界面获取预先格式好的命令集，然后在终端中运行这些命令。如果当前安装的 CLI 版本可以升级到最新版本，请执行以下步骤以完成升级。
 
 1. 在终端删除当前 CLI 二进制文件。例如，如果是安装到 `/usr/local/bin/`：
 

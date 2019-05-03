@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Uninstalling the CLI
-title: Uninstalling the CLI
+navigationTitle: 卸载 CLI
+title: 卸载 CLI
 menuWeight: 4
 excerpt: 卸载 DC/OS 命令行界面
-
 enterprise: false
 ---
 

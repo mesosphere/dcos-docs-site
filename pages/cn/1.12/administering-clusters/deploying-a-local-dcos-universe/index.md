@@ -106,9 +106,9 @@ enterprise: false
 
 ## 配置多个管理节点
 
-如果只有一个管理节点，请跳至下面的**将本地 Universe 链接到管理节点**。如果您有多个管理节点，请继续执行以下程序。
+如果只有一个管理节点，请跳至下面的**将本地 Universe 连接到管理节点**。如果您有多个管理节点，请继续执行以下程序。
 
-1. 使用以下命令发现所有管理节点的私有 IP 地址。识别现在从列表中通过 SSH 所进入的管理节点的私有 IP 地址。它将与在您的提示中 `core@ip-` 之后显示的路径匹配，其中连字符变为句号。
+1. 使用以下命令发现所有管理节点的私用 IP 地址。识别现在从列表中通过 SSH 所进入的管理节点的私用 IP 地址。它将与在您的提示中 `core@ip-` 之后显示的路径匹配，其中连字符变为句号。
 
     ```
     host master.mesos
@@ -179,20 +179,20 @@ enterprise: false
     sudo systemctl status dcos-local-universe-registry
     ```
 
-重复本部分操作，直到对所有管理节点完成这一程序。然后继续执行下面的将本地 Universe 链接到管理节点。
+重复本部分操作，直到对所有管理节点完成这一程序。然后继续执行下面的将本地 Universe 连接到管理节点的步骤。
 
-## 将本地 Universe 链接到管理节点
+## 将本地 Universe 连接到管理节点
 
 1. 通过键入 `exit` 或打开新终端提示关闭 SSH 会话。如果有多个管理节点，您可能必须退出多个 SSH 会话。
 
-1. （可选）使用以下命令删除群集对默认 Universe 的引用。如果要将默认 Universe 保留在适当位置，只需将本地 Universe 添加为附加资源库，跳至下一步。您还可以从 DC/OS Web 界面中的 **设置** > **包资源库** 中删除对默认 Universe 资源库的引用。
+1. （可选）使用以下命令删除群集对默认 Universe 的引用。如果要将默认 Universe 保留在适当位置，只需将本地 Universe 添加为附加资源库，跳至下一步。您还可以从 DC/OS Web 界面中的 **设置** > **包资源库** 中删除对默认 Universe 资源库的指向。
 
     ```bash
     dcos package repo remove Universe
     ```
 
 
-1. 使用以下命令添加对您已添加到每个管理节点的本地 Universe 的引用。
+1. 使用以下命令添加对您已添加到每个管理节点的本地 Universe 的索引。
 
     ```bash
     dcos package repo add local-universe http://master.mesos:8082/repo
@@ -235,7 +235,7 @@ enterprise: false
 
 * **我无法安装 CLI 子命令**
 
- 包托管于 `master.mesos:8082`。如果您无法从您的 DC/OS CLI 安装解析或连接到 `master.mesos:8082`，您无法安装 CLI 子命令。如果您可以在管理节点上连接到端口 8082，将其中一个管理节点 IP 添加到 `/etc/hosts`。
+ 包托管于 `master.mesos:8082`。如果您无法从您的 DC/OS CLI 安装解析或连接到 `master.mesos:8082`，您无法安装 CLI 子命令。如果您可以在管理节点上连接到端口 8082，将其中一个管理节点的 IP 添加到 `/etc/hosts`。
 
 * **镜像破损**
 
@@ -265,10 +265,7 @@ enterprise: false
     ```
 
 3. 构建 `mesosphere/universe` Docker 镜像并将其压缩至 `local-universe.tar.gz`
-文件。使用 `DCOS_PACKAGE_INCLUDE`
-变量指定逗号分隔的包名和版本列表。要最大程度地减少容器尺寸和下载时间，您可以仅选择所需的内容。如果您不使用 `DCOS_PACKAGE_INCLUDE` 变量，所有 Certified Universe 包都会
-。要查看哪些包已获得认证，单击 DC/OS Web 界面中的
-**目录** 选项卡。
+文件。使用 `DCOS_PACKAGE_INCLUDE` 变量指定逗号分隔的包名和版本列表。要最大程度地减少容器尺寸和下载时间，您可以仅选择所需的内容。如果您不使用 `DCOS_PACKAGE_INCLUDE` 变量，所有 Certified Universe 包都会包括在内。要查看哪些包已获得认证，单击 DC/OS Web 界面中的 **目录** 选项卡。
 
     ```bash
     sudo make DCOS_VERSION=1.12 DCOS_PACKAGE_INCLUDE="cassandra:1.0.25-3.0.10,marathon:1.4.2" local-universe

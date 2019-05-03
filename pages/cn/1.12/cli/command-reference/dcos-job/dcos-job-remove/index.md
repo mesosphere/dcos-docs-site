@@ -10,7 +10,7 @@ enterprise: false
 
 # 说明
 
-`dcos job remove` 命令允许您删除作业。
+`dcos job remove` 命令让您删除作业。
 
 # 使用
 

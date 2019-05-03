@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security org users delete` 命令允许您使用 UID 删除用户。
+`dcos security org users delete` 命令让您使用 UID 删除用户。
 
 # 选项
  

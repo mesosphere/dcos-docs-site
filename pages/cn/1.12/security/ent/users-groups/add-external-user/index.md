@@ -62,7 +62,7 @@ enterprise: true
 
 1. 完成后，对话框应如下所示。
 
-    ![LDAP 组导入配置](/1.12/img/1-11-ldap-group-import.png)
+    ![LDAP 组导入配置](/1.12/img/ldap-group-import.png)
 
     图 1. LDAP 组导入配置
 

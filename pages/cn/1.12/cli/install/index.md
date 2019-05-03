@@ -1,16 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle:  Installing the CLI
-title: Installing the CLI
+navigationTitle: 安装 CLI
+title: 安装 CLI
 menuWeight: 1
 excerpt: 安装 DC/OS 命令行界面
-
 enterprise: false
 ---
 这些说明将向您展示如何在群集上安装核心 DC/OS CLI 命令。
 有关安装 DC/OS Enterprise CLI 命令的说明，请参阅 [DC/OS Enterprise CLI 部分](/cn/1.12/cli/enterprise-cli/)。
 
-安装 DC/OS CLI 的建议方法是从 DC/OS GUI 获取预先格式化的命令集，然后在终端中运行这些命令。有关详细信息，请参阅操作系统的先决条件和说明：
+安装 DC/OS CLI 的建议方法是从 DC/OS GUI 获取预先格式好的命令集，然后在终端中运行这些命令。有关详细信息，请参阅操作系统的先决条件和说明：
 
 - [在 Linux 上安装](#linux)
 - [在 macOS 上安装](#macos)
@@ -20,7 +19,7 @@ enterprise: false
 
 # 在 Linux 上安装
 
-## 前提条件
+## 先决条件
 - 您必须有一台 **单独的计算机**，它不在您可以安装 CLI 的 DC/OS 群集中。
 - 您必须具有从托管 CLI 的外部系统访问 DC/OS 群集的网络访问权限。
 - 您必须能够在托管 CLI 的外部系统打开命令行 shell 终端。
@@ -59,7 +58,7 @@ enterprise: false
     [ -d usr/local/bin ] || sudo mkdir -p /usr/local/bin
     ```
 
-1. 通过运行以下命令并将 `<target-os-type>` 替换为操作系统类型（`darwin`、`linux`、`windows`）和具有您想用的版本的 `<dcos-version>`（例如 1.12），将 DC/OS CLI 二进制文件下载到本地目录 。
+1. 通过运行以下命令并用操作系统类型（`darwin`、`linux`、`windows`）和具有您想用的版本的 `<dcos-version>`（例如 1.12）替换`<target-os-type>` ，将 DC/OS CLI 二进制文件下载到本地目录 。
 
     ```bash
     curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
@@ -83,7 +82,7 @@ enterprise: false
     chmod +x /usr/local/bin/dcos
     ```
 
-1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是主节点 URL。
+1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是管理节点 URL。
 
     ```bash
     dcos cluster setup http://example.com
@@ -97,8 +96,8 @@ enterprise: false
 
 # 在 macOS 上安装
 
-## 前提条件
-- 您必须有一台单独的计算机，它不在您可以安装 CLI 的 DC/OS 群集中。
+## 先决条件
+- 您必须有一台单独的，不在您可以安装 CLI 的 DC/OS 群集中的计算机。
  * MacOS X Yosemite (10.10) 或更高版本。
  * 运行 Haswell CPU（2014）或更高版本的机型。
 - 您必须具有从托管 CLI 的外部系统访问 DC/OS 群集的网络访问权限。
@@ -142,13 +141,13 @@ enterprise: false
     curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.12/dcos -o dcos
     ```
 
-1. 使 CLI 二进制文件可执行。
+1. 使 CLI 二进制可执行文件。
 
     ```bash
     chmod +x dcos
     ```
 
-1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是主节点 URL。
+1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是管理节点 URL。
 
     ```bash
     dcos cluster setup http://example.com
@@ -157,7 +156,7 @@ enterprise: false
 
     遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.12/security/)。
 
-    您的 CLI 现在应通过您的群集进行身份认证！
+    您的 CLI 现在应已通过您的群集进行身份认证！
     
 1. 键入 `dcos` 查看使用信息并开始操作。
 
@@ -165,8 +164,8 @@ enterprise: false
 
 # 在 Windows 上安装
 
-## 前提条件
-- 您必须有一台单独的计算机，它不在您可以安装 CLI 的 DC/OS 群集中。
+## 先决条件
+- 您必须有一台单独的不在您可以安装 CLI 的 DC/OS 群集中的计算机。
  - Windows 10 系统 64 位或更高版本。
 - 您必须具有从托管 CLI 的外部系统访问 DC/OS 群集的网络访问权限。
 - 您必须能够在托管 CLI 的外部系统打开命令行环境（例如，Windows PowerShell 或 `cmd.exe` 程序）。Windows PowerShell 默认安装在 Windows 7 及更高版本上。
@@ -211,13 +210,13 @@ enterprise: false
     curl https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.12/dcos -o dcos
     ```
 
-1. 如果尚未打开下载文件的目录，请转到该目录。
+1. 如果尚未打开文件下载的目录，请转到该目录。
 
     ```bash
     cd path/to/download/directory
     ```
 
-1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是主节点 URL。
+1. 设置从 CLI 到 DC/OS 群集的连接。在本示例中， `http://example.com` 是管理节点 URL。
 
     ```bash
     dcos cluster setup http://example.com

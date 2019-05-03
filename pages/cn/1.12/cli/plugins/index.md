@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  CLI Plugins
-title: CLI Plugins
+navigationTitle:  扩展CLI
+title: 扩展CLI
 menuWeight: 5
 excerpt: 如何扩展命令行界面
-
 enterprise: false
 ---
 
@@ -53,8 +52,8 @@ dcos package install <dcos-core-cli|dcos-enterprise-cli>
 
 # 安装插件
 
-用户可以使用 [dcos 插件添加] (/cn/1.12/cli/command-reference/dcos-plugin/dcos-plugin-add/) 命令安装插件。
+用户可以使用 [dcos 插件添加](/cn/1.12/cli/command-reference/dcos-plugin/dcos-plugin-add/) 命令安装插件。
 
 # 分配插件
 
-也可以通过核心 CLI 中的 [dcos 包] (/cn/1.12/cli/command-reference/dcos-package/) 命令安装插件。
+也可以通过核心 CLI 中的 [dcos 包](/cn/1.12/cli/command-reference/dcos-package/) 命令安装插件。

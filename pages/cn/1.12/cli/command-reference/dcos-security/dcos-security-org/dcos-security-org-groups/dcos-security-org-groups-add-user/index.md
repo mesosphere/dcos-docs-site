@@ -8,7 +8,11 @@ enterprise: true
 ---
 # 说明
 
+<<<<<<< HEAD
+`dcos security org groups add_user` 命令让您将用户添加到指定用户组。
+=======
 `dcos security org groups add_user` 命令允许您将用户添加到指定用户组。
+>>>>>>> staging
 
 # 使用
 

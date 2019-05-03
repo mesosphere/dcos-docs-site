@@ -8,7 +8,11 @@ enterprise: false
 ---
 
 # 说明
+<<<<<<< HEAD
+`dcos package uninstall` 命令让您可以卸载软件包。
+=======
 `dcos package uninstall` 命令允许您卸载软件包。
+>>>>>>> staging
 
 # 使用
 
@@ -25,7 +29,11 @@ dcos package uninstall <package-name> [--cli | [--app [--app-id=<app-id> | --all
 | `--app` | 仅应用程序。|
 | `--app-id=<app-id>` | 应用程序 ID。|
 | `--cli` | 仅命令行。|
+<<<<<<< HEAD
+| `--yes` | 禁用交互模式并假设“是”是回答所有提示符的答案。|
+=======
 | `--yes` | 禁用交互模式并假设“是”是所有提示的答案。|
+>>>>>>> staging
 
 ## 位置自变量
 

@@ -52,7 +52,7 @@ echo '{
 
 ## Docker 引擎集成
 
-要使 Docker 守护程序能够获取存储在 DC/OS 包注册表中的镜像，必须将其配置为信任 DC/OS 包注册表。Docker 提供 [配置文档](https://docs.docker.com/engine/security/certificates/#understanding-the-configuration) 协助实现该配置。注册表的名称是：安装 DC/OS 包注册表时`<service-name>.marathon.l4lb.thisdcos.directory`在哪里`<service-name>`使用服务的名称。服务名称默认为 `registry`。
+要使 Docker 守护程序能够获取存储在 DC/OS 包注册表中的镜像，必须将其配置为信任 DC/OS 包注册表。Docker 提供 [配置文档](https://docs.docker.com/engine/security/certificates/#understanding-the-configuration) 协助实现该配置。注册表的名称是：`<service-name>.marathon.l4lb.thisdcos.directory`而`<service-name>`是安装 DC/OS 包注册表时使用服务的名称。服务名称默认为 `registry`。
 
 要在所有 DC/OS 代理节点（公用和专用节点）中配置 Docker 守护程序，以信任 DC/OS 包注册表的默认配置，请执行以下命令：
 

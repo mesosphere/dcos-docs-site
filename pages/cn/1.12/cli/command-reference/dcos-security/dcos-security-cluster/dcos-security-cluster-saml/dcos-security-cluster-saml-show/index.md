@@ -24,7 +24,7 @@ dcos security cluster saml show [OPTIONS] [SAML_ID]...
 | 名称 | 说明 |
 |-----------------|-----------------|
 | `-h`, `--help` | 显示此消息并退出。 |
-| `-j`, `--json` | JSON 格式的输出数据。 |
+| `-j`, `--json` | 输出 JSON 格式的数据。 |
 
 ## 位置自变量
 

@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  CLI Autocompletion
-title: CLI Autocompletion
+navigationTitle:  CLI 自动完成
+title: CLI 自动完成
 menuWeight: 7
 excerpt: 启用 CLI 自动完成
 enterprise: false
 ---
 
-支持 CLI 的自动完成以运行 `bash` 和 `zsh`。
+支持 CLI `bash` 和 `zsh` 的自动完成功能。
 该功能随 1.12 版本一起发布，因此 CLI 必须是 0.7.x 或更高版本。请参阅 [DC/OS CLI 二进制文件页面](https://downloads.dcos.io/cli/index.html)获取正确版本。您还需要在 `$PATH` 中带有 `dcos` 可执行文件。
 
 CLI 的自动完成只会执行在完成时可用的命令。如果未连接到任何群集，则只能完成以下命令：`auth`、`cluster`、`config`、`help` 和 `plugin`。要完成其他命令，您必须将其连接到群集，并添加相应插件。

@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos node ssh` 命令允许您建立与 DC/OS 群集主节点或代理节点的 SSH 连接。
+`dcos node ssh` 命令让您建立与 DC/OS 群集管理节点或代理节点的 SSH 连接。
 
 # 使用
 
@@ -22,12 +22,12 @@ dcos node ssh (--leader | --mesos-id=<mesos-id> | --private-ip=<private-ip>) [--
 
 | 名称 | 默认 | 说明 |
 |---------|-------------|-------------|
-| `--leader` |  | 主节点。|
+| `--leader` |  | 主管理节点。|
 | `--mesos-id=<mesos-id>` | | 节点的代理 ID。|
 | `--private-ip=<private-ip>` | | 具有提供的专用 IP 的代理节点。 |
 | `--config-file=<path>` | | SSH 配置文件的路径。|
 | `--user=<user>` | `core` | SSH 用户。 |
-|  `--master-proxy` | | 通过主节点代理 SSH 连接。从单独的网络访问 DC/OS 时，这非常有用。例如，在默认 AWS 配置中，私有代理无法从公共互联网访问。您可以使用该选项访问它们，这将通过可公开访问的主节点代理 SSH 连接。|
+|  `--master-proxy` | | 通过管理节点代理 SSH 连接。从单独的网络访问 DC/OS 时，这非常有用。例如，在默认 AWS 配置中，私用代理无法从公共互联网访问。您可以使用该选项访问它们，这将通过可公开访问的管理节点代理 SSH 连接。|
 | `--option SSHOPT=VAL` | | SSH 选项。有关更多信息，请在终端中输入 `man ssh_config`。|
 | `--proxy-ip=<proxy-ip>` | | 通过不同 IP 地址代理 SSH 连接。 |
 

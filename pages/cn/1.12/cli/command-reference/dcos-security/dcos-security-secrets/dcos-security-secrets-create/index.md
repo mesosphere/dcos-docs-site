@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security secrets create` 命令允许您在特定路径下创建和存储密钥。
+`dcos security secrets create` 命令让您可以在特定路径下创建和存储密钥。
 # 使用
 
 ```

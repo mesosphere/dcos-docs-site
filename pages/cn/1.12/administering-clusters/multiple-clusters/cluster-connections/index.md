@@ -12,7 +12,7 @@ excerpt: 连接到多个 DC/OS 群集
 
 ## 设置与群集的连接
 
-设置与群集的连接后，会在文件 `<home-directory>/.dcos/clusters/<cluster_id>/dcos.toml` 中存储连接配置，附加到群集并对 DC/OS 进行身份认证。附加到群集设置其为活动群集。
+设置与群集的连接时，会在文件 `<home-directory>/.dcos/clusters/<cluster_id>/dcos.toml` 中存储连接配置，附加到群集并对 DC/OS 进行身份认证。附加到群集设置其为活动群集。
 
 要设置群集连接，运行 `dcos cluster setup` 命令，使用群集 URL 替换 `<dcos-url>`：
 
@@ -67,4 +67,4 @@ dcos cluster rename dcosdev dcoslive
 dcos cluster remove dcosdev
 ```
 
-如果删除附加的群集，执行在群集上安装包之类操作的 dcos 命令可能失败，直到您附加另一个连接的群集为止。
+如果删除附加的群集，执行在群集上安装包之类操作的 dcos 命令可能失败，直到您附加另一个已连接的群集为止。

@@ -46,7 +46,7 @@ enterprise: false
 
 1. 指定机器 JSON 定义之后调用 `⁠⁠⁠⁠machine/down` 端点。例如，[此处](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) 是一个调用 `/machine/down/`的脚本。
 
- <p class="message--important"><strong>重要信息：</strong>调用“machine/down”会针对代理上运行的任何任务发送“TASK_LOST”(TASK_LOST) 消息。某些 DC/OS 服务，例如 Marathon，将重新定位任务，但其他服务则不会，例如 Kafka 和 Cassandra。有关详细信息，请参阅 DC/OS 服务指南和 Mesos 维护原始文档。</p>
+ <p class="message--important"><strong>重要信息：</strong>调用“machine/down”会针对任何在代理上运行的任务发送“TASK_LOST”(TASK_LOST) 消息。某些 DC/OS 服务，例如 Marathon，将重新定位任务，但其他服务则不会，例如 Kafka 和 Cassandra。有关详细信息，请参阅 DC/OS 服务指南和 Mesos 维护原始文档。</p>
 
 1. 执行维护。
 1. 通过使用指定的添加代理 JSON 定义，调用 `⁠⁠⁠⁠machine/up` 端点来添加代理到您的群集中。例如：

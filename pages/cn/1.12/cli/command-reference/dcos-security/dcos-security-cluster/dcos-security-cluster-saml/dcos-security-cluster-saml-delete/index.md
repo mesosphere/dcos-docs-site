@@ -9,7 +9,7 @@ enterprise: true
 
 # 说明
 
-`dcos security cluster saml delete` 命令允许您删除 SAML 提供程序配置。
+`dcos security cluster saml delete` 命令让您可以删除 SAML 提供程序配置。
 
 # 使用
 
