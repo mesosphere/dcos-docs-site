@@ -8,7 +8,7 @@ excerpt: DC/OS API 参考手册
 enterprise: true
 ---
 
-DC/OS API 是由 [DC/OS 组件] (/cn/1.12/overview/architecture/components/) 支持的路由集合，通过名为 [Admin Router] (/cn/1.12/overview/architecture/components/#admin-router)的 API 网关提供。
+DC/OS API 是由 [DC/OS 组件](/cn/1.12/overview/architecture/components/) 支持的路由集合，通过名为 [Admin Router](/cn/1.12/overview/architecture/components/#admin-router)的 API 网关提供。
 
 <img src="/1.12/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
 图 1. DC/OS API 路由示意图
@@ -28,7 +28,7 @@ Admin Router 在每个 DC/OS 节点上运行，其有如下两种配置：
 
 - **Admin Router 代理节点** 公开 [代理路由](/cn/1.12/api/agent-routes/)。此配置在每个代理节点上运行，并提供用于监视、调试和管理的路由。
 
-某些代理路由，如日志和度量标准，通过管理节点 Admin Router 代理以允许外部访问。
+某些代理路由，如日志和度量，通过管理节点 Admin Router 代理以允许外部访问。
 其他路由，如组件管理，仅供内部使用。
 
 
