@@ -47,7 +47,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
     ```
 
 
-<p class="message--important"><strong>IMPORTANT: </strong> The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like <a href="http://aws.amazon.com/s3/">Amazon S3</a>. Consider the security implications of your chosen approach carefully.</p> 
+<p class="message--important"><strong>IMPORTANT: </strong> The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like <a href="http://aws.amazon.com/s3/">Amazon S3</a>. Consider the security implications of your chosen approach carefully.</p>
 
 
 ## Step 2: Add URI path to service definition
@@ -65,7 +65,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
     For example:
 
     ```json
-    {  
+    {
       "id": "/some/name/or/id",
       "cpus": 1,
       "mem": 1024,
@@ -130,7 +130,7 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
     echo -n myuser@domain.com:hard-to-guess-password | base64
     ```
 
-1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](/1.9/security/ent/secrets/create-secrets/).
+1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](/1.12/security/ent/secrets/create-secrets/).
 
    <p class="message--note"><strong>NOTE: </strong>As of DC/OS version 1.10.0, you can add a file to the secret store only using the DC/OS CLI.</p>
 
@@ -237,7 +237,7 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 
 <a name="docker-repo-certs"></a>
 
-# Configuring agents to use a custom certificate for the Docker registry 
+# Configuring agents to use a custom certificate for the Docker registry
 Some organizations require both user credentials and valid secure socket layer (SSL) certificates to authorize access to the Docker registry. For example, some registry configurations require a certificate to encrypt the communications between the client and the registry, while user credentials determine who gets to access to the registry after the connection to the registry is successful.
 
 If your private registry uses a certificate to secure communications, you can configure the agent nodes to trust the certificate you use to access the private Docker registry.
