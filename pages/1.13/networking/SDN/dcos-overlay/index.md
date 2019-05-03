@@ -48,7 +48,7 @@ The bits reserved for ContainerID (6 in this example) are then subdivided into t
 
 While the above example is specifically for an IPv4 virtual network, the same logic can be applied to the IPv6 virtual network `dcos6` as well. The only difference is that currently IPv6 is supported only for Docker containers. 
 
-<p class="message--warning"><strong>WARNING: </strong>Trying to launch a UCR container on <code> dcos6</code>, will result in a container launch failure.</p>
+<p class="message--warning"><strong>WARNING: </strong>Trying to launch a UCR container on <code> dcos6</code> will result in a container launch failure.</p>
 
 You can modify the default virtual network configuration and can add more virtual networks if needed. Currently, you can only add or delete a virtual network at install time. 
 
@@ -306,7 +306,7 @@ To replace your virtual network, uninstall DC/OS and delete the overlay replicat
 
 The **Networking** tab of the DC/OS web interface provides information helpful for troubleshooting. It contains information about the virtual networks from DC/OS Overlay that a container is associated with and the IP address of the container on that virtual network.
 
-`NOTE: The network tab currently displays information about containers that are associated with virtual networks managed by DC/OS Overlay. It does not have information about containers running on virtual networks managed by any other CNI/CNM provider`.
+<p class="message--note"><strong>NOTE: </strong>The network tab currently displays information about containers that are associated with virtual networks managed by DC/OS Overlay. It does not have information about containers running on virtual networks managed by any other CNI/CNM provider`.</p>
 
 <a name="limitations"></a>
 ### Limitations

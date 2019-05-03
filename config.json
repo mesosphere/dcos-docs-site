@@ -5,11 +5,23 @@
       "services/beta-storage/0.3.1-beta/**",
       "services/beta-storage/0.3.2-beta/**"
     ],
-    "DO_NOT_INDEX": []
+    "DO_NOT_INDEX": [
+      "^1.13"
+    ]
   },
   "staging": {
+    "DO_NOT_BUILD": [
+      "test/**"
+    ],
+    "DO_NOT_INDEX": [
+      "^cn"
+    ]
+  },
+  "develop": {
     "DO_NOT_BUILD": [],
-    "DO_NOT_INDEX": []
+    "DO_NOT_INDEX": [
+      "^cn"
+    ]
   },
   "local": {
     "DO_NOT_BUILD": [],

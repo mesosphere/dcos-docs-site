@@ -35,6 +35,8 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
 | [master_external_loadbalancer](#master-external-loadbalancer)         | The DNS name or IP address for the load balancer.  [enterprise type="inline" size="small" /]      |
 | [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
+| [mesos_seccomp_enabled](#mesos-seccomp-enabled)                       | Indicates whether to enable Seccomp support for UCR containers. |
+| [mesos_seccomp_profile_name](#mesos-seccomp-profile-name)             | The name of the default Seccomp profile. |
 | [platform](#platform)                                                 | The infrastructure platform. |
 | [public_agent_list](#public-agent-list)                               | A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.13/overview/concepts/#public-agent-node) host names.  |
 | [rexray_config](#rexray-config)                                       | The [REX-Ray](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/) configuration method for enabling external persistent volumes in Marathon. You cannot specify both `rexray_config` and `rexray_config_preset`.|
@@ -489,7 +491,7 @@ The log manager for containers (tasks). The options are:
 * `'logrotate'` - send task logs only to the file system (i.e. a stdout/err file)
 * `'journald+logrotate'` - send logs to both journald and the file system
 
-The default is `logrotate`. Due to performance issues, `journald` is not recommended. For details, see [Logging API](/1.13/monitoring/logging/logging-api/#compatibility).
+The default is `logrotate`. Due to performance issues, `journald` is not recommended. For details, see [Logging Reference](/1.13/monitoring/logging/logging-reference/#compatibility).
 
 ### mesos_dns_set_truncate_bit
 Indicates whether Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet.
@@ -504,6 +506,22 @@ The location of the Mesos work directory on master nodes. This defines the `work
 
 ### mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
+
+### mesos_seccomp_enabled
+Indicates whether to enable Seccomp support for UCR containers.
+
+*  `mesos_seccomp_enabled: 'true'` Enables Seccomp isolator on Mesos agents. Seccomp isolator is used to set up a Seccomp profile for UCR containers.
+*  `mesos_seccomp_enabled: 'false'` Seccomp are not available for use in the cluster. This is the default value.
+
+For more information, see the [Seccomp documentation](http://mesos.apache.org/documentation/latest/isolators/linux-seccomp/).
+
+**Note**: DC/OS provides a default Seccomp profile, which can be enabled for UCR containers via the [`mesos_seccomp_profile_name`](#mesos-seccomp-profile-name) option.
+
+### mesos_seccomp_profile_name
+
+Specifies the name of the default Seccomp profile which is applied cluster-wide for UCR containers. If unset, a Seccomp profile is not applied by default. If you set this configuration option to `default.json`, Mesos agents will use built-in Seccomp profile. This profile is a slightly modified version of a Docker default profile. It can be found in `/opt/mesosphere/etc/dcos/mesos/seccomp`. It is highly recommended to use the built-in default Seccomp profile.
+
+**Note**: This option requires the [`mesos_seccomp_enable`](#mesos-seccomp-enable) option to be turned on.
 
 ### network_cni_root_dir_persist
 Specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node.

@@ -93,36 +93,7 @@ In DC/OS 1.10 and later, services may be installed into folders by specifying a 
    ```
 The above example will install the service under a path of `foldered => path => to => nifi`. It can then be reached using `dcos nifi` CLI commands or directly over HTTP as described below.
 
-<p class="message--note"><strong>NOTE: </strong>The service folder location cannot be changed after initial install. Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance. </p>
-
-Also while doing folder installation, the `cn_dn_node_identity` value should be in accordance with the service name, for example, its value will be a service name without any slash(/). To change the value of `cn_dn_node_identity`, you have to use `option.json` file; in the `option.json file`, change the value of `cn_dn_node_identity`. For example: if you have given the service name as `/demo/nifi` then `option.json` will be as follows: 
-
-```json
-{
-"node": {
-    "count": 1,
-    "cpus": 1
-    },
-"service": {
-    "name": "demo/nifi",
-    "security": {
-        "kerberos": {
-            "enabled": true,
-            "cn_dn_node_identity": "demonifi"
-        },
-        "tls_ssl": {
-            "enable": true
-        }
-    },
-    "service_account": "dcosnifi",
-    "service_account_secret": "dcosnifisecret",
-    "virtual_network_enabled": true
-    }
-}
-```
-
-
-In a default installation, there is no need to change the `cn_dn_node_identity` value, as by defualt it is `nifi` only.
+<p class="message--note"><strong>NOTE: </strong><br>1) The service folder location cannot be changed after initial install. Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.<br>2) cn dn node identity parameter specify initial node identity for TLS which will used inside authorizers.xml file for CN value. </p>
 
 ## Addressing named instances
 

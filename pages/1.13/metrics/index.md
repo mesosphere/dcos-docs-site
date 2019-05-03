@@ -20,7 +20,9 @@ DC/OS collects four types of metrics as follows:
 * **Container:** Metrics about `cgroup` allocations from tasks running in the DC/OS [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/) or [Docker Engine](/1.13/deploying-services/containerizers/docker-containerizer/) runtime.
 * **Application:** Metrics emitted from any application running on the Universal Container Runtime.
 
-Telegraf is included in the DC/OS distribution and runs on every host in the cluster. Because Telegraf provides a plugin-driven architecture, custom DC/OS plugins provide metrics on the performance of DC/OS workloads and DC/OS itself. Telegraf collects application and custom metrics through the `statsd` process. A dedicated `statsd` server is started for each new task. Any metrics received by the `statsd` server are tagged with the task name and its service name. The address of the server is provided by environment variables (`STATSD_UDP_HOST` and `STATSD_UDP_PORT`). 
+Telegraf is included in the DC/OS distribution and runs on every host in the cluster. Because Telegraf provides a plugin-driven architecture, custom DC/OS plugins provide metrics on the performance of DC/OS workloads and DC/OS itself.
+
+Telegraf collects application and custom metrics through the `dcos_statsd` plugin. A dedicated StatsD server is started for each new task. Any metrics received by the StatsD server are tagged with the task name and its service name. The address of the server is provided by environment variables (`STATSD_UDP_HOST` and `STATSD_UDP_PORT`). Note that when a task finishes, any metrics it has emitted that haven't yet been gathered by Telegraf will be discarded. The metrics collected by `dcos_statsd` are gathered every 30 seconds. To ensure a task's metrics are gathered, the task must run for at least 30 seconds.
 
 For more information about the list of metrics that are automatically collected by DC/OS, read [Metrics Reference](/1.13/metrics/reference/) documentation.
 
@@ -28,9 +30,9 @@ For more information about the list of metrics that are automatically collected 
 It is recommended to install the DC/OS Monitoring service to monitor and visualize metrics in your DC/OS cluster. See the [service documentation](/services/beta-dcos-monitoring/0.4.3-beta/operations/install/) for instructions on how to install and use the service.
 
 ## Upgrading from 1.11
-DC/OS 1.12 includes an updated `statsd` server implementation for application metrics. The `statsd` update fixes an issue with the `statsd` server implementation in 1.11, which treated all application metrics as gauges, regardless of `statsd` type. 
+DC/OS 1.13 includes an updated `statsd` server implementation for application metrics. The `statsd` update fixes an issue with the `statsd` server implementation in 1.11, which treated all application metrics as gauges, regardless of `statsd` type.
 
-Dashboards and alerts that rely on counters, histograms, or sets behave differently in 1.12 than in 1.11 as follows:
+Dashboards and alerts that rely on counters, histograms, or sets behave differently in 1.13 than in 1.11 as follows:
 - Gauges report the last received value. There is no change from 1.11 functionality. 
 - Counters report the sum of all received values. In 1.11, counters reported the last received value.
 - Histograms and timers report `_sum`, `_min` and `_max` metrics. In 1.11, histograms reported the last received value.

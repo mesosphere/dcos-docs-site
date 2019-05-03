@@ -175,7 +175,7 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 
 - Dynamic masters on the Universal Installer. <!--(DCOS-45725)-->
 
-    Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters  not just from the agent nodes (which is currently supported), but also from the master nodes -- if you deem it necessary to do so. For more information, see the documentation for [replaceable masters](/1.13/installing/evaluation/aws/aws-replaceable-masters/).
+    Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters not just from the agent nodes (which is currently supported), but also from the master nodes--if you deem it necessary to do so. For more information, see the documentation for [replaceable masters](/1.13/installing/evaluation/aws/aws-replaceable-masters/).
 
 - Enable Universal Installer and on-premise DC/OS life cycle management with Ansible. <!--(DCOS-45724)-->
 
@@ -183,22 +183,20 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 
 <!-- not in 1.13 Docs with RN filter 
 - Universal Installer to provision EBS volumes (DCOS-47221)
-The Universal Installer now provides the ability to provision AWS EBS volumes and attach them to the private agents within a cluster.
-
-Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/
+The Universal Installer now provides the ability to provision AWS EBS volumes and attach them to the private agents within a cluster. Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/
 -->
 ## Mesos platform and containerization
-- UCR to support Docker Registry on Manifest Spec v2_schema2 images <!--(DCOS-43871)-->
+- Update the Universal Container Runtime (UCR) to support Docker registry manifest specification v2_schema2 images. <!--(DCOS-43871)-->
 
-    DC/OS Universal Container Runtime (UCR) now fully supports Docker images that are formatted using the Docker v2_schema2 specification. DC/OS Universal Container Runtime (UCR) also continues to support Docker images that use the v2_schema1 format.
+    DC/OS Universal Container Runtime (UCR) now fully supports Docker images that are formatted using the Docker v2_schema2 specification. The DC/OS Universal Container Runtime (UCR) also continues to support Docker images that use the v2_schema1 format.
 
     For more information, see [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/).
 
-- Add a communication heartbeat to improve resiliency
+- Add a communication heartbeat to improve resiliency.
 
     DC/OS clusters now include executor and agent communication channel heartbeats to ensure platform resiliency even if `IPFilter` is enabled with `conntrack`, which usually times out a connection every five days.
 
-- DC/OS supports for zero-downtime for tasks through layer-4 load balancing
+- DC/OS supports for zero-downtime for tasks through layer-4 load balancing.
 
     DC/OS cluster health checks now provide task-readiness information. This information enables zero-downtime for load balancing when services are scaled out. With this feature, load balanced traffic is not redirected to containers before the container health check returns a `ready` status.
 
@@ -210,13 +208,13 @@ Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/in
     You can look up the public agent IP address using the DC/OS UI, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
 <!-- not in 1.13 Docs in RN filter 
-- Retention policies for dcos-monitoring data (DCOS-46818)
-The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: https://docs.mesosphere.com/services/beta-dcos-monitoring/0.4.3-beta/operations/prometheus/storage/
+- Retention policies for dcos-monitoring data. (DCOS-46818)
+    The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: https://docs.mesosphere.com/services/beta-dcos-monitoring/0.4.3-beta/operations/prometheus/storage/
 -->
 
 <!-- not in 1.13 Docs in RN filter 
-- Display Grafana dashboards on unsupervised displays (DCOS-51133)
-dcos-monitoring now enables Grafana dashboards to be displayed on read-only devices such as SmartTVs, kiosks or public panels.
+- Display Grafana dashboards on unsupervised displays. (DCOS-51133)
+    dcos-monitoring now enables Grafana dashboards to be displayed on read-only devices such as SmartTVs, kiosks or public panels.
 -->
 [enterprise]
 ## Security

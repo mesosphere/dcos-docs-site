@@ -19,3 +19,5 @@ secrets.sh
 .pdf-image
 .pdf-bundle-path
 .pdf-bundle-url
+
+.env

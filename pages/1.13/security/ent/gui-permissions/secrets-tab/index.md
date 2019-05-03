@@ -30,8 +30,7 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.13/img/GUI-Organization-Users-List_View-1_12.png)
-
+    ![Add user or group for granting permissions](/1.13/img/GUI-Organization-Users-List_VIew-1_12.png)
     Figure 2. Select user or group to grant permissions to
 
 1.  From the **Permissions** tab, click **ADD PERMISSION**.

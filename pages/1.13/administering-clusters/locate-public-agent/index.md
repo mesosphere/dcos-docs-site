@@ -73,6 +73,8 @@ To list public IP addresses by using the DC/OS CLI:
 
     There are no public-facing IP addresses available for the private agent node. 
 
+    In most cases, you can use this command to verify both the private and public IP addresses for each node. You should keep in mind, however, that the public and private IP addresses returned might not be accurate if the Edge-LB pool uses virtual networks.
+
 <a name="public-ip-api">
 
 # Finding a public IP address using an API call

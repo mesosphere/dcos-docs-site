@@ -125,7 +125,7 @@
 	 position: relative;
  }
 
- pre.code-toolbar > .toolbar {
+ .toolbar {
 	 position: absolute;
 	 top: .3em;
 	 right: .2em;
@@ -133,19 +133,19 @@
 	 opacity: 0;
  }
 
- pre.code-toolbar:hover > .toolbar {
+ .toolbar {
 	 opacity: 1;
  }
 
- pre.code-toolbar > .toolbar .toolbar-item {
+ .toolbar .toolbar-item {
 	 display: inline-block;
  }
 
- pre.code-toolbar > .toolbar a {
+ .toolbar a {
 	 cursor: pointer;
  }
 
- pre.code-toolbar > .toolbar button {
+ .toolbar button {
 	 background: none;
 	 border: 0;
 	 color: inherit;
@@ -158,9 +158,9 @@
 	 -ms-user-select: none;
  }
 
- pre.code-toolbar > .toolbar a,
- pre.code-toolbar > .toolbar button,
- pre.code-toolbar > .toolbar span {
+ .toolbar a,
+ .toolbar button,
+ .toolbar span {
 	 color: #bbb;
 	 font-size: .8em;
 	 padding: 0 .5em;
@@ -170,12 +170,12 @@
 	 border-radius: .5em;
  }
 
- pre.code-toolbar > .toolbar a:hover,
- pre.code-toolbar > .toolbar a:focus,
- pre.code-toolbar > .toolbar button:hover,
- pre.code-toolbar > .toolbar button:focus,
- pre.code-toolbar > .toolbar span:hover,
- pre.code-toolbar > .toolbar span:focus {
+ .toolbar a:hover,
+ .toolbar a:focus,
+ .toolbar button:hover,
+ .toolbar button:focus,
+ .toolbar span:hover,
+ .toolbar span:focus {
 	 color: inherit;
 	 text-decoration: none;
  }

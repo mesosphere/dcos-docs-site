@@ -276,49 +276,49 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Confluent-Kafka 2.3.x-4.0.0e</td>
+        <td>Confluent-Kafka 2.5.x-4.1.2</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Confluent-Kafka 2.4.x-4.1.1 (Recommended)</td>
+        <td>Confluent-Kafka 2.6.x-5.1.2 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Confluent-ZooKeeper 2.3.x-4.0.0e</td>
+        <td>Confluent-ZooKeeper 2.5.x-4.1.3e</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Confluent-ZooKeeper 2.4.x-4.0.0e (Recommended)</td>
+        <td>Confluent-ZooKeeper 2.6.x-5.1.2e (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>²DataStax-DSE 2.3.x-5.1.2</td>
+        <td>²DataStax-DSE 2.4.x-5.1.10</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>²DataStax-DSE 2.4.x-5.1.10 (Recommended)</td>
+        <td>²DataStax-DSE 3.0.x-6.7.2 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>²DataStax-Ops 2.3.x-6.1.2</td>
+        <td>²DataStax-Ops 2.4.x-6.1.9</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>²DataStax-Ops 2.4.x-6.1.9 (Recommended)</td>
+        <td>²DataStax-Ops 3.0.x-6.7.2 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -342,13 +342,13 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Elastic 2.4.x-5.6.5</td>
+        <td>Elastic 2.5.x-6.3.2</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Elastic 2.5.x-6.3.2 (Recommended)</td>
+        <td>Elastic 2.6.x-6.6.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -372,19 +372,19 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Jenkins 3.5.x-2.150.1 (Recommended)</td>
+        <td>Jenkins 3.5.4-2.150.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Kafka 2.3.x-1.0.0</td>
+        <td>Kafka 2.4.x-1.1.1</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Kafka 2.3.x-1.1.0 (Recommended)</td>
+        <td>Kafka 2.5.x-2.1.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -396,19 +396,19 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Kafka-Zookeeper 2.4.x-3.4.13 (Recommended)</td>
+        <td>Kafka-Zookeeper 2.5.x-3.4.13 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Kibana 2.4.x-5.6.5</td>
+        <td>Kibana 2.5.x-6.3.2</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Kibana 2.5.x-6.3.2 (Recommended)</td>
+        <td>Kibana 2.6.x-6.6.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -431,6 +431,18 @@ The designations are as follows:
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
+     <tr>
+        <td>Kubernetes Cluster 2.1.x-1.12.y</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>Kubernetes Cluster 2.2.x-1.13.y (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
     <tr>
         <td>Marathon-LB 1.11.x</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -444,31 +456,43 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>MoM (Marathon on Marathon) 1.5.x</td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
         <td>MoM (Marathon on Marathon) 1.6.x</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>MoM (Marathon on Marathon) 1.7.x (Recommended)</td>
+        <td>MoM (Marathon on Marathon) 1.7.x</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Spark 2.5.x-2.2.1</td>
+        <td>MoM (Marathon on Marathon) 1.8.x (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Spark 2.6.x-2.3.2 (Recommended)</td>
+        <td>Spark 2.6.x-2.3.2</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Spark 2.8.x-2.4.0 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+     <tr>
+        <td>Spark History 2.6.x-2.3.2</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Spark History 2.8.x-2.4.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>

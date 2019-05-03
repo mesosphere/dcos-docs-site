@@ -99,7 +99,7 @@ DC/OS {{ model.techName }} Docker 镜像包含 OpenJDK 8 和 Python 2.7.6。
 
 DC/OS {{ model.techName }} 分布 1.X 采用 Scala 2.10 编译。DC/OS Apache Spark 分布 2.X 采用 Scala 2.11 编译。Scala 各个小版本之间并非二进制兼容，因此，您的 Spark 作业必须采用与您的 DC/OS {{ model.techName }}版本相同的 Scala 版本编译 。
 
-默认 DC/OS {{ model.techName }} 分布针对 Hadoop 2.6 库编译。然而，您可以按照“安装”页面中[自定义 Spark 分布](http://localhost:3000/services/spark/2.3.1-2.2.1-2/install/#customize-spark-distribution)部分中的说明选择不同的版本。
+默认 DC/OS {{ model.techName }} 分布针对 Hadoop 2.6 库编译。然而，您可以按照“安装”页面中[自定义 Spark 分布](/cn/services/spark/2.3.1-2.2.1-2/install/#customize-spark-distribution)部分中的说明选择不同的版本。
 
 
 [13]: http://spark.apache.org/docs/latest/submitting-applications.html

@@ -151,11 +151,11 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
 
     ![Hello Brave World](/1.11/img/helloworld.png)
 
-    Figure 1. Hello World message 
+    Figure 1. Hello World message
 
 # Next steps
 
-Learn how to load balance your app on a public node using [Marathon-LB](/services/marathon-lb/mlb-basic-tutorial/).
+Learn how to load balance your app on a public node using [Marathon-LB](/services/marathon-lb/1.12/mlb-basic-tutorial/).
 
 
  [1]: https://www.docker.com

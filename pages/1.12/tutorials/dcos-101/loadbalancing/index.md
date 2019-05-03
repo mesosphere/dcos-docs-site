@@ -14,7 +14,7 @@ Welcome to part 8 of the DC/OS 101 Tutorial.
 
 # Prerequisites
 * A [running DC/OS cluster](/1.12/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.12/cli/install/).
-* [app2](/1.12/tutorials/dcos-101/app2/) and [Marathon-LB](/services/marathon-lb/) deployed and running in your cluster.
+* [app2](/1.12/tutorials/dcos-101/app2/) and [Marathon-LB](/services/marathon-lb/1.12/) deployed and running in your cluster.
 
 # Objective
 In this session, you will scale your application to multiple instances and learn how internal and external services choose which instance to use once the application has been scaled.
@@ -22,7 +22,7 @@ In this session, you will scale your application to multiple instances and learn
 # Steps
 Load-balancers decide which instance of an app internal or external services should use. With DC/OS, you have two different built-in load-balancer options:
 
-1. [Marathon-LB](/services/marathon-lb/)
+1. [Marathon-LB](/services/marathon-lb/1.12/)
 1. [Named virtual IP addresses (VIPs)](/1.12/networking/load-balancing-vips/).
 
 You have already explored these load balancing mechanisms in the context of [service discovery](/1.12/tutorials/dcos-101/service-discovery/), and in a [previous](/1.12/tutorials/dcos-101/marathon-lb/) tutorial you used Marathon-LB to publicly expose app2. Now let's explore them a bit more.
@@ -35,7 +35,7 @@ You have already explored these load balancing mechanisms in the context of [ser
     * Check `app2` as before via `http://<public-node>10000`. When you do this repeatedly you should see the request being served by different instances of `app2`.
     * You can also check the Marathon-LB stats via `http://<public-node>:9090/haproxy?stats`
 * **Named VIPs**
-    * SSH to the leading master node: 
+    * SSH to the leading master node:
         ```
         dcos node ssh --master-proxy --leader
         ```
@@ -58,5 +58,5 @@ You used Marathon-LB and VIPs to load balance requests for two different instanc
 # Deep Dive
 Consider these features and benefits when choosing the load balancing mechanism.
 
-   * [Marathon-LB](/services/marathon-lb/) is a layer 7 load balancer that is mostly used for external requests. It is based on the well-known HAProxy load balancer and uses Marathon’s event bus to update its configuration in real time. Being a layer 7 load balancer, it supports session-based features such as HTTP sticky sessions and zero-downtime deployments.
+   * [Marathon-LB](/services/marathon-lb/1.12/) is a layer 7 load balancer that is mostly used for external requests. It is based on the well-known HAProxy load balancer and uses Marathon’s event bus to update its configuration in real time. Being a layer 7 load balancer, it supports session-based features such as HTTP sticky sessions and zero-downtime deployments.
    * [Named VIPs](/1.12/networking/load-balancing-vips/) are a layer 4 load balancer mechanism used for internal TCP traffic. As they are tightly integrated with the kernel, they provide a load balanced IP address which can be used from anywhere within the cluster.
