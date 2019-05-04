@@ -303,7 +303,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 # Issues fixed in this release 
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
 
-## Admin Router
+### Admin Router
 - Enable Admin Router to handle long server names (COPS-4286, DCOS-46277). <!--listed previously in 1.12.1 RN-->
 
     This release fixes an issue in Admin Router that prevented it from starting properly for some virtual machine configurations. For example, if you previously used a server name that exceeded the maximum size allowed, the `dcos-adminrouter` component might be unable to start the server. With this release, the `packages/adminrouter/extra/src/nginx.master.conf` file has been updated to support a server name hash bucket size of 64 characters.
@@ -312,14 +312,14 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 
 - Enable to master Admin Router to expose the DC/OS networking API through the `/net` endpoint path (DCOS_OSS-1837). 
 
-This API can be used, for example, to return the public IP addresses of cluster nodes through the `/net/v1/nodes` endpoint. 
+    This API can be used, for example, to return the public IP addresses of cluster nodes through the `/net/v1/nodes` endpoint. 
 
 - Enable Admin Router to return relative redirects to avoid relying on the `Host` header (DCOS-47845).
 
-## Command-line interface (CLI) 
+### Command-line interface (CLI) 
 - Fix the CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679). 
 
-## Diagnostics and logging
+### Diagnostics and logging
 - Enable DC/OS to create consolidated diagnostics bundles by applying a timeout when reading `systemd` journal entries (DCOS_OSS-5097).
 
 - Add SELinux details to the DC/OS diagnostics bundle to provide additional information for troubleshooting and analysis (DCOS_OSS-4123).
@@ -330,7 +330,7 @@ This API can be used, for example, to return the public IP addresses of cluster 
 
 - Modify Admin Router to log information to a non-blocking domain socket (DCOS-43956).
 
-Previously, if the `journald` logging facility failed to read the socket quickly enough, Admin Router would stop processing requests, causing log messages to be lost and blocking other processing activity.
+    Previously, if the `journald` logging facility failed to read the socket quickly enough, Admin Router would stop processing requests, causing log messages to be lost and blocking other processing activity.
 
 - Allow the DC/OS Storage Service (DSS) endpoint for collecting diagnostics to be marked as optional (DCOS_OSS-5031).
 
@@ -342,10 +342,10 @@ Previously, if the `journald` logging facility failed to read the socket quickly
 
     With this release, the configuration parameters `aws_secret_access_key` and `exhibitor_azure_account_key` are marked as secret and not visible in the `user.config.yaml` file on cluster nodes. This information is only visible in `user.config.full.yaml` file. This file has stricter read permissions and is not included in DC/OS Diagnostics bundles.
 
-## GUI
+### GUI
 - Change the default value for DC/OS UI X-Frame-Options from SAMEORIGIN to DENY. This setting is also now configurable using the `adminrouter_x_frame_options` configuration parameter (DCOS-49594).
 
-## Installation 
+### Installation 
 - Allow the DC/OS installer to be used when there is a space in its path (DCOS_OSS-4429).
 
 - Add a warning to the installer to let the user know if kernel modules required by the DC/OS storage service (DSS) are not loaded (DCOS-49088).
@@ -354,13 +354,13 @@ Previously, if the `journald` logging facility failed to read the socket quickly
 
 - Stop requiring the `ssh_user` attribute to be set in the `config.yaml` file when using parts of the deprecated CLI installer (DCOS_OSS-4613).
 
-## Job management and scheduling
+### Job management and scheduling
 - Job scheduling (Metronome) has been improved to handle the restart policy when a job fails. If a job fails to run, restarting the task should depend on the setting you have defined for the ON_FAILURE result (DCOS_OSS-4636).
 
-## Metrics
+### Metrics
 - Prefix illegal Prometheus metric names with an underscore (DCOS_OSS-4899). 
 
-## Networking
+### Networking
 - Fix an issue that previously caused the `dcos-net-setup.py` script to fail if the `systemd` network directory did not exist (DCOS-49711).
 
 - Add path-based routing to Admin Router to support routing of requests to the DC/OS networking (`dcos-net`) component (DCOS_OSS-1837).
@@ -395,7 +395,7 @@ Previously, if the `journald` logging facility failed to read the socket quickly
 
     The `dcos-l4lb` process does not prevent traffic from being routed if you are scaling down the number of application instances. Network traffic is only suspended if the status of the application is determined to be unhealthy or unknown.
 
-## Third-party updates and compatibility
+### Third-party updates and compatibility
 - Update support for REX-Ray to the most recent stable version (DCOS_OSS-4316,COPS-3961).
 
 - Upgrade the version of the Telegraf metrics plugin supported to leverage recent bug fixes and feature improvements (DCOS_OSS-4675).
