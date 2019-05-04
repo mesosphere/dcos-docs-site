@@ -35,11 +35,16 @@ Some highlights for this release include:
 Features and capabilities that are introduced in DC/OS 1.13 are grouped by functional area or component and include links to view additional documentation, if applicable.
 
 ## Unified service accounts and authentication architecture
-The core of the DC/OS Enterprise identity and access management service (IAM) has been open-sourced and added to DC/OS, replacing dcos-oauth. CockroachDB was added as a DC/OS component as a highly available database serving the IAM.
-With that DC/OS now supports service accounts. Service accounts allow individual tools and applications to interact with a DC/OS cluster using their own identity. A successful service account login results in authentication proof -- the DC/OS authentication token. A valid DC/OS authentication token is required in order to access DC/OS services and components through Master Admin Router.
-This change also aligned the authentication architectures between DC/OS Enterprise and DC/OS: the HTTP API for service account management as well as for service account login is now the same in both systems. The DC/OS authentication token implementation details are equivalent in both systems: it is a JSON Web Token (JWT) of type RS256 which can be validated by any component in the system after consulting the IAM's JSON Web Key Set (JWKS) endpoint.
+The core of the DC/OS Enterprise identity and access management service (IAM) has been open-sourced and added to DC/OS, replacing DC/OS OpenAuth (`dcos-oauth`). This architectural change includes adding CockroachDB as the cluster high-availability database for identity and access management.
+
+With this change, DC/OS also now supports unified service accounts. Service accounts allow individual programs and applications to interact with a DC/OS cluster using their own identity. A successful service account login results in authentication proof -- the DC/OS authentication token. A valid DC/OS authentication token is required to access DC/OS services and components through the master node Admin Router.
+
+This change also aligns the authentication architectures between DC/OS Enterprise and DC/OS Open Source. The HTTP API for service account management ans service authentication is now the same for both DC/OS Enterprise and DC/OS Open Source. For both DC/OS Enterprise and DC/OS Open Source clusters, the DC/OS authentication token is a JSON Web Token (JWT) of type RS256. This JWT authentication token can be validated by any component in the system after consulting the IAM services JSON Web Key Set (JWKS) endpoint.
 
 ## Monitoring and metrics for cluster operations
+This release extends DC/OS cluster monitoring capabilities and the metrics you can collect and report for DC/OS components. The enhancements to monitoring and metrics provide you with better visibility into cluster operations, activity, and performance through DC/OS itself and as input to Promethus, Grafana, and other services.
+
+### Monitoring
 - The DC/OS monitoring service (`dcos-monitoring`) can be configured to use DC/OS storage service (DSS) volumes to store time-series data. <!--(DCOS-47725)-->
 
     With this release, you can store the information collected by the DC/OS monitoring service (`dcos-monitoring`) in the profile-based storage provided by the DC/OS Storage Service. By using the DC/OS Storage Service to store the monitoring data used in Prometheus queries and Grafana dashboards, you can improve the performance and reliability of the Prometheus and Grafana monitoring components.
@@ -47,24 +52,6 @@ This change also aligned the authentication architectures between DC/OS Enterpri
     When you install the DC/OS monitoring service, you can select the volume size and a volume profile for the file system where you want to storing the Prometheus time-series database (`tsdb`). By specifying a volume managed by the DC/OS Storage Service, you can take advantage of the durability, performance, and flexibility DSS provides for your collected data. 
     
     For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/beta-dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/beta-storage/0.5.3-beta/).
-
-- New volume and network metrics are available. <!--(DCOS-47722)-->
-
-    The metrics collection service, `dcos-telegraf` can now collect additional metrics for Mesos volumes and network information. For a complete list of the Mesos metrics you can collect and report, see the latest [list of metrics](http://mesos.apache.org/documentation/latest/monitoring/).
-
-    For more information about collecting metrics and configuring metrics plugins, see the following topics:
-    - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
-    - [Mesos Metrics](/1.13/metrics/mesos/)
-    - [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/)
-
-- Key metrics are collected by default. <!--(DCOS-47719)-->
-
-    In DC/OS 1.13, `dcos-telegraf` automatically collects Mesos metrics by default. Previously, you were required to manually enable the metrics plugin by updating the agent configuration or by setting the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `true`.  With this release, manually enabling this feature is no longer required. Instead, the default value for the parameter is now set to true. You can set the `enable_mesos_input_plugin` parameter in the `config.yaml` file to false if you want to disable the automatic collection of Mesos metrics.
-
-    For more information about collecting metrics and configuring metrics plugins, see the following topics:
-    - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
-    - [Mesos Metrics](/1.13/metrics/mesos/)
-    - [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/)
 
 - The DC/OS monitoring service enables you to import curated alerting rules. <!--(DCOS-47666)-->
 
@@ -77,6 +64,24 @@ This change also aligned the authentication architectures between DC/OS Enterpri
 - Automatically create a curated collection of Prometheus-driven Grafana dashboards for DC/OS. <!--(DCOS-44740)-->
 
     If you deploy DC/OS monitoring, you can leverage Mesosphere-provided Grafana-based dashboards. By installing and configuring the `dcos-monitoring` service, you can automatically create dashboards that enable you to quickly visualize the metrics that the `dcos-monitoring` package is collecting from the DC/OS cluster and DC/OS-hosted applications. For more information about using Grafana dashboards, see the [dashboard repository](https://github.com/dcos/grafana-dashboards).
+
+### Metrics
+DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. 
+    
+With this release, you can use Telegraf to collect and forward information for the following additional DC/OS cluster components:
+- CockroachDB
+- ZooKeeper
+- Exhibitor
+- Marathon
+- Metronome
+
+You can also collect information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
+
+- New volume and network metrics are available collected by default. <!--(DCOS-47722, DCOS-47719)-->
+
+    The metrics collection service, `dcos-telegraf` can now collect additional metrics for Mesos volumes and network information. For a complete list of the Mesos metrics you can collect and report, see the latest [list of metrics](http://mesos.apache.org/documentation/latest/monitoring/).
+
+    In DC/OS 1.13, `dcos-telegraf` automatically collects Mesos metrics by default. Previously, you were required to manually enable the metrics plugin by updating the agent configuration or by setting the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `true`.  With this release, manually enabling this feature is no longer required. Instead, the default value for the parameter is now set to true. You can set the `enable_mesos_input_plugin` parameter in the `config.yaml` file to false if you want to disable the automatic collection of Mesos metrics.
 
 - Collect and report metrics that track the health and performance of the DC/OS Telegraf plugin. <!--(DCOS-39012)-->
 
@@ -101,6 +106,11 @@ This change also aligned the authentication architectures between DC/OS Enterpri
     Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting service.
 
     For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/1.13/monitoring/logging/).
+
+For more information about collecting metrics and configuring metrics plugins, see the following topics:
+- [Metrics Plugin Architecture](/1.13/metrics/architecture/)
+- [Mesos Metrics](/1.13/metrics/mesos/)
+- [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/)
 
 ## Command-line interface
 - Identify the public-facing IP address for public agent nodes through the DC/OS CLI. <!--(DCOS-44697)-->
@@ -259,7 +269,7 @@ This change also aligned the authentication architectures between DC/OS Enterpri
 
 - Support secure computing mode (seccomp) profiles. <!--(DCOS-28442, DCOS-49134)-->
 
-    Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within a container. You can enable secure computing mode for Docker containers and Universal Runtime Containers (URC) if the operating system you are using supports it.
+    Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within an app or pod container. You can enable secure computing mode using a default profile for Universal Runtime Containers (URC) if the operating system you are using supports it.
 
     WIth DC/OS, you can use a `seccomp` profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls. 
 
@@ -294,6 +304,8 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 - Fix the CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679). 
 
 ## Diagnostics and logging
+- Enable DC/OS to create consolidated diagnostics bundles by applying a timeout when reading `systemd` journal entries (DCOS_OSS-5097).
+
 - Add SELinux details to the DC/OS diagnostics bundle to provide additional information for troubleshooting and analysis (DCOS_OSS-4123).
 
 - Add external Mesos master and agent logs in the diagnostic bundle to provide additional information for troubleshooting and analysis (DCOS_OSS-4283).
