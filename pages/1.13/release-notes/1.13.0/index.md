@@ -101,6 +101,8 @@ You can also collect information about the operation and performance of the Tele
 
     You can collect and report metrics for DC/OS Admin Router using NGINX Virtual Hosts metrics. This information is provided by Telegraf and NGINX input plugins and is enabled by default. You can view the NGNIX instance metrics using the `/nginx/status` endpoint on each DC/OS master node.
 
+- Add the fault domain region and zone information to metrics. <!--DCOS-16570-->
+
 - Standardized log collection and forwarding through Fluent Bit. <!--(DCOS-43412)-->
 
     Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting service.
@@ -221,6 +223,12 @@ For more information about collecting metrics and configuring metrics plugins, s
 - Universal Installer to provision Elastic Block Store (EBS) volumes. (DCOS-47221)
     The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/).
 -->
+
+## Job management and scheduling
+- Enhance DC/OS job handling capabilities by adding support for graphic processing units (GPU) with the new DC/OS configuration options `metronome_gpu_scheduling_behavior`, universal container runtime (UCR) containers, file-based secrets, and hybrid cloud deployments.
+
+<!--For more information about using these new features, see []().-->
+
 ## Mesos platform and containerization
 - Update the Universal Container Runtime (UCR) to support Docker registry manifest specification v2_schema2 images. <!--(DCOS-43871)-->
 
@@ -300,6 +308,14 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 
     This release fixes an issue in Admin Router that prevented it from starting properly for some virtual machine configurations. For example, if you previously used a server name that exceeded the maximum size allowed, the `dcos-adminrouter` component might be unable to start the server. With this release, the `packages/adminrouter/extra/src/nginx.master.conf` file has been updated to support a server name hash bucket size of 64 characters.
 
+- Change the master Admin Router service endpoint `/service/<service-name>` so that it does not remove the `Accept-Encoding` header from requests, allowing services to serve compressed responses to user agents (DCOS_OSS-4906).
+
+- Enable to master Admin Router to expose the DC/OS networking API through the `/net` endpoint path (DCOS_OSS-1837). 
+
+This API can be used, for example, to return the public IP addresses of cluster nodes through the `/net/v1/nodes` endpoint. 
+
+- Enable Admin Router to return relative redirects to avoid relying on the `Host` header (DCOS-47845).
+
 ## Command-line interface (CLI) 
 - Fix the CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679). 
 
@@ -312,7 +328,9 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 
 - Add logging for Docker-GC to the `journald` system logging facility (COPS-4044).
 
-- Enable Admin Router to log information to a non-blocking socket (DCOS-43956).
+- Modify Admin Router to log information to a non-blocking domain socket (DCOS-43956).
+
+Previously, if the `journald` logging facility failed to read the socket quickly enough, Admin Router would stop processing requests, causing log messages to be lost and blocking other processing activity.
 
 - Allow the DC/OS Storage Service (DSS) endpoint for collecting diagnostics to be marked as optional (DCOS_OSS-5031).
 
