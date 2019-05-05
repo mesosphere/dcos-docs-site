@@ -23,7 +23,7 @@ This release of DC/OS 1.11.10 addresses a security vulnerablity for container ru
 
 For information about other issues fixed or known issues for the most recent release of DC/OS 1.10 prior to this security fix, see the [release notes 1.10.10](https://docs.mesosphere.com/1.10/release-notes/1.10.10/).
 
-## Mesos 
+## Mesos
 - DCOS-48052 - An update to the containerizer launch binary prevents a malicious user from exploiting the `init` helper function used by container runtimes--including DockerD, containerD, and UCR. Without this change, a malicious user could gain access to a container's root-level permissions and use those permissions to execute potentially malicious code on the host.
 
   This issue has been reported by the RunC community (CVE-2019-5736) and affects the Docker Engine and Mesosphere Kubernetes Engine (MKE) container runtime components. The issue has also been reported by the Apache Mesos community for the Mesosphere Universal Container Runtime (UCR). All existing versions of DC/OS, Mesosphere Kuberentes Engine, and Docker Engine are affected by this vulnerability. However, this vulnerability does not affect DC/OS clusters or UCR containers if the cluster runs using the `strict` security mode and uses the default `nobody` user account to launch UCR containers.
@@ -52,7 +52,7 @@ You can try out the new features and updated data services. Provide feedback thr
 
 - DC/OS supports any type of container network interface (CNI) network plugin. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
-- You can use Edge-LB load balancer to balance Mesos tasks. The Edge-LB load balancer does not support strict security mode. [View the documentation](/services/edge-lb/0.1/).[enterprise type="inline" size="small" /]
+- You can use Edge-LB load balancer to balance Mesos tasks. The Edge-LB load balancer does not support strict security mode. [View the documentation](/services/edge-lb/latest/).[enterprise type="inline" size="small" /]
 
 [enterprise type="block" size="large"]
 ### Security
@@ -113,13 +113,13 @@ For more information, see the documenation or release notes for the specific dat
    - DC/OS CLI 0.4.x has a single configuration file, stored by default in `~/.dcos/dcos.toml`. DC/OS CLI 0.5.x has a configuration file for **each connected cluster**. Each cluster configuration file is stored by default in `~/.dcos/clusters/<cluster_id>/dcos.toml`.
    - DC/OS CLI 0.5.x introduces the `dcos cluster setup` command to configure a connection to a cluster and log into the cluster.
     -  Updating to the DC/OS CLI 0.5.x and running any CLI command triggers conversion from the old to the new configuration structure.
-    
+
     If you attempt to update the cluster configuration using a `dcos config set` command after using `dcos cluster setup` or converting to DC/OS CLI 0.5.x, the command prints a warning message saying the command is deprecated and that cluster configuration state might now be corrupted.
-  
+
     If you have the `DCOS_CONFIG` environment variable configured:
     - _After_ conversion to the new configuration structure, `DCOS_CONFIG` is no longer honored.
     - _Before_ you call `dcos cluster setup`, you can change the configuration pointed to by `DCOS_CONFIG` using `dcos config set`. This command prints a warning message saying the command is deprecated and recommends using `dcos cluster setup`.
-  
+
   CLI modules are cluster-specific and stored in `~/.dcos/clusters/<cluster_id>/subcommands`. Therefore you must install a CLI module for each cluster. For example, if you connect to cluster 1, and install the Spark module, then connect to cluster 2 which is also running Spark, Spark CLI commands are not available until you install the module for that cluster.
 
 ### GUI

@@ -17,7 +17,7 @@ DC/OS 1.10.9 includes the following:
 - Marathon 1.5.12 [change log](https://github.com/mesosphere/marathon/releases/tag/v1.5.12).
 - Metronome 0.4.4 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.4).
 
-- DCOS-40881/DCOS-41396/DCOS-41495/DCOS-41502 - Bump dcos-ui v1.10+v1.10.9-rc3. 
+- DCOS-40881/DCOS-41396/DCOS-41495/DCOS-41502 - Bump dcos-ui v1.10+v1.10.9-rc3.
 
 # Issues Fixed in DC/OS 1.10.9
 
@@ -52,12 +52,12 @@ DC/OS 1.10.9 includes the following:
 - DCOS_OSS-3978 - Add `/quota`, `/containers`, `/proc/[cmdline|cpuinfo|meminfo]`, `ps aux wwww` to DC/OS diagnostics bundle.
 
 ## Metrics
-- DCOS-37454 - Fix inconsistent output reported by prometheus endpoint (/metrics) in the metrics store. 
+- DCOS-37454 - Fix inconsistent output reported by prometheus endpoint (/metrics) in the metrics store.
 - DCOS-38083 - Improve the behavior of statsd timers on `dcos-metrics`.
 
 ## Networking
 - COPS-3520/DCOS-39999 - Fix DC/OS OSS build failure that occurred due to segmentation violation.
-- COPS-3701 - Fix file descriptors leak associated with TCP connection on DC/OS nodes.  
+- COPS-3701 - Fix file descriptors leak associated with TCP connection on DC/OS nodes.
 - DCOS-39707 - Fix clustering issues with `etcd`.
 - DCOS-39841 - Fix the erros of `dcos-cni` package that lead to the failure to build DC/OS locally.
 - DCOS_OSS-3697 - Ensure connectivity between Docker bridge and DC/OS overlay via VIP on the same host.
@@ -98,7 +98,7 @@ You can try out the new features and updated data services. Provide feedback thr
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
 
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/latest/).
 
 [enterprise type="block" size="large"]
 ### Security

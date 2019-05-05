@@ -14,7 +14,7 @@ Multiple Edge-LB instances enable you to create a highly available load balanced
 
 # Prerequisites
 
-* Edge-LB is installed following the [Edge-LB Installation Guide](/services/edge-lb/0.1/installing/).
+* Edge-LB is installed following the [Edge-LB Installation Guide](/services/edge-lb/latest/installing/).
 * The DC/OS CLI is installed and configured to communicate with the DC/OS cluster, and the `edgelb` CLI package has been installed.
 * At least one DC/OS private agent node to run the load balanced service (more is preferable).
 * Multiple (2 or more) DC/OS public agent nodes in a single VPC. In order to use an AWS ALB or NLB, the agent nodes must be in multiple AZs.
@@ -48,7 +48,7 @@ Multiple Edge-LB instances enable you to create a highly available load balanced
      "networks": [{
        "mode": "container/bridge"
      }]
-   } 
+   }
    ```
 
 1. Deploy the sample service.
@@ -152,7 +152,7 @@ On the Load Balancer page, you can check the status of your load balancer by goi
 
 The AWS Application Load Balancer (ALB) is a Layer 7 Load Balancer that does HTTP processing; the AWS Network Load Balancer is a Layer 4 Load Balancer that does TCP load balancing. Conceptually they operate as follows:
 
-* ALB: HTTP Load Balancer: HTTP connections terminate on ALB.  
+* ALB: HTTP Load Balancer: HTTP connections terminate on ALB.
 * NLB: TCP Load Balancer: HTTP connections terminate on the EC2 instance itself (in this case, directly on the Edge-LB Load Balancer instance).
 
 Configuration of the two is roughly identical:

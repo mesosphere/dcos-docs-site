@@ -28,4 +28,4 @@ Perform an Edge-LB upgrade by following this procedure.
     dcos package repo remove edgelb-aws
     dcos package repo remove edgelb-pool-aws
     ```
-1. [Reinstall Edge-LB](/services/edge-lb/0.1/installing/).
+1. [Reinstall Edge-LB](/services/edge-lb/latest/installing/).

@@ -27,7 +27,7 @@ DC/OS 1.10.7 includes the following:
 - DCOS_OSS-2335 - Increase the mesos executor registration timeout from 2 seconds to 20 seconds.
 
 
-# Security Enhancements in DC/OS 1.10.7 
+# Security Enhancements in DC/OS 1.10.7
 
 - DCOS-21958 - Disabled the 3DES bulk encryption algorithm for Master Admin Router's TLS. [enterprise type="inline" size="small" /]
 
@@ -57,7 +57,7 @@ You can try out the new features and updated data services. Provide feedback thr
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
 
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/latest/).
 
 [enterprise type="block" size="large"]
 ### Security
