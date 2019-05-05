@@ -59,7 +59,7 @@ You can try out the new features and updated data services. Provide feedback thr
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
 
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/latest/).
 
 [enterprise type="block" size="large"]
 ### Security

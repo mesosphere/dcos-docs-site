@@ -9,7 +9,7 @@ These are the release notes for DC/OS 1.10.0 Beta 1.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/cc50fd59477f90c1881aa5ad02a81d174d3e42ed/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-This beta release is for testing only and not to be used in production. It will only support new installations. 
+This beta release is for testing only and not to be used in production. It will only support new installations.
 
 DC/OS 1.10 Beta 1 has a number of limitations that will be resolved at GA time.
 - Upgrades from 1.9 are not supported.
@@ -52,7 +52,7 @@ DC/OS 1.10 includes many new capabilities and expands the collection of data and
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
 
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/services/edge-lb/0.1/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/services/edge-lb/latest/).
 
 [enterprise type="block" size="large"]
 ## Security

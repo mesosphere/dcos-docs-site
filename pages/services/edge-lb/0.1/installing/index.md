@@ -20,21 +20,21 @@ Configure a service account and install the Edge-LB package using the instructio
 - Currently, Edge-LB works only with DC/OS Enterprise in permissive [security mode](/latest/security/ent/#security-modes). It does not work with strict or disabled.
 
 # Add Edge-LB package repositories
-The Edge-LB package comprises two components: 
+The Edge-LB package comprises two components:
 
-- The **Edge-LB API server** is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers. 
+- The **Edge-LB API server** is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers.
 
-- An **Edge-LB pool** can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer. 
+- An **Edge-LB pool** can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
 
-You must install universe repos for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB. 
+You must install universe repos for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB.
 
 <p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
 
 ## Obtain artifacts
 
-If your cluster already has connectivity, you can obtain the artifacts directly. 
+If your cluster already has connectivity, you can obtain the artifacts directly.
 
-If you do not have a cluster with connectivity, you will then need a customer service account with Mesosphere to download the artifacts for each of the repos from the <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>. 
+If you do not have a cluster with connectivity, you will then need a customer service account with Mesosphere to download the artifacts for each of the repos from the <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>.
 
 <p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without a current customer service account.</p>
 
@@ -77,7 +77,7 @@ If you need to deploy a local Universe containing your own set of packages, you 
 - `stub-universe-edgelb.json`
 - `stub-universe-edgelb-pool.json`
 
-4. To add the JSON definitions to the universe, use the `add-stub-universe.sh` script.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.  
+4. To add the JSON definitions to the universe, use the `add-stub-universe.sh` script.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.
 
 ```bash
 bash add-stub-universe.sh -j stub-universe-edgelb.json
@@ -163,7 +163,7 @@ Use the following CLI commands to provision the Edge-LB service account with the
     dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools full --description "Allow access to update pools"
     ```
 
-For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/0.1/permissions/)
+For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/latest/permissions/)
 
 # <a name="create-json"></a>Create a configuration file for service authentication
 After configuring service authentication, you must create a JSON options file with your credentials. This file will be passed to DC/OS when you install Edge-LB.
@@ -199,5 +199,5 @@ You should receive this message when ready:
 pong
 ```
 
-- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/0.1/pool-configuration/) section.
-- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/0.1/cli-reference/).
+- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/latest/pool-configuration/) section.
+- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/latest/cli-reference/).
