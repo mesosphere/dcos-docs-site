@@ -91,7 +91,7 @@ The following updated data services packages are also in beta and are compatible
 
 - Beta Kafka. [Documentation](/services/beta-kafka/1.1.26-0.10.1.0-beta/). [Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/kafka-1.1.26-0.10.1.0-beta).
 
-- Spark. [Documentation](/services/spark/v1.1.1-2.2.0/). [Release Notes](https://github.com/mesosphere/spark-build/releases/tag/1.1.1-2.2.0).
+- Spark. [Documentation](/services/spark/v1.1.1-2.2.0/). [Release Notes](/services/spark/latest/release-notes/).
 
 ## Platform
 - Node and cluster health checks.
