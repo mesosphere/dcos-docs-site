@@ -42,9 +42,9 @@ With this change, DC/OS also now supports unified service accounts. Service acco
 This change also aligns the authentication architectures between DC/OS Enterprise and DC/OS Open Source. The HTTP API for service account management ans service authentication is now the same for both DC/OS Enterprise and DC/OS Open Source. For both DC/OS Enterprise and DC/OS Open Source clusters, the DC/OS authentication token is a JSON Web Token (JWT) of type RS256. This JWT authentication token can be validated by any component in the system after consulting the IAM services JSON Web Key Set (JWKS) endpoint.
 
 ## Monitoring and metrics for cluster operations
-This release extends DC/OS cluster monitoring capabilities and the metrics you can collect and report for DC/OS components. The enhancements to monitoring and metrics provide you with better visibility into cluster operations, activity, and performance through DC/OS itself and as input to Promethus, Grafana, and other services.
+This release extends DC/OS cluster monitoring capabilities and the metrics you can collect and report for DC/OS components. The enhancements to monitoring and metrics provide you with better visibility into cluster operations, activity, and performance through DC/OS itself and as input to Prometheus, Grafana, and other services.
 
-### Monitoring
+### Monitoring service
 - The DC/OS monitoring service (`dcos-monitoring`) can be configured to use DC/OS storage service (DSS) volumes to store time-series data. <!--(DCOS-47725)-->
 
     With this release, you can store the information collected by the DC/OS monitoring service (`dcos-monitoring`) in the profile-based storage provided by the DC/OS Storage Service. By using the DC/OS Storage Service to store the monitoring data used in Prometheus queries and Grafana dashboards, you can improve the performance and reliability of the Prometheus and Grafana monitoring components.
@@ -229,6 +229,23 @@ For more information about collecting metrics and configuring metrics plugins, s
 
 <!--For more information about using these new features, see []().-->
 
+## Marathon
+- Enable secure computing (seccomp) and a default seccomp profile for UCR containers to prevent security exploits.
+
+- Replace Marathon-based health and readiness checkes with generic DC/OS (Mesos-based) checks.
+
+- Collect metrics for the “root” Marathon framework on DC/OS for better observability. 
+
+- Automatically replace instances when a DC/OS agent is decommissioned.
+
+- Set the default value for the --gpu_scheduling_behavior configuration option to restricted to prevent tasks from being started on GPU-enabled agents if the app or pod definition did not explicitly request GPU support.
+
+- Implement global throttling of Marathon-initiated health checks for better scalability.
+
+- Suppress offers by default when agents are idle for better scalability.
+
+- Close connections on slow event consumers to prevent excessive buffering and reduce the load on Marathon.
+
 ## Mesos platform and containerization
 - Update the Universal Container Runtime (UCR) to support Docker registry manifest specification v2_schema2 images. <!--(DCOS-43871)-->
 
@@ -282,6 +299,8 @@ For more information about collecting metrics and configuring metrics plugins, s
     WIth DC/OS, you can use a `seccomp` profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls. 
 
     Using a secure computing mode profile is an important option if you need to secure access to containers and operations using the principle of least privilege. 
+
+    For more information about secure computing mode and the default secure computing profile, see [Secure computing profiles](/1.13/security/ent/secure-compute-profiles/).
 
 ## Storage
 - Update Beta Rex-Ray to support NVMe EBS volumes. <!--(DCOS-50047)-->
