@@ -835,9 +835,6 @@
 /1.12/installing/oss/ /1.12/installing/;
 /overview/components/ /1.7/overview/components/;
 /release-notes/open-source-attribution/ /1.10/release-notes/open-source-attribution/;
-/services/beta-cassandra/v1.0.30-3.0.13-beta/ /services/beta-cassandra/1.0.30-3.0.13-beta/;
-/services/beta-cassandra/v1.0.31-3.0.13-beta/ /services/beta-cassandra/1.0.31-3.0.13-beta/;
-/services/beta-cassandra/v1.0.32-3.0.14-beta/ /services/beta-cassandra/1.0.32-3.0.14-beta/;
 ~^/services/edge-lb/0.1.9/(.*)$ /services/edge-lb/0.1/$1;
 ~^/services/edge-lb/1.0.0/(.*)$ /services/edge-lb/1.0/$1;
 /support/ https://support.mesosphere.com;
