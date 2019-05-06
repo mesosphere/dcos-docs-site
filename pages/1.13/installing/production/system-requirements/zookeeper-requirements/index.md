@@ -17,10 +17,10 @@ In planning your cluster deployment, there are two important points to keep in m
 - ZooKeeper processes each read or write operation as a complete transaction rather than performing partial or incremental updates when there are changes to nodes in the cluster.
 - ZooKeeper does not remove old snapshots and log files from the file system. You must manage these files manually.
 
-ZooKeeper stores both the snapshots and transaction log in the location you specify using the `dataDir` parameter. You can also configure ZooKeeper to write the transaction log to a separate location using the `dataLogDir` parameter. Specifying both the `dataLogDir` and `dataDir` locations allows you to use separate file system directories and a dedicated log device. Using a dedicated log device for ZooKeeper transaction logs helps to avoid resource contention and latency issues.
+For a DC/OS cluster, both the snapshots and transaction log are stored in the `/var/lib/dcos/exhibitor` directory. Using a dedicated log device for ZDC/OS exhibitor (`dcos-exhibitor`) log files helps to avoid resource contention and latency issues.
 
 # Identifying potential problems
-One key way you can identify issues that are related to ZooKeeper is by searching ZooKeeper log files for messages related to synchronization (`fsync`) operations. For example, if the ZooKeeper data and log directories are mounted on the same disk or there are disk or network latency issues, the transaction log records messages similar to the following:
+One key way you can identify issues that are related to ZooKeeper is by searching DC/OS exhibitor (`dcos-exhibitor`) log files for messages related to synchronization (`fsync`) operations. For example, if the ZooKeeper data and log directories are mounted on the same disk or there are disk or network latency issues, the transaction log records messages similar to the following:
 
 `WARN SyncThread:14  fsync-ing the write ahead log in SyncThread:14 took 14818ms which will adversely effect operation latency. See the ZooKeeper troubleshooting guide`
 
@@ -45,20 +45,18 @@ Isolate master nodes from agent nodes to prevent memory and CPU contention, espe
 
 The most common ZooKeeper issues occur when ZooKeeper transaction log files are stored on the same solid state drive (SSD) as other components where ZooKeeper write performance becomes a bottleneck that slows down or delays processing of other worker threads.
     
-ZooKeeper should not share resources with any other processes or services. ZooKeeper writes new transactions to the log before performing updates or sending a response to the client. Dedicating a complete disk to the ZooKeeper transaction log directory prevents I/O processing by other applications from overloading the disk.
+ZooKeeper should not share resources with any other processes or services. ZooKeeper writes new transactions to the log before performing updates or sending a response to the client. Dedicating disk space for the ZooKeeper transaction log directory prevents I/O processing by other applications from overloading the disk.
     
 You should be sure ZooKeeper directories are configured to use fast disks that can complete synchronization (`fsync`) operations successfully in a timely fashion.
 
 ## Provision ZooKeeper directories for master nodes
-You should put the `/var/lib/dcos/exhibitor/zookeeper/transactions` directory for each master node on a separate disk. 
-
-In addition, you should place the ZooKeeper transaction log directory on a dedicated log device. In a production environment, using a dedicated partition is not sufficient. ZooKeeper writes the log sequentially, without seeking. Sharing the log device with any other processes can cause seeks and contention, which in turn, can cause multi-second delays. 
+You should put the `/var/lib/dcos` directory for each master node on a separate disk to enable the ZooKeeper transaction log directory to be hosted on a dedicated log device. In a production environment, using a dedicated partition is not sufficient. ZooKeeper writes the log sequentially, without seeking. Sharing the log device with any other processes can cause seeks and contention, which in turn, can cause multi-second delays. 
     
 Using a dedicated log device for transactions improves throughput, reduces latency issues, and is the key to providing consistent performance. Putting the log on a busy device will adversely affect performance. Therefore, you should provision a dedicated log device that does not share resources with any other processes or components.
 
-- Set the `dataLogDir` ZooKeeper parameter to specify a directory on the dedicated log device.
+<!--- Set the `dataLogDir` ZooKeeper parameter to specify a directory on the dedicated log device.
 
-- Set the `dataDir` ZooKeeper parameter to specify a directory that does not reside on the dedicated log device.
+- Set the `dataDir` ZooKeeper parameter to specify a directory that does not reside on the dedicated log device.-->
 
 ## Review system and network configuration
 In addition to the ZooKeeper-specific recommendations, you should monitor system and network metrics and perform any additional administrative actions that help to reduce I/O contention from other processes and nodes.
