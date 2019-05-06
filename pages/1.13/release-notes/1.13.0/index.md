@@ -27,8 +27,9 @@ DC/OS 1.13 includes new features and capabilities to enhance the installation an
 Some highlights for this release include:
 - Unified service accounts and authentication architecture
 - Monitoring and metrics for cluster operations
-- Improvements to the Universal installer and upgrade process
-- New features and options for command-programs
+- Extended support for workloads that take advantage of accelerated processing provided by graphic processing units (GPU)
+- Improvements to the Universal installer and the upgrade process
+- New features and options for command-line programs
 - New dashboard options for monitoring cluster performance
 - Tighter integration between the Mesosphere Kubernetes Engine (MKE) and Edge-LB load balancing
 
@@ -227,18 +228,28 @@ For more information about collecting metrics and configuring metrics plugins, s
 ## Job management and scheduling
 - Enhance DC/OS job handling capabilities by adding support for graphic processing units (GPU) with the new DC/OS configuration options `metronome_gpu_scheduling_behavior`, universal container runtime (UCR) containers, file-based secrets, and hybrid cloud deployments.
 
+- Add support for the `IS` constraint operator and `@region` and `@zone` attributes.
+
+- Provide an option to enable or disable offer suppression when agents are idle.
+
+- Collect metrics for the “root” Metronome process on DC/OS for better observability.
+
+- Add HTTP and uptime metrics for job management.
+
+- Set the default value for the `--gpu_scheduling_behavior` configuration option to restricted to prevent jobs from being started on GPU-enabled agents if the job definition did not explicitly request GPU support.
+
 <!--For more information about using these new features, see []().-->
 
 ## Marathon
 - Enable secure computing (seccomp) and a default seccomp profile for UCR containers to prevent security exploits.
 
-- Replace Marathon-based health and readiness checkes with generic DC/OS (Mesos-based) checks.
+- Replace Marathon-based health and readiness checks with generic DC/OS (Mesos-based) checks.
 
 - Collect metrics for the “root” Marathon framework on DC/OS for better observability. 
 
 - Automatically replace instances when a DC/OS agent is decommissioned.
 
-- Set the default value for the --gpu_scheduling_behavior configuration option to restricted to prevent tasks from being started on GPU-enabled agents if the app or pod definition did not explicitly request GPU support.
+- Set the default value for the `--gpu_scheduling_behavior` configuration option to restricted to prevent tasks from being started on GPU-enabled agents if the app or pod definition did not explicitly request GPU support.
 
 - Implement global throttling of Marathon-initiated health checks for better scalability.
 
