@@ -13,7 +13,7 @@
 ~^/services/kubernetes/latest/(.*) /services/kubernetes/2.3.0-1.14.1/$1;
 ~^/services/marathon-lb/latest/(.*) /services/marathon-lb/1.13/$1;
 ~^/services/minio/latest/(.*) /services/minio/0.1.1/$1;
-~^/services/nifi/latest/(.*) /services/nifi/0.2.0-1.5.0/$1;
+~^/services/nifi/latest/(.*) /services/nifi/0.4.1-1.8.0/$1;
 ~^/services/percona-server-mongo-db/latest/(.*) /services/percona-server-mongodb/0.4.1-3.6.8/$1;
 ~^/services/prometheus/latest/(.*) /services/prometheus/0.1.1-2.3.2/$1;
 ~^/services/spark/latest/(.*) /services/spark/2.4.0-2.2.1-3/$1;
