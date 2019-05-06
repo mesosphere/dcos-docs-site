@@ -90,6 +90,13 @@ You can also collect information about the operation and performance of the Tele
     
     With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and is available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
 
+- Expose task-related metrics using the Prometheus format.  
+
+    You can expose metrics from tasks that run on Mesos in Prometheus format. When a port configuration belonging to a task is labelled appropriately, the metrics endpoint on that port is polled regularly over the lifetime of the task and metrics collected are added to the Telegraf pipeline. 
+
+    For a detailed description of how to configure a task so that its metrics are collected in Prometheus format, see the [Prometheus input plugin](https://github.com/dcos/telegraf/tree/1.9.4-dcos/plugins/inputs/prometheus#mesos-service-discovery).
+
+
 - Add internal metrics for UDP activity to the Telegraf `statsd` input plugin. <!--DCOS_OSS-4759-->
 
     You can collect and report metrics for the number of incoming messages that have been dropped because of a full queue. This information is provided by the Telegraf `statsd` input plugin with the `internal_statsd_dropped_messages` metric. 
