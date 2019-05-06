@@ -52,10 +52,6 @@
 /pages/services/edge-lb/ /services/edge-lb/;
 /pages/services/marathon-lb/ /services/marathon-lb/;
 /services/beta-confluent-kafka-zookeeper/2.1.1-4.0.0e-beta/quick-start/connecting-clients.md/ /services/beta-confluent-kafka-zookeeper/2.1.1-4.0.0e-beta/connecting-clients/;
-/services/beta-confluent-kafka/2.1.0-4.0.0e-beta/install/api-reference.md/ /services/beta-confluent-kafka/2.1.0-4.0.0e-beta/api-reference/;
-/services/beta-confluent-kafka/2.1.0-4.0.0e-beta/managing/configure.md/ /services/beta-confluent-kafka/2.1.0-4.0.0e-beta/managing/;
-/services/beta-confluent-kafka/2.1.1-4.0.0e-beta/install/api-reference.md/ /services/beta-confluent-kafka/2.1.1-4.0.0e-beta/api-reference/;
-/services/beta-confluent-kafka/2.1.2-4.0.0e-beta/managing/configure.md/ /services/beta-confluent-kafka/2.1.2-4.0.0e-beta/managing/;
 /services/beta-elastic/1.0.13-5.4.1-beta/changelog/connecting.md/ /services/beta-elastic/1.0.13-5.4.1-beta/connecting/;
 /services/beta-elastic/1.0.13-5.4.1-beta/connecting/x-pack.md/ /services/beta-elastic/1.0.13-5.4.1-beta/x-pack/;
 /services/beta-elastic/1.0.14-5.5.0-beta/changelog/connecting.md/ /services/beta-elastic/1.0.14-5.5.0-beta/connecting/;
