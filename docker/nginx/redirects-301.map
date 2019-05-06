@@ -51,14 +51,6 @@
 /pages/1.11/networking/load-balancing-vips/virtual-ip-addresses/ /1.11/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/;
 /pages/services/edge-lb/ /services/edge-lb/;
 /pages/services/marathon-lb/ /services/marathon-lb/;
-/services/beta-cassandra/2.1.0-3.0.15-beta/install/quick-start.md/ /services/beta-cassandra/2.1.0-3.0.15-beta/quick-start/;
-/services/beta-cassandra/2.1.1-3.0.15-beta/install/quick-start.md/ /services/beta-cassandra/2.1.1-3.0.15-beta/quick-start/;
-/services/beta-cassandra/2.1.2-3.0.15-beta/install/quick-start.md/ /services/beta-cassandra/2.1.2-3.0.15-beta/quick-start/;
-/services/beta-cassandra/v1.0.30-3.0.13-beta/service-settings/ /services/beta-cassandra/1.0.30-3.0.13-beta/service-settings/;
-/services/beta-cassandra/v1.0.30-3.0.13/limitations/ /services/beta-cassandra/1.0.30-3.0.13-beta/limitations/;
-/services/beta-cassandra/v1.0.31-3.0.13-beta/service-settings/ /services/beta-cassandra/1.0.31-3.0.13-beta/service-settings/;
-/services/beta-cassandra/v1.0.32-3.0.14-beta/service-settings/ /services/beta-cassandra/1.0.32-3.0.14-beta/service-settings/;
-/services/beta-cassandra/v1.0.32-3.0.14/limitations/ /services/beta-cassandra/1.0.32-3.0.14-beta/limitations/;
 /services/beta-confluent-kafka-zookeeper/2.1.1-4.0.0e-beta/quick-start/connecting-clients.md/ /services/beta-confluent-kafka-zookeeper/2.1.1-4.0.0e-beta/connecting-clients/;
 /services/beta-confluent-kafka/2.1.0-4.0.0e-beta/install/api-reference.md/ /services/beta-confluent-kafka/2.1.0-4.0.0e-beta/api-reference/;
 /services/beta-confluent-kafka/2.1.0-4.0.0e-beta/managing/configure.md/ /services/beta-confluent-kafka/2.1.0-4.0.0e-beta/managing/;
