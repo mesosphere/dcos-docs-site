@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Configuring DC/OS access for Percona-Server-MongoDB
 title: Configuring DC/OS access for Percona-Server-MongoDB
-menuWeight: 3
+menuWeight: 100
 excerpt: How to use Percona-Server-MongoDB with DC/OS
 featureMaturity:
 enterprise: false
@@ -81,7 +81,7 @@ render: mustache
     }
     EOF
     $ dcos {{ model.serviceName }} user add admin myApp.json
-     ```   
+     ```
 
 1. Reconnect using your new application-level user `myApp`.
     ```shell
@@ -107,7 +107,7 @@ render: mustache
 1. Drop/delete the collection `test`.
 
     <p class="message--note"><strong>NOTE: </strong> Drops/deletes cannot be undone. Always back up important data before dropping it.</p>
-    
+
     ```shell
     > db.test.drop()
     true
