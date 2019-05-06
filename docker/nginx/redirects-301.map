@@ -48,9 +48,6 @@
 /pages/1.11/networking/load-balancing-vips/virtual-ip-addresses/ /1.11/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/;
 /pages/services/edge-lb/ /services/edge-lb/;
 /pages/services/marathon-lb/ /services/marathon-lb/;
-/services/beta-kafka-zookeeper/2.1.0-3.4.11-beta/quick-start/connecting-clients.md/ /beta-kafka-zookeeper/2.1.0-3.4.11-beta/connecting-clients/;
-/services/beta-kafka-zookeeper/2.1.1-3.4.11-beta/quick-start/connecting-clients.md/ /services/beta-kafka-zookeeper/2.1.1-3.4.11-beta/connecting-clients/;
-/services/beta-kafka-zookeeper/2.1.2-3.4.11-beta/quick-start/connecting-clients.md/ /services/beta-kafka-zookeeper/2.1.2-3.4.11-beta/connecting-clients/;
 /services/cassandra/2.0.3-3.0.14/install/quick-start.md/ /services/cassandra/2.0.3-3.0.14/quick-start/;
 /services/cassandra/cassandra-auth/ /services/cassandra/2.2.0-3.0.16/security/;
 /services/confluent-kafka/2.0.1-3.3.0e/managing/configure.md/ /services/confluent-kafka/2.0.1-3.3.0e/managing/#updating-configuration/;
