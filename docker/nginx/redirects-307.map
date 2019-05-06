@@ -1,7 +1,7 @@
 ~^/latest/(.*)$ /1.12/$1;
 ~^/services/cassandra/latest/(.*) /services/cassandra/2.5.0-3.11.3/$1;
 ~^/services/confluent-kafka/latest/(.*) /services/confluent-kafka/2.5.0-4.1.2/$1;
-~^/services/confluent-zookeeper/latest/(.*) /services/confluent-zookeeper/2.4.0-4.0.0e/$1;
+~^/services/confluent-zookeeper/latest/(.*) /services/confluent-zookeeper/2.6.0-5.1.2e/$1;
 ~^/services/couchbase/latest/(.*) /services/couchbase/0.2.0-5.5.0/$1;
 ~^/services/dse/latest/(.*) /services/dse/2.4.0-5.1.10/$1;
 ~^/services/edge-lb/latest/(.*) /services/edge-lb/1.2/$1;
