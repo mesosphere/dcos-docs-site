@@ -51,14 +51,6 @@
 /services/beta-kafka-zookeeper/2.1.0-3.4.11-beta/quick-start/connecting-clients.md/ /beta-kafka-zookeeper/2.1.0-3.4.11-beta/connecting-clients/;
 /services/beta-kafka-zookeeper/2.1.1-3.4.11-beta/quick-start/connecting-clients.md/ /services/beta-kafka-zookeeper/2.1.1-3.4.11-beta/connecting-clients/;
 /services/beta-kafka-zookeeper/2.1.2-3.4.11-beta/quick-start/connecting-clients.md/ /services/beta-kafka-zookeeper/2.1.2-3.4.11-beta/connecting-clients/;
-/services/beta-kafka/1.1.27-0.11.0-beta/managing/configure.md/ /services/beta-kafka/1.1.27-0.11.0-beta/configure/;
-/services/beta-kafka/2.1.0-1.0.0-beta/managing/configure.md/ /services/kafka/2.1.0-1.0.0/configuration/;
-/services/beta-kafka/2.1.0-1.0.0-beta/troubleshooting/managing.md/ /services/kafka/2.1.0-1.0.0/troubleshooting/;
-/services/beta-kafka/2.1.1-1.0.0-beta/managing/configure.md/ /services/beta-kafka/2.1.1-1.0.0-beta/managing/#updating-configuration/;
-/services/beta-kafka/2.1.1-1.0.0-beta/troubleshooting/managing.md/ /services/beta-kafka/2.1.0-1.0.0-beta/managing/#extend-the-kill-grace-period/;
-/services/beta-kafka/2.1.2-1.0.0-beta/managing/configure.md/ /services/beta-kafka/2.1.2-1.0.0-beta/managing/#updating-configuration/;
-/services/beta-kafka/2.1.2-1.0.0-beta/troubleshooting/managing.md/ /services/beta-kafka/2.1.2-1.0.0-beta/managing/;
-/services/beta-kafka/v1.1.25-0.10.1.0-beta/connecting-clients/ /services/beta-kafka/1.1.25-0.10.1.0-beta/connecting-clients/;
 /services/cassandra/2.0.3-3.0.14/install/quick-start.md/ /services/cassandra/2.0.3-3.0.14/quick-start/;
 /services/cassandra/cassandra-auth/ /services/cassandra/2.2.0-3.0.16/security/;
 /services/confluent-kafka/2.0.1-3.3.0e/managing/configure.md/ /services/confluent-kafka/2.0.1-3.3.0e/managing/#updating-configuration/;
@@ -849,8 +841,6 @@
 /services/beta-cassandra/v1.0.30-3.0.13-beta/ /services/beta-cassandra/1.0.30-3.0.13-beta/;
 /services/beta-cassandra/v1.0.31-3.0.13-beta/ /services/beta-cassandra/1.0.31-3.0.13-beta/;
 /services/beta-cassandra/v1.0.32-3.0.14-beta/ /services/beta-cassandra/1.0.32-3.0.14-beta/;
-/services/beta-kafka/v1.1.25-0.10.1.0-beta/ /services/beta-kafka/1.1.25-0.10.1.0-beta/;
-/services/beta-kafka/v1.1.26-0.10.1.0-beta/ /services/beta-kafka/1.1.26-0.10.1.0-beta/;
 ~^/services/edge-lb/0.1.9/(.*)$ /services/edge-lb/0.1/$1;
 ~^/services/edge-lb/1.0.0/(.*)$ /services/edge-lb/1.0/$1;
 /support/ https://support.mesosphere.com;
