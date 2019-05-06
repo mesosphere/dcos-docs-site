@@ -50,7 +50,7 @@ This release extends DC/OS cluster monitoring capabilities and the metrics you c
 
     With this release, you can store the information collected by the DC/OS monitoring service (`dcos-monitoring`) in the profile-based storage provided by the DC/OS Storage Service. By using the DC/OS Storage Service to store the monitoring data used in Prometheus queries and Grafana dashboards, you can improve the performance and reliability of the Prometheus and Grafana monitoring components.
 
-    When you install the DC/OS monitoring service, you can select the volume size and a volume profile for the file system where you want to storing the Prometheus time-series database (`tsdb`). By specifying a volume managed by the DC/OS Storage Service, you can take advantage of the durability, performance, and flexibility DSS provides for your collected data. 
+    When you install the DC/OS monitoring service, you can select the volume size and a volume profile for the file system where you want to store the Prometheus time-series database (`tsdb`). By specifying a volume managed by the DC/OS Storage Service, you can take advantage of the durability, performance, and flexibility DSS provides for your collected data. 
     
     For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/beta-dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/beta-storage/0.5.3-beta/).
 
@@ -78,7 +78,7 @@ With this release, you can use Telegraf to collect and forward information for t
 
 You can also collect information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
 
-- New volume and network metrics are available collected by default. <!--(DCOS-47722, DCOS-47719)-->
+- New volume and network metrics that are collected by the Mesos input plugin are enabled by default. <!--(DCOS-47722, DCOS-47719)-->
 
     The metrics collection service, `dcos-telegraf` can now collect additional metrics for Mesos volumes and network information. For a complete list of the Mesos metrics you can collect and report, see the latest [list of metrics](http://mesos.apache.org/documentation/latest/monitoring/).
 
@@ -88,7 +88,7 @@ You can also collect information about the operation and performance of the Tele
 
     DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. 
     
-    With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
+    With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and is available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
 
 - Add internal metrics for UDP activity to the Telegraf `statsd` input plugin. <!--DCOS_OSS-4759-->
 
@@ -100,7 +100,7 @@ You can also collect information about the operation and performance of the Tele
 
 - Add metrics for Admin Router instances running on DC/OS master nodes. <!--DCOS_OSS-4562-->
 
-    You can collect and report metrics for DC/OS Admin Router using NGINX Virtual Hosts metrics. This information is provided by Telegraf and NGINX input plugins and is enabled by default. You can view the NGNIX instance metrics using the `/nginx/status` endpoint on each DC/OS master node.
+    You can collect and report metrics for DC/OS Admin Router using NGINX Virtual Hosts metrics. This information is provided by Telegraf and NGINX input plugins and is enabled by default. You can view the NGINX instance metrics using the `/nginx/status` endpoint on each DC/OS master node.
 
 - Add the fault domain region and zone information to metrics. <!--DCOS-16570-->
 
@@ -380,7 +380,7 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 
 - Add a warning to the installer to let the user know if kernel modules required by the DC/OS storage service (DSS) are not loaded (DCOS-49088).
 
-- Improve the error messages returned if Docker is not running at start of a DC/OS installation (DCOS-15890).
+- Improve the error messages returned if Docker is not running at the start of a DC/OS installation (DCOS-15890).
 
 - Stop requiring the `ssh_user` attribute to be set in the `config.yaml` file when using parts of the deprecated CLI installer (DCOS_OSS-4613).
 
@@ -441,14 +441,14 @@ This section covers any known issues or limitations that don’t necessarily aff
 In this release, jobs and job schedules are created in two separate steps. Because of this change, you must structure the job definition in the JSON editor in distinct sections similar to this:
 
 - job: JSON definition that specifies the job identifier and job configuration details.
-- schedule: JSON definition the specifies the schedule details for the job.
+- schedule: JSON definition that specifies the schedule details for the job.
 
-This two-step approach to creating JSON for jobs is different from previous releases in which jobs and schedules could be created in one step. In previous releases, the job could have its schedule embedded in its JSON configuration. 
+This two-step approach to creating JSON for jobs is different from previous releases in which jobs and schedules could be created in one step. In previous releases, the job could have its schedule embedded in its JSON configuration.
 
 If you have an existing JSON configuration that has an embedded schedule and you want to view or modify that file using the job form JSON editor, you must:
 1. Add the JSON object as the value for the `job` property in the editor. 
 
-    The job must be formatted according to the latest[Jobs API specification](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/jobspec.schema.json). This API specification (v1) replaces the previous Jobs API specification (v0).
+    The job must be formatted according to the latest [Jobs API specification](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/jobspec.schema.json). This API specification (v1) replaces the previous Jobs API specification (v0).
 
 1. Copy the `schedules: [ scheduleJSON ]` from the existing job JSON configuration and add it at the same level after the job property as `schedule: scheduleJSON`. 
 
