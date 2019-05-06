@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle:  Working with secure computing profiles
-title: Working with secure computing profiles
+navigationTitle:  Secure computing profiles
+title: Secure computing profiles
 menuWeight: 31
 excerpt: Describes how you can work with Linux secure computing (seccomp) profiles 
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
-The Linux kernel provides a native computer security facility that you can configure to control the system-level operations that can be performed. This native security facility, the secure computing mode (Seccomp), is included by default in most distributions of the Linux kernel. The secure computing mode (seccomp) provides system call isolation that enables programs to run safely without compromising the systems where the programs run.
+The Linux kernel provides a native computer security facility that you can configure to control the system-level operations that can be performed. This native security facility, the secure computing mode (Seccomp), is included by default in most distributions of the Linux kernel. 
 
-In a distributed network environment, you can use the secure computing mode (Seccomp) to isolate applications running inside of containers from critical system resources and programs. The secure computing mode isolates containers and tasks by enabling you to restrict access to certain system calls through a secure computing profile. By configuring a seccomp profile, you can specify a list of restricted and permitted system calls for containers launched by the DC/OS Universal Container Runtime (UCR).
+The secure computing mode (seccomp) is used to define specific capabilities for programs attempting to invoke privileged system calls. You can take advantage of the secure computing mode by providing a seccomp profile. With the seccomp profile, you control access to specific programs and to the specific system calls that can be used to perform privileged operations, explicitly allowing, denying, or limiting the actions that can be taken. 
 
 The seccomp profile identifies:
 - individual restricted or permitted system calls, such as `exit()`, `sigreturn()`, `read()`, or `write()`.
@@ -19,11 +19,23 @@ The seccomp profile identifies:
 For example, you can use the seccomp profile to automatically terminate any program that attempts to use any of the restricted system calls, reducing the potential for programs to exploit vulnerabilities and compromise systems where containers are launched.
 
 # Default secure computing profile
-DC/OS provides a default seccomp profile that you can use for UCR containers. The default DC/OS seccomp profile provides the same level of seccomp compatibility as the default [Docker seccomp profile](https://docs.docker.com/engine/security/seccomp/). You can enable the DC/OS default seccomp profile for all UCR containers in the cluster to secure your workloads from potential kernel-level exploits.
+DC/OS provides a default seccomp profile that you can use to enable the secure computing mode (Seccomp) for all agents in the cluster and for all services in Universal Container Runtime (UCR) containers. If you choose to enable secure computing, the recommended best practice is to use this DC/OS default seccomp profile without any modification to ensure proper operation and isolation for DC/OS services. For example, you might have some DC/OS services that rely on custom executors that are only compatible with the default seccomp profile.
 
-Although the DC/OS default seccomp profile is Docker-compatible and can, therefore, be used for services in any UCR containers, the recommended best practice is to use the DC/OS default seccomp profile without modification to ensure proper operation and isolation for DC/OS services. For example, you might have DC/OS services that rely on custom executors that are not compatible with the Docker seccomp profile.
+To ensure your cluster and workloads are adequately protected from potential kernel-level exploits:
 
-To ensure your cluster and workloads are adequately protected, you should not modify the DC/OS default seccomp profile. The default seccomp profile restricts system calls--such as `perf_event_open`, `keyctl`, and `reboot`--that are known to be vulnerable to security breaches. Modifying the default seccomp profile could have unintended consequences and make systems vulnerable to kernel-level attacks. 
+- Do not attempt to modify the DC/OS default seccomp profile. 
+
+    The default seccomp profile restricts system calls--such as `perf_event_open`, `keyctl`, and `reboot`--that are known to be vulnerable to security breaches. Modifying the default seccomp profile could have unintended consequences and make systems vulnerable to kernel-level attacks. 
+
+- Use the same DC/OS default seccomp profile for all UCR containers in the cluster.
+
+The default seccomp profile provides a general rule that denies access to system calls, then defines the specific system calls and actions that are allowed so that the default profile prevents programs from exploiting administrative access to kernel-level system resources without being so restrictive that programs are unable to complete routine operations. 
+
+# Deploying the default profile to agents
+
+Once you enable seccomp for an agent, all processes on that agent run under the default profile. In effect, the default profile is applied even if you don’t specifically enable the profile for a service. After you enable secure computing mode through the default secure computing profile, you must use the same profile for all agents in the cluster. You cannot selectively disable the default profile or use a different profile for any agents or services.
+
+In addition, if you enable secure computing when you install or upgrade the agent nodes in a DC/OS cluster, the profile enforcement automatically applies for all newly created processes. However, the profile will not apply for existing process until all of the processes in the cluster are restarted.
 
 # Enabling secure computing
 You can use advanced configuration parameters when you install or update the DC/OS cluster to deploy the [default DC/OS seecomp profile](https://github.com/moby/moby/blob/v1.13.1/profiles/seccomp/default.json) on agent nodes.
