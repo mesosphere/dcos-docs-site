@@ -35,10 +35,10 @@ dcos edgelb [<flags>] [OPTIONS] [<args> ...]
 
 | Command | Description |
 |---------|-------------|
-|[dcos edgelb config](/services/edge-lb/latest/cli-reference/dcos-edgelb-config/)  | View or update the Edge-LB configuration. |
-|[dcos edgelb ping](/services/edge-lb/latest/cli-reference/dcos-edgelb-ping/)  | Test the readiness of the Edge-LB API server. |
-|[dcos edgelb pool config](/services/edge-lb/latest/cli-reference/dcos-edgelb-pool-config/)  | View or update the config for an Edge-LB pool. |
-|[dcos edgelb pool delete](/services/edge-lb/latest/cli-reference/dcos-edgelb-pool-delete/)  | Delete and uninstall an Edge-LB pool or artifact. |
-|[dcos edgelb pool lb](/services/edge-lb/latest/cli-reference/dcos-edgelb-pool-lb/)  | Pool LB instance information. |
-|[dcos edgelb pool list](/services/edge-lb/latest/cli-reference/dcos-edgelb-pool-list/)  | List pool names. |
-|[dcos edgelb pool artifact](/services/edge-lb/latest/cli-reference/dcos-edgelb-pool-artifact/)  | Artifacts available for an Edge-LB pool. |
+|[dcos edgelb config](/services/edge-lb/0.1/cli-reference/dcos-edgelb-config/)  | View or update the Edge-LB configuration. |
+|[dcos edgelb ping](/services/edge-lb/0.1/cli-reference/dcos-edgelb-ping/)  | Test the readiness of the Edge-LB API server. |
+|[dcos edgelb pool config](/services/edge-lb/0.1/cli-reference/dcos-edgelb-pool-config/)  | View or update the config for an Edge-LB pool. |
+|[dcos edgelb pool delete](/services/edge-lb/0.1/cli-reference/dcos-edgelb-pool-delete/)  | Delete and uninstall an Edge-LB pool or artifact. |
+|[dcos edgelb pool lb](/services/edge-lb/0.1/cli-reference/dcos-edgelb-pool-lb/)  | Pool LB instance information. |
+|[dcos edgelb pool list](/services/edge-lb/0.1/cli-reference/dcos-edgelb-pool-list/)  | List pool names. |
+|[dcos edgelb pool artifact](/services/edge-lb/0.1/cli-reference/dcos-edgelb-pool-artifact/)  | Artifacts available for an Edge-LB pool. |
