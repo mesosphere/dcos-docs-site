@@ -5,13 +5,15 @@ title: Running DC/OS on Packet
 navigationTitle: Packet
 menuWeight: 50
 oss: true
+model: /1.12/installing/evaluation/include/data.yml
+render: mustache
 ---
 
 <p class="message--warning"><strong>DISCLAIMER: </strong>This is a <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">community driven project</a> and not officially supported by Mesosphere. This installation method is used for fast demos and proofs of concept. This page explains how to install DC/OS cluster on Packet bare metal using Terraform templates. Terraform is intended for reference only and are not recommended for production use. Upgrades are not supported with the following installation methods.</p>
 
 <p class="message--note"><strong>NOTE: </strong>Contact the <a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">mailing list</a> or <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack channel</a> for community support. </p>
 
-You can create a DC/OS cluster on Packet bare metal using Terraform. The included Terraform templates are configured to run Mesosphere DC/OS on Packet. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support, you can email help@packet.net, visit the Packet IRC channel (#packethost on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/). 
+You can create a DC/OS cluster on Packet bare metal using Terraform. The included Terraform templates are configured to run Mesosphere DC/OS on Packet. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support, you can email help@packet.net, visit the Packet IRC channel (#packethost on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/).
 
 ## Hardware
 
@@ -35,7 +37,7 @@ You can create a DC/OS cluster on Packet bare metal using Terraform. The include
 
 ## Installing DC/OS
 
-<p class="message--important"><strong>IMPORTANT: </strong>With this method, the network is open by default. Because of this, <a href="/1.12/administering-clusters/securing-your-cluster/#network-security">network security</a> is a concern and should be addressed as soon as possible by the administrator.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>With this method, the network is open by default. Because of this, <a href="/{{ model.folder_version }}/administering-clusters/securing-your-cluster/#network-security">network security</a> is a concern and should be addressed as soon as possible by the administrator.</p>
 
 1.  Download and install Terraform using the instructions on the link provided in the Prerequisites section.
 
@@ -85,11 +87,11 @@ You can create a DC/OS cluster on Packet bare metal using Terraform. The include
 
 5.  Also from that same directory, run `terraform apply` which will deploy the servers into your project at Packet, and run the DC/OS installation routine. When it completes, you will see output similar to the following, but with the IP addresses assigned to your servers:
 
-    ![terraform apply output](/1.12/img/packet_terraform_output.png)
+    ![terraform apply output](/{{ model.folder_version }}/img/packet_terraform_output.png)
 
     Figure 1. "Terraform apply" output
 
-You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel available on the master node. After 15 or 20 minutes, see the [troubleshooting](/1.12/installing/troubleshooting/) documentation.
+You may need to wait a few minutes from this point for all the DC/OS services to become active and the control panel available on the master node. After 15 or 20 minutes, see the [troubleshooting](installing/troubleshooting/) documentation.
 
 # Launch DC/OS
 Launch the DC/OS web interface by entering the Mesos master IP address:
@@ -98,7 +100,7 @@ Launch the DC/OS web interface by entering the Mesos master IP address:
 
 2.  Install the DC/OS Command-Line Interface (CLI). You can install the CLI to administer your DC/OS cluster. You can access the documentation at any time by clicking the cluster name in the upper-left side.
 
-    ![install CLI](/1.12/img/install-cli-terminal.png)
+    ![install CLI](/{{ model.folder_version }}/img/install-cli-terminal.png)
 
     Figure 2. Install DC/OS CLI screen
 
