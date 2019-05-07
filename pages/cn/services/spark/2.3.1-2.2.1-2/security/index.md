@@ -205,8 +205,8 @@ keystore 和信任存储使用 [Java 键工具][12] 创建。keystore 必须包�
 存储：
 
 ```bash
-dcos security secrets create /{{ model.serviceName }}/keystore --value-file server.jks
-dcos security secrets create /{{ model.serviceName }}/truststore --value-file trust.jks
+dcos security secrets create /{{ model.serviceName }}/keystore --text-file server.jks
+dcos security secrets create /{{ model.serviceName }}/truststore --text-file trust.jks
 ```
 
 您必须向您的 `dcos {{ model.serviceName }} run ` 命令中添加以下配置。

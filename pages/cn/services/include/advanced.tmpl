@@ -261,7 +261,7 @@ $ base64 -w 0 krb5.keytab > kerb5.keytab.base64-encoded
 现在文件已编码，可以将其作为密钥存储。
 
 ```bash
-$ dcos security secrets create --value-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret
+$ dcos security secrets create --text-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret
 ```
 
 <p class="message--note"><strong>注意: </strong> 密钥名称 **必须**具有前缀 <tt>__dcos_base64__</tt>。</p>

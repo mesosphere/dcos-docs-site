@@ -149,8 +149,8 @@ trusted by Java.
 Add the stores to your secrets in the DC/OS secret store. For example, if your keystores and truststores are `server.jks` and `trust.jks`, respectively, then use the following commands to add them to the secret store:
 
 ```bash
-dcos security secrets create /spark/keystore --value-file server.jks
-dcos security secrets create /spark/truststore --value-file trust.jks
+dcos security secrets create /spark/keystore --text-file server.jks
+dcos security secrets create /spark/truststore --text-file trust.jks
 ```
 
 You must add the following configurations to your `dcos spark run ` command.
