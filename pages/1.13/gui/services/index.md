@@ -35,6 +35,24 @@ By default, all of your services are displayed, sorted by service name. You can 
 | Recovering| When a change to the Service has been requested by DC/OS, the instance is killed and a new instance is started. Similar to Deploying, DC/OS is performing the required actions, which have not completed yet. |
 | Stopped | A Service with target instances of 0 and with a running tasks count of 0. This state was previously referred to as “Suspended” in the UI. |
 
+## SDK Service Status
+
+Scheduler tasks based on the [DC/OS SDK](https://mesosphere.github.io/dcos-commons/) are leveraging Mesos native checks in order to provide more detailed information about their status than the above [Service Status](#service-status). These status are specific to SDK based schedulers and their lifecycle.
+
+| Status | Description |
+|----------|----------------|
+| Initializing | Scheduler is initializing. |
+| Running | All monitored Plans are complete. |
+| Error Creating Service | Scheduler encountered an error creating the service. |
+| Deploying (Awaiting Resources) | One or more monitored plans are deploying (awaiting resources). |
+| Deploying | One or more monitored plans are deploying. |
+| Deploying (Awaiting User Input) | One or more monitored plans are awaiting user input. |
+| Degraded (Awaiting Resources) | One or more monitored plans are degraded (awaiting resources). |
+| Degraded (Recovering) | One or more monitored plans are degraded (recovering). |
+| Backing up | One or more monitored backup plans is in-progress. |
+| Restoring | One or more monitored restore plans is in-progress. |
+| Service Unavailable | Scheduler encountered an error with one or more monitored plans. |
+
 ## Tabs
 
 Click the service name to open the Services Instance page. The Services Instance page organizes information about services under five tabs. Each tab lists information in an easy to review listing of the configuration and performance of the service.
