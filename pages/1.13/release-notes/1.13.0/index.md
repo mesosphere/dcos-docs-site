@@ -233,9 +233,12 @@ For more information about collecting metrics and configuring metrics plugins, s
 -->
 
 ## Job management and scheduling
-- Enhance DC/OS job handling capabilities by adding support for graphic processing units (GPU) with the new DC/OS configuration options `metronome_gpu_scheduling_behavior`, universal container runtime (UCR) containers, file-based secrets, and hybrid cloud deployments.
-
-- Add support for the `IS` constraint operator and `@region` and `@zone` attributes.
+- Enhance DC/OS job handling capabilities by adding support for the following:
+    - Graphic processing units (GPU) when creating new jobs in the DC/OS GUI or with the new DC/OS configuration option `metronome_gpu_scheduling_behavior`.
+    - Jobs running in universal container runtime (UCR) containers.
+    - File-based secrets.
+    - Hybrid cloud deployments.
+    - The `IS` constraint operator and the `@region` and `@zone` attributes.
 
 - Provide an option to enable or disable offer suppression when agents are idle.
 
@@ -243,7 +246,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
 - Add HTTP and uptime metrics for job management.
 
-- Set the default value for the `--gpu_scheduling_behavior` configuration option to restricted to prevent jobs from being started on GPU-enabled agents if the job definition did not explicitly request GPU support.
+- Set the default value for the `--gpu_scheduling_behavior` configuration option to `restricted` to prevent jobs from being started on GPU-enabled agents if the job definition did not explicitly request GPU support.
 
 <!--For more information about using these new features, see []().-->
 
@@ -256,7 +259,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
 - Automatically replace instances when a DC/OS agent is decommissioned.
 
-- Set the default value for the `--gpu_scheduling_behavior` configuration option to restricted to prevent tasks from being started on GPU-enabled agents if the app or pod definition did not explicitly request GPU support.
+- Set the default value for the `--gpu_scheduling_behavior` configuration option to `restricted` to prevent tasks from being started on GPU-enabled agents if the app or pod definition did not explicitly request GPU support.
 
 - Implement global throttling of Marathon-initiated health checks for better scalability.
 
@@ -275,7 +278,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
     DC/OS clusters now include executor and agent communication channel heartbeats to ensure platform resiliency even if `IPFilter` is enabled with `conntrack`, which usually times out a connection every five days.
 
-- DC/OS supports zero-downtime for tasks through layer-4 load balancing.
+- Support zero-downtime for tasks through layer-4 load balancing.
 
     DC/OS cluster health checks now provide task-readiness information. This information enables zero-downtime for load balancing when services are scaled out. With this feature, load balanced traffic is not redirected to containers until the container health check returns a 'ready' status.
 
@@ -608,7 +611,7 @@ To add this job definition to the JSON editor, you would modify the existing JSO
 
 - Setting the `gpu_scheduling_behavior` configuration option to `undefined` is no longer supported.
 
-    With this release, the default value for the gpu_scheduling_behavior configuration option is `restricted`. The value `undefined` is retired and will be removed in DC/OS 1.14.
+    With this release, the default value for the `gpu_scheduling_behavior` configuration option is `restricted`. The value `undefined` is retired and will be removed in DC/OS 1.14.
 
 - Marathon no longer supports the `api_heavy_events` setting.
 
