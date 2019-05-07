@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Working with secure computing profiles
 title: Working with secure computing profiles
 menuWeight: 31
-excerpt: Describes how to configure DC/OS to work with Linux secure computing (seccomp) profiles 
+excerpt: Describes how to configure DC/OS to work with Linux secure computing (seccomp) profiles
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -62,7 +62,7 @@ It is also possible to have a service definition run under a different seccomp p
     "linuxInfo": {
       "seccomp": {
         "profileName": "relaxed.json",
-        "unconfined" : false
+        "unconfined": false
       }
     }
   }
