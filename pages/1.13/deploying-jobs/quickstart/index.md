@@ -85,7 +85,7 @@ You can manage the most common job-related activity interactively through the DC
 
     - Select **Add Artifact** to provide one or more artifact URIs you want passed to fetcher module and resolved at runtime and the action--Execute, Extract, or Cache--you want to perform for each URI.
 
-        ![Adding an artifact URI and action for a job](/1.13/img/job-artifacts-uri.png/)
+        ![Adding an artifact URI and action for a job](/1.13/img/job-artifacts-uri.png)
 
     - Select a **Restart Policy** to determine the steps to take if a job fails. 
     
@@ -99,7 +99,7 @@ You can manage the most common job-related activity interactively through the DC
 
 1. Verify that you have added the new job by clicking **Jobs**.
 
-    ![Jobs List](/1.13/img/job-list-scheduled.png/)
+    ![Jobs List](/1.13/img/job-list-scheduled.png)
 
 ## Add a job to a job group
 You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.13/deploying-jobs/job-groups/).
@@ -107,7 +107,7 @@ You can add a job to a an existing job group or create a new job group when you 
 ## View, modify, or remove a specific job
 You can view and modify job-related information, including details about the run history and configuration settings interactively through the DC/OS web-based interface. From the **Jobs** tab, click the name of your job. You can then use the menu on the upper right to edit, run, disable, or delete a selected job. 
 
-![Viewing and modifying job details](/1.13/img/job-menu-options.png/)
+![Viewing and modifying job details](/1.13/img/job-menu-options.png)
 
 While the job is running, you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
 

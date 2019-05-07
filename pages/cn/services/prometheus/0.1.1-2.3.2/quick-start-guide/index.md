@@ -35,7 +35,7 @@ dcos package install --yes grafana
 ## 访问 Prometheus UI
 
 框架启动和运行后：
-1. 安装 [Edge-LB(/services/edge-lb/)]。
+1. 安装 [Edge-LB(/services/edge-lb/latest/)]。
 2. 创建名为 `prometheus-edgelb.json` 并包含以下 `edge-lb` 配置的文件：
 
 ```
