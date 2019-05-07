@@ -19,7 +19,7 @@ While seccomp is enabled on DC/OS, All tasks which are started with no other tas
 # Seccomp Profile Management
 DC/OS uses the `/etc/dcos/mesos/seccomp/` folder for managing seccomp profiles and provides a default profile named 'default.json' that defines [306 restricted system commands](https://github.com/dcos/dcos/blob/113b8abacfd6d517594f329b621aaf4641b535e7/gen/dcos-config.yaml#L532-L838).
 
-In addition to the default profile it is possible to create any number of additional profiles. The name of the file that defines a profile is consider the profile name. It is important that if additional profiles are added to an agent that the same profile is shared on all agents in the cluster.
+In addition to the default profile it is possible to create any number of additional profiles. The name of the file that defines a profile is considered the profile name. It is important that if additional profiles are added to an agent that the same profile is shared on all agents in the cluster.
 
 **Notes:**
 1. If seccomp is newly enabled on DC/OS, the agent process must be restarted for the configuration to take effect.
