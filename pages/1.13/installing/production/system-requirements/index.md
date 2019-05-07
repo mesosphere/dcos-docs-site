@@ -55,7 +55,7 @@ There are many mixed workloads on the masters. Examples of mixed workloads on th
 - If separation of storage mount points is possible, the following storage mount points are recommended on the master node. These recommendations will optimize the performance of a busy DC/OS cluster by isolating the I/O of various services.
   | Directory Path | Description |
   |:-------------- | :---------- |
-  | _/var/lib/dcos_ | A majority of the I/O on the master nodes will occur within this directory structure. If you are planning a cluster with hundreds of nodes or intend to have a high rate of deploying and deleting workloads, isolating this directory to dedicated SSD storage on a separate partition is recommended. |
+  | _/var/lib/dcos_ | A majority of the I/O on the master nodes will occur within this directory structure. If you are planning a cluster with hundreds of nodes or intend to have a high rate of deploying and deleting workloads, isolating this directory to dedicated SSD storage on a separate device is recommended. |
 
 - Further breaking down this directory structure into individual mount points for specific services is recommended for a cluster which will grow to thousands of nodes.
 
