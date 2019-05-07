@@ -14,7 +14,7 @@ DC/OS 1.13 is based on Mesos 1.8 which [introduces the ability to configure secc
 # Enable/Disable Seccomp
 DC/OS 1.13 defaults with seccomp enabled. It is possible to opt-out of using seccomp by installing DC/OS with `mesos_seccomp_enabled=false`. For the best experience, It is important that the installation of each agent be consistent with each other agent in the cluster. Deviating from this strategy should only be done by advanced users.
 
-While seccomp is enabled on DC/OS, All tasks which are started with no other task configuration will start under seccomp using the default profile.
+While seccomp is enabled on DC/OS, all tasks which are started with no other task configuration will start under seccomp using the default profile.
 
 # Seccomp Profile Management
 DC/OS uses the `/etc/dcos/mesos/seccomp/` folder for managing seccomp profiles and provides a default profile named 'default.json' that defines [306 restricted system commands](https://github.com/dcos/dcos/blob/113b8abacfd6d517594f329b621aaf4641b535e7/gen/dcos-config.yaml#L532-L838).
