@@ -1,9 +1,11 @@
 ---
 layout: layout.pug
-title: Basic 
+title: Basic
 navigationTitle: Basic
 menuWeight: 5
 excerpt: Creating a DC/OS cluster using DC/OS templates
+model: /1.13/installing/evaluation/include/data.yml
+render: mustache
 ---
 
 You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation.
@@ -15,12 +17,12 @@ The basic templates provide:
 
 These instructions provide a basic AWS CloudFormation template that creates a DC/OS cluster that is suitable for demonstrations and POCs. This is the fastest way to get started with the DC/OS templates for AWS CloudFormation.
 
-For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.13/installing/ent/cloud/aws/advanced/).
+For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/{{ model.folder_version }}/installing/ent/cloud/aws/advanced/).
 
 <table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Upgrades are not supported with this installation method.</td> 
-</tr> 
+<tr>
+  <td align=justify style=color:white><strong>Important:</strong> Upgrades are not supported with this installation method.</td>
+</tr>
 </table>
 
 # System requirements
@@ -30,8 +32,8 @@ For a complete set of DC/OS configuration options, see the [Advanced AWS Install
 An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance.  Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores, to not work properly.
 
 *   You have the option of one or three Mesos master nodes.
-*   The default is five [private](/1.13/overview/concepts/#private-agent-node) Mesos agent nodes.
-*   The default is one [public](/1.13/overview/concepts/#public-agent-node) Mesos agent node. By default, ports are closed and health checks are configured for Marathon-LB. Ports 80 and 443 are configured for the AWS Elastic Load Balancer.
+*   The default is five [private](/{{ model.folder_version }}/overview/concepts/#private-agent-node) Mesos agent nodes.
+*   The default is one [public](/{{ model.folder_version }}/overview/concepts/#public-agent-node) Mesos agent node. By default, ports are closed and health checks are configured for Marathon-LB. Ports 80 and 443 are configured for the AWS Elastic Load Balancer.
 
 ## Software
 
@@ -44,10 +46,10 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 - SSH installed and configured. This is required to access nodes in the DC/OS cluster.
 
 
-# Create DC/OS cluster stack 
+# Create DC/OS cluster stack
 
 [enterprise]
-## Enterprise users 
+## Enterprise users
 [/enterprise]
 
 1.  Launch <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">AWS CloudFormation</a>.
@@ -57,49 +59,49 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 3.  On the **Select Template** page, in the **Choose a template** field, click the **Specify an Amazon S3 template URL** radio button and paste in the template URL you received from Sales.
 
 <table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>Warning:</strong> Do not click the <strong>View/Edit template in Designer</strong> link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.</td> 
-</tr> 
+<tr>
+  <td align=justify style=color:black><strong>Warning:</strong> Do not click the <strong>View/Edit template in Designer</strong> link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.</td>
+</tr>
 </table>
 
-   ![Launch stack](/1.13/img/dcos-aws-step2b.png)
+   ![Launch stack](/{{ model.folder_version }}/img/dcos-aws-step2b.png)
 
    Figure 1. Launch stack
 
 4.  Click **Next**.
 
-5.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), public agent (`PublicSlaveInstanceCount`), and private agent (`SlaveInstanceCount`). Click **Next**. Depending on the DC/OS services that you install, you might need to change the number of agent nodes after cluster creation. For more information, see [Scaling the DC/OS cluster in AWS][1]. 
+5.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), public agent (`PublicSlaveInstanceCount`), and private agent (`SlaveInstanceCount`). Click **Next**. Depending on the DC/OS services that you install, you might need to change the number of agent nodes after cluster creation. For more information, see [Scaling the DC/OS cluster in AWS][1].
 
-6. Skip the Open Source users section and go to Step 6. 
+6. Skip the Open Source users section and go to Step 6.
 
-![Create stack](/1.13/img/dcos-aws-step2c-ee.png)
+![Create stack](/{{ model.folder_version }}/img/dcos-aws-step2c-ee.png)
 
 Figure 2. Create stack
 
 [oss]
-## Open Source users 
+## Open Source users
 [/oss]
 
 1.  Launch the <a href="https://downloads.dcos.io/dcos/EarlyAccess/aws.html" target="_blank">DC/OS template</a> on CloudFormation and select the region and number of masters (one or three). You must have a key pair for your selected region.
 
 2.  On the **Select Template** page, accept the defaults and click **Next**.
 
-   ![Launch stack](/1.13/img/dcos-aws-step2b.png)
+   ![Launch stack](/{{ model.folder_version }}/img/dcos-aws-step2b.png)
 
    Figure 3. Launch stack
 
-3.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), whether to enable OAuth authentication (`OAuthEnabled`), number of public agent nodes (`PublicSlaveInstanceCount`), number of private agent nodes (`SlaveInstanceCount`), and click **Next**. 
+3.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), whether to enable OAuth authentication (`OAuthEnabled`), number of public agent nodes (`PublicSlaveInstanceCount`), number of private agent nodes (`SlaveInstanceCount`), and click **Next**.
 
 <table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=color:black><strong>Warning:</strong> Do not click the <strong>View/Edit template in Designer</strong> link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.</td> 
-</tr> 
+<tr>
+  <td align=justify style=color:black><strong>Warning:</strong> Do not click the <strong>View/Edit template in Designer</strong> link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.</td>
+</tr>
 </table>
 
 
 4. Go to Step 6 in the "All users" section.
 
-![Create stack](/1.13/img/dcos-aws-step2c.png)
+![Create stack](/{{ model.folder_version }}/img/dcos-aws-step2c.png)
 
 Figure 4. Create stack
 
@@ -117,9 +119,9 @@ In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">
 
 **Troubleshooting:** A ROLLBACK_COMPLETE status means the deployment has failed. See the **Events** tab for useful information about failures.
 <table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> A ROLLBACK_COMPLETE status means the deployment has failed. See the <strong>Events</strong> tab for useful information about failures.</td> 
-</tr> 
+<tr>
+  <td align=justify style=color:white><strong>Important:</strong> A ROLLBACK_COMPLETE status means the deployment has failed. See the <strong>Events</strong> tab for useful information about failures.</td>
+</tr>
 </table>
 
 # <a name="launchdcos"></a>Open and log into the DC/OS GUI
@@ -128,13 +130,13 @@ In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">
 
 2.  Click the **Outputs** tab and copy the Mesos Master hostname.
 
-   ![Monitor stack creation](/1.13/img/dcos-stack.png)
+   ![Monitor stack creation](/{{ model.folder_version }}/img/dcos-stack.png)
 
    Figure 5. Monitor stack creation
 
 3.  Paste the hostname into your browser to open the DC/OS web interface. The interface runs on the standard HTTP port 80, so you do not need to specify a port number after the hostname.  Your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed to the login screen.
 
-   ![DC/OS GUI auth](/1.13/img/dc-os-gui-login-ee.png)
+   ![DC/OS GUI auth](/{{ model.folder_version }}/img/dc-os-gui-login-ee.png)
 
    Figure 6. DC/OS web interface login screen
 
@@ -155,7 +157,7 @@ You must install the [DC/OS Command-Line Interface (CLI)][2] to administer your 
 - [Add users to your cluster][3]
 - [Scaling considerations][4]
 
- [1]: /1.13/administering-clusters/managing-aws/
- [2]: /1.13/cli/install/
- [3]: /1.13/security/ent/users-groups/
+ [1]: /{{ model.folder_version }}/administering-clusters/managing-aws/
+ [2]: /{{ model.folder_version }}/cli/install/
+ [3]: /{{ model.folder_version }}/security/ent/users-groups/
  [4]: https://aws.amazon.com/autoscaling/
