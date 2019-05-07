@@ -8,19 +8,15 @@ excerpt: Requirements and recommendations for ZooKeeper in a DC/OS cluster
 ZooKeeper is a centralized coordination service that stores, maintains, and synchronizes information for distributed systems. ZooKeeper and its management service maintain state information and record details of node activity in a data directory. As changes are made to the cluster, those changes are recorded in the ZooKeeper transaction log. When the transaction log grows too large, ZooKeeper creates a snapshot of the current state of cluster nodes.
 
 # Why planning ZooKeeper resources is important
-As a fundamental component of the DC/OS platform architecture, ZooKeeper performs several critical tasks for the DC/OS cluster. For example, ZooKeeper identifies which master node is used as the leader and coordinates the leader selection so that this information is available to the other master nodes, agents, and schedulers. ZooKeeper also maintains state information for Marathon-orchestrated services and persists this information in its transaction logs and snapshots.
+As a fundamental component of the DC/OS platform architecture, ZooKeeper performs several critical tasks for the DC/OS cluster. For example, ZooKeeper identifies which master node is used as the leader and coordinates the leader selection so that this information is available to the other master nodes, agents, and schedulers.
 
 Because ZooKeeper status, operation, and performance can directly affect the stability, resiliency, and performance of the DC/OS cluster, it is important to optimize your ZooKeeper configuration to handle the intended cluster workload effectively and efficiently. For example, issues with ZooKeeper write performance often lead to latency-related problems and degraded cluster performance.
 
 # Transaction logs and snapshots
-In planning your cluster deployment, there are two important points to keep in mind for ZooKeeper:
-- ZooKeeper processes each read or write operation as a complete transaction rather than performing partial or incremental updates when there are changes to nodes in the cluster.
-- ZooKeeper does not remove old snapshots and log files from the file system. You must manage these files manually.
-
-For a DC/OS cluster, both the snapshots and transaction log are stored in the `/var/lib/dcos/exhibitor` directory. Using a dedicated log device for ZDC/OS exhibitor (`dcos-exhibitor`) log files helps to avoid resource contention and latency issues.
+ZooKeeper maintains state information for Marathon-orchestrated services and persists data in its transaction logs and snapshots. For a DC/OS cluster, both the ZooKeeper snapshots and transaction log are stored in the `/var/lib/dcos/exhibitor` directory and managed by the Exhibitor service. Using a dedicated log device for DC/OS exhibitor (`dcos-exhibitor`) log files helps to avoid resource contention and latency issues. For more information about basic system resource requirements and disk partitioning, see [System requirements](/1.13/installing/system-requirements).
 
 # Identifying potential problems
-One key way you can identify issues that are related to ZooKeeper is by searching DC/OS exhibitor (`dcos-exhibitor`) log files for messages related to synchronization (`fsync`) operations. For example, if the ZooKeeper data and log directories are mounted on the same disk or there are disk or network latency issues, the transaction log records messages similar to the following:
+One key way you can identify issues that are related to ZooKeeper is by searching DC/OS exhibitor (`dcos-exhibitor`) log files for messages related to synchronization (`fsync`) operations. If there are disk latency issues when writing to the transaction log, ZooKeeper may log messages similar to the following:
 
 `WARN SyncThread:14  fsync-ing the write ahead log in SyncThread:14 took 14818ms which will adversely effect operation latency. See the ZooKeeper troubleshooting guide`
 
@@ -50,13 +46,7 @@ ZooKeeper should not share resources with any other processes or services. ZooKe
 You should be sure ZooKeeper directories are configured to use fast disks that can complete synchronization (`fsync`) operations successfully in a timely fashion.
 
 ## Provision ZooKeeper directories for master nodes
-You should put the `/var/lib/dcos` directory for each master node on a separate disk to enable the ZooKeeper transaction log directory to be hosted on a dedicated log device. In a production environment, using a dedicated partition is not sufficient. ZooKeeper writes the log sequentially, without seeking. Sharing the log device with any other processes can cause seeks and contention, which in turn, can cause multi-second delays. 
+You should put the `/var/lib/dcos` directory for each master node on a separate dedicated disk to reduce latency issues. Using a dedicated partition might not be sufficient. Putting the log on a busy or shared device will adversely affect performance. 
     
-Using a dedicated log device for transactions improves throughput, reduces latency issues, and is the key to providing consistent performance. Putting the log on a busy device will adversely affect performance. Therefore, you should provision a dedicated log device that does not share resources with any other processes or components.
-
-<!--- Set the `dataLogDir` ZooKeeper parameter to specify a directory on the dedicated log device.
-
-- Set the `dataDir` ZooKeeper parameter to specify a directory that does not reside on the dedicated log device.-->
-
 ## Review system and network configuration
 In addition to the ZooKeeper-specific recommendations, you should monitor system and network metrics and perform any additional administrative actions that help to reduce I/O contention from other processes and nodes.
