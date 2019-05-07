@@ -23,7 +23,7 @@ In addition to the default profile it is possible to create any number of additi
 
 **Notes:**
 1. If seccomp is newly enabled on DC/OS, the agent process must be restarted for the configuration to take effect.
-2. If an agent is being upgraded from a version without seccomp to a version with seccomp. All tasks on that agent will need to be restarted for them to be started under seccomp.
+2. If an agent is being upgraded from a version without seccomp to a version with seccomp, all tasks on that agent will need to be restarted for them to be started under seccomp.
 3. Profiles can be added to the seccomp folder and be available as a profile without restarting the agent.
 
 # Running Services under Seccomp
