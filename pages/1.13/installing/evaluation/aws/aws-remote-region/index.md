@@ -5,9 +5,10 @@ title: Multi-Region DC/OS on AWS using the Universal Installer
 navigationTitle: AWS Multi-Region Support
 menuWeight: 1
 enterprise: true
+model: /1.13/installing/evaluation/include/data.yml
+render: mustache
 ---
-
-This guide expects that you already have a running DC/OS cluster based on Universal Installer `0.2`. To learn more about running DC/OS with the Universal Installer have a look into the [Guide for DC/OS on AWS using the Universal Installer](/1.13/installing/evalation/aws/).
+This guide expects that you already have a running DC/OS cluster based on Universal Installer `0.2`. To learn more about running DC/OS with the Universal Installer have a look into the [Guide for DC/OS on AWS using the Universal Installer](/{{ model.folder_version }}/installing/evalation/aws/).
 
 You will learn how to place additional infrastructure into a AWS remote region. Remote regions will be connected to each other by using the [AWS VPC Peering Feature](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-peering.html).
 
@@ -114,7 +115,7 @@ Part of the shared information is which internal subnets are used in your infras
 
 <p class="message--important"><strong>IMPORTANT:</strong> You should not take the next free network of <code>172.16/12</code> as <code>172.17.0.0/16</code> is dockers internal network default which will lead to problems.</p>
 
-To have a clear separation between our master and our remote regions we will take `10.128.0.0/16` as our remote regions subnet. Also, we will use a [map](https://www.terraform.io/docs/configuration-0-11/variables.html#maps) variable to assign the networks to regions. This will make it easier when adding additional regions in the future.
+To have a clear separation between our master and our remote regions we will take `10.128.0.0/16` as our remote regions subnet. Also, we will use a [map variable](https://www.terraform.io/docs/configuration-0-11/variables.html#maps) to assign the networks to regions. This will make it easier when adding additional regions in the future.
 
 The locals section will now look like this
 
@@ -138,7 +139,7 @@ locals {
 ```
 
 ### Allowed internal networks
-To let our main region allow traffic from the remote region and vice versa we have to specify the `accepted_internal_networks` variable in both. This variable will inform the security group which allows the agents and masters to communicate to each other. `accepted_internal_networks` can contain the regions network which makes it extremly easy to let terraform calculate the value for this variable. We will use the [values](https://www.terraform.io/docs/configuration-0-11/interpolation.html#values-map-) method to retrieve the subnets from `locals.region_networks` which we previously defined.
+To let our main region allow traffic from the remote region and vice versa we have to specify the `accepted_internal_networks` variable in both. This variable will inform the security group which allows the agents and masters to communicate to each other. `accepted_internal_networks` can contain the regions network which makes it extremly easy to let terraform calculate the value for this variable. We will use the [values method](https://www.terraform.io/docs/configuration-0-11/interpolation.html#values-map-) to retrieve the subnets from `locals.region_networks` which we previously defined.
 
 The locals section will now look like this:
 
@@ -171,7 +172,7 @@ To only start private agents we will set `num_masters = 0` and `num_public_agent
 
 Another important topic to mention is naming. To distinguish between instances of your main and your remote region we introduced the `name_prefix` variable which allows you to add a prefix to the name of every resource. In this example we set the `name_prefix` to the short name of the remote region.
 
-In the following example you will also find the [Shared config options](#Shared-config-options) being used in the module call referenced by e.g. `local.admin_ips` and the [Provider](#Remote-region-provider) we specified for the region
+In the following example you will also find the [shared config options](#shared-config-options) being used in the module call referenced by e.g. `local.admin_ips` and the [provider](#remote-region-provider) we specified for the region
 
 ```bash
 #...
