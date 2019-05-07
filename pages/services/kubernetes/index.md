@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Kubernetes
 title: Kubernetes
-menuWeight: 75
+menuWeight: 0
 excerpt:
 featureMaturity:
 enterprise: false

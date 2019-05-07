@@ -35,7 +35,7 @@ backends:
   log:
     server: 'unix:/run/dcos/dcos-log.sock'
     name: DC/OS Log
-    reference: 'https://docs.mesosphere.com/1.12/monitoring/logging/logging-api/'
+    reference: 'https://docs.mesosphere.com/1.13/monitoring/logging/logging-reference/'
   mesos_dns:
     server: '127.0.0.1:8123'
     name: Mesos DNS
@@ -262,6 +262,7 @@ routes:
   /dcos-history-service/:
     group: History
     matcher: path
+    deprecated: This service will be removed in a future version
     proxy:
       path: $historyservice_upstream
     path: /dcos-history-service/
@@ -345,6 +346,14 @@ routes:
     lua:
       file: conf/lib/metadata.lua
     path: /metadata
+  /net/v1/nodes:
+    group: Networking
+    matcher: path
+    description: Exposes the public IP addresses for nodes in a cluster
+    proxy:
+      path:
+      backend:
+    path: /net/v1/nodes/
   /networking/api/v1/:
     group: Network Metrics
     matcher: path

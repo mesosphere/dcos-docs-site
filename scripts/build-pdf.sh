@@ -14,4 +14,4 @@ if [[ "$docker_image_build_id" != "" ]]; then
 fi
 
 GIT_BRANCH=$GIT_BRANCH \
-docker-compose -f ./docker/docker-compose.production.yml build --no-cache pdf
+docker-compose build --no-cache pdf

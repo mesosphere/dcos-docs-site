@@ -39,7 +39,7 @@ all HTTP traffic to HTTPS to properly secure access to your cluster.
 
 After you have a valid TLS certificate, install the certificate on each master.
 Copy the certificate and private key to a well known location, such as under
-`/etc/ssl/certs`. 
+`/etc/ssl/certs`.
 
 If you run HAProxy in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/1.9/networking/tls-ssl/haproxy-adminrouter/).
 
@@ -66,7 +66,7 @@ CloudFormation templates, a large number of ports are exposed to the Internet
 for the public zone. In production systems, it is unlikely that you would
 expose all of these ports. It's recommended that you close all ports except
 80 and 443 (for HTTP/HTTPS traffic) and use
-[Marathon-LB](/services/marathon-lb/) with HTTPS for
+[Marathon-LB](/services/marathon-lb/1.12/) with HTTPS for
 managing ingress traffic.
 
 ### Typical AWS deployment

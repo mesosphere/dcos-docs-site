@@ -266,7 +266,7 @@ The DC/OS log service exposes node, component, and container (task) logs.
 Read the following documentation resources to learn more about DC/OS Logs:
 
 - [Source](https://github.com/dcos/dcos-log)
-- [API Reference](/1.13/monitoring/logging/logging-api/)
+- [API Reference](/1.13/monitoring/logging/logging-reference/)
 
 <a name="logrotate"></a>
 
@@ -322,6 +322,10 @@ Read the following documentation resources to learn more about DC/OS Signal:
 ## DC/OS history
 
 The DC/OS history service caches and exposes the historical system state to facilitate cluster usage statistics in the GUI.
+
+### Deprecated
+
+This service is deprecated and will be removed in a future version.
 
 ### System service
 

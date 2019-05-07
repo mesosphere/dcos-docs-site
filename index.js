@@ -45,18 +45,27 @@ const ALGOLIA_PROJECT_ID = process.env.ALGOLIA_PROJECT_ID;
 const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
 const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
-const ALGOLIA_CLEAR_INDEX = process.env.ALGOLIA_CLEAR_INDEX;
 const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
-const ALGOLIA_SKIP_SECTIONS = config[GIT_BRANCH] ? (
-  config[GIT_BRANCH]['DO_NOT_INDEX']
+
+const branchDoNotIndex = config[GIT_BRANCH] ? (
+  config[GIT_BRANCH].DO_NOT_INDEX
 ) : (
-  config['local']['DO_NOT_INDEX']
+  []
 );
-const METALSMITH_SKIP_SECTIONS = config[GIT_BRANCH] ? (
-  config[GIT_BRANCH]['DO_NOT_BUILD']
+
+const ALGOLIA_SKIP_SECTIONS = branchDoNotIndex ? (
+  config.always.DO_NOT_INDEX.concat(branchDoNotIndex)
 ) : (
-  config['local']['DO_NOT_BUILD']
+  config.always.DO_NOT_INDEX
 );
+
+const branchDoNotBuild = config[GIT_BRANCH] ? (
+  config[GIT_BRANCH].DO_NOT_BUILD
+) : (
+  config.local.DO_NOT_BUILD
+);
+
+const METALSMITH_SKIP_SECTIONS = config.always.DO_NOT_BUILD.concat(branchDoNotBuild);
 
 //
 // Errors
@@ -287,7 +296,6 @@ if (ALGOLIA_UPDATE === 'true') {
     projectId: ALGOLIA_PROJECT_ID,
     privateKey: ALGOLIA_PRIVATE_KEY,
     index: ALGOLIA_INDEX,
-    clearIndex: (ALGOLIA_CLEAR_INDEX !== undefined) ? (ALGOLIA_CLEAR_INDEX === 'true') : true,
     skipSections: ALGOLIA_SKIP_SECTIONS,
     renderPathPattern: pathPatternRegex,
   }));

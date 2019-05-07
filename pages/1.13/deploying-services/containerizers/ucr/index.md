@@ -11,6 +11,10 @@ enterprise: false
 
 The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/latest/container-image) launches Mesos containers from binary executables and extends the Mesos container runtime to support provisioning [Docker](https://docker.com/) images. The UCR has many [advantages](/1.13/deploying-services/containerizers/) over the Docker Engine for running Docker images. Use the Docker Engine only if you need specific [features](/1.13/deploying-services/containerizers/#container-runtime-features) of the Docker package.
 
+## Docker Registry Support
+
+UCR uses [Docker v2 registry API](https://docs.docker.com/registry/spec/api/) to fetch Docker images/layers. Both docker manifest [v2 schema1](https://docs.docker.com/registry/spec/manifest-v2-1/) and [v2 schema2](https://docs.docker.com/registry/spec/manifest-v2-2/) are supported (v2 schema2 is supported starting from DC/OS 1.13.0).
+
 # DC/OS web interface
 Use this procedure to provision a container with the UCR from the DC/OS web interface.
 

@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-DC/OS provides a number of tools out-of-the-box, ranging from basic network connectivity between containers to more advanced features, such as load balancing and service discovery. 
+DC/OS provides a number of tools out-of-the-box, ranging from basic network connectivity between containers to more advanced features, such as load balancing and service discovery.
 
 # IP Per Container
 Allows containers to run on any type of IP-based virtual networks, with each container having its own network namespace.
@@ -30,9 +30,9 @@ DC/OS includes highly available, distributed, DNS-based service discovery. The s
 Mesos DNS is a centralized, replicated, DNS server that runs on every master. Every task started by DC/OS gets a well-known DNS name. This provides a replicated highly available DNS service on each of the masters. Every instance of Mesos DNS polls the leading Mesos master and generates a fully qualified domain name (FQDN) for every service running in DC/OS with the domain `*.mesos`.  For more information, see the [Mesos DNS documentation](/1.10/networking/mesos-dns/).
 
 ## DNS Forwarder (Spartan)
-Spartan acts as a DNS masquerade for Mesos DNS on each agent. 
+Spartan acts as a DNS masquerade for Mesos DNS on each agent.
 
-The Spartan instance on each agent is configured to listen to three different local interfaces: `198.51.100.1`, `198.51.100.2`, and `198.51.100.3`. The `nameserver` option in the `/etc/resolv.conf` on the agent is set to these three interfaces. 
+The Spartan instance on each agent is configured to listen to three different local interfaces: `198.51.100.1`, `198.51.100.2`, and `198.51.100.3`. The `nameserver` option in the `/etc/resolv.conf` on the agent is set to these three interfaces.
 
 This allows containers to perform up to three retries on a DNS request. To provide a highly available DNS service, Spartan forwards each request it receives to the different Mesos DNS instances which are running on each master.
 
@@ -46,7 +46,7 @@ The Spartan instance on each agent also acts as a DNS server for any service tha
 
 DC/OS offers one load balancing option out-of-the-box: [Minuteman](/1.10/networking/load-balancing-vips/).
 
-Two other load balancers, [Edge-LB](/services/edge-lb/) and [Marathon-LB](/services/marathon-lb/) can be installed as services from the DC/OS Universe package repository.
+Two other load balancers, [Edge-LB](/services/edge-lb/latest/) and [Marathon-LB](/services/marathon-lb/1.12/) can be installed as services from the DC/OS Universe package repository.
 
 
 |                                    | Minuteman | Edge-LB | Marathon-LB |
@@ -69,10 +69,10 @@ and tolerance to host failures.
 
 
 ## Edge-LB
-[Edge-LB](/services/edge-lb/0.1/) builds upon HAProxy. HAProxy provides base functionality such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
+[Edge-LB](/services/edge-lb/latest/) builds upon HAProxy. HAProxy provides base functionality such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
 
 Edge-LB proxies and load balances traffic to all services that run on DC/OS. In contrast, Marathon-LB can only work with Marathon tasks. For example, if you are using Cassandra, Edge-LB can load balance the tasks launched by Cassandra.
 
 
 ## Marathon-LB
-[Marathon-LB](/services/marathon-lb/) is based on HAProxy, a rapid proxy and north-south load balancer. HAProxy provides proxying and load balancing for TCP and HTTP based applications, with features such as SSL support, HTTP compression, health checking, Lua scripting and more. Marathon-LB subscribes to Marathon’s event bus and updates the HAProxy configuration in real time.
+[Marathon-LB](/services/marathon-lb/1.12/) is based on HAProxy, a rapid proxy and north-south load balancer. HAProxy provides proxying and load balancing for TCP and HTTP based applications, with features such as SSL support, HTTP compression, health checking, Lua scripting and more. Marathon-LB subscribes to Marathon’s event bus and updates the HAProxy configuration in real time.

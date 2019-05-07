@@ -47,7 +47,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
     ```
 
 
-<p class="message--important"><strong>IMPORTANT: </strong> The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like <a href="http://aws.amazon.com/s3/">Amazon S3</a>. Consider the security implications of your chosen approach carefully.</p> 
+<p class="message--important"><strong>IMPORTANT: </strong> The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like <a href="http://aws.amazon.com/s3/">Amazon S3</a>. Consider the security implications of your chosen approach carefully.</p>
 
 
 ## Step 2: Add URI path to service definition
@@ -65,7 +65,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
     For example:
 
     ```json
-    {  
+    {
       "id": "/some/name/or/id",
       "cpus": 1,
       "mem": 1024,
@@ -235,8 +235,52 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 
    The Docker image will now pull using the provided security credentials.
 
+<a name="docker-repo-certs"></a>
+
+# Configuring agents to use a custom certificate for the Docker registry
+Some organizations require both user credentials and valid secure socket layer (SSL) certificates to authorize access to the Docker registry. For example, some registry configurations require a certificate to encrypt the communications between the client and the registry, while user credentials determine who gets to access to the registry after the connection to the registry is successful.
+
+If your private registry uses a certificate to secure communications, you can configure the agent nodes to trust the certificate you use to access the private Docker registry.
+
+To configure a custom certificate for accessing the private Docker registry and DC/OS UCR, complete the following steps:
+
+1. Create or identify a custom certificate that you want to use as a trusted certificate for accessing the Docker registry.
+
+    You can use OpenSSL, DC/OS Enterprise CLI, or another program for generating public and private keys, certificate requests, and encrypted client and server certificates.
+
+    After you create or identify a certificate, you can configure the registry to use this certificate by following the instructions provided by the registry provider.
+
+1. Download or copy the certificate to the following two locations on each agent.
+
+    ```bash
+    /etc/docker/certs.d/<registry_name>:<registry_port>/ca.crt
+    /var/lib/dcos/pki/tls/certs/<something>.crt
+    ```
+
+    For the path to the trusted CA certificate on each agent, replace the `<registry_name>` and `<registry_port>` with the specific registry name and port number appropriate for your installation.
+
+   For example, if you are configuring the DC/OS `ca.crt` certificate as a trusted certificate and the local Docker registry is referenced as `registry.mycompany.com:5000`, you can download a copy of the `ca.crt` file and set it as trusted using a command similar to the following:
+
+    ```bash
+    sudo mkdir -p /etc/docker/certs.d/registry.mycompany.com:5000
+    sudo cp /path/to/ca.crt etc/docker/certs.d/registry.mycompany.com:5000/ca.crt
+    sudo cp /etc/docker/certs.d/registry.mycompany.com:5000/ca.crt /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt
+    ```
+
+1. Generate a hash for the file by running a command similar to the following:
+
+    ```bash
+    cd /var/lib/dcos/pki/tls/certs/
+    openssl x509 -hash -noout -in docker-registry-ca.crt
+
+1. Create a symbolic link from the trusted certificate to the `/var/lib/dcos/pki/tls/certs` directory on the public agent.
+
+    ```bash
+    sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
+    ```
 
 <a name="tarball-instructions"></a>
+
 # Pushing a custom image to a private registry from a tarball
 
 If you asked your sales representative for an enterprise version of Marathon, you may have been given a Docker image in a `.tar` archive. Follow these steps to deploy it to your registry:

@@ -6,7 +6,7 @@ menuWeight: 5
 enterprise: false
 excerpt: Hardware and software requirements for DC/OS  deployments
 
-render: mustache  
+render: mustache
 ---
 
 # Hardware Prerequisites
@@ -15,7 +15,7 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 ## Bootstrap node
 
-*  DC/OS installation is run on a Bootstrap node comprising of one node with two cores, 16 GB RAM and 60 GB HDD. 
+*  DC/OS installation is run on a Bootstrap node comprising of one node with two cores, 16 GB RAM and 60 GB HDD.
 *  The bootstrap node is only used during the installation and upgrade process, so there are no specific recommendations for high performance storage or separated mount points.
 
 <p class="message--note"><strong>NOTE: </strong>The bootstrap node must be separate from your cluster nodes.</p>
@@ -61,7 +61,7 @@ There are many mixed workloads on the masters. Examples of mixed workloads on th
   | _/var/lib/dcos/mesos/master_ | logging directories |
   | _/var/lib/dcos/cockroach_ | CockroachDB [enterprise type="inline" size="small" /] |
   | _/var/lib/dcos/navstar_ | for Mnesia database |
-  | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] | 
+  | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] |
   | _/var/lib/dcos/exhibitor_ | Zookeeper database |
   | _/var/lib/dcos/exhibitor/zookeeper/transactions_ | The ZooKeeper transaction logs are very sensitive to delays in disk writes. If you can only provide limited SSD space, this is the directory to place there. A minimum of 2 GB must be available for these logs. |
 
@@ -80,7 +80,7 @@ The agent nodes must also have:
 
 - A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.11/deploying-services/containerizers/).
 - Network Access to a public Docker repository or to an internal Docker registry.
-- On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that `firewalld` interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
+- On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a [known Docker issue](https://github.com/docker/docker/issues/16137) that `firewalld` interacts poorly with Docker. For more information, see the [Docker Engine release notes](https://docs.docker.com/engine/release-notes/).
 
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
@@ -123,7 +123,7 @@ The agent nodes must also have:
 -   Each node is network accessible from the bootstrap node.
 -   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
 -   All ports should be open for communication from the master nodes to the agent nodes and vice versa. [enterprise type="inline" size="small" /]
--   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`. 
+-   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`.
 
 Requirements for intermediaries (e.g., reverse proxies performing SSL termination) between DC/OS users and the master nodes:
 

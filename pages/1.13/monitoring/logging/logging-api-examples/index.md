@@ -4,7 +4,7 @@ navigationTitle:  Logging API Examples
 title: Logging API Examples
 menuWeight: 4
 excerpt: Examples for the Logging API
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -59,7 +59,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/agen
 
 # Container Logs
 
-**Important:** The following example requires journald task logging, which by default is [disabled](/1.13/monitoring/logging/logging-api/#compatibility).
+<p class="message--important"><strong>IMPORTANT: </strong>The following example requires journald task logging, which by default is [disabled](/1.13/monitoring/logging/logging-reference/#compatibility).</p>
 
 Get the last 100 journal entries from a single service container:
 

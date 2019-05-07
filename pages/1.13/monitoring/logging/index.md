@@ -4,11 +4,11 @@ navigationTitle:  Logging
 title: Logging
 menuWeight: 3
 excerpt: Understanding diagnostic and status logs for DC/OS core components and services
-beta: true
+beta: false
 enterprise: false
 ---
 
-DC/OS cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services.
+DC/OS cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services. DC/OS comes with a built-in log pipeline which can transmit all kinds of logs to an aggregated log database. 
 
 ## Service, task, and node logs
 
@@ -64,7 +64,11 @@ Figure 1. System health log showing nodes
 
 # Log aggregation
 
-Streaming logs from machines in your cluster is not always viable. Sometimes you need a history of what has happened, which requires a method for storing and aggregating logs. These topics describe some of the most common solutions:
+Streaming logs from machines in your cluster is not always the best solution for examining events and debugging issues.
+
+In cases where you need a history of what has happened, you require a method for storing and aggregating logs. DC/OS comes with a built-in log pipeline based on [Fluent Bit](https://fluentbit.io/), an open source log processor and forwarder. Fluent Bit runs on each node, both masters and agents, in DC/OS. It gathers metrics from each component by tailing logs from journald. Tasks running on Mesos can also optionally [transmit metrics to Fluent Bit](/1.13/monitoring/logging/configure-task-logs/). 
+
+Fluent Bit can be configured to transmit metrics to [many different log stores](https://docs.fluentbit.io/manual/output). We provide documentation on how to configure Fluent Bit to use some of the more popular options:
 
 - [Log Management with ELK](/1.13/monitoring/logging/aggregating/elk/)
 - [Log Management with Splunk](/1.13/monitoring/logging/aggregating/splunk/)

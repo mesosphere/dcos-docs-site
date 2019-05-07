@@ -24,7 +24,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [bootstrap_url](#bootstrap-url-required)                                       | (Required) The URI path for the DC/OS installer to store the customized DC/OS build files. |
 | [cluster_docker_credentials](#cluster-docker-credentials)             | The dictionary of Docker credentials to pass. |
 | [cluster_docker_credentials_enabled](#cluster-docker-credentials-enabled)   |  Whether to pass the Mesos `--docker_config` option to Mesos. |
-| [cluster_docker_registry_url](#cluster-docker-registry-url)           | The custom URL that Mesos uses to pull Docker images from. |
+| [cluster_docker_registry_url](#cluster-docker-registry-url)           | The custom URL that Mesos uses to pull Docker images from. If changed from the default, you will need to import a local universe into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local universe](/1.13/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/1.13/deploying-services/private-docker-registry/).  |
 | [cluster_name](#cluster-name)                                         | The name of your cluster. |
 | [cosmos_config](#cosmos-config)                                       | The dictionary of packaging configuration to pass to the [DC/OS Package Manager (Cosmos)](https://github.com/dcos/cosmos). |
 | [custom_checks](#custom-checks)                                       | Custom installation checks that are added to the default check configuration process. |
@@ -35,6 +35,8 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
 | [master_external_loadbalancer](#master-external-loadbalancer)         | The DNS name or IP address for the load balancer.  [enterprise type="inline" size="small" /]      |
 | [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
+| [mesos_seccomp_enabled](#mesos-seccomp-enabled)                       | Indicates whether to enable Seccomp support for UCR containers. |
+| [mesos_seccomp_profile_name](#mesos-seccomp-profile-name)             | The name of the default Seccomp profile. |
 | [platform](#platform)                                                 | The infrastructure platform. |
 | [public_agent_list](#public-agent-list)                               | A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.13/overview/concepts/#public-agent-node) host names.  |
 | [rexray_config](#rexray-config)                                       | The [REX-Ray](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/) configuration method for enabling external persistent volumes in Marathon. You cannot specify both `rexray_config` and `rexray_config_preset`.|
@@ -230,7 +232,7 @@ Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_c
 *  `cluster_docker_credentials_enabled: 'false'` Do not pass the Mesos `--docker_config` option to Mesos.
 
 ### cluster_docker_registry_url
-The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used.
+The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used. If changed from the default, you will need to import a local universe into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local universe](/1.13/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/1.13/deploying-services/private-docker-registry/) for more information.
 
 ### cluster_name
 The name of your cluster.
@@ -362,7 +364,7 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
 *   `exhibitor_storage_backend: static`
     The Exhibitor storage backend is managed internally within your cluster.
 
-<p class="message--note"><strong>NOTE: </strong>If <a href ="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#master-discovery-required">master_discovery</a> is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.</p>
+<p class="message--note"><strong>NOTE: </strong>If <a href ="https://docs.mesosphere.com/1.13/installing/production/advanced-configuration/configuration-reference/#master-discovery-required">master_discovery</a> is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.</p>
 
 *   `exhibitor_storage_backend: zookeeper`
     The ZooKeeper instance for shared storage. If you use a ZooKeeper instance to bootstrap Exhibitor, this ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability. If you specify `zookeeper`, you must also specify these parameters.
@@ -454,11 +456,11 @@ The Mesos master discovery method. The available options are `static` or `master
     *  `exhibitor_address` (Required)
        The address (preferably an IP address) of the load balancer in front of the masters. If you need to replace your masters, this address becomes the static address that agents can use to find the new master. For DC/OS Enterprise, this address is included in [DC/OS certificates](/1.13/security/ent/tls-ssl/). The load balancer must accept traffic on ports 443, 2181, 5050, and 8181. If the cluster is running in permissive security mode, the load balancer may also accept traffic on port 80 and 8080 for non-SSL HTTP access to services in the cluster.
          <p class="message--note"><strong>NOTE: </strong>Access to the cluster over port 80 and 8080 is insecure.</p>
-         
+
        The traffic must also be forwarded to 443, 2181, 5050, and 8181 on the master. For example, Mesos port 5050 on the load balancer should forward to port 5050 on the master. The master should forward any new connections via round robin, and should avoid machines that do not respond to requests on Mesos port 5050 to ensure the master is up. For more information on security modes, check [security modes documentation](/1.13/security/ent/#security-modes).
 
    <p class="message--note"><strong>NOTE: </strong>The internal load balancer must work in TCP mode, without any TLS termination.</p>
-       
+
 
     *  `num_masters` (Required)
        The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
@@ -489,7 +491,7 @@ The log manager for containers (tasks). The options are:
 * `'logrotate'` - send task logs only to the file system (i.e. a stdout/err file)
 * `'journald+logrotate'` - send logs to both journald and the file system
 
-The default is `logrotate`. Due to performance issues, `journald` is not recommended. For details, see [Logging API](/1.13/monitoring/logging/logging-api/#compatibility).
+The default is `logrotate`. Due to performance issues, `journald` is not recommended. For details, see [Logging Reference](/1.13/monitoring/logging/logging-reference/#compatibility).
 
 ### mesos_dns_set_truncate_bit
 Indicates whether Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet.
@@ -504,6 +506,22 @@ The location of the Mesos work directory on master nodes. This defines the `work
 
 ### mesos_max_completed_tasks_per_framework
 The number of completed tasks for each framework that the Mesos master will retain in memory. In clusters with a large number of long-running frameworks, retaining too many completed tasks can cause memory issues on the master. If this parameter is not specified, the default Mesos value of 1000 is used.
+
+### mesos_seccomp_enabled
+Indicates whether to enable Seccomp support for UCR containers.
+
+*  `mesos_seccomp_enabled: 'true'` Enables Seccomp isolator on Mesos agents. Seccomp isolator is used to set up a Seccomp profile for UCR containers.
+*  `mesos_seccomp_enabled: 'false'` Seccomp are not available for use in the cluster. This is the default value.
+
+For more information, see the [Seccomp documentation](http://mesos.apache.org/documentation/latest/isolators/linux-seccomp/).
+
+**Note**: DC/OS provides a default Seccomp profile, which can be enabled for UCR containers via the [`mesos_seccomp_profile_name`](#mesos-seccomp-profile-name) option.
+
+### mesos_seccomp_profile_name
+
+Specifies the name of the default Seccomp profile which is applied cluster-wide for UCR containers. If unset, a Seccomp profile is not applied by default. If you set this configuration option to `default.json`, Mesos agents will use built-in Seccomp profile. This profile is a slightly modified version of a Docker default profile. It can be found in `/opt/mesosphere/etc/dcos/mesos/seccomp`. It is highly recommended to use the built-in default Seccomp profile.
+
+**Note**: This option requires the [`mesos_seccomp_enable`](#mesos-seccomp-enable) option to be turned on.
 
 ### network_cni_root_dir_persist
 Specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node.

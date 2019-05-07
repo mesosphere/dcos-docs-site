@@ -1,0 +1,62 @@
+#
+# Build MS
+#
+
+FROM node:8-stretch-slim as ms-builder
+
+ARG git_branch
+ARG algolia_update
+ARG algolia_project_id
+ARG algolia_public_key
+ARG algolia_private_key
+ARG algolia_index
+ARG algolia_skip_sections
+ARG metalsmith_skip_sections
+
+RUN apt-get update -qq
+RUN apt-get install -y build-essential python
+
+RUN mkdir /src
+WORKDIR /src
+ADD . /src/
+
+RUN npm install
+
+RUN make build-swagger
+RUN make build-ngindox
+RUN \
+GIT_BRANCH=$git_branch \
+ALGOLIA_UPDATE=$algolia_update \
+ALGOLIA_PROJECT_ID=$algolia_project_id \
+ALGOLIA_PUBLIC_KEY=$algolia_public_key \
+ALGOLIA_PRIVATE_KEY=$algolia_private_key \
+ALGOLIA_INDEX=$algolia_index \
+ALGOLIA_SKIP_SECTIONS=$algolia_skip_sections \
+METALSMITH_SKIP_SECTIONS=$metalsmith_skip_sections \
+npm run build
+
+# Add google site verifications
+# Google expects a very specific file format and metalsmith defaultly alters
+# it. This is temporary until a more permanent solution is made.
+
+RUN echo "google-site-verification: google48ddb4a5390a503f.html" > /src/build/google48ddb4a5390a503f.html
+
+#
+# Nginx
+#
+
+FROM nginx:latest
+
+ARG nginx_dir
+
+RUN mkdir -p /src/build
+
+WORKDIR /src/build
+COPY --from=ms-builder /src/build ./
+
+ADD "$nginx_dir" /etc/nginx/conf.d
+
+RUN service nginx restart
+
+EXPOSE 80
+EXPOSE 443

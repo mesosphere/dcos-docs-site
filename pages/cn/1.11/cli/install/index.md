@@ -4,7 +4,6 @@ navigationTitle: 安装 CLI
 title: 安装 CLI
 menuWeight: 1
 excerpt: 安装 DC/OS 命令行界面
-
 enterprise: false
 ---
 

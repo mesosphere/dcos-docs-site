@@ -73,17 +73,17 @@ Other common single points of failure include:
 
 ## Fast Failure Detection
 
-Fast failure detection comes in many forms. Services like ZooKeeper can be used to provide failure detection, such as detecting network partitions or host failures. Service health checks can also be used to detect certain types of failures. 
+Fast failure detection comes in many forms. Services like ZooKeeper can be used to provide failure detection, such as detecting network partitions or host failures. Service health checks can also be used to detect certain types of failures.
 
 <p class="message--note"><strong>NOTE: </strong>It is recommended that services should expose health check endpoints, which can be used by services like Marathon.</p>
 
 ## Fast Failover
 
-When failures do occur, failover [should be as fast as possible](https://en.wikipedia.org/wiki/Fail-fast). 
+When failures do occur, failover [should be as fast as possible](https://en.wikipedia.org/wiki/Fail-fast).
 
 A fast failover can be achieved by:
 
- * Using an HA load balancer like [Marathon-LB](/services/marathon-lb/), or the internal [Layer 4 load balancer](/1.13/networking/load-balancing-vips/).
+ * Using an HA load balancer like [Marathon-LB](/services/marathon-lb/1.13/), or the internal [Layer 4 load balancer](/1.13/networking/load-balancing-vips/).
  * Building apps in accordance with the [12-factor app](http://12factor.net/) manifesto.
  * Following REST best practices when building services: in particular, avoiding storing client state on the server between requests.
 

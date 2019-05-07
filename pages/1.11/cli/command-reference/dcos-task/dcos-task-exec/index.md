@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos task exec` command allows you to launch a process (`<cmd>`) inside of a task's (`<task>`) container.
+The `dcos task exec` command allows you to launch a process (`<cmd>`) inside of a task's (`<task>`) container. To use this command, the task must be in a Universal Containerizer Runtime (UCR) container.
 
 # Usage
 

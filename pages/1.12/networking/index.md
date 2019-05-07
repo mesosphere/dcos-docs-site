@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-The DC/OS network stack provides 
+The DC/OS network stack provides
 - [IP connectivity to containers](#IP-connectivity)
 - built-in [DNS-based service discovery](#DNS-discovery)
 - layer 4 and layer 7 [load balancing](#load-balancing)
@@ -46,7 +46,7 @@ Mesos DNS is a centralized and replicated, DNS server that runs on every master.
 ## DCOS DNS
 `dcos-dns` is a distributed DNS server that runs on each agent as well as master, as part of an Erlang VM called `dcos-net`. This makes it highly available. The instance that is running on the leading master periodically polls the leading master state and generates FQDNs for every application launched by DC/OS. It then sends this information to its peers in the cluster. All these FQDNs have a TLD of `.directory`.
 
-`dcos-dns` intercepts all DNS queries originating within an agent. If the query ends with `.directory` TLD then it is resolved locally; if it ends with `.mesos` then `dcos-dns` forwards the query to one of the `mesos-dns` running on the masters. Otherwise, it forwards the query to the configured upstream DNS server based on the TLD.   
+`dcos-dns` intercepts all DNS queries originating within an agent. If the query ends with `.directory` TLD then it is resolved locally; if it ends with `.mesos` then `dcos-dns` forwards the query to one of the `mesos-dns` running on the masters. Otherwise, it forwards the query to the configured upstream DNS server based on the TLD.
 
 `dcos-dns` also acts as a DNS server for any service that is load balanced using the DC/OS internal load balancer called [dcos-l4lb](/1.12/networking/load-balancing-vips/). Any service that is load balanced by dcos-l4lb gets a [virtual-ip-address (VIP)](/1.12/networking/load-balancing-vips/virtual-ip-addresses/) and an FQDN in the `"*.l4lb.thisdcos.directory"` domain. The FQDN is then stored in dcos-dns and sent to rest of the peers in the cluster. This provides a highly available distributed DNS service for any task that is load balanced by Minuteman. For more information, see the [dcos-net repository](https://github.com/dcos/dcos-net/blob/master/docs/dcos_dns.md).
 
@@ -57,10 +57,10 @@ DC/OS offers different options for layer-4 and layer 7 load balancing. The follo
 [dcos-l4lb](/1.12/networking/load-balancing-vips/) is a distributed layer 4 east-west load balancer  installed by default. It is highly scalable and highly available, offering zero-hop load balancing, no single choke point and a tolerance to host failures. `dcos-l4lb` runs as an application within the Erlang VM `dcos-net`, which runs on all agents and masters within the cluster.
 
 ## Layer 7
-There are two packages within DC/OS that provide layer 7 load-balancing for DC/OS services, [Edge-LB](/services/edge-lb/) and [Marathon-LB](/services/marathon-lb/). Both these packages use HAProxy as their data-plane for load-balancing north-south traffic entering the cluster. While these packages are primarily used to provide layer 7 load balancing (supporting HTTP and HTTPS), they can also  provide layer 4 load balancing for TCP and SSL traffic. While the data-plane used by both these packages is fundamentally the same, the control-plane provided by these packages is vastly different.
+There are two packages within DC/OS that provide layer 7 load-balancing for DC/OS services, [Edge-LB](/services/edge-lb/latest/) and [Marathon-LB](/services/marathon-lb/1.12/). Both these packages use HAProxy as their data-plane for load-balancing north-south traffic entering the cluster. While these packages are primarily used to provide layer 7 load balancing (supporting HTTP and HTTPS), they can also  provide layer 4 load balancing for TCP and SSL traffic. While the data-plane used by both these packages is fundamentally the same, the control-plane provided by these packages is vastly different.
 
 ### Edge-LB [enterprise type="small"]
-Edge-LB can support pools of HAProxy load-balancing instances, allowing for multi-tenant support. It comes with its own CLI to configure and launch pools; it supports not only Marathon applications, but also applications managed by other Mesos frameworks that want to expose their applications to outside the cluster. Edge-LB is available only for DC/OS Enterprise. 
+Edge-LB can support pools of HAProxy load-balancing instances, allowing for multi-tenant support. It comes with its own CLI to configure and launch pools; it supports not only Marathon applications, but also applications managed by other Mesos frameworks that want to expose their applications to outside the cluster. Edge-LB is available only for DC/OS Enterprise.
 
 ### Marathon-LB
 Marathon-LB is much simpler and manages only a single instance of HAProxy. It can load-balance only the applications launched by the Marathon. Marathon-LB is available for both Open Source and Enterprise versions of DC/OS.
@@ -96,7 +96,7 @@ To use thw cluster identity feature:
     "dcos_net_cluster_identity": "true"
     </code>
 
-If you are upgrading the nodes in the cluster to use the cluster identity functionality, the upgraded node (agent or master) with the flag enabled will not be able communicate with the `dcos-net` service on any nodes that have not been upgraded. Because of this behavior change, you might experience a minor disruption of networking operations during the upgrade until all nodes in the cluster are upgraded with this flag enabled. 
+If you are upgrading the nodes in the cluster to use the cluster identity functionality, the upgraded node (agent or master) with the flag enabled will not be able communicate with the `dcos-net` service on any nodes that have not been upgraded. Because of this behavior change, you might experience a minor disruption of networking operations during the upgrade until all nodes in the cluster are upgraded with this flag enabled.
 
 During a phased upgrade process, you might see that DNS or L4LB do not function as expected across all of the nodes in the cluster. If you make changes--such as adding a new application, task, or service or deleting an existing application, task, or service--these changes might not be reflected in the information available until after the upgrade is complete.
 

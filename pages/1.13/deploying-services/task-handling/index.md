@@ -10,9 +10,9 @@ enterprise: false
 
 Marathon sorts tasks into three categories: initial, non-terminal, and terminal. Tasks within these categories may be in one of several states, as summarized in the diagram below. To learn the state of a task, you can consult the DC/OS logs or query the [events stream](http://mesosphere.github.io/marathon/docs/event-bus.html) of the [Marathon API](http://mesosphere.github.io/marathon/api-console/index.html) (/v2/events).
 
-You can also  [configure Marathon's behavior when a task is unreachable](/deploying-services/task-handling/configure-task-handling/).
+You can also [configure Marathon's behavior when a task is unreachable](/1.13/deploying-services/task-handling/configure-task-handling/).
 
-![Task Handling Flow](/img/task-handling-corrected.png)
+![Task Handling Flow](/1.13/img/task-handling-corrected.png)
 
 Figure 1. Task handling diagram
 
@@ -42,7 +42,9 @@ The task was running on an agent that has been shutdown (e.g., the agent become 
 ```
 case TASK_GONE_BY_OPERATOR => Gone
 ```
-The task was running on an agent that the master cannot contact; the operator has asserted that the agent has been shutdown, but this has not been directly confirmed by the master. If the operator is correct, the task is not running and this is a terminal state; if the operator is mistaken, the task might still be running, and might return to the RUNNING state in the future. After Marathon marks the task as failed, it expunges the task and starts a new one.    
+The task was running on an agent that the master cannot contact; the operator has asserted that the agent has been shutdown, but this has not been directly confirmed by the master. If the operator is correct, the task is not running and this is a terminal state; if the operator is mistaken, the task might still be running, and might return to the RUNNING state in the future. After Marathon marks the task as failed, it expunges the task and starts a new one.
+
+If the task was configured to use [Local Persistent Volumes](/1.13/storage/persistent-volume), these will be abandoned given that the agent is considered to be gone and not able to offer those volumes. A new task will be created as a replacement, with new volumes for its use.
 
 ```
 case TASK_FINISHED => Finished
@@ -52,7 +54,7 @@ The task finished successfully.
 ```
 case TASK_UNKNOWN => Unknown
 ```
-The master has no knowledge of the task. This is typically because either (a) the master never had knowledge of the task, or (b) the master forgot about the task because it garbaged collected its metadata about the task. The task may or may not still be running. When Marathon receives the Unknown message, it expunges the task and starts a new one.
+The master has no knowledge of the task. This is typically because either (a) the master never had knowledge of the task, or (b) the master forgot about the task because it garbage collected its metadata about the task. The task may or may not still be running. When Marathon receives the Unknown message, it expunges the task and starts a new one.
 
 ```
 case TASK_KILLED => Killed

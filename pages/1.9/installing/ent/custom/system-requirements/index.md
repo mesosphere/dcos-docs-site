@@ -69,7 +69,7 @@ The agent nodes must also have:
   - Disk quotas are not supported by Docker tasks, so these can overflow the disk regardless of configuration.
 - Network Access to a public Docker repository or to an internal Docker registry.
 
-*   On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that `firewalld` interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
+*   On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a [known Docker issue](https://github.com/docker/docker/issues/16137) that `firewalld` interacts poorly with Docker. For more information, see the [Docker Engine release notes](https://docs.docker.com/engine/release-notes/).
 
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
@@ -223,7 +223,7 @@ On each of your cluster nodes, use the following command to:
 
 
 ### Locale requirements
-You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
+You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.
 
 - For info on setting these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
 

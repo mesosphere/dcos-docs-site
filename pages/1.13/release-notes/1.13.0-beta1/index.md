@@ -48,7 +48,7 @@ Some highlights for this release include:
 
 - Key metrics are collected by default. <!--(DCOS-47719)-->
 
-    In DC/OS 1.13, dcos-telegraf automatically collects Mesos metrics by default. Previously, you were required to manually enable the metrics plug-in by updating the agent configuration or by setting the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `true`.  With this release, manually enabling this feature is no longer required. Instead, the default value for the parameter is now set to true. You can set the `enable_mesos_input_plugin` parameter in the `config.yaml` file to false if you want to disable the automatic collection of Mesos metrics.
+    In DC/OS 1.13, dcos-telegraf automatically collects Mesos metrics by default. Previously, you were required to manually enable the metrics plugin by updating the agent configuration or by setting the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `true`.  With this release, manually enabling this feature is no longer required. Instead, the default value for the parameter is now set to `true`. You can set the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `false` if you want to disable the automatic collection of Mesos metrics.
 
     For more information about collecting metrics and configuring metrics plugins, see the following topics:
     - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
@@ -65,16 +65,16 @@ Some highlights for this release include:
 
 - Automatically create a curated collection of Prometheus-driven Grafana dashboards for DC/OS. <!--(DCOS-44740)-->
 
-    If you deploy DC/OS monitoring, you can leverage Mesosphere-provided Grafana-based dashboards. By installing and configuring the `dcos-monitoring` service, you can automatically create dashboards that enable you to quickly visualize the metrics that the dcos-monitoring package is collecting from the DC/OS cluster and DC/OS-hosted applications. For more information about using Grafana dashboards, see the [dashboard repository](https://github.com/dcos/grafana-dashboards).
+    If you deploy DC/OS monitoring, you can leverage Mesosphere-provided Grafana-based dashboards. By installing and configuring the `dcos-monitoring` service, you can automatically create dashboards that enable you to quickly visualize the metrics that the `dcos-monitoring` package is collecting from the DC/OS cluster and DC/OS-hosted applications. For more information about using Grafana dashboards, see the [dashboard repository](https://github.com/dcos/grafana-dashboards).
 
 - Instrument and transmit metrics that track the health and performance of the DC/OS Telegraf plugin <!--(DCOS-39012)-->
 
-    DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
+    DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and is available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
 
 <!-- not in the 1.13 Docs in RN filter-->
 - Standardized log collection and forwarding through Fluent Bit <!--(DCOS-43412)-->
 
-    Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to a third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting services.
+    Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit -- a cloud-native, multi-platform log processor and forwarder -- you can now leverage easy-to-configure plugins to perform log filtering and forwarding to log collection, search, and reporting services.
 
     For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/1.13/monitoring/logging/).
 
@@ -163,7 +163,7 @@ You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on
 
 - Add support for internationalization and localization (I18N and L10N - Chinese). <!--(DCOS-39557)-->
 
-    Mesosphere DC/OS 1.13 GUI has now been translated to Mandarin Chinese. Mandarin-speaking customers and users can now easily switch the GUI language in the UI and will be able to interact with DC/OS operations and functions in English or Chinese. The DC/OS documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there's sufficient customer demand.
+    Mesosphere DC/OS 1.13 GUI has now been translated into Chinese. Customers and users can now easily switch the GUI language in the UI to interact with DC/OS operations and functions in English or Chinese. The DC/OS documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there's sufficient customer demand.
 
     For information about changing the language displayed, see the [GUI](/1.13/gui/) documentation.
 
@@ -198,14 +198,14 @@ The Universal Installer now provides the ability to provision AWS EBS volumes an
 
 - DC/OS supports for zero-downtime for tasks through layer-4 load balancing.
 
-    DC/OS cluster health checks now provide task-readiness information. This information enables zero-downtime for load balancing when services are scaled out. With this feature, load balanced traffic is not redirected to containers before the container health check returns a 'ready' status.
+    DC/OS cluster health checks now provide task-readiness information. This information enables zero-downtime for load balancing when services are scaled out. With this feature, load balanced traffic is not redirected to containers before the container health check returns a `ready` status.
 
 ## Networking
 - Add a new networking API endpoint to retrieve the public-facing IP address for public agent nodes. <!--(DCOS-28127)-->
 
-    This release introduces a new API endpoint for accessing public-facing IP addresses for the nodes in a cluster. For more information about retrieving and viewing public IP addresses, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
+    This release introduces a new API endpoint for accessing public-facing IP addresses for the nodes in a cluster. For more information about retrieving and viewing public IP addresses, see [Finding a public IP address](/1.13/administering-clusters/locate-public-agent/).
     
-    You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
+    You can look up the public agent IP address using the DC/OS UI, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
 <!-- not in 1.13 Docs in RN filter 
 - Retention policies for dcos-monitoring data. (DCOS-46818)
@@ -225,7 +225,7 @@ The Universal Installer now provides the ability to provision AWS EBS volumes an
 
     For more information about authentication and managing accounts, see [Security](/1.13/security) and [User account management](/1.13/security/oss/user-account-management/).
 
-- Support secure computing mode (seccomp) profiles. <!--(DCS-28442, DCOS-49134)-->
+- Support secure computing mode (`seccomp`) profiles. <!--(DCS-28442, DCOS-49134)-->
 
     Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within a container. You can enable secure computing mode for Docker containers and Universal Runtime Containers (URC) if the operating system you are using supports it.
 
@@ -328,7 +328,7 @@ For access to the logs that track specific changes to components that are includ
 - Java 8 [release information](https://java.com/en/download/faq/release_changes.xml). -->
 
 # Previous releases
-To review changes from a recent previous release, see the following links:
+To review changes from a recent release, see the following links:
 - [Release version 1.10.11](/1.10/release-notes/1.10.11/) - 12 February 2019.
 - [Release version 1.11.10](/1.11/release-notes/1.11.10/) - 12 February 2019.
 - [Release version 1.12.3](/1.12/release-notes/1.12.3/) - 14 March 2019.

@@ -10,7 +10,7 @@ These are the release notes for DC/OS 1.10.0 Beta 2.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/EarlyAccess/commit/66e3d4582d38ef6373ae489a219400a36ae5064d/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-This beta release is for testing only and not to be used in production. 
+This beta release is for testing only and not to be used in production.
 
 DC/OS 1.10.0 Beta 2 has a number of limitations that will be resolved at GA time:
 - Upgrades from 1.10 Beta 1 to 1.10 Beta 2 are not currently supported.
@@ -53,7 +53,7 @@ DC/OS 1.10 includes many new capabilities and expands the collection of data and
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
 
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/services/edge-lb/0.1/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode in DC/OS Beta 1. [View the documentation](/services/edge-lb/latest/).
 
 [enterprise type="block" size="large"]
 ## Security
@@ -86,7 +86,7 @@ The following updated data services packages are also in beta and are compatible
 
 - Beta Kafka. [Documentation](/services/beta-kafka/1.1.26-0.10.1.0-beta/). [Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/kafka-1.1.26-0.10.1.0-beta).
 
-- Spark. [Documentation](/services/spark/v1.1.1-2.2.0/). [Release Notes](https://github.com/mesosphere/spark-build/releases/tag/1.1.1-2.2.0).
+- Spark. [Documentation](/services/spark/v1.1.1-2.2.0/). [Release Notes](/services/spark/latest/release-notes/).
 
 ## Platform
 - Node and Cluster health checks.
@@ -122,7 +122,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
   TLS 1.0 no longer meets common minimum security requirements. To use TLS 1.0, set `adminrouter_tls_1_0_enabled` to `true` in your `config.yaml` at install time. The default is `false`.
 
-## Latest version of Marathon-LB 
+## Latest version of Marathon-LB
 
 Before upgrading to 1.10, uninstall your existing Marathon-LB package and reinstall the updated version.
 

@@ -20,7 +20,9 @@ DC/OS collects four types of metrics as follows:
 * **Container:** Metrics about `cgroup` allocations from tasks running in the DC/OS [Universal Container Runtime](/1.12/deploying-services/containerizers/ucr/) or [Docker Engine](/1.12/deploying-services/containerizers/docker-containerizer/) runtime.
 * **Application:** Metrics emitted from any application running on the Universal Container Runtime.
 
-Telegraf is included in the DC/OS distribution and runs on every host in the cluster. Because Telegraf provides a plugin-driven architecture, custom DC/OS plugins provide metrics on the performance of DC/OS workloads and DC/OS itself. Telegraf collects application and custom metrics through the `statsd` process. A dedicated `statsd` server is started for each new task. Any metrics received by the `statsd` server are tagged with the task name and its service name. The address of the server is provided by environment variables (`STATSD_UDP_HOST` and `STATSD_UDP_PORT`). 
+Telegraf is included in the DC/OS distribution and runs on every host in the cluster. Because Telegraf provides a plugin-driven architecture, custom DC/OS plugins provide metrics on the performance of DC/OS workloads and DC/OS itself.
+
+Telegraf collects application and custom metrics through the `dcos_statsd` plugin. A dedicated StatsD server is started for each new task. Any metrics received by the StatsD server are tagged with the task name and its service name. The address of the server is provided by environment variables (`STATSD_UDP_HOST` and `STATSD_UDP_PORT`). Note that when a task finishes, any metrics it has emitted that haven't yet been gathered by Telegraf will be discarded. The metrics collected by `dcos_statsd` are gathered every 30 seconds. To ensure a task's metrics are gathered, the task must run for at least 30 seconds.
 
 For more information about the list of metrics that are automatically collected by DC/OS, read [Metrics Reference](/1.12/metrics/reference/) documentation.
 

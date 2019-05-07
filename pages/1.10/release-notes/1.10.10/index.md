@@ -30,20 +30,20 @@ The issues that have been fixed in DC/OS 1.10.10 are grouped by feature, functio
 - COPS-4044, DCOS_OSS-4469 - This release changes the logging settings for the `dcos-docker-gc` unit so that any log messages it creates are preserved in the `systemd` journal logging facility on the host system.
 
 ## Mesos
-- COPS-4320, DCOS-46814 - After an agent host is rebooted, the forked child process id and `libprocess` process id for the executor in the agent's meta directory are obsolete and should not be read. This change to the process identifiers read during agent recovery prevents the container from waiting for a process if those process ids are reused after a reboot. 
+- COPS-4320, DCOS-46814 - After an agent host is rebooted, the forked child process id and `libprocess` process id for the executor in the agent's meta directory are obsolete and should not be read. This change to the process identifiers read during agent recovery prevents the container from waiting for a process if those process ids are reused after a reboot.
 
   Previously, if you rebooted an agent, the agent would wait for the exit status of its container process id (`pid`) before terminating the executor. If a new process with the same `pid` is spawned after the reboot, the agent recovery might stall waiting for the wrong child process id, blocking the executor termination and updates to its tasks.
 
 - DCOS-43670, DCOS-44827 - The `cgroups` event listener code is used to poll events for a container. An update to this code ensures that the listener closes the file descriptor after read operations are complete. The fix prevents a race condition that can leave the container in an ISOLATING or PROVISIONING state.
-  
+
 - DCOS-46388 - The master node completes the processing of all authorization results for a `LAUNCH_GROUP` before performing other operations. This change prevents subsequent operations from failing if any authorization request is denied.
 
-- DCOS-46753 - This release improves how failed or discontinued launch operations are handled to ensure container input and output operations are resolved correctly and all file descriptors are closed properly. 
+- DCOS-46753 - This release improves how failed or discontinued launch operations are handled to ensure container input and output operations are resolved correctly and all file descriptors are closed properly.
 
   Previously, if the containerizer launch failed or was discarded after the I/O switchboard server started but before the container process completed execution, the file descriptor used to signal a redirect to the I/O switchboard could fail, preventing the containerizer from completing its clean-up operations. You might see this issue if you have frequent health or readiness checks for containers launching on an agent with heavy processing load.
 
 ## Networking
-- COPS-4124, DCOS-46132, DCOS_OSS-4667 - A new agent option `--network_cni_root_dir_persist` allows the container node root directory to store network information in a persistent location. This option enables you to specify a container `work_dir` root directory that persists network-related information. By persisting this information, the container network interface (CNI) isolator code can perform proper cleanup operations after rebooting. 
+- COPS-4124, DCOS-46132, DCOS_OSS-4667 - A new agent option `--network_cni_root_dir_persist` allows the container node root directory to store network information in a persistent location. This option enables you to specify a container `work_dir` root directory that persists network-related information. By persisting this information, the container network interface (CNI) isolator code can perform proper cleanup operations after rebooting.
 
   If rebooting a node does not delete old containers and IP/MAC addresses from `etcd` (which over time can cause pool exhaustion), you should set the `--network_cni_root_dir_persist` agent option in the `config.yaml` file to `true`. You should note that changing this flag requires rebooting the agent node or shutting down all container processes running on the node. Because a reboot or shutdown of containers is required, the default value for the `--network_cni_root_dir_persist` agent option is `false`. Before changing this option, you should plan for agent maintenance to minimize any service interruption. If you set this option and reboot a node, you should also unset the `CNI_NETNS` environment variable after rebooting using the CNI plugin `DEL` command so that the plugin cleans up as many resources as possible (for example, by releasing IPAM allocations) and returns a successful response.
 
@@ -75,7 +75,7 @@ You can try out the new features and updated data services. Provide feedback thr
 
 - DC/OS supports any type of container network interface (CNI) network plugin. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
 
-- You can use Edge-LB load balancer to balance Mesos tasks. The Edge-LB load balancer does not support strict security mode. [View the documentation](/services/edge-lb/0.1/).[enterprise type="inline" size="small" /]
+- You can use Edge-LB load balancer to balance Mesos tasks. The Edge-LB load balancer does not support strict security mode. [View the documentation](/services/edge-lb/latest/).[enterprise type="inline" size="small" /]
 
 [enterprise type="block" size="large"]
 ### Security
@@ -132,13 +132,13 @@ For more information, see the documenation or release notes for the specific dat
    - DC/OS CLI 0.4.x has a single configuration file, stored by default in `~/.dcos/dcos.toml`. DC/OS CLI 0.5.x has a configuration file for **each connected cluster**. Each cluster configuration file is stored by default in `~/.dcos/clusters/<cluster_id>/dcos.toml`.
    - DC/OS CLI 0.5.x introduces the `dcos cluster setup` command to configure a connection to a cluster and log into the cluster.
     -  Updating to the DC/OS CLI 0.5.x and running any CLI command triggers conversion from the old to the new configuration structure.
-    
+
     If you attempt to update the cluster configuration using a `dcos config set` command after using `dcos cluster setup` or converting to DC/OS CLI 0.5.x, the command prints a warning message saying the command is deprecated and that cluster configuration state might now be corrupted.
-  
+
     If you have the `DCOS_CONFIG` environment variable configured:
     - _After_ conversion to the new configuration structure, `DCOS_CONFIG` is no longer honored.
     - _Before_ you call `dcos cluster setup`, you can change the configuration pointed to by `DCOS_CONFIG` using `dcos config set`. This command prints a warning message saying the command is deprecated and recommends using `dcos cluster setup`.
-  
+
   CLI modules are cluster-specific and stored in `~/.dcos/clusters/<cluster_id>/subcommands`. Therefore you must install a CLI module for each cluster. For example, if you connect to cluster 1, and install the Spark module, then connect to cluster 2 which is also running Spark, Spark CLI commands are not available until you install the module for that cluster.
 
 ### GUI

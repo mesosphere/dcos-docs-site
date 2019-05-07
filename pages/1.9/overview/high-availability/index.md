@@ -49,7 +49,7 @@ HA services should be decoupled, with responsibilities divided amongst services.
 
 Single points of failure come in many forms. For example, a service like ZooKeeper can become a single point of failure when every service in your system shares one ZooKeeper cluster. You can reduce risks by running multiple ZooKeeper clusters for separate services. There's an Exhibitor [Universe package](https://github.com/mesosphere/exhibitor-dcos) that makes this easy.
 
-Other common single points of failure include: 
+Other common single points of failure include:
 
 - Single database instances (like a MySQL)
 - One-off services
@@ -63,7 +63,7 @@ Fast failure detection comes in many forms. Services like ZooKeeper can be used 
 
 When failures do occur, failover [should be as fast as possible](https://en.wikipedia.org/wiki/Fail-fast). Fast failover can be achieved by:
 
- * Using an HA load balancer like [Marathon-LB](/services/marathon-lb/), or the internal [Layer 4 load balancer](/1.9/networking/load-balancing-vips/).
+ * Using an HA load balancer like [Marathon-LB](/services/marathon-lb/1.12/), or the internal [Layer 4 load balancer](/1.9/networking/load-balancing-vips/).
  * Building apps in accordance with the [12-factor app](http://12factor.net/) manifesto.
  * Following REST best-practices when building services: in particular, avoiding storing client state on the server between requests.
 

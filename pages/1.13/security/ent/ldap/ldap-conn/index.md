@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Configuration 
-title: Configuration 
+navigationTitle:  Connection 
+title: Connection 
 menuWeight: 1
 excerpt: Configuring your connection to the LDAP server 
 enterprise: true
@@ -24,7 +24,7 @@ In this section, you will specify the address, protocol and certificates to be u
 
 1. Select your preferred encryption option from the **Select SSL/TLS setting** list box.
 
-    * Select the **Use SSL/TLS for all connections** check box to use [Secure LDAP (LDAPS)](http://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx).
+    * Select  **Use SSL/TLS for all connections** to use [Secure LDAP (LDAPS)](http://social.technet.microsoft.com/wiki/contents/articles/2980.ldap-over-ssl-ldaps-certificate.aspx).
 
     * Select **Attempt StartTLS, abort if it fails** to attempt to upgrade the connection to TLS via [StartTLS](https://tools.ietf.org/html/rfc2830) and abort the connection should the upgrade to TLS fail.
 

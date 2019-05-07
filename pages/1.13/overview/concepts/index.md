@@ -107,7 +107,7 @@ A private agent node is an agent node that is on a network that *does not allow*
 A public agent node is an agent node that is on a network that **allows** access from outside of the cluster via the cluster’s infrastructure networking.
 
 - The Mesos agent on each public agent node is configured with the `public_ip:true` agent attribute and all of its resources allocated to the `slave_public` role.
-- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/services/marathon-lb/) or [Edge-LB](/services/edge-lb/1.2/).
+- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/services/marathon-lb/1.13/) or [Edge-LB](/services/edge-lb/1.2/).
 - Clusters generally have only a few public agent nodes, because a single load balancer can handle proxying multiple services.
 
 For more information, see [Converting Agent Node Types](/1.13/administering-clusters/convert-agent-type/).
@@ -240,9 +240,9 @@ A DC/OS component is a DC/OS system service that is distributed with DC/OS.
 - Components may be `systemd` services or Marathon services.
 - Components may be deployed in a high availability configuration.
 
-Most components run on the master nodes, but some (likr mesos-agent) run on the agent nodes.
+Most components run on the master nodes, but some (like mesos-agent) run on the agent nodes.
 
-**Examples:** Mesos, Marathon, Mesos-DNS, Bouncer, Admin Router, DC/OS Package Manager (Cosmos), History Service, etc.
+**Examples:** Mesos, Marathon, Mesos-DNS, Bouncer, Admin Router, DC/OS Package Manager (Cosmos), etc.
 
 <a name="dcos-package"></a>
 
