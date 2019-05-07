@@ -4,6 +4,8 @@ excerpt: Guide for DC/OS on Azure using the Mesosphere Universal Installer
 title: DC/OS on Azure using the Universal Installer
 navigationTitle: Azure
 menuWeight: 2
+model: /1.13/installing/evaluation/include/data.yml
+render: mustache
 ---
 
 This guide is meant to take an operator through all steps necessary for a successfull installation of DC/OS using Terraform. If you are already familiar with the prerequisites, you can jump to [Creating a DC/OS Cluster](#creating).
