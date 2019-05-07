@@ -318,7 +318,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
     Using a secure computing mode profile is an important option if you need to secure access to containers and operations using the principle of least privilege. 
 
-    For more information about secure computing mode and the default secure computing profile, see [Secure computing profiles](/1.13/security/ent/secure-compute-profiles/).
+    For more information about secure computing mode and the default secure computing profile, see [Secure computing profiles](/1.13/security/oss/secure-compute-profiles/).
 
 ## Storage
 - Update Beta Rex-Ray to support NVMe EBS volumes. <!--(DCOS-50047)-->
