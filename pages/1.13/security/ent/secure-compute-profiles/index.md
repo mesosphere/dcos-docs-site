@@ -61,7 +61,7 @@ It is also possible to have a service definition run under a different seccomp p
     "type": "MESOS",
     "linuxInfo": {
       "seccomp": {
-        "profileName" : "relaxed.json",
+        "profileName": "relaxed.json",
         "unconfined" : false
       }
     }
