@@ -41,7 +41,7 @@ It is possible to have a service opt-out of running under seccomp. For a Maratho
     "type": "MESOS",
     "linuxInfo": {
       "seccomp": {
-        "unconfined" : true
+        "unconfined": true
       }
     }
   }
