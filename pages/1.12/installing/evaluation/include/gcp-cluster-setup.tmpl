@@ -1,0 +1,68 @@
+# Creating a cluster
+1) Create a local folder.
+
+  ```bash
+  mkdir dcos-tf-gcp-demo && cd dcos-tf-gcp-demo
+  ```
+
+2) Copy and paste the example code below into a new file and save it as `main.tf` in the local folder.
+
+  The example code below creates a DC/OS OSS 1.12.0 cluster on GCP with:
+  - 1 Master
+  - 2 Private Agents
+  - 1 Public Agent
+
+  The example also specifies that the following output should be printed once cluster creation is complete:
+  - ```masters-ips``` - Lists the DC/OS master nodes.
+  - ```cluster-address``` - Specifies the URL you use to access DC/OS UI after the cluster is set up.
+  - ```public-agent-loadbalancer``` - Specifies the URL of your Public routable services.
+
+  ```hcl
+  variable "dcos_install_mode" {
+    description = "specifies which type of command to execute. Options: install or upgrade"
+    default = "install"
+  }
+
+  module "dcos" {
+    source = "dcos-terraform/dcos/gcp"
+    version = "~> 0.1.0"
+
+    cluster_name        = "my-open-dcos"
+    ssh_public_key_file = "~/.ssh/id_rsa.pub"
+
+    num_masters        = "1"
+    num_private_agents = "2"
+    num_public_agents  = "1"
+
+    dcos_version = "1.12.0"
+
+    # Enterprise users uncomment this section and comment out below
+    # dcos_variant              = "ee"
+    # dcos_license_key_contents = "${file("./license.txt")}"
+    # Make sure to set your credentials if you do not want the default
+    # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}
+    # dcos_superuser_username = "admin"
+
+    # Default is DC/OS
+    dcos_variant = "open"
+
+    # Reads the install mode set above
+    dcos_install_mode = "${var.dcos_install_mode}"
+  }
+
+  output "masters-ips" {
+    value       = "${module.dcos.masters-ips}"
+  }
+
+  output "cluster-address" {
+    value       = "${module.dcos.masters-loadbalancer}"
+  }
+
+  output "public-agents-loadbalancer" {
+    value = "${module.dcos.public-agents-loadbalancer}"
+  }
+  ```
+
+  For simplicity in this example, the configuration values are hard-coded.  If you have a desired cluster name or number of masters/agents, you can adjust the values directly in the `main.tf` configuration file.
+
+  You can find additional input variables and their descriptions [here](/{{ model.folder_version }}/installing/evaluation/gcp/advanced-gcp/).
