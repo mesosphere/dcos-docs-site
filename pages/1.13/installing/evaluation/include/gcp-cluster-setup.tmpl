@@ -25,6 +25,7 @@
 
   module "dcos" {
     source = "dcos-terraform/dcos/gcp"
+    version = "~> 0.1.0"
 
     cluster_name        = "my-open-dcos"
     ssh_public_key_file = "~/.ssh/id_rsa.pub"
@@ -35,10 +36,17 @@
 
     dcos_version = "1.12.0"
 
+    # Enterprise users uncomment this section and comment out below
     # dcos_variant              = "ee"
     # dcos_license_key_contents = "${file("./license.txt")}"
+    # Make sure to set your credentials if you do not want the default
+    # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}
+    # dcos_superuser_username = "admin"
+
+    # Default is DC/OS
     dcos_variant = "open"
 
+    # Reads the install mode set above
     dcos_install_mode = "${var.dcos_install_mode}"
   }
 
@@ -57,4 +65,4 @@
 
   For simplicity in this example, the configuration values are hard-coded.  If you have a desired cluster name or number of masters/agents, you can adjust the values directly in the `main.tf` configuration file.
 
-  You can find additional input variables and their descriptions [here](/1.13/installing/evaluation/gcp/advanced-gcp/).
+  You can find additional input variables and their descriptions [here](/{{ model.folder_version }}/installing/evaluation/gcp/advanced-gcp/).

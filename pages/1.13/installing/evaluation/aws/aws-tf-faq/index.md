@@ -4,6 +4,8 @@ title: Universal Installer FAQ & Troubleshooting Guide
 excerpt: FAQ and Common Issues with Universal Installer
 navigationTitle: Universal Installer FAQ
 menuWeight: 10
+model: /1.13/installing/evaluation/include/data.yml
+render: mustache
 ---
 
 The following are answers to common questions and issues when working with Terraform. This document supports both version 0.1 and 0.2.

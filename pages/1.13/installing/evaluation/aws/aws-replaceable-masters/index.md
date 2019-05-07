@@ -4,12 +4,16 @@ excerpt: Replaceable Masters on AWS using the Universal Installer
 title: Replaceable masters on AWS using the Universal Installer
 navigationTitle: AWS Replaceable Masters
 menuWeight: 2
+model: /1.13/installing/evaluation/include/data.yml
+render: mustache
 ---
+
+This guide expects that you already have a running DC/OS cluster based on Universal Installer `0.2`. To learn more about running DC/OS with the Universal Installer have a look into the [Guide for DC/OS on AWS using the Universal Installer](/{{ model.folder_version }}/installing/evalation/aws/).
 
 By default the Universal Installer uses a static master list to form the quorum needed by DC/OS. This adds some problems to dynamic cloud environments. The master IP addresses shouldn't change, and most cases this will not happen as long as you do not destroy or taint a master instance. But in a complete lifecycle of a DC/OS cluster you might face situations where you want to be able to recreate a master instance without deep manual interaction. This feature will enable you simply taint and reinstall a minority of your master nodes without any dataloss as long as the majority of the initial masters is still alive.
 
 # Prerequisites
-- Same as in [Guide for DC/OS on AWS using the Universal Installer](/1.13/installing/evaluation/aws/).
+- Same as in [Guide for DC/OS on AWS using the Universal Installer](/{{ model.folder_version }}/installing/evaluation/aws/).
 - The account you're using is able to create AWS buckets.
 
 # Fully Managed Replaceable Masters
@@ -23,7 +27,7 @@ dcos_s3_prefix                 = "exhibitor"
 dcos_exhibitor_explicit_keys   = "false"
 dcos_aws_region                = <<the current region>>
 dcos_master_discovery          = "master_http_loadbalancer"
-dcos_exhibitor_address         = <<master load balancer address>>
+dcos_exhibitor_addres.2.s         = <<master load balancer address>>
 dcos_num_masters               = <<the number oh masters set>>
 dcos_exhibitor_storage_backend = "aws_s3"
 ```

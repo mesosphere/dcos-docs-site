@@ -6,7 +6,7 @@ navigationTitle: GCP
 menuWeight: 4
 ---
 
-To use the Mesosphere Universal Installer with GCP, the GCP command line interface must be installed and configured to the security credentials of the account you will be using for resources. The following instructions will guide you through the necessary account creation and credentials to be able to successfully configure your GCP CLI and install DC/OS.
+This guide is meant to take an operator through all steps necessary for a successfull installation of DC/OS using Terraform. If you are already familiar with the prerequisites, you can jump to [Creating a DC/OS Cluster](#creating).
 
 # Prerequisites
 - Linux, macOS, or Windows
@@ -19,7 +19,7 @@ To use the Mesosphere Universal Installer with GCP, the GCP command line interfa
 
 #include /1.13/installing/evaluation/include/enterprise-license.tmpl
 
-#include /1.13/installing/evaluation/include/gcp-cluster-setup
+#include /1.13/installing/evaluation/include/gcp-cluster-setup.tmpl
 
 #include /1.13/installing/evaluation/include/create-first-cluster.tmpl
 
