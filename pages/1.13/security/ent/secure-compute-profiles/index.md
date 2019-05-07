@@ -68,7 +68,7 @@ It is also possible to have a service definition run under a different seccomp p
   }
 }
 ```
-This service definition expects that any agent it might launch on has a seccomp profile named `relaxed.json`. When this container starts on that agent it will be run under seccomp however it will not be restricted by `default.json` it will run under the definition of restrictions defined in `relax.json`
+This service definition expects that any agent it might launch on has a seccomp profile named `relaxed.json`. When this container starts on that agent it will be run under seccomp however it will not be restricted by `default.json` it will run under the definition of restrictions defined in `relaxed.json`
 
 # Consequence of Running under Seccomp
 Seccomp is security mechanism to reduce the surface area of attack on a system by restricting what syscalls are allowed from inside the container. While a container is running under seccomp restrictions, if a restricted call is attempted, the result is the task process will fail. It is up to the recovery mechanism of the scheduler to determine what happens next. For example Marathon will reschedule the task based on task failure and Metronome will log the job run as failed but may or may not reschedule the job run based on retry configurations.
