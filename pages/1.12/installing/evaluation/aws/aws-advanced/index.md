@@ -77,7 +77,7 @@ module "dcos" {
 
 ## Supported DC/OS Versions
 
-Currently, the Universal Installer defaults to `1.11.4` if none is specified. The following versions of DC/OS are currently supported. It is always recommended to specify a version.
+Currently, the Universal Installer defaults to `1.11.4` for DC/OS and `1.12.3` for DC/OS Enterprise if none is specified. The following versions of DC/OS are currently supported. It is always recommended to specify a version.
 
 ```json
 dcos_version: "1.12.0"
