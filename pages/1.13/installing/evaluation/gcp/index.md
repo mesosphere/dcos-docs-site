@@ -8,22 +8,22 @@ model: /1.13/installing/data.yml
 render: mustache
 ---
 
-#include /1.13/installing/evaluation/include/all-intro-and-prereqs.tmpl
+#include /install-include/all-intro-and-prereqs.tmpl
 
-#include /1.13/installing/evaluation/include/all-install-terraform.tmpl
+#include /install-include/all-install-terraform.tmpl
 
-#include /1.13/installing/evaluation/include/gcp-credentials.tmpl
+#include /install-include/gcp-credentials.tmpl
 
-#include /1.13/installing/evaluation/include/all-enterprise-license.tmpl
+#include /install-include/all-enterprise-license.tmpl
 
-#include /1.13/installing/evaluation/include/gcp-cluster-setup.tmpl
+#include /install-include/gcp-cluster-setup.tmpl
 
-#include /1.13/installing/evaluation/include/all-create-first-cluster.tmpl
+#include /install-include/all-create-first-cluster.tmpl
 
-#include /1.13/installing/evaluation/include/all-logging-in-dcos.tmpl
+#include /install-include/all-logging-in-dcos.tmpl
 
-#include /1.13/installing/evaluation/include/all-scale-cluster.tmpl
+#include /install-include/all-scale-cluster.tmpl
 
-#include /1.13/installing/evaluation/include/all-upgrade-cluster.tmpl
+#include /install-include/all-upgrade-cluster.tmpl
 
-#include /1.13/installing/evaluation/include/all-destroy-cluster.tmpl
+#include /install-include/all-destroy-cluster.tmpl

@@ -8,4 +8,4 @@ model: /1.13/installing/data.yml
 render: mustache
 ---
 
-#include /1.13/installing/evaluation/include/aws-replaceable-masters-all.tmpl
+#include /install-include/aws-replaceable-masters-all.tmpl
