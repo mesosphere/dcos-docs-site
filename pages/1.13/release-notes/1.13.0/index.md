@@ -11,7 +11,7 @@ DC/OS 1.13.0 was released on May 8, 2019.
 
 [button color="purple" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
-Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, please contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
+Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
 # Release summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
@@ -199,11 +199,11 @@ For more information about collecting metrics and configuring metrics plugins, s
 
     DC/OS 1.13 GUI now includes a new tab in the Details section of every SDK-based data service. This new tab provides a clear indication of the status and progress of SDK-based services during the service life cycle, including installation and upgrade activity. From the Details tab, you can see information about the specific operational plans that are currently running or have just completed. You can also view the execution of each task so that you can easily track the progress of the plans you have deployed.
     
-    For more information about viewing up-to-date status information for services and operational plans, see [Services](/1.13/gui/services/).
+    For more information about viewing up-to-date status information for services and operational plans, see the [Services](/1.13/gui/services/) documentation.
 
 - Identify the public-facing IP address for public agent nodes in the DC/OS GUI. <!--(DCOS-49987)-->
 
-    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS GUI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS GUI, see the [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
+    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS GUI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS GUI, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
 
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a **public cloud provider** such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
@@ -581,7 +581,7 @@ To add this job definition to the JSON editor, you would modify the existing JSO
     You should not add applications with names (identifiers) that end with restart, tasks, or versions. For example, the application names `/restart` and `/foo/restart` are invalid and generate errors when you attempt to issue a GET /v2/apps request. If you have any existing apps with restricted names, attempting any operation--except delete--will result in an error. You should ensure that application names comply with the validation rules before upgrading Marathon.
 
 ### Deprecated or decommissioned features
-- In DC/OS 1.13, the DC/OS history service has transitioned into the retired state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/1.13/overview/feature-maturity/).
+- In DC/OS 1.13, the DC/OS history service has transitioned into the retired state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/1.13/overview/feature-maturity/). <!--DCOS-50304, DCOS-51996-->
 
 - Some of the configuration parameters previously used to install DC/OS cluster components are no longer valid. The following `dcos_generate_config.sh` command-line options have been deprecated and decommissioned:
     * `--set-superuser-password`
@@ -595,35 +595,35 @@ To add this job definition to the JSON editor, you would modify the existing JSO
 
     If you attempt to use an option that is no longer valid, the installation script displays a warning message. You can also identify deprecated options by running the `dcos_generate_config.sh` script with the `--help` option. The output for the `--help` option displays [DEPRECATED] for the options that are no longer used. 
     
-    These options will be removed in DC/OS 1.14. If you have scripts or programs that use any of the deprecated options, you should update them (DCOS-50263).
+    These options will be removed in DC/OS 1.14. If you have scripts or programs that use any of the deprecated options, you should update them. <!--(DCOS-48069, DCOS-50263, DCOS-51311, DCOS-51312, DCOS-51174)-->
 
-- The CLI command `dcos node` has been replaced by the new command `dcos node list`. 
+- The CLI command `dcos node` has been replaced by the new command `dcos node list`.<!--DCOS-51803-->
 
     Running the `dcos node` command after installing this release automatically redirects to the output of the `dcos node list` command. The `dcos node list` command provides information similar to the output from the `dcos node` command, but also includes an additional column that indicates the public IP address of each node.
 
-    If you have scripts or programs that use output from the `dcos node` command, you should test the output provided by the `dcos node list` command and the update your scripts or programs, as needed.
+    If you have scripts or programs that use output from the `dcos node` command, you should test the output provided by the `dcos node list` command then update your scripts or programs, as needed.
 
-- Marathon-based HTTP, HTTPS, TCP, and Readiness checks
+- Marathon-based HTTP, HTTPS, TCP, and Readiness checks <!--DCOS-42564-->
 
     Marathon.based HTTP, HTTPS, and TCP health checks have been deprecated since DC/OS 1.9. With this release, Marathon-based readiness checks have also been deprecated. 
     
     If you have not already done so, you should migrate services to use the Mesos Health and Generic checks in place of the Marathon-based checks. As part of this migration, you should keep in mind that you can only specify one Mesos-based Health check and one Mesos-based Generic check.
 
-- Marathon support for App Container (`appc`) images is decommissioned in 1.13.
+- Marathon support for App Container (`appc`) images is decommissioned in 1.13.<!--DCOS-42564-->
 
     There has been no active development for AppC images since 2016. Support for AppC images will be removed in DC/OS 1.14.
 
-- Setting the `gpu_scheduling_behavior` configuration option to `undefined` is no longer supported.
+- Setting the `gpu_scheduling_behavior` configuration option to `undefined` is no longer supported.<!--DCOS-42564-->
 
     With this release, the default value for the `gpu_scheduling_behavior` configuration option is `restricted`. The value `undefined` is decommissioned. This value will be removed in DC/OS 1.14.
     
     If you have scripts or programs that set the `gpu_scheduling_behavior` configuration option to `undefined`, you should update them, as needed.
 
-- Marathon no longer supports the `api_heavy_events` setting.
+- Marathon no longer supports the `api_heavy_events` setting.<!--DCOS-42564-->
 
     With this release, the only response format allowed for `/v2/events` is `light` (in accordance with the previously-published deprecation plan). If you attempt to start Marathon with the `--deprecated_features=api_heavy_events` setting specified, the startup operation will fail with an error.
 
-- Marathon no longer supports Kamon-based metrics and related command-line arguments.
+- Marathon no longer supports Kamon-based metrics and related command-line arguments.<!--DCOS-42564-->
 
     The following command-line arguments that are related to outdated reporting tools have been removed:
     * `--reporter_graphite`
@@ -632,11 +632,11 @@ To add this job definition to the JSON editor, you would modify the existing JSO
 
     If you specify any of these flags, Marathon will fail to start.
 
-- Proxying server-sent events (sse) from standby Marathon instances is no longer supported.
+- Proxying server-sent events (sse) from standby Marathon instances is no longer supported.<!--DCOS-42564-->
 
     DC/OS no longer allows a standby Marathon instance to proxy `/v2/events` from the Marathon leader. Previously, it was possible to use the `proxy_events` flag to force Marathon to proxy the response from `/v2/events`. This standby redirect functionality and the related flag are no longer valid in 1.13.
 
-- Marathon no longer supports the `save_tasks_to_launch_timeout` setting.
+- Marathon no longer supports the `save_tasks_to_launch_timeout` setting.<!--DCOS-42564-->
 
     The `save_tasks_to_launch_timeout` option was deprecated in Marathon 1.5 and using it has had no effect on Marathon operations since that time. If you specify the `save_tasks_to_launch_timeout` setting, Marathon will fail to start.
 
