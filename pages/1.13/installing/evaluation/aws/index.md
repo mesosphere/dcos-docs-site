@@ -7,6 +7,7 @@ menuWeight: 0
 model: /1.13/installing/evaluation/include/data.yml
 render: mustache
 ---
+<p class="message--important"><strong>IMPORTANT:</strong> The Universal Installer has now been upgraded to `0.2`. If you already have a terraform cluster running please see the [update information](#universal-installer-02-update-for-aws) at the bottom of this page.</p>
 
 This guide is meant to take an operator through all steps necessary for a successfull installation of DC/OS using Terraform. If you are already familiar with the prerequisites, you can jump to [creating a DC/OS Cluster](#creating-a-dcos-cluster).
 
@@ -15,6 +16,26 @@ This guide is meant to take an operator through all steps necessary for a succes
 - Linux, macOS, or Windows
 - command-line shell terminal such as Bash or PowerShell
 - verified Amazon Web Services (AWS) account and [AWS IAM](https://console.aws.amazon.com/iam/home) user profile with permissions
+
+#include /1.13/installing/evaluation/include/install-terraform.tmpl
+
+#include /1.13/installing/evaluation/include/aws-credentials.tmpl
+
+#include /1.13/installing/evaluation/include/ssh-keypair.tmpl
+
+#include /1.13/installing/evaluation/include/enterprise-license.tmpl
+
+#include /1.13/installing/evaluation/include/aws-cluster-setup.tmpl
+
+#include /1.13/installing/evaluation/include/create-first-cluster.tmpl
+
+#include /1.13/installing/evaluation/include/logging-in-dcos.tmpl
+
+#include /1.13/installing/evaluation/include/scale-cluster.tmpl
+
+#include /1.13/installing/evaluation/include/upgrade-cluster.tmpl
+
+#include /1.13/installing/evaluation/include/destroy-cluster.tmpl
 
 ## Universal Installer 0.2 update for AWS
 The Universal Installer config module backend has undergone a change and is now running version `0.2` for Amazon Web Services users. If you are still on `0.1`, there is no direct upgrade path you will NOT be able to upgrade automatically, as the underlying cluster management has been changed. You will need to spin up a new cluster and transfer your services over.
@@ -52,23 +73,3 @@ To use the examples on these pages, make the following changes to your `main.tf`
       dcos_install_mode = "${var.dcos_install_mode}"
   }
   ```
-
-#include /1.13/installing/evaluation/include/install-terraform.tmpl
-
-#include /1.13/installing/evaluation/include/aws-credentials.tmpl
-
-#include /1.13/installing/evaluation/include/ssh-keypair.tmpl
-
-#include /1.13/installing/evaluation/include/enterprise-license.tmpl
-
-#include /1.13/installing/evaluation/include/aws-cluster-setup.tmpl
-
-#include /1.13/installing/evaluation/include/create-first-cluster.tmpl
-
-#include /1.13/installing/evaluation/include/logging-in-dcos.tmpl
-
-#include /1.13/installing/evaluation/include/scale-cluster.tmpl
-
-#include /1.13/installing/evaluation/include/upgrade-cluster.tmpl
-
-#include /1.13/installing/evaluation/include/destroy-cluster.tmpl
