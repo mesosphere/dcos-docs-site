@@ -112,7 +112,7 @@ MS.metadata({
   copyright: `&copy; ${currentYear} Mesosphere, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
   gitBranch: GIT_BRANCH,
-  dcosDocsLatest: '1.12',
+  dcosDocsLatest: '1.13',
 });
 
 // Source
