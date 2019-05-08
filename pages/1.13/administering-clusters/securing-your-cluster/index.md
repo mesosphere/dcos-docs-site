@@ -22,7 +22,7 @@ You must use appropriate network mechanisms to prevent unauthorized access to cl
 Depending on your cluster environment, this may include:
 - using physical or virtual subnets to isolate [DC/OS Security Zones](#security-zones);
 - using router firewalls or security groups to restrict access to ports;
-- using firewall software (e.g. `iptables`) on the nodes to restrict access to ports.
+- using firewall software (for example, `iptables`) on the nodes to restrict access to ports.
 
 Use these mechanisms to provide the following connectivity:
 - between master nodes: allow connections on all ports.
@@ -54,9 +54,9 @@ ranges are permitted to access the admin zone.
 
 Access to the admin zone is controlled by Admin Router.
 
-HTTP requests incoming to your DC/OS cluster are proxied through Admin Router (using [Nginx](http://nginx.org) with [OpenResty](https://openresty.org) at its core). Admin Router denies access to most HTTP endpoints for unauthenticated requests. In order for a request to be authenticated, it must present a valid authentication token in its Authorization header. A token can be obtained by going through the authentication flow. See the [Security documentation](/1.13/security/) for more information.
+HTTP requests incoming to your DC/OS cluster are proxied through Admin Router (using [Nginx](http://nginx.org) with [OpenResty](https://openresty.org) at its core). Admin Router denies access to most HTTP endpoints for unauthenticated requests. In order for a request to be authenticated, it must present a valid authentication token in its Authorization header. A token can be obtained by going through the authentication process. See the [Security documentation](/1.13/security/) for more information.
 
-Authenticated users are authorized to perform arbitrary actions in their cluster. That is, there is currently no fine-grained access control in DC/OS besides having access or not having access to services.
+Authenticated users are authorized to perform any actions in their cluster. There is currently no fine-grained access control in DC/OS besides having access or not having access to services.
 
 #### Steps for securing Admin Router
 

@@ -4,11 +4,12 @@ navigationTitle:  Shut Down and Decommission Nodes
 title: Shut Down and Decommission Nodes
 menuWeight: 810
 excerpt: Shutting down and decommissioning agent nodes
-
 enterprise: false
 ---
 
-As of DC/OS 1.12, deleting a node involves two steps: telling DC/OS to mark the node as `GONE`, and stopping the corresponding Mesos slave systemd unit.
+In DC/OS 1.12 and later, deleting a node involves two steps: 
+* Telling DC/OS to mark the node as `GONE`
+* Stopping the corresponding Mesos slave `systemd` unit
 
 If your node has gone down in an unplanned way, you only have to [Decommission the node](/1.13/administering-clusters/delete-node/#decommission-the-node/).
 
@@ -39,15 +40,16 @@ dcos node decommission <mesos-agent-id>
 ```
 
 Once the node has been decommissioned (this is equivalent to using the `MARK_AGENT_GONE` Mesos API), the node will be told to perform the following tasks:
--Shut down (kill) all executors (tasks) running on the agent node
--Stop the Mesos slave process (but it will get automatically re-started by systemd)
 
-<p class="message--important"><strong>IMPORTANT: </strong>You should decommission a node *only* if the node will never be coming back (for example, if the EC2 VM is destroyed). Once a node is decommissioned, the corresponding agent ID is marked as `GONE` internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to `TASK_GONE_BY_OPERATOR` state.</p>
+* Shut down (kill) all executors (tasks) running on the agent node
+* Stop the Mesos slave process (but it will get automatically re-started by systemd)
+
+<p class="message--important"><strong>IMPORTANT: </strong>You should decommission a node <strong>only</strong> if the node will never be coming back (for example, if the EC2 VM is destroyed). Once a node is decommissioned, the corresponding agent ID is marked as <code>GONE</code> internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to <code>TASK_GONE_BY_OPERATOR</code> state.</p>
 
 
 # Shut down the node
 
-If the DC/OS node is still running, the Mesos slave process will continue to try to register (and be disallowed, due to the agent being marked gone).  You can stop these attempts by stopping the Mesos slave process, which is run as a systemd unit.
+If the DC/OS node is still running, the Mesos slave process will continue to try to register (and be disallowed, due to the agent being marked gone).  You can stop these attempts by stopping the Mesos slave process, which is run as a `systemd` unit.
 
 1. [SSH to the agent node](/1.13/administering-clusters/sshcluster/) you wish to shut down.
 

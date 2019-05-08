@@ -7,6 +7,8 @@ enterprise: true
 excerpt: Using the command line interface to manage your DC/OS license
 ---
 
+The `dcos license` commands are also documented in the [CLI Command Reference](/1.13/cli/command-reference/dcos-license/) documentation.
+
 # Prerequisites
 - A DC/OS Enterprise cluster.
 - The [DC/OS CLI](/1.13/cli/install/) installed.
@@ -39,16 +41,20 @@ You can specify an optional path where to store the license. Returns the active 
 
 # Get license audit data
 
+You can specify an optional path where to store the audit data with the command `dcos license audit get`. This command takes an optional identifier to retrieve the data generated for a specific license. If you want to decrypt the audit data, you can use the `dcos license get --decryption-key` command to retrieve the decryption key.
+
+
 ```
 dcos license audit get [<id>|active]
 ```
 
-You can specify an optional path where to store the audit data. Takes an optional identifier to retrieve the data generated for a specific license. If you want to decrypt the audit data, you can use the `dcos license get --decryption-key` command to retrieve the decryption key.
 
 # Get license status
+
+The command `dcos license status` displays license terms and breaches. Optional flags can be used to filter the information.
+
 
 ```
 dcos license status [--terms] [--breaches]
 ```
 
-Displays license terms and breaches. Optional flags can be used to filter the information.

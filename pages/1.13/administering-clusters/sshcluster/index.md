@@ -7,14 +7,13 @@ excerpt: Setting up an SSH connection into your DC/OS cluster
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 If you are on the same network as your cluster or connected by a VPN, you can use the `dcos node ssh` command to SSH into your cluster. For more information, see the [dcos node section][1] of the CLI reference.
 
 *   [SSH to your DC/OS cluster on Unix/Linux (macOS, Ubuntu, etc)][2]
 *   [SSH to your DC/OS cluster on Windows][3]
 
-**Requirements:**
+**Prerequisite:**
 
 *   An unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported.
 
@@ -61,11 +60,11 @@ If you are on the same network as your cluster or connected by a VPN, you can us
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
     ```
 
-    To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/1.13/gui/) and click **Details**.
+    To find the agent ID, select the **Nodes** tab in the DC/OS [UI](/1.13/gui/) and click **Details**.
 
     ![Web interface node ID](/1.13/img/GUI-Nodes-Selected_Node_Detail_View-1_12.png)
 
-    Figure 1. Web interface Node ID screen
+    Figure 1. UI Node ID screen
 
 
 ## <a name="windows"></a>SSH to your DC/OS cluster on Windows

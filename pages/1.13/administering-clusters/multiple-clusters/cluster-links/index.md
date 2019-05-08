@@ -9,7 +9,7 @@ enterprise: true
 
 A cluster link is a **unidirectional** relationship between a cluster and another cluster.
 
-You add and remove links from one cluster to another cluster using DC/OS CLI [dcos cluster link](/1.13/cli/command-reference/dcos-cluster/dcos-cluster-link/) and [dcos cluster unlink](/1.13/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) commands and the [cluster link API](/1.13/administering-clusters/multiple-clusters/cluster-link-api/). Once a link is set up you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
+You add and remove links from one cluster to another cluster using DC/OS CLI [dcos cluster link](/1.13/cli/command-reference/dcos-cluster/dcos-cluster-link/) and [dcos cluster unlink](/1.13/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) commands, and the [cluster link API](/1.13/administering-clusters/multiple-clusters/cluster-link-api/). Once a link is set up, you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
 
 You must be logged in as a superuser or have the appropriate cluster link [permission](/1.13/security/ent/perms-reference/#cluster-linker) to view, add, and remove links and grant permissions to view linked clusters.
 
@@ -19,9 +19,9 @@ You must be logged in as a superuser or have the appropriate cluster link [permi
 As superuser:
 
 1. Configure an [OpenID IDP](/1.13/security/ent/sso/setup-openid/).
-    1. Ensure both cluster URLs are provided in **Authorized JavaScript origins** and **Authorized redirect URIs** fields in the Google Dev console.
-    1. Give the OIDC name such as "google-idp".
-    1. Ensure both clusters use the same `Client-Id` and `Client-Secret` when configuring OIDC.
+    1. Ensure that both cluster URLs are provided in **Authorized JavaScript origins** and **Authorized redirect URIs** fields in the Google Dev console.
+    1. Give the OIDC a name, such as "google-idp".
+    1. Ensure that both clusters use the same `Client-Id` and `Client-Secret` when configuring OIDC.
 1. Provide each user with permission to see services and linked clusters:
 
     1. Select **Organization -> Users**.
@@ -64,9 +64,9 @@ To remove a link, `dcos cluster unlink` command and supply the **name** or **ID*
 dcos cluster unlink <linked-cluster>
 ```
 
-# Switch cluster
+# Switch clusters
 
-You can switch between linked clusters using the CLI or UI. When you switch clusters using the CLI, the new cluster becomes the CLI's active cluster. When you switch cluster using the UI, the new cluster becomes the cluster you see in the UI.  If you switch the cluster in the CLI it doesn't change the cluster in the UI; similarly switching in the UI doesn't affect the attached cluster in the CLI.
+You can switch between linked clusters using the CLI or UI. When you switch clusters using the CLI, the new cluster becomes the CLI's active cluster. When you switch clusters using the UI, the new cluster becomes the cluster you see in the UI.  If you switch the cluster in the CLI, it doesn't change the cluster in the UI; similarly, switching in the UI doesn't affect the attached cluster in the CLI.
 
 ### Switch to a linked cluster from the DC/OS CLI
 
@@ -80,7 +80,7 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
 ### Switch to a linked cluster from the DC/OS UI
 
-1.  At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
+1.  At the top-right corner of the DC/OS UI, click the down arrow to the right of your cluster name.
 
     ![open cluster popup](/1.13/img/open-cluster-popup.png)
 
@@ -146,7 +146,7 @@ If you are logged in as a superuser you can also switch to a linked cluster in t
     dcos cluster link https://cluster-b.us-west-2.elb.amazonaws.com
     ```
 
-    The CLI prompts to choose the login provider for switching.
+    The CLI prompts you to choose the login provider for switching.
 
     ```
     Choose the login method and provider to enable switching to this linked cluster:
@@ -249,8 +249,8 @@ You can easily switch to a linked cluster that has been set up with the Google O
     ```
     dcos cluster list
           NAME                    CLUSTER ID                  STATUS     VERSION                                         URL
-     cluster-b  34ddd64a-9301-40b1-bb6a-201ec55a0d80  UNCONFIGURED  1.12-dev   https://cluster-b.us-west-2.elb.amazonaws.com
-    cluster-a*  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5   AVAILABLE    1.12-dev  https://cluster-a.us-west-2.elb.amazonaws.com
+     cluster-b  34ddd64a-9301-40b1-bb6a-201ec55a0d80  UNCONFIGURED  1.13-dev   https://cluster-b.us-west-2.elb.amazonaws.com
+    cluster-a*  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5   AVAILABLE    1.13-dev  https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
 1. Attach to UNCONFIGURED cluster.
@@ -268,6 +268,6 @@ You can easily switch to a linked cluster that has been set up with the Google O
     ```
     dcos cluster list
           NAME                    CLUSTER ID                 STATUS   VERSION                                         URL
-    cluster-b*  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.12-dev   https://cluster-b.us-west-2.elb.amazonaws.com
-     cluster-a  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.12-dev  https://cluster-a.us-west-2.elb.amazonaws.com
+    cluster-b*  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.13-dev   https://cluster-b.us-west-2.elb.amazonaws.com
+     cluster-a  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.13-dev  https://cluster-a.us-west-2.elb.amazonaws.com
     ```

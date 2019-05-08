@@ -11,11 +11,11 @@ Agent nodes are designated as [public](/latest/overview/concepts/#public-agent-n
 
 ## Prerequisites:
 
-*   DC/OS is installed using the [custom](/latest/installing/production/deploying-dcos/installation/) installation method.
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/latest/installing/evaluation/).
-*   Available agent nodes that satisfy the [system requirements](/latest/installing/production/system-requirements/).
-*   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
-*   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
+*   DC/OS installed using the [custom](/latest/installing/production/deploying-dcos/installation/) installation method
+*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/latest/installing/evaluation/)
+*   Available agent nodes that satisfy the [system requirements](/latest/installing/production/system-requirements/)
+*   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation)
+*   SSH installed and configured. This is required to access nodes in the DC/OS cluster.
 
 ## Install DC/OS agent nodes
 Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. This archive is created during the GUI or CLI [installation](/latest/installing/evaluation/#backup).
@@ -26,7 +26,7 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. T
     scp ~/dcos-install.tar $username@$node-ip:~/dcos-install.tar
     ```
 
-2.  SSH to the machine:
+1.  SSH to the machine:
 
     ```bash
     ssh $USER@$AGENT
@@ -63,13 +63,13 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. T
 You can verify the node type by running these commands from the DC/OS CLI.
 
 
--   Run this command to count the private agents.
+-   Run the following command to count the private agents.
 
     ```bash
     dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public == null) | .id' | wc -l
      ```
  
--   Run this command to count the public agents.
+-   Run the followingn command to count the public agents.
 
     ```bash
     dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l

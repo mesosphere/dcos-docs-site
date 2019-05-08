@@ -4,12 +4,8 @@ navigationTitle:  Replace a master node
 title: Replace a master node
 menuWeight: 800
 excerpt: Replacing a master node in an existing DC/OS cluster
-
 enterprise: true
 ---
-
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-docs-site -->
-
 
 You can replace a master node in an existing DC/OS cluster. Only one master should be replaced at a time.
 
@@ -31,6 +27,6 @@ If you have configured dynamic master discovery in your config.yaml (for example
 
 ## Confirm that the new master is healthy
 
-To confirm that the new master has joined the cluster successfully, you must validate that the procedure was successful before proceeding. The procedure is identical to the verification performed following a master node upgrade.
+To confirm that the new master has joined the cluster successfully, you must confirm that the procedure was successful before proceeding. The procedure is identical to the verification performed following a master node upgrade.
 
 The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.13/installing/production/upgrading/#dcos-masters) section in the [Upgrading documentation](/1.13/installing/production/upgrading/).
