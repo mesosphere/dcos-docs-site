@@ -16,7 +16,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [agent_list](#agent-list)                                              | A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.13/overview/concepts/#private-agent-node) host names. |
 | aws_template_storage_access_key_id         | The [access key ID](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
-| aws_template_storage_bucket                | The name of an S3 bucket to contain [customized advanced AWS templates](/1.13/installing/ent/cloud/aws/advanced/#create-your-templates). |
+| aws_template_storage_bucket                | The name of an S3 bucket to contain [customized advanced AWS templates](/1.13/installing/evaluation/community-supported-methods/aws/advanced/#create-your-templates). |
 | aws_template_storage_bucket_path           | The path to a location within the S3 bucket to store template artifacts.
 | aws_template_storage_region_name           | The region containing the S3 bucket.  |
 | aws_template_storage_secret_access_key     | The [secret access key](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |

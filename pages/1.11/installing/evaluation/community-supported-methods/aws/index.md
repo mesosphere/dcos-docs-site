@@ -4,6 +4,8 @@ title: AWS
 navigationTitle: AWS
 menuWeight: 5
 excerpt: Install DC/OS cluster for Amazon Web Services using templates on AWS CloudFormation
+model: /1.11/installing/data.yml
+render: mustache
 ---
 
 <p class="message--warning"><strong>DISCLAIMER: </strong>This is a <a href="https://github.com/dcos/terraform-dcos/tree/master/aws">community driven project</a> and not officially supported by Mesosphere. This installation method is used for fast demos and proofs of concept. This page explains how to install DC/OS cluster on AWS using Terraform. Terraform is intended for reference only and are not recommended for production use. Upgrades are not supported with the following installation methods.</p>
@@ -20,5 +22,5 @@ You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS 
 - Updates of DC/OS on AWS CloudFormation have not been automated, validated, or documented.
 - Modified CloudFormation templates are not supported by Mesosphere, Inc.
 
-The recommended way to install production-ready DC/OS that can be upgraded in-place is to use the [Installation method](/{{ model.folder_version }}//installing/production/deploying-dcos/installation/).
+The recommended way to install production-ready DC/OS that can be upgraded in-place is to use the [Installation method](/{{ model.folder_version }}/installing/production/deploying-dcos/installation/).
 [/message]
