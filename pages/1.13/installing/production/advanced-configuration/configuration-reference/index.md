@@ -276,7 +276,7 @@ For more information, see the [security documentation](/1.13/security/ent/).
 ### dcos_overlay_enable
 Indicates whether to enable DC/OS virtual networks.
 
-**Note:** Virtual networks require Docker version 1.12 or later but, if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.13/installing/ent/custom/system-requirements/).
+**Note:** Virtual networks require Docker version 1.12 or later but, if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/1.13/installing/production/system-requirements/).
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. After the virtual network is enabled, you can also specify the following parameters:
