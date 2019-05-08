@@ -4,11 +4,10 @@ navigationTitle:  Installing the CLI
 title: Installing the CLI
 menuWeight: 1
 excerpt: Installing the DC/OS command line interface
-
 enterprise: false
 ---
 
-The recommended method to install the DC/OS CLI is by getting the preformatted set of commands from the DC/OS web interface and running them in the terminal. See the prerequisites and instructions for your operating system for more information:
+The recommended method to install the DC/OS CLI is by getting the preformatted set of commands from the DC/OS UI and running them in the terminal. See the prerequisites and instructions for your operating system for more information:
 
 - [Installing on Linux](#linux)
 - [Installing on macOS](#macos)
@@ -27,7 +26,7 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 
 
 # Prerequisites for macOS
--  macOS 10.10 Yosemite (deprecated), or later. The next version of the DC/OS CLI will require macOS 10.11 El Capitan or later.
+-  You must be running MacOS 10.10 Yosemite (deprecated), or later. The next version of the DC/OS CLI will require macOS 10.11 El Capitan or later.
 - A model running on a Haswell CPU (2014), or later.
 - You must be able to run `cURL` program on the system hosting the CLI. If you don't have `cURL`, follow the instructions in [Install curl on macOS](http://macappstore.org/curl/) to install it.
 
@@ -35,9 +34,9 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 - Windows 10 64-bit or later.
 - You must disable any security or antivirus software before you start the installation.
 
-# Installing the CLI using the web interface
+# Installing the CLI using the UI
 
-1. At the top-right corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
+1. At the top-right corner of the DC/OS UI, click the down arrow to the right of your cluster name.
 
     ![open cluster popup](/1.13/img/open-cluster-popup.png)
 
@@ -57,7 +56,7 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 
 # Installing the DC/OS CLI manually on Linux
 
-It is strongly recommended that you copy and paste the installation commands from the web interface of the cluster to which you want to connect. Following below are the instructions for step by step installation of the CLI.
+It is strongly recommended that you copy and paste the installation commands from the UI of the cluster to which you want to connect. Following below are the instructions for step by step installation of the CLI.
 
 1. If you do not already have a working directory for the CLI, create one. The preferred location is `/usr/local/bin` and all the instructions will reference this path.
 
