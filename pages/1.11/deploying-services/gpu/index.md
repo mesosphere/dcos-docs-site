@@ -27,7 +27,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 
 ###  Prerequisites
 - The AWS DC/OS advanced template [system requirements](/1.11/installing/production/system-requirements/).
-- The `zen.sh` script copied to your local machine. The script and instructions are [here](/1.11/installing/evaluation/aws/aws-advanced/).
+- The `zen.sh` script copied to your local machine. The script and instructions are [here](/1.11/installing/evaluation/community-supported-methods/aws/aws-advanced/).
 
 ### Create Dependencies
 
@@ -38,9 +38,9 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
    ```
 
     <table class=“table” bgcolor=#858585>
-    <tr> 
-    <td align=justify style=color:white><strong>Important:</strong> You must run the "zen.sh" script before performing the next steps.</td> 
-    </tr> 
+    <tr>
+    <td align=justify style=color:white><strong>Important:</strong> You must run the "zen.sh" script before performing the next steps.</td>
+    </tr>
     </table>
 
 1. Follow the instructions [here](1.11/installing/evaluation/cloud-installation/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.

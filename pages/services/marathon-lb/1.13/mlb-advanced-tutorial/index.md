@@ -9,20 +9,20 @@ enterprise: false
 
 This tutorial guides you through the steps for configuring Marathon-LB to be used as an internal and external load balancer.
 - The **external load balancer** is used to route external HTTP traffic into the cluster.
-- The **internal load balancer** is used for internal service discovery and load balancing within the cluster. 
+- The **internal load balancer** is used for internal service discovery and load balancing within the cluster.
 
 This tutorial illustrates a DC/OS cluster running on an AWS instance, with external traffic routed directly to an external load balancer first. The external load balancer is configured to expose the “public” agent nodes in the DC/OS cluster. The public agent nodes route inbound requests that then run as containerized DC/OS services for a website.
 
 After completing this tutorial, you will have hands-on practice configuring Marathon-LB for a cluster running on an AWS instance with Marathon-LB providing internal and external load balancing using a sample application.
 
 # Before you begin
-* You must have a DC/OS cluster installed by using [AWS cloud templates](/1.12/installing/evaluation/aws/) and credentials.
+* You must have a DC/OS cluster installed by using [AWS cloud templates](/1.12/installing/evaluation/community-supported-methods/aws/) and credentials.
 * The DC/OS cluster must have at least one master node, at least three private agent nodes, and at least one public agent node.
 * You must have an account with access to the DC/OS web-based administrative console or DC/OS command-line interface.
 * You must have Marathon-LB installed.
 
 # Verify Marathon-LB is installed and running
-Before you configure load balancing for external or internal applications, you should verify that you have Marathon-LB installed and working properly. 
+Before you configure load balancing for external or internal applications, you should verify that you have Marathon-LB installed and working properly.
 
 To verify you have Marathon-LB installed and running:
 
@@ -35,7 +35,7 @@ To verify you have Marathon-LB installed and running:
     <p>
     <img src="/1.12/img/lb2.jpg" alt="Marathon-LB HAProxy statistics">
     </p>
-  
+
 # Deploy internal load balancing
 To set up Marathon-LB for internal load balancing, you must first specify some configuration options for the Marathon-LB package. The following steps illustrate how to modify a sample configuration file for **internal load balancing**.
 
@@ -108,7 +108,7 @@ The following steps illustrate how to modify a sample configuration file to use 
 
 1. Deploy the external NGINX app on DC/OS using this command:
 
-    ``` bash 
+    ``` bash
     dcos marathon app add nginx-external.json
     ```
 
@@ -168,7 +168,7 @@ The following steps illustrate how to modify a sample configuration file to use 
 # Deploy an external and internal facing NGINX app
 The following steps illustrate how to modify a sample configuration file to do load balancing for an application that is accessible both externally from a public agent IP address and internally from within the cluster.
 
-1. Copy the JSON below into a file and name it `nginx-everywhere.json`. 
+1. Copy the JSON below into a file and name it `nginx-everywhere.json`.
 
     ``` json
     {
@@ -239,7 +239,7 @@ An important feature of Marathon-LB is support for virtual hosts (vhost). Virtua
 To demonstrate how to use virtual hosts:
 1. Find your public agent IP address.
 
-1. Modify the app definition to point to the public agent DNS name. 
+1. Modify the app definition to point to the public agent DNS name.
 
     You can modify your app by using the [DC/OS command-line interface](#virtual-host-cli) or [web-based console](#virtual-host-web).
 
@@ -250,7 +250,7 @@ To demonstrate how to use virtual hosts:
 ## Modifying with app definition with the CLI
 If you are working with the external NGINX app and the `nginx-external.json` app definition file, you can modify and deploy the virtual host settings for the the NGINX application using the DC/OS CLI.
 
-1. Add the HAPROXY_0_VHOST label to your local `nginx-external.json` file. 
+1. Add the HAPROXY_0_VHOST label to your local `nginx-external.json` file.
 
     In this example, the public DNS name is `brenden-j-publicsl-1ltlkzeh6b2g6-1145355943.us-west-2.elb.amazonaws.com` so you would modify the app definition to contain settings similar to this code segment:
 
@@ -280,7 +280,7 @@ If you are working with the external NGINX app and the `nginx-external.json` app
 <a name="virtual-host-web"></a>
 
 ## Modifying with app definition with the web-based console
-If you are working with the external NGINX application and the `nginx-external.json` app definition file, you can modify and deploy the virtual host settings for the the NGINX application using the DC/OS web-based console. 
+If you are working with the external NGINX application and the `nginx-external.json` app definition file, you can modify and deploy the virtual host settings for the the NGINX application using the DC/OS web-based console.
 
 1. Open a web browser and navigate to the URL for the DC/OS web-based console.
 
@@ -297,8 +297,8 @@ If you are working with the external NGINX application and the `nginx-external.j
 
     * The `HAPROXY_0_VHOST` label instructs Marathon-LB to expose NGINX on the external load balancer with a virtual host.
 
-    * The 0 in the label key corresponds to the `servicePort` index, beginning from 0. 
-    
+    * The 0 in the label key corresponds to the `servicePort` index, beginning from 0.
+
     If you have multiple `servicePort` definitions, you would iterate them as 0, 1, 2, and so on. Specifying the `servicePort` is not required, however, because Marathon assigns one by default.
 
 1. Click **Review & Run**, then click **Run Service**.
