@@ -1,0 +1,28 @@
+# Common values:
+
+packageName: beta-elastic
+serviceName: elastic
+techName: Beta DC/OS Elastic
+techShortName: Beta DC/OS Elastic
+searchEngine: Elasticsearch
+
+# Values specific to certain templates:
+
+install:
+  minNodeCount: three
+  nodeDescription: with three master nodes, two data nodes, and one coordinator node
+  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/elastic/elastic-auth/
+
+managing:
+  podType: data
+  taskType: node
+
+supportedVersions:
+  techExampleVersion: 6.3.2
+  techLink: "the [Elastic Stack](https://www.elastic.co/downloads/elasticsearch) and [X-Pack](https://www.elastic.co/downloads/x-pack)"
+
+security:
+  extras: ",
+    \"elasticsearch\": {
+        \"xpack_enabled\": true
+    }"

@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Discover the new features, updates, and known limitations in this release of the Elastic Service
+excerpt: Discover the new features, updates, and known limitations in this release of the {{ model.techName }} Service
 title: Release Notes
 menuWeight: 10
 model: /services/elastic/data.yml
 render: mustache
 ---
 
-# Release notes for Elastic Service version 2.6.0-6.3.2-beta
+# Release notes for {{ model.techName }} version 2.6.0-6.3.2-beta
 
 ## New Features
 
