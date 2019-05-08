@@ -273,7 +273,7 @@ Indicates whether to enable DC/OS virtual networks.
 
 <p class="message--note"><strong>NOTE: </strong>Virtual networks require Docker version 1.12 or later but, if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'. </p>
 
-For more information, see the [system requirements](/1.12/installing/ent/custom/system-requirements/).
+For more information, see the [system requirements](/1.12/installing/production/system-requirements/).
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. After the virtual network is enabled, you can also specify the following parameters:
