@@ -156,24 +156,24 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
     <tr>
         <td>Oracle Linux 7.6 (RHCK)</td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.5 (RHCK)</td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.4 (RHCK)</td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
 </table>
 
