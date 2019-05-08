@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Running Jobs in Remote Regions
 title: Running Jobs in Remote Regions
 menuWeight: 3
-
 enterprise: false
 ---
 
@@ -18,7 +17,7 @@ As described in [fault domain awareness and capacity extension for services](/1.
 
 ## Placement constraint guidelines
 
-- If no region is specified in your job, jobs will be scheduled to run only in the local region. No job run will ever be scheduled for an agent outside of the local region unless you explicitly specify that they should be launched in a remote region.
+- If no region is specified in your job, jobs will be scheduled to run only in the local region. No job run will ever be scheduled for an agent outside of the local region unless you explicitly specify that it should be launched in a remote region.
 
 - If you specify a region without a specific zone, jobs will run on any agent in the given region.
 
