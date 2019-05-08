@@ -9,4 +9,4 @@ model: /1.13/installing/data.yml
 render: mustache
 ---
 
-#include /1.13/installing/evaluation/include/aws-remote-region-all.tmpl
+#include /install-include/aws-remote-region-all.tmpl
