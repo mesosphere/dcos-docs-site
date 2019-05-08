@@ -12,10 +12,11 @@ Welcome to part 1 of the DC/OS 101 Tutorial.
 
 # Prerequisites
 To get started with this tutorial, you should have access to a running DC/OS cluster with at least a single master node and 3 agent nodes (of which one is a public agent node). If you don't have these requirements set up, please follow the [setup instructions](/latest/installing/) for various cloud providers, on-premise, or vagrant setups.
-If you are unsure which option to choose, then we recommend using the <a href="https://downloads.dcos.io/dcos/stable/aws.html" target="_blank">AWS templates</a>. For this tutorial a setup with a single master node is sufficient, but for running production workloads you should have multiple master nodes.
+
+If you are unsure which option to choose, then we recommend using the <a href="https://downloads.dcos.io/dcos/stable/aws.html" target="_blank">AWS templates</a>. For this tutorial, a setup with a single master node is sufficient, but for running production workloads you should have multiple master nodes.
 
 # Objective
-You have access to your cluster and have already taken a first look at the GUI. You can also access the cluster from your local machine via the DC/OS CLI. By the end of this section you will have installed the DC/OS CLI and used it to explore your cluster.
+You have access to your cluster and have already taken a first look at the GUI. You can also access the cluster from your local machine using the DC/OS CLI. By the end of this section, you will have installed the DC/OS CLI and used it to explore your cluster.
 
 # Steps
   * Install the DC/OS CLI
@@ -25,7 +26,7 @@ You have access to your cluster and have already taken a first look at the GUI. 
 
   * Explore the cluster:
       * Check the running services with `dcos service`. Unless you already installed additional services, there should be two services running on your cluster: Marathon (basically the DC/OS init system) and metronome (basically the DC/OS cron scheduler).
-      * Check the connected nodes with `dcos node`. You should be able to see your connected agents nodes (i.e., not the master nodes) in your cluster.
+      * Check the connected nodes with `dcos node list`. This command displays some basic information about the connected agent and master nodes in your cluster.
       * Explore the logs of the leading mesos master with `dcos node log --leader`. Mesos is basically the kernel of DC/OS and this tutorial explores the Mesos logs at multiple times during this tutorial.
       * To explore more CLI options, enter the `dcos help` command. There are also help options of the individual commands available e.g., `dcos node --help`. Alternatively, check the [CLI documentation](/cli/).
 
