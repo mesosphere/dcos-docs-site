@@ -1,78 +1,86 @@
 ---
 layout: layout.pug
-navigationTitle: 
-excerpt:
+navigationTitle: Release Notes
+excerpt: Discover the new features, updates, and known limitations in this release of the HDFS Service
 title: Release Notes
-menuWeight: 120
-
+menuWeight: 10
+model: /services/hdfs/data.yml
+render: mustache
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
+ # Release Notes for HDFS Service version 2.6.0-2.6.0-cdh5.11.0-beta
 
+## New Features
 
-## Version 2.6.0-2.6.0-cdh5.11.0-beta
-
-## NOTICE
-
-This is a beta release of the DC/OS HDFS service. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
-
-### New Features
 - Support for mount volume profiles, requires DC/OS 1.12+ and the [DC/OS Storage Service](/services/beta-storage).
 
+<!-- # Release Notes for HDFS Service version 2.5.0-2.6.0-cdh5.11.0
 
-## Version 2.1.2-2.6.0-cdh5.11.0-beta
+## Feature
+- Hadoop `ipc.maximum.data.length` is now a configurable property
+- Readiness-check interval, timeout and delay are now configurable properties
+- Number of open file descriptors (`RLIMIT_NOFILE`) is now a configurable property
 
-## NOTICE
+## Bug Fixes
+- Fix for JournalNodes failing to establish quorum when `paxos` folder is missing
 
-This is a beta release of the DC/OS HDFS service. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
+## Improvements
+- Added validation to verify package names are unique and follow Universe guidelines
 
-### Improvements
-- Update the ordering of `service` settings to be consistent with other data service
-- Make the readiness check of a name node more robust w.r.t. startup times
-- Add logging to journal node readiness check 
-- Kerberos settings
-  - Ensure all settings are empty by default
-  - Add an option to toggle Kerberos debug output
-- Moved scheduler health-checks from HTTP to [Mesos-level health checks](https://mesosphere.github.io/marathon/docs/health-checks.html#mesos-level-health-checks).
-- Bump JRE to 1.8u162.
-- Improvements to the pod pause feature.
-- Improve handling of unexpected task statuses.
+## Updates
+- Upgraded libmesos-bundle to version 1.12
+
+# Release Notes for HDFS Service version 2.4.0-2.6.0-cdh5.11.0
+
+## Bug Fixes
+- Fix a bug where an out of date configuration ID would be selected when restarting or replacing pods. This could lead to configuration updates being reverted to the values with which the service was initially deployed. ([#2694](https://github.com/mesosphere/dcos-commons/pull/2694))
+
+## Improvements
+- The `hdfs.auth_to_local` setting no longer need to be specified for the {{ model.techShortName }}-specific principals when installing kerberized {{ model.techShortName }}.
+
+## Updates
+- Upgrade JRE to 1.8u192 to address CVEs
+
+# Release Notes for HDFS Service version 2.3.0-2.6.0-cdh5.11.0
+
+## New Features
+
+- All frameworks ({{ model.techShortName }} included) now isolate their `/tmp` task directories by making them Mesos [`SANDBOX_PATH` volume sources](https://github.com/apache/mesos/blob/master/docs/container-volume.md#sandbox_path-volume-source). ([#2467](https://github.com/mesosphere/dcos-commons/pull/2467) and [#2486](https://github.com/mesosphere/dcos-commons/pull/2486))
+
+## Bug Fixes
+
+- Fix duplicate mounts being generated for TLS secrets, causing pod maintenance operations to fail (#2577)
+
+## Improvements
+
+- The SDK tests now validate missing values for `svc.yml` Mustache variables. ([#2527](https://github.com/mesosphere/dcos-commons/pull/2527))
+
+## Version 2.2.0-2.6.0-cdh5.11.0
+
+### New Features
+- Support for deploying the service in a remote region.
 
 ### Bug Fixes
-- Add support for shared HDFS sandboxes
-- Fix support for non-`LOCAL` Kerberos realms
+- Expose heap settings for all nodes.
+
+## Version 2.1.0-2.6.0-cdh5.11.0
+
+### New Features
+- Support for {{ model.techShortName }} rack awareness using DC/OS zones on DC/OS 1.11+
+- Support for the automated provisioning of TLS artifacts to secure {{ model.techShortName }} communication.
+- Support for Kerberos authorization and authentication.
+- Ability to pause a service pod for debugging and recovery purposes.
+
+### Updates
+- Major Improvements to the stability and performance of service orchestration
+- Upgrade JRE to 1.8u162. (#2135)
+- The service now uses the Mesos V1 API. The service can be set back to the V0 API using the service property `service.mesos_api_version`.
+
 
 ## Version 2.0.4-2.6.0-cdh5.11.0
 
 ### Bug Fixes
 - Placement constraints are now exposed.
-
-## Version 2.1.1-2.6.0-cdh5.11.0-beta
-
-## NOTICE
-
-This is a beta release of the DC/OS Apache HDFS framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
-
-### New Features
-- Support for HDFS rack awareness using DC/OS zones on DC/OS 1.11+
-
-### Bug Fixes
-- Scheduler health check now passes during service uninstall.
-- Fixed a regression in replacing failed pods on failed agents.
-- Replacing a pod on a failed agent now no longer waits for Mesos to register the agent as lost.
-
-## Verion 3.0.0-2.6.0-cdh5.11.0-beta
-
-## NOTICE
-
-This is a beta release of the DC/OS HDFS framework. It contains multiple improvements as well as new features that are to be considered of beta quality. Do _not_ operate this version in production.
-
-### New features
-- Support for the automated provisioning of TLS artifacts to secure HDFS communication.
-- Support for Kerberos authorization and authentication.
-
-### Updates
-- Major improvements to the stability and performance of service orchestration.
 
 ## Version 2.0.3-2.6.0-cdh5.11.0
 
@@ -106,3 +114,4 @@ This is a beta release of the DC/OS HDFS framework. It contains multiple improve
 ### Documentation
 - Pre-install notes include five agent pre-requisite
 - Updated CLI documentation
+ -->

@@ -1,23 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle: Beta Cassandra 2.1.2-3.0.15-beta
-title: Beta Cassandra 2.1.2-3.0.15-beta
-menuWeight: 10
-excerpt: 
-featureMaturity:
-enterprise: false
+navigationTitle: Cassandra 2.5.0-3.0.16-beta
+excerpt: DC/OS Apache Cassandra is an automated service that makes it easy to deploy and manage Apache Cassandra on DC/OS.
+title: Cassandra 2.5.0-3.0.16-beta
+menuWeight: 2
+model: /services/cassandra/data.yml
+render: mustache
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
+DC/OS {{ model.techName }} is an automated service that makes it easy to deploy and manage {{ model.techName }} on [DC/OS](https://mesosphere.com/product/). {{ model.techName }} is a distributed NoSQL database offering high availability, fault tolerance and scalability across data centers.
 
-
-DC/OS Apache Cassandra is an automated service that makes it easy to deploy and manage Apache Cassandra on [DC/OS](https://mesosphere.com/product/). Apache Cassandra is a distributed NoSQL database offering high availability, fault tolerance and scalability across data centers.
-
-For more information on Apache Cassandra, see the Apache Cassandra [documentation](http://cassandra.apache.org/doc/latest/).
+For more information on {{ model.techName }}, see the {{ model.techName }} [documentation](http://cassandra.apache.org/doc/latest/).
 
 # Features
 
 *   Easy installation
-*   Simple horizontal scaling of Cassandra nodes
+*   Simple horizontal scaling of {{ model.techShortName }} nodes
 *   Straightforward backup and restore of data out of the box
 *   Multi-datacenter replication support

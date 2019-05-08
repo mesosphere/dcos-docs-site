@@ -1,47 +1,35 @@
 ---
 layout: layout.pug
-navigationTitle: 
+navigationTitle:
 excerpt:
 title: Limitations
 menuWeight: 100
-
+model: /services/elastic/data.yml
+render: mustache
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
+## Configuration via elasticsearch.yml and/or Elastic APIs
 
+Elasticsearch provides two ways of updating settings: persistent (through `elasticsearch.yml` file) and transient (through [Elasticsearch Cluster Update Settings API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-update-settings.html)). The service's Configuration Options are carried over to the tasks' `elasticsearch.yml` file automatically. Out-of-band configuration changes (either via Elasticsearch's Cluster Update Settings API or externally modifying `elasticsearch.yml` files) will not persist in case of a restart, failure recovery, or upgrade.
 
-## Node requirements
+## Kibana configured with X-Pack Security enabled
 
-The maximum number of deployable nodes is constrained by the DC/OS cluster's resources. Each Elasticsearch node has specified required resources, so nodes may not be placed if the DC/OS cluster lacks the requisite resources.
+If Kibana is configured with `kibana.elasticsearch_xpack_security_enabled` set to `true` the default DC/OS service link (`https://<cluster-url>/service/<kibana-service-name>`) will not work. This is due to a change in how Kibana deals with `Authorization` HTTP headers starting in version 6.3.
 
-## Upgrades and rolling configuration updates do not wait for green status
+As a workaround, you should be able to expose Kibana using [EdgeLB](https://docs.mesosphere.com/services/edge-lb/) by following the following how-to: [Expose Kibana using EdgeLB](/services/elastic/2.5.0-6.3.2/how-to-guides#expose-kibana-using-edgelb).
 
-During deployment and upgrades, the `serial` strategy does not wait for the Elastic service to reach green before proceeding to the next node.
+#include /services/include/limitations.tmpl
+#include /services/include/limitations-zones.tmpl
+#include /services/include/limitations-regions.tmpl
 
-## Out-of-band configuration
+## Upgrades and configuration updates
 
-Out-of-band configuration modifications are not supported. The service's core responsibility is to deploy and maintain the service with a specified configuration. In order to do this, the service assumes that it has ownership of task configuration. If an end-user makes modifications to individual tasks through out-of-band configuration operations, the service will override those modifications at a later time. For example:
-- If a task crashes, it will be restarted with the configuration known to the scheduler, not one modified out-of-band. 
-- If a configuration update is initiated, all out-of-band modifications will be overwritten during the rolling update.
+Upgrades and rolling configuration updates do not wait for a cluster green health status. During deployment and upgrades, the `serial` strategy does not wait for the Elasticsearch cluster to reach green health before proceeding to the next node.
 
-ElasticSearch provides two ways of updating settings: persistent (through `elasticsearch.yml` file) and transient (through Elastic Settings Update API). The service's Configuration Options are carried over to the tasks' elasticsearch.yml file automatically. Out-of-band configuration changes (either via ElasticSearch's Update API or externally modifying elasticsearch.yml files) will not persist in case of a restart, failure recovery, or upgrade.  
+## Security
 
-## Scaling in
+Elasticsearch's built-in authentication mechanisms ([realms](https://www.elastic.co/guide/en/elastic-stack-overview/6.6/setting-up-authentication.html)) cannot currently be configured through service configuration options (e.g. on package installs or service updates). However, since the [native](https://www.elastic.co/guide/en/elasticsearch/reference/6.6/configuring-native-realm.html) realm is enabled by default by Elasticsearch it's possible to configure it through the [security APIs](https://www.elastic.co/guide/en/elasticsearch/reference/6.6/security-api.html). These APIs include both authentication and authorization mechanisms.
 
-To prevent accidental data loss, the service does not support reducing the number of pods.
+### Transport Encryption
 
-## Disk changes
-
-To prevent accidental data loss from reallocation, the service does not support changing volume requirements after initial deployment.
-
-## Best-effort installation
-
-If your cluster doesn't have enough resources to deploy the service as requested, the initial deployment will not complete until either those resources are available or until you reinstall the service with corrected resource requirements. Similarly, scale-outs following initial deployment will not complete if the cluster doesn't have the needed available resources to complete the scale-out.
-
-## Virtual networks
-
-When the service is deployed on a virtual network, the service may not be switched to host networking without a full re-installation. The same is true for attempting to switch from host to virtual networking.
-
-## Task Environment Variables
-
-Each service task has some number of environment variables, which are used to configure the task. These environment variables are set by the service scheduler. While it is _possible_ to use these environment variables in adhoc scripts (e.g. via `dcos task exec`), the name of a given environment variable may change between versions of a service and should not be considered a public API of the service.
+Toggling Transport Encryption requires doing a full-cluster restart. This is an [Elasticsearch limitation](https://www.elastic.co/guide/en/elasticsearch/reference/current/configuring-tls.html). The service's default update strategy is a rolling upgrade (`serial`). If you change its configuration to enable or disable transport encryption, nodes that have been configured with TLS will be unable to communicate with nodes configured with unencrypted networking, and vice-versa. A full-cluster restart is required, using the `parallel` update strategy. Make sure you have backups, and plan for some downtime. Afterwards, you should set the update strategy back to `serial` for future updates.

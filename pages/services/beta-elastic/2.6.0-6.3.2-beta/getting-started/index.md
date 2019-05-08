@@ -2,10 +2,10 @@
 layout: layout.pug
 navigationTitle:
 excerpt:
-title: Uninstall
-menuWeight: 60
+title: Getting Started
+menuWeight: 12
 model: /services/elastic/data.yml
 render: mustache
 ---
 
-#include /services/include/uninstall.tmpl
+#include /services/include/getting-started.tmpl
