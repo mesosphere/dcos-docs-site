@@ -19,7 +19,7 @@ render: mustache
 
 #include /1.13/installing/evaluation/include/aws-cluster-setup.tmpl
 
-#include /1.13/installing/evaluation/include/create-first-cluster.tmpl
+#include /1.13/installing/evaluation/include/all-create-first-cluster.tmpl
 
 #include /1.13/installing/evaluation/include/logging-in-dcos.tmpl
 

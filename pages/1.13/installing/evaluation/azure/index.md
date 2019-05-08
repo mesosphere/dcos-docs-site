@@ -8,13 +8,7 @@ model: /1.13/installing/evaluation/include/data.yml
 render: mustache
 ---
 
-This guide is meant to take an operator through all steps necessary for a successfull installation of DC/OS using Terraform. If you are already familiar with the prerequisites, you can jump to [Creating a DC/OS Cluster](#creating).
-
-## Prerequisites
-
-- Linux, macOS, or Windows
-- command-line shell terminal such as Bash or PowerShell
-- verified Azure Resource Manager account with the necessary permissions
+#include /1.13/installing/evaluation/include/intro-and-prereqs.tmpl
 
 #include /1.13/installing/evaluation/include/install-terraform.tmpl
 
