@@ -583,8 +583,6 @@ To add this job definition to the JSON editor, you would modify the existing JSO
 ### Deprecated or decommissioned features
 - In DC/OS 1.13, the DC/OS history service has transitioned into the retired state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/1.13/overview/feature-maturity/).
 
-- Mesos endpoints with the <code>.json</code> suffix are deprecated and should not be used in DC/OS 1.13.
-
 - Some of the configuration parameters previously used to install DC/OS cluster components are no longer valid. The following `dcos_generate_config.sh` command-line options have been deprecated and decommissioned:
     * `--set-superuser-password`
     * `--offline`
@@ -595,9 +593,13 @@ To add this job definition to the JSON editor, you would modify the existing JSO
     * `--deploy`
     * `--post-flight`
 
-    If you have scripts or programs that use any of the deprecated options, you should update them (DCOS-50263).
+    If you attempt to use an option that is no longer valid, the installation script displays a warning message. You can also identify deprecated options by running the `dcos_generate_config.sh` script with the `--help` option. The output for the `--help` option displays [DEPRECATED] for the options that are no longer used. 
+    
+    These options will be removed in DC/OS 1.14. If you have scripts or programs that use any of the deprecated options, you should update them (DCOS-50263).
 
-- The CLI command `dcos node` has been replaced by the new command `dcos node list`. Running the `dcos node` command after installing this release automatically redirects to the output of the `dcos node list` command. The `dcos node list` command provides the same output plus includes an additional column that indicates the public IP address of each node.
+- The CLI command `dcos node` has been replaced by the new command `dcos node list`. Running the `dcos node` command after installing this release automatically redirects to the output of the `dcos node list` command. The `dcos node list` command provides information similar to the output from the `dcos node` command, but also includes an additional column that indicates the public IP address of each node.
+
+If you have scripts or programs that use output from the `dcos node` command, you should test the output provided by the `dcos node list` command and the update your scripts or programs, as needed.
 
 - Marathon-based HTTP, HTTPS, TCP, and Readiness checks
 
@@ -605,9 +607,9 @@ To add this job definition to the JSON editor, you would modify the existing JSO
     
     If you have not already done so, you should migrate services to use the Mesos Health and Generic checks in place of the Marathon-based checks. As part of this migration, you should keep in mind that you can only specify one Mesos-based Health check and one Mesos-based Generic check.
 
-- Marathon support for App Container (`appc`) images is being retired in 1.13 and will be removed in DC/OS 1.14.
+- Marathon support for App Container (`appc`) images is decommissioned in 1.13.
 
-- The Marathon standby redirect feature is being retired in 1.13 for all API endpoints.
+    There has been no active development for AppC images since 2016. Support for AppC images will be removed in DC/OS 1.14.
 
 - Setting the `gpu_scheduling_behavior` configuration option to `undefined` is no longer supported.
 
@@ -617,7 +619,7 @@ To add this job definition to the JSON editor, you would modify the existing JSO
 
     With this release, the only response format allowed for `/v2/events` is `light` (in accordance with the previously-published deprecation plan). If you attempt to start Marathon with the `--deprecated_features=api_heavy_events` setting specified, the startup operation will fail with an error.
 
-- DC/OS no longer supports Kamon-based metrics and related command-line arguments.
+- Marathon no longer supports Kamon-based metrics and related command-line arguments.
 
     The following command-line arguments that are related to outdated reporting tools have been removed:
     * `--reporter_graphite`
@@ -626,17 +628,13 @@ To add this job definition to the JSON editor, you would modify the existing JSO
 
     If you specify any of these flags, Marathon will fail to start.
 
-- Proxying events from standby Marathon instances is no longer supported.
+- Proxying server-sent events (sse) from standby Marathon instances is no longer supported.
 
-    DC/OS no longer allows a standby Marathon instance to proxy `/v2/events` from the Marathon leader. Previously, it was possible to use the `proxy_events` flag to force Marathon to proxy the response from `/v2/events`. This functionality and the related flag have been removed.
+    DC/OS no longer allows a standby Marathon instance to proxy `/v2/events` from the Marathon leader. Previously, it was possible to use the `proxy_events` flag to force Marathon to proxy the response from `/v2/events`. This standby redirect functionality and the related flag are no longer valid in 1.13.
 
 - Marathon no longer supports the `save_tasks_to_launch_timeout` setting.
 
     The `save_tasks_to_launch_timeout` option was deprecated in Marathon 1.5 and using it has had no effect on Marathon operations since that time. If you specify the `save_tasks_to_launch_timeout` setting, Marathon will fail to start.
-
-- Marathon suppresses offers by default.
-
-    In previous releases, Marathon only suppressed offers when explicitly configured to do so. In this release, Marathon suppresses offers when nothing needs to be launched by default.
 
 # Updated components change lists
 For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
