@@ -591,7 +591,7 @@ To add this job definition to the JSON editor, you would modify the existing JSO
     * `--preflight`
     * `--install-prereqs`
     * `--deploy`
-    * `--post-flight`
+    * `--postflight`
 
     If you attempt to use an option that is no longer valid, the installation script displays a warning message. You can also identify deprecated options by running the `dcos_generate_config.sh` script with the `--help` option. The output for the `--help` option displays [DEPRECATED] for the options that are no longer used. 
     
