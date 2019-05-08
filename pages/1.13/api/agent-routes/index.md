@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Agent Routes
+navigationTitle: Agent Routes
 title: Agent Routes
 menuWeight: 11
-excerpt: Admin Router  running on DC/OS agent nodes.
-
+excerpt: Admin Router running on DC/OS agent nodes.
 ---
 Admin Router Agent runs on DC/OS agent nodes. It exposes the following API routes.
 
@@ -14,4 +13,4 @@ Admin Router Agent runs on DC/OS agent nodes. It exposes the following API route
 
 For more detail about how API routing works, see [DC/OS API Reference](/1.13/api/).
 
-[ngindox api='/1.12/api/nginx.agent.yaml']
+[ngindox api='/1.13/api/nginx.agent.yaml']

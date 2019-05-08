@@ -4,7 +4,6 @@ navigationTitle:  Cluster Access
 title: Cluster Access
 menuWeight: 1
 excerpt: Gaining access to a cluster URL
-
 enterprise: false
 ---
 

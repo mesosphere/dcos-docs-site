@@ -4,13 +4,12 @@ navigationTitle:  API Reference
 title: API Reference
 menuWeight: 150
 excerpt: DC/OS API reference manual
-
 enterprise: true
 ---
 
 The DC/OS API is a collection of routes backed by [DC/OS components](/1.13/overview/architecture/components/) that are made available through an API gateway called [Admin Router](/1.13/overview/architecture/components/#admin-router).
 
-<img src="/1.12/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
+<img src="/1.13/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
 Figure 1. DC/OS API routing schematic
 
 # API Gateway
@@ -83,7 +82,7 @@ Most authenticated routes also require authorization via permissions. Permission
 
     For example, get the DC/OS version of the cluster from: `https://dcos.example.com/dcos-metadata/dcos-version.json`
 
-- **Lua routes** immediately execute code in Admin Router without proxying to an external backend component. So for Lua routes, no path is required after the route.
+- **Lua routes** immediately execute code in Admin Router without proxying to an external backend component. For Lua routes, no path is required after the route.
 
     ```
     <cluster-url>/<route>
@@ -93,4 +92,4 @@ Most authenticated routes also require authorization via permissions. Permission
 
 - **Rewrite and redirect routes** may pass through one or more other URLs or routes before returning a resource. So for those routes, follow the chain of URLs and routes to find the endpoint. The resource path will depend on the final endpoint.
 
-    Most rewrites and redirects terminate in another DC/OS API route, with the notable exception of `/login`, which uses OpenID Connect to authorize with an external identity provider and then redirects back to the DC/OS API.
+Most rewrites and redirects terminate in another DC/OS API route, with the notable exception of `/login`, which uses OpenID Connect to authorize with an external identity provider and then redirects back to the DC/OS API.

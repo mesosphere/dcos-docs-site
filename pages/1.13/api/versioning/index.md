@@ -4,7 +4,6 @@ navigationTitle:  API Versioning
 title: API Versioning
 menuWeight: 2
 excerpt: Understanding component, resource, and route versioning
-
 enterprise: false
 ---
 
@@ -20,7 +19,7 @@ For example, the [Marathon component](/1.13/overview/architecture/components/#ma
 
 # Route Versioning
 
-Components that have been specifically designed for DC/OS generally follow another versioning pattern, where the name of the component takes a back seat to the name of the feature set. These routes often include a version to make it easier to support renaming or replacing components over time.
+Components that have been specifically designed for DC/OS generally follow another versioning pattern, where the name of the component is less important than the name of the feature set. These routes often include a version to make it easier to support renaming or replacing components over time.
 
 For example, the [DC/OS Diagnostics component](/1.13/overview/architecture/components/#dcos-diagnostics) serves the [System Health API](/1.13/monitoring/#system-health-http-api-endpoint) under the route `/system/health/v1` and one of its resource paths is `/report`, so the full path to that resource is `/system/health/v1/report`.
 
