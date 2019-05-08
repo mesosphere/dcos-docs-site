@@ -302,7 +302,7 @@ Now that your advanced template DC/OS installation is up and running, you can ad
 
 ### Add more agent nodes
 
-You can add more agent nodes by creating a new stack. Use the [advanced-priv-agent.json](/{{ model.folder_version }}/installing/evaluation/aws/) or [advanced-pub-agent.json](/{{ model.folder_version }}/installing/evaluation/aws/) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
+You can add more agent nodes by creating a new stack. Use the [advanced-priv-agent.json](/{{ model.folder_version }}/installing/evaluation/aws/) or [advanced-pub-agent.json](installing/evaluation/aws/) templates. These templates create agents which are then attached to the `PrivateAgentStack` or `PublicAgentStack` as a part of an AutoScalingGroup.
 
 Use the output values from the `zen.sh` script and your Master and Infra stacks. These new agent nodes will automatically be added to your DC/OS cluster.
 
