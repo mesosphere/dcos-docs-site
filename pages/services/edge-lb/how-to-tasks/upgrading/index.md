@@ -8,7 +8,7 @@ enterprise: true
 ---
 In general, you should regularly update or upgrade the Edge-LB package you have installed to the latest version available to ensure you can take advantage of any fixes and new features that are included in the most recent release.
 
-For information about what's new or fixed in any release, see th Edge-LB [release notes](/services/edge-lb/related-documentation/release-notes/) and [related documentation](/services/edge-lb/related-documentation/).
+For information about what's new or fixed in any release, see the Edge-LB [release notes](/services/edge-lb/related-documentation/release-notes/) and [related documentation](/services/edge-lb/related-documentation/).
 
 # Before you begin
 * You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
@@ -16,7 +16,7 @@ For information about what's new or fixed in any release, see th Edge-LB [releas
 * You must have the `edgelb` command-line interface (CLI) installed.
 * You must have an active and properly-configured DC/OS Enterprise cluster.
 
-# To upgrade Edge-LB upgrade
+# To upgrade Edge-LB packages
 
 1. Uninstall the `apiserver` package.
 
