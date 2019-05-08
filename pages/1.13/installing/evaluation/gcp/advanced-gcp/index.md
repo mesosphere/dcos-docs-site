@@ -7,12 +7,12 @@ menuWeight: 5
 model: /1.13/installing/data.yml
 render: mustache
 ---
-#include /{{ model.folder_version }}/installing/evaluation/include/gcp-extended-example.tmpl
+#include /1.13/installing/evaluation/include/gcp-extended-example.tmpl
 
-#include /{{ model.folder_version }}/installing/evaluation/include/all-dcos-versions.tmpl
+#include /1.13/installing/evaluation/include/all-dcos-versions.tmpl
 
-#include /{{ model.folder_version }}/installing/evaluation/include/all-node-os-versions.tmpl
+#include /1.13/installing/evaluation/include/all-node-os-versions.tmpl
 
-#include /{{ model.folder_version }}/installing/evaluation/include/gcp-inputs-table.tmpl
+#include /1.13/installing/evaluation/include/gcp-inputs-table.tmpl
 
-#include /{{ model.folder_version }}/installing/evaluation/include/all-outputs-table.tmpl
+#include /1.13/installing/evaluation/include/all-outputs-table.tmpl
