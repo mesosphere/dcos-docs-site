@@ -597,9 +597,11 @@ To add this job definition to the JSON editor, you would modify the existing JSO
     
     These options will be removed in DC/OS 1.14. If you have scripts or programs that use any of the deprecated options, you should update them (DCOS-50263).
 
-- The CLI command `dcos node` has been replaced by the new command `dcos node list`. Running the `dcos node` command after installing this release automatically redirects to the output of the `dcos node list` command. The `dcos node list` command provides information similar to the output from the `dcos node` command, but also includes an additional column that indicates the public IP address of each node.
+- The CLI command `dcos node` has been replaced by the new command `dcos node list`. 
 
-If you have scripts or programs that use output from the `dcos node` command, you should test the output provided by the `dcos node list` command and the update your scripts or programs, as needed.
+    Running the `dcos node` command after installing this release automatically redirects to the output of the `dcos node list` command. The `dcos node list` command provides information similar to the output from the `dcos node` command, but also includes an additional column that indicates the public IP address of each node.
+
+    If you have scripts or programs that use output from the `dcos node` command, you should test the output provided by the `dcos node list` command and the update your scripts or programs, as needed.
 
 - Marathon-based HTTP, HTTPS, TCP, and Readiness checks
 
@@ -613,7 +615,9 @@ If you have scripts or programs that use output from the `dcos node` command, yo
 
 - Setting the `gpu_scheduling_behavior` configuration option to `undefined` is no longer supported.
 
-    With this release, the default value for the `gpu_scheduling_behavior` configuration option is `restricted`. The value `undefined` is retired and will be removed in DC/OS 1.14.
+    With this release, the default value for the `gpu_scheduling_behavior` configuration option is `restricted`. The value `undefined` is decommissioned. This value will be removed in DC/OS 1.14.
+    
+    If you have scripts or programs that set the `gpu_scheduling_behavior` configuration option to `undefined`, you should update them, as needed.
 
 - Marathon no longer supports the `api_heavy_events` setting.
 
