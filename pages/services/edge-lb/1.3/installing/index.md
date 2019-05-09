@@ -11,21 +11,21 @@ To configure a service account and install the Edge-LB package, use the instruct
 
 # Prerequisites
 
-- [DC/OS CLI is installed](/1.12/cli/install/)
+- [DC/OS CLI is installed](/1.13/cli/install/)
 - You are logged in as a superuser.
-- The [DC/OS Enterprise CLI is installed](/1.12/cli/enterprise-cli/).
+- The [DC/OS Enterprise CLI is installed](/1.13/cli/enterprise-cli/).
 - You have access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must have a customer service account to log in as a superuser and download the remote Edge-LB repositories.</p>
 
 ## Limitations
 
-- Edge-LB supports all [security modes](/1.12/security/ent/#security-modes) in DC/OS 1.11 and later. It supports Permissive, Disabled in DC/OS 1.10. DC/OS 1.9 or earlier is not supported.
+- Edge-LB supports all [security modes](/1.13/security/ent/#security-modes) in DC/OS 1.11 and later. It supports Permissive, Disabled in DC/OS 1.10. DC/OS 1.9 or earlier is not supported.
 
 # Add Edge-LB package repositories
 The Edge-LB package comprises two components:
 
-- The **Edge-LB API server** is a restful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers.
+- The **Edge-LB API server** is a RESTful API that manages one or more Edge-LB pools. Each Edge-LB pool is a collection of load balancers.
 
 - An **Edge-LB pool** can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
 
@@ -33,10 +33,7 @@ You must install Universe repositories for the Edge-LB API server and the Edge-L
 
 <p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
 
-
 ## Obtaining package artifacts
-
-
 In order to install both packages, you need to obtain package artifacts. They can be downloaded from <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>.
 
 <p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without logging in using your customer service account.</p>
@@ -61,7 +58,7 @@ dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-
 ## <a name="build"></a>Deploying a local Universe containing Edge-LB
 [/enterprise]
 
-If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](https://docs.mesosphere.com/1.12/administering-clusters/deploying-a-local-dcos-universe/#certified).
+If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](https://docs.mesosphere.com/1.13/administering-clusters/deploying-a-local-dcos-universe/#certified).
 
 **Prerequisite:** [Git](https://git-scm.com/). On Unix/Linux, see these [Getting Started instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
@@ -97,7 +94,7 @@ cp -rpv stub-repo/packages/* ../../repo/packages
 1. You can then build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz` file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Universe packages are included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web interface.
 
     ```bash
-    sudo make DCOS_VERSION=1.12 DCOS_PACKAGE_INCLUDE=“edgelb:v1.2.1,edgelb-pool:v1.2.1,<other-package>:<version>” local-universe
+    sudo make DCOS_VERSION=1.13 DCOS_PACKAGE_INCLUDE=“edgelb:v1.3.1,edgelb-pool:v1.2.1,<other-package>:<version>” local-universe
     ```
 
 1.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
@@ -106,11 +103,11 @@ cp -rpv stub-repo/packages/* ../../repo/packages
 # Create a service account
 The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
 
-[Service accounts](/1.12/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
+[Service accounts](/1.13/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
 
 Follow the steps below to create a service account, a principal associated with the service account, assign permissions to this principle, and associate a secret store with this service account. The secret store is used by Edge-LB to retrieve and install TLS certificates on the Edge-LB pools in order to enable TLS for all HTTP traffic between client and service backends.
 
-The steps below require [DC/OS Enterprise CLI to be installed](/1.12/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
+The steps below require [DC/OS Enterprise CLI to be installed](/1.13/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
 
 ## <a name="create-a-keypair"></a>Create a key pair
 In this step, a 2048-bit RSA public-private key pair is created using the DC/OS Enterprise CLI. Create a public-private key pair and save each value into a separate file within the current directory. 
@@ -119,7 +116,7 @@ In this step, a 2048-bit RSA public-private key pair is created using the DC/OS 
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/1.12/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
+<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/1.13/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
 
 ## Create the principal
 From a terminal prompt, create a new service account (`edge-lb-principal`) containing the public key (`edge-lb-public-key.pem`).
@@ -155,7 +152,7 @@ dcos security secrets list /
 
 ## <a name="give-perms"></a>Create and Assign Permissions
 
-Use the following CLI commands to provision the Edge-LB service account with the required permissions. All CLI commands can also be executed via the [IAM API](/1.12/security/ent/iam-api/).
+Use the following CLI commands to provision the Edge-LB service account with the required permissions. All CLI commands can also be executed via the [IAM API](/1.13/security/ent/iam-api/).
 
 One of two methods can be used to securely provision the Edge-LB service account with the required permissions:
 
@@ -250,3 +247,15 @@ pong
 
 - For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/1.2/pool-configuration/) section.
 - For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/1.2/cli-reference/).
+
+# Adding the Edge-LB command-line interface package
+In most cases, you add the Edge-LB command-line interface (CLI) as part of your initial installation of the Edge-LB API server and Edge-LB pool packages when you are preparing to deploy Edge-LB load balancing. However, you might find that you need to install the Edge-LB command-line interface (CLI) separately, for example, on additional computers for other administrators. 
+
+To simplify access to the Edge-LB command-line programs, you can install the CLI packages for Edge-LB by running the following commands:
+
+```bash
+dcos package install edgelb --cli --yes
+dcos package install --cli edgelb --yes
+```
+
+After the CLI package is installed, you can use the Edge-LB commands to manage Edge-LB load balancer pools and load balancing activity.
