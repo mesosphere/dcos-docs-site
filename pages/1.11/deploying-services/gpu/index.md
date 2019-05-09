@@ -27,7 +27,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 
 ###  Prerequisites
 - The AWS DC/OS advanced template [system requirements](/1.11/installing/production/system-requirements/).
-- The `zen.sh` script copied to your local machine. The script and instructions are [here](/1.11/installing/evaluation/community-supported-methods/aws/aws-advanced/).
+- The `zen.sh` script copied to your local machine. The script and instructions are [here](/1.11/installing/evaluation/community-supported-methods/aws/advanced/).
 
 ### Create Dependencies
 
