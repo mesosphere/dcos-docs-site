@@ -15,7 +15,7 @@ enterprise: true
 - 您必须[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
 - [用户帐户](/cn/1.11/security/ent/users-groups/) 将权限分配给
 
-所有 CLI 命令也可通过 [IAM API](/cn/1.11/security/ent/iam-api/) 执行。您可以在 [CLI 命令参考部分](cn/1.11/cli/command-reference/dcos-security/) 看到更多有关 `dcos security org users` 命令的详细信息。
+所有 CLI 命令也可通过 [IAM API](/cn/1.11/security/ent/iam-api/) 执行。您可以在 [CLI 命令参考部分](/cn/1.11/cli/command-reference/dcos-security/) 看到更多有关 `dcos security org users` 命令的详细信息。
 
 ## 禁用
 
@@ -50,7 +50,7 @@ dcos security org users grant <uid> dcos:mesos:agent:nested_container_session:ap
 dcos security org users grant <uid> dcos:mesos:master:executor:app_id:/test-group read --description "Controls access to executors running inside test-group"
 dcos security org users grant <uid> dcos:mesos:master:framework:role:* read --description "Controls access to frameworks registered with the Mesos default role"
 dcos security org users grant <uid> dcos:mesos:master:task:app_id:/test-group read --description "Controls access to tasks running inside test-group"
-```   
+```
 
 ### <a name="debug-with-tty"></a>授予伪终端调试访问权限
 
