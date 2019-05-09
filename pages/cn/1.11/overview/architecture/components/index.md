@@ -305,7 +305,7 @@ DC/OS 度量标准服务揭示节点、容器和应用程序度量标准。
 
 ## DC/OS 信号
 
-DC/OS 信号服务报告集群遥测和分析，以帮助改进 DC/OS。管理员在安装时可以 [不选择遥测](cn/1.11/install/production/deploying-dcos/opt-out/#telemetry)。
+DC/OS 信号服务报告集群遥测和分析，以帮助改进 DC/OS。管理员在安装时可以 [不选择遥测](/cn/1.11/install/production/deploying-dcos/opt-out/#telemetry)。
 
 ### 系统服务
 

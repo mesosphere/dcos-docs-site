@@ -24,7 +24,7 @@ DC/OS 身份和访问管理系统旨在通过细粒度授权来保护资源。
 
 ### 从 CLI 管理权限
 
-有 [4 个命令](cn/1.11/cli/command-reference/dcos-security/#dcos-security-org) 用于管理 DC/OS Enterprise CLI 的权限。
+有 [4 个命令](/cn/1.11/cli/command-reference/dcos-security/#dcos-security-org) 用于管理 DC/OS Enterprise CLI 的权限。
 
 若要从 DC/OS Enterprise CLI 管理**组**的权限，请使用以下命令：
 
