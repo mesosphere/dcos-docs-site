@@ -27,13 +27,20 @@
 
     Writing the execution plan to a file allows us to pass the execution plan to the `apply` command below as well help us guarantee the accuracy of the plan. Note that this file is ONLY readable by Terraform.
 
-    Afterwards, we should see a message like the one below, confirming that we have successfully saved to the `plan.out` file.  This file should appear in your `dcos-aws-demo` folder alongside `main.tf`.
+      Afterwards, we should see a message like the one below, confirming that we have successfully saved to the `plan.out` file.  This file should appear in your `dcos-demo` folder alongside `main.tf`.
 
-    <p align=center>
-    <img src="./images/install/terraform-plan.png" />
-    </p>
+      ```bash
+      Plan: 74 to add, 3 to change, 0 to destroy.
 
-    Every time you run `terraform plan`, the output will always detail the resources your plan will be adding, changing or destroying.  Since we are creating our DC/OS cluster for the very first time, our output tells us that our plan will result in adding 38 pieces of infrastructure/resources.
+      ------------------------------------------------------------------------
+
+      This plan was saved to: plan.out
+
+      To perform exactly these actions, run the following command to apply:
+        terraform apply "plan.out"
+      ```
+
+      Every time you run `terraform plan`, the output will always detail the resources your plan will be adding, changing or destroying.  Since we are creating our DC/OS cluster for the very first time, our output tells us that our plan will result in adding 38 pieces of infrastructure/resources.
 
 3.  The next step is to get Terraform to build/deploy our plan.  Run the command below.
 
@@ -41,12 +48,20 @@
     terraform apply plan.out
     ```
 
-  Sit back and enjoy! The infrastructure of your DC/OS cluster is being created while you watch. This may take a few minutes.
+    Sit back and enjoy! The infrastructure of your DC/OS cluster is being created while you watch. This may take a few minutes.
 
-  Once Terraform has completed applying the plan, you should see output similar to the following:
+    Once Terraform has completed applying the plan, you should see output similar to the following:
 
-  <p align=center>
-  <img src="./images/install/terraform-apply.png" />
-  </p>
+    ```text
+    Apply complete! Resources: 74 added, 0 changed, 0 destroyed.
 
-  And congratulations - you’re up and running!
+    Outputs:
+
+    cluster-address = testing-123-958581895.us-east-1.elb.amazonaws.com
+    masters-ips = [
+        3.93.239.91
+    ]
+    public-agents-loadbalancer = ext-testing-123-40f11d1227e88057.elb.us-east-1.amazonaws.com
+    ```
+
+    And congratulations - you’re up and running!
