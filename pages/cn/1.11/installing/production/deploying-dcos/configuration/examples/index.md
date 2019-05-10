@@ -38,9 +38,9 @@ cosmos_config:
 staged_package_storage_uri: <temp-path-to-files>
 package_storage_uri: <permanent-path-to-files>
 # DC/OS Enterprise only
-ca_certificate: <path-to-certificate>
-ca_certificate_key: <path-to-private-key>
-ca_certificate_chain: <path-to-certificate-chain>
+ca_certificate_path: <path-to-certificate>
+ca_certificate_key_path: <path-to-private-key>
+ca_certificate_chain_path: <path-to-certificate-chain>
 customer_key: <customer-key>
 custom_checks:
   cluster_checks:
@@ -72,7 +72,7 @@ dcos_overlay_network:
     - name: <name>
       subnet: <address>
       prefix: <size>
-dns_search: <domain1 domain2 domain3>  
+dns_search: <domain1 domain2 domain3>
 docker_remove_delay: <num>hrs
 enable_docker_gc: `<true|false>`
 exhibitor_storage_backend: static
@@ -102,7 +102,7 @@ exhibitor_address: <loadbalancer-ip>
 master_dns_bindall: `<true|false>`
 num_masters: <num-of-masters>
 # DC/OS Open Source only
-oauth_enabled: `<true|false>`  
+oauth_enabled: `<true|false>`
 public_agent_list:
 - <agent-private-ip>
 platform: <platform>
@@ -156,7 +156,7 @@ agent_list:
 - <agent-private-ip-3>
 - <agent-private-ip-4>
 - <agent-private-ip-5>
-bootstrap_url: 'file:///opt/dcos_install_tmp' 
+bootstrap_url: 'file:///opt/dcos_install_tmp'
 仅限 DC/OS Enterprise
 customer_key：<customer-key>
 cluster_name: ' <cluster-name>'
@@ -192,7 +192,7 @@ aws_secret_access_key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 bootstrap_url: file:///tmp/dcos
 cluster_name: s3-example
 exhibitor_storage_backend: aws_s3
-exhibitor_explicit_keys: 'true' 
+exhibitor_explicit_keys: 'true'
 log_directory: /genconf/logs
 master_discovery: static
 master_list:
@@ -306,7 +306,7 @@ use_proxy: 'true'
 http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
 https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
 no_proxy:
-- 'foo.bar.com'    
+- 'foo.bar.com'
 - '.baz.com'
 ```
 
