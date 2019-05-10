@@ -27,7 +27,7 @@ beta: true
 
 * Narrowed the scope of Mesos disk permissions required by the storage service.
 * Devices provider is not removable if another provider (e.g. LVM provider) is consuming one or more of its devices.
-* Improved observability via additional metrics intrumented thoughout the storage service.
+* Improved observability via additional metrics instrumented throughout the storage service.
 * `journald+logrotate` logging enabled, by default, for the storage service.
 * Streamlined resource management via default storage service offer filters.
 * Tutorial for extending the default Universal Installer configuration in order to provide additional raw disks for the storage service to consume.
