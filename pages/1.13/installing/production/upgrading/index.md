@@ -131,7 +131,7 @@ These steps must be performed for version upgrades.
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [DC/OS Installation Guide][install].
 - Take a [snapshot of ZooKeeper](/1.13/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano) prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
-- Take a [snapshot of the IAM database](/1.13/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. [enterprise type="inline" size="small" /]
+- *Important:* Take a [snapshot of the IAM database](/1.13/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. This is very easy to do and should be considered a necessity.
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 
 <p class="message--note"><strong>NOTE: </strong>Marathon event subscribers are disabled by default. Check to see if the line <code>--event_subscriber "http_callback"</code> has been added to <code>sudo vi /opt/mesosphere/bin/marathon.sh</code> on your master node(s). In such a case, you must remove that line in order to disable event subscribers.</p>
