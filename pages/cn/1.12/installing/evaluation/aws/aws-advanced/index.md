@@ -227,7 +227,7 @@ dcos_instance_os = "centos_7.5"
 | dcos_ucr_default_bridge_subnet | 分配给 mesos 桥接 CNI 网络，供 UCR 构建桥接模式网络的 IPv4 子网。（可选） | 字符串 | `` | 否 |
 | dcos_use_proxy | 启用对内部路由代理的使用（可选） | 字符串 | `` | 否 |
 | dcos_variant | 主要变量。| 字符串 | `open` | 否 |
-| dcos_version | 指定要使用哪个 DC/OS 版本说明。选项：`1.9.0`、`1.8.8` 等。参见 [dcos_download_path](https://github.com/dcos/tf_dcos_core/blob/master/download-variables.tf) 或 [dcos_version](https://github.com/dcos/tf_dcos_core/tree/master/dcos-versions) 树，获得完整列表。| 字符串 | `1.11.4` | 否 |
+| dcos_version | 指定要使用哪个 DC/OS 版本说明。选项：`1.9.0`、`1.8.8` 等。参见 [dcos_download_path](https://github.com/dcos/tf_dcos_core/blob/master/variables.tf) 或 [dcos_version](https://github.com/dcos/tf_dcos_core/tree/master/dcos-versions) 树，获得完整列表。| 字符串 | `1.11.4` | 否 |
 | dcos_zk_agent_credentials | [企业 DC/OS] 设置 ZooKeeper 代理节点凭据。（建议） | 字符串 | `` | 否 |
 | dcos_zk_master_credentials | [企业 DC/OS] 设置 ZooKeeper 管理节点凭据。（建议） | 字符串 | `` | 否 |
 | dcos_zk_super_credentials | [企业 DC/OS] 设置 ZooKeeper 超级凭据。（建议） | 字符串 | `` | 否 |

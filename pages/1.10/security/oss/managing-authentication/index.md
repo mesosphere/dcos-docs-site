@@ -80,12 +80,12 @@ The DC/OS CLI stores the token in a configuration file in the `.dcos` directory 
 
     ![alt](/1.10/img/auth-login.png)
 
-1.  Click the button that corresponds to your preferred identity provider. 
+1.  Click the button that corresponds to your preferred identity provider.
 
-1.  Provide your credentials to the identity provider if prompted. If you have already authenticated to the identity provider during your current browser session, you won't need to do so again.  
+1.  Provide your credentials to the identity provider if prompted. If you have already authenticated to the identity provider during your current browser session, you won't need to do so again.
 
     ![alt](/1.10/img/auth-login-token.png)
-    
+
 1.  Click **Copy to Clipboard**.
 
 1.  Return to your terminal prompt and paste the OpenID Connect ID token value in at the prompt.
@@ -122,7 +122,7 @@ Auth0-based authentication by adding this parameter to your configuration file (
 oauth_enabled: 'false'
 ```
 
-If you are doing a cloud installation on [AWS](/1.10/installing/evaluation/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
+If you are doing a cloud installation on [AWS](/1.10/installing/evaluation/community-supported-methods/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
 If you are doing a cloud installation on [Azure](/1.10/installing/evaluation/azure/), you currently cannot disable authentication. This will be added in a future release along with other
 options to customize authentication.
@@ -152,4 +152,4 @@ security features as well as on introducing new ones in the coming releases.
 - [Learn how to monitor a DC/OS cluster](/1.10/monitoring/)
 
  [1]: https://en.wikipedia.org/wiki/STARTTLS
- 
+

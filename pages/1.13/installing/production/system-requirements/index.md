@@ -46,13 +46,16 @@ Workloads that are expected to be continuously available or considered business 
 
 There are many mixed workloads on the masters. Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
 
-- Solid-state drive (SSD)
-- RAID controllers with a BBU
-- RAID controller cache configured in writeback mode
+- Solid-state drive (SSD) or non-volatile memory express (NVMe) devices for fast, locally-attached storage. To reduce the likelihood of I/O latency issues, solid-state drives should be locally attached to the physical machine, if possible. You should also be sure that solid-state drive (SSD) or non-volatile memory express (NVMe) devices are used for the file systems hosting master node replicated logs.
+
+    In planning your storage requirements, keep in mind that you should avoid using a single storage area network (SAN) device and NFS to connect to the nodes in the cluster. This type of architecture introduces a higher possibility of latency than using local storage and introduces a single point of failure in what should otherwise be a distributed system. Network latency and bandwidth issues can cause client sessions to time out and adversely affect [DC/OS] cluster performance and reliability.
+
+- RAID controllers with a battery backup unit (BBU).
+- RAID controller cache configured in writeback mode.
 - If separation of storage mount points is possible, the following storage mount points are recommended on the master node. These recommendations will optimize the performance of a busy DC/OS cluster by isolating the I/O of various services.
   | Directory Path | Description |
   |:-------------- | :---------- |
-  | _/var/lib/dcos_ | A majority of the I/O on the master nodes will occur within this directory structure. If you are planning a cluster with hundreds of nodes or intend to have a high rate of deploying and deleting workloads, isolating this directory to dedicated SSD storage is recommended. |
+  | _/var/lib/dcos_ | A majority of the I/O on the master nodes will occur within this directory structure. If you are planning a cluster with hundreds of nodes or intend to have a high rate of deploying and deleting workloads, isolating this directory to dedicated SSD storage on a separate device is recommended. |
 
 - Further breaking down this directory structure into individual mount points for specific services is recommended for a cluster which will grow to thousands of nodes.
 
@@ -82,7 +85,7 @@ In addition to these general hardware requirements, the agent nodes must also ha
 
 - A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.13/deploying-services/containerizers/).
 - Network Access to a public Docker repository or to an internal Docker registry.
-- On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that `firewalld` interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
+- On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a [known Docker issue](https://github.com/docker/docker/issues/16137) that `firewalld` interacts poorly with Docker. For more information, see the [Docker Engine release notes](https://docs.docker.com/engine/release-notes/).
 
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld

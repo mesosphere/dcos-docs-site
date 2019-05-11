@@ -30,5 +30,5 @@ Your new machines will take a few minutes to initialize; you can watch them in t
 
 See the upgrade [documentation](/1.10/installing/). -->
 
- [2]: /1.10/installing/evaluation/aws/
+ [2]: /1.10/installing/evaluation/community-supported-methods/aws/
  [3]: https://console.aws.amazon.com/cloudformation/home

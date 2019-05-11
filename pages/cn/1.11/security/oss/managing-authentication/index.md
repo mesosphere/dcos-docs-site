@@ -74,7 +74,7 @@ oauth_enabled: 'false'
 ```
 如需更多信息，请参阅配置[文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
 
-如果您正在 [AWS](cn/1.11/install/evaluation/cloud-installation/aws/) 上进行云安装，则可以在**指定详细信息**步骤上将 `OAuthEnabled` 选项设置为 `false` 以禁用身份认证。
+如果您正在 [AWS](/cn/1.11/install/evaluation/cloud-installation/aws/) 上进行云安装，则可以在**指定详细信息**步骤上将 `OAuthEnabled` 选项设置为 `false` 以禁用身份认证。
 
 如果您在 [Azure](/cn/1.11/installing/evaluation/cloud-installation/azure/) 上进行云安装，则无法禁用身份认证。此选项将在未来 版本中与其他选项一起添加以自定义身份认证的选项。
 

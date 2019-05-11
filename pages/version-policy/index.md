@@ -53,24 +53,28 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
-        <td>CoreOS 1967.6.0</td>
+        <td>CoreOS 2079.3.0</td>
+        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
+    </tr>
+    <tr>
+        <td>CoreOS 2023.5.0</td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
     </tr>
     <tr>
-        <td>CoreOS 1967.5.0</td>
+        <td>CoreOS 2023.4.0</td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-    </tr>
-    <tr>
-        <td>CoreOS 1911.5.0</td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
@@ -81,6 +85,7 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     <th><strong>DC/OS 1.10 Latest Stable</strong></th>
@@ -90,15 +95,18 @@ Customers running DC/OS on non-supported platform components should upgrade to a
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>CentOS 7.5</td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>CentOS 7.4</td>
+        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
@@ -109,14 +117,16 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>RHEL 7.6</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br> Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br> Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
     <tr>
@@ -124,9 +134,11 @@ Customers running DC/OS on non-supported platform components should upgrade to a
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>RHEL 7.4</td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
@@ -137,27 +149,31 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
+        <td>Oracle Linux 7.6 (RHCK)</td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+    </tr>
+    <tr>
         <td>Oracle Linux 7.5 (RHCK)</td>
-        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
-        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
-        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.4 (RHCK)</td>
-        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
-        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
-        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
-    </tr>
-    <tr>
-        <td>Oracle Linux 7.3 (RHCK)</td>
-        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
-        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
-        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
 </table>
 

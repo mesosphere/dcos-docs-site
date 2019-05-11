@@ -59,7 +59,7 @@ You can try out the new features and updated data services. Provide feedback thr
 
 - Edge-LB load balancer. [enterprise type="inline" size="small" /]
 
-  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/0.1/).
+  Edge-LB load balances Mesos tasks. Not supported in strict security mode. [View the documentation](/services/edge-lb/latest/).
 
 [enterprise type="block" size="large"]
 ### Security
@@ -92,15 +92,15 @@ You can try out the new features and updated data services. Provide feedback thr
 
 The following updated data services packages are compatible with DC/OS 1.10.0.
 
-- Cassandra. [Documentation](/services/cassandra/). [Release Notes](/services/cassandra/v2.0.0-3.0.14/release-notes/).
+- Cassandra. [Documentation](/services/cassandra/latest/). [Release Notes](/services/cassandra/latest/release-notes/).
 
-- Elastic. [Documentation](/services/elastic/). [Release Notes](/services/elastic/2.0.1-5.5.1/release-notes/).
+- Elastic. [Documentation](/services/elastic/latest/). [Release Notes](/services/elastic/latest/release-notes/).
 
-- HDFS. [Documentation](/services/hdfs/). [Release Notes](/services/hdfs/v2.0.0-2.6.0-cdh5.11.0/release-notes/).
+- HDFS. [Documentation](/services/hdfs/latest/). [Release Notes](/services/hdfs/latest/release-notes/).
 
-- Kafka. [Documentation](/services/kafka/). [Release Notes](/services/kafka/v2.0.0-0.11.0/release-notes/).
+- Kafka. [Documentation](/services/kafka/latest/). [Release Notes](/services/kafka/latest/release-notes/).
 
-- Apache Spark. [Documentation](/services/spark/). [Release Notes](https://github.com/mesosphere/spark-build/releases/tag/1.1.1-2.2.0).
+- Apache Spark. [Documentation](/services/spark/latest/). [Release Notes](/services/spark/latest/release-notes/).
 
 ### Platform
 - Node and cluster health checks.

@@ -87,7 +87,7 @@ You can manage the most common job-related activity interactively through the DC
 
     - Select **Add Artifact** to provide one or more artifact URIs you want passed to fetcher module and resolved at runtime and the action--Execute, Extract, or Cache--you want to perform for each URI.
 
-        ![Adding an artifact URI and action for a job](/1.13/img/job-artifacts-uri.png/)
+        ![Adding an artifact URI and action for a job](/1.13/img/job-artifacts-uri.png)
 
         Figure 2. Add an artifact URI and action
 
@@ -103,7 +103,7 @@ You can manage the most common job-related activity interactively through the DC
 
 1. Verify that you have added the new job by clicking **Jobs**.
 
-    ![Jobs List](/1.13/img/job-list-scheduled.png/)
+    ![Jobs List](/1.13/img/job-list-scheduled.png)
 
     Figure 3. Jobs list
 
@@ -113,7 +113,7 @@ You can add a job to a an existing job group or create a new job group when you 
 ## View, modify, or remove a specific job
 You can view and modify job-related information, including details about the run history and configuration settings interactively through the DC/OS UI. From the **Jobs** tab, click the name of your job. You can then use the menu on the upper right to edit, run, disable, or delete a selected job. 
 
-![Viewing and modifying job details](/1.13/img/job-menu-options.png/)
+![Viewing and modifying job details](/1.13/img/job-menu-options.png)
 
 Figure 4. Viewing and modifying job details
 

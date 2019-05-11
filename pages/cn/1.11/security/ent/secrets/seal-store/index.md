@@ -19,7 +19,7 @@ enterprise: true
 - 通过 `dcos auth login` 作为超级用户登录到 DC/OS CLI
 - [已安装了 GNU Privacy Guard (GPG)](http://brewformulas.org/Gnupg)
 - 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须遵守 [下载根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 中的步骤才能发布此部分的 `curl` 命令。
-- 如果您的 [安全模式](1/1.11/security/ent/#security-mode) 是 `disabled`，在必须从命令中删除 `--cacert dcos-ca.crt` 才能发布。
+- 如果您的 [安全模式](/1.11/security/ent/#security-mode) 是 `disabled`，在必须从命令中删除 `--cacert dcos-ca.crt` 才能发布。
 
 
 1. 在终端提示符下，通过以下命令检查密钥存储库的状态。

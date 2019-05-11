@@ -53,7 +53,7 @@ DC/OS 中的许多服务都使用 ZooKeeper 以取得一致性。ZooKeeper 可�
  * 物理域：包括机器、机架、数据中心、地区和可用性区域。
  * 网络域：同一网络内的机器可能会受网络分区的影响。例如，共享网络交换机可能发生故障或者配置无效。
 
-如需更多信息，请参阅 [多分区](/cn/1.11/installing/production/advanced-configuration/configuring-zones-and-regions/multi-zone/) 和 [多分域](/cn/1.11/installing/production/advanced-configuration/configuring-zones-and-regions/multi-region/) 文档。
+如需更多信息，请参阅 [多分区](/cn/1.11/installing/production/advanced-configuration/configuring-zones-regions/multi-zone/) 和 [多分域](/cn/1.11/installing/production/advanced-configuration/configuring-zones-regions/multi-region/) 文档。
 
 需要 HA 的应用程序也应跨故障域分配。Marathon 可以使用 [`UNIQUE` 和 `GROUP_BY` 约束算子](https://mesosphere.github.io/marathon/docs/constraints.html) 来实现。
 

@@ -20,7 +20,7 @@ The [Marathon permissions](/1.13/security/ent/perms-reference/#marathon-metronom
 
 # <a name="root-service"></a>Granting access to a service
 
-## <a name="root-service-ui"></a>Via the DC/OS web interface
+## <a name="root-service-ui"></a>Using the DC/OS web interface
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 

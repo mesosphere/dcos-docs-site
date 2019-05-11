@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Production Installation
 title: Production Installation
 menuWeight: 15
-excerpt: Installing production-ready DC/OS 
+excerpt: Installing production-ready DC/OS
 ---
 
 
@@ -181,14 +181,14 @@ By default, DC/OS clusters have [fault domain awareness](/1.12/deploying-service
 
 # Create a configuration file
 
-In this step, you can create a YAML configuration file that is customized for your environment. DC/OS uses this configuration file during installation to generate your cluster installation files. 
+In this step, you can create a YAML configuration file that is customized for your environment. DC/OS uses this configuration file during installation to generate your cluster installation files.
 
 [Enterprise]
 ## Set up a super user password
 [/enterprise]
 In the following instructions, we assume that you are using ZooKeeper for shared storage.
 
-1.  From the bootstrap node, run this command to create a hashed password for superuser authentication, where `<superuser_password>` is the superuser password. 
+1.  From the bootstrap node, run this command to create a hashed password for superuser authentication, where `<superuser_password>` is the superuser password.
 
 2. Save the hashed password key for use in the `superuser_password_hash` parameter in your `config.yaml` file.
 
@@ -207,8 +207,8 @@ In the following instructions, we assume that you are using ZooKeeper for shared
     $6$rounds=656000$v55tdnlMGNoSEgYH$1JAznj58MR.Bft2wd05KviSUUfZe45nsYsjlEl84w34pp48A9U2GoKzlycm3g6MBmg4cQW9k7iY4tpZdkWy9t1
     ```
 
-## Create the configuration 
-1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started. 
+## Create the configuration
+1.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started.
 
 The Enterprise template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and cloud specific DNS resolvers. [enterprise type="inline" size="small" /]
 
@@ -240,7 +240,7 @@ master_list:
 - <master-private-ip-3>
 resolvers:
 - 169.254.169.253
-# Choose your security mode: permissive or strict 
+# Choose your security mode: permissive or strict
 security: <security-mode>
 superuser_password_hash: <hashed-password> # Generated above
 superuser_username: <username> # This can be whatever you like
@@ -260,7 +260,7 @@ enable_ipv6: 'false'
 [oss]
 ## Open Source template
 [/oss]
-    
+
     bootstrap_url: http://<bootstrap_ip>:80
     cluster_name: <cluster-name>
     exhibitor_storage_backend: static
@@ -314,8 +314,8 @@ The term `dcos_generate_config file` refers to either a `dcos_generate_config.ee
 1.  From the bootstrap node, run the DC/OS installer shell script to generate a customized DC/OS build file. The setup script extracts a Docker container that uses the generic DC/OS install files to create customized DC/OS build files for your cluster. The build files are output to `./genconf/serve/`.
 
     You can view all of the automated command line installer options with:
-    * `dcos_generate_config.ee.sh --help`  flag [enterprise type="inline" size="small" /]  
-      OR 
+    * `dcos_generate_config.ee.sh --help`  flag [enterprise type="inline" size="small" /]
+      OR
     * `dcos_generate_config.sh --help` flag. [oss type="inline" size="small" /]
 
 [enterprise type="inline" size="small" /]
@@ -334,7 +334,7 @@ At this point your directory structure should resemble:
 
 [oss type="inline" size="small" /]
 
-    sudo bash dcos_generate_config.sh    
+    sudo bash dcos_generate_config.sh
 
 At this point your directory structure should resemble:
 
@@ -343,11 +343,11 @@ At this point your directory structure should resemble:
         ├── genconf
         │   ├── config.yaml
         │   ├── ip-detect
-    
-   
+
+
    - For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
-<a name="nginx-cmd"></a>   
-   
+<a name="nginx-cmd"></a>
+
 2. From your home directory, run the following command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
 
     ```bash
@@ -415,7 +415,7 @@ At this point your directory structure should resemble:
             sudo bash dcos_install.sh slave_public
             ```
 
-    __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.12/installing/ent/custom/system-requirements/#port-and-protocol) documentation.
+    __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.12/installing/production/system-requirements/ports/) documentation.
 
 5.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
 
