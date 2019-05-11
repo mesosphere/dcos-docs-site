@@ -24,7 +24,7 @@ enterprise: false
 
 - You must have less than 100ms latency between regions.
 
-### Installation steps
+### Steps
 
 1. Create a fault domain detect script to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
 
@@ -105,7 +105,7 @@ A Mesos cluster that spans 3 regions: `aws-us-east1`, `aws-us-east2`, and `local
 ```
 
 - No instance will launch in the local region.
-- All of the 5 instances will be launched in the `aws-us-east1` region.
+- All five of the instances will be launched in the `aws-us-east1` region.
 
 ### Balanced Placement for a Single Region
 

@@ -66,7 +66,7 @@ dcos cluster unlink <linked-cluster>
 
 # Switch cluster
 
-You can switch between linked clusters using the CLI or UI. When you switch clusters using the CLI, the new cluster becomes the CLI's active cluster. When you switch cluster using the UI, the new cluster becomes the cluster you see in the UI.  If you switch the cluster in the CLI it doesn't change the cluster in the UI; similarly switching in the UI doesn't affect the attached cluster in the CLI.
+You can switch between linked clusters using the CLI or UI. When you switch clusters using the CLI, the new cluster becomes the CLI's active cluster. The new cluster becomes the cluster you see in the UI.  If you switch the cluster in the CLI it does not change the cluster in the UI; similarly, switching in the UI does not affect the attached cluster in the CLI.
 
 ## Switch to a linked cluster from the DC/OS CLI
 
@@ -84,21 +84,21 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
     ![open cluster popup](/1.13/img/open-cluster-popup.png)
 
-    Figure 1. Cluster dropdown
+    Figure 1 - Cluster dropdown
 
 1.  Select **Switch Cluster**.
 
     ![swi cluster](/1.13/img/switch-cluster-1-12.png)
 
-    Figure 2. Cluster switch
+    Figure 2 - Cluster switch
 
 1. Click the name of the cluster to switch to.
 
     ![swi linked cluster](/1.13/img/switch-linked-cluster.png)
 
-    Figure 3. Switch to linked cluster
+    Figure 3 - Switch to linked cluster
 
-If you are superuse, you can also switch to a linked cluster in the Linked Clusters tab.
+If you are a superuser, you can also switch to a linked cluster in the Linked Clusters tab.
 
 1. Select **Cluster -> Linked Clusters**.
 
@@ -106,7 +106,7 @@ If you are superuse, you can also switch to a linked cluster in the Linked Clust
 
    ![swi linked cluster2](/1.13/img/switch-linked-cluster2.png)
 
-   Figure 4. Switch to linked clusters
+   Figure 4 - Switch to linked clusters
 
 
 
@@ -212,13 +212,13 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
    ![google login](/1.13/img/google-login.png)
 
-   Figure 5. Google login
+   Figure 5 - Google login
 
 1. From the top left corner, click the down arrow next to the cluster name.
 
    ![swi cluster](/1.13/img/switch-cluster-1-12.png)
 
-   Figure 6. Switch cluster
+   Figure 6 - Switch cluster
 
 1. Click **Switch Cluster**. In the Linked Clusters pane, select cluster `cluster-b`. Cluster `cluster-b`’s UI displays.
 
