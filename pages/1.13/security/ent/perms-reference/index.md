@@ -86,7 +86,8 @@ through Admin Router.
 | `dcos:adminrouter:service:marathon` <br>Controls access to the native Marathon instance.                                                                                                                                                                                                                | x      |     |     |     |     |
 | `dcos:adminrouter:service:metronome`<br>  Controls access to [DC/OS Jobs (Metronome)](/1.13/deploying-jobs/).                                                                                                                                                                                           | x      |     |     |     |     |
 
-## <a name="mesos"></a>Mesos permissions
+<a name="mesos"></a>
+## Mesos permissions
 
 Many Mesos operations require authorization.
 The necessary privileges must be assigned to the DC/OS user who issues the HTTP request to Mesos.
@@ -132,7 +133,9 @@ Applications launched with Root Marathon can only receive offers for resources r
 | `dcos:mesos:master:volume:role[:<role-name>]`<br> Controls access to create a volume for the given [Mesos role](/1.13/overview/concepts/#mesos-role).                                                                                                                               |        | x   |     |     |     |
 | `dcos:mesos:master:weight:role[:<role-name>]`<br> Control access to the [weight](https://mesos.apache.org/documentation/latest/weights/) for the given [Mesos role](/1.13/overview/concepts/#mesos-role).                                                                           |        |     | x   | x   |     |
 
-## <a name="marathon-metronome"></a>Marathon and Metronome permissions
+<a name="marathon-metronome"></a>
+
+## Marathon and Metronome permissions
 
 Marathon and Metronome require that HTTP requests made to certain protected resources must be authorized. For example, a DC/OS user must be granted the `create` action on the `dcos:service:marathon:marathon:services:/dev` resource in order to create a new Marathon app in the `/dev` service group.
 

@@ -28,8 +28,6 @@ if semver.test(paths[0])
   - dropdown = hierarchy.children.filter(item => semver.test(item.id))
   - item = hierarchy.findByPath('/' + paths[0])
   - versionTitle = paths[0]
-  if versionTitle == '1.13'
-    - versionTitle = '1.13-beta'
 
 - dropdown = dropdown.filter(item => item.menuWeight != -1)
 

@@ -60,7 +60,7 @@ master_list:
 
 | 参数 | 描述 |
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [agent_list](/1/1.11/installing/production/advanced-configuration/configuration-reference/#agent-list) | 该参数指定 IPv4 地址的 YAML 嵌套列表 (`-`) 到您的 [专用代理](/cn/1.11/overview/concepts/#private-agent-node) 主机名。 |
+| [agent_list](/1.11/installing/production/advanced-configuration/configuration-reference/#agent-list) | 该参数指定 IPv4 地址的 YAML 嵌套列表 (`-`) 到您的 [专用代理](/cn/1.11/overview/concepts/#private-agent-node) 主机名。 |
 | [bootstrap_url](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#bootstrap-url) | 这一必填参数指定 DC/OS 安装工具存储自定义 DC/OS 构建文件的 URI 路径。 |
 | [cluster_name](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#cluster-name) | 该参数指定群集的名称。 |
 | [exhibitor_storage_backend](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) | 该参数指定用于 Exhibitor 的存储库后端类型。 |

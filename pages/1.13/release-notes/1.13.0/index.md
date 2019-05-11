@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle: Release notes for 1.13.0
-title: Release notes for 1.13.0 
-menuWeight: -1
-excerpt: Release notes for DC/OS 1.13.0, including Open Source attribution and version policy.
+title: Release notes for 1.13.0
+menuWeight: 1
+excerpt: Release notes for DC/OS 1.13.0, including Open Source attribution, and version policy.
 ---
 DC/OS 1.13.0 was released on May 8, 2019.
 
@@ -11,10 +11,10 @@ DC/OS 1.13.0 was released on May 8, 2019.
 
 [button color="purple" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
-<p class="message--warning"><strong>WARNING: </strong>Registered Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, please contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> when installing DC/OS Enterprise Edition.</p>
+Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
 # Release summary
-DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
+DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages–such as Marathon and Metronome–used in DC/OS.
 
@@ -23,41 +23,36 @@ If you have DC/OS deployed in a production environment, see [Known issues and li
 # New features and capabilities
 DC/OS 1.13 includes new features and capabilities to enhance the installation and deployment experience, simplify cluster administration, increase operational productivity and efficiency, and provide additional monitoring, alerting, logging, and reporting for better visibility into cluster activity.
 
+## Highlights of what's new
 Some highlights for this release include:
+- Unified service accounts and authentication architecture
 - Monitoring and metrics for cluster operations
-- Improvements to the Universal installer and upgrade process
-- New features and options for command-programs
+- Extended support for workloads that take advantage of accelerated processing provided by graphic processing units (GPU)
+- Improvements to the Universal installer and the upgrade process
+- New features and options for command-line programs
 - New dashboard options for monitoring cluster performance
 - Tighter integration between the Mesosphere Kubernetes Engine (MKE) and Edge-LB load balancing
 
 Features and capabilities that are introduced in DC/OS 1.13 are grouped by functional area or component and include links to view additional documentation, if applicable.
 
+## Unified service accounts and authentication architecture
+The core of the DC/OS Enterprise identity and access management service (IAM) has been open-sourced and added to DC/OS, replacing DC/OS OpenAuth (`dcos-oauth`). This architectural change includes adding CockroachDB as the cluster high-availability database for identity and access management.
+
+With this change, DC/OS also now supports unified service accounts. Service accounts allow individual programs and applications to interact with a DC/OS cluster using their own identity. A successful service account login results in authentication proof -- the DC/OS authentication token. A valid DC/OS authentication token is required to access DC/OS services and components through the master node Admin Router.
+
+This change also aligns the authentication architectures between DC/OS Enterprise and DC/OS Open Source. The HTTP API for service account management ans service authentication is now the same for both DC/OS Enterprise and DC/OS Open Source. For both DC/OS Enterprise and DC/OS Open Source clusters, the DC/OS authentication token is a JSON Web Token (JWT) of type RS256. This JWT authentication token can be validated by any component in the system after consulting the IAM services JSON Web Key Set (JWKS) endpoint.
+
 ## Monitoring and metrics for cluster operations
+This release extends DC/OS cluster monitoring capabilities and the metrics you can collect and report for DC/OS components. The enhancements to monitoring and metrics provide you with better visibility into cluster operations, activity, and performance through DC/OS itself and as input to Prometheus, Grafana, and other services.
+
+### Monitoring service
 - The DC/OS monitoring service (`dcos-monitoring`) can be configured to use DC/OS storage service (DSS) volumes to store time-series data. <!--(DCOS-47725)-->
 
     With this release, you can store the information collected by the DC/OS monitoring service (`dcos-monitoring`) in the profile-based storage provided by the DC/OS Storage Service. By using the DC/OS Storage Service to store the monitoring data used in Prometheus queries and Grafana dashboards, you can improve the performance and reliability of the Prometheus and Grafana monitoring components.
 
-    When you install the DC/OS monitoring service, you can select the volume size and a volume profile for the file system where you want to storing the Prometheus time-series database (`tsdb`). By specifying a volume managed by the DC/OS Storage Service, you can take advantage of the durability, performance, and flexibility DSS provides for your collected data. 
-    
+    When you install the DC/OS monitoring service, you can select the volume size and a volume profile for the file system where you want to store the Prometheus time-series database (`tsdb`). By specifying a volume managed by the DC/OS Storage Service, you can take advantage of the durability, performance, and flexibility DSS provides for your collected data.
+
     For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/beta-dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/beta-storage/0.5.3-beta/).
-
-- New volume and network metrics are available. <!--(DCOS-47722)-->
-
-    The metrics collection service, `dcos-telegraf` can now collect additional metrics for Mesos volumes and network information. For a complete list of the Mesos metrics you can collect and report, see the latest [list of metrics](http://mesos.apache.org/documentation/latest/monitoring/).
-
-    For more information about collecting metrics and configuring metrics plugins, see the following topics:
-    - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
-    - [Mesos Metrics](/1.13/metrics/mesos/)
-    - [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/)
-
-- Key metrics are collected by default. <!--(DCOS-47719)-->
-
-    In DC/OS 1.13, `dcos-telegraf` automatically collects Mesos metrics by default. Previously, you were required to manually enable the metrics plugin by updating the agent configuration or by setting the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `true`.  With this release, manually enabling this feature is no longer required. Instead, the default value for the parameter is now set to true. You can set the `enable_mesos_input_plugin` parameter in the `config.yaml` file to false if you want to disable the automatic collection of Mesos metrics.
-
-    For more information about collecting metrics and configuring metrics plugins, see the following topics:
-    - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
-    - [Mesos Metrics](/1.13/metrics/mesos/)
-    - [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/)
 
 - The DC/OS monitoring service enables you to import curated alerting rules. <!--(DCOS-47666)-->
 
@@ -71,15 +66,61 @@ Features and capabilities that are introduced in DC/OS 1.13 are grouped by funct
 
     If you deploy DC/OS monitoring, you can leverage Mesosphere-provided Grafana-based dashboards. By installing and configuring the `dcos-monitoring` service, you can automatically create dashboards that enable you to quickly visualize the metrics that the `dcos-monitoring` package is collecting from the DC/OS cluster and DC/OS-hosted applications. For more information about using Grafana dashboards, see the [dashboard repository](https://github.com/dcos/grafana-dashboards).
 
+### Metrics
+DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database.
+
+With this release, you can use Telegraf to collect and forward information for the following additional DC/OS cluster components:
+- CockroachDB
+- ZooKeeper
+- Exhibitor
+- Marathon
+- Metronome
+
+You can also collect information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
+
+- New volume and network metrics that are collected by the Mesos input plugin are enabled by default. <!--(DCOS-47722, DCOS-47719)-->
+
+    The metrics collection service, `dcos-telegraf` can now collect additional metrics for Mesos volumes and network information. For a complete list of the Mesos metrics you can collect and report, see the latest [list of metrics](http://mesos.apache.org/documentation/latest/monitoring/).
+
+    In DC/OS 1.13, `dcos-telegraf` automatically collects Mesos metrics by default. Previously, you were required to manually enable the metrics plugin by updating the agent configuration or by setting the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `true`.  With this release, manually enabling this feature is no longer required. Instead, the default value for the parameter is now set to true. You can set the `enable_mesos_input_plugin` parameter in the `config.yaml` file to false if you want to disable the automatic collection of Mesos metrics.
+
 - Collect and report metrics that track the health and performance of the DC/OS Telegraf plugin. <!--(DCOS-39012)-->
 
-    DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
+    DC/OS metrics are collected and managed through the Telegraf service. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database.
+
+    With this release, the `dcos-telegraf` program collects and forwards information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and is available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
+
+- Expose task-related metrics using the Prometheus format.
+
+    You can expose metrics from tasks that run on Mesos in Prometheus format. When a port configuration belonging to a task is labelled appropriately, the metrics endpoint on that port is polled regularly over the lifetime of the task and metrics collected are added to the Telegraf pipeline.
+
+    For a detailed description of how to configure a task so that its metrics are collected in Prometheus format, see the [Prometheus input plugin](https://github.com/dcos/telegraf/tree/1.9.4-dcos/plugins/inputs/prometheus#mesos-service-discovery).
+
+
+- Add internal metrics for UDP activity to the Telegraf `statsd` input plugin. <!--DCOS_OSS-4759-->
+
+    You can collect and report metrics for the number of incoming messages that have been dropped because of a full queue. This information is provided by the Telegraf `statsd` input plugin with the `internal_statsd_dropped_messages` metric.
+
+- Add process-level metrics for DC/OS agents and masters. <!--DCOS-50778-->
+
+    You can collect and report process-level metrics for agent and master node processes. This information is provided by the Telegraf `procstat` input plugin. This plugin returns information about CPU and memory usage using the `procstat_cpu_usage` and `procstat_memory_rss` metrics.
+
+- Add metrics for Admin Router instances running on DC/OS master nodes. <!--DCOS_OSS-4562-->
+
+    You can collect and report metrics for DC/OS Admin Router using NGINX Virtual Hosts metrics. This information is provided by Telegraf and NGINX input plugins and is enabled by default. You can view the NGINX instance metrics using the `/nginx/status` endpoint on each DC/OS master node.
+
+- Add the fault domain region and zone information to metrics. <!--DCOS-16570-->
 
 - Standardized log collection and forwarding through Fluent Bit. <!--(DCOS-43412)-->
 
     Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting service.
 
     For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/1.13/monitoring/logging/).
+
+For more information about collecting metrics and configuring metrics plugins, see the following topics:
+- [Metrics Plugin Architecture](/1.13/metrics/architecture/)
+- [Mesos Metrics](/1.13/metrics/mesos/)
+- [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/)
 
 ## Command-line interface
 - Identify the public-facing IP address for public agent nodes through the DC/OS CLI. <!--(DCOS-44697)-->
@@ -113,7 +154,7 @@ Features and capabilities that are introduced in DC/OS 1.13 are grouped by funct
     ```bash
     brew install dcos-cli
     ```
-    
+
     For more information about installing and using Homebrew, see the [Homebrew website](https://brew.sh/) or the [GitHub repository](https://github.com/Homebrew/brew).
 
 ## Data services
@@ -138,9 +179,9 @@ Features and capabilities that are introduced in DC/OS 1.13 are grouped by funct
 
 - Enable Edge-LB pool instances to be scaled up or down. <!--(DCOS-28440)-->
 
-    You can scale down the Edge-LB pool instances from a higher count to lower if you don't require all pool instances that are configured. To scale down, simply update the `count` variable in the Edge-LB pool configuration file to reflect the number of Edge-LB pool instances you need. 
+    You can scale down the Edge-LB pool instances from a higher count to lower if you don't require all pool instances that are configured. To scale down, simply update the `count` variable in the Edge-LB pool configuration file to reflect the number of Edge-LB pool instances you need.
 
-<!-- not in the 1.13 Docs in RN filter 
+<!-- not in the 1.13 Docs in RN filter
 - Build an Ingress controller to provision Amazon ELBs for L4 traffic into Edge-LB (DCOS-46302)
 
     You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on your public and private agents. You can automatically provision the Network Load Balancer from a Kubernetes cluster as well. After you provision the Amazon Network Load Balancer, you can fetch the DNS metadata endpoint to access the service that is exposed through the Network Load Balancer.
@@ -157,12 +198,12 @@ Features and capabilities that are introduced in DC/OS 1.13 are grouped by funct
 - Accurate status information for services. <!--(DCOS-43460)-->
 
     DC/OS 1.13 GUI now includes a new tab in the Details section of every SDK-based data service. This new tab provides a clear indication of the status and progress of SDK-based services during the service life cycle, including installation and upgrade activity. From the Details tab, you can see information about the specific operational plans that are currently running or have just completed. You can also view the execution of each task so that you can easily track the progress of the plans you have deployed.
-    
-    For more information about viewing up-to-date status information for services and operational plans, see [Services](/1.13/gui/services/).
+
+    For more information about viewing up-to-date status information for services and operational plans, see the [Services](/1.13/gui/services/) documentation.
 
 - Identify the public-facing IP address for public agent nodes in the DC/OS GUI. <!--(DCOS-49987)-->
 
-    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS GUI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS GUI, see the [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
+    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS GUI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS GUI, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
 
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a **public cloud provider** such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
@@ -184,12 +225,48 @@ Features and capabilities that are introduced in DC/OS 1.13 are grouped by funct
 
 - Enable Universal Installer and on-premise DC/OS life cycle management with Ansible. <!--(DCOS-45724)-->
 
-    The DC/OS Ansible (`dcos-ansible`) component is a Mesosphere-provided version of the Ansible open-source provisioning, configuration management, and deployment tool that enables you to use supported Ansible roles for installing and upgrading DC/OS Open Source and DC/OS Enterprise clusters on the infrastructure you choose. For more information, see the documentation for [Ansible](/1.13/installing/evaluation/).
+    The DC/OS Ansible (`dcos-ansible`) component is a Mesosphere-provided version of the Ansible open-source provisioning, configuration management, and deployment tool that enables you to use supported Ansible roles for installing and upgrading DC/OS Open Source and DC/OS Enterprise clusters on the infrastructure you choose. For more information, see the documentation for [Ansible](/1.13/installing/production/dcos-ansible/).
 
-<!-- not in 1.13 Docs with RN filter 
-- Universal Installer to provision EBS volumes (DCOS-47221)
-    The Universal Installer now provides the ability to provision AWS EBS volumes and attach them to the private agents within a cluster. Documented here: https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/
+<!-- not in 1.13 Docs with RN filter
+- Universal Installer to provision Elastic Block Store (EBS) volumes. (DCOS-47221)
+    The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/).
 -->
+
+## Job management and scheduling
+- Enhance DC/OS job handling capabilities by adding support for the following:
+    - Graphic processing units (GPU) when creating new jobs in the DC/OS GUI or with the new DC/OS configuration option `metronome_gpu_scheduling_behavior`.
+    - Jobs running in universal container runtime (UCR) containers.
+    - File-based secrets.
+    - Hybrid cloud deployments.
+    - The `IS` constraint operator and the `@region` and `@zone` attributes.
+
+- Provide an option to enable or disable offer suppression when agents are idle.
+
+- Collect metrics for the “root” Metronome process on DC/OS for better observability.
+
+- Add HTTP and uptime metrics for job management.
+
+- Set the default value for the `--gpu_scheduling_behavior` configuration option to `restricted` to prevent jobs from being started on GPU-enabled agents if the job definition did not explicitly request GPU support.
+
+<!--For more information about using these new features, see []().-->
+
+## Marathon
+- Enable secure computing (seccomp) and a default seccomp profile for UCR containers to prevent security exploits.
+
+- Replace Marathon-based health and readiness checks with generic DC/OS (Mesos-based) checks.
+
+- Collect metrics for the “root” Marathon framework on DC/OS for better observability.
+
+- Automatically replace instances when a DC/OS agent is decommissioned.
+
+- Set the default value for the `--gpu_scheduling_behavior` configuration option to `restricted` to prevent tasks from being started on GPU-enabled agents if the app or pod definition did not explicitly request GPU support.
+
+- Implement global throttling of Marathon-initiated health checks for better scalability.
+
+- Suppress offers by default when agents are idle for better scalability.
+
+- Close connections on slow event consumers to prevent excessive buffering and reduce the load on Marathon.
+
 ## Mesos platform and containerization
 - Update the Universal Container Runtime (UCR) to support Docker registry manifest specification v2_schema2 images. <!--(DCOS-43871)-->
 
@@ -201,29 +278,32 @@ Features and capabilities that are introduced in DC/OS 1.13 are grouped by funct
 
     DC/OS clusters now include executor and agent communication channel heartbeats to ensure platform resiliency even if `IPFilter` is enabled with `conntrack`, which usually times out a connection every five days.
 
-- DC/OS supports for zero-downtime for tasks through layer-4 load balancing,
+- Support zero-downtime for tasks through layer-4 load balancing.
 
     DC/OS cluster health checks now provide task-readiness information. This information enables zero-downtime for load balancing when services are scaled out. With this feature, load balanced traffic is not redirected to containers until the container health check returns a 'ready' status.
+
+- Add support for CUDA 10 image processing for applications that use graphics processing unit (GPU) resources and are based on the NVIDIA Container Runtime.<!--(COPS-4504)-->
+
+    CUDA provides a parallel computing platform that enables you to use GPU resources for general purpose processing. The CUDA platform provides direct access to the GPU virtual instruction set using common programming languages such as C and C++. The NVIDIA Container Runtime is a container runtime that supports CUDA image processing and is compatible with the Open Containers Initiative (OCI) specification.
+
+    With this release, DC/OS adds support for CUDA, NVIDIA Container Runtime containers, and applications that use GPU resources to enable you to build and deploy containers for GPU-accelerated workloads.
 
 ## Networking
 - Add a new networking API endpoint to retrieve the public-facing IP address for public agent nodes. <!--(DCOS-28127)-->
 
     This release introduces a new API endpoint for accessing public-facing IP addresses for the nodes in a cluster. For more information about retrieving and viewing public IP addresses, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
-    
-    You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
-<!-- not in 1.13 Docs in RN filter 
+    You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
+<!-- not in 1.13 Docs in RN filter
 - Retention policies for dcos-monitoring data (DCOS-46818)
     The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: https://docs.mesosphere.com/services/beta-dcos-monitoring/0.4.3-beta/operations/prometheus/storage/
 -->
-
-<!-- not in 1.13 Docs in RN filter 
+<!-- not in 1.13 Docs in RN filter
 - Display Grafana dashboards on unsupervised displays (DCOS-51133)
     The DC/OS monitoring service `dcos-monitoring` now enables Grafana dashboards to be displayed on read-only devices such as SmartTVs, kiosks or public panels.
 -->
-[enterprise]
+
 ## Security
-[/enterprise]
 - Extend the DC/OS authentication architecture to apply to both DC/OS Open Source (OSS) and DC/OS Enterprise clusters. <!--(DCOS-28672)-->
 
     You can now create unified service accounts that can be used across DC/OS OSS and DC/OS Enterprise clusters. By extending support for service accounts that can be used for all DC/OS clusters, you have the option to install, configure, and manage additional packages, including packages that require a service account when you are running DC/OS Enterprise DC/OS in `strict` mode.
@@ -232,11 +312,13 @@ Features and capabilities that are introduced in DC/OS 1.13 are grouped by funct
 
 - Support secure computing mode (seccomp) profiles. <!--(DCOS-28442, DCOS-49134)-->
 
-    Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within a container. You can enable secure computing mode for Docker containers and Universal Runtime Containers (URC) if the operating system you are using supports it.
+    Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within an app or pod container. You can enable secure computing mode using a default profile for Universal Runtime Containers (URC) if the operating system you are using supports it.
 
-    WIth DC/OS, you can use a `seccomp` profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls. 
+    With DC/OS, you can use a `seccomp` profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls.
 
-    Using a secure computing mode profile is an important option if you need to secure access to containers and operations using the principle of least privilege. 
+    Using a secure computing mode profile is an important option if you need to secure access to containers and operations using the principle of least privilege.
+
+    For more information about secure computing mode and the default secure computing profile, see [Secure computing profiles](/1.13/security/oss/secure-compute-profiles/).
 
 ## Storage
 - Update Beta Rex-Ray to support NVMe EBS volumes. <!--(DCOS-50047)-->
@@ -251,41 +333,71 @@ Features and capabilities that are introduced in DC/OS 1.13 are grouped by funct
 
     You can use the AWS EBS Container Storage Interface (CSI) driver to manage storage volumes for the Mesosphere Kubernetes Engine (MKE). This driver enables MKE users to deploy stateful applications running in a DC/OS cluster on an AWS cloud instance.
 
-# Issues fixed in this release 
+- Update support for the Container Storage Interface (CSI) specification. <!--DCOS-51279,DCOS-50136, DCOS-47222-->
+
+    With this release, DC/OS supports the Container Storage Interface (CSI) API, version 1 (v1), specification. You can deploy plugins that are compatible with either the Container Storage Interface (CSI) API, v0 or v1, specification to create persistent volumes through local storage resource providers. DC/OS automatically detects the CSI versions that are supported by the plugins you deploy.
+
+# Issues fixed in this release
 The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
-<!-- RAW input from https://github.com/dcos/dcos/blob/master/CHANGES.md -->
 
-## Command-line interface (CLI) 
-- Fix the CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679). 
+### Admin Router
+- Enable Admin Router to handle long server names (COPS-4286, DCOS-46277). <!--listed previously in 1.12.1 RN-->
 
-## Diagnostics and logging
+    This release fixes an issue in Admin Router that prevented it from starting properly for some virtual machine configurations. For example, if you previously used a server name that exceeded the maximum size allowed, the `dcos-adminrouter` component might be unable to start the server. With this release, the `packages/adminrouter/extra/src/nginx.master.conf` file has been updated to support a server name hash bucket size of 64 characters.
+
+- Change the master Admin Router service endpoint `/service/<service-name>` so that it does not remove the `Accept-Encoding` header from requests, allowing services to serve compressed responses to user agents (DCOS_OSS-4906).
+
+- Enable to master Admin Router to expose the DC/OS networking API through the `/net` endpoint path (DCOS_OSS-1837).
+
+    This API can be used, for example, to return the public IP addresses of cluster nodes through the `/net/v1/nodes` endpoint.
+
+- Enable Admin Router to return relative redirects to avoid relying on the `Host` header (DCOS-47845).
+
+### Command-line interface (CLI)
+- Fix the CLI task metrics summary command which was occasionally failing to find metrics (DCOS_OSS-4679).
+
+### Diagnostics and logging
+- Enable DC/OS to create consolidated diagnostics bundles by applying a timeout when reading `systemd` journal entries (DCOS_OSS-5097).
+
 - Add SELinux details to the DC/OS diagnostics bundle to provide additional information for troubleshooting and analysis (DCOS_OSS-4123).
 
 - Add external Mesos master and agent logs in the diagnostic bundle to provide additional information for troubleshooting and analysis (DCOS_OSS-4283).
 
 - Add logging for Docker-GC to the `journald` system logging facility (COPS-4044).
 
-- Enable Admin Router to log information to a non-blocking socket (DCOS-43956).
+- Modify Admin Router to log information to a non-blocking domain socket (DCOS-43956).
 
-## GUI
+    Previously, if the `journald` logging facility failed to read the socket quickly enough, Admin Router would stop processing requests, causing log messages to be lost and blocking other processing activity.
+
+- Allow the DC/OS Storage Service (DSS) endpoint for collecting diagnostics to be marked as optional (DCOS_OSS-5031).
+
+    The DC/OS Storage Service (DSS) provides an HTTP endpoint for collecting diagnostics. If you want the DC/OS diagnostics request to succeed when the storage service diagnostics endpoint is not available, you can configure the DC/OS diagnostics HTTP endpoint as optional. By specifying that the diagnostic endpoint is optional, you can ensure that failures to query the endpoint do not cause DC/OS diagnostics reporting to fail.
+
+    If the storage service diagnostics endpoint is optional when you generate a diagnostics report, DC/OS records a log message indicating that the endpoint is unavailable and ignored because it was marked as optional.
+
+- Prevent cloud provider access or account keys from being included in diagnostic reports (DCOS-51751).
+
+    With this release, the configuration parameters `aws_secret_access_key` and `exhibitor_azure_account_key` are marked as secret and not visible in the `user.config.yaml` file on cluster nodes. This information is only visible in `user.config.full.yaml` file. This file has stricter read permissions and is not included in DC/OS Diagnostics bundles.
+
+### GUI
 - Change the default value for DC/OS UI X-Frame-Options from SAMEORIGIN to DENY. This setting is also now configurable using the `adminrouter_x_frame_options` configuration parameter (DCOS-49594).
 
-## Installation 
+### Installation
 - Allow the DC/OS installer to be used when there is a space in its path (DCOS_OSS-4429).
 
 - Add a warning to the installer to let the user know if kernel modules required by the DC/OS storage service (DSS) are not loaded (DCOS-49088).
 
-- Improve the error messages returned if Docker is not running at start of a DC/OS installation (DCOS-15890).
+- Improve the error messages returned if Docker is not running at the start of a DC/OS installation (DCOS-15890).
 
 - Stop requiring the `ssh_user` attribute to be set in the `config.yaml` file when using parts of the deprecated CLI installer (DCOS_OSS-4613).
 
-## Job management and scheduling
+### Job management and scheduling
 - Job scheduling (Metronome) has been improved to handle the restart policy when a job fails. If a job fails to run, restarting the task should depend on the setting you have defined for the ON_FAILURE result (DCOS_OSS-4636).
 
-## Metrics
-- Prefix illegal Prometheus metric names with an underscore (DCOS_OSS-4899). 
+### Metrics
+- Prefix illegal Prometheus metric names with an underscore (DCOS_OSS-4899).
 
-## Networking
+### Networking
 - Fix an issue that previously caused the `dcos-net-setup.py` script to fail if the `systemd` network directory did not exist (DCOS-49711).
 
 - Add path-based routing to Admin Router to support routing of requests to the DC/OS networking (`dcos-net`) component (DCOS_OSS-1837).
@@ -298,7 +410,29 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 
 - Fix IPv6 virtual IP support in the layer-4 load balancing (l4lb) network component (DCOS-50427).
 
-## Third-party updates and compatibility
+- Update `iptable` rules to allow the same port to be used for port mapping and virtual IP addresses (DCOS_OSS-4970).
+
+    DC/OS now allows you to use the same port for traffic routed to virtual IP addresses and to containers that use port mapping (for example, network traffice routed to a container using bridge networking). Previously, if you configured a virtual IP address listening on the same port as the host port specified for port mapping, the `iptable` rules identified the port conflict and prevented the virtual IP traffic from being routed to its intended destination.
+
+- Update `lashup` to check that all master nodes are reachable (DCOS_OSS-4328).
+
+    Lashup is an internal DC/OS building block for a distributed control operations. It is not an independent module, but used in conjunction with other components. This fix helps to ensure Lashup convergence to prevent connectivity issues and nodes creating multiple "sub-clusters" within a single DC/OS cluster.
+
+- Allow agents to store network information in a persistent location (COPS-4124, DCOS-46132, DCOS_OSS-4667).<!--listed previously in 1.10.10 RN-->
+
+    A new agent option `--network_cni_root_dir_persist` allows the container node root directory to store network information in a persistent location. This option enables you to specify a container `work_dir` root directory that persists network-related information. By persisting this information, the container network interface (CNI) isolator code can perform proper cleanup operations after rebooting.
+
+    If rebooting a node does not delete old containers and IP/MAC addresses from `etcd` (which over time can cause pool exhaustion), you should set the `--network_cni_root_dir_persist` agent option in the `config.yaml` file to `true`. You should note that changing this flag requires rebooting the agent node or shutting down all container processes running on the node. Because a reboot or shutdown of containers is required, the default value for the `--network_cni_root_dir_persist` agent option is `false`.
+
+    Before changing this option, you should plan for agent maintenance to minimize any service interruption. If you set this option and reboot a node, you should also unset the `CNI_NETNS` environment variable after rebooting using the CNI plugin `DEL` command so that the plugin cleans up as many resources as possible (for example, by releasing IPAM allocations) and returns a successful response.
+
+- Applications that use Docker containers with a virtual IP address resolve access to the application by using the `host_IP:port_number` instead of the `container_ip:port_number` for backend port mapping (COPS-4087).<!--listed previously in 1.12.1 RN-->
+
+- The distributed layer-4 load-balancer (`dcos-l4lb`) network component waits to route traffic until an application scale-up operation is complete or the application health check has passed (COPS-3924, DCOS_OSS-1954).<!--listed previously in 1.12.1 RN-->
+
+    The `dcos-l4lb` process does not prevent traffic from being routed if you are scaling down the number of application instances. Network traffic is only suspended if the status of the application is determined to be unhealthy or unknown.
+
+### Third-party updates and compatibility
 - Update support for REX-Ray to the most recent stable version (DCOS_OSS-4316,COPS-3961).
 
 - Upgrade the version of the Telegraf metrics plugin supported to leverage recent bug fixes and feature improvements (DCOS_OSS-4675).
@@ -314,19 +448,19 @@ This section covers any known issues or limitations that don’t necessarily aff
 In this release, jobs and job schedules are created in two separate steps. Because of this change, you must structure the job definition in the JSON editor in distinct sections similar to this:
 
 - job: JSON definition that specifies the job identifier and job configuration details.
-- schedule: JSON definition the specifies the schedule details for the job.
+- schedule: JSON definition that specifies the schedule details for the job.
 
-This two-step approach to creating JSON for jobs is different from previous releases in which jobs and schedules could be created in one step. In previous releases, the job could have its schedule embedded in its JSON configuration. 
+This two-step approach to creating JSON for jobs is different from previous releases in which jobs and schedules could be created in one step. In previous releases, the job could have its schedule embedded in its JSON configuration.
 
 If you have an existing JSON configuration that has an embedded schedule and you want to view or modify that file using the job form JSON editor, you must:
-1. Add the JSON object as the value for the `job` property in the editor. 
+1. Add the JSON object as the value for the `job` property in the editor.
 
-    The job must be formatted according to the latest[Jobs API specification](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/jobspec.schema.json). This API specification (v1) replaces the previous Jobs API specification (v0).
+    The job must be formatted according to the latest [Jobs API specification](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/jobspec.schema.json). This API specification (v1) replaces the previous Jobs API specification (v0).
 
-1. Copy the `schedules: [ scheduleJSON ]` from the existing job JSON configuration and add it at the same level after the job property as `schedule: scheduleJSON`. 
+1. Copy the `schedules: [ scheduleJSON ]` from the existing job JSON configuration and add it at the same level after the job property as `schedule: scheduleJSON`.
 
     The schedule must be formatted according to the [Jobs API Schedule specification](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/schedulespec.schema.json). This API specification (v1) replaces the previous Jobs API specification (v0).
-    
+
 1. Verify that the schedule section is not an array.
 
 1. Remove the `schedules` property from the job's JSON configuration settings.
@@ -337,7 +471,7 @@ The following example illustrates the changes required when you have job definit
 {
   "id": "test-schedule",
   "labels": {
-    
+
   },
   "run": {
     "cpus": 1,
@@ -346,25 +480,25 @@ The following example illustrates the changes required when you have job definit
     "gpus": 0,
     "cmd": "sleep 100",
     "env": {
-      
+
     },
     "placement": {
       "constraints": [
-        
+
       ]
     },
     "artifacts": [
-      
+
     ],
     "maxLaunchDelay": 3600,
     "volumes": [
-      
+
     ],
     "restart": {
       "policy": "NEVER"
     },
     "secrets": {
-      
+
     }
   },
   "schedules": [
@@ -379,7 +513,7 @@ The following example illustrates the changes required when you have job definit
     }
   ],
   "activeRuns": [
-    
+
   ],
   "history": {
     "successCount": 0,
@@ -387,10 +521,10 @@ The following example illustrates the changes required when you have job definit
     "lastSuccessAt": null,
     "lastFailureAt": null,
     "successfulFinishedRuns": [
-      
+
     ],
     "failedFinishedRuns": [
-      
+
     ]
   }
 }
@@ -416,10 +550,10 @@ To add this job definition to the JSON editor, you would modify the existing JSO
         "constraints": [
         ]
       },
-      "artifacts": [ ], 
-      "maxLaunchDelay": 3600, 
-      "volumes": [ ], 
-      "restart": { "policy": "NEVER" }, 
+      "artifacts": [ ],
+      "maxLaunchDelay": 3600,
+      "volumes": [ ],
+      "restart": { "policy": "NEVER" },
       "secrets": { }
     }
   },
@@ -435,10 +569,19 @@ To add this job definition to the JSON editor, you would modify the existing JSO
 }
 ```
 
-### Deprecated or decommissioned features
-- In DC/OS 1.13, the DC/OS history service has transitioned into the retired state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/1.13/overview/feature-maturity/).
+### Authentication tokens after an upgrade
+- Authentication tokens that are generated by DC/OS Open Authentication (`dcos-oauth`) before upgrading from DC/OS version 1.12.x to DC/OS version 1.13.x become invalid during the upgrade. To generate a new authentication token for access to DC/OS 1.13.x, log in using valid credentials after completing the upgrade.
 
-- Mesos endpoints with the <code>.json</code> suffix are deprecated and should not be used in DC/OS 1.13.
+### Upgrading Marathon orchestration
+- You can only upgrade to Marathon 1.8 from 1.6.x or 1.7.x. To upgrade from an earlier version of Marathon, you must first upgrade to Marathon 1.6.x or 1.7.x.
+
+### Restrictions for Marathon application names
+- You should not use restricted keywords in application names.
+
+    You should not add applications with names (identifiers) that end with restart, tasks, or versions. For example, the application names `/restart` and `/foo/restart` are invalid and generate errors when you attempt to issue a GET /v2/apps request. If you have any existing apps with restricted names, attempting any operation--except delete--will result in an error. You should ensure that application names comply with the validation rules before upgrading Marathon.
+
+### Deprecated or decommissioned features
+- In DC/OS 1.13, the DC/OS history service has transitioned into the retired state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/1.13/overview/feature-maturity/). <!--DCOS-50304, DCOS-51996-->
 
 - Some of the configuration parameters previously used to install DC/OS cluster components are no longer valid. The following `dcos_generate_config.sh` command-line options have been deprecated and decommissioned:
     * `--set-superuser-password`
@@ -448,19 +591,62 @@ To add this job definition to the JSON editor, you would modify the existing JSO
     * `--preflight`
     * `--install-prereqs`
     * `--deploy`
-    * `--post-flight`
+    * `--postflight`
 
-    If you have scripts or programs that use any of the deprecated options, you should update them (DCOS-50263).
+    If you attempt to use an option that is no longer valid, the installation script displays a warning message. You can also identify deprecated options by running the `dcos_generate_config.sh` script with the `--help` option. The output for the `--help` option displays [DEPRECATED] for the options that are no longer used.
 
-- The CLI command `dcos node` has been replaced by the new command `dcos node list`. Running the `dcos node` command after installing this release automatically redirects to the output of the `dcos node list` command. The `dcos node list` command provides the same output plus includes an additional column that indicates the public IP address of each node.
+    These options will be removed in DC/OS 1.14. If you have scripts or programs that use any of the deprecated options, you should update them. <!--(DCOS-48069, DCOS-50263, DCOS-51311, DCOS-51312, DCOS-51174)-->
+
+- The CLI command `dcos node` has been replaced by the new command `dcos node list`.<!--DCOS-51803-->
+
+    Running the `dcos node` command after installing this release automatically redirects to the output of the `dcos node list` command. The `dcos node list` command provides information similar to the output from the `dcos node` command, but also includes an additional column that indicates the public IP address of each node.
+
+    If you have scripts or programs that use output from the `dcos node` command, you should test the output provided by the `dcos node list` command then update your scripts or programs, as needed.
+
+- Marathon-based HTTP, HTTPS, TCP, and Readiness checks <!--DCOS-42564-->
+
+    Marathon.based HTTP, HTTPS, and TCP health checks have been deprecated since DC/OS 1.9. With this release, Marathon-based readiness checks have also been deprecated.
+
+    If you have not already done so, you should migrate services to use the Mesos Health and Generic checks in place of the Marathon-based checks. As part of this migration, you should keep in mind that you can only specify one Mesos-based Health check and one Mesos-based Generic check.
+
+- Marathon support for App Container (`appc`) images is decommissioned in 1.13.<!--DCOS-42564-->
+
+    There has been no active development for AppC images since 2016. Support for AppC images will be removed in DC/OS 1.14.
+
+- Setting the `gpu_scheduling_behavior` configuration option to `undefined` is no longer supported.<!--DCOS-42564-->
+
+    With this release, the default value for the `gpu_scheduling_behavior` configuration option is `restricted`. The value `undefined` is decommissioned. This value will be removed in DC/OS 1.14.
+
+    If you have scripts or programs that set the `gpu_scheduling_behavior` configuration option to `undefined`, you should update them, as needed.
+
+- Marathon no longer supports the `api_heavy_events` setting.<!--DCOS-42564-->
+
+    With this release, the only response format allowed for `/v2/events` is `light` (in accordance with the previously-published deprecation plan). If you attempt to start Marathon with the `--deprecated_features=api_heavy_events` setting specified, the startup operation will fail with an error.
+
+- Marathon no longer supports Kamon-based metrics and related command-line arguments.<!--DCOS-42564-->
+
+    The following command-line arguments that are related to outdated reporting tools have been removed:
+    * `--reporter_graphite`
+    * `--reporter_datadog`
+    * `--metrics_averaging_window`
+
+    If you specify any of these flags, Marathon will fail to start.
+
+- Proxying server-sent events (sse) from standby Marathon instances is no longer supported.<!--DCOS-42564-->
+
+    DC/OS no longer allows a standby Marathon instance to proxy `/v2/events` from the Marathon leader. Previously, it was possible to use the `proxy_events` flag to force Marathon to proxy the response from `/v2/events`. This standby redirect functionality and the related flag are no longer valid in 1.13.
+
+- Marathon no longer supports the `save_tasks_to_launch_timeout` setting.<!--DCOS-42564-->
+
+    The `save_tasks_to_launch_timeout` option was deprecated in Marathon 1.5 and using it has had no effect on Marathon operations since that time. If you specify the `save_tasks_to_launch_timeout` setting, Marathon will fail to start.
 
 # Updated components change lists
 For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
-- Apache Mesos 1.8.0 [change log](https://github.com/apache/mesos/blob/0c503b01d3a9428ec9db35d09da5e237d737c570/CHANGELOG).
+- Apache Mesos 1.8.0 [change log](https://github.com/apache/mesos/blob/d2a368363c6738d83c721e5c7eb5e1f2ebc9cb07/CHANGELOG).
 - Marathon 1.8.x [change log](https://github.com/mesosphere/marathon/blob/b00f71136a7e35cb76c7df136d49b16b9ead2689/changelog.md).
-- Metronome 0.6.18 [change log](https://github.com/dcos/metronome/blob/90557686a08d97ef6bb7e55ac9c3a48d72e2a53d/changelog.md).
-<!--
+- Metronome 0.6.18 [change log](https://github.com/dcos/metronome/blob/b4016b01a349b15df25970877bd62521a49d0cc9/changelog.md).
 - DC/OS 1.13 [change log](https://github.com/dcos/dcos/blob/1.13/CHANGES.md).
+<!--
 - REX-Ray 0.11.4 [release information](https://github.com/rexray/rexray/releases/tag/v0.11.4).
 - Telegraf 1.9.x [change log](https://github.com/influxdata/telegraf/blob/release-1.9/CHANGELOG.md).
 - Erlang/OTP 21.3 [release information](http://erlang.org/download/otp_src_21.3.readme).

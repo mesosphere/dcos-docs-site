@@ -21,7 +21,7 @@ excerpt: 升级 DC/OS 群集
 - 生产安装方法是 DC/OS 的唯一建议升级路径。建议您熟悉 [DC/OS 部署指南](/cn/1.11/installing/production/deploying-dcos/) 后再继续操作。
 - 在升级 DC/OS 之前，请先查看 [版本注释](/cn/1.11/release-notes/)。
 - 由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，然后在 DC/OS 1.11.3 发布之前不要添加新节点。您可以在我们最新重要的 [产品咨询 中找到更多信息和更详细的补救流程](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302)。[enterprise type="inline" size="small" /]
-- `config.yaml` 文件中有几个必须在升级前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否在 `config.yaml` 文件中添加。您可以在 [此处](/latest/installing/ent/custom/advanced/#create-a-configuration-file) 查看示例文件。[enterprise type="inline" size="small" /]
+- `config.yaml` 文件中有几个必须在升级前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否在 `config.yaml` 文件中添加。您可以在 [此处](/cn/1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file) 查看示例文件。[enterprise type="inline" size="small" /]
 - 如果 IPv6 在内核中被禁用，则必须在 `config.yaml` 文件中禁用 IPv6。
 - DC/OS 企业版许可证密钥必须驻留在 `genconf/license.txt` 文件中。[enterprise type="inline" size="small" /]
 - 直到所有管理节点都升级到位，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。
@@ -309,7 +309,7 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
 
  - 验证每个管理节点的 `curl http://<dcos_agent_private_ip>:5051/metrics/snapshot` 具有值为 `1` 的 `slave/registered`。
  - 监控 Mesos UI 以验证升级的节点是否重新加入 DC/OS 群集以及任务是否已协调 (`http://<master-ip>/mesos`)。
- 如果要从宽容模式升级到严格模式，此 URL 将为 `https://<master-ip>/mesos`. 
+ 如果要从宽容模式升级到严格模式，此 URL 将为 `https://<master-ip>/mesos`.
 
 ## <a name="troubleshooting"></a>故障排除建议
 

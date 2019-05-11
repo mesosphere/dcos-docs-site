@@ -416,7 +416,7 @@ At this point your directory structure should resemble:
             sudo bash dcos_install.sh slave_public
             ```
 
-    __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.13/installing/ent/custom/system-requirements/#port-and-protocol) documentation.
+    __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.13/installing/production/system-requirements/ports/) documentation.
 
 5.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
 

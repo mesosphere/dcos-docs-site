@@ -8,7 +8,7 @@ excerpt: Troubleshooting DC/OS installation issues
 
 # <a name="general"></a>General troubleshooting approach
 
-Verify that you have 
+Verify that you have
 - a valid [IP detect script](#ipdetect)
 - functioning [DNS resolvers](#DNS) to bind the DC/OS services to
 - all nodes are synchronized with [NTP](#NTP)
@@ -17,7 +17,7 @@ Verify that you have
 
 ## IP detect script
 
-You must have a valid [ip-detect](/1.12/installing/production/advanced/#create-an-ip-detection-script) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
+You must have a valid [ip-detect](/1.12/installing/production/deploying-dcos/installation/#create-an-ip-detection-script) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
 
   - extra lines
   - white space
@@ -58,7 +58,7 @@ Network Time Protocol (NTP) must be enabled on all nodes for clock synchronizati
 ntptime
 adjtimex -p
 timedatectl
-```   
+```
 
 * Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
 
@@ -78,14 +78,14 @@ timedatectl
         journalctl -flu dcos-exhibitor
         ```
 
-* Verify that `/tmp` is mounted **without** `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log. 
+* Verify that `/tmp` is mounted **without** `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log.
 
 * To repair `/tmp` mounted with `noexec`, run the following command:
 
 
         mount -o remount,exec /tmp
 
-	    
+
 * Check the output of `/exhibitor/v1/cluster/status` and verify that it shows the correct number of masters and that all of them are `"serving"` but only one of them is designated as `"isLeader": true`
 
   For example, [SSH](/1.12/administering-clusters/sshcluster/) to your master node and enter this command:
@@ -129,7 +129,7 @@ timedatectl
     journalctl -flu dcos-mesos-dns﻿⁠⁠⁠⁠
     ```
 
-    - If you are able to ping `ready.spartan`, but not `leader.mesos` then review the Mesos master service logs by using this command: 
+    - If you are able to ping `ready.spartan`, but not `leader.mesos` then review the Mesos master service logs by using this command:
 
        ```bash
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
@@ -160,7 +160,7 @@ dcos node diagnostics download <bundle_name>
 ```
 <p class="message==note"><strong>NOTE: </strong>You may substitute <tt>all</tt> for <tt>masters</tt> or <tt>ip_of_agent</tt>. In such situations a full log bundle is not required.</p>
 
-While a bundle is preferable, there will be cases where it's not possible to generate a complete bundle. In those cases, you can collect the logs from the node(s) in question using the following command.  Please SSH to each node directly and run the command: 
+While a bundle is preferable, there will be cases where it's not possible to generate a complete bundle. In those cases, you can collect the logs from the node(s) in question using the following command.  Please SSH to each node directly and run the command:
 ```
 d=$(date -u +%Y%m%d-%H%M%S) && mkdir /tmp/journal-logs-${d} && sudo dmesg -T > /tmp/journal-logs-${d}/dmesg_t.log && for unit in $(systemctl list-units --no-legend --no-pager --plain 'dcos-*' | awk '{print $1}'); do echo "Saving logs for ${unit}"; journalctl -au ${unit} > /tmp/journal-logs-${d}/${unit}.log; done && tar -czvf $(hostname -f)-journal-logs-${d}.tgz -C /tmp/journal-logs-${d}/ .
 ```
@@ -176,7 +176,7 @@ This will produce a file called `{hostname}-journal-logs-{date}.tgz`, which you 
 SSH to your master node and enter this command to view the logs from boot time:
 
     journalctl -u dcos-adminrouter -b
-    
+
 
 For example, here is a snippet of the Admin Router log as it converges to a successful state:
 
@@ -184,7 +184,7 @@ For example, here is a snippet of the Admin Router log as it converges to a succ
     systemd[1]: Started A high performance web server and a reverse proxy server.
     nginx[1652]: ip-10-0-7-166.us-west-2.compute.internal nginx: 10.0.7.166 - - [18/Nov/2015:14:01:10 +0000] "GET /mesos/master/state-summary HTTP/1.1" 200 575 "-" "python-requests/2.6.0 CPython/3.4.2 Linux/4.1.7-coreos"
     nginx[1652]: ip-10-0-7-166.us-west-2.compute.internal nginx: 10.0.7.166 - - [18/Nov/2015:14:01:10 +0000] "GET /metadata HTTP/1.1" 200 175 "-" "python-requests/2.6.0 CPython/3.4.2 Linux/4.1.7-coreos"
-    
+
 
 ## <a name="dcos-agent-nodes"></a>DC/OS agent nodes
 
@@ -203,7 +203,7 @@ Publicly accessible applications are run in the public agent node. Public agent 
     ```bash
     journalctl -u dcos-marathon -b
     ```
-    
+
 
 For example, here is a snippet of the Mesos agent log as it converges to a successful state:
 
@@ -246,7 +246,7 @@ For example, here is a snippet of the DC/OS Marathon log as it converges to a su
     java[1288]: I1118 13:59:39.148787  1363 sched.cpp:262] New master detected at master@10.0.7.166:5050
     java[1288]: I1118 13:59:39.148952  1363 sched.cpp:272] No credentials provided. Attempting to register without authentication
     java[1288]: I1118 13:59:39.150403  1363 sched.cpp:641] Framework registered with cdcb6222-65a1-4d60-83af-33dadec41e92-0000
-    
+
 
 
 ## <a name="gen-resolvconf"></a>gen_resolvconf
@@ -272,7 +272,7 @@ For example, here is a snippet of the gen_resolvconf log as it converges to a su
     gen_resolvconf.py[1073]: nameserver 10.0.7.166
     gen_resolvconf.py[1073]: nameserver 10.0.0.2
     gen_resolvconf.py[1073]: Updating /etc/resolv.conf
-    
+
 
 
 ## <a name="mesos-master-process"></a>Mesos master process
@@ -284,7 +284,7 @@ The Mesos master process starts on the master nodes. The `mesos-master` process 
 * Go directly to the Mesos web interface and view its status at `<master-hostname>/mesos`.
 * SSH to your master node and enter this command to view the logs from boot time:
 
-    ```bash 
+    ```bash
     journalctl -u dcos-mesos-master -b
     ```
 
@@ -350,7 +350,7 @@ For example, here is a snippet of the Exhibitor log as it converges to a success
     INFO  com.netflix.exhibitor.core.activity.ActivityLog  ZooKeeper Server: Starting zookeeper ... STARTED [pool-3-thread-3]
     INFO  com.netflix.exhibitor.core.activity.ActivityLog  Cleanup task completed [pool-3-thread-6]
     INFO  com.netflix.exhibitor.core.activity.ActivityLog  Cleanup task completed [pool-3-thread-9]
-    
+
 
 
 

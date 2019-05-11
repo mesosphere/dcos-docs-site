@@ -10,7 +10,7 @@ enterprise: false
 
 DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 服务。将 GPU 添加到服务中 可以显著加快大数据工作负载。借助基于 GPU 的计划，您可以共享用于传统和机器学习工作负荷的集群资源，还可以在这些集群内动态分配 GPU 资源并在需要时释放它们。您可以为有需要的工作负荷预留 GPU 资源，或将这些启用了 GPU 的资源与基础架构的其余部分进行混合，以提高总体利用率。在启用 GPU 的 DC/OS 之后，您可以通过 `gpus` 参数在应用定义中指定 GPU。
 
-# 安装启用了 GPU 的 DC/OS 
+# 安装启用了 GPU 的 DC/OS
 必须在 DC/OS 安装期间启用 GPU。按照以下说明，根据您的特定 DC/OS 部署方法启用 GPU。
 
 ## 配备 GPU 的自定义 DC/OS 安装
@@ -26,7 +26,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 
 ## 带有 GPU 的 AWS EC2 DC/OS 安装
 
 ## 先决条件
-- AWS DC/OS 高级模板 [系统要求](cn/1.11/installing/evaluation/cloud-installation/aws/advanced/)。
+- AWS DC/OS 高级模板 [系统要求](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/)。
 - 复制到本地机器的 `zen.sh` 脚本。脚本和说明在 [此处](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/)。
 
 ### 创建依赖关系
@@ -39,7 +39,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行的 DC/OS 
 
    <p class="message--important"><strong>重要信息：</strong>执行后续步骤前，必须运行“zen.sh”脚本。</p>
 
-1. 按照 [此处](cn/1.11/installing/evaluation/cloud-installation/aws/advanced/) 的说明  使用高级 AWS 模板创建群集，并使用以下 GPU 特定配置。
+1. 按照 [此处](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/) 的说明  使用高级 AWS 模板创建群集，并使用以下 GPU 特定配置。
 
 1. 在 **Create Stack > Specify Details**页面指定您的堆栈信息并单击 **Next**。以下是 GPU 特定设置。
 

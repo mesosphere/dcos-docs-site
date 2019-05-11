@@ -62,7 +62,7 @@ The agent nodes must also have:
   - You can enable resource enforcement by inserting the environment variable MESOS_ENFORCE_CONTAINER_DISK_QUOTA=true into one of the Mesos agent extra config files (e.g. `/var/lib/dcos/mesos-slave-common`).
 - Network Access to a public Docker repository or to an internal Docker registry.
 
-*   On RHEL 7 and CentOS 7, firewalld must be stopped and disabled. It is a known <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker issue</a> that firewalld interacts poorly with Docker. For more information, see the <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> documentation.
+*   On RHEL 7 and CentOS 7, firewalld must be stopped and disabled. It is a [known Docker issue](https://github.com/docker/docker/issues/16137) that `firewalld` interacts poorly with Docker. For more information, see the [Docker Engine release notes](https://docs.docker.com/engine/release-notes/).
 
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
@@ -74,7 +74,7 @@ The agent nodes must also have:
 
     **Important:** Do not remotely mount `/var/lib/mesos` or the Docker storage directory (by default `/var/lib/docker`).
 
-*   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.  
+*   Mounting `noexec` on a system where you intend to use the DC/OS CLI could break CLI functionality unless a TMPDIR environment variable is set to something other than `/tmp/`.
 
 ### <a name="port-and-protocol"></a>Port and Protocol Configuration
 
@@ -219,7 +219,7 @@ On each of your cluster nodes, use the following command to:
     **Note:** It may take a few minutes for your node to come back online after reboot.
 
 ### Locale requirements
-You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.   
+You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.
 
 - For info on setting these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
 
