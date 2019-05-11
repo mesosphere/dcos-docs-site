@@ -16,7 +16,7 @@ For more information about log levels, consult the [CLI command reference](/1.13
 
 # Debug Subcommands for Stuck Deployments
 
-The DC/OS CLI provides a set of debugging subcommands to troubleshoot a stuck service or pod deployment. You can also use debug services and pods from the [DC/OS web interface](/1.13/monitoring/debugging/gui-debugging/).
+The DC/OS CLI provides a set of debugging subcommands to troubleshoot a stuck service or pod deployment. You can also use debug services and pods from the [DC/OS UI](/1.13/monitoring/debugging/gui-debugging/).
 
 ## Prerequisites
 - A DC/OS cluster

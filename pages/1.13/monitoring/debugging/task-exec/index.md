@@ -238,5 +238,7 @@ In this example, a long running [job](/1.13/deploying-jobs/) is launched by usin
     boot  etc  lib	 lost+found  mnt    proc  run	srv   tmp  var
     ```
  
-### Tip 
-You can use shorthand abbreviations `-i` for `--interactive` or `-t` for `--tty`. Also, only the beginning unique characters of the `<task_id>` are required. For example, if your task ID is `exec-test_20161214195` and there are no other task IDs that begin with the letter `e`, this is valid command syntax: `dcos task exec -i -t e bash`. For more information, see the CLI command [reference](/1.13/cli/command-reference/).
+**Tip** 
+
+
+You can use shorthand such as `-i` for `--interactive` or `-t` for `--tty`. Also, only the beginning unique characters of the `<task_id>` are required. For example, if your task ID is `exec-test_20161214195` and there are no other task IDs that begin with the letter `e`, this is valid command syntax: `dcos task exec -i -t e bash`. For more information, see the CLI command [reference](/1.13/cli/command-reference/).
