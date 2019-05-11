@@ -3,7 +3,6 @@ layout: layout.pug
 title: Developing DC/OS Services
 menuWeight: 160
 excerpt: Developing your own DC/OS components
-
 enterprise: false
 ---
 
@@ -25,7 +24,7 @@ Each DC/OS service in the Universe repo is comprised of JSON configuration files
 | Filename               | Description                                                                                              | Required |
 |------------------------|----------------------------------------------------------------------------------------------------------|----------|
 | `config.json`            | Specifies the supported configuration properties, represented as a JSON-schema.                          | No       |
-| `marathon.json.mustache` | Specifies a mustache template that creates a Marathon app definition capable of running your service.    | No       |
+| `marathon.json.mustache` | Specifies a Mustache template that creates a Marathon app definition capable of running your service.    | No       |
 | `package.json`           | Specifies the high level metadata about the package.                                                     | Yes      |
 | `resource.json`          | Specifies all of the required externally hosted resources (e.g. Docker images, HTTP objects and images). | No       |
 
