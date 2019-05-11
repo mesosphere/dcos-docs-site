@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  Deploying Services using a Custom Marathon with Security Features
-title: Deploying Services using a Custom Marathon with Security Features
+navigationTitle: Custom Marathon with Security Features
+title: Custom Marathon with Security Features
 menuWeight: 40
 excerpt: Using an advanced, non-native instance of Marathon
 enterprise: true
-
 ---
 
 This topic describes how to deploy a non-native instance of Marathon (Marathon on Marathon) with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/1.13/security/ent/secrets/) or fine-grain ACLs. Otherwise, use the [basic procedure](/1.13/deploying-services/marathon-on-marathon/basic/).
@@ -22,11 +21,12 @@ For this procedure, we are assuming that you have obtained an enterprise version
 -  SSH access to the cluster.
 
 <a name="variables-in-example"></a>
+
 **Variables in this example**
 
-Throughout this page, you will be instructed to invoke commands or take actions that will use cluster-specific-values. We refer to these cluster-specific-values using the `${VARIABLE}` notation; please substitute the following variables the appropriate value for your cluster.
+Throughout this page, you will be instructed to invoke commands or take actions that will use cluster-specific-values. We refer to these cluster-specific-values using the `${VARIABLE}` notation; please substitute in the following variables the appropriate value for your cluster.
 
-The following table contains all the variables used in this page:
+This table contains all the variables used in this page:
 
 | Variable | Description |
 |--------------------------|--------------------------------------------|
@@ -40,9 +40,9 @@ The following table contains all the variables used in this page:
 | `${MARATHON_IMAGE}` | The name of the Marathon image **in your private repository**, for example `private-repo/marathon-dcos-ee`. |
 | `${MARATHON_TAG}` | The Docker image tag of the Marathon version that you want to deploy. For example `v1.5.11_1.10.2` (version 0.11.0 or newer).  |
 
-**Note:** If you are working on a Mac OS or Linux machine, you can pre-define most of the above variables in your terminal session and just copy and paste the snippets in your terminal:
+If you are working on a Mac OS or Linux machine, you can pre-define most of the above variables in your terminal session and just copy and paste the snippets in your terminal:
 
-```
+```bash
 set -a
 MESOS_ROLE="..."
 SERVICE_ACCOUNT="..."
@@ -65,7 +65,7 @@ For the following steps, we are assuming that you have already:
 1. Pushed the Marathon enterprise image to your private registry [(Instructions)](/1.13/deploying-services/private-docker-registry#tarball-instructions), under the name `${MARATHON_IMAGE}:${MARATHON_TAG}`.
 1. Stored your private Docker credentials in the secrets store [(Instructions)](/1.13/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise), under the name `${DOCKER_REGISTRY_SECRET}`.
 
-    **Warning:** The name of the secret should either be in the root path (ex. `/some-secret-name`) or prefixed with the name of your app (ex. `/${MARATHON_INSTANCE_NAME}/some-secret-name`). Failing to do so, will make root Marathon unable to read the secret value and will fail to launch your custom Marathon-on-Marathon instance.
+    <p class="message--warning"><strong>WARNING: </strong> The name of the secret should either be in the root path (ex. <code>/some-secret-name</code>) or prefixed with the name of your app (ex. <code>/${MARATHON_INSTANCE_NAME}/some-secret-name</code>). Failing to do so will make root Marathon unable to read the secret value and will fail to launch your custom Marathon-on-Marathon instance.</p>
 
 # Step 2: Create a Marathon Service Account
 In this step, a Marathon [Service Account](/1.13/security/ent/service-auth/) is created. This account will be used by Marathon to authenticate on the rest of DC/OS components. The permissions later given to this account are going to define what Marathon is allowed to do.
@@ -142,9 +142,9 @@ All CLI commands can also be executed via the [IAM API](/1.13/security/ent/iam-a
 
 Grant service account `${SERVICE_ACCOUNT}` permission to launch Mesos tasks that will execute as Linux user `nobody`.
 
-To allow executing tasks as a different Linux user, replace `nobody` with that user's Linux user name. For example, to launch tasks as Linux user `bob`, replace `nobody` with `bob` below.
+To execute tasks as a different Linux user, replace `nobody` with that user's Linux user name. For example, to launch tasks as Linux user `bob`, replace `nobody` with `bob` below.
 
-Note that the `nobody` and `root` users exist on all agents by default; if a custom user is specified (e.g. `bob`), then the user `bob` will need to be manually created on every agent on which tasks can be executed (e.g. using the Linux `adduser` or a similar utility).
+Note that the `nobody` and `root` users exist on all agents by default; if a custom user is specified (for example, `bob`), then the user `bob` will need to be manually created on every agent on which tasks can be executed (for example, using the Linux `adduser` or a similar utility).
 
 ```bash
 dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:task:user:nobody create --description "Tasks can execute as Linux user nobody"
@@ -465,12 +465,12 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
     ```
 
 
-# Known pitfalls
+# Known issues
 
 - When launching docker containers, the user `nobody` may not have enough rights to successfully run. For example, starting an `nginx` Docker container as the user `nobody` will fail because `nobody` does not have write permissions to `/var/log`, which `nginx` needs.
 
 - User `nobody` has different UIDs on different systems (99 on coreos, 65534 on ubuntu). Depending on the agent's distribution, you may need to modify the container image so that UIDs match! The same goes if you use the user `bob`.
 
-- When using custom users (e.g. `bob`), the user must exist on the agent, or in the case of using containers, within the container.
+- When using custom users (for example, `bob`), the user must exist on the agent, or in the case of using containers, within the container.
 
-- When using a new user (e.g. `bob`), remember to give the Marathon service account permissions to run tasks as this user.
+- When using a new user (for example, `bob`), remember to give the Marathon service account permissions to run tasks as this user.

@@ -4,11 +4,10 @@ navigationTitle:  Marathon Placement Constraints
 title: Marathon Placement Constraints
 menuWeight: 3
 excerpt: Understanding Marathon placement constraints
-
 enterprise: false
 ---
 
-Marathon placement constraints control where services run to allow optimizing for either fault tolerance (by spreading a task out on multiple nodes) or locality (by running all of a service's tasks on the same node). Constraints have three parts: a field name, an operator, and an optional parameter. The field can be the hostname of the agent node or any attribute of the agent node.
+Marathon placement constraints control where services run, to allow optimizing for either fault tolerance (by spreading a task out on multiple nodes) or locality (by running all of a service's tasks on the same node). Constraints have three parts: a field name, an operator, and an optional parameter. The field name can be the hostname of the agent node or any attribute of the agent node.
 
 # Field Names
 

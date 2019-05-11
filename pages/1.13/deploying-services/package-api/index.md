@@ -3,7 +3,6 @@ layout: layout.pug
 title: Package Management API
 menuWeight: 10
 excerpt: Installing DC/OS services using the Package Management API
-
 enterprise: true
 ---
 
@@ -43,4 +42,4 @@ All routes may also be reached by users with the `dcos:superuser` permission. To
 
 The following resources are available under both of the above routes:
 
-[swagger api='/1.12/api/package-manager.yaml']
+[swagger api='/1.13/api/package-manager.yaml']

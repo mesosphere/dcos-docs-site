@@ -4,7 +4,6 @@ navigationTitle: Fault Domain Awareness and Capacity Extension
 title: Fault Domain Awareness and Capacity Extension
 menuWeight: 3
 excerpt: Understanding fault domains
-
 enterprise: false
 ---
 
@@ -33,8 +32,6 @@ Mesos master nodes must be in the same region because otherwise the latency betw
 
 You must have less than 100ms latency between regions.
 
-## Installation steps
-
 1. Create a fault domain detect script to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
 
     We recommend the format for the script output be:
@@ -56,13 +53,11 @@ You must have less than 100ms latency between regions.
 
     <p class="message--important"> <strong>IMPORTANT:</strong> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
 
-2. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
+1. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
 
 1. [Install DC/OS](/1.13/installing/production/deploying-dcos/installation/).
 
-1. Test your installation.
-
-   From the DC/OS CLI, enter `dcos node`. You should see output similar to the following, where the region and zone of each node is listed:
+1. Test your installation. From the DC/OS CLI, enter `dcos node`. You should see output similar to the following, where the region and zone of each node is listed:
 
    ```bash
    HOSTNAME        IP                         ID                    TYPE               REGION      ZONE
@@ -132,6 +127,6 @@ Suppose you have a Mesos cluster that spans 3 regions: `aws-us-east1`, `aws-us-e
 
 ### Increase Cluster Capacity
 
-To increase capacity, [add new agents](/1.13/administering-clusters/add-a-node/) to a remote region or regions of your cluster, and then update your services to launch instances in that region or those regions appropriately.
+To increase capacity, [add new nodess](/1.13/administering-clusters/add-a-node/) to a remote region or regions of your cluster, and then update your services to launch instances in that region or those regions appropriately.
 
 <p class="message--important"><strong>IMPORTANT: </strong>You cannot configure your service to run in more than one region.</p>

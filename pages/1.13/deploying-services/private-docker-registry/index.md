@@ -4,7 +4,6 @@ navigationTitle:  Using a Private Docker Registry
 title: Using a Private Docker Registry
 menuWeight: 4
 excerpt: Creating an archive for a private Docker registry
-
 enterprise: false
 ---
 
@@ -87,11 +86,12 @@ To supply credentials to pull from a private Docker registry, create an archive 
     The Docker image will now pull using the provided security credentials.
 
 <a name="secret-store-instructions"></a>
+
 # Referencing private Docker registry credentials in the secrets store [enterprise type="inline" size="small" /]
 
-Follow these steps to add your Docker registry credentials to the [DC/OS Enterprise secrets store](/security/ent/secrets/), and then reference that secret in your service definition.
+Follow these steps to add your Docker registry credentials to the [DC/OS Enterprise secrets store](/1.13/security/ent/secrets/), and then reference that secret in your service definition.
 
-<p class="message--important"><strong>IMPORTANT: </strong>This functionality is available only with the <a href="//deploying-services/containerizers/ucr/">Universal Container Runtime</a>). If you need to use the Docker Engine, follow the URI instructions above.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>This functionality is available only with the <a href="//deploying-services/containerizers/ucr/">Universal Container Runtime</a>. If you need to use the Docker Engine, follow the URI instructions above.</p>
 
 ## Step 1: Create a credentials file
 
@@ -237,6 +237,7 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 
 
 <a name="tarball-instructions"></a>
+
 # Pushing a custom image to a private registry from a tarball
 
 If you asked your sales representative for an enterprise version of Marathon, you may have been given a Docker image in a `.tar` archive. Follow these steps to deploy it to your registry:

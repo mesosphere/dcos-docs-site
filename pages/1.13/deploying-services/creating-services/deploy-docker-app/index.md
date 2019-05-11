@@ -1,13 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  Deploying a Docker-based Service
-title: Deploying a Docker-based Service
+navigationTitle: Tutorial - Deploying a Docker-based Service
+title: Tutorial - Deploying a Docker-based Service
 menuWeight: 100
 excerpt: Deploying a Docker-based service
-
 enterprise: false
 ---
-
 
 In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
 
@@ -88,7 +86,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
 
 # Create a Docker app and deploy to DC/OS
 
-1.  Create a Marathon app definition with the following contents and save as `hello-nginx.json`. In the `image` field, replace `<username>` with your Docker Hub username. In the `type` field, specify `MESOS` or `DOCKER` depending on which [containerizer runtime](/1.13/deploying-services/containerizers/) you prefer.
+1.  Create a Marathon app definition with the following contents and save as `hello-nginx.json`. In the `image` field, replace `<username>` with your Docker Hub username. In the `type` field, specify `MESOS` or `DOCKER` depending on which [containerizer runtime](/1.13/deploying-services/containerizers/) you prefer. This file specifies a simple Marathon application called `hello-nginx` that runs one instance of itself on a public node.
 
     ```json
     {
@@ -120,9 +118,9 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
     }
     ```
 
-    This file specifies a simple Marathon application called `hello-nginx` that runs one instance of itself on a public node.
+    
 
-3.  Add the `hello-nginx` application to Marathon by using the DC/OS command:
+1.  Add the `hello-nginx` application to Marathon by using the DC/OS command:
 
     ```bash
     dcos marathon app add hello-nginx.json
@@ -130,7 +128,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
 
     If this is added successfully, there is no output.
 
-4.  If you chose the MESOS runtime, you will see this when you verify that the app is added:
+1.  If you chose the MESOS runtime, you will see this when you verify that the app is added:
 
     ```bash
     dcos marathon app list
@@ -138,7 +136,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
     /hello-nginx   64  0.1    1/1    N/A       ---      False      MESOS    N/A
     ```
 
-1.  If you used the [AWS CloudFormation templates](/1.13/installing/oss/cloud/aws/) to expose the app to the port specified in your app definition (e.g. port 80), you must reconfigure the health check on the public ELB.
+1.  If you used the [AWS CloudFormation templates](/1.13/installing/oss/cloud/aws/) to expose the app to the port specified in your app definition (for example, port 80), you must reconfigure the health check on the public ELB.
     1. In CloudFormation, check the checkbox next to your stack.
     2. Click the **Resources** tab.
     3. Search for **PublicSlaveLoadBalancer**.
@@ -153,7 +151,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
 
     Figure1. Hello World message 
 
-# Next steps
+# Learn more
 
 Learn how to load balance your app on a public node using [Marathon-LB](/1.13/networking/marathon-lb/mlb-basic-tutorial/).
 

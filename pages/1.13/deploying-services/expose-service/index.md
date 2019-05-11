@@ -4,19 +4,24 @@ navigationTitle:  Exposing a Service
 title: Exposing a Service
 menuWeight: 5
 excerpt: Launching a service with a Marathon app definition
-
 enterprise: false
 ---
 
 
 DC/OS agent nodes can be designated as [public](/1.13/overview/concepts/#public-agent-node) or [private](/1.13/overview/concepts/#private-agent-node) during [installation](/1.13/installing/). Public agent nodes provide access from outside of the cluster via infrastructure networking to your DC/OS services. By default, services are launched on private agent nodes and are not accessible from outside the cluster.
 
-To launch a service on a public node, you must create a Marathon app definition with the `"acceptedResourceRoles":["slave_public"]` parameter specified and configure an edge load balancer and service discovery mechanism.
+To launch a service on a public node, you must 
+1. [Create a Marathon app definition](#create-app) with the `"acceptedResourceRoles":["slave_public"]` parameter specified
+1. [Configure](#config-lb) an edge load balancer and a service discovery mechanism
 
 **Prerequisites:**
 
 * DC/OS is [installed](/1.13/installing/)
 * DC/OS CLI is [installed](/1.13/cli/install/)
+
+<a name="create-app"></a>
+
+# Create a Marathon app definition
 
 1.  Create a Marathon app definition with the required `"acceptedResourceRoles":["slave_public"]` parameter specified. For example:
 
@@ -57,7 +62,7 @@ To launch a service on a public node, you must create a Marathon app definition 
     dcos marathon app add myApp.json
     ```
 
-    If this is added successfully, there is no output. You can also add your app by using the **Services** tab of the DC/OS [web interface](/1.13/gui/services/).
+    If this is added successfully, there is no output. You can also add your app by using the **Services** tab of the DC/OS [UI](/1.13/gui/services/).
 
 1.  Verify that the app is added with this command:
 
@@ -72,7 +77,11 @@ To launch a service on a public node, you must create a Marathon app definition 
     /myApp   64  0.1    0/1    ---      scale       DOCKER   None
     ```
 
-    You can also view deployed apps by using the **Services** tab of the DC/OS [web interface](/1.13/gui/services/).
+    You can also view deployed apps by using the **Services** tab of the DC/OS [UI](/1.13/gui/services/).
+
+<a name="config-lb"></a>
+
+# Configure edge load balancer
 
 1.  Configure an edge load balancer and service discovery mechanism.
 
@@ -87,6 +96,6 @@ To launch a service on a public node, you must create a Marathon app definition 
 
     Figure 1. Confirmation page
 
-## Next steps
+## Learn more
 
 Learn how to load balance your app on a public node using [Marathon-LB](/1.13/networking/marathon-lb/mlb-basic-tutorial/).

@@ -4,14 +4,13 @@ navigationTitle:  Updating a User-Created Service
 title: Updating a User-Created Service
 menuWeight: 3
 excerpt: Updating the configuration of a deployed app
-
 enterprise: false
 ---
 
 
-You can easily view and update the configuration of a deployed app by using the `dcos marathon` command.
+You can easily view and update the configuration of a deployed app by using the [`dcos marathon`](/1.13/cli/command-reference/dcos-marathon/) CLI commands.
 
-The process for updating packages from the [DC/OS Catalog](/1.13/gui/catalog/) is different. For more information, see the [documentation](/1.13/deploying-services/config-universe-service/).
+The process for updating packages from the UI is different. For more information, see the [documentation](/1.13/deploying-services/config-universe-service/).
 
 # Update all Environment Variables
 

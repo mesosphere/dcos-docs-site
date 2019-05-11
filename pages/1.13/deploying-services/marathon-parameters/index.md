@@ -4,7 +4,6 @@ navigationTitle:  Marathon Configuration Reference
 title: Marathon Configuration Reference
 menuWeight: 0
 excerpt: Understanding Marathon application definitions
-
 enterprise: false
 ---
 

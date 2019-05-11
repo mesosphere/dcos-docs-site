@@ -3,10 +3,9 @@ layout: layout.pug
 navigationTitle:  Pods
 title: Pods
 menuWeight: 85
-excerpt: Using pods to group resources
+excerpt: Using pods to share group resources
 enterprise: false
 ---
-
 
 # Overview
 Pods enable you to share storage, networking, and other resources among a group of applications on a single agent. You can then address them as one group rather than as separate applications and manage health as a unit.

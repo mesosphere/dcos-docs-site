@@ -7,9 +7,7 @@ excerpt: Creating and managing pods via the CLI or the Marathon API endpoint
 enterprise: false
 ---
 
-
-
-You can create and manage your pods via the DC/OS CLI or via the `/v2/pods/` endpoint of the [Marathon API](/deploying-services/marathon-api/).
+You can create and manage your pods via the DC/OS CLI or via the `/v2/pods/` endpoint of the [Marathon API](/1.13/deploying-services/marathon-api/).
 
 # Using the Pods CLI
 
@@ -24,12 +22,14 @@ The following commands are available in the pods CLI:
 ## Add a Pod
 
 To add a pod, first create a JSON pod definition. Then, run the following command:
+
 ```bash
 dcos marathon pod add <pod-json-file>
 ```
 
 ## List Pods
 List pods and the number of containers they have with the following command:
+
 ```bash
 dcos marathon pod list
 ```
@@ -44,6 +44,7 @@ If the pod is currently deploying, you will not be able to remove the pod. To re
 
 ## Show Pod JSON
 To see the pod definition, run the following command:
+
 ```bash
 dcos marathon pod show <pod-id>
 ```

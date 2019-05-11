@@ -7,12 +7,11 @@ excerpt: Understanding field definitions and examples of pods
 enterprise: false
 ---
 
-
 This topic provides field definitions and usage examples for pods. For more details on field definitions, see [Marathon Configuration Reference](/1.13/deploying-services/marathon-parameters/).
 
 # Annotated simple pod definition
 
-This pod, named `simple-pod` has a single container, `simpletask1`. The container pulls down an image (`python:3.5.2-alpine`) and runs a command. <!-- validated by suzanne 6/23/17 -->
+This pod, named `simple-pod` has a single container, `simpletask1`. The container pulls down an image (`python:3.5.2-alpine`) and runs a command. 
 
 ```json
 {

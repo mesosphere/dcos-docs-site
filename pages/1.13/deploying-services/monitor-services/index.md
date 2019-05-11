@@ -3,13 +3,12 @@ layout: layout.pug
 navigationTitle:  Monitoring Services
 title: Monitoring Services
 menuWeight: 3
-excerpt: Monitoring deployed DC/OS services from the CLI and web interface
-
+excerpt: Monitoring deployed DC/OS services from the CLI and UI
 enterprise: false
 ---
 
 
-You can monitor deployed DC/OS services from the CLI and web interface.
+You can monitor deployed DC/OS services from the CLI and UI.
 
 # Monitoring Universe services
 
@@ -25,7 +24,7 @@ hdfs      <privatenode2>   True     1    0.35  1036.8   0.0   <service-id2>
 kafka     <privatenode3>   True     0    0.0    0.0     0.0   <service-id3>
 ```
 
-## Web interface
+## UI
 
 See the monitoring [documentation](/1.13/monitoring/).
 
@@ -43,6 +42,6 @@ node-0                  10.0.3.224  root    R    node-0__0b165525-13f2-485b-a5f8
 suzanne-simple-service  10.0.3.224  root    R    suzanne-simple-service.47359150-feb4-11e6-b09b-3638c949fe6b
 ```
 
-## Web interface
+## UI
 
 See the monitoring [documentation](/1.13/monitoring/). 

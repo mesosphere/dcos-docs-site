@@ -42,9 +42,5 @@ Add the `killSelection` parameter to your app definition, or to the `PodScheduli
 
 The default `unreachableStrategy` for apps with persistent volumes will create new instances with new volumes and delete existing volumes (if possible) after an instance has been unreachable for longer than 7 days and has been expunged by Marathon.
 
-<table class=“table” bgcolor=#ffd000>
-<tr> 
-  <td align=justify style=“color:black><strong>Warning:</strong> Data may be deleted when the existing volumes of an unreachable instance are deleted.</td> 
-</tr> 
-</table>
+<p class="message--warning"><strong>WARNING: </strong>Data may be deleted when the existing volumes of an unreachable instance are deleted.</p>
 

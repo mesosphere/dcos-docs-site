@@ -13,7 +13,7 @@ Every change in the definition of applications or groups in DC/OS is performed a
 - Upgrade
 - Scale
 
-Marathon deployments are active until the deployment finished successfully. You can deploy multiple applications at the same time, but you cannot deploy the same application if it is already an active deployment. Multiple deployment requests for the same application will be rejected.
+Marathon deployments are active until the deployment finishes successfully. You can deploy multiple applications at the same time, but you cannot deploy the same application if it is already an active deployment. Multiple deployment requests for the same application will be rejected.
 
 # Dependencies
 

@@ -7,7 +7,7 @@ excerpt: Using a basic, non-native instance of Marathon
 enterprise: true
 ---
 
-This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas. This  procedure does not support [secrets](/1.13/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/1.13/deploying-services/marathon-on-marathon/advanced/).
+This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas. This procedure does not support [secrets](/1.13/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the [custom non-native Marathon procedure](/1.13/deploying-services/marathon-on-marathon/advanced/).
 
 **Prerequisites:**
 
@@ -22,8 +22,7 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
 ## Static Reservations
 
 <p class="message--warning"><strong>WARNING: </strong> This procedure kills all running tasks on your node.</p> 
-</tr> 
-</table>
+
 
 
 1.  [SSH](/1.13/administering-clusters/sshcluster/) to your private agent node.
@@ -43,7 +42,7 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
 1.  Add the node back to your cluster.
     1.  Reload the `systemd` configuration.
         ```bash
-        ﻿⁠⁠sudo systemctl daemon-reload
+        sudo systemctl daemon-reload
         ```
     1.  Remove the `latest` metadata pointer on the agent node:
         ```bash

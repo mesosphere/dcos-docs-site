@@ -4,11 +4,8 @@ navigationTitle:  Creating Services
 title: Creating Services
 menuWeight: 1
 excerpt: Defining a DC/OS service using Marathon
-
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 A Marathon application typically represents a long-running service that has many instances running on multiple hosts. An application instance is called a **task**. The **application definition** describes everything needed to start and maintain the tasks. A Marathon application definition creates a DC/OS **service**.
@@ -36,7 +33,7 @@ You can deploy a simple program in an inline shell script. Let's start with a si
     dcos marathon app add <your-service-name>.json
     ```
 
-    When you define and launch a service, Marathon hands over execution to Mesos. Mesos creates a sandbox directory for each task. The sandbox directory is a directory on each agent node that acts as an execution environment and contains relevant log files. The `stderr` and `stdout` streams are also written to the sandbox directory.
+When you define and launch a service, Marathon hands over execution to Mesos. Mesos creates a sandbox directory for each task. The sandbox directory is a directory on each agent node that acts as an execution environment and contains relevant log files. The `stderr` and `stdout` streams are also written to the sandbox directory.
 
 ## Declaring resources in applications
 
@@ -95,7 +92,7 @@ You can specify more than one resource. For example, you could provide a Git rep
 }
 ```
 
-A typical pattern in the development and deployment cycle is to have your automated build system place the app binary in a location that's downloadable via an URI. Marathon can download resources from a number of sources. Marathon supports the following [URI schemes](http://tools.ietf.org/html/rfc3986#section-3.1):
+A typical pattern in the development and deployment cycle is to have your automated build system place the app binary in a location that's downloadable via a URI. Marathon can download resources from a number of sources. Marathon supports the following [URI schemes](http://tools.ietf.org/html/rfc3986#section-3.1):
 
 * `file:`
 * `http:`
@@ -137,36 +134,36 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
       }
       ```
 
-  - To use the Docker Engine runtime, paste the following JSON into a file named `basic-3-docker.json`:
+    - To use the Docker Engine runtime, paste the following JSON into a file named `basic-3-docker.json`:
 
-    ```json
-    {
-      "id": "basic-3-docker",
-      "cmd": "cd /;python3 -m http.server 80",
-      "acceptedResourceRoles": [ "slave_public" ],
-      "container": {
-        "portMappings": [
-          {
-            "containerPort": 80,
-            "hostPort": 0
-          }
-        ],
-        "type": "DOCKER",
-        "docker": {
-          "image": "python:3" },
-          "parameters": [
+      ```json
+      {
+        "id": "basic-3-docker",
+        "cmd": "cd /;python3 -m http.server 80",
+        "acceptedResourceRoles": [ "slave_public" ],
+        "container": {
+          "portMappings": [
             {
-              "key": "log-driver",
-              "value": "none"
+              "containerPort": 80,
+              "hostPort": 0
             }
-          ]
-      },
-      "cpus": 0.5,
-      "instances": 1,
-      "mem": 32,
-      "networks": [ { "mode": "container/bridge" } ]
-    }
-    ```
+          ],
+          "type": "DOCKER",
+          "docker": {
+            "image": "python:3" },
+            "parameters": [
+              {
+                "key": "log-driver",
+                "value": "none"
+              }
+            ]
+        },
+        "cpus": 0.5,
+        "instances": 1,
+        "mem": 32,
+        "networks": [ { "mode": "container/bridge" } ]
+      }
+      ```
 
 1. Use the [Marathon API](/1.13/deploying-services/marathon-api/) to deploy the app `basic-3-docker`. Refer to [Authentication HTTP API Endpoint](/1.13/security/ent/iam-api/) to learn more about the API token required in the command below.
 

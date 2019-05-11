@@ -4,20 +4,19 @@ navigationTitle:  Configuring Universe Services
 title: Configuring Universe Services
 menuWeight: 2
 excerpt: Using the DC/OS CLI to configure services
-
 enterprise: false
 ---
 
 
 This topic describes how to use the DC/OS CLI to configure services. You can also customize services by using the [**Services**](/1.13/gui/services/) tab in the DC/OS UI.
 
-1. View the available configuration options for the service with the `dcos package describe --config <package-name>` command.
+1. View the available configuration options for the service with the [`dcos package describe --config <package-name>`](/1.13/cli/command-reference/dcos-package/dcos-package-describe/) command.
 
     ```bash
     dcos package describe --config marathon
     ```
 
-    The output should be like:
+    The output should look like:
 
     ```json
     {
@@ -51,13 +50,13 @@ This topic describes how to use the DC/OS CLI to configure services. You can als
     }
     ```
 
-2.  Create a JSON configuration file. You can choose an arbitrary name, but you might want to choose a pattern like `<package-name>-config.json`. For example, `marathon-config.json`.
+1.  Create a JSON configuration file. You can choose any name, but you might want to choose a pattern like `<package-name>-config.json`. For example, `marathon-config.json`.
 
     ```bash
     nano marathon-config.json
     ```
 
-3.  Use the `properties` objects to build your JSON options file. For example, to change the number of Marathon CPU shares to 3 and memory allocation to 2048:
+1.  Use the `properties` objects to build your JSON options file. For example, to change the number of Marathon CPU shares to 3 and memory allocation to 2048:
 
     ```json
     {
@@ -67,10 +66,10 @@ This topic describes how to use the DC/OS CLI to configure services. You can als
     }
     ```
 
-4.  From the DC/OS CLI, install the DC/OS service with the custom options file specified:
+1.  From the DC/OS CLI, install the DC/OS service with the custom options file specified:
 
     ```bash
     dcos package install --options=marathon-config.json marathon
     ```
 
-For more information, see the [dcos package](/1.13/cli/command-reference/dcos-package/) documentation.
+For more information, see the [dcos package](/1.13/cli/command-reference/dcos-package/) command reference documentation.
