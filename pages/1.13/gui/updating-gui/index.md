@@ -17,7 +17,9 @@ You can update  the current version of the DC/OS GUI by making a POST request to
 
 # Latency
 
-When processing an update request, the master that receives the API call will download the package, extract its contents and start serving the new version. If the cluster has multiple masters, then the DC/OS GUI update will be eventually consistent. After the update API request is successfully processed there is a lag between the completion of the API call and completion of the update by all masters. Because of this latency, the DC/OS GUI may be unavailable until every master has completed its update, and each master is serving the new DC/OS GUI version. The same is true when the DC/OS GUI version is reset to the default version.
+When processing an update request, the master that receives the API call will download the package, extract its contents and start serving the new version. If the cluster has multiple masters, then the DC/OS GUI update will be eventually consistent. 
+
+After the update API request is successfully processed there is a lag between the completion of the API call and completion of the update by all masters. Because of this latency, the DC/OS GUI may be unavailable until every master has completed its update, and each master is serving the new DC/OS GUI version. The same is true when the DC/OS GUI version is reset to the default version.
 
 ## Resources
 
