@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-excerpt: Part 1 of the DC/OS 101 tutorial
-title: Tutorial - First Steps
-navigationTitle: First Steps
-menuWeight: -1
+excerpt: Let's get started with your DC/OS tour by creating a cluster
+title: Let's get started
+navigationTitle: Let's get started
+menuWeight: 1
 ---
 
 #include /include/tutorial-disclaimer.tmpl
