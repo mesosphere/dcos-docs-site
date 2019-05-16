@@ -37,6 +37,56 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 - From any current release to the next. For example, a patch from 1.12.0 to 1.12.1 would be supported.
 - From any current release to an identical release. For example, a patch from 1.12.0 to 1.12.0 would be supported. This is useful for making configuration changes.
 
+**DC/OS minor versions for 1.12**
+
+|**Display Icon** | **Service** |
+|---------- | ------- |
+| ⚫ | Supported |
+| ◯ | Not Supported |
+
+<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+   <tr>
+    <th Rowspan = "20" Align = "center"><strong>Patch<br> From</strong></div></th>
+   <tr>
+    <th></th>
+    <th Colspan = "20" Align = "center"><strong>Patch To</strong></th>
+   </tr>
+    <th></th>
+    <th>1.12.0</th>
+    <th>1.12.1</th>
+    <th>1.12.2</th>
+    <th>1.12.3</th>
+   </tr>
+   <tr>
+    <th>1.12.0</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.12.1</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.12.2</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.12.3</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+</table>  
+
+
 ## Modifying DC/OS configuration
 
 There are limitations to the changes you can make to the cluster configuration when you are applying a patch release to the currently installed version of the software. For example, you cannot change the security mode for a cluster if you are patching a release.
