@@ -7,11 +7,11 @@ excerpt: Understanding DC/OS architecture
 enterprise: false
 ---
 
-DC/OS is a platform for running distributed containerized software, like apps, jobs, and services. As a platform, DC/OS is distinct from and agnostic with respect to the infrastructure layer. This means that the infrastructure may consist of virtual or physical hardware, as long as it provides computing resources, storage, and networking.
+The Mesosphere Distributed Cloud Operating System (DC/OS) is a platform for running distributed containerized software, like apps, jobs, and services. As a platform, DC/OS is distinct from and agnostic with respect to the infrastructure layer. This means that the infrastructure may consist of virtual or physical hardware, as long as it provides computing resources, storage, and networking.
 
 ![DC/OS Architecture Layers](/1.13/img/architecture-layers-redesigned.png)
 
-*Figure 1 - DC/OS architecture layers*
+Figure 1 - DC/OS architecture layers
 
 ## Software layer
 

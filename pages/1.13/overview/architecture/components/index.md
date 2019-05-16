@@ -4,7 +4,6 @@ navigationTitle:  Components
 title: Components
 menuWeight: 4
 excerpt: Understanding DC/OS components
-
 ---
 
 DC/OS is composed of many open source microservice components meticulously tuned and configured to work together. Mesosphere DC/OS Enterprise includes most of the open source DC/OS components but also includes several additional components, modules, and plugins.
@@ -16,11 +15,13 @@ Figure 1 - DC/OS components
 From the top, DC/OS is an inclusive container platform that handles container orchestration, package management, and security. From the bottom, DC/OS is an operating system built on top of [Apache Mesos](http://mesos.apache.org/) that handles cluster management and software defined networking, while simplifying logging and metrics collection.
 
 <a name="cluster-management"><a>
+
 # Cluster management
 
 DC/OS provides a way to view and operate a large number of individual machine-level systems as a single cluster-level system. It hides the complexity of Mesos, the distributed systems kernel, with higher level abstractions, interfaces, and tools. Cluster management is the core of that functionality, including the kernel, its dependencies, and its user interfaces.
 
 <a name="apache-mesos"></a>
+
 ## Apache Mesos
 
 Mesos manages resources and tasks as a distributed systems kernel. Mesos Master exposes scheduler, executor, and operator interfaces to facilitate cluster management. Mesos Agent manages individual executors, tasks, and resources on each [DC/OS agent node](/1.13/overview/concepts/#dcos-agent-node). Mesos Agent Public is a Mesos Agent configured to run on [DC/OS public agent nodes](/1.13/overview/concepts/#public-agent-node).
@@ -38,6 +39,7 @@ Read the following documentation resources to learn more about Apache Mesos:
 - [API Reference](https://mesos.apache.org/documentation/latest/endpoints/)
 
 <a name="apache-zookeeper"></a>
+
 ## Apache ZooKeeper
 
 ZooKeeper provides consistent, highly available, distributed key-value storage for configuration, synchronization, name registration, and cluster state storage.
@@ -177,7 +179,7 @@ Container runtimes execute and manage machine level processes in isolated operat
 
 ## Universal Container Runtime
 
-Universal Container Runtime (Mesos Containerizer) is a logical component built-in to the Mesos Agent, not technically a separate process. It containerizes Mesos tasks with configurable isolators. Universal Container Runtime supports multiple image formats, including Docker images without using Docker Engine.
+Universal Container Runtime (Mesos Containerizer) is a logical component built into the Mesos Agent, not technically a separate process. It containerizes Mesos tasks with configurable isolators. Universal Container Runtime supports multiple image formats, including Docker images without using Docker Engine.
 
 ### System service
 
@@ -195,7 +197,7 @@ Docker Engine is not installed by the DC/OS Installer, but rather is a system de
 
 ### System service
 
-- `docker.service` - Docker Engine is not installed by the DC/OS installer.
+- `docker.service` - Docker Engine is not installed by the DC/OS Installer.
 
 Read the following documentation resource to learn more about Docker Engine:
 
@@ -306,7 +308,7 @@ Read the following documentation resources to learn more about DC/OS Telegraf:
 
 ## DC/OS signal
 
-The DC/OS signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](/1.13/installing/oss/opt-out/#telemetry) at installation time.
+The DC/OS signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](/1.13/installing/production/deploying-dcos/opt-out/#telemetry) at installation time.
 
 ### System services
 
@@ -563,7 +565,7 @@ To see a list of the `systemd` components running on any particular node, list t
 ## Master node
 
 ```
-$ ls /etc/systemd/system/dcos.target.wants/ -1
+ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter.service
 dcos-backup-master.service
 dcos-backup-master.socket
@@ -605,7 +607,7 @@ dcos-vault.service
 ## Private agent node
 
 ```
-$ ls /etc/systemd/system/dcos.target.wants/ -1
+ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
 dcos-diagnostics.service
 dcos-diagnostics.socket
@@ -633,7 +635,7 @@ dcos-spartan-watchdog.timer
 ## Public agent node
 
 ```
-$ ls /etc/systemd/system/dcos.target.wants/ -1
+ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
 dcos-diagnostics.service
 dcos-diagnostics.socket
