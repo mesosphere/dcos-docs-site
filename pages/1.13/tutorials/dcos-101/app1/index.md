@@ -1,17 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  Deploying First Application
-excerpt: Part 3 of the DC/OS 101 Tutorial
-title: Tutorial - Deploying First Application
+navigationTitle:  Deploy the first application
+title: Deploy the first application
+excerpt: Describes how to define and deploy a sample service instance on the cluster (part 3)
 menuWeight: 3
 ---
-
-#include /include/tutorial-disclaimer.tmpl
-
 Welcome to part 3 of the DC/OS 101 Tutorial
 
-
-# Prerequisites
+# Before you begin
 * A [running DC/OS cluster](/1.13/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.13/tutorials/dcos-101/cli/).
 * [Redis](/1.13/tutorials/dcos-101/redis-package/) deployed and running in your cluster.
 

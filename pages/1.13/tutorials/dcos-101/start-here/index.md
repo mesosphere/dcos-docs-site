@@ -1,48 +1,49 @@
 ---
 layout: layout.pug
-excerpt: Let's get started with your DC/OS tour by creating a cluster
-title: Let's get started
-navigationTitle: Let's get started
+navigationTitle: Create a cluster
+title: Create a cluster
 menuWeight: 1
+excerpt: Let's start your DC/OS tour by creating a cluster (part 1)
 ---
+This tutorial demonstrates the basic steps for creating a small DC/OS cluster using the most common default configuration options and verifying access to the cluster. You must successfully complete the steps in the this tutorial before you can perform any other administrative tasks or explore additional features.
 
-#include /include/tutorial-disclaimer.tmpl
+After completing this tutorial, you will have a single DC/OS cluster consisting of:
+- One master node.
+- Two private agent nodes.
+- One public agent node.
 
-Welcome to part 1 of the DC/OS 101 Tutorial.
+The tutorial takes approximately 20 minutes to complete.
 
-# Prerequisites
-To get started with this tutorial, you should have access to a running DC/OS cluster with at least a single master node and 3 agent nodes (of which one is a public agent node). If you don't have these requirements set up, please follow the [setup instructions](/latest/installing/) for various cloud providers, on-premise, or vagrant setups.
+If you need additional information about hardware or software system requirements or perform any step, see the [setup instructions](/latest/installing/).
 
-If you are unsure which option to choose, then we recommend using the <a href="https://downloads.dcos.io/dcos/stable/aws.html" target="_blank">AWS templates</a>. For this tutorial, a setup with a single master node is sufficient, but for running production workloads you should have multiple master nodes.
+# Before you begin
+To get started with this tutorial, you must have access to a physical computer or virtual machine image with a supported operating system.
 
-# Objective
-You have access to your cluster and have already taken a first look at the GUI. You can also access the cluster from your local machine using the DC/OS CLI. By the end of this section, you will have installed the DC/OS CLI and used it to explore your cluster.
+You must also have an account with administrative privileges for the local operating system or the cloud provider instance where you plan to install DC/OS.
 
-# Steps
-  * Install the DC/OS CLI
-    * Follow the steps [here](/cli/install/) or the `Install CLI` instruction in the lower left corner of the DC/OS GUI.
-    * Make sure you are authorized to connect to your cluster by running `dcos auth login`. This is necessary to prevent access from unauthorized people to your cluster.
-    * You can also add/invite friends and co-workers to your cluster. See [user management documentation](/security/ent/users-groups/) for details
+For simplicity, this tutorial guides you through creating a cluster with a single master node. To run production workloads, however, you should have multiple master nodes.
 
-  * Explore the cluster:
-      * Check the running services with `dcos service`. Unless you already installed additional services, there should be two services running on your cluster: Marathon (basically the DC/OS init system) and metronome (basically the DC/OS cron scheduler).
-      * Check the connected nodes with `dcos node list`. This command displays some basic information about the connected agent and master nodes in your cluster.
-      * Explore the logs of the leading mesos master with `dcos node log --leader`. Mesos is basically the kernel of DC/OS and this tutorial explores the Mesos logs at multiple times during this tutorial.
-      * To explore more CLI options, enter the `dcos help` command. There are also help options of the individual commands available e.g., `dcos node --help`. Alternatively, check the [CLI documentation](/cli/).
+# Learning objectives
+By completing this tutorial, you will learn:
+- How to download the installation package and create a bootstrap node for distributing installation files.
+- How to distribute the installation package and designate a computer as a master node.
+- How to distribute the installation package and configure private and public agent nodes.
+- How to open the DC/OS web-based administrative console and use it to view basic information about your cluster in a web browser.
+- How to install the DC/OS command-line interface and use it to explore your cluster.
 
-# Outcome
+# To create a new cluster
+1. Install the DC/OS CLI
+
+
 Congratulations! You have successfully connected to your cluster using the DC/OS CLI, and started exploring some of the CLI commands.
 You will make further use of the CLI in the sections that follow.
 
-# Deep Dive
-You have already encountered several DC/OS components (including Mesos, Marathon, or Metronome) while experimenting with the DC/OS CLI.
-But what other components make up DC/OS?
+# Next steps
 
-## DC/OS components
-Here are the DC/OS components that are relevant to this tutorial. A full description of all components can be found in the [documentation](/overview/architecture/components/).
-* [Marathon](/overview/architecture/components/#marathon) starts and monitors DC/OS applications and services.
-* Apache [Mesos](/overview/architecture/components/#apache-mesos) is the kernel of DC/OS and responsible for low-level task maintenance.
-* [Mesos DNS](/overview/architecture/components/#mesos-dns) provides service discovery within the cluster.
-* [Minuteman](/overview/architecture/components/#minuteman) is the internal layer 4 load balancer.
-* [Admin Router](/overview/architecture/components/#admin-router) is an open source NGINX configuration that provides central authentication and proxy to DC/OS services.
-* [Universe](/overview/architecture/components/#dcos-package-manager) is the package repository that holds the DC/OS services (e.g. Apache Spark or Apache Cassandra) that you can install on your cluster directly from the DC/OS GUI and CLI.
+# Related topics
+If you want to know more about the DC/OS architecture and key components, see the following topics: 
+- [Mesos](/overview/architecture/components/#apache-mesos) containers and orchestration.
+- [Marathon](/overview/architecture/components/#marathon) framework and application definitions.
+- [Metronome](/overview/architecture/components/#marathon) job management and scheduling.
+
+For an overview of the DC/OS platform and the components that make up the architectural layers of the platform, see the [Architectural overview](latest/overview/architecture/components/).

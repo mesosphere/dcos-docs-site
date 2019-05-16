@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 navigationTitle: Introducing DC/OS
+title: Introducing DC/OS
 excerpt: Provides step-by-step instructions to introduce basic DC/OS cluster tasks
-title: Tutorials - Introducing DC/OS
 menuWeight: 0
 ---
 This introduction to DC/OS tutorial covers the following basic tasks:

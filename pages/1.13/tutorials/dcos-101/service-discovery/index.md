@@ -1,34 +1,29 @@
 ---
 layout: layout.pug
-excerpt: Part 4 of the DC/OS 101 tutorial
-title: Tutorial - Connecting Apps/Service Discovery
-navigationTitle: Service Discovery
+navigationTitle: Discover and connect to services
+title: Discover and connect to services
+excerpt: Demonstrates how to discover and connect to services in your DC/OS cluster (part 4)
 menuWeight: 4
 ---
-
-#include /include/tutorial-disclaimer.tmpl
-
 Welcome to part 4 of the DC/OS 101 Tutorial
 
-
-# Prerequisites
+# Before you begin
 * A [running DC/OS cluster](/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/tutorials/dcos-101/cli/).
 * [app1](/tutorials/dcos-101/app1/) deployed and running in your cluster.
 
 
-# Objective
+# Learning objectives
 Your [app](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) in the previous part of this tutorial used `redis.marathon.l4lb.thisdcos.directory` as the address for connecting to Redis, with port 6379. As Redis might be running on any agent in the cluster, and potentially on different ports, how does this address resolve to the actual running Redis instance?
 
 In this section, you will learn about DC/OS service discovery by exploring the different options available for apps in DC/OS.
 
-# Service Discovery
+# What is service discovery?
   [Service discovery](/networking/) enables addressing of applications independently of where they are running in the cluster, which is particularly useful in cases where applications may fail and be restarted on a different host.
 
-  DC/OS provides two options for service discovery:
+  You can find where deployed services are running in the DC/OS cluster in the following ways: 
 
-  1. Mesos-DNS
-  1. Named Virtual IPs.
-
+  - By resolving private or public agent node IP addresses for tasks through the Mesos domain naming service (Mesos-DNS).
+  - Through named virtual IP addresses that are not resolved through the Mesos domain naming service.
 
 SSH into the Mesos master node in your cluster to see how these different service discovery methods work:
 

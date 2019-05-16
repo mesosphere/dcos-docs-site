@@ -1,22 +1,18 @@
 ---
 layout: layout.pug
-navigationTitle:  Installing the First Package
-excerpt: Part 2 of the DC/OS 101 tutorial
-title: Tutorial - Installing the First Package
+navigationTitle:  Install the first package
+title: Install the first package
+excerpt: Illustrates how to install a sample application package (part 2)
 menuWeight: 2
 ---
 
 
-#include /include/tutorial-disclaimer.tmpl
-
-Welcome to part 2 of the DC/OS 101 Tutorial.
-
-
-# Prerequisites
+# Before you begin
 By now, you should have a running DC/OS cluster and the DC/OS CLI installed and configured. If that isn't the case, please follow the [first](/tutorials/dcos-101/cli/) part of this tutorial.
+
 The next stage of this tutorial uses [jq](https://stedolan.github.io/jq/), a command line JSON processor to simplify some of the commands. Follow the instructions [here](https://stedolan.github.io/jq/download/) to install JQ for your operating system.
 
-# Objective
+# Learning objective
 By the end of this session you will have installed your first service - [Redis](https://redislabs.com/) - from the DC/OS Universe repository. Redis is a key-value store, which you will use for persisting data in this tutorial.
 
 # Steps
