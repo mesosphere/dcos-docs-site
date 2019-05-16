@@ -14,6 +14,12 @@ DC/OS 1.12.0 was released on October 25, 2018.
 
 <p class="message--warning"><strong>WARNING: </strong>Registered Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, please contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> when installing DC/OS Enterprise Edition.</p>
 
+DC/OS 1.12.0 includes the following components:
+
+- Apache Mesos 1.7.x [change log](https://github.com/apache/mesos/blob/d0186a2cef8da2ba2af54185eee691b8a94cb305/CHANGELOG).
+- Marathon is 1.7.x [change log](https://github.com/mesosphere/marathon/blob/da9365d80f9e3e58b097f7b4eba50b029f306f39/changelog.md).
+- Metronome is 0.5.71 [change log](https://github.com/dcos/metronome/blob/22945457c7cb10cb14d575ceeb137edd8158ba3c/changelog.md).
+
 # About DC/OS 1.12.0 
 
 DC/OS 1.12.0 includes the following new features and capabilities:
