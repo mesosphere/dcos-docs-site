@@ -13,12 +13,12 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
 
 ## Docker Registry Support
 
-UCR uses [Docker v2 registry API](https://docs.docker.com/registry/spec/api/) to fetch Docker images/layers. Both docker manifest [v2 schema1](https://docs.docker.com/registry/spec/manifest-v2-1/) and [v2 schema2](https://docs.docker.com/registry/spec/manifest-v2-2/) are supported (v2 schema2 is supported starting from DC/OS 1.13.0).
+UCR uses [Docker v2 registry API](https://docs.docker.com/registry/spec/api/) to fetch Docker images/layers. Both Docker manifest [v2 schema1](https://docs.docker.com/registry/spec/manifest-v2-1/) and [v2 schema2](https://docs.docker.com/registry/spec/manifest-v2-2/) are supported (v2 schema2 is supported starting from DC/OS 1.13.0).
 
-# DC/OS web interface
-Use this procedure to provision a container with the UCR from the DC/OS web interface.
+# DC/OS UI
+Use this procedure to provision a container with the UCR from the DC/OS UI.
 
-1. Click the **Services** tab of the DC/OS web interface, then click **RUN A SERVICE**.
+1. Click the **Services** tab of the DC/OS UI, then click **RUN A SERVICE**.
 
 1. Click **Single Container**.
 
@@ -84,15 +84,11 @@ Use this procedure to provision a container with the UCR from the DC/OS command 
 }
 ```
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> If you leave the "args" field empty, the default entry point will be the launch command for the container. If your container does not have a default entry point, you must specify a command in the "args" field. If you do not, your service will fail to deploy.</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong> If you leave the "args" field empty, the default entry point will be the launch command for the container. If your container does not have a default entry point, you must specify a command in the "args" field. If you do not, your service will fail to deploy.</p>
 
 # Container Image Garbage Collection
 
-For a long running cluster, container images may occupy disk spaces on the agent machines. To improve the operator's experience with UCR, container image GC is introduced, starting from Mesos 1.5.0 (please read [the Mesos docs](http://mesos.apache.org/documentation/latest/container-image/#garbage-collect-unused-container-images) for more details). The image GC is automatic by default in DC/OS while it can be triggered by the operator manually.
+For a long running cluster, container images may occupy disk spaces on the agent machines. To improve the operator's experience with UCR, container image garbage collection (GC) is introduced, starting from Mesos 1.5.0 (please read [the Mesos docs](http://mesos.apache.org/documentation/latest/container-image/#garbage-collect-unused-container-images) for more details). The image GC is automatic by default in DC/OS while it can be triggered by the operator manually.
 
 ## [Automatic Image GC](http://mesos.apache.org/documentation/latest/container-image/#automatic-image-gc-through-agent-flag)
 

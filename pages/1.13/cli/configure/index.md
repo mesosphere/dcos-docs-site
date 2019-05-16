@@ -4,7 +4,6 @@ navigationTitle:  Configuring the CLI
 title: Configuring the CLI
 menuWeight: 2
 excerpt: Configuring the command line interface
-
 enterprise: false
 ---
 
@@ -27,6 +26,7 @@ export DCOS_CLUSTER=<cluster_name>
 * The `http_proxy` and `https_proxy` environment variables are defined to use `pip`.
 
 <a name="dcos-dir"></a>
+
 #### `DCOS_DIR`
 
 The path to a DC/OS configuration directory. If you want the DC/OS configuration directory to be `/home/jdoe/config`, set the variable with the command:
@@ -47,6 +47,7 @@ dcos cluster setup <url>
    This setting generates and updates per cluster configuration under `$DCOS_DIR/clusters/<cluster_id>`. Generates a newly setup cluster [as seen here](/1.13/cli/index#setupcluster).
 
 <a name="dcos-ssl-verify"></a>
+
 #### `DCOS_SSL_VERIFY`
 Indicates whether to verify SSL certificates or set the path to the SSL certificates. You must set this variable manually. Setting this environment variable is equivalent to setting the `dcos config set core.ssl_verify` option in the DC/OS configuration [file](#configuration-files). For example, to indicate that you want to set the path to SSL certificates:
 
@@ -55,5 +56,6 @@ export DCOS_SSL_VERIFY=false
 ```
 
 <a name="dcos-verbosity"></a>
+
 #### `DCOS_VERBOSITY`
 Prints log messages to stderr at or above the level indicated. `DCOS_VERBOSITY=1` is equivalent to the `-v` command-line option. `DCOS_VERBOSITY=2` is equivalent to the `-vv` command-line option.

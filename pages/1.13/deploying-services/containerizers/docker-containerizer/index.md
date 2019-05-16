@@ -4,18 +4,17 @@ navigationTitle:  Docker Engine
 title: Docker Engine
 menuWeight: 20
 excerpt: Launching Docker containers from Docker images
-
 enterprise: false
 ---
 
 
-[Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need [features](/1.13/deploying-services/containerizers/#container-runtime-features) of the Docker Engine. Otherwise, consider using the [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/).
+[Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need the [features](/1.13/deploying-services/containerizers/#container-runtime-features) of the Docker Engine. Otherwise, consider using the [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/).
 
 # Provision a container with the Docker Engine
 
 * The default entry point is the launch command for the container. If the entry point accepts arguments, you can specify them in the `args` field of the Marathon app definition. If there is no default entry point, you must specify a command in the `cmd` field. It is invalid to supply both `cmd` and `args` for the same app.
-* When you run a Docker image in the Docker Engine, the underlying Docker log files are not truncated or rotated. These files can become arbitrarily large (and often go to a system disk rather than a storage disk). This can cause a server with limited disk space to run out of disk space. Mesosphere recommends that you disable Docker logging if you are using Docker Engine. To do this, set the `log-driver` parameter to `none` in the `containers.docker.parameters` field of your app definition. If you are provisioning the container using the DC/OS web interface:
-  1. Click the **JSON EDITOR** toggle.
+* When you run a Docker image in the Docker Engine, the underlying Docker log files are not truncated or rotated. These files can become arbitrarily large (and often go to a system disk rather than a storage disk). This can cause a server with limited disk space to run out of disk space. Mesosphere recommends that you disable Docker logging if you are using Docker Engine. To do this, set the `log-driver` parameter to `none` in the `containers.docker.parameters` field of your app definition. If you are provisioning the container using the DC/OS UI:
+  1. Click the **JSON EDITOR** toggle button.
 
      ![json editor](/1.13/img/json-editor-toggle.png)
 
@@ -24,9 +23,9 @@ enterprise: false
   1. Enter the `parameters` field in the JSON configuration.
 
 
-## DC/OS web interface
+## DC/OS UI
 
-1. Click the **Services** tab of the DC/OS web interface, then click **RUN A SERVICE**.
+1. Click the **Services** tab of the DC/OS UI, then click **RUN A SERVICE**.
 
 1. Click **Single Container**.
 

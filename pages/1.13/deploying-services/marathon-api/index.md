@@ -4,7 +4,6 @@ navigationTitle:  Marathon API
 title: Marathon API
 menuWeight: 40
 excerpt: Using the Marathon API to manage long-running containerized services
-
 enterprise: true
 ---
 
@@ -32,4 +31,4 @@ All routes may also be reached by users with the `dcos:superuser` permission. To
 
 ## Resources
 
-[swagger api='/1.12/api/marathon.yaml']
+[swagger api='/1.13/api/marathon.yaml']

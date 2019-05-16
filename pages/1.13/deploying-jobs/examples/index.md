@@ -14,7 +14,9 @@ These examples provide common usage scenarios for jobs.
 
 - [DC/OS](/1.13/installing/) and the [DC/OS CLI](/1.13/cli/install/) installed.
 
-# <a name="create-job"></a>Creating a Simple Job
+<a name="create-job"></a>
+
+# Creating a Simple Job
 
 This JSON file creates a simple job with no schedule.
 
@@ -42,11 +44,15 @@ This JSON file creates a simple job with no schedule.
     curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs -d@/Users/<your-username>/<myjob>.json
     ```
 
-# <a name="create-job-schedule"></a>Creating a Job with a Schedule
-<p class="message--note"><strong>NOTE: </strong>This example JSON only works when you add the job from the DC/OS CLI or the web interface. </p>
+<a name="create-job-schedule"></a>
+
+# Creating a Job with a Schedule
+
+<p class="message--note"><strong>NOTE: </strong>This example JSON only works when you add the job from the DC/OS CLI or the UI. </p>
 
 1. Create a JSON file with the following contents.
-    ```
+
+    ```json
     {
         "id": "my-scheduled-job",
         "description": "A job that sleeps on a schedule",
@@ -72,13 +78,15 @@ This JSON file creates a simple job with no schedule.
     dcos job add <my-scheduled-job>.json
     ```
 
-# <a name="schedule-with-api"></a>Creating a Job and Associating a Schedule using the API
+<a name="schedule-with-api"></a>
+
+# Creating a Job and Associating a Schedule using the API
 
 1. Add a job without a schedule using the [instructions above](#create-job).
 
-1. Create JSON file with the following contents. This is the schedule for your job.
+1. Create a JSON file with the following contents. This is the schedule for your job.
 
-    ```
+    ```json
     {
         "concurrencyPolicy": "ALLOW",
         "cron": "20 0 * * *",
@@ -91,21 +99,26 @@ This JSON file creates a simple job with no schedule.
     ```
 
 1. Add the schedule and associate it with the job.
+
     Via the DC/OS CLI:
+
     ```bash
     dcos job schedule add <job-id> <schedule-file>.json
     ```
 
-    Via the API
+    Via the API:
+
     ```bash
     curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<job-id>/schedules -d@/Users/<your-username>/<schedule-file>.json
     ```
 
 You can associate a schedule with more than one job.
 
+<a name="partitioned-jobs"></a>
+
 # Creating a Partitioned Jobs Environment
 
-In this example, a partitioned jobs environment is created with the DC/OS web interface. This allows you to restrict user access per job, or per job group. The jobs are created in a jobs group named `batch`, which is a child of a jobs group named `dev`.
+In this example, a partitioned jobs environment is created with the DC/OS UI. This allows you to restrict user access per job, or per job group. The jobs are created in a jobs group named `batch`, which is a child of a jobs group named `dev`.
 
 ```
 ├── dev
@@ -120,7 +133,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
 - You must be logged in as a `superuser`.
 
-1. Log into the DC/OS web interface as a user with the `superuser` permission.
+1. Log into the DC/OS UI as a user with the `superuser` permission.
 
    ![Login](/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
@@ -157,7 +170,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
         ![Run job](/1.13/img/GUI-Jobs-Job_View-Run_Now_Menu-1_12.png)
 
-        Figure 5. "Run now" menu
+        Figure 5. **Run now** menu
 
     1.  Click **Jobs > dev > batch > job2** and click **Run Now**.
 
@@ -169,7 +182,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
          Figure 6. Create a new user
 
-    1.  Select the user **Cory** grant access to `job1`.
+    1.  Select the user **Cory** and grant access to `job1`.
     1.  From the **Permissions** tab, click **ADD PERMISSION** and toggle the **INSERT PERMISSION STRING** button to manually enter the permissions.
 
         ![Add permissions cory](/1.13/img/GUI-Organization-Users-Successful_Perms_Add_Cory_DeplJobs-1_12.png)

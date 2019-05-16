@@ -46,7 +46,7 @@ You can define a maintenance schedule to evacuate your tasks prior to changing a
 
 1.  Invoke the `⁠⁠⁠⁠machine/down` endpoint with the machine JSON definition specified. For example, [here](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) is a script that calls `/machine/down/`.
 
-    <p class="message--important"><strong>IMPORTANT: </strong>Invoking "machine/down" sends a ⁠⁠⁠⁠TASK_LOST⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS service guides and the Mesos maintenance primitives.</p>
+    <p class="message--important"><strong>IMPORTANT: </strong>Invoking <code>machine/down</code> sends a ⁠⁠⁠⁠TASK_LOST⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS service guides and the Mesos maintenance primitives.</p>
 
 1.  Perform your maintenance.
 1.  Add the nodes back to your cluster by invoking the `⁠⁠⁠⁠machine/up` endpoint with the add agents JSON definition specified. For example:
@@ -81,7 +81,7 @@ Draining nodes by using the terminate signal, SIGUSR1, is easy to integrate with
 1. Add the nodes back to your cluster by reloading the `systemd` configuration.
 
     ```bash
-    ﻿⁠⁠sudo systemctl daemon-reload
+    sudo systemctl daemon-reload
     ```
 
     If you are performing agent maintenance without changing agent attributes or resources, continue to the next step after reloading the `systemd` configuration. If you are changing agent attributes or resources as part of updating the node, however, you should delete the `latest` symbolic link on the agent node.

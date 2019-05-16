@@ -4,15 +4,12 @@ navigationTitle:  CLI Plugins
 title: CLI Plugins
 menuWeight: 5
 excerpt: How to extend the command line interface
-
 enterprise: false
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 Plugins extend the functionality of the CLI for cluster specific actions.
 
-Plugins are cluster-specific, when switching between different clusters the CLI will automatically use the proper set of plugins installed for that cluster.
+Plugins are cluster-specific; when switching between different clusters, the CLI will automatically use the proper set of plugins installed for that cluster.
 
 
 # Core CLI Plugin

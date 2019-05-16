@@ -13,7 +13,7 @@ A fault domain is a section of a network, for example, a rack in a datacenter or
 
 DC/OS now supports fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
 
-DC/OS currently supports Mesos' 2-level hierarchical fault domains: zone and region.
+DC/OS currently supports Mesos' two-level hierarchical fault domains: zone and region.
 
 
 # Zone fault domains

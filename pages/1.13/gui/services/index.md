@@ -6,18 +6,18 @@ menuWeight: 2
 excerpt: Using the Services menu
 ---
 
-The Services menu provides a full-featured interface to the native DC/OS Marathon instance. It provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
+The Services page provides a full-featured interface to the native DC/OS Marathon instance. It provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
 
 ![Services](/1.13/img/services-ee.png)
 
-Figure 1. Services menu
+Figure 1 - Services page
 
 By default, all of your services are displayed, sorted by service name. You can also sort the services by health status, version, region, instances, CPU, memory, disk space or GPU usage.
 
 | Name | Description |
 |----------------|------------------|
 | Name | The DC/OS service name of the service |
-| [Status](#service-status) | The status of the service. |
+| [Status](#service-status) | The status of the service. See details in the following table.|
 | Version | The version of the service |
 | Region | The region of the service |
 | Instances | The number of instances of the service|
@@ -59,7 +59,7 @@ Click the service name to open the Services Instance page. The Services Instance
 
 ![Instances](/1.13/img/services-instances-panel.png)
 
-Figure 2. Services Instances 
+Figure 2 - Services instances 
 
 
 
@@ -67,7 +67,7 @@ Figure 2. Services Instances
 |------------------|----------------|
 | Tasks | For each task, there is information about its zone, region, status, health and when it was last updated. Click a task to see its complete configuration, working directory and logs.  |
 | Configuration |  Service and Networking configuration variables. |
-| <a name="debug">Debug</a> |  Displays task statistics to help you troubleshoot issues with your cluster. |
+| <a name="debug"></a>Debug |  Displays task statistics to help you troubleshoot issues with your cluster. |
 | Endpoints |  Service configuration variables such as container images, container runtime, and advanced networking settings. |
 | Plans | Displays all of a service's Deployment Plans so that you can track the status of a currently running or finished service. A drop-down menu lets you switch between plans. |
 

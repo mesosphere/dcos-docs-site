@@ -183,7 +183,7 @@ A `systemd` service is a service that consists of a single, optionally container
 A system service is a service that implements or enhances the functionality of DC/OS itself, run as either a Marathon service or a `systemd` service, owned by the system (admin) user or DC/OS itself.
 
 - A system service may require special permissions to interact with other system services.
-- Permission to operate as a system service on an DC/OS Enterprise cluster requires specific fine-grained permissions, while on open DC/OS all logged in users have the same administrative permissions.
+- Permission to operate as a system service on a DC/OS Enterprise cluster requires specific fine-grained permissions, while on open DC/OS all logged in users have the same administrative permissions.
 
 **Examples:** All DC/OS components.
 

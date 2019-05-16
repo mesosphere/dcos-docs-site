@@ -4,7 +4,6 @@ title: Using a DC/OS Tunnel
 navigationTitle: Using a DC/OS Tunnel
 menuWeight: 10
 excerpt: Accessing your cluster by proxy and VPN using a DC/OS tunnel
-
 enterprise: false
 ---
 <p class="message--warning"><strong>WARNING: </strong>DC/OS Tunnel is appropriate for development, debugging, and testing only. Do not use DC/OS Tunnel in production.</p>
@@ -133,7 +132,7 @@ served by `myapp` to be output output as text.
 
     ```
     dcos tunnel socks
-
+   
     ## Example
     curl --proxy socks5h://127.0.0.1:1080 myapp-mygroup.marathon.agentip.dcos.thisdcos.directory:555
     ```
@@ -210,7 +209,7 @@ Alternatively, you can add `name` to the `portMappings` or `portDefinitions` fie
 ```
 
 ##  Using DC/OS Tunnel to run a VPN
-Run the following command from the DC/OS CLI
+Run the following command from the DC/OS CLI:
 
 ```
 sudo dcos tunnel vpn

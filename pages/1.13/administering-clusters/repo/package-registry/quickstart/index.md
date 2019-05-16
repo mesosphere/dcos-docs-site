@@ -9,9 +9,9 @@ enterprise: true
 
 # Preparing to Install a Package Registry
 
-## Install or Upgrade to DC/OS Enterprise 1.12
+## Install or Upgrade to DC/OS Enterprise 1.13
 
-The DC/OS Package Registry is included with DC/OS Enterprise 1.12. If needed, please follow the [instructions for upgrading to DC/OS 1.12](/1.13/installing/production/upgrading/) first before continuing.
+The DC/OS Package Registry is included with DC/OS Enterprise 1.13. If needed, please follow the [instructions for upgrading to DC/OS 1.13](/1.13/installing/production/upgrading/) before continuing.
 
 ## Remove the Universe Repository (optional)
 

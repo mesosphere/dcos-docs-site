@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-title: Debugging from the DC/OS Web Interface
+title: Debugging from the DC/OS UI
 menuWeight: 0
-excerpt: Using the DC/OS web interface for debugging
+excerpt: Using the DC/OS UI for debugging
 beta: true
 enterprise: false
 ---
@@ -10,7 +10,7 @@ enterprise: false
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-You can debug your service or pod from the DC/OS web interface.
+You can debug your service or pod from the DC/OS UI.
 
 ## Service and Pod Health and Status Summaries
 
@@ -20,7 +20,7 @@ The **Services** > **Services** page lists each service or pod, the resources it
 
 ![Mesosphere DC/OS Enterprise services](/1.13/img/services-ee.png)
 
-Figure 1. DC/OS Services > Services page
+Figure 1 - DC/OS Services page
 
 ## Debugging Page
 
@@ -28,4 +28,4 @@ To reveal a detailed debugging page, click the name of a service or pod and then
 
 ![Debug Screen](/1.13/img/debug-ui.png)
 
-Figure 2. Debugging page
+Figure 2 - Debugging page

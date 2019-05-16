@@ -4,10 +4,8 @@ navigationTitle:  Mesos DNS API
 title: Mesos DNS API
 menuWeight: 201
 excerpt: Discovering IP addresses and ports using Mesos DNA API
-
 enterprise: true
 ---
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 You can use the Mesos DNS API to discover the IP addresses and ports of other applications.

@@ -9,7 +9,7 @@ enterprise: true
 
 # Updating Settings
 
-Executing `dcos package describe --config package-registry` after installing the bootstrap registry gives you a wide range of configuration options. The service options can be updated only through the DC/OS GUI.
+Running `dcos package describe --config package-registry` after installing the bootstrap registry gives you a wide range of configuration options. The service options can be updated only through the DC/OS GUI.
 
 ## Monitoring and Health Checks
 

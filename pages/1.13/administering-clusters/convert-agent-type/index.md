@@ -4,24 +4,21 @@ navigationTitle:  Converting Agent Node Types
 title: Converting Agent Node Types
 menuWeight: 700
 excerpt: Converting agent nodes to public or private agent nodes.
-
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 You can convert agent nodes to public or private for an existing DC/OS cluster.
 
-Agent nodes are designated as [public](/1.13/overview/concepts/#public-agent-node) or [private](/1.13/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during [GUI][1] or [CLI][2] installation.
+Agent nodes are designated as [public](/1.13/overview/concepts/#public-agent-node) or [private](/1.13/overview/concepts/#private-agent-node) during installation. By default, they are designated as `private` during [GUI][1] or [CLI][2] installation.
 
 ### Prerequisites:
 These steps must be performed on a machine that is configured as a DC/OS node. Any tasks that are running on the node will be terminated during this conversion process.
 
-*   DC/OS is installed using the [custom](/1.13/installing/evaluation/) installation method and you have deployed at least one [master](/1.13/overview/concepts/#master) and one [private](/1.13/overview/concepts/#private-agent-node) agent node.
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.13/installing/evaluation/#backup).     
-*   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
-*   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
+1.   Install DC/OS using the [custom](/1.13/installing/evaluation/) installation method. 
+2.  Deploy at least one [master](/1.13/overview/concepts/#master) and one [private](/1.13/overview/concepts/#private-agent-node) agent node.
+*   Retrieve the archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.13/installing/evaluation/#backup).     
+*   Install the CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
+*   Install and configure SSH. This is required to access nodes in the DC/OS cluster.
 
 ### Determine the node type
 You can determine the node type by running this command from the DC/OS CLI.
@@ -49,20 +46,21 @@ You can determine the node type by running this command from the DC/OS CLI.
     sudo systemctl disable dcos-mesos-slave
     ```
 
-2.  Remove the old directory structures on the agent node.
+1.  Remove the old directory structures on the agent node.
 
     ```bash
     sudo rm -rf /etc/mesosphere /opt/mesosphere /var/lib/mesos /var/lib/dcos
     ```
 
-3.  Restart the machine.
+1.  Restart the machine.
 
     ```bash
     sudo reboot
     ```
 
 ### Install DC/OS and convert agent node
-Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that that is being converted. This archive is created during the GUI or CLI [installation](/1.13/installing/evaluation/) method.
+
+1. Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that that is being converted. This archive is created during the GUI or CLI [installation](/1.13/installing/evaluation/) method.
 
 1.  Copy the files to your agent node. For example, you can use Secure Copy (scp) to copy `dcos-install.tar` to your home directory:
 

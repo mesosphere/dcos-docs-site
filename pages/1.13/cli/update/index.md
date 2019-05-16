@@ -4,15 +4,16 @@ navigationTitle:  Updating the CLI
 title: Updating the CLI
 menuWeight: 3
 excerpt: Updating the command line interface
-
 enterprise: false
 ---
 
-Depending on the version of the DC/OS CLI you have currently installed, you can choose to either update the CLI to the latest version for your cluster or to install a specific version. Also note, if you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely <a href="/1.13/cli/uninstall/">uninstall</a> the CLI then install a new version of the software to upgrade.
+Depending on the version of the DC/OS CLI you have currently installed, you can choose to either update the CLI to the latest version for your cluster or to install a specific version. Also note, if you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely <a href="/1.13/cli/uninstall/">uninstall</a> the CLI, then install a new version of the software to upgrade.
 
-# <a name="upgrade"></a>Upgrade the CLI using the web interface
+<a name="upgrade"></a>
 
-The recommended method to install the DC/OS CLI is by getting a preformatted set of commands from the DC/OS web interface and running them in the terminal. If the version of the CLI you have currently installed can be upgraded to the latest build, take the following steps to complete the upgrade.
+# Upgrade the CLI using the UI
+
+The recommended method to install the DC/OS CLI is by getting a preformatted set of commands from the DC/OS UI and running them in the terminal. If the version of the CLI you have currently installed can be upgraded to the latest build, take the following steps to complete the upgrade.
 
 1. From the terminal, remove the current CLI binary. For example, if it was installed to `/usr/local/bin/`:
 
@@ -20,7 +21,7 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
     rm -rf /usr/local/bin/dcos
     ```
 
-1.  Then, navigate to your DC/OS web interface and click the down arrow to the right of your cluster name in the top right corner.
+1.  Then, navigate to your DC/OS UI and click the down arrow to the right of your cluster name in the top right corner.
 
     ![open cluster popup](/1.13/img/open-cluster-popup.png)
 
@@ -30,7 +31,7 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
 
     ![CLI install UI](/1.13/img/install-cli.png)
 
-    Figure 2. Select Install CLI
+    Figure 2. Select **Install CLI**
 
 1. Copy and paste the code snippets appropriate to your OS into your terminal and press the return key. This automatically downloads, moves, and runs the setup command for the cluster. The last command to run, `dcos`, will display an overview of the dcos commands.
 

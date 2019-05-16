@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Managing Package Repositories
 title: Managing Package Repositories
 menuWeight: 50
-excerpt: Using the web interface or CLI to manage your package repositories
+excerpt: Using the UI or CLI to manage your package repositories
 enterprise: false
 ---
 
@@ -11,19 +11,19 @@ enterprise: false
 
 DC/OS comes pre-configured with the [Mesosphere Universe](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages, but other package repositories can also be added.
 
-You can use the web interface or the CLI to:
+You can use the UI or the CLI to:
 
 * [List repositories](#listing)
 * [Search for packages](#finding-packages)
 * [Add repositories](#adding)
 * [Remove repositories](#removing)
 
-<p class="message--note"><strong>NOTE: </strong>Before you can use the CLI, you need to <a href="/1.12/cli/install">install it</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>Before you can use the CLI, you need to <a href="/1.13/cli/install">install it</a>.</p>
 
 
 ## <a name="listing"></a>Listing repositories
 
-To see which package repositories are currently installed, enter this CLI command:   
+To see which package repositories are currently installed, run this CLI command:   
 
 ```bash
 dcos package repo list
@@ -60,7 +60,7 @@ For example, this command adds a repo named `your-repo` with the URL `https://un
 dcos package repo add your-repo https://universe.yourcompany.com/repo
 ```
 
-For full instructions on how to build and run your own Universe repo see the [Universe Server Documentation](https://github.com/mesosphere/universe#universe-server)
+For complete instructions on how to build and run your own Universe repo see the [Universe Server Documentation](https://github.com/mesosphere/universe#universe-server)
 
 ## <a name="removing"></a>Removing a repository
 

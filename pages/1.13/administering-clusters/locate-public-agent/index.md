@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Finding a Public Agent IP
 title: Finding a Public Agent IP
 menuWeight: 3
-excerpt: Finding a public agent IP address.
+excerpt: Finding a public agent IP address
 enterprise: false
 ---
 After you have installed DC/OS with a public agent node declared, you can navigate to the public IP address of your public agent node. You can expose the public-facing IP address for an agent as a gateway for access to services that are running inside the DC/OS cluster. For example, if you are configuring load balancing to distribute inbound requests to the services in a cluster, the requests are typically routed through the public IP address frontend to an appropriate service instance backend isolated behind a firewall. 
@@ -15,13 +15,13 @@ After you have installed DC/OS with a public agent node declared, you can naviga
 - You should have [jq](https://github.com/stedolan/jq/wiki/Installation) or [Python](https://www.python.org/) installed if you want to format the output from an API call.
   You can also use [jq](https://github.com/stedolan/jq/wiki/Installation) or another program to find public agent IP addresses if you are using an older version of the DC/OS cluster. 
 
-<p class="message--note"><strong>NOTE: </strong>You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
+<p class="message--note"><strong>NOTE: </strong>You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is often the same as the IP address defined for the server in the DNS namespace.</p>
 
 # Viewing public IP addresses in the DC/OS console
 You can view the public agent IP addresses for the nodes in a cluster interactively from the DC/OS web-based administrative console.
 
-To view public IP addresses by using the DC/OS web-based console:
-1. Open a web browser and log on with administrative user name and password.
+To view public IP addresses using the DC/OS web-based console:
+1. Open a web browser and log in with administrative user name and password.
 
 1. Click **Nodes** to display information about your agent nodes.
 
@@ -34,14 +34,12 @@ To view public IP addresses by using the DC/OS web-based console:
 
     In most cases, looking up the public-facing IP address for an agent node is sufficient. You can, however, also look up the public IP address for master nodes, if needed. If you need to find the public IP address for a master node, use the `dcos node list` [command](#public-ip-cmd) or the `net/v1/nodes` [API call](#public-ip-api).
 
-<!--1. Click Masters then check the **Public IP** column to determine the public-facing IP address for the master node you want to expose. -->
-
-<a name="public-ip-cmd">
+<a name="public-ip-cmd"></a>
 
 # Listing public IP addresses from the command line
-You can list the public agent IP addresses for the nodes in a cluster interactively or programmatically by using the DC/OS core command-line interface (CLI).
+You can list the public agent IP addresses for the nodes in a cluster interactively or programmatically using the DC/OS core command-line interface (CLI).
 
-To list public IP addresses by using the DC/OS CLI:
+To list public IP addresses using the DC/OS CLI:
 1. Open a shell terminal. 
 
 1. Run the following command:
@@ -75,7 +73,7 @@ To list public IP addresses by using the DC/OS CLI:
 
     In most cases, you can use this command to verify both the private and public IP addresses for each node. You should keep in mind, however, that the public and private IP addresses returned might not be accurate if the Edge-LB pool uses virtual networks.
 
-<a name="public-ip-api">
+<a name="public-ip-api"></a>
 
 # Finding a public IP address using an API call
 The DC/OS application programming interface (API) provides the underlying functionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you only use the API directly if you are integrating the API call in a custom program or automation script. However, you can retrieve the public IP addresses for public agents directly through calls to the DC/OS application programming interface (API) for networking, if needed.

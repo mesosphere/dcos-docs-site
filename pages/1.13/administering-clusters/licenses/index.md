@@ -18,6 +18,7 @@ A cluster license file contains all of the information to determine if the terms
    - The start and end dates of the license.
 
 
+
 # Configuring the cluster license
 
 You specify the license file when you configure a cluster installation. To configure a cluster license, create the `genconf/license.txt`file and add the license key text you received in the email sent to you by your Authorized Support Contact. For additional information about this step, see the instructions for [running the installer](/1.13/installing/production/deploying-dcos/installation/).

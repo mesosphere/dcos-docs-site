@@ -6,7 +6,7 @@ menuWeight: 11
 excerpt: Using the Organization menu
 ---
 
-You may manage user access from the Organization menu. The Organization menu comprises three tabs:
+You may manage user access from the Organization page. The Organization menu comprises three tabs:
 
 - Users
 - Groups
@@ -14,4 +14,4 @@ You may manage user access from the Organization menu. The Organization menu com
 
 ![Organization Tab EE](/1.13/img/GUI-Organization-Users-Users_List_Empty-1_12.png)
 
-<p><i>Figure 1 - Organization > Users tab</i></p>
+Figure 1 - Organization > Users tab

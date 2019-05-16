@@ -8,10 +8,14 @@ beta: false
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
+Metrics in DC/OS 1.12 or later use [Telegraf](/1.13/overview/architecture/components/#telegraf) to collect and process data. Telegraf provides metrics from DC/OS cluster hosts, containers running on those hosts, and from applications running on DC/OS using the `statsd` process. Telegraf is natively integrated with DC/OS. By default, it exposes metrics in Prometheus format from `port 61091` on each node, and in JSON format through the DC/OS [Metrics API](/1.13/metrics/metrics-api/).
+<<<<<<< HEAD
 # Overview
 DC/OS includes a comprehensive metrics service, providing metrics from DC/OS cluster hosts, containers, and applications running on those hosts. It collects, tags, and transmits metrics from every node, container, and application in your DC/OS cluster. Metrics are available via the DC/OS metrics API, allowing for easy integration with a wide range of monitoring solutions.
+=======
+
+>>>>>>> a2d18d6a6cb5def325af0993142700d54b705af5
 
 # Types of Metrics
 DC/OS collects four types of metrics as follows:

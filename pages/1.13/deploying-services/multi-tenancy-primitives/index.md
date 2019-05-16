@@ -55,10 +55,10 @@ In summary, Jenkins-as-a-service is a very dynamic workload, with hundreds of Je
 
 # Implementation
 You can use the following resources to learn how to implement both Marathon on Marathon and Spark quotas:
-- [Deploying non-native instances of Marathon](https://docs.mesosphere.com/1.12/deploying-services/marathon-on-marathon/)
-- [Spark Quota](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/job-scheduling/#setting-quotas-for-the-drivers)
+- [Deploying non-native instances of Marathon](/1.13/deploying-services/marathon-on-marathon/)
+- [Spark Quota](/services/spark/2.3.1-2.2.1-2/job-scheduling/#setting-quotas-for-the-drivers)
 
-In the examples below, it is recommended to run the application from a host with [DC/OS CLI](https://docs.mesosphere.com/1.12/cli/) installed.
+In the examples below, it is recommended to run the application from a host with [DC/OS CLI](/1.13/cli/) installed.
 
 <p class="message--note"><strong>NOTE: </strong> All double quotes in the JSON examples below require sanitising before use when copying and pasting into editors or a terminal.</p>
 
@@ -82,11 +82,11 @@ Roles do not require explicit management, like configuring a new role and assign
 ### Adding
 Adding reserves resources on a specific agent with id `312dc1dc-9b39-474f-8295-87fc43872e7c-S0` for role low, guaranteeing `four` CPU shares and `512MB` of RAM. When any task with a role of low requests offers that match what this agent has reserved then the task will be guaranteed to the agent itself.
 
-<p class="message--note"><strong>NOTE: </strong>The principal of bootstrapuser differs for each user. In this example, the principal of `bootstrapuser` is my superuser account.</p>
+<p class="message--note"><strong>NOTE: </strong>The principal of <code>bootstrapuser</code> differs for each user. In this example, the principal of <code>bootstrapuser</code> is my superuser account.</p>
 
 You must change the `agent_id` for the agent ID on your cluster. Use `$dcos node` to find the agent id. 
 
-```
+```json
 tee add-reservation.json << EOF
 {
   "type": "RESERVE_RESOURCES",
@@ -148,9 +148,9 @@ curl -i -k \
 -X POST "`dcos config show core.dcos_url`/mesos/api/v1"
 ```
 
-If successful, a `HTTP 202` response is expected.
+If successful, an `HTTP 202` response is expected.
 
-If resources are not available for reservation, a `HTTP 409` is expected in response and the reservation cannot be made on that agent. There may already be tasks running that have consumed those resources.
+If resources are not available for reservation, an `HTTP 409` response is expected and the reservation cannot be made on that agent. There may already be tasks running that have consumed those resources.
 
 ### Reviewing
 Reviewing is best achieved through the Mesos UI against the specific agent which you applied the reservation or by parsing the `state.json` through `jq`.
@@ -160,9 +160,9 @@ Reviewing is best achieved through the Mesos UI against the specific agent which
 ### Removing
 Removing requires amending the input `JSON` to reference only the resources in the following format:
 
-<p class="message--note"><strong>NOTE: </strong>Change the agent_id to match the agent ID on your cluster (as in the previous example).</p> 
+<p class="message--note"><strong>NOTE: </strong>Change the <code>agent_id</code> to match the agent ID on your cluster (as in the previous example).</p> 
 
-```
+```json
 tee remove-reservation.json << EOF
 {
   "type": "UNRESERVE_RESOURCES",
@@ -230,7 +230,7 @@ There are further options related to dynamic and static operations and amending 
 ### Adding
 Quotas cannot be updated once applied, they must be removed and added again. The following example applies a quota of `two` CPU shares and `4GB` of RAM to a role called `high`.
 
-```
+```json
 tee set-quota.json << EOF
 {
   "type": "SET_QUOTA",
@@ -273,7 +273,7 @@ If successful, expect a `HTTP/1.1 200 OK` response.
 
 ### Reviewing
 
-```
+```json
 tee get-quota.json << EOF
 {
   "type": "GET_QUOTA"
@@ -299,7 +299,7 @@ Connection: keep-alive
 
 ### Removing
 
-```
+```json
 tee remove-quota.json << EOF
 {
   "type": "REMOVE_QUOTA",
@@ -330,7 +330,7 @@ If successful, expect a `HTTP/1.1 200 OK` response.
 ### Applying
 This applies a weight of `five` to role `perf`.
 
-```
+```json
 tee set-weight.json << EOF
 {
   "type": "UPDATE_WEIGHTS",
@@ -356,7 +356,7 @@ curl -i -k \
 If successful, expect a `HTTP/1.1 200 OK` response.
 
 ### Reviewing
-```
+```json
 tee get-weight.json << EOF
 {
   "type": "GET_WEIGHTS"
@@ -384,9 +384,9 @@ Weights cannot be removed once set, they can be amended using the same method as
 
 
 ## Marathon on Marathon
-The DC/OS catalog includes Marathon, which can be used to deploy a MoM. It should be noted that this is only useful for DC/OS OSS installations, as it does not provide support for Strict mode, Secrets or ACLs.
+The DC/OS catalog includes Marathon, which can be used to deploy a MoM. It should be noted that this is only useful for DC/OS OSS installations, as it does not provide support for Strict mode, Secrets or ACLs. See the [Marathon on Marathon documentation](/1.13/deploying-services/marathon-on-marathon/basic/).
 
-To install Enterprise MoM, you must contact Mesosphere Support for the Enterprise MoM tarball, then deploy it using the root Marathon. 
+To install Enterprise MoM, you must contact Mesosphere Support for the Enterprise MoM tarball, then deploy it using the root Marathon. See the [custom non-native Marathon documentation](/1.13/deploying-services/marathon-on-marathon/advanced/).
 
 # Additional Resources
 You can use the following additional resources to learn more about:

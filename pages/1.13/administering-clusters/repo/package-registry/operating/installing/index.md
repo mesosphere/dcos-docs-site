@@ -29,7 +29,7 @@ wget https://downloads.mesosphere.com/universe/packages/jenkins/3.5.2-2.107.2/je
 
 DC/OS Packages are added to a DC/OS Package Registry with the `dcos registry add` command.
 
-**Example**: To add a version of Jenkins to a registry, enter:
+**Example**: To add a version of Jenkins to a registry, run:
 
 ```bash
 dcos registry add --dcos-file jenkins-3.5.2-2.107.2.dcos
@@ -39,13 +39,13 @@ dcos registry add --dcos-file jenkins-3.5.2-2.107.2.dcos
 
 Use the `dcos registry describe` command to describe a DC/OS Package.
 
-**Example**: To describe a version of the Jenkins DC/OS Package, enter:
+**Example**: To describe a version of the Jenkins DC/OS Package, run:
 
 ```bash
 dcos registry describe --package-name jenkins --package-version 3.5.2-2.107.2
 ```
 
-To list all added packages:
+To list all added packages, run:
 
 ```bash
 dcos package search
@@ -55,19 +55,19 @@ dcos package search
 
 Use the `dcos registry remove` command to remove an added DC/OS Package.
 
-**Example**: To remove a version of the Jenkins DC/OS Package, enter:
+**Example**: To remove a version of the Jenkins DC/OS Package, run:
 
 ```bash
 dcos registry remove --package-name jenkins --package-version 3.5.2-2.107.2
 ```
 
-<p class="message--warning"><strong>WARNING: </strong>Removing a package while a service is still deployed may cause the service to stop working.</p>
+<p class="message--warning"><strong>WARNING: </strong>If you remove a package while a service is still deployed, the service may stop working.</p>
 
 ### Installing DC/OS Services from DC/OS Packages
 
 A DC/OS Service can be installed from the packages added to the DC/OS Package Registry using either the CLI or the GUI.
 
-**Example**: To install a version of Jenkins using the CLI, enter:
+**Example**: To install a version of Jenkins using the CLI, run:
 
 ```bash
 dcos package install jenkins

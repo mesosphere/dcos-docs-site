@@ -4,15 +4,14 @@ navigationTitle:  Using Virtual IP Addresses
 title: Using Virtual IP Addresses
 menuWeight: 10
 excerpt: Using virtual IP addresses
-
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 DC/OS can map traffic from a single Virtual IP (VIP) to multiple IP addresses and ports. DC/OS VIPs are **name-based**, which means clients connect with a service address instead of an IP address.
 
-DC/OS automatically generates name-based VIPs that do not collide with IP VIPs, so you don’t have to worry about collisions. This feature allows name-based VIPs to be created automatically when the service is installed.
+DC/OS automatically generates name-based VIPs that do not collide with IP VIPs, so you do not have to worry about collisions. This feature allows name-based VIPs to be created automatically when the service is installed.
 
 A named VIP contains these components:
 
@@ -27,7 +26,7 @@ You can assign a VIP to your application from the DC/OS GUI. The values you ente
 
 VIPs follow this naming convention:
 
-```
+```bash
 <service-name>.marathon.l4lb.thisdcos.directory:<port>
 ```
 

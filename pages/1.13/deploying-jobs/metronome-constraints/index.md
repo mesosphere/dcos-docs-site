@@ -4,7 +4,6 @@ navigationTitle:  Metronome Placement Constraints
 title: Metronome Placement Constraints
 menuWeight: 3
 excerpt: Understanding Metronome placement constraints
-
 enterprise: false
 ---
 

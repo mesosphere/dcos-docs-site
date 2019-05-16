@@ -4,7 +4,6 @@ navigationTitle:  CLI Specification
 title: CLI Specification 
 menuWeight: 3
 excerpt: Using the command line interface
-
 enterprise: false
 ---
 This document is intended for a developer creating new DC/OS CLI subcommands. See also [Universe Getting Started][1]. 
@@ -97,11 +96,11 @@ To make your subcommand available to end users:
 
 1. Add a package entry to the Mesosphere Universe repository. See the [Universe README][9] for the specification.
 
-The package entry must contain a file named [resource.json][10] that contains links to the executable subcommands.
+    The package entry must contain a file named [resource.json][10] that contains links to the executable subcommands.
 
-When you run `dcos package install <package> --cli`:
+    When you run `dcos package install <package> --cli`:
 
-1. The package entry for <package> is retrieved from the repository.
+1. The package entry for `<package>` is retrieved from the repository.
 2. The `resource.json` file is parsed to find the CLI resources.
 3. The executable for the user's platform is downloaded.
 

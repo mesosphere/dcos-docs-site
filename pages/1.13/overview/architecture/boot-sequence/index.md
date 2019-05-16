@@ -7,6 +7,7 @@ excerpt: Understanding the DC/OS component services boot sequence
 enterprise: false
 ---
 
+
 During installation, the DC/OS component services all start in parallel. They then initialize and become responsive in a relatively consistent sequence because of interdependencies. The DC/OS Diagnostics service monitors component service and node health. A node is marked as healthy when all its component services are healthy.
 
 ## Master nodes

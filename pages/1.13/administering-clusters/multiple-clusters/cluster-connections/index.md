@@ -12,7 +12,13 @@ The  `dcos cluster` command has subcommands to set up connections to and attach 
 
 ## Setting up a connection to a cluster
 
-Setting up a connection to a cluster stores connection configuration in the file `<home-directory>/.dcos/clusters/<cluster_id>/dcos.toml`, attaches to the cluster, and authenticates to DC/OS. Attaching to a cluster sets it as the active cluster.
+Setting up a connection to a cluster 
+
+* stores connection configuration in the file `<home-directory>/.dcos/clusters/<cluster_id>/dcos.toml`
+* attaches to the cluster
+*  authenticates to DC/OS 
+
+Attaching to a cluster sets it as the active cluster.
 
 To set up a connection to a cluster, run the `dcos cluster setup` command, replacing `<dcos-url>` with the cluster URL:
 
@@ -42,8 +48,8 @@ In this example, the cluster named `dcosdev` is attached:
 
 ```bash
   NAME                   CLUSTER ID                 STATUS       VERSION                     URL
-dcosprod     5f7fb957-6daf-446e-8689-0b5b476b2d39  UNAVAILABLE   1.12.0    https://dcosclus-eosy.us-west-2.elb.amazonaws.com
-dcosdev*     cf96739f-f800-42ea-95d7-d60acc689194  AVAILABLE     1.12.0    https://dcosclus-5m65.us-west-2.elb.amazonaws.com
+dcosprod     5f7fb957-6daf-446e-8689-0b5b476b2d39  UNAVAILABLE   1.13.0    https://dcosclus-eosy.us-west-2.elb.amazonaws.com
+dcosdev*     cf96739f-f800-42ea-95d7-d60acc689194  AVAILABLE     1.13.0    https://dcosclus-5m65.us-west-2.elb.amazonaws.com
 ```
 
 To view only the attached cluster, run the `dcos cluster list --attached` command.

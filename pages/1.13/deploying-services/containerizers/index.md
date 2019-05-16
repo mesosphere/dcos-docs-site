@@ -4,12 +4,8 @@ navigationTitle:  Using Containerizers
 title: Using Containerizers
 menuWeight: 40
 excerpt: Using containerizers with Docker Engine and Universal Container Runtime
-
 enterprise: false
 ---
-
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
-
 
 A containerizer provides a containerization and resource isolation abstraction around a specific container runtime. DC/OS containerizers support the following container runtimes:
 
@@ -19,10 +15,10 @@ A containerizer provides a containerization and resource isolation abstraction a
 The advantages of Universal Container Runtime (UCR) are:
 
 * Removes your dependency on the Docker Engine. If the Docker Engine is not responsive, restarting the Engine causes all containers on the host to stop. In addition, Docker must be installed on each of your agent nodes and you must upgrade Docker on the agent nodes each time a new version of Docker is released.
-* Is more stable and allows deployment at scale.
-* Offers features not available in the Docker Engine, such as GPU and CNI support.
+* Is more stable and allows deployment at scale
+* Offers features not available in the Docker Engine, such as GPU and CNI support
 * Allows you to take advantage of continuing innovation within both the Mesos and DC/OS, including features such as IP per container, strict container isolation, and more. Refer to the [features matrix](#container-runtime-features) for  additional information.
-* Supports container image garbage collection automatically or manually.
+* Supports collection of container image garbage either automatically or manually
 
 In summary, using the UCR instead of the Docker Engine:
 
@@ -32,7 +28,7 @@ In summary, using the UCR instead of the Docker Engine:
 
 # Container Runtime Features
 
-The tables below enumerate the features available with each of the supported container runtimes, which products support the features, and where the feature can be configured.
+The tables below list the features available with each of the supported container runtimes, which products support the features, and where the feature can be configured.
 
 ## DC/OS Features
 
@@ -55,7 +51,7 @@ The tables below enumerate the features available with each of the supported con
 
 |  Feature                                | UCR         | Docker    |
 | --------------------------------------- | ----------- | --------- |
-| **Overlayfs**                           | Yes         | Yes       |
+| **OverlayFS**                           | Yes         | Yes       |
 | **Aufs**                                | Yes         | Yes       |
 | **Bind**                                | Yes         | N/A       |
 

@@ -7,8 +7,6 @@ excerpt: Using a software defined network
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 DC/OS provides each container with its own IP address by allowing you to run containers on a wide variety of IP-based virtual networks. In order to run containers on a virtual network, you must install a CNI or CNM network out-of-band. DC/OS itself comes with its own virtual networking solution called [DC/OS Overlay](/1.13/networking/SDN/dcos-overlay/), which the you can use to provide containers with unique IP addresses.
 

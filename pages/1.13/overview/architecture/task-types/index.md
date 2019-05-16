@@ -45,3 +45,4 @@ Example user space schedulers:
 - The Spark scheduler (dispatcher) provides Spark jobs, which are themselves schedulers for Spark tasks.
 
 For a full list of installable schedulers (and other packages), see the [Mesosphere Universe package list](https://universe.dcos.io/#/).
+

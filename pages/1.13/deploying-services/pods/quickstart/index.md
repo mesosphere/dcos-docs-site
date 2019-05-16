@@ -7,14 +7,13 @@ excerpt: Launching a pod from the CLI or web interface
 enterprise: false
 ---
 
-
 ### Prerequisites
 - DC/OS [installed](/1.13/installing/)
 - DC/OS CLI [installed](/1.13/cli/install/)
 
 # Launching a pod from the DC/OS CLI
 
-1.  Create a JSON application definition with contents similar to this example. In this example, we will call the file `simple-pod.json`. <!-- Validated. JSH 9/30/16 -->
+1.  Create a JSON application definition with contents similar to this example. In this example, we will call the file `simple-pod.json`. 
 
     ```json
     {
@@ -41,7 +40,7 @@ enterprise: false
 
 1. Verify the status of your pod.
 
-    ```
+    ```bash
     dcos marathon pod show simplepod
     ```
 

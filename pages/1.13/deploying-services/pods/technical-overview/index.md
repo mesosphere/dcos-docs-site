@@ -7,7 +7,6 @@ excerpt: Understanding pods
 enterprise: false
 ---
 
-
 A pod is a special kind of Mesos task group, and the tasks or containers in the pod are the group members. A pod instance’s containers are launched together, atomically, via the [Mesos LAUNCH_GROUP](https://github.com/apache/mesos/blob/cfeabec58fb2a87076f0a2cf4d46cdd02510bce4/docs/executor-http-api.md#launch-group) call.
 
 DC/OS handles and represents pods as single services. Containers in pods share networking namespace and ephemeral volumes. You configure a pod via a pod definition, which is similar to a Marathon application definition. There are nonetheless some differences between pod and application definitions. For instance:
@@ -19,7 +18,7 @@ DC/OS handles and represents pods as single services. Containers in pods share n
 # Networking
 Marathon pods only support the [DC/OS Universal container runtime](/1.13/deploying-services/containerizers/), which supports multiple image formats, including Docker.
 
-The Universal container runtime simplifies networking by allowing the containers of each pod instance to share a network namespace and communicate over a VLAN or private network. If you specify a container network without a name in a pod definition, it will be assigned to the default network. If you have installed DC/OS using [AWS templates](/1.13/installing/oss/cloud/aws/), the default network is `dcos`.
+The Universal container runtime simplifies networking by allowing the containers of each pod instance to share a network namespace and communicate over a VLAN or private network. If you specify a container network without a name in a pod definition, it will be assigned to the default network. If you have installed DC/OS using [AWS templates](/1.13/installing/evaluation/aws/), the default network is `dcos`.
 
 If other applications need to communicate with your pod, specify an endpoint in your pod definition. Other applications will communicate with your pod by addressing those endpoints. See [the Examples section](/1.13/deploying-services/pods/examples/) for more information.
 
@@ -30,9 +29,9 @@ Containers within a pod share ephemeral storage. Volumes are declared at the pod
 
 # Pod Events and State
 
- When you update a pod that has already launched, the new version of the pod will only be available when redeployment is complete. If you query the system to learn which version is deployed before redeployment is complete, you may get the previous version as a response. The same is true for the status of a pod: if you update a pod, the change in status will not be reflected in a query until redeployment is complete.
+When you update a pod that has already launched, the new version of the pod will only be available when redeployment is complete. If you query the system to learn which version is deployed before redeployment is complete, you may get the previous version as a response. The same is true for the status of a pod: if you update a pod, the change in status will not be reflected in a query until redeployment is complete.
 
- History is permanently tied to `pod_id`. If you delete a pod and then reuse the ID, even if the details of the pod are different, the new pod will have the previous history (such as version information).
+History is permanently tied to `pod_id`. If you delete a pod and then reuse the ID, even if the details of the pod are different, the new pod will have the previous history (such as version information).
 
 # Pod Definitions
 Pods are configured via a JSON pod definition, which is similar to a Marathon [application definition](/1.13/deploying-services/creating-services/). You must declare the resources required by each container in the pod because Mesos, not Marathon, determines how and when to perform isolation for all resources requested by a pod. See the [Examples](/1.13/deploying-services/pods/examples/) section for complete pod definitions.
