@@ -32,7 +32,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     - For multi-master configurations, after one master has finished patching, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
 - A patched DC/OS Marathon leader cannot connect to a non-secure (not patched) leading Mesos master. The DC/OS UI cannot be trusted until all masters are patched. There are multiple Marathon scheduler instances and multiple Mesos masters, each being patched, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the patch.
-- DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
+- DC/OS Enterprise downloads can be found in the [support portal](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
 ## Supported patching path matrix
  The following matrix table lists the patching paths for DC/OS 1.11.
@@ -218,7 +218,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
-</table>  
+</table>
 
 ## Modifying DC/OS configuration
 
@@ -289,15 +289,31 @@ This procedure patches a DC/OS 1.10 cluster to DC/OS 1.11 without changing the c
 1.  Modify the `ip-detect` file as desired.
 1.  Build your installer package.
 
-    1.  Download the `dcos_generate_config.ee.sh` file.
-    1.  Generate the installation files. Replace `<installed_cluster_version>` in the command below with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`.
+    1.  Download the appropriate configuration file by inserting the desired version number in the link below:
+
+        [enterprise type="inline" size="small" /]
+        ```bash
+        https://downloads.mesosphere.com/dcos-enterprise/stable/<dcos-version>/dcos_generate_config.ee.sh
+        ```
+        [oss type="inline" size="small" /]
+        ```bash
+        https://downloads.dcos.io/dcos/stable/<dcos-version>/dcos_generate_config.sh
+        ```
+    2.  Generate the installation files. Replace `<installed_cluster_version>` in the command below with the DC/OS version currently running on the cluster you intend to patch, for example `1.11.8`.
+
+        [enterprise type="inline" size="small" /]
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
-    1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
-    1.  Run the [nginx](/1.11/installing/production/deploying-dcos/installation/) container to serve the installation files.
+        [oss type="inline" size="small" /]
+        ```bash
+        dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
+        ```
 
-1.  Go to the DC/OS Master [procedure](/1.11/installing/production/patching/#masters) to complete your installation.
+    3.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
+    4.  Run the [nginx](/1.11/installing/production/deploying-dcos/installation/) container to serve the installation files.
+
+2.  Go to the DC/OS Master [procedure](/1.11/installing/production/patching/#masters) to complete your installation.
 
 # <a name="permissive"></a>Patching DC/OS 1.11 in permissive mode
 This procedure patches to DC/OS 1.11 in [permissive security mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
@@ -307,9 +323,9 @@ This procedure patches to DC/OS 1.11 in [permissive security mode](/1.11/install
 - Your cluster must be [patched to DC/OS 1.11](#current-security) and running in [disabled security mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) before it can be patched to permissive mode. If your cluster was running in permissive mode before it was patched to DC/OS 1.10, you can skip this procedure.
 
 <table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Any <a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">custom node or cluster health checks</a> you have configured will fail for a patch from disabled to permissive security mode. A future release will allow you to bypass the health checks.</td> 
-</tr> 
+<tr>
+  <td align=justify style=color:white><strong>Important:</strong> Any <a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">custom node or cluster health checks</a> you have configured will fail for a patch from disabled to permissive security mode. A future release will allow you to bypass the health checks.</td>
+</tr>
 </table>
 
 To update a cluster from disabled security to permissive security, complete the following procedure:
@@ -318,15 +334,30 @@ To update a cluster from disabled security to permissive security, complete the 
 1.  Modify the `ip-detect` file as desired.
 1.  Build your installer package.
 
-    1.  Download the `dcos_generate_config.ee.sh` file.
-    1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`.
+    1.  Download the appropriate configuration file by inserting the desired version number in the link below:
+
+        [enterprise type="inline" size="small" /]
+        ```bash
+        https://downloads.mesosphere.com/dcos-enterprise/stable/<dcos-version>/dcos_generate_config.ee.sh
+        ```
+        [oss type="inline" size="small" /]
+        ```bash
+        https://downloads.dcos.io/dcos/stable/<dcos-version>/dcos_generate_config.sh
+        ```
+    1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.11.8`.
+
+        [enterprise type="inline" size="small" /]
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
-    1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
-    1.  Run the [nginx][install] container to serve the installation files.
+        [oss type="inline" size="small" /]
+        ```bash
+        dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
+        ```
+    2.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
+    3.  Run the [nginx][install] container to serve the installation files.
 
-1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
+2.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="strict"></a>Patching DC/OS 1.11 in strict mode
 This procedure patches to DC/OS 1.11 in security strict [mode](/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
@@ -344,10 +375,25 @@ To update a cluster from permissive security to strict security, complete the fo
 1.  Modify the `ip-detect` file as desired.
 1.  Build your installer package.
 
-    1.  Download the `dcos_generate_config.ee.sh` file.
-    1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`.
+    1.  Download the appropriate configuration file by inserting the desired version number in the link below:
+
+        [enterprise type="inline" size="small" /]
+        ```bash
+        https://downloads.mesosphere.com/dcos-enterprise/stable/<dcos-version>/dcos_generate_config.ee.sh
+        ```
+        [oss type="inline" size="small" /]
+        ```bash
+        https://downloads.dcos.io/dcos/stable/<dcos-version>/dcos_generate_config.sh
+        ```
+    1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.11.8`.
+
+        [enterprise type="inline" size="small" /]
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
+        ```
+        [oss type="inline" size="small" /]
+        ```bash
+        dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
     1.  Run the [nginx][install] container to serve the installation files.
@@ -379,20 +425,23 @@ Proceed with patching every master node one at a time in any order using the fol
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
         **Note:** If you are patching from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access. [enterprise type="inline" size="small" /]
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/1.11/release-notes/), for example `1.5.1`.
-  1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
-      ```bash
-        sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-        | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-        |  1 | 172.31.7.32:26257   | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 |              195 |                   194 |    195 |                  0 |                      0 |
-        |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
-        |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+
+1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
+
+    ```bash
+    sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    |  1 | 172.31.7.32:26257   | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 |              195 |                   194 |    195 |                  0 |                      0 |
+    |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
+    |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
     ```
+
     If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated.
 
-1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
+2.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 
 ## <a name="agents"></a>DC/OS Agents
 
