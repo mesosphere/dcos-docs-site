@@ -4,11 +4,10 @@ navigationTitle:  Networking
 title: Networking
 menuWeight: 70
 excerpt: Understanding the DC/OS networking stack
-
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 The DC/OS network stack provides
 - [IP connectivity to containers](#IP-connectivity)
@@ -92,9 +91,9 @@ To use thw cluster identity feature:
 
     For example:
 
-    <code>
+    ```bash
     "dcos_net_cluster_identity": "true"
-    </code>
+    ```
 
 If you are upgrading the nodes in the cluster to use the cluster identity functionality, the upgraded node (agent or master) with the flag enabled will not be able communicate with the `dcos-net` service on any nodes that have not been upgraded. Because of this behavior change, you might experience a minor disruption of networking operations during the upgrade until all nodes in the cluster are upgraded with this flag enabled.
 

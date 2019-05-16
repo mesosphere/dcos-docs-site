@@ -4,25 +4,23 @@ navigationTitle:  Exposing Mesos Zones Outside
 title: Exposing Mesos Zones Outside
 menuWeight: 300
 excerpt: Exposing Mesos zones outside of DC/OS
-
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 There are cases where you may want to have services outside of DC/OS that use DNS records inside of the DC/OS cluster.  However, the `.mesos` domain name that DC/OS uses to expose records does not support this. To enable this capability, you can put a BIND server in front of your cluster.
 
-Each DC/OS cluster has a unique cryptographic identifier. The zbase32 encoded version of the identifier can be found in the UI under **Overview**.
+Each DC/OS cluster has a unique cryptographic identifier. The `zbase32` encoded version of the identifier can be found in the UI under **Cluster > Overview**.
 
-In the example, the cryptographic cluster ID `yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo` is used.
+In the following example, the cryptographic cluster ID `yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo` is used.
 
 
 1.  Install a BIND server in front of your cluster.
 
 1.  Create a forwarding entry for your DC/OS master that resembles this.
 
-    ```
+    ```bash
     zone "yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo.dcos.directory" {
             type forward;
             forward only;

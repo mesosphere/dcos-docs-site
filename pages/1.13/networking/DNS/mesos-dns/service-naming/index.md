@@ -4,11 +4,10 @@ navigationTitle:  Service Naming
 title: Service Naming
 menuWeight: 0
 excerpt: Understanding Mesos-DNS service naming conventions
-
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
+
 
 
 Mesos-DNS defines the DNS top-level domain `.mesos` for Mesos tasks that are running on DC/OS. Tasks and services are discovered by looking up A and, optionally, SRV records within this Mesos domain.
@@ -205,11 +204,8 @@ Mesos-DNS generates a few special records:
 *   For every known DC/OS master: A records (`master.mesos`)
 *   For every known DC/OS agent: A records (`slave.mesos`) and SRV records (`_slave._tcp.mesos`)
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> To query the leading master node, always query "leader.mesos", not "master.mesos". See <a href="/1.12/networking/DNS/mesos-dns/troubleshooting/#leader">this FAQ entry</a> for more information.</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong> To query the leading master node, always query "leader.mesos", not "master.mesos". See <a href="/1.13/networking/DNS/mesos-dns/troubleshooting/#leader">this FAQ entry</a> for more information.</p> 
+
 
 There is a delay between the election of a new master and the update of leader/master records in Mesos-DNS. Mesos-DNS also supports requests for SOA and NS records for the Mesos domain. DNS requests for records of other types in the Mesos domain will return `NXDOMAIN`. Mesos-DNS does not support PTR records needed for reverse lookups. Mesos-DNS also generates A records for itself that list all the IP addresses that Mesos-DNS will answer lookup requests on. The hostname for these A records is `ns1.mesos`.
 
@@ -225,7 +221,7 @@ If you are using Marathon groups, the Mesos-DNS hostname is created from the app
 
 If a service launches multiple tasks with the same name, the DNS lookup will return multiple records, one per task. Mesos-DNS randomly shuffles the order of records to provide rudimentary load balancing between these tasks.
 
-**Caution:** It is possible to have a name collision if different services launch tasks that have the same hostname. If different services launch tasks with identical Mesos-DNS hostnames, or if Mesos-DNS truncates app IDs to create identical Mesos-DNS hostnames, applications will communicate with the wrong agent nodes and fail unpredictably.
+<p class="message--warning"><strong>WARNING: </strong> It is possible to have a name collision if different services launch tasks that have the same hostname. If different services launch tasks with identical Mesos-DNS hostnames, or if Mesos-DNS truncates app IDs to create identical Mesos-DNS hostnames, applications will communicate with the wrong agent nodes and fail unpredictably.</p>
 
 # <a name="dns-naming"></a>Discovering the DNS names for a service
 

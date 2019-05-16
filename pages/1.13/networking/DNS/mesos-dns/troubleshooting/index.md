@@ -4,12 +4,8 @@ navigationTitle:  'Troubleshooting'
 title: 'Troubleshooting'
 menuWeight: 400
 excerpt: Troubleshooting Mesos DNS
-
 enterprise: false
 ---
-
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 # How can I check the Mesos-DNS version?
 

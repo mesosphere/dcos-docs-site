@@ -7,8 +7,6 @@ excerpt: Understanding DC/OS Overlay
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-
 
 DC/OS Overlay is an SDN solution for UCR and Docker containers that comes pre-packaged with DC/OS and is enabled by default. DC/OS Overlay can run multiple virtual network instances in a given DC/OS cluster. Starting with DC/OS 1.11, DC/OS Overlay has support for creating IPv6 networks. 
 
@@ -44,7 +42,7 @@ Each virtual network is identified by a canonical `name` (see [limitations](#lim
 
 Figure 1. Virtual network address space
 
-The bits reserved for ContainerID (6 in this example) are then subdivided into two equal groups (of 5 bits, in this example) that are used for Mesos containers and Docker containers respectively. With the default configuration, each agent will be able to host a maximum of 2^5=32 Mesos containers and 32 docker containers. With this specific configuration, if a service tries to launch more than 32 tasks on the Mesos containerizer or the Docker containerizer, it will receive a `TASK_FAILED`. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more about this constraint.
+The bits reserved for **ContainerID** (6 in this example) are then subdivided into two equal groups (of 5 bits, in this example) that are used for Mesos containers and Docker containers respectively. With the default configuration, each agent will be able to host a maximum of 2^5=32 Mesos containers and 32 docker containers. With this specific configuration, if a service tries to launch more than 32 tasks on the Mesos containerizer or the Docker containerizer, it will receive a `TASK_FAILED`. Consult the [limitations](#limitations) section of the main Virtual Networks page to learn more about this constraint.
 
 While the above example is specifically for an IPv4 virtual network, the same logic can be applied to the IPv6 virtual network `dcos6` as well. The only difference is that currently IPv6 is supported only for Docker containers. 
 
