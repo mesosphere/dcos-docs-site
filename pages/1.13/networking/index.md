@@ -85,7 +85,7 @@ While both Marathon-LB and Edge-LB are designed for handling north-south ingress
 # <a name="cluster-id"></a>Specifying a cluster identity for network connections
 The DC/OS networking component (`dcos-net`) supports setting a **cluster identity** option on a node for DC/OS cluster. By enabling this feature, you can prevent nodes from communicating across clusters when a node is moved from one cluster to another. This feature ensures that the nodes from a cluster has a unique identifier and prevents unauthorized "cross-talk" between clusters.
 
-To use thw cluster identity feature:
+To use the cluster identity feature:
 1. Edit the `config.yaml` file for each node in the cluster to add the `dcos_net_cluster_identity` configuration parameter.
 
 1. Set the parameter value to `true` to enable the use of a cluster identity.
