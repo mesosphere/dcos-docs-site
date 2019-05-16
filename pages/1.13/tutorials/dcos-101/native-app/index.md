@@ -1,22 +1,18 @@
 ---
 layout: layout.pug
-excerpt: Part 5 of the DC/OS 101 tutorial
-title: Tutorial -  Deploying native applications
-navigationTitle: Native Applications
+navigationTitle: Deploy native applications
+title: Deploy native applications
+excerpt: Deploys an application using the native DC/OS Universal Runtime Container (part 5)
 menuWeight: 5
 ---
-
-#include /include/tutorial-disclaimer.tmpl
-
 Welcome to part 5 of the DC/OS 101 Tutorial
 
-
-# Prerequisites
+# Before you begin
 * A [running DC/OS cluster](/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/tutorials/dcos-101/cli/).
 * [app1](/tutorials/dcos-101/app1/) deployed and running in your cluster.
 
 
-# Objective
+# Learning objective
 [Earlier](/tutorials/dcos-101/app1/) in this tutorial you deployed an app that operates internally in your cluster, interfacing with other applications in the cluster as opposed to interacting externally. In this part you will deploy an app which provides a GUI to users. You will also deploy this app natively, without relying on Docker as a dependency and therefore reducing complexity.
 
 # Steps
@@ -26,7 +22,7 @@ Welcome to part 5 of the DC/OS 101 Tutorial
     * Take a short look at the [app definition](https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json). In this case, the app is a binary without external dependencies.
     Because of this, you no longer need to deploy it in a Docker container.
     * Deploy app2: `dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json`
-  * You have multiple options to check app 2 is sucessfully running:
+  * You have multiple options to check app 2 is successfully running:
     * By looking at all DC/OS tasks: `dcos task`
     * By looking at all Marathon apps: `dcos marathon app list`
     * Curl the http server from within the cluster (in this case from the leading master):

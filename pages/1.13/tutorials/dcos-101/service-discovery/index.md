@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Discover and connect to services
-title: Discover and connect to services
+navigationTitle: Discover deployed services
+title: Discover deployed services
 excerpt: Demonstrates how to discover and connect to services in your DC/OS cluster (part 4)
 menuWeight: 4
 ---

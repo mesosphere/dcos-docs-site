@@ -1,22 +1,17 @@
 ---
 layout: layout.pug
-navigationTitle:  Load-Balancing
-excerpt: Part 8 of the DC/OS 101 tutorial
-title: Tutorial - Load-Balancing
+navigationTitle: Load balancing
+title: Load balancing
+excerpt: Demonstrates distributing workload for clients requesting access to a deployed application (part 8)
 menuWeight: 8
 ---
-
-#include /include/tutorial-disclaimer.tmpl
-
-
 Welcome to part 8 of the DC/OS 101 Tutorial.
 
-
-# Prerequisites
+# Before you begin
 * A [running DC/OS cluster](/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/cli/install/).
 * [app2 and Marathon-LB](/tutorials/dcos-101/app2/) deployed and running in your cluster.
 
-# Objective
+# Learning objective
 In this session, you will scale your application to multiple instances and learn how internal and external services choose which instance to use once the application has been scaled.
 
 # Steps
