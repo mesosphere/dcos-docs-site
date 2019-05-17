@@ -36,17 +36,28 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
  - 
 
 ## Marathon
-- 
+- COPS-3554 - This release introduces a watcher loop process to monitor and, if necessary, re-register the Marathon leader after reelection.<!--Also in previous RN, 1.12.4-->
+
+- COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable.
+
+    Because this problem affects high availability for Marathon, a workaround (ping zk-1) was introduced for DC/OS 1.11.5 and 1.11.6 to address the issue. In this release, the underlying issue is resolved and you can safely remove the workaround if you have it deployed. For background information about the issue and the steps to remove the workaround, see [Removing the patch for Marathon failing to start if the first DC/OS is not available](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004). <!--Also in previous RN, 1.12.4-->
 
 ## Mesos
 - 
 
 
 ## Metrics
-- 
+- COPS-3279, COPS-3576, DCOS-37703, DCOS-37703, DCOS-39703 - This release corrects service endpoint values and service address-based statistics that are returned when the `statsd` metrics input plugin is enabled.<!--Also in previous RN, 1.12.4-->
+
 
 ## Networking
-- 
+- COPS-3585 - In previous releases, a deadlock or race condition might prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly. Problems with routing tables and network connectivity can lead to the following issues:
+
+    - Incomplete network overlay configuration on certain nodes.
+    - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
+    - DNS records that are missing on certain nodes.
+
+    You can restart the `systemd` process on the nodes affected to restore proper network connectivity. This fix is related to the mitigation of a networking issue caused by a secure socket layer (SSL) deadlock in the Erlang library.<!--Also in previous RN, 1.12.4-->
 
 [enterprise]
 ## Security
