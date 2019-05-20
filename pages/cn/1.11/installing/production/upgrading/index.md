@@ -185,7 +185,7 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
 
 - 确认在在开始升级前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
 - [备份您的群集](/cn/1.11/administering-clusters/backup-and-restore/)。[enterprise type="inline" size="small" /]
-- 可选：您可以将自定义 [节点和群集健康检查](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
+- 可选：您可以将自定义 [节点和群集健康检查](/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/) 添加到 `config.yaml`。
 - 确认所有管理节点都处于运行良好状态：
  - 检查 Exhibitor UI 以确认所有管理节点已成功加入 quorum（状态指示灯将显示绿色）。Exhibitor UI 可在 `http://<dcos_master>:8181/` 获得。
  - 验证每个管理节点的 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 具有值为 `1` 的 `registrar/log/recovered`。
@@ -323,7 +323,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-如果您的升级因为 [自定义节点或群集检查 而失败](/cn/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks)，运行以下命令可了解更多详细信息：
+如果您的升级因为 [自定义节点或群集检查 而失败](/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/)，运行以下命令可了解更多详细信息：
 ```bash
 dcos-diagnostics check node-poststart
 dcos-diagnostics check cluster

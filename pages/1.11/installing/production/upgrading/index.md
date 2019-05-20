@@ -258,7 +258,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 
 - Verify that all Marathon application constraints are valid before beginning the upgrade. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
 - [Back up your cluster](/1.11/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
-- Optional: You can add custom [node and cluster health checks](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
+- Optional: You can add custom [node and cluster health checks](/1.11/installing/production/deploying-dcos/node-cluster-health-check/) to your `config.yaml`.
 - Verify that all your masters are in a healthy state:
    - Check the Exhibitor UI to confirm that all masters have joined the quorum successfully (the status indicator will show green). The Exhibitor UI is available at `http://<dcos_master>:8181/`.
    - Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1` for each master.
@@ -396,7 +396,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-If your upgrade fails because of a [custom node or cluster check](/1.11/installing/ent/custom/node-cluster-health-check/#custom-health-checks), run these commands for more details:
+If your upgrade fails because of a [custom node or cluster check](/1.11/installing/production/deploying-dcos/node-cluster-health-check/), run these commands for more details:
 ```bash
 dcos-diagnostics check node-poststart
 dcos-diagnostics check cluster
