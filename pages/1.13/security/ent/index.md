@@ -82,7 +82,7 @@ The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introd
 
 DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequence. This allows the masters to nominate themselves as potential Mesos leaders.
 
-<p class="message--important"><strong>IMPORTANT: </strong>Each cluster will use the same default ZooKeeper credentials unless you change them during an install or upgrade (strongly recommended). See <a href="/1.12/security/ent/hardening/#zk">Hardening</a> for more information.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Each cluster will use the same default ZooKeeper credentials unless you change them during an install or upgrade (strongly recommended). See <a href="/1.13/security/ent/hardening/#zk">Hardening</a> for more information.</p>
 
 
 ## <a name="user"></a>User Login

@@ -10,7 +10,7 @@ The Mesosphere DC/OS Ansible roles are now a supported life cycle management met
 
 We have broken down the lifecycle management of DC/OS into 4 roles to handle the different management aspects of DC/OS such as cluster prerequisites, bootstrap tasks, master tasks, private agent tasks and public agent tasks. Each role can be read about more below:
 
-- Prerequisites - This roles handles all of the [requirements to run DC/OS](/1.12/installing/production/system-requirements/#software-prerequisites).
+- Prerequisites - This roles handles all of the [requirements to run DC/OS](/1.13/installing/production/system-requirements/#software-prerequisites).
 - Bootstrap - The Boostrap role handles all tasks associated with downloading, generating and serving the DC/OS install and upgrade scripts to all nodes in the cluster.
 - Master - These tasks include downloading install and upgrade files from the Bootstrap node as well as handling some checks to ensure that upgrade has gone accordingly. It will back out upgrades if there problems keeping the cluster from going into an undesired state.
 - Agents - These task handle all upgrade and installation tasks for ALL agent types.
@@ -55,11 +55,11 @@ public-agents-loadbalancer = ext-dcosansible-1616099901.us-east-1.elb.amazonaws.
 public_agents = 3.86.34.141
 ```
 
-To learn more about using Terraform as your deployment manager visit the [Universal Installer page](/1.12/installing/evaluation/).
+To learn more about using Terraform as your deployment manager visit the [Universal Installer page](/1.13/installing/evaluation/).
 
 ## Using the Mesosphere DC/OS Ansible roles in combination with the Mesosphere Universal Installer
 
-Mesosphere supports the use of a combination of the [Universal Installer](/1.12/installing/evaluation/mesosphere-supported-methods/) for infrastructure, a special [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge) and Ansible to manage the life cycle of the DC/OS software.
+Mesosphere supports the use of a combination of the [Universal Installer](/1.13/installing/evaluation/mesosphere-supported-methods/) for infrastructure, a special [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge) and Ansible to manage the life cycle of the DC/OS software.
 
 ```hcl
 module "dcos-ansible-bridge" {
@@ -88,4 +88,4 @@ This will generate a local `hosts` file, which is an Ansbile compatible inventor
 
 ## Using the Mesosphere DC/OS Ansible roles for on-premise setups
 
-Using Ansible to automate DC/OS installation, upgrades and configuration on on-premise setups is supported by Mesosphere. The [Mesosphere provided Ansible roles](https://galaxy.ansible.com/dcos/dcos_ansible) will work with any setup that follows the [Mesosphere DC/OS System Requirements](/1.12/installing/production/system-requirements/) and runs with CentOS/RHEL.
+Using Ansible to automate DC/OS installation, upgrades and configuration on on-premise setups is supported by Mesosphere. The [Mesosphere provided Ansible roles](https://galaxy.ansible.com/dcos/dcos_ansible) will work with any setup that follows the [Mesosphere DC/OS System Requirements](/1.13/installing/production/system-requirements/) and runs with CentOS/RHEL.

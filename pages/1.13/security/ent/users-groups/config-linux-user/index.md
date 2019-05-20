@@ -20,7 +20,7 @@ The procedure for overriding the default Linux user varies by the type of servic
 
 Many Universe services ignore overrides of their user accounts except in `strict` mode. We provide detailed steps for overriding the default Linux user for services that support this in [Service Accounts](/1.13/security/ent/service-auth/). Refer to the section that pertains to the service of interest for step-by-step instructions. The procedures also include how to configure the service to use encryption and service accounts.
 
-Remember to grant permission to perform the `create` action on the `dcos:mesos:master:task:user[:<linux-user-name>]` resource to the service account user that the Universe service is launched with. See [Mesos Permissions](/1.12/security/ent/perms-reference/#mesos-permissions) for more information.
+Remember to grant permission to perform the `create` action on the `dcos:mesos:master:task:user[:<linux-user-name>]` resource to the service account user that the Universe service is launched with. See [Mesos Permissions](/1.13/security/ent/perms-reference/#mesos-permissions) for more information.
 
 # <a name="marathon-app-def"></a>Overriding the default Linux user via Marathon app definition
 
@@ -43,7 +43,7 @@ Once you have met these prerequisites, complete the following steps to override 
     "cmd": "whoami && tee file && sleep 1000",
     "user": "<your-test-user-account>",
     "uris": [
-        "/1.12/img/logos/mesosphere.svg"
+        "/1.13/img/logos/mesosphere.svg"
     ]
   }
   ```
@@ -76,7 +76,7 @@ curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/mara
 
 Metronome job definitions provide a `"user"` key which you can use to override the default Linux user.
 
-<p class="message--note"><strong>NOTE: </strong>Refer to the <a href="/1.12/deploying-jobs/quickstart/">Jobs documentation</a> for more information about creating and deploying jobs.</p>
+<p class="message--note"><strong>NOTE: </strong>Refer to the <a href="/1.13/deploying-jobs/quickstart/">Jobs documentation</a> for more information about creating and deploying jobs.</p>
 
 
 The following procedure will walk you through a quick tutorial to demonstrate how the ownership works in action. Before you begin, make sure that:
@@ -97,7 +97,7 @@ Once you have met these prerequisites, complete the following steps to override 
   "run": {
     "artifacts": [
       {
-        "uri": "/1.12/img/logos/mesosphere.svg"
+        "uri": "/1.13/img/logos/mesosphere.svg"
       }
     ],
     "cmd": "whoami && printf 'iamme' | tee file && sleep 1000",

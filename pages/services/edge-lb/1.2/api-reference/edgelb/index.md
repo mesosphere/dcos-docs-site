@@ -34,7 +34,7 @@ To determine the address of your cluster, see [Cluster Access](/1.11/api/access/
 
 All Edge-LB API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.12/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](1.12/security/ent/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.12/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.12/security/ent/iam-api/#passing-an-authentication-token).
 
 The Edge-LB API also requires authorization via the following permissions:
 

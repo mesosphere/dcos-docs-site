@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Using the Certificate Authority API
 title: Using the Certificate Authority API
 menuWeight: 500
-excerpt: Viewing, creating and signing certificates 
+excerpt: Viewing, creating and signing certificates
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -95,7 +95,7 @@ Authentication tokens expire after five days by default. If your program needs t
 
 # API reference
 
-[swagger api='/1.12/api/certificate-authority.yaml']
+[swagger api='/1.13/api/certificate-authority.yaml']
 
 
 # Logging
