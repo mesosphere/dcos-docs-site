@@ -50,7 +50,7 @@ Deploy a sample Marathon app for use in this quick start guide.
 
 # View the DC/OS (Mesos) task logs
 
-You can access the Mesos task stderr and stdout logs natively through the DC/OS CLI `dcos task log` command. 
+You can access the Mesos task stderr and stdout logs natively through the DC/OS CLI `dcos task log` command.
 
 1.  Run this command to view the stdout logs, where `<task_id>` is the task ID:
 
@@ -185,5 +185,5 @@ You can view logs of DC/OS components with the `dcos node log` command.
     Thu Dec 15 00:34:08 2016 ip-10-0-6-165.us-west-2.compute.internal java [2541] [2016-12-15 00:34:08,121] INFO  Received status update for task test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd: TASK_RUNNING (Reconciliation: Latest task state) (mesosphere.marathon.MarathonScheduler$$EnhancerByGuice$$28056dde:Thread-297)
     ...
     ```
-    
-    See more at [DC/OS Command Reference page for dcos-node-log]. (https://docs.mesosphere.com/1.10/cli/command-reference/dcos-node/dcos-node-log/)
+
+    See more at [DC/OS Command Reference page for dcos-node-log]. (/1.10/cli/command-reference/dcos-node/dcos-node-log/)

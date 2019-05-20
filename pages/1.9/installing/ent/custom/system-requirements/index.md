@@ -23,7 +23,7 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 The cluster nodes are designated Mesos masters and agents during installation.
 
-The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+The supported operating systems and environments are listed on the [version policy page](/version-policy/).
 
 
 ### Master nodes
@@ -40,7 +40,7 @@ The table below shows the master node hardware requirements:
 
 There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least 3 masters. For more information about high availability requirements see the [High Availability documentation][0].
 
-[0]: https://docs.mesosphere.com/1.10/overview/high-availability/
+[0]: /1.10/overview/high-availability/
 
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
 
@@ -105,7 +105,7 @@ Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/1.9.1/c
 
 ### Docker
 
-Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on the [version policy page](/version-policy/).
 
 **Recommendations**
 
