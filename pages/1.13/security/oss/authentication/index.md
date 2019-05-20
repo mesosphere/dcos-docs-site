@@ -19,7 +19,7 @@ Upon [login](/1.13/security/oss/login/) to DC/OS users receive a [DC/OS Authenti
 
 A DC/OS Authentication token is also used internally by the [DC/OS CLI](/1.13/cli/) for authenticating subsequent CLI commands. Authentication is only supported for DC/OS CLI version 0.4.3 and later. See [here](/1.12/cli/update/) for upgrade instructions.
 
-In DC/OS the only authenticator in the system is [Admin Router](/1.13/overview/architecture/components/#admin-router). It enforces DC/OS Authentication token verification based on information from the [Identity and Access Manager (IAM)](/1.13/overview/architecture/components/#dcos-iam). 
+In DC/OS the only authenticator in the system is [Admin Router](/1.13/overview/architecture/components/#admin-router). It enforces DC/OS Authentication token verification based on information from the [Identity and Access Manager (IAM)](/1.13/overview/architecture/components/#dcos-iam).
 
 Third-party entities can be enabled to become authenticators for DC/OS Authentication tokens by using out-of-band verficiation via public key cryptography; see [Out-of-band token verification](/1.13/security/oss/authentication/out-of-band-verification/) for instructions.
 
@@ -28,7 +28,7 @@ Third-party entities can be enabled to become authenticators for DC/OS Authentic
 ## Disabling authentication
 
 You can disable authentication using one of the following ways:
-1. Disable authentication using [advanced installation](/1.13/installing/production/deploying-dcos/installation/): You can disable authentication by adding this parameter to your configuration file (`genconf/config.yaml`). 
+1. Disable authentication using [advanced installation](/1.13/installing/production/deploying-dcos/installation/): You can disable authentication by adding this parameter to your configuration file (`genconf/config.yaml`).
 ```yaml
 oauth_enabled: 'false'
 ```
@@ -36,6 +36,6 @@ For more information, see the configuration [documentation](/1.13/installing/pro
 
 2. Disable authentication using cloud installation on [AWS](/1.13/installing/oss/cloud/aws/): You can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
-<p class="message--warning"><strong>WARNING: </strong>You cannot disable authentication using cloud installation on <a href ="https://docs.mesosphere.com/1.13/installing/evaluation/azure/">Azure</a></p>
+<p class="message--warning"><strong>WARNING: </strong>You cannot disable authentication using cloud installation on <a href ="/1.13/installing/evaluation/azure/">Azure</a></p>
 
 <p class="message--note"><strong>NOTE: </strong>If you have already installed your cluster and would like to disable this in-place, you can go through an upgrade with the configuration parameter set.</p>

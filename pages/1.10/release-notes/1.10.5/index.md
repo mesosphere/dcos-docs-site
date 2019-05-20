@@ -36,7 +36,7 @@ DC/OS 1.10.5 was released on February 22, 2018.
 # Issues Fixed in DC/OS 1.10.4
 
 - CORE-1375 - Docker executor does not hang due to lost messages.
-- DOCS-2169 - Updated [ports list](https://docs.mesosphere.com/1.10/installing/ent/ports/) for DC/OS. [enterprise type="inline" size="small"/]
+- DOCS-2169 - Updated [ports list](/1.10/installing/ent/ports/) for DC/OS. [enterprise type="inline" size="small"/]
 - DCOS-18777 - DC/OS CA certificate bundle now gets propagated to public slaves. [enterprise type="inline" size="small"/]
 - DCOS-19327 - Diagnostics bundles no longer contain sensitive cluster configuration values related to Cloudformation templates.
 - DCOS-19399 - Marathon now supports upgrading to JDK 1.8.0_152.

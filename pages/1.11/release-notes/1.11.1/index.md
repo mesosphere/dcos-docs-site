@@ -60,7 +60,7 @@ DC/OS 1.11.1 was released on April 18, 2018.
 
 - DCOS-22128 - When using pods with volumes, if a container in the pod is not configured to mount the volume, the cluster cannot access any service via the UI. As a workaround, when using pods with volumes, use the CLI instead.
 
-<p class="message--note"><strong>NOTE: </strong>The Kubernetes package dependencies are documented <a href="https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install">here</a>></p>
+<p class="message--note"><strong>NOTE: </strong>The Kubernetes package dependencies are documented <a href="/services/kubernetes/1.2.0-1.10.5/install">here</a>></p>
 
 # About DC/OS 1.11
 
@@ -85,7 +85,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
   - Support for Docker image pull secrets. [enterprise type="inline" size="small" /]
 
 ### Networking
-- Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/) [enterprise type="inline" size="small" /]
+- Edge-LB 1.0. [View the documentation](/services/edge-lb/1.0/) [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`. Please read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
 - The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/production/advanced-configuration/configuration-reference/#dns-forward-zones) to understand its usage.
@@ -102,7 +102,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Unified logging API that provides simple access to container (task) as well as system component logs. [View the documentation](/1.11/monitoring/logging/logging-api/).
 
 ### Storage
-- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications' storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /][enterprise type="inline" size="small" /]
+- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications' storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /][enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods/).[beta type="inline" size="small" /]
 
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.
@@ -117,6 +117,6 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 
 ## <a name="known-issues"></a>Known Issues
 - DCOS-9751	- Marathon fails to authenticate with Mesos master during disabled -> permissive upgrade.
-- DCOS-18368 - The GUI installer has been retired in 1.11 and will no longer continue to function. It will be decommissioned in 1.12. For details of alternative installation methods, [view the documentation](https://docs.mesosphere.com/1.11/installing).
+- DCOS-18368 - The GUI installer has been retired in 1.11 and will no longer continue to function. It will be decommissioned in 1.12. For details of alternative installation methods, [view the documentation](/1.11/installing).
 - DCOS-19047 - `dcos-secrets` service is unavailable during upgrade from 1.10.x to 1.11. [enterprise type="inline" size="small" /]
 - INFINITY-3116	- Deleting failed mnist Tensorflow package never completes.

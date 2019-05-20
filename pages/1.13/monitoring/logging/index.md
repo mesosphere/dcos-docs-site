@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-DC/OS cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services. DC/OS comes with a built-in log pipeline which can transmit all kinds of logs to an aggregated log database. 
+DC/OS cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services. DC/OS comes with a built-in log pipeline which can transmit all kinds of logs to an aggregated log database.
 
 ## Service, task, and node logs
 
@@ -40,7 +40,7 @@ You can download all the log files for your service from the **Services > Servic
 
 For more information, see the Service and Task Logs [quick start guide](/1.13/monitoring/logging/quickstart/).
 
-<p class="message--note"><strong>NOTE: </strong> DC/OS can send copies of task logs to the host's journald, but this is disabled by default because of a known systemd performance problem, for details see the <a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink">configuration documentation</a></p>.
+<p class="message--note"><strong>NOTE: </strong> DC/OS can send copies of task logs to the host's journald, but this is disabled by default because of a known systemd performance problem, for details see the <a href="/1.12/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink">configuration documentation</a></p>.
 
 ## System logs
 
@@ -66,7 +66,7 @@ Figure 1. System health log showing nodes
 
 Streaming logs from machines in your cluster is not always the best solution for examining events and debugging issues.
 
-In cases where you need a history of what has happened, you require a method for storing and aggregating logs. DC/OS comes with a built-in log pipeline based on [Fluent Bit](https://fluentbit.io/), an open source log processor and forwarder. Fluent Bit runs on each node, both masters and agents, in DC/OS. It gathers metrics from each component by tailing logs from journald. Tasks running on Mesos can also optionally [transmit metrics to Fluent Bit](/1.13/monitoring/logging/configure-task-logs/). 
+In cases where you need a history of what has happened, you require a method for storing and aggregating logs. DC/OS comes with a built-in log pipeline based on [Fluent Bit](https://fluentbit.io/), an open source log processor and forwarder. Fluent Bit runs on each node, both masters and agents, in DC/OS. It gathers metrics from each component by tailing logs from journald. Tasks running on Mesos can also optionally [transmit metrics to Fluent Bit](/1.13/monitoring/logging/configure-task-logs/).
 
 Fluent Bit can be configured to transmit metrics to [many different log stores](https://docs.fluentbit.io/manual/output). We provide documentation on how to configure Fluent Bit to use some of the more popular options:
 

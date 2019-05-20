@@ -45,7 +45,7 @@ To get an authentication token, pass the credentials of a local user or service 
 
 To log in local user accounts supply `uid` and `password` in the request.
 
-<p class="message--note"><strong>NOTE: </strong>Read how to <a href="https://docs.mesosphere.com/1.13/security/ent/tls-ssl/ca-trust-curl/">establish trust in curl commands</a> with DC/OS.</p>
+<p class="message--note"><strong>NOTE: </strong>Read how to <a href="/1.13/security/ent/tls-ssl/ca-trust-curl/">establish trust in curl commands</a> with DC/OS.</p>
 
 
 ```bash

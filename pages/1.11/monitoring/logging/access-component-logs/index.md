@@ -32,7 +32,7 @@ Here is the [permission](/1.11/security/ent/perms-reference/) that is required t
 
 1.  From the **Permissions** tab, select **ADD PERMISSION**.
 
-    ![Add permission to user](/1.10/img/permission-user.png)
+    ![Add permission to user](/1.11/img/permission-user.png)
 
     Figure 2. Add Permission button
 

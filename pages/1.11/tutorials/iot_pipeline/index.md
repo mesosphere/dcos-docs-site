@@ -184,7 +184,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 
 If you are using a DC/OS Enterprise cluster, click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action:
 
-![Tweeter scaled](/1.10/img/tweeter-services8-ee.png)
+![Tweeter scaled](/1.11/img/tweeter-services8-ee.png)
 
 Figure 5. Scaled tweets
 

@@ -43,7 +43,7 @@ All Mesosphere-driven Service Frameworks and their attached baseline technology 
 
 For example, if we have three pieces of technology: DC/OS, Framework, and Apache Kafka.
 
-![version policy framework](/1.10/img/version-policy-1.png)
+![version policy framework](/1.11/img/version-policy-1.png)
 
 Figure 1. Version policy framework
 
@@ -66,6 +66,6 @@ Our interoperability guarantees in the scenario above will be as follows:
 
 # Mesosphere Versioning and Upgrade Policy
 
-![version policy framework](/1.10/img/version-policy-2.png)
+![version policy framework](/1.11/img/version-policy-2.png)
 
 Figure 1. Version policy framework

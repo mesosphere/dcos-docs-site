@@ -23,7 +23,7 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
 
 1.  Then, navigate to your DC/OS web interface and click the down arrow to the right of your cluster name in the top right corner.
 
-    ![open cluster popup](/1.11/img/open-cluster-popup.png)
+    ![open cluster popup](/1.10/img/open-cluster-popup.png)
 
     Figure 1. Open cluster popup menu
 
@@ -44,7 +44,7 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
     ```bash
     docs cluster list
 
-                NAME                          ID                    STATUS    VERSION        URL           
+                NAME                          ID                    STATUS    VERSION        URL
     *  kjdskjd-ds-derr-1     0e2f90b-ded3-458b-8157-0365c8bd1ca4  AVAILABLE  1.10.0         http://example.com
        mr-clr-714024134      e71432a-8c60-48f0-bb14-ddf287775cdb  AVAILABLE  1.11-dev       http://example-1.com
     ```
@@ -86,7 +86,7 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
     ```bash
     docs cluster list
 
-                NAME                          ID                    STATUS    VERSION        URL           
+                NAME                          ID                    STATUS    VERSION        URL
     *  kjdskjd-ds-derr-1     0e2f90b-ded3-458b-8157-0365c8bd1ca4  AVAILABLE  1.10.0         http://example.com
        mr-clr-714024134      e71432a-8c60-48f0-bb14-ddf287775cdb  AVAILABLE  1.11-dev       http://example-1.com
     ```

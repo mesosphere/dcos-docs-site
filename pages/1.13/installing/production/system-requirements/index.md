@@ -23,7 +23,7 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 ## Cluster nodes
 
-The cluster nodes are designated Mesos masters and agents during installation. The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+The cluster nodes are designated Mesos masters and agents during installation. The supported operating systems and environments are listed on the [version policy page](/version-policy/).
 
 DC/OS is installed to `/opt/mesosphere` on cluster nodes. `/opt/mesosphere` directory may be created prior to installing DC/OS, but it must be either an empty directory or a link to an empty directory. DC/OS may be installed on a separate volume mount by creating an empty directory on the mounted volume, creating a link at `/opt/mesosphere` that targets the empty directory, and then installing DC/OS.
 
@@ -150,7 +150,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 ### Docker
 
-Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on [version policy page](https://docs.mesosphere.com/version-policy/).
+Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on [version policy page](/version-policy/).
 
 **Recommendations**
 
