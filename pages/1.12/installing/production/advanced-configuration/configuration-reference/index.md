@@ -360,7 +360,7 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
 
 *   `exhibitor_storage_backend: static`
     The Exhibitor storage backend is managed internally within your cluster.
-<p class="message--note"><strong>NOTE: </strong>If <a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#master-discovery">master_discovery</a> is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.</p>
+<p class="message--note"><strong>NOTE: </strong>If <a href="/1.12/installing/production/advanced-configuration/configuration-reference/#master-discovery">master_discovery</a> is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.</p>
 
 *   `exhibitor_storage_backend: zookeeper`
     The ZooKeeper instance for shared storage. If you use a ZooKeeper instance to bootstrap Exhibitor, this ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability. If you specify `zookeeper`, you must also specify these parameters.
@@ -612,7 +612,7 @@ Indicates whether to enable the DC/OS proxy.
 * `use_proxy: 'false'` Do not configure DC/OS [components](/1.12/overview/architecture/components/) to use a custom proxy. This is the default value.
 * `use_proxy: 'true'` Configure DC/OS [components](/1.12/overview/architecture/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
 
-  <p class="message--note"><strong>NOTE: </strong>The specified proxies must be resolvable from the provided list of <a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers">resolvers.</a></p>
+  <p class="message--note"><strong>NOTE: </strong>The specified proxies must be resolvable from the provided list of <a href="/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers">resolvers.</a></p>
 
     * `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` The HTTP proxy.
     * `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` The HTTPS proxy.

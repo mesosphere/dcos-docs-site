@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-The `dcos edgelb` commands allow you to manage [Edge-LB](https://docs.mesosphere.com/services/edge-lb/).
+The `dcos edgelb` commands allow you to manage [Edge-LB](/services/edge-lb/).
 
 # Usage
 

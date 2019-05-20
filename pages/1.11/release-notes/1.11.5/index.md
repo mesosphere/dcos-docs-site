@@ -20,7 +20,7 @@ DC/OS 1.11.5 includes the following components:
 - Metronome 0.4.3 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.3).
 
 - DCOS-38342 - Documentation: Rename advanced installation to production installation.
- 
+
 # Customer Advisory
 - [Addressing deadlock issues when SSL sockets are simultaneously sending/receiving data and buffers are full](https://support.mesosphere.com/s/article/Critical-Issue-DC-OS-Networking-MSPH-2018-0003).
 - [Marathon will not launch if the first DC/OS Master is down](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004).
@@ -34,7 +34,7 @@ DC/OS 1.11.5 includes the following components:
 - DCOS-21049 - Add `dcos:secrets:list:default:/` secret permission to access DC/OS UI.
 - DCOS-38595 - Fix display error messages in framework configuration form.
 - DCOS-39877 - Remove flickering filter issue in tasks view.
-- DCOS-40523 - Enable empty environment variables reducer to support empty values. 
+- DCOS-40523 - Enable empty environment variables reducer to support empty values.
 - DCOS-40577 - Fix dashboard permissions and node tab with correct ACLs for users (non-super users and remote users).
 - DCOS_OSS-3801 - Add support for Docker parameters in Metronome jobs.
 - Update DC/OS UI for 1.11+v1.19.0. [oss type="inline" size="small" /]
@@ -43,8 +43,8 @@ DC/OS 1.11.5 includes the following components:
 ## Marathon
 - COPS-3505/MARATHON-8326 - Add `wipe=true` support for pod's instances endpoint to automatically drain and decomission agent nodes.
 - MARATHON-7568 - Prevent ZK credentials leak in /v2/info.
-- MARATHON-8084 - Clean up Marathon API POST header. 
-- MARATHON-8368 - Fix offer rejection statistics error when maintenance mode is enabled. 
+- MARATHON-8084 - Clean up Marathon API POST header.
+- MARATHON-8368 - Fix offer rejection statistics error when maintenance mode is enabled.
 
 ## Mesos
 - COPS-3616/DCOS-39973/DCOS-40162 - Fix container launch failures that occurred due to Mesos-bridge running out of IPs.
@@ -54,7 +54,7 @@ DC/OS 1.11.5 includes the following components:
 
 ## Networking
 - COPS-3279/COPS-3576/DCOS-37703/DCOS-39721 - Fix erroneous values in service addresses stats. Bump dcos-net.
-- COPS-3472/DCOS-38932 - Enable access to Marathon app via overlap network. 
+- COPS-3472/DCOS-38932 - Enable access to Marathon app via overlap network.
 - COPS-3520/DCOS-39999 - Fix DC/OS OSS build failure that occurred due to segmentation violation.
 - DCOS-39707 - Fix clustering issues with `etcd`.
 - DCOS_OSS-3697 - Fix connectivity issue between bridge and overlay networks.
@@ -62,16 +62,16 @@ DC/OS 1.11.5 includes the following components:
 
 ## Platform
 - COPS-3568/DCOS-39883 - Add permissions to `dcos_diagnostics_master` to read marathon state.
-- DCOS-22194 - Fix `dcos-metrics` pkgpanda build to utilize Docker. 
+- DCOS-22194 - Fix `dcos-metrics` pkgpanda build to utilize Docker.
 - DCOS-37454 - Fix Prometheus inconsistent output with stored metrics.
 
 [enterprise]
 ## Security
 [/enterprise]
-- COPS-2988 - Provide access permissions with full capabilities to the user. 
+- COPS-2988 - Provide access permissions with full capabilities to the user.
 - COPS-3195 - Fix cluster authentication issues running in strict mode and issues arising from transient errors in the `ip-detect` script.
-- COPS-3485/DCOS_OSS-3937 - Prevent loss of ZK myid configuration file by recreating the deleted myid configuration file and restarting exhibitor 
-- DCOS-38655 - Force all login requests through Admin Router. 
+- COPS-3485/DCOS_OSS-3937 - Prevent loss of ZK myid configuration file by recreating the deleted myid configuration file and restarting exhibitor
+- DCOS-38655 - Force all login requests through Admin Router.
 - DCOS-39259 - Add error handling for `StartTLS` in case of socket failure.
 - DCOS-39260 - Fix LDAP login failure after upgrade from 1.11.1 to 1.11.3.
 - DCOS_OSS-3932 - Update Java version from 8u151 to 8u181.
@@ -103,7 +103,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
   -  Support for Docker image pull secrets. [View the documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/#cluster-docker-credentials). An example for Docker credentials is [here](/1.11/installing/ent/custom/configuration/examples/#docker-credentials). [enterprise type="inline" size="small" /]
 
 ### Networking
-- Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
+- Edge-LB 1.0. [View the documentation](/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`.  Read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
 - The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/production/advanced-configuration/configuration-reference/#dns-forward-zones) to understand its usage.
@@ -120,7 +120,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Unified logging API provides simple access to container (task) and system component logs. [View the documentation](/1.11/monitoring/logging/logging-api/).
 
 ### Storage
-- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
+- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods/).[beta type="inline" size="small" /]
 
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled in the config.yaml file when installing DC/OS. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.

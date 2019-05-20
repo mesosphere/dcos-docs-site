@@ -117,7 +117,7 @@ Also, to access nodes in the DC/OS cluster you will need `ssh` installed and con
 
 ## Deploying the template
 
-To install DC/OS 1.12 on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
+To install DC/OS on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
 
 Some notes on the template configuration:
 

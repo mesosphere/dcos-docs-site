@@ -21,7 +21,7 @@ DC/OS 1.12.3 includes the following components:
 
 # Release Summary
 
-DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
+DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
 # Issues Fixed in DC/OS 1.12.3
 The issues that have been fixed in DC/OS 1.12.3 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
@@ -48,17 +48,17 @@ The issues that have been fixed in DC/OS 1.12.3 are grouped by feature, function
 - ASF-2719 - Agent could not recover due to empty docker volume checkpointed files.
 
 - COPS-4104 - This release fixes an issue that caused container and agent recovery to fail under the following circumstances:
-   - The checkpointed Docker volumes file for a container does not exist. 
-   - The checkpointed Docker volumes file for a container exists but is empty. 
- 
+   - The checkpointed Docker volumes file for a container does not exist.
+   - The checkpointed Docker volumes file for a container exists but is empty.
+
    Prior to this fix, the missing or empty file could prevent the agent from restarting and returning to normal operation. With this release, recovery from an empty or missing docker/volume file is handled by the containerizer or by the `docker/volume` isolator's `recover` method.
 
-- ASF-2731, COPS-4504 - Nvidia changed the container runtime settings in CUDA 10 images causing the GPU isolator in UCR to disable CUDA 10 images. Specifically, the new CUDA images relies on the `libnvidia-container` [library](https://github.com/NVIDIA/libnvidia-container) to set up the container runtime. This release updates the GPU isolator in UCR to workaround the changes required to support the image. 
+- ASF-2731, COPS-4504 - Nvidia changed the container runtime settings in CUDA 10 images causing the GPU isolator in UCR to disable CUDA 10 images. Specifically, the new CUDA images relies on the `libnvidia-container` [library](https://github.com/NVIDIA/libnvidia-container) to set up the container runtime. This release updates the GPU isolator in UCR to workaround the changes required to support the image.
 
 - DCOS-46554 - This change forces Mesos master to have port resources in every offer unless the offer contains disks. This helps to reduce the number of offers with no ports, which are not useful for most frameworks.
 
 ## Metrics
-- DCOS-47991, DCOS_OSS-4760 - An issue with the way the Mesos input plugin was mapping fields to tags for Telegraf, which led to gaps in Mesos Grafana dashboards, was corrected. 
+- DCOS-47991, DCOS_OSS-4760 - An issue with the way the Mesos input plugin was mapping fields to tags for Telegraf, which led to gaps in Mesos Grafana dashboards, was corrected.
 
 - DCOS_OSS-4624 - Currently, there are no container metrics that provide the disk usage of Mesos persistent volumes, only the disk usage of the Mesos sandbox is provided. This release adds the missing container metrics such as `DiskStatistics`, `Perf`, `NetTrafficControlStatistics`, `NetSNMPStatistics`, and also adds all available `blkio stats`.
 
@@ -70,7 +70,7 @@ The issues that have been fixed in DC/OS 1.12.3 are grouped by feature, function
   - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
   - DNS records that are missing on certain nodes.
 
-This release includes a fix to the networking issue that was caused by a secure socket layer (SSL) deadlock in the Erlang library (DC/OS 1.12). It is no longer necessary for you to restart the `systemd` process to fix the routing table to restore network connectivity. 
+This release includes a fix to the networking issue that was caused by a secure socket layer (SSL) deadlock in the Erlang library (DC/OS 1.12). It is no longer necessary for you to restart the `systemd` process to fix the routing table to restore network connectivity.
 
 [enterprise]
 ## Security
@@ -82,7 +82,7 @@ This release includes a fix to the networking issue that was caused by a secure 
 # Known Issues and Limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more issue tracking identifiers.
 
-# About DC/OS 1.12 
+# About DC/OS 1.12
 DC/OS 1.12 includes many new features and capabilities. The key features and enhancements focus on:
 - [Mesosphere Kubernetes engine](#kubernetes)
 - [Mesosphere Jupyter service](#jupyter)
@@ -99,7 +99,7 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 <a name="jupyter"></a>
 
 ### Mesosphere Jupyter Service (MJS)
-- Delivered secure, [cloud-native Jupyter](https://docs.mesosphere.com/services/beta-jupyter/) Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
+- Delivered secure, [cloud-native Jupyter](/services/beta-jupyter/) Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
 - Secured connectivity to data lakes and data sets on S3 and (Kerberized) HDFS.
 - Included GPU-enabled Spark and distributed TensorFlow.
 - Provided OpenID connect authentication and authorization with support for Windows Integrated Authentication (WIA) and Active Directory Federation Services (ADFS).
@@ -109,7 +109,7 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 ### Observability and Metrics
 - Introduced a flexible and configurable metrics pipeline with multiple output formats.
 - Enhanced support for application metric types including histograms, counters, timers, and gauges.
-- Provided support for sample rates and multi-metrics packets. 
+- Provided support for sample rates and multi-metrics packets.
 - Introduced Mesos [framework metrics](http://mesos.apache.org/documentation/latest/monitoring/#frameworks).
 - No longer require modifications when collecting metrics via Prometheus endpoint in 1.11.
 
@@ -118,7 +118,7 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 [enterprise]
 ### Private Package Registry
 [/enterprise]
-- Enabled [on-premise package distribution and management](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/).
+- Enabled [on-premise package distribution and management](/1.12/administering-clusters/repo/package-registry/).
 - Enabled air-gapped Virtual Private Cloud package management.
 - Simplified package artifact management.
 - Introduced package-specific controls for adding/removing/updating packages within a cluster.
@@ -129,11 +129,11 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 ### Installation and Upgrade
 - Provided full support for installing and operating a cluster on SELinux hardened OS with SE Linux in targeted-enforcing mode for all hardened non-DC/OS components.
 - Introduced a unified Terraform-based open source tool for provisioning, deploying, installing, upgrading, and decommissioning DC/OS on AWS, GCP, and Azure.
-- Introduced an intuitive, streamlined installation with a quick start process - Spin up a DC/OS cluster with a few easy steps in 10-15 minutes. 
+- Introduced an intuitive, streamlined installation with a quick start process - Spin up a DC/OS cluster with a few easy steps in 10-15 minutes.
 - Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
-- Restructured [Mesosphere installation documentation](https://docs.mesosphere.com/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
-- Expanded DC/OS upgrade paths enable Mesosphere to skip specific [upgrade paths](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move) and to skip upgrade paths between supported major to major versions of DC/OS (for example, enabling you to upgrade from 1.11.7 to 1.12.1 in one move).
-- If you have installed the optional DC/OS Storage Service package, then upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](/services/beta-storage/0.5.2-beta/upgrades/). 
+- Restructured [Mesosphere installation documentation](/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
+- Expanded DC/OS upgrade paths enable Mesosphere to skip specific [upgrade paths](/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move) and to skip upgrade paths between supported major to major versions of DC/OS (for example, enabling you to upgrade from 1.11.7 to 1.12.1 in one move).
+- If you have installed the optional DC/OS Storage Service package, then upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](/services/beta-storage/0.5.2-beta/upgrades/).
 
 <p class="message--note"><strong>NOTE: </strong>You must upgrade DC/OS storage before you upgrade cluster nodes to 1.12.1 to prevent Mesos agents from crashing after the upgrade.</p>
 
@@ -144,7 +144,7 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 ### LDAP and Networking Enhancements
 [/enterprise]
 - Introduced anonymous LDAP bind complies with standardized Enterprise LDAP integration pattern without a dedicated DC/OS integration LDAP user.
-- Provided dynamic LDAP synchronization to synchronize [LDAP user account groups](https://docs.mesosphere.com/1.12/security/ent/users-groups/) automatically without manual synchronization of [LDAP directory](https://docs.mesosphere.com/1.12/security/ent/ldap/) with accounts imported into DC/OS.
+- Provided dynamic LDAP synchronization to synchronize [LDAP user account groups](/1.12/security/ent/users-groups/) automatically without manual synchronization of [LDAP directory](/1.12/security/ent/ldap/) with accounts imported into DC/OS.
 - Enhanced networking component with 150+ bug fixes with limited logging for visibility.
 - Improved DNS convergence time (sub-sec) performance.
 - Configured MTU for Overlay networks.

@@ -40,7 +40,7 @@ DC/OS 1.10.6 includes the following:
 - DCOS_OSS-2229 - Bumped Navstar.
 - QUALITY-1525 - Support for Docker CE 17.03.0.
 
-**Note:** DC/OS 1.10.6 release supports new CoreOS and Docker versions on RHEL listed in the [compatibility matrix](https://docs.mesosphere.com/version-policy/#compatibility-matrix).
+**Note:** DC/OS 1.10.6 release supports new CoreOS and Docker versions on RHEL listed in the [compatibility matrix](/version-policy/#compatibility-matrix).
 
 
 

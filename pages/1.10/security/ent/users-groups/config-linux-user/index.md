@@ -25,7 +25,7 @@ The procedure for overriding the default Linux user varies by the type of servic
 
 Many Universe services ignore overrides of their user accounts except in `strict` mode. We provide detailed steps for overriding the default Linux user for services that support this in [Service Accounts](/1.10/security/ent/service-auth/). Refer to the section that pertains to the service of interest for step-by-step instructions. The procedures also include how to configure the service to use encryption and service accounts.
 
-Remember to grant permission to perform the `create` action on the `dcos:mesos:master:task:user[:<linux-user-name>]` resource to the service account user that the Universe service is launched with. See [Mesos Permissions](https://docs.mesosphere.com/1.10/security/ent/perms-reference/#mesos-permissions) for more information.
+Remember to grant permission to perform the `create` action on the `dcos:mesos:master:task:user[:<linux-user-name>]` resource to the service account user that the Universe service is launched with. See [Mesos Permissions](/1.10/security/ent/perms-reference/#mesos-permissions) for more information.
 
 
 # <a name="marathon-app-def"></a>Overriding the default Linux user via Marathon app definition

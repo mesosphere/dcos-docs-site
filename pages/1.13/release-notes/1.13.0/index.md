@@ -229,7 +229,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
 <!-- not in 1.13 Docs with RN filter
 - Universal Installer to provision Elastic Block Store (EBS) volumes. (DCOS-47221)
-    The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/).
+    The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/).
 -->
 
 ## Job management and scheduling
@@ -296,7 +296,7 @@ For more information about collecting metrics and configuring metrics plugins, s
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 <!-- not in 1.13 Docs in RN filter
 - Retention policies for dcos-monitoring data (DCOS-46818)
-    The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: https://docs.mesosphere.com/services/beta-dcos-monitoring/0.4.3-beta/operations/prometheus/storage/
+    The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: /services/beta-dcos-monitoring/0.4.3-beta/operations/prometheus/storage/
 -->
 <!-- not in 1.13 Docs in RN filter
 - Display Grafana dashboards on unsupervised displays (DCOS-51133)

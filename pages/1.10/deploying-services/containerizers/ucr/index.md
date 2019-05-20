@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/latest/container-image) launches Mesos containers from binary executables and extends the Mesos container runtime to support provisioning [Docker](https://docker.com/) images. The UCR has many [advantages](/1.10/deploying-services/containerizers/) over the Docker Engine for running Docker images.  Use the Docker Engine only if you need specific [features](/1.10/deploying-services/containerizers/#container-runtime-features) of the Docker package. 
+The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/latest/container-image) launches Mesos containers from binary executables and extends the Mesos container runtime to support provisioning [Docker](https://docker.com/) images. The UCR has many [advantages](/1.10/deploying-services/containerizers/) over the Docker Engine for running Docker images.  Use the Docker Engine only if you need specific [features](/1.10/deploying-services/containerizers/#container-runtime-features) of the Docker package.
 
 # Provision a container with the UCR from the DC/OS web interface
 
@@ -21,7 +21,7 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
 
 1. Enter the service ID.
 
-1. In the **CONTAINER IMAGE** field, optionally enter a container image. Otherwise, enter a command in the **COMMAND** field. 
+1. In the **CONTAINER IMAGE** field, optionally enter a container image. Otherwise, enter a command in the **COMMAND** field.
 
 1. Specify the UCR. Click **MORE SETTINGS**. In the **Container Runtime** section, choose the **UNIVERSAL CONTAINER RUNTIME (UCR)** radio button.
 
@@ -85,7 +85,7 @@ The [Universal Container Runtime (UCR)](http://mesos.apache.org/documentation/la
 # Limitations
 1. The UCR does not support the following: runtime privileges, Docker options, private registries with container authentication.
 2. Image garbage collection is not supported and requires the Docker disk file cleaned up at all agent nodes.
-3. Image Pull Secrets for Accessing Private Registry requires base64-encoded credentials: [ https://docs.mesosphere.com/1.10/deploying-services/private-docker-registry]( https://docs.mesosphere.com/1.10/deploying-services/private-docker-registry).
+3. Image Pull Secrets for Accessing Private Registry requires base64-encoded credentials: [ /1.10/deploying-services/private-docker-registry]( /1.10/deploying-services/private-docker-registry).
 
 # Further Reading
 - [View the Mesos docs for UCR](http://mesos.apache.org/documentation/latest/container-image/).

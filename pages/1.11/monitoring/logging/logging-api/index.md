@@ -24,7 +24,7 @@ In versions of DC/OS prior to 1.11, task logs were available via [files API](htt
 
 ## Notes on Previous Versions
 
-In versions of DC/OS prior to 1.11, node and component logs were managed by `journald`. However, the Mesos task journald log sink was disabled due to [journald performance issues](https://docs.mesosphere.com/1.11/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
+In versions of DC/OS prior to 1.11, node and component logs were managed by `journald`. However, the Mesos task journald log sink was disabled due to [journald performance issues](/1.11/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
 
 The following code may be useful:
 
@@ -77,7 +77,7 @@ The parameters used in the request come from mesos `state.json` and are called "
 
 # Auth
 
-All Logging API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](https://docs.mesosphere.com/1.11/security/ent/iam-api/#/obtaining-an-authentication-token) and [Passing an authentication token](https://docs.mesosphere.com/1.11/security/ent/iam-api/#/passing-an-authentication-token).
+All Logging API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](/1.11/security/ent/iam-api/#/obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/ent/iam-api/#/passing-an-authentication-token).
 
 The Logging API also requires authorization via the following permissions:
 | Path |  Permission |
@@ -85,7 +85,7 @@ The Logging API also requires authorization via the following permissions:
 | /system/v1/logs/v2/ | dcos:adminrouter:ops:system-logs |
 | /system/v1/agent/{agent_id}/logs/v2/ | dcos:adminrouter:system:agent |
 
-All routes may also be reached by users with the _dcos:superuser_ permission. To assign permissions to your account, see [Permissions Reference](/1.10/security/ent/perms-reference/).
+All routes may also be reached by users with the _dcos:superuser_ permission. To assign permissions to your account, see [Permissions Reference](/1.11/security/ent/perms-reference/).
 
 # Format
 

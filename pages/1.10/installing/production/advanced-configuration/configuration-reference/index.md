@@ -389,7 +389,7 @@ Indicates whether to enable GPU support in DC/OS.
 For more information, see the [GPU documentation](/1.10/deploying-services/gpu/).
 
 ## fault_domain_enabled
-By default, DC/OS clusters have [fault domain awareness](/1.12/deploying-services/fault-domain-awareness/) enabled, so no changes to your config.yaml are required to use this feature.
+By default, DC/OS clusters have [fault domain awareness](/1.10/deploying-services/fault-domain-awareness/) enabled, so no changes to your config.yaml are required to use this feature.
 
 ## gc_delay
 The maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of two days.

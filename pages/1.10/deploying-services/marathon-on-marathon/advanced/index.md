@@ -18,7 +18,7 @@ or this procedure, we are assuming that you have obtained an enterprise version 
 
 -  DC/OS and DC/OS CLI [installed](/1.10/installing/).
 -  [DC/OS Enterprise CLI 0.4.14 or later](/1.10/cli/enterprise-cli/#ent-cli-install).
--  Custom non-native Marathon image [deployed in your private Docker registry]((/1.12/deploying-services/private-docker-registry#tarball-instructions). File a ticket with via the [support portal](https://support.mesosphere.com) to obtain the enterprise Marathon image file.
+-  Custom non-native Marathon image [deployed in your private Docker registry]((/1.10/deploying-services/private-docker-registry#tarball-instructions). File a ticket with via the [support portal](https://support.mesosphere.com) to obtain the enterprise Marathon image file.
 -  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/1.10/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)).
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.

@@ -21,7 +21,7 @@ DC/OS 1.12.2 includes the following components:
 
 # Release Summary
 
-DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
+DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
 # Issues Fixed in DC/OS 1.12.2
 The issues that have been fixed in DC/OS 1.12.2 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
@@ -30,7 +30,7 @@ The issues that have been fixed in DC/OS 1.12.2 are grouped by feature, function
 - DCOS_OSS_3877, DCOS_OSS-4275 - The `dcos-diagnostics` command you use to create diagnostic bundles for logged information runs as the `root` user. Running the command to generate the diagnostic bundle using the root user account enables you to collect sensitive information that is only available to the superuser.
 
 ## Installation
-- COPS-4263 - If you run the `dcos_generate_config` command with the `--validate` option, the command validates the configuration settings in your `config.yaml` file. In some cases, this option issued warning messages that validation failed for parameters that are no longer used. For example, some secure shell parameters, such and `ssh_key_path` and `ssh_user`, have been deprecated. Previously, if you ran `dcos_generate_config` with the `--validate` option to check your configuration settings and these parameters were not specified, the command reported that the 
+- COPS-4263 - If you run the `dcos_generate_config` command with the `--validate` option, the command validates the configuration settings in your `config.yaml` file. In some cases, this option issued warning messages that validation failed for parameters that are no longer used. For example, some secure shell parameters, such and `ssh_key_path` and `ssh_user`, have been deprecated. Previously, if you ran `dcos_generate_config` with the `--validate` option to check your configuration settings and these parameters were not specified, the command reported that the
 validation of configuration parameters had failed. With this release, the `--validate` option does not return validation failure messages for parameters that are no longer required for installation.
 
 ## Job Scheduling (Metronome)
@@ -39,14 +39,14 @@ validation of configuration parameters had failed. With this release, the `--val
 ## Marathon
 - COPS-3554 - This release introduces a watcher loop process to monitor and, if necessary, re-register the Marathon leader after reelection.
 
-- COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable. 
+- COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable.
 
     Because this problem affects high availability for Marathon, a workaround (ping zk-1) was introduced for DC/OS 1.11.5 and 1.11.6 to address the issue. In this release, the underlying issue is resolved and you can safely remove the workaround if you have it deployed. For background information about the issue and the steps to remove the workaround, see [Removing the patch for Marathon failing to start if the first DC/OS is not available](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004).
 
 ## Mesos
 - DCOS-46388 - The master node completes the processing of all authorization results for a `LAUNCH_GROUP` before performing other operations. This change prevents subsequent operations from failing if any authorization request is denied.
 
-- DCOS-46753 - This release improves how failed or discontinued launch operations are handled to ensure container input and output operations are resolved correctly and all file descriptors are closed properly. 
+- DCOS-46753 - This release improves how failed or discontinued launch operations are handled to ensure container input and output operations are resolved correctly and all file descriptors are closed properly.
 
   Previously, if the containerizer launch failed or was discarded after the I/O switchboard server started but before the container process completed execution, the file descriptor used to signal a redirect to the I/O switchboard could fail, preventing the containerizer from completing its clean-up operations. You might see this issue if you have frequent health or readiness checks for containers launching on an agent with heavy processing load.
 
@@ -65,7 +65,7 @@ validation of configuration parameters had failed. With this release, the `--val
 ## Metrics
 - COPS-3279, COPS-3576, DCOS-37703, DCOS-37703, DCOS-39703 - This release corrects service endpoint values and service address-based statistics that are returned when the `statsd` metrics input plugin is enabled.
 
-- DCOS-47301, DCOS_OSS-4688 - This release include a new cluster configuration option `enable_mesos_input_plugin` that allows you to enable or disable the Mesos metrics input plugin for Telegraf. If enabled, this option eliminates the need to upload files to every node in the cluster for collecting metrics. 
+- DCOS-47301, DCOS_OSS-4688 - This release include a new cluster configuration option `enable_mesos_input_plugin` that allows you to enable or disable the Mesos metrics input plugin for Telegraf. If enabled, this option eliminates the need to upload files to every node in the cluster for collecting metrics.
 
     You can enable the input plugin by setting the `enable_mesos_input_plugin` option to `true` in the `config.yaml` file. The default value is `false`. This configuration setting is an advanced configuration option if you are using the [Mesosphere Universal Installer](/1.12/installing/evaluation/) or installing manually with a customized [configuration file](/1.12/installing/production/advanced-configuration/).
 
@@ -81,7 +81,7 @@ validation of configuration parameters had failed. With this release, the `--val
 
 - COPS-3743, DCOS_OSS-2362, DCOS_OSS-4620 - The DC/OS networking component (`dcos-net`) supports setting a **cluster identity** option on a node for DC/OS cluster. By enabling this feature, you can prevent nodes from communicating across clusters when a node is moved from one cluster to another. This feature ensures that the nodes from a cluster have a unique identifier that prevents unauthorized “cross-talk” between clusters.
 
-- COPS-4124, DCOS-46132, DCOS_OSS-4667 - A new agent option `--network_cni_root_dir_persist` allows the container node root directory to store network information in a persistent location. This option enables you to specify a container root under the `work_dir` directory that persists network-related information. By persisting this information, the container network interface (CNI) isolator code can perform proper cleanup operations after rebooting. If rebooting a node does not delete old containers and IP/MAC addresses from `etcd` (which over time can cause pool exhaustion), you should set the `--network_cni_root_dir_persist` agent option in the `config.yaml` file to `true`. 
+- COPS-4124, DCOS-46132, DCOS_OSS-4667 - A new agent option `--network_cni_root_dir_persist` allows the container node root directory to store network information in a persistent location. This option enables you to specify a container root under the `work_dir` directory that persists network-related information. By persisting this information, the container network interface (CNI) isolator code can perform proper cleanup operations after rebooting. If rebooting a node does not delete old containers and IP/MAC addresses from `etcd` (which over time can cause pool exhaustion), you should set the `--network_cni_root_dir_persist` agent option in the `config.yaml` file to `true`.
 
     <p class="message--note"><strong>NOTE: </strong>Changing this flag requires rebooting the agent node or shutting down all container processes running on the node. Because a reboot or shutdown of containers is required, the default value for the `--network_cni_root_dir_persist` agent option is `false`. Before changing this option, you should plan for agent maintenance to minimize any service interruption. If you set this option and reboot a node, you should also unset the `CNI_NETNS` environment variable after rebooting using the CNI plugin DEL command so that the plugin cleans up as many resources as possible (for example, by releasing IPAM allocations) and returns a successful response.</p>
 
@@ -89,7 +89,7 @@ validation of configuration parameters had failed. With this release, the `--val
 
 - DCOS-40878, DCOS_OSS-4164 - You can set a new configuration option to control the maximum number of active subscribers are allowed on a Master node event stream at any given time. The `--max_operator_event_stream_subscribers` option helps to prevent load balancers or proxy servers from keeping connections to the event stream endpoint open after a client disconnects. The default value for the `--max_operator_event_stream_subscribers` option is 1000 subscribers. If your network has clients that do not close connections immediately, you might want to lower the number of subscribers allowed. In addition, a new metric for operator event stream subscribers returns the total number of subscribers to the master node's operator event stream.
 
-- DCOS_OSS-4514, DCOS_OSS-4666 - This release adds service address (`A` or `AAAA`) records for public and private nodes to DNS. You can use `public.thisnode.thisdcos.directory` to return the **public IP addresses** for a local agent or master node or `thisnode.thisdcos.directory` to return the **private IP addresses** for a local agent or master node. 
+- DCOS_OSS-4514, DCOS_OSS-4666 - This release adds service address (`A` or `AAAA`) records for public and private nodes to DNS. You can use `public.thisnode.thisdcos.directory` to return the **public IP addresses** for a local agent or master node or `thisnode.thisdcos.directory` to return the **private IP addresses** for a local agent or master node.
 
     For DNS lookup requests, service address `A` records convert domain names to corresponding IP addresses using IPv4 notation for a given host. Service address `AAAA` records return IP addresses using IPv6 address notation for given host.
 
@@ -102,7 +102,7 @@ If you have custom Marathon plugins or have added any Marathon-dependent customi
 ### Service Account Permissions for Metics Collection
 Metrics in DC/OS, version 1.12 and newer, are based on Telegraf. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. The  Telegraf program runs under the service accounts `dcos_telegraf_master` and `dcos_telegraf_agent`. These two service account must be granted `dcos::superuser permissions`.
 
-# About DC/OS 1.12 
+# About DC/OS 1.12
 DC/OS 1.12 includes many new features and capabilities. The key features and enhancements focus on:
 - [Mesosphere Kubernetes engine](#kubernetes)
 - [Mesosphere Jupyter service](#jupyter)
@@ -119,7 +119,7 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 <a name="jupyter"></a>
 
 ### Mesosphere Jupyter Service (MJS)
-- Delivered secure, [cloud-native Jupyter](https://docs.mesosphere.com/services/beta-jupyter/) Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
+- Delivered secure, [cloud-native Jupyter](/services/beta-jupyter/) Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
 - Secured connectivity to data lakes and data sets on S3 and (Kerberized) HDFS.
 - GPU-enabled Spark and distributed TensorFlow.
 - OpenID connect authentication and authorization with support for Windows Integrated Authentication (WIA) and Active Directory Federation Services (ADFS).
@@ -129,7 +129,7 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 ### Observability and Metrics
 - Introduced a flexible and configurable metrics pipeline with multiple output formats.
 - Enhanced support for application metric types including histograms, counters, timers, and gauges.
-- Support for sample rates and multi-metrics packets. 
+- Support for sample rates and multi-metrics packets.
 - Mesos framework metrics are now [available](http://mesos.apache.org/documentation/latest/monitoring/#frameworks).
 - No longer require modifications when collecting metrics via Prometheus endpoint in 1.11.
 
@@ -138,7 +138,7 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 [enterprise]
 ### Private Package Registry
 [/enterprise]
-- Enabled [on-premise package distribution and management](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/).
+- Enabled [on-premise package distribution and management](/1.12/administering-clusters/repo/package-registry/).
 - Enabled air-gapped Virtual Private Cloud package management.
 - Simplifies package artifact management.
 - Package-specific controls for adding/removing/updating packages within a cluster.
@@ -149,10 +149,10 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 ### Installation and Upgrade
 - Fully support installing and operating a cluster on SELinux hardened OS with SE Linux in targeted-enforcing mode for all hardened non-DC/OS components.
 - Introducing a unified Terraform-based open source tool for provisioning, deploying, installing, upgrading, and decommissioning DC/OS on AWS, GCP, and Azure.
-- Intuitive, streamlined installation with a quick start process - Spin up a DC/OS cluster with a few easy steps in 10-15 minutes. 
+- Intuitive, streamlined installation with a quick start process - Spin up a DC/OS cluster with a few easy steps in 10-15 minutes.
 - Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
-- Restructured [Mesosphere installation documentation](https://docs.mesosphere.com/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
-- Expanded DC/OS upgrade paths enable Mesosphere to skip specific [upgrade paths](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move) and to skip upgrade paths between supported major to major versions of DC/OS (for example, enabling you to upgrade from 1.11.7 to 1.12.1 in one move).
+- Restructured [Mesosphere installation documentation](/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
+- Expanded DC/OS upgrade paths enable Mesosphere to skip specific [upgrade paths](/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move) and to skip upgrade paths between supported major to major versions of DC/OS (for example, enabling you to upgrade from 1.11.7 to 1.12.1 in one move).
 - If you have installed the optional DC/OS Storage Service package, then upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](/services/beta-storage/0.5.2-beta/upgrades/). You must upgrade DC/OS storage **before** you upgrade cluster nodes to 1.12.1 to prevent Mesos agents from crashing after the upgrade.
 
 <a name="ldap-net"></a>
@@ -161,7 +161,7 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 ### LDAP and Networking Enhancements
 [/enterprise]
 - Anonymous LDAP bind complies with standardized Enterprise LDAP integration pattern without a dedicated DC/OS integration LDAP user.
-= Dynamic LDAP synchronization automatically synchronize [LDAP user account groups](https://docs.mesosphere.com/1.12/security/ent/users-groups/) without manual synchronization of [LDAP directory](https://docs.mesosphere.com/1.12/security/ent/ldap/) with accounts imported into DC/OS.
+= Dynamic LDAP synchronization automatically synchronize [LDAP user account groups](/1.12/security/ent/users-groups/) without manual synchronization of [LDAP directory](/1.12/security/ent/ldap/) with accounts imported into DC/OS.
 - Networking component enhancements with 150+ bug fixes with limited logging for visibility.
 - Improved DNS convergence time (sub-sec) performance.
 - Configurable MTU for Overlay networks.
