@@ -39,3 +39,13 @@ This procedure runs on the DC/OS master node which corresponds to the current Me
 Every run of the LDAP synchronization logs detailed logic to the `systemd` journal. These logs may be inspected by checking the logs on the DC/OS master node corresponding to the Mesos leader.
 
 The exact period is configurable on installation. See the [configuration reference](/1.12/installing/production/advanced-configuration/configuration-reference/) under [advanced configuration](/1.12/installing/production/advanced-configuration/). 
+
+# Importing groups with valid names
+If you import LDAP group names to be used as the DC/OS groups, you should keep in mind that the LDAP groups you want to import must have a supported group name format. 
+
+To import an LDAP group, the group name must meet the following requirements:
+- the group name must consist of at least one character to a maximum of 64 characters.
+- The group name can only contain the supported alphanumeric characters a to z, A to Z, 0 to 9, dashes(-), underscores (_), or @.
+- The group name must not contain blank space or any other special characters.
+
+If you see an error when you attempt to import or synchronize LDAP entries, check whether the group name you have defined in the LDAP identity store includes an invalid character or name format. To avoid LDAP name conflicts, be sure the groups you  want to import and synchronize have valid name formats for DC/OS. 
