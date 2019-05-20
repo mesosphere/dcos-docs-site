@@ -25,7 +25,7 @@ Action identifiers must be chosen from a fixed set of actions. The available act
 
 ### Managing permissions from the CLI
 
-There are [four commands](1.11/cli/command-reference/dcos-security/#dcos-security-org) used for managing permissions from the DC/OS Enterprise CLI.
+There are [four commands](/1.11/cli/command-reference/dcos-security/#dcos-security-org) used for managing permissions from the DC/OS Enterprise CLI.
 
 To manage permissions for **groups** from the DC/OS Enterprise CLI, use the following commands:
 

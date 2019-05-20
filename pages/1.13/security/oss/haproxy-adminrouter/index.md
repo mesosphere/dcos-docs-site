@@ -78,7 +78,7 @@ Where:
     # perform server certificate verification (including hostname verification).
     # If you are using the community-supported version of DC/OS, you must
     # configure Admin Router with a custom TLS server certificate, see
-    # /1.12/administering-clusters/. This step
+    # /1.13/administering-clusters/. This step
     # is not required for DC/OS Enterprise.
     #
     # Explanation for the parameters in the following `server` definition line:
@@ -87,7 +87,7 @@ Where:
     #
     #   IP address and port that HAProxy uses to connect to DC/OS Admin
     #   Router. This needs to be adjusted to your setup.
-    #   
+    #
     #
     # ssl verify required
     #

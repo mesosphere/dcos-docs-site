@@ -12,7 +12,7 @@ enterprise: true
 
 You can grant users access to the [**Jobs** screen](/1.13/gui/jobs/). By default, new users have no permissions.
 
- <p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Jobs</strong> screen and all the jobs inside of it. If you want to configure fine-grained user access, see the <a href="/1.12/deploying-services/service-groups/">documentation</a>.</p>
+ <p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Jobs</strong> screen and all the jobs inside of it. If you want to configure fine-grained user access, see the <a href="/1.13/deploying-services/service-groups/">documentation</a>.</p>
 
 
 
@@ -114,7 +114,7 @@ You can grant users access to the [**Jobs** screen](/1.13/gui/jobs/). By default
    -H 'Content-Type: application/json' \
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs  \
    -d '{"description":"Grants access to all jobs"}'
-   ```   
+   ```
 
 2.  Grant the following privileges to the user `uid`.
 
@@ -123,7 +123,7 @@ You can grant users access to the [**Jobs** screen](/1.13/gui/jobs/). By default
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:metronome/users/<uid>/full
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs/users/<uid>/full
-   ```   
+   ```
 
     <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
@@ -141,7 +141,7 @@ You can grant users access to the [**Jobs** screen](/1.13/gui/jobs/). By default
    -H 'Content-Type: application/json' \
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave  \
    -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
-   ```   
+   ```
 
 2.  Grant the following privileges to the user `uid`.
 
@@ -150,7 +150,7 @@ You can grant users access to the [**Jobs** screen](/1.13/gui/jobs/). By default
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
-   ```  
+   ```
 
     <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
@@ -170,7 +170,7 @@ You can grant users access to the [**Jobs** screen](/1.13/gui/jobs/). By default
    -H 'Content-Type: application/json' \
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:metronome:metronome:jobs  \
    -d '{"description":"Grants access to all jobs"}'
-   ```   
+   ```
 
 2.  Grant the following privileges to the user `uid`.
 
@@ -224,8 +224,8 @@ You can grant users access to the [**Jobs** screen](/1.13/gui/jobs/). By default
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
    -H 'Content-Type: application/json' \
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:agent:sandbox:app_id  \
-   -d '{"description":"Grants access to the sandboxes on the Mesos agent"}'       
-   ```   
+   -d '{"description":"Grants access to the sandboxes on the Mesos agent"}'
+   ```
 
 2.  Grant the following privileges to the user `uid`.
 
@@ -247,8 +247,8 @@ You can grant users access to the [**Jobs** screen](/1.13/gui/jobs/). By default
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:agent:task:app_id/users/<uid>/read
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:agent:sandbox:app_id/users/<uid>/read       
-   ```   
+   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:agent:sandbox:app_id/users/<uid>/read
+   ```
 
 <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 

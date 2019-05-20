@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
 navigationTitle:  CLI Specification
-title: CLI Specification 
+title: CLI Specification
 menuWeight: 3
 excerpt: Using the command line interface
 enterprise: false
 ---
-This document is intended for a developer creating new DC/OS CLI subcommands. See also [Universe Getting Started][1]. 
+This document is intended for a developer creating new DC/OS CLI subcommands. See also [Universe Getting Started][1].
 
 The [DC/OS command-line interface (CLI)](/1.13/cli/) is a utility to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks. The DC/OS CLI is open and extensible: anyone can create a new subcommand and make it available for installation by end users. For example, the [Spark DC/OS service][2] provides CLI extensions for working with Spark. When installed, you can type the following command to submit Spark jobs and query their status:
 
@@ -29,7 +29,7 @@ or
 
 The same [packaging format and repository][11] is used for both DC/OS services and CLI subcommands.
 
-<p class="message--important"><strong>IMPORTANT: </strong>CLI modules are <a href="/1.12/administering-clusters/multiple-clusters/">cluster specific</a> and stored in <code>~/.dcos/clusters/"cluster_id"/subcommands</code>. You must install a CLI module for each cluster. For example, if you connect to cluster 1 and install the Spark module, then connect to cluster 2, which is also running Spark. Spark CLI commands are not available until you install the module for that cluster.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>CLI modules are <a href="/1.13/administering-clusters/multiple-clusters/">cluster specific</a> and stored in <code>~/.dcos/clusters/"cluster_id"/subcommands</code>. You must install a CLI module for each cluster. For example, if you connect to cluster 1 and install the Spark module, then connect to cluster 2, which is also running Spark. Spark CLI commands are not available until you install the module for that cluster.</p>
 
 ## Creating a DC/OS CLI subcommand
 
@@ -47,7 +47,7 @@ You must assign a standard set of flags to each DC/OS CLI subcommand, described 
 ```
 
 #### --info
-The `--info` flag shows a short, one-line description of the function of your subcommand. This content is displayed when the user runs `dcos help`.    
+The `--info` flag shows a short, one-line description of the function of your subcommand. This content is displayed when the user runs `dcos help`.
 
 
 ##### Example from the Spark CLI:

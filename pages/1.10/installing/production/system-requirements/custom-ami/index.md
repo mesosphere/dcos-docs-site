@@ -33,7 +33,7 @@ After you have successfully built and deployed the unmodified DC/OS cloud_images
 
 1.  Launch the DC/OS advanced templates using the AWS CloudFormation web console and specify your customized AMI. Verify that DC/OS starts as expected and that services can be launched on the DC/OS cluster.
 
-1.  Complete your installation by following [these instructions](1.10/installing/evaluation/community-supported-methods/aws/advanced/).
+1.  Complete your installation by following [these instructions](/1.10/installing/evaluation/community-supported-methods/aws/advanced/).
 
 ## Troubleshooting
 

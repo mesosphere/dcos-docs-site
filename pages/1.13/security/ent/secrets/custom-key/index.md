@@ -16,7 +16,7 @@ In this section, you will re-initalize the secret store with a custom GPG pair.
 - [DC/OS CLI installed](/1.13/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
 - [GNU Privacy Guard (GPG) installed](http://brewformulas.org/Gnupg)
-- You must follow the steps in [Downloading the Root Cert](/1.13/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section. 
+- You must follow the steps in [Downloading the Root Cert](/1.13/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
 
 ## <a name="1"></a>Edit your SECRETS_BOOTSTRAP value
 
@@ -70,7 +70,7 @@ In this section, you will re-initalize the secret store with a custom GPG pair.
 
 1. Execute the following ZooKeeper command to gain additional privileges, replacing `super:secret` if necessary with the actual user name and password of the ZooKeeper superuser.
 
-  <p class="message--note"><strong>NOTE: </strong>By default, DC/OS sets the ZooKeeper superuser to <code>super:secret</code>, but we recommend <a href="1.12/installing/production/advanced-configuration/configuration-reference/#zk-superuser">changing the default</a>.</p>
+  <p class="message--note"><strong>NOTE: </strong>By default, DC/OS sets the ZooKeeper superuser to <code>super:secret</code>, but we recommend <a href="/1.13/installing/production/advanced-configuration/configuration-reference/#zk-superuser">changing the default</a>.</p>
 
 
    ```bash

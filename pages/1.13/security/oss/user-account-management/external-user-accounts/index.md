@@ -44,6 +44,6 @@ You can add external users to your DC/OS cluster from a terminal by using the `d
 1.  From the **Users** screen, select the user name and click **Delete**.
 2.  Click **Delete** to confirm the action.
 
-<img src="/1.12/img/1-11-delete-user.png" alt="delete-user" width="350" height="300" border="2">
+<img src="/1.13/img/1-11-delete-user.png" alt="delete-user" width="350" height="300" border="2">
 
  Figure 2. Deleting a user

@@ -17,7 +17,7 @@ DC/OS handles user authentication decentralized by using authentication tokens. 
 
 Upon [login](/1.13/security/oss/login/) to DC/OS users receive a [DC/OS Authentication token](/1.13/security/oss/authentication/authentication-token). The DC/OS Authentication token can be used for authenticating subsequent requests to the API; see [Pass an authentication token to the API](/1.13/security/oss/authentication/authentication-token/#pass-an-authentication-token-to-the-api).
 
-A DC/OS Authentication token is also used internally by the [DC/OS CLI](/1.13/cli/) for authenticating subsequent CLI commands. Authentication is only supported for DC/OS CLI version 0.4.3 and later. See [here](/1.12/cli/update/) for upgrade instructions.
+A DC/OS Authentication token is also used internally by the [DC/OS CLI](/1.13/cli/) for authenticating subsequent CLI commands. Authentication is only supported for DC/OS CLI version 0.4.3 and later. See [here](/1.13/cli/update/) for upgrade instructions.
 
 In DC/OS the only authenticator in the system is [Admin Router](/1.13/overview/architecture/components/#admin-router). It enforces DC/OS Authentication token verification based on information from the [Identity and Access Manager (IAM)](/1.13/overview/architecture/components/#dcos-iam).
 

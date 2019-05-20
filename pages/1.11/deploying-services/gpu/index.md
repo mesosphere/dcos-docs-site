@@ -43,7 +43,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
     </tr>
     </table>
 
-1. Follow the instructions [here](1.11/installing/evaluation/community-supported-methods/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
+1. Follow the instructions [here](/1.11/installing/evaluation/community-supported-methods/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
 
 1. On the **Create Stack** > **Specify Details** page, specify your stack information and click **Next**. Here are the GPU-specific settings.
 

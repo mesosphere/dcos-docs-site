@@ -3,7 +3,7 @@ backends:
   dcos_diagnostics:
     server: 'unix:/run/dcos/dcos-diagnostics.sock'
     name: DC/OS Diagnostics
-    reference: 'https://docs.mesosphere.com/1.12/monitoring/#system-health-http-api-endpoint'
+    reference: 'https://docs.mesosphere.com/1.13/monitoring/#system-health-http-api-endpoint'
   log:
     server: 'unix:/run/dcos/dcos-log.sock'
     name: DC/OS Log
@@ -11,11 +11,11 @@ backends:
   metrics:
     server: 'unix:/run/dcos/dcos-metrics-agent.sock'
     name: DC/OS Metrics
-    reference: 'https://docs.mesosphere.com/1.12/metrics/metrics-api/'
+    reference: 'https://docs.mesosphere.com/1.13/metrics/metrics-api/'
   pkgpanda:
     server: 'unix:/run/dcos/pkgpanda-api.sock'
     name: DC/OS Component Package Manager (Pkgpanda)
-    reference: 'https://docs.mesosphere.com/1.12/administering-clusters/component-management/'
+    reference: 'https://docs.mesosphere.com/1.13/administering-clusters/component-management/'
 routes:
   /internal/acs/api/v1/internal/policyquery:
     group: Authentication

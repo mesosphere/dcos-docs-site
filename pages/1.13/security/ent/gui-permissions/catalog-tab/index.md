@@ -11,7 +11,7 @@ enterprise: true
 
 You can grant users access to the [**Catalog** screen](/1.13/gui/catalog/). By default, new users have no permissions.
 
-<p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Catalog</strong> screen. If you want to configure fine-grained user access, see the <a href="/1.12/deploying-services/service-groups/">documentation</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Catalog</strong> screen. If you want to configure fine-grained user access, see the <a href="/1.13/deploying-services/service-groups/">documentation</a>.</p>
 
 
 ## <a name="services-access-via-ui"></a>Grant Access by using the web interface
@@ -40,7 +40,7 @@ You can grant users access to the [**Catalog** screen](/1.13/gui/catalog/). By d
 
     ![Add permission](/1.13/img/services-tab-user3.png)
 
-    Figure 3. Add permission 
+    Figure 3. Add permission
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.13/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 

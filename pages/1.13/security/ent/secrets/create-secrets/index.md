@@ -43,7 +43,7 @@ Secrets should include paths, unless you want to allow all services to access it
 
     Figure 1. New Secret icon
 
-1. In the **ID** box, provide the name of your secret and its path, if any. 
+1. In the **ID** box, provide the name of your secret and its path, if any.
 
 1. Type or paste the secret into the **Value** box.
 
@@ -57,7 +57,7 @@ Secrets should include paths, unless you want to allow all services to access it
 
 This procedure describes how to create a secret called `my-secret` inside the `developer` path.
 
-<p class="message--note"><strong>NOTE: </strong>You must follow the steps in <a href="/1.12/security/ent/tls-ssl/get-cert/">Obtaining the DC/OS CA bundle</a> before issuing the curl commands in this section.</p>
+<p class="message--note"><strong>NOTE: </strong>You must follow the steps in <a href="/1.13/security/ent/tls-ssl/get-cert/">Obtaining the DC/OS CA bundle</a> before issuing the curl commands in this section.</p>
 
 
 1. Use `dcos auth login` log in to the CLI.
@@ -70,7 +70,7 @@ This procedure describes how to create a secret called `my-secret` inside the `d
 
 # <a name="cli"></a>Creating key/value pair secrets via the DC/OS Enterprise CLI
 
-This procedure describes how to create a key/value pair secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI. 
+This procedure describes how to create a key/value pair secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI.
 
 1. Use `dcos auth login` to log into the CLI. You can find more information about this command in the [CLI Reference](/1.13/cli/command-reference/dcos-auth/dcos-auth-login/).
 

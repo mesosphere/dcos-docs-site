@@ -304,7 +304,7 @@ The DC/OS Metrics service exposes node, container, and application metrics.
 
 ## DC/OS Signal
 
-The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](1.11/installing/production/deploying-dcos/opt-out/#telemetry) at installation time.
+The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](/1.11/installing/production/deploying-dcos/opt-out/#telemetry) at installation time.
 
 ### System Service
 

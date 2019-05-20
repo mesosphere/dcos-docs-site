@@ -11,7 +11,7 @@ menuWeight: 20
 
 The DC/OS user database is persisted in ZooKeeper by running on the master nodes in [znodes](https://zookeeper.apache.org/doc/r3.1.2/zookeeperProgrammers.html#sc-zkDataModel-znodes) under the path `/dcos/users`. Tokens that are sent to DC/OS in an HTTP Authorization header must be in this format: `token=<token>`. In future versions `Bearer <token>` will also be supported.
 
-DC/OS Open Source provides security management via CLI commands; see the [CLI Command Reference](/1.11/cli/command-reference/dcos-auth/). From the CLI, you can authenticate to your cluster or even opt out of Auth0-based authentication. 
+DC/OS Open Source provides security management via CLI commands; see the [CLI Command Reference](/1.11/cli/command-reference/dcos-auth/). From the CLI, you can authenticate to your cluster or even opt out of Auth0-based authentication.
 
 
 ## <a name="log-in-cli"></a>Authenticating through DC/OS CLI
@@ -44,7 +44,7 @@ The DC/OS CLI stores the token in a configuration file in the `.dcos` directory 
 
     Figure 1. Choose an identity provider
 
-1.  Provide your credentials to the identity provider if prompted. If you have already authenticated to the identity provider during your current browser session, you won't need to do so again.  
+1.  Provide your credentials to the identity provider if prompted. If you have already authenticated to the identity provider during your current browser session, you won't need to do so again.
 
     ![auth login token](/1.11/img/auth-login-token.png)
 
@@ -68,14 +68,14 @@ dcos auth logout
 
 ## Authentication opt-out
 
-If you are doing an [advanced installation](/1.11/installing/production/deploying-dcos/installation/), you can opt out of Auth0-based authentication by adding this parameter to your configuration file (`genconf/config.yaml`). 
+If you are doing an [advanced installation](/1.11/installing/production/deploying-dcos/installation/), you can opt out of Auth0-based authentication by adding this parameter to your configuration file (`genconf/config.yaml`).
 
 ```yaml
 oauth_enabled: 'false'
 ```
 For more information, see the configuration [documentation](/1.11/installing/production/advanced-configuration/configuration-reference/).
 
-If you are doing a cloud installation on [AWS](1.11/installing/evaluation/cloud-installation/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
+If you are doing a cloud installation on [AWS](/1.11/installing/evaluation/cloud-installation/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
 If you are doing a cloud installation on [Azure](/1.11/installing/evaluation/cloud-installation/azure/), you cannot disable authentication. This option will be added in a future releasealong with other options to customize authentication.
 
