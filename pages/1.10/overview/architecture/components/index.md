@@ -105,7 +105,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.10/installing/oss/">Documentation</a></li>
+    <li><a href="/1.10/installing/">Documentation</a></li>
     <li><a href="https://github.com/dcos/dcos">Source</a></li>
   </ul>
 </p>

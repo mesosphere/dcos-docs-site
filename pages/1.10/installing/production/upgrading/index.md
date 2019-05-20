@@ -81,7 +81,7 @@ These steps must be performed for version upgrades and cluster configuration cha
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 - Verify that all Marathon application constraints are valid before beginning the upgrade. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
 - [Back up your cluster](/1.10/administering-clusters/backup-and-restore/).
-- Optional: You can add custom [node and cluster healthchecks](/1.10/installing/ent/custom/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
+- Optional: You can add custom [node and cluster healthchecks](/1.10/installing/production/deploying-dcos/node-cluster-health-check/) to your `config.yaml`.
 
 ## Bootstrap Node
 
@@ -122,23 +122,23 @@ This procedure upgrades to DC/OS 1.10 in [permissive security mode](/1.10/instal
 
 - Your cluster must be [upgraded to DC/OS 1.10](#current-security) and running in [disabled security mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
 
-**Important:** Any [custom node or cluster healthchecks](/1.10/installing/ent/custom/node-cluster-health-check/#custom-health-checks) you have configured will fail for an upgrade from disabled to permissive security mode. A future release will allow you to bypass the healthchecks.
+**Important:** Any [custom node or cluster healthchecks](/1.10/installing/production/deploying-dcos/node-cluster-health-check/) you have configured will fail for an upgrade from disabled to permissive security mode. A future release will allow you to bypass the healthchecks.
 
 To update a cluster from disabled security to permissive security, complete the following procedure:
 
 1.  Replace `security: disabled` with `security: permissive` in your `config.yaml`. Do not make any other changes to pathways or configurations in the `config.yaml`.
-1.  Modify the `ip-detect` file as desired.
-1.  Build your installer package.
+2.  Modify the `ip-detect` file as desired.
+3.  Build your installer package.
 
     1.  Download the `dcos_generate_config.ee.sh` file.
-    1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.8.8`.
+    2.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.8.8`.
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
-    1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    1.  Run the [nginx][advanced-install] container to serve the installation files.
+    3.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
+    4.  Run the [nginx][advanced-install] container to serve the installation files.
 
-1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
+4.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="strict"></a>Installing DC/OS 1.10 in strict mode
 This procedure upgrades to DC/OS 1.10 in security strict [mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
