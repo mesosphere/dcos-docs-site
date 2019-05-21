@@ -59,6 +59,12 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
     You can restart the `systemd` process on the nodes affected to restore proper network connectivity. This fix is related to the mitigation of a networking issue caused by a secure socket layer (SSL) deadlock in the Erlang library.<!--Also in previous RN, 1.12.4-->
 
+- COPS-4761, DCOS_OSS-5108 - This release fixes an issue where DNS clients deployed for the DC/OS Enterprise cluster are not able to resolve the `registry.component.thisdcos.directory` DNS name. [enterprise type="inline" size="small" /]
+
+    The issue is caused by DNS clients that have a bug in the `glibc` library. The `glibc` bug requires canonical name (CNAME) records to be retrieved before address (A or AAAA) records.
+
+    With this release, the DC/OS DNS server sorts DNS results to ensure that the CNAME records appear first to resolve this issue.
+
 [enterprise]
 ## Security
 [/enterprise]
