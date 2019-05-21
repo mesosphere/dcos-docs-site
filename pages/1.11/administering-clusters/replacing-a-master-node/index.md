@@ -4,43 +4,44 @@ navigationTitle:  Replace a master node
 title: Replace a master node
 menuWeight: 800
 excerpt: Replacing a master node in an existing DC/OS cluster
-
 enterprise: true
 ---
-
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-docs-site -->
+You can replace a master node in an existing DC/OS cluster. You should keep in mind, however, that you should only ever replace one master at a time. The following steps summarize how to replace a master node for a DC/OS cluster.
 
+# To replace a master node
+1. Back up ZooKeeper state information using Exhibitor, the Guano utility, or a custom script.
 
-You can replace a master node in an existing DC/OS cluster. Only one master should be replaced at a time.
+    For example, if you download and extract the Guano utility, you can run a command similar to the following on the master node:
 
-### Remove the existing master
+    ```bash
+    dcos-shell java -jar guano-0.1a.jar -u super -p secret -d / -o /tmp/mesos-zk-backup -s $ZKHOST:2181 && tar -zcvf zkstate.tar.gz /tmp/mesos-zk-backup/
+    ```
 
-To begin, simply shut down the master node you want to replace.
+1. Back up the DC/OS identity and access management CockroachDB database to a file by running a command similar to the following on the master node:
 
-### Add the new master
+    ```bash
+    dcos-shell iam-database-backup > ~/iam-backup.sql
+    ```
 
-The procedure for adding the new master node to replace the one taken offline in the previous step is quite simple.
+1. Shut down the master node you want to replace.
 
-#### `master_discovery: static`
+1. Add the new master node to replace the one taken offline in the previous step.
 
-If you have configured static master discovery in your config.yaml (i.e.,
-`master_discovery: static`) then the new server must have the same internal IP
-address as the old.
+    **Static master discovery**
 
-Once you've double-checked that the new server has the same internal IP address
-as the old one and the old server is completely unreachable from the cluster
-you can proceed to install the new master as you would normally.
+    If you have configured **static master discovery** in your `config.yaml` file (`master_discovery: static`):
+    - Verify that the new server has the same internal IP address as the old master node.
+    - Verify that the old server is completely unreachable from the cluster.
+    - Install the new master as you would normally.
+    
+    **Dynamic master discovery**
 
-#### `master_discovery: master_http_loadbalancer`
+    If you have configured **dynamic master discovery** in your `config.yaml` file ( `master_discovery: master_http_loadbalancer`):
+    - Install the new master as you would normally.
 
-If you have configured dynamic master discovery in your config.yaml (i.e.,
-`master_discovery: master_http_loadbalancer`) then simply install the new
-master as you would normally.
+1. Check that the new master is healthy.
 
-### Check that the new master is healthy
-
-In order to confirm that the new master has joined the cluster successfully you must validate that the procedure was successful before proceeding.
-
-The procedure is identical to the verification performed following a master node upgrade.
-
-The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.11/installing/production/upgrading/#dcos-masters) section in the upgrade documentation.
+    <p class="message--important"><strong>IMPORTANT: </strong>This step is required. Be sure to confirm that the new master has joined the cluster successfully before replacing any additional master nodes or performing any additional administrative tasks.</p>
+    
+    To validate that the master node replacement completed successfully, follow the steps to Validate the upgrade as described in [Upgrading a master](/1.11/installing/production/upgrading/#dcos-masters).
