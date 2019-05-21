@@ -178,7 +178,7 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 </table>
 
 ## Web Browser and CLI Matrix
-Use the following legend table to see the supported/not supported service for the operating environments on which DC/OS has been tested. 
+Use the following legend table to see the supported/not supported service for the operating environments on which DC/OS has been tested. We test and support two major versions back for the named browsers.
 
 ### Legend for Web Browser and CLI support matrix
 |Display Icon | Service       |
