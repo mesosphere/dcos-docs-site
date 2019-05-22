@@ -129,7 +129,7 @@ These steps must be performed for version upgrades.
 - All hosts (masters and agents) must be able to communicate with all other hosts as described at [network security](/1.13/administering-clusters/securing-your-cluster/#network-security).
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
-- You must be familiar with the [DC/OS Installation Guide][install].
+- You must be familiar with the DC/OS [Production Installation][install] instructions.
 - Take a [snapshot of ZooKeeper](/1.13/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano) prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
 - *Important:* Take a [snapshot of the IAM database](/1.13/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. This is very easy to do and should be considered a necessity.
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
