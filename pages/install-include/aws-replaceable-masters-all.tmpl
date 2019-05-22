@@ -52,7 +52,7 @@ module "dcos" {
   num_public_agents  = "1"
 
   dcos_variant              = "ee"
-  dcos_version              = "1.12.3"
+  dcos_version              = "1.13.0"
   dcos_license_key_contents = "${file("./license.txt")}"
 
   with_replaceable_masters = true
