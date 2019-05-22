@@ -50,6 +50,7 @@ If Auto Scaling groups are in use, the node will be replaced automatically.
     ```bash
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave-public && sudo systemctl stop dcos-mesos-slave-public
     ```
+
 <a name="iam-backup"></a>
 
 [enterprise]
