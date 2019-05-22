@@ -50,6 +50,7 @@ If Auto Scaling groups are in use, the node will be replaced automatically.
     ```bash
     sudo systemctl kill -s SIGUSR1 dcos-mesos-slave-public && sudo systemctl stop dcos-mesos-slave-public
     ```
+<a name="iam-backup">
 
 [enterprise]
 ## Q. How do I backup the IAM database?
@@ -95,6 +96,8 @@ To restore the IAM database from a file `~/iam-backup.sql` run the following com
     <p class="message--note"><strong>NOTE: </strong>After this command is issued, the IAM is available again. Requests to the IAM will once again succeed.</p>
 
     The IAM database is restored from the backup file and the cluster is operational.
+
+<a name="zk-backup">
 
 ## Q. How do I backup ZooKeeper using Guano?
 
