@@ -248,7 +248,7 @@ To demonstrate how to use virtual hosts:
 <a name="virtual-host-cli"></a>
 
 ## Modifying with app definition with the CLI
-If you are working with the external NGINX app and the `nginx-external.json` app definition file, you can modify and deploy the virtual host settings for the the NGINX application using the DC/OS CLI.
+If you are working with the external NGINX app and the `nginx-external.json` app definition file, you can modify and deploy the virtual host settings for the NGINX application using the DC/OS CLI.
 
 1. Add the HAPROXY_0_VHOST label to your local `nginx-external.json` file.
 
@@ -280,7 +280,7 @@ If you are working with the external NGINX app and the `nginx-external.json` app
 <a name="virtual-host-web"></a>
 
 ## Modifying with app definition with the web-based console
-If you are working with the external NGINX application and the `nginx-external.json` app definition file, you can modify and deploy the virtual host settings for the the NGINX application using the DC/OS web-based console.
+If you are working with the external NGINX application and the `nginx-external.json` app definition file, you can modify and deploy the virtual host settings for the NGINX application using the DC/OS web-based console.
 
 1. Open a web browser and navigate to the URL for the DC/OS web-based console.
 

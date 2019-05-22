@@ -21,7 +21,7 @@ DC/OS 1.12.1 includes the following components:
 
 # Release Summary
 
-DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
+DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
 # Issues Fixed in DC/OS 1.12.1
 The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
@@ -54,7 +54,7 @@ The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, function
 ## Marathon
 - COPS-3554 - This release introduces a watcher loop process to monitor and, if necessary, re-register the Marathon leader after reelection.
 
-- COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable. 
+- COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable.
 
     Because this problem affects high availability for Marathon, a workaround (ping zk-1) was introduced for DC/OS 1.11.5 and 1.11.6 to address the issue. In this release, the underlying issue is resolved and you can safely remove the workaround if you have it deployed. For background information about the issue and the steps to remove the workaround, see [Removing the patch for Marathon failing to start if the first DC/OS is not available](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004).
 
@@ -93,7 +93,7 @@ The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, function
     # user_agent = "telegraf"
     ```
 
-- DCOS-42214 - You can customize telegraf metrics by adding or modifying configuration files in the the `/var/lib/dcos/telegraf/telegraf.d/` directory. The files in this directory are automatically loaded by Telegraf input and output plugins when you start the Telegraf process.
+- DCOS-42214 - You can customize telegraf metrics by adding or modifying configuration files in the `/var/lib/dcos/telegraf/telegraf.d/` directory. The files in this directory are automatically loaded by Telegraf input and output plugins when you start the Telegraf process.
 
 - DCOS-43591 - You can add labels to the metrics configuration file to define a "whitelist" for grouping metrics according to the metadata you specify. For example, by adding the `DCOS_SERVICE_NAME` label, you can group the metrics for a specific scheduler.
 
@@ -136,7 +136,7 @@ If you have custom Marathon plugins or have added any Marathon-dependent customi
 ### Service Account Permissions for Metics Collection
 Metrics in DC/OS, version 1.12 and newer, are based on Telegraf. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. The  Telegraf program runs under the service accounts `dcos_telegraf_master` and `dcos_telegraf_agent`. These two service account must be granted `dcos::superuser permissions`.
 
-# About DC/OS 1.12 
+# About DC/OS 1.12
 
 DC/OS 1.12 includes many new features and capabilities. The key features and enhancements focus on:
 - Mesosphere Kubernetes engine
@@ -161,7 +161,7 @@ This section provides an overview of new features and capabilities introduced in
 ### Observability and Metrics
 - Introduced a flexible and configurable metrics pipeline with multiple output formats.
 - Enhanced support for application metric types including histograms, counters, timers, and gauges.
-- Support for sample rates and multi-metrics packets. 
+- Support for sample rates and multi-metrics packets.
 - Mesos framework metrics are now [available](http://mesos.apache.org/documentation/latest/monitoring/#frameworks).
 - No longer require modifications when collecting metrics via Prometheus endpoint in 1.11.
 
@@ -177,7 +177,7 @@ This section provides an overview of new features and capabilities introduced in
 ### Installation and Upgrade
 - Fully support installing and operating a cluster on SELinux hardened OS with SE Linux in targeted-enforcing mode for all hardened non-DC/OS components.
 - Introducing a unified Terraform-based open source tool for provisioning, deploying, installing, upgrading, and decommissioning DC/OS on AWS, GCP, and Azure.
-- Intuitive, streamlined installation with a quick start process - Spin up a DC/OS cluster with a few easy steps in 10-15 minutes. 
+- Intuitive, streamlined installation with a quick start process - Spin up a DC/OS cluster with a few easy steps in 10-15 minutes.
 - Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
 - Restructured [Mesosphere installation documentation](https://docs.mesosphere.com/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
 - Expanded DC/OS upgrade paths enable Mesosphere to skip specific [upgrade paths](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move) and to skip upgrade paths between supported major to major versions of DC/OS (for example, enabling you to upgrade from 1.11.7 to 1.12.1 in one move).

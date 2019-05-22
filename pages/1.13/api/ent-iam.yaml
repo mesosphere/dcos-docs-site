@@ -944,7 +944,7 @@ paths:
           description: Configuration has been persisted. Basic validation tests passed,
             but the directory service was not contacted. You're encouraged to now
             perform a basic feature check against the directory back-end with the
-            newly set configuration by using the the config test endpoint.
+            newly set configuration by using the config test endpoint.
         400:
           description: Various errors. If the configuration object itself is invalid,
             the custom error code `ERR_LDAP_CONFIG_INVALID` is set in the response

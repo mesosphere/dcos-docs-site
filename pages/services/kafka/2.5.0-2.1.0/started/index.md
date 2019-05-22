@@ -23,11 +23,11 @@ Kafka is available in the Universe and can be installed by using either the web 
 - Your cluster must have at least three private nodes.
 
 # Types of Installation Methods
-There are four types of installation methods: 
+There are four types of installation methods:
 1. Default installation is the basic installation method. This method is used to install Kafka on a DC/OS cluster using CLI commands.
 2. Minimal installation is used to install Kafka on a local C/OS cluster using [dcos-vagrant](https://github.com/mesosphere/dcos-vagrant) and is specific for development purposes.
-3. Custom installation is used to install Kafka on DC/OS cluster using a customized JSON file. 
-4. Multiple Kafka cluster installation is used to install multiple Kafka clusters using custom configurations. 
+3. Custom installation is used to install Kafka on DC/OS cluster using a customized JSON file.
+4. Multiple Kafka cluster installation is used to install multiple Kafka clusters using custom configurations.
 
 ## Default Installation
 
@@ -55,7 +55,7 @@ dcos package install kafka --cli
 
 ## Minimal Installation
 
-For development purposes, you can use [dcos-vagrant][5] to install Kafka on a local DC/OS cluster. 
+For development purposes, you can use [dcos-vagrant][5] to install Kafka on a local DC/OS cluster.
 
 To start a minimal cluster with a single broker, create a JSON options file named `sample-kafka-minimal.json`:
 
@@ -111,7 +111,7 @@ See [Configuration Options][6] for a list of fields that can be customized via a
 
 ## Multiple Kafka cluster installation
 
-Installing multiple Kafka clusters is identical to installing Kafka clusters with custom configurations as described above. The only requirement on the operator is that a unique `name` is specified for each installation. 
+Installing multiple Kafka clusters is identical to installing Kafka clusters with custom configurations as described above. The only requirement on the operator is that a unique `name` is specified for each installation.
 
 See the example below:
 
@@ -136,9 +136,9 @@ You can customize your cluster in-place when it is up and running.
 
 The Kafka scheduler runs as a Marathon process and can be reconfigured by changing values from the DC/OS web interface.
 
-Use the following steps to change configurations at runtime. 
+Use the following steps to change configurations at runtime.
 
-1.  Go to the `Services` tab of the DC/OS web interface. 
+1.  Go to the `Services` tab of the DC/OS web interface.
 1.  Click the name of the Kafka service to be updated.
 1.  Within the Kafka instance details view, click the menu in the upper right, then choose **Edit**.
 1.  In the dialog that appears, click the **Environment** tab and update any field(s) to their desired value(s). For example, to [increase the number of Brokers][8], edit the value for `BROKER_COUNT`. Do not edit the value for `FRAMEWORK_NAME` or `BROKER_DISK`.
@@ -602,7 +602,7 @@ Set the amount of time after the delay before health check failures count toward
 ```json
     {
         "health_check_max_consecutive_failures":{
-            "description":"The the number of consecutive failures which cause a Broker process to exit.",
+            "description":"The number of consecutive failures which cause a Broker process to exit.",
             "type":"number",
             "default":3
         }
