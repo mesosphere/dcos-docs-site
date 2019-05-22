@@ -13,7 +13,7 @@ This introduction to DC/OS tutorial covers the following basic tasks:
 
 If you are setting up a demonstration environment as a proof-of-concept for testing or evaluation purposes or creating a small cluster for application development or a specific project, you can use the steps in this tutorial to get started using DC/OS. 
 
-For a production environment or larger scale deployment, additional planning and deployment steps are required. For example, you might have superuser permissions to simplify security requirements in a demonstration environment or small cluster.
+For a production environment or larger scale deployment, additional planning and deployment steps are required. For example, you might have superuser permissions to simplify security requirements in a demonstration environment or small cluster. In a production environment or larger scale deployment, you are more likely to explicitly assign specific granular permissions to specific groups or users.
 
 # Intended audience
 This tutorial provides users and application developers an overview of DC/OS basics, including the steps required to deploy and orchestrate a few sample applications in a distributed cluster environment.
