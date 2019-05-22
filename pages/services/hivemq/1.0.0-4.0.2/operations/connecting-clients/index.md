@@ -83,4 +83,6 @@ This will create a minimal, single instance pool for connecting your clients usi
 
 See [V2 Pool Reference](/services/edge-lb/latest/pool-configuration/v2-reference/) for advanced configuration options.
 
-<p class="message--warning"><strong>For larger deployments with >50k connections, you should run multiple instances (increase the count of the pool).</strong>
+<p class="message--warning"><strong>By default, Edge-LB will only allow 10k concurrent connections. To change this, you will need to use the template commands to dump and update the maxconn parameters in the template.</strong>
+
+<p class="message--warning"><strong>For larger deployments with >50k connections, you should run multiple instances (increase the count of the pool). </strong>

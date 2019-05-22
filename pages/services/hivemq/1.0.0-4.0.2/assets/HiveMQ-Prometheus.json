@@ -112,7 +112,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} cpu.total",
+          "legendFormat": "{{task_name}} cpu.total",
           "measurement": "cpu",
           "metric": "com_hivemq_system_os_global_cpu_total_total",
           "orderByTime": "ASC",
@@ -244,7 +244,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} mem.used",
+          "legendFormat": "{{task_name}} mem.used",
           "measurement": "mem",
           "metric": "com_hivemq_system_os_global_memory_available",
           "orderByTime": "ASC",
@@ -275,7 +275,7 @@
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} mem.total",
+          "legendFormat": "{{task_name}} mem.total",
           "metric": "com_hivemq_system_os_global_memory_total",
           "refId": "B",
           "step": 10
@@ -368,7 +368,7 @@
           "expr": "com_hivemq_jvm_memory_heap_max{service_name = \"$service_name\"}",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} heap.max",
+          "legendFormat": "{{task_name}} heap.max",
           "metric": "com_hivemq_jvm_memory_heap_max",
           "refId": "B",
           "step": 10
@@ -377,7 +377,7 @@
           "expr": "com_hivemq_jvm_memory_heap_init{service_name = \"$service_name\"}",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} heap.init",
+          "legendFormat": "{{task_name}} heap.init",
           "metric": "com_hivemq_jvm_memory_heap_init",
           "refId": "C",
           "step": 10
@@ -407,7 +407,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} heap.used",
+          "legendFormat": "{{task_name}} heap.used",
           "measurement": "com.hivemq.jvm.memory.heap.used",
           "metric": "com_hivemq_jvm_memory_heap_used",
           "policy": "default",
@@ -533,7 +533,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} memory-resident",
+          "legendFormat": "{{task_name}} memory-resident",
           "measurement": "com.hivemq.system.os.process.memory.resident-set-size",
           "metric": "com_hivemq_system_os_process_memory_resident_set_size",
           "policy": "default",
@@ -660,7 +660,7 @@
           ],
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}} Cluster nodes",
+          "legendFormat": "{{task_name}} Cluster nodes",
           "measurement": "com.hivemq.cluster.nodes.count",
           "metric": "com_hivemq_cluster_nodes_count",
           "policy": "default",
@@ -1075,7 +1075,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} retained-messages",
+          "legendFormat": "{{task_name}} retained-messages",
           "measurement": "com.hivemq.messages.retained.current",
           "metric": "com_hivemq_messages_retained_current",
           "orderByTime": "ASC",
@@ -1209,7 +1209,7 @@
           ],
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} MQTT Sessions",
+          "legendFormat": "{{task_name}} MQTT Sessions",
           "measurement": "com.hivemq.sessions.overall.current",
           "metric": "com_hivemq_sessions_overall_current",
           "orderByTime": "ASC",
@@ -1343,7 +1343,7 @@
           ],
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} publish-inbound-intercepted",
+          "legendFormat": "{{task_name}} publish-inbound-intercepted",
           "measurement": "com.hivemq.messages.dropped.before-publish-send.count",
           "metric": "com_hivemq_messages_dropped_publish_inbound_intercepted_count",
           "orderByTime": "ASC",
@@ -1397,7 +1397,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} message-too-large",
+          "legendFormat": "{{task_name}} message-too-large",
           "measurement": "com.hivemq.messages.dropped.in-flight-window.count",
           "metric": "com_hivemq_messages_dropped_message_too_large_count",
           "orderByTime": "ASC",
@@ -1451,7 +1451,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} not-writable",
+          "legendFormat": "{{task_name}} not-writable",
           "measurement": "com.hivemq.messages.dropped.internal-error.count",
           "metric": "com_hivemq_messages_dropped_not_writable_count",
           "orderByTime": "ASC",
@@ -1505,7 +1505,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} qos0-memory-exceeded",
+          "legendFormat": "{{task_name}} qos0-memory-exceeded",
           "measurement": "com.hivemq.messages.dropped.not-connected.count",
           "metric": "com_hivemq_messages_dropped_qos_0_memory_exceeded_count",
           "orderByTime": "ASC",
@@ -1559,7 +1559,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} queue-full",
+          "legendFormat": "{{task_name}} queue-full",
           "measurement": "com.hivemq.messages.dropped.not-writable.count",
           "metric": "com_hivemq_messages_dropped_queue_full_count",
           "orderByTime": "ASC",
@@ -1614,7 +1614,7 @@
           ],
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} internal-error",
+          "legendFormat": "{{task_name}} internal-error",
           "measurement": "com.hivemq.messages.dropped.qos-0-queue-not-empty.count",
           "metric": "com_hivemq_messages_dropped_internal_error_count",
           "orderByTime": "ASC",
@@ -1745,9 +1745,9 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} messages.incoming",
+          "legendFormat": "{{task_name}} messages.incoming",
           "measurement": "com.hivemq.messages.incoming.total.count",
-          "metric": "com_hivemq_messages_incoming_total_count{{instance}} DISCONNECT",
+          "metric": "com_hivemq_messages_incoming_total_count{{task_name}} DISCONNECT",
           "policy": "default",
           "refId": "A",
           "resultFormat": "time_series",
@@ -1794,7 +1794,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} messages.outgoing",
+          "legendFormat": "{{task_name}} messages.outgoing",
           "measurement": "com.hivemq.messages.outgoing.total.count",
           "metric": "com_hivemq_messages_outgoing_total_count",
           "policy": "default",
@@ -1932,7 +1932,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} connections",
+          "legendFormat": "{{task_name}} connections",
           "measurement": "com.hivemq.networking.connections.current",
           "metric": "com_hivemq_networking_connections_current",
           "orderByTime": "ASC",
@@ -2065,7 +2065,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} connect.rate",
+          "legendFormat": "{{task_name}} connect.rate",
           "measurement": "com.hivemq.messages.incoming.connect.count",
           "metric": "com_hivemq_messages_incoming_connect_count",
           "orderByTime": "ASC",
@@ -2201,7 +2201,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} closed_connections.rate",
+          "legendFormat": "{{task_name}} closed_connections.rate",
           "measurement": "com.hivemq.networking.connections-closed.total.count",
           "metric": "com_hivemq_networking_connections_closed_total_count",
           "orderByTime": "ASC",
@@ -2337,7 +2337,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} subscribe.count",
+          "legendFormat": "{{task_name}} subscribe.count",
           "measurement": "com.hivemq.subscriptions.overall.current",
           "metric": "com_hivemq_subscriptions_overall_current",
           "orderByTime": "ASC",
@@ -2473,7 +2473,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} ",
+          "legendFormat": "{{task_name}} ",
           "measurement": "com.hivemq.messages.incoming.subscribe.count",
           "metric": "com_hivemq_messages_incoming_subscribe_count",
           "orderByTime": "ASC",
@@ -2607,7 +2607,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} unsubscribe.rate",
+          "legendFormat": "{{task_name}} unsubscribe.rate",
           "measurement": "com.hivemq.messages.incoming.unsubscribe.count",
           "metric": "com_hivemq_messages_incoming_unsubscribe_count",
           "orderByTime": "ASC",
@@ -2736,7 +2736,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} publish.incoming",
+          "legendFormat": "{{task_name}} publish.incoming",
           "measurement": "com.hivemq.messages.incoming.publish.count",
           "metric": "com_hivemq_messages_incoming_publish_count",
           "orderByTime": "ASC",
@@ -2868,7 +2868,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} publish.outgoing",
+          "legendFormat": "{{task_name}} publish.outgoing",
           "measurement": "com.hivemq.messages.outgoing.publish.count",
           "metric": "com_hivemq_messages_outgoing_publish_count",
           "orderByTime": "ASC",
@@ -2999,7 +2999,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} ping.incoming",
+          "legendFormat": "{{task_name}} ping.incoming",
           "measurement": "com.hivemq.messages.incoming.pingreq.count",
           "metric": "com_hivemq_messages_incoming_pingreq_count",
           "orderByTime": "ASC",
@@ -3141,7 +3141,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} ping.outgoing",
+          "legendFormat": "{{task_name}} ping.outgoing",
           "measurement": "com.hivemq.messages.outgoing.pingresp.count",
           "metric": "com_hivemq_messages_outgoing_pingresp_count",
           "policy": "default",
@@ -3276,7 +3276,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} Network Bytes Received",
+          "legendFormat": "{{task_name}} Network Bytes Received",
           "measurement": "net",
           "metric": "com_hivemq_system_os_network_interface_eth0_bytes_received",
           "orderByTime": "ASC",
@@ -3410,7 +3410,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} Network Bytes Sent",
+          "legendFormat": "{{task_name}} Network Bytes Sent",
           "measurement": "net",
           "metric": "com_hivemq_system_os_network_interface_eth0_bytes_sent",
           "orderByTime": "ASC",
@@ -3544,7 +3544,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} GC M&S",
+          "legendFormat": "{{task_name}} GC M&S",
           "measurement": "com.hivemq.jvm.garbage-collector.G1-Young-Generation.count",
           "metric": "com_hivemq_jvm_garbage_collector_G1_Young_Generation_count",
           "policy": "default",
@@ -3679,7 +3679,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} GC Young Time",
+          "legendFormat": "{{task_name}} GC Young Time",
           "measurement": "com.hivemq.jvm.garbage-collector.G1-Young-Generation.time",
           "metric": "com_hivemq_jvm_garbage_collector_G1_Young_Generation_time",
           "policy": "default",
@@ -3732,7 +3732,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} GC Old Time",
+          "legendFormat": "{{task_name}} GC Old Time",
           "measurement": "com.hivemq.jvm.garbage-collector.G1-Old-Generation.time",
           "metric": "com_hivemq_jvm_garbage_collector_G1_Old_Generation_time",
           "policy": "default",
@@ -3993,7 +3993,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} not_responsible",
+          "legendFormat": "{{task_name}} not_responsible",
           "measurement": "com.hivemq.cluster.internal.response.not-responsible",
           "metric": "com_hivemq_cluster_internal_response_not_responsible",
           "orderByTime": "ASC",
@@ -4130,7 +4130,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} Disk Bytes Read",
+          "legendFormat": "{{task_name}} Disk Bytes Read",
           "measurement": "diskio",
           "metric": "com_hivemq_system_os_disks__dev_vda_read_bytes",
           "orderByTime": "ASC",
@@ -4184,7 +4184,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} Disk Bytes Write",
+          "legendFormat": "{{task_name}} Disk Bytes Write",
           "measurement": "diskio",
           "metric": "com_hivemq_system_os_disks__dev_vda_write_bytes",
           "orderByTime": "ASC",
@@ -4312,7 +4312,7 @@
             }
           ],
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} Overload Protection level",
+          "legendFormat": "{{task_name}} Overload Protection level",
           "measurement": "com.hivemq.overload-protection.level",
           "metric": "com_hivemq_overload_protection_level",
           "policy": "default",
@@ -4444,7 +4444,7 @@
           ],
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} Average Credits",
+          "legendFormat": "{{task_name}} Average Credits",
           "measurement": "com.hivemq.overload-protection.clients.average-credits",
           "metric": "com_hivemq_overload_protection_clients_average_credits",
           "policy": "default",
@@ -4695,7 +4695,7 @@
           ],
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} Active backpressure",
+          "legendFormat": "{{task_name}} Active backpressure",
           "measurement": "com.hivemq.overload-protection.clients.backpressure-active",
           "metric": "com_hivemq_overload_protection_clients_backpressure_active",
           "policy": "default",
@@ -4822,7 +4822,7 @@
           "hide": false,
           "interval": "",
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} Using Credits",
+          "legendFormat": "{{task_name}} Using Credits",
           "measurement": "com.hivemq.overload-protection.clients.using-credits",
           "metric": "com_hivemq_overload_protection_clients_using_credits",
           "policy": "default",
@@ -4948,7 +4948,7 @@
           ],
           "hide": false,
           "intervalFactor": 2,
-          "legendFormat": "{{instance}} Execution duration",
+          "legendFormat": "{{task_name}} Execution duration",
           "measurement": "com.hivemq.supervision.scheduled-executor.duration",
           "metric": "com_hivemq_supervision_scheduled_executor_duration",
           "policy": "default",
