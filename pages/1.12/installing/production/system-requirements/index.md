@@ -62,7 +62,7 @@ There are many mixed workloads on the masters. Examples of mixed workloads on th
   | _/var/lib/dcos/cockroach_ | CockroachDB [enterprise type="inline" size="small" /] |
   | _/var/lib/dcos/navstar_ | for Mnesia database |
   | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] |
-  | _/var/lib/dcos/exec_ | Temporarily needed files from various DC/OS services. _/var/lib/dcos/exec_ must not be on a volume which is mounted `noexec`. |
+  | _/var/lib/dcos/exec_ | Temporary files required by various DC/OS services. The _/var/lib/dcos/exec_ directory must not be on a volume which is mounted with the `noexec` option. |
   | _/var/lib/dcos/exhibitor_ | ZooKeeper snapshot database |
   | _/var/lib/dcos/exhibitor/zookeeper/transactions_ | The ZooKeeper transaction logs are very sensitive to delays in disk writes. If you can only provide limited SSD space, this is the directory to place there. A minimum of 2 GB must be available for these logs. |
 
