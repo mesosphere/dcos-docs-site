@@ -1,21 +1,20 @@
 ---
 layout: layout.pug
-excerpt: Part 1 of the DC/OS 101 tutorial
-title: Tutorial - First Steps
-navigationTitle: First Steps
+excerpt: Install the command-line interface to perform your day-to-day tasks
+title: Install the command-line interface
+navigationTitle: Install the command-line interface
 menuWeight: -1
 ---
+The DC/OS command-line interface (CLI) provides a convenient way for you to perform your administrative tasks, retrieve information about components and operations, and monitor cluster status and activity. 
 
-#include /include/tutorial-disclaimer.tmpl
+Although you can perform many of the same tasks interactively using the DC/OS web-based console or programmatically using calls to the DC/OS application programming interface (API), most cluster operators use command-line programs interactively or in scripts to manage most of their common cluster operations and cluster-related activity.
 
-Welcome to part 1 of the DC/OS 101 Tutorial.
+# Before you begin
+Before starting this tutorial, you should verify the following:
+- You can access a properly-configured DC/OS cluster with at least at least one master node and three agent nodes.
+- - You must have an account with administrative privileges for the local operating system.
 
-# Prerequisites
-To get started with this tutorial, you should have access to a running DC/OS cluster with at least a single master node and 3 agent nodes (of which one is a public agent node). If you don't have these requirements set up, please follow the [setup instructions](/latest/installing/) for various cloud providers, on-premise, or vagrant setups.
-
-If you are unsure which option to choose, then we recommend using the <a href="https://downloads.dcos.io/dcos/stable/aws.html" target="_blank">AWS templates</a>. For this tutorial, a setup with a single master node is sufficient, but for running production workloads you should have multiple master nodes.
-
-# Objective
+# Learning objective
 You have access to your cluster and have already taken a first look at the GUI. You can also access the cluster from your local machine using the DC/OS CLI. By the end of this section, you will have installed the DC/OS CLI and used it to explore your cluster.
 
 # Steps
