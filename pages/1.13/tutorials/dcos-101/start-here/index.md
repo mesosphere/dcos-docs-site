@@ -230,7 +230,7 @@ In a production environment, you would automate these steps to create as many pr
 
     ![DC/OS dashboard in the administrative console](/1.13/img/sample-dashboard.png)
 
-Congratulations! You have successfully created your first DC/OS cluster, and can now start exploring what you can do here in subsequent tutorials.
+Congratulations! You have successfully created your first DC/OS cluster. You can now start exploring what you can do using this cluster in subsequent tutorials.
 
 # Next steps
 Now that you have a small cluster running, you can install the DC/OS command-line interface (CLI) and start exploring administrative and operational tasks.
