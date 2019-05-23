@@ -1,4 +1,4 @@
-
+---
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
@@ -10,9 +10,9 @@ model: /services/spinnaker/data.yml
 render: mustache
 ---
 
-# Release Notes for DC/OS Spinnaker Service version 0.3.1-1.9.2
+# Release Notes for DC/OS Spinnaker Service version 0.3.0-1.9.2
 
 ## Bug Fixes
-This is the bug fix for nobody user of the DC/OS Spinnaker framework.
 
+This is the bug fix for nobody user of the DC/OS Spinnaker framework.
 * Fix a bug where Deck node was failing when run on strict mode for nobody user.
