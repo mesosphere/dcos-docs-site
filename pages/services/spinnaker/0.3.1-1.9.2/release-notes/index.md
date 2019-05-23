@@ -10,7 +10,7 @@ model: /services/spinnaker/data.yml
 render: mustache
 ---
 
-# Release Notes for DC/OS Spinnaker Service version 0.3.0-1.9.2
+# Release Notes for DC/OS Spinnaker Service version 0.3.1-1.9.2
 
 ## Bug Fixes
 
