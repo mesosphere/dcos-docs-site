@@ -1,15 +1,19 @@
 # Install Terraform
 
-1. Visit the [Terraform download page](https://www.terraform.io/downloads.html) for bundled installations and support for Linux, macOS and Windows.
+<p class="message--important"><strong>IMPORTANT:</strong> Terraform got updated to 0.12.x. The DC/OS Universal Installer currently only supports <b>Terraform 0.11.x</b></p>
+
+1. Visit the [Terraform releases page](https://releases.hashicorp.com/terraform/) for bundled installations and support for Linux, macOS and Windows. Choose the latest 0.11 version.
 
     If you're on a Mac environment with [Homebrew](https://brew.sh/) installed, simply run the following command:
 
     ```bash
-    brew install terraform
+    brew unlink terraform || true
+    brew install tfenv
+    tfenv install 0.11.14
     ```
 
     Windows users that have [Chocolatey](https://chocolatey.org/docs/installation) installed, run:
 
     ```bash
-    choco install terraform -y
+    choco install terraform --version 0.11.14 -y
     ```
