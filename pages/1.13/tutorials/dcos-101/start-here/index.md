@@ -224,7 +224,7 @@ In a production environment, you would automate these steps to create as many pr
 
 1. Type your administrative user name and password, then click **Log in**.
 
-    ![Log in to the administrative console](/1.13/img/login-empty.png)
+    ![Log in to the administrative console](/1.13/img/sample-login.png)
 
     If the connection is successful, the DC/OS dashboard is displayed.
 
