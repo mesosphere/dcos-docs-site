@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: DC/OS Ports
-navigationTitle: Partitions
+title: Disk Partitions
+navigationTitle: Disk Partitions
 menuWeight: 16
 excerpt: Planning disk partitioning for a DC/OS cluster
 ---
