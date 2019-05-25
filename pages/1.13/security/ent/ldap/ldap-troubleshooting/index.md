@@ -16,7 +16,7 @@ Because integrating Active Directory authentication into a multi-platform enviro
 ## Error: Cannot connect to the directory backend
 If you attempt to retrieve information from Active Directory but the connection fails, you might see the following error message:
 
-![Cannot connect to the directory](/1.13/img/ldap-cannot-open-connection.png)
+![Cannot connect to the directory](/1.13/img/ldap-cannot-open-connection-error.png)
 
 If you see an error message indicating the connection to the backend directory failed, the problem is most often caused by one of the following issues:
 
@@ -24,7 +24,7 @@ If you see an error message indicating the connection to the backend directory f
 
     Specific port requirements depend on the version of Active Directory you are using and the type of communication traffic. For example, most LDAP traffic requires port 389 for TCP or UDP connections to handle directory and replication services, user and computer authentication, and group policy distribution. 
 
-    To handle the same type of traffic over a secure communications chaneel, LDAP requires port 636 for TCP connections to deliver encrypted messages over a secure socket layer (SSL).
+    To handle the same type of traffic over a secure communications channel, LDAP requires port 636 for TCP connections to deliver encrypted messages over a secure socket layer (SSL).
 
 - DNS cannot resolve the name or IP address for the Active Directory domain controller.
 
@@ -36,27 +36,93 @@ If there is a problem with the port number, host name, or host IP address, edit 
 
 1. Click **Settings**, then click **LDAP Directory**.
 
-Click Add Directory.
+1. Click **Edit Directory**.
 
-## Error: Transport layer security (TLS) setting
-If you have a problem connecting to Active Directory when using secure socket layer (SSL) connections, check whether the LDAP server is configured to allow SSL/TLS connections. Edit the Select SSL/TLS setting section and select another option.
+1. Modify the host name, host IP address, or LDAP port, then save your changes.
 
-## Error: SSL/TLS is enforced but the connection fails
-Attempt to connect via SSL/TLS but the option to abort on failure is selected.
+## Transport layer security (SSL/TLS) errors
+If you attempt to connect to Active Directory and the connection fails because there is a problem communicating with the server using transport layer security (SSL/TLS), you might see the following error message:
 
-## Error: Service account credential issues
-Connection to LDAP was successful, but the authentication credentials for the service account is incorrect. On the Authentication tab, correct the Lookup DN and the Lookup Password and perform the test again.
+![SSL connection error](/1.13/img/ldap-tsl-ssl-socket-error.png)
 
-## Error: Cannot find user
-Connection to the LDAP server is working, the service account for lookup is correct but cannot find the user. Verify the Authentication Method along with the User Search Base / User DN Template and the User Search Filter Template. Most often issue is that the user login being tested is NOT inside the User Search Base.
+For example, you might see this error if the LDAP server is not configured to accept SSL/TLS connections or if the certificate used to secure the channel is invalid.
+
+If you have a problem connecting to Active Directory when using secure socket layer (SSL) connections, you should:
+- Check that LDAP over SSL (LDAPS) is enabled for the Active Directory LDAP server role and that you have imported a valid CA certificate to allow SSL/TLS connections.
+- Check how you have configured the appropriate corresponding LDAP SSL/TLS setting for the directory in the DC/OS cluster.
+
+If the Active Directory LDAP server role is not configured to allow SSL/TLS connections, you should verify that the DC/OS cluster is configured to allow unencrypted communication.
+
+To change how DC/OS handles SSL/TLS connection errors:
+1. Log in to the DC/OS web-based console.
+
+1. Click **Settings**, then click **LDAP Directory**.
+
+1. Click **Edit Directory**.
+
+1. Under **Select SSL/TLS setting**, select another option.
+
+    ![SSL/TLS setting option](/1.13/img/ldap-ssl-options.png)
+
+## SSL/TLS is enforced but the connection fails
+If you have configured connections to the LDAP server to abort the operations if unable to use transport layer security (SSL/TLS), you might see the following error message:
+
+![Aborted SSL/TLS connections](/1.13/img/ldap-enforced-TLS-error.png)
+
+To change how DC/OS handles SSL/TLS connection errors:
+1. Log in to the DC/OS web-based console.
+
+1. Click **Settings**, then click **LDAP Directory**.
+
+1. Click **Edit Directory**.
+
+1. Under **Select SSL/TLS setting**, select another option.
+
+    ![SSL/TLS setting option](/1.13/img/ldap-ssl-options.png)
+
+## Service account credential issues
+If the connection to the LDAP server is successful, but the authentication credentials for the service account are incorrect, you might see the following error message:
+
+![LDAP authentication error](/1.13/img/ldap-lookup-DN-error.png)
+
+To address this issue:
+1. Log in to the DC/OS web-based console.
+
+1. Click **Settings**, then click **LDAP Directory**.
+
+1. Click **Edit Directory**.
+
+1. Click **Authentication**.
+
+1. Correct the **Lookup DN** and the **Lookup Password**.
+
+    ![Modify authentication information](/1.13/img/ldap-lookup-dn.png)
+
+## Cannot find user
+If the connection to the LDAP server is successful and the service account credentials are correct, but the user is not found, you might see the following error message: 
+
+![LDAP user not found](/1.13/img/ldap-user-error.png)
+
+If you see this error, you should verify the following settings:
+- The authentication method you are using.
+- The User Search Base or User DN Template.
+- The User Search Filter Template. 
+
+The most common cause of the issue is that the user account is not found because it is not within the scope of the User Search Base you have defined.
 
 Another common issue is that the User Search Filter Template / User DN Template is incorrect. Note that the %(username)s is the place holder in which the input username from the test or the actual login is replaced with a real value. 
 
-For OpenLDAP deployments, most of the time the UID is used (for example, (uid=%(username)s)). For Active Directory deployments, the sAMAccountName is the one most commonly used by users to login to their Windows machine. Clicking Properties on the user on the Active Directory Users and Computers application, under the Account tab it should be the one called User logon name.
+For OpenLDAP deployments, most of the time the UID is used (for example, (uid=%(username)s)). For Active Directory deployments, the sAMAccountName is the one most commonly used by users to log on to their Windows machine. 
 
-If you want to use any other valid logon account format, for example, `user@domain.com`, the parameters to replace `sAMAccountName` can be found by using Windows PowerShell.
+To look up the sAMAccountName:
+1. Open Active Directory Users and Computers.
+1. Select the user account.
+1. Right-click, then select **Properties**.
+1. Click the **Account** tab and check the **User logon name**.
 
-1. Open the Windows PowerShell admininstrator console.
+If you want to use any other valid account name format, for example, `user@domain.com`, the parameters to replace `sAMAccountName` can be found by using Windows PowerShell.
+
+1. Open the Windows PowerShell administrator console.
 
 1. Import the Active Directory module by using Import menu option or the Import-Module cmdlet. For example, in the PowerShell console you can run the `import-module` cmdlet like this: PS C:\Users\Administrator> import-module activedirectory
 
