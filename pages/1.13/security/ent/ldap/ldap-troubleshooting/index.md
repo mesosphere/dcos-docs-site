@@ -40,7 +40,9 @@ To edit the LDAP directory settings:
 
 1. Click **Edit Directory**.
 
-1. Modify the host name, host IP address, or LDAP port, then save your changes.
+1. Modify the host name, host IP address, or LDAP port.
+
+1. Click **Save Configuration**.
 
 # Transport layer security (SSL/TLS) connection errors
 If you attempt to connect to Active Directory and the connection fails because there is a problem communicating with the server using transport layer security (SSL/TLS), you might see the following error message:
@@ -68,6 +70,8 @@ To change how DC/OS handles SSL/TLS connection errors:
 
     For example, if you have configured the Select SSL/TLS setting to **Use SSL/TLS for all connections**, you might want to change the setting to **Attempt StartTLS, proceed unencrypted if it fails**.
 
+1. Click **Save Configuration**.
+
 # SSL/TLS is enforced but the connection fails
 If you have configured connections to the LDAP server to abort if unable to use transport layer security (SSL/TLS), you might see the following error message:
 
@@ -86,6 +90,8 @@ To change how DC/OS handles SSL/TLS connection errors:
 
     For example, if you want to continue to connect to the LDAP server when secure communication is not available, you can set the Select SSL/TLS setting to **Attempt StartTLS, proceed unencrypted if it fails**.
 
+1. Click **Save Configuration**.
+
 # Service account credential issues
 If the connection to the LDAP server is successful, but the authentication credentials for the service account are incorrect, you might see the following error message:
 
@@ -103,6 +109,8 @@ To address this issue:
 1. Correct the **Lookup DN** and the **Lookup Password**.
 
     ![Modify authentication information](/1.13/img/ldap-lookup-dn.png)
+
+1. Click **Save Configuration**.
 
 # Cannot find user
 If the connection to the LDAP server is successful and the service account credentials are correct, but the user is not found, you might see the following error message: 
