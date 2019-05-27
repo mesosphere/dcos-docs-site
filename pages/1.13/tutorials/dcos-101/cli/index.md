@@ -176,9 +176,9 @@ You can then use the `--help` option for individual commands to view usage infor
 Congratulations! You have successfully connected to your cluster using the DC/OS CLI, and started exploring some of the tasks and information available using the DC/OS command-line interface.
 
 The next tutorials explore additional getting started tasks that you can perform using the DC/OS web-based administrative console or command-line interface:
-- [Install your first service from the package repository]()
-- [Deploy your first sample application]()
-- []()
+- [Install your first service from the package repository](../first-package/)
+- [Deploy your first sample application](../first-app/)
+- [Discover deployed services](../service-discovery/)
 
 # Related topics
 You have already worked with several core components of the DC/OS architecture, including the Mesos kernel, Marathon, and Metronome. For more information about these DC/OS components and where they fit into the DC/OS platform or features and services, see the following topics in the main DC/OS [documentation](/overview/architecture/components/):

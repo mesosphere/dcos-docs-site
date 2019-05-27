@@ -234,9 +234,9 @@ Congratulations! You have successfully created your first DC/OS cluster. You can
 
 # Next steps
 Now that you have a small cluster running, you can install the DC/OS command-line interface (CLI) and start exploring administrative and operational tasks.
-- [Install the command-line interface]()
-- [Install your first service from the package repository]()
-- [Deploy your first sample application]()
+- [Install the command-line interface](../cli/)
+- [Install your first service from the package repository](../first-package/)
+- [Deploy your first sample application](../first-app)
 
 # Related topics
 This tutorial focused on preparing and installing the DC/OS cluster interactively using a simple configuration file and a few manually entered commands. 
