@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Install the first package
 title: Install the first package
-excerpt: Illustrates how to install a sample application package (part 2)
+excerpt: Illustrates how to install a sample application package (part 3)
 menuWeight: 2
 ---
 

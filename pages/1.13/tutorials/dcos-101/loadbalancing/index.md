@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Load balancing
 title: Load balancing
-excerpt: Demonstrates distributing workload for clients requesting access to a deployed application (part 8)
+excerpt: Demonstrates distributing workload for clients requesting access to a deployed application (part 9)
 menuWeight: 8
 ---
 Welcome to part 8 of the DC/OS 101 Tutorial.

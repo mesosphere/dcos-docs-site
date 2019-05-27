@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Manage and scale resources
 title: Manage and scale resources
-excerpt: Provides strategies and examples for scaling resources allocated for deployed applications (part 7)
+excerpt: Provides strategies and examples for scaling resources allocated for deployed applications (part 8)
 menuWeight: 7
 ---
 Welcome to part 7 of the DC/OS 101 Tutorial.

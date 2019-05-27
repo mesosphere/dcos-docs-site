@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Deploy the first application
 title: Deploy the first application
-excerpt: Describes how to define and deploy a sample service instance on the cluster (part 3)
+excerpt: Describes how to define and deploy a sample service instance on the cluster (part 4)
 menuWeight: 3
 ---
 Welcome to part 3 of the DC/OS 101 Tutorial

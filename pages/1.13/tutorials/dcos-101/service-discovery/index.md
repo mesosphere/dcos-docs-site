@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Discover deployed services
 title: Discover deployed services
-excerpt: Demonstrates how to discover and connect to services in your DC/OS cluster (part 4)
+excerpt: Demonstrates how to discover and connect to services in your DC/OS cluster (part 5)
 menuWeight: 4
 ---
 Welcome to part 4 of the DC/OS 101 Tutorial

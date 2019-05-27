@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Expose apps publicly
 title: Expose apps publicly
-excerpt: Exposes an application to make it available for access outside of the cluster (part 6)
+excerpt: Exposes an application to make it available for access outside of the cluster (part 7)
 menuWeight: 6
 ---
 Welcome to part 6 of the DC/OS 101 Tutorial.

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Deploy native applications
 title: Deploy native applications
-excerpt: Deploys an application using the native DC/OS Universal Runtime Container (part 5)
+excerpt: Deploys an application using the native DC/OS Universal Runtime Container (part 6)
 menuWeight: 5
 ---
 Welcome to part 5 of the DC/OS 101 Tutorial
