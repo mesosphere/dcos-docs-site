@@ -16,107 +16,15 @@ Registered DC/OS Enterprise customers can access the DC/OS Enterprise configurat
 # Release summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
-This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages–-such as Marathon and Metronome–-that are used in DC/OS.
+This release provides enhancements and fixes to address reported issues, integrate changes from previous releases, and maintain compatibility and support for the DC/OS ecosystem.
 
 If you have DC/OS deployed in a production environment, see [Known issues and limitations](#known-issues) to see if any potential operational changes for specific scenarios apply to your environment.
-<!--
-# New features and capabilities
-DC/OS 1.13 includes new features and capabilities to enhance the installation and deployment experience, simplify cluster administration, increase operational productivity and efficiency, and provide additional monitoring, alerting, logging, and reporting for better visibility into cluster activity.
-
-## Highlights of what's new
-Some highlights for this release include:
-- Unified service accounts and authentication architecture
-- Monitoring and metrics for cluster operations
-- Extended support for workloads that take advantage of accelerated processing provided by graphic processing units (GPU)
-- Improvements to the Universal installer and the upgrade process
-- New features and options for command-line programs
-- New dashboard options for monitoring cluster performance
-- Tighter integration between the Mesosphere Kubernetes Engine (MKE) and Edge-LB load balancing
-
-Features and capabilities that are introduced in DC/OS 1.13 are grouped by functional area or component and include links to view additional documentation, if applicable.
-
-## Unified service accounts and authentication architecture
-The core of the DC/OS Enterprise identity and access management service (IAM) has been open-sourced and added to DC/OS, replacing DC/OS OpenAuth (`dcos-oauth`). This architectural change includes adding CockroachDB as the cluster high-availability database for identity and access management.
-
-With this change, DC/OS also now supports unified service accounts. Service accounts allow individual programs and applications to interact with a DC/OS cluster using their own identity. A successful service account login results in authentication proof -- the DC/OS authentication token. A valid DC/OS authentication token is required to access DC/OS services and components through the master node Admin Router.
-
-This change also aligns the authentication architectures between DC/OS Enterprise and DC/OS Open Source. The HTTP API for service account management ans service authentication is now the same for both DC/OS Enterprise and DC/OS Open Source. For both DC/OS Enterprise and DC/OS Open Source clusters, the DC/OS authentication token is a JSON Web Token (JWT) of type RS256. This JWT authentication token can be validated by any component in the system after consulting the IAM services JSON Web Key Set (JWKS) endpoint.
-
-## Monitoring and metrics for cluster operations
-This release extends DC/OS cluster monitoring capabilities and the metrics you can collect and report for DC/OS components. The enhancements to monitoring and metrics provide you with better visibility into cluster operations, activity, and performance through DC/OS itself and as input to Prometheus, Grafana, and other services.
-
-### Monitoring service
-
-
-## Command-line interface
-- 
-
-## Data services
-- 
-
-<!-- not in the 1.13 Docs in RN filter
-- [Kubernetes] Edge-LB TLS/SNI Integration. <!-- (DCOS-47322)
-<no content>
-- Kubernetes Edge=LB Integration: TCP/HTTP <!--(DCOS-28246)
-<no content>
-- [Kubernetes] Multi-Kubernetes Regional Placement (DCOS-40924)
-<already in release notes>
-- [Kubernetes] MKE Documentation Improvements (DCOS-43921)
-<already in release notes>
-- [Kubernetes] Support Kubernetes 1.13 (DCOS-44175)
-<already in release notes>
-- [Kubernetes] DC/OS StorageClass for Kubernetes (DCOS-43801)
-<already in release notes>
--->
-
-<!-- not in the 1.13 Docs in RN filter
-- Build an Ingress controller to provision Amazon ELBs for L4 traffic into Edge-LB (DCOS-46302)
-
-    You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on your public and private agents. You can automatically provision the Network Load Balancer from a Kubernetes cluster as well. After you provision the Amazon Network Load Balancer, you can fetch the DNS metadata endpoint to access the service that is exposed through the Network Load Balancer.
--->
-
-## GUI
-- 
-
-## Installation
-- 
-
-<!-- not in 1.13 Docs with RN filter
-- Universal Installer to provision Elastic Block Store (EBS) volumes. (DCOS-47221)
-    The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/).
--->
-
-## Job management and scheduling
-- 
-
-## Marathon
-- 
-
-## Mesos platform and containerization
-- 
-
-## Networking
-- 
-<!-- not in 1.13 Docs in RN filter
-- Retention policies for dcos-monitoring data (DCOS-46818)
-    The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: https://docs.mesosphere.com/services/beta-dcos-monitoring/0.4.3-beta/operations/prometheus/storage/
--->
-<!-- not in 1.13 Docs in RN filter
-- Display Grafana dashboards on unsupervised displays (DCOS-51133)
-    The DC/OS monitoring service `dcos-monitoring` now enables Grafana dashboards to be displayed on read-only devices such as SmartTVs, kiosks or public panels.
--->
-
-## Security
-- 
-
-## Storage
-- 
 
 # Issues fixed in this release
 The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
 
-### Admin Router
-- 
+<!--### Admin Router
+
 
 ### Command-line interface (CLI)
 - 
@@ -124,29 +32,52 @@ The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, function
 ### Diagnostics and logging
 - 
 
-### GUI
-- 
+### GUI --> 
 
 ### Installation
-- 
+- Fixes issues that caused some DC/OS components to crash when the `/tmp` directory is mounted using the `noexec` option (DCOS-53077).
 
-### Job management and scheduling
-- 
+<!--### Job management and scheduling --> 
+
+### Marathon
+- Improves handling for tasks that return a TASK_UNKNOWN state (COPS-4883). 
+
+    In most cases, the TASK_UNKNOWN state results when there are explicit reconciliation requests for:
+    - Unrecognized tasks on registered agents
+    - Tasks requests on unregistered nor unreachable agents
+
+    Prior to this fix, any app instance that returned `TASK_UNKNOWN` as a Mesos task state could cause the DC/OS API to fail with the following error:
+
+    “TASK_UNKNOWN is an unknown Mesos task state”
+    
+    With this release, the TASK_UNKNOWN state is recognized by other DC/OS components. This state no longer causes operational failures or error messages that require the task to be deleted and relaunched as a new task with a new unique ID.
+
+- Fixes an issue with scaling Marathon apps when using a persistent volume (COPS-4892).
+
+    In some cases, Marathon tasks that used the Docker containerizer and persistent volumes could not be scaled back up to one instance after the app was suspended by scaling the instance count to zero. Before this fix, the task could be restarted but would lose its persistent volume. 
+    
+    The fix in this release ensure that the Marathon app can be suspended then scaled back up to a running instance without losing the persistent volume.
 
 ### Metrics
--
+- Enables framework names to be properly decoded in metric tags (DCOS_OSS-5039).
+
+    Mesos masters allow spaces in framework names by using percent-encoding (%20) of the framework name. This release updates the Telegraf plugin to enable it to decode the framework name and export metrics with the correct tags.
 
 ### Networking
--
+- Adds round-robin DNS support so that DNS requests do not always return address (A) records in the same order (DCOS_OSS-5118).
 
-### Third-party updates and compatibility
-- 
+- Returns canonical name (CNAME) records before address (A or AAAA) records in DNS responses (DCOS_OSS-5108).
+
+    For most DNS clients, the order in which records are returned has no affect. However, there are some DNS clients that require CNAME records to be listed before A records. This change resolves issues for DNS clients that have this requirement.
+
+- Fixes a problem with the `dcos-iam-ldap-sync` service failing to start correctly after a system reboot (COPS-4455, COPS-4814, DCOS-48107, DCOS-53420).
+
+<!--### Third-party updates and compatibility-->
 
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
 
 ### 
-
 
 # Updated components change lists
 For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
