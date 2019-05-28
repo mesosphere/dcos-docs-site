@@ -123,12 +123,11 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 # Parameter Descriptions
 
 ### adminrouter_auth_cache_enabled [enterprise type="inline" size="small" /]
-_This option was added in DC/OS 1.12.1._
 
 Controls whether the Admin Router authorization cache is enabled.
 
-*   `adminrouter_auth_cache_enabled: false` (default) Every authorization check Admin Router performs will load the user's permissions from the IAM.
-*   `adminrouter_auth_cache_enabled: true` Admin Router will cache the user's permissions for 5 seconds after performing an authorization check.
+*   `adminrouter_auth_cache_enabled: false` Every authorization check Admin Router performs will load the user's permissions from the IAM.
+*   `adminrouter_auth_cache_enabled: true` (Default) Admin Router will cache the user's permissions for 5 seconds after performing an authorization check.
 
 
 ### adminrouter_tls_1_0_enabled [enterprise type="inline" size="small" /]
