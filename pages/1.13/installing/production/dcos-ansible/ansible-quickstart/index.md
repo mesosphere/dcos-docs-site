@@ -13,15 +13,15 @@ If you’re new to Ansible and/or want to deploy DC/OS using Ansible quickly and
 - Upgrade the cluster to a newer version of DC/OS
 
 ## Prerequisites and Setup
-1. You will need to have [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) and [Mazer](https://galaxy.ansible.com/docs/mazer/install.html) installed. See links for additional installation information.
+1. You will need to have [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) and [Mazer 0.4](https://galaxy.ansible.com/docs/mazer/install.html) installed. See links for additional installation information.
      With Mac you can brew install and then use your version of pip to install mazer:
      ```bash
-     brew install ansible && pip install mazer
+     brew install ansible && pip install mazer==0.4.0
      ```
      Or, you can use pip to install Ansible and Mazer:
 
       ```bash
-      pip install ansible mazer
+      pip install ansible mazer==0.4.0
       ```
      For windows installation please refer to the [Ansible documentation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#control-machine-requirements) for more information on how to install ansible on windows, or you can SSH to the bootstrap host (see below) and deploy and run ansible from there.
 
