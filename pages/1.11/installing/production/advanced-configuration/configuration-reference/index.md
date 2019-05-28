@@ -116,13 +116,14 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 # Parameter Descriptions
 
 ## adminrouter_auth_cache_enabled [enterprise type="inline" size="small" /]
-_This option was added in DC/OS 1.12.1._
+_This parameter was first added to DC/OS 1.11 in DC/OS 1.11.1_
 
 Controls whether the Admin Router authorization cache is enabled.
 
-*   `adminrouter_auth_cache_enabled: false` (default) Every authorization check Admin Router performs will load the user's permissions from the IAM.
-*   `adminrouter_auth_cache_enabled: true` Admin Router will cache the user's permissions for 5 seconds after performing an authorization check.
+*   `adminrouter_auth_cache_enabled: false` Every authorization check Admin Router performs will load the user's permissions from the IAM.
+*   `adminrouter_auth_cache_enabled: true` (Default) Admin Router will cache the user's permissions for 5 seconds after performing an authorization check.
 
+<p class="message--note"><strong>Note: </strong>This parameter was first added to DC/OS 1.11 in DC/OS <code>1.11.1</code> with a default value of <code>FALSE</code>. Starting in DC/OS <code>1.11.6</code> the default for this value is <code>TRUE</code>. </p>
 
 ## adminrouter_tls_1_0_enabled [enterprise type="inline" size="small" /]
 Indicates whether to enable TLS 1.0 in Admin Router. Changing this setting has no effect on internal Admin Router configuration on agent nodes.
