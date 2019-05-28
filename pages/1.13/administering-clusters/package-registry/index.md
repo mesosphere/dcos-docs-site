@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Managing Package Registry
-title: Managing Package Registry
+navigationTitle: Package Registry
+title: Package Registry
 menuWeight: 50
 excerpt: Using the web interface or CLI to manage your package repositories
-enterprise: false
+enterprise: true
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -49,7 +49,7 @@ Package registry can be configured to use one of:
  2. Mount Volumes OR
  3. S3 Compatible storage
 
-Package registry would use local storage by default which is NOT recommended for production usage. Please configure a persistent volume or S3 compatible storage for production usage. If you are using this for developement purposes and wish to use local storage, skip to the next section. 
+Package registry would use local storage by default which is NOT recommended for production usage. Please configure a persistent volume or S3 compatible storage for production usage. If you are using this for developement purposes and wish to use local storage, skip to the next section.
 
 ### Mount volume Option
 
@@ -70,7 +70,7 @@ Refer to [Mount Volume Docs](/1.13/storage/mount-disk-resources/) to create moun
 
 Given the default configuration of the DC/OS Package Registry, DC/OS Packages are stored in a local persistent volume in the host filesystem. When using this default storage configuration, you are limited to one instance of the registry. Package Registry also supports a highly available configuration by storing DC/OS Packages on a S3 compatible storage which supports deploying more than one instance of the registry.
 
-To configure a DC/OS Package Registry to store DC/OS Packages using S3 storage, you must provide following details : 
+To configure a DC/OS Package Registry to store DC/OS Packages using S3 storage, you must provide following details :
   1. Specific S3 endpoint.
   2. S3 bucket name and path.
   3. S3 access key and secret key.
@@ -85,7 +85,7 @@ The combiniation of S3 bucket name and path inside the bucket should be unique t
 
 #### Upload the S3 credential to the DC/OS Secret store
 
-Create (or you an existing file) an s3 credential file and use it to create a file based secret in DC/OS. 
+Create (or you an existing file) an s3 credential file and use it to create a file based secret in DC/OS.
 
 ```bash
 dcos security secrets create -f ~/.aws/credentials dcos-registry-s3-credential-file
@@ -199,7 +199,7 @@ Here is a sample configuration file for the service:
 
 # Installation
 
-Now that you successfully created the config file (reffered to as `package-registry-options.json` from here on), you are ready to install the package registry. This can accomplished by following : 
+Now that you successfully created the config file (reffered to as `package-registry-options.json` from here on), you are ready to install the package registry. This can accomplished by following :
 
 ```bash
 dcos package install package-registry --options=package-registry-options.json
@@ -216,7 +216,7 @@ If you get errors in executing above command, wait for couple minutes (to accoun
 
 # Using package registry
 
-After package registry is installed, you can start adding packages to it. There are two parts to this : 
+After package registry is installed, you can start adding packages to it. There are two parts to this :
 
 1. Building the package files (`.dcos` files)
 2. Uploading the packages to package-registry.
@@ -224,7 +224,7 @@ After package registry is installed, you can start adding packages to it. There 
 
 ## Building the packages
 
-Mesosphere hosts all its certified packages at https://downloads.mesosphere.com/universe/packages/packages.html If the packages you need are available there, you can download them and skip to the next section of uploading these .dcos files to your cluster. When a universe catalog package is under development and you want to test it before creating a pull request OR if you want to build a non certified (community) package, this section is useful. 
+Mesosphere hosts all its certified packages at https://downloads.mesosphere.com/universe/packages/packages.html If the packages you need are available there, you can download them and skip to the next section of uploading these .dcos files to your cluster. When a universe catalog package is under development and you want to test it before creating a pull request OR if you want to build a non certified (community) package, this section is useful.
 
 ### Requirements
 
@@ -238,7 +238,7 @@ Mesosphere hosts all its certified packages at https://downloads.mesosphere.com/
       # Make sure the subcommand works
       dcos registry --help
       ```
-      
+
    2. If you don't have access to a DC/OS Cluster (such as in CI/CD), download `package-registry` cli for [Linux](https://downloads.mesosphere.io/package-registry/binaries/cli/linux/x86-64/latest/dcos-registry-linux), [macOS](https://downloads.mesosphere.io/package-registry/binaries/cli/darwin/x86-64/latest/dcos-registry-darwin) or [Windows](https://downloads.mesosphere.io/package-registry/binaries/cli/windows/x86-64/latest/dcos-registry-windows.exe)
       ```bash
       # Change the URL based on macOS, linux or windows accordingly.
@@ -265,7 +265,7 @@ The `package-registry` cli can be used to bundle your package in to a `.dcos` fi
 **Note**: All the assets URIs in the resource.json must be accessible to download from your environment. Relative file paths are accepted as well.
 
 ```bash
-# Create a temporary work directory to store the build definition and other files necessary to create the bundle. 
+# Create a temporary work directory to store the build definition and other files necessary to create the bundle.
 mkdir /path/to/output
 
 # `migrate` the unvierse package defintion to create a build defintion for the `.dcos` file.
@@ -286,11 +286,11 @@ If all the above steps are completed successfully your `/path/to/output` directo
 
 You can clean up the build defintion json file as it is no longer needed. Both the `build` and `migrate` subcommands accepts optional `--json` flag to support automation.
 
-After executing all the above steps, you should have a brand new `.dcos` file. 
+After executing all the above steps, you should have a brand new `.dcos` file.
 
 ## Uploading the packages to package-registry
 
-Now that you have all the `.dcos` files you need, you can continue to execute : 
+Now that you have all the `.dcos` files you need, you can continue to execute :
 
 ```bash
 dcos registry add --dcos-file <your-file>.dcos
