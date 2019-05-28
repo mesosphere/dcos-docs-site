@@ -143,36 +143,6 @@ In this step, an IP detection script is created. This script reports the IP addr
             echo $INTERFACE_IP
         ```
 
-[enterprise]
-# Create a fault domain detection script
-[/enterprise]
-
-By default, DC/OS clusters have [fault domain awareness](/1.10/deploying-services/fault-domain-awareness/) enabled, so no changes to your `config.yaml` are required to use this feature. However, you must include a fault domain detection script named `fault-domain-detect` in your `./genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
-
-
-1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain. During installation, the output of this script is passed to Mesos.
-
-   The format for the script output is:
-
-    ```json
-    {
-        "fault_domain": {
-            "region": {
-                "name": "<region-name>"
-            },
-            "zone": {
-                "name": "<zone-name>"
-            }
-        }
-    }
-    ```
-
-    We provide [fault domain detect scripts for AWS and Azure](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
-
-   <p class="message--warning"><strong>WARNING: </strong>This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
-
-
-2. Add your newly created `fault-domain-detect` script to the `/genconf` directory of your bootstrap node.
 
 
 # Create a configuration file
@@ -246,7 +216,6 @@ https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
 no_proxy:
 - 'foo.bar.com'
 - '.baz.com'
-fault_domain_enabled: false
 #If IPv6 is disabled in your kernel, you must disable it in the config.yaml
 enable_ipv6: 'false'
 ```
