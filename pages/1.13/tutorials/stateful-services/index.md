@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-title: Running Stateful Services on DC/OS
-navigationTitle: Running Stateful Services on DC/OS
+title: Running stateful services on DC/OS
+navigationTitle: Running stateful services on DC/OS
 menuWeight: 2
-excerpt: Tutorial - Running stateful services on DC/OS
+excerpt: Running stateful services on DC/OS
 ---
 
 #include /include/tutorial-disclaimer.tmpl

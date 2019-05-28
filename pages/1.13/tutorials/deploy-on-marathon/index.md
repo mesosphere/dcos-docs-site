@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Deploying Marathon Apps with Jenkins
-title: Deploying Marathon Apps with Jenkins
+navigationTitle: Deploying Marathon apps with Jenkins
+title: Deploying Marathon apps with Jenkins
 menuWeight: 4
-excerpt: Tutorial - Deploying applications on Marathon using Jenkins for DC/OS
+excerpt: Deploying applications on Marathon using Jenkins for DC/OS
 
 enterprise: false
 ---

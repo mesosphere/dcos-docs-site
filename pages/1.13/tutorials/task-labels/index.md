@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Labeling tasks and jobs
 title: Labeling tasks and jobs
-excerpt: Tutorial - Defining labels using the DC/OS web interface and the Marathon HTTP API
+excerpt: Defining labels using the DC/OS web interface and the Marathon HTTP API
 menuWeight: 5
 enterprise: false
 ---

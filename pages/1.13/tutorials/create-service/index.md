@@ -52,6 +52,7 @@ You can create and deploy a simple single-command service using the DC/OS web-ba
 
 ## Using the DC/OS CLI
 You can also create and run single-command services using the DC/OS CLI.
+
 1. Open a terminal shell on the computer where you have access to the DC/OS command-line interface (CLI).
 
 1. Open a new file in a text editor to create a JSON file called `single-cmd-app-cli.json`.
@@ -133,16 +134,18 @@ This exercise uses a sample containerized, long-running task that is available f
 
     ![Verifying the containerized service is running](/1.13/img/container-running-ui.png)
 
-## DC/OS CLI
+## Using the DC/OS CLI
+1. Open a web browser and navigate to [`hello-dcos`](https://hub.docker.com/r/mesosphere/hello-dcos/tags/) on the [Mesosphere Docker Hub repository and copy the latest image tag.
 
-Create and run a containerized service from the CLI:
+1. Open a terminal shell on the computer where you have access to the DC/OS command-line interface (CLI).
 
-1.  Go to the `hello-dcos` page of the [Mesosphere Docker Hub repository](https://hub.docker.com/r/mesosphere/hello-dcos/tags/) and note down the latest image tag.
-1.  Create a JSON file called `hello-dcos-cli.json` with the following contents. Replace `<image-tag>` in the `docker:image` field with the tag you copied in step 1.
+1. Open a new file in a text editor to create a JSON file called `container-app-cli.json`.
+
+1. Copy and paste the following sample content into the `container-app-cli.json` file, replacing `<image-tag>` with the tag you copied in step 1.
 
     ```json
     {
-      "id": "/hello-dcos-cli",
+      "id": "/container-hello-dcos-cli",
       "instances": 1,
       "cpus": 1,
       "mem": 128,
@@ -165,17 +168,23 @@ Create and run a containerized service from the CLI:
     }
     ```
 
-1.  Run the service with the following command.
+1. Start the service by running the following command:
 
     ```bash
-    dcos marathon app add hello-dcos-cli.json
+    dcos marathon app add container-hello-dcos-cli.json
     ```
 
-1.  Run the following command to verify that your service is running:
+1. Verify the containerized service has been successfully deployed by running the following command:
 
     ```bash
     dcos marathon app list
     ```
+    The command returns information similar to the following about the services you have deployed.
 
-1. In the **Services*b of the DC/OS web interface, click the name of your service, then choose one of the task instances.
-1. Click **Logs**, then toggle to the **OUTPUT (STDOUT)** view to see the output of the service.
+    ```
+
+    ```
+
+1. Open the DC/OS web-based administrative console, click **Services**, then click the name of the service to display its details.
+
+1. Click **Logs**, then toggle to the **Output (stdout)** view to see the output of the service.

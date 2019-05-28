@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Deploying a Load-Balanced Data Pipeline
-title: Deploying a Load-Balanced Data Pipeline
+navigationTitle: Deploying a load-balanced data pipeline
+title: Deploying a load-balanced data pipeline
 menuWeight: 3
-excerpt: Tutorial - Building a complete load-balanced data pipeline on DC/OS
-
+excerpt: Building a complete load-balanced data pipeline on DC/OS
 ---
 
 #include /include/tutorial-disclaimer.tmpl
