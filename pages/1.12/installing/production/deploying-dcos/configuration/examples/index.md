@@ -41,7 +41,6 @@ package_storage_uri: <permanent-path-to-files>
 ca_certificate_path: <path-to-certificate>
 ca_certificate_key_path: <path-to-private-key>
 ca_certificate_chain_path: <path-to-certificate-chain>
-customer_key: <customer-key>
 custom_checks:
   cluster_checks:
     custom-check-1:
@@ -157,8 +156,6 @@ agent_list:
 - <agent-private-ip-4>
 - <agent-private-ip-5>
 bootstrap_url: 'file:///opt/dcos_install_tmp'
-# DC/OS Enterprise only
-customer_key: <customer-key>
 cluster_name: '<cluster-name>'
 log_directory: /genconf/logs
 master_discovery: static
@@ -223,8 +220,6 @@ agent_list:
 - <agent-private-ip-5>
 bootstrap_url: file:///tmp/dcos
 cluster_name: zk-example
-# DC/OS Enterprise only
-customer_key: <customer-key>
 exhibitor_storage_backend: zookeeper
 exhibitor_zk_hosts: 10.0.0.1:2181, 10.0.0.2:2181, 10.0.0.3:2181
 exhibitor_zk_path: /zk-example

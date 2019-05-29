@@ -228,8 +228,6 @@ bootstrap_url: http://<bootstrap_ip>:80
 cluster_name: <cluster-name>
 superuser_username:
 superuser_password_hash:
-#customer_key in yaml file has been replaced by genconf/license.txt in DC/OS 1.12
-#customer_key: <customer-key>
 exhibitor_storage_backend: static
 master_discovery: static
 ip_detect_public_filename: <relative-path-to-ip-script>
