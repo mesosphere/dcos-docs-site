@@ -30,7 +30,6 @@ The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, function
 
  - Supports `gzip` data compression when serving some UI assets (DCOS-5978, DCOS-40441).
 
-
 <!--### Command-line interface (CLI) --> 
 
 ### Diagnostics and logging
@@ -138,7 +137,7 @@ This two-step approach to creating JSON for jobs is different from previous rele
     * `--set-superuser-password`
     * `--offline`
     * `--cli-telemetry-disabled`
-    * `--validate`
+    * `--validate-config`
     * `--preflight`
     * `--install-prereqs`
     * `--deploy`
