@@ -24,17 +24,19 @@ If you have DC/OS deployed in a production environment, see [Known issues and li
 The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parentheses for reference.
 
 ### Admin Router
-- Changes the maximum size allowed for uploads to a service through Admin Router (COPS-4651, DCOS-52768).
+- Changes the maximum size allowed for uploads to a service through Admin Router (COPS-4651, DCOS-20269, DCOS-52768).
 
     This release increases the maximum size allowed for uploading packages from 1GB to 16GB. This change enables you to upload larger packages to a registry service without timing out the upload connection.
 
 <!--### Command-line interface (CLI)
 - 
 
-### Diagnostics and logging
-- 
+### Diagnostics and logging --> 
 
-### GUI --> 
+### GUI
+- Updates the DC/OS GUI package to ensure it correctly identifies task names that have changed between releases and displays the correct task status for tasks that were running before an upgrade (COPS-4920, DCOS-54498).
+
+    Before applying this fix, tasks that were started prior to an upgrade might display No Data when viewing the **Tasks** tab for a service. 
 
 ### Installation
 - Fixes issues that caused some DC/OS components to crash when the `/tmp` directory is mounted using the `noexec` option (DCOS-53077).
@@ -42,7 +44,7 @@ The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, function
 <!--### Job management and scheduling --> 
 
 ### Marathon
-- Improves handling for tasks that return a TASK_UNKNOWN state (COPS-4883). 
+- Improves handling for tasks that return a TASK_UNKNOWN state (COPS-4883, COPS-4913). 
 
     In most cases, the TASK_UNKNOWN state results when there are explicit reconciliation requests for:
     - Unrecognized tasks on registered agents
@@ -72,9 +74,9 @@ The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, function
 
     For most DNS clients, the order in which records are returned has no affect. However, there are some DNS clients that require CNAME records to be listed before A records. This change resolves issues for DNS clients that have this requirement.
 
+### Security
 - Fixes a problem with the `dcos-iam-ldap-sync` service failing to start correctly after a system reboot (COPS-4455, COPS-4814, DCOS-48107, DCOS-53420).
 
-### Security
 - Updates the DC/OS identity and access management bouncer service to allow you to use any properly-configured web proxy to access external sites (DCOS_OSS-5167).
 
 <!--### Third-party updates and compatibility-->
