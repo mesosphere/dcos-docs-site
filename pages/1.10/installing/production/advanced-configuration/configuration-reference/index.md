@@ -413,9 +413,21 @@ set -o nounset -o errexit
 curl -fsSL https://ipinfo.io/ip
 ```
 
-## license_key_contents [enterprise type="inline" size="small" /]
-A license key helps to administer your cluster in conformance with your license requirements. A license contains the maximum number of nodes attached to a cluster at any given time and the start and end date of the license.The license key must reside in a genconf/license.txt file. This parameter is used when an user wants to directly specify the license in the config.yaml.
-Example: `license_key_contents: xyz`.
+[enterprise]
+### customer_key
+[/enterprise]
+
+(required) The DC/OS Enterprise customer key. Customer keys are delivered via email to the Authorized Support Contact.
+
+This key is a 128-bit hyphen-delimited hexadecimal identifier used to distinguish an individual cluster. The customer key serves as the Universally Unique Identifier (UUID) for a given installation.
+
+Customer keys look like this:
+
+```
+ab1c23de-45f6-7g8h-9012-i345j6k7lm8n
+```
+
+For more information, see the [security documentation](/1.10/security/ent/).
 
 ## log_directory
 The path to the installer host logs from the SSH processes. By default, this is set to `/genconf/logs`. In most cases this should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
