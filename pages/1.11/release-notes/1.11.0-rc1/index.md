@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.0 Release Candidate 1
 title: Release Notes for 1.11.0 RC 1
-menuWeight: 60
+menuWeight: 70
 excerpt: Release notes for DC/OS 1.11.0 release candidate 1
 ---
 
