@@ -53,10 +53,6 @@ Before installing DC/OS, your cluster must meet the software and hardware [requi
     ```bash
     mkdir -p genconf
     ```
-[enterprise]
-# <a name="license"></a>Store license file
-[/enterprise]
-1.  Create a [license file](/1.10/administering-clusters/licenses/) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
 
 # <a name="ip-detect-script"></a>Create an IP detection script
 
@@ -229,8 +225,7 @@ bootstrap_url: http://<bootstrap_ip>:80
 cluster_name: <cluster-name>
 superuser_username:
 superuser_password_hash:
-#customer_key in yaml file has been replaced by genconf/license.txt in DC/OS 1.10
-#customer_key: <customer-key>
+customer_key: <customer-key>
 exhibitor_storage_backend: static
 master_discovery: static
 ip_detect_public_filename: <relative-path-to-ip-script>
@@ -296,7 +291,6 @@ You can find additional information and a more detailed remediation procedure in
 **Prerequisites**
 
 *   A `genconf/config.yaml` file that is optimized for manual distribution of DC/OS across your nodes.
-*   A `genconf/license.txt` file containing your DC/OS Enterprise license. [enterprise type="inline" size="small" /]
 *   A `genconf/ip-detect` script.
 
 The term `dcos_generate_config file` refers to either a `dcos_generate_config.ee.sh` file or `dcos_generate_config.sh` file, based on whether you are using the Enterprise or Open Source version of DC/OS.
@@ -331,7 +325,6 @@ At this point your directory structure should resemble:
     ├── genconf
     │   ├── config.yaml
     │   ├── ip-detect
-    │   ├── license.txt
 
 
 [oss type="inline" size="small" /]
@@ -349,13 +342,13 @@ At this point your directory structure should resemble:
 
    - For the install script to work, you must have created `genconf/config.yaml` and `genconf/ip-detect`.
 
-2.  From your home directory, run the following command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
+1.  From your home directory, run the following command to host the DC/OS install package through an NGINX Docker container. For `<your-port>`, specify the port value that is used in the `bootstrap_url`.
 
     ```bash
     sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
     ```
 
-3.  <A name="masterinstall"></A> Run the following commands on each of your master nodes in succession to install DC/OS using your custom build file:
+2.  <A name="masterinstall"></A> Run the following commands on each of your master nodes in succession to install DC/OS using your custom build file:
 
     * SSH to your master nodes.
 
@@ -382,7 +375,7 @@ At this point your directory structure should resemble:
 
     <p class="message--note"><strong>NOTE: </strong>Although there is no actual harm to your cluster, DC/OS may issue error messages until all of your master nodes are configured.</p>
 
-4.  <A name="slaveinstall"></A> Run the following commands on each of your agent nodes to install DC/OS using your custom build file:
+3.  <A name="slaveinstall"></A> Run the following commands on each of your agent nodes to install DC/OS using your custom build file:
 
      * SSH to your agent nodes.
 
@@ -418,7 +411,7 @@ At this point your directory structure should resemble:
 
     __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.10/installing/production/system-requirements/#port-and-protocol) documentation.
 
-5.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
+4.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
 
     <p class="message--note"><strong>NOTE: </strong>This process can take about 10 minutes. During this time, you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.</p>
 
