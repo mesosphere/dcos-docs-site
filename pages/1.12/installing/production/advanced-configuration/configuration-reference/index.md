@@ -92,6 +92,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | ca_certificate_path                   | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.12/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_key_path           | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.12/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | ca_certificate_chain_path       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.12/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
+| [license_key_contents](#license-key-contents-enterprise)    | Optional override parameter to provide the license key contents directly in the config.yaml. If this parameter is specified, any key saved to `genconf/license.txt` will be ignored. [enterprise type="inline" size="small" /]  |
 | [iam_ldap_sync_interval](/1.12/security/ent/ldap/ldap-sync/) | Interval in seconds between LDAP synchronization operations. [enterprise type="inline" size="small" /] |
 |[security](#security-enterprise)                               | The security mode: permissive, or strict. [enterprise type="inline" size="small" /] |
 | [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
@@ -427,9 +428,9 @@ curl -fsSL https://ipinfo.io/ip
 ```
 
 ### license_key_contents [enterprise type="inline" size="small" /]
+By default, the installer looks for the license key to reside in the `genconf/license.txt` file. The parameter `license_key_contents` is only used when an user wants to override this behavior and directly specify the license in the config.yaml. A license contains the maximum number of nodes attached to a cluster at any given time and the start and end date of the license, and is required for enterprise users. See these [pages on licenses](/1.12/administering-clusters/licenses/) for more information on working with your license.
 
-A license key helps to administer your cluster in conformance with your license requirements. A license contains the maximum number of nodes attached to a cluster at any given time and the start and end date of the license.The license key must reside in a genconf/license.txt file. This parameter is used when an user wants to directly specify the license in the config.yaml.
-Example: `license_key_contents: xyz`.
+Example: `license_key_contents: verylongstringofchars`.
 
 ### log_directory
 
