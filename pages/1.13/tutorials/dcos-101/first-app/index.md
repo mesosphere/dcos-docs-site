@@ -5,14 +5,15 @@ title: Deploy the first application
 excerpt: Describes how to define and deploy a sample service instance on the cluster (part 4)
 menuWeight: 3
 ---
-Welcome to part 3 of the DC/OS 101 Tutorial
+Now that you are familiar with how to search for and install services from the DC/OS package repository, you are ready to start deploying applications that use the service.
 
 # Before you begin
-* A [running DC/OS cluster](/1.13/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.13/tutorials/dcos-101/cli/).
-* [Redis](/1.13/tutorials/dcos-101/redis-package/) deployed and running in your cluster.
+- A [running DC/OS cluster](/1.13/tutorials/dcos-101/start-here/)
+-  with [the DC/OS CLI installed](/1.13/tutorials/dcos-101/cli/).
+- You have the [Redis](/1.13/tutorials/dcos-101/redis-package/) package installed and running in your cluster.
 
 
-# Objective
+# Learning objective
 You now have a working persistence layer - [Redis](https://redislabs.com/) - running in your cluster.
 In this section you will deploy a simple app connecting to Redis.
 
