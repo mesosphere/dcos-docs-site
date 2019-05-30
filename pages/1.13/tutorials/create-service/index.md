@@ -14,7 +14,11 @@ Before starting this tutorial, you should verify the following:
 - You must have the [DC/OS command-line interface](../cli/) installed.
 
 # Learning objectives
-- 
+By completing this tutorial, you will learn:
+- How to use the DC/OS web-based console to create and deploy a single-command service.
+- How to use the DC/OS command-line interface (CLI) to create and deploy a single-command service.
+- How to use the DC/OS web-based console to create and deploy a containerized service.
+- How to use the DC/OS command-line interface (CLI) to create and deploy a containerized service.
 
 # Create a single command service
 You can create and deploy a simple single-command service using the DC/OS web-based administrative console or by running command-line programs.
