@@ -68,7 +68,7 @@ If you are having trouble getting Marathon-LB up and running on an Enterprise cl
 
 5.  Click the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
-    ![Services tab with all services shown.](/img/tweeter-services6-ee.png)
+    ![Services tab with all services shown.](/1.13/img/tweeter-services6-ee.png)
 
     Figure 1. Services tab showing Tweeter services
 
@@ -125,7 +125,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 
 4.  Go to the **Services** tab to verify your app is up and healthy.
 
-    ![Tweeter deployed](/img/tweeter-services7.png)
+    ![Tweeter deployed](/1.13/img/tweeter-services7.png)
 
     Figure 2. Tweeter deployed
 
@@ -149,7 +149,7 @@ In this step you deploy an app that automatically posts a large number of tweets
 
 3.  After the `post-tweets.json` is running, refresh your browser to see the incoming Shakespeare tweets.
 
-    ![Shakespeare tweets](/img/tweeter-shakespeare.png)
+    ![Shakespeare tweets](/1.13/img/tweeter-shakespeare.png)
 
     Figure 4. Shakespeare tweets
 
