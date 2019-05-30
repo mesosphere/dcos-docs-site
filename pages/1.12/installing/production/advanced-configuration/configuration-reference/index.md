@@ -405,7 +405,7 @@ Indicates whether to enable GPU support in DC/OS.
 
 For more information, see the [GPU documentation](/1.12/deploying-services/gpu/).
 
-### fault_domain_enabled
+### fault_domain_enabled [enterprise type="inline" size="small" /]
 By default, DC/OS clusters have [fault domain awareness](/1.12/deploying-services/fault-domain-awareness/) enabled, so no changes to your config.yaml are required to use this feature.
 
 ### gc_delay

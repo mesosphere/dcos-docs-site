@@ -248,7 +248,6 @@ https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
 no_proxy:
 - 'foo.bar.com'
 - '.baz.com'
-# Fault domain entry required for DC/OS Enterprise 1.12+
 fault_domain_enabled: false
 #If IPv6 is disabled in your kernel, you must disable it in the config.yaml
 enable_ipv6: 'false'
