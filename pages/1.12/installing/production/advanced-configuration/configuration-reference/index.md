@@ -33,10 +33,10 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [fault_domain_enabled](#fault-domain-enabled-enterprise)              | By default, fault domain awareness is enabled and the installer will expect input for zones and regions from a [fault detect script](/1.12/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script-enterprise). To override this feature, set to `false`, and no fault domain information will be expected or used. [enterprise type="inline" size="small" /]  |
 | [gpus_are_scarce](#gpus-are-scarce)                                   | Indicates whether to treat GPUs as a scarce resource in the cluster. |
 | [ip_detect_public_filename](#ip-detect-public-filename)               | The IP detect file to use in your cluster.  |
+| [log_offers](#log-offers)                                             | Indicates whether the leading Mesos master should log the offers sent to schedulers. Default is true. |
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
 | [master_external_loadbalancer](#master-external-loadbalancer)         | The DNS name or IP address for the load balancer.  [enterprise type="inline" size="small" /]      |
 | [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
-| [log_offers](#log-offers)                                             | Indicates whether the leading Mesos master should log the offers sent to schedulers. Default is true. |
 | [platform](#platform)                                                 | The infrastructure platform. |
 | [public_agent_list](#public-agent-list)                               | A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.12/overview/concepts/#public-agent-node) host names.  |
 | [rexray_config](#rexray-config)                                       | The [REX-Ray](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/) configuration method for enabling external persistent volumes in Marathon. You cannot specify both `rexray_config` and `rexray_config_preset`.|
