@@ -16,9 +16,7 @@ Registered DC/OS Enterprise customers can access the DC/OS Enterprise configurat
 # Release summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
-This release provides enhancements and fixes to address reported issues, integrate changes from previous releases, and maintain compatibility and support for the DC/OS ecosystem. 
-
-If you are upgrading from a previous release, Mesosphere strongly recommends that you install **DC/OS 1.13.1** to minimize disruptions to a running cluster. For more information about this upgrade recommendation, see the [Marathon product advisory](https://support.mesosphere.com/s/article/Known-Issue-Marathon-MSPH-2019-0004).
+This release provides enhancements and fixes to address reported issues, integrate changes from previous releases, and maintain compatibility and support for the DC/OS ecosystem. If you are upgrading from a previous release, Mesosphere strongly recommends that you install **DC/OS 1.13.1** to minimize disruptions to a running cluster.
 
 If you have DC/OS deployed in a production environment, you should also review the [Known issues and limitations](#known-issues) to see if any potential operational changes for specific scenarios apply to your environment.
 
