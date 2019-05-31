@@ -474,10 +474,10 @@ This two-step approach to creating JSON for jobs is different from previous rele
 
 # Updated components change lists
 For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
-- Apache Mesos 1.8.0 [change log](https://github.com/apache/mesos/blob/d2a368363c6738d83c721e5c7eb5e1f2ebc9cb07/CHANGELOG).
-- Marathon 1.8.x [change log](https://github.com/mesosphere/marathon/blob/b00f71136a7e35cb76c7df136d49b16b9ead2689/changelog.md).
-- Metronome 0.6.18 [change log](https://github.com/dcos/metronome/blob/b4016b01a349b15df25970877bd62521a49d0cc9/changelog.md).
-- DC/OS 1.13 [change log](https://github.com/dcos/dcos/blob/1.13/CHANGES.md).
+- Apache Mesos 1.8.0 [change log](https://github.com/apache/mesos/blob/f5770dcf322bd8a88e6c88041364a4089d92be90/CHANGELOG).
+- Marathon 1.8.x [change log](https://github.com/mesosphere/marathon/blob/1590825ea77c838a767bfcdb0fbe5b93cddce1c3/changelog.md).
+- Metronome 0.6.18 [change log](https://github.com/dcos/metronome/blob/90557686a08d97ef6bb7e55ac9c3a48d72e2a53d/changelog.md).
+- DC/OS 1.13.1 [change log](https://github.com/dcos/dcos/blob/1.13.1/CHANGES.md).
 <!--
 - REX-Ray 0.11.4 [release information](https://github.com/rexray/rexray/releases/tag/v0.11.4).
 - Telegraf 1.9.x [change log](https://github.com/influxdata/telegraf/blob/release-1.9/CHANGELOG.md).
