@@ -98,6 +98,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | ca_certificate_chain_path       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/1.13/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | [license_key_contents](#license-key-contents-enterprise)    | Optional override parameter to provide the license key contents directly in the config.yaml. If this parameter is specified, any key saved to `genconf/license.txt` will be ignored. [enterprise type="inline" size="small" /]  |
 | [iam_ldap_sync_interval](/1.13/security/ent/ldap/ldap-sync/) | Interval in seconds between LDAP synchronization operations. [enterprise type="inline" size="small" /] |
+| [permissions_cache_ttl_seconds](#permissions-cache-ttl-seconds-enterprise)   | The maximum number of seconds for permission changes to propagate through the entire system. [enterprise type="inline" size="small" /] |
 |[security](#security-enterprise)                               | The security mode: permissive, or strict. [enterprise type="inline" size="small" /] |
 | [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
@@ -544,6 +545,10 @@ Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
 - `oauth_enabled: false` Disable authentication for your cluster.
 
 If you have already installed your cluster and would like to disable this in place, you can go through an upgrade with the same parameter set.
+
+### permissions_cache_ttl_seconds [enterprise type="inline" size="small" /]
+The maximum number of seconds for permission changes to propagate through the entire system.
+Increasing this value may reduce load on the IAM by increasing the use of caches by various authorizers.
 
 ### platform
 The infrastructure platform. The value is optional, free-form with no content validation, and used for telemetry only. Supply an appropriate value to help inform DC/OS platform prioritization decisions. Example values: `aws`, `azure`, `oneview`, `openstack`, `vsphere`, `vagrant-virtualbox`, `onprem` (default).
