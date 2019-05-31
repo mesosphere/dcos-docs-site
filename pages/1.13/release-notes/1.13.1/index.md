@@ -21,7 +21,7 @@ This release provides enhancements and fixes to address reported issues, integra
 If you have DC/OS deployed in a production environment, see [Known issues and limitations](#known-issues) to see if any potential operational changes for specific scenarios apply to your environment.
 
 # Issues fixed in this release
-The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parentheses for reference.
+The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
 
 <!--### Admin Router
 
@@ -75,7 +75,7 @@ The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, function
 <!--### Third-party updates and compatibility-->
 
 # Known issues and limitations
-This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parentheses for reference.
+This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
 
 ### 
 
