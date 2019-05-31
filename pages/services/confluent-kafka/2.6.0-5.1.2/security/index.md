@@ -1,31 +1,36 @@
 ---
 layout: layout.pug
-navigationTitle: Security 
-excerpt: Security for Confluent Kafka
-title: Security 
+navigationTitle: Security
+excerpt: Securing your service
+title: Security
 menuWeight: 50
 model: /services/confluent-kafka/data.yml
 render: mustache
+enterprise: true
 ---
 
 
 # DC/OS {{ model.techName }} Security
 
-The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the usage of these important features.
+-The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the usage of these important features.
 
-A good overview of these features can be found [here](https://www.confluent.io/blog/apache-kafka-security-authorization-authentication-encryption/), and {{ model.techShortName }}'s security documentation can be found [here](http://kafka.apache.org/documentation/#security).
+-A good overview of these features can be found [here](https://www.confluent.io/blog/apache-kafka-security-authorization-authentication-encryption/), and {{ model.techShortName }}'s security documentation can be found [here](http://kafka.apache.org/documentation/#security).
 
 <p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
+
+#include /services/include/service-account.tmpl
+
+#include /services/include/security-create-permissions.tmpl
 
 ## Transport Encryption
 
 #include /services/include/security-transport-encryption-lead-in.tmpl
 
-<p class="message--note"><strong>NOTE: </strong>Enabling transport encryption is <strong>required</strong> to use <a href="#ssl-authentication">SSL authentication</a> for <a href="#authentication">authentication</a>, but is optional for <a href="#kerberos-authentication">Kerberos authentication</a>.</p>
+<p class="message--note"><strong>NOTE: </strong> Enabling transport encryption is **required** to use [SSL authentication](#ssl-authentication) for [authentication](#authentication), but is optional for [Kerberos authentication](#kerberos-authentication).</p>
 
 #include /services/include/security-configure-transport-encryption.tmpl
 
-<p class="message--note"><strong>NOTE: </strong>It is possible to update a running DC/OS Confluent Kafka service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your Kafka clients will need to be reconfigured unless <tt>service.security.transport_encryption.allow_plaintext</tt> is set to <tt>true</tt>.</p>
+<p class="message--note"><strong>NOTE: </strong>It is possible to update a running DC/OS {{ model.techName }} service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured unless `service.security.transport_encryption.allow_plaintext` is set to true.</p>
 
 #### Verify Transport Encryption Enabled
 
@@ -156,7 +161,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 }
 ```
 
-It is possible to enable SSL authentication after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured.
+<p class="message--note"><strong>NOTE: </strong> It is possible to enable SSL authentication after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured.</p>
 
 #### Authenticating a Client
 
@@ -166,6 +171,14 @@ $ curl -X POST \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     <dcos-cluster>/ca/api/v2/sign \
     -d '{"certificate_request": "<json-encoded-value-of-request.csr>"}'
+```
+The `<json-encoded-value-of-request.csr>` field represents the content of the `csr` file as a single line, where new lines are replaced with `\n`.
+
+```bash
+curl -X POST \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+    <dcos-cluster>/ca/api/v2/sign \
+    -d '{"certificate_request": ""-----BEGIN CERTIFICATE REQUEST-----\nMIIC<snipped for brevity>o39lBi1w=\n-----END CERTIFICATE REQUEST-----\n""}'
 ```
 
 The response will contain a signed public certificate. Full details on the DC/OS CA API can be found [here](/latest/security/ent/tls-ssl/ca-api/).
