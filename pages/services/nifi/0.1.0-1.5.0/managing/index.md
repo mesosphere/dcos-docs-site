@@ -295,7 +295,7 @@ The NiFi backup is performed using the NiFi toolkit. The NiFi backup will be per
 
    The Backup task is responsible for making a backup of the local application and backing it up to the local node, which may be on the ROOT or Mount Volume.
 
-   [<img src="../service/Backup.png" alt="backup" width="800"/>](../service/Backup.png)
+   [backup](../../service/Backup.png)
 
    _Figure 1. - Backing up to the local node_
 
@@ -304,7 +304,7 @@ The NiFi backup is performed using the NiFi toolkit. The NiFi backup will be per
 
    This task takes the backup created in Step 1, from the ROOT/Mount volume, and uploads it to Amazon S3 in the Bucket Name specified.
 
-   [<img src="../service/S3Upload.png" alt="S3Upload.png" width="800"/>](../service/S3Upload.png)     
+   [S3Upload.png](../../service/S3Upload.png)
 
    _Figure 2. - Uploading the backup file_
 
@@ -312,7 +312,7 @@ The NiFi backup is performed using the NiFi toolkit. The NiFi backup will be per
 
     After Step 2 is complete and the backup has been uploaded to Amazon S3, a sidecar task known as `cleanup` is triggered. This task cleans up and removes the backup folder from the local Root/Mount volumes.
 
-   [<img src="../service/Cleanup.png" alt="cleanup" width="800"/>](../service/Cleanup.png)
+   [cleanup](../../service/Cleanup.png)
 
    _Figure 3. - Cleaning up_
 

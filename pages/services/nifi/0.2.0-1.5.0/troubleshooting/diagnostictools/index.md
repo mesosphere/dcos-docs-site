@@ -32,7 +32,7 @@ If the task is based on a Docker image, this list will only show the contents of
 
 In the above task list there are multiple services installed, resulting in a pretty large list. The list can be filtered using the text box at the upper right, but there may be duplicate names across services. For example there are two instances of nifi and they’re each running a node-0. As the cluster grows, this confusion gets proportionally worse. We want to limit the task list to only the tasks that are relevant to the service being diagnosed. To do this, click “Frameworks” on the upper left to see a list of all the installed frameworks (mapping to our services):
 
-[<img src="../service/3_Active_Frameworks.jpg" alt="active frameworks" width="1000"/>](../service/3_Active_Frameworks.jpg)
+[<img src="../service/3_Active_Frameworks.png" alt="active frameworks" width="1000"/>](../service/3_Active_Frameworks.png)
 
 _Figure 3. - Active Frameworks_
 

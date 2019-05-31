@@ -28,7 +28,7 @@ For the partitions handling the various NiFi repos, turn off things like `atime`
 
 Following is the recommended hardware for NiFi production installation:
 
-[<img src="../service/HardwareRecommendation.png" alt="Hardware Recommendation" width="700"/>](../service/HardwareRecommendation.png)
+![Hardware Recommendation](../../service/HardwareRecommendation.png)
 
 _Figure 1. - Hardware sizing recommendations_
 
