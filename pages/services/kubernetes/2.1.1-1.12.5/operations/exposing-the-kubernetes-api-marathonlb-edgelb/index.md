@@ -201,7 +201,7 @@ These validations are achievable but are outside the scope of this document.
 If your Kubernetes cluster is called something different from `kubernetes-cluster`, then the `frameworkName` should be modified to match the cluster's name.
 For example, if your Kubernetes service is located at `dev/kubernetes01`, then replace `"frameworkName": "kubernetes-cluster"` with `"frameworkName": "dev/kubernetes01"`.
 
-This example assumes that Edge-LB (version 1.0.3 or later) is already properly installed and configured (following the Edge-LB [installation instructions](/services/edge-lb/latest/)):
+This example assumes that Edge-LB (version 1.0.3 or later) is already properly installed and configured (following the Edge-LB [installation instructions](/services/edge-lb/latest)):
 
 1. Create a `edgelb-kubernetes-cluster-pool.json` file with the above contents.
 1. Create the Edge-LB pool with the following command:

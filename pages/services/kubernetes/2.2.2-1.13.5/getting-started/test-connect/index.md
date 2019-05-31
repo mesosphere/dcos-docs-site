@@ -182,8 +182,6 @@ When the Kubernetes login screen is shown, you should choose the **Kubeconfig** 
 
 **Note:** When accessed, and depending on whether you are running DC/OS or DC/OS EE (as well as on your browser's configuration) you may be presented a warning indicating that the TLS certificate being used by the Kubernetes Dashboard is not trusted. It is generally safe to permanently trust this TLS certificate by adding an exception in your browser, or to skip past it. To learn more about TLS certificates, visit the [Kubernetes Dashboard](/services/kubernetes/2.2.2-1.13.5/operations/kubernetes-dashboard/) section.
 
-    <!-- better validation here of this step:Screenshot ^^ -->
-
 ## Mission Complete!
 
 Well done! You have successfully completed the [Getting Started Guide for Kubernetes](/services/kubernetes/2.2.2-1.13.5/getting-started/). You have set up your DC/OS Enterprise cluster to be able to run Kubernetes as a service on DC/OS.
