@@ -42,7 +42,7 @@ The core of the DC/OS Enterprise identity and access management service (IAM) ha
 
 With this change, DC/OS also now supports unified service accounts. Service accounts allow individual programs and applications to interact with a DC/OS cluster using their own identity. A successful service account login results in authentication proof -- the DC/OS authentication token. A valid DC/OS authentication token is required to access DC/OS services and components through the master node Admin Router.
 
-This change also aligns the authentication architectures between DC/OS Enterprise and DC/OS Open Source. The HTTP API for service account management ans service authentication is now the same for both DC/OS Enterprise and DC/OS Open Source. For both DC/OS Enterprise and DC/OS Open Source clusters, the DC/OS authentication token is a JSON Web Token (JWT) of type RS256. This JWT authentication token can be validated by any component in the system after consulting the IAM services JSON Web Key Set (JWKS) endpoint.
+This change also aligns the authentication architectures between DC/OS Enterprise and DC/OS Open Source. The HTTP API for service account management and service authentication is now the same for both DC/OS Enterprise and DC/OS Open Source. For both DC/OS Enterprise and DC/OS Open Source clusters, the DC/OS authentication token is a JSON Web Token (JWT) of type RS256. This JWT authentication token can be validated by any component in the system after consulting the IAM services JSON Web Key Set (JWKS) endpoint.
 
 ## Monitoring and metrics for cluster operations
 This release extends DC/OS cluster monitoring capabilities and the metrics you can collect and report for DC/OS components. The enhancements to monitoring and metrics provide you with better visibility into cluster operations, activity, and performance through DC/OS itself and as input to Prometheus, Grafana, and other services.
@@ -351,9 +351,9 @@ The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, function
 
 - Fix an issue with scaling Marathon apps when using a persistent volume (COPS-4892, DCOS_OSS-5212, DCOS-54468).
 
-    In some cases, Marathon tasks that used the Docker containerizer and persistent volumes could not be scaled back up to one instance after the app was suspended by scaling the instance count to zero. Before this fix, the task could be restarted but would lose its persistent volume. 
-    
-    The fix in this release ensure that the Marathon app can be suspended then scaled back up to a running instance without losing the persistent volume.
+    Tasks started in previous DC/OS versions using persistent volumes could not be restarted in DC/OS 1.13.0. This issue affected both restarting in response to a task failure, as well as scaling apps by restarting previously suspended tasks. 
+  
+    The fix in this release ensures that any Marathon task using persistent volumes can be suspended or fail and be restarted reusing its persistent volumes.
 
 - Modify support for volume profiles so that Marathon apps only match disk resources with a profile if a profile is required (DCOS_OSS-5211). 
 
