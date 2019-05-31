@@ -5,7 +5,7 @@ title: Release notes for 1.13.1
 menuWeight: 1
 excerpt: Release notes for DC/OS 1.13.1, including Open Source attribution, and version policy.
 ---
-DC/OS 1.13.1 was released on May 31, 2019.
+DC/OS 1.13.1 was released on July 19, 2019.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -23,12 +23,10 @@ If you have DC/OS deployed in a production environment, see [Known issues and li
 # Issues fixed in this release
 The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers enclosed in parentheses for reference.
 
-### Admin Router
-- Changes the maximum size allowed for uploads to a service through Admin Router (COPS-4651, DCOS-52768).
+<!--### Admin Router
 
-    This release increases the maximum size allowed for uploading packages from 1GB to 16GB. This change enables you to upload larger packages to a registry service without timing out the upload connection.
 
-<!--### Command-line interface (CLI)
+### Command-line interface (CLI)
 - 
 
 ### Diagnostics and logging
@@ -74,14 +72,12 @@ The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, function
 
 - Fixes a problem with the `dcos-iam-ldap-sync` service failing to start correctly after a system reboot (COPS-4455, COPS-4814, DCOS-48107, DCOS-53420).
 
-### Security
-- Updates the DC/OS identity and access management bouncer service to allow you to use any properly-configured web proxy to access external sites (DCOS_OSS-5167).
-
 <!--### Third-party updates and compatibility-->
 
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parentheses for reference.
-<!-- -->
+
+### 
 
 # Updated components change lists
 For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
