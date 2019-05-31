@@ -30,7 +30,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [custom_checks](#custom-checks)                                       | Custom installation checks that are added to the default check configuration process. |
 | [exhibitor_storage_backend](#exhibitor-storage-backend)               | The type of storage backend to use for Exhibitor. |
 | [enable_gpu_isolation](#enable-gpu-isolation)                         | Indicates whether to enable GPU support in DC/OS.  |
-| [fault_domain_enabled](#fault-domain-enabled-enterprise)              | By default, fault domain awareness is enabled and the installer will expect input for zones and regions from a [fault detect script](/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script-enterprise). To override this feature, set to `false`, and no fault domain information will be expected or used.   |
+| [fault_domain_enabled](#fault-domain-enabled-enterprise)              | By default, fault domain awareness is enabled and the installer will expect input for zones and regions from a [fault detect script](/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script-enterprise). To override this feature, set to `false`, and no fault domain information will be expected or used. [enterprise type="inline" size="small" /]  |
 | [gpus_are_scarce](#gpus-are-scarce)                                   | Indicates whether to treat GPUs as a scarce resource in the cluster. |
 | [ip_detect_public_filename](#ip-detect-public-filename)               | The IP detect file to use in your cluster.  |
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
@@ -411,7 +411,7 @@ Indicates whether to enable GPU support in DC/OS.
 For more information, see the [GPU documentation](/1.13/deploying-services/gpu/).
 
 ### fault_domain_enabled [enterprise type="inline" size="small" /]
-By default, fault domain awareness is enabled and the installer will expect input for zones and regions from a [fault detect script](/1.13/installing/production/deploying-dcos/installation/). To override this feature, add this parameter set to `false`, and no fault domain information will be expected or used.
+By default, fault domain awareness is enabled and the installer will expect input for zones and regions from a [fault detect script](/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script-enterprise). To override this feature, add this parameter set to `false`, and no fault domain information will be expected or used.
 
 ### gc_delay
 The maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of two days.
