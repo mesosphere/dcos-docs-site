@@ -17,6 +17,7 @@ excerpt: Changelog for DC/OS Kubernetes
 * Kubernetes 1.14.2.
 * Docker 18.09.6.
 * etcd 3.3.13.
+* Calico 3.6.1
 * The `node-role.kubernetes.io/master=` label for the control-plane nodes is now set through the Kubernetes API instead of using the `kubelet --node-labels` flag. This happens because [setting any `kubernetes.io` prefixed labels has been deprecated in Kubernetes 1.13 and will be removed in Kubernetes 1.15](https://github.com/kubernetes/kubernetes/pull/68267).
 * dcos-commons: 0.56.0
 * Add option to expose Kubernetes cluster metrics. If dcos-monitoring package is installed the Kubernetes cluster metrics are automatically ingested to DC/OS metrics pipeline.
@@ -27,8 +28,8 @@ excerpt: Changelog for DC/OS Kubernetes
 
 * Kubernetes 1.14.1
 * Docker 18.09.4
-* Calico 3.6.1
 * CoreDNS v1.4.0
+* Calico 3.5.4
 * Enable [Pod Priority scheduling and preemption](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/)
 * Allow for defining the maximum amount of disk space taken by pods' containers' log files (defaults to 1MB).
   The default can be overriden by setting the  `kubernetes.maximum_container_log_size` configuration option.

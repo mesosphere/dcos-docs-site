@@ -128,7 +128,7 @@ Alternatively, if you are using DC/OS Enterprise, you can modify the dummy appli
     "HAPROXY_0_MODE": "http",
     "HAPROXY_0_PORT": "6443",
     "HAPROXY_0_SSL_CERT": "/etc/ssl/cert.pem",
-    "HAPROXY_0_BACKEND_SERVER_OPTIONS": "  timeout connect 10s\n  timeout client 86400s\n  timeout server 86400s\n  timeout tunnel 86400s\n  server kubernetescluster apiserver.kubernetes-cluster.l4lb.thisdcos.directory:6443 ssl verify required ca-file /mnt/mesos/sandbox/.ssl/ca-bundle.crt\n"  
+    "HAPROXY_0_BACKEND_SERVER_OPTIONS": "  timeout connect 10s\n  timeout client 86400s\n  timeout server 86400s\n  timeout tunnel 86400s\n  server kubernetescluster apiserver.kubernetes-cluster.l4lb.thisdcos.directory:6443 ssl verify required ca-file /mnt/mesos/sandbox/.ssl/ca-bundle.crt\n"
   }
 }
 ```
@@ -201,7 +201,7 @@ These validations are achievable but are outside the scope of this document.
 If your Kubernetes cluster is called something different from `kubernetes-cluster`, then the `frameworkName` should be modified to match the cluster's name.
 For example, if your Kubernetes service is located at `dev/kubernetes01`, then replace `"frameworkName": "kubernetes-cluster"` with `"frameworkName": "dev/kubernetes01"`.
 
-This example assumes that Edge-LB (version 1.0.3 or later) is already properly installed and configured (following the Edge-LB [installation instructions](https://docs.mesosphere.com/services/edge-lb/)):
+This example assumes that Edge-LB (version 1.0.3 or later) is already properly installed and configured (following the Edge-LB [installation instructions](https://docs.mesosphere.com/services/edge-lb/latest)):
 
 1. Create a `edgelb-kubernetes-cluster-pool.json` file with the above contents.
 1. Create the Edge-LB pool with the following command:

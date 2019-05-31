@@ -15,7 +15,7 @@ Currently, the DC/OS Kubernetes package has the following limitations:
 * Each Kubernetes cluster is limited to a maximum of 85 Kubernetes nodes (private or public).
 * Each Kubernetes node is restricted to running 10 pods per available CPU core, up to a maximum of 100 pods per node.
 * Each public Kubernetes node requires a dedicated public DC/OS agent.
-* [Horizontal Pod Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) is available for core metrics only (e.g. CPU, memory). Support for custom metrics requires a services engagement.
+* [Horizontal Pod Autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) with custom metrics require a services engagement.
 
 
 * Replacing or permanently losing the `etcd` pod when `kubernetes.high_availability` is set to `false` will result in permanent data loss for a given cluster.
