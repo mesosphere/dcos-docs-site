@@ -33,6 +33,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [fault_domain_enabled](#fault-domain-enabled-enterprise)              | By default, fault domain awareness is enabled and the installer will expect input for zones and regions from a [fault detect script](/1.11/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script-enterprise). To override this feature, set to `false`, and no fault domain information will be expected or used. [enterprise type="inline" size="small" /]  |
 | [gpus_are_scarce](#gpus-are-scarce)                                   | Indicates whether to treat GPUs as a scarce resource in the cluster. |
 | [ip_detect_public_filename](#ip-detect-public-filename)               | The IP detect file to use in your cluster.  |
+| [log_offers](#log-offers)                                             | Indicates whether the leading Mesos master should log the offers sent to schedulers. First added to DC/OS 1.11 in `1.11.5`. Default is true. |
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
 | [master_external_loadbalancer](#master-external-loadbalancer)         | The DNS name or IP address for the load balancer.  [enterprise type="inline" size="small" /]      |
 | [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
@@ -422,6 +423,15 @@ Example: `license_key_contents: verylongstringofchars`.
 
 ### log_directory
 The path to the installer host logs from the SSH processes. By default, this is set to `/genconf/logs`. In most cases this should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
+
+### log_offers
+
+_First added to DC/OS 1.11 in `1.11.5`_
+
+Indicates whether the leading Mesos master should log the offers sent to schedulers.
+
+- `log_offers: true` Enable Mesos offer logging for your cluster. This is the default value.
+- `log_offers: false` Disable Mesos offer logging for your cluster.
 
 ### master_discovery (Required)
 The Mesos master discovery method. The available options are `static` or `master_http_loadbalancer`.
