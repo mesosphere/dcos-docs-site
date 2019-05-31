@@ -111,11 +111,11 @@ You can also collect information about the operation and performance of the Tele
 
 - Add the fault domain region and zone information to metrics. <!--DCOS-16570-->
 
-- Standardized log collection and forwarding through Fluent Bit. <!--(DCOS-43412)-->
+<!-- - Standardized log collection and forwarding through Fluent Bit. (DCOS-43412) -->
 
-    Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting service.
+<!-- Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting service.
 
-    For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/1.13/monitoring/logging/).
+For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/1.13/monitoring/logging/). -->
 
 For more information about collecting metrics and configuring metrics plugins, see the following topics:
 - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
