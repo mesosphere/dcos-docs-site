@@ -182,9 +182,9 @@ The next tutorials explore additional getting started tasks that you can perform
 
 # Related topics
 You have already worked with several core components of the DC/OS architecture, including the Mesos kernel, Marathon, and Metronome. For more information about these DC/OS components and where they fit into the DC/OS platform or features and services, see the following topics in the main DC/OS [documentation](/overview/architecture/components/):
-* [Marathon](/overview/architecture/components/#marathon) starts and monitors DC/OS applications and services.
-* Apache [Mesos](/overview/architecture/components/#apache-mesos) is the kernel of DC/OS and responsible for low-level task maintenance.
-* [Mesos DNS](/overview/architecture/components/#mesos-dns) provides service discovery within the cluster.
-* [Minuteman](/overview/architecture/components/#minuteman) is the internal layer 4 load balancer.
-* [Admin router](/overview/architecture/components/#admin-router) is an open source NGINX configuration that provides central authentication and proxy to DC/OS services.
-* [Package repository](/overview/architecture/components/#dcos-package-manager) is the package repository that holds the DC/OS services (e.g. Apache Spark or Apache Cassandra) that you can install on your cluster directly from the DC/OS GUI and CLI.
+- [Marathon](/overview/architecture/components/#marathon) starts and monitors DC/OS applications and services.
+- Apache [Mesos](/overview/architecture/components/#apache-mesos) is the kernel of DC/OS and responsible for low-level task maintenance.
+- [Mesos DNS](/overview/architecture/components/#mesos-dns) provides service discovery within the cluster.
+- [Minuteman](/overview/architecture/components/#minuteman) is the internal layer 4 load balancer.
+- [Admin router](/overview/architecture/components/#admin-router) is an open source NGINX configuration that provides central authentication and proxy to DC/OS services.
+- [Package repository](/overview/architecture/components/#dcos-package-manager) is the package repository that holds the DC/OS services (e.g. Apache Spark or Apache Cassandra) that you can install on your cluster directly from the DC/OS GUI and CLI.
