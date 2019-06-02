@@ -3,24 +3,41 @@ layout: layout.pug
 navigationTitle: Discover deployed services
 title: Discover deployed services
 excerpt: Demonstrates how to discover and connect to services in your DC/OS cluster (part 5)
-menuWeight: 4
+menuWeight: 5
 ---
-Welcome to part 4 of the DC/OS 101 Tutorial
+In the previous tutorial, you deployed a [sample app](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) that attempted to connect to the Redis service. The script for the sample app uses `redis.marathon.l4lb.thisdcos.directory` as the service address and port 6379 as the service port. 
+
+If you reviewed the script for the sample app in the previous tutorial, you might have noticed these lines for connecting to the Redis service:
+
+```
+print("Running on node '"+  os.getenv("HOST") + "' and port '" + os.getenv("PORT0"))
+r = redis.StrictRedis(host='redis.marathon.l4lb.thisdcos.directory', port=6379, db=0)
+if r.ping():
+       	print("Redis Connected. Total number of keys:", len(r.keys()))
+else:
+       	print("Could not connect to redis")
+```
+
+It is important to note, however, that one of the advantages of a distributed computing environment is that the Redis service might be running on any agent in the cluster and that the host address and the port number for accessing the srvice can change dynamically in response to changes such as a failed node. 
+
+This tutorial explores how DC/OS determines the IP addresses and ports where specific service instances are running.
 
 # Before you begin
-* A [running DC/OS cluster](/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/tutorials/dcos-101/cli/).
-* [app1](/tutorials/dcos-101/app1/) deployed and running in your cluster.
-
+Before starting this tutorial, you should verify the following:
+- You have access to a running [DC/OS cluster](../start-here/) with at least at least one master node and three agent nodes.
+- You have access to a computer where the [DC/OS CLI](../cli/) is installed.
+- You have the sample [dcos-101/app1](/tutorials/dcos-101/app1/) application deployed and running in your cluster.
+- You have the domain information command-line utility `dig` available on the computer you use to connect to the cluster. The `dig` utility is part of the DNS BIND utilities that are installed by default on most Linux distributions.
 
 # Learning objectives
-Your [app](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) in the previous part of this tutorial used `redis.marathon.l4lb.thisdcos.directory` as the address for connecting to Redis, with port 6379. As Redis might be running on any agent in the cluster, and potentially on different ports, how does this address resolve to the actual running Redis instance?
-
-In this section, you will learn about DC/OS service discovery by exploring the different options available for apps in DC/OS.
+By completing this tutorial, you will learn:
+- The service discovery options available in DC/OS.
+- How DC/OS resolves service addresses to find running instances.
 
 # What is service discovery?
-  [Service discovery](/networking/) enables addressing of applications independently of where they are running in the cluster, which is particularly useful in cases where applications may fail and be restarted on a different host.
+[Service discovery](/networking/) enables addressing of applications independently of where they are running in the cluster, which is particularly useful in cases where applications may fail and be restarted on a different host.
 
-  You can find where deployed services are running in the DC/OS cluster in the following ways: 
+You can find where deployed services are running in the DC/OS cluster in the following ways: 
 
   - By resolving private or public agent node IP addresses for tasks through the Mesos domain naming service (Mesos-DNS).
   - Through named virtual IP addresses that are not resolved through the Mesos domain naming service.
@@ -66,7 +83,7 @@ SSH into the Mesos master node in your cluster to see how these different servic
 
   This output tells you that your Redis service is running on `10.0.0.43:30585`
 
-# Named Virtual IPs
+# Named Virtual IP addresses
 
   * [Named VIPs](/networking/load-balancing-vips/) allow you to assign name/port pairs to your apps, which means you can give your apps meaningful names with a predictable port. They also provide built-in load balancing when using multiple instances of an application.
   For example, you can assign a named VIP to your Redis service by adding the following to the package definition:
@@ -80,10 +97,10 @@ SSH into the Mesos master node in your cluster to see how these different servic
 
   As we can see from the example [application](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py), this is the mechanism used by the redis package, and so you can access the Redis service from within the cluster at `redis.marathon.l4lb.thisdcos.directory:6379`.
 
-# Outcome
+# Next steps
 You know how to use service discovery to connect to your application from within your DC/OS cluster, and have learned about the two mechanisms for service discovery available in DC/OS.
 
-# Deep Dive
+# Related topics
 What are the differences between [Mesos-DNS](#mesos-dns) and [Named VIPs](#named-vips)?
 
 ## Mesos-DNS
@@ -92,6 +109,5 @@ Mesos-DNS is a simple solution to finding applications inside the cluster. While
   * DNS caching: Applications sometimes cache DNS entries for efficiency and therefore might not have updated address information (e.g., after a task failure).
   * You need to use SRV DNS records to retrieve information about the allocated ports. While applications commonly understand DNS A records, not all applications support SRV records.
 
-
-## Named VIPs
+## Named virtual IP addresses
 Named VIPs load balance the IP address/port pair using an intelligent algorithm to ensure optimal routing of the traffic in relation to the original requestor, and also provide a local caching layer for high perfornance. They also allow you to give your apps meaningful names and select a specific port. Because of these advantages over Mesos-DNS, we suggest using Named VIPs as the default service discovery method in DC/OS.

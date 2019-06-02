@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Install the first package
 title: Install the first package
 excerpt: Illustrates how to install a sample service package (part 3)
-menuWeight: 2
+menuWeight: 3
 ---
 Now that you have a DC/OS cluster installed and running on master and agent nodes and have installed the DC/OS command-line interface (CLI) to work with your cluster, you are ready to begin adding packages and applications to the cluster.
 
@@ -29,7 +29,6 @@ For this tutorial, you are going to install [Redis](https://redislabs.com/). Red
 You can search for packages you want to install on the DC/OS cluster by using the DC/OS web-based administrative console or by running DC/OS command-line programs.
 
 ## Search using the DC/OS web-based console
-
 To search for Redis using the DC/OS web-based administrative console:
 1. Open a web browser and navigate to the URL for the DC/OS web-based administrative console. 
 
@@ -45,10 +44,13 @@ To search for Redis using the DC/OS web-based administrative console:
 
     ![Search for packages in the Catalog](/1.13/img/tutorial-redis-search.png)
 
+    In this case, more than one package matches your search string. For this tutorial, however, you are only interested in the **redis** package. This package installs a single Redis instance in a Docker container.
+
 1. Select the Redis package in the search results.
 
-    For this tutorial, you are only interested in the **redis** package. This package installs a single Redis instance in a Docker container.
+    If you are ready to install using the DC/OS web-based administrative console, continue to [Install using the DC/OS web-based console](#install-redis-gui).
 
+<!--
 1. Click **Review & Run**.
 
 1. Verify the default service name.
@@ -66,6 +68,7 @@ To search for Redis using the DC/OS web-based administrative console:
 1. Click **Open Service** to view the status of the Redis deployment.
 
     ![Redis configuration settings](/1.13/img/tutorial-redis-open-service.png)
+-->
 
 ## Search using the DC/OS CLI
 To search for Redis by running DC/OS CLI commands:
@@ -89,8 +92,35 @@ To search for Redis by running DC/OS CLI commands:
 # Install the package
 For this tutorial, you are only interested in the **redis** package. This package installs a single Redis instance in a Docker container. You can install this package using the DC/OS web-based administrative console or by running command-line program.
 
-## Install using the DC/OS web-based console
+<a name="install-redis-gui"></a>
 
+## Install using the DC/OS web-based console
+To install the Redis package using the DC/OS web-based administrative console:
+1. Open a web browser and navigate to the URL for the DC/OS web-based administrative console. 
+
+1. Click **Catalog**.
+
+1. Scroll or search to locate the Redis package you want to install.
+
+    For this tutorial, select the **redis** package. This package installs a single Redis instance in a Docker container.
+
+1. Click **Review & Run**.
+
+1. Verify the default service name.
+
+    You can modify the service name, if needed. For example, you might want to name this service **redis-tutorial**.
+
+1. Click **Redis** and verify the CPU and memory settings.
+
+    ![Redis configuration settings](/1.13/img/tutorial-redis-config.png)
+
+1. Click **Review & Run** to verify your Redis configuration, then click **Run Service**.
+
+    ![Redis configuration settings](/1.13/img/tutorial-redis-run.png)
+
+1. Click **Open Service** to view the status of the Redis deployment.
+
+    ![Redis configuration settings](/1.13/img/tutorial-redis-open-service.png)
 
 ## Install using the DC/OS CLI
 1. Open a terminal shell on the computer where you have access to the DC/OS command-line interface (CLI).
@@ -175,6 +205,7 @@ Now that you have installed the Redis package, deployed the service on the clust
     ```
 
     This command returns output similar to the following:
+
     ```
     CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
     296b18087535        redis:4.0           "docker-entrypoint.s…"   About an hour ago   Up About an hour    0.0.0.0:3617->6379/tcp   mesos-6e81fd7b-9fa8-470d-9378-49b4a01b2d11
@@ -203,6 +234,7 @@ Now that you have installed the Redis package, deployed the service on the clust
     ```bash
     get tutorial
     ```
+    
 1. Add additional keys using the `redis-cli`, if needed.
 
     In the next tutorial, you will deploy a simple application that connects to the Redis service and retrieves the number of keys defined.

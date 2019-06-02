@@ -3,9 +3,8 @@ layout: layout.pug
 navigationTitle: Load balancing
 title: Load balancing
 excerpt: Demonstrates distributing workload for clients requesting access to a deployed application (part 9)
-menuWeight: 8
+menuWeight: 9
 ---
-Welcome to part 8 of the DC/OS 101 Tutorial.
 
 # Before you begin
 * A [running DC/OS cluster](/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/cli/install/).

@@ -3,9 +3,8 @@ layout: layout.pug
 navigationTitle: Expose apps publicly
 title: Expose apps publicly
 excerpt: Exposes an application to make it available for access outside of the cluster (part 7)
-menuWeight: 6
+menuWeight: 7
 ---
-Welcome to part 6 of the DC/OS 101 Tutorial.
 
 # Before you begin
 * A [running DC/OS cluster](/1.13/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.13/tutorials/dcos-101/cli/).

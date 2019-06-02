@@ -36,7 +36,7 @@ You can create and deploy a simple single-command service using the DC/OS web-ba
 
     You can use the default values for the number of instances, CPUs, and memory and leave the **Container Image** field blank.
 
-1. For the **Command** field, enter `sleep 10`.
+1. For the **Command** field, enter `sleep 10 && echo DONE`.
 
 1. Click **More Settings**, then select **Universal Container Runtime (UCR)** to use the native DC/OS container runtime.
 
@@ -44,7 +44,7 @@ You can create and deploy a simple single-command service using the DC/OS web-ba
 
     You should only select the **Docker Engine** option if you need Docker-specific features. If you select this option, you must specify a Docker container image in the **Container Image** field.
      
-    For more information about Universal Container Runtime and working with Docker containers and images, see [Using Containerizers](/1.13/deploying-services/containerizers/).
+    For this tutorial, you can leave the Advanced settings undefined.
 
 1. Click **Review & Run**, then click **Run Service**.
 
@@ -101,6 +101,8 @@ You can also create and run single-command services using the DC/OS CLI.
     ```
 
     As this sample output illustrates, you can verify that both the single-command service you created using the DC/OS web-based console and the one you deployed using a JSON file and CLI commands are running. You can also view both services by clicking **Services** in the DC/OS web-based console.
+
+    ![Verifying your single-command services](/1.13/img/tutorial-single-cmd-verification.png)
 
 # Create a simple containerized service
 You can create and deploy containerized services using the DC/OS web-based administrative console or by running command-line programs.
@@ -175,7 +177,7 @@ This exercise uses a sample containerized, long-running task that is available f
 1. Start the service by running the following command:
 
     ```bash
-    dcos marathon app add container-hello-dcos-cli.json
+    dcos marathon app add container-app-cli.json
     ```
 
 1. Verify the containerized service has been successfully deployed by running the following command:
@@ -186,9 +188,30 @@ This exercise uses a sample containerized, long-running task that is available f
     The command returns information similar to the following about the services you have deployed.
 
     ```
-
+ID                             MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD                       
+/container-hello-dcos-cli      128    1     1/1    N/A       ---      False      DOCKER   N/A                       
+/container-hello-dcos-service  128   0.1    1/1    N/A       ---      False      DOCKER   N/A                       
+/dcos-101/app1                 128    1     1/1    N/A       ---      False      DOCKER   while true; do python...  
+/redis-tutorial                1024   1     1/1    1/1       ---      False      DOCKER   N/A                       
+/single-cmd-app-cli            128    1     0/1    N/A       ---      False       N/A     sleep 10                  
+/single-cmd-service            128   0.1    0/1    N/A       ---      False      MESOS    sleep 10 && echo DONE
     ```
 
 1. Open the DC/OS web-based administrative console, click **Services**, then click the name of the service to display its details.
 
-1. Click **Logs**, then toggle to the **Output (stdout)** view to see the output of the service.
+1. Click **Logs**, then click **Output (stdout)** view to see the output of the service.
+
+![Sample output from container app](/1.13/img/tutorial-hello-dcos-output.png)
+
+# Next steps
+In this tutorial, you deployed some simple custom apps using both the DC/OS web-based administrative console and using DC/OS command-line programs. You have nown seen how to add apps to the cluster without using a container image, using the native Universal Container runtime, and using a Docker container image and have verified that all of the custom apps are running on the cluster.
+
+The next tutorials explore more advanced deployment scenarios and tasks and expose some additional core components of the DC/OS architecture:
+- [Discover deployed services](../service-discovery/)
+- [Deploy native containerized applications](../native-app/)
+- [Schedule tasks to run as jobs](../schedule-jobs/)
+
+# Related topics
+In this tutorial, you deployed custom apps using single containers and the [Marathon] orchecstration framework.
+
+For more information about Universal Container Runtime and working with Docker containers and images, see [Using Containerizers](/1.13/deploying-services/containerizers/).

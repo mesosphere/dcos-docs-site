@@ -3,24 +3,34 @@ layout: layout.pug
 navigationTitle: Deploy native applications
 title: Deploy native applications
 excerpt: Deploys an application using the native DC/OS Universal Runtime Container (part 6)
-menuWeight: 5
+menuWeight: 6
 ---
-Welcome to part 5 of the DC/OS 101 Tutorial
+In the [previous tutorial](/tutorials/dcos-101/app1/), you deployed an application that runs inside the cluster and interacts only with another application--the Redis service--that runs inside the cluster. Neither application is exposed outside of the cluster or available to any external users. 
+
+In this tutorial, you will deploy another sample application but with a few important differences:
+- The new sample application includes a presentation layer that presents a graphical user interface to users to access the applications. 
+- You will deploy the new sample application using a native DC/OS container--the Universal Container Runtime (UCR)--that does not rely on a Docker image or the Docker engine, making the application easier to deploy with fewer dependencies and less complexity.
 
 # Before you begin
-* A [running DC/OS cluster](/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/tutorials/dcos-101/cli/).
-* [app1](/tutorials/dcos-101/app1/) deployed and running in your cluster.
-
+Before starting this tutorial, you should verify the following:
+- You have access to a running [DC/OS cluster](../start-here/) with at least at least one master node and three agent nodes.
+- You have access to a computer where the [DC/OS CLI](../cli/) is installed.
+- You have the sample [dcos-101/app1](/tutorials/dcos-101/app1/) application deployed and running in your cluster.
 
 # Learning objective
-[Earlier](/tutorials/dcos-101/app1/) in this tutorial you deployed an app that operates internally in your cluster, interfacing with other applications in the cluster as opposed to interacting externally. In this part you will deploy an app which provides a GUI to users. You will also deploy this app natively, without relying on Docker as a dependency and therefore reducing complexity.
+By completing this tutorial, you will learn:
+- How to deploy an app with a graphical user interface.
+- How to deploy an app using the DC/OS Universal Container Runtime instead of Docker.
+- How to test your new sample app.
 
-# Steps
+# Review the sample application
   * Understand the application
     * Take a short look at [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go). App2 is a [Go](https://golang.org/) based HTTP server that exposes a very simple interface to Redis.
   * Deploy app2
     * Take a short look at the [app definition](https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json). In this case, the app is a binary without external dependencies.
     Because of this, you no longer need to deploy it in a Docker container.
+
+# Deploy the sample app
     * Deploy app2: `dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json`
   * You have multiple options to check app 2 is successfully running:
     * By looking at all DC/OS tasks: `dcos task`
@@ -34,10 +44,10 @@ Welcome to part 5 of the DC/OS 101 Tutorial
 
 Accessing the app from within the cluster and viewing the raw HTML response proves our application is running, but in the real world you want to expose the app to the public. In the next part of this tutorial you will do exactly that.
 
-# Outcome
+# Next steps
  You have deployed a second app that uses the native Mesos containerizer.
 
-# Deep Dive
+# Related topics
 You have now deployed apps in two different ways:
 
 1. Using Docker (app1).

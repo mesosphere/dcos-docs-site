@@ -3,21 +3,17 @@ layout: layout.pug
 navigationTitle: Manage and scale resources
 title: Manage and scale resources
 excerpt: Provides strategies and examples for scaling resources allocated for deployed applications (part 8)
-menuWeight: 7
+menuWeight: 8
 ---
-Welcome to part 7 of the DC/OS 101 Tutorial.
 
 # Before you begin
 * A [running DC/OS cluster](/1.13/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.13/tutorials/dcos-101/cli/).
 * [app2](/1.13/tutorials/dcos-101/app2/) deployed and running in your cluster.
 
 # Learning objective
-
 Resource management and resource isolation between tasks are core functions of any operating system. In this section, you will learn how to monitor and understand your resource utilization, how resource limits are enforced, and how to debug resource management issues.
 
-# Steps
-
-## Review App Definition
+# Review the app definition
 
 * Take another look at the app definition for [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go).
 
@@ -40,7 +36,7 @@ Resource management and resource isolation between tasks are core functions of a
 
 * You will notice that the id assigned in the app definitions for both [app1](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json) and [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) is prefixed by `/dcos-101/`. This defines the [application group](https://mesosphere.github.io/marathon/docs/application-groups.html) that the apps belong to. Application groups allow configuration and dependencies to be applied to a group of applications at the same time.
 
-## Scaling applications
+# Scale applications
 When you need more resources for your app, you can scale in two dimensions - horizontally and vertically.
 
 ### Scale horizontally by increasing the instance count
@@ -189,6 +185,5 @@ So, check your app for correct behavior and/or increase the allocated memory.
 
 `dcos marathon app remove /dcoc-101/oom-app`
 
-# Outcome
-
+# Next steps
 Congratulations! You've now learned how to deploy apps to DC/OS, network those apps, expose them outside of the cluster with a load balancer, scale them, and debug potential resource issues! You're practically a pro!
