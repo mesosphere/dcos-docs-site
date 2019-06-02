@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Creating and running a service
-title: Creating and running a service
-menuWeight: 1
-excerpt: Illustrates how to create and deploy single command or an image using containers
+navigationTitle: Create and run custom apps
+title: Create and run custom apps
+menuWeight: 5
+excerpt: Illustrates how to create and deploy single command or an image using containers (part 5)
 enterprise: false
 ---
 This tutorial shows how to create and deploy a simple one-command service and a containerized service using the DC/OS web-based administrative console or by running command-line programs.
@@ -188,13 +188,13 @@ This exercise uses a sample containerized, long-running task that is available f
     The command returns information similar to the following about the services you have deployed.
 
     ```
-ID                             MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD                       
-/container-hello-dcos-cli      128    1     1/1    N/A       ---      False      DOCKER   N/A                       
-/container-hello-dcos-service  128   0.1    1/1    N/A       ---      False      DOCKER   N/A                       
-/dcos-101/app1                 128    1     1/1    N/A       ---      False      DOCKER   while true; do python...  
-/redis-tutorial                1024   1     1/1    1/1       ---      False      DOCKER   N/A                       
-/single-cmd-app-cli            128    1     0/1    N/A       ---      False       N/A     sleep 10                  
-/single-cmd-service            128   0.1    0/1    N/A       ---      False      MESOS    sleep 10 && echo DONE
+    ID                             MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD                       
+    /container-hello-dcos-cli      128    1     1/1    N/A       ---      False      DOCKER   N/A                       
+    /container-hello-dcos-service  128   0.1    1/1    N/A       ---      False      DOCKER   N/A                       
+    /dcos-101/app1                 128    1     1/1    N/A       ---      False      DOCKER   while true; do python...  
+    /redis-tutorial                1024   1     1/1    1/1       ---      False      DOCKER   N/A                       
+    /single-cmd-app-cli            128    1     0/1    N/A       ---      False       N/A     sleep 10                  
+    /single-cmd-service            128   0.1    0/1    N/A       ---      False      MESOS    sleep 10 && echo DONE
     ```
 
 1. Open the DC/OS web-based administrative console, click **Services**, then click the name of the service to display its details.
@@ -212,6 +212,6 @@ The next tutorials explore more advanced deployment scenarios and tasks and expo
 - [Schedule tasks to run as jobs](../schedule-jobs/)
 
 # Related topics
-In this tutorial, you deployed custom apps using single containers and the [Marathon] orchecstration framework.
+In this tutorial, you deployed custom apps using single containers and the [Marathon] orchestration framework.
 
 For more information about Universal Container Runtime and working with Docker containers and images, see [Using Containerizers](/1.13/deploying-services/containerizers/).

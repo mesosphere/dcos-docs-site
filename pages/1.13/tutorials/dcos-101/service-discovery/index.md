@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Discover deployed services
 title: Discover deployed services
-excerpt: Demonstrates how to discover and connect to services in your DC/OS cluster (part 5)
-menuWeight: 5
+excerpt: Demonstrates how to discover and connect to services in your DC/OS cluster (part 6)
+menuWeight: 6
 ---
 In the previous tutorial, you deployed a [sample app](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) that attempted to connect to the Redis service. The script for the sample app uses `redis.marathon.l4lb.thisdcos.directory` as the service address and port 6379 as the service port. 
 
