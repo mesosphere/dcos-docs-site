@@ -65,17 +65,18 @@ In order to run Mesosphere Kubernetes Engine - the `kubernetes` package - on DC/
 
 Now that a service account is provisioned for MKE, we need to grant certain permissions to the service account under a Mesos role, in this case `kubernetes-role`. To grant the permissions to MKE:
 
-1. <strong>First, grant</strong> `mesos master reservation role` <strong> permissions to the kubernetes service account under</strong>`kubernetes-role`</strong>:
+1. <strong>First, grant</strong> `mesos master reservation role` <strong>permissions to the kubernetes service account under</strong> `kubernetes-role` <strong> to create reservations, and to the</strong> `kubernetes` <strong>principal to delete reservations</strong>:
 
     In the CLI, enter:
 
     ```bash
     dcos security org users grant kubernetes dcos:mesos:master:reservation:role:kubernetes-role create
+    dcos security org users grant kubernetes dcos:mesos:master:reservation:principal:kubernetes delete
     ```
 
     Again, like in the procedure above, these `dcos-security` commands will not respond with output in the CLI. However, some conditions will cause corresponding errors to register, such as already having granted the permissions trying to be granted.
 
-1. <strong>Next, grant </strong> `mesos master framework` <strong> permission under the same role. </strong>
+1. <strong>Next, grant</strong> `mesos master framework` <strong>permission under the same role. </strong>
 
     ```bash
     dcos security org users grant kubernetes dcos:mesos:master:framework:role:kubernetes-role create
