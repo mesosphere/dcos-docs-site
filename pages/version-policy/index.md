@@ -275,6 +275,7 @@ The designations are as follows:
 <table class="table">
     <tr>
         <th><strong>DC/OS Package for</strong></th>
+        <th><p style="text-align: center;"><strong>DC/OS 1.13</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.12</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.10</strong></p></th>
@@ -284,9 +285,11 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>Cassandra 2.5.x-3.11.3 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -296,9 +299,11 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>Confluent-Kafka 2.6.x-5.1.2 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -308,9 +313,25 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>Confluent-ZooKeeper 2.6.x-5.1.2e (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Couchbase 0.2.0-5.5.0 </td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>Couchbase 0.3.0-5.5.3 (Recommended) </td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -320,14 +341,16 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>²DataStax-DSE 3.0.x-6.7.2 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
-    <tr>
+    <!-- <tr>
         <td>²DataStax-Ops 2.4.x-6.1.9</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -338,21 +361,17 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+    </tr> -->
      <tr>
-        <td>Edge-LB 1.2.2</td>
+        <td>Edge-LB 1.2</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-        <td>Edge-LB 1.2.3</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Edge-LB 1.3.0 (Recommended)</td>
+        <td>Edge-LB 1.3 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -362,9 +381,11 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>Elastic 2.6.x-6.6.1 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -374,9 +395,18 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>HDFS 2.4.x-2.6.0-cdh5.11.0 (Recommended)</td>
+        <td>HDFS 2.4.x-2.6.0-cdh5.11.0 </td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
+    <tr>
+        <td>HDFS 2.5.x-2.6.0-cdh5.11.0 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -386,9 +416,11 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Jenkins 3.5.4-2.150.1 (Recommended)</td>
+        <td>Jenkins 3.5.x-2.150.1 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -398,9 +430,11 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>Kafka 2.5.x-2.1.0 (Recommended)</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -410,14 +444,18 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
+    <!-- Where is Kafka-ZooKeeper 2.4.x? -->
     <tr>
         <td>Kafka-Zookeeper 2.5.x-3.4.13 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
-    <tr>
+    <!-- Kibana is not on the Services page. -->
+    <!-- <tr>
         <td>Kibana 2.5.x-6.3.2</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -428,9 +466,10 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+    </tr> -->
     <tr>
         <td>Kubernetes 1.3.x-1.10.y</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -438,17 +477,21 @@ The designations are as follows:
     <tr>
         <td>Kubernetes 2.1.x-1.12.y</td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
         <td>Kubernetes 2.2.x-1.13.y (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
-     <tr>
+    <!-- What is Kubernetes Cluster? -->
+     <!-- <tr>
         <td>Kubernetes Cluster 2.1.x-1.12.y</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
@@ -456,11 +499,13 @@ The designations are as follows:
     <tr>
         <td>Kubernetes Cluster 2.2.x-1.13.y (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr>
+    </tr> -->
     <tr>
         <td>Marathon-LB 1.11.x</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -470,9 +515,12 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
-    <tr>
+    <!-- Marathon on Marathon is not listed on services page. -->
+    <!-- <tr>
         <td>MoM (Marathon on Marathon) 1.6.x</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -482,27 +530,39 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>MoM (Marathon on Marathon) 1.8.x (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr> -->
+    <!-- Where is Minio? -->
+    <!-- Where is Nifi? -->
+    <!-- Where is Percona-Server-MongoDB? -->
+    <!-- Where is Percona XtraDB Cluster?  -->
+    <!-- Where is Prometheus? -->
     <tr>
         <td>Spark 2.6.x-2.3.2</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
+    <!-- Where is Spark 2.7.x? -->
     <tr>
         <td>Spark 2.8.x-2.4.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
-     <tr>
+    <!-- Spark History is not listed in Services page. -->
+    <tr>
         <td>Spark History 2.6.x-2.3.2</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -512,7 +572,9 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
+    <!-- Where is Spinnaker? -->
 </table>
 
 ### Beta Package Designations
@@ -532,6 +594,7 @@ B - This package combination is *beta*.
 <table class="table">
     <tr>
         <th><strong>DC/OS Package for</strong></th>
+        <th><p style="text-align: center;"><strong>DC/OS 1.13</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.12</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.10</strong></p></th>
@@ -539,21 +602,39 @@ B - This package combination is *beta*.
     <tr>
         <td>Beta DC/OS Storage Services 0.4.0</td>
         <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>¹Beta DC/OS Storage Services 0.5.1 (Recommended)</td>
         <td><p style="text-align: center;">B</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
+    <tr>
+        <td>¹Beta DC/OS Storage Services 0.5.x </td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>¹Beta DC/OS Storage Services 0.6.x (Recommended)</td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>Beta DC/OS Monitoring Service 0.5.x-beta (Recommended)</td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <!-- There is no version 1.3.x for the Beta Jupyter service.
     <tr>
         <td>Beta Mesosphere Jupyter Service 1.3.x-0.35.4 (Recommended)</td>
         <td><p style="text-align: center;">B</p></td>
         <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">B</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr>
+    </tr> -->
 </table>
 
 ### Footnotes
