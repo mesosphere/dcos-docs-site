@@ -488,8 +488,7 @@ The designations are as follows:
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
-    <!-- What is Kubernetes Cluster? -->
-     <!-- <tr>
+     <tr>
         <td>Kubernetes Cluster 2.1.x-1.12.y</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -502,7 +501,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
-    </tr> -->
+    </tr>
     <tr>
         <td>Marathon-LB 1.11.x</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -540,7 +539,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr> -->
     <!-- Where is Minio? -->
-    <!-- Where is Nifi? -->
+    <!-- Where is NiFi? -->
     <!-- Where is Percona-Server-MongoDB? -->
     <!-- Where is Percona XtraDB Cluster?  -->
     <!-- Where is Prometheus? -->
