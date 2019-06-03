@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Elastic 2.4.0-5.6.9
 excerpt: DC/OS Elastic lets you manage an Elasticsearch cluster
 title: Elastic 2.4.0-5.6.9
-menuWeight: 2
+menuWeight: -1
 model: /services/elastic/data.yml
 render: mustache
 ---
