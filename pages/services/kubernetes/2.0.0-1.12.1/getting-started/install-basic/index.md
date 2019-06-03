@@ -40,6 +40,7 @@ In order to run the `kubernetes` package on DC/OS Enterprise, a [service account
 
     ```shell
     dcos security org users grant kubernetes dcos:mesos:master:reservation:role:kubernetes-role create
+    dcos security org users grant kubernetes dcos:mesos:master:reservation:principal:kubernetes delete
     dcos security org users grant kubernetes dcos:mesos:master:framework:role:kubernetes-role create
     dcos security org users grant kubernetes dcos:mesos:master:task:user:nobody create
     ```
