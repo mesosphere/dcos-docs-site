@@ -14,7 +14,7 @@ render: mustache
 
 Out-of-band configuration modifications are not supported. The {{ model.techName }} service's core responsibility is to deploy and maintain the service with a specified configuration. In order to do this, the service assumes that it has ownership of task configuration. If an end-user makes modifications to individual tasks through out-of-band configuration operations, the service will override those modifications at a later time. For example:
 
-- If a task crashes, it will be restarted with the configuration known to the scheduler, not one modified out-of-band.
+- If a task crashes, it will be restarted with the configuration known to the Scheduler, not one modified out-of-band.
 - If a configuration update is initiated, all out-of-band modifications will be overwritten during the rolling update.
 
 ## Scaling
@@ -35,7 +35,7 @@ When the service is deployed on a virtual network, the service may not be switch
 
 ## Task Environment Variables
 
-Each service task has some number of environment variables, which are used to configure the task. These environment variables are set by the service scheduler. While it is possible to use these environment variables in ad hoc scripts (e.g., via `dcos task exec`), the name of a given environment variable may change between versions of a service and should not be considered a public API of the service.
+Each service task has some number of environment variables, which are used to configure the task. These environment variables are set by the service Scheduler. While it is possible to use these environment variables in ad hoc scripts (e.g., via `dcos task exec`), the name of a given environment variable may change between versions of a service and should not be considered a public API of the service.
 
 ## {{ model.techName }} Specific
 - Authorization, LDAP and PAM are not supported at this time.

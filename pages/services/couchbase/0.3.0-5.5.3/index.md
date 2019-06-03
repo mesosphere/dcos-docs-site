@@ -16,7 +16,7 @@ DC/OS {{ model.techName }} Service is an autonomous service that makes it easy t
 
 ## Benefits
 DC/OS {{ model.techName }} offers the following benefits:
-1. Based on the battle-proven DC/OS framework/operator SDK underpinning all DC/OS-certified frameworks
+1. Based on the proven DC/OS framework/operator SDK underpinning all DC/OS-certified frameworks
 2. Supports {{ model.serverName }}
 3. Supports {{ model.syncGatewayName }}
 4. Supports multiple deployment modes
