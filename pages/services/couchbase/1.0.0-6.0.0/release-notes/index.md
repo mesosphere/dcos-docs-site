@@ -16,4 +16,4 @@ render: mustache
 * Upgrade the base tech version from 5.5.3 to 6.0.0.
 
 ## New Features
-* Runs on strict cluster with nobody user.
+* Runs on cluster with strict permissions and user nobody.

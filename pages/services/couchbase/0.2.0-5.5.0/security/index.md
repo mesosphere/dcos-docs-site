@@ -28,7 +28,7 @@ With transport encryption enabled, DC/OS {{ model.techName }} will automatically
 
 <table class=“table note” bgcolor=#7d58ff>
 <tr> 
-  <td align=justify style=color:white><strong>NOTE:</strong> Couchbase Server currently supports TLS for client interactions and cross data center replication. There is no TLS for the node to node communication. See the Couchbase documentation for more details.</td> 
+  <td align=justify style=color:white><strong>NOTE:</strong> Couchbase Server currently supports TLS for client interactions and cross data center replication. There is no TLS for node to node communication. See the [Couchbase documentation](https://developer.couchbase.com/documentation/server/current/security/security-x509certsintro.html) for more details.</td> 
 </tr> 
 </table>
 
