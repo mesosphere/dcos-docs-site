@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Release notes for DC/OS 1.11.11
 ---
 
-DC/OS Version 1.11.11 was released on June 5, 2019.
+DC/OS version 1.11.11 was released on June 5, 2019.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.11/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -27,10 +27,10 @@ The issues that have been fixed in DC/OS 1.11.11 are grouped by feature, functio
 
 ## CLI 
 - DCOS-42928, DCOS_OSS-5105 - Use `docker ps` instead of `docker up` in diagnostics, since `docker up` is an invalid Docker command. 
-- DCOS_OSS-1502 - There were couple issues caused by unused volumes for removed containers. It is recommended to use docker prune commands to avoid the occurrence of such issues. This release uses `docker-gc` command to remove the unused volumes.
+- DCOS_OSS-1502 - There were couple issues caused by unused volumes for removed containers. It is recommended to use Docker prune commands to avoid the occurrence of such issues. This release uses `docker-gc` command to remove the unused volumes.
 
 ## Exhibitor
-- DCOS-51751 - The configuration parameters `aws_secret_access_key` and `exhibitor_azure_account_key` for Exhibitor are now marked as secret. They will not be revealed in `user.config.yaml` on cluster nodes, but will from now on appear only in `user.config.full.yaml` which has stricter read permissions and is not included in DC/OS diagnostics bundles.
+- DCOS-51751 - The configuration parameters `aws_secret_access_key` and `exhibitor_azure_account_key` for Exhibitor are marked as `secret`. These configuration parameters will not be revealed in `user.config.yaml` on cluster nodes. In this release, the configuration parameters will appear only in `user.config.full.yaml` which has stricter read permissions and is not included in DC/OS diagnostics bundles.
 
 ## GUI
 - DCOS-54087 - In the previous releases, UI overrides `concurrencyPolicy` field in schedule to always be `ALLOW`. In this release, the `concurrencyPolicy` field is fixed for UI to keep the value intact, thus allowing other concurrency policies other than `ALLOW`.
@@ -40,16 +40,15 @@ The issues that have been fixed in DC/OS 1.11.11 are grouped by feature, functio
 - DCOS-53077 - Fixed a number of issues that caused some DC/OS components to crash when `/tmp` is mounted with the `noexec` option.
 
 ## MARATHON
-- MARATHON-8562 - Some HTTP endpoints are blocked with `RestResource.result` even though the non-blocking async replies with `sendResponse(asyncResponse)`. This release removes the `RestResource.result` completely and adapts all endpoints that return a failure.
-- MARATHON-8596 - Marathon health checks is a deprecated feature and users are strongly recommended to switch to Mesos health checks for scalability reasons. However, there are  number of issues when excessive number of Marathon health checks (HTTP and TCP) would overload parts of Marathon. This release introduces a new parameter `--max_concurrent_marathon_health_checks` that defines maximum number (256 by default) of Marathon health checks (HTTP/S and TCP). These health checks can be executed concurrently in the given moment. Remember that setting a big value here and using many services with Marathon health checks will overload Marathon thus leading to internal timeouts and unstable behavior.
+- MARATHON-8596 - Marathon health checks is a deprecated feature and users are strongly recommended to switch to Mesos health checks for scalability reasons. However, there are  number of issues when excessive number of Marathon health checks (HTTP and TCP) would overload parts of Marathon. This release introduces a new parameter `--max_concurrent_marathon_health_checks` that defines the maximum number (256 by default) of Marathon health checks (HTTP/S and TCP). These health checks can be executed concurrently. Remember that setting a large value here and using many services with Marathon health checks will overload Marathon thus leading to internal timeouts and unstable behavior.
 
 ## Networking
-- DCOS-49711 - This realease fixes the failure of `dcos-net-setup.py` when `systemd` network directory did not exist. 
-- DCOS_OSS-4970, DCOS_OSS-5061 - If a container is using port mapping functionality (such as a container in bridge mode) and if there is a VIP listening on the same port as the host port in port mapping then the VIP traffic doesn't work. This happens because the iptable rules for portmapper kicks in before the VIP iptable rule. This release fixes a conflict between VIP port and port mapping. 
+- DCOS-49711 - This release fixes the failure of `dcos-net-setup.py` when `systemd` network directory did not exist. 
+- DCOS_OSS-4970, DCOS_OSS-5061 - If a container is using port mapping functionality (such as a container in bridge mode) and if there is a VIP listening on the same port as the host port in port mapping then the VIP traffic doesn't work. This happens because the iptable rules for port mapper kicks in before the VIP iptable rule. This release fixes a conflict between VIP port and port mapping. 
 
 ## Package Management
-- COPS-2861 - Users often encounter an issue where pkgpanda will attempt to extract a package tarball into `/opt/mesosphere/packages`, but it fails due to the tarball only having been partially downloaded. This causes the entire DC/OS install process to fail. This release validates tarballs and/or retry a failed package download in dcos bootstrap. 
-- COPS-3889, COPS-4296, COPS-4628, DCOS-49982 - An error occurred when trying to use UCR with a Docker image via [Docker Hub](https://registry-1.docker.io) and Nexus 3 Docker registry is configured as a proxy to the Docker Hub. This release adds a support for Docker registry V2 Schema 2 because some major registries may start to deprecate V2 Schema1 in the near future. 
+- COPS-2861 - Users often encounter an issue where pkgpanda will attempt to extract a package tarball into `/opt/mesosphere/packages`, but it fails due to the tarball only having been partially downloaded. This causes the entire DC/OS install process to fail. This release validates tarballs and/or retry a failed package download in DC/OS bootstrap. 
+- COPS-3889, COPS-4296, COPS-4628, DCOS-49982 - An error occurred when trying to use UCR with a Docker image via [Docker Hub](https://registry-1.docker.io) and Nexus 3 Docker registry is configured as a proxy to the Docker Hub. This release adds a support for Docker registry V2 Schema 2 because some major registries may start to deprecate V2 Schema 1 in the near future. 
 - COPS-3961, DCOS_OSS-4316 - Updated REX-Ray version to [0.11.4](https://github.com/rexray/rexray/releases/tag/v0.11.4).
 - DCOS_OSS-4097, DCOS_OSS-5106 - In the previous releases, pkgpanda relied on the fact that the `useradd` command creates a matching group for a newly-created user. This assumption worked because it was set in the `USERGROUPS_ENAB` setting in `/etc/login.defs`. For more information read the [useradd](https://linux.die.net/man/8/useradd) command. This release explicitly creates user groups for all users.
 
