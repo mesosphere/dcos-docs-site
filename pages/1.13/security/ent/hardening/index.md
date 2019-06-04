@@ -13,9 +13,9 @@ Your cluster will become more secure as you move from `permissive` to `strict` [
 
 - Ensure the network is setup according to the information for [securing your cluster](/1.13/administering-clusters/securing-your-cluster/).
 
-- <a name="secure-flag"></a>Set the [`auth_cookie_secure_flag`](/1.13/installing/ent/custom/configuration/configuration-parameters/#auth-cookie-secure-flag-enterprise) to `true`.
+- <a name="secure-flag"></a>Set the [`auth_cookie_secure_flag`](/1.13/installing/production/advanced-configuration/configuration-reference/#auth-cookie-secure-flag-enterprise) to `true`.
 
-- <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/1.13/installing/ent/custom/configuration/configuration-parameters/#zk-superuser), [`zk_master_credentials`](/1.13/installing/ent/custom/configuration/configuration-parameters/#zk-master), and [`zk_agent_credentials`](/1.13/installing/ent/custom/configuration/configuration-parameters/#zk-agent).
+- <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/1.13/installing/production/advanced-configuration/configuration-reference/#zk-superuser), [`zk_master_credentials`](/1.13/installing/production/advanced-configuration/configuration-reference/#zk-master), and [`zk_agent_credentials`](/1.13/installing/production/advanced-configuration/configuration-reference/#zk-agent).
 
 - [Get the root certificate of your DC/OS CA](/1.13/security/ent/tls-ssl/get-cert/#oob) and manually provision [browsers](/1.13/security/ent/tls-ssl/ca-trust-browser/), [DC/OS CLI](/1.13/security/ent/tls-ssl/ca-trust-cli/), [curl](/1.13/security/ent/tls-ssl/ca-trust-curl/), and other clients with it.
 
