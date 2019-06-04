@@ -9,7 +9,7 @@ enterprise: false
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS comes pre-configured with the [Mesosphere Universe](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages, but other package repositories can also be added.
+DC/OS comes pre-configured with the [Mesosphere Catalog](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages, but other package repositories can also be added.
 
 You can use the UI or the CLI to:
 
@@ -27,7 +27,7 @@ To see which package repositories are currently installed, run this CLI command:
 
 ```bash
 dcos package repo list
-Universe: https://universe.mesosphere.com/repo
+Catalog: https://universe.mesosphere.com/repo
 ```
 
 ## <a name="finding-packages"></a>Searching for packages
@@ -60,7 +60,7 @@ For example, this command adds a repo named `your-repo` with the URL `https://un
 dcos package repo add your-repo https://universe.yourcompany.com/repo
 ```
 
-For complete instructions on how to build and run your own Universe repo see the [Universe Server Documentation](https://github.com/mesosphere/universe#universe-server)
+For complete instructions on how to build and run your own Catalog repo see the [Catalog Server Documentation](https://github.com/mesosphere/universe#universe-server)
 
 ## <a name="removing"></a>Removing a repository
 

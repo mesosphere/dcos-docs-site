@@ -13,12 +13,12 @@ enterprise: true
 
 The DC/OS Package Registry is included with DC/OS Enterprise 1.13. If needed, please follow the [instructions for upgrading to DC/OS 1.13](/1.13/installing/production/upgrading/) before continuing.
 
-## Remove the Universe Repository (optional)
+## Remove the Catalog Repository (optional)
 
-If the DC/OS cluster does not have network access to the Universe Repository, or if you are not interested in any of the DC/OS Packages in that repository, use the following command to remove it:
+If the DC/OS cluster does not have network access to the Catalog Repository, or if you are not interested in any of the DC/OS Packages in that repository, use the following command to remove it:
 
 ```bash
-dcos package repo remove Universe
+dcos package repo remove Catalog
 ```
 
 # Installing DC/OS Package Registry
