@@ -17,7 +17,7 @@ Given the default configuration of the DC/OS Package Registry, DC/OS Packages ar
 
 To configure a DC/OS Package Registry to store DC/OS Packages using S3 storage, you must provide the specific S3 endpoint, bucket name, access key, and secret key. When using Amazon S3, please refer to [Amazon S3 Regions & Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for more details on possible endpoints.
 
-### Upload the S3 credential to the DC/OS Secret store
+### Upload the S3 credential to the DC/OS Secret Store
 
 ```bash
 dcos security secrets create -f ~/.aws/credentials <registry-s3-credential-file>
@@ -27,7 +27,7 @@ For information on how to create an AWS Credential file, please see the [AWS CLI
 
 ### Configure and Install DC/OS Package Registry
 
-```bash
+```json
 echo '{
   "registry": {
     "service-account-secret-path": "registry-private-key",
@@ -45,7 +45,7 @@ echo '{
 }' > registry-options.json
 ```
 
-The default configuration sets the secrets for the service account for the DC/OS Package Registry to be stored in `registry-private-key` in the DC/OS Secret Store. Moreover,   If that is not the case please replace `registry-private-key` with the correct filename.
+The default configuration sets the secrets for the service account for the DC/OS Package Registry to be stored in `registry-private-key` in the DC/OS Secret Store. If that is not the case, replace `registry-private-key` with the correct filename.
 
 <p class="message--note"><strong>NOTE: </strong>You must override the value for the properties <code>bucket</code>, <code>path</code> and <code>endpoint</code> to match the S3 configuration.</p>
 
@@ -54,7 +54,7 @@ The default configuration sets the secrets for the service account for the DC/OS
 
 For the Docker daemon to be able to fetch images stored in DC/OS Package Registry, it must be configured to trust the DC/OS Package Registry. Docker provides [configuration documentation](https://docs.docker.com/engine/security/certificates/#understanding-the-configuration) to assist with this. The name of the registry will be `<service-name>.marathon.l4lb.thisdcos.directory` where `<service-name>` is the name of the service used when installing the DC/OS Package Registry. By default, the service name is `registry`.
 
-To configure the Docker daemon in all of the DC/OS Agents (Public and Private) to trust the default configuration of the DC/OS Package Registry execute the following commands:
+To configure the Docker daemon in all of the DC/OS Agents (public and private) to trust the default configuration of the DC/OS Package Registry, execute the following commands:
 
 ```bash
 sudo mkdir -p /etc/docker/certs.d/registry.marathon.l4lb.thisdcos.:443

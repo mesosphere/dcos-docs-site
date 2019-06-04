@@ -75,3 +75,4 @@ For example, this command removes a repo named `your-repo`:
 ```bash
 dcos package repo remove your-repo
 ```
+

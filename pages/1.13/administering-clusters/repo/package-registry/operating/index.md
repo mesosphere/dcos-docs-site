@@ -9,3 +9,4 @@ enterprise: true
 For a full list of the configuration options available for the DC/OS Package Registry, run the command `dcos package describe --config`. You can find more information about the `dcos package` commands in the [CLI documentation](/1.13/cli/command-reference/dcos-package/).
 
 For a detailed description of how to configure and deploy DC/OS Services, see [Configuring Catalog Services](/1.13/deploying-services/config-universe-service/).
+

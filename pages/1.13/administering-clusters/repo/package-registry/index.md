@@ -15,12 +15,12 @@ This service allows you to run DC/OS Services by storing DC/OS Packages local to
 
 - Operating a fully air-gapped cluster
 - Deploying DC/OS Services using intranet latency and bandwidth
-- Managing DC/OS Packages individually with the ability to add new packages and upgrade individual services incrementally
+- Managing DC/OS Packages individually, with the ability to add new packages and upgrade individual services incrementally
 
 
 # Limitations
 
-- Inability to change storage back end after initial deployment
+- Inability to change storage backend after initial deployment
 - Multiple DC/OS clusters with a single DC/OS Package Registry
 - Metrics for local storage (S3 metrics are out of scope). For example, alerts on low disk space are not implemented yet.
 

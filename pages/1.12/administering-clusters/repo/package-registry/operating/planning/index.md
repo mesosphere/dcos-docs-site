@@ -45,7 +45,7 @@ echo '{
 }' > registry-options.json
 ```
 
-The default configuration sets the secrets for the service account for the DC/OS Package Registry to be stored in `registry-private-key` in the DC/OS Secret Store. Moreover,   If that is not the case please replace `registry-private-key` with the correct filename.
+The default configuration sets the secrets for the service account for the DC/OS Package Registry to be stored in `registry-private-key` in the DC/OS Secret Store. If that is not the case please replace `registry-private-key` with the correct filename.
 
 <p class="message--note"><strong>NOTE: </strong>You must override the value for the properties <code>bucket</code>, <code>path</code> and <code>endpoint</code> to match the S3 configuration.</p>
 

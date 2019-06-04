@@ -23,7 +23,7 @@ dcos marathon task list registry
 
 ## Logs
 
-Use the [`dcos task log`](/1.13/monitoring/logging/quickstart/#view-the-mesos-and-dcos-logs) command to download the logs for DC/OS Package Registry. DC/OS also has support for [log aggregation](/1.13/monitoring/logging/aggregating/). Assuming the default service name, `registry` again, the lastest log entries can be fetched using:
+Use the [`dcos task log`](/1.13/monitoring/logging/quickstart/#view-the-mesos-and-dcos-logs) command to download the logs for DC/OS Package Registry. DC/OS also has support for [log aggregation](/1.13/monitoring/logging/aggregating/). Assuming the default service name, `registry` again, the latest log entries can be fetched using:
 
 ```bash
 dcos task log registry
@@ -39,4 +39,4 @@ dcos task metrics details registry | sort
 
 ## Disaster Recovery
 
-DC/OS Package Registry does not have native support for disaster recovery. Instead it is recommended that you backup all DC/OS Packages before adding them to a DC/OS Package Registry.
+DC/OS Package Registry does not have native support for disaster recovery. Instead it is recommended that you back up all DC/OS Packages before adding them to a DC/OS Package Registry.
