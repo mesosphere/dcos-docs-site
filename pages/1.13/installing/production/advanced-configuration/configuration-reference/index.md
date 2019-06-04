@@ -718,7 +718,7 @@ To harden clusters, Mesosphere recommends that you change the defaults of all cr
 [core, init, system, bootstrap_user, keys]
 ```
 <a id="zk-master"></a>
-### zk_master_credentials [enterprise type="inline" size="small" /
+### zk_master_credentials [enterprise type="inline" size="small" /]
 Credentials used by the bootstrapping processes to access the credentials of the services that will be running on the DC/OS master nodes.
 
 <a id="zk-agent"></a>
