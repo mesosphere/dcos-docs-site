@@ -15,7 +15,7 @@ DC/OS Version 1.12.4 was released on June 21, 2019.
 DC/OS 1.12.4 includes the following components:
 - Apache Mesos 1.7.3 [change log](https://github.com/apache/mesos/blob/5e234c8d8edc1bb73ba557f5774c609fa460c9e7/CHANGELOG).
 - Marathon 1.7.203 [change log](https://github.com/mesosphere/marathon/blob/b26a8b310561934071c5f347ee5e184a3279cabd/changelog.md).
-- Metronome 0.5.71 [change log](https://github.com/dcos/metronome/blob/cf8887dd836d3629e3f5ac071624e055bdffcec8/changelog.md ).
+- Metronome 0.6.18 [change log](https://github.com/dcos/metronome/blob/b4016b01a349b15df25970877bd62521a49d0cc9/changelog.md).
 
 <!-- <p class="message--note"><strong>NOTE: </strong>DC/OS 1.12.1 release supports new CoreOS and Docker versions as listed in the <a href="../../../version-policy">compatibility matrix</a>.</p> -->
 
@@ -26,19 +26,33 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 # Issues fixed in DC/OS 1.12.4
 The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
 
+## Admin Router
+- Changes the maximum size allowed for uploads to a service through Admin Router (DCOS-52768).
+
+    This release increases the maximum size allowed for uploading packages from 1GB to 16GB. This change enables you to upload larger packages to a registry service without timing out the upload connection.
+
+
+
 ## Command-line interface (CLI)
 - 
+
+## Exhibitor
+- Changes the security setting for the configuration parameters `aws_secret_access_key` and `exhibitor_azure_account_key` so that these values are not visible in the `user.config.yaml` file on cluster nodes (DCOS-51751). 
+
+    These configuration parameters are used for Exhibitor. They are now marked as secret. The values set for these configuration parameters can only be viewed in the `user.config.full.yaml` file. The `user.config.full.yaml` file has stricter read permissions than the `user.config.yaml` file and is not included in DC/OS diagnostics bundles.
 
 ## GUI
 - 
 
 ## Installation
- - 
+ - Correct the output returned when running the `dcos_generate_config.sh` or `dcos_generate_config.ee.sh` script with the `--validate-config` option so that it doesn’t display warning or error messages about missing deprecated configuration settings such as `ssh_user` and `ssh_key_path` (COPS-4282, DCOS_OSS-4613, DCOS_OSS-5152).
 
 ## Marathon
-- COPS-3554 - This release introduces a watcher loop process to monitor and, if necessary, re-register the Marathon leader after reelection.<!--Also in previous RN, 1.12.4-->
+- Introduces a watcher loop process to monitor and, if necessary, re-register the Marathon leader after reelection (COPS-3554).<!--Also in previous RN, 1.12.4-->
 
-- COPS-3593, DCOS_OSS-4193 - In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable.
+- Fixes an issue that prevented services managed by Marathon from restarting *COPS-3593, DCOS_OSS-4193).
+
+    In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable.
 
     Because this problem affects high availability for Marathon, a workaround (ping zk-1) was introduced for DC/OS 1.11.5 and 1.11.6 to address the issue. In this release, the underlying issue is resolved and you can safely remove the workaround if you have it deployed. For background information about the issue and the steps to remove the workaround, see [Removing the patch for Marathon failing to start if the first DC/OS is not available](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004). <!--Also in previous RN, 1.12.4-->
 
@@ -52,11 +66,20 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
     For more information about using Docker images with DC/OS Universal Container Runtime (UCR), see [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/).
 
 ## Metrics
-- COPS-3279, COPS-3576, DCOS-37703, DCOS-37703, DCOS-39703 - This release corrects service endpoint values and service address-based statistics that are returned when the `statsd` metrics input plugin is enabled.<!--Also in previous RN, 1.12.4-->
+- Corrects the service endpoint values and service address-based statistics that are returned when the `statsd` metrics input plugin is enabled (COPS-3279, COPS-3576, DCOS-37703, DCOS-37703, DCOS-39703).<!--Also in previous RN, 1.12.4-->
 
+- Adds HTTP request time and HTTP request size metrics for Metronome-scheduled jobs (DCOS_OSS-5020). 
+
+- Enables framework names to be properly decoded in metric tags (DCOS_OSS-5039).
+
+    Mesos masters allow spaces in framework names by using percent-encoding (%20) of the framework name. This release updates the Telegraf plugin to enable it to decode the framework name and export metrics with the correct tags.
+
+- Fixes issues that caused some DC/OS components to crash when the `/tmp` directory is mounted using the `noexec` option (DCOS-53077).
 
 ## Networking
-- COPS-3585 - In previous releases, a deadlock or race condition might prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly. Problems with routing tables and network connectivity can lead to the following issues:
+- Resolves a deadlock or race condition that could prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly (COPS-3585). 
+
+    Problems with routing tables and network connectivity can lead to the following issues:
 
     - Incomplete network overlay configuration on certain nodes.
     - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
@@ -64,11 +87,19 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
     You can restart the `systemd` process on the nodes affected to restore proper network connectivity. This fix is related to the mitigation of a networking issue caused by a secure socket layer (SSL) deadlock in the Erlang library.<!--Also in previous RN, 1.12.4-->
 
-- COPS-4761, DCOS_OSS-5108 - This release fixes an issue where DNS clients deployed for the DC/OS Enterprise cluster are not able to resolve the `registry.component.thisdcos.directory` DNS name. [enterprise type="inline" size="small" /]
+- Changes the behavior for IP routing rules to resolves a conflict between the port used for virtual IP address traffic and the port mapping used for containers (DCOS_OSS-5061).
 
-    The issue is caused by DNS clients that have a bug in the `glibc` library. The `glibc` bug requires canonical name (CNAME) records to be retrieved before address (A or AAAA) records.
+    Previously, if a container was configured to use port mapping (for example, because the container uses bridge networking) and there is a virtual IP address listening on the same port, the routing of the virtual IP traffic would fail. This failure was caused by a conflict between the `iptable` rules for the `portmapper` and the `iptable` rules for the virtual IP routing.
+    
+    With this release, the `iptable` rules have been modified so that they are not applied to the traffic that is being routed to a virtual IP address.
 
-    With this release, the DC/OS DNS server sorts DNS results to ensure that the CNAME records appear first to resolve this issue.
+- Returns canonical name (CNAME) records before address (A or AAAA) records in DNS responses (COPS-4761, DCOS_OSS-5108). [enterprise type="inline" size="small" /]
+
+    For most DNS clients, the order in which records are returned has no affect. However, there are some DNS clients that require CNAME records to be listed before A records. This change resolves issues for DNS clients that have this requirement.
+    
+    If you have DNS clients deployed for the DC/OS Enterprise cluster that are not able to resolve the `registry.component.thisdcos.directory` DNS name, the root cause of the issue is a bug in the DNS client `glibc` library. The `glibc` bug requires canonical name (CNAME) records to be retrieved before address (A or AAAA) records. With this release, the DC/OS DNS server sorts DNS results to ensure that the CNAME records appear first to resolve this issue.
+
+- Adds round-robin DNS support so that DNS requests do not always return address (A) records in the same order (DCOS_OSS-5118).
 
 [enterprise]
 ## Security
@@ -76,6 +107,9 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 - Fixes a problem with the `dcos-iam-ldap-sync` service failing to start correctly after a system reboot (COPS-4455, COPS-4814, DCOS-48107, DCOS-53420).
 
 With this release, the DC/OS identity and access management LDAP synchronization `systemd` unit no longer relies on the `/opt/mesosphere` directory being available when the `systemd` configuration is loaded.
+
+## Third-party updates and compatibility
+- Updates the [ZooKeeper](https://zookeeper.apache.org/doc/r3.4.14/releasenotes.html) package for DC/OS to release version 3.4.14.
 
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more issue tracking identifiers.
