@@ -22,7 +22,7 @@ The V1 and V2 specifications were merged into a single spec; however, there are 
 
 # Routes
 
-Access to the Edge-LB API is proxied through the Admin Router on the master nodes using the following route:
+Access to the Edge-LB API is proxied through the Admin Router on the master nodes using the following route by default:
 
 ```
 /service/edgelb/
