@@ -42,9 +42,14 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
     Because this problem affects high availability for Marathon, a workaround (ping zk-1) was introduced for DC/OS 1.11.5 and 1.11.6 to address the issue. In this release, the underlying issue is resolved and you can safely remove the workaround if you have it deployed. For background information about the issue and the steps to remove the workaround, see [Removing the patch for Marathon failing to start if the first DC/OS is not available](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004). <!--Also in previous RN, 1.12.4-->
 
-## Mesos
-- 
+## Mesos platform and containerization
+- Adds support for Docker registry manifest specification v2_schema2 images (COPS-3889, COPS-4296, COPS-4628, DCOS-49982).
 
+    In previous releases, you might see errors if you attempted to use the DC/OS Universal Container Runtime (UCR) with a Docker image downloaded from [Docker Hub](https://registry-1.docker.io) or from the Nexus 3 Docker registry configured as a proxy for the Docker Hub.
+    
+    DC/OS Universal Container Runtime (UCR) now fully supports Docker images that are formatted using the Docker v2_schema2 specification. The DC/OS Universal Container Runtime (UCR) also continues to support Docker images that use the v2_schema1 format. If you also have Docker images that use Docker registry v2_schema1 format, you should consider updating those images because some the v2_schema1 format is no longer supported by Docker and is likely to be deprecated for other registries in the near future.
+
+    For more information about using Docker images with DC/OS Universal Container Runtime (UCR), see [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/).
 
 ## Metrics
 - COPS-3279, COPS-3576, DCOS-37703, DCOS-37703, DCOS-39703 - This release corrects service endpoint values and service address-based statistics that are returned when the `statsd` metrics input plugin is enabled.<!--Also in previous RN, 1.12.4-->
@@ -68,7 +73,9 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 [enterprise]
 ## Security
 [/enterprise]
-- 
+- Fixes a problem with the `dcos-iam-ldap-sync` service failing to start correctly after a system reboot (COPS-4455, COPS-4814, DCOS-48107, DCOS-53420).
+
+With this release, the DC/OS identity and access management LDAP synchronization `systemd` unit no longer relies on the `/opt/mesosphere` directory being available when the `systemd` configuration is loaded.
 
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more issue tracking identifiers.
@@ -127,7 +134,6 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 - If you have installed the optional DC/OS Storage Service package, then upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](/services/beta-storage/0.5.2-beta/upgrades/). 
 
 <p class="message--note"><strong>NOTE: </strong>You must upgrade DC/OS storage before you upgrade cluster nodes to 1.12.1 to prevent Mesos agents from crashing after the upgrade.</p>
-
 
 <a name="ldap-net"></a>
 
