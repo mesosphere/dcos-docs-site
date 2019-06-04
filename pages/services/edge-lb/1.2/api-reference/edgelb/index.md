@@ -25,10 +25,12 @@ The V1 and V2 specifications were merged into a single spec; however, there are 
 Access to the Edge-LB API is proxied through the Admin Router on the master nodes using the following route:
 
 ```
-/service/edge-lb/
+/service/edgelb/
 ```
 
-To determine the address of your cluster, see [Cluster Access](/1.11/api/access/).
+Keep in mind that the this path to Edge-LB endpoints might be different if you have change the service name. For example, if you have changed the default Edge-LB service name to append a geographic location, such as `edgelb-emea`, then the path to the service would be `/service/edgelb-emea`.
+
+To determine the address of your cluster, see [Cluster Access](/1.12/api/access/).
 
 # Auth
 
