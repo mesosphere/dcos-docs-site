@@ -18,8 +18,8 @@ When the [scheduler](/1.13/overview/concepts/#mesos-scheduler) launches a task, 
 
 Mesos includes built-in executors that are available to all schedulers, but schedulers can also use their own executors.
 
-- Command Executor - execute shell commands or Docker containers
-- Default Executor (Mesos 1.1) - execute a group of shell commands or Docker containers
+- Command Executor - executes shell commands or Docker containers
+- Default Executor (Mesos 1.1) - executes a group of shell commands or Docker containers
 
 For more on Mesos executors, see the [Mesos Framework Development Guide](https://mesos.apache.org/documentation/latest/app-framework-development-guide/)
 
@@ -31,8 +31,8 @@ Because the task system is so generic, users generally do not create or interact
 
 DC/OS has two built-in schedulers:
 
-- The Marathon scheduler provides services (Apps and Pods), which run continuously and in parallel. For more on Marathon services, see the [Services docs](/1.13/deploying-services/) or the [Marathon docs](https://mesosphere.github.io/marathon/docs/).
-- The Metronome scheduler provides jobs, which run immediately or on a defined schedule. For more on Metronome jobs, see the [Jobs docs](/1.13/deploying-jobs/).
+- The Marathon scheduler provides services (Apps and Pods), which run continuously and in parallel. For more on Marathon services, see the [Deploying Services documentation](/1.13/deploying-services/) or the [Marathon docs](https://mesosphere.github.io/marathon/docs/).
+- The Metronome scheduler provides jobs, which run immediately or on a defined schedule. For more on Metronome jobs, see the [Deploying Jobs documentation](/1.13/deploying-jobs/).
 
 ### User space schedulers
 

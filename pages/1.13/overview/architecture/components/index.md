@@ -415,7 +415,7 @@ Just as machine operating systems need package management to install, upgrade, c
 
 ## DC/OS package manager (Cosmos)
 
-The DC/OS package manager (Cosmos) installs and manages DC/OS packages from [DC/OS package repositories](/1.13/administering-clusters/repo/), such as the [Mesosphere Universe](https://github.com/mesosphere/universe).
+The DC/OS package manager (Cosmos) installs and manages DC/OS packages from [DC/OS package repositories](/1.13/administering-clusters/repo/), such as the [Mesosphere Catalog](https://github.com/mesosphere/universe).
 
 ### System service
 
@@ -511,6 +511,7 @@ Read the following documentation resources to learn more about DC/OS Secrets:
 - [API Reference](/1.13/security/ent/secrets/secrets-api/)
 
 <a name="vault"></a>
+
 ## Vault
 
 Vault is a tool for securely managing secrets. A secret is anything that you want to control access to, such as API keys, passwords, certificates, and more. Vault provides a unified interface to any secret, while providing tight access control and recording a detailed audit log.
@@ -546,9 +547,9 @@ Read the following documentation resources to learn more about REX-Ray:
 
 # Sockets and timers
 
-Several components are configured to use on-demand [systemd sockets](https://www.freedesktop.org/software/systemd/man/systemd.socket.html) which allows them to be started when a request comes in, rather than running continuously and consuming resources unnecessarily. While these sockets are separate [systemd units](https://www.freedesktop.org/software/systemd/man/systemd.unit.html) they are not considered separate components.
+Several components are configured to use on-demand [systemd sockets](https://www.freedesktop.org/software/systemd/man/systemd.socket.html) which allows them to be started when a request comes in, rather than running continuously and consuming resources unnecessarily. While these sockets are separate [systemd units](https://www.freedesktop.org/software/systemd/man/systemd.unit.html), they are not considered separate components.
 
-Several components are configured to use [systemd timers](https://www.freedesktop.org/software/systemd/man/systemd.timer.html) which allows them to be periodically executed or restarted. Periodic execution avoids continuous execution and consuming resources unnecessarily. Periodic restarting allows for picking up new configurations from downstream dependencies, like time-based DNS cache expiration. While these timers are separate [systemd units](https://www.freedesktop.org/software/systemd/man/systemd.unit.html) they are not considered separate components.
+Several components are configured to use [systemd timers](https://www.freedesktop.org/software/systemd/man/systemd.timer.html) which allows them to be periodically executed or restarted. Periodic execution avoids continuous execution and consuming resources unnecessarily. Periodic restarting allows for picking up new configurations from downstream dependencies, like time-based DNS cache expiration. While these timers are separate [systemd units](https://www.freedesktop.org/software/systemd/man/systemd.unit.html), they are not considered separate components.
 
 # Component installation
 
@@ -564,7 +565,7 @@ To see a list of the `systemd` components running on any particular node, list t
 
 ## Master node
 
-```
+```shell
 ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter.service
 dcos-backup-master.service
@@ -606,7 +607,7 @@ dcos-vault.service
 
 ## Private agent node
 
-```
+```shell
 ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
 dcos-diagnostics.service
@@ -634,7 +635,7 @@ dcos-spartan-watchdog.timer
 
 ## Public agent node
 
-```
+```shell
 ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
 dcos-diagnostics.service
