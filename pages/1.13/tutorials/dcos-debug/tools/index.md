@@ -83,7 +83,7 @@ Logs are useful tools for seeing events and the conditions that occurred before 
 DC/OS has a number of different sources for logs. In general, these are the most helpful logs for application debugging:
 
 - [Task/Application Logs](#task-logs)
-- [Service Scheduler Logs](#scheduler-logs) (e.g., Marathon)
+- [Service scheduler Logs](#scheduler-logs) (e.g., Marathon)
 - [Mesos Agent Logs](#agent-logs)
 - [Mesos Master Logs](#master-logs)
 - [System Logs](#system-logs)

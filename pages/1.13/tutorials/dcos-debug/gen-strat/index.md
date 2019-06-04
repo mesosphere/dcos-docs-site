@@ -17,7 +17,7 @@ Beyond considering any information special to your scenario, a reasonable approa
 
 - 1: [Check web interfaces](#GUI-strat)
 - 2: [Check Task Logs](#task-strat)
-- 3: [Check Scheduler Logs](#schedule-strat)
+- 3: [Check scheduler Logs](#schedule-strat)
 - 4: [Check Agent Logs](#agent-strat)
 - 5: [Test Task Interactively](#interactive-strat)
 - 6: [Check Master Logs](#master-strat)
