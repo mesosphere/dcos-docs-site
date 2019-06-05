@@ -34,7 +34,9 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
 
 ## Command-line interface (CLI)
-- 
+- Provides improved clean-up operations to eliminate issues caused by unused volumes for removed comtainers (DCOS_OSS-1502). 
+
+    Previously, there have been issues caused by orphan volumes that were not remove when their associated containers were removed. In general, you can run  `docker prune` commands to avoid issues with unused volumes. However, with this release, you can also use the `docker-gc` command to remove unused volumes associated with removed containers.
 
 ## Exhibitor
 - Changes the security setting for the configuration parameters `aws_secret_access_key` and `exhibitor_azure_account_key` so that these values are not visible in the `user.config.yaml` file on cluster nodes (DCOS-51751). 
@@ -42,10 +44,10 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
     These configuration parameters are used for Exhibitor. They are now marked as secret. The values set for these configuration parameters can only be viewed in the `user.config.full.yaml` file. The `user.config.full.yaml` file has stricter read permissions than the `user.config.yaml` file and is not included in DC/OS diagnostics bundles.
 
 ## GUI
-- 
+- Includes updates to the DC/OS frontend GUI to improve the user experience (COPS-4796, COPS-4804, COPS-4857, DCOS-53836, DCOS-54034, DCOS-54039, DCOS-54041).
 
 ## Installation
- - Correct the output returned when running the `dcos_generate_config.sh` or `dcos_generate_config.ee.sh` script with the `--validate-config` option so that it doesn’t display warning or error messages about missing deprecated configuration settings such as `ssh_user` and `ssh_key_path` (COPS-4282, DCOS_OSS-4613, DCOS_OSS-5152).
+ - Corrects the output returned when running the `dcos_generate_config.sh` or `dcos_generate_config.ee.sh` script with the `--validate-config` option so that it doesn’t display warning or error messages about missing deprecated configuration settings such as `ssh_user` and `ssh_key_path` (COPS-4282, DCOS_OSS-4613, DCOS_OSS-5152).
 
 ## Marathon
 - Introduces a watcher loop process to monitor and, if necessary, re-register the Marathon leader after reelection (COPS-3554).<!--Also in previous RN, 1.12.4-->
@@ -65,6 +67,10 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
     For more information about using Docker images with DC/OS Universal Container Runtime (UCR), see [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/).
 
+- Changes the behavior for tasks when there are failed resource providers (ASF-2839).
+
+    With this release, the resource manager will no longer ask all resource providers to publish all allocated resources. With this change, a failed resource provider would only fail tasks that wanted to use the failed resource provider's resources.
+
 ## Metrics
 - Corrects the service endpoint values and service address-based statistics that are returned when the `statsd` metrics input plugin is enabled (COPS-3279, COPS-3576, DCOS-37703, DCOS-37703, DCOS-39703).<!--Also in previous RN, 1.12.4-->
 
@@ -76,7 +82,11 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
 - Fixes issues that caused some DC/OS components to crash when the `/tmp` directory is mounted using the `noexec` option (DCOS-53077).
 
+- Modifies the Telegraf configuration settings to improve how metrics are collected on busy agents (DCOS-50994).
+
 ## Networking
+- Adds a timeout to the Mesos network overlay module to prevent the overlay master from getting stuck in RECOVERING mode (COPS-4167, COPS-4747, DCOS_OSS-4575, DCOS-47930).
+
 - Resolves a deadlock or race condition that could prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly (COPS-3585). 
 
     Problems with routing tables and network connectivity can lead to the following issues:
@@ -101,6 +111,11 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
 - Adds round-robin DNS support so that DNS requests do not always return address (A) records in the same order (DCOS_OSS-5118).
 
+## Package management
+- Adds tarball package validation and support for retying a failed package download (COPS-2861).
+
+    Previously, you might encounter issues if the DC/OS package installer (`pkgpanda`) attempted to extract a package tarball into the `/opt/mesosphere/packages` directory but detected that the tarball had only been partially downloaded. If downloading the entire tarball failed, the DC/OS installation process would also fail. With this release, the package installer validates tarballs and can retry the download if the package was not successfully downloaded to the bootstrap computer. 
+
 [enterprise]
 ## Security
 [/enterprise]
@@ -108,8 +123,23 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
 With this release, the DC/OS identity and access management LDAP synchronization `systemd` unit no longer relies on the `/opt/mesosphere` directory being available when the `systemd` configuration is loaded.
 
+## Storage
+- Updates Beta Rex-Ray to support NVMe (non-volatile memory express) EBS volumes (COPS-3961, DCOS_OSS-4316, DCOS-49828, DCOS-50047).
+
+    REX-Ray is a container storage orchestration engine that enables persistence for cloud-native workloads. With Rex-Ray, you can manage native Docker Volume Driver operations through a command-line interface (CLI).
+
+    Amazon Elastic Block Store (Amazon EBS) provides block-level storage volumes for Amazon Elastic Cloud (EC2) instances. Amazon EBS volumes can be attached to any running EC2 instance hosted in the same Amazon availability zone to provide persistent storage that is independent of the deployed instance. EBS storage volumes can be exposed using NVMe (non-volatile memory express) as a host controller interface and storage protocol. NVMe devices enable you to accelerate the transfer of data between nodes and solid-state drives (SSDs) over a computer's connection gateway.
+
+    With this release, DC/OS updates REX-Ray to support NVMe storage when the DC/OS cluster runs on an Amazon instance. To work with NVMe devices, however, you must provide your own `udev` rules and  `nvme-cli` package. For more information about using Rex-Ray, see the [REX-Ray](https://rexray.io/) website and [github repository](https://github.com/rexray).
+
 ## Third-party updates and compatibility
-- Updates the [ZooKeeper](https://zookeeper.apache.org/doc/r3.4.14/releasenotes.html) package for DC/OS to release version 3.4.14.
+- Updates support for REX-Ray to the most recent stable version (DCOS_OSS-4316,COPS-3961).
+
+- Updates the [ZooKeeper](https://zookeeper.apache.org/doc/r3.4.14/releasenotes.html) package for DC/OS to release version 3.4.14 (DCOS_OSS-4988).
+
+- Updates support for OpenSSL to release version 1.0.2r (DCOS_OSS-4868).
+
+- Updates the `urllib3` to version 1.24.2 to address the security vulnerability identified for Python when working with CA certificates in CVE-2019-11324 (DCOS-52210).
 
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more issue tracking identifiers.
