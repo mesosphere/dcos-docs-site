@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Expose apps publicly
 title: Expose apps publicly
-excerpt: Exposes an application to make it available for access outside of the cluster (part 8)
-menuWeight: 8
+excerpt: Exposes an application to make it available for access outside of the cluster (part 9)
+menuWeight: 9
 ---
 
 # Before you begin

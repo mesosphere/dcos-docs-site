@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Deploy native applications
 title: Deploy native applications
-excerpt: Deploys an application using the native DC/OS Universal Runtime Container (part 7)
-menuWeight: 7
+excerpt: Deploys an application using the native DC/OS Universal Runtime Container (part 8)
+menuWeight: 8
 ---
 In the [previous tutorial](/tutorials/dcos-101/app1/), you deployed an application that runs inside the cluster and interacts only with another application--the Redis service--that runs inside the cluster. Neither application is exposed outside of the cluster or available to any external users. 
 

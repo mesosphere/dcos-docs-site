@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Manage and scale resources
 title: Manage and scale resources
-excerpt: Provides strategies and examples for scaling resources allocated for deployed applications (part 9)
-menuWeight: 9
+excerpt: Provides strategies and examples for scaling resources allocated for deployed applications (part 10)
+menuWeight: 10
 ---
 
 # Before you begin
