@@ -46,6 +46,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| dcos_net_cluster_identity                             | This feature ensures that the nodes from a cluster have a unique identifier that prevents unauthorized 'cross-talk' between clusters. Default value is `false` |
 | [dcos_overlay_enable](#dcos-overlay-enable)           | Block of parameters that specifies whether to enable DC/OS virtual networks. |
 | [dns_bind_ip_blacklist](#dns-bind-ip-blacklist)       | A list of IP addresses that DC/OS DNS resolvers cannot bind to.|
 | [dns_forward_zones](#dns-forward-zones)               | A nested list of DNS zones, IP addresses, and ports that configure custom forwarding behavior of DNS queries. |
