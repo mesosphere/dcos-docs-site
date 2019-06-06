@@ -20,3 +20,4 @@ require('./js/tooltip.js');
 require('./js/tabs.js');
 require('./js/ellipsis.js');
 require('./js/localization.js');
+require('./js/services-landing.js');

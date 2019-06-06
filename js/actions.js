@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  if (addthis) {
+  if (window.addthis) {
     window.addthis_config = {
       ui_disable: true,
     };
