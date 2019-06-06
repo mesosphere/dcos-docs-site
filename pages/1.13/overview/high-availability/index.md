@@ -4,14 +4,13 @@ navigationTitle:  High Availability
 title: High Availability
 menuWeight: 6
 excerpt: Understanding the high availability features and best practices in DC/OS
-
 enterprise: false
 ---
 
 
 # Leader/Follower Architecture
 
-A common pattern in high availability (HA) systems is the leader/follower concept. This is also sometimes referred to as: master/slave, primary/replica, or some combination thereof. This architecture is used when you have one authoritative process, with N standby processes. In some systems, the standby processes might also be capable of serving requests or performing other operations. For example, when running a database like MySQL with a master and replica, the replica is able to serve read-only requests, but it cannot accept writes; only the master will accept writes. In DC/OS, a number of components follow the leader/follower pattern. We will discuss some of them  and how they work.
+A common pattern in high availability (HA) systems is the leader/follower concept. This is also sometimes referred to as: master/agent, primary/replica, or some combination thereof. This architecture is used when you have one authoritative process, with N standby processes. In some systems, the standby processes might also be capable of serving requests or performing other operations. For example, when running a database like MySQL with a master and replica, the replica is able to serve read-only requests, but it cannot accept writes; only the master will accept writes. In DC/OS, a number of components follow the leader/follower pattern. We will discuss some of them  and how they work.
 
 #### Mesos
 
