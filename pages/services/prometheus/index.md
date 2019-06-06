@@ -6,6 +6,7 @@ menuWeight: 87
 excerpt:
 featureMaturity:
 enterprise: false
+category: Monitoring
 ---
 
 Welcome to the documentation for DC/OS Prometheus. Choose a version to get started!

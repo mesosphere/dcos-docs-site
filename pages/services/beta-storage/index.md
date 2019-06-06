@@ -6,6 +6,7 @@ menuWeight: 127
 enterprise: true
 beta: true
 excerpt:
+category: Storage
 ---
 #include /services/include/beta-software-warning.tmpl
 
