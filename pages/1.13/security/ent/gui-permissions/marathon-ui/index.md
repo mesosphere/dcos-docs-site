@@ -1,84 +1,83 @@
 ---
 layout: layout.pug
-navigationTitle:  Granting Access to the Marathon UI
-title: Granting Access to the Marathon UI
+navigationTitle:  Granting Access to the Marathon Tab
+title: Granting Access to the Marathon Tab
 menuWeight: 32
-excerpt: Granting access to the Marathon UI
-
+excerpt: Granting access to the Marathon Tab
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-You can grant users access to the Marathon UI. By default, new users have no permissions.
+You can grant users access to the Marathon Tab. By default, new users have no permissions.
 
-# <a name="services-access-via-ui"></a>Granting Access using the web interface
+# <a name="services-access-via-ui"></a>Granting Access using the UI
 
 **Prerequisite:**
 
 - A DC/OS user account without the `dcos:superuser` [permission](/1.13/security/ent/users-groups/).
 
-1.  Log into the DC/OS web interface as a user with the `dcos:superuser` permission.
+1.  Log into the DC/OS UI as a user with the `dcos:superuser` permission.
 
     ![Login](/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
-    Figure 1. Log in to web interface
+    Figure 1. Log in to UI
 
-2.  Select **Organization** and choose **Users** or **Groups**.
+1.  Select **Organization** and choose **Users** or **Groups**.
 
-3.  Select the name of the user or group to grant the permission to.
+1.  Select the name of the user or group to grant the permission to.
 
     ![Add permission cory](/1.13/img/GUI-Organization-Users-List_View-1_12.png)
 
     Figure 2. Select user or group to grant permissions to
 
 
-4.  From the **Permissions** tab, click **ADD PERMISSION**.
+1.  From the **Permissions** tab, click **ADD PERMISSION**.
 
-5.  Click **INSERT PERMISSION STRING** to toggle the dialog.
+1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
     ![Add permission](/1.13/img/services-tab-user3.png)
 
     Figure 3. Add permission 
 
 
-6.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.13/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.13/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
 ## Permissive
 
 ### Marathon dashboard
 
-    ```bash
-    dcos:adminrouter:service:marathon full
-    ```
+  ```bash
+  dcos:adminrouter:service:marathon full
+  ```
 
 ### Launch tasks
 
-    ```bash
-    dcos:service:marathon:marathon:services:/ full
-    ```
+  ```bash
+  dcos:service:marathon:marathon:services:/ full
+  ```
 
 ### Task details and logs
-    To view task details and logs, you must grant access to the [Mesos UI](/1.13/security/ent/gui-permissions/mesos-ui/).   
+  To view task details and logs, you must grant access to the [Mesos UI](/1.13/security/ent/gui-permissions/mesos-ui/).   
 
 ## Strict
 
 ### Marathon dashboard
 
-    ```bash
-    dcos:adminrouter:service:marathon full
-    ```
+```bash
+dcos:adminrouter:service:marathon full
+```
 
 ### Launch tasks
 
-    ```bash
-    dcos:service:marathon:marathon:services:/ full
-    ```
+```bash
+dcos:service:marathon:marathon:services:/ full
+```
 
 ### Task details and logs
     To view Marathon task details and logs, you must grant access to the [Mesos UI](/1.13/security/ent/gui-permissions/mesos-ui/).
 
-2.  You can send the URL of the native Marathon UI for DC/OS to the user: `http://<master-public-ip>/marathon/`.
+You can send the URL of the native Marathon UI for DC/OS to the user: `http://<master-public-ip>/marathon/`.
 
 # <a name="services-access-via-api"></a>Granting Access using the API
 
@@ -99,22 +98,22 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
 1.  Create the permission.
 
-   ```bash
-   curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon \
-   -d '{"description":"Grants access to the Marathon UI"}'
-   ```
+    ```bash
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+    -H 'Content-Type: application/json' \
+    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon \
+    -d '{"description":"Grants access to the Marathon UI"}'
+    ```
 
-2.  Grant the following privileges to the user `uid`.
+1.  Grant the following privileges to the user `uid`.
 
-   ```bash
-   curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
-   ```
+    ```bash
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
+    ```
 
-  <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 
 ### Launch tasks
@@ -122,23 +121,23 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
 1.  Create the permission.
 
-   ```bash
-   curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F \
-   -d '{"description":"Grants access to launch Marathon task from UI"}'
-   ```
+    ```bash
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+    -H 'Content-Type: application/json' \
+    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F \
+    -d '{"description":"Grants access to launch Marathon task from UI"}'
+    ```
 
-2.  Grant the following privileges to the user `uid`.
+1.  Grant the following privileges to the user `uid`.
 
-   ```bash
-   curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F/full
-   ```
+    ```bash
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F/full
+    ```
 
-  <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 
 
@@ -151,19 +150,19 @@ To view task details and logs, you must grant access to the [Mesos UI](/1.13/sec
 
 1.  Create the permission.
 
-   ```bash
-   curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon \
-   -d '{"description":"Grants access to the Marathon UI"}'
-   ```
+    ```bash
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+    -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon \
+    -d '{"description":"Grants access to the Marathon UI"}'
+    ```
 
-2.  Grant the following privileges to the user `uid`.
+1.  Grant the following privileges to the user `uid`.
 
-   ```bash
-   curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
-   ```
+    ```bash
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
+    ```
 
 <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
@@ -173,20 +172,20 @@ To view task details and logs, you must grant access to the [Mesos UI](/1.13/sec
 
 1.  Create the permission.
 
-   ```bash
-   curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F \
-   -d '{"description":"Grants access to launch Marathon task from UI"}'
-   ```
+    ```bash
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+    -H 'Content-Type: application/json' $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F \
+    -d '{"description":"Grants access to launch Marathon task from UI"}'
+    ```
 
-2.  Grant the following privileges to the user `uid`.
+1.  Grant the following privileges to the user `uid`.
 
-   ```bash
-   curl -X PUT --cacert dcos-ca.crt \
-   -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-   $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F/full
-   ```
+    ```bash
+    curl -X PUT --cacert dcos-ca.crt \
+    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F/full
+    ```
 
 <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 

@@ -12,9 +12,9 @@ enterprise: true
 
 You can grant users access to the Services tab. By default, new users have no permissions.
 
-**Tip:** This procedure grants full user access to the **Services** tab. If you want to configure fine-grained user access, see the [documentation](/1.13/deploying-services/service-groups/).
+<p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Services</strong> tab. If you want to configure fine-grained user access, see the <a href="/1.13/security/ent/secrets/use-secrets/">documentation</a>.</p>
 
-# <a name="services-access-via-ui"></a>Grant Access by using the GUI
+# <a name="services-access-via-ui"></a>Grant Access by using the UI
 
 **Prerequisite:**
 
@@ -24,7 +24,7 @@ You can grant users access to the Services tab. By default, new users have no pe
 
     ![Login](/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
-    Figure 1. DC/OS web interface login
+    Figure 1. DC/OS UI login
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -127,7 +127,7 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 ### Grant access to DC/OS services task details and logs
 
@@ -153,7 +153,7 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 ### Grant access to all services in the Services tab
 
@@ -173,7 +173,7 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F/users/<uid>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 ## Strict
 
@@ -195,7 +195,7 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:service:marathon/users/<uid>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 ### Grant access to DC/OS services task details and logs
 
@@ -263,7 +263,7 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:agent:sandbox:app_id/users/<uid>/read
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 ### Grant access to all services in the Services tab
 
@@ -283,4 +283,4 @@ dcos:mesos:agent:sandbox:app_id read
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:service:marathon:marathon:services:%252F/users/<uid>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
