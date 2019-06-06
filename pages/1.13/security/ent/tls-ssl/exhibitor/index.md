@@ -54,7 +54,7 @@ As an example, if your master nodes are `10.192.0.2, 10.192.0.3, 10.192.0.4`, in
 ./exhibitor-tls-artifacts 10.192.0.2 10.192.0.3 10.192.0.4
 ```
 
-This will create a directory called `artifacts` (which must not exist prior to running the command) in the current directory. Under `artifacts` you will find root-cert.pem and truststore.jks. These files contain the root CA certificate in PEM and java keystore format. The `artifacts` directory will also contain three sub-directories, `node_10_192_0_2`, `node_10_192_0_3`, and `node_10_192_0_4`. Each containing the following files:
+This will create a directory called `artifacts` (which must not exist prior to running the command) in the current directory. Under `artifacts` you will find root-cert.pem and truststore.jks. These files contain the root CA certificate in PEM and java keystore format. The `artifacts` directory will also contain three sub-directories, `10.192.0.2`, `10.192.0.3`, and `10.192.0.4`. Each containing the following files:
 
     client-cert.pem
     client-key.pem
@@ -71,9 +71,9 @@ Copy the contents of each node's artifact directory to `/var/lib/dcos/exhibitor-
 For example:
 
 ```sh
-scp -r artifacts/node_10_192_0_2 root@10.192.0.2:/var/lib/dcos/exhibitor-tls-artifacts
-scp -r artifacts/node_10_192_0_3 root@10.192.0.3:/var/lib/dcos/exhibitor-tls-artifacts
-scp -r artifacts/node_10_192_0_4 root@10.192.0.4:/var/lib/dcos/exhibitor-tls-artifacts
+scp -r artifacts/10.192.0.2 root@10.192.0.2:/var/lib/dcos/exhibitor-tls-artifacts
+scp -r artifacts/10.192.0.3 root@10.192.0.3:/var/lib/dcos/exhibitor-tls-artifacts
+scp -r artifacts/10.192.0.4 root@10.192.0.4:/var/lib/dcos/exhibitor-tls-artifacts
 ```
 
 ## Restarting the services
