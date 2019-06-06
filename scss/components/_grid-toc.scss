@@ -1,4 +1,10 @@
 .grid-toc {
+  .hidden {
+    display: none;
+  }
+  .empty {
+    display: none;
+  }
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

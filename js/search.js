@@ -12,7 +12,7 @@ const algoliaIndex = ALGOLIA_INDEX;
 //
 //
 
-if (landingContainer) {
+if (landingContainer && process.env.NODE_ENV === 'production') {
   const client = algoliasearch(algoliaProjectId, algoliaPublicKey);
   const index = client.initIndex(algoliaIndex);
 
