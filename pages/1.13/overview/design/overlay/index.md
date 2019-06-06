@@ -55,12 +55,13 @@ Assume a Mesos container on 9.0.1.0/25 (Agent 1) wants to talk to a Docker conta
 - In Agent 2 the routing table has entries for the subnet 9.0.2.128/25, as directly connected to the bridge “d-dcos”. The packet will therefore be forwarded to the container connected to the “d-dcos” bridge.
 
 <a name="challenges"></a>
+
 ### Challenges
 
 
 As must be evident from the packet walk through for [Container-to-Container communication on different hosts](/1.13/overview/design/overlay/#container-to-container-different-hosts), for the DC/OS overlay to function there are several pieces of metadata that need to be pre-configured into the agent for the routing and switching to work properly. Here we will list the information that is required by the DC/OS overlay.
 
-- Within DC/OS we need a SAM (A Subnet Allocation Module) that will inform the agents of the subnets that have been allocated to them.
+- Within DC/OS we need a SAM (Subnet Allocation Module) that will inform the agents of the subnets that have been allocated to them.
 - Within the agent, we need an entity that configures the docker daemon with the portion of the subnet (in Figure 1, the 9.0.1.128/25 network) that has been allocated to the docker daemon.
 - Within the agent, we need an entity that allocates IP addresses to the containers launched by the `MesosContainerizer` (in Figure 1, the 9.0.1.0/25 network).
 - Within DC/OS we need an entity that will program the VxLAN forwarding database on each agent, with the MAC addresses of all the VTEPs existing on all the agents, along with the encap information (agent IP, UDP port) required to encapsulate the packets correctly. The same entity also needs to program the ARP cache on each agent with the MAC address of all VTEPs, for their corresponding IP addresses.
@@ -71,7 +72,7 @@ These challenges must be addressed to make the DC/OS overlay functional. In the 
 
 ![Software architecture for DC/OS overlay control plane.](/1.13/img/overlay-control-plane-redesigned.png)
 
-*Figure 2 - Software architecture for DC/OS overlay control plane*
+Figure 2 - Software architecture for DC/OS overlay control plane
 
 Figure 2 describes the software architecture that we will implement to build a control plane for the DC/OS overlay. The blocks in orange are the missing pieces that have to be built. Below, we describe each of the missing pieces and functionality that they provide.
 
@@ -87,25 +88,25 @@ We will meet all the above requirements for the DC/OS overlay by having two Meso
 
 The Master module will run as part of the Mesos master and will have the following responsibilities:
 1. It will be responsible for allocating the subnet to each of the agents. We will describe in more detail how the master module will use the replicated log to checkpoint this information for recovery during failover to a new Master.
-2. It will listen for the agent overlay modules to register and recover their allocated subnet. The agent overlay module will also use this endpoint to learn about the overlay subnets allocated to it (in case of multiple virtual networks), the subnets allocated to each of the Mesos and Docker bridges within an overlay, and the VTEP IP and MAC address allocated to it.
-3. It exposes an HTTP endpoint `overlay-master/state` that presents the state of all the virtual networks in DC/OS. The response of this endpoint is backed by the following protobuf: https://github.com/dcos/mesos-overlay-modules/blob/master/include/overlay/overlay.proto#L86
+1. It will listen for the agent overlay modules to register and recover their allocated subnet. The agent overlay module will also use this endpoint to learn about the overlay subnets allocated to it (in case of multiple virtual networks), the subnets allocated to each of the Mesos and Docker bridges within an overlay, and the VTEP IP and MAC address allocated to it.
+1. It exposes an HTTP endpoint `overlay-master/state` that presents the state of all the virtual networks in DC/OS. The response of this endpoint is backed by the following protobuf: https://github.com/dcos/mesos-overlay-modules/blob/master/include/overlay/overlay.proto#L86
 
 #### Agent Mesos overlay module:
 
 The agent overlay module runs as part of the Mesos agents and has the following responsibilities:
 1. It is responsible for registering with the master overlay module. After registration it retrieves the allocated agent subnet, the subnet allocated to its Mesos and Docker bridges, and VTEP information (IP and MAC address of the VTEP).
-2. Based on the allocated agent subnet, it is responsible for generating a CNI (Container Network Interface) network config to be used by the `network/cni` isolator for the `MesosContainerizer`.
-3. It is responsible for creating a Docker network to be used by the `DockerContainerizer`.
-4. It exposes an HTTP endpoint `overlay-agent/overlays` that is used by the Virtual Network Service to retrieve information about the overlays on that particular agent.
+1. Based on the allocated agent subnet, it is responsible for generating a CNI (Container Network Interface) network config to be used by the `network/cni` isolator for the `MesosContainerizer`.
+1. It is responsible for creating a Docker network to be used by the `DockerContainerizer`.
+1. It exposes an HTTP endpoint `overlay-agent/overlays` that is used by the Virtual Network Service to retrieve information about the overlays on that particular agent.
 
 ### Using replicated log to coordinate subnet allocation in Master:
 
 For `MesosContainerizer` and `DockerContainerizer` to launch containers on a given subnet, the Mesos agent needs to learn the subnet allocated to itself. Further, the subnet needs to be learned before the `MesosContainerizer` or the `DockerContainerizer` start.
 
-The master overlay module will be responsible for allocating the subnet, the VTEP IP and the MAC address associated with VTEP. While allocating new subnets and caching this information itself is straightforward, maintaining this information consistently during master failover is challenging. To allow for this information persist across master failover the master overlay module will use the [Mesos replicated log](http://mesos.apache.org/documentation/latest/replicated-log-internals/ "Mesos Documentation"). The algorithm that allows the master overlay module to checkpoint this information and recover it, after master failover has been completed, is as follows :
+The master overlay module will be responsible for allocating the subnet, the VTEP IP and the MAC address associated with VTEP. While allocating new subnets and caching this information itself is straightforward, maintaining this information consistently during master failover is challenging. To allow for this information persist across master failover the master overlay module will use the [Mesos replicated log "Mesos Documentation"](http://mesos.apache.org/documentation/latest/replicated-log-internals/). The algorithm that allows the master overlay module to checkpoint this information and recover it, after master failover has been completed, is as follows :
 1. Whenever a new agent overlay module registers with the master module, the master module will try allocating a new subnet, a new VTEP IP and a new MAC address for the VTEP to the registered agent module. However, it will not respond to the registration request with the allocated information until this information has been written successfully into the replicated log.
-2. On failover, the master module will read the replicated log and recreate the subnet, VTEP IP, and VTEP MAC address information and build a cache of this allocated information in memory.
-3. The agent overlay module’s registration request would fail in case the registration request was received in the middle of a Master failover. In this case it is the responsibility of the agent overlay module to locate the new master and try registering with the overlay module on the new master.
+1. On failover, the master module will read the replicated log and recreate the subnet, VTEP IP, and VTEP MAC address information and build a cache of this allocated information in memory.
+1. The agent overlay module’s registration request would fail in case the registration request was received in the middle of a Master failover. In this case it is the responsibility of the agent overlay module to locate the new master and try registering with the overlay module on the new master.
 
 ### Configuring `MesosContainerizer` and `DockerContainerizer` to use the allocated subnet.
 
@@ -115,7 +116,7 @@ For `MesosContainerizer`, the DC/OS module can generate a CNI config at a specif
 
 For `DockerContainerizer`, the DC/OS module will retrieve the subnet, and then will create a `docker network` with the canonical name `d-<virtual network name>`. It will do so using the following Docker command:
 
-```sh
+```shell
 docker network create \
 --driver=bridge \
 --subnet=<CIDR> \
@@ -125,7 +126,7 @@ docker network create \
 <virtual network name>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>The assumption for <code>DockerContainerizer</code> to work with the DC/OS overlay is that the host is running Docker v1.12 or greater.</p>
+<p class="message--note"><strong>NOTE: </strong>The assumption for <code>DockerContainerizer</code> to work with the DC/OS overlay is that the host is running Docker v1.12 or later.</p>
 
 <p class="message--note"><strong>NOTE: </strong>The default <code><overlay MTU></code> = 1420 bytes.</p>
 
