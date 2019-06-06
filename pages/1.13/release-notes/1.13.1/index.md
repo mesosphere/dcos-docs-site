@@ -168,28 +168,28 @@ For more information about collecting metrics and configuring metrics plugins, s
 
     You can scale down the Edge-LB pool instances from a higher count to lower if you don't require all pool instances that are configured. To scale down, simply update the `count` variable in the Edge-LB pool configuration file to reflect the number of Edge-LB pool instances you need.
 
-## GUI
-- Enable independent upgrades of the DC/OS GUI. <!--(DCOS-47632)-->
+## UI
+- Enable independent upgrades of the DC/OS UI. <!--(DCOS-47632)-->
 
-    You can now install and update the DC/OS GUI without having to upgrade the DC/OS cluster. This feature enables new updates for DC/OS to be published to the DC/OS catalog and also be available as `.dcos` files for on-premise customers. The ability to install and update the DC/OS GUI without upgrading the DC/OS cluster enables you to easily get the latest fixes and capabilities available in the DC/OS GUI without affecting cluster operations. You also now have the ability to roll back an update, enabling you to use the DC/OS GUI version that was originally shipped with your version of DC/OS if you need to.
+    You can now install and update the DC/OS UI without having to upgrade the DC/OS cluster. This feature enables new updates for DC/OS to be published to the DC/OS catalog and also be available as `.dcos` files for on-premise customers. The ability to install and update the DC/OS UI without upgrading the DC/OS cluster enables you to easily get the latest fixes and capabilities available in the DC/OS UI without affecting cluster operations. You also now have the ability to roll back an update, enabling you to use the DC/OS UI version that was originally shipped with your version of DC/OS if you need to.
 
 - Provide accurate status information for services. <!--(DCOS-43460)-->
 
-    DC/OS 1.13 GUI now includes a new tab in the Details section of every SDK-based data service. This new tab provides a clear indication of the status and progress of SDK-based services during the service life cycle, including installation and upgrade activity. From the Details tab, you can see information about the specific operational plans that are currently running or have just completed. You can also view the execution of each task so that you can easily track the progress of the plans you have deployed.
+    DC/OS 1.13 UI now includes a new tab in the Details section of every SDK-based data service. This new tab provides a clear indication of the status and progress of SDK-based services during the service life cycle, including installation and upgrade activity. From the Details tab, you can see information about the specific operational plans that are currently running or have just completed. You can also view the execution of each task so that you can easily track the progress of the plans you have deployed.
 
     For more information about viewing up-to-date status information for services and operational plans, see the [Services](/1.13/gui/services/) documentation.
 
-- Identify the public-facing IP address for public agent nodes in the DC/OS GUI. <!--(DCOS-49987)-->
+- Identify the public-facing IP address for public agent nodes in the DC/OS UI. <!--(DCOS-49987)-->
 
-    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS GUI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS GUI, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
+    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS UI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS UI, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
 
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a **public cloud provider** such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
 - Add support for internationalization and localization (I18N and L10N - Chinese). <!--(DCOS-39557)-->
 
-    Mesosphere DC/OS 1.13 GUI has now been translated into Mandarin Chinese. Mandarin-speaking customers and users can now easily switch the language displayed in the GUI and be able to interact with DC/OS operations and functions in English or Chinese. The DC/OS documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there's sufficient customer demand.
+    Mesosphere DC/OS 1.13 UI has now been translated into Mandarin Chinese. Mandarin-speaking customers and users can now easily switch the language displayed in the UI and be able to interact with DC/OS operations and functions in English or Chinese. The DC/OS documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there's sufficient customer demand.
 
-    For information about changing the language displayed, see the [GUI](/1.13/gui/) documentation.
+    For information about changing the language displayed, see the [UI](/1.13/gui/) documentation.
 
 ## Installation
 - Enable multi-region support using the Universal Installer. <!--(DCOS-45727)-->
@@ -207,7 +207,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
 ## Job management and scheduling
 - Enhance DC/OS job handling capabilities by adding support for the following:
-    - Graphic processing units (GPU) when creating new jobs in the DC/OS GUI or with the new DC/OS configuration option `metronome_gpu_scheduling_behavior`.
+    - Graphic processing units (GPU) when creating new jobs in the DC/OS UI or with the new DC/OS configuration option `metronome_gpu_scheduling_behavior`.
     - Jobs running in universal container runtime (UCR) containers.
     - File-based secrets.
     - Hybrid cloud deployments.
@@ -322,8 +322,8 @@ The issues that have been fixed in DC/OS 1.13.1 are grouped by feature, function
     - `diagnostics-job-timeout`: Specifies the maximum number of hours allowed for for completing a single diagnostics bundle creation job. the default is 12 hours.
     - `diagnostics-url-timeout`: Specifies the maximum number of minutes allowed for a single HTTP request. The default is 2 minutes.
 
-### GUI
-- Update the DC/OS GUI package to ensure it correctly identifies task names that have changed between releases and displays the correct task status for tasks that were running before an upgrade (COPS-4920, DCOS-54498).
+### UI
+- Update the DC/OS UI package to ensure it correctly identifies task names that have changed between releases and displays the correct task status for tasks that were running before an upgrade (COPS-4920, DCOS-54498).
 
     Before applying this fix, tasks that were started prior to an upgrade might display No Data when viewing the **Tasks** tab for a service. 
 
