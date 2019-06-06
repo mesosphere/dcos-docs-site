@@ -6,6 +6,7 @@ menuWeight: 155
 excerpt:
 featureMaturity:
 enterprise: false
+category: Analytics
 ---
 Welcome to Mesosphere DC/OS Jupyter! Jupyter is a user interface for interactive and reproducible computing on the DC/OS platform. 
 
