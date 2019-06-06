@@ -8,6 +8,7 @@ featureMaturity:
 enterprise: false
 model: /services/couchbase/data.yml
 render: mustache
+category: Database
 ---
 
 Welcome to the documentation for DC/OS {{ model.techName }}. 
