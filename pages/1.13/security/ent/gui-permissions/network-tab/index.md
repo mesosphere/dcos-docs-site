@@ -11,15 +11,15 @@ enterprise: true
 
 You can grant users access to the **Networking** tab. By default, new users have no permissions.
 
-**Tip:** This procedure grants full user access to the **Networking** tab. If you want to configure fine-grained user access, see the [documentation](/1.13/deploying-services/service-groups/).
+<p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Networking</strong> tab. If you want to configure fine-grained user access, see the <a href="/1.13/deploying-services/service-groups/">documentation</a>.</p>
 
-## <a name="network-access-via-ui"></a>Grant Access by using the GUI
+## <a name="network-access-via-ui"></a>Grant Access by using the UI
 
 **Prerequisites:**
 
 - A DC/OS user account without the `dcos:superuser` [permission](/1.13/security/ent/users-groups/).
 
-1. Log into the DC/OS GUI as a user with the `superuser` permission.
+1. Log into the DC/OS UI as a user with the `superuser` permission.
 
    ![Login](/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
@@ -32,7 +32,6 @@ You can grant users access to the **Networking** tab. By default, new users have
     ![Add permission cory](/1.13/img/GUI-Organization-Users-List_View-1_12.png)
 
     Figure 2. Select user or group to grant permissions to
-
 
 1.  From the **Permissions** tab, click **ADD PERMISSION**.
 
@@ -98,7 +97,7 @@ You can grant users access to the **Networking** tab. By default, new users have
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 ## Strict
 
@@ -128,4 +127,4 @@ You can grant users access to the **Networking** tab. By default, new users have
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>

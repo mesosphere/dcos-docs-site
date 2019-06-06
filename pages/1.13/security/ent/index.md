@@ -150,13 +150,13 @@ For more information about permissions, refer to [Managing permissions](/1.13/se
 The encryption of DC/OS communications varies according to your [security mode](/1.13/security/ent/#security-modes).
 
 | Security mode | External communications*                                                                                                                                                                                    | Internode communications |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
 | Permissive    |  HTTP and HTTPS are supported. HTTP requests to the root path (for example, `http://example.com/`) are redirected to HTTPS. HTTP requests with a target different than the root path (for example,  `http://example.com/foo`) are not redirected to HTTPS. If you log in to DC/OS with a password, you can choose whether the password is transmitted insecurely or securely (requires proper certificate verification, including hostname verification on the client side). | Encryption enabled       |
 | Strict        | Only HTTPS is supported. All HTTP connections are redirected to HTTPS. If you log in to DC/OS with a password, the password is transmitted securely (requires proper certificate verification, including hostname verification on the client side). If one or more HTTP proxies or load balancers are between the user agent and Admin Router, then the secure password transmission applies to the final communication between Admin Router and the previous proxy or load balancer.  | Encryption enforced**    |
 
-\* *Communications with clients outside of the cluster. For example, browsers and the DC/OS CLI*.
+\* Communications with clients outside of the cluster. For example, browsers and the DC/OS CLI.
 
-\*\* *Except internode communications between instances of ZooKeeper, which are not encrypted in any security mode. Each master node has a ZooKeeper instance. These ZooKeeper instances communicate periodically to keep their in-memory databases in sync. You can use [IPsec](https://datatracker.ietf.org/wg/ipsec/documents/) to manually encrypt these communications.*.
+\*\* Except internode communications between instances of ZooKeeper, which are not encrypted in any security mode. Each master node has a ZooKeeper instance. These ZooKeeper instances communicate periodically to keep their in-memory databases in sync. You can use [IPsec](https://datatracker.ietf.org/wg/ipsec/documents/) to manually encrypt these communications.
 
 Not all existing user services support encryption at this time. If the service supports encryption, you can enable it in `permissive` mode. In `strict` mode, encryption of user service communications is enforced. As a result, only user services that support encryption can be deployed in `strict` mode.
 
