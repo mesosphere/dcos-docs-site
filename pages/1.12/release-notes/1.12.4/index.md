@@ -31,12 +31,12 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
     This release increases the maximum size allowed for uploading packages from 1GB to 16GB. This change enables you to upload larger packages to a registry service without timing out the upload connection.
 
-
-
-## Command-line interface (CLI)
+## Cluster operations
 - Provides improved clean-up operations to eliminate issues caused by unused volumes for removed comtainers (DCOS_OSS-1502). 
 
-    Previously, there have been issues caused by orphan volumes that were not remove when their associated containers were removed. In general, you can run  `docker prune` commands to avoid issues with unused volumes. However, with this release, you can also use the `docker-gc` command to remove unused volumes associated with removed containers.
+    Previously, there have been issues caused by orphan volumes that were not remove when their associated containers were removed. In general, you can run  `docker prune` commands to avoid issues with unused volumes. However, with this release, you can also use  `dcos-docker-gc` to remove unused volumes associated with removed containers. 
+    
+    The `dcos-docker-gc` program is a `systemd`-controlled service that runs hourly on every cluster node to perform Docker-related clean-up operations on each cluster.
 
 ## Exhibitor
 - Changes the security setting for the configuration parameters `aws_secret_access_key` and `exhibitor_azure_account_key` so that these values are not visible in the `user.config.yaml` file on cluster nodes (DCOS-51751). 
@@ -86,6 +86,10 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
 ## Networking
 - Adds a timeout to the Mesos network overlay module to prevent the overlay master from getting stuck in RECOVERING mode (COPS-4167, COPS-4747, DCOS_OSS-4575, DCOS-47930).
+
+- Includes a fix that prevents duplicate virtual IP addresses (VIP) from showing up after the manual removal of an agent or framework initiated by operator intervention (COPS-4703).
+
+    Previously, if an operator manual removed an agent or framework while performing routine maintenance or by issuing the framework TEARDOWN call, the Mesos agent might return information about terminated tasks in a response field normally reserved for running tasks. This incorrect response in turn resulted in the `dcos-net` networking component adding a duplicate VIP entry. The fix in this release prevents the `dcos-net` networking component from adding a duplicate virtual IP address when an agent or framework is removed.
 
 - Resolves a deadlock or race condition that could prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly (COPS-3585). 
 
