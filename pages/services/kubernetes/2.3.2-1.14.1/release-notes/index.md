@@ -24,7 +24,7 @@ excerpt: Release notes for DC/OS Kubernetes version 2.3.2-1.14.1
 
 ## Improvements
 
-* Add media types required to show dropdown box in secrets and service account configuration. This UI feature will ship as an update and with DC/OS 1.13.1. It is not part of 1.13.0. It is backwards compatible such that a simple text input is displayed on older versions of the UI.
+* Add media types required to show dropdow box in secrets and service account configuration. This UI feature will ship as an update and with DC/OS 1.13.1, it is not part of 1.13.0. it is backwards compatible in a way that a simple text input is displayed on older versions of the UI.
 
 ## Bug Fixes
 
