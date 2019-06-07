@@ -1,15 +1,27 @@
 ---
 layout: layout.pug
-navigationTitle: Deploy native applications
-title: Deploy native applications
-excerpt: Deploys an application using the native DC/OS Universal Runtime Container (part 8)
+navigationTitle: Deploy and expose native applications
+title: Deploy and expose native applications
+excerpt: Deploys an app using a UCR container and exposes it for access from outside of the cluster (part 8)
 menuWeight: 8
 ---
-In the [previous tutorial](/tutorials/dcos-101/app1/), you deployed an application that runs inside the cluster and interacts only with another application--the Redis service--that runs inside the cluster. Neither application is exposed outside of the cluster or available to any external users. 
+In a [previous tutorial](/tutorials/dcos-101/app1/), you deployed an application that runs inside the cluster and interacts with another application--the Redis service--that also runs inside the cluster. Neither application is exposed outside of the cluster or available to any external users.
 
 In this tutorial, you will deploy another sample application but with a few important differences:
-- The new sample application includes a presentation layer that presents a graphical user interface to users to access the applications. 
-- You will deploy the new sample application using a native DC/OS container--the Universal Container Runtime (UCR)--that does not rely on a Docker image or the Docker engine, making the application easier to deploy with fewer dependencies and less complexity.
+- The new sample application includes a presentation layer that presents a web-based user interface to users who access the application.
+- The new sample application uses a native DC/OS container--the Universal Container Runtime (UCR)--that does not rely on a Docker image or the Docker engine, making the application easier to deploy with fewer dependencies and less complexity.
+- You will expose the new sample application for access from outside of the cluster by running it on a public agent node with Marathon-LB.
+
+DC/OS has two different node types:
+
+1. Private agent nodes
+1. Public agent nodes
+
+Private agent nodes are usually only accessible inside the cluster, while public agent nodes allow for ingress access from outside the cluster.
+
+By default, applications and services run on private agent nodes, which cannot be accessed from outside of the cluster. To expose a service or application to the outside world, you typically use a load balancer running on one a public node.
+
+You will revisit the topic of load balancing and the different choices for load balancers later in this tutorial, but for now, you will use [Marathon-LB](/1.13/tutorials/dcos-101/loadbalancing/) as the load balancer. Marathon-LB uses [HAProxy](http://www.haproxy.org/) on a public agent node to provide external access and load balancing for applications running internally in the cluster.
 
 # Before you begin
 Before starting this tutorial, you should verify the following:
@@ -19,45 +31,127 @@ Before starting this tutorial, you should verify the following:
 
 # Learning objective
 By completing this tutorial, you will learn:
-- How to deploy an app with a graphical user interface.
-- How to deploy an app using the DC/OS Universal Container Runtime instead of Docker.
-- How to test your new sample app.
+- How to deploy an app that uses the DC/OS Universal Container Runtime instead of Docker.
+- How to make an app available to clients outside of the cluster by running it on a public agent node using a public-facing IP address and the Marathon-LB load balancer.
+- How to test access to the new sample app.
 
 # Review the sample application
-  * Understand the application
-    * Take a short look at [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go). App2 is a [Go](https://golang.org/) based HTTP server that exposes a very simple interface to Redis.
-  * Deploy app2
-    * Take a short look at the [app definition](https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json). In this case, the app is a binary without external dependencies.
-    Because of this, you no longer need to deploy it in a Docker container.
+The [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) sample application is a [Go-based]](https://golang.org/) HTTP server that exposes a simple interface to Redis.
+If you review the [app definition](https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json), you can see that this sample app is a binary without any external dependencies. Because it has no external dependencies, you can deploy it using a DC/OS native Universal Container Runtime (UCR) container.
 
 # Deploy the sample app
-    * Deploy app2: `dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json`
-  * You have multiple options to check app 2 is successfully running:
-    * By looking at all DC/OS tasks: `dcos task`
-    * By looking at all Marathon apps: `dcos marathon app list`
-    * Curl the http server from within the cluster (in this case from the leading master):
-       * `dcos node ssh --master-proxy --leader`
-       * `curl dcos-101app2.marathon.l4lb.thisdcos.directory:10000`
+1. Deploy the sample application by running the following command:
 
-      This should return you the raw HTML response from app2's webserver.
+    ```bash
+    dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json
+    ```
 
+    Alternatively, you can deploy the sample app from the DC/OS web-based administrative console.
+    
+1. Verify the new sample app deployed successfully by running the following command to list all DC/OS tasks: 
 
-Accessing the app from within the cluster and viewing the raw HTML response proves our application is running, but in the real world you want to expose the app to the public. In the next part of this tutorial you will do exactly that.
+    ```bash
+    dcos task
+    ```
+
+    The command returns output similar to the following:
+
+    ```bash
+    NAME            HOST        USER  STATE  ID                                                                   MESOS ID                                     REGION          ZONE       
+    app2.dcos-101   10.0.1.127  root    R    dcos-101_app2.instance-d86ffa58-8935-11e9-a1c1-4a501e74c1fd._app.1   dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0  aws/us-west-2  aws/us-west-2a
+    ```
+
+    You can also verify a successful deployment by running the following command to list all Marathon apps:
+
+    ```bash
+    dcos marathon app list
+    ID               MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD                       
+    /dcos-101/app2   128    1     1/1    N/A       ---      False       N/A     chmod u+x app2 && ./app2  
+    ```
+
+1. Test the HTTP server from within the cluster by connecting to the leading master and running the client URL (`cURL`) command:
+
+    ```bash
+    dcos node ssh --master-proxy --leader
+    curl dcos-101app2.marathon.l4lb.thisdcos.directory:10000
+    ```
+
+    The `cURL` command returns the raw HTML response from app2's web server with output similar to the following:
+
+    ```
+    <html><title>Welcome to DC/OS 101!</title><body><h1>Welcome to DC/OS 101!</h1><h1>Running on node '10.0.1.127' and port '26962' </h1><h1>Add a new key:value pair</h1><form action="/save" method="POST"><textarea name="key">Key</textarea><br><textarea name="value">Value</textarea><br><input type="submit" value="Save"></form></body></html>
+    ```
+
+    Accessing the app from within the cluster and viewing the raw HTML response proves the application is running. For this tutorial, however, you also want to expose the app to the public. In the next part of this tutorial you will do exactly that.
+
+# Install the load balancer
+1. Install Marathon-LB by running the following command:
+
+    ```bash
+    dcos package install marathon-lb --yes
+    ```
+
+1. Verify that Marathon-LB was successfully deployed by running the following command:
+
+    ```bash
+    dcos task
+
+    NAME            HOST        USER  STATE  ID                                                                   MESOS ID                                     REGION          ZONE       
+    app2.dcos-101   10.0.1.127  root    R    dcos-101_app2.instance-d86ffa58-8935-11e9-a1c1-4a501e74c1fd._app.1   dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0  aws/us-west-2  aws/us-west-2a  
+    marathon-lb     10.0.7.218  root    R    marathon-lb.instance-0ffbfc6c-8942-11e9-a1c1-4a501e74c1fd._app.1     dedbb786-feb7-47f2-ae69-27bf86ba53fb-S1  aws/us-west-2  aws/us-west-2a  
+    redis-tutorial  10.0.1.127  root    R    redis-tutorial.instance-97dae2d7-8934-11e9-a1c1-4a501e74c1fd._app.1  dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0  aws/us-west-2  aws/us-west-2a
+    ``` 
+
+    If your cluster uses a cloud provider such as AWS, the <code>dcos task</code> might show you the private IP address of the host, which is not resolvable from outside the cluster. Using the output from the `dcos task` command, however, you can determine the private IP assigned to the `marathon-lb` task. In this example, the private IP address is 10.0.7.218.
+
+1. Identify the IP address of the public agent node that Marathon-LB is using by running the following command:
+
+    ```bash
+    dcos node list
+    ```
+
+    The command returns information similar to the following:
+
+    ```
+    HOSTNAME         IP       PUBLIC IP(S)                     ID                          TYPE           REGION           ZONE       
+    10.0.7.218     10.0.7.218  34.214.200.181  dedbb786-feb7-47f2-ae69-27bf86ba53fb-S1  agent            aws/us-west-2  aws/us-west-2a  
+    10.0.1.127     10.0.1.127                  dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0  agent            aws/us-west-2  aws/us-west-2a  
+    master.mesos.  10.0.7.173  34.219.206.248  dedbb786-feb7-47f2-ae69-27bf86ba53fb     master (leader)  aws/us-west-2  aws/us-west-2a  
+    ```
+
+    From the output for the `dcos node list` command, you can see the public IP address that corresponds with the private IP address where the `marathon-lb` task is running. In this example, the public IP address for the Marathon-LB service is 34.214.200.181.
+
+# Connect using the public IP address
+1. Connect to the web app from your local computer using the public IP address and port 10000. For example: `34.214.200.181:10000`. 
+
+    You should see a simple web page form similar to this:
+
+    ![Sample app2 web page](/1.13/img/tutorial-webpage.png)
+
+1. Add a new Key:Value pair, then click **Save** using the sample app.
+
+1. Verify the total number of keys using the app1 sample application by running the following command: 
+
+    ```bash
+    dcos task log app1
+    ```
+
+1. Check Redis directly by running `dcos task`, copying the Mesos ID returned for the Redis service, then opening a secure shell [SSH](/1.13/administering-clusters/sshcluster/) on the node where the Redis service is running. 
+
+    For example, if the `dcos task` output displays  `dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0` for the Redis task `Mesos ID` column, you can connect to the node using the
+    `dcos node ssh --master-proxy --mesos-id=dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0` command, then so the following:    
+    - List the Docker containers for the agent using `docker ps`.
+    - Copy the ContainerID for the Redis task from the output for the `docker ps` command.
+    - Create a `bash` session in the Docker container using the ContainerID from the previous and running `sudo docker exec -i -t CONTAINER_ID  /bin/bash`.
+    - Start the Redis CLI by running `redis-cli` in the bash shell.
+    - Check for the key value you added by running the `get <newkey>` command.
 
 # Next steps
- You have deployed a second app that uses the native Mesos containerizer.
+Congratulations! You have deployed a sample application that uses the native DC/OS UCR container, used Marathon-LB to expose the application to the public, and tested your publicly-available app by adding a new key to the Redis service using the web frontend.
 
 # Related topics
-You have now deployed apps in two different ways:
+DC/OS uses [containerizers](/deploying-services/containerizers/) to run tasks in containers. Running tasks in containers enables you to isolate tasks from each other and control task resources programmatically. DC/OS supports two types of containerizers - the DC/OS Universal Container Runtime, and the Docker containerizer. At this point, you have seen how to deployed apps using a Docker image (app1) and using the native Universal Container Runtime (app2).
 
-1. Using Docker (app1).
-1. Using the native Universal Container Runtime (app2).
-
-Let's explore the differences in some more detail.
-
-DC/OS uses [containerizers](/deploying-services/containerizers/) to run tasks in containers. Running tasks in containers offers a number of benefits, including the ability to isolate tasks from one another and control task resources programmatically. DC/OS supports two types of containerizers - the DC/OS Universal Container Runtime, and the Docker containerizer.
-
-For your first app, you used a Docker container image to package app1's dependencies ( Remember: never rely on dependencies being installed on an agent! ) and then used the Docker containerizer to execute it. Because the Docker containerizer internally uses the [Docker runtime](https://docs.docker.com/engine/userguide/intro/), you also used the Docker runtime.
+For your first app, you used a Docker container image to package dependencies so that you didn’t need to rely on particular programs being available on the agent, then used the Docker containerizer to run the app packaged in the Docker image. Because the Docker containerizer internally uses the [Docker runtime](https://docs.docker.com/engine/userguide/intro/), you also used the Docker runtime.
 
 For your second app, you did not have any dependencies and therefore could rely on the default DC/OS Universal Container Runtime. Internally, both runtimes use the same OS features for isolation, namely [cgroups](https://en.wikipedia.org/wiki/Cgroups) and [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces).
-This actually makes it possible to use the DC/OS Universal Container Runtime for running Docker images - check the [DC/OS Universal Container Runtime](/deploying-services/containerizers/) documentation for details.
