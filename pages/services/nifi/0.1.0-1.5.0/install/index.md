@@ -14,7 +14,7 @@ The default DC/OS Apache NiFi Service installation provides reasonable defaults 
 
 ## Prerequisites
 
-- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
+- If you are using DC/OS Enterprise, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
   - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
 
  - In `permissive` security mode a service account is optional.
@@ -25,13 +25,13 @@ A complete guide to Configuring DC/OS Access for NiFi can be found [here](../sec
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of DC/OS Apache NiFi Service, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions.
+To start a basic test cluster of DC/OS Apache NiFi Service, run the following command on the DC/OS CLI. DC/OS Enterprise users must follow additional instructions.
 
    ```shell
    dcos package install nifi
    ```
 
-This command creates a new instance with the default name `nifi`. Two instances cannot share the same name, so if you install additional instances beyond the default instance you must customize the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, wherein we can install the same application in different folders.
+This command creates a new instance with the default name `nifi`. Two instances cannot share the same name, so if you install additional instances beyond the default instance you must customize the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, wherein application can have same but in different folders, eg., folder1/nifi and folder2/nifi
 
 All DC/OS Apache NiFi Service CLI commands have a `--name`  argument, allowing you to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, such as `nifi`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
@@ -196,7 +196,7 @@ Alternatively, you can perform a custom installation from the DC/OS web interfac
 
 ## Integration with DC/OS access controls
 
-In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to restrict users and groups to certain services. Do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services; for instance, `staging/nifi` and `production/nifi`.
+In DC/OS Enterprise 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to restrict users and groups to certain services. Do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services; for instance, `staging/nifi` and `production/nifi`.
 
 **Steps:**
 

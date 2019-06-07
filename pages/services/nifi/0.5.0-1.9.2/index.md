@@ -19,7 +19,7 @@ DC/OS {{model.techName }}  offers the following benefits of a semi-managed servi
 
 1. Easy installation
 2. Multiple DC/OS {{model.techName }} clusters
-3. Elastic scaling of Nodes
+3. Elastic scaling of nodes
 4. Replication and graceful shutdown for high availability
 5. DC/OS {{model.techName }} cluster and Node monitoring
 

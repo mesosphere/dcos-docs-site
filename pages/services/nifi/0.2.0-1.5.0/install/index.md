@@ -14,7 +14,7 @@ The default DC/OS NiFi Service installation provides reasonable defaults for try
 
 ## Prerequisites
 
-- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
+- If you are using DC/OS Enterprise, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
 - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
     A complete guide to Configuring DC/OS Access for Nifi can be found [here](https://docs.mesosphere.com/services/nifi/configure-dcos-access/).
 - In `permissive` security mode a service account is optional.
@@ -23,7 +23,7 @@ The default DC/OS NiFi Service installation provides reasonable defaults for try
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of NiFi, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions.
+To start a basic test cluster of NiFi, run the following command on the DC/OS CLI. DC/OS Enterprise users must follow additional instructions.
 
    ```shell
    dcos package install nifi
@@ -195,7 +195,7 @@ Alternatively, you can perform a custom installation from the DC/OS web interfac
 
 ## Integration with DC/OS access controls
 
-In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access only to certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services; for instance, `staging/nifi` and `production/nifi`.
+In DC/OS Enterprise 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access only to certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services; for instance, `staging/nifi` and `production/nifi`.
 
 Steps:
 

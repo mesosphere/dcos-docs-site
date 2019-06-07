@@ -129,7 +129,7 @@ Here is the complete list of DC/OS Apache NiFi Service commands available:
     ```shell
     dcos nifi plan force-restart <plan> <phase> <step>
     ```       
-24. Force complete a specific step in the provided phase.
+24. Force-complete a specific step in the provided phase.
 
     ```shell
     dcos nifi plan force-complete <plan> [<phase> [<step>]]
@@ -201,7 +201,7 @@ Abort a sidecar operation due to observed failure or known required manual prepa
     --replace          Replace the existing configuration in whole. Otherwise, the existing configuration and options are merged.
     ```     
 
-35. Force complete a specific step in the provided phase
+35. Force-complete a specific step in the provided phase
 
     ```shell
     dcos nifi update force-complete <phase> <step>

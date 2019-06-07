@@ -43,7 +43,7 @@ Install the DC/OS {{model.techName }} service with the following attributes in a
   }
 }
  ```
-Or enable secrets through a web interface installation.
+Or enable secrets while installing {{ model.serviceName }} via UI.
 
 <img src="../img/showing_nifi_installation_with_secret_enabled.png" alt="{{ model.serviceName }} installation with secrets enabled" width="1000" border="2"/>
 

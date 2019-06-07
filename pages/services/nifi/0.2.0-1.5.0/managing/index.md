@@ -21,13 +21,13 @@ Some changes, such as decreasing the number of nodes or changing volume requirem
 
 The instructions below describe how to update the configuration for a running DC/OS service.
 
-### Enterprise DC/OS 1.10
+### DC/OS Enterprise 1.10
 
-Enterprise DC/OS 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
+DC/OS Enterprise 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
 
 #### Prerequisites
 
-+ Enterprise DC/OS 1.10 or newer.
++ DC/OS Enterprise 1.10 or newer.
 + Service with 1.5.0 version.
 + [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
 + The service's subcommand available and installed on your local machine.
@@ -40,7 +40,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 #### Preparing configuration
 
-If you installed this service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed this service with DC/OS Enterprise 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```shell
 dcos nifi describe > options.json
@@ -253,7 +253,7 @@ dcos nifi update force-restart service-phase service-0:[node]
 ```
 ## Taking Backup
 
-The DCOS Nifi Framework allows backup of Nifi Application to Amazon S3. The following information / values are required for Backup.
+The DCOS Nifi Framework allows backup of Nifi Application to Amazon S3. The following information / values are required for backup.
 
     1. AWS_ACCESS_KEY_ID
     2. AWS_SECRET_ACCESS_KEY
@@ -295,7 +295,7 @@ The Nifi backup is taken using the Nifi toolkit. The Nifi backup will be done us
 
     1. Backup - Backup to local node (ROOT/MOUNT)
 
-       The Backup task is responsible for taking backup of the local application and backing it up to the local node, which may be on the ROOT or Mount Volumne.
+       The backup task is responsible for taking backup of the local application and backing it up to the local node, which may be on the ROOT or Mount Volumne.
 
    [<img src="../service/Backup.png" alt="backup" width="800"/>](../service/Backup.png)
 
@@ -308,7 +308,7 @@ The Nifi backup is taken using the Nifi toolkit. The Nifi backup will be done us
 
     3. Cleanup - Remove the backup from local node.
 
-       Once, Step 2 is complete and the Backup has been uploaded to S3, a Sidecar Task known as Cleanup is triggered. This task cleans up/ removes the backup folder from the local Root/Mount volumes.
+       Once, Step 2 is complete and the backup has been uploaded to S3, a Sidecar Task known as Cleanup is triggered. This task cleans up/ removes the backup folder from the local Root/Mount volumes.
    [<img src="../service/Cleanup.png" alt="cleanup" width="800"/>](../service/Cleanup.png)
 
 

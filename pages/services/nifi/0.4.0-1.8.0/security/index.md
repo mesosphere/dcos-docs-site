@@ -150,12 +150,12 @@ If you install a service in permissive mode and do not specify a service account
 ### Prerequisites:
 
 - [DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and be logged in as a superuser.
-- [Enterprise DC/OS CLI 0.4.14 or later installed](https://docs.mesosphere.com/latest/cli/enterprise-cli/#ent-cli-install).
+- [DC/OS Enterprise CLI 0.4.14 or later installed](https://docs.mesosphere.com/latest/cli/enterprise-cli/#ent-cli-install).
 - If your [security mode](https://docs.mesosphere.com/latest/security/ent/) is permissive or strict, you must [get the root cert](https://docs.mesosphere.com/latest/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 ## Create a Key Pair
 
-In this step, a 2048-bit RSA public-private key pair is created using the Enterprise DC/OS CLI.
+In this step, a 2048-bit RSA public-private key pair is created using the DC/OS Enterprise CLI.
 
 
 1. Create a public-private key pair and save each value into a separate file within the current directory.

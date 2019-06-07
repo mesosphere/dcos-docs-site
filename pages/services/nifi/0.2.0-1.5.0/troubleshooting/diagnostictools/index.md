@@ -16,25 +16,25 @@ DC/OS clusters provide several tools for diagnosing problems with services runni
 
 The first step to diagnosing a problem is typically to take a look at the logs. Knowledge of the problem being diagnosed will help you to determine which task logs are relevant.
 
-As of this writing, the best and fastest way to view and download logs is via the Mesos UI at `<dcos-url>/mesos`. On the Mesos front page you will see two lists: A list of currently running tasks, followed by a list of completed tasks (whether successful or failed).
+The best and fastest way to view and download logs is via the Mesos UI at `<dcos-url>/mesos`. On the Mesos front page you will see two lists: A list of currently running tasks, followed by a list of completed tasks (whether successful or failed).
 
 [<img src="../service/1_Logging_All_Tasks.png" alt="mesos frontpage showing all tasks in the cluster" width="1000"/>](../service/1_Logging_All_Tasks.png)
 
-_Figure 1. - Mesos front page_
+Figure 1. - Mesos front page
 
 The Sandbox link for one of these tasks shows a list of files from within the task itself. For example, here’s a sandbox view of a nifi-0-node task from the above list:
 
 [<img src="../service/2_Inside_Task.png" alt="inside task" width="1000"/>](../service/2_Inside_Task.png)
 
-_Figure 2. - Task file list_
+Figure 2. - Task file list
 
-If the task is based on a Docker image, this list will only show the contents of `/mnt/sandbox`, and not the rest of the filesystem. If you need to view filesystem contents outside of this directory, you will need to use `dcos task exec` or `nsenter` as described below under Running commands within containers.
+If the task is based on a Docker image, this list will only show the contents of `/mnt/sandbox`, and not the rest of the filesystem. If you need to view filesystem contents outside of this directory, you will need to use `dcos task exec` or `nsenter` as described below under [Running commands within containers](#running-commands-within-containers).
 
-In the above task list(figure 1) there are multiple services installed, resulting in a pretty large list. The list can be filtered using the text box at the upper right, but there may be duplicate names across services. For example there are two instances of nifi and they’re each running a node-0. As the cluster grows, this confusion gets proportionally worse. We want to limit the task list to only the tasks that are relevant to the service being diagnosed. To do this, click “Frameworks” on the upper left to see a list of all the installed frameworks (mapping to our services):
+In the task list in Figure 1, multiple services are installed, resulting in a large list. The list can be filtered using the text box at the upper right, but there may be duplicate names across services. For example there are two instances of {{ model.serviceName }} and they’re each running a node-0. As the cluster grows, this confusion gets proportionally worse. We want to limit the task list to only the tasks that are relevant to the service being diagnosed. To do this, click “Frameworks” on the upper left to see a list of all the installed frameworks (mapping to our services):
 
 [<img src="../service/3_Active_Frameworks.png" alt="active frameworks" width="1000"/>](../service/3_Active_Frameworks.png)
 
-_Figure 3. - Active Frameworks_
+Figure 3. - Active Frameworks
 
 We then need to decide which framework to select from this list. This depends on what task we want to view.
 
@@ -46,13 +46,13 @@ From Mesos’s perspective, the Scheduler is being run as a Marathon app. Theref
 
 [<img src="../service/4_Scheduler.png" alt="scheduler" width="1000"/>](../service/4_Scheduler.png)
 
-_Figure 4. - List of active tasks_
+Figure 4. - List of active tasks
 
 Scheduler logs can be found either via the main Mesos frontpage in small clusters (possibly using the filter box at the top right), or by navigating into the list of tasks registered against the marathon framework in large clusters. In SDK services, the Scheduler is typically given the same name as the service. For example a `nifi-dev` service’s Scheduler would be named `nifi-dev`. Use the Sandbox link to view the Sandbox portion of the Scheduler filesystem, which contains files named `stdout` and `stderr`. These files respectively receive the `stdout/stderr` output of the Scheduler process, and can be examined to see what the Scheduler is doing.
 
 [<img src="../service/5_Stderr_out.png" alt="stdout and stderr" width="1000"/>](../service/5_Stderr_out.png)
 
-_Figure 5. - Scheduler output_
+Figure 5. - Scheduler output
 
 ## Task Logs
 
@@ -60,7 +60,7 @@ When the issue being diagnosed has to do with the service tasks, e.g. a given ta
 
 [<img src="../service/6_Task.png" alt="task" width="1000"/>](../service/6_Task.png)
 
-_Figure 6. - Tasks running in a framework_
+Figure 6. - Tasks running in a framework
 
 In the list above, we see separate lists of Active and Completed tasks:
 
@@ -73,7 +73,7 @@ Either or both of these lists may be useful depending on the context. Use the Sa
 
 [<img src="../service/7_Task_stderr_out.png" alt="task stderr and stdout" width="1000"/>](../service/7_Task_stderr_out.png)
 
-_Figure 7. - Output of `stderr` log file_
+Figure 7. - Output of `stderr` log file
 
 ## Mesos Agent logs
 
@@ -81,11 +81,11 @@ Occasionally, it can also be useful to examine what a given Mesos agent is doing
 
 Navigate to the agent you want to view either directly from a task by clicking the “Agent” item in the breadcrumb when viewing a task (this will go directly to the agent hosting the task), or by navigating through the “Agents” menu item at the top of the screen (you will need to select the desired agent from the list).
 
-In the Agent view, you will see a list of frameworks with a presence on that Agent. In the left pane you will see a plain link named “LOG”. Click that link to view the agent logs.
+In the Agent view, you will see a list of frameworks with a presence on that Agent. In the left pane you will see a plain link named **LOG**. Click that link to view the agent logs.
 
 [<img src="../service/8_MesosAgentLog.png" alt="mesos agent log" width="1000"/>](../service/8_MesosAgentLog.png)
 
-_Figure 8. - Mesos Agent log_
+Figure 8. - Mesos Agent log
 
 ## Logs via the CLI
 
@@ -93,7 +93,7 @@ You can also access logs via the DC/OS CLI using the `dcos task log` command. Fo
 
 [<img src="../service/9_Dcos_task.png" alt="dcos task" width="1000"/>](../service/9_Dcos_task.png)
 
-_Figure 9. - Output of command `dcos task log`_
+Figure 9. - Output of command `dcos task log`
 
 ## Running commands within containers
 
@@ -112,19 +112,19 @@ Once you are set up, running commands is very straightforward. For example, let�
 
 [<img src="../service/10_Multiple_task.png" alt="multiple task" width="1000"/>](../service/10_Multiple_task.png)
 
-_Figure 10. - Multiple tasks error message_
+Figure 10. - Multiple tasks error message
 
 Therefore we need to be more specific:
 
 [<img src="../service/11_dcos_task_specific.png" alt="task specific" width="1000"/>](../service/11_dcos_task_specific.png)
 
-_Figure 11. - Output of command `dcos task specific`_
+Figure 11. - Output of command `dcos task specific`
 
 We can also run interactive commands using the -it flags (short for --interactive --tty):
 
 [<img src="../service/12_Interactive_mode.png" alt="interactive mode" width="1000"/>](../service/12_Interactive_mode.png)
 
-_Figure 12. - Interactive commands_
+Figure 12. - Interactive commands
 
 While you could technically change the container filesystem using dcos task exec, any changes will be destroyed if the container restarts.
 
@@ -136,11 +136,11 @@ The Scheduler exposes several HTTP endpoints that provide information on any cur
 - Pods: Describes the tasks that the Scheduler has currently deployed. The full task info describing the task environment can be retrieved, as well as the last task status received from Mesos.
  - State: Access to other miscellaneous state information such as service-specific properties data.
 
-For full documentation of each command, see the API Reference. Here is an example of invoking one of these commands against a service named hello-world via curl:
+For full documentation of each command, see the see the [API Reference](../../api-reference). Here is an example of invoking one of these commands against a service named hello-world via curl:
 
 [<img src="../service/13_Curl_helloworld.png" alt="curl hello world" width="1000"/>](../service/13_Curl_helloworld.png)
 
-_Figure 13. - Output of `hello-world`_
+Figure 13. - Output of `hello-world`
 
 ## ZooKeeper/Exhibitor
 
@@ -150,4 +150,4 @@ DC/OS comes with Exhibitor, a commonly used frontend for viewing ZooKeeper. Exhi
 
 [<img src="../service/14_zookeeper_exhibitor.png" alt="zookeeper exhibitor" width="700"/>](../service/14_zookeeper_exhibitor.png)
 
-_Figure 14. - Exhibitor for ZooKeeper directory_
+Figure 14. - Exhibitor for ZooKeeper directory

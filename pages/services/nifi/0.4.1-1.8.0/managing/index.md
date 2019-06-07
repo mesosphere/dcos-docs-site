@@ -30,13 +30,13 @@ Some changes, such as decreasing the number of nodes or changing volume requirem
 
 The instructions below describe how to update the configuration for a running DC/OS service.
 
-### Enterprise DC/OS 1.10 and later
+### DC/OS Enterprise 1.10 and later
 
-Enterprise DC/OS 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
+DC/OS Enterprise 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
 
 #### Prerequisites
 
-- Enterprise DC/OS 1.10 or later.
+- DC/OS Enterprise 1.10 or later.
 - Service with 1.5.0 version or later.
 - [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
 - The service's subcommand available and installed on your local machine.
@@ -52,7 +52,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 #### Preparing configuration
 
-If you installed this service with Enterprise DC/OS 1.10 or later, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed this service with DC/OS Enterprise 1.10 or later, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```shell
 dcos {{ model.serviceName }} describe > options.json

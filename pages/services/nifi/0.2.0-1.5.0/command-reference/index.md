@@ -130,7 +130,7 @@ Here is the complete list of DCOS NiFi Commands Available:
     ```shell
     dcos nifi plan force-restart <plan> <phase> <step>
     ```       
-24. Force complete a specific step in the provided phase. Example uses include the following: Abort a sidecar operation due to observed failure or known required manual preparation that was not performed
+24. Force-complete a specific step in the provided phase. Example uses include the following: Abort a sidecar operation due to observed failure or known required manual preparation that was not performed
 
     ```shell
     dcos nifi plan force-complete <plan> [<phase> [<step>]]
@@ -198,7 +198,7 @@ Here is the complete list of DCOS NiFi Commands Available:
     --replace          Replace the existing configuration in whole. Otherwise, the existing configuration and options are merged.
     ```     
 
-35. Force complete a specific step in the provided phase
+35. Force-complete a specific step in the provided phase
 
     ```shell
     dcos nifi update force-complete <phase> <step>

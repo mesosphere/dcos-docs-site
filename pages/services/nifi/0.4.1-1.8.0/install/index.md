@@ -16,7 +16,7 @@ The default DC/OS {{model.techName }} service installation provides reasonable d
 
 ## Prerequisites
 
-- If you are using Enterprise DC/OS, you may [need to provision a service account](/latest/security/ent/service-auth/custom-service-auth/) before installing DC/OS {{model.techName }} Service. Only someone with `superuser` permission can create the service account.
+- If you are using DC/OS Enterprise, you may [need to provision a service account](/latest/security/ent/service-auth/custom-service-auth/) before installing DC/OS {{model.techName }} Service. Only someone with `superuser` permission can create the service account.
   - `strict` [security mode](/latest/security/ent/service-auth/custom-service-auth/) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
@@ -31,13 +31,13 @@ The minimum memory requirement for DC/OS {{ model.techName }} installation is {{
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of DC/OS {{model.techName }}, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions.
+To start a basic test cluster of DC/OS {{model.techName }}, run the following command on the DC/OS CLI. DC/OS Enterprise users must follow additional instructions.
 
    ```shell
    dcos package install {{ model.packageName }}
    ```
 
-This command creates a new instance with the default name `{{ model.packageName }}`. Two instances cannot share the same name, so installing additional instances beyond the default instance requires customizing the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, wherein we can install the same application in different folders.
+This command creates a new instance with the default name `{{ model.packageName }}`. Two instances cannot share the same name, so installing additional instances beyond the default instance requires customizing the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, wherein application can have same but in different folders, eg., folder1/nifi and folder2/nifi
 
 All `dcos {{ model.packageName }}` CLI commands have a `--name`  argument allowing the user to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, for example, `{{ model.packageName }}`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
@@ -207,7 +207,7 @@ Alternatively, you can perform a custom installation from the DC/OS web interfac
 
 ## Integration with DC/OS access controls
 
-In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services, for instance, `staging/{{ model.packageName }}` and `production/{{ model.packageName }}`.
+In DC/OS Enterprise 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services, for instance, `staging/{{ model.packageName }}` and `production/{{ model.packageName }}`.
 
 **Steps**:
 

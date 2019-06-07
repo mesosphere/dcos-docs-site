@@ -12,7 +12,7 @@ enterprise: false
 
 ## Configuration best practices for production
 
-  - Increase the number of TCP socket ports available. This is particularly important if the flow will be setting up and tearing down a large number of sockets in small period of time.
+  - Increase the number of TCP socket ports available. This is particularly important if the flow will be setting up and tearing down a large number of sockets in a short time.
 
            sudo sysctl -w net.ipv4.ip_local_port_range="10000 65000"
 
@@ -28,9 +28,9 @@ For the partitions handling the various NiFi repos, turn off things like `atime`
 
 Following is the recommended hardware for NiFi production installation:
 
-![Hardware Recommendation](../../service/HardwareRecommendation.png)
+![Hardware Recommendation](../service/HardwareRecommendation.png)
 
-_Figure 1. - Hardware sizing recommendations_
+Figure 1. - Hardware sizing recommendations
 
 ## Block device/storage
 

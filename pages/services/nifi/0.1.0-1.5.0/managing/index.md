@@ -20,13 +20,13 @@ Some changes, such as decreasing the number of nodes or changing volume requirem
 
 The instructions below describe how to update the configuration for a running DC/OS NiFi Service.
 
-### Enterprise DC/OS 1.10
+### DC/OS Enterprise 1.10
 
-Enterprise DC/OS 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
+DC/OS Enterprise 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
 
 #### Prerequisites
 
-+ Enterprise DC/OS 1.10 or later.
++ DC/OS Enterprise 1.10 or later.
 + Service with 1.5.0 version.
 + [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
 + The service's subcommand available and installed on your local machine.
@@ -40,7 +40,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 #### Preparing configuration
 
-If you installed DC/OS NiFi Service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed DC/OS NiFi Service with DC/OS Enterprise 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```shell
 dcos nifi describe > options.json
@@ -293,28 +293,28 @@ The NiFi backup is performed using the NiFi toolkit. The NiFi backup will be per
 
 1. `Backup` - Back up to local node (ROOT/MOUNT)
 
-   The Backup task is responsible for making a backup of the local application and backing it up to the local node, which may be on the ROOT or Mount Volume.
+   The backup task is responsible for making a backup of the local application and backing it up to the local node, which may be on the ROOT or Mount Volume.
 
-   [backup](../../service/Backup.png)
+   [backup](../service/Backup.png)
 
-   _Figure 1. - Backing up to the local node_
+   Figure 1. - Backing up to the local node
 
 
 2. `Upload_to_S3` - Upload the backup from the local node to S3
 
    This task takes the backup created in Step 1, from the ROOT/Mount volume, and uploads it to Amazon S3 in the Bucket Name specified.
 
-   [S3Upload.png](../../service/S3Upload.png)
+   [S3Upload.png](../service/S3Upload.png)
 
-   _Figure 2. - Uploading the backup file_
+   Figure 2. - Uploading the backup file
 
  3. `Cleanup` - Remove the backup from local node.
 
     After Step 2 is complete and the backup has been uploaded to Amazon S3, a sidecar task known as `cleanup` is triggered. This task cleans up and removes the backup folder from the local Root/Mount volumes.
 
-   [cleanup](../../service/Cleanup.png)
+   [cleanup](../service/Cleanup.png)
 
-   _Figure 3. - Cleaning up_
+   Figure 3. - Cleaning up
 
 
 ## NiFi toolkit commands
