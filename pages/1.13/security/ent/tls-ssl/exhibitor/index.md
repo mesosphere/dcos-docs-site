@@ -22,7 +22,7 @@ The strategy for securing Exhibitor is mutual TLS authentication. In order to se
 
 <p class="message--note"><strong>NOTE: </strong>A working Docker installation is required. If Docker is not available see https://github.com/mesosphere/exhibitor-tls-artifacts-gen/blob/master/README.md for information on running the command natively.</p>
 
-Download the script from the github release page and run it:
+Download the script from the GitHub release page and run it:
 
 ```sh
 curl -LsO https://github.com/mesosphere/exhibitor-tls-artifacts-gen/releases/download/0.0.3/exhibitor-tls-artifacts
