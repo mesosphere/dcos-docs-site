@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Confluent Kafka 2.3.0-4.0.0e
 excerpt:
 title: Confluent Kafka 2.3.0-4.0.0e
-menuWeight: 10
+menuWeight: -1
 model: /services/confluent-kafka/data.yml
 render: mustache
 featureMaturity:
