@@ -34,9 +34,9 @@ You might also want to review:
 # Deploy the sample app
 1. Add the sample app to Marathon using the app definition by running the following command:
 
-```bash
-dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json
-```
+    ```bash
+    dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json
+    ```
 
 1. Check that the sample app is running.
 

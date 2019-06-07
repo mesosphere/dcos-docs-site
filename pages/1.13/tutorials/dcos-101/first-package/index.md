@@ -174,8 +174,8 @@ You can verify that the Redis service is currently running and reporting a Healt
     ID               MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD  
 /redis-tutorial  1024   1     1/1    1/1       ---      False      DOCKER   N/A  
     ```
-    
- 1. Check the Redis log file by running the following command:
+
+1. Check the Redis log file by running the following command:
  
     ```bash
     dcos task log redis
@@ -196,6 +196,12 @@ Now that you have installed the Redis package, deployed the service on the clust
 
     ```bash
     ssh <agent-node-ip> -l <authorized-user>
+    ```
+
+    You can also use dcos task to look up the Mesos ID for the Redis service, then open a secure shell using a command similar to the following:
+
+    ```bash
+    dcos node ssh --master-proxy --mesos-id=dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0
     ```
 
 1. List the Docker containers to get the `ContainerID` for the container running the Redis service by running the following command:
@@ -246,6 +252,7 @@ You have successfully installed your first service from the package repository a
 
 The next tutorials explore additional getting started tasks that you can perform using the DC/OS web-based administrative console or command-line interface:
 - [Deploy your first sample application](../first-app/)
+- [Create and run custom apps](../create-service/)
 - [Discover deployed services](../service-discovery/)
 - [Deploy native containerized applications](../native-app/)
   
