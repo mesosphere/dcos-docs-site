@@ -13,7 +13,7 @@ In this section, you will verify that the parameters you provided allow DC/OS to
 
 1. Click **Test Connection** to validate your connection.
 
-1. Enter the user ID of a user in the external LDAP directory in the **LDAP Username** field. The `%(username)s` string will be replaced with the user ID that you supply. 
+1. Enter a user ID in the external LDAP directory in the **LDAP Username** field. The `%(username)s` string will be replaced with the user ID that you supply. 
 
     To simulate an actual login as closely as possible, we recommend using the credentials of a user other than the lookup user.
 

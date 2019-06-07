@@ -18,6 +18,8 @@ If you attempt to retrieve information from Active Directory but the connection 
 
 ![Cannot connect to the directory](/1.13/img/ldap-cannot-open-connection-error.png)
 
+Figure 1. Connection error message: timeout
+
 If you see an error message indicating the connection to the backend directory failed, the problem is most often caused by one of the following issues:
 
 - A required port is closed to all traffic or protected by firewall rules.
@@ -49,6 +51,8 @@ If you attempt to connect to Active Directory and the connection fails because t
 
 ![SSL connection error](/1.13/img/ldap-tsl-ssl-socket-error.png)
 
+Figure 2. Connection error: socket SSL wrapping error
+
 For example, you might see this error if the LDAP server is not configured to accept SSL/TLS connections or if the certificate used to secure the channel is invalid.
 
 If you have a problem connecting to Active Directory when using secure socket layer (SSL) connections, you should:
@@ -68,6 +72,8 @@ To change how DC/OS handles SSL/TLS connection errors:
 
     ![SSL/TLS setting option](/1.13/img/ldap-ssl-options.png)
 
+    Figure 3. SSL/TLS setting options
+
     For example, if you have configured the Select SSL/TLS setting to **Use SSL/TLS for all connections**, you might want to change the setting to **Attempt StartTLS, proceed unencrypted if it fails**.
 
 1. Click **Save Configuration**.
@@ -76,6 +82,8 @@ To change how DC/OS handles SSL/TLS connection errors:
 If you have configured connections to the LDAP server to abort if unable to use transport layer security (SSL/TLS), you might see the following error message:
 
 ![Aborted SSL/TLS connections](/1.13/img/ldap-enforced-TLS-error.png)
+
+Figure 4. Connection error message: TLS error
 
 To change how DC/OS handles SSL/TLS connection errors:
 1. Log in to the DC/OS web-based console.
@@ -88,6 +96,8 @@ To change how DC/OS handles SSL/TLS connection errors:
 
     ![SSL/TLS setting option](/1.13/img/ldap-ssl-options.png)
 
+    Figure 5. SSL/TLS setting option
+
     For example, if you want to continue to connect to the LDAP server when secure communication is not available, you can set the Select SSL/TLS setting to **Attempt StartTLS, proceed unencrypted if it fails**.
 
 1. Click **Save Configuration**.
@@ -96,6 +106,8 @@ To change how DC/OS handles SSL/TLS connection errors:
 If the connection to the LDAP server is successful, but the authentication credentials for the service account are incorrect, you might see the following error message:
 
 ![LDAP authentication error](/1.13/img/ldap-lookup-DN-error.png)
+
+Figure 6. LDAP authentication error
 
 To address this issue:
 1. Log in to the DC/OS web-based console.
@@ -110,6 +122,8 @@ To address this issue:
 
     ![Modify authentication information](/1.13/img/ldap-lookup-dn.png)
 
+    Figure 7. Modify authentication information
+
 1. Click **Save Configuration**.
 
 # Cannot find user
@@ -117,7 +131,9 @@ If the connection to the LDAP server is successful and the service account crede
 
 ![LDAP user not found](/1.13/img/ldap-user-error.png)
 
-In most cases, you see this error if a specified user or service account is not within the scope of the user search base you have defined or if there is a problem with the distinguished name (DN) or distinguished name (DN) template used to bind to the LDAP server. If you see this error, you should verify the following settings:
+Figure 8. LDAP user not found
+
+In most cases, you will see this error if a specified user or service account is not within the scope of the user search base you have defined or if there is a problem with the distinguished name (DN) or distinguished name (DN) template used to bind to the LDAP server. If you see this error, you should verify the following settings:
 - The type of bind operation and authentication method you are using to connect to the LDAP server.
 - The scope defined for the user search base.
 - The user distinguished name (DN) template you are using.
@@ -145,12 +161,16 @@ To look up the account information using Active Directory Users and Computers:
 1. Open **Active Directory Users and Computers**.
 1. Select the user account.
 
-    ![Selecting a user in Aßctive Directory Users and Computers](/1.13/img/ldap-aduc.png)
+    ![Selecting a user in Active Directory Users and Computers](/1.13/img/ldap-aduc.png)
+
+    Figure 9. Active Directory selections
 
 1. Right-click, then select **Properties**.
-1. Click the **Account** tab and check the **User logon name**.
+1. Click the **Account** tab and check the **User login name**.
 
-    ![User logon account property](/1.13/img/ldap-aduc-account-properties.png)
+    ![User login account property](/1.13/img/ldap-aduc-account-properties.png)
+
+    Figure 10. User login account
 
 ## Checking for alternative account name formats
 In some cases, you might want to look up account information using an alternative to the `sAMAccountName`. For example, you might want to look for account information by the `userPrincipalName` that defines unique accounts in a domain with the `user@domain.com` format. 
@@ -270,12 +290,14 @@ whenChanged : 12/17/2018 2:36:30 PM
 whenCreated : 12/17/2018 2:27:43 PM
 ```
 
-# User found but incorrect credentials
+# User with incorrect credentials
 If the connection to the LDAP server is successful and the specified user can be found inside the scope of the user search base but the credentials are wrong, you might see the following error message:
 
 ![Invalid user credentials](/1.13/img/ldap-wrong-user-credentials.png)
 
+Figure 11. Invalid user credentials
+
 If you see this error, check for the following potential issues that can cause the user credentials to be invalid:
 - Verify that the account is not locked or disabled.
 - Verify that the account password has not expired.
-- Check whether there are logon hours or other access control restrictions preventing the user from being authenticated.
+- Check whether there are login hours or other access control restrictions preventing the user from being authenticated.

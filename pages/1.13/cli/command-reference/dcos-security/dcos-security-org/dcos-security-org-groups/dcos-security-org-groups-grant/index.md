@@ -1,20 +1,20 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos security org groups show
-title: dcos security org groups show
-menuWeight: 159
-excerpt: Viewing information about a group
+navigationTitle:  dcos security org groups grant
+title: dcos security org groups grant
+menuWeight: 143
+excerpt: Granting permissions to a group
 enterprise: true
 ---
 
 # Description
 
-The `dcos security org groups show` command displays basic information about a group or groups.
+The `dcos security org groups grant` command grants the group with the given GID permission to enact a given ACTION on the resource with the given RID.
 
 # Usage
 
 ```
-dcos security org groups show [OPTIONS] [GIDS]...
+dcos security org groups grant [OPTIONS] GID RID ACTION
 ```
 
 # Options
@@ -22,7 +22,7 @@ dcos security org groups show [OPTIONS] [GIDS]...
 | Name |  Description |
 |---------|-------------|
 |  `-h`, `--help` |  Show this message and exit.|
-| `-j`, `--json` | Output data in JSON format. |
+| `--description` | TEXT. The description of the ACL with the given RID. If an ACL exists with the given RID then the description will not be overwritten. Default: "Created with the DC/OS Enterprise CLI".
 
 ## Positional Arguments
 

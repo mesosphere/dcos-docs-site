@@ -11,7 +11,7 @@ enterprise: true
 
 Your cluster will become more secure as you move from `permissive` to `strict` [security modes](/1.13/security/ent/#security-modes). However, there are a number of settings that you can modify independently of your security mode to increase the security of your cluster.
 
-- Ensure the network is setup according to the information for [securing your cluster](/1.13/administering-clusters/securing-your-cluster/).
+- Ensure that the network is set up according to the information for [securing your cluster](/1.13/administering-clusters/securing-your-cluster/).
 
 - <a name="secure-flag"></a>Set the [`auth_cookie_secure_flag`](/1.13/installing/production/advanced-configuration/configuration-reference/#auth-cookie-secure-flag-enterprise) to `true`.
 
@@ -32,3 +32,4 @@ Your cluster will become more secure as you move from `permissive` to `strict` [
 - If you [configure an external LDAP directory](/1.13/security/ent/ldap/ldap-conn/), select either **Use SSL/TLS for all connections** or **Attempt StartTLS, abort if it fails** and provide the root CA certificate and any intermediate certificates of the LDAP directory server in the **CA certificate chain (Optional)** field.
 
 - [Override the Linux user account of your services](/1.13/security/ent/users-groups/config-linux-user/) to use a less privileged account such as `nobody`.
+
