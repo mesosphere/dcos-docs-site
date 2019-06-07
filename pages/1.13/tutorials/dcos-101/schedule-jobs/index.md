@@ -13,7 +13,7 @@ You can create and administer jobs for the DC/OS cluster in any of the following
 
 The DC/OS application programming interface (API) for job-related operations provides the underlying functionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
 
-# Managing jobs with the DC/OS web-based interface
+# Manage jobs with the DC/OS web-based interface
 You can manage the most common job-related activity interactively through the DC/OS web-based interface. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS web-based interface only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/1.13/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.13/deploying-jobs/quickstart/#jobs-api).
 
 ## Add a job

@@ -2,22 +2,28 @@
 layout: layout.pug
 navigationTitle: Manage and scale resources
 title: Manage and scale resources
-excerpt: Provides strategies and examples for scaling resources allocated for deployed applications (part 10)
-menuWeight: 10
+excerpt: Provides strategies and examples for scaling resources allocated for deployed applications (part 9)
+menuWeight: 9
 ---
-
-# Before you begin
-* A [running DC/OS cluster](/1.13/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.13/tutorials/dcos-101/cli/).
-* [app2](/1.13/tutorials/dcos-101/app2/) deployed and running in your cluster.
-
-# Learning objective
 Resource management and resource isolation between tasks are core functions of any operating system. In this section, you will learn how to monitor and understand your resource utilization, how resource limits are enforced, and how to debug resource management issues.
 
+# Before you begin
+Before starting this tutorial, you should verify the following:
+- You have access to a running [DC/OS cluster](../start-here/) with at least at least one master node and three agent nodes.
+- You have access to a computer where the [DC/OS CLI](../cli/) is installed.
+- You have the sample [dcos-101/app2](../native-app/) application deployed and running in your cluster.
+
+# Learning objective
+By completing this tutorial, you will learn:
+- How to add resource placement constraints for apps.
+- How to monitor and understand your resource utilization.
+- How resource limits are enforced.
+- How to debug resource management issues.
+
 # Review the app definition
+Take another look at the app definition for [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go).
 
-* Take another look at the app definition for [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go).
-
-```
+```go
   {
   "id": "/dcos-101/app2",
   "cmd": "chmod u+x app2 && ./app2",
@@ -32,15 +38,17 @@ Resource management and resource isolation between tasks are core functions of a
   ...
 ```
 
-* The `cpus`, `mem`, `disk`, and `gpus` parameters above specify the allocated resources and therefore define the maximum amount of resources a task can use. This number is not necessarily the same as the amount of resources a task actually uses. That number is usually lower.
+In this sample app, the `cpus`, `mem`, `disk`, and `gpus` parameters specify the allocated resources and, therefore, define the maximum amount of resources a task can use. This number is not necessarily the same as the amount of resources a task actually uses. That number is usually lower.
 
-* You will notice that the id assigned in the app definitions for both [app1](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json) and [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) is prefixed by `/dcos-101/`. This defines the [application group](https://mesosphere.github.io/marathon/docs/application-groups.html) that the apps belong to. Application groups allow configuration and dependencies to be applied to a group of applications at the same time.
+You should also notice that the id assigned in the app definitions for both [app1](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json) and [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) is prefixed by `/dcos-101/`. This defines the [application group](https://mesosphere.github.io/marathon/docs/application-groups.html) that the apps belong to. Application groups allow configuration details and dependencies to be applied to a group of applications at the same time.
+
+# Add a placement constraint
+
 
 # Scale applications
 When you need more resources for your app, you can scale in two dimensions - horizontally and vertically.
 
 ### Scale horizontally by increasing the instance count
-
 Horizontal scaling involves increasing the number of instances of an application. You can scale the instance count in two ways:
 
 1. Scale an entire app group by a factor.

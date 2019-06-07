@@ -5,23 +5,14 @@ title: Deploy and expose native applications
 excerpt: Deploys an app using a UCR container and exposes it for access from outside of the cluster (part 8)
 menuWeight: 8
 ---
-In a [previous tutorial](/tutorials/dcos-101/app1/), you deployed an application that runs inside the cluster and interacts with another application--the Redis service--that also runs inside the cluster. Neither application is exposed outside of the cluster or available to any external users.
+In a [previous tutorial](/tutorials/dcos-101/app1/), you deployed an application that runs inside the cluster and interacts with another application--the Redis service--that also runs inside the cluster. Neither application is exposed outside of the cluster or available to any external users. This is because DC/OS supports running applications on two different type of nodes: **private agent nodes** and **public agent nodes**. 
+
+So far, you have only worked with applications and services that run on private agent nodes, which cannot be accessed from outside of the cluster. To expose a service or application to the outside world, you typically use a load balancer running on a public node.
 
 In this tutorial, you will deploy another sample application but with a few important differences:
 - The new sample application includes a presentation layer that presents a web-based user interface to users who access the application.
 - The new sample application uses a native DC/OS container--the Universal Container Runtime (UCR)--that does not rely on a Docker image or the Docker engine, making the application easier to deploy with fewer dependencies and less complexity.
-- You will expose the new sample application for access from outside of the cluster by running it on a public agent node with Marathon-LB.
-
-DC/OS has two different node types:
-
-1. Private agent nodes
-1. Public agent nodes
-
-Private agent nodes are usually only accessible inside the cluster, while public agent nodes allow for ingress access from outside the cluster.
-
-By default, applications and services run on private agent nodes, which cannot be accessed from outside of the cluster. To expose a service or application to the outside world, you typically use a load balancer running on one a public node.
-
-You will revisit the topic of load balancing and the different choices for load balancers later in this tutorial, but for now, you will use [Marathon-LB](/1.13/tutorials/dcos-101/loadbalancing/) as the load balancer. Marathon-LB uses [HAProxy](http://www.haproxy.org/) on a public agent node to provide external access and load balancing for applications running internally in the cluster.
+- You will expose the new sample application for access from outside of the cluster by running it on a public agent node with Marathon-LB as the load balancer.
 
 # Before you begin
 Before starting this tutorial, you should verify the following:
@@ -85,6 +76,8 @@ If you review the [app definition](https://raw.githubusercontent.com/joerg84/dco
     Accessing the app from within the cluster and viewing the raw HTML response proves the application is running. For this tutorial, however, you also want to expose the app to the public. In the next part of this tutorial you will do exactly that.
 
 # Install the load balancer
+Public agent nodes allow inbound access requests from clients outside of the cluster. The public agent is exposed to the outside world through a load balancer. For this tutorial, you will install [Marathon-LB](/1.13/tutorials/dcos-101/loadbalancing/) as the load balancer to provide external access for applications running internally in the cluster.
+
 1. Install Marathon-LB by running the following command:
 
     ```bash
@@ -128,13 +121,9 @@ If you review the [app definition](https://raw.githubusercontent.com/joerg84/dco
 
     ![Sample app2 web page](/1.13/img/tutorial-webpage.png)
 
-1. Add a new Key:Value pair, then click **Save** using the sample app.
+1. Add a new Key and add a new Value, then click **Save** using the sample app web-based frontend.
 
-1. Verify the total number of keys using the app1 sample application by running the following command: 
-
-    ```bash
-    dcos task log app1
-    ```
+1. Verify the total number of keys using the `app1` sample application by running the `dcos task log app1` command.
 
 1. Check Redis directly by running `dcos task`, copying the Mesos ID returned for the Redis service, then opening a secure shell [SSH](/1.13/administering-clusters/sshcluster/) on the node where the Redis service is running. 
 
