@@ -11,7 +11,11 @@ enterprise: true
 
 DC/OS comes pre-configured with the [Mesosphere Universe](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However this assumes internet access which is not always possible. For air-gapped environments, DC/OS Enterprise offers the solution of package registry for a flexible and seamless management of your packages.
 
-For a full list of the configuration options available for the DC/OS Package Registry use the command `dcos package describe package-registry --config`. You can find more information about the `dcos package` commands in the [CLI documentation](/1.13/cli/command-reference/dcos-package/).
+For a full list of the configuration options available for the DC/OS Package Registry use the following command:
+```bash
+dcos package describe package-registry --config
+```
+You can find more information about the `dcos package` commands in the [CLI documentation](/1.13/cli/command-reference/dcos-package/).
 
 For a detailed description of how to configure and deploy DC/OS Services, see [Configuring Universe Services](/1.13/deploying-services/config-universe-service/).
 
@@ -27,7 +31,7 @@ dcos package install package-registry --cli --yes
 dcos registry activate
 ```
 
-The `registry activate` command uses the default options which is **NOT recommended** if you are installing in prod environments. Please read through the rest of the sections to creation an options file and then you can activate the package registry by executing:
+The `registry activate` command uses the default options which is **NOT** recommended if you are installing in production environments. Please read through the rest of the sections to create an options file and then you can activate the package registry by executing:
 
 ```bash
 dcos registry activate --options=<custom-options-file>
@@ -37,19 +41,21 @@ dcos registry activate --options=<custom-options-file>
 
 Package registry can be configured with following options during deployment:
 
-1. Storage Options (Local storage OR Mount Volumes OR S3 Compatible Storage)
-2. Serivice namespacing and secrets
+1. [Storage Options](#storage-options) (Local storage OR Mount Volumes OR S3 Compatible Storage)
+2. [Service name spacing and secrets](#service-name-spacing-and-secrets)
 
-If you have a config file from one of the previous installations, you can skip this section and continue to the next section of instalating the package-registry.
+If you have a config file from one of the previous installations, you can skip this section and continue to the next section of installing the package-registry.
 
 ## Storage Options
 
 Package registry can be configured to use one of:
- 1. Local Storage
- 2. Mount Volumes OR
- 3. S3 Compatible storage
+ 1. [Local Storage](#local-storage)
+ 2. [Mount Volumes](#mount-volume-option) OR
+ 3. [S3 Compatible storage](#s3-storage-option)
 
-Package registry would use local storage by default which is NOT recommended for production usage. Please configure a persistent volume or S3 compatible storage for production usage. If you are using this for developement purposes and wish to use local storage, skip to the next section.
+### Local Storage
+
+Package registry would use local storage by default which is NOT recommended for production usage. Please configure a persistent volume or S3 compatible storage for production usage. If you are using this for development purposes and wish to use local storage, skip to the next section on service name spacing and secrets.
 
 ### Mount volume Option
 
@@ -81,7 +87,7 @@ When using Amazon S3, please refer to [Amazon S3 Regions & Endpoints](https://do
 
 #### S3 bucket name and path
 
-The combiniation of S3 bucket name and path inside the bucket should be unique to each deployment of package registry. Multiple instances from each deployment would however ensure synchronized access to this bucket.
+The combination of S3 bucket name and path inside the bucket should be unique to each deployment of package registry. Multiple instances from each deployment would however ensure synchronized access to this bucket.
 
 #### Upload the S3 credential to the DC/OS Secret store
 
@@ -111,7 +117,7 @@ The final `s3` config should something like this:
 
 <p class="message--note"><strong>NOTE: </strong>You must override the value for the properties <code>bucket</code>, <code>path</code> and <code>endpoint</code> to match the S3 configuration.</p>
 
-## Serivice namespacing and secrets
+## Service name spacing and secrets
 
 By default, package registry is installed as a marathon app with `dcos-registry` as its id. This name has somewhat unique significance because the `dockerd` on agents are configured to trust the package registry instance at `dcos-registry.marathon.l4lb.thisdcos.directory:443`. If you decide to change this name, you need to configure the `dockerd` to trust the custom name your registry is deployed at `<your-custom-name>.marathon.l4lb.thisdcos.directory:443`. For e.g. if you install registry under `/my/custom/dcos-registry` namespace, then ensure registry is accessible at `https://mycustomdcos-registry.marathon.l4lb.thisdcos.directory` (internal to cluster):
 

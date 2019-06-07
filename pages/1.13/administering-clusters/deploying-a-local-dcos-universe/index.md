@@ -7,9 +7,7 @@ excerpt: Installing and running DC/OS services on a local Universe datacenter
 enterprise: false
 ---
 
-<tr>
-  <td align=justify style=color:black><strong>NOTE:</strong> If you are using dcos-enterprise, use <code>package-registry</code> for a seamless management of packages in air-gapped environments. Local universe support is deprecated.</td>
-</tr>
+<p class="message--important"><strong>NOTE: </strong>If you are using dcos-enterprise, use [Package Registry]((/1.13/administering-clusters/package-registry/)) for a seamless management of packages in air-gapped environments. Local universe support is deprecated.</p>
 
 You can install and run DC/OS services on a datacenter without internet access with a local [Universe](https://github.com/mesosphere/universe). You can deploy a local Universe that includes all Certified packages (basic), or a local Universe that includes selected packages (advanced).
 
