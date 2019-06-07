@@ -9,11 +9,11 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-In this section you will set up the authentication method and parameters for your LDAP directory. There are two bind types and two authentication methods you can use. .
+In this section you will set up the authentication method and parameters for your LDAP directory. There are two bind types and two authentication methods you can use.
 
 # Bind Types
 
-Bind operations are used to authenticate clients to the directory server,  establish an authorization identity that will be used for subsequent operations processed on that connection, and to specify the LDAP protocol version that the client will use.
+Bind operations are used to authenticate clients to the directory server, establish an authorization identity that will be used for subsequent operations processed on that connection, and to specify the LDAP protocol version that the client will use.
 
 There are two bind types available to you: 
 
