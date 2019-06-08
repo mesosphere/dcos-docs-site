@@ -56,11 +56,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>CoreOS 2079.3.0</td>
-        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
@@ -70,11 +68,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
     </tr>
     <tr>
         <td>CoreOS 2023.4.0</td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
@@ -88,11 +84,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>CentOS 7.6</td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
@@ -102,14 +96,12 @@ Customers running DC/OS on non-supported platform components should upgrade to a
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>CentOS 7.4</td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
 </table>
 
@@ -120,11 +112,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>RHEL 7.6</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
@@ -134,11 +124,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>RHEL 7.4</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
@@ -152,11 +140,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Oracle Linux 7.6 (RHCK)</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
@@ -166,11 +152,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.4 (RHCK)</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
@@ -191,9 +175,9 @@ Use the following legend table to see the supported/not supported service for th
 <table class="table">
     <tr>
     <th><strong>Web Browser</strong></th>
+    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Chrome</td>
@@ -213,9 +197,9 @@ Use the following legend table to see the supported/not supported service for th
 <table class="table">
     <tr>
     <th><strong>CLI</strong></th>
+    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>    
     <tr>
         <td>DC/OS CLI 0.4.x</td>
@@ -278,11 +262,9 @@ The designations are as follows:
         <th><p style="text-align: center;"><strong>DC/OS 1.13</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.12</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
-        <th><p style="text-align: center;"><strong>DC/OS 1.10</strong></p></th>
     </tr>
     <tr>
         <td>Cassandra 2.4.x-3.0.16</td>
-        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -292,11 +274,9 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>Confluent-Kafka 2.5.x-4.1.2</td>
-        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -306,11 +286,9 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>Confluent-ZooKeeper 2.5.x-4.1.3e</td>
-        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -320,25 +298,9 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
     </tr>
-    <tr>
-        <td>Couchbase 0.2.0-5.5.0 </td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-        <td>Couchbase 0.3.0-5.5.3 (Recommended) </td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
+        <tr>
         <td>²DataStax-DSE 2.4.x-5.1.10</td>
-        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
