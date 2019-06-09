@@ -31,10 +31,12 @@ If it does, you can skip the `dcos package repo add` commands below.
 
 **Otherwise**, if you see a `No packages found` message you'll need to add a couple of package repositories to your cluster. For information about the current Edge-LB version support and compatibility, see the [Edge-LB documentation](/services/edge-lb/latest/) and the [Certified packages and DC/OS versions](/version-policy/#certified-packages-and-dcos-versions/) to compatibility matrix.
 
-```bash
-dcos package repo add edgelb https://<insert download link>/stub-universe-edgelb.json
+Use commands similar to the following to install the Edge-LB packages:
 
-dcos package repo add edgelb-pool https://<insert download link>/stub-universe-edgelb-pool.json
+```bash
+dcos package repo add edgelb https://downloads.mesosphere.com/edgelb/v1.3.1/assets/stub-universe-edgelb.json
+
+dcos package repo add edgelb-pool https://downloads.mesosphere.com/edgelb-pool/v1.3.1/assets/stub-universe-edgelb-pool.json
 ```
 
 Now install Edge-LB with:
