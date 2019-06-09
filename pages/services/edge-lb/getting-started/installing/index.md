@@ -76,13 +76,13 @@ To add the Edge-LB API server and pool packages to the package repository:
 1. Add the **Edge-LB API server** package to the repository by running a command similar to the following:
 
     ```bash
-    dcos package repo add --index=0 edgelb https://<download-link>/stub-universe-edgelb.json
+    dcos package repo add --index=0 edgelb https://downloads.mesosphere.com/edgelb/v1.3.1/assets/stub-universe-edgelb.json
     ```
 
 1. Add the **Edge-LB pool** package to the repository by running a command similar to the following:
 
     ```bash
-    dcos package repo add --index=0 edgelb-pool https://<download-link>/stub-universe-edgelb-pool.json
+    dcos package repo add --index=0 edgelb-pool https://downloads.mesosphere.com/edgelb-pool/v1.3.1/assets/stub-universe-edgelb-pool.json
     ```
 
 1. Open the DC/OS web-based console, then click **Catalog** to verify the Edge-LB and Edge-LB pool services have been added.
