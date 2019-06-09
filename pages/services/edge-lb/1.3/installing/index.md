@@ -38,20 +38,17 @@ In order to install both packages, you need to obtain package artifacts. They ca
 
 <p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without logging in using your customer service account.</p>
 
-Once you have these artifacts, they need to be made accesible to the cluster via an HTTP server. The address of the HTTP server will be used in the next step.
-
+Once you have these artifacts, they need to be made accessible to the cluster via an HTTP server. The address of the HTTP server will be used in the next step.
 
 ## Add them to the package repository
-
-Having the address where the artifacts for the Edge-LB API server and Edge-LB pool repos are available, use the following command to add them to the universe package repository:
-
+Having the address where the artifacts for the Edge-LB API server and Edge-LB pool repositories are available, use the following command to add them to the universe package repository:
 
 ```bash
-dcos package repo add --index=0 edgelb  https://<insert download link>/stub-universe-edgelb.json
+dcos package repo add --index=0 edgelb https://downloads.mesosphere.com/edgelb/v1.3.1/assets/stub-universe-edgelb.json
 ```
 
 ```bash
-dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-universe-edgelb-pool.json
+dcos package repo add --index=0 edgelb-pool https://downloads.mesosphere.com/edgelb-pool/v1.3.1/assets/stub-universe-edgelb-pool.json
 ```
 
 [enterprise]
