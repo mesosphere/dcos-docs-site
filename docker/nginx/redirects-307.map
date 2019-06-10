@@ -9,7 +9,7 @@
 ~^/services/hdfs/latest/(.*) /services/hdfs/2.5.0-2.6.0-cdh5.11.0/$1;
 ~^/services/jenkins/latest/(.*) /services/jenkins/3.5.4-2.150.1/$1;
 ~^/services/kafka/latest/(.*) /services/kafka/2.5.0-2.1.0/$1;
-~^/services/kubernetes/latest/(.*) /services/kubernetes/2.3.2-1.14.1/$1;
+~^/services/kubernetes/latest/(.*) /services/kubernetes/2.3.3-1.14.3/$1;
 ~^/services/kafka-zookeeper/latest/(.*) /services/kafka-zookeeper/2.5.0-3.4.13/$1;
 ~^/services/marathon-lb/latest/(.*) /services/marathon-lb/1.13/$1;
 ~^/services/minio/latest/(.*) /services/minio/0.1.1/$1;
