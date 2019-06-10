@@ -21,7 +21,7 @@ Refer to the [Couchbase documentation](https://developer.couchbase.com/documenta
 
 With transport encryption enabled, DC/OS {{ model.techName }} will automatically deploy all nodes with the correct configuration to encrypt communication via SSL.
 
-<p class="message--note"><strong>NOTE:</strong> The current exception is the connections to Redis, which does not support TLS. A code change is required in the other services in the way they use Jedis.</p>
+<p class="message--note"><strong>NOTE:</strong> The current exception is the connections to Redis, which does not support TLS. A code change is required in the other services in the way they use Redis.</p>
 
 The service uses the [DC/OS CA](/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the DC/OS CA will consider the service's certificates valid.
 
