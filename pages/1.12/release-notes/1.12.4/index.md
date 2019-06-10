@@ -32,9 +32,9 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
     This release increases the maximum size allowed for uploading packages from 1GB to 16GB. This change enables you to upload larger packages to a registry service without timing out the upload connection.
 
 ## Cluster operations
-- Provides improved clean-up operations to eliminate issues caused by unused volumes for removed comtainers (DCOS_OSS-1502). 
+- Provides improved clean-up operations to eliminate issues caused by unused volumes for removed containers (DCOS_OSS-1502). 
 
-    Previously, there have been issues caused by orphan volumes that were not remove when their associated containers were removed. In general, you can run  `docker prune` commands to avoid issues with unused volumes. However, with this release, you can also use  `dcos-docker-gc` to remove unused volumes associated with removed containers. 
+    Previously, there have been issues caused by orphan volumes that were not removed when their associated containers were removed. In general, you can run  `docker prune` commands to avoid issues with unused volumes. However, with this release, you can also use  `dcos-docker-gc` to remove unused volumes associated with removed containers. 
     
     The `dcos-docker-gc` program is a `systemd`-controlled service that runs hourly on every cluster node to perform Docker-related clean-up operations on each cluster.
 
@@ -42,6 +42,8 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 - Changes the security setting for the configuration parameters `aws_secret_access_key` and `exhibitor_azure_account_key` so that these values are not visible in the `user.config.yaml` file on cluster nodes (DCOS-51751). 
 
     These configuration parameters are used for Exhibitor. They are now marked as secret. The values set for these configuration parameters can only be viewed in the `user.config.full.yaml` file. The `user.config.full.yaml` file has stricter read permissions than the `user.config.yaml` file and is not included in DC/OS diagnostics bundles.
+
+    <p class="message--note"><strong>NOTE: </strong>text</p>This issue and fix are only applicable if you use Amazon S3 or Azure Storage as the Exhibitor backend.
 
 ## GUI
 - Includes updates to the DC/OS frontend GUI to improve the user experience (COPS-4796, COPS-4804, COPS-4857, DCOS-53836, DCOS-54034, DCOS-54039, DCOS-54041).
@@ -52,7 +54,7 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 ## Marathon
 - Introduces a watcher loop process to monitor and, if necessary, re-register the Marathon leader after reelection (COPS-3554).<!--Also in previous RN, 1.12.4-->
 
-- Fixes an issue that prevented services managed by Marathon from restarting *COPS-3593, DCOS_OSS-4193).
+- Fixes an issue that prevented services managed by Marathon from restarting (COPS-3593, DCOS_OSS-4193).
 
     In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable.
 
@@ -137,7 +139,7 @@ With this release, the DC/OS identity and access management LDAP synchronization
     With this release, DC/OS updates REX-Ray to support NVMe storage when the DC/OS cluster runs on an Amazon instance. To work with NVMe devices, however, you must provide your own `udev` rules and  `nvme-cli` package. For more information about using Rex-Ray, see the [REX-Ray](https://rexray.io/) website and [github repository](https://github.com/rexray).
 
 ## Third-party updates and compatibility
-- Updates support for REX-Ray to the most recent stable version (DCOS_OSS-4316,COPS-3961).
+- Updates support for REX-Ray to the most recent stable version (DCOS_OSS-4316, COPS-3961).
 
 - Updates the [ZooKeeper](https://zookeeper.apache.org/doc/r3.4.14/releasenotes.html) package for DC/OS to release version 3.4.14 (DCOS_OSS-4988).
 
@@ -193,7 +195,7 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 <a name="install"></a>
 
 ### Installation and upgrade
-- Provided full support for installing and operating a cluster on SELinux hardened OS with SE Linux in targeted-enforcing mode for all hardened non-DC/OS components.
+- Provided full support for installing and operating a cluster with a Security-Enhanced Linux (SELinux) operating system, allowing you to use SELinux in targeted-enforcing mode for all hardened non-DC/OS components.
 - Introduced a unified Terraform-based open source tool for provisioning, deploying, installing, upgrading, and decommissioning DC/OS on AWS, GCP, and Azure.
 - Introduced an intuitive, streamlined installation with a quick start process - Spin up a DC/OS cluster with a few easy steps in 10-15 minutes. 
 - Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
