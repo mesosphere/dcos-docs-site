@@ -104,7 +104,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [ssh_key_path](#ssh-key-path)                            | The path the installer uses to log into the target nodes. |
 | [ssh_port](#ssh-port)                                    | The port to SSH to, for example 22. |
 | [ssh_user](#ssh-user)                                    | The SSH username, for example `centos`. |
-| [superuser_password_hash](#superuser-password-hash-required-enterprise) | Required - The hashed superuser password. [enterprise type="inline" size="small" /] |
+| [superuser_password_hash](#superuser-password-hash-enterprise) | Required - The hashed superuser password. [enterprise type="inline" size="small" /] |
 | [superuser_service_account_public_key](#superuser-service-account-public-key) | The public key used for authenticating the superuser service account. |
 | [superuser_service_account_uid](#superuser-service-account-uid) | The user ID of the superuser service account |
 | [superuser_username](#superuser-username-required-enterprise)           | Required - The user name of the superuser. [enterprise type="inline" size="small" /] |
@@ -181,8 +181,6 @@ To validate the accuracy of the provided value, use the `openssl ciphers` utilit
 ### agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [private agent](/1.13/overview/concepts/#private-agent-node) host names.
 
-**Note:** The agent_list is not required for the production installer.
-
 ### auth_cookie_secure_flag [enterprise type="inline" size="small" /]
 Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. Because the DC/OS authentication cookie allows access to the DC/OS cluster, it should be sent over an encrypted connection.
 
@@ -210,11 +208,11 @@ The region containing the S3 bucket.
 
 ### aws_template_storage_secret_access_key
 
-The [secret access key](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
+The [secret access key](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket.
 
 ### aws_template_upload                        
 
-Whether to upload the customized advanced AWS templates to an S3 bucket. |
+Whether to upload the customized advanced AWS templates to an S3 bucket.
 
 ### bootstrap_url
  (Required) The URL path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify `bootstrap_url: file:///opt/dcos_install_tmp` unless you have moved the installer assets. By default the automated DC/OS installer places the build files in `file:///opt/dcos_install_tmp`.
@@ -468,6 +466,15 @@ Indicates whether to enable GPU support in DC/OS.
 
 For more information, see the [GPU documentation](/1.13/deploying-services/gpu/).
 
+### enable_ipv6
+* `enable_ipv6: 'true'`: Enables IPv6 networking in DC/OS. This is the default value.
+* `enable_ipv6: 'false'`: Disables IPv6 networking in DC/OS.
+
+Currently, IPv6 networks are supported only for Docker containers. Setting this flag to `true` will allow the following features to be enabled:
+* Users can create IPv6 DC/OS overlay networks. This will work only for Docker containers.
+* Service discovery for IPv6 containers will be available.
+* Layer-4 load-balancing will be available for IPv6 Docker containers if [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) is set to `true`.
+
 ### fault_domain_enabled [enterprise type="inline" size="small" /]
 By default, fault domain awareness is enabled and the installer will expect input for zones and regions from a [fault detect script](/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script-enterprise). To override this feature, add this parameter set to `false`, and no fault domain information will be expected or used.
 
@@ -557,7 +564,7 @@ The DNS name or IP address for the load balancer. If specified, this is included
 The location of the Mesos work directory on agent and public agent nodes. This defines the `work_dir` parameter for Mesos agents in the cluster. The default is `/var/lib/mesos/slave`. For details, see [Mesos documentation](https://mesos.apache.org/documentation/latest/configuration/agent/).
 
 ### mesos_container_log_sink
-- DC/OS can send copies of task logs to a host's journald, however this is disabled by default because of a known performance problem in [systemd](https://github.com/systemd/systemd/issues/5102) which was [fixed](https://github.com/systemd/systemd/pull/6392) on July 31, 2017 and included in systemd v235. However, some Linux distributions do not use this version of systemd, for example CentOS 7.4 as of July 2018 uses systemd v219. Thus DC/OS by default does not have logrotate and journald enabled. If this feature is desired, ensure a modern version of systemd is in use in order to avoid this systemd performance problem.
+DC/OS can send copies of task logs to a host's journald, however this is disabled by default because of a known performance problem in [systemd](https://github.com/systemd/systemd/issues/5102) which was [fixed](https://github.com/systemd/systemd/pull/6392) on July 31, 2017 and included in systemd v235. However, some Linux distributions do not use this version of systemd, for example CentOS 7.4 as of July 2018 uses systemd v219. Thus DC/OS by default does not have logrotate and journald enabled. If this feature is desired, ensure a modern version of systemd is in use in order to avoid this systemd performance problem.
 
 The log manager for containers (tasks). The options are:
 
@@ -600,7 +607,7 @@ Specifies the name of the default Seccomp profile which is applied cluster-wide 
 ### network_cni_root_dir_persist
 Specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node.
 
-<p class="message--note"><strong>NOTE: </strong>It requires Host reboot for this flag to take effect.</p>
+<p class="message--note"><strong>NOTE: </strong>It requires a reboot of the host for this flag to take effect.</p>
 
 ### oauth_enabled [oss type="inline" size="small" /]
 Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
@@ -618,14 +625,10 @@ Increasing this value may reduce load on the IAM by increasing the use of caches
 The infrastructure platform. The value is optional, free-form with no content validation, and used for telemetry only. Supply an appropriate value to help inform DC/OS platform prioritization decisions. Example values: `aws`, `azure`, `oneview`, `openstack`, `vsphere`, `vagrant-virtualbox`, `onprem` (default).
 
 ### process_timeout
-The allowable amount of time, in seconds, for an action to begin after the process forks. This parameter is not the complete process time. The default value is 120 seconds.
-
-<p class="message--note"><strong>NOTE: </strong>For a slower network, consider changing to `process_timeout: 600`.</p>
+The allowable amount of time, in seconds, for an action to begin after the process forks. This parameter is not the complete process time. The default value is 120 seconds. On slower networks, consider increasing to `process_timeout: 600`.
 
 ### public_agent_list
 A YAML nested list (`-`) of IPv4 addresses to your [public agent](/1.13/overview/concepts/#public-agent-node) host names.
-
-**Note:** The public_agent_list is not required for the production installer.
 
 ### resolvers
 A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can specify a maximum of 3 resolvers. Set this parameter to the most authoritative nameservers that you have.
@@ -640,7 +643,7 @@ A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can 
     ```
 -  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/1.13/networking/mesos-dns/).
 
-**Caution:** If you set the `resolvers` parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.
+<p class="message--warning"><strong>WARNING: </strong>If you set the <code>resolvers</code> parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.</p>
 
 ### rexray_config
 The <a href="https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/" target="_blank">REX-Ray</a> configuration for enabling external persistent volumes in Marathon. REX-Ray is a storage orchestration engine. The following is an example configuration.
@@ -677,22 +680,14 @@ Refer to the [security modes](/1.13/security/ent/#security-modes) section for a 
 ### ssh_key_path
 The path that the installer uses to log into the target nodes. By default this is set to `/genconf/ssh_key`. This parameter should not be changed because `/genconf` is local to the container that is running the installer, and is a mounted volume.
 
-<p class="message--note"><strong>NOTE: </strong>The `ssh_key_path` is not required for the production installer.
-</p>
-
 ### ssh_port
 The port to SSH to, for example `22`.
-
-<p class="message--note"><strong>NOTE: </strong>The `ssh_port` is not required for the production installer.
-</p>
 
 ### ssh_user
 The SSH username, for example `centos`.
 
-<p class="message--note"><strong>NOTE: </strong>The `ssh_user` is not required for the production installer.</p>
-
-### superuser_password_hash (Required) [enterprise type="inline" size="small" /]
-The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. This first super user account is used to provide a method of logging into DC/OS, at which point additional administrative accounts can be added. For more information, see the [security documentation](/1.13/security/ent/).
+### superuser_password_hash [enterprise type="inline" size="small" /]
+(Required) The hashed superuser password. The `superuser_password_hash` is generated by using the installer `--hash-password` flag. This first super user account is used to provide a method of logging into DC/OS, at which point additional administrative accounts can be added. For more information, see the [security documentation](/1.13/security/ent/).
 
 ### superuser_service_account_uid
 This service account authenticates using its public key specified by `superuser_service_account_public_key` configuration parameter.
@@ -725,21 +720,11 @@ Indicates whether to enable the DC/OS proxy.
     *  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` The HTTPS proxy.
     *  `no_proxy`: A YAML nested list (`-`) of subdomains to exclude from forwarding to the `https_proxy`. If the address matches one of these strings, or the host is within the domain of one of these strings, http(s) requests to that node are not proxied. For example, the `no_proxy` list can be a list of internal IP addresses.
 
-    <p class="message--note"><strong>NOTE: </strong>Wildcard characters (`*`) are not supported.</p>
+    **Note:** Wildcard characters (`*`) are not supported.</p>
 
     For more information, see the [examples](/1.13/installing/ent/custom/configuration/examples/#http-proxy).
 
     <p class="message--note"><strong>NOTE: </strong>You should also configure an HTTP proxy for <a href="https://docs.docker.com/engine/admin/systemd/#/http-proxy">Docker</a></p>
-
-### enable_ipv6
-* `enable_ipv6: 'true'`: Enables IPv6 networking in DC/OS. This is the default value.
-* `enable_ipv6: 'false'`: Disables IPv6 networking in DC/OS.
-
-Currently, IPv6 networks are supported only for Docker containers. Setting this flag to `true` will allow the following features to be enabled:
-* Users can create IPv6 DC/OS overlay networks. This will work only for Docker containers.
-* Service discovery for IPv6 containers will be available.
-* Layer-4 load-balancing will be available for IPv6 Docker containers if [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) is set to `true`.
-
 
 ### zk_super_credentials [enterprise type="inline" size="small" /]
 On DC/OS `strict` and `permissive` mode clusters the information stored in ZooKeeper is protected using access control lists (ACLs), so that a malicious user cannot connect to the ZooKeeper Quorum and directly modify service metadata. ACLs specify sets of resource IDs (RIDs) and actions that are associated with those IDs. ZooKeeper supports pluggable authentication schemes and has a few built in schemes: `world`, `auth`, `digest`, `host`, and `ip`.
