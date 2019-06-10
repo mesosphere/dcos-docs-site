@@ -10,7 +10,7 @@ render: mustache
 
 # Concepts
 
-The following two concept pictures are from Will Gorman's great [Mesoscon presentation](
+The following two concept pictures are from Will Gorman's [Mesoscon presentation](
 http://events.linuxfoundation.org/sites/events/files/slides/Continuous%20Delivery%20for%20DC%3AOS%20%20with%20Spinnaker.pdf). They introduce the key concepts that we will use in this section.
 
 **Pipelines** are the key deployment management construct (continuous delivery workflows) in {{ model.techName }}. They consist of a sequence of actions, known as **stages**. You can pass parameters from stage to stage along the pipeline. You can start a pipeline manually, or you can configure it to be started by automatic triggering events, such as a Jenkins job completing, a new Docker image appearing in your registry, a CRON schedule, or a stage in another pipeline. You can configure the pipeline to send notifications to interested parties at various points during pipeline execution (such as on pipeline start/complete/fail), by email, SMS or HipChat. The following picture shows a sample pipeline.
@@ -19,7 +19,7 @@ http://events.linuxfoundation.org/sites/events/files/slides/Continuous%20Deliver
 
 Figure 1. Sample {{ model.techName }} pipeline
 
-A **Stage** in {{ model.techName }} is an action that forms a building block for a pipeline. You can sequence stages in a pipeline in any order, though some stage sequences may be more common than others. {{ model.techName }} provides a number of stages such as **Deploy**, **Resize**, **Disable**, **Manual Judgement**, and many more.
+A **Stage** in {{ model.techName }} is an action that forms a building block for a pipeline. You can sequence stages in a pipeline in any order, though some stage sequences may be more common than others. {{ model.techName }} provides a number of stages such as **Deploy**, **Resize**, **Disable**, **Manual Judgment**, and many more.
 
 [<img src="/services/spinnaker/0.3.1-1.9.2/img/pipe-c02.png"/>](/services/spinnaker/0.3.1-1.9.2/img/pipe-c02.png)
 
@@ -90,7 +90,7 @@ Figure 10. Start Manual Execution button
 
 Figure 11. MyApp Clusters view
 
-The **myapp > Clusters** view shows the created server group.
+10. The **myapp > Clusters** view shows the created server group.
 
 [<img src="/services/spinnaker/0.3.1-1.9.2/img/pipe09.png"/>](/services/spinnaker/0.3.1-1.9.2/img/pipe09.png)
 
@@ -98,9 +98,9 @@ Figure 12. New server group
 
 ## Creating a pipeline with resize stages
 
-In this section we will create a pipepline that showcases the **Resize Server Group** stage type. We target the server group that we created in the previous section.
+In this section we will create a pipeline that showcases the **Resize Server Group** stage type. We target the server group that we created in the previous section.
 
-1. The first resize stage does a **Scale Down** by 5 instances
+1. The first resize stage does a **Scale Down** by 5 instances.
 
 [<img src="/services/spinnaker/0.3.1-1.9.2/img/pipe10.png"/>](/services/spinnaker/0.3.1-1.9.2/img/pipe10.png)
 
@@ -112,7 +112,7 @@ Figure 13. Scaling down
 
 Figure 14. Scaling up
 
-There is a **Manual Judgement** stage inbetween the two just to halt the pipeline so that you can easily observe the behavior when running the pipeline.
+There is a **Manual Judgment** stage in between the two just to halt the pipeline so that you can easily observe the behavior when running the pipeline.
 
 
 ## Creating a rolling blue-green pipeline
@@ -131,11 +131,11 @@ Figure 15. Stage green1
 
 Figure 16. Stage blue1
 
-3. Next follows the **judge** stage, which is of type **Manual Judgement**. From here there are two paths: **continue** or **rollback**.
+3. Next follows the **judge** stage, which is of type **Manual Judgment**. From here there are two paths: **continue** or **rollback**.
 
 [<img src="/services/spinnaker/0.3.1-1.9.2/img/pipe14.png"/>](/services/spinnaker/0.3.1-1.9.2/img/pipe14.png)
 
-Figure 17. Manual Judgement configuration
+Figure 17. Manual Judgment configuration
 
 4. The **rollback** stage is of type **Check Precondition Configuration**. It checks whether the judge asked for **rollback**; if `true`, the rest of that pipeline branch is executed.
 

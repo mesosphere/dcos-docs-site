@@ -10,7 +10,7 @@ render: mustache
 
 # Clouddriver configuration
 
-In order to target Kubernetes for container delivery you must activate the `Kubernetes configuration` in the `Clouddriver` section of the {{ model.techName }} service. To do this, change the value of `kubernetes.enabled` to `true`.
+1. In order to target Kubernetes for container delivery you must activate the `Kubernetes configuration` in the `Clouddriver` section of the {{ model.techName }} service. To do this, change the value of `kubernetes.enabled` to `true`.
 
 [<img src="/services/spinnaker/0.3.1-1.9.2/img/kube00.png" />](/services/spinnaker/0.3.1-1.9.2/img/kube00.png)
 
@@ -27,7 +27,7 @@ If you have both the provider for DC/OS and Kubernetes enabled, then **Create Se
 
 Figure 2. Choose Kubernetes or DC/OS
 
-The creation dialog for Kubernetes is straight forward, you simply specify your Kubernetes manifest. In our sample we deliver an `nginx` instance.
+The creation dialog for Kubernetes is straightforward; you simply specify your Kubernetes manifest. In our sample we deliver an `nginx` instance.
 
 [<img src="/services/spinnaker/0.3.1-1.9.2/img/kube02.png" />](/services/spinnaker/0.3.1-1.9.2/img/kube02.png)
 

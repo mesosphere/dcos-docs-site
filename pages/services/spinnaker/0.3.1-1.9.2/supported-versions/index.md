@@ -15,7 +15,7 @@ render: mustache
 ## Package Versioning Scheme
 
 - {{ model.techName }}: 1.9.2
-- DC/OS: 1.10 and 1.11
+- DC/OS: 1.10, 1.11, 1.12 and 1.13
 
 Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of {{ model.techName }}. For example, 0.3.1-1.9.2 indicates version 0.3.1 of the DC/OS integration and version 1.9.2 of Spinnaker.
 
