@@ -10,9 +10,9 @@ model: /services/spinnaker/data.yml
 render: mustache
 ---
 
-# DC/OS 1.10
+# DC/OS 1.10 and later
 
-If you are using DC/OS 1.10 or later:
+If you are using DC/OS 1.10 or later version:
 
 Uninstall the service from the DC/OS CLI with the command `dcos package uninstall <package_name>`. For example, to uninstall the {{ model.techName }} instance named `spinnaker-dev`, run:
 

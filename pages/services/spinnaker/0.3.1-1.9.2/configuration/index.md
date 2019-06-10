@@ -34,7 +34,7 @@ igor-local.yaml
 ### front50-local.yaml
 Front50 is the {{ model.techName }} **persistence service**. The following section shows how to configure the AWS S3 (enabled=true) and GCS (enabled=false) persistence plugin in `front50-local.yaml`.
 
-```json
+```yaml
 cassandra:
   enabled: false
 
@@ -113,7 +113,7 @@ dcos:
 
 For more configuration options see [spinnaker/clouddriver](https://github.com/spinnaker/clouddriver/blob/master/clouddriver-web/config/clouddriver.yaml)
 ### gate-local.yaml (optional)
-Gate is the {{ model.techName }} **api service**. The following shows how to configure OAuth2 in `gate-local.yaml`.
+Gate is the {{ model.techName }} **api service**. The following section shows how to configure OAuth2 in `gate-local.yaml`.
 
 ```yaml
 #security:
@@ -134,7 +134,7 @@ Gate is the {{ model.techName }} **api service**. The following shows how to con
 ```
 
 ### echo-local.yaml (optional)
-Echo is the {{ model.techName }} **notification service**. The following shows how to configure the email notification plugin in `echo-local.yaml`.
+Echo is the {{ model.techName }} **notification service**. The following section shows how to configure the email notification plugin in `echo-local.yaml`.
 
 ```yaml
 mail:
@@ -160,7 +160,7 @@ mail:
 For more configuration options see [spinnaker/echo](https://github.com/spinnaker/echo/blob/master/echo-web/config/echo.yaml), and [spinnaker/spinnaker](https://github.com/spinnaker/spinnaker/tree/master/install).
 
 ### igor-local.yaml (optional)
-Igor is the {{ model.techName }} **trigger service**. The following shows how to configure the dockerRegistry trigger plugin in `igor-local.yaml`.
+Igor is the {{ model.techName }} **trigger service**. The following section shows how to configure the dockerRegistry trigger plugin in `igor-local.yaml`.
 
 ```yaml
 dockerRegistry:

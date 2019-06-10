@@ -171,7 +171,7 @@ The **continue** stage is of type **Check Precondition Configuration**. It check
 
 Figure 22. Check Precondition Configuration stage
 
-### Stage green2
+### Stage **green2**
 
 Stage **green2** scales up the new version by 400%, which gets the new version to 10 instances.
 
@@ -185,7 +185,7 @@ Stage **blue2** scales down the old version by 100%, which gets the old version 
 
 Figure 24. Stage **blue2** scaling down old version 
 
- ## Manual Execution
+## Manual Execution
 
 We are finished with the definition of our pipeline, so let us **Start Manual Execution**. The pipeline will run up to the **judge** step.
 
