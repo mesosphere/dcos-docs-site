@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Configuring Spinnaker for production and development
 title: Configuration
 menuWeight: 20
-model: /services/spinnaker/data.yaml
+model: /services/spinnaker/data.yml
 render: mustache
 ---
 
