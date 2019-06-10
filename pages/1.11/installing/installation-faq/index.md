@@ -6,7 +6,6 @@ menuWeight: 20
 excerpt: Frequently asked questions about installing DC/OS
 ---
 
-
 ## Q. Can I install DC/OS on an already running Mesos cluster?
 We recommend starting with a fresh cluster to ensure all defaults are set to expected values. This prevents unexpected conditions related to mismatched versions and configurations.
 
@@ -66,22 +65,25 @@ To backup the IAM database to a file run the following command on one of the mas
 [enterprise]
 ## Q. How do I restore the IAM database?
 [/enterprise]
+You can restore the DC/OS identity and access management (IAM) database from a previously-created database backup file. Keep in mind that you cannot use a database backup file and the restore command-line utility to create a new database in a new DC/OS cluster. You should only use the database backup to restore the identity and access management database in the same cluster you used to create the backup file and in the same ZooKeeper state as the cluster was when you created the backup file.
+
+- To restore the IAM database for a cluster from the backup file `~/iam-backup.sql`, run the following commands on one of the master nodes:
 
 To restore the IAM database from a file `~/iam-backup.sql` run the following commands on one of the master nodes:
 
-1. First, we create a new database called `iam_new` into which to load the backup.
+1. Create a new database called `iam_new` into which to load the backup.
 
     ```bash
     sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "CREATE DATABASE iam_new"
     ```
 
-1. Next, we load the data into the new database.
+1. Load the data into the new database.
 
     ```bash
     sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) --database=iam_new < ~/iam-backup.sql
     ```
 
-1. With the backup data loaded into the `iam_new` database, we now need to rename the `iam` database to `iam_old`.
+1. With the backup data loaded into the `iam_new` database, rename the `iam` database to `iam_old`.
 
     ```bash
     sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam RENAME TO iam_old"
@@ -89,14 +91,14 @@ To restore the IAM database from a file `~/iam-backup.sql` run the following com
 
     <p class="message--note"><strong>NOTE: </strong>After this command is issued, the IAM is completely unavailable. Any requests to the IAM will fail.</p>
 
-1. Finally, we rename the `iam_new` database to `iam`.
+1. Rename the `iam_new` database to `iam`.
 
     ```bash
     sudo /opt/mesosphere/bin/cockroach sql --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip) -e "ALTER DATABASE iam_new RENAME TO iam"
     ```
     <p class="message--note"><strong>NOTE: </strong>After this command is issued, the IAM is available again. Requests to the IAM will once again succeed.</p>
 
-    The IAM database is restored from the backup file and the cluster is operational.
+    The IAM database is restored from the backup file and the cluster returns to healthy operation.
 
 <a name="zk-backup"></a>
 
