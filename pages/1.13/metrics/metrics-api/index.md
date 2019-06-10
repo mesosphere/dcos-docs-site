@@ -6,7 +6,7 @@ menuWeight: 6
 excerpt: Using the Metrics API
 beta: false
 ---
-You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications. The Metrics API is one way to get metrics from DC/OS. It is designed for occasional targeted access to specific tasks and hosts. It is not the best way to get a comprehensive picture of all metrics on DC/OS. It is recommended to use the [DC/OS Monitoring service](/services/beta-dcos-monitoring/0.4.3-beta/) to monitor all the metrics on your cluster.
+You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications. The Metrics API is one way to get metrics from DC/OS. It is designed for occasional targeted access to specific tasks and hosts. It is not the best way to get a comprehensive picture of all metrics on DC/OS. It is recommended to use the [DC/OS Monitoring service](/services/dcos-monitoring/1.0.0/) to monitor all the metrics on your cluster.
 
 The Metrics API is backed by [Telegraf](/1.13/overview/architecture/components/#telegraf), which runs on all nodes in the cluster.
 
