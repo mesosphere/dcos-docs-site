@@ -73,7 +73,7 @@ For example, CN={{ model.serviceName }}-0-node.demonifi, O="Mesosphere, Inc", L=
 Kerberos authentication relies on a central authority to verify that DC/OS {{model.techName }} clients are who they say they are. DC/OS {{model.techName }} integrates with your existing Kerberos infrastructure to verify the identity of clients.
 
 ### Prerequisites
-- The hostname and port of a KDC reachable from your DC/OS cluster
+- The hostname and port of a Key Distribution Center (KDC) reachable from your DC/OS cluster
 - Sufficient access to the KDC to create Kerberos principals
 - Sufficient access to the KDC to retrieve a keytab for the generated principals
 - [The DC/OS Enterprise CLI](/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
@@ -91,8 +91,6 @@ The DC/OS {{model.techName }} service requires a Kerberos principal for the serv
 ### Place Service Keytab in DC/OS Secret Store
 
 The DC/OS {{model.techName }} service uses a keytab containing the above service and user principals (service keytab). After creating the principals above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by `name __dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. 
-
-<!-- Please make sure this is still current: More details [here.](https://docs.mesosphere.com/services/ops-guide/overview/#binary-secrets) -->
 
 Create secret named "{{ model.serviceName }}admin_kerberos_secret" for password of Kerberos User Principal: `{{ model.serviceName }}admin`
 

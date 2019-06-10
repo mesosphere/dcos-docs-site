@@ -10,7 +10,7 @@ model: ../../data.yml
 render: mustache
 ---
 
-One of the benefits of running containerized services is that they can be placed anywhere in the cluster. Since they can be deployed anywhere on the cluster, clients need a way to find the service. This is where service discovery comes in.
+One of the benefits of running containerized services is that they can be placed anywhere on the cluster. Since they can be deployed anywhere on the cluster, clients need a way to find the service. This is where service discovery comes in.
 
 
 # Discovering Endpoints
@@ -19,23 +19,23 @@ Once the service is running, you may view information about its endpoints via ei
 
 CLI:
 - List endpoint types: 
-  ```
+  ```shell
   dcos {{ model.serviceName }} endpoints
   ```
 
 - View endpoints for an endpoint type:
-  ```
+  ```shell
   dcos {{ model.serviceName }} endpoints <endpoint>
   ```
 
 API:
 - List endpoint types: 
-  ```
+  ```shell
   <dcos-url>/service/{{ model.serviceName }}/v1/endpoints
   ```
 
 - View endpoints for an endpoint type: 
-  ```
+  ```shell
   <dcos-url>/service/{{ model.serviceName }}/v1/endpoints/<endpoint>
   ```
 
@@ -70,7 +70,7 @@ This JSON array contains a list of valid nodes that the client can use to connec
 
 When TLS is enabled, an endpoint named `node-tls` should also be listed. To verify a TLS connection from a client, the DC/OS trust bundle with a CA certificate is required.
 
-# Accessing the DC/OS {{model.techName }} web interface with Edge-LB configuration
+# Accessing the DC/OS {{model.techName }} UI with Edge-LB configuration
 
 ### Assumptions
   - DC/OS {{model.techName }} is installed on DC/OS without TLS and Kerberos

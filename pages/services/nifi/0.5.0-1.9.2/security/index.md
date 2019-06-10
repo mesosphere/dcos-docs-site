@@ -39,7 +39,7 @@ The service uses the [DC/OS CA](https://docs.mesosphere.com/latest/security/ent/
 [Grant](/latest/security/ent/perms-management/) the service account the correct permissions.
 - In DC/OS 1.10, the required permission is `dcos:superuser full`.
 - In DC/OS 1.11 and later, the required permissions are:
-```
+```shell
 dcos:secrets:default:/<service name>/* full
 dcos:secrets:list:default:/<service name> read
 dcos:adminrouter:ops:ca:rw full
@@ -47,10 +47,9 @@ dcos:adminrouter:ops:ca:ro full
 ```
 where `<service name>` is the name of the service to be installed.
 
-<!-- Not clear if this is the right location DCOS-39455 --> 
 Run the following DC/OS Enterprise CLI commands to set permissions for the service account on a strict cluster:
 
-```
+```shell
 dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:task:app_id:<service/name> create
 dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:reservation:principal:dev_hdfs create
 dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:principal:dev_hdfs create
@@ -77,7 +76,7 @@ For example, CN={{ model.serviceName }}-0-node.demonifi, O="Mesosphere, Inc", L=
 Kerberos authentication relies on a central authority to verify that DC/OS {{model.techName }} clients are who they say they are. DC/OS {{model.techName }} integrates with your existing Kerberos infrastructure to verify the identity of clients.
 
 ### Prerequisites
-- The hostname and port of a KDC reachable from your DC/OS cluster
+- The hostname and port of a Key Distribution Center (KDC) reachable from your DC/OS cluster
 - Sufficient access to the KDC to create Kerberos principals
 - Sufficient access to the KDC to retrieve a keytab for the generated principals
 - [The DC/OS Enterprise CLI](/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
@@ -96,7 +95,6 @@ The DC/OS {{model.techName }} service requires a Kerberos principal for the serv
 
 The DC/OS {{model.techName }} service uses a keytab containing the above service and user principals (service keytab). After creating the principals above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by `name __dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. 
 
-<!-- Please make sure this is still current: More details [here.](https://docs.mesosphere.com/services/ops-guide/overview/#binary-secrets) -->
 
 Create secret named "{{ model.serviceName }}admin_kerberos_secret" for password of Kerberos User Principal: `{{ model.serviceName }}admin`
 

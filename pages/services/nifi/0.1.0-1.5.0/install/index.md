@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 20
-excerpt: Installing DC/OS Apache NiFi from the web interface or the CLI
+excerpt: Installing DC/OS Apache NiFi from the UI or the CLI
 featureMaturity:
 enterprise: false
 ---
 
- DC/OS Apache NiFi service is available in the Universe and can be installed using either the web interface or the DC/OS CLI.
+ DC/OS Apache NiFi service is available in the Universe and can be installed using either the UI or the DC/OS CLI.
 
 The default DC/OS Apache NiFi Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
@@ -47,11 +47,11 @@ You can specify a custom configuration in an `options.json` file and pass it to 
 
 For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/) for service configuration access.
 
-## Installing from the DC/OS web interface
+## Installing from the DC/OS UI
 
-Alternatively, you can install DC/OS NiFi Service from the DC/OS web interface. Select the app from the Catalog and choose Deploy.
+Alternatively, you can install DC/OS NiFi Service from the DC/OS UI. Select the app from the Catalog and choose Deploy.
 
-If you install Apache NiFi from the DC/OS web interface, the `dcos nifi` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
+If you install Apache NiFi from the DC/OS UI, the `dcos nifi` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
    ```shell
    dcos package install nifi --cli
@@ -75,7 +75,7 @@ When the above JSON configuration is passed to the `package install nifi`  comma
    dcos package install nifi --options=nifi-other.json
    ```
 
-Multiple instances of Apache NiFi may be installed into your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Apache NiFi named `nifi-staging` and another named `nifi-prod`, each with its own custom  configuration.
+Multiple instances of Apache NiFi may be installed on your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Apache NiFi named `nifi-staging` and another named `nifi-prod`, each with its own custom  configuration.
 
 After specifying a custom name for your instance, it can be reached using `dcos nifi` CLI commands or directly over HTTP as described below.
 
@@ -192,7 +192,7 @@ The following command creates a cluster using `sample-nifi.json`:
    ```
 Store your custom configuration in source control.
 
-Alternatively, you can perform a custom installation from the DC/OS web interface. Choose `ADVANCED INSTALLATION` at install time.
+Alternatively, you can perform a custom installation from the DC/OS UI. Choose `ADVANCED INSTALLATION` at install time.
 
 ## Integration with DC/OS access controls
 
@@ -216,7 +216,7 @@ In DC/OS Enterprise 1.10 and later, you can integrate your SDK-based service wit
 
   5. Click `CONFIGURE` and change the service name to `/testing/nifi`, then deploy. The slashes in your service name are interpreted as folders. You are deploying `nifi` in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.
 
-<p class="message--important"><strong>IMPORTANT: </strong>Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 and earlier versions do not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 do not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p>
 
 ## Interacting with your foldered service
 

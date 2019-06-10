@@ -10,9 +10,9 @@ enterprise: false
 
 # Updating Configuration
 
-You can make changes to the DC/OS NiFi Service after it has been launched. Configuration management is handled by the Scheduler process, which in turn handles Nifi deployment itself.
+You can make changes to the DC/OS NiFi Service after it has been launched. Configuration management is handled by the Scheduler process, which in turn handles NiFi deployment itself.
 
-After you make a change, the scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `nifi-0`, then `nifi-1`, and so on.
+After you make a change, the Scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `nifi-0`, then `nifi-1`, and so on.
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence.
 
@@ -108,7 +108,7 @@ To see a full listing of available options, run `dcos package describe --config 
 
 The service deploys two nodes by default. You can customize this value at initial deployment or after the cluster is already running. Shrinking the cluster is not supported.
 
-Modify the COUNT `"node":{"count":3}` environment variable to update the node count. If you decrease this value, the scheduler will prevent the configuration change until it is reverted back to its original value or larger.
+Modify the COUNT `"node":{"count":3}` environment variable to update the node count. If you decrease this value, the Scheduler will prevent the configuration change until it is reverted back to its original value or larger.
 
 <a name="resizing-a-node"></a>
 ### Resizing a node
@@ -326,9 +326,9 @@ The admin toolkit contains command line utilities for administrators to support 
 - Node Manager — The node manager tool allows administrators to perform a status check on a node as well as to connect, disconnect, or remove nodes that are part of a cluster.
 - File Manager — The file manager tool allows administrators to backup, install or restore a NiFi installation from backup.
 
-The admin toolkit is bundled with the `nifi-toolkit` and can be executed with scripts found in the bin folder. Further documentation is available at [Nifi Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit).
+The admin toolkit is bundled with the `nifi-toolkit` and can be executed with scripts found in the bin folder. Further documentation is available at [NiFi Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit).
 
-To execute the Nifi Administration Toolkit commands, we need to do a `dcos task exec` to a NiFi node, and set the JAVA_HOME using the command:
+To execute the NiFi Administration Toolkit commands, we need to do a `dcos task exec` to a NiFi node, and set the JAVA_HOME using the command:
 
 ```shell
 export JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH

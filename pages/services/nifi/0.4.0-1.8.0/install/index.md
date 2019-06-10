@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 20
-excerpt: Installing DC/OS NiFi from the web interface or the CLI
+excerpt: Installing DC/OS NiFi from the UI or the CLI
 featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache
 ---
 
- DC/OS {{model.techName }} is available in the Universe and can be installed by using either the web interface or the DC/OS CLI.
+ DC/OS {{model.techName }} is available in the Universe and can be installed by using either the UI or the DC/OS CLI.
 
 The default DC/OS {{model.techName }} service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
@@ -27,7 +27,7 @@ The default DC/OS {{model.techName }} service installation provides reasonable d
 The minimum memory requirement for DC/OS {{ model.techName }} installation is {{ model.install.minMemory }}. DC/OS {{model.techName }} installation will take time since the DC/OS {{model.techName }} application is approximately 1.10GB. The approximate installation time required would be around 20~25 minutes for a two node cluster.
 
 
-<p class="message--note"><strong>NOTE: </strong>A complete guide to Configuring DC/OS Access for Nifi can be found <a href="https://docs.mesosphere.com/services/nifi/configure-dcos-access">here</a>.
+<p class="message--note"><strong>NOTE: </strong>A complete guide to Configuring DC/OS Access for NiFi can be found <a href="https://docs.mesosphere.com/services/nifi/configure-dcos-access">here</a>.
 
 # Installing from the DC/OS CLI
 
@@ -55,9 +55,9 @@ For more information on building the `options.json` file, see [DC/OS documentati
 
 # Installing from the DC/OS Web Interface
 
-You can install DC/OS {{model.techName }} from the DC/OS web interface by selecting the app from the Catalog and then clicking on **Deploy**.
+You can install DC/OS {{model.techName }} from the DC/OS UI by selecting the app from the Catalog and then clicking on **Deploy**.
 
-If you install DC/OS {{model.techName }} from the DC/OS web interface, the
+If you install DC/OS {{model.techName }} from the DC/OS UI, the
 `dcos {{ model.packageName }}` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
 
@@ -85,7 +85,7 @@ When the above JSON configuration is passed to the `package install {{ model.pac
    dcos package install {{ model.packageName }} --options={{ model.packageName }}-other.json
    ```
 
-Multiple instances of DC/OS {{model.techName }} may be installed into your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of DC/OS {{model.techName }} named `{{ model.packageName }}-staging` and another named `{{ model.packageName }}-prod`, each with its own custom  configuration.
+Multiple instances of DC/OS {{model.techName }} may be installed on your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of DC/OS {{model.techName }} named `{{ model.packageName }}-staging` and another named `{{ model.packageName }}-prod`, each with its own custom  configuration.
 
 After specifying a custom name for your instance, it can be reached using `dcos {{ model.packageName }}` CLI commands or directly over HTTP as described below.
 <p class="message--important"><strong>IMPORTANT: </strong>The service name cannot be changed after initial install. Changing the service name would require installing a new instance of the service against the new name, then copying over any data as necessary to the new instance.</p>
@@ -203,7 +203,7 @@ The following command creates a cluster using `sample-{{ model.packageName }}.js
    ```
 Store your custom configuration in source control.
 
-Alternatively, you can perform a custom installation from the DC/OS web interface. Choose ADVANCED INSTALLATION at install time.
+Alternatively, you can perform a custom installation from the DC/OS UI. Choose ADVANCED INSTALLATION at install time.
 
 ## Integration with DC/OS access controls
 
@@ -227,7 +227,7 @@ In DC/OS Enterprise 1.10 and later, you can integrate your SDK-based service wit
 
 1. Click CONFIGURE and change the service name to `/testing/{{ model.packageName }}`, then deploy. The slashes in your service name are interpreted as folders. You are deploying `{{ model.packageName }}` in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.
 
-<p class="message--note"><strong>NOTE: </strong> Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 and earlier versions do not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p>
+<p class="message--note"><strong>NOTE: </strong> Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 do not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p>
 
 ## Interacting with your foldered service
 
@@ -241,7 +241,7 @@ To interact with your foldered service over the web directly, use `http://<dcos-
 
    For example:
    
-   ```
+   ```shell
    http://<dcos-url>/service/testing/{{ model.packageName }}/v1/endpoints
    ```
 

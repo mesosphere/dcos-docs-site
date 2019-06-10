@@ -17,4 +17,4 @@ render: mustache
 - Support to add additional library 
 
 ## Bug Fix
-- Fix restart bug while NiFi is installed with kerberos.
+- Fix restart bug while NiFi is installed with Kerberos.

@@ -34,7 +34,7 @@ The following components work together to deploy and maintain the DC/OS Apache N
 
 - Packaging
 
-    DC/OS Apache NiFi is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named ‘Cosmos’) creates a Marathon app that contains a rendered version of the marathon.json.mustache template provided by the package. For DC/OS Apache NiFi, this Marathon app is the scheduler for the service
+    DC/OS Apache NiFi is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named ‘Cosmos’) creates a Marathon app that contains a rendered version of the marathon.json.mustache template provided by the package. For DC/OS Apache NiFi, this Marathon app is the Scheduler for the service
 
     For further discussion of DC/OS components, see the [architecture documentation](https://docs.mesosphere.com/latest/overview/architecture/components/).
 
@@ -43,9 +43,9 @@ The following components work together to deploy and maintain the DC/OS Apache N
 Internally, DC/OS Apache NiFi Service treats “Deployment” as moving from one state to another state. By this definition, “Deployment” applies to many scenarios:
 
  - When NiFi is first installed, deployment moves from a null configuration to a deployed configuration.
- - When the deployed configuration is changed by editing an environment variable in the scheduler, deployment moves from an initial running configuration to a new proposed configuration.
+ - When the deployed configuration is changed by editing an environment variable in the Scheduler, deployment moves from an initial running configuration to a new proposed configuration.
 
-In this section, we will describe how these scenarios are handled by the scheduler.
+In this section, we will describe how these scenarios are handled by the Scheduler.
 
 ## Initial install
 
@@ -59,13 +59,13 @@ This is the flow for deploying a new service:
 
 3. Cosmos creates a Marathon app definition by rendering NiFi’s `marathon.json.mustache` file with the configuration options provided in the request, which represents NiFi’s Scheduler. Cosmos queries Marathon to create the app.
 
-4. Marathon launches the NiFi’s scheduler somewhere in the cluster using the rendered app definition provided by Cosmos.
+4. Marathon launches the NiFi’s Scheduler somewhere in the cluster using the rendered app definition provided by Cosmos.
 
-5. NiFi’s scheduler is launched. From this point onwards, the SDK handles deployment.
+5. NiFi’s Scheduler is launched. From this point onwards, the SDK handles deployment.
 
 ### Steps handled by the Scheduler
 
-The scheduler starts with the following state:
+The Scheduler starts with the following state:
 
 - A `svc.yml` template that represents the service configuration.
 
@@ -82,7 +82,7 @@ The scheduler starts with the following state:
  - If the Framework ID is present, the Scheduler will attempt to reconnect to Mesos using that ID. This may result in a “Framework has been removed” error if Mesos doesn’t recognize that Framework ID, indicating an incomplete uninstall.
  - If the Framework ID is not present, the Scheduler will attempt to register with Mesos as a Framework. Assuming this is successful, the resulting Framework ID is then immediately stored.
 
-4. Now that the Scheduler has registered as a Mesos Framework, it is able to start interacting with Mesos and receiving offers. When this begins, the scheduler will begin running the Offer Cycle and deploying `nifi`. See that section for more information.
+4. Now that the Scheduler has registered as a Mesos Framework, it is able to start interacting with Mesos and receiving offers. When this begins, the Scheduler will begin running the Offer Cycle and deploying `nifi`. See that section for more information.
 
 5. The Scheduler retrieves its deployed task state from ZooKeeper and finds that there are tasks that should be launched. This is the first launch, so all tasks need to be launched.
 
@@ -233,7 +233,7 @@ Click CONFIGURE and change the service name to `/testing/nifi`, then deploy.
 
 The slashes in your service name are interpreted as folders. You are deploying `nifi` in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.
 
-**Caution:** Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 and earlier versions do not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.
+**Caution:** Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 do not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.
 
 ### Interacting with your foldered service
 

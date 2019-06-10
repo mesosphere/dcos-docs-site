@@ -131,7 +131,7 @@ curl  -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/pod/<node-
 
 You will see a response similar to the following:
 
-<!-- TODO: using node-0 here, but ensure that the node name matches a Apache Nifi service node type -->
+<!-- TODO: using node-0 here, but ensure that the node name matches a Apache NiFi service node type -->
 
 CLI Example
 
@@ -345,7 +345,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nodes/remov
 
 ## Control NiFi node using GET endpoint
 
-All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the GET method are accessible using the following DC/OS CLI and HTTP commands.
+All NiFi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the GET method are accessible using the following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell

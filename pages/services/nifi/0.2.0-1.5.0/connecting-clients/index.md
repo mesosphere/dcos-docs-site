@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Connecting Clients
-One of the benefits of running containerized services is that they can be placed anywhere in the cluster. Since they can be deployed anywhere on the cluster, clients need a way to find the service. This is where service discovery comes in.
+One of the benefits of running containerized services is that they can be placed anywhere on the cluster. Since they can be deployed anywhere on the cluster, clients need a way to find the service. This is where service discovery comes in.
 
 
 ## Discovering Endpoints

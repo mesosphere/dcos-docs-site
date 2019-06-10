@@ -19,7 +19,7 @@ DC/OS NiFi  offers the following benefits of a semi-managed service:
 2. Multiple NiFi clusters
 3. Elastic scaling of nodes
 4. Replication and graceful shutdown for high availability
-5. NiFi cluster and Node monitoring
+5. NiFi cluster and node monitoring
 
 
 

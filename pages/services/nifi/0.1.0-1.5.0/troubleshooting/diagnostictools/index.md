@@ -18,7 +18,7 @@ The first step in diagnosing a problem is to take a look at the logs. Knowledge 
 
 The best way to view and download logs is via the Mesos UI at `<dcos-url>/mesos`. On the Mesos front page you will see two lists: a list of currently running tasks and a list of completed tasks (whether successful or failed).
 
-![mesos frontpage showing all tasks in the cluster](../../service/1_Logging_All_Tasks.png)
+![mesos front page showing all tasks in the cluster](../../service/1_Logging_All_Tasks.png)
 
 Figure 1. - Mesos front page
 
@@ -30,7 +30,7 @@ Figure 2. - Task file list
 
 If the task is based on a Docker image, this list will only show the contents of `/mnt/sandbox`, and not the rest of the file system. If you need to see file system contents outside of this directory, you will need to use the commands `dcos task exec` or `nsenter`, as described below under [Running commands within containers](#running-commands-within-containers).
 
-There are multiple services installed in the task list, resulting in a large list. You can filter the list using the text box at the upper right, but there may be duplicate names across services. For example, there are two instances of `nifi` and each is running a `node-0`. As the cluster grows, this confusion gets proportionally worse. You need to limit the task list to those that are relevant to the service being diagnosed. To do this, click “Frameworks” on the upper left to see a list of all the installed frameworks (mapping to our services):
+There are multiple services installed in the task list, resulting in a large list. You can filter the list using the text box at the upper right, but there may be duplicate names across services. For example, there are two instances of `nifi` and each is running a `node-0`. As the cluster grows, this confusion gets proportionally worse. You need to limit the task list to those that are relevant to the service being diagnosed. To do this, click **Frameworks** on the upper left to see a list of all the installed frameworks (mapping to our services):
 
 ![active frameworks](../../service/3_Active_Frameworks.png)
 
@@ -44,11 +44,11 @@ If the problem is one of deployment or management, such as when a service is "st
 
 From Mesos’s perspective, the Scheduler is being run as a Marathon app. Therefore you should pick Marathon from this list and then find the Scheduler in the list of tasks.
 
-![scheduler](../../service/4_Scheduler.png)
+![Scheduler](../../service/4_Scheduler.png)
 
 Figure 4. - List of active tasks
 
-You can find Scheduler logs either via the main Mesos front page if your cluster is small (possibly using the filter box at the top right). If your cluster is large, you can also navigate into the list of tasks registered against the Marathon framework. In SDK services, the Scheduler is typically given the same name as the service; for example, a Nifi-dev service’s Scheduler would be named `nifi-dev`. Use the Sandbox link to view the Sandbox portion of the Scheduler file system, which contains files named `stdout` and `stderr`. These files receive the `stdout/stderr` output of the Scheduler process, and can be examined to see what the Scheduler is doing.
+You can find Scheduler logs either via the main Mesos front page if your cluster is small (possibly using the filter box at the top right). If your cluster is large, you can also navigate into the list of tasks registered against the Marathon framework. In SDK services, the Scheduler is typically given the same name as the service; for example, a NiFi-dev service’s Scheduler would be named `nifi-dev`. Use the Sandbox link to view the Sandbox portion of the Scheduler file system, which contains files named `stdout` and `stderr`. These files receive the `stdout/stderr` output of the Scheduler process, and can be examined to see what the Scheduler is doing.
 
 ![stdout and stderr](../../service/5_Stderr_out.png)
 
@@ -96,14 +96,14 @@ Figure 9. - Output of command `dcos task log`
 
 ## Running commands within containers
 
-A useful tool for diagnosing the task state is the ability to run arbitrary commands within the task. The available tools for doing this are as follows:
+A useful tool for diagnosing the task state is the ability to run commands within the task. The available tools for doing this are as follows:
 
 DC/OS 1.9 introduced the task `exec command`, which can be used to run.
 
 ### Prerequisites
 
    - SSH keys for accessing your configured cluster (such as via `ssh-add`). SSH is used behind the scenes to get into the cluster.
-   - A recent version of the [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/) with support for the `task exec` command
+   - A recent version of the [DC/OS CLI](https://docs.mesosphere.com/latest/cli/) with support for the `task exec` command
 
 ### Using `dcos task exec`    
 
@@ -125,7 +125,7 @@ You can also run interactive commands using the `-it` flags (short for `--intera
 
 Figure 12. - Interactive commands
 
-While you could technically change the container file system using `dcos task exec`, any changes will be destroyed if the container restarts.
+While you could theoretically change the container file system using `dcos task exec`, any changes will be destroyed if the container restarts.
 
 ## Querying the Scheduler
 
@@ -145,7 +145,7 @@ Figure 13. - Output of `hello-world`
 
 **Warning:** This option should only be used as a last resort. Modifying anything in ZooKeeper directly may cause your service to behave in unpredictable ways.
 
-DC/OS comes with Exhibitor, a commonly used frontend for viewing ZooKeeper. Exhibitor may be accessed at `<dcos-url/exhibitor>`. A given SDK service will have a node named `dcos-service-<svcname>` visible here. This is where the Scheduler puts its state, so that it is not lost if the Scheduler is restarted. In practice, it is far easier to access this information via the Scheduler API (or via the service CLI) as described earlier, but direct access using Exhibitor can be useful in situations where the Scheduler itself is unavailable or otherwise unable to serve requests.
+DC/OS comes with Exhibitor, a commonly used frontend for viewing ZooKeeper. Exhibitor may be accessed at `<`<dcos-url>/exhibitor`>`. A given SDK service will have a node named `dcos-service-<svcname>` visible here. This is where the Scheduler puts its state, so that it is not lost if the Scheduler is restarted. In practice, it is far easier to access this information via the Scheduler API (or via the service CLI) as described earlier, but direct access using Exhibitor can be useful in situations where the Scheduler itself is unavailable or otherwise unable to serve requests.
 
 ![zookeeper exhibitor](../../service/14_zookeeper_exhibitor.png)
 

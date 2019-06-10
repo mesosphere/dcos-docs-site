@@ -20,7 +20,7 @@ dcos nifi --name=nifi-dev plan show deploy
 
 # Accessing Logs
 
-Logs for the scheduler and all service nodes can be viewed from the DC/OS web interface.
+Logs for the Scheduler and all service nodes can be viewed from the DC/OS UI.
 
 - Scheduler logs are useful for determining why a node isn’t being launched (this is under the purview of the Scheduler).
 - Node logs are useful for examining problems in the service itself.
@@ -29,7 +29,7 @@ In all cases, logs are generally piped to files named `stdout` and/or `stderr`.
 
 To view logs for a given node, perform the following steps:
 
-  1. Access the DC/OS web interface.
+  1. Access the DC/OS UI.
   2. Navigate to **Services** and click on the service to be examined (default NiFi).
   3. In the list of tasks for the service, click on the task to be examined (Scheduler is named after the service, nodes are each named, for example  `node-<#>-server` depending on the type).
   4. In the task details, click on the Logs tab to go into the log viewer. By default, you will see `stdout`, but `stderr` is also useful. Use the pull-down in the upper right to select the file to be examined.
@@ -90,7 +90,7 @@ A common user mistake is to remove the Scheduler task from Marathon, which does 
 
 ## Uninstall the rest of the service
 
-If you really want to uninstall the service, you must complete the normal package uninstall steps described under Uninstall.
+If you really want to uninstall the service, you must complete the normal package uninstall steps described under [Uninstall].(../uninstall)
 
 ## Recover the Scheduler
 
@@ -101,7 +101,7 @@ If you want to bring the Scheduler back, you can do a `dcos package install` usi
 If you forgot to run `janitor.py` the last time you ran the service, you may see the error message 'Framework has been removed'. See Uninstall for steps on doing that. In case you are curious, here is what happened:
 
 1. You ran `dcos package nifi --app-id nifi`. This destroyed the Scheduler and its associated tasks, but did not clean up its reserved resources.
-2. Later on, you tried to reinstall the service. The scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by `janitor.py`. The scheduler tried to re-register using that framework ID.
+2. Later on, you tried to reinstall the service. The Scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by `janitor.py`. The Scheduler tried to re-register using that framework ID.
 3. Mesos returned an error because it knows that framework ID is no longer valid. Hence the confusing ‘Framework has been removed’ error.
 
 # Stuck deployments
@@ -195,4 +195,4 @@ Now the step is again marked as PENDING, as the Scheduler again attempts to rede
   ```
 This example shows how steps in the Deployment Plan (or any other Plan) can be manually retriggered or forced to a completed state by querying the Scheduler. This does not come up often, but it can be a useful tool in certain situations.
 
-**Note:** The `dcos plan` commands will also accept UUID id values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where you view the plan, then it changes structure, then you change a plan step that is not the same one you were expecting (but which had the same name).
+**Note:** The `dcos plan` commands will also accept UUID id values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where you view the plan, then it changes structure, then you change a plan step that is not the same one you were expecting (but which had the same name).</p>

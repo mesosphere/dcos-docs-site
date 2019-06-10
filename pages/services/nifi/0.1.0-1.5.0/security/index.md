@@ -96,7 +96,7 @@ Example: CN=nifi-0-node.demonifi, O="Mesosphere, Inc", L=San Francisco, ST=CA, C
 Kerberos authentication relies on a central authority to verify that NiFi users' clients are who they say they are. DC/OS NiFi Service integrates with your existing Kerberos infrastructure to verify the identity of clients.
 
 ### Prerequisites
-- The hostname and port of a KDC reachable from your DC/OS cluster
+- The hostname and port of a Key Distribution Center (KDC) reachable from your DC/OS cluster
 - Sufficient access to the KDC to create Kerberos principals
 - Sufficient access to the KDC to retrieve a keytab for the generated principals
 - [The DC/OS Enterprise CLI](https://docs.mesosphere.com/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)

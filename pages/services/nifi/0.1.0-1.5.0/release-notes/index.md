@@ -24,7 +24,7 @@ Based on the latest stable release of the `dcos-commons` SDK (Version 0.40.2), t
 - Orchestrated software and configuration update, ability to add new nodes, increase memory and CPU. Installation on DCOS
 Cluster provides the ability to restart and replace nodes.
 - Placement constraints for pods
-- Uniform user experience across all Nifi Cluster nodes
+- Uniform user experience across all NiFi Cluster nodes
 - Graceful shutdown for nodes
 - Foldered installation
 
