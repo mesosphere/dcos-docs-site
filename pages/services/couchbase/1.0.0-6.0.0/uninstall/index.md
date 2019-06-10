@@ -35,7 +35,7 @@ The Scheduler performs the uninstall with the following actions:
 
 The cluster automatically removes the Scheduler task once it advertises the completion of the uninstall process.
 
-<p class="message--warning"><strong>WARNING: </strong> Any data stored in reserved disk resources will be irretrievably lost. Once the uninstall operation has begun, it cannot be cancelled. Doing so may leave the service in an uncertain, half-destroyed state.</p> 
+<p class="message--warning"><strong>WARNING: </strong> Once the uninstall operation has begun, it cannot be cancelled. Doing so may leave the service in an uncertain, half-destroyed state.</p> 
 
 
 
