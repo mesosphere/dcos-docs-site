@@ -43,7 +43,7 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
     These configuration parameters are used for Exhibitor. They are now marked as secret. The values set for these configuration parameters can only be viewed in the `user.config.full.yaml` file. The `user.config.full.yaml` file has stricter read permissions than the `user.config.yaml` file and is not included in DC/OS diagnostics bundles.
 
-    <p class="message--note"><strong>NOTE: </strong>text</p>This issue and fix are only applicable if you use Amazon S3 or Azure Storage as the Exhibitor backend.
+    <p class="message--note"><strong>NOTE: </strong>This issue and fix are only applicable if you use Amazon S3 or Azure Storage as the Exhibitor backend.</p>
 
 ## GUI
 - Includes updates to the DC/OS frontend GUI to improve the user experience (COPS-4796, COPS-4804, COPS-4857, DCOS-53836, DCOS-54034, DCOS-54039, DCOS-54041).
@@ -89,7 +89,7 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 ## Networking
 - Adds a timeout to the Mesos network overlay module to prevent the overlay master from getting stuck in RECOVERING mode (COPS-4167, COPS-4747, DCOS_OSS-4575, DCOS-47930).
 
-- Includes a fix that prevents duplicate virtual IP addresses (VIP) from showing up after the manual removal of an agent or framework initiated by operator intervention (COPS-4703).
+- Includes a fix that prevents duplicate virtual IP addresses (VIP) from showing up after the manual removal of an agent or framework initiated by operator intervention (COPS-4703, DCOS_OSS-4963, DCOS-51157).
 
     Previously, if an operator manual removed an agent or framework while performing routine maintenance or by issuing the framework TEARDOWN call, the Mesos agent might return information about terminated tasks in a response field normally reserved for running tasks. This incorrect response in turn resulted in the `dcos-net` networking component adding a duplicate VIP entry. The fix in this release prevents the `dcos-net` networking component from adding a duplicate virtual IP address when an agent or framework is removed.
 
@@ -103,7 +103,7 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
     You can restart the `systemd` process on the nodes affected to restore proper network connectivity. This fix is related to the mitigation of a networking issue caused by a secure socket layer (SSL) deadlock in the Erlang library.<!--Also in previous RN, 1.12.4-->
 
-- Changes the behavior for IP routing rules to resolves a conflict between the port used for virtual IP address traffic and the port mapping used for containers (DCOS_OSS-5061).
+- Changes the behavior for IP routing rules to resolve a conflict between the port used for virtual IP address traffic and the port mapping used for containers (DCOS_OSS-5061).
 
     Previously, if a container was configured to use port mapping (for example, because the container uses bridge networking) and there is a virtual IP address listening on the same port, the routing of the virtual IP traffic would fail. This failure was caused by a conflict between the `iptable` rules for the `portmapper` and the `iptable` rules for the virtual IP routing.
     
@@ -127,7 +127,7 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 [/enterprise]
 - Fixes a problem with the `dcos-iam-ldap-sync` service failing to start correctly after a system reboot (COPS-4455, COPS-4814, DCOS-48107, DCOS-53420).
 
-With this release, the DC/OS identity and access management LDAP synchronization `systemd` unit no longer relies on the `/opt/mesosphere` directory being available when the `systemd` configuration is loaded.
+    With this release, the DC/OS identity and access management LDAP synchronization `systemd` unit no longer relies on the `/opt/mesosphere` directory being available when the `systemd` configuration is loaded.
 
 ## Storage
 - Updates Beta Rex-Ray to support NVMe (non-volatile memory express) EBS volumes (COPS-3961, DCOS_OSS-4316, DCOS-49828, DCOS-50047).
