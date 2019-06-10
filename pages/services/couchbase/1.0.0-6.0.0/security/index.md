@@ -30,7 +30,7 @@ The service uses the [DC/OS CA](/latest/security/ent/tls-ssl/) to generate the S
 
 #include /services/include/security-configure-transport-encryption.tmpl
 
-Service account and service account secret plus enabling TLS can also be configured when launching the {{ model.serverName }} via the DC/OS console.
+Service account and service account secret, plus enabling TLS, can also be configured when launching the {{ model.serverName }} via the DC/OS console.
 
 #### Secure ports
 
