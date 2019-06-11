@@ -18,11 +18,11 @@ The strategy for securing Exhibitor is mutual TLS authentication. In order to se
 
 <p class="message--note"><strong>NOTE: </strong>This guide is only compatible with clusters which use <i>static</i> master discovery, <i>master_http_loadbalancer</i> is not currently supported. (https://docs.mesosphere.com/1.13/installing/production/advanced-configuration/configuration-reference/#master-discovery-required)</p>
 
-## Creating the Artifacts
+## Using the tool
 
 <p class="message--note"><strong>NOTE: </strong>A working Docker installation is required. If Docker is not available see https://github.com/mesosphere/exhibitor-tls-artifacts-gen/blob/master/README.md for information on running the command natively.</p>
 
-Download the script from the <a href="https://github.com/mesosphere/exhibitor-tls-artifacts-gen/releases">GitHub release page</a> and run it:
+Download the script from the GitHub release page and run it:
 
 ```sh
 curl -LsO https://github.com/mesosphere/exhibitor-tls-artifacts-gen/releases/download/v0.4.0/exhibitor-tls-artifacts
