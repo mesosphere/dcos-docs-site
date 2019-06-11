@@ -4,14 +4,13 @@ navigationTitle:  Authentication
 title: Authentication
 excerpt: Authenticating users against DC/OS
 menuWeight: 30
-
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 # Authentication in DC/OS
 
-In DC/OS, user authentication is required by default. Every user who wants to perform an operation on a DC/OS cluster (other than login) must first be authenticated.
+In DC/OS, user authentication is required by default. Every user who wants to perform an operation on a DC/OS cluster (other than logging in) must first be authenticated.
 
 DC/OS handles user authentication decentralized by using authentication tokens. Authentication tokens are distributed by the Identity and Access Manager (IAM) on a per user basis. The tokens can are verified out-of-band by any third-party entity. Allowing token verification to happen independent of the IAM makes this approach highly scalable in comparison to centralized session state keeping. Furthermore, with tokens user authentication state cannot be easily revoked.
 
@@ -29,13 +28,14 @@ Third-party entities can be enabled to become authenticators for DC/OS Authentic
 
 You can disable authentication using one of the following ways:
 1. Disable authentication using [advanced installation](/1.13/installing/production/deploying-dcos/installation/): You can disable authentication by adding this parameter to your configuration file (`genconf/config.yaml`).
-```yaml
-oauth_enabled: 'false'
-```
-For more information, see the configuration [documentation](/1.13/installing/production/advanced-configuration/configuration-reference/).
+
+    ```yaml
+    oauth_enabled: 'false'
+    ```
+    For more information, see the configuration [documentation](/1.13/installing/production/advanced-configuration/configuration-reference/).
 
 2. Disable authentication using cloud installation on [AWS](/1.13/installing/oss/cloud/aws/): You can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
-<p class="message--warning"><strong>WARNING: </strong>You cannot disable authentication using cloud installation on <a href ="/1.13/installing/evaluation/azure/">Azure</a></p>
+<p class="message--warning"><strong>WARNING: </strong>You cannot disable authentication using cloud installation on <a href ="/1.13/installing/evaluation/azure/">Azure</a>.</p>
 
 <p class="message--note"><strong>NOTE: </strong>If you have already installed your cluster and would like to disable this in-place, you can go through an upgrade with the configuration parameter set.</p>
