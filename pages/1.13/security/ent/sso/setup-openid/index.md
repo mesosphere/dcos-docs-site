@@ -4,13 +4,14 @@ navigationTitle:  Configuring an OpenID Connect IdP
 title: Configuring an OpenID identity provider
 menuWeight: 2
 excerpt: Configuring an OpenID identity provider
-
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-This page discusses what is required of OpenID IdPs in general and provides a step-by-step procedure for setting up a OneLogin IdP. DC/OS Enterprise can integrate with any identity provider (IdP) that uses OpenID Connect 1.0. The following procedure will take a Google IdP as an example and walk you through each step of the set up process. 
+This section discusses the general requirements of OpenID IdPs, and provides a step-by-step procedure for setting up a OneLogin IdP.
+
+DC/OS Enterprise can integrate with any identity provider (IdP) that uses OpenID Connect 1.0. The following procedure will take a Google IdP as an example and walk you through each step of the set up process. 
 
 # Adding an OpenID Connect identity provider
 
@@ -38,7 +39,7 @@ You can add a Google OpenID Connect IdP in Google or DC/OS.
 
 1. Paste the URL of your cluster into the **Authorized JavaScript origins** box. Example: `https://jp-ybwutd-elasticl-1r2iui8i0z9b7-1590150926.us-west-2.elb.amazonaws.com`
 
-    If your cluster is fronted by a load balancer (recommended) the cluster URL will be the path to the load balancer. The cluster URL is the same as the path to the DC/OS web interface and can be copied from your browser bar. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get your cluster URL.
+    If your cluster is fronted by a load balancer (recommended) the cluster URL will be the path to the load balancer. The cluster URL is the same as the path to the DC/OS UI and can be copied from your browser bar. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get your cluster URL.
 
 1. Paste your cluster URL into the **Authorized redirect URIs** field as well.
 
@@ -50,7 +51,7 @@ You can add a Google OpenID Connect IdP in Google or DC/OS.
 
 ## Configuring the IdP in DC/OS
 
-1. Log into the DC/OS web interface as a user with the `dcos:superuser` permission.
+1. Log into the DC/OS UI as a user with the `dcos:superuser` permission.
 
 1. Open the **Settings** -> **Identity Providers** tab.
 
@@ -76,7 +77,7 @@ You can add a Google OpenID Connect IdP in Google or DC/OS.
 
 11. Click **Submit**.
 
-12. You should now see your new IdP listed in the DC/OS web interface.
+12. You should now see your new IdP listed in the DC/OS UI.
 
 
 ## Verifying the IdP
@@ -85,7 +86,7 @@ You can add a Google OpenID Connect IdP in Google or DC/OS.
 
 You can use either of the following to verify that you have set up your IdP correctly.
 
-- [Using the DC/OS web interface](#using-gui)
+- [Using the DC/OS UI](#using-gui)
 - [Using the DC/OS CLI](#using-cli)
 
 ### <a name="using-gui"></a>Using the DC/OS GUI
@@ -100,7 +101,7 @@ You can use either of the following to verify that you have set up your IdP corr
 
 1. Click to allow DC/OS access to your Google account information.
 
-1. You should see an **Access Denied** message from DC/OS. This signifies that the logon was successful, the user account has been added to DC/OS, but the new user has no permissions and therefore cannot view anything in the DC/OS web interface.
+1. You should see an **Access Denied** message from DC/OS. This signifies that the logon was successful, the user account has been added to DC/OS, but the new user has no permissions and therefore cannot view anything in the DC/OS UI.
 
 1. Click **LOG OUT**.
 

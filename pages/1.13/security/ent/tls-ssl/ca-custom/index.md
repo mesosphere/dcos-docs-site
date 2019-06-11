@@ -4,7 +4,6 @@ navigationTitle:  Configuring a Custom CA Certificate
 title: Configuring a Custom CA Certificate
 menuWeight: 50
 excerpt: Configuring DC/OS Enterprise to use a custom CA certificate
-
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -27,11 +26,11 @@ The benefits of using a custom CA certificate for your DC/OS Enterprise cluster 
 - [Example use cases](#example-use-cases) then provide example file contents for the custom CA certificate configuration files for three popular use cases.
 
 # Supported CA certificates
-- Only custom CA certificates that have an associated RSA-type key pair are supported. Other types of certificates, such as those using ECC-type key pair, are currently not supported. 
+- Only custom CA certificates that have an associated RSA-type key pair are supported. Other types of certificates, such as those using ECC-type key pair, are not supported. 
 - Custom CA certificates are only supported for a fresh installation of DC/OS Enterprise 1.10 or later. Older versions of DC/OS are not supported, and it is not possible to add a custom CA certificate during an upgrade.
 
 # Glossary 
-- **Custom CA certificate:** Your custom CA certificate in the PEM format, which will be used to issue certificates for DC/OS components such as Admin Router. The custom CA certificate is either an intermediate CA certificate (issued by another CA) or a root CA certificate (self-signed by the custom CA).
+- **Custom CA certificate:** Your custom CA certificate in PEM format, which will be used to issue certificates for DC/OS components such as Admin Router. The custom CA certificate is either an intermediate CA certificate (issued by another CA) or a root CA certificate (self-signed by the custom CA).
 
 - **Private key associated with the custom CA certificate:** The private key in the PKCS#8 format associated with the custom CA certificate.
 

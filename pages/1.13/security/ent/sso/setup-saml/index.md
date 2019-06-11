@@ -4,12 +4,11 @@ navigationTitle:  Configuring a SAML IdP
 title: Configuring a SAML Identity Provider
 menuWeight: 1
 excerpt: Configuring a SAML Identity Provider and OneLogin IdP
-
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-This topic discusses what is required of Security Assertion Markup Language (SAML) IdPs in general and provides a step-by-step procedure for setting up a OneLogin IdP.
+This section discusses the general requirements of Security Assertion Markup Language (SAML) IdPs, and provides a step-by-step procedure for setting up a OneLogin IdP.
 
 # Adding a SAML identity provider
 
@@ -50,9 +49,10 @@ While DC/OS Enterprise supports the full range of SAML 2.0 IdPs, the following p
 11. Copy the XML to a clipboard or into a text editor.
 12. Click the **Access** tab. Activate all roles you want to be able to log in to your cluster. For example: **Employee** and **Engineer**.
 
-  <p class="message--warning"><strong>WARNING: </strong>Don't click <strong>Save</strong>* at this stage; it will fail.</p>
+  <p class="message--warning"><strong>WARNING: </strong>Do not click <strong>Save</strong>* at this stage; it will fail.</p>
 
 ## Configuring DC/OS 
+
 This procedure will show you how to configure DC/OS to act as a SAML service provider. 
 
 1. Log in to the DC/OS GUI as a user in the `superuser` group or with the `dcos:superuser` permission.
