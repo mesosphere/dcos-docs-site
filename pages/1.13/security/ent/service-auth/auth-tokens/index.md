@@ -4,7 +4,6 @@ navigationTitle:  Managing JSON Web Tokens
 title: Managing JSON Web Tokens
 menuWeight: 200
 excerpt: Managing JSON web tokens
-
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
