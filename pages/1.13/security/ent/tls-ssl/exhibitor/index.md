@@ -25,7 +25,7 @@ The strategy for securing Exhibitor is mutual TLS authentication. In order to se
 Download the script from the GitHub release page and run it:
 
 ```sh
-curl -LsO https://github.com/mesosphere/exhibitor-tls-artifacts-gen/releases/download/0.0.3/exhibitor-tls-artifacts
+curl -LsO https://github.com/mesosphere/exhibitor-tls-artifacts-gen/releases/download/v0.4.0/exhibitor-tls-artifacts
 chmod +x exhibitor-tls-artifacts
 ./exhibitor-tls-artifacts --help
 ```
