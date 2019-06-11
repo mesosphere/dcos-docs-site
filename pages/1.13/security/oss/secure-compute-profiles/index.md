@@ -32,7 +32,7 @@ When seccomp is enabled on DC/OS, all newly-created containers running under UCR
 
 It is possible to have a service opt-out of running under seccomp. For a Marathon-defined service, this is accomplished by defining `unconfined=true` in the `seccomp` object under the `LinuxInfo` configuration setting for a container. For example:
 
-```
+```json
 {
   "id": "/mesos-seccomp-app",
   "cmd": "sleep 1000",
@@ -53,7 +53,7 @@ By configuring a service definition with an `unconfined` seccomp setting, the co
 
 It is also possible to have a service definition run under a different seccomp profile other than the default. This is accomplished by specifying the profile name in the seccomp definition for the service definition. For example:
 
-```
+```json
 {
   "id": "/mesos-seccomp-app",
   "cmd": "sleep 1000",
