@@ -24,7 +24,7 @@ The API supports JSON only. You must include `application/json` as your `Content
 
 The host name will vary depending on where your app is running.
 
-* If your app will run outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS web interface and copying the domain name from the browser. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the address of the load balancer which sits in front of your masters.
+* If your app will run outside of the DC/OS cluster; you should use the cluster URL. This can be obtained by launching the DC/OS UI and copying the domain name from the browser. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the address of the load balancer which sits in front of your masters.
 
 * If your app will run inside of the cluster, use `master.mesos`.
 

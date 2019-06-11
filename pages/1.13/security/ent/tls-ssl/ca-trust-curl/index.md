@@ -4,7 +4,6 @@ navigationTitle:  Establishing trust in your curl commands
 title: Establishing trust in your curl commands
 menuWeight: 400
 excerpt: Establishing trust in your curl commands
-
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
