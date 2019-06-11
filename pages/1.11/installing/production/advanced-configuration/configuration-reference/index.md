@@ -347,11 +347,11 @@ For more information, see the [system requirements](/1.11/installing/production/
         **Note:** The last three bytes must be `00`.
 
         *  `overlays`
-            *  `name` The canonical name (see [limitations](/1.11/networking/virtual-networks/) for constraints on naming virtual networks).
+            *  `name` The canonical name (see [limitations](/1.11/networking/SDN/dcos-overlay/) for constraints on naming virtual networks).
             *  `subnet` The subnet that is allocated to the virtual network.
             *  `prefix` The size of the subnet that is allocated to each agent and thus defines the number of agents on which the overlay can run. The size of the subnet is carved from the overlay subnet.
 
- For more information, see the [example](/1.11/installing/ent/custom/configuration/examples/#overlay) and [documentation](/1.11/networking/virtual-networks/).
+For more information, see the [example](/1.11/installing/production/deploying-dcos/configuration/examples/#overlay) and [documentation](/1.11/networking/SDN/dcos-overlay/)
 
 ### dcos_ucr_default_bridge_subnet
 Takes an IPv4 subnet. The subnet is allocated to the bridge `ucr-br0` created by the `mesos-bridge` CNI network. The `mesos-bridge` CNI network represents the network that is used to launch UCR containers when bridge-mode networking is selected for UCR containers.
