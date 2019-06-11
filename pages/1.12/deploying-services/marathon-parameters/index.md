@@ -111,6 +111,8 @@ A URI consists of:
 ### gpus
 The number of GPU cores needed per instance.
 
+This parameter is only applicable if you are using DC/OS Universal Container Runtime (UCR) containers. Support for GPU resources is not available for Docker containers.
+
 ### healthChecks
 An array of checks that are run against an application’s tasks. Marathon health checks perform periodic checks on the containers distributed across a cluster to make sure they’re up and responding. For more information, see the [Health Checks documentation](/1.12/deploying-services/creating-services/health-checks/).
 

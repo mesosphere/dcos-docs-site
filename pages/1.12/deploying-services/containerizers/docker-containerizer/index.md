@@ -7,9 +7,9 @@ excerpt: Launching Docker containers from Docker images
 
 enterprise: false
 ---
+[Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need [features](/1.12/deploying-services/containerizers/#container-runtime-features) of the Docker Engine. 
 
-
-[Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need [features](/1.12/deploying-services/containerizers/#container-runtime-features) of the Docker Engine. Otherwise, consider using the [Universal Container Runtime](/1.12/deploying-services/containerizers/ucr/).
+If you aren't using features that are specific to the Docker engine, you should consider using the DC/OS [Universal Container Runtime](/1.12/deploying-services/containerizers/ucr/). The DC/OS [Universal Container Runtime](/1.12/deploying-services/containerizers/ucr/) provides features such as support for GPU resources that are not available for Docker containers.
 
 # Provision a container with the Docker Engine
 
