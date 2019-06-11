@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Installation
-title: Installation
+title: Install JupyterLab
 menuWeight: 30
 excerpt: Installing and customizing JupyterLab
 featureMaturity:
@@ -9,37 +9,48 @@ enterprise: false
 model: /services/beta-jupyter/data.yml
 render: mustache
 ---
+If you install {{ model.techName }} as described in the [Quick Start](/services/beta-jupyter/quick-start/) section, the service runs using all of the default installation settings. Although the default settings are suitable for some environments, there are many reasons you might want to customize your installation and make specific configuration changes. For example, you might want to customize the installation settings to enable accelerated processing for agents where graphical processing unit (GPU) resources are available or to add support for HDFS file systems.
 
-# Install {{ model.techShortName }} without GPU support
+The installation instructions is this section illustrate your installation options and settings that allow you to customize the {{ model.techName }} deployment. 
 
-The default installation brings {{ model.techName }} up and running as described in the [Quick Start](/services/beta-jupyter/quick-start/) section. The following installation procedure lets you customize your {{ model.techName }} installation even further. After installing, you can access the {{ model.techName }} installation through Marathon-LB and your `vhost`.
+After installing {{ model.techName }} using any of these procedures, you can access {{ model.techName }} through Marathon-LB and your `vhost`.
 
-## Deploy {{ model.techShortName }} from the web interface
+# Deploy {{ model.techShortName }} with custom settings
+You can deploy the {{ model.techName }} package on your DC/OS cluster with custom settings by using the DC/OS web-based administrative console or by manually editing a configuration file and running command-line programs. 
 
-The DC/OS web interface provides a way to deploy the {{ model.techName }} package on your DC/OS cluster.
+<a name="jupyter-ui"></a>
 
+## Using the web-based interface
+To deploy the {{ model.techName }} package on a DC/OS cluster using the DC/OS web-based administrative console:
 1. Click **Catalog** and search for the {{ model.techName }} package.
+
 1. Select the package, then click **Review & Run** to display the **Edit Configuration** page.
+
 1. Configure the package settings, as needed, using the DC/OS UI or by clicking **JSON Editor** and modifying the app definition manually. For example, you might customize the package by enabling HDFS support.
 
-   At a minimum, you must specify the external public agent host name as a Networking configuration setting. For more information about customizing the configuration, see [Advanced installation options](/services/beta-jupyter/installing/#advanced-installation).
+   At a minimum, you must specify the external public agent host name as a Networking configuration setting. For more information about customizing the configuration, see [Advanced installation options](#advanced-installation).
 
 1. Click **Networking**.
+
 1. Under External Access, select **Enabled**, and type the public agent host name used to access the {{ model.techShortName }} package.
+
 1. Click **Review & Run**.
+
 1. Review the installation notes, then click **Run Service** to deploy the {{ model.techName }} package.
 
-## Deploy {{ model.techShortName }} from the command-line
+<a name="jupyter-cmd"></a>
 
-Alternatively, you can deploy the {{ model.techName }} package on the DC/OS cluster from the command-line.
-
+## Using the command-line
+To deploy the {{ model.techName }} package on the DC/OS cluster from the command-line:
 1. Run the following command to see what options are available for the {{ model.techName }} package:
+
    ```bash
    dcos package describe jupyterlab --config
    ```
+
    You can redirect the output from this command to a file to save the default properties for editing. The default app definition for {{ model.techName }} looks like this:
 
-   ```
+   ```json
    {
    "service": {
        "name": "/jupyterlab-notebook",
@@ -143,19 +154,21 @@ Alternatively, you can deploy the {{ model.techName }} package on the DC/OS clus
    ```
 
 1. Create a `{{ model.techShortName }}-options.json` file that specifies the properties you want to set for the {{ model.techName }} package.
-   For more information about customizing the configuration, see [Advanced installation options](/services/beta-jupyter/installing/#advanced-installation).
+
+   For more information about customizing the configuration, see [Advanced installation options](#advanced-installation).
+
 1. Run the following command to install the {{ model.techShortName }} service with the customized `{{ model.techShortName }}-options.json` file:
+
    ```bash
    dcos package install {{ model.packageName }} --options={{ model.techShortName }}-options.json --yes
    ```
 
 # Install {{ model.techShortName }} with GPU support
-
 Before you start, make sure your DC/OS cluster runs at least one GPU agent. If your cluster supports GPU agents, you can enable `GPU Support` for the {{ model.techShortName }} service if you want to run your Notebook with GPU acceleration. You can deploy the {{ model.techShortName }} service using Terraform, from the DC/OS web interface, or from the CLI.
 
 ## Deploy {{ model.techShortName }} on AWS using Terraform
 
-The instructions below illustrate using a Terraform template to create a DC/OS cluster that consists of one master and one GPU agent node for {{ model.techShortName }}installed on AWS.
+The instructions below illustrate using a Terraform template to create a DC/OS cluster that consists of one master and one GPU agent node for {{ model.techShortName }} installed on AWS.
 
 **Prerequisites**
 - Follow the [Getting Started Guide](https://github.com/dcos/terraform-dcos/blob/master/aws/README.md) available from the Terraform repository.
@@ -164,14 +177,18 @@ The instructions below illustrate using a Terraform template to create a DC/OS c
 
 To deploy on AWS with GPU support:
 1. Create a new directory for Terraform to use to write its files.
+
 1. Initialize the Terraform folder:
-   ```
+
+   ```bash
    terraform init -from-module github.com/dcos/terraform-dcos//aws
    ```
+
 1. Rename `desired_cluster_profile.tfvars.example` to `desired_cluster_profile.tfvar` and configure it similar to the following:
-   ```
+
+   ```bash
    dcos_cluster_name = "GPU JupyterLab Testcluster"
-   dcos_version = "1.11.7"
+   dcos_version = "1.12.3"
    num_of_masters = "1"
    num_of_private_agents = "0"
    num_of_public_agents = "1"
@@ -187,66 +204,80 @@ To deploy on AWS with GPU support:
    # Inbound Master Access
    admin_cidr = "0.0.0.0/0"
    ```
+
 1. Activate the GPU agent installation by renaming `dcos-gpu-agents.tf.disabled` as `dcos-gpu-agents.tf`.
+
 1. Enable your GPU script using `terraform init`.
+
 1. Apply your plan and run: `terraform apply -var-file desired_cluster_profile.tfvars`.
+
 1. Approve Terraform to perform these actions by entering `yes` when prompted.
 
-If everything runs successfully, the output looks like this:
+   If everything runs successfully, the output looks like this:
 
-```
-Apply complete! Resources: 31 added, 0 changed, 0 destroyed.
+   ```bash
+   Apply complete! Resources: 31 added, 0 changed, 0 destroyed.
 
-Outputs:
+   Outputs:
 
-Bootstrap Host Public IP = 34.215.7.137
-GPU Public IPs = [
-   34.216.236.253
-]
-Master ELB Public IP = fabianbaie-tf7fcf-pub-mas-elb-1180697995.us-west-2.elb.amazonaws.com
-Master Public IPs = [
-   35.164.70.195
-]
-Private Agent Public IPs = []
-Public Agent ELB Public IP = fabianbaie-tf7fcf-pub-agt-elb-2143488909.us-west-2.elb.amazonaws.com
-Public Agent Public IPs = [
-   35.164.70.196
-}
-ssh_user = core
-```
+   Bootstrap Host Public IP = 34.215.7.137
+   GPU Public IPs = [
+      34.216.236.253
+   ]
+   Master ELB Public IP = fabianbaie-tf7fcf-pub-mas-elb-1180697995.us-west-2.elb.amazonaws.com
+   Master Public IPs = [
+      35.164.70.195
+   ]
+   Private Agent Public IPs = []
+   Public Agent ELB Public IP = fabianbaie-tf7fcf-pub-agt-elb-2143488909.us-west-2.elb.amazonaws.com
+   Public Agent Public IPs = [
+      35.164.70.196
+   }
+   ssh_user = core
+   ```
 
-You can now connect to your newly installed DC/OS cluster by copying the Master ELB Public IP into your browser. For example, copy and paste a string similar to the following:
-`fabianbaie-tf7fcf-pub-mas-elb-1180697995.us-west-2.elb.amazonaws.com`
+1. Connect to your newly installed DC/OS cluster by copying the Master ELB Public IP into your browser. 
 
-## Deploy {{ model.techShortName }} from the web interface
+   For example, copy and paste a string similar to the following:
 
-The DC/OS web interface provides a way to deploy the {{ model.techShortName }} package on your DC/OS cluster with GPU support.
+   `fabianbaie-tf7fcf-pub-mas-elb-1180697995.us-west-2.elb.amazonaws.com`
 
-1. Click **Catalog** and search for the {{ model.techShortName }} package.
-1. Select the package, then click **Review & Run** to display the **Edit Configuration** page.
-1. Select **Enabled** for Gpu Support and set the number of GPU agents to one.
-1. Configure any additional package settings, as needed, using the DC/OS UI fields or by clicking **JSON Editor** and modifying the app definition manually. For example, you might customize the package to enable HDFS support.
+## Add GPU support for {{ model.techShortName }}
+You can deploy the {{ model.techName }} package with support for GPU resources by using the DC/OS web-based administrative console or by manually editing a configuration file and running command-line programs. The steps are essentially the same as those described in [Using the web-based console](#jupyter-ui) and [Using the command-line](#jupyter-cmd). For convenience, the steps are summarized in this section.
 
-   At a minimum, you must specify the external public agent host name as a Networking configuration setting. For more information about customizing the configuration, see [Advanced installation options](/services/beta-jupyter/installing/#advanced-installation).
+### Enable GPU support using the DC/OS web-based console
+1. Click **Catalog** and search for {{ model.techShortName }}.
+
+1. Select the package, then click **Review & Run**.
+
+1. Select **Enabled** for **Gpu Support** 
+
+1. Set the number of GPU agents to one and configure additional settings, as needed.
 
 1. Click **Networking**.
-1. Under External Access, select **Enabled**, and type the public agent host name used to access the {{ model.techShortName }} package.
+
+1. Under External Access, select **Enabled**, then type the public agent host name used to access {{ model.techShortName }}.
+
 1. Click **Review & Run**.
-1. Review the installation notes, then click **Run Service** to deploy the {{ model.techName }} package.
 
-The package is several gigabytes in size. The deployment takes approximately 5 minutes to complete on AWS.
+1. Click **Run Service**.
 
-## Deploy {{ model.techShortName }} from the command-line
+   The package is several gigabytes in size. The deployment takes approximately 5 minutes to complete on AWS.
 
-Alternatively, you can deploy the {{ model.techName }} package on the DC/OS cluster from the command-line.
-
-1. Run the following command to see what options are available for the {{ model.techName }} package:
+### Enable GPU support using the DC/OS command-line
+1. Review configuration options by running the following command:
 
    ```bash
    dcos package describe jupyterlab --config
    ```
-1. Create an `options.json` file that specifies the properties you want to set for the {{ model.techName }} package. For example, create an `options_advanced_gpu.json` and modify the `gpu_support` section.
-   ```
+
+1. Create a custom `options.json` file to specify the properties you want to set. 
+
+   For example, create a file named `options_advanced_gpu.json`
+
+1. Edit the `options_advanced_gpu.json` file to include a `gpu_support` section similar to the following:
+
+   ```json
    "gpu_support": {
          "description": "GPU support and useful packages for Data Scientists.\n\nGPU specific packages:\nCUDA 9.0.176-1, CUDNN 7.1.4.18-1+cuda9.0, NCCL 2.2.13-1+cuda9.0, TensorFlow-GPU 1.9.0",
          "properties": {
@@ -269,15 +300,16 @@ Alternatively, you can deploy the {{ model.techName }} package on the DC/OS clus
    Notice that `enable` in the `gpu_support` section is set to `true` and the `gpus`  is set to `1`.
 
 1. Run the following command to install the {{ model.techShortName }} service:
+
    ```bash
    dcos package install {{ model.packageName }} --options=options_advanced_gpu.json --yes
    ```
 
 ## Test {{ model.techShortName }} with GPU support and TensorFlow
 
-After {{ model.techShortName }} is succesfully deployed, authenticate with your password described in the [Quick Start](/services/beta-jupyter/quick-start/) section and create a new notebook in Python 3.
+After {{ model.techShortName }} is successfully deployed, authenticate with your password as described in the [Quick Start](/services/beta-jupyter/quick-start/) section and create a new notebook in Python 3.
 
-<p class="message--note"><strong>NOTE: </strong>Make sure <code>Marathon-LB</code> is installed.</p>
+<p class="message--note"><strong>NOTE: </strong>Make sure you have Edge-LB or Marathon-LB is installed.</p>
 
 Verify that you can access GPU acceleration by running the following lines in your new notebook:
 
@@ -301,15 +333,15 @@ The output should look like:
 
 You can access TensorBoard within your {{ model.techShortName }} instance simply by adding `/tensorboard/` to your browser url: `https://<VHOST>/<Service Name>/tensorboard/`
 
-<p class="message--note"><strong>NOTE: </strong>If you installed {{ model.packageName }}under a different name space, change the name in the URL.</p>
+<p class="message--note"><strong>NOTE: </strong>If you installed {{ model.packageName }} under a different name space, change the name in the URL.</p>
 
-<a name="advanced-installation"></a>
+
+<a name="advanced-installation"> </a>
 
 # Advanced installation options
 You should review and set the following advanced options for the {{ model.techName }} service.
 
 ## Storage
-
 By enabling persistent storage, data is stored in the `persistent_data` folder in your {{ model.techShortName }} container under `/mnt/mesos/sandbox`. You can then access and upload files for the {{ model.techShortName }} service by accessing the `persistent_data` folder.
 
 If you do not select `persistence` in the `storage` section, or provide a valid value for the `host_volume` on installation, your data is not saved in any way.
