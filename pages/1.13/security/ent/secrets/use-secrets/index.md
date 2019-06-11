@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle:  Configuring services and pods
 title: Configuring services and pods
-menuWeight: 1
+menuWeight: 2
 excerpt: Configuring services and pods to use secrets
-
 enterprise: true
 ---
 
@@ -135,7 +134,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Click **RUN SERVICE**.
 
-1. Click the group name of your service, i.e., **developer**.
+1. Click the group name of your service, for example, **developer**.
 
 1. Click the name of your service.
 
@@ -235,7 +234,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Open the DC/OS web interface.
 
-1. Click the group name of your service, i.e., **developer**.
+1. Click the group name of your service, for example, **developer**.
 
 1. Click the name of your service.
 
@@ -359,7 +358,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Open the DC/OS web interface.
 
-1. Click the group name of your service, i.e., **developer**.
+1. Click the group name of your service, for example, **developer**.
 
 1. Click the name of your pod.
 
