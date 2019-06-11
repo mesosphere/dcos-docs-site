@@ -4,7 +4,6 @@ navigationTitle:  Adding local users
 title: Adding local users
 menuWeight: 10
 excerpt: Adding a local user with the web interface or CLI
-
 enterprise: true
 ---
 
