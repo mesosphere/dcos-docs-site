@@ -11,7 +11,7 @@ render: mustache
 ---
 If you install {{ model.techName }} as described in the [Quick Start](/services/beta-jupyter/quick-start/) section, the service runs using all of the default installation settings. Although the default settings are suitable for some environments, there are many reasons you might want to customize your installation and make specific configuration changes. For example, you might want to customize the installation settings to enable accelerated processing for agents where graphical processing unit (GPU) resources are available or to add support for HDFS file systems.
 
-The installation instructions is this section illustrate your installation options and settings that allow you to customize the {{ model.techName }} deployment. 
+The installation instructions is this section illustrate your installation options and how to change the settings that allow you to customize the {{ model.techName }} deployment. 
 
 After installing {{ model.techName }} using any of these procedures, you can access {{ model.techName }} through Marathon-LB and your `vhost`.
 
@@ -305,36 +305,65 @@ You can deploy the {{ model.techName }} package with support for GPU resources b
    dcos package install {{ model.packageName }} --options=options_advanced_gpu.json --yes
    ```
 
-## Test {{ model.techShortName }} with GPU support and TensorFlow
+## Verify your {{ model.techShortName }} deployment
+After you have installed {{ model.techShortName }}, you can verify it has been successfully deployed by using the service.
 
-After {{ model.techShortName }} is successfully deployed, authenticate with your password as described in the [Quick Start](/services/beta-jupyter/quick-start/) section and create a new notebook in Python 3.
+To begin working with {{ model.techShortName }}:
 
-<p class="message--note"><strong>NOTE: </strong>Make sure you have Edge-LB or Marathon-LB is installed.</p>
+1. Log on and authenticate using the default password for the {{ model.techName }} service account. 
 
-Verify that you can access GPU acceleration by running the following lines in your new notebook:
+   The default password for the service account is `jupyter-<Marathon-App-Prefix>`as described in the [Quick Start](/services/beta-jupyter/quick-start/) section. 
 
-```python
-from tensorflow.python.client import device_lib
+1. Create a new notebook using Python 3. 
 
-def get_available_devices():
-   local_device_protos = device_lib.list_local_devices()
-   return [x.name for x in local_device_protos]
+   If you need to change the version of Python you are using, see [Changing the Python version](#change-python).
 
-print(get_available_devices())
-```
+   <p class="message--note"><strong>NOTE: </strong>Make sure you have Edge-LB or Marathon-LB is installed.</p>
 
-The output should look like:
+1. Verify that you can access GPU acceleration by running the following lines in your new notebook:
 
-```apple js
-['/device:CPU:0', '/device:GPU:0']
-```
+   ```python
+   from tensorflow.python.client import device_lib
 
-## Access TensorBoard
+   def get_available_devices():
+      local_device_protos = device_lib.list_local_devices()
+      return [x.name for x in local_device_protos]
 
-You can access TensorBoard within your {{ model.techShortName }} instance simply by adding `/tensorboard/` to your browser url: `https://<VHOST>/<Service Name>/tensorboard/`
+   print(get_available_devices())
+   ```
 
-<p class="message--note"><strong>NOTE: </strong>If you installed {{ model.packageName }} under a different name space, change the name in the URL.</p>
+   The output should look like:
 
+   ```apple js
+   ['/device:CPU:0', '/device:GPU:0']
+   ```
+
+1. Access TensorBoard within your {{ model.techShortName }} instance by adding `/tensorboard/` to your browser url: `https://<VHOST>/<Service Name>/tensorboard/`
+
+   <p class="message--note"><strong>NOTE: </strong>If you installed {{ model.packageName }} under a different name space, change the name in the URL.</p>
+
+1. Access [tutorials and examples](http://nbviewer.jupyter.org/github/twosigma/beakerx/blob/master/StartHere.ipynb) for {{ model.techShortName }} and BeakerX.
+
+<a name="change-python"></a>
+
+### Changing the Python version
+Follow the instructions in [Installing the iPython Kernel](http://ipython.readthedocs.io/en/stable/install/kernel_install.html) to change the Python version you are using.
+
+1. In `File` click `new` and open a `Terminal`.
+
+1. In the terminal, create a new environment with your Python version of choice.
+   For example, run the following commands for Python `3.5`:
+
+   ```bash
+   $ conda create -n 3.5 python=3.5 ipykernel
+   $ source activate 3.5
+   $ python -m ipykernel install --user --name 3.5 --display-name "Python (3.5)"
+   $ source deactivate
+   ```
+
+1. Reload the `Jupyter` page and click `Kernel`.
+
+1. Click `Change Kernel...` to change the new installed Python `3.5` environment.
 
 <a name="advanced-installation"> </a>
 
@@ -363,35 +392,8 @@ To access the {{ model.techShortName }} service from outside the cluster, you mu
 | `external_public_agent_ip` | Specifies the DNS address for services exposed through Marathon-LB. In most cases, this option is set to the public IP address for a public agent. |
 
 ## HDFS configuration
+A typical advanced installation that provides HDFS support includes the `external_public_agent_hostname` property set to the public host name of the AWS Elastic Load Balancing (ELB) service and the `jupyter_conf_urls` set to the appropriate endpoint. 
 
-A typical advanced installation that provides HDFS support includes the `external_public_agent_hostname` property set to the public host name of the AWS Elastic Load Balancing (ELB) service and the `jupyter_conf_urls` set to the appropriate endpoint. You can create the `options_advanced_hdfs.json` file to provide the options for HDFS support manually or through the DC/OS web interface.
+You can create the `options_advanced_hdfs.json` file to provide the options for HDFS support manually or through the DC/OS web interface.
 
 The {{ model.techName }} service supports `HDFS` and using `HDFS` or `S3` is the recommended configuration for collaborating in multi-user environments. You can install  `HDFS` for your cluster in the default settings before you install the {{ model.techShortName }} service. After HDFS is installed, you can set the **Jupyter Conf Urls** (`jupyter_conf_urls`) property under **Environment** settings to the appropriate URL, such as  `http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints` to complete the configuration. If the URL for the HDFS endpoint is not set, the {{ model.techShortName }} service fails.
-
-# Terms and conditions
-By deploying from the user interface or command-line, you agree to the [Terms and Conditions](https://mesosphere.com/catalog-terms-conditions/#community-services) that apply to the {{ model.techName }} service.
-You should note that the {{ model.techName }} service is currently in **preview** mode. In **preview** mode, a service might have bugs, incomplete features, incorrect documentation, or other have significant changes before being released. You should not deploy a package that is in **preview** mode in a production environment.
-
-# Default password
-The default password for the {{ model.techName }} service account is: `jupyter-<Marathon-App-Prefix>`
-
-# Using {{ model.techShortName }} and BeakerX
-
-By accessing {{ model.techName }}, you are now able to authenticate and try the various [tutorials and examples](http://nbviewer.jupyter.org/github/twosigma/beakerx/blob/master/StartHere.ipynb) for Jupyter and BeakerX.
-
-# Changing the Python version
-
-Follow the instructions in [Installing the iPython Kernel](http://ipython.readthedocs.io/en/stable/install/kernel_install.html) to change the Python version you are using.
-
-1. In `File` click `new` and open a `Terminal`.
-1. In the terminal, create a new environment with your Python version of choice.
-   For example, run the following commands for Python `3.5`:
-
-   ```bash
-   $ conda create -n 3.5 python=3.5 ipykernel
-   $ source activate 3.5
-   $ python -m ipykernel install --user --name 3.5 --display-name "Python (3.5)"
-   $ source deactivate
-   ```
-1. Reload the `Jupyter` page and click `Kernel`.
-1. Click `Change Kernel...` to change the new installed Python `3.5` environment.
