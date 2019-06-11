@@ -9,8 +9,6 @@ enterprise: false
 ---
 Welcome to Mesosphere DC/OS Jupyter! Jupyter is a user interface for interactive and reproducible computing on the DC/OS platform. 
 
-
-
 #include /services/include/beta-software-warning.tmpl
 
 ### Further Information
