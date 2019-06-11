@@ -301,7 +301,7 @@ Custom installation checks that are added to the default check configuration pro
     - `cmd` - Specify an array of health check command strings
     - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`
 
-For more information on how these custom checks are used, see the [examples](/1.13/installing/ent/custom/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.13/installing/production/deploying-dcos/configuration/examples/#custom-checks) documentation.
+For more information on how these custom checks are used, see the [examples](/1.13/installing/production/deploying-dcos/configuration/examples/#custom-checks) and [Node and Cluster Health Check](/1.13/installing/production/deploying-dcos/node-cluster-health-check/) documentation.
 
 
 ### dcos_audit_logging [enterprise type="inline" size="small" /]
