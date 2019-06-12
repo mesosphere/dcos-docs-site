@@ -30,84 +30,120 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 - An upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
 
-## Supported upgrade paths matrix
-The following matrix table lists the supported upgrade paths for DC/OS 1.13.
+## Supported upgrade paths
+The following tables list the supported upgrade paths for DC/OS 1.13.
 
 
 |**Display Icon** | **Service** |
 |---------- | ------- |
-| ⚫| Supported |
-| ◯| Not Supported |
+| ⚫ | Supported |
+| ◯ | Not Supported |
 
 
 <table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+   <caption>DC/OS 1.11 to 1.13 Upgrade Paths</caption>
    <tr>
-    <th Rowspan = "30" Align = "center"><strong>Upgrade<br>From</strong></th>
+    <th Rowspan = "15" Align = "center"><strong>Upgrade<br>From</strong></th>
    <tr>
     <th></th>
-    <th Colspan = "1" Align = "center"><strong>Upgrade To</strong></th>
+    <th Colspan = "2" Align = "center"><strong>Upgrade To</strong></th>
    </tr>
     <th></th>
     <th Align = "center">1.13.0</th>
+    <th Align = "center">1.13.1</th>
    </tr>
    <tr>
     <th>1.11.0</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.1</th>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.2</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.3</th>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.4</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.5</th>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.6</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.7</th>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.8</th>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.11.9</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.11.10</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+      <tr>
+    <th>1.11.11</th>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+</table>
+<br>
+<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+   <caption>DC/OS 1.12 to 1.13 Upgrade Paths</caption>
+   <tr>
+    <th Rowspan = "7" Align = "center"><strong>Upgrade<br>From</strong></th>
+   <tr>
+    <th></th>
+    <th Colspan = "2" Align = "center"><strong>Upgrade To</strong></th>
+   </tr>
+    <th></th>
+    <th Align = "center">1.13.0</th>
+    <th Align = "center">1.13.1</th>
    </tr>
    <tr>
     <th>1.12.0</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.12.1</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.12.2</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
    <th>1.12.3</th>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
   </table>
