@@ -12,17 +12,17 @@ Use external volumes when fault tolerance is crucial for your app. If a host fai
 
 Marathon applications normally lose their state when they terminate and are relaunched. In some contexts, for instance, if your application uses MySQL, you’ll want your application to preserve its state. You can use an external storage service, such as Amazon's Elastic Block Store (EBS), to create a persistent volume that follows your application instance.
 
-Note that you specify volume size in gibibyte (GiB) units.
+Note that volume sizes are specified in gibibyte (GiB) units.
  
 # Creating an application with an external persistent volume
 
-## Create an application with a Marathon app definition
+## Marathon app definition
 
 You can specify an external volume in your [Marathon app definition][6].
 
 ### Using the Universal Container Runtime
 
-The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You can verify that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
+The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You will know that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
 
 ```json
 {
@@ -107,7 +107,7 @@ Below is a sample app definition that uses a Docker Engine and specifies an exte
 * `containerPath` must be absolute.
 *  Only certain versions of Docker are compatible with the REX-Ray volume driver. Refer to the [REX-Ray documentation][11].
 
-## Create an application from the DC/OS web interface
+## Create an application from the DC/OS UI
 
 1. Click the **Services** tab, then **RUN A SERVICE**.
 1. If you are using a Docker container, click **Container Settings** and configure your container runtime.
@@ -126,7 +126,7 @@ Apps that use external volumes can only be scaled to a single instance because a
 
 If you scale your app down to 0 instances, the volume is detached from the agent where it was mounted, but it is not deleted. If you scale your app up again, the data that was associated with it is still be available.
 
-# Potential pitfalls
+# Potential issues
 
 *   You can assign only one task per volume. Your storage provider might have other limitations.
 *   The volumes you create are not automatically cleaned up. If you delete your cluster, you must go to your storage provider and delete the volumes you no longer need. If you're using EBS, find them by searching by the `container.volumes.external.name` that you set in your Marathon app definition. This name corresponds to an EBS volume `Name` tag.
