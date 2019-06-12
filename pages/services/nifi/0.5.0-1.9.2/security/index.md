@@ -83,7 +83,7 @@ Kerberos authentication relies on a central authority to verify that DC/OS {{mod
 - DC/OS Superuser permissions
 
 ## Configure Kerberos Authentication
-### Create principals
+### 1. Create principals
 
 The DC/OS {{model.techName }} service requires a Kerberos principal for the service principal and user principal. Each principal must be of the form
 
@@ -91,10 +91,9 @@ The DC/OS {{model.techName }} service requires a Kerberos principal for the serv
    {{ model.serviceName }}principal@<service realm>
    {{ model.serviceName }}admin@<service realm>
    ```
-### Place Service Keytab in DC/OS Secret Store
+### 2. Place Service Keytab in DC/OS Secret Store
 
 The DC/OS {{model.techName }} service uses a keytab containing the above service and user principals (service keytab). After creating the principals above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by `name __dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. 
-
 
 Create secret named "{{ model.serviceName }}admin_kerberos_secret" for password of Kerberos User Principal: `{{ model.serviceName }}admin`
 
@@ -102,7 +101,7 @@ Documentation for adding a file to the secret store can be found [here.](/latest
 
 <p class="message--note"><strong>NOTE: </strong>Secrets access is controlled by <a href="https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets">DC/OS Spaces</a>, which function like namespaces. Any secret in the same DC/OS Space as the service will be accessible by the service.</p>
 
-### Install the Service
+### 3. Install the Service
 Install the DC/OS {{ model.techName }} service with the following options in addition to your own:
 
    ```json

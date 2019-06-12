@@ -93,7 +93,7 @@ In DC/OS 1.10 and later, services may be installed into folders by specifying a 
    ```
 The above example will install the service under a path of `foldered => path => to => nifi`. It can then be reached using `dcos nifi` CLI commands or directly over HTTP as described below.
 
-<p class="message--note"><strong>NOTE: </strong><br>1) The service folder location cannot be changed after initial install. Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.<br>2) cn dn node identity parameter specify initial node identity for TLS which will used inside authorizers.xml file for CN value. </p>
+<p class="message--note"><strong>NOTE: </strong><br>1) The service folder location cannot be changed after initial install. Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.<br>2) `cn dn node identity` parameter specify `initial node identity` for TLS which will be used inside authorizers.xml file for CN value. </p>
 
 ## Addressing named instances
 
@@ -120,7 +120,7 @@ Similarly, it could be queried directly over HTTP as follows:
    ```shell
    curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/nifi-dev/v1/pod
    ```
-<p class="message--note"><strong>NOTE: </strong> You may add a <tt>-v</tt> (verbose) argument to any <tt>dcos nifi</tt> command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, <tt>dcos nifi</tt> commands are a thin wrapper around an HTTP interface provided by the DC/OS Apache NiFi Service itself.</p>
+<p class="message--note"><strong>NOTE: </strong> You may add a `-v` (verbose) argument to any `dcos nifi` command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, `dcos nifi` commands are a thin wrapper around an HTTP interface provided by the DC/OS Apache NiFi Service itself.</p>
 
 ## Virtual Networks
 

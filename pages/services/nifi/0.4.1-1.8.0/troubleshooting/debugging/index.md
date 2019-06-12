@@ -46,43 +46,43 @@ You can also access the logs via the Mesos UI:
 
 The DC/OS {{model.techName }} is resilient to temporary pod failures, automatically relaunching them in-place if they stop running. However, if a machine hosting a pod is permanently lost, manual intervention is required to discard the downed pod and reconstruct it on a new machine.
 
-The following command should be used to get a list of available pods. In this example we are querying a service named {{ model.serviceName }}-dev.
+  1. The following command should be used to get a list of available pods. In this example we are querying a service named {{ model.serviceName }}-dev.
 
-  ```shell
-   dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod list
-  ```
-The following command should then be used to replace the pod residing on the failed machine, using the appropriate pod_name provided in the above list.
+    ```shell
+     dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod list
+    ```
+  2. The following command should then be used to replace the pod residing on the failed machine, using the appropriate pod_name provided in the above list.
 
-  ```shell
-  dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod replace <pod_name>
-  ```
-The pod recovery may then be monitored via the recovery plan.
+    ```shell
+    dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod replace <pod_name>
+    ```
+  3. The pod recovery may then be monitored via the recovery plan.
 
-  ```shell
-  dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev plan show recovery
-  ```
+    ```shell
+    dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev plan show recovery
+    ```
 
 # Restarting a Node
 
 If you must forcibly restart a pod’s processes but do not wish to clear that pod’s data, use the following command to restart the pod on the same agent machine where it currently resides. This will not result in an outage or loss of data.
 
-The following command should be used to get a list of available pods. In this example we are querying a service named {{ model.serviceName }}-dev.
+  1. The following command should be used to get a list of available pods. In this example we are querying a service named {{ model.serviceName }}-dev.
 
-  ```shell
-  dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod list
-  ```
+    ```shell
+    dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod list
+    ```
 
-The following command should then be used to restart the pod, using the appropriate pod_name provided in the above list.
+  2. The following command should then be used to restart the pod, using the appropriate pod_name provided in the above list.
 
-  ```shell
-  dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod restart <pod_name>
-  ```
+    ```shell
+    dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod restart <pod_name>
+    ```
 
-The pod recovery may then be monitored via the recovery plan.
+  3. The pod recovery may then be monitored via the recovery plan.
 
-  ```shell
-  dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev plan show recovery
-  ```
+    ```shell
+    dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev plan show recovery
+    ```
 
 # Accidentially deleted Marathon task but not service
 
