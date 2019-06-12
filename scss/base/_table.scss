@@ -1,18 +1,24 @@
 table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
 }
 
 table,
 th,
 td {
-  padding: 0.5rem;
-  border: 1px $color-grey-light solid;
-  color: $color-dark;
+    padding: 0.5rem;
+    border: 1px $color-grey-light solid;
+    color: $color-dark;
 }
 
 th {
-  background: $color-grey-light;
-  font-weight: 400;
+    background: $color-grey-light;
+    font-weight: 400;
+}
+
+table caption {
+    font-weight: 700;
+    font-size: 20px;
+    padding: 12px;
 }
