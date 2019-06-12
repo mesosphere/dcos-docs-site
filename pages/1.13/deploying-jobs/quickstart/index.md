@@ -36,7 +36,7 @@ You can manage the most common job-related activity interactively through the DC
     * **CPUs** - Specifies the number of CPU cores your job requires. This field is required for all jobs.
     * **Mem** - Specifies the amount of memory, in MB, your job requires. This field is required for all jobs.
     * **Disk** - Specifies the amount of disk space, in MB, your job requires. This field is required for all jobs.
-    * **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores.
+    * **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks that are launched using DC/OS [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/) containers. Support for GPU resources is are not available for Docker containers or images.
 
 1. Select the appropriate Job Type to run one or more specific commands or a Docker container image.
     * Select **Command Only** to specify one or more commands you want the new job to execute. 
