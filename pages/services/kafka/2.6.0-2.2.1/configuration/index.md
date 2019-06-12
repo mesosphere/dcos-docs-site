@@ -53,3 +53,32 @@ During the configuration update, each of the {{ model.techShortName }} broker ta
 ### Replacing a Broker with Grace
 
 The grace period must also be respected when a broker is shut down before replacement. While it is not ideal that a broker must respect the grace period even if it is going to lose persistent state, this behavior will be improved in future versions of the SDK. Broker replacement generally requires complex and time-consuming reconciliation activities at startup if there was not a graceful shutdown, so the respect of the grace kill period still provides value in most situations. We recommend setting the kill grace period only sufficiently long enough to allow graceful shutdown. Monitor the {{ model.techShortName }} broker clean shutdown times in the broker logs to keep this value tuned to the scale of data flowing through the {{ model.techShortName }} service.
+
+[enterprise]
+## Configuring Secure JMX
+[/enterprise]
+
+{{ model.techName }} supports Secure JMX allowing you to remotely manage and monitor the Kafka JRE. This can be specified by passing the following configuration during installation:
+
+```json
+{
+  "service": {
+    "jmx": {
+      "enabled": true,
+      "port": 31299,
+      "rmi_port": 31298,
+      "access_file": "<path_to_secret>",
+      "password_file": "<path_to_secret>",
+      "key_store": "<path_to_secret>",
+      "key_store_password_file": "<path_to_secret>",
+      "add_trust_store": true,
+      "trust_store": "<path_to_secret>",
+      "trust_store_password_file": "<path_to_secret>"
+    }
+  }
+}
+```
+
+<p class="message--note"><strong>NOTE: </strong> Before performing this configuration change, you must create the necessary <a href="https://docs.mesosphere.com/latest/security/ent/secrets/">DC/OS Secrets</a> for the options: access_file, password_file, key_store, key_store_password_file, trust_store and trust_store_password_file.</p>
+
+Click <a href="/services/kafka/2.6.0-2.2.1/advanced/#secure-jmx-enterprise">here</a> for a more detailed configuration process.
