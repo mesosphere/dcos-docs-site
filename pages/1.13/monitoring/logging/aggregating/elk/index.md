@@ -10,144 +10,82 @@ enterprise: false
 
 
 
-You can pipe system and application logs from the nodes in a DC/OS cluster to an Elasticsearch server. These instructions are based on CentOS 7 and might differ substantially from other Linux distributions.
+You can pipe system and application logs from the nodes in a DC/OS cluster to an Elasticsearch server.
 
 
 # What this document does and does not cover
 
-This document describes how to send Filebeat output from each node to a centralized Elasticsearch instance. This document describes how to directly stream from Filebeat into Elasticsearch. Logstash is not used in this architecture. If you are interested in filtering, parsing and understanding the logs with an intermediate Logstash stage, see the Logstash [documentation][8] and the example in [Filtering logs with ELK][3].
+This document describes how to send Fluent Bit output from each node to a centralized Elasticsearch instance. This document describes how to directly stream from Fluent Bit into Elasticsearch. Logstash is not used in this architecture. If you are interested in filtering, parsing and understanding the logs with an intermediate Logstash stage, see the Logstash [documentation][4] and the example in [Filtering logs with ELK][2].
 
-This document does not explain how to set up and configure an Elasticsearch server. This document does not describe how to set up secure TLS communication between the Filebeat instances and Elasticsearch. For details on how to achieve this, see the [Filebeat][2] and [Elasticsearch][5] documentation.
+This document does not explain how to set up and configure an Elasticsearch server. This document does not describe how to set up secure TLS communication between the Fluent Bit instances and Elasticsearch. For details on how to achieve this, see the [Fluent Bit][1] and [Elasticsearch][3] documentation.
 
 **Prerequisites**
 
 *   An existing Elasticsearch installation that can ingest data for indexing
-*   All DC/OS nodes must be able to connect to your Elasticsearch server on the port used for communication between Elasticsearch and Filebeat (9200 by default)
+*   All DC/OS nodes must be able to connect to your Elasticsearch server on the port used for communication between Elasticsearch and Fluent Bit (9200 by default)
+*   A location on each DC/OS node for your custom Fluent Bit config. This tutorial will use `/etc/fluent-bit/`.
 
-## <a name="all"></a>Step 1: Install Filebeat
+## Step 1: Master nodes
+
+For each master node in your DC/OS cluster, create a file `/etc/fluent-bit/fluent-bit.conf` that includes the default master Fluent Bit config and adds your configuration for the Elasticsearch output plugin. For more information on configuring Fluent Bit to send logs to Elasticsearch, see the [Fluent Bit documentation][1].
+
+```
+@INCLUDE /opt/mesosphere/etc/fluent-bit/master.conf
+[OUTPUT]
+     Name es
+     Match *
+     Host <Elasticsearch host>
+     Port <Elasticsearch port>
+```
+
+## Step 2: Agent nodes
+
+For each agent node in your DC/OS cluster, create a file `/etc/fluent-bit/fluent-bit.conf` that includes the default master Fluent Bit config and adds your configuration for the Elasticsearch output plugin. For more information on configuring Fluent Bit to send logs to Elasticsearch, see the [Fluent Bit documentation][1].
+
+```
+@INCLUDE /opt/mesosphere/etc/fluent-bit/agent.conf
+[OUTPUT]
+     Name es
+     Match *
+     Host <Elasticsearch host>
+     Port <Elasticsearch port>
+```
+
+## Step 3: All nodes
 
 For all nodes in your DC/OS cluster:
 
-1.  Install Elastic's [Filebeat][2].
-
-    ```bash
-    curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.0.0-x86_64.rpm
-    sudo rpm -vi filebeat-5.0.0-x86_64.rpm
-    ```
-
-1.  Create the `/var/log/dcos` directory:
-
-    ```bash
-    sudo mkdir -p /var/log/dcos
-    ```
-1.  Move the default Filebeat configuration file to a backup copy:
-
-    ```bash
-    sudo mv /etc/filebeat/filebeat.yml /etc/filebeat/filebeat.yml.BAK
-    ```
-
-1.  Populate a new `filebeat.yml` configuration file, including an additional input entry for the file `/var/log/dcos/dcos.log`. The additional log file will be used to capture the DC/OS logs in a later step. Remember to substitute the variables `$ELK_HOSTNAME` and `$ELK_PORT` below for the actual values of the host and port where your Elasticsearch is listening on.
-
-    ```bash
-    filebeat.prospectors:
-    - input_type: log
-      paths:
-        - /var/lib/mesos/slave/slaves/*/frameworks/*/executors/*/runs/latest/stdout*
-        - /var/lib/mesos/slave/slaves/*/frameworks/*/executors/*/runs/latest/stderr*
-        - /var/log/mesos/*.log
-        - /var/log/dcos/dcos.log
-    exclude_files: ["stdout.logrotate.state", "stdout.logrotate.conf", "stderr.logrotate.state", "stderr.logrotate.conf"]
-    tail_files: true
-    output.elasticsearch:
-      hosts: ["$ELK_HOSTNAME:$ELK_PORT"]
-    ```
-
-<table class=“table” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> The agent node Filebeat configuration expects tasks to write logs to `stdout` and `stderr`. Some DC/OS services, including Cassandra and Kafka, do not write logs to `stdout` and `stderr`. If you want to log these services, you must customize your agent node Filebeat configuration.</td> 
-</tr> 
-</table>
-
-## <a name="all-2"></a>Step 2: Set up service for parsing the journal
-
-For all nodes in your DC/OS cluster:
-
-1.  Create a script `/etc/systemd/system/dcos-journalctl-filebeat.service` that parses the output of the DC/OS master `journalctl` logs and funnels them to `/var/log/dcos/dcos.log`.
-
-    This script can be used with DC/OS and Enterprise DC/OS. Log entries that do not apply are ignored.
-
-    ```bash
-    sudo tee /etc/systemd/system/dcos-journalctl-filebeat.service<<-EOF
-    [Unit]
-    Description=DCOS journalctl parser to filebeat
-    Wants=filebeat.service
-    After=filebeat.service
-
-    [Service]
-    Restart=always
-    RestartSec=5
-    ExecStart=/bin/sh -c '/bin/journalctl  --since="5 minutes ago" --no-tail --follow --unit="dcos*.service" >> /var/log/dcos/dcos.log 2>&1'
-
-    [Install]
-    WantedBy=multi-user.target
-    EOF
-    ```
-
-## <a name="all-3"></a>Step 3: Start and enable Filebeat
-
-1.  For all nodes, start and enable the Filebeat log parsing services created above:
-
-    ```bash
-    sudo chmod 0755 /etc/systemd/system/dcos-journalctl-filebeat.service
-    sudo systemctl daemon-reload
-    sudo systemctl start dcos-journalctl-filebeat.service
-    sudo systemctl enable dcos-journalctl-filebeat.service
-    sudo systemctl start filebeat
-    sudo systemctl enable filebeat
-    ```
-
-
-### <a name="all"></a>ELK node notes
-
-The ELK stack will receive, store, search and display information about the logs parsed by the Filebeat instances configured above for all nodes in the cluster.
-
-This document describes how to directly stream from Filebeat into ElasticSearch. Logstash is not used in this architecture. If you are interested in filtering, parsing and understanding the logs with an intermediate Logstash stage, please check the Logstash [documentation][8].
-
-You must modify the default parameter values to prepare ElasticSearch to receive information. For example, edit the ElasticSearch configuration file (typically `/etc/elasticsearch/elasticsearch.yml`):
-
-```bash
-network.host = [IP address from the interface in your ElasticSearch node connecting to the Filebeat instances]
-```
-
-Other parameters in the file are beyond the scope of this document. For details, please check the ElasticSearch [documentation][5].
-
-
-## <a name="all-4"></a>Step 4: Configure log rotation
-
-You should configure logrotate on all of your nodes to prevent the file `/var/log/dcos/dcos.log` from growing without limit and filling up your disk.
-Your `logrotate` config should contain `copytruncate` because otherwise the `journalctl` pipe remains open and pointing to the same file even after it has been rotated.
-When using `copytruncate`, there is a very small window between copying the file and truncating it, so some logging data might be lost - you should balance pros and cons between filling up the disk and losing some lines of logs.
-
-For example, your `logrotate` configuration should look like this:
+1.  Create a file `/etc/fluent-bit/fluent-bit.env` that sets the `FLUENT_BIT_CONFIG_FILE` environment variable to the location of your Fluent Bit config:
 
 ```
-/var/log/dcos/dcos.log {    
-  size 100M
-  copytruncate
-  rotate 5
-  compress
-  compresscmd /bin/xz
-}
+FLUENT_BIT_CONFIG_FILE=/etc/fluent-bit/fluent-bit.conf
+```
+
+2.  Create a directory `/etc/systemd/system/dcos-fluent-bit.service.d`:
+
+```
+$ sudo mkdir -p /etc/systemd/system/dcos-fluent-bit.service.d
+```
+
+3.  Create a file `/etc/systemd/system/dcos-fluent-bit.service.d/override.conf` that applies your custom config to Fluent Bit:
+
+```
+[Service]
+EnvironmentFile=/etc/fluent-bit/fluent-bit.env
+```
+
+4.  Reload systemd to update `dcos-fluent-bit.service`, and restart it:
+
+```
+$ sudo systemctl daemon-reload
+$ sudo systemctl restart dcos-fluent-bit.service
 ```
 
 # What's Next
 
-For details on how to filter your logs with ELK, see [Filtering DC/OS logs with ELK][3].
+For details on how to filter your logs with ELK, see [Filtering DC/OS logs with ELK][2].
 
- [2]: https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html
- [3]: ../filter-elk/
- [4]: https://www.elastic.co/guide/en/elastic-stack/current/index.html
- [5]: https://www.elastic.co/guide/en/elasticsearch/reference/5.0/index.html
- [6]: https://www.elastic.co/guide/en/kibana/current/install.html
- [7]: https://www.elastic.co/guide/en/logstash/current/installing-logstash.html
- [8]: https://www.elastic.co/guide/en/logstash/current/index.html
+ [1]: https://docs.fluentbit.io/manual/output/elasticsearch
+ [2]: ../filter-elk/
+ [3]: https://www.elastic.co/guide/en/elasticsearch/reference/5.0/index.html
+ [4]: https://www.elastic.co/guide/en/logstash/current/index.html
