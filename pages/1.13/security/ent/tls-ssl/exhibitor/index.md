@@ -10,7 +10,7 @@ enterprise: true
 
 By default, the Exhibitor HTTP service is open to any client that can reach port 8181 on a master node. This page describes a method for protecting the Exhibitor service from unauthorized access. Once enabled, HTTP clients must access Exhibitor through Admin Router; thus applying the Admin Router access control policy to the Exhibitor service.
 
-<p class="message--note"><strong>NOTE: </strong>When accessing Exhibitor through Admin Router (https://master_host/exhibitor), authenticated users must have the <i>dcos:adminrouter:ops:exhibitor</i> privilege</p>
+<p class="message--note"><strong>NOTE: </strong>When accessing Exhibitor through Admin Router (https://master_host/exhibitor), authenticated users must have the <i>dcos:adminrouter:ops:exhibitor</i> privilege with the <i>full</i> action identifier</p>
 
 # Securing Exhibitor
 
@@ -18,11 +18,11 @@ The strategy for securing Exhibitor is mutual TLS authentication. In order to se
 
 <p class="message--note"><strong>NOTE: </strong>This guide is only compatible with clusters which use <i>static</i> master discovery, <i>master_http_loadbalancer</i> is not currently supported. (https://docs.mesosphere.com/1.13/installing/production/advanced-configuration/configuration-reference/#master-discovery-required)</p>
 
-## Creating the Artifacts
+## Using the tool
 
 <p class="message--note"><strong>NOTE: </strong>A working Docker installation is required. If Docker is not available see https://github.com/mesosphere/exhibitor-tls-artifacts-gen/blob/master/README.md for information on running the command natively.</p>
 
-Download the script from the <a href="https://github.com/mesosphere/exhibitor-tls-artifacts-gen/releases">GitHub release page</a> and run it:
+Download the script from the GitHub release page and run it:
 
 ```sh
 curl -LsO https://github.com/mesosphere/exhibitor-tls-artifacts-gen/releases/download/v0.4.0/exhibitor-tls-artifacts
@@ -46,7 +46,7 @@ The expected output is shown below:
 
 
 ### Generating the artifacts
-To generate the TLS artifacts, run the tool with the master node ip addresses as positional arguments. Use the ip addresses found in the `master_list` field of the config.yml. If this file is not available, running `/opt/mesosphere/bin/detect_ip` on each master will produce the correct address.
+To generate the TLS artifacts, run the tool with the master node ip addresses as positional arguments. Use the IP addresses found in the `master_list` field of the DC/OS configuration file, config.yml. If this file is not available, running `/opt/mesosphere/bin/detect_ip` on each master node will produce the correct address.
 
 As an example, if your master nodes are `10.192.0.2, 10.192.0.3, 10.192.0.4`, invoke the script using:
 
