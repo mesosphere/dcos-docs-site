@@ -8,7 +8,7 @@ excerpt: Understanding DC/OS components
 
 DC/OS is composed of many open source microservice components meticulously tuned and configured to work together. Mesosphere DC/OS Enterprise includes most of the open source DC/OS components but also includes several additional components, modules, and plugins.
 
-![Mesosphere DC/OS Enterprise Components](/1.13/img/dcos-components-1-12-updated.png)
+![Mesosphere DC/OS Enterprise Components](/1.13/img/dcos-components-1-13.png)
 
 Figure 1 - DC/OS components
 
