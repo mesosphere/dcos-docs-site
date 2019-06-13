@@ -21,7 +21,6 @@ dcos task log [--all | --completed] [--follow --lines=N] [<task>] [<file>]
 
 | Name | Default | Description |
 |---------|-------------|-------------|
-| `--all` |             | Displays all information recorded for tasks. |
 | `--completed`   |             | Displays completed and in-progress tasks. |
 | `--follow`   |             |  Dynamically update the log. |
 | `--lines=N`   |     10      |  Displays the last N lines. |
