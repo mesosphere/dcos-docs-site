@@ -36,7 +36,7 @@ DC/OS has two built-in schedulers:
 
 ### User space schedulers
 
-Additional schedulers can be installed as [scheduler services](/1.13/overview/concepts/#dcos-scheduler-service) on Marathon, either from the [Mesosphere Catalog](/1.13/overview/concepts/#mesosphere-universe) or directly through Marathon.
+Additional schedulers can be installed as [scheduler services](/1.13/overview/concepts/#dcos-scheduler-service) on Marathon, either from the [Mesosphere {{ model.packageRepo }}](/1.13/overview/concepts/#mesosphere-universe) or directly through Marathon.
 
 Example user space schedulers:
 
@@ -44,5 +44,5 @@ Example user space schedulers:
 - The Cassandra scheduler provides Cassandra nodes, which run as lifecycle managed Cassandra nodes.
 - The Spark scheduler (dispatcher) provides Spark jobs, which are themselves schedulers for Spark tasks.
 
-For a full list of installable schedulers (and other packages), see the [Mesosphere Catalog package list](https://universe.dcos.io/#/).
+For a full list of installable schedulers (and other packages), see the [Mesosphere {{ model.packageRepo }} package list](https://universe.dcos.io/#/).
 

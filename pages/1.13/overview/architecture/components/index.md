@@ -415,7 +415,7 @@ Just as machine operating systems need package management to install, upgrade, c
 
 ## DC/OS package manager (Cosmos)
 
-The DC/OS package manager (Cosmos) installs and manages DC/OS packages from [DC/OS package repositories](/1.13/administering-clusters/repo/), such as the [Mesosphere Catalog](https://github.com/mesosphere/universe).
+The DC/OS package manager (Cosmos) installs and manages DC/OS packages from [DC/OS package repositories](/1.13/administering-clusters/repo/), such as the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe).
 
 ### System service
 

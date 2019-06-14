@@ -50,7 +50,7 @@ Local persistent volumes bridge the gap and provide fast, persistent storage. If
 
 DC/OS makes it easy to install both public community and private proprietary packaged services.
 
-The Mesosphere Catalog Package Repository connects you with a library of open source industry-standard schedulers, services, and applications. You can take advantage of community projects to handle batch job scheduling, highly available data storage, robust message queuing, and more. DC/OS also supports installing from multiple package repositories: you can host your own private packages to be shared within your company or with your customers.
+The Mesosphere {{ model.packageRepo }} Package Repository connects you with a library of open source industry-standard schedulers, services, and applications. You can take advantage of community projects to handle batch job scheduling, highly available data storage, robust message queuing, and more. DC/OS also supports installing from multiple package repositories: you can host your own private packages to be shared within your company or with your customers.
 
 
 ## <a name="cloud-agnostic-installer"></a>Cloud-agnostic installer
