@@ -16,10 +16,10 @@ render: mustache
 - Oracle JDK is replaced by OpenJDK 8 
 
 ### New Features
-- Service will fetch all required resources over HTTPS
 - Autosuggestion available for Service Account and Secrets when launching the service from DC/OS UI
 - Support for Secure JMX
 - Added marathon service scheduler checks
+- Service will fetch all required resources over HTTPS
 
 ## Version 2.5.0-2.1.0
 
