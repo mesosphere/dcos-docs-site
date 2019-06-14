@@ -4,6 +4,8 @@ navigationTitle:  Nodes
 title: Nodes
 menuWeight: 5
 excerpt: Using the Nodes page
+render: mustache
+model: ../../../data.yml
 ---
 
 The Nodes page provides a comprehensive view of all of the nodes that are used across your cluster. You can view a graph that shows the allocation percentage rate for CPU, memory, or disk.
