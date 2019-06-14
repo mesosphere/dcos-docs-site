@@ -21,7 +21,7 @@ By the end of this session you will have installed your first service - [Redis](
 
 # Steps
   * Install Redis
-      * Search the Catalog repository for redis packages:
+      * Search the Catalog repository for Redis packages:
 
         ```bash
         dcos package search redis
@@ -29,25 +29,25 @@ By the end of this session you will have installed your first service - [Redis](
 
         This should return two entries (mr-redis and redis).
 
-      * You are interested in the redis package, which installs a single Redis container. Install the package with this command:
+      * You are interested in the Redis package, which installs a single Redis container. Install the package with this command:
 
         ```bash
         dcos package install redis
         ```
 
-  * You can use any of the following methods to check that redis is running:
+  * You can use any of the following methods to check that Redis is running:
       * By looking at the GUI: The Redis task should be displayed in the Service Health tab along with the health status.
       * By looking at all DC/OS tasks with the `dcos task` command. This command will show us all running DC/OS tasks (i.e. Mesos tasks).
       * By looking at all Marathon apps: `dcos marathon app list`. This command will show us all running Marathon apps. Since services are started via Marathon, you should see Redis here as well. Note that the health status (i.e. 1/1) is also shown here.
-      * By looking at the Redis log: `dcos task log redis`. This command will show us the logs (stdout and stderr) of the redis task. This allows you to check whether the actual startup was successful. You can increase the number of log lines displayed by using the `--lines=` argument, the default is 10.  
+      * By looking at the Redis log: `dcos task log redis`. This command will show us the logs (stdout and stderr) of the Redis task. This allows you to check whether the actual startup was successful. You can increase the number of log lines displayed by using the `--lines=` argument, the default is 10.  
   * Let's use Redis by storing a key manually via the redis-cli command
-      * [SSH](/administering-clusters/sshcluster/) into the node where redis is running:
+      * [SSH](/administering-clusters/sshcluster/) into the node where Redis is running:
 
         ```bash
         dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
         ```
 
-      * Because Redis is running in a Docker container, you can list all Docker containers using `docker ps` and get the ContainerID of the container running the redis service.
+      * Because Redis is running in a Docker container, you can list all Docker containers using `docker ps` and get the ContainerID of the container running the Redis service.
       * Start a bash session in the running container, substituting CONTAINER_ID with the ContainerID you got from the previous command:
 
         ```bash
