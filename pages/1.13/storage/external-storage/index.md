@@ -139,10 +139,6 @@ Volumes created on the same AWS account share a namespace. Choose unique volume 
 
 EBS volumes are also namespaced by their availability zone (AZ), and an EBS volume [can only be attached to an EC2 instance in the same AZ][12]. As a result, attempts to launch a task in an agent running in a different AZ will lead to the creation of a new volume of the same name. If you create a cluster in one AZ, destroy it, be sure to create your cluster in the same AZ if you wish to reuse any external volumes. If a cluster spans multiple AZs, use Marathon constraints to only launch an instance in the same AZ.
 
-
-REX-Ray by default will fail after 13 EBS volumes are attached. While REX-Ray [0.11.0 introduced the config option `useLargeDeviceRange` to extend this limit][13], DC/OS v1.12.0 bundles REX-Ray 0.9.0.
-
-
 EBS volumes present as non-volatile memory express (NVMe) devices on certain newer EC2 instance types. Support for NVMe was only added to RexRay in v0.11.4. You will need to take the following prerequisite steps for RexRay to work with NVMe devices on CentOS (on newer CoreOS AMIs this is unnecessary):
 
    
@@ -156,11 +152,11 @@ EBS volumes present as non-volatile memory express (NVMe) devices on certain new
 
     ```bash
     $ cat <<EOF > /etc/udev/rules/999-aws-ebs-nvme.rules
-    ```
-1. Set EBS NVME devices.
-    ```bash
     KERNEL=="nvme[0-9]*n[0-9]*", ENV{DEVTYPE}=="disk", ATTRS{model}=="Amazon Elastic Block Store", PROGRAM="/usr/local/bin/ebs-nvme-mapping /dev/%k", SYMLINK+="%c"
     EOF
+    ```
+1. Create the helper script.
+    ```bash
     $ cat <<EOF > /usr/local/bin/ebs-nvme-mapping
     #!/bin/bash
     #/usr/local/bin/ebs-nvme-mapping
@@ -169,6 +165,8 @@ EBS volumes present as non-volatile memory express (NVMe) devices on certain new
     vol=${vol#/dev/}
     [ -n "${vol}" ] && echo "${vol/xvd/sd} ${vol/sd/xvd}"
     EOF
+1. Set the file permissions on the scripts and reload the udev rules.      
+    ```bash
     $ chown root:root /usr/local/bin/ebs-nvme-mapping
     $ chmod 700 /usr/local/bin/ebs-nvme-mapping
     $ udevadm control --reload
