@@ -5,6 +5,8 @@ title: dcos backup restore
 menuWeight: 30
 excerpt: Restoring from a backup
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 # Description
