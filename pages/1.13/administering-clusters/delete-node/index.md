@@ -5,6 +5,8 @@ title: Shut Down and Decommission Nodes
 menuWeight: 810
 excerpt: Shutting down and decommissioning agent nodes
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 In DC/OS 1.12 and later, deleting a node involves two steps: 

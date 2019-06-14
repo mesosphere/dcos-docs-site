@@ -5,6 +5,8 @@ title: Adding Agent Nodes
 menuWeight: 800
 excerpt: Adding agent nodes to an existing DC/OS cluster
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 Agent nodes are designated as [public](/latest/overview/concepts/#public-agent-node) or [private](/latest/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during the GUI or CLI [installation](/latest/installing/evaluation/).

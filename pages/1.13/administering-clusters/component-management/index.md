@@ -5,6 +5,8 @@ title: Component Management
 menuWeight: 5
 excerpt: Installing and managing DC/OS component services
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 The component management API controls installation and management of DC/OS component services.

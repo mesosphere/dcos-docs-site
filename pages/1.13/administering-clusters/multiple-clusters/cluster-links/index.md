@@ -5,6 +5,8 @@ title: Cluster Links
 menuWeight: 3
 excerpt: Managing links between clusters
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 A cluster link is a **unidirectional** relationship between a cluster and another cluster.

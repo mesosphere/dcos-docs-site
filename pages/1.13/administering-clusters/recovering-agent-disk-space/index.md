@@ -5,6 +5,8 @@ title: Recovering Agent Disk Space
 menuWeight: 900
 excerpt: Recovering space on an agent node volume
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 If tasks fill up the reserved volume of an agent node, there are a few options to recover space:
