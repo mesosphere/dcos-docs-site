@@ -127,7 +127,7 @@ docker network create \
 
 **NOTE:** The assumption for DockerContainerizer to work with the DC/OS overlay is that the host is running Docker v1.11 or greater.
 
-**NOTE:** The default overlay MTU is1420 bytes.
+**NOTE:** The default overlay MTU is 1420 bytes.
 
 ### Virtual Network Service: Overlay Orchestration
 
