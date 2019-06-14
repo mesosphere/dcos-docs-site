@@ -5,6 +5,8 @@ title: dcos marathon task list
 menuWeight: 29
 excerpt: Displaying all tasks
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

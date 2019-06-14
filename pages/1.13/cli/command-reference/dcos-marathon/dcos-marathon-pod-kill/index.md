@@ -5,6 +5,8 @@ title: dcos marathon pod kill
 menuWeight: 24
 excerpt: Stopping one or more running pod instances
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

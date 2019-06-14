@@ -5,6 +5,8 @@ title: dcos marathon app list
 menuWeight: 3
 excerpt: Displaying all installed applications
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

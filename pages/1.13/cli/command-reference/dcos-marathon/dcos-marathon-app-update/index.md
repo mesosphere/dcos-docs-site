@@ -4,8 +4,11 @@ navigationTitle:  dcos marathon app update
 title: dcos marathon app update
 menuWeight: 9
 excerpt: Updating an application
-
+render: mustache
+model: /data.yml
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

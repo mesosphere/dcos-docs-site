@@ -5,6 +5,8 @@ title: dcos marathon deployment stop
 menuWeight: 16
 excerpt: Cancelling in-progress application deployment
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

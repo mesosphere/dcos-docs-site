@@ -4,7 +4,8 @@ navigationTitle:  dcos marathon task stop
 title: dcos marathon task stop
 menuWeight: 31
 excerpt: Stopping a task
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

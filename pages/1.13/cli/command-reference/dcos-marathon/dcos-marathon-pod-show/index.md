@@ -5,6 +5,8 @@ title: dcos marathon pod show
 menuWeight: 27
 excerpt: Displaying detailed information for a specific pod
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

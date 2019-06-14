@@ -5,6 +5,8 @@ title: dcos marathon debug list
 menuWeight: 12
 excerpt: Displaying the current queue of Marathon app deployments
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
