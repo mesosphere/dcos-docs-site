@@ -9,7 +9,7 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-You can grant users access to the [**Catalog** ](/1.13/gui/catalog/) tag. By default, new users have no permissions.
+You can grant users access to the [**{{ model.packageRepo }}** ](/1.13/gui/catalog/) tag. By default, new users have no permissions.
 
 <p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Catalog</strong> screen. If you want to configure fine-grained user access, see the <a href="/1.13/deploying-services/service-groups/">documentation</a>.</p>
 
