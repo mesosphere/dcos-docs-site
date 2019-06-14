@@ -22,7 +22,7 @@ The strategy for securing Exhibitor is mutual TLS authentication. In order to se
 
 <p class="message--note"><strong>NOTE: </strong>A working Docker installation is required. If Docker is not available see https://github.com/mesosphere/exhibitor-tls-artifacts-gen/blob/master/README.md for information on running the command natively.</p>
 
-Download the script from the GitHub release page and run it:
+Download the script from the <a href=https://github.com/mesosphere/exhibitor-tls-artifacts-gen/releases>GitHub release page</a> and run it:
 
 ```sh
 curl -LsO https://github.com/mesosphere/exhibitor-tls-artifacts-gen/releases/download/v0.4.0/exhibitor-tls-artifacts
@@ -35,7 +35,7 @@ The expected output is shown below:
     Usage: exhibitor-tls-artifacts [OPTIONS] [NODES]...
 
     Generates Admin Router and Exhibitor TLS artifacts. NODES should consist
-    of a space separated list of master ip addresses. See
+    of a space separated list of master IP addresses. See
     https://docs.mesosphere.com/1.13/security/ent/tls-ssl/exhibitor/
 
     Options:
@@ -46,7 +46,7 @@ The expected output is shown below:
 
 
 ### Generating the artifacts
-To generate the TLS artifacts, run the tool with the master node ip addresses as positional arguments. Use the IP addresses found in the `master_list` field of the DC/OS configuration file, config.yml. If this file is not available, running `/opt/mesosphere/bin/detect_ip` on each master node will produce the correct address.
+To generate the TLS artifacts, run the tool with the master node IP addresses as positional arguments. Use the IP addresses found in the `master_list` field of the DC/OS configuration file, config.yml. If this file is not available, running `/opt/mesosphere/bin/detect_ip` on each master node will produce the correct address.
 
 As an example, if your master nodes are `10.192.0.2, 10.192.0.3, 10.192.0.4`, invoke the script using:
 
@@ -80,14 +80,14 @@ scp -r artifacts/10.192.0.4 root@10.192.0.4:/var/lib/dcos/exhibitor-tls-artifact
 
 Exhibitor and Master Admin Router must be restarted on all nodes. After all files have been copied, run the following commands on **all** master nodes.
 
-<p class="message--warning"><strong>WARNING: </strong>This will result in a small amount downtime for Zookeeper and Master Admin Router.</p>
+<p class="message--warning"><strong>WARNING: </strong>This will result in a small amount of downtime for Zookeeper and Master Admin Router.</p>
 
 ```sh
 systemctl restart dcos-exhibitor.service
 systemctl restart dcos-adminrouter.service
 ```
 
-The systemd unit scripts will detect the presence of the artifacts and set ownership and permissions accordingly.
+The `systemd` unit scripts will detect the presence of the artifacts and set ownership and permissions accordingly.
 
 ## Deploying a new cluster
 
