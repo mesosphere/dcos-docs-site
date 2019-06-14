@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release notes for 1.13.0
 title: Release notes for 1.13.0
-menuWeight: 1
+menuWeight: 5
 excerpt: Release notes for DC/OS 1.13.0, including Open Source attribution, and version policy.
 ---
 DC/OS 1.13.0 was released on May 8, 2019.
@@ -52,7 +52,7 @@ This release extends DC/OS cluster monitoring capabilities and the metrics you c
 
     When you install the DC/OS monitoring service, you can select the volume size and a volume profile for the file system where you want to store the Prometheus time-series database (`tsdb`). By specifying a volume managed by the DC/OS Storage Service, you can take advantage of the durability, performance, and flexibility DSS provides for your collected data.
 
-    For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/beta-dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/beta-storage/0.5.3-beta/).
+    For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/beta-storage/0.5.3-beta/).
 
 - The DC/OS monitoring service enables you to import curated alerting rules. <!--(DCOS-47666)-->
 
@@ -82,7 +82,7 @@ You can also collect information about the operation and performance of the Tele
 
     The metrics collection service, `dcos-telegraf` can now collect additional metrics for Mesos volumes and network information. For a complete list of the Mesos metrics you can collect and report, see the latest [list of metrics](http://mesos.apache.org/documentation/latest/monitoring/).
 
-    In DC/OS 1.13, `dcos-telegraf` automatically collects Mesos metrics by default. Previously, you were required to manually enable the metrics plugin by updating the agent configuration or by setting the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `true`.  With this release, manually enabling this feature is no longer required. Instead, the default value for the parameter is now set to true. You can set the `enable_mesos_input_plugin` parameter in the `config.yaml` file to false if you want to disable the automatic collection of Mesos metrics.
+    In DC/OS 1.13, `dcos-telegraf` automatically collects Mesos metrics by default. Previously, you were required to manually enable the metrics plugin by updating the agent configuration or by setting the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `true`.  With this release, manually enabling this feature is no longer required. Instead, the default value for the parameter is now set to `true`. You can set the `enable_mesos_input_plugin` parameter in the `config.yaml` file to `false` if you want to disable the automatic collection of Mesos metrics.
 
 - Collect and report metrics that track the health and performance of the DC/OS Telegraf plugin. <!--(DCOS-39012)-->
 
@@ -111,11 +111,11 @@ You can also collect information about the operation and performance of the Tele
 
 - Add the fault domain region and zone information to metrics. <!--DCOS-16570-->
 
-- Standardized log collection and forwarding through Fluent Bit. <!--(DCOS-43412)-->
+<!-- - Standardized log collection and forwarding through Fluent Bit. (DCOS-43412) -->
 
-    Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting service.
+<!-- Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting service.
 
-    For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/1.13/monitoring/logging/).
+For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/1.13/monitoring/logging/). -->
 
 For more information about collecting metrics and configuring metrics plugins, see the following topics:
 - [Metrics Plugin Architecture](/1.13/metrics/architecture/)
@@ -179,7 +179,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
 - Enable Edge-LB pool instances to be scaled up or down. <!--(DCOS-28440)-->
 
-    You can scale down the Edge-LB pool instances from a higher count to lower if you don't require all pool instances that are configured. To scale down, simply update the `count` variable in the Edge-LB pool configuration file to reflect the number of Edge-LB pool instances you need.
+    You can scale down the Edge-LB pool instances from a higher count to lower if you do not require all pool instances that are configured. To scale down, simply update the `count` variable in the Edge-LB pool configuration file to reflect the number of Edge-LB pool instances you need.
 
 <!-- not in the 1.13 Docs in RN filter
 - Build an Ingress controller to provision Amazon ELBs for L4 traffic into Edge-LB (DCOS-46302)
@@ -187,31 +187,31 @@ For more information about collecting metrics and configuring metrics plugins, s
     You can automatically provision Amazon ELB (NLB) using Edge-LB pool instances on your public and private agents. You can automatically provision the Network Load Balancer from a Kubernetes cluster as well. After you provision the Amazon Network Load Balancer, you can fetch the DNS metadata endpoint to access the service that is exposed through the Network Load Balancer.
 -->
 
-## GUI
-- Support for the independent upgrade of the DC/OS GUI. <!--(DCOS-47632)-->
+## UI
+- Support for the independent upgrade of the DC/OS UI. <!--(DCOS-47632)-->
 
-    You can now install and update the DC/OS GUI without having to upgrade the DC/OS cluster. This feature enables new updates for DC/OS to be published to the DC/OS catalog and also be available as `.dcos` files for on-premise customers. The ability to install and update the DC/OS GUI without upgrading the DC/OS cluster enables you to easily get the latest fixes and capabilities available in the DC/OS GUI without affecting cluster operations. You also now have the ability to roll back an update, enabling you to use the DC/OS GUI version that was originally shipped with your version of DC/OS if you need to.
+    You can now install and update the DC/OS UI without having to upgrade the DC/OS cluster. This feature enables new updates for DC/OS to be published to the DC/OS catalog and also be available as `.dcos` files for on-premise customers. The ability to install and update the DC/OS UI without upgrading the DC/OS cluster enables you to easily get the latest fixes and capabilities available in the DC/OS UI without affecting cluster operations. You also now have the ability to roll back an update, enabling you to use the DC/OS UI version that was originally shipped with your version of DC/OS if you need to.
 
     <!--
-    For more information about installing or updating the DC/OS GUI independent of changes to other components of the DC/OS deployment, see [XX](). -->
+    For more information about installing or updating the DC/OS UI independent of changes to other components of the DC/OS deployment, see [XX](). -->
 
 - Accurate status information for services. <!--(DCOS-43460)-->
 
-    DC/OS 1.13 GUI now includes a new tab in the Details section of every SDK-based data service. This new tab provides a clear indication of the status and progress of SDK-based services during the service life cycle, including installation and upgrade activity. From the Details tab, you can see information about the specific operational plans that are currently running or have just completed. You can also view the execution of each task so that you can easily track the progress of the plans you have deployed.
+    DC/OS 1.13 UI now includes a new tab in the Details section of every SDK-based data service. This new tab provides a clear indication of the status and progress of SDK-based services during the service life cycle, including installation and upgrade activity. From the Details tab, you can see information about the specific operational plans that are currently running or have just completed. You can also view the execution of each task so that you can easily track the progress of the plans you have deployed.
 
     For more information about viewing up-to-date status information for services and operational plans, see the [Services](/1.13/gui/services/) documentation.
 
-- Identify the public-facing IP address for public agent nodes in the DC/OS GUI. <!--(DCOS-49987)-->
+- Identify the public-facing IP address for public agent nodes in the DC/OS UI. <!--(DCOS-49987)-->
 
-    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS GUI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS GUI, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
+    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS UI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS UI, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
 
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a **public cloud provider** such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
 - Add support for internationalization and localization (I18N and L10N - Chinese). <!--(DCOS-39557)-->
 
-    Mesosphere DC/OS 1.13 GUI has now been translated into Mandarin Chinese. Mandarin-speaking customers and users can now easily switch the language displayed in the GUI and be able to interact with DC/OS operations and functions in English or Chinese. The DC/OS documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there's sufficient customer demand.
+    Mesosphere DC/OS 1.13 UI has now been translated into Mandarin Chinese. Mandarin-speaking customers and users can now easily switch the language displayed in the UI and be able to interact with DC/OS operations and functions in English or Chinese. The DC/OS documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there is sufficient customer demand.
 
-    For information about changing the language displayed, see the [GUI](/1.13/gui/) documentation.
+    For information about changing the language displayed, see the [UI](/1.13/gui/) documentation.
 
 ## Installation
 - Multi-region support using the Universal Installer. <!--(DCOS-45727)-->
@@ -229,12 +229,12 @@ For more information about collecting metrics and configuring metrics plugins, s
 
 <!-- not in 1.13 Docs with RN filter
 - Universal Installer to provision Elastic Block Store (EBS) volumes. (DCOS-47221)
-    The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](https://docs.mesosphere.com/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/).
+    The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/).
 -->
 
 ## Job management and scheduling
 - Enhance DC/OS job handling capabilities by adding support for the following:
-    - Graphic processing units (GPU) when creating new jobs in the DC/OS GUI or with the new DC/OS configuration option `metronome_gpu_scheduling_behavior`.
+    - Graphic processing units (GPU) when creating new jobs in the DC/OS UI or with the new DC/OS configuration option `metronome_gpu_scheduling_behavior`.
     - Jobs running in universal container runtime (UCR) containers.
     - File-based secrets.
     - Hybrid cloud deployments.
@@ -296,7 +296,7 @@ For more information about collecting metrics and configuring metrics plugins, s
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 <!-- not in 1.13 Docs in RN filter
 - Retention policies for dcos-monitoring data (DCOS-46818)
-    The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: https://docs.mesosphere.com/services/beta-dcos-monitoring/0.4.3-beta/operations/prometheus/storage/
+    The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: /services/dcos-monitoring/1.0.0/operations/prometheus/storage/
 -->
 <!-- not in 1.13 Docs in RN filter
 - Display Grafana dashboards on unsupervised displays (DCOS-51133)
@@ -379,7 +379,7 @@ The issues that have been fixed in DC/OS 1.13 are grouped by feature, functional
 
     With this release, the configuration parameters `aws_secret_access_key` and `exhibitor_azure_account_key` are marked as secret and not visible in the `user.config.yaml` file on cluster nodes. This information is only visible in `user.config.full.yaml` file. This file has stricter read permissions and is not included in DC/OS Diagnostics bundles.
 
-### GUI
+### UI
 - Change the default value for DC/OS UI X-Frame-Options from SAMEORIGIN to DENY. This setting is also now configurable using the `adminrouter_x_frame_options` configuration parameter (DCOS-49594).
 
 ### Installation

@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.8
 title: Release Notes for 1.11.8
-menuWeight: 10
+menuWeight: 20
 excerpt: Release notes for DC/OS 1.11.8
 ---
 
-DC/OS 1.11.8 was released on December 6, 2018. 
+DC/OS 1.11.8 was released on December 6, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.8/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -20,7 +20,7 @@ DC/OS 1.11.8 includes the following components:
 # Issues Fixed in DC/OS 1.11.8
 
 ## GUI
-- COPS-3360, DCOS-43934 - Updates to the DC/OS UI provide better rendering for elements such as environment variables, secrets, labels, and version information.   
+- COPS-3360, DCOS-43934 - Updates to the DC/OS UI provide better rendering for elements such as environment variables, secrets, labels, and version information.
 - DCOS-37791, DCOS-42504 - For improved scalability, the DC/OS UI starts loading state information immediately after users log on.
 
 ## Marathon
@@ -65,7 +65,7 @@ Provide feedback on the new features and services at [support.mesosphere.com](ht
   - Support for Docker image pull secrets. [View the documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/#cluster-docker-credentials). An example for Docker credentials is [here](/1.11/installing/ent/custom/configuration/examples/#docker-credentials). [enterprise type="inline" size="small" /]
 
 ### Networking
-- Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
+- Edge-LB 1.0. [View the documentation](/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`.  Read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
 - The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/production/advanced-configuration/configuration-reference/#dns-forward-zones) to understand its usage.
@@ -82,7 +82,7 @@ Provide feedback on the new features and services at [support.mesosphere.com](ht
 - Unified logging API provides simple access to container (task) and system component logs. [View the documentation](/1.11/monitoring/logging/logging-api/).
 
 ### Storage
-- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
+- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods/).[beta type="inline" size="small" /]
 
 <p class="message--note"><strong>NOTE: </strong>Because these storage features are beta in 1.11, they must be explicitly enabled in the config.yaml file when installing DC/OS. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.</p>

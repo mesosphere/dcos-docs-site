@@ -2,27 +2,26 @@
 layout: layout.pug
 navigationTitle:  Creating secrets
 title: Creating secrets
-menuWeight: 0
+menuWeight: 1
 excerpt: Creating secrets with a key-value pair or file
-
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-You can create secrets in DC/OS by using a key-value pair or as a file. Both methods add a name and secret value to the secret store. You may find it convenient to add a secret as a file if you already have a secret value stored in a file locally and want to avoid cutting-and-pasting.
+You can create secrets in DC/OS by using a key-value pair or as a file. Both methods add a name and secret value to the secret store. You may find it convenient to add a secret as a file if you already have a secret value stored in a file locally and want to avoid copying-and-pasting.
 
 See [Configuring services and pods to use secrets](/1.13/security/ent/secrets/use-secrets/) for information on how to reference these secrets in your app or pod definition.
 
 # Creating secrets
 
-The sections below explain how to create secrets as both key/value pairs and as files using the web interface, CLI, and the Secrets API.
+The sections below explain how to create secrets as both key/value pairs and as files using the UI, CLI, and the Secrets API.
 
 Secrets should include paths, unless you want to allow all services to access its value. See [Spaces](/1.13/security/ent/#spaces) for more information about secret paths.
 
 ## Prerequisites
 
-### DC/OS web interface
+### DC/OS UI
 - The `dcos:superuser` permission.
 
 ### DC/OS CLI or Secrets API
@@ -31,9 +30,9 @@ Secrets should include paths, unless you want to allow all services to access it
 
 - [DC/OS CLI installed](/1.13/cli/install/) and the [DC/OS Enterprise CLI installed](/1.13/cli/enterprise-cli/#ent-cli-install).
 
-# <a name="ui"></a>Creating key-value pair secrets using the web interface
+# <a name="ui"></a>Creating key-value pair secrets using the UI
 
-1. Log in to the DC/OS web interface as a user with the `dcos:superuser` permission.
+1. Log in to the DC/OS UI as a user with the `dcos:superuser` permission.
 
 1. Open the **Secrets** tab.
 
@@ -43,7 +42,7 @@ Secrets should include paths, unless you want to allow all services to access it
 
     Figure 1. New Secret icon
 
-1. In the **ID** box, provide the name of your secret and its path, if any. 
+1. In the **ID** box, provide the name of your secret and its path, if any.
 
 1. Type or paste the secret into the **Value** box.
 
@@ -57,7 +56,7 @@ Secrets should include paths, unless you want to allow all services to access it
 
 This procedure describes how to create a secret called `my-secret` inside the `developer` path.
 
-<p class="message--note"><strong>NOTE: </strong>You must follow the steps in <a href="/1.12/security/ent/tls-ssl/get-cert/">Obtaining the DC/OS CA bundle</a> before issuing the curl commands in this section.</p>
+<p class="message--note"><strong>NOTE: </strong>You must follow the steps in <a href="/1.13/security/ent/tls-ssl/get-cert/">Obtaining the DC/OS CA bundle</a> before issuing the curl commands in this section.</p>
 
 
 1. Use `dcos auth login` log in to the CLI.
@@ -70,7 +69,7 @@ This procedure describes how to create a secret called `my-secret` inside the `d
 
 # <a name="cli"></a>Creating key/value pair secrets via the DC/OS Enterprise CLI
 
-This procedure describes how to create a key/value pair secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI. 
+This procedure describes how to create a key/value pair secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI.
 
 1. Use `dcos auth login` to log into the CLI. You can find more information about this command in the [CLI Reference](/1.13/cli/command-reference/dcos-auth/dcos-auth-login/).
 

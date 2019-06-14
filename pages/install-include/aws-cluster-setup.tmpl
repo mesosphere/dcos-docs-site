@@ -6,7 +6,7 @@
     mkdir dcos-demo && cd dcos-demo
     ```
 
-2. Create a file in that folder called `main.tf`, which is the configuration file the that will be called on each time when terraform runs. The name of this file should always be `main.tf`. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
+2. Create a file in that folder called `main.tf`, which is the configuration file that will be called on each time when terraform runs. The name of this file should always be `main.tf`. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
 
     ```bash
     provider "aws" {
@@ -26,7 +26,7 @@
       num_private_agents = "2"
       num_public_agents  = "1"
 
-      dcos_version = "1.12.2"
+      dcos_version = "1.13.0"
 
       dcos_instance_os    = "centos_7.5"
       bootstrap_instance_type = "t2.medium"
@@ -84,7 +84,7 @@
     # dcos_variant = "open"
     ```
 
-6. This sample configuration file will get you started on the installation of an open source DC/OS 1.12.0 cluster with the following nodes:
+6. This sample configuration file will get you started on the installation of an open source DC/OS 1.13.0 cluster with the following nodes:
 
     - 1 Master
     - 2 Private Agents

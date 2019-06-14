@@ -38,7 +38,7 @@ Possible health states are unhealthy and healthy. We infer this from codes 0 and
 *   **Healthy** All cluster nodes are healthy. The units are loaded and not in the "active" or "inactive" state.
 *   **Unhealthy** One or more nodes have issues. The units are not loaded or are in the "active" or "inactive" state.
 
-The system health API has four possible states: 0 - 3, OK; CRITICAL; WARNING; UNKNOWN. 
+The system health API has four possible states: 0 - 3, OK; CRITICAL; WARNING; UNKNOWN.
 
 ## System health HTTP API endpoint
 
@@ -86,15 +86,20 @@ The DC/OS user interface uses these aggregation endpoints to generate the data y
 
 ### Misinterpreting system health by unit
 
-You can sort system health by `systemd` unit. However, this search can bring up misleading information, as the service itself can be healthy but the node on which it runs is not. This manifests itself as a service showing "healthy" but nodes associated with that service as "unhealthy". 
+You can sort system health by `systemd` unit. However, this search can bring up misleading information, as the service itself can be healthy but the node on which it runs is not. This manifests itself as a service showing "healthy" but nodes associated with that service as "unhealthy".
 
 ### Missing cluster hosts
 
 The system health API relies on Mesos-DNS to know about all the cluster hosts. It finds these hosts by combining a query from `mesos.master` A records as well as `leader.mesos:5050/slaves` to get the complete list of hosts in the cluster. This system has a known bug, in which an agent will not show up in the list returned from `leader.mesos:5050/slaves` if the Mesos agent service is not healthy. This means the system health API will not show this host. If you experience this behavior it is most likely that your Mesos agent service on the missing host is unhealthy.
 
+### Diagnostics bundle contents
+
+The contents of the generated bundle are not stable over time and any internal or third party bundle analysis tooling should be programmed very defensively in this regard.
+
 ## Troubleshooting
 
-If you have any problems, you can check if the diagnostics service is running by SSHing to the Mesos leading master and checking the `systemd` status of the diagnostics component (`dcos-d3t.service`).
+If you have any problems, you can check if the diagnostics service is running by SSHing to the Mesos leading master and checking the `systemd` status of the diagnostics component (`dcos-diagnostics.service`).
+
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html

@@ -49,7 +49,7 @@ curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/healt
 Aggregation of the cluster health endpoints is accomplished by the same diagnostics application on the master nodes. You can explore this API further by making a few queries to any master in your cluster:
 
 1.  SSH to your master node:
-    
+
     ```bash
     dcos node ssh --master-proxy --leader
     ```
@@ -59,19 +59,19 @@ Aggregation of the cluster health endpoints is accomplished by the same diagnost
     sudo su -
     ```
 1.  Run these commands to get cluster health:
-   
+
     -  System health by unit:
-       
+
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/units
        ```
     -  System health by node:
-    
+
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/nodes
        ```
     -  System health report:
-    
+
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/report
        ```
@@ -92,9 +92,14 @@ This system has a known bug where an agent will not show up in the list returned
 
 If you experience this behavior it's most likely your Mesos agent service on the missing host is unhealthy.
 
+### Diagnostics bundle contents
+
+The contents of the generated bundle are not stable over time and any internal or third party bundle analysis tooling should be programmed very defensively in this regard.
+
 ## Troubleshooting
 
-If you have any problems, you can check if the diagnostics service is running by SSH’ing to the Mesos leading master and checking the systemd status of the diagnostics component (`dcos-d3t.service`).
+If you have any problems, you can check if the diagnostics service is running by SSHing to the Mesos leading master and checking the `systemd` status of the diagnostics component (`dcos-diagnostics.service`).
+
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html

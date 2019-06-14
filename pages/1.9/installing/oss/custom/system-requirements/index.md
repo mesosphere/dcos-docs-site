@@ -23,7 +23,7 @@ You must have a single Bootstrap node, Mesos master nodes, and Mesos agent nodes
 
 The cluster nodes are designated Mesos masters and agents during installation.
 
-The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+The supported operating systems and environments are listed on the [version policy page](/version-policy/).
 
 ### Master nodes
 
@@ -102,7 +102,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 ### Docker
 
-Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on the [version policy page](/version-policy/).
 
 **Recommendations**
 

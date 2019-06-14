@@ -9,7 +9,7 @@ enterprise: false
 model: ../../data.yml
 render: mustache
 ---
-This section describes various operations tasks you may need. DC/OS {{ model.techName }} allows you to 
+This section describes various operations tasks you may need. DC/OS {{ model.techName }} allows you to
 - Update your configuration after launch
 - Update your placement constraints
 - Add, replace, restart or resize a node
@@ -40,7 +40,7 @@ DC/OS Enterprise 1.10 introduces a convenient command line option that allows fo
 - Service with 1.5.0 version or later.
 - [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
 - The service's subcommand available and installed on your local machine.
-  - You can install just the subcommand CLI by running 
+  - You can install just the subcommand CLI by running
     ```shell
     dcos package install --cli --yes {{ model.serviceName }}
     ```
@@ -60,7 +60,7 @@ dcos {{ model.serviceName }} describe > options.json
 
 Make any configuration changes to the `options.json` file.
 
-If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](../install).
+If you installed this service with a prior version of DC/OS, this configuration will not have been persisted by the DC/OS package manager. You can instead use the `options.json` file that was used when [installing the service](../install).
 
 <p class="message--note"><strong>NOTE: </strong> You need to specify all configuration values in the <tt>options.json</tt> file when performing a configuration update. Any unspecified values will be reverted to the default values specified by the DC/OS service. See the "Recreating <tt>options.json</tt>" section below for information on recovering these values.</p>
 
@@ -116,7 +116,7 @@ You will receive an acknowledgement message and the DC/OS package manager will r
 
 See [Advanced update actions](#advanced-update-actions) for commands you can use to inspect and manipulate an update after it has started.
 
-To see a full listing of available options, run 
+To see a full listing of available options, run
 ```shell
 dcos package describe --config {{ model.serviceName }}
 ```
@@ -142,14 +142,14 @@ Let's say we have the following deployment of our nodes
     ```
 
 
-`10.0.10.8` is being decommissioned and we should move away from it. 
+`10.0.10.8` is being decommissioned and we should move away from it.
 
 1. Remove the decommissioned IP and add a new IP to the placement rule whitelist by editing `placement_constraint`:
 
     ```shell
     hostname:LIKE:10.0.10.3|10.0.10.26|10.0.10.28|10.0.10.84|10.0.10.123
     ```
-1. Redeploy `_NODEPOD_-1` from the decommissioned node to somewhere within the new whitelist: 
+1. Redeploy `_NODEPOD_-1` from the decommissioned node to somewhere within the new whitelist:
     ```shell
     dcos {{ model.serviceName }} pod replace _NODEPOD_-1
     ```
@@ -187,13 +187,13 @@ Modify the COUNT `"node":{"count":3}` environment variable to update the node co
 ### Resizing a Node
 
 The CPU and memory requirements of each node can be increased or decreased as follows:
-- CPU: 
+- CPU:
 ```json
 "node":{
    "cpus":<CPU Value>
 }
 ```
-- Memory (in MB): 
+- Memory (in MB):
 ```json
 "node":{
    "mem":4096
@@ -209,7 +209,7 @@ The CPU and memory requirements of each node can be increased or decreased as fo
 
 This operation will restart a node, while keeping it at its current location and with its current persistent volume data. This may be thought of as similar to restarting a system process, but it also deletes any data that is not on a persistent volume.
 
-Run 
+Run
 ```shell
 dcos {{ model.serviceName }} pod restart {{ model.serviceName }}-<NUM>`, e.g. `{{ model.serviceName }}_-2
 ```
@@ -291,7 +291,7 @@ Or for a specific step within a specific phase:
 ```shell
 dcos {{ model.serviceName }} update force-restart service-phase service-0:[node]
 ```
-# Disaster recovery 
+# Disaster recovery
 
 ## Backing up
 
@@ -344,9 +344,9 @@ The DC/OS {{model.techName }} backup is taken using the DC/OS {{model.techName }
 
 1. **Upload_to_S3** - Upload the backup from the local node to S3. This sidecar task takes the backup created in Step 1, from the ROOT/Mount volume, and uploads it to Amazon S3 in the Bucket Name specified.
 
-    [<img src="../img/S3Upload.png" alt="S3Upload.png" width="800"/>](../img/S3Upload.png) 
+    [<img src="../img/S3Upload.png" alt="S3Upload.png" width="800"/>](../img/S3Upload.png)
 
-    Figure 2. S3 upload      
+    Figure 2. S3 upload
 
 1. **Cleanup** - Remove the backup from local node. When Step 2 is complete and the backup has been uploaded to S3, a sidecar task known as Cleanup is triggered. This task cleans up/removes the backup folder from the local Root/Mount volumes.
 
@@ -367,7 +367,7 @@ The Admin Toolkit contains command line utilities for administrators to support 
 
 The Administration Toolkit is bundled with the `{{ model.serviceName }}-toolkit` and can be executed with scripts found in the `bin` folder. Further documentation is available at [DC/OS {{model.techName }} Administration Toolkit](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/html/administration-guide.html#admin-toolkit).
 
-To execute the DC/OS {{model.techName }} Administration Toolkit commands, run  a `dcos task exec` command to a DC/OS {{model.techName }} node. 
+To execute the DC/OS {{model.techName }} Administration Toolkit commands, run  a `dcos task exec` command to a DC/OS {{model.techName }} node.
 
 1. Set the JAVA_HOME using the command:
     ```shell
@@ -408,11 +408,11 @@ To check for `dcos` tasks:
 ```shell
 dcos task
 
-NAME            HOST         USER   STATE  ID                                                    MESOS ID                                 
-{{ model.serviceName }}            10.0.0.196   root     R    {{ model.serviceName }}.9b11498f-415f-11e8-81a4-e25c6192ea05             1d166af3-8666-4f3e-8add-dcaad139c900-S3  
-{{ model.serviceName }}-0-metrics  10.0.0.199  nobody    R    {{ model.serviceName }}-0-metrics__958e2af9-c7d0-4cb9-b1fc-08c810b05254  1d166af3-8666-4f3e-8add-dcaad139c900-S1  
-{{ model.serviceName }}-0-node     10.0.0.199  nobody    R    {{ model.serviceName }}-0-node__68c0d8a0-4c36-4a86-a287-5dc67ce19fde     1d166af3-8666-4f3e-8add-dcaad139c900-S1  
-{{ model.serviceName }}-1-metrics  10.0.0.58   nobody    R    {{ model.serviceName }}-1-metrics__e58b8f2d-e19f-48f7-b154-6d11e65c54a9  1d166af3-8666-4f3e-8add-dcaad139c900-S5  
+NAME            HOST         USER   STATE  ID                                                    MESOS ID
+{{ model.serviceName }}            10.0.0.196   root     R    {{ model.serviceName }}.9b11498f-415f-11e8-81a4-e25c6192ea05             1d166af3-8666-4f3e-8add-dcaad139c900-S3
+{{ model.serviceName }}-0-metrics  10.0.0.199  nobody    R    {{ model.serviceName }}-0-metrics__958e2af9-c7d0-4cb9-b1fc-08c810b05254  1d166af3-8666-4f3e-8add-dcaad139c900-S1
+{{ model.serviceName }}-0-node     10.0.0.199  nobody    R    {{ model.serviceName }}-0-node__68c0d8a0-4c36-4a86-a287-5dc67ce19fde     1d166af3-8666-4f3e-8add-dcaad139c900-S1
+{{ model.serviceName }}-1-metrics  10.0.0.58   nobody    R    {{ model.serviceName }}-1-metrics__e58b8f2d-e19f-48f7-b154-6d11e65c54a9  1d166af3-8666-4f3e-8add-dcaad139c900-S5
 {{ model.serviceName }}-1-node     10.0.0.58   nobody    R    {{ model.serviceName }}-1-node__1a3d71c6-3c23-4a96-bba3-859de2c0615d     1d166af3-8666-4f3e-8add-dcaad139c900-S5
 ```
 To enter into a `dcos` node
@@ -452,7 +452,7 @@ To check the metrics for the DC/OS {{model.techName }} instances on individual a
 1. In the next step we need to ssh into the private agent on which we have the tasks running:
     ```shell
         dcos node ssh --master-proxy --mesos-id=<agent-mesos-id>
-    ```  
+    ```
 1. Finally we need to make the following curl requests as per the security settings:
 
     **TLS and KDC Mode:**
@@ -464,5 +464,5 @@ To check the metrics for the DC/OS {{model.techName }} instances on individual a
 
     ```shell
     curl -k -H "Authorization: token=<acs_token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
-    ```  
+    ```
 More details about Metrics can be found [here](https://docs.mesosphere.com/latest/metrics/quickstart/).

@@ -41,7 +41,7 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
 1. Verify your cluster(s) by listing them:
 
     ```bash
-    docs cluster list
+    dcos cluster list
 
                 NAME                          ID                    STATUS    VERSION        URL           
     *  kjdskjd-ds-derr-1     0e2f90b-ded3-458b-8157-0365c8bd1ca4  AVAILABLE  1.12.0         http://example.com
@@ -83,7 +83,7 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
 1. Verify your cluster(s) by listing them:
 
     ```bash
-    docs cluster list
+    dcos cluster list
 
                 NAME                          ID                    STATUS    VERSION        URL           
     *  kjdskjd-ds-derr-1     0e2f90b-ded3-458b-8157-0365c8bd1ca4  AVAILABLE  1.12.0         http://example.com

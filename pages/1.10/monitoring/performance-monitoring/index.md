@@ -17,7 +17,7 @@ Your monitoring tools should leverage historic data points so that you can track
 
 Mesos and Marathon expose the following types of metrics:
 
-*   Gauges are metrics that provide the current state at the moment it was queried. 
+*   Gauges are metrics that provide the current state at the moment it was queried.
 *   Counters have metrics that are additive and include past and present results. These metrics are not persisted across failover.
 
 Marathon has a timer metric that determines how long an event has taken place. Timer does not exist for Mesos observability metrics.
@@ -38,7 +38,7 @@ Marathon provides a number of [metrics][1] for monitoring. Here are the ones tha
 **Staged tasks**
 
 *   `service.mesosphere.marathon.task.staged.count` (gauge) This metric provides the number of tasks that are staged. Tasks are staged immediately after they are launched. A consistently high number of staged tasks indicates a high number of tasks are being stopped and restarted. This can be caused by either:
-    
+
     *   A high number of app updates or manual restarts.
     *   Apps with stability problems that are automatically restarted frequently.
 
@@ -50,8 +50,8 @@ Marathon provides a number of [metrics][1] for monitoring. Here are the ones tha
 
 **App and group count**
 
-*   `service.mesosphere.marathon.app.count` (gauge) This metric provides the number of apps that are defined. The number of apps defined affects the performance of Marathon: the more apps that are defined, the lower the Marathon performance. 
-*   `service.mesosphere.marathon.group.count` (gauge) This metric provides the number of groups that are defined. The number groups that are defined affects the performance of Marathon: the more groups that are defined, the lower the Marathon performance. 
+*   `service.mesosphere.marathon.app.count` (gauge) This metric provides the number of apps that are defined. The number of apps defined affects the performance of Marathon: the more apps that are defined, the lower the Marathon performance.
+*   `service.mesosphere.marathon.group.count` (gauge) This metric provides the number of groups that are defined. The number groups that are defined affects the performance of Marathon: the more groups that are defined, the lower the Marathon performance.
 
 **Communication between Marathon and Mesos**
 
@@ -102,16 +102,16 @@ If these metrics increase, something is probably wrong.
 ## General
 
 *   Check the Marathon App Health API [endpoint][3] for critical applications API endpoint.
-*   Check for agents being shut down: 
+*   Check for agents being shut down:
     *   Tail `/var/log/mesos` warning logs and watch for `Shutting down`
     *   Mesos endpoint that indicates how many agents have been shut down increases
 *   Check for mesos masters having short uptimes, which is exposed in Mesos metrics.
 *   Change mom-marathon-service logging level from `WARN` to `INFO`.
 *   Modify the `mesos-master` log rotation configuration to store the complete logs for at least one day.
-    
+
     *   Make sure the master nodes have plenty of disk space.
     *   Change the `logrotation` option from `rotate 7` to `maxage 14` or more. For example:
-        
+
         ```
         ...
         /var/log/mesos/* {
@@ -127,10 +127,10 @@ If these metrics increase, something is probably wrong.
         EOF
         ...
         ```
-            
+
 
 See the Apache Mesos [documentation](http://mesos.apache.org/documentation/latest/monitoring/) for Mesos basic alerts.
 
  [1]: https://mesosphere.github.io/marathon/docs/metrics.html
  [2]: http://mesos.apache.org/documentation/latest/monitoring/
- [3]: https://docs.mesosphere.com/1.10/deploying-services/marathon-api/#/apps
+ [3]: /1.10/deploying-services/marathon-api/#/apps

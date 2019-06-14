@@ -6,7 +6,7 @@ navigationTitle: Installation
 menuWeight: 4
 ---
 
-Building, installing and operating DC/OS must be a repeatable process. Even small error rates are unacceptable when you are working with 10,000 hosts.  DC/OS comprises more than 30 different libraries, services and support packages, so a non-standard approach is required. Trying to treat each of those components as independent artifacts to install and configure on target hosts would introduce failures that would prevent customers from relying on the system.
+Building, installing and operating DC/OS must be a repeatable process. Even small error rates are unacceptable when you are working with 10,000 hosts.  DC/OS comprises more than 30 different libraries, services and support packages, so a non-standard approach is required. Trying to treat each of those components as an independent artifact to install and configure on target hosts would introduce failures that would prevent customers from relying on the system.
 
 It is possible to build a system that is bulletproof. Once the build process is complete, you will have a single artifact that contains all the components required to install and run. Having a single artifact allows us to make some assumptions and guarantees.
 
@@ -22,7 +22,7 @@ It is important to understand the constraints you are working with. Here are the
 - Minimize dependencies on the host OS. This enables DC/OS to run in as many environments as possible.
 - The host OS should be fully customizable. Everyone has a different set of tools that they are currently using. Those tools should work without any changes or porting. This is particularly important when it comes to hardware specific features like kernel modules.
 - Minimize dependencies on the host. It is hard to orchestrate the order in which dependent hosts come up (master, agents). They should be able to come up in any order and only start working when their dependencies are established and provided to the cluster.
-- The minimum external infrastructure should be required. It is rare for external infrastructure such as PXE boot images and NFS storage to exist.
+- A minimum external infrastructure should be required. It is rare for external infrastructure such as PXE boot images and NFS storage to exist.
 - There should be a choice of method for deployment. If you are comfortable with your existing system, there should be no need to learn a new one. The integration should have a clean interface and be as simple as possible.
 - Make it easy to integrate between DC/OS and existing systems such as config management tools and CloudFormation. The integration interface must be simple and well documented.
 - Bundle all dependencies and libraries as a single artifact. Normal lifecycle processes will upgrade or downgrade libraries and dependencies entirely outside of DC/OS. The system will be less fragile and more stable if it does not rely on these.
@@ -76,19 +76,19 @@ With an immutable configuration, there is no chance of a host getting part of it
 Deciding the IP and network interface that has access to the network and the Mesos master is non-trivial. Here are examples of environments where we cannot make default assumptions:
 
 - In split horizon environments like AWS, the hostname might resolve to an external IP address instead of an internal one.
-- In environments without DNS, we need you to tell us what IP address it has.
+- In environments without DNS, you must tell DC/OS what IP address it has.
 - In environments with multiple interfaces, we are unable to automatically pick which interface to use.
 - Not all machines have resolvable hostnames, so you cannot do a reverse lookup.
 
-We have struggled to produce a solid default because of these constraints. To make it as configurable as possible, we have a script that can be written to return the IP address we should bind to on every host. There are multiple examples in the documentation of how to write `ip-detect` script for different environments, which should cover most use cases. For those for which the default does not work, you will be able to write your own `ip-detect` script and integrate it with your configuration. The most important part of the configuration is `ip-detect`, and it is the only way your clusters will be able to come up successfully.
+Because of these constraints, the default is solid but complicated. To make it as configurable as possible, we have a script that can be written to return the IP address we should bind to on every host. There are multiple examples in the documentation of how to write an `ip-detect` script for different environments, which should cover most use cases. For those for which the default does not work, you will be able to write your own `ip-detect` script and integrate it with your configuration. The most important part of the configuration is `ip-detect`, and it is the only way your clusters will be able to come up successfully.
 
 ### Single vs. multiple packages, per-provider packages (RPM, DEB, etc)
 
-Rather than bundle all the packages together into a single image, we could have gone the default route that most use today and install them all separately. This would immediately pose a couple of problems:
+Rather than bundle all the packages together into a single image, we could have gone the most common default route and install them all separately. This would immediately pose a couple of problems:
 
 - Moving between distributions requires porting and testing the packages.
 - Package installs have non-zero failure rates. We have seen 10-20% failure rates when trying to install packages. This prevents the cluster coming up successfully and makes it harder to operate.
-- It is far more difficult to ship multiple packages than to hand out a single tarball. There is overhead in ensuring multiple packages are robust.
+- It is far more difficult to ship multiple packages than to make available a single tarball. There is overhead in ensuring multiple packages are robust.
 - Upgrades must be atomic. It is much more difficult to ensure this across multiple packages.
 
 ### Tarball vs. container
@@ -97,7 +97,7 @@ We could package DC/OS as a plethora of containers (or a single container with m
 
 ### Installation method
 
-We could support any installation method; however, the large number of configuration and package management that is currently used is intimidating. We have seen everything from Puppet to custom built internal tools. We want to enable these methods by providing a simple interface that works with as many tools as possible. The lowest common denominator here is `bash`.
+We could support any installation method; however, the large number of configuration and package management programs currently in use is intimidating. We have seen everything from Puppet to custom built internal tools. We want to enable these methods by providing a simple interface that works with as many tools as possible. The lowest common denominator here is `bash`.
 
 As it is difficult to maintain `bash`, we simplified the installation method as far as possible. The “image” that is built can be placed on top of a running host and operate independently. Extraction is all that is needed to install this. That is a small, simple `bash` script that can work everywhere and integrate easily with other tooling. The entire exposed surface is minimal, and does not give access to internals which, if changed, would make your cluster unsupportable and void the warranty.
 

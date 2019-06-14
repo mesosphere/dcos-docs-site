@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes for 1.11.10
 title: Release Notes for 1.11.10
-menuWeight: 4
+menuWeight: 10
 excerpt: Release notes for DC/OS 1.11.10
 ---
 
@@ -19,15 +19,15 @@ DC/OS 1.11.10 includes the following components:
 
 # Release Summary
 
-DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
+DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
 # Issues Fixed in DC/OS 1.11.10
 
 This release of DC/OS 1.11.10 addresses a security vulnerablity for container runtimes as identified by the RunC community and registered in the [Common Vulnerabilities and Exposures (CVR)](https://cve.mitre.org/) database.
 
-For information about other issues fixed or known issues for the most recent release of DC/OS 1.11 prior to this security fix, see the [release notes 1.11.9](https://docs.mesosphere.com/1.11/release-notes/1.11.9/).
+For information about other issues fixed or known issues for the most recent release of DC/OS 1.11 prior to this security fix, see the [release notes 1.11.9](/1.11/release-notes/1.11.9/).
 
-## Mesos 
+## Mesos
 - DCOS-48052 - An update to the containerizer launch binary prevents a malicious user from exploiting the `init` helper function used by container runtimes--including DockerD, containerD, and UCR. Without this change, a malicious user could gain access to a container's root-level permissions and use those permissions to execute potentially malicious code on the host.
 
     This issue has been reported by the RunC community (CVE-2019-5736) and affects the Docker Engine and Mesosphere Kubernetes Engine (MKE) container runtime components. The issue has also been reported by the Apache Mesos community for the Mesosphere Universal Container Runtime (UCR). All existing versions of DC/OS, Mesosphere Kuberentes Engine, and Docker Engine are affected by this vulnerability. However, this vulnerability does not affect DC/OS clusters or UCR containers if the cluster runs using the `strict` security mode and uses the default `nobody` user account to launch UCR containers.
@@ -57,7 +57,7 @@ Provide feedback on the new features and services at [support.mesosphere.com](ht
   - Support for Docker image pull secrets. [View the documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/#cluster-docker-credentials). An example for Docker credentials is [here](/1.11/installing/ent/custom/configuration/examples/#docker-credentials). [enterprise type="inline" size="small" /]
 
 ### Networking
-- Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
+- Edge-LB 1.0. [View the documentation](/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`.  Read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
 - The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/production/advanced-configuration/configuration-reference/#dns-forward-zones) to understand its usage.
@@ -74,7 +74,7 @@ Provide feedback on the new features and services at [support.mesosphere.com](ht
 - Unified logging API provides simple access to container (task) and system component logs. [View the documentation](/1.11/monitoring/logging/logging-api/).
 
 ### Storage
-- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
+- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods/).[beta type="inline" size="small" /]
 
 <p class="message--note"><strong>NOTE: </strong>Because these storage features are beta in 1.11, they must be explicitly enabled in the config.yaml file when installing DC/OS. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.</p>

@@ -19,9 +19,9 @@ DC/OS 1.10.11 includes the following:
 - Metronome 0.4.4 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.4).
 
 # Issues Fixed in DC/OS 1.10.11
-This release of DC/OS 1.11.10 addresses a security vulnerablity for container runtimes as identified by the RunC community and registered in the [Common Vulnerabilities and Exposures (CVR)](https://cve.mitre.org/) database.
+This release of DC/OS 1.10.11 addresses a security vulnerablity for container runtimes as identified by the RunC community and registered in the [Common Vulnerabilities and Exposures (CVR)](https://cve.mitre.org/) database.
 
-For information about other issues fixed or known issues for the most recent release of DC/OS 1.10 prior to this security fix, see the [release notes 1.10.10](https://docs.mesosphere.com/1.10/release-notes/1.10.10/).
+For information about other issues fixed or known issues for the most recent release of DC/OS 1.10 prior to this security fix, see the [release notes 1.10.10](/1.10/release-notes/1.10.10/).
 
 ## Mesos
 - DCOS-48052 - An update to the containerizer launch binary prevents a malicious user from exploiting the `init` helper function used by container runtimes--including DockerD, containerD, and UCR. Without this change, a malicious user could gain access to a container's root-level permissions and use those permissions to execute potentially malicious code on the host.
@@ -97,7 +97,7 @@ For more information, see the documenation or release notes for the specific dat
 
 ### Platform
 - Node and cluster health checks.
-  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/oss/custom/node-cluster-health-check/).
+  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/production/deploying-dcos/node-cluster-health-check/).
 
 - Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks. [enterprise type="inline" size="small" /]
 
@@ -150,7 +150,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - REX-Ray configuration change.
 
-  DC/OS 1.10 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/oss/custom/configuration/configuration-parameters/#rexray-config) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS.
+  DC/OS 1.10 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/production/advanced-configuration/configuration-reference/) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS.
 
   <p class="message--note"><strong>NOTE: </strong>The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.<p>
 

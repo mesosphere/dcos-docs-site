@@ -54,9 +54,7 @@ The container information.
   - **hostPort** The host port (e.g., `0`). The default value is `0`. In [networking mode](#networks) `container`, the `hostPort` is not required, but if left unspecified Marathon will not randomly allocate a port. When using `container/bridge` mode, an unspecified (null) value for `hostPort` sets `hostPort: 0`.
   - **servicePort** The service port (e.g., `9000`).
   - **protocol** The HTTP protocol, either `tcp` or `udp`.
-
-  ### Notes
-
+  
   Port mappings are used in conjunction with `container` and `container/bridge` [networking mode](#networks) and ignored when used in conjunction with `host` networking mode. When used in conjunction with multiple `container` networks, each mapping entry that specifies a `hostPort` must also declare a `name` that identifies the network for which the mapping applies (a single `hostPort` may be mapped to only one container network, and `name` defaults to all container networks for a pod or app).
   - [`requirePorts`](#requirePorts) does not apply to `portMappings`.
   - Future versions of Marathon may fail to validate apps that declare `container.portMappings` with network modes other than `container` or `container/bridge`.
@@ -110,6 +108,8 @@ A URI consists of:
 
 ### gpus
 The number of GPU cores needed per instance.
+
+This property is only applicable if you are using DC/OS Universal Container Runtime (UCR) containers. Support for GPU resources is not available for Docker containers.
 
 ### healthChecks
 An array of checks that are run against an application’s tasks. Marathon health checks perform periodic checks on the containers distributed across a cluster to make sure they’re up and responding. For more information, see the [Health Checks documentation](/1.12/deploying-services/creating-services/health-checks/).
@@ -173,9 +173,7 @@ Port definitions are used only with [`host`](#networks) networking mode. A port 
 
 The special port value of 0 tells Marathon to select any host port from a Mesos resource offer and any service port from the configured service port range.
 
-#### Notes
-
-- Configure ports assignment for Docker containers in [`container.portMappings`](#container).
+You configure ports assignment for Docker containers in [`container.portMappings`](#container).
 - If you use the [Universal Container Runtime](/1.12/deploying-services/containerizers/ucr/), pass zeros as port values to generate one or more arbitrary free ports for each application instance.
 
 For more information, see [Containerizers](/1.12/deploying-services/containerizers/).

@@ -6,18 +6,11 @@ title: NFS Server
 menuWeight: 1
 ---
 
-
-
 # Overview
 
 For some stateful services, such as Jenkins, it can be convenient to mount a shared network drive to every node. A shared network drive makes it possible to launch the task on a new node if the node in use becomes unavailable.
 
-<table class=“table” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>Note:</strong> This example uses CoreOS and `systemd`, and has not been tested in other environments.</td> 
-</tr> 
-</table>
-
+<p class="message--note"><strong>NOTE: </strong> This example uses CoreOS and <code>systemd</code>, and has not been tested in other environments.</p>
 
 ## Notes
 

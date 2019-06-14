@@ -9,14 +9,14 @@ enterprise: true
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-You can grant users access to containers for debugging sessions.  
+You can grant users access to containers for debugging sessions.
 
 **Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
 - A [user account](/1.11/security/ent/users-groups/) to assign permissions to
 
-All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api/). You can see more detail about the `dcos security org users` commands in the [CLI Command Reference section](1.11/cli/command-reference/dcos-security/).
+All CLI commands can also be executed via the [IAM API](/1.11/security/ent/iam-api/). You can see more detail about the `dcos security org users` commands in the [CLI Command Reference section](/1.11/cli/command-reference/dcos-security/).
 
 ## Disabled
 
@@ -51,7 +51,7 @@ dcos security org users grant <uid> dcos:mesos:agent:nested_container_session:ap
 dcos security org users grant <uid> dcos:mesos:master:executor:app_id:/test-group read --description "Controls access to executors running inside test-group"
 dcos security org users grant <uid> dcos:mesos:master:framework:role:* read --description "Controls access to frameworks registered with the Mesos default role"
 dcos security org users grant <uid> dcos:mesos:master:task:app_id:/test-group read --description "Controls access to tasks running inside test-group"
-```   
+```
 
 ### <a name="debug-with-tty"></a>Granting pseudo terminal debug access
 

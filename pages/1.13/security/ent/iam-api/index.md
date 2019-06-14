@@ -10,7 +10,7 @@ enterprise: true
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-The Identity and Access Management API allows you to manage users, user groups, permissions, and LDAP configuration settings through a RESTful interface. It offers more functionality than the DC/OS web interface.
+The Identity and Access Management (IAM) API allows you to manage users, user groups, permissions, and LDAP configuration settings through a RESTful interface. It offers more functionality than the DC/OS UI.
 
 
 # Request and response format
@@ -24,7 +24,7 @@ The API supports JSON only. You must include `application/json` as your `Content
 
 The host name to use will vary depending on where your program is running.
 
-* Use cluster URL, if your program runs outside of the DC/OS cluster. This can be obtained by launching the DC/OS web interface and copying the domain name from the browser. Alternatively, you can log in to the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the path to the load balancer which sits in front of your masters.
+* Use cluster URL, if your program runs outside of the DC/OS cluster. This can be obtained by launching the DC/OS UI and copying the domain name from the browser. Alternatively, you can log in to the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the path to the load balancer which sits in front of your masters.
 
 * Use `master.mesos`, if your program runs inside of the cluster.
 
@@ -41,11 +41,11 @@ All IAM endpoints require an authentication token and the `dcos:superuser` permi
 
 ### Using the IAM API
 
-To get an authentication token, pass the credentials of a local user or service accout in the body of a `POST` request to `/auth/login`.
+To get an authentication token, pass the credentials of a local user or service account in the body of a `POST` request to `/auth/login`.
 
 To log in local user accounts supply `uid` and `password` in the request.
 
-<p class="message--note"><strong>NOTE: </strong>Read how to <a href="https://docs.mesosphere.com/1.13/security/ent/tls-ssl/ca-trust-curl/">establish trust in curl commands</a> with DC/OS.</p>
+<p class="message--note"><strong>NOTE: </strong>Read how to <a href="/1.13/security/ent/tls-ssl/ca-trust-curl/">establish trust in curl commands</a> with DC/OS.</p>
 
 
 ```bash

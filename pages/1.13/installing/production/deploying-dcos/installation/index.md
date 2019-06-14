@@ -228,8 +228,6 @@ bootstrap_url: http://<bootstrap_ip>:80
 cluster_name: <cluster-name>
 superuser_username:
 superuser_password_hash:
-#customer_key in yaml file has been replaced by genconf/license.txt in DC/OS 1.12
-#customer_key: <customer-key>
 exhibitor_storage_backend: static
 master_discovery: static
 ip_detect_public_filename: <relative-path-to-ip-script>
@@ -250,7 +248,6 @@ https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
 no_proxy:
 - 'foo.bar.com'
 - '.baz.com'
-# Fault domain entry required for DC/OS Enterprise 1.12+
 fault_domain_enabled: false
 #If IPv6 is disabled in your kernel, you must disable it in the config.yaml
 enable_ipv6: 'false'
@@ -289,8 +286,8 @@ In this step, you will create a custom DC/OS build file on your bootstrap node a
 <p class="message--note"><strong>NOTE: </strong>Due to a cluster configuration issue with overlay networks, we recommend setting <code>enable_ipv6</code> to <code>false</code> in <code>config.yaml</code> when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.12.x without configuring <code>enable_ipv6</code> or if <code>config.yaml</code> file is set to <code>true</code>, then do not add new nodes.</p>
 
 You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
-<p class="message--important"><strong>IMPORTANT: </strong>Do not install DC/OS until you have these items working: <code>ip-detect script</code>, <code>DNS</code>, and <code>NTP</code> on all DC/OS nodes with time synchronized. See <a href="https://docs.mesosphere.com/1.13/installing/troubleshooting/">troubleshooting</a> for more information.</p>
-<p class="message--note"><strong>NOTE: </strong>If something goes wrong and you want to rerun your setup, use the cluster <a href="https://docs.mesosphere.com/1.13/installing/production/uninstalling/">uninstall</a> instructions.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Do not install DC/OS until you have these items working: <code>ip-detect script</code>, <code>DNS</code>, and <code>NTP</code> on all DC/OS nodes with time synchronized. See <a href="/1.13/installing/troubleshooting/">troubleshooting</a> for more information.</p>
+<p class="message--note"><strong>NOTE: </strong>If something goes wrong and you want to rerun your setup, use the cluster <a href="/1.13/installing/production/uninstalling/">uninstall</a> instructions.</p>
 
 **Prerequisites**
 
@@ -445,7 +442,7 @@ You are done! The UI dashboard will now be displayed.
 
 Figure 4. DC/OS UI dashboard
 
-<p class="message--note"><strong>NOTE: </strong>You can also use <a href="https://docs.mesosphere.com/1.13/installing/evaluation/mesosphere-supported-methods/">Universal Installer</a> to deploy DC/OS on AWS, Azure, or GCP in production.</p>
+<p class="message--note"><strong>NOTE: </strong>You can also use <a href="/1.13/installing/evaluation/mesosphere-supported-methods/">Universal Installer</a> to deploy DC/OS on AWS, Azure, or GCP in production.</p>
 
 ### Next Steps: Enterprise and Open Source users
 

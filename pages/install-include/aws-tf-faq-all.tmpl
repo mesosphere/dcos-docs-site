@@ -126,13 +126,13 @@ Make sure that there are no duplicate Terraform files and that there is one sing
 If you run into a message about validating provider credentials or status code of 403, this likely culprit is improper configuration of your credentials.  Please run through your credential setup again and check that they were set up correctly.
 
 ## Error: Failed to obtain the IP address when installing Kubernetes
-If you have spun up a DC/OS 1.12 cluster with the Universal Installer and reach this error message when installing Kubernetes:
+If you have spun up a DC/OS 1.12 or later cluster with the Universal Installer and reach this error message when installing Kubernetes:
 
 `EXIT with status 1: Failed to obtain the IP address for ‘ip_______.ec2.internal'; the DNS service may not be able to resolve it: Name or service not known`
 
-Please make sure that you are using RHEL or CentOS 7.5.  CoreOS is not a supported operating system for DC/OS 1.12 and for running Kubernetes.  You can change the operating system of your DC/OS cluster by specifying the variable in `dcos_instance_os` within your `main.tf`.
+Please make sure that you are using RHEL or CentOS 7.5 as your instance OS.  CoreOS is not currently a supported operating system for DC/OS.  You can change the operating system of your DC/OS cluster by specifying the variable in `dcos_instance_os` within your `main.tf`.
 
-For details around this requirement for running Kubernetes on DC/OS 1.12, please refer to [this support document](https://mesosphere-community.force.com/s/article/Critical-Issue-Kubernetes-Upgrade-MSPH-2018-0007).
+For details around this requirement for running Kubernetes on DC/OS 1.12 or later, please refer to [this support document](https://mesosphere-community.force.com/s/article/Critical-Issue-Kubernetes-Upgrade-MSPH-2018-0007).
 
 
 ## Error: IAM instance profile creation

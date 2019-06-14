@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes for 1.11.3
 title: Release Notes for 1.11.3
-menuWeight: 35
+menuWeight: 45
 excerpt: Release notes for DC/OS 1.11.3
 ---
 
@@ -32,14 +32,14 @@ DC/OS 1.11.3 includes the following:
 # Notable Changes in DC/OS 1.11.3
 
 - DCOS-19427 - CockroachDB: Set cluster version to 1.1. [enterprise type="inline" size="small" /]
-- DCOS_OSS-2417 and DCOS_OSS-3548 - Support for CoreOS 1688.5.3. 
+- DCOS_OSS-2417 and DCOS_OSS-3548 - Support for CoreOS 1688.5.3.
 - Updated DC/OS UI Enterprise for 1.11+1.13.0+7e0cb54f [Open Source change log](https://github.com/dcos/dcos-ui/blob/1.11%2Bv1.13.0/CHANGELOG.md) and [EE Plugins](https://github.com/mesosphere/dcos-ui-plugins-private/compare/v1.11.1...1.11+1.13.0+7e0cb54f). [enterprise type="inline" size="small" /]
 - Updated DC/OS UI for [1.11+v1.14.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.14.0/CHANGELOG.md).
 
 
-**Note:** 
-- New Docker version is supported on CoreOS 1688.5.3. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
-- The Kubernetes package dependencies are documented [here](https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install).
+**Note:**
+- New Docker version is supported on CoreOS 1688.5.3. See [compatibility matrix](/version-policy/) for further information.
+- The Kubernetes package dependencies are documented [here](/services/kubernetes/1.2.0-1.10.5/install).
 
 
 # About DC/OS 1.11
@@ -65,7 +65,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
   -  Support for Docker image pull secrets. [View the documentation](/1.11/deploying-services/containerizers/). An example for Docker credentials is [here](/1.11/installing/production/deploying-dcos/configuration/examples/#docker-credentials). [enterprise type="inline" size="small" /]
 
 ### Networking
-- Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
+- Edge-LB 1.0. [View the documentation](/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`.  Read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
 - The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/production/advanced-configuration/configuration-reference/#dns-forward-zones) to understand its usage.
@@ -82,7 +82,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Unified logging API provides simple access to container (task) and system component logs. [View the documentation](/1.11/monitoring/logging/logging-api/).
 
 ### Storage
-- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
+- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods/).[beta type="inline" size="small" /]
 
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled in the config.yaml file when installing DC/OS. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.

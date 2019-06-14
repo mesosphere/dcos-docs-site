@@ -116,9 +116,9 @@ This path is required if `ca_certificate_path` is specified.
 ## ca\_certificate\_chain\_path
 Path (relative to the `$DCOS_INSTALL_DIR`) to a file containing the complete CA certification chain required for end-entity certificate verification, in the OpenSSL PEM format. For example: `genconf/CA_cert_chain.pem`.
 
-The parameter must be left undefined if `ca_certificate_path` points to a root CA certificate. Required if `ca_certificate_path` is specified and if the custom CA certificate is an **intermediate CA certificate**.
+If `ca_certificate_path` points to a self-signed root CA certificate, then this parameter must be left undefined.
 
-For an intermediate CA, this needs to point to a file containing all CA certificates comprising the complete sequence, starting precisely with the CA certificate that was used to sign the custom CA certificate and ending with a root CA certificate (where issuer and subject are equivalent), yielding a gapless certification path. The order is significant and the list must contain at least one certificate.
+Otherwise, `ca_certificate_chain_path` points to a file containing the complete chain of CA certificates up to a self-signed root CA certificate, but excluding the signing certificate contained in `ca_certificate_path`. The order is significant: the first certificate must verify the signing certificate in `ca_certificate_path` and each subsequent certificate must verify the preceding certificate.
 
 # Installing DC/OS Enterprise with a custom CA certificate
 
@@ -232,7 +232,7 @@ In this case the custom CA certificate is an intermediate one, issued directly b
 - on the bootstrap node:
     - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt` file containing the custom CA certificate in PEM format
     - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` file containing the private key associated with the custom CA certificate in the PKCS#8 format
-    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt` file containing the certificate chain in PEM format
+    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt` file containing only the root CA certificate in PEM format
 
 - on the master nodes
     - `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` file containing the private key associated with the custom CA certificate in the PKCS#8 format.

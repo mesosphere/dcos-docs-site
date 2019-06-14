@@ -3,7 +3,6 @@ layout: layout.pug
 title: Authenticating DC/OS Services
 menuWeight: 100
 excerpt: Configuring authentication for custom apps and pods
-
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -100,7 +99,7 @@ Determine what access your service account requires by using this procedure. Thi
     This command will return a list of the audit logs that are generated when your service was denied access due to insufficient permissions or a bad token. The rejection messages should include the permission that was missing. You might need to repeat this process several times to determine the full list of required permissions.
 
 
-###Troubleshooting
+### Troubleshooting
 
 You can grant your service superuser permission to rule out any functional issues. All valid services should be able to run as superuser.
 
@@ -120,9 +119,9 @@ You can assign permissions using the CLI. For example, to authorize the [Cassand
 
 Grant the permissions (`dcos:mesos:master:framework:role:cassandra-role`) and the allowed actions (`create`).
 
-    ```bash
-    dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:cassandra-role create --description "Controls the ability of cassandra-role to register as a framework with the Mesos master"
-    ```
+```bash
+dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:cassandra-role create --description "Controls the ability of cassandra-role to register as a framework with the Mesos master"
+```
 
 ### Using the web interface
 

@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle:  Unsealing the Secret Store
 title: Unsealing the Secret Store
-menuWeight: 3
+menuWeight: 5
 excerpt: Understanding how to unseal the Secret Store
-
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

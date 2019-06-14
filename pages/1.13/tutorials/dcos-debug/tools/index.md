@@ -90,7 +90,7 @@ DC/OS has a number of different sources for logs. In general, these are the most
 
 In DC/OS, there are multiple options for accessing any of these logs: the **DC/OS web interface** the **DC/OS CLI**, or HTTP endpoints. Moreover, DC/OS rotate logs by default to prevent utilizing all available disk space.
 
-<p class="message--note"><strong>NOTE: </strong>Need a scalable way to manage and search your logs? It could be worth building an <a href="/1.12/monitoring/logging/aggregating/filter-elk/">ELK stack</a> for log aggregation and filtering.</p>
+<p class="message--note"><strong>NOTE: </strong>Need a scalable way to manage and search your logs? It could be worth building an <a href="/1.13/monitoring/logging/aggregating/filter-elk/">ELK stack</a> for log aggregation and filtering.</p>
 
 Sometimes it can help to increase the level of detail written to a log temporarily to obtain more detailed troubleshooting information for debugging. For most components, this can be done by accessing an endpoint. For example, if you want to increase [the log level of a Mesos Agent](http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/) for 5 minutes after the server receives the API call, you could follow something like this simple two-step process:
 
@@ -249,7 +249,7 @@ Ideally, with the dashboard configured and functioning, you can identify potenti
 
 Sometimes the task logs provide insufficient help. In these cases, using your favorite Linux tools (e.g. `curl`, `cat`, `ping`, etc...) to get an interactive point of view could be a worthwhile next step.
 
-For example, if you are using a [Universal Container Runtime (UCR)] (https://docs.mesosphere.com/latest/deploying-services/containerizers/ucr/), you can use `dcos task exec` as follows:
+For example, if you are using a [Universal Container Runtime (UCR)] (/latest/deploying-services/containerizers/ucr/), you can use `dcos task exec` as follows:
 
 ```bash
 dcos task exec -it <mycontainerid>

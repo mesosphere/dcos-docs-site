@@ -23,7 +23,7 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 ## Cluster nodes
 
-The cluster nodes are designated Mesos masters and agents during installation. The supported operating systems and environments are listed on the [version policy page](https://docs.mesosphere.com/version-policy/).
+The cluster nodes are designated Mesos masters and agents during installation. The supported operating systems and environments are listed on the [version policy page](/version-policy/).
 
 DC/OS is installed to `/opt/mesosphere` on cluster nodes. `/opt/mesosphere` directory may be created prior to installing DC/OS, but it must be either an empty directory or a link to an empty directory. DC/OS may be installed on a separate volume mount by creating an empty directory on the mounted volume, creating a link at `/opt/mesosphere` that targets the empty directory, and then installing DC/OS.
 
@@ -62,6 +62,7 @@ There are many mixed workloads on the masters. Examples of mixed workloads on th
   | _/var/lib/dcos/cockroach_ | CockroachDB [enterprise type="inline" size="small" /] |
   | _/var/lib/dcos/navstar_ | for Mnesia database |
   | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] |
+  | _/var/lib/dcos/exec_ | Temporary files required by various DC/OS services. The _/var/lib/dcos/exec_ directory must not be on a volume which is mounted with the `noexec` option. |
   | _/var/lib/dcos/exhibitor_ | ZooKeeper snapshot database |
   | _/var/lib/dcos/exhibitor/zookeeper/transactions_ | The ZooKeeper transaction logs are very sensitive to delays in disk writes. If you can only provide limited SSD space, this is the directory to place there. A minimum of 2 GB must be available for these logs. |
 
@@ -144,7 +145,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 ### Docker
 
-Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on [version policy page](https://docs.mesosphere.com/version-policy/).
+Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on [version policy page](/version-policy/).
 
 **Recommendations**
 

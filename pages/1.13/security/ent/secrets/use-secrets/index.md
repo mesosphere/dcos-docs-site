@@ -2,9 +2,8 @@
 layout: layout.pug
 navigationTitle:  Configuring services and pods
 title: Configuring services and pods
-menuWeight: 1
+menuWeight: 2
 excerpt: Configuring services and pods to use secrets
-
 enterprise: true
 ---
 
@@ -27,7 +26,7 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
 - An existing secret. The examples below use a secret called `my-secret` stored in the `developer` path. If you complete the steps in [Creating secrets](/1.13/security/ent/secrets/create-secrets/), you will meet this prerequisite.
 
 - [DC/OS CLI installed](/1.13/cli/install/) and the [DC/OS Enterprise CLI installed](/1.13/cli/enterprise-cli/#ent-cli-install).
-- You must [get the root cert](/1.13/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  
+- You must [get the root cert](/1.13/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 - The appropriate permissions for your [security mode](/1.13/security/ent/#security-modes).
 
   <table class="table">
@@ -86,16 +85,16 @@ The procedure varies by interface. Refer to the section that corresponds to your
    Environment variable-based secret:
 
    ```json
-   {  
+   {
       "id":"/developer/service",
       "cmd":"sleep 100",
-      "env":{  
-         "MY_SECRET":{  
+      "env":{
+         "MY_SECRET":{
             "secret":"secret0"
          }
       },
-      "secrets":{  
-         "secret0":{  
+      "secrets":{
+         "secret0":{
             "source":"developer/my-secret"
          }
       }
@@ -135,7 +134,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Click **RUN SERVICE**.
 
-1. Click the group name of your service, i.e., **developer**.
+1. Click the group name of your service, for example, **developer**.
 
 1. Click the name of your service.
 
@@ -176,16 +175,16 @@ The procedure varies by interface. Refer to the section that corresponds to your
    Environment variable-based secret:
 
    ```json
-   {  
+   {
       "id":"/developer/service",
       "cmd":"sleep 100",
-      "env":{  
-         "MY_SECRET":{  
+      "env":{
+         "MY_SECRET":{
             "secret":"secret0"
          }
       },
-      "secrets":{  
-         "secret0":{  
+      "secrets":{
+         "secret0":{
             "source":"developer/my-secret"
          }
       }
@@ -235,7 +234,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Open the DC/OS web interface.
 
-1. Click the group name of your service, i.e., **developer**.
+1. Click the group name of your service, for example, **developer**.
 
 1. Click the name of your service.
 
@@ -347,7 +346,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
      }
    }
    ```
-    <p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See <a href="/1.12/security/ent/#spaces">Namespacing</a> for more details about the paths.</p>
+    <p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See <a href="/1.13/security/ent/#spaces">Namespacing</a> for more details about the paths.</p>
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 
@@ -359,7 +358,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Open the DC/OS web interface.
 
-1. Click the group name of your service, i.e., **developer**.
+1. Click the group name of your service, for example, **developer**.
 
 1. Click the name of your pod.
 
@@ -369,4 +368,4 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 ## Limitation
 
- The file-based secrets work only with the UCR. 
+ The file-based secrets work only with the UCR.

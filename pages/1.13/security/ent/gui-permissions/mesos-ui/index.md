@@ -32,7 +32,6 @@ You can grant users access to the Mesos UI. By default, new users have no permis
 
     Figure 2. Select user or group to grant permissions to
 
-
 1.  From the **Permissions** tab, click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
@@ -106,7 +105,7 @@ You can now send the URL of the Mesos UI for DC/OS to the user: `http://<master-
     curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
     ```
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 1.  You can send the URL of the Mesos UI for DC/OS to the user: `http://<master-public-ip>/mesos/`.     
 
@@ -129,7 +128,8 @@ You can now send the URL of the Mesos UI for DC/OS to the user: `http://<master-
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
     ```  
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 
 ## Strict
@@ -153,9 +153,9 @@ You can now send the URL of the Mesos UI for DC/OS to the user: `http://<master-
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:mesos/users/<uid>/full
     ```
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+    <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
-1.  You can send the URL of the Mesos UI for DC/OS to the user: `http://<master-public-ip>/mesos/`.
+3.  You can send the URL of the Mesos UI for DC/OS to the user: `http://<master-public-ip>/mesos/`.
 
 ### Mesos agent API for accessing task sandboxes and logs, and task exec
 
@@ -176,4 +176,4 @@ You can now send the URL of the Mesos UI for DC/OS to the user: `http://<master-
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:slave/users/<uid>/full
     ```  
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>

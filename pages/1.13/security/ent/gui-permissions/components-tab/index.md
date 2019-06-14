@@ -1,28 +1,26 @@
 ---
 layout: layout.pug
-navigationTitle:  Granting Access to the Components Screen
-title: Granting Access to the Components Screen
+navigationTitle:  Granting Access to the Components Tab
+title: Granting Access to the Components Tab
 menuWeight: 60
-excerpt: Granting access to the Components screen
-
+excerpt: Granting access to the Components Tab
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-You can grant users access to the [**Components** screen](/1.13/gui/components/). By default, new users have no permissions.
+You can grant users access to the [**Components**](/1.13/gui/components/) tab. By default, new users have no permissions.
 
-## <a name="network-access-via-ui"></a>Grant Access by using the web interface
+## <a name="network-access-via-ui"></a>Grant Access by using the UI
 
 **Prerequisites:**
 
 - A DC/OS user account without the `dcos:superuser` [permission](/1.13/security/ent/users-groups/).
 
-1. Log in to the DC/OS web interface as a user with the `superuser` permission.
+1. Log in to the DC/OS UI as a user with the `superuser` permission.
 
    ![Login](/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
-    Figure 1. Log in to web interface
-
+    Figure 1. Log in to the UI
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -98,7 +96,7 @@ You can grant users access to the [**Components** screen](/1.13/gui/components/)
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
 
-    <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 ## Strict
 
@@ -126,6 +124,6 @@ You can grant users access to the [**Components** screen](/1.13/gui/components/)
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
 
-       <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 

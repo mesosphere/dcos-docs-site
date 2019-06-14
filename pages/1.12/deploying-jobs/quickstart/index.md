@@ -20,7 +20,7 @@ You can manage the most common job-related activity interactively through the DC
 ## Add a job
 1. Navigate to the URL for the DC/OS web-based console in a web browser.
 
-1. Click **Jobs**, then click **Create a Job** to display the New Job settings. 
+1. Click **Jobs**, then click **Create a Job** to display the New Job settings.
 
     ![Create JOB UI](/1.12/img/GUI-Jobs-New_Job_Modal-1_12.png)
 
@@ -59,7 +59,7 @@ You can manage the most common job-related activity interactively through the DC
     ![Jobs List](/1.12/img/GUI-Job-List.png)
 
 ## Add a job to a job group
-You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.13/deploying-jobs/job-groups/).
+You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.12/deploying-jobs/job-groups/).
 
 ## Modify, view, or remove a job
 From the **Jobs** tab, click the name of your job and then the menu on the upper right to modify or delete it. While the job is running, you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
@@ -70,7 +70,7 @@ You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To 
 <a name="cli-add-job"></a>
 
 ## Create a JSON file for a new job
-1. Open a new file in a text editor to create a job file in JSON format. 
+1. Open a new file in a text editor to create a job file in JSON format.
 
 1. In the new file, specify the basic parameters required to define the job, including the following:
     - the job `id` you use to manage the job
@@ -108,7 +108,7 @@ You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To 
     ```bash
     dcos job add <myjob>.json
     ```
-    
+
     For example:
 
     ```bash
@@ -121,11 +121,11 @@ You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To 
     ```
 
 ## Set a concurrency policy for scheduled jobs
-If you use a schedule to start a job, you can define a concurrency policy for the job. A concurrency policy determines whether a new job run instance is triggered if there's already a job instance running. 
+If you use a schedule to start a job, you can define a concurrency policy for the job. A concurrency policy determines whether a new job run instance is triggered if there's already a job instance running.
 
 For example, assume you have a job scheduled to start every day at 3:00AM, and you have set the concurrency policy for the job set to FORBID. If there is an instance of that job already running at 3:00AM--either because a previously-triggered job run is still active or has been triggered manually outside of the schedule--the scheduled start time will not trigger a new job to run. If there are no jobs running at the next scheduled start time, a new job instance starts and runs as scheduled.
 
-If you want to allow scheduled jobs to be triggered while  other instances of the same job are running, you can set the `concurrencyPolicy` to ALLOW. 
+If you want to allow scheduled jobs to be triggered while  other instances of the same job are running, you can set the `concurrencyPolicy` to ALLOW.
 
 ## Create a schedule-only JSON file
 If you specify a schedule for a job in the JSON file for that job, you can assign only one schedule for the job to run under.
@@ -175,7 +175,7 @@ If you want to use the same schedule for more than one job, however, you can cre
 ## Start a job from the command line
 You can trigger a job to run:
 - manually on-demand
-- automatically based on a schedule you have defined 
+- automatically based on a schedule you have defined
 - programmatically through automation with or without a schedule
 
 You can use any of these approaches to start a job instance that is referred to as a job run. For example, you can use the DC/OS command-line interface to start jobs regardless of whether you have defined a schedule or not. Starting a job manually from the command-line is similar to starting a job by clicking **Run now** using the DC/OS web-based console.
@@ -192,12 +192,12 @@ For example, if the job id is `mytestjob`, run:
 dcos job run mytestjob
 ```
 
-Starting a job manually from the command-line or through the DC/OS web-based console triggers a new job run each time the command is executed. Jobs that are triggered manually on-demand ignore concurrency policy settings. 
+Starting a job manually from the command-line or through the DC/OS web-based console triggers a new job run each time the command is executed. Jobs that are triggered manually on-demand ignore concurrency policy settings.
 
 If a schedule is used to start a job, however, the job's concurrency policy determines whether a new job run instance is triggered. Being able to control whether jobs run concurrently is one of the main differences between triggering a job to run manually or using a schedule.
 
 ## Remove a job from the command line
-You can remove a job using the command-line program dcos job remove <job-id> as long as the job does not have any active job instances running. If a job has any currently active running instances, you must stop all of the currently-active jobs. After you stop all running job instances, you can remove the job using the `dcos job remove <job-id>` command. 
+You can remove a job using the command-line program dcos job remove <job-id> as long as the job does not have any active job instances running. If a job has any currently active running instances, you must stop all of the currently-active jobs. After you stop all running job instances, you can remove the job using the `dcos job remove <job-id>` command.
 
 To remove a job:
 1. Check the status of active jobs by running a command similar to the following:
@@ -291,7 +291,7 @@ dcos task log --completed <job-run-id>
 # <a name="jobs-api"></a>Using the Jobs API
 You can also create and administer jobs through calls to the Jobs API endpoints. This section highlights the most common tasks you perform through job-related API calls. For more complete information about the Jobs API, see the  [Jobs API reference](http://dcos.github.io/metronome/docs/generated/api.html) information.
 
-The code examples in this section illustrate how to include Jobs API calls to perform job-related tasks with the client URL (cURL) program. For detailed information about using `curl` command, see the [`curl` man page](https://curl.haxx.se/docs/manpage.html). 
+The code examples in this section illustrate how to include Jobs API calls to perform job-related tasks with the client URL (cURL) program. For detailed information about using `curl` command, see the [`curl` man page](https://curl.haxx.se/docs/manpage.html).
 
 <p class="message--important"><strong>IMPORTANT: </strong>The DC/OS CLI and web-based console support a combined JSON format (accessed using the <code>/v0</code> endpoint) that allows you to specify a schedule in the job descriptor. To schedule a job using the API, use two calls: one to add an unscheduled job, and another to associate a <code><schedule-file>.json</code> with the job.</p>
 

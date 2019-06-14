@@ -13,15 +13,15 @@ If you’re new to Ansible and/or want to deploy DC/OS using Ansible quickly and
 - Upgrade the cluster to a newer version of DC/OS
 
 ## Prerequisites and Setup
-1. You will need to have [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) and [Mazer](https://galaxy.ansible.com/docs/mazer/install.html) installed. See links for additional installation information.
+1. You will need to have [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) and [Mazer 0.4](https://galaxy.ansible.com/docs/mazer/install.html) installed. See links for additional installation information.
      With Mac you can brew install and then use your version of pip to install mazer:
      ```bash
-     brew install ansible && pip install mazer
+     brew install ansible && pip install mazer==0.4.0
      ```
      Or, you can use pip to install Ansible and Mazer:
 
       ```bash
-      pip install ansible mazer
+      pip install ansible mazer==0.4.0
       ```
      For windows installation please refer to the [Ansible documentation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#control-machine-requirements) for more information on how to install ansible on windows, or you can SSH to the bootstrap host (see below) and deploy and run ansible from there.
 
@@ -76,23 +76,23 @@ You may use DC/OS Ansible to install both DC/OS and DC/OS Enterprise. Please fol
 3. In the variables file (`group_vars/all/dcos.yml`), set the following values under `dcos` according to your variant:
 
     [enterprise type="inline" size="small" /]
-    ```bash
+    ```yaml
     # ...
-    download: “http://downloads.mesosphere.com/dcos-enterprise/stable/1.12.3/dcos_generate_config.ee.sh”`
+    download: "https://downloads.mesosphere.com/dcos-enterprise/stable/1.12.3/dcos_generate_config.ee.sh"
     # ...
     ```
 
     [oss type="inline" size="small" /]
-    ```bash
+    ```yaml
     # ...
-    download: “https://downloads.dcos.io/dcos/stable/1.12.3/dcos_generate_config.sh”
-    version: “1.12.3
+    download: "https://downloads.dcos.io/dcos/stable/1.12.3/dcos_generate_config.sh"
+    version: "1.12.3"
     enterprise_dcos: false
     # ...
     ```
 
-4. Also in the variables file, set the following values under `config`. Enterprise users add your license key here:
-    ```bash
+4. Also in the variables file, set the following values under `config`. Enterprise users add your license key here. (Optional: specify a special script for your environment in `ip_detect_contents` or `ip_detect_public_contents` you can find the defaults here [ip-detect](https://github.com/dcos/dcos-ansible/blob/master/roles/DCOS.bootstrap/templates/onprem/ip-detect.j2) [ip-detect-public](https://github.com/dcos/dcos-ansible/blob/master/roles/DCOS.bootstrap/templates/onprem/ip-detect-public.j2)):
+    ```yaml
     # ...
     cluster_name: <your-cluster-name>
 
@@ -106,6 +106,13 @@ You may use DC/OS Ansible to install both DC/OS and DC/OS Enterprise. Please fol
 
     # Add and uncomment this line for enterprise; paste or pass in your license key here
     # license_key_contents: “YOUR_ENT_LICENSE_CONTENTS”
+    #
+    # This is an ip-detect script example which also stands for ip_detect_public_contents
+    # more info about ip-detect can be found here: https://docs.mesosphere.com/1.12/installing/production/deploying-dcos/installation/#create-an-ip-detection-script
+    # ip_detect_contents: |
+    #   #!/bin/sh
+    #   set -o nounset -o errexit
+    #   ip addr show dev eth1 primary | awk '/(inet .*\/)/ { print $2 }' | cut -d'/' -f1
     ```
 
 5. (Optional) In `ansible.cfg`, set the appropriate `remote_user` to the user that you will connect as on your nodes. The default is set to `centos`.
@@ -170,7 +177,7 @@ private_agent              : ok=24   changed=5    unreachable=0    failed=0
 public_agent               : ok=24   changed=5    unreachable=0    failed=0
 ```
 
-With very little effort we have created a DC/OS version running version 1.12.2. You can now access DC/OS via your master node(s) at: `http://master-node-ip`
+With very little effort we have created a DC/OS version running version 1.12.3. You can now access DC/OS via your master node(s) at: `http://master-node-ip`
 
 ## Logging In
 To access the user interface, you will be asked to log in.

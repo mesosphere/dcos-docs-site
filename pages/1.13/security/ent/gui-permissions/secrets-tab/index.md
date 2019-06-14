@@ -12,19 +12,19 @@ enterprise: true
 
 You can grant users access to the **Secrets** tab. By default, new users have no permissions.
 
-**Tip:** This procedure grants full user access to the **Secrets** tab. If you want to configure fine-grained user access, see the [documentation](/1.13/security/ent/secrets/use-secrets/).
+<p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Secrets</strong> tab. If you want to configure fine-grained user access, see the <a href="/1.13/security/ent/secrets/use-secrets/">documentation</a>.</p>
 
-## <a name="network-access-via-ui"></a>Grant Access by using the GUI
+## <a name="network-access-via-ui"></a>Grant Access by using the UI
 
 **Prerequisites:**
 
 - A DC/OS user account without the `dcos:superuser` [permission](/1.13/security/ent/users-groups/).
 
-1. Log into the DC/OS GUI as a user with the `superuser` permission.
+1. Log into the DC/OS UI as a user with the `superuser` permission.
 
    ![Login](/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
-   Figure 1. DC/OS web interface login
+   Figure 1. DC/OS UI login
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -50,7 +50,6 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.13/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
-
     ## Permissive
 
     ```bash
@@ -64,6 +63,7 @@ You can grant users access to the **Secrets** tab. By default, new users have no
     dcos:adminrouter:secrets full
     dcos:secrets:list:default:/ read
     ```
+
 
 ## <a name="network-access-via-api"></a>Granting Access by using the API
 
@@ -97,7 +97,7 @@ You can grant users access to the **Secrets** tab. By default, new users have no
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:secrets/users/<uid>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 ## Strict
 
@@ -119,4 +119,4 @@ You can grant users access to the **Secrets** tab. By default, new users have no
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:secrets/users/<uid>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>

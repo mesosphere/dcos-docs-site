@@ -6,27 +6,45 @@ menuWeight: 800
 excerpt: Replacing a master node in an existing DC/OS cluster
 enterprise: true
 ---
+You can replace a master node in an existing DC/OS cluster. You should keep in mind, however, that you should only ever replace one master at a time. The following steps summarize how to replace a master node for a DC/OS cluster.
 
-You can replace a master node in an existing DC/OS cluster. Only one master should be replaced at a time.
+# To replace a master node
+1. Back up ZooKeeper state information using Exhibitor, the Guano utility, or a custom script.
 
-## Remove the existing master
+    For example, if you download and extract the Guano utility, you can run a command similar to the following on the master node:
 
-To begin, shut down the master node you want to replace.
+    ```bash
+    dcos-shell java -jar guano-0.1a.jar -u super -p secret -d / -o /tmp/mesos-zk-backup -s $ZKHOST:2181 && tar -zcvf zkstate.tar.gz /tmp/mesos-zk-backup/
+    ```
 
-## Add the new master
+    For more information about backing up ZooKeeper using the Guano utility, see [How do I backup ZooKeeper using Guano?](/1.13/installing/installation-faq/#zk-backup)
 
-The procedure for adding the new master node to replace the one taken offline in the previous step is quite simple.
+1. Back up the DC/OS identity and access management CockroachDB database to a file by running a command similar to the following on the master node:
 
-### `master_discovery: static`
+    ```bash
+    dcos-shell iam-database-backup > ~/iam-backup.sql
+    ```
 
-If you have configured static master discovery in your `config.yaml` (for example, `master_discovery: static`), then the new server must have the same internal IP address as the old server. Once you have verified that the new server has the same internal IP address as the old server, and the old server is completely unreachable from the cluster, you can proceed to install the new master as you would normally.
+    For more information about backing up the DC/OS identity and access management CockroachDB database, see [How do I backup the IAM database?](/1.13/installing/installation-faq/#iam-backup)
 
-### `master_discovery: master_http_loadbalancer`
+1. Shut down the master node you want to replace.
 
-If you have configured dynamic master discovery in your config.yaml (for example, `master_discovery: master_http_loadbalancer`), then  install the new master as you would normally.
+1. Add the new master node to replace the one taken offline in the previous step.
 
-## Confirm that the new master is healthy
+    **Static master discovery**
 
-To confirm that the new master has joined the cluster successfully, you must confirm that the procedure was successful before proceeding. The procedure is identical to the verification performed following a master node upgrade.
+    If you have configured **static master discovery** in your `config.yaml` file (`master_discovery: static`):
+    - Verify that the new server has the same internal IP address as the old master node.
+    - Verify that the old server is completely unreachable from the cluster.
+    - Install the new master as you would normally.
+    
+    **Dynamic master discovery**
 
-The exact steps are listed under 'Validate the upgrade' in the [Upgrading a master](/1.13/installing/production/upgrading/#dcos-masters) section in the [Upgrading documentation](/1.13/installing/production/upgrading/).
+    If you have configured **dynamic master discovery** in your `config.yaml` file ( `master_discovery: master_http_loadbalancer`):
+    - Install the new master as you would normally.
+
+1. Check that the new master is healthy.
+
+    <p class="message--important"><strong>IMPORTANT: </strong>This step is required. Be sure to confirm that the new master has joined the cluster successfully before replacing any additional master nodes or performing any additional administrative tasks.</p>
+    
+    To validate that the master node replacement completed successfully, follow the steps to Validate the upgrade as described in [Upgrading a master](/1.13/installing/production/upgrading/#dcos-masters).

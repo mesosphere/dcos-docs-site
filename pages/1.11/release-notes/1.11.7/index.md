@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  Release Notes for 1.11.7
 title: Release Notes for 1.11.7
-menuWeight: 15
+menuWeight: 25
 excerpt: Release notes for DC/OS 1.11.7
 ---
 
-DC/OS 1.11.7 was released on November 1, 2018. 
+DC/OS 1.11.7 was released on November 1, 2018.
 
 [button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.7/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -22,9 +22,9 @@ DC/OS 1.11.7 includes the following components:
 # Issues Fixed in DC/OS 1.11.7
 
 ## GUI
-- DCOS-20222 - Add an error message when environment variables are input without keys. 
+- DCOS-20222 - Add an error message when environment variables are input without keys.
 - DCOS-42365 - Set total resource counts to display in the pods table.
-- DCOS_OSS-1961 - Secure pod container fields to prevent instances of unprompted swallowing when pod is edited via JSON Editor. 
+- DCOS_OSS-1961 - Secure pod container fields to prevent instances of unprompted swallowing when pod is edited via JSON Editor.
 
 ## Marathon
 - DCOS_OSS-4193 - Resolve [MSPH-2018-0004](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004)(Mesosphere Customer Advisory) where Marathon fails to launch if the first DC/OS master is down with the introduction of ping zk-1 in DC/OS 1.11.5.
@@ -34,7 +34,7 @@ DC/OS 1.11.7 includes the following components:
 
 ## Metrics
 - DCOS-39103 - Consolidate DC/OS metrics agent service error messages in instances when the Docker daemon becomes unresponsive.
-- DCOS_OSS-3918 - Downrate logs to debug in occurrences of NaN data point values to reduce log size and free disk space. 
+- DCOS_OSS-3918 - Downrate logs to debug in occurrences of NaN data point values to reduce log size and free disk space.
 
 ## Platform
 - DCOS_OSS-4127 - Add additional data (timestamp for `dmesg`, `timedatectl`, distro version, systemd unit status, pods endpoint) into DC/OS diagnostics bundle.
@@ -67,7 +67,7 @@ Provide feedback on the new features and services at [support.mesosphere.com](ht
   - Support for Docker image pull secrets. [View the documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/#cluster-docker-credentials). An example for Docker credentials is [here](/1.11/installing/ent/custom/configuration/examples/#docker-credentials). [enterprise type="inline" size="small" /]
 
 ### Networking
-- Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
+- Edge-LB 1.0. [View the documentation](/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`.  Read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
 - The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/production/advanced-configuration/configuration-reference/#dns-forward-zones) to understand its usage.
@@ -84,7 +84,7 @@ Provide feedback on the new features and services at [support.mesosphere.com](ht
 - Unified logging API provides simple access to container (task) and system component logs. [View the documentation](/1.11/monitoring/logging/logging-api/).
 
 ### Storage
-- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
+- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods/).[beta type="inline" size="small" /]
 
 <p class="message--note"><strong>NOTE: </strong>Because these storage features are beta in 1.11, they must be explicitly enabled in the config.yaml file when installing DC/OS. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.</p>

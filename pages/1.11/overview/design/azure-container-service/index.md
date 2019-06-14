@@ -6,9 +6,9 @@ navigationTitle: ACS
 menuWeight: 2
 ---
 
-The [Azure Container Service](https://azure.microsoft.com/documentation/articles/container-service-deployment/) is a reference implementation of DC/OS optimized to take advantage of the features of Microsoft Azure infrastructure. If you already have an Azure account, you can try out a reference implementation of DC/OS built on Microsoft Azure by [creating an Azure Container Service cluster](https://aka.ms/acscreate). (Grab a [free Azure trial account](https://azure.microsoft.com/pricing/free-trial/) first if you do not have one.)
+The [Azure Container Service](https://azure.microsoft.com/documentation/articles/container-service-deployment/) is a reference implementation of DC/OS optimized to take advantage of the features of Microsoft Azure infrastructure. If you already have an Azure account, you can try out a reference implementation of DC/OS built on Microsoft Azure by [creating an Azure Container Service cluster](https://aka.ms/acscreate). (Obtain a [free Azure trial account](https://azure.microsoft.com/pricing/free-trial/) first if you do not have one.)
 
-**Caution:** Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.
+<p class="message--warning"><strong>WARNING: </strong>Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.</p>
 
 This document describes:
 

@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-You can convert agent nodes to public or private for an existing DC/OS cluster. 
+You can convert agent nodes to public or private for an existing DC/OS cluster.
 
 Agent nodes are designated as [public](/1.10/overview/concepts/#public-agent-node) or [private](/1.10/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during [GUI][1] or [CLI][2] installation.
 
@@ -19,14 +19,14 @@ Agent nodes are designated as [public](/1.10/overview/concepts/#public-agent-nod
 The following steps must be performed on a machine that is configured as a DC/OS node. Any tasks that are running on the node will be terminated during this conversion process.
 
 *   DC/OS is installed using the [custom](/1.10/installing/) installation method and you have deployed at least one [master](/1.10/overview/concepts/#master) and one [private](/1.10/overview/concepts/#private-agent-node) agent node.
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.10/installing/#backup).     
+*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.10/installing/#backup).
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
-**Note:** Use the following steps to convert your agent node only. You will not be able to actually uninstall DC/OS here. In order to uninstall DC/OS, currently you must [re-image](https://docs.mesosphere.com/1.11/installing/oss/custom/uninstall/) the operating system on your nodes. The uninstalling process may change in future releases of DC/OS.
+**Note:** Use the following steps to convert your agent node only. You will not be able to actually uninstall DC/OS here. In order to uninstall DC/OS, currently you must [re-image](/1.10/installing/production/uninstalling/index.md) the operating system on your nodes. The uninstalling process may change in future releases of DC/OS.
 
 ### Determine the node type
-You can determine the node type by running the following commands from the DC/OS CLI. 
+You can determine the node type by running the following commands from the DC/OS CLI.
 
 -   Run this command to determine how many private agents are there in the cluster. A result of `0` indicates that there are no private agents.
 
@@ -35,7 +35,7 @@ You can determine the node type by running the following commands from the DC/OS
     ```
 
 -   Run this command to determine how many public agents are there in the cluster. A result of `0` indicates that there are no public agents.
-    
+
     ```bash
     dcos node --json | jq --raw-output '.[] | select(.reserved_resources.slave_public != null) | .id' | wc -l
     ```
@@ -94,13 +94,13 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that is 
 1.  Run this command to install DC/OS on your agent nodes. You must designate your agent nodes as public or private.
 
     Private agent nodes.
-    
+
     ```bash
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave
     ```
-    
+
     Public agent nodes.
-    
+
     ```bash
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
     ```

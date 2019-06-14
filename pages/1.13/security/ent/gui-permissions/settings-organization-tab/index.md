@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Granting Access to the Settings and Organization tabs
 title: Granting Access to the Settings and Organization tabs
 menuWeight: 70
-excerpt: Granting access to the Settings and Organization tabs using the DC/OS web interface or the API
+excerpt: Granting access to the Settings and Organization tabs using the DC/OS UI or the API
 
 enterprise: true
 ---
@@ -22,7 +22,7 @@ You can grant users access to the **Settings** and **Organization** tabs. By def
 
    ![Login](/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
-   Figure 1. DC/OS web interface login
+   Figure 1. DC/OS UI login
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
@@ -88,7 +88,7 @@ You can grant users access to the **Settings** and **Organization** tabs. By def
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:acs/users/<uid>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
 
 ## Strict
 
@@ -110,4 +110,4 @@ You can grant users access to the **Settings** and **Organization** tabs. By def
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:acs/users/<uid>/full
     ```
 
-    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
+<p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>

@@ -256,7 +256,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--
  - `cmd` - 指定运行状况检查命令字符串的阵列
  - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常状态为 `3 (UNKNOWN)`
 
-有关如何使用这些自定义检查的详细信息，请参阅 [示例](/1.12/installing/ent/custom/configuration/examples/#custom-checks) 以及 [节点和群集运行状况检查](/1.12/installing/ent/custom/node-cluster-health-check/) 文档。
+有关如何使用这些自定义检查的详细信息，请参阅 [示例](/1.12/installing/ent/custom/configuration/examples/#custom-checks) 以及 [节点和群集运行状况检查](/1.12/installing/production/deploying-dcos/configuration/examples/#custom-checks) 文档。
 
 
 ### dcos_audit_logging [enterprise type="inline" size="small" /]

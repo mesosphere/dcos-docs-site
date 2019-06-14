@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Using the Certificate Authority API
 title: Using the Certificate Authority API
 menuWeight: 500
-excerpt: Viewing, creating and signing certificates 
+excerpt: Viewing, creating and signing certificates
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -24,7 +24,7 @@ The API supports JSON only. You must include `application/json` as your `Content
 
 The host name will vary depending on where your app is running.
 
-* If your app will run outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS web interface and copying the domain name from the browser. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the address of the load balancer which sits in front of your masters.
+* If your app will run outside of the DC/OS cluster; you should use the cluster URL. This can be obtained by launching the DC/OS UI and copying the domain name from the browser. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the address of the load balancer which sits in front of your masters.
 
 * If your app will run inside of the cluster, use `master.mesos`.
 
@@ -95,7 +95,7 @@ Authentication tokens expire after five days by default. If your program needs t
 
 # API reference
 
-[swagger api='/1.12/api/certificate-authority.yaml']
+[swagger api='/1.13/api/certificate-authority.yaml']
 
 
 # Logging

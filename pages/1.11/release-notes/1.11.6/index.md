@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes for 1.11.6
 title: Release Notes for 1.11.6
-menuWeight: 20
+menuWeight: 30
 excerpt: Release notes for DC/OS 1.11.6
 ---
 
@@ -20,28 +20,28 @@ DC/OS 1.11.6 includes the following components:
 
 # Notable Changes in DC/OS 1.11.6
 - DCOS-22310/DCOS-40495/DCOS-41282 - Update DC/OS UI for [1.11+v1.23.0](https://github.com/dcos/dcos-ui/blob/1.11+v1.23.0/CHANGELOG.md). [oss type="inline" size="small" /]
-- DCOS_OSS-4106/DCOS_OSS-4109 - Bump ZooKeeper to [3.4.13](https://zookeeper.apache.org/doc/r3.4.13/releasenotes.html). 
+- DCOS_OSS-4106/DCOS_OSS-4109 - Bump ZooKeeper to [3.4.13](https://zookeeper.apache.org/doc/r3.4.13/releasenotes.html).
 - Update DC/OS UI for [1.11+v1.23.0+f17c3335](https://github.com/mesosphere/dcos-ui-plugins-private/compare/1.11+v1.20.0+1c67f4b5...1.11+v1.23.0+f17c3335). [enterprise type="inline" size="small" /]
 
 # Customer Advisory
-- [Removing the patch for Marathon failing to start if the first DC/OS is not available](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004). The patch for Marathon failing to start under certain DNS failure conditions is not required after upgrading to DC/OS 1.11.6 with Marathon version 1.6.541 (or later). 
+- [Removing the patch for Marathon failing to start if the first DC/OS is not available](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004). The patch for Marathon failing to start under certain DNS failure conditions is not required after upgrading to DC/OS 1.11.6 with Marathon version 1.6.541 (or later).
 
 # Issues Fixed in DC/OS 1.11.6
 
-## CLI 
+## CLI
 - DCOS_OSS-3958/DCOS_OSS-3978 - Add information about `/containers`, `/quota`, `/proc`, and `ps aux www`to diagnostics bundle.
 
 ## Data Services
 - COPS-3371/DCOS-38328 - Remove health check directories for Kafka 2.0.4-1.0.0.
 
 ## GUI
-- DCOS-40779 - Fix movement of form control icons in the search bar. 
+- DCOS-40779 - Fix movement of form control icons in the search bar.
 
 ## Marathon
 - DCOS-41198 - Replace `poll_marathon_for_app_deployment()` method with `wait_for_deployments_complete()` method in dcos-test-utils.
 - DCOS_OSS-4193 - Fix for [Marathon not starting if the first DC/OS Master is down](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004).
 - MARATHON-8095 - Fix  PATCH call against inactive HA node.
-- MARATHON-8381 - Add new exit codes for Marathon. 
+- MARATHON-8381 - Add new exit codes for Marathon.
 - MARATHON-8428 - Fix SSL readiness check with self-signed cert. Bump [Marathon on 1.11](https://github.com/mesosphere/marathon/tree/aabf74302).
 
 ## Mesos
@@ -52,9 +52,9 @@ DC/OS 1.11.6 includes the following components:
 
 ## Networking
 - COPS-3279/COPS-3576/DCOS-37703/DCOS-37703/DCOS-39703 - Fix erroneous values in service addresses stats and enable metrics forwarding.
-- COPS-3472/DCOS-38932 - Enable access to Marathon app via overlap network. 
+- COPS-3472/DCOS-38932 - Enable access to Marathon app via overlap network.
 - COPS-3540/COPS-3517/COPS-3774/DCOS-39203/DCOS-39517/DCOS-41358 - Fix delay in overlay configuration.
-- COPS-3585/COPS-3701/DCOS-38600/DCOS-42215 - Fix deadlock issue when SSL sockets simultaneously send/receive data. 
+- COPS-3585/COPS-3701/DCOS-38600/DCOS-42215 - Fix deadlock issue when SSL sockets simultaneously send/receive data.
 - COPS-3605/DCOS_OSS-3707 - Bump mesos-module to include the fix for CoreOS 1800.7.0.
 - DCOS_OSS-3697 - Fix connectivity issue between bridge and overlay networks.
 - DCOS-39707 - Fix clustering issues with `etcd`.
@@ -63,8 +63,8 @@ DC/OS 1.11.6 includes the following components:
 ## Platform
  - DCOS-40245 - Admin Router: Change the `adminrouter_auth_cache_enabled` configuration option default to `true`. [enterprise type="inline" size="small" /]
  - DCOS_OSS-4107 - Bump ZooKeeper to [3.4.13](https://zookeeper.apache.org/doc/r3.4.13/releasenotes.html).
- 
- 
+
+
 [enterprise]
 ## Security
 [/enterprise]
@@ -73,7 +73,7 @@ DC/OS 1.11.6 includes the following components:
 # Security Updates
 - DCOS_OSS-4105 - Update OpenSSL to version 1.0.2p.
 
-**Note:** New Docker version is supported on CoreOS 1800.7.0. See [compatibility matrix](https://docs.mesosphere.com/version-policy/) for further information.
+**Note:** New Docker version is supported on CoreOS 1800.7.0. See [compatibility matrix](/version-policy/) for further information.
 
 # About DC/OS 1.11
 
@@ -98,7 +98,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
   -  Support for Docker image pull secrets. [View the documentation](/1.11/installing/ent/custom/configuration/configuration-parameters/#cluster-docker-credentials). An example for Docker credentials is [here](/1.11/installing/ent/custom/configuration/examples/#docker-credentials). [enterprise type="inline" size="small" /]
 
 ### Networking
-- Edge-LB 1.0. [View the documentation](https://docs.mesosphere.com/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
+- Edge-LB 1.0. [View the documentation](/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]
 - IPv6 is now supported for Docker containers.
 - Performance improvements to the DC/OS network stack - All networking components (minuteman, navstar, spartan) are aggregated into a single systemd unit called `dcos-net`.  Read this [note](/1.11/networking/#a-note-on-software-re-architecture) to learn more about the re-factoring of the network stack.
 - The configuration parameter `dns_forward_zones` now takes a list of objects instead of nested lists ([DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)). [View the documentation](/1.11/installing/production/advanced-configuration/configuration-reference/#dns-forward-zones) to understand its usage.
@@ -115,7 +115,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Unified logging API provides simple access to container (task) and system component logs. [View the documentation](/1.11/monitoring/logging/logging-api/).
 
 ### Storage
-- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
+- DC/OS Storage Service 0.1 (beta) - DSS users will be able to dynamically create volumes based upon profiles or policies to fine-tune their applications storage requirements. This feature leverages the industry-standard Container Storage Interface (CSI) to streamline the development of storage features in DC/OS by Mesosphere and our community and partner ecosystems. [View the documentation](/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
 - Pods now support persistent volumes. [View the documentation](/1.11/deploying-services/pods/).[beta type="inline" size="small" /]
 
 **Note:** Because these storage features are beta in 1.11, they must be explicitly enabled in the config.yaml file when installing DC/OS. Beta features are not recommended for production usage, but are a good indication of the direction the project is headed.

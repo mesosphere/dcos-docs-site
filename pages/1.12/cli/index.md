@@ -44,7 +44,7 @@ Table 1 - Commands
 |`auth` | Authenticate to DC/OS cluster |
 | `cluster` | Manage your DC/OS clusters|
 | `config` | Manage the DC/OS configuration file |
-| `help` | Help about any command | 
+| `help` | Help about any command |
 | `job` | Deploy and manage jobs in DC/OS|
 | `marathon` | Deploy and manage applications to DC/OS |
 | `node` | View DC/OS node information |
@@ -64,8 +64,18 @@ Table 2 - Options
 
 More information is available in the following expanded descriptions:
 
-- [Setting up a cluster](#setupcluster)
-- [DC/OS CLI versions and configuration files](#configuration-files)
+- [Setting up a cluster](#setting-up-a-cluster)
+- [DC/OS CLI versions and configuration files](#dcos-cli-versions-and-configuration-files)
+- [Environment variables](#environment-variables)
+	- [`DCOS_CLUSTER` (DC/OS CLI 0.5.x and higher only)](#dcoscluster-dcos-cli-05x-and-higher-only)
+		- [DC/OS Enterprise CLI](#dcos-enterprise-cli)
+	- [`DCOS_CONFIG` (DC/OS CLI 0.4.x only)](#dcosconfig-dcos-cli-04x-only)
+- [Listing your clusters](#listing-your-clusters)
+	- [`DCOS_DIR` (DC/OS CLI 0.5.x and later only)](#dcosdir-dcos-cli-05x-and-later-only)
+	- [`DCOS_SSL_VERIFY`](#dcossslverify)
+- [Listing your clusters](#listing-your-clusters-1)
+	- [`DCOS_LOG_LEVEL`](#dcosloglevel)
+	- [`DCOS_DEBUG`](#dcosdebug)
 
 
 <a name="setupcluster"></a>
@@ -117,21 +127,21 @@ The [attached](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cl
 ```bash
 dcos cluster setup <cluster-url>
 ```
-Accept all the login and authentication questions: 
+Accept all the login and authentication questions:
 ```bash
-dcos cluster setup https://10.15.150.126 
+dcos cluster setup https://10.15.150.126
 SHA256 fingerprint of cluster certificate bundle:
 FF:65:FE:B4:FF:B8:B6:30:C9:BE:D4:18:EE:03:31:8D:91:D2:A5:56:E8:3D:DF:06:02:E3:98:56:BA:58:07:21 [yes/no] yes
 10.15.150.126's username: <username>
 username@10.15.150.126's password: <password>
 ```
-After following the login procedure, your CLI is now ready to interact with your cluster. 
+After following the login procedure, your CLI is now ready to interact with your cluster.
 
 
 
 ### DC/OS Enterprise CLI
 
-The [`dcos cluster setup`](1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command installs the [plugins](/1.12/cli/plugins/) and `dcos-core-cli`, but not `dcos-enterprise-cli`.  DC/OS Enterprise CLI must be installed separately. See [Installing the DC/OS Enterprise CLI](1.12/cli/enterprise-cli/#installing-the-dcos-enterprise-cli).
+The [`dcos cluster setup`](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command installs the [plugins](/1.12/cli/plugins/) and `dcos-core-cli`, but not `dcos-enterprise-cli`.  DC/OS Enterprise CLI must be installed separately. See [Installing the DC/OS Enterprise CLI](/1.12/cli/enterprise-cli/#installing-the-dcos-enterprise-cli).
 
 After you install DC/OS Enterprise CLI, you will see new commands added:
 
@@ -169,7 +179,7 @@ Table 3 - DC/OS Enterprise commands
 | Name | Description |
 |---------|-------------|
 | `backup` | Create backups and restore from them   |
-| `license` | Review the status of your license, audit your license, and get or renew a license  | 
+| `license` | Review the status of your license, audit your license, and get or renew a license  |
 | `security` | Manage your DC/OS certificate authority credentials  |
 
 
@@ -190,13 +200,13 @@ If you have the `DCOS_CONFIG` environment variable configured:
 
 # Listing your clusters
 
-The DC/OS CLI can work with multiple clusters, using the following commands. 
+The DC/OS CLI can work with multiple clusters, using the following commands.
 
 - [`DCOS_DIR`](#dcos-dir)
 - [`DCOS_SSL_VERIFY`](#dcos-ssl-verify)
 - [`DCOS_LOG_LEVEL`](#dcos-ssl-verify)
 - [`DCOS_LOG_LEVEL`](#dcos-log-level)
-- [`DCOS_DEBUG`](#dcos-log-level) 
+- [`DCOS_DEBUG`](#dcos-log-level)
 
 
 The following command displays the latest configured cluster:

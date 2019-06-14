@@ -199,16 +199,16 @@ You can deploy a local Universe that includes all Certified packages (easiest), 
     ```bash
     dcos package repo add local-universe http://master.mesos:8082/repo
     ```
-    **NOTE:** If you need help resolving `master.mesos`, refer to [Installing your own set of Universe packages](https://docs.mesosphere.com/1.9/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages).
+    **NOTE:** If you need help resolving `master.mesos`, refer to [Installing your own set of Universe packages](/1.11/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages).
 
 
-1.  [SSH into one of your agent nodes.](/1.11/administering-clusters/sshcluster/)
+2.  [SSH into one of your agent nodes.](/1.11/administering-clusters/sshcluster/)
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
     ```
 
-1.  Use the following commands to download a copy of the DC/OS certificate locally and set it as trusted.
+3.  Use the following commands to download a copy of the DC/OS certificate locally and set it as trusted.
 
     ```bash
     sudo mkdir -p /etc/docker/certs.d/master.mesos:5000
@@ -216,7 +216,7 @@ You can deploy a local Universe that includes all Certified packages (easiest), 
     sudo systemctl restart docker
     ```
 
-1. Configure the Apache Mesos fetcher to trust the downloaded Docker certificate.
+4. Configure the Apache Mesos fetcher to trust the downloaded Docker certificate.
 
    1. Copy the certificate:
    ```
@@ -233,9 +233,9 @@ You can deploy a local Universe that includes all Certified packages (easiest), 
    ```
    **Note:** You will need to create the `/pki/tls/certs` directory on the public agent.
 
-1.  Close the SSH session by typing `exit` or open a new terminal prompt. Repeat steps 28-30 on each agent node.
+5.  Close the SSH session by typing `exit` or open a new terminal prompt. Repeat steps 28-30 on each agent node.
 
-1.  To verify your success, log into the DC/OS web interface and click the **Catalog** tab. You should see a list of Certified packages. Install one of the packages.
+6.  To verify your success, log into the DC/OS web interface and click the **Catalog** tab. You should see a list of Certified packages. Install one of the packages.
 
 ### FAQ
 

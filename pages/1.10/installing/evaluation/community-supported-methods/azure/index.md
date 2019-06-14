@@ -117,7 +117,7 @@ Also, to access nodes in the DC/OS cluster you will need `ssh` installed and con
 
 ## Deploying the template
 
-To install DC/OS 1.12 on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
+To install DC/OS on Azure, use the [Azure Resource Manager templates](https://downloads.dcos.io/dcos/stable/azure.html) provided.
 
 Some notes on the template configuration:
 
@@ -146,7 +146,7 @@ Figure 2. Outputs section
 
 ### Case 1:
 
-In order to visit the the DC/OS Dashboard, you will need to access TCP port 80 or 443 of the master node. You can add an inbound security rule and an inbound NAT rule.
+In order to visit the DC/OS Dashboard, you will need to access TCP port 80 or 443 of the master node. You can add an inbound security rule and an inbound NAT rule.
 
 1. Find the network security group resource of the master node,
 

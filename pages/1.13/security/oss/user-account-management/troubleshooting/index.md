@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Troubleshooting
 title: Troubleshooting User Account Management
 excerpt: Troubleshooting user account management issues
-
 menuWeight: 50
 ---
 
@@ -28,7 +27,7 @@ sudo journalctl -u dcos-bouncer.service
 ## CockroachDB
 
 The IAM stores user information in CockroachDB running on master nodes.
-If Admin Router and the IAM received the user management operation to perform according to their logs and the IAM could not fulfill the request in it likely that CockroachDB is in trouble. In this case check for errors or unusual patterns in the CockroachDB log on all master nodes.
+If Admin Router and the IAM received the user management operation to perform according to their logs and the IAM could not fulfill the request in it likely that CockroachDB is in trouble. In this case, check for errors or unusual patterns in the CockroachDB log on all master nodes.
 
 ```bash
 sudo journalctl -u dcos-cockroach.service
@@ -44,13 +43,13 @@ The reported number of nodes should match the number of DC/OS master nodes in ge
 
 The number of `is_live` CockroachDB nodes should always match the current number of master nodes.
 
-DC/OS sets the number of replicas for CockroachDB ranges equal to the number of DC/OS master nodes. This implies one master node should hold one copy of the data. Therefore, the number of `ranges_underreplicated` can go up temporarily if a master node goes out of business. After a new master node joins the cluster `ranges_underreplicated` is expected to go down again to zero after about five minutes.
+DC/OS sets the number of replicas for CockroachDB ranges equal to the number of DC/OS master nodes. This implies that one master node should hold one copy of the data. Therefore, the number of `ranges_underreplicated` can go up temporarily if a master node goes out of business. After a new master node joins the cluster, `ranges_underreplicated` is expected to go down again to zero after about five minutes.
 
-If the number of `ranges_unavailable` is non-zero this data is at least temporarily unavailable for reading and writing. In this case the CockroachDB range's raft group quorum is most likely impaired.
+If the number of `ranges_unavailable` is non-zero, this data is at least temporarily unavailable for reading and writing. In this case, the CockroachDB range's raft group quorum is most likely impaired.
 
 Getting the state of the majority of CockroachDB instances to `is_live` again on the majority of DC/OS master nodes is expected to restore the quorum and thus to bring `ranges_unavailable` down to zero.
 
-This is done easiest by restarting the CockroachDB instances that report `is_live = false`. Execute the following command to restart the CockroachDB node on the corresponding master node.
+This is most easily done by restarting the CockroachDB instances that report `is_live = false`. Execute the following command to restart the CockroachDB node on the corresponding master node.
 
 ```bash
 sudo systemctl restart dcos-cockroach.service
@@ -58,5 +57,5 @@ sudo systemctl restart dcos-cockroach.service
 
 If the raft quorum for a particular range cannot be recovered and the `ranges_unavailable` persist, the unavailable data is inevitably lost because it cannot be read nor written.
 
-<p class="message--note"><strong>NOTE: </strong>Re-installing or adding new DC/OS master nodes (CockroachDB nodes) will not add to the quorum for the ranges that are already in `ranges_unavailable` state. Furthermore, wiping existing CockroachDB instances lowers the chance for recovery.</p>
+<p class="message--note"><strong>NOTE: </strong>Re-installing or adding new DC/OS master nodes (CockroachDB nodes) will not add to the quorum for the ranges that are already in <code>ranges_unavailable</code> state. Furthermore, deleting existing CockroachDB instances lowers the chance for recovery.</p>
 

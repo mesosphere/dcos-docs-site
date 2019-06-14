@@ -4,7 +4,6 @@ navigationTitle:  Permissions Reference
 title: Permissions Reference
 menuWeight: 40
 excerpt: Understanding DC/OS access and permissions references
-
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

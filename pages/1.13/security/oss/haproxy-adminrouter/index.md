@@ -8,7 +8,7 @@ menuWeight: 50
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-You can set up secure HTTPS communication using a custom server certificate with your DC/OS cluster by [setting up a proxy](#HAProxy) between the Admin Router and user agent requests coming in from outside of the cluster. The HTTP Proxy must perform on-the-fly HTTP request and response header modification, because DC/OS is not aware of the custom hostname and port that is being used by user agents to address the HTTP proxy.
+You can set up secure HTTPS communication using a custom server certificate with your DC/OS cluster by [setting up a proxy](#HAProxy) between the Admin Router and user agent requests coming from outside of the cluster. The HTTP Proxy must perform on-the-fly HTTP request and response header modification, because DC/OS is not aware of the custom hostname and port that is being used by user agents to address the HTTP proxy.
 
 # <a name="HAProxy"></a>Configuring HAProxy in front of Admin Router
 
@@ -78,7 +78,7 @@ Where:
     # perform server certificate verification (including hostname verification).
     # If you are using the community-supported version of DC/OS, you must
     # configure Admin Router with a custom TLS server certificate, see
-    # /1.12/administering-clusters/. This step
+    # /1.13/administering-clusters/. This step
     # is not required for DC/OS Enterprise.
     #
     # Explanation for the parameters in the following `server` definition line:
@@ -87,7 +87,7 @@ Where:
     #
     #   IP address and port that HAProxy uses to connect to DC/OS Admin
     #   Router. This needs to be adjusted to your setup.
-    #   
+    #
     #
     # ssl verify required
     #
