@@ -70,7 +70,7 @@ The following is the boot sequence of DC/OS components on each agent node.
 
 ## Services
 
-After DC/OS installation and initialization is complete, you can install DC/OS services. You can install the services through DC/OS package management, either from the Mesosphere Universe or through Marathon directly.
+After DC/OS installation and initialization is complete, you can install DC/OS services. You can install the services through DC/OS package management, either from the Mesosphere Catalog or through Marathon directly.
 
 The following is the boot sequence of a DC/OS service:
 

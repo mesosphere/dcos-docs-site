@@ -36,7 +36,7 @@ Many companies [use Mesos directly with success](https://mesos.apache.org/docume
 1. The real-time metrics "firehouse" is open for use by your favorite diagnostics and analytics packages.
 1. DC/OS has three ways to administer your distributed OS: a CLI, a graphical UI, and an API.
 
-### The Universe of packages
+### The Catalog of packages
 
 Here is a list of what is in the Catalog on Day 1 of DC/OS, categorized by the type of license.
 

@@ -40,7 +40,7 @@ High availability services should be decoupled, with responsibilities divided am
 
 # Eliminating Single Points of Failure
 
-Single points of failure come in many forms. For example, a service like ZooKeeper can become a single point of failure when every service in your system shares one ZooKeeper cluster. You can reduce these risks by running multiple ZooKeeper clusters for separate services. There is an Exhibitor [Universe package](https://github.com/mesosphere/exhibitor-dcos) that makes this easy.
+Single points of failure come in many forms. For example, a service like ZooKeeper can become a single point of failure when every service in your system shares one ZooKeeper cluster. You can reduce these risks by running multiple ZooKeeper clusters for separate services. There is an Exhibitor [Catalog package](https://github.com/mesosphere/exhibitor-dcos) that makes this easy.
 
 Other common single points of failure include:
 

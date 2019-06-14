@@ -21,13 +21,13 @@ dcos package repo add <repo-name> <repo-url> [--index=<index>]
 | Name | Description |
 |---------|-------------|
 | `-h`, `--help` | Display usage. |
-| `--index=<index>`   | The numerical position in the package repository list. Package repositories are searched in descending order. By default, the Universe repository first in the list. |
+| `--index=<index>`   | The numerical position in the package repository list. Package repositories are searched in descending order. By default, the Catalog repository first in the list. |
 
 ## Positional arguments
 
 | Name |  Description |
 |---------|-------------|
-| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
+| `<repo-name>`   |   Name of the package repository. For example, `Catalog`. |
 | `<repo-url>`   |   URL of the package repository. For example, https://universe.mesosphere.com/repo. |
 
 

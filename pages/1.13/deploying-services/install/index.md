@@ -34,7 +34,7 @@ From the DC/OS UI you can install services from the **Services** or **Catalog** 
 
     ![universe](/1.13/img/GUI-Catalog-Main_View-1_12.png)
 
-    Figure 1. Universe catalog
+    Figure 1. Catalog catalog
 
 2.  Click a package.
     1. Click **REVIEW & RUN**.

@@ -12,15 +12,15 @@ The default Linux user of a service or job can vary according to the security mo
 
 The procedure for overriding the default Linux user varies by the type of service or job.
 
-- [Overriding the default Linux user of a Universe service](#universe)
+- [Overriding the default Linux user of a Catalog service](#universe)
 - [Overriding the default user of a service via Marathon app definition](#marathon-app-def)
 - [Overriding the default user of a job via Metronome job definition](#metronome-job-def)
 
-# <a name="universe"></a>Overriding the default Linux user of a Universe service
+# <a name="universe"></a>Overriding the default Linux user of a Catalog service
 
-Many Universe services ignore overrides of their user accounts except in `strict` mode. We provide detailed steps for overriding the default Linux user for services that support this in [Service Accounts](/1.13/security/ent/service-auth/). Refer to the section pertaining to the service of interest for step-by-step instructions. The procedures also describe how to configure the service to use encryption and service accounts.
+Many Catalog services ignore overrides of their user accounts except in `strict` mode. We provide detailed steps for overriding the default Linux user for services that support this in [Service Accounts](/1.13/security/ent/service-auth/). Refer to the section pertaining to the service of interest for step-by-step instructions. The procedures also describe how to configure the service to use encryption and service accounts.
 
-Remember to grant permission to perform the `create` action on the `dcos:mesos:master:task:user[:<linux-user-name>]` resource to the service account user that the Universe service is launched with. See [Mesos Permissions](/1.13/security/ent/perms-reference/#mesos-permissions) for more information.
+Remember to grant permission to perform the `create` action on the `dcos:mesos:master:task:user[:<linux-user-name>]` resource to the service account user that the Catalog service is launched with. See [Mesos Permissions](/1.13/security/ent/perms-reference/#mesos-permissions) for more information.
 
 # <a name="marathon-app-def"></a>Overriding the default Linux user via Marathon app definition
 

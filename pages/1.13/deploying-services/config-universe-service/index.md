@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Configuring Universe Services
-title: Configuring Universe Services
+navigationTitle:  Configuring Catalog Services
+title: Configuring Catalog Services
 menuWeight: 2
 excerpt: Using the DC/OS CLI to configure services
 enterprise: false

@@ -65,7 +65,7 @@ A private agent node is an agent node that is on a network that does not allow a
 
 By default, the resources on private agent nodes are configured to allow undifferentiated allocation. More precisely, the resources are given the `*` role, allowing them to be allocated to any task that does not specify a role. For more information, see [Mesos resource roles](http://mesos.apache.org/documentation/latest/roles/).
 
-Because these resources are undifferentiated, most tasks are scheduled on private agent nodes and are inaccessible from outside the cluster, decreasing the surface area that could be accessed by malicious attackers. For this reason, clusters are generally comprised of mostly private agent nodes. Likewise, most [Mesosphere Universe](/1.13/overview/concepts/#mesosphere-universe) packages install by default on private agent nodes.
+Because these resources are undifferentiated, most tasks are scheduled on private agent nodes and are inaccessible from outside the cluster, decreasing the surface area that could be accessed by malicious attackers. For this reason, clusters are generally comprised of mostly private agent nodes. Likewise, most [Mesosphere Catalog](/1.13/overview/concepts/#mesosphere-universe) packages install by default on private agent nodes.
 
 ## More Information
 

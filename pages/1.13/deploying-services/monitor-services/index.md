@@ -10,7 +10,7 @@ enterprise: false
 
 You can monitor deployed DC/OS services from the CLI and UI.
 
-# Monitoring Universe services
+# Monitoring Catalog services
 
 ## CLI
 

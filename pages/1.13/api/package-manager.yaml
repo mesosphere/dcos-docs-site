@@ -753,7 +753,7 @@ paths:
     post:
       consumes:
         - application/vnd.dcos.package.install-request+json;charset=utf-8;version=v1
-      description: Runs a service from a Universe package.
+      description: Runs a service from a Catalog package.
       operationId: POST-package-install
       parameters:
         - in: body
@@ -849,7 +849,7 @@ paths:
     post:
       consumes:
         - application/vnd.dcos.package.repository.add-request+json;charset=utf-8;version=v1
-      description: Adds a package repository (for example Universe) for use by DC/OS. To add a package repository to the beginning of the list set the index to zero (0). To add a package repository to the end of the list do not specify an index.
+      description: Adds a package repository (for example Catalog) for use by DC/OS. To add a package repository to the beginning of the list set the index to zero (0). To add a package repository to the end of the list do not specify an index.
       operationId: POST-package-repository-add
       parameters:
         - in: body
@@ -873,7 +873,7 @@ paths:
     post:
       consumes:
         - application/vnd.dcos.package.repository.delete-request+json;charset=utf-8;version=v1
-      description: Deletes a package repository (for example Universe) from DC/OS.
+      description: Deletes a package repository (for example Catalog) from DC/OS.
       operationId: POST-package-repository-delete
       parameters:
         - in: body
@@ -897,7 +897,7 @@ paths:
     post:
       consumes:
         - application/vnd.dcos.package.repository.list-request+json;charset=utf-8;version=v1
-      description: ' List all of the package repositories (for example Universe) used by DC/OS. The list is ordered by priority; if multiple repositories contain the same package, the package closest to the start of the list will be used.'
+      description: ' List all of the package repositories (for example Catalog) used by DC/OS. The list is ordered by priority; if multiple repositories contain the same package, the package closest to the start of the list will be used.'
       operationId: POST-package-repository-list
       parameters:
         - in: body

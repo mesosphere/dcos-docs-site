@@ -132,7 +132,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
      }
     }
      ```        
-1.  Install the Marathon package from Universe with the custom JSON configuration specified (`marathon-config.json`).
+1.  Install the Marathon package from Catalog with the custom JSON configuration specified (`marathon-config.json`).
     ```bash
     dcos package install --options=marathon-config.json marathon
     ```

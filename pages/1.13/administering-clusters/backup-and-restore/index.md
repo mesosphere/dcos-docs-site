@@ -9,7 +9,7 @@ enterprise: true
 
 You can back up the state of the native Marathon instance of your cluster, and later restore from that backup.
 
-You may wish to back up your cluster before performing an upgrade or downgrade. You may need to restore your cluster to a known good state if something goes wrong during an upgrade or if you install a Universe package that does not perform as expected.
+You may wish to back up your cluster before performing an upgrade or downgrade. You may need to restore your cluster to a known good state if something goes wrong during an upgrade or if you install a Catalog package that does not perform as expected.
 
 # Limitations
 
