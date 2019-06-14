@@ -5,6 +5,8 @@ title: dcos config unset
 menuWeight: 3
 excerpt: Removing a property from the configuration file
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
