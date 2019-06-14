@@ -43,4 +43,4 @@ pools:
 dcos edgelb config config.yaml
 ```
 
-Edge-LB will round-robin over the instances in the server groups of the `myapp-prod` cluster.
+Edge-LB will configure the instances in the server groups of the `myapp-prod` cluster in a round-robin sequence.
