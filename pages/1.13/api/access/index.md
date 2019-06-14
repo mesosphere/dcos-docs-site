@@ -5,6 +5,8 @@ title: Cluster Access
 menuWeight: 1
 excerpt: Gaining access to a cluster URL
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Gaining access to a cluster URL
