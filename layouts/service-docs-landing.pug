@@ -55,13 +55,14 @@ mixin renderGridToc()
             - serviceItemClasses += ' grid-toc__enterprise'
           - console.log(serviceItemClasses)
           div(class=serviceItemClasses)
-            h2(class='grid-toc__title')
-              a(href=latestPath)!= service.title
-            ul(class='grid-toc__labels')
-              if service.beta
-                li(class='grid-toc__label grid-toc__label__beta')!= 'Beta'
-              if service.enterprise
-                li(class='grid-toc__label grid-toc__label__enterprise')!= 'Enterprise'
+            div(class='grid-toc__title-group')
+              h2(class='grid-toc__title')
+                a(href=latestPath)!= service.title
+              ul(class='grid-toc__labels')
+                if service.beta
+                  p(class='badge badge--content-header badge--beta') BETA
+                if service.enterprise
+                  p(class='badge badge--content-header badge--enterprise') ENTERPRISE
             p(class='grid-toc__service-desc')!= service.excerpt || 'MISSING'
             ul(class='grid-toc__service-list')
               li(class='grid-toc__service-list-item')
