@@ -28,7 +28,7 @@ dcos package repo remove <repo-names>...
 
 | Name |  Description |
 |---------|-------------|
-| `<repo-name>`   |   Name of the package repository. For example, `Catalog`. |
+| `<repo-name>`   |   Name of the package repository. For example, `{{ model.packageRepo }}`. |
 
 
 

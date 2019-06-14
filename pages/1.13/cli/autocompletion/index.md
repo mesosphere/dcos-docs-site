@@ -5,6 +5,8 @@ title: CLI Autocompletion
 menuWeight: 7
 excerpt: Enabling autocompletion for the CLI
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 Autocompletion for the CLI is supported for `bash` and `zsh`. This allows you to press TAB to get access to subcommands and autocomplete the ones you are writing.
