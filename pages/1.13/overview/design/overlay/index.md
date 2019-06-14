@@ -84,7 +84,7 @@ To configure the underlying DC/OS overlay we need an entity that can allocate su
 
 We will meet all the above requirements for the DC/OS overlay by having two Mesos modules, a master DC/OS module and an Agent DC/OS module. The responsibilities of both these modules are listed below:
 
-#### Master Mesos overlay module:
+#### Master Mesos overlay module
 
 The Master module will run as part of the Mesos master and will have the following responsibilities:
 1. It will be responsible for allocating the subnet to each of the agents. We will describe in more detail how the master module will use the replicated log to checkpoint this information for recovery during failover to a new Master.
@@ -99,7 +99,7 @@ The agent overlay module runs as part of the Mesos agents and has the following 
 1. It is responsible for creating a Docker network to be used by the `DockerContainerizer`.
 1. It exposes an HTTP endpoint `overlay-agent/overlays` that is used by the Virtual Network Service to retrieve information about the overlays on that particular agent.
 
-### Using replicated log to coordinate subnet allocation in Master:
+### Using replicated log to coordinate subnet allocation in Master
 
 For `MesosContainerizer` and `DockerContainerizer` to launch containers on a given subnet, the Mesos agent needs to learn the subnet allocated to itself. Further, the subnet needs to be learned before the `MesosContainerizer` or the `DockerContainerizer` start.
 
@@ -108,7 +108,7 @@ The master overlay module will be responsible for allocating the subnet, the VTE
 1. On failover, the master module will read the replicated log and recreate the subnet, VTEP IP, and VTEP MAC address information and build a cache of this allocated information in memory.
 1. The agent overlay module’s registration request would fail in case the registration request was received in the middle of a Master failover. In this case it is the responsibility of the agent overlay module to locate the new master and try registering with the overlay module on the new master.
 
-### Configuring `MesosContainerizer` and `DockerContainerizer` to use the allocated subnet.
+### Configuring MesosContainerizer and DockerContainerize to use the allocated subnet
 
 Once the DC/OS module retrieves the subnet information from the master DC/OS module, it performs the following operations to allow `MesosContainerizer` and `DockerContainerizer` to launch containers on the overlay:
 
@@ -128,7 +128,7 @@ docker network create \
 
 <p class="message--note"><strong>NOTE: </strong>The assumption for <code>DockerContainerizer</code> to work with the DC/OS overlay is that the host is running Docker v1.12 or later.</p>
 
-<p class="message--note"><strong>NOTE: </strong>The default <code><overlay MTU></code> = 1420 bytes.</p>
+<p class="message--note"><strong>NOTE: </strong>The default overlay MTU is 1420 bytes.</p>
 
 ### Virtual Network Service: Overlay Orchestration
 
