@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Configuring Catalog Services
-title: Configuring Catalog Services
+navigationTitle:  Configuring {{ model.packageRepo }} Services
+title: Configuring {{ model.packageRepo }} Services
 menuWeight: 2
 excerpt: Using the DC/OS CLI to configure services
 enterprise: false

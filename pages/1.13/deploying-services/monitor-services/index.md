@@ -10,7 +10,7 @@ enterprise: false
 
 You can monitor deployed DC/OS services from the CLI and UI.
 
-# Monitoring Catalog services
+# Monitoring {{ model.packageRepo }} services
 
 ## CLI
 
