@@ -15,9 +15,20 @@
             font-weight: 400 !important;
         }
         input[type="checkbox"] {
-            background: $color-purple-base;
-            border: #7f83a2 1px solid;
-            color: deeppink;
+            -webkit-appearance: none;
+            height: 1em;
+            width: 1em;
+            background-color: white;
+            display: flex;
+            padding-left: 2px;
+        }
+        input[type="checkbox"]:checked {
+            background-color: $color-purple-base;
+        }
+        input[type="checkbox"]:checked:after {
+            color: white;
+            content: '✓';
+            font-weight: 900;
         }
     }
     .custom-select {
