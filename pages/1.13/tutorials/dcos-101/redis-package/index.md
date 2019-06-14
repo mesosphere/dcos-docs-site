@@ -17,11 +17,11 @@ By now, you should have a running DC/OS cluster and the DC/OS CLI installed and 
 The next stage of this tutorial uses [jq](https://stedolan.github.io/jq/), a command line JSON processor to simplify some of the commands. Follow the instructions [here](https://stedolan.github.io/jq/download/) to install JQ for your operating system.
 
 # Objective
-By the end of this session you will have installed your first service - [Redis](https://redislabs.com/) - from the DC/OS Catalog repository. Redis is a key-value store, which you will use for persisting data in this tutorial.
+By the end of this session you will have installed your first service - [Redis](https://redislabs.com/) - from the DC/OS {{ model.packageRepo }} repository. Redis is a key-value store, which you will use for persisting data in this tutorial.
 
 # Steps
   * Install Redis
-      * Search the Catalog repository for Redis packages:
+      * Search the {{ model.packageRepo }} repository for Redis packages:
 
         ```bash
         dcos package search redis
@@ -73,11 +73,11 @@ By the end of this session you will have installed your first service - [Redis](
         ```
 
 # Outcome
-  You have just successfully installed your first service from the Catalog repository and verified it is running!
+  You have just successfully installed your first service from the {{ model.packageRepo }} repository and verified it is running!
 
 # Deep Dive
-  [Catalog](https://github.com/mesosphere/universe) is a package repository made available for DC/OS Clusters.
-  It enables you to easily install services such as Apache Spark or Apache Cassandra in your cluster without having to deal with manual configuration. Catalog packages are developed and maintained by many different contributors.
+  [{{ model.packageRepo }}](https://github.com/mesosphere/universe) is a package repository made available for DC/OS Clusters.
+  It enables you to easily install services such as Apache Spark or Apache Cassandra in your cluster without having to deal with manual configuration. {{ model.packageRepo }} packages are developed and maintained by many different contributors.
 
   There are currently two categories of packages:
   1. Curated packages that have undergone testing and certification.
