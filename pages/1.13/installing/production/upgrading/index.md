@@ -350,7 +350,7 @@ sudo journalctl -u dcos-mesos-slave
 
 ### Notes:
 
-- Packages available in the DC/OS 1.13 Catalog are newer than those in the older versions of Catalog. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
+- Packages available in the DC/OS 1.13 {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
 [install]: /1.13/installing/production/deploying-dcos/installation/#custom-build-file
 [cmd]: /1.13/installing/production/deploying-dcos/installation/#nginx-cmd
