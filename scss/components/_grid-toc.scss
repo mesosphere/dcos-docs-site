@@ -15,26 +15,24 @@
             font-weight: 400 !important;
         }
         input[type="checkbox"] {
-            background: #3d404e;
+            background: $color-purple-base;
             border: #7f83a2 1px solid;
+            color: deeppink;
         }
     }
-    /* Begin custom select section */
-    /*the container must be positioned relative:*/
     .custom-select {
         position: relative;
         // font-family: Arial;
         margin-right: 36px;
         font-size: 28px;
-        min-width: 200px;
     }
     .custom-select select {
         display: none;
         /*hide original SELECT element:*/
     }
     .select-selected {
-        background-color: $color-light-grey-l1;
-        min-width: 150px;
+        background-color: $color-purple-lightest;
+        width: 250px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -47,17 +45,17 @@
     //     transition-timing-function: ease-in-out;
     // }
     .select-arrow {
-        width: 20px;
-        height: 20px;
-        path {
-            width: 20px;
-            height: 20px;
-        }
+        display: block;
+        border: 12px solid $color-purple-base;
+        border-color: $color-purple-base transparent transparent transparent;
+        transition: transform .4s ease;
+        margin-bottom: -15px;
     }
-    .select-arrow-active .select-selected-arrow {
-        transform: rotate(90deg);
-        margin-bottom: 0px;
-        margin-top: -18px;
+    .select-arrow-active .select-arrow {
+        transform: translate(0px, -6px) rotate(90deg);
+        transition: transform .4s ease;
+        // margin-top: 0px;
+        // margin-top: -18px;
     }
     /*style the arrow inside the select element:*/
     // .select-selected:after {
@@ -102,7 +100,7 @@
     }
     .select-items div:hover,
     .same-as-selected {
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: $color-purple-lightest;
     }
 }
 
@@ -213,18 +211,4 @@
             width: 30%;
         }
     }
-}
-
-.svg-box {
-    display: flex;
-}
-
-.svg-circle {
-    display: contents;
-    background-color: deeppink;
-    color: blue;
-}
-
-circle {
-    background-color: aqua;
 }
