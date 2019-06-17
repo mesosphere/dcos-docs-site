@@ -4,6 +4,8 @@ navigationTitle:  Scaling a Service
 title: Scaling a Service
 menuWeight: 3
 excerpt: Scaling a service using the web interface and the CLI
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

@@ -4,6 +4,8 @@ navigationTitle:  Configuring {{ model.packageRepo }} Services
 title: Configuring {{ model.packageRepo }} Services
 menuWeight: 2
 excerpt: Using the DC/OS CLI to configure services
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

@@ -4,6 +4,8 @@ navigationTitle:  Using GPUs
 title: Using GPUs
 menuWeight: 110
 excerpt: Adding Graphics Processing Units to your long-running DC/OS services
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

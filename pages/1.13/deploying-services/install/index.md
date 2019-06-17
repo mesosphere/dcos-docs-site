@@ -4,6 +4,8 @@ navigationTitle:  Installing Services
 title: Installing Services
 menuWeight: 0
 excerpt: Installing and verifying a service using the CLI or the UI
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

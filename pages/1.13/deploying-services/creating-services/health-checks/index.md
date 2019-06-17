@@ -4,6 +4,8 @@ navigationTitle:  Health Checks
 title: Health Checks
 menuWeight: 200
 excerpt: Defining health checks for your DC/OS services
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

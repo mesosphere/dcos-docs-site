@@ -4,6 +4,8 @@ navigationTitle:  Task Handling
 title: Task Handling
 menuWeight: 1
 excerpt: Understanding Marathon task categories
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

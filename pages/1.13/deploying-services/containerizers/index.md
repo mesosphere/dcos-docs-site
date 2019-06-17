@@ -4,6 +4,8 @@ navigationTitle:  Using Containerizers
 title: Using Containerizers
 menuWeight: 40
 excerpt: Using containerizers with Docker Engine and Universal Container Runtime
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
