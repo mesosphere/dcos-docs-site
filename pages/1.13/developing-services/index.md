@@ -3,6 +3,8 @@ layout: layout.pug
 title: Developing DC/OS Services
 menuWeight: 160
 excerpt: Developing your own DC/OS components
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
