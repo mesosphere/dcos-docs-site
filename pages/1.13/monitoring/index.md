@@ -4,6 +4,8 @@ navigationTitle:  Monitoring, Logging, and Debugging
 title: Monitoring, Logging, and Debugging
 menuWeight: 110
 excerpt: Learn how to monitor the health of your datacenter operations with DC/OS
+render: mustache
+model: /data.yml
 ---
 
 
