@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  Features
 title: Features
 menuWeight: 3
+render: mustache
+model: /data.yml
 excerpt: Understanding the unique features of DC/OS
 ---
 

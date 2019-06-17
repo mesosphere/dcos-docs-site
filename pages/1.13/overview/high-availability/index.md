@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  High Availability
 title: High Availability
 menuWeight: 6
+render: mustache
+model: /data.yml
 excerpt: Understanding the high availability features and best practices in DC/OS
 enterprise: false
 ---

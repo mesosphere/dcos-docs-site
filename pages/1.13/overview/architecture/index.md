@@ -4,6 +4,8 @@ navigationTitle:  Architecture
 title: Architecture
 menuWeight: 2
 excerpt: Understanding DC/OS architecture
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

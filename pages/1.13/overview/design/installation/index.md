@@ -3,6 +3,8 @@ layout: layout.pug
 excerpt: Understanding how the installation process works
 title: Installation Design
 navigationTitle: Installation
+render: mustache
+model: /data.yml
 menuWeight: 4
 ---
 

@@ -4,6 +4,8 @@ navigationTitle:  Boot Sequence
 title: Boot Sequence
 menuWeight: 6
 excerpt: Understanding the DC/OS component services boot sequence
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
