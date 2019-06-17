@@ -6,4 +6,6 @@ title: SDK Docs
 menuWeight: 6
 excerpt:
 enterprise: false
+render: mustache
+model: /data.yml
 ---
