@@ -4,6 +4,8 @@ navigationTitle:  dcos package repo list
 title: dcos package repo list
 menuWeight: 6
 excerpt: Displaying the package repository sources
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

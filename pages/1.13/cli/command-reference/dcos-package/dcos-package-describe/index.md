@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  dcos package describe
 title: dcos package describe
 menuWeight: 0
+render: mustache
+model: /data.yml
 excerpt: Fetching details for a package
 enterprise: false
 ---
