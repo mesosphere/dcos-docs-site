@@ -7,7 +7,31 @@ menuWeight: 10
 model: /services/cassandra/data.yml
 render: mustache
 ---
+# Release Notes for Cassandra Service version 2.6.0-3.11.4
 
+## Upgrades
+
+- Upgrade {{ model.techShortName }} to version `3.11.4`
+- Upgraded SDK library to version `0.56.1`
+
+## New Features
+
+- {{ model.techName }}'s native authentication, and authorization mechanisms are now supported.
+- Custom authentication, and authorization are also now supported.
+- DSS volume profile support added.
+- user defined functions are now configurable.
+
+## Improvements
+
+- Many Cassandra parameters are now configurable from DC/OS GUI.
+
+## Upgrading your cluster from 3.11.3 to 3.11.4
+
+- Run the following command to upgrade your Cassandra package: 
+  ```
+  dcos cassandra update start --package-version=2.6.0-3.11.4 --replace
+  ```
+<!-- 
 # Release Notes for Cassandra Service version 2.5.0-3.11.3
 
 ## Upgrades
@@ -23,6 +47,7 @@ render: mustache
 ## Improvements
 
 - Service names are now validated with a regex
+ -->
 <!-- 
 # Version 2.4.0-3.0.16
 
