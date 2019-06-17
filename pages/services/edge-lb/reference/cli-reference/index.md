@@ -45,7 +45,7 @@ dcos:adminrouter:service:edgelb:/pools/<pool-name>
 </code>
 
 # dcos edgelb cleanup
-Use this command to .
+Use this command to list and remove all Amazon Web Services (AWS) Elastic Load Balancer (FLB) instances that remain after Edge-LB has been uninstalled from a DC/OS cluster. This command also uninstalls the Edge-LB cloud controller load balancer framework, including the cloud controller listener and target group.
 
 ### Usage
 
@@ -61,19 +61,20 @@ dcos edgelb cleanup
 | `--verbose`   | Enable additional logging of requests and responses. |
 
 ### Permissions
-To remove any orphan Edge-LB pools or load balancing framework created by Edge-LB, the Edge-LB service account or user account must have the following permission:
+To remove the Elastic Load Balancer framework that was created by Edge-LB when deployed on AWS instances, the Edge-LB service account or user account must have the following permission:
 
 <code>
-dcos:adminrouter:service:edgelb:/v2/pools full
+dcos:adminrouter:service:marathon full
+dcos:adminrouter:package full
+dcos:adminrouter:service:edgelb full
 </code>
 
-### Examples
-
-After launching a service and creating a [pool configuration file](/services/edge-lb/reference/pool-configuration-reference), you can use the following command to deploy it:
+### Example
+After uninstalling Edge-LB packages, you can use the following command to remove remnants of the Elastic load balancing framework deployed on AWS instances:
 
 `dcos edgelb cleanup`
 
-For additional information about removing Edge-LB pools and artifacts, see [Uninstalling Edge-LB](../../how-to-tasks/uninstalling/).
+For additional information about deleting Edge-LB pools and uninstalling Edge-LB packages, see [Uninstalling Edge-LB](../../how-to-tasks/uninstalling/).
 
 # dcos edgelb create
 Use this command to create a single pool given a pool configuration file written in JSON.
