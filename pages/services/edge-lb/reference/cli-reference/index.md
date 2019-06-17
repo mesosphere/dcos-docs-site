@@ -44,6 +44,37 @@ Depending on the operation you want to perform, the Edge-LB service account or u
 dcos:adminrouter:service:edgelb:/pools/<pool-name>
 </code>
 
+# dcos edgelb cleanup
+Use this command to .
+
+### Usage
+
+```bash
+dcos edgelb cleanup
+```
+
+### Options
+
+| Name, shorthand | Description |
+|---------|-------------|
+| `--help, h`   | Display usage. |
+| `--verbose`   | Enable additional logging of requests and responses. |
+
+### Permissions
+To remove any orphan Edge-LB pools or load balancing framework created by Edge-LB, the Edge-LB service account or user account must have the following permission:
+
+<code>
+dcos:adminrouter:service:edgelb:/v2/pools full
+</code>
+
+### Examples
+
+After launching a service and creating a [pool configuration file](/services/edge-lb/reference/pool-configuration-reference), you can use the following command to deploy it:
+
+`dcos edgelb cleanup`
+
+For additional information about removing Edge-LB pools and artifacts, see [Uninstalling Edge-LB](../../how-to-tasks/uninstalling/).
+
 # dcos edgelb create
 Use this command to create a single pool given a pool configuration file written in JSON.
 
