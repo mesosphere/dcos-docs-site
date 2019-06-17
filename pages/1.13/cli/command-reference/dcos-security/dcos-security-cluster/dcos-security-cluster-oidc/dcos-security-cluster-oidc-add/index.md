@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster oidc add
 title: dcos security cluster oidc add
 menuWeight: 13
 excerpt: Configuring a new OpenID Connect provider
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
