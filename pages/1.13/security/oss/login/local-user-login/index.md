@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  Local User Login
 title: Local User Login
 excerpt: Logging in to DC/OS as a local user
+render: mustache
+model: /data.yml
 menuWeight: 20
 ---
 
