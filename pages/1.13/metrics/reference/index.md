@@ -4,6 +4,8 @@ navigationTitle:  Metrics Reference
 title: Metrics Reference
 menuWeight: 7
 excerpt: Understanding metrics collected by DC/OS
+render: mustache
+model: /data.yml
 beta: false
 enterprise: false
 ---
