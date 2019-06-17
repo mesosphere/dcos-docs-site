@@ -4,6 +4,8 @@ navigationTitle:  dcos security secrets update
 title: dcos security secrets update
 menuWeight: 320
 excerpt: Updating secrets
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
