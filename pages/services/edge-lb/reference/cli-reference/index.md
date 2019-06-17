@@ -61,7 +61,7 @@ dcos edgelb cleanup
 | `--verbose`   | Enable additional logging of requests and responses. |
 
 ### Permissions
-To remove the Elastic Load Balancer framework that was created by Edge-LB when deployed on AWS instances, the Edge-LB service account or user account must have the following permission:
+To remove the Elastic Load Balancer framework that was created by Edge-LB when deployed on AWS instances, the Edge-LB service account or user account must have the following permissions:
 
 <code>
 dcos:adminrouter:service:marathon full
