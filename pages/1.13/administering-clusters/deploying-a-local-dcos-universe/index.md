@@ -9,7 +9,7 @@ render: mustache
 model: /data.yml
 ---
 
-<p class="message--note"><strong>NOTE: </strong> If you are using DC/OS Enterprise, use <code>package-registry</code> for a seamless management of packages in air-gapped environments. Local universe support is deprecated.</p>
+<p class="message--note"><strong>NOTE: </strong> If you are using DC/OS Enterprise, use <code>package-registry</code> for a seamless management of packages in air-gapped environments. Local {{ model.packageRepo }} support is deprecated.</p>
 
 
 You can install and run DC/OS services on a datacenter without Internet access by using a local [{{ model.packageRepo }}](https://github.com/mesosphere/universe). You can deploy a local {{ model.packageRepo }} that includes all Certified packages (basic), or a local {{ model.packageRepo }} that includes selected packages (advanced).
@@ -193,10 +193,10 @@ Repeat this section until you have completed this procedure for all of your mast
     ```
 
 
-1.  Use the following command to add a reference to the local Universes that you added to each master.
+1.  Use the following command to add a reference to the local {{ model.packageRepo }}s that you added to each master.
 
     ```bash
-    dcos package repo add local-universe http://master.mesos:8082/repo
+    dcos package repo add local-{{ model.packageRepo }} http://master.mesos:8082/repo
     ```
     
 1.  [SSH into one of your agent nodes.](/1.13/administering-clusters/sshcluster/)

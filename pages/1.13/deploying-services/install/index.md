@@ -34,7 +34,7 @@ From the DC/OS UI you can install services from the **Services** or **{{ model.p
 
 1.  Navigate to the [**{{ model.packageRepo }}**](/1.13/gui/catalog/) tab in the DC/OS UI.
 
-    ![universe](/1.13/img/GUI-Catalog-Main_View-1_12.png)
+    ![{{ model.packageRepo }}](/1.13/img/GUI-Catalog-Main_View-1_12.png)
 
     Figure 1. {{ model.packageRepo }} catalog
 
