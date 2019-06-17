@@ -4,8 +4,7 @@ navigationTitle:  dcos edgelb template create
 title: dcos edgelb template create
 menuWeight: 45
 excerpt: Create a custom config template for a pool of load-balancers
-
-enterprise: false
+enterprise: true
 ---
 
 # Description
@@ -32,8 +31,8 @@ dcos edgelb template create <pool-name> <template-file>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.2/cli-reference/) |  Manage Edge-LB. |
+| [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.2/usage/).
+See the [Edge-LB Usage](../../usage/).
