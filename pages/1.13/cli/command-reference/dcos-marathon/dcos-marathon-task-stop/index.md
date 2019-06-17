@@ -11,7 +11,7 @@ enterprise: false
 
 
 # Description
-the `dcos marathon task stop` command allows you to stop a task.
+The `dcos marathon task stop` command allows you to stop a task.
 
 # Usage
 

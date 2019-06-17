@@ -5,6 +5,8 @@ title: dcos node diagnostics create
 menuWeight: 3
 excerpt: Creating a diagnostics bundle
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description
