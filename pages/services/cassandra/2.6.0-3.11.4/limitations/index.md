@@ -24,10 +24,6 @@ The service does not support performing backup and restore with authentication/a
 
 The DC/OS {{ model.techName }} Service must be deployed with at least {{ model.minNodeCount }} nodes.
 
-## Security
-
-{{ model.techName }}'s native authentication, and authorization mechanisms are not supported at this time.
-
 ### Toggling Transport Encryption
 
 Transport encryption using TLS can be toggled (enabled/disabled), but will trigger a rolling restart of the cluster. As each node restarts, a client may lose connectivity based on its security settings and the value of the `service.security.transport_encryption.allow_plaintext` configuration option. You should make backups and schedule downtime.

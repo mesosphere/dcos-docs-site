@@ -79,6 +79,14 @@ You can customize the port that {{ model.techName }} listens on for Thrift RPC r
 *   **In DC/OS CLI options.json**: `rpc_port`: integer (default: `9160`)
 *   **DC/OS web interface**: `TASKCFG_ALL_CASSANDRA_RPC_PORT`: `integer`
 
+### Custom Authentication/Autherization in Cassandra YAML
+
+You can customize Authentication/Autherization in Cassandra YAML.
+
+Add your custom YAML when installing {{ model.techName }} service. In the DC/OS UI, find the field for specifying authentication custom cassandra yml. You must base64 encode your block of YAML and enter this string into the field.
+
+You can do this base64 encoding as part of your automated workflow, or you can do it manually with an [online converter](https://www.base64encode.org).
+
 ### Disks
 
 #### Volume Type
