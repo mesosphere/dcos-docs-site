@@ -4,8 +4,7 @@ navigationTitle:  dcos edgelb show
 title: dcos edgelb show
 menuWeight: 35
 excerpt: Show the pool definition for a specific pool name
-
-enterprise: false
+enterprise: true
 ---
 
 # Description
@@ -32,8 +31,8 @@ dcos edgelb show [<flags>] [<pool-name>]
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.2/cli-reference/) |  Manage Edge-LB. |
+| [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.2/usage/).
+See the [Edge-LB Usage](../../usage/).

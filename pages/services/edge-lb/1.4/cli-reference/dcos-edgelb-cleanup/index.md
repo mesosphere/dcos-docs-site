@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  dcos edgelb cleanup
 title: dcos edgelb cleanup
-menuWeight: 10
-excerpt: list and remove any Edge-LB pools that remain after Edge-LB is uninstalled
+menuWeight: 5
+excerpt: List and remove any Edge-LB pools that remain after Edge-LB is uninstalled
 enterprise: true
 ---
 
@@ -27,7 +27,7 @@ dcos edgelb cleanup
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](../cli-reference/) |  Manage Edge-LB. |
+| [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
-See the [Edge-LB Usage](../usage/).
+See the [Edge-LB Usage](../../usage/).

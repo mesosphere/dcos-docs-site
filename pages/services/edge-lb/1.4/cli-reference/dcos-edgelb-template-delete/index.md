@@ -4,8 +4,7 @@ navigationTitle:  dcos edgelb template delete
 title: dcos edgelb template delete
 menuWeight: 50
 excerpt: Revert a custom config template to defaults
-
-enterprise: false
+enterprise: true
 ---
 
 # Description
@@ -31,8 +30,8 @@ dcos edgelb template delete <pool-name>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.2/cli-reference/) |  Manage Edge-LB. |
+| [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.2/usage/).
+See the [Edge-LB Usage](../../usage/).

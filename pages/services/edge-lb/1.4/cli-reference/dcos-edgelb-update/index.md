@@ -4,8 +4,7 @@ navigationTitle:  dcos edgelb update
 title: dcos edgelb update
 menuWeight: 65
 excerpt: Upload a new pool config file
-
-enterprise: false
+enterprise: true
 ---
 
 # Description
@@ -30,8 +29,8 @@ dcos edgelb update [<flags>] <pool-file>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.2/cli-reference/) |  Manage Edge-LB. |
+| [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.2/usage/).
+See the [Edge-LB Usage](../../usage/).

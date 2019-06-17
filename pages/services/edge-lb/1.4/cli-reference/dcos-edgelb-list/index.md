@@ -4,8 +4,7 @@ navigationTitle:  dcos edgelb list
 title: dcos edgelb list
 menuWeight: 25
 excerpt: List the names and a summary of all configured pools
-
-enterprise: false
+enterprise: true
 ---
 
 # Description
@@ -30,8 +29,8 @@ dcos edgelb list [<flags>]
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.2/cli-reference/) |  Manage Edge-LB. |
+| [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.2/usage/).
+See the [Edge-LB Usage](../../usage/).

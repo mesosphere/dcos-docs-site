@@ -4,8 +4,7 @@ navigationTitle:  dcos edgelb lb-config
 title: dcos edgelb lb-config
 menuWeight: 20
 excerpt: Display the running load-balancer config associated with a pool
-
-enterprise: false
+enterprise: true
 ---
 
 # Description
@@ -31,8 +30,8 @@ dcos edgelb lb-config [<flags>] <pool-name>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.2/cli-reference/) |  Manage Edge-LB. |
+| [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.2/usage/).
+See the [Edge-LB Usage](../../usage/).

@@ -4,8 +4,7 @@ navigationTitle:  dcos edgelb status
 title: dcos edgelb status
 menuWeight: 40
 excerpt: List load-balancer task information for a pool
-
-enterprise: false
+enterprise: true
 ---
 
 # Description
@@ -31,8 +30,8 @@ dcos edgelb status [<flags>] <pool-name>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.2/cli-reference/) |  Manage Edge-LB. |
+| [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.2/usage/).
+See the [Edge-LB Usage](../../usage/).
