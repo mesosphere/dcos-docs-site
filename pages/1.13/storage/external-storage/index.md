@@ -4,6 +4,8 @@ navigationTitle:  External Persistent Volumes
 title: External Persistent Volumes
 menuWeight: 20
 excerpt: Using external persistent volumes with Marathon
+render: mustache
+model: /data.yml
 beta: true
 enterprise: false
 ---
