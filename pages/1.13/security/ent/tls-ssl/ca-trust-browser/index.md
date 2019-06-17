@@ -4,6 +4,8 @@ navigationTitle:  Establishing trust in your DC/OS CA
 title: Establishing trust in your DC/OS CA
 menuWeight: 200
 excerpt: Configuring Chrome and Firefox to trust your DC/OS CA.
+render: mustache
+model: /data.yml
 beta: true
 enterprise: true
 ---

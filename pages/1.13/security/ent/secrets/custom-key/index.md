@@ -4,7 +4,8 @@ navigationTitle:  Reinitializing the Secret Store with a custom GPG keypair
 title: Reinitializing the Secret Store with a custom GPG keypair
 menuWeight: -1
 excerpt: Using a custom GPG pair to reinitialize the Secret Store
-
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

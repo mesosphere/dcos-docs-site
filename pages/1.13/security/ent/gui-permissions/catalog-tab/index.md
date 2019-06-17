@@ -4,7 +4,8 @@ navigationTitle:  Granting Access to the Catalog Screen
 title: Granting Access to the Catalog Screen
 menuWeight: 80
 excerpt: Granting access to the Catalog screen
-
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

@@ -5,6 +5,8 @@ title: Using the Certificate Authority API
 menuWeight: 500
 excerpt: Viewing, creating and signing certificates
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
