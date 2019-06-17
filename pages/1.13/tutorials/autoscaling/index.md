@@ -4,6 +4,8 @@ navigationTitle:  Autoscaling with Marathon
 title: Tutorials - Autoscaling with Marathon
 menuWeight: 3
 excerpt: Understanding autoscaling
+render: mustache
+model: /data.yml
 ---
 
 
