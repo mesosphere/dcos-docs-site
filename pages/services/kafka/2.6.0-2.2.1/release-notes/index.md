@@ -11,13 +11,13 @@ render: mustache
 ## Version 2.6.0-2.2.1
 
 ### Updates
-- Upgrade the base dcos-commons SDK version to `0.56.1`.
 - Upgrade {{ model.techShortName }} base tech to version `2.2.1`. See [{{ model.techShortName }}'s Release Notes](https://www.apache.org/dist/kafka/2.2.1/RELEASE_NOTES.html) for details.
+- Upgrade the base dcos-commons SDK version to `0.56.1`.
 - Oracle JDK is replaced by OpenJDK 8 
 
 ### New Features
 - Autosuggestion available for Service Account and Secrets when launching the service from DC/OS UI
-- Support for Secure JMX
+- Support for <a href="/services/kafka/2.6.0-2.2.1/advanced/#secure-jmx-enterprise">Secure JMX</a>
 - Added marathon service scheduler checks
 - Service will fetch all required resources over HTTPS
 
