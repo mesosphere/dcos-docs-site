@@ -9,7 +9,7 @@ render: mustache
 ---
 # Release Notes for Cassandra Service version 2.6.0-3.11.4
 
-## Upgrades
+## Updates
 
 - Upgraded {{ model.techShortName }} to version `3.11.4`
 - Upgraded SDK library to version `0.56.1`
