@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Debugging
+navigationTitle: Debugging
 title: Debugging
 menuWeight: 101
 excerpt: Some common errors you might find
@@ -22,7 +22,7 @@ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev plan show deploy
 
 Logs for the Scheduler and all service nodes can be viewed from the DC/OS UI.
 
-- Scheduler logs are useful for determining why a node isn’t being launched (this is under the purview of the Scheduler).
+- Scheduler logs are useful for determining why a node is not being launched (this is under the purview of the Scheduler).
 - Node logs are useful for examining problems in the service itself.
 
 In all cases, logs are generally piped to files named `stdout` and/or `stderr`.
@@ -46,17 +46,17 @@ You can also access the logs via the Mesos UI:
 
 The DC/OS {{model.techName }} is resilient to temporary pod failures, automatically relaunching them in-place if they stop running. However, if a machine hosting a pod is permanently lost, manual intervention is required to discard the downed pod and reconstruct it on a new machine.
 
-  1. The following command should be used to get a list of available pods. In this example we are querying a service named {{ model.serviceName }}-dev.
+1. The following command should be used to get a list of available pods. In this example we are querying a service named `{{ model.serviceName }}-dev`.
 
     ```shell
      dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod list
     ```
-  2. The following command should then be used to replace the pod residing on the failed machine, using the appropriate pod_name provided in the above list.
+1. The following command should then be used to replace the pod residing on the failed machine, using the appropriate `pod_name` provided in the above list.
 
     ```shell
     dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod replace <pod_name>
     ```
-  3. The pod recovery may then be monitored via the recovery plan.
+1. The pod recovery may then be monitored via the recovery plan.
 
     ```shell
     dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev plan show recovery
@@ -66,49 +66,54 @@ The DC/OS {{model.techName }} is resilient to temporary pod failures, automatica
 
 If you must forcibly restart a pod’s processes but do not wish to clear that pod’s data, use the following command to restart the pod on the same agent machine where it currently resides. This will not result in an outage or loss of data.
 
-  1. The following command should be used to get a list of available pods. In this example we are querying a service named {{ model.serviceName }}-dev.
+1. The following command should be used to get a list of available pods. In this example we are querying a service named `{{ model.serviceName }}-dev`.
 
     ```shell
     dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod list
     ```
 
-  2. The following command should then be used to restart the pod, using the appropriate pod_name provided in the above list.
+1. The following command should then be used to restart the pod, using the appropriate `pod_name` provided in the above list.
 
     ```shell
     dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev pod restart <pod_name>
     ```
 
-  3. The pod recovery may then be monitored via the recovery plan.
+1. The pod recovery may then be monitored via the recovery plan.
 
     ```shell
     dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev plan show recovery
     ```
 
-# Accidentially deleted Marathon task but not service
+# Accidentally deleted Marathon task but not service
 
-A common user mistake is to remove the Scheduler task from Marathon, which does not uninstall the service tasks themselves. If you do this, you have two options:
+A common mistake is to remove the Scheduler task from Marathon, which does not uninstall the service tasks themselves. To correct this, you have two options:
 
 ## Uninstall the rest of the service
 
-If you really wanted to uninstall the service, you just need to complete the normal package uninstall steps described under [Uninstall.](../uninstall)
+If you really want to uninstall the service, you must complete the normal package uninstall steps described under [Uninstall](/services/nifi/0.5.0-1.9.2/uninstall/).
 
 ## Recover the Scheduler
 
-If you want to bring the Scheduler back, you can do a `dcos package install` using the options that you had configured before. This will re-install a new Scheduler that should match the previous one (assuming you got your options right), and it will resume where it left off. To ensure that you don’t forget the options your services are configured with, we recommend keeping a copy of your service’s `options.json` in source control so that you can easily recover it later.
+If you want to bring the Scheduler back, you can perform a `dcos package install` using the options that you had configured before. This will re-install a new Scheduler that should match the previous one (assuming you set your options correctly), and will resume where it left off. 
+
+To ensure that you do not forget the options your services are configured with, we recommend keeping a copy of your service’s `options.json` file in source control so that you can easily recover it later.
 
 # ‘Framework has been removed’
 
-If you forgot to run janitor.py the last time you ran the service, see [Uninstall](../uninstall) for the procedure. For reference, here is what happened:
+If you forgot to run `janitor.py` the last time you ran the service, see [Uninstall](/services/nifi/0.5.0-1.9.2/uninstall/) for the procedure. For reference, here is what happened:
 
-1. You ran dcos package {{ model.serviceName }} --app-id {{ model.serviceName }}. This destroyed the Scheduler and its associated tasks, but didn’t clean up its reserved resources.
-2. Later on, you tried to reinstall the service. The Scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by janitor.py. The Scheduler tried to re-register using that framework ID.
-3. Mesos returned an error because it knows that framework ID is no longer valid. Hence the confusing ‘Framework has been removed’ error.
+1. You ran `dcos package {{ model.serviceName }} --app-id {{ model.serviceName }}`. This destroyed the Scheduler and its associated tasks, but did not clean up its reserved resources.
+1. Later on, you tried to reinstall the service. The Scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by `janitor.py`. The Scheduler tried to re-register using that framework ID.
+1. Mesos returned an error because the framework ID is no longer valid. Hence the confusing ‘Framework has been removed’ error.
 
 # Stuck deployments
 
-You can sometimes get into valid situations where a deployment is being blocked by a repair operation or vice versa. For example, say you were rolling out an update to a 500 node NiFi cluster. The deployment gets paused at node #394 because it’s failing to come back, and, for whatever reason, we don’t have the time or the inclination to pod replace it and wait for it to come back.
+You can sometimes get into situations where a deployment is being blocked by a repair operation or vice versa. For example, assume you are rolling out an update to a 500 node NiFi cluster. The deployment pauses at node #394 because it is failing to come back, and, for whatever reason, you do not have the time to perform `pod replace` and wait for it to come back.
 
-In this case, we can use plan commands to force the Scheduler to skip node #394 and proceed with the rest of the deployment:   
+The following example shows how steps in the deployment Plan (or any other Plan) can be manually retriggered or forced to a completed state by querying the Scheduler. This does not come up often, but it can be a useful tool in certain situations.
+
+
+In this case, we can use Plan commands to force the Scheduler to skip node #394 and proceed with the rest of the deployment:   
 
   ```shell
   dcos {{ model.serviceName }} plan status deploy
@@ -162,7 +167,7 @@ After forcing the node-394:[node] step, we can then see that the Plan shows it i
 
   ```
 
-If we want to go back and fix the deployment of that node, we can simply force the Scheduler to treat it as a pending operation again:
+If you want to go back and fix the deployment of that node, you can force the Scheduler to treat it as a pending operation again:
 
   ```shell  
   dcos plan restart deploy {{ model.serviceName }}-phase node-394:[node]
@@ -170,7 +175,7 @@ If we want to go back and fix the deployment of that node, we can simply force t
     "message": "Received cmd: restart"
   }
   ```
-Now, we see that the step is again marked as PENDING as the Scheduler again attempts to redeploy that node:
+You can see that the step is again marked as PENDING as the Scheduler again attempts to redeploy that node:
 
   ```shell  
   dcos {{ model.serviceName }} plan status deploy
@@ -195,6 +200,5 @@ Now, we see that the step is again marked as PENDING as the Scheduler again atte
   }
 
   ```
-This example shows how steps in the deployment Plan (or any other Plan) can be manually retriggered or forced to a completed state by querying the Scheduler. This doesn’t come up often, but it can be a useful tool in certain situations.
 
-<p class="message--note"><strong>NOTE: </strong>The <tt>dcos plan</tt> commands will also accept UUID id values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where we view the plan, then it changes structure, then we change a plan step that isn’t the same one we were expecting (but which had the same name).</p>
+<p class="message--note"><strong>NOTE: </strong>The <tt>dcos plan</tt> commands will also accept UUID ID values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where we view the plan, then it changes structure, then we change a plan step that is not the same one we were expecting (but which had the same name).</p>
