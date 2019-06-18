@@ -23,7 +23,7 @@ render: mustache
 
 ## Improvements
 
-- Many Cassandra parameters are now configurable from DC/OS GUI.
+- Many of Cassandra's parameters are now configurable from the DC/OS UI
 
 ## Upgrading your cluster from 3.11.3 to 3.11.4
 
