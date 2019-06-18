@@ -112,7 +112,11 @@ Make sure that you provision your nodes with enough disk space to perform a back
 As noted in the documentation for the backup/restore strategy configuration option, it is possible to run transfers to S3 either in serial or in parallel, but care must be taken not to exceed any throughput limits you may have in your cluster. Throughput depends on a variety of factors, including uplink speed, proximity to region where the backups are being uploaded and downloaded, and the performance of the underlying storage infrastructure. You should perform periodic tests in your local environment to understand what you can expect from S3.
 
 You can configure whether snapshots are created and uploaded in serial (default) or in parallel. The serial backup/restore strategy is recommended.
+Before initiating the backup plan, it is recommended to reset the plan to its original state. This will ensure the backup plan runs in the correct sequence. You can reset the plan with:
 
+dcos {{ model.packageName }} --name=<service-name> plan stop backup-s3
+
+You can initiate this plan from the command line:
 You can initiate this plan from the command line:
 ```
 SNAPSHOT_NAME=<my_snapshot>
