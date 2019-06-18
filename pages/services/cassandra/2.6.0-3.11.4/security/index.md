@@ -46,7 +46,7 @@ With only forwarding configured, DNS entries within the DC/OS cluster will be re
     }
 }
 ```
-where `<custom-domain>` is one of `autoip.dcos.<cryptographic-id>.dcos.directory` or your organization specific domain (e.g., `cluster-1.acmeco.net`).
+where `<custom-domain>` is one of `autoip.dcos.<cryptographic-id>.dcos.directory` or your organization's specific domain (e.g., `cluster-1.acmeco.net`).
 
 As a concrete example, using the custom domain of `cluster-1.acmeco.net` the node 0 task would have a host of `node-0-server.<service-name>.cluster-1.acmeco.net`.
 
