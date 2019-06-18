@@ -46,13 +46,13 @@ dcos {{ model.packageName }} --name={{ model.serviceName }} update start --optio
 
 ## Extend the Kill Grace Period
 
-When performing a requested restart or replace of a running broker, the {{ model.techShortName }} service will wait a default of `30` seconds for a broker to exit, before killing the process. This grace period may be customized via the `brokers.kill_grace_period` setting. In this example we will use the DC/OS CLI to increase the grace period delay to `60` seconds. This example assumes that the {{ model.techShortName }} service instance is named `{{ model.serviceName }}`.
+When performing a requested restart or replace of a running broker, the {{ model.techShortName }} service will wait a default of `30` seconds for a broker to exit, before killing the process. This grace period may be customized via the `brokers.kill_grace_period` setting. In this example, the DC/OS CLI is used to increase the grace period delay to 60 seconds. This example assumes that the {{ model.techShortName }} service instance is named `{{ model.serviceName }}`.
 
-During the configuration update, each of the {{ model.techShortName }} broker tasks are restarted. During the shutdown portion of the task restart, the previous configuration value for `brokers.kill_grace_period` is in effect. Following the shutdown, each broker task is launched with the new effective configuration value. Take care to monitor the amount of time {{ model.techShortName }} brokers take to cleanly shut down by observing their logs.
+During the configuration update, each of the {{ model.techShortName }} broker tasks are restarted. During the shutdown portion of the task restart, the previous configuration value for `brokers.kill_grace_period` is in effect. Following the shutdown, each broker task is launched with the new effective configuration value. Make sure to monitor the amount of time {{ model.techShortName }} brokers take to cleanly shut down by observing their logs.
 
 ### Replacing a Broker with Grace
 
-The grace period must also be respected when a broker is shut down before replacement. While it is not ideal that a broker must respect the grace period even if it is going to lose persistent state, this behavior will be improved in future versions of the SDK. Broker replacement generally requires complex and time-consuming reconciliation activities at startup if there was not a graceful shutdown, so the respect of the grace kill period still provides value in most situations. We recommend setting the kill grace period only sufficiently long enough to allow graceful shutdown. Monitor the {{ model.techShortName }} broker clean shutdown times in the broker logs to keep this value tuned to the scale of data flowing through the {{ model.techShortName }} service.
+The grace period must also be respected when a broker is shut down before replacement. While it is not ideal that a broker must respect the grace period even if it is going to lose persistent state, this behavior will be improved in future versions of the SDK. Broker replacement generally requires complex and time-consuming reconciliation activities at startup if there was not a graceful shutdown, so the respect of the grace kill period still provides value in most situations. It is recommended to set the kill grace period only sufficiently long enough to allow graceful shutdown. Monitor the {{ model.techShortName }} broker clean shutdown times in the broker logs to keep this value tuned to the scale of data flowing through the {{ model.techShortName }} service.
 
 [enterprise]
 ## Configuring Secure JMX
@@ -81,4 +81,4 @@ The grace period must also be respected when a broker is shut down before replac
 
 <p class="message--note"><strong>NOTE: </strong> Before performing this configuration change, you must create the necessary <a href="https://docs.mesosphere.com/latest/security/ent/secrets/">DC/OS Secrets</a> for the options: access_file, password_file, key_store, key_store_password_file, trust_store and trust_store_password_file.</p>
 
-Click <a href="/services/kafka/2.6.0-2.2.1/advanced/#secure-jmx-enterprise">here</a> for a more detailed configuration process.
+Refer to [Secure JMX](https://docs.mesosphere.com/services/kafka/2.6.0-2.2.1/advanced/#secure-jmx-enterprise) for a more detailed configuration process.
