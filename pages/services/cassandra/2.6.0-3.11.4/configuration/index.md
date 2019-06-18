@@ -123,13 +123,13 @@ For example, custom configs will look like the following:
     "security": {
       "authentication": {
         "enabled": true,
-        "authenticator": "Abc_Authenticator",
-        "role_manager": "Abc_RoleManager",
+        "authenticator": "com.abc.cassandra.auth.AbcAuthenticator",
+        "role_manager": "com.abc.cassandra.auth.AbcRoleManager",
         "authentication_custom_cassandra_yml": "YXV0aGVudGljYXRpb25fb3B0aW9uczoKICAgIGVuYWJsZWQ6IGZhbHNlCiAgICBkZWZhdWx0X3NjaGVtZTogaW50ZXJuYWwKICAgIGFsbG93X2RpZ2VzdF93aXRoX2tlcmJlcm9zOiB0cnVlCiAgICBwbGFpbl90ZXh0X3dpdGhvdXRfc3NsOiB3YXJuCiAgICB0cmFuc2l0aW9uYWxfbW9kZTogZGlzYWJsZWQKICAgIG90aGVyX3NjaGVtZXM6CiAgICBzY2hlbWVfcGVybWlzc2lvbnM6IGZhbHNl"
       },
       "authorization": {
         "enabled": true,
-        "authorizer": "Abc_Authorizer"
+        "authorizer": "com.abc.cassandra.auth.AbcAuthorizer"
       }
     }
   }
