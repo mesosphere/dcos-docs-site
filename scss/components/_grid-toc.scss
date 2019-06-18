@@ -67,12 +67,12 @@
         display: block;
         border: 12px solid $color-purple-base;
         border-color: $color-purple-base transparent transparent transparent;
-        transition: transform .4s ease;
+        transition: transform .25s ease;
         margin-bottom: -15px;
     }
     .select-arrow-active .select-arrow {
         transform: translate(0px, -6px) rotate(90deg);
-        transition: transform .4s ease;
+        transition: transform .25s ease;
         // margin-top: 0px;
         // margin-top: -18px;
     }
