@@ -66,7 +66,7 @@ In the list above, you can see separate lists of active and completed tasks:
    - Active tasks are still running. These give a picture of the current activity of the service.
    - Completed tasks have exited for some reason, whether successfully or due to a failure. These give a picture of recent activity of the service.
 
-**Note:** Older completed tasks will be automatically deleted, and their data may no longer be available here.
+<p class="message--note"><strong>NOTE: </strong> Older completed tasks will be automatically deleted, and their data may no longer be available here.</p>
 
 Either or both of these lists may be useful, depending on the context. Click on the Sandbox link for one of these tasks and then start looking at sandbox content. Files named `stderr` and `stdout` contain logs produced by the SDK Executor process (a small wrapper around the service task), as well as any logs produced by the task itself. These files are automatically paginated at 2MB increments, so older logs may also be examined until they are automatically pruned.
 
