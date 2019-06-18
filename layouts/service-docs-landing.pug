@@ -61,9 +61,9 @@ mixin renderGridToc()
                 a(href=latestPath)!= service.title
               ul(class='grid-toc__labels')
                 if service.beta
-                  p(class='badge badge--content-header badge--beta') BETA
+                  p(class='badge badge--beta') BETA
                 if service.enterprise
-                  p(class='badge badge--content-header badge--enterprise') ENTERPRISE
+                  p(class='badge badge--enterprise') ENTERPRISE
             p(class='grid-toc__service-desc')!= service.excerpt || 'MISSING'
             ul(class='grid-toc__service-list')
               li(class='grid-toc__service-list-item')
