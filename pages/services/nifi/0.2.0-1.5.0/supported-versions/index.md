@@ -15,7 +15,7 @@ enterprise: false
     Apache NiFi: 1.5.0
     DC/OS: 1.9, 1.10 and 1.11
 
-Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of Apache Nifi. For example, 0.2.0-1.5.0 indicates version 0.2.0 of the DC/OS integration and version 1.5.0 of Apache NiFi.
+Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of Apache NiFi. For example, 0.2.0-1.5.0 indicates version 0.2.0 of the DC/OS integration and version 1.5.0 of Apache NiFi.
 
 ## Version Policy
 
@@ -29,7 +29,7 @@ The use of other versions of Apache NiFi is not supported.
 
 [Email: support@mesosphere.io]
 
-### Create Apache Nifi Issue
+### Create Apache NiFi Issue
 
 [Submit a ticket](https://issues.apache.org/jira/secure/CreateIssue!default.jspa)
 

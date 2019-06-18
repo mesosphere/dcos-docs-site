@@ -12,7 +12,7 @@ enterprise: false
 
 Out-of-band configuration modifications are not supported. The service's core responsibility is to deploy and maintain the service with a specified configuration. In order to do this, the service assumes that it has ownership of task configuration. If an end-user makes modifications to individual tasks through out-of-band configuration operations, the service will override those modifications at a later time. For example:
 
-- If a task crashes, it will be restarted with the configuration known to the scheduler, not one modified out-of-band.
+- If a task crashes, it will be restarted with the configuration known to the Scheduler, not one modified out-of-band.
 - If a configuration update is initiated, all out-of-band modifications will be overwritten during the rolling update.
 
 ## Scaling in
@@ -33,11 +33,11 @@ When the service is deployed on a virtual network, the service may not be switch
 
 ## Task Environment Variables
 
-Each service task has some number of environment variables, which are used to configure the task. These environment variables are set by the service scheduler. While it is possible to use these environment variables in adhoc scripts (e.g. via `dcos task exec`), the name of a given environment variable may change between versions of a service and should not be considered a public API of the service.
+Each service task has some number of environment variables, which are used to configure the task. These environment variables are set by the service Scheduler. While it is possible to use these environment variables in adhoc scripts (e.g. via `dcos task exec`), the name of a given environment variable may change between versions of a service and should not be considered a public API of the service.
 
 ## Configurations
 
-The “disk” configuration value is denominated in MB. We recommend you set the configuration value log_retention_bytes to a value smaller than the indicated “disk” configuration. See the Configuring section for instructions for customizing these values.
+The “disk” configuration value is denominated in MB. We recommend that you set the configuration value `log_retention_bytes` to a value smaller than the indicated “disk” configuration. See the [Configuring section](../install) for instructions for customizing these values.
 
 ## Legacy User Support
 
@@ -45,7 +45,7 @@ Legacy Authorized Users File is not supported.
 
 ## LDAP Integration, OpenID Connect and Apache Knox
 
-LDAP integration, OpenID Connect and Apache Knox is not supported.
+LDAP integration, OpenID Connect and Apache Knox are not supported.
 
 
 ## Installation Limitations

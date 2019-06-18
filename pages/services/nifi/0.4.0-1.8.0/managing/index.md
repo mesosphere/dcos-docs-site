@@ -19,9 +19,9 @@ This section describes various operations tasks you may need. DC/OS {{ model.tec
 
 # Updating Configuration
 
-You can make changes to the service after it has been launched. Configuration management is handled by the scheduler process, which in turn handles DC/OS {{model.techName }} deployment itself.
+You can make changes to the service after it has been launched. Configuration management is handled by the Scheduler process, which in turn handles DC/OS {{model.techName }} deployment itself.
 
-After making a change, the scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `{{ model.serviceName }}-0`, then `{{ model.serviceName }}-1`, and so on.
+After making a change, the Scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `{{ model.serviceName }}-0`, then `{{ model.serviceName }}-1`, and so on.
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence.
 
@@ -30,13 +30,13 @@ Some changes, such as decreasing the number of nodes or changing volume requirem
 
 The instructions below describe how to update the configuration for a running DC/OS service.
 
-### Enterprise DC/OS 1.10 and later
+### DC/OS Enterprise 1.10 and later
 
-Enterprise DC/OS 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
+DC/OS Enterprise 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
 
 #### Prerequisites
 
-- Enterprise DC/OS 1.10 or later.
+- DC/OS Enterprise 1.10 or later.
 - Service with 1.5.0 version or later.
 - [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
 - The service's subcommand available and installed on your local machine.
@@ -52,7 +52,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 #### Preparing configuration
 
-If you installed this service with Enterprise DC/OS 1.10 or later, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed this service with DC/OS Enterprise 1.10 or later, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```shell
 dcos {{ model.serviceName }} describe > options.json
@@ -180,7 +180,7 @@ The placement constraints can be modified by configuring the "placement constrai
 
 The service deploys two nodes by default. You can customize this value at initial deployment or after the cluster is already running. Shrinking the cluster is not supported.
 
-Modify the COUNT `"node":{"count":3}` environment variable to update the node count. If you decrease this value, the scheduler will prevent the configuration change until it is reverted back to its original value or larger.
+Modify the COUNT `"node":{"count":3}` environment variable to update the node count. If you decrease this value, the Scheduler will prevent the configuration change until it is reverted back to its original value or larger.
 
 <a name="resizing-a-node"></a>
 
@@ -243,7 +243,7 @@ You can query the status of the update as follows:
 dcos {{ model.serviceName }} update status
 ```
 
-If the Scheduler is still restarting, DC/OS will not be able to route to it and this command will return an error message. Wait a short while and try again. You can also go to the Services tab of the DC/OS web interface to check the status of the restart.
+If the Scheduler is still restarting, DC/OS will not be able to route to it and this command will return an error message. Wait a short while and try again. You can also go to the Services tab of the DC/OS UI to check the status of the restart.
 
 ### Pause
 
@@ -372,7 +372,7 @@ To execute the DC/OS {{model.techName }} Administration Toolkit commands, run  a
 1. Set the JAVA_HOME using the command:
     ```shell
     export JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH
-    ````
+    ```
 1. Run the node manager commands from the `$MESOS_SANDBOX/{{ model.serviceName }}-toolkit-1.5.0/bin` directory:
 
     To connect, disconnect, or remove a node from a cluster:
@@ -381,7 +381,7 @@ To execute the DC/OS {{model.techName }} Administration Toolkit commands, run  a
     -o {remove|disconnect|connect|status} [-u {url list}] [-p {proxy name}] [-v]
     ```
     To show help:
-    ```
+    ```shell
     node-manager.sh -h
     ```
     The following are available options:
@@ -446,23 +446,23 @@ To check the metrics for the DC/OS {{model.techName }} instances on individual a
 1. In the first step we need to obtain the `dcos auth` token by issuing the following command:
     ```shell
         dcos config show core.dcos_acs_token
-    ````
+    ```
     Keep a copy of this token for later use.
 
 1. In the next step we need to ssh into the private agent on which we have the tasks running:
     ```shell
         dcos node ssh --master-proxy --mesos-id=<agent-mesos-id>
-    ````
+    ```
 1. Finally we need to make the following curl requests as per the security settings:
 
     **TLS and KDC Mode:**
 
     ```shell
     curl -k -H "Authorization: token=<acs_token>" https://localhost:61002/system/v1/metrics/v0/containers | jq
-    ````
+    ```
     **Non TLS and KDC Mode:**
 
     ```shell
     curl -k -H "Authorization: token=<acs_token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
-    ````
+    ```
 More details about Metrics can be found [here](https://docs.mesosphere.com/latest/metrics/quickstart/).

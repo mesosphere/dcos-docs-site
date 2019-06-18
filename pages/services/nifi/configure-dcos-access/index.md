@@ -21,11 +21,11 @@ If you install a service in permissive mode and do not specify a service account
 **Prerequisites:**
 
 - [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser.
-- [Enterprise DC/OS CLI 0.4.14 or later installed](/1.12/cli/enterprise-cli/#ent-cli-install).
+- [DC/OS Enterprise CLI 0.4.14 or later installed](/1.12/cli/enterprise-cli/#ent-cli-install).
 - If your [security mode](/1.12/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.12/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # <a name="create-a-keypair"></a>Create a Key Pair
-In this step, a 2048-bit RSA public-private key pair is created uses the Enterprise DC/OS CLI.
+In this step, a 2048-bit RSA public-private key pair is created uses the DC/OS Enterprise CLI.
 
 Create a public-private key pair and save each value into a separate file within the current directory.
 
