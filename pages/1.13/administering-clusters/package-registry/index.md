@@ -215,7 +215,7 @@ This would launch the marathon app for package-registry. This usually takes a co
 
 ```bash
 # Change the repo name and URL if you need to customize
-dcos package repo add --index=0 "Registry" https://dcos-registry.marathon.l4lb.thisdcos.directory
+dcos package repo add --index=0 "Registry" https://dcos-registry.marathon.l4lb.thisdcos.directory/repo
 ```
 
 If you get errors in executing above command, wait for couple minutes (to account for the latency in package registry being healthy and its DNS entry being propogated to all master nodes) and try again.
