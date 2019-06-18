@@ -13,9 +13,9 @@ DC/OS Version 1.12.4 was released on June 19, 2019.
 [button color="purple" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise [/button]
 
 DC/OS 1.12.4 includes the following components:
-- Apache Mesos 1.7.3 [change log](https://github.com/apache/mesos/blob/5e234c8d8edc1bb73ba557f5774c609fa460c9e7/CHANGELOG).
-- Marathon 1.7.203 [change log](https://github.com/mesosphere/marathon/blob/b26a8b310561934071c5f347ee5e184a3279cabd/changelog.md).
-- Metronome 0.6.18 [change log](https://github.com/dcos/metronome/blob/b4016b01a349b15df25970877bd62521a49d0cc9/changelog.md).
+- Apache Mesos 1.7.3 [change log](https://github.com/apache/mesos/blob/33a1ba97041f178f8be53cdeb7cbeb7c78b89798/CHANGELOG).
+- Marathon 1.7.203 [change log](https://github.com/mesosphere/marathon/blob/9e2a9b579b968a2664df03099b03eaf86ffc7efc/changelog.md).
+- Metronome 0.6.21 [change log](https://github.com/dcos/metronome/blob/b8a73dd3cc3c2da035222031ccbbcf5c836ede7b/changelog.md).
 
 <!-- <p class="message--note"><strong>NOTE: </strong>DC/OS 1.12.1 release supports new CoreOS and Docker versions as listed in the <a href="../../../version-policy">compatibility matrix</a>.</p> -->
 
@@ -56,7 +56,7 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
 - Fixes an issue that prevented services managed by Marathon from restarting (COPS-3593, DCOS_OSS-4193).
 
-    In previous releases, you might have services that are managed by Marathon unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable.
+    In previous releases, you might have services managed by Marathon that are unable to restart if the container crashes or under certain DNS failure conditions. For example, restarting services might fail if the first ZooKeeper node or first DC/OS master is unreachable.
 
     Because this problem affects high availability for Marathon, a workaround (ping zk-1) was introduced for DC/OS 1.11.5 and 1.11.6 to address the issue. In this release, the underlying issue is resolved and you can safely remove the workaround if you have it deployed. For background information about the issue and the steps to remove the workaround, see [Removing the patch for Marathon failing to start if the first DC/OS is not available](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004). <!--Also in previous RN, 1.12.4-->
 
@@ -65,7 +65,7 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
     In previous releases, you might see errors if you attempted to use the DC/OS Universal Container Runtime (UCR) with a Docker image downloaded from [Docker Hub](https://registry-1.docker.io) or from the Nexus 3 Docker registry configured as a proxy for the Docker Hub.
     
-    DC/OS Universal Container Runtime (UCR) now fully supports Docker images that are formatted using the Docker v2_schema2 specification. The DC/OS Universal Container Runtime (UCR) also continues to support Docker images that use the v2_schema1 format. If you also have Docker images that use Docker registry v2_schema1 format, you should consider updating those images because some the v2_schema1 format is no longer supported by Docker and is likely to be deprecated for other registries in the near future.
+    DC/OS Universal Container Runtime (UCR) now fully supports Docker images that are formatted using the Docker v2_schema2 specification. The DC/OS Universal Container Runtime (UCR) also continues to support Docker images that use the v2_schema1 format. If you also have Docker images that use Docker registry v2_schema1 format, you should consider updating those images because the v2_schema1 format is no longer supported by Docker and is likely to be deprecated for other registries in the near future.
 
     For more information about using Docker images with DC/OS Universal Container Runtime (UCR), see [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/).
 
@@ -74,7 +74,7 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
     With this release, the resource manager will no longer ask all resource providers to publish all allocated resources. With this change, a failed resource provider would only fail tasks that wanted to use the failed resource provider's resources.
 
 ## Metrics
-- Corrects the service endpoint values and service address-based statistics that are returned when the `statsd` metrics input plugin is enabled (COPS-3279, COPS-3576, DCOS-37703, DCOS-37703, DCOS-39703).<!--Also in previous RN, 1.12.4-->
+- Corrects the service endpoint values and service address-based statistics that are returned when the `statsd` metrics input plugin is enabled (COPS-3279, COPS-3576, DCOS-37703, DCOS-39703).<!--Also in previous RN, 1.12.4-->
 
 - Adds HTTP request time and HTTP request size metrics for Metronome-scheduled jobs (DCOS_OSS-5020). 
 
