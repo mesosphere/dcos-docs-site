@@ -28,7 +28,7 @@ DC/OS {{ model.techName }} supports the Kerberos authentication mechanism.
 
 ### Kerberos Authentication
 
-Kerberos authentication relies on a central authority to verify that {{ model.techShortName }} clients are who they say they are. DC/OS {{ model.techName }} integrates with your existing Kerberos infrastructure to verify the identity of clients.
+Kerberos authentication relies on a central authority to verify the identity of {{ model.techShortName }} clients. DC/OS {{ model.techName }} integrates with your existing Kerberos infrastructure to verify the identity of clients.
 
 #### Prerequisites
 - The hostname and port of a KDC reachable from your DC/OS cluster
@@ -109,7 +109,9 @@ It is possible to enable Kerberos authentication after the deployment of DC/OS {
 
 Assuming that DC/OS {{ model.techName }} was initially deployed with `service.security.kerberos.enabled` set to `false`, the following steps can be used to enable Kerberos for the service.
 
-Firstly -- assuming the same Kerberos settings as discussed in [Configure Kerberos Authentication](#configure-kerberos-authentication) -- create the keytab for the Kerberos principals and add this keytab to the DC/OS Secret Store as described in the [Create principals](#create-principals) and [Place Service Keytab in DC/OS Secret Store](#place-service-keytab-in-dc-os-secret-store) sections. Then create a `kerberos-toggle-step-1.json` file with the following contents:
+- Assuming the same Kerberos settings are used as discussed in [Configure Kerberos Authentication](#configure-kerberos-authentication)
+- Create the keytab for the Kerberos principals and add this keytab to the DC/OS Secret Store as described in the [Create principals](#create-principals) and [Place Service Keytab in DC/OS Secret Store](#place-service-keytab-in-dc-os-secret-store) sections.
+- Create a `kerberos-toggle-step-1.json` file with the following contents:
 
 ```json
 {
@@ -135,7 +137,7 @@ Firstly -- assuming the same Kerberos settings as discussed in [Configure Kerber
     }
 }
 ```
-where it is important to note the `service.security.kerberos.advanced` section that is present here.
+You can read more information from `service.security.kerberos.advanced` section.
 
 Using this config file, update your DC/OS {{ model.techName }} service:
 ```bash
@@ -236,7 +238,7 @@ deploy (serial strategy) (COMPLETE)
    └─ zookeeper-2:[server, metrics] (COMPLETE)
 ```
 
-Unauthenticated clients will now only be allowed to ping, create a session, close a session, or authenticate when communicating with the {{ model.techName }} instance.
+Now, only unauthenticated clients will be allowed to ping, create a session, close a session, or authenticate when communicating with the {{ model.techName }} instance.
 
 <p class="message--note"><strong>NOTE: </strong>The default settings for <code>service.security.kerberos.advanced.required_for_quorum_learner</code>, <code>service.security.kerberos.advanced.required_for_quorum_server</code>, <code>service.security.kerberos.advanced.required_for_client</code> are all <code>true</code>.</p>
 
@@ -246,11 +248,14 @@ Unauthenticated clients will now only be allowed to ping, create a session, clos
 
 ## Securely Exposing DC/OS {{ model.techName }} Outside the Cluster.
 
-Kerberos security is tightly coupled to the DNS hosts of the zookeeper tasks. As such, exposing a secure {{ model.techName }} service outside of the cluster requires additional setup.
+Kerberos security is tightly coupled to the DNS hosts of the ZooKeeper tasks. Therefore, exposing a secure {{ model.techName }} service outside of the cluster requires additional setup.
 
 ### Server to Client Connection
 
-To expose a secure {{ model.techName }} service outside of the cluster, any client connecting to it must be able to access all tasks of the service via the IP address assigned to the task. This IP address will be one of: an IP address on a virtual network or the IP address of the agent the task is running on.
+To expose a secure {{ model.techName }} service outside of the cluster, any client connecting to it must be able to access all tasks of the service via the IP address assigned to the task. This IP address will be one of the following:
+
+- An IP address on a virtual network
+- The IP address of the agent the task is running on.
 
 ### Forwarding DNS and Custom Domain
 
@@ -272,9 +277,9 @@ As a concrete example, using the custom domain of `cluster-1.acmeco.net` the ser
 
 ### Kerberos Principal Changes
 
-With a custom domain endpoint discovery will work as normal. Kerberos, however, does require slightly different configuration. As noted in the section [Create Principals](#create-principals), the principals of the service depend on the hostname of the service. When creating the Kerberos principals, be sure to use the correct domain.
+With a custom domain endpoint discovery will work as normal. Kerberos, however, does require slightly different configuration. As noted in the section [Create Principals](#create-principals), the principals of the service depend on the hostname of the service. Use the correct domain when you create the Kerberos principals.
 
-For example, if installing with these settings:
+For example, if installing with the following settings:
 ```json
 {
     "service": {
@@ -291,7 +296,7 @@ For example, if installing with these settings:
     }
 }
 ```
-then the principals to create would be:
+then the principals will be as follows:
 ```
 example/zookeeper-0-server.agoodexample.cluster-1.example.net@EXAMPLE
 example/zookeeper-1-server.agoodexample.cluster-1.example.net@EXAMPLE
