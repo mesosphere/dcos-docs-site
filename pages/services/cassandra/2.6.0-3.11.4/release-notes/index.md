@@ -25,7 +25,7 @@ render: mustache
 
 - Many of Cassandra's parameters are now configurable from the DC/OS UI
 
-## Upgrading your cluster from 3.11.3 to 3.11.4
+## Upgrading your cluster from 2.5.0-3.11.3 to 2.6.0-3.11.4
 
 - Run the following command to upgrade your Cassandra package: 
   ```
