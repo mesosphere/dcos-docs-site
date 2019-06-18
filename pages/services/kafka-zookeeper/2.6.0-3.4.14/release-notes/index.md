@@ -13,10 +13,10 @@ render: mustache
 ### Updates
 - Upgrade the base dcos-commons SDK version to `0.56.1`.
 - Upgrade Zookeeper base tech to version `3.4.14`. See [Zookeeper's Release Notes](https://zookeeper.apache.org/doc/r3.4.14/releasenotes.html) for details.
-- Oracle JDK is replaced by OpenJDK 8 
+- Oracle JDK is replaced by OpenJDK 8.
 
 ### New Features
-- Autosuggestion available for Service Account and Secrets when launching the service from DC/OS UI
+- Autosuggestion is available for Service Account and Secrets when launching the service from DC/OS UI
 - Added marathon service scheduler checks
 
 # Version 2.5.0-3.4.13
@@ -34,7 +34,7 @@ render: mustache
 ## Updates
 - The service now uses Apache ZooKeeper 3.4.13
 ## Bug Fixes
-- [DCOS-40634] Fix a bug where restarting more than one server in an ensemble at a time would cause the servers to not be able to start due to waiting for other servers that are also down.
+- [DCOS-40634] Fix a bug where if one node goes down and the other nodes are restarted will cause a crashloop.
 
 <!-- # Version 2.3.0-3.4.12
 
