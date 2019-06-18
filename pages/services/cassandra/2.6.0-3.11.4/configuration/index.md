@@ -79,13 +79,62 @@ You can customize the port that {{ model.techName }} listens on for Thrift RPC r
 *   **In DC/OS CLI options.json**: `rpc_port`: integer (default: `9160`)
 *   **DC/OS web interface**: `TASKCFG_ALL_CASSANDRA_RPC_PORT`: `integer`
 
+### Native Authentication and Authorization
+
+To use Cassandra's native `PasswordAuthenticator` and `CassandraAuthorizer`, set the following configs:
+
+```
+{
+  "service": {
+    "security": {
+      "authentication": {
+        "enabled": true,
+        "superuser": {
+          "name": "<superuser-name>",
+          "password_secret_path": "<service-name>/password"
+        }
+      },
+      "authorization": {
+        "enabled": true
+      }
+    }
+  }
+}
+
+```
+
+This will deploy your Cassandra cluster with enhanced security protection which includes disabling the native cassandra superuser and replacing it with the superuser you specify.
+
+- Note: the `password_secret_path` should be the path to the superuser password in the secret store.
+
 ### Custom Authentication and Authorization
 
-You can customize Authentication/Autherization in Cassandra YAML.
+Support for custom authenticators and authorizers is also possible via base64 encoded YAML.
 
-Add your custom YAML when installing {{ model.techName }} service. In the DC/OS UI, find the field for specifying authentication custom cassandra yml. You must base64 encode your block of YAML and enter this string into the field.
+Add your custom YAML when installing {{ model.techName }} service. You must base64 encode your block of YAML and enter this string into the 'authentication_custom_cassandra_yml' field.
 
 You can do this base64 encoding as part of your automated workflow, or you can do it manually with an [online converter](https://www.base64encode.org).
+
+For example, custom configs will look like the following: 
+
+```
+{
+  "service": {
+    "security": {
+      "authentication": {
+        "enabled": true,
+        "authenticator": "Abc_Authenticator",
+        "role_manager": "Abc_RoleManager",
+        "authentication_custom_cassandra_yml": "YXV0aGVudGljYXRpb25fb3B0aW9uczoKICAgIGVuYWJsZWQ6IGZhbHNlCiAgICBkZWZhdWx0X3NjaGVtZTogaW50ZXJuYWwKICAgIGFsbG93X2RpZ2VzdF93aXRoX2tlcmJlcm9zOiB0cnVlCiAgICBwbGFpbl90ZXh0X3dpdGhvdXRfc3NsOiB3YXJuCiAgICB0cmFuc2l0aW9uYWxfbW9kZTogZGlzYWJsZWQKICAgIG90aGVyX3NjaGVtZXM6CiAgICBzY2hlbWVfcGVybWlzc2lvbnM6IGZhbHNl"
+      },
+      "authorization": {
+        "enabled": true,
+        "authorizer": "Abc_Authorizer"
+      }
+    }
+  }
+}
+```
 
 ### Disks
 
