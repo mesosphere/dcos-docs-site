@@ -19,7 +19,7 @@ render: mustache
 - Added support for both [custom](/services/{{ model.serviceName }}/2.6.0-3.11.4/configuration/#custom-authentication-and-authorization) and {{model.techName}}'s [native](/services/{{ model.serviceName }}/2.6.0-3.11.4/configuration/#native-authentication-and-authorization) authentication and authorization mechanisms 
 - Added support for DSS volume profiles 
 - User defined functions are now configurable
-- Added [custom](/services/{{ model.serviceName }}/2.6.0-3.11.4/security/#forwarding-dns-and-custom-domain) domain support
+- Added [custom domain](/services/{{ model.serviceName }}/2.6.0-3.11.4/security/#forwarding-dns-and-custom-domain) support
 
 ## Improvements
 
