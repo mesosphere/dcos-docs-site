@@ -16,7 +16,7 @@ render: mustache
 
 ## New Features
 
-- {{ model.techName }}'s native authentication, and authorization mechanisms are now supported.
+- Added support for both custom and {{model.techName}}'s native authentication and authorization mechanisms
 - Custom authentication, and authorization are also now supported.
 - DSS volume profile support added.
 - user defined functions are now configurable.
