@@ -143,7 +143,7 @@ Figure 13. - Output of `hello-world`
 
 ## ZooKeeper/Exhibitor
 
-**Warning:** This option should only be used as a last resort. Modifying anything in ZooKeeper directly may cause your service to behave in unpredictable ways.
+<p class="message--warning"><strong>WARNING: </strong>This option should only be used as a last resort. Modifying anything in ZooKeeper directly may cause your service to behave in unpredictable ways.</p>
 
 DC/OS comes with Exhibitor, a commonly used frontend for viewing ZooKeeper. Exhibitor may be accessed at `<`<dcos-url>/exhibitor`>`. A given SDK service will have a node named `dcos-service-<svcname>` visible here. This is where the Scheduler puts its state, so that it is not lost if the Scheduler is restarted. In practice, it is far easier to access this information via the Scheduler API (or via the service CLI) as described earlier, but direct access using Exhibitor can be useful in situations where the Scheduler itself is unavailable or otherwise unable to serve requests.
 
