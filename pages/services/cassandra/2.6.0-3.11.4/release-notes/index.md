@@ -11,7 +11,7 @@ render: mustache
 
 ## Upgrades
 
-- Upgrade {{ model.techShortName }} to version `3.11.4`
+- Upgraded {{ model.techShortName }} to version `3.11.4`
 - Upgraded SDK library to version `0.56.1`
 
 ## New Features
