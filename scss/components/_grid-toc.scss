@@ -32,6 +32,7 @@
             color: white;
             content: '✓';
             font-weight: 900;
+            margin-top: -3px;
         }
         input[type="checkbox"]:focus {
             outline: none;
@@ -110,6 +111,7 @@
         left: 0;
         right: 0;
         z-index: 99;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     }
     /*hide the items when the select box is closed:*/
     .select-hide {
