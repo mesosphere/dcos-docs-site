@@ -29,7 +29,7 @@ DC/OS {{ model.techShortName }} provides the following features:
 *   Single-command installation for rapid provisioning
 *   Multiple clusters for multiple tenancy with DC/OS
 *   High availability runtime configuration and software updates
-*   Storage volumes for enhanced data durability, known as Mesos Dynamic Reservations and Persistent Volumes
+*   Storage volumes for enhanced data durability, known as Mesos dynamic reservations and persistent volumes
 *   Integration with syslog-compatible logging services for diagnostics and troubleshooting
 *   Integration with statsd-compatible metrics services for capacity and performance monitoring
 

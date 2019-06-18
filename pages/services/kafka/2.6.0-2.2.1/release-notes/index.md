@@ -13,10 +13,10 @@ render: mustache
 ### Updates
 - Upgrade {{ model.techShortName }} base tech to version `2.2.1`. See [{{ model.techShortName }}'s Release Notes](https://www.apache.org/dist/kafka/2.2.1/RELEASE_NOTES.html) for details.
 - Upgrade the base dcos-commons SDK version to `0.56.1`.
-- Oracle JDK is replaced by OpenJDK 8 
+- Oracle JDK is replaced by OpenJDK 8.
 
 ### New Features
-- Autosuggestion available for Service Account and Secrets when launching the service from DC/OS UI
+- Autosuggestion is available for Service Account and Secrets when launching the service from DC/OS UI
 - Support for <a href="/services/kafka/2.6.0-2.2.1/advanced/#secure-jmx-enterprise">Secure JMX</a>
 - Added marathon service scheduler checks
 - Service will fetch all required resources over HTTPS
@@ -25,13 +25,11 @@ render: mustache
 
 ### Important Notes
 
-* The `inter_broker_protocol_version` now defaults to the newer, `2.1` version. This has a few implications, as described below:
+* The `inter_broker_protocol_version` now defaults to the newer `2.1` version. This has a few implications, as described below:
 
     - Kafka 1.1.0 supports `inter_broker_protocol_version`: `1.1` maximum, and by default it is set to `1.0`.
     - Kafka 2.1.0 supports `inter_broker_protocol_version`s up to `2.1`. 
-    - If you haven't specified a `inter_broker_protocol_version` in your options file, the new default will be used and changed to `2.1`.
-
-    The problem with this is that it will cause downtime;  during the upgrade, some Kafka nodes will be on Kafka 1.1.0 using `inter_broker_protocol_version` `1.0` and others will be on Kafka 2.1.0 using protocol `2.1`.
+    - If you haven't specified a `inter_broker_protocol_version` in your options file, the new default will be used and changed to `2.1`. This will cause downtime during the upgrade when some Kafka nodes will be on Kafka 1.1.0 using `inter_broker_protocol_version` `1.0` and others will be on Kafka 2.1.0 using protocol `2.1`.
 
     To avoid any potential downtime, change the protocol version used when upgrading Kafka.
 
@@ -85,7 +83,7 @@ render: mustache
 ## Version 2.2.0-1.0.0
 
 ### New Features
-- Support for using a custom top level domain to facilitate exposing the service securely outside of the cluster. Details [here](/services/kafka/2.3.0-1.0.0/security/#securely-exposing-dcos-apache-kafka-outside-the-cluster).
+- Support for using a custom top level domain to facilitate [exposing the service securely outside of the cluster](/services/kafka/2.3.0-1.0.0/security/#securely-exposing-dcos-apache-kafka-outside-the-cluster).
 - Support for launching the service in a remote region.
 
 ## Version 2.1.0-1.0.0
@@ -93,7 +91,7 @@ render: mustache
 ### New Features
 - Support for the automated provisioning of TLS artifacts to secure {{ model.techShortName }} communication.
 - Support for Kerberos and SSL authorization and authentication.
-- Support for `Zone` placement constraints in DC/OS 1.11 (beta versions of DC/OS 1.11 coming soon).
+- Support for `Zone` placement constraints in DC/OS 1.11.
 - Ability to pause a service pod for debugging and recovery purposes.
 
 ### Updates
@@ -106,7 +104,8 @@ render: mustache
 ## Version 2.0.4-1.0.0
 
 ### Updates
-- Upgraded to {{ model.techShortName }} v1.0.0. **Note:** Protocol and log version defaults are set to 0.11.0. After upgrading to this version, they may be set to 1.0.0.
+- Upgraded to {{ model.techShortName }} v1.0.0.
+<p class="message--note"><strong>NOTE: </strong>Protocol and log version defaults are set to 0.11.0. After upgrading to this version, they may be set to 1.0.0.</p>
 
 # Version 2.0.3-0.11.0
 

@@ -35,7 +35,7 @@ Read more about using JMX options <a href="https://docs.oracle.com/javadb/10.10.
 
 ### Configuring JMX with self-signed certificate
 
-1. Generate a self-signed key store and trust store
+1. Generate a self-signed key store and trust store.
 
   ```bash
   $ keytool -genkey -alias server-cert -keyalg rsa  -dname "CN=kafka.example.com,O=Example Company,C=US"  -keystore keystore.ks -storetype JKS -storepass changeit -keypass changeit
@@ -45,7 +45,7 @@ Read more about using JMX options <a href="https://docs.oracle.com/javadb/10.10.
   $ keytool -genkey -alias server-cert -keyalg rsa  -dname "CN=kafka.example.com,O=Example Company,C=US"  -keystore truststore.ks -storetype JKS -storepass changeit -keypass changeit
   ```
 
-2. Generate files containing the trust store and key store passwords
+2. Generate files containing the trust store and key store passwords.
 
   ```bash
   $ cat <<EOF >> trust_store_pass
@@ -59,7 +59,7 @@ Read more about using JMX options <a href="https://docs.oracle.com/javadb/10.10.
   EOF
   ```
 
-3. Create a JMX access file
+3. Create a JMX access file.
 
   ```bash
   $ cat <<EOF >> access_file
@@ -68,7 +68,7 @@ Read more about using JMX options <a href="https://docs.oracle.com/javadb/10.10.
   EOF
   ```
 
-4. Create a JMX password file
+4. Create a JMX password file.
 
   ```bash
   $ cat <<EOF >> password_file
@@ -77,7 +77,7 @@ Read more about using JMX options <a href="https://docs.oracle.com/javadb/10.10.
   EOF
   ```
 
-5. Create necessary secrets in DC/OS for JMX
+5. Create necessary secrets in DC/OS for JMX.
 
   ```bash
   dcos package install dcos-enterprise-cli --yes
@@ -89,7 +89,7 @@ Read more about using JMX options <a href="https://docs.oracle.com/javadb/10.10.
   dcos security secrets create -f access_file kafka/access
   ```
 
-6. Create a custom service configuration `options.json` with JMX enabled
+6. Create a custom service configuration `options.json` with JMX enabled.
 
   ```json
   {

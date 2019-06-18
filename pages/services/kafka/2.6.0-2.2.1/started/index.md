@@ -80,7 +80,7 @@ dcos package install --options=sample-kafka-minimal.json kafka
 
 Customize the defaults by creating a JSON file. Then, pass it to `dcos package install` using the `--options` parameter.
 
-Sample JSON options file named `sample-kafka-custom.json`:
+A sample JSON options file is named as sample-kafka-custom.json:
 
 ```json
 {
@@ -99,7 +99,7 @@ Sample JSON options file named `sample-kafka-custom.json`:
 }
 ```
 
-The command below creates a cluster using `sample-kafka.json`:
+The following command creates a cluster using `sample-kafka.json`:
 
 ```bash
 dcos package install --options=sample-kafka-custom.json kafka
@@ -107,13 +107,13 @@ dcos package install --options=sample-kafka-custom.json kafka
 
 <p class="message--important"><strong>IMPORTANT: </strong>It is highly recommended to store your custom configuration in source control.</p>
 
-See [Configuration Options][6] for a list of fields that can be customized via an options JSON file when the Kafka cluster is created.
+See [Configuration Options][6] for a list of fields that can be customized via an JSON options file when the Kafka cluster is created.
 
 ## Multiple Kafka cluster installation
 
 Installing multiple Kafka clusters is identical to installing Kafka clusters with custom configurations as described above. The only requirement on the operator is that a unique `name` is specified for each installation.
 
-See the example below:
+See the following example:
 
 ```
 cat kafka1.json
@@ -136,10 +136,10 @@ You can customize your cluster in-place when it is up and running.
 
 The Kafka scheduler runs as a Marathon process and can be reconfigured by changing values from the DC/OS web interface.
 
-Use the following steps to change configurations at runtime.
+Use the following steps to change configurations at runtime:
 
 1.  Go to the `Services` tab of the DC/OS web interface.
-1.  Click the name of the Kafka service to be updated.
+1.  Click on name of the Kafka service to be updated.
 1.  Within the Kafka instance details view, click the menu in the upper right, then choose **Edit**.
 1.  In the dialog that appears, click the **Environment** tab and update any field(s) to their desired value(s). For example, to [increase the number of Brokers][8], edit the value for `BROKER_COUNT`. Do not edit the value for `FRAMEWORK_NAME` or `BROKER_DISK`.
 1.  Choose a `DEPLOY_STRATEGY`: serial, serial-canary, parallel-canary, or parallel. See the SDK Developer guide for more information on [deployment plan strategies](https://mesosphere.github.io/dcos-commons/developer-guide.html#plans). <!-- I'm not sure I like this solution, since users aren't going to have the context for the dev guide). -->
@@ -250,7 +250,7 @@ PUT <dcos_url>/service/kafka/v1/continue HTTP/1.1
 }
 ```
 
-After you execute the continue operation, the plan will look like the following code block:
+After you execute the continue operation, you will be see the following code block:
 
 ```bash
 curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
@@ -322,7 +322,7 @@ The following describes the most commonly used features of the Kafka service and
 
 ## Service Name
 
-The name of this Kafka instance in DC/OS. This is an option that cannot be changed once the Kafka cluster is started: it can only be configured via the DC/OS CLI `--options` flag when the Kafka instance is created.
+A Service Name is the name of the Kafka instance in DC/OS. This is an option that cannot be changed once the Kafka cluster is started: it can only be configured via the DC/OS CLI `--options` flag when the Kafka instance is created.
 
 *   **In DC/OS CLI options.json**: `name`: string (default: `kafka`)
 *   **DC/OS web interface**: The service name cannot be changed after the cluster has started.
@@ -384,7 +384,7 @@ Kafka Brokers are configured through settings in a server.properties file deploy
     },
 ```
 
-The defaults can be overridden at install time by specifying an options.json file with a format like this:
+The defaults can be overridden at install time by specifying an options.json file with the following format:
 
 ```json
     {
@@ -394,7 +394,7 @@ The defaults can be overridden at install time by specifying an options.json fil
     }
 ```
 
-These same values are also represented as environment variables for the scheduler in the form `KAFKA_OVERRIDE_LOG_RETENTION_HOURS` and may be modified through the DC/OS web interface and deployed during a rolling upgrade as [described here][12].
+These same values are also represented as environment variables for the scheduler in the form `KAFKA_OVERRIDE_LOG_RETENTION_HOURS` and may be modified through the DC/OS web interface and deployed during a rolling upgrade as described in [changing configuration at runtime](https://docs.mesosphere.com/services/kafka/2.6.0-2.2.1/started/#changing-configuration-at-runtime).
 
 <a name="disk-type"></a>
 ## Disk Type
@@ -404,7 +404,7 @@ The type of disks that can be used for storing broker data are: `ROOT` (default)
 * `ROOT`: Broker data is stored on the same volume as the agent work directory. Broker tasks will use the configured amount of disk space.
 * `MOUNT`: Broker data will be stored on a dedicated volume attached to the agent. Dedicated MOUNT volumes have performance advantages and a disk error on these MOUNT volumes will be correctly reported to Kafka.
 
-Configure Kafka service to use dedicated disk volumes:
+Configure Kafka service to use dedicated disk volumes, as follows:
 * **DC/OS cli options.json**:
 
 ```json
@@ -435,7 +435,7 @@ Kafka service allows configuration of JVM Heap Size for the broker JVM process. 
 
 * **DC/OS web interface**: Set the environment variable `BROKER_HEAP_MB`: `2000`
 
-**Note**: The total memory allocated for the Mesos task is specified by the `BROKER_MEM` configuration parameter. The value for `BROKER_HEAP_MB` should not be greater than `BROKER_MEM` value. Also, if `BROKER_MEM` is greater than `BROKER_HEAP_MB` then the Linux operating system will use `BROKER_MEM` - `BROKER_HEAP_MB` for [PageCache](https://en.wikipedia.org/wiki/Page_cache).
+<p class="message--note"><strong>NOTE: </strong>The total memory allocated for the Mesos task is specified by the `BROKER_MEM` configuration parameter. The value for `BROKER_HEAP_MB` should not be greater than `BROKER_MEM` value. Also, if `BROKER_MEM` is greater than `BROKER_HEAP_MB` then the Linux operating system will use `BROKER_MEM` - `BROKER_HEAP_MB` for [PageCache](https://en.wikipedia.org/wiki/Page_cache).</p>
 
 ## Alternate ZooKeeper
 
@@ -477,14 +477,13 @@ To enable automated replacement using the following options:
 
 * **DC/OS web interface**: Set the environment variable `ENABLE_REPLACEMENT`: `true` to enable replacement.
 
-<p class="message--warning"><strong>WARNING: </strong>text</p>
-**Warning:** The replacement mechanism is not aware of whether the broker has been destructively replaced with the latest copy of data. You may lose data depending on your replication policy, the degree, and duration of the permanent failures.
+<p class="message--warning"><strong>WARNING: </strong>The replacement mechanism is not aware of whether the broker has been destructively replaced with the latest copy of data. You may lose data depending on your replication policy, the degree, and duration of the permanent failures.</p>
 
 The following configuration options control the circumstances under which a broker is replaced.
 
 ### Minumum Grace Period
 
-Configure the minimum amount of time before a broker should be replaced:
+Configure the minimum amount of time before a broker should be replaced.
 
 * **DC/OS CLI options.json**:
 
@@ -520,7 +519,7 @@ The following configurations control the health checks that determine when a bro
 
 ### Enable Health Check
 
-Enable health checks on brokers:
+Enable health checks on brokers.
 
 ```json
     {
@@ -536,7 +535,7 @@ Enable health checks on brokers:
 
 ### Health Check Delay
 
-Set the amount of time before the health check begins:
+Set the amount of time before the health check begins.
 
 ```json
     {
@@ -552,7 +551,7 @@ Set the amount of time before the health check begins:
 
 ### Health Check Interval
 
-Set the interval between health checks:
+Set the interval between health checks.
 
 ```json
     {
@@ -568,7 +567,8 @@ Set the interval between health checks:
 
 ### Health Check Timeout
 
-Set the time a health check can take to complete before it is considered a failed check:
+Set the time a health check can take to complete before it is considered a failed check.
+
 ```json
     {
         "health_check_timeout_sec":{
@@ -583,7 +583,7 @@ Set the time a health check can take to complete before it is considered a faile
 
 ### Health Check Grace Period
 
-Set the amount of time after the delay before health check failures count toward the maximum number of consecutive failures:
+Set the amount of time after the delay before health check failures count toward the maximum number of consecutive failures.
 
 ```json
     {

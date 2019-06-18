@@ -147,7 +147,7 @@ curl -X POST -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.
 
 ## View Topic Offsets
 
-There is an optional `--time` parameter which may be set to either "first", "last", or a timestamp in milliseconds as [described in the {{ model.techShortName }} documentation](https://kafka.apache.org/documentation/#topicconfigs).
+There is an optional `--time` parameter which may be set to either "first", "last", or a timestamp in milliseconds as described in the [{{ model.techShortName }} documentation](https://kafka.apache.org/documentation/#topicconfigs).
 
 ```bash
 dcos {{ model.packageName }} --name={{ model.serviceName }} topic offsets topic1 --time=last
@@ -210,7 +210,8 @@ curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.s
 }
 ```
 
-This runs the equivalent of the following command from the machine running the {{ model.techShortName }} Scheduler:
+The above commands run the equivalent of the following command from the machine running the {{ model.techShortName }} Scheduler:
+
 ```bash
 kafka-producer-perf-test.sh \
   --topic <topic> \
@@ -236,7 +237,7 @@ curl -X DELETE -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ mode
 }
 ```
 
-Note the warning in the output from the commands above. You can change the indicated `delete.topic.enable` configuration value as a configuration change.
+<p class="message--note"><strong>NOTE: </strong>Note the warning in the output from the commands above. You can change the indicated `delete.topic.enable` configuration value as a configuration change.</p>
 
 ## List Under Replicated Partitions
 

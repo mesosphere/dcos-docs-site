@@ -12,9 +12,10 @@ enterprise: true
 
 # DC/OS {{ model.techName }} Security
 
--The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
-
--A good overview of these features can be found [here](https://www.confluent.io/blog/apache-kafka-security-authorization-authentication-encryption/), and {{ model.techShortName }}'s security documentation can be found [here](http://kafka.apache.org/documentation/#security).
+The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the use of these important features.
+For more information on {{ model.techShortName }}'s security, read the following:
+- [Security Overview](http://kafka.apache.org/documentation/#security)
+- [Security Features](https://www.confluent.io/blog/apache-kafka-security-authorization-authentication-encryption/)
 
 <p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
@@ -218,7 +219,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 
 ## Securely Exposing DC/OS {{ model.techName }} Outside the Cluster.
 
-Both transport encryption and Kerberos are tightly coupled to the DNS hosts of the {{ model.techShortName }} brokers. As such, exposing a secure {{ model.techName }} service outside of the cluster requires additional setup.
+Both transport encryption and Kerberos are tightly coupled to the DNS hosts of the {{ model.techShortName }} brokers. Therefore, exposing a secure {{ model.techName }} service outside of the cluster requires additional setup.
 
 ### Broker to Client Connection
 
