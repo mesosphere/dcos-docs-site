@@ -216,7 +216,7 @@ In DC/OS Enterprise 1.10 and later, you can integrate your SDK-based service wit
 
   5. Click `CONFIGURE` and change the service name to `/testing/nifi`, then deploy. The slashes in your service name are interpreted as folders. You are deploying `nifi` in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.
 
-<p class="message--important"><strong>IMPORTANT: </strong>Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 do not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 does not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p>
 
 ## Interacting with your foldered service
 
