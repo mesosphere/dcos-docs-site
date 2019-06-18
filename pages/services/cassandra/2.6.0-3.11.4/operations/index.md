@@ -177,6 +177,10 @@ You can also back up to Microsoft Azure using the `backup-azure` plan. This plan
 - `AZURE_STORAGE_KEY`: the secret key associated with the storage account
 - `CONTAINER_NAME`: the name of the container in which to store this backup.
 
+Before initiating the backup plan, it is recommended to reset the plan to its original state. This will ensure the backup plan runs in the correct sequence. You can reset the plan with:
+
+dcos {{ model.packageName }} --name=<service-name> plan stop backup-azure
+   
 You can initiate this plan from the command line in the same way as the Amazon S3 backup plan:
 ```
 dcos {{ model.packageName }} --name=<service-name> plan start backup-azure \
