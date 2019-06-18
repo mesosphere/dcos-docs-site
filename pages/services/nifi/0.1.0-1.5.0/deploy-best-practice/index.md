@@ -12,15 +12,19 @@ enterprise: false
 
 ## Configuration best practices for production
 
-  - Increase the number of TCP socket ports available. This is particularly important if the flow will be setting up and tearing down a large number of sockets in small period of time.
+  - Increase the number of TCP socket ports available. This is particularly important if the flow will be setting up and tearing down a large number of sockets in a short time.
 
-           sudo sysctl -w net.ipv4.ip_local_port_range="10000 65000"
+```shell
+sudo sysctl -w net.ipv4.ip_local_port_range="10000 65000"
+```
 
   - Tell Linux you never want NiFi to swap. Swapping is fantastic for some applications. It is not good for something like NiFi, that always wants to be running.
 
 To set swapping off, edit `/etc/sysctl.conf` to add the following line:
 
-           vm.swappiness = 0
+```shell
+vm.swappiness = 0
+```
 
 For the partitions handling the various NiFi repos, turn off things like `atime`. Doing so can cause a surprising bump in throughput. Edit the `/etc/fstab` file and for the partition(s) of interest add the `noatime` option.
 
@@ -28,9 +32,9 @@ For the partitions handling the various NiFi repos, turn off things like `atime`
 
 Following is the recommended hardware for NiFi production installation:
 
-[<img src="../service/HardwareRecommendation.png" alt="Hardware Recommendation" width="700"/>](../service/HardwareRecommendation.png)
+![Hardware Recommendation](../service/HardwareRecommendation.png)
 
-_Figure 1. - Hardware sizing recommendations_
+Figure 1. - Hardware sizing recommendations
 
 ## Block device/storage
 
