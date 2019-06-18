@@ -111,7 +111,7 @@ This will deploy your Cassandra cluster with enhanced security protection which 
 
 Support for custom authenticators and authorizers is also possible via base64 encoded YAML.
 
-Add your custom YAML when installing {{ model.techName }} service. You must base64 encode your block of YAML and enter this string into the 'authentication_custom_cassandra_yml' field.
+Add your custom YAML when installing {{ model.techName }}. You must base64 encode your block of YAML and enter this string into the `authentication_custom_cassandra_yml` field.
 
 You can do this base64 encoding as part of your automated workflow, or you can do it manually with an [online converter](https://www.base64encode.org).
 
