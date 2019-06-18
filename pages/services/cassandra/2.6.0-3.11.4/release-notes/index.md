@@ -13,7 +13,7 @@ render: mustache
 
 - Upgraded {{ model.techShortName }} to version `3.11.4`
 - Upgraded SDK library to version `0.56.1`
-
+- Oracle JDK has been replaced with OpenJDK 8
 ## New Features
 
 - Added support for both [custom](/services/{{ model.serviceName }}/2.6.0-3.11.4/configuration/#custom-authentication-and-authorization) and {{model.techName}}'s [native](/services/{{ model.serviceName }}/2.6.0-3.11.4/configuration/#native-authentication-and-authorization) authentication and authorization mechanisms 
