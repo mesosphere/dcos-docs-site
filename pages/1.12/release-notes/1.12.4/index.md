@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Release notes for DC/OS 1.12.4
 ---
 
-DC/OS Version 1.12.4 was released on June 19, 2019.
+DC/OS Version 1.12.4 was released on July 2, 2019.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.12.4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
