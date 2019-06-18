@@ -5,7 +5,37 @@ title: Manage and scale resources
 excerpt: Provides strategies and examples for scaling resources allocated for deployed applications (part 9)
 menuWeight: 9
 ---
-Resource management and resource isolation between tasks are core functions of any operating system. In this section, you will learn how to monitor and understand your resource utilization, how resource limits are enforced, and how to debug resource management issues.
+To this point, you have seen how to create a cluster and how to deploy and test applications and services that run on the cluster. You’ve worked with single commands and apps that run in Docker and DC/OS UCR containers. With this tutorial, you will see some of the key benefits provider by container orchestration and perform a few common resource scaling tasks.
+
+# Container orchestration plays a key role in cluster management
+Container orchestration helps you manage the life cycle for apps deployed on the cluster by providing features that address three important requirements: resilient operation,
+resource allocation, and service management.
+
+## Cluster resiliency
+Container orchestration helps ensure resilient operation by:
+- Determining the appropriate location for the initial placement of containers based on the current state, size, and configuration of the cluster.
+- Supporting distributed processing and scaling to optimize performance, fault-tolerance, and high availability.
+- Providing self-contained health monitoring and self-healing operations to resurrect failed containers or agents so activity can continue without disruption.
+- Simplifying the deployment of software upgrades or downgrades.
+
+## Resource allocation and usage
+Container orchestration improves your ability to manage resources allocation and monitor resource consumption by making sure containers get the specific resources they need to run, including:
+- Memory
+- CPU
+- Disk
+- GPU
+- Volumes
+- Ports
+- IP addresses
+- Images and artifacts
+
+## Service identification and management
+In combination with other features, container orchestration helps you to organize, distribute, and monitor the services you deploy. For example, you can:
+- Add labels to services to create metadata for querying and organizing services.
+- Use groups or namespaces to define a hierarchy of services and the relationships between them, including dependencies.
+- Monitor health and readiness to ensure applications are available and running properly.
+
+This tutorial focuses on **resource management** and **resource isolation** between tasks. These two activities are core functions of any operating system and are central elements of effective cluster administration. In this tutorial, you will learn how to monitor resource usage, how resource limits are enforced, and how to debug resource management issues. For information about other aspects of container orchestration, see the [Related topics](#related-topics) listed at the end of this tutorial.
 
 # Before you begin
 Before starting this tutorial, you should verify the following:
