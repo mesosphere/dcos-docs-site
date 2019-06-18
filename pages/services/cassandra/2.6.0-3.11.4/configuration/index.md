@@ -79,7 +79,7 @@ You can customize the port that {{ model.techName }} listens on for Thrift RPC r
 *   **In DC/OS CLI options.json**: `rpc_port`: integer (default: `9160`)
 *   **DC/OS web interface**: `TASKCFG_ALL_CASSANDRA_RPC_PORT`: `integer`
 
-### Custom Authentication/Autherization in Cassandra YAML
+### Custom Authentication and Authorization
 
 You can customize Authentication/Autherization in Cassandra YAML.
 
