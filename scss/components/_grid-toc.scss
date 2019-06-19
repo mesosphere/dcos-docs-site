@@ -51,7 +51,7 @@
     }
     .select-selected {
         background-color: $color-purple-lightest;
-        width: 250px;
+        width: 200px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -71,7 +71,7 @@
     .select-items div,
     .select-selected {
         color: $color-light-grey-d5;
-        padding: 6px 16px;
+        padding: 6px 12px;
         border: 1px solid transparent;
         border-color: transparent rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
         border-radius: 2px;
@@ -92,8 +92,10 @@
     .select-hide {
         display: none;
     }
-    .select-items div:hover,
-    .same-as-selected {
+    .select-items div:hover {
+        background-color: $color-meso-light-grey;
+    }
+    .select-items .same-as-selected {
         background-color: $color-purple-lightest;
     }
 }
