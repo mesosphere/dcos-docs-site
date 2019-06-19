@@ -230,7 +230,7 @@ After package registry is installed, you can start adding packages to it. There 
 
 ## Building the packages
 
-Mesosphere hosts all its certified packages at https://downloads.mesosphere.com/universe/packages/packages.html If the packages you need are available there, you can download them and skip to the next section of uploading these .dcos files to your cluster. When a universe catalog package is under development and you want to test it before creating a pull request OR if you want to build a non certified (community) package, this section is useful.
+Mesosphere hosts all its certified packages at [downloads.mesosphere.com/universe/packages/packages.html](https://downloads.mesosphere.com/universe/packages/packages.html) If the packages you need are available there, you can download them and skip to the next section of uploading these .dcos files to your cluster. When a universe catalog package is under development and you want to test it before creating a pull request OR if you want to build a non certified (community) package, this section is useful.
 
 ### Requirements
 
