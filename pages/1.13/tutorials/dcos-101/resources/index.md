@@ -7,7 +7,7 @@ menuWeight: 9
 ---
 To this point, you have seen how to create a cluster and how to deploy and test applications and services that run on the cluster. You’ve worked with single commands and apps that run in Docker and DC/OS UCR containers. With this tutorial, you will see some of the key benefits provider by container orchestration and perform a few common resource scaling tasks.
 
-# Container orchestration and cluster management
+# Orchestration and cluster management
 Container orchestration plays a key role in cluster management. Container orchestration helps you manage the lifecycle for apps deployed on the cluster by providing features that address important requirements, such as resilient operation, resource allocation, and service management.
 
 ## Cluster resiliency
@@ -71,7 +71,7 @@ If you take another look at the [app definition]((https://raw.githubusercontent.
 ### Resource allocation before scaling
 The values for `cpus`, `mem`, `disk`, and `gpus` define the **maximum** for each of these resources that a task can use. Tasks rarely use the maximum resources allocated, but these settings specify an upper limit to what you will allow a task to use.
 
-### Grouping applications with common resource requirements
+### Using groups for common resource requirements
 You might have noticed that the identifier in the app definitions for both [app1](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json) and [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) is prefixed by `/dcos-101/`. 
 
 This common identifier is used to define the specific **application group** that both sample applications belong to. Application groups allow you to specify and apply configuration details and dependencies to multiple applications at the same time.
@@ -122,7 +122,7 @@ In some cases, you might want to scale a single application independently. To se
     dcos marathon app update /dcos-101/app2 instances=3
     ```
 
-    Note that these are applied incrementally to an existing app definition.
+    The instance updates are applied incrementally to an existing app definition.
 
 1. Verify that `app2` has scaled by running the following command:
 
@@ -130,19 +130,19 @@ In some cases, you might want to scale a single application independently. To se
     dcos marathon app list
     ```
 
-1. Rescale `app2` to one instance by running the following command:
+1. Scale `app2` back to one instance by running the following command:
 
     ```bash
     dcos marathon app update /dcos-101/app2 instances=1
     ```
 
-Verify that `app2` has scaled by running the following command:
+1. Verify that `app2` has scaled by running the following command:
 
     ```bash
     dcos marathon app list
     ```
 
-## Scale vertically by increasing allocated resources
+## Scale allocated resources
 Vertical scaling involves increasing or decreasing the resources, such as CPU or memory, that are allocated to an application instance.
 
 <p class="message--warning"><strong>WARNING: </strong>Vertical scaling requires restarting the application.</p>
@@ -201,7 +201,7 @@ For example, run a command similar to the following:
 You must use the `--force` option in this command because the previous deployment is ongoing.
 
 # Insufficient resource allocation or resource isolation
-In some cases, you might have an application that attempts to use more resources than it is allocated. This is a common problem with memory consumption in conjunction with JVM-based applications. To simulate this issue, try deploying the sample[out-of-memory app](https://github.com/joerg84/dcos-101/blob/master/oomApp/oomApp.go) by running the following command:
+In some cases, you might have an application that attempts to use more resources than it is allocated. This is a common problem with memory consumption in conjunction with JVM-based applications. To simulate this issue, try deploying the sample [out-of-memory app](https://github.com/joerg84/dcos-101/blob/master/oomApp/oomApp.go) by running the following command:
 `dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/oomApp/oomApp.json`
 
 After deploying the sample app, check the Marathon log to see if it includes Out of Memory errors. (Because the kernel is killing the app, the errors are not always visible to DC/OS.)
