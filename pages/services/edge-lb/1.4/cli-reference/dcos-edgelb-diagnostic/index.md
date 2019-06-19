@@ -1,26 +1,28 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb cleanup
-title: dcos edgelb cleanup
+navigationTitle:  dcos edgelb diagnostic
+title: dcos edgelb diagnostic
 menuWeight: 5
-excerpt: List and remove elements of the AWS Elastic Load Balancer (ELB) framework created by Edge-LB
+excerpt: Collect diagnostic information for Edge-LB pools and package it in a support bundle
 enterprise: true
 ---
 
 # Description
-The `dcos edgelb cleanup` command lists and removes all Amazon Web Services (AWS) Elastic Load Balancer (FLB) instances that remain after Edge-LB has been uninstalled from a DC/OS cluster. This command also uninstalls the Edge-LB cloud controller load balancer framework, including the cloud controller listener and target group.
+The `dcos edgelb diagnostic` command collects diagnostic information for Edge-LB pools and packages it in a support bundle for troubleshooting and analysis.
 
 # Usage
 
 ```bash
-dcos edgelb cleanup
+dcos edgelb diagnostic [flags]
 ```
 
 # Options
 
 | Name, shorthand | Description |
 |---------|-------------|
+| `--bundles-dir | Specify the folder under which the diagnostic bundle will be located. By default, the current directory is used. |
 | `--help, h`   | Display usage information. |
+| `--pool-names` | List pools, separated by commas (,), for which diagnostics data should be collected. For example, pool_name1,pool_name2. By default, all pools will be included. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 
 # Parent command
@@ -30,27 +32,12 @@ dcos edgelb cleanup
 | [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
-After uninstalling Edge-LB packages, you can use the following command to remove remnants of the Elastic load balancing framework deployed on AWS instances:
+To collect diagnostic bundles for specific Edge-LB pools, include the pool names in a command similar to the following:
 
 ```bash
-dcos edgelb cleanup --yes
-```
-The command returns information similar to the following:
-
-```
-cluster_id :3dcbca3e-f810-489b-a36e-f538fcb9d562
-  ELB NAME                          CLUSTER ID  APISERVER APP ID  POOL NAME  ORIGINAL ELB NAME
-  dcos-lb-GxuaBjPhx-Q8ayl-LwW1-HJG
-1 ELBs will be deleted
-Begin to delete ELB dcos-lb-GxuaBjPhx-Q8ayl-LwW1-HJG
-[dcos-edgelb:48744] INFO[2019-04-15T22:53:56.432257+08:00] deleting the listener                         arn=0xc0000a0bc8 src="awslb/awslb.go:1296"
-[dcos-edgelb:48744] INFO[2019-04-15T22:53:56.841851+08:00] deleted the listener                          arn=0xc0000a0bc8 src="awslb/awslb.go:1321"
-[dcos-edgelb:48744] INFO[2019-04-15T22:53:56.841956+08:00] deleting the target group                     arn="arn:aws:elasticloadbalancing:us-east-1:273854932432:targetgroup/test-hqch2/3e918f45757c33c0" src="awslb/awslb.go:1265"
-[dcos-edgelb:48744] INFO[2019-04-15T22:53:57.152635+08:00] deleted the target group                      arn="arn:aws:elasticloadbalancing:us-east-1:273854932432:targetgroup/test-hqch2/3e918f45757c33c0" src="awslb/awslb.go:1288"
-[dcos-edgelb:48744] INFO[2019-04-15T22:53:57.455911+08:00] deleting the elastic load balancer            arn="arn:aws:elasticloadbalancing:us-east-1:273854932432:loadbalancer/net/dcos-lb-GxuaBjPhx-Q8ayl-LwW1-HJG/d69fa56632d59f2f" src="awslb/awslb.go:1237"
-[dcos-edgelb:48744] INFO[2019-04-15T22:53:57.967195+08:00] deleted the elastic load balancer             arn="arn:aws:elasticloadbalancing:us-east-1:273854932432:loadbalancer/net/dcos-lb-GxuaBjPhx-Q8ayl-LwW1-HJG/d69fa56632d59f2f" src="awslb/awslb.go:1258"
-Deleted ELB dcos-lb-GxuaBjPhx-Q8ayl-LwW1-HJG
-1/1 ELBs are deleted
+dcos edgelb diagnostic --pool-names=sf-edgelb, roma-edge-lb, hk-edgelb
 ```
 
-For more information, see [Uninstalling](../../uninstalling/) and [Edge-LB Usage](../../usage/).
+This command generates diagnostic bundle with the logs files from the sf-edgelb, roma-edgelb, and hk-edgelb pools.
+
+For more information about using command-line programs, see [Edge-LB Usage](../../usage/).
