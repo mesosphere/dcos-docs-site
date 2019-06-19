@@ -7,9 +7,9 @@ excerpt: Launching Docker containers from Docker images
 enterprise: false
 ---
 
-[Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need the [features](/1.13/deploying-services/containerizers/#container-runtime-features) of the Docker Engine. 
+[Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need the [features](/1.14/deploying-services/containerizers/#container-runtime-features) of the Docker Engine. 
 
-If you aren't using features that are specific to the Docker engine, you should consider using the DC/OS [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/). The DC/OS [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/) provides features such as support for GPU resources that are not available for Docker containers.
+If you aren't using features that are specific to the Docker engine, you should consider using the DC/OS [Universal Container Runtime](/1.14/deploying-services/containerizers/ucr/). The DC/OS [Universal Container Runtime](/1.14/deploying-services/containerizers/ucr/) provides features such as support for GPU resources that are not available for Docker containers.
 
 # Provision a container with the Docker Engine
 
@@ -17,7 +17,7 @@ If you aren't using features that are specific to the Docker engine, you should 
 * When you run a Docker image in the Docker Engine, the underlying Docker log files are not truncated or rotated. These files can become arbitrarily large (and often go to a system disk rather than a storage disk). This can cause a server with limited disk space to run out of disk space. Mesosphere recommends that you disable Docker logging if you are using Docker Engine. To do this, set the `log-driver` parameter to `none` in the `containers.docker.parameters` field of your app definition. If you are provisioning the container using the DC/OS UI:
   1. Click the **JSON EDITOR** toggle button.
 
-     ![json editor](/1.13/img/json-editor-toggle.png)
+     ![json editor](/1.14/img/json-editor-toggle.png)
 
      Figure 1. JSON Editor toggle button
 
@@ -40,7 +40,7 @@ If you aren't using features that are specific to the Docker engine, you should 
 
 ## DC/OS CLI
 
-In your [Marathon application definition](/1.13/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api), set the `container.type` parameter to `DOCKER`.
+In your [Marathon application definition](/1.14/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api), set the `container.type` parameter to `DOCKER`.
 
 ```json
 {  
@@ -63,7 +63,7 @@ In your [Marathon application definition](/1.13/deploying-services/creating-serv
 }
 ```
 
-For examples, see [Deploying a Docker-based Service](/1.13/deploying-services/creating-services/deploy-docker-app/).
+For examples, see [Deploying a Docker-based Service](/1.14/deploying-services/creating-services/deploy-docker-app/).
 
 # Further Reading
 

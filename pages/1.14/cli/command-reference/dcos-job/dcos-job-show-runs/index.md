@@ -57,4 +57,4 @@ my-scheduled-job  20170217230705AfpRn  2017-02-17T23:07:05.218+0000
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/1.14/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

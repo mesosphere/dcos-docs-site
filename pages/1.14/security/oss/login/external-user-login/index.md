@@ -11,9 +11,9 @@ menuWeight: 10
 # Login using the DC/OS CLI
 
 **Prerequisite:**
-- [DC/OS CLI](/1.13/cli/)
+- [DC/OS CLI](/1.14/cli/)
 
-1.  To log in to the DC/OS CLI, enter the following [auth login](/1.13/cli/command-reference/dcos-auth/dcos-auth-login/) command.
+1.  To log in to the DC/OS CLI, enter the following [auth login](/1.14/cli/command-reference/dcos-auth/dcos-auth-login/) command.
 
     ```bash
     dcos auth login --provider dcos-oidc-auth0

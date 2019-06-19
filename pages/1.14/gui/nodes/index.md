@@ -8,7 +8,7 @@ excerpt: Using the Nodes page
 
 The Nodes page provides a comprehensive view of all of the nodes that are used across your cluster. You can view a graph that shows the allocation percentage rate for CPU, memory, or disk.
 
-![Nodes](/1.13/img/nodes-ee-dcos-1-12.png)
+![Nodes](/1.14/img/nodes-ee-dcos-1-12.png)
 
 Figure 1 - Agent Nodes tab
 
@@ -16,7 +16,7 @@ By default, all of your nodes are displayed in **List** view, sorted by health. 
 
 You can switch to **Grid** view to see a "donuts" percentage visualization.
 
-![Nodes](/1.13/img/nodes-donuts-ee-dcos-1-12.png)
+![Nodes](/1.14/img/nodes-donuts-ee-dcos-1-12.png)
 
 Figure 2 - Nodes grid view
 
@@ -24,7 +24,7 @@ Clicking on a node opens the Nodes side panel, which provides CPU, GPU, memory, 
 
 Clicking on the **Masters** tab opens the Masters Nodes view.
 
-![Nodes](/1.13/img/nodes-masters-ee-dcos-1-12.png)
+![Nodes](/1.14/img/nodes-masters-ee-dcos-1-12.png)
 
 Figure 3 - Masters Nodes tab
 

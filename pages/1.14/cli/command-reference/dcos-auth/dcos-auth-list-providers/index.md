@@ -50,4 +50,4 @@ dcos-users     Authenticate using a standard DC/OS user account (using username 
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/1.13/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/1.14/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |

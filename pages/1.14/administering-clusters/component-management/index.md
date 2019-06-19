@@ -25,12 +25,12 @@ Component packages built by the package builder are distributed as part of the D
 
 ## Component health
 
-Component health is monitored by the DC/OS Diagnostics component. For more information about component monitoring, see [Monitoring](/1.13/monitoring/).
+Component health is monitored by the DC/OS Diagnostics component. For more information about component monitoring, see [Monitoring](/1.14/monitoring/).
 
 
 ## Component logs
 
-Component logs are sent to `journald` and exposed by the DC/OS Log component. For more information about component logs, see [Logging](/1.13/monitoring/logging/).
+Component logs are sent to `journald` and exposed by the DC/OS Log component. For more information about component logs, see [Logging](/1.14/monitoring/logging/).
 
 
 ## Routes

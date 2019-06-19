@@ -36,4 +36,4 @@ dcos security cluster saml delete [OPTIONS] SAML_ID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster saml](/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | Manage your Security Assertion Markup Language (SAML) settings. |
+| [dcos security cluster saml](/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | Manage your Security Assertion Markup Language (SAML) settings. |

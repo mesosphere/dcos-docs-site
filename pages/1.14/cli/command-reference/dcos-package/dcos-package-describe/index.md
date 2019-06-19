@@ -35,4 +35,4 @@ dcos package describe <package-name> --package-versions
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.13/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.14/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

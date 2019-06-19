@@ -35,4 +35,4 @@ dcos security cluster secret-store seal-status [OPTIONS] STORE_ID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster secret-store](/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | Display settings for your secret store. |
+| [dcos security cluster secret-store](/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | Display settings for your secret store. |

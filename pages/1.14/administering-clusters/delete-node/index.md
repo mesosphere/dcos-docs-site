@@ -11,13 +11,13 @@ In DC/OS 1.12 and later, deleting a node involves two steps:
 * Telling DC/OS to mark the node as `GONE`
 * Stopping the corresponding Mesos slave `systemd` unit
 
-If your node has gone down in an unplanned way, you only have to [Decommission the node](/1.13/administering-clusters/delete-node/#decommission-the-node/).
+If your node has gone down in an unplanned way, you only have to [Decommission the node](/1.14/administering-clusters/delete-node/#decommission-the-node/).
 
 # Decommission the node
 
 When Mesos detects that a node has stopped, it puts the node in the `UNREACHABLE` state because Mesos does not know if the node is temporarily stopped and will come back online, or if it is permanently stopped. You can explicitly tell Mesos to put a node in the `GONE` state if you know a node will not come back.
 
-Once a node is decommissioned, the corresponding agent ID is marked as `GONE` internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to `TASK_GONE_BY_OPERATOR` state. If these tasks were using [Local Persistent Volumes](/1.13/storage/persistent-volume), the responsible framework will abandon these Local Persistent Volumes once they are notified of the agent being gone. They will automatically create new tasks with new reservations and volumes on other suitable agents.  
+Once a node is decommissioned, the corresponding agent ID is marked as `GONE` internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to `TASK_GONE_BY_OPERATOR` state. If these tasks were using [Local Persistent Volumes](/1.14/storage/persistent-volume), the responsible framework will abandon these Local Persistent Volumes once they are notified of the agent being gone. They will automatically create new tasks with new reservations and volumes on other suitable agents.  
 
 You should decommission nodes in the following situations.
 
@@ -51,7 +51,7 @@ Once the node has been decommissioned (this is equivalent to using the `MARK_AGE
 
 If the DC/OS node is still running, the Mesos slave process will continue to try to register (and be disallowed, due to the agent being marked gone).  You can stop these attempts by stopping the Mesos slave process, which is run as a `systemd` unit.
 
-1. [SSH to the agent node](/1.13/administering-clusters/sshcluster/) you wish to shut down.
+1. [SSH to the agent node](/1.14/administering-clusters/sshcluster/) you wish to shut down.
 
 1. Enter the following commands to stop the node.
 

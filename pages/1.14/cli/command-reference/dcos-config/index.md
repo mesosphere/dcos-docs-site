@@ -9,7 +9,7 @@ enterprise: false
 
 # Description
 
-The `dcos config` command manages the DC/OS configuration file that is created when you run [dcos cluster setup](/1.13/cli/command-reference/dcos-cluster/dcos-cluster-setup/). The configuration file is located in `~/.dcos/clusters/<cluster_id>/dcos.toml`.
+The `dcos config` command manages the DC/OS configuration file that is created when you run [dcos cluster setup](/1.14/cli/command-reference/dcos-cluster/dcos-cluster-setup/). The configuration file is located in `~/.dcos/clusters/<cluster_id>/dcos.toml`.
 
 # Usage
 

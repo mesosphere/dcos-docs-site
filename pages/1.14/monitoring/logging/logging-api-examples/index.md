@@ -15,8 +15,8 @@ Here are some common usage examples for the Logging API.
 - [Bash](https://www.gnu.org/software/bash/)
 - [Curl](https://curl.haxx.se/)
 - [jq](https://stedolan.github.io/jq/)
-- [DC/OS](/1.13/installing/)
-- [DC/OS CLI](/1.13/cli/) must be installed, configured, and logged in.
+- [DC/OS](/1.14/installing/)
+- [DC/OS CLI](/1.14/cli/) must be installed, configured, and logged in.
 - Extract `DCOS_URL` and `DCOS_AUTH_TOKEN` from the DC/OS CLI:
 
     ```
@@ -59,7 +59,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/agen
 
 # Container Logs
 
-<p class="message--important"><strong>IMPORTANT: </strong>The following example requires journald task logging, which by default is [disabled](/1.13/monitoring/logging/logging-reference/#compatibility).</p>
+<p class="message--important"><strong>IMPORTANT: </strong>The following example requires journald task logging, which by default is [disabled](/1.14/monitoring/logging/logging-reference/#compatibility).</p>
 
 Get the last 100 journal entries from a single service container:
 
