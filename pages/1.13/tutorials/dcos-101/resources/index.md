@@ -7,9 +7,8 @@ menuWeight: 9
 ---
 To this point, you have seen how to create a cluster and how to deploy and test applications and services that run on the cluster. You’ve worked with single commands and apps that run in Docker and DC/OS UCR containers. With this tutorial, you will see some of the key benefits provider by container orchestration and perform a few common resource scaling tasks.
 
-# Container orchestration plays a key role in cluster management
-Container orchestration helps you manage the life cycle for apps deployed on the cluster by providing features that address three important requirements: resilient operation,
-resource allocation, and service management.
+# Container orchestration and cluster management
+Container orchestration plays a key role in cluster management. Container orchestration helps you manage the lifecycle for apps deployed on the cluster by providing features that address important requirements, such as resilient operation, resource allocation, and service management.
 
 ## Cluster resiliency
 Container orchestration helps ensure resilient operation by:
@@ -51,10 +50,10 @@ By completing this tutorial, you will learn:
 - How to debug resource management issues.
 
 # Review the app definition
-Take another look at the app definition for [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go).
+If you take another look at the [app definition]((https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json)) for the [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) sample application, you can see the resources allocated for the app in the `cpus`, `mem`, `disk`, and `gpus` settings. For example:
 
-```go
-  {
+```json
+{
   "id": "/dcos-101/app2",
   "cmd": "chmod u+x app2 && ./app2",
   "args": null,
@@ -65,163 +64,184 @@ Take another look at the app definition for [app2](https://github.com/joerg84/dc
   "mem": 128,
   "disk": 0,
   "gpus": 0,
-  ...
+  "executor": null,
+  "constraints": null,
 ```
 
-In this sample app, the `cpus`, `mem`, `disk`, and `gpus` parameters specify the allocated resources and, therefore, define the maximum amount of resources a task can use. This number is not necessarily the same as the amount of resources a task actually uses. That number is usually lower.
+### Resource allocation before scaling
+The values for `cpus`, `mem`, `disk`, and `gpus` define the **maximum** for each of these resources that a task can use. Tasks rarely use the maximum resources allocated, but these settings specify an upper limit to what you will allow a task to use.
 
-You should also notice that the id assigned in the app definitions for both [app1](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json) and [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) is prefixed by `/dcos-101/`. This defines the [application group](https://mesosphere.github.io/marathon/docs/application-groups.html) that the apps belong to. Application groups allow configuration details and dependencies to be applied to a group of applications at the same time.
+### Grouping applications with common resource requirements
+You might have noticed that the identifier in the app definitions for both [app1](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json) and [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) is prefixed by `/dcos-101/`. 
 
-# Add a placement constraint
-
+This common identifier is used to define the specific **application group** that both sample applications belong to. Application groups allow you to specify and apply configuration details and dependencies to multiple applications at the same time.
 
 # Scale applications
-When you need more resources for your app, you can scale in two dimensions - horizontally and vertically.
+When you need more resources for your application, you can scale resources **horizontally** or **vertically**.
 
-### Scale horizontally by increasing the instance count
-Horizontal scaling involves increasing the number of instances of an application. You can scale the instance count in two ways:
+Horizontal scaling involves increasing or decreasing the number of instances of an application. You can scale the instance count in two ways:
 
-1. Scale an entire app group by a factor.
-1. Directly set number of instances for an app.
+- By setting a factor to apply to an entire application group by a factor.
+- By setting a specific number of instances for an individual application.
 
-**Scale dcos-101 application group:**
+## Scale the application group
+Since both `appl` and `app2` sample application share the same application group, you can scale them together.
 
-Since both appl and app2 share the same app group, we can scale them together.
+To see how you can scale up and scale down an entire application group, do the following:
 
-* Scale up by a factor of 2:
+1. Scale the application group up using a scale factor of two by running the following command:
 
-`dcos marathon group scale dcos-101 2`
-* Check that both app1 and app2 have scaled up:
+    ```bash
+    dcos marathon group scale dcos-101 2
+    ```
 
-`dcos marathon app list`
-* Scale down again:
+1. Verify that both sample apps have scaled up by running the following command:
 
-`dcos marathon group scale dcos-101 0.5`
-* Check that both app1 and app2 have scaled down:
+    ```bash
+    dcos marathon app list
+    ```
 
-`dcos marathon app list`
+1. Scale the application group down again by running the following command:
 
-**Set instance count for app2 directly:**
+    ```bash
+    dcos marathon group scale dcos-101 0.5
+    ```
 
-This is useful is you want to scale a single app independently
+1. Verify that both apps have scaled down by running the following command:
 
-* Scale app2 to 3 instances:
+    ```bash
+    dcos marathon app list
+    ```
 
-`dcos marathon app update /dcos-101/app2 instances=3`
+## Set instance count directly
+In some cases, you might want to scale a single application independently. To see how you can scale up and scale down an entire application group, do the following:
 
-Note that these are applied incrementally to an existing app definition.
-* Check that app2 has scaled:
+1. Scale `app2` to three instances by running the following command:
 
-`dcos marathon app list`
-* Rescale app2 to 1 instance:
+    ```bash
+    dcos marathon app update /dcos-101/app2 instances=3
+    ```
 
-`dcos marathon app update /dcos-101/app2 instances=1`
-* Check that app2 has scaled:
+    Note that these are applied incrementally to an existing app definition.
 
-`dcos marathon app list`
+1. Verify that `app2` has scaled by running the following command:
 
+    ```bash
+    dcos marathon app list
+    ```
 
-### Scale vertically by increasing allocated resources
+1. Rescale `app2` to one instance by running the following command:
 
-Vertical scaling involves increasing the amount of resources like CPU or RAM allocated to an instance.
+    ```bash
+    dcos marathon app update /dcos-101/app2 instances=1
+    ```
 
-<p class="message--warning"><strong>WARNING: </strong>This causes a restart of the app!</p>
+Verify that `app2` has scaled by running the following command:
 
-* Scale up to 2 CPU's for the app2 instance:
+    ```bash
+    dcos marathon app list
+    ```
 
-`dcos marathon app update /dcos-101/app2 cpus=2`
-* Check that app2 has scaled:
+## Scale vertically by increasing allocated resources
+Vertical scaling involves increasing or decreasing the resources, such as CPU or memory, that are allocated to an application instance.
 
-`dcos marathon app list`
-* Scale back down to 1 CPU for the app2 instance:
+<p class="message--warning"><strong>WARNING: </strong>Vertical scaling requires restarting the application.</p>
 
-`dcos marathon app update /dcos-101/app2 cpus=1`
+1. Scale up to two CPUs for the `app2` instance by running the following command:
 
-# Debugging Resource Problems
+    ```bash
+    dcos marathon app update /dcos-101/app2 cpus=2
+    ```
 
-## Too few resources in the cluster
+1. Verify that `app2` has scaled by running the following command:
 
-To simulate this:
+    ```bash
+    dcos marathon app list
+    ```
 
-* Increase app2 instances to 100
+1. Scale back down to one CPU for the `app2` instance by running the following command:
 
+    ```bash
+    dcos marathon app update /dcos-101/app2 cpus=1
+    ```
+
+# Debug resource problems
+When you are managing resources for the applications running on the DC/OS cluster, there are a few common issues that you should learn how to identify and address. The next topics cover a few of these cases.
+
+## Not enough resources in the cluster
+To simulate this issue, try increasing the number of `app2` instances by running a command similar to the following:
 `dcos marathon app update /dcos-101/app2 instances=100`
 
-You may have to increase this number if you have a large cluster.
-* Use `dcos marathon app list` to check that the `scale` deployment is stuck.
-* `dcos marathon deployment list`
+This example increases the number of instances to 100. If you have a large cluster, you might need to set the number of instances even higher.
 
-The problem here is that there no matching resources available. For example, there might be resources left for the public-slave role, but not for the default role.
+After increasing the number of instances, run `dcos marathon app list` or `dcos marathon deployment list` to check that the `scale` deployment is stuck.
 
-Solution:
+The problem here is that there are no matching resources available. For example, there might be resources left for the public agent role, but not for the default role.
 
-* Add nodes or scale the app to a level at which resources are available.
+To resolve this issue, you can add nodes to the cluster or scale the application back to a level at which resources are available. 
 
+For example, run a command similar to the following:
 `dcos marathon app update /dcos-101/app2 --force instances=1`
 
-Note you must use the `--force` flag here as the previous deployment is ongoing.
+You must use the `--force` option in this command because the previous deployment is ongoing.
 
-## Too few resources on a single node
-
-As each app is started on a single node, task resources must also fit onto a single node.
-
-To simulate this:
-
-* Update app2 to use 100 CPUs:
-
+## Not enough resources on a single node
+Because each application is started on a single node, task resources must also fit onto a single node. To simulate this issue, try updating the `app2` app to use 100 CPUs by running a command similar to the following:
 `dcos marathon app update /dcos-101/app2 cpus=100`
-* Use `dcos marathon app list` to check that the `restart` deployment is stuck.
-* `dcos marathon deployment list`
+
+After increasing the number of CPUs, run `dcos marathon app list` or `dcos marathon deployment list` to check that the `restart` deployment is stuck.
 
 The problem here is that there are no resource offers large enough to match the request.
 
-Solution:
+To resolve this issue, you can provision larger or scale the application back to a level at which it fits onto the free resources on a single node.
 
-* Provision larger nodes or scale the app down to a level where it fits onto the free resources on a single node:
-
+For example, run a command similar to the following:
 `dcos marathon app update /dcos-101/app2 --force cpus=1`
 
-Note that you must use the force flag again.
+You must use the `--force` option in this command because the previous deployment is ongoing.
 
-# Debugging resource isolation
-
-What happens if an app tries to use more resources then it is allocated? The most common problem is memory consumption in conjunction with JVM-based applications.
-
-To simulate this:
-
-* Deploy the [memory eater](https://github.com/joerg84/dcos-101/blob/master/oomApp/oomApp.go) app.
-
+# Insufficient resource allocation or resource isolation
+In some cases, you might have an application that attempts to use more resources than it is allocated. This is a common problem with memory consumption in conjunction with JVM-based applications. To simulate this issue, try deploying the sample[out-of-memory app](https://github.com/joerg84/dcos-101/blob/master/oomApp/oomApp.go) by running the following command:
 `dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/oomApp/oomApp.json`
 
-* You will see it restarting over and over again...
+After deploying the sample app, check the Marathon log to see if it includes Out of Memory errors. (Because the kernel is killing the app, the errors are not always visible to DC/OS.)
 
-Check the Marathon log. Potentially you will see the Out of Memory error here, but unfortunately not always - since the kernel is killing the app, this may not always be visible to DC/OS.
+1. Open a terminal and secure shell (SSH) session on an agent where the app run by running a command similar to the following:
 
-* SSH to an agent where the app has been running:
+    ```bash
+    dcos node ssh --master-proxy --mesos-id=$(dcos task oom-app --json | jq -r '.[] | .slave_id')`
+    ```
 
-`dcos node ssh --master-proxy --mesos-id=$(dcos task oom-app --json | jq -r '.[] | .slave_id')`
-* Check the kernel log:
+1. Check the kernel log by running the following command:
 
-`journalctl -f _TRANSPORT=kernel`
+    ```bash
+    journalctl -f _TRANSPORT=kernel`
+    ```
 
-Here you see something like:
+    The log file should include a message similar to the following:
 
-```
+    ```
     Memory cgroup out of memory: Kill process 10106 (oomApp) score 925 or sacrifice child; Killed process 10390 (oomApp) total-vm:3744760kB, anon-rss:60816kB, file-rss:1240kB, shmem-rss:0kB`
+    ```
+
+In most cases, there are two potential reasons for your application to be using too much memory:
+
+- There are issues in the application code causing the app to use too much memory, for example, because there is a memory leak in the code logic.
+- You have allocated too little memory for the application.
+
+To resolve these potential issues, check the application code to correct any programming errors such. If the problem is not in the code itself, increase the amount of memory you have allocated for the application.
+
+To complete this tutorial, be sure to remove the out-of-memory application by running the following command:
+
+```bash
+dcos marathon app remove /dcoc-101/oom-app
 ```
-
-Solution:
-
-There are two potential reasons for your application using too much memory:
-
-1. Your app uses too much memory by accident e.g. a memory leak in the code.
-1. You have allocated too little memory for it.
-
-So, check your app for correct behavior and/or increase the allocated memory.
-
-* Remove the app:
-
-`dcos marathon app remove /dcoc-101/oom-app`
 
 # Next steps
-Congratulations! You've now learned how to deploy apps to DC/OS, network those apps, expose them outside of the cluster with a load balancer, scale them, and debug potential resource issues! You're practically a pro!
+In this tutorial, you learned how to view the resources allocated for application tasks and how to scale and debug potential resource issues.
+
+# Related topics
+Now that you are practically a pro, you might want to begin exploring more advanced topics and configuration options such as:
+- Using application groups and [labels](../../task-labels/)
+- Defining [placement constraints](/1.13/deploying-services/marathon-constraints/)
+- Deploying applications in [pods](/1.13/deploying-services/pods/)
