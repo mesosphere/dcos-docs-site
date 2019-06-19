@@ -11,8 +11,8 @@ You can use the CLI to create and restore backups of your cluster.
 
 # Prerequisites
 - A DC/OS Enterprise cluster
-- The [DC/OS CLI](/1.13/cli/install/) installed
-- The [DC/OS Enterprise CLI](/1.13/cli/enterprise-cli/) installed
+- The [DC/OS CLI](/1.14/cli/install/) installed
+- The [DC/OS Enterprise CLI](/1.14/cli/enterprise-cli/) installed
 
 <p class="message--important"><strong>IMPORTANT: </strong>See the <a href="/latest/administering-clusters/backup-and-restore/#limitations">Limitations</a> section of Backup and Restore.</p>
 

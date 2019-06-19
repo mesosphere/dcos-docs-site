@@ -150,6 +150,6 @@ dcos marathon app remove postgres
 For further information on stateful services in DC/OS, visit the [Storage section of the documentation](/storage/).
 
 
-[1]: /1.13/installing/
-[2]: /1.13/cli/install/
+[1]: /1.14/installing/
+[2]: /1.14/cli/install/
 [4]: postgres.marathon.json

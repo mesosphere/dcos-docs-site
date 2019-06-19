@@ -7,7 +7,7 @@ excerpt: Using the Dashboard
 ---
 The dashboard is the home page of the DC/OS UI. It provides a high-level overview of your DC/OS cluster.
 
-![Dashboard](/1.13/img/dashboard-ee-1-12.png)
+![Dashboard](/1.14/img/dashboard-ee-1-12.png)
 
 Figure 1 - Dashboard
 

@@ -11,13 +11,13 @@ enterprise: true
 
 You can create secrets in DC/OS by using a key-value pair or as a file. Both methods add a name and secret value to the secret store. You may find it convenient to add a secret as a file if you already have a secret value stored in a file locally and want to avoid copying-and-pasting.
 
-See [Configuring services and pods to use secrets](/1.13/security/ent/secrets/use-secrets/) for information on how to reference these secrets in your app or pod definition.
+See [Configuring services and pods to use secrets](/1.14/security/ent/secrets/use-secrets/) for information on how to reference these secrets in your app or pod definition.
 
 # Creating secrets
 
 The sections below explain how to create secrets as both key/value pairs and as files using the UI, CLI, and the Secrets API.
 
-Secrets should include paths, unless you want to allow all services to access its value. See [Spaces](/1.13/security/ent/#spaces) for more information about secret paths.
+Secrets should include paths, unless you want to allow all services to access its value. See [Spaces](/1.14/security/ent/#spaces) for more information about secret paths.
 
 ## Prerequisites
 
@@ -26,9 +26,9 @@ Secrets should include paths, unless you want to allow all services to access it
 
 ### DC/OS CLI or Secrets API
 
-- See [Secret Store Permissions](/1.13/security/ent/perms-reference/#secrets) for the permissions needed to create secrets from the CLI or API. The permissions you configure must include the name of the secret the user is allowed to create. You must have one permission per secret. The secret name and permission name must match.
+- See [Secret Store Permissions](/1.14/security/ent/perms-reference/#secrets) for the permissions needed to create secrets from the CLI or API. The permissions you configure must include the name of the secret the user is allowed to create. You must have one permission per secret. The secret name and permission name must match.
 
-- [DC/OS CLI installed](/1.13/cli/install/) and the [DC/OS Enterprise CLI installed](/1.13/cli/enterprise-cli/#ent-cli-install).
+- [DC/OS CLI installed](/1.14/cli/install/) and the [DC/OS Enterprise CLI installed](/1.14/cli/enterprise-cli/#ent-cli-install).
 
 # <a name="ui"></a>Creating key-value pair secrets using the UI
 
@@ -38,7 +38,7 @@ Secrets should include paths, unless you want to allow all services to access it
 
 1. Click the **+** icon in the top right.
 
-    ![New Secret](/1.13/img/new-secret.png)
+    ![New Secret](/1.14/img/new-secret.png)
 
     Figure 1. New Secret icon
 
@@ -46,7 +46,7 @@ Secrets should include paths, unless you want to allow all services to access it
 
 1. Type or paste the secret into the **Value** box.
 
-    ![Secret ID/Value Fields](/1.13/img/create-secret.png)
+    ![Secret ID/Value Fields](/1.14/img/create-secret.png)
 
     Figure 2. Creating a new Secret
 
@@ -71,7 +71,7 @@ This procedure describes how to create a secret called `my-secret` inside the `d
 
 This procedure describes how to create a key/value pair secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI.
 
-1. Use `dcos auth login` to log into the CLI. You can find more information about this command in the [CLI Reference](/1.13/cli/command-reference/dcos-auth/dcos-auth-login/).
+1. Use `dcos auth login` to log into the CLI. You can find more information about this command in the [CLI Reference](/1.14/cli/command-reference/dcos-auth/dcos-auth-login/).
 
 1. Use the following command to create the new secret.
 
@@ -87,7 +87,7 @@ The contents of the file (referred to below as `my-secret.txt`) can be any text 
 
 <p class="message--note"><strong>NOTE: </strong>As of DC/OS 1.10, you can only upload a secret as a file from the DC/OS CLI. The maximum file size for a secret is approximately one MiB, subtracting approximately one KB for the secret store metadata.</p>
 
-1. Use `dcos auth login` to log into the CLI. You can find more information about this command in the [CLI Reference](/1.13/cli/command-reference/dcos-auth/dcos-auth-login/).
+1. Use `dcos auth login` to log into the CLI. You can find more information about this command in the [CLI Reference](/1.14/cli/command-reference/dcos-auth/dcos-auth-login/).
 
 1. Use the following command to create the new secret.
 

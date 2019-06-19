@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 
-You can use [virtual addresses (VIPs)](/1.13/networking/load-balancing-vips/virtual-ip-addresses/) to make port management easier. VIPs simplify inter-app communication and implement a reliable service-oriented architecture. VIPs map traffic from a single virtual address to multiple IP addresses and ports.
+You can use [virtual addresses (VIPs)](/1.14/networking/load-balancing-vips/virtual-ip-addresses/) to make port management easier. VIPs simplify inter-app communication and implement a reliable service-oriented architecture. VIPs map traffic from a single virtual address to multiple IP addresses and ports.
 
 # Definitions
 

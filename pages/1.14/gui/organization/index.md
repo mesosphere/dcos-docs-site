@@ -12,6 +12,6 @@ You may manage user access from the Organization page. The Organization menu com
 - Groups
 - Service Accounts
 
-![Organization Tab EE](/1.13/img/GUI-Organization-Users-Users_List_Empty-1_12.png)
+![Organization Tab EE](/1.14/img/GUI-Organization-Users-Users_List_Empty-1_12.png)
 
 Figure 1 - Organization > Users tab

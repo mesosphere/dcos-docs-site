@@ -36,8 +36,8 @@ dcos package list [<package-name> --json --app-id=<app-id> --cli]
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.13/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.14/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
 
 # Examples
 
-For an example, see the [documenation](/1.13/deploying-services/install/).
+For an example, see the [documenation](/1.14/deploying-services/install/).

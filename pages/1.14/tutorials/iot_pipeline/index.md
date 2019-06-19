@@ -181,7 +181,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 
 If you are using a DC/OS Enterprise cluster, click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action:
 
-![Tweeter scaled](/1.13/img/tweeter-services8-ee.png)
+![Tweeter scaled](/1.14/img/tweeter-services8-ee.png)
 
 Figure 5. Scaled tweets
 
@@ -214,10 +214,10 @@ Figure 6. Top Tweeters
  [3]: /services/spark/
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
- [6]: /1.13/overview/concepts/
- [9]: /1.13/administering-clusters/locate-public-agent/
- [11]: /1.13/cli/command-reference/
+ [6]: /1.14/overview/concepts/
+ [9]: /1.14/administering-clusters/locate-public-agent/
+ [11]: /1.14/cli/command-reference/
  [12]: /services/marathon-lb/1.13/
  [13]: https://github.com/mesosphere/tweeter
- [14]: /1.13/img/tweeter.png
- [16]: /1.13/img/top-tweeters.png
+ [14]: /1.14/img/tweeter.png
+ [16]: /1.14/img/top-tweeters.png
