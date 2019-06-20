@@ -96,48 +96,48 @@ Example: CN=nifi-0-node.demonifi, O="Mesosphere, Inc", L=San Francisco, ST=CA, C
 Kerberos authentication relies on a central authority to verify that NiFi users' clients are who they say they are. DC/OS NiFi Service integrates with your existing Kerberos infrastructure to verify the identity of clients.
 
 ### Prerequisites
-- The hostname and port of a KDC reachable from your DC/OS cluster
+- The hostname and port of a Key Distribution Center (KDC) reachable from your DC/OS cluster
 - Sufficient access to the KDC to create Kerberos principals
 - Sufficient access to the KDC to retrieve a keytab for the generated principals
 - [The DC/OS Enterprise CLI](https://docs.mesosphere.com/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
 - DC/OS Superuser permissions
 
 ## Configure Kerberos authentication
-### Create principals
+### 1. Create principals
 
-The DC/OS NiFi Service requires a Kerberos principal for the service principal and user principal. Each principal must be of the form
+  The DC/OS NiFi Service requires a Kerberos principal for the service principal and user principal. Each principal must be of the form
 
-   ```shell
-   nifinode@<service realm>
-   nifiadmin@<service realm>
-   ```
-### Place service keytab in DC/OS Secret Store
+     ```shell
+     nifinode@<service realm>
+     nifiadmin@<service realm>
+     ```
+### 2. Place service keytab in DC/OS Secret Store
 
-The DC/OS NiFi Service uses a keytab containing the service and user principals (service keytab). After creating the principals  as described above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by name `__dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. More details [here.](https://docs.mesosphere.com/services/ops-guide/overview/#binary-secrets)
+  The DC/OS NiFi Service uses a keytab containing the service and user principals (service keytab). After creating the principals  as described above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by name `__dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. More details [here.](https://docs.mesosphere.com/services/ops-guide/overview/#binary-secrets)
 
-Documentation for adding a file to the secret store can be found [here.](https://docs.mesosphere.com/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)
+  Documentation for adding a file to the secret store can be found [here.](https://docs.mesosphere.com/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)
 
-**Note:** Secrets access is controlled by [DC/OS Spaces](https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets), which function like namespaces. Any secret in the same DC/OS Space as the service will be accessible by the service.
+  **Note:** Secrets access is controlled by [DC/OS Spaces](https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets), which function like namespaces. Any secret in the same DC/OS Space as the service will be accessible by the service.
 
-### Install the service
-Install the DC/OS NiFi Service with the following options in addition to your own:
-   ```shell
-   {
-    "service": {
-        "security": {
-            "kerberos": {
-                "enabled": true,
-                "kdc": {
-                    "hostname": "<kdc host>",
-                    "port": <kdc port>
-                },
-                "primary": "<service primary default nifi>",
-                "realm": "<realm>",
-                "keytab_secret": "<path to keytab secret>",
-                "service_principal": "nifinode@<service realm>",
-                "user_principal": "nifiadmin@<service realm>"
-            }
-        }
-    }
-}
-   ```
+### 3. Install the service
+  Install the DC/OS NiFi Service with the following options in addition to your own:
+     ```shell
+     {
+      "service": {
+          "security": {
+              "kerberos": {
+                  "enabled": true,
+                  "kdc": {
+                      "hostname": "<kdc host>",
+                      "port": <kdc port>
+                  },
+                  "primary": "<service primary default nifi>",
+                  "realm": "<realm>",
+                  "keytab_secret": "<path to keytab secret>",
+                  "service_principal": "nifinode@<service realm>",
+                  "user_principal": "nifiadmin@<service realm>"
+              }
+          }
+      }
+  }
+     ```

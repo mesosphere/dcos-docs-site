@@ -3,37 +3,50 @@ layout: layout.pug
 navigationTitle:  Scaling a Service
 title: Scaling a Service
 menuWeight: 3
-excerpt: Scaling a service using the web interface and the CLI
-render: mustache
+excerpt: Scaling a service using the UI and the CLI
+enterprise: false
 model: /data.yml
 enterprise: false
 ---
 
-This tutorial shows how to scale a service using the web interface and the CLI.
+This tutorial shows how to scale a service using the UI and the CLI.
 
-# Scale Your Service from the Web Interface
+# Scale Your Service from the UI
 
-1. From the **Services** tab, click the menu dots to the right side to access **More Actions**.  
-1. Click the menu symbol and choose **Scale By**.
+1. From the **Services** tab, click the menu dots to the right side of your service to access **More Actions**. 
 
-   ![menu symbol](/1.13/img/GUI-Services-List_View_Item_More_Actions_Menu-1_12.png)
+    ![Menu](/1.13/img/GUI-Services-More-Actions_Callout.png)
+   
+    Figure 1. More Actions menu
 
-   Figure 1. More Actions menu
+1. From the drop-down menu, select **Scale**.
 
-1. Enter the total number of instances you would like, then click **SCALE SERVICE**.
+   ![more actions menu](/1.13/img/GUI-Services-More-Actions-Menu.png)
 
-   ![scale](/1.13/img/scale-services.png)
+   Figure 2. More Actions menu
 
-   Figure 2. Choose number of instances
+1. In the **Scale Service** box, enter the total number of instances you would like, then click **Scale Service**.
+
+   ![scale](/1.13/img/GUI-Services-Scale-Service-Instances.png)
+
+   Figure 3. Choose number of instances
+
+1. From the Services tab, you can see your service scaling.
+
+    ![service deploying](/1.13/img/GUI-Services-Scale-Confirmation.png)
+    
+    Figure 4. Service scaling
 
 1. Click the name of your service to see your scaled service.
-   ![post scale](/1.13/img/post-scale-services.png)
+   ![post scale](/1.13/img/GUI-Services-Scaled-Service.png)
 
-   Figure 3. Services list
+   Figure 5. Services list 
 
 # Scale Your Service from the CLI
 
-1.  Enter the following command from the CLI, :
+You will need your `app-id` for this procedure.  
+
+1.  Enter the following command from the CLI, replacing `app-id` with your own value and  `total_desired_instances` with your own number:
 
     ```bash
     dcos marathon app update <app-id> instances=<total_desired_instances>

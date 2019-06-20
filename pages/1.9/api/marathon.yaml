@@ -4380,7 +4380,7 @@ definitions:
         type: number
         default: 1.1499999999999999
         format: double
-      maxLaunchDelay:
+      maxLaunchDelaySeconds:
         description: The maximum backoff (seconds) applied when subsequent failures are detected.
         type: number
         default: 3600

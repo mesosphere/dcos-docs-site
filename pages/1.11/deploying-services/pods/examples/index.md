@@ -290,7 +290,7 @@ The example below shows a pod, `test-pod`, with three containers, `healthtask1`,
       "backoff":{
          "backoff":1,
          "backoffFactor":1.15,
-         "maxLaunchDelay":3600
+         "maxLaunchDelaySeconds":3600
       },
       "upgrade":{
          "minimumHealthCapacity":1,
@@ -436,7 +436,7 @@ The following pod definition specifies a pod with 3 containers. <!-- Validated b
       "backoff":{
          "backoff":1,
          "backoffFactor":1.15,
-         "maxLaunchDelay":3600
+         "maxLaunchDelaySeconds":3600
       },
       "upgrade":{
          "minimumHealthCapacity":1,
@@ -525,7 +525,7 @@ The following pod definition specifies an ephemeral volume called `v1`. <!-- Val
     "backoff": {
       "backoff": 1,
       "backoffFactor": 1.15,
-      "maxLaunchDelay": 3600
+      "maxLaunchDelaySeconds": 3600
     },
     "upgrade": {
       "minimumHealthCapacity": 1,
@@ -697,7 +697,7 @@ The following pod definition can serve as a reference to create more complicated
     "backoff": {
       "backoff": 1,
       "backoffFactor": 1.15,
-      "maxLaunchDelay": 3600
+      "maxLaunchDelaySeconds": 3600
     },
     "upgrade": {
       "minimumHealthCapacity": 1,

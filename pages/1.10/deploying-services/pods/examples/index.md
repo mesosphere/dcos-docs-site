@@ -292,7 +292,7 @@ The example below shows a pod, `test-pod`, with three containers, `healthtask1`,
       "backoff":{
          "backoff":1,
          "backoffFactor":1.15,
-         "maxLaunchDelay":3600
+         "maxLaunchDelaySeconds":3600
       },
       "upgrade":{
          "minimumHealthCapacity":1,
@@ -330,7 +330,7 @@ The example below shows a pod, `test-pod`, with three containers, `healthtask1`,
 | `scheduling`                  | object   | Defines exponential backoff behavior for faulty apps to prevent sandboxes from filling up.                            |
 | `scheduling.backoff`               | number   | Initial backoff (seconds) applied when a launched instance fails (default: 1).                                                 |
 | `scheduling.backoffFactor`         | number   | Factor applied to current backoff to determine the new backoff (default: 1.15).                                                |
-| `scheduling.maxLaunchDelay`        | number   | Maximum backoff (seconds) applied when subsequent failures are detected (default: 3600).                                       |
+| `scheduling.maxLaunchDelaySeconds`        | number   | Maximum backoff (seconds) applied when subsequent failures are detected (default: 3600).                                       |
 | `upgrade`                     | object   | Upgrade strategy that controls pod updates.                                                                                    |
 | `upgrade.minimumHealthCapacity` | number   | Number between 0 and 1 that represents the minimum number of healthy nodes to maintain during upgrade (default: 1).               |
 | `upgrade.maximumOverCapacity`   | number   | Number between 0 and 1 representing the maximum number of additional instances to launch during upgrade (default: 1).          |
@@ -435,7 +435,7 @@ The following pod definition specifies a pod with 3 containers. <!-- Validated b
       "backoff":{
          "backoff":1,
          "backoffFactor":1.15,
-         "maxLaunchDelay":3600
+         "maxLaunchDelaySeconds":3600
       },
       "upgrade":{
          "minimumHealthCapacity":1,
@@ -524,7 +524,7 @@ The following pod definition specifies an ephemeral volume called `v1`. <!-- Val
     "backoff": {
       "backoff": 1,
       "backoffFactor": 1.15,
-      "maxLaunchDelay": 3600
+      "maxLaunchDelaySeconds": 3600
     },
     "upgrade": {
       "minimumHealthCapacity": 1,
@@ -692,7 +692,7 @@ The following pod definition can serve as a reference to create more complicated
     "backoff": {
       "backoff": 1,
       "backoffFactor": 1.15,
-      "maxLaunchDelay": 3600
+      "maxLaunchDelaySeconds": 3600
     },
     "upgrade": {
       "minimumHealthCapacity": 1,

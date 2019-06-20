@@ -10,9 +10,9 @@ enterprise: false
 
 # Updating Configuration
 
-You can make changes to the DC/OS NiFi Service after it has been launched. Configuration management is handled by the Scheduler process, which in turn handles Nifi deployment itself.
+You can make changes to the DC/OS NiFi Service after it has been launched. Configuration management is handled by the Scheduler process, which in turn handles NiFi deployment itself.
 
-After you make a change, the scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `nifi-0`, then `nifi-1`, and so on.
+After you make a change, the Scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `nifi-0`, then `nifi-1`, and so on.
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence.
 
@@ -20,13 +20,13 @@ Some changes, such as decreasing the number of nodes or changing volume requirem
 
 The instructions below describe how to update the configuration for a running DC/OS NiFi Service.
 
-### Enterprise DC/OS 1.10
+### DC/OS Enterprise 1.10
 
-Enterprise DC/OS 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
+DC/OS Enterprise 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
 
 #### Prerequisites
 
-+ Enterprise DC/OS 1.10 or later.
++ DC/OS Enterprise 1.10 or later.
 + Service with 1.5.0 version.
 + [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
 + The service's subcommand available and installed on your local machine.
@@ -40,7 +40,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 
 #### Preparing configuration
 
-If you installed DC/OS NiFi Service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
+If you installed DC/OS NiFi Service with DC/OS Enterprise 1.10, you can fetch the full configuration of a service (including any default values that were applied during installation). For example:
 
 ```shell
 dcos nifi describe > options.json
@@ -108,7 +108,7 @@ To see a full listing of available options, run `dcos package describe --config 
 
 The service deploys two nodes by default. You can customize this value at initial deployment or after the cluster is already running. Shrinking the cluster is not supported.
 
-Modify the COUNT `"node":{"count":3}` environment variable to update the node count. If you decrease this value, the scheduler will prevent the configuration change until it is reverted back to its original value or larger.
+Modify the COUNT `"node":{"count":3}` environment variable to update the node count. If you decrease this value, the Scheduler will prevent the configuration change until it is reverted back to its original value or larger.
 
 <a name="resizing-a-node"></a>
 ### Resizing a node
@@ -293,28 +293,28 @@ The NiFi backup is performed using the NiFi toolkit. The NiFi backup will be per
 
 1. `Backup` - Back up to local node (ROOT/MOUNT)
 
-   The Backup task is responsible for making a backup of the local application and backing it up to the local node, which may be on the ROOT or Mount Volume.
+   The backup task is responsible for making a backup of the local application and backing it up to the local node, which may be on the ROOT or Mount Volume.
 
-   [<img src="../service/Backup.png" alt="backup" width="800"/>](../service/Backup.png)
+   [backup](../service/Backup.png)
 
-   _Figure 1. - Backing up to the local node_
+   Figure 1. - Backing up to the local node
 
 
 2. `Upload_to_S3` - Upload the backup from the local node to S3
 
    This task takes the backup created in Step 1, from the ROOT/Mount volume, and uploads it to Amazon S3 in the Bucket Name specified.
 
-   [<img src="../service/S3Upload.png" alt="S3Upload.png" width="800"/>](../service/S3Upload.png)     
+   [S3Upload.png](../service/S3Upload.png)
 
-   _Figure 2. - Uploading the backup file_
+   Figure 2. - Uploading the backup file
 
  3. `Cleanup` - Remove the backup from local node.
 
     After Step 2 is complete and the backup has been uploaded to Amazon S3, a sidecar task known as `cleanup` is triggered. This task cleans up and removes the backup folder from the local Root/Mount volumes.
 
-   [<img src="../service/Cleanup.png" alt="cleanup" width="800"/>](../service/Cleanup.png)
+   [cleanup](../service/Cleanup.png)
 
-   _Figure 3. - Cleaning up_
+   Figure 3. - Cleaning up
 
 
 ## NiFi toolkit commands
@@ -326,9 +326,9 @@ The admin toolkit contains command line utilities for administrators to support 
 - Node Manager — The node manager tool allows administrators to perform a status check on a node as well as to connect, disconnect, or remove nodes that are part of a cluster.
 - File Manager — The file manager tool allows administrators to backup, install or restore a NiFi installation from backup.
 
-The admin toolkit is bundled with the `nifi-toolkit` and can be executed with scripts found in the bin folder. Further documentation is available at [Nifi Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit).
+The admin toolkit is bundled with the `nifi-toolkit` and can be executed with scripts found in the bin folder. Further documentation is available at [NiFi Administration Toolkit](https://nifi.apache.org/docs/nifi-docs/html/administration-guide.html#admin-toolkit).
 
-To execute the Nifi Administration Toolkit commands, we need to do a `dcos task exec` to a NiFi node, and set the JAVA_HOME using the command:
+To execute the NiFi Administration Toolkit commands, we need to do a `dcos task exec` to a NiFi node, and set the JAVA_HOME using the command:
 
 ```shell
 export JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH

@@ -20,7 +20,7 @@ dcos nifi --name=nifi-dev plan show deploy
 
 # Accessing Logs
 
-Logs for the scheduler and all service nodes can be viewed from the DC/OS web interface.
+Logs for the Scheduler and all service nodes can be viewed from the DC/OS UI.
 
 - Scheduler logs are useful for determining why a node isn’t being launched (this is under the purview of the Scheduler).
 - Node logs are useful for examining problems in the service itself.
@@ -29,7 +29,7 @@ In all cases, logs are generally piped to files named `stdout` and/or `stderr`.
 
 To view logs for a given node, perform the following steps:
 
-  1. Access the DC/OS web interface.
+  1. Access the DC/OS UI.
   2. Navigate to **Services** and click on the service to be examined (default NiFi).
   3. In the list of tasks for the service, click on the task to be examined (Scheduler is named after the service, nodes are each named, for example  `node-<#>-server` depending on the type).
   4. In the task details, click on the Logs tab to go into the log viewer. By default, you will see `stdout`, but `stderr` is also useful. Use the pull-down in the upper right to select the file to be examined.
@@ -46,43 +46,43 @@ You can also access the logs via the Mesos UI:
 
 The DC/OS Elastic Service is resilient to temporary pod failures, automatically relaunching them in-place if they stop running. However, if a machine hosting a pod is permanently lost, manual intervention is required to discard the downed pod and reconstruct it on a new machine.
 
-The following command should be used to get a list of available pods. In this example we are querying a service named `nifi-dev`.
+  1. The following command should be used to get a list of available pods. In this example we are querying a service named `nifi-dev`.
 
-  ```shell
-   dcos nifi --name=nifi-dev pod list
-  ```
-The following command should then be used to replace the pod residing on the failed machine, using the appropriate `pod_name` provided in the above list.
+    ```shell
+     dcos nifi --name=nifi-dev pod list
+    ```
+  2. The following command should then be used to replace the pod residing on the failed machine, using the appropriate `pod_name` provided in the above list.
 
-  ```shell
-  dcos nifi --name=nifi-dev pod replace <pod_name>
-  ```
-The pod recovery may then be monitored via the Recovery Plan.
+    ```shell
+    dcos nifi --name=nifi-dev pod replace <pod_name>
+    ```
+  3. The pod recovery may then be monitored via the Recovery Plan.
 
-  ```shell
-  dcos nifi --name=nifi-dev plan show recovery
-  ```
+    ```shell
+    dcos nifi --name=nifi-dev plan show recovery
+    ```
 
 # Restarting a Node
 
 If you must forcibly restart a pod’s processes but do not wish to clear that pod’s data, use the following command to restart the pod on the same agent machine where it currently resides. This will not result in an outage or loss of data.
 
-The following command should be used to get a list of available pods. In this example we are querying a service named `nifi-dev`.
+  1. The following command should be used to get a list of available pods. In this example we are querying a service named `nifi-dev`.
 
-  ```shell
-  dcos nifi --name=nifi-dev pod list
-  ```
+    ```shell
+    dcos nifi --name=nifi-dev pod list
+    ```
 
-The following command should then be used to restart the pod, using the appropriate `pod_name` provided in the above list.
+  2. The following command should then be used to restart the pod, using the appropriate `pod_name` provided in the above list.
 
-  ```shell
-  dcos nifi --name=nifi-dev pod restart <pod_name>
-  ```
+    ```shell
+    dcos nifi --name=nifi-dev pod restart <pod_name>
+    ```
 
-The pod recovery may then be monitored via the Recovery Plan.
+  3. The pod recovery may then be monitored via the Recovery Plan.
 
-  ```shell
-  dcos nifi --name=nifi-dev plan show recovery
-  ```
+    ```shell
+    dcos nifi --name=nifi-dev plan show recovery
+    ```
 
 # Accidentally deleted Marathon task but not service
 
@@ -90,7 +90,7 @@ A common user mistake is to remove the Scheduler task from Marathon, which does 
 
 ## Uninstall the rest of the service
 
-If you really want to uninstall the service, you must complete the normal package uninstall steps described under Uninstall.
+If you really want to uninstall the service, you must complete the normal package uninstall steps described under [Uninstall](/services/nifi/0.5.0-1.9.2/uninstall).
 
 ## Recover the Scheduler
 
@@ -98,10 +98,10 @@ If you want to bring the Scheduler back, you can do a `dcos package install` usi
 
 # ‘Framework has been removed’
 
-If you forgot to run `janitor.py` the last time you ran the service, you may see the error message 'Framework has been removed'. See Uninstall for steps on doing that. In case you are curious, here is what happened:
+If you forgot to run `janitor.py` the last time you ran the service, you may see the error message 'Framework has been removed'. See [Uninstall](/services/nifi/0.5.0-1.9.2/uninstall) for steps on doing that. In case you are curious, here is what happened:
 
 1. You ran `dcos package nifi --app-id nifi`. This destroyed the Scheduler and its associated tasks, but did not clean up its reserved resources.
-2. Later on, you tried to reinstall the service. The scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by `janitor.py`. The scheduler tried to re-register using that framework ID.
+2. Later on, you tried to reinstall the service. The Scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by `janitor.py`. The Scheduler tried to re-register using that framework ID.
 3. Mesos returned an error because it knows that framework ID is no longer valid. Hence the confusing ‘Framework has been removed’ error.
 
 # Stuck deployments
@@ -195,4 +195,4 @@ Now the step is again marked as PENDING, as the Scheduler again attempts to rede
   ```
 This example shows how steps in the Deployment Plan (or any other Plan) can be manually retriggered or forced to a completed state by querying the Scheduler. This does not come up often, but it can be a useful tool in certain situations.
 
-**Note:** The `dcos plan` commands will also accept UUID id values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where you view the plan, then it changes structure, then you change a plan step that is not the same one you were expecting (but which had the same name).
+**Note:** The `dcos plan` commands will also accept UUID id values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where you view the plan, then it changes structure, then you change a plan step that is not the same one you were expecting (but which had the same name).</p>

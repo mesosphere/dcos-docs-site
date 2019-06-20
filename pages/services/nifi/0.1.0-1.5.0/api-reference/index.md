@@ -16,7 +16,7 @@ The DC/OS Apache NiFi Service implements a REST API that may be accessed from ou
 # REST API Authentication
 REST API requests must be authenticated. This authentication only applies to interacting with the DC/OS  NiFi Service REST API directly. You do not need the authentication token to access the Apache NiFi nodes themselves.
 
-If you are using Enterprise DC/OS, follow these instructions to [create a service account](../security/serviceaccountdetail.md) and an [authentication token](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires.
+If you are using DC/OS Enterprise, follow these instructions to [create a service account](../security/serviceaccountdetail.md) and an [authentication token](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires.
 
 Once you have the authentication token, you can store it in an environment variable and reference it in your REST API calls:
 
@@ -26,7 +26,7 @@ export auth_token=uSeR_t0k3n
 
 The `curl` examples in this document assume that an auth token has been stored in an environment variable named `auth_token`.
 
-If you are using Enterprise DC/OS, the security mode of your installation may also require the `--ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in Curl requests](https://docs.mesosphere.com/1.10/security/ent/tls-ssl/ca-trust-curl/) for information on how to use the `--cacert` flag. [If your security mode is `disabled`](https://docs.mesosphere.com/1.10/security/ent/secrets/seal-store/), do not use the `--ca-cert` flag.
+If you are using DC/OS Enterprise, the security mode of your installation may also require the `--ca-cert` flag when making REST calls. Refer to [Obtaining and passing the DC/OS certificate in Curl requests](https://docs.mesosphere.com/1.10/security/ent/tls-ssl/ca-trust-curl/) for information on how to use the `--cacert` flag. [If your security mode is `disabled`](https://docs.mesosphere.com/1.10/security/ent/secrets/seal-store/), do not use the `--ca-cert` flag.
 
 # Plan API
 The Plan API provides endpoints for monitoring and controlling service installation and configuration updates.
@@ -131,7 +131,7 @@ curl  -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/pod/<node-
 
 You will see a response similar to the following:
 
-<!-- TODO: using node-0 here, but ensure that the node name matches a Apache Nifi service node type -->
+<!-- TODO: using node-0 here, but ensure that the node name matches a Apache NiFi service node type -->
 
 CLI Example
 
@@ -345,7 +345,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/nifi/v1/nodes/remov
 
 ## Control NiFi node using GET endpoint
 
-All Nifi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the GET method are accessible using the following DC/OS CLI and HTTP commands.
+All NiFi [endpoints](https://nifi.apache.org/docs/nifi-docs/rest-api/index.html) using the GET method are accessible using the following DC/OS CLI and HTTP commands.
 
 CLI Example
 ```shell
