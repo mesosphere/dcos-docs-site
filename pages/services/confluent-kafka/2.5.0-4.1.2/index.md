@@ -7,7 +7,7 @@ menuWeight: 2
 model: /services/confluent-kafka/data.yml
 render: mustache
 featureMaturity:
-enterprise: false
+enterprise: true
 ---
 
 
