@@ -12,7 +12,7 @@ enterprise: false
 
 You can create scheduled jobs in DC/OS without installing a separate service. Create and administer jobs in the DC/OS UI, the DC/OS CLI, or via an API.
 
-<p class="message--note"><strong>NOTE: </strong>The Jobs functionality of DC/OS is provided by the <a href="https://github.com/dcos/metronome">DC/OS Jobs (Metronome)</a> component, an open source Mesos framework that comes pre-installed with DC/OS. You may sometimes see the Jobs functionality referred to as "Metronome" in the logs, and the service endpoint is <code>service/metronome</code>.</p>
+<p class="message--note"><strong>NOTE: </strong>Job scheduling in DC/OS is provided by the <a href="https://github.com/dcos/metronome">DC/OS Jobs (Metronome)</a> component, an open source Mesos framework that comes pre-installed with DC/OS. You may sometimes see the Jobs functionality referred to as "Metronome" in the logs, and the service endpoint is <code>service/metronome</code>.</p>
 
 ## Functionality
 

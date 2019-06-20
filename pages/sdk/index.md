@@ -3,9 +3,7 @@ layout: layout.pug
 # navigationTitle:  SDK Docs
 title: SDK Docs
 # menus: ['header']
-menuWeight: 6
+menuWeight: -1
 excerpt:
 enterprise: false
-render: mustache
-model: /data.yml
 ---

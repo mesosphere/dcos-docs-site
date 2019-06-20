@@ -36,7 +36,7 @@ From the DC/OS UI you can install services from the **Services** or **{{ model.p
 
     ![{{ model.packageRepo }}](/1.13/img/GUI-Catalog-Main_View-1_12.png)
 
-    Figure 1. {{ model.packageRepo }} catalog
+    Figure 1. {{ model.packageRepo }} 
 
 2.  Click a package.
     1. Click **REVIEW & RUN**.

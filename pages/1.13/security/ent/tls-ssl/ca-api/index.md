@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Using the Certificate Authority API
 title: Using the Certificate Authority API
 menuWeight: 500
-excerpt: Viewing, creating and signing certificates
+excerpt: Viewing, creating, and signing certificates
 enterprise: true
 render: mustache
 model: /data.yml
@@ -93,7 +93,7 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## Refreshing the authentication token
 
-Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/1.13/security/ent/service-auth/custom-service-auth/) for more information.
+Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. See [Provisioning custom services](/1.13/security/ent/service-auth/custom-service-auth/) for more information.
 
 # API reference
 

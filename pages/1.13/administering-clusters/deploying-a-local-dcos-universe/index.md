@@ -268,7 +268,7 @@ To deploy a local {{ model.packageRepo }} containing your own set of packages yo
 1.  Build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz`
 file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE`
 variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified {{ model.packageRepo }} packages are
-included. To view which packages are Certified, click the **{{ model.packageRepo }}** tab in the DC/OS web
+included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web
 interface.
 
     ```bash
