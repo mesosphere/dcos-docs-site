@@ -4,7 +4,6 @@ navigationTitle: 组件管理
 title: 组件管理
 menuWeight: 5
 excerpt: 安装和管理 DC/OS 组件服务
-
 enterprise: false
 ---
 

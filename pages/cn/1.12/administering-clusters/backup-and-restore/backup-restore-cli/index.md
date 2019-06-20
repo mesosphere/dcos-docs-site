@@ -4,7 +4,6 @@ navigationTitle: 备份和恢复 CLI
 title: 备份和恢复 CLI
 menuWeight: 0
 excerpt: 使用 CLI 备份和恢复群集
-
 enterprise: true
 ---
 

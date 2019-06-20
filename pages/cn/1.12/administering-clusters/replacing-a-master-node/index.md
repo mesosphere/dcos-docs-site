@@ -4,11 +4,9 @@ navigationTitle: 替换管理节点
 title: 替换管理节点
 menuWeight: 800
 excerpt: 替换现有 DC/OS 群集中的管理节点
-
 enterprise: true
 ---
 
-<!-- This source repo for this topic is https://github.com/mesosphere/dcos-docs-site -->
 
 
 您可以替换现有 DC/OS 群集中的管理节点。一次只能替换一个管理节点。

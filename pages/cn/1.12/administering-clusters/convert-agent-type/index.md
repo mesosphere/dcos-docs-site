@@ -7,9 +7,6 @@ excerpt: 将代理节点转换为公共或私有代理节点。
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
-
-
 您可以将代理节点转换为现有 DC/OS 群集的公共或私用节点。
 
 在安装过程中，代理节点被指定为 [公共](/cn/1.12/overview/concepts/#public-agent-node) 或 [私用](/cn/1.12/overview/concepts/#private-agent-node)节点。默认情况下，它们在 [GUI][1] 或 [CLI][2] 安装中被指定为私用节点。
