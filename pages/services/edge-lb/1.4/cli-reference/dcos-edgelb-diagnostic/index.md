@@ -13,16 +13,16 @@ The `dcos edgelb diagnostic` command collects diagnostic information for Edge-LB
 # Usage
 
 ```bash
-dcos edgelb diagnostic [flags]
+dcos edgelb diagnostic [<flags>]
 ```
 
 # Options
 
 | Name, shorthand | Description |
 |---------|-------------|
-| `--bundles-dir | Specify the folder under which the diagnostic bundle will be located. By default, the current directory is used. |
+| `--bundles-dir=BUNDLES-DIR` | Specify the folder under which the diagnostic bundle will be located. You can specify the directory using an absolute or relative path. By default, the current directory is used. |
 | `--help, h`   | Display usage information. |
-| `--pool-names` | List pools, separated by commas (,), for which diagnostics data should be collected. For example, pool_name1,pool_name2. By default, all pools will be included. |
+| `--pool-names=POOL-NAMES` | List pools, separated by commas (,), for which diagnostics data should be collected. For example, pool_name1,pool_name2. By default, all pools will be included. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 
 # Parent command
@@ -32,12 +32,24 @@ dcos edgelb diagnostic [flags]
 | [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
+To collect diagnostic bundles for all Edge-LB pools, run the following command:
+
+```bash
+dcos edgelb diagnostic
+```
+
 To collect diagnostic bundles for specific Edge-LB pools, include the pool names in a command similar to the following:
 
 ```bash
 dcos edgelb diagnostic --pool-names=sf-edgelb, roma-edge-lb, hk-edgelb
 ```
 
-This command generates diagnostic bundle with the logs files from the sf-edgelb, roma-edgelb, and hk-edgelb pools.
+This command generates diagnostic bundle with the logs files from the `sf-edgelb`, `roma-edgelb`, and `hk-edgelb` pools.
 
-For more information about using command-line programs, see [Edge-LB Usage](../../usage/).
+To collect diagnostic bundles for a specific Edge-LB pool and place the file in a specific directory instead of the current working directory, run a command similar to the following:
+
+```bash
+dcos edgelb diagnostic --pool-names=sf-edgelb --bundles-dir=/usr/share/mydiag
+```
+
+This command generates a diagnostic bundle for the `sf-edgelb` pool and places the resulting file in the `/usr/share/mydiag` directory on the local computer.
