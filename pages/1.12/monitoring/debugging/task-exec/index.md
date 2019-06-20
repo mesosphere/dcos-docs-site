@@ -167,7 +167,7 @@ In this example, a long running [job](/1.12/deploying-jobs/) is launched by usin
             "cpus": 0.01,
             "disk": 0,
             "env": {},
-            "maxLaunchDelay": 3600,
+            "maxLaunchDelaySeconds": 3600,
             "mem": 32,
             "placement": {
               "constraints": []

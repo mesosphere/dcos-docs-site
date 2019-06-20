@@ -154,7 +154,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
         ],
         "backoffSeconds": 1,
         "backoffFactor": 1.15,
-        "maxLaunchDelaySeconds": 3600,
+        "maxLaunchDelaySeconds": 300,
         "container": {
           "type": "DOCKER",
           "docker": {

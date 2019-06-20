@@ -3,18 +3,18 @@ layout: layout.pug
 navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 20
-excerpt: Installing DC/OS Apache NiFi from the web interface or the CLI
+excerpt: Installing DC/OS Apache NiFi from the UI or the CLI
 featureMaturity:
 enterprise: false
 ---
 
- DC/OS Apache NiFi service is available in the Universe and can be installed using either the web interface or the DC/OS CLI.
+ DC/OS Apache NiFi service is available in the Universe and can be installed using either the UI or the DC/OS CLI.
 
 The default DC/OS Apache NiFi Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
 ## Prerequisites
 
-- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
+- If you are using DC/OS Enterprise, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
   - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
 
  - In `permissive` security mode a service account is optional.
@@ -25,13 +25,13 @@ A complete guide to Configuring DC/OS Access for NiFi can be found [here](../sec
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of DC/OS Apache NiFi Service, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions.
+To start a basic test cluster of DC/OS Apache NiFi Service, run the following command on the DC/OS CLI. DC/OS Enterprise users must follow additional instructions.
 
    ```shell
    dcos package install nifi
    ```
 
-This command creates a new instance with the default name `nifi`. Two instances cannot share the same name, so if you install additional instances beyond the default instance you must customize the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, wherein we can install the same application in different folders.
+This command creates a new instance with the default name `nifi`. Two instances cannot share the same name, so if you install additional instances beyond the default instance you must customize the name at install time for each additional instance. However, the application can be installed using the same name in case of foldered installation, wherein application can have same but in different folders, eg., folder1/nifi and folder2/nifi
 
 All DC/OS Apache NiFi Service CLI commands have a `--name`  argument, allowing you to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, such as `nifi`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
@@ -47,11 +47,11 @@ You can specify a custom configuration in an `options.json` file and pass it to 
 
 For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/) for service configuration access.
 
-## Installing from the DC/OS web interface
+## Installing from the DC/OS UI
 
-Alternatively, you can install DC/OS NiFi Service from the DC/OS web interface. Select the app from the Catalog and choose Deploy.
+Alternatively, you can install DC/OS NiFi Service from the DC/OS UI. Select the app from the Catalog and choose Deploy.
 
-If you install Apache NiFi from the DC/OS web interface, the `dcos nifi` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
+If you install Apache NiFi from the DC/OS UI, the `dcos nifi` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
    ```shell
    dcos package install nifi --cli
@@ -75,7 +75,7 @@ When the above JSON configuration is passed to the `package install nifi`  comma
    dcos package install nifi --options=nifi-other.json
    ```
 
-Multiple instances of Apache NiFi may be installed into your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Apache NiFi named `nifi-staging` and another named `nifi-prod`, each with its own custom  configuration.
+Multiple instances of Apache NiFi may be installed on your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Apache NiFi named `nifi-staging` and another named `nifi-prod`, each with its own custom  configuration.
 
 After specifying a custom name for your instance, it can be reached using `dcos nifi` CLI commands or directly over HTTP as described below.
 
@@ -121,7 +121,7 @@ You can make the same query over HTTP:
    ```shell
    curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/nifi-dev/v1/pod
    ```
-<p class="message--note"><strong>NOTE: </strong> You may add a <tt>-v</tt> (verbose) argument to any <tt>dcos nifi</tt> command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, <tt>dcos nifi</tt> commands are a thin wrapper around an HTTP interface provided by the DC/OS Apache NiFi Service itself.</p>
+<p class="message--note"><strong>NOTE: </strong> You may add a `-v` (verbose) argument to any `dcos nifi` command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, `dcos nifi` commands are a thin wrapper around an HTTP interface provided by the DC/OS Apache NiFi Service itself.</p>
 
 ## Virtual networks
 
@@ -192,11 +192,11 @@ The following command creates a cluster using `sample-nifi.json`:
    ```
 Store your custom configuration in source control.
 
-Alternatively, you can perform a custom installation from the DC/OS web interface. Choose `ADVANCED INSTALLATION` at install time.
+Alternatively, you can perform a custom installation from the DC/OS UI. Choose `ADVANCED INSTALLATION` at install time.
 
 ## Integration with DC/OS access controls
 
-In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to restrict users and groups to certain services. Do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services; for instance, `staging/nifi` and `production/nifi`.
+In DC/OS Enterprise 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to restrict users and groups to certain services. Do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services; for instance, `staging/nifi` and `production/nifi`.
 
 **Steps:**
 
@@ -216,7 +216,7 @@ In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service wit
 
   5. Click `CONFIGURE` and change the service name to `/testing/nifi`, then deploy. The slashes in your service name are interpreted as folders. You are deploying `nifi` in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.
 
-<p class="message--important"><strong>IMPORTANT: </strong>Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 and earlier versions do not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Services cannot be renamed. Because the location of the service is specified in the name, you cannot move services between folders. DC/OS 1.9 does not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p>
 
 ## Interacting with your foldered service
 

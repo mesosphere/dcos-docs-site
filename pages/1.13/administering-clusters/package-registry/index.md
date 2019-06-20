@@ -29,7 +29,7 @@ dcos package install package-registry --cli --yes
 dcos registry activate
 ```
 
-The `registry activate` command uses the default options, which are **NOT recommended** if you are installing in a production environment. Read through the rest of the sections to creation an options file, and then activate the package registry by executing:
+The `registry activate` command uses the default options, which are **NOT recommended** if you are installing in a production environment. Read through the rest of the sections to creation an options file, and then activate the package registry by executing the following command:
 
 ```bash
 dcos registry activate --options=<custom-options-file>

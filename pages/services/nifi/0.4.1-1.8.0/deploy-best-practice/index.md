@@ -12,15 +12,19 @@ render: mustache
 
 # Configuration Best Practices for Production
 
-- Increase the number of TCP socket ports available. This is particularly important if the flow will be setting up and tearing down a large number of sockets in small period of time.
+- Increase the number of TCP socket ports available. This is particularly important if the flow will be setting up and tearing down a large number of sockets in a short time.
 
-           sudo sysctl -w net.ipv4.ip_local_port_range="10000 65000"
+```shell
+sudo sysctl -w net.ipv4.ip_local_port_range="10000 65000"
+```
 
 - Tell Linux you never want DC/OS {{model.techName }} to swap. Swapping is fantastic for some applications. It is not good for something like DC/OS {{model.techName }} that always wants to be running.
 
 To set swapping off you can edit `/etc/sysctl.conf` to add the following line
 
-           vm.swappiness = 0
+```shell
+vm.swappiness = 0
+```
 
 For the partitions handling the various DC/OS {{model.techName }} repos turn off things like `atime`. Doing so can cause a surprising bump in throughput. Edit the `/etc/fstab` file and for the partition(s) of interest add the `noatime` option.
 

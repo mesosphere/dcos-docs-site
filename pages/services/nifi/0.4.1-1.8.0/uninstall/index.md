@@ -24,30 +24,30 @@ dcos package uninstall --app-id={{ model.packageName }}-dev {{ model.packageName
 ## Uninstall Flow
 <p class="message--warning"><strong>WARNING: </strong>Any data stored in reserved disk resources will be irretrievably lost.</p>
 
-The scheduler is relaunched in Marathon with the environment variable SDK_UNINSTALL set to “true”. This puts the Scheduler in an uninstall mode.
+The Scheduler is relaunched in Marathon with the environment variable SDK_UNINSTALL set to “true”. This puts the Scheduler in an uninstall mode.
 
-The scheduler performs the uninstall with the following actions:
+The Scheduler performs the uninstall with the following actions:
 
 1. All running tasks for the service are terminated so that Mesos will reoffer their resources.
-1. As the task resources are offered by Mesos, they are unreserved by the scheduler.
-1. Once all known resources have been unreserved, the scheduler’s persistent state in ZooKeeper is deleted.
+1. As the task resources are offered by Mesos, they are unreserved by the Scheduler.
+1. Once all known resources have been unreserved, the Scheduler’s persistent state in ZooKeeper is deleted.
 
-The cluster automatically removes the scheduler task once it advertises the completion of the uninstall process.
+The cluster automatically removes the Scheduler task once it advertises the completion of the uninstall process.
 
 <p class="message--warning"><strong>WARNING: </strong>Once the uninstall operation has begun, it cannot be cancelled because it can leave the service in an uncertain, half-destroyed state.</p>
 
 ## Debugging an uninstall
 
-In the vast majority of cases, this uninstall process goes off without a hitch. However, in certain situations, there can be snags along the way. For example, perhaps a machine in the cluster has permanently gone away, and the service being uninstalled had some resources allocated on that machine. This can result in the uninstall becoming stuck, because Mesos will never offer those resources to the uninstalling scheduler. As such, the uninstalling scheduler will not be able to successfully unreserve the resources it had reserved on that machine.
+In the vast majority of cases, this uninstall process goes off without a hitch. However, in certain situations, there can be snags along the way. For example, perhaps a machine in the cluster has permanently gone away, and the service being uninstalled had some resources allocated on that machine. This can result in the uninstall becoming stuck, because Mesos will never offer those resources to the uninstalling Scheduler. As such, the uninstalling Scheduler will not be able to successfully unreserve the resources it had reserved on that machine.
 
 This situation is indicated by looking at the deploy plan while the uninstall is proceeding. The deploy plan may be viewed using either of the following methods:
 
 - CLI: 
-    ```
+    ```shell
     dcos {{ model.packageName }} --name={{ model.packageName }} plan show deploy (after running dcos package install --cli {{ model.packageName }} if needed)
     ```
 - HTTP:
-    ```
+    ```shell
     https://yourcluster.com/service/{{ model.packageName }}/v1/plans/deploy
     ```
 
@@ -74,18 +74,18 @@ deploy (serial strategy) (COMPLETE)
    ├─ {{ model.packageName }}-1:[node] (COMPLETE)
    └─ {{ model.packageName }}-1:[metrics] (COMPLETE)
 ```       
-As we can see above, some of the resources to unreserve are stuck in a PENDING state. We can force them into a COMPLETE state, and thereby allow the scheduler to finish the uninstall operation. This may be done using either of the following methods:
+As we can see above, some of the resources to unreserve are stuck in a PENDING state. We can force them into a COMPLETE state, and thereby allow the Scheduler to finish the uninstall operation. This may be done using either of the following methods:
 
 - CLI: 
-    ```
+    ```shell
     dcos {{ model.packageName }} --name={{ model.packageName }} plan show deploy
     ```
 - HTTP: 
-    ```
+    ```shell
     https://yourcluster.com/service/{{ model.packageName }}/v1/plans/deploy/forceComplete?phase=unreserve-resources&step=unreserve-<UUID>
     ```
 
-At this point the scheduler should show a COMPLETE state for these steps in the plan, allowing it to proceed normally with the uninstall operation:
+At this point the Scheduler should show a COMPLETE state for these steps in the plan, allowing it to proceed normally with the uninstall operation:
 
 ```shell
 dcos {{ model.packageName }} --name={{ model.packageName }} plan show deploy
@@ -145,7 +145,7 @@ deploy (serial strategy) (COMPLETE)
 
 If all else fails, you can manually perform the uninstall yourself. To do this, perform the following steps:
 
-1. Delete the uninstalling scheduler from Marathon.
+1. Delete the uninstalling Scheduler from Marathon.
 1. Unregister the service from Mesos using its UUID as follows:
 
 ```shell

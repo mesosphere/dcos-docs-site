@@ -100,7 +100,7 @@ dcos marathon app show spark
     "DCOS_SERVICE_SCHEME": "http",
     "SPARK_URI": ""
   },
-  "maxLaunchDelaySeconds": 3600,
+  "maxLaunchDelaySeconds": 300,
   "mem": 1024,
   "networks": [
     {

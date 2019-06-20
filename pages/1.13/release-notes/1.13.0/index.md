@@ -492,7 +492,7 @@ The following example illustrates the changes required when you have job definit
     "artifacts": [
 
     ],
-    "maxLaunchDelay": 3600,
+    "maxLaunchDelaySeconds": 300,
     "volumes": [
 
     ],
@@ -553,7 +553,7 @@ To add this job definition to the JSON editor, you would modify the existing JSO
         ]
       },
       "artifacts": [ ],
-      "maxLaunchDelay": 3600,
+      "maxLaunchDelaySeconds": 300,
       "volumes": [ ],
       "restart": { "policy": "NEVER" },
       "secrets": { }

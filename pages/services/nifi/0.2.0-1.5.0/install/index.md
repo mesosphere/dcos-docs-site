@@ -3,27 +3,27 @@ layout: layout.pug
 navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 20
-excerpt: Installing DC/OS NiFi from the web interface or the CLI
+excerpt: Installing DC/OS NiFi from the UI or the CLI
 featureMaturity:
 enterprise: false
 ---
 
- DCOS Nifi is available in the Universe and can be installed by using either the web interface or the DC/OS CLI.
+ DCOS NiFi is available in the Universe and can be installed by using either the UI or the DC/OS CLI.
 
 The default DC/OS NiFi Service installation provides reasonable defaults for trying out the service, but that may not be sufficient for production use. You may require different configurations depending on the context of the deployment.
 
 ## Prerequisites
 
-- If you are using Enterprise DC/OS, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
+- If you are using DC/OS Enterprise, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
 - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
-    A complete guide to Configuring DC/OS Access for Nifi can be found [here](https://docs.mesosphere.com/services/nifi/configure-dcos-access/).
+    A complete guide to Configuring DC/OS Access for NiFi can be found [here](https://docs.mesosphere.com/services/nifi/configure-dcos-access/).
 - In `permissive` security mode a service account is optional.
 - `disabled` security mode does not require a service account.
 - Your cluster must have at least 3 private nodes.
 
 # Installing from the DC/OS CLI
 
-To start a basic test cluster of NiFi, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions.
+To start a basic test cluster of NiFi, run the following command on the DC/OS CLI. DC/OS Enterprise users must follow additional instructions.
 
    ```shell
    dcos package install nifi
@@ -47,9 +47,9 @@ For more information on building the `options.json` file, see [DC/OS documentati
 
 ## Installing from the DC/OS Web Interface
 
-<p class="message--note"><strong>NOTE: </strong>Alternatively, you can install Nifi from the DC/OS web interface by clicking on <strong>Deploy</strong> after selecting the app from the Catalog.</p>
+<p class="message--note"><strong>NOTE: </strong>Alternatively, you can install NiFi from the DC/OS UI by clicking on <strong>Deploy</strong> after selecting the app from the Catalog.</p>
 
-If you install Apache Nifi from the DC/OS web interface, the `dcos nifi` CLI commands are not automatically installed to your workstation. You can install them manually using the DC/OS CLI:
+If you install Apache NiFi from the DC/OS UI, the `dcos nifi` CLI commands are not automatically installed to your workstation. You can install them manually using the DC/OS CLI:
 
 
    ```shell
@@ -58,7 +58,7 @@ If you install Apache Nifi from the DC/OS web interface, the `dcos nifi` CLI com
 
 ## Installing multiple instances
 
-By default, the Apache Nifi service is installed with a service name of `nifi`. You may specify a different name using a custom service configuration as follows:
+By default, the Apache NiFi service is installed with a service name of `nifi`. You may specify a different name using a custom service configuration as follows:
 
    ```shell
    {
@@ -74,7 +74,7 @@ When the above JSON configuration is passed to the `package install nifi` comman
    dcos package install nifi --options=nifi-other.json
    ```
 
-Multiple instances of Apache Nifi may be installed into your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Apache Nifi named `nifi-staging` and another named `nifi-prod`, each with its own custom  configuration.
+Multiple instances of Apache NiFi may be installed on your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of Apache NiFi named `nifi-staging` and another named `nifi-prod`, each with its own custom  configuration.
 
 After specifying a custom name for your instance, it can be reached using the `dcos nifi` CLI commands or directly over HTTP as described below.
 
@@ -93,7 +93,7 @@ In DC/OS 1.10 and later, services may be installed into folders by specifying a 
    ```
 The above example will install the service under a path of `foldered => path => to => nifi`. It can then be reached using `dcos nifi` CLI commands or directly over HTTP as described below.
 
-<p class="message--note"><strong>NOTE: </strong><br>1) The service folder location cannot be changed after initial install. Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.<br>2) cn dn node identity parameter specify initial node identity for TLS which will used inside authorizers.xml file for CN value. </p>
+<p class="message--note"><strong>NOTE: </strong><br>1) The service folder location cannot be changed after initial install. Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.<br>2) `cn dn node identity` parameter specify `initial node identity` for TLS which will be used inside authorizers.xml file for CN value. </p>
 
 ## Addressing named instances
 
@@ -120,11 +120,11 @@ Similarly, it could be queried directly over HTTP as follows:
    ```shell
    curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/nifi-dev/v1/pod
    ```
-<p class="message--note"><strong>NOTE: </strong> You may add a <tt>-v</tt> (verbose) argument to any <tt>dcos nifi</tt> command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, <tt>dcos nifi</tt> commands are a thin wrapper around an HTTP interface provided by the DC/OS Apache Nifi Service itself.</p>
+<p class="message--note"><strong>NOTE: </strong> You may add a `-v` (verbose) argument to any `dcos nifi` command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, `dcos nifi` commands are a thin wrapper around an HTTP interface provided by the DC/OS Apache NiFi Service itself.</p>
 
 ## Virtual Networks
 
-DC/OS Apache Nifi supports deployment on virtual networks on DC/OS, allowing each container (task) to have its own IP address and not use port resources on the agent machines. This can be specified by passing the following configuration during installation:
+DC/OS Apache NiFi supports deployment on virtual networks on DC/OS, allowing each container (task) to have its own IP address and not use port resources on the agent machines. This can be specified by passing the following configuration during installation:
 
    ```shell
    {
@@ -138,7 +138,7 @@ DC/OS Apache Nifi supports deployment on virtual networks on DC/OS, allowing eac
 
 ## Minimal Installation
 
-For development purposes, you may wish to install Apache Nifi on a local DC/OS cluster. For this, you can use `dcos-docker` or `dcos-vagrant`.
+For development purposes, you may wish to install Apache NiFi on a local DC/OS cluster. For this, you can use `dcos-docker` or `dcos-vagrant`.
 To start a minimal cluster with a single node, create a JSON options file named `sample-nifi-minimal.json`:
 
    ```shell
@@ -191,11 +191,11 @@ The command below creates a cluster using sample-nifi.json:
    ```
 Store your custom configuration in source control.
 
-Alternatively, you can perform a custom installation from the DC/OS web interface. Choose ADVANCED INSTALLATION at install time.
+Alternatively, you can perform a custom installation from the DC/OS UI. Choose ADVANCED INSTALLATION at install time.
 
 ## Integration with DC/OS access controls
 
-In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access only to certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services; for instance, `staging/nifi` and `production/nifi`.
+In DC/OS Enterprise 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access only to certain services. You do this by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services; for instance, `staging/nifi` and `production/nifi`.
 
 Steps:
 

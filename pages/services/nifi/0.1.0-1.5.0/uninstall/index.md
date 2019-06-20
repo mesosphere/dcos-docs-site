@@ -24,22 +24,22 @@ dcos package uninstall --app-id=nifi-dev nifi
 
 Uninstalling the service consists of the following steps:
 
-The scheduler is relaunched in Marathon with the environment variable `SDK_UNINSTALL` set to “true”. This puts the Scheduler in an uninstall mode.
+The Scheduler is relaunched in Marathon with the environment variable `SDK_UNINSTALL` set to “true”. This puts the Scheduler in an uninstall mode.
 
-The scheduler performs the uninstall with the following actions:
+The Scheduler performs the uninstall with the following actions:
 
   1. All running tasks for the service are terminated so that Mesos will re-offer their resources.
-  2. As the task resources are offered by Mesos, they are unreserved by the scheduler.
+  2. As the task resources are offered by Mesos, they are unreserved by the Scheduler.
 **Warning:** Any data stored in reserved disk resources will be irretrievably lost.
-  3. Once all known resources have been unreserved, the scheduler’s persistent state in ZooKeeper is deleted.
+  3. Once all known resources have been unreserved, the Scheduler’s persistent state in ZooKeeper is deleted.
 
-The cluster automatically removes the scheduler task once it advertises the completion of the uninstall process.
+The cluster automatically removes the Scheduler task once it advertises the completion of the uninstall process.
 
 **Warning**  Once the uninstall operation has begun, it cannot be cancelled because it may leave the service in an uncertain, half-destroyed state.
 
 ### Debugging an uninstall
 
-In the vast majority of cases, this uninstall process goes off without a hitch. However, in certain situations, there can be snags along the way. For example, perhaps a machine in the cluster has permanently gone away, and the service being uninstalled had some resources allocated on that machine. This can result in the uninstall becoming stuck, because Mesos will never offer those resources to the uninstalling scheduler. In that case, the uninstalling scheduler will not be able to successfully unreserve the resources it had reserved on that machine.
+In the vast majority of cases, this uninstall process goes off without a hitch. However, in certain situations, there can be snags along the way. For example, perhaps a machine in the cluster has permanently gone away, and the service being uninstalled had some resources allocated on that machine. This can result in the uninstall becoming stuck, because Mesos will never offer those resources to the uninstalling Scheduler. In that case, the uninstalling Scheduler will not be able to successfully unreserve the resources it had reserved on that machine.
 
 This situation is indicated by looking at the Deploy Plan while the uninstall is proceeding. The Deploy Plan may be viewed using either of the following methods:
 
@@ -69,12 +69,12 @@ deploy (serial strategy) (COMPLETE)
    ├─ nifi-1:[node] (COMPLETE)
    └─ nifi-1:[metrics] (COMPLETE)
 ```       
-As you can see above, some of the resources to unreserve are stuck in a PENDING state. You can force them into a COMPLETE state, and thereby allow the scheduler to finish the uninstall operation. This may be done using either of the following methods:
+As you can see above, some of the resources to unreserve are stuck in a PENDING state. You can force them into a COMPLETE state, and thereby allow the Scheduler to finish the uninstall operation. This may be done using either of the following methods:
 
 1. CLI: dcos nifi --name=nifi plan show deploy
 2. HTTP: https://yourcluster.com/service/nifi/v1/plans/deploy/forceComplete?phase=unreserve-resources&step=unreserve-<UUID>
 
-At this point the scheduler should show a COMPLETE state for these steps in the plan, allowing it to proceed normally with the uninstall operation:
+At this point the Scheduler should show a COMPLETE state for these steps in the plan, allowing it to proceed normally with the uninstall operation:
 
 ```shell
 dcos nifi --name=nifi plan show deploy
@@ -134,7 +134,7 @@ deploy (serial strategy) (COMPLETE)
 
 If all else fails, you can manually perform the uninstall yourself. To do this, perform the following steps:
 
-1. Delete the uninstalling scheduler from Marathon.
+1. Delete the uninstalling Scheduler from Marathon.
 2. Unregister the service from Mesos using its UUID as follows:
 
 ```shell

@@ -44,7 +44,7 @@ The following job uses [Metronome Constraints](../metronome-constraints/) to spe
     "cpus": 0.05,
     "mem": 32,
     "docker": {"image": "alpine"},
-    "maxLaunchDelay": 3600,
+    "maxLaunchDelaySeconds": 3600,
     "placement": {
       "constraints": [
         {
