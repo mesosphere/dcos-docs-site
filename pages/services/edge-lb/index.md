@@ -4,7 +4,7 @@ navigationTitle:  Edge-LB
 title: Edge-LB
 menuWeight: 30
 excerpt: Edge-LB proxies and load balances traffic to all services that run on DC/OS.
-enterprise: false
+enterprise: true
 category: Networking
 ---
 
