@@ -45,7 +45,7 @@ dcos:adminrouter:service:edgelb:/pools/<pool-name>
 </code>
 
 # dcos edgelb cleanup
-Use this command to list and remove all Amazon Web Services (AWS) Elastic Load Balancer (FLB) instances that remain after Edge-LB has been uninstalled from a DC/OS cluster. This command also uninstalls the Edge-LB cloud controller load balancer framework, including the cloud controller listener and target group.
+Use this command to list and remove all Amazon Web Services (AWS) Elastic Load Balancer (ELB) instances that remain after Edge-LB has been uninstalled from a DC/OS cluster.
 
 ### Usage
 
@@ -70,7 +70,7 @@ dcos:adminrouter:service:edgelb full
 </code>
 
 ### Example
-After uninstalling Edge-LB packages, you can use the following command to remove remnants of the Elastic load balancing framework deployed on AWS instances:
+After uninstalling Edge-LB packages, you can use the following command to remove remnants of the Elastic load balancer deployed on AWS instances:
 
 `dcos edgelb cleanup`
 
@@ -145,6 +145,54 @@ To delete an existing pool and uninstall the deployed load balancers, the Edge-L
 To delete an existing Edge-LB pool named `aqua01` and uninstall the deployed load balancer instances for this pool:
 
 `dcos edgelb delete aqua01`
+
+# dcos edgelb diagnostic
+Use the `dcos edgelb diagnostic` command to collect diagnostic information for Edge-LB pools and package the diagnostics in a support bundle for troubleshooting and analysis.
+
+# Usage
+
+```bash
+dcos edgelb diagnostic [<flags>]
+```
+
+# Options
+
+| Name, shorthand | Description |
+|---------|-------------|
+| `--bundles-dir=BUNDLES-DIR` | Specify the folder under which the diagnostic bundle will be located. You can specify the directory using an absolute or relative path. By default, the current directory is used. |
+| `--help, h`   | Display usage information. |
+| `--pool-names=POOL-NAMES` | List pools, separated by commas (,), for which diagnostics data should be collected. For example, pool_name1,pool_name2. By default, all pools will be included. |
+| `--verbose`   | Enable additional logging of requests and responses. |
+
+# Permissions
+To create a diagnostic bundle for Edge-LB pools, the Edge-LB service account or user account must have the following permission for a specified pool:
+
+<code>
+dcos:adminrouter:service:edgelb:/v2/pools full
+</code>
+
+# Examples
+To collect diagnostic bundles for all Edge-LB pools, run the following command:
+
+```bash
+dcos edgelb diagnostic
+```
+
+To collect diagnostic bundles for specific Edge-LB pools, include the pool names in a command similar to the following:
+
+```bash
+dcos edgelb diagnostic --pool-names=sf-edgelb, roma-edge-lb, hk-edgelb
+```
+
+This command generates diagnostic bundle with the logs files from the `sf-edgelb`, `roma-edgelb`, and `hk-edgelb` pools.
+
+To collect diagnostic bundles for a specific Edge-LB pool and place the file in a specific directory instead of the current working directory, run a command similar to the following:
+
+```bash
+dcos edgelb diagnostic --pool-names=sf-edgelb --bundles-dir=/usr/share/mydiag
+```
+
+This command generates a diagnostic bundle for the `sf-edgelb` pool and places the resulting file in the `/usr/share/mydiag` directory on the local computer.
 
 # dcos edgelb endpoints
 Use this command to return a list of all endpoints for a pool. You can also use this command to find the internal IP address and ports for a pool.
