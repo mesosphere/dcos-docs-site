@@ -115,7 +115,7 @@ Sample response:
         "backoff": {
             "backoff": 1,
             "backoffFactor": 1.15,
-            "maxLaunchDelay": 300
+            "maxLaunchDelaySeconds": 300
         },
         "placement": {
             "acceptedResourceRoles": [],

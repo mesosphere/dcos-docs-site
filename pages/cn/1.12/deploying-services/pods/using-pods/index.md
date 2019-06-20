@@ -114,7 +114,7 @@ dcos marathon pod update <pod-id> < <new-pod-definition>
         "backoff": {
             "backoff": 1,
             "backoffFactor": 1.15,
-            "maxLaunchDelay": 3600
+            "maxLaunchDelaySeconds": 3600
         },
         "placement": {
             "acceptedResourceRoles": [],

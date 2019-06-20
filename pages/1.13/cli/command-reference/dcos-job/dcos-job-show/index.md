@@ -53,7 +53,7 @@ Here is the output:
     "cpus": 0.01,
     "disk": 0,
     "env": {},
-    "maxLaunchDelay": 300,
+    "maxLaunchDelaySeconds": 300,
     "mem": 32,
     "placement": {
       "constraints": []
