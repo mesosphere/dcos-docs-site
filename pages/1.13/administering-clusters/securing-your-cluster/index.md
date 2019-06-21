@@ -5,7 +5,7 @@ title: Securing a cluster
 excerpt: Understanding the security features in DC/OS
 menuWeight: 7
 render: mustache
-model: /data.yml
+model: ../../data.yml
 ---
 
 # General security concepts

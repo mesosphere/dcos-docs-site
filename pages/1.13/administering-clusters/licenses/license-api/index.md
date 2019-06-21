@@ -6,7 +6,7 @@ menuWeight: 3
 enterprise: true
 excerpt: Using the License API to manage your DC/OS license
 render: mustache
-model: /data.yml
+model: ../../../data.yml
 ---
 # Routes
 
@@ -55,7 +55,6 @@ The License API also requires authorization via the following permissions:
 All routes can also be reached by users with the `dcos:superuser` permission.
 
 To assign permissions to your account, see the [permissions reference](/1.13/security/ent/perms-reference/).
-
 
 # API reference
 
