@@ -6,7 +6,6 @@ menuWeight: 71
 excerpt:
 featureMaturity:
 enterprise: false
-category: Zookeeper
 ---
 
 Welcome to the documentation for the DC/OS Kafka ZooKeeper service. Choose a version to get started!

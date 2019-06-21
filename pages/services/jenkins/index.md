@@ -6,7 +6,6 @@ menuWeight: 60
 excerpt:
 featureMaturity:
 enterprise: false
-category: CI/CD
 ---
 
 Run your continuous integration, automated testing, and continuous delivery jobs at scale with Jenkins for DC/OS. Instead of the static partitions so typical of other Jenkins clusters, Jenkins for DC/OS  can create and destroy agents as demand increases and decreases. With multiple Jenkins masters sharing a single pool of compute resources, you can achieve much more efficient and resilient automations.
