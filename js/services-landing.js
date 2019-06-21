@@ -109,7 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     var customSelect, i, j, selElmnt, selBox, selDropdownDiv, optionsDiv;
-    var selBoxText, selBoxArrow;
     /* Look for any elements with the class "custom-select": */
     customSelect = document.getElementsByClassName("custom-select");
     for (i = 0; i < customSelect.length; i++) {
@@ -117,19 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
         /* For each element, create a new DIV that will act as the selected item: */
         selBox = document.createElement("DIV");
         selBox.setAttribute("class", "select-selected");
-
-        // selBox.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-        selBoxText = document.createElement("DIV");
-        selBoxText.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-
-        selBoxArrow = document.createElement("DIV");
-        selBoxArrow.setAttribute("width", "30px");
-        selBoxArrow.setAttribute("height", "30px");
-        selBoxArrow.setAttribute("class", "select-arrow");
-
-        selBox.appendChild(selBoxText);
-        selBox.appendChild(selBoxArrow);
-        console.log(selBox);
+        selBox.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        // const selVal = selElmnt.options[selElmnt.selectedIndex].value;
+        // selBox.setAttribute("class", selVal);
         customSelect[i].appendChild(selBox);
         /* For each element, create a new DIV that will contain the option list: */
         selDropdownDiv = document.createElement("DIV");
@@ -151,8 +140,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 for (i = 0; i < selEmt.length; i++) {
                     if (selEmt.options[i].innerHTML == this.innerHTML) {
                         selEmt.selectedIndex = i;
-                        selB.firstChild.innerHTML = this.innerHTML;
+                        selB.innerHTML = this.innerHTML;
                         selectedCategory = selElmnt.options[i].value;
+                        console.log(selectedCategory);
+                        // console.log("selEmt");
+                        // console.log(selEmt.value);
+                        // selB.setAttribute("value", selEmt.value);
                         y = this.parentNode.getElementsByClassName("same-as-selected");
                         for (k = 0; k < y.length; k++) {
                             /* this is why we can never toggle classes :/  */
