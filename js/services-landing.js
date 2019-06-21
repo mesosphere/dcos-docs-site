@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         selBox.appendChild(selBoxText);
         selBox.appendChild(selBoxArrow);
-        console.log(selBox);
+        //console.log(selBox);
         customSelect[i].appendChild(selBox);
         /* For each element, create a new DIV that will contain the option list: */
         selDropdownDiv = document.createElement("DIV");
