@@ -9,7 +9,7 @@ render: mustache
 model: ../../data.yml
 ---
 
-<p class="message--note"><strong>NOTE: </strong> If you are using DC/OS Enterprise, use <code>package-registry</code> for a seamless management of packages in air-gapped environments. Local {{ model.packageRepo }} support is deprecated.</p>
+<p class="message--note"><strong>NOTE: </strong> If you are using DC/OS Enterprise, use <tt>package-registry</tt> for seamless management of packages in air-gapped environments. Local {{ model.packageRepo }} support is deprecated.</p>
 
 You can install and run DC/OS services on a datacenter without Internet access by using a local [{{ model.packageRepo }}](https://github.com/mesosphere/universe). You can deploy a local {{ model.packageRepo }} that includes all Certified packages (basic), or a local {{ model.packageRepo }} that includes selected packages (advanced).
 
