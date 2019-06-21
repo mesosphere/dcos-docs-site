@@ -20,24 +20,20 @@
     ]
 
 mixin renderGridInputs()
-  div(class='grid-container')
-    div(class='grid-filters')
-      div(class='grid-filters__select-label-div')
-        label(class='grid-filters__select-label')!= 'Choose a Category'
-      div(class='grid-filters__controls-div')
-        div(class='custom-select')
-          select(class='grid-filters__category')
-            option(class='grid-filters__category__option' value='view-all')!= 'View All'
-            each category, _ in categories
-              - var categoryString = category.toLowerCase().split(' ').join('-')
-              option(class='grid-filters__category__option' value=categoryString)!= category
-        div(class='grid-filters__labels')
-          div(class='grid-filters__label')
-            input(class='grid-filters__enterprise' type="checkbox" name="enterprise" value="enterprise")
-            label!= 'Include Enterprise'
-          div(class='grid-filters__label')
-            input(class='grid-filters__beta' type="checkbox" name="beta" value="beta")
-            label!= 'Include Beta'
+  div(class='grid-filters')
+    div(class='custom-select')
+      select(class='grid-filters__category')
+        option(class='grid-filters__category__option' value='view-all')!= 'View All'
+        each category, _ in categories
+          - var categoryString = category.toLowerCase().split(' ').join('-')
+          option(class='grid-filters__category__option' value=categoryString)!= category
+    div(class='grid-filters__labels')
+      div(class='grid-filters__label')
+        input(class='grid-filters__enterprise' type="checkbox" name="enterprise" value="enterprise")
+        label!= 'Include Enterprise'
+      div(class='grid-filters__label')
+        input(class='grid-filters__beta' type="checkbox" name="beta" value="beta")
+        label!= 'Include Beta'
 
 mixin renderGridToc()
   div(class='grid-toc' data-categories=categories.join(','))
