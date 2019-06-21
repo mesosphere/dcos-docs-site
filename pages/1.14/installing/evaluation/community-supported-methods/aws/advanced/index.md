@@ -4,7 +4,7 @@ title: Running DC/OS on AWS EC2 Advanced
 navigationTitle: Advanced
 menuWeight: 10
 excerpt: Creating and extending DC/OS clusters with AWS CloudFormation templates
-model: /1.13/installing/data.yml
+model: /1.14/installing/data.yml
 render: mustache
 ---
 
