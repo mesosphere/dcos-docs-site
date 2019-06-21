@@ -20,12 +20,11 @@
 
 mixin renderGridInputs()
   div(class='grid-filters')
-    div(class='custom-select')
-      select(class='grid-filters__category')
-        option(class='grid-filters__category__option' value='view-all')!= 'View All'
-        each category, _ in categories
-          - var categoryString = category.split(' ').join('-')
-          option(class='grid-filters__category__option' value=categoryString)!= category
+    select(class='grid-filters__category')
+      option(class='grid-filters__category__option' value='view-all')!= 'View All'
+      each category, _ in categories
+        - var categoryString = category.split(' ').join('-')
+        option(class='grid-filters__category__option' value=categoryString)!= category
     div(class='grid-filters__labels')
       div(class='grid-filters__label')
         input(class='grid-filters__enterprise' type="checkbox" name="enterprise" value="enterprise")
