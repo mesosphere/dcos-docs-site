@@ -4,3 +4,5 @@ packageName: dcos
 serviceName: dcos
 techName: DC/OS
 packageRepo: Catalog
+version: '1.13'
+folder_version: '1.13'
