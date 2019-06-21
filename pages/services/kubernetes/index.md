@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Kubernetes
 title: Kubernetes
+menus: ['header']
 menuWeight: 0
 excerpt:
 featureMaturity:
