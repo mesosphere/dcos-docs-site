@@ -8,7 +8,6 @@ featureMaturity:
 enterprise: false
 render: mustache
 model: /services/minio/data.yml
-category: Storage
 ---
 
 Welcome to the documentation for DC/OS {{ model.techName }}.

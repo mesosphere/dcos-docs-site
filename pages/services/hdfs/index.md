@@ -6,7 +6,6 @@ menuWeight: 50
 excerpt:
 featureMaturity:
 enterprise: false
-category: Storage
 ---
 
 
