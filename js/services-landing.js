@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Categories selection
     const grid = document.querySelector('.grid-toc');
-    let selectedCategory = 'view-all';
+    let category = 'view-all';
 
     // function toggleCategory(e) {
     //     category = e.target.selectedOptions[0].value
@@ -25,11 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
     //     checkSectionsEmpty();
     // }
 
-    function updateCat(selectedCategory) {
+    function updateCat(cat) {
         const categorySections = grid.querySelectorAll('.grid-toc__service-category');
-        const categoryClass = `grid-toc__service-category__${selectedCategory}`
+        const categoryClass = `grid-toc__service-category__${cat}`
         Array.prototype.forEach.call(categorySections, el => {
-            if (el.classList.contains(categoryClass) || selectedCategory === 'view-all') {
+            if (el.classList.contains(categoryClass) || cat === 'view-all') {
                 el.classList.remove('hidden');
             } else {
                 el.classList.add('hidden');
@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const enterpriseCheckbox = gridFilters.querySelector('.grid-filters__enterprise');
     enterpriseCheckbox.checked = true;
     const betaCheckbox = gridFilters.querySelector('.grid-filters__beta');
-    betaCheckbox.checked = true;
     let showEnterprise = true;
     let showBeta = true;
 
@@ -52,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const categorySections = grid.querySelectorAll('.grid-toc__service-category');
         Array.prototype.forEach.call(categorySections, section => {
             let allHidden = true;
-            Array.prototype.forEach.call(section.querySelectorAll('.grid-toc__service-item'), el => {
+            Array.prototype.forEach.call(section.querySelectorAll('.grid-toc__item'), el => {
                 if (!el.classList.contains('hidden')) {
                     allHidden = false;
                 }
@@ -78,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateLabels() {
-        const services = grid.querySelectorAll('.grid-toc__service-item');
+        const services = grid.querySelectorAll('.grid-toc__item');
 
         Array.prototype.forEach.call(services, el => {
             const isBeta = el.classList.contains(`grid-toc__beta`);
@@ -117,8 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
         selBox = document.createElement("DIV");
         selBox.setAttribute("class", "select-selected");
         selBox.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-        // const selVal = selElmnt.options[selElmnt.selectedIndex].value;
-        // selBox.setAttribute("class", selVal);
         customSelect[i].appendChild(selBox);
         /* For each element, create a new DIV that will contain the option list: */
         selDropdownDiv = document.createElement("DIV");
@@ -128,9 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
             create a new DIV that will act as an option item: */
             optionsDiv = document.createElement("DIV");
             optionsDiv.innerHTML = selElmnt.options[j].innerHTML;
-            const optionVal = selElmnt.options[j].value;
-            // console.log(optionVal);
-            optionsDiv.setAttribute("value", optionVal);
             optionsDiv.addEventListener("click", function(e) {
                 /* When an item is clicked, update the original select box,
                 and the selected item: */
@@ -141,11 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (selEmt.options[i].innerHTML == this.innerHTML) {
                         selEmt.selectedIndex = i;
                         selB.innerHTML = this.innerHTML;
-                        selectedCategory = selElmnt.options[i].value;
-                        console.log(selectedCategory);
-                        // console.log("selEmt");
-                        // console.log(selEmt.value);
-                        // selB.setAttribute("value", selEmt.value);
                         y = this.parentNode.getElementsByClassName("same-as-selected");
                         for (k = 0; k < y.length; k++) {
                             /* this is why we can never toggle classes :/  */
@@ -156,8 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
                 selB.click();
-                // console.log(selB.value);
-                updateCat(selectedCategory);
+                updateCat(selB.innerHTML);
             });
             selDropdownDiv.appendChild(optionsDiv);
         }
@@ -205,6 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // updateCategory();
     updateLabels();
     categorySelection.selectedIndex = 0;
-    // enterpriseCheckbox.checked = true;
-    // betaCheckbox.checked = false;
+    enterpriseCheckbox.checked = true;
+    betaCheckbox.checked = false;
 });

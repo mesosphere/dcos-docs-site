@@ -24,7 +24,7 @@ mixin renderGridInputs()
       select(class='grid-filters__category')
         option(class='grid-filters__category__option' value='view-all')!= 'View All'
         each category, _ in categories
-          - var categoryString = category.toLowerCase().split(' ').join('-')
+          - var categoryString = category.split(' ').join('-')
           option(class='grid-filters__category__option' value=categoryString)!= category
     div(class='grid-filters__labels')
       div(class='grid-filters__label')
@@ -37,7 +37,7 @@ mixin renderGridInputs()
 mixin renderGridToc()
   div(class='grid-toc' data-categories=categories.join(','))
     each category, _ in categories
-      - var categoryString = category.toLowerCase().split(' ').join('-')
+      - var categoryString = category.split(' ').join('-')
       - var categoryClasses = `grid-toc__service-category grid-toc__service-category__${categoryString}`
       div(class=categoryClasses)
         h1(class='grid-toc__category-header')!= category
@@ -48,7 +48,7 @@ mixin renderGridToc()
         each service, _ in categoryServices
           - latestPath = service.path + '/latest/'
           - var categoryString = category.split(' ').join('-')
-          - var serviceItemClasses = `grid-toc__service-item`
+          - var serviceItemClasses = `grid-toc__item`
           if service.beta
             - serviceItemClasses += ' grid-toc__beta'
           if service.enterprise
@@ -62,11 +62,11 @@ mixin renderGridToc()
                 li(class='grid-toc__label grid-toc__label__beta')!= 'Beta'
               if service.enterprise
                 li(class='grid-toc__label grid-toc__label__enterprise')!= 'Enterprise'
-            p(class='grid-toc__service-desc')!= service.excerpt || 'MISSING'
-            ul(class='grid-toc__service-list')
-              li(class='grid-toc__service-list-item')
+            p(class='grid-toc__desc')!= service.excerpt || 'MISSING'
+            ul(class='grid-toc__list')
+              li(class='grid-toc__list-item')
                 a(href=latestPath + 'release-notes/', class='grid-toc__link')!= 'Release Notes'
-              li(class='grid-toc__service-list-item')
+              li(class='grid-toc__list-item')
                 a(href=latestPath + 'getting-started/', class='grid-toc__link')!= 'Getting Started'
 
 doctype html
