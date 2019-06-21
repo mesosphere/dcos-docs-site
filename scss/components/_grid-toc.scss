@@ -10,7 +10,7 @@
         margin: 4px 0px;
         color: $color-meso-dark-grey;
         label {
-            font-size: 14px;
+            font-size: 16px;
             margin-left: 8px;
             margin-bottom: 0px !important;
             font-weight: 400 !important;
@@ -42,7 +42,7 @@
         position: relative;
         // font-family: Arial;
         margin-right: 36px;
-        font-size: 22px;
+        font-size: 28px;
     }
     .custom-select select {
         display: none;
@@ -96,7 +96,7 @@
     .select-items div,
     .select-selected {
         color: $color-light-grey-d5;
-        padding: 6px 16px;
+        padding: 8px 16px;
         border: 1px solid transparent;
         border-color: transparent rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
         border-radius: 2px;
@@ -134,9 +134,6 @@
         margin-top: 20px;
         color: $color-light-grey-d5;
     }
-    h1 {
-        font-size: 22px;
-    }
     &__service-category {
         width: 100%;
     }
@@ -144,7 +141,6 @@
         margin-bottom: 15px;
         border-bottom: 1px solid $color-light-grey-l2;
         border-radius: 2px;
-        margin-left: 15px;
     }
     &__title-group {
         display: flex;
@@ -157,9 +153,6 @@
     &__labels {
         flex-direction: row;
         margin: 0px;
-        p {
-            margin-left: 14px;
-        }
     }
     &__service-desc {
         color: $color-light-grey-d4;
