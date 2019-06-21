@@ -5,7 +5,7 @@ title: DSE 2.0.0-5.1.2
 menuWeight: -1
 excerpt:
 featureMaturity:
-enterprise: true
+enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dse-private -->
