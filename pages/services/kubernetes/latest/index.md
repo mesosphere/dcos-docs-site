@@ -2,11 +2,9 @@
 layout: layout.pug
 navigationTitle: Kubernetes
 title: Kubernetes
-menuWeight: 0
-excerpt:
-featureMaturity:
+menus: ['header']
+menuWeight: -1
 enterprise: false
-category: Kubernetes
 ---
 
 Welcome to the documentation for Kubernetes.
