@@ -1,64 +1,232 @@
+.grid-container {
+    display: flex;
+    justify-content: center;
+}
+
+.grid-filters {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    &__select-label-div {
+        display: flex;
+    }
+    &__select-label {
+        font-size: 16px;
+    }
+    &__controls-div {
+        display: flex;
+        align-items: center;
+    }
+    &__labels:first-child {
+        margin-bottom: 3px;
+    }
+    &__label {
+        display: flex;
+        align-items: center;
+        margin: 4px 0px;
+        color: $color-meso-dark-grey;
+        label {
+            font-size: 14px;
+            margin-left: 8px;
+            margin-bottom: 0px !important;
+            font-weight: 400 !important;
+        }
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            height: 1em;
+            width: 1em;
+            background-color: white;
+            display: flex;
+            padding-left: 2px;
+            border: 1px solid $color-meso-dark-grey;
+            border-radius: 2px;
+        }
+        input[type="checkbox"]:checked {
+            background-color: $color-purple-base;
+        }
+        input[type="checkbox"]:checked:after {
+            color: white;
+            content: '✓';
+            font-weight: 900;
+            margin-top: -3px;
+        }
+        input[type="checkbox"]:focus {
+            outline: none;
+        }
+    }
+    .custom-select {
+        position: relative;
+        // font-family: Arial;
+        margin-right: 36px;
+        font-size: 22px;
+    }
+    .custom-select select {
+        display: none;
+        /*hide original SELECT element:*/
+    }
+    .select-selected {
+        background-color: $color-purple-lightest;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .select-arrow {
+        display: block;
+        border: 12px solid $color-purple-base;
+        border-color: $color-purple-base transparent transparent transparent;
+        transition: transform .25s ease;
+        margin-bottom: -15px;
+    }
+    .select-arrow-active .select-arrow {
+        transform: translate(0px, -6px) rotate(90deg);
+        transition: transform .25s ease;
+    }
+    /*style the items (options), including the selected item:*/
+    .select-items div,
+    .select-selected {
+        color: $color-light-grey-d5;
+        padding: 6px 12px;
+        border: 1px solid transparent;
+        border-color: transparent rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        cursor: pointer;
+        user-select: none;
+    }
+    /*style items (options):*/
+    .select-items {
+        position: absolute;
+        background-color: white;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+    /*hide the items when the select box is closed:*/
+    .select-hide {
+        display: none;
+    }
+    .select-items div:hover {
+        background-color: $color-meso-light-grey;
+    }
+    .select-items .same-as-selected {
+        background-color: $color-purple-lightest;
+    }
+}
+
 .grid-toc {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  &__item {
-    margin-bottom: 2rem;
-    &:last-child {
-      margin-bottom: 0;
+    .hidden {
+        display: none;
     }
-  }
-  &__title {
-    line-height: 1.25;
-    margin: 0;
-    padding: 0;
-    color: $color-purple-d3;
-    a {
-      text-decoration: none;
+    .empty {
+        display: none;
     }
-  }
-  &__desc {
-    margin-top: 1rem;
-    color: $color-grey;
-  }
-  &__list {
-    margin: 1rem 0 0;
-    padding: 0;
-    list-style-type: none;
-    &-item {
-      margin-top: 0.5rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    &__category-header {
+        margin-top: 20px;
+        color: $color-light-grey-d5;
     }
-  }
-  &__link {
-    display: inline-flex;
-    color: $color-purple-d3;
-    line-height: 1.25em;
-    text-decoration: none;
-    &--all {
-      color: $color-grey;
-      img {
-        width: 13px;
-        height: 17px;
-        margin-left: 10px;
-      }
+    h1 {
+        font-size: 22px;
     }
-  }
-  @include pre-md {
-    flex-direction: row;
-    justify-content: space-between;
+    &__service-category {
+        width: 100%;
+    }
+    &__service-item {
+        margin-bottom: 15px;
+        border-bottom: 1px solid $color-light-grey-l2;
+        border-radius: 2px;
+        margin-left: 15px;
+    }
+    &__title-group {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        ul {
+            list-style-type: none;
+        }
+    }
+    &__labels {
+        flex-direction: row;
+        margin: 0px;
+        p {
+            margin-left: 14px;
+        }
+    }
+    &__service-desc {
+        color: $color-light-grey-d4;
+        margin-top: 10px;
+    }
+    &__service-list {
+        margin-top: 10px;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+    }
+    &__service-list-item {
+        margin-right: 15px;
+    }
+    // Docs Landing Grid
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     &__item {
-      width: 48%;
-      margin-bottom: 4rem;
-      &:nth-last-child(-n+2) {
-        margin-bottom: 0;
-      }
+        margin-bottom: 2rem;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
-  }
-  @include md {
-    &__item {
-      width: 30%;
+    &__title {
+        line-height: 1.25;
+        margin: 0;
+        padding: 0;
+        color: $color-purple-d3;
+        a {
+            text-decoration: none;
+        }
     }
-  }
+    &__desc {
+        margin-top: 1rem;
+        color: $color-grey;
+    }
+    &__list {
+        margin: 1rem 0 0;
+        padding: 0;
+        list-style-type: none;
+        &-item {
+            margin-top: 0.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    &__link {
+        display: inline-flex;
+        color: $color-purple-d3;
+        line-height: 1.25em;
+        text-decoration: none;
+        &--all {
+            color: $color-grey;
+            img {
+                width: 13px;
+                height: 17px;
+                margin-left: 10px;
+            }
+        }
+    }
+    @include pre-md {
+        flex-direction: row;
+        justify-content: space-between;
+        &__item {
+            width: 48%;
+            margin-bottom: 4rem;
+            &:nth-last-child(-n+2) {
+                margin-bottom: 0;
+            }
+        }
+    }
+    @include md {
+        &__item {
+            width: 30%;
+        }
+    }
 }
