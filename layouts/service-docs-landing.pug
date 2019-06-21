@@ -58,7 +58,6 @@ mixin renderGridToc()
             - serviceItemClasses += ' grid-toc__beta'
           if service.enterprise
             - serviceItemClasses += ' grid-toc__enterprise'
-          - console.log(serviceItemClasses)
           div(class=serviceItemClasses)
             div(class='grid-toc__title-group')
               h2(class='grid-toc__title')
@@ -69,11 +68,12 @@ mixin renderGridToc()
                 if service.enterprise
                   p(class='badge badge--enterprise') ENTERPRISE
             p(class='grid-toc__service-desc')!= service.excerpt || 'MISSING'
-            ul(class='grid-toc__service-list')
-              li(class='grid-toc__service-list-item')
-                a(href=latestPath + 'release-notes/', class='grid-toc__link')!= 'Release Notes'
-              li(class='grid-toc__service-list-item')
-                a(href=latestPath + 'getting-started/', class='grid-toc__link')!= 'Getting Started'
+            if service.children
+              ul(class='grid-toc__service-list')
+                for version in service.children.slice(0,1)
+                  for folder in version.children.slice(0,3)
+                    li(class='grid-toc__service-list-item')
+                      a(href=folder.path, class='grid-toc__link')!= folder.title
 
 doctype html
 html(lang='en')
