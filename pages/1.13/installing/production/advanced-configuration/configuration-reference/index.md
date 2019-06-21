@@ -24,7 +24,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [bootstrap_url](#bootstrap-url)                                       | (Required) The URI path for the DC/OS installer to store the customized DC/OS build files. |
 | [cluster_docker_credentials](#cluster-docker-credentials)             | The dictionary of Docker credentials to pass. |
 | [cluster_docker_credentials_enabled](#cluster-docker-credentials-enabled)   |  Whether to pass the Mesos `--docker_config` option to Mesos. |
-| [cluster_docker_registry_url](#cluster-docker-registry-url)           | The custom URL that Mesos uses to pull Docker images from. If changed from the default, you will need to import a local {{ model.packageRepo }} into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local {{ model.packageRepo }}](/1.13/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/1.13/deploying-services/private-docker-registry/).  |
+| [cluster_docker_registry_url](#cluster-docker-registry-url)           | The custom URL that Mesos uses to pull Docker images from. If changed from the default, you will need to import a local universe into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local universe](/1.13/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/1.13/deploying-services/private-docker-registry/).  |
 | [cluster_name](#cluster-name)                                         | The name of your cluster. |
 | [cosmos_config](#cosmos-config)                                       | The dictionary of packaging configuration to pass to the [DC/OS Package Manager (Cosmos)](https://github.com/dcos/cosmos). |
 | [custom_checks](#custom-checks)                                       | Custom installation checks that are added to the default check configuration process. |
@@ -271,7 +271,7 @@ Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_c
 *  `cluster_docker_credentials_enabled: 'false'` Do not pass the Mesos `--docker_config` option to Mesos.
 
 ### cluster_docker_registry_url
-The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used. If changed from the default, you will need to import a local {{ model.packageRepo }} into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local {{ model.packageRepo }}](/1.13/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/1.13/deploying-services/private-docker-registry/) for more information.
+The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used. If changed from the default, you will need to import a local universe into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local universe](/1.13/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/1.13/deploying-services/private-docker-registry/) for more information.
 
 ### cluster_name
 The name of your cluster.
