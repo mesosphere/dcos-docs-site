@@ -7,7 +7,7 @@ menuWeight: -1
 model: /services/confluent-kafka/data.yml
 render: mustache
 featureMaturity:
-enterprise: true
+enterprise: false
 ---
 
 <!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->
