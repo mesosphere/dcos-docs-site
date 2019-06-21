@@ -7,6 +7,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector('.grid-toc');
     let selectedCategory = 'view-all';
 
+    // function toggleCategory(e) {
+    //     category = e.target.selectedOptions[0].value
+    //     updateCategory();
+    // }
+
+    // function updateCategory() {
+    //     const categorySections = grid.querySelectorAll('.grid-toc__service-category');
+    //     const categoryClass = `grid-toc__service-category__${category}`
+    //     Array.prototype.forEach.call(categorySections, el => {
+    //         if (el.classList.contains(categoryClass) || category === 'view-all') {
+    //             el.classList.remove('hidden');
+    //         } else {
+    //             el.classList.add('hidden');
+    //         }
+    //     });
+    //     checkSectionsEmpty();
+    // }
+
     function updateCat(selectedCategory) {
         const categorySections = grid.querySelectorAll('.grid-toc__service-category');
         const categoryClass = `grid-toc__service-category__${selectedCategory}`
@@ -19,6 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         checkSectionsEmpty();
     }
+
+    // categorySelection.addEventListener('change', toggleCategory);
 
     // Enterprise and beta checkboxes
     const enterpriseCheckbox = gridFilters.querySelector('.grid-filters__enterprise');
@@ -87,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         checkSectionsEmpty();
     }
 
-    /* Begin selectbox override code */
+
     var customSelect, i, j, selElmnt, selBox, selDropdownDiv, optionsDiv;
     var selBoxText, selBoxArrow;
     /* Look for any elements with the class "custom-select": */
@@ -183,10 +203,15 @@ document.addEventListener("DOMContentLoaded", () => {
     then close all select boxes: */
     document.addEventListener("click", closeAllSelect);
 
+
+
     enterpriseCheckbox.addEventListener('click', toggleLabel);
     betaCheckbox.addEventListener('click', toggleLabel);
 
     checkSectionsEmpty();
+    // updateCategory();
     updateLabels();
     categorySelection.selectedIndex = 0;
+    // enterpriseCheckbox.checked = true;
+    // betaCheckbox.checked = false;
 });
