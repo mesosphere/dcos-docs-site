@@ -2,7 +2,7 @@ script(src='/assets/js/jquery-3.2.1.js')
 script(src='/assets/js/clipboard.js')
 script(src='/assets/js/prism.js')
 
-if env == 'production'
+if env != 'pdf'
   script(src='//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59c6dc5017f3462f', async)
   script(src='https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.0/dist/instantsearch.min.js')
 
