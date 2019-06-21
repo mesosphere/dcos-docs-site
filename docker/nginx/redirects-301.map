@@ -89,6 +89,7 @@
 /services/kafka/v2.0.0-0.11.0/api-reference/quick-start.md/ /services/kafka/v2.0.0-0.11.0/api-reference/;
 /services/kafka/v2.0.0-0.11.0/install/api-reference.md/ /services/kafka/v2.0.0-0.11.0/api-reference/;
 /services/kafka/v2.0.0-0.11.0/managing/configure.md/ /services/kafka/v2.0.0-0.11.0/managing/;
+/services/kubernetes/ /services/kubernetes/latest/;
 /services/marathon/ /services/marathon-lb/;
 /services/overview/ /services/;
 /services/spark/v1.1.0-2.1.1/img/spark-gui-install.gif /services/spark/v1.1.0-2.1.1/img/spark-gui-install.png;
