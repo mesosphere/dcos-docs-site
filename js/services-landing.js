@@ -7,29 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector('.grid-toc');
     let category = 'view-all';
 
-    // function toggleCategory(e) {
-    //     category = e.target.selectedOptions[0].value
-    //     updateCategory();
-    // }
+    function toggleCategory(e) {
+        category = e.target.selectedOptions[0].value
+        updateCategory();
+    }
 
-    // function updateCategory() {
-    //     const categorySections = grid.querySelectorAll('.grid-toc__service-category');
-    //     const categoryClass = `grid-toc__service-category__${category}`
-    //     Array.prototype.forEach.call(categorySections, el => {
-    //         if (el.classList.contains(categoryClass) || category === 'view-all') {
-    //             el.classList.remove('hidden');
-    //         } else {
-    //             el.classList.add('hidden');
-    //         }
-    //     });
-    //     checkSectionsEmpty();
-    // }
-
-    function updateCat(cat) {
+    function updateCategory() {
         const categorySections = grid.querySelectorAll('.grid-toc__service-category');
-        const categoryClass = `grid-toc__service-category__${cat}`
+        const categoryClass = `grid-toc__service-category__${category}`
         Array.prototype.forEach.call(categorySections, el => {
-            if (el.classList.contains(categoryClass) || cat === 'view-all') {
+            if (el.classList.contains(categoryClass) || category === 'view-all') {
                 el.classList.remove('hidden');
             } else {
                 el.classList.add('hidden');
@@ -38,14 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
         checkSectionsEmpty();
     }
 
-    // categorySelection.addEventListener('change', toggleCategory);
+    categorySelection.addEventListener('change', toggleCategory);
 
     // Enterprise and beta checkboxes
     const enterpriseCheckbox = gridFilters.querySelector('.grid-filters__enterprise');
     enterpriseCheckbox.checked = true;
     const betaCheckbox = gridFilters.querySelector('.grid-filters__beta');
     let showEnterprise = true;
-    let showBeta = true;
+    let showBeta = false;
 
     function checkSectionsEmpty() {
         const categorySections = grid.querySelectorAll('.grid-toc__service-category');
@@ -76,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateLabels();
     }
 
-    function updateLabels() {
+    function updateLabels(e) {
         const services = grid.querySelectorAll('.grid-toc__item');
 
         Array.prototype.forEach.call(services, el => {
@@ -107,50 +94,48 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    var customSelect, i, j, selElmnt, selBox, selDropdownDiv, optionsDiv;
+    var x, i, j, selElmnt, a, b, c;
     /* Look for any elements with the class "custom-select": */
-    customSelect = document.getElementsByClassName("custom-select");
-    for (i = 0; i < customSelect.length; i++) {
-        selElmnt = customSelect[i].getElementsByTagName("select")[0];
+    x = document.getElementsByClassName("custom-select");
+    for (i = 0; i < x.length; i++) {
+        selElmnt = x[i].getElementsByTagName("select")[0];
         /* For each element, create a new DIV that will act as the selected item: */
-        selBox = document.createElement("DIV");
-        selBox.setAttribute("class", "select-selected");
-        selBox.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-        customSelect[i].appendChild(selBox);
+        a = document.createElement("DIV");
+        a.setAttribute("class", "select-selected");
+        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        x[i].appendChild(a);
         /* For each element, create a new DIV that will contain the option list: */
-        selDropdownDiv = document.createElement("DIV");
-        selDropdownDiv.setAttribute("class", "select-items select-hide");
+        b = document.createElement("DIV");
+        b.setAttribute("class", "select-items select-hide");
         for (j = 1; j < selElmnt.length; j++) {
             /* For each option in the original select element,
             create a new DIV that will act as an option item: */
-            optionsDiv = document.createElement("DIV");
-            optionsDiv.innerHTML = selElmnt.options[j].innerHTML;
-            optionsDiv.addEventListener("click", function(e) {
+            c = document.createElement("DIV");
+            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.addEventListener("click", function(e) {
                 /* When an item is clicked, update the original select box,
                 and the selected item: */
-                var y, i, k, selEmt, selB;
-                selEmt = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                selB = this.parentNode.previousSibling;
-                for (i = 0; i < selEmt.length; i++) {
-                    if (selEmt.options[i].innerHTML == this.innerHTML) {
-                        selEmt.selectedIndex = i;
-                        selB.innerHTML = this.innerHTML;
+                var y, i, k, s, h;
+                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                h = this.parentNode.previousSibling;
+                for (i = 0; i < s.length; i++) {
+                    if (s.options[i].innerHTML == this.innerHTML) {
+                        s.selectedIndex = i;
+                        h.innerHTML = this.innerHTML;
                         y = this.parentNode.getElementsByClassName("same-as-selected");
                         for (k = 0; k < y.length; k++) {
-                            /* this is why we can never toggle classes :/  */
                             y[k].removeAttribute("class");
                         }
                         this.setAttribute("class", "same-as-selected");
                         break;
                     }
                 }
-                selB.click();
-                updateCat(selB.innerHTML);
+                h.click();
             });
-            selDropdownDiv.appendChild(optionsDiv);
+            b.appendChild(c);
         }
-        customSelect[i].appendChild(selDropdownDiv);
-        selBox.addEventListener("click", function(e) {
+        x[i].appendChild(b);
+        a.addEventListener("click", function(e) {
             /* When the select box is clicked, close any other select boxes,
             and open/close the current select box: */
             e.stopPropagation();
@@ -190,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
     betaCheckbox.addEventListener('click', toggleLabel);
 
     checkSectionsEmpty();
-    // updateCategory();
+    updateCategory();
     updateLabels();
     categorySelection.selectedIndex = 0;
     enterpriseCheckbox.checked = true;
