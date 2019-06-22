@@ -18,8 +18,6 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 This release provides enhancements and fixes to address reported issues, integrate changes from previous releases, and maintain compatibility and support for the DC/OS ecosystem. 
 
-If you have DC/OS deployed in a production environment, you should also review the [Known issues and limitations](#known-issues) to see if any potential operational changes for specific scenarios apply to your environment.
-
 # New features and capabilities
 DC/OS 1.13 includes new features and capabilities to enhance the installation and deployment experience, simplify cluster administration, increase operational productivity and efficiency, and provide additional monitoring, alerting, logging, and reporting for better visibility into cluster activity.
 
