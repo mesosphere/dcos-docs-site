@@ -17,7 +17,7 @@ Before starting this tutorial, you should verify the following:
 To perform some steps in this tutorial, you also need access to the `jq` language JSON processor to simplify some of the commands and output format.
 - Download [jq](https://stedolan.github.io/jq/download/) and follow the instructions to install JQ for your operating system.-->
 
-# Learning objective
+# Learning objectives
 By completing this tutorial, you will learn:
 - How to search for services in the DC/OS package repository.
 - How to install a service you want available in the DC/OS cluster.
