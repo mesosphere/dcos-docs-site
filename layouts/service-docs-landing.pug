@@ -38,6 +38,9 @@ mixin renderGridInputs()
           div(class='grid-filters__label')
             input(class='grid-filters__beta' type="checkbox" name="beta" value="beta")
             label!= 'Include Beta'
+          div(class='grid-filters__label')
+            input(class='grid-filters__community' type="checkbox" name="community" value="community")
+            label!= 'Include Community'
 
 mixin renderGridToc()
   div(class='grid-toc' data-categories=categories.join(','))

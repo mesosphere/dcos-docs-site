@@ -20,13 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
         checkSectionsEmpty();
     }
 
-    // Enterprise and beta checkboxes
+    // Enterprise and beta and community checkboxes
     const enterpriseCheckbox = gridFilters.querySelector('.grid-filters__enterprise');
     enterpriseCheckbox.checked = true;
     const betaCheckbox = gridFilters.querySelector('.grid-filters__beta');
     betaCheckbox.checked = true;
+    const communityCheckbox = gridFilters.querySelector('.grid-filters__community');
+    communityCheckbox.checked = true;
     let showEnterprise = true;
     let showBeta = true;
+    let showCommunity = true;
 
     function checkSectionsEmpty() {
         const categorySections = grid.querySelectorAll('.grid-toc__service-category');
@@ -46,13 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function toggleLabel(e) {
+        console.log(e.target);
         const type = e.target.name;
         if (type == 'beta') {
             showBeta = e.target.checked;
         }
-
         if (type == 'enterprise') {
             showEnterprise = e.target.checked;
+        }
+        if (type == 'community') {
+            showCommunity = e.target.checked;
         }
         updateLabels();
     }
@@ -63,8 +69,27 @@ document.addEventListener("DOMContentLoaded", () => {
         Array.prototype.forEach.call(services, el => {
             const isBeta = el.classList.contains(`grid-toc__beta`);
             const isEnterprise = el.classList.contains(`grid-toc__enterprise`);
+            const isCommunity = el.classList.contains('grid-toc__community');
 
-            if (isBeta && isEnterprise) {
+            if (isBeta && isEnterprise && isCommunity) {
+                if (showEnterprise && showBeta && showCommunity) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            } else if (isCommunity && isEnterprise) {
+                if (showCommunity && showEnterprise) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            } else if (isCommunity && isBeta) {
+                if (showCommunity && showBeta) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            } else if (isBeta && isEnterprise) {
                 if (showEnterprise && showBeta) {
                     el.classList.remove('hidden');
                 } else {
@@ -78,6 +103,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             } else if (isBeta) {
                 if (showBeta) {
+                    el.classList.remove('hidden');
+                } else {
+                    el.classList.add('hidden');
+                }
+            } else if (isCommunity) {
+                if (showCommunity) {
                     el.classList.remove('hidden');
                 } else {
                     el.classList.add('hidden');
@@ -185,6 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     enterpriseCheckbox.addEventListener('click', toggleLabel);
     betaCheckbox.addEventListener('click', toggleLabel);
+    communityCheckbox.addEventListener('click', toggleLabel);
 
     checkSectionsEmpty();
     updateLabels();
