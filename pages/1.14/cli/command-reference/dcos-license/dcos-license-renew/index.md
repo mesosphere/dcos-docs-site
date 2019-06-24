@@ -10,12 +10,14 @@ enterprise: true
 ---
 
 # Description
-The `dcos license renew` command associates a new DC/OS license with the cluster and makes it active. This command uses the license at the given PATH.
+The `dcos license renew` command associates a new DC/OS license with the cluster and makes it active. This command uses the license at the given `PATH`. 
+
+Running the `dcos license renew` command doesn't require a restart of any running services or affect any current payload.
 
 # Usage
 
 ```bash
-Usage: dcos license renew [OPTIONS] PATH
+dcos license renew [OPTIONS] PATH
 ```
 
 # Options
@@ -28,8 +30,8 @@ Usage: dcos license renew [OPTIONS] PATH
 ## Positional arguments
 
 | Name |  Description |
-|---------|-------------|
-| `PATH`  |   The path to a file containing the license. |
+|--------|-------------|
+| `PATH` | Specify the path to the file containing the license you want to renew. |
 
 
 
@@ -40,4 +42,4 @@ For examples, see [Licenses](/1.14/administering-clusters/licenses/).
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/1.14/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](../../dcos-license/) | Manage DC/OS cluster licenses. |
