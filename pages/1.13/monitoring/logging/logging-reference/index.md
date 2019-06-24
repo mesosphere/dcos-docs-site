@@ -3,7 +3,9 @@ layout: layout.pug
 navigationTitle:  Logging Reference
 title: Logging Reference
 menuWeight: 3
-excerpt:
+excerpt: Using the Logging API
+render: mustache
+model: /data.yml
 beta: false
 enterprise: false
 ---
@@ -18,7 +20,7 @@ The Logging API is backed by the [DC/OS Log component](/1.13/overview/architectu
 
 The Logging API has been updated significantly for DC/OS 1.11 and later.
 
-In versions of DC/OS prior to 1.11, task logs were available via [files API](http://mesos.apache.org/documentation/latest/endpoints/#files-1). Now you can leverage the consolidated API *for both component and task logs*.
+In versions of DC/OS prior to 1.11, task logs were available via [files API](http://mesos.apache.org/documentation/latest/endpoints/#files-1). Now you can leverage the consolidated API for both component and task logs.
 
 In versions of DC/OS prior to 1.11, node and component logs were managed by `journald`. However, the [Mesos task journald log sink was disabled due to [journald performance issues](/1.13/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
 
@@ -47,6 +49,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_
 ```
 
 <a name="routes"></a>
+
 ## Routes
 
 Access to the Logging API is proxied through Admin Router on each node using the following route:

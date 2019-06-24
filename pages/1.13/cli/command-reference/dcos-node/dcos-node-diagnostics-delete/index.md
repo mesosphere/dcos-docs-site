@@ -5,6 +5,8 @@ title: dcos node diagnostics delete
 menuWeight: 4
 excerpt: Displaying the details of diagnostics bundles
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

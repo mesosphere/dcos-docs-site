@@ -4,7 +4,8 @@ navigationTitle:  dcos cluster
 title: dcos cluster
 menuWeight: 3
 excerpt: Managing connections to DC/OS clusters
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

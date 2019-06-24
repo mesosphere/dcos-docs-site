@@ -5,6 +5,8 @@ title: dcos marathon app kill
 menuWeight: 2
 excerpt: Killing an active application instance
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

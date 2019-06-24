@@ -4,6 +4,8 @@ navigationTitle:  Components
 title: Components
 menuWeight: 4
 excerpt: Understanding DC/OS components
+render: mustache
+model: /data.yml
 ---
 
 DC/OS is composed of many open source microservice components meticulously tuned and configured to work together. Mesosphere DC/OS Enterprise includes most of the open source DC/OS components but also includes several additional components, modules, and plugins.
@@ -415,7 +417,7 @@ Just as machine operating systems need package management to install, upgrade, c
 
 ## DC/OS package manager (Cosmos)
 
-The DC/OS package manager (Cosmos) installs and manages DC/OS packages from [DC/OS package repositories](/1.13/administering-clusters/repo/), such as the [Mesosphere Universe](https://github.com/mesosphere/universe).
+The DC/OS package manager (Cosmos) installs and manages DC/OS packages from [DC/OS package repositories](/1.13/administering-clusters/repo/), such as the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe).
 
 ### System service
 

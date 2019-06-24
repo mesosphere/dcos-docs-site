@@ -4,10 +4,10 @@ navigationTitle:  Networking
 title: Networking
 menuWeight: 70
 excerpt: Understanding the DC/OS networking stack
+render: mustache
+model: /data.yml
 enterprise: false
 ---
-
-
 
 The DC/OS network stack provides
 - [IP connectivity to containers](#IP-connectivity)

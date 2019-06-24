@@ -5,6 +5,8 @@ title: Permissions Reference
 menuWeight: 40
 excerpt: Understanding DC/OS access and permissions references
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
@@ -80,7 +82,7 @@ through Admin Router.
 | `dcos:adminrouter:ops:system-logs` <br>Controls access to [System logs API](/1.13/api/master-routes/#system).                                                                                                                                                                                           | x      |     |     |     |     |
 | `dcos:adminrouter:ops:system-metrics`<br> Controls access to [System metrics API](/1.13/api/master-routes/#system).                                                                                                                                                                                     | x      |     |     |     |     |
 | `dcos:adminrouter:licensing` <br> Controls access to the Licensing API.                                                                                                                                                                                                                                 | x      |     |     |     |     |
-| `dcos:adminrouter:package` <br> Controls access to the [Cosmos API](/1.13/api/master-routes/#cosmos), which provides access to the DC/OS Universe.                                                                                                                                                      | x      |     |     |     |     |
+| `dcos:adminrouter:package` <br> Controls access to the [Cosmos API](/1.13/api/master-routes/#cosmos), which provides access to the DC/OS {{ model.packageRepo }}.                                                                                                                                                      | x      |     |     |     |     |
 | `dcos:adminrouter:service:[<group-name>/]<service-name>`<br> Controls access the UI and API of an installed DC/OS service.                                                                                                                                                                              | x      |     |     |     |     |
 | `dcos:adminrouter:service:marathon` <br>Controls access to the native Marathon instance.                                                                                                                                                                                                                | x      |     |     |     |     |
 | `dcos:adminrouter:service:metronome`<br>  Controls access to [DC/OS Jobs (Metronome)](/1.13/deploying-jobs/).                                                                                                                                                                                           | x      |     |     |     |     |

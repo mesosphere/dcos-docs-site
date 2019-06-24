@@ -5,6 +5,8 @@ title: API Reference
 menuWeight: 150
 excerpt: DC/OS API reference manual
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 The DC/OS API is a collection of routes backed by [DC/OS components](/1.13/overview/architecture/components/) that are made available through an API gateway called [Admin Router](/1.13/overview/architecture/components/#admin-router).

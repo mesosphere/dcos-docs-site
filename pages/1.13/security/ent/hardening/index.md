@@ -4,6 +4,8 @@ navigationTitle:  Hardening
 title: Hardening
 menuWeight: 100
 excerpt: Increasing the security of your cluster
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

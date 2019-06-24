@@ -5,6 +5,8 @@ title: dcos config set
 menuWeight: 1
 excerpt: Adding or setting DC/OS configuration properties
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

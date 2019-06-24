@@ -5,6 +5,8 @@ title: dcos job
 menuWeight: 8
 excerpt: Deploying and managing jobs in DC/OS
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

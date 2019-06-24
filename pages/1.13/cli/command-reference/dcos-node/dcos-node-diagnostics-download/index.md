@@ -5,6 +5,8 @@ title: dcos node diagnostics download
 menuWeight: 5
 excerpt: Downloading the diagnostics bundle
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

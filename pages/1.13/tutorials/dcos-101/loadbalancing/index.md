@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  Load-Balancing
 excerpt: Part 8 of the DC/OS 101 tutorial
 title: Tutorial - Load-Balancing
+render: mustache
+model: /data.yml
 menuWeight: 8
 ---
 

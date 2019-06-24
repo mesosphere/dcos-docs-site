@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster directory get_config
 title: dcos security cluster directory get_config
 menuWeight: 32
 excerpt: Retrieving an LDAP configuration
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

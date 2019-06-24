@@ -4,6 +4,8 @@ navigationTitle:  CNI Plugin Support
 title: CNI Plugin Support
 menuWeight: 30
 excerpt: Understanding CNI plugin support
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

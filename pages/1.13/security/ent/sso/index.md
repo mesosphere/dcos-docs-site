@@ -5,6 +5,8 @@ title: Identity provider-based authentication
 menuWeight: 70
 excerpt: Configuring identity provider-based authentication
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

@@ -4,6 +4,8 @@ navigationTitle:  dcos plugin add
 title: dcos plugin add
 menuWeight: 1
 excerpt: Adding a CLI plugin
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

@@ -4,6 +4,8 @@ navigationTitle: Patching
 title: Patching
 menuWeight: 20
 excerpt: Understanding cluster patches
+render: mustache
+model: /1.13/data.yml
 ---
 
 A DC/OS patch describes a set of changes and supporting data designed to update, fix, or improve the features/functionality of DC/OS. A point release that consists of minor changes is also called a patch.
@@ -252,5 +254,5 @@ sudo journalctl -u dcos-mesos-slave
 
 ## Notes
 
-Packages available in the DC/OS 1.12 Universe are newer than those in the older versions of Universe. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve an existing state.
+Packages available in the DC/OS 1.12 {{ model.packageRepo }} are newer than those in the older versions of the {{ model.packageRepo }}. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve existing states.
 

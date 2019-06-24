@@ -4,6 +4,8 @@ navigationTitle: Tutorial - Deploying a Docker-based Service
 title: Tutorial - Deploying a Docker-based Service
 menuWeight: 100
 excerpt: Deploying a Docker-based service
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

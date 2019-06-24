@@ -5,6 +5,8 @@ title: dcos cluster setup
 menuWeight: 6
 excerpt: Configuring the CLI to communicate with a cluster
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

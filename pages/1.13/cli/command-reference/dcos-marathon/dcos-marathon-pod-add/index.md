@@ -5,6 +5,8 @@ title: dcos marathon pod add
 menuWeight: 23
 excerpt: Adding a pod
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

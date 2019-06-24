@@ -5,6 +5,8 @@ title: Replace a master node
 menuWeight: 800
 excerpt: Replacing a master node in an existing DC/OS cluster
 enterprise: true
+render: mustache
+model: ../../data.yml
 ---
 You can replace a master node in an existing DC/OS cluster. You should keep in mind, however, that you should only ever replace one master at a time. The following steps summarize how to replace a master node for a DC/OS cluster.
 

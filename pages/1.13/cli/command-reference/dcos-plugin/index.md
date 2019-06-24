@@ -4,7 +4,8 @@ navigationTitle:  dcos plugin
 title: dcos plugin
 menuWeight: 12
 excerpt: Installing and managing DC/OS CLI plugins
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

@@ -4,6 +4,8 @@ navigationTitle:  Updating a User-Created Service
 title: Updating a User-Created Service
 menuWeight: 3
 excerpt: Updating the configuration of a deployed app
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

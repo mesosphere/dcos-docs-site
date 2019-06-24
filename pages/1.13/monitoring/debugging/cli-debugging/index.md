@@ -3,6 +3,8 @@ layout: layout.pug
 title: Debugging from the DC/OS CLI
 menuWeight: 10
 excerpt: Debugging DC/OS from the command line interface
+render: mustache
+model: /data.yml
 beta: true
 enterprise: false
 ---

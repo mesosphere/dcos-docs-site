@@ -4,7 +4,8 @@ navigationTitle:  dcos marathon group remove
 title: dcos marathon group remove
 menuWeight: 19
 excerpt: Removing a Marathon application from DC/OS
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

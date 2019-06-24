@@ -5,6 +5,8 @@ navigationTitle: Restricting Access to DC/OS Service Groups
 menuWeight: 90
 excerpt: Using the DC/OS UI to achieve multi-tenancy in permissive mode
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
@@ -117,7 +119,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 ## Log in to the DC/OS UI as user
 
-1.  Log in as Cory to the DC/OS UI. You can see that user Cory only has access to the **Services** and **Universe** tabs. Also, Cory can only see the **prod-a** services.
+1.  Log in as Cory to the DC/OS UI. You can see that user Cory only has access to the **Services** and **{{ model.packageRepo }}** tabs. Also, Cory can only see the **prod-a** services.
 
 
   ![prod-a-group](/1.13/img/GUI-Services-Limited_User_Access_List-1_12.png)

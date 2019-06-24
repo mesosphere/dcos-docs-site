@@ -4,6 +4,8 @@ navigationTitle:  Upgrading
 title: Upgrading
 menuWeight: 25
 excerpt: Upgrading a DC/OS cluster
+render: mustache
+model: /1.13/data.yml
 ---
 
 An upgrade is the process of moving between major releases to add new features or to replace existing features with new features/functionality. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster.
@@ -350,7 +352,7 @@ sudo journalctl -u dcos-mesos-slave
 
 ### Notes:
 
-- Packages available in the DC/OS 1.13 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
+- Packages available in the DC/OS 1.13 {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing states.
 
 [install]: /1.13/installing/production/deploying-dcos/installation/#custom-build-file
 [cmd]: /1.13/installing/production/deploying-dcos/installation/#nginx-cmd

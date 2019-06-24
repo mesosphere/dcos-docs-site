@@ -4,6 +4,8 @@ title: Metrics Plugin Architecture
 navigationTitle: Metrics Plugin Architecture
 menuWeight: 0
 excerpt: How DC/OS collects and publishes metrics
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

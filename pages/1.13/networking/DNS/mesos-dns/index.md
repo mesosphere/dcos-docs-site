@@ -4,6 +4,8 @@ navigationTitle:  Mesos-DNS
 title: Mesos-DNS
 menuWeight: 3
 excerpt: Understanding Mesos DNS
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

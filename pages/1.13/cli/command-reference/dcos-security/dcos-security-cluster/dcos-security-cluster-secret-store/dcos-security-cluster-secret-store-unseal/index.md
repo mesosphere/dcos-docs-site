@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster secret-store unseal
 title: dcos security cluster secret-store unseal
 menuWeight: 115
 excerpt: Unsealing a secret store
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 # Description

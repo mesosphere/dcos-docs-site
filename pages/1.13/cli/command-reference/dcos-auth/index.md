@@ -5,6 +5,8 @@ title: dcos auth
 menuWeight: 1
 excerpt: Managing DC/OS identity and access
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

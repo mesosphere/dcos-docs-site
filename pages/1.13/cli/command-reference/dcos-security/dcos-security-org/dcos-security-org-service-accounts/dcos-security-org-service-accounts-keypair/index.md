@@ -4,6 +4,8 @@ navigationTitle:  dcos security org service-accounts keypair
 title: dcos security org service-accounts keypair
 menuWeight: 175
 excerpt: Creating a public-private keypair
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
