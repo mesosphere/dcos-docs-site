@@ -17,7 +17,7 @@ enterprise: false
 
 `marathon-autoscale.py` 将定期监控组成指定 Marathon 服务的所有任务的总 CPU 和内存利用率。达到阈值时，`marathon-autoscale.py` 将增加您 Marathon 服务的任务数量。
 
-**前提条件**
+**先决条件**
 
 * [正在运行的 DC/OS 群集][1]。
 * 您希望自动扩展的在 Marathon 上运行的服务。

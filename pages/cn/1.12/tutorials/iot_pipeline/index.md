@@ -42,7 +42,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 # 在 DC/OS 群集上准备和部署 Tweeter
 
-## 前提条件
+## 先决条件
 
 * [DC/OS](/latest/installing/) 或 [DC/OS Enterprise](/latest/installing/) 已安装，至少具有 5 个[专用代理节点][6] 和 1 个[公共代理节点][6]。
 * [DC/OS CLI](/cli/install/) 已安装。
@@ -55,11 +55,11 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 在此步骤中，您可以从 DC/OS GUI [**Catalog**](/gui/catalog/) 选项卡安装 Cassandra、Kafka、Marathon-LB 和 Zeppelin。您还可以使用 `dcos package install`][11] 命令，从 DC/OS CLI 安装 DC/OS 软件包。
 
-1. 查找并单击 **cassandra** 软件包，单击 **REVIEW & RUN**，并通过再次单击 **REVIEW & RUN**，然后单击 **RUN SERVICE**，接受默认安装。Cassandra 最多可旋转 3 个节点。当模态警报提示时，单击 **OPEN SERVICE**。
+1. 查找并单击 **cassandra** 软件包，单击 **REVIEW & RUN**，并通过再次单击 **REVIEW & RUN**，然后单击 **RUN SERVICE**，接受默认安装。Cassandra 启动最多 3 个节点。当模态警报提示时，单击 **OPEN SERVICE**。
 
-2. 单击 **Catalog** 选项卡。查找并单击 **kafka** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。Kafka 最多旋转 3 个代理。当模态警报提示时，单击 **OPEN SERVICE**。
+2. 单击 **Catalog** 选项卡。查找并单击 **kafka** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。Kafka 最多启动 3 个代理。当模态警报提示时，单击 **OPEN SERVICE**。
 
-3. 单击 **Catalog** 选项卡。查找并单击 *marathon-lb** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。当模态警报提示时，单击 **OPEN SERVICE**。
+3. 单击 **Catalog** 选项卡。查找并单击 **marathon-lb** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。当模态警报提示时，单击 **OPEN SERVICE**。
 
     如果您在 Enterprise 群集上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/services/marathon-lb/mlb-install/)进行安装。根据您的 [安全模式](/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
 
@@ -67,7 +67,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
     1. 单击左侧的 **spark** 选项卡，并将 `cores_max` 设置为 `8`。
     2. 单击 **REVIEW AND RUN**，然后单击 **RUN**。单击 **OPEN SERVICE**。
 
-5. 在 DC/OS 上部署您的微服务时，单击 **Services**（服务**）选项卡。当节点上线时，您将看到“运行状况”状态从“空闲”转为“不健康”，最后变为健康状态。这可能需要几分钟。
+5. 在 DC/OS 上部署您的微服务时，单击 **Services**（服务**）选项卡。当节点上线时，您将看到“运行状况”状态从“空闲”转为“运行状况不佳”，最后变为良好状态。这可能需要几分钟。
 
     ![显示所有服务的服务选项卡。](/1.12/img/tweeter-services6-ee.png)
 
@@ -186,7 +186,7 @@ Tweeter 应用程序使用安装在每个 DC/OS 节点上的服务发现和负�
 
 1. 导航至 [Tweeter](https://github.com/mesosphere/tweeter/) GiThub 存储库并保存 `tweeter/post-tweets.json` Marathon 应用定义文件。
 
-2. 导航至 `https://<master_ip>/service/zeppelin/` 中的 Zeppelin。您的主节点 IP 地址是 DC/OS GUI 的 URL。
+2. 导航至 `https://<master_ip>/service/zeppelin/` 中的 Zeppelin。您的管理节点 IP 地址是 DC/OS GUI 的 URL。
 
 3. 单击 **Import Note** 并导入 `tweeter-analytics.json`。Zeppelin 已预先配置，以在 DC/OS 群集上执行 Spark 作业，因此无需进一步配置或设置。请务必使用 `https://` 而不是 `http://`。
 

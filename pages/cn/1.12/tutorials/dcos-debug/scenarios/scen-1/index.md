@@ -57,7 +57,7 @@ APP             POD  ACTION  PROGRESS  ID
 
 现在我们知道应用程序的某些 (6/1000) 实例已成功部署，但整体部署状态为“等待”。但这是什么意思？
 
-### 解析度
+### 解决方案
 
 “等待”状态表示 DC/OS（或更准确地说是 Marathon）正在等待合适的资源提供。这似乎是一个部署问题，我们应该先检查可用的资源。
 
@@ -81,7 +81,7 @@ APP             POD  ACTION  PROGRESS  ID
 
 图 4. 资源分配详细信息
 
-据此，其余一些 CPU 资源分配给了不同的 [Mesos 资源角色] (http://mesos.apache.org/documentation/latest/roles/)，因此，我们的应用程序无法使用（它以角色“*”运行，默认角色）。
+据此，其余一些 CPU 资源分配给了不同的 [Mesos 资源角色](http://mesos.apache.org/documentation/latest/roles/)，因此，我们的应用程序无法使用（它以角色“*”运行，默认角色）。
 
 要检查不同资源的角色，让我们[看看 state-summary 端点](/1.12/tutorials/dcos-debug/tools/#state-summary)，其访问地址为 `https://<master-ip>/mesos/state-summary`。
 

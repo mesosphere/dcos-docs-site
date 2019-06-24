@@ -23,9 +23,9 @@ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging
 
 图 1. 显示故障的任务日志
 
-## 解析度
+## 解决方案
 
-1. 正如我们[前期](/1.12/tutorials/dcos-debug/gen-strat/)所学的，对于应用程序故障， [第一步](/1.12/tutorials/dcos-debug/gen-strat/#task-strat)是检查[任务日志](/1.12/tutorials/dcos-debug/tools/#task-logs)。
+1. 正如我们[前期](/1.12/tutorials/dcos-debug/gen-strat/)所了解的，对于应用程序故障， [第一步](/1.12/tutorials/dcos-debug/gen-strat/#task-strat)是检查[任务日志](/1.12/tutorials/dcos-debug/tools/#task-logs)。
 
  ![空日志输出图片](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-18.png)
 
@@ -73,7 +73,7 @@ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging
 
 在这本例中，我们有一个 Docker 守护程序特定的问题。通过检查 Mesos 代理节点日志，可以发现许多此类问题。在某些情况下，我们需要深入挖掘，需要访问 Docker 守护程序日志。
 
-1. 首先，通过ssh 进入主节点：
+1. 首先，通过ssh 进入管理节点：
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=$(dcos task --all | grep docker-image | head -n1 | awk '{print $6}')

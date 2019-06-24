@@ -13,7 +13,7 @@ enterprise: false
 
 本教程介绍如何使用 Jenkins for DC/OS 在 [Marathon][1] 上部署应用程序。本教程将指导您创建新的 Jenkins 作业，在源代码更改时发布 Docker 容器，并根据项目的 `marathon.json` 文件中包含的[应用定义][3] 将这些更改部署到 Marathon。
 
-**前提条件：**
+**先决条件：**
 本教程假设您拥有有效的 Jenkins 安装和许可，可以在 Marathon 上启动应用程序。Jenkins for DC/OS 必须按照 [Jenkins 快速入门](/services/jenkins/quickstart/)页面上的说明进行安装。
 
 # 示例项目
@@ -34,7 +34,7 @@ enterprise: false
 
 Jenkins 在其凭据库内存储帐户凭据，这允许作业以安全方式使用凭据。
 
-1. 在 Jenkins 主页面种，从左侧菜单中单击 **Credentials**。
+1. 在 Jenkins 主页面中，从左侧菜单中单击 **Credentials**。
 1. 从那里选择 **System**（也可从左侧菜单中选择），最后选择主查看区域中显示的**全局凭据**（不受限制）链接。左侧菜单现在应具有 **Add Credentials** 选项。
 
 1. 单击 **Add Credentials**，为 Docker Hub 创建新凭据。**Kind** 下拉菜单中应选择“Username with password”选项。填写其余信息以匹配您的 Docker Hub 帐户。
