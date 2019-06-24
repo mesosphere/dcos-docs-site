@@ -8,11 +8,11 @@ beta: true
 enterprise: false
 ---
 
-使用本指南开始使用 DC/OS 日志记录。此处使用的许多命令在 [CLI 命令参考] 中有更全面的描述(/1.12/cli/command-reference/dcos-task/)。
+使用本指南开始使用 DC/OS 日志记录。此处使用的许多命令在 [CLI 命令参考](/1.12/cli/command-reference/dcos-task/) 中有更全面的描述。
 
-**前提条件：**
+**先决条件：**
 
-- 您必须 [安装了] DC/OS 和 DC/OS CLI(/1.12/installing/)。
+- 您必须 [安装了](/1.12/installing/) DC/OS 和 DC/OS CLI。
 
 - 您必须以超级用户身份登录，或者已被授予对日志记录的用户访问权限。如需更多信息，请参阅 [访问系统和组件日志](/1.12/monitoring/logging/access-component-logs/) 和 [访问任务日志](/1.12/monitoring/logging/access-task-logs/)。
 
@@ -97,7 +97,7 @@ enterprise: false
 
 # 查看 Mesos 任务和系统日志
 
-您可以使用 `dcos node log` 命令，查看任务或主机系统的日志。关于这些命令的更多信息可在 [CLI 命令参考] (/1.12/cli/command-reference/dcos-node/) 部分找到。
+您可以使用 `dcos node log` 命令，查看任务或主机系统的日志。关于这些命令的更多信息可在 [CLI 命令参考](/1.12/cli/command-reference/dcos-node/) 部分找到。
 
 1. 运行此命令以查看领导 Mesos 管理节点日志：
 
@@ -129,9 +129,9 @@ enterprise: false
     Thu Dec 15 00:46:22 2016 ip-10-0-1-175.us-west-2.compute.internal spartan-env [2621] 00:46:22.575 [error] Lager event handler error_logger_lager_h exited with reason {'EXIT',{{badmatch,[<0.27147.0>,{info,{tcp_closed,#Port<0.9301>}},{wait_for_query,{state,#Port<0.9301>,{spartan_tcp_listener,{198,51,100,3}},ranch_tcp,<0.27148.0>}},exit,tcp_closed,state_functions,[{gen_statem,loop_event_result,9,[{file,"gen_statem.erl"},{line,978}]},{proc_lib,init_p_do_apply,3,[{file,"proc_lib.erl"},{line,247}]}]]},[{error_logger_lager_h,log_event,2,[{file,"/pkg/src/spartan/_build/default/lib/lager/src/error_logger_lager_h.erl"},{line,155}]},{gen_event,server_update,4,[{file,...},...]},...]}}
     ```
 
-1. 运行这些命令以查看在领导者或代理节点上运行的组件的列表：
+1. 运行这些命令以查看在首要节点或代理节点上运行的组件的列表：
 
- - 领导者节点：
+ - 首要节点：
 
         ```bash
         dcos node list-components --leader

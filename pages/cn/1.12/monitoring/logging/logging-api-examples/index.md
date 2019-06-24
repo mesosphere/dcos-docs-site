@@ -10,7 +10,7 @@ enterprise: false
 
 以下是日志记录 API 的一些常见使用示例。
 
-**前提条件：**
+**先决条件：**
 
 - [Bash](https://www.gnu.org/software/bash/)
 - [Curl](https://curl.haxx.se/)
@@ -37,13 +37,13 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/logs
 
 从单个组件服务获取最后 100 个日志条目：
 
-**领导 Mesos 管理节点：**
+**首要 Mesos 管理节点：**
 
 ```
 curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/leader/mesos/logs/v1/range/?skip_prev=100&filter=_SYSTEMD_UNIT:dcos-mesos-master.service"
 ```
 
-**领导 Marathon：**
+**首要 Marathon：**
 
 ```
 curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/leader/marathon/logs/v1/range/?skip_prev=100&filter=_SYSTEMD_UNIT:dcos-mesos-master.service"
