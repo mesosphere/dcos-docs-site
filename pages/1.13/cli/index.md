@@ -9,11 +9,28 @@ render: mustache
 model: /data.yml
 ---
 
-The DC/OS command line interface (DC/OS CLI) utility allows you to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.
+The DC/OS command line interface (DC/OS CLI) utility allows you to manage clusters, and manage services and tasks.
 
-DC/OS 1.13 requires the DC/OS CLI >= 0.8. To install it, [follow these instructions](/1.13/cli/install/).
+# DC/OS CLI versions and configuration files
 
-To list available commands, run `dcos` with no parameters:
+Different CLI versions are compatible with different versions of DC/OS. To determine which combinations are supported, see the [CLI support matrix](/version-policy/#cli-support-matrix).
+
+DC/OS CLI 0.4.x and 0.5.x use a different structure for the location of configuration files.
+
+DC/OS CLI 0.4.x has a single configuration file, which by default is stored in `~/.dcos/dcos.toml`. In DC/OS CLI 0.4.x you can optionally change the location of the configuration file using the [`DCOS_CONFIG`](#dcos-config) environment variable.
+
+DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default is stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`. In DC/OS CLI 0.5.x you can optionally change the base portion (`~/.dcos`) of the configuration directory using the [`DCOS_DIR`](#dcos-cdir) environment variable.
+
+- If you update to the DC/OS CLI 0.5.x and run any CLI command, it will trigger conversion from the old to the new configuration structure.
+- After you call `dcos cluster setup`, (or after conversion has occurred), if you attempt to update the cluster configuration using a `dcos config set` command, the command displays a warning message saying the command is deprecated and the cluster configuration state may now be corrupted.
+
+## Latest version install
+
+DC/OS 1.13 requires DC/OS CLI >= 0.8. To install it, [follow these instructions](/1.13/cli/install/).
+
+## CLI commands
+
+To list available commands in the DC/OS CLI, run `dcos` with no parameters:
 
 ```bash
 $ dcos
@@ -55,6 +72,14 @@ Options:
 Use "dcos [command] --help" for more information about a command.
 ```
 
+The following commands are available only in the Enterprise version of the CLI:
+
+- [`dcos backup`](/{{ model.version }}/cli/command-reference/dcos-backup/)
+- [`dcos license`](/{{ model.version }}/cli/command-reference/dcos-license/)
+- [`dcos security`](/{{ model.version }}/cli/command-reference/dcos-security/)
+
+For instructions on installing the DC/OS Enterprise version of the CLI, [see the documentation](/{{ model.version }}/cli/enterprise-cli/#installing-the-dcos-enterprise-cli).
+
 <a name="setupcluster"></a>
 
 # Setting up a cluster
@@ -69,16 +94,6 @@ dcos --version
 
 <a name="configuration-files"></a>
 
-# DC/OS CLI versions and configuration files
-
-DC/OS CLI 0.4.x and 0.5.x use a different structure for the location of configuration files.
-
-DC/OS CLI 0.4.x has a single configuration file, which by default is stored in `~/.dcos/dcos.toml`. In DC/OS CLI 0.4.x you can optionally change the location of the configuration file using the [`DCOS_CONFIG`](#dcos-config) environment variable.
-
-DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by default is stored in `~/.dcos/clusters/<cluster_id>/dcos.toml`. In DC/OS CLI 0.5.x you can optionally change the base portion (`~/.dcos`) of the configuration directory using the [`DCOS_DIR`](#dcos-cdir) environment variable.
-
-- If you update to the DC/OS CLI 0.5.x and run any CLI command, it will trigger conversion from the old to the new configuration structure.
-- After you call `dcos cluster setup`, (or after conversion has occurred), if you attempt to update the cluster configuration using a `dcos config set` command, the command displays a warning message saying the command is deprecated and the cluster configuration state may now be corrupted.
 
 # Environment variables
 
@@ -86,15 +101,15 @@ The DC/OS CLI supports the following environment variables, which can be set dyn
 
 <a name="dcos-cluster"></a>
 
-#### `DCOS_CLUSTER` (DC/OS CLI 0.5.x and higher only)
+#### `DCOS_CLUSTER` (DC/OS CLI 0.5.x and later only)
 
-The [attached](/1.13/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
+The [attached](/{{ model.version }}/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
 
 ```bash
 dcos cluster setup <cluster-url>
 ```
 
-After following the login procedure, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/1.13/cli/plugins/), dcos-core-cli and, if applicable, dcos-enterprise-cli, which is automatically installed as part of the setup command.
+After following the login procedure, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/{{ model.version }}/cli/plugins/), `dcos-core-cli` and, if applicable, `dcos-enterprise-cli`, which is automatically installed as part of the setup command.
 
 <a name="dcos-config"></a>
 
