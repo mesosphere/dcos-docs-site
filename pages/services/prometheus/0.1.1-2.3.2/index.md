@@ -7,7 +7,7 @@ excerpt: Overview of DC/OS Prometheus 0.1.1-2.3.2
 featureMaturity:
 render: mustache
 model: /services/prometheus/data.yml
-enterprise: false
+community: true
 ---
 
 DC/OS {{ model.techName }} Service is an automated service that makes it easy to deploy and manage {{ model.techName }} on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on {{ model.techName }}, see the [{{ model.techName }} documentation](https://prometheus.io/docs/introduction/overview/).

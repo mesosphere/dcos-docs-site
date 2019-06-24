@@ -5,7 +5,7 @@ title: Percona-Server-MongoDB 0.4.2-3.6.10
 menuWeight: 1
 excerpt: Percona-Server-MongoDB 0.4.2-3.6.10
 featureMaturity:
-enterprise: false
+community: true
 model: /services/percona-server-mongodb/data.yml
 render: mustache
 ---

@@ -5,7 +5,7 @@ title: Configuring DC/OS access for NiFi
 menuWeight: 4
 excerpt: Configuring DC/OS access for NiFi
 featureMaturity:
-enterprise: false
+community: true
 ---
 
 This topic describes how to configure DC/OS access for NiFi. Depending on your [security mode](/1.12/security/ent/#security-modes/), NiFi requires [service authentication](/1.12/security/ent/service-auth/) for access to DC/OS.

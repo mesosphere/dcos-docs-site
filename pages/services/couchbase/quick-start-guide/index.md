@@ -6,6 +6,7 @@ title: Configuring DC/OS access for Couchbase
 menuWeight: 2
 model: /services/couchbase/data.yml
 render: mustache
+community: true
 ---
 
 This section is a quick guide on how to configure and use {{ model.serverName }} and {{ model.syncGatewayName }} with DC/OS.

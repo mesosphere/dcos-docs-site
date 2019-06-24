@@ -7,7 +7,7 @@ excerpt: Documentation for DC/OS Minio 0.1.1
 model: /services/minio/data.yml
 render: mustache
 featureMaturity:
-enterprise: false
+community: true
 ---
 
 DC/OS {{ model.techName }} Service is an automated service that makes it easy to deploy and manage {{ model.techName }} on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on {{ model.techName }}, see the [{{ model.techName }} documentation](https://docs.minio.io/).

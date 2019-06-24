@@ -6,6 +6,7 @@ title: Configuring DC/OS access for Spinnaker
 menuWeight: 2
 model: /services/spinnaker/data.yml
 render: mustache
+community: true
 ---
 
 This section is a quick guide on how to configure and use {{ model.techName }} with DC/OS.

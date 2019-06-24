@@ -5,7 +5,7 @@ title: Couchbase
 menuWeight: 15
 excerpt: 
 featureMaturity:
-enterprise: false
+community: true
 model: /services/couchbase/data.yml
 render: mustache
 category: Database

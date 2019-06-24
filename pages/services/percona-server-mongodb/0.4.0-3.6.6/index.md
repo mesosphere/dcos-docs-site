@@ -5,7 +5,7 @@ title: Percona-Server-MongoDB 0.4.0-3.6.6
 menuWeight: 10
 excerpt: Percona-Server-MongoDB 0.4.0-3.6.6
 featureMaturity:
-enterprise: false
+community: true
 ---
 
 DC/OS Percona-Server-MongoDB is an automated service that makes it easy to deploy and manage [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all of the complexity traditionally associated with managing a cluster of Percona-Server-MongoDB nodes.
