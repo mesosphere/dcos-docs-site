@@ -30,7 +30,7 @@ The most common causes for this are requesting ports or resource roles that are 
 
 ## How can I add automatically more agents to the cluster?
 
-DC/OS cannot automatically spin up new nodes in response to load on hardware unless the cloud provider autoscaling groups have been configured with standby hosts and `dcos_install.sh` placed on the standby node. This is an involved process that requires setting up Autoscaling groups with your Cloud Provider (AWS, GCE, Azure) and placing an install file on each node. An overview is available [here](/1.13/deploying-services/scale-service/). Please reach out to Mesosphere Support for more guidance if you need to set this up.
+DC/OS cannot automatically spin up new nodes in response to load on hardware unless the cloud provider autoscaling groups have been configured with standby hosts and `dcos_install.sh` placed on the standby node. This is an involved process that requires setting up Autoscaling groups with your Cloud Provider (AWS, GCE, Azure) and placing an install file on each node. An overview is available [here](/1.14/deploying-services/scale-service/). Please reach out to Mesosphere Support for more guidance if you need to set this up.
 
 ## What is your best practice for service discovery?
 
@@ -58,13 +58,13 @@ More info:
 
 DC/OS is installed in your environment using a dynamically generated setup file. This file is generated using specific parameters that are set during configuration. This installation file contains a Bash install script and a Docker container that is loaded with everything you need to deploy a customized DC/OS build.
 
-For more information, see the installation [documentation](/1.13/installing/).
+For more information, see the installation [documentation](/1.14/installing/).
 
 ## What versions of kernel, local OS, Docker Engine, Union Mount are recommended?
 
 We recommend using CoreOS, matched with its correct versions and sensible defaults of Docker, filesystem, and other settings.
 
-[1]: /1.13/networking/load-balancing-vips/
-[2]: /1.13/networking/
+[1]: /1.14/networking/load-balancing-vips/
+[2]: /1.14/networking/
 [4]: https://support.mesosphere.com/hc/en-us/articles/206474745-How-to-reserve-resources-for-certain-frameworks-in-Mesos-cluster-
-[5]: /1.13/administering-clusters/convert-agent-type/
+[5]: /1.14/administering-clusters/convert-agent-type/

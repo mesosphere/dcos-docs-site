@@ -18,14 +18,14 @@ You can create and administer jobs for the DC/OS cluster in any of the following
 The DC/OS application programming interface (API) for job-related operations provides the underlying functionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
 
 # Managing jobs with the DC/OS UI
-You can manage the most common job-related activity interactively through the DC/OS UI. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS UI only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/1.13/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.13/deploying-jobs/quickstart/#jobs-api).
+You can manage the most common job-related activity interactively through the DC/OS UI. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS UI only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/1.14/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.14/deploying-jobs/quickstart/#jobs-api).
 
 ## Add a job
 1. Navigate to the URL for the DC/OS web-based console in a web browser.
 
 1. Click **Jobs**, then click **Create a Job** to display the New Job settings. 
 
-    ![Create JOB UI](/1.13/img/job-new-general-fields.png)
+    ![Create JOB UI](/1.14/img/job-new-general-fields.png)
 
     Figure 1. Create a Job
 
@@ -38,7 +38,7 @@ You can manage the most common job-related activity interactively through the DC
     * **CPUs** - Specifies the number of CPU cores your job requires. This field is required for all jobs.
     * **Mem** - Specifies the amount of memory, in MB, your job requires. This field is required for all jobs.
     * **Disk** - Specifies the amount of disk space, in MB, your job requires. This field is required for all jobs.
-    * **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks that are launched using DC/OS [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/) containers. Support for GPU resources is are not available for Docker containers or images.
+    * **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks that are launched using DC/OS [Universal Container Runtime](/1.14/deploying-services/containerizers/ucr/) containers. Support for GPU resources is are not available for Docker containers or images.
 
 1. Select the appropriate Job Type to run one or more specific commands or a Docker container image.
     * Select **Command Only** to specify one or more commands you want the new job to execute. 
@@ -89,7 +89,7 @@ You can manage the most common job-related activity interactively through the DC
 
     - Select **Add Artifact** to provide one or more artifact URIs you want passed to fetcher module and resolved at runtime and the action--Execute, Extract, or Cache--you want to perform for each URI.
 
-        ![Adding an artifact URI and action for a job](/1.13/img/job-artifacts-uri.png)
+        ![Adding an artifact URI and action for a job](/1.14/img/job-artifacts-uri.png)
 
         Figure 2. Add an artifact URI and action
 
@@ -99,23 +99,23 @@ You can manage the most common job-related activity interactively through the DC
         
         - If you choose **On Failure**, you can set a time limit for attempting to restart the job using the **Keep Trying Time** field. For example, set the **Keep Trying Time** to 30 if you want to try restarting the job after waiting for 30 seconds. If no value is set for Keep Trying Time, DC/OS will continue attempting to restart the failed job indefinitely.
 
-    - Click **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/1.13/tutorials/task-labels/).
+    - Click **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/1.14/tutorials/task-labels/).
 
 1. Click **Submit** to create the job.
 
 1. Verify that you have added the new job by clicking **Jobs**.
 
-    ![Jobs List](/1.13/img/job-list-scheduled.png)
+    ![Jobs List](/1.14/img/job-list-scheduled.png)
 
     Figure 3. Jobs list
 
 ## Add a job to a job group
-You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.13/deploying-jobs/job-groups/).
+You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.14/deploying-jobs/job-groups/).
 
 ## View, modify, or remove a specific job
 You can view and modify job-related information, including details about the run history and configuration settings interactively through the DC/OS UI. From the **Jobs** tab, click the name of your job. You can then use the menu on the upper right to edit, run, disable, or delete a selected job. 
 
-![Viewing and modifying job details](/1.13/img/job-menu-options.png)
+![Viewing and modifying job details](/1.14/img/job-menu-options.png)
 
 Figure 4. Viewing and modifying job details
 
