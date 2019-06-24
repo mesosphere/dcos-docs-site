@@ -30,9 +30,9 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
 
 图 2. 应用程序详细信息
 
-基于此，*应用程序运行几秒钟，然后失败**。
+基于此，**应用程序运行几秒钟，然后失败**。
 
-### 解析度
+### 解决方案
 
 为了更好地理解这种意外行为，让我们先看看应用程序日志，--- 在 Web 界面中或通过 CLI。通过查看应用程序“日志”选项卡中的“输出”，您可以在 Web 界面中找到应用程序日志：
 
@@ -82,7 +82,7 @@ Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: Killed process 
 Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: oom_reaper: reaped process 16883 (oomApp), now anon-rss:0kB, file-rss:0kB, shmem-rss:0kB
 ```
 
-在这种情况下，解决方案是增加该容器的资源限制，以防其配置过低而无法开始。或者，如本例中一样，修复应用程序本身的内存泄漏。
+在这种情况下，解决方案是增加该容器的资源限制，以防其配置一开始就过低。或者，如本例中一样，修复应用程序本身的内存泄漏。
 
 ### 一般模式
 

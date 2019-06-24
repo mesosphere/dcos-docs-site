@@ -54,7 +54,7 @@ Microscaling 可监控较高优先级任务是否符合性能目标。在本教�
 图 2. Azure 存储帐户
 
 * **名称** - 在所有 Azure 存储帐户中，该名称必须是全局唯一的。记下这一点 - 您稍后将使用它作为环境变量 `AZURE_STORAGE_ACCOUNT_NAME`。
-* **复制** - 为队列选择本地冗余存储。
+* **复制** - 为队列选择本地重复存储。
 * **资源组** - 为队列创建新的资源组。
 
 在创建存储帐户后，导航至**设置 -> 访问密钥**并记下您的访问密钥。稍后您将使用它作为环境变量 `AZURE_STORAGE_ACCOUNT_KEY`。
@@ -119,7 +119,7 @@ export MSS_MARATHON_API=http://localhost/marathon
 
 ## 卸载 Marathon 应用程序
 
-您可以使用 `marathon-uninstall` 命令从群集中删除演示应用程序。（此命令要求如上所述设置 `MSS_MARATHON_API` 环境变量 (#run-the-microscaling-install-script)。）
+您可以使用 `marathon-uninstall` 命令从群集中删除演示应用程序。（此命令要求[如上所述](#run-the-microscaling-install-script) 设置 `MSS_MARATHON_API` 环境变量 。）
 
 ``` bash
 ./marathon-uninstall
