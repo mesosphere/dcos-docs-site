@@ -48,7 +48,7 @@ DC/OS 群集需要节点之间的强大时间同步，以实现最佳功能。�
 
 # vSphere DRS 设置
 
-DRS（[分布式资源调度程序](https://www.vmware.com/products/vsphere/drs-dpm.html)) 是一款 vSphere 功能，可平衡计算 vSphere 群集中的工作负载与可用资源。
+DRS（[分布式资源调度程序](https://www.vmware.com/products/vsphere/drs-dpm.html)) 是一款 vSphere 功能，可在 vSphere 群集中平衡可用资源的计算工作负载。
 
 对于在其上计划 Zookeeper 和 etcd 组件的主节点和代理节点，建议将 DRS 自动化设置为已禁用或部分自动化。如果启动了多个实时迁移操作，负载下的 vSphere 群集可能导致 Zookeeper 系综或 etcd 群集上的不稳定行为。实时迁移 (vMotion) 可能会发出 [“Stop the World” Pause](https://cormachogan.com/2015/04/28/when-and-why-do-we-stun-a-virtual-machine/) （也称为“STUN”），以便完成到另一个主机的迁移。
 
@@ -57,8 +57,8 @@ DRS（[分布式资源调度程序](https://www.vmware.com/products/vsphere/drs-
 ## 建议：
 
 - 将 DRS“自动化级别”设置为“已禁用”或“部分自动”，用于 DC/OS 主节点以及托管 Zookeeper 或 etcd 实例的任何节点。
-- 创建虚拟机-虚拟机的反关联规则，以防止在同一主机上计划的 DC/OS 主节点。
-- 考虑为在 DC/OS 上部署的其他独立 Zookeeper 或 etcd 节点创建反关联规则/策略，以确保主机（虚拟机管理程序）故障不会导致服务中断。
+- 创建虚拟机-虚拟机的反关联规则，以防止在同一主机上计划 DC/OS 主节点。
+- 考虑为在 DC/OS 上部署的其他独立 Zookeeper 或 etcd 节点创建反关联规则/策略，以确保主机（虚拟机监视器）故障不会导致服务中断。
 - 如果您的虚拟化群集中有可用容量，或者正在运行大型 DC/OS 群集，请考虑为代理节点创建反关联规则/策略。
 - 故障域注意事项（如机架、行和数据中心）的因素，以确保虚拟机（和 DC/OS 节点）的弹性资源放置。
 

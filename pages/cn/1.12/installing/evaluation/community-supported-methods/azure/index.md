@@ -15,7 +15,7 @@ oss: true
 
 ## 硬件
 
-要使用 DC/OS 中提供的所有服务，您应该使用 `Standard_D2`[虚拟机](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/) 选择至少五个 Mesos 代理节点，这是 DC/OS Azure 市场提供的默认大小。建议不要选择较小的 VM，而选择较少的 VM 可能会导致某些资源密集型服务（如分布式数据存储）无法正常工作（从安装问题到操作限制问题）。
+要使用 DC/OS 中提供的所有服务，您应该选择至少五个使用 `Standard_D2`[虚拟机](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/) 的Mesos 代理节点，这是 DC/OS Azure 市场提供的默认大小。建议不要选择较小的 VM，而选择较少的 VM 可能会导致某些资源密集型服务（如分布式数据存储）无法正常工作（从安装问题到操作限制问题）。
 
 ### 生产就绪群集配置 ###
 
@@ -41,7 +41,7 @@ Azure 上的原始网络性能大致由 VM 大小决定。
 实例大小的基准（例如，使用 [iperf3](https://github.com/esnet/iperf)），以确保满足网络
 要求。
 
-此外，尽管支持在每台虚拟支持机配置多个 NIC，
+此外，尽管支持在每台虚拟机配置多个 NIC，
 但是带宽的数量是按照 VM 分配的，而非按照 NIC 分配。因此，尽管将
 您的网络划分到控制和数据板块（或其他网络）
 可能对组织或安全目的有用，但必须进行 Linux 级流量整形，
@@ -74,7 +74,7 @@ Etcd、 Zookeeper 和使用
 配置：
 - 管理节点：
  - / - P10
- - /var/lib/etcd -（用于在 CorEos 上运行 etcd 的节点） - P10
+ - /var/lib/etcd -（用于在 CoreOS 上运行 etcd 的节点） - P10
  - /var/log - P10
  - /var/lib/dcos/exhibitor - P10
 - 公共代理：
@@ -107,7 +107,7 @@ Etcd、 Zookeeper 和使用
 
 ## 软件
 
-需要一个活跃的 [Azure 订阅](https://azure.microsoft.com/en-us/pricing/purchase-options/) 以通过 Azure 市场安装 DC/OS。
+需要一个已激活的 [Azure 订阅](https://azure.microsoft.com/en-us/pricing/purchase-options/) 以通过 Azure 市场安装 DC/OS。
 
 另外，如需在 DC/OS 群集中访问节点，则要安装和配置 `ssh`。
 
@@ -138,7 +138,7 @@ Etcd、 Zookeeper 和使用
 
     图 2. 输出部分
 
-1. 记下您在图 2 `MASTERFQDN` 部分找到的 `Outputs` 值，并在以下步骤中使用。出于安全考虑，您无法默认直接访问 Azure 中的 DC/OS 仪表板。
+1. 记下您在图 2 `Outputs` 部分找到的 `MASTERFQDN` 值，并在以下步骤中使用。出于安全考虑，您无法默认直接访问 Azure 中的 DC/OS 仪表板。
 
 1. 选择以下一种解决方案，访问 Azure 中的 DC/OS 仪表板：
 
@@ -210,7 +210,7 @@ ssh azureuser@dcosmaster.westus.cloudapp.azure.com -L 8000:localhost:80
 
 有关 SSH 访问的一些注意事项：
 
-- 要连接至 `http://localhost:8000` 进行操作，SSH 命令必须在本地机器上运行，而不是在虚拟机内运行。
+- 要使至 `http://localhost:8000` 的连接正常工作，SSH 命令必须在本地机器上运行，而不是在虚拟机内运行。
 - 在上述示例中，假设端口 `8000` 在本地机器上可用。
 - 所显示的 SSH 命令仅可在 Mac 或 Linux 上运行。对于 Windows，请使用具有类似端口转发配置的 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)，另请参阅 [如何在 Azure 上使用带有 Windows 的 SSH](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/)。
 - 如需了解有关 SSH 密钥生成的更多信息，请参阅 [GitHub 教程](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)。

@@ -8,19 +8,19 @@ excerpt: 排除 DC/OS 安装问题
 
 # <a name="general"></a>一般故障排除方法
 
-验证是否具备
+验证是否具备 
 - 有效的 [IP 检测脚本](#IPDetect)
-- 正常运行的 [DNS 解析器](#DNS) 以将 DC/OS 服务绑定到
+- 正常运行的 [DNS 解析器](#DNS) 以将 DC/OS 服务绑定
 - 所有节点均已通过 [NTP](#NTP) 完成同步
 
 <a name="ipdetect"></a>
 
 ## IP 检测脚本
 
-您必须具有有效的 [ip-detect](/1.12/installing/production/deploying-dcos/installation/#create-an-ip-detection-script) 脚本。您可以手动运行群集中所有节点上的 `ip-detect`，或检查现有装置上的 `/opt/mesosphere/bin/detect_ip`，以确保其返回有效的 IP 地址。有效的 IP 地址没有：
+您必须具有有效的 [ip-detect](/1.12/installing/production/advanced/#create-an-ip-detection-script) 脚本。您可以手动运行群集中所有节点上的 `ip-detect`，或检查现有装置上的 `/opt/mesosphere/bin/detect_ip`，以确保其返回有效的 IP 地址。有效的 IP 地址没有：
 
  - 额外的行
- - 空白空间
+ - 空格
  - 特殊或隐藏字符
 
 我们建议您使用 `ip-detect` [示例](/1.12/installing/production/deploying-dcos/installation/)。
@@ -58,7 +58,7 @@ excerpt: 排除 DC/OS 安装问题
 ntptime
 adjtimex -p
 timedatectl
-```
+```   
 
 * 确保防火墙和任何其他连接过滤机制不干扰群集组件通信。必须允许 TCP、UDP 和 ICMP。
 
@@ -85,7 +85,7 @@ timedatectl
 
  mount -o remount,exec /tmp
 
-
+	    
 * 检查 `/exhibitor/v1/cluster/status` 的输出，并验证其是否显示了正确数量的管理节点，所有管理节点是否为 `"serving"`，但只有其中一个被指定为 `"isLeader": true`。
 
  例如，对管理节点执行 [SSH](/1.12/administering-clusters/sshcluster/) 并输入以下命令：
@@ -94,21 +94,21 @@ timedatectl
  curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
         [
                 {
- "code": 3,
- "description": " serving",
- "hostname": " 10.0.6.70",
+ "code": 3, 
+ "description": " serving", 
+ "hostname": " 10.0.6.70", 
  "isLeader": false
                 },
                 {
- "code": 3,
- "description": " serving",
- "hostname": " 10.0.6.69",
+ "code": 3, 
+ "description": " serving", 
+ "hostname": " 10.0.6.69", 
  "isLeader": false
                 },
                 {
- "code": 3,
- "description": " serving",
- "hostname": " 10.0.6.68",
+ "code": 3, 
+ "description": " serving", 
+ "hostname": " 10.0.6.68", 
  "isLeader": true
                 }
             ]
@@ -135,7 +135,7 @@ timedatectl
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
        ```
        ﻿
- Mesos 管理节点必须在 Mesos-DNS 从 `⁠⁠⁠⁠/state` 生成其 DNS 记录之前，与选举的领导节点一起启动并运行。
+ Mesos 管理节点必须在 Mesos-DNS 从 `⁠⁠⁠⁠/state` 生成其 DNS 记录之前，与选举的首要节点都处在运行状态。
 
 # <a name="component-logs"></a>组件日志
 
@@ -169,22 +169,22 @@ d=$(date -u +%Y%m%d-%H%M%S) && mkdir /tmp/journal-logs-${d} && sudo dmesg -T > /
 
 ## <a name="admin-router"></a>Admin Router
 
- Admin Router 在管理节点上启动。Admin Router 为群集中的 DC/OS 服务提供中央认证和代理。这让您可以从网络的外部管理群集，而无需 VPN 或 SSH 隧道。对于 HA，可以在每个管理节点（负载均衡端口 80）的前面配置一个可选的负载均衡器，以提供故障切换和负载均衡。
+ Admin Router 在管理节点上启动。Admin Router 为群集中的 DC/OS 服务提供中央认证和代理。这让您可以从网络的外部管理群集，而无需 VPN 或 SSH 隧道。对于 HA，可以选择在每个管理节点（负载均衡端口 80）的前面配置一个负载均衡器，以提供故障切换和负载均衡。
 
 ### 故障排除
 
 对管理节点执行 SSH，并输入以下命令来查看从启动时间起的日志：
 
  journalctl -u dcos-adminrouter -b
-
+    
 
 例如，此处是随着其转为成功状态，Admin Router 日志的一个片段：
 
- systemd[1]：正在启动高性能 Web 服务器和反向代理服务器...
+ systemd[1]：正在启动高性能 Web 服务器和反向代理服务器... 
  systemd[1]：已启动高性能 Web 服务器和反向代理服务器。
- nginx[1652]: ip-10-0-7-166.us-west-2.compute.internal nginx: 10.0.7.166 - - [18/Nov/2015:14:01:10 +0000] "GET /mesos/master/state-summary HTTP/1.1" 200 575 "-" "python-requests/2.6.0 CPython/3.4.2 Linux/4.1.7-coreos"
- nginx[1652]: ip-10-0-7-166.us-west-2.compute.internal nginx: 10.0.7.166 - - [18/Nov/2015:14:01:10 +0000] "GET /metadata HTTP/1.1" 200 175 "-" "python-requests/2.6.0 CPython/3.4.2 Linux/4.1.7-coreos"
-
+ nginx[1652]: ip-10-0-7-166.us-west-2.compute.internal nginx: 10.0.7.166 - - [18/Nov/2015:14:01:10 +0000] "GET /mesos/master/state-summary HTTP/1.1" 200 575 "-" "python-requests/2.6.0 CPython/3.4.2 Linux/4.1.7-coreos" 
+ nginx[1652]: ip-10-0-7-166.us-west-2.compute.internal nginx: 10.0.7.166 - - [18/Nov/2015:14:01:10 +0000] "GET /metadata HTTP/1.1" 200 175 "-" "python-requests/2.6.0 CPython/3.4.2 Linux/4.1.7-coreos" 
+    
 
 ## <a name="dcos-agent-nodes"></a>DC/OS 代理节点
 
@@ -203,13 +203,13 @@ DC/OS 专用和公共代理节点启动。已部署的应用程序和服务在�
     ```bash
     journalctl -u dcos-marathon -b
     ```
-
+    
 
 例如，此处是随着其转为成功状态，Mesos 代理节点日志的一个片段：
 
  mesos-slave[1080]: I1118 14:00:43.687366 1080 main.cpp:272] 正在启动 Mesos 从设备
  mesos-slave[1080]: I1118 14:00:43.688474 1080 slave.cpp:190] 从设备启动于 1)@10.0.1.108:5051
- mesos-slave[1080]: I1118 14:00:43.688503 1080 slave.cpp:191] 启动时的标记：--appc_store_dir="/tmp/mesos/store/appc" --authenticatee="crammd5" --cgroups_cpu_enable_pids_and_tids_count="false" --cgroups_enable_cfs="false" --cgroups_hierarchy="/sys/fs/cgroup" --cgroups_limit_swap="false" --cgroups_root="mesos" --container_disk_watch_interval="15secs" --containerizers="docker,mesos" --default_role="*" --disk_watch_interval="1mins" --docker="docker" --docker_kill_orphans="true" --docker_remove_delay="1hrs" --docker_socket="/var/run/docker.sock" --docker_stop_timeout="0ns" --enforce_container_disk_quota="false" --executor_environment_variables="{"LD_LIBRARY_PATH":"\/opt\/mesosphere\/lib","PATH":"\/usr\/bin","SASL_PATH":"\/opt\/mesosphere\/lib\/sasl2","SHELL":"\/usr\/bin\/bash"}" --executor_registration_timeout="5mins" --executor_shutdown_grace_period="5secs" --fetcher_cache_dir="/tmp/mesos/fetch" --fetcher_cache_size="2GB" --frameworks_home="" --gc_delay="2days" --gc_disk_headroom="0.1" --hadoop_home="" --help="false" --hostname_lookup="false" --image_provisioner_backend="copy" --initialize_driver_logging="true" --ip_discovery_command="/opt/mesosphere/bin/detect_ip" --isolation="cgroups/cpu,cgroups/mem" --launcher_dir="/opt/mesosphere/packages/mesos--30d3fbeb6747bb086d71385e3e2e0eb74ccdcb8b/libexec/mesos" --log_dir="/var/log/mesos" --logbufsecs="0" --logging_level="INFO" --master="zk://leader.mesos:2181/mesos" --oversubscribed_resources_interval="15secs" --perf_duration="10secs" --perf_interval="1mins" --port="5051" --qos_correction_interval_min="0ns" --quiet="false" --recover="reconnect" --recovery_timeout="15mins" --registration_backoff_factor="1secs" --resource_monitoring_interval="1secs" --resources="ports:[1025-2180,2182-3887,3889-5049,5052-8079,8082-8180,8182-32000]" --revocable_cpu_low_priority="true" --sandbox_directory="/mnt/mesos/sandbox" --slave_subsystems="cpu,memory" --strict="true" --switch_user="true" --systemd_runtime_directory="/run/systemd/system" --version="false" --work_dir="/var/lib/mesos/slave"
+ mesos-slave[1080]: I1118 14:00:43.688503 1080 slave.cpp:191] 启动时的标记：--appc_store_dir="/tmp/mesos/store/appc" --authenticatee="crammd5" --cgroups_cpu_enable_pids_and_tids_count="false" --cgroups_enable_cfs="false" --cgroups_hierarchy="/sys/fs/cgroup" --cgroups_limit_swap="false" --cgroups_root="mesos" --container_disk_watch_interval="15secs" --containerizers="docker,mesos" --default_role="*" --disk_watch_interval="1mins" --docker="docker" --docker_kill_orphans="true" --docker_remove_delay="1hrs" --docker_socket="/var/run/docker.sock" --docker_stop_timeout="0ns" --enforce_container_disk_quota="false" --executor_environment_variables="{"LD_LIBRARY_PATH":"\/opt\/mesosphere\/lib","PATH":"\/usr\/bin","SASL_PATH":"\/opt\/mesosphere\/lib\/sasl2","SHELL":"\/usr\/bin\/bash"}" --executor_registration_timeout="5mins" --executor_shutdown_grace_period="5secs" --fetcher_cache_dir="/tmp/mesos/fetch" --fetcher_cache_size="2GB" --frameworks_home="" --gc_delay="2days" --gc_disk_headroom="0.1" --hadoop_home="" --help="false" --hostname_lookup="false" --image_provisioner_backend="copy" --initialize_driver_logging="true" --ip_discovery_command="/opt/mesosphere/bin/detect_ip" --isolation="cgroups/cpu,cgroups/mem" --launcher_dir="/opt/mesosphere/packages/mesos--30d3fbeb6747bb086d71385e3e2e0eb74ccdcb8b/libexec/mesos" --log_dir="/var/log/mesos" --logbufsecs="0" --logging_level="INFO" --master="zk://leader.mesos:2181/mesos" --oversubscribed_resources_interval="15secs" --perf_duration="10secs" --perf_interval="1mins" --port="5051" --qos_correction_interval_min="0ns" --quiet="false" --recover="reconnect" --recovery_timeout="15mins" --registration_backoff_factor="1secs" --resource_monitoring_interval="1secs" --resources="ports:[1025-2180,2182-3887,3889-5049,5052-8079,8082-8180,8182-32000]" --revocable_cpu_low_priority="true" --sandbox_directory="/mnt/mesos/sandbox" --slave_subsystems="cpu,memory" --strict="true" --switch_user="true" --systemd_runtime_directory="/run/systemd/system" --version="false" --work_dir="/var/lib/mesos/slave" 
  mesos-slave[1080]: I1118 14:00:43.688711 1080 slave.cpp:211] 将从设备进程转入自己的子系统 cgroup：cpu
  mesos-slave[1080]: 2015-11-18 14:00:43,689:1080(0x7f9b526c4700):ZOO_INFO@check_events@1703: 发起与服务器的连接 [10.0.7.166:2181]
  mesos-slave[1080]: I1118 14:00:43.692811 1080 slave.cpp:211] 将从设备进程转入自己的子系统 cgroup：内存
@@ -238,15 +238,15 @@ DC/OS Marathon 在管理节点上启动。本地 Marathon 实例是 DC/OS 的“
 
  java[1288]: I1118 13:59:39.125041 1363 group.cpp:331] 组进程 (group(1)@10.0.7.166:48531) 已连接到 ZooKeeper
  java[1288]: I1118 13:59:39.125100 1363 group.cpp:805] 同步组操作：队列大小 (joins, cancels, datas) = (0, 0, 0)
- java[1288]: I1118 13:59:39.125121 1363 group.cpp:403] 尝试在 ZooKeeper 中创建路径 '/mesos'
+ java[1288]: I1118 13:59:39.125121 1363 group.cpp:403] 尝试在 ZooKeeper 中创建路径 '/mesos' 
  java[1288]: [2015-11-18 13:59:39,130] INFO 调度器角色就绪 (mesosphere.marathon.MarathonSchedulerActor:marathon-akka.actor.default-dispatcher-5)
- java[1288]: I1118 13:59:39.147804 1363 detector.cpp:156] 检测到新的领导节点：(id='1')
- java[1288]: I1118 13:59:39.147924 1363 group.cpp:674] 尝试在 ZooKeeper 中获取 '/mesos/json.info_0000000001'
+ java[1288]: I1118 13:59:39.147804 1363 detector.cpp:156] 检测到新的首要节点：(id='1')
+ java[1288]: I1118 13:59:39.147924 1363 group.cpp:674] 尝试在 ZooKeeper 中获取 '/mesos/json.info_0000000001' 
  java[1288]: I1118 13:59:39.148727 1363 detector.cpp:481] 检测到新的领导管理节点 (UPID=master@10.0.7.166:5050)
  java[1288]: I1118 13:59:39.148787 1363 sched.cpp:262] 在 master@10.0.7.166:5050 处检测到新的管理节点
  java[1288]: I1118 13:59:39.148952 1363 sched.cpp:272] 未提供凭据。尝试在没有认证的情况下注册
  java[1288]: I1118 13:59:39.150403 1363 sched.cpp:641] 框架已向 cdcb6222-65a1-4d60-83af-33dadec41e92-0000 注册
-
+    
 
 
 ## <a name="gen-resolvconf"></a>gen_resolvconf
@@ -266,13 +266,13 @@ gen_resolvconf 已启动。这是一个帮助代理节点定位管理节点的�
 例如，此处是随着其转为成功状态，gen_resolvconf 日志的一个片段：
 
  systemd[1]：已开始更新 Update systemd-resolved for mesos-dns。
- systemd[1]：正在开始更新 Update systemd-resolved for mesos-dns...
+ systemd[1]：正在开始更新 Update systemd-resolved for mesos-dns... 
  gen_resolvconf.py[1073]: options timeout:1
  gen_resolvconf.py[1073]: options attempts:3
  gen_resolvconf.py[1073]: nameserver 10.0.7.166
  gen_resolvconf.py[1073]: nameserver 10.0.0.2
  gen_resolvconf.py[1073]: 正在更新 /etc/resolv.conf
-
+    
 
 
 ## <a name="mesos-master-process"></a>Mesos 管理节点进程
@@ -284,7 +284,7 @@ Mesos 管理节点进程在管理节点上开始。`mesos-master` 进程在群�
 * 直接转到 Mesos Web 界面，并在 `<master-hostname>/mesos` 中查看其状态。
 * 对管理节点执行 SSH，并输入以下命令来查看从启动时间起的日志：
 
-    ```bash
+    ```bash 
     journalctl -u dcos-mesos-master -b
     ```
 
@@ -315,7 +315,7 @@ Mesos-DNS 在 DC/OS 管理节点上启动。Mesos DNS 在群集内提供服务�
  mesos-dns[1197]: I1118 13:59:34.764537 1197 detect.go:145] 检测到管理节点信息：&MasterInfo{Id:*cdcb6222-65a1-4d60-83af-33dadec41e92,Ip:*2785476618,Port:*5050,Pid:*master@10.0.7.166:5050,Hostname:*10\.0.7.166,Version:*0\.25.0,Address:&Address{Hostname:*10\.0.7.166,Ip:*10\.0.7.166,Port:*5050,XXX_unrecognized:[],},XXX_unrecognized:[],}
  mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 masters.go:47: 更新的首要节点：&MasterInfo{Id:*cdcb6222-65a1-4d60-83af-33dadec41e92,Ip:*2785476618,Port:*5050,Pid:*master@10.0.7.166:5050,Hostname:*10\.0.7.166,Version:*0\.25.0,Address:&Address{Hostname:*10\.0.7.166,Ip:*10\.0.7.166,Port:*5050,XXX_unrecognized:[],},XXX_unrecognized:[],}
  mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 main.go:76: 检测到新的管理节点：[10.0.7.166:5050]
- mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 generator.go:70: Zookeeper 认为领导者是：10.0.7.166:5050
+ mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 generator.go:70: Zookeeper 认为首要节点是：10.0.7.166:5050
  mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 generator.go:162: 从管理节点 10.0.7.166 重新加载
  mesos-dns[1197]: I1118 13:59:34.766005 1197 detect.go:219] 通知管理节点成员变化：[&MasterInfo{Id:*cdcb6222-65a1-4d60-83af-33dadec41e92,Ip:*2785476618,Port:*5050,Pid:*master@10.0.7.166:5050,Hostname:*10\.0.7.166,Version:*0\.25.0,Address:&Address{Hostname:*10\.0.7.166,Ip:*10\.0.7.166,Port:*5050,XXX_unrecognized:[],},XXX_unrecognized:[],}]
  mesos-dns[1197]: 非常冗长：2015/11/18 13:59:34 masters.go:56: 更新的管理节点：[&MasterInfo{Id:*cdcb6222-65a1-4d60-83af-33dadec41e92,Ip:*2785476618,Port:*5050,Pid:*master@10.0.7.166:5050,Hostname:*10\.0.7.166,Version:*0\.25.0,Address:&Address{Hostname:*10\.0.7.166,Ip:*10\.0.7.166,Port:*5050,XXX_unrecognized:[],},XXX_unrecognized:[],}]
@@ -337,7 +337,7 @@ DC/OS 使用 ZooKeeper，后者是一个高性能协调服务，用来管理已�
     ```
 
 
-例如，此处是随着其转为成功状态，Exhibitor 日志的一个片段：
+例如，此处是 Exhibitor 日志转为成功状态的一个片段：
 
  INFO com.netflix.exhibitor.core.activity.ActivityLog 自动实例管理将更改服务器列表：==> 1:10.0.7.166 [ActivityQueue-0]
  INFO com.netflix.exhibitor.core.activity.ActivityLog 状态：正在服务 [ActivityQueue-0]
@@ -350,7 +350,7 @@ DC/OS 使用 ZooKeeper，后者是一个高性能协调服务，用来管理已�
  INFO com.netflix.exhibitor.core.activity.ActivityLog ZooKeeper 服务器：正在启动 Cookeeper ... 已启动 [pool-3-thread-3]
  INFO com.netflix.exhibitor.core.activity.ActivityLog 清理任务已完成 [pool-3-thread-6]
  INFO com.netflix.exhibitor.core.activity.ActivityLog 清理任务已完成 [pool-3-thread-9]
-
+    
 
 
 

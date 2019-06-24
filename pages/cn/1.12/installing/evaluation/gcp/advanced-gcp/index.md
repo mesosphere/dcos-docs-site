@@ -5,7 +5,7 @@ excerpt: 使用 Mesosphere Universal 安装工具在 GCP 上配置您的 DC/OS �
 navigationTitle: 配置参考
 menuWeight: 5
 ---
-Mesosphere Universal 安装工具支持各种输入/变量，以便添加到您的 `main.tf`，并使您能够根据需要自定义您的 DC/OS 群集。这些输入/变量包括从指定操作系统（CentOS、Coreos、RHEL）到设置 DC/OS 群集的垃圾收集时间等各个项目。
+Mesosphere Universal 安装工具支持各种输入/变量，以便添加到您的 `main.tf`，并让您能够根据需要自定义您的 DC/OS 群集。这些输入/变量包括从指定操作系统（CentOS、CoreOS、RHEL）到设置 DC/OS 群集的垃圾收集时间等各个项目。
 
 基于 Terraform 的 Universal 安装工具旨在实现灵活的配置。下面是自定义 `main.tf` 的一个示例，在 Google Cloud Platform 上调配定制的 DC/OS 1.12.0 集群。
 
@@ -96,7 +96,7 @@ dcos_version: "1.12.0"
 
 ## 支持的实例（节点）操作系统版本
 
-当前默认实例操作系统是 `centos_7.5`，除非配置中指定，否则将应用该系统。DC/OS 支持以下实例操作系统。要更改默认操作系统，可以更改以下参数：
+当前默认实例操作系统是 `centos_7.5`，除非配置中指定，否则将应用该操作系统。DC/OS 支持以下实例操作系统。要更改默认操作系统，可以更改以下参数：
 
 ```json
 dcos_instance_os = "centos_7.5"
@@ -131,7 +131,7 @@ dcos_instance_os = "centos_7.5"
 | dcos_adminrouter_tls_1_2_enabled | 指示是否在 Admin Router 中启用 TLSv1.2 支持。（可选） | 字符串 | `` | 否 |
 | dcos_adminrouter_tls_cipher_suite | [企业 DC/OS] 指示是否允许 Web 浏览器通过非 HTTPS 连接发送 DC/OS 身份认证 cookie。（可选） | 字符串 | `` | 否 |
 | dcos_agent_list | 用于列出 `config.yaml` 中的代理。（可选） | 字符串 | `` | 否 |
-| dcos_audit_logging | [企业 DC/OS] 能够为 Mesos、Marathon 和作业记录安全决策。（可选） | 字符串 | `` | 否 |
+| dcos_audit_logging | [企业 DC/OS] 启用为 Mesos、Marathon 和作业记录安全决策。（可选） | 字符串 | `` | 否 |
 | dcos_auth_cookie_secure_flag | [企业 DC/OS] 允许 Web 浏览器通过非 HTTPS 连接发送 DC/OS 身份认证 cookie。（可选） | 字符串 | `` | 否 |
 | dcos_aws_access_key_id | Exhibitor 存储的 AWS 密钥 ID。（可选，但使用 `dcos_exhibitor_address` 时为必需） | 字符串 | `` | 否 |
 | dcos_aws_region | Exhibitor 存储的 AWS 区域。（可选，但使用 `dcos_exhibitor_address` 时为必需） | 字符串 | `` | 否 |
@@ -184,13 +184,13 @@ dcos_instance_os = "centos_7.5"
 | dcos_ip_detect_public_contents | 允许 DC/OS 知道您的公共可路由地址，以便于使用（建议） | 字符串 | `` | 否 |
 | dcos_ip_detect_public_filename | 静态设置您的 `detect-ip-public` 路径 | 字符串 | `genconf/ip-detect-public` | 否 |
 | dcos_l4lb_enable_ipv6 | 布尔值，表示第 4 层负载均衡是否可用于 IPv6 网络。（可选） | 字符串 | `` | 否 |
-| dcos_license_key_contents | [企业 DC/OS] 用于提供企业版 DC/OS 的许可证密钥。如果 bootstrap 节点上存在 [1] ，则为可选。| 字符串 | `` | 否 |
+| dcos_license_key_contents | [企业 DC/OS] 用于提供企业版 DC/OS 的许可证密钥。如果 bootstrap 节点上存在 license.txt ，则为可选。| 字符串 | `` | 否 |
 | dcos_log_directory | 从 SSH 进程到安装工具主机日志的路径。（可选） | 字符串 | `` | 否 |
 | dcos_master_discovery | Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadbalancer`。（建议使用 `master_http_loadbalancer`) | 字符串 | `static` | 否 |
 | dcos_master_dns_bindall | 指示管理节点 DNS 端口是否打开。（可选） | 字符串 | `` | 否 |
 | dcos_master_external_loadbalancer | [企业 DC/OS] 允许 DC/OS 围绕外部负载均衡器名称配置证书。如果未使用，则会出现 SSL 验证问题。（建议） | 字符串 | `` | 否 |
 | dcos_master_list | 静态设置管理节点（不建议，但 `exhibitor_storage_backend` 设置为 `static` 时为必选。改用 `aws_s3` 或 `azure`，这样您可以在云中更改管理节点。） | 字符串 | `` | 否 |
-| dcos_mesos_container_log_sink | 容器（任务）的日志管理器。选项是将日志发送到： `journald`、 、`journald+logrotate`。（可选） | 字符串 | `` | 否 |
+| dcos_mesos_container_log_sink | 容器（任务）的日志管理器。选项是将日志发送到： `journald`、`logrotate` 、`journald+logrotate`。（可选） | 字符串 | `` | 否 |
 | dcos_mesos_dns_set_truncate_bit | 指示在响应过大而无法放入单个数据包时，是否设置截断数位。（可选） | 字符串 | `` | 否 |
 | dcos_mesos_max_completed_tasks_per_framework | Mesos 管理节点在内存中保留的每个框架的完成任务数。（可选） | 字符串 | `` | 否 |
 | dcos_no_proxy | 从代理中排除的地址的 YAML 嵌套列表 (-)。（可选） | 字符串 | `` | 否 |
@@ -202,7 +202,7 @@ dcos_instance_os = "centos_7.5"
 | dcos_overlay_network | 这组参数定义 DC/OS 的虚拟网络。（可选） | 字符串 | `` | 否 |
 | dcos_package_storage_uri | 永久存储 DC/OS 包的位置。值必须是一个文件 URL。（可选） | 字符串 | `` | 否 |
 | dcos_previous_version | DC/OS 1.9+ 要求用户设置此值，以确保用户知道该版本。Terraform 可帮助填充此值，但用户可以在此处覆盖。（建议） | 字符串 | `` | 否 |
-| dcos_previous_version_master_index | 用于跟踪主站的索引，以便在升级过程中查询以前的 DC/OS 版本。（可选）适用：1.9+ | 字符串 | `0` | 否 |
+| dcos_previous_version_master_index | 用于跟踪管理节点的索引，以便在升级过程中查询以前的 DC/OS 版本。（可选）适用：1.9+ | 字符串 | `0` | 否 |
 | dcos_process_timeout | 在进程分叉之后等待开始操作的时间（以秒为单位）。（可选） | 字符串 | `` | 否 |
 | dcos_public_agent_list | 静态设置您的公共代理。（不建议） | 字符串 | `` | 否 |
 | dcos_resolvers | DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表 (-)。（建议） | 字符串 | `` | 否 |
@@ -211,8 +211,8 @@ dcos_instance_os = "centos_7.5"
 | dcos_rexray_config_method | 用于在 Marathon 中启用外部持久卷的 REX-Ray 配置方法。（可选） | 字符串 | `` | 否 |
 | dcos_s3_bucket | Exhibitor 后端的 S3 bucket 名称。（建议，但使用 `dcos_exhibitor_address` 时为必需项） | 字符串 | `` | 否 |
 | dcos_s3_prefix | Exhibitor 后端的 S3 前缀的名称。（建议，但使用 `dcos_exhibitor_address` 时为必需项） | 字符串 | `` | 否 |
-| dcos_security | [企业 DC/OS] 设置 DC/OS 的安全级别。默认值为 permissive。（建议） | 字符串 | `` | 否 |
-| dcos_skip_check | 升级选项：用于跳过所有 DC/OS 检查，如果任何 DC/OS 组件运行不正常，这些检查可能阻止升级。（可选）适用：1.10+ | 字符串 | `false` | 否 |
+| dcos_security | [企业 DC/OS] 设置 DC/OS 的安全级别。默认值为宽容。（建议） | 字符串 | `` | 否 |
+| dcos_skip_check | 升级选项：用于跳过任何 DC/OS 组件运行不佳导致可能阻止升级的 DC/OS 检查。（可选）适用：1.10+ | 字符串 | `false` | 否 |
 | dcos_staged_package_storage_uri | 添加 DC/OS 包时的临时存储位置。（可选） | 字符串 | `` | 否 |
 | dcos_superuser_password_hash | [企业 DC/OS] 设置超级用户密码哈希值。（建议） | 字符串 | `` | 否 |
 | dcos_superuser_username | [企业 DC/OS] 设置超级用户的用户名。（建议） | 字符串 | `` | 否 |
@@ -220,7 +220,7 @@ dcos_instance_os = "centos_7.5"
 | dcos_ucr_default_bridge_subnet | 分配给 mesos 桥接 CNI 网络，供 UCR 构建桥接模式网络的 IPv4 子网。（可选） | 字符串 | `` | 否 |
 | dcos_use_proxy | 启用对内部路由代理的使用。（可选） | 字符串 | `` | 否 |
 | dcos_variant | 主要变量。| 字符串 | `open` | 否 |
-| dcos_version | 指定要使用哪个 DC/OS 版本说明。选项：`1.9.0`、`1.8.8` 等。参见 [dcos_download_path](https://github.com/dcos/tf_dcos_core/blob/master/variables.tf) 或 [dcos_version](https://github.com/dcos/tf_dcos_core/tree/master/dcos-versions) 树，获得完整列表。| 字符串 | `1.11.4` | 否 |
+| dcos_version | 指定要使用哪个 DC/OS 版本说明。选项：`1.9.0`、`1.8.8` 等。参见 [dcos_download_path](https://github.com/dcos/tf_dcos_core/blob/master/download-variables.tf) 或 [dcos_version](https://github.com/dcos/tf_dcos_core/tree/master/dcos-versions) 树，获得完整列表。| 字符串 | `1.11.4` | 否 |
 | dcos_zk_agent_credentials | [企业 DC/OS] 设置 ZooKeeper 代理节点凭据。（建议） | 字符串 | `` | 否 |
 | dcos_zk_master_credentials | [企业 DC/OS] 设置 ZooKeeper 管理节点凭据。（建议） | 字符串 | `` | 否 |
 | dcos_zk_super_credentials | [企业 DC/OS] 设置 ZooKeeper 超级凭据。（建议） | 字符串 | `` | 否 |
