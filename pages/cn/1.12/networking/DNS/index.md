@@ -89,7 +89,7 @@ DNS 由 DC/OS 中的两个不同组件 `mesos-dns` 和 `dcos-dns` 提供。这�
 此 FQDN 由 `mesos-dns` 展示为 SRV 记录。
 
 # 除用于 Marathon 以外其他框架的 FQDN
-[示例 1](#Example1) 使用 Marathon，这是 DC/OS 中的默认框架。但还有其他框架也可以在 DC/OS 之上运行，如 Kafka、Cassandra、Spark 等。DC/OS 中的 DNS 基础架构生成上面所述的 FQDN，用于这些框架启动的服务。唯一的区别就是名称 `marathon` 被该框架的名称替换，以建立 FQDN。例如，由框架启动的服务 `kafka` 具有 FQDN，例如：
+[示例 1](#Example1) 使用 Marathon，这是 DC/OS 中的默认框架。但还有其他框架也可以在 DC/OS 之上运行，如 Kafka、Cassandra、Spark 等。DC/OS 中的 DNS 基础架构也生成上面所述的 FQDN，用于这些框架启动的服务。唯一的区别就是名称 `marathon` 被该框架的名称替换，以建立 FQDN。例如，由框架启动的服务 `kafka` 具有 FQDN，例如：
 
 * `<taskname>.kafka.l4lb.thisdcos.directory`
 * `<taskname>.kafka.containerip.dcos.thisdcos.directory`
