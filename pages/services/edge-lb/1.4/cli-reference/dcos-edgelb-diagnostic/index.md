@@ -8,7 +8,7 @@ enterprise: true
 ---
 
 # Description
-The `dcos edgelb diagnostic` command collects diagnostic information for Edge-LB pools and packages it in a support bundle for troubleshooting and analysis.
+The `dcos edgelb diagnostic` command collects diagnostic information for Edge-LB pools and packages that information into a compressed archive support file for troubleshooting and analysis.
 
 # Usage
 
