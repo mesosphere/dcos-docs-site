@@ -40,4 +40,4 @@ DC/OS 1.12 包括更新的 `statsd` 服务器，用于执行应用程序度量�
 
 - 可以通过启用 `inputs.internal` 插件来收集有关 Telegraf 自身性能的度量标准。
 - 可以通过运行 `systemctl status dcos-telegraf` 来检查 Telegraf `systemd` 设备的状态。
-- 可以通过 `journalctl -u dcos-telegraf` 从期刊获得日志。
+- 可以通过 `journalctl -u dcos-telegraf` 从 journald 获得日志。
