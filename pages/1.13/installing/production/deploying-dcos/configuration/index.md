@@ -25,9 +25,9 @@ bootstrap_url: file:///opt/dcos_install_tmp
 ```
 
 ## Config blocks and lists
-A config block is a group of settings. It consists of the following:
+A config block is a group of configuration settings. It consists of the following:
 
-- A key followed by a colon for example: `agent_list:`. The key of the config block must be on its own line, with no leading space.
+- A key followed by a colon, for example: `agent_list:`. The key of the config block must be on its own line, with no leading space.
 - A list of values formatted by using a single dash (`-`) followed by a space; or an indented set of one or more key-value pairs. The indentation for each key-value pair must be exactly two spaces. Do not use tabs.
 - Any number of empty lines or comment lines.
 
@@ -83,6 +83,6 @@ See the [configuration reference](/1.13/installing/production/advanced-configura
 
 # Configure DC/OS for Proxy
 
-By default, the DC/OS [{{ model.packageRepo }}](https://github.com/mesosphere/{{ model.packageRepo }}) repository is hosted on the internet. If your DC/OS cluster is behind a corporate proxy, you must specify your proxy configuration in the [configuration file](/1.13/installing/production/advanced-configuration/configuration-reference/#use-proxy) file before installation. This will enable your cluster to connect to the {{ model.packageRepo }} packages.
+By default, the DC/OS [{{ model.packageRepo }}](https://github.com/mesosphere/universe) repository is hosted on the internet. If your DC/OS cluster is behind a corporate proxy, you must specify your proxy configuration in the [configuration file](/1.13/installing/production/advanced-configuration/configuration-reference/#use-proxy) file before installation. This will enable your cluster to connect to the {{ model.packageRepo }} packages.
 
 <p class="message--note"><strong>NOTE: </strong>You should also configure an HTTP proxy for <a href="https://docs.docker.com/engine/admin/systemd/#/http-proxy">Docker</a>.</p>

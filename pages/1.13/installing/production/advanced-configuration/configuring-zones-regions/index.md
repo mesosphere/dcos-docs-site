@@ -4,6 +4,8 @@ navigationTitle:  Configuring Zones and Regions
 title: Configuring Zones and Regions
 menuWeight: 15
 excerpt: Using the high-availability features in DC/OS
+render: mustache
+model: /1.13/data.yml
 ---
 
 This topic discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
@@ -63,7 +65,7 @@ HA services should be decoupled, with responsibilities divided amongst services.
 
 ## Eliminating Single Points of Failure
 
-Single points of failure come in many forms. For example, a service like ZooKeeper can become a single point of failure when every service in your system shares one ZooKeeper cluster. You can reduce risks by running multiple ZooKeeper clusters for separate services. There's an Exhibitor [Universe package](https://github.com/mesosphere/exhibitor-dcos) that makes this easy.
+Single points of failure come in many forms. For example, a service like ZooKeeper can become a single point of failure when every service in your system shares one ZooKeeper cluster. You can reduce risks by running multiple ZooKeeper clusters for separate services. There's an Exhibitor [{{ model.packageRepo }} package](https://github.com/mesosphere/exhibitor-dcos) that makes this easy.
 
 Other common single points of failure include:
 
