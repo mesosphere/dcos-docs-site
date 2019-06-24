@@ -19,7 +19,7 @@ Mesosphere DC/OS 版本号的格式为：<code>&lt;发布&gt;.&lt;版本&gt;.&lt
 
 ## 次要
 
-对同一软件产品的漏洞修复和新增强，以补丁发布编号的变更来表示。例如，版本 5.6.3 意指 <code>R</code> 为 5，<code>V</code> 为 6，<code>M</code> 为 3。
+对同一软件产品的漏洞修复和新增强功能，以补丁发布编号的变更来表示。例如，版本 5.6.3 意指 <code>R</code> 为 5，<code>V</code> 为 6，<code>M</code> 为 3。
 
 # Mesosphere 软件寿命终止策略
 

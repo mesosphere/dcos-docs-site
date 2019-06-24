@@ -30,11 +30,11 @@ DC/OS 1.12.0 新增以下特性和功能：
 - OpenID Connect 身份认证和授权，支持 Windows 集成身份认证（WIA）和活动目录联合服务（ADFS）
 
 ### 观察性 - 度量标准
-- 引入了具有多种输出格式的灵活且可配置的度量标准管道
+- 引入了具有多种输出格式的灵活且可配置的度量标准管线
 - 增强对应用程序度量标准类型（包括直方图、计数器、计时器和计量器）的支持。
 - 支持提高采样率和多度量标准数据包。
 - Mesos 框架度量标准现在 [可用](http://mesos.apache.org/documentation/latest/monitoring/#frameworks)。
-- 在 1.11 中通过 Prometheus 终点收集度量标准时，不再需要修改。
+- 在 1.11 中通过 Prometheus 端点收集度量标准时，不再需要修改。
 
 [enterprise]
 ### 专用包注册表
@@ -69,15 +69,15 @@ DC/OS 1.12.0 新增以下特性和功能：
 - 改进了 DNS  聚合时间（亚秒）性能。
 - 可覆盖网络的可配置 MTU。
 - 群集中新代理可重用 IP 地址。
-- 借助 Erlang 库中的 SSL 死锁缓解网络连接停滞状态。
+- 避免 Erlang 库中因 SSL 锁死造成的网络停滞状态。
 - TLS 1.2 支持。
 - 按容器提供网络度量标准支持。
 - 利用 Edge-LB 中的持久连接进行 L7 负载均衡。[enterprise type="inline" size="small" /]
 - 改进了 Edge-LB 的日志记录。[enterprise type="inline" size="small" /]
 
 ### 扩展了 DC/OS 升级路径 
-- Mesosphere 现在能够在支持的 DC/OS 补丁版本中执行跨越 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) 的特定操作（即一次完成从 1.11.1 => 1.11.5 的升级）。
-- Mesosphere 现在支持执行跨越 DC/OS 支持的主要版本之间的升级路径的特定操作（即一次完成从 1.10.7 => 1.11.4 的升级）。
+- Mesosphere 现在能够在支持的 DC/OS 补丁版本中执行跨越多级的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) 的特定操作（即一次完成从 1.11.1 => 1.11.5 的升级）。
+- Mesosphere 现在支持执行 DC/OS 支持的主要版本之间的多级跨越升级路径的特定操作（即一次完成从 1.10.7 => 1.11.4 的升级）。
 
 ### 服务（Marathon）增强功能
 - [优先GPU调度](http://mesosphere.github.io/marathon/docs/preferential-gpu-scheduling.html)增强了其他选项，以实现更加细分的资源管理。
@@ -174,7 +174,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 - DCOS_OSS-2073 - DC/OS 网络：支持 Mesos Windows 代理。
 - DCOS_OSS-3539 - 修复运行任务以获取 .dcos fqdns。
 - DCOS_OSS-3655 - 升级 OTP 版本。
-- DCOS_OSS-3697 - 吸附桥接网络与覆盖网络之间的连接问题。
+- DCOS_OSS-3697 - 修复桥接网络与覆盖网络之间的连接问题。
 - DCOS_OSS-3707 - 修复因更新到 Coreos v1800.7 而造成的网络故障。
 - DCOS_OSS-3750 - 将数据目录移至 `tmpfs` 位置，并在代理重启时回收分配的 IP 地址。
 - DCOS_OSS-3841 - 更新 CNI 插件至 v0.7.1。
@@ -220,7 +220,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 ## 突破性变更
 - DCOS_OSS-2256 - 删除 DC/OS web 安装程序。
 - DCOS_OSS-3714 - 已将 `dcos-metrics` 替换为 Telegraf。
-- DCOS_OSS-4243 - Marathon 将默认拒绝 [维护模式](https://github.com/mesosphere/marathon/blob/master/changelog.md#maintenance-mode-support-production-ready-now-default) 中的代理 offer。向 Marathon 事件 API (/v2/events when queried directly) 请求备用实例时，得出的响应不再是代理，而是重定向。应当更新使用 Marathon 事件 API 的客户端，以遵循重定向。上述跟随重定向进行更新的组件；例如，Marathon-LB 至少应更新到版本 v1.12.3。[查看更多详情](https://github.com/mesosphere/marathon/blob/master/changelog.md#non-leaderstandby-marathon-instances-respond-to-v2events-with-a-redirect-rather-than-proxy)。
+- DCOS_OSS-4243 - Marathon 将默认拒绝 [维护模式](https://github.com/mesosphere/marathon/blob/master/changelog.md#maintenance-mode-support-production-ready-now-default) 中的代理 offer。向 Marathon 事件 API (当直接查询时为/v2/事件) 请求备用实例时，得出的响应不再是代理，而是重定向。应当更新使用 Marathon 事件 API 的客户端，以遵循重定向。上述跟随重定向进行更新的组件；例如，Marathon-LB 至少应更新到版本 v1.12.3。[查看更多详情](https://github.com/mesosphere/marathon/blob/master/changelog.md#non-leaderstandby-marathon-instances-respond-to-v2events-with-a-redirect-rather-than-proxy)。
 
 ## 客户咨询 
 - [对于 DC/OS 1.12 的 Kubernetes 支持的要求](https://support.mesosphere.com/s/article/Critical-Issue-Kubernetes-Upgrade-MSPH-2018-0007)。
