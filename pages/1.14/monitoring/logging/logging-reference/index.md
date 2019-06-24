@@ -100,7 +100,7 @@ DC/OS Logging follows the [Server-Sent-Event specifications](https://www.w3.org/
 
  The following resources are available under both of the [above routes](#routes):
 
- [swagger api='/1.13/api/logs2.yaml']
+ [swagger api='/1.14/api/logs2.yaml']
 
 # Fluent Bit
 

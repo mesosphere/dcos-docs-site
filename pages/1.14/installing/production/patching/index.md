@@ -5,7 +5,7 @@ title: Patching
 menuWeight: 20
 excerpt: Understanding cluster patches
 render: mustache
-model: /1.13/data.yml
+model: /1.14/data.yml
 ---
 
 A DC/OS patch describes a set of changes and supporting data designed to update, fix, or improve the features/functionality of DC/OS. A point release that consists of minor changes is also called a patch.
@@ -102,7 +102,7 @@ This procedure patches a DC/OS 1.12 cluster without changing the cluster's [secu
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
-    <p class="message--note"><strong>NOTE: </strong>You cannot change the <code>exhibitor_zk_backend</code> setting during a patch. The syntax of the <code>config.yaml</code> may be different from the earlier version. For a detailed description of the current <code>config.yaml</code> syntax and parameters, see the <a href="/1.13/installing/production/advanced-configuration/configuration-reference/">documentation</a>.</p>
+    <p class="message--note"><strong>NOTE: </strong>You cannot change the <code>exhibitor_zk_backend</code> setting during a patch. The syntax of the <code>config.yaml</code> may be different from the earlier version. For a detailed description of the current <code>config.yaml</code> syntax and parameters, see the <a href="/1.14/installing/production/advanced-configuration/configuration-reference/">documentation</a>.</p>
 
 1. After updating the format of the config.yaml, compare the old `config.yaml` and new `config.yaml`. Verify that there are no differences in pathways or configurations. Changing these while patching can lead to catastrophic cluster failures.
 1.  Modify the `ip-detect` file as desired.

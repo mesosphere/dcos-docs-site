@@ -14,7 +14,7 @@ You can opt out of the provided authentication by disabling it for your cluster.
 oauth_enabled: 'false'
 ```
 
-<p class="message--note"><strong>NOTE: </strong>If you have already installed your cluster and would like to disable this in place, you can go through an upgrade with the same <a href="/1.13/installing/production/advanced-configuration/configuration-reference/"> configuration parameter</a> set.</p>
+<p class="message--note"><strong>NOTE: </strong>If you have already installed your cluster and would like to disable this in place, you can go through an upgrade with the same <a href="/1.14/installing/production/advanced-configuration/configuration-reference/"> configuration parameter</a> set.</p>
 
 
 
@@ -30,4 +30,4 @@ You can opt out of providing anonymous data by disabling telemetry for your clus
 
 
 
-<p class="message--note"><strong>NOTE: </strong>If you have already installed your cluster and would like to disable this in place, you can go through an upgrade with the same <a href="/1.13/installing/production/advanced-configuration/configuration-reference/"> configuration parameter</a> set.</p>
+<p class="message--note"><strong>NOTE: </strong>If you have already installed your cluster and would like to disable this in place, you can go through an upgrade with the same <a href="/1.14/installing/production/advanced-configuration/configuration-reference/"> configuration parameter</a> set.</p>
