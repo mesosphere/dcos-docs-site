@@ -4,6 +4,8 @@ navigationTitle:  dcos task log
 title: dcos task log
 menuWeight: 5
 excerpt: Displaying the task log
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -45,13 +47,13 @@ dcos task log [mesosID] exporter.log
 
 # Examples
 
-For an example, see the [logging documentation](/1.14/monitoring/logging/).
+For an example, see the [logging documentation](/1.13/monitoring/logging/).
 
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/1.14/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/1.13/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
 
 

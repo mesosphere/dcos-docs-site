@@ -5,6 +5,8 @@ title: dcos node diagnostics
 menuWeight: 2
 excerpt: Displaying the details of diagnostics bundles
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
@@ -62,5 +64,5 @@ dcos node diagnostics --status
 
 | Command | Description |
 |---------|-------------|
-| [`dcos node`](/1.14/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [`dcos node`](/1.13/cli/command-reference/dcos-node/) | View DC/OS node information. |
 

@@ -4,6 +4,8 @@ navigationTitle:  dcos node dns
 title: dcos node dns
 menuWeight: 6
 excerpt: Viewing DC/OS node information
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -35,5 +37,5 @@ dcos node dns <dns-name> [--json]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.14/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/1.13/cli/command-reference/dcos-node/) | View DC/OS node information. |
 

@@ -4,6 +4,8 @@ navigationTitle:  dcos security org users delete
 title: dcos security org users delete
 menuWeight: 195
 excerpt: Deleting a user
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

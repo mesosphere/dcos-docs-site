@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  dcos package describe
 title: dcos package describe
 menuWeight: 0
+render: mustache
+model: /data.yml
 excerpt: Fetching details for a package
 enterprise: false
 ---
@@ -35,4 +37,4 @@ dcos package describe <package-name> --package-versions
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.14/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.13/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

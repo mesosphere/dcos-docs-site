@@ -5,6 +5,8 @@ title: Resetting the Superuser
 menuWeight: 30
 excerpt: Reset an existing user or create a new user with the DC/OS reset superuser script
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
@@ -12,7 +14,7 @@ You can reset an existing user or create a new user with the DC/OS reset superus
 
 **Prerequisite:** You must have SSH access to the DC/OS cluster.
 
-1.  [SSH](/1.14/administering-clusters/sshcluster/) to the master node using the method of your choice.
+1.  [SSH](/1.13/administering-clusters/sshcluster/) to the master node using the method of your choice.
 
     For example:
 

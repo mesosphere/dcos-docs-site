@@ -5,6 +5,8 @@ title: dcos backup delete
 menuWeight: 20
 excerpt: Deleting backups
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 # Description
@@ -66,5 +68,5 @@ See the documentation for [`dcos backup list`](/../dcos-backup/dcos-backup-list/
 
 | Command | Description |
 |---------|-------------|
-| [dcos backup](/1.14/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+| [dcos backup](/1.13/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
 

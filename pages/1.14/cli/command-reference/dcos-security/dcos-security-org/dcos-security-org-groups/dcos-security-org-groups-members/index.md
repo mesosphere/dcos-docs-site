@@ -4,6 +4,8 @@ navigationTitle:  dcos security org groups members
 title: dcos security org groups members
 menuWeight: 145
 excerpt: Listing members of a group
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 # Description
@@ -33,4 +35,4 @@ dcos security org groups members [OPTIONS] GID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster org groups](/1.14/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |
+| [dcos security cluster org groups](/1.13/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |

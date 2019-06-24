@@ -5,6 +5,8 @@ title: dcos marathon pod update
 menuWeight: 28
 excerpt: Updating a Marathon pod
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
@@ -47,4 +49,4 @@ If the pod is currently deploying, you will not be able to update the pod. To up
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

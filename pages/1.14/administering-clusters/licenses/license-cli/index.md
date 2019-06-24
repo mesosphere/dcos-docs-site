@@ -5,14 +5,16 @@ title: License CLI
 menuWeight: 0
 enterprise: true
 excerpt: Using the command line interface to manage your DC/OS license
+render: mustache
+model: ../../../data.yml
 ---
 
-The `dcos license` commands are also documented in the [CLI Command Reference](/1.14/cli/command-reference/dcos-license/) documentation.
+The `dcos license` commands are also documented in the [CLI Command Reference](/1.13/cli/command-reference/dcos-license/) documentation.
 
 # Prerequisites
 - A DC/OS Enterprise cluster.
-- The [DC/OS CLI](/1.14/cli/install/) installed.
-- The [DC/OS Enterprise CLI](/1.14/cli/plugins/#enterprise-cli-plugin) installed.
+- The [DC/OS CLI](/1.13/cli/install/) installed.
+- The [DC/OS Enterprise CLI](/1.13/cli/plugins/#enterprise-cli-plugin) installed.
 
 
 # List licenses

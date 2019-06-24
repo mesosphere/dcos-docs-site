@@ -5,6 +5,8 @@ title: Cluster Link API
 menuWeight: 3
 excerpt: Managing cluster links with the Cluster Link API
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 You can use the Cluster Link API to manage cluster links.
@@ -17,7 +19,7 @@ Access to the Cluster Link API is proxied through the Admin Router on each maste
 /cluster/v1/links
 ```
 
-To determine the URL of your cluster, see [Cluster Access](/1.14/api/access/).
+To determine the URL of your cluster, see [Cluster Access](/1.13/api/access/).
 
 # Format
 
@@ -39,7 +41,7 @@ Content-Type: application/json
 
 All Cluster Link API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.14/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.14/security/ent/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/1.13/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.13/security/ent/iam-api/#passing-an-authentication-token).
 
 The Cluster Link API also requires authorization via the following permissions:
 
@@ -49,7 +51,7 @@ The Cluster Link API also requires authorization via the following permissions:
 
 All routes can also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/1.14/security/ent/perms-reference/).
+To assign permissions to your account, see the [permissions reference](/1.13/security/ent/perms-reference/).
 
 
 # API Reference

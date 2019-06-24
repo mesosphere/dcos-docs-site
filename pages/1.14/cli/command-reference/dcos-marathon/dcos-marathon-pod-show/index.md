@@ -5,6 +5,8 @@ title: dcos marathon pod show
 menuWeight: 27
 excerpt: Displaying detailed information for a specific pod
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
@@ -44,4 +46,4 @@ You can use the `show` command to read data about the pod programmatically.
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

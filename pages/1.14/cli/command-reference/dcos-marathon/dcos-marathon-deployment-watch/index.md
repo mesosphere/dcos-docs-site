@@ -4,7 +4,8 @@ navigationTitle:  dcos marathon deployment watch
 title: dcos marathon deployment watch
 menuWeight: 16
 excerpt: Monitoring application deployments
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -50,4 +51,4 @@ APP                   POD  ACTION   PROGRESS  ID
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

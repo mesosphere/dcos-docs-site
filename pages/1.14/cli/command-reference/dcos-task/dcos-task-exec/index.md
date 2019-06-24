@@ -4,7 +4,8 @@ navigationTitle:  dcos task exec
 title: dcos task exec
 menuWeight: 2
 excerpt: Launching a process inside of a task's container
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -36,8 +37,8 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/1.14/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/1.13/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
 
 # Examples
 
-For examples, see the debugging [documentation](/1.14/monitoring/debugging/).
+For examples, see the debugging [documentation](/1.13/monitoring/debugging/).

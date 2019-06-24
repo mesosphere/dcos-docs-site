@@ -4,7 +4,8 @@ navigationTitle:  Identity and Access Management API
 title: Identity and Access Management API
 menuWeight: 110
 excerpt: Managing users and permissions with the IAM API
-
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
@@ -88,7 +89,7 @@ The DC/OS authentication token is also a RFC 7519 JWT of type RS256.
 
 ### Using the DC/OS CLI
 
-When you log in to the [DC/OS CLI](/1.14/cli/) using `dcos auth login`, it stores the authentication token value locally. You can reference this value as a variable in `curl` commands (discussed in the next section).
+When you log in to the [DC/OS CLI](/1.13/cli/) using `dcos auth login`, it stores the authentication token value locally. You can reference this value as a variable in `curl` commands (discussed in the next section).
 
 Alternatively, you can use the following command to get the authentication token value.
 
@@ -124,7 +125,7 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## Refreshing the authentication token
 
-Authentication tokens expire after five days, by default. If your program needs to run longer than five days, you will need a service account. See [provisioning custom services](/1.14/security/ent/service-auth/custom-service-auth/) for more information.
+Authentication tokens expire after five days, by default. If your program needs to run longer than five days, you will need a service account. See [provisioning custom services](/1.13/security/ent/service-auth/custom-service-auth/) for more information.
 
 
 # API reference
@@ -134,4 +135,4 @@ Authentication tokens expire after five days, by default. If your program needs 
 
 # Logging
 
-While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/1.14/monitoring/logging/) for instructions.
+While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/1.13/monitoring/logging/) for instructions.

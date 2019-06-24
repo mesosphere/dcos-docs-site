@@ -5,6 +5,8 @@ title: dcos marathon group update
 menuWeight: 22
 excerpt: Updating Marathon group properties
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
@@ -36,5 +38,5 @@ dcos marathon group update [--force] <group-id> [<properties>...]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

@@ -101,7 +101,7 @@ definitions:
         example: false
       packageVersion:
         type: string
-        description: The DC/OS GUI package version as found in Universe. This is usually a semantic version, or 'Default' if the current DC/OS GUI is the default.
+        description: The DC/OS GUI package version as found in {{ model.packageRepo }}. This is usually a semantic version, or 'Default' if the current DC/OS GUI is the default.
         example: 1.0.0
       buildVersion:
         type: string

@@ -4,7 +4,8 @@ navigationTitle:  dcos marathon app show
 title: dcos marathon app show
 menuWeight: 6
 excerpt: Viewing the json file for an app
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -194,4 +195,4 @@ dcos marathon app show spark
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

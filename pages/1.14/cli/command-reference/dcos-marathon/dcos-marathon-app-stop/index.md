@@ -4,7 +4,8 @@ navigationTitle:  dcos marathon app stop
 title: dcos marathon app stop
 menuWeight: 8
 excerpt: Stopping an application
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -55,4 +56,4 @@ ID      MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

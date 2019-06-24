@@ -5,6 +5,8 @@ title: dcos cluster rename
 menuWeight: 5
 excerpt: Renaming a cluster
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description
@@ -30,10 +32,10 @@ dcos cluster rename <cluster> <name> [flags]
 
 
 # Examples
-For examples, see [Cluster Connections](/1.14/administering-clusters/multiple-clusters/cluster-connections/).
+For examples, see [Cluster Connections](/1.13/administering-clusters/multiple-clusters/cluster-connections/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster](/1.14/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters |
+| [dcos cluster](/1.13/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters |

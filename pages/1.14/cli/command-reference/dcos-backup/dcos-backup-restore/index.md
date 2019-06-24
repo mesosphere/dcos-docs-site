@@ -5,6 +5,8 @@ title: dcos backup restore
 menuWeight: 30
 excerpt: Restoring from a backup
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 # Description
@@ -63,5 +65,5 @@ dcos backup restore <backup id> [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos backup](/1.14/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+| [dcos backup](/1.13/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
 

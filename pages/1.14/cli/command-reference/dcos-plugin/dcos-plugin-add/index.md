@@ -4,6 +4,8 @@ navigationTitle:  dcos plugin add
 title: dcos plugin add
 menuWeight: 1
 excerpt: Adding a CLI plugin
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -35,4 +37,4 @@ dcos plugin add <resource> [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos plugin](/1.14/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS software plugins. |
+| [dcos plugin](/1.13/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS software plugins. |

@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster directory test
 title: dcos security cluster directory test
 menuWeight: 40
 excerpt: Testing a connection to an LDAP backend
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 # Description
@@ -33,4 +35,4 @@ dcos security cluster directory test [OPTIONS] UID PASSWORD
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster directory](/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |
+| [dcos security cluster directory](/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |

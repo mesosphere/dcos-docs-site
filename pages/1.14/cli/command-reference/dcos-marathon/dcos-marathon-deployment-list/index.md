@@ -4,7 +4,8 @@ navigationTitle:  dcos marathon deployment list
 title: dcos marathon deployment list
 menuWeight: 14
 excerpt: Displaying a list of currently deployed applications
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -48,4 +49,4 @@ APP          POD  ACTION  PROGRESS  ID
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  Deploying First Application
 excerpt: Part 3 of the DC/OS 101 Tutorial
 title: Tutorial - Deploying First Application
+render: mustache
+model: /data.yml
 menuWeight: 3
 ---
 
@@ -12,8 +14,8 @@ Welcome to part 3 of the DC/OS 101 Tutorial
 
 
 # Prerequisites
-* A [running DC/OS cluster](/1.14/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.14/tutorials/dcos-101/cli/).
-* [Redis](/1.14/tutorials/dcos-101/redis-package/) deployed and running in your cluster.
+* A [running DC/OS cluster](/1.13/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.13/tutorials/dcos-101/cli/).
+* [Redis](/1.13/tutorials/dcos-101/redis-package/) deployed and running in your cluster.
 
 
 # Objective

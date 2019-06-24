@@ -4,6 +4,8 @@ navigationTitle:  dcos security org users create
 title: dcos security org users create
 menuWeight: 190
 excerpt: Creating new users
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

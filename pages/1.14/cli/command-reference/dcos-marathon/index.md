@@ -5,6 +5,8 @@ title: dcos marathon
 menuWeight: 10
 excerpt: Deploying and managing applications to DC/OS using Marathon
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

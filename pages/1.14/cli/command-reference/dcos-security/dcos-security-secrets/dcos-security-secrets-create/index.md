@@ -4,6 +4,8 @@ navigationTitle:  dcos security secrets create
 title: dcos security secrets create
 menuWeight: 300
 excerpt: Creating and storing a secret
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
@@ -36,4 +38,4 @@ dcos security secrets create [OPTIONS] PATH
 
 | Command | Description |
 |---------|-------------|
-| [dcos security secrets](/1.14/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |
+| [dcos security secrets](/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

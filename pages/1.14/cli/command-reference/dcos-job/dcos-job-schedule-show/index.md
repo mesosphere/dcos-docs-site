@@ -4,7 +4,8 @@ navigationTitle:  dcos job schedule show
 title: dcos job schedule show
 menuWeight: 8
 excerpt: Viewing a job schedule
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -54,4 +55,4 @@ sleep-nightly  20 0 * * *    True   2017-02-19T00:20:00.000+0000        ALLOW
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.14/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

@@ -5,6 +5,8 @@ title: dcos marathon debug summary
 menuWeight: 13
 excerpt: Display the debugging queue of waiting Marathon app deployments
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
@@ -34,5 +36,5 @@ dcos marathon debug summary <app-id> [--json]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

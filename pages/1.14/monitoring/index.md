@@ -4,30 +4,32 @@ navigationTitle:  Monitoring, Logging, and Debugging
 title: Monitoring, Logging, and Debugging
 menuWeight: 110
 excerpt: Learn how to monitor the health of your datacenter operations with DC/OS
+render: mustache
+model: /data.yml
 ---
 
 
 Monitoring the health of all the pieces that make up DC/OS is vital to datacenter operators and for troubleshooting hard-to-diagnose bugs. You can monitor the health of your cluster components from the DC/OS UI component health page. The component health page displays information from the system health API, which monitors the core DC/OS components.
 
-DC/OS components are the [`systemd` units](https://www.freedesktop.org/wiki/Software/systemd/) that make up the core of DC/OS. These components are monitored by our internal diagnostics utility (`dcos-diagnostics.service`). This utility scans all the DC/OS units, and then exposes an HTTP API on each host. For a complete description of the DC/OS components, see the [documentation](/1.14/overview/architecture/components/). The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit.
+DC/OS components are the [`systemd` units](https://www.freedesktop.org/wiki/Software/systemd/) that make up the core of DC/OS. These components are monitored by our internal diagnostics utility (`dcos-diagnostics.service`). This utility scans all the DC/OS units, and then exposes an HTTP API on each host. For a complete description of the DC/OS components, see the [documentation](/1.13/overview/architecture/components/). The component health page provides the health status of all DC/OS system components that are running in systemd. You can drill down by health status, host IP address, or specific systemd unit.
 
 ## Getting Started
 
-Launch the [DC/OS UI](/1.14/gui/) and navigate to the **System -> Components** page. You can sort components by health.
+Launch the [DC/OS UI](/1.13/gui/) and navigate to the **System -> Components** page. You can sort components by health.
 
-![system health](/1.14/img/GUI-Components-List_View-1_12.png)
+![system health](/1.13/img/GUI-Components-List_View-1_12.png)
 
 Figure 1. Components page showing health status
 
 You can click on a DC/OS component to view the details, including role, node, and health.
 
-![node detail](/1.14/img/GUI-Components-Compenent_Detail_View-1_12.png)
+![node detail](/1.13/img/GUI-Components-Compenent_Detail_View-1_12.png)
 
 Figure 2. Individual component detail
 
 You can debug further by clicking the node to view the component `journald` (log) output.
 
-![log](/1.14/img/GUI-Components-Individual_Node_Detail_View-1_12.png)
+![log](/1.13/img/GUI-Components-Individual_Node_Detail_View-1_12.png)
 
 Figure 3. `Journald` log output
 
@@ -103,8 +105,8 @@ If you have any problems, you can check if the diagnostics service is running by
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html
- [6]: /1.14/security/
- [7]: /1.14/networking/load-balancing-vips/
- [8]: /1.14/overview/concepts/#private-agent-node
- [9]: /1.14/overview/concepts/#public-agent-node
+ [6]: /1.13/security/
+ [7]: /1.13/networking/load-balancing-vips/
+ [8]: /1.13/overview/concepts/#private-agent-node
+ [9]: /1.13/overview/concepts/#public-agent-node
  [10]: http://mesos.apache.org/documentation/latest/persistent-volume/

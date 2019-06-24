@@ -4,7 +4,8 @@ navigationTitle:  dcos job history
 title: dcos job history
 menuWeight: 1
 excerpt: Displaying the job run history
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -75,4 +76,4 @@ In this example, a job history is shown.
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.14/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

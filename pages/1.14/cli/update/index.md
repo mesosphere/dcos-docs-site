@@ -5,6 +5,8 @@ title: Updating the CLI
 menuWeight: 3
 excerpt: Updating the command line interface
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 Depending on the version of the DC/OS CLI you have currently installed, you can choose to either update the CLI to the latest version for your cluster or to install a specific version. Also note, if you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely <a href="/1.13/cli/uninstall/">uninstall</a> the CLI, then install a new version of the software to upgrade.
@@ -23,19 +25,19 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
 
 1.  Then, navigate to your DC/OS UI and click the down arrow to the right of your cluster name in the top right corner.
 
-    ![open cluster popup](/1.14/img/open-cluster-popup.png)
+    ![open cluster popup](/1.13/img/open-cluster-popup.png)
 
     Figure 1. Open cluster popup menu
 
 1. Select **Install CLI** to bring up the installation commands.
 
-    ![CLI install UI](/1.14/img/install-cli.png)
+    ![CLI install UI](/1.13/img/install-cli.png)
 
     Figure 2. Select **Install CLI**
 
 1. Copy and paste the code snippets appropriate to your OS into your terminal and press the return key. This automatically downloads, moves, and runs the setup command for the cluster. The last command to run, `dcos`, will display an overview of the dcos commands.
 
-    ![CLI copy/paste](/1.14/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
+    ![CLI copy/paste](/1.13/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
 
     Figure 3. Code snippet window
 
@@ -93,4 +95,4 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
 
 If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.
 
-For information about configuration options when using the DC/OS CLI, see [Configuring the command-line interface](/1.14/cli/configure/). For information about authentication and authorization when using the DC/OS CLI, see the appropriate [Security](/1.14/security/) section.
+For information about configuration options when using the DC/OS CLI, see [Configuring the command-line interface](/1.13/cli/configure/). For information about authentication and authorization when using the DC/OS CLI, see the appropriate [Security](/1.13/security/) section.

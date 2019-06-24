@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster oidc add
 title: dcos security cluster oidc add
 menuWeight: 13
 excerpt: Configuring a new OpenID Connect provider
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
@@ -40,4 +42,4 @@ dcos security cluster oidc add [OPTIONS] OIDC_ID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster oidc](/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-oidc/) | Manage your OIDC settings. |
+| [dcos security cluster oidc](/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-oidc/) | Manage your OIDC settings. |

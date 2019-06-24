@@ -4,10 +4,12 @@ navigationTitle:  Master Routes
 title: Master Routes
 menuWeight: 10
 excerpt: Admin Router running on DC/OS master nodes
+render: mustache
+model: /data.yml
 ---
 The Admin Router runs on DC/OS master nodes. It exposes the API routes shown below. Admin Router listens on port `80` (HTTP) and `443` (HTTPS).
 
-For more detail about how API routing works, see [DC/OS API Reference](/1.14/api/).
+For more detail about how API routing works, see [DC/OS API Reference](/1.13/api/).
 
 
 

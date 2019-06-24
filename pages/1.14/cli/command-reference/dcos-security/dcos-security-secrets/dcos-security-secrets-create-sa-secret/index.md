@@ -4,6 +4,8 @@ navigationTitle:  dcos security secrets create-sa-secret
 title: dcos security secrets create-sa-secret
 menuWeight: 305
 excerpt: Creating and storing a secret
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
@@ -37,4 +39,4 @@ dcos security secrets create-sa-secret [OPTIONS] SA_PRIVATE_KEY SA_UID SECRET_PA
 
 | Command | Description |
 |---------|-------------|
-| [dcos security secrets](/1.14/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |
+| [dcos security secrets](/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

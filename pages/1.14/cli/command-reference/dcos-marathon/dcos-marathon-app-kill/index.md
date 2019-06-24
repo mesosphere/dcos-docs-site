@@ -5,6 +5,8 @@ title: dcos marathon app kill
 menuWeight: 2
 excerpt: Killing an active application instance
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
@@ -45,4 +47,4 @@ Killed tasks: []
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

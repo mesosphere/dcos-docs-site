@@ -4,7 +4,8 @@ navigationTitle:  Performance Monitoring
 title: Performance Monitoring
 menuWeight: 1
 excerpt: Monitoring a DC/OS cluster
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -142,4 +143,4 @@ See the Apache Mesos [documentation](http://mesos.apache.org/documentation/lates
 
  [1]: https://mesosphere.github.io/marathon/docs/metrics.html
  [2]: http://mesos.apache.org/documentation/latest/monitoring/
- [3]: /1.14/deploying-services/marathon-api/#/apps/
+ [3]: /1.13/deploying-services/marathon-api/#/apps/

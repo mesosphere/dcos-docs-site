@@ -5,6 +5,8 @@ title: dcos config unset
 menuWeight: 3
 excerpt: Removing a property from the configuration file
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
@@ -51,4 +53,4 @@ Removed [core.ssl_verify]
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/1.14/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |
+| [dcos config](/1.13/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |

@@ -4,6 +4,8 @@ navigationTitle:  Adding external users
 title: Adding external users
 menuWeight: 20
 excerpt: Adding an external user to DC/OS
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -12,8 +14,8 @@ After you have configured a directory service or an identity provider, you can a
 
 # Prerequisites
 
-- An external [LDAP directory](/1.14/security/ent/ldap/).
-- An [OpenID Connect or SAML provider](/1.14/security/ent/sso/).
+- An external [LDAP directory](/1.13/security/ent/ldap/).
+- An [OpenID Connect or SAML provider](/1.13/security/ent/sso/).
 
 # Adding external users via logon attempt
 By default, users have no DC/OS permissions. Any attempts to access DC/OS without permissions will fail. However, if you have successfully configured an LDAP directory or an identity provider and the user provides valid credentials, the logon attempt will cause the user's account to be added to DC/OS.
@@ -63,7 +65,7 @@ Use the following instructions to configure LDAP group import:
 
 6. When completed, the LDAP group import configuration dialog appears as shown in Figure 1.
 
-   ![LDAP Group Import Configuration](/1.14/img/ldap-group-import.png)
+   ![LDAP Group Import Configuration](/1.13/img/ldap-group-import.png)
 
    Figure 1. LDAP group import configuration
 
@@ -82,13 +84,13 @@ Use the following instructions to configure LDAP group import:
 
 ## Importing LDAP groups using the API
 
-You can import a group of LDAP users by using the `/ldap/importuser` [IAM API](/1.14/security/ent/iam-api/) endpoint.
+You can import a group of LDAP users by using the `/ldap/importuser` [IAM API](/1.13/security/ent/iam-api/) endpoint.
 
 **Prerequisites:**
 
 - The `group-search` configuration key must be set, as discussed in [Configuring LDAP group import](#Configuring-LDAP-group-import).
 - The existing group entries must list their members by using the `member`, `uniquemember`, or `memberuid` attribute.
-- You must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.14/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- You must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.13/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 In this example, a group named `johngroup` is imported.
 

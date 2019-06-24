@@ -3,8 +3,10 @@ layout: layout.pug
 navigationTitle:  Using the Certificate Authority API
 title: Using the Certificate Authority API
 menuWeight: 500
-excerpt: Viewing, creating and signing certificates
+excerpt: Viewing, creating, and signing certificates
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
@@ -45,7 +47,7 @@ If the endpoint you wish to access requires authentication, you will need an aut
 
 ### Via the IAM API
 
-To get an authentication token, pass the user name and password of a user with the necessary permissions in the body of a request to the `/auth/login` endpoint of the [Identity and Access Management Service API](/1.14/security/ent/iam-api/). It returns an authentication token as shown below.
+To get an authentication token, pass the user name and password of a user with the necessary permissions in the body of a request to the `/auth/login` endpoint of the [Identity and Access Management Service API](/1.13/security/ent/iam-api/). It returns an authentication token as shown below.
 
 ```json
 {
@@ -55,7 +57,7 @@ To get an authentication token, pass the user name and password of a user with t
 
 ### Via the DC/OS CLI
 
-When you log into the [DC/OS CLI](/1.14/cli/) using `dcos auth login`, it stores the authentication token value locally. You can reference this value as a variable in cURL commands (discussed in the next section).
+When you log into the [DC/OS CLI](/1.13/cli/) using `dcos auth login`, it stores the authentication token value locally. You can reference this value as a variable in cURL commands (discussed in the next section).
 
 Alternatively, you can use the following command to get the authentication token value.
 
@@ -91,7 +93,7 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## Refreshing the authentication token
 
-Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/1.14/security/ent/service-auth/custom-service-auth/) for more information.
+Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. See [Provisioning custom services](/1.13/security/ent/service-auth/custom-service-auth/) for more information.
 
 # API reference
 
@@ -100,4 +102,4 @@ Authentication tokens expire after five days by default. If your program needs t
 
 # Logging
 
-While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/1.14/monitoring/logging/) for instructions.
+While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/1.13/monitoring/logging/) for instructions.

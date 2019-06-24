@@ -4,6 +4,8 @@ navigationTitle:  dcos security secrets update
 title: dcos security secrets update
 menuWeight: 320
 excerpt: Updating secrets
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
@@ -37,4 +39,4 @@ dcos security secrets update [OPTIONS] PATH
 
 | Command | Description |
 |---------|-------------|
-| [dcos security secrets](/1.14/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |
+| [dcos security secrets](/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

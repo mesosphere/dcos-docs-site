@@ -5,6 +5,8 @@ title: Scaling a Service
 menuWeight: 3
 excerpt: Scaling a service using the UI and the CLI
 enterprise: false
+model: /data.yml
+enterprise: false
 ---
 
 This tutorial shows how to scale a service using the UI and the CLI.
@@ -13,30 +15,30 @@ This tutorial shows how to scale a service using the UI and the CLI.
 
 1. From the **Services** tab, click the menu dots to the right side of your service to access **More Actions**. 
 
-    ![Menu](/1.14/img/GUI-Services-More-Actions_Callout.png)
+    ![Menu](/1.13/img/GUI-Services-More-Actions_Callout.png)
    
     Figure 1. More Actions menu
 
 1. From the drop-down menu, select **Scale**.
 
-   ![more actions menu](/1.14/img/GUI-Services-More-Actions-Menu.png)
+   ![more actions menu](/1.13/img/GUI-Services-More-Actions-Menu.png)
 
    Figure 2. More Actions menu
 
 1. In the **Scale Service** box, enter the total number of instances you would like, then click **Scale Service**.
 
-   ![scale](/1.14/img/GUI-Services-Scale-Service-Instances.png)
+   ![scale](/1.13/img/GUI-Services-Scale-Service-Instances.png)
 
    Figure 3. Choose number of instances
 
 1. From the Services tab, you can see your service scaling.
 
-    ![service deploying](/1.14/img/GUI-Services-Scale-Confirmation.png)
+    ![service deploying](/1.13/img/GUI-Services-Scale-Confirmation.png)
     
     Figure 4. Service scaling
 
 1. Click the name of your service to see your scaled service.
-   ![post scale](/1.14/img/GUI-Services-Scaled-Service.png)
+   ![post scale](/1.13/img/GUI-Services-Scaled-Service.png)
 
    Figure 5. Services list 
 

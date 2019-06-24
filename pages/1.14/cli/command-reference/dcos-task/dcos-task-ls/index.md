@@ -4,6 +4,8 @@ navigationTitle:  dcos task ls
 title: dcos task ls
 menuWeight: 7
 excerpt: Display the list of files in the Mesos task directory
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -35,4 +37,4 @@ dcos task ls [--all | --completed] [--long] [<task>] [<path>]
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/1.14/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/1.13/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |

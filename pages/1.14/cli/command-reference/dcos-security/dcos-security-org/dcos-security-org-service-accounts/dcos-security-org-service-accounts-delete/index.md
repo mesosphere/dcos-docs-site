@@ -4,6 +4,8 @@ navigationTitle:  dcos security org service-accounts delete
 title: dcos security org service-accounts delete
 menuWeight: 170
 excerpt: Deleting a service account
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

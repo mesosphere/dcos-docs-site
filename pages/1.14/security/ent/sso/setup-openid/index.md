@@ -5,6 +5,8 @@ title: Configuring an OpenID identity provider
 menuWeight: 2
 excerpt: Configuring an OpenID identity provider
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
@@ -71,7 +73,7 @@ You can add a Google OpenID Connect IdP in Google or DC/OS.
 
 1. Paste the client secret value from Google into the **Client Secret** field.
 
-    ![Google IdP Configuration](/1.14/img/oidc-google.png)
+    ![Google IdP Configuration](/1.13/img/oidc-google.png)
 
     Figure 1. Google IdP configuration
 
@@ -111,11 +113,11 @@ You can use either of the following to verify that you have set up your IdP corr
 
 1. You should see your new user listed there.
 
-1. Assign this user the appropriate [permissions](/1.14/security/ent/perms-reference/).
+1. Assign this user the appropriate [permissions](/1.13/security/ent/perms-reference/).
 
 ### <a name="using-cli"></a>Using the DC/OS CLI
 
-**Prerequisite:** [DC/OS CLI installed](/1.14/cli/install/).
+**Prerequisite:** [DC/OS CLI installed](/1.13/cli/install/).
 
 1. Use the following command to log in as your new user.
 
@@ -135,7 +137,7 @@ You can use either of the following to verify that you have set up your IdP corr
 
 1. You should see a message similar to the following.
 
-    ![CLI IdP Auth Token](/1.14/img/cli-auth-token.png)
+    ![CLI IdP Auth Token](/1.13/img/cli-auth-token.png)
 
     Figure 2. CLI IdP auth token
 

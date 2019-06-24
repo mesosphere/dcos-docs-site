@@ -3,13 +3,15 @@ layout: layout.pug
 navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
-excerpt: Launching a pod from the CLI or web interface
+excerpt: Launching a pod from the CLI or UI
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
 ### Prerequisites
-- DC/OS [installed](/1.14/installing/)
-- DC/OS CLI [installed](/1.14/cli/install/)
+- DC/OS [installed](/1.13/installing/)
+- DC/OS CLI [installed](/1.13/cli/install/)
 
 # Launching a pod from the DC/OS CLI
 
@@ -44,14 +46,14 @@ enterprise: false
     dcos marathon pod show simplepod
     ```
 
-# Launching a pod from the DC/OS web interface
+# Launching a pod from the DC/OS UI
 
-You can also launch a pod from the [**Services**](/1.14/gui/) tab of the DC/OS web interface. Select **Services -> Services -> RUN A SERVICE -> Multi-container (Pod)**, then toggle to JSON mode and paste in the application definition supplied above.
+You can also launch a pod from the [**Services**](/1.13/gui/) tab of the DC/OS web interface. Select **Services -> Services -> RUN A SERVICE -> Multi-container (Pod)**, then toggle to JSON mode and paste in the application definition supplied above.
 
 If you already have other services running, go to **Services -> Services**, then click the **+** on the upper right hand side.
 
-After you launch your pod, you’ll see your new pod on the **Services** tab of the DC/OS web interface. Click the pod to see information about the status of the containers in your pod.
+After you launch your pod, you’ll see your new pod on the **Services** tab of the DC/OS UI. Click the pod to see information about the status of the containers in your pod.
 
-![Pods UI](/1.14/img/pods-service-dashboard.png)
+![Pods UI](/1.13/img/pods-service-dashboard.png)
 
 Figure 1. Services > Pods

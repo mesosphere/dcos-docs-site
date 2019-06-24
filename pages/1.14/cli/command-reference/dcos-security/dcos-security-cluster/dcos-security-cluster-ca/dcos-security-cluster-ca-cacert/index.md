@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster ca cacert
 title: dcos security cluster ca
 menuWeight: 12
 excerpt: Interacting with the DC/OS cluster CA
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
@@ -57,4 +59,4 @@ ndLcnv0dj2WTDCQihd6DNFnoCYNSAMUtSc6Kd6kqvbVVe+1ZzeOc
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster ca](/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | View DC/OS security cluster certificate authority information. |
+| [dcos security cluster ca](/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | View DC/OS security cluster certificate authority information. |

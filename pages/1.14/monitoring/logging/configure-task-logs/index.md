@@ -4,6 +4,8 @@ navigationTitle:  Configuring Task Log Output and Retention
 title: Configuring Task Log Output and Retention
 menuWeight: 2
 excerpt: Task environment variables that influence logging
+render: mustache
+model: /data.yml
 beta: false
 enterprise: false
 ---
@@ -45,7 +47,7 @@ The `logrotate` option will place logs (files named `stdout` and `stderr`)
 inside the task sandbox and create additional files for rotating these
 logs (`*.logrotate.conf` and `*.logrotate.state`).
 
-See the [Logging Reference](/1.14/monitoring/logging/logging-reference/)
+See the [Logging Reference](/1.13/monitoring/logging/logging-reference/)
 for information on how to read these logs.
 
 ## Max Sizes

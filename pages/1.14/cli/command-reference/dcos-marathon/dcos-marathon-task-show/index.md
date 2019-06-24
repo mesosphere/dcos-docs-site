@@ -5,6 +5,8 @@ title: dcos marathon task show
 menuWeight: 30
 excerpt: Displaying information about a specific task
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
@@ -33,6 +35,6 @@ dcos marathon task show <task-id>
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 

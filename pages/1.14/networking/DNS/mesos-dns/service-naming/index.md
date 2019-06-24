@@ -4,6 +4,8 @@ navigationTitle:  Service Naming
 title: Service Naming
 menuWeight: 0
 excerpt: Understanding Mesos-DNS service naming conventions
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -227,7 +229,7 @@ If a service launches multiple tasks with the same name, the DNS lookup will ret
 
 You can get a comprehensive list of the apps running on your DC/OS cluster nodes.
 
-**Prerequisites:** [DC/OS and DC/OS CLI](/1.14/installing/) are installed.
+**Prerequisites:** [DC/OS and DC/OS CLI](/1.13/installing/) are installed.
 
 1.  SSH into your node. For example, use this CLI command to SSH to your master:
 
@@ -235,7 +237,7 @@ You can get a comprehensive list of the apps running on your DC/OS cluster nodes
     dcos node ssh --leader --master-proxy
     ```
 
-    For more information, see the SSH [documentation](/1.14/administering-clusters/sshcluster/).
+    For more information, see the SSH [documentation](/1.13/administering-clusters/sshcluster/).
 
 2.  Run this command from your master node to view the node details:
 
@@ -351,7 +353,7 @@ You can get a comprehensive list of the apps running on your DC/OS cluster nodes
 
 
 
- [1]: /1.14/overview/concepts/
+ [1]: /1.13/overview/concepts/
  [2]: ../troubleshooting/#leader
  [3]: https://tools.ietf.org/html/rfc1123
  [4]: https://tools.ietf.org/html/rfc952

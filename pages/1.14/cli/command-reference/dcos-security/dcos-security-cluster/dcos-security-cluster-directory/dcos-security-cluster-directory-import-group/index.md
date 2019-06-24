@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster directory import_group
 title: dcos security cluster directory import_group
 menuWeight: 33
 excerpt: Importing an LDAP group
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
@@ -33,4 +35,4 @@ dcos security cluster directory import_user [OPTIONS] GID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster directory](/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |
+| [dcos security cluster directory](/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |

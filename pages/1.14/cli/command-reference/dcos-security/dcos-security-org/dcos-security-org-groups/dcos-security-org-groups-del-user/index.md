@@ -4,6 +4,8 @@ navigationTitle:  dcos security org groups del_user
 title: dcos security org groups del_user
 menuWeight: 135
 excerpt: Deleting a user from a group
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 # Description
@@ -33,4 +35,4 @@ dcos security org groups del_user [OPTIONS] GID UID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster org groups](/1.14/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |
+| [dcos security cluster org groups](/1.13/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |

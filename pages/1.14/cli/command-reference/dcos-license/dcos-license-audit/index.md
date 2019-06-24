@@ -5,6 +5,8 @@ title: dcos license audit
 menuWeight: 1
 excerpt: Getting the cluster license audit records
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 # Description
@@ -25,10 +27,10 @@ dcos license audit [OPTIONS] COMMAND [ARGS]...
 
 
 # Examples
-For examples, see [Licenses](/1.14/administering-clusters/licenses/).
+For examples, see [Licenses](/1.13/administering-clusters/licenses/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/1.14/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](/1.13/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |

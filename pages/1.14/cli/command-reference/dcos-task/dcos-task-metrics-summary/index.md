@@ -4,6 +4,8 @@ navigationTitle:  dcos task metrics summary
 title: dcos task metrics summary
 menuWeight: 11
 excerpt: Display key metrics for a task
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -21,11 +23,11 @@ dcos task metrics summary <task-id> [--json]
 
 | Name |  Description |
 |---------|-------------|
-| `<task-id>` | A full task ID, a partial task ID, or a Unix shell wildcard pattern (eg. 'my-task*').|
+| `<task-id>` | A full task ID, a partial task ID, or a Unix shell wildcard pattern (for example, 'my-task*').|
 | `--json`  | Print JSON-formatted list of tasks. |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/1.14/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/1.13/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
