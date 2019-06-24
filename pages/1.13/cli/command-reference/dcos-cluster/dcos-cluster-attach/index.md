@@ -5,6 +5,8 @@ title: dcos cluster attach
 menuWeight: 2
 excerpt: Attaching the CLI to a connected or linked cluster
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

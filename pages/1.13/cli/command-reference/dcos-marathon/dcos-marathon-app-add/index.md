@@ -4,7 +4,8 @@ navigationTitle:  dcos marathon app add
 title: dcos marathon app add
 menuWeight: 1
 excerpt: Adding an application
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

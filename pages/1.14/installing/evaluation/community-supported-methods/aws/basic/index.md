@@ -4,7 +4,7 @@ title: Basic
 navigationTitle: Basic
 menuWeight: 5
 excerpt: Creating a DC/OS cluster using DC/OS templates
-model: /1.13/installing/data.yml
+model: /1.14/installing/data.yml
 render: mustache
 ---
 

@@ -4,6 +4,8 @@ navigationTitle:  Overview
 title: Overview
 menuWeight: 20
 excerpt: Getting started with DC/OS fundamentals
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

@@ -4,6 +4,8 @@ navigationTitle:  Marathon Configuration Reference
 title: Marathon Configuration Reference
 menuWeight: 0
 excerpt: Understanding Marathon application definitions
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

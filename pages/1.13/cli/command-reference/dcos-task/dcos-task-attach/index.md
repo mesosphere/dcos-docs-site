@@ -4,6 +4,8 @@ navigationTitle:  dcos task attach
 title: dcos task attach
 menuWeight: 1
 excerpt: Attaching a process inside of a task's container
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -27,7 +29,7 @@ To detach from a task, type the sequence `CTRL-p CTRL-q`.
 
 | Name, shorthand |  Description |
 |---------|-------------|
-| `<task>`   |   A full task ID, a partial task ID, or a Unix shell wildcard pattern (eg. 'my-task*'). |
+| `<task>`   |   A full task ID, a partial task ID, or a UNIX shell wildcard pattern (for example, `my-task*`). |
 
 # Parent command
 

@@ -5,6 +5,8 @@ title: dcos job remove
 menuWeight: 4
 excerpt: Removing jobs
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

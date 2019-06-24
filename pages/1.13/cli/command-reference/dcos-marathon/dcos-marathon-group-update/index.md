@@ -5,6 +5,8 @@ title: dcos marathon group update
 menuWeight: 22
 excerpt: Updating Marathon group properties
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

@@ -5,6 +5,8 @@ title: dcos cluster rename
 menuWeight: 5
 excerpt: Renaming a cluster
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

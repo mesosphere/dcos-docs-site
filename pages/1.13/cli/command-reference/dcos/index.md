@@ -5,6 +5,8 @@ title: dcos
 menuWeight: 0
 excerpt: Managing your DC/OS installation
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

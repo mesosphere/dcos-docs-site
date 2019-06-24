@@ -4,6 +4,8 @@ navigationTitle:  Local Persistent Volumes
 title: Local Persistent Volumes
 menuWeight: 10
 excerpt: Using local persistent volumes
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

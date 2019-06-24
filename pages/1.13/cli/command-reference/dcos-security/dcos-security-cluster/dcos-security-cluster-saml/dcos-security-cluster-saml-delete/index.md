@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster saml delete
 title: dcos security cluster saml delete
 menuWeight: 13
 excerpt: Deleting a SAML provider configuration
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

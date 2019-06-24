@@ -4,6 +4,8 @@ navigationTitle:  Distributed Process Management
 title: Distributed Process Management
 menuWeight: 5
 excerpt: Understanding distributed process management in a DC/OS cluster
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

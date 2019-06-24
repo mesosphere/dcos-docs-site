@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster directory import_user
 title: dcos security cluster directory import_user
 menuWeight: 35
 excerpt: Importing a user from an LDAP backend
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 # Description

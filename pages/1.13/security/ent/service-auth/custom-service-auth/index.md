@@ -4,6 +4,8 @@ title: Authenticating DC/OS Services
 menuWeight: 100
 excerpt: Configuring authentication for custom apps and pods
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

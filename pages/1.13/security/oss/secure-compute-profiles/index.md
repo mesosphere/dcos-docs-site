@@ -3,7 +3,9 @@ layout: layout.pug
 navigationTitle:  Secure computing profiles
 title: Secure computing profiles
 menuWeight: 31
-excerpt: Describes how to configure DC/OS to work with Linux secure computing (seccomp) profiles 
+excerpt: Describes how to configure DC/OS to work with Linux secure computing (seccomp) profiles
+render: mustache
+model: /data.yml 
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

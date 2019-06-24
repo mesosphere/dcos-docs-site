@@ -4,6 +4,8 @@ navigationTitle:  dcos security org service-accounts show
 title: dcos security org service-accounts show
 menuWeight: 180
 excerpt: Showing service account details
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

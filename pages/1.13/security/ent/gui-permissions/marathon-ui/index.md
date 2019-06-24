@@ -4,6 +4,8 @@ navigationTitle:  Granting Access to the Marathon Tab
 title: Granting Access to the Marathon Tab
 menuWeight: 32
 excerpt: Granting access to the Marathon Tab
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

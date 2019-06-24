@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  Service Login
 title: Service Login
 excerpt: Logging in to DC/OS as a service
+render: mustache
+model: /data.yml
 menuWeight: 30
 ---
 

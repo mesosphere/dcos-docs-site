@@ -4,6 +4,8 @@ navigationTitle:  Logging API Examples
 title: Logging API Examples
 menuWeight: 4
 excerpt: Examples for the Logging API
+render: mustache
+model: /data.yml
 beta: false
 enterprise: false
 ---

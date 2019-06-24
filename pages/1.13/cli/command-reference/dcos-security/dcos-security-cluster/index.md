@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster
 title: dcos security cluster
 menuWeight: 10
 excerpt: Cluster management commands
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
