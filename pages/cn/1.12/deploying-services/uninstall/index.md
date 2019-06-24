@@ -31,7 +31,7 @@ dcos package uninstall chronos
 可在 DC/OS Web 界面的 **服务** 选项卡中卸载服务。“服务”选项卡为本地 DC/OS Marathon 实例提供了完整的功能界面。
 
 1. 导航至 DC/OS Web 界面中的 [**服务**](/cn/1.12/gui/services/) 选项卡。
-1. 选择服务，单击最右的垂直省略号，然后选择**删除**。
+1. 选择服务，单击最右的垂直椭圆形，然后选择**删除**。
 
     ![Destroy app](/1.12/img/service-delete.png)
         

@@ -9,11 +9,7 @@ enterprise: true
 
 # 说明
 
-<<<<<<< HEAD
 `dcos security org service-accounts` 命令让您可以管理安全帐户。
-=======
-`dcos security org service-accounts` 命令允许您管理安全帐户。
->>>>>>> staging
 
 # 使用
 

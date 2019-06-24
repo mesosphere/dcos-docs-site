@@ -15,7 +15,7 @@ enterprise: false
 
 <p class="message--important"><strong>重要信息：</strong>代理节点 Splunk 转发器配置要求任务将日志写入 `stdout` 和 `stderr`。某些 DC/OS 服务（包括 Cassandra 和 Kafka）不会将日志写入 `stdout` 和 `stderr`。如果要记录这些服务，您必须自定义代理节点 Splunk 转发器配置。</p>
 
-**前提条件**
+**先决条件**
 
 * 现有 Splunk 装置可以消化数据用于索引
 * 所有 DC/OS 节点必须能够通过 HTTP 或 HTTPS 连接到 Splunk 索引器

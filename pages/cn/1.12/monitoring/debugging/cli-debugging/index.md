@@ -14,17 +14,17 @@ dcos -—log-level="debug" package install hdfs
 ```
 有关日志级别的更多信息，请参阅 [CLI 命令参考](/cn/1.12/cli/command-reference/) 或运行 `dcos --help`。
 
-# 调试被卡住部署的子命令
+# 调试被停滞部署的子命令
 
-DC/OS CLI 提供一组调试子命令，用于排除卡住的服务或 Pod 部署。您也可以从 [DC/OS Web 界面](/cn/1.12/monitoring/debugging/gui-debugging/) 使用调试服务和 Pod。
+DC/OS CLI 提供一组调试子命令，用于排除停滞的服务或 Pod 部署。您也可以从 [DC/OS Web 界面](/cn/1.12/monitoring/debugging/gui-debugging/) 使用调试服务和 Pod。
 
-## 前提条件
+## 先决条件
 - DC/OS 群集
 - [DC/OS CLI 已安装](/cn/1.12/cli/install/)
-- 部署时卡住的服务或 Pod
+- 部署时停滞的服务或 Pod
 
 ## 应用定义示例
-如果您目前没有在部署时卡住的服务或 Pod，您可以使用以下两个 [Marathon 应用定义](/cn/1.12/deploying-services/creating-services/) 来验证本节的说明。
+如果您目前没有在部署时停滞的服务或 Pod，您可以使用以下两个 [Marathon 应用定义](/cn/1.12/deploying-services/creating-services/) 来验证本节的说明。
 
 - mem-app.json
 
@@ -85,11 +85,11 @@ ID            SINCE                     INSTANCES TO LAUNCH  WAITING  PROCESSED 
 - 多少个 Mesos 资源邀约未使用
 - 用户创建或更新服务或 Pod 的时间。
 
-此输出可以快速向您显示部署时哪些服务或 Pod 被卡住，以及它们卡住了多长时间。
+此输出可以快速向您显示部署时哪些服务或 Pod 被停滞，以及它们停滞了多长时间。
 
 ## dcos marathon debug summary
 
-一旦您知道哪些服务或 pod 在部署中停滞不前，请使用 [`dcos marathon debug summary /<app-id>|/<pod-id>`命令](/cn/1.12/cli/command-reference/dcos-marathon/dcos-marathon-debug-summary/)了解有关具体卡壳服务或 pod 的更多信息。
+一旦您知道哪些服务或 pod 在部署中停滞不前，请使用 [`dcos marathon debug summary /<app-id>|/<pod-id>`命令](/cn/1.12/cli/command-reference/dcos-marathon/dcos-marathon-debug-summary/)了解有关具体停滞服务或 pod 的更多信息。
 
 ```bash
 dcos marathon debug summary /mem-app

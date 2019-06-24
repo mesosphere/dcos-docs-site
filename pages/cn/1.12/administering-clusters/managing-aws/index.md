@@ -7,7 +7,6 @@ excerpt: 扩展 AWS 群集
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 您可以扩展 AWS 群集或更改代理节点的数量。
 

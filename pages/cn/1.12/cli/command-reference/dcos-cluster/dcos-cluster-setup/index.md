@@ -24,29 +24,17 @@ enterprise: false
 | `-h`，`--help` | 显示此命令的帮助。 |
 | `--insecure` | 允许请求绕过 TLS 证书验证（不安全）。
 | `--name string` | 指定群集的自定义名称。
-<<<<<<< HEAD
 | `--no-check` | 不检查从群集下载的 CA 证书。（不安全） 仅适用于 Enterprise DC/OS。[enterprise type="inline" size="small" /]
 | `--password string` | 在命令行中指定密码（不安全）。
 | `--password-file string` | 指定包含密码的文件的路径。
 | `--private-key string` | 指定包含服务帐户私钥的文件路径。
 | `--provider string` | 指定要使用的登录提供程序。
-=======
-| `--no-check` | 请勿勾选从群集下载的 CA 证书。（不安全） 仅适用于 Enterprise DC/OS。[enterprise type="inline" size="small" /]
-| `--password string` | 在命令行中指定密码（不安全）。
-| `--password-file string` | 指定包含密码的文件的路径。
-| `--private-key string` | 指定包含服务帐户私钥的文件路径。
-| `--provider string` | 指定要使用的登录提供商。
->>>>>>> staging
 | `--username string` | 指定登录用户名。
 
 
 ## TLS 选项
 
-<<<<<<< HEAD
 如果未指定 SSL 选项 `--insecure`、 `--no-check` 或 `--ca-certs` 当中的一个，CA 证书将从群集中下载，并且提供证书的 `sha256` 指纹以供验证。
-=======
-如果未指定 SSL 选项`--insecure`、 `--no-check` 或 `--ca-certs` 当中的一个，CA 证书从群集中下载，并且提供证书的 `sha256` 指纹以供验证。
->>>>>>> staging
 
 ## 位置自变量
 

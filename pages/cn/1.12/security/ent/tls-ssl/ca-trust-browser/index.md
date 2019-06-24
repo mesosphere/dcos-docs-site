@@ -95,4 +95,4 @@ enterprise: true
 
 1. 再次单击 **OK**，关闭 **Certificate** 对话框。
 
-1. 在地址栏中键入您的群集 URL 并按 ENTER 键。地址栏中的 DC/OS Web 界面的路径应标记为 **Secure**。您也可以尝试访问每个主节点的公共 IP 地址，以确认所有主节点均显示为 **Secure**。
+1. 在地址栏中键入您的群集 URL 并按 ENTER 键。地址栏中的 DC/OS Web 界面的路径应标记为 **Secure**。您也可以尝试访问每个管理节点的公共 IP 地址，以确认所有主节点均显示为 **Secure**。

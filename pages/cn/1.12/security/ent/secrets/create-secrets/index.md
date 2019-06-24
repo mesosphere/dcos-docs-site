@@ -20,7 +20,7 @@ enterprise: true
 
 密钥应包括路径，除非您希望允许所有服务访问其值。有关密钥路径的更多信息，请参阅[空间](/cn/1.12/security/ent/#spaces)。
 
-## 前提条件
+## 先决条件
 
 ### DC/OS Web 界面
 - `dcos:superuser` 权限。
@@ -86,7 +86,7 @@ enterprise: true
 
 文件内容（以下称为 `my-secret.txt`）可以是任何文本值。
 
-<p class="message--note"><strong>注意：</strong>从 DC/OS 1.10 开始，您只能从 DC/OS CLI 上传密钥作为文件。密钥的最大文件大小约为 1 MiB，减去了密钥存储库元数据的大约 1 KB。</p>
+<p class="message--note"><strong>注意：</strong>从 DC/OS 1.10 开始，您只能从 DC/OS CLI 上传密钥作为文件。密钥的最大文件大小约为 1 MiB，减去密钥存储库元数据的大约 1 KB。</p>
 
 1. 使用 `dcos auth login` 登录到 CLI。您可在 [CLI 参考](/cn/1.12/cli/command-reference/dcos-auth/dcos-auth-login/) 中找到有关此命令的更多信息。
 
@@ -96,4 +96,4 @@ enterprise: true
     dcos security secrets create -f my-secret.txt developer/my-secret
     ```
 
-    <p class="message--important"><strong>重要信息：</strong>密钥的最大文件大小约为 1 MB，减去了密钥存储库元数据的大约 1 KB。
+    <p class="message--important"><strong>重要信息：</strong>密钥的最大文件大小约为 1 MB，减去密钥存储库元数据的大约 1 KB。

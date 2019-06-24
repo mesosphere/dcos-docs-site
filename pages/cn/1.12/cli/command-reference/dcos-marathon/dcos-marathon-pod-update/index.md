@@ -9,11 +9,7 @@ enterprise: false
 
 
 # 说明
-<<<<<<< HEAD
 `dcos marathon pod update` 命令让您更新 pod。
-=======
-`dcos marathon pod update` 命令允许您更新 pod。
->>>>>>> staging
 
 # 使用
 
@@ -32,11 +28,7 @@ dcos marathon pod update [--force] <pod-id>
 
 | 名称 | 说明 |
 |---------|-------------|
-<<<<<<< HEAD
 | `<pod-id>` | Pod ID。您可以使用 `dcos marathon pod list` 命令查看 pod ID 列表。|
-=======
-| `<pod-id>` | POD ID。您可以使用 `dcos marathon pod list` 命令查看 pod ID 列表。|
->>>>>>> staging
 
 
 

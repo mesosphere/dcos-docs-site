@@ -37,7 +37,7 @@ DC/OS 由许多组件构成，尤其是分布式系统内核 ([Mesos](#apache-me
 
 # 群集
 
-DC/OS 群集是一组联网的 DC/OS 节点，具有法定数量的管理节点以及任意数量的公共和/或专用代理节点。
+DC/OS 群集是一组联网的 DC/OS 节点，具有 quorum 数量的管理节点以及任意数量的公共和/或专用代理节点。
 
 <a name="network"></a>
 
@@ -107,7 +107,7 @@ DC/OS 代理节点是 Mesos 任务运行所在的虚拟机或物理机。
 公共代理节点是位于网络上的代理节点，**允许**通过群集的基础架构网络从群集外部访问。
 
 - 每个公共代理节点上的 Mesos 代理节点配置有 `public_ip:true` 代理属性及其分配给 `slave_public` 角色的所有资源。
-- 公共代理节点主要用于面向外部的反向代理负载均衡器，如 Marathon-LB(/services/marathon-lb/) 或 [Edge-LB](/services/edge-lb/1.2/)。
+- 公共代理节点主要用于面向外部的反向代理负载均衡器，如 [Marathon-LB](/services/marathon-lb/) 或 [Edge-LB](/services/edge-lb/1.2/)。
 - 群集通常只有几个公共代理节点，因为单个负载均衡器通常可以处理多个代理服务。
 
 如需更多信息，请参阅 [转换代理节点类型](/cn/1.12/administering-clusters/convert-agent-type/)。
@@ -135,7 +135,7 @@ bootstrap 机是配置、构建和分发 DC/OS 安装程序工件的机器。
 - bootstrap 机在技术上不被视为是群集的一部分，因为它没有安装 DC/OS。对于大多数安装方法，必须通过基础架构网络来对群集中的机器进行 bootstrap 节点访问。
 - bootstrap 机有时用作跳转盒来控制 SSH 访问群集中的其他节点，以提高安全性和日志记录。
 - 允许管理节点更改 IP 的一种方法涉及在 bootstrap 机上用 Exhibitor 运行 ZooKeeper。其他替代方案包括使用 S3、DNS 或静态 IP，具有各种权衡。如需更多信息，请参阅 [Exhibitor 存储后端](/cn/1.12/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) 参数描述。
-- 如果管理主节点 IP 更改不需要使用 bootstrap 机或将其作为 SSH 跳转盒，可在引导后将其关闭并按需转换 [添加新节点](/cn/1.12/administering-clusters/add-a-node/) 到群集。
+- 如果管理主节点 IP 更改不需要使用 bootstrap 机或将其作为 SSH 跳转盒，可在 bootstrap 后将其关闭并按需转换 [添加新节点](/cn/1.12/administering-clusters/add-a-node/) 到群集。
 
 如需更多信息，请参阅 [系统要求](/cn/1.12/installing/production/system-requirements/)。
 
@@ -145,7 +145,7 @@ bootstrap 机是配置、构建和分发 DC/OS 安装程序工件的机器。
 
 DC/OS 服务是一组或多个服务实例，可以作为一个组启动和停止，并在停止前退出时自动重启。
 
-- 服务目前是一个 DC/OS GUI 抽象，可转换为 CLI 和 API 中的 Marathon 应用程序和 Pod。这种区分将随着名称“服务”上游推送到组件 API 而随时间变化。
+- 服务目前是一个 DC/OS GUI 抽象，可转换为 CLI 和 API 中的 Marathon 应用程序和 Pod。这种区分将随着时间变化，随着名称“服务”向上游推送到组件 API 。
 - 有时“服务”也可以指主机操作系统上的 `systemd` 服务。这些通常被视为组件，实际上不在 Marathon 或 Mesos 上运行。
 - 服务可以是系统服务或者用户服务。这种区分是新的并且随着命名空间转换为系统范围的第一类模式而不断发展。
 
@@ -193,7 +193,7 @@ Marathon 服务由零个或多个容器化服务实例组成。每个服务实�
 
 用户服务是不属系统用户所拥有的 Marathon 服务，它并不是系统服务。
 
-这种区分是新的，并且随着命名空间转换为系统范围的第一类模式，并映身到细粒度用户和用户组权限而不断发展。
+这种区分是新的，并且随着命名空间转换为系统范围的第一类模式，并映射到细粒度用户和用户组权限而不断发展。
 
 **示例：** Jenkins、Cassandra、Kafka、Tweeter。
 
@@ -322,8 +322,8 @@ Apache Mesos 是一个分布式系统内核，可管理群集资源和任务。M
 
 Mesos 管理节点是在管理节点上运行的一个进程，以协调群集资源管理并促进任务编排。
 
-- Mesos 管理节点构成法定数量并选举领导者。
-- 主 Mesos 管理节点收集 Mesos 代理节点报告的资源，并向 Mesos 调度器作出资源邀约。调度器然后可以接受资源邀约，并将任务置于其相应节点上。
+- Mesos 管理节点构成 quorum 数量并选举首要节点。
+- 首要 Mesos 管理节点收集 Mesos 代理节点报告的资源，并向 Mesos 调度器作出资源邀约。调度器然后可以接受资源邀约，并将任务置于其相应节点上。
 
 <a name="mesos-agent"></a>
 
@@ -331,8 +331,8 @@ Mesos 管理节点是在管理节点上运行的一个进程，以协调群集�
 
 Mesos 代理节点是在代理节点上运行的一个进程，以管理该节点的执行器、任务和资源。
 
-- Mesos 代理节点寄存节点的部分或全部资源，允许主 Mesos 管理节点向调度器提供这些资源，调度器则决定运行任务的节点。
-- Mesos 代理节点将任务状态更新报告给主 Mesos 管理节点，后者则将其报告给相应的调度器。
+- Mesos 代理节点寄存节点的部分或全部资源，让首要 Mesos 管理节点向调度器提供这些资源，调度器则决定运行任务的节点。
+- Mesos 代理节点将任务状态更新报告给首要 Mesos 管理节点，后者则将其报告给相应的调度器。
 
 <a name="mesos-task"></a>
 
@@ -374,7 +374,7 @@ Mesos 角色是一组 Mesos 框架，共享保留的资源、持久卷和配额�
 
 ## Mesos 资源 offer
 
-Mesos 资源邀约从代理节点向调度器提供一组未分配的资源（如 CPU、磁盘、内存），以便调度器可将这些资源分配给一个或多个任务。资源邀约由领导 Mesos 管理节点构建，但资源本身由各代理节点报告。
+Mesos 资源邀约从代理节点向调度器提供一组未分配的资源（如 CPU、磁盘、内存），以便调度器可将这些资源分配给一个或多个任务。资源邀约由首要 Mesos 管理节点构建，但资源本身由各代理节点报告。
 
 <a name="mesos-containerizer"></a>
 

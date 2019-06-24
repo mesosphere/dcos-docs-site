@@ -17,7 +17,7 @@ beta: false
 
 # 路由
 
-对度量标准 API 的访问是通过 Admin Router 向每个节点代理的。当前领导者的统计数据预先确定：
+对度量标准 API 的访问是通过 Admin Router 向每个节点代理的。当前首要节点的统计数据以以下作为开头：
 
 ```
 /system/v1/metrics/v0/
@@ -25,7 +25,7 @@ beta: false
 
 <p class="message--important"><strong>重要信息：</strong><code>/system/v1/metrics/v0/</code> 预计在管理节点上会显示为 404。</p>
 
-代理节点的统计数据预先确定：
+代理节点的统计数据以以下作为开头：
 
 ```
 /system/v1/agent/{agent_id}/metrics/v0/
@@ -71,6 +71,6 @@ Content-Type: application/json
 
 # 资源
 
-以下两个路由均提供以下资源：
+以上两个路由均提供以下资源：
 
 [swagger api='/1.12/api/metrics.yaml']

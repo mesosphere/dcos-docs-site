@@ -8,11 +8,7 @@ enterprise: false
 ---
 
 # 说明
-<<<<<<< HEAD
 `dcos cluster attach` 命令将把 CLI 附加到已接上或称 [已连接](/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-link/) 的群集。当您运行 [`dcos cluster setup`](/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 命令时，群集自动被附加。
-=======
-`dcos cluster attach` 命令将把 CLI 附加到已连接或 [链接](/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-link/) 的群集。当您运行 [`dcos cluster setup`](/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 命令时，群集自动被附加。
->>>>>>> staging
 
 # 使用
 

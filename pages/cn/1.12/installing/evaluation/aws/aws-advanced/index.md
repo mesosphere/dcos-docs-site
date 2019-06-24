@@ -6,7 +6,7 @@ navigationTitle: 配置参考
 menuWeight: 1
 ---
 
-Mesosphere Universal 安装工具支持各种输入/变量，以便添加到您的 `main.tf`，并使您能够根据需要自定义您的 DC/OS 群集。这些输入/变量包括从指定操作系统（CentOS、Coreos、RHEL）到设置 DC/OS 群集的垃圾收集时间等各个项目。
+Mesosphere Universal 安装工具支持各种输入/变量，以便添加到您的 `main.tf`，并使您能够根据需要自定义您的 DC/OS 群集。这些输入/变量包括从指定操作系统（CentOS、CoreOS、RHEL）到设置 DC/OS 群集的垃圾收集时间等各个项目。
 
 基于 Terraform 的 Universal 安装工具旨在实现灵活的配置。下面是自定义 `main.tf` 的一个示例，在 AWS 上调配定制的 DC/OS 1.12.0 群集。
 
@@ -219,7 +219,7 @@ dcos_instance_os = "centos_7.5"
 | dcos_s3_bucket | Exhibitor 后端的 S3 bucket 名称。（建议，但使用 `dcos_exhibitor_address` 时为必需项） | 字符串 | `` | 否 |
 | dcos_s3_prefix | Exhibitor 后端的 S3 前缀的名称。（建议，但使用 `dcos_exhibitor_address` 时为必需项） | 字符串 | `` | 否 |
 | dcos_security | [企业 DC/OS] 设置 DC/OS 的安全级别。默认值为 permissive。（建议） | 字符串 | `` | 否 |
-| dcos_skip_check | 升级选项：用于跳过所有 DC/OS 检查，如果任何 DC/OS 组件运行不正常，这些检查可能阻止升级。（可选）适用：1.10+ | 字符串 | `false` | 否 |
+| dcos_skip_check | 升级选项：用于跳过任何 DC/OS 组件运行不正常导致可能阻止升级的 DC/OS 检查。（可选）适用：1.10+ | 字符串 | `false` | 否 |
 | dcos_staged_package_storage_uri | 添加 DC/OS 包时的临时存储位置。（可选） | 字符串 | `` | 否 |
 | dcos_superuser_password_hash | [企业 DC/OS] 设置超级用户密码哈希值。（建议） | 字符串 | `` | 否 |
 | dcos_superuser_username | [企业 DC/OS] 设置超级用户的用户名。（建议） | 字符串 | `` | 否 |
@@ -227,7 +227,7 @@ dcos_instance_os = "centos_7.5"
 | dcos_ucr_default_bridge_subnet | 分配给 mesos 桥接 CNI 网络，供 UCR 构建桥接模式网络的 IPv4 子网。（可选） | 字符串 | `` | 否 |
 | dcos_use_proxy | 启用对内部路由代理的使用（可选） | 字符串 | `` | 否 |
 | dcos_variant | 主要变量。| 字符串 | `open` | 否 |
-| dcos_version | 指定要使用哪个 DC/OS 版本说明。选项：`1.9.0`、`1.8.8` 等。参见 [dcos_download_path](https://github.com/dcos/tf_dcos_core/blob/master/variables.tf) 或 [dcos_version](https://github.com/dcos/tf_dcos_core/tree/master/dcos-versions) 树，获得完整列表。| 字符串 | `1.11.4` | 否 |
+| dcos_version | 指定要使用哪个 DC/OS 版本说明。选项：`1.9.0`、`1.8.8` 等。参见 [dcos_download_path](https://github.com/dcos/tf_dcos_core/blob/master/download-variables.tf) 或 [dcos_version](https://github.com/dcos/tf_dcos_core/tree/master/dcos-versions) 树，获得完整列表。| 字符串 | `1.11.4` | 否 |
 | dcos_zk_agent_credentials | [企业 DC/OS] 设置 ZooKeeper 代理节点凭据。（建议） | 字符串 | `` | 否 |
 | dcos_zk_master_credentials | [企业 DC/OS] 设置 ZooKeeper 管理节点凭据。（建议） | 字符串 | `` | 否 |
 | dcos_zk_super_credentials | [企业 DC/OS] 设置 ZooKeeper 超级凭据。（建议） | 字符串 | `` | 否 |
@@ -256,7 +256,7 @@ dcos_instance_os = "centos_7.5"
 | public_agent_root_volume_size | [公共代理] Root 卷大小。| 字符串 | `120` | 否 |
 | public_agents_root_volume_type | [公共代理] 指定 root 卷类型。| 字符串 | `gp2` | 否 |
 | ssh_public_key | 要与实例一起使用的 SSH 公钥，采用授权密钥格式（例如 'ssh-rsa ..' ）。确保您将此密钥添加到您的 SSH 代理。| 字符串 | `` | 否 |
-| ssh_public_key_file | SSH 公钥的路径。这是必填项，但是，如果您想使用 ssh_public_key 连同密钥作为字符串，则可将其设为空字符串。| 字符串 | - | 是 |
+| ssh_public_key_file | SSH 公钥的路径。这是必填项，但是，如果您想使用 ssh_public_key 并以密钥作为字符串，则可将其设为空字符串。| 字符串 | - | 是 |
 | tags | 向所有资源添加自定义标记。| 映射 | `<map>` | 否 |
 
 ## 输出

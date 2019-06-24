@@ -9,7 +9,7 @@ enterprise: false
 
 # 使用 UCR 配置 Mesos 容器
 
-[通用容器运行时 (UCR)](http://mesos.apache.org/documentation/latest/container-image) 从二进制可执行文件启动 Mesos 容器，并扩展 Mesos 容器运行时间以支持配置 [Docker](https://docker.com/) 镜像。UCR 与 Docker Engine 相比，在运行 Docker 镜像方面具有许多[优势](/cn/1.12/deploying-services/containerizers/)。如需要 Docker Engine 的[功能](/cn/1.12/deploying-services/containerizers/#container-runtime-features)，请使用 Docker Engine。
+[通用容器运行时 (UCR)](http://mesos.apache.org/documentation/latest/container-image) 从二进制可执行文件启动 Mesos 容器，并扩展 Mesos 容器运行时间以支持配置 [Docker](https://docker.com/) 镜像。UCR 与 Docker Engine 相比，在运行 Docker 镜像方面具有许多[优势](/cn/1.12/deploying-services/containerizers/)。只有在您需要 Docker Engine 的[功能](/cn/1.12/deploying-services/containerizers/#container-runtime-features) 的时候才需使用 Docker Engine。
 
 # DC/OS Web 界面
 使用此程序从 DC/OS Web 界面配置 UCR 的容器。

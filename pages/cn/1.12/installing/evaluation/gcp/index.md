@@ -6,7 +6,7 @@ navigationTitle: GCP
 menuWeight: 10
 ---
 
-您可以使用 Universal 安装工具在 Google Cloud Platform (GCP) 上创建 DC/OS 群集，进行评估或生产部署。**GCP 上的 Universal 安装工具** 安装方法受到 Mesosphere 官方支持。使用此安装方法还支持升级。
+您可以使用 Universal 安装工具在 Google Cloud Platform (GCP) 上创建 DC/OS 群集，进行评估或生产部署。**GCP 上的 Universal 安装工具** 安装方法受到 Mesosphere 官方支持。使用此安装方法也支持升级。
 
 如果您不熟悉 Terraform，并想以最少的配置或自定义在 GCP 上部署 DC/OS，以下任务概括了基本安装过程：
 
@@ -72,7 +72,7 @@ production-123
 ```
 
 ## 验证您有企业版的许可证密钥
-DC/OS 企业版还需要由 Mesosphere 提供的有效许可证密钥，该密钥将作为 `main.tf` 传递到 `dcos_license_key_contents` 配置文件中。使用默认超级用户和密码登录：
+DC/OS 企业版还需要由 Mesosphere 提供的有效许可证密钥，该密钥将作为 `dcos_license_key_contents` 传递到 `main.tf` 配置文件中。使用默认超级用户和密码登录：
 
 用户名：`bootstrapuser`<br>
 密码：`deleteme`
@@ -155,7 +155,7 @@ DC/OS 企业版还需要由 Mesosphere 提供的有效许可证密钥，该密�
 
     您可以 [在此](/cn/1.12/installing/evaluation/gcp/advanced-gcp/) 查找其他输入变量及其描述。
 
-1. 如果需要，更改到您刚才创建 `dcos-tf-gcp-demo` 文件所在的 `main.tf` 文件夹。
+1. 如果需要，更改到您刚才创建的 `main.tf` 文件所在的 `dcos-tf-gcp-demo` 文件夹。
 
     ```bash
     cd dcos-tf-gcp-demo
@@ -208,7 +208,7 @@ DC/OS 企业版还需要由 Mesosphere 提供的有效许可证密钥，该密�
 # 扩展群集
 在创建初始群集后，TerraForm 很容易扩展您的群集以添加更多代理（公共或专用）。使用以下操作说明。
 
-1. 增加您的 `num_private_agents` 文件中的 `num_public_agents` 和/或 `main.tf` 的值。在此示例中，您将群集从 `two` 个专用代理扩展到 `three` 个专用代理。
+1. 增加您的 `main.tf` 文件中的 `num_private_agents` 和/或 `num_public_agents` 的值。在此示例中，您将群集从 `two` 个专用代理扩展到 `three` 个专用代理。
 
     ```hcl
     provider "google" {

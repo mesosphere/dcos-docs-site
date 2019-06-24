@@ -25,7 +25,7 @@ Terraform 是一种开源基础架构自动化工具，使用模板来管理多�
 - 创建一个模块化、可重复使用的脚本，以便在各种操作系统和云提供程序上轻松分离 DC/OS，便于就地安装、升级和修改。
 - 消除在哪种给定场景中应使用哪种 DC/OS 安装方法的混淆。这个自动化工具有助于构建相应模块，可为群集生命周期中的每个阶段编制最佳实践，并将必要的模块挂接到现有基础架构中。
 
-## 前提条件
+## 先决条件
 为了使用 Terraform 模板在云提供程序上部署 DC/OS，下面是必备条件：
 
 - 安装 Terraform，并拥有运行和调配资源所需的基础架构凭据和权限。
@@ -39,13 +39,13 @@ Terraform 是一种开源基础架构自动化工具，使用模板来管理多�
 
 
 ## Mesosphere 支持的安装方法
-这些安装方法用于快速演示和概念证明以及生产群集。下列安装方法支持升级。
+这些安装方法用于快速演示和概念证明以及生产用的群集。下列安装方法支持升级。
 
 以下任何方法均可用于安装 DC/OS：
 - [Amazon Web Services (AWS)](/cn/1.12/installing/evaluation/aws/)：通过使用 Mesosphere Universal 安装工具在 AWS 上安装 DC/OS。
 - [Azure](/cn/1.12/installing/evaluation/azure/)：通过使用 Mesosphere Universal 安装工具在 Microsoft Azure 上安装 DC/OS。
 - [Google Cloud Platform (GCP)](/cn/1.12/installing/evaluation/gcp/)：通过使用 Mesosphere Universal 安装工具在 Google Cloud Platform (GCP) 上安装 DC/OS。
-- [任何云](/cn/1.12/installing/evaluation/dcos-ansible/)：将 Mesosphere 通用安装工具连接到现有的可用设置中，并使用 Mesosphere 提供的 Ansible 角色来管理 DC/OS 群集生命周期。
+- [任何云](/cn/1.12/installing/evaluation/dcos-ansible/)：将 Mesosphere 通用安装工具连接到现有的 Ansible 设置中，并使用 Mesosphere 提供的 Ansible 角色来管理 DC/OS 群集生命周期。
 
 ## 其他安装方法
 这些安装方法由社区提供，未经 Mesosphere 测试。在使用以下安装时，升级 DC/OS 不是受支持的功能。

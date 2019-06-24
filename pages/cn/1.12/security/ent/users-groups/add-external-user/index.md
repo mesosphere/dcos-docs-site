@@ -62,7 +62,7 @@ enterprise: true
 
 1. 完成后，对话框应如下所示。
 
-    ![LDAP 组导入配置](/1.12/img/ldap-group-import.png)
+    ![LDAP 组导入配置](/1.12/img/1-11-ldap-group-import.png)
 
     图 1. LDAP 组导入配置
 
@@ -83,11 +83,11 @@ enterprise: true
 
 您可以使用 `/ldap/importuser` [IAM API](/cn/1.12/security/ent/iam-api/) 端点导入一组 LDAP 用户。
 
-**前提条件：**
+**先决条件：**
 
 - 必须设置 `group-search` 配置密钥，如[配置 LDAP 组导入](#Configure-LDAP-group-import) 中所述。
 - 现有组条目必须通过使用 `member`、`uniquemember` 或 `memberuid` 属性列出其成员。
-- 在本部分中发出 curl 命令之前，必须遵循[获取 DC/OS CA 根证书] (/cn/1.12/security/ent/tls-ssl/get-cert/) 中的步骤。
+- 在本部分中发出 curl 命令之前，必须遵循[获取 DC/OS CA 根证书](/cn/1.12/security/ent/tls-ssl/get-cert/) 中的步骤。
 
 在此示例中，导入了名为 `johngroup` 的组。
 

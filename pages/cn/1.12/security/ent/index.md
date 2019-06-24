@@ -8,7 +8,7 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS Enterprise 提供一系列功能，允许您保护群集并防止破坏和其他攻击。本节概述了强化群集的安全功能和建议。
+DC/OS Enterprise 提供一系列功能，让您保护群集并防止破坏和其他攻击。本节概述了强化群集的安全功能和建议。
 
 DC/OS 安全性的目标是：
 
@@ -103,7 +103,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 使用 DC/OS GUI 登录时，Identity 和 Access Manager 会生成包含认证令牌的 Cookie。虽然它收到 [`HttpOnly`](https://www.owasp.org/index.php/HttpOnly) 标志的保护，但您应在浏览器会话结束时**注销**以清除此 Cookie。
 
-请注意，清除 Cookie 不会使认证失效。如果监测到未加密的连接或从 cookie 中提取，则可能有人使用认证令牌登录了 DC/OS。为降低此风险，我们建议在 `permissive` 和 `strict` 模式下设置[安全标志](https://www.owasp.org/index.php/SecureFlag)，如[强化](/cn/1.12/security/ent/hardening/#secure-flag)中所述。
+请注意，清除 Cookie 不会使认证失效。如果有人通过监听未加密的连接或从 cookie 中提取，便可以使用认证令牌登录 DC/OS。为降低此风险，我们建议在 `permissive` 和 `strict` 模式下设置[安全标志](https://www.owasp.org/index.php/SecureFlag)，如[强化](/cn/1.12/security/ent/hardening/#secure-flag)中所述。
 
 ## <a name="passwords"></a>密码
 

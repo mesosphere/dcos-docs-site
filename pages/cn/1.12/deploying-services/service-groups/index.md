@@ -14,7 +14,7 @@ enterprise: true
 
 [Marathon 权限](/security/ent/perms-reference/#marathon-metronome) 和 [Mesos 权限](/security/ent/perms-reference/#mesos) 的服务名称、工作名称、服务组或作业组没有区别。因此，您的命名必须是唯一的。
 
-**前提条件：**
+**先决条件：**
 
 - 必须 [安装 DC/OS CLI](/cli/install/) 并以超级用户登户身份登录。
 - 用于分配权限的[用户帐户](/security/ent/users-groups/)。
@@ -23,7 +23,7 @@ enterprise: true
 
 ## <a name="root-service-ui"></a>通过 DC/OS Web 界面
 
-1. 以具有 `superuser` 权限的用户身份登录数据中心操作系统 Web 界面。
+1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
       ![登录](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
@@ -90,7 +90,7 @@ enterprise: true
 
 ## <a name="root-service-cli"></a>通过 CLI
 
-**前提条件：**
+**先决条件：**
 
 - 必须 [安装 DC/OS CLI](/cli/install/) 并以超级用户登户身份登录。
 
@@ -109,7 +109,7 @@ dcos security org users grant <uid> dcos:service:marathon:marathon:services:/<se
 
 - **DC/OS 服务任务和日志：**
 
-向用户授予以下特权 `uid`。
+向用户授予以下权限 `uid`。
 
 ```bash
 dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
@@ -147,7 +147,7 @@ dcos security org users grant <uid> dcos:mesos:master:task:app_id:/<service-name
 
 ## <a name="service-in-group-ui"></a>通过 DC/OS Web 界面
 
-1. 以具有 `superuser` 权限的用户身份登录数据中心操作系统 Web 界面。
+1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
       ![登录](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
@@ -218,7 +218,7 @@ dcos:mesos:master:task:app_id:/<gid>/<service-name> read
 
 ## <a name="service-in-group-cli"></a>通过 CLI
 
-**前提条件：**
+**先决条件：**
 
 - 必须 [安装 DC/OS CLI](/cli/install/) 并以超级用户登户身份登录。
 
@@ -239,7 +239,7 @@ dcos security org users grant <uid> dcos:service:marathon:marathon:services:/gro
 
 - **DC/OS 服务任务和日志：**
 
-向用户授予以下特权 `uid`。
+向用户授予以下权限 `uid`。
 
 ```bash
 dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
@@ -250,7 +250,7 @@ dcos security org users grant <uid> dcos:adminrouter:ops:slave full
 
 - **DC/OS 服务访问：**
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户授予以下权限 `uid`。
 
 ```bash
 dcos security org users grant <uid> dcos:adminrouter:service:marathon full
@@ -277,7 +277,7 @@ dcos security org users grant <uid> dcos:mesos:master:task:app_id:/group/<servic
 
 ## <a name="service-group-ui"></a>通过 DC/OS Web 界面
 
-1. 以具有 `superuser` 权限的用户身份登录数据中心操作系统 Web 界面。
+1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
       ![登录](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
@@ -348,7 +348,7 @@ dcos:mesos:master:task:app_id:/<gid> read
 
 ## <a name="service-group-cli"></a>通过 CLI
 
-**前提条件：**
+**先决条件：**
 
 - 必须 [安装 DC/OS CLI](/cli/install/) 并以超级用户登户身份登录。
 
@@ -360,7 +360,7 @@ dcos:mesos:master:task:app_id:/<gid> read
 
 - **DC/OS 组访问：**
 
-向用户授予以下特权 `uid`。
+向用户授予以下权限 `uid`。
 
 ```bash
 dcos security org users grant <uid> dcos:adminrouter:service:marathon full
@@ -369,7 +369,7 @@ dcos security org users grant <uid> dcos:service:marathon:marathon:services:/gro
 
 - **组任务和日志：**
 
-向用户授予以下特权 `uid`。
+向用户授予以下权限 `uid`。
 
 ```bash
 dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
@@ -380,7 +380,7 @@ dcos security org users grant <uid> dcos:adminrouter:ops:slave full
 
 - **DC/OS 组访问：**
 
-向用户授予以下特权 `uid`。
+向用户授予以下权限 `uid`。
 
 ```bash
 dcos security org users grant <uid> dcos:adminrouter:service:marathon full
@@ -389,7 +389,7 @@ dcos security org users grant <uid> dcos:service:marathon:marathon:services:/gro
 
 - **组任务和日志：**
 
-向用户授予以下特权 `uid`。
+向用户授予以下权限 `uid`。
 
 ```bash
 dcos security org users grant <uid> dcos:adminrouter:ops:mesos full

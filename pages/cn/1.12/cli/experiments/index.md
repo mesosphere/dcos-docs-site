@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  实验
-title: 实验
+navigationTitle:  Experiments
+title: Experiments
 menuWeight: 6
 excerpt: 启用和使用实验 CLI 功能
+实验：真
 enterprise: false
 ---
 

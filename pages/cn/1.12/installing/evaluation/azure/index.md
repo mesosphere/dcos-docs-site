@@ -8,7 +8,7 @@ menuWeight: 5
 
 要使用 Mesosphere Universal 安装工具配合 Azure，必须安装 Azure 命令行界面并配置为您将用于资源的帐户的安全凭据。以下操作说明将引导您完成必要的帐户创建和凭据，以便成功配置 Azure CLI 并安装 DC/OS。
 
-## 前提条件
+## 先决条件
 
 - Linux、macOS 或 Windows
 - 命令行 shell 终端，例如 Bash 或 PowerShell
@@ -73,7 +73,7 @@ menuWeight: 5
     ]
     ```
 
-1. 设置 `ARM_SUBSCRIPTION_ID`。适用于 Azure 的当前 Terraform 提供程序要求先设置默认 Azure 订阅，然后才能启动 terraform。请提供 Azure 订阅 ID。您可以使用以下命令设置默认帐户：
+1. 设置 `ARM_SUBSCRIPTION_ID`。Azure 的当前 Terraform 提供程序要求先设置默认 Azure 订阅，然后才能启动 terraform。请提供 Azure 订阅 ID。您可以使用以下命令设置默认帐户：
 
     ```bash
     export ARM_SUBSCRIPTION_ID="desired-subscriptionid"
@@ -209,7 +209,7 @@ menuWeight: 5
         "~/.ssh/arm-key.pub"
         ```
 
- 1. `location = "West US"`：AzureRM 提供程序的实现方式强迫我们在模块中指定 `location`。如果您想使用不同的区域，请将 `location` 替换为您所需的区域。
+ 1. `location = "West US"`：AzureRM 提供程序的应用方式要求我们在模块中指定 `location`。如果您想使用不同的区域，请将 `location` 替换为您所需的区域。
 
 1. 企业用户可以对该区段取消注释/添加注释，实现类似于以下注释，将该位置插入到许可证密钥。[enterprise type="inline" size="small" /]
 
@@ -219,7 +219,7 @@ menuWeight: 5
     # dcos_variant = "open"
     ```
 
-1. 此示例配置文件将使您开始安装具有以下节点的开源 DC/OS 1.12 群集：
+1. 此示例配置文件将让您可以开始安装具有以下节点的开源 DC/OS 1.12 群集：
 
     - 1 个管理节点
     - 2 个专用代理
@@ -261,7 +261,7 @@ menuWeight: 5
     terraform plan -out=plan.out
     ```
 
-    将我们的执行计划写入文件允许我们将执行计划传递给以下 `apply` 命令，并帮助我们保证计划的准确性。请注意，此文件只能由 Terraform 读取。
+    将我们的执行计划写入文件让我们可以将执行计划传递给以下 `apply` 命令，并帮助我们保证计划的准确性。请注意，此文件只能由 Terraform 读取。
 
     此后，我们应该看到类似下面的消息，确认我们已成功保存到 `plan.out` 文件。此文件应显示在您的 `dcos-tf-azure-demo` 文件夹中的 `main.tf` 旁边。
 
@@ -302,7 +302,7 @@ menuWeight: 5
 # 扩展群集
 在创建初始群集后，TerraForm 很容易扩展您的群集以添加更多代理（公共或专用）。只需按以下说明操作。
 
-1. 增加您的 `num_private_agents` 文件中的 `num_public_agents` 和/或 `main.tf` 的值。在本示例中，我们要将群集从 2 个专用代理扩展到 3 个，只更改该行，并保存文件。
+1. 在 `main.tf` 中，增加您的 `num_private_agents` 和/或 `num_public_agents` 的值。在本示例中，我们要将群集从 2 个专用代理扩展到 3 个，只更改该行，并保存文件。
 
     ```bash
     num_masters        = "1"

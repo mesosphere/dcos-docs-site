@@ -144,7 +144,7 @@ menuWeight: 7
     ```
 
     如果您有大型群集，则可能必须增加此数字。
-1. 使用 `dcos marathon app list` 检查 `scale` 部署是否卡住。
+1. 使用 `dcos marathon app list` 检查 `scale` 部署是否停滞。
     ```
     dcos marathon deployment list
     ```
@@ -172,7 +172,7 @@ menuWeight: 7
     dcos marathon app update /dcos-101/app2 cpus=100
     ```
 
-1. 使用 `dcos marathon app list` 检查 `restart` 部署是否卡住。
+1. 使用 `dcos marathon app list` 检查 `restart` 部署是否停滞。
       ```
       dcos marathon deployment list
       ```

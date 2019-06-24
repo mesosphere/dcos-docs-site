@@ -11,7 +11,7 @@ enterprise: true
 
 您可以使用 DC/OS CLI [dcos cluster link](/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-link/) 和 [dcos cluster unlink](/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) 命令和 [cluster link API](/cn/1.12/administering-clusters/multiple-clusters/cluster-link-api/)添加和删除一个群集到另一个群集的链接。设置链接后，您可以使用 CLI 或 UI 轻松在群集之间切换。如果已经使用 SSO 提供程序设置链接，您不需要提供凭证即可切换群集。
 
-您必须是超级用户或具有相应的群集链路 [权限](/cn/1.12/security/ent/perms-reference/#cluster-linker)才能查看、添加和删除链路并授予查看链路群集的权限。
+您必须是超级用户或具有相应的群集链路 [权限](/cn/1.12/security/ent/perms-reference/#cluster-linker)才能查看、添加和删除链路并授予查看已连接群集的权限。
 
 
 # 启用使用 SSO 访问群集链接
@@ -56,7 +56,7 @@ Choose the login method and provider to enable switching to this linked cluster:
 
 要查看所有链接的群集，运行 `dcos cluster list` 命令。如果群集已链接但未设置，则其状态为 `UNCONFIGURED`。如果群集已链接和附加，其状态为 `AVAILABLE`。另请参阅 [查看连接的群集](/cn/1.12/administering-clusters/multiple-clusters/cluster-connections/)。
 
-# 删除链路群集
+# 删除群集链路
 
 要删除链接，运行`dcos cluster unlink` 命令并提供已链接群集的 **名称** 或 **ID**。例如：
 
@@ -68,7 +68,7 @@ dcos cluster unlink <linked-cluster>
 
 您可以使用 CLI 或 UI 在链接的群集之间切换。使用 CLI 切换群集时，新群集将成为 CLI 的活动群集。使用 UI 切换群集时，新群集将成为您在 UI 中看到的群集。如果在 CLI 中切换群集，它不会更改 UI 中的群集；同样，在 UI 中切换，不会影响 CLI 中附加的群集。
 
-## 从 DC/OS CLI 切换到链路群集
+## 从 DC/OS CLI 切换到已连接群集
 
 运行 `dcos cluster attach` 命令并提供链接群集的名称或 ID：
 
@@ -78,7 +78,7 @@ dcos cluster attach <linked-cluster>
 
 要运行 `dcos cluster list`，`<linked-cluster>` 的名称旁就会有一个星号。
 
-## 从 DC/OS UI 切换到链路群集
+## 从 DC/OS UI 切换到已连接群集
 
 1. 在 DC/OS Web 界面的右上角，单击群集名称右侧的向下箭头。
 
@@ -88,7 +88,7 @@ dcos cluster attach <linked-cluster>
 
 1. 选择 **切换群集**。
 
-    ![swi 集群](/1.12/img/switch-cluster-1-12.png)
+    ![swi 群集](/1.12/img/switch-cluster-1-12.png)
 
     图 2. 群集切换
 
@@ -96,9 +96,9 @@ dcos cluster attach <linked-cluster>
 
     ![swi 链接的集群](/1.12/img/switch-linked-cluster.png)
 
-    图 3. 切换到链路群集
+    图 3. 切换到已连接群集
 
-    如果您是超级用户，还可以在“链路群集”选项卡中切换到链路群集。
+    如果您是超级用户，还可以在“已连接群集”选项卡中切换到已连接群集。
 
 1. 选择 **群集 -> 链接群集**。
 
@@ -106,13 +106,13 @@ dcos cluster attach <linked-cluster>
 
     ![swi linked cluster2](/1.12/img/switch-linked-cluster2.png)
 
-    图 4. 切换到链路群集
+    图 4. 切换到已连接群集
 
 
 
 # 链接和切换群集示例
 
-## 以超级用户操作员通过 CLI 链接群集
+## 以超级用户操作员通过 CLI 连接群集
 
 1. 使用 `dcos-user` 提供程序设置群集 `cluster-a` 。
 
@@ -141,7 +141,7 @@ dcos cluster attach <linked-cluster>
     cluster-a*  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.12-dev  https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
-1. 从群集 `cluster-a` 链接到群集 `cluster-b`。
+1. 从群集 `cluster-a` 连接到群集 `cluster-b`。
 
     ```
     dcos cluster link https://cluster-b.us-west-2.elb.amazonaws.com
@@ -170,7 +170,7 @@ dcos cluster attach <linked-cluster>
     $ dcos cluster attach cluster-b
     ```
 
-1. 从群集 `cluster-b` 链接到群集 `cluster-a`。
+1. 从群集 `cluster-b` 连接到群集 `cluster-a`。
 
     ```
     dcos cluster link https://cluster-a.us-west-2.elb.amazonaws.com
@@ -205,7 +205,7 @@ dcos cluster attach <linked-cluster>
 
 ### 使用带有 Google SSO 的 Web 界面切换群集
 
-您可以使用 Google OpenID 提供程序轻松切换到已设置的链接群集。
+您可以使用 Google OpenID 提供程序轻松切换到已设置的已连接群集。
 
 
 1. 作为外部用户，使用 Google 凭证登录群集的 DC/OS UI `cluster-a` 。

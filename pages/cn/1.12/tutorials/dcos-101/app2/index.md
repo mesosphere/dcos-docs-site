@@ -35,7 +35,7 @@ menuWeight: 5
     ```
     dcos marathon app list
     ```
- * 从群集中卷曲 http 服务器（在这种情况下来自主要主服务器）：
+ * 从群集中curl http 服务器（在这种情况下来自主要主服务器）：
     ```
     dcos node ssh --master-proxy --leader
     ```

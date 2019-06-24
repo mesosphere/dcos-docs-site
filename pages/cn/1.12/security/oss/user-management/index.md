@@ -25,7 +25,7 @@ menuWeight: 10
 ## 从 CLI 添加用户
 您可以使用 `dcos_add_user.py` 脚本从终端将用户添加到 DC/OS 群集。默认情况下，您的 DC/OS 安装将包含此脚本。
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS [已安装](/cn/1.12/installing/)
 

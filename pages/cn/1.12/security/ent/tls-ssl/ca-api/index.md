@@ -11,7 +11,7 @@ enterprise: true
 
 # 关于证书颁发机构 API
 
-DC/OS 证书颁发机构 API 允许您查看 DC/OS Enterprise 所使用的 TLS 证书、创建证书签名请求 (CSR)<>以及让 DC/OS CA 签署 CSR 。
+DC/OS 证书颁发机构 API 让您可以查看 DC/OS Enterprise 所使用的 TLS 证书、创建证书签名请求 (CSR)<>以及让 DC/OS CA 签署 CSR 。
 
 ## 请求和响应格式
 
@@ -45,7 +45,7 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 
 ### 通过 IAM API
 
-若要获取认证令牌，请将请求正文中具有必要权限的用户的用户名和密码传递给[身份和访问管理服务 API](/cn/1.12/security/ent/iam-api/) 的 `/auth/login` 端点。它将返回认证令牌，如下所示。
+若要获取认证令牌，请在请求正文中将具有必要权限的用户的用户名和密码传递给[身份和访问管理服务 API](/cn/1.12/security/ent/iam-api/) 的 `/auth/login` 端点。它将返回认证令牌，如下所示。
 
 ```json
 {

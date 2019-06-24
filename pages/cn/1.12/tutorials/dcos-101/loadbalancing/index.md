@@ -34,9 +34,9 @@ menuWeight: 8
     ```
     * **Marathon-LB**
     * 和之前一样，通过 `http://<public-node>10000` 检查 `app2`。重复执行此操作时，您应该看到 `app2` 的不同实例所提供的请求。
-    * 您还也可以通过 `http://<public-node>:9090/haproxy?stats` 检查 Marathon-LB
+    * 您还也可以通过 `http://<public-node>:9090/haproxy?stats` 检查 Marathon-LB 统计数据
     * **命名 VIP**
-    * 通过 SSH 连接到主导主节点：
+    * 通过 SSH 连接到首要管理节点：
             ```
             dcos node ssh --master-proxy --leader
             ```

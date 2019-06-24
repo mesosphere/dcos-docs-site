@@ -10,11 +10,7 @@ enterprise: false
 
 
 # 说明
-<<<<<<< HEAD
 `dcos package repo remove` 命令让您可以从 DC/OS 中删除软件包存储库。
-=======
-`dcos package repo remove` 命令允许您从 DC/OS 中删除软件包存储库。
->>>>>>> staging
 
 # 使用
 

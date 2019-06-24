@@ -8,11 +8,7 @@ enterprise: false
 ---
 
 # 说明
-<<<<<<< HEAD
 `dcos marathon pod kill` 命令让您终止一个或多个正在运行的 pod 实例。
-=======
-`dcos marathon pod kill` 命令允许您终止一个或多个正在运行的 pod 实例。
->>>>>>> staging
 
 # 使用
 
@@ -30,11 +26,7 @@ dcos marathon pod kill <pod-id> [<instance-ids>...]
 | 名称 | 说明 |
 |---------|-------------|
 | `<instance-ids>` | 一个或多个 pod 实例 ID 的列表，以空格分隔。|
-<<<<<<< HEAD
 | `<pod-id>` | Pod ID。您可以使用 `dcos marathon pod list` 命令查看 pod ID 列表。|
-=======
-| `<pod-id>` | POD ID。您可以使用 `dcos marathon pod list` 命令查看 pod ID 列表。|
->>>>>>> staging
 
 # 父命令
 

@@ -7,7 +7,6 @@ excerpt: 恢复代理节点卷上的空间
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 如果任务填满代理节点的保留卷，有一些选项可以恢复空间：
 

@@ -12,7 +12,7 @@ excerpt: 教程 - 在 DC/OS 上运行有状态服务
 
 这些持久卷安装在任务的 Mesos 沙盒中，因此可以连续访问服务。DC/OS 为每个任务创建持久卷，并且动态保留运行任务所需的所有资源。这样，DC/OS 可确保重新启动服务，并在需要时重用其数据。这对数据库、缓存和其他数据感知服务非常有用。
 
-如果您打算运行的服务不会自行复制数，则需要处理备份或采用合适的复制策略。
+如果您打算运行的服务不会自行复制数据，则需要处理备份或采用合适的复制策略。
 
 有状态服务利用两个基础的 Mesos 功能：
 
@@ -32,7 +32,7 @@ excerpt: 教程 - 在 DC/OS 上运行有状态服务
 ## 前提条件
 
 * [已安装 DC/OS][1]
-- [已安装 DC/OS CLI]
+- [已安装 DC/OS CLI][2]
 * 群集大小：至少一个代理节点，具有 1 个 CPU、1 GB RAM 和 1000 MB 可用磁盘空间。
 
 ## 安装有状态服务 (PostgreSQL)
@@ -103,7 +103,7 @@ excerpt: 教程 - 在 DC/OS 上运行有状态服务
 dcos marathon app add //tutorials/stateful-services/postgres.marathon.json
 ```
 
-服务已安排且 Docker 容器已下载后，postgres 将变得健康并且可以使用。您可以从 DC/OS CLI 验证这一点：
+服务已安排且 Docker 容器已下载后，postgres 将变得运行良好并且可以使用。您可以从 DC/OS CLI 验证这一点：
 
 ```
 dcos marathon task list

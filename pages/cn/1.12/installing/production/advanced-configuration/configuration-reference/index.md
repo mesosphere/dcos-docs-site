@@ -19,12 +19,12 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 | aws_template_storage_bucket | 包含 [自定义高级 AWS 模板](/1.12/installing/ent/cloud/aws/advanced/#create-your-templates) 的 S3 bucket 的名称。 |
 | aws_template_storage_bucket_path | S3 bucket 内模板工件存储位置的路径。
 | aws_template_storage_region_name | 包含 S3 bucket 的分域。 |
-| aws_template_storage_secret_access_key | 拥有 AWS S3 bucket 的帐户的 [秘密访问密钥 (http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)。|
+| aws_template_storage_secret_access_key | 拥有 AWS S3 bucket 的帐户的 [秘密访问密钥] (http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)。|
 | aws_template_upload | 是否将自定义高级 AWS 模板上传到 S3 bucket。 |
 | [bootstrap_url](#bootstrap-url) |（必填）DC/OS 安装工具存储自定义 DC/OS 构建文件的 URI 路径。 |
 | [cluster_docker_credentials](#cluster-docker-credentials) | 要传递给 Docker 的词典。 |
 | [cluster_docker_credentials_enabled](#cluster-docker-credentials-enabled) | 是否传递 Mesos `--docker_config` 选项给 Mesos。 |
-| [cluster_docker_registry_url](#cluster-docker-registry-url) | Mesos 用来从来拉取 Docker 镜像的自定义 URL。 |
+| [cluster_docker_registry_url](#cluster-docker-registry-url) | Mesos 用来从中拉取 Docker 镜像的自定义 URL。 |
 | [cluster_name](#cluster-name) | 群集的名称。 |
 | [cosmos_config](#cosmos-config) | 传递给 [DC/OS 包管理器 (Cosmos) ](https://github.com/dcos/cosmos) 的包配置词典。 |
 | [custom_checks](#custom-checks) | 添加到默认检查配置进程的自定义安装检查。 |
@@ -36,7 +36,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 | [master_external_loadbalancer](#master-external-loadbalancer) | 负载均衡器的 DNS 名称或 IP 地址。[enterprise type="inline" size="small" /] |
 | [mesos_container_log_sink](#mesos-container-log-sink) | 容器（任务）的日志管理器。 |
 | [platform](#platform) | 基础架构平台。 |
-| [public_agent_list](#public-agent-list) | [公共代理] `-`主机名的 IPv4 地址的 YAML 嵌套列表（(/1.12/overview/concepts/#public-agent-node)）。|
+| [public_agent_list](#public-agent-list) | [公共代理] (/1.12/overview/concepts/#public-agent-node) 主机名的 IPv4 地址的 YAML 嵌套列表(`-`)。|
 | [rexray_config](#rexray-config) | 在 Marathon 中启用外部持久卷的 [REX-Ray](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/) 配置方法。不能同时指定 `rexray_config` 和 `rexray_config_preset`。|
 | [rexray_config_preset](#rexray-config-preset) | 如果您在 AWS 上运行 DC/OS，将此参数设置为 `aws`，请将 `rexray_config` 参数设置为与 DC/OS 本身捆绑的合理默认 REX-Ray 配置。不能同时指定 `rexray_config` 和 `rexray_config_preset`。|
 
@@ -46,7 +46,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [dcos_overlay_enable](#dcos-overlay-enable) | 指定是否启用 DC/OS 虚拟网络的参数模块。 |
 | [dns_bind_ip_blacklist](#dns-bind-ip-blacklist) | 无法绑定 DC/OS DNS 解析程序的 IP 地址列表。|
-| [dns_forward_zones](#dns-forward-zones) | 配置 DNS 查询自定义转发行为的 DNS 分区、IP 地址 和端口的嵌套列表。|
+| [dns_forward_zones](#dns-forward-zones) | 设置 DNS 查询自定义转发行为的 DNS 分区、IP 地址 和端口的嵌套列表。|
 | [dns_search](#dns-search) | 输入不合格域时尝试的域列表（以空格隔开）。 |
 | [master_dns_bindall](#master-dns-bindall) | 指示管理节点 DNS 端口是否打开。 |
 | [mesos_dns_set_truncate_bit](#mesos-dns-set-truncate-bit) | 指示在响应过大而无法放入单个数据包时，是否设置截断数位。 |
@@ -55,14 +55,14 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 |[enable_ipv6](#enable-ipv6) | 布尔值，表示 IPv6 网络支持是否在 DC/OS 中可用。默认值为 `true`。 |
 | [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6) | 指示第 4 层负载均衡是否可用于 IPv6 网络的布尔值。该参数仅在 `enable_ipv6` 设置为 `true` 时生效。默认值为 `false`。|
 |[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |分配给 `mesos-bridge` CNI 网络，供 UCR 构建桥接模式网络的 IPv4 子网。 |
-| [network_cni_root_dir_persist]（#network_cni_root_dir_persist）|一个指定在主机重启期间是否使 CNI 根目录持久化的布尔值。默认值为 `false`。如果将此配置选项设置为 `true`，CNI 根目录创建于 `work dir`。将此选项设置为 `true`，以允许 CNI 隔离器在重启主机节点之后进行正确的清理。注意：必须重启主机才能生效。|
+| [network_cni_root_dir_persist]（#network_cni_root_dir_persist）|一个指定在主机重启期间是否使 CNI 根目录持久化的布尔值。默认值为 `false`。如果将此配置选项设置为 `true`，CNI 根目录将创建于 `work dir`。将此选项设置为 `true`，以允许 CNI 隔离器在重启主机节点之后进行正确的清理。注意：必须重启主机才能生效。|
 
 [企业]
 # 存储
 [/enterprise]
 | 参数 | 描述 |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise) | 一个标记，设定后将启用 DC/OS 中的高级存储功能，包括 Mesos [CSI](https://github.com/container-storage-interface/spec) 支持和预安装的 CSI 设备插件。此功能标志需要打开才能使用 [DC/OS 存储服务 (DSS)](/services/beta-storage/) [enterprise type="inline" size="small" /]|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise) | 一个标记，设定后将启用 DC/OS 中的高级存储功能，包括 Mesos [CSI](https://github.com/container-storage-interface/spec) 支持和预安装的 CSI 设备插件。此功能标记需要打开才能使用 [DC/OS 存储服务 (DSS)](/services/beta-storage/) [enterprise type="inline" size="small" /]|
 
 # 性能和微调
 
@@ -179,7 +179,7 @@ _此选项已添加到 DC/OS 1.12.1。_
 * `auth_cookie_secure_flag: false`（默认）浏览器将通过未加密的 HTTP 连接或加密的 HTTPS 连接发送 DC/OS 身份认证 Cookie。
 * `auth_cookie_secure_flag: true` DC/OS 设置的身份认证 Cookie 将包含 [`Secure` 标记](https://www.owasp.org/index.php/SecureFlag)，指示浏览器不在未加密的 HTTP 连接上发送 Cookie。这可能导致身份认证在下列情况下失败。
 
- - 如果安全模式是 `permissive`，URL 就会指定 HTTP 和 URL 包括与根路径不同的目标（例如，`http://<cluster-url>/<path>/`）
+ - 如果安全模式是 `permissive`，URL 就会指定 HTTP, 且 URL 包括与根路径不同的目标（例如，`http://<cluster-url>/<path>/`）
  - 在浏览器和终止 TLS 的 DC/OS 之间有代理
 
 ### bootstrap_url（必填）
@@ -199,9 +199,9 @@ bouncer_expiration_auth_token_days: '0.5'
 如需更多信息，请参阅 [安全](/1.12/security/ent/) 文档。
 
 ### cluster_docker_credentials
-要传递给 Docker 的词典。
+要传递的 Docker 凭据词典。
 
-- 如果未在 DC/OS 安装期间设置，就会在 `/etc/mesosphere/docker_credentials` 创建默认的空凭据文件。sysadmin 可根据需要更改凭据。`systemctl restart dcos-mesos-slave` 或 `systemctl restart dcos-mesos-slave-public` 需要更改才能生效。
+- 如果未设置，就会在 DC/OS 安装期间在 `/etc/mesosphere/docker_credentials` 创建默认的空凭据文件。sysadmin 可根据需要更改凭据。`systemctl restart dcos-mesos-slave` 或 `systemctl restart dcos-mesos-slave-public` 需要更改才能生效。
 - 您也可以使用 `--docker_config` JSON [格式](http：//mesos.apache.org/documentation/latest/configuration/)。您可以在 `config.yaml` 文件中将其作为 YAML 写入，之后它会自动映射到 JSON 格式。这样就会把 Docker 凭据存储在与 DC/OS 内部配置（`/opt/mesosphere`）相同的位置。如需更新或更改配置，就必须创建新的 DC/OS 内部配置。
 
 **注意：**
@@ -220,13 +220,13 @@ bouncer_expiration_auth_token_days: '0.5'
 如需更多信息，请参阅 [示例](/1.12/installing/ent/custom/configuration/examples/#docker-credentials)。
 
 ### cluster_docker_credentials_enabled
-是否向 Mesos 传递包含 [`--docker_config`](#cluster-docker-credentials) 的 Mesos `cluster_docker_credentials` 选项。
+是否向 Mesos 传递包含 [`cluster_docker_credentials`](#cluster-docker-credentials) 的 Mesos `--docker_config` 选项。
 
 * `cluster_docker_credentials_enabled: 'true'` 请传递 Mesos 的 `--docker_config` 选项给 Mesos。它将指向包含所提供 `cluster_docker_credentials` 数据的文件。
-* `cluster_docker_credentials_enabled: 'false'` 请勿传递 Mesos的 `--docker_config` 选项给 Mesos。
+* `cluster_docker_credentials_enabled: 'false'` 请勿将 Mesos的 `--docker_config` 选项传递给 Mesos。
 
 ### cluster_docker_registry_url
-Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--docker_registry` 标记配置到指定 URL。这将更改 Mesos 用于拉取 Docker 镜像的默认 URL。默认使用 `https://registry-1.docker.io`。
+Mesos 用于从中拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--docker_registry` 标记配置到指定 URL。这将更改 Mesos 用于拉取 Docker 镜像的默认 URL。默认使用 `https://registry-1.docker.io`。
 
 ### cluster_name
 群集的名称。
@@ -240,7 +240,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--
  添加 DC/OS 包时，临时存储包的位置。值必须是一个文件 URL，例如 `file:///var/lib/dcos/cosmos/staged-packages`。
 
 ### custom_checks
-添加到默认检查配置进程的自定义安装检查。配置用于 [DC/OS 诊断组件] (/1.12/overview/architecture/components/#dcos-diagnostics) 执行安装和升级检查。在安装和升级期间，这些自定义检查与默认的启动前和启动后检查一起运行。
+添加到默认检查配置进程的自定义安装检查。配置用于 [DC/OS 诊断组件](/1.12/overview/architecture/components/#dcos-diagnostics) 执行安装和升级检查。在安装和升级期间，这些自定义检查与默认的启动前和启动后检查一起运行。
 
 - `cluster_checks` - 这组参数指定整个 DC/OS 群集的运行状况检查。
 
@@ -256,7 +256,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--
  - `cmd` - 指定运行状况检查命令字符串的阵列
  - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常状态为 `3 (UNKNOWN)`
 
-有关如何使用这些自定义检查的详细信息，请参阅 [示例](/1.12/installing/ent/custom/configuration/examples/#custom-checks) 以及 [节点和群集运行状况检查](/1.12/installing/production/deploying-dcos/configuration/examples/#custom-checks) 文档。
+有关如何使用这些自定义检查的详细信息，请参阅 [示例](/1.12/installing/ent/custom/configuration/examples/#custom-checks) 以及 [节点和群集运行状况检查](/1.12/installing/ent/custom/node-cluster-health-check/) 文档。
 
 
 ### dcos_audit_logging [enterprise type="inline" size="small" /]
@@ -378,9 +378,9 @@ Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`st
     *  `exhibitor_explicit_keys`
  指明您是否会使用 AWS API 密匙授予 Exhibitor 访问 S3 的权限。
         *  `exhibitor_explicit_keys: 'true'`
- 如果要使用 AWS API 密匙，请手动授予 Exhibitor 访问权限。
+ 如果要使用 AWS API 密匙手动授予 Exhibitor 访问权限。
         *  `exhibitor_explicit_keys: 'false'`
- 如果要使用 AWS 身份和访问管理 (IAM)，请将 Exhibitor 访问权限授予 s3。
+ 如果要使用 AWS 身份和访问管理 (IAM) 将 Exhibitor 访问权限授予 s3。
     *  `s3_bucket`
  S3 bucket 的名称。
     *  `s3_prefix`
@@ -454,7 +454,7 @@ Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadb
  管理节点前面负载均衡器的地址（最好是 IP 地址）。如果需要替换管理节点，该地址成为代理用来查找新管理节点的静态地址。对于 DC/OS Enterprise，该地址包含在 [DC/OS 证书](/1.12/security/ent/tls-ssl/) 中。负载均衡器必须接受端口 443、2181、5050 和 8181 上的流量。如果群集在宽容安全模式下运行，负载均衡器也可以接受端口 80 和 8080 上的流量，以便对群集中的服务进行非 SSL HTTP 访问。
  <p class="message--note"><strong>注意：</strong>通过端口 80 和 8080 访问群集不安全。</p>
 
- 流量也必须转发到管理节点上的 443、2181、5050 和 8181 端口。例如，负载均衡器上的 Mesos 端口 5050 应转发到管理节点的端口 5050 上。管理节点应通过循环调度转发任何新连接，并且应避免对 Mesos 端口 5050 的请求未做出响应的机器以确保管理节点保持运行。有关安全模式的更多信息，请查阅 [安全模式文档](/1.12/security/ent/#security-modes)。
+ 流量也必须转发到管理节点上的 443、2181、5050 和 8181 端口。例如，负载均衡器上的 Mesos 端口 5050 应转发到管理节点的端口 5050 上。管理节点应通过循环调度转发所有新连接，并且应避免对 Mesos 端口 5050 的请求未做出响应的机器以确保管理节点保持运行。有关安全模式的更多信息，请查阅 [安全模式文档](/1.12/security/ent/#security-modes)。
 
  <p class="message--note"><strong>注意：</strong>内部负载均衡器必须在 TCP 模式，不终止任何 TLS 的情况下工作。</p>
 
@@ -517,7 +517,7 @@ Mesos 管理节点在内存中保留的每个框架的完成任务数。在具�
 如果已经安装了群集，并且希望在此禁用此功能，可以使用同一参数集进行升级。
 
 ### platform
-基础架构平台。该值为可选的自由格式，无内容验证，仅用于遥测。提供适当的价值，以帮助通知 DC/OS 平台优先做出决策。示例值：`aws`、 `azure`、`oneview`、`openstack`、`vsphere`、`vagrant-virtualbox`、`onprem` （默认）。
+基础架构平台。该值为可选的自由格式，无内容验证，仅用于遥测。提供适当的价值，以帮助通知 DC/OS 平台做出优先决策。示例值：`aws`、 `azure`、`oneview`、`openstack`、`vsphere`、`vagrant-virtualbox`、`onprem` （默认）。
 
 ### process_timeout
 在进程分叉之后等待开始操作所允许的时间（以秒为单位）。这个参数不是完整的进程时间。默认值为 120 秒。
@@ -563,7 +563,7 @@ DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定
 
 请查看外部持久卷 [文档](/1.12/storage/external-storage/)，了解有关如何创建配置的信息。
 
-如果提供了 `rexray_config` 参数，则请逐字使用其内容进行 REX-Ray 配置。这样就可以完全自定义与各种 [外部存储提供商] 集成的 REX-Ray 配置 ( https://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/)。然而，如果将群集升级到包含更新版的 REX-Ray 的版本，就必须确保 `rexray_config` 参数与较新版本的 REX-Ray 兼容。
+如果提供了 `rexray_config` 参数，则请逐字使用其内容进行 REX-Ray 配置。这样就可以完全自定义与各种 [外部存储提供商]( https://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/) 集成的 REX-Ray 配置 。然而，如果将群集升级到包含更新版的 REX-Ray 的版本，就必须确保 `rexray_config` 参数与较新版本的 REX-Ray 兼容。
 
 ### rexray_config_preset
 如果您正在 AWS 上运行群集，并希望 DC/OS 与弹性块存储器 (EBS) 集成，无需关注特定的 REX-Ray 配置，并将 `rexray_config_preset` 参数设置为 `aws`。这样就会将 `rexray_config` 参数设置为与 DC/OS 捆绑的默认 REX-Ray 配置。这一选项的另一优势在于，在您升级到包含更新 REX-Ray 版本的 DC/OS 版本后，它能自动升级您群集的 REX-Ray 配置。
@@ -611,7 +611,7 @@ SSH 用户名，例如 `centos`。
 * `use_proxy: 'false'` 请勿配置 DC/OS [组件](/1.12/overview/architecture/components/) 以使用自定义代理。这是默认值。
 * `use_proxy: 'true'` 请配置 DC/OS [组件](/1.12/overview/architecture/components/) 以使用自定义代理。如果指定了 `use_proxy: 'true'`，您还可以指定这些参数：
 
- <p class="message--note"><strong>注意：</strong>指定的代理必须在提供的 <a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers"> [解析器] 列表中解析。</a></p>
+ <p class="message--note"><strong>注意：</strong>指定的代理必须在提供的 <a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers"> [解析器] 列表中可解析。</a></p>
 
  `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` HTTP 代理。
  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` HTTPS 代理。
@@ -640,7 +640,7 @@ SSH 用户名，例如 `centos`。
 <p class="message--note"><strong>注意：</strong>为 IPv6 容器打开第 4 层负载均衡时应保持谨慎。</p>
 
 ### dcos_ucr_default_bridge_subnet
-取得 IPv4 子网。子网被分配到`ucr-br0` CNI 网络创建的桥接 `mesos-bridge`。`mesos-bridge` CNI 网络代表的网络用于在为 UCR 容器选中桥接模式网络时，启动 UCR 容器。
+需要 IPv4 子网。子网被分配到由 `mesos-bridge` CNI网络创建的桥接 `ucr-br0`。`mesos-bridge` CNI 网络代表的网络用于在为 UCR 容器选中桥接模式网络时，启动 UCR 容器。
 
 用于 UCR 的桥接模式网络与 Docker 的桥接模式网络相同，因此 `ucr-br0` 与 `docker0` Docker 桥接模式网络的桥接发挥相同作用。
 

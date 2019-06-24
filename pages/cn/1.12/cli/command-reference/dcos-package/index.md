@@ -10,11 +10,7 @@ enterprise: false
 
 # 说明
 
-<<<<<<< HEAD
 `dcos package` 命令让您安装和管理 DC/OS 服务包。
-=======
-`dcos package` 命令允许您安装和管理 DC/OS 服务包。
->>>>>>> staging
 
 # 使用
 

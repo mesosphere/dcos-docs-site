@@ -11,11 +11,11 @@ enterprise: true
 
 您可能需要手动密封密钥存储库，以保护其内容免受侵入者的侵害。密封的密钥存储库无法从 Web 界面访问。无法使用 [密钥 API](/cn/1.12/security/ent/secrets/secrets-api/) 检索密码值。取决于密钥存储库中的值的服务可能无法部署。
 
-若要密封密钥存储库，请完成以下步骤以密封 `dcos-secrets` 的单个实例。如果通过 `dcos config show core.dcos_url` 获取的群集 URL 指向负载均衡器，并且群集中有多个主节点，则应针对每个主节点发出这些步骤，并且应将群集 URL 更改为各个主节点的地址。
+若要密封密钥存储库，请完成以下步骤以密封 `dcos-secrets` 的单个实例。如果通过 `dcos config show core.dcos_url` 获取的群集 URL 指向负载均衡器，并且群集中有多个管理节点，则应针对每个管理节点发出这些步骤，并且应将群集 URL 更改为各个管理节点的地址。
 
 密封的预期状态是持久的，因此在密封存储库后，`dcos-secrets` 重启不会拆封它 - 只有[拆封存储库](/cn/1.12/security/ent/secrets/unseal-store/)中描述的步骤会拆封它。
 
-**前提条件：**
+**先决条件：**
 
 - [DC/OS CLI 已安装](/cn/1.12/cli/install/)
 - 通过 `dcos auth login` 作为超级用户登录到 DC/OS CLI
@@ -49,7 +49,7 @@ enterprise: true
    curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/secrets/v1/seal-status/default
    ```
 
-    应返回以下 JSON：
+    会返回以下 JSON：
 
    ```json
    {"sealed":true,"threshold":1,"shares":1,"progress":0}

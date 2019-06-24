@@ -238,7 +238,7 @@ DC/OS 网络度量标准揭示了网络相关度量标准。DC/OS 网络度量�
 
 ## DC/OS 诊断
 
-DC/OS 诊断汇总并揭示组件的健康状态。DC/OS 诊断也被称为 DC/OS 分布式诊断工具。
+DC/OS 诊断汇总并揭示组件的运行状况。DC/OS 诊断也被称为 DC/OS 分布式诊断工具。
 
 ### 系统服务
 
@@ -340,7 +340,7 @@ DC/OS 历史记录服务缓存并揭示历史系统状态，以促进 GUI 中的
 
 Admin Router
 
-Admin Router 使用 [NGINX](https://www.nginx.com/) 揭示组件和服务的统一控制平面代理。Admin Router 代理为节点特定的健康、日志、度量标准和包管理内部端点提供代理。
+Admin Router 使用 [NGINX](https://www.nginx.com/) 揭示组件和服务的统一控制平面代理。Admin Router 代理为节点特定的运行状况、日志、度量标准和包管理内部端点提供代理。
 
 ### 系统服务
 
@@ -447,7 +447,7 @@ DC/OS Enterprise 中的身份和访问管理由用户、用户组和权限构成
 
 ## DC/OS 身份和访问管理器 (Bouncer)
 
-DC/OS 身份和访问管理器 (IAM) 通过管理用户、用户组、服务帐户、权限和身份提供商，控制对 DC/OS 组件和服务的访问。除管理本地用户数据库以外，DC/OS IAM 还可以使用 LDAP、SAML 或 Open ID Connect 来分派给外部身份提供商。对于细粒度的访问控制，其他 DC/OS 组件（如 Mesos 和Marathon）直接与 DC/OS IAM 集成。DC/OS IAM 也被称为 Bouncer。
+DC/OS 身份和访问管理器 (IAM) 通过管理用户、用户组、服务帐户、权限和身份提供程序，控制对 DC/OS 组件和服务的访问。除管理本地用户数据库以外，DC/OS IAM 还可以使用 LDAP、SAML 或 Open ID Connect 来分派给外部身份提供程序。对于细粒度的访问控制，其他 DC/OS 组件（如 Mesos 和Marathon）直接与 DC/OS IAM 集成。DC/OS IAM 也被称为 Bouncer。
 
 ### 系统服务
 
@@ -521,7 +521,7 @@ Vault 是一个用于安全地管理密钥的工具。密钥是指您希望控�
 
 # 存储
 
-DC/OS 提供了许多不同方法来调配磁盘空间和卷到任务。其中一种方法是外部持久卷，由其自己的组件管理。
+DC/OS 提供了许多不同方法来将磁盘空间和卷调配到任务。其中一种方法是外部持久卷，由其自己的组件管理。
 
 <a name="rex-ray"></a>
 
@@ -533,7 +533,7 @@ REX-Ray 编排调配、附加和安装外部持久卷。
 
 - `dcos-rexray.service`
 
-阅读以下文档资源，了解有关 REX 射线的更多信息：
+阅读以下文档资源，了解有关 REX-Ray 的更多信息：
 
 - [文档](http://rexray.readthedocs.io/)
 - [来源](https://github.com/codedellemc/rexray)
@@ -542,7 +542,7 @@ REX-Ray 编排调配、附加和安装外部持久卷。
 
 多个组件被配置为按需使用 [systemd 套接字](https://www.freedesktop.org/software/systemd/man/systemd.socket.html)，使得可以在请求出现时将其启动，而不是持续运行和不必要地消耗资源。虽然这些套接字是单独的 [systemd 单元](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)，但它们不被视为是单独组件。
 
-多个组件被配置为使用 [systemd 计时器](https://www.freedesktop.org/software/systemd/man/systemd.timer.html)，使得它们可以定期执行或重新启动。定期执行避免了持续执行和不必要的资源消耗。定期重新启动使得可以从下游依赖关系（如基于时间的 DNS 缓存到期）中提取新配置。虽然这些计时器是单独的 [systemd 单元](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)，但它们不被视为是单独组件。
+多个组件被配置为方便使用 [systemd 计时器](https://www.freedesktop.org/software/systemd/man/systemd.timer.html)，使得它们可以定期执行或重新启动。定期执行避免了持续执行和不必要的资源消耗。定期重新启动使得可以从下游依赖关系（如基于时间的 DNS 缓存到期）中提取新配置。虽然这些计时器是单独的 [systemd 单元](https://www.freedesktop.org/software/systemd/man/systemd.unit.html)，但它们不被视为是单独组件。
 
 # 组件安装
 

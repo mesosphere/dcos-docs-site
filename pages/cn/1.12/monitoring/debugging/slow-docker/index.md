@@ -12,7 +12,7 @@ enterprise: false
 
 # 严格的 CPU 限制现在已成默认设置
 
-DC/OS 的 Apache Mesos 内核允许您使用完全公平调度器严格的 CPU 限制（CFS CPU）或 CPU 份额。默认情况下，从版本 1.10 开始在 DC/OS 中使用严格的 CPU 限制，以便在高密度用例中实现更好的性能。但是在某些用例中，希望能够为优先级较高的应用程序提供可用的 CPU 周期。使用 CPU 份额，DC/OS 可以配置为允许 Marathon 应用程序比原始应用定义消耗更多的 CPU 周期。
+DC/OS 的 Apache Mesos 内核让您可以使用完全公平调度器严格的 CPU 限制（CFS CPU）或 CPU 份额。默认情况下，从版本 1.10 开始在 DC/OS 中使用严格的 CPU 限制，以便在高密度用例中实现更好的性能。但是在某些用例中，希望能够为优先级较高的应用程序提供可用的 CPU 周期。使用 CPU 份额，DC/OS 可以配置为允许 Marathon 应用程序比原始应用定义消耗更多的 CPU 周期。
 
 您的服务或部署可能会运行缓慢，因为它们需要比配置值消耗更多的 CPU 周期。
 
@@ -20,7 +20,7 @@ DC/OS 的 Apache Mesos 内核允许您使用完全公平调度器严格的 CPU �
 
 ## 提高 CPU 分配
 
-如果由于 DC/OS  1.10 或更新版本而导致 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/cn/1.12/deploying-services/update-user-service/) 或 DC/OS GUI 的 [服务](/cn/1.12/gui/services/)选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
+如果 DC/OS  1.10 或更新版本 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/cn/1.12/deploying-services/update-user-service/) 或 DC/OS GUI 的 [服务](/cn/1.12/gui/services/)选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
 
 ## 使用 DC/OS Pod 增强资源
 

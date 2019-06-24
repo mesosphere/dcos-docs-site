@@ -10,11 +10,7 @@ enterprise: false
 
 # 说明
 
-<<<<<<< HEAD
 命令 `dcos marathon app update` 让您可以更新指定应用程序。
-=======
-命令 `dcos marathon app update` 允许您更新指定应用程序。
->>>>>>> staging
 
 # 使用
 
@@ -34,11 +30,7 @@ dcos marathon app update [--force] <app-id> [<properties>...]
 | 名称 | 说明 |
 |---------|-------------|
 | `<app-id>` | 应用程序 ID。您可以使用 `dcos marathon app list` 命令查看应用程序 ID 列表。|
-<<<<<<< HEAD
 | `<properties>` | 一个或多个 JSON 对象属性的列表，以空格分开。列表必须格式为 `<key>=<value>`。例如， `cpus=2.0 mem=308`。如果遗漏了，则从 `stdin` 上提供的 JSON 对象读取属性。|
-=======
-| `<properties>` | 一个或多个 JSON 对象属性的列表，以空格分开。列表必须格式化为 `<key>=<value>`。例如， `cpus=2.0 mem=308`。如果遗漏了，则从 `stdin` 上提供的 JSON 对象读取属性。|
->>>>>>> staging
 
 
 

@@ -91,9 +91,9 @@ DC/OS 有许多不同的日志源。通常，这些是应用程序调试最有�
 
 <p class="message--note"><strong>注意：</strong>需要可扩展的方式来管理和搜索日志吗？ 为日志聚合和筛选构建 <a href="/1.12/monitoring/logging/aggregating/filter-elk/">ELK 堆栈</a>可能是值得的。</p>
 
-有时它可以帮助提高临时写入日志的详细程度，以为调试获得更详细的故障排除信息。对于大多数组件，可通过访问端点来完成。例如，如果要在服务器接收 API 调用后将 [Mesos 代理节点的日志级别] (http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/) 提高 5 分钟，则可以执行以下简单的两步过程：
+有时它可以临时帮助提高写入日志的详细程度，以为调试获得更详细的故障排除信息。对于大多数组件，可通过访问端点来完成。例如，如果要在服务器接收 API 调用后将 [Mesos 代理节点的日志级别](http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/) 提高 5 分钟，则可以执行以下简单的两步过程：
 
-##### 连接到主节点
+##### 连接到管理节点
 
 ```bash
 dcos node ssh --master-proxy --leader
@@ -125,7 +125,7 @@ dcos task log --follow <service-name>
 
 ### 调度程序/Marathon 日志
 
-[马拉松](https://mesosphere.github.io/marathon/) 在启动应用程序时是 DC/OS 的默认计划程序。调度程序日志，特别是 Marathon 日志，是一个很好的信息来源，可帮助您了解哪些节点上安排（或不安排）某些事情的原因或方式。调用调度程序将任务与可用资源匹配。因此，由于调度程序还接收任务状态更新，所以日志还包含任务失败的详细信息。
+[Marathon](https://mesosphere.github.io/marathon/) 在启动应用程序时是 DC/OS 的默认计划程序。调度程序日志，特别是 Marathon 日志，是一个很好的信息来源，可帮助您了解哪些节点上安排（或不安排）某些事情的原因或方式。调用调度程序将任务与可用资源匹配。因此，由于调度程序还接收任务状态更新，所以日志还包含任务失败的详细信息。
 
 您可以通过 DC/OS GUI 中找到的服务列表或通过以下命令检索和查看有关特定服务的调度程序日志：
 
@@ -189,7 +189,7 @@ dcos node log --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S0 --follow
 
 Mesos 管理节点负责将可用资源与调度程序匹配。它还将任务状态更新从 Mesos 代理节点转发到相应的调度程序。这使 Mesos 管理节点日志成为了解群集整体状态的一个很好的资源。
 
-请注意，单个群集通常有多个 Mesos 管理节点。因此，您应该**确定当前主导的 Mesos 管理节点以获得最新日志**。事实上，在某些情况下，从另一个 Mesos 管理节点检索日志甚至是有意义的：例如，主节点发生故障并且您想要了解原因。
+请注意，单个群集通常有多个 Mesos 管理节点。因此，您应该**确定当前首要 Mesos 管理节点以获得最新日志**。事实上，在某些情况下，甚至再从另一个 Mesos 管理节点检索日志也是有意义的：例如，管理节点发生故障并且您想要了解原因。
 
 您可以通过 `<cluster-name>/mesos`、通过 `dcos node log --leader`，或者对于特定的管理节点使用 `ssh master` 和 `journalctl -u dcos-mesos-master`，从 Mesos GUI 中检索管理日志。
 
@@ -248,7 +248,7 @@ Apr 09 23:51:51 ip-10-0-3-81.us-west-2.compute.internal dockerd[1262]: time="201
 
 有时，任务日志提供的帮助不足。在这些情况下，使用您最喜欢的 Linux 工具（例如 `curl`、`cat`、`ping` 等）来获得交互式视角可能是一个值得做的步骤。
 
-例如，如果您使用 [Universal Container Runtime (UCR)] (https://docs.mesosphere.com/latest/deploying-services/containerizers/ucr/)，则可以使用 `dcos task exec`，如下所示：
+例如，如果您使用 [Universal Container Runtime (UCR)](https://docs.mesosphere.com/latest/deploying-services/containerizers/ucr/)，则可以使用 `dcos task exec`，如下所示：
 
 ```bash
 dcos task exec -it <mycontainerid>
@@ -278,7 +278,7 @@ DC/OS 具有大量可用于调试的其他端点：
 
 - `<cluster>/marathon/v2/queue`
 
-Marathon [`queue` 端点](https://mesosphere.github.io/marathon/api-console/index.html) 返回队列中要由 Marathon 调度的所有任务的列表。此端点在排除扩展或部署问题时非常重要。
+Marathon [`queue` 端点](https://mesosphere.github.io/marathon/api-console/index.html) 返回要由 Marathon 调度的队列中所有任务的列表。此端点在排除扩展或部署问题时非常重要。
 
 <a name="community-tool"></a>
 

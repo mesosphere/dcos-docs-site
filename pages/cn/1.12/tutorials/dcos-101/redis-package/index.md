@@ -39,7 +39,7 @@ menuWeight: 2
  * 通过查看 GUI：Redis 任务应显示在“Service Health”选项卡中，并显示运行状况。
  * 通过使用 `dcos task` 命令查看所有 DC/OS 任务 。此命令将向我们显示所有正在运行的 DC/OS 任务（即 Mesos 任务）。
  * 通过查看所有 Marathon 应用程序：`dcos marathon app list`。此命令将向我们显示所有正在运行 Marathon 应用程序。由于服务是通过 Marathon 启动的，所以您还应该在此处看到 Redis。请注意，此处还显示了运行状况（即 1/1）。
- * 通过查看 Redis 日志：`dcos task log redis`。此命令将向我们显示 redis 任务的日志（`stdout` 和 `stderr`）。这允许您检查实际启动是否成功。您可以使用 `--lines=` 参数增加显示的日志行数；默认值为 10。
+ * 通过查看 Redis 日志：`dcos task log redis`。此命令将向我们显示 redis 任务的日志（`stdout` 和 `stderr`）。这让您可以检查实际启动是否成功。您可以使用 `--lines=` 参数增加显示的日志行数；默认值为 10。
  *让我们通过 `redis-cli` 命令手动存储密钥来使用 Redis
  * [SSH](/cn/1.12/administering-clusters/sshcluster/) 进入运行 redis 的节点：
 

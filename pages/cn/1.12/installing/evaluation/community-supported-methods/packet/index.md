@@ -21,11 +21,11 @@ oss: true
 
 - 一个 Mesos 公共代理节点
 
-- Packet “类型 0”服务器实例
+- Packet “Type 0”服务器实例
 
 # 创建 DC/OS 群集
 
-## 前提条件
+## 先决条件
 
 - [Packet API 密钥](https://help.packet.net/quick-start/api-integrations)
 
@@ -83,11 +83,11 @@ oss: true
 
  - `key_file_path` - 在第 4 步中创建的 ssh 私钥路径——默认为 ./packet-key
 
-5. 还是在这一目录中运行 `terraform apply`，将服务器部署到您在 Packet 的项目中，并运行 DC/OS 安装程序。完成后，您将看到和以下内容相似，但带有分配给您服务器的 IP 地址的输出：
+5. 还是在这一目录中运行 `terraform apply`，将服务器部署到您在 Packet 的项目中，并运行 DC/OS 安装步骤。完成后，您将看到和以下内容相似，但带有分配给您服务器的 IP 地址的输出：
 
  ![terraform apply output](/1.12/img/packet_terraform_output.png)
 
- 图 1. Terraform apply" 输出
+ 图 1. “Terraform apply" 输出
 
 这时，可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/cn/1.12/installing/troubleshooting/) 文档。
 

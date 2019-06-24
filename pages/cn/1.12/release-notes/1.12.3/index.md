@@ -40,7 +40,7 @@ DC/OS 是一种分布式操作系统，使您可以在本地、云或混合群�
 - DCOS-15890 - 高级安装程序上的运行前检查显示了具有误导性的信息。此版本改进了错误消息，如果在安装开始时未运行 Docker 它就会报错。
 
 ## Marathon
-- COPS-3554 - 修复了一个罕见的问题，即随后的 Marathon 可能会尝试代理非领导者实例。这项修复添加了监视器循环进程，在重新选举后监控和重新注册（如有必要）Marathon 领导者。
+- COPS-3554 - 修复了一个罕见的问题，即随后的 Marathon 可能会尝试代理非首要实例。这项修复添加了监视器循环进程，在重新选举后监控和重新注册（如有必要）Marathon 首要实例。
 
 - COPS-3593、DCOS_OSS-4193 - 在之前版本中，如果容器崩溃或在某些 DNS 处于故障条件下，Marathon 管理的某些服务可能无法重新启动。例如，如果第一个 Zookeeper 节点或第一个 DC/OS 管理节点无法访问，则重新启动服务可能会失败。这个问题影响 Marathon 的高可用性，因此 DC/OS 1.11.5 和 1.11.6 引入了一种解决方案（ping zk-1）来解决此问题。在本版本中，基本问题得到解决，如果您已部署，则可以安全地移除该解决方案。有关问题的背景信息以及删除解决方案的步骤，请参阅 [产品咨询文档](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004)。
 
@@ -66,7 +66,7 @@ DC/OS 是一种分布式操作系统，使您可以在本地、云或混合群�
 [/enterprise]
 - DCOS-46381、DCOS-47348 - Marathon 应用定义格式已从 [1.4 更改为 1.5](https://github.com/mesosphere/marathon/blob/master/docs/docs/upgrade/network-api-migration.md#example-definitions)。此前，Admin Router 代码仅支持 v1.4 应用定义，因此 Admin Router 无法在 `/service/` 端点使用 `ip-per-container` 功能揭示应用程序。此版本为 Marathon v1.5 应用定义添加了必要的路由逻辑。
 
-- DCOS-47687 - Zookeeper 快照和日志文件包含敏感数据，并且管理节点上的任何用户都可以读取，因此务必要控制 ZooKeeper 数据目录的权限。这种修复可确保确保 `/var/lib/dcos/exhibitor/zookeeper` 归 `dcos_exhibitor` 所有，并且只拥有所有者权限。
+- DCOS-47687 - Zookeeper 快照和日志文件包含敏感数据，并且管理节点上的任何用户都可以读取，因此务必要控制 ZooKeeper 数据目录的权限。这种修复可确保 `/var/lib/dcos/exhibitor/zookeeper` 归 `dcos_exhibitor` 所有，并且只拥有所有者权限。
 
 # 已知问题和限制
 本部分介绍了不一定影响所有客户，但可能需要更改环境以解决特定情况的所有已知问题或限制。这些问题按特性、作用区域或组件分组。适用时，问题说明会包括一个或多个问题跟踪标识符。
@@ -103,7 +103,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 <a name="observe-metrics"></a>
 
 ### 观察性和度量标准
-- 引入了具有多种输出格式的灵活且可配置的度量标准管道
+- 引入了具有多种输出格式的灵活且可配置的度量标准管线
 - 增强对应用程序度量标准类型（包括直方图、计数器、计时器和计量器）的支持。
 - 提供支持提高采样率和多度量标准数据包。
 - 引入 Mesos [框架度量标准](http://mesos.apache.org/documentation/latest/monitoring/#frameworks)。
@@ -128,7 +128,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - 引入通过快速启动过程实现直观简化的安装，只需 10-15 分钟即可通过几个简单的步骤启动 DC/OS 群集。
 - 正式推荐为 Mesosphere 支持的安装方法，内置最佳实践（即持续升级的顺序管理节点和并行代理节点）。
 - 重组 [Mesosphere 安装文档](https://docs.mesosphere.com/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
-- 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越特定的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
+- 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越升级特定的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越升级支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
 - 如果已安装可选的 DC/OS 存储服务包，则从 1.12.0 升级到 1.12.1 要求您首先按照 [手动将 DSS 软件包从 0.4.x 升级到 0.5.x](/services/beta-storage/0.5.2-beta/upgrades/) 中提供的说明进行操作。在升级 DC/OS 存储 **之前**，必须将群集节点升级到 1.12.1，以防在升级后发生 Mesos 代理节点崩溃。
 
 <a name="ldap-net"></a>

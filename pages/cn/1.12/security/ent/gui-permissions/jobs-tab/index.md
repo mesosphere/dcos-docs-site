@@ -115,7 +115,7 @@ dcos:mesos:agent:sandbox:app_id read
    -d '{"description":"Grants access to all jobs"}'
    ```   
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
@@ -142,7 +142,7 @@ dcos:mesos:agent:sandbox:app_id read
    -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
    ```   
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
@@ -171,7 +171,7 @@ dcos:mesos:agent:sandbox:app_id read
    -d '{"description":"Grants access to all jobs"}'
    ```   
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
@@ -226,7 +226,7 @@ dcos:mesos:agent:sandbox:app_id read
    -d '{"description":"Grants access to the sandboxes on the Mesos agent"}'       
    ```   
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \

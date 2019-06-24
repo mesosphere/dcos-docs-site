@@ -13,7 +13,7 @@ DC/OS 代理节点在 [安装](/cn/1.12/installing/)过程中可被指定为[公
 
 若要在公共节点上启动服务，则必须通过指定的 `"acceptedResourceRoles":["slave_public"]` 参数创建 Marathon 应用程序并配置边缘负载均衡器和服务发现机制。
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS [已安装](/cn/1.12/installing/)
 - DC/OS CLI [已安装](/cn/1.12/cli/install/)

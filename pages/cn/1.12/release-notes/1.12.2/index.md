@@ -27,7 +27,7 @@ DC/OS 是一种分布式操作系统，使您可以在本地、云或混合群�
 在 DC/OS 1.12.2 中修复的问题按特性、作用区域或组件分组。大多数更改说明都包含一个或多个问题跟踪标识符便于称呼。
 
 ## 命令行界面 (CLI)
-- DCOS_OSS_3877、DCOS_OSS-4275 - 您用来为记录的信息创建诊断捆绑包的 `dcos-diagnostics` 命令会作为 `root` 用户运行。使用根用户帐户运行命令以生成诊断捆绑包使您可以收集仅对超级用户可用的敏感信息。
+- DCOS_OSS_3877、DCOS_OSS-4275 - 您用来为记录的信息创建诊断捆绑包的 `dcos-diagnostics` 命令会作为 `root` 用户运行。使用根用户帐户运行命令以生成诊断捆绑包让您可以收集仅对超级用户可用的敏感信息。
 
 ## 安装
 - COPS-4263 - 如果使用 `--validate` 选项运行 `dcos_generate_config`，命令就会在您的 `config.yaml` 文件中验证配置设置。在某些情况下，这个选项会发出警告消息，表明对于不再使用的参数的验证失败。例如，`ssh_key_path` 和 `ssh_user` 等一些安全的 shell 参数就已经被弃用。以前，如果使用 `--validate` 选项运行 `dcos_generate_config` 以检查配置设置并且未指定这些参数，则命令就会报告 
@@ -37,18 +37,18 @@ DC/OS 是一种分布式操作系统，使您可以在本地、云或混合群�
 - DCOS_OSS-4717 - 诊断捆绑包含有关 Metronome 作业的信息。
 
 ## Marathon
-- COPS-3554 - 这一版本引入了一个监视器循环程序用于进行监控，并在必要时重新注册重新选举的 Marathon 领导者。
+- COPS-3554 - 这一版本引入了一个监视器循环程序用于进行监控，并在必要时重新注册重新选举的 Marathon 首要节点。
 
 - COPS-3593、DCOS_OSS-4193 - 在之前版本中，如果容器崩溃或在某些 DNS 处于故障条件下，Marathon 管理的某些服务可能无法重新启动。例如，如果第一个 Zookeeper 节点或第一个 DC/OS 管理节点无法访问，则重新启动服务可能会失败。
 
  这个问题影响 Marathon 的高可用性，因此 DC/OS 1.11.5 和 1.11.6 引入了一种解决方案（ping zk-1）来解决此问题。在本版本中，基本问题得到解决，如果您已部署，则可以安全地移除该解决方案。有关问题的背景信息以及移除解决方案的步骤，请参阅 [如果第一个 DC/OS 不可用，则删除 Marathon 无法启动的补丁](https://mesosphere-community.force.com/s/article/Critical-Issue-Marathon-MSPH-2018-0004)。
 
 ## Mesos
-- DCOS-46388 - 管理节点需完成所有授权结果的处理 `LAUNCH_GROUP` 之后才能执行其他操作。如有任何授权请求被拒绝，此更改可防止后续操作失败。
+- DCOS-46388 - 管理节点需完成所有 `LAUNCH_GROUP` 的授权结果处理之后才能执行其他操作。如有任何授权请求被拒绝，此更改可防止后续操作失败。
 
 - DCOS-46753 - 此版本改进了处理失败或停止的启动操作的方法，以确保正确解析容器输入和输出操作，并正确关闭所有文件描述符。
 
- 之前，如果容器化工具启动失败，或在 I/O 交换机服务器启动之后但在容器进程完成执行之前被丢弃，则用于发送重定向到 I/O 交换机的文件描述符可能会失效，从而阻止容器完成清理操作。在具有处理负载巨大的代理上，如果经常启动容器运行状况或就绪情况检查，就可能遇到这一问题。
+ 之前，如果容器化工具启动失败，或在 I/O 交换机服务器启动之后但在容器进程完成执行之前被丢弃，则用于发送重定向到 I/O 交换机的文件描述符可能会失效，从而阻止容器完成清理操作。在具有巨大处理负载的代理上，如果经常启动容器运行状况或就绪情况检查，就可能遇到这一问题。
 
 - DCOS-46814 - 重新启动代理主机后，代理的元目录中执行程序的分叉子进程 ID 和 `libprocess` 进程 ID 已废弃，不应进行读取。对代理恢复期间读取的进程标识符执行这项更改后，如果有进程在重启之后重用进程 ID，则会阻止容器等待此类进程。
 
@@ -65,7 +65,7 @@ DC/OS 是一种分布式操作系统，使您可以在本地、云或混合群�
 ## 度量标准
 - COPS-3279、COPS-3576、DCOS-37703、DCOS-37703、DCOS-39703 - 此版本更正了在启用 `statsd` 度量标准输入插件时返回的服务端点值和基于服务地址的统计信息。
 
-- DCOS-47301、DCOS_OSS-4688 - 此版本包括一个新的群集配置选项 `enable_mesos_input_plugin`，允许您启用或禁用 Telegraf 的 Mesos 度量标准输入插件。此选项启用后，无需将文件上传到群集中的每个节点即可收集度量标准。
+- DCOS-47301、DCOS_OSS-4688 - 此版本包括一个新的群集配置选项 `enable_mesos_input_plugin`，让您可以启用或禁用 Telegraf 的 Mesos 度量标准输入插件。此选项启用后，无需将文件上传到群集中的每个节点即可收集度量标准。
 
  可以通过在 `config.yaml` 文件中将 `enable_mesos_input_plugin` 选项设置为 `true`，启用输入插件。默认值为 `false`。如果您使用 [Mesosphere 通用安装程序](/cn/1.12/installing/evaluation/)或使用自定义[配置文件](/cn/1.12/installing/production/advanced-configuration/)手动安装，则此配置设置会成为高级配置选项。
 
@@ -103,7 +103,7 @@ DC/OS 是一种分布式操作系统，使您可以在本地、云或混合群�
 DC/OS（1.12 版及更新版本）中的度量标准基于 Telegraf。Telegraf 提供基于代理的服务，在 DC/OS 群集中的每个管理节点和代理节点上运行。默认情况下，Telegraf 从同一节点上运行的所有进程收集度量标准，收集的信息经过处理之后被发送到中央度量标准数据库。Telegraf 程序在服务帐户 `dcos_telegraf_master` 和 `dcos_telegraf_agent` 下运行。必须授予这两个服务帐户 `dcos::superuser permissions`。
 
 # 关于 DC/OS 1.12 
-DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在：
+DC/OS 1.12 包括许多新功能。主要功能和增强功能集中在：
 - [Mesosphere Kubernetes 引擎](#kubernetes)
 - [Mesosphere Jupyter 服务](#jupyter)
 - [观察性和度量标准](#observe-metrics)
@@ -127,7 +127,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 <a name="observe-metrics"></a>
 
 ### 观察性和度量标准
-- 引入了具有多种输出格式的灵活且可配置的度量标准管道
+- 引入了具有多种输出格式的灵活且可配置的度量标准管线
 - 增强对应用程序度量标准类型（包括直方图、计数器、计时器和计量器）的支持。
 - 支持提高采样率和多度量标准数据包。
 - Mesos 框架度量标准现在 [可用](http://mesos.apache.org/documentation/latest/monitoring/#frameworks)。
@@ -152,7 +152,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - 通过快速启动过程实现直观简化的安装，只需 10-15 分钟即可通过几个简单的步骤启动 DC/OS 群集。
 - 正式推荐为 Mesosphere 支持的安装方法，内置最佳实践（即持续升级的顺序管理节点和并行代理节点）。
 - 重组 [Mesosphere 安装文档](https://docs.mesosphere.com/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
-- 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越特定的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
+- 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越升级特定的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越升级支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
 - 如果已安装可选的 DC/OS 存储服务包，则从 1.12.0 升级到 1.12.1 要求您首先按照 [手动将 DSS 软件包从 0.4.x 升级到 0.5.x](/services/beta-storage/0.5.2-beta/upgrades/) 中提供的说明进行操作。在升级 DC/OS 存储 **之前**，必须将群集节点升级到 1.12.1，以防在升级后发生 Mesos 代理节点崩溃。
 
 <a name="ldap-net"></a>

@@ -8,11 +8,7 @@ enterprise: true
 ---
 
 # 说明
-<<<<<<< HEAD
 `dcos cluster unlink` 命令将取消链接已连接群集中的一个当前群集。
-=======
-`dcos cluster unlink` 命令将从其链接的一个群集中取消链接当前群集。
->>>>>>> staging
 
 # 使用
 
