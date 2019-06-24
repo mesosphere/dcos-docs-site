@@ -21,7 +21,7 @@ DC/OS Enterprise 支持 [通过 LDAP 进行基于目录的身份认证](/cn/1.12
 # LDAP 同步程序
 LDAP 同步仅适用于从外部目录导入的 IAM 用户和用户组。LDAP 同步的目的是让导入的用户和用户组镜像对应其在外部目录中的副本。
 
-LDAP 同步程序从 IAM 收集用户集合、用户组和组成员资格详细信息，然后通过 LDAP 查询外部目录以查找相应的实体。接下来，它确定需要对 DC/ S IAM 执行哪些操作才能同步两个数据集。
+LDAP 同步程序从 IAM 收集用户集合、用户组和组成员资格详细信息，然后通过 LDAP 查询外部目录以查找相应的实体。接下来，它确定需要对 DC/OS IAM 执行哪些操作才能同步两个数据集。
 
 程序的逻辑如下：
 - 将从 IAM 中删除无法再在外部目录中找到的导入的 IAM 组。任何属于该组的用户都将独立保留 DC/OS IAM。
@@ -34,8 +34,8 @@ LDAP 同步程序从 IAM 收集用户集合、用户组和组成员资格详细�
 # 操作详情
 LDAP 同步程序是由每个管理节点上的 DC/OS 组件执行的。它作为名为 `dcos-iam-ldap-sync.service` 的 systemd 服务运行，由 `dcos-iam-ldap-sync.timer` systemd 计时器装置定期触发。
 
-该程序在与当前的 Mesos 领导人对应的 DC/OS 管理节点上运行。如果该管理节点发生故障并由此触发 Mesos 领导人重新选举，则将在与新选中的 Mesos 领导人相对应的管理节点上执行 LDAP 同步程序。
+该程序在与当前的 Mesos 首要节点对应的 DC/OS 管理节点上运行。如果该管理节点发生故障并由此触发 Mesos 领导人重新选举，则将在与新选中的 Mesos 首要节点相对应的管理节点上执行 LDAP 同步程序。
 
-LDAP 同步的每次运行都将详细记录到 `systemd` 日志中。可以通过勾选与 Mesos 领导人对应的 DC/OS 管理节点上的记录来检查这些记录。
+LDAP 同步的每次运行都将详细记录到 `systemd` 日志中。可以通过检查与 Mesos 首要节点对应的 DC/OS 管理节点上的记录来检查这些记录。
 
 安装时可配置确切的时长。请参阅 [高级配置](/cn/1.12/installing/production/advanced-configuration/)下的 [配置参考](/cn/1.12/installing/production/advanced-configuration/configuration-reference/)。

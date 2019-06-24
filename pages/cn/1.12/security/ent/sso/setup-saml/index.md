@@ -59,7 +59,7 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 1. 单击右上方的 **+** 图标。
 1. 单击 **SAML 2.0**。
 1. 在 **Provider ID** 字段，键入可以在 URL 中传递的 IdP 的标识符，即只有小写字母数字和 `-` 字符。您配置的每个 SAML IdP 都需要一个唯一标识符。如果您有另一个 SAML IdP，则必须为此选择一个不同的标识符。例如：`my-saml-idp`。
-1. 在 **Description** 字段中键入 IdP 的描述性名称。此字符串将出现在显示给用户的按钮中，以允许他们选择他们想要使用的 IdP。例如，如果您在 **Description** 字段键入 `Fantastic SAML IdP`，则按钮将显示 **Login with Fantastic SAML IdP** 登录。
+1. 在 **Description** 字段中键入 IdP 的描述性名称。此字符串将出现在显示给用户的按钮中，以让他们可以选择他们想要使用的 IdP。例如，如果您在 **Description** 字段键入 `Fantastic SAML IdP`，则按钮将显示 **Login with Fantastic SAML IdP** 登录。
 1. 将前一部分获得的身份提供程序 XML 元数据粘贴到 **IDP Metadata** 字段。
 1. 在您的浏览器顶部复制 URL，所有内容都在第一个斜杠之前，然后粘贴到 **Service Provider Base URL** 字段。
 1. 单击 **Submit**。

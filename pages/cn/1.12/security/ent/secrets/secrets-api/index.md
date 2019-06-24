@@ -46,7 +46,7 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 
 ### 通过 IAM API
 
-若要获取认证令牌，请将请求正文中 `superuser` 的用户名和密码传递给[身份和访问管理服务 API](/cn/1.12/security/ent/iam-api/) 的 `/auth/login` 端点。它将返回认证令牌，如下所示。
+若要获取认证令牌，请在请求正文中将 `superuser` 的用户名和密码传递给[身份和访问管理服务 API](/cn/1.12/security/ent/iam-api/) 的 `/auth/login` 端点。它将返回认证令牌，如下所示。
 
 ```json
 {

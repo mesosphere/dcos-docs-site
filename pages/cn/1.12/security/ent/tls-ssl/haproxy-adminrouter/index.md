@@ -30,7 +30,7 @@ HTTP 代理必须执行即时 HTTP 请求和响应标头修改，因为 DC/OS �
     其中：
 
     * `taskname`：任务名称。
-    * `framework_name`：框架名称，如果您不确定，可能 `marathon`。
+    * `framework_name`：框架名称，如果您不确定，可能是 `marathon`。
 
     ```
     global

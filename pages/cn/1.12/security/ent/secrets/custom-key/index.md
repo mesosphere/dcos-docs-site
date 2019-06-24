@@ -4,14 +4,12 @@ navigationTitle: 使用自定义 GPG 密钥对重新初始化密钥存储库
 title: 使用自定义 GPG 密钥对重新初始化密钥存储库
 menuWeight: -1
 excerpt: 使用自定义 GPG 对重新初始化密钥存储库
-
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 在这一部分中，您将使用自定义 GPG 对重新初始化密钥存储库。
 
-**前提条件：**
+**先决条件：**
 
 - [DC/OS CLI 已安装](/cn/1.12/cli/install/)
 - 通过 `dcos auth login` 作为超级用户登录到 DC/OS CLI
@@ -58,7 +56,7 @@ enterprise: true
    ```
 1. 键入 `q` 以退出。
 
-1. 如果您的群集有多个主节点，在继续之前对每个主节点重复步骤 1 到 5。
+1. 如果您的群集有多个管理节点，在继续之前对每个管理节点重复步骤 1 到 5。
 
 ## <a name="3"></a>停止 ZooKeeper CLI
 
@@ -117,12 +115,12 @@ enterprise: true
 
 1. 键入 `q` 以退出。
 
-1. 如果您的群集有多个主节点，在继续之前对每个主节点重复步骤 1 到 5。
+1. 如果您的群集有多个管理节点，在继续之前对每个管理节点重复步骤 1 到 5。
 
 ## <a name="5"></a> 创建新密钥对
 您**不必**使用 GPG 来生成密钥对。为方便起见，我们提供了这些说明。唯一要求是密钥对可以加载到 GPG 中。如果您选择使用其他工具，只需稍后将密钥导入 GPG 并跳转至步骤 4。
 
-1. 在主节点的安全 shell 内，使用以下命令启动新的 GPG 公私密钥对的创建。
+1. 在管理节点的安全 shell 内，使用以下命令启动新的 GPG 公私密钥对的创建。
 
    ```bash
    gpg --gen-key

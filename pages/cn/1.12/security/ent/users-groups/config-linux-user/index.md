@@ -18,7 +18,7 @@ enterprise: true
 
 # <a name="universe"></a>覆盖 Universe 服务的默认 Linux 用户
 
-许多 Universe 服务忽略其用户帐户的覆盖，在 `strict` 模式下除外。我们提供覆盖服务默认 Linux 用户的详细步骤，该服务在[服务账户](/cn/1.12/security/ent/service-auth/)中支持此覆盖。有关逐步说明，请参阅与感兴趣的服务相关的部分。程序还包括如何配置服务以使用加密和服务帐户。
+许多 Universe 服务忽略其用户帐户的覆盖，在 `strict` 模式下除外。我们提供支持在服务账户[服务账户](/cn/1.12/security/ent/service-auth/)中覆盖的服务默认 Linux 用户的详细覆盖步骤。有关逐步说明，请参阅与感兴趣的服务相关的部分。程序还包括如何配置服务以使用加密和服务帐户。
 
 请记得授予权限，以便对启动 Universe 服务的服务帐户用户执行 `dcos:mesos:master:task:user[:<linux-user-name>]` 资源上的 `create` 操作。请参阅 [Mesos 权限](https://docs.mesosphere.com/1.12/security/ent/perms-reference/#mesos-permissions)，了解更多信息。
 

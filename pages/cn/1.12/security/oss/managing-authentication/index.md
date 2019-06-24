@@ -85,7 +85,7 @@ oauth_enabled: 'false'
 ## 延伸阅读
 
 - [让我们加密 DC/OS！](https://mesosphere.com/blog/2016/04/06/lets-encrypt-dcos/)：
- 使用 [Let's Encrypt](https://letsencrypt.org/) 的博客帖子，具有
+ 一个使用 [Let's Encrypt](https://letsencrypt.org/) 的博客帖子，具有
  在 DC/OS 上运行的服务。
 
 ## 未来工作
