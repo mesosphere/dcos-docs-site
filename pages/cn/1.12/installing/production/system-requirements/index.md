@@ -6,12 +6,12 @@ menuWeight: 5
 enterprise: false
 excerpt: DC/OS 部署的软硬件要求
 
-渲染：胡须
+渲染：胡须 
 ---
 
-# 硬件前提条件
+# 硬件先决条件
 
-硬件前提条件是单个 bootstrap 节点、Mesos 管理节点和 Mesos 代理节点。
+硬件先决条件是单个 bootstrap 节点、Mesos 管理节点和 Mesos 代理节点。
 
 ## bootstrap 节点
 
@@ -61,7 +61,7 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
  | _/var/lib/dcos/mesos/master_ | 日志记录目录 |
  | _/var/lib/dcos/cockroach_ | CockroachDB [enterprise type="inline" size="small" /] |
  | _/var/lib/dcos/navstar_ | 对于 Mnesia 数据库 |
- | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] |
+ | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] | 
  | _/var/lib/dcos/exhibitor_ | Zookeeper 数据库 |
 
 ### 代理节点
@@ -77,9 +77,9 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 
 代理节点还必须具有：
 
-- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒用于 [Docker 和 DC/OS 通用容器运行时](/1.12/deploying-services/containerizers/)。
+- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒同时用于 [Docker 和 DC/OS 通用容器运行时](/1.12/deploying-services/containerizers/)。
 - 公共 Docker 存储库或内部 Docker 注册表的网络访问权限。
-- 在 RHEL 7 和 CenTos 7 上，必须停止并禁用 `firewalld`。这是一个已知的 <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker 问题</a>，`firewalld` 与 Docker 的交互不佳。如需更多信息，请参阅 <a href="https://docs.docker.com/engine/release-notes/" target="_blank">Docker Engine release notes</a> 文档。
+- 在 RHEL 7 和 CenTos 7 上，必须停止并禁用 `firewalld`。这是一个已知的 <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker 问题</a>，`firewalld` 与 Docker 的交互不佳。如需更多信息，请参阅 <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> 文档。
 
     ```bash
     sudo systemctl stop firewalld && sudo systemctl disable firewalld
@@ -133,7 +133,7 @@ DC/OS 用户与管理节点之间的中介（例如，执行 SSL 终止的反向
 
 建议为 DC/OS 安装使用高速互联网连接。DC/OS 服务需要每秒至少 10 MBit。如果工件下载时间超过文件 `/opt/mesosphere/etc/mesos-slave-common` 中 MESOS_EXECUTOR_REGISTRATION_TIMEOUT 的值，某些 DC/OS 服务的安装将失败。MESOS_EXECUTOR_REGISTRATION_TIMEOUT 的默认值为 10 分钟。
 
-# 软件前提条件
+# 软件先决条件
 
 * 在 XFS 使用 OverlayFS 时，应使用 -n ftype=1 标记创建 XFS 卷。请参阅 [Red Hat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.2_release_notes/technology-preview-file_systems) 以及 [mesos](http://mesos.apache.org/documentation/latest/container-image/#provisioner-backends) 文档，以了解更多详情。
 
@@ -151,7 +151,7 @@ Docker 必须安装在所有 bootstrap 和群集节点上。支持的 Docker 版
 
 - 不要在 `devicemapper` 模式下使用 Docker `loop-lvm` 存储驱动。如需更多信息，请参阅 [Docker 和 Device Mapper 存储驱动](https://docs.docker.com/engine/userguide/storagedriver/device-mapper-driver/)。
 
-- 在选择生产存储驱动时，最好是 `OverlayFS` 模式下的 `devicemapper` 或 `direct-lvm`。如需更多信息，请参阅 Docker 的 <a href="https://docs.docker.com/engine/userguide/storagedriver/selectadriver/" target="_blank">选择存储驱动</a>。
+- 在选择生产存储驱动时，最好是 `direct-lvm` 模式下的 `OverlayFS` 或 `devicemapper`。如需更多信息，请参阅 Docker 的 <a href="https://docs.docker.com/engine/userguide/storagedriver/selectadriver/" target="_blank">选择存储驱动</a>。
 
 - 使用 `systemd` 管理 CentOS 上的 Docker。`systemd` 将启动 Docker 并在它崩溃时帮助重启 Dcoker。
 
@@ -190,7 +190,7 @@ timedatectl
 
 在安装 DC/OS 之前，您**必须**确保 bootstrap 节点具备以下前提条件。
 
-<p class="message--important"><strong>重要信息：</strong>如果您指定 `exhibitor_storage_backend: zookeeper`，bootstrap 节点将是群集的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和领导者选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅<a href="/1.12/installing/production/advanced-configuration/configuration-reference/">配置参数文档</a>。</p>
+<p class="message--important"><strong>重要信息：</strong>如果您指定 `exhibitor_storage_backend: zookeeper`，bootstrap 节点将是群集的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和首要实例选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅<a href="/1.12/installing/production/advanced-configuration/configuration-reference/">配置参数文档</a>。</p>
 
 
 - bootstrap 节点必须与群集节点分开。

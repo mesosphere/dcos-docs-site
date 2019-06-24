@@ -7,7 +7,7 @@ excerpt: 安装生产就绪的 DC/OS
 ---
 
 
-本页概括如何安装 DC/OS 用于生产。使用这种方法，您可以打包 DC/OS 分发并手动连接到每个节点，以运行 DC/OS 安装命令。若要与现有系统集成，或者您没有群集的 SSH 访问权限，则推荐使用这种安装方法。
+本页概括如何安装 DC/OS 用于生产。使用这种方法，您可以打包 DC/OS 并手动连接到每个节点，以运行 DC/OS 安装命令。若要与现有系统集成，或者您没有群集的 SSH 访问权限，则推荐使用这种安装方法。
 
 DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和专用代理节点。可以查看 [节点](/1.12/overview/concepts/#node) 文档以了解更多信息。
 
@@ -151,7 +151,7 @@ BEGIN { ec = 1 }
 # 创建故障域检测脚本
 [/enterprise]
 
-DC/OS 群集默认启用 [故障域意识](/1.12/deploying-services/fault-domain-awareness/)，所以必须更改 `config.yaml` 才能使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `fault_domain_enabled` 文件中的 `config.yaml` 参数设置为 `false`。
+DC/OS 群集默认启用 [故障域意识](/1.12/deploying-services/fault-domain-awareness/)，所以不必更改 `config.yaml` 就能使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `fault_domain_enabled` 文件中的 `config.yaml` 参数设置为 `false`。
 
 
 1. 创建名为 `fault-domain-detect` 的故障域检测脚本，在每个节点上运行，以检测节点的故障域。安装过程中此脚本的输出被传递到 Mesos。
@@ -190,7 +190,7 @@ DC/OS 群集默认启用 [故障域意识](/1.12/deploying-services/fault-domain
 
 1. 在 bootstrap 节点运行此命令，创建用于超级用户身份认证的散列密码，其中 `<superuser_password>` 是超级用户密码。
 
-2. 保存散列密码密钥，用于`superuser_password_hash` 文件中的 `config.yaml` 参数 。
+2. 保存散列密码密钥，用于 `config.yaml` 文件中的 `superuser_password_hash` 参数 。
 
     ```bash
     sudo bash dcos_generate_config.ee.sh --hash-password <superuser_password>
@@ -293,7 +293,7 @@ enable_ipv6: 'false'
 <p class="message--important"><strong>重要信息：</strong>必须让以下项目生效才能安装 DC/OS：所有 DC/OS 节点上的 <code>ip-detect script</code>、<code>DNS</code> 和 <code>NTP</code> 均已同步时间。参见<a href="https://docs.mesosphere.com/1.12/installing/troubleshooting/">故障排除</a>，了解更多信息。</p>
 <p class="message--note"><strong>注意：</strong>如果出现问题并且您想重新运行设置，请使用群集<a href="https://docs.mesosphere.com/1.12/installing/production/uninstalling/">卸载</a>说明。</p>
 
-**前提条件**
+**先决条件**
 
 * 经过优化，可在节点上手动分发 DC/OS 的 `genconf/config.yaml` 文件。
 * 包含 DC/OS Enterprise 许可证的 `genconf/license.txt` 文件。[enterprise type="inline" size="small" /]
@@ -355,7 +355,7 @@ enable_ipv6: 'false'
     sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
     ```
 
-3. <A name="masterinstall"></A>[1][2]在使用自定义生成文件安装 DC/OS 之后，继续在每个主节点上运行以下命令：
+3. <A name="masterinstall"></A>[1][2]在使用自定义构建文件安装 DC/OS 之后，继续在每个管理节点上运行以下命令：
 
  * SSH 连接到管理节点。
 

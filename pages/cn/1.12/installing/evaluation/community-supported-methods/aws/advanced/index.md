@@ -14,13 +14,13 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
 高级 AWS CloudFormation 模板为创建和扩展 DC/OS 群集带来了优势和灵活性。通过这些模板，您可以从一整套 DC/OS 配置选项中进行选择。
 
  - 在现有的 VPC/子网组合上实例化完整的 DC/OS 群集。
- - 通过添加更多的 [代理](/cn/1.12/overview/concepts/) 节点来扩展和更新现有的 DC/OS 群集。
+ - 通过添加更多的 [代理](cn/1.12/overview/concepts/) 节点来扩展和更新现有的 DC/OS 群集。
 
 模板一起用于创建 DC/OS 群集。驱动这些模板的是 AWS CloudFormation 用于创建每个堆栈的参数。
 
 <p class="message--important"><strong>重要信息：</strong>此安装方法不支持升级。</p>
 
-## 前提条件
+## 先决条件
 
 ### 硬件
 
@@ -95,7 +95,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
 
     有关参数描述和配置示例，请参阅 [文档](/cn/1.12/installing/ent/custom/configuration/configuration-parameters/)。
 
-1. 使用指定的 AWS 参数运行 DC/OS 安装工具脚本。此命令创建 DC/OS 物件和模板的自定义构造并将其上传到指定的 s3 bucket。
+1. 使用指定的 AWS 参数运行 DC/OS 安装工具脚本。此命令创建 DC/OS 物件和模板的自定义版本并将其上传到指定的 s3 bucket。
 
     [enterprise type="inline" size="small" /]
 
@@ -130,7 +130,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
 
 使用 `zen.sh` 脚本创建模板依赖关系。这些依赖关系将用作在 CloudFormation 中创建堆栈的输入信息。
 
-1. 将此脚本另存为 `zen.sh`
+1. 将此脚本另存为 `zen.sh` 
 
     ```bash
     #!/bin/bash
@@ -214,7 +214,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
     * **MasterInstancEtype** 指定 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
     * **PrivateAgentInstancEcount** 指定专用代理的数量。
     * **PrivateAgentInstancEtype** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
-    * **PrivateSubnet** 指定 `Private SubnetId` 脚本的 `zen.sh` 输出值。所有专用代理都将使用该子网 ID。
+    * **PrivateSubnet** 指定 `zen.sh` 脚本的 `Private SubnetId` 输出值。所有专用代理都将使用该子网 ID。
     * **PublicAgentInstanceCount** 指定公共代理的数量。
     * **PublicAgentInstanceType** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
     * **PublicSubnet** 指定 `Public SubnetId` 脚本的 `zen.sh` 输出值。所有公共代理都将使用该子网 ID。
@@ -244,7 +244,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
     * 管理节点：`<stack-name>-MasterStack-<stack-id>`
     * 基础架构 `<stack-name>-Infrastructure-<stack-id>`
 
-* 状态从 `CREATE_IN_PROGRESS` 变为 1`CREATE_COMPLETE`。
+* 状态从 `CREATE_IN_PROGRESS` 变为 `CREATE_COMPLETE`。
 
 <p class="message--important"><strong>重要信息：</strong>ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅“事件”选项卡。</p>
 
@@ -302,7 +302,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
 * **PrivateAgentInstanceCount** 指定专用代理的数量。
 * **PrivateAgentInstanceType** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
 * **PrivateAgentSecurityGroup** 指定专用代理的安全组 ID。该组具备有限的外部访问权限。可以在基础架构堆栈 (`<stack-name>-Infrastructure-<stack-id>`) 的 **输出** 选项卡中找到此值。
-* **PrivateSubnet** 指定 `Private SubnetId` 脚本的 `zen.sh` 输出值。所有专用代理都将使用该子网 ID。
+* **PrivateSubnet** 指定 `zen.sh` 脚本的 `Private SubnetId` 输出值。所有专用代理都将使用该子网 ID。
 
 公共代理：
 
@@ -311,14 +311,14 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
 * **PublicAgentInstanceCount** 指定公共代理的数量。
 * **PublicAgentInstanceType** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
 * **PublicAgentSecurityGroup** 指定公共代理的安全组 ID。该组具备有限的外部访问权限。可以在基础架构堆栈 (`<stack-name>-Infrastructure-<stack-id>`) 的 **输出** 选项卡中找到此值。
-* **PublicSubnet** 指定 `Public SubnetId` 脚本的 `zen.sh` 输出值。所有公共代理都将使用该子网 ID。
+* **PublicSubnet** 指定 `zen.sh` 脚本的 `Public SubnetId` 输出值。所有公共代理都将使用该子网 ID。
 
 对于所有高级配置选项，请参阅模板参考 [文档](/cn/1.12/installing/evaluation/aws/)。
 
 
 # 限制
 
-- 升级不支持经过修改的模板。
+- 经过修改的模板不支持升级。
 - 不支持添加代理和任务隔离。
 - 无法扩展管理节点大小。
 - 您必须处于扁平网络空间（由我们的基础架构模板控制）。如果无法使用我们的基础架构模板，您可以更改我们的模板且需自行承担风险。我们可能会更改基础架构模板，您必须支持此类后续变更。

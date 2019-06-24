@@ -19,7 +19,7 @@ beta: true
 
 ## 构建 DC/OS cloud_images AMI
 
-1. 使用 DC/OS [cloud_images](https://github.com/dcos/dcos/tree/master/cloud_images) 脚本作为模板。这些脚本构建 CenTos7 AMI，并安装所有 DC/OS 前提条件。
+1. 使用 DC/OS [cloud_images](https://github.com/dcos/dcos/tree/master/cloud_images) 脚本作为模板。这些脚本构建 CentOS7 AMI，并安装所有 DC/OS 前提条件。
 
  验证您是否可以在不修改的情况下，原样使用这些脚本构建和部署 AMI。AMI 必须部署到要启动群集的每个分域。DC/OS Packer 构建脚本 [create_dcos_ami.sh] (https://github.com/dcos/dcos/blob/master/cloud_images/centos7/create_dcos_ami.sh)可以在运行脚本之前，通过设置环境变量 `DEPLOY_REGIONS` 将 AMI 部署到多个分域。
 

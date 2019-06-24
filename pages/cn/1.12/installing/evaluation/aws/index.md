@@ -8,7 +8,7 @@ menuWeight: 0
 
 要使用 Mesosphere Universal 安装工具配合 Amazon Web Services，必须安装 AWS 命令行界面 (AWS CLI) 并配置为您将用于资源的 AWS 帐户的安全凭据。以下操作说明将引导您完成必要的帐户创建和凭据，以便成功配置 AWS CLI 并安装 DC/OS。
 
-## 前提条件
+## 先决条件
 
 - Linux、macOS 或 Windows
 - 命令行 shell 终端，例如 Bash 或 PowerShell
@@ -275,7 +275,7 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
 # 扩展群集
 在创建初始群集后，TerraForm 很容易扩展您的群集以添加更多代理（公共或专用）。只需按以下说明操作。
 
-1. 增加您的 `num_private_agents` 文件中的 `num_public_agents` 和/或 `main.tf` 的值。在本示例中，我们要将群集从 2 个专用代理扩展到 3 个，只更改该行，并保存文件。
+1. 在 `main.tf` 文件中，增加您的 `num_private_agents` 和/或 `num_public_agents` 的值。在本示例中，我们要将群集从 2 个专用代理扩展到 3 个，只更改该行，并保存文件。
 
     ```bash
     num_masters        = "1"

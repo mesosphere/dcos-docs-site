@@ -10,7 +10,7 @@ excerpt: 使用 DC/OS 模板创建 DC/OS 群集
 
 基础模板提供：
 - 有限的自定义选项
-- 最快的部署和必要的基础设置
+- 最快的部署和最少要求的设置
 - 非常适合简单的生产部署、演示和测试
 
 这些说明提供了一个基础的 AWS CloudFormation 模板，可以创建适合演示和 POC 的 DC/OS 群集。这是开始使用 AWS CloudFormation 的 DC/OS 模板的最快方式。
@@ -51,7 +51,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 1. 单击 **创建堆栈**。
 
-2. 在 **选择模板** 页面的**选择模板**字段，单击 **指定 Amazon S3 模板 URL** 单选按钮，然后将销售发送的模板 URL 粘贴进去。
+2. 在 **选择模板** 页面的**选择模板**字段，单击 **指定 Amazon S3 模板 URL** 单选按钮，然后将从销售人员收到的模板 URL 粘贴进去。
 
 <p class="message--important"><strong>警告：</strong>请勿单击 <strong>查看/编辑设计程序中的模板</strong> 链接并编辑模板。DC/OS 模板是为运行 DC/OS 配置的。如果修改模板，您可能无法在 DC/OS 群集上运行某些包。</p>
 
