@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster directory import_user
 title: dcos security cluster directory import_user
 menuWeight: 35
 excerpt: Importing a user from an LDAP backend
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 # Description
@@ -34,4 +36,4 @@ dcos security cluster directory import_user [OPTIONS] UID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster directory](/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |
+| [dcos security cluster directory](/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |

@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  dcos package uninstall
 title: dcos package uninstall
 menuWeight: 7
+render: mustache
+model: /data.yml
 excerpt: Uninstalling a package
 enterprise: false
 ---
@@ -36,11 +38,11 @@ dcos package uninstall <package-name> [--cli | [--app [--app-id=<app-id> | --all
 
 # Examples
 
-For an example, see the [documentation](/1.14/deploying-services/uninstall/).
+For an example, see the [documentation](/1.13/deploying-services/uninstall/).
 
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.14/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.13/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

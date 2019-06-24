@@ -4,7 +4,8 @@ navigationTitle:  dcos node ssh
 title: dcos node ssh
 menuWeight: 15
 excerpt: Establishing an SSH connection to master or agent nodes
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -41,10 +42,10 @@ dcos node ssh (--leader | --mesos-id=<mesos-id> | --private-ip=<private-ip>) [--
 
 # Examples
 
-For an example, see the [documentation](/1.14/administering-clusters/sshcluster/).
+For an example, see the [documentation](/1.13/administering-clusters/sshcluster/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.14/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/1.13/cli/command-reference/dcos-node/) | View DC/OS node information. |

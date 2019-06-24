@@ -4,6 +4,8 @@ navigationTitle:  dcos task metrics details
 title: dcos task metrics details
 menuWeight: 9
 excerpt: Display all metrics for a specified task
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -28,4 +30,4 @@ dcos task metrics details <task-id> [--json]
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/1.14/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/1.13/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |

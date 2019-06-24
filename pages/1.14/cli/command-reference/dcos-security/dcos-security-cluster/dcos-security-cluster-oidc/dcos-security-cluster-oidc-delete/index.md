@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster oidc delete
 title: dcos security cluster oidc delete
 menuWeight: 50
 excerpt: Deleting an OIDC provider configuration
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
@@ -34,4 +36,4 @@ dcos security cluster oidc delete [OPTIONS] OIDC_ID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster oidc](/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-oidc/) | Manage your OIDC settings. |
+| [dcos security cluster oidc](/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-oidc/) | Manage your OIDC settings. |

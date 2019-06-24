@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster saml add
 title: dcos security cluster saml add
 menuWeight: 70
 excerpt: Configuring a new SAML provider
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 # Description
@@ -35,4 +37,4 @@ dcos security cluster saml add [OPTIONS] SAML_ID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster saml](/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | Manage your Security Assertion Markup Language (SAML) settings. |
+| [dcos security cluster saml](/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | Manage your Security Assertion Markup Language (SAML) settings. |

@@ -4,6 +4,8 @@ navigationTitle:  dcos package repo import
 title: dcos package repo import
 menuWeight: 4
 excerpt: Adding a package repository to DC/OS
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -33,4 +35,4 @@ dcos package repo import <repos-file>
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.14/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.13/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

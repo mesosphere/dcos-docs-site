@@ -4,6 +4,8 @@ navigationTitle:  dcos security secrets delete
 title: dcos security secrets delete
 menuWeight: 310
 excerpt: Deleting a secret
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
@@ -34,4 +36,4 @@ dcos security secrets delete [OPTIONS] PATH
 
 | Command | Description |
 |---------|-------------|
-| [dcos security secrets](/1.14/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |
+| [dcos security secrets](/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

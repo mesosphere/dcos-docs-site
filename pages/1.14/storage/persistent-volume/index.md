@@ -4,6 +4,8 @@ navigationTitle:  Local Persistent Volumes
 title: Local Persistent Volumes
 menuWeight: 10
 excerpt: Using local persistent volumes
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -344,7 +346,7 @@ Creating an app definition for PostgreSQL on Marathon is similar to creating a d
 
 ## Pod with persistent volume
 
-The following example will create a pod with two containers and one shared persistent volume. Also see [Pods](/1.14/deploying-services/pods/).
+The following example will create a pod with two containers and one shared persistent volume. Also see [Pods](/1.13/deploying-services/pods/).
 
 ```json
 {

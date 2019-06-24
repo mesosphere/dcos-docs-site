@@ -5,6 +5,8 @@ title: dcos marathon deployment stop
 menuWeight: 16
 excerpt: Cancelling in-progress application deployment
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
@@ -50,4 +52,4 @@ There are no deployments
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

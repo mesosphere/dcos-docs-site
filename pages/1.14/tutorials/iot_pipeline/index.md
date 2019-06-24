@@ -4,7 +4,8 @@ navigationTitle:  Deploying a Load-Balanced Data Pipeline
 title: Deploying a Load-Balanced Data Pipeline
 menuWeight: 3
 excerpt: Tutorial - Building a complete load-balanced data pipeline on DC/OS
-
+render: mustache
+model: /data.yml
 ---
 
 #include /include/tutorial-disclaimer.tmpl
@@ -53,17 +54,17 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 
 ## Install DC/OS services
 
-In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS web interface [**Catalog**](/gui/catalog/) tab. You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
+In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS web interface [**{{ model.packageRepo }}**](/gui/catalog/) tab. You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
 1.  Find and click the **cassandra** package, click **REVIEW & RUN**, and accept the default installation, by clicking **REVIEW & RUN** again, then **RUN SERVICE**. Cassandra spins up to 3 nodes. When prompted by the modal alert, click **OPEN SERVICE**.
 
-2.  Click the **Catalog** tab. Find and click the **kafka** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. Kafka spins up 3 brokers. When prompted by the modal alert, click **OPEN SERVICE**.
+2.  Click the **{{ model.packageRepo }}** tab. Find and click the **kafka** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. Kafka spins up 3 brokers. When prompted by the modal alert, click **OPEN SERVICE**.
 
-3.  Click the **Catalog** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
+3.  Click the **{{ model.packageRepo }}** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
 
 If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/1.13/mlb-install/). Depending on your [security mode](/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
 
-4.  Click the **Catalog** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
+4.  Click the **{{ model.packageRepo }}** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.
     2.  Click **REVIEW AND RUN** and click **RUN**. Click **OPEN SERVICE**.
 
@@ -181,7 +182,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 
 If you are using a DC/OS Enterprise cluster, click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action:
 
-![Tweeter scaled](/1.14/img/tweeter-services8-ee.png)
+![Tweeter scaled](/1.13/img/tweeter-services8-ee.png)
 
 Figure 5. Scaled tweets
 
@@ -214,10 +215,10 @@ Figure 6. Top Tweeters
  [3]: /services/spark/
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
- [6]: /1.14/overview/concepts/
- [9]: /1.14/administering-clusters/locate-public-agent/
- [11]: /1.14/cli/command-reference/
+ [6]: /1.13/overview/concepts/
+ [9]: /1.13/administering-clusters/locate-public-agent/
+ [11]: /1.13/cli/command-reference/
  [12]: /services/marathon-lb/1.13/
  [13]: https://github.com/mesosphere/tweeter
- [14]: /1.14/img/tweeter.png
- [16]: /1.14/img/top-tweeters.png
+ [14]: /1.13/img/tweeter.png
+ [16]: /1.13/img/top-tweeters.png

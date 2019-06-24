@@ -4,6 +4,8 @@ navigationTitle:  dcos node metrics details
 title: dcos node metrics details
 menuWeight: 10
 excerpt: Displaying the details of Mesos agent nodes
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -29,6 +31,6 @@ dcos node metrics details <mesos-id>  [--json]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.14/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/1.13/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 

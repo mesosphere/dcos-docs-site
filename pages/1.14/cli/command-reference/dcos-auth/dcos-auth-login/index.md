@@ -5,6 +5,8 @@ title: dcos auth login
 menuWeight: 2
 excerpt: Log-in to your DC/OS cluster
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description
@@ -34,4 +36,4 @@ dcos auth login [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/1.14/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/1.13/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |

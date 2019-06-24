@@ -4,6 +4,8 @@ navigationTitle:  dcos package search
 title: dcos package search
 menuWeight: 6
 excerpt: Searching the package repository
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -33,10 +35,10 @@ dcos package search [<query> --json]
 
 # Examples
 
-For an example, see the [documentation](/1.14/administering-clusters/repo/).
+For an example, see the [documentation](/1.13/administering-clusters/repo/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.14/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.13/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

@@ -5,6 +5,8 @@ title: dcos marathon debug list
 menuWeight: 12
 excerpt: Displaying the current queue of Marathon app deployments
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
@@ -29,5 +31,5 @@ dcos marathon debug list [--json]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

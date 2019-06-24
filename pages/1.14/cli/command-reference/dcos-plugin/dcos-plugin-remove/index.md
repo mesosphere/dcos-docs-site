@@ -4,7 +4,8 @@ navigationTitle:  dcos plugin remove
 title: dcos plugin remove
 menuWeight: 7
 excerpt: Uninstalling a plugin
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -28,4 +29,4 @@ dcos plugin remove <plugin>
 
 | Command | Description |
 |---------|-------------|
-| [dcos plugin](/1.14/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS CLI plugins. |
+| [dcos plugin](/1.13/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS CLI plugins. |

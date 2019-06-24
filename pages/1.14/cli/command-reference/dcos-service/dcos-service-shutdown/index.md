@@ -4,6 +4,8 @@ navigationTitle:  dcos service shutdown
 title: dcos service shutdown
 menuWeight: 2
 excerpt: Shutting down a service
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -33,4 +35,4 @@ dcos service shutdown <service-id>
 
 | Command | Description |
 |---------|-------------|
-| [dcos service](/1.14/cli/command-reference/dcos-service/)   | Manage DC/OS services. |
+| [dcos service](/1.13/cli/command-reference/dcos-service/)   | Manage DC/OS services. |

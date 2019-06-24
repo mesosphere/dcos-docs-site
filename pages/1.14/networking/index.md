@@ -4,10 +4,10 @@ navigationTitle:  Networking
 title: Networking
 menuWeight: 70
 excerpt: Understanding the DC/OS networking stack
+render: mustache
+model: /data.yml
 enterprise: false
 ---
-
-
 
 The DC/OS network stack provides
 - [IP connectivity to containers](#IP-connectivity)
@@ -40,20 +40,20 @@ DC/OS includes a highly available and distributed DNS-based service discovery. T
 - A distributed component called `dcos-dns`, that runs as an application within an Erlang VM called `dcos-net`. The Erlang VM `dcos-net` runs on every node (agents and masters) in the cluster.
 
 ## Mesos DNS
-Mesos DNS is a centralized and replicated, DNS server that runs on every master. Each instance of Mesos DNS polls the leading Mesos master and generates a fully qualified domain name (FQDN) for every application launched by DC/OS. All these FQDNs have the top level domain (TLD) of `.mesos`.  For more information, see the [Mesos DNS documentation](/1.14/networking/DNS/mesos-dns/).
+Mesos DNS is a centralized and replicated, DNS server that runs on every master. Each instance of Mesos DNS polls the leading Mesos master and generates a fully qualified domain name (FQDN) for every application launched by DC/OS. All these FQDNs have the top level domain (TLD) of `.mesos`.  For more information, see the [Mesos DNS documentation](/1.13/networking/DNS/mesos-dns/).
 
 ## DCOS DNS
 `dcos-dns` is a distributed DNS server that runs on each agent as well as master, as part of an Erlang VM called `dcos-net`. This makes it highly available. The instance that is running on the leading master periodically polls the leading master state and generates FQDNs for every application launched by DC/OS. It then sends this information to its peers in the cluster. All these FQDNs have a TLD of `.directory`.
 
 `dcos-dns` intercepts all DNS queries originating within an agent. If the query ends with `.directory` TLD then it is resolved locally; if it ends with `.mesos` then `dcos-dns` forwards the query to one of the `mesos-dns` running on the masters. Otherwise, it forwards the query to the configured upstream DNS server based on the TLD.
 
-`dcos-dns` also acts as a DNS server for any service that is load balanced using the DC/OS internal load balancer called [dcos-l4lb](/1.14/networking/load-balancing-vips/). Any service that is load balanced by dcos-l4lb gets a [virtual-ip-address (VIP)](/1.14/networking/load-balancing-vips/virtual-ip-addresses/) and an FQDN in the `"*.l4lb.thisdcos.directory"` domain. The FQDN is then stored in dcos-dns and sent to rest of the peers in the cluster. This provides a highly available distributed DNS service for any task that is load balanced by Minuteman. For more information, see the [dcos-net repository](https://github.com/dcos/dcos-net/blob/master/docs/dcos_dns.md).
+`dcos-dns` also acts as a DNS server for any service that is load balanced using the DC/OS internal load balancer called [dcos-l4lb](/1.13/networking/load-balancing-vips/). Any service that is load balanced by dcos-l4lb gets a [virtual-ip-address (VIP)](/1.13/networking/load-balancing-vips/virtual-ip-addresses/) and an FQDN in the `"*.l4lb.thisdcos.directory"` domain. The FQDN is then stored in dcos-dns and sent to rest of the peers in the cluster. This provides a highly available distributed DNS service for any task that is load balanced by Minuteman. For more information, see the [dcos-net repository](https://github.com/dcos/dcos-net/blob/master/docs/dcos_dns.md).
 
 # <a name="load-balancing"></a>Load Balancing
 DC/OS offers different options for layer-4 and layer 7 load balancing. The following sections describe the various features provided at both these layers.
 
 ## Layer 4
-[dcos-l4lb](/1.14/networking/load-balancing-vips/) is a distributed layer 4 east-west load balancer  installed by default. It is highly scalable and highly available, offering zero-hop load balancing, no single choke point and a tolerance to host failures. `dcos-l4lb` runs as an application within the Erlang VM `dcos-net`, which runs on all agents and masters within the cluster.
+[dcos-l4lb](/1.13/networking/load-balancing-vips/) is a distributed layer 4 east-west load balancer  installed by default. It is highly scalable and highly available, offering zero-hop load balancing, no single choke point and a tolerance to host failures. `dcos-l4lb` runs as an application within the Erlang VM `dcos-net`, which runs on all agents and masters within the cluster.
 
 ## Layer 7
 There are two packages within DC/OS that provide layer 7 load-balancing for DC/OS services, [Edge-LB](/services/edge-lb/latest/) and [Marathon-LB](/services/marathon-lb/1.13/). Both these packages use HAProxy as their data-plane for load-balancing north-south traffic entering the cluster. While these packages are primarily used to provide layer 7 load balancing (supporting HTTP and HTTPS), they can also  provide layer 4 load balancing for TCP and SSL traffic. While the data-plane used by both these packages is fundamentally the same, the control-plane provided by these packages is vastly different.

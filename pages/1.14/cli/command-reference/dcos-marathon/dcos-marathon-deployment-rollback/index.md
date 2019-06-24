@@ -5,6 +5,8 @@ title: dcos marathon deployment rollback
 menuWeight: 15
 excerpt: Removing a deployed application
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description
@@ -52,4 +54,4 @@ There are no deployments
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

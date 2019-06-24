@@ -4,6 +4,8 @@ navigationTitle:  Mesos-DNS
 title: Mesos-DNS
 menuWeight: 3
 excerpt: Understanding Mesos DNS
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -22,7 +24,7 @@ If the Mesos-DNS process fails, `systemd` automatically restarts it. Mesos-DNS t
 
 You can load balance DNS requests in clusters with large numbers of agents by adding additional master nodes; no additional configuration is necessary.
 
-![Mesos-DNS](/1.14/img/mesos-dns.png)
+![Mesos-DNS](/1.13/img/mesos-dns.png)
 
 Figure 1. Mesos-DNS integration
 

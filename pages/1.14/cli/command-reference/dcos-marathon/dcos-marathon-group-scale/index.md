@@ -4,7 +4,8 @@ navigationTitle:  dcos marathon group scale
 title: dcos marathon group scale
 menuWeight: 20
 excerpt: Scaling a group
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -37,5 +38,5 @@ dcos marathon group scale [--force] <group-id> <scale-factor>
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  DC/OS 101
 excerpt: Understanding the basics of DC/OS
 title: Tutorial - DC/OS 101
+render: mustache
+model: /data.yml
 menuWeight: 0
 ---
 

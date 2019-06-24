@@ -4,7 +4,8 @@ navigationTitle:  dcos package repo remove
 title: dcos package repo remove
 menuWeight: 9
 excerpt: Removing a package repository from DC/OS
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -28,16 +29,16 @@ dcos package repo remove <repo-names>...
 
 | Name |  Description |
 |---------|-------------|
-| `<repo-name>`   |   Name of the package repository. For example, `Universe`. |
+| `<repo-name>`   |   Name of the package repository. For example, `{{ model.packageRepo }}`. |
 
 
 
 # Examples
 
-For an example, see the [documentation](/1.14/administering-clusters/repo/).
+For an example, see the [documentation](/1.13/administering-clusters/repo/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.14/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/1.13/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

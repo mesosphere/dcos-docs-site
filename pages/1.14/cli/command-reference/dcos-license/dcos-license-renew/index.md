@@ -4,7 +4,8 @@ navigationTitle:  dcos license renew
 title: dcos license renew
 menuWeight: 3
 excerpt: Renewing a cluster license
-
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
@@ -33,10 +34,10 @@ Usage: dcos license renew [OPTIONS] PATH
 
 
 # Examples
-For examples, see [Licenses](/1.14/administering-clusters/licenses/).
+For examples, see [Licenses](/1.13/administering-clusters/licenses/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/1.14/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](/1.13/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |

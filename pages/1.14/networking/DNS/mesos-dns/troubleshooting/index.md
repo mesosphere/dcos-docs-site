@@ -4,6 +4,8 @@ navigationTitle:  'Troubleshooting'
 title: 'Troubleshooting'
 menuWeight: 400
 excerpt: Troubleshooting Mesos DNS
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -35,5 +37,5 @@ To query the leading master node, always query `leader.mesos`. If you try to con
 
 However, if you try to query or connect to `master.mesos` using any method other than HTTP, the results will be unpredictable because the name will resolve to a random master node. For example, a service that attempts to register with `master.mesos` may communicate with a non-leading master node and will be unable to register as a service on the cluster.
 
- [1]: /1.14/installing/production/advanced-configuration/configuration-reference/
+ [1]: /1.13/installing/production/advanced-configuration/configuration-reference/
 

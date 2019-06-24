@@ -3,29 +3,31 @@ layout: layout.pug
 title: DC/OS Enterprise CLI
 menuWeight: 5
 excerpt: Configuring the DC/OS Enterprise command line interface
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 
 The DC/OS Enterprise CLI provides commands for DC/OS Enterprise features:
 
-- [`dcos backup`](/1.14/cli/command-reference/dcos-backup/)
-- [`dcos license`](/1.14/cli/command-reference/dcos-license/)
-- [`dcos security`](/1.14/cli/command-reference/dcos-security/)
+- [`dcos backup`](/1.13/cli/command-reference/dcos-backup/)
+- [`dcos license`](/1.13/cli/command-reference/dcos-license/)
+- [`dcos security`](/1.13/cli/command-reference/dcos-security/)
 
 # <a name="ent-cli-install"></a>Installing the DC/OS Enterprise CLI
 
 The DC/OS Enterprise CLI **is automatically installed** when setting up the connection from the CLI to your DC/OS cluster.
 
-To confirm that the dcos-enterprise-cli is installed, run `dcos plugin list`. You can see the enterprise CLI there as it is now a standard plugin. To manage, read [our documentation about CLI plugins](/1.14/cli/plugins/).
+To confirm that the dcos-enterprise-cli is installed, run `dcos plugin list`. You can see the enterprise CLI there as it is now a standard plugin. To manage, read [our documentation about CLI plugins](/1.13/cli/plugins/).
 
 The previous installation process using `dcos package install dcos-enterprise-cli` is deprecated since DC/OS 1.13 and the DC/OS CLI 0.8.
 
 ## Deprecated installation (DC/OS <= 1.12)
 ### Prerequisite
 
-The DC/OS CLI must already be [installed](/1.14/cli/install/).
+The DC/OS CLI must already be [installed](/1.13/cli/install/).
 
-<p class="message--note"><strong>NOTE: </strong>The DC/OS Enterprise CLI must be installed from the DC/OS CLI. You cannot install the DC/OS Enterprise CLI from the Catalog in the web interface.</p>
+<p class="message--note"><strong>NOTE: </strong>The DC/OS Enterprise CLI must be installed from the DC/OS CLI. You cannot install the DC/OS Enterprise CLI from the {{ model.packageRepo }} in the web interface.</p>
 
 To install the DC/OS Enterprise CLI, issue the following command from a terminal prompt.
 

@@ -5,6 +5,8 @@ title: dcos marathon pod list
 menuWeight: 25
 excerpt: Viewing the deployed pods
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description
@@ -28,5 +30,5 @@ dcos marathon pod list [--json|--quiet]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

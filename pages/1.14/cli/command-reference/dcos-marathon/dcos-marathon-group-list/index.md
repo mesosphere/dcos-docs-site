@@ -5,6 +5,8 @@ title: dcos marathon group list
 menuWeight: 18
 excerpt: Displaying the list of groups
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
@@ -29,5 +31,5 @@ dcos marathon group list [--json]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

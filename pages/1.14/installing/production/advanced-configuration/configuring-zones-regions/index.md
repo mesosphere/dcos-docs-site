@@ -4,6 +4,8 @@ navigationTitle:  Configuring Zones and Regions
 title: Configuring Zones and Regions
 menuWeight: 15
 excerpt: Using the high-availability features in DC/OS
+render: mustache
+model: /1.13/data.yml
 ---
 
 This topic discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
@@ -53,7 +55,7 @@ Fault domain isolation is an important part of building HA systems. To correctly
  * Physical domains: this includes machine, rack, datacenter, region, and availability zone.
  * Network domains: machines within the same network may be subject to network partitions. For example, a shared network switch may fail or have invalid configuration.
 
-For more information, see the [multi-zone](/1.14/installing/high-availability/multi-zone/) and [multi-region](/1.14/installing/high-availability/multi-region/) documentation.
+For more information, see the [multi-zone](/1.13/installing/high-availability/multi-zone/) and [multi-region](/1.13/installing/high-availability/multi-region/) documentation.
 
 Applications which require HA should also be distributed across fault domains. With Marathon, this can be accomplished by using the [`UNIQUE`  and `GROUP_BY` constraints operator](https://mesosphere.github.io/marathon/docs/constraints.html).
 
@@ -63,7 +65,7 @@ HA services should be decoupled, with responsibilities divided amongst services.
 
 ## Eliminating Single Points of Failure
 
-Single points of failure come in many forms. For example, a service like ZooKeeper can become a single point of failure when every service in your system shares one ZooKeeper cluster. You can reduce risks by running multiple ZooKeeper clusters for separate services. There's an Exhibitor [Universe package](https://github.com/mesosphere/exhibitor-dcos) that makes this easy.
+Single points of failure come in many forms. For example, a service like ZooKeeper can become a single point of failure when every service in your system shares one ZooKeeper cluster. You can reduce risks by running multiple ZooKeeper clusters for separate services. There's an Exhibitor [{{ model.packageRepo }} package](https://github.com/mesosphere/exhibitor-dcos) that makes this easy.
 
 Other common single points of failure include:
 
@@ -83,7 +85,7 @@ When failures do occur, failover [should be as fast as possible](https://en.wiki
 
 A fast failover can be achieved by:
 
- * Using an HA load balancer like [Marathon-LB](/services/marathon-lb/1.13/), or the internal [Layer 4 load balancer](/1.14/networking/load-balancing-vips/).
+ * Using an HA load balancer like [Marathon-LB](/services/marathon-lb/1.13/), or the internal [Layer 4 load balancer](/1.13/networking/load-balancing-vips/).
  * Building apps in accordance with the [12-factor app](http://12factor.net/) manifesto.
  * Following REST best practices when building services: in particular, avoiding storing client state on the server between requests.
 

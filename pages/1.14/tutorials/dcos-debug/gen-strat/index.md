@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  Strategy
 title: Strategy
 excerpt: Tutorial - Applying troubleshooting strategies
+render: mustache
+model: /data.yml
 menuWeight: 21
 ---
 #include /include/tutorial-disclaimer.tmpl

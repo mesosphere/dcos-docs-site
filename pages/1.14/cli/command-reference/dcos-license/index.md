@@ -5,6 +5,8 @@ title: dcos license
 excerpt: Managing your DC/OS licenses
 menuWeight: 9
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 The `dcos license` commands allow you to review the status of your license, audit your license, and get or renew a license.
 

@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster oidc
 title:  dcos security cluster oidc 
 menuWeight: 13
 excerpt: Managing OpenID Connect settings
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

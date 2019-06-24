@@ -4,8 +4,11 @@ navigationTitle:  dcos marathon app update
 title: dcos marathon app update
 menuWeight: 9
 excerpt: Updating an application
-
+render: mustache
+model: /data.yml
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description
@@ -36,10 +39,10 @@ dcos marathon app update [--force] <app-id> [<properties>...]
 
 # Examples
 
-For examples, see the [documentation](/1.14/deploying-services/update-user-service/).
+For examples, see the [documentation](/1.13/deploying-services/update-user-service/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

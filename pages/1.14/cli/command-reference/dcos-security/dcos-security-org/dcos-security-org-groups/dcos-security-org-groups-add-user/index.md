@@ -4,6 +4,8 @@ navigationTitle:  dcos security org groups add_user
 title: dcos security org groups add_user
 menuWeight: 125
 excerpt: Adding a user to a group
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 # Description
@@ -34,4 +36,4 @@ dcos security org groups add_user [OPTIONS] GID UID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster org groups](/1.14/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |
+| [dcos security cluster org groups](/1.13/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |

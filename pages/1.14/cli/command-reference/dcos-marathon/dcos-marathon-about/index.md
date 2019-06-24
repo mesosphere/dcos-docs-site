@@ -4,7 +4,8 @@ navigationTitle:  dcos marathon about
 title: dcos marathon about
 menuWeight: 0
 excerpt: Displays the info.json file for DC/OS Marathon
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -109,4 +110,4 @@ dcos marathon about
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/1.13/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
