@@ -4,7 +4,6 @@ navigationTitle: 代理路由
 title: 代理路由
 menuWeight: 11
 excerpt: 在 DC/OS 代理节点上运行的 Admin Router。
-
 ---
 在 DC/OS 代理节点上运行的 Admin Router 代理。它公开以下 API 路由。
 
