@@ -4,6 +4,8 @@ navigationTitle:  Capacity Extensions with Regions
 title: Capacity Extensions with Regions
 menuWeight: 10
 excerpt: Using local and remote regions
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

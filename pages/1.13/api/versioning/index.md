@@ -5,6 +5,8 @@ title: API Versioning
 menuWeight: 2
 excerpt: Understanding component, resource, and route versioning
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 The DC/OS API is backed by many loosely coupled components; some are standalone projects and others are designed exclusively for DC/OS. Because of this, a variety of versioning mechanisms are supported: component, route, and resource versioning.

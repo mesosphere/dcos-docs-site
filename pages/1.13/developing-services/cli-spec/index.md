@@ -4,9 +4,11 @@ navigationTitle:  CLI Specification
 title: CLI Specification
 menuWeight: 3
 excerpt: Using the command line interface
+render: mustache
+model: /data.yml
 enterprise: false
 ---
-This document is intended for a developer creating new DC/OS CLI subcommands. See also [Universe Getting Started][1].
+This document is intended for a developer creating new DC/OS CLI subcommands. See also [{{ model.packageRepo }} Getting Started][1].
 
 The [DC/OS command-line interface (CLI)](/1.13/cli/) is a utility to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks. The DC/OS CLI is open and extensible: anyone can create a new subcommand and make it available for installation by end users. For example, the [Spark DC/OS service][2] provides CLI extensions for working with Spark. When installed, you can type the following command to submit Spark jobs and query their status:
 
@@ -94,7 +96,7 @@ The logging levels are described in [Python’s logging HOWTO][7]: DEBUG, INFO, 
 
 To make your subcommand available to end users:
 
-1. Add a package entry to the Mesosphere Universe repository. See the [Universe README][9] for the specification.
+1. Add a package entry to the Mesosphere {{ model.packageRepo }} repository. See the [{{ model.packageRepo }} README][9] for the specification.
 
     The package entry must contain a file named [resource.json][10] that contains links to the executable subcommands.
 

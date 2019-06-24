@@ -3,6 +3,8 @@ layout: layout.pug
 excerpt: Understanding how DC/OS implements the Azure Container Service
 title: The Azure Container Service
 navigationTitle: ACS
+render: mustache
+model: /data.yml
 menuWeight: 2
 ---
 
@@ -32,13 +34,13 @@ Many companies [use Mesos directly with success](https://mesos.apache.org/docume
 
 1. Deploying and managing Mesos can be complex, precisely because it can manage very complex environments; DC/OS makes that complexity straightforward to use and supported by the community.
 1. DC/OS implements fault tolerance not just on an industrial but on an internet scale.
-1. The DC/OS Catalog of packages for easy installation supports developers, data scientists, and system administrators with all their favorite open source packages.
+1. The DC/OS {{ model.packageRepo }} of packages for easy installation supports developers, data scientists, and system administrators with all their favorite open source packages.
 1. The real-time metrics "firehouse" is open for use by your favorite diagnostics and analytics packages.
 1. DC/OS has three ways to administer your distributed OS: a CLI, a graphical UI, and an API.
 
-### The Universe of packages
+### The {{ model.packageRepo }} of packages
 
-Here is a list of what is in the Catalog on Day 1 of DC/OS, categorized by the type of license.
+Here is a list of what is in the {{ model.packageRepo }} on Day 1 of DC/OS, categorized by the type of license.
 
 #### Apache License V2
 
@@ -74,7 +76,7 @@ Here is a list of what is in the Catalog on Day 1 of DC/OS, categorized by the t
 - OpenVPN
 - Ruxit
 
-Not only may you use the Catalog of packages available with the DC/OS packaging system, you can also publish there to give your skills back to the community. You may also want to deploy DC/OS yourself; you can start with a reference implementation of DC/OS in "the cloud" with the Azure Container Service.
+Not only may you use the {{ model.packageRepo }} of packages available with the DC/OS packaging system, you can also publish there to give your skills back to the community. You may also want to deploy DC/OS yourself; you can start with a reference implementation of DC/OS in "the cloud" with the Azure Container Service.
 
 ## Azure Container Service infrastructure and optimizations
 

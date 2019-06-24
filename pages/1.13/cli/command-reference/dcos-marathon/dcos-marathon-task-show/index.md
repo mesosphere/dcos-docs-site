@@ -5,6 +5,8 @@ title: dcos marathon task show
 menuWeight: 30
 excerpt: Displaying information about a specific task
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

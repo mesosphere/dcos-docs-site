@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  Authentication
 title: Authentication
 excerpt: Authenticating users against DC/OS
+render: mustache
+model: /data.yml
 menuWeight: 30
 ---
 

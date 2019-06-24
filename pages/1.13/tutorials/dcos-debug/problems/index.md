@@ -3,6 +3,8 @@ layout: layout.pug
 title: Problems
 navigationTitle:  Problems
 excerpt: Tutorial - Troubleshooting issues on DC/OS deployments
+render: mustache
+model: /data.yml
 menuWeight: 1
 ---
 

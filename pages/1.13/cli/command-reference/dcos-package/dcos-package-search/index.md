@@ -4,6 +4,8 @@ navigationTitle:  dcos package search
 title: dcos package search
 menuWeight: 6
 excerpt: Searching the package repository
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

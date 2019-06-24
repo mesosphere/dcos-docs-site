@@ -5,6 +5,8 @@ title: dcos license get
 menuWeight: 2
 excerpt: Displaying the cluster licenses
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 # Description

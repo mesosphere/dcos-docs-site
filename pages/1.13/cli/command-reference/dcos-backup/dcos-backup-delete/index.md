@@ -5,6 +5,8 @@ title: dcos backup delete
 menuWeight: 20
 excerpt: Deleting backups
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 # Description

@@ -5,6 +5,8 @@ title: dcos job show
 menuWeight: 10
 excerpt: Displaying job definitions
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

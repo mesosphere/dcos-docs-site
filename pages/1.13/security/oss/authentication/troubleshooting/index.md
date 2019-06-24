@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle: Troubleshooting
 title: Troubleshooting Authentication 
 excerpt: Troubleshooting authentication issues in DC/OS
+render: mustache
+model: /data.yml
 menuWeight: 50
 ---
 # Ad Blockers and the DC/OS UI

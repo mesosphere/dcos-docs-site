@@ -4,7 +4,8 @@ navigationTitle:  Granting Access to the Secrets Tab
 title: Granting Access to the Secrets Tab
 menuWeight: 50
 excerpt: Granting access to the Secrets tab
-
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

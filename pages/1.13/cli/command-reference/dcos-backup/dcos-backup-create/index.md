@@ -5,6 +5,8 @@ title: dcos backup create
 menuWeight: 10
 excerpt: Creating backups
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 # Description

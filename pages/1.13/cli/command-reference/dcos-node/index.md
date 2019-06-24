@@ -4,7 +4,8 @@ navigationTitle:  dcos node
 title: dcos node
 menuWeight: 11
 excerpt: Displaying DC/OS node information
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

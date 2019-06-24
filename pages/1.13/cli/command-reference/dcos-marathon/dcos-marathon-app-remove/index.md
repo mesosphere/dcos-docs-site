@@ -5,6 +5,8 @@ title: dcos marathon app remove
 menuWeight: 4
 excerpt: Removing an application
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

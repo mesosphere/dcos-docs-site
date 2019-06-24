@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster saml add
 title: dcos security cluster saml add
 menuWeight: 70
 excerpt: Configuring a new SAML provider
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 # Description

@@ -4,7 +4,7 @@ excerpt: Replaceable Masters on AWS using the Universal Installer
 title: Replaceable masters on AWS using the Universal Installer
 navigationTitle: AWS Replaceable Masters
 menuWeight: 2
-model: /1.13/installing/data.yml
+model: /1.14/installing/data.yml
 render: mustache
 ---
 

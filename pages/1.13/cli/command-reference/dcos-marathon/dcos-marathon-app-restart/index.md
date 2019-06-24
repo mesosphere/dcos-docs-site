@@ -5,6 +5,8 @@ title: dcos marathon app restart
 menuWeight: 5
 excerpt: Restarting an application
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

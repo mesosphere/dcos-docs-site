@@ -5,6 +5,8 @@ title: CLI
 menuWeight: 50
 excerpt: Understanding the command line interface utility in DC/OS
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 The DC/OS command line interface (DC/OS CLI) utility allows you to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.

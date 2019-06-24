@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster secret-store show
 title: dcos security cluster secret-store show
 menuWeight: 95
 excerpt: Viewing the configured secrets stores
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

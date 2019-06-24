@@ -5,6 +5,8 @@ title: dcos job run
 menuWeight: 5
 excerpt: Running a DC/OS job
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

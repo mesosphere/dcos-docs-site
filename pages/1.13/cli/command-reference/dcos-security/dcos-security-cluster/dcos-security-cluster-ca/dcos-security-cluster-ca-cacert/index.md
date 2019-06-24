@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster ca cacert
 title: dcos security cluster ca
 menuWeight: 12
 excerpt: Interacting with the DC/OS cluster CA
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

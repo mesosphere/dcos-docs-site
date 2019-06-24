@@ -4,7 +4,8 @@ navigationTitle:  dcos job schedule add
 title: dcos job schedule add
 menuWeight: 6
 excerpt: Adding a schedule to a job
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

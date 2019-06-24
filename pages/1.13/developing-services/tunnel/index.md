@@ -4,9 +4,11 @@ title: Using a DC/OS Tunnel
 navigationTitle: Using a DC/OS Tunnel
 menuWeight: 10
 excerpt: Accessing your cluster by proxy and VPN using a DC/OS tunnel
+render: mustache
+model: /data.yml
 enterprise: false
 ---
-<p class="message--warning"><strong>WARNING: </strong>DC/OS Tunnel is appropriate for development, debugging, and testing only. Do not use DC/OS Tunnel in production.</p>
+<p class="message--warning"><strong>WARNING: </strong>DC/OS Tunnel is appropriate for development, debugging, and testing <strong>only</strong>. Do not use DC/OS Tunnel in production.</p>
 
 <p class="message--important"><strong>IMPORTANT: </strong> Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.<p>
 

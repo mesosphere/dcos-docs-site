@@ -4,7 +4,8 @@ navigationTitle:  Performance Monitoring
 title: Performance Monitoring
 menuWeight: 1
 excerpt: Monitoring a DC/OS cluster
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

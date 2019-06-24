@@ -4,7 +4,8 @@ navigationTitle:  dcos job history
 title: dcos job history
 menuWeight: 1
 excerpt: Displaying the job run history
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

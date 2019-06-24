@@ -5,6 +5,8 @@ title: dcos marathon deployment rollback
 menuWeight: 15
 excerpt: Removing a deployed application
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description
