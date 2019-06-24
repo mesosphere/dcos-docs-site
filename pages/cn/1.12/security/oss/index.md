@@ -15,7 +15,7 @@ menuWeight: 80
 DC/OS 使用 JSON Web 令牌 (JWT) 格式作为其认证令牌。JWT 是一种开放的行业标准 ([RFC）
 7519](https://tools.ietf.org/html/rfc7519)) 方法，用于安全地代表两方之间的要求。JWT 是使用
 [OpenID Connect 1.0](https://openid.net/specs/openid-connect-core-1_0.html) 获取的，它是在
-[OAuth 2.0](http://oauth.net/2/) 协议。
+[OAuth 2.0](http://oauth.net/2/) 协议上构建的一个简单的认证层。
 
 DC/OS OAuth 提供一个 HTTP API，用于以 RESTful 的方式管理本地用户。
 

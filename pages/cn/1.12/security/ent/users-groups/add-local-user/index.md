@@ -28,7 +28,7 @@ enterprise: true
 
 # 使用 CLI 添加本地用户
 
-**前提条件：**
+**先决条件：**
 - [DC/OS Enterprise CLI](/cn/1.12/cli/enterprise-cli/)
 
 

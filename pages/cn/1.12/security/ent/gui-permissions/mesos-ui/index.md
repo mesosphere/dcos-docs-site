@@ -14,7 +14,7 @@ enterprise: true
 
 # <a name="services-access-via-ui"></a>使用 GUI 授予访问权限
 
-**前提条件：**
+**先决条件：**
 
 - 不具有 `dcos:superuser` [权限](/cn/1.12/security/ent/users-groups/) 的 DC/OS 用户账户。
 
@@ -75,7 +75,7 @@ dcos:adminrouter:ops:slave full
 
 # <a name="services-access-via-api"></a>使用 API 授予访问权限
 
-**前提条件：**
+**先决条件：**
 
 - 必须 [安装 DC/OS CLI](/cn/1.12/cli/install/) 并以超级用户登户身份登录。
 - 您必须 [获取根证书](/cn/1.12/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
@@ -100,7 +100,7 @@ dcos:adminrouter:ops:slave full
     -d '{"description":"Grants access to the Mesos master API/UI and task details"}'
     ```   
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
@@ -122,7 +122,7 @@ dcos:adminrouter:ops:slave full
     -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
     ```   
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \
@@ -146,7 +146,7 @@ dcos:adminrouter:ops:slave full
     -d '{"description":"Grants access to the Mesos master API/UI and task details"}'
     ```   
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \
@@ -169,7 +169,7 @@ dcos:adminrouter:ops:slave full
     -d '{"description":"Grants access to the Mesos agent API/UI and task details such as logs"}'
     ```   
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \

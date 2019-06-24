@@ -16,7 +16,7 @@ enterprise: true
 
 ## <a name="network-access-via-ui"></a>使用 GUI 授予访问权限
 
-**前提条件：**
+**先决条件：**
 
 - 不具有 `dcos:superuser` [权限](/cn/1.12/security/ent/users-groups/) 的 DC/OS 用户账户。
 
@@ -90,7 +90,7 @@ dcos:secrets:list:default:/ read
     -d '{"description":"Grants access to the contents of the Secrets tab"}'
     ```
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \
@@ -112,7 +112,7 @@ dcos:secrets:list:default:/ read
     -d '{"description":"Grants access to the contents of the Secrets tab"}'
     ```
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \

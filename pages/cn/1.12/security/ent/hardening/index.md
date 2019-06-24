@@ -29,6 +29,6 @@ enterprise: true
 
 - 坚持[最低权限原则](http://searchsecurity.techtarget.com/definition/principle-of-least-privilege-POLP)，并为您的用户提供他们所需的最低[权限](/cn/1.12/security/ent/perms-reference/)。避免授予用户或服务帐户 `dcos:superuser` 权限。
 
-- 如果[配置外部 LDAP 目录](/cn/1.12/security/ent/ldap/ldap-conn/)，请选择**对所有连接使用 SSL/TLS**或 **尝试 StarTtLS，如果失败则中止，并在 **CA certificate chain (Optional)** 字段中提供根 CA 根证书以及 LDAP 目录服务器的任何中间证书。
+- 如果[配置外部 LDAP 目录](/cn/1.12/security/ent/ldap/ldap-conn/)，请选择**对所有连接使用 SSL/TLS**或 **尝试 StartTLS，如果失败则中止**，并在 **CA certificate chain (Optional)** 字段中提供根 CA 根证书以及 LDAP 目录服务器的任何中间证书。
 
 - [覆盖服务的 Linux 用户帐户](/cn/1.12/security/ent/users-groups/config-linux-user/)以使用权限较低的帐户，如 `nobody`。

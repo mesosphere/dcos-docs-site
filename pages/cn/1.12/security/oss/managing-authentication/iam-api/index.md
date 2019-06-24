@@ -11,7 +11,7 @@ title: HTTP API 端点身份认证
 
 # 获取认证令牌
 
-使用 DC/OS CLI 获取认证令牌。登录 DC/OS CLI 时，将 OpenID Connect ID 令牌粘贴到终端提示符中。此 OpenID Connect ID 令牌将您记录到 DC/OS CLI 中，但不允许您访问 HTTP API 端点。您必须获取认证令牌才能获得对 HTTP API 端点的访问权限。完成以下步骤以获取认证令牌。
+使用 DC/OS CLI 获取认证令牌。登录 DC/OS CLI 时，将 OpenID Connect ID 令牌粘贴到终端提示符中。此 OpenID Connect ID 令牌将让您登入到 DC/OS CLI 中，但不允许您访问 HTTP API 端点。您必须获取认证令牌才能获得对 HTTP API 端点的访问权限。完成以下步骤以获取认证令牌。
 
 1. [登录到 DC/OS CLI](/cn/1.12/security/oss/managing-authentication/#logging-in-to-the-dcos-cli)。登录 DC/OS CLI 会导致您的认证令牌被写入配置文件。
 

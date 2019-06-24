@@ -77,7 +77,7 @@ HTTP 端点，Admin Router 自身执行授权。例如，
 | `dcos:adminrouter:ops:metadata`<br> 控制对 [元数据端点](/cn/1.12/api/master-routes/#metadata) 的访问。| x | | | | |
 | `dcos:adminrouter:ops:networking`<br> 控制对 [网络度量标准](/cn/1.12/api/master-routes/#network-metrics) 端点的访问。| x | | | | |
 | `dcos:adminrouter:ops:slave`<br> 控制对 Mesos 代理节点 UI 和 API 的访问。| x | | | | |
-| `dcos:adminrouter:ops:system-health`<br> 控制对 [系统健康 API](/cn/1.12/api/master-routes/#system) 的访问。| x | | | | |
+| `dcos:adminrouter:ops:system-health`<br> 控制对 [系统运行状况 API](/cn/1.12/api/master-routes/#system) 的访问。| x | | | | |
 | `dcos:adminrouter:ops:system-logs` <br>控制对 [系统日志 API](/cn/1.12/api/master-routes/#system) 的访问。| x | | | | |
 | `dcos:adminrouter:ops:system-metrics`<br> 控制对 [系统日志度量标准 API](/cn/1.12/api/master-routes/#system) 的访问。| x | | | | |
 | `dcos:adminrouter:licensing`<br> 控制对许可 API 的访问。| x | | | | |
@@ -119,7 +119,7 @@ HTTP 请求授权并检查 `alice` DC/OS 用户是否具有
 | `dcos:mesos:master:endpoint:path[:<path>]`<br> 控制对这些未受保护的 [Mesos 端点](https://mesos.apache.org/documentation/latest/authorization/) 的访问。`logging/toggle`、`/metrics/snapshot` 和 `/files/debug`。| | | x | | |
 | `dcos:mesos:master:executor:app_id[:<service-or-job-group>]`<br> 控制对 [执行器](https://mesos.apache.org/documentation/latest/app-framework-development-guide/) 服务和作业群组的访问。| | | x | | |
 | `dcos:mesos:master:flags`<br> 控制对 [管理标记](https://mesos.apache.org/documentation/latest/endpoints/master/flags/) 配置的查看访问权限。| | | x | | |
-| `dcos:mesos:master:framework:principal[:<service-account-id>]`<br> 按服务帐户 ID，控制对 Mesos [拆除](https://mesos.apache.org/documentation/latest/endpoints/master/teardown/) 端点的访问，这允许您卸载 DC/OS 服务。| | | | | x |
+| `dcos:mesos:master:framework:principal[:<service-account-id>]`<br> 按服务帐户 ID，控制对 Mesos [拆除](https://mesos.apache.org/documentation/latest/endpoints/master/teardown/) 端点的访问，这让您可以卸载 DC/OS 服务。| | | | | x |
 | `dcos:mesos:master:framework:role[:<role-name>]`<br> 按 [Mesos 角色](/cn/1.12/overview/concepts/#mesos-role)，通过 [Mesos](https://mesos.apache.org/documentation/latest/roles/) 控制对作为框架的注册表的访问。| | x | | | |
 | `dcos:mesos:master:log`<br> 控制对 Mesos [主日志](/cn/1.12/monitoring/logging/) 的访问。| | | x | | |
 | `dcos:mesos:master:mount_disk`<br> 控制对创建和销毁装载磁盘的访问。| | x | | | x |
