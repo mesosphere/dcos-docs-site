@@ -60,4 +60,4 @@ To assign permissions to your account, see the [permissions reference](/1.14/sec
 
 The License API allows you to manage license operations on your DC/OS cluster.
 
-[swagger api='/1.13/api/dcos-licensing-component-spec.yaml']
+[swagger api='/1.14/api/dcos-licensing-component-spec.yaml']

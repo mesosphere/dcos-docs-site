@@ -13,4 +13,4 @@ enterprise: true
 
 By default, a [new user](/1.14/security/ent/users-groups/) has no permissions and cannot view the [DC/OS UI](/1.14/gui/). You must grant users and groups access to each screen of the web interface.
 
-<p class="message--important"><stribg>IMPORTANT: </strong> Only <a href="/1.13/security/ent/perms-reference/#superuser">superusers</a> can view the Dashboard, Nodes, and <strong>Cluster -> Overview</strong> tabs.</p>
+<p class="message--important"><stribg>IMPORTANT: </strong> Only <a href="/1.14/security/ent/perms-reference/#superuser">superusers</a> can view the Dashboard, Nodes, and <strong>Cluster -> Overview</strong> tabs.</p>

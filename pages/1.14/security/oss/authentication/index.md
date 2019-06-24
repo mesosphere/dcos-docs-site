@@ -38,6 +38,6 @@ You can disable authentication using one of the following ways:
 
 2. Disable authentication using cloud installation on [AWS](/1.14/installing/oss/cloud/aws/): You can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
-<p class="message--warning"><strong>WARNING: </strong>You cannot disable authentication using cloud installation on <a href ="/1.13/installing/evaluation/azure/">Azure</a>.</p>
+<p class="message--warning"><strong>WARNING: </strong>You cannot disable authentication using cloud installation on <a href ="/1.14/installing/evaluation/azure/">Azure</a>.</p>
 
 <p class="message--note"><strong>NOTE: </strong>If you have already installed your cluster and would like to disable this in-place, you can go through an upgrade with the configuration parameter set.</p>

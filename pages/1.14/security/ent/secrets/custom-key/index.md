@@ -71,7 +71,7 @@ In this section, you will re-initalize the secret store with a custom GPG pair.
 
 1. Execute the following ZooKeeper command to gain additional privileges, replacing `super:secret` if necessary with the actual user name and password of the ZooKeeper superuser.
 
-  <p class="message--note"><strong>NOTE: </strong>By default, DC/OS sets the ZooKeeper superuser to <code>super:secret</code>, but we recommend <a href="/1.13/installing/production/advanced-configuration/configuration-reference/#zk-superuser">changing the default</a>.</p>
+  <p class="message--note"><strong>NOTE: </strong>By default, DC/OS sets the ZooKeeper superuser to <code>super:secret</code>, but we recommend <a href="/1.14/installing/production/advanced-configuration/configuration-reference/#zk-superuser">changing the default</a>.</p>
 
 
    ```bash

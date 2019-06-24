@@ -5,13 +5,13 @@ title: Configuration
 menuWeight: 5
 excerpt: Configuring your DC/OS parameters using a YAML file
 render: mustache
-model: /1.13/data.yml
+model: /1.14/data.yml
 ---
 
 
 The DC/OS configuration parameters are specified in YAML format in a `config.yaml` file. This file is stored on your [bootstrap node](/1.14/installing/production/system-requirements/#bootstrap-node) and is used during DC/OS installation to generate a customized DC/OS build.
 
-<p class="message--important"><strong>IMPORTANT: </strong>If you want to modify the configuration file after installation, you must follow the <a href="/1.13/installing/production/upgrading/">DC/OS upgrade process</a>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If you want to modify the configuration file after installation, you must follow the <a href="/1.14/installing/production/upgrading/">DC/OS upgrade process</a>.</p>
 
 # Format
 

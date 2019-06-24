@@ -31,7 +31,7 @@ To view public IP addresses using the DC/OS web-based console:
 
     For example:
     <p>
-    <img src="/1.13/img/node-public-ip-address.png" alt="Viewing the public-facing IP address for cluster nodes">
+    <img src="/1.14/img/node-public-ip-address.png" alt="Viewing the public-facing IP address for cluster nodes">
     </p>
 
     In most cases, looking up the public-facing IP address for an agent node is sufficient. You can, however, also look up the public IP address for master nodes, if needed. If you need to find the public IP address for a master node, use the `dcos node list` [command](#public-ip-cmd) or the `net/v1/nodes` [API call](#public-ip-api).

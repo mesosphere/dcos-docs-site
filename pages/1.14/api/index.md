@@ -11,7 +11,7 @@ model: /data.yml
 
 The DC/OS API is a collection of routes backed by [DC/OS components](/1.14/overview/architecture/components/) that are made available through an API gateway called [Admin Router](/1.14/overview/architecture/components/#admin-router).
 
-<img src="/1.13/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
+<img src="/1.14/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
 Figure 1. DC/OS API routing schematic
 
 # API Gateway

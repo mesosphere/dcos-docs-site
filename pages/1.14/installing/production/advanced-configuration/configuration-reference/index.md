@@ -5,7 +5,7 @@ title: Configuration Reference
 menuWeight: 5
 excerpt: Configuration parameters available for DC/OS Enterprise and DC/OS Open Source
 render: mustache
-model: /1.13/data.yml
+model: /1.14/data.yml
 ---
 
 # Configuration Parameters
@@ -423,7 +423,7 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
 *   `exhibitor_storage_backend: static`
     The Exhibitor storage backend is managed internally within your cluster.
 
-<p class="message--note"><strong>NOTE: </strong>If <a href ="/1.13/installing/production/advanced-configuration/configuration-reference/#master-discovery-required">master_discovery</a> is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.</p>
+<p class="message--note"><strong>NOTE: </strong>If <a href ="/1.14/installing/production/advanced-configuration/configuration-reference/#master-discovery-required">master_discovery</a> is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.</p>
 
 *   `exhibitor_storage_backend: zookeeper`
     The ZooKeeper instance for shared storage. If you use a ZooKeeper instance to bootstrap Exhibitor, this ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability. If you specify `zookeeper`, you must also specify these parameters.

@@ -42,7 +42,7 @@ You can download all the log files for your service from the **Services > Servic
 
 For more information, see the Service and Task Logs [quick start guide](/1.14/monitoring/logging/quickstart/).
 
-<p class="message--note"><strong>NOTE: </strong> DC/OS can send copies of task logs to the host's journald, but this is disabled by default because of a known systemd performance problem, for details see the <a href="/1.13/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink">configuration documentation</a></p>.
+<p class="message--note"><strong>NOTE: </strong> DC/OS can send copies of task logs to the host's journald, but this is disabled by default because of a known systemd performance problem, for details see the <a href="/1.14/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink">configuration documentation</a></p>.
 
 ## System logs
 

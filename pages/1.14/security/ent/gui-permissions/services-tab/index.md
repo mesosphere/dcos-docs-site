@@ -13,7 +13,7 @@ enterprise: true
 
 You can grant users access to the Services tab. By default, new users have no permissions.
 
-<p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Services</strong> tab. If you want to configure fine-grained user access, see the <a href="/1.13/security/ent/secrets/use-secrets/">documentation</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Services</strong> tab. If you want to configure fine-grained user access, see the <a href="/1.14/security/ent/secrets/use-secrets/">documentation</a>.</p>
 
 # <a name="services-access-via-ui"></a>Grant Access by using the UI
 
