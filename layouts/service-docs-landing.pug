@@ -58,6 +58,8 @@ mixin renderGridToc()
             - serviceItemClasses += ' grid-toc__beta'
           if service.enterprise
             - serviceItemClasses += ' grid-toc__enterprise'
+          if service.community
+            - serviceItemClasses += ' grid-toc__community'
           div(class=serviceItemClasses)
             div(class='grid-toc__title-group')
               h2(class='grid-toc__title')
@@ -67,6 +69,8 @@ mixin renderGridToc()
                   p(class='badge badge--beta') BETA
                 if service.enterprise
                   p(class='badge badge--enterprise') ENTERPRISE
+                if service.community
+                  p(class='badge badge--community') COMMUNITY
             p(class='grid-toc__service-desc')!= service.excerpt || 'MISSING'
             if service.children
               ul(class='grid-toc__service-list')

@@ -1,134 +1,139 @@
 .grid {
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 3rem;
-  width: 100%;
-  * {
-    text-decoration: none;
-  }
-  &__item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    // justify-content: space-between;
-    position: relative;
-    width: 100%;
-    min-height: 275px;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-top: 4px $color-purple-d3 solid;
-    border-radius: 2px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); //  &:hover {
-    //   background: $color-purple-light;
-    //   }
-  }
-  &__label {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 400;
-    padding: 0;
-    color: $color-grey;
-    border: 1px solid $color-grey;
-    border-radius: 3px;
-    padding: 0.4rem 0.5rem 0.3rem 0.5rem;
-    line-height: 1rem;
-    margin: 0.5em;
-    white-space: nowrap;
-    &--hidden {
-      opacity: 0;
-    }
-    &--oss {
-      color: $color-grey;
-      border: 1px solid $color-grey;
-    }
-    &--enterprise {
-      color: $color-purple-d3;
-      border: 1px solid $color-purple-d3;
-    }
-    &--beta {
-      color: $color-pink;
-      border: 1px solid $color-pink;
-    }
-    &--preview {
-      color: $color-pink;
-      border: 1px solid $color-pink;
-    }
-    &--experimental {
-      color: $color-pink;
-      border: 1px solid $color-pink;
-    }
-  }
-  &__text__wrapper {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-  }
-  &__header {
-    color: $color-dark;
-    font-weight: 500;
-    padding: 0;
-    margin: 0;
-    &__wrapper {
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-    }
-  }
-  &__desc {
-    margin-top: 0;
-    justify-content: flex-start;
-    text-align: left;
-    transform: translateZ(0);
-    &__wrapper {
-      margin-top: 1rem;
-      overflow: hidden;
-      box-sizing: content-box;
-      height: 115px;
-      margin-bottom: 40px;
-    }
-    &__ellipsis {
-      visibility: hidden;
-      position: fixed;
-      top: 91px;
-      right: 2px;
-      padding-right: 15px;
-      width: 200px;
-      background-size: 100% 100%;
-      text-align: right;
-      line-height: 1.75;
-      color: $color-grey;
-      &:hover {
-        color: $color-purple-d3;
-      }
-      background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
-    }
-  }
-  &__link {
+    margin-top: 3rem;
     width: 100%;
-    margin-top: 2rem;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    svg {
-      float: right;
-      width: 28px;
-      height: 28px;
-      color: $color-purple-d3;
+    * {
+        text-decoration: none;
     }
-  }
-  @include pre-md {
     &__item {
-      width: calc(50% - 10px);
-      min-height: calc(50% - 10px);
-      max-height: calc(50% - 10px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        // justify-content: space-between;
+        position: relative;
+        width: 100%;
+        min-height: 275px;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-top: 4px $color-purple-d3 solid;
+        border-radius: 2px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); //  &:hover {
+        //   background: $color-purple-light;
+        //   }
     }
-  }
+    &__label {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 400;
+        padding: 0;
+        color: $color-grey;
+        border: 1px solid $color-grey;
+        border-radius: 3px;
+        padding: 0.4rem 0.5rem 0.3rem 0.5rem;
+        line-height: 1rem;
+        margin: 0.5em;
+        white-space: nowrap;
+        &--hidden {
+            opacity: 0;
+        }
+        &--oss {
+            color: $color-grey;
+            border: 1px solid $color-grey;
+        }
+        &--community {
+            color: $color-grey;
+            border: 1px solid $color-grey;
+        }
+        &--enterprise {
+            color: $color-purple-d3;
+            border: 1px solid $color-purple-d3;
+        }
+        &--beta {
+            color: $color-pink;
+            border: 1px solid $color-pink;
+        }
+        &--preview {
+            color: $color-pink;
+            border: 1px solid $color-pink;
+        }
+        &--experimental {
+            color: $color-pink;
+            border: 1px solid $color-pink;
+        }
+    }
+    &__text__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__header {
+        color: $color-dark;
+        font-weight: 500;
+        padding: 0;
+        margin: 0;
+        &__wrapper {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+    }
+    &__desc {
+        margin-top: 0;
+        justify-content: flex-start;
+        text-align: left;
+        transform: translateZ(0);
+        &__wrapper {
+            margin-top: 1rem;
+            overflow: hidden;
+            box-sizing: content-box;
+            height: 115px;
+            margin-bottom: 40px;
+        }
+        &__ellipsis {
+            visibility: hidden;
+            position: fixed;
+            top: 91px;
+            right: 2px;
+            padding-right: 15px;
+            width: 200px;
+            background-size: 100% 100%;
+            text-align: right;
+            line-height: 1.75;
+            color: $color-grey;
+            &:hover {
+                color: $color-purple-d3;
+            }
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+        }
+    }
+    &__link {
+        width: 100%;
+        margin-top: 2rem;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        svg {
+            float: right;
+            width: 28px;
+            height: 28px;
+            color: $color-purple-d3;
+        }
+    }
+    @include pre-md {
+        &__item {
+            width: calc(50% - 10px);
+            min-height: calc(50% - 10px);
+            max-height: calc(50% - 10px);
+        }
+    }
 }
+
 @include lg {
-  .grid__desc__ellipsis {
-    top: 80.3px;
-  }
+    .grid__desc__ellipsis {
+        top: 80.3px;
+    }
 }
