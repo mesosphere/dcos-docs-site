@@ -4,6 +4,8 @@ navigationTitle:  Connection
 title: Connection 
 menuWeight: 1
 excerpt: Configuring your connection to the LDAP server 
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

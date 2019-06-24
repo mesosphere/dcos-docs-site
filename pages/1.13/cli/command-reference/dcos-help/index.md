@@ -1,10 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos help
+navigationTitle: dcos help
 title: dcos help
 menuWeight: 7
 excerpt: Displaying DC/OS CLI help information
-dcos helpenterprise: false
+enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

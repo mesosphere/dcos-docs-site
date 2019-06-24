@@ -5,6 +5,8 @@ title: LDAP Synchronization
 menuWeight: 4
 excerpt: LDAP Synchronization
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

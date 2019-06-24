@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  dcos package uninstall
 title: dcos package uninstall
 menuWeight: 7
+render: mustache
+model: /data.yml
 excerpt: Uninstalling a package
 enterprise: false
 ---

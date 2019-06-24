@@ -3,6 +3,8 @@ layout: layout.pug
 title: Obtaining the DC/OS CA bundle
 menuWeight: 100
 excerpt: Obtaining the DC/OS CA bundle
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

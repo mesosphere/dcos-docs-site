@@ -4,6 +4,8 @@ navigationTitle: Release notes for 1.13.1
 title: Release notes for 1.13.1
 menuWeight: 1
 excerpt: Release notes for DC/OS 1.13.1, including Open Source attribution, and version policy.
+render: mustache
+model: /data.yml
 ---
 DC/OS 1.13.1 was released on May 31, 2019.
 

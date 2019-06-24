@@ -4,13 +4,14 @@ navigationTitle:  dcos marathon task stop
 title: dcos marathon task stop
 menuWeight: 31
 excerpt: Stopping a task
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
 
 # Description
-the `dcos marathon task stop` command allows you to stop a task.
+The `dcos marathon task stop` command allows you to stop a task.
 
 # Usage
 

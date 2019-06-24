@@ -3,12 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos edgelb cleanup
 title: dcos edgelb cleanup
 menuWeight: 5
-excerpt: List and remove elements of the AWS Elastic Load Balancer (ELB) framework created by Edge-LB
+excerpt: List and remove elements of the AWS Elastic Load Balancer (ELB) created by Edge-LB
 enterprise: true
 ---
 
 # Description
-The `dcos edgelb cleanup` command lists and removes all Amazon Web Services (AWS) Elastic Load Balancer (FLB) instances that remain after Edge-LB has been uninstalled from a DC/OS cluster. This command also uninstalls the Edge-LB cloud controller load balancer framework, including the cloud controller listener and target group.
+
+The `dcos edgelb cleanup` command lists and removes all Amazon Web Services (AWS) Elastic Load Balancer (ELB) instances that remain after Edge-LB has been uninstalled from a DC/OS cluster.
 
 # Usage
 
@@ -20,6 +21,11 @@ dcos edgelb cleanup
 
 | Name, shorthand | Description |
 |---------|-------------|
+| `--yes` | Remove Elastic Load Balancers without prompting for confirmation. |
+| `--apiserver-app-id=APISERVER-APP-ID` | Specify the Marathon application ID of the Edge-LB API server associated with the AWS Elastic Load Balancer. |
+| `--pool-name=POOL-NAME` | Edge-LB pool name. You can specify multiple pool names separated by commas (,). |
+| `--elb-name=ELB-NAME` | Specify the Elastic Load Balancer name. |
+| `--force` | Force the removal of the Elastic Load Balancers. |
 | `--help, h`   | Display usage information. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 

@@ -4,6 +4,8 @@ navigationTitle:  Using Pods
 title: Using Pods
 menuWeight: 20
 excerpt: Creating and managing pods via the CLI or the Marathon API endpoint
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -115,7 +117,7 @@ Sample response:
         "backoff": {
             "backoff": 1,
             "backoffFactor": 1.15,
-            "maxLaunchDelay": 3600
+            "maxLaunchDelaySeconds": 300
         },
         "placement": {
             "acceptedResourceRoles": [],

@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  Deployments
 excerpt: Deploying multiple Marathon applications
 title: Deployments
+render: mustache
+model: /data.yml
 menuWeight: 5
 ---
 

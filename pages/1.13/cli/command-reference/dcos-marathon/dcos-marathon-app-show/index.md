@@ -4,7 +4,8 @@ navigationTitle:  dcos marathon app show
 title: dcos marathon app show
 menuWeight: 6
 excerpt: Viewing the json file for an app
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -99,7 +100,7 @@ dcos marathon app show spark
     "DCOS_SERVICE_SCHEME": "http",
     "SPARK_URI": ""
   },
-  "maxLaunchDelaySeconds": 3600,
+  "maxLaunchDelaySeconds": 300,
   "mem": 1024,
   "networks": [
     {

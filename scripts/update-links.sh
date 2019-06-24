@@ -1,7 +1,8 @@
 # Links and Images
 
-find ./pages/1.13/ -name index.md -type f -exec sed -i '' -e 's/](\/1.12/](\/1.13/g' {} \;
-find ./pages/1.13/ -name index.md -type f -exec sed -i '' -e 's/]: \/1.12/]: \/1.13/g' {} \;
+find ./pages/1.14/ -name index.md -type f -exec sed -i '' -e 's/](\/1.13/](\/1.14/g' {} \;
+find ./pages/1.14/ -name index.md -type f -exec sed -i '' -e 's/]: \/1.13/]: \/1.14/g' {} \;
+find ./pages/1.14/ -name index.md -type f -exec sed -i '' -e 's/]:\/1.13/]: \/1.14/g' {} \;
 
 ## Update 1.11
 #find ./pages/cn -name index.md -type f -exec sed -i '' -e 's/](\/1.11/](\/cn\/1.11/g' {} \;

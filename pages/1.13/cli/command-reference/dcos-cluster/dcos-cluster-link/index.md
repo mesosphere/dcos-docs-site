@@ -5,6 +5,8 @@ title: dcos cluster link
 menuWeight: 3
 excerpt: Linking a connected cluster to another cluster
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 # Description

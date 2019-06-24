@@ -4,7 +4,8 @@ navigationTitle:  dcos task exec
 title: dcos task exec
 menuWeight: 2
 excerpt: Launching a process inside of a task's container
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -30,7 +31,7 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 |---------|-------------|
 | `<args>`   |  Additional arguments to pass to the command (`<cmd>`). |
 | `<cmd>`   |  The command to run inside the remote task's container. For example: `/bin/bash`. |
-| `<task>`   |   A full task ID, a partial task ID, or a regular expression. |
+| `<task>`   |   A full task ID, a partial task ID, or a UNIX shell wildcard pattern (for example, `my-task*`). |
 
 # Parent command
 

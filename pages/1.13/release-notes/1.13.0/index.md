@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle: Release notes for 1.13.0
 title: Release notes for 1.13.0
 menuWeight: 5
+render: mustache
+model: /data.yml
 excerpt: Release notes for DC/OS 1.13.0, including Open Source attribution, and version policy.
 ---
 DC/OS 1.13.0 was released on May 8, 2019.
@@ -490,7 +492,7 @@ The following example illustrates the changes required when you have job definit
     "artifacts": [
 
     ],
-    "maxLaunchDelay": 3600,
+    "maxLaunchDelaySeconds": 300,
     "volumes": [
 
     ],
@@ -551,7 +553,7 @@ To add this job definition to the JSON editor, you would modify the existing JSO
         ]
       },
       "artifacts": [ ],
-      "maxLaunchDelay": 3600,
+      "maxLaunchDelaySeconds": 300,
       "volumes": [ ],
       "restart": { "policy": "NEVER" },
       "secrets": { }

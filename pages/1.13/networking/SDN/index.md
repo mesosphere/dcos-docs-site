@@ -4,6 +4,8 @@ navigationTitle:  Software Defined Networks
 title: Software Defined Networks
 menuWeight: 4
 excerpt: Understanding DC/OS support for SDNs
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

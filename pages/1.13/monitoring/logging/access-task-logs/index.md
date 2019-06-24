@@ -4,6 +4,8 @@ navigationTitle:  Controlling Access to Task Logs
 title: Controlling Access to Task Logs
 menuWeight: 2
 excerpt: Managing user access to task logs using Marathon groups
+render: mustache
+model: /data.yml
 beta: false
 enterprise: true
 ---

@@ -3,7 +3,8 @@
     "DO_NOT_BUILD": [
       "test/**",
       "services/beta-storage/0.3.1-beta/**",
-      "services/beta-storage/0.3.2-beta/**"
+      "services/beta-storage/0.3.2-beta/**",
+      "1.14/**"
     ],
     "DO_NOT_INDEX": [
     ]

@@ -4,7 +4,8 @@ navigationTitle:  Tutorials
 title: Tutorials
 menuWeight: 140
 excerpt: Getting started with DC/OS 
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

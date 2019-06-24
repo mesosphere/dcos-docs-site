@@ -4,6 +4,8 @@ navigationTitle:  Version Policy
 title: Version Policy
 menuWeight: 5
 excerpt: DC/OS version lifecycle and compatibility matrix
+render: mustache
+model: /data.yml
 ---
 
 The Version Policy page was updated on April 5, 2019.
@@ -142,22 +144,22 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     </tr>
     <tr>
-        <td>Oracle Linux 7.6 (RHCK)</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td>Oracle Linux 7.6 </td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
     <tr>
-        <td>Oracle Linux 7.5 (RHCK)</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td>Oracle Linux 7.5 </td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
     <tr>
-        <td>Oracle Linux 7.4 (RHCK)</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td>Oracle Linux 7.4 </td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p>
     </tr>
 </table>
 

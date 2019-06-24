@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  Authentication Architecture
 excerpt: Understanding authentication operations
 title: Authentication Architecture
+render: mustache
+model: /data.yml
 menuWeight: 1
 ---
 

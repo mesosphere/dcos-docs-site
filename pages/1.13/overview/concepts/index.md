@@ -4,7 +4,8 @@ navigationTitle:  Concepts
 title: Concepts
 menuWeight: 5
 excerpt: Understanding DC/OS concepts and terms
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -160,7 +161,7 @@ A Marathon service consists of zero or more containerized service instances. Eac
     - Marathon pod instances map one-to-many with tasks.
 - Service instances are restarted as a new Mesos Task when they exit prematurely.
 - Service instances may be re-scheduled onto another agent node if they exit prematurely and the agent is down or does not have enough resources any more.
-- Services can be installed directly via the [DC/OS API (Marathon)](/1.13/deploying-services/marathon-api/) or indirectly via the [DC/OS Package Manager (Cosmos)](#package-manager) from a [package repository](#dcos-package-registry) like [Mesosphere Universe](#mesosphere-universe). The [DC/OS GUI](#dcos-gui) and [DC/OS CLI](#dcos-cli) may be used to interact with the DC/OS Package Manager (Cosmos) more easily.
+- Services can be installed directly via the [DC/OS API (Marathon)](/1.13/deploying-services/marathon-api/) or indirectly via the [DC/OS Package Manager (Cosmos)](#package-manager) from a [package repository](#dcos-package-registry) like [Mesosphere {{ model.packageRepo }}](#mesosphere-universe). The [DC/OS GUI](#dcos-gui) and [DC/OS CLI](#dcos-cli) may be used to interact with the DC/OS Package Manager (Cosmos) more easily.
 - A Marathon service may be a [DC/OS scheduler](#dcos-scheduler), but not all services are schedulers.
 - A Marathon service is an abstraction around Marathon service instances which are an abstraction around Mesos tasks. Other schedulers such as DC/OS Jobs (Metronome) or Jenkins have their own names for abstractions around Mesos tasks.
 
@@ -267,11 +268,11 @@ A DC/OS package registry is a repository of DC/OS packages. The [DC/OS Package M
 
 <a name="mesosphere-universe"></a>
 
-# Mesosphere Universe
+# Mesosphere {{ model.packageRepo }}
 
-The Mesosphere Universe is a public package registry, managed by Mesosphere.
+The Mesosphere {{ model.packageRepo }} is a public package registry, managed by Mesosphere.
 
-For more information, see the [Universe repository](https://github.com/mesosphere/universe) on GitHub.
+For more information, see the [{{ model.packageRepo }} repository](https://github.com/mesosphere/universe) on GitHub.
 
 <a name="container-registry"></a>
 

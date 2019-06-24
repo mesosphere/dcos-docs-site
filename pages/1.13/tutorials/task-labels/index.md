@@ -4,7 +4,8 @@ navigationTitle:  Labeling Tasks and Jobs
 title: Labeling Tasks and Jobs
 menuWeight: 5
 excerpt: Tutorial - Defining labels using the DC/OS web interface and the Marathon HTTP API
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

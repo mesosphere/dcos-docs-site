@@ -4,6 +4,8 @@ navigationTitle:  dcos task
 title: dcos task
 menuWeight: 16
 excerpt: Managing DC/OS tasks
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

@@ -4,6 +4,8 @@ navigationTitle: Patching
 title: Patching
 menuWeight: 20
 excerpt: Understanding cluster patches
+render: mustache
+model: /1.13/data.yml
 ---
 
 A DC/OS patch describes a set of changes and supporting data designed to update, fix, or improve the features/functionality of DC/OS. A point release that consists of minor changes is also called a patch.
@@ -173,8 +175,8 @@ Proceed with patching every master node one at a time in any order using the fol
         [enterprise type="inline" size="small" /]
 
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/1.13/release-notes/), for example `1.5.1`.
-	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
-	    ```bash
+1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
+    ```bash
         sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
         | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
@@ -183,8 +185,9 @@ Proceed with patching every master node one at a time in any order using the fol
         |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
         |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-		```
-		If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated.
+    ```
+
+    If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated.
 
 1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 
@@ -251,5 +254,5 @@ sudo journalctl -u dcos-mesos-slave
 
 ## Notes
 
-Packages available in the DC/OS 1.12 Universe are newer than those in the older versions of Universe. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve an existing state.
+Packages available in the DC/OS 1.12 {{ model.packageRepo }} are newer than those in the older versions of the {{ model.packageRepo }}. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve existing states.
 

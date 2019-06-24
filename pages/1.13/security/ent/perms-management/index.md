@@ -5,6 +5,8 @@ title: Permissions Management
 menuWeight: 30
 excerpt: Managing permissions
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

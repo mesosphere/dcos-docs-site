@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  Out-of-band Token Verification
 title: Out-of-band Token Verification
 excerpt: Verifying DC/OS Authentication tokens out-of-band
+render: mustache
+model: /data.yml
 menuWeight: 20
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

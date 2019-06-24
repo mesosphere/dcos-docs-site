@@ -4,7 +4,8 @@ navigationTitle:  dcos license list
 title: dcos license list
 menuWeight: 3
 excerpt: Displaying the cluster licenses
-
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

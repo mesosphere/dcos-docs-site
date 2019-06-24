@@ -5,6 +5,8 @@ title: dcos config show
 menuWeight: 2
 excerpt: Showing the cluster configuration file
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

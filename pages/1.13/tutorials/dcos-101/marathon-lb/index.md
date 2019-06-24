@@ -3,6 +3,8 @@ layout: layout.pug
 excerpt: Part 6 of the DC/OS 101 tutorial
 title: Tutorial -  Exposing Apps Publicly
 navigationTitle: Exposing Apps Publicly
+render: mustache
+model: /data.yml
 menuWeight: 6
 ---
 
@@ -42,13 +44,13 @@ You will revisit the topic of load balancing and the different choices for load 
   * Use the web form to add a new Key:Value pair
   * You can verify the new key was added in two ways:
     1. Check the total number of keys using app1: `dcos task log app1`
-    2. Check redis directly
-       *  [SSH](/1.13/administering-clusters/sshcluster/) into node where redis is running:
+    2. Check Redis directly
+       *  [SSH](/1.13/administering-clusters/sshcluster/) into node where Redis is running:
 
            ```bash
            dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
            ```
-       * Because Redis is running in a Docker container you can list all the Docker containers using `docker ps` and get the ContainerID of the redis task.
+       * Because Redis is running in a Docker container you can list all the Docker containers using `docker ps` and get the ContainerID of the Redis task.
        * Create a bash session in the running container using the ContainerID from the previous step: `sudo docker exec -i -t CONTAINER_ID  /bin/bash`.
        * Start the Redis CLI: `redis-cli`.
        * Check the value is there: `get <newkey>`.

@@ -4,6 +4,8 @@ navigationTitle:  Mount Disk Resources
 title: Mount Disk Resources
 menuWeight: 0
 excerpt: Using Mesos to mount storage resources
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -116,7 +118,7 @@ Please note that this example handles **adding** resources exclusively and can n
   "gpus": 0,
   "backoffSeconds": 1,
   "backoffFactor": 1.15,
-  "maxLaunchDelaySeconds": 3600,
+  "maxLaunchDelaySeconds": 300,
   "container": {
     "type": "DOCKER",
     "volumes": [

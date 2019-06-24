@@ -4,7 +4,8 @@ navigationTitle:  Stuck Deployments
 title: Stuck Deployments
 menuWeight: 30
 excerpt: Understanding offer matching and failed deployments
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

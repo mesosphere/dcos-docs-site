@@ -4,6 +4,8 @@ navigationTitle:  dcos node dns
 title: dcos node dns
 menuWeight: 6
 excerpt: Viewing DC/OS node information
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
