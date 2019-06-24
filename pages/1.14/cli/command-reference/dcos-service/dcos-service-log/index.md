@@ -41,4 +41,4 @@ dcos service log [--follow --lines=N --ssh-config-file=<path> --user=<user>] <se
 
 | Command | Description |
 |---------|-------------|
-| [dcos service](/1.13/cli/command-reference/dcos-service/)   | Manage DC/OS services. |
+| [dcos service](/1.14/cli/command-reference/dcos-service/)   | Manage DC/OS services. |

@@ -66,10 +66,10 @@ dcos cluster list --json
 ]
 ```
 
-For more examples, see [Cluster Connections](/1.13/administering-clusters/multiple-clusters/cluster-connections/).
+For more examples, see [Cluster Connections](/1.14/administering-clusters/multiple-clusters/cluster-connections/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster](/1.13/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
+| [dcos cluster](/1.14/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
