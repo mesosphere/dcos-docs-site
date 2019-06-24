@@ -4,6 +4,8 @@ navigationTitle:  Configuration
 title: Configuration
 menuWeight: 5
 excerpt: Configuring your DC/OS parameters using a YAML file
+render: mustache
+model: /1.13/data.yml
 ---
 
 
@@ -81,6 +83,6 @@ See the [configuration reference](/1.13/installing/production/advanced-configura
 
 # Configure DC/OS for Proxy
 
-By default, the DC/OS [Universe](https://github.com/mesosphere/universe) repository is hosted on the internet. If your DC/OS cluster is behind a corporate proxy, you must specify your proxy configuration in the [configuration file](/1.13/installing/production/advanced-configuration/configuration-reference/#use-proxy) file before installation. This will enable your cluster to connect to the Universe packages.
+By default, the DC/OS [{{ model.packageRepo }}](https://github.com/mesosphere/{{ model.packageRepo }}) repository is hosted on the internet. If your DC/OS cluster is behind a corporate proxy, you must specify your proxy configuration in the [configuration file](/1.13/installing/production/advanced-configuration/configuration-reference/#use-proxy) file before installation. This will enable your cluster to connect to the {{ model.packageRepo }} packages.
 
 <p class="message--note"><strong>NOTE: </strong>You should also configure an HTTP proxy for <a href="https://docs.docker.com/engine/admin/systemd/#/http-proxy">Docker</a>.</p>
