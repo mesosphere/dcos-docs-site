@@ -21,7 +21,7 @@ Mesos-DNS 为在 DC/OS 上运行的 Mesos 任务定义 DNS 顶级域 `.mesos`。
 
 # <a name="a-records"></a>A 记录
 
-A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任务时，Mesos-DNS 以可提供以下任一内容的格式 `<task>.<service>.mesos` 为主机名生成 A 记录：
+A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任务时，Mesos-DNS 以可提供以下任一内容的 `<task>.<service>.mesos` 格式为主机名生成 A 记录：
 
 * 正在运行此任务的 [代理节点][1] 的 IP 地址
 * 此任务的网络容器的 IP 地址（由 Mesos 容器化工具提供）
@@ -60,7 +60,7 @@ A 记录将主机名与一个 IP 地址关联。当 DC/OS 服务启动一个任�
 ```
 除了上面显示的 `<task>.<service>.mesos` 语法之外，Mesos-DNS 还生成 A 记录，其中包含运行任务的代理节点 IP 地址：`<task>.<service>.slave.mesos`。
 
-例如，查询 `search.marathon.slave.mesos` 的 A 记录显示在 `marathon` 服务上运行 `search` 应用程序一个或多个实例的每个代理节点的 IP 地址。
+例如，查询 `search.marathon.slave.mesos` 的 A 记录显示在 `marathon` 服务上运行 `search` 应用程序的一个或多个实例的每个代理节点的 IP 地址。
 
 # <a name="srv-records"></a>SRV 记录
 
@@ -207,7 +207,7 @@ Mesos-DNS 生成一些特殊记录：
 
 <p class="message--important"><strong>重要信息：</strong>要查询领导管理节点，应始终查询"leader.mesos"，而不是"master.mesos"。如需更多信息，请参阅 <a href="/cn/1.12/networking/DNS/mesos-dns/troubleshooting/#leader">此 FAQ 条目</a>。</p>
 
-选者新管理节点和更新 Mesos-DNS 中的领导者/管理节点记录之间存在延迟。Mesos-DNS 还支持 Mesos 域的 SOA 和 NS 记录请求。对 Mesos 域中其他类型记录的 DNS 请求将返回 `NXDOMAIN`。Mesos-DNS 不支持反向查找所需的 PTR 记录。Mesos-DNS 还会为自己生成 A 记录，列出了 Mesos-DNS 将答复查找请求的所有 IP 地址。这些 A 记录的主机名是 `ns1.mesos`。
+选者新管理节点和更新 Mesos-DNS 中的首要/管理节点记录之间存在延迟。Mesos-DNS 还支持 Mesos 域的 SOA 和 NS 记录请求。对 Mesos 域中其他类型记录的 DNS 请求将返回 `NXDOMAIN`。Mesos-DNS 不支持反向查找所需的 PTR 记录。Mesos-DNS 还会为自己生成 A 记录，列出了 Mesos-DNS 将答复查找请求的所有 IP 地址。这些 A 记录的主机名是 `ns1.mesos`。
 
 # <a name="naming-conventions"></a>任务和服务命名约定
 
@@ -227,7 +227,7 @@ Mesos-DNS 遵循关于名称格式化的 [RFC 1123][3]。用于构建 A 记录�
 
 您可以获得在 DC/OS 群集节点上运行的应用程序的综合列表。
 
-**前提条件：** [DC/OS 和 DC/OS CLI](/cn/1.12/installing/) 已安装。
+**先决条件：** [DC/OS 和 DC/OS CLI](/cn/1.12/installing/) 已安装。
 
 1. SSH 到您的节点。例如，使用以下命令对管理节点执行 [SSH]：
 
