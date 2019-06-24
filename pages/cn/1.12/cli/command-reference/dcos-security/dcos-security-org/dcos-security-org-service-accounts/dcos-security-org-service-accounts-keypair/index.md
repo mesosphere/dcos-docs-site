@@ -9,11 +9,7 @@ enterprise: true
 
 # 说明
 
-<<<<<<< HEAD
 `dcos security org service-accounts keypair` 命令让您创建用于服务帐户的公钥-私钥对。
-=======
-`dcos security org service-accounts keypair` 命令允许您创建用于服务帐户的公钥-私钥对。
->>>>>>> staging
 
 # 使用
 

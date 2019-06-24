@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 命令参考
-title: 命令参考
+navigationTitle:  Command Reference
+title: Command Reference
 menuWeight: 10
 excerpt: 探索 DC/OS 独有的命令
 enterprise: false

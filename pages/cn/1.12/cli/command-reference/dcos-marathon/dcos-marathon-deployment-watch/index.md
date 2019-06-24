@@ -10,11 +10,7 @@ enterprise: false
 
 # 说明
 
-<<<<<<< HEAD
 `dcos marathon deployment watch` 命令让您可以监控部署。
-=======
-`dcos marathon deployment watch` 命令允许您监控部署。
->>>>>>> staging
 
 # 使用
 

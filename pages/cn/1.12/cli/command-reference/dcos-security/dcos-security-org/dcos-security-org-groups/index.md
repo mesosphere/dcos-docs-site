@@ -8,11 +8,7 @@ enterprise: true
 ---
 # 说明
 
-<<<<<<< HEAD
 `dcos security org groups` 命令让您管理用户组和组成员。
-=======
-`dcos security org groups` 命令允许您管理用户组和组成员。
->>>>>>> staging
 
 
 

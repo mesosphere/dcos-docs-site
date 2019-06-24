@@ -8,11 +8,7 @@ enterprise: false
 ---
 
 # 说明
-<<<<<<< HEAD
 `dcos package search` 命令让您可以搜索软件包存储库。
-=======
-`dcos package search` 命令允许您搜索软件包存储库。
->>>>>>> staging
 
 # 使用
 

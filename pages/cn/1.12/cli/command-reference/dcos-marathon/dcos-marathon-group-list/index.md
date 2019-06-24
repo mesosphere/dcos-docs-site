@@ -10,11 +10,7 @@ enterprise: false
 
 # 说明
 
-<<<<<<< HEAD
 `dcos marathon group list` 命令让您可以查看组列表。
-=======
-`dcos marathon group list` 命令允许您查看组列表。
->>>>>>> staging
 
 # 使用
 

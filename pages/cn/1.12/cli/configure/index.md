@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: 配置 CLI
-title: 配置 CLI
+navigationTitle:  Configuring the CLI
+title: Configuring the CLI
 menuWeight: 2
 excerpt: 配置命令行界面
+
 enterprise: false
 ---
 

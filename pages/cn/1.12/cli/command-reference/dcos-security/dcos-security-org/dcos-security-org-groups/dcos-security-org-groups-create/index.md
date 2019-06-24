@@ -7,11 +7,7 @@ excerpt: 创建用户组
 enterprise: true
 ---
 # 说明
-<<<<<<< HEAD
 `dcos security org groups create` 命令让您可以创建新组。
-=======
-`dcos security org groups create` 命令允许您创建新组。
->>>>>>> staging
 
 # 使用
 

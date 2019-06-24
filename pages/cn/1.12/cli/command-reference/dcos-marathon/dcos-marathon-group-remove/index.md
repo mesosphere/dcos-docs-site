@@ -10,11 +10,7 @@ enterprise: false
 
 # 说明
 
-<<<<<<< HEAD
 `dcos marathon group remove` 命令让您可以从 DC/OS 中删除应用程序。
-=======
-`dcos marathon group remove` 命令允许您从 DC/OS 中删除应用程序。
->>>>>>> staging
 
 # 使用
 

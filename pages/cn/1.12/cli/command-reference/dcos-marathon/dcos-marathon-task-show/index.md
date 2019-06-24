@@ -9,11 +9,7 @@ enterprise: false
 
 
 # 说明
-<<<<<<< HEAD
 `dcos marathon task show` 命令可以让您列出特定任务。
-=======
-`dcos marathon task show` 命令允许您列出特定任务。
->>>>>>> staging
 
 # 使用
 

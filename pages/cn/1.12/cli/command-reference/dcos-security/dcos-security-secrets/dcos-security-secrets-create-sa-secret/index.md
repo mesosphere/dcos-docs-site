@@ -31,11 +31,7 @@ dcos security secrets create-sa-secret [OPTIONS] SA_PRIVATE_KEY SA_UID SECRET_PA
 |---------|-------------|
 | `SA_PRIVATE_KEY` | 属于服务帐户的私钥。 |
 | `SA_UID` | 服务帐户用户 ID。 |
-<<<<<<< HEAD
 | `SECRET_PATH` | 密钥路径让您可限制哪些服务可以检索值。 |
-=======
-| `SECRET_PATH` | 密钥路径允许您限制哪些服务可以检索值。 |
->>>>>>> staging
 
 # 父命令
 

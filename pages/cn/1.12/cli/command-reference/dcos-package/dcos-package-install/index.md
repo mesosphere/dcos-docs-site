@@ -10,11 +10,7 @@ enterprise: false
 
 
 # 说明
-<<<<<<< HEAD
 `dcos package install` 命令让您可以安装软件包。
-=======
-`dcos package install` 命令允许您安装软件包。
->>>>>>> staging
 
 # 使用
 
@@ -33,11 +29,7 @@ dcos package install <package-name> [(--cli [--global]) | --app] [--package-vers
 | `--global` | 安装所有已配置群集的子命令。 |
 | `--options=<file>` | 包含自定义软件包安装选项的 JSON 文件路径。|
 | `--package-version=<package-version>` | 包版本。|
-<<<<<<< HEAD
 |  `--yes` | 禁用交互模式并假设“是”是回答所有提示符的答案。|
-=======
-|  `--yes` | 禁用交互模式并假设“是”是所有提示的答案。|
->>>>>>> staging
 
 ## 位置自变量
 

@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  扩展CLI
-title: 扩展CLI
+navigationTitle:  CLI Plugins
+title: CLI Plugins
 menuWeight: 5
 excerpt: 如何扩展命令行界面
+
 enterprise: false
 ---
 

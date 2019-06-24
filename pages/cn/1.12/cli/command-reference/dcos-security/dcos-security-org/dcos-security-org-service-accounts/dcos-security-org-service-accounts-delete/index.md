@@ -9,11 +9,7 @@ enterprise: true
 
 # 说明
 
-<<<<<<< HEAD
 `dcos security org service-accounts delete` 命令让您删除由服务帐户 ID (SID) 标识的服务帐户。
-=======
-`dcos security org service-accounts delete` 命令允许您删除由服务帐户 ID (SID) 标识的服务帐户。
->>>>>>> staging
 
 # 使用
 
