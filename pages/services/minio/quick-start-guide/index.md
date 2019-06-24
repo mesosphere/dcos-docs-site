@@ -6,6 +6,7 @@ menuWeight: 2
 excerpt: How to use Minio with DC/OS
 model: /services/minio/data.yml
 render: mustache
+community: true
 ---
 
 # How to use {{ model.techName }} with DC/OS 

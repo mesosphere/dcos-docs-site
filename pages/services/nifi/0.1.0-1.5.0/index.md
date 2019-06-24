@@ -5,7 +5,7 @@ title: NiFi 0.1.0-1.5.0
 menuWeight: 3
 excerpt: Overview of DC/OS Apache NiFi 0.1.0-1.5.0
 featureMaturity:
-enterprise: false
+community: true
 ---
 
 Apache NiFi is a dataflow system based on the concepts of flow-based programming. It supports powerful and scalable directed graphs of data routing, transformation and system mediation logic. Apache NiFi uses a web-based interface for design, control, feedback, and monitoring of dataflows. It is highly configurable along several dimensions of quality of service, such as loss-tolerant versus guaranteed delivery, low latency versus high throughput, and priority-based queuing. Apache NiFi provides fine-grained data provenance for all data received, forked, joined, cloned, modified, sent and ultimately dropped upon reaching its configured end-state.

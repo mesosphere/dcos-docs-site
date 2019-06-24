@@ -5,7 +5,7 @@ title: Prometheus
 menuWeight: 87
 excerpt:
 featureMaturity:
-enterprise: false
+community: true
 category: Monitoring
 ---
 

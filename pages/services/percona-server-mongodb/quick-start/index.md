@@ -5,7 +5,7 @@ title: Configuring DC/OS access for Percona-Server-MongoDB
 menuWeight: 100
 excerpt: How to use Percona-Server-MongoDB with DC/OS
 featureMaturity:
-enterprise: false
+community: true
 model: /services/percona-server-mongodb/data.yml
 render: mustache
 ---

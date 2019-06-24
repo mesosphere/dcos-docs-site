@@ -4,6 +4,7 @@ navigationTitle: Configuring DC/OS access for Prometheus
 excerpt: How to use Prometheus with DC/OS
 title: Configuring DC/OS access for Prometheus
 menuWeight: 3
+community: true
 ---
 
 This section will explain how to configure Prometheus for use with DC/OS.

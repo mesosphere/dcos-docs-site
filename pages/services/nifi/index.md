@@ -5,7 +5,7 @@ title: NiFi
 menuWeight: 82
 excerpt:
 featureMaturity:
-enterprise: false
+community: true
 category: Analytics
 ---
 

@@ -5,7 +5,7 @@ title: Spinnaker
 menuWeight: 100
 excerpt:
 featureMaturity:
-enterprise: false
+community: true
 model: /services/spinnaker/data.yml
 render: mustache
 category: CI/CD

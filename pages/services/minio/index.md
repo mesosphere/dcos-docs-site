@@ -5,7 +5,7 @@ title: Minio
 menuWeight: 81
 excerpt: DC/OS Minio is an automated service that makes it easy to deploy and manage Minio on Mesosphere DC/OS.
 featureMaturity:
-enterprise: false
+community: true
 render: mustache
 model: /services/minio/data.yml
 category: Storage
