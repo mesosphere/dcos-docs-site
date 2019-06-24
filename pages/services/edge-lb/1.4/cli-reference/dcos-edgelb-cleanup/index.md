@@ -58,8 +58,4 @@ Deleted ELB dcos-lb-GxuaBjPhx-Q8ayl-LwW1-HJG
 1/1 ELBs are deleted
 ```
 
-<<<<<<< HEAD
 For more information, see [Uninstalling](../../uninstalling/) and [Edge-LB Usage](../../usage/).
-=======
-For more information, see [Uninstalling](../../uninstalling/) and [Edge-LB Usage](../../usage/).
->>>>>>> LG/DCOS-55145-edgelb-diag
