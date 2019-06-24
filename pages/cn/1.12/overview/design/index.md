@@ -6,4 +6,4 @@ navigationTitle: 设计
 menuWeight: 10
 ---
 
-本节介绍特定 DC/OS 工程实现的技术细节。
+本节介绍特定 DC/OS 工程应用的技术细节。
