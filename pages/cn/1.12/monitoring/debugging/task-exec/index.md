@@ -167,7 +167,7 @@ enterprise: false
             "cpus": 0.01,
             "disk": 0,
             "env": {},
-            "maxLaunchDelaySeconds": 3600,
+            "maxLaunchDelay": 3600,
             "mem": 32,
             "placement": {
               "constraints": []

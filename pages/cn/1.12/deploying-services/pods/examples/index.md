@@ -328,7 +328,7 @@ enterprise: false
 |  `scheduling` | 对象 | 定义故障应用程序的指数退避行为，防止沙箱填满。 |
 |  `scheduling.backoff` | 数字 | 启动实例失败时应用的初始退避（秒）（默认值：1）。|
 |  `scheduling.backoffFactor` | 数字 | 应用于当前退避的因数，可确定新的退避（默认值：1.15）。|
-|  `scheduling.maxLaunchDelaySeconds` | 数字 | 检测到后续故障时应用的最大退避（秒）（默认值：3600）。|
+|  `scheduling.maxLaunchDelay` | 数字 | 检测到后续故障时应用的最大退避（秒）（默认值：3600）。|
 |  `scheduling.unreachableStrategy` | 字符串或对象 | 定义不可访问实例的处理。 |
 |  `scheduling.unreachableStrategy.inactiveAfterSeconds` | 数字 | 实例被标记为非活动后无法访问的时长。 |
 |  `scheduling.unreachableStrategy.expungeAfterSeconds` | 数字 | 实例被排除后无法访问的时长。 |
@@ -436,7 +436,7 @@ enterprise: false
       "backoff":{
          "backoff":1,
          "backoffFactor":1.15,
-         "maxLaunchDelaySeconds":3600
+         "maxLaunchDelay":3600
       },
       "upgrade":{
          "minimumHealthCapacity":1,
@@ -525,7 +525,7 @@ enterprise: false
     "backoff": {
       "backoff": 1,
       "backoffFactor": 1.15,
-      "maxLaunchDelaySeconds": 3600
+      "maxLaunchDelay": 3600
     },
     "upgrade": {
       "minimumHealthCapacity": 1,
@@ -697,7 +697,7 @@ enterprise: false
     "backoff": {
       "backoff": 1,
       "backoffFactor": 1.15,
-      "maxLaunchDelaySeconds": 3600
+      "maxLaunchDelay": 3600
     },
     "upgrade": {
       "minimumHealthCapacity": 1,
