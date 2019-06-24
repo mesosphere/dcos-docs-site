@@ -30,7 +30,7 @@ enterprise: true
 | `dcos:mesos:master:task:app_id[:<service-or-job-group>]`<br> 控制运行任务的访问权限。| | x | | | |
 
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS 和 DC/OS CLI [已安装](/1.12/installing/)，您以超级用户身份登录。
 
@@ -114,7 +114,7 @@ enterprise: true
 
 # 通过 IAM API
 
-**前提条件：**
+**先决条件：**
 您必须 [获取根证书](/1.12/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
 
 ### 提示

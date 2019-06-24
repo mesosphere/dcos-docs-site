@@ -16,7 +16,7 @@ enterprise: true
 |----------------------------|------|---|---|---|---|
 | `dcos:adminrouter:ops:system-logs` <br>控制对 [系统日志 API] (/1.12/api/master-routes/#system) 的访问。| x | | | | |
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS 和 DC/OS CLI [已安装](/1.12/installing/)，您以超级用户身份登录。
 
@@ -76,7 +76,7 @@ enterprise: true
 
 # 通过 IAM API
 
-**前提条件：**
+**先决条件：**
 您必须 [获取根证书](/1.12/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
 
 ### 提示
