@@ -10,20 +10,20 @@ menuWeight: 1
 
 # 概述
 
-对于某些有状态的服务，如 Jenkins，可以方便地将共享网络驱动器挂载到每个节点。如果使用中的节点不可用，则共享网络驱动器可以在新节点上启动任务。
+对于某些有状态的服务，如 Jenkins，可以方便地将共享网络硬盘挂载到每个节点。如果使用中的节点不可用，则共享网络硬盘可以在新节点上启动任务。
 
-<p class="message--note"><strong>注意：</strong>此示例使用 CorEos 和 <code>systemd</code>，且尚未在其他环境中进行测试。</p>
+<p class="message--note"><strong>注意：</strong>此示例使用 CoreOS 和 <code>systemd</code>，且尚未在其他环境中进行测试。</p>
 
 
 ### 注意
 
-- 这些说明是 CorEos 特定的。
-- 这不是 HA NFS 服务器。它在单个主节点上运行，只能用作概念证明。
-- 如果您有权访问预先存在的 NFS 或其他网络存储，请跳转到[配置代理程序以挂载驱动器
+- 这些说明是 CoreOS 特定的。
+- 这不是 HA NFS 服务器。它在单个管理节点上运行，只能用作概念证明。
+- 如果您有权访问预先存在的 NFS 或其他网络存储，请跳转到[配置代理程序以挂载硬盘
 ](#agent)。
-### 使用文件共享配置主节点
+### 使用文件共享配置管理节点
 
-1. 使用 DC/OS 命令行界面登录主节点：
+1. 使用 DC/OS 命令行界面登录管理节点：
 
     ```bash
     dcos node ssh --master-proxy --leader
@@ -75,7 +75,7 @@ menuWeight: 1
     dcos node ssh --master-proxy --mesos-id=68ded4c8-8808-4a41-b460-7171355b2037-S0
     ```
 
-1. 使新文件夹挂载如：
+1. 建立新文件夹以挂载入文件夹：
 
     ```bash
     sudo mkdir /mnt/data
