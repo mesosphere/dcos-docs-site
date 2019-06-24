@@ -8,7 +8,7 @@ excerpt: 使用 Marathon  API 管理长期运行的容器化服务
 enterprise: true
 ---
 
-Marathon API 帮助您管理长期运行的容器化服务（应用程序和 pod）。Marathon API 接受在管理节点上运行的 [Marathon 组件](/cn/1.12/overview/architecture/components/#marathon) 备份。其中一个 Marathon 实例被选为首要实例，而其余实例则是在发生故障时的热备份。所有 API 请求都必须经过 Marathon 首要实例。为执行该原则，Admin Router 代理会从任何管理节点向 Marathon 首要实例发出请求。
+Marathon API 帮助您管理长期运行的容器化服务（应用程序和 pod）。Marathon API 由管理节点上运行的 [Marathon 组件](/cn/1.12/overview/architecture/components/#marathon) 支持。其中一个 Marathon 实例被选为首要实例，而其余实例则是在发生故障时的热备份。所有 API 请求都必须经过 Marathon 首要实例。为执行该原则，Admin Router 代理会从任何管理节点向 Marathon 首要实例发出请求。
 
 有关使用 Marathon 的更多信息，请参阅 [部署服务和 Pod](/cn/1.12/deploying-services/)。
 
@@ -22,7 +22,7 @@ Marathon API 帮助您管理长期运行的容器化服务（应用程序和 pod
 
 ## 身份认证
 
-使用所有 Marathon  API 路由都需要认证。要验证 API 请求，请参阅 [获取认证令牌](/cn/1.12/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/cn/1.12/security/ent/iam-api/#passing-an-authentication-token)。Marathon API 还需要通过以下权限授权：
+使用所有 Marathon  API 路由都需要认证方可使用。要验证 API 请求，请参阅 [获取认证令牌](/cn/1.12/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/cn/1.12/security/ent/iam-api/#passing-an-authentication-token)。Marathon API 还需要通过以下权限授权：
 
 | 路由 | 权限 |
 |-------|----------|

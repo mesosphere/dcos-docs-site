@@ -19,7 +19,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
 1. 使用 [自定义高级安装说明](/cn/1.12/installing/oss/custom/advanced/) 安装 DC/OS 。以下是 GPU 特定的配置参数：
 
  - **enable_gpu_isolation**：指示是否在 DC/OS 中启用 GPU 支持。默认设置为 `enable_gpu_isolation: 'true'`。
- - **gpus_are_scarce**：指示是否将 GPU 作为群集中的稀缺资源。默认设置为 `gpus_are_scarce: 'true'`，这意味着 DC/OS 仅为配置为占用 GPU 资源的服务保留 GPU 节点。值得注意的是，此设置将影响在 DC/OS 的哪些代理节点部署 GPU 感知框架。此设置不影响框架在运行时可能启动的具体任务。框架可以在有 GPU 的代理节点上安排非 GPU 任务。
+ - **gpus_are_scarce**：指示是否将 GPU 作为群集中的稀缺资源。默认设置为 `gpus_are_scarce: 'true'`，这意味着 DC/OS 仅为配置为使用 GPU 资源的服务专门保留 GPU 节点。值得注意的是，此设置将影响在 DC/OS 的哪些代理节点部署 GPU 感知框架。此设置不影响框架在运行时可能启动的具体任务。框架可以在有 GPU 的代理节点上安排非 GPU 任务。
 
  有关更多信息，请参阅 [配置参数文档](/cn/1.12/installing/oss/custom/configuration/configuration-parameters/#enable-gpu-isolation) 和 Mesos [Nvidia GPU 支持文档](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies)。
 
@@ -41,7 +41,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
 
 1. 请根据 [此处](/cn/1.12/installing/oss/cloud/aws/advanced/) 说明，使用以下 GPU 专用配置创建具有高级 AWS 模板的群集。
 
-1. 在 **创建堆栈** > **指定详情**页面指定您的堆栈信息并单击 **下一步**。以下是 GPU 特定设置。
+1. 在 **创建堆栈** > **指定详情** 页面指定您的堆栈信息并单击 **下一步**。以下是 GPU 特定设置。
 
     - **自定义 AMI** - 为您所在地区指定自定义 AMI：
 
@@ -53,7 +53,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
     - **PrivateAgentInstanceType** - 指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如 `g2.2xlarge`）。
     - **PublicAgentInstanceType** - 指定 [AWS GPU 机器类型](https://aws.amazon.com/ec2/instance-types/#p2) （例如 `g2.2xlarge`）。
 
-1. 在 **选项** 页面，接受默认值，然后单击 **下一步**。您可以选择是否退回查看故障。默认情况下，此选项设置为 **是**。
+1. 在 **选项** 页面，接受默认值，然后单击 **下一步**。您可以选择是否在故障时回滚。默认情况下，此选项设置为 **是**。
 
 1. 在 **查看** 页面勾选确认框，然后单击 **创建**。如果显示 **创建新堆栈** 页面，要么是 AWS 仍在处理您的请求，要么就是您查看的是其他分域。导航至正确的分域并刷新页面以查看您的堆栈。
 
@@ -90,7 +90,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
     dcos marathon app add simple-gpu-test.json
     ```
 
- 服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/cn/1.12/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务 **健康** 页面访问日志。
+ 服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/cn/1.12/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务的 **运行状况** 页面访问日志。
 
     ```bash
     +------------------------------------------------------+
@@ -136,7 +136,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
     dcos marathon app add docker-gpu-test.json
     ```
 
-    服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/cn/1.12/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务 **健康** 页面访问日志。
+    服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/cn/1.12/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务 **运行状况** 页面访问日志。
 
     ```
     +------------------------------------------------------+
