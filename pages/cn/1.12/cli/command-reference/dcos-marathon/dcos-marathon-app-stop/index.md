@@ -11,11 +11,7 @@ enterprise: false
 
 # 说明
 
-<<<<<<< HEAD
 `dcos marathon app stop` 命令让您可以停止应用程序。
-=======
-`dcos marathon app stop` 命令允许您停止应用程序。
->>>>>>> staging
 
 # 使用
 
@@ -40,11 +36,7 @@ dcos marathon app stop [--force] <app-id>
 
 # 示例
 
-<<<<<<< HEAD
 在以下示例中，我们首先运行 `dcos marathon app list`，获取当前部署的应用程序列表。运行命令 `dcos marathon app stop <app-id>` 后，系统返回部署编号。但是，要确认应用程序是否已经停止，请再次运行 `dcos marathon app list`。这次如果您看到 Kafka 应用程序显示零任务并无运行状况，即表示已停止。
-=======
-在以下示例中，我们首先运行 `dcos marathon app list`，获取当前部署的应用程序列表。运行命令 `dcos marathon app stop <app-id>` 后，系统返回部署编号。但是，要确认应用程序是否已经停止，请再次运行 `dcos marathon app list`。这次如果您看到 Kafka 应用程序显示零任务和零运行状况，即表示已停止。
->>>>>>> staging
 
 ```bash
 ~$ dcos marathon app list

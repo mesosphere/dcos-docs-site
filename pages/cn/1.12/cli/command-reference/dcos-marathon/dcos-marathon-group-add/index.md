@@ -10,11 +10,7 @@ enterprise: false
 
 # 说明
 
-<<<<<<< HEAD
 `dcos marathon group add` 命令让您可以添加 Marathon 组。
-=======
-`dcos marathon group add` 命令允许您添加 Marathon 组。
->>>>>>> staging
 
 # 使用
 
@@ -33,11 +29,7 @@ dcos marathon group add [<group-resource>]
 
 | 名称 | 说明 |
 |---------|-------------|
-<<<<<<< HEAD
 | `<group-resource>` | 包含组的 JSON 定义的文件或 HTTP(S) URL 路径。如果省略，则从 `stdin` 中读取定义。有关详细说明，请参阅[文档](/cn/1.12/deploying-services/marathon-api/)。|
-=======
-| `<group-resource>` | 包含组的 JSON 定义的文件或 HTTP(S) URL 路径。如果遗漏，则从 `stdin` 中读取定义。有关详细说明，请参阅[文档](/cn/1.12/deploying-services/marathon-api/)。|
->>>>>>> staging
 
 # 父命令
 
