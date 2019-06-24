@@ -8,6 +8,7 @@ if pageHierarchy.children.length > 0
       - var labels = [];
       - labels = (val.enterprise) ? [...labels, 'ENTERPRISE'] : labels
       - labels = (val.oss) ? [...labels, 'OPEN SOURCE'] : labels
+      - labels = (val.community) ? [...labels, 'COMMUNITY'] : labels
       - labels = (val.beta) ? [...labels, 'BETA'] : labels
       - labels = (val.experimental) ? [...labels, 'EXPERIMENTAL'] : labels
       a(href=val.path, class='grid__item')
@@ -20,6 +21,7 @@ if pageHierarchy.children.length > 0
                 - var labelClass =  {}
                 - labelClass['grid__label'] = true
                 - labelClass['grid__label--oss'] = label === 'OPEN SOURCE'
+                - labelClass['grid__label--community'] = label === 'COMMUNITY'
                 - labelClass['grid__label--enterprise'] = label === 'ENTERPRISE'
                 - labelClass['grid__label--beta'] = label === 'BETA'
                 - labelClass['grid__label--preview'] = label === 'PREVIEW'

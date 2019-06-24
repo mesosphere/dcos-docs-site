@@ -9,6 +9,8 @@ main(class='content')
         h1(class='content__header-title')!= title
         if oss
           p(class='badge badge--content-header badge--oss') OPEN SOURCE
+        if community
+          p(class='badge badge--content-header badge--community') COMMUNITY
         if enterprise
           p(class='badge badge--content-header badge--enterprise') ENTERPRISE
         if beta
