@@ -193,11 +193,7 @@ dcos task log --completed <job-run-id>
 
 您还可以通过 API 创建和管理作业。[在此查看完整的 API](http://dcos.github.io/metronome/docs/generated/api.html)。
 
-<<<<<<< HEAD
 <p class="message--important"><strong>重要信息：</strong>DC/OS CLI 和 Web 界面支持组合 JSON 格式（通过 <code>/v0</code> 端点访问），让您可以在作业描述符中指定计划。若要通过 API 计划作业，请使用两个调用：一个添加未计划的作业，另一个用于将 <code><schedule-file>.json</code> 与作业关联。</p>
-=======
-<p class="message--important"><strong>重要信息：</strong>DC/OS CLI 和 Web 界面支持组合 JSON 格式（通过 <code>/v0</code> 端点访问），允许您在作业描述符中指定计划。若要通过 API 计划作业，请使用两个调用：一个添加未计划的作业，另一个用于将 <code><schedule-file>.json</code> 与作业关联。</p>
->>>>>>> staging
 
 ## 添加作业
 
