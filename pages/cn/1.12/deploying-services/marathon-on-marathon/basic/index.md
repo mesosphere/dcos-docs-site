@@ -7,9 +7,9 @@ excerpt: 使用基础非本地 Marathon 实例
 enterprise: true
 ---
 
-本专题描述了如何部署具有独立角色、保留和配额的非本地 Marathon 实例。本程序不支持 [密钥](/cn/1.12/security/ent/secrets/) 或细粒度 ACL。如果需要这些功能，您必须使用自定义非本地 Marathon [程序](/cn/1.12/deploying-services/marathon-on-marathon/advanced/)。
+本专题描述了如何部署具有独立角色、保留和配额的非本地 Marathon 实例。此步骤不支持 [密钥](/cn/1.12/security/ent/secrets/) 或细粒度 ACL。如果需要这些功能，您必须使用自定义非本地 Marathon [程序](/cn/1.12/deploying-services/marathon-on-marathon/advanced/)。
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS 和 DC/OS CLI [已安装](/cn/1.12/installing/)。
 - [DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.12/cli/enterprise-cli/#ent-cli-install)。
@@ -17,11 +17,11 @@ enterprise: true
 - 对群集的 SSH 访问。
 
 # 第 1 步 - 保留资源
-在此步骤中，保留 Mesos 资源。选择 [静态](#static-reservations) 或 [动态](#dynamic-reservations) 保留的程序。
+在此步骤中，保留 Mesos 资源。选择 [静态](#static-reservations) 或 [动态](#dynamic-reservations) 保留的步骤。
 
 ## 静态保留
 
-<p class="message--warning"><strong>警告：</strong>此程序将关闭节点上运行的所有任务。</p>
+<p class="message--warning"><strong>警告：</strong>此步骤将关闭节点上运行的所有任务。</p>
 </tr> 
 </table>
 
@@ -32,7 +32,7 @@ enterprise: true
    dcos node ssh --master-proxy --mesos-id=<agent-id>
    ```
 
-1. 导航至 `/var/lib/dcos` 并创建一个名为 `mesos-slave-common` 且使用这些内容的文件，其中 `<myrole>` 是您的角色名称。
+1. 导航至 `/var/lib/dcos` 并创建一个名为 `mesos-slave-common` ，且使用这些内容的文件，其中 `<myrole>` 是您的角色名称。
     ```bash
     MESOS_DEFAULT_ROLE='<myrole>'
     ```
@@ -160,7 +160,7 @@ curl -i -k \
 # 第 4 步 - 分配权限（仅限严格模式）
 在此步骤中，权限被分配至 Marathon-on-Marathon 实例。在严格模式下需要权限，而在宽容安全模式将其忽略即可。
 
-所有 CLI 命令也可通过 [IAM API] 执行(/cn/1.12/security/ent/iam-api/)。
+所有 CLI 命令也可通过 [IAM API](/cn/1.12/security/ent/iam-api/) 执行。
 
 | 安全模式 | 权限 |
 |---------------|----------------------|
@@ -169,7 +169,7 @@ curl -i -k \
 
 
 授予用户 `<uid>` 权限，启动作为 Linux 用户 `nobody` 执行的 Mesos 任务。
-要允许作为不同 Linux 用户执行任务，请替换 `nobody` 为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请替换 `nobody` 为以下的 `bob`。
+要允许作为不同 Linux 用户执行任务，请将 `nobody` 替换为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请将 `nobody` 替换为以下的 `bob`。
 请注意， `nobody` 和 `root` 是默认出现在所有代理上的，但如果指定自定义 `bob` 用户，必须在可以执行这些任务的每个代理上手动创建（使用 `adduser` 或类似实用程序）。
 
 ```bash

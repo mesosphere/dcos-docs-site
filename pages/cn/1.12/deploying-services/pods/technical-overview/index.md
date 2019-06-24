@@ -8,13 +8,13 @@ enterprise: false
 ---
 
 
-Pod 是特殊类型的 Mesos 任务组，而 pod 中的任务或容器是组成员。通过 [Mesos 启动组](https://github.com/apache/mesos/blob/cfeabec58fb2a87076f0a2cf4d46cdd02510bce4/docs/executor-http-api.md#launch-group)指令，将 pod 实例的容器一起彻底启动。
+Pod 是特殊类型的 Mesos 任务组，而 pod 中的任务或容器是组成员。通过 [Mesos 启动组](https://github.com/apache/mesos/blob/cfeabec58fb2a87076f0a2cf4d46cdd02510bce4/docs/executor-http-api.md#launch-group) 指令，将 pod 实例的容器一起单个启动。
 
 DC/OS 作为单一服务处理并展示 pod。pod 共享网络命名空间中的容器和临时卷。您可以通过 pod 定义配置 pod，这类似于 Marathon 应用定义。然而 Pod 和应用定义之间有一些差异。例如：
 
 - 您必须指定端点（不是端口号），以便其他应用程序与 Pod 通信。
 - Pod 具有单独的重置 API。
-- Pod 仅支持 Mesos 级健康检查。
+- Pod 仅支持 Mesos 级运行状况检查。
 
 # 网络
 Marathon Pod 仅支持 [DC/OS 通用容器运行时间](/cn/1.12/deploying-services/containerizers/)，该运行时间支持多种镜像格式，包括 Docker。
@@ -72,7 +72,7 @@ EP_HOST_HTTPENDPOINT=21528
 
 ## 执行器资源
 
-执行器在每个节点上运行，以管理脚本。默认情况下，执行器为每个 Pod 保留 32 MB 和 0.1 个 CPU 作为日常使用。在为 Pod 中的容器声明资源需求时，请将此日常使用考虑在内。可以修改 Pod 定义的 `executorResources` 字段中的执行器资源。
+执行器在每个节点上运行，以管理 pod 。默认情况下，执行器为每个 Pod 保留 32 MB 和 0.1 个 CPU 作为日常使用。在为 Pod 中的容器声明资源需求时，请将此日常使用考虑在内。可以修改 Pod 定义的 `executorResources` 字段中的执行器资源。
 
 ```json
 {
@@ -121,7 +121,7 @@ Pod 支持临时卷，临时卷在 pod 级别定义。Pod 定义必须包括 `vo
 }
 ```
 
-Pod 还支持主机卷。Pod 卷参数可以声明 `host` 字段，用于引用代理上的已有文件或目录。
+Pod 还支持主机卷。Pod 卷参数可以声明 `host` 字段，用于指代代理上的已有文件或目录。
 ```json
 {
 	"volumes": [

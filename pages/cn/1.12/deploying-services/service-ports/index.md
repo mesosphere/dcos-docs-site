@@ -13,7 +13,7 @@ enterprise: false
 
 # 定义
 
-**containerPort**：容器端口指定容器内的端口。只有在使用 `BRIDGE` 或 `USER` 模式构建具有 Docker 容器的网络时，才需要在端口映射中加入该定义。
+**containerPort**：容器端口指定容器内的端口。只有在使用 `BRIDGE` 或 `USER` 模式构建并使用 Docker 容器的网络时，才需要在端口映射时加入该定义。
 
 **hostPort**：主机端口指定要绑定到的主机上的端口。在使用 `BRIDGE` 或 `USER` 模式构建网络时，您将端口映射从主机端口指定到容器端口。在 `HOST` 构建网络时，请求的端口默认为主机端口。请注意，只有主机端口可通过环境变量供任务使用。
 
@@ -31,7 +31,7 @@ enterprise: false
 
 **protocol**：协议指定为端口指定互联网协议（例如，`tcp`、 `udp` 或同时用于两者的 `udp,tcp`）。只有在使用 `BRIDGE` 或 `USER` 模式构建具有 Docker 容器的网络时，才需要在端口映射中加入该定义。
 
-**requirePorts**：requirePorts 属性可指定 Marathon 是否应在其收到的资源供应中专门寻找指定端口。这能确保可以将这些端口免费绑定在 Mesos 代理节点上。该属性不适用于 `BRIDGE` 或 `USER` 模式网络。
+**requirePorts**：requirePorts 属性可指定 Marathon 是否应在其收到的资源供应中专门寻找指定端口。这能确保这些闲置的端口可以被绑定在 Mesos 代理节点上。该属性不适用于 `BRIDGE` 或 `USER` 模式网络。
 
 **servicePort**：在 Marathon 中（通过 REST API 或前端）创建新应用程序时，可以为它分配一个或多个服务端口。可以指定所有有效的端口数作为服务端口，也可以使用 0 表示 Marathon 应自动分配免费服务端口。如果的确选择了自己的服务端口，就必须确保该端口在所有应用程序中都是唯一的。
 
@@ -140,7 +140,7 @@ enterprise: false
 
 ### 引用端口
 
-可以引用 Dockerfile 中的主机端口，用于如下虚拟应用程序：
+可以引用 Dockerfile 中的主机端口，用于如下假设的应用程序：
 
 ```sh
 CMD ./my-app --http-port=$PORT0 --https-port=$PORT1 --monitoring-port=$PORT2
@@ -191,7 +191,7 @@ CMD ./my-app --http-port=$PORT0 --https-port=$PORT1 --monitoring-port=$PORT2
 
 端口映射类似于将 -p 传递到 Docker 命令行，并指定主机上与容器内的端口之间的关系。此时使用`portMappings` 阵列， **而非**在主机模式下使用的 `ports` 或 `portDefinitions` 阵列。
 
-在 `portMappings` 对象内为 `container` 容器指定端口映射：
+为 `container` 在 `portMappings` 对象内指定端口映射：
 
 ```json
 "networks": [
@@ -279,7 +279,7 @@ Marathon 将默认为每个端口创建服务端口，并为其分配随机值�
 
 ### 引用端口
 
-如果将 `containerPort` 设为 0，就应该在 Dockerfile 中为虚拟应用程序指定如下端口：
+如果将 `containerPort` 设为 0，就应该在 Dockerfile 中为假设的应用程序指定如下端口：
 
 ```sh
 CMD ./my-app --http-port=$PORT0 --https-port=$PORT1 --monitoring-port=$PORT2

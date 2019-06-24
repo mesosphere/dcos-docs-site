@@ -22,7 +22,7 @@ enterprise: false
 
 - `inactiveAfterSeconds`：任务实例不可访问的时间超过该值，就会被标记为非活动，且新实例将启动。此时尚未排除不可访问的任务。默认值为 0 秒。
 
-- `expungeAfterSeconds`：实例不可访问的时间超过此值，就会被排除。被排除的任务一旦恢复就会被关闭。实例常常在被排除之前就被标记为无法访问，但并不要求标记。此值必须大于 `inactiveAfterSeconds`，除非两者均为零。如果实例有与其关联的任何持久卷，该持久卷将会被销毁，而且相关数据会被删除。默认值为 0 秒。
+- `expungeAfterSeconds`：实例不可访问的时间超过此值，就会被排除。被排除的任务一旦恢复就会被关闭。实例常常在被排除之前就被标记为无法访问，但并不一定标记。此值必须大于 `inactiveAfterSeconds`，除非两者均为零。如果实例有与其关联的任何持久卷，该持久卷将会被销毁，而且相关数据会被删除。默认值为 0 秒。
 
 可以将 `inactiveAfterSeconds` 和 `expungeAfterSeconds` 合在一起使用。例如，配置 `inactiveAfterSeconds = 60` 和 `expungeAfterSeconds = 120` 之后，实例超过 120 秒仍然不可访问即被排除，如果超过 60 秒仍然不可访问，就会启动第二个实例。
 
