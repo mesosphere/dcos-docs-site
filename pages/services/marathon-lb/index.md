@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Marathon-LB
 title: Marathon-LB
 menuWeight: 80
-excerpt: Marathon-LB is a load balancing service for TCP, HTTP, and HTTPS requests
+excerpt: 
 enterprise: false
 category: Networking
 ---
