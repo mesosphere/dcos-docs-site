@@ -34,7 +34,7 @@ enterprise: true
 
 # <a name="Forwarding DNS and Custom Domain"></a> Forwarding DNS and Custom Domain
 
-Every DC/OS cluster has a unique cryptographic ID which can be used to forward DNS queries to that Cluster. To securely expose the service outside the cluster, external clients must have an upstream resolver configured to forward DNS queries to the DC/OS cluster of the service as described [here](https://docs.mesosphere.com/latest/networking/DNS/mesos-dns/expose-mesos-zone/).
+Every DC/OS cluster has a unique cryptographic ID which can be used to forward DNS queries to that cluster. To securely expose the service outside the cluster, external clients must have an upstream resolver configured to forward DNS queries to the DC/OS cluster of the service as described [here](https://docs.mesosphere.com/latest/networking/DNS/mesos-dns/expose-mesos-zone/).
 
 With only forwarding configured, DNS entries within the DC/OS cluster will be resolvable at `<task-domain>.autoip.dcos.<cryptographic-id>.dcos.directory`. However, if you configure a DNS alias, you can use a custom domain. For example, `<task-domain>.cluster-1.acmeco.net`. In either case, the DC/OS {{ model.techName }} service will need to be installed with an additional security option:
 ```json
