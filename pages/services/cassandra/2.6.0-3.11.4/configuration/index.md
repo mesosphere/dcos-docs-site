@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Configuring 
-excerpt: Installation options, configuration regions, node settings, etc.
+excerpt: Installation options, configuration regions, node settings, and more information
 title: Configuring Cassandra
 menuWeight: 42
 model: /services/cassandra/data.yml
