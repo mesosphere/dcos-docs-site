@@ -8,7 +8,7 @@ featureMaturity:
 community: true
 model: /services/pxc/data.yml
 render: mustache
-category: Database
+category: Databases
 ---
 
 Welcome to the documentation for DC/OS {{ model.techName }}. 

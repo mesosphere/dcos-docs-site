@@ -8,7 +8,7 @@ featureMaturity:
 enterprise: false
 model: /services/kafka/data.yml
 render: mustache
-category: Data Services
+category: Messaging Queues
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kafka-service -->
