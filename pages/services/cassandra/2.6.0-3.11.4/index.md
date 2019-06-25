@@ -8,7 +8,7 @@ model: /services/cassandra/data.yml
 render: mustache
 ---
 
-DC/OS {{ model.techName }} is an automated service that makes it easy to deploy and manage {{ model.techName }} on [DC/OS](https://mesosphere.com/product/). {{ model.techName }} is a distributed NoSQL database offering high availability, fault tolerance and scalability across data centers.
+DC/OS {{ model.techName }} is an automated service that makes it easy to deploy and manage {{ model.techName }} on [DC/OS](https://mesosphere.com/product/). {{ model.techName }} is a distributed NoSQL database offering high availability, fault tolerance, and scalability across data centers.
 
 For more information on {{ model.techName }}, see the {{ model.techName }} [documentation](http://cassandra.apache.org/doc/latest/).
 
