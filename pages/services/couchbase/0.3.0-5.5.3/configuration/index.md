@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 excerpt: Configuring Couchbase for production and development
 title: Configuration
-menuWeight: 20
+menuWeight: 30
 model: /services/couchbase/data.yml
 render: mustache
 ---

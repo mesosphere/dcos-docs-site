@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Operations
 title: Managing Percona Server for MongoDB
-menuWeight: 60
+menuWeight: 17
 excerpt: Managing Percona Server for MongoDB
 featureMaturity:
 enterprise: false

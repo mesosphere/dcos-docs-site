@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
-menuWeight: 10
+menuWeight: 1
 excerpt: Release notes for DC/OS Kubernetes version 2.3.3-1.14.3
 ---
 

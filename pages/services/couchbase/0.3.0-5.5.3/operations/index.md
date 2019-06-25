@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 excerpt: Running Couchbase operations
 title: Operations
-menuWeight: 30
+menuWeight: 20
 model: /services/couchbase/data.yml
 render: mustache
 ---

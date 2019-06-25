@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
-menuWeight: 130
+menuWeight: 5
 excerpt: Discover the new features, updates, and known limitations in this release of the Couchbase Service
 featureMaturity:
 enterprise: false
