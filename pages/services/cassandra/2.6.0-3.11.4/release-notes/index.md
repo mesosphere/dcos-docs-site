@@ -24,7 +24,7 @@ render: mustache
 
 ## Improvements
 
-- Many of Cassandra's parameters are now configurable from the DC/OS UI
+- Many of Cassandra's parameters are now configurable from the DC/OS UI.
 
 ## Upgrading your cluster from 2.5.0-3.11.3 to 2.6.0-3.11.4
 

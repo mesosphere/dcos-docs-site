@@ -17,13 +17,13 @@ render: mustache
 
 ## {{ model.techShortName }} Node Settings
 
-Adjust the following settings to customize the amount of resources allocated to each node. DC/OS {{ model.techName }}'s [system requirements](http://{{ model.packageName }}.apache.org/doc/latest/operating/hardware.html) must be taken into consideration when adjusting these values. Reducing these values below those requirements may result in adverse performance and/or failures while using the service.
+Adjust the following settings to customize the amount of resources allocated to each node. DC/OS {{ model.techName }}'s [system requirements](http://{{ model.packageName }}.apache.org/doc/latest/operating/hardware.html) should be taken into consideration when adjusting these values. Reducing these values below those requirements may result in adverse performance and/or failures while using the service.
 
 Each of the following settings can be customized under the **node** configuration section.
 
 ### Node Count
 
-Customize the `Node Count` setting (default 3) under the **node** configuration section. Consult the {{ model.techName }} documentation for minimum node count requirements.
+Customize the `Node Count` setting (default 3) under the **node** configuration section. Read the {{ model.techName }} documentation for minimum node count requirements.
 
 *   **In DC/OS CLI options.json**: `count`: integer (default: `3`)
 *   **DC/OS web interface**: `NODES`: `integer`
@@ -81,7 +81,7 @@ You can customize the port that {{ model.techName }} listens on for Thrift RPC r
 
 ### Native Authentication and Authorization
 
-To use Cassandra's native `PasswordAuthenticator` and `CassandraAuthorizer`, set the following configs:
+To use Cassandra's native `PasswordAuthenticator` and `CassandraAuthorizer`, set the following configurations:
 
 ```
 {
@@ -103,19 +103,19 @@ To use Cassandra's native `PasswordAuthenticator` and `CassandraAuthorizer`, set
 
 ```
 
-This will deploy your Cassandra cluster with enhanced security protection which includes disabling the native cassandra superuser and replacing it with the superuser you specify.
+This will deploy your Cassandra cluster with enhanced security protection, which includes disabling the native cassandra superuser and replacing it with the superuser that you specify.
 
-- Note: the `password_secret_path` should be the path to the superuser password in the secret store.
+- <p class="message--note"><strong>NOTE: </strong> The `password_secret_path` is the defined path to the superuser password in the secret store.</p>
 
 ### Custom Authentication and Authorization
 
-Support for custom authenticators and authorizers is also possible via base64 encoded YAML.
+Support for custom authenticators and authorizers is also possible via `base64` encoded YAML.
 
-Add your custom YAML when installing {{ model.techName }}. You must base64 encode your block of YAML and enter this string into the `authentication_custom_cassandra_yml` field.
+Add your custom YAML when installing {{ model.techName }}. You must `base64` encode your block of YAML and enter this string into the `authentication_custom_cassandra_yml` field.
 
-You can do this base64 encoding as part of your automated workflow, or you can do it manually with an [online converter](https://www.base64encode.org).
+You can do this `base64` encoding as part of your automated workflow, or you can do it manually with an [online converter](https://www.base64encode.org).
 
-For example, custom configs will look like the following: 
+For example, the custom configurations are represented below:
 
 ```
 {
@@ -142,7 +142,7 @@ For example, custom configs will look like the following:
 
 The service supports two volume types:
  - `ROOT` volumes are an isolated directory on the root volume, sharing IO/spindles with the rest of the host system.
- - `MOUNT` volumes are a dedicated device or partition on a separate volume, with dedicated IO/spindles.
+ - `MOUNT` volumes are a dedicated device or partition on a separate volume with dedicated IO/spindles.
 
 Using `MOUNT` volumes requires [additional configuration on each DC/OS agent system](/1.11/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you should configure `MOUNT` volumes on the machines that will run the service in your cluster, and then configure the following as `MOUNT` volumes:
 
@@ -160,21 +160,21 @@ It is [recommended](http://docs.datastax.com/en/landing_page/doc/landing_page/re
 
 ## {{ model.techName }} Configuration
 
-{{ model.techName }}'s configuration is configurable via the `{{ model.packageName }}` section of the service schema. Consult the service schema for a complete listing of available configuration.
+{{ model.techName }}'s configuration is configurable via the `{{ model.packageName }}` section of the service schema. Read the service schema for a complete listing of available configuration.
 
 ## Multi-datacenter deployment
 
-To replicate data across data centers, {{ model.techName }} requires that you configure each cluster with the addresses of the seed nodes from every remote cluster. Here's what starting a multi-data-center {{ model.techName }} deployment would look like, running inside of a single DC/OS cluster:
+To replicate data across data centers, {{ model.techName }} requires that you configure each cluster with the addresses of the seed nodes from every remote cluster. Use the following steps to learn how to start a multi-data center {{ model.techName }} deployment running inside of a single DC/OS cluster.
 
 ### Launch two {{ model.techShortName }} clusters
 
-1. Launch the first cluster with the default configuration:
+1. Launch the first cluster with the default configuration.
 
 ```shell
 dcos package install {{ model.packageName }}
 ```
 
-2. Create an `options.json` file for the second cluster that specifies a different service name and data center name:
+2. Create an `options.json` file for the second cluster that specifies a different service name and data center name.
 
 ```json
 {
@@ -185,22 +185,22 @@ dcos package install {{ model.packageName }}
 }
 ```
 
-3. Launch the second cluster with these custom options:
+3. Launch the second cluster with these custom options.
 ```
 dcos package install {{ model.packageName }} --options=<options.json>
 ```
 
 ### Get the seed node IP addresses
 
-<p class="message--note"><strong>NOTE: </strong>If your {{ model.techShortName }} clusters are not on the same network, you must set up a proxying layer to route traffic.</p>
+<p class="message--note"><strong>NOTE: </strong>You must set up a proxying layer to route traffic only if your {{ model.techShortName }} clusters are not on the same network.</p>
 
-1. Get the list of seed node addresses for the first cluster:
+1. Get the list of seed node addresses for the first cluster.
 
 ```shell
 dcos {{ model.packageName }} --name={{ model.serviceName }} endpoints node
 ```
 
-Alternatively, you can get this information from the scheduler HTTP API:
+Alternatively, you can get the list of seed node addresses from the scheduler HTTP API.
 
 ```json
 DCOS_AUTH_TOKEN=$(dcos config show core.dcos_acs_token)
@@ -208,7 +208,7 @@ DCOS_URL=$(dcos config show core.dcos_url)
 curl -H "authorization:token=$DCOS_AUTH_TOKEN" $DCOS_URL/service/{{ model.serviceName }}/v1/endpoints/node
 ```
 
-Your output will resemble:
+The output is as follows:
 
 ```
 {
@@ -244,7 +244,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName }}2 endpoints node
 }
 ```
 
-2. Update the configuration of the second cluster:
+2. Update the configuration of the second cluster.
 
 ```
 dcos {{ model.packageName }} --name={{ model.serviceName}}2 update start --options=options2.json
@@ -254,19 +254,19 @@ Perform the same operation on the first cluster, creating an `options.json` whic
 
 Both schedulers will restart after each receives the configuration update, and each cluster will communicate with the seed nodes from the other cluster to establish a multi-data-center topology. Repeat this process for each new cluster you add.
 
-You can monitor the progress of the update for the first cluster:
+You can monitor the progress of the update for the first cluster using the following command:
 
 ```shell
 dcos {{ model.packageName }} --name={{ model.serviceName }} update status
 ```
 
-Or for the second cluster:
+You can monitor the progress of the update for the second cluster using the following command:
 
 ```shell
 dcos {{ model.packageName }} --name={{ model.serviceName }}2 update status
 ```
 
-Your output will resemble:
+The output is as follows:
 
 ```shell
 deploy (IN_PROGRESS)
@@ -278,4 +278,4 @@ deploy (IN_PROGRESS)
 
 ### Test your multi-datacenter configuration
 
-Be sure to test your deployment using a {{ model.techShortName }} client.
+Make sure to test your deployment using a {{ model.techShortName }} client.
