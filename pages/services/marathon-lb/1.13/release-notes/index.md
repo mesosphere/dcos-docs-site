@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release notes
 title: Release notes
-menuWeight: 80
+menuWeight: 0
 excerpt: Discover the new features, updates, and known limitations in this release of the Marathon-LB Service
 ---
 

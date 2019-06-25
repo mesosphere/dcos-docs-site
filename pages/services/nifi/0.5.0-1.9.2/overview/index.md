@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Overview
 title: Overview
-menuWeight: 10
+menuWeight: 15
 excerpt: Getting started with DC/OS Apache NiFi Service
 featureMaturity:
 enterprise: false

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Getting Started
 title: Getting Started
-menuWeight: 10
+menuWeight: 5
 excerpt: Download and install DC/OS Monitoring Service
 render: mustache
 model: ../data.yml

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 excerpt: Release notes for 2.6.0-2.2.1
 title: Release Notes
-menuWeight: 120
+menuWeight: 5
 model: /services/kafka/data.yml
 render: mustache
 ---

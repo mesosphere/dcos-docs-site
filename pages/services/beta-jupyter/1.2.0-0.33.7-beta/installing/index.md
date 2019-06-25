@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Installation
 title: Install JupyterLab
-menuWeight: 30
+menuWeight: 10
 excerpt: Installing and customizing JupyterLab
 featureMaturity:
 enterprise: false
