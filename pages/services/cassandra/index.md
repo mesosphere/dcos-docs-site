@@ -9,4 +9,4 @@ enterprise: false
 category: Database
 ---
 
-Welcome to the documentation for DC/OS Apache Cassandra. Choose a version to get started!
+DC/OS Apache Cassandra is an automated service that makes it easy to deploy and manage Apache Cassandra on DC/OS. Apache Cassandra is a distributed NoSQL database offering high availability, fault tolerance and scalability across data centers.
