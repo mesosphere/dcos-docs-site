@@ -114,7 +114,7 @@ The following updated data services packages are compatible with DC/OS 1.10.
 - [Kafka](/services/kafka/)
 - [Apache Spark](/services/spark/)
 
-For more information, see the documenation or release notes for the specific data services package in which you are interested.
+For more information, see the documentation or release notes for the specific data services package in which you are interested.
 
 ### Platform
 - Node and cluster health checks.
