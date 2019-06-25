@@ -8,11 +8,7 @@ enterprise: true
 ---
 # 说明
 
-<<<<<<< HEAD
 `dcos security org groups del_user` 命令让您可以从组中删除用户。
-=======
-`dcos security org groups del_user` 命令允许您从组中删除用户。
->>>>>>> staging
 
 # 使用
 

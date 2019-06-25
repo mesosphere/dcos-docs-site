@@ -10,11 +10,7 @@ enterprise: false
 
 
 # 说明
-<<<<<<< HEAD
 `dcos marathon task stop` 命令让您可以停止任务。
-=======
-`dcos marathon task stop` 命令允许您停止任务。
->>>>>>> staging
 
 # 使用
 

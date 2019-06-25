@@ -12,11 +12,11 @@ enterprise: false
 
 您可以从 DC/OS Web 界面来调试服务和 Pod。
 
-## 服务和 Pod 健康和状态摘要
+## 服务和 Pod 运行状况和状态摘要
 
-如果您已为服务或 Pod 添加了 Marathon 健康检查，DC/OS 仪表盘上的**服务健康**方框将报告此服务或 Pod 的健康状况。
+如果您已为服务或 Pod 添加了 Marathon 运行状况检查，DC/OS 仪表盘上的**服务运行状况**方框将报告此服务或 Pod 的运行状况。
 
-**服务** > **服务**页面列出了每个服务或 Pod、所请求的资源及其状态。可能的状态为 `Deploying`、`Waiting` 或 `Running`。如果您已设置 Marathon 健康检查，则还可以看到服务或 Pod 的健康状况：绿点表示健康，红点表示不健康。如果您没有设置健康检查，圆点将为灰色。
+**服务** > **服务**页面列出了每个服务或 Pod、所请求的资源及其状态。可能的状态为 `Deploying`、`Waiting` 或 `Running`。如果您已设置 Marathon 运行状况检查，则还可以看到服务或 Pod 的运行状况：绿点表示运行良好，红点表示运行状况不佳。如果您没有设置运行状况检查，圆点将为灰色。
 
 ![Mesosphere DC/OS Enterprise 服务](/1.12/img/services-ee.png)
 

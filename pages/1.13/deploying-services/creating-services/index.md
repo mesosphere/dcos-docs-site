@@ -4,6 +4,8 @@ navigationTitle:  Creating Services
 title: Creating Services
 menuWeight: 1
 excerpt: Defining a DC/OS service using Marathon
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

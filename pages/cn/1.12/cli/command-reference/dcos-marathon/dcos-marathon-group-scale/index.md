@@ -11,11 +11,7 @@ enterprise: false
 
 # 说明
 
-<<<<<<< HEAD
 `dcos marathon group scale` 命令让您可以扩展组。
-=======
-`dcos marathon group scale` 命令允许您扩展组。
->>>>>>> staging
 
 # 使用
 

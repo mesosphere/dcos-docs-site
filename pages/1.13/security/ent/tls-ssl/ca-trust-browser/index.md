@@ -4,6 +4,8 @@ navigationTitle:  Establishing trust in your DC/OS CA
 title: Establishing trust in your DC/OS CA
 menuWeight: 200
 excerpt: Configuring Chrome and Firefox to trust your DC/OS CA.
+render: mustache
+model: /data.yml
 beta: true
 enterprise: true
 ---
@@ -95,4 +97,4 @@ This procedure works best with Chrome 56 or later, or Windows 10.
 
 1. Click **OK** again to close the **Certificates** dialog.
 
-1. Type your cluster URL in the address bar and press ENTER. The path to the DC/OS web interface in the address bar should be marked **Secure**. You can also try visiting the public IP address of each of your masters to confirm that all show up as **Secure**.
+1. Type your cluster URL in the address bar and press **Enter**. The path to the DC/OS web interface in the address bar should be marked **Secure**. You can also try visiting the public IP address of each of your masters to confirm that all show up as **Secure**.

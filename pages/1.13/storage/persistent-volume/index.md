@@ -4,7 +4,8 @@ navigationTitle:  Local Persistent Volumes
 title: Local Persistent Volumes
 menuWeight: 10
 excerpt: Using local persistent volumes
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -166,7 +167,7 @@ Mesos creates persistent volumes to hold your application's stateful data. Becau
 
 When a task that used persistent volumes has terminated, its metadata will be kept. This metadata will be used to launch a replacement task when needed.
 
-For example, if you scale down from 5 to 3 instances, you will see 2 tasks in the `Waiting` state along with the information about the persistent volumes the tasks were using as well as about the agents on which they are placed. Marathon will not unreserve those resources and will not destroy the volumes. When you scale up again, Marathon will attempt to launch tasks that use those existing reservations and volumes as soon as it gets a Mesos offer containing the labeled resources. Marathon will only schedule unreserve/destroy operations when:
+For example, if you scale down from five to three instances, you will see two tasks in the `Waiting` state, along with the information about the persistent volumes the tasks were using and the agents on which they are placed. Marathon will not unreserve those resources and will not destroy the volumes. When you scale up again, Marathon will attempt to launch tasks that use those existing reservations and volumes as soon as it gets a Mesos offer containing the labeled resources. Marathon will only schedule unreserve/destroy operations when:
 
 - The application is deleted (in which case volumes of all its tasks are destroyed, and all reservations are deleted).
 - You explicitly delete one or more suspended tasks with a `wipe=true` flag.
@@ -179,7 +180,7 @@ Be aware of the following issues and limitations when using stateful application
 
 ## Resource requirements
 
-Currently, the resource requirements&mdash;volume size, cpu usage, memory requirements, etc.&mdash;of a stateful application **cannot** be changed once you have deployed the app definition.
+Currently, the resource requirements--volume size, cpu usage, memory requirements, and so forth--of a stateful application **cannot** be changed once you have deployed the app definition.
 
 ## Replication and backups
 
@@ -480,9 +481,9 @@ You can then
 1. Remove the data on disk by `ssh'ing` into the agent and running the `rm -rf <volume-path>/*` command.
 1. Delete the task with `wipe=true`, which will expunge the task information from the Marathon internal repository and eventually destroy the volume and unreserve the resources previously associated with the task:
 
-```
-http DELETE http://dcos/service/marathon/v2/apps/postgres/tasks/postgres.53ab8733-fd96-11e5-8e70-76a1c19f8c3d?wipe=true
-```
+    ```
+    http DELETE http://dcos/service/marathon/v2/apps/postgres/tasks/postgres.53ab8733-fd96-11e5-8e70-76a1c19f8c3d?wipe=true
+    ```
 
 ## View application status
 

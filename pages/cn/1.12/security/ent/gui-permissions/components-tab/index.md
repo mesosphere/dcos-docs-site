@@ -88,7 +88,7 @@ dcos:adminrouter:ops:system-health full
     -d '{"description":"Grants access to the Components screen"}'
     ```
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \
@@ -116,7 +116,7 @@ dcos:adminrouter:ops:system-health full
     -d '{"description":"Grants access to the Components screen"}'
     ```
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \

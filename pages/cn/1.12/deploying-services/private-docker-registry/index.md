@@ -9,10 +9,10 @@ enterprise: false
 ---
 
 
-若要从专用 Docker 注册表中提供拉取凭据，请创建 Docker 凭据的存档，然后将其添加为服务或 pod 定义中的 URI。在 DC/OS Enterprise 中，您还可以将 Docker 注册表凭据上传到 [DC/OS 密钥存储库](#secret-store-instructions)，并在服务或 pod 定义中进行引用。
+若要从专用 Docker 注册表中提供拉取凭据，请创建 Docker 凭据的存档，然后将其添加为服务或 pod 定义中的 URI。在 DC/OS Enterprise 中，您还可以 [将 Docker 注册表凭据上传到 DC/OS 密钥存储库](#secret-store-instructions) ，并在服务或 pod 定义中进行引用。
 
 <a name="uri-instructions"></a>
-# 将专用 Docker 注册表凭据引用为 URI
+# 将专用 Docker 注册表凭据以 URI 引用
 
 ## 步骤 1：压缩 Docker 凭据
 
@@ -273,7 +273,7 @@ Docker 镜像现在将使用提供的安全凭证进行拉取。
     cd /var/lib/dcos/pki/tls/certs/
     openssl x509 -hash -noout -in docker-registry-ca.crt
 
-1. Create a symbolic link from the trusted certificate to the `/var/lib/dcos/pki/tls/certs` directory on the public agent.
+1. 从可信的证书创建一个标志性的链接到公共代理的 `/var/lib/dcos/pki/tls/certs` 注册表。
 
     ```bash
     sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
@@ -281,45 +281,45 @@ Docker 镜像现在将使用提供的安全凭证进行拉取。
 
 <a name="tarball-instructions"></a>
 
-# Pushing a custom image to a private registry from a tarball
+# 将自定义镜像推送到 tarball 的专用注册表。
 
-If you asked your sales representative for an enterprise version of Marathon, you may have been given a Docker image in a `.tar` archive. Follow these steps to deploy it to your registry:
+如果您向您的销售代表索取了 enterprise 版的 Marathon, 可能会在 `.tar` 存档档案给您一个 Docker 镜像。跟着这些步骤将它部署到您的注册表：
 
-## Step 1: Import in the local machine
+## 第1步: 输入到本地机器
 
-Load the tarball into your local Docker client, passing the path to your custom tarball. For example, `marathon-dcos-ee.<version>.tar`:
+将 tarball 载入到您的本地 Docker 客户端，将路径传递到您的自定义 tarball。例如, `marathon-dcos-ee.<version>.tar`:
    ```bash
    docker load -i marathon-dcos-ee.<version>.tar
    ```
 
-  You can view the Marathon image with this command.
+  您可以用这个指令显示 Marathon 镜像。
 
   ```
-  Docker 镜像
+  Docker images
   ```
 
-  You should see output similar to this:
+  您应可以看到类似这样的输出:
 
 ```bash
 存储库标记镜像 ID 创建大小
 mesosphere/marathon-dcos-ee 1.4.0-RC4_1.9.4 d1ffa68a50c0 3 months ago 926.4 MB
 ```
 
-## Step 2: Push the image to the repository
+## 第2步: 将镜像推送到注册表
 
-1. Re-tag the file to match the repository that you are using in your private Docker registry:
+1. 重新给文件做标签来匹配您正在私用 Docker 注册表中的知识库。:
     ```bash
     docker tag \
     mesosphere/marathon-dcos-ee:<mesosphere-tag> \
     <your-repo>/marathon-dcos-ee:<your-tag>
     ```
 
-   Where:
+   其中:
 
-   - `<mesosphere-tag>` is the tag of the image from Mesosphere. Typically, this will match the version number in the filename.
-   - `<your-repo>` is the name of the private repository that you want to store the image in.
-   - `<your-tag>` is the tag for the image. It is recommended that you use the same tag as the Mesosphere image.
-1. Push the new image to your private Docker registry:
+   - `<mesosphere-tag>` 是来自 Mesosphere 镜像的标签。一般这会在文件名与版本数匹配。
+   - `<your-repo>` 是您想在其中存储镜像的私用知识库。
+   - `<your-tag>` 是镜像的标签。建议您使用 Mesosphere 镜像相同的标签。
+1. 将新镜像推送到您的私用 Docker 注册表:
     ```bash
-    靠泊装置推送 <your-repo>/Marathon-DCOS-EE：<your-tag>
+    docker push <your-repo>/Marathon-DCOS-EE：<your-tag>
     ```

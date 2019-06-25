@@ -14,7 +14,7 @@ render: mustache
 
 ## Configurations
 
-The “disk” configuration value is denominated in MB. We recommend you set the configuration value log_retention_bytes to a value smaller than the indicated “disk” configuration. See the Configuring section for instructions for customizing these values.
+The “disk” configuration value is denominated in MB. We recommend that you set the configuration value `log_retention_bytes` to a value smaller than the indicated “disk” configuration. See the [Configuring section](../install) for instructions for customizing these values.
 
 ## Legacy User Support
 
@@ -22,7 +22,7 @@ Legacy Authorized Users File is not supported.
 
 ## LDAP Integration, OpenID Connect and Apache Knox
 
-LDAP integration, OpenID Connect and Apache Knox is not supported.
+LDAP integration, OpenID Connect and Apache Knox are not supported.
 
 
 ## Installation Limitations

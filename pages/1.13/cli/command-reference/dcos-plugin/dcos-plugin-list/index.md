@@ -4,7 +4,8 @@ navigationTitle:  dcos plugin list
 title: dcos plugin list
 menuWeight: 2
 excerpt: Displaying a list of the installed CLI plugins
-
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

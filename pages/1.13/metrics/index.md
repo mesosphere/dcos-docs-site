@@ -4,6 +4,8 @@ navigationTitle: Metrics
 title: Metrics
 menuWeight: 100
 excerpt: Understanding the metrics component of DC/OS
+render: mustache
+model: /data.yml
 beta: false
 enterprise: false
 ---
@@ -40,7 +42,7 @@ For more information, read the documentation on [how to add custom metrics into 
 
 3. **Forwarding Metrics:** After you have collected the metrics from the applications and hosts, it can be forwarded to various metrics stores. Configure Telegraf plugin to forward the metrics data from the cluster.
 
-4. **Monitoring and Visualizing Metrics:** It is recommended to install the DC/OS Monitoring service to monitor and visualize metrics in your DC/OS cluster. See the [service documentation](/services/beta-dcos-monitoring/0.4.3-beta/operations/install/) for instructions on how to install and use the service.
+4. **Monitoring and Visualizing Metrics:** It is recommended to install the DC/OS Monitoring service to monitor and visualize metrics in your DC/OS cluster. See the [service documentation](/services/dcos-monitoring/1.0.0/operations/install/) for instructions on how to install and use the service.
 
 # Telegraf
 Metrics in DC/OS 1.12 and newer versions use [Telegraf](/1.13/overview/architecture/components/#telegraf) to collect and process data. Telegraf provides a plugin-driven architecture. The custom DC/OS plugins provide metrics on the performance of DC/OS workloads and DC/OS itself. Telegraf provides metrics from DC/OS cluster hosts, containers running on those hosts, and from applications running on DC/OS using the `StatsD` process. It is natively integrated with DC/OS. By default, it exposes metrics in Prometheus format from `port 61091` on each node, and in JSON format through the DC/OS [Metrics API](/1.13/metrics/metrics-api/). Telegraf is included in the DC/OS distribution and runs on every host in the cluster. 

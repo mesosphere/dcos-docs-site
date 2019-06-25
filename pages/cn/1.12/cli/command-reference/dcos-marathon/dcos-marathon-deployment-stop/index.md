@@ -10,11 +10,7 @@ enterprise: false
 
 # 说明
 
-<<<<<<< HEAD
 `dcos marathon deployment stop` 命令让您可以取消正在进行的应用程序部署。
-=======
-`dcos marathon deployment stop` 命令允许您取消正在进行的应用程序部署。
->>>>>>> staging
 
 # 使用
 

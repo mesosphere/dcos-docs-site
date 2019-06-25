@@ -4,6 +4,8 @@ navigationTitle:  External Persistent Volumes
 title: External Persistent Volumes
 menuWeight: 20
 excerpt: Using external persistent volumes with Marathon
+render: mustache
+model: /data.yml
 beta: true
 enterprise: false
 ---
@@ -12,17 +14,17 @@ Use external volumes when fault tolerance is crucial for your app. If a host fai
 
 Marathon applications normally lose their state when they terminate and are relaunched. In some contexts, for instance, if your application uses MySQL, you’ll want your application to preserve its state. You can use an external storage service, such as Amazon's Elastic Block Store (EBS), to create a persistent volume that follows your application instance.
 
-Note that you specify volume size in gibibyte (GiB) units.
+Note that volume sizes are specified in gibibyte (GiB) units.
  
 # Creating an application with an external persistent volume
 
-## Create an application with a Marathon app definition
+## Marathon app definition
 
 You can specify an external volume in your [Marathon app definition][6].
 
 ### Using the Universal Container Runtime
 
-The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You can verify that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
+The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You will know that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
 
 ```json
 {
@@ -107,7 +109,7 @@ Below is a sample app definition that uses a Docker Engine and specifies an exte
 * `containerPath` must be absolute.
 *  Only certain versions of Docker are compatible with the REX-Ray volume driver. Refer to the [REX-Ray documentation][11].
 
-## Create an application from the DC/OS web interface
+## Create an application from the DC/OS UI
 
 1. Click the **Services** tab, then **RUN A SERVICE**.
 1. If you are using a Docker container, click **Container Settings** and configure your container runtime.
@@ -126,7 +128,7 @@ Apps that use external volumes can only be scaled to a single instance because a
 
 If you scale your app down to 0 instances, the volume is detached from the agent where it was mounted, but it is not deleted. If you scale your app up again, the data that was associated with it is still be available.
 
-# Potential pitfalls
+# Potential issues
 
 *   You can assign only one task per volume. Your storage provider might have other limitations.
 *   The volumes you create are not automatically cleaned up. If you delete your cluster, you must go to your storage provider and delete the volumes you no longer need. If you're using EBS, find them by searching by the `container.volumes.external.name` that you set in your Marathon app definition. This name corresponds to an EBS volume `Name` tag.
@@ -139,9 +141,7 @@ Volumes created on the same AWS account share a namespace. Choose unique volume 
 
 EBS volumes are also namespaced by their availability zone (AZ), and an EBS volume [can only be attached to an EC2 instance in the same AZ][12]. As a result, attempts to launch a task in an agent running in a different AZ will lead to the creation of a new volume of the same name. If you create a cluster in one AZ, destroy it, be sure to create your cluster in the same AZ if you wish to reuse any external volumes. If a cluster spans multiple AZs, use Marathon constraints to only launch an instance in the same AZ.
 
-
-REX-Ray by default will fail after 13 EBS volumes are attached. While REX-Ray [0.11.0 introduced the config option `useLargeDeviceRange` to extend this limit][13], DC/OS v1.12.0 bundles REX-Ray 0.9.0.
-
+REX-Ray by default will fail after 13 EBS volumes are attached. Use the [config option useLargeDeviceRange to extend this limit][13], which was introduced in RexRay v0.11.4.
 
 EBS volumes present as non-volatile memory express (NVMe) devices on certain newer EC2 instance types. Support for NVMe was only added to RexRay in v0.11.4. You will need to take the following prerequisite steps for RexRay to work with NVMe devices on CentOS (on newer CoreOS AMIs this is unnecessary):
 
@@ -155,12 +155,12 @@ EBS volumes present as non-volatile memory express (NVMe) devices on certain new
 1. Install the necessary udev rule and helper script. These are taken from the [RexRay user guide](https://github.com/rexray/rexray/blob/362035816046e87f7bc5a6ca745760d09a69a40c/.docs/user-guide/storage-providers/aws.md#nvme-support).
 
     ```bash
-    $ cat <<EOF > /etc/udev/rules/999-aws-ebs-nvme.rules
-    ```
-1. Set EBS NVME devices.
-    ```bash
+    $ cat <<EOF > /etc/udev/rules.d/999-aws-ebs-nvme.rules
     KERNEL=="nvme[0-9]*n[0-9]*", ENV{DEVTYPE}=="disk", ATTRS{model}=="Amazon Elastic Block Store", PROGRAM="/usr/local/bin/ebs-nvme-mapping /dev/%k", SYMLINK+="%c"
     EOF
+    ```
+1. Create the helper script.
+    ```bash
     $ cat <<EOF > /usr/local/bin/ebs-nvme-mapping
     #!/bin/bash
     #/usr/local/bin/ebs-nvme-mapping
@@ -169,6 +169,8 @@ EBS volumes present as non-volatile memory express (NVMe) devices on certain new
     vol=${vol#/dev/}
     [ -n "${vol}" ] && echo "${vol/xvd/sd} ${vol/sd/xvd}"
     EOF
+1. Set the file permissions on the scripts and reload the udev rules.      
+    ```bash
     $ chown root:root /usr/local/bin/ebs-nvme-mapping
     $ chmod 700 /usr/local/bin/ebs-nvme-mapping
     $ udevadm control --reload

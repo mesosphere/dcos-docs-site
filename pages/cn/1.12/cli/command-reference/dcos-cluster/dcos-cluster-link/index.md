@@ -8,19 +8,11 @@ enterprise: true
 ---
 
 # 说明
-<<<<<<< HEAD
 `dcos cluster link` 命令使您能够配置从一个群集指向一个或多个群集的单向链接。访问群集时，您可以查看与其连接的群集。您可以[附加](/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 已连接的群集，无需事先运行 `dcos cluster setup`。
 
 **先决条件**
 
 - 您使用 [`dcos cluster setup`](/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/)命令设置要被连接的群集，必须指定相同的身份认证提供程序。
-=======
-`dcos cluster link` 命令使您能够配置从一个群集指向一个或多个群集的单向链接。访问群集时，您可以查看与其链接的群集。您可以[附加](/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 链接的群集，无需事先运行 `dcos cluster setup`。
-
-**前提条件**
-
-- 您使用 [`dcos cluster setup`](/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/)命令设置要被链接的群集，必须指定相同的身份认证提供程序。
->>>>>>> staging
 
 
 # 使用
@@ -39,19 +31,11 @@ dcos cluster link <cluster> [flags]
 | `-h`，`--help` | 显示链接帮助。 |
 | `--insecure` | 允许请求绕过 TLS 证书验证（不安全）。|
 | `--name string` | 指定群集的自定义名称。 |
-<<<<<<< HEAD
 | `--no-check` | 不检查从群集下载的 CA 证书。（不安全） 仅适用于 Enterprise DC/OS。[enterprise type="inline" size="small" /]|
 | `--password string` | 在命令行中指定密码（不安全）。|
 | `--password-file string` | 指定包含密码的文件的路径。|
 | `--private-key string` | 指定包含服务 acc`ount 私钥的文件路径。 |
 | `--provider string` | 指定要使用的登录提供程序。 |
-=======
-| `--no-check` | 请勿勾选从群集下载的 CA 证书。（不安全） 仅适用于 Enterprise DC/OS。[enterprise type="inline" size="small" /]|
-| `--password string` | 在命令行中指定密码（不安全）。|
-| `--password-file string` | 指定包含密码的文件的路径。|
-| `--private-key string` | 指定包含服务 acc`ount 私钥的文件路径。 |
-| `--provider string` | 指定要使用的登录提供商。 |
->>>>>>> staging
 | `--username string` | 指定登录用户名。 |
 
 ## 位置自变量

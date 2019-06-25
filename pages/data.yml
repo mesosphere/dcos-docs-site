@@ -1,0 +1,8 @@
+# Common values:
+
+packageName: dcos
+serviceName: dcos
+techName: DC/OS
+packageRepo: Catalog
+version: '1.14'
+folder_version: '1.14'

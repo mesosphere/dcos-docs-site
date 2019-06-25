@@ -5,6 +5,8 @@ title: Managing AWS
 menuWeight: 9
 excerpt: Scaling your AWS cluster
 enterprise: false
+render: mustache
+model: ../../data.yml
 ---
 
 You can scale your AWS cluster or change the number of agent nodes.

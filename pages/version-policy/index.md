@@ -4,6 +4,8 @@ navigationTitle:  Version Policy
 title: Version Policy
 menuWeight: 5
 excerpt: DC/OS version lifecycle and compatibility matrix
+render: mustache
+model: /data.yml
 ---
 
 The Version Policy page was updated on April 5, 2019.
@@ -56,11 +58,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>CoreOS 2079.3.0</td>
-        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
@@ -70,11 +70,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
     </tr>
     <tr>
         <td>CoreOS 2023.4.0</td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
@@ -88,11 +86,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>CentOS 7.6</td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
@@ -102,14 +98,12 @@ Customers running DC/OS on non-supported platform components should upgrade to a
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>CentOS 7.4</td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">RH Fork of Docker CE 1.13.1<sup>*</sup></p></td>
     </tr>
 </table>
 
@@ -120,11 +114,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>RHEL 7.6</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
@@ -134,11 +126,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
     </tr>
     <tr>
         <td>RHEL 7.4</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
@@ -152,28 +142,24 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
-        <td>Oracle Linux 7.6 (RHCK)</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td>Oracle Linux 7.6 </td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
     <tr>
-        <td>Oracle Linux 7.5 (RHCK)</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td>Oracle Linux 7.5 </td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
     <tr>
-        <td>Oracle Linux 7.4 (RHCK)</td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker EE 18.09.2<br>Docker CE 18.09.2</p></td>
+        <td>Oracle Linux 7.4 </td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p>
     </tr>
 </table>
 
@@ -191,9 +177,9 @@ Use the following legend table to see the supported/not supported service for th
 <table class="table">
     <tr>
     <th><strong>Web Browser</strong></th>
+    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Chrome</td>
@@ -213,9 +199,9 @@ Use the following legend table to see the supported/not supported service for th
 <table class="table">
     <tr>
     <th><strong>CLI</strong></th>
+    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.10 Latest Stable</strong></th>
     </tr>    
     <tr>
         <td>DC/OS CLI 0.4.x</td>
@@ -237,12 +223,12 @@ Use the following legend table to see the supported/not supported service for th
     </tr>
 </table>
 
-<p class="message--note"><strong>NOTE: </strong>CoreOS 1800.7.0 requires DC/OS 1.11.6 or later releases.</p>
+<p class="message--note"><strong>NOTE: </strong>CoreOS 1800.7.0 requires DC/OS version 1.11.6 or later.</p>
 
 ## Customer Advisory for CentOS/RHEL 7.X
-<p class="message--important"><strong>IMPORTANT: </strong>Docker recently enabled `kmem` accounting in version `17.06+`. Customers may notice instability for the entire system when running under RHEL or CentOS 7.x. The symptoms include tasks getting stuck indefinitely and kernel-related error messages in the system logs. The `kmem` accounting feature in Redhat’s forked Linux Kernel is incomplete and can cause kernel deadlocks or kernel memory leaks. Details on the bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Docker recently enabled <code>kmem</code> accounting in version 17.06+. Customers may notice instability for the entire system when running under RHEL or CentOS 7.x. The symptoms include tasks getting stuck indefinitely and kernel-related error messages in the system logs. The <code>kmem</code> accounting feature in Redhat’s forked Linux Kernel is incomplete and can cause kernel deadlocks or kernel memory leaks. Details on the bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a>.</p>
 
-<p class="message--note"><strong>NOTE: </strong>Because of the kmem bug, <strong>Mesosphere only supports Kubernetes on DC/OS with CentOS/RHEL 7.X when using DC/OS 1.12 or greater and CentOS/RHEL 7.5</strong>.</a></p>
+<p class="message--note"><strong>NOTE: </strong>Because of the kmem bug, <strong>Mesosphere only supports Kubernetes on DC/OS with CentOS/RHEL 7.X when using DC/OS 1.12 or later and CentOS/RHEL 7.5</strong>.</a></p>
 
 ## Version Compatibility Matrix
 
@@ -250,24 +236,24 @@ Mesosphere maintains and certifies several packages for DC/OS.
 
 ### Base Technology
 
-Mesosphere does not offer support services for the base technology (e.g. Jenkins). The base technology version is denoted as the second version in the package number (e.g. 1.2.3-4.5.6).
+Mesosphere does not offer support services for the base technology (for example, Jenkins). The base technology version is denoted as the second version in the package number (for example, 1.2.3-**4.5.6**).
 
 
 ### Certified Package Designations
 
-Services that are labeled as “Certified” have been tested by Mesosphere for interoperability with DC/OS, but Mesosphere disclaims all warranties, and makes no promises, including with respect to the services’ operation or production readiness. Support for the integration may be available from Mesosphere or the creator of the service. The matrix below lists certified packages and the current state of what packages are tested on what version of DC/OS, and what is within the best effort scope of our technical support organization.
+Services that are labeled as “Certified” have been tested by Mesosphere for interoperability with DC/OS, but Mesosphere disclaims all warranties, and makes no promises, including with respect to the services’ operation or production readiness. Support for the integration may be available from Mesosphere or the creator of the service. The matrix below lists certified packages and the current state of which packages are tested on what version of DC/OS, and what is within the best effort scope of our technical support organization.
 
 The designations are as follows:
 
-⚫- This combination is tested and compatible with the specified version of DC/OS.
+⚫ This combination is tested and compatible with the specified version of DC/OS.
 - This package is within the scope of our technical support organization.
 - This is package is eligible for bug fixes.
 
-◒ - This combination has been tested previously and should be compatible with the specified version of DC/OS.
+◒ This combination has been tested previously and should be compatible with the specified version of DC/OS.
 - This combination is not within the scope of our technical support organization.
 - This combination is not eligible for bug fixes.
 
-◯ - This package combination has not been tested.
+◯ This package combination has not been tested.
 - This combination is not within the scope of our technical support organization.
 - This combination is not eligible for bug fixes.
 
@@ -275,9 +261,9 @@ The designations are as follows:
 <table class="table">
     <tr>
         <th><strong>DC/OS Package for</strong></th>
+        <th><p style="text-align: center;"><strong>DC/OS 1.13</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.12</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
-        <th><p style="text-align: center;"><strong>DC/OS 1.10</strong></p></th>
     </tr>
     <tr>
         <td>Cassandra 2.4.x-3.0.16</td>
@@ -315,7 +301,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
-    <tr>
+        <tr>
         <td>²DataStax-DSE 2.4.x-5.1.10</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -327,7 +313,6 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
-    <tr>
         <td>²DataStax-Ops 2.4.x-6.1.9</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -338,21 +323,14 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-    </tr>
      <tr>
-        <td>Edge-LB 1.2.2</td>
+        <td>Edge-LB 1.2</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Edge-LB 1.2.3</td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-        <td>Edge-LB 1.3.0 (Recommended)</td>
+        <td>Edge-LB 1.3 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -370,13 +348,13 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>HDFS 2.3.x-2.6.0-cdh5.11.0</td>
+        <td>HDFS 2.4.x-2.6.0-cdh5.11.0 </td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>HDFS 2.4.x-2.6.0-cdh5.11.0 (Recommended)</td>
+        <td>HDFS 2.5.x-2.6.0-cdh5.11.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -388,7 +366,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Jenkins 3.5.4-2.150.1 (Recommended)</td>
+        <td>Jenkins 3.5.x-2.150.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -411,6 +389,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
+    <!-- Where is Kafka-ZooKeeper 2.4.x? -->
     <tr>
         <td>Kafka-Zookeeper 2.5.x-3.4.13 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -428,45 +407,45 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-        <td>Kubernetes 1.3.x-1.10.y</td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
+    </tr> 
     <tr>
         <td>Kubernetes 2.1.x-1.12.y</td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>Kubernetes 2.2.x-1.13.y </td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>Kubernetes 2.2.x-1.14.y (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>Kubernetes 2.2.x-1.13.y (Recommended)</td>
+        <td>Kubernetes Cluster 2.2.x-1.13.y </td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
     </tr>
-     <tr>
-        <td>Kubernetes Cluster 2.1.x-1.12.y</td>
+    <tr>
+        <td>Kubernetes Cluster 2.3.x-1.14.y (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>Kubernetes Cluster 2.2.x-1.13.y (Recommended)</td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Marathon-LB 1.11.x</td>
+        <td>Marathon-LB 1.12.x</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Marathon-LB 1.12.x (Recommended)</td>
+        <td>Marathon-LB 1.13.x (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -501,7 +480,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
-     <tr>
+    <tr>
         <td>Spark History 2.6.x-2.3.2</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -532,31 +511,37 @@ B - This package combination is *beta*.
 <table class="table">
     <tr>
         <th><strong>DC/OS Package for</strong></th>
+        <th><p style="text-align: center;"><strong>DC/OS 1.13</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.12</strong></p></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
-        <th><p style="text-align: center;"><strong>DC/OS 1.10</strong></p></th>
     </tr>
     <tr>
         <td>Beta DC/OS Storage Services 0.4.0</td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>¹Beta DC/OS Storage Services 0.5.3 </td>
+        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">B</p></td>
+        <td><p style="text-align: center;">◯</p></td>
+    </tr>
+    <tr>
+        <td>Beta DC/OS Storage Services 0.6.0 (Recommended)</td>
         <td><p style="text-align: center;">B</p></td>
         <td><p style="text-align: center;">◯</p></td>
         <td><p style="text-align: center;">◯</p></td>
     </tr>
     <tr>
-        <td>¹Beta DC/OS Storage Services 0.5.1 (Recommended)</td>
-        <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
-    <tr>
-        <td>Beta Mesosphere Jupyter Service 1.3.x-0.35.4 (Recommended)</td>
+        <td>Beta Mesosphere Jupyter Service 1.3.x - 0.35.4 (Recommended)</td>
         <td><p style="text-align: center;">B</p></td>
         <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">◯</p></td>
+        <td><p style="text-align: center;">B</p></td>
     </tr>
 </table>
 
 ### Footnotes
 
-- ¹ - *Beta DC/OS Storage Services 0.5.1 requires DC/OS 1.12.1*
-- ² - *Package maintained and supported solely by DataStax Corporation*
+- ¹ Beta DC/OS Storage Services 0.5.1 requires DC/OS 1.12.1 or later.
+- ² Package maintained and supported solely by DataStax Corporation.

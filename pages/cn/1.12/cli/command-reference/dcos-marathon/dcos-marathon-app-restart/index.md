@@ -10,11 +10,7 @@ enterprise: false
 
 # 说明
 
-<<<<<<< HEAD
 `dcos marathon app restart` 命令让您可以重新启动应用程序。
-=======
-`dcos marathon app restart` 命令允许您重新启动应用程序。
->>>>>>> staging
 
 # 使用
 

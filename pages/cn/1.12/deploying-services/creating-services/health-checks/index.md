@@ -17,10 +17,10 @@ enterprise: false
 - 默认运行状况检查利用 Mesos 对任务状态 `TASK_RUNNING => healthy` 的了解。
 - Marathon 通过 [REST API](/cn/1.12/deploying-services/marathon-api/) 提供任务资源的 `health` 成员，您可以将其添加到服务定义中。
 
-如果满足这两个条件，则视为运行状况检查：
+如果满足这两个条件，则视为运行状况检查已通过：
 
 - HTTP 响应代码介于 200 和 399（含） 之间。
-- 在 `timeoutSeconds` 期间收到响应。如果任务连续失败超过 `maxConsecutiveFailures` 运行状况检查，则该任务将被终止。
+- 在 `timeoutSeconds` 期间收到响应。如果任务失败连续超过 `maxConsecutiveFailures` 运行状况检查，则该任务将被终止。
 
 您可以在 JSON 应用定义或 DC/OS GUI **Services** 选项卡中定义运行状况检查。您还可以定义要执行运行状况检查的自定义命令。这些可以在 Dockerfile 中定义，例如：
 
@@ -42,15 +42,15 @@ DC/OS 支持以下运行状况检查协议：
 
 # 运行状况检查选项
 
-创建服务时<>，您可以在 DC/OS GUI 中配置 JSON 运行状况检查，也可以直接配置为 JSON。此表显示同等的 GUI 字段和 JSON 选项。
+创建服务时，您可以在 DC/OS GUI 中配置 JSON 运行状况检查，也可以直接配置为 JSON。此表显示同等的 GUI 字段和 JSON 选项。
 
 | GUI | JSON | 默认 | 说明 |
 |----------------------|--------------------------|---------|--------------------|
-| **宽限期 (S)** |`gracePeriodSeconds`| 15 | 指定在任务启动后立即忽略运行状况检查的时间（秒）；或直到任务第一次变得健康。 |
+| **宽限期 (S)** |`gracePeriodSeconds`| 15 | 指定在任务启动后立即忽略运行状况检查的时间（秒）；或直到任务第一次变得运行良好。 |
 | **间隔 (S)** | `intervalSeconds` | 10 | 指定在运行状况检查之间等待的时间（秒）|
 | **最大故障** | `maxConsecutiveFailures` | 3 | 指定在任务被终止之前可能发生的连续运行状况检查故障数 |
 | **协议** | `path` | HTTP | 指定请求的协议：`HTTP`， `HTTPS`、 `TCP` 或 `Command`。|
-| **服务端点** | `protocol` | \ | 如果 `"protocol": "HTTP"`，此选项指定任务健康状态端点的路径。例如， `“/path/to/health”`。|
+| **服务端点** | `protocol` | \ | 如果 `"protocol": "HTTP"`，此选项指定任务运行状态端点的路径。例如， `“/path/to/health”`。|
 | 不适用 | `portIndex` | 0 | 指定用于运行状况请求的端口阵列中的端口索引。端口索引允许应用程序使用任何端口，如 `“[0, 0, 0]”`，并且任务可以从端口环境变量开始，如 `$PORT1`。|
 | **超时 (S)** | `timeoutSeconds` | 20 | 指定运行状况检查失败之前的时间（秒），而不管响应如何。 |
 

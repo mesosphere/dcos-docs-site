@@ -4,8 +4,9 @@ navigationTitle:  Configuring a Custom CA Certificate
 title: Configuring a Custom CA Certificate
 menuWeight: 50
 excerpt: Configuring DC/OS Enterprise to use a custom CA certificate
-
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
@@ -27,11 +28,11 @@ The benefits of using a custom CA certificate for your DC/OS Enterprise cluster 
 - [Example use cases](#example-use-cases) then provide example file contents for the custom CA certificate configuration files for three popular use cases.
 
 # Supported CA certificates
-- Only custom CA certificates that have an associated RSA-type key pair are supported. Other types of certificates, such as those using ECC-type key pair, are currently not supported. 
+- Only custom CA certificates that have an associated RSA-type key pair are supported. Other types of certificates, such as those using ECC-type key pair, are not supported. 
 - Custom CA certificates are only supported for a fresh installation of DC/OS Enterprise 1.10 or later. Older versions of DC/OS are not supported, and it is not possible to add a custom CA certificate during an upgrade.
 
 # Glossary 
-- **Custom CA certificate:** Your custom CA certificate in the PEM format, which will be used to issue certificates for DC/OS components such as Admin Router. The custom CA certificate is either an intermediate CA certificate (issued by another CA) or a root CA certificate (self-signed by the custom CA).
+- **Custom CA certificate:** Your custom CA certificate in PEM format, which will be used to issue certificates for DC/OS components such as Admin Router. The custom CA certificate is either an intermediate CA certificate (issued by another CA) or a root CA certificate (self-signed by the custom CA).
 
 - **Private key associated with the custom CA certificate:** The private key in the PKCS#8 format associated with the custom CA certificate.
 
@@ -114,9 +115,9 @@ This path is required if `ca_certificate_path` is specified.
 ## ca\_certificate\_chain\_path
 Path (relative to the `$DCOS_INSTALL_DIR`) to a file containing the complete CA certification chain required for end-entity certificate verification, in the OpenSSL PEM format. For example: `genconf/CA_cert_chain.pem`.
 
-The parameter must be left undefined if `ca_certificate_path` points to a root CA certificate. Required if `ca_certificate_path` is specified and if the custom CA certificate is an **intermediate CA certificate**.
+If `ca_certificate_path` points to a self-signed root CA certificate, then this parameter must be left undefined.
 
-For an intermediate CA, this needs to point to a file containing all CA certificates comprising the complete sequence, starting precisely with the CA certificate that was used to sign the custom CA certificate and ending with a root CA certificate (where issuer and subject are equivalent), yielding a gapless certification path. The order is significant and the list must contain at least one certificate.
+Otherwise, `ca_certificate_chain_path` points to a file containing the complete chain of CA certificates up to a self-signed root CA certificate, but excluding the signing certificate contained in `ca_certificate_path`. The order is significant: the first certificate must verify the signing certificate in `ca_certificate_path` and each subsequent certificate must verify the preceding certificate.
 
 # Installing DC/OS Enterprise with a custom CA certificate
 
@@ -230,7 +231,7 @@ In this case the custom CA certificate is an intermediate one, issued directly b
 - on the bootstrap node:
     - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt` file containing the custom CA certificate in PEM format
     - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` file containing the private key associated with the custom CA certificate in the PKCS#8 format
-    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt` file containing the certificate chain in PEM format
+    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt` file containing only the root CA certificate in PEM format
 
 - on the master nodes
     - `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` file containing the private key associated with the custom CA certificate in the PKCS#8 format.

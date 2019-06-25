@@ -19,11 +19,11 @@ enterprise: true
 
 密封的密钥存储库无法从 Web 界面访问。无法使用 [密钥 API](/cn/1.12/security/ent/secrets/secrets-api/) 检索密码值。依赖于通过环境变量配置的值的服务可能无法部署。
 
-若要拆封密钥存储库，请完成以下步骤。他们将仅拆封一个 `dcos-secrets` 实例。如果通过 `dcos config show core.dcos_url` 获取的群集 URL 指向负载均衡器，并且群集中有多个主节点，则应针对每个主节点发出这些步骤，并且应将群集 URL 更改为各个主节点的地址。
+若要拆封密钥存储库，请完成以下步骤。他们将仅拆封一个 `dcos-secrets` 实例。如果通过 `dcos config show core.dcos_url` 获取的群集 URL 指向负载均衡器，并且群集中有多个管理节点，则应针对每个管理节点发出这些步骤，并且应将群集 URL 更改为各个管理节点的地址。
 
-密封的预期状态是持久的，因此，如果存在密封存储库的前提条件之一，即使在重新启动后，`dcos-secrets` 也会自动将其密封。只有[密封存储库](/cn/1.12/security/ent/secrets/seal-store/)中描述的步骤才会将其密封。
+密封的预期状态是持久的，因此，如果存在密封存储库的前提条件之一，即使在重新启动后，`dcos-secrets` 也会自动将其再次解封。只有[密封存储库](/cn/1.12/security/ent/secrets/seal-store/)中描述的步骤才会将其密封。
 
-**前提条件：**
+**先决条件：**
 
 
 - [DC/OS CLI 已安装](/cn/1.12/cli/install/)

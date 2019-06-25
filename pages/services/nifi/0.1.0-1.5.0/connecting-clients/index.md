@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Connecting Clients
-One of the benefits of running containerized services is that they can be placed anywhere in the cluster. Since they can be deployed anywhere on it, clients need a way to find the service. This is where service discovery comes in.
+One of the benefits of running containerized services is that they can be placed anywhere on the cluster. Since they can be deployed anywhere on it, clients need a way to find the service. This is where service discovery comes in.
 
 
 ## Discovering endpoints
@@ -28,7 +28,7 @@ Returned endpoints will include the following:
 - A direct IP address to access the service if `.autoip.dcos.thisdcos.directory` hostnames are not resolvable.
 - If your service is on a virtual network such as the `dcos` overlay network, then the IP will be from the subnet allocated to the host that the task is running on. It will not be the host IP. To resolve the host IP, use Mesos DNS (`<task>.<service>.mesos`).
 
-In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use direct IPs or set up a proxy service that acts as a front end to your NiFi instance. For development and testing purposes, you can use [DC/OS Tunnel](https://docs.mesosphere.com/1.10/administering-clusters/sshcluster/) to access services from outside the cluster, but this option is not suitable for production use.
+In general, the `.autoip.dcos.thisdcos.directory` endpoints will only work from within the same DC/OS cluster. From outside the cluster, you can either use direct IPs or set up a proxy service that acts as a frontend to your NiFi instance. For development and testing purposes, you can use [DC/OS Tunnel](https://docs.mesosphere.com/1.10/administering-clusters/sshcluster/) to access services from outside the cluster, but this option is not suitable for production use.
 
 
 ## Connection response

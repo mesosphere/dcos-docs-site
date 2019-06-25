@@ -5,6 +5,8 @@ title: dcos config
 menuWeight: 4
 excerpt: Managing the DC/OS configuration file
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

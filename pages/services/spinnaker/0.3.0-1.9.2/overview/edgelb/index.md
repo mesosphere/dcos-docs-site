@@ -12,7 +12,7 @@ Edge-LB is the load balancer that comes with DC/OS Enterprise. See the DC/OS Ent
 
 1. Create a `config.yaml` file with the following Edge-LB configuration. This configuration works with the [rolling blue-green](/services/spinnaker/0.3.0-1.9.2/quick-start-guide/pipelines/#creating-a-rolling-blue-green-pipeline) sample.
 
-```
+```yaml
 ---
 pools:
   - name: myapp-prod-pool
@@ -39,7 +39,7 @@ pools:
 ```
 2. Launch the configuration with the following command:
 
-```
+```bash
 dcos edgelb config config.yaml
 ```
 

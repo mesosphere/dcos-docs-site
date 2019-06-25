@@ -3,8 +3,9 @@ layout: layout.pug
 navigationTitle:  Out-of-band Token Verification
 title: Out-of-band Token Verification
 excerpt: Verifying DC/OS Authentication tokens out-of-band
+render: mustache
+model: /data.yml
 menuWeight: 20
-
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
@@ -34,7 +35,9 @@ curl -k https://<host-ip/acs/api/v1/auth/jwks
 ## Constructing the public key from the JWKS data
 The two parameters that fully define an RSA public key are the modulus (`n`) and the exponent (`e`). Both are integers encoded using Base64 as specified in [RFC 7518](https://tools.ietf.org/html/rfc7518#section-6.3)
 
-Use the tool of your choice to generate the public key representation that you will need to validate the authentication token. Here is a Python example based on the cryptography module (which uses OpenSSL as its back-end). This example generates a public key object from a given exponent and modulus directly.
+Use the tool of your choice to generate the public key representation that you will need to validate the authentication token. 
+
+Here is a Python example based on the cryptography module (which uses OpenSSL as its back-end). This example generates a public key object from a given exponent and modulus directly.
 
 ```python
 from cryptography.hazmat.backends import default_backend

@@ -30,12 +30,12 @@ enterprise: true
 - 仅支持具有关联 RSA 类型密钥对的自定义 CA 证书。当前不支持其他类型的证书，如使用 ECC 类型密钥对的证书。
 - 只有全新安装的 DC/OS Enterprise 1.10 或更高版本才支持自定义 CA 证书。不支持较旧版本的 DC/OS，并且在升级期间无法添加自定义 CA 证书。
 
-术语表 
+# 术语表 
 - **自定义 CA 证书**PEM 格式的自定义 CA 证书，用于为 DC/OS 组件（如 Admin Router）颁发证书。自定义 CA 证书是中间 CA 证书（由其他 CA 颁发）或根 CA 证书（由自定义 CA 自签名）。
 
 - **与自定义 CA 证书相关联的私钥**与自定义 CA 证书关联的 PKCS#8 格式的私钥。
 
-- **与自定义** CA 证书相关联的证书链：**终端实体证书验证所需的完整 CA 证书链。它必须包括中间自定义 CA 的所有父级 CA 证书，其中包括根 CA 证书。如果自定义 CA 证书为根 CA 证书，则证书链必须为空。
+- **与自定义 CA 证书相关联的证书链：** 终端实体证书验证所需的完整 CA 证书链。它必须包括中间自定义 CA 的所有父级 CA 证书，其中包括根 CA 证书。如果自定义 CA 证书为根 CA 证书，则证书链必须为空。
 
 - **安装目录**DC/OS 安装程序驻留的 bootstrap 节点上的目录。在本文档中以 `$DCOS_INSTALL_DIR` 表示。
 
@@ -71,11 +71,11 @@ dcos-ca-certificate-chain.crt
 ## <a name="manually-placing-master"></a>手动放置私钥 
 
 
-出于安全原因，安装程序不会将私钥从 bootstrap 节点复制到主节点。
-在**开始安装**之前，必须手动将与自定义 CA 证书相关联的私钥分发到每个 DC/OS 主节点。
+出于安全原因，安装程序不会将私钥从 bootstrap 节点复制到管理节点。
+在**开始安装**之前，必须手动将与自定义 CA 证书相关联的私钥分发到每个 DC/OS 管理节点。
 
 私钥文件的文件系统路径必须是 `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`。
-目录 `/var/lib/dcos/pki/tls/CA/private/` 必须在将文件 `custom_ca.key` 放置在每个 DC/OS 主节点上的目录中之前使用以下命令手动创建。
+目录 `/var/lib/dcos/pki/tls/CA/private/` 必须在将文件 `custom_ca.key` 放置在每个 DC/OS 管理节点上的目录中之前使用以下命令手动创建。
 
 ```bash
  mkdir -p /var/lib/dcos/pki/tls/CA/private
@@ -83,7 +83,7 @@ dcos-ca-certificate-chain.crt
 
 此外，包含与自定义 CA 证书对应的私钥 `custom_ca.key` 的文件必须由 root Unix 用户拥有，并且设置了 0600 权限。
 
-如果通过网络将私钥文件复制到主节点上，则必须充分保护网络通道。下面提供了复制 CA 私钥的示例。命令将在 bootstrap 节点上执行。以下 `W.X.Y.Z` 表示主节点的 IP 地址：
+如果通过网络将私钥文件复制到管理节点上，则必须充分保护网络通道。下面提供了复制 CA 私钥的示例。命令将在 bootstrap 节点上执行。以下 `W.X.Y.Z` 表示管理节点的 IP 地址：
 
 ```bash
 cd $DCOS_INSTALL_DIR/genconf
@@ -128,7 +128,7 @@ bootstrap 节点上 `$DCOS_INSTALL_DIR/genconf/` 目录中的自定义 CA 证书
 
 - 在 bootstrap 节点上，带有自定义 CA 证书、关联的私钥和可选的 CA 证书链的文件已放入 `$DCOS_INSTALL_DIR/genconf/` 的目录中。（请参阅上面的[部分](#manually-placing-custom)，了解更多详细说明）
 
-- 与自定义 CA 证书相关联的私钥已安全地放置在所有 DC/OS 主节点上（有关更多信息，请参阅本[部分](#manually-place-master)）。在 DC/OS 主节点之一上发出命令的示例：
+- 与自定义 CA 证书相关联的私钥已安全地放置在所有 DC/OS 管理节点上（有关更多信息，请参阅本[部分](#manually-place-master)）。在 DC/OS 管理节点之一上发出命令的示例：
 
   ```bash
   stat /var/lib/dcos/pki/tls/CA/private/custom_ca.key
@@ -166,7 +166,7 @@ bootstrap 节点上 `$DCOS_INSTALL_DIR/genconf/` 目录中的自定义 CA 证书
 ## 验证安装
 验证是否使用自定义 CA 证书正确安装 DC/OS Enterprise 群集的一种方法是启动到 Admin Router 的 TLS 连接，Admin Router 在安装后会显示自定义 CA 签署的证书。为此，您首先需要获取已部署群集的 DC/OS CA 捆绑包。[本页面](/cn/1.12/security/ent/tls-ssl/get-cert/)显示了您如何做到这一点。
 
-如果您已经获得 DC/OS CA 捆绑包，并将其存储在名为 `dcos-ca.crt` 的文件中，在包含 `dcos-ca.crt` 文件的目录中发出以下命令，以检查主节点上的 Admin Router 是否使用自定义 CA 签署的证书：
+如果您已经获得 DC/OS CA 捆绑包，并将其存储在名为 `dcos-ca.crt` 的文件中，在包含 `dcos-ca.crt` 文件的目录中发出以下命令，以检查管理节点上的 Admin Router 是否使用自定义 CA 签署的证书：
 
 ```bash
 openssl s_client -verify_ip <private_ip_master_node_X> -CAfile dcos-ca.crt -connect <public_ip_master_node_X>:443 | grep -e "s:" -e "i:" -e "return code:"
@@ -204,7 +204,7 @@ verify return:1
  - 包含自定义 CA 证书的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt` 文件
  - 包含与自定义 CA 证书相关联的私钥的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` 文件
 
-- 在主节点：
+- 在管理节点：
  - 包含与自定义 CA 证书相关联的私钥的 `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` 文件。
 
 以下是自定义根 CA 证书的 `issuer` 和 `subject` 字段示例：
@@ -234,7 +234,7 @@ ca_certificate_key_path: genconf/dcos-ca-certificate-key.key
  - 包含与自定义 CA 证书相关联的私钥的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` 文件，格式为 PKCS#8
  - 包含证书链的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt` 文件， 格式为 PEM
 
-- 在主节点
+- 在管理节点
  - 包含与自定义 CA 证书相关联的私钥的 `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` 文件，格式为 PKCS#8
 
 以下是适当的中间自定义 CA 证书示例：
@@ -284,7 +284,7 @@ CA 证书链包括
  - 包含与自定义 CA 证书相关联的私钥的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` 文件，格式为 PKCS#8
  - 包含证书链的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt` 文件， 格式为 PEM
 
-- 在主节点
+- 在管理节点
  - 包含与自定义 CA 证书相关联的私钥的 `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` 文件，格式为 PKCS#8
 
 以下是适当的自定义中间 CA 证书示例：

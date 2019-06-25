@@ -3,8 +3,9 @@ layout: layout.pug
 navigationTitle: DC/OS Authentication Token
 title: DC/OS Authentication Token
 excerpt: Getting familiar with DC/OS Authentication tokens
+render: mustache
+model: /data.yml
 menuWeight: 10
-
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -31,11 +32,11 @@ JWT Payload
 }
 ```
 
-In the process of generating a new DC/OS Authentication token the IAM signs the token with its private key. DC/OS Authentication tokens can be inspected via [jwt.io](https://jwt.io) or via your favorite JWT library.
+In the process of generating a new DC/OS Authentication token, the IAM signs the token with its private key. DC/OS Authentication tokens can be inspected via [jwt.io](https://jwt.io) or via your favorite JWT library.
 
 # Lifetime and renewal
 
-In DC/OS Open Source Authentication tokens are valid for five days after they have been issued. After five days, you must log in again to obtain a new token. Using [service accounts](/1.13/security/oss/user-account-management/service-accounts/) and the [service login](/1.13/security/oss/login/service-login/) make it easy to automate this process when deploying long-running services.
+In DC/OS Open Source, Authentication tokens are valid for five days after they have been issued. After five days, you must log in again to obtain a new token. Using [service accounts](/1.13/security/oss/user-account-management/service-accounts/) and the [service login](/1.13/security/oss/login/service-login/) make it easy to automate this process when deploying long-running services.
 
 # Obtain a DC/OS Authentication token
 

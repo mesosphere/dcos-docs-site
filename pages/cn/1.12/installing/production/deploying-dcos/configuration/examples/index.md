@@ -6,13 +6,13 @@ menuWeight: 5
 excerpt: DC/OS Enterprise 的常见示例配置
 ---
 
-此页面提供多种常见示例配置。除非另有明确指示，配置参数同时适用于 [DC/OS 开源](https://dcos.io/) 和 [DC/OS Enterprise](https://mesosphere.com/product/)。这些评论在本示例 `config.yaml` 用于指示 DC/OS 产品类型。
+此页面提供多种常见示例配置。除非另有明确指示，配置参数同时适用于 [DC/OS 开源](https://dcos.io/) 和 [DC/OS Enterprise](https://mesosphere.com/product/)。这些备注在本示例 `config.yaml` 用于指示 DC/OS 产品类型。
 
 - `# DC/OS Open Source only` - 仅适用于 DC/OS。[oss type="inline" size="small" /]
 - `# DC/OS Enterprise only` - 仅适用于 DC/OS Enterprise。[enterprise type="inline" size="small" /]
 
 # 所有参数
-此样本 `config.yaml` 文件包括 DC/OS 的所有可用配置参数。
+此 `config.yaml` 样本文件包括 DC/OS 的所有可用配置参数。
 
 ```yaml
 agent_list:
@@ -38,9 +38,9 @@ cosmos_config:
 staged_package_storage_uri: <temp-path-to-files>
 package_storage_uri: <permanent-path-to-files>
 # DC/OS Enterprise only
-ca_certificate_path: <path-to-certificate>
-ca_certificate_key_path: <path-to-private-key>
-ca_certificate_chain_path: <path-to-certificate-chain>
+ca_certificate: <path-to-certificate>
+ca_certificate_key: <path-to-private-key>
+ca_certificate_chain: <path-to-certificate-chain>
 customer_key: <customer-key>
 custom_checks:
   cluster_checks:
@@ -72,7 +72,7 @@ dcos_overlay_network:
     - name: <name>
       subnet: <address>
       prefix: <size>
-dns_search: <domain1 domain2 domain3>
+dns_search: <domain1 domain2 domain3>  
 docker_remove_delay: <num>hrs
 enable_docker_gc: `<true|false>`
 exhibitor_storage_backend: static
@@ -102,7 +102,7 @@ exhibitor_address: <loadbalancer-ip>
 master_dns_bindall: `<true|false>`
 num_masters: <num-of-masters>
 # DC/OS Open Source only
-oauth_enabled: `<true|false>`
+oauth_enabled: `<true|false>`  
 public_agent_list:
 - <agent-private-ip>
 platform: <platform>
@@ -176,7 +176,7 @@ ssh_user: <username>
 ```
 
 ## <a name="aws"></a>AWS
-DC/OS 群集，带有三个管理节点、一个通过 AWS s3 bucket 备份的 Exhibitor/ZooKeeper、五个专用代理和一个公共代理节点：
+DC/OS 群集，带有三个管理节点、一个由 AWS S3 bucket 支持的 Exhibitor/ZooKeeper、五个专用代理和一个公共代理节点：
 
 ```yaml
 ---
@@ -211,7 +211,7 @@ ssh_user: <username>
 ```
 
 ## <a name="zk"></a>ZooKeeper
-DC/OS 群集，带有三个管理节点、一个通过 ZooKeeper 备份的 Exhibitor/ZooKeeper、前面带有 HTTP 负载均衡器的管理节点、一个公共代理节点和 Google DNS：
+DC/OS 群集，带有三个管理节点、一个通过 ZooKeeper 备份的 Exhibitor/ZooKeeper、前面带有 HTTP 负载均衡器的管理节点、一个公共代理节点、五个专用代理、和 Google DNS：
 
 ```yaml
 ---
@@ -306,7 +306,7 @@ use_proxy: 'true'
 http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>
 https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>
 no_proxy:
-- 'foo.bar.com'
+- 'foo.bar.com'    
 - '.baz.com'
 ```
 

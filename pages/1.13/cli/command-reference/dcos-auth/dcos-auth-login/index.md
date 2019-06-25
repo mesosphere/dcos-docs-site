@@ -5,6 +5,8 @@ title: dcos auth login
 menuWeight: 2
 excerpt: Log-in to your DC/OS cluster
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

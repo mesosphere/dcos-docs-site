@@ -1,28 +1,30 @@
 ---
 layout: layout.pug
-navigationTitle:  Deploying a Local Universe
-title: Deploying a Local Universe
+navigationTitle:  Deploying a Local Catalog
+title: Deploying a Local Catalog
 menuWeight: 1000
-excerpt: Installing and running DC/OS services on a local Universe datacenter
+excerpt: Installing and running DC/OS services on a local Catalog datacenter
 enterprise: false
+render: mustache
+model: ../../data.yml
 ---
 
-<p class="message--important"><strong>NOTE: </strong>If you are using dcos-enterprise, use [Package Registry]((/1.13/administering-clusters/package-registry/)) for a seamless management of packages in air-gapped environments. Local universe support is deprecated.</p>
+<p class="message--important"><strong>NOTE: </strong> If you are using DC/OS Enterprise, use <tt>package-registry</tt> for seamless management of packages in air-gapped environments. Local {{ model.packageRepo }} support is deprecated.</p>
 
-You can install and run DC/OS services on a datacenter without internet access with a local [Universe](https://github.com/mesosphere/universe). You can deploy a local Universe that includes all Certified packages (basic), or a local Universe that includes selected packages (advanced).
+You can install and run DC/OS services on a datacenter without Internet access by using a local [{{ model.packageRepo }}](https://github.com/mesosphere/universe). You can deploy a local {{ model.packageRepo }} that includes all Certified packages (basic), or a local {{ model.packageRepo }} that includes selected packages (advanced).
 
 **Prerequisites:**
 
 - [DC/OS CLI installed](/1.13/cli/install/).
 
 - Logged into the DC/OS CLI. On DC/OS Enterprise, you must be logged in as a user with the `dcos:superuser` permission.
-<p class="message--note"><strong>NOTE: </strong>As the Universe tarball is over two gigabytes in size it may take some time to download it to your local drive and upload it to each master.</p>
+<p class="message--note"><strong>NOTE: </strong>As the {{ model.packageRepo }} tarball is over two gigabytes in size it may take some time to download it to your local drive and upload it to each master.</p>
 
-# <a name="certified"></a>Certified Universe packages
+# <a name="certified"></a>Certified {{ model.packageRepo }} packages
 
-This section explains how to deploy a local Universe containing certified Universe packages.
+This section explains how to deploy a local {{ model.packageRepo }} containing certified {{ model.packageRepo }} packages.
 
-1.  From a terminal prompt, use the following commands to download the local Universe and its service definitions onto your local drive.
+1.  From a terminal prompt, use the following commands to download the local {{ model.packageRepo }} and its service definitions onto your local drive.
 
     ```bash
     curl -v https://downloads.mesosphere.com/universe/public/local-universe.tar.gz -o local-universe.tar.gz
@@ -30,7 +32,7 @@ This section explains how to deploy a local Universe containing certified Univer
     curl -v https://raw.githubusercontent.com/mesosphere/universe/version-3.x/docker/local-universe/dcos-local-universe-registry.service -o dcos-local-universe-registry.service
     ```
 
-1.  Use [secure copy](https://linux.die.net/man/1/scp) (scp) to transfer the Universe and registry files to a master node, replacing `<master-IP>` with the public IP address of a master before issuing the following commands. (You can find the public IP address of a master in the top left corner of the DC/OS UI.)
+1.  Use [secure copy](https://linux.die.net/man/1/scp) (scp) to transfer the {{ model.packageRepo }} and registry files to a master node, replacing `<master-IP>` with the public IP address of a master before issuing the following commands. (You can find the public IP address of a master in the top left corner of the DC/OS UI.)
 
     ```bash
     scp local-universe.tar.gz core@<master-IP>:~
@@ -71,7 +73,7 @@ This section explains how to deploy a local Universe containing certified Univer
     ls -la /etc/systemd/system/dcos-local-universe-*
     ```
 
-1.  Load the Universe into the local Docker instance. This may take some time to complete.
+1.  Load the {{ model.packageRepo }} into the local Docker instance. This may take some time to complete.
 
     ```bash
     docker load < local-universe.tar.gz
@@ -102,7 +104,7 @@ This section explains how to deploy a local Universe containing certified Univer
 
 ## Configuring multiple masters
 
-If you only have one master, skip to [Linking local Universe to master](#linking) below. If you have multiple masters, continue with the following procedure.
+If you only have one master, skip to [Linking local {{ model.packageRepo }} to master](#linking) below. If you have multiple masters, continue with the following procedure.
 
 1.  Use the following command to discover the private IP addresses of all of your masters. Identify the private IP address of the master you are SSHed into right now from the list. It will match the path shown after `core@ip-` in your prompt, where the hyphens become periods.
 
@@ -110,7 +112,7 @@ If you only have one master, skip to [Linking local Universe to master](#linking
     host master.mesos
     ```
 
-1.  Use [secure copy](https://linux.die.net/man/1/scp) to transfer the Universe and registry files to one of the other masters. Replace `<master-IP>` with the IP address of the other master.
+1.  Use [secure copy](https://linux.die.net/man/1/scp) to transfer the {{ model.packageRepo }} and registry files to one of the other masters. Replace `<master-IP>` with the IP address of the other master.
 
     ```bash
     scp local-universe.tar.gz core@<master-IP>:~
@@ -149,7 +151,7 @@ If you only have one master, skip to [Linking local Universe to master](#linking
     ls -la /etc/systemd/system/dcos-local-universe-*
     ```
 
-1.  Load the Universe into the local Docker instance. This may take some time to complete.
+1.  Load the {{ model.packageRepo }} into the local Docker instance. This may take some time to complete.
 
     ```
     docker load < local-universe.tar.gz
@@ -175,25 +177,25 @@ If you only have one master, skip to [Linking local Universe to master](#linking
     sudo systemctl status dcos-local-universe-registry
     ```
 
-Repeat this section until you have completed this procedure for all of your masters. Then continue to the Linking local Universe to master section below.
+Repeat this section until you have completed this procedure for all of your masters. Then continue to the Linking local {{ model.packageRepo }} to master section below.
 
 <a name="linking"></a>
 
-## Linking local Universe to master
+## Linking local {{ model.packageRepo }} to master
 
 1.  Close the SSH session by typing `exit`, or open a new terminal prompt. You may have to exit more than one SSH session if you have multiple masters.
 
-1.  (Optional) Use the following command to remove the references to the default Universe from your cluster. If you want to leave the default Universe in place and just add the local Universe as an additional repository, skip to the next step. You can also remove the references to the default Universe repository from **Settings** > **Package Repositories** in the DC/OS web interface.
+1.  (Optional) Use the following command to remove the references to the default {{ model.packageRepo }} from your cluster. If you want to leave the default {{ model.packageRepo }} in place and just add the local {{ model.packageRepo }} as an additional repository, skip to the next step. You can also remove the references to the default {{ model.packageRepo }} repository from **Settings** > **Package Repositories** in the DC/OS web interface.
 
     ```bash
-    dcos package repo remove Universe
+    dcos package repo remove {{ model.packageRepo }}
     ```
 
 
-1.  Use the following command to add a reference to the local Universes that you added to each master.
+1.  Use the following command to add a reference to the local {{ model.packageRepo }}s that you added to each master.
 
     ```bash
-    dcos package repo add local-universe http://master.mesos:8082/repo
+    dcos package repo add local-{{ model.packageRepo }} http://master.mesos:8082/repo
     ```
     
 1.  [SSH into one of your agent nodes.](/1.13/administering-clusters/sshcluster/)
@@ -227,7 +229,7 @@ Repeat this section until you have completed this procedure for all of your mast
    ```
   
 1.  Close the SSH session by typing `exit`, or open a new terminal prompt. Repeat these steps on each agent node.
-1.  To verify your success, log into the DC/OS web interface and click the **Catalog** tab. You should see a list of Certified packages. Install one of the packages.
+1.  To verify your success, log into the DC/OS web interface and click the **{{ model.packageRepo }}** tab. You should see a list of Certified packages. Install one of the packages.
 
 ### FAQ
 
@@ -237,7 +239,7 @@ Repeat this section until you have completed this procedure for all of your mast
 
 *   **The images are broken**
 
-    All Universe components are hosted inside of your cluster, including the images. The components are served up by `master.mesos:8082`. If you have connectivity to that IP, you can add it to `/etc/hosts` and get the images working.
+    All {{ model.packageRepo }} components are hosted inside of your cluster, including the images. The components are served up by `master.mesos:8082`. If you have connectivity to that IP, you can add it to `/etc/hosts` and get the images working.
 
 *   **I don't see the package I was looking for**
 
@@ -247,9 +249,9 @@ Repeat this section until you have completed this procedure for all of your mast
 
 **Prerequisite:** [Git](https://git-scm.com/). On Unix/Linux, see these <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">installation instructions</a>.
 
-To deploy a local Universe containing your own set of packages you must build a customized local Universe Docker image.
+To deploy a local {{ model.packageRepo }} containing your own set of packages you must build a customized local {{ model.packageRepo }} Docker image.
 
-1.  Clone the Universe repository:
+1.  Clone the {{ model.packageRepo }} repository:
 
     ```bash
     git clone https://github.com/mesosphere/universe.git --branch version-3.x
@@ -264,7 +266,7 @@ To deploy a local Universe containing your own set of packages you must build a 
 
 1.  Build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz`
 file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE`
-variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Universe packages are
+variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified {{ model.packageRepo }} packages are
 included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web
 interface.
 
@@ -272,5 +274,5 @@ interface.
     sudo make DCOS_VERSION=1.13 DCOS_PACKAGE_INCLUDE="cassandra:1.0.25-3.0.10,marathon:1.4.2" local-universe
     ```
 
-1.  Perform all of the steps as described in [Certified Universe packages](#certified).
+1.  Perform all of the steps as described in [Certified {{ model.packageRepo }} packages](#certified).
 

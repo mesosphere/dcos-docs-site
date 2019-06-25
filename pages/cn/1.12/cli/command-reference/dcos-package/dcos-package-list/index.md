@@ -24,11 +24,7 @@ dcos package list [<package-name> --json --app-id=<app-id> --cli]
 | `-h`, `--help` | 显示用法。|
 | `--app-id=<app-id>` | 应用程序 ID。|
 | `--cli` | 仅命令行。|
-<<<<<<< HEAD
 | `--json` | JSON 格式的数据。|
-=======
-| `--json` | JSON 格式化的数据。|
->>>>>>> staging
 
 ## 位置自变量
 

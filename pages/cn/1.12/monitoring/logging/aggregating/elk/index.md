@@ -19,7 +19,7 @@ enterprise: false
 
 本文档未介绍如何设置和配置 Elasticsearch 服务器。本文档未介绍如何在 Filebeat 实例和 Elasticsearch 之间建立安全的 TLS 通信。有关如何实现此操作的详细信息，请参阅 [Filebeat][2] 和 [Elasticsearch][5] 文档。
 
-**前提条件**
+**先决条件**
 
 * 现有 Elasticsearch 装置可以消化数据用于索引
 * 所有 DC/OS 节点都必须能够连接到用于在 Elasticsearch 和 Filebeat 之间通信的端口上的 Elasticsearch 服务器（默认情况下为 9200）
@@ -126,7 +126,7 @@ network.host = [IP address from the interface in your ElasticSearch node connect
 
 应在所有节点上配置日志轮换，以防止文件 `/var/log/dcos/dcos.log` 无限制地增大和装满磁盘空间。
 `logrotate` 配置应包含 `copytruncate`，因为 `journalctl` 管道保持打开状态，即使在轮换后仍然指向同一个文件。
-使用 `copytruncate` 时，复制文件和将其截断之间的窗口很小，因此某些记录数据可能丢失 - 应该平衡装满磁盘和丢失某些日志之间的利弊。
+使用 `copytruncate` 时，复制文件和将其截断之间的时间间隔很小，因此某些记录数据可能丢失 - 应该平衡装满磁盘和丢失某些日志之间的利弊。
 
 例如，`logrotate` 配置应当是这样的：
 

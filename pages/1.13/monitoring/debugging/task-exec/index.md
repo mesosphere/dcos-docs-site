@@ -6,6 +6,8 @@ menuWeight: 20
 excerpt: Using the dcos task exec command inside a task container
 beta: true
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -167,7 +169,7 @@ In this example, a long running [job](/1.13/deploying-jobs/) is launched by usin
             "cpus": 0.01,
             "disk": 0,
             "env": {},
-            "maxLaunchDelay": 3600,
+            "maxLaunchDelaySeconds": 300,
             "mem": 32,
             "placement": {
               "constraints": []

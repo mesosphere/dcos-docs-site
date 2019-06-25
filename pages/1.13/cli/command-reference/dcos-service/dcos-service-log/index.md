@@ -4,6 +4,8 @@ navigationTitle:  dcos service log
 title: dcos service log
 menuWeight: 1
 excerpt: Displaying the service logs
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

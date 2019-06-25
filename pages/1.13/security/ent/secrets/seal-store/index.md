@@ -2,10 +2,11 @@
 layout: layout.pug
 navigationTitle:  Sealing the Secret Store
 title: Sealing the Secret Store
-menuWeight: 2
+menuWeight: 3
 excerpt: Manually sealing the Secret Store
-
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
@@ -13,7 +14,7 @@ You may want to manually seal the Secret Store to protect its contents from an i
 
 To seal the Secret Store, complete the following steps to seal a single instance of `dcos-secrets`. If the cluster URL obtained through `dcos config show core.dcos_url` points to a load balancer and there is more than one master node in the cluster, then these steps should be issued against each master node instead, and the cluster URL should be changed to the address of individual master nodes.
 
-The intended status of the seal is persisted, so after sealing the store the restart of `dcos-secrets` will not unseal it - only the steps depicted in [unsealing the store](/1.13/security/ent/secrets/unseal-store/) will.
+The intended status of the seal is persisted; after sealing the store, the restart of `dcos-secrets` will not unseal it. Only the steps depicted in [unsealing the store](/1.13/security/ent/secrets/unseal-store/) will do so.
 
 **Prerequisites:**
 

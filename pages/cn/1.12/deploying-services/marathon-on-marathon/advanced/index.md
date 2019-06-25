@@ -8,11 +8,11 @@ enterprise: true
 
 ---
 
-本专题描述了如何部署具有独立角色、保留、配额和安全功能的非本地 Marathon 实例  (Marathon on Marathon) 。高级非本地 Marathon 程序只能在您需要 [密钥](/cn/1.12/security/ent/secrets/) 或细粒度 ACL 时使用。否则，请使用 [基本程序](/cn/1.12/deploying-services/marathon-on-marathon/basic/)。
+本专题描述了如何部署具有独立角色、保留、配额和安全功能的非本地 Marathon 实例  (Marathon on Marathon) 。高级非本地 Marathon 程序只能在您需要 [密钥](/cn/1.12/security/ent/secrets/) 或细粒度 ACL 时使用。否则，请使用 [基本步骤](/cn/1.12/deploying-services/marathon-on-marathon/basic/)。
 
-对于本程序，我们假设您已从支持团队成员获得了 Marathon 的企业版。如果您仍然需要企业工件，则需要首先通过 [Mesosphere 支持门户](https://support.mesosphere.com/s/) 提交故障单。企业工件作为 Docker 镜像文件提供，并包含 Marathon 以及 Marathon 插件，可启用 DC/OS Enterprise 功能 - 例如密钥和细分访问权限控制。
+对于本步骤，我们假设您已从支持团队成员获得了 Marathon 的企业版。如果您仍然需要企业工件，则需要首先通过 [Mesosphere 支持门户](https://support.mesosphere.com/s/) 提交故障单。企业工件作为 Docker 镜像文件提供，并包含 Marathon 以及 Marathon 插件，可启用 DC/OS Enterprise 功能 - 例如密钥和细分访问权限控制。
 
-**前提条件：**
+**先决条件：**
 
 - DC/OS 和 DC/OS CLI [已安装](/cn/1.12/installing/)。
 - [DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.12/cli/enterprise-cli/#ent-cli-install)。
@@ -24,7 +24,7 @@ enterprise: true
 <a name="variables-in-example"></a>
 **此示例中的变量**
 
-整个页面将指示您调用命令或执行使用特定于群集的值的操作。我们使用 `${VARIABLE}` 表示法引用这些特定于群集的值；请将以下变量替换为您的群集的合适值。
+整个页面将指示您调用命令或执行使用特定于群集的值的操作。我们使用 `${VARIABLE}` 表示法表示这些特定于群集的值；请将以下变量替换为您的群集的合适值。
 
 下表包含本页所用的所有变量：
 
@@ -33,11 +33,11 @@ enterprise: true
 | `${MESOS_ROLE}` | 新 Marathon 实例将使用的 [Mesos 角色](https://mesos.apache.org/documentation/latest/roles/)的名称。该名称应该全部小写，并且是有效的 [Mesos 角色名称](https://mesos.apache.org/documentation/latest/roles/#invalid-role-names)，例如 `"marathon_ee"`。|
 | `${SERVICE_ACCOUNT}` | Marathon 用来和 DC/OS 中的其他服务进行通信的 [服务帐户](/cn/1.12/security/ent/service-auth/) 的名称。名称应仅包含字母、数字、`@`、`.`、`\`、`_` 和 `-`。例如 `"marathon_user_ee"` |
 | `${MARATHON_INSTANCE_NAME}` | 新 Marathon 实例的服务名称，由根 Marathon 实例启动。这应该是有效的 [Marathon 服务名称](https://mesosphere.github.io/marathon/docs/application-basics.html)，例如 `"mom_ee"`。|
-| `${SERVICE_ACCOUNT_SECRET}` | [密钥存储库](/cn/1.12/security/ent/secrets/)中的密钥路径，用于保存 Marathon 将使用的私钥以及要在 DC/OS 上进行身份认证的 `${SERVICE_ACCOUNT}` 帐户。此名称 **不得**包含一个领导的 `/`。有效示例： `"marathon_user_ee_secret"` |
-| `${DOCKER_REGISTRY_SECRET}` | [密钥](/cn/1.12/security/ent/secrets/)的名称，用于保存从专用注册表中获取 Marathon Docker 镜像的凭据。此名称 **不得**包含一个领导的 `/`。有效示例： `"registry_secret"`。 |
-| `${PRIVATE_KEY}` | PEM 格式化私钥文件的路径（在本地文件系统中，不确定是否存在），最好以 `.pem` 为后缀 |
-| `${PUBLIC_KEY}` | PEM 格式化公钥文件的路径（在本地文件系统中，不确定是否存在），最好以 `.pem` 为后缀 |
-| `${MARATHON_IMAGE}` | 专用存储库中的 Marathon 镜像的名称**，例如 `private-repo/marathon-dcos-ee`。|
+| `${SERVICE_ACCOUNT_SECRET}` | [密钥存储库](/cn/1.12/security/ent/secrets/)中的密钥路径，用于保存 Marathon 将使用的私钥以及要在 DC/OS 上进行身份认证的 `${SERVICE_ACCOUNT}` 帐户。此名称 **不得**包含一个开头的 `/`。有效示例： `"marathon_user_ee_secret"` |
+| `${DOCKER_REGISTRY_SECRET}` | [密钥](/cn/1.12/security/ent/secrets/)的名称，用于保存从专用注册表中获取 Marathon Docker 镜像的凭据。此名称 **不得**包含一个开头的 `/`。有效示例： `"registry_secret"`。 |
+| `${PRIVATE_KEY}` | PEM 格式的私钥文件的路径（在本地文件系统中，不确定是否存在），最好以 `.pem` 为后缀 |
+| `${PUBLIC_KEY}` | PEM 格式的公钥文件的路径（在本地文件系统中，不确定是否存在），最好以 `.pem` 为后缀 |
+| `${MARATHON_IMAGE}` | **专用存储库中** 的 Marathon 镜像的名称，例如 `private-repo/marathon-dcos-ee`。|
 | `${MARATHON_TAG}` | 要部署的 Marathon 版本的 Docker 镜像标记。例如 `v1.5.11_1.10.2` （0.11.0 或更高版本）。|
 
 <p class="message--note"><strong>注意：</strong> 如果您使用的是 Mac OS 或 Linux 计算机，则可以在终端会话中预先定义上述大多数变量，只需将片段复制并粘贴到终端中即可.</p>
@@ -142,9 +142,9 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
 
 授予服务帐户 `${SERVICE_ACCOUNT}` 权限，以启动将作为 Linux 用户 `nobody` 执行的 Mesos 任务。
 
-要允许作为不同 Linux 用户执行任务，请替换 `nobody` 为该用户的 Linux 用户名。例如，如需以 Linux 用户 `bob` 身份启动任务，请替换 `nobody` 为以下的 `bob`。
+要允许作为不同 Linux 用户执行任务，请将 `nobody` 替换为该用户的 Linux 用户名。例如，如需以 Linux 用户 `bob` 身份启动任务，请将 `nobody` 替换为以下的 `bob`。
 
-请注意， `nobody` 和 `root` 用户是默认出现在所有代理上的；如果指定自定义  (例如，`bob`)，那么用户 `bob` 就需要在可以执行这些任务的每个代理上手动创建（使用 Linux `adduser` 或类似实用程序）。
+请注意， `nobody` 和 `root` 用户是默认出现在所有代理上的；如果指定自定义用户 (例如，`bob`)，那么用户 `bob` 就需要在可以执行这些任务的每个代理上手动创建（使用 Linux `adduser` 或类似实用程序）。
 
 ```bash
 dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:task:user:nobody create --description "Tasks can execute as Linux user nobody"
@@ -463,9 +463,9 @@ dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:princi
    ```
 
 
-# 已知陷阱
+# 已知常见问题
 
-- 启动 Docker 容器时，用户 `nobody` 可能没有足够的权限来成功运行。例如，无法作为用户 `nobody` 启动 `nginx` Docker 容器，因为 `nobody` 没有 `/var/log` 所需的 `nginx` 的写入权限。
+- 启动 Docker 容器时，用户 `nobody` 可能没有足够的权限来成功运行。例如，无法作为用户 `nobody` 启动 `nginx` Docker 容器，因为 `nobody` 没有 `nginx` 所需的 `/var/log` 的写入权限。
 
 - 用户 `nobody` 在不同的系统上具有不同的 UID（在 coreos 上为 99，在 ubuntu 上为 65534）。根据代理的分布情况，您可能需要修改容器镜像以使 UID 匹配！使用用户 `bob` 时也是如此。
 

@@ -11,19 +11,19 @@ enterprise: false
 
 # 领导者/追随者架构
 
-高可用性 (HA) 系统的常见模式是领导者/追随者概念。这有时也被称为主控/从属、主要/副本或这些内容的某些组合。当您有一个权威进程及 N 个备用进程时使用。在某些系统中，备用进程也可能可以服务于请求或执行其他操作。例如，当与主控和副本一起运行 Mysql 等数据库时，该副本可以服务于只读请求，但不能接受写入；只有主控才接受写入。在 DC/OS中，许多组件都遵循领导者/追随者模式。我们将讨论其中部分组件及其工作方式。
+高可用性 (HA) 系统的常见模式是首要/次要概念。这有时也被称为主控/从属、主要/副本或这些内容的某些组合。当您有一个权威进程及 N 个备用进程时使用。在某些系统中，备用进程也可能可以服务于请求或执行其他操作。例如，当与管理节点和副本一起运行 Mysql 等数据库时，该副本可以服务于只读请求，但不能接受写入；只有管理节点才接受写入。在 DC/OS中，许多组件都遵循首要/次要模式。我们将讨论其中部分组件及其工作方式。
 
 #### Mesos
 
-Mesos 可以高可用性模式运行，需要运行三个或五个主控。在 HA 模式下运行时，一个主控被选为领导者，其他主控则是追随者。每个主控都有一个复制了的日志，其中包含有关群集的某种状态。ZooKeeper 执行选举以选择领导主控。有关这方面的更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/)。
+Mesos 可以高可用性模式运行，需要运行三个或五个主控。在 HA 模式下运行时，一个管理被选为首要节点，其他管理节点则是次要节点。每个管理节点都有一个复制了的日志，其中包含有关群集的某种状态。ZooKeeper 执行选举以选择首要管理节点。有关这方面的更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/)。
 
 #### Marathon
 
-Marathon 可以高可用性模式与一个选举的领导者一起运行，使得可以运行多个 Marathon 实例（HA 为至少两个）。Marathon 使用 ZooKeeper 进行领导者选举。追随者不接受写入或 API 请求；相反，追随者代理所有 API 请求代理给领先的 Marathon 实例。
+Marathon 可以高可用性模式与一个选举的首要实例一起运行，使得可以运行多个 Marathon 实例（HA 为至少两个）。Marathon 使用 ZooKeeper 进行首要实例选举。追随者不接受写入或 API 请求；相反，追随者代理所有 API 请求代理给领先的 Marathon 实例。
 
 #### ZooKeeper
 
-DC/OS 中的多个服务使用 ZooKeeper 以取得一致性。ZooKeeper 可用作分布式锁定服务、状态存储库和消息传递系统。ZooKeeper 使用 [Paxos-like](https://en.wikipedia.org/wiki/Paxos_(computer_science)) 日志复制和领导者/追随者架构，以保持多个 ZooKeeper 实例之间的一致性。有关 ZooKeeper 如何工作的详细说明，请参阅 [ZooKeeper 内部文档](https://zookeeper.apache.org/doc/r3.4.8/zookeeperInternals.html)。
+DC/OS 中的多个服务使用 ZooKeeper 以取得一致性。ZooKeeper 可用作分布式锁定服务、状态存储库和消息传递系统。ZooKeeper 使用 [Paxos-like](https://en.wikipedia.org/wiki/Paxos_(computer_science)) 日志复制和首要/次要架构，以保持多个 ZooKeeper 实例之间的一致性。有关 ZooKeeper 如何工作的详细说明，请参阅 [ZooKeeper 内部文档](https://zookeeper.apache.org/doc/r3.4.8/zookeeperInternals.html)。
 
 # 故障域隔离
 故障域隔离是构建 HA 系统的重要组成部分。为正确处理故障情形，系统必须跨故障域分布，以便在故障后存活。故障域有不同的类型，其中几个例子包括：
@@ -51,7 +51,7 @@ DC/OS 中的多个服务使用 ZooKeeper 以取得一致性。ZooKeeper 可用�
 
 # 快速故障检测
 
-快速故障检测有多种形式。ZooKeeper 等服务可用于提供故障检测，例如检测网络分区或主机故障。服务健康状况检查也可用于检测某些类型的故障。作为最佳实践，服务应揭示健康检查端点，这可以被 Marathon 等服务所使用。
+快速故障检测有多种形式。ZooKeeper 等服务可用于提供故障检测，例如检测网络分区或主机故障。服务运行状况检查也可用于检测某些类型的故障。作为最佳实践，服务应揭示运行状况检查端点，这可以被 Marathon 等服务所使用。
 
 # 快速故障切换
 

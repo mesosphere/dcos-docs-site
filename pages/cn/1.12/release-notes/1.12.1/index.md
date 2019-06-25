@@ -52,7 +52,7 @@ Admin Router
 - COPS-3968、DCOS-43897 - 使用 Firefox 作为 Web 浏览器时，可在 DC/OS UI 中正确呈现服务标签和环境变量。
 
 ## Marathon
-- COPS-3554 - 这一版本引入了一个监视器循环程序用于进行监控，并在必要时重新注册重新选举的 Marathon 领导者。
+- COPS-3554 - 这一版本引入了一个监视器循环程序用于进行监控，并在必要时重新注册重新选举的 Marathon 首要节点。
 
 - COPS-3593、DCOS_OSS-4193 - 在之前版本中，如果容器崩溃或在某些 DNS 处于故障条件下，Marathon 管理的某些服务可能无法重新启动。例如，如果第一个 Zookeeper 节点或第一个 DC/OS 管理节点无法访问，则重新启动服务可能会失败。
 
@@ -107,7 +107,7 @@ Admin Router
 
  您可以在受影响的节点上重新启动 `systemd` 进程以恢复正常的网络连接。此修复程序与缓解由 Erlang 库（DC/OS 1.12）中的安全套接字层（SSL）死锁引起的网络问题有关。
 
-- COPS-3924、DCOS_OSS-1954 - 分布式第 4 层负载均衡器（`dcos-l4lb`）网络组件会等待路由流量，直到应用程序向上扩展操作完成或应用程序运行状况检查已通过为止。如果要缩小应用程序实例的数量，`dcos-l4lb` 进程不会阻止路由流量。只有在确定应用程序的状态不健康或未知时，才会暂停网络流量。
+- COPS-3924、DCOS_OSS-1954 - 分布式第 4 层负载均衡器（`dcos-l4lb`）网络组件会等待路由流量，直到应用程序向上扩展操作完成或应用程序运行状况检查已通过为止。如果要缩小应用程序实例的数量，`dcos-l4lb` 进程不会阻止路由流量。只有在确定应用程序的状态运行状况不佳或未知时，才会暂停网络流量。
 
 - COPS-4034、DCOS_OSS-4398 - 此版本阻止 `dcos-net` 在具有绑定接口的裸机服务器上不断重新启动 `systemd-networkd`。
 
@@ -131,7 +131,7 @@ Admin Router
 本部分介绍了不一定影响所有客户，但可能需要更改环境以解决特定情况的所有已知问题或限制。这些问题按特性、作用区域或组件分组。适用时，问题说明会包括一个或多个问题跟踪标识符。
 
 ### Marathon 插件依赖关系
-如果您有自定义 Marathon 插件或已向群集添加任何与 Marathon 相关的自定义，则可能需要在升级到此版本后更新插件或自定义组件。例如，如果您有一个依赖于使用 Scala 2.11 编译的 Scala Logging 3.1.0 版的插件，则需要将 Scala Logging 包升级到使用 Scala 2.12 编译的 3.7.2 版，以兼容该版本 DC/OS 所含的 Marathon 包中使用的日志记录库。
+如果您有自定义 Marathon 插件或已向群集添加任何依靠 Marathon 的自定义，则可能需要在升级到此版本后更新插件或自定义组件。例如，如果您有一个依赖于使用 Scala 2.11 编译的 Scala Logging 3.1.0 版的插件，则需要将 Scala Logging 包升级到使用 Scala 2.12 编译的 3.7.2 版，以兼容该版本 DC/OS 所含的 Marathon 包中使用的日志记录库。
 
 ### 收集度量标准的服务帐户权限
 DC/OS（1.12 版及更新版本）中的度量标准基于 Telegraf。Telegraf 提供基于代理的服务，在 DC/OS 群集中的每个管理节点和代理节点上运行。默认情况下，Telegraf 从同一节点上运行的所有进程收集度量标准，收集的信息经过处理之后被发送到中央度量标准数据库。Telegraf 程序在服务帐户 `dcos_telegraf_master` 和 `dcos_telegraf_agent` 下运行。必须授予这两个服务帐户 `dcos::superuser permissions`。
@@ -146,8 +146,8 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - 安装和升级改进
 - LDAP 和网络连接增强功能
 
-## 新特性和功能
-本节概述了 DC/OS 1.12 中引入的新特性和新功能。
+## 新功能
+本节概述了 DC/OS 1.12 中引入的新功能。
 
 ### Mesosphere Kubernetes 引擎
 - 高密度多 Kubernetes (HDMK) 使操作者能够在 DC/OS 上运行多个 Kubernetes 群集时充分利用智能资源池。与每个虚拟机运行单个 Kubernetes 节点的其他 Kubernetes 发行版相比，Mesosphere HDMK 使用其智能资源池将多个 Kubernetes 节点打包到连接裸机、虚拟机和公共云实例的同一服务器上，从而显著节省成本并提高资源利用效率。[详细了解 DC/OS 上的 Kubernetes](/services/kubernetes/2.0.0-1.12.1/)。
@@ -159,7 +159,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - OpenID Connect 身份认证和授权，支持 Windows 集成身份认证（WIA）和活动目录联合服务（ADFS）。
 
 ### 观察性和度量标准
-- 引入了具有多种输出格式的灵活且可配置的度量标准管道
+- 引入了具有多种输出格式的灵活且可配置的度量标准管线
 - 增强对应用程序度量标准类型（包括直方图、计数器、计时器和计量器）的支持。
 - 支持提高采样率和多度量标准数据包。
 - Mesos 框架度量标准现在 [可用](http://mesos.apache.org/documentation/latest/monitoring/#frameworks)。
@@ -180,7 +180,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - 通过快速启动过程实现直观简化的安装，只需 10-15 分钟即可通过几个简单的步骤启动 DC/OS 群集。
 - 正式推荐为 Mesosphere 支持的安装方法，内置最佳实践（即持续升级的顺序管理节点和并行代理节点）。
 - 重组 [Mesosphere 安装文档](https://docs.mesosphere.com/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
-- 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越特定的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
+- 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越升级特定的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越升级支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
 
 [enterprise]
 ### LDAP 和网络增强功能

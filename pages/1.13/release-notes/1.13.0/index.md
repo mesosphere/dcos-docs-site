@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle: Release notes for 1.13.0
 title: Release notes for 1.13.0
 menuWeight: 5
+render: mustache
+model: /data.yml
 excerpt: Release notes for DC/OS 1.13.0, including Open Source attribution, and version policy.
 ---
 DC/OS 1.13.0 was released on May 8, 2019.
@@ -52,7 +54,7 @@ This release extends DC/OS cluster monitoring capabilities and the metrics you c
 
     When you install the DC/OS monitoring service, you can select the volume size and a volume profile for the file system where you want to store the Prometheus time-series database (`tsdb`). By specifying a volume managed by the DC/OS Storage Service, you can take advantage of the durability, performance, and flexibility DSS provides for your collected data.
 
-    For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/beta-dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/beta-storage/0.5.3-beta/).
+    For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/beta-storage/0.5.3-beta/).
 
 - The DC/OS monitoring service enables you to import curated alerting rules. <!--(DCOS-47666)-->
 
@@ -296,7 +298,7 @@ For more information about collecting metrics and configuring metrics plugins, s
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 <!-- not in 1.13 Docs in RN filter
 - Retention policies for dcos-monitoring data (DCOS-46818)
-    The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: /services/beta-dcos-monitoring/0.4.3-beta/operations/prometheus/storage/
+    The dcos-monitoring service in versions 0.4.3 and later provides the ability to adjust the retention period of the Prometheus time series database. For more information see: /services/dcos-monitoring/1.0.0/operations/prometheus/storage/
 -->
 <!-- not in 1.13 Docs in RN filter
 - Display Grafana dashboards on unsupervised displays (DCOS-51133)
@@ -490,7 +492,7 @@ The following example illustrates the changes required when you have job definit
     "artifacts": [
 
     ],
-    "maxLaunchDelay": 3600,
+    "maxLaunchDelaySeconds": 300,
     "volumes": [
 
     ],
@@ -551,7 +553,7 @@ To add this job definition to the JSON editor, you would modify the existing JSO
         ]
       },
       "artifacts": [ ],
-      "maxLaunchDelay": 3600,
+      "maxLaunchDelaySeconds": 300,
       "volumes": [ ],
       "restart": { "policy": "NEVER" },
       "secrets": { }

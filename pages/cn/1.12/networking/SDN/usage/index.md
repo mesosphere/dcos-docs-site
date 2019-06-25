@@ -14,7 +14,7 @@ DC/OS 允许您在各种基于 IP 的虚拟网络上运行容器，从而为每�
 
 # 使用虚拟网络
 
-首先，您必须 [配置虚拟网络](/cn/1.12/networking/SDN/dcos-overlay/)。虚拟网络在安装时进行配置。您必须为 `config.yaml` 中的每个网络指定一个规范名。当您的服务需要启动一个容器时，请通过该规范名来提及。要在 Marathon 应用定义中使用虚拟网络，请指定 `"network": "USER"` 属性以及表格中的 `ipAddress` 字段：`{"ipAddress": {"network": "$MYNETWORK"}}``$MYNETWORK` 的值是网络的规范名。
+首先，您必须 [配置虚拟网络](/cn/1.12/networking/SDN/dcos-overlay/)。虚拟网络在安装时进行配置。您必须为 `config.yaml` 中的每个网络指定一个规范名。当您的服务需要启动一个容器时，请通过该规范名来提及。要在 Marathon 应用定义中使用虚拟网络，请指定 `"network": "USER"` 属性以及表格中的 `ipAddress` 字段：`{"ipAddress": {"network": "$MYNETWORK"}}` 。 `$MYNETWORK` 的值是网络的规范名。
 
 # 示例
 

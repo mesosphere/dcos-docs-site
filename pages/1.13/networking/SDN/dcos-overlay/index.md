@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  DC/OS Overlay
 title: DC/OS Overlay
 menuWeight: 10
+render: mustache
+model: /data.yml
 excerpt: Understanding DC/OS Overlay
 enterprise: false
 ---

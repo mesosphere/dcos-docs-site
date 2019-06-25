@@ -4,6 +4,8 @@ navigationTitle:  Exposing a Service
 title: Exposing a Service
 menuWeight: 5
 excerpt: Launching a service with a Marathon app definition
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

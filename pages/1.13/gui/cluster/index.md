@@ -4,6 +4,8 @@ navigationTitle:  Cluster
 title: Cluster
 menuWeight: 8
 excerpt: Using the Cluster menu
+render: mustache
+model: /data.yml
 ---
 
 The Cluster menu has two tabs:

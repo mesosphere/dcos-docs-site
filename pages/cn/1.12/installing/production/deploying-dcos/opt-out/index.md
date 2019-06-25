@@ -8,7 +8,7 @@ menuWeight: 20
 
 ## 身份认证
 
-若需禁用提供的身份认证，您可以通过为您的群集禁用此选择项来选择。要禁用身份认证，请在安装期间将此参数添加到您的 [`config.yaml`](/1.12/installing/production/advanced-configuration/configuration-reference/) 文件（需要使用 [安装](/1.12/installing/production/deploying-dcos/installation/) 方法）：
+您可以通过为您的群集禁用此选择项来禁用提供的身份认证。要禁用身份认证，请在安装期间将此参数添加到您的 [`config.yaml`](/1.12/installing/production/advanced-configuration/configuration-reference/) 文件（需要使用 [安装](/1.12/installing/production/deploying-dcos/installation/) 方法）：
 
 ```yaml
 oauth_enabled: 'false'

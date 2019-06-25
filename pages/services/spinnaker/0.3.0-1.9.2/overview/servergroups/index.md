@@ -10,7 +10,7 @@ render: mustache
 
 # Concepts
 
-The following three concept pictures are from Will Gorman's great [Mesoscon presentation](
+The following three concept pictures are from Will Gorman's [Mesoscon presentation](
 http://events.linuxfoundation.org/sites/events/files/slides/Continuous%20Delivery%20for%20DC%3AOS%20%20with%20Spinnaker.pdf). They introduce the key concepts that we will use in the following section.
 
 A {{ model.techName }} **application** contains **(0-n)** **clusters**.

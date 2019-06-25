@@ -4,6 +4,8 @@ navigationTitle: Pod Examples
 title: Pod Examples
 menuWeight: 30
 excerpt: Understanding field definitions and examples of pods
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -289,7 +291,7 @@ The example below shows a pod, `test-pod`, with three containers, `healthtask1`,
       "backoff":{
          "backoff":1,
          "backoffFactor":1.15,
-         "maxLaunchDelay":3600
+         "maxLaunchDelaySeconds":300
       },
       "upgrade":{
          "minimumHealthCapacity":1,
@@ -327,7 +329,7 @@ The example below shows a pod, `test-pod`, with three containers, `healthtask1`,
 | `scheduling`                  | object   | Defines exponential backoff behavior for faulty apps to prevent sandboxes from filling up.                            |
 | `scheduling.backoff`               | number   | Initial backoff (seconds) applied when a launched instance fails (default: 1).                                                 |
 | `scheduling.backoffFactor`         | number   | Factor applied to current backoff to determine the new backoff (default: 1.15).                                                |
-| `scheduling.maxLaunchDelay`        | number   | Maximum backoff (seconds) applied when subsequent failures are detected (default: 3600).                                       |
+| `scheduling.maxLaunchDelaySeconds`        | number   | Maximum backoff (seconds) applied when subsequent failures are detected (default: 300).                                       |
 | `scheduling.unreachableStrategy`   |  string or object |  Define handling for unreachable instances. |
 | `scheduling.unreachableStrategy.inactiveAfterSeconds`   |  number | Length of time an instance is unreachable after which it is marked as inactive.  |
 | `scheduling.unreachableStrategy.expungeAfterSeconds`   |  number |  Length of time an instance is unreachable after which it is expunged. |
@@ -435,7 +437,7 @@ The following pod definition specifies a pod with 3 containers. <!-- Validated b
       "backoff":{
          "backoff":1,
          "backoffFactor":1.15,
-         "maxLaunchDelay":3600
+         "maxLaunchDelaySeconds":300
       },
       "upgrade":{
          "minimumHealthCapacity":1,
@@ -524,7 +526,7 @@ The following pod definition specifies an ephemeral volume called `v1`. <!-- Val
     "backoff": {
       "backoff": 1,
       "backoffFactor": 1.15,
-      "maxLaunchDelay": 3600
+      "maxLaunchDelaySeconds": 300
     },
     "upgrade": {
       "minimumHealthCapacity": 1,
@@ -696,7 +698,7 @@ The following pod definition can serve as a reference to create more complicated
     "backoff": {
       "backoff": 1,
       "backoffFactor": 1.15,
-      "maxLaunchDelay": 3600
+      "maxLaunchDelaySeconds": 300
     },
     "upgrade": {
       "minimumHealthCapacity": 1,

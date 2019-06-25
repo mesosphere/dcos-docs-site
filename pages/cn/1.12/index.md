@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Mesosphere DC/OS 1.12
 title: Mesosphere DC/OS 1.12 文档
 version: 1.12
-menuWeight: 10
+menuWeight: 05
 excerpt: 学习 DC/OS
 ---
 

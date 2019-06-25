@@ -10,11 +10,7 @@ enterprise: false
 
 # 说明
 
-<<<<<<< HEAD
 `dcos marathon app remove` 命令让您可以删除应用程序。
-=======
-`dcos marathon app remove` 命令允许您删除应用程序。
->>>>>>> staging
 
 # 使用
 

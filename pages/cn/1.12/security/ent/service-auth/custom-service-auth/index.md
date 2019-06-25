@@ -10,7 +10,7 @@ enterprise: true
 
 本主题详细介绍了如何为在 DC/OS 上启动的自定义应用程序和 Pod 配置身份认证。
 
-**前提条件：**
+**先决条件：**
 
 - [已安装 DC/OS CLI](/cn/1.12/cli/install/) 并以超级用户身份登录。
 - [已安装 DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.12/cli/enterprise-cli/#ent-cli-install)。
@@ -83,7 +83,7 @@ dcos security secrets list /
 # <a name="give-perms"></a>创建和分配权限
 
 ## 确定所需权限
-使用此程序确定服务帐户所需的访问权限。这将允许您排除可能由错误权限导致的任何功能问题。
+使用此步骤确定服务帐户所需的访问权限。这将允许您排除可能由错误权限导致的任何功能问题。
 
 1. [SSH 到您的节点](/cn/1.12/administering-clusters/sshcluster/)。
 

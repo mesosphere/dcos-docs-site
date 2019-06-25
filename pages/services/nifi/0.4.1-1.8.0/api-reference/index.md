@@ -21,7 +21,7 @@ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceN
 ```
 
 # DC/OS {{model.techName }} Node Operations
-These operations provide access to the DC/OS {{model.techName }} cluster node using the available DC/OS {{model.techName }} REST Api. The Rest Api provides programmatic access to command and control a DC/OS {{model.techName }} instance in real time. You can see the [DC/OS {{model.techName }} REST Api](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) for more about the available Api.
+These operations provide access to the DC/OS {{model.techName }} cluster node using the available DC/OS {{model.techName }} REST API. The Rest API provides programmatic access to command and control a DC/OS {{model.techName }} instance in real time. You can see the [DC/OS {{model.techName }} REST API](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) for more about the available API.
 
 
 ## List DC/OS {{model.techName }} Cluster Summary

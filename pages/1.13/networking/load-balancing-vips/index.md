@@ -4,6 +4,8 @@ navigationTitle:  Load Balancing and Virtual IPs (VIPs)
 title: Load Balancing and Virtual IPs (VIPs)
 menuWeight: 1
 excerpt: Understanding load balancing and virtual IPs
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

@@ -10,9 +10,9 @@ model: ../../data.yml
 render: mustache
 ---
 
-The DC/OS {{model.techName }} service supports Secret upload. The service provides a process to upload a secrets file in all nodes of DC/OS {{model.techName }} inside any existing folder or by creating a new folder.
+The DC/OS {{model.techName }} supports the uploading of Secrets. The service provides a process to upload a secrets file in all nodes of DC/OS {{model.techName }} inside any existing folder or by creating a new folder.
 
-To upload a secret file in `{{ model.serviceName }}` node, create a secret with the ID  `{{ model.serviceName }}/config-secret` in the DC/OS Secret Store. The value of the secret should be written in shell scripting format as given below (like adding the AWS credentials file) and then check the enable option inside secrets tab while installing {{model.techName }}. 
+To upload a Secret file to a `{{ model.serviceName }}` node, create a secret with the ID  `{{ model.serviceName }}/config-secret` in the DC/OS Secret Store. The value of the secret should be written in shell scripting format as given below (like adding the AWS credentials file) and then check the enable checkbox inside secrets tab while installing {{model.techName }}. 
 
 ```shell
 cat > file.properties << EOF 
@@ -43,7 +43,7 @@ Install the DC/OS {{model.techName }} service with the following attributes in a
   }
 }
  ```
-Or enable secrets through a web interface installation.
+Or enable secrets while installing {{ model.serviceName }} via UI.
 
 <img src="../img/showing_nifi_installation_with_secret_enabled.png" alt="{{ model.serviceName }} installation with secrets enabled" width="1000" border="2"/>
 
@@ -61,15 +61,15 @@ Figure 3. - Secret files in the {{ model.serviceName }} node
 
 Figure 4. - Secret value in {{ model.serviceName }} node
 
-### Access file in DC/OS {{model.techName }} web interface
+### Access file in DC/OS {{model.techName }} UI
 
-You can access any file in the DC/OS {{model.techName }} web interface, like the secret uploaded earlier in the above example. Use the base path `/mnt/mesos/sandbox` in addition to your file path:
+You can access any file in the DC/OS {{model.techName }} UI, like the secret uploaded earlier in the above example. Use the base path `/mnt/mesos/sandbox` in addition to your file path:
 
-```
+```shell
 /mnt/mesos/sandbox/<file_name>
 ```
 
 
-<img src="../img/showing_accessing_file_in_nifi_ui.png" alt="accessing secret file in nifi web interface" width="1000" border="2"/>
+<img src="../img/showing_accessing_file_in_nifi_ui.png" alt="accessing secret file in nifi UI" width="1000" border="2"/>
 
-Figure 5. - Accessing a secret file in DC/OS {{model.techName }} web interface
+Figure 5. - Accessing a secret file in DC/OS {{model.techName }} UI

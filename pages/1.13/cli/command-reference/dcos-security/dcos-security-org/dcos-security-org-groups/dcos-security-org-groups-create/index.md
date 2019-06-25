@@ -4,6 +4,8 @@ navigationTitle:  dcos security org groups create
 title: dcos security org groups create
 menuWeight: 130
 excerpt: Creating a user group
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 # Description

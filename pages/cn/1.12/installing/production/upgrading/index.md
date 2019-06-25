@@ -27,7 +27,7 @@ excerpt: 升级 DC/OS 群集
  出现这种情况时：
  * DC/OS GUI 不能提供准确的服务列表。
  * 对于多管理节点配置，在一个管理节点完成升级后，您可以从端口 8181 上的 Exhibitor UI 监控其余管理节点的运行状况。
-- 升级后的 DC/OS Marathon 领导者无法连接至领导 Mesos 管理节点，直到它也升级。在所有管理节点都升级到位之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已升级，Marathon 领导者可能不是 Mesos 领导者。
+- 升级后的 DC/OS Marathon 首要节点无法连接至领导 Mesos 管理节点，直到它也升级。在所有管理节点都升级到位之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已升级，Marathon 首要节点可能不是 Mesos 首要节点。
 - Mesos UI 中的任务历史记录不会持续到升级。
 
 ## 支持的升级路径矩阵
@@ -123,7 +123,7 @@ excerpt: 升级 DC/OS 群集
 
 # 修改 DC/OS 配置 [enterprise type="inline" size="small" /]
 
-_不能_ 在升级到新版本的同时更改群集配置。必须通过对已安装版本的修补进行群集配置更改。例如，您无法同时将群集从 1.10 升级到 1.11 并添加更多公共代理节点。您可以添加可修补到 1.11 的更多公共代理节点，然后升级到 1.12。或者，您可以升级到 1.12，然后在升级后通过 [修补 1.12](/1.12/installing/production/patching/) 来添加更多公共代理节点。
+_不能_ 在升级到新版本的同时更改群集配置。必须通过对已安装版本的修补进行群集配置更改。例如，您无法同时将群集从 1.10 升级到 1.11 并添加更多公共代理节点。您可以添加更多公共代理节点并修补到 1.11 ，然后升级到 1.12。或者，您可以升级到 1.12，然后在升级后通过 [修补 1.12](/1.12/installing/production/patching/) 来添加更多公共代理节点。
 
 # 说明
 必须执行这些步骤才能进行版本升级。
@@ -149,7 +149,7 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
 
 - 确认在在开始升级前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
 - [备份您的群集](/1.12/administering-clusters/backup-and-restore/)。[enterprise type="inline" size="small" /]
-- 可选：您可以将自定义 [节点和群集健康检查](/1.12/installing/production/deploying-dcos/node-cluster-health-check) 添加到 `config.yaml`。
+- 可选：您可以将自定义 [节点和群集运行状况检查](/1.12/installing/production/deploying-dcos/node-cluster-health-check) 添加到 `config.yaml`。
 - 确认所有管理节点都处于运行良好状态：
  - 检查 Exhibitor UI 以确认所有管理节点已成功加入 quorum（状态指示灯将显示绿色）。Exhibitor UI 可在 `http://<dcos_master>:8181/` 获取。
  - 验证每个管理节点中 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 的度量标准 `registrar/log/recovered` 的值为 `1`
@@ -248,7 +248,7 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
       |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
       +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
       ```
-
+    
       如果 `ranges_underreplicated` 列列出了任何非零值，则等待一分钟，然后重新运行此命令。一旦所有数据被安全地复制，数值将聚合为零。[enterprise type="inline" size="small" /]
 
 1. 转到 DC/OS 代理节点 [程序](#agents) 以完成安装。
@@ -294,7 +294,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-如果您的升级因为 [自定义节点或群集检查](/cn/1.12/installing/production/deploying-dcos/node-cluster-health-check/) 而失败，运行以下命令可了解更多详细信息：
+如果您的升级因为 [自定义节点或群集检查](/cn/1.12/installing/ent/custom/node-cluster-health-check/#custom-health-checks) 而失败，运行以下命令可了解更多详细信息：
 ```bash
 dcos-check-runner check node-poststart
 dcos-check-runner check cluster

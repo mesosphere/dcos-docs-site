@@ -18,7 +18,7 @@ DC/OS Kubernetes bundles the following versions of the base technology:
 
 - [etcd](https://coreos.com/etcd/) 3.3.13.
 - [Docker](https://www.docker.com/) 18.09.6.
-- [Kubernetes](https://kubernetes.io/) 1.14.2.
+- [Kubernetes](https://kubernetes.io/) 1.14.1.
     - [CoreDNS](https://coredns.io/) 1.4.0.
     - [Calico](https://www.projectcalico.org/) 3.6.1.
     - [Kubernetes Dashboard](https://github.com/kubernetes/dashboard/) 1.10.1.

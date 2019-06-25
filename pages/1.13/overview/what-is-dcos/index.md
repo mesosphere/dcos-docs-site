@@ -4,6 +4,8 @@ navigationTitle:  What is DC/OS
 title: What is DC/OS?
 menuWeight: 1
 excerpt: Understanding DC/OS
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

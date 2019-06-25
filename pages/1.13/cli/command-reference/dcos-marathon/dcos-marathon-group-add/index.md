@@ -5,6 +5,8 @@ title: dcos marathon group add
 menuWeight: 17
 excerpt: Adding a Marathon group
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 

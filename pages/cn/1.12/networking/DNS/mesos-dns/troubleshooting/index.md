@@ -13,7 +13,7 @@ enterprise: false
 
 # 如何查看 Mesos-DNS 版本？
 
-# 您可以通过 `mesos-dns -version` 查看 Mesos-DNS 版本。
+您可以通过 `mesos-dns -version` 查看 Mesos-DNS 版本。
 
 <p class="message--note"><strong>注意：</strong>HTTP 界面仅解析 Mesos 域中的主机名。我们不建议独立于 DC/OS 升级 Mesos-DNS。请使用随 DC/OS 版本发送的 Mesos-DNS 版本。</p>
 
@@ -35,7 +35,7 @@ enterprise: false
 
 # <a name="leader"></a>leader.mesos 和 master.mesos 的区别是什么？
 
-要查询领导管理节点，应始终查询 `leader.mesos`。如果您尝试使用 HTTP 来连接到 `master.mesos`，则会被自动重定向到领导管理节点。
+要查询首要管理节点，应始终查询 `leader.mesos`。如果您尝试使用 HTTP 来连接到 `master.mesos`，则会被自动重定向到首要管理节点。
 
 但是，如果您尝试使用 HTTP 以外的任何其他方式查询或连接到 `master.mesos`，结果将不可预测，因为该名称将解析到任意管理节点。例如，尝试向 `master.mesos` 注册的服务可能与非领导管理节点通信，并且无法在群集上注册为服务。
 

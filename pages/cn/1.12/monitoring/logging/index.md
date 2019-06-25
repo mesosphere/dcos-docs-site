@@ -36,7 +36,7 @@ dcos node log --leader
 dcos node log --mesos-id=<node-id>
 ```
 
-您可以从 [DC/OS Web 界面]的**服务 > 服务**选项卡，下载服务的所有日志文件(/1.12/gui/)。您也可以监控 `stdout`/`stderr`。
+您可以从 [DC/OS Web 界面](/1.12/gui/) 的**服务 > 服务**选项卡，下载服务的所有日志文件。您也可以监控 `stdout`/`stderr`。
 
 如需更多信息，请参阅“服务和任务日志”[快速入门指南](/1.12/monitoring/logging/quickstart/)。
 
@@ -58,9 +58,9 @@ journalctl -u dcos-nginx -b
 
 您可以在 DC/OS Web 界面的**节点**选项卡上发现哪些组件不正常。
 
-![系统健康](/1.12/img/GUI-Nodes-Main_View_Agents-1_12.png)
+![系统运行状况](/1.12/img/GUI-Nodes-Main_View_Agents-1_12.png)
 
-图 1. 显示节点的系统健康状况日志
+图 1. 显示节点的系统运行状况日志
 
 # 日志聚合
 

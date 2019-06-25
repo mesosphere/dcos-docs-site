@@ -9,11 +9,7 @@ enterprise: true
 
 # 说明
 
-<<<<<<< HEAD
 `dcos security org service-accounts create` 命令让您可以创建服务帐户，并向其提供服务帐户 ID (SID)。请注意 `--public-key` 和 `--secret` 选项互相不包含。
-=======
-`dcos security org service-accounts create` 命令允许您创建服务帐户，并向其提供服务帐户 ID (SID)。请注意 `--public-key` 和 `--secret` 选项互相排斥。
->>>>>>> staging
 
 # 使用
 

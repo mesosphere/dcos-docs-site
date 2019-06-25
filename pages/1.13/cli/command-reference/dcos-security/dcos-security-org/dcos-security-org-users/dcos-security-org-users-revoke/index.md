@@ -4,6 +4,8 @@ navigationTitle:  dcos security org users revoke
 title: dcos security org users revoke
 menuWeight: 205
 excerpt: Revoking user permissions
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

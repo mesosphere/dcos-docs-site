@@ -4,6 +4,8 @@ navigationTitle:  dcos security cluster ca sign
 title: dcos security cluster ca sign
 menuWeight: 20
 excerpt: Signing a CSR
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

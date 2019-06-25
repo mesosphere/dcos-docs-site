@@ -4,6 +4,8 @@ navigationTitle: Running Jobs in Remote Regions
 title: Running Jobs in Remote Regions
 menuWeight: 3
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 As described in [fault domain awareness and capacity extension for services](/1.13/deploying-services/fault-domain-awareness/), DC/OS supports fault domain awareness. If your cluster is configured over multiple regions or zones, it is possible to schedule your Metronome job to run in a remote region, or a specific zone.
@@ -43,7 +45,7 @@ The following job uses [Metronome Constraints](../metronome-constraints/) to spe
     "cpus": 0.05,
     "mem": 32,
     "docker": {"image": "alpine"},
-    "maxLaunchDelay": 3600,
+    "maxLaunchDelaySeconds": 300,
     "placement": {
       "constraints": [
         {

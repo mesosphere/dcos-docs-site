@@ -8,7 +8,7 @@ excerpt: 了解 Marathon 应用定义
 enterprise: false
 ---
 
-本专题列出了 Marathon 应用定义的所有可用属性，并举例说明显示了所有属性的 JSON 应用定义文件。
+本专题列出了 Marathon 应用定义的所有可用属性，并显示了所有属性的 JSON 样本应用定义文件。
 
 - [ Marathon 属性]（# marathon-properties）
 - [示例](#example)
@@ -26,12 +26,12 @@ enterprise: false
 ### backoffFactor
 用于 `backoffSeconds` 值的被乘数。默认值为 `1.15`。`backoffSeconds` 和 `backoffFactor` 值相乘，直到达到 [`maxLaunchDelaySeconds`](#maxlaunchdelayseconds) 值。达到该值后，Marathon 等待 `maxLaunchDelaySeconds`，然后再重复此循环，按指数递增。例如，如果是 `backoffSeconds: 3`、`backoffFactor: 2` 和 `maxLaunchDelaySeconds: 3600`，则会尝试十次启动失败的任务，每次间隔三秒。尝试十次之后，Marathon 将等待 3600 秒，然后再重复此循环。
 
-这样可以防止与连续失败的任务关联的砂箱填满 Mesos 从节点上的硬盘。这也适用于因不通过运行状况检查的次数过多而遭到关闭的任务。
+这样可以防止与连续失败的任务关联的沙盒填满 Mesos 从节点上的硬盘。这也适用于因不通过运行状况检查的次数过多而遭到关闭的任务。
 
 ### backoffSeconds
 Marathon 尝试再次启动失败任务之前的缓冲时间（秒）。默认为 `1`。`backoffSeconds` 和 `backoffFactor` 值相乘，直至达到 `maxLaunchDelaySeconds` 值。达到该值后，Marathon 等待 `maxLaunchDelaySeconds`，然后再重复此循环，按指数递增。例如，如果是 `backoffSeconds: 3`、`backoffFactor: 2` 和 `maxLaunchDelaySeconds: 3600`，则会尝试十次启动失败的任务，每次间隔三秒。尝试十次之后，Marathon 将等待 3600 秒，然后再重复此循环。
 
-这样可以防止与连续失败的任务关联的砂箱填满 Mesos 从代理上的硬盘。这也适用于因不通过运行状况检查的次数过多而遭到关闭的任务。
+这样可以防止与连续失败的任务关联的沙盒填满 Mesos 从代理上的硬盘。这也适用于因不通过运行状况检查的次数过多而遭到关闭的任务。
 
 ### cmd
 执行的命令。该值由 Mesos 通过 `/bin/sh -c ${app.cmd}` 打包。
@@ -68,7 +68,7 @@ Marathon 尝试再次启动失败任务之前的缓冲时间（秒）。默认�
  - **privileged** 是否为此容器提供扩展权限。如需更多信息，请参阅 [Docker 运行命令](https://docs.docker.com/engine/reference/commandline/run/)。
  - `"privileged": false` 不提供扩展权限。这是默认值。
  - `"privileged": true` 提供扩展权限。
- - **parameters** 用于 Mesos 容器执行的 `docker run` 命令的命令行选项。以此方式传递的参数不保证将来获得支持，因为 Mesos 可能不总是通过 CLI 与 Docker 进行交互。
+ - **parameters** 用于 Mesos 容器化工具执行的 `docker run` 命令的命令行选项。以此方式传递的参数不保证将来获得支持，因为 Mesos 可能不总是通过 CLI 与 Docker 进行交互。
  - **pullConfig** 一个密钥，它的值是密钥存储库中的一个字符串化 JSON 对象。参见 [使用专用 Docker 注册表](/cn/1.12/deploying-services/private-docker-registry/#secret-store-instructions)。
 
 - **volume** 容器中可访问的卷。
@@ -87,7 +87,7 @@ Marathon 尝试再次启动失败任务之前的缓冲时间（秒）。默认�
 每个实例的 CPU 共享数。十进制小数或整数。
 
 ### dependencies
-此应用程序所依赖的服务列表。启动、停止和升级应用程序的命令源自依赖关系。例如，假设应用 `/a` 依赖服务 `/b`，而该服务依赖 `/c`。如需启动所有 3 个应用，首先要启动 `/c` ，然后启动 `/b` 和 `/a`。
+此应用程序所依赖的服务列表。启动、停止和升级应用程序的次序源自依赖关系。例如，假设应用 `/a` 依赖服务 `/b`，而该服务依赖 `/c`。如需启动所有 3 个应用，首先要启动 `/c` ，然后启动 `/b` 和 `/a`。
 
 ### disk
 应用程序所需的磁盘空间量。十进制小数或整数 MB。
@@ -104,9 +104,9 @@ Marathon 尝试再次启动失败任务之前的缓冲时间（秒）。默认�
 URI 包括：
 
 - **uri** Mesos fetcher 模块要抓取的 URI。
-- **executable** 将抓取的原图设置为可执行。
-- **extract** 如果 Mesos fetcher 模块支持，则提取抓取的原图。
-- **cache** 如果 Mesos fetcher 模块支持，则缓存抓取的原图。
+- **executable** 将抓取的软件工件设置为可执行。
+- **extract** 如果 Mesos fetcher 模块支持，则提取抓取的软件工件。
+- **cache** 如果 Mesos fetcher 模块支持，则缓存抓取的软件工件。
 
 ### gpus
 每个实例所需的 GPU 核数。
@@ -116,7 +116,7 @@ URI 包括：
 
 运行状况检查包括：
 
-- **gracePeriodSeconds** 指定在任务启动后立即忽略运行状况检查的时间（秒）；或直至首次达到的健康的时间。
+- **gracePeriodSeconds** 指定在任务启动后立即忽略运行状况检查的时间（秒）；或直至首次达到的运行良好的时间。
 - **intervalSeconds** 指定运行状况检查间隔的等待时间（秒）。
 - **maxLogitivEfailures** 指定发生多少次连续运行状况检查故障之后才能关闭任务。
 - **path** 如果是 `"protocol": "HTTP"`，此选项则指定任务运行状况端点的路径。例如， `"/path/to/health"`。
@@ -137,12 +137,12 @@ URI 包括：
 此应用程序中要启动的实例数。可以根据扩展应用程序的需要更改此数量。
 
 ### labels
-向其他服务披露补充信息的元数据。例如，可以标记应用程序 `"environment": "staging"`，根据他们在管道中的位置标记服务。
+向其他服务披露补充信息的元数据。例如，可以标记应用程序 `"environment": "staging"`，根据他们在管线中的位置标记服务。
 
 ### maxLaunchDelaySeconds
 应用 [`backoffSeconds`](#backoffseconds) 和 [`backoffFactor`](#backofffactor) 值后，在尝试重新启动失败的任务之前，要等待的最长时间（秒）。`backoffSeconds` 和 `backoffFactor` 值相乘，直至达到 `maxLaunchDelaySeconds` 值。达到该值后，Marathon 等待 `maxLaunchDelaySeconds`，然后再重复此循环，按指数递增。例如，如果是 `backoffSeconds: 3`、`backoffFactor: 2` 和 `maxLaunchDelaySeconds: 3600`，则会尝试十次启动失败的任务，每次间隔三秒。尝试十次之后，Marathon 将等待 3600 秒，然后再重复此循环。
 
-这样可以防止与连续失败的任务关联的砂箱填满 Mesos 从节点上的硬盘。这也适用于因不通过运行状况检查的次数过多而遭到关闭的任务。
+这样可以防止与连续失败的任务关联的沙盒填满 Mesos 从节点上的硬盘。这也适用于因不通过运行状况检查的次数过多而遭到关闭的任务。
 
 ### mem
 每个实例所需的内存量 (MB)。
@@ -201,19 +201,19 @@ URI 包括：
 定义不可访问实例的处理。值为字符串或对象。字符串为 `"disabled"`，可禁用对不可访问实例的处理。如果是 `inactiveAfterSeconds = 60` 和 `expungeAfterSeconds = 120`，实例超过 120 秒仍然不可访问即被排除，如果超过 60 秒仍然不可访问，就会启动第二个实例。
 
 - **inactiveAfterSeconds** - 如果实例超过 `inactiveAfterSeconds` 不可访问就会被标记为不活跃。这将触发启动新实例。必须小于或等于 `expungeAfterSeconds`。默认值为 0 秒。
-- **expungeAfterSeconds** - 如果实例超过 `expungeAfterSeconds` 不能访问，就会被排除。这意味着即便实例恢复访问也可能会被关闭。实例常常在被排除之前就被标记为无法访问，其实没有必要作此标记。此值必须大于 `inactiveAfterSeconds`，除非两者均为零。如果实例有与其关联的任何持久卷，该持久卷将会被销毁，而且相关数据会被删除。默认值为 0 秒。
+- **expungeAfterSeconds** - 如果实例超过 `expungeAfterSeconds` 不能访问，就会被排除。这意味着即便实例恢复访问也会被关闭。实例常常在被排除之前就被标记为无法访问，但不一定。此值必须大于 `inactiveAfterSeconds`，除非两者均为零。如果实例有与其关联的任何持久卷，该持久卷将会被销毁，而且相关数据会被删除。默认值为 0 秒。
 
 ### upgradeStrategy
 在 Marathon 停用旧版本并启动新版本时有效的策略。升级期间，应用程序的所有实例都将替换为新版本。
 
-- **minimumHealthCapacity** - 在升级期间保持健康状态的节点所占的最小百分比（表示为介于 `0.0` 和 `1.0` 之间的十进制小数）。升级期间，Marathon 可保证这种健康实例的数量。默认为 `1.0`，这意味着在部署另一个健康新版本之前，无法停用旧实例。`0.5` 值表示在升级期间，首先停用一半的旧版本实例，为新版本腾出空间。`0` 值表示立即将所有实例删除并替换为新应用程序。
-- **maximumOverCapacity** - 在升级期间保持健康状态的节点所占的最大百分比（表示为介于 `0.0` 和 `1.0` 之间的十进制小数）。默认为 `1`，这意味着升级过程中，所有新旧实例均可同时存在。`0.1` 值表示在升级过程中，可提供比平时多 10% 的容量供新旧实例使用。`0.0` 值即便在升值过程中，也不可提供比平时多的容量供新实例使用。只有在停用旧版本之后，才能部署新实例。
+- **minimumHealthCapacity** - 在升级期间保持运行状况良好的节点所占的最小百分比（表示为介于 `0.0` 和 `1.0` 之间的十进制小数）。升级期间，Marathon 可保证这种运行状况良好实例的数量。默认为 `1.0`，这意味着在部署另一个运行良好的新版本之前，可以停用旧实例。`0.5` 值表示在升级期间，首先停用一半的旧版本实例，为新版本腾出空间。`0` 值表示立即将所有实例删除并替换为新应用程序。
+- **maximumOverCapacity** - 在升级期间保持运行良好状态的节点所占的最大百分比（表示为介于 `0.0` 和 `1.0` 之间的十进制小数）。默认为 `1`，这意味着升级过程中，所有新旧实例均可同时存在。`0.1` 值表示在升级过程中，可提供比平时多 10% 的容量供新旧实例使用。`0.0` 值即便在升值过程中，也不可提供比平时多的容量供新实例使用。只有在停用旧版本之后，才能部署新实例。
 
-如果是 `"minimumHealthCapacity": 1` 和 `"maximumOverCapacity": 0`，在升级过程开始时就新增了至少一个新实例。。如果该实例是健康的，就会停用一个旧实例。停用后，就会启动另一个新实例，以此类推。
+如果是 `"minimumHealthCapacity": 1` 和 `"maximumOverCapacity": 0`，在升级过程开始时就新增了至少一个新实例。。如果该实例运行良好的，就会停用一个旧实例。停用后，就会启动另一个新实例，以此类推。
 
-组合使用 `"minimumHealthCapacity": 0.9` 和 `"maximumOverCapacity": 0` 就会导致轮流更新，每次替换 10% 的实例，在升级期间始终保留至少 90% 的应用程序在线。
+组合使用 `"minimumHealthCapacity": 0.9` 和 `"maximumOverCapacity": 0` 就会导致滚动更新，每次替换 10% 的实例，在升级期间始终保留至少 90% 的应用程序在线。
 
-组合使用 `"minimumHealthCapacity": 1` 和 `"maximumOverCapacity": 0.1` 就会导致轮流更新，每次替换 10% 的实例，在升级期间始终保留至少 100% 的应用程序在线，另外增加 10% 的容量。
+组合使用 `"minimumHealthCapacity": 1` 和 `"maximumOverCapacity": 0.1` 就会导致滚动更新，每次替换 10% 的实例，在升级期间始终保留至少 100% 的应用程序在线，另外增加 10% 的容量。
 
 # 示例
 

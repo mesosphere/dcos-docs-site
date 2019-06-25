@@ -3,13 +3,14 @@ layout: layout.pug
 title: Restricting Access to DC/OS Service Groups
 navigationTitle: Restricting Access to DC/OS Service Groups
 menuWeight: 90
-excerpt: Using the DC/OS web interface to achieve multi-tenancy in permissive mode
-
+excerpt: Using the DC/OS UI to achieve multi-tenancy in permissive mode
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-In this section you will see how to use the DC/OS web interface to achieve multi-tenancy in permissive mode.
+In this section you will see how to use the DC/OS UI to achieve multi-tenancy in permissive mode.
 
 This tutorial demonstrates how to implement user permissions for DC/OS services in the permissive [security mode](/1.13/security/ent/#security-modes). When you are done you will have multi-tenancy by using DC/OS permissions.
 
@@ -82,7 +83,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
     ![prod-a-group](/1.13/img/GUI-Organization-Groups-Add_Permission_String_w_Perms-1_12.png)
 
-    Figure 6. Adding permissions for 'prod-a-group'
+    Figure 6. Adding permissions for `prod-a-group`
 
     Here is what the permissions view should look like after adding:
 
@@ -90,7 +91,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
     Figure 7. Group permissions added
 
-1.  Add each of these permissions for the prod-b-group and click **Close**.
+1.  Add each of these permissions for the `prod-b-group` and click **Close**.
 
     ```
     dcos:adminrouter:service:marathon full
@@ -116,9 +117,9 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 1.  Select **Group Membership** and then type `prod-b-group` in the search box, then click to select.
 
 
-## Log in to the DC/OS web interface as user
+## Log in to the DC/OS UI as user
 
-1.  Log in as Cory to the DC/OS web interface. You can see that user Cory only has access to the **Services** and **Universe** tabs. Also, Cory can only see the **prod-a** services.
+1.  Log in as Cory to the DC/OS UI. You can see that user Cory only has access to the **Services** and **{{ model.packageRepo }}** tabs. Also, Cory can only see the **prod-a** services.
 
 
   ![prod-a-group](/1.13/img/GUI-Services-Limited_User_Access_List-1_12.png)
@@ -130,101 +131,101 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
   We will deploy an NGINX service to `prod-a-group`.
 
-2.  Select **Services > Services** and the click the plus sign (**+**) to deploy a service.
+1.  Select **Services > Services** and the click the plus sign (**+**) to deploy a service.
 
-    1.  Select **JSON Configuration** and paste in the following app definition:
+1.  Select **JSON Configuration** and paste in the following app definition:
 
-        ```json
-        {
-          "id": "/prod-a/nginx",
-          "cmd": "rm -rf /usr/share/nginx/html && ln -s /mnt/mesos/sandbox/hello-nginx-master/ /usr/share/nginx/html && nginx -g 'daemon off;'",
-          "instances": 1,
-          "cpus": 1,
-          "mem": 1024,
-          "disk": 0,
-          "gpus": 0,
-          "fetch": [
-            {
-              "uri": "https://github.com/mesosphere/hello-nginx/archive/master.zip",
-              "extract": true,
-              "executable": false,
-              "cache": false
-            }
-          ],
-          "backoffSeconds": 1,
-          "backoffFactor": 1.15,
-          "maxLaunchDelaySeconds": 3600,
-          "container": {
-            "type": "DOCKER",
-            "docker": {
-              "image": "nginx:1.8.1",
-              "network": "BRIDGE",
-              "portMappings": [
-                {
-                  "hostPort": 0,
-                  "containerPort": 80,
-                  "protocol": "tcp",
-                  "servicePort": 10000
-                },
-                {
-                  "hostPort": 0,
-                  "containerPort": 443,
-                  "protocol": "tcp",
-                  "servicePort": 10001
-                }
-              ],
-              "privileged": false,
-              "forcePullImage": false
-            }
-          },
-          "healthChecks": [
-            {
-              "gracePeriodSeconds": 300,
-              "intervalSeconds": 60,
-              "timeoutSeconds": 20,
-              "maxConsecutiveFailures": 3,
-              "protocol": "COMMAND",
-              "command": {
-                "value": "service nginx status | grep -q 'nginx is running.'"
-              }
-            }
-          ],
-          "upgradeStrategy": {
-            "minimumHealthCapacity": 1,
-            "maximumOverCapacity": 1
-          },
-          "unreachableStrategy": {
-            "inactiveAfterSeconds": 900,
-            "expungeAfterSeconds": 604800
-          },
-          "killSelection": "youngest_first",
-          "acceptedResourceRoles": [
-            "*"
-          ],
-          "requirePorts": false,
-          "labels": {
-            "DCOS_PACKAGE_RELEASE": "1",
-            "DCOS_SERVICE_SCHEME": "http",
-            "DCOS_PACKAGE_SOURCE": "https://universe.mesosphere.com/repo",
-            "DCOS_PACKAGE_METADATA": "eyJwYWNrYWdpbmdWZXJzaW9uIjoiMi4wIiwibmFtZSI6Im5naW54IiwidmVyc2lvbiI6IjEuOC4xIiwibWFpbnRhaW5lciI6InN1cHBvcnRAbmdpbnguY29tIiwiZGVzY3JpcHRpb24iOiJOZ2lueCBwYWNrYWdlIiwidGFncyI6WyJwcm94eSIsIndlYi1zZXJ2ZXIiLCJjYWNoZSJdLCJzY20iOiJodHRwOi8vaGcubmdpbngub3JnL25naW54LyIsInByZUluc3RhbGxOb3RlcyI6IlByZXBhcmluZyB0byBpbnN0YWxsIG5naW54LiIsInBvc3RJbnN0YWxsTm90ZXMiOiJOZ2lueCBoYXMgYmVlbiBpbnN0YWxsZWQuIiwicG9zdFVuaW5zdGFsbE5vdGVzIjoiTmdpbnggd2FzIHVuaW5zdGFsbGVkIHN1Y2Nlc3NmdWxseS4iLCJsaWNlbnNlcyI6W3sibmFtZSI6IkJTRCBsaWtlIiwidXJsIjoiaHR0cDovL25naW54Lm9yZy9MSUNFTlNFIn1dLCJpbWFnZXMiOnsiaWNvbi1zbWFsbCI6Imh0dHBzOi8vcGJzLnR3aW1nLmNvbS9wcm9maWxlX2ltYWdlcy81Njc3NzQ4NDQzMjI3MTM2MDAvdFlvVmp1MzEucG5nIiwiaWNvbi1tZWRpdW0iOiJodHRwczovL3Bicy50d2ltZy5jb20vcHJvZmlsZV9pbWFnZXMvNTY3Nzc0ODQ0MzIyNzEzNjAwL3RZb1ZqdTMxLnBuZyIsImljb24tbGFyZ2UiOiJodHRwczovL3Bicy50d2ltZy5jb20vcHJvZmlsZV9pbWFnZXMvNTY3Nzc0ODQ0MzIyNzEzNjAwL3RZb1ZqdTMxLnBuZyJ9fQ==",
-            "DCOS_PACKAGE_REGISTRY_VERSION": "2.0",
-            "DCOS_SERVICE_NAME": "nginx",
-            "DCOS_SERVICE_PORT_INDEX": "0",
-            "DCOS_PACKAGE_VERSION": "1.8.1",
-            "DCOS_PACKAGE_NAME": "nginx",
-            "DCOS_PACKAGE_IS_FRAMEWORK": "false"
+      ```json
+      {
+        "id": "/prod-a/nginx",
+        "cmd": "rm -rf /usr/share/nginx/html && ln -s /mnt/mesos/sandbox/hello-nginx-master/ /usr/share/nginx/html && nginx -g 'daemon off;'",
+        "instances": 1,
+        "cpus": 1,
+        "mem": 1024,
+        "disk": 0,
+        "gpus": 0,
+        "fetch": [
+          {
+            "uri": "https://github.com/mesosphere/hello-nginx/archive/master.zip",
+            "extract": true,
+            "executable": false,
+            "cache": false
           }
+        ],
+        "backoffSeconds": 1,
+        "backoffFactor": 1.15,
+        "maxLaunchDelaySeconds": 300,
+        "container": {
+          "type": "DOCKER",
+          "docker": {
+            "image": "nginx:1.8.1",
+            "network": "BRIDGE",
+            "portMappings": [
+              {
+                "hostPort": 0,
+                "containerPort": 80,
+                "protocol": "tcp",
+                "servicePort": 10000
+              },
+              {
+                "hostPort": 0,
+                "containerPort": 443,
+                "protocol": "tcp",
+                "servicePort": 10001
+              }
+            ],
+            "privileged": false,
+            "forcePullImage": false
+          }
+        },
+        "healthChecks": [
+          {
+            "gracePeriodSeconds": 300,
+            "intervalSeconds": 60,
+            "timeoutSeconds": 20,
+            "maxConsecutiveFailures": 3,
+            "protocol": "COMMAND",
+            "command": {
+              "value": "service nginx status | grep -q 'nginx is running.'"
+            }
+          }
+        ],
+        "upgradeStrategy": {
+          "minimumHealthCapacity": 1,
+          "maximumOverCapacity": 1
+        },
+        "unreachableStrategy": {
+          "inactiveAfterSeconds": 900,
+          "expungeAfterSeconds": 604800
+        },
+        "killSelection": "youngest_first",
+        "acceptedResourceRoles": [
+          "*"
+        ],
+        "requirePorts": false,
+        "labels": {
+          "DCOS_PACKAGE_RELEASE": "1",
+          "DCOS_SERVICE_SCHEME": "http",
+          "DCOS_PACKAGE_SOURCE": "https://universe.mesosphere.com/repo",
+          "DCOS_PACKAGE_METADATA": "eyJwYWNrYWdpbmdWZXJzaW9uIjoiMi4wIiwibmFtZSI6Im5naW54IiwidmVyc2lvbiI6IjEuOC4xIiwibWFpbnRhaW5lciI6InN1cHBvcnRAbmdpbnguY29tIiwiZGVzY3JpcHRpb24iOiJOZ2lueCBwYWNrYWdlIiwidGFncyI6WyJwcm94eSIsIndlYi1zZXJ2ZXIiLCJjYWNoZSJdLCJzY20iOiJodHRwOi8vaGcubmdpbngub3JnL25naW54LyIsInByZUluc3RhbGxOb3RlcyI6IlByZXBhcmluZyB0byBpbnN0YWxsIG5naW54LiIsInBvc3RJbnN0YWxsTm90ZXMiOiJOZ2lueCBoYXMgYmVlbiBpbnN0YWxsZWQuIiwicG9zdFVuaW5zdGFsbE5vdGVzIjoiTmdpbnggd2FzIHVuaW5zdGFsbGVkIHN1Y2Nlc3NmdWxseS4iLCJsaWNlbnNlcyI6W3sibmFtZSI6IkJTRCBsaWtlIiwidXJsIjoiaHR0cDovL25naW54Lm9yZy9MSUNFTlNFIn1dLCJpbWFnZXMiOnsiaWNvbi1zbWFsbCI6Imh0dHBzOi8vcGJzLnR3aW1nLmNvbS9wcm9maWxlX2ltYWdlcy81Njc3NzQ4NDQzMjI3MTM2MDAvdFlvVmp1MzEucG5nIiwiaWNvbi1tZWRpdW0iOiJodHRwczovL3Bicy50d2ltZy5jb20vcHJvZmlsZV9pbWFnZXMvNTY3Nzc0ODQ0MzIyNzEzNjAwL3RZb1ZqdTMxLnBuZyIsImljb24tbGFyZ2UiOiJodHRwczovL3Bicy50d2ltZy5jb20vcHJvZmlsZV9pbWFnZXMvNTY3Nzc0ODQ0MzIyNzEzNjAwL3RZb1ZqdTMxLnBuZyJ9fQ==",
+          "DCOS_PACKAGE_REGISTRY_VERSION": "2.0",
+          "DCOS_SERVICE_NAME": "nginx",
+          "DCOS_SERVICE_PORT_INDEX": "0",
+          "DCOS_PACKAGE_VERSION": "1.8.1",
+          "DCOS_PACKAGE_NAME": "nginx",
+          "DCOS_PACKAGE_IS_FRAMEWORK": "false"
         }
-        ```
+      }
+      ```
 
-        ![JSON view](/1.13/img/GUI-Services-Add_Service_With_JSON-1_12.png)
+    ![JSON view](/1.13/img/GUI-Services-Add_Service_With_JSON-1_12.png)
 
-        Figure 10. View of JSON file
+    Figure 10. View of JSON file
 
 
-1.  Click **REVIEW & RUN** and then **RUN SERVICE**.
+3.  Click **REVIEW & RUN** and then **RUN SERVICE**.
 
-3.  Repeat the previous steps for Nick. Be sure to specify `"id": "/prod-b/nginx",` for example:
+1.  Repeat the previous steps for Nick. Be sure to specify `"id": "/prod-b/nginx",` for example:
 
     ```json
     {
@@ -240,17 +241,17 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
     }
     ```
 
-4.  While logged in as Cory or Nick, click on the NGINX launch icon to view the confirmation message.
+1.  While logged in as Cory or Nick, click on the NGINX launch icon to view the confirmation message.
 
     ![NGINX](/1.13/img/GUI-Services-Add_Service_Review_Install-1_12.png)
 
     Figure 11. Confirmation screen
 
-Now we will look at the **Services** tab from the superuser view.
+Next we will look at the **Services** tab from the superuser view.
 
-## DC/OS web interface: Monitor user accounts 
+## DC/OS UI: Monitor user accounts 
 
-1.  Log out of the current user and then back in as a user with [superuser](/1.13/security/ent/perms-reference/#superuser) permission. You will see that both services are running in the prod-a and prod-b-groups.
+1.  Log out of the current user and then back in as a user with [superuser](/1.13/security/ent/perms-reference/#superuser) permission. You will see that both services are running in the `prod-a` and `prod-b-groups`.
 
     ![prod-a-group](/1.13/img/GUI-Services-Services_List_w_Groups-1_12.png)
 

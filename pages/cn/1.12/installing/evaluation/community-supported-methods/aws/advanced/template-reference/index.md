@@ -32,7 +32,7 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
   </tr>
   <tr>
  <td>AdminLocation</td>
- <td>可选：指定用于访问管理分区 IP 范围白名单。必须是有效的 CIDR。若要允许在任何 IP 地址访问，请使用 <code>0.0.0.0/0</code>。</td>
+ <td>可选：指定用于访问管理分区的 IP 范围白名单。必须是有效的 CIDR。若要允许在任何 IP 地址访问，请使用 <code>0.0.0.0/0</code>。</td>
   </tr>
   <tr>
  <td>CustomAMI</td>
@@ -129,7 +129,7 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
   </tr>
   <tr>
  <td>InternalMasterLoadBalancerDnsName</td>
- <td>内部负载均衡器的 DNS 名称。必须有效代理才能加入正在运行的群集</td>
+ <td>内部负载均衡器的 DNS 名称。必须有效，代理才能加入正在运行的群集</td>
   </tr>
   <tr>
  <td>KeyName</td>

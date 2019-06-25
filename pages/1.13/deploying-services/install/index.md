@@ -4,6 +4,8 @@ navigationTitle:  Installing Services
 title: Installing Services
 menuWeight: 0
 excerpt: Installing and verifying a service using the CLI or the UI
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
@@ -25,16 +27,16 @@ dcos package install chronos
 
 ## Installing a service using the UI
 
-From the DC/OS UI you can install services from the **Services** or **Catalog** tab. The Catalog tab shows all of the available DC/OS services from package [repositories](/1.13/administering-clusters/repo/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
+From the DC/OS UI you can install services from the **Services** or **{{ model.packageRepo }}** tab. The {{ model.packageRepo }} tab shows all of the available DC/OS services from package [repositories](/1.13/administering-clusters/repo/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
 
 
-### Catalog tab
+### {{ model.packageRepo }} tab
 
-1.  Navigate to the [**Catalog**](/1.13/gui/catalog/) tab in the DC/OS UI.
+1.  Navigate to the [**{{ model.packageRepo }}**](/1.13/gui/catalog/) tab in the DC/OS UI.
 
-    ![universe](/1.13/img/GUI-Catalog-Main_View-1_12.png)
+    ![{{ model.packageRepo }}](/1.13/img/GUI-Catalog-Main_View-1_12.png)
 
-    Figure 1. Universe catalog
+    Figure 1. {{ model.packageRepo }} 
 
 2.  Click a package.
     1. Click **REVIEW & RUN**.
@@ -66,4 +68,4 @@ Go to the **Services** tab and confirm that the service is running. For more inf
 
 Figure 3. Service is running
 
-Some services from the **Community** section of the Catalog will not show up in the DC/OS service listing. For these, inspect the service's Marathon app in the Marathon UI to verify that the service is running and healthy.
+Some services from the **Community** section of the {{ model.packageRepo }} will not show up in the DC/OS service listing. For these, inspect the service's Marathon app in the Marathon UI to verify that the service is running and healthy.

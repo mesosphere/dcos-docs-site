@@ -4,7 +4,8 @@ navigationTitle:  Identity and Access Management API
 title: Identity and Access Management API
 menuWeight: 40
 excerpt: Using the DC/OS Identity and Access Management API
-
+render: mustache
+model: /data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -31,7 +32,7 @@ Append `/acs/api/v1` to the host name, as shown below.
 
 # Authentication
 
-All IAM endpoints require an authentication token---except the `auth` endpoints. The `auth` endpoints do not require authentication tokens because their purpose is to return authentication tokens upon successful login.
+All IAM endpoints require an authentication token--except the `auth` endpoints. The `auth` endpoints do not require authentication tokens because their purpose is to return authentication tokens upon successful login.
 
 # User management
 
@@ -41,7 +42,7 @@ The [User account management](/1.13/security/oss/user-account-management/) docum
 
 # Authentication token verification
 
-The IAM can provide 3rd-party entites with public key information via the `/auth/jwks` API endpoint for verifying DC/OS Authentication tokens out-of-band.
+The IAM can provide third-party entities with public key information via the `/auth/jwks` API endpoint for verifying DC/OS Authentication tokens out-of-band.
 
 See [Out-of-band token verification](/1.13/security/oss/authentication/out-of-band-verification/) on how to implement authentication token verification on behalf of the IAM.
 

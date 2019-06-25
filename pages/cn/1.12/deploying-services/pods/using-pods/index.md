@@ -28,7 +28,7 @@ Pod CLI 中提供以下命令：
 dcos marathon pod add <pod-json-file>
 ```
 
-## 列出 pod
+## 列出 Pod
 使用以下命令列出 pod 及其拥有的容器数：
 ```bash
 dcos marathon pod list

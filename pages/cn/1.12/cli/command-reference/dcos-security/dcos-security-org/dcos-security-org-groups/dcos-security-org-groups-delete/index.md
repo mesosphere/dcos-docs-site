@@ -8,11 +8,7 @@ enterprise: true
 ---
 # 说明
 
-<<<<<<< HEAD
 `dcos security org groups delete` 命令让您删除组。
-=======
-`dcos security org groups delete` 命令允许您删除组。
->>>>>>> staging
 
 # 使用
 

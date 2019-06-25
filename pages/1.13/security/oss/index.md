@@ -2,13 +2,15 @@
 layout: layout.pug
 excerpt: Managing security in your datacenter using DC/OS Open Source
 title: DC/OS Open Source Security
+render: mustache
+model: /data.yml
 menuWeight: 80
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-Ensure the network is setup according to the information for [securing your cluster](/1.13/administering-clusters/securing-your-cluster/).
+Ensure the network is set up according to the information for [securing your cluster](/1.13/administering-clusters/securing-your-cluster/).
 
-All access management in DC/OS is done via the DC/OS Identity and Access Manager (IAM). This includes user account management, login as well as authentication token distribution. The IAM provides an HTTP API for managing user accounts in a RESTful fashion.
+All access management in DC/OS is done via the DC/OS Identity and Access Manager (IAM). This includes user account management, login, and authentication token distribution. The IAM provides an HTTP API for managing user accounts in a RESTful fashion.
 
 Authentication tokens can be obtained using [OpenID Connect 1.0](https://openid.net/specs/openid-connect-core-1_0.html), which is an identity layer built on top of the [OAuth 2.0](http://oauth.net/2/) protocol.
 

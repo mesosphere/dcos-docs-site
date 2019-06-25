@@ -4,6 +4,8 @@ navigationTitle:  Marathon Placement Constraints
 title: Marathon Placement Constraints
 menuWeight: 3
 excerpt: Understanding Marathon placement constraints
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 

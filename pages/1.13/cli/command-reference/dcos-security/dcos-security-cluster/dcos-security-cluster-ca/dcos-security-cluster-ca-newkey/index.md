@@ -4,7 +4,8 @@ navigationTitle:  dcos security cluster ca newkey
 title: dcos security cluster ca newkey
 menuWeight: 13
 excerpt: Creating a new key and a new CSR
-
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 

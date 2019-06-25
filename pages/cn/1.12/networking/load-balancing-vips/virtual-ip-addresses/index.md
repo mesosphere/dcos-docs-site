@@ -31,7 +31,7 @@ VIP 遵循以下命名约定：
 <service-name>.marathon.l4lb.thisdcos.directory:<port>
 ```
 
-### 前提条件
+### 先决条件
 
 * 您应用程序独特的 VIP 地址池。
 
@@ -81,7 +81,7 @@ VIP 遵循以下命名约定：
 
 ### 通过 CLI
 
-**前提条件：** Kafka 服务和 CLI 必须 [已安装](/services/kafka/)。
+**先决条件：** Kafka 服务和 CLI 必须 [已安装](/services/kafka/)。
 
 运行此命令：
 
@@ -103,13 +103,13 @@ VIP 遵循以下命名约定：
     "vip": "broker.kafka.l4lb.thisdcos.directory:9092"
   }
   ```
-您可以用此 VIP 为群集中的任何一个 Kafka 中间人分配地址。
+您可以用此 VIP 指向群集中的任何一个 Kafka 中间程序。
 
 
 ## 常见问题
 
 ### 连接似乎随意关闭
 
-数据库等长时间连接的应用程序（如 Postgresql）通常会出现这种情况。若要修复，请尝试开启 keepalive。keepalive 可以是应用程序特定的机制（如心跳），或是 TCP keepalive 等协议中的某些内容。需要有 keepalive，因为负载均衡器无法区分空闲连接或死机连接，原因是数据包在任何一种情况下都不会被发送。默认超时取决于内核配置，但通常为 5 分钟。
+数据库等长时间连接的应用程序（如 Postgresql）通常会出现这种情况。若要修复，请尝试开启 keepalive。keepalive 可以是应用程序特定的机制（如心跳），或是 TCP keepalive 等协议中的某些内容。有 keepalive 是必须的，因为负载均衡器无法区分空闲连接或死机连接，原因是数据包在这两种中的任何一种情况下都不会被发送。默认超时取决于内核配置，但通常为 5 分钟。
 
  [1]: /cn/1.12/deploying-services/service-ports/

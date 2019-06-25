@@ -22,15 +22,15 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 ## 重要指南
 
 - 在修补 DC/OS 之前，请先查看 [版本注释](/1.12/release-notes/)。
-- 由于覆盖网络存在群集配置问题，建议在修补或配置新群集时，在 `enable_ipv6` 中将 `config.yaml` 设为“false”。您可以在我们最新的重要 [产品咨询](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 中找到更多信息和更稳固的补救程序 。
+- 由于覆盖网络存在群集配置问题，建议在修补或配置新群集时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。您可以在我们最新的重要 [产品咨询](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 中找到更多信息和更稳固的补救程序 。
 - 如果 IPv6 在内核中被禁用，则必须在 `config.yaml` 文件中禁用 IPv6。
 - DC/OS 企业版许可证密钥必须驻留在 `genconf/license.txt` 文件中。[enterprise type="inline" size="small" /]
 - 如果没有修补全部管理节点，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。例如，修补后的 DC/OS Marathon 首要实例无法连接到首要的 Mesos 管理节点上，直到该节点也得到修补为止。出现这种情况时：
 
  - DC/OS GUI 不能提供准确的服务列表。
- - 对于多管理节点配置，在一个管理节点完成修补后，您可以从端口 8181 上的 Exhibitor UI 监控其余管理节点的健康状况。
+ - 对于多管理节点配置，在一个管理节点完成修补后，您可以从端口 8181 上的 Exhibitor UI 监控其余管理节点的运行状况。
 - 升级后的 DC/OS Marathon 首要实例无法连接至不安全（未打补丁的）首要 Mesos 管理节点。在所有管理节点得到补丁之前，DC/OS UI 都不可信任。有多个 Marathon 调度器实例和多个 Mesos 管理节点，每个均已修补，Marathon 首要实例可能不是 Mesos 首要实例。
-- Mesos UI 中的任务历史记录不会持续到修补。
+- 打补丁后，Mesos UI 中的任务历史记录不会持续保存。
 - DC/OS Enterprise 可在 [此处](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads)下载。[enterprise type="inline" size="small" /]
 
 ## 支持的补丁路径
@@ -65,7 +65,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 # 说明
 必须执行这些步骤才能进行版本补丁和群集配置更改。
 
-## 前提条件
+## 先决条件
 
 - Mesos、Mesos 框架、Marathon、Docker 和群集中的所有运行任务应稳定且处于已知的运行良好状态。
 - 出于 Mesos 兼容性原因，我们建议将任何运行 Marathon-on-Marathon 实例修补至 Marathon 版本1.3.5，然后进行此 DC/OS 修补。
@@ -120,14 +120,14 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 由于宽容模式允许一些不安全的行为，因此群集在升级到严格安全模式之前可能已遭到泄露。要获得严格安全模式的全部安全优势，我们建议您在每个节点上重新安装操作系统并安装新群集。
 
-**前提条件：**
+**先决条件：**
 
 - 群集必须是 [DC/OS 1.12 的新近修补版本](#current-security) 并在 [宽容安全模式](#permissive) 下运行，然后才能更新到严格模式。如果群集在修补到 DC/OS 1.12 之前以严格模式运行，则可以跳过该程序。
 - 如果您在运行 Pod 或者已在自定义配置中启用 Mesos “HTTP 命令执行器” 功能，则必须在修补到严格模式之前，以 DC/OS 1.12 宽容安全模式重启这些任务。否则，在修补管理节点时，这些任务将会被重新启动。
 
 要将群集从宽容的安全性更新为严格的安全性，请完成以下步骤：
 
-1. 在 `security: permissive` 中以 `security: strict` 替换 `config.yaml`。不要对 `config.yaml` 中的路径或配置进行任何其他更改。
+1. 在 `config.yaml` 中以 `security: strict` 替换 `security: permissive`。不要对 `config.yaml` 中的路径或配置进行任何其他更改。
 1. 根据需要修改 `ip-detect` 文件。
 1. 构建安装工具包。
 
@@ -143,7 +143,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 ## <a name="masters"></a>DC/OS 管理节点
 
-采用以下程序，继续以任何顺序修补每个管理节点，每次修补一个。完成每次修补后，监控 Mesos 管理节点度量标准，确保节点已重新加入群集并完成了协调。
+采用以下步骤，继续以任何顺序修补每个管理节点，每次修补一个。完成每次修补后，监控 Mesos 管理节点度量标准，确保节点已重新加入群集并完成了协调。
 
 1. 下载并运行节点补丁脚本：
     ```bash

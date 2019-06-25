@@ -3,8 +3,10 @@ layout: layout.pug
 navigationTitle:  Using the Certificate Authority API
 title: Using the Certificate Authority API
 menuWeight: 500
-excerpt: Viewing, creating and signing certificates
+excerpt: Viewing, creating, and signing certificates
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
@@ -24,7 +26,7 @@ The API supports JSON only. You must include `application/json` as your `Content
 
 The host name will vary depending on where your app is running.
 
-* If your app will run outside of the DC/OS cluster, you should use the cluster URL. This can be obtained by launching the DC/OS web interface and copying the domain name from the browser. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the address of the load balancer which sits in front of your masters.
+* If your app will run outside of the DC/OS cluster; you should use the cluster URL. This can be obtained by launching the DC/OS UI and copying the domain name from the browser. Alternatively, you can log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL. In a production environment, this should be the address of the load balancer which sits in front of your masters.
 
 * If your app will run inside of the cluster, use `master.mesos`.
 
@@ -91,7 +93,7 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## Refreshing the authentication token
 
-Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/1.13/security/ent/service-auth/custom-service-auth/) for more information.
+Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. See [Provisioning custom services](/1.13/security/ent/service-auth/custom-service-auth/) for more information.
 
 # API reference
 

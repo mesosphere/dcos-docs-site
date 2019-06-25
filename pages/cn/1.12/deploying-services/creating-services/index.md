@@ -40,7 +40,7 @@ Marathon 应用程序通常代表长期运行的服务，有许多实例在多�
 
 ## 申请应用程序中的资源
 
-若要运行任何有意义的应用程序，通常依赖于一组资源：文件或文件存档。为了管理资源分配，Marathon 具有 URI（统一资源标识符）的概念。URL 使用 [Mesos 抓取器](http://mesos.apache.org/documentation/latest/fetcher/) 在下载（并可能）提取资源方面做好工作。
+若要运行任何有意义的应用程序，通常依赖于一组资源：文件或文件存档。为了管理资源分配，Marathon 具有 URI（统一资源标识符）的概念。URI 使用 [Mesos 抓取器](http://mesos.apache.org/documentation/latest/fetcher/) 在下载（并可能）提取资源方面做好工作。
 
 示例：
 

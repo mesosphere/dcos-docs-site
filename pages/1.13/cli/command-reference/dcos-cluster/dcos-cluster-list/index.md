@@ -5,6 +5,8 @@ title: dcos cluster list
 menuWeight: 3
 excerpt: Listing connected clusters
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 # Description

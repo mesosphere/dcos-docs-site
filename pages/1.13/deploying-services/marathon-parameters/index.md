@@ -4,13 +4,42 @@ navigationTitle:  Marathon Configuration Reference
 title: Marathon Configuration Reference
 menuWeight: 0
 excerpt: Understanding Marathon application definitions
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 
 This topic lists all available properties for Marathon application definitions and an example JSON application definition file with all properties shown.
 
-- [Marathon Properties](#marathon-properties)
-- [Example](#example)
+- [Marathon Properties](#Marathon-Properties)
+        - [acceptedResourceRoles](#acceptedResourceRoles)
+        - [args](#args)
+        - [backoffFactor](#backoffFactor)
+        - [backoffSeconds](#backoffSeconds)
+        - [cmd](#cmd)
+        - [constraints](#constraints)
+        - [container](#container)
+        - [cpus](#cpus)
+        - [dependencies](#dependencies)
+        - [disk](#disk)
+        - [env](#env)
+        - [executor](#executor)
+        - [fetch](#fetch)
+        - [gpus](#gpus)
+        - [healthChecks](#healthChecks)
+        - [id](#id)
+        - [instances](#instances)
+        - [labels](#labels)
+        - [maxLaunchDelaySeconds](#maxLaunchDelaySeconds)
+        - [mem](#mem)
+        - [networks](#networks)
+        - [portDefinitions](#portDefinitions)
+        - [requirePorts](#requirePorts)
+        - [residency](#residency)
+        - [taskKillGracePeriodSeconds](#taskKillGracePeriodSeconds)
+        - [unreachableStrategy](#unreachableStrategy)
+        - [upgradeStrategy](#upgradeStrategy)
+- [Example](#Example)
 
 # Marathon Properties
 
@@ -23,12 +52,12 @@ An array of strings that specifies the command to run. The `args` field may be u
 <p class="message--important"><strong>IMPORTANT: </strong>You must specify either <code>cmd</code> or <code>args</code> in all app definitions. It is invalid to supply both <code>cmd</code> and <code>args</code> in the same app.</p>
 
 ### backoffFactor
-The multiplicand to apply to the `backoffSeconds` value. The default value is `1.15`. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the [`maxLaunchDelaySeconds`](#maxlaunchdelayseconds) value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 3600`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 3600 seconds before repeating this cycle.
+The multiplicand to apply to the `backoffSeconds` value. The default value is `1.15`. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the [`maxLaunchDelaySeconds`](#maxlaunchdelayseconds) value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 300`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 300 seconds before repeating this cycle.
 
 This prevents sandboxes associated with consecutively failing tasks from filling up the hard disk on Mesos slaves. This applies also to tasks that are killed due to failing too many health checks.
 
 ### backoffSeconds
-The amount of time (in seconds) before Marathon retries launching a failed task. The default is `1`. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the `maxLaunchDelaySeconds` value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 3600`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 3600 seconds before repeating this cycle.
+The amount of time (in seconds) before Marathon retries launching a failed task. The default is `1`. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the `maxLaunchDelaySeconds` value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 300`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 300 seconds before repeating this cycle.
 
 This prevents sandboxes associated with consecutively failing tasks from filling up the hard disk on Mesos agents. This applies also to tasks that are killed due to failing too many health checks.
 
@@ -53,9 +82,7 @@ The container information.
   - **hostPort** The host port (e.g., `0`). The default value is `0`. In [networking mode](#networks) `container`, the `hostPort` is not required, but if left unspecified Marathon will not randomly allocate a port. When using `container/bridge` mode, an unspecified (null) value for `hostPort` sets `hostPort: 0`.
   - **servicePort** The service port (e.g., `9000`).
   - **protocol** The HTTP protocol, either `tcp` or `udp`.
-
-  ### Notes
-
+  
   Port mappings are used in conjunction with `container` and `container/bridge` [networking mode](#networks) and ignored when used in conjunction with `host` networking mode. When used in conjunction with multiple `container` networks, each mapping entry that specifies a `hostPort` must also declare a `name` that identifies the network for which the mapping applies (a single `hostPort` may be mapped to only one container network, and `name` defaults to all container networks for a pod or app).
   - [`requirePorts`](#requirePorts) does not apply to `portMappings`.
   - Future versions of Marathon may fail to validate apps that declare `container.portMappings` with network modes other than `container` or `container/bridge`.
@@ -110,6 +137,8 @@ A URI consists of:
 ### gpus
 The number of GPU cores needed per instance.
 
+This property is only applicable if you are using DC/OS Universal Container Runtime (UCR) containers. Support for GPU resources is not available for Docker containers.
+
 ### healthChecks
 An array of checks that are run against an application’s tasks. Marathon health checks perform periodic checks on the containers distributed across a cluster to make sure they’re up and responding. For more information, see the [Health Checks documentation](/1.13/deploying-services/creating-services/health-checks/).
 
@@ -139,7 +168,9 @@ The number of instances of this application to start. You can change this number
 Metadata to expose additional information to other services. For example, you could label apps `"environment": "staging"` to mark services by their position in the pipeline.
 
 ### maxLaunchDelaySeconds
-The maximum amount of time (in seconds) to wait, after applying the [`backoffSeconds`](#backoffseconds) and [`backoffFactor`](#backofffactor) values, before attempting to restart failed tasks. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the `maxLaunchDelaySeconds` value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 3600`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 3600 seconds before repeating this cycle.
+The default value of `maxLaunchDelaySeconds` is `300` starting with DC/OS 1.13.0.
+
+The maximum amount of time (in seconds) to wait, after applying the [`backoffSeconds`](#backoffseconds) and [`backoffFactor`](#backofffactor) values, before attempting to restart failed tasks. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the `maxLaunchDelaySeconds` value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 300`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 300 seconds before repeating this cycle.
 
 This prevents sandboxes associated with consecutively failing tasks from filling up the hard disk on Mesos slaves. This applies also to tasks that are killed due to failing too many health checks.
 
@@ -172,12 +203,7 @@ Port definitions are used only with [`host`](#networks) networking mode. A port 
 
 The special port value of 0 tells Marathon to select any host port from a Mesos resource offer and any service port from the configured service port range.
 
-#### Notes
-
-- Configure ports assignment for Docker containers in [`container.portMappings`](#container).
-- If you use the [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/), pass zeros as port values to generate one or more arbitrary free ports for each application instance.
-
-For more information, see [Containerizers](/1.13/deploying-services/containerizers/).
+You configure ports assignment for Docker containers in [`container.portMappings`](#container). If you use the [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/), pass zeros as port values to generate one or more arbitrary free ports for each application instance. For more information, see [Containerizers](/1.13/deploying-services/containerizers/).
 
 ### requirePorts
 Whether the host ports of your tasks are automatically assigned.
@@ -330,7 +356,7 @@ Here is an example JSON application definition that contains all fields.
     ],
     "backoffSeconds": 1,
     "backoffFactor": 1.15,
-    "maxLaunchDelaySeconds": 3600,
+    "maxLaunchDelaySeconds": 300,
     "taskKillGracePeriodSeconds": 2,
     "upgradeStrategy": {
         "minimumHealthCapacity": 0.5,

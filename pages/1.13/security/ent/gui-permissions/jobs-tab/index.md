@@ -4,6 +4,8 @@ navigationTitle:  Granting Access to the Jobs Tab
 title: Granting Access to the Jobs Tab
 menuWeight: 30
 excerpt: Granting access to the Jobs tab
+render: mustache
+model: /data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

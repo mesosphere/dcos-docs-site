@@ -2,10 +2,11 @@
 layout: layout.pug
 navigationTitle:  Secrets API
 title: Secrets API
-menuWeight: 6
+menuWeight: 7
 excerpt: Understanding the Secrets API
-
 enterprise: true
+render: mustache
+model: /data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -14,7 +15,7 @@ enterprise: true
 
 # About the Secrets API
 
-The Secrets API allows you to manage secrets and perform some back-end functions, such as sealing and unsealing the Secret Store. It offers more functionality than the DC/OS GUI.
+The Secrets API allows you to manage secrets and perform some back-end functions, such as sealing and unsealing the Secret Store. It offers more functionality than the DC/OS UI.
 
 # Request and response format
 
@@ -27,7 +28,7 @@ The API supports JSON only. You must include `application/json` as your `Content
 
 The host name to use varies according to where your app is running.
 
-* If your app will run outside of the DC/OS cluster, you should use the cluster URL. To obtain the cluster URL, launch the DC/OS GUI and copy the domain name from the browser. In a production environment, this should be the path to the load balancer that sits in front of your masters.
+* If your app will run outside of the DC/OS cluster, you should use the cluster URL. To obtain the cluster URL, launch the DC/OS UI and copy the domain name from the browser. In a production environment, this should be the path to the load balancer that sits in front of your masters.
 
 * If your app will run inside of the cluster, use `master.mesos`.
 

@@ -18,7 +18,7 @@ enterprise: true
 
 - 不具有 `dcos:superuser` [权限](/cn/1.12/security/ent/users-groups/) 的 DC/OS 用户账户。
 
-1. 以具有 `dcos:superuser` 权限的用户身份登录数据中心操作系统 Web 界面。
+1. 以具有 `dcos:superuser` 权限的用户身份登录 DC/OS Web 界面。
 
     ![登录](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
@@ -106,7 +106,7 @@ dcos:service:marathon:marathon:services:/ full
    -d '{"description":"Grants access to the Marathon UI"}'
    ```
 
-2. 向用户授予以下特权 `uid`。
+2. 向用户 `uid` 授予以下特权。
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt \
@@ -129,7 +129,7 @@ dcos:service:marathon:marathon:services:/ full
    -d '{"description":"Grants access to launch Marathon task from UI"}'
    ```
 
-2. 向用户授予以下特权 `uid`。
+2. 向用户 `uid` 授予以下特权。
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt \
@@ -157,7 +157,7 @@ dcos:service:marathon:marathon:services:/ full
    -d '{"description":"Grants access to the Marathon UI"}'
    ```
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt \
@@ -179,7 +179,7 @@ dcos:service:marathon:marathon:services:/ full
    -d '{"description":"Grants access to launch Marathon task from UI"}'
    ```
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户 `uid` 授予以下特权。
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt \

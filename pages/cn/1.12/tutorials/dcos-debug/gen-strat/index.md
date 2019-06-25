@@ -22,7 +22,7 @@ menuWeight: 21
 - 3: [检查调度程序日志](#schedule-strat)
 - 4: [检查代理程序日志](#agent-strat)
 - 5: [交互式测试任务](#interactive-strat)
-- 6: [检查主节点日志](#master-strat)
+- 6: [检查管理节点日志](#master-strat)
 - 7: [咨询社区](#community-strat)
 
 
@@ -38,7 +38,7 @@ menuWeight: 21
 
 ### 第 2 步：检查任务日志
 
-如果 GUI 无法提供足够的信息，接下来请使用 DC/OS GUI 或 CLI 检查[任务日志](/1.12/tutorials/dcos-debug/tools/#task-logs)。这样能够更好地了解应用程序可能发生的情况。如果问题与我们的应用程序没有部署有关（例如，任务状态继续无限期等待），请尝试查看['调试'页面](/1.12/monitoring/debugging/gui-debugging/#debugging-page)。这可能有助于了解 Mesos 提供的资源。
+如果 GUI 无法提供足够的信息，接下来请使用 DC/OS GUI 或 CLI 检查[任务日志](/1.12/tutorials/dcos-debug/tools/#task-logs)。这样能够更好地了解应用程序可能发生的情况。如果问题与我们的应用程序不部署有关（例如，任务状态继续无限期等待），请尝试查看['调试'页面](/1.12/monitoring/debugging/gui-debugging/#debugging-page)。这可能有助于了解 Mesos 提供的资源。
 
 <a name="schedule-strat"></a>
 
@@ -60,9 +60,9 @@ menuWeight: 21
 
 <a name="master-strat"></a>
 
-### 第 6 步：检查主节点日志
+### 第 6 步：检查管理节点日志
 
-如果您想了解特定调度程序收到某些资源或特定状态的原因，那么[主节点日志可能非常有用](/1.12/tutorials/dcos-debug/tools/#master-logs)。请记住，主节点转发代理程序和调度程序之间的所有状态更新，因此，在代理节点可能无法访问的情况下（例如，网络分区或节点故障）甚至可能非常有用。
+如果您想了解特定调度程序收到某些资源或特定状态的原因，那么[管理节点日志可能非常有用](/1.12/tutorials/dcos-debug/tools/#master-logs)。请记住，主节点转发代理程序和调度程序之间的所有状态更新，因此，在代理节点可能无法访问的情况下（例如，网络分区或节点故障）甚至可能非常有用。
 
 <a name="community-strat"></a>
 

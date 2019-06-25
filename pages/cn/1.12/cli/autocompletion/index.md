@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  CLI 自动完成
-title: CLI 自动完成
+navigationTitle:  CLI Autocompletion
+title: CLI Autocompletion
 menuWeight: 7
 excerpt: 启用 CLI 自动完成
 enterprise: false

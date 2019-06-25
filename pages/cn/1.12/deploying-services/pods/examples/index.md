@@ -290,7 +290,7 @@ enterprise: false
       "backoff":{
          "backoff":1,
          "backoffFactor":1.15,
-         "maxLaunchDelay":3600
+         "maxLaunchDelaySeconds":3600
       },
       "upgrade":{
          "minimumHealthCapacity":1,
@@ -333,7 +333,7 @@ enterprise: false
 |  `scheduling.unreachableStrategy.inactiveAfterSeconds` | 数字 | 实例被标记为非活动后无法访问的时长。 |
 |  `scheduling.unreachableStrategy.expungeAfterSeconds` | 数字 | 实例被排除后无法访问的时长。 |
 |  `scheduling.upgrade` | 对象 | 控制 pod 更新的升级策略。 |
-|  `scheduling.upgrade.minimumHealthCapacity` | 数字 | 介于 0 和 1 之间的数字，表示在升级期间保持的最少健康节点数量（默认值：1）。|
+|  `scheduling.upgrade.minimumHealthCapacity` | 数字 | 介于 0 和 1 之间的数字，表示在升级期间保持的最少运行良好的节点数量（默认值：1）。|
 |  `scheduling.upgrade.maximumOverCapacity` | 数字 | 0 至 1 之间的数字，表示升级期间启动的最大附加实例数（默认值：1）。|
 |  `placement` | 对象 | 控制 pod 任务的放置。 |
 |  `placement.constraints` | 字符串[] | 约束控制 pod 任务的布局策略。选项：`UNIQUE`、`CLUSTER`、`GROUP_BY`、`LIKE`、`UNLIKE`、`MAX_PER`。|
@@ -356,9 +356,9 @@ enterprise: false
 |  `healthCheck` | 对象 | 接受以下参数: `http`、`tcp` 和 `exec`。|
 |  `healthCheck.http` | | 协议类型。选项：`http`、`tcp`、 `exec`。 |
 |  `healthCheck.http.endpoint` | 字符串 | 要使用的端点名称。 |
-|  `healthCheck.http.path` | 字符串 | 由提供健康状态的任务披露的端点路径。 |
+|  `healthCheck.http.path` | 字符串 | 由提供运行状态的任务披露的端点路径。 |
 |  `healthCheck.http.scheme` | 字符串 | 对于 httpHealthCheck，使用 `http`。|
-|  `healthCheck.gracePeriodSeconds` | 整数 | 忽略运行状况检查失败距离第一次启动任务，或距离任务初次显示健康的时间间隔（默认值：300）。|
+|  `healthCheck.gracePeriodSeconds` | 整数 | 忽略运行状况检查失败距离第一次启动任务，或距离任务初次显示运行良好的时间间隔（默认值：300）。|
 |  `healthCheck.intervalSeconds` | 整数 | 运行状况检查时间间隔（默认值：60）。|
 |  `healthCheck.maxConsecutiveFailures` | 整数 | 任务被关闭之前连续故障的次数（默认值：3）。|
 |  `healthCheck.timeoutSeconds` | 整数 | 等待运行状况检查完成的时间（默认值：20）。|
@@ -551,7 +551,7 @@ enterprise: false
 
 ## 各 Pod 的 IP 网络
 
-以下 pod 定义指定名为 `dcos` 的虚拟（用户）网络。`networks:mode:container` 字段创建虚拟网络。`name` 字段为可选。如果您已使用 [我们的 AWS 模板] (/cn/1.12/installing/oss/cloud/aws/)安装 DC/OS，则默认虚拟网络名称为 `dcos`。<!-- Validated by suzanne 6-23-17 -->
+以下 pod 定义指定名为 `dcos` 的虚拟（用户）网络。`networks:mode:container` 字段创建虚拟网络。`name` 字段为可选。如果您已使用 [我们的 AWS 模板](/cn/1.12/installing/oss/cloud/aws/) 安装 DC/OS，则默认虚拟网络名称为 `dcos`。<!-- Validated by suzanne 6-23-17 -->
 
 ```json
 {

@@ -5,6 +5,8 @@ title: dcos job schedule update
 menuWeight: 9
 excerpt: Updating a job schedule
 enterprise: false
+render: mustache
+model: /data.yml
 ---
 
 
