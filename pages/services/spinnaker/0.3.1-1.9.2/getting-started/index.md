@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: DC/OS Setup
 excerpt: Installing and deploying a basic cluster
 title: DC/OS Setup
-menuWeight: 15
+menuWeight: 5
 model: /services/spinnaker/data.yml
 render: mustache
 ---

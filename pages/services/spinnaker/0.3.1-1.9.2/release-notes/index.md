@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
-menuWeight: 130
+menuWeight: 0
 excerpt: Discover the new features, updates, and known limitations in this release of the DC/OS Spinnaker Service
 featureMaturity:
 enterprise: false

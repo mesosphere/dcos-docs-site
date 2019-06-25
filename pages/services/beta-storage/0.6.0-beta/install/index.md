@@ -3,7 +3,7 @@ layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/install/index.md
 navigationTitle: Install
 title: Install
-menuWeight: 30
+menuWeight: 5
 excerpt: Instructions for installing the DC/OS Storage Service on a DC/OS cluster
 enterprise: true
 beta: true
