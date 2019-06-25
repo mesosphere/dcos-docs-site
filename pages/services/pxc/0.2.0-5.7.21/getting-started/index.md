@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 excerpt: Getting started with Percona XtraDB Cluster
 title: Getting Started
-menuWeight: 17
+menuWeight: 15
 model: /services/pxc/data.yml
 render: mustache
 ---
