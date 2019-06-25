@@ -136,7 +136,7 @@ dcos {{ model.packageName }} --name=<service-name> plan start backup-s3 \
 ```
 It may also be necessary to set the `AWS_SESSION_ID`,`AWS_SESSION_TOKEN` depending on how you authenticate with AWS.
 
-If you are backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as in the example above. If the `CASSANDRA_KEYSPACES` parameter isn't supplied, then every keyspace in your cluster will be backed up.
+If you are backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as shown in the above example. If the `CASSANDRA_KEYSPACES` parameter is not supplied, then every keyspace in your cluster will be backed up.
 
 <p class="message--warning"><strong>WARNING: </strong>To ensure that sensitive information such as your AWS secret access key remains secure, make sure that you've set the <tt>core.dcos_url</tt> configuration property in the DC/OS CLI to an HTTPS URL.</p>
 
