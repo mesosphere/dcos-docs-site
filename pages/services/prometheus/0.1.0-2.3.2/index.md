@@ -10,6 +10,8 @@ community: true
 
 DC/OS Prometheus Service is an automated service that makes it easy to deploy and manage Prometheus on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on Prometheus, see the [Prometheus documentation](https://prometheus.io/docs/introduction/overview/).
 
+<p class="message--warning"><strong>WARNING: </strong>This is a Community service. Community services are not tested for production environments. There may be bugs, incomplete features, incorrect documentation, or other discrepancies.</p>
+
 ## Benefits
 DC/OS Prometheus offers the following benefits :
 1. Designed for reliability

@@ -12,6 +12,8 @@ community: true
 
 DC/OS {{ model.techName }} Service is an automated service that makes it easy to deploy and manage {{ model.techName }} on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on {{ model.techName }}, see the [{{ model.techName }} documentation](https://docs.minio.io/).
 
+<p class="message--warning"><strong>WARNING: </strong>This is a Community service. Community services are not tested for production environments. There may be bugs, incomplete features, incorrect documentation, or other discrepancies.</p>
+
 ## Benefits
 DC/OS {{ model.techName }} offers the following benefits:
 1. Based on the proven DC/OS framework/operator SDK underpinning all DC/OS-certified frameworks

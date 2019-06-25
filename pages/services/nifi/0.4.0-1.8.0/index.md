@@ -14,6 +14,8 @@ Apache {{ model.techShortName }} is a dataflow system based on the concepts of f
 
 DC/OS {{model.techName }} Service is an automated service that makes it easy to deploy and manage {{ model.techShortName }} on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all complexities, that are traditionally associated with managing a cluster of DC/OS {{model.techName }} nodes.
 
+<p class="message--warning"><strong>WARNING: </strong>This is a Community service. Community services are not tested for production environments. There may be bugs, incomplete features, incorrect documentation, or other discrepancies.</p>
+
 ## Benefits
 DC/OS {{model.techName }}  offers the following benefits of a semi-managed service:
 

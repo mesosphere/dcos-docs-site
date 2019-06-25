@@ -12,6 +12,8 @@ Apache NiFi is a dataflow system based on the concepts of flow-based programming
 
 DC/OS NiFi Service is an automated service that makes it easy to deploy and manage Apache NiFi on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all the complexities that are traditionally associated with managing a cluster of NiFi nodes.
 
+<p class="message--warning"><strong>WARNING: </strong>This is a Community service. Community services are not tested for production environments. There may be bugs, incomplete features, incorrect documentation, or other discrepancies.</p>
+
 ## Benefits
 
 DC/OS NiFi Service offers the following benefits of a semi-managed service:
