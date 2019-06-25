@@ -62,7 +62,7 @@ This tutorial uses a sample app definition file that you can download from the `
 
 1. Identify the public-facing IP address for your public agent node. 
 
-    For information about how to find your public agent IP address, see [Finding a public agent IP](https://docs.mesosphere.com/1.12/administering-clusters/locate-public-agent/).
+    For information about how to find your public agent IP address, see [Finding a public agent IP](https://docs.mesosphere.com/1.13/administering-clusters/locate-public-agent/).
 
 1. In the `labels` field, add an entry for `HAPROXY_0_VHOST` and assign it the value of your public agent IP. 
 
@@ -129,7 +129,7 @@ This tutorial uses a sample app definition file that you can download from the `
 1. Open the DC/OS web-based console URL in a browser, then click **Services** to verify that your application is deployed and running.
 
     <p>
-    <img src="/1.12/img/healthy-dcos-website.png" alt="Healthy service">
+    <img src="/1.13/img/healthy-dcos-website.png" alt="Healthy service">
     </p>
 
 1. In the web browser, navigate to the IP address for your public agent node to verify the site you have deployed is running.
