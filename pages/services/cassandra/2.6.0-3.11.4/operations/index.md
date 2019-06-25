@@ -105,7 +105,7 @@ You can back up an entire cluster's data and schema to Amazon S3 using the `back
 - `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this backup
 - `AWS_REGION`: the region of the S3 bucket being used to store this backup
 - `S3_BUCKET_NAME`: the name of the S3 bucket in which to store this backup
-- `HTTPS_PROXY`: specifications for the {{ model.TechName }} backup plan, taken from `config.yaml`.
+- `HTTPS_PROXY`: Specifications for the {{ model.TechName }} backup plan, taken from `config.yaml`.
 
 Make sure that you provision your nodes with enough disk space to perform a backup. {{ model.TechName }} backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables, so you will need half of your total available space to be free to back up every keyspace at once.
 
