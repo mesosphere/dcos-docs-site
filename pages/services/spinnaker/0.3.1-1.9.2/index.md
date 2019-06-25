@@ -15,6 +15,8 @@ DC/OS {{ model.techName }} Service is an autonomous service that makes it easy t
 
 <p class="message--note"><strong>NOTE: </strong>The DC/OS {{ model.techName }} service currently only works with DC/OS Enterprise.</p>
 
+<p class="message--warning"><strong>WARNING: </strong>This is a Community service. Community services are not tested for production environments. There may be bugs, incomplete features, incorrect documentation, or other discrepancies.</p>
+
 ## Benefits
 DC/OS {{ model.techName }} offers the following benefits:
 1. Based on the DC/OS framework/operator SDK underpinning all DC/OS-certified frameworks

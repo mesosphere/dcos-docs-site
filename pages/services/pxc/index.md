@@ -12,3 +12,5 @@ category: Database
 ---
 
 Welcome to the documentation for DC/OS {{ model.techName }}. 
+
+<p class="message--warning"><strong>WARNING: </strong>This is a Community service. Community services are not tested for production environments. There may be bugs, incomplete features, incorrect documentation, or other discrepancies.</p>

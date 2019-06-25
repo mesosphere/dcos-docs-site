@@ -18,6 +18,8 @@ Welcome to the documentation for the DC/OS [Percona Server for MongoDB](https://
 
 This DC/OS service installs and configures a [MongoDB Replica Set](https://docs.mongodb.com/manual/replication/) and provides additional features for administration, monitoring and backups.
 
+<p class="message--warning"><strong>WARNING: </strong>This is a Community service. Community services are not tested for production environments. There may be bugs, incomplete features, incorrect documentation, or other discrepancies.</p>
+
 # Benefits
 
 DC/OS Percona-Server-MongoDB offers the following benefits of a semi-managed service:

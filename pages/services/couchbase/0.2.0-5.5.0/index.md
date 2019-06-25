@@ -12,6 +12,8 @@ community: true
 
 DC/OS {{ model.techName }} Service is an autonomous service that makes it easy to deploy and operate {{ model.serverName }} and the {{ model.syncGatewayName }} on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on Couchbase, see the [Couchbase documentation](https://developer.couchbase.com/documentation/server/current/introduction/intro.html).
 
+<p class="message--warning"><strong>WARNING: </strong>This is a Community service. Community services are not tested for production environments. There may be bugs, incomplete features, incorrect documentation, or other discrepancies.</p>
+
 ## Benefits
 DC/OS {{ model.techName }} offers the following benefits:
 1. Based on the battle-proven DC/OS framework/operator SDK underpinning all DC/OS-certified frameworks
