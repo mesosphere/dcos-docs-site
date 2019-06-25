@@ -21,15 +21,15 @@ dcos task download <task> [<path>] [OPTION]
 
 | Name, shorthand |  Description |
 |---------|-------------|
-| `--target-dir`   | Target directory of the download. Defaults to `$PWD`. |
+| `--target-dir`   | Specifies the target directory of the download. Defaults to the current working directory (`$PWD`). |
 
 
 # Positional arguments
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `<task>`   |             |  A full task ID, a partial task ID, or a regular expression. |
-| `<path>`   |     `/`      |  The Mesos sandbox directory path to a file or directory. Can be a UNIX shell wildcard pattern (e.g. `/std*`)|
+| `<task>`   |             | Specifies a full task ID, a partial task ID, or a UNIX shell wildcard pattern (for example, `my-task*`). |
+| `<path>`   |     `/`      | Specifies the Mesos sandbox directory path to a file or directory. You can also specify the path using a UNIX shell wildcard pattern (for example, `/std*`)|
 
 # Parent command
 
