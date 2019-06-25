@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Quick Start
 excerpt: Configuring Percona XtraDB Cluster - Quick Start
 title: Quick Start
-menuWeight: 21
+menuWeight: 80
 model: /services/pxc/data.yml
 render: mustache
 ---
