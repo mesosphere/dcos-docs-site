@@ -138,8 +138,8 @@ If you are logged in as a superuser you can also switch to a linked cluster in t
     dcos cluster attach cluster-a
     dcos cluster list
           NAME                    CLUSTER ID                 STATUS   VERSION                                         URL
-     cluster-b  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.12-dev   https://cluster-b.us-west-2.elb.amazonaws.com
-    cluster-a*  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.12-dev  https://cluster-a.us-west-2.elb.amazonaws.com
+     cluster-b  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.13-dev   https://cluster-b.us-west-2.elb.amazonaws.com
+    cluster-a*  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.13-dev  https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
 1. Link to cluster `cluster-b` from cluster `cluster-a`.
@@ -195,8 +195,8 @@ If you are logged in as a superuser you can also switch to a linked cluster in t
     ```
     dcos cluster list
           NAME                    CLUSTER ID                 STATUS   VERSION                                         URL
-    cluster-b*  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.12-dev   https://cluster-b.us-west-2.elb.amazonaws.com
-     cluster-a  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.12-dev  https://cluster-a.us-west-2.elb.amazonaws.com
+    cluster-b*  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.13-dev   https://cluster-b.us-west-2.elb.amazonaws.com
+     cluster-a  584d3e8f-c5c2-4c86-b180-ff3c1f15b0d5  AVAILABLE  1.13-dev  https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
 
