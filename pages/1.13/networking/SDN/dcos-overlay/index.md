@@ -155,7 +155,7 @@ After DC/OS installation is complete, the virtual network configuration can be o
             }
           },
           "docker_bridge": {
-            "ip": "9.0.1.128/25",
+            "ip": "9.0.1.138/25",
             "name": "d-dcos"
           },
           "info": {

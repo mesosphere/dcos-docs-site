@@ -15,9 +15,9 @@ A patching process includes the following:
 - Does not impact workloads which is an essential piece of patching live clusters with no downtime
 - Helps users to understand the minor changes impacting the functionality of DC/OS
 
-<p class="message--note"><strong>NOTE: </strong>These instructions are only appropriate for a change to the cluster configuration or the maintenance version number. Example: DC/OS 1.12.1 --> 1.12.2</p>
+<p class="message--note"><strong>NOTE: </strong>These instructions are only appropriate for a change to the cluster configuration or the maintenance version number. Example: DC/OS 1.13.1 --> 1.13.2</p>
 
-- To update to a newer major or minor version (e.g. 1.11 to 1.12), refer to the instructions for [upgrading](/1.13/installing/production/upgrading/).
+- To update to a newer major or minor version (e.g. 1.11 to 1.13), refer to the instructions for [upgrading](/1.13/installing/production/upgrading/).
 
 If patching is performed on a supported OS with all prerequisites fulfilled, then the patch **should** preserve the state of running tasks on the cluster.
 
@@ -38,8 +38,8 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
 ## Supported patch paths
-- From any current release to the next. For example, a patch from 1.12.0 to 1.12.1 would be supported.
-- From any current release to an identical release. For example, a patch from 1.12.0 to 1.12.0 would be supported. This is useful for making configuration changes.
+- From any current release to the next. For example, a patch from 1.13.0 to 1.13.1 would be supported.
+- From any current release to an identical release. For example, a patch from 1.13.0 to 1.13.0 would be supported. This is useful for making configuration changes.
 
 
 ## Modifying DC/OS configuration
@@ -94,11 +94,11 @@ These steps must be performed for version patches and cluster configuration chan
 
 Choose your desired security mode and then follow the applicable patch instructions.
 
-- [Patching DC/OS 1.12 without changing security mode](#current-security)
-- [Patching to DC/OS 1.12 in strict security mode](#strict)
+- [Patching DC/OS 1.13 without changing security mode](#current-security)
+- [Patching to DC/OS 1.13 in strict security mode](#strict)
 
-# <a name="current-security"></a>Patching DC/OS 1.12 without changing security mode
-This procedure patches a DC/OS 1.12 cluster without changing the cluster's [security mode](/1.13/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+# <a name="current-security"></a>Patching DC/OS 1.13 without changing security mode
+This procedure patches a DC/OS 1.13 cluster without changing the cluster's [security mode](/1.13/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
@@ -118,8 +118,8 @@ This procedure patches a DC/OS 1.12 cluster without changing the cluster's [secu
 
 1.  Go to the DC/OS Master [procedure](/1.13/installing/production/patching/#masters) to complete your installation.
 
-# <a name="strict"></a>Patching to DC/OS 1.12 in strict mode
-This procedure patches to DC/OS 1.12 in strict [security mode](/1.13/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+# <a name="strict"></a>Patching to DC/OS 1.13 in strict mode
+This procedure patches to DC/OS 1.13 in strict [security mode](/1.13/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 If you are updating a running DC/OS cluster to run in `strict` security mode, be aware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before patching to strict, to maintain scheduler and script uptimes across the patch.
 
@@ -127,8 +127,8 @@ As permissive mode allows some insecure behavior, a cluster may have been compro
 
 **Prerequisites:**
 
-- Your cluster must be a [recently patched version of DC/OS 1.12](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was patched to DC/OS 1.12, you can skip this procedure.
-- If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 1.12 permissive security mode before patching to strict mode. Otherwise, these tasks will be restarted when the masters are patched.
+- Your cluster must be a [recently patched version of DC/OS 1.13](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was patched to DC/OS 1.13, you can skip this procedure.
+- If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 1.13 permissive security mode before patching to strict mode. Otherwise, these tasks will be restarted when the masters are patched.
 
 To update a cluster from permissive security to strict security, complete the following procedure:
 
@@ -254,5 +254,5 @@ sudo journalctl -u dcos-mesos-slave
 
 ## Notes
 
-Packages available in the DC/OS 1.12 {{ model.packageRepo }} are newer than those in the older versions of the {{ model.packageRepo }}. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve existing states.
+Packages available in the DC/OS 1.13 {{ model.packageRepo }} are newer than those in the older versions of the {{ model.packageRepo }}. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve existing states.
 

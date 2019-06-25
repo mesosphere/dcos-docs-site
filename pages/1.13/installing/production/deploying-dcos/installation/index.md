@@ -276,14 +276,15 @@ enable_ipv6: 'false'
     - '.baz.com'
 
 <a name="custom-build-file"></a>
+
 # Install DC/OS
 
 In this step, you will create a custom DC/OS build file on your bootstrap node and then install DC/OS onto your cluster. With this method you
 1. Package the DC/OS distribution yourself
-2. Connect to every server manually
-3. Run the commands
+1. Connect to every server manually
+1. Run the commands
 
-<p class="message--note"><strong>NOTE: </strong>Due to a cluster configuration issue with overlay networks, we recommend setting <code>enable_ipv6</code> to <code>false</code> in <code>config.yaml</code> when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.12.x without configuring <code>enable_ipv6</code> or if <code>config.yaml</code> file is set to <code>true</code>, then do not add new nodes.</p>
+<p class="message--note"><strong>NOTE: </strong>Due to a cluster configuration issue with overlay networks, we recommend setting <code>enable_ipv6</code> to <code>false</code> in <code>config.yaml</code> when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.13.x without configuring <code>enable_ipv6</code> or if <code>config.yaml</code> file is set to <code>true</code>, then do not add new nodes.</p>
 
 You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
 <p class="message--important"><strong>IMPORTANT: </strong>Do not install DC/OS until you have these items working: <code>ip-detect script</code>, <code>DNS</code>, and <code>NTP</code> on all DC/OS nodes with time synchronized. See <a href="/1.13/installing/troubleshooting/">troubleshooting</a> for more information.</p>
@@ -352,7 +353,7 @@ At this point your directory structure should resemble:
     sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
     ```
 
-3.  <A name="masterinstall"></A> Run the following commands on each of your master nodes in succession to install DC/OS using your custom build file:
+3.  <a name="masterinstall"></a> Run the following commands on each of your master nodes in succession to install DC/OS using your custom build file:
 
     * SSH to your master nodes.
 
@@ -379,7 +380,7 @@ At this point your directory structure should resemble:
 
     <p class="message--note"><strong>NOTE: </strong>Although there is no actual harm to your cluster, DC/OS may issue error messages until all of your master nodes are configured.</p>
 
-4.  <A name="slaveinstall"></A> Run the following commands on each of your agent nodes to install DC/OS using your custom build file:
+4.  <a name="slaveinstall"></a> Run the following commands on each of your agent nodes to install DC/OS using your custom build file:
 
      * SSH to your agent nodes.
 
@@ -433,7 +434,7 @@ Figure 2. Exhibitor for ZooKeeper
 
 ![Login screen](/1.13/img/ui-installer-auth2.png)
 
-Figure 3. Sign in dialogue
+Figure 3. Sign-in dialogue
 
 
 You are done! The UI dashboard will now be displayed.
