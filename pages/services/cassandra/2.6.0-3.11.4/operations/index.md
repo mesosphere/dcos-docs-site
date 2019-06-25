@@ -99,7 +99,7 @@ recovery (IN_PROGRESS)
 ## Backing Up to S3
 
 You can back up an entire cluster's data and schema to Amazon S3 using the `backup-s3` plan. This plan requires the following parameters to run:
-- `SNAPSHOT_NAME`: the name of this snapshot. Snapshots for individual nodes will be stored as S3 folders inside of a top level `snapshot` folder.
+- `SNAPSHOT_NAME`: The name of this snapshot. Snapshots for individual nodes will be stored as S3 folders inside of a top level `snapshot` folder.
 - `CASSANDRA_KEYSPACES`: the {{ model.techShortName }} keyspaces to back up. The entire keyspace, as well as its schema, will be backed up for each keyspace specified.
 - `AWS_ACCESS_KEY_ID`: the access key ID for the AWS IAM user running this backup
 - `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this backup
