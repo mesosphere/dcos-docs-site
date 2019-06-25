@@ -6,17 +6,30 @@
 - var semverService = /^(v|)[0-9](.*)/
 - var isChinese = paths[0] == 'cn'
 - 
+    //- var categories = [
+    //-   "View All",
+    //-   "Kubernetes",
+    //-   "Database",
+    //-   "Data Services",
+    //-   "Analytics",
+    //-   "Monitoring",
+    //-   "Networking",
+    //-   "Storage",
+    //-   "Zookeeper",
+    //-   "CI/CD"
+    //- ]
     var categories = [
       "View All",
-      "Kubernetes",
-      "Database",
+      "Cluster Management",
+      "Container Orchestration",
+      "Continuous Delivery",
+      "Data Processing",
       "Data Services",
-      "Analytics",
+      "Databases",
+      "Messaging Queues",
       "Monitoring",
       "Networking",
-      "Storage",
-      "Zookeeper",
-      "CI/CD"
+      "Storage"
     ]
 
 mixin renderGridInputs()
