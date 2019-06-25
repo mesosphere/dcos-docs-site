@@ -1,21 +1,26 @@
-.grid-container {
-    display: flex;
-    justify-content: center;
-}
-
+// .grid-container {
+//     display: flex;
+//     justify-content: center;
+// }
 .grid-filters {
     display: flex;
-    flex-direction: column;
-    width: fit-content;
-    &__select-label-div {
-        display: flex;
-    }
-    &__select-label {
-        font-size: 16px;
-    }
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
     &__controls-div {
         display: flex;
-        align-items: center;
+        flex-direction: column;
+    }
+    &__select-label-div {}
+    &__select-label {
+        font-size: 14px !important;
+        font-weight: normal !important;
+        margin-left: 2px !important;
+        color: $color-light-grey-d4 !important;
+    }
+    &__labels {
+        display: flex;
+        flex-direction: column;
     }
     &__labels:first-child {
         margin-bottom: 3px;
@@ -23,7 +28,8 @@
     &__label {
         display: flex;
         align-items: center;
-        margin: 4px 0px;
+        margin: 0px;
+        margin-top: 4px;
         color: $color-meso-dark-grey;
         label {
             font-size: 14px;
