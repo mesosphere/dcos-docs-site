@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Overview
 title: Overview
-menuWeight: 15
+menuWeight: 20
 excerpt: Features of the Percona XtraDB Cluster on DC/OS
 featureMaturity:
 enterprise: false
