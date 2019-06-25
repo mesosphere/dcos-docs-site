@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 excerpt: Configuring Minio for DC/OS
 title: Configuration
-menuWeight: 20
+menuWeight: 10
 model: /services/minio/data.yml
 render: mustache
 ---

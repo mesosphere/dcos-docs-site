@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Quickstart
 title: Quickstart
-menuWeight: 15
+menuWeight: 10
 excerpt:
 featureMaturity:
 enterprise: false

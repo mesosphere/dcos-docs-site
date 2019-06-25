@@ -3,7 +3,7 @@ layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/release-notes/index.md
 navigationTitle: Release Notes
 title: Release Notes
-menuWeight: 10
+menuWeight: 0
 excerpt: Discover the new features, updates, and known limitations in this release of the Beta DC/OS Storage Service
 enterprise: true
 beta: true

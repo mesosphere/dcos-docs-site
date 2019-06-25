@@ -3,7 +3,7 @@ layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/architecture/index.md
 navigationTitle: Architecture
 title: Architecture
-menuWeight: 20
+menuWeight: 10
 excerpt: Architectural overview of storage support in DC/OS
 enterprise: true
 beta: true

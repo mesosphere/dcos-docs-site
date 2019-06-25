@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Overview
 excerpt: Understanding Spinnaker services
 title: Overview
-menuWeight: 5
+menuWeight: 10
 model: /services/spinnaker/data.yml
 render: mustache
 ---
