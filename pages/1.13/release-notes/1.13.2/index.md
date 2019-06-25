@@ -74,7 +74,7 @@ With this release, you can use Telegraf to collect and forward information for t
 - Marathon
 - Metronome
 
-You can also collect information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
+You can also collect information about the operation and performance of the Telegraf process itself. This information is stored along with other metrics and is available for reporting using the DC/OS monitoring service or third-party monitoring services. For information about the Telegraf plugin and the metrics that Telegraf collects about its own performance, see the documentation for the [Internal input plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal).
 
 - New volume and network metrics that are collected by the Mesos input plugin are enabled by default. <!--(DCOS-47722, DCOS-47719)-->
 
@@ -273,7 +273,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
 - Support secure computing mode (seccomp) profiles. <!--(DCOS-28442, DCOS-49134)-->
 
-    Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within an app or pod container. You can enable secure computing mode using a default profile for Universal Runtime Containers (URC) if the operating system you are using supports it.
+    Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within an app or pod container. You can enable secure computing mode using a default profile for Universal Container Runtime (UCR) if the operating system you are using supports it.
 
     With DC/OS, you can use a `seccomp` profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls.
 
@@ -306,7 +306,7 @@ The issues that have been fixed in DC/OS 1.13.2 are grouped by feature, function
 
 ### Metrics
 - DCOS-53589 - Telegraf reports procstat metrics only for DC/OS systemd services, instead of all processes.
-- DCOS-55100 - Telegraf now supports specyfying port names for task-label based Prometheus endpoints discovery.
+- DCOS-55100 - Telegraf now supports specifying port names for task-label based Prometheus endpoints discovery.
 
 # Updated components change lists
 For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
