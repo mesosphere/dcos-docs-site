@@ -30,7 +30,7 @@ As part of this tutorial, the `marathon-lb-autoscale` script polls the HAProxy `
 The autoscale script takes the current requests-per-second and divides that number by the target number of requests-per-second for the app instance. The result of this fraction is the number of app instances required (or rather, the ceiling of that fraction is the number of instances required).
 
 <p>
-<img src="/1.12/img/image00.png" alt="Current requests-per-second divided by target requests-per-second">
+<img src="/1.13/img/image00.png" alt="Current requests-per-second divided by target requests-per-second">
 
 # Before you begin
 
@@ -181,7 +181,7 @@ To illustrate automatic scaling, you need to configure and deploy the app defini
     <code>52.35.15.50:9090/haproxy?stats</code>
 
     <p>
-    <img src="/1.12/img/image02-800x508.png" alt="HAProxy statistics">
+    <img src="/1.13/img/image02-800x508.png" alt="HAProxy statistics">
     </p>
 
     Check the “Session rate” to see the number requests-per-second generated on the NGINX application frontend.
