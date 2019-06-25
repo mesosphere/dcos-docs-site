@@ -42,4 +42,4 @@ dcos package list [<package-name> --json --app-id=<app-id> --cli]
 
 # Examples
 
-For an example, see the [documenation](/1.13/deploying-services/install/).
+For an example, see the [documentation](/1.13/deploying-services/install/).
