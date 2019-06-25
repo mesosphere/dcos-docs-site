@@ -19,12 +19,12 @@ You may manually trigger certain `nodetool` operations against your {{ model.tec
 You may trigger a `nodetool cleanup` operation across your {{ model.techShortName }} nodes using the `cleanup` plan. This plan requires the following parameters to run:
 - `CASSANDRA_KEYSPACE`: the {{ model.techShortName }} keyspace to be cleaned up.
 
-To initiate this plan from the command line:
+Use the following command to initiate this plan from the command line:
 ```
 dcos {{ model.packageName }} --name=<service-name> plan start cleanup -p CASSANDRA_KEYSPACE=space1
 ```
 
-To view the status of this plan from the command line:
+Use the following command to view the status of this plan from the command line:
 ```
 dcos {{ model.packageName }} --name=<service-name> plan status cleanup
 cleanup (IN_PROGRESS)
@@ -34,23 +34,23 @@ cleanup (IN_PROGRESS)
    └─ node-2:[cleanup] (PENDING)
 ```
 
-When the plan is completed, its status will be `COMPLETE`.
+When the plan is completed, its status will be marked `COMPLETE`.
 
-The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. To see the queries involved, run the above commands with an additional `-v` flag.
+The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. Run the above commands with an additional `-v` flag to see the queries involved.
 
 For more information about `nodetool cleanup`, see the {{ model.techShortName }} documentation.
 
 ### Repair
 
-You may trigger a `nodetool repair` operation across your {{ model.techShortName }} nodes using the `repair` plan. This plan requires the following parameters to run:
+You may trigger a `nodetool repair` operation across your {{ model.techShortName }} nodes using the `repair` plan. This plan requires the following parameters to be executed:
 - `CASSANDRA_KEYSPACE`: the {{ model.techShortName }} keyspace to be cleaned up.
 
-To initiate this command from the command line:
+Use the following command to initiate `CASSANDRA_KEYSPACE` from the command line:
 ```
 dcos {{ model.packageName }} --name=<service-name> plan start repair -p CASSANDRA_KEYSPACE=space1
 ```
 
-To view the status of this plan from the command line:
+Use the following command to view the status of this plan from the command line:
 ```
 dcos {{ model.packageName }} --name=<service-name> plan status repair
 repair (STARTING)
@@ -60,26 +60,25 @@ repair (STARTING)
    └─ node-2:[repair] (PENDING)
 ```
 
-When the plan is completed, its status will be `COMPLETE`.
+When the plan is completed, its status will be marked as `COMPLETE`.
 
-The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. To see the queries involved, run the above commands with an additional `-v` flag.
+The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. Run the above commands with an additional `-v` flag to see the queries involved.
 
 For more information about `nodetool repair`, see the {{ model.techShortName }} documentation.
 
 ## Seed nodes
 
-{{ model.techShortName }} seed nodes are those nodes with indices smaller than the seed node count.  By default, {{ model.techShortName }} is deployed
-with a seed node count of two (node-0 and node-1 are seed nodes). When a replace operation is performed on one these
-nodes, all other nodes must be restarted to be brought up to date regarding the ip address of the new seed node. This
+{{ model.techShortName }} seed nodes are those nodes with indices smaller than the seed node count.  By default, {{ model.techShortName }} is deployed with a seed node count of two (node-0 and node-1 are seed nodes). When a replace operation is performed on one these
+nodes, all other nodes must be restarted and updated with the ip address of the new seed node. This
 operation is performed automatically.
 
-For example if `node-0` needed to be replaced you would execute:
+For example:  Use the following command, if you want to replace `node-0`:
 
 ```bash
 dcos {{ model.packageName }} --name=<service-name> pod replace node-0
 ```
 
-which would result in a recovery plan like the following:
+The output of a recovery plan is as follows:
 
 ```bash
 $ dcos {{ model.packageName }} --name=<service-name> plan show recovery
@@ -101,23 +100,23 @@ recovery (IN_PROGRESS)
 You can back up an entire cluster's data and schema to Amazon S3 using the `backup-s3` plan. This plan requires the following parameters to run:
 - `SNAPSHOT_NAME`: The name of this snapshot. Snapshots for individual nodes will be stored as S3 folders inside of a top level `snapshot` folder.
 - `CASSANDRA_KEYSPACES`: The {{ model.techShortName }} keyspaces to back up. The entire keyspace and its schema will be backed up for each keyspace specified.
-- `AWS_ACCESS_KEY_ID`: the access key ID for the AWS IAM user running this backup
-- `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this backup
-- `AWS_REGION`: the region of the S3 bucket being used to store this backup
-- `S3_BUCKET_NAME`: the name of the S3 bucket in which to store this backup
+- `AWS_ACCESS_KEY_ID`: The access key ID for the AWS IAM user running this backup
+- `AWS_SECRET_ACCESS_KEY`: The secret access key for the AWS IAM user running this backup
+- `AWS_REGION`: The region of the S3 bucket being used to store this backup
+- `S3_BUCKET_NAME`: The name of the S3 bucket in which to store this backup
 - `HTTPS_PROXY`: Specifications for the {{ model.TechName }} backup plan, taken from `config.yaml`.
 
-Make sure that you provision your nodes with enough disk space to perform a backup. {{ model.TechName }} backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables, so you will need half of your total available space to be free to back up every keyspace at once.
+Make sure to provision your nodes with enough disk space to perform a backup. {{ model.TechName }} backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables and requires half of your total available space to be free to backup every keyspace at once.
 
 As noted in the documentation for the backup/restore strategy configuration option, it is possible to run transfers to S3 either in serial or in parallel, but care must be taken not to exceed any throughput limits you may have in your cluster. Throughput depends on a variety of factors, including uplink speed, proximity to region where the backups are being uploaded and downloaded, and the performance of the underlying storage infrastructure. You should perform periodic tests in your local environment to understand what you can expect from S3.
 
 You can configure whether snapshots are created and uploaded in serial (default) or in parallel. The serial backup/restore strategy is recommended.
 
-Before initiating the backup plan, it is recommended to reset the plan to its original state. This will ensure the backup plan runs in the correct sequence. You can reset the plan with:
+Before initiating the backup plan, it is recommended to reset the plan to its original state. This will ensure the backup plan runs in the correct sequence. You can reset the plan with the following command:
 
 dcos {{ model.packageName }} --name=<service-name> plan stop backup-s3
 
-You can initiate this plan from the command line:
+Use the following parameters to initiate this plan from the command line:
 ```
 SNAPSHOT_NAME=<my_snapshot>
 CASSANDRA_KEYSPACES="space1 space2"
@@ -138,7 +137,7 @@ It may also be necessary to set the `AWS_SESSION_ID`,`AWS_SESSION_TOKEN` dependi
 
 If you are backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as shown in the above example. If the `CASSANDRA_KEYSPACES` parameter is not supplied, then every keyspace in your cluster will be backed up.
 
-<p class="message--warning"><strong>WARNING: </strong>To ensure that sensitive information such as your AWS secret access key remains secure, make sure that you've set the <tt>core.dcos_url</tt> configuration property in the DC/OS CLI to an HTTPS URL.</p>
+<p class="message--warning"><strong>WARNING: </strong>To ensure that sensitive information such as your AWS secret access key remains secure, check if you have set the <tt>core.dcos_url</tt> configuration property in the DC/OS CLI to an HTTPS URL.</p>
 
 To view the status of this plan from the command line:
 ```
@@ -162,7 +161,7 @@ backup-s3 (IN_PROGRESS)
    └─ node-2:[cleanup-snapshot] (PENDING)
 ```
 
-The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. To see the queries involved, run the above commands with an additional `-v` flag.
+The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. Run the above commands with an additional `-v` flag to see the queries involved.
 
 ## Backing up to Azure
 
@@ -216,7 +215,7 @@ backup-azure (IN_PROGRESS)
    └─ node-2:[cleanup-snapshot] (PENDING)
 ```
 
-The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. To see the queries involved, run the above commands with an additional `-v` flag.
+The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. Run the above commands with an additional `-v` flag to see the queries involved.
 
 # Restore
 
@@ -267,21 +266,21 @@ restore-s3 (IN_PROGRESS)
    └─ node-2:[restore-snapshot] (PENDING)
 ```
 
-The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. To see the queries involved, run the above commands with an additional `-v` flag.
+The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. Run the above commands with an additional `-v` flag to see the queries involved.
 
 ## Restoring From Azure
 
 You can restore from Microsoft Azure using the `restore-azure` plan. This plan requires the following parameters to run:
 
-- `SNAPSHOT_NAME`: the name of this snapshot. Snapshots for individual nodes will be stored as gzipped tarballs with the name `node-<POD_INDEX>.tar.gz`.
-- `CLIENT_ID`: the client ID for the Azure service principal running this backup
-- `TENANT_ID`: the tenant ID for the tenant that the service principal belongs to
-- `CLIENT_SECRET`: the service principal's secret key
-- `AZURE_STORAGE_ACCOUNT`: the name of the storage account that this backup will be sent to
-- `AZURE_STORAGE_KEY`: the secret key associated with the storage account
-- `CONTAINER_NAME`: the name of the container in whcih to store this backup
+- `SNAPSHOT_NAME`: The name of this snapshot. Snapshots for individual nodes will be stored as gzipped tarballs with the name `node-<POD_INDEX>.tar.gz`.
+- `CLIENT_ID`: The client ID for the Azure service principal running this backup.
+- `TENANT_ID`: The tenant ID for the tenant that the service principal belongs to.
+- `CLIENT_SECRET`: The service principal's secret key.
+- `AZURE_STORAGE_ACCOUNT`: The name of the storage account that this backup will be sent to.
+- `AZURE_STORAGE_KEY`: The secret key associated with the storage account.
+- `CONTAINER_NAME`: The name of the container in which to store this backup.
 
-You can initiate this plan from the command line in the same way as the Amazon S3 restore plan:
+You can initiate this plan from the command line similar to the Amazon S3 restore plan:
 ```
 dcos {{ model.packageName }} --name=<service-name> plan start restore-azure \
     -p SNAPSHOT_NAME=$SNAPSHOT_NAME \
@@ -293,7 +292,7 @@ dcos {{ model.packageName }} --name=<service-name> plan start restore-azure \
     -p CONTAINER_NAME=$CONTAINER_NAME
 ```
 
-To view the status of this plan from the command line:
+Use the following command to view the status of this plan from the command line:
 ```
 dcos {{ model.packageName }} --name=<service-name> plan status restore-azure
 restore-azure (IN_PROGRESS)
@@ -311,4 +310,4 @@ restore-azure (IN_PROGRESS)
    └─ node-2:[restore-snapshot] (PENDING)
 ```
 
-The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. To see the queries involved, run the above commands with an additional `-v` flag.
+The above `plan start` and `plan status` commands may also be made directly to the service over HTTP. Run the above commands with an additional `-v` flag to see the queries involved.
