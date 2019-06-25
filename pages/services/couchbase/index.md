@@ -11,4 +11,4 @@ render: mustache
 category: Database
 ---
 
-Welcome to the documentation for DC/OS {{ model.techName }}. 
+DC/OS Couchbase Service is an autonomous service that makes it easy to deploy and operate Couchbase Server and the Couchbase Sync Gateway on Mesosphere DC/OS.
