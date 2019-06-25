@@ -174,8 +174,14 @@ This example increases the number of instances to 100. If you have a large clust
 
 ### Symptom
 After increasing the number of instances, run `dcos marathon app list` or `dcos marathon deployment list` to check that the `scale` deployment is stuck.
+
+```
+/dcos-101/app2   128    1    1/100   N/A      scale     True        N/A     chmod u+x app2 && ./app2
+```
+  
 ### Cause
 The problem here is that there are no matching resources available. For example, there might be resources left for the public agent role, but not for the default role.
+
 ### Solution
 To resolve this issue, you can add nodes to the cluster or scale the application back to a level at which resources are available. For example, run a command similar to the following:
 `dcos marathon app update /dcos-101/app2 --force instances=1`
@@ -183,13 +189,21 @@ To resolve this issue, you can add nodes to the cluster or scale the application
 You must use the `--force` option in this command because the previous deployment is ongoing.
 
 ## Not enough resources on a single node
-Because each application is started on a single node, task resources must also fit onto a single node. To simulate this issue, try updating the `app2` app to use 100 CPUs by running a command similar to the following:
-`dcos marathon app update /dcos-101/app2 cpus=100`
+Because each application is started on a single node, task resources must also fit onto a single node. To simulate this issue, try updating the `app2` app to use 10 CPUs by running a command similar to the following:
+`dcos marathon app update /dcos-101/app2 cpus=10`
 
 ### Symptom
-After increasing the number of CPUs, run `dcos marathon app list` or `dcos marathon deployment list` to check that the `restart` deployment is stuck.
+After increasing the number of CPUs, run `dcos marathon app list` or `dcos marathon deployment list` to check that the `restart` deployment is stuck. For example, if you run `dcos marathon deployment list`, you might see:
+
+```
+APP             POD  ACTION   PROGRESS  ID                                    
+/dcos-101/app1  -    restart    0/1     f257caa6-672b-4a92-8621-27fba79b9c00  
+/dcos-101/app2  -    restart    0/1     692cce55-fd2a-482e-8d46-84fbc12a2927  
+```
+
 ### Cause
 The problem here is that there are no resource offers large enough to match the request.
+
 ### Solution
 To resolve this issue, you can provision larger or scale the application back to a level at which it fits onto the free resources on a single node. For example, run a command similar to the following:
 `dcos marathon app update /dcos-101/app2 --force cpus=1`
@@ -201,18 +215,18 @@ In some cases, you might have an application that attempts to use more resources
 `dcos marathon app add https://raw.githubusercontent.com/joerg84/dcos-101/master/oomApp/oomApp.json`
 
 ### Symptom
-After deploying the sample app, check the Marathon log to see if it includes Out of Memory errors. (Because the kernel is killing the app, the errors are not always visible to DC/OS.)
+After deploying the sample app, check the Marathon log to see if it includes Out of Memory errors. Because the kernel is killing the app, the errors are not always visible to DC/OS. To see the problem in this case, you need to determine the Mesos ID for the out-of-memory application task and view the kernel log file on the computer where that task runs. 
 
-1. Open a terminal and secure shell (SSH) session on an agent where the app run by running a command similar to the following:
+1. Open a terminal and secure shell (SSH) session on an agent where the Out of Memory app runs by running a command similar to the following:
 
     ```bash
-    dcos node ssh --master-proxy --mesos-id=$(dcos task oom-app --json | jq -r '.[] | .slave_id')`
+    dcos node ssh --master-proxy --mesos-id=99f56b43-c1a7-4858-be19-5fec03fc88de-S1
     ```
 
 1. Check the kernel log by running the following command:
 
     ```bash
-    journalctl -f _TRANSPORT=kernel`
+    journalctl -f _TRANSPORT=kernel
     ```
 
     The log file should include a message similar to the following:
@@ -220,11 +234,14 @@ After deploying the sample app, check the Marathon log to see if it includes Out
     ```
     Memory cgroup out of memory: Kill process 10106 (oomApp) score 925 or sacrifice child; Killed process 10390 (oomApp) total-vm:3744760kB, anon-rss:60816kB, file-rss:1240kB, shmem-rss:0kB`
     ```
+
 ### Cause
 In most cases, there are two potential reasons for your application to be using too much memory:
 
 - There are issues in the application code causing the app to use too much memory, for example, because there is a memory leak in the code logic.
+
 - You have allocated too little memory for the application.
+
 ### Solution
 To resolve these potential issues, check the application code to correct any programming errors such. If the problem is not in the code itself, increase the amount of memory you have allocated for the application.
 

@@ -20,7 +20,7 @@ Before starting this tutorial, you should verify the following:
 - You have access to a computer where the [DC/OS CLI](../cli/) is installed.
 - You have the sample [dcos-101/app1](/tutorials/dcos-101/app1/) application deployed and running in your cluster.
 
-# Learning objective
+# Learning objectives
 By completing this tutorial, you will learn:
 - How to deploy an app that uses the DC/OS Universal Container Runtime instead of Docker.
 - How to make an app available to clients outside of the cluster by running it on a public agent node using a public-facing IP address and the Marathon-LB load balancer.
@@ -28,6 +28,7 @@ By completing this tutorial, you will learn:
 
 # Review the sample application
 The [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) sample application is a [Go-based]](https://golang.org/) HTTP server that exposes a simple interface to Redis.
+
 If you review the [app definition](https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json), you can see that this sample app is a binary without any external dependencies. Because it has no external dependencies, you can deploy it using a DC/OS native Universal Container Runtime (UCR) container.
 
 # Deploy the sample app
@@ -73,10 +74,12 @@ If you review the [app definition](https://raw.githubusercontent.com/joerg84/dco
     <html><title>Welcome to DC/OS 101!</title><body><h1>Welcome to DC/OS 101!</h1><h1>Running on node '10.0.1.127' and port '26962' </h1><h1>Add a new key:value pair</h1><form action="/save" method="POST"><textarea name="key">Key</textarea><br><textarea name="value">Value</textarea><br><input type="submit" value="Save"></form></body></html>
     ```
 
-    Accessing the app from within the cluster and viewing the raw HTML response proves the application is running. For this tutorial, however, you also want to expose the app to the public. In the next part of this tutorial you will do exactly that.
+    Accessing the app from within the cluster and viewing the raw HTML response proves the application is running. For this tutorial, however, you also want to expose the app to the public. In the next part of this tutorial, you will do exactly that.
+
+1. Close session on the master node that you used to view the raw HTML response for the sample app.
 
 # Install the load balancer
-Public agent nodes allow inbound access requests from clients outside of the cluster. The public agent is exposed to the outside world through a load balancer. For this tutorial, you will install [Marathon-LB](/1.13/tutorials/dcos-101/loadbalancing/) as the load balancer to provide external access for applications running internally in the cluster.
+Public agent nodes allow inbound access requests from clients outside of the cluster. The public agent is exposed to the outside world through a load balancer. For this tutorial, you will install [Marathon-LB](../../loadbalancing/) as the load balancer to provide external access for applications running internally in the cluster.
 
 1. Install Marathon-LB by running the following command:
 

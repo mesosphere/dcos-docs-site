@@ -172,7 +172,7 @@ You can verify that the Redis service is currently running and reporting a Healt
     
     ```bash
     ID               MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD  
-/redis-tutorial  1024   1     1/1    1/1       ---      False      DOCKER   N/A  
+    /redis-tutorial  1024   1     1/1    1/1       ---      False      DOCKER   N/A  
     ```
 
 1. Check the Redis log file by running the following command:
@@ -198,7 +198,7 @@ Now that you have installed the Redis package, deployed the service on the clust
     ssh <agent-node-ip> -l <authorized-user>
     ```
 
-    You can also use dcos task to look up the Mesos ID for the Redis service, then open a secure shell using a command similar to the following:
+    You can also use `dcos task` to look up the Mesos ID for the Redis service, then open a secure shell using a command similar to the following:
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0
