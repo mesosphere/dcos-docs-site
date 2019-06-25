@@ -314,7 +314,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
 - Support secure computing mode (seccomp) profiles. <!--(DCOS-28442, DCOS-49134)-->
 
-    Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within an app or pod container. You can enable secure computing mode using a default profile for Universal Container Runtime (UCR) if the operating system you are using supports it.
+    Secure computing mode (`seccomp`) is a feature provided by the Linux kernel. You can use secure computing mode to restrict the actions allowed within an app or pod container. You can enable secure computing mode using a default profile for Universal Container Runtime (UCR) containers if the operating system you are using supports it.
 
     With DC/OS, you can use a `seccomp` profile to deny access to specific system calls by default. The profile defines a default action and the rules for overriding that default action for specific system calls.
 
