@@ -4,7 +4,7 @@ excerpt: Installing Marathon-LB using default or custom options for a DC/OS clus
 title: Installing Marathon-LB
 # model: /services/marathon-lb/data.yml
 # render: mustache
-menuWeight: 10
+menuWeight: 5
 ---
 # Installing Marathon-LB on DC/OS
 You can install Marathon-LB on a DC/OS open source or DC/OS enterprise cluster. You can install the Marathon-LB package and customize its configuration settings using the DC/OS web-based administrative console or by running DC/OS commands in a shell terminal.

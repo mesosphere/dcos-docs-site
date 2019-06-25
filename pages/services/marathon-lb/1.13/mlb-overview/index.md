@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Marathon-LB overview
 title: Marathon-LB overview
 excerpt: Marathon-LB provides proxy and load balancing services for Marathon-orchestrated apps running on DC/OS
-menuWeight: 5
+menuWeight: 10
 --- 
 Marathon and Marathon load balancer (Marathon-LB) work together to provide a meta-framework for scheduling, container orchestration, and load balancing as part of the Mesosphere DC/OS platform.
 

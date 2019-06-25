@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Installing and Customizing
 title: Installing and Customizing
-menuWeight: 20
+menuWeight: 10
 excerpt: Installing DC/OS NiFi from the UI or the CLI
 featureMaturity:
 enterprise: false

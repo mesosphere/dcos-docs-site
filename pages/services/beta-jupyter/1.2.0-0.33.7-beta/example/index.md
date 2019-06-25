@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Examples
 title: Examples
-menuWeight: 100
+menuWeight: 13
 excerpt: Demos of different installation options
 featureMaturity:
 enterprise: false

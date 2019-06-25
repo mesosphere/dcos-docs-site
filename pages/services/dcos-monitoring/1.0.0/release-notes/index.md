@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
-menuWeight: 40
+menuWeight: 0
 excerpt: New features, updates, and known limitations
 render: mustache
 model: ../data.yml

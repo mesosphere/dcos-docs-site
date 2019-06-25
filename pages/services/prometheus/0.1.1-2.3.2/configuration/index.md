@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 excerpt:
 title: Configuration
-menuWeight: 20
+menuWeight: 10
 model: /services/prometheus/data.yml
 render: mustache
 ---

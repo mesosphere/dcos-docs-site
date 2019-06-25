@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Configuring DC/OS access for Beta Mesosphere Jupyter Service
 title: Configuring DC/OS access for Beta Mesosphere Jupyter Service 
-menuWeight: 2
+menuWeight: 5
 excerpt: How to use JupyterLab with DC/OS
 featureMaturity:
 enterprise: false

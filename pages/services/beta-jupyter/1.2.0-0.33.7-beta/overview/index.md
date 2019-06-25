@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Overview
 title: Overview
-menuWeight: 10
+menuWeight: 12
 excerpt: Learning about JupyterLab
 featureMaturity:
 enterprise: false
