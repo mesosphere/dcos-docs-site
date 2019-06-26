@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Configuring {{ model.packageRepo }} Services
-title: Configuring {{ model.packageRepo }} Services
+navigationTitle:  Configuring Services
+title: Configuring Services
 menuWeight: 2
 excerpt: Using the DC/OS CLI to configure services
 render: mustache
