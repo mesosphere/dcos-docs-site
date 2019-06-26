@@ -74,6 +74,61 @@ You should note that automatically-collected metrics are only available for cont
 
 <p class="message--note"><strong>NOTE: </strong>The tag <code>interface</code> is automatically populated based on the type of the network interface (for example, <code>spartan</code>, <code>d-dcos</code>, <code>minuteman</code>, etc).</p>
 
+## Process
+
+The following per-process resource utilization metrics are collected.
+
+| Metric            | Description                  |
+|-------------------|------------------------------|
+| procstat.cpu_time_guest | The amount of time that the CPU is running a virtual CPU for a guest operating system. |
+| procstat.cpu_time_guest_nice | The amount of time that the CPU is running a virtual CPU for a guest operating system, which is low-priority and can be interrupted by other processes. |
+| procstat.cpu_time_idle | The amount of time that the CPU is idle. |
+| procstat.cpu_time_iowait | The amount of time that the CPU is waiting for I/O operations to complete. |
+| procstat.cpu_time_irq | The amount of time that the CPU is servicing interrupts. |
+| procstat.cpu_time_nice | The amount of time that the CPU is in user mode with low-priority processes, which can easily be interrupted by higher-priority processes. |
+| procstat.cpu_time_soft_irq | The amount of time that the CPU is servicing software interrupts. |
+| procstat.cpu_time_steal | The amount of time that the CPU is in stolen time, which is time spent in other operating systems in a virtualized environment. |
+| procstat.cpu_time_system | The amount of time that the CPU is in system mode. |
+| procstat.cpu_time_user |The amount of time that the CPU is in user mode. |
+| procstat.cpu_usage | The percentage of time that the process is active in any capacity. |
+| procstat.involuntary_context_switches | The number of times the process was involuntarily context-switched. |
+| procstat.memory_data | The amount of memory the process uses for data. |
+| procstat.memory_locked | The amount of memory the process has locked. |
+| procstat.memory_rss | The amount of real memory (resident set) that the process is using. |
+| procstat.memory_stack | The amount of stack memory the process is using. |
+| procstat.memory_swap | The amount of swap memory the process is using. |
+| procstat.memory_vms | The amount of virtual memory the process is using. |
+| procstat.nice_priority | The current usage of nice priority for the process.|
+| procstat.num_threads | The number of threads in the process. |
+| procstat.pid | Process identifier (ID). |
+| procstat.realtime_priority | The current usage of realtime priority for the process. |
+| procstat.rlimit_cpu_time_hard | The hard resource limit on the process for memory used for data. |
+| procstat.rlimit_cpu_time_soft | The soft resource limit on the process for memory used for data. |
+| procstat.rlimit_file_locks_hard | The hard file locks resource limit for the process. |
+| procstat.rlimit_file_locks_soft | The soft file locks resource limit for the process. |
+| procstat.rlimit_memory_data_hard | The hard resource limit on the process for memory used for data. |
+| procstat.rlimit_memory_data_soft | The soft resource limit on the process for memory used for data. |
+| procstat.rlimit_memory_locked_hard | The hard resource limit on the process for locked memory. |
+| procstat.rlimit_memory_locked_soft | The soft resource limit on the process for locked memory. |
+| procstat.rlimit_memory_rss_hard | The hard resource limit on the process for physical memory. |
+| procstat.rlimit_memory_rss_soft | The soft resource limit on the process for physical memory. |
+| procstat.rlimit_memory_stack_hard | The hard resource limit on the process stack. |
+| procstat.rlimit_memory_stack_soft | The soft resource limit on the process stack. |
+| procstat.rlimit_memory_vms_hard | The hard resource limit on the process for virtual memory. |
+| procstat.rlimit_memory_vms_soft | The soft resource limit on the process for virtual memory. |
+| procstat.rlimit_nice_priority_hard | The hard resource limit on the ceiling for the process's nice priority value. |
+| procstat.rlimit_nice_priority_soft | The soft resource limit on the ceiling for the process's nice priority value. |
+| procstat.rlimit_num_fds_hard | The hard resource limit on the file descriptors for the process. |
+| procstat.rlimit_num_fds_soft | The soft resource limit on the file descriptors for the process. |
+| procstat.rlimit_realtime_priority_hard | The hard resource limit on the ceiling for the process's real-time priority value. |
+| procstat.rlimit_realtime_priority_soft | The soft resource limit on the ceiling for the process's real-time priority value. |
+| procstat.rlimit_signals_pending_hard | The hard resource limit on the number of signals that are pending for delivery to the process. |
+| procstat.rlimit_signals_pending_soft | The soft resource limit on the number of signals that are pending for delivery to the process. |
+| procstat.signals_pending | The number of signals pending to be handled by the process. |
+| procstat.voluntary_context_switches | The number of times the process was context-switched voluntarily. |
+
+Source: [AWS DOCS - Collect Process Metrics with the procstat Plugin](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-procstat-process-metrics.html)
+
 <a name="Container"></a>
 
 # Container
