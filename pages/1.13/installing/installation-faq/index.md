@@ -6,7 +6,6 @@ menuWeight: 20
 excerpt: Frequently asked questions about installing DC/OS
 ---
 
-
 ## Q. Can I install DC/OS on an already running Mesos cluster?
 We recommend starting with a fresh cluster to ensure all defaults are set to expected values. This prevents unexpected conditions related to mismatched versions and configurations.
 
@@ -62,14 +61,15 @@ dcos-shell iam-database-backup > ~/iam-backup.sql
 ```
 
 ## Q. How do I restore the IAM database?
+You can restore the DC/OS identity and access management (IAM) database from a previously-created database backup file. Keep in mind that you cannot use a database backup file and the restore command-line utility to create a new database in a new DC/OS cluster. You should only use the database backup to restore the identity and access management database in the same cluster you used to create the backup file and in the same ZooKeeper state as the cluster was when you created the backup file.
 
-- To restore the IAM database from a file `~/iam-backup.sql` run the following command on one of the master nodes:
+- To restore the IAM database for a cluster from the backup file `~/iam-backup.sql`, run the following command on one of the master nodes:
 
 ```bash
 dcos-shell iam-database-restore ~/iam-backup.sql
 ```
 
-The IAM database is restored from the backup file and the cluster is operational.
+If the command is successful, the IAM database is restored from the backup file and the cluster returns to healthy operation.
 
 <a name="zk-backup"></a>
 
