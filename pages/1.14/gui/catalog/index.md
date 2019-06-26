@@ -9,6 +9,7 @@ model: /1.14/data.yml
 ---
 
 The {{ model.packageRepo }} page shows all of the available {{ model.productName }} services. You can install packages from the {{ model.productName }} {{ model.packageRepo }} with a single click. The packages can be installed with defaults or customized directly in the user interface.
+
 # Types of packages
 
 Mesosphere offers two kinds of service packages: Certified and Community.
@@ -66,4 +67,5 @@ The quick and easy way to install a service is from the {{ model.packageRepo }} 
     Figure 5 - Services deploying
 
 For more details about installing, configuring and deploying services from the {{ model.packageRepo }}, see the [Deploying Services documentation](/1.14/deploying-services/#dcos-services). 
+
 
