@@ -70,28 +70,7 @@ Examples:
 <p class="message--important"><strong>IMPORTANT: </strong>The hard cap on size is 2^64 bytes.  Attempting to specify a higher
 value (for example, 2^64 TB) will lead to undetermined results.</p>
 
-## Logrotate Options
+## Disabled Logrotate Options
 
-The `CONTAINER_LOGGER_LOGROTATE_STDOUT_OPTIONS` and
-`CONTAINER_LOGGER_LOGROTATE_STDERR_OPTIONS` options control the parameters
-passed to `logrotate` for each rotation.  There are no restrictions on
-arguments.  Refer to the [man page](https://linux.die.net/man/8/logrotate)
-for possible values.
-
-Each logrotate rule should be newline (`\n`) separated.  For example:
-
-* `rotate 10\ncompress\ndelaycompress`
-* `daily\nmaxage 10\nnomail`
-
-Some rules are unnecessary or will be overriden:
-
-* `size` is overridden by the values of
-  `CONTAINER_LOGGER_LOGROTATE_MAX_STDOUT_SIZE`
-  or `CONTAINER_LOGGER_LOGROTATE_MAX_STDERR_SIZE`.
-* Time-based rotation will not work as expected.  Rotation is triggered
-  based purely on how much has been written.  So if rotation is set
-  to fire at 2MB, but less than 2MB is written, then rotation will never
-  occur.
-* `copy` and `copytruncate` are not necessary because the log files
-  will not be written to while rotating.  This means no log lines
-  can be lost (although they can be cut into separate files if too long).
+The `CONTAINER_LOGGER_LOGROTATE_STDOUT_OPTIONS` and `CONTAINER_LOGGER_LOGROTATE_STDERR_OPTIONS` are disabled to prevent abuse of `postrotate` clauses and other injection attacks. See [MESOS-9564](https://issues.apache.org/jira/browse/MESOS-9564)</a>
+for more information.
