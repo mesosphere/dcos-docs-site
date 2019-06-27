@@ -30,7 +30,7 @@ Customize the `Node Count` setting (default 3) under the **node** configuration 
 
 ### CPU
 
-You can customize the amount of CPU allocated to each node. A value of 1.0 is equivalent to one full dedicated CPU core on a machine, although all cores are made available via time slicing. Change this value by editing the **cpus** value under the **node** configuration section. Setting this too low will result in throttled tasks.
+You can customize the amount of CPU allocated to each node. A value of 1.0 is equivalent to one full dedicated CPU core on a machine, although all cores are made available via time slicing. Change this value by editing the **cpus** value under the **node** configuration section. Setting the CPU value too low will result in throttled tasks.
 
 Please note that each {{ model.techShortName }} node will use an additonal 1.0 CPU for sidecar services such as backup and nodetool. When provisioning 3 CPUS for each {{ model.techShortName }} node, the actual usage will be 4 CPUS, and this should be taken into account when configuring {{ model.techShortName }} to maximize resource utilization on an agent.
 
@@ -39,7 +39,7 @@ Please note that each {{ model.techShortName }} node will use an additonal 1.0 C
 
 ### Memory
 
-You can customize the amount of RAM allocated to each node. Change this value by editing the **mem** value (in MB) under the **node** configuration section. Setting this too low will result in out of memory errors. The `heap.size` setting must also be less than this value to prevent out of memory errors, which can result when the Java Virtual Machine attempts to allocate more memory than is available to the {{ model.techShortName }} process.
+You can customize the amount of RAM allocated to each node. You can change this value by editing the **mem** value (in MB) under the **node** configuration section. Setting this too low will result in out of memory errors. The `heap.size` setting must also be less than this value to prevent out of memory errors, which can result when the Java Virtual Machine attempts to allocate more memory than is available to the {{ model.techShortName }} process.
 
 *   **In DC/OS CLI options.json**: `mem`: integer (default: `10240`)
 *   **DC/OS web interface**: `CASSANDRA_MEMORY_MB`: `integer`
