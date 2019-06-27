@@ -32,7 +32,9 @@ Customize the `Node Count` setting (default 3) under the **node** configuration 
 
 You can customize the amount of CPU allocated to each node. A value of 1.0 is equivalent to one full dedicated CPU core on a machine, although all cores are made available via time slicing. Change this value by editing the **cpus** value under the **node** configuration section. Setting the CPU value too low will result in throttled tasks.
 
-Please note that each {{ model.techShortName }} node will use an additonal 1.0 CPU for sidecar services such as backup and nodetool. When provisioning 3 CPUS for each {{ model.techShortName }} node, the actual usage will be 4 CPUS, and this should be taken into account when configuring {{ model.techShortName }} to maximize resource utilization on an agent.
+<p class="message--note"><strong>NOTE: </strong>each {{ model.techShortName }} node will use an additional 1.0 CPU for sidecar services such as backup and nodetool. </p>
+
+When provisioning three CPUS for each {{ model.techShortName }} node, the actual usage will be four CPUs, and this should be taken into account when configuring {{ model.techShortName }} to maximize resource utilization on an agent.
 
 *   **In DC/OS CLI options.json**: `cpus`: number (default: `0.5`)
 *   **DC/OS web interface**: `CASSANDRA_CPUS`: `number`
@@ -252,7 +254,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName}}2 update start --optio
 
 Perform the same operation on the first cluster, creating an `options.json` which contains the IP addresses of the second cluster (`{{ model.serviceName }}2`)'s seed nodes in the `service.remote_seeds` field. Then, update the first cluster's configuration: `dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json`.
 
-Both schedulers will restart after each receives the configuration update, and each cluster will communicate with the seed nodes from the other cluster to establish a multi-data-center topology. Repeat this process for each new cluster you add.
+Both schedulers will restart after each receives the configuration update, and each cluster will communicate with the seed nodes from the other cluster to establish a multi-data center topology. Repeat this process for each new cluster you add.
 
 You can monitor the progress of the update for the first cluster using the following command:
 
