@@ -254,7 +254,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName}}2 update start --optio
 
 Perform the same operation on the first cluster, creating an `options.json` which contains the IP addresses of the second cluster (`{{ model.serviceName }}2`)'s seed nodes in the `service.remote_seeds` field. Then, update the first cluster's configuration: `dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json`.
 
-Both schedulers will restart after each receives the configuration update, and each cluster will communicate with the seed nodes from the other cluster to establish a multi-data center topology. Repeat this process for each new cluster you add.
+Both schedulers will restart after each receives the configuration update, and each cluster will communicate with the seed nodes from the other cluster to establish a multi-data center topology. Repeat this above process for each new cluster you add.
 
 You can monitor the progress of the update for the first cluster using the following command:
 
