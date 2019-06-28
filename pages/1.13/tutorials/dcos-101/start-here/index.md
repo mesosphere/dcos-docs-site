@@ -224,11 +224,11 @@ In a production environment, you would automate these steps to create as many pr
 
 1. Type your administrative user name and password, then click **Log in**.
 
-    ![Log in to the administrative console](/1.13/img/sample-login.png)
+    ![Log in to the administrative console](/1.13/img/tutorial-sample-login.png)
 
     If the connection is successful, the DC/OS dashboard is displayed.
 
-    ![DC/OS dashboard in the administrative console](/1.13/img/sample-dashboard.png)
+    ![DC/OS dashboard in the administrative console](/1.13/img/tutorial-sample-dashboard.png)
 
 Congratulations! You have successfully created your first DC/OS cluster. You can now start exploring what you can do using this cluster in subsequent tutorials.
 
