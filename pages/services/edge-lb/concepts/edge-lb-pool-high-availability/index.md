@@ -6,9 +6,13 @@ menuWeight: 15
 excerpt: Describes how to use multiple Edge-LB instances to support high-availability for services
 enterprise: true
 ---
-Edge-LB provides high availability by design. If an existing Edge-LB pool instance goes down, it heals itself by respawning the pool instance in the same agent and continues to satisfy all requests without any user intervention as long as the agent node is still available. If the agent node is not available, Edge-LB respawns the Edge-LB pool instances on a different agent and starts routing traffic to the new pool instance.
+Edge-LB uses its pools to provide high availability in two key ways:
 
-By deploying dedicated Edge-LB pools per application or framework, you can ensure that failure domains remain restricted to a single load-balancer instance/application, and that performance is preserved because applications that require increasing resources remain independent from other applications.
+- If an existing Edge-LB pool instance goes down on a healthy agent node, the Edge-LB server creates a replacement pool instance on the same agent and continues to satisfy all requests without any user intervention.
+
+- - If an existing Edge-LB pool instance goes down because an agent node becomes unavailable, the Edge-LB server creates new Edge-LB pool instances on a different agent and starts routing traffic to the new pool instance.
+
+By deploying dedicated Edge-LB pools per application or framework, you can ensure that any failure is restricted to a single load-balancer instance and application combination. This segragation helps to ensure that appllication performance is not affected and that applications resource requirements are isolated from each other. Instead of competing for the same resources, load balanced application pools can remain independent from each other.
 
 The following diagram provides an example of Edge-LB's high availability:
 

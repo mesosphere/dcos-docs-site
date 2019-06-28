@@ -6,11 +6,11 @@ menuWeight: 10
 excerpt: Highlights the basic workflow and key components for Edge-LB operations
 enterprise: true
 ---
-Edge-LB is a powerful load balancer with a simplified design that is built to handle a distributed architecture with robust functionality and stellar performance. Edge-LB provides core load balancing and proxying features, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. It provides first class support for zero-downtime service deployment strategies like blue/green deployment. 
+Edge-LB is designed to handle load balancing and proxying for a distributed architecture. It is usually deployed on the public agent nodes of a cluster so that the services running on the cluster remain protected inside of a security perimeter. The public agent nodes are typically in demilitarized zones (DMZ) or perimeter external networks that are outside of the DC/OS cluster and your organizational WAN, LAN, or VPN networks. 
 
-Edge-LB is usually deployed on the public nodes for increased security. Public nodes are in demilitarized zones (DMZ) or perimeter networks of the DC/OS cluster. Multiple public nodes are recommended for high availability for traffic ingressing in the cluster. Operators can deploy individual pool instances specific to tenants or group of applications. It is designed to scale and provide granular control. 
+In general, you should deploy Edge-LB on multiple public nodes to support high availability for traffic entering the cluster. Operators can deploy individual pool instances specific to tenants or group of applications. It is designed to scale and provide granular control. 
 
-In the diagram below, a CLI client accesses Edge-LB through the API server. After the client submits a request for the Edge-LB pool creation, the API server launches a Edge-LB pool by deploying the pool configuration file. The internet-facing traffic ingress into the cluster and the pool instance load balances the traffic to the proper backend service instances.
+In the diagram below, a CLI client accesses Edge-LB through the Edge-LB API server. After the client submits a request for the Edge-LB pool creation, the API server launches a Edge-LB pool by deploying the pool configuration file. The internet-facing traffic ingress into the cluster and the pool instance load balances the traffic to the proper backend service instances.
 
 The following diagram provides a simplified architectural view of Edge-LB:
 
@@ -21,7 +21,7 @@ The following diagram provides a simplified architectural view of Edge-LB:
 # Basic workflow
 This diagram illustrates the basic workflow for Edge-LB operations that can be summarized as: 
 - Deploy a service on DC/OS cluster.
-- Install an Edge-LB API server.
+- Install the Edge-LB API server.
 - Deploy an Edge-LB pool instance to expose and access the service.
 
 In the event of the update, you simply update the pool configuration and deploy the updated Edge-LB pool configuration to reflect the changes.
