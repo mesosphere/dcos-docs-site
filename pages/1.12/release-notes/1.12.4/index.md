@@ -54,7 +54,7 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 ## Job management
 - Enables you to report the task IDs for finished jobs (DCOS_OSS-5258, DCOS_OSS-5273).
 
-With this release, you can query run details for jobs using the `embed=history` argument to return task IDs in the job history for both successful and failed finished jobs.
+    With this release, you can query run details for jobs using the `embed=history` argument to return task IDs in the job history for both successful and failed finished jobs.
 
 - Improves the validation performed for secrets when running jobs (COPS-4706, DCOS_OSS-5019).
 
