@@ -128,7 +128,7 @@ Public agent nodes allow inbound access requests from clients outside of the clu
 
 1. Verify the total number of keys using the `app1` sample application by running the `dcos task log app1` command.
 
-1. Check Redis directly by running `dcos task`, copying the Mesos ID returned for the Redis service, then opening a secure shell [SSH](/1.13/administering-clusters/sshcluster/) on the node where the Redis service is running. 
+1. Check Redis directly by running `dcos task`, copying the Mesos ID returned for the Redis service, then opening a secure shell ([SSH])(/1.13/administering-clusters/sshcluster/) on the node where the Redis service is running. 
 
     For example, if the `dcos task` output displays  `dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0` for the Redis task `Mesos ID` column, you can connect to the node using the
     `dcos node ssh --master-proxy --mesos-id=dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0` command, then so the following:    
@@ -142,8 +142,17 @@ Public agent nodes allow inbound access requests from clients outside of the clu
 Congratulations! You have deployed a sample application that uses the native DC/OS UCR container, used Marathon-LB to expose the application to the public, and tested your publicly-available app by adding a new key to the Redis service using the web frontend.
 
 # Related topics
-DC/OS uses [containerizers](/deploying-services/containerizers/) to run tasks in containers. Running tasks in containers enables you to isolate tasks from each other and control task resources programmatically. DC/OS supports two types of containerizers - the DC/OS Universal Container Runtime, and the Docker containerizer. At this point, you have seen how to deployed apps using a Docker image (app1) and using the native Universal Container Runtime (app2).
+DC/OS uses [containerizers](/deploying-services/containerizers/) to run tasks in containers. Running tasks in containers enables you to isolate tasks from each other and control task resources programmatically. DC/OS supports two types of containerizers:
 
-For your first app, you used a Docker container image to package dependencies so that you didn’t need to rely on particular programs being available on the agent, then used the Docker containerizer to run the app packaged in the Docker image. Because the Docker containerizer internally uses the [Docker runtime](https://docs.docker.com/engine/userguide/intro/), you also used the Docker runtime.
+- DC/OS Universal Containerizer Runtime (UCR)
+- Docker containerizer
 
-For your second app, you did not have any dependencies and therefore could rely on the default DC/OS Universal Container Runtime. Internally, both runtimes use the same OS features for isolation, namely [cgroups](https://en.wikipedia.org/wiki/Cgroups) and [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces).
+At this point, you have seen how to deploy apps using a Docker image (app1) and using the native Universal Containerizer Runtime (app2).
+
+For your first app, you used a Docker container image to package dependencies so that you didn’t need to rely on particular programs being available on the agent. You then used the Docker containerizer to run the application packaged in the Docker image. Because the Docker containerizer internally uses the [Docker runtime](https://docs.docker.com/engine/userguide/intro/), you also used the Docker runtime.
+
+For your second sample application, you did not have any dependencies. Because there are no external dependencies, you could rely on the default DC/OS Universal Containerizer Runtime. Internally, both containerizer runtimes use the same operating system features for resource isolation:
+
+- [cgroups](https://en.wikipedia.org/wiki/Cgroups)
+
+- [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces)

@@ -28,7 +28,7 @@ This tutorial explores how DC/OS determines the IP addresses and ports where spe
 Before starting this tutorial, you should verify the following:
 - You have access to a running [DC/OS cluster](../start-here/) with at least at least one master node and three agent nodes.
 - You have access to a computer where the [DC/OS CLI](../cli/) is installed.
-- You have the sample [dcos-101/app1](/tutorials/dcos-101/app1/) application deployed and running in your cluster.
+- You have the sample [dcos-101/app1](../first-app/) application deployed and running in your cluster.
 - You have the domain information command-line utility `dig` available on the computer you use to connect to the cluster. The `dig` utility is part of the DNS BIND utilities that are installed by default with most Linux distributions.
 
 # Learning objectives
@@ -58,75 +58,75 @@ You can use DNS query tools, such as [dig](https://linux.die.net/man/1/dig), to 
 
 1. Open a secure shell (SSH) session to access the master node leader by running the following command:
 
-       ```bash
-       dcos node ssh --master-proxy --leader
-       ```
+      ```bash
+      dcos node ssh --master-proxy --leader
+      ```
 
 1. If you are prompted to confirm connecting to the host, type `yes`.
 
 1. Find the DNS address (A) record for the Redis service (`redis-tutorial.marathon.mesos` in this example) by running the following command:
 
-       ```bash
-       dig redis-tutorial.marathon.mesos
-       ```
+      ```bash
+      dig redis-tutorial.marathon.mesos
+      ```
 
 1. Review the output for this command to determine where the service is running:
 
-       ```
-       ; <<>> DiG 9.11.2-P1 <<>> redis-tutorial.marathon.mesos
-       ;; global options: +cmd
-       ;; Got answer:
-       ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 36245
-       ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+      ```
+      ; <<>> DiG 9.11.2-P1 <<>> redis-tutorial.marathon.mesos
+      ;; global options: +cmd
+      ;; Got answer:
+      ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 36245
+      ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
 
-       ;; QUESTION SECTION:
-       ;redis-tutorial.marathon.mesos.	IN	A
+      ;; QUESTION SECTION:
+      ;redis-tutorial.marathon.mesos.	IN	A
 
-       ;; ANSWER SECTION:
-       redis-tutorial.marathon.mesos. 60 IN	A	10.0.1.95
+      ;; ANSWER SECTION:
+      redis-tutorial.marathon.mesos. 60 IN	A	10.0.1.95
 
-       ;; Query time: 0 msec
-       ;; SERVER: 198.51.100.1#53(198.51.100.1)
-       ;; WHEN: Tue Jun 25 18:04:19 UTC 2019
-       ;; MSG SIZE  rcvd: 63
-       ```
+      ;; Query time: 0 msec
+      ;; SERVER: 198.51.100.1#53(198.51.100.1)
+      ;; WHEN: Tue Jun 25 18:04:19 UTC 2019
+      ;; MSG SIZE  rcvd: 63
+      ```
 
-       In the ANSWER section, you can see that the service in this example is running on the host with the IP address 10.0.1.95.
+      In the ANSWER section, you can see that the service in this example is running on the host with the IP address 10.0.1.95.
 
 ### Find the host service port (SRV) record
 To connect to the service, you also need to know the port. In retrieve this information, Mesos-DNS assigns each Marathon app a service (SRV) record containing the port number. 
 
 1. Find the DNS service (SRV) record for the Redis service (`redis-tutorial.marathon.mesos` in this example) by running the following command:
 
-       ```bash
-       dig srv _redis-tutorial._tcp.marathon.mesos
-       ```
+      ```bash
+      dig srv _redis-tutorial._tcp.marathon.mesos
+      ```
 
 1. Review the output for this command to determine the port where the service is running:
 
-       ```
-       ; <<>> DiG 9.11.2-P1 <<>> srv _redis-tutorial._tcp.marathon.mesos
-       ;; global options: +cmd
-       ;; Got answer:
-       ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 31738
-       ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+      ```
+      ; <<>> DiG 9.11.2-P1 <<>> srv _redis-tutorial._tcp.marathon.mesos
+      ;; global options: +cmd
+      ;; Got answer:
+      ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 31738
+      ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
-       ;; QUESTION SECTION:
-       ;_redis-tutorial._tcp.marathon.mesos. IN	SRV
+      ;; QUESTION SECTION:
+      ;_redis-tutorial._tcp.marathon.mesos. IN	SRV
 
-       ;; ANSWER SECTION:
-       _redis-tutorial._tcp.marathon.mesos. 60	IN SRV	0 1 24936 redis-tutorial-xyipd-s1.marathon.mesos.
+      ;; ANSWER SECTION:
+      _redis-tutorial._tcp.marathon.mesos. 60	IN SRV	0 1 24936 redis-tutorial-xyipd-s1.marathon.mesos.
 
-       ;; ADDITIONAL SECTION:
-       redis-tutorial-xyipd-s1.marathon.mesos.	60 IN A	10.0.1.95
+      ;; ADDITIONAL SECTION:
+      redis-tutorial-xyipd-s1.marathon.mesos.	60 IN A	10.0.1.95
 
-       ;; Query time: 0 msec
-       ;; SERVER: 198.51.100.1#53(198.51.100.1)
-       ;; WHEN: Tue Jun 25 18:15:33 UTC 2019
-       ;; MSG SIZE  rcvd: 127
-       ```
+      ;; Query time: 0 msec
+      ;; SERVER: 198.51.100.1#53(198.51.100.1)
+      ;; WHEN: Tue Jun 25 18:15:33 UTC 2019
+      ;; MSG SIZE  rcvd: 127
+      ```
 
-       In the ANSWER section, you can see that the service in this example is running on port  24936. IP address 10.0.1.95.
+      In the ANSWER section, you can see that the service in this example is running on port  24936. IP address 10.0.1.95.
 
 With the information from these two commands, you know that the Redis service in this cluster is running on the agent node host 10.0.1.95 and using port 24936.
 
@@ -142,9 +142,9 @@ Using Mesos-DNS for service discovery is appropriate for many applications, but 
 
 Virtual IP addresses also allow you to take advantage of DC/OS internal layer-4 load balancing when there are multiple instances of an application. For example, you can assign a named virtual IP address to the Redis service by adding the following to the app definition for the package:
 
- ```
- "VIP_0": "/redis:6379"
- ```
+```json
+"VIP_0": "/redis:6379"
+```
 
  The full name is then generated using the following format:
  
