@@ -10,36 +10,29 @@ model: /services/couchbase/data.yml
 render: mustache
 ---
 
-## DC/OS 1.10
-
-If you are using DC/OS 1.10 or later:
-
-Uninstall the service from the DC/OS CLI with the command `dcos package uninstall <package_name>`. For example, to uninstall the {{ model.techName }} instance named `couchbase-dev`, run:
+If you are using {{ model.productName }} 1.10 or later, uninstall the service from the {{ model.productName }} CLI with the command `dcos package uninstall <package_name>`. For example, to uninstall the {{ model.techName }} instance named `{{ model.packageName }}-dev`, run:
 
   ```bash
-  dcos package uninstall couchbase-dev
+  dcos package uninstall {{ model.packageName }}-dev
   ```
   
-### Uninstall procedure
+# Uninstall procedure
+
+<p class="message--warning"><strong>WARNING: </strong> Once the uninstall operation has begun, it cannot be cancelled. Doing so may leave the service in an uncertain, half-destroyed state.</p> 
 
 Uninstalling the service consists of the following steps. The Scheduler is relaunched in Marathon with the environment variable SDK_UNINSTALL set to “true”. This puts the Scheduler in uninstall mode.
 
 The Scheduler performs the uninstall with the following actions:
 
-   1. All running tasks for the service are terminated so that Mesos will reoffer their resources.
-   1. As the task resources are offered by Mesos, they are unreserved by the Scheduler.
-   1. Once all known resources have been unreserved, the Scheduler’s persistent state in ZooKeeper is deleted.
+1. All running tasks for the service are terminated so that Mesos will reoffer their resources.
+1. As the task resources are offered by Mesos, they are unreserved by the Scheduler.
+1. Once all known resources have been unreserved, the Scheduler’s persistent state in ZooKeeper is deleted.
 
 <p class="message--warning"><strong>WARNING: </strong> Any data stored in reserved disk resources will be irretrievably lost.</p> 
 
-
 The cluster automatically removes the Scheduler task once it advertises the completion of the uninstall process.
 
-<p class="message--warning"><strong>WARNING: </strong> Once the uninstall operation has begun, it cannot be cancelled. Doing so may leave the service in an uncertain, half-destroyed state.</p> 
-
-
-
-### Debugging an uninstall
+# Debugging an uninstall
 
 In the vast majority of cases, this uninstall process goes off without a hitch. However, in certain situations, there can be snags along the way. For example, perhaps a machine in the cluster has permanently gone away, and the service being uninstalled had some resources allocated on that machine. This can result in the uninstall becoming stuck, because Mesos will never offer those resources to the uninstalling Scheduler. Thus, the uninstalling Scheduler will not be able to successfully unreserve the resources it had reserved on that machine.
 
@@ -49,7 +42,7 @@ This situation is indicated by looking at the deploy plan while the uninstall is
 - CLI: `dcos couchbase --name=couchbase plan show deploy`
 - HTTP: https://yourcluster.com/service/couchbase/v1/plans/deploy
 
-### Manual uninstall    
+## Manual uninstall    
 
 If all else fails, you can manually perform the uninstall yourself. To do this, perform the following steps:
 

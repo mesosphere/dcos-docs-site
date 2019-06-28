@@ -16,13 +16,13 @@ render: mustache
 
 - {{ model.techName }}: 6.0.0
 - {{ model.syncGatewayName }}: 1.0.0
-- DC/OS: 1.10 and 1.11
+- {{ model.productName }}: 1.10 and 1.11
 
-Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the DC/OS integration and x.y.z indicates the version of {{ model.techName }}. For example, 1.0.0-6.0.0 indicates version 1.0.0 of the DC/OS integration and version 6.0.0 of Couchbase Server.
+Packages are versioned with an a.b.c-x.y.z format, where a.b.c is the version of the {{ model.productName }} integration and x.y.z indicates the version of {{ model.techName }}. For example, 1.0.0-6.0.0 indicates version 1.0.0 of the {{ model.productName }} integration and version 6.0.0 of Couchbase Server.
 
 ## Version Policy
 
-The DC/OS {{ model.techName }} Service is engineered and tested to work with a specific release of {{ model.serverName }} and {{ model.syncGatewayName }}.
+The {{ model.productName }} {{ model.techName }} Service is engineered and tested to work with a specific release of {{ model.serverName }} and {{ model.syncGatewayName }}.
 
 ## Contacting Technical Support
 
@@ -30,6 +30,6 @@ The DC/OS {{ model.techName }} Service is engineered and tested to work with a s
 
 [Email: support@mesosphere.io](mailto:support@mesosphere.io)
 
-### Mesosphere DC/OS
+### Mesosphere {{ model.productName }}
 
 [Submit a request](https://support.mesosphere.com/hc/en-us/requests/new)

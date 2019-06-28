@@ -10,11 +10,11 @@ featureMaturity:
 enterprise: false
 ---
 
-DC/OS {{ model.techName }} Service is an autonomous service that makes it easy to deploy and operate {{ model.serverName }} and the {{ model.syncGatewayName }} on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on Couchbase, see the [Couchbase documentation](https://developer.couchbase.com/documentation/server/current/introduction/intro.html).
+{{ model.productName }} {{ model.techName }} Service is an autonomous service that makes it easy to deploy and operate {{ model.serverName }} and the {{ model.syncGatewayName }} on Mesosphere [{{ model.productName }}](https://mesosphere.com/product/). For more information on Couchbase, see the [Couchbase documentation](https://developer.couchbase.com/documentation/server/current/introduction/intro.html).
 
 ## Benefits
-DC/OS {{ model.techName }} offers the following benefits:
-1. Based on the proven DC/OS framework/operator SDK underpinning all DC/OS-certified frameworks
+{{ model.productName }} {{ model.techName }} offers the following benefits:
+1. Based on the proven {{ model.productName }} framework/operator SDK underpinning all {{ model.productName }}-certified frameworks
 2. Supports {{ model.serverName }}
 3. Supports {{ model.syncGatewayName }}
 4. Supports multiple deployment modes
@@ -26,7 +26,7 @@ DC/OS {{ model.techName }} offers the following benefits:
 11. Centralized monitoring
 12. Backup and restore using AWS S3 as backing store
 
-DC/OS {{ model.techName }}'s main features are:
+{{ model.productName }} {{ model.techName }}'s main features are:
 1. NoSQL document-oriented engagement database
 2. First class support of mobile and IoT use cases
 3. Multi dimensional scaling

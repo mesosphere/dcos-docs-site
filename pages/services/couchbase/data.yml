@@ -6,6 +6,8 @@ techName:  Couchbase
 techShortName: Couchbase
 serverName: Couchbase Server
 syncGatewayName: Couchbase Sync Gateway
+productName: DC/OS
+packageRepo: Catalog
 
 # Values specific to certain templates:
 

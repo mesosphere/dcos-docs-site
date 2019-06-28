@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
-menuWeight: 130
-excerpt: Discover the new features, updates, and known limitations in this release of the Couchbase Service
+menuWeight: 1
+excerpt: Discover new features, updates, and known limitations
 featureMaturity:
 enterprise: false
 model: /services/couchbase/data.yml

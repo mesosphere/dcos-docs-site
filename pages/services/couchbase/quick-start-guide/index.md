@@ -9,25 +9,25 @@ render: mustache
 community: true
 ---
 
-This section is a quick guide on how to configure and use {{ model.serverName }} and {{ model.syncGatewayName }} with DC/OS.
+This section is a quick guide on how to configure and use {{ model.serverName }} and {{ model.syncGatewayName }} with {{ model.productName }}.
 
 # Prerequisites
 
-* A running DC/OS 1.10 or 1.11 cluster
+* A running {{ model.productName }} 1.10 or 1.11 cluster
 
 # Install
 
-{{ model.techName }} can be installed using either the DC/OS Catalog web interface or the CLI.
+{{ model.techName }} can be installed using either the {{ model.productName }} {{ model.packageRepo }} web interface or the CLI.
 
-## Install via DC/OS web interface
-When you launch {{ model.techName }} via the DC/OS Catalog web interface, choose `Review & Run`.
+## Install via {{ model.productName }} web interface
+When you launch {{ model.techName }} via the {{ model.productName }} {{ model.packageRepo }} web interface, choose `Review & Run`.
 
 [<img src="/services/couchbase/0.2.0-5.5.0/img/couch_install.png" alt="Couchbase Install"/>](/services/couchbase/0.2.0-5.5.0/img/couch_install.png)
 
 Figure 1. {{ model.techName }} install screen
 
 ## Install via CLI
-The following command will launch the install via the DC/OS CLI:
+The following command will launch the install via the {{ model.productName }} CLI:
 
 ```bash
 dcos package install {{ model.packageName }}
@@ -231,7 +231,7 @@ Now everything is in place.
 [<img src="/services/couchbase/0.2.0-5.5.0/img/running.png" alt="running"/>](/services/couchbase/0.2.0-5.5.0/img/running.png)
 Figure 11. Edge-LB and {{ model.techName }} running together
 
-3. Get the public IP of your DC/OS public agent, and enter the following in your browser: `http://<public-ip>:8000` .
+3. Get the public IP of your {{ model.productName }} public agent, and enter the following in your browser: `http://<public-ip>:8000` .
 
 [<img src="/services/couchbase/0.2.0-5.5.0/img/todos.png" alt="todos"/>](/services/couchbase/0.2.0-5.5.0/img/todos.png)
 
