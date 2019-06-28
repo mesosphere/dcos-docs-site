@@ -14,15 +14,12 @@ DC/OS 1.13.2 was released on July 3, 2019.
 Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
 DC/OS 1.13.2 includes the following components:
-For access to the logs that track specific changes to components that are included in the DC/OS distribution, see the following links:
 - Apache Mesos 1.8.0 [change log](https://github.com/apache/mesos/blob/f5770dcf322bd8a88e6c88041364a4089d92be90/CHANGELOG).
 - Marathon 1.8.204 [change log](https://github.com/mesosphere/marathon/blob/5209e3183846579e095c76069464062b673e9854/changelog.md).
 - Metronome 0.6.27 [change log](https://github.com/dcos/metronome/blob/b8a73dd/changelog.md).
 
 # Release summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
-
-This release provides enhancements and fixes to address reported issues, integrate changes from previous releases, and maintain compatibility and support for the DC/OS ecosystem. 
 
 # Issues fixed in DC/OS 1.13.2
 The issues that have been fixed in DC/OS 1.13.2 are grouped by feature, functional area, or component. 
