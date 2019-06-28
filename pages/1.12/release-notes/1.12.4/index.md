@@ -90,7 +90,7 @@ With this release, you can query run details for jobs using the `embed=history` 
     
     DC/OS Universal Container Runtime (UCR) now fully supports Docker images that are formatted using the Docker v2_schema2 specification. The DC/OS Universal Container Runtime (UCR) also continues to support Docker images that use the v2_schema1 format. If you also have Docker images that use Docker registry v2_schema1 format, you should consider updating those images because the v2_schema1 format is no longer supported by Docker and is likely to be deprecated for other registries in the near future.
 
-    For more information about using Docker images with DC/OS Universal Container Runtime (UCR), see [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/).
+    For more information about using Docker images with DC/OS Universal Container Runtime (UCR), see [Universal Container Runtime](/1.12/deploying-services/containerizers/ucr/).
 
 - Changes the behavior for tasks when there are failed resource providers (ASF-2839).
 
@@ -134,7 +134,7 @@ With this release, you can query run details for jobs using the `embed=history` 
 
 - Returns canonical name (CNAME) records before address (A or AAAA) records in DNS responses (COPS-4761, DCOS_OSS-5108). [enterprise type="inline" size="small" /]
 
-    For most DNS clients, the order in which records are returned has no affect. However, there are some DNS clients that require CNAME records to be listed before A records. This change resolves issues for DNS clients that have this requirement.
+    For most DNS clients, the order in which records are returned has no effect. However, there are some DNS clients that require CNAME records to be listed before A records. This change resolves issues for DNS clients that have this requirement.
     
     If you have DNS clients deployed for the DC/OS Enterprise cluster that are not able to resolve the `registry.component.thisdcos.directory` DNS name, the root cause of the issue is a bug in the DNS client `glibc` library. The `glibc` bug requires canonical name (CNAME) records to be retrieved before address (A or AAAA) records. With this release, the DC/OS DNS server sorts DNS results to ensure that the CNAME records appear first to resolve this issue.
 
@@ -222,9 +222,6 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 - Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
 - Restructured [Mesosphere installation documentation](https://docs.mesosphere.com/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
 - Expanded DC/OS upgrade paths enable Mesosphere to skip specific [upgrade paths](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move) and to skip upgrade paths between supported major to major versions of DC/OS (for example, enabling you to upgrade from 1.11.7 to 1.12.1 in one move).
-- If you have installed the optional DC/OS Storage Service package, then upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](/services/beta-storage/0.5.2-beta/upgrades/). 
-
-<p class="message--note"><strong>NOTE: </strong>You must upgrade DC/OS storage before you upgrade cluster nodes to 1.12.1 to prevent Mesos agents from crashing after the upgrade.</p>
 
 <a name="ldap-net"></a>
 
