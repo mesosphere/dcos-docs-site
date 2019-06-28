@@ -13,6 +13,19 @@ You can create and administer jobs for the DC/OS cluster in any of the following
 
 The DC/OS application programming interface (API) for job-related operations provides the underlying functionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
 
+In this tutorial, you will explore how to create and run jobs using the DC/OS web-based administrative console and by running DC/OS command-line programs.
+
+# Before you begin
+Before starting this tutorial, you should verify the following:
+- You must be able to access a properly-configured and running [DC/OS cluster](../start-here/).
+- You must have the [DC/OS command-line interface](../cli/) installed.
+
+# Learning objectives
+By completing this tutorial, you will learn:
+- How to create and submit jobs using the DC/OS web-based console and DC/OS command-line interface (CLI).
+- How to define job schedules and customize job properties.
+- How to view, modify, and delete jobs.
+
 # Manage jobs with the DC/OS web-based interface
 You can manage the most common job-related activity interactively through the DC/OS web-based interface. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS web-based interface only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/1.13/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.13/deploying-jobs/quickstart/#jobs-api).
 
@@ -309,102 +322,13 @@ dcos job schedule remove <job-id> <schedule-id>
 dcos job schedule update <job-id> <schedule-file>.json
 ```
 
-## View job details
-List all jobs:
+# Next steps
+In this tutorial, you created sample using both the DC/OS web-based administrative console and DC/OS command-line programs.
 
-```
-dcos job list
-```
+The next tutorials explore more advanced operational scenarios:
+- [Discover deployed services](../service-discovery/)
+- [Deploy and expose native applications](../native-app/)
+- [Allocate and scale resources](../resources/)
+- [Load balancing workload](../loadbalancing/)
 
-List all previous runs of your job:
-
-```
-dcos job history <job-id>
-```
-
-To view details about your job, run:
-
-```
-dcos job show <job-id>
-```
-
-To view details about your job's schedule, run:
-
-```
-dcos job schedule show <job-id>
-```
-
-### View job logs
-To view the log for your job:
-
-```
-dcos task log --completed <job-id>
-```
-
-To get the log for only a specific job run, use a job run ID from `dcos job history <job-id>`
-
-```
-dcos task log --completed <job-run-id>
-```
-
-# <a name="jobs-api"></a>Using the Jobs API
-You can also create and administer jobs through calls to the Jobs API endpoints. This section highlights the most common tasks you perform through job-related API calls. For more complete information about the Jobs API, see the  [Jobs API reference](http://dcos.github.io/metronome/docs/generated/api.html) information.
-
-## Preparing to use API cals
-The code examples in this section illustrate how to include Jobs API calls to perform job-related tasks with the client URL (cURL) program. For detailed information about using `curl` command, see the [`curl` man page](https://curl.haxx.se/docs/manpage.html). 
-
-In addition, one important difference between using the DC/OS command-line interface or web-based console and the API is how you configure the job schedule. The DC/OS CLI and web-based console support a combined JSON format that allows you to specify a schedule in the job descriptor. To schedule a job using the Jobs API, you must use two separate calls: 
-- Use one call to add an **unscheduled** job.
-- Use a second call to associate a specific [schedule file](#add-sched) (`schedule-file.json`) with the job.
-
-## Add a job using an API call
-The following command adds a job called `myjob.json`.
-
-```
-curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs -d@/Users/<your-username>/<myjob>.json
-```
-
-## Remove a job using an API call
-The following command removes a job regardless of whether the job is running:
-```
-curl -X DELETE -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<myjob>?stopCurrentJobRuns=true
-```
-
-To remove a job only if it is not running, set `stopCurrentJobRuns` to `False`.
-
-## Modify or view a job using an API call
-The following command shows all jobs:
-
-```
-curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs
-```
-
-The following command lists job runs:
-
-```
-curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)" "$(dcos config show core.dcos_url)/service/metronome/v1/jobs/<myjob>/runs/"
-```
-
-Stop a run with the following command:
-
-```
-curl -X POST -H "Authorization: token=$(dcos config show core.dcos_acs_token)" "$(dcos config show core.dcos_url)/service/metronome/v1/jobs/<myjob>/runs/20160725212507ghwfZ/actions/stop"
-```
-
-<a name="add-sched"></a>
-
-## Add a schedule to a job
-The following command adds a schedule to a job:
-
-```
-curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<job-id>/schedules -d@<schedule-file>.json
-```
-
-## Start a job using an API call
-You can use the DC/OS API to start jobs programmatically. Similar to starting a job using the web-based console or command-line interface, you must specify the job identifer in the call.
-
-To trigger a job run to start you can use a REST API call similar to the following:
-
-```
-curl -X POST -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/{jobId}/runs
-```
+# Related topics

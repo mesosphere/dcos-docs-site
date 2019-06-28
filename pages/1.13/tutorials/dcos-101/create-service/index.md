@@ -6,7 +6,13 @@ menuWeight: 5
 excerpt: Illustrates how to create and deploy single command or an image using containers (part 5)
 enterprise: false
 ---
-This tutorial shows how to create and deploy a simple one-command service and a containerized service using the DC/OS web-based administrative console or by running command-line programs.
+In the previous tutorial, you deployed a sample application with a predefined app definition and Docker container file. This tutorial shows how to create and deploy sample applications that have not been predefined. 
+
+In this tutorial, you get hands-on experience:
+- creating a simple one-command service
+- creating a containerized service
+
+The tutorial demonstrates how you can complete these tasks by using the DC/OS web-based administrative console or by running command-line programs.
 
 # Before you begin
 Before starting this tutorial, you should verify the following:
@@ -204,14 +210,14 @@ This exercise uses a sample containerized, long-running task that is available f
 ![Sample output from container app](/1.13/img/tutorial-hello-dcos-output.png)
 
 # Next steps
-In this tutorial, you deployed some simple custom apps using both the DC/OS web-based administrative console and using DC/OS command-line programs. You have nown seen how to add apps to the cluster without using a container image, using the native Universal Container runtime, and using a Docker container image and have verified that all of the custom apps are running on the cluster.
+In this tutorial, you deployed some simple custom apps using both the DC/OS web-based administrative console and using DC/OS command-line programs. You have now seen how to add apps to the cluster without using a container image, using the native Universal Container runtime, and using a Docker container image and have verified that all of the custom apps are running on the cluster.
 
 The next tutorials explore more advanced deployment scenarios and tasks and expose some additional core components of the DC/OS architecture:
-- [Discover deployed services](../service-discovery/)
-- [Deploy native containerized applications](../native-app/)
 - [Schedule tasks to run as jobs](../schedule-jobs/)
+- [Discover deployed services](../service-discovery/)
+- [Deploy and expose native applications](../native-app/)
 
 # Related topics
-In this tutorial, you deployed custom apps using single containers and the [Marathon] orchestration framework.
+In this tutorial, you deployed custom apps using single containers and the [Marathon](../../../deploying-services/creating-services/) orchestration framework.
 
-For more information about Universal Container Runtime and working with Docker containers and images, see [Using Containerizers](/1.13/deploying-services/containerizers/).
+For more information about Universal Containerizer Runtime (UCR) and working with Docker containers and images, see [Using Containerizers](/../../../deploying-services/containerizers/).
