@@ -132,7 +132,7 @@ dcos {{ model.packageName }} --name=<service-name> plan start backup-s3 \
     -p S3_BUCKET_NAME=$S3_BUCKET_NAME
     -p HTTPS_PROXY=http://internal.proxy:8080
 ```
-It may also be necessary to set the `AWS_SESSION_ID`, `AWS_SESSION_TOKEN` depending on how you authenticate with AWS.
+It may also be necessary to set the `AWS_SESSION_ID` or `AWS_SESSION_TOKEN` depending on how you authenticate with AWS.
 
 If you are backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as in the example above. If the `CASSANDRA_KEYSPACES` parameter isn't supplied, then every keyspace in your cluster will be backed up.
 
@@ -241,7 +241,7 @@ dcos {{ model.packageName }} --name=<service-name> plan start restore-s3 \
     -p AWS_REGION=$AWS_REGION \
     -p S3_BUCKET_NAME=$S3_BUCKET_NAME
 ```
-It may also be necessary to set the `AWS_SESSION_ID`, `AWS_SESSION_TOKEN` depending on how you authenticate with AWS.
+It may also be necessary to set the `AWS_SESSION_ID` or `AWS_SESSION_TOKEN` depending on how you authenticate with AWS.
 
 To view the status of this plan from the command line:
 ```
