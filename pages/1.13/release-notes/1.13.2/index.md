@@ -30,7 +30,7 @@ The issues that have been fixed in DC/OS 1.13.2 are grouped by feature, function
 - DCOS-53834 - Mesos task logs are sent to Fluent Bit with task metadata included. 
 
 
-### Metrics
+## Metrics
 - DCOS-53589 - Telegraf reports procstat metrics only for DC/OS systemd services, instead of all processes.
 - DCOS-55100 - Telegraf now supports specifying port names for task-label based Prometheus endpoints discovery.
 
