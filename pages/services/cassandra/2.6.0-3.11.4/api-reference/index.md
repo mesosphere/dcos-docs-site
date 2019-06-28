@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: API Reference
 excerpt: API Reference for DC/OS Apache Cassandra
 title: API Reference
-menuWeight: 90
+menuWeight: 100
 model: /services/cassandra/data.yml
 render: mustache
 ---
