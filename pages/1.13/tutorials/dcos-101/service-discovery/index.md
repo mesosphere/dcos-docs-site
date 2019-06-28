@@ -45,12 +45,6 @@ In a DC/OS cluster, [service discovery](/1.13/networking/) provides a method for
 
 Keeping service discovery separate from traditional DNS name resolution (in which service records are associated with a specific physical or virtual IP addresses) is particularly useful in cases where applications fail and might be restarted on a different host.
 
-To see how these service discovery options work, use a secure shell (SSH) session to access the master node leader for your cluster by running the following command:
-
-```bash
-dcos node ssh --master-proxy --leader
-```
-
 ## Using Mesos-DNS
 The most common service discovery option is Mesos-DNS. Mesos-DNS provides a relatively simple method for finding applications inside the cluster. [Mesos-DNS](../../networking/mesos-dns/) assigns DNS entries for every task. These task-specific DNS entries are then resolvable from any node in the cluster. 
 
@@ -60,13 +54,15 @@ The naming pattern for Mesos-DNS entries is:
 Because the default scheduler for the Redis service you have deployed is [Marathon](/overview/architecture/components/#marathon), the Mesos-DNS name for your Redis service is *redis.marathon.mesos* or *redis-tutorial.marathon.mesos*.
 
 ### Find the host address (A) record
-You can use DNS query tools, such as [dig](https://linux.die.net/man/1/dig), to retrieve address (A) and service (SRV) record from the DNS nameserver. In a DC/OS cluster, the default nameserver is configured to use the Mesos-DNS service.
+You can use DNS query tools, such as [dig](https://linux.die.net/man/1/dig), to retrieve address (A) and service (SRV) record from the DNS nameserver. In a DC/OS cluster, the master nodes manage the naming service and by default are configured to use Mesos-DNS as the primary DNS service.
 
-1. Open a secure shell to access the master node by running the following command:
+1. Open a secure shell (SSH) session to access the master node leader by running the following command:
 
        ```bash
        dcos node ssh --master-proxy --leader
        ```
+
+1. If you are prompted to confirm connecting to the host, type `yes`.
 
 1. Find the DNS address (A) record for the Redis service (`redis-tutorial.marathon.mesos` in this example) by running the following command:
 
@@ -132,7 +128,7 @@ To connect to the service, you also need to know the port. In retrieve this info
 
        In the ANSWER section, you can see that the service in this example is running on port  24936. IP address 10.0.1.95.
 
-With the information from these two commands, you know that the Redis service in this cluster is running on 10.0.1.95:24936.
+With the information from these two commands, you know that the Redis service in this cluster is running on the agent node host 10.0.1.95 and using port 24936.
 
 ### Limitations of using Mesos-DNS
 Using Mesos-DNS for service discovery is appropriate for many applications, but has the following drawbacks:
@@ -142,18 +138,19 @@ Using Mesos-DNS for service discovery is appropriate for many applications, but 
 - You must use SRV DNS records to retrieve information about the allocated ports. While most applications support DNS address (A) look-up requests, not all applications support DNS service (SRV) records.
 
 ## Using named virtual IP addresses
-[Named virtual IP addresses (VIPs)](/networking/load-balancing-vips/) enable you to assign name/port pairs to your apps. With this type of service discovery, you can give apps recognizable names with predictable port information. 
+[Named virtual IP addresses (VIPs)](/networking/load-balancing-vips/) enable you to manually assign name and port number pairs to your applications. With this type of service discovery, you can give applications recognizable names with predictable port information. 
 
-Virtual IP addresses also allow you to take advantage of DC/OS layer-4 load balancing when there are multiple instances of an application. For example, you can assign a named virtual IP address to the Redis service by adding the following to the app definition for the package:
+Virtual IP addresses also allow you to take advantage of DC/OS internal layer-4 load balancing when there are multiple instances of an application. For example, you can assign a named virtual IP address to the Redis service by adding the following to the app definition for the package:
 
  ```
  "VIP_0": "/redis:6379"
  ```
 
  The full name is then generated using the following format:
- *vip-name.scheduler.l4lb.thisdcos.directory:vip-port*.
+ 
+ *vip-name.scheduler.l4lb.thisdcos.directory:vip-port*
 
-This is the discovery method used in the sample [application](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) for access the Redis service from within the cluster at `redis.marathon.l4lb.thisdcos.directory:6379`.
+This is the discovery method used in the sample [application](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) to enable access to the Redis service from within the cluster at `redis.marathon.l4lb.thisdcos.directory:6379`.
 
 Named virtual IP addresses provide the following advantages:
 - Load balancing for the IP address/port pair can use an algorithm that optimizes traffic routing in relation to the original requestor. 
@@ -168,4 +165,4 @@ Because of these advantages over Mesos-DNS, in most cases, you should use named 
 You know how to use service discovery to connect to your application from within your DC/OS cluster, and have learned about the two mechanisms for service discovery available in DC/OS.
 
 # Related topics
-Now that you have a basic introduction to [Mesos-DNS](#mesos-dns) and [named virtual IP address](#named-vips) networking. You might want to explore these network options in more detail.
+Now that you have a basic introduction to [Mesos-DNS](#mesos-dns) and [named virtual IP address](#named-vips) networking. You might want to explore these networking options in more detail.

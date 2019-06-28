@@ -181,7 +181,15 @@ You can verify that the Redis service is currently running and reporting a Healt
     dcos task log redis
     ``` 
  
-    This command displays the standard output (stdout) and standard error (stderr) logs for the Redis task. The log file output enables you to check whether the actual startup was successful. By default, the command displays the last 10 lines of logged activity. You can change the number of log lines displayed by specifying the `--lines=` argument.
+    This command displays the standard output (stdout) and standard error (stderr) logs for the Redis task. The log file output enables you to check whether the actual startup was successful. By default, the command displays the last 10 lines of logged activity. You can change the number of log lines displayed by specifying the `--lines=` argument. For example, if you run `dcos task log redis --lines=5`, you might see output similar to the following:
+
+    ```bash
+    1:M 27 Jun 18:17:31.449 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
+    1:M 27 Jun 18:17:31.449 # Server initialized
+    1:M 27 Jun 18:17:31.449 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+    1:M 27 Jun 18:17:31.449 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+    1:M 27 Jun 18:17:31.449 * Ready to accept connections
+    ```
 
 # Test service operations  
 Now that you have installed the Redis package, deployed the service on the cluster, and verified that the service is healthy, you can complete this tutorial by using Redis to store a key-value pair manually using the `redis-cli` command.
@@ -203,6 +211,8 @@ Now that you have installed the Redis package, deployed the service on the clust
     ```bash
     dcos node ssh --master-proxy --mesos-id=dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0
     ```
+
+    If you are prompted to confirm connecting to the host, type `yes`.
 
 1. List the Docker containers to get the `ContainerID` for the container running the Redis service by running the following command:
 
@@ -245,7 +255,7 @@ Now that you have installed the Redis package, deployed the service on the clust
 
     In the next tutorial, you will deploy a simple application that connects to the Redis service and retrieves the number of keys defined.
 
-1. Exit the `redis-cli` client and end the secure shell session.
+1. Exit the `redis-cli` client, close the Redis connection, and end the secure shell session.
 
 # Next steps
 You have successfully installed your first service from the package repository and verified it is running.

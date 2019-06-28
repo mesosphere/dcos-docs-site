@@ -43,8 +43,10 @@ You might also want to review:
     From the DC/OS web-based console:
     - Click **Services**.
     ![Viewing the sample app in the list of services](/1.13/img/tutorial-dcos101-app1-service.png)
+
     - Click **dcos-101**.
     ![Viewing app1 information](/1.13/img/tutorial-app1-view.png)
+    
     - Click **app1**.
     ![Viewing task information](/1.13/img/tutorial-app1-tasks.png)
 

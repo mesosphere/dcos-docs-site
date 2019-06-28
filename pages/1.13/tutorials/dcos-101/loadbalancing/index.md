@@ -79,6 +79,6 @@ Consider these features and benefits when choosing the load balancing mechanism.
 
 - [Marathon-LB](/services/marathon-lb/) is a layer-7 load balancer that is mostly used for **external** or **North-South** requests coming into the cluster from outside of the firewall or through a separate hardware or public cloud load balancer.
 
-Its core functionality is based on the HAProxy load balancer with the added benefit of allowing you to define configuration override in Marathon app definitions. Marathon-LB also uses the Marathon event bus to update its configuration in real time. Because it is a layer-7 load balancer, it supports session-based features such as HTTP sticky sessions and zero-downtime deployments.
+    Its core functionality is based on the HAProxy load balancer with the added benefit of allowing you to define configuration override in Marathon app definitions. Marathon-LB also uses the Marathon event bus to update its configuration in real time. Because it is a layer-7 load balancer, it supports session-based features such as HTTP sticky sessions and zero-downtime deployments.
 
 - [Named virtual IP addresses](/1.13/networking/load-balancing-vips/) provide layer-4 load balancing for **internal** or **East-West** TCP traffic. Because virtual IP addresses are tightly integrated with the kernel, they provide a load balanced IP address which can be used from anywhere within the cluster.
