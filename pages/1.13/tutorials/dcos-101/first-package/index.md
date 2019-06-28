@@ -196,7 +196,7 @@ Now that you have installed the Redis package, deployed the service on the clust
 
 1. Open a terminal shell on a computer with network access to the cluster.
 
-1. Open a secure shell [SSH](/1.13/administering-clusters/sshcluster/) session on the cluster node where the Redis service is running.
+1. Open a secure shell ([SSH])(/1.13/administering-clusters/sshcluster/) session on the cluster node where the Redis service is running.
 
     There are several ways you can determine the cluster node address and Mesos task identifier for the Redis service running on that node. 
     
@@ -271,4 +271,4 @@ The Mesosphere [Catalog](/1.13/gui/catalog/) (or [Universe](https://github.com/m
 
 The package repository enables you to easily install certified or community-contributed services, such as Apache Spark or Apache Cassandra, in your cluster without having to locate, download, and configure independent packages manually. If your cluster runs on an isolated network without an internet connection, you can create and manage your own site-specific package repository.
 
-For information about creating your own package repository that includes your custom packages, see [Deploying a local Universe](1.13/administering-clusters/deploying-a-local-dcos-universe/) for details.
+For information about creating your own package repository that includes your custom packages, see [Deploying a local Universe](../../../administering-clusters/deploying-a-local-dcos-universe/) for details.
