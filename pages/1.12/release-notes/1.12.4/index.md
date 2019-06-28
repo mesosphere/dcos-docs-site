@@ -15,7 +15,7 @@ DC/OS Version 1.12.4 was released on July 2, 2019.
 DC/OS 1.12.4 includes the following components:
 - Apache Mesos 1.7.3 [change log](https://github.com/apache/mesos/blob/33a1ba97041f178f8be53cdeb7cbeb7c78b89798/CHANGELOG).
 - Marathon 1.7.203 [change log](https://github.com/mesosphere/marathon/blob/9e2a9b579b968a2664df03099b03eaf86ffc7efc/changelog.md).
-- Metronome 0.6.21 [change log](https://github.com/dcos/metronome/blob/b8a73dd3cc3c2da035222031ccbbcf5c836ede7b/changelog.md).
+- Metronome 0.6.23 [change log](https://github.com/dcos/metronome/blob/b8a73dd3cc3c2da035222031ccbbcf5c836ede7b/changelog.md).
 
 <!-- <p class="message--note"><strong>NOTE: </strong>DC/OS 1.12.1 release supports new CoreOS and Docker versions as listed in the <a href="../../../version-policy">compatibility matrix</a>.</p> -->
 
@@ -50,6 +50,29 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
 ## Installation
  - Corrects the output returned when running the `dcos_generate_config.sh` or `dcos_generate_config.ee.sh` script with the `--validate-config` option so that it doesn’t display warning or error messages about missing deprecated configuration settings such as `ssh_user` and `ssh_key_path` (COPS-4282, DCOS_OSS-4613, DCOS_OSS-5152).
+
+## Job management
+- Enables you to report the task IDs for finished jobs (DCOS_OSS-5258, DCOS_OSS-5273).
+
+With this release, you can query run details for jobs using the `embed=history` argument to return task IDs in the job history for both successful and failed finished jobs.
+
+- Improves the validation performed for secrets when running jobs (COPS-4706, DCOS_OSS-5019).
+
+    Previously, if a job had a secret defined but not used in its Environment configuration section, the job submission would fail with an error indicating that `Secret names are different from provided secrets`.
+    
+    In this release, the validation logic and error messages have changed to indicate the issue detected and how to proceed before resubmitting the job. 
+    
+    For example, if a secret is defined but not referenced, the validation error specifies that the secret should be removed:
+
+    ```
+    The following secrets are defined, but not referenced: "foo". Please remove them from the secrets field.
+    ```
+
+    If a job references a secret that isn’t defined, the validation error specifies that the secret should be added:
+
+    ```
+    The following secrets are referenced, but undefined: "foo". Please add them to the secrets field.
+    ```
 
 ## Marathon
 - Introduces a watcher loop process to monitor and, if necessary, re-register the Marathon leader after reelection (COPS-3554).<!--Also in previous RN, 1.12.4-->
@@ -139,8 +162,6 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
     With this release, DC/OS updates REX-Ray to support NVMe storage when the DC/OS cluster runs on an Amazon instance. To work with NVMe devices, however, you must provide your own `udev` rules and  `nvme-cli` package. For more information about using Rex-Ray, see the [REX-Ray](https://rexray.io/) website and [github repository](https://github.com/rexray).
 
 ## Third-party updates and compatibility
-- Updates support for REX-Ray to the most recent stable version (DCOS_OSS-4316, COPS-3961).
-
 - Updates the [ZooKeeper](https://zookeeper.apache.org/doc/r3.4.14/releasenotes.html) package for DC/OS to release version 3.4.14 (DCOS_OSS-4988).
 
 - Updates support for OpenSSL to release version 1.0.2r (DCOS_OSS-4868).
