@@ -10,9 +10,9 @@ render: mustache
 
 #include /services/include/operations.tmpl
 
-## More on POD Replace
+## More on POD Replacement
 
-If a {{ model.serverName }} node becomes unresponsive, you must failover to the remaining healthy nodes. Failover can be initiated via the {{ model.techName }} dashboard or the CLI. You can also configure auto failover. You can find more information on {{ model.techName }} failover [here](https://developer.couchbase.com/documentation/server/current/clustersetup/failover.html).
+If a {{ model.serverName }} node becomes unresponsive, you must failover to the remaining healthy nodes. Failover can be initiated via the {{ model.techName }} dashboard or the CLI. You can also configure auto failover. You can find more information on {{ model.techName }} failover [in the {{ model.techName }} documentation](https://developer.couchbase.com/documentation/server/current/clustersetup/failover.html).
 
 After failover, a rebalance must be initiated. Rebalance can be initiated via the {{ model.techName }} dashboard or the CLI. The rebalance will remove the unresponsive node from the cluster and distribute the data evenly across the remaining nodes.
 
@@ -31,7 +31,7 @@ After a node is replaced, again a `rebalance` is necessary.
 
 For backup and restore, we leverage the `cbbackupmgr` tool that comes with {{ model.techName }} Enterprise.
 
-A dedicate `backupmgr service` node must be launched; see the respective section in the DC/OS {{ model.serviceName }} configuration. It provides the volume to store the incremental snapshots of the database, and provides tasks for the various `cbbackupmgr` commands (`backup`, `restore`, `list`, `merge`).
+A dedicate `backupmgr service` node must be launched; see the respective section in the {{ model.productName }} {{ model.serviceName }} configuration. It provides the volume to store the incremental snapshots of the database, and provides tasks for the various `cbbackupmgr` commands (`backup`, `restore`, `list`, `merge`).
 
 The `backupmgr` node is set up with a connection to an AWS S3 (compatible) store (default is `minio`). The tasks use the `aws s3 sync` command to keep the incremental snapshots on the `backupmgr` node and in the connected s3 bucket in sync.
 
