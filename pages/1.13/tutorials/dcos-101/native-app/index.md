@@ -27,7 +27,7 @@ By completing this tutorial, you will learn:
 - How to test access to the new sample app.
 
 # Review the sample application
-The [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) sample application is a [Go-based]](https://golang.org/) HTTP server that exposes a simple interface to Redis.
+The [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) sample application is a [Go-based](https://golang.org/) HTTP server that exposes a simple interface to Redis.
 
 If you review the [app definition](https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json), you can see that this sample app is a binary without any external dependencies. Because it has no external dependencies, you can deploy it using a DC/OS native Universal Container Runtime (UCR) container.
 
@@ -130,12 +130,25 @@ Public agent nodes allow inbound access requests from clients outside of the clu
 
 1. Check Redis directly by running `dcos task`, copying the Mesos ID returned for the Redis service, then opening a secure shell ([SSH])(/1.13/administering-clusters/sshcluster/) on the node where the Redis service is running. 
 
-    For example, if the `dcos task` output displays  `dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0` for the Redis task `Mesos ID` column, you can connect to the node using the
-    `dcos node ssh --master-proxy --mesos-id=dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0` command, then so the following:    
+    For example, if the `dcos task` output displays  `dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0` for the Redis task `Mesos ID` column, you can connect to the node using:
+
+    ```bash
+    dcos node ssh --master-proxy --mesos-id=dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0
+    ```
+    
+    After connecting to the agent node, do the following:    
     - List the Docker containers for the agent using `docker ps`.
+    
     - Copy the ContainerID for the Redis task from the output for the `docker ps` command.
-    - Create a `bash` session in the Docker container using the ContainerID from the previous and running `sudo docker exec -i -t CONTAINER_ID  /bin/bash`.
+    
+    - Create a `bash` session in the Docker container using the ContainerID from the previous command:
+    
+    ```bash
+    sudo docker exec -i -t CONTAINER_ID  /bin/bash
+    ```
+    
     - Start the Redis CLI by running `redis-cli` in the bash shell.
+    
     - Check for the key value you added by running the `get <newkey>` command.
 
 # Next steps

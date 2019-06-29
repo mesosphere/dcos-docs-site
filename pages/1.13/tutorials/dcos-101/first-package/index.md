@@ -267,7 +267,7 @@ The next tutorials explore additional getting started tasks that you can perform
 - [Deploy native containerized applications](../native-app/)
   
 # Related topics
-The Mesosphere [Catalog](/1.13/gui/catalog/) (or [Universe](https://github.com/mesosphere/universe) in previous versions of DC/OS) is a package repository for services that are available for installation on DC/OS clusters.
+The DC/OS [Catalog](/1.13/gui/catalog/) (or [Universe](https://github.com/mesosphere/universe) in previous versions of DC/OS) is a package repository for services that are available for installation on DC/OS clusters.
 
 The package repository enables you to easily install certified or community-contributed services, such as Apache Spark or Apache Cassandra, in your cluster without having to locate, download, and configure independent packages manually. If your cluster runs on an isolated network without an internet connection, you can create and manage your own site-specific package repository.
 

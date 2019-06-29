@@ -24,7 +24,7 @@ Before starting this tutorial, you should verify the following:
 - You have the [app2](../native-app/) sample application deployed and running in your cluster.
 - You have [Marathon-LB]((../native-app/)) deployed and running in your cluster.
 
-# Learning objective
+# Learning objectives
 By completing this tutorial, you will learn:
 
 - How to scale your application to multiple instances.
