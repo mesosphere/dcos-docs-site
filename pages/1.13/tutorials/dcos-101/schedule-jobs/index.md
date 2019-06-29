@@ -332,3 +332,4 @@ The next tutorials explore more advanced operational scenarios:
 - [Load balancing workload](../loadbalancing/)
 
 # Related topics
+For more information about job management and scheduling, see [Deploying jobs](../../../deploying-jobs/).

@@ -220,4 +220,4 @@ The next tutorials explore more advanced deployment scenarios and tasks and expo
 # Related topics
 In this tutorial, you deployed custom apps using single containers and the [Marathon](../../../deploying-services/creating-services/) orchestration framework.
 
-For more information about Universal Containerizer Runtime (UCR) and working with Docker containers and images, see [Using Containerizers](/../../../deploying-services/containerizers/).
+For more information about Universal Containerizer Runtime (UCR) and working with Docker containers and images, see [Using Containerizers](../../../deploying-services/containerizers/).

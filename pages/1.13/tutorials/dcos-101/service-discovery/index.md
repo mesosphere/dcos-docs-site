@@ -45,6 +45,8 @@ In a DC/OS cluster, [service discovery](/1.13/networking/) provides a method for
 
 Keeping service discovery separate from traditional DNS name resolution (in which service records are associated with a specific physical or virtual IP addresses) is particularly useful in cases where applications fail and might be restarted on a different host.
 
+<a name="mesos-dns"></a> 
+
 ## Using Mesos-DNS
 The most common service discovery option is Mesos-DNS. Mesos-DNS provides a relatively simple method for finding applications inside the cluster. [Mesos-DNS](../../networking/mesos-dns/) assigns DNS entries for every task. These task-specific DNS entries are then resolvable from any node in the cluster. 
 
@@ -137,6 +139,8 @@ Using Mesos-DNS for service discovery is appropriate for many applications, but 
 
 - You must use SRV DNS records to retrieve information about the allocated ports. While most applications support DNS address (A) look-up requests, not all applications support DNS service (SRV) records.
 
+<a name="named-vips"></a> 
+
 ## Using named virtual IP addresses
 [Named virtual IP addresses (VIPs)](/networking/load-balancing-vips/) enable you to manually assign name and port number pairs to your applications. With this type of service discovery, you can give applications recognizable names with predictable port information. 
 
@@ -165,4 +169,4 @@ Because of these advantages over Mesos-DNS, in most cases, you should use named 
 You know how to use service discovery to connect to your application from within your DC/OS cluster, and have learned about the two mechanisms for service discovery available in DC/OS.
 
 # Related topics
-Now that you have a basic introduction to [Mesos-DNS](#mesos-dns) and [named virtual IP address](#named-vips) networking. You might want to explore these networking options in more detail.
+Now that you have a basic introduction to [Mesos-DNS](#mesos-dns) and [named virtual IP address](#named-vips) networking, you might want to explore these and other [networking](../../../networking/) options in more detail.

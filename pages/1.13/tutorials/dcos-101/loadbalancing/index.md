@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Load balancing
-title: Load balancing
+navigationTitle: Load balancing workload
+title: Load balancing workload
 excerpt: Demonstrates distributing workload for clients requesting access to a deployed application (part 10)
 menuWeight: 10
 ---
@@ -47,7 +47,7 @@ dcos marathon app update /dcos-101/app2 instances=2
 
 1. Check the Marathon-LB statistics by accessing the HAProxy `stats` endpoint using a URL similar to this: `http://<public-node>:9090/haproxy?stats`.
 
-    ![View load balancing statistics for dcos-101_app2](../../img/tutorial-haproxy-stats.png)
+    ![View load balancing statistics for dcos-101_app2](../../../img/tutorial-haproxy-stats.png)
 
 # Load balancing with virtual IP addresses
 1. Open a terminal and use a secure shell (SSH) to connect to the leading master node by running the following command:
