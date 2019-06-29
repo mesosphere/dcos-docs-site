@@ -128,7 +128,7 @@ Public agent nodes allow inbound access requests from clients outside of the clu
 
 1. Verify the total number of keys using the `app1` sample application by running the `dcos task log app1` command.
 
-1. Check Redis directly by running `dcos task`, copying the Mesos ID returned for the Redis service, then opening a secure shell ([SSH])(/1.13/administering-clusters/sshcluster/) on the node where the Redis service is running. 
+1. Check Redis directly by running `dcos task`, copying the Mesos ID returned for the Redis service, then opening a secure shell on the node where the Redis service is running. 
 
     For example, if the `dcos task` output displays  `dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0` for the Redis task `Mesos ID` column, you can connect to the node using:
 
