@@ -57,6 +57,8 @@ Package registry can be configured to use one of:
 1. [Mount Volumes](#mount-volume-option) OR
 1. [S3 Compatible storage](#s3-storage-option)
 
+### Local storage
+
 Package registry would use local storage by default, which is **NOT recommended** for production usage. Configure a persistent volume or S3-compatible storage for production usage. If you are using this for developement purposes and wish to use local storage, skip to the next section.
 
 ### Mount volume option
