@@ -24,10 +24,22 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 # Issues fixed in DC/OS 1.13.2
 The issues that have been fixed in DC/OS 1.13.2 are grouped by feature, functional area, or component. 
 
+## Installation
+- DCOS_OSS-5186 - ZooKeeper instances on master nodes can now be backed up and restored via a dedicated command line script dcos-zk that is shipped with DC/OS. 
+
 ## Logging
 - DCOS-53834 - Mesos task logs are sent to Fluent Bit with task metadata included. 
 
+## Marathon
+- DCOS_OSS-5260, DCOS-54927 - Fixed an issue where two independent deployments could interfere with each other resulting in too many tasks launched and/or possibly a errorneous deployment. 
+
 ## Metrics
+- DCOS-54425 - Added Fluent Bit metrics to the pipeline.
 - DCOS-53589 - Telegraf reports `procstat` metrics only for DC/OS systemd services, instead of all processes.
-- DCOS-55100 - Telegraf now supports specyfying port names for task-label based Prometheus endpoints discovery.
+
+## Security 
+Introduced a mechanism for protecting the Exhibitor service from unauthorized access from within the cluster, using state-of-the-art mutual TLS authentication. See [documentation](https://docs.mesosphere.com/1.13/security/ent/tls-ssl/exhibitor/). This mechanism is intended to replace the rudimentary `exhibitor_admin_password-based` mechanism.
+
+## Storage
+DCOS-43777- When creating a DC/OS storage volume using the DC/OS UI, the resulting persistent entry of the created JSON app definition does not have a type set. Hence, the default type value `root` is used. In this release, the DC/OS UI is bumped to v2.82.5.
 
