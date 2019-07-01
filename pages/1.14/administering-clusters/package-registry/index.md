@@ -13,7 +13,12 @@ model: ../../data.yml
 
 DC/OS comes pre-configured with the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However this assumes Internet access, which is not always possible. For air-gapped environments, DC/OS Enterprise offers a package registry for a flexible and seamless management of your packages.
 
-For a full list of the configuration options available for the DC/OS Package Registry, use the command `dcos package describe package-registry --config`. You can find more information about the `dcos package` commands in the [CLI documentation](/1.14/cli/command-reference/dcos-package/).
+For a full list of the configuration options available for the DC/OS Package Registry, run the following command:
+
+```bash
+dcos package describe package-registry --config
+```
+You can find more information about the `dcos package` commands in the [CLI documentation](/1.13/cli/command-reference/dcos-package/).
 
 For a detailed description of how to configure and deploy DC/OS Services, see [Configuring {{ model.packageRepo }} Services](/1.14/deploying-services/config-universe-service/).
 
@@ -29,7 +34,7 @@ dcos package install package-registry --cli --yes
 dcos registry activate
 ```
 
-The `registry activate` command uses the default options, which are **NOT recommended** if you are installing in a production environment. Read through the rest of the sections to creation an options file, and then activate the package registry by executing the following command:
+The `registry activate` command uses the default options, which are **NOT recommended** if you are installing in a production environment. Read through the rest of the sections to create an options file, and then activate the package registry by executing the following command:
 
 ```bash
 dcos registry activate --options=<custom-options-file>
@@ -40,15 +45,19 @@ If you have a configuration file from one of the previous installations, you can
 
 Package registry can be configured with the following options during deployment:
 
-1. Storage Options (Local storage OR Mount Volumes OR S3-compatible Storage)
-2. Service namespacing and secrets
+1. [Storage Options](#storage-options) (Local storage OR Mount Volumes OR S3 Compatible Storage)
+1. [Service namespacing and secrets](#service-namespacing-and-secrets)
+
+If you have a config file from one of the previous installations, you can skip this section and continue to the next section of installing the package-registry.
 
 ## Storage options
 
 Package registry can be configured to use one of:
-- Local storage
-- Mount Volumes OR
-- S3-compatible storage
+1. [Local Storage](#local-storage)
+1. [Mount Volumes](#mount-volume-option) OR
+1. [S3 Compatible storage](#s3-storage-option)
+
+### Local Storage
 
 Package registry would use local storage by default, which is **NOT recommended** for production usage. Configure a persistent volume or S3-compatible storage for production usage. If you are using this for developement purposes and wish to use local storage, skip to the next section.
 
@@ -210,7 +219,7 @@ This would launch the Marathon app for `package-registry`. This usually takes a 
 
 ```bash
 # Change the repo name and URL if you need to customize
-dcos package repo add --index=0 "Registry" https://dcos-registry.marathon.l4lb.thisdcos.directory
+dcos package repo add --index=0 "Registry" https://dcos-registry.marathon.l4lb.thisdcos.directory/repo
 ```
 
 If you get errors in executing above command, wait for a couple of minutes (to account for the latency in `package-registry` being healthy and its DNS entry being propagated to all master nodes) and try again.
@@ -225,7 +234,7 @@ After `package-registry` is installed, you can start adding packages to it. The 
 
 ## Building the packages
 
-Mesosphere hosts all its certified packages at https://downloads.mesosphere.com/universe/packages/packages.html. If the packages you need are available there, you can download them and skip to the next section of uploading these `.dcos` files to your cluster. When a {{ model.packageRepo }} package is under development and you want to test it before creating a pull request, or if you want to build a non certified (community) package, this section is useful.
+Mesosphere hosts all its certified packages at [downloads.mesosphere.com/universe/packages/packages.html](https://downloads.mesosphere.com/universe/packages/packages.html). If the packages you need are available there, you can download them and skip to the next section of uploading these `.dcos` files to your cluster. When a {{ model.packageRepo }} package is under development and you want to test it before creating a pull request, or if you want to build a non certified (community) package, this section is useful.
 
 ### Requirements
 
