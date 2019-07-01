@@ -116,16 +116,6 @@ The issues that have been fixed in DC/OS 1.12.4 are grouped by feature, function
 
     Previously, if an operator manual removed an agent or framework while performing routine maintenance or by issuing the framework TEARDOWN call, the Mesos agent might return information about terminated tasks in a response field normally reserved for running tasks. This incorrect response in turn resulted in the `dcos-net` networking component adding a duplicate VIP entry. The fix in this release prevents the `dcos-net` networking component from adding a duplicate virtual IP address when an agent or framework is removed.
 
-- Resolves a deadlock or race condition that could prevent one or more nodes in a cluster from generating a routing table that forwards network traffic through Marathon load balancing properly (COPS-3585). 
-
-    Problems with routing tables and network connectivity can lead to the following issues:
-
-    - Incomplete network overlay configuration on certain nodes.
-    - Incomplete VIP/IPVS/L4LB configuration on certain nodes.
-    - DNS records that are missing on certain nodes.
-
-    You can restart the `systemd` process on the nodes affected to restore proper network connectivity. This fix is related to the mitigation of a networking issue caused by a secure socket layer (SSL) deadlock in the Erlang library.<!--Also in previous RN, 1.12.4-->
-
 - Changes the behavior for IP routing rules to resolve a conflict between the port used for virtual IP address traffic and the port mapping used for containers (DCOS_OSS-5061).
 
     Previously, if a container was configured to use port mapping (for example, because the container uses bridge networking) and there is a virtual IP address listening on the same port, the routing of the virtual IP traffic would fail. This failure was caused by a conflict between the `iptable` rules for the `portmapper` and the `iptable` rules for the virtual IP routing.
