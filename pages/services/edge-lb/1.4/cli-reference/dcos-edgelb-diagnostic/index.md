@@ -41,10 +41,10 @@ dcos edgelb diagnostic
 To collect diagnostic bundles for specific Edge-LB pools, include the pool names in a command similar to the following:
 
 ```bash
-dcos edgelb diagnostic --pool-names=sf-edgelb, roma-edge-lb, hk-edgelb
+dcos edgelb diagnostic --pool-names=sf-edgelb,roma-edge-lb,hk-edgelb
 ```
 
-This command generates diagnostic bundle with the logs files from the `sf-edgelb`, `roma-edgelb`, and `hk-edgelb` pools.
+This command generates diagnostic bundle with the logs files from the `sf-edgelb`, `roma-edgelb`, and `hk-edgelb` pools and saves it in the current working directory.
 
 To collect diagnostic bundles for a specific Edge-LB pool and place the file in a specific directory instead of the current working directory, run a command similar to the following:
 
