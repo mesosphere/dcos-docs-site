@@ -119,7 +119,7 @@ The final `s3` config should look something like this:
 }
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You must override the value for the properties <code>bucket</code>, <code>path</code> and <code>endpoint</code> to match the S3 configuration.</p>
+<p class="message--note"><strong>NOTE: </strong>You must override the value for the properties <tt>bucket</tt>, <tt>path</tt> and <tt>endpoint</tt> to match the S3 configuration.</p>
 
 ## Service namespacing and secrets
 
@@ -174,9 +174,9 @@ DC/OS Package Registry needs a service account to be able to run in DC/OS Enterp
     dcos security org users grant registry-account dcos:adminrouter:ops:ca:rw full
     ```
 
-<p class="message--important"><strong>IMPORTANT: </strong>The secret information associated with the service account is stored in a path called  <code>registry-private-key</code>  in the DC/OS Secret store. If using a different filename, substitute that for  <code>registry-private-key</code>. </p>
+<p class="message--important"><strong>IMPORTANT: </strong>The secret information associated with the service account is stored in a path called  <tt>registry-private-key</tt>  in the DC/OS Secret store. If using a different filename, substitute that for  <tt>registry-private-key</tt>. </p>
 
-<p class="message--warning"><strong>WARNING: </strong>These instructions create two sensitive files on the local file system: <code>private-key.pem</code> and <code>public-key.pem</code>. Make sure to save these files in a secure place or delete them. They are not needed after being stored in the DC/OS Secret Store. </p>
+<p class="message--warning"><strong>WARNING: </strong>These instructions create two sensitive files on the local file system: <tt>private-key.pem</tt> and <tt>public-key.pem</tt>. Make sure to save these files in a secure place or delete them. They are not needed after being stored in the DC/OS Secret Store. </p>
 
 The service `instances`, `cpus`, `mem`, and `disk` can also be configured as needed. Execute the following command to view an exhaustive list of all configuration options:
 
@@ -273,7 +273,7 @@ The `package-registry` CLI can be used to bundle your package into a `.dcos` fil
 ├── package.json
 └── resource.json
 ```
-<p class="message--note"><strong>NOTE: </strong>All the assets URIs in the <code>resource.json</code> must be accessible to download from your environment. Relative file paths are also accepted.</p>
+<p class="message--note"><strong>NOTE: </strong>All the assets URIs in the <tt>resource.json</tt> must be accessible to download from your environment. Relative file paths are also accepted.</p>
 
 ```bash
 # Create a temporary work directory to store the build definition and other files necessary to create the bundle.
