@@ -72,7 +72,7 @@ If you need to deploy a local Universe containing your own set of packages, you 
     sudo make base
     ```
 
-1. Use `add-stub-universe.sh` script to add to the Universe the JSON definitions obtained in [Obtaining package artifacts](https://docs.mesosphere.com/services/edge-lb/1.2/installing/#obtaining-package-artifacts) section.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.
+1. Use `add-stub-universe.sh` script to add to the Universe the JSON definitions obtained in [Obtaining package artifacts](https://docs.mesosphere.com/services/edge-lb/1.3/installing/#obtaining-package-artifacts) section.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.
 
 ```bash
 bash add-stub-universe.sh -j stub-universe-edgelb.json
@@ -193,7 +193,7 @@ dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id fu
 dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
 ```
 
-For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/1.2/permissions/)
+For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/1.3/permissions/)
 
 # <a name="create-json"></a>Create a configuration file for service authentication
 After configuring service authentication, you must create a JSON options file with your credentials. This file will be passed to DC/OS when you install Edge-LB.
@@ -216,7 +216,7 @@ EdgeLB also needs the following options to be specified. Their values depend on 
 
 Other useful configurable service parameters include:
 
-* `service.name`: `"dcos-edgelb/api"`. The service path for the `apiserver`. `dcos-edgelb` corresponds to `pool.namespace` when [configuring pools](/services/edge-lb/1.2/pool-configuration/).
+* `service.name`: `"dcos-edgelb/api"`. The service path for the `apiserver`. `dcos-edgelb` corresponds to `pool.namespace` when [configuring pools](/services/edge-lb/1.3/pool-configuration/).
 * `service.logLevel`: `"info"`. Can be one of `debug`, `info`, `warn`, or `error`
 * `service.cpus`: `1.1`
 * `service.mem`: `1024`
@@ -242,8 +242,8 @@ You should receive this message when ready:
 pong
 ```
 
-- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/1.2/pool-configuration/) section.
-- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/1.2/cli-reference/).
+- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/1.3/pool-configuration/) section.
+- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/1.3/cli-reference/).
 
 # Adding the Edge-LB command-line interface package
 In most cases, you add the Edge-LB command-line interface (CLI) as part of your initial installation of the Edge-LB API server and Edge-LB pool packages when you are preparing to deploy Edge-LB load balancing. However, you might find that you need to install the Edge-LB command-line interface (CLI) separately, for example, on additional computers for other administrators. 
