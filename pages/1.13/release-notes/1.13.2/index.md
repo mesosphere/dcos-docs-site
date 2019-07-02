@@ -24,8 +24,9 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 # Issues fixed in DC/OS 1.13.2
 The issues that have been fixed in DC/OS 1.13.2 are grouped by feature, functional area, or component. 
 
-## Installation
-- DCOS_OSS-5186 - ZooKeeper instances on master nodes can now be backed up and restored via a dedicated command line script dcos-zk that is shipped with DC/OS. 
+## Job management
+- COPS-4706, DCOS_OSS-5019 - Improves the validation performed for secrets when running jobs.
+- DCOS_OSS-5258, DCOS_OSS-5273 - Enables you to report the task IDs for finished jobs. With this release, you can query run details for jobs using the `embed=history` argument to return task IDs in the job history for both successful and failed finished jobs.
 
 ## Logging
 - DCOS-53834 - Mesos task logs are sent to Fluent Bit with task metadata included. 
