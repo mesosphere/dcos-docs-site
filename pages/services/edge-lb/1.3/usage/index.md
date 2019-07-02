@@ -48,41 +48,128 @@ An Example config file for Edge-LB pool config:
 }
 ```
 
-# Exposing mesos task without pre-defined mesos-assigned ports
+# Exposing tasks without predefined Mesos-assigned ports
 
-This feature allows you to expose task without mesos assigend port. 
+This feature allows you to expose a task without a Mesos-assigned port. 
 
-Prior to this feature, Edge-LB only exposed task that have ports assigned by mesos. Its not a requirement for Mesos tasks to have port assigned always. By leveraging this feature, when there is no port assigned for task, an Operator can specify a port in the pool config to expose that task.
+Prior to this feature, Edge-LB only exposed tasks that have ports assigned by Mesos. It is not a requirement for Mesos tasks to always have ports assigned. When there is no port assigned for task, this feature allows you to specify a port in the pool configuration to expose that task.
 
 # Allow dynamic allocation of the HAProxy Stats port
 
-This feature allows allocating Stats port dynamically if there is more than on pool on an agent node. 
+This feature allows you to allocate Stats port dynamically if there is more than one pool on an agent node. 
 
-Prior to this feature, it wasn't possible to disable Stats port 9090 for a pool. This results in having only one Edge-LB pool per agent. Thus, it wasn't possible to deploy two Edge-LB pools on the same agent without manually setting different values for Stats port. By leveraging this feature, multiple pools on the same agent can have Stats port without port conflict.
+Prior to this feature, it was not possible to disable Stats port 9090 for a pool. This results in having only one Edge-LB pool per agent. Thus, it was not possible to deploy two Edge-LB pools on the same agent without manually setting different values for the Stats port. This feature allows multiple pools on the same agent to have a Stats port without port conflicts.
+
+An example config for Edge-LB pool where `stats` port (haproxy.stats.bindPort) is `0` instead of typical `9090`:
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "test-https-pool",
+  "count": 1,
+  "haproxy": {
+    "stats": {
+      "bindPort": 0
+    },
+    "frontends": [
+      {
+        "bindPort": 443,
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
+      }
+    ],
+    "backends": [
+      {
+        "name": "host-httpd",
+        "protocol": "HTTP",
+        "services": [
+          {
+            "framework": {
+              "value": "marathon"
+            },
+            "marathon": {
+              "serviceID": "/host-httpd"
+            },
+            "endpoint": {
+              "portName": "web"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 # Allow dynamic allocation of the HAProxy frontend port
 
-This feature allows allocating Frontend port dynamically if there is more than on pool on an agent node. 
+This feature allows you to allocate a Frontend port dynamically if there is more than one pool on an agent node. 
 
-When a public cloud LB like AWS ELB is sitting in front of Edge-LB, the ELB will handle the proxy/ load-balancing between the Client and Edge-LB pool. In such scenarios having frontend ports doesn't provide much value. By leveraging this feature, you can have multiple Frontend ports allocated dynamiccaly for multiple Edge-LB pools on the same agent for better resource utilization.
+When a public cloud LB like AWS ELB is sitting in front of Edge-LB, the ELB will handle the proxy/load-balancing between the Client and the Edge-LB pool. In such scenarios, having frontend ports does not provide much value. This feature allows you to have multiple Frontend ports allocated dynamically for multiple Edge-LB pools on the same agent for better resource utilization.
 
+An example config for Edge-LB pool where `frontend` port (i.e. haproxy.frontend.bindPort) is `443` instead of typical `0`: 
+
+```json
+{
+  "apiVersion": "V2",
+  "name": "test-https-pool",
+  "count": 1,
+  "autoCertificate": true,
+  "haproxy": {
+    "stats": {
+      "bindPort": 9091
+    },
+    "frontends": [
+      {
+        "bindPort": 0,
+        "protocol": "HTTPS",
+        "certificates": [
+          "$AUTOCERT"
+        ],
+        "linkBackend": {
+          "defaultBackend": "host-httpd"
+        }
+      }
+    ],
+    "backends": [
+      {
+        "name": "host-httpd",
+        "protocol": "HTTP",
+        "services": [
+          {
+            "framework": {
+              "value": "marathon"
+            },
+            "marathon": {
+              "serviceID": "/host-httpd"
+            },
+            "endpoint": {
+              "portName": "web"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 ## Normal reload scenario
 
-A change to a service (such as scaling up) that is load balanced by a pool will trigger a reload of its load balancers. This reload has the following properties:
+A change (such as scaling up) to a service that is load balanced by a pool will trigger a reload of its load balancers. This reload has the following properties:
 
 * No traffic is dropped (unless the service instance that was serving the request was killed).
 
 * The load balancer will keep the long-running connections intact, while all the new connections will be proxied using the new configuration.
 
-* A reload will occur at most once every 3 seconds.
+* A reload will occur at most once every three seconds.
 
-The properties of this reload enable strategies like
-[Blue/Green Deployment](/services/edge-lb/1.2/tutorials/blue-green-deploy/).
+The properties of this reload enables strategies like [Blue/Green Deployment](/services/edge-lb/1.2/tutorials/blue-green-deploy/).
 
 ## Load balancer relaunch scenario
 
-A change to the load balancer pool (such as adding a secret) will trigger a relaunch of all load balancers in the pool. This relaunch has the following properties:
+A change (such as adding a secret) to the load balancer pool will trigger a relaunch of all load balancers in the pool. This relaunch has the following properties:
 
 - Traffic currently flowing through the given load balancer is dropped when it is stopped. To minimize the impact, we suggest running more than one load balancer within the pool.
 - Only one load balancer is stopped in the pool during the update at a time.
