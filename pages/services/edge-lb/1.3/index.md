@@ -29,7 +29,7 @@ Configuration is sent to the API Server, which controls pool management.
 
 Outside traffic moves through a hardware load balancer, then to the load balancer pool. One of the Edge-LB load balancers in the pool accepts the traffic and routes it to the appropriate service within the DC/OS cluster.
 
-![Edge-LB Architecture](/services/edge-lb/1.2/img/edge-lb-flow.png)
+![Edge-LB Architecture](/services/edge-lb/1.3/img/edge-lb-flow.png)
 
 Figure 1. Edge-LB architecture
 
