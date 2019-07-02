@@ -117,7 +117,7 @@ Add your custom YAML when installing {{ model.techName }}. You must `base64` enc
 
 You can do this `base64` encoding as part of your automated workflow, or you can do it manually with an [online converter](https://www.base64encode.org).
 
-For example, the custom configurations are represented below:
+For example, the custom configurations are represented as follows:
 
 ```
 {
@@ -142,13 +142,13 @@ For example, the custom configurations are represented below:
 
 #### Volume Type
 
-The service supports two volume types:
+The service supports the following two volume types:
  - `ROOT` volumes are an isolated directory on the root volume, sharing IO/spindles with the rest of the host system.
  - `MOUNT` volumes are a dedicated device or partition on a separate volume with dedicated IO/spindles.
 
 Using `MOUNT` volumes requires [additional configuration on each DC/OS agent system](/1.11/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you should configure `MOUNT` volumes on the machines that will run the service in your cluster, and then configure the following as `MOUNT` volumes:
 
-To configure the disk type:
+Use the following to configure the disk type:
 *   **In DC/OS CLI options.json**: `disk_type`: string (default: `ROOT`)
 *   **DC/OS web interface**: `CASSANDRA_DISK_TYPE`: `string`
 
@@ -187,7 +187,7 @@ dcos package install {{ model.packageName }}
 }
 ```
 
-3. Launch the second cluster with these custom options.
+3. Launch the second cluster with the following custom options.
 ```
 dcos package install {{ model.packageName }} --options=<options.json>
 ```
