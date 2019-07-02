@@ -10,7 +10,7 @@ DC/OS Version 1.12.4 was released on July 2, 2019.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.12.4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="purple" href="https://support.mesosphere.com/hc/en-us/articles/213198586"]Download DC/OS Enterprise [/button]
+[button color="purple" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.12.4/dcos_generate_config.ee.sh]Download DC/OS Enterprise [/button]
 
 DC/OS 1.12.4 includes the following components:
 - Apache Mesos 1.7.3 [change log](https://github.com/apache/mesos/blob/33a1ba97041f178f8be53cdeb7cbeb7c78b89798/CHANGELOG).
