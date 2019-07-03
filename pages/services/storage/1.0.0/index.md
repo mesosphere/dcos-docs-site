@@ -6,7 +6,6 @@ title: DC/OS Storage Service 1.0.0
 menuWeight: 0
 excerpt: DC/OS Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in the DC/OS cluster.
 enterprise: true
-category: Storage
 ---
 
 DC/OS Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in the DC/OS cluster.
