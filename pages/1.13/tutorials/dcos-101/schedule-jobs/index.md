@@ -4,6 +4,8 @@ navigationTitle:  Create and schedule jobs
 title: Create and schedule jobs
 menuWeight: 6
 excerpt: Provides instructions for creating, scheduling, and managing jobs to run on a DC/OS cluster (part 6)
+render: mustache
+model: /data.yml
 enterprise: false
 ---
 You can create and administer jobs for the DC/OS cluster in any of the following ways:

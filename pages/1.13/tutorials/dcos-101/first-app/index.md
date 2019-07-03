@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle:  Deploy the first application
 title: Deploy the first application
 excerpt: Describes how to define and deploy a sample service instance on the cluster (part 4)
+render: mustache
+model: /data.yml
 menuWeight: 4
 ---
 Now that you are familiar with how to search for and install services from the DC/OS package repository, you are ready to start deploying applications that use the service.

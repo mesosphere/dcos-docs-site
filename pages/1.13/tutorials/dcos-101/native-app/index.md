@@ -3,6 +3,8 @@ layout: layout.pug
 navigationTitle: Deploy and expose native applications
 title: Deploy and expose native applications
 excerpt: Deploys an app using a UCR container and exposes it for access from outside of the cluster (part 8)
+render: mustache
+model: /data.yml
 menuWeight: 8
 ---
 In a [previous tutorial](/tutorials/dcos-101/app1/), you deployed an application that runs inside the cluster and interacts with another application--the Redis service--that also runs inside the cluster. Neither application is exposed outside of the cluster or available to any external users. This is because DC/OS supports running applications on two different type of nodes: **private agent nodes** and **public agent nodes**. 

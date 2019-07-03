@@ -1,16 +1,10 @@
 ---
 layout: layout.pug
-<<<<<<< HEAD
-navigationTitle:  DC/OS 101
-excerpt: Understanding the basics of DC/OS
-title: Tutorial - DC/OS 101
-render: mustache
-model: /data.yml
-=======
 navigationTitle: Introducing DC/OS
 title: Introducing DC/OS
 excerpt: Provides step-by-step instructions to introduce basic DC/OS cluster tasks
->>>>>>> wip-dcos-101-test
+render: mustache
+model: /data.yml
 menuWeight: 0
 ---
 If you are setting up a demonstration environment as a proof-of-concept for testing or evaluation purposes or creating a small cluster for application development or a specific project, you can use the steps in this tutorial to get started using DC/OS. 
