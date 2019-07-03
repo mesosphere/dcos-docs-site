@@ -53,11 +53,16 @@ Before installing DC/OS, your cluster must meet the software and hardware [requi
     mkdir -p genconf
     ```
 [enterprise]
-# <a name="license"></a>Store license file
+<a name="license"></a>
+
+# Store license file
 [/enterprise]
+
 1.  Create a [license file](/1.13/administering-clusters/licenses/) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
 
-# <a name="ip-detect-script"></a>Create an IP detection script
+<a name="ip-detect-script"></a>
+
+# Create an IP detection script
 
 In this step, an IP detection script is created. This script reports the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detection script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
 
@@ -145,6 +150,8 @@ BEGIN { ec = 1 }
     ')
     echo $INTERFACE_IP
 ```
+
+<a name="fault-domain"></a>
 
 [enterprise]
 # Create a fault domain detection script

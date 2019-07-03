@@ -23,6 +23,8 @@ Protect your cluster from the outside with firewall settings specific for the no
 - All ports should be open for communication from the master nodes to the agent nodes and vice versa.
 - Setting firewall rules between the nodes of any types is not recommended.
 
+<a name="master-nodes"></a>
+
 ## Master Nodes
 
 A DC/OS master node is a node that works with other master nodes to manage the rest of the cluster. Master nodes contain the bulk of the DC/OS components, including a Mesos master process.
@@ -45,9 +47,13 @@ To maintain consistency, a quorum (half plus one) of master nodes must be connec
 
 The number of master nodes can only be specified during installation. This is primarily because of the complexity of changing the quorum and configuration of multiple components with leaders on different nodes.
 
+<a name="agent-nodes"></a>
+
 ## Agent Nodes
 
 A DC/OS agent node is a node on which user tasks are run. Agent nodes contain a few DC/OS components, including a Mesos agent process. Agent nodes can be public or private, depending on agent and network configuration.
+
+<a name="public-agent"></a>
 
 ### Public Agent Nodes
 

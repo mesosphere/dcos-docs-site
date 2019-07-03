@@ -48,12 +48,12 @@ Keeping service discovery separate from traditional DNS name resolution (in whic
 <a name="mesos-dns"></a> 
 
 ## Using Mesos-DNS
-The most common service discovery option is Mesos-DNS. Mesos-DNS provides a relatively simple method for finding applications inside the cluster. [Mesos-DNS](../../networking/mesos-dns/) assigns DNS entries for every task. These task-specific DNS entries are then resolvable from any node in the cluster. 
+The most common service discovery option is Mesos-DNS. Mesos-DNS provides a relatively simple method for finding applications inside the cluster. [Mesos-DNS](../../../networking/DNS/mesos-dns/) assigns DNS entries for every task. These task-specific DNS entries are then resolvable from any node in the cluster. 
 
 The naming pattern for Mesos-DNS entries is:
 *task.scheduler.mesos*
 
-Because the default scheduler for the Redis service you have deployed is [Marathon](/overview/architecture/components/#marathon), the Mesos-DNS name for your Redis service is *redis.marathon.mesos* or *redis-tutorial.marathon.mesos*.
+Because the default scheduler for the Redis service you have deployed is [Marathon](../../../overview/architecture/components/#marathon), the Mesos-DNS name for your Redis service is *redis.marathon.mesos* or *redis-tutorial.marathon.mesos*.
 
 ### Find the host address (A) record
 You can use DNS query tools, such as [dig](https://linux.die.net/man/1/dig), to retrieve address (A) and service (SRV) record from the DNS nameserver. In a DC/OS cluster, the master nodes manage the naming service and by default are configured to use Mesos-DNS as the primary DNS service.
@@ -142,7 +142,7 @@ Using Mesos-DNS for service discovery is appropriate for many applications, but 
 <a name="named-vips"></a> 
 
 ## Using named virtual IP addresses
-[Named virtual IP addresses (VIPs)](/networking/load-balancing-vips/) enable you to manually assign name and port number pairs to your applications. With this type of service discovery, you can give applications recognizable names with predictable port information. 
+[Named virtual IP addresses (VIPs)](../../../networking/load-balancing-vips/) enable you to manually assign name and port number pairs to your applications. With this type of service discovery, you can give applications recognizable names with predictable port information. 
 
 Virtual IP addresses also allow you to take advantage of DC/OS internal layer-4 load balancing when there are multiple instances of an application. For example, you can assign a named virtual IP address to the Redis service by adding the following to the app definition for the package:
 

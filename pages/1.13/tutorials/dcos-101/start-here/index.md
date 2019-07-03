@@ -8,13 +8,13 @@ excerpt: Let's start your DC/OS tour by creating a cluster (part 1)
 This tutorial demonstrates the basic steps for creating a small DC/OS cluster using the most common default configuration options and verifying access to the cluster. You must successfully complete the steps in this tutorial before you can perform any other administrative tasks or explore additional features.
 
 After completing this tutorial, you will have a single DC/OS cluster consisting of:
-- One [master node](/1.13/overview/architecture/node-types/#master-node).
-- Two [private agent nodes](/1.13/overview/architecture/node-types/#private-agent).
-- One [public agent node]((/1.13/overview/architecture/node-types/#public-agent)).
+- One [master node](../../../overview/architecture/node-types/#master-nodes).
+- Two [private agent nodes](../../../overview/architecture/node-types/#agent-nodes).
+- One [public agent node](../../../overview/architecture/node-types/#agent-nodes).
 
 The tutorial takes approximately 20 minutes to complete.
 
-If you need additional information about hardware or software system requirements or help performing any step, see the [setup instructions](/latest/installing/).
+If you need additional information about hardware or software system requirements or help performing any step, see the [setup instructions](../../../installing/).
 
 # Before you begin
 To get started with this tutorial:
@@ -55,7 +55,7 @@ You need to perform the following key tasks to create a new DC/OS cluster:
 - Prepare a [bootstrap node](/1.13/installing/production/system-requirements/#bootstrap).
 - Configure a DC/OS [master node](https://docs.mesosphere.com/1.13/installing/production/system-requirements/#master-nodes).
 - Configure DC/OS [private agent nodes](https://docs.mesosphere.com/1.13/installing/production/system-requirements/#agent-nodes).
-- Configure a DC/OS [public agent node](https://docs.mesosphere.com/1.13/overview/concepts/#public).
+- Configure a DC/OS [public agent node](https://docs.mesosphere.com/1.13/installing/production/system-requirements/#agent-nodes).
 
 # Prepare a bootstrap node
 1. Identify a computer to act as the **bootstrap node** for the new cluster.
@@ -75,7 +75,7 @@ You need to perform the following key tasks to create a new DC/OS cluster:
 
     This command returns an error if the Docker daemon process is not available.
 
-1. Download [DC/OS Open Source](https://downloads.dcos.io/dcos/stable/1.13.0/dcos_generate_config.sh) or [DC/OS Enterprise](http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.0/dcos_generate_config.ee.sh) artifacts to the bootstrap node.
+1. Download [DC/OS Open Source](https://downloads.dcos.io/dcos/stable/1.13.2/dcos_generate_config.sh) or [DC/OS Enterprise](http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.2/dcos_generate_config.ee.sh) artifacts to the bootstrap node.
 
 1. Extract the contents from the file you downloaded by running a command similar to the following:
 
@@ -99,7 +99,6 @@ You need to perform the following key tasks to create a new DC/OS cluster:
     ```bash
     bootstrap_url: http://10.0.0.100
     cluster_name: 'Mesosphere DC/OS Tutorial'
-    customer_key: 12345-12345-12345-12345-12345-123456
     exhibitor_storage_backend: static
     master_discovery: static
     master_list:
@@ -110,7 +109,7 @@ You need to perform the following key tasks to create a new DC/OS cluster:
     security: permissive
     ```
 
-    You can set many more basic and advanced configuration options using the `config.yaml` file. For information about the settings available and examples of the most commonly-used settings, see the [advanced configuration reference](1.13/installing/production/advanced-configuration/configuration-reference/) and [examples](/1.13/installing/production/deploying-dcos/configuration/examples/).
+    You can set many more basic and advanced configuration options using the `config.yaml` file. For information about the settings available and examples of the most commonly-used settings, see the [advanced configuration reference](/1.13/installing/production/advanced-configuration/configuration-reference/) and [examples](/1.13/installing/production/deploying-dcos/configuration/examples/).
 
 1. Save your configuration settings.
 
@@ -249,7 +248,7 @@ There are several other methods you can use to install the DC/OS cluster. For ex
 - [Other Installation methods](/1.13/installing/evaluation/community-supported-methods/)
 
 ### More about cluster architecture and components
-For an overview of the DC/OS platform and the components that make up the architectural layers of the platform, see the [Architectural overview](../../overview/architecture/components/).
+For an overview of the DC/OS platform and the components that make up the architectural layers of the platform, see the [Architectural overview](../../../overview/architecture/).
 
 If you want to know more about the DC/OS architecture and key components, see the following topics:
 
