@@ -1,5 +1,5 @@
 ~^/latest/(.*)$ /1.13/$1;
-~^/services/cassandra/latest/(.*) /services/cassandra/2.5.0-3.11.3/$1;
+~^/services/cassandra/latest/(.*) /services/cassandra/2.6.0-3.11.4/$1;
 ~^/services/confluent-kafka/latest/(.*) /services/confluent-kafka/2.6.0-5.1.2/$1;
 ~^/services/confluent-zookeeper/latest/(.*) /services/confluent-zookeeper/2.6.0-5.1.2e/$1;
 ~^/services/couchbase/latest/(.*) /services/couchbase/0.3.0-5.5.3/$1;
@@ -19,6 +19,7 @@
 ~^/services/pxc/latest/(.*) /services/pxc/0.2.0-5.7.21/$1;
 ~^/services/spark/latest/(.*) /services/spark/2.8.0-2.4.0/$1;
 ~^/services/spinnaker/latest/(.*) /services/spinnaker/0.3.0-1.9.2/$1;
+~^/services/storage/latest/(.*) /services/storage/1.0.0/$1;
 ~^/services/dcos-monitoring/latest/(.*) /services/dcos-monitoring/1.0.0/$1;
 ~^/services/beta-storage/latest/(.*) /services/beta-storage/0.6.0-beta/$1;
 ~^/services/beta-jupyter/latest/(.*) /services/beta-jupyter/1.2.0-0.33.7-beta/$1;
