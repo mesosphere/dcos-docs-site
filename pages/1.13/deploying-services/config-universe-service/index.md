@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 
-This topic describes how to use DC/OS  to configure services. You can also customize services by using the [**Services**](/1.13/gui/services/) tab in the DC/OS UI.
+This topic describes how to use the CLI to configure services. You can also customize services by using the [**Services**](/1.13/gui/services/) tab in the DC/OS UI.
 
 1. View the available configuration options for the service with the [`dcos package describe --config <package-name>`](/1.13/cli/command-reference/dcos-package/dcos-package-describe/) command.
 
