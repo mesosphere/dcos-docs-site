@@ -11,63 +11,115 @@ model: /data.yml
 ---
 
 You can create and administer jobs for the DC/OS cluster in any of the following ways:
-- interactively with the DC/OS web-based administrative console GUI.
-- interactively or programmatically with DC/OS command-line interface (CLI) programs.
-- directly through calls to the DC/OS application programming interface (API) for job-related operations.
+- interactively with the [DC/OS UI](#managing-jobs)
+- interactively or programmatically with the DC/OS CLI
+- directly through calls to the DC/OS application programming interface (API) for job-related operations
 
-The DC/OS application programming interface (API) for job-related operations provides the underlying functionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
+The DC/OS application programming interface (API) provides the underlying functionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
 
+<a name="managing-jobs"></a>
 # Managing jobs with the DC/OS UI
 You can manage the most common job-related activity interactively through the DC/OS UI. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS UI only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/1.14/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.14/deploying-jobs/quickstart/#jobs-api).
 
 ## Add a job
+
 1. Navigate to the URL for the DC/OS web-based console in a web browser.
 
-1. Click **Jobs**, then click **Create a Job** to display the New Job settings. 
+    There are two ways to create a job in the DC/OS UI.
 
-    ![Create JOB UI](/1.14/img/job-new-general-fields.png)
+    - If you have no jobs configured, the Jobs screen will contain a notice that you have no active jobs, and will display a **Create a Job** button. 
 
-    Figure 1. Create a Job
+    ![No active jobs](/1.14/img/GUI-Jobs-No-Active-Jobs.png)
 
-    You can configure the job using the fields displayed or click **JSON Editor** to edit the JSON directly. If you click **Jobs** and see a list of previously-created jobs, click the plus (+) sign displayed above and to the right of the job list to create a new job.
+    Figure 1 - Create a Job button
 
-1. Click **General** to edit the most basic job settings, such as the job identifier, CPU, memory, and disk requirements.
+    -  Regardless of whether you have active jobs or not, you can always click on the **+** sign in the upper right corner to create a new job.
 
-    * **Job ID** - Defines a unique identifier for the new job. The Job ID is a required field. You also use this setting to manage job operations.
-    * **Description** - Provides an optional description of the new job.
-    * **CPUs** - Specifies the number of CPU cores your job requires. This field is required for all jobs.
-    * **Mem** - Specifies the amount of memory, in MB, your job requires. This field is required for all jobs.
-    * **Disk** - Specifies the amount of disk space, in MB, your job requires. This field is required for all jobs.
-    * **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks that are launched using DC/OS [Universal Container Runtime](/1.14/deploying-services/containerizers/ucr/) containers. Support for GPU resources is are not available for Docker containers or images.
+    ![Plus sign](/1.14/img/GUI-Jobs-Create-a-Job.png)
 
-1. Select the appropriate Job Type to run one or more specific commands or a Docker container image.
-    * Select **Command Only** to specify one or more commands you want the new job to execute. 
+    Figure 2 - Click on plus sign
+
+    A configuration screen for a new job will appear. Note that this screen is the same as that used for editing jobs. 
+
+    ![Job configuration screen](/1.14/img/GUI-Jobs-New-Job.png)
+
+    Figure 3 - Job configuration screen
+
+### Split screen
+
+Note that in all the **Jobs** configuration screens, you can choose to view the UI alone, or split the screen between the UI and a **JSON Editor** window. In the following discussion of the **Jobs** configuration options, we will show you the split screen so that you can see how they work together, but you may always choose to use the UI by itself.
+
+<!-- Where are JSON files created here stored? Can that location be configured? -->
+
+Edits made to either interface will be immediately reflected in the other. For example, if you enter a value in any field in the left hand UI, it will be added to the JSON file on the right hand. 
+
+To dismiss the **JSON Editor** screen, click the toggle again.
+
+![Split Screen](/1.14/img/GUI-Jobs-Split-Screen.png)
+
+Figure 5 - Split screen
+
+To invoke the **JSON Editor**, click on the **JSON Editor** toggle switch next to the **Submit** button. 
+
+## Configuring a job
+
+You will see eight tabs on the left hand side of the screen. The following tabs help you manage job description, configuration and management:
+
+- [General](#general)
+- [Container Runtime](#container-runtime) 
+- [Schedule](#schedule) 
+- [Environment](#environment)
+- [Volumes](#volumes)
+- [Placement](#placement)
+- [Run Configuration](#run-configuration)
+- [Secrets](#secrets)
     
-        If you select **Command Only**, you must specify the command or command arguments to execute. When the command you specify is executed, it is automatically wrapped by the command `/bin/sh -c job.cmd`. You must include either `cmd` or `args` in the command to be executed. It is invalid to supply both `cmd` and `args` in the same job.
+### General
 
-        If you select the **Command Only** option, none of the **Container Runtime** settings are applicable for the job. You can continue creating the job by defining **Schedule** settings, adding advanced **Run Configuration** options, or clicking **Submit**.
+Select **General** to edit the most basic job settings, such as the job identifier, CPU, memory, and disk requirements.
 
-    * Select **Container Image** to specify a container image for the new job. If you select this option, type the name of the container image you want to run. For example, you can type a container image name such as `ubuntu:14.04`. You can then use the **Command** field to specify the command and any additional runtime parameters available in the container for running the new job. 
-    
-        If you select the **Container Image** option, you can continue creating the job by:
-        - Configuring **Container Runtime** settings for the job.
-        - Defining a job **Schedule**, if applicable.
-        - Adding advanced **Run Configuration** options, if applicable.
-        - Clicking **Submit**.
+The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/) documentation of the UI.
 
-1. Click **Container Runtime** to specify whether the container for the new job runs using the Universal Container Runtime or the Docker engine. 
+<!-- * **Job ID** - Defines a unique identifier for the new job. The Job ID is a required field. You also use this setting to manage job operations.
+* **Description** - Provides an optional description of the new job.
+* **CPUs** - Specifies the number of CPU cores your job requires. This field is required for all jobs.
+* **Mem** - Specifies the amount of memory, in MB, your job requires. This field is required for all jobs.
+* **Disk** - Specifies the amount of disk space, in MB, your job requires. This field is required for all jobs.
+* **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks that are launched using DC/OS [Universal Container Runtime](/1.14/deploying-services/containerizers/ucr/) containers. Support for GPU resources is are not available for Docker containers or images.
 
-    * If you select **Universal Container Runtime**, you can select Force Pull Image On Launch to automatically pull the latest image before launching each instance.
-    
-    * If you select **Docker Engine**, you can select the following additional options:
-        - Select **Force Pull Image On Launch** to automatically pull the latest image before launching each instance.
-        - Select **Grant Runtime Privileges** to run the specified Docker image in privileged mode.
-        - Click **Add Parameter** to specify additional Docker runtime parameter names and values for the new job, if applicable. You can add multiple parameter names and corresponding values by clicking **Add Parameter** for each parameter name and value you want to include.
-        - Click **Add Arg** to specify additional command-line arguments for the new job, if applicable. You can add multiple arguments by clicking **Add Arg** for each argument you want to include.
+Select the appropriate Job Type to run one or more specific commands or a Docker container image.
+* Select **Command Only** to specify one or more commands you want the new job to execute. 
+
+    If you select **Command Only**, you must specify the command or command arguments to execute. When the command you specify is executed, it is automatically wrapped by the command `/bin/sh -c job.cmd`. You must include either `cmd` or `args` in the command to be executed. It is invalid to supply both `cmd` and `args` in the same job.
+
+    If you select the **Command Only** option, none of the **Container Runtime** settings are applicable for the job. You can continue creating the job by defining **Schedule** settings, adding advanced **Run Configuration** options, or clicking **Submit**.
+
+* Select **Container Image** to specify a container image for the new job. If you select this option, type the name of the container image you want to run. For example, you can type a container image name such as `ubuntu:14.04`. You can then use the **Command** field to specify the command and any additional runtime parameters available in the container for running the new job. 
+
+    If you select the **Container Image** option, you can continue creating the job by:
+    - Configuring **Container Runtime** settings for the job.
+    - Defining a job **Schedule**, if applicable.
+    - Adding advanced **Run Configuration** options, if applicable.
+    - Clicking **Submit**. -->
+
+### Container Runtime
+
+Select **Container Runtime** to specify whether the container for the new job runs using the Universal Container Runtime or the Docker engine. 
+
+* If you select **Universal Container Runtime**, you can select Force Pull Image On Launch to automatically pull the latest image before launching each instance.
+
+* If you select **Docker Engine**, you can select the following additional options:
+    - Select **Force Pull Image On Launch** to automatically pull the latest image before launching each instance.
+    - Select **Grant Runtime Privileges** to run the specified Docker image in privileged mode.
+    - Click **Add Parameter** to specify additional Docker runtime parameter names and values for the new job, if applicable. You can add multiple parameter names and corresponding values by clicking **Add Parameter** for each parameter name and value you want to include.
+    - Click **Add Arg** to specify additional command-line arguments for the new job, if applicable. You can add multiple arguments by clicking **Add Arg** for each argument you want to include.
+
+
+### Schedule
 
 1. Click **Schedule**, then click **Enable Schedule** to specify a schedule for when the job runs.
 
-    Select **Enable Schedule** if you want to run the job using the schedule you define with the following settings:
+1. Select **Enable Schedule** if you want to run the job using the schedule you define with the following settings:
 
     - Type a **Schedule ID** to define a unique identifier for the job schedule. The schedule identifier must be a string with at least 2 characters and it can only contain digits (`0-9`), dashes (`-`), and lowercase letters (`a-z`). The schedule identifier must not begin or end with a dash.
 
@@ -77,7 +129,15 @@ You can manage the most common job-related activity interactively through the DC
 
     - Select **Concurrency Policy** if you want to allow new job instances to run if there's already a job instance running.
 
-    After you define the schedule, you can activate or deactivate it by selecting or deselecting the **Enable Schedule** option. You can also modify or remove the schedule when needed after you have submitted the new job definition.
+1. After you define the schedule, you can activate or deactivate it by selecting or deselecting the **Enable Schedule** option. You can also modify or remove the schedule when needed after you have submitted the new job definition.
+
+### Environment
+
+### Volumes
+
+### Placement
+
+### Run Configuration
 
 1. Click **Run Configuration** to specify advanced settings for the new job.
 
@@ -100,6 +160,10 @@ You can manage the most common job-related activity interactively through the DC
         - If you choose **On Failure**, you can set a time limit for attempting to restart the job using the **Keep Trying Time** field. For example, set the **Keep Trying Time** to 30 if you want to try restarting the job after waiting for 30 seconds. If no value is set for Keep Trying Time, DC/OS will continue attempting to restart the failed job indefinitely.
 
     - Click **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/1.14/tutorials/task-labels/).
+
+### Secrets
+
+## Submit
 
 1. Click **Submit** to create the job.
 
