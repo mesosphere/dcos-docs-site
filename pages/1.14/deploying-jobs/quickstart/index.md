@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Creating Jobs
+navigationTitle: Creating Jobs
 title: Creating Jobs
 menuWeight: 10
 excerpt: Creating and administering jobs using the UI, the CLI, or the API
-# beta: true
 enterprise: false
 render: mustache
 model: /data.yml
@@ -12,42 +11,25 @@ model: /data.yml
 
 You can create and administer jobs for the DC/OS cluster in any of the following ways:
 - interactively with the [DC/OS UI](#managing-jobs)
-- interactively or programmatically with the DC/OS CLI
-- directly through calls to the DC/OS application programming interface (API) for job-related operations
+- interactively or programmatically with the DC/OS [CLI](#cli)
+- directly through calls to the DC/OS application programming interface ([API](#jobs-api) for job-related operations
 
-The DC/OS application programming interface (API) provides the underlying functionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
+The DC/OS UI only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the CLI [`dcos job`](/1.14/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.14/deploying-jobs/quickstart/#jobs-api).
+
+The DC/OS application programming interface (API) provides underlying functionality that you can access through the DC/OS UI and CLI. In most cases, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
 
 <a name="managing-jobs"></a>
+
 # Managing jobs with the DC/OS UI
-You can manage the most common job-related activity interactively through the DC/OS UI. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS UI only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/1.14/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.14/deploying-jobs/quickstart/#jobs-api).
+You can manage the most common job-related activity interactively through the DC/OS UI. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the UI. 
 
-## Add a job
+![Jobs](/1.14/img/GUI-Jobs-Main.png)
 
-1. Navigate to the URL for the DC/OS web-based console in a web browser.
-
-    There are two ways to create a job in the DC/OS UI.
-
-    - If you have no jobs configured, the Jobs screen will contain a notice that you have no active jobs, and will display a **Create a Job** button. 
-
-    ![No active jobs](/1.14/img/GUI-Jobs-No-Active-Jobs.png)
-
-    Figure 1 - Create a Job button
-
-    -  Regardless of whether you have active jobs or not, you can always click on the **+** sign in the upper right corner to create a new job.
-
-    ![Plus sign](/1.14/img/GUI-Jobs-Create-a-Job.png)
-
-    Figure 2 - Click on plus sign
-
-    A configuration screen for a new job will appear. Note that this screen is the same as that used for editing jobs. 
-
-    ![Job configuration screen](/1.14/img/GUI-Jobs-New-Job.png)
-
-    Figure 3 - Job configuration screen
+Figure 1 - Jobs tab and jobs list
 
 ### Split screen
 
-Note that in all the **Jobs** configuration screens, you can choose to view the UI alone, or split the screen between the UI and a **JSON Editor** window. In the following discussion of the **Jobs** configuration options, we will show you the split screen so that you can see how they work together, but you may always choose to use the UI by itself.
+Note that in all the **Jobs** UI configuration screens, you can choose to view the UI alone, or split the screen between the UI and a **JSON Editor** window. In the following discussion of the **Jobs** configuration options, we will show you the split screen so that you can see how they work together, but you may always choose to use the UI by itself. To invoke the **JSON Editor**, click on the **JSON Editor** toggle switch next to the **Submit** button. 
 
 <!-- Where are JSON files created here stored? Can that location be configured? -->
 
@@ -57,28 +39,56 @@ To dismiss the **JSON Editor** screen, click the toggle again.
 
 ![Split Screen](/1.14/img/GUI-Jobs-Split-Screen.png)
 
-Figure 5 - Split screen
+Figure 2 - Split screen
 
-To invoke the **JSON Editor**, click on the **JSON Editor** toggle switch next to the **Submit** button. 
+## Add a job
+
+There are two ways to create a job in the DC/OS UI.
+
+- If you have no jobs configured, the Jobs screen will contain a notice that you have no active jobs, and will display a **Create a Job** button. 
+
+![No active jobs](/1.14/img/GUI-Jobs-No-Active-Jobs.png)
+
+Figure 3 - Create a Job button
+
+-  Regardless of whether you have active jobs or not, you can always click on the **+** sign in the upper right corner to create a new job.
+
+![Plus sign](/1.14/img/GUI-Jobs-Create-a-Job.png)
+
+Figure 4 - Click on plus sign
+
+A configuration screen for a new job will appear. Note that this screen is the same as that used for editing jobs. 
+
+![Job configuration screen](/1.14/img/GUI-Jobs-New-Job.png)
+
+Figure 5 - Job configuration screen
 
 ## Configuring a job
 
-You will see eight tabs on the left hand side of the screen. The following tabs help you manage job description, configuration and management:
+You will see eight tabs on the left hand side of the screen. These help you name, configure and manage your job:
 
-- [General](#general)
-- [Container Runtime](#container-runtime) 
-- [Schedule](#schedule) 
-- [Environment](#environment)
-- [Volumes](#volumes)
-- [Placement](#placement)
-- [Run Configuration](#run-configuration)
-- [Secrets](#secrets)
+| Name | Description |
+|------|--------------|
+| [General](#general) | Sets the most basic job settings, such as the job identifier, CPU, memory and disk requirements.|
+| [Container Runtime](#container-runtime) | Specifies whether the job runs using the Universal Container Runtime or the Docker Engine. |
+| [Schedule](#schedule) | Sets up a schedule for your job. You can use the `cron` format. |
+| [Environment](#environment) | Specifies environment variables to be attached to each instance of your job.|
+| [Volumes](#volumes) | Configures a stateful job by setting up a persistent volume.|
+| [Placement](#placement) | Specifies the placement of agent nodes in regions and zones for high availability, or to expand capacity to new regions.|
+| [Run Configuration](#run-configuration) | Advanced settings for the job. |
+| [Secrets](#secrets) | Sets up a Secret Store to secure important values like private keys, API tokens, and so forth. |
     
+Detailed information about the parameters and values for each of the configuration screens can be found in the [Jobs](/1.14/gui/jobs/) documentation. 
+
 ### General
 
 Select **General** to edit the most basic job settings, such as the job identifier, CPU, memory, and disk requirements.
 
-The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/) documentation of the UI.
+![Jobs](/1.14/img/GUI-Jobs-General.png)
+
+Figure 6 - General configuration tab
+
+The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#general/) documentation of the UI.
 
 <!-- * **Job ID** - Defines a unique identifier for the new job. The Job ID is a required field. You also use this setting to manage job operations.
 * **Description** - Provides an optional description of the new job.
@@ -104,42 +114,87 @@ Select the appropriate Job Type to run one or more specific commands or a Docker
 
 ### Container Runtime
 
-Select **Container Runtime** to specify whether the container for the new job runs using the Universal Container Runtime or the Docker engine. 
+Select **Container Runtime** to specify whether the container for the new job runs using the Universal Container Runtime or the Docker engine. We support the **Universal Container Runtime (UCR)** and the **Docker Engine**. 
 
-* If you select **Universal Container Runtime**, you can select Force Pull Image On Launch to automatically pull the latest image before launching each instance.
+### UCR
+
+**Universal Container Runtime** uses the native Mesos engine and supports GPU resources. This is the recommended selection.
+
+![Jobs](/1.14/img/GUI-Jobs-Container-Runtime.png)
+
+Figure 7 - **Jobs > Container Runtime** tab
+
+### Docker Engine
+
+The **Docker Engine** is Docker's container runtime. It requires an image and does not support GPU resources.
+
+![Jobs](/1.14/img/GUI-Jobs-Container-Runtime-2.png)
+
+Figure 8 - **Jobs > Container Runtime > Docker Engine** tab
+
+<!-- * If you select **Universal Container Runtime**, you can select Force Pull Image On Launch to automatically pull the latest image before launching each instance.
 
 * If you select **Docker Engine**, you can select the following additional options:
     - Select **Force Pull Image On Launch** to automatically pull the latest image before launching each instance.
     - Select **Grant Runtime Privileges** to run the specified Docker image in privileged mode.
     - Click **Add Parameter** to specify additional Docker runtime parameter names and values for the new job, if applicable. You can add multiple parameter names and corresponding values by clicking **Add Parameter** for each parameter name and value you want to include.
-    - Click **Add Arg** to specify additional command-line arguments for the new job, if applicable. You can add multiple arguments by clicking **Add Arg** for each argument you want to include.
+    - Click **Add Arg** to specify additional command-line arguments for the new job, if applicable. You can add multiple arguments by clicking **Add Arg** for each argument you want to include. -->
 
+The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#container-runtime/) documentation of the UI.
 
 ### Schedule
 
-1. Click **Schedule**, then click **Enable Schedule** to specify a schedule for when the job runs.
+You can set up jobs with a scheduler using the `cron` format. Select **Schedule** to specify a schedule for when the job runs.
 
-1. Select **Enable Schedule** if you want to run the job using the schedule you define with the following settings:
+![Schedule](/1.14/img/GUI-Jobs-Schedule.png)
 
-    - Type a **Schedule ID** to define a unique identifier for the job schedule. The schedule identifier must be a string with at least 2 characters and it can only contain digits (`0-9`), dashes (`-`), and lowercase letters (`a-z`). The schedule identifier must not begin or end with a dash.
+Figure 9 - **Jobs > Schedule** tab
 
-    - Select **CRON Schedule**  to specify the schedule in `cron` format. Use [this crontab generator](http://crontab.guru) for help. You can also set a **Time Zone** to apply to the cron schedule. For example, you might have nodes in different time zones and want to run the job using a standardized UTC time or a specific local time zone such as America/New_York.
+The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#schedule/) documentation of the UI.
 
-    - Select **Starting Deadline** to set the time, in seconds, to start the job if it misses its scheduled time for any reason. Missed job executions are counted as failed jobs.
-
-    - Select **Concurrency Policy** if you want to allow new job instances to run if there's already a job instance running.
-
-1. After you define the schedule, you can activate or deactivate it by selecting or deselecting the **Enable Schedule** option. You can also modify or remove the schedule when needed after you have submitted the new job definition.
+After you define the schedule, you can activate or deactivate it by selecting or deselecting the **Enable Schedule** option. You can also modify or remove the schedule when needed after you have submitted the new job definition.
 
 ### Environment
 
+Select **Environment** to configure any environment values to be attached to each instance of your job that is launched.
+
+![Environment](/1.14/img/GUI-Jobs-Environment.png)
+
+Figure 10 - **Jobs > Environment** tab
+
+The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#environment/) documentation of the UI.
+
+
 ### Volumes
+
+Select the **Volumes** tab to create a stateful job by configuring a persistent volume. Persistent volumes enable instances to be restarted without data loss.
+
+![Volumes](/1.14/img/GUI-Jobs-Volumes.png)
+
+Figure 11 - **Jobs > Volumes** tab
+
+The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#volumes/) documentation of the UI.
 
 ### Placement
 
+You can configure the placement of agent nodes in regions and zones for high availability, or to expand capacity to new regions when necessary.
+
+![Placement](/1.14/img/GUI-Jobs-Placement.png)
+
+Figure 12 - **Jobs > Placement** tab
+
+The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#placement/) documentation of the UI.
+
 ### Run Configuration
 
-1. Click **Run Configuration** to specify advanced settings for the new job.
+Select **Run Configuration** to specify advanced settings for the new job.
+
+![Run Config](/1.14/img/GUI-Jobs-Run-Configuration.png)
+
+Figure 13 - **Jobs > Run Configuration** tab
+
+
+<!-- 1. Click **Run Configuration** to specify advanced settings for the new job.
 
     - Set **Max Launch Delay**  to specify the maximum number of seconds to wait for a job to start running after it is launched by a scheduled job run or manually by a user. If the job does not start running within the maximum number of seconds allowed, the job is aborted.
 
@@ -159,9 +214,20 @@ Select **Container Runtime** to specify whether the container for the new job ru
         
         - If you choose **On Failure**, you can set a time limit for attempting to restart the job using the **Keep Trying Time** field. For example, set the **Keep Trying Time** to 30 if you want to try restarting the job after waiting for 30 seconds. If no value is set for Keep Trying Time, DC/OS will continue attempting to restart the failed job indefinitely.
 
-    - Click **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/1.14/tutorials/task-labels/).
+    - Click **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/1.14/tutorials/task-labels/). -->
+
+The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#run-configuration/) documentation of the UI.
+
 
 ### Secrets
+
+Select the {{ model.productName }} Secret Store to secure important values like private keys, API tokens, and database passwords. 
+
+![Secrets](/1.14/img/job-artifacts-uri.png)
+
+Figure 14 - Secrets tab
+
+The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#secrets/) documentation of the UI.
 
 ## Submit
 
@@ -171,22 +237,32 @@ Select **Container Runtime** to specify whether the container for the new job ru
 
     ![Jobs List](/1.14/img/job-list-scheduled.png)
 
-    Figure 3. Jobs list
+    Figure 15. Jobs list
 
 ## Add a job to a job group
-You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.14/deploying-jobs/job-groups/).
+You can add a job to a an existing job group or create a new job group when you create the job. Use periods in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. 
+
+For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.14/deploying-jobs/job-groups/).
 
 ## View, modify, or remove a specific job
 You can view and modify job-related information, including details about the run history and configuration settings interactively through the DC/OS UI. From the **Jobs** tab, click the name of your job. You can then use the menu on the upper right to edit, run, disable, or delete a selected job. 
 
 ![Viewing and modifying job details](/1.14/img/job-menu-options.png)
 
-Figure 4. Viewing and modifying job details
+Figure 16. Viewing and modifying job details
 
 While the job is running, you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
 
+You can see that the **Edit Job** screen contains the same configuration tabs as the **New Job** screen:
+
+![Jobs](/1.14/img/GUI-Jobs-General.png)
+
+Figure 17 - General configuration tab in **Edit Job** screen
+
+<a name="cli"></a>
+
 # Managing jobs with the DC/OS CLI
-You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To see a full list of available commands with usage information, run `dcos job --help`.
+You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To see a full list of available commands with usage information, run `dcos job --help` or consult the [CLI documentation](/1.14/cli/command-reference/dcos-job/).
 
 <a name="cli-add-job"></a>
 
@@ -320,7 +396,7 @@ You can trigger a job to run:
 - automatically based on a schedule you have defined 
 - programmatically through automation with or without a schedule
 
-You can use any of these approaches to start a job instance that is referred to as a job run. For example, you can use the DC/OS command-line interface to start jobs regardless of whether you have defined a schedule or not. Starting a job manually from the command-line is similar to starting a job by clicking **Run now** using the DC/OS web-based console.
+You can use any of these approaches to start a job instance that is referred to as a job run. For example, you can use the DC/OS CLI to start jobs regardless of whether you have defined a schedule or not. Starting a job manually from the command-line is similar to starting a job by clicking **Run now** using the DC/OS UI.
 
 To start a job run on-demand outside of any scheduled job activity, run a command similar to the following:
 
@@ -334,12 +410,12 @@ For example, if the job id is `mytestjob`, run:
 dcos job run mytestjob
 ```
 
-Starting a job manually from the command-line or through the DC/OS web-based console triggers a new job run each time the command is executed. Jobs that are triggered manually on-demand ignore concurrency policy settings. 
+Starting a job manually from the command-line or through the DC/OS UI triggers a new job run each time the command is executed. Jobs that are triggered manually on-demand ignore concurrency policy settings. 
 
 If a schedule is used to start a job, however, the job's concurrency policy determines whether a new job run instance is triggered. Being able to control whether jobs run concurrently is one of the main differences between triggering a job to run manually or using a schedule.
 
 ## Remove a job from the command-line
-You can remove a job using the command-line program dcos job remove <job-id> as long as the job does not have any active job instances running. If a job has any currently active running instances, you must stop all of the currently-active jobs. After you stop all running job instances, you can remove the job using the `dcos job remove <job-id>` command. 
+You can remove a job using the command-line program [`dcos job remove <job-id>`](/1.14/cli/command-reference/dcos-job/dcos-job-remove/) as long as the job does not have any active job instances running. If a job has any currently active running instances, you must stop all of the currently-active jobs. After you stop all running job instances, you can remove the job using the `dcos job remove <job-id>` command. 
 
 To remove a job:
 1. Check the status of active jobs by running a command similar to the following:
@@ -423,14 +499,16 @@ To get the log for only a specific job run, use a job run ID from `dcos job hist
 ```
 dcos task log --completed <job-run-id>
 ```
+<a name="jobs-api"></a>
 
-# <a name="jobs-api"></a>Using the Jobs API
-You can also create and administer jobs through calls to the Jobs API endpoints. This section highlights the most common tasks you perform through job-related API calls. For more complete information about the Jobs API, see the  [Jobs API reference](http://dcos.github.io/metronome/docs/generated/api.html) information.
+# Managing jobs with the DC/OS API
+
+You can create and manage jobs through calls to the Jobs API endpoints. This section highlights the most common tasks you perform through job-related API calls. For more complete information about the Jobs API, see the  [Jobs API reference](http://dcos.github.io/metronome/docs/generated/api.html) information.
 
 ## Preparing to use API cals
 The code examples in this section illustrate how to include Jobs API calls to perform job-related tasks with the client URL (cURL) program. For detailed information about using `curl` command, see the [`curl` man page](https://curl.haxx.se/docs/manpage.html). 
 
-In addition, one important difference between using the DC/OS command-line interface or web-based console and the API is how you configure the job schedule. The DC/OS CLI and web-based console support a combined JSON format that allows you to specify a schedule in the job descriptor. To schedule a job using the Jobs API, you must use two separate calls: 
+In addition, one important difference between using the DC/OS CLI or UI and the API is how you configure the job schedule. The DC/OS CLI and UI support a combined JSON format that allows you to specify a schedule in the job descriptor. To schedule a job using the Jobs API, you must use two separate calls: 
 - Use one call to add an **unscheduled** job.
 - Use a second call to associate a specific [schedule file](#add-sched) (`schedule-file.json`) with the job.
 
@@ -478,7 +556,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos
 ```
 
 ## Start a job using an API call
-You can use the DC/OS API to start jobs programmatically. Similar to starting a job using the web-based console or command-line interface, you must specify the job identifer in the call.
+You can use the DC/OS API to start jobs programmatically. Similar to starting a job using the UI or CLI, you must specify the job identifer in the call.
 
 To trigger a job run to start you can use a REST API call similar to the following:
 
