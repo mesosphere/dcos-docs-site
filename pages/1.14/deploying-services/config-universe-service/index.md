@@ -1,14 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  Configuring {{ model.packageRepo }} Services
-title: Configuring {{ model.packageRepo }} Services
+navigationTitle:  Configuring Services
+title: Configuring Services
 menuWeight: 2
 excerpt: Using the DC/OS CLI to configure services
 render: mustache
 model: /data.yml
 enterprise: false
 ---
-
 
 This topic describes how to use the DC/OS CLI to configure services. You can also customize services by using the [**Services**](/1.14/gui/services/) tab in the DC/OS UI.
 
