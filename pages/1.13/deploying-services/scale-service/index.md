@@ -38,7 +38,11 @@ This tutorial shows how to scale a service using the UI and the CLI.
     Figure 4. Service scaling
 
 1. Click the name of your service to see your scaled service.
+<<<<<<< HEAD
    ![post scale](/1.13/img/GUI-Services-Scaled-Service.png)
+=======
+   ![post scale](/1.13/img/post-scale-services.png)
+>>>>>>> wip-dcos-101-test
 
    Figure 5. Services list 
 

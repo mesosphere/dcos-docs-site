@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  Labeling Tasks and Jobs
-title: Labeling Tasks and Jobs
-menuWeight: 5
-excerpt: Tutorial - Defining labels using the DC/OS web interface and the Marathon HTTP API
+navigationTitle:  Labeling tasks and jobs
+title: Labeling tasks and jobs
+excerpt: Defining labels using the DC/OS web interface and the Marathon HTTP API
 render: mustache
 model: /data.yml
+menuWeight: 5
 enterprise: false
 ---
 
@@ -54,7 +54,7 @@ You can attach labels to jobs either via the **Jobs** tab of the DC/OS web inter
 
 From the DC/OS web interface, click the **Jobs** tab, then click on the name of the Job. This will take you to the individual Job page. Click **Edit** in the upper right corner. From the left hand side of the Edit Job page, select **Labels**.
 
-![Job label](/img/job-label.png)
+![Job label](/1.13/img/job-label.png)
 
 Figure 1. Assign a job label
 

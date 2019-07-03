@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Debugging Applications on DC/OS
-title: Tutorial -  Debugging Applications on DC/OS
+navigationTitle: Debugging applications on DC/OS
+title: Debugging applications on DC/OS
 excerpt: Debugging application deployment issues in distributed systems
 render: mustache
 model: /data.yml
