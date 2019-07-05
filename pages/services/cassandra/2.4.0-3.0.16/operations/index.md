@@ -250,7 +250,6 @@ dcos {{ model.packageName }} --name=<service-name> plan start restore-s3 \
     -p AWS_REGION=$AWS_REGION \
     -p S3_BUCKET_NAME=$S3_BUCKET_NAME
 ```
-It may also be necessary to set the `AWS_SESSION_ID` or `AWS_SESSION_TOKEN` depending on how you authenticate with AWS.
 
 To view the status of this plan from the command line:
 ```
