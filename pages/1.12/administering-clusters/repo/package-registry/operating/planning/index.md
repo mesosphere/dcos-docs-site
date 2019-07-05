@@ -57,7 +57,7 @@ For the Docker daemon to be able to fetch images stored in DC/OS Package Registr
 To configure the Docker daemon in all of the DC/OS Agents (Public and Private) to trust the default configuration of the DC/OS Package Registry execute the following commands:
 
 ```bash
-sudo mkdir -p /etc/docker/certs.d/registry.marathon.l4lb.thisdcos.:443
+sudo mkdir -p /etc/docker/certs.d/registry.marathon.l4lb.thisdcos.directory:443
 sudo cp /run/dcos/pki/CA/ca-bundle.crt /etc/docker/certs.d/registry.marathon.l4lb.thisdcos.directory:443/ca.crt
 sudo systemctl restart docker
 ```
