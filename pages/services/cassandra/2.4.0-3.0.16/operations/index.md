@@ -98,7 +98,7 @@ recovery (IN_PROGRESS)
 
 ## Backing Up to S3
 
-You can back up an entire cluster's data and schema to Amazon S3 using the `backup-s3` plan. This plan requires the following parameters to run:
+You can back up an entire cluster's data and schema to Amazon S3 or S3 compatible storage using the `backup-s3` plan. This plan requires the following parameters to run:
 - `SNAPSHOT_NAME`: the name of this snapshot. Snapshots for individual nodes will be stored as S3 folders inside of a top level `snapshot` folder.
 - `CASSANDRA_KEYSPACES`: the {{ model.techShortName }} keyspaces to back up. The entire keyspace, as well as its schema, will be backed up for each keyspace specified.
 - `AWS_ACCESS_KEY_ID`: the access key ID for the AWS IAM user running this backup
@@ -107,6 +107,11 @@ You can back up an entire cluster's data and schema to Amazon S3 using the `back
 - `AWS_SESSION_TOKEN`: needed if you’re including temporary security credentials in the file
 - `S3_BUCKET_NAME`: the name of the S3 bucket in which to store this backup
 - `HTTPS_PROXY`: specifications for the {{ model.TechName }} backup plan, taken from `config.yaml`.
+
+Optional parameters:
+- `S3_ENDPOINT_URL`: URL of S3 compatible storage. If you want to backup to S3 compatible storage, Please provide this parameter in `backup-s3` plan.
+- `AWS_SESSION_ID`: It may also be necessary to set the `AWS_SESSION_ID` depending on how you authenticate with AWS.
+- `AWS_SESSION_TOKEN`: It may also be necessary to set the `AWS_SESSION_TOKEN` depending on how you authenticate with AWS. 
 
 Make sure that you provision your nodes with enough disk space to perform a backup. {{ model.TechName }} backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables, so you will need half of your total available space to be free to back up every keyspace at once.
 
@@ -132,7 +137,6 @@ dcos {{ model.packageName }} --name=<service-name> plan start backup-s3 \
     -p S3_BUCKET_NAME=$S3_BUCKET_NAME
     -p HTTPS_PROXY=http://internal.proxy:8080
 ```
-It may also be necessary to set the `AWS_SESSION_ID` or `AWS_SESSION_TOKEN` depending on how you authenticate with AWS.
 
 If you are backing up multiple keyspaces, they must be separated by spaces and wrapped in quotation marks when supplied to the `plan start` command, as in the example above. If the `CASSANDRA_KEYSPACES` parameter isn't supplied, then every keyspace in your cluster will be backed up.
 
@@ -218,12 +222,17 @@ All restore plans will restore the schema from every keyspace backed up with the
 
 ## Restoring From S3
 
-Restoring cluster data is similar to backing it up. The `restore-s3` plan assumes that your data is stored in an S3 bucket in the format that `backup-s3` uses. The restore plan has the following parameters:
+Restoring cluster data is similar to backing it up. The `restore-s3` plan assumes that your data is stored in an S3 bucket in the format that `backup-s3` uses. The restore plan has the following required parameters:
 - `SNAPSHOT_NAME`: the snapshot name from the `backup-s3` plan
 - `AWS_ACCESS_KEY_ID`: the access key ID for the AWS IAM user running this restore
 - `AWS_SECRET_ACCESS_KEY`: the secret access key for the AWS IAM user running this restore
 - `AWS_REGION`: the region of the S3 bucket being used to store the backup being restored
 - `S3_BUCKET_NAME`: the name of the S3 bucket where the backup is stored
+
+Optional parameters:
+- `S3_ENDPOINT_URL`: URL of S3 compatible storage. If you want to restore from S3 compatible storage, Please provide this parameter in `restore-s3` plan.
+- `AWS_SESSION_ID`: It may also be necessary to set the `AWS_SESSION_ID` depending on how you authenticate with AWS.
+- `AWS_SESSION_TOKEN`: It may also be necessary to set the `AWS_SESSION_TOKEN` depending on how you authenticate with AWS. 
 
 To initiate this plan from the command line:
 ```
