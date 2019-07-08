@@ -5,7 +5,7 @@ title: dcos node log
 menuWeight: 9
 excerpt: Displaying Mesos logs for nodes
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

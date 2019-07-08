@@ -5,7 +5,7 @@ title: Using Custom Marathon
 menuWeight: 39
 excerpt: Deploying non-native instances of Marathon
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

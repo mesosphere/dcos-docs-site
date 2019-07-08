@@ -5,7 +5,7 @@ title: Agent Routes
 menuWeight: 11
 excerpt: Admin Router running on DC/OS agent nodes.
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 Admin Router Agent runs on DC/OS agent nodes. It exposes the following API routes.
 

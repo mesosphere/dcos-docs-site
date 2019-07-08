@@ -5,7 +5,7 @@ title: dcos security org groups grant
 menuWeight: 143
 excerpt: Granting permissions to a group
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

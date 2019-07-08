@@ -5,7 +5,7 @@ title: Monitoring with Nagios
 menuWeight: 0
 excerpt: Monitoring a DC/OS cluster with Nagios
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

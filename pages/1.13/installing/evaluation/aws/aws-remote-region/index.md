@@ -5,7 +5,7 @@ title: Multi-Region DC/OS on AWS using the Universal Installer
 navigationTitle: AWS Multi-Region Support
 menuWeight: 1
 enterprise: true
-model: /data.yml
+model: /1.13/data.yml
 render: mustache
 ---
 

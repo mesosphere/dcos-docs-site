@@ -5,7 +5,7 @@ title: Load Balancing and Virtual IPs (VIPs)
 menuWeight: 1
 excerpt: Understanding load balancing and virtual IPs
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

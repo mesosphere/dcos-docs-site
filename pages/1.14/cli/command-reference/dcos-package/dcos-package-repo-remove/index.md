@@ -5,7 +5,7 @@ title: dcos package repo remove
 menuWeight: 9
 excerpt: Removing a package repository from DC/OS
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

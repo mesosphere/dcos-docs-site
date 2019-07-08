@@ -5,7 +5,7 @@ title: dcos node ssh
 menuWeight: 15
 excerpt: Establishing an SSH connection to master or agent nodes
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

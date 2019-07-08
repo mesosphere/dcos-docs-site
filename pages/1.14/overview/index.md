@@ -5,7 +5,7 @@ title: Overview
 menuWeight: 20
 excerpt: Getting started with DC/OS fundamentals
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

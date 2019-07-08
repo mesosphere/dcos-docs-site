@@ -5,7 +5,7 @@ title: What is DC/OS?
 menuWeight: 1
 excerpt: Understanding DC/OS
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

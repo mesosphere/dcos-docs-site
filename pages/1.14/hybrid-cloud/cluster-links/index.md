@@ -4,7 +4,7 @@ navigationTitle:  Cluster Links
 title: Cluster Links
 menuWeight: 0
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 excerpt: Managing cluster links
 enterprise: true
 ---

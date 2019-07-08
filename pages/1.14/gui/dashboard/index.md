@@ -5,7 +5,7 @@ title: Dashboard
 menuWeight: 1
 excerpt: Using the Dashboard
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 The dashboard is the home page of the DC/OS UI. It provides a high-level overview of your DC/OS cluster.
 

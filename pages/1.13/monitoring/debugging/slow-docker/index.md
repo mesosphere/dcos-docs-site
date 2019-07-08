@@ -5,7 +5,7 @@ title: Slow Docker Apps and Deployments
 menuWeight: 40
 excerpt: Troubleshooting slow Docker apps and deployments
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

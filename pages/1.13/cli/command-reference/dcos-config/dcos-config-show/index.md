@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Showing the cluster configuration file
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 # Description

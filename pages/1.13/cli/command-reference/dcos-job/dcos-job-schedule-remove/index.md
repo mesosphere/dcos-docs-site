@@ -5,7 +5,7 @@ title: dcos job schedule remove
 menuWeight: 7
 excerpt: Removing a job schedule
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

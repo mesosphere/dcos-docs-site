@@ -5,7 +5,7 @@ title: dcos security cluster ca
 menuWeight: 12
 excerpt: Interacting with the DC/OS cluster CA
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

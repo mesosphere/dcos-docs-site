@@ -5,7 +5,7 @@ title: dcos task ls
 menuWeight: 7
 excerpt: Display the list of files in the Mesos task directory
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

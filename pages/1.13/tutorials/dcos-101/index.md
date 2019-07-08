@@ -5,7 +5,7 @@ title: Introducing DC/OS
 excerpt: Provides step-by-step instructions to introduce basic DC/OS cluster tasks
 menuWeight: 0
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 If you are setting up a demonstration environment as a proof-of-concept for testing or evaluation purposes or creating a small cluster for application development or a specific project, you can use the steps in this tutorial to get started using DC/OS. 
 

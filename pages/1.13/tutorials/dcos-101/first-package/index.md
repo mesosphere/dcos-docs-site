@@ -5,7 +5,7 @@ title: Install the first package
 excerpt: Illustrates how to install a sample service package (part 3)
 menuWeight: 3
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 Now that you have a DC/OS cluster installed and running on master and agent nodes and have installed the DC/OS command-line interface (CLI) to work with your cluster, you are ready to begin adding packages and applications to the cluster.
 

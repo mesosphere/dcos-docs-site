@@ -5,7 +5,7 @@ navigationTitle: Export DC/OS Metrics to Datadog
 menuWeight: 4
 excerpt: Sending DC/OS metrics to Datadog
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 beta: true
 ---
 

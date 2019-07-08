@@ -4,7 +4,7 @@ excerpt: Guide for DC/OS on AWS using the Universal Installer
 title: DC/OS on AWS using the Universal Installer
 navigationTitle: AWS
 menuWeight: 0
-model: /data.yml
+model: /1.14/data.yml
 render: mustache
 ---
 #include /install-include/aws-intro-and-prereqs.tmpl

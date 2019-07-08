@@ -5,7 +5,7 @@ title: dcos license status
 menuWeight: 4
 excerpt: Reviewing the cluster license status
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

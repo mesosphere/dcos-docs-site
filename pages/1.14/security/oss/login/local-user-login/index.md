@@ -4,7 +4,7 @@ navigationTitle:  Local User Login
 title: Local User Login
 excerpt: Logging in to DC/OS as a local user
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 menuWeight: 20
 ---
 

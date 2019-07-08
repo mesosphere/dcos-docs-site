@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: How to extend the command line interface
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 Plugins extend the functionality of the CLI for cluster specific actions.

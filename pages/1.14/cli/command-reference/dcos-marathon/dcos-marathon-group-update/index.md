@@ -6,7 +6,7 @@ menuWeight: 22
 excerpt: Updating Marathon group properties
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 

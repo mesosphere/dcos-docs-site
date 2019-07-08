@@ -5,7 +5,7 @@ title: dcos security cluster oidc show
 menuWeight: 65
 excerpt: Viewing the DC/OS Certificate Authority information
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

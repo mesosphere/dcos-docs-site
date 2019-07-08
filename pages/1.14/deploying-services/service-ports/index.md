@@ -5,7 +5,7 @@ title: Service Ports
 menuWeight: 3
 excerpt: Using Virtual IPs to manage service ports
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

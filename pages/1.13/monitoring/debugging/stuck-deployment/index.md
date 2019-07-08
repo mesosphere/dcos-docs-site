@@ -5,7 +5,7 @@ title: Stuck Deployments
 menuWeight: 30
 excerpt: Understanding offer matching and failed deployments
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

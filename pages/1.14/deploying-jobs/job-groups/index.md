@@ -5,7 +5,7 @@ title: Granting Access to Jobs
 menuWeight: 200
 excerpt: Granting access to jobs using the CLI or the UI
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

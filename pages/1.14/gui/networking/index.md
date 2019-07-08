@@ -5,7 +5,7 @@ title: Networking
 menuWeight: 6
 excerpt: Using the Network menu
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 The Networking page provides a comprehensive view of the health of your virtual IP addresses (VIPs).

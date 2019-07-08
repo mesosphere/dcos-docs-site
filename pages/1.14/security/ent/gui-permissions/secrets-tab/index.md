@@ -5,7 +5,7 @@ title: Granting Access to the Secrets Tab
 menuWeight: 50
 excerpt: Granting access to the Secrets tab
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

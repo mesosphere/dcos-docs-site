@@ -6,7 +6,7 @@ menuWeight: 17
 excerpt: Adding a Marathon group
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 

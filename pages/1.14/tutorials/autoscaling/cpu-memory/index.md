@@ -5,7 +5,7 @@ title: Tutorial - Autoscaling Marathon services using CPU and memory
 menuWeight: 0
 excerpt: Autoscaling Marathon services using CPU and memory
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

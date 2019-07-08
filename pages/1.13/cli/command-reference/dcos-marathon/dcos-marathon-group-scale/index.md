@@ -5,7 +5,7 @@ title: dcos marathon group scale
 menuWeight: 20
 excerpt: Scaling a group
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

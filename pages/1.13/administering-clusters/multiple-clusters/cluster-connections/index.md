@@ -5,7 +5,7 @@ title: Cluster Connections
 menuWeight: 3
 excerpt: Connecting to multiple DC/OS clusters 
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 You connect to multiple DC/OS clusters using [dcos cluster](/1.13/cli/command-reference/dcos-cluster/) commands.

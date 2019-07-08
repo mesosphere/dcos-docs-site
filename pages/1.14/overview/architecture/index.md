@@ -5,7 +5,7 @@ title: Architecture
 menuWeight: 2
 excerpt: Understanding DC/OS architecture
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

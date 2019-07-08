@@ -4,7 +4,7 @@ excerpt: Understanding distributed DNS
 title: Design - Distributed DNS
 navigationTitle: Distributed DNS
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 menuWeight: 3
 ---
 

@@ -5,7 +5,7 @@ title: Service Naming
 menuWeight: 0
 excerpt: Understanding Mesos-DNS service naming conventions
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

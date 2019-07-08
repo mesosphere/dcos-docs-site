@@ -5,7 +5,7 @@ title: CNI Plugin Support
 menuWeight: 30
 excerpt: Understanding CNI plugin support
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

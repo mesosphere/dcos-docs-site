@@ -5,7 +5,7 @@ title: dcos security org service-accounts keypair
 menuWeight: 175
 excerpt: Creating a public-private keypair
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

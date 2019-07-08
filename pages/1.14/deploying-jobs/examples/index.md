@@ -5,7 +5,7 @@ title: Job Examples
 menuWeight: 20
 excerpt: Examples of common usage scenarios for jobs.
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 beta: true
 enterprise: true
 ---

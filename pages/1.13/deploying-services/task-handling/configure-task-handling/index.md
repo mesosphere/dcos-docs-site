@@ -5,7 +5,7 @@ title: Configure Task Handling
 menuWeight: 0
 excerpt: Configuring Marathon for unreachable tasks
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

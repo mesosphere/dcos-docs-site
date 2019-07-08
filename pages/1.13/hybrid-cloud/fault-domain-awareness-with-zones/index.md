@@ -5,7 +5,7 @@ title: Fault Domain Awareness with Zones
 menuWeight: 5
 excerpt: Understanding fault domains
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

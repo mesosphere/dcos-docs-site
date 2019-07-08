@@ -5,7 +5,7 @@ title: dcos license list
 menuWeight: 3
 excerpt: Displaying the cluster licenses
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

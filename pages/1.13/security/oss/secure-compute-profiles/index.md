@@ -5,7 +5,7 @@ title: Secure computing profiles
 menuWeight: 31
 excerpt: Describes how to configure DC/OS to work with Linux secure computing (seccomp) profiles
 render: mustache
-model: /data.yml 
+model: /1.13/data.yml 
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

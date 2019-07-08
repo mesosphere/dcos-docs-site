@@ -5,7 +5,7 @@ title: Granting Access to the Networking Tab
 menuWeight: 40
 excerpt: Granting access to the Networking tab
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

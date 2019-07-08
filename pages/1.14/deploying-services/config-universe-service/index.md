@@ -5,7 +5,7 @@ title: Configuring Services
 menuWeight: 2
 excerpt: Using the DC/OS CLI to configure services
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

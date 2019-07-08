@@ -5,7 +5,7 @@ title: Logging Reference
 menuWeight: 3
 excerpt: Using the Logging API
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 beta: false
 enterprise: false
 ---

@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Managing cluster links with the Cluster Link API
 enterprise: true
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 You can use the Cluster Link API to manage cluster links.

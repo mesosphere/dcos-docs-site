@@ -5,7 +5,7 @@ title: Node Types
 menuWeight: 1
 excerpt: Understanding the three types of nodes
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

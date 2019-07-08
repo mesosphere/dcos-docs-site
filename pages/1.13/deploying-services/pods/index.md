@@ -5,7 +5,7 @@ title: Pods
 menuWeight: 85
 excerpt: Using pods to share group resources
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

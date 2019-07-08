@@ -5,7 +5,7 @@ title: dcos service log
 menuWeight: 1
 excerpt: Displaying the service logs
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

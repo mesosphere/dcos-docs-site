@@ -5,7 +5,7 @@ title: dcos security secrets list
 menuWeight: 315
 excerpt: Listing secrets
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

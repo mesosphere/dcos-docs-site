@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Restarting an application
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 

@@ -4,7 +4,7 @@ navigationTitle:  Load-Balancing
 excerpt: Part 8 of the DC/OS 101 tutorial
 title: Tutorial - Load-Balancing
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 menuWeight: 8
 ---
 

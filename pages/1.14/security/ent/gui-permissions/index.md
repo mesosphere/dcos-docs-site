@@ -5,7 +5,7 @@ title: Granting Access to the UI
 menuWeight: 10
 excerpt: Granting access to the DC/OS UI
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

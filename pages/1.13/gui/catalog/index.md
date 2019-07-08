@@ -5,7 +5,7 @@ title: Catalog
 menuWeight: 4
 excerpt: Using the Catalog page
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 The {{ model.packageRepo }} page shows all of the available DC/OS services. You can install packages from the DC/OS {{ model.packageRepo }} with a single click. The packages can be installed with defaults or customized directly in the web interface.

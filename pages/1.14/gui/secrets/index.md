@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: Using the Secrets page
 enterprise: true
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 You can manage secrets and certificates from the Secrets page.

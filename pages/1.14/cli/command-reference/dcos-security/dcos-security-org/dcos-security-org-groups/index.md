@@ -5,7 +5,7 @@ title: dcos security org groups
 menuWeight: 120
 excerpt: Managing groups and group membership
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 # Description

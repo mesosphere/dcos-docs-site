@@ -4,7 +4,7 @@ title: Scenario 1
 navigationTitle: Scenario 1
 excerpt: Tutorial - Resource Allocation
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 menuWeight: 1
 ---
 #include /include/tutorial-disclaimer.tmpl

@@ -5,7 +5,7 @@ title: dcos task log
 menuWeight: 5
 excerpt: Displaying the task log
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

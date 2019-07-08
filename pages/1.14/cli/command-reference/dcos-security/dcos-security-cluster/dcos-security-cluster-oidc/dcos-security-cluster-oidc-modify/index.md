@@ -5,7 +5,7 @@ title: cos security cluster oidc modify
 menuWeight: 60
 excerpt: Modifying an existing OIDC provider configuration
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 
