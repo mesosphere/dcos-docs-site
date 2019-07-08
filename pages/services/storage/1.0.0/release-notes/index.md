@@ -48,17 +48,17 @@ enterprise: true
 
 ## Limitations
 
-* <!-- https://jira.mesosphere.com/browse/ASF-2423 --> Only local volume storage is currently supported.
-* <!-- https://jira.mesosphere.com/browse/DCOS-52744 --> Only manual [upgrades](../upgrades/) of a running DC/OS Storage Service on an existing cluster are supported at this time.
+* [](https://jira.mesosphere.com/browse/ASF-2423) Only local volume storage is currently supported.
+* [](https://jira.mesosphere.com/browse/DCOS-52744) Only manual [upgrades](../upgrades/) of a running DC/OS Storage Service on an existing cluster are supported at this time.
 * Volume size must be a multiple of 4MiB, which is the default size of an LVM extent. Otherwise, DSS will reply with an error when attempting to create the volume.
 * When planning to manually remove a logical volume via `lvremove`, the operator is responsible for zeroing the volume prior to removal.
 
 ## Known Issues
 
-* <!-- https://jira.mesosphere.com/browse/ASF-1655 --> In the event of an unexpected device and/or volume change on an agent, you must restart the agent for the `devices` and `lvm` providers to reconcile the condition. For example, if you add or remove devices, restart the agent to update the `devices` volume provider with the changes.
+* [](https://jira.mesosphere.com/browse/ASF-1655) In the event of an unexpected device and/or volume change on an agent, you must restart the agent for the `devices` and `lvm` providers to reconcile the condition. For example, if you add or remove devices, restart the agent to update the `devices` volume provider with the changes.
 * `dcos storage` CLI subcommands may fail with a gateway timeout error, but still complete successfully in the background.
-* <!-- https://jira.mesosphere.com/browse/ASF-1655 --> The Mesos SLRP implementation is not yet compatible with multiple profiles that consume capacity from the same provider in different ratios (for example, RAID1 and linear). To work around this, create multiple providers, each of which is wholly dedicated to linear or RAID1.
-* <!-- https://jira.mesosphere.com/browse/DCOS-44108 --> The storage service should only list providers that it currently manages; incompletely removed providers may be incorrectly listed in some cases.
+* [](https://jira.mesosphere.com/browse/ASF-1655) The Mesos SLRP implementation is not yet compatible with multiple profiles that consume capacity from the same provider in different ratios (for example, RAID1 and linear). To work around this, create multiple providers, each of which is wholly dedicated to linear or RAID1.
+* [](https://jira.mesosphere.com/browse/DCOS-44108) The storage service should only list providers that it currently manages; incompletely removed providers may be incorrectly listed in some cases.
 * Deleting a volume may fail with "Cannot allocate memory" on some versions of CoreOS. To avoid this issue, ensure you are using a [supported version](/latest/version-policy/#dcos-platform-version-compatibility-matrix) of CoreOS.
 * Kernels from (including) 3.10.0-862.6.3.el7 up to (including) 3.10.0-862.11.6.el7 may panic as a result of LVM operations (https://access.redhat.com/solutions/3520511).
 * The DC/OS installer may issue one or more *WARNING* messages regarding missing kernel modules:
@@ -68,7 +68,9 @@ enterprise: true
     ```
     To resolve the issue, configure the `raid1` and `dm_raid` kernel modules to load at OS boot time.
 * Using NVMe storage with DSS may require additional modifications to the underlying OS. For more information see these [suggested commands and helper scripts](/latest/storage/external-storage/#ebs-specific).
-* <!-- https://jira.mesosphere.com/browse/DCOS-54794 --> The device names (e.g. `sda`) used to create volume providers can be unstable over time thus [precautions](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/persistent_naming) should be taken to avoid this condition.
+* [](https://jira.mesosphere.com/browse/DCOS-54794) The device names (e.g. `sda`) used to create volume providers can be unstable over time thus [precautions](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/persistent_naming) should be taken to avoid this condition.
+* [](https://jira.mesosphere.com/browse/DCOS-55524) The DC/OS UI shows an incorrect unit for DC/OS Storage volume size in the service create modal – the value will be treated as MiB instead of GiB as stated in the UI.
+* [](https://jira.mesosphere.com/browse/DCOS-44055) The DC/OS cluster's reported total disk resources is inflated due to double-counting of DSS devices.
 
 ## New Metrics
 All metrics related to the DC/OS Storage Service have a prefix of `csidevices_`, `csilvm_`, or `dss_`.
