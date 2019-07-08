@@ -1,11 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  Deploying a Load-Balanced Data Pipeline
-title: Deploying a Load-Balanced Data Pipeline
+navigationTitle: Deploying a load-balanced data pipeline
+title: Deploying a load-balanced data pipeline
 menuWeight: 3
-excerpt: Tutorial - Building a complete load-balanced data pipeline on DC/OS
-render: mustache
-model: /data.yml
+excerpt: Building a complete load-balanced data pipeline on DC/OS
 ---
 
 #include /include/tutorial-disclaimer.tmpl
@@ -54,23 +52,23 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 
 ## Install DC/OS services
 
-In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS web interface [**{{ model.packageRepo }}**](/gui/catalog/) tab. You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
+In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS web interface [**Catalog**](/gui/catalog/) tab. You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
 1.  Find and click the **cassandra** package, click **REVIEW & RUN**, and accept the default installation, by clicking **REVIEW & RUN** again, then **RUN SERVICE**. Cassandra spins up to 3 nodes. When prompted by the modal alert, click **OPEN SERVICE**.
 
-2.  Click the **{{ model.packageRepo }}** tab. Find and click the **kafka** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. Kafka spins up 3 brokers. When prompted by the modal alert, click **OPEN SERVICE**.
+2.  Click the **Catalog** tab. Find and click the **kafka** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. Kafka spins up 3 brokers. When prompted by the modal alert, click **OPEN SERVICE**.
 
-3.  Click the **{{ model.packageRepo }}** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
+3.  Click the **Catalog** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
 
 If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/1.13/mlb-install/). Depending on your [security mode](/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
 
-4.  Click the **{{ model.packageRepo }}** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
+4.  Click the **Catalog** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.
     2.  Click **REVIEW AND RUN** and click **RUN**. Click **OPEN SERVICE**.
 
 5.  Click the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
-    ![Services tab with all services shown.](/img/tweeter-services6-ee.png)
+    ![Services tab with all services shown.](/1.13/img/tweeter-services6-ee.png)
 
     Figure 1. Services tab showing Tweeter services
 
@@ -127,7 +125,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 
 4.  Go to the **Services** tab to verify your app is up and healthy.
 
-    ![Tweeter deployed](/img/tweeter-services7.png)
+    ![Tweeter deployed](/1.13/img/tweeter-services7.png)
 
     Figure 2. Tweeter deployed
 
@@ -151,7 +149,7 @@ In this step you deploy an app that automatically posts a large number of tweets
 
 3.  After the `post-tweets.json` is running, refresh your browser to see the incoming Shakespeare tweets.
 
-    ![Shakespeare tweets](/img/tweeter-shakespeare.png)
+    ![Shakespeare tweets](/1.13/img/tweeter-shakespeare.png)
 
     Figure 4. Shakespeare tweets
 

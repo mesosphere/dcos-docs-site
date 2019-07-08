@@ -1,11 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle:  Autoscaling with Marathon
-title: Tutorials - Autoscaling with Marathon
+title: Autoscaling with Marathon
 menuWeight: 3
 excerpt: Understanding autoscaling
-render: mustache
-model: /data.yml
 ---
 
 

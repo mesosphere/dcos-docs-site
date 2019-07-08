@@ -3,8 +3,6 @@ layout: layout.pug
 title: Scenario 2
 navigationTitle: Scenario 2
 excerpt: Tutorial - Out of Memory
-render: mustache
-model: /data.yml
 menuWeight: 11
 ---
 
