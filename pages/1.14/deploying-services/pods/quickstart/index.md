@@ -5,7 +5,7 @@ title: Quick Start
 menuWeight: 0
 excerpt: Launching a pod from the CLI or UI
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

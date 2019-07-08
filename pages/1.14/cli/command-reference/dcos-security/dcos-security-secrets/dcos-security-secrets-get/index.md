@@ -5,7 +5,7 @@ title: dcos security secrets get
 menuWeight: 315
 excerpt: Retrieving a secret
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

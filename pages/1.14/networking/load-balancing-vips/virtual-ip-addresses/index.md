@@ -5,7 +5,7 @@ title: Using Virtual IP Addresses
 menuWeight: 10
 excerpt: Using virtual IP addresses
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

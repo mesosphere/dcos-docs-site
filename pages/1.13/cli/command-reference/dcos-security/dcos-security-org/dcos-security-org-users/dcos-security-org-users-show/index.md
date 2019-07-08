@@ -5,7 +5,7 @@ title: dcos security org users show
 menuWeight: 210
 excerpt: Showing user information
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

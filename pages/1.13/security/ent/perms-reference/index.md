@@ -6,7 +6,7 @@ menuWeight: 40
 excerpt: Understanding DC/OS access and permissions references
 enterprise: true
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

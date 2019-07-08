@@ -6,7 +6,7 @@ menuWeight: 50
 excerpt: Viewing details of a backup
 enterprise: true
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 # Description

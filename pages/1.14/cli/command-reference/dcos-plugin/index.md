@@ -5,7 +5,7 @@ title: dcos plugin
 menuWeight: 12
 excerpt: Installing and managing DC/OS CLI plugins
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

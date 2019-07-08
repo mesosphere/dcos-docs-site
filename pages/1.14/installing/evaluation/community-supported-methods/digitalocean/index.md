@@ -5,7 +5,7 @@ title: Running DC/OS on DigitalOcean
 navigationTitle: DigitalOcean
 menuWeight: 40
 oss: true
-model: /data.yml
+model: /1.14/data.yml
 render: mustache
 ---
 

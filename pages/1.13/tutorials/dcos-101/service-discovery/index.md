@@ -5,7 +5,7 @@ title: Discover deployed services
 excerpt: Demonstrates how to discover and connect to services in your DC/OS cluster (part 7)
 menuWeight: 7
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 In a previous tutorial, you deployed a [sample app](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) that connected to the Redis service. If you reviewed the script for that app, you might have noticed these lines for connecting to the Redis service:
 

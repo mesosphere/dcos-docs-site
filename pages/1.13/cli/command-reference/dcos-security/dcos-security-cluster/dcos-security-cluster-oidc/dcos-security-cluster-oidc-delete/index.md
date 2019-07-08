@@ -5,7 +5,7 @@ title: dcos security cluster oidc delete
 menuWeight: 50
 excerpt: Deleting an OIDC provider configuration
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

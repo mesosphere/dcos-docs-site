@@ -6,7 +6,7 @@ menuWeight: 50
 excerpt: Using the web interface or CLI to manage your package repositories
 enterprise: true
 render: mustache
-model: ../../data.yml
+model: /1.13/data.yml
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

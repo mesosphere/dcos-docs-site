@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Creating and administering jobs using the UI, the CLI, or the API
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 You can create and administer jobs for the DC/OS cluster in any of the following ways:

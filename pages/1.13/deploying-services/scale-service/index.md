@@ -5,7 +5,7 @@ title: Scaling a Service
 menuWeight: 3
 excerpt: Scaling a service using the UI and the CLI
 enterprise: false
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

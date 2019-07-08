@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Backing up and restoring your cluster using the API
 enterprise: true
 render: mustache
-model: ../../../data.yml
+model: /1.14/data.yml
 ---
 
 You can use the Backup and Restore API to create and restore backups of your cluster.

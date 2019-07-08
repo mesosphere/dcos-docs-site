@@ -5,7 +5,7 @@ title: dcos job schedule show
 menuWeight: 8
 excerpt: Viewing a job schedule
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

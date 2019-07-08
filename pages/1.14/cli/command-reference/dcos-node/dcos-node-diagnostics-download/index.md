@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Downloading the diagnostics bundle
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 

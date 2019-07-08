@@ -5,7 +5,7 @@ title: Task Types
 menuWeight: 2
 excerpt: Understanding Mesos tasks
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

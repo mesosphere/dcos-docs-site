@@ -4,7 +4,7 @@ navigationTitle:  Practice Deployment Debugging Scenarios on DC/OS
 title: Practice Deployment Debugging Scenarios on DC/OS
 excerpt: Tutorial - Practicing some debugging scenarios
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 menuWeight: 31
 ---
 #include /include/tutorial-disclaimer.tmpl

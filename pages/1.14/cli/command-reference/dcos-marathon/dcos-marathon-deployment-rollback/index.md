@@ -6,7 +6,7 @@ menuWeight: 15
 excerpt: Removing a deployed application
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 # Description

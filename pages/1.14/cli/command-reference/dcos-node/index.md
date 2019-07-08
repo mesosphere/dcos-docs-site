@@ -5,7 +5,7 @@ title: dcos node
 menuWeight: 11
 excerpt: Displaying DC/OS node information
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

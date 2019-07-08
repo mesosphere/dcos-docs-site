@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Installing the DC/OS command line interface
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 The recommended method to install the DC/OS CLI is by getting the preformatted set of commands from the DC/OS UI and running them in the terminal. See the prerequisites and instructions for your operating system for more information:

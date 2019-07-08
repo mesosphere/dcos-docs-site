@@ -5,7 +5,7 @@ title: dcos license renew
 menuWeight: 3
 excerpt: Renewing a cluster license
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

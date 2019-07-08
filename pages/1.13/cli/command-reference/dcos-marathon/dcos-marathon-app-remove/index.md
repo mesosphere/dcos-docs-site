@@ -6,7 +6,7 @@ menuWeight: 4
 excerpt: Removing an application
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 

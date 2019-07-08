@@ -5,7 +5,7 @@ title: dcos security org groups show
 menuWeight: 155
 excerpt: Viewing information about a group
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

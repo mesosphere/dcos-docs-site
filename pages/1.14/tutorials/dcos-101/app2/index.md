@@ -4,7 +4,7 @@ excerpt: Part 5 of the DC/OS 101 tutorial
 title: Tutorial -  Deploying native applications
 navigationTitle: Native Applications
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 menuWeight: 5
 ---
 

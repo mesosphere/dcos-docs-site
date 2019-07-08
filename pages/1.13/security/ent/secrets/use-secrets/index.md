@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Configuring services and pods to use secrets
 enterprise: true
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

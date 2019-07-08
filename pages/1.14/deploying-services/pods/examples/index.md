@@ -5,7 +5,7 @@ title: Pod Examples
 menuWeight: 30
 excerpt: Understanding field definitions and examples of pods
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

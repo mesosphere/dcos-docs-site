@@ -5,7 +5,7 @@ title: dcos security cluster secret-store status
 menuWeight: 105
 excerpt: Managing the DC/OS Certificate Authority
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

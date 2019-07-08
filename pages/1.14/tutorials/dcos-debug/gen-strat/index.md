@@ -4,7 +4,7 @@ navigationTitle:  Strategy
 title: Strategy
 excerpt: Tutorial - Applying troubleshooting strategies
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 menuWeight: 21
 ---
 #include /include/tutorial-disclaimer.tmpl

@@ -5,7 +5,7 @@ excerpt: Decommissioning a DC/OS node
 title: dcos node decommission
 menuWeight: 1
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 # Description

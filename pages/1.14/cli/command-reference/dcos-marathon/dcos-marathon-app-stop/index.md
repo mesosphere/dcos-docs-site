@@ -5,7 +5,7 @@ title: dcos marathon app stop
 menuWeight: 8
 excerpt: Stopping an application
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

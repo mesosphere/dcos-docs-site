@@ -5,7 +5,7 @@ title: Exposing a Service
 menuWeight: 5
 excerpt: Launching a service with a Marathon app definition
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

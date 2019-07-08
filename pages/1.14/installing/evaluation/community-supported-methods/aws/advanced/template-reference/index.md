@@ -4,7 +4,7 @@ navigationTitle: Template Reference
 title: Template Reference
 menuWeight: 5
 excerpt: Advanced template parameters
-model: /data.yml
+model: /1.14/data.yml
 render: mustache
 ---
 

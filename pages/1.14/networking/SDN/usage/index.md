@@ -5,7 +5,7 @@ title: Using an SDN
 menuWeight: 20
 excerpt: Using a software defined network
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

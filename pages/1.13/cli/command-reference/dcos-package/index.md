@@ -5,7 +5,7 @@ title: dcos package
 menuWeight: 12
 excerpt: Installing and managing DC/OS service packages
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

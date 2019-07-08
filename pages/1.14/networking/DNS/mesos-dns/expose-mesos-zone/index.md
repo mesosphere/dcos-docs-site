@@ -5,7 +5,7 @@ title: Exposing Mesos Zones Outside
 menuWeight: 300
 excerpt: Exposing Mesos zones outside of DC/OS
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

@@ -5,7 +5,7 @@ title: Metrics
 menuWeight: 100
 excerpt: Understanding the metrics component of DC/OS
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 beta: false
 enterprise: false
 ---

@@ -5,7 +5,7 @@ title: Deploying Services Using a Custom Marathon Instance
 menuWeight: 39
 excerpt: Using a basic, non-native instance of Marathon
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

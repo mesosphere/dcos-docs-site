@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Creating a diagnostics bundle
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 # Description

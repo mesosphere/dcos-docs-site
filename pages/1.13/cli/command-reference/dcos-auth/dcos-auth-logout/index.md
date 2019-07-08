@@ -5,7 +5,7 @@ title: dcos auth logout
 menuWeight: 3
 excerpt: Logging out of a DC/OS cluster
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

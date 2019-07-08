@@ -5,7 +5,7 @@ title: dcos security secrets delete
 menuWeight: 310
 excerpt: Deleting a secret
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

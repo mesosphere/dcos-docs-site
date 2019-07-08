@@ -5,7 +5,7 @@ title: Managing Users and Groups
 menuWeight: 0
 excerpt: Managing users and groups
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 6
 excerpt: Provides instructions for creating, scheduling, and managing jobs to run on a DC/OS cluster (part 6)
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 You can create and administer jobs for the DC/OS cluster in any of the following ways:
 - interactively with the DC/OS web-based administrative console GUI.

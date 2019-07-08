@@ -5,7 +5,7 @@ title: Mount Disk Resources
 menuWeight: 0
 excerpt: Using Mesos to mount storage resources
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

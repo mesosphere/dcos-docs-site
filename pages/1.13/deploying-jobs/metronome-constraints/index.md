@@ -5,7 +5,7 @@ title: Metronome Placement Constraints
 menuWeight: 3
 excerpt: Understanding Metronome placement constraints
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

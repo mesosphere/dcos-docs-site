@@ -5,7 +5,7 @@ title: Performance Monitoring
 menuWeight: 1
 excerpt: Monitoring a DC/OS cluster
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

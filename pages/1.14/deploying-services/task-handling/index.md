@@ -5,7 +5,7 @@ title: Task Handling
 menuWeight: 1
 excerpt: Understanding Marathon task categories
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

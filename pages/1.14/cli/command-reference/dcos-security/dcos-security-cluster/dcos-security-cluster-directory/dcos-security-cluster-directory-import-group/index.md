@@ -5,7 +5,7 @@ title: dcos security cluster directory import_group
 menuWeight: 33
 excerpt: Importing an LDAP group
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

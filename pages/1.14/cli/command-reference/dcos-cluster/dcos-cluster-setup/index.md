@@ -6,7 +6,7 @@ menuWeight: 6
 excerpt: Configuring the CLI to communicate with a cluster
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 # Description

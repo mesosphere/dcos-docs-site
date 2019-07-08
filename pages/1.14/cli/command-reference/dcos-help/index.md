@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: Displaying DC/OS CLI help information
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 # Description

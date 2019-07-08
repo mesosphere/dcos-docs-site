@@ -5,7 +5,7 @@ title: dcos marathon pod remove
 menuWeight: 26
 excerpt: Removing a pod
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 50
 excerpt: Understanding the command line interface utility in DC/OS
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 The DC/OS command line interface (DC/OS CLI) utility allows you to manage clusters, and manage services and tasks.

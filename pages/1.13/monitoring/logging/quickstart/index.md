@@ -5,7 +5,7 @@ title: Logging Quick Start
 menuWeight: 0
 excerpt: Getting started with DC/OS logging
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 beta: false
 enterprise: false
 ---

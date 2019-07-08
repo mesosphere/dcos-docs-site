@@ -5,7 +5,7 @@ title: dcos security cluster saml modify
 menuWeight: 80
 excerpt: Modifying an existing SAML provider configuration
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

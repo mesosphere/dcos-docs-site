@@ -5,7 +5,7 @@ title: Log Management with Splunk
 menuWeight: 3
 excerpt: Managing system and application logs with a Splunk server
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

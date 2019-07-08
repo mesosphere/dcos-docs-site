@@ -5,7 +5,7 @@ title: dcos marathon about
 menuWeight: 0
 excerpt: Displays the info.json file for DC/OS Marathon
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

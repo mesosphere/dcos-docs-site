@@ -5,7 +5,7 @@ title: dcos package repo list
 menuWeight: 6
 excerpt: Displaying the package repository sources
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

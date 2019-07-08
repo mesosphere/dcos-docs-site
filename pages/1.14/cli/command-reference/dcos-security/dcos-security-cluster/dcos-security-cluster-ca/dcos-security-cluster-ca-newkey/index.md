@@ -5,7 +5,7 @@ title: dcos security cluster ca newkey
 menuWeight: 13
 excerpt: Creating a new key and a new CSR
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

@@ -5,7 +5,7 @@ title: dcos security cluster saml
 menuWeight: 70
 excerpt: Managing SAML settings
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: true
 ---
 

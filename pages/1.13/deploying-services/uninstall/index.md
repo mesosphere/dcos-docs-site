@@ -5,7 +5,7 @@ title: Uninstalling Services
 menuWeight: 7
 excerpt: Uninstalling DC/OS services from the CLI
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

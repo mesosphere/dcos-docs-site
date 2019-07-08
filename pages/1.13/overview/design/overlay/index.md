@@ -4,7 +4,7 @@ excerpt: Understanding network overlay topology
 title: DC/OS Overlay
 navigationTitle: Overlay
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 menuWeight: 5
 ---
 

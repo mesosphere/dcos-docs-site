@@ -5,7 +5,7 @@ title: Components
 menuWeight: 9
 excerpt: Using the Components menu
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 You may view the system health of your DC/OS components from the Components menu.

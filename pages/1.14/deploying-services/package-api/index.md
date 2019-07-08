@@ -4,7 +4,7 @@ title: Package Management API
 menuWeight: 10
 excerpt: Installing DC/OS services using the Package Management API
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

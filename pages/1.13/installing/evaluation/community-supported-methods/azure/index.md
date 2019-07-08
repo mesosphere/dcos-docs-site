@@ -5,7 +5,7 @@ title: Running DC/OS on Azure
 navigationTitle: Azure
 menuWeight: 10
 oss: true
-model: /data.yml
+model: /1.13/data.yml
 render: mustache
 ---
 

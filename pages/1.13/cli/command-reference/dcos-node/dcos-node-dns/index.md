@@ -5,7 +5,7 @@ title: dcos node dns
 menuWeight: 6
 excerpt: Viewing DC/OS node information
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

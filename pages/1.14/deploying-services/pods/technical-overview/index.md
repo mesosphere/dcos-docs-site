@@ -5,7 +5,7 @@ title: Technical Overview
 menuWeight: 10
 excerpt: Understanding pods
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: false
 ---
 

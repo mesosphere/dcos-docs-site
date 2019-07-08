@@ -5,7 +5,7 @@ title: Mesos-DNS
 menuWeight: 3
 excerpt: Understanding Mesos DNS
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 

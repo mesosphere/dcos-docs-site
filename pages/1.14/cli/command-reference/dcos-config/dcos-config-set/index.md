@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Adding or setting DC/OS configuration properties
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 # Description

@@ -4,7 +4,7 @@ excerpt: Understanding microscaling
 title: Tutorial - Microscaling based on queue length
 navigationTitle: Microscaling
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 menuWeight: 2
 ---
 

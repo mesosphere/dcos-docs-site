@@ -6,7 +6,7 @@ menuWeight: 4
 excerpt: Uninstalling the DC/OS command line interface
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 ---
 
 You can uninstall the CLI with these commands for your operating system.

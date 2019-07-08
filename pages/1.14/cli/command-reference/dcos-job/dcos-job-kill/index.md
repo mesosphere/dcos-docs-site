@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Ending DC/OS jobs
 enterprise: false
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 

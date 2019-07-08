@@ -5,7 +5,7 @@ title: dcos security cluster
 menuWeight: 10
 excerpt: Cluster management commands
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 enterprise: true
 ---
 

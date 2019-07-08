@@ -4,7 +4,7 @@ excerpt: Understanding how DC/OS implements the Azure Container Service
 title: The Azure Container Service
 navigationTitle: ACS
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 menuWeight: 2
 ---
 

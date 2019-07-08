@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Linking a connected cluster to another cluster
 enterprise: true
 render: mustache
-model: /data.yml
+model: /1.14/data.yml
 ---
 
 # Description

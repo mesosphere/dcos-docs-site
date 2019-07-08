@@ -5,7 +5,7 @@ title: dcos package list
 menuWeight: 2
 excerpt: Displaying a list of the installed DC/OS packages
 render: mustache
-model: /data.yml
+model: /1.13/data.yml
 enterprise: false
 ---
 
