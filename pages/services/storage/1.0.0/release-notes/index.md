@@ -76,44 +76,44 @@ enterprise: true
 All metrics related to the DC/OS Storage Service have a prefix of `csidevices_`, `csilvm_`, or `dss_`.
 
 ### New `devices` provider metrics
-    - `csidevices_uptime`: the uptime (in seconds) of the process
-    - `csidevices_requests`: number of requests served, tagged by:
-        - `result_type`: one of `success`, `error`
-        - `method`: the RPC name, e.g., `/csi.v0.Controller/ListVolumes`
-    - `csidevices_requests_latency_(stddev,mean,lower,count,sum,upper)`: the request duration (in milliseconds), tagged by:
-        - `method`: the RPC name, e.g., `/csi.v0.Controller/ListVolumes`
-    - `csidevices_devices`: the number of devices reported by ListVolumes
+* `csidevices_uptime`: the uptime (in seconds) of the process
+* `csidevices_requests`: number of requests served, tagged by:
+    * `result_type`: one of `success`, `error`
+    * `method`: the RPC name, e.g., `/csi.v0.Controller/ListVolumes`
+* `csidevices_requests_latency_(stddev,mean,lower,count,sum,upper)`: the request duration (in milliseconds), tagged by:
+    * `method`: the RPC name, e.g., `/csi.v0.Controller/ListVolumes`
+* `csidevices_devices`: the number of devices reported by ListVolumes
 
 ### New `lvm` volume provider metrics
-    - `csilvm_uptime`: the uptime (in seconds) of the process
-    - `csilvm_requests`: number of requests served, tagged by:
-        - `result_type`: one of `success`, `error`
-        - `method`: the RPC name, e.g., `/csi.v0.Controller/CreateVolume`
-    - `csilvm_requests_latency_(stddev,mean,lower,count,sum,upper)`: the request duration (in milliseconds), tagged by:
-        - `method`: the RPC name, e.g., `/csi.v0.Controller/CreateVolume`
-    - `csilvm_volumes`: the number of active logical volumes
-    - `csilvm_bytes_total`: the total number of bytes in the volume group
-    - `csilvm_bytes_free`: the number of bytes available for creating a linear logical volume
-    - `csilvm_bytes_used`: the number of bytes allocated to active logical volumes
-    - `csilvm_pvs`: the number of physical volumes in the volume group
-    - `csilvm_missing_pvs`: the number of pvs given on the command-line but are not found in the volume group
-    - `csilvm_unexpected_pvs`: the number of pvs not given on the command-line but are found in the volume group
-    - `csilvm_lookup_pv_errs`: the number of errors encountered while looking for pvs specified on the command-line
+* `csilvm_uptime`: the uptime (in seconds) of the process
+* `csilvm_requests`: number of requests served, tagged by:
+    * `result_type`: one of `success`, `error`
+    * `method`: the RPC name, e.g., `/csi.v0.Controller/CreateVolume`
+* `csilvm_requests_latency_(stddev,mean,lower,count,sum,upper)`: the request duration (in milliseconds), tagged by:
+    * `method`: the RPC name, e.g., `/csi.v0.Controller/CreateVolume`
+* `csilvm_volumes`: the number of active logical volumes
+* `csilvm_bytes_total`: the total number of bytes in the volume group
+* `csilvm_bytes_free`: the number of bytes available for creating a linear logical volume
+* `csilvm_bytes_used`: the number of bytes allocated to active logical volumes
+* `csilvm_pvs`: the number of physical volumes in the volume group
+* `csilvm_missing_pvs`: the number of pvs given on the command-line but are not found in the volume group
+* `csilvm_unexpected_pvs`: the number of pvs not given on the command-line but are found in the volume group
+* `csilvm_lookup_pv_errs`: the number of errors encountered while looking for pvs specified on the command-line
 
 ### New DSS metrics
-    - `dss_agent_lookups_hits`: number of successful agent address lookups (via cache)
-    - `dss_agent_lookups_misses`: number of failed agent address lookups (via cache)
-    - `dss_mesosclient_master_getAgents_shared`: count of coalesced API calls
-    - `dss_obj_providers_missing`: number of `MISSING` providers
-    - `dss_obj_volumes_missing`: number of `MISSING` volumes
-    - `dss_ops_providers_create`: duration of provider create operations
-    - `dss_ops_providers_modify`: duration of provider modify operations
-    - `dss_ops_providers_remove`: duration of provider remove operations
-    - `dss_ops_volumes_create`: duration of volume create operations
-    - `dss_ops_volumes_remove`: duration of volume remove operations
-    - `dss_sched_hb_disabled`: non-zero if scheduler is subscribed to mesos w/o heartbeats enabled
-    - `dss_sched_hb_missed`: missed mesos heartbeats
-    - `dss_sched_hb_missed2Many`: how many times the number of consecutively missed mesos heartbeats triggered reconnection to mesos
+* `dss_agent_lookups_hits`: number of successful agent address lookups (via cache)
+* `dss_agent_lookups_misses`: number of failed agent address lookups (via cache)
+* `dss_mesosclient_master_getAgents_shared`: count of coalesced API calls
+* `dss_obj_providers_missing`: number of `MISSING` providers
+* `dss_obj_volumes_missing`: number of `MISSING` volumes
+* `dss_ops_providers_create`: duration of provider create operations
+* `dss_ops_providers_modify`: duration of provider modify operations
+* `dss_ops_providers_remove`: duration of provider remove operations
+* `dss_ops_volumes_create`: duration of volume create operations
+* `dss_ops_volumes_remove`: duration of volume remove operations
+* `dss_sched_hb_disabled`: non-zero if scheduler is subscribed to mesos w/o heartbeats enabled
+* `dss_sched_hb_missed`: missed mesos heartbeats
+* `dss_sched_hb_missed2Many`: how many times the number of consecutively missed mesos heartbeats triggered reconnection to mesos
 
 <!--
 # Release notes for Beta DC/OS Storage Service version 0.6.0

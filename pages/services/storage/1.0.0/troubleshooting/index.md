@@ -22,7 +22,7 @@ Additionally, the DC/OS Storage Service generates metrics which can be used to c
 related to the DC/OS Storage Service have a prefix of `csidevices_`, `csilvm_`, or `dss_`.
 
 
-# How to get the logs of an `lvm` volume provider
+# How to get the logs of an 'lvm' volume provider
 
 The logs of an `lvm` volume provider consist of two parts:
 
@@ -47,7 +47,7 @@ The logs of an `lvm` volume provider consist of two parts:
   journalctl -u dcos-mesos-slave | grep '\(provider\|volume_manager\|service_manager\)\.cpp:'
   ```
 
-# I created a `devices` volume provider but it never comes `ONLINE`
+# I created a 'devices' volume provider but it never comes 'ONLINE'
 
 If a `devices` volume provider stays stuck in `PENDING`, the following CLI command can provide more details:
 ```bash
@@ -113,7 +113,7 @@ If you see the `Launching CSI plugin on agent` message as shown above, check fol
    For example, if the service account does not have sufficient permissions, you might see `Access Denied` in the log.
 
 
-# I created an `lvm` volume provider but it never comes `ONLINE`
+# I created an 'lvm' volume provider but it never comes 'ONLINE'
 
 If an `lvm` volume provider fails to come online, it typically means that the provider cannot be created due to some
 necessary condition not being met. DSS will continue trying to create the provider at regular intervals until it
@@ -281,7 +281,7 @@ curl -s -k -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
 ```
 
 
-# I issued a `volume create` but the command timed out and the volume stays stuck in `PENDING`
+# I issued a 'volume create' but the command timed out and the volume stays stuck in 'PENDING'
 
 You might see the following error message when issuing the `dcos storage volume create` command:
 ```
@@ -449,7 +449,7 @@ In the above example, `test-volume-1` is used by the `test-app` Marathon app, `d
 `beta-hdfs` data service, and `data-service-volume-2` is used by the `beta-elastic` data service.
 
 
-# My volume is `ONLINE` but my service does not run
+# My volume is 'ONLINE' but my service does not run
 
 There are a couple possibilities if a service using the volume is not running:
 
@@ -614,7 +614,7 @@ access to the data, then create a new volume so the data service could replicate
      ```
 
 
-# I issued a `volume remove` but the command timed out and the volume stays stuck in `REMOVING`
+# I issued a 'volume remove' but the command timed out and the volume stays stuck in 'REMOVING'
 
 You might see the following error message when issuing the `dcos storage volume remove` command:
 ```
@@ -637,7 +637,7 @@ dcos service log storage stderr --lines=N
 ```
 
 
-# I cannot remove an `lvm` volume provider
+# I cannot remove an 'lvm' volume provider
 
 The DC/OS Storage Service cannot remove an `lvm` volume provider unless all of its volumes have been removed.
 Before removing an `lvm` volume provider, you must remove all if its volumes.
