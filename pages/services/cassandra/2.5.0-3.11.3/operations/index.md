@@ -108,7 +108,7 @@ You can back up an entire cluster's data and schema to Amazon S3 or S3 compatibl
 - `HTTPS_PROXY`: specifications for the {{ model.TechName }} backup plan, taken from `config.yaml`.
 
 Optional parameters:
-- `S3_ENDPOINT_URL`: URL of S3 compatible storage. If you want to backup to S3 compatible storage, Please provide this parameter in `backup-s3` plan.
+- `S3_ENDPOINT_URL`: URL of S3 compatible storage. If you want to backup to S3 compatible storage, please provide this parameter in `backup-s3` plan.
 - `AWS_SESSION_ID`: It may also be necessary to set the `AWS_SESSION_ID` depending on how you authenticate with AWS.
 - `AWS_SESSION_TOKEN`: It may also be necessary to set the `AWS_SESSION_TOKEN` depending on how you authenticate with AWS. 
 
@@ -228,7 +228,7 @@ Restoring cluster data is similar to backing it up. The `restore-s3` plan assume
 - `S3_BUCKET_NAME`: the name of the S3 bucket where the backup is stored
 
 Optional parameters:
-- `S3_ENDPOINT_URL`: URL of S3 compatible storage. If you want to restore from S3 compatible storage, Please provide this parameter in `restore-s3` plan.
+- `S3_ENDPOINT_URL`: URL of S3 compatible storage. If you want to restore from S3 compatible storage, please provide this parameter in `restore-s3` plan.
 - `AWS_SESSION_ID`: It may also be necessary to set the `AWS_SESSION_ID` depending on how you authenticate with AWS.
 - `AWS_SESSION_TOKEN`: It may also be necessary to set the `AWS_SESSION_TOKEN` depending on how you authenticate with AWS. 
 
