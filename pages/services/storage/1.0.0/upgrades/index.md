@@ -99,7 +99,7 @@ Therefore, to upgrade from DSS 0.6 to DSS 1.0, you must also upgrade DC/OS Enter
     dcos package install storage --package-version=v1.0.0 --options=storage.json
     ```
 
-## Upgrading the `devices` and `lvm` volume plugins
+## Upgrading the 'devices' and 'lvm' volume plugins
 
 1. Upgrade the `devices` and `lvm` plugin configurations. Run the following commands to use the default settings:
     ```bash
@@ -110,7 +110,7 @@ Therefore, to upgrade from DSS 0.6 to DSS 1.0, you must also upgrade DC/OS Enter
     ```
 1. Upgrade every `devices` and `lvm` provider to use the latest configuration. For example, to upgrade a single `lvm` provider named `lvm-ssds`, run the following command:
     ```bash
-    $ cat <<EOF | dcos storage provider modify
+    cat <<EOF | dcos storage provider modify
     {
       "name": "lvm-ssds",
       "spec": { "plugin": { "config-version": "latest" } }
