@@ -6,7 +6,7 @@ menuWeight: 3
 render: mustache
 model: /1.14/data.yml
 excerpt: Understanding fault domains
-enterprise: false
+enterprise: true
 ---
 
 

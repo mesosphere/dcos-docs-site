@@ -5,7 +5,7 @@ title: Fault Domain Awareness and Capacity Extension
 menuWeight: 3
 excerpt: Understanding fault domains
 
-enterprise: false
+enterprise: true
 ---
 
 
