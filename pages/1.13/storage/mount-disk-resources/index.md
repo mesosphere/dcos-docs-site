@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Mount Disk Resources
 title: Mount Disk Resources
-menuWeight: 0
+menuWeight: 5
 excerpt: Using Mesos to mount storage resources
 render: mustache
 model: /data.yml

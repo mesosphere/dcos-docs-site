@@ -5,7 +5,7 @@ excerpt: Mounting a shared network drive
 title: NFS Server
 render: mustache
 model: /data.yml
-menuWeight: 1
+menuWeight: 10
 ---
 
 # Overview
