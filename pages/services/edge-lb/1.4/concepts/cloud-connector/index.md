@@ -16,14 +16,16 @@ For example, using the public cloud load balancer in combination with Edge-LB:
 
 - Enables better load distribution across multiple instances of an Edge-LB pool.
 
-- Provides automated scale-up and scale-down adjustments for the Edge-LB pool.
+- Provides automated scale-up and scale-down adjustments for the Edge-LB pool and its load balancer instances.
 
 - Enables you to configure load balancing across multiple availability zones. 
 
 You should note that, currently, Edge-LB only supports using AWS Network Load Balancers (NLB) for integrated cloud provider load balancing. For information about deploying and configuring AWS Network Load Balancers (NLB), see the AWS documentation for [Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html).
 
-# Configuration
-Cloud provider load balancers such as the AWS Network Load Balancer are configured with a top-level `cloudProvider` field. You can find the swagger definition for the `cloudProvider` field in the Edge-LB `swagger.json` file. For example:
+# Configuring cloud provider settings
+Cloud provider load balancers such as the AWS Network Load Balancer are configured with a top-level `cloudProvider` field in the Edge-LB pool configuration file. 
+
+The following code excerpt illustrates how you can define the properties required for the `cloudProvider` field in the Edge-LB pool configuration file:
 
 ```json
 "cloudProvider": {
@@ -51,21 +53,29 @@ Cloud provider load balancers such as the AWS Network Load Balancer are configur
 }
 ```
 
-As illustrated in this example, the `cloudProvider` field supports a subfield, currently called `aws`. The `aws` cloud provider field also has a subfield of `elbs`. The `elbs` field contains an array of configuration settings for a particular load balancer. The array in this example defines an AWS NLB configuration using the following keys and values:
+As illustrated in this example, the `cloudProvider` field includes a subfield that identifies a specific cloud provider. In this case, the cloud provider subfield is `aws` to specify integration with an AWS Network Load Balancer. 
 
-| Field  | Value description |
-|:------ |:------------------|
-| `name` | Specifies the name that Edge-LB uses to generate names of the load balancers and their resources. |
-| `type` | Specifies a load balancer type. Currently, only NLB is supported. |
-| `internal` | Indicates whether the corresponding load balancer is for internal requests (`true`) or not (`false`). If the `internal` setting is `true`, the load balancer routes requests from internal clients running within the same cluster. 
-If a load balancer is internet-facing with the `internal` field set to `false`, the load balancer can route external requests that are received from clients over the internet. |
-| `listeners` | Defines the following configuration details for each listener that receives inbound requests for the Edge-LB pool:
-- `port` specifies a port number on which the respective load balancer is to listen for incoming connections from clients.
-- `linkFrontend` specifies the name of the individual HAProxy frontend of the pool to which inbound requests are routed. |
-| `tags` | Specifies an array of user-defined tag name and value pairs. The tags you specify using this field are applied to load balancers and target groups in addition to the [internal tags](#internal-tagging) that are automatically defined by the Edge-LB API server.
+The `aws` cloud provider field also has a subfield of `elbs`. The `elbs` field contains the configuration settings for a particular load balancer. The settings in this example define an AWS NLB configuration using the following fields and values:
+
+- `name` - Specifies the name that Edge-LB uses to generate names of the load balancers and their resources.
+
+- `type` - Specifies a load balancer type. Currently, only NLB is supported.
+
+- `internal` - Indicates whether the corresponding load balancer is for internal requests (`true`) or not (`false`). 
+
+  If the `internal` setting is `true`, the load balancer routes requests from internal clients running within the same cluster. 
+
+  If a load balancer is internet-facing with the `internal` field set to `false`, the load balancer can route external requests that are received from clients over the internet.
+  
+- `listeners` - Defines the following configuration details for each listener that receives inbound requests for the Edge-LB pool:
+  - `port` specifies a port number on which the respective load balancer is to listen for incoming connections from clients.
+
+  - `linkFrontend` specifies the name of the individual HAProxy frontend of the pool to which inbound requests are routed.
+
+- `tags` - Specifies an array of user-defined tag name and value pairs. The tags you specify using this field are applied to load balancers and target groups in addition to the [internal tags](#internal-tagging) that are automatically defined by the Edge-LB API server.
 
 ## Subnets
-Subnets to which an NLB gets attached to can be either defined manually or automatically discovered based on the metadata provided by Edge-LB pool instances. If no subnets are specified, then the discovery approach is employed. To specify subnets manually, please add subnets field to an ELB configuration.
+You can define the subnets to which an NLB gets attached manually or automatically. discovered based on the metadata provided by Edge-LB pool instances. If no subnets are specified, then the discovery approach is employed. To specify subnets manually, please add subnets field to an ELB configuration.
 
 ```json
 {
