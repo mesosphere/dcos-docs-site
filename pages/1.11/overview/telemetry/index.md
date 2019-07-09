@@ -43,7 +43,7 @@ For each category this data is collected:
 </pre>
 </td></tr>
 <tr><td>licenseId (DC/OS Enterprise)</td>
-<td>This is the DC/OS Enterprise license ID. License IDs are are delivered via email to the Authorized Support Contact. For example:
+<td>This is the DC/OS Enterprise license ID. License IDs are delivered via email to the Authorized Support Contact. For example:
 <pre>
 "licenseId": "acme-dev-cluster",
 </pre>
