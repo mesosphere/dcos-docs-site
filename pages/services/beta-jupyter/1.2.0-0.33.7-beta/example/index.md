@@ -229,7 +229,7 @@ Next let us use [TensorFlowOnSpark](https://github.com/yahoo/TensorFlowOnSpark) 
 2. Retrieve and extract raw MNIST Dataset using the notebook's Terminal:
   ``` bash
   cd $MESOS_SANDBOX
-  curl -fsSL -O https://s3.amazonaws.com/vishnu-mohan/tensorflow/mnist/mnist.zip
+  curl -fsSL -O http://downloads.mesosphere.com/data-science/assets/mnist.zip
   unzip mnist.zip
   ```
 3.  Check HDFS
