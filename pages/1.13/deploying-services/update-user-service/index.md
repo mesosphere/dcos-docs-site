@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Updating the configuration of a deployed app
 render: mustache
 model: /1.13/data.yml
-enterprise: false
 ---
 
 
