@@ -1,15 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB
+# navigationTitle: Edge-LB
 title: Edge-LB
-menuWeight: 30
-excerpt: Edge-LB proxies and load balances traffic to all services that run on DC/OS.
-
-enterprise: false
+menuWeight: 20
+excerpt: Edge-LB provides production-grade load balancing for access to all services that run on DC/OS Enterprise clusters
+enterprise: true
 ---
+One of the most important ways you can manage cluster operations is through efficient load balancing of access requests and workload processing. Load balancing improves the performance, reliability, and network efficiency for web-based properties, applications, databases, and other services by distributing workload across multiple servers. By introducing a load balancer like Edge-LB, you can distribute the traffic for all services that run on a DC/OS Enterprise cluster. 
 
-Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides North-South (external to internal) and East-West (internal to internal) load balancing.
-
-Edge-LB builds upon HAProxy. HAProxy provides base functionality, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
-
-New users are encouraged to use the latest version available. Please choose one on the left and get started!
+If you are a new user deploying Edge-LB for the first time, you should get the latest version of the package and take an introductory tour using the [Getting started](/services/edge-lb/getting-started/) topics. If you are familiar with Edge-LB but need help installing, configuring, or troubleshooting an Edge-LB deployment, get the latest version of the package available, then review the concepts, tutorials, how-to tasks, and reference information to get the most from your deployment.
