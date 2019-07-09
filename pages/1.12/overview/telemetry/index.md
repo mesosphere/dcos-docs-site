@@ -42,6 +42,12 @@ For each category this data is collected:
 "customerKey": "ab1c23de-45f6-7g8h-9012-i345j6k7lm8n",
 </pre>
 </td></tr>
+<tr><td>licenseId (DC/OS Enterprise)</td>
+<td>This is the DC/OS Enterprise license ID. License IDs are are delivered via email to the Authorized Support Contact. For example:
+<pre>
+"licenseId": "acme-dev-cluster",
+</pre>
+</td></tr>
 <tr><td>event</td>
 <td>This is the category that appears in Segment. Possible values are <code>package_list</code> (Package Manager), <code>health</code> (Diagnostics), and <code>mesos_track</code> (Mesos). For example:
 <pre>
@@ -145,6 +151,7 @@ Here is an example of the JSON telemetry report that is collected:
         "properties": {
             "clusterId": "70b28f00-e38f-41b2-a723-aab344f535b9",
             "customerKey": "",
+            "licenseId": "acme-dev-cluster",
             "environmentVersion": "1.8",
             “package_list”: [
             {
@@ -165,6 +172,7 @@ Here is an example of the JSON telemetry report that is collected:
         "properties": {
             "clusterId": "70b28f00-e38f-41b2-a723-aab344f535b9",
             "customerKey": "",
+            "licenseId": "acme-dev-cluster",
             "environmentVersion": "1.8",
             "health-unit-dcos-diagnostics-service-total": 3,
             "health-unit-dcos-diagnostics-service-unhealthy": 0,
@@ -246,6 +254,7 @@ Here is an example of the JSON telemetry report that is collected:
             "agents_active": 2,
             "agents_connected": 2,
             "clusterId": "70b28f00-e38f-41b2-a723-aab344f535b9",
+            "licenseId": "acme-dev-cluster",
             "cpu_total": 8,
             "cpu_used": 0,
             "customerKey": "",
