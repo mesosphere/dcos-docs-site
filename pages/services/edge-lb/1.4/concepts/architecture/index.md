@@ -1,19 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Edge-LB 1.2
-title: Edge-LB 1.2
-menuWeight: 3
+navigationTitle: Architecture overview
+title: Architecture overview
+menuWeight: 1
 excerpt: Edge-LB proxies and load balances traffic to all services that run on DC/OS.
-
-enterprise: false
+enterprise: true
 ---
-
-Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides North-South (external to internal) load balancing, while the [Minuteman component](/latest/networking/load-balancing-vips/) provides East-West (internal to internal) load balancing.
-
-Edge-LB leverages HAProxy, which provides the core load balancing and proxying features, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
-
-# Architecture
-
 Edge-LB has a 3-part architecture:
 - [API server](#edge-lb-api-server)
 - [pool](#edge-lb-pool)
@@ -29,7 +21,7 @@ Configuration is sent to the API Server, which controls pool management.
 
 Outside traffic moves through a hardware load balancer, then to the load balancer pool. One of the Edge-LB load balancers in the pool accepts the traffic and routes it to the appropriate service within the DC/OS cluster.
 
-![Edge-LB Architecture](/services/edge-lb/1.2/img/edge-lb-flow.png)
+![Edge-LB Architecture](/services/edge-lb/1.4/img/edge-lb-flow.png)
 
 Figure 1. Edge-LB architecture
 
