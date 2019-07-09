@@ -1,11 +1,18 @@
 ---
 layout: layout.pug
-navigationTitle:  Release Notes
+navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 0
 excerpt: Discover the new features, updates, and known limitations in this release of the Edge-LB Service
-enterprise: false
+enterprise: true
 ---
+# Release notes for Edge-LB version 1.4
+Edge-LB Service version 1.4.0 was released July xx, 2019.
+
+# New features and capabilities
+- Introduces automatic provisioning and lifecycle management for AWS Network Load Balancers (NLB).
+- Adds a new command-line program for removing AWS load balancer instances created for Edge-LB if you uninstall Edge-LB.
+- Provides a new command-line program for collecting logs and creating diagnostic bundles for Edge-LB operations.
 
 # Release notes for Edge-LB version 1.3.1
 Edge-LB Service version 1.3.1 was released April 29, 2019.
