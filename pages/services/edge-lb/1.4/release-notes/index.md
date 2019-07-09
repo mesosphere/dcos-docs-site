@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes
-title: Release Notes
+navigationTitle: Release notes
+title: Release notes
 menuWeight: 0
-excerpt: Discover the new features, updates, and known limitations in this release of the Edge-LB Service
+excerpt: Discover the new features, updates, and known limitations in this release of the Edge-LB service
 enterprise: true
 ---
 # Release notes for Edge-LB version 1.4
