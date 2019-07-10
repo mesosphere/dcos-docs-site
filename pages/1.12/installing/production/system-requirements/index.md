@@ -72,9 +72,9 @@ There are many mixed workloads on the masters. Workloads that are expected to be
 
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. In some cases, mixed workloads require synchronizing with `fsync` periodically, which can generate a lot of expensive random I/O. We recommend the following:
 
- Solid-state drive (SSD) or non-volatile memory express (NVMe) devices for fast, locally-attached storage. To reduce the likelihood of I/O latency issues, solid-state drives should be locally attached to the physical machine, if possible. You should also be sure that solid-state drive (SSD) or non-volatile memory express (NVMe) devices are used for the file systems hosting master node replicated logs.
+- Solid-state drive (SSD) or non-volatile memory express (NVMe) devices for fast, locally-attached storage. To reduce the likelihood of I/O latency issues, solid-state drives should be locally attached to the physical machine, if possible. You should also be sure that solid-state drive (SSD) or non-volatile memory express (NVMe) devices are used for the file systems hosting master node replicated logs.
 
-    In planning your storage requirements, keep in mind that you should avoid using a single storage area network (SAN) device and NFS to connect to the nodes in the cluster. This type of architecture introduces a higher possibility of latency than using local storage and introduces a single point of failure in what should otherwise be a distributed system. Network latency and bandwidth issues can cause client sessions to time out and adversely affect [DC/OS] cluster performance and reliability.
+  In planning your storage requirements, keep in mind that you should avoid using a single storage area network (SAN) device and NFS to connect to the nodes in the cluster. This type of architecture introduces a higher possibility of latency than using local storage and introduces a single point of failure in what should otherwise be a distributed system. Network latency and bandwidth issues can cause client sessions to time out and adversely affect [DC/OS] cluster performance and reliability.
 
 - RAID controllers with a battery backup unit (BBU).
 - RAID controller cache configured in writeback mode.
@@ -91,9 +91,9 @@ Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeep
   | _/var/lib/dcos/cockroach_ | CockroachDB [enterprise type="inline" size="small" /] |
   | _/var/lib/dcos/navstar_ | for Mnesia database |
   | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] | 
-    | _/var/lib/dcos/exec_ | Temporary files required by various DC/OS services. The _/var/lib/dcos/exec_ directory must not be on a volume which is mounted with the `noexec` option. |
+  | _/var/lib/dcos/exec_ | Temporary files required by various DC/OS services. The _/var/lib/dcos/exec_ directory must not be on a volume which is mounted with the `noexec` option. |
   | _/var/lib/dcos/exhibitor_ | Zookeeper database |
-    | _/var/lib/dcos/exhibitor/zookeeper/transactions_ | The ZooKeeper transaction logs are very sensitive to delays in disk writes. If you can only provide limited SSD space, this is the directory to place there. A minimum of 2 GB must be available for these logs. |
+  | _/var/lib/dcos/exhibitor/zookeeper/transactions_ | The ZooKeeper transaction logs are very sensitive to delays in disk writes. If you can only provide limited SSD space, this is the directory to place there. A minimum of 2 GB must be available for these logs. |
 
 ## Agent node requirements
 
