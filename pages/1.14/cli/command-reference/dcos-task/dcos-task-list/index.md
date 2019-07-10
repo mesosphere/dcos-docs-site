@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos task
-title: dcos task
-menuWeight: 16
-excerpt: Managing DC/OS tasks
+navigationTitle:  dcos task list
+title: dcos task list
+menuWeight: 2
+excerpt: List the tasks inside of a cluster
 render: mustache
 model: /1.14/data.yml
 enterprise: false
@@ -11,14 +11,12 @@ enterprise: false
 
 # Description
 
-The `dcos task` commands let you manage DC/OS tasks.
-
-**This command is deprecated since DC/OS 1.14, use `dcos task list` instead.**
+The `dcos task list` commands lists the DC/OS tasks in the cluster.
 
 # Usage
 
 ```bash
-dcos task [OPTIONS]
+dcos task list [OPTIONS]
 ```
 
 # Options
