@@ -26,7 +26,7 @@ dcos task [OPTIONS]
 | Name |  Description |
 |---------|-------------|
 | `-h`, `--help`  |    Print usage. |
-| `--agent-id`  |    Only list the tasks in a given agent. |
+| `--agent-id`  |    Only list the tasks for a specified agent. |
 | `--info` |  Print a short description of this subcommand.|
 | `--version` |  Print version information.|
 
