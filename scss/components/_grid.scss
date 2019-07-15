@@ -122,6 +122,9 @@
             height: 28px;
             color: $color-purple-d3;
         }
+        #storage-link {
+            transform: rotate(-45deg);
+        }
     }
     @include pre-md {
         &__item {
