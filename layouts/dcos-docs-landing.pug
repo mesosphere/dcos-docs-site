@@ -22,7 +22,9 @@ mixin renderGridToc()
             p(class='grid-toc__desc')!= displayExcerpt
           if val.children
             ul(class='grid-toc__list')
-              for item in val.children.slice(0, 5)
+              - var getFive = val.children.slice(0,5)
+              - filteredFive = getFive.filter(item => typeof item.menuWeight === 'number')
+              for item in filteredFive
                 li(class='grid-toc__list-item')
                   a(href=item.path, class='grid-toc__link')!= item.title
               if val.children.length > 5
