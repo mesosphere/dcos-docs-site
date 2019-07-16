@@ -295,14 +295,16 @@ Once the DC/OS cluster is running and volume profiles are created, you can deplo
 ```bash
 cat > cassandra-options.json <<EOF
 {
-    "service": {
+    "nodes": {
         "volume_profile": "cassandra",
         "disk_type": "MOUNT"
     }
 }
 EOF
+```
+```
 dcos package install cassandra --options=cassandra-options.json
-
+```
 **Note:** Cassandra will be configured to look for `MOUNT` volumes with the `cassandra` profile.
 
 Once the Cassandra service finishes deploying its tasks will be running with the specified volume profiles.
