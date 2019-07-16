@@ -292,8 +292,6 @@ If you want to deploy Cassandra with DSS, please follow the tutorial here: https
 
 Once the DC/OS cluster is running and volume profiles are created, you can deploy Cassandra with the following configs:
 
-Cassandra is configured to look for `MOUNT` volumes of profile `cassandra`.
-
 ```bash
 cat > cassandra-options.json <<EOF
 {
@@ -305,11 +303,13 @@ cat > cassandra-options.json <<EOF
 EOF
 dcos package install cassandra --options=cassandra-options.json
 
+**Note:** Cassandra will be configured to look for `MOUNT` volumes with the profile `cassandra`.
+
 Once the Cassandra service is deployed, its tasks will be running with the specified volume profiles.
 its deployment should be completed.
 
 ```bash
-dcos beta-cassandra update status
+dcos cassandra update status
 ```
 ```
 deploy (serial strategy) (COMPLETE)
