@@ -35,3 +35,11 @@ enterprise: false
     dcos package repo remove edgelb-aws
     dcos package repo remove edgelb-pool-aws
     ```
+
+1. Remove all Amazon Web Services (AWS) Elastic Load Balancer (ELB) instances, if applicable, by running the following command:
+
+    ```bash
+    dcos edgelb cleanup
+    ```
+
+    If you deployed the cloud connector to use Edge-LB with the Amazon Web Services (AWS) Elastic Load Balancer (ELB), you should run the `dcos edgelb cleanup` command to remove any ELB instances that remain after Edge-LB has been uninstalled from a DC/OS cluster.
