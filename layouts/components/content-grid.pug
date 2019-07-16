@@ -3,7 +3,7 @@
 if pageHierarchy.children.length > 0
   div(class='grid')
     each val, index in pageHierarchy.children
-      if val.menuWeight == -1
+      if typeof val.menuWeight !== 'number' || val.menuWeight == -1
         - continue
       - var labels = [];
       - labels = (val.enterprise) ? [...labels, 'ENTERPRISE'] : labels
