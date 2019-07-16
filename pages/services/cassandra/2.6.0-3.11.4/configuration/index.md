@@ -303,15 +303,12 @@ cat > cassandra-options.json <<EOF
 EOF
 dcos package install cassandra --options=cassandra-options.json
 
-**Note:** Cassandra will be configured to look for `MOUNT` volumes with the profile `cassandra`.
+**Note:** Cassandra will be configured to look for `MOUNT` volumes with the `cassandra` profile.
 
-Once the Cassandra service is deployed, its tasks will be running with the specified volume profiles.
-its deployment should be completed.
+Once the Cassandra service finishes deploying its tasks will be running with the specified volume profiles.
 
 ```bash
 dcos cassandra update status
-```
-```
 deploy (serial strategy) (COMPLETE)
 └─ node-deploy (serial strategy) (COMPLETE)
 ├─ node-0:[server] (COMPLETE)
