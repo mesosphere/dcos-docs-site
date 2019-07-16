@@ -313,8 +313,8 @@ Once the Cassandra service finishes deploying its tasks will be running with the
 dcos cassandra update status
 deploy (serial strategy) (COMPLETE)
 └─ node-deploy (serial strategy) (COMPLETE)
-├─ node-0:[server] (COMPLETE)
-├─ node-0:[init_system_keyspaces] (COMPLETE)
-├─ node-1:[server] (COMPLETE)
-└─ node-2:[server] (COMPLETE)
+   ├─ node-0:[server] (COMPLETE)
+   ├─ node-0:[init_system_keyspaces] (COMPLETE)
+   ├─ node-1:[server] (COMPLETE)
+   └─ node-2:[server] (COMPLETE)
 ```
