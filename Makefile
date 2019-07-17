@@ -54,7 +54,7 @@ docker-site-run: ## Run site container.
 	docker-compose up -d docs
 
 docker-site-check-links: ## Run link checker test
-	docker-compose up --build test
+	docker-compose up test
 
 docker-purge:
 	./scripts/docker-purge.sh
