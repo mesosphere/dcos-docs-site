@@ -11,6 +11,7 @@ The Mesosphere DC/OS Ansible roles are now a supported life cycle management met
 We have broken down the lifecycle management of DC/OS into 4 roles to handle the different management aspects of DC/OS such as cluster prerequisites, bootstrap tasks, master tasks, private agent tasks and public agent tasks. Each role can be read about more below:
 
 - Prerequisites - This roles handles all of the [requirements to run DC/OS](/1.14/installing/production/system-requirements/#software-prerequisites).
+- GPU - This Role is a specialized addition to the Prerequisites role. It detects Nvidia GPUs and tries to install the Drives on CentOS systems.
 - Bootstrap - The Boostrap role handles all tasks associated with downloading, generating and serving the DC/OS install and upgrade scripts to all nodes in the cluster.
 - Master - These tasks include downloading install and upgrade files from the Bootstrap node as well as handling some checks to ensure that upgrade has gone accordingly. It will back out upgrades if there problems keeping the cluster from going into an undesired state.
 - Agents - These task handle all upgrade and installation tasks for ALL agent types.
