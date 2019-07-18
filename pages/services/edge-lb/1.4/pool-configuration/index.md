@@ -1,16 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB Pool Config Reference
-title: Edge-LB Pool Config Reference
+navigationTitle: Pool configuration
+title: Pool configuration
 menuWeight: 80
-excerpt: Reference for all possible Edge-LB pool configuration values
-
-enterprise: false
+excerpt: Reference information for Edge-LB pool configuration settings
+enterprise: true
 ---
 
-This is a reference for all possible Edge-LB pool configuration values, as well as some examples to demonstrate various use-cases.
+This section provides reference information for all Edge-LB pool configuration settings and examples to demonstrate various use-cases.
 
-# Configuration Reference
+# Configuration reference
 
 The API reference, in swagger format, containing all possible options and short descriptions of each endpoint can be found by running the following command:
 
@@ -22,7 +21,7 @@ For more information, see the [CLI Reference Guide entry for `dcos edgelb show`]
 
 Choose an API version at the left to view the appropriate configuration reference or examples.
 
-# API Versions
+# API versions
 
 A new top level pool configuration field named `apiVersion` was introduced in Edge-LB v1.0.0. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in apiVersion `V1`) has been replaced with `pool.haproxy.backends.services`, with a more intuitive way to select services/backends for HAProxy.
 

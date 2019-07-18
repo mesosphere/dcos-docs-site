@@ -2,10 +2,9 @@
 layout: layout.pug
 navigationTitle:  V2 Pool Reference
 title: V2 Pool Reference
-menuWeight: 85
+menuWeight: 81
 excerpt: Reference for all Edge-LB pool configurations options in the V2 API
-
-enterprise: false
+enterprise: true
 ---
 
 
