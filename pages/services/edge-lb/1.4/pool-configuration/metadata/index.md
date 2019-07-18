@@ -1,3 +1,12 @@
+---
+layout: layout.pug
+navigationTitle: Pool metadata
+title: Pool metadata
+menuWeight: 83
+excerpt: Reference information for Edge-LB pool metadata when integrating with cloud provider load balancers
+enterprise: true
+---
+
 # Metadata
 
 Edge-LB exposes certain information about its individual pool servers through the `/service/edgelb/pools/v2/<pool-name>/metadata` endpoint. 
