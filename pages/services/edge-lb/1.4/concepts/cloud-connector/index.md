@@ -655,4 +655,4 @@ Each `aws.elbs` entry has the following fields:
 
 - `availabilityZones` specify the availability zones that identify where load balancer nodes are located.
 
-For other details on metadata format, see the pool [metadata reference]() section.
+For other details on metadata format, see the pool [metadata reference](../../pool-configuration/METADATA.md) section.
