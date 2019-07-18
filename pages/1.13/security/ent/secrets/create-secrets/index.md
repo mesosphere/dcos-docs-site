@@ -97,7 +97,7 @@ The contents of the file (referred to below as `my-secret.txt`) can be any text 
   dcos security secrets create -f my-secret.txt developer/my-secret
   ```
 
-  <p class="message--important"><strong>IMPORTANT: </strong>The maximum file size for a secret is approximately one MB, subtracting approximately one KB for the secret store metadata.
+  <p class="message--important"><strong>IMPORTANT: </strong>The maximum file size for a secret is approximately one MB, subtracting approximately one KB for the secret store metadata.</p>
 
 # Creating secrets from a file via the DC/OS UI
 
