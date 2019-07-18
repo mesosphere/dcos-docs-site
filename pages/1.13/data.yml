@@ -3,6 +3,8 @@
 packageName: dcos
 serviceName: dcos
 techName: DC/OS
+productName: DC/OS
 packageRepo: Catalog
 folder_version: '1.13'
 version: 1.13
+

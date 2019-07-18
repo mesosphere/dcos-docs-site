@@ -6,9 +6,15 @@ menuWeight: 30
 excerpt: Removing DC/OS
 ---
 
-# Uninstalling DC/OS 
+DC/OS offers an uninstall script for removing DC/OS from your system. You can download the script [here](http://downloads.mesosphere.com/dcos-uninstall/uninstall.sh). To remove DC/OS from a master, agent or public agent you must push the uninstall script to the node you would like to scrub DC/OS from, make it executable and then run it with `sudo` privileges. 
 
-DC/OS offers an uninstall script for removing DC/OS from your system. You can download the script [here](http://downloads.mesosphere.com/dcos-uninstall/uninstall.sh).
+Before running the script you should ensure that the cluster no longer requires this agent.
+
+- If the node is a Master, ensure that there are at least 3 other masters in the cluster up and healthy before uninstalling
+
+- If the node is a Private or Public Agent, ensure that all tasks have been redeployed elsewhere. Ensure that there are no persistent volumes containing data needed for services in the cluster.
+
+Please see the [Administering Clusters documentation](/1.13/administering-clusters/delete-node/) for more information.
 
 ## What this script does
 This script will uninstall all DC/OS binaries, libraries, and log files from the machine named $HOSTNAME.
