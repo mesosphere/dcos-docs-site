@@ -241,6 +241,7 @@ Target groups have two additional tags:
 ## Required permissions
 Either the instance on which Edge-LB API server is running on, or the IAM user that is specified using an AWS access key at the time of Edge-LB installation should have the following AWS API permissions in order to be able to manage Network Load Balancers:
 
+```
 elasticloadbalancing:DescribeLoadBalancers
 elasticloadbalancing:CreateLoadBalancer
 elasticloadbalancing:DeleteLoadBalancer
@@ -261,6 +262,7 @@ elasticloadbalancing:DescribeTags
 elasticloadbalancing:AddTags
 elasticloadbalancing:RemoveTags
 ec2:DescribeAddresses
+```
 
 For more information about required permissions, see [Elastic Load Balancing API Permissions](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/elb-api-permissions.html) in the AWS documentation. For more information about using Edge-LB configuration properties to provide AWS credentials, see the [Edge-LB configuration reference](https://github.com/mesosphere/dcos-edge-lb/blob/master/framework/edgelb/universe/config.json).
 
