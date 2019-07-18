@@ -7,7 +7,7 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 enterprise: true
 ---
 # Release notes for Edge-LB version 1.4
-Edge-LB Service version 1.4.0 was released July xx, 2019.
+Edge-LB Service version 1.4.0 was released July 24, 2019.
 
 # New features and capabilities
 - Introduces automatic provisioning and lifecycle management for AWS Network Load Balancers (NLB).
