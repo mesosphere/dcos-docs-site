@@ -126,8 +126,8 @@ If you use an IPv4 address, the address is resolved into the corresponding alloc
 ## Enabling Transport Layer Security (TLS)
 By default, AWS Network Load Balancer listeners use the TCP protocol. If you want to enable secure encrypted communication using Transport Layer Security and secure socket layer (SSL) certificates, you should do the following in the Edge-LB pool configuration file:
 - Set the `protocol` field to TLS.
-- Set the `policy` field to specify a secure socket layer (SSL) policy
-- Specify one or more SSL certificate file names for the `certificates` field.
+- Set the `policy` field to specify a [secure socket layer (SSL) policy](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies).
+- Set the `certificates` field to specify one or more [SSL certificates](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#tls-listener-certificates).
 
 For example, the following code snippet illustrates how to specify configuration properties for secure communication:
 
@@ -239,7 +239,7 @@ Target groups have two additional tags:
 - `DC/OS:EdgeLB:ListenerPort` that specifies a port number. For example: 80.
 
 ## Required permissions
-Either the instance on which Edge-LB API server is running on, or the IAM user that is specified using an AWS access key at the time of Edge-LB installation, should have the following AWS API permissions in order to be able to manage NLBs:
+Either the instance on which Edge-LB API server is running on, or the IAM user that is specified using an AWS access key at the time of Edge-LB installation should have the following AWS API permissions in order to be able to manage Network Load Balancers:
 
 elasticloadbalancing:DescribeLoadBalancers
 elasticloadbalancing:CreateLoadBalancer
@@ -262,194 +262,329 @@ elasticloadbalancing:AddTags
 elasticloadbalancing:RemoveTags
 ec2:DescribeAddresses
 
-For more information about required permissions, see in the AWS documentation. For more information about Edge-LB configuration properties, see. 
-For more information about providing AWS credentials, see.
+For more information about required permissions, see [Elastic Load Balancing API Permissions](https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/elb-api-permissions.html) in the AWS documentation. For more information about using Edge-LB configuration properties to provide AWS credentials, see the [Edge-LB configuration reference](https://github.com/mesosphere/dcos-edge-lb/blob/master/framework/edgelb/universe/config.json).
 
 # Deploying with the cloud provider load balancer
-To illustrate how you can deploy an Edge-LB pool that uses an Amazon Network Load Balancer, you can deploy a sample application that uses an Edge-LG pool to route incoming requests to the app.
+To illustrate how you can deploy an Edge-LB pool that uses an Amazon Network Load Balancer, you can deploy a sample application that uses an Edge-LB pool to route incoming requests to the app.
 
-1. 
+1. Open a text editor, then copy and paste the following sample app definition to create the `host-echo.json` file:
 
-```bash
-dcos marathon app add examples/apps/host-echo.json
-```
+    ```json
+    {
+        "id": "/host-echo",
+        "cmd": "/start $PORT0",
+        "instances": 1,
+        "cpus": 0.1,
+        "mem": 32,
+        "constraints": [["public_ip", "UNLIKE", "true"]],
+        "container": {
+            "type": "DOCKER",
+            "docker": {
+                "image": "mesosphere/echo-http"
+            }
+        },
+        "portDefinitions": [
+            {
+                "name": "web",
+                "protocol": "tcp",
+                "port": 0
+            }
+        ],
+        "healthChecks": [
+            {
+                "portIndex": 0,
+                "path": "/",
+                "protocol": "HTTP"
+            }
+        ]
+    }
+    ```
 
-1. 
+1. Deploy the `host-echo` service using the `host-echo.json` app definition by running the following command:
 
-```bash
-dcos edgelb create examples/config/pool-http-with-aws-nlb.json
-```
+    ```bash
+    dcos marathon app add examples/apps/host-echo.json
+    ```
 
-1. List cloud provider load balancers managed by Edge-LB running in the attached DC/OS cluster by running the following command:
+1. Open a text editor, then copy and paste the following Edge-LB pool configuration settings to define the `pool-http-with-aws-nlb` Edge-LB pool:
 
-```bash
-dcos edgelb ingresslb test-http-pool-with-aws-nlb
-```
-```
-  NAME  DNS                                                                            PORT  FRONTEND
-  echo  dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv-f0f10cfccfa7d5a8.elb.us-west-2.amazonaws.com  80    echo
-```
-
-1. Use the generated AWS NLB name to retrieve details about the NLB and its associated resources. To describe the load balancer, execute:
-
-```
-aws elbv2 describe-load-balancers --names dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv
-{
-    "LoadBalancers": [
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8",
-            "DNSName": "dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv-f0f10cfccfa7d5a8.elb.us-west-2.amazonaws.com",
-            "CanonicalHostedZoneId": "Z18D5FSROUN65G",
-            "CreatedTime": "2019-04-26T16:20:20.071Z",
-            "LoadBalancerName": "dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv",
-            "Scheme": "internet-facing",
-            "VpcId": "vpc-0d745ccca41eb2da1",
-            "State": {
-                "Code": "active"
-            },
-            "Type": "network",
-            "AvailabilityZones": [
+    ```json
+    {
+      "apiVersion": "V2",
+      "name": "pool-http-with-aws-nlb",
+      "count": 1,
+      "cloudProvider": {
+        "aws": {
+          "elbs": [
+            {
+              "name": "echo",
+              "type": "NLB",
+              "internal": false,
+              "listeners": [
                 {
-                    "ZoneName": "us-west-2c",
-                    "SubnetId": "subnet-05e8d3ea6fbad165a"
+                  "port": 80,
+                  "linkFrontend": "echo"
                 }
-            ],
-            "IpAddressType": "ipv4"
+              ],
+              "tags": [
+                {
+                  "key": "Protocol",
+                  "value": "HTTP"
+                }
+              ]
+            }
+          ]
         }
-    ]
-}
-```
-
-1. List the load balancer's listeners, run:
-
-```bash
-aws elbv2 describe-listeners --load-balancer-arn arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8
-{
-    "Listeners": [
-        {
-            "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:listener/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8/df8377617abd7bf2",
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8",
-            "Port": 80,
-            "Protocol": "TCP",
-            "DefaultActions": [
-                {
-                    "Type": "forward",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:targetgroup/dcos-tg-Gt8X3J46KQWg-80-PVvAO/d5a676c635d7e437"
+      },
+      "haproxy": {
+        "frontends": [
+          {
+            "name": "echo",
+            "bindPort": 80,
+            "protocol": "HTTP",
+            "linkBackend": {
+              "defaultBackend": "echo"
+            }
+          }
+        ],
+        "backends": [
+          {
+            "name": "echo",
+            "protocol": "HTTP",
+            "services": [
+              {
+                "marathon": {
+                  "serviceID": "/host-echo"
+                },
+                "endpoint": {
+                  "portName": "web"
                 }
+              }
             ]
-        }
-    ]
-}
-```
+          }
+        ]
+      }
+    }
+    ```
+
+1. Deploy the `pool-http-with-aws-nlb` pool configuration file to create the pool instance for load balancing access to the `host-echo` service by running the following command:
+
+    ```bash
+    dcos edgelb create examples/config/pool-http-with-aws-nlb.json
+    ```
+
+1. List the cloud provider load balancers managed by Edge-LB running in the attached DC/OS cluster by running the following command:
+
+    ```bash
+    dcos edgelb ingresslb pool-http-with-aws-nlb
+    ```
+
+    The command returns output similar to the following:
+
+    ```bash
+    NAME              DNS
+    echo              dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv-f0f10cfccfa7d5a8.elb.us-west-2.amazonaws.com
+
+    AVAILABILITY ZONE  ELASTIC IP
+
+    LISTENER PROTOCOL  LISTENER PORT  FRONTEND
+    TCP                80             echo
+    ```
+
+      In this example, the generated AWS Network Load Balancer name returned is:
+      `dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv-f0f10cfccfa7d5a8.elb.us-west-2.amazonaws.com`
+
+      You can use the generated AWS Network Load Balancer name to retrieve details about the Network Load Balancer and its associated resources.
+
+1. Use the generated AWS Network Load Balancer name to describe the Network Load Balancer by running the following command:
+
+    ```bash
+    aws elbv2 describe-load-balancers --names dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv
+    ```
+
+    The command returns information similar to the following:
+
+    ```bash
+    {
+        "LoadBalancers": [
+            {
+                "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8",
+                "DNSName": "dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv-f0f10cfccfa7d5a8.elb.us-west-2.amazonaws.com",
+                "CanonicalHostedZoneId": "Z18D5FSROUN65G",
+                "CreatedTime": "2019-04-26T16:20:20.071Z",
+                "LoadBalancerName": "dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv",
+                "Scheme": "internet-facing",
+                "VpcId": "vpc-0d745ccca41eb2da1",
+                "State": {
+                    "Code": "active"
+                },
+                "Type": "network",
+                "AvailabilityZones": [
+                    {
+                        "ZoneName": "us-west-2c",
+                        "SubnetId": "subnet-05e8d3ea6fbad165a"
+                    }
+                ],
+                "IpAddressType": "ipv4"
+            }
+        ]
+    }
+    ```
+
+1. List the load balancer's listeners by running the following command:
+
+    ```bash
+    aws elbv2 describe-listeners --load-balancer-arn arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8
+    ```
+
+    The command returns information similar to the following:
+
+    ```bash
+    {
+        "Listeners": [
+            {
+                "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:listener/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8/df8377617abd7bf2",
+                "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8",
+                "Port": 80,
+                "Protocol": "TCP",
+                "DefaultActions": [
+                    {
+                        "Type": "forward",
+                        "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:targetgroup/dcos-tg-Gt8X3J46KQWg-80-PVvAO/d5a676c635d7e437"
+                    }
+                ]
+            }
+        ]
+    }
+    ```
 
 1. Get the load balancer's tags by running the following command:
 
-```bash
-aws elbv2 describe-tags --resource-arns arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8
-{
-    "TagDescriptions": [
-        {
-            "ResourceArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8",
-            "Tags": [
-                {
-                    "Key": "DC/OS:EdgeLB:ApplicationID",
-                    "Value": "/dcos-edgelb/api"
-                },
-                {
-                    "Key": "DC/OS:EdgeLB:ClusterID",
-                    "Value": "18f21a68-058f-4d14-8055-e61ed91e3794"
-                },
-                {
-                    "Key": "DC/OS:EdgeLB:PoolName",
-                    "Value": "test-http-pool-with-aws-nlb"
-                },
-                {
-                    "Key": "Protocol",
-                    "Value": "HTTP"
-                },
-                {
-                    "Key": "DC/OS:EdgeLB:LoadBalancerName",
-                    "Value": "echo"
-                }
-            ]
-        }
-    ]
-}
-```
+    ```bash
+    aws elbv2 describe-tags --resource-arns arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8
+    ```
 
-1. Get a list of target groups associated with the load balancer, run:
+    The command returns information similar to the following:
 
-```bash
-aws elbv2 describe-target-groups --load-balancer-arn arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8
-{
-    "TargetGroups": [
-        {
-            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:targetgroup/dcos-tg-Gt8X3J46KQWg-80-PVvAO/d5a676c635d7e437",
-            "TargetGroupName": "dcos-tg-Gt8X3J46KQWg-80-PVvAO",
-            "Protocol": "TCP",
-            "Port": 65535,
-            "VpcId": "vpc-0d745ccca41eb2da1",
-            "HealthCheckProtocol": "TCP",
-            "HealthCheckPort": "traffic-port",
-            "HealthCheckEnabled": true,
-            "HealthCheckIntervalSeconds": 30,
-            "HealthCheckTimeoutSeconds": 10,
-            "HealthyThresholdCount": 3,
-            "UnhealthyThresholdCount": 3,
-            "LoadBalancerArns": [
-                "arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8"
-            ],
-            "TargetType": "instance"
-        }
-    ]
-}
-```
+    ```bash
+    {
+        "TagDescriptions": [
+            {
+                "ResourceArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8",
+                "Tags": [
+                    {
+                        "Key": "DC/OS:EdgeLB:ApplicationID",
+                        "Value": "/dcos-edgelb/api"
+                    },
+                    {
+                        "Key": "DC/OS:EdgeLB:ClusterID",
+                        "Value": "18f21a68-058f-4d14-8055-e61ed91e3794"
+                    },
+                    {
+                        "Key": "DC/OS:EdgeLB:PoolName",
+                        "Value": "test-http-pool-with-aws-nlb"
+                    },
+                    {
+                        "Key": "Protocol",
+                        "Value": "HTTP"
+                    },
+                    {
+                        "Key": "DC/OS:EdgeLB:LoadBalancerName",
+                        "Value": "echo"
+                    }
+                ]
+            }
+        ]
+    }
+    ```
 
-1. Get the target group's tags, do:
+1. Get a list of target groups associated with the load balancer by running the following command:
 
-```bash
-aws elbv2 describe-tags --resource-arns arn:aws:elasticloadbalancing:us-west-2:273854932432:targetgroup/dcos-tg-Gt8X3J46KQWg-80-PVvAO/d5a676c635d7e437
-{
-    "TagDescriptions": [
-        {
-            "ResourceArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:targetgroup/dcos-tg-Gt8X3J46KQWg-80-PVvAO/d5a676c635d7e437",
-            "Tags": [
-                {
-                    "Key": "DC/OS:EdgeLB:ListenerPort",
-                    "Value": "80"
-                },
-                {
-                    "Key": "DC/OS:EdgeLB:ApplicationID",
-                    "Value": "/dcos-edgelb/api"
-                },
-                {
-                    "Key": "DC/OS:EdgeLB:ClusterID",
-                    "Value": "18f21a68-058f-4d14-8055-e61ed91e3794"
-                },
-                {
-                    "Key": "DC/OS:EdgeLB:PoolName",
-                    "Value": "test-http-pool-with-aws-nlb"
-                },
-                {
-                    "Key": "Protocol",
-                    "Value": "HTTP"
-                },
-                {
-                    "Key": "DC/OS:EdgeLB:FrontendName",
-                    "Value": "echo"
-                },
-                {
-                    "Key": "DC/OS:EdgeLB:LoadBalancerName",
-                    "Value": "echo"
-                }
-            ]
-        }
-    ]
-}
-```
+    ```bash
+    aws elbv2 describe-target-groups --load-balancer-arn arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8
+    ```
+
+    The command returns information similar to the following:
+
+    ```bash
+    {
+        "TargetGroups": [
+            {
+                "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:targetgroup/dcos-tg-Gt8X3J46KQWg-80-PVvAO/d5a676c635d7e437",
+                "TargetGroupName": "dcos-tg-Gt8X3J46KQWg-80-PVvAO",
+                "Protocol": "TCP",
+                "Port": 65535,
+                "VpcId": "vpc-0d745ccca41eb2da1",
+                "HealthCheckProtocol": "TCP",
+                "HealthCheckPort": "traffic-port",
+                "HealthCheckEnabled": true,
+                "HealthCheckIntervalSeconds": 30,
+                "HealthCheckTimeoutSeconds": 10,
+                "HealthyThresholdCount": 3,
+                "UnhealthyThresholdCount": 3,
+                "LoadBalancerArns": [
+                    "arn:aws:elasticloadbalancing:us-west-2:273854932432:loadbalancer/net/dcos-lb-JOQ3wMJ7Z-Q8ayl-XzLP-PVv/f0f10cfccfa7d5a8"
+                ],
+                "TargetType": "instance"
+            }
+        ]
+    }
+    ```
+
+1. Get the target group's tags by running the following command:
+
+    ```bash
+    aws elbv2 describe-tags --resource-arns arn:aws:elasticloadbalancing:us-west-2:273854932432:targetgroup/dcos-tg-Gt8X3J46KQWg-80-PVvAO/d5a676c635d7e437
+    ```
+
+    The command returns information similar to the following:
+
+    ```bash
+    {
+        "TagDescriptions": [
+            {
+                "ResourceArn": "arn:aws:elasticloadbalancing:us-west-2:273854932432:targetgroup/dcos-tg-Gt8X3J46KQWg-80-PVvAO/d5a676c635d7e437",
+                "Tags": [
+                    {
+                        "Key": "DC/OS:EdgeLB:ListenerPort",
+                        "Value": "80"
+                    },
+                    {
+                        "Key": "DC/OS:EdgeLB:ApplicationID",
+                        "Value": "/dcos-edgelb/api"
+                    },
+                    {
+                        "Key": "DC/OS:EdgeLB:ClusterID",
+                        "Value": "18f21a68-058f-4d14-8055-e61ed91e3794"
+                    },
+                    {
+                        "Key": "DC/OS:EdgeLB:PoolName",
+                        "Value": "test-http-pool-with-aws-nlb"
+                    },
+                    {
+                        "Key": "Protocol",
+                        "Value": "HTTP"
+                    },
+                    {
+                        "Key": "DC/OS:EdgeLB:FrontendName",
+                        "Value": "echo"
+                    },
+                    {
+                        "Key": "DC/OS:EdgeLB:LoadBalancerName",
+                        "Value": "echo"
+                    }
+                ]
+            }
+        ]
+    }
+    ```
 
 # Viewing pool metadata
-Pool metadata contains additional information about cloud provider load balancers, if any is defined. To fetch metadata for a pool, you can make a request to /service/edgelb/v2/pools/<pool-name>/metadata. Here is an example of a response:
+Pool metadata contains additional information about cloud provider load balancers, if any additional information has been defined. 
+
+To get load balancer metadata for a pool, you can make a request to the `/service/edgelb/v2/pools/<pool-name>/metadata` endpoint.
+
+Here is an example of a response:
 
 ```json
 {
@@ -507,13 +642,17 @@ Pool metadata contains additional information about cloud provider load balancer
 }
 ```
 
-where
+In this example, `aws.elbs` is an array of entries where each entry corresponds to a respective AWS load balancer configuration in the pool definition. 
 
-aws.elbs is an array of entries where each entry corresponds to a respective AWS load balancer configuration in the pool definition. Each entry has the following fields:
-name is a user-defined load balancer name.
-dns is a DNS name of load balancer.
-listeners is listeners as defined in the respective pool configuration.
-state carries the status of the load balancer, together with a description for unexpected statuses.
-availabilityZones is the availability zones that load balancer nodes are located.
+Each `aws.elbs` entry has the following fields:
+- `name` is a user-defined load balancer name.
 
-For other details on metadata format, refer to this page.
+- `dns` is a DNS name of load balancer.
+
+- `listeners` is listeners as defined in the respective pool configuration.
+
+- `state` specifies the status of the load balancer, together with a description for unexpected statuses.
+
+- `availabilityZones` specify the availability zones that identify where load balancer nodes are located.
+
+For other details on metadata format, see the pool [metadata reference]() section.
