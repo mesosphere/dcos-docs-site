@@ -8,7 +8,6 @@ enterprise: true
 render: mustache
 model: /1.13/data.yml
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 You can create secrets in DC/OS by using a key-value pair or as a file. Both methods add a name and secret value to the secret store. You may find it convenient to add a secret as a file if you already have a secret value stored in a file locally and want to avoid copying-and-pasting.
@@ -46,13 +45,21 @@ Secrets should include paths, unless you want to allow all services to access it
 
 1. In the **ID** box, provide the name of your secret and its path, if any.
 
+    ![Secret ID Keypair](/1.13/img/GUI-Secrets-Create-New-Keypair.png)
+
+    Figure 2. Creating a new keypair 
+
+1. Select **Key-Value Pair** as Type.
+
 1. Type or paste the secret into the **Value** box.
 
-    ![Secret ID/Value Fields](/1.13/img/create-secret.png)
+1. Click **Create Secret**.
 
-    Figure 2. Creating a new Secret
+Returning to the Secrets screen, you can see that your secret has been deployed.
 
-1. Click **Create**.
+   ![Secret deployed](/1.13/img/GUI-Secrets-Secrets-Keypair-Deployed.png)
+
+   Figure 3. Secret with keypair deployed
 
 # <a name="api"></a>Creating key-value pair secrets using the API
 
@@ -109,19 +116,19 @@ This procedure describes how to use a file to create a secret using the DC/OS we
 
     ![New Secret](/1.13/img/new-secret.png)
 
-    Figure 3. Secrets screen
+    Figure 4. Secrets screen
 
-    If you have no current secrets, a Create Secret screen will be displayed. Click on the **Create Secret** button.
+    If you have no current secrets, a **Create Secret** screen will be displayed. Click on the **Create Secret** button.
 
     ![Create Secret](/1.13/img/GUI-Secrets-Create-Secret.png)
 
-    Figure 4. Create Secret button
+    Figure 5. Create Secret button
 
-1. In the ID box, provide the name of your secret and its path, if any.
+1. In the **ID** box, provide the name of your secret and its path, if any.
 
     ![Create New Secret](/1.13/img/GUI-Secrets-Create-New-Secret.png)
 
-    Figure 5. Create New Secret dialog
+    Figure 6. Create New Secret dialog showing file chosen
 
 1. Select **File** as Type.
 1. Click **Choose File**.
@@ -131,4 +138,4 @@ This procedure describes how to use a file to create a secret using the DC/OS we
 Returning to the Secrets screen, you can see that your secret has been deployed.
 
    ![Secret deployed](/1.13/img/GUI-Secrets-Deployed.jpeg)
-   Figure 6. Secret deployed
+   Figure 7. Secret deployed
