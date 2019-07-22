@@ -55,7 +55,7 @@ If you would like to change a DC/OS cluster configuration parameter, such as upd
 ## Adding additional volumes
 We support adding additionals EBS volumes to private agent instances with the `private_agent_extra_volumes` variable. You can specify the size, type, iops and device name for each desired volume. See the following example for adding 2 additional volumes to a private agent:
 
-```json
+```hcl
 private_agent_extra_volumes = [
     {
       size        = "100"

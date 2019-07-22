@@ -1,68 +1,90 @@
-# Creating a cluster
-1) Create a local folder.
+# Creating a DC/OS Cluster
 
-  ```bash
-  mkdir dcos-demo && cd dcos-demo
-  ```
+1. Let’s start by creating a local folder and cd'ing into it. This folder will be used as the staging ground for downloading all required Terraform modules and holding the configuration for the cluster you are about to create.
 
-2) Copy and paste the example code below into a new file and save it as `main.tf` in the local folder.
+    ```bash
+    mkdir dcos-demo && cd dcos-demo
+    ```
 
-  The example code below creates a DC/OS OSS 1.13.0 cluster on GCP with:
-  - 1 Master
-  - 2 Private Agents
-  - 1 Public Agent
+2. Create a file in that folder called `main.tf`, which is the configuration file that will be called on each time when terraform runs. The name of this file should always be `main.tf`. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
 
-  The example also specifies that the following output should be printed once cluster creation is complete:
-  - ```masters-ips``` - Lists the DC/OS master nodes.
-  - ```cluster-address``` - Specifies the URL you use to access DC/OS UI after the cluster is set up.
-  - ```public-agent-loadbalancer``` - Specifies the URL of your Public routable services.
+    ```hcl
+    provider "google" {
+      version = "~> 2.0"
+      region  = "us-west1"
+    }
 
-  ```hcl
-  variable "dcos_install_mode" {
-    description = "specifies which type of command to execute. Options: install or upgrade"
-    default = "install"
-  }
+    module "dcos" {
+      source = "dcos-terraform/dcos/gcp"
+      version = "~> 0.2.0"
 
-  module "dcos" {
-    source = "dcos-terraform/dcos/gcp"
-    version = "~> 0.1.0"
+      providers = {
+        google = "google"
+      }
 
-    cluster_name        = "my-open-dcos"
-    ssh_public_key_file = "~/.ssh/id_rsa.pub"
+      cluster_name        = "my-dcos-demo"
+      ssh_public_key_file = "<path-to-public-key-file>"
+      admin_ips           = ["${data.http.whatismyip.body}/32"]
 
-    num_masters        = "1"
-    num_private_agents = "2"
-    num_public_agents  = "1"
+      num_masters        = 3
+      num_private_agents = 2
+      num_public_agents  = 1
 
-    dcos_version = "1.13.0"
+      dcos_version = "1.13.2"
 
-    # Enterprise users uncomment this section and comment out below
-    # dcos_variant              = "ee"
-    # dcos_license_key_contents = "${file("./license.txt")}"
-    # Make sure to set your credentials if you do not want the default
-    # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}
-    # dcos_superuser_username = "admin"
+      # Enterprise users uncomment this section and comment out below
+      # dcos_variant              = "ee"
+      # dcos_license_key_contents = "${file("./license.txt")}"
+      # Make sure to set your credentials if you do not want the default EE
+      # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}
+      # dcos_superuser_username = "admin"
 
-    # Default is DC/OS
-    dcos_variant = "open"
+      dcos_variant = "open"
+    }
 
-    # Reads the install mode set above
-    dcos_install_mode = "${var.dcos_install_mode}"
-  }
+    output "masters-ips" {
+      value = "${module.dcos.masters-ips}"
+    }
 
-  output "masters-ips" {
-    value       = "${module.dcos.masters-ips}"
-  }
+    output "cluster-address" {
+      value = "${module.dcos.masters-loadbalancer}"
+    }
 
-  output "cluster-address" {
-    value       = "${module.dcos.masters-loadbalancer}"
-  }
+    output "public-agents-loadbalancer" {
+      value = "${module.dcos.public-agents-loadbalancer}"
+    }
+    ```
 
-  output "public-agents-loadbalancer" {
-    value = "${module.dcos.public-agents-loadbalancer}"
-  }
-  ```
+  3. There is a main variable that must be set to complete the `main.tf`:
 
-  For simplicity in this example, the configuration values are hard-coded.  If you have a desired cluster name or number of masters/agents, you can adjust the values directly in the `main.tf` configuration file.
+      - `ssh_public_key_file = "<path-to-public-key-file>"`: the path to the public key for your cluster, following our example it would be:
+          ```bash
+          "~/.ssh/gcp-key.pub"
+          ```
 
+  4. `region` is a setting that sets the GCP region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-west1”, it can be changed to any other region (e.g “us-east1”, “us-central1”, etc).
+
+  5. Enterprise users, uncomment/comment the section for the `dcos_variant` to look like this, inserting the location to your license key, and adding superuser credentials if needed. [enterprise type="inline" size="small" /]
+
+      ```hcl
+      dcos_variant              = "ee"
+      dcos_license_key_contents = "${file("./license.txt")}"
+      # dcos_variant = "open"
+      ```
   You can find additional input variables and their descriptions [here](/{{ model.folder_version }}/installing/evaluation/gcp/advanced-gcp/).
+
+  6. This sample configuration file will get you started on the installation of an open source DC/OS 1.13.2 cluster with the following nodes:
+
+      - 3 Master
+      - 2 Private Agents
+      - 1 Public Agent
+
+      If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '\_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/{{ model.folder_version }}/installing/evaluation/gcp/gcp-advanced/).
+
+      There are also simple helpers listed underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
+
+      - `master-ips` A list of Your DC/OS master nodes
+      - `cluster-address` The URL you use to access DC/OS UI after the cluster is setup.
+      - `public-agent-loadbalancer` The URL of your Public routable services.
+
+  7. Check that you have inserted your cloud provider and public key paths to `main.tf`, changed or added any other additional variables as wanted, then save and close your file.

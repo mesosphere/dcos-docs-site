@@ -8,50 +8,47 @@
 
 2. Create a file in that folder called `main.tf`, which is the configuration file that will be called on each time when terraform runs. The name of this file should always be `main.tf`. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
 
-    ```bash
+    ```hcl
     provider "aws" {
       # Change your default region here
       region = "us-east-1"
+    }
+
+    # Used to determine your public IP for forwarding rules
+    data "http" "whatismyip" {
+      url = "http://whatismyip.akamai.com/"
     }
 
     module "dcos" {
       source  = "dcos-terraform/dcos/aws"
       version = "~> 0.2.0"
 
-      cluster_name        = "my-dcos-demo"
-      ssh_public_key_file = "<path-to-public-key-file>"
-      admin_ips           = ["${data.http.whatismyip.body}/32"]
-
-      num_masters        = "1"
-      num_private_agents = "2"
-      num_public_agents  = "1"
-
-      dcos_version = "1.13.0"
-
-      dcos_instance_os    = "centos_7.5"
-      bootstrap_instance_type = "t2.medium"
-      masters_instance_type  = "t2.medium"
-      private_agents_instance_type = "t2.medium"
-      public_agents_instance_type = "t2.medium"
-
       providers = {
         aws = "aws"
       }
 
-      # Enterprise users uncomment this section and comment out below
+      cluster_name        = "my-dcos-demo"
+      ssh_public_key_file = "<path-to-public-key-file>"
+      admin_ips           = ["${data.http.whatismyip.body}/32"]
+
+      num_masters        = 3
+      num_private_agents = 2
+      num_public_agents  = 1
+
+      dcos_version = "1.13.2"
+
       # dcos_variant              = "ee"
       # dcos_license_key_contents = "${file("./license.txt")}"
       # Make sure to set your credentials if you do not want the default EE
-      # dcos_superuser_username          = "superuser-name"
+      # dcos_superuser_username      = "superuser-name"
       # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
-
-      # Default is DC/OS
       dcos_variant = "open"
-    }
 
-    # Used to determine your public IP for forwarding rules
-    data "http" "whatismyip" {
-      url = "http://whatismyip.akamai.com/"
+      dcos_instance_os             = "centos_7.5"
+      bootstrap_instance_type      = "t2.medium"
+      masters_instance_type        = "t2.medium"
+      private_agents_instance_type = "t2.medium"
+      public_agents_instance_type  = "t2.medium"
     }
 
     output "masters-ips" {
@@ -74,19 +71,19 @@
       "~/.ssh/aws-key.pub"
       ```
 
-4. `region` is a setting that sets the AWS region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-east-1”, it can be changed to any other region (e.g “us-west-1”, “us-west-2”, “us-east-2”, etc).  For a complete list, please refer to the [configuration reference](/{{ model.folder_version }}/installing/evaluation/aws/).
+4. `region` is a setting that sets the AWS region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-east-1”, it can be changed to any other region (e.g “us-west-1”, “us-west-2”, “us-east-2”, etc). For a complete list, please refer to the [configuration reference](/{{ model.folder_version }}/installing/evaluation/aws/).
 
 5. Enterprise users, uncomment/comment the section for the `dcos_variant` to look like this, inserting the location to your license key, and adding superuser credentials if needed. [enterprise type="inline" size="small" /]
 
-    ```bash
+    ```hcl
     dcos_variant              = "ee"
     dcos_license_key_contents = "${file("./license.txt")}"
     # dcos_variant = "open"
     ```
 
-6. This sample configuration file will get you started on the installation of an open source DC/OS 1.13.0 cluster with the following nodes:
+6. This sample configuration file will get you started on the installation of an open source DC/OS 1.13.2 cluster with the following nodes:
 
-    - 1 Master
+    - 3 Master
     - 2 Private Agents
     - 1 Public Agent
 

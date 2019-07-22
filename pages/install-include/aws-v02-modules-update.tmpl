@@ -19,18 +19,19 @@ module "dcos" {
 #### Using install and upgrade modes for `~> 0.1.0` version users
 To use the examples on these pages, make the following changes to your `main.tf`. The only time you should set the variable to `upgrade` is when upgrading the DC/OS version. Remember to set it back to install afterwards to ensure normal operations.
 
-  ```hcl
-  variable "dcos_install_mode" {
-    description = "specifies which type of command to execute. Options: install or upgrade"
-    default = "install"
-  }
-  module "dcos" {
-      source  = "dcos-terraform/dcos/aws"
-      version = "~> 0.1.0"
+```hcl
+variable "dcos_install_mode" {
+  description = "specifies which type of command to execute. Options: install or upgrade"
+  default = "install"
+}
 
-      # ...
+module "dcos" {
+  source  = "dcos-terraform/dcos/aws"
+  version = "~> 0.1.0"
 
-      # Reads the install mode set above
-      dcos_install_mode = "${var.dcos_install_mode}"
-  }
-  ```
+  # ...
+
+  # Reads the install mode set above
+  dcos_install_mode = "${var.dcos_install_mode}"
+}
+```
