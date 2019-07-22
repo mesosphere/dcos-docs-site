@@ -1,31 +1,53 @@
 The Mesosphere Universal Installer supports a wide range of inputs/variables to add to your `main.tf` and enable you to customize your DC/OS cluster to your needs. These inputs/variables include everything from specifying the operating system (CentOS, CoreOS, RHEL) to setting the garbage collection time of your DC/OS cluster.
 
-The Terraform-based Universal Installer is designed to be flexible with configuration. Below is an example of a custom `main.tf` that provisions a customized DC/OS 1.13.0 cluster on AWS.
+The Terraform-based Universal Installer is designed to be flexible with configuration. Below is an example of a custom `main.tf` that provisions a customized DC/OS 1.13.2 cluster on AWS.
 
 ```hcl
+provider "aws" {
+  # Change your default region here
+  region = "us-east-1"
+}
+
+# Used to determine your public IP for forwarding rules
+data "http" "whatismyip" {
+  url = "http://whatismyip.akamai.com/"
+}
+
 module "dcos" {
   source  = "dcos-terraform/dcos/aws"
   version = "~> 0.2.0"
 
-  cluster_name = "mydcoscluster"
-  ssh_public_key_file = "~/.ssh/id_rsa.pub"
-  admin_ips = ["198.51.100.0/24"]
+  providers = {
+    aws = "aws"
+  }
 
-  dcos_version = "1.13.0"
-  num_masters = "3"
-  num_private_agents = "2"
-  num_public_agents = "1"
+  cluster_name        = "my-dcos-demo"
+  ssh_public_key_file = "<path-to-public-key-file>"
+  admin_ips           = ["${data.http.whatismyip.body}/32"]
+
+  num_masters        = 3
+  num_private_agents = 2
+  num_public_agents  = 1
+
+  dcos_version = "1.13.2"
+
+  # dcos_variant              = "ee"
+  # dcos_license_key_contents = "${file("./license.txt")}"
+  # Make sure to set your credentials if you do not want the default EE
+  # dcos_superuser_username      = "superuser-name"
+  # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
+  dcos_variant = "open"
 
   # availability_zones = ["<your_selected_region>a"]
 
-  dcos_cluster_docker_credentials_enabled =  "true"
+  dcos_cluster_docker_credentials_enabled      = "true"
   dcos_cluster_docker_credentials_write_to_etc = "true"
-  dcos_cluster_docker_credentials_dcos_owned = "false"
-  dcos_cluster_docker_registry_url = "https://index.docker.io"
-  dcos_use_proxy = "yes"
-  dcos_http_proxy = "example.com"
-  dcos_https_proxy = "example.com"
-  dcos_no_proxy = <<EOF
+  dcos_cluster_docker_credentials_dcos_owned   = "false"
+  dcos_cluster_docker_registry_url             = "https://index.docker.io"
+  dcos_use_proxy                               = "yes"
+  dcos_http_proxy                              = "example.com"
+  dcos_https_proxy                             = "example.com"
+  dcos_no_proxy                                = <<EOF
   # YAML
    - "internal.net"
    - "169.254.169.254"
@@ -58,9 +80,9 @@ module "dcos" {
       'https://index.docker.io/v1/':
         auth: Ze9ja2VyY3licmljSmVFOEJrcTY2eTV1WHhnSkVuVndjVEE=
   EOF
+}
 
-  # dcos_variant              = "ee"
-  # dcos_license_key_contents = "${file("./license.txt")}"
-  dcos_variant = "open"
+output "cluster-address" {
+  value = "${module.dcos.masters-loadbalancer}"
 }
 ```

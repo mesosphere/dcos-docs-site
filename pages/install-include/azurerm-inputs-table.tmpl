@@ -4,27 +4,19 @@ Here is a list of all the variables that are currently supported on the Universa
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | admin\_ips | List of CIDR admin IPs | list | n/a | yes |
+| location | Azure Region | string | n/a | yes |
 | ssh\_public\_key\_file | Path to SSH public key. This is mandatory but can be set to an empty string if you want to use ssh_public_key with the key as string. | string | n/a | yes |
-| accepted\_internal\_networks | Subnet ranges for all internal networks | list | `[]` | no |
 | additional\_private\_agent\_ips | Additional private agent IPs. | list | `[]` | no |
 | additional\_public\_agent\_ips | Additional public agent IPs. | list | `[]` | no |
-| additional\_windows\_private\_agent\_ips | Additional windows private agent IPs | list | `[]` | no |
-| additional\_windows\_private\_agent\_os\_user | Additional windows private agent os user to be used for WinRM | string | `"Administrator"` | no |
-| additional\_windows\_private\_agent\_passwords | Additional windows private agent passwords to be used for WinRM | list | `[]` | no |
 | ansible\_additional\_config | Add additional config options to ansible. This is getting merged with generated defaults. Do not specify `dcos:` | string | `""` | no |
 | ansible\_bundled\_container | Docker container with bundled dcos-ansible and ansible executables | string | `"mesosphere/dcos-ansible-bundle:latest"` | no |
-| availability\_zones | List of availability_zones to be used as the same format that are required by the platform/cloud providers. i.e `['RegionZone']` | list | `[]` | no |
-| aws\_ami | AMI that will be used for the instances instead of the Mesosphere chosen default images. Custom AMIs must fulfill the Mesosphere DC/OS system-requirements: See https://docs.mesosphere.com/1.12/installing/production/system-requirements/ | string | `""` | no |
-| aws\_key\_name | Specify the aws ssh key to use. We assume its already loaded in your SSH agent. Set ssh_public_key_file to empty string | string | `""` | no |
-| bootstrap\_associate\_public\_ip\_address | [BOOTSTRAP] Associate a public ip address with there instances | string | `"true"` | no |
-| bootstrap\_aws\_ami | [BOOTSTRAP] AMI to be used | string | `""` | no |
-| bootstrap\_hostname\_format | [BOOTSTRAP] Format the hostname inputs are index+1, region, cluster_name | string | `"%[3]s-bootstrap%[1]d-%[2]s"` | no |
-| bootstrap\_iam\_instance\_profile | [BOOTSTRAP] Instance profile to be used for these instances | string | `""` | no |
-| bootstrap\_instance\_type | [BOOTSTRAP] Instance type | string | `"t2.medium"` | no |
+| avset\_platform\_fault\_domain\_count | Availability set platform fault domain count, differs from location to location | string | `"3"` | no |
+| bootstrap\_image | [BOOTSTRAP] Image to be used | map | `{}` | no |
 | bootstrap\_os | [BOOTSTRAP] Operating system to use. Instead of using your own AMI you could use a provided OS. | string | `""` | no |
 | bootstrap\_private\_ip | Private IP bootstrap nginx is listening on. Used to build the bootstrap URL. | string | `""` | no |
 | bootstrap\_root\_volume\_size | [BOOTSTRAP] Root volume size in GB | string | `"80"` | no |
-| bootstrap\_root\_volume\_type | [BOOTSTRAP] Root volume type | string | `"standard"` | no |
+| bootstrap\_root\_volume\_type | [BOOTSTRAP] Root volume type | string | `"Standard_LRS"` | no |
+| bootstrap\_vm\_size | [BOOTSTRAP] Azure virtual machine size | string | `"Standard_B4ms"` | no |
 | cluster\_name | Name of the DC/OS cluster | string | `"dcos-example"` | no |
 | cluster\_name\_random\_string | Add a random string to the cluster name | string | `"false"` | no |
 | custom\_dcos\_download\_path | insert location of dcos installer script (optional) | string | `""` | no |
@@ -81,8 +73,8 @@ Here is a list of all the variables that are currently supported on the Universa
 | dcos\_gpus\_are\_scarce | Indicates whether to treat GPUs as a scarce resource in the cluster. (optional) | string | `""` | no |
 | dcos\_http\_proxy | http proxy (optional) | string | `""` | no |
 | dcos\_https\_proxy | https proxy (optional) | string | `""` | no |
-| dcos\_image\_commit | The commit hash for the build of DC/OS | string | `""` | no |
-| dcos\_instance\_os | Operating system to use. Instead of using your own AMI you could use a provided OS. | string | `"centos_7.4"` | no |
+| dcos\_install\_mode | Type of command to execute. Options: install or upgrade | string | `"install"` | no |
+| dcos\_instance\_os | Operating system to use. Instead of using your own AMI you could use a provided OS. | string | `"centos_7.6"` | no |
 | dcos\_ip\_detect\_contents | Allows DC/OS to detect your private address. Use this to pass this as an input to the module rather than a file in side your bootstrap node. (recommended) | string | `""` | no |
 | dcos\_ip\_detect\_public\_contents | Allows DC/OS to be aware of your publicly routeable address for ease of use (recommended) | string | `""` | no |
 | dcos\_ip\_detect\_public\_filename | statically set your detect-ip-public path | string | `"genconf/ip-detect-public"` | no |
@@ -92,7 +84,7 @@ Here is a list of all the variables that are currently supported on the Universa
 | dcos\_master\_discovery | The Mesos master discovery method. The available options are static or master_http_loadbalancer. (recommend the use of master_http_loadbalancer) | string | `"static"` | no |
 | dcos\_master\_dns\_bindall | Indicates whether the master DNS port is open. (optional) | string | `""` | no |
 | dcos\_master\_external\_loadbalancer | Allows DC/OS to configure certs around the External Load Balancer name. If not used SSL verfication issues will arrise. EE only. (recommended) | string | `""` | no |
-| dcos\_master\_list | statically set your master nodes (not recommended but required with exhibitor_storage_backend set to static. Use aws_s3 or azure instead, that way you can replace masters in the cloud.) | string | `""` | no |
+| dcos\_master\_list | statically set your master nodes (not recommended but required with exhibitor_storage_backend set to static. Use aws_s3 or azure instead, that way you can replace masters in the cloud.) | list | `[]` | no |
 | dcos\_mesos\_container\_log\_sink | The log manager for containers (tasks). The options are to send logs to: 'journald', 'logrotate', 'journald+logrotate'. (optional) | string | `""` | no |
 | dcos\_mesos\_dns\_set\_truncate\_bit | Indicates whether to set the truncate bit if the response is too large to fit in a single packet. (optional) | string | `""` | no |
 | dcos\_mesos\_max\_completed\_tasks\_per\_framework | The number of completed tasks for each framework that the Mesos master will retain in memory. (optional) | string | `""` | no |
@@ -108,7 +100,7 @@ Here is a list of all the variables that are currently supported on the Universa
 | dcos\_previous\_version\_master\_index | Used to track the index of master for quering the previous DC/OS version during upgrading. (optional) applicable: 1.9+ | string | `"0"` | no |
 | dcos\_process\_timeout | The allowable amount of time, in seconds, for an action to begin after the process forks. (optional) | string | `""` | no |
 | dcos\_public\_agent\_list | statically set your public agents (not recommended) | list | `[]` | no |
-| dcos\_resolvers | A YAML nested list (-) of DNS resolvers for your DC/OS cluster nodes. (recommended) | list | `[ "169.254.169.253" ]` | no |
+| dcos\_resolvers | A YAML nested list (-) of DNS resolvers for your DC/OS cluster nodes. (recommended) | list | `[ "168.63.129.16" ]` | no |
 | dcos\_rexray\_config | The REX-Ray configuration method for enabling external persistent volumes in Marathon. (optional) | string | `""` | no |
 | dcos\_rexray\_config\_filename | The REX-Ray configuration filename for enabling external persistent volumes in Marathon. (optional) | string | `""` | no |
 | dcos\_rexray\_config\_method | The REX-Ray configuration method for enabling external persistent volumes in Marathon. (optional) | string | `""` | no |
@@ -127,42 +119,27 @@ Here is a list of all the variables that are currently supported on the Universa
 | dcos\_zk\_agent\_credentials | [Enterprise DC/OS] set the ZooKeeper agent credentials (recommended) | string | `""` | no |
 | dcos\_zk\_master\_credentials | [Enterprise DC/OS] set the ZooKeeper master credentials (recommended) | string | `""` | no |
 | dcos\_zk\_super\_credentials | [Enterprise DC/OS] set the zk super credentials (recommended) | string | `""` | no |
-| masters\_acm\_cert\_arn | ACM certifacte to be used for the masters load balancer | string | `""` | no |
-| masters\_associate\_public\_ip\_address | [MASTERS] Associate a public ip address with there instances | string | `"true"` | no |
-| masters\_aws\_ami | [MASTERS] AMI to be used | string | `""` | no |
-| masters\_hostname\_format | [MASTERS] Format the hostname inputs are index+1, region, cluster_name | string | `"%[3]s-master%[1]d-%[2]s"` | no |
-| masters\_iam\_instance\_profile | [MASTERS] Instance profile to be used for these instances | string | `""` | no |
-| masters\_instance\_type | [MASTERS] Instance type | string | `"m4.xlarge"` | no |
-| masters\_internal\_acm\_cert\_arn | ACM certifacte to be used for the internal masters load balancer | string | `""` | no |
+| masters\_image | [MASTERS] Image to be used | map | `{}` | no |
 | masters\_os | [MASTERS] Operating system to use. Instead of using your own AMI you could use a provided OS. | string | `""` | no |
 | masters\_root\_volume\_size | [MASTERS] Root volume size in GB | string | `"120"` | no |
+| masters\_vm\_size | [MASTERS] Azure virtual machine size | string | `"Standard_D4s_v3"` | no |
 | num\_masters | Specify the amount of masters. For redundancy you should have at least 3 | string | `"3"` | no |
 | num\_of\_private\_agents | Specify the amount of private agents. These agents will provide your main resources | string | `""` | no |
 | num\_of\_public\_agents | Specify the amount of public agents. These agents will host marathon-lb and edgelb | string | `""` | no |
 | num\_private\_agents | Specify the amount of private agents. These agents will provide your main resources | string | `"2"` | no |
 | num\_public\_agents | Specify the amount of public agents. These agents will host marathon-lb and edgelb | string | `"1"` | no |
-| private\_agents\_associate\_public\_ip\_address | [PRIVATE AGENTS] Associate a public ip address with there instances | string | `"true"` | no |
-| private\_agents\_aws\_ami | [PRIVATE AGENTS] AMI to be used | string | `""` | no |
-| private\_agents\_extra\_volumes | [PRIVATE AGENTS] Extra volumes for each private agent | list | `[]` | no |
-| private\_agents\_hostname\_format | [PRIVATE AGENTS] Format the hostname inputs are index+1, region, cluster_name | string | `"%[3]s-privateagent%[1]d-%[2]s"` | no |
-| private\_agents\_iam\_instance\_profile | [PRIVATE AGENTS] Instance profile to be used for these instances | string | `""` | no |
-| private\_agents\_instance\_type | [PRIVATE AGENTS] Instance type | string | `"m4.xlarge"` | no |
+| private\_agents\_image | [PRIVATE AGENTS] Image to be used | map | `{}` | no |
 | private\_agents\_os | [PRIVATE AGENTS] Operating system to use. Instead of using your own AMI you could use a provided OS. | string | `""` | no |
 | private\_agents\_root\_volume\_size | [PRIVATE AGENTS] Root volume size in GB | string | `"120"` | no |
-| private\_agents\_root\_volume\_type | [PRIVATE AGENTS] Root volume type | string | `"gp2"` | no |
-| public\_agents\_access\_ips | List of ips allowed access to public agents. admin_ips are joined to this list | list | `[ "0.0.0.0/0" ]` | no |
-| public\_agents\_acm\_cert\_arn | ACM certifacte to be used for the public agents load balancer | string | `""` | no |
+| private\_agents\_root\_volume\_type | [PRIVATE AGENTS] Root volume type | string | `"Standard_LRS"` | no |
+| private\_agents\_vm\_size | [PRIVATE AGENTS] Azure virtual machine size | string | `"Standard_D4s_v3"` | no |
 | public\_agents\_additional\_ports | List of additional ports allowed for public access on public agents (80 and 443 open by default) | list | `[]` | no |
-| public\_agents\_associate\_public\_ip\_address | [PUBLIC AGENTS] Associate a public ip address with there instances | string | `"true"` | no |
-| public\_agents\_aws\_ami | [PUBLIC AGENTS] AMI to be used | string | `""` | no |
-| public\_agents\_hostname\_format | [PUBLIC AGENTS] Format the hostname inputs are index+1, region, cluster_name | string | `"%[3]s-publicagent%[1]d-%[2]s"` | no |
-| public\_agents\_iam\_instance\_profile | [PUBLIC AGENTS] Instance profile to be used for these instances | string | `""` | no |
-| public\_agents\_instance\_type | [PUBLIC AGENTS] Instance type | string | `"m4.xlarge"` | no |
+| public\_agents\_image | [PUBLIC AGENTS] Image to be used | map | `{}` | no |
 | public\_agents\_os | [PUBLIC AGENTS] Operating system to use. Instead of using your own AMI you could use a provided OS. | string | `""` | no |
 | public\_agents\_root\_volume\_size | [PUBLIC AGENTS] Root volume size | string | `"120"` | no |
-| public\_agents\_root\_volume\_type | [PUBLIC AGENTS] Specify the root volume type. | string | `"gp2"` | no |
+| public\_agents\_root\_volume\_type | [PUBLIC AGENTS] Specify the root volume type. | string | `"Standard_LRS"` | no |
+| public\_agents\_vm\_size | [PUBLIC AGENTS] Azure virtual machine size | string | `"Standard_D4s_v3"` | no |
 | ssh\_public\_key | SSH public key in authorized keys format (e.g. 'ssh-rsa ..') to be used with the instances. Make sure you added this key to your ssh-agent. | string | `""` | no |
-| subnet\_range | Private IP space to be used in CIDR format | string | `"172.16.0.0/16"` | no |
+| subnet\_range | Private IP space to be used in CIDR format | string | `"172.12.0.0/16"` | no |
 | tags | Add custom tags to all resources | map | `{}` | no |
-| with\_replaceable\_masters | Create S3 bucket for exhibitor and configure DC/OS to use it. | string | `"false"` | no |
 

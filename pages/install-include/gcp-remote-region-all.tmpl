@@ -1,6 +1,6 @@
-This guide expects that you already have a running DC/OS cluster based on Universal Installer `0.2`. To learn more about running DC/OS with the Universal Installer have a look into the [Guide for DC/OS on AWS using the Universal Installer](/{{ model.folder_version }}/installing/evaluation/aws/).
+This guide expects that you already have a running DC/OS cluster based on Universal Installer `0.2`. To learn more about running DC/OS with the Universal Installer have a look into the [Guide for DC/OS on GCP using the Universal Installer](/{{ model.folder_version }}/installing/evaluation/gcp/).
 
-You will learn how to place additional infrastructure into a AWS remote region. Remote regions will be connected to each other by using the [AWS VPC Peering Feature](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-peering.html).
+You will learn how to place additional infrastructure into a GCP remote region. Remote regions will be connected to each other by using the peering functionality of GCP VNETs.
 
 # Prerequisites
 - A running DC/OS Enterprise cluster set up with Universal Installer 0.2 modules
@@ -10,9 +10,9 @@ You will learn how to place additional infrastructure into a AWS remote region. 
 We expect your already running DC/OS clusters `main.tf` will look similar to this example. To deploy a remote region we have to do some changes to your `main.tf`
 
 ```hcl
-provider "aws" {
-  # Change your default region here
-  region = "us-east-1"
+provider "google" {
+  version = "~> 2.0"
+  region  = "us-west1"
 }
 
 # Used to determine your public IP for forwarding rules
@@ -21,20 +21,20 @@ data "http" "whatismyip" {
 }
 
 module "dcos" {
-  source  = "dcos-terraform/dcos/aws"
+  source  = "dcos-terraform/dcos/gcp"
   version = "~> 0.2.0"
 
   providers = {
-    aws = "aws"
+    google = "google"
   }
 
   cluster_name        = "my-dcos-demo"
   ssh_public_key_file = "<path-to-public-key-file>"
   admin_ips           = ["${data.http.whatismyip.body}/32"]
 
-  num_masters        = "3"
-  num_private_agents = "2"
-  num_public_agents  = "1"
+  num_masters        = 3
+  num_private_agents = 2
+  num_public_agents  = 1
 
   dcos_version = "1.13.2"
 
@@ -45,11 +45,7 @@ module "dcos" {
   # dcos_superuser_username      = "superuser-name"
   # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
 
-  dcos_instance_os             = "centos_7.5"
-  bootstrap_instance_type      = "t2.medium"
-  masters_instance_type        = "t2.medium"
-  private_agents_instance_type = "t2.medium"
-  public_agents_instance_type  = "t2.medium"
+  dcos_instance_os = "centos_7"
 }
 
 output "masters-ips" {
@@ -66,23 +62,23 @@ output "public-agents-loadbalancer" {
 ```
 
 ## Remote region provider
-The first change we have to apply to your `main.tf` is adding a specific provider statement for the remote region. In this example we will use `us-west-2` with the alias `usw2` as our remote region. We also add an alias statement to the provider used deploying our region holding the master instances.
+The first change we have to apply to your `main.tf` is adding a specific provider statement for the remote region. In this example we will use `us-east1` with the alias `us-east1` as our remote region. We also add an alias statement to the provider used deploying our region holding the master instances.
 
 This needs to be done so our modules know which account credentials to use.
 
 <p class="message--note"><strong>Note:</strong> Some resources have name length limitations which is the reason we shorten our region name.</p>
 
 ```hcl
-provider "aws" {
-  # Change your default region here
-  region = "us-east-1"
-  alias  = "master"
+provider "google" {
+  version = "~> 2.0"
+  region  = "us-west1"
+  alias   = "master"
 }
 
-provider "aws" {
-  # Change your default region here
-  region = "us-west-2"
-  alias  = "usw2"
+provider "google" {
+  version = "~> 2.0"
+  region  = "us-east1"
+  alias   = "us-east1"
 }
 
 # ...
@@ -105,7 +101,7 @@ locals {
 ```
 
 ### Internal subnetworks
-Part of the shared information is which internal subnets are used in your infrastructure. This information needs to be known by all parts of the DC/OS so traffic can be routed and is allowed by the security groups. If you did not specify `subnet_range`, terraform uses the default which is `172.16.0.0/16`. The remote region we want to specify needs its own subnet.
+Part of the shared information is which internal subnets are used in your infrastructure. If you did not specify `subnet_range`, terraform uses the default which is `172.16.0.0/16`. The remote region we want to specify needs its own subnet.
 
 <p class="message--important"><strong>IMPORTANT:</strong> You should not take the next free network of <code>172.16/12</code> as <code>172.17.0.0/16</code> is dockers internal network default which will lead to problems.</p>
 
@@ -124,34 +120,9 @@ locals {
 
   region_networks = {
     // dont use 172.17/26 as its used by docker.
-    "master" = "172.16.0.0/16" // this is the default
-    "usw2"   = "10.128.0.0/16"
+    "master"   = "172.16.0.0/16" // this is the default
+    "us-east1" = "10.128.0.0/16"
   }
-}
-
-#...
-```
-
-### Allowed internal networks
-To let our main region allow traffic from the remote region and vice versa we have to specify the `accepted_internal_networks` variable in both. This variable will inform the security group which allows the agents and masters to communicate to each other. `accepted_internal_networks` can contain the regions network which makes it extremly easy to let terraform calculate the value for this variable. We will use the [values method](https://www.terraform.io/docs/configuration-0-11/interpolation.html#values-map-) to retrieve the subnets from `locals.region_networks` which we previously defined.
-
-The locals section will now look like this:
-
-```hcl
-#...
-
-// lets define variables which are shared between all regions
-locals {
-  ssh_public_key_file = "<path-to-public-key-file>"
-  cluster_name        = "my-dcos-demo"
-
-  region_networks = {
-    // dont use 172.17/26 as its used by docker.
-    "master" = "172.16.0.0/16" // this is the default
-    "usw2"   = "10.128.0.0/16"
-  }
-
-  accepted_internal_networks = "${values(local.region_networks)}"
 }
 
 #...
@@ -162,25 +133,30 @@ Before we start changing values within the `dcos` module we will append the infr
 
 <p class="message--important"><strong>IMPORTANT:</strong> Running master instances in remote regions is not supported.</p>
 
-To only start private agents we will set `num_masters = 0` and `num_public_agents = 0`. Due to some internal limitation we also have to tell the infrastructure module not preparing load balancers for masters and public agents with `lb_disable_public_agents` and `lb_disable_masters`
+To only start private agents we will set `num_bootstrap = 0`, `num_masters = 0` and `num_public_agents = 0`. Due to some internal limitation we also have to tell the infrastructure module not preparing load balancers for masters and public agents with `lb_disable_public_agents` and `lb_disable_masters`
 
 Another important topic to mention is naming. To distinguish between instances of your main and your remote region we introduced the `name_prefix` variable which allows you to add a prefix to the name of every resource. In this example we set the `name_prefix` to the short name of the remote region.
 
-In the following example you will also find the [shared config options](#shared-config-options) being used in the module call referenced by e.g. `local.admin_ips` and the [provider](#remote-region-provider) we specified for the region
+In the following example you will also find the [shared config options](#shared-config-options) being used in the module call referenced by e.g. `local.ssh_public_key_file`.
 
 ```hcl
 #...
 
-module "dcos-usw2" {
-  source  = "dcos-terraform/infrastructure/aws"
+module "dcos-use1" {
+  source  = "dcos-terraform/infrastructure/gcp"
   version = "~> 0.2.0"
 
+  providers = {
+    google = "google.us-east1"
+  }
+
   admin_ips   = ["${local.admin_ips}"]
-  name_prefix = "usw2"
+  name_prefix = "use1"
 
   cluster_name               = "${local.cluster_name}"
   accepted_internal_networks = "${values(local.region_networks)}"
 
+  num_bootstrap      = 0
   num_masters        = 0
   num_private_agents = 1
   num_public_agents  = 0
@@ -189,11 +165,7 @@ module "dcos-usw2" {
   lb_disable_masters       = true
 
   ssh_public_key_file = "${local.ssh_public_key_file}"
-  subnet_range        = "${local.region_networks["usw2"]}"
-
-  providers = {
-    aws = "aws.usw2"
-  }
+  subnet_range        = "${local.region_networks["us-east1"]}"
 }
 
 ```
@@ -201,26 +173,27 @@ module "dcos-usw2" {
 ## Peering to the main DC/OS region
 We now need to establish a connection between the two infrastructures. The Universal Installer provides a module for this task. In this module we reference data from both infrastructures the main region holding DC/OS masters and the remote region holding your remote private agents.
 
-The only information this module needs to receive is the output of our `dcos` and `dcos-usw2` modules. We will append this module to the end of your `main.tf`
+The only information this module needs to receive is the output of our `dcos` and `dcos-use1` modules. We will append this module to the end of your `main.tf`
 
-Here is the example vpc-peering-section
+Here is the example network-connection-section
 
 ```hcl
 #...
 
-module "vpc-connection-master-usw2" {
-  source  = "dcos-terraform/vpc-peering/aws" // module init the peering
-  version = "~> 2.0.0"
+module "network-connection-master-use1" {
+  source  = "dcos-terraform/network-peering/gcp"
+  version = "~> 0.2.0"
 
   providers = {
-    "aws.local"  = "aws.master"
-    "aws.remote" = "aws.usw2"
+    google.local  = "google.master"
+    google.remote = "google.us-east1"
   }
 
-  local_vpc_id        = "${module.dcos.infrastructure.vpc.id}"
-  local_subnet_range  = "${local.region_networks["master"]}"
-  remote_vpc_id       = "${module.dcos-usw2.vpc.id}"
-  remote_subnet_range = "${local.region_networks["usw2"]}"
+  cluster_name             = "${local.cluster_name}"
+  local_network_name       = "master"
+  local_network_self_link  = "${module.dcos.infrastructure.network_self_link}"
+  remote_network_name      = "use1"
+  remote_network_self_link = "${module.dcos-use1.network_self_link}"
 }
 ```
 
@@ -249,13 +222,13 @@ At this point its time to do changes to your `dcos` module so it knows about the
 
 6. Add the private agents. This nearly the most important new variable. This tells the DC/OS installation module which other agents need to be installed.
 
-    `additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]`
+    `additional_private_agent_ips = ["${module.dcos-use1.private_agents.private_ips}"]`
 
 7. Update the providers section. As we change to explicit alias providers we have to point our dcos module to this specific provider.
 
     ```hcl
     providers = {
-      aws = "aws.master"
+      google = "google.master"
     }
     ```
 
@@ -264,35 +237,35 @@ After the changes above got applied your `dcos` module should look like this
 
 ```hcl
 module "dcos" {
-  source  = "dcos-terraform/dcos/aws"
+  source  = "dcos-terraform/dcos/gcp"
   version = "~> 0.2.0"
+
+  providers = {
+    google = "google.master"
+  }
 
   cluster_name        = "${local.cluster_name}"
   ssh_public_key_file = "${local.ssh_public_key_file}"
   admin_ips           = ["${local.admin_ips}"]
   subnet_range        = "${local.region_networks["master"]}"
 
-  num_masters        = "1"
-  num_private_agents = "2"
-  num_public_agents  = "1"
+  num_masters        = 3
+  num_private_agents = 2
+  num_public_agents  = 1
 
   dcos_version = "1.13.2"
 
-  dcos_instance_os             = "centos_7.5"
-  bootstrap_instance_type      = "t2.medium"
-  masters_instance_type        = "t2.medium"
-  private_agents_instance_type = "t2.medium"
-  public_agents_instance_type  = "t2.medium"
-
-  accepted_internal_networks   = "${values(local.region_networks)}"
-  additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]
-
-  providers = {
-    aws = "aws.master"
-  }
-
   dcos_variant              = "ee"
   dcos_license_key_contents = "${file("./license.txt")}"
+
+  # Make sure to set your credentials if you do not want the default EE
+  # dcos_superuser_username      = "superuser-name"
+  # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
+
+  dcos_instance_os = "centos_7"
+
+  accepted_internal_networks = "${values(local.region_networks)}"
+  additional_private_agent_ips = ["${module.dcos-use1.private_agents.private_ips}"]
 }
 ```
 
@@ -300,16 +273,21 @@ module "dcos" {
 Here is the complete `main.tf` you should see once you completed this guide.
 
 ```hcl
-provider "aws" {
-  # Change your default region here
-  region = "us-east-1"
-  alias  = "master"
+provider "google" {
+  version = "~> 2.0"
+  region  = "us-west1"
+  alias   = "master"
 }
 
-provider "aws" {
-  # Change your default region here
-  region = "us-west-2"
-  alias  = "usw2"
+provider "google" {
+  version = "~> 2.0"
+  region  = "us-east1"
+  alias   = "us-east1"
+}
+
+# Used to determine your public IP for forwarding rules
+data "http" "whatismyip" {
+  url = "http://whatismyip.akamai.com/"
 }
 
 // lets define variables which are shared between all regions
@@ -320,46 +298,41 @@ locals {
 
   region_networks = {
     // dont use 172.17/26 as its used by docker.
-    "master" = "172.16.0.0/16" // this is the default
-    "usw2"   = "10.128.0.0/16"
+    "master"   = "172.16.0.0/16" // this is the default
+    "us-east1" = "10.128.0.0/16"
   }
 }
 
 module "dcos" {
-  source  = "dcos-terraform/dcos/aws"
+  source  = "dcos-terraform/dcos/gcp"
   version = "~> 0.2.0"
+
+  providers = {
+    google = "google.master"
+  }
 
   cluster_name        = "${local.cluster_name}"
   ssh_public_key_file = "${local.ssh_public_key_file}"
   admin_ips           = ["${local.admin_ips}"]
   subnet_range        = "${local.region_networks["master"]}"
 
-  num_masters        = "1"
-  num_private_agents = "2"
-  num_public_agents  = "1"
+  num_masters        = 3
+  num_private_agents = 2
+  num_public_agents  = 1
 
-  dcos_version = "1.13.0"
-
-  dcos_instance_os             = "centos_7.5"
-  bootstrap_instance_type      = "t2.medium"
-  masters_instance_type        = "t2.medium"
-  private_agents_instance_type = "t2.medium"
-  public_agents_instance_type  = "t2.medium"
-
-  accepted_internal_networks   = "${values(local.region_networks)}"
-  additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]
-
-  providers = {
-    aws = "aws.master"
-  }
+  dcos_version = "1.13.2"
 
   dcos_variant              = "ee"
   dcos_license_key_contents = "${file("./license.txt")}"
-}
 
-# Used to determine your public IP for forwarding rules
-data "http" "whatismyip" {
-  url = "http://whatismyip.akamai.com/"
+  # Make sure to set your credentials if you do not want the default EE
+  # dcos_superuser_username      = "superuser-name"
+  # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
+
+  dcos_instance_os = "centos_7"
+
+  accepted_internal_networks = "${values(local.region_networks)}"
+  additional_private_agent_ips = ["${module.dcos-use1.private_agents.private_ips}"]
 }
 
 output "masters-ips" {
@@ -374,16 +347,21 @@ output "public-agents-loadbalancer" {
   value = "${module.dcos.public-agents-loadbalancer}"
 }
 
-module "dcos-usw2" {
-  source  = "dcos-terraform/infrastructure/aws"
+module "dcos-use1" {
+  source  = "dcos-terraform/infrastructure/gcp"
   version = "~> 0.2.0"
 
+  providers = {
+    google = "google.us-east1"
+  }
+
   admin_ips   = ["${local.admin_ips}"]
-  name_prefix = "usw2"
+  name_prefix = "use1"
 
   cluster_name               = "${local.cluster_name}"
   accepted_internal_networks = "${values(local.region_networks)}"
 
+  num_bootstrap      = 0
   num_masters        = 0
   num_private_agents = 1
   num_public_agents  = 0
@@ -392,25 +370,22 @@ module "dcos-usw2" {
   lb_disable_masters       = true
 
   ssh_public_key_file = "${local.ssh_public_key_file}"
-  subnet_range        = "${local.region_networks["usw2"]}"
-
-  providers = {
-    aws = "aws.usw2"
-  }
+  subnet_range        = "${local.region_networks["us-east1"]}"
 }
 
-module "vpc-connection-master-usw2" {
-  source  = "dcos-terraform/vpc-peering/aws" // module init the peering
-  version = "~> 2.0.0"
+module "network-connection-master-use1" {
+  source  = "dcos-terraform/network-peering/gcp"
+  version = "~> 0.2.0"
 
   providers = {
-    "aws.local"  = "aws.master"
-    "aws.remote" = "aws.usw2"
+    google.local  = "google.master"
+    google.remote = "google.us-east1"
   }
 
-  local_vpc_id        = "${module.dcos.infrastructure.vpc.id}"
-  local_subnet_range  = "${local.region_networks["master"]}"
-  remote_vpc_id       = "${module.dcos-usw2.vpc.id}"
-  remote_subnet_range = "${local.region_networks["usw2"]}"
+  cluster_name             = "${local.cluster_name}"
+  local_network_name       = "master"
+  local_network_self_link  = "${module.dcos.infrastructure.network_self_link}"
+  remote_network_name      = "use1"
+  remote_network_self_link = "${module.dcos-use1.network_self_link}"
 }
 ```
