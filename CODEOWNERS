@@ -16,4 +16,4 @@
 
 # Storage
 # change to notify storage team only
-/pages/services/beta-storage/ @mesosphere/mesosphere-storage
+/pages/services/storage/ @mesosphere/mesosphere-storage
