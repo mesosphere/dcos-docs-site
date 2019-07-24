@@ -486,7 +486,7 @@ NODE                                     NAME   SIZE  STATUS
 ```
 
 If this happens, here are the steps to bring the data service back online.
-<p class="message--note"><strong>NOTE: </strong>We will use the <code>beta-cassandra</code> data service to illustrate
+<p class="message--note"><strong>NOTE: </strong>We will use the <code>cassandra</code> data service to illustrate
 how to recover a data service that uses local volumes served by the DC/OS Storage Service in the following example.</p>
 <p class="message--warning"><strong>WARNING: </strong>DC/OS Storage Service does not support preserving local volumes
 when the agent changes its Mesos ID. The following steps will wipe data on the stale volume to prevent any unauthorized
@@ -590,7 +590,7 @@ access to the data, then create a new volume so the data service could replicate
 
   6. Replace the missing pod so the data service will create a new pod instance to restore data back to the new volume:
      ```bash
-     dcos beta-cassandra pod replace node-0
+     dcos cassandra pod replace node-0
      ```
      ```
      {

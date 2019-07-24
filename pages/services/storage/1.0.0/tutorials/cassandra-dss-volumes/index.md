@@ -245,20 +245,20 @@ Volumes that have profile `cassandra` will be formatted with the `xfs` filesyste
     ```bash
     cat > cassandra-options.json <<EOF
     {
-        "data-node": {
-            "disk_profile": "cassandra",
+        "nodes": {
+            "volume_profile": "cassandra",
             "disk_type": "MOUNT"
         }
     }
     EOF
-    dcos package install beta-cassandra --options=cassandra-options.json
+    dcos package install cassandra --options=cassandra-options.json
     ```
 
     Once the Cassandra service is installed, it will start its tasks. After a while,
     its deployment should be completed.
 
     ```bash
-    dcos beta-cassandra update status
+    dcos cassandra update status
     ```
     ```
     deploy (serial strategy) (COMPLETE)
