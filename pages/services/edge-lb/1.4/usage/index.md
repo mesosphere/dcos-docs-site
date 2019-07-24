@@ -12,7 +12,7 @@ This page covers common commands for Edge-LB usage. For a more detailed list of 
 
 # Prerequisites
 
-- Edge-LB [installed and running](/services/edge-lb/1.4/installing/).
+- Edge-LB [installed and running](/services/edge-lb/1.4/getting-started/installing/).
 
 # Create pools
 
