@@ -107,7 +107,7 @@ To use Cassandra's native `PasswordAuthenticator` and `CassandraAuthorizer`, set
 
 This will deploy your Cassandra cluster with enhanced security protection, which includes disabling the native cassandra superuser and replacing it with the superuser that you specify.
 
-- <p class="message--note"><strong>NOTE: </strong> The `password_secret_path` is the defined path to the superuser password in the secret store.</p>
+- <p class="message--note"><strong>NOTE: </strong> The <code>password_secret_path</code> is the defined path to the superuser password in the secret store.</p>
 
 ### Custom Authentication and Authorization
 
@@ -284,7 +284,9 @@ Make sure to test your deployment using a {{ model.techShortName }} client.
 
 ## Using Volume Profiles
 
-Volume profiles are used to classify volumes. For example, users can group SSDs into a “fast” profile and group HDDs into a “slow” profile. <p class="message--note"><strong>NOTE: </strong>Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.</p> 
+Volume profiles are used to classify volumes. For example, users can group SSDs into a “fast” profile and group HDDs into a “slow” profile. 
+
+<p class="message--note"><strong>NOTE: </strong>Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.</p> 
 
 DC/OS Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
 
@@ -305,7 +307,7 @@ EOF
 ```
 dcos package install cassandra --options=cassandra-options.json
 ```
-<p class="message--note"><strong>NOTE: </strong>Cassandra will be configured to look for `MOUNT` volumes with the `cassandra` profile.</p> 
+<p class="message--note"><strong>NOTE: </strong>Cassandra will be configured to look for <code>MOUNT</code> volumes with the <code>cassandra</code> profile.</p> 
 
 Once the Cassandra service finishes deploying its tasks will be running with the specified volume profiles.
 
