@@ -9,9 +9,6 @@ beta: true
 enterprise: false
 ---
 
-<!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-
-
 You can debug your service or pod from the DC/OS UI.
 
 ## Service and Pod Health and Status Summaries
