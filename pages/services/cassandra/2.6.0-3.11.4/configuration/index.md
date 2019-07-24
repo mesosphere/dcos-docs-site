@@ -284,11 +284,11 @@ Make sure to test your deployment using a {{ model.techShortName }} client.
 
 ## Using Volume Profiles
 
-Volume profiles are used to classify volumes. For example, users can group SSDs into a “fast” profile and group HDDs into a “slow” profile. **Note:** Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.
+Volume profiles are used to classify volumes. For example, users can group SSDs into a “fast” profile and group HDDs into a “slow” profile. <p class="message--note"><strong>NOTE: </strong>text</p> Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.
 
 DC/OS Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
 
-If you want to deploy Cassandra with DSS, please follow the tutorial here: https://docs.mesosphere.com/services/storage/1.0.0/tutorials/cassandra-dss-volumes/
+If you want to deploy Cassandra with DSS, please follow the [this tutorial](/services/storage/1.0.0/tutorials/cassandra-dss-volumes/)
 
 Once the DC/OS cluster is running and volume profiles are created, you can deploy Cassandra with the following configs:
 
@@ -305,7 +305,7 @@ EOF
 ```
 dcos package install cassandra --options=cassandra-options.json
 ```
-**Note:** Cassandra will be configured to look for `MOUNT` volumes with the `cassandra` profile.
+<p class="message--note"><strong>NOTE: </strong>text</p> Cassandra will be configured to look for `MOUNT` volumes with the `cassandra` profile.
 
 Once the Cassandra service finishes deploying its tasks will be running with the specified volume profiles.
 
