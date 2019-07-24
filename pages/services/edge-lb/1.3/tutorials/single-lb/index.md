@@ -56,7 +56,7 @@ This tutorial demonstrates how to load balance a DC/OS service and set it up for
    dcos marathon app add ping.json
    ```
 
-1. Create a [pool configuration](/services/edge-l/1.3/pool-configuration/) name `sample-minimal.json`.
+1. Create a [pool configuration](/services/edge-lb/1.3/pool-configuration/) name `sample-minimal.json`.
 
    ```json
    {
