@@ -12,7 +12,7 @@ The steps to follow depend on the deployment scenario you want to implement. For
 
 # Before you begin
 - You must have the [DC/OS CLI](/1.13/cli/install/) and [DC/OS Enterprise CLI](/1.13/cli/enterprise-cli/) installed.
-- You must be logged in with an account that has `superuser` permission or the permissions listed in [Installation permissions](/services/edge-lb/1.4/permissions#install-permissions).
+- You must be logged in with an account that has `superuser` permission or the permissions listed in [Installation permissions](/services/edge-lb/1.4/permissions/#install-permissions).
 - You must have a registered customer account to log in to the [Mesosphere support portal](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Fdownloads%3Ft%3D1551917897670).
 - You must have network access to download the [remote Edge-LB repositories](https://support.mesosphere.com/s/downloads?t=1551917897670) or a local repository that has the Edge-LB packages.
 
