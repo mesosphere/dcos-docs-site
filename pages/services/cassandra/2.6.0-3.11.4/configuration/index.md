@@ -288,7 +288,7 @@ Volume profiles are used to classify volumes. For example, users can group SSDs 
 
 DC/OS Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
 
-If you want to deploy Cassandra with DSS, please follow the [this tutorial](/services/storage/1.0.0/tutorials/cassandra-dss-volumes/)
+If you want to deploy Cassandra with DSS, please follow [this tutorial](/services/storage/1.0.0/tutorials/cassandra-dss-volumes/)
 
 Once the DC/OS cluster is running and volume profiles are created, you can deploy Cassandra with the following configs:
 
