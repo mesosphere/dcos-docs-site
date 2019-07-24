@@ -82,7 +82,7 @@ DC/OS 1.11 包含许多新功能，重点是：
 - 统一日志记录 API 提供对容器（任务）和系统组件日志的简单访问。[查看文档](/cn/1.11/monitoring/logging/logging-api/logging-v2/)。
 
 ### 存储
-- DC/OS 存储服务 0.1 (beta) - DSS 用户能够根据配置文件或策略动态地创建卷，以微调其应用程序的存储要求。该特性利用行业标准容器存储接口 (CSI) 让 Mesosphere、社区和合作伙伴能够提高开发 DC/OS 中存储功能的效率。[查看文档](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/).[beta type="inline" size="small" /] [enterprise type="inline" size="small" /]
+- DC/OS 存储服务 0.1 (beta) - DSS 用户能够根据配置文件或策略动态地创建卷，以微调其应用程序的存储要求。该特性利用行业标准容器存储接口 (CSI) 让 Mesosphere、社区和合作伙伴能够提高开发 DC/OS 中存储功能的效率。[查看文档](https://docs.mesosphere.com/services/storage/latest/).[enterprise type="inline" size="small" /]
 - Pod 现在支持永久卷。[查看文档](/cn/1.11/deploying-services/pods/).[beta type="inline" size="small" /]
 
 **注意：** 因为这些存储功能在 1.11 中为 beta，因此在安装 DC/OS 时，它们必须在config.yaml 文件中明确启用。不建议将 beta 功能用于生产用途，但却是指出项目前进方向的良好指示。

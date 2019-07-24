@@ -63,7 +63,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 [/enterprise]
 | 参数 | 描述 |
 |------------------------------|--------------------|
-| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise) | 一个标记，设定后将启用 DC/OS 中的高级存储功能，包括 Mesos [CSI](https://github.com/container-storage-interface/spec) 支持和预安装的 CSI 设备插件。此功能标志需要打开才能使用 [DC/OS 存储服务 (DSS)](/services/beta-storage/) [enterprise type="inline" size="small" /]|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise) | 一个标记，设定后将启用 DC/OS 中的高级存储功能，包括 Mesos [CSI](https://github.com/container-storage-interface/spec) 支持和预安装的 CSI 设备插件。此功能标志需要打开才能使用 [DC/OS 存储服务 (DSS)](/services/storage/) [enterprise type="inline" size="small" /]|
 
 # 性能和微调
 
@@ -642,7 +642,7 @@ SSH 用户名，例如 `centos`。
 [/enterprise]
 支持 DC/OS 中的高级存储功能，包括 Mesos 的 [CSI](https://github.com/container-storage-interface/spec) 支持和支持预安装的 CSI 设备插件。
 * `feature_dcos_storage_enabled: 'false'` 请在 DC/OS 中禁用 CSI 支持。这是默认值。
-* `feature_dcos_storage_enabled: 'true'` 请在 DC/OS 中启用 CSI 支持。有必要使用 [DC/OS 存储服务 (DSS)](/services/beta-storage/)
+* `feature_dcos_storage_enabled: 'true'` 请在 DC/OS 中启用 CSI 支持。有必要使用 [DC/OS 存储服务 (DSS)](/services/storage/)
 
 <a id="zk-superuser"></a>
 

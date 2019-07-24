@@ -40,7 +40,7 @@ enterprise: false
 - `mode`：卷的访问模式。目前， `"RW"` 是唯一可能的值，它将让您的应用程序从卷中读取及写入卷。
 - `persistent.type`：要使用的 Mesos 磁盘资源类型；有效选项为 `root`、`path` 和 `mount`，对应于[有效的 Mesos 多磁盘资源类型](http://mesos.apache.org/documentation/latest/multiple-disk/)。
 - `persistent.size`：持久卷的大小 (MiB)。
-- `persistent.profileName`：（上文未见）存储[卷配置文件](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/terminology-and-concepts/#volume-profile)。仅使用具有指定配置文件的卷来启动应用程序。如果未给出此选项，任何卷（有或无配置文件）将用于启动。
+- `persistent.profileName`：（上文未见）存储[卷配置文件](https://docs.mesosphere.com/services/storage/latest/terminology-and-concepts/#volume-profile)。仅使用具有指定配置文件的卷来启动应用程序。如果未给出此选项，任何卷（有或无配置文件）将用于启动。
 - `persistent.maxSize`：（上文未见）对于 `root` Mesos 磁盘资源，要考虑的专属挂载卷的可选最大大小。
 - `persistent.constraints`：限制应该在何处创建新持久卷的约束。目前，只能通过正则表达式约束磁盘资源的路径。
 
@@ -127,7 +127,7 @@ enterprise: false
 - `persistent.type`：要使用的 Mesos 磁盘资源类型；有效选项为 `root`、`path` 和 `mount`，对应于[有效的 Mesos 多磁盘资源类型](http://mesos.apache.org/documentation/latest/multiple-disk/)。
 - `persistent.size`：持久卷的大小 (MiB)。
 - `persistent.maxSize`：（上文未见）对于 `root` Mesos 磁盘资源，要考虑的专属挂载卷的可选最大大小。
-- `persistent.profileName`：（上文未见）存储[卷配置文件](https://docs.mesosphere.com/services/beta-storage/0.1.0-beta/terminology-and-concepts/#volume-profile)。仅使用具有指定配置文件的卷来启动应用程序。如果未给出此选项，任何卷（有或无配置文件）将用于启动。
+- `persistent.profileName`：（上文未见）存储[卷配置文件](https://docs.mesosphere.com/services/storage/latest/terminology-and-concepts/#volume-profile)。仅使用具有指定配置文件的卷来启动应用程序。如果未给出此选项，任何卷（有或无配置文件）将用于启动。
 - `persistent.constraints`：限制应该在何处创建新持久卷的约束。目前，只能通过正则表达式约束磁盘资源的路径。
 
 ## 配置有状态的 pod

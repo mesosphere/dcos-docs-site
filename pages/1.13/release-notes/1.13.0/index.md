@@ -54,7 +54,7 @@ This release extends DC/OS cluster monitoring capabilities and the metrics you c
 
     When you install the DC/OS monitoring service, you can select the volume size and a volume profile for the file system where you want to store the Prometheus time-series database (`tsdb`). By specifying a volume managed by the DC/OS Storage Service, you can take advantage of the durability, performance, and flexibility DSS provides for your collected data.
 
-    For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/beta-storage/0.5.3-beta/).
+    For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/storage/latest/).
 
 - The DC/OS monitoring service enables you to import curated alerting rules. <!--(DCOS-47666)-->
 
@@ -231,7 +231,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
 <!-- not in 1.13 Docs with RN filter
 - Universal Installer to provision Elastic Block Store (EBS) volumes. (DCOS-47221)
-    The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](/services/beta-storage/0.5.3-beta/install/provision-extra-volumes/).
+    The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](/services/storage/latest/install/provision-extra-volumes/).
 -->
 
 ## Job management and scheduling
