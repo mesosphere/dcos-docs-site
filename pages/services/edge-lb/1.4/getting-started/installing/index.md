@@ -12,7 +12,7 @@ The steps to follow depend on the deployment scenario you want to implement. For
 
 # Before you begin
 - You must have the [DC/OS CLI](/1.13/cli/install/) and [DC/OS Enterprise CLI](/1.13/cli/enterprise-cli/) installed.
-- You must be logged in with an account that has `superuser` permission or the permissions listed in [Installation permissions](/services/edge-lb/reference/permissions/#installation-permissions).
+- You must be logged in with an account that has `superuser` permission or the permissions listed in [Installation permissions](/services/edge-lb/1.4/permissions#install-permissions).
 - You must have a registered customer account to log in to the [Mesosphere support portal](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Fdownloads%3Ft%3D1551917897670).
 - You must have network access to download the [remote Edge-LB repositories](https://support.mesosphere.com/s/downloads?t=1551917897670) or a local repository that has the Edge-LB packages.
 
@@ -272,7 +272,7 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
 
     If the DC/OS cluster security mode is **disabled**, remove the `--strict` parameter.
 
-    For more information about creating and storing secrets for services, see [Configuring services and pods](1.13/security/ent/secrets/use-secrets/) and [Spaces](1.13/security/ent/#spaces).
+    For more information about creating and storing secrets for services, see [Configuring services and pods](/1.13/security/ent/secrets/use-secrets/) and [Spaces](/1.13/security/ent/#spaces).
 
 1. List the secrets created by running the following command:
 
@@ -322,7 +322,7 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
     dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<pool-name> full
     ```
 
-    For more information about the permissions required to perform specific tasks, see the Edge-LB [Permissions](/services/edge-lb/reference/permissions) reference section.
+    For more information about the permissions required to perform specific tasks, see the Edge-LB [Permissions](/services/edge-lb/1.4/permissions) reference section.
 
 After you have created a service account principal, stored the certificate as a secret, and assigned appropriate permissions, you are ready to [create a configuration file](#create-json) and complete the installation.
 
@@ -376,7 +376,7 @@ vi edge-lb-options.json
 
 1. Specify other configuration settings, as needed.
 
-    For example, you can specify the service path for the `apiserver` where `dcos-edgelb` corresponds to the `pool.namespace` when [configuring pools](/services/edge-lb/reference/pool-configuration-reference/). Other common configuration settings specify the CPU, memory, disk, and log level (`debug`, `info`, `warn`, or `error`).
+    For example, you can specify the service path for the `apiserver` where `dcos-edgelb` corresponds to the `pool.namespace` when [configuring pools](/services/edge-lb/1.4/pool-configuration). Other common configuration settings specify the CPU, memory, disk, and log level (`debug`, `info`, `warn`, or `error`).
     
     ```json
     {
@@ -433,6 +433,6 @@ After you have added the packages to the cluster catalog, created a secure servi
 
     When Edge-LB is ready, the ping command should return the `pong` response in standard output (`stdout`).
 
-- For more information about configuring Edge-LB, see the Edge-LB  [pool configuration](/services/edge-lb/reference/pool-configuration-reference) reference section.
+- For more information about configuring Edge-LB, see the Edge-LB  [pool configuration](/services/edge-lb/1.4/pool-configuration) reference section.
 
-- For more information about the available Edge-LB commands, see the Edge-LB [command-line](/services/edge-lb/reference/cli-reference) reference section.
+- For more information about the available Edge-LB commands, see the Edge-LB [command-line](/services/edge-lb/1.4/cli-reference) reference section.
