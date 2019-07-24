@@ -194,7 +194,7 @@
 /1.11/security/secrets/secrets-api/ /1.11/security/ent/secrets/secrets-api/;
 /1.11/security/sso/ /1.11/security/ent/sso/;
 /1.11/security/sso/setup-openid/ /1.11/security/ent/sso/setup-openid/;
-/1.11/storage/volume-profiles/ /services/beta-storage/0.1.0-beta/terminology-and-concepts/;
+/1.11/storage/volume-profiles/ /services/storage/1.0.0/terminology-and-concepts/;
 /1.11/usage/storage/ /1.11/storage/;
 /1.11/usage/storage/persistent-volume/ /1.11/storage/persistent-volume/;
 /1.11/usage/service-discovery/load-balancing-vips/virtual-ip-addresses/ /1.11/networking/load-balancing-vips/virtual-ip-addresses/;
