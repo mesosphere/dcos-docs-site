@@ -4,9 +4,8 @@
 // }
 .grid-filters {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
     &__controls-div {
         display: flex;
         flex-direction: column;
@@ -21,6 +20,7 @@
     &__labels {
         display: flex;
         flex-direction: column;
+        margin-top: 14px;
     }
     &__labels:first-child {
         margin-bottom: 3px;
@@ -29,23 +29,24 @@
         display: flex;
         align-items: center;
         margin: 0px;
-        margin-top: 4px;
+        margin-top: 8px;
         color: $color-meso-dark-grey;
         label {
-            font-size: 14px;
+            font-size: 18px;
             margin-left: 8px;
             margin-bottom: 0px !important;
             font-weight: 400 !important;
         }
         input[type="checkbox"] {
             -webkit-appearance: none;
-            height: 1em;
-            width: 1em;
+            height: 18px;
+            width: 18px;
             background-color: white;
             display: flex;
             padding-left: 2px;
-            border: 1px solid $color-meso-dark-grey;
+            border: 1px solid $color-meso-light-grey;
             border-radius: 2px;
+            font-size: 18px;
         }
         input[type="checkbox"]:checked {
             background-color: $color-purple-base;
@@ -54,7 +55,7 @@
             color: white;
             content: '✓';
             font-weight: 900;
-            margin-top: -3px;
+            margin-top: -4px;
         }
         input[type="checkbox"]:focus {
             outline: none;
@@ -118,6 +119,29 @@
     }
     .select-items .same-as-selected {
         background-color: $color-purple-lightest;
+    }
+    @include md {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+        &__labels {
+            margin-top: 0px;
+        }
+        &__label {
+            margin-top: 4px;
+            label {
+                font-size: 14px;
+            }
+            input[type="checkbox"] {
+                -webkit-appearance: none;
+                height: 1em;
+                width: 1em;
+                font-size: 1em;
+            }
+        }
+        input[type="checkbox"]:checked:after {
+            margin-top: -3px;
+        }
     }
 }
 
