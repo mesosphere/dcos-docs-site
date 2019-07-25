@@ -1,9 +1,9 @@
 # Common values:
 
 packageName: jupyterlab
-serviceName: jupyterlab
-techName: JupyterLab
-techShortName: JupyterLab
+serviceName: DSE
+techName: DC/OS Data Science Engine
+
 
 # Values specific to certain templates:
 
