@@ -12,13 +12,13 @@ model: /1.14/data.yml
 
 Before running the script you should ensure that the cluster no longer requires this agent.
 
-- If the node is a Master, ensure that there are at least 3 other masters in the cluster up and healthy before uninstalling
+- If the node is a Master, ensure that there are at least 3 other masters in the cluster up and healthy before uninstalling.
 
 - If the node is a Private or Public Agent, ensure that all tasks have been redeployed elsewhere. Ensure that there are no persistent volumes containing data needed for services in the cluster.
 
 # Uninstalling {{ model.techName }}
 
-1. Download the script. You can download the script [here](http://downloads.mesosphere.com/dcos-uninstall/uninstall.sh) 
+1. Download the script. You can download the script [here](http://downloads.mesosphere.com/dcos-uninstall/uninstall.sh). 
 1. Make it executable:
 
     ```bash
