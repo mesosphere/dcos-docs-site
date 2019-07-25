@@ -25,6 +25,7 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 
 # Prerequisites for Linux
 - You must be able to run `cURL` program on the system hosting the CLI. The `curl` command is installed by default on most Linux distributions.
+- If you are using Fedora 30 or above, you must install the `libcrypt` library. This can be done by running `sudo dnf install libxcrypt-compat`.
 
 
 # Prerequisites for macOS
