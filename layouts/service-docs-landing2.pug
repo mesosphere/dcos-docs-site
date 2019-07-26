@@ -1,29 +1,36 @@
 - var paths = path.split('/')
-- var isChinese = paths[2] == 'cn'
-- var isDCOS = paths[1] == 'dcos'
+- var isChinese = paths[0] == 'cn'
 - var currentPath = '/' + path
-- var mesosDocs = hierarchy.children.filter(child => child.id === 'mesosphere')[0]
-- var dcosDocs = mesosDocs.children.filter(child => child.id === 'dcos')[0]
-- var servicePage = dcosDocs.children.filter(child => child.id === 'services')[0]
-- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
+- var servicePage = hierarchy.children.find(child => child.id === paths[0])
+- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('header') != -1)
 - var semverService = /^(v|)[0-9](.*)/
-- var isChinese = paths[2] == 'cn'
-
-
+- var isChinese = paths[0] == 'cn'
 - 
-  var categories = [
-    "View All",
-    "Cluster Management",
-    "Container Orchestration",
-    "Continuous Delivery",
-    "Data Processing",
-    "Data Services",
-    "Databases",
-    "Messaging Queues",
-    "Monitoring",
-    "Networking",
-    "Storage"
-  ]
+    //- var categories = [
+    //-   "View All",
+    //-   "Kubernetes",
+    //-   "Database",
+    //-   "Data Services",
+    //-   "Analytics",
+    //-   "Monitoring",
+    //-   "Networking",
+    //-   "Storage",
+    //-   "Zookeeper",
+    //-   "CI/CD"
+    //- ]
+    var categories = [
+      "View All",
+      "Cluster Management",
+      "Container Orchestration",
+      "Continuous Delivery",
+      "Data Processing",
+      "Data Services",
+      "Databases",
+      "Messaging Queues",
+      "Monitoring",
+      "Networking",
+      "Storage"
+    ]
 
 mixin renderGridInputs()
   div(class='grid-filters')

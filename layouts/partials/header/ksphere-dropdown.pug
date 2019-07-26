@@ -1,0 +1,24 @@
+- 
+  var ksphereMenu = [{
+    "title": "Ksphere",
+    "children": [
+      {
+        "title": "Konvoy", 
+        "path":"/ksphere/konvoy"
+      }, {
+        "title": "Partner Solutions", 
+        "path":"/ksphere/konvoy/partner-solutions"
+      }
+    ]
+  }]
+
+each sphere in ksphereMenu
+  div(class='chooser' id='ks')
+    div(class='chooser-current')
+      a(class='chooser-title')!=sphere.title
+      svg(class="chooser-svg" id='kspherer-svg')
+        path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
+    ul(class='chooser-list' id='kspherer-list')
+      each section in sphere.children
+        li(class='chooser-list-item')
+          a(href=section.path)!= section.title

@@ -1,8 +1,8 @@
-class Localizer {
+class Spherer {
     constructor(el) {
         this.el = el;
-        this.list = this.el.querySelector('#localizer-list');
-        this.svg = this.el.querySelector('#localizer-svg');
+        this.list = this.el.querySelector('#spherer-list');
+        this.svg = this.el.querySelector('#spherer-svg');
 
         this.listShown = false;
 
@@ -54,6 +54,6 @@ class Localizer {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const localizeNav = document.querySelector('#localizer');
-    new Localizer(localizeNav);
+    const sphereNav = document.querySelector('#spherer');
+    new Spherer(sphereNav);
 });

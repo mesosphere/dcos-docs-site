@@ -1,32 +1,32 @@
 // Packages
-const fs               = require('fs');
-const Metalsmith       = require('metalsmith');
-const markdown         = require('metalsmith-markdownit');
-const layouts          = require('metalsmith-layouts');
-const permalinks       = require('metalsmith-permalinks');
-const assets           = require('metalsmith-assets');
-const dataLoader       = require('metalsmith-data-loader');
-const watch            = require('metalsmith-watch');
-const branch           = require('metalsmith-branch')
-const serve            = require('metalsmith-serve');
-const redirect         = require('metalsmith-redirect');
-const webpack          = require('metalsmith-webpack2');
-const anchor           = require('markdown-it-anchor');
-const attrs            = require('markdown-it-attrs');
-const timer            = require('metalsmith-timer');
-const ignore           = require('metalsmith-ignore');
-const copy             = require('metalsmith-copy');
+const fs = require('fs');
+const Metalsmith = require('metalsmith');
+const markdown = require('metalsmith-markdownit');
+const layouts = require('metalsmith-layouts');
+const permalinks = require('metalsmith-permalinks');
+const assets = require('metalsmith-assets');
+const dataLoader = require('metalsmith-data-loader');
+const watch = require('metalsmith-watch');
+const branch = require('metalsmith-branch')
+const serve = require('metalsmith-serve');
+const redirect = require('metalsmith-redirect');
+const webpack = require('metalsmith-webpack2');
+const anchor = require('markdown-it-anchor');
+const attrs = require('markdown-it-attrs');
+const timer = require('metalsmith-timer');
+const ignore = require('metalsmith-ignore');
+const copy = require('metalsmith-copy');
 
 // Local Plugins
-const reduce                  = require('./plugins/metalsmith-revision').reduce;
-const restore                 = require('./plugins/metalsmith-revision').restore;
-const hierarchy               = require('./plugins/metalsmith-hierarchy');
-const hierarchyRss            = require('./plugins/metalsmith-hierarchy-rss');
-const headings                = require('./plugins/metalsmith-headings');
-const algolia                 = require('./plugins/metalsmith-algolia');
-const inPlace                 = require('./plugins/metalsmith-in-place-dcos');
-const includeContent          = require('./plugins/metalsmith-include-content-dcos');
-const shortcodes              = require('./plugins/metalsmith-shortcodes');
+const reduce = require('./plugins/metalsmith-revision').reduce;
+const restore = require('./plugins/metalsmith-revision').restore;
+const hierarchy = require('./plugins/metalsmith-hierarchy');
+const hierarchyRss = require('./plugins/metalsmith-hierarchy-rss');
+const headings = require('./plugins/metalsmith-headings');
+const algolia = require('./plugins/metalsmith-algolia');
+const inPlace = require('./plugins/metalsmith-in-place-dcos');
+const includeContent = require('./plugins/metalsmith-include-content-dcos');
+const shortcodes = require('./plugins/metalsmith-shortcodes');
 const wkhtmltopdfLinkResolver = require('./plugins/metalsmith-wkhtmltopdf-link-resolver');
 
 // Configs
@@ -104,15 +104,17 @@ const currentYear = (new Date()).getFullYear();
 // Metadata
 // These are available in the layouts as js variables
 MS.metadata({
-  url: 'https://docs.mesosphere.com',
-  siteTitle: 'Mesosphere DC/OS Documentation',
-  siteDescription: 'Welcome to the DC/OS documentation. The DC/OS documentation ' +
-  'can help you set up, learn about the system, and get your applications and' +
-  ' workloads running on DC/OS.',
-  copyright: `&copy; ${currentYear} Mesosphere, Inc. All rights reserved.`,
+  url: 'https://docs.d2iq.com',
+  siteTitle: 'Documentation for D2IQ Products',
+  siteDescription: 'Welcome to the documentation pages for D2IQ. Visit one of the product ' +
+    'pages to get started.',
+  copyright: `&copy; ${currentYear} D2IQ, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
   gitBranch: GIT_BRANCH,
-  dcosDocsLatest: '1.13',
+  dcosDocsLatest: '1.14',
+  dcosCNDocsLatest: '1.12',
+  konvoyDocsLatest: '0.1',
+  kommanderDocsLatest: '0.1',
 });
 
 // Source
@@ -152,8 +154,8 @@ CB.use(timer('CB: Copy'));
 //   model: path/to/my.yml (access content in my.yml as model.foo.bar)
 // Can also specify multiple named models:
 //   model:
-//     data1: path/to/my.json (access content in my.json as model.data1.foo.bar)
-//     data2: path/to/my.yml (access content in my.yml as model.data2.foo.bar)
+//   data1: path/to/my.json (access content in my.json as model.data1.foo.bar)
+//   data2: path/to/my.yml (access content in my.yml as model.data2.foo.bar)
 CB.use(dataLoader({
   dataProperty: 'model',
   match: '**/*.md',
@@ -213,8 +215,7 @@ CB.use(shortcodes({
 CB.use(timer('CB: Shortcodes'));
 
 // Markdown
-CB.use(markdown(
-  {
+CB.use(markdown({
     smartList: false,
     typographer: true,
     html: true,
@@ -248,7 +249,7 @@ CB.use(headings());
 CB.use(timer('CB: Headings'));
 
 CB.use(redirect({
-  '/support': 'https://support.mesosphere.com',
+  '/support': 'https://support.d2iq.com',
 }));
 CB.use(timer('CB: Redirects'));
 

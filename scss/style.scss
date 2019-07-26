@@ -1,4 +1,5 @@
 /* Variables */
+
 @import "variables/colors";
 @import "variables/typography";
 @import "variables/breakpoints";
@@ -8,14 +9,17 @@
 @import "variables/fonts";
 
 /* Vendors */
+
 @import "vendor/normalize";
 @import "vendor/typebase";
 @import "vendor/prism";
 
 /* Utils */
+
 @import "utils/colors";
 
 /* Base */
+
 @import "base/typography";
 @import "base/global";
 @import "base/blockquote";
@@ -29,9 +33,11 @@
 @import "base/print";
 @import "base/search";
 @import "pages/landing";
+@import "pages/new-landing";
 @import "base/printer-styling";
 
 /* Components */
+
 @import "components/sidebar";
 @import "components/actions";
 @import "components/grid";
@@ -40,8 +46,10 @@
 @import "components/form";
 @import "components/tabs";
 @import "components/localization";
+@import "components/chooser";
 
 /* Shortcodes */
+
 @import "shortcodes/message";
 @import "shortcodes/badge";
 @import "shortcodes/tooltip";
@@ -51,6 +59,9 @@
 @import "shortcodes/swagger";
 
 /* Vendors */
+
+
 /* No Override */
+
 @import "vendor/swagger";
 @import "vendor/ngindox";
