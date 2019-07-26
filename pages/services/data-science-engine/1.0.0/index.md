@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle: JupyterLab
-excerpt: JupyterLab is the next-generation interface for Project Jupyter.
-title: JupyterLab
+navigationTitle: DC/OS Data Science Engine
+excerpt: DC/OS Data Science Engine is the next-generation interface for Project Jupyter.
+title: DC/OS Data Science Engine
 menuWeight: 1
-model: /services/jupyterlab/data.yml
+model: /services/data-science-engine/data.yml
 render: mustache
 ---
-Welcome to the documentation for DC/OS {{ model.techName }} services. Please select a version from the left hand menu to get started.
+Welcome to the documentation for version 1.0.0 of the {{ model.techName }} service. 
 
 {{ model.techName }} is the next-generation interface for Project Jupyter, offering the same tools that are familiar to Jupyter Notebook users: terminal, text editor, notebook, file browser, and so forth. Users can work with text editors, terminals, data file viewers, and other components in a notebook with tabbed work areas.

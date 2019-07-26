@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle: Runtime changes
-excerpt: Making changes while running JupyterLab
+excerpt: Making changes while running DC/OS Data Science Engine
 title: Runtime changes
 menuWeight: 3
-model: /services/jupyterlab/data.yml
+model: /services/data-science-engine/data.yml
 render: mustache
 ---
 

@@ -1,7 +1,7 @@
 # Common values:
 
-packageName: jupyterlab
-serviceName: DSE
+packageName: data-science-engine
+serviceName: data-science-engine
 techName: DC/OS Data Science Engine
 
 
@@ -15,9 +15,6 @@ managing:
  podType: node
  taskType: server
 
-supportedVersions:
- techExampleVersion: 3.0.13
- 
 security:
  plaintext:  |
    , "allow_plaintext": <true|false default false>

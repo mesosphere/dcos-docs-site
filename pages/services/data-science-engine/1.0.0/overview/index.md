@@ -1,16 +1,16 @@
 ---
 layout: layout.pug
 navigationTitle: Overview
-excerpt: Overview of JupyterLab features
+excerpt: Overview of DC/OS Data Science Engine features
 title: Overview
 menuWeight: 1
-model: /services/jupyterlab/data.yml
+model: /services/data-science-engine/data.yml
 render: mustache
 ---
 
 #  Overview
 
-{{ model.techName }} is part of Project Jupyter, which supports and develops the interactive computing products Jupyter Notebook and Jupyter Hub. 
+{{ model.techName }} supports and develops the interactive computing products Jupyter Notebook and Jupyter Hub. 
 
 ## The Jupyter Family
 

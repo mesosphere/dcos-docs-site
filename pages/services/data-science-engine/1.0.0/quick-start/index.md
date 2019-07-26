@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
 navigationTitle: Quick Start Guide
-excerpt: Get up and running with JupyterLab
+excerpt: Get up and running with DC/OS Data Science Engine
 title: Quick Start
 menuWeight: 2
-model: /services/jupyterlab/data.yml
+model: /services/data-science-engine/data.yml
 render: mustache
 ---
 
