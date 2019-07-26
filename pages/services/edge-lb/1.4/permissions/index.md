@@ -33,6 +33,8 @@ For easier administration, add the service account principal to the `superusers`
 
 Or, if you prefer to grant only the individual permissions necessary, grant the following permissions to the service account principal:
 
+- `dcos:adminrouter:ops:ca:rw`
+- `dcos:adminrouter:ops:ca:ro`
 - `dcos:adminrouter:service:marathon`
 - `dcos:adminrouter:package`
 - `dcos:adminrouter:service:edgelb`
@@ -47,6 +49,8 @@ Or, if you prefer to grant only the individual permissions necessary, grant the 
 - `dcos:mesos:master:volume:role`
 - `dcos:mesos:master:task:user:root`
 - `dcos:mesos:master:task:app_id`
+- `dcos:secrets:default:/dcos-edgelb/*`
+- `dcos:secrets:list:default:/dcos-edgelb/*`
 
 Additionally, this permission must be granted **for each Edge-LB pool created**:
 
