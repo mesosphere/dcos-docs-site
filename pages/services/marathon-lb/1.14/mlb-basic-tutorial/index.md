@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Tutorial - Basic external load balancing
-title: Tutorial - External load balancing for a sample app  
+title: Tutorial - External load balancing for a sample app
 menuWeight: 25
 excerpt: How to use an external group for accessing a containerized service through Marathon-LB
 enterprise: false
@@ -31,7 +31,7 @@ This tutorial uses a sample app definition file that you can download from the `
   </p>
 
   For example, after clicking **Tags**, you might see an identifier similar to this:
-  <code>cff383e4f5a51bf04e2d0177c5023e7cebcab3cc</code> 
+  <code>cff383e4f5a51bf04e2d0177c5023e7cebcab3cc</code>
 
   <p>
   <img src="/services/img/docker-repo-tag.png" alt="Sample image tag">
@@ -60,11 +60,11 @@ This tutorial uses a sample app definition file that you can download from the `
       },
     ```
 
-1. Identify the public-facing IP address for your public agent node. 
+1. Identify the public-facing IP address for your public agent node.
 
-    For information about how to find your public agent IP address, see [Finding a public agent IP](https://docs.mesosphere.com/1.12/administering-clusters/locate-public-agent/).
+    For information about how to find your public agent IP address, see [Finding a public agent IP](https://docs.mesosphere.com/1.14/administering-clusters/locate-public-agent/).
 
-1. In the `labels` field, add an entry for `HAPROXY_0_VHOST` and assign it the value of your public agent IP. 
+1. In the `labels` field, add an entry for `HAPROXY_0_VHOST` and assign it the value of your public agent IP.
 
     For example, if the public agent node IP address is 64.172.103.2, you might add lines similar to the following:
 
@@ -119,7 +119,7 @@ This tutorial uses a sample app definition file that you can download from the `
 
   Only apps with the label `HAPROXY_GROUP=external` will be exposed using this Marathon-LB configuration.
 
-# Add the load-balanced application and check its status 
+# Add the load-balanced application and check its status
 1. Run the service from the DC/OS CLI using the following command:
 
     ``` bash
@@ -129,7 +129,7 @@ This tutorial uses a sample app definition file that you can download from the `
 1. Open the DC/OS web-based console URL in a browser, then click **Services** to verify that your application is deployed and running.
 
     <p>
-    <img src="/1.12/img/healthy-dcos-website.png" alt="Healthy service">
+    <img src="/1.14/img/healthy-dcos-website.png" alt="Healthy service">
     </p>
 
 1. In the web browser, navigate to the IP address for your public agent node to verify the site you have deployed is running.

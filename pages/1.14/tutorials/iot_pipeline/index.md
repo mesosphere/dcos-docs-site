@@ -62,7 +62,7 @@ In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC
 
 3.  Click the **{{ model.packageRepo }}** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
 
-If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/1.13/mlb-install/). Depending on your [security mode](/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
+If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/latest/mlb-install/). Depending on your [security mode](/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
 
 4.  Click the **{{ model.packageRepo }}** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.
@@ -218,7 +218,7 @@ Figure 6. Top Tweeters
  [6]: /1.14/overview/concepts/
  [9]: /1.14/administering-clusters/locate-public-agent/
  [11]: /1.14/cli/command-reference/
- [12]: /services/marathon-lb/1.13/
+ [12]: /services/marathon-lb/latest/
  [13]: https://github.com/mesosphere/tweeter
  [14]: /1.14/img/tweeter.png
  [16]: /1.14/img/top-tweeters.png

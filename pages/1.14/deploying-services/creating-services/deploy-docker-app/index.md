@@ -120,7 +120,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
     }
     ```
 
-    
+
 
 1.  Add the `hello-nginx` application to Marathon by using the DC/OS command:
 
@@ -151,7 +151,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
 
     ![Hello Brave World](/1.14/img/helloworld.png)
 
-    Figure1. Hello World message 
+    Figure1. Hello World message
 
 # Learn more
 
