@@ -20,9 +20,12 @@
         padding: 20px;
         border-top: 4px $color-purple-d3 solid;
         border-radius: 2px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); //  &:hover {
-        //   background: $color-purple-light;
-        //   }
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        transition: all 250ms ease-out;
+    }
+    &__item:hover {
+        box-shadow: 0 8px 20px 0 rgba(45, 45, 45, 0.17);
+        transform: translateY(-3px);
     }
     &__label {
         display: inline-block;
@@ -121,9 +124,6 @@
             width: 28px;
             height: 28px;
             color: $color-purple-d3;
-        }
-        #storage-link {
-            transform: rotate(-45deg);
         }
     }
     @include pre-md {

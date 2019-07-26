@@ -19,5 +19,7 @@ require('./js/analytics.js');
 require('./js/tooltip.js');
 require('./js/tabs.js');
 require('./js/ellipsis.js');
+require('./js/msphere-menu.js');
+require('./js/ksphere-menu.js');
 require('./js/localization.js');
 require('./js/services-landing.js');

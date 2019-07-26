@@ -12,7 +12,7 @@ mixin renderSidebarHeader()
                 a(href=val.path, class='sidebar__dropdown__link')!= val.navigationTitle || val.title
       div(class='sidebar__dropdown__toggle')
         p(class='sidebar__dropdown__text')
-          span(class='sidebar__dropdown__text__title')!= (service) ? service.title : 'Mesosphere DC/OS'
+          span(class='sidebar__dropdown__text__title')!= (type) ? type.title : 'NOPE'
           span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
         if showDropdown
           i(class='sidebar__dropdown__icon', data-feather='chevron-down')
@@ -55,9 +55,9 @@ mixin renderSidebarNav()
 mixin renderSidebarFooter()
   footer(class='sidebar__footer')
     div(class='sidebar__footer-links')
-      a(href='https://mesosphere.com/terms/') Terms of Service
-      a(href='https://mesosphere.com/privacy/') Privacy Policy
-    a(class='sidebar__footer-copyright', href='https://mesosphere.com/')!= copyright
+      a(href='https://d2iq.com/terms/') Terms of Service
+      a(href='https://d2iq.com/privacy/') Privacy Policy
+    a(class='sidebar__footer-copyright', href='https://d2iq.com/')!= copyright
 
 div(class='layout__sidebar layout__drawer')
   section(class='sidebar')

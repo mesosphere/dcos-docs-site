@@ -1,7 +1,14 @@
-.localization {
+.chooser {
+    // border: 1px solid deeppink !important;
     position: relative;
     cursor: pointer;
-    margin-right: 27px;
+    margin-right: 20px;
+    // need 140 width to accodomate Mesosphere
+    width: 150px;
+    ul {
+        margin: 0;
+        padding: 0;
+    }
     &-current {
         position: relative;
         display: flex;
@@ -9,38 +16,53 @@
         align-items: center;
         height: 35px;
         border-radius: 3px;
-        padding: 5px 5px 5px 10px;
+        // padding: 5px 5px 5px 10px;
         z-index: 10;
         background-color: white;
+        a {
+            color: $color-v2-grey;
+            font-size: 16px;
+        }
+        padding: 0 15px;
     }
     &-transition {
         transition-duration: 0.4s;
         transition-timing-function: ease-in-out;
     }
     &-list {
+        // border: 1px solid deeppink !important;
         z-index: 5;
         display: block;
         position: absolute;
-        left: 0px;
-        top: 8px;
-        height: 0px;
-        width: 100%;
+        // left: 0px;
+        top: 50px;
+        // height: 0px;
+        width: 170px;
+        // width: 100%;
         border-radius: 3px;
-        background: $color-purple-d3;
+        box-shadow: 1px 8px 10px rgba(0, 0, 0, 0.1);
+        background: $color-light;
         list-style: none;
-        padding: 0;
+        // padding: 0;
+        // padding: 5px;
         transition: height .4s ease;
         overflow: hidden;
         display: flex;
-        align-items: center;
+        // align-items: center;
+        flex-direction: column;
+        padding: 0px 15px;
+        display: none;
         &-item {
             line-height: 1;
         }
         &-item a {
             display: block;
-            padding: 5px 5px 5px 10px;
+            // padding: 5px 5px 5px 10px;
             font-weight: 400;
-            color: $color-light;
+            color: $color-dark;
+            font-weight: 500;
+            font-size: 16px;
+            color: $color-v2-grey;
             text-decoration: none;
             -webkit-touch-callout: none;
             /* iOS Safari */
@@ -54,13 +76,14 @@
             /* Internet Explorer/Edge */
             user-select: none;
             /* Non-prefixed version, Chrome/Opera */
+            padding: 15px;
         }
     }
     &-language {
-        font-weight: 400;
-        color: $color-grey;
+        // font-weight: 400;
+        // color: $color-grey;
         text-decoration: none;
-        margin-right: 13px;
+        // margin-right: 13px;
         -webkit-touch-callout: none;
         /* iOS Safari */
         -webkit-user-select: none;
@@ -81,19 +104,24 @@
     }
     .show {
         transition: height .4s ease;
-        height: 35px;
+        // height: 90px;
+        display: initial;
     }
     .flipped {
         transform: rotate(180deg);
     }
-}
-
-#landing-localization {
-    // margin-right: 13%;
-    &-current {
-        background: none;
-        .localization-language {
-            // color: $color-v2-purple;
+    @include md {
+        &-current {
+            a {
+                font-size: 18px;
+            }
+        }
+        &-list {
+            &-item a {
+                font-size: 18px;
+            }
         }
     }
 }
+
+#landing-sphere {}

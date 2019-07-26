@@ -1,0 +1,24 @@
+- 
+  var mesosphereMenu = [{
+    "title": "Mesosphere",
+    "children": [
+      {
+        "title": "DC/OS", 
+        "path":"/mesosphere/dcos"
+      }, {
+        "title": "DC/OS Services", 
+        "path":"/mesosphere/dcos/services"
+      }
+    ]
+  }]
+each sphere in mesosphereMenu
+  div(class='chooser' id='spherer')
+    div(class='chooser-current')
+      a(class='chooser-title')!=sphere.title
+      svg(class="chooser-svg" id='spherer-svg')
+        path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
+    ul(class='chooser-list' id='spherer-list')
+      each section in sphere.children
+        li(class='chooser-list-item')
+          a(href=section.path)!= section.title
+          

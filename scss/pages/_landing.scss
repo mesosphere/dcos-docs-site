@@ -1,30 +1,36 @@
 .landing {
     &__hero {
+        h1 {
+            margin: 0;
+        }
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: flex-end;
         align-items: center;
-        height: 250px;
-        padding: 0 1rem;
-        background: #131626 url('/assets/k8-hero.png') no-repeat;
+        height: 300px;
+        padding: 0rem 1rem;
+        // background: #131626 url('/assets/k8-hero.png') no-repeat;
         // background-position: 80px bottom;
-        background-size: cover;
-        background-position: 50% 70%;
+        // background-size: cover;
+        // background-position: 50% 70%;
     }
     &__title {
         font-size: 40px;
         text-align: center;
-        color: $color-light;
+        color: $color-dark;
+        margin-bottom: 2rem;
     }
     &__container {
         max-width: $bp-lg;
         margin: 0 auto;
-        padding: 2rem 2rem 0 2rem;
+        padding: 4rem 2rem 0 2rem;
     }
     &__search {
         position: relative;
         max-width: 600px;
-        min-width: 275px;
+        min-width: 285px;
         width: 75%;
+        margin-top: 2rem;
         border-bottom: 2px $color-purple-d3 solid;
         &-button {
             position: absolute;
@@ -42,26 +48,26 @@
         }
         &-input {
             width: 100%;
-            padding: 1rem 0;
+            padding: 2rem 0 0;
             border: 0;
             background: transparent;
-            color: $color-light;
+            color: $color-v2-grey;
             font-size: 1.5rem;
             outline: 0;
             &::-webkit-input-placeholder {
-                color: $color-light;
+                color: $color-v2-grey;
                 opacity: 1;
             }
             &:-moz-placeholder {
-                color: $color-light;
+                color: $color-v2-grey;
                 opacity: 1;
             }
             &::-moz-placeholder {
-                color: $color-light;
+                color: $color-v2-grey;
                 opacity: 1;
             }
             &:-ms-input-placeholder {
-                color: $color-light;
+                color: $color-v2-grey;
                 opacity: 1;
             }
         }
@@ -178,28 +184,29 @@
         }
         & .header {
             position: absolute;
-            background: transparent;
-            color: $color-light;
+            // background: transparent;
+            color: $color-v2-grey;
+            // font-size: 17px;
             &__drawer {
                 opacity: 0;
                 pointer-events: none;
             }
-            &__menu {
-                &-item {
-                    &--active {
-                        a {
-                            color: $color-light;
-                        }
-                    }
-                }
-            }
+            // &__menu {
+            //     &-item {
+            //         &--active {
+            //             a {
+            //                 color: $color-light;
+            //             }
+            //         }
+            //     }
+            // }
             &__search {
                 display: none;
             }
             &-dropdown {
-                background: rgba($color-dark, 0.9);
+                // background: rgba($color-dark, 0.9);
                 & a {
-                    color: $color-light;
+                    color: $color-v2-grey;
                 }
             }
         }
@@ -222,6 +229,7 @@
             }
             &__title {
                 margin-top: 0;
+                margin-bottom: 0;
                 color: $color-dark;
             }
             &__container {
@@ -234,12 +242,12 @@
     }
     @include sm {
         &__hero {
-            background-position: 70px 55%;
+            // background-position: 70px 55%;
         }
     }
     @include pre-md {
         &__container {
-            padding: 4rem 2rem 0 2rem;
+            // padding: 4rem 2rem 0 2rem;
         }
         & .grid {
             margin-top: 4rem;
@@ -276,7 +284,7 @@
     }
     @include md {
         &__hero {
-            height: 400px;
+            // height: 400px;
         }
         &__title {
             font-size: 48px;
@@ -289,7 +297,7 @@
             }
         }
         &__container {
-            padding: 4rem 2rem 0 2rem;
+            // padding: 4rem 2rem 0 2rem;
         }
         &__grid {
             &-item {
@@ -299,7 +307,7 @@
     }
     @include lg {
         &__hero {
-            background-position: 75px 75%;
+            // background-position: 75px 75%;
         }
         &__title {
             font-size: 55px;

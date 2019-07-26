@@ -1,9 +1,19 @@
 - var paths = path.split('/')
 - var currentPath = '/' + path
-- var items = hierarchy.children.find(el => el.path === `/cn`).children.find(el => el.path === `/cn/services`)
-- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('cn-header') != -1)
+- var mesosDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
+- var dcosDocs = mesosDocs.children.filter(child => child.id == 'dcos')[0]
+- var cnDocs = dcosDocs.children.filter(child => child.id == 'cn')[0]
+- var items = cnDocs.children.filter(child => child.id == 'services')[0]
+//- - var items = svDocs.children
+
+//- - var items = hierarchy.children.find(el => el.path === `/dcos/cn`).children.find(el => el.path === `/cn/services`)
+- var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-cn-header') != -1)
+- var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
+- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
+- var headerSphereItems = headerItems.filter(page => page.id != 'mesosphere')
 - var semverService = /^(v|)[0-9](.*)/
-- var isChinese = paths[0] == 'cn'
+- var isChinese = paths[2] == 'cn'
+- var isDCOS = paths[1] == 'dcos'
 
 mixin renderGridToc()
   div(class='grid-toc')
@@ -38,19 +48,19 @@ html(lang='en')
   body(class='landing landing--services')
     div(class='layout')
       div(role='main', class='layout__content')
-        include partials/header/cn-header.pug
+        include partials/header/dcos-cn-header.pug
         div(class='landing__hero')
           h1(class='landing__title') DC/OS 服务文档
         div(class='landing__container')
           +renderGridToc()
         footer(class='landing__footer')
           div(class='landing__footer__container')
-            a(class='landing__footer__logo__link', href='https://mesosphere.com/')
-              img(class='landing__footer__logo', src='/assets/header-logo-mark.svg')
+            a(class='landing__footer__logo__link', href='https://d2iq.com/')
+              img(class='landing__footer__logo', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2IQ')
             div(class='landing__footer__menu')
-              a(href='https://mesosphere.com/terms/') Terms of Service
-              a(href='https://mesosphere.com/privacy/') Privacy Policy
-            a(class='landing__footer__copyright', href='https://mesosphere.com/')!= copyright
+              a(href='https://d2iq.com/terms/') Terms of Service
+              a(href='https://d2iq.com/privacy/') Privacy Policy
+            a(class='landing__footer__copyright', href='https://d2iq.com/')!= copyright
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
     include partials/scripts.pug

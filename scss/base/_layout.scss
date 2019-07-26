@@ -1,90 +1,89 @@
 $sidebarWidth: 280px;
-
 .layout {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  &__sidebar {
-    display: none;
-  }
-  &__drawer {
-    position: fixed;
-    top: 0;
-    left: -300px;
-    display: block;
-    width: 300px;
-    transform: translateX(-300px);
-    transition: all 0.2s $ease-in-out-cubic;
-    &--open {
-      height: 100%;
-      z-index: 30;
-      transform: translateX(100%);
-      + .layout__content {
-        transform: translateX(300px);
-      }
-    }
-  }
-  &__content {
     width: 100%;
-    transform: translateX(0);
-    transition: all 0.2s $ease-in-out-cubic;
-  }
-  @include md {
-    flex-direction: row;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     &__sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      display: flex;
-      flex-direction: column;
-      width: $sidebarWidth;
-      height: 100%;
-      transform: none;
-      transition: none;
-      + .layout__content {
-        width: calc(100% - #{$sidebarWidth});
-        margin-left: $sidebarWidth;
-        transform: none;
-        transition: none;
-        .header {
-          width: calc(100% - #{$sidebarWidth});
-        }
-      }
+        display: none;
     }
-  }
-  @include lg {
-    &__sidebar {
-      width: $sidebarWidth + 25px;
-      + .layout__content {
-        width: calc(100% - #{$sidebarWidth} - 25px);
-        margin-left: $sidebarWidth + 25px;
-      .header {
-          width: calc(100% - #{$sidebarWidth} - 25px);
+    &__drawer {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        display: block;
+        width: 300px;
+        transform: translateX(-300px);
+        transition: all 0.2s $ease-in-out-cubic;
+        &--open {
+            height: 100%;
+            z-index: 30;
+            transform: translateX(100%);
+            +.layout__content {
+                transform: translateX(300px);
+            }
         }
-      }
-    }
-  }
-  @include xl {
-    &__sidebar {
-      width: $sidebarWidth + 75px;
-      + .layout__content {
-        width: calc(100% - #{$sidebarWidth} - 75px);
-        margin-left: $sidebarWidth + 75px;
-      .header {
-          width: calc(100% - #{$sidebarWidth} - 75px);
-        }
-      }
-    }
-  }
-  @include print {
-    &__sidebar {
-      display: none;
     }
     &__content {
-      width: 100% !important;
-      margin: 0 !important;
-      padding: 0;
+        width: 100%;
+        transform: translateX(0);
+        transition: all 0.2s $ease-in-out-cubic;
     }
-  }
+    @include md {
+        flex-direction: row;
+        &__sidebar {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            width: $sidebarWidth;
+            height: 100%;
+            transform: none;
+            transition: none;
+            +.layout__content {
+                width: calc(100% - #{$sidebarWidth});
+                margin-left: $sidebarWidth;
+                transform: none;
+                transition: none;
+                .header {
+                    width: calc(100% - #{$sidebarWidth});
+                }
+            }
+        }
+    }
+    @include lg {
+        &__sidebar {
+            width: $sidebarWidth + 25px;
+            +.layout__content {
+                width: calc(100% - #{$sidebarWidth} - 25px);
+                margin-left: $sidebarWidth + 25px;
+                .header {
+                    width: calc(100% - #{$sidebarWidth} - 25px);
+                }
+            }
+        }
+    }
+    @include xl {
+        &__sidebar {
+            width: $sidebarWidth + 75px;
+            +.layout__content {
+                width: calc(100% - #{$sidebarWidth} - 75px);
+                margin-left: $sidebarWidth + 75px;
+                .header {
+                    width: calc(100% - #{$sidebarWidth} - 75px);
+                }
+            }
+        }
+    }
+    @include print {
+        &__sidebar {
+            display: none;
+        }
+        &__content {
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0;
+        }
+    }
 }
