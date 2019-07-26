@@ -24,10 +24,12 @@ dcos quota create <group> [flags]
 
 | Name |  Description |
 |---------|-------------|
-| `--cpu`     | Amount of CPU for the quota (default: 1). |
+| `--cpu`     | Number of CPUs for the quota's limit. |
+| `--disk`     | Amount of disk (in MiB) for the quota's limit. |
 | `--force` | Force the quota creation. |
+| `--gpu`     | Number of GPUs for the quota's limit. |
 | `--help, h`     | Print usage. |
-| `--mem`     | Amount of memory for the quota (default: 1). |
+| `--mem`     | Amount of memory (in MiB) for the quota's limit. |
 
 # Parent command
 

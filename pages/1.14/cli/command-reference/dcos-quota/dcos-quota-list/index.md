@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos quota get
-title: dcos quota get
+navigationTitle:  dcos quota list
+title: dcos quota list
 menuWeight: 1
-excerpt: Getting a quota
+excerpt: List all the quotas
 render: mustache
 model: /1.14/data.yml
 enterprise: false
@@ -12,12 +12,12 @@ enterprise: false
 
 # Description
 
-The `dcos quota get` command allows you to get an existing quota.
+The `dcos quota list` command allows you to list all the group quotas on a cluster.
 
 # Usage
 
 ```bash
-dcos quota get <group> [flags]
+dcos quota list [flags]
 ```
 
 # Options
@@ -25,7 +25,7 @@ dcos quota get <group> [flags]
 | Name |  Description |
 |---------|-------------|
 | `--help, h`     | Print usage. |
-| `--json`   |   JSON-formatted result. |
+| `--json`   |   JSON-formatted list. |
 
 # Parent command
 
