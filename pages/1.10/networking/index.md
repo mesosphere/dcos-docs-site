@@ -46,7 +46,7 @@ The Spartan instance on each agent also acts as a DNS server for any service tha
 
 DC/OS offers one load balancing option out-of-the-box: [Minuteman](/1.10/networking/load-balancing-vips/).
 
-Two other load balancers, [Edge-LB](/services/edge-lb/latest/) and [Marathon-LB](/services/marathon-lb/1.12/) can be installed as services from the DC/OS Universe package repository.
+Two other load balancers, [Edge-LB](/services/edge-lb/latest/) and [Marathon-LB](/services/marathon-lb/latest/) can be installed as services from the DC/OS Universe package repository.
 
 
 |                                    | Minuteman | Edge-LB | Marathon-LB |

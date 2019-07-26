@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Tutorial - Scaling apps using Marathon-LB statistics
-title: Tutorial - Automated scaling using Marathon-LB statistics  
+title: Tutorial - Automated scaling using Marathon-LB statistics
 menuWeight: 35
 excerpt: How to automate application scaling using Marathon-LB statistics
 enterprise: false
@@ -30,7 +30,7 @@ As part of this tutorial, the `marathon-lb-autoscale` script polls the HAProxy `
 The autoscale script takes the current requests-per-second and divides that number by the target number of requests-per-second for the app instance. The result of this fraction is the number of app instances required (or rather, the ceiling of that fraction is the number of instances required).
 
 <p>
-<img src="/1.12/img/image00.png" alt="Current requests-per-second divided by target requests-per-second">
+<img src="/1.14/img/image00.png" alt="Current requests-per-second divided by target requests-per-second">
 
 # Before you begin
 
@@ -75,11 +75,11 @@ To illustrate automatic scaling, you need to configure and deploy the app defini
     }
     ```
 
-    The [sample app definition](https://gist.github.com/brndnmtthws/2ca7e10b985b2ce9f8ee) passes the following arguments that are important for load balancing: 
+    The [sample app definition](https://gist.github.com/brndnmtthws/2ca7e10b985b2ce9f8ee) passes the following arguments that are important for load balancing:
 
     * `--target-rps` specifies the requests-per-second you want the `marathon-lb-autoscale` load balancing instance to use for scaling purposes.
 
-    * `--apps` specifies a comma-separated list of the Marathon apps and service ports to monitor, concatenated with an underscore (_). 
+    * `--apps` specifies a comma-separated list of the Marathon apps and service ports to monitor, concatenated with an underscore (_).
 
     Each app could expose multiple service ports to the load balancer, if configured to do so. The `marathon-lb-autoscale` instance scales the app to meet the greatest common denominator for the number of required instances.
 
@@ -133,7 +133,7 @@ To illustrate automatic scaling, you need to configure and deploy the app defini
 
 1. Save the app definition for the `nginx` test application.
 
-1. Start the NGINX test application instance using Marathon: 
+1. Start the NGINX test application instance using Marathon:
 
     ```bash
     dcos marathon app add https://gist.githubusercontent.com/brndnmtthws/84d0ab8ac057aaacba05/raw/d028fa9477d30b723b140065748e43f8fd974a84/nginx.json
@@ -174,14 +174,14 @@ To illustrate automatic scaling, you need to configure and deploy the app defini
     dcos marathon app add https://gist.githubusercontent.com/brndnmtthws/fe3fb0c13c19a96c362e/raw/32280a39e1a8a6fe2286d746b0c07329fedcb722/siege.json
     ```
 
-1. In your web browser, navigate to the HAProxy statistics endpoint to display the HAProxy status page where you can see requests hitting the NGINX instance. 
+1. In your web browser, navigate to the HAProxy statistics endpoint to display the HAProxy status page where you can see requests hitting the NGINX instance.
 
     For example, if the agent IP address is `52.35.15.50` and you are using the default endpoint:<br>
 
     <code>52.35.15.50:9090/haproxy?stats</code>
 
     <p>
-    <img src="/1.12/img/image02-800x508.png" alt="HAProxy statistics">
+    <img src="/1.14/img/image02-800x508.png" alt="HAProxy statistics">
     </p>
 
     Check the “Session rate” to see the number requests-per-second generated on the NGINX application frontend.
@@ -197,8 +197,8 @@ To illustrate automatic scaling, you need to configure and deploy the app defini
     After a few minutes, you should see that the NGINX app has been automatically scaled up to serve the increased traffic.
 
 # Exploring scaling on your own
-You can experiment further with automated application scaling using the additional parameters for the `marathon-lb-autoscale` sample script. For example, you might want to try changing the interval, number of samples, or other values until you achieve the desired effect. 
+You can experiment further with automated application scaling using the additional parameters for the `marathon-lb-autoscale` sample script. For example, you might want to try changing the interval, number of samples, or other values until you achieve the desired effect.
 
 The default values are fairly conservative. In experiementing with these values, you might want to include a 50 percent safety factor in the target RPS. For example, if you want your application to meet service-level agreement (SLA) at 1500 requests-per-second with 1 CPU and 1 GiB of memory, you might want to set the target RPS to 1000.
 
-For more information about the parameters you can set to work with the `marathon-lb-autoscale` script, see the [autoscale usage information](https://github.com/mesosphere/marathon-lb-autoscale). 
+For more information about the parameters you can set to work with the `marathon-lb-autoscale` script, see the [autoscale usage information](https://github.com/mesosphere/marathon-lb-autoscale).

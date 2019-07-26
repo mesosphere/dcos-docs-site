@@ -3,14 +3,14 @@ layout: layout.pug
 navigationTitle:  Marathon-LB
 title: Marathon-LB
 menuWeight: 80
-excerpt: 
+excerpt:
 enterprise: false
 category: Networking
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-Marathon provides a meta-framework for scheduling, container orchestration, and load balancing as part of the Mesosphere DC/OS platform. Marathon load balancer (Marathon-LB) is a proxy server and load balancer for TCP, HTTP, and HTTPS requests based on `HAProxy` open-source software. 
+Marathon provides a meta-framework for scheduling, container orchestration, and load balancing as part of the Mesosphere DC/OS platform. Marathon load balancer (Marathon-LB) is a proxy server and load balancer for TCP, HTTP, and HTTPS requests based on `HAProxy` open-source software.
 
 You can configure Marathon-LB with various topologies. Here are some examples of how you might use Marathon-LB:
 

@@ -3,8 +3,9 @@ layout: layout.pug
 navigationTitle:  Marathon-LB overview
 title: Marathon-LB overview
 excerpt: Marathon-LB provides proxy and load balancing services for Marathon-orchestrated apps running on DC/OS
-menuWeight: 5
---- 
+menuWeight: 10
+---
+
 Marathon and Marathon load balancer (Marathon-LB) work together to provide a meta-framework for scheduling, container orchestration, and load balancing as part of the Mesosphere DC/OS platform.
 
 # Marathon orchestrates apps and frameworks
@@ -14,14 +15,14 @@ Without load balancing, Marathon runs on the DC/OS cluster to act as the orchest
 <img src="/services/img/marathon-basic-overview.png" alt="Simplified view of Marathon orchestration">
 </p>
 
-If one of its scheduler instances fails, Marathon can restart it on another node that has available capacity to ensure that two MyApp scheduler instances are always running. In this example, the MyApp scheduler represents a supported framework that receives resource offers and can start its own tasks on the cluster. In the diagram, the MyApp scheduler runs two tasks. One task is a job that dumps a production MySQL database to S3. The other task sends an email newsletter job to an application that forwards the newsletter to all customers. 
+If one of its scheduler instances fails, Marathon can restart it on another node that has available capacity to ensure that two MyApp scheduler instances are always running. In this example, the MyApp scheduler represents a supported framework that receives resource offers and can start its own tasks on the cluster. In the diagram, the MyApp scheduler runs two tasks. One task is a job that dumps a production MySQL database to S3. The other task sends an email newsletter job to an application that forwards the newsletter to all customers.
 
 As this example illustrates, Marathon can start and manage individual application instances, manage the availability of other framework instances, help clustered applications maintain 100% uptime within any resource constraints you  specify, and can coexist with other frameworks that create their own workloads in the cluster.
 
 # Basic Marathon scaling and fault recovery
 To illustrate scaling, assume you have a cluster where Marathon running three applications: Search, Jetty, and Rails. Each application is scaled to a different number of containers: one for Search, three for Jetty, and five for Rails.
 
-If you decide to scale out the Search service and Rails-based application, you might use the Marathon REST API to add more instances. Marathon then takes care of placing the new containers on agent nodes with spare capacity, honoring any constraints you have previously set. After adding the new Search and Rails instances, your cluster of agent nodes might look like this: 
+If you decide to scale out the Search service and Rails-based application, you might use the Marathon REST API to add more instances. Marathon then takes care of placing the new containers on agent nodes with spare capacity, honoring any constraints you have previously set. After adding the new Search and Rails instances, your cluster of agent nodes might look like this:
 
 <p>
 <img src="/services/img/marathon-add-instances.png" alt="Adding app instances using Marathon">
@@ -35,17 +36,17 @@ If one of the servers where an application instance runs becomes unavailable, Ma
 
 In this example, a datacenter worker unplugs an agent node where Search and Rails instances were previously running. In response, Marathon moves the Search and Rails instances from the agent that is no longer available to other agent nodes, maintaining  the application’s effective uptime even when there’s been a physical machine failure.
 
-# How Marathon-LB works 
+# How Marathon-LB works
 Marathon load balancer (Marathon-LB) is based on `HAProxy`, which is open-source software that acts as a proxy server and load balancer for TCP, HTTP, and HTTPS requests. `HAProxy` provides high-availability failover support, load balancing, server health checks, and throughput metrics for TCP and HTTP based applications. `HAProxy` load balancing helps to ensure that application workload does not negatively affect application performance while routing traffic efficiently and preventing service interruptions.
 
-`HAProxy` supports secure socket layer (SSL) authentication and authorization for connecting to applications, HTTP compression, endpoints for checking server health and activity, and customizable templates for modifying the `HAProxy` configuration settings. 
+`HAProxy` supports secure socket layer (SSL) authentication and authorization for connecting to applications, HTTP compression, endpoints for checking server health and activity, and customizable templates for modifying the `HAProxy` configuration settings.
 
 You can also customize operations for `HAProxy` and Marathon-LB through Lua scripting or Marathon REST API calls.
 
 ## Locating services and ports for load balancing
-When your app is up and running, you need a way to send traffic to it from other applications on the same cluster and from external clients. The most common way network traffic is routed to the appropriate application instances running on the appropriate agent nodes is through the domain name services ([DNS](http://en.wikipedia.org/wiki/Domain_Name_System)) you deploy. 
+When your app is up and running, you need a way to send traffic to it from other applications on the same cluster and from external clients. The most common way network traffic is routed to the appropriate application instances running on the appropriate agent nodes is through the domain name services ([DNS](http://en.wikipedia.org/wiki/Domain_Name_System)) you deploy.
 
-For example, [Mesos-DNS](https://github.com/mesosphere/mesos-dns) provides service discovery through a cluster-aware domain name service that identifies IP addresses for master and agent nodes. For more information about service discovery and the default Mesosphere DNS configuration, see [DNS](/1.12/networking/DNS/mesos-dns/) and [DNS API](http://docs.mesosphere.com/1.12/networking/DNS/mesos-dns/mesos-dns-api).
+For example, [Mesos-DNS](https://github.com/mesosphere/mesos-dns) provides service discovery through a cluster-aware domain name service that identifies IP addresses for master and agent nodes. For more information about service discovery and the default Mesosphere DNS configuration, see [DNS](/1.14/networking/DNS/mesos-dns/) and [DNS API](http://docs.mesosphere.com/1.14/networking/DNS/mesos-dns/mesos-dns-api).
 
 Marathon-LB locates applications through the Marathon framework port-based service discovery using a virtual or DNS-defined IP address and the frontend and backend configuration settings specified for the HAProxy program. For a detailed description of how ports work in Marathon, see [Networking](https://mesosphere.github.io/marathon/docs/networking.html).
 
@@ -79,7 +80,7 @@ The following diagram illustrates using Marathon-LB as both an external load bal
 </p>
 
 # Common load balancing scenarios
-You can configure Marathon-LB to work with different load balancing strategies and network topologies. As part of your planning process, you might want to consider how best to use Marathon-LB to suit the specific details of your environment. 
+You can configure Marathon-LB to work with different load balancing strategies and network topologies. As part of your planning process, you might want to consider how best to use Marathon-LB to suit the specific details of your environment.
 
 The following scenarios represent the most common load balancing strategies and the network configuration used in each case:
 
@@ -94,6 +95,6 @@ If none of these common load balancing strategies suits your organization, you m
 # Running multiple load balancer instances
 For practical purposes, you should consider running three or more instances of Marathon-LB to provide high availability for production workloads. You should never run a single load balancing instance because a single instance cannot provide high-availability or fault tolerance for applications. Except in the case of extreme processing load, running five or more load-balancing instances does not typically add significant value in term of application availability or performance.
 
-The specific number of Marathon-LB instances you should run to best suit your environment depends on the workload you expect, characteristics of the application itself, and the level of failure tolerance required. 
+The specific number of Marathon-LB instances you should run to best suit your environment depends on the workload you expect, characteristics of the application itself, and the level of failure tolerance required.
 
 You should not run Marathon-LB on every node in your cluster. Running too many instances of Marathon-LB can affect processing, efficiency, and overall performance because of additional calls to the Marathon API and excess health checking.
