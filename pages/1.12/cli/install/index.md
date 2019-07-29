@@ -26,7 +26,7 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 - You must be able to open a command-line shell terminal on the external system hosting the CLI.
 - You must be able to run `cURL` program on the system hosting the CLI. The `curl` command is installed by default on most Linux distributions.
 - You must not be using the `noexec` to mount the `/tmp` directory unless you have set a `TMPDIR` environment variable to something other than the `/tmp` directory. Mounting the `/tmp` directory with the `noexec` option can prevent CLI operations.
-- If you are using Fedora 30 or above, you must install the `libcrypt` library. This can be done by running `sudo dnf install libxcrypt-compat`.
+- If you are using Fedora 30 or above, you must install the `libcrypt` library. You can install the library by running `sudo dnf install libxcrypt-compat`.
 
 ## Installing the CLI on Linux from the GUI
 
