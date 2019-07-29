@@ -8,7 +8,15 @@ render: mustache
 model: /1.14/data.yml
 enterprise: false
 ---
+# Debugging service deployments using the UI
 
+The **Services > Debug** tab displays the last changes, task failures, and other status messages, which can help debug issues with service deployments.
+
+In the following figure, Marathon has failed to launch a service; DC/OS displays a warning message and then a message stating that the error has cleared and that the service is now launching.
+
+![Failure warning](/1.14/img/GUI-Services-Failure-To-Launch.png)
+
+Figure 1 - Debug tab showing warning
 
 # How Offer Matching Works
 
@@ -26,11 +34,8 @@ Here is an overview of the offer matching process.
 
 1. If a matching offer does not arrive that matches the requirements and constraints of a service or pod, Marathon is unable to launch the service or pod.
 
-  <table class=“table” bgcolor=#7d58ff>
-  <tr> 
-    <td align=justify style=color:white><strong>Note:</strong> The required resources must all be available on a single host.</td> 
-  </tr> 
-  </table>
+<p class="message--note"><strong>NOTE: </strong> The required resources must all be available on a single host.</p> 
+  
 
 # Why Your Service or Pod is Stuck
 

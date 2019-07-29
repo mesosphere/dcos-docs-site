@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Granting Access to dcos task exec
 title: Granting Access to dcos task exec
-menuWeight: 4
+menuWeight: 10
 excerpt: Granting access for debugging
 render: mustache
 model: /1.14/data.yml

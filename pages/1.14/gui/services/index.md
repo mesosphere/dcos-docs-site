@@ -37,6 +37,8 @@ By default, all of your services are displayed, sorted by service name. You can 
 | Recovering| When a change to the Service has been requested by DC/OS, the instance is killed and a new instance is started. Similar to Deploying, DC/OS is performing the required actions, which have not completed yet. |
 | Stopped | A Service with target instances of 0 and with a running tasks count of 0. This state was previously referred to as “Suspended” in the UI. |
 
+
+
 ## SDK Service Status
 
 Scheduler tasks based on the [DC/OS SDK](https://mesosphere.github.io/dcos-commons/) are leveraging Mesos native checks in order to provide more detailed information about their status than the above [Service Status](#service-status). These status are specific to SDK based schedulers and their lifecycle.
@@ -75,3 +77,12 @@ Figure 2 - Services instances
 
 For services with a UI, hover over the service name and click ![open service](/1.14/img/open-service.png) to view it. You can access the Mesos UI at `<hostname>/mesos`.
 
+# Debugging using the UI
+
+The **Services > Debug** tab displays the last changes, task failures, and other status messages, which can help debug issues with service deployments.
+
+In the following figure, Marathon has failed to launch a service; DC/OS displays a warning message and then a message stating that the error has cleared and that the service is now launching.
+
+![Failure warning](/1.14/img/GUI-Services-Failure-To-Launch.png)
+
+Figure 3 - Debug tab showing warning

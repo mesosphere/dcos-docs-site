@@ -8,8 +8,6 @@ render: mustache
 model: /1.13/data.yml
 enterprise: false
 ---
-
-
 # How Offer Matching Works
 
 DC/OS services or pods may fail to deploy because the Mesos resource offers are unable to match the resources requests coming from the service or pods [Marathon application definitions](/1.13/deploying-services/creating-services/).
@@ -26,11 +24,8 @@ Here is an overview of the offer matching process.
 
 1. If a matching offer does not arrive that matches the requirements and constraints of a service or pod, Marathon is unable to launch the service or pod.
 
-  <table class=“table” bgcolor=#7d58ff>
-  <tr> 
-    <td align=justify style=color:white><strong>Note:</strong> The required resources must all be available on a single host.</td> 
-  </tr> 
-  </table>
+<p class="message--note"><strong>NOTE: </strong> The required resources must all be available on a single host.</p> 
+
 
 # Why Your Service or Pod is Stuck
 

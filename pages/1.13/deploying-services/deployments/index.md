@@ -25,7 +25,7 @@ In this example, the application `app` is dependent on the application `db`.
 
 ![dependency diagram](/1.13/img/dependency.png)
 
-Figure 1. Deployment diagram
+Figure 1 - Deployment diagram
 
 Here is the deployment order:
 
@@ -42,3 +42,4 @@ The goal of rolling upgrades is to start a set of processes with the new version
 - **Readiness checks** are a temporary monitor that wait for your application to be ready. Readiness checks are useful for cache-warming, JIT warming, or a migration. If a readiness check fails, DC/OS will wait until it succeeds before continuing with the deployment.
 
 You can use the `minimumHealthCapacity` parameter to define the minimum number of healthy instances that a certain version of the application must have at all times during update. This parameter is defined individually in each application. The minimumHealthCapacity is a percentage which, when applied to the instance count, defines the number of healthy instances that a certain version of the application must have at all times during update.
+
