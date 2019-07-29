@@ -17,6 +17,8 @@ Figure 1 - Secrets page
 
 For complete details on creating and managing Secrets, see the [Secrets](/1.14/security/ent/secrets) documentation.
 
+<p class="message--important"><strong>IMPORTANT: </strong>The maximum file size for a secret is approximately 1 MB, subtracting approximately 1 KB for the secret store metadata.</p>
+
 
 # Creating key-value pair secrets 
 

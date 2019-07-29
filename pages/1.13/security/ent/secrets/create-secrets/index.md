@@ -14,6 +14,8 @@ You can create secrets in DC/OS by using a key-value pair or as a file. Both met
 
 See [Configuring services and pods to use secrets](/1.13/security/ent/secrets/use-secrets/) for information on how to reference these secrets in your app or pod definition.
 
+<p class="message--important"><strong>IMPORTANT: </strong>The maximum file size for a secret is approximately 1 MB, subtracting approximately 1 KB for the secret store metadata.</p>
+
 # Creating secrets
 
 The sections below explain how to create secrets as both key/value pairs and as files using the UI, CLI, and the Secrets API.
