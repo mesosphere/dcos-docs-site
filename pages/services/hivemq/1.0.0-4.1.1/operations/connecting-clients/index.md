@@ -14,7 +14,7 @@ render: mustache
 # Connecting MQTT Clients
 
 The Mesosphere DC/OS {{ model.techName }} service provides several endpoints for connecting MQTT clients. In the default configuration, WebSocket and TLS listeners are disabled.
-You can update the configuration of your service to enable these listeners without any downtime. See [Configuration](/services/hivemq/1.0.0-4.0.2/operations/configuration/) for more information.
+You can update the configuration of your service to enable these listeners without any downtime. See [Configuration](/services/hivemq/1.0.0-4.1.1/operations/configuration/) for more information.
 
 For {{ model.techName }} the state of the broker is distributed across the nodes. This means that your clients can connect at random to any of the nodes.
 

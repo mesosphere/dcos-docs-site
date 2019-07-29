@@ -371,7 +371,7 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} update force-resta
 
 2. Open Grafana and add the Prometheus data source.
 
-3. Create a new dashboard by importing the [HiveMQ-Prometheus.json](/services/hivemq/1.0.0-4.0.2/assets/HiveMQ-Prometheus.json) file.
+3. Create a new dashboard by importing the [HiveMQ-Prometheus.json](/services/hivemq/1.0.0-4.2.0/assets/HiveMQ-Prometheus.json) file.
 
 4. Choose your Prometheus data source
 
@@ -388,7 +388,7 @@ The DC/OS {{ model.techName }} service also provides several sidecar plans, whic
 <p class="message--warning"><strong>These plans will apply changes to all currently deployed nodes. Newly created nodes will not receive these changes. You can however re-execute the plans with the same parameters after adding nodes if required.</strong>
 
 
-<p class="message--note"><strong>If any of these plans fail (e.g. due to invalid parameters), you should stop their execution. See <a href="/services/hivemq/1.0.0-4.0.2/operations/#stop">Operations</a>.</strong>
+<p class="message--note"><strong>If any of these plans fail (e.g. due to invalid parameters), you should stop their execution. See <a href="/services/hivemq/1.0.0-4.2.0/operations/#stop">Operations</a>.</strong>
 
 ## Add license
 

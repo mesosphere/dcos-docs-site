@@ -167,7 +167,7 @@ Check the `pod status` command to verify that the pod (or task) has properly res
 The DC/OS {{ model.techName }} service pushes metrics into the DC/OS metrics system. Details on consuming them can be found at the documentation on the [DC/OS metrics system](/latest/metrics/).
 
 <!-- modified -->
-A {{ model.techName }} specific Grafana dashboard and instructions are supplied at [Monitoring configuration](/services/hivemq/1.0.0-4.0.2/configuration/#monitoring-configuration)
+A {{ model.techName }} specific Grafana dashboard and instructions are supplied at [Monitoring configuration](/services/hivemq/1.0.0-4.1.1/configuration/#monitoring-configuration)
 <!-- end modified -->
 
 ## Logging

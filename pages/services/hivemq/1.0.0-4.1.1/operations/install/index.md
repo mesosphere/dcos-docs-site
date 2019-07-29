@@ -108,7 +108,7 @@ These setting cannot be changed after installation.
 - MQTT specific configuration
 - Configuration template override
 
-Some of these settings can also be modified at runtime using [sidecar plans](/services/hivemq/1.0.0-4.0.2/operations/configuration/#sidecar-plans)
+Some of these settings can also be modified at runtime using [sidecar plans](/services/hivemq/1.0.0-4.1.1/operations/configuration/#sidecar-plans)
 
 # Viewing Plans via the CLI
 

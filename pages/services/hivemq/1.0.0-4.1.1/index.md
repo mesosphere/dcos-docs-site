@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: HiveMQ 1.0.0-4.0.2
+navigationTitle: HiveMQ 1.0.0-4.1.1
 excerpt:
-title: HiveMQ 1.0.0-4.0.2
+title: HiveMQ 1.0.0-4.1.1
 menuWeight: 1
 model: /services/hivemq/data.yml
 render: mustache

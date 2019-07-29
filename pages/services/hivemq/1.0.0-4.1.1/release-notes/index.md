@@ -8,11 +8,11 @@ featureMaturity:
 enterprise: false
 ---
 
-# Version 1.0.0-4.0.2
+# Version 1.0.0-4.1.1
 
 Initial release. This service provides the following features:
 
-- HiveMQ version 4.0.2
+- HiveMQ version 4.1.1
 - Rolling upgrade / configuration changes: Uses the recommended upgrade strategy for configuration changes and upgrades
 - TLS support: initially supports TLS using a single secret for
   - MQTT listener
