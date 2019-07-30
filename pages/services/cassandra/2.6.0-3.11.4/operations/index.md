@@ -236,7 +236,7 @@ Restoring cluster data is similar to backing it up. The `restore-s3` plan assume
 
 Optional parameters:
 - `S3_ENDPOINT_URL`: URL of S3 compatible storage. If you want to restore from S3 compatible storage, please provide this parameter in `restore-s3` plan.
-- `AWS_SESSION_ID`: It may also be necessary to set the session ID on how you authenticate with AWS.
+- `AWS_SESSION_ID`: It may also be necessary to set the session ID depending on how you authenticate with AWS.
 - `AWS_SESSION_TOKEN`: It may also be necessary to set the session token depending on how you authenticate with AWS. 
 
 To initiate this plan from the command line:
