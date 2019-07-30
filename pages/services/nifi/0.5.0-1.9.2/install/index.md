@@ -176,25 +176,27 @@ Sample JSON options file named `sample-{{ model.packageName }}-custom.json`:
 
    ```json
    {
-   "node": {
-       "count": 1,
-       "cpus": 1
-       },
-   "service": {
+     "service": {
        "name": "test/integration/{{ model.packageName }}",
+       "service_account": "dcosnifi",
+       "service_account_secret": "dcosnifisecret",
+       "virtual_network_enabled": true,
        "security": {
-           "kerberos": {
-               "enabled": true
-           },
-           "tls_ssl": {
-               "enable": true
-           }
-       },
-       "service_account": "dcos{{ model.packageName }}",
-       "service_account_secret": "dcos{{ model.packageName }}secret",
-       "virtual_network_enabled": true
-       "cn_dn_node_identity": "testintegration{{ model.packageName }}"
+         "kerberos_tls": {
+           "enable": true
+         },
+         "kerberos": {
+           "cn_dn_node_identity": "testintegrationnifi"
+         }
        }
+     },
+     "node": {
+       "count": 2,
+       "cpus": 1
+     },
+     "web": {
+       "proxy_host": "<Public IP of the Public Node of the cluster>:8080"
+     }
    }
    ```
 The following command creates a cluster using `sample-{{ model.packageName }}.json`:

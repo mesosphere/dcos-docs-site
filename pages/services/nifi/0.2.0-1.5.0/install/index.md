@@ -164,25 +164,24 @@ Sample JSON options file named `sample-nifi-custom.json`:
 
    ```json
    {
-   "node": {
-       "count": 1,
-       "cpus": 1
-       },
-   "service": {
-       "name": "test/integration/nifi",
-       "security": {
-           "kerberos": {
-               "enabled": true,
-               "cn_dn_node_identity": "testintegrationnifi"
-           },
-           "tls_ssl": {
-               "enable": true
-           }
-       },
+     "service": {
+       "name": "test/integration/{{ model.packageName }}",
        "service_account": "dcosnifi",
        "service_account_secret": "dcosnifisecret",
-       "virtual_network_enabled": true
+       "virtual_network_enabled": true,
+       "security": {
+         "kerberos_tls": {
+           "enable": true
+         },
+         "kerberos": {
+           "cn_dn_node_identity": "testintegrationnifi"
+         }
        }
+     },
+     "node": {
+       "count": 2,
+       "cpus": 1
+     }
    }
    ```
 The command below creates a cluster using sample-nifi.json:

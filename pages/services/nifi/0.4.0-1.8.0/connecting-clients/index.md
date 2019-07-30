@@ -115,7 +115,7 @@ Following are the steps for Edge-LB Pool configuration:
               {
                 "endpoint": {
                   "type": "ADDRESS",
-                  "address": "<dns adress obtained from Step 2>",
+                  "address": "<dns or vip address obtained from Step 2>",
                   "port": <port obtained from Step 2>
                 }
               }
@@ -129,56 +129,63 @@ Following are the steps for Edge-LB Pool configuration:
 
       ```json
     {
-      "apiVersion": "V2",
-      "name": "{{ model.serviceName }}proxy",
-      "count": 1,
-      "autoCertificate": true,
-      "haproxy": {
-          "frontends": [
+      "apiVersion":"V2",
+      "name":"nifiproxy",
+      "count":1,
+      "autoCertificate":true,
+      "haproxy":{
+          "frontends":[
             {
-                "bindPort": 8443,
-                "protocol": "HTTPS",
-                "certificates": [
-                  "$AUTOCERT"
+                "bindPort":8080,
+                "protocol":"HTTPS",
+                "certificates":[
+                   "$AUTOCERT"
                 ],
-                "linkBackend": {
-                  "defaultBackend": "{{ model.serviceName }}service"
+                "linkBackend":{
+                   "defaultBackend":"nifiservice"
                 }
-            }
+             }
           ],
-          "backends": [
-            {
-                "name": "{{ model.serviceName }}service",
-                "protocol": "HTTPS",
-                "rewriteHttp": {
-                  "host": <dns adress obtained from Step 2>,
-                  "path": {
-                      "fromPath": "/{{ model.serviceName }}",
-                      "toPath": "/{{ model.serviceName }}"
-                  },
-                  "request": {
-                      "forwardfor": true,
-                      "xForwardedPort": true,
-                      "xForwardedProtoHttpsIfTls": true,
-                      "setHostHeader": true,
-                      "rewritePath": true
-                  }
+          "backends":[
+             {
+                "name":"nifiservice",
+                "protocol":"HTTPS",
+                "rewriteHttp":{
+                   "host":"<dns or vip address obtained from Step 2>",
+                   "path":{
+                      "fromPath":"/nifi",
+                      "toPath":"/nifi"
+                   },
+                   "request":{
+                      "forwardfor":true,
+                      "xForwardedPort":true,
+                      "xForwardedProtoHttpsIfTls":true,
+                      "setHostHeader":false,
+                      "rewritePath":true
+                   },
+                   "sticky":{
+                      "enabled":true
+                   }
                 },
-                "services": [
-                  {
-                      "endpoint": {
-                        "type": "ADDRESS",
-                        "address": <dns adress obtained from Step 2>,
-                        "port": <port obtained from Step 2>
+                "services":[
+                   {
+                      "mesos":{
+                         "frameworkName":"nifi",
+                         "taskNamePattern":"node"
+                      },
+                      "endpoint":{
+                         "port":<port obtained from Step 2>
                       }
-                  }
+                   }
                 ]
-            }
+             } 
           ]
-      }
+       }
     }
-
       ```
+    <p class="message--note"><strong>NOTE: </strong>You must whitelist the hostname used to access NiFi through the Load Balancer in nifi.properties file using the parameter nifi.web.proxy.host = &lt;host:port&gt;<br> 
+    It accepts a comma separated list of allowed HTTP Host header values to consider when NiFi is running securely and will be receiving  requests to a different host[:port] than it is bound to. 
+    </p>
 
 1. Create `edge-pool` using the above `edgelb-pool-config.json` file.
     ```shell
@@ -186,5 +193,5 @@ Following are the steps for Edge-LB Pool configuration:
     ```    
 1. Access `{{ model.serviceName }}`:
     ```shell
-    http://<Public IP of the Public Node of the cluster>>:8443/{{ model.serviceName }}
-    ```      
+    http://<Public IP of the Public Node of the cluster>>:8080/{{ model.serviceName }}
+    ```    
