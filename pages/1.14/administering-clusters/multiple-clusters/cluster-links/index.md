@@ -82,7 +82,7 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
 ### Switch to a linked cluster from the DC/OS UI
 
-1.  From the left hand navigation menu, select **Cluster> Linked Clusters**.
+1.  From the left hand navigation menu, select **Cluster > Linked Clusters**.
 
     ![Linked Cluster link](/1.14/img/GUI-Cluster-Linked-Clusters-Tab-Link.png)
 
@@ -106,9 +106,11 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
     Figure 4 - Switching to linked cluster
 
-    If you are logged in as a superuser you can also switch to a linked cluster in the Linked Clusters tab.
+#### Switching clusters as a superuser    
+    
+If you are logged in as a superuser you can also switch directly to a linked cluster in the **Linked Clusters** tab.
 
-1. Select **Cluster -> Linked Clusters**.
+1. Select **Cluster > Linked Clusters**.
 
 1. At the far right, click the vertical ellipsis and select **Switch**.
 
