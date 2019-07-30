@@ -109,8 +109,8 @@ You can back up an entire cluster's data and schema to Amazon S3 using the `back
 - `HTTPS_PROXY`: specifications for the {{ model.TechName }} backup plan, taken from `config.yaml`.
 
 Optional parameters:
-- `AWS_SESSION_ID`: It may also be necessary to set the AWS_SESSION_ID depending on how you authenticate with AWS.
-- `AWS_SESSION_TOKEN`: It may also be necessary to set the AWS_SESSION_TOKEN depending on how you authenticate with AWS. 
+- `AWS_SESSION_ID`: It may also be necessary to set the session ID depending on how you authenticate with AWS.
+- `AWS_SESSION_TOKEN`: It may also be necessary to set the session token depending on how you authenticate with AWS. 
 
 Make sure that you provision your nodes with enough disk space to perform a backup. {{ model.TechName }} backups are stored on disk before being uploaded to S3, and will take up as much space as the data currently in the tables, so you will need half of your total available space to be free to back up every keyspace at once.
 
