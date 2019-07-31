@@ -101,34 +101,3 @@ You can read/write files to S3 using environment variable-based secrets to pass 
     }
     ```
 You can also specify them through the UI.
-
-# Enabling the Spark History Server
-
-{{ model.techName }} includes the Spark History Server. Because the history server requires HDFS, you must explicitly enable it.
-
-## Installing HDFS
-
-<p class="message--note"><strong>NOTE: </strong>HDFS requires at least five private nodes.</p>
-
-1. Install HDFS:
-
-    ```bash
-    dcos package install hdfs
-    ```
-
-2. Create a history HDFS directory (default is `/history`). SSH into your cluster and run:
-
-    ```bash
-    docker run -it mesosphere/hdfs-client:1.0.0-2.6.0 bash
-    ./bin/hdfs dfs -mkdir /history
-    ```
-
-3. Create `spark-history-options.json`:
-
-    ```json
-    {
-      "service": {
-      "hdfs-config-url": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints"
-                  }
-    }
-    ```
