@@ -2,36 +2,32 @@
 layout: layout.pug
 navigationTitle: Examples
 excerpt: Usage examples
-title: Install
+title: Examples
 menuWeight: 7
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
-This section contains usage examples for using {{ model.techName }}.
+This section contains examples for using {{ model.techName }}.
 
 # Basic
 
 Perform a default installation by following the instructions in the [Install and Customize](/services/data-science-engine/1.0.0/install/) section.
 
-## Run a {{ model.packageName }} job
+# Example of an R kernel notebook
 
-```bash
-dcos {{ model.packageName }} run --submit-args="--class org.apache.{{ model.packageName }}.examples.{{ model.packageName }}Pi https://downloads.mesosphere.com/{{ model.packageName }}/assets/{{ model.packageName }}-examples_2.11-2.4.0.jar 30"
+```
+# creating 10 x 10 matrix
+mat <- matrix(data = seq(1, 100, by=1), nrow = 10, ncol = 10)
+sum = 0
+# calculating sum of all numbers
+for (r in 1:nrow(mat)) {
+    for(c in 1:ncol(mat)) {
+        sum = sum + mat[r,c]
+    }
+}
+print(sum)
 ```
 
-## Run a Python {{ model.packageName }} job
-
-```bash
-dcos {{ model.packageName }} run --submit-args="https://downloads.mesosphere.com/{{ model.packageName }}/examples/pi.py 30"
-```
-
-## Run an R {{ model.packageName }} job
-
-```bash
-dcos {{ model.packageName }} run --submit-args="https://downloads.mesosphere.com/{{ model.packageName }}/examples/dataframe.R"
-```
-
-View the status of your job using the {{ model.packageName }} cluster dispatcher or use the Mesos UI to see job logs.
 
 # Advanced
 

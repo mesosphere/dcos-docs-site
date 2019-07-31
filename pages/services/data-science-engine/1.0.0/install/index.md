@@ -32,16 +32,6 @@ To install the {{ model.techName }} service from the DC/OS CLI, run the followin
 dcos package install  {{ model.packageName }}
 ```
 
-This installs the {{ model.packageName }} service, {{ model.packageName }} CLI, dispatcher, and, optionally, the history server. 
-
-<a name="CLI"></a>
-
-## Installing the {{ model.packageName }} CLI
-If for some reason you did not install the {{ model.packageName }} CLI, you can do so with this command. This is useful if you already have a {{ model.packageName }} cluster running, but need the {{ model.packageName }} CLI.
-
-```bash
-dcos package install {{ model.packageName }} --cli
-```
 
 ### View deployment
 
@@ -93,34 +83,9 @@ The sixth configuration tab is for Networking.
 The seventh configuration tab is for Environment configuration.  
 
 
-# Custom installation
-You can customize the default configuration properties by creating a JSON options file and passing it to `dcos package install --options`. For example, to launch the Dispatcher using the Universal Container Runtime (UCR), create a file called `options.json`.
-Most of these customizations can also be configured in the UI interface. See the section on [From the UI](#ui) for more information.
+# Customize {{ model.packageName }} distribution
 
-1. Create the `options.json` configuration file.
-
-   ```json
-   {
-     "service": {
-       "UCR_containerizer": true
-     }
-   }
-   ```
-
-1. Install {{ model.packageName }} with the configuration specified in the `options.json` file:
-
-   ```bash
-   dcos package install --options=options.json  {{ model.packageName }}
-   ```
-1. Run this command to see all configuration options:
-
-   ```bash
-   dcos package describe  {{ model.packageName }} --config
-   ```
-
-## Customize {{ model.packageName }} distribution
-
-{{ model.techName }} does not support arbitrary {{ model.packageName }} distributions, but Mesosphere does provide multiple pre-built distributions, primarily used to select Hadoop versions. 
+{{ model.techName }} does not support arbitrary {{ model.packageName }} distributions, but Mesosphere does provide multiple pre-built distributions, primarily used to select GPU CUDA versions. 
 
 To use one of these distributions, select your {{ model.packageName }} distribution from here, then select the corresponding Docker image from here, then use those values to set the following configuration variables:
 
@@ -146,55 +111,11 @@ The default user for {{ model.techName}} is `nobody`. To override it set the fol
 
 {{ model.packageName }} runs all of its components in Docker containers. Since the Docker image contains a full Linux userspace with its own `/etc/users` file, it is possible for the user `nobody` to have a different UID inside the container than on the host system. Although user `nobody` has UID 65534 by convention on many systems, this is not always the case. As Mesos does not perform UID mapping between Linux user namespaces for a Docker containerizer, specifying a service user of `nobody` in this case will cause access failures when the container user attempts to open or execute a filesystem resource owned by a user with a different UID, preventing the service from launching. If the hosts in your cluster have a UID for `nobody` other than 65534, you will need to a provide valid UID for `nobody` in the configuration to run the service successfully. For example, on RHEL/Centos based distributions:
 
-```json
-{
- "service": {
-   "user": "nobody",
-   "docker_user": "99"
- }
-}
-```
-
-# Configure {{ model.packageName }} virtual network
-
-{{ model.techName }} can be launched in a virtual network and configured with network labels.
-Here's an example of a {{ model.packageName }} configuration for DC/OS overlay network:
-
-```json
-{
- "service": {
-   "virtual_network_enabled": true,
-   "virtual_network_name": "dcos",
-   "virtual_network_plugin_labels": [
-       {"key": "key_1", "value": "value_1"},
-       {"key": "key_2", "value": "value_2"}
-   ]
- }
-}
-```
-
-When {{ model.packageName }} is deployed in a virtual network, all submitted jobs will run in the same network until another network is specified in job submit arguments.
-You can check the existing limitations of virtual network support here.
-Minimal installation
-For development purposes, use dcos-vagrant to install {{ model.packageName }} on a local DC/OS cluster.
-
-1. Install a minimal DC/OS Vagrant according to the instructions [here][16].
-1. Install {{ model.packageName }}:
-    ```bash
-    dcos package install {{ model.packageName }}
-    ```
-1. Run a simple job:
-
-    ```bash
-    dcos {{ model.packageName }} run --submit-args="--class org.apache. {{ model.packageName }}.examples.{{ model.packageName }}Pi https://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar 30"
-    ```
-
-<p class="message--important"><strong>IMPORTANT:  </strong>A limited resource environment such as DC/OS Vagrant restricts some of the features available in {{ model.techName }}. For example, you must have enough resources to start up a 5-agent cluster, otherwise you will not be able to install DC/OS HDFS and enable the history server.</p>
-
-Also, a limited resource environment can restrict how you size your executors, for example with `{{ model.packageName }}.executor.memory`.
 
 # Multiple installations
-Installing multiple instances of the {{ model.packageName }} package provides basic multi-team support. Each dispatcher displays only the jobs submitted to it by a given team, and each team can be assigned different resources.
+
+Depending on the number of licenses you have purchased, you can install more than one instance of the {{ model.packageName }} package. Installing multiple instances of the {{ model.packageName }} package provides basic multi-team support. Each team can be assigned different resources.
+
 To install multiple instances of the {{ model.packageName }} package, set each `service.name` to a unique name (for example, `{{ model.packageName }}-dev`) in your JSON configuration file during installation. For example, create a JSON options file name `multiple.json`:
 
 ```json
