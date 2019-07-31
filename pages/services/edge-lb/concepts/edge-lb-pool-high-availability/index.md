@@ -10,9 +10,9 @@ Edge-LB uses its pools to provide high availability in two key ways:
 
 - If an existing Edge-LB pool instance goes down on a healthy agent node, the Edge-LB server creates a replacement pool instance on the same agent and continues to satisfy all requests without any user intervention.
 
-- - If an existing Edge-LB pool instance goes down because an agent node becomes unavailable, the Edge-LB server creates new Edge-LB pool instances on a different agent and starts routing traffic to the new pool instance.
+- If an existing Edge-LB pool instance goes down because an agent node becomes unavailable, the Edge-LB server creates new Edge-LB pool instances on a different agent and starts routing traffic to the new pool instance.
 
-By deploying dedicated Edge-LB pools per application or framework, you can ensure that any failure is restricted to a single load-balancer instance and application combination. This segragation helps to ensure that appllication performance is not affected and that applications resource requirements are isolated from each other. Instead of competing for the same resources, load balanced application pools can remain independent from each other.
+By deploying dedicated Edge-LB pools per application or framework, you can ensure that any failure is restricted to a single load-balancer instance and application combination. This segregation helps to ensure that application performance is not affected and that application resource requirements are isolated from each other. Instead of competing for the same resources, load balanced application pools can remain independent from each other.
 
 The following diagram provides an example of Edge-LB's high availability:
 
@@ -26,7 +26,7 @@ Another best practice to achieve high availability with Edge-LB is to deploy mor
 
 Edge-LB templates also contribute to high availability by automatically configuring the load balancer as applications scale up and down using DC/OS application-aware scheduling. When an application scales to consume more resources, such as expanding to additional tasks and nodes, Edge-LB can automatically react and automatically include the new application tasks into the backend of the load balancer pool. The combination of application-aware scheduling and Edge-LB accomplishes this without user intervention, allowing DC/OS to provide a high-availability elastically-scaling platform for applications.
 
-Multiple Edge-LB pools can be configured across multiple DC/OS public nodes to create a highly-available load balancing environment and to support increased throughput. 
+Multiple Edge-LB pools can be configured across multiple DC/OS public nodes to create a highly-available load balancing environment and to support increased throughput.
 
 There are two primary external architectures that support this:
 - External load balancer: Configures multiple Edge-LB pools such that the Edge-LB load balancers that are on DC/OS public nodes are behind an external load balancer. Direct end users or clients to the external load balancer device, which will then load balance the traffic between the multiple Edge-LB pools. The external load balancer can be a cloud-based load balancer, such as an AWS Elastic Load Balancer (ELB), an Azure Load Balancer, or a physical load balancer such as an F5 or Cisco ACE device.
