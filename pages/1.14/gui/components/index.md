@@ -8,8 +8,34 @@ render: mustache
 model: /1.14/data.yml
 ---
 
-You may view the system health of your DC/OS components from the Components menu.
+The Components tab shows you a snapshot of your DC/OS components. It displays the name and health status of your components. 
 
-![Components](/1.14/img/GUI-Components-Main_View-1_12.png)
+![Components](/1.14/img/GUI-Components-Main-View.png)
 
 Figure 1 - Components tab
+
+## Health checks
+
+This screen displays the name and the health status of each component. You can filter the list by Healthy or Unhealthy components. For more information about Health Checks, see the [Health Checks documentation](/1.14/deploying-services/creating-services/health-checks/).
+
+### Health report
+
+From the Components screen, click the **Download Snapshot** button to download a health report.
+
+## Details 
+
+If you click on the name of one of the components in the list, you can view the details in the Components Details screen. This screen will display the health status, node, and role of each node in that componenent.
+
+![Components detail](/1.14/img/GUI-Components-Detail.png)
+
+Figure 2 - Components detail
+
+If you click on the Node ID, you can see a summary of the node's task, and the Output status.
+
+![Node detail](/1.14/img/GUI-Components-Detail-2.png)
+
+Figure 3 - Node detail
+
+
+
+For more information about your system components, see the [Component Management documentation](/1.14/administering-clusters/component-management/).
