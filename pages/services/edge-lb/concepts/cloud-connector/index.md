@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Integrating with cloud providers
 title: Integrating with cloud providers
-menuWeight: 1
+menuWeight: 16
 excerpt: Describes how you can integrate Edge-LB with cloud provider load balancers
 enterprise: true
 ---
@@ -657,4 +657,4 @@ Each `aws.elbs` entry has the following fields:
 
 - `availabilityZones` specify the availability zones that identify where load balancer nodes are located.
 
-For other details on metadata format, see the pool [metadata reference](../../pool-configuration-reference/metadata/) section.
+For other details on metadata format, see the pool [metadata reference](../../reference/pool-configuration-reference/metadata/) section.
