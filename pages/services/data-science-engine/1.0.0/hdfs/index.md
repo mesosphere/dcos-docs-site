@@ -17,19 +17,19 @@ You can specify the location of these files at install time or for each job.
 
 # Configuring HDFS with {{ model.techName }}
 
-Within the {{ model.techName }} service configuration, set `hdfs.config-url` to be a URL that serves your `hdfs-site.xml` and `core-site.xml`. The following example uses `http://mydomain.com/hdfs-config/hdfs-site.xml` and `http://mydomain.com/hdfs-config/core-site.xml` URLs:
+Within the {{ model.techName }} service configuration, set `service.jupyter_conf_urls` to be a list of URLs that serves your `hdfs-site.xml` and `core-site.xml`. The following example uses `http://mydomain.com/hdfs-config/hdfs-site.xml` and `http://mydomain.com/hdfs-config/core-site.xml` URLs:
 
 ```json
 {
- "hdfs": {
-   "config-url": "http://mydomain.com/hdfs-config"
+ "service": {
+   "jupyter_conf_urls": "http://mydomain.com/hdfs-config"
  }
 }
 ```
 You can also specify the URLs through the UI. If you are using the default installation of HDFS from Mesosphere, this is probably `http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints`.
 
 ## Adding HDFS configuration files per-job
-To add the configuration files manually for a job, use 
+To add the configuration files manually for a Spark job, use following configuration with `spark-submit` in a notebook. 
 
 ```bash
 --conf spark.mesos.uris=<location_of_hdfs-site.xml>,<location_of_core-site.xml>
@@ -38,6 +38,130 @@ To add the configuration files manually for a job, use
 This setting downloads the files to the sandbox of the driver {{ model.productName }} application, and {{ model.techName }} automatically loads these files into the correct location.
 
 <p class="message--important"><strong>IMPORTANT: </strong>It is important that these files are called <tt>hdfs-site.xml</tt> and <tt>core-site.xml</tt>.</p>
+
+## Example of Using HDFS with Spark
+Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage backend.
+
+```json
+{
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "pycharm": {}
+      },
+      "outputs": [],
+      "source": [
+        "! rm -rf TensorFlowOnSpark \u0026\u0026 git clone https://github.com/yahoo/TensorFlowOnSpark"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "pycharm": {}
+      },
+      "outputs": [],
+      "source": [
+        "! rm -rf mnist \u0026\u0026 mkdir mnist"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "pycharm": {}
+      },
+      "outputs": [],
+      "source": [
+        "! curl -fsSL -O https://infinity-artifacts.s3-us-west-2.amazonaws.com/jupyter/mnist.zip"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "pycharm": {}
+      },
+      "outputs": [],
+      "source": [
+        "! unzip -d mnist/ mnist.zip"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "pycharm": {}
+      },
+      "outputs": [],
+      "source": [
+        "! hdfs dfs -ls -R mnist/ \u0026\u0026 hdfs dfs -rm -R mnist/"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "pycharm": {}
+      },
+      "outputs": [],
+      "source": "! spark-submit \\\n  --verbose \\\n  $(pwd)/TensorFlowOnSpark/examples/mnist/mnist_data_setup.py \\\n  --output mnist/csv \\\n  --format csv"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "pycharm": {}
+      },
+      "outputs": [],
+      "source": [
+        "! hdfs dfs -ls -R  mnist"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "pycharm": {}
+      },
+      "outputs": [],
+      "source": "! spark-submit \\\n  --verbose \\\n  --py-files $(pwd)/TensorFlowOnSpark/examples/mnist/spark/mnist_dist.py \\\n  $(pwd)/TensorFlowOnSpark/examples/mnist/spark/mnist_spark.py \\\n  --cluster_size 4 \\\n  --images mnist/csv/train/images \\\n  --labels mnist/csv/train/labels \\\n  --format csv \\\n  --mode train \\\n  --model mnist/mnist_csv_model"
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "pycharm": {}
+      },
+      "outputs": [],
+      "source": "! hdfs dfs -ls -R mnist/mnist_csv_model\n"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.6.7"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 2
+}
+```
 
 ## {{ model.techName }} checkpointing
 To use {{ model.techName }} with checkpointing, make sure you follow the instructions here and use an HDFS directory as the checkpointing directory. For example:
@@ -54,24 +178,24 @@ The HDFS directory is automatically created on HDFS.
 
 You can read/write files to S3 using environment variable-based secrets to pass your AWS credentials.
 
-1. Upload your credentials to the DC/OS secret store:
+Upload your credentials to the DC/OS secret store:
 
 ```bash
 dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
 dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
 ```
 
-1. After uploading your credentials, {{ model.techName }} jobs can get the credentials directly:
+After uploading your credentials, {{ model.techName }} service can get the credentials via service options:
 
-```bash
-dcos {{ model.packageName }} run --submit-args="\
-...
---conf {{ model.packageName }}.mesos.containerizer=mesos  # required for secrets
---conf {{ model.packageName }}.mesos.driver.secret.names=<secret_path_for_key_id>,<secret_path_for_secret_key>
---conf {{ model.packageName }}.mesos.driver.secret.envkeys=AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY
-...
+```json
+{
+  "s3": {
+    "aws_access_key_id": "<secret_path_for_key_id>",
+    "aws_secret_access_key": "<secret_path_for_secret_key>"
+  }
+}
 ```
-
+You can also specify them through the UI.
 
 # Enabling the Spark History Server
 
