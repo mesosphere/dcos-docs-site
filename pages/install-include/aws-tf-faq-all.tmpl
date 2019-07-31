@@ -16,6 +16,7 @@ The following are answers to common questions and issues when working with Terra
 - [Error: Failed to obtain the IP address when installing Kubernetes](#error-failed-to-obtain-the-ip-address-when-installing-kubernetes)
 - [Error: IAM instance profile creation](#error-iam-instance-profile-creation)
 - [Error: Server certificate with that name already exists.](#error-server-certificate-with-that-name-already-exists)
+- [Error: Uploading server certificate.](#error-uploading-server-certificate)
 
 
 ## Where can I view the source code for the terraform modules?
@@ -167,3 +168,14 @@ aws iam delete-server-certificate --server-certificate-name <CLUSTER_NAME>-cert
 aws iam delete-server-certificate --server-certificate-name int-<CLUSTER_NAME>-cert
 aws iam delete-server-certificate --server-certificate-name ext-<CLUSTER_NAME>-cert
 ```
+
+## Error: Uploading server certificate.
+
+When your clock is not synced with an authoritative time server or not set equal to an authoritative time server provided value you will get an error like this
+
+```bash
+* aws_iam_server_certificate.selfsigned: Error uploading server certificate, error: MalformedCertificate: Unable to parse certificate. Please ensure the certificate is in PEM format.
+```
+
+The server certificate which would be uploaded with `terraform` probably has a datetime being in the future and the `aws` API would reject it with that error.
+So make sure that your clock, on the machine you provision a cluster from, has the time in sync.
