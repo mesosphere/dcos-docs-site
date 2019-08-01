@@ -11,13 +11,13 @@ model: /1.14/data.yml
 # Overview
 Groups provide the foundation for supporting multi-tenant clusters using DC/OS. Groups enable you to create logical collections of services, permissions, secrets, and quotas. You can then use these logical collections to map a group to a specific team, project, or Line of Business.
 
-The topics in this section discuss how you can use **service groups** to manage resources by setting quota restrictions to support multi-tenancy.
+The topics in this section discuss how you can use **groups** to manage resources by setting quota restrictions to support multi-tenancy.
 
 
 ## Quotas
 You can define a **quota** to specify the maximum resources that the services in a group can use. Once the limit is reached, no new services or scaling up of existing services is allowed.
 
-Quota in DCOS is built on top of the [Quota Limits](https://mesos.apache.org/documentation/latest/quota/)  primitive in Apache Mesos. Specifically, the quota set on a DCOS group (for example, "/dev") is translated to setting the quota limit on the corresponding resource role in Mesos (for example, "dev"). Additionally, services launched inside a given group are configured to use the resources allocated to the **group role** (for example, "dev"), so that their resource consumption can be limited by the quota defined.
+Quota in DCOS is built on top of the [Quota Limits](https://mesos.apache.org/documentation/latest/quota/) primitive in Apache Mesos. Specifically, the quota set on a DCOS group (for example, "/dev") is translated to setting the quota limit on the corresponding resource role in Mesos (for example, "dev"). Additionally, services launched inside a given group are configured to use the resources allocated to the **group role** (for example, "dev"), so that their resource consumption can be limited by the quota defined.
 
 
 ### Prerequisites
@@ -78,7 +78,7 @@ Once quota is set on a group by an administrator, regular users can simply deplo
 
 ### Migrating services
 
-For backwards compatibility with existing deployments, services launched in a group do not use the group role by default but rather use their legacy role as before (the actual legacy role depends on whether the service was launched by native marathon, non-native marathon, catalog service etc).
+For backwards compatibility, any existing and new groups will have `enforceRole` property set to false. Consequently, existing or new services launched in such groups continue to use their legacy role (actual role depends on the service) instead of the group role.
 
 To migrate a stateless service that uses a legacy role to a group role, a user can simply reconfigure the role of the service to group role and do an update.
 For example:
@@ -107,7 +107,7 @@ dcos kafka --name=/<group>/kafka pod replace <pod-name>
 
 ### Limitations
 
-* You can only set quota on top level groups (doe example, "/dev") but not on nested groups ("/dev/foo").
+* You can only set quota on top level groups (for example, "/dev") but not on nested groups ("/dev/foo").
 * Services running in the root group (for example, /app) are not enforced by quota.
 * Not all the Catalog services are enforced by quota. Refer to the specific service documentation for details.
 * Jobs are not enforced by quota.
