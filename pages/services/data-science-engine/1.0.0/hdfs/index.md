@@ -31,62 +31,75 @@ You can also specify the URLs through the UI. If you are using the default insta
 ## Example of Using HDFS with Spark
 Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage backend. Launch Terminal from Notebook UI and run the following commands:
 
-```bash
-# clone TensorFlow on Spark repository and download sample dataset
-rm -rf TensorFlowOnSpark && git clone https://github.com/yahoo/TensorFlowOnSpark
-rm -rf mnist && mkdir mnist
-curl -fsSL -O https://infinity-artifacts.s3-us-west-2.amazonaws.com/jupyter/mnist.zip
-unzip -d mnist/ mnist.zip
+1. Clone TensorFlow on Spark repository and download sample dataset:
 
-# list files in the target HDFS directory and remove it if it's not empty
-hdfs dfs -ls -R mnist/ && hdfs dfs -rm -R mnist/
+    ```bash
+    rm -rf TensorFlowOnSpark && git clone https://github.com/yahoo/TensorFlowOnSpark
+    rm -rf mnist && mkdir mnist
+    curl -fsSL -O https://infinity-artifacts.s3-us-west-2.amazonaws.com/jupyter/mnist.zip
+    unzip -d mnist/ mnist.zip
+    ```
 
-# generate sample data and save to HDFS
-spark-submit \
-  --verbose \
-  $(pwd)/TensorFlowOnSpark/examples/mnist/mnist_data_setup.py \
-  --output mnist/csv \
-  --format csv
+1. List files in the target HDFS directory and remove it if it is not empty.
 
-hdfs dfs -ls -R  mnist
+    ```bash
+    hdfs dfs -ls -R mnist/ && hdfs dfs -rm -R mnist/
+    ```
 
-# Train the model and checkpoint it to the target directory in HDFS
-spark-submit \
-  --verbose \
-  --py-files $(pwd)/TensorFlowOnSpark/examples/mnist/spark/mnist_dist.py \
-  $(pwd)/TensorFlowOnSpark/examples/mnist/spark/mnist_spark.py \
-  --cluster_size 4 \
-  --images mnist/csv/train/images \
-  --labels mnist/csv/train/labels \
-  --format csv \
-  --mode train \
-  --model mnist/mnist_csv_model
+1. Generate sample data and save to HDFS.
 
-# verify model is saved
-hdfs dfs -ls -R mnist/mnist_csv_model
-```
+    ```bash
+    spark-submit \
+      --verbose \
+      $(pwd)/TensorFlowOnSpark/examples/mnist/mnist_data_setup.py \
+      --output mnist/csv \
+      --format csv
+
+    hdfs dfs -ls -R  mnist
+    ```
+
+1. Train the model and checkpoint it to the target directory in HDFS.
+
+    ```bash
+    spark-submit \
+      --verbose \
+      --py-files $(pwd)/TensorFlowOnSpark/examples/mnist/spark/mnist_dist.py \
+      $(pwd)/TensorFlowOnSpark/examples/mnist/spark/mnist_spark.py \
+      --cluster_size 4 \
+      --images mnist/csv/train/images \
+      --labels mnist/csv/train/labels \
+      --format csv \
+      --mode train \
+      --model mnist/mnist_csv_model
+    ```
+
+1. Verify model is saved.
+
+    ```bash
+    hdfs dfs -ls -R mnist/mnist_csv_model
+    ```
 
 # S3
 
 You can read/write files to S3 using environment variable-based secrets to pass your AWS credentials.
 
-Upload your credentials to the DC/OS secret store:
+1. Upload your credentials to the DC/OS secret store:
 
-```bash
-dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
-dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
-```
+    ```bash
+    dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
+    dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
+    ```
 
-After uploading your credentials, {{ model.techName }} service can get the credentials via service options:
+1. After uploading your credentials, {{ model.techName }} service can get the credentials via service options:
 
-```json
-{
-  "s3": {
-    "aws_access_key_id": "<secret_path_for_key_id>",
-    "aws_secret_access_key": "<secret_path_for_secret_key>"
-  }
-}
-```
+    ```json
+    {
+      "s3": {
+        "aws_access_key_id": "<secret_path_for_key_id>",
+        "aws_secret_access_key": "<secret_path_for_secret_key>"
+      }
+    }
+    ```
 You can also specify them through the UI.
 
 # Enabling the Spark History Server
@@ -99,23 +112,23 @@ You can also specify them through the UI.
 
 1. Install HDFS:
 
-```bash
-dcos package install hdfs
-```
+    ```bash
+    dcos package install hdfs
+    ```
 
 1. Create a history HDFS directory (default is `/history`). SSH into your cluster and run:
 
-```bash
-docker run -it mesosphere/hdfs-client:1.0.0-2.6.0 bash
-./bin/hdfs dfs -mkdir /history
-```
+    ```bash
+    docker run -it mesosphere/hdfs-client:1.0.0-2.6.0 bash
+    ./bin/hdfs dfs -mkdir /history
+    ```
 
 1. Create `spark-history-options.json`:
 
-```json
-{
-  "service": {
-   "hdfs-config-url": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints"
-              }
-}
-```
+    ```json
+    {
+      "service": {
+      "hdfs-config-url": "http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints"
+                  }
+    }
+    ```
