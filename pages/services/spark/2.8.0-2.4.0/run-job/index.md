@@ -6,7 +6,7 @@ title: Run a Spark Job
 menuWeight: 80
 featureMaturity:
 render: mustache
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 ---
 
 1. Before submitting your job, upload the artifact (such as a `jar` file) to a location that is visible to the cluster (such as HTTP, S3, or HDFS). [Learn more][13].

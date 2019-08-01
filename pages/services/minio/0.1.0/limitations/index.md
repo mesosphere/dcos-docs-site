@@ -6,7 +6,7 @@ menuWeight: 110
 excerpt: Understanding configuration limitations
 featureMaturity:
 enterprise: false
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 30
 excerpt: Reset an existing user or create a new user with the DC/OS reset superuser script
 enterprise: true
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

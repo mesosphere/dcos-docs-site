@@ -5,7 +5,7 @@ title: dcos plugin list
 menuWeight: 2
 excerpt: Displaying a list of the installed CLI plugins
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

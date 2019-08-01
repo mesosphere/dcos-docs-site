@@ -5,7 +5,7 @@ title: dcos marathon deployment list
 menuWeight: 14
 excerpt: Displaying a list of currently deployed applications
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:  Deployments
 excerpt: Deploying multiple Marathon applications
 title: Deployments
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 5
 ---
 

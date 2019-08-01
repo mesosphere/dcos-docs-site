@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Troubleshooting tips for Spinnaker on DC/OS
 title: Troubleshooting
 menuWeight: 70
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 ---
 

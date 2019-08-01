@@ -5,7 +5,7 @@ title: Granting Access to the Mesos UI
 menuWeight: 31
 excerpt: Granting access to the Mesos UI
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

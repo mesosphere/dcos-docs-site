@@ -4,7 +4,7 @@ navigationTitle: 入门
 excerpt: DC/OS 入门
 title: 入门
 menuWeight: 10
-model: /cn/services/kafka/data.yml
+model: /mesosphere/dcos/cn/services/kafka/data.yml
 render: mustache
 ---
 

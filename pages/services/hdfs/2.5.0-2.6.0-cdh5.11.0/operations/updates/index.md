@@ -4,7 +4,7 @@ navigationTitle: Updating
 excerpt: Updating DC/OS Apache HDFS service
 title: Updating 
 menuWeight: 40
-model: /services/hdfs/data.yml
+model: /mesosphere/dcos/services/hdfs/data.yml
 render: mustache
 ---
 

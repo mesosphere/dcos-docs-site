@@ -4,7 +4,7 @@ navigationTitle:  Specifying Authentication and Parameters
 title: Specifying Authentication and Parameters
 menuWeight: 2
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 excerpt: Specifying authentication method and parameters for your LDAP directory
 enterprise: true
 ---

@@ -4,7 +4,7 @@ title: Scenario 2
 navigationTitle: Scenario 2
 excerpt: Tutorial - Out of Memory
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 menuWeight: 11
 ---
 

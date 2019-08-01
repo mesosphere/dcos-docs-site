@@ -6,7 +6,7 @@ menuWeight: 4
 excerpt: Removing a connected cluster from the DC/OS CLI
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 # Description

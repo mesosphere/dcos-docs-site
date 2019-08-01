@@ -5,7 +5,7 @@ title: DC/OS Enterprise Security
 menuWeight: 70
 excerpt: Understanding DC/OS Enterprise security features
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

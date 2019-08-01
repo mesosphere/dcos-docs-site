@@ -5,7 +5,7 @@ title: Marathon Placement Constraints
 menuWeight: 3
 excerpt: Understanding Marathon placement constraints
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: Release Notes
 excerpt: Release Notes for version 2.6.0-5.1.2
 title: Release Notes
 menuWeight: 10
-model: /services/confluent-kafka/data.yml
+model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 

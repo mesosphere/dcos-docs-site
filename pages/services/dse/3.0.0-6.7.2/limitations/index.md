@@ -4,7 +4,7 @@ navigationTitle: Limitations of DSE
 excerpt: Limitations of DC/OS DSE
 title: Limitations of DSE
 menuWeight: 100
-model: /services/dse/data.yml
+model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
 ---
 

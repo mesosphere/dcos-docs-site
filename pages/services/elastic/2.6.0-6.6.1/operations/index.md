@@ -4,7 +4,7 @@ navigationTitle: Operations
 excerpt: Managing, repairing, and monitoring the DC/OS Elastic service
 title: Operations
 menuWeight: 30
-model: /services/elastic/data.yml
+model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: 运维
 excerpt: 管理 HDFS 运行
 title: 运维
 menuWeight: 30
-model: /cn/services/hdfs/data.yml
+model: /mesosphere/dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 

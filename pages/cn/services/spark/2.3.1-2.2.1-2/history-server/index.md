@@ -4,7 +4,7 @@ navigationTitle: History 服务器
 excerpt: 为 Spark History 服务器启用 HDFS
 title: Spark History 服务器
 menuWeight: 30
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 

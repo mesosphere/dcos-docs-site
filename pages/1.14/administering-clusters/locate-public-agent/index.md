@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Finding a public agent IP address
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 After you have installed DC/OS with a public agent node declared, you can navigate to the public IP address of your public agent node. You can expose the public-facing IP address for an agent as a gateway for access to services that are running inside the DC/OS cluster. For example, if you are configuring load balancing to distribute inbound requests to the services in a cluster, the requests are typically routed through the public IP address frontend to an appropriate service instance backend isolated behind a firewall. 
 

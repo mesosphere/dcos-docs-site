@@ -4,7 +4,7 @@ navigationTitle: Configuring
 excerpt: Configuring Confluent Kafka
 title: Configuring 
 menuWeight: 20
-model: /services/confluent-kafka/data.yml
+model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 

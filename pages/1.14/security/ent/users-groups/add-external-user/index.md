@@ -5,7 +5,7 @@ title: Adding external users
 menuWeight: 20
 excerpt: Adding an external user to DC/OS
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

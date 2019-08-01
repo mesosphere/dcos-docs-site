@@ -5,7 +5,7 @@ title: Accessing system and component logs
 menuWeight: 1
 excerpt: Managing user access to system and component logs
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 beta: false
 enterprise: true
 ---

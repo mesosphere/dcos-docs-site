@@ -6,7 +6,7 @@ menuWeight: 55
 excerpt: Uninstalling DC/OS Couchbase Services
 featureMaturity:
 enterprise: false
-model: /services/couchbase/data.yml
+model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache
 ---
 

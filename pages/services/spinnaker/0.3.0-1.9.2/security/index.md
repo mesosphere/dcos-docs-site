@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Using Spinnaker security features
 title: Security
 menuWeight: 50
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 ---
 

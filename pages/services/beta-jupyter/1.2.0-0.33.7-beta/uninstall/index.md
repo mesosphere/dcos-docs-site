@@ -6,7 +6,7 @@ menuWeight: 90
 excerpt: Uninstalling JupyterLab
 featureMaturity:
 enterprise: false
-model: /services/beta-jupyter/data.yml
+model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache
 ---
 

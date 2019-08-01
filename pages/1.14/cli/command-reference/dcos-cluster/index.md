@@ -5,7 +5,7 @@ title: dcos cluster
 menuWeight: 3
 excerpt: Managing connections to DC/OS clusters
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

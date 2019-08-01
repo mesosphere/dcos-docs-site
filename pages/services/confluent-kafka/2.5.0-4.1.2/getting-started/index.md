@@ -4,7 +4,7 @@ navigationTitle: Getting Started
 excerpt: Getting started with Confluent Kafka
 title: Getting Started
 menuWeight: 12
-model: /services/confluent-kafka/data.yml
+model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 

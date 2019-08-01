@@ -4,7 +4,7 @@ navigationTitle: Operations
 excerpt: Backup and restore services
 title: Operations
 menuWeight: 30
-model: /services/confluent-zookeeper/data.yml
+model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

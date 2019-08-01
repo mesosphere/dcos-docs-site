@@ -5,7 +5,7 @@ menuWeight: 660
 excerpt: 配置 DC/OS Access 
 featureMaturity:
 enterprise: true
-model: /cn/services/kafka/data.yml
+model: /mesosphere/dcos/cn/services/kafka/data.yml
 render: mustache
 ---
 # 版本

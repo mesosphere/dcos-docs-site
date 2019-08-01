@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Configuring Minio for DC/OS
 title: Configuration
 menuWeight: 20
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---
 

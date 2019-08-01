@@ -4,7 +4,7 @@ navigationTitle: HDFS 2.2.0-2.6.0-cdh5.11.0
 excerpt: 欢迎使用 DC/OS Apache HDFS 文档
 title: HDFS 2.2.0-2.6.0-cdh5.11.0
 menuWeight: 9
-model: /cn/services/hdfs/data.yml
+model: /mesosphere/dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 

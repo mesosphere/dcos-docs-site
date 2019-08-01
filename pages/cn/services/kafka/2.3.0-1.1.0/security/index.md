@@ -4,7 +4,7 @@ navigationTitle: 安全
 excerpt: 保护您的服务
 title: 安全
 menuWeight: 50
-model: /cn/services/kafka/data.yml
+model: /mesosphere/dcos/cn/services/kafka/data.yml
 render: mustache
 enterprise: true
 ---

@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Advanced
 menuWeight: 80
-model: /services/hdfs/data.yml
+model: /mesosphere/dcos/services/hdfs/data.yml
 render: mustache
 ---
 

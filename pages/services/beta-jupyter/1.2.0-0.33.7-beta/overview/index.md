@@ -6,7 +6,7 @@ menuWeight: 12
 excerpt: Learning about JupyterLab
 featureMaturity:
 enterprise: false
-model: /services/beta-jupyter/data.yml
+model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache
 ---
 

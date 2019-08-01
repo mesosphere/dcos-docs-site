@@ -6,7 +6,7 @@ title: Tested Limits
 menuWeight: 140
 featureMaturity:
 render: mustache
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 ---
 
 # DC/OS {{ model.techShortName }} limits

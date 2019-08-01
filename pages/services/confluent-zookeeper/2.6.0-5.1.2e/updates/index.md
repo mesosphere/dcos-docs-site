@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Updates
 menuWeight: 40
-model: /services/confluent-zookeeper/data.yml
+model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

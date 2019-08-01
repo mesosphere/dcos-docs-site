@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Running Spinnaker operations
 title: Operations
 menuWeight: 30
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: 入门
 excerpt: 入门
 title: 入门
 menuWeight: 10
-model: /cn/services/hdfs/data.yml
+model: /mesosphere/dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 

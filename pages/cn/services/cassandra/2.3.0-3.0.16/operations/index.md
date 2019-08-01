@@ -4,7 +4,7 @@ navigationTitle: 运维
 excerpt: 管理 Cassandra
 title: 运维
 menuWeight: 30
-model: /cn/services/cassandra/data.yml
+model: /mesosphere/dcos/cn/services/cassandra/data.yml
 render: mustache
 ---
 

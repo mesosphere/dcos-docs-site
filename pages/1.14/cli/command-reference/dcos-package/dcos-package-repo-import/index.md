@@ -5,7 +5,7 @@ title: dcos package repo import
 menuWeight: 4
 excerpt: Adding a package repository to DC/OS
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Security
 menuWeight: 50
-model: /services/kafka/data.yml
+model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---
 

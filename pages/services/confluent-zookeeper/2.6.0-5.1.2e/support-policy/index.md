@@ -4,7 +4,7 @@ navigationTitle:
 title: Support Policy
 menuWeight: 110
 excerpt:
-model: /services/confluent-zookeeper/data.yml
+model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

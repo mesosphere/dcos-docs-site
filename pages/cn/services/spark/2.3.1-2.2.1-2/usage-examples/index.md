@@ -5,7 +5,7 @@ excerpt: 使用示例
 title: 使用示例
 menuWeight: 16
 featureMaturity:
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 # 默认安装示例

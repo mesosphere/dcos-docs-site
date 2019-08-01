@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Attaching the CLI to a connected or linked cluster
 enterprise: false
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

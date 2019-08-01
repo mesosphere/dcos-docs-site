@@ -5,7 +5,7 @@ menuWeight: 5
 excerpt:
 featureMaturity:
 enterprise: true
-model: /services/kafka/data.yml
+model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---
 # Versions

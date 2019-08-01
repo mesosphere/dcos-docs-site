@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Diagnosing issues with DC/OS Minion
 title: Troubleshooting
 menuWeight: 70
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---
 

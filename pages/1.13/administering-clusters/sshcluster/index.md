@@ -6,7 +6,7 @@ menuWeight: 0
 excerpt: Setting up an SSH connection into your DC/OS cluster 
 enterprise: false
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

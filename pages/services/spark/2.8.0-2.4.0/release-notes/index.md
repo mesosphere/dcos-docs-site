@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Release notes for DC/OS Apache Spark 2.8.0-2.4.0
 featureMaturity:
 render: mustache
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 ---
 
 ## Version Spark and Spark history 2.8.0-2.4.0

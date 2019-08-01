@@ -5,7 +5,7 @@ title: Filtering Logs with Splunk
 menuWeight: 4
 excerpt: Filtering system paths of logs with Splunk
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

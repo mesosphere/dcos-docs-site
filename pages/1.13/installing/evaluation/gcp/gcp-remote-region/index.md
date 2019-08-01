@@ -5,7 +5,7 @@ title: Multi-Region DC/OS on GCP using the Universal Installer
 navigationTitle: GCP Multi-Region Support
 menuWeight: 1
 enterprise: true
-model: /data.yml
+model: /mesosphere/dcos/data.yml
 render: mustache
 ---
 

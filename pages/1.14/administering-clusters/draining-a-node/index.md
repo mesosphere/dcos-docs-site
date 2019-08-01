@@ -6,7 +6,7 @@ menuWeight: 801
 excerpt: Draining an agent node in an active DC/OS cluster
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 You can drain tasks from an agent node in an active DC/OS cluster in order to take the node down for maintenance or to remove it permanently from the cluster. Nodes may be drained and their progress may be monitored via the DC/OS CLI or UI.

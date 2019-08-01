@@ -5,7 +5,7 @@ excerpt: 运行 Spark 作业
 title: 运行 Spark 作业
 menuWeight: 80
 featureMaturity:
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 1. 在提交工作前，上传工件，例如上传 `jar` 文件到群集可见的位置（例如，HTTP、S3 或 HDFS）。[了解更多][13]。

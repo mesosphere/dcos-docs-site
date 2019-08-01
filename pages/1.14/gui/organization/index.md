@@ -5,7 +5,7 @@ title: Organization
 menuWeight: 11
 excerpt: Using the Organization menu
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 You may manage user access from the Organization page. The Organization menu comprises three tabs:

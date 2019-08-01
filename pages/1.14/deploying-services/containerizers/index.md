@@ -5,7 +5,7 @@ title: Using Containerizers
 menuWeight: 40
 excerpt: Using containerizers with Docker Engine and Universal Container Runtime
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

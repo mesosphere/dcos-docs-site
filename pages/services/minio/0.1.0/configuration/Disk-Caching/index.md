@@ -6,7 +6,7 @@ menuWeight: 45
 excerpt: Using caching disks to store content 
 featureMaturity:
 enterprise: false
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---
 

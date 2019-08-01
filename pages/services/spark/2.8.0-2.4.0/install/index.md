@@ -4,7 +4,7 @@ navigationTitle: Install and Customize
 excerpt: Installing and customizing your DC/OS Apache Spark service
 title: Install and Customize
 menuWeight: 12
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 render: mustache
 featureMaturity:
 ---

@@ -4,7 +4,7 @@ navigationTitle: Configuring DC/OS access for Minio
 title: Configuring DC/OS access for Minio
 menuWeight: 2
 excerpt: How to use Minio with DC/OS
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 community: true
 ---

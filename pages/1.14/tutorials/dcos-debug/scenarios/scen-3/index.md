@@ -4,7 +4,7 @@ title: Scenario 3
 navigationTitle: Scenario 3
 excerpt: Tutorial - Docker Images
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 menuWeight: 21
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

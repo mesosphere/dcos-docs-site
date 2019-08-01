@@ -4,7 +4,7 @@ navigationTitle:
 title: Support Policy
 menuWeight: 110
 excerpt:
-model: /services/elastic/data.yml
+model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
 ---
 

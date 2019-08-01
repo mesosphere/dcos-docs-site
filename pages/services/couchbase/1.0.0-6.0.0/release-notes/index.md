@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Discover new features, updates, and known limitations
 featureMaturity:
 enterprise: false
-model: /services/couchbase/data.yml
+model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache
 ---
 

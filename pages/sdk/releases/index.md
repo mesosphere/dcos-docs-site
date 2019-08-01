@@ -5,7 +5,7 @@ title: Releases
 menuWeight: 0
 excerpt:
 render: mustache
-model: /data.yml
+model: /mesosphere/dcos/data.yml
 ---
 
 These are the SDK releases currently being supported.

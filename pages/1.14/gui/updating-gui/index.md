@@ -6,7 +6,7 @@ menuWeight: 90
 excerpt: DCOS GUI Update Service 
 enterprise: true
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 The DC/OS GUI Update Service updates the current version of the DC/OS GUI using new versions published to the {{ model.packageRepo }}. This service allows you to update your GUI without having to update your version of DC/OS.

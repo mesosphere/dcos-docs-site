@@ -4,7 +4,7 @@ navigationTitle: Kafka 2.4.0-1.1.1
 excerpt:
 title: Kafka 2.4.0-1.1.1
 menuWeight: 1
-model: /services/kafka/data.yml
+model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: Configuring EdgeLB Without TLS
 excerpt: Configuring EdgeLB Without TLS in DC/OS Minio
 title: Configuring EdgeLB Without TLS
 menuWeight: 25
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---
 

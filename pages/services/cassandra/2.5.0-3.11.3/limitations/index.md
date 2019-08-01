@@ -4,7 +4,7 @@ navigationTitle: Limitations
 excerpt: Limitations on backups, node counts, security
 title: Limitations
 menuWeight: 100
-model: /services/cassandra/data.yml
+model: /mesosphere/dcos/services/cassandra/data.yml
 render: mustache
 ---
 

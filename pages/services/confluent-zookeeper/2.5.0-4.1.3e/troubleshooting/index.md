@@ -4,7 +4,7 @@ navigationTitle: Troubleshooting
 excerpt: Diagnosing and fixing problems
 title: Troubleshooting
 menuWeight: 70
-model: /services/confluent-zookeeper/data.yml
+model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 40
 excerpt: Configuring Mesos mount disk resources across your cluster
 featureMaturity:
 enterprise: false
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---
 

@@ -5,7 +5,7 @@ title: dcos security cluster saml delete
 menuWeight: 13
 excerpt: Deleting a SAML provider configuration
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

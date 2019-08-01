@@ -5,7 +5,7 @@ title: dcos task attach
 menuWeight: 1
 excerpt: Attaching a process inside of a task's container
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

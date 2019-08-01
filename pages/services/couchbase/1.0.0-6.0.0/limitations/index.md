@@ -6,7 +6,7 @@ menuWeight: 110
 excerpt: Understanding configuration limitations
 featureMaturity:
 enterprise: false
-model: /services/couchbase/data.yml
+model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ title: Upgrade
 menuWeight: 50
 featureMaturity:
 render: mustache
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 ---
 
 Because the {{ model.techShortName }} dispatcher persists its state in ZooKeeper, upgrading the DC/OS {{ model.techName }} package requires you to complete the following steps:

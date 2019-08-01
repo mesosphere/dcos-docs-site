@@ -5,7 +5,7 @@ title: Docker Engine
 menuWeight: 20
 excerpt: Launching Docker containers from Docker images
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

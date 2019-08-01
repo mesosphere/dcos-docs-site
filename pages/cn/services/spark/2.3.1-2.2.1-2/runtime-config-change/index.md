@@ -5,7 +5,7 @@ navigationTitle: 运行时更改
 title: 运行时配置更改
 menuWeight: 70
 featureMaturity:
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 90
 excerpt: Using the DC/OS UI to achieve multi-tenancy in permissive mode
 enterprise: true
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

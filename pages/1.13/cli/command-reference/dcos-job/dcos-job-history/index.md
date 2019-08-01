@@ -5,7 +5,7 @@ title: dcos job history
 menuWeight: 1
 excerpt: Displaying the job run history
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

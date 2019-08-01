@@ -4,7 +4,7 @@ navigationTitle:  Practice Deployment Debugging Scenarios on DC/OS
 title: Practice Deployment Debugging Scenarios on DC/OS
 excerpt: Tutorial - Practicing some debugging scenarios
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 menuWeight: 31
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

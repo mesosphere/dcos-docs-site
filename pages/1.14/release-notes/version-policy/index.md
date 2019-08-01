@@ -5,7 +5,7 @@ title: Versioning and Release Policy
 menuWeight: 110
 excerpt: Understanding DC/OS versioning and releases
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 The format of Mesosphere DC/OS version number is: <code>&lt;Release&gt;.&lt;Version&gt;.&lt;Minor&gt;</code>.
 

@@ -4,7 +4,7 @@ navigationTitle: Security
 excerpt: Creating service accounts and granting permissions
 title: Security
 menuWeight: 50
-model: /services/kafka-zookeeper/data.yml
+model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
 render: mustache
 ---
 

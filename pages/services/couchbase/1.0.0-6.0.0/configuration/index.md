@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Configuring Couchbase for production and development
 title: Configuration
 menuWeight: 20
-model: /services/couchbase/data.yml
+model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache
 ---
 

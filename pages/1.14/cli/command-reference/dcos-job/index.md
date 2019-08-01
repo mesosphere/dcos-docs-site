@@ -6,7 +6,7 @@ menuWeight: 8
 excerpt: Deploying and managing jobs in DC/OS
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 

@@ -5,7 +5,7 @@ title: dcos job schedule add
 menuWeight: 6
 excerpt: Adding a schedule to a job
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

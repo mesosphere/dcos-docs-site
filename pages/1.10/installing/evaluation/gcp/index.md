@@ -4,7 +4,7 @@ excerpt: Guide for DC/OS on GCP using the Universal Installer
 title: DC/OS on GCP using the Universal Installer
 navigationTitle: GCP
 menuWeight: 4
-model: /1.10/installing/data.yml
+model: /mesosphere/dcos/1.10/installing/data.yml
 render: mustache
 ---
 

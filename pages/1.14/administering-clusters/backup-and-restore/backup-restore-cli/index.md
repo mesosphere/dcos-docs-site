@@ -6,7 +6,7 @@ menuWeight: 0
 excerpt: Backing up and restoring your cluster using the CLI
 enterprise: true
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 You can use the CLI to create and restore backups of your cluster.
 

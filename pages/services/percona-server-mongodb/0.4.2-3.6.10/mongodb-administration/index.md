@@ -6,7 +6,7 @@ menuWeight: 65
 excerpt: Administrative options for Percona Sever for MongoDB
 featureMaturity:
 enterprise: false
-model: /services/percona-server-mongodb/data.yml
+model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---
 

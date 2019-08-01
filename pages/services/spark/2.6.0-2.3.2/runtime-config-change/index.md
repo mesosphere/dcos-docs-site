@@ -6,7 +6,7 @@ title: Runtime Configuration Changes
 menuWeight: 70
 featureMaturity:
 render: mustache
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 ---
 
 You can customize DC/OS {{ model.techName }} in-place when it is up and running.

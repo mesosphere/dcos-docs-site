@@ -5,7 +5,7 @@ title: dcos security secrets create-sa-secret
 menuWeight: 305
 excerpt: Creating and storing a secret
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

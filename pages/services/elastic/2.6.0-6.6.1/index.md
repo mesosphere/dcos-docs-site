@@ -4,7 +4,7 @@ navigationTitle: Elastic 2.6.0-6.6.1
 excerpt: DC/OS Elastic lets you manage an Elasticsearch cluster
 title: Elastic 2.6.0-6.6.1
 menuWeight: 1
-model: /services/elastic/data.yml
+model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
 ---
 

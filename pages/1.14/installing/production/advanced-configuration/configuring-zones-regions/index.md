@@ -5,7 +5,7 @@ title: Configuring Zones and Regions
 menuWeight: 15
 excerpt: Using the high-availability features in DC/OS
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 This topic discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.

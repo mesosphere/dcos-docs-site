@@ -5,7 +5,7 @@ title: dcos task exec
 menuWeight: 2
 excerpt: Launching a process inside of a task's container
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

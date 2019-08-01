@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: How to extend the command line interface
 enterprise: false
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 Plugins extend the functionality of the CLI for cluster specific actions.

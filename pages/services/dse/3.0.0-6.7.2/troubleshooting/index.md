@@ -4,7 +4,7 @@ navigationTitle: Troubleshooting DSE
 excerpt: Diagnosing issues in DSE
 title: Troubleshooting DSE
 menuWeight: 70
-model: /services/dse/data.yml
+model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
 ---
 

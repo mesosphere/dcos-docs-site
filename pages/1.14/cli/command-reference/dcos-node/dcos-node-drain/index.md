@@ -5,7 +5,7 @@ title: dcos node drain
 menuWeight: 6
 excerpt: Draining an agent so that its tasks get rescheduled
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

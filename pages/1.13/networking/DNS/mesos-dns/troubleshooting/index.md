@@ -5,7 +5,7 @@ title: 'Troubleshooting'
 menuWeight: 400
 excerpt: Troubleshooting Mesos DNS
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

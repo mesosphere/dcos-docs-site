@@ -5,7 +5,7 @@ title: Spark
 menuWeight: 90
 excerpt: 
 featureMaturity:
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 render: mustache
 enterprise: false
 category: Data Processing

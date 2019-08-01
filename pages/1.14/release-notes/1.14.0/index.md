@@ -4,7 +4,7 @@ navigationTitle: Release notes for 1.14.0
 title: Release notes for 1.14.0
 menuWeight: 5
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 excerpt: Release notes for DC/OS 1.14.0, including Open Source attribution, and version policy.
 ---
 DC/OS 1.14.0 was released on //.

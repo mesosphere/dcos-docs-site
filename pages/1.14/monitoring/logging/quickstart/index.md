@@ -5,7 +5,7 @@ title: Logging Quick Start
 menuWeight: 0
 excerpt: Getting started with DC/OS logging
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 beta: false
 enterprise: false
 ---

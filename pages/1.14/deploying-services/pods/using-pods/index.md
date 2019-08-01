@@ -5,7 +5,7 @@ title: Using Pods
 menuWeight: 20
 excerpt: Creating and managing pods via the CLI or the Marathon API endpoint
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

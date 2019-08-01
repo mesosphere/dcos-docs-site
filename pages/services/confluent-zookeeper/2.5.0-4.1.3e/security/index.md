@@ -4,7 +4,7 @@ navigationTitle: Security
 excerpt: Creating service accounts and assigning permissions
 title: Security
 menuWeight: 50
-model: /services/confluent-zookeeper/data.yml
+model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

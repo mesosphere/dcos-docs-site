@@ -4,7 +4,7 @@ navigationTitle: Troubleshooting
 excerpt: Diagnosing service problems
 title: Troubleshooting 
 menuWeight: 70
-model: /services/hdfs/data.yml
+model: /mesosphere/dcos/services/hdfs/data.yml
 render: mustache
 ---
 

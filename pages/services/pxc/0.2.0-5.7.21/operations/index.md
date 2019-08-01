@@ -4,7 +4,7 @@ navigationTitle: Operations
 excerpt: Managing, repairing, and monitoring the service
 title: Operations
 menuWeight: 30
-model: /services/pxc/data.yml
+model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache
 ---
 

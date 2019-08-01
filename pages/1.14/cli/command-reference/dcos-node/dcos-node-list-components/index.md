@@ -5,7 +5,7 @@ title: dcos node list-components
 menuWeight: 7
 excerpt: Displaying the available DC/OS components on a specified node
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

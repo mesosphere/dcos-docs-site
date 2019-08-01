@@ -4,7 +4,7 @@ navigationTitle: Support Policy
 title: Support Policy
 menuWeight: 190
 excerpt: DC/OS and certified package version support policy
-model: /services/cassandra/data.yml
+model: /mesosphere/dcos/services/cassandra/data.yml
 render: mustache
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: Edge-LB
 excerpt: Using Edge-LB with server groups
 title: Edge-LB
 menuWeight: 8
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 ---
 

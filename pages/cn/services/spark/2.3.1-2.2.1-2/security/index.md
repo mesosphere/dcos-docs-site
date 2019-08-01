@@ -4,7 +4,7 @@ navigationTitle: 安全
 excerpt: 保护您的服务
 title: 安全
 menuWeight: 40
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 

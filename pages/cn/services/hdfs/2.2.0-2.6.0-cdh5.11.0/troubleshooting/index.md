@@ -4,7 +4,7 @@ navigationTitle: 故障排除
 excerpt: 诊断 HDFS 问题
 title: 故障排除
 menuWeight: 70
-model: /cn/services/hdfs/data.yml
+model: /mesosphere/dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 

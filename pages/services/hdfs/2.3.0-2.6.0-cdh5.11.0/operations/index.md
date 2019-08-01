@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Operations
 menuWeight: 30
-model: /services/hdfs/data.yml
+model: /mesosphere/dcos/services/hdfs/data.yml
 render: mustache
 ---
 

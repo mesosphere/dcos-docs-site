@@ -6,7 +6,7 @@ menuWeight: 0
 excerpt: Discover the new features, updates, and known limitations in this release of the DC/OS Spinnaker Service
 featureMaturity:
 enterprise: false
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 70
 excerpt:
 featureMaturity:
 enterprise: false
-model: /services/kafka/data.yml
+model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 category: Messaging Queues
 ---

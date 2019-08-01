@@ -5,7 +5,7 @@ title: Multi-Region DC/OS on Azure using the Universal Installer
 navigationTitle: Azure Multi-Region Support
 menuWeight: 1
 enterprise: true
-model: /1.12/installing/data.yml
+model: /mesosphere/dcos/1.12/installing/data.yml
 render: mustache
 ---
 

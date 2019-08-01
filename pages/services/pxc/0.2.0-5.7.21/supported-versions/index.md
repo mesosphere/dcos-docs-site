@@ -6,7 +6,7 @@ menuWeight: 100
 excerpt: Understanding DC/OS Percona XtraDB Cluster Services package versioning
 featureMaturity:
 enterprise: false
-model: /services/pxc/data.yml
+model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache
 ---
 

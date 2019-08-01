@@ -5,7 +5,7 @@ title: Using a Private Docker Registry
 menuWeight: 4
 excerpt: Creating an archive for a private Docker registry
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

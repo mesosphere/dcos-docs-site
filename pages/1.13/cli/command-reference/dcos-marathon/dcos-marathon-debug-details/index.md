@@ -6,7 +6,7 @@ menuWeight: 11
 excerpt: Displaying debugging information for Marathon applications
 enterprise: false
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

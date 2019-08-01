@@ -5,7 +5,7 @@ title: dcos security cluster saml show
 menuWeight: 85
 excerpt: Viewing an existing SAML provider configuration
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 

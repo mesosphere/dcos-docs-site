@@ -5,7 +5,7 @@ title: dcos package repo list
 menuWeight: 6
 excerpt: Displaying the package repository sources
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

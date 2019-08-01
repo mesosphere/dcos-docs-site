@@ -5,7 +5,7 @@ title: Tutorials
 menuWeight: 140
 excerpt: Getting started with DC/OS 
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

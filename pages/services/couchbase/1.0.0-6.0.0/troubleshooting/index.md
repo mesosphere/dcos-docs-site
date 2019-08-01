@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Troubleshooting tips for Couchbase on DC/OS
 title: Troubleshooting
 menuWeight: 70
-model: /services/couchbase/data.yml
+model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache
 ---
 

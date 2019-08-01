@@ -6,7 +6,7 @@ menuWeight: 6
 excerpt: Configuring the CLI to communicate with a cluster
 enterprise: false
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

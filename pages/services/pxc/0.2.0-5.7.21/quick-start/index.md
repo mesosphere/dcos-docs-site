@@ -4,7 +4,7 @@ navigationTitle: Quick Start
 excerpt: Configuring Percona XtraDB Cluster - Quick Start
 title: Quick Start
 menuWeight: 80
-model: /services/pxc/data.yml
+model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache
 ---
 

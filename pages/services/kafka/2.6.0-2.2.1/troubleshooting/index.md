@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Diagnosing Kafka
 title: Troubleshooting
 menuWeight: 70
-model: /services/kafka/data.yml
+model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---
 

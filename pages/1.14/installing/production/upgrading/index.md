@@ -5,7 +5,7 @@ title: Upgrading
 menuWeight: 25
 excerpt: Upgrading a DC/OS cluster
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 An upgrade is the process of moving between major releases to add new features or to replace existing features with new features/functionality. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster.

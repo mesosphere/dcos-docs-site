@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Displaying the details of diagnostics bundles
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 

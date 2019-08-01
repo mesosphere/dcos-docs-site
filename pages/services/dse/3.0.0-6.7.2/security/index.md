@@ -4,7 +4,7 @@ navigationTitle: Security for DSE
 excerpt: Security, encryption and authorization for DSE
 title: Security
 menuWeight: 50
-model: /services/dse/data.yml
+model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
 ---
 

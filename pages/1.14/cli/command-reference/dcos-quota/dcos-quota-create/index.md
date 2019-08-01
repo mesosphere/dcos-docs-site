@@ -5,7 +5,7 @@ title: dcos quota create
 menuWeight: 1
 excerpt: Creating a quota
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

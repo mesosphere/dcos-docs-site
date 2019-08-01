@@ -4,7 +4,7 @@ navigationTitle: Getting Started
 excerpt: Getting started with Cassandra
 title: Getting Started
 menuWeight: 20
-model: /services/cassandra/data.yml
+model: /mesosphere/dcos/services/cassandra/data.yml
 render: mustache
 ---
 

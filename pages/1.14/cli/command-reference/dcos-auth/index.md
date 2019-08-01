@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Managing DC/OS identity and access
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 # Description

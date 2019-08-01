@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: API reference for DC/OS Apache Kafka
 title: API Reference
 menuWeight: 90
-model: /services/kafka/data.yml
+model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---
 

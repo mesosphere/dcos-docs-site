@@ -4,7 +4,7 @@ navigationTitle:  Known Issues
 title: Known Issues in DC/OS Percona Server for MongoDB
 menuWeight: 100
 excerpt: Known issues in DC/OS Percona Server for MongoDB
-model: /services/percona-server-mongodb/data.yml
+model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache
 featureMaturity:
 enterprise: false

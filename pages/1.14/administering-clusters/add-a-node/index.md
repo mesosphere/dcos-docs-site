@@ -6,7 +6,7 @@ menuWeight: 800
 excerpt: Adding agent nodes to an existing DC/OS cluster
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 Agent nodes are designated as [public](/mesosphere/dcos/latest/overview/concepts/#public-agent-node) or [private](/mesosphere/dcos/latest/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during the GUI or CLI [installation](/mesosphere/dcos/latest/installing/evaluation/).

@@ -5,7 +5,7 @@ menuWeight: 100
 excerpt: Configuring authentication for custom apps and pods
 enterprise: true
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

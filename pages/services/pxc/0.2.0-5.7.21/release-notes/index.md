@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Discover the new features, updates, and known limitations in this release of the Percona XtraDB Cluster Service
 featureMaturity:
 enterprise: false
-model: /services/pxc/data.yml
+model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache
 ---
 

@@ -5,7 +5,7 @@ title: dcos task metrics details
 menuWeight: 9
 excerpt: Display all metrics for a specified task
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

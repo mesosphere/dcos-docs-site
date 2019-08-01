@@ -4,7 +4,7 @@ navigationTitle: Fault Domain Awareness and Capacity Extension
 title: Fault Domain Awareness and Capacity Extension
 menuWeight: 3
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 excerpt: Understanding fault domains
 enterprise: true
 ---

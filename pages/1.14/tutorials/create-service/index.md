@@ -5,7 +5,7 @@ title: Tutorial - Creating and Running a Service
 menuWeight: 1
 excerpt: Creating and deploying a service and a containerized service
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

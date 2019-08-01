@@ -4,7 +4,7 @@ navigationTitle: Security
 excerpt: Encryption, authentication, and authorization mechanisms
 title: Security
 menuWeight: 32
-model: /services/pxc/data.yml
+model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache
 ---
 

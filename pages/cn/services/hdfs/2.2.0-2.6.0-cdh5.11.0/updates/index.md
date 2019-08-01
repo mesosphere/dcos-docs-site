@@ -4,7 +4,7 @@ navigationTitle: 更新
 excerpt: 更新 HDFS
 title: 更新
 menuWeight: 40
-model: /cn/services/hdfs/data.yml
+model: /mesosphere/dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 

@@ -5,7 +5,7 @@ title: Updating a User-Created Service
 menuWeight: 3
 excerpt: Updating the configuration of a deployed app
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: API 参考
 excerpt: DC/OS Apache Kafka 的 API 参考
 title: API 参考
 menuWeight: 90
-model: /cn/services/kafka/data.yml
+model: /mesosphere/dcos/cn/services/kafka/data.yml
 render: mustache
 ---
 

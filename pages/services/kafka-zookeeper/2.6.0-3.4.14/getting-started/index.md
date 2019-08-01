@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Installation and deployment 
 title: Getting Started
 menuWeight: 5
-model: /services/kafka-zookeeper/data.yml
+model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
 render: mustache
 ---
 

@@ -5,7 +5,7 @@ title: Service Endpoints
 menuWeight: 3
 excerpt: Using endpoints with containerized services
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 
