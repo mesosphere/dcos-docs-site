@@ -11,20 +11,3 @@ install:
  minNodeCount: three
  nodeDescription: three agent nodes, with eight GB of memory and 10 GB of disk space
  
-managing:
- podType: node
- taskType: server
-
-security:
- plaintext:  |
-   , "allow_plaintext": <true|false default false>
-
-operations:
- complete-deploy: |
-   deploy (serial strategy) (COMPLETE)
-   └─ node-deploy (serial strategy) (COMPLETE)
-      ├─ node-0:[server] (COMPLETE)
-      ├─ node-0:[init_system_keyspaces] (COMPLETE)
-      ├─ node-1:[server] (COMPLETE)
-      └─ node-2:[server] (COMPLETE)
-
