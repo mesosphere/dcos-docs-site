@@ -14,6 +14,6 @@ render: mustache
 
 #include /install-include/all-node-os-versions.tmpl
 
-#include /install-include/azure-inputs-table.tmpl
+#include /install-include/azurerm-inputs-table.tmpl
 
 #include /install-include/all-outputs-table.tmpl
