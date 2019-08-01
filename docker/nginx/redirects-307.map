@@ -21,6 +21,6 @@
 ~^/services/spinnaker/latest/(.*) /services/spinnaker/0.3.0-1.9.2/$1;
 ~^/services/storage/latest/(.*) /services/storage/1.0.0/$1;
 ~^/services/beta-storage/latest/(.*) /services/storage/1.0.0/$1;
-~^/services/dcos-monitoring/latest/(.*) /services/dcos-monitoring/1.0.0/$1;
+~^/services/dcos-monitoring/latest/(.*) /services/dcos-monitoring/1.0.2/$1;
 ~^/services/beta-jupyter/latest/(.*) /services/beta-jupyter/1.2.0-0.33.7-beta/$1;
 ~^/cn/services/kubernetes/latest/(.*) /cn/services/kubernetes/1.2.1-1.10.6/$1;
