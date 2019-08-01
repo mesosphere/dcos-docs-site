@@ -48,7 +48,7 @@ print(sum)
 ```
 
 ## Example of Scala Kernel
-Open a `Scala Notebook` and put the following sections in a different code cells.
+Open a `Scala Notebook` and put the following sections in different code cells.
 
 ```scala
 def initMatrix(nrow: Int, ncol: Int): Array[Array[Int]] = {
@@ -80,7 +80,7 @@ val sum = sumMatrix(mat)
 ```
 
 ## Example of Java Kernel
-Open a `Java Notebook` and put the following sections in a different code cells.
+Open a `Java Notebook` and put the following sections in different code cells.
 
 ```java
 class Matrix {
@@ -115,7 +115,7 @@ return mat.sum();
 ```
 
 ## Example of R Kernel
-Open a `R Notebook` and put the following sections in a different code cells.
+Open an `R Notebook` and put the following sections in different code cells.
 
 ```r
 mat <- matrix(data = seq(1, 100, by=1), nrow = 10, ncol = 10)
@@ -130,7 +130,7 @@ print(sum)
 ```
 
 ## Example of Clojure Kernel
-Open a `Clojure Notebook` and put the following sections in a different code cells.
+Open a `Clojure Notebook` and put the following sections in different code cells.
 
 ```clojure
 ;; add numbers from 1 to 100
@@ -138,7 +138,7 @@ Open a `Clojure Notebook` and put the following sections in a different code cel
 ```
 
 ## Example of Groovy Kernel
-Open a `Groovy Notebook` and put the following sections in a different code cells.
+Open a `Groovy Notebook` and put the following sections in different code cells.
 
 ```groovy
 def sum = 0
@@ -149,7 +149,7 @@ sum
 ```
 
 ## Example of Kotlin Kernel
-Open a `Kotlin Notebook` and put the following sections in a different code cells.
+Open a `Kotlin Notebook` and put the following sections in different code cells.
 
 ```kotlin
 fun initMatrix(nrow: Int, ncol: Int): Array<IntArray> {
