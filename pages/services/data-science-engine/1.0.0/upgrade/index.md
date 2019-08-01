@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Upgrade
 excerpt: Upgrading your instance of DC/OS Data Science Engine
 title: Upgrade
-menuWeight: 10
+menuWeight: -1
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
