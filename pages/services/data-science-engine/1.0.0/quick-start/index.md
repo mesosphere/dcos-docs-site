@@ -22,7 +22,7 @@ This page explains how to install the {{ model.techName }} Service.
 | Permissive | Optional |
 | Strict | Required |
 
-# Install Mesosphere Jupyter Service
+# Install {{ model.techName }}
 
 ## From the CLI
 Install the {{ model.packageName }} package. This may take a few minutes. This step installs the {{ model.packageName }} service, {{ model.packageName }} CLI, dispatcher, and, optionally, the history server. See the History Server section for information about how to install the history server.

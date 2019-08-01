@@ -79,7 +79,7 @@ dcos {{ model.packageName }} run --submit-args="\
 
 ## Installing HDFS
 
-<p class="message--note"><strong>NOTE: </strong>HDFS requires five private nodes.</p>
+<p class="message--note"><strong>NOTE: </strong>HDFS requires at least five private nodes.</p>
 
 1. Install HDFS:
 

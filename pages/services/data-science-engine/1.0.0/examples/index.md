@@ -7,7 +7,7 @@ menuWeight: 7
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
-This section contains usage examples for using {{ model.techName }}.
+This section contains examples for using {{ model.techName }}.
 
 # Basic
 
@@ -490,8 +490,6 @@ You can copy these notebook code and paste it in a file with the extension `.ipy
  "nbformat_minor": 2
 }
 ```
-
-View the status of your job using the {{ model.packageName }} cluster dispatcher or use the Mesos UI to see job logs.
 
 # Advanced
 
