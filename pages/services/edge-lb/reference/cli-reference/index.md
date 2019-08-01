@@ -10,7 +10,7 @@ enterprise: true
 You can use the Edge-LB command-line interface (CLI) commands and subcommands to configure and manage your Edge-LB load balancer instances from a shell terminal or programmatically.
 
 # Adding the Edge-LB command-line interface package
-In most cases, you add the Edge-LB command-line interface (CLI) as part of your initial installation of the Edge-LB API server and Edge-LB pool packages when you are preparing to deploy Edge-LB load balancing. However, one of the key benefits of running containerized services is that they can be placed anywhere in the cluster. 
+In most cases, you add the Edge-LB command-line interface (CLI) as part of your initial installation of the Edge-LB API server and Edge-LB pool packages when you are preparing to deploy Edge-LB load balancing. However, one of the key benefits of running containerized services is that they can be placed anywhere in the cluster.
 
 Because you can deploy packages anywhere on the cluster, you might find that you need to install the Edge-LB command-line interface (CLI) on additional computers for other administrators. To simplify access to the Edge-LB command-line programs, you can install the CLI as a separate package by running the following command:
 
@@ -56,7 +56,7 @@ dcos edgelb cleanup
 ### Options
 
 | Name, shorthand | Description |
-|---------|-------------|
+|-----------------|-------------|
 | `--help, h`   | Display usage. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 
@@ -149,29 +149,29 @@ To delete an existing Edge-LB pool named `aqua01` and uninstall the deployed loa
 # dcos edgelb diagnostic
 Use the `dcos edgelb diagnostic` command to collect diagnostic information for Edge-LB pools and package the diagnostics in a support bundle for troubleshooting and analysis.
 
-# Usage
+### Usage
 
 ```bash
 dcos edgelb diagnostic [<flags>]
 ```
 
-# Options
+### Options
 
 | Name, shorthand | Description |
-|---------|-------------|
+|-----------------|-------------|
 | `--bundles-dir=BUNDLES-DIR` | Specify the folder under which the diagnostic bundle will be located. You can specify the directory using an absolute or relative path. By default, the current directory is used. |
 | `--help, h`   | Display usage information. |
 | `--pool-names=POOL-NAMES` | List pools, separated by commas (,), for which diagnostics data should be collected. For example, pool_name1,pool_name2. By default, all pools will be included. |
 | `--verbose`   | Enable additional logging of requests and responses. |
 
-# Permissions
+### Permissions
 To create a diagnostic bundle for Edge-LB pools, the Edge-LB service account or user account must have the following permission for a specified pool:
 
 <code>
 dcos:adminrouter:service:edgelb:/v2/pools full
 </code>
 
-# Examples
+### Examples
 To collect diagnostic bundles for all Edge-LB pools, run the following command:
 
 ```bash
@@ -181,10 +181,10 @@ dcos edgelb diagnostic
 To collect diagnostic bundles for specific Edge-LB pools, include the pool names in a command similar to the following:
 
 ```bash
-dcos edgelb diagnostic --pool-names=sf-edgelb, roma-edge-lb, hk-edgelb
+dcos edgelb diagnostic --pool-names=sf-edgelb,roma-edge-lb,hk-edgelb
 ```
 
-This command generates diagnostic bundle with the logs files from the `sf-edgelb`, `roma-edgelb`, and `hk-edgelb` pools.
+This command generates diagnostic bundle with the logs files from the `sf-edgelb`, `roma-edgelb`, and `hk-edgelb` pools pools and saves it in the current working directory.
 
 To collect diagnostic bundles for a specific Edge-LB pool and place the file in a specific directory instead of the current working directory, run a command similar to the following:
 
@@ -304,7 +304,7 @@ To test the connection to the `sanfrancisco05` Edge-LB pool by sending a `ping` 
 # dcos edgelb show
 Use this command to show the pool definition for a given pool name. If you don't specify a pool name, the command returns information for all pool configurations.
 
-You can also use this command to convert YAML files to their equivalent JSON format. If you have configuration files previously written using YAML, you should use this command to convert the configuration settings to their equivalent JSON format. 
+You can also use this command to convert YAML files to their equivalent JSON format. If you have configuration files previously written using YAML, you should use this command to convert the configuration settings to their equivalent JSON format.
 
 ### Usage
 
@@ -331,7 +331,7 @@ To convert a YAML configuration file to JSON and output the results to standard 
 `dcos edgelb show --convert-to-json=/path/to/yaml`
 
 # dcos edgelb status
-Use this command to return a list of the load balancer task information associated with a pool. For example, you can run this command to return the agent IP address and task ID for a specified Edge-LB pool. 
+Use this command to return a list of the load balancer task information associated with a pool. For example, you can run this command to return the agent IP address and task ID for a specified Edge-LB pool.
 
 ### Usage
 
