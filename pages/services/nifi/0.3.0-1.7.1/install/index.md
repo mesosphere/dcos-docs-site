@@ -105,7 +105,7 @@ The above example will install the service under a path of `foldered => path => 
 
 <p class="message--important"><strong>IMPORTANT: </strong>The service folder location cannot be changed after initial install. Changing the service location would require installing a new instance of the service against the new location, then copying over any data as necessary to the new instance.</p>
 
-<p class="message--note"><strong>NOTE: </strong>`cn dn node identity` parameter specify `initial node identity` for TLS which will be used inside authorizers.xml file for CN value.</p>
+<p class="message--note"><strong>NOTE: </strong><code>cn dn node identity</code> parameter specify <code>initial node identity</code> for TLS which will be used inside authorizers.xml file for CN value.</p>
 
 ## Addressing named instances
 
@@ -132,7 +132,7 @@ Similarly, it could be queried directly over HTTP as follows:
    ```shell
    curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/{{ model.packageName }}-dev/v1/pod
    ```
-<p class="message--note"><strong>NOTE: </strong>You may add a `-v` (verbose) argument to any `dcos {{ model.packageName }}` command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, `dcos {{ model.packageName }}` commands are a thin wrapper around an HTTP interface provided by the DC/OS {{model.techName }} service itself.</p>
+<p class="message--note"><strong>NOTE: </strong>You may add a <code>-v</code> (verbose) argument to any <code>dcos {{ model.packageName }}</code> command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, <code>dcos {{ model.packageName }}</code> commands are a thin wrapper around an HTTP interface provided by the DC/OS {{model.techName }} service itself.</p>
 
 ## Virtual Networks
 
@@ -255,7 +255,7 @@ A common task is to specify a list of whitelisted systems to deploy to. To achie
    ```json
    [["hostname", "LIKE", "10.0.0.159|10.0.1.202|10.0.3.3"]]
    ```
-<p class="message--important"><strong>IMPORTANT: </strong>You must include spare capacity in this list, so that if one of the whitelisted systems goes down, there is still enough room to repair your service (via <tt>pod replace</tt>) without requiring that system.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>You must include spare capacity in this list, so that if one of the whitelisted systems goes down, there is still enough room to repair your service (via <code>pod replace</code>) without requiring that system.</p>
 
 **Example**
 

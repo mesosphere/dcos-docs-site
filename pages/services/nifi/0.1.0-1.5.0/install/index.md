@@ -121,7 +121,7 @@ You can make the same query over HTTP:
    ```shell
    curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/nifi-dev/v1/pod
    ```
-<p class="message--note"><strong>NOTE: </strong> You may add a `-v` (verbose) argument to any `dcos nifi` command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, `dcos nifi` commands are a thin wrapper around an HTTP interface provided by the DC/OS Apache NiFi Service itself.</p>
+<p class="message--note"><strong>NOTE: </strong> You may add a <code>-v</code> (verbose) argument to any <code>dcos nifi</code> command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, <code>dcos nifi</code> commands are a thin wrapper around an HTTP interface provided by the DC/OS Apache NiFi Service itself.</p>
 
 ## Virtual networks
 

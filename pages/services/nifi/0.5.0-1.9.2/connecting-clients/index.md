@@ -183,9 +183,9 @@ Following are the steps for Edge-LB Pool configuration:
        }
     }
       ```
-    <p class="message--note"><strong>NOTE: </strong>You must whitelist the hostname used to access NiFi through the Load Balancer in nifi.properties file using the parameter nifi.web.proxy.host = &lt;host:port&gt;<br>
-	It accepts a comma separated list of allowed HTTP Host header values to consider when NiFi is running securely and will be receiving requests to a different host[:port] than it is bound to. 
-	</p>
+    <p class="message--note"><strong>NOTE: </strong>You must whitelist the hostname used to access NiFi through the Load Balancer in nifi.properties file using the parameter <code>nifi.web.proxy.host = &lt;host:port&gt;</code><br>
+	  It accepts a comma separated list of allowed HTTP Host header values to consider when NiFi is running securely and will be receiving requests to a different host[:port] than it is bound to. 
+	  </p>
 
 1. Create `edge-pool` using the above `edgelb-pool-config.json` file.
     ```shell

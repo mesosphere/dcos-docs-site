@@ -197,4 +197,4 @@ Now, we see that the step is again marked as PENDING as the Scheduler again atte
   ```
 This example shows how steps in the deployment Plan (or any other Plan) can be manually retriggered or forced to a completed state by querying the Scheduler. This doesn’t come up often, but it can be a useful tool in certain situations.
 
-<p class="message--note"><strong>NOTE: </strong>The <tt>dcos plan</tt> commands will also accept UUID id values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where we view the plan, then it changes structure, then we change a plan step that isn’t the same one we were expecting (but which had the same name).</p>
+<p class="message--note"><strong>NOTE: </strong>The <code>dcos plan</code> commands will also accept UUID id values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where we view the plan, then it changes structure, then we change a plan step that isn’t the same one we were expecting (but which had the same name).</p>

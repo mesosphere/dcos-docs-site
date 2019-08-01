@@ -201,4 +201,4 @@ You can see that the step is again marked as PENDING as the Scheduler again atte
 
   ```
 
-<p class="message--note"><strong>NOTE: </strong>The <tt>dcos plan</tt> commands will also accept UUID ID values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where we view the plan, then it changes structure, then we change a plan step that is not the same one we were expecting (but which had the same name).</p>
+<p class="message--note"><strong>NOTE: </strong>The <code>dcos plan</code> commands will also accept UUID ID values instead of the name values for the phase and step arguments. Providing UUIDs avoids the possibility of a race condition where we view the plan, then it changes structure, then we change a plan step that is not the same one we were expecting (but which had the same name).</p>
