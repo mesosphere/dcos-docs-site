@@ -11,14 +11,19 @@ This section contains examples for using {{ model.techName }}.
 
 # Basic
 
-Perform a default installation by following the instructions in the [Install and Customize](/services/data-science-engine/1.0.0/install/) section.
+Perform a default installation by following the instructions in the [Quick Start Guide](/services/data-science-engine/1.0.0/quick-start/) section.
 
 To run any job, first you have to open the lab and choose the notebook you want to run.
+
 You can select from many notebooks available in the lab e.g. Scala, Python, R, etc.
 Notebook consists of cells and each cell can be of type `markdown` or `code`. 
 In the `markdown` cell, you can write text or html. In the `code` cell, you can type your code as shown in the example below.
 
-## Example of Python Kernel
+You can select from many notebooks available in the lab, for example, Scala, Python, R, and so forth.
+Notebook consists of cells; each cell can be of type `markdown` or `code`. 
+In the `markdown` cell, you can write text or html. In the `code` cell, you can type your code as shown in the example below.
+
+## Python Kernel
 Open a `Python Notebook` and put the following sections in a different code cells.
 
 ```python
@@ -47,7 +52,7 @@ sum = sumMatrix(mat)
 print(sum)
 ```
 
-## Example of Scala Kernel
+## Scala Kernel
 Open a `Scala Notebook` and put the following sections in different code cells.
 
 ```scala
@@ -79,7 +84,7 @@ val mat = initMatrix(10, 10)
 val sum = sumMatrix(mat)
 ```
 
-## Example of Java Kernel
+## Java Kernel
 Open a `Java Notebook` and put the following sections in different code cells.
 
 ```java
@@ -114,7 +119,7 @@ Matrix mat = new Matrix(10, 10);
 return mat.sum();
 ```
 
-## Example of R Kernel
+## R Kernel
 Open an `R Notebook` and put the following sections in different code cells.
 
 ```r
@@ -129,7 +134,7 @@ for (r in 1:nrow(mat)) {
 print(sum)
 ```
 
-## Example of Clojure Kernel
+## Clojure Kernel
 Open a `Clojure Notebook` and put the following sections in different code cells.
 
 ```clojure
@@ -137,7 +142,7 @@ Open a `Clojure Notebook` and put the following sections in different code cells
 (reduce + (range 1 101 1))
 ```
 
-## Example of Groovy Kernel
+## Groovy Kernel
 Open a `Groovy Notebook` and put the following sections in different code cells.
 
 ```groovy
@@ -148,7 +153,7 @@ def sum = 0
 sum
 ```
 
-## Example of Kotlin Kernel
+## Kotlin Kernel
 Open a `Kotlin Notebook` and put the following sections in different code cells.
 
 ```kotlin
@@ -183,9 +188,41 @@ sum
 
 # Advanced
 
-## Example of launching Spark Job
-Open a `Python Notebook` and put the following code in a code cell.
+## Launching a Spark job
+### Using Terminal
+Open a `Terminal` from Notebook UI and run example `spark-submit` job:
 
 ```bash
-! spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
+spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
+```
+
+### Using Python Notebook
+Open a `Python Notebook` and put the following code in a code cell.
+
+```python
+from __future__ import print_function
+
+import sys
+from random import random
+from operator import add
+
+from pyspark.sql import SparkSession
+
+spark = SparkSession\
+        .builder\
+        .appName("PythonPi")\
+        .getOrCreate()
+
+partitions = 2
+n = 100000 * partitions
+
+def f(_):
+    x = random() * 2 - 1
+    y = random() * 2 - 1
+    return 1 if x ** 2 + y ** 2 <= 1 else 0
+
+count = spark.sparkContext.parallelize(range(1, n + 1), partitions).map(f).reduce(add)
+print("Pi is roughly %f" % (4.0 * count / n))
+
+spark.stop
 ```
