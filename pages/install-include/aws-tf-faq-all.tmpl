@@ -177,5 +177,5 @@ When your clock is not synced with an authoritative time server or not set equal
 * aws_iam_server_certificate.selfsigned: Error uploading server certificate, error: MalformedCertificate: Unable to parse certificate. Please ensure the certificate is in PEM format.
 ```
 
-Most likely, the server certificate being uploaded with `terraform` probably has a datetime set in the future and the `aws` API will reject it, sending this error.
+Most likely, the server certificate being uploaded with `terraform` has a datetime set in the future and the `aws` API will reject it, sending this error.
 Please make sure that the clock on the machine you are provisioning your cluster from has the time in sync.
