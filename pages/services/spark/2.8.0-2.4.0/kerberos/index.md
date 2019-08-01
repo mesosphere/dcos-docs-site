@@ -5,7 +5,7 @@ title: Kerberos
 navigationTitle: Kerberos
 menuWeight: 120
 render: mustache
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 ---
 
 

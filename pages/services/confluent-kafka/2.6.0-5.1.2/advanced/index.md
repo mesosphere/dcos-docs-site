@@ -4,7 +4,7 @@ navigationTitle: Advanced Features
 excerpt: Advanced Features of Confluent Kafka
 title: Advanced Features of Confluent Kafka
 menuWeight: 15
-model: /services/confluent-kafka/data.yml
+model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 

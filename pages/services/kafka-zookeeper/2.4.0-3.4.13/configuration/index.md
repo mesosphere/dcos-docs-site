@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Installation and configuration options
 title: Configuration
 menuWeight: 20
-model: /services/kafka-zookeeper/data.yml
+model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
 render: mustache
 ---
 

@@ -5,7 +5,7 @@ title: dcos security org service-accounts create
 menuWeight: 165
 excerpt: Creating a service account
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 

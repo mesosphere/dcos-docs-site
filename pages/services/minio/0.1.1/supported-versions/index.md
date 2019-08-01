@@ -6,7 +6,7 @@ menuWeight: 120
 excerpt: Understanding DC/OS Minio Services package versioning
 featureMaturity:
 enterprise: false
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---
 

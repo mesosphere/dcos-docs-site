@@ -5,7 +5,7 @@ title: Tutorials - Autoscaling with Marathon
 menuWeight: 3
 excerpt: Understanding autoscaling
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 

@@ -5,7 +5,7 @@ title: Using GPUs
 menuWeight: 110
 excerpt: Adding Graphics Processing Units to your long-running DC/OS services
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

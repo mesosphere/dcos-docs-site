@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: API Reference
 menuWeight: 90
-model: /services/elastic/data.yml
+model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
 ---
 

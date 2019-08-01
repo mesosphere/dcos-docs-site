@@ -5,7 +5,7 @@ title: Logging
 menuWeight: 3
 excerpt: Understanding diagnostic and status logs for DC/OS core components and services
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 beta: false
 enterprise: false
 ---

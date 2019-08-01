@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Security
 menuWeight: 50
-model: /services/elastic/data.yml
+model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
 ---
 

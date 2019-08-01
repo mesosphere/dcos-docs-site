@@ -5,7 +5,7 @@ excerpt: 使用 Web 界面或 DC/OS CLI 安装 Spark
 title: 安装和自定义
 menuWeight: 15
 featureMaturity:
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 

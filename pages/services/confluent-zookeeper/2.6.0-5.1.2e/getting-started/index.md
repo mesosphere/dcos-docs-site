@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Getting Started
 menuWeight: 12
-model: /services/confluent-zookeeper/data.yml
+model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

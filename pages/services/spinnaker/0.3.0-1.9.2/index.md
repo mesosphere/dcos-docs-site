@@ -4,7 +4,7 @@ navigationTitle: Spinnaker 0.3.0-1.9.2
 title: Spinnaker 0.3.0-1.9.2
 menuWeight: 1
 excerpt: Documentation for DC/OS Spinnaker 0.3.0-1.9.2
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 featureMaturity:
 enterprise: true

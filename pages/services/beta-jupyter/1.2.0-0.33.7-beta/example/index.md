@@ -6,7 +6,7 @@ menuWeight: 13
 excerpt: Demos of different installation options
 featureMaturity:
 enterprise: false
-model: /services/beta-jupyter/data.yml
+model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache
 ---
 

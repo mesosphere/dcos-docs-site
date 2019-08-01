@@ -4,7 +4,7 @@ navigationTitle:  Hybrid Cloud
 title: Hybrid Cloud
 menuWeight: 115
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 excerpt: Understanding the features of the hybrid cloud
 ---
 

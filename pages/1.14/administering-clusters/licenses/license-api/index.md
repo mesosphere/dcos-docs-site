@@ -6,7 +6,7 @@ menuWeight: 3
 enterprise: true
 excerpt: Using the License API to manage your DC/OS license
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 # Routes
 

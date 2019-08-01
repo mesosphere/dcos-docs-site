@@ -5,7 +5,7 @@ title: dcos security cluster directory get_config
 menuWeight: 32
 excerpt: Retrieving an LDAP configuration
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 

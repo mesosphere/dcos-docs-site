@@ -6,7 +6,7 @@ menuWeight: 4
 excerpt: Managing the DC/OS configuration file
 enterprise: false
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

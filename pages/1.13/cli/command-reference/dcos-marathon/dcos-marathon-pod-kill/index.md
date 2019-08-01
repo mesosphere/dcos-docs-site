@@ -6,7 +6,7 @@ menuWeight: 24
 excerpt: Stopping one or more running pod instances
 enterprise: false
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

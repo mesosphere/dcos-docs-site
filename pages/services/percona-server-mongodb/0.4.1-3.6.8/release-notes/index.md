@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Discover the new features, updates, and known limitations in this release of the Percona Server for MongoDB Service 
 featureMaturity:
 enterprise: false
-model: /services/percona-server-mongodb/data.yml
+model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---
 

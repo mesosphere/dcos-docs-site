@@ -6,7 +6,7 @@ menuWeight: 12
 excerpt: Displaying the current queue of Marathon app deployments
 enterprise: false
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

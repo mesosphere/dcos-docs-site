@@ -4,7 +4,7 @@ title: AWS
 navigationTitle: AWS
 menuWeight: 5
 excerpt: Install DC/OS cluster for Amazon Web Services using templates on AWS CloudFormation
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 render: mustache
 ---
 

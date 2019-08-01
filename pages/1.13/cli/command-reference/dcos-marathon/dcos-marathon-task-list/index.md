@@ -6,7 +6,7 @@ menuWeight: 29
 excerpt: Displaying all tasks
 enterprise: false
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

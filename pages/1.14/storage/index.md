@@ -5,7 +5,7 @@ title: Storage
 menuWeight: 90
 excerpt: Preserving your application in case of termination and relaunch
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

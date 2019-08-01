@@ -5,7 +5,7 @@ title: Granting Access to Jobs
 menuWeight: 200
 excerpt: Granting access to jobs using the CLI or the UI
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 

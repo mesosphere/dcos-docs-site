@@ -5,7 +5,7 @@ excerpt: 升级您的 DC/OS Apache Spark 服务
 title: 已升级
 menuWeight: 50
 featureMaturity:
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 

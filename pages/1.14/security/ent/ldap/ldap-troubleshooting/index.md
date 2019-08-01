@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Troubleshooting common authentication and configuration issues for your LDAP directory
 enterprise: true
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 The Lightweight Directory Access Protocol (LDAP) provides a lightweight client-server protocol for accessing directory services. The protocol provides a standards-based method for defining objects and their attributes for X.500-based directory services. LDAP runs over TCP/IP or other connection-oriented transfer services.
 

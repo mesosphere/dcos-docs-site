@@ -6,7 +6,7 @@ menuWeight: 30
 excerpt: Displaying information about a specific task
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 

@@ -5,7 +5,7 @@ title: Universal Container Runtime (UCR)
 menuWeight: 10
 excerpt: Launching Mesos containers using the Universal Container Runtime 
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

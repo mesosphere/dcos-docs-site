@@ -5,7 +5,7 @@ title: Catalog
 menuWeight: 4
 excerpt: The Catalog page shows all the services that run on DC/OS
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 The {{ model.packageRepo }} page shows all of the available DC/OS services. You can install packages from the DC/OS {{ model.packageRepo }} with a single click. The packages can be installed with defaults or customized directly in the user interface.

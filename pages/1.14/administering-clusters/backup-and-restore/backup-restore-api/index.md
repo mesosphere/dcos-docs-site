@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Backing up and restoring your cluster using the API
 enterprise: true
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 You can use the Backup and Restore API to create and restore backups of your cluster.

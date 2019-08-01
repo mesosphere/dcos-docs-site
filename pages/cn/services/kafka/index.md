@@ -4,7 +4,7 @@ navigationTitle: Kafka
 excerpt:
 title: Kafka  
 menuWeight: 8
-model: /cn/services/kafka/data.yml
+model: /mesosphere/dcos/cn/services/kafka/data.yml
 render: mustache
 ---
 

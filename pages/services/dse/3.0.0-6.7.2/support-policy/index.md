@@ -4,7 +4,7 @@ navigationTitle: Support Policy
 title: Support Policy for DSE
 menuWeight: 110
 excerpt: Support Policy for DSE
-model: /services/dse/data.yml
+model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
 ---
 

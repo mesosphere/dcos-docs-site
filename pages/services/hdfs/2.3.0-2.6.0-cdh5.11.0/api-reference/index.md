@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: API Reference
 menuWeight: 90
-model: /services/hdfs/data.yml
+model: /mesosphere/dcos/services/hdfs/data.yml
 render: mustache
 ---
 

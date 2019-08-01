@@ -5,7 +5,7 @@ title: Metrics API
 menuWeight: 6
 excerpt: Using the Metrics API
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 beta: false
 ---
 You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications. The Metrics API is one way to get metrics from DC/OS. It is designed for occasional targeted access to specific tasks and hosts. It is not the best way to get a comprehensive picture of all metrics on DC/OS. It is recommended to use the [DC/OS Monitoring service](/mesosphere/dcos/services/dcos-monitoring/1.0.0/) to monitor all the metrics on your cluster.

@@ -6,7 +6,7 @@ menuWeight: 810
 excerpt: Shutting down and decommissioning agent nodes
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 In DC/OS 1.12 and later, deleting a node involves two steps: 

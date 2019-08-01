@@ -4,7 +4,7 @@ navigationTitle: Configuring
 excerpt: Installation options, configuration regions, node settings, etc.
 title: Configuring Cassandra
 menuWeight: 42
-model: /services/cassandra/data.yml
+model: /mesosphere/dcos/services/cassandra/data.yml
 render: mustache
 ---
 

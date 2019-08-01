@@ -4,7 +4,7 @@ navigationTitle: API Reference
 excerpt: API Reference for Percona Server for MongoDB
 title: API Reference
 menuWeight: 170
-model: /services/percona-server-mongodb/data.yml
+model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---
 

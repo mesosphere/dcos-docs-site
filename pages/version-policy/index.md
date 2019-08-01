@@ -5,7 +5,7 @@ title: Version Policy
 menuWeight: 5
 excerpt: DC/OS version lifecycle and compatibility matrix
 render: mustache
-model: /data.yml
+model: /mesosphere/dcos/data.yml
 ---
 
 The Version Policy page was updated on April 5, 2019.

@@ -6,7 +6,7 @@ menuWeight: 1100
 enterprise: true
 excerpt: Administering your cluster in conformance with your license requirements
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 The DC/OS licensing component allows you to administer your cluster in conformance with your license requirements. DC/OS licensing tracks the state of a cluster license, collects information to check if any licensing terms have been breached, and supports operations for updating the license when a contract is extended or changed.

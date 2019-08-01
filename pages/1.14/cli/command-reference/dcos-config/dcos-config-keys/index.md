@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Retrieving the list of DC/OS configuration property keys
 enterprise: false
 render: mustache
-model: /data.yml
+model: /mesosphere/dcos/data.yml
 ---
 
 # Description

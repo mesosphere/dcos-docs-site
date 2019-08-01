@@ -5,7 +5,7 @@ title: Login
 excerpt: Logging in to your DC/OS cluster
 menuWeight: 20
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

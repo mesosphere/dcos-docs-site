@@ -6,7 +6,7 @@ menuWeight: 50
 excerpt: Configuring Minio for DC/OS access
 featureMaturity:
 enterprise: false
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Troubleshooting
 title: Troubleshooting
 menuWeight: 70
-model: /services/kafka-zookeeper/data.yml
+model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
 render: mustache
 ---
 

@@ -5,7 +5,7 @@ title: dcos node metrics details
 menuWeight: 10
 excerpt: Displaying the details of Mesos agent nodes
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

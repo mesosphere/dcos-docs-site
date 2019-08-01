@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Deploying and managing applications to DC/OS using Marathon
 enterprise: false
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

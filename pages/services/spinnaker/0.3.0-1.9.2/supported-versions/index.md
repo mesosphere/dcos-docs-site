@@ -6,7 +6,7 @@ menuWeight: 120
 excerpt: Understanding DC/OS Spinnaker Services package versioning
 featureMaturity:
 enterprise: false
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 ---
 

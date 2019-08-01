@@ -4,7 +4,7 @@ navigationTitle: Kubernetes
 excerpt: Using the Kubernetes provider
 title: Kubernetes
 menuWeight: 9
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 ---
 

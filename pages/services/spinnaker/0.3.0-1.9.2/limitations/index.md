@@ -6,7 +6,7 @@ menuWeight: 110
 excerpt: Understanding configuration limitations
 featureMaturity:
 enterprise: false
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 ---
 

@@ -5,7 +5,7 @@ title: dcos security org users revoke
 menuWeight: 205
 excerpt: Revoking user permissions
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

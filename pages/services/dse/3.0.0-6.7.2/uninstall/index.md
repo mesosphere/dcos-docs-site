@@ -4,7 +4,7 @@ navigationTitle: Uninstalling DSE
 excerpt: Uninstalling DataStax Enterprise
 title: Uninstalling DSE
 menuWeight: 60
-model: /services/dse/data.yml
+model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: 故障排除
 excerpt: 诊断 Kafka
 title: 故障排除
 menuWeight: 70
-model: /cn/services/kafka/data.yml
+model: /mesosphere/dcos/cn/services/kafka/data.yml
 render: mustache
 ---
 

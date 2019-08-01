@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Release Notes
 menuWeight: 10
-model: /services/confluent-zookeeper/data.yml
+model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

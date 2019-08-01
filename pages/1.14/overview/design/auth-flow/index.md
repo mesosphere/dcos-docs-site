@@ -4,7 +4,7 @@ navigationTitle:  Authentication Architecture
 excerpt: Understanding authentication operations
 title: Authentication Architecture
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 menuWeight: 1
 ---
 

@@ -5,7 +5,7 @@ title: Granting Access to Services and Groups
 menuWeight: 3
 excerpt: Implementing fine-grained user access to services using the web interface or the CLI
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 

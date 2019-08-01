@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Running Couchbase operations
 title: Operations
 menuWeight: 20
-model: /services/couchbase/data.yml
+model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache
 ---
 

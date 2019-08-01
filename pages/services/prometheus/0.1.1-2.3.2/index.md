@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Overview of DC/OS Prometheus 0.1.1-2.3.2
 featureMaturity:
 render: mustache
-model: /services/prometheus/data.yml
+model: /mesosphere/dcos/services/prometheus/data.yml
 community: true
 ---
 

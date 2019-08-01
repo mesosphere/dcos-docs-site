@@ -6,7 +6,7 @@ title: Job Scheduling
 menuWeight: 110
 featureMaturity:
 render: mustache
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 ---
 
 This section is a simple overview of material described in greater detail in the Apache {{ model.techShortName }} documentation [here][1] and [here][2].

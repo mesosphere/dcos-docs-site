@@ -5,7 +5,7 @@ title: Configuration Reference
 menuWeight: 5
 excerpt: Configuration parameters available for DC/OS Enterprise and DC/OS Open Source
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 # Configuration Parameters

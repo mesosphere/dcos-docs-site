@@ -6,7 +6,7 @@ menuWeight: 0
 enterprise: true
 excerpt: Using the command line interface to manage your DC/OS license
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 The `dcos license` commands are also documented in the [CLI Command Reference](/mesosphere/dcos/1.14/cli/command-reference/dcos-license/) documentation.

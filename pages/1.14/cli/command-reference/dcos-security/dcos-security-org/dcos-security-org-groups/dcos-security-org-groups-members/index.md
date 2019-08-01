@@ -5,7 +5,7 @@ title: dcos security org groups members
 menuWeight: 145
 excerpt: Listing members of a group
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 # Description

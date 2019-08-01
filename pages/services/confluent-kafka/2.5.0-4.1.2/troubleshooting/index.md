@@ -4,7 +4,7 @@ navigationTitle: Troubleshooting
 excerpt: Troubleshooting Confluent Kafka
 title: Troubleshooting 
 menuWeight: 170
-model: /services/confluent-kafka/data.yml
+model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 

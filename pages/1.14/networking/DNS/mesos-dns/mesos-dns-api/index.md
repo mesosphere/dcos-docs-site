@@ -5,7 +5,7 @@ title: Mesos DNS API
 menuWeight: 201
 excerpt: Discovering IP addresses and ports using Mesos DNA API
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 

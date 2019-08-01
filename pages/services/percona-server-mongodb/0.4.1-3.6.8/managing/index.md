@@ -6,7 +6,7 @@ menuWeight: 60
 excerpt: Managing Percona Server for MongoDB
 featureMaturity:
 enterprise: false
-model: /services/percona-server-mongodb/data.yml
+model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---
 

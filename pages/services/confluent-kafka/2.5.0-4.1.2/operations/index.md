@@ -4,7 +4,7 @@ navigationTitle: Operations
 excerpt: Operations
 title: Operations
 menuWeight: 30
-model: /services/confluent-kafka/data.yml
+model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 

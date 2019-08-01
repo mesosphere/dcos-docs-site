@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Configuring the command line interface
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 You can access DC/OS CLI configuration with the [dcos cluster](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/) and [dcos config](/mesosphere/dcos/1.14/cli/command-reference/dcos-config/) command groups.

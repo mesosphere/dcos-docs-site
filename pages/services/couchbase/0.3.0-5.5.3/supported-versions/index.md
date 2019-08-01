@@ -6,7 +6,7 @@ menuWeight: 120
 excerpt: Understanding DC/OS Couchbase Services package versioning
 featureMaturity:
 enterprise: false
-model: /services/couchbase/data.yml
+model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache
 ---
 

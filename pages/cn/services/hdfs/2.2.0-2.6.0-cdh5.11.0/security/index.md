@@ -4,7 +4,7 @@ navigationTitle: 安全
 excerpt: 保护 HDFS 服务
 title: 安全
 menuWeight: 50
-model: /cn/services/hdfs/data.yml
+model: /mesosphere/dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 

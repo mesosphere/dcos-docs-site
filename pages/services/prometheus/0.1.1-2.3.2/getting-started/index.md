@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Getting Started
 menuWeight: 5
-model: /services/prometheus/data.yml
+model: /mesosphere/dcos/services/prometheus/data.yml
 render: mustache
 ---
 

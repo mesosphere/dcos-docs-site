@@ -4,7 +4,7 @@ navigationTitle: Uninstalling HDFS
 excerpt: Uninstalling DC/OS Apache HDFS service
 title: Uninstalling HDFS
 menuWeight: 60
-model: /services/hdfs/data.yml
+model: /mesosphere/dcos/services/hdfs/data.yml
 render: mustache
 ---
 

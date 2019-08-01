@@ -5,7 +5,7 @@ title: Filtering Logs with ELK
 menuWeight: 2
 excerpt: Filtering log output for specific tasks
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

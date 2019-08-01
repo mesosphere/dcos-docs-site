@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: History Server
 excerpt: Enabling the Spark History Server
 title: History Server
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 render: mustache
 menuWeight: 30
 

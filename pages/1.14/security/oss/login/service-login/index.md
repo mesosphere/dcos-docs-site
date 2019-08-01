@@ -4,7 +4,7 @@ navigationTitle:  Service Login
 title: Service Login
 excerpt: Logging in to DC/OS as a service
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 menuWeight: 30
 ---
 

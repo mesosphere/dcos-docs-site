@@ -5,7 +5,7 @@ title: dcos quota delete
 menuWeight: 1
 excerpt: Deleting a quota
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

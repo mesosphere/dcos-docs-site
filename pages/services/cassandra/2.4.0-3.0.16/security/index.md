@@ -4,7 +4,7 @@ navigationTitle: Security
 excerpt: Securing your service
 title: DC/OS Cassandra security
 menuWeight: 50
-model: /services/cassandra/data.yml
+model: /mesosphere/dcos/services/cassandra/data.yml
 render: mustache
 enterprise: true
 ---

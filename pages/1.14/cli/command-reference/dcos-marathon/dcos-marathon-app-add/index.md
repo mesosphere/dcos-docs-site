@@ -5,7 +5,7 @@ title: dcos marathon app add
 menuWeight: 1
 excerpt: Adding an application
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

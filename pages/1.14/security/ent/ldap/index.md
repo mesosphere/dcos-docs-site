@@ -5,7 +5,7 @@ title: LDAP authentication
 menuWeight: 50
 excerpt: Setting up a directory-based authentication server via LDAP
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 

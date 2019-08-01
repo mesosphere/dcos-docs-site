@@ -4,7 +4,7 @@ navigationTitle: Local User Accounts
 title: Local User Account Management
 excerpt: Managing local user accounts
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 menuWeight: 20
 ---
 

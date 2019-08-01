@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: Backing up and restoring the native Marathon instance of your clusters
 enterprise: true
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 --- 
 
 You can back up the state of the native Marathon instance of your cluster, and later restore from that backup.

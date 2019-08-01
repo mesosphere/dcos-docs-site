@@ -4,7 +4,7 @@ navigationTitle: 配置
 excerpt: 配置 HDFS
 title: 配置
 menuWeight: 20
-model: /cn/services/hdfs/data.yml
+model: /mesosphere/dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 

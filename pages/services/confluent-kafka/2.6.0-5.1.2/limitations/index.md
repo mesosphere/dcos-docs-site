@@ -4,7 +4,7 @@ navigationTitle: Limitations
 excerpt: Limitations of Confluent Kafka 
 title: Limitations of Confluent Kafka 
 menuWeight: 120
-model: /services/confluent-kafka/data.yml
+model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 

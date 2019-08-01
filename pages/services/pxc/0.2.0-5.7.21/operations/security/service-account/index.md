@@ -4,7 +4,7 @@ navigationTitle: Service Account
 excerpt: Setting up a service account
 title: Service Account
 menuWeight: 35
-model: /services/pxc/data.yml
+model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Removing a property from the configuration file
 enterprise: false
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

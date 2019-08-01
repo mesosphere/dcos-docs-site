@@ -4,7 +4,7 @@ navigationTitle: 限制
 excerpt: HDFS 服务的限制
 title: 限制
 menuWeight: 100
-model: /cn/services/hdfs/data.yml
+model: /mesosphere/dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 

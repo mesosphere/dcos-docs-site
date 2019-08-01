@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Managing, repairing, and monitoring the service
 title: Operations
 menuWeight: 30
-model: /services/kafka-zookeeper/data.yml
+model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ title: Limitations
 menuWeight: 135
 featureMaturity:
 render: mustache
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 ---
 
 *   Mesosphere does not provide support for {{ model.techShortName }} app development, such as writing a Python app to process data from

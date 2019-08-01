@@ -4,7 +4,7 @@ title: Scenario 1
 navigationTitle: Scenario 1
 excerpt: Tutorial - Resource Allocation
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 menuWeight: 1
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

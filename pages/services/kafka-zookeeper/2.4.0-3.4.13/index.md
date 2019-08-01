@@ -5,7 +5,7 @@ title: Kafka ZooKeeper 2.4.0-3.4.13
 menuWeight: 1
 excerpt:
 
-model: /services/kafka-zookeeper/data.yml
+model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
 render: mustache
 ---
 

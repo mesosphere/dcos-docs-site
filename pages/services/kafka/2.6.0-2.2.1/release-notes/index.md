@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Release notes for 2.6.0-2.2.1
 title: Release Notes
 menuWeight: 5
-model: /services/kafka/data.yml
+model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---
 

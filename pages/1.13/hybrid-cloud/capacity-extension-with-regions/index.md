@@ -5,7 +5,7 @@ title: Capacity Extensions with Regions
 menuWeight: 10
 excerpt: Using local and remote regions
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

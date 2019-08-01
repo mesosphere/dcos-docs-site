@@ -6,7 +6,7 @@ menuWeight: 87
 excerpt: Deploy and manage Percona XtraDB Cluster on Mesosphere DC/OS
 featureMaturity:
 community: true
-model: /services/pxc/data.yml
+model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache
 category: Databases
 ---

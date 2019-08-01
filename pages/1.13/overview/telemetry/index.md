@@ -5,7 +5,7 @@ title: Telemetry
 menuWeight: 7
 excerpt: Understanding the telemetry reporting component
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle:
 excerpt:
 title: Configuration
 menuWeight: 20
-model: /services/confluent-zookeeper/data.yml
+model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

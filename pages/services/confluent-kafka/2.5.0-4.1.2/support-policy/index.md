@@ -4,7 +4,7 @@ navigationTitle: Support Policy
 title: Support Policy fo
 menuWeight: 190
 excerpt: Support Policy for Confluent Kafka
-model: /services/confluent-kafka/data.yml
+model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 

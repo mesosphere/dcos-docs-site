@@ -4,7 +4,7 @@ navigationTitle: Confluent ZooKeeper 2.6.0-5.1.2e
 title: Confluent ZooKeeper 2.6.0-5.1.2e
 menuWeight: 1
 excerpt: Confluent ZooKeeper is a centralized service for maintaining configuration and naming information
-model: /services/confluent-zookeeper/data.yml
+model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

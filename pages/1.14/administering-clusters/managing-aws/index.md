@@ -6,7 +6,7 @@ menuWeight: 9
 excerpt: Scaling your AWS cluster
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 You can scale your AWS cluster or change the number of agent nodes.

@@ -4,7 +4,7 @@ navigationTitle: Operating DSE
 excerpt: Operations and backup service for DSE
 title: Operations
 menuWeight: 30
-model: /services/dse/data.yml
+model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
 ---
 

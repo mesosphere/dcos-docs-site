@@ -4,7 +4,7 @@ navigationTitle:  DC/OS Overlay
 title: DC/OS Overlay
 menuWeight: 10
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 excerpt: Understanding DC/OS Overlay
 enterprise: false
 ---

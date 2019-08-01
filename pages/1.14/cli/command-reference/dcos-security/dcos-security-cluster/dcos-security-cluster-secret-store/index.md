@@ -4,7 +4,7 @@ navigationTitle:  dcos security cluster secret-store
 title: dcos security cluster secret-store
 menuWeight: 80
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 excerpt: Viewing your secrets store settings
 enterprise: true
 ---

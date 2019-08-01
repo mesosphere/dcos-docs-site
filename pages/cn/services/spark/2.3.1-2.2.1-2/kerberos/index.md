@@ -4,7 +4,7 @@ excerpt: 通过 Spark 使用 Kerberos
 title: Kerberos
 navigationTitle: Kerberos
 menuWeight: 120
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 

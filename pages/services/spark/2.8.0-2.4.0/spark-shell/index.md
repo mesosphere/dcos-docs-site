@@ -5,7 +5,7 @@ excerpt: Running commands interactively in the Apache Spark shell
 title: Interactive Spark Shell
 menuWeight: 90
 render: mustache
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 ---
 
 # Interactive {{ model.techShortName }} shell

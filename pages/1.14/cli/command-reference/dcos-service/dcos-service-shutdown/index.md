@@ -5,7 +5,7 @@ title: dcos service shutdown
 menuWeight: 2
 excerpt: Shutting down a service
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

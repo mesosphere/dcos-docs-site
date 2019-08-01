@@ -5,7 +5,7 @@ title: dcos security cluster ca newcert
 menuWeight: 5
 excerpt: Creating and signing a new certificate
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

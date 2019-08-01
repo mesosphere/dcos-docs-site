@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Using native transport encryption, authentication and authorization on Couchbase
 title: Security
 menuWeight: 50
-model: /services/couchbase/data.yml
+model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache
 ---
 

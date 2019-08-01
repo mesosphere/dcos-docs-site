@@ -4,7 +4,7 @@ navigationTitle: Release Notes
 excerpt: Discover the new features, updates, and known limitations in this release of the HDFS Service
 title: Release Notes
 menuWeight: 0
-model: /services/hdfs/data.yml
+model: /mesosphere/dcos/services/hdfs/data.yml
 render: mustache
 ---
 

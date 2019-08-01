@@ -4,7 +4,7 @@ navigationTitle: Updating DSE
 excerpt: Updating DSE
 title: Updating DSE
 menuWeight: 40
-model: /services/dse/data.yml
+model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
 ---
 

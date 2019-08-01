@@ -4,7 +4,7 @@ navigationTitle: Server Groups
 excerpt: Using Spinnaker applications and server groups
 title: Applications and Server Groups
 menuWeight: 6
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 ---
 

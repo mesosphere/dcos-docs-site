@@ -4,7 +4,7 @@ navigationTitle: Limitations
 excerpt: Limitations
 title: Limitations to ZooKeeper and Kerberos settings
 menuWeight: 100
-model: /services/confluent-zookeeper/data.yml
+model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
 render: mustache
 ---
 

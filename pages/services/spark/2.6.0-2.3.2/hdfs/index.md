@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt: Integrating HDFS with DC/OS Apache Spark service
 title: Integration with HDFS
 navigationTitle: HDFS
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 render: mustache
 menuWeight: 20
 ---

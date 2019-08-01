@@ -6,7 +6,7 @@ menuWeight: 55
 excerpt: Uninstalling DC/OS Spinnaker Services
 featureMaturity:
 enterprise: false
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 ---
 

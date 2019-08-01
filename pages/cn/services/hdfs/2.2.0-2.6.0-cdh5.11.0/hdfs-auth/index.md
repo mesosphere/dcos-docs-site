@@ -5,7 +5,7 @@ menuWeight: 550
 excerpt: 在 2.1.0-2.6.0-cdh5.11.0 和更早版本中为 HDFS 配置 DC/OS Access
 featureMaturity:
 enterprise: true
-model: /cn/services/hdfs/data.yml
+model: /mesosphere/dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 

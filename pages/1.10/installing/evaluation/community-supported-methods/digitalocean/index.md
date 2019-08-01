@@ -5,7 +5,7 @@ title: Running DC/OS on DigitalOcean
 navigationTitle: DigitalOcean
 menuWeight: 40
 oss: true
-model: /1.10/installing/data.yml
+model: /mesosphere/dcos/1.10/installing/data.yml
 render: mustache
 ---
 

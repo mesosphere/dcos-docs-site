@@ -5,7 +5,7 @@ title: Local Persistent Volumes
 menuWeight: 10
 excerpt: Using local persistent volumes
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

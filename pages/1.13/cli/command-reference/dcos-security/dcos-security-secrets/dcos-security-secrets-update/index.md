@@ -5,7 +5,7 @@ title: dcos security secrets update
 menuWeight: 320
 excerpt: Updating secrets
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

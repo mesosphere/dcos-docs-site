@@ -5,7 +5,7 @@ title: Concepts
 menuWeight: 5
 excerpt: Understanding DC/OS concepts and terms
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

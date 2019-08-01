@@ -7,7 +7,7 @@ excerpt: Debugging DC/OS using the CLI and UI
 beta: true
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

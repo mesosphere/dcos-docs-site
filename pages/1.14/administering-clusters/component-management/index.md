@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Installing and managing DC/OS component services
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 The component management API controls installation and management of DC/OS component services.

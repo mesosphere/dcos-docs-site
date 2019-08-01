@@ -7,7 +7,7 @@ excerpt:
 featureMaturity:
 community: true
 render: mustache
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 category: Storage
 ---
 

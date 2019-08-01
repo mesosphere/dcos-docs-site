@@ -4,7 +4,7 @@ navigationTitle: Troubleshooting
 title: Troubleshooting Authentication 
 excerpt: Troubleshooting authentication issues in DC/OS
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 menuWeight: 50
 ---
 # Ad Blockers and the DC/OS UI

@@ -5,7 +5,7 @@ title: dcos marathon deployment watch
 menuWeight: 16
 excerpt: Monitoring application deployments
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

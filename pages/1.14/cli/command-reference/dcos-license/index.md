@@ -6,7 +6,7 @@ excerpt: Managing your DC/OS licenses
 menuWeight: 9
 enterprise: true
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 The `dcos license` commands allow you to review the status of your license, audit your license, and get or renew a license.
 

@@ -7,7 +7,7 @@ excerpt:
 featureMaturity:
 community: true
 enterprise: true
-model: /services/spinnaker/data.yml
+model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache
 category: Continuous Delivery
 ---

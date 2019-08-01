@@ -5,7 +5,7 @@ title: DC/OS SDK - 0.40.x Release Briefing
 menuWeight: 0
 excerpt:
 render: mustache
-model: /data.yml
+model: /mesosphere/dcos/data.yml
 ---
 
 We are moving closer toward the GA release of the DC/OS SDK.  We’d like to take this opportunity to thank you, our partners and early adopters of the SDK, for you continued dedication to our platform.  Starting with this latest release, 0.40, we will be sending out a release briefing for each major and minor release of the SDK.  This briefing will explain what you need to know at a high level to adopt new releases; the linked release notes and guides will contain specific details.  We’ve included a special section at the end of this briefing that outlines our commitment to improving the SDK release process.

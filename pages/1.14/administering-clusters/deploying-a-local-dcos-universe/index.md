@@ -6,7 +6,7 @@ menuWeight: 1000
 excerpt: Installing and running DC/OS services on a local Catalog datacenter
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 <p class="message--important"><strong>IMPORTANT: </strong> If you are using DC/OS Enterprise, use <tt>package-registry</tt> for seamless management of packages in air-gapped environments. Local {{ model.packageRepo }} support is deprecated.</p>

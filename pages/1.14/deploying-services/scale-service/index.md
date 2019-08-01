@@ -5,7 +5,7 @@ title: Scaling a Service
 menuWeight: 3
 excerpt: Scaling a service using the UI and the CLI
 enterprise: false
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 This tutorial shows how to scale a service using the UI and the CLI.

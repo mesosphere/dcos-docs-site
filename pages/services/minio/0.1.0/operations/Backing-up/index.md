@@ -6,7 +6,7 @@ menuWeight: 30
 excerpt: Backing up your data to AWS S3 storage
 featureMaturity:
 enterprise: false
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---
 

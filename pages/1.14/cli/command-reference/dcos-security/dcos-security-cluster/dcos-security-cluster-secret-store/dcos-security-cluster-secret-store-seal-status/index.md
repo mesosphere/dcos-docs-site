@@ -5,7 +5,7 @@ title: dcos security cluster secret-store seal-status
 menuWeight: 92
 excerpt: Viewing the seal status of a secrets store
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 

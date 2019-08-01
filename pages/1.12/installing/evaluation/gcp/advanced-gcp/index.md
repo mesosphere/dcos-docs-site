@@ -4,7 +4,7 @@ title: Configuration Reference -  GCP
 excerpt: Configuring your DC/OS installation on GCP using the Mesosphere Universal Installer
 navigationTitle: Configuration Reference
 menuWeight: 5
-model: /1.12/installing/data.yml
+model: /mesosphere/dcos/1.12/installing/data.yml
 render: mustache
 ---
 #include /mesosphere/dcos/install-include/gcp-extended-example.tmpl

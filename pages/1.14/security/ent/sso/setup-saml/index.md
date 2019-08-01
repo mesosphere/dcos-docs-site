@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Configuring a SAML Identity Provider and OneLogin IdP
 enterprise: true
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

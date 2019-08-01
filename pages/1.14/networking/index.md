@@ -5,7 +5,7 @@ title: Networking
 menuWeight: 70
 excerpt: Understanding the DC/OS networking stack
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

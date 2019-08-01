@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Updating your Kafka service
 title: Updates
 menuWeight: 40
-model: /services/kafka/data.yml
+model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---
 

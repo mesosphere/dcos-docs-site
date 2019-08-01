@@ -3,7 +3,7 @@ layout: layout.pug
 excerpt: Managing security in your datacenter using DC/OS Open Source
 title: DC/OS Open Source Security
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 menuWeight: 80
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

@@ -4,7 +4,7 @@ navigationTitle: HDFS
 excerpt: 欢迎使用 DC/OS Apache HDFS 文档
 title: HDFS 
 menuWeight: 9
-model: /cn/services/hdfs/data.yml
+model: /mesosphere/dcos/cn/services/hdfs/data.yml
 render: mustache
 ---
 

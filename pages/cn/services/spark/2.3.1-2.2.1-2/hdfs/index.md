@@ -4,7 +4,7 @@ excerpt: 了解如何通过 DC/OS Apache Spark 配置 HDFS
 title: 与 HDFS 集成
 navigationTitle: HDFS
 menuWeight: 20
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 

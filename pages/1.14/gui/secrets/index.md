@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: Using the Secrets page
 enterprise: true
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 You can manage secrets and certificates from the Secrets page.

@@ -4,7 +4,7 @@ navigationTitle:  External User Login
 title: External User Login
 excerpt: Logging in to DC/OS as an external user
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 menuWeight: 10
 ---
 

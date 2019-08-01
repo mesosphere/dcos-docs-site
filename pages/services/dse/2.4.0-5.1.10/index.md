@@ -4,7 +4,7 @@ navigationTitle: DSE 2.4.0-5.1.10
 title: DSE 2.4.0-5.1.10
 menuWeight: 2
 excerpt: 
-model: /services/dse/data.yml
+model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
 enterprise: true
 ---

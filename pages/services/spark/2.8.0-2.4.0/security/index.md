@@ -5,7 +5,7 @@ excerpt: Configuring DC/OS service accounts for Spark
 title: Security
 menuWeight: 40
 render: mustache
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 ---
 
 This section describes how to configure secure DC/OS service accounts for {{ model.techShortName }}.

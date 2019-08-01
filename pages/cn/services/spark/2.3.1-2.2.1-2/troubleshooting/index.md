@@ -4,7 +4,7 @@ navigationTitle: 故障排除
 excerpt: 诊断 Spark 
 title: 故障排除
 menuWeight: 125
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 

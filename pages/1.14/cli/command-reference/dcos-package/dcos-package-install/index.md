@@ -5,7 +5,7 @@ title: dcos package install
 menuWeight: 1
 excerpt: Installing a package
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
 

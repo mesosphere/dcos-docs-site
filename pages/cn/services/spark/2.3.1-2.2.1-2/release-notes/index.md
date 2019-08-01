@@ -5,7 +5,7 @@ title: 版本注释
 menuWeight: 145
 excerpt: Spark 和 Spark 历史版本 2.3.1-2.2.1-2
 featureMaturity:
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 

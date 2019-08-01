@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Unlinking a cluster from another cluster
 enterprise: true
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

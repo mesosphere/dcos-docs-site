@@ -4,7 +4,7 @@ navigationTitle: Configuration
 excerpt: Configuration options for the DC/OS Apache HDFS service
 title: Configuration
 menuWeight: 20
-model: /services/hdfs/data.yml
+model: /mesosphere/dcos/services/hdfs/data.yml
 render: mustache
 ---
 

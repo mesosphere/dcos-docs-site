@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: How to use JupyterLab with DC/OS
 featureMaturity:
 enterprise: false
-model: /services/beta-jupyter/data.yml
+model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache
 ---
 

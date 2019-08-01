@@ -5,7 +5,7 @@ title: dcos security cluster directory test
 menuWeight: 40
 excerpt: Testing a connection to an LDAP backend
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 enterprise: true
 ---
 # Description

@@ -4,7 +4,7 @@ title: Debugging from the DC/OS UI
 menuWeight: 0
 excerpt: Using the DC/OS UI for debugging
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 beta: true
 enterprise: false
 ---

@@ -5,7 +5,7 @@ title: Jobs
 menuWeight: 3
 excerpt: Native support for creating and managing jobs.
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 The Jobs tab provides native support for creating, scheduling and managing your jobs. From the side menu, click on **Jobs**. The display will show all of your current jobs either singly or, if grouped, in the group folder.

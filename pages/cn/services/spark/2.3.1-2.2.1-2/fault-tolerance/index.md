@@ -5,7 +5,7 @@ excerpt: 了解 DC/OS Apache Spark 上的容错
 title: 容错
 menuWeight: 100
 featureMaturity:
-model: /cn/services/spark/data.yml
+model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---
 

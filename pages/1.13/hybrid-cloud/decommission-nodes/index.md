@@ -5,7 +5,7 @@ title: Decommission Nodes
 menuWeight: 15
 excerpt: Decommissioning nodes
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -5,7 +5,7 @@ title: Master Routes
 menuWeight: 10
 excerpt: Admin Router running on DC/OS master nodes
 render: mustache
-model: /1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 The Admin Router runs on DC/OS master nodes. It exposes the API routes shown below. Admin Router listens on port `80` (HTTP) and `443` (HTTPS).
 

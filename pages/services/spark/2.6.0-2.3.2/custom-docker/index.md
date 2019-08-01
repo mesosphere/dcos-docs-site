@@ -5,7 +5,7 @@ excerpt: Customizing the Docker image in which Spark runs
 title: Custom Docker Images
 menuWeight: 95
 featureMaturity:
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 render: mustache
 ---
 You can customize the Docker image in which {{ model.techShortName }} runs by extending the standard {{ model.techShortName }} Docker image. In this way, you can install your own libraries, such as a custom Python library.

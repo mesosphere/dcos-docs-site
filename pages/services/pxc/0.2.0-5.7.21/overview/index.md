@@ -6,7 +6,7 @@ menuWeight: 20
 excerpt: Features of the Percona XtraDB Cluster on DC/OS
 featureMaturity:
 enterprise: false
-model: /services/pxc/data.yml
+model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache
 ---
 

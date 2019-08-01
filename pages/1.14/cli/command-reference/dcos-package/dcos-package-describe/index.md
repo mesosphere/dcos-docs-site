@@ -4,7 +4,7 @@ navigationTitle:  dcos package describe
 title: dcos package describe
 menuWeight: 0
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 excerpt: Fetching details for a package
 enterprise: false
 ---

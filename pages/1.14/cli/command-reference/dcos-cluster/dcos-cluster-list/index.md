@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Listing connected clusters
 enterprise: false
 render: mustache
-model: /1.14/data.yml
+model: /mesosphere/dcos/1.14/data.yml
 ---
 
 # Description

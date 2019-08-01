@@ -4,7 +4,7 @@ navigationTitle: Getting Started
 excerpt: Installing and deploying a Minio cluster
 title: Getting Started
 menuWeight: 15
-model: /services/minio/data.yml
+model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---
 

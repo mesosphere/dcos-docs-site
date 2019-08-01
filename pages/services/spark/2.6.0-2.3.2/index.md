@@ -4,7 +4,7 @@ title: Spark 2.6.0-2.3.2
 navigationTitle: Spark 2.6.0-2.3.2
 menuWeight: 3
 excerpt: Documentation for DC/OS Apache Spark 2.6.0-2.3.2
-model: /services/spark/data.yml
+model: /mesosphere/dcos/services/spark/data.yml
 render: mustache
 featureMaturity:
 ---

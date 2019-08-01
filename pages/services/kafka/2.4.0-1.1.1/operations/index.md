@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Managing Kafka
 title: Operations
 menuWeight: 30
-model: /services/kafka/data.yml
+model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---
 
