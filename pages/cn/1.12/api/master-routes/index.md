@@ -12,4 +12,4 @@ Admin Router 在 DC/OS 管理节点上运行。它显示下面所示的 API 路�
 
 
 
-[ngindox api='/1.12/api/nginx.master.yaml']
+[ngindox api='/mesosphere/dcos/1.12/api/nginx.master.yaml']

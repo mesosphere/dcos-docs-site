@@ -56,4 +56,4 @@ To assign permissions to your account, see the [permissions reference](/mesosphe
 
 The Cluster Link API allows you to manage cluster link operations on your DC/OS cluster.
 
-[swagger api='/1.12/api/cluster-link.yaml']
+[swagger api='/mesosphere/dcos/1.12/api/cluster-link.yaml']

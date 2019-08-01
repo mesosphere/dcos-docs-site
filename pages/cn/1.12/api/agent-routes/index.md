@@ -14,4 +14,4 @@ excerpt: 在 DC/OS 代理节点上运行的 Admin Router。
 
 有关 API 路由方式的详细信息，请参阅 [DC/OS API 参考](/mesosphere/dcos/cn/1.12/api/)。
 
-[ngindox api='/1.12/api/nginx.agent.yaml']
+[ngindox api='/mesosphere/dcos/1.12/api/nginx.agent.yaml']

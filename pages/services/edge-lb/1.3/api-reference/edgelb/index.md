@@ -51,4 +51,4 @@ To assign permissions to your account, see [Assigning permissions](/mesosphere/d
 
 The following resources are available:
 
-[swagger api='/services/api/edge-lb.swagger-1.3.yaml']
+[swagger api='/mesosphere/dcos/services/api/edge-lb.swagger-1.3.yaml']

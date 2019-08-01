@@ -73,4 +73,4 @@ Content-Type: application/json
 
 以上两个路由均提供以下资源：
 
-[swagger api='/1.12/api/metrics.yaml']
+[swagger api='/mesosphere/dcos/1.12/api/metrics.yaml']

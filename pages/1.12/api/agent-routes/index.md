@@ -14,4 +14,4 @@ Admin Router Agent runs on DC/OS agent nodes. It exposes the following API route
 
 For more detail about how API routing works, see [DC/OS API Reference](/mesosphere/dcos/1.12/api/).
 
-[ngindox api='/1.12/api/nginx.agent.yaml']
+[ngindox api='/mesosphere/dcos/1.12/api/nginx.agent.yaml']

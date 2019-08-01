@@ -33,4 +33,4 @@ All routes may also be reached by users with the `dcos:superuser` permission. To
 
 ## Resources
 
-[swagger api='/1.14/api/marathon.yaml']
+[swagger api='/mesosphere/dcos/1.14/api/marathon.yaml']

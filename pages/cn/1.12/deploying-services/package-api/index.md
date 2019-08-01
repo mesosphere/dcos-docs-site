@@ -43,4 +43,4 @@ Admin Router 将三路路由托管到 DC/OS 包管理器 (Cosmos)：
 
 以上两个路由均提供以下资源：
 
-[swagger api='/1.12/api/package-manager.yaml']
+[swagger api='/mesosphere/dcos/1.12/api/package-manager.yaml']

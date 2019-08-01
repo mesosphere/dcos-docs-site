@@ -57,4 +57,4 @@ Content-Type: application/json
 
 备份和恢复 API 让您管理 DC/OS 群集上的备份和恢复操作。
 
-[swagger api='/1.12/api/backup-restore.yaml']
+[swagger api='/mesosphere/dcos/1.12/api/backup-restore.yaml']

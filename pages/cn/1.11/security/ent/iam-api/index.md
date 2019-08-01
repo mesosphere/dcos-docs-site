@@ -92,7 +92,7 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 # API 参考
 
-[swagger api='/1.11/api/iam.yaml']
+[swagger api='/mesosphere/dcos/1.11/api/iam.yaml']
 
 
 # 日志记录

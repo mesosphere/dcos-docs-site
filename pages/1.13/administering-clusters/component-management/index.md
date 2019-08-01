@@ -42,4 +42,4 @@ The component management API is exposed through Admin Router and Admin Router Ag
 
 ## Resources
 
-[swagger api='/1.13/api/pkgpanda.yaml']
+[swagger api='/mesosphere/dcos/1.13/api/pkgpanda.yaml']

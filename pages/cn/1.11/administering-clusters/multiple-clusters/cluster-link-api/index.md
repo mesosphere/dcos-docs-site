@@ -56,4 +56,4 @@ API 参考
 
 群集链接 API 允许您管理 DC/OS 群集上的群集链接操作。
 
-[api-explorer api='/1.11/api/cluster-link.yaml']
+[api-explorer api='/mesosphere/dcos/1.11/api/cluster-link.yaml']

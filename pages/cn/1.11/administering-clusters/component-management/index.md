@@ -40,4 +40,4 @@ DC/OS 组件包管理器 (Pkgpanda) 实施组件管理 API，并在所有 DC/OS 
 
 ## 资源
 
-[swagger api='/1.11/api/pkgpanda.yaml']
+[swagger api='/mesosphere/dcos/1.11/api/pkgpanda.yaml']
