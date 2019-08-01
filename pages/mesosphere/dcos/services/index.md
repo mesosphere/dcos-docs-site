@@ -2,6 +2,6 @@
 layout: service-docs-landing.pug
 navigationTitle: Services
 title: Services
-menus: ['header']
+menus: ['dcos-header']
 menuWeight: 5
 ---
