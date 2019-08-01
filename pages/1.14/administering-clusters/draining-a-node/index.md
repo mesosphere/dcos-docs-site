@@ -35,33 +35,33 @@ In cases where the unique agent will not return after it is drained and removed 
 
 To drain a node with the DC/OS CLI, first locate the Mesos agent ID for the node in the `ID` column of the following command's output:
 
-    ```bash
-    dcos node list
-    ```
+```bash
+dcos node list
+```
 
 Then use that ID with the `dcos node drain` command:
 
-    ```bash
-    dcos node drain <mesos-agent-id>
-    ```
+```bash
+dcos node drain <mesos-agent-id>
+```
 
 The maximum grace period (aka `timeout`) and/or decommission options may be specified like so:
 
-    ```bash
-    dcos node drain <mesos-agent-id> --timeout=10m --decommission
-    ```
+```bash
+dcos node drain <mesos-agent-id> --timeout=10m --decommission
+```
 
 Once draining on an agent has begun, you can monitor the tasks on that node by running:
 
-    ```bash
-    dcos task list --agent-id=<mesos-agent-id>
-    ```
+```bash
+dcos task list --agent-id=<mesos-agent-id>
+```
 
 Overall progress of draining on the node may be monitored with the following command:
 
-    ```bash
-    dcos node list --mesos-id=<mesos-agent-id>
-    ```
+```bash
+dcos node list --mesos-id=<mesos-agent-id>
+```
 
 Locate the `STATUS` field: the usual status of a node will be `ACTIVE`. When draining is initiated on the node, it will transition to `DRAINING`. Once all tasks have been killed and their terminal status updates have been acknowledged by the relevant services, and once all resource operations on the node have finished, it will transition to `DRAINED`. When the node is in the `DRAINED` state, draining is complete.
 
@@ -69,23 +69,23 @@ If the `--decommission` option was included in the initial drain command, the no
 
 Before performing maintenance, stop the `dcos-mesos-slave` systemd unit (or `dcos-mesos-slave-public` for public agents) on the node so that the agent no longer attempts to register with the master:
 
-    ```bash
-    systemctl stop dcos-mesos-slave
-    ```
+```bash
+systemctl stop dcos-mesos-slave
+```
 
 ## Reactivating an Agent Node After Maintenance
 
 When maintenance is complete and you are ready to reactivate the node and allow it to rejoin the cluster, you may do so with the following command:
 
-    ```bash
-    dcos node reactivate <mesos-agent-id>
-    ```
+```bash
+dcos node reactivate <mesos-agent-id>
+```
 
 Then start the `dcos-mesos-slave` systemd unit (or `dcos-mesos-slave-public` for public agents) by executing the following command on the node, and the agent will rejoin the cluster:
 
-    ```bash
-    systemctl start dcos-mesos-slave
-    ```
+```bash
+systemctl start dcos-mesos-slave
+```
 
 ## Monitoring Draining with the UI
 
@@ -97,9 +97,9 @@ Once draining is initiated on an agent node, it cannot be cancelled. This comman
 
 If a node becomes stuck in the `DRAINING` state and does not transition to `DRAINED` after the expected duration (either the duration specified in the `--timeout` argument, or the longest kill grace period of the tasks running on the node), then it should be inspected to determine the cause. It is not necessary to issue the `dcos node drain` command again once a node is in the `DRAINING` state; this will have no effect. If all tasks on the node have terminated, then it's possible that either a terminal task status update has not been acknowledged by the relevant service, or a resource operation on that node has not finished. To rule out the former, inspect the relevant services which were running tasks on the node and ensure that they are running and available. You can list the tasks on the node to discover which services may not have acknowledged their terminal updates:
 
-    ```bash
-    dcos task list --agent-id=<mesos-agent-id>
-    ```
+```bash
+dcos task list --agent-id=<mesos-agent-id>
+```
 
 To rule out the latter, the [`GET_OPERATIONS`](http://mesos.apache.org/documentation/latest/operator-http-api/#get_operations-1) call may be used on the agent node in order to inspect any currently-pending resource operations. If a resource operation is still in the `Pending` state, the operation may be long-running and take some time to complete, or it may be stuck due to some issue with the storage backend which is actually performing the operation.
 
@@ -107,12 +107,12 @@ To rule out the latter, the [`GET_OPERATIONS`](http://mesos.apache.org/documenta
 
 While the automatic draining procedure described above is likely sufficient for most use cases, it is also possible to drain a node manually when more control over the draining process is required. To do this, first deactivate the node:
 
-    ```bash
-    dcos node deactivate <mesos-agent-id>
-    ```
+```bash
+dcos node deactivate <mesos-agent-id>
+```
 
 This will stop any new workloads from being launched on that agent. At this point, the APIs exposed by individual services may be used to kill any tasks running on the node. For example, for typical apps and pods launched via the DC/OS UI, the [API of the Marathon container orchestrator](/1.14/deploying-services/marathon-api/) can be used to terminate the associated tasks. Once all tasks on the node have been killed, it can be taken down for maintenance, and then reactivated once maintenance is complete:
 
-    ```bash
-    dcos node reactivate <mesos-agent-id>
-    ```
+```bash
+dcos node reactivate <mesos-agent-id>
+```
