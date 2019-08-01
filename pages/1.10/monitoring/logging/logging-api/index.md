@@ -72,4 +72,4 @@ To assign permissions to your account, see [Permissions Reference](/mesosphere/d
 
 The following resources are available under both of the above routes:
 
-[swagger api='/1.10/api/logs.yaml']
+[swagger api='/mesosphere/dcos/1.10/api/logs.yaml']

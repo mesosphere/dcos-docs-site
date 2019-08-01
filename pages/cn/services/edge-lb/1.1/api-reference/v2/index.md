@@ -50,10 +50,10 @@ Edge-LB API 还需要通过以下权限进行授权：
 
 这些基层路由与 V2 一起添加，可用于从 V1 或 V2 池配置读取数据。
 
-[swagger api='/services/api/edge-lb-common.yaml']
+[swagger api='/mesosphere/dcos/services/api/edge-lb-common.yaml']
 
 # V2 资源
 
 以上两条路由均提供以下资源：
 
-[swagger api='/services/api/edge-lb-v2.yaml']
+[swagger api='/mesosphere/dcos/services/api/edge-lb-v2.yaml']

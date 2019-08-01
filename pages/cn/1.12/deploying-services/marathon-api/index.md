@@ -32,4 +32,4 @@ Marathon API 帮助您管理长期运行的容器化服务（应用程序和 pod
 
 ## 资源
 
-[swagger api='/1.12/api/marathon.yaml']
+[swagger api='/mesosphere/dcos/1.12/api/marathon.yaml']

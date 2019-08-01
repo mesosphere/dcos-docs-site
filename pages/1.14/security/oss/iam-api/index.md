@@ -48,7 +48,7 @@ See [Out-of-band token verification](/mesosphere/dcos/1.14/security/oss/authenti
 
 # API reference
 
-[swagger api='/1.14/api/oss-iam.yaml']
+[swagger api='/mesosphere/dcos/1.14/api/oss-iam.yaml']
 
 # Logging
 

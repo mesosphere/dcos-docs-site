@@ -96,4 +96,4 @@ DC/OS 日志记录遵循 [服务器发送事件规范](https://www.w3.org/TR/200
 
  [上述路由](#routes) 均提供以下资源：
 
- [swagger api='/1.12/api/logs2.yaml']
+ [swagger api='/mesosphere/dcos/1.12/api/logs2.yaml']

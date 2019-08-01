@@ -25,4 +25,4 @@ After the update API request is successfully processed there is a lag between th
 
 ## Resources
 
-[swagger api='/1.14/api/endpoints.yaml']
+[swagger api='/mesosphere/dcos/1.14/api/endpoints.yaml']

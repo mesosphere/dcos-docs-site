@@ -98,7 +98,7 @@ Authentication tokens expire after five days by default. If your program needs t
 
 # API reference
 
-[swagger api='/1.13/api/secrets.yaml']
+[swagger api='/mesosphere/dcos/1.13/api/secrets.yaml']
 
 
 # Logging

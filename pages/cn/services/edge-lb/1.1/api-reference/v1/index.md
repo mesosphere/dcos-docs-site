@@ -50,4 +50,4 @@ Edge-LB API 还需要通过以下权限进行授权：
 
 以上两条路由均提供以下资源：
 
-[swagger api='/services/api/edge-lb-v1.yaml']
+[swagger api='/mesosphere/dcos/services/api/edge-lb-v1.yaml']

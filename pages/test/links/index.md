@@ -28,7 +28,7 @@ something [plaintext redirect](/mesosphere/dcos/administration/admin-tutorials/i
 | [dcos service](/mesosphere/dcos/1.10/cli/command-reference/dcos-service/)  |  Manage DC/OS services.  |
 | [dcos task](/mesosphere/dcos/1.10/cli/command-reference/dcos-task/)  |  Manage DC/OS tasks.  |
 
-[swagger api='/services/api/edge-lb-common.yaml']
+[swagger api='/mesosphere/dcos/services/api/edge-lb-common.yaml']
 
 some other [regex redirect](/mesosphere/dcos/service-docs/cassandra/) text something [plaintext redirect](/mesosphere/dcos/administration/admin-tutorials/installdatacenter/).
 

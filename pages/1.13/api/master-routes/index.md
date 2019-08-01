@@ -13,4 +13,4 @@ For more detail about how API routing works, see [DC/OS API Reference](/mesosphe
 
 
 
-[ngindox api='/1.13/api/nginx.master.yaml']
+[ngindox api='/mesosphere/dcos/1.13/api/nginx.master.yaml']

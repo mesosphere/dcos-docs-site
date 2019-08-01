@@ -11,4 +11,4 @@ something [plaintext redirect](/mesosphere/dcos/latest/tutorials/dcos-101/redis-
 [correct](/mesosphere/dcos/services/cassandra/).
 [not valid](/mesosphere/dcos/defnot/).
 
-[swagger api='/services/api/edge-lb-common.yaml']
+[swagger api='/mesosphere/dcos/services/api/edge-lb-common.yaml']

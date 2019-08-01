@@ -42,4 +42,4 @@ To assign permissions to your account, see the [permissions reference](/mesosphe
 
 ## Resources
 
-[swagger api='/1.10/api/marathon.yaml']
+[swagger api='/mesosphere/dcos/1.10/api/marathon.yaml']

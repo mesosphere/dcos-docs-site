@@ -78,4 +78,4 @@ To assign permissions to your account, see the [permissions reference](/mesosphe
 
 The following resources are available under both of the above routes:
 
-[swagger api='/1.9/api/metrics.yaml']
+[swagger api='/mesosphere/dcos/1.9/api/metrics.yaml']

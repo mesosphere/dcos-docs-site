@@ -56,4 +56,4 @@ Cluster Link API 还需要通过以下权限授权：
 
 Cluster Link API 让您可以管理 DC/OS 群集上的群集链接操作。
 
-[swagger api='/1.12/api/cluster-link.yaml']
+[swagger api='/mesosphere/dcos/1.12/api/cluster-link.yaml']

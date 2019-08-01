@@ -16,4 +16,4 @@ DC/OS Enterprise 增加组件通信的可选 SSL 加密。所以在 `strict` 和
 
 <br/>
 
-[ngindox api='/cn/1.11/api/nginx.agent.yaml']
+[ngindox api='/mesosphere/dcos/cn/1.11/api/nginx.agent.yaml']

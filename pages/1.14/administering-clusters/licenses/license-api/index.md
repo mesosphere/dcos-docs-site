@@ -60,4 +60,4 @@ To assign permissions to your account, see the [permissions reference](/mesosphe
 
 The License API allows you to manage license operations on your DC/OS cluster.
 
-[swagger api='/1.14/api/dcos-licensing-component-spec.yaml']
+[swagger api='/mesosphere/dcos/1.14/api/dcos-licensing-component-spec.yaml']

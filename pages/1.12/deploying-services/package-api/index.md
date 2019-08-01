@@ -43,4 +43,4 @@ All routes may also be reached by users with the `dcos:superuser` permission. To
 
 The following resources are available under both of the above routes:
 
-[swagger api='/1.12/api/package-manager.yaml']
+[swagger api='/mesosphere/dcos/1.12/api/package-manager.yaml']
