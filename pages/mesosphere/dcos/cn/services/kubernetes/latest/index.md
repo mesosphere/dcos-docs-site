@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Kubernetes
 title: Kubernetes
 menuWeight: -1
-menus: ['cn-header']
 excerpt:
 ---
 
