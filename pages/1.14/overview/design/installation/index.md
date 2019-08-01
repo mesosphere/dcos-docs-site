@@ -58,7 +58,7 @@ Once your package is built, you can get going by running `dcos_install.sh` on ev
 
 - Downloads the package to the current host.
 - Extracts the package into `/opt/mesosphere`.
-- Initiates installation using the [DC/OS Component Package Manager (Pkgpanda)](/1.14/overview/architecture/components/#dcos-component-package-manager).
+- Initiates installation using the [DC/OS Component Package Manager (Pkgpanda)](/mesosphere/dcos/1.14/overview/architecture/components/#dcos-component-package-manager).
 
 Once the ZooKeeper cluster reaches quorum on the masters and Mesos comes up, every agent will join the cluster. We have kept the steps to a minimum to make sure they are as reliable as possible.
 

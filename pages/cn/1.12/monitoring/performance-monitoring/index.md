@@ -142,4 +142,4 @@ Mesos 提供了许多用于监控的 [度量标准][2]。以下是对 DC/OS 特�
 
  [1]: https://mesosphere.github.io/marathon/docs/metrics.html
  [2]: http://mesos.apache.org/documentation/latest/monitoring/
- [3]: /1.12/deploying-services/marathon-api/#/apps/
+ [3]: /mesosphere/dcos/1.12/deploying-services/marathon-api/#/apps/

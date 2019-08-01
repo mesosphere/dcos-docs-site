@@ -31,7 +31,7 @@ DC/OS 中的多个服务使用 ZooKeeper 以取得一致性。ZooKeeper 可用�
 - 物理域：包括机器、机架、数据中心、地区和可用性区域。
 - 网络域：同一网络内的机器可能会受网络分区的影响。例如，共享网络交换机可能发生故障或者配置无效。
 
-通过 DC/OS，您可以在机架之间将主控分配给 HA。代理可以跨地区分配，建议您用描述其位置的属性来标记代理。ZooKeeper 等同步服务也应留在同一区域内，以减少网络延迟。有关详细信息，请参阅实现高可用性的 [配置区域和地区](/cn/1.12/installing/production/advanced-configuration/configuring-zones-regions/)。
+通过 DC/OS，您可以在机架之间将主控分配给 HA。代理可以跨地区分配，建议您用描述其位置的属性来标记代理。ZooKeeper 等同步服务也应留在同一区域内，以减少网络延迟。有关详细信息，请参阅实现高可用性的 [配置区域和地区](/mesosphere/dcos/cn/1.12/installing/production/advanced-configuration/configuring-zones-regions/)。
 
 需要 HA 的应用程序应跨故障域分配。Marathon 可以使用 [`UNIQUE` 和 `GROUP_BY` 约束算子](https://mesosphere.github.io/marathon/docs/constraints.html) 来实现。
 
@@ -57,7 +57,7 @@ DC/OS 中的多个服务使用 ZooKeeper 以取得一致性。ZooKeeper 可用�
 
 发生故障时，故障切换 [应尽可能快](https://en.wikipedia.org/wiki/Fail-fast)。快速故障切换可通过以下方式实现：
 
- * 使用 HA 负载均衡器，如 [Marathon-LB](/services/marathon-lb/)，或内部 [第 4 层负载均衡器](/cn/1.12/networking/load-balancing-vips/)。
+ * 使用 HA 负载均衡器，如 [Marathon-LB](/mesosphere/dcos/services/marathon-lb/)，或内部 [第 4 层负载均衡器](/mesosphere/dcos/cn/1.12/networking/load-balancing-vips/)。
  * 根据 [12 因素应用](http://12factor.net/) 原则构建应用程序。
  * 在构建服务时遵循 REST 最佳做法：尤其是避免在请求之间在服务器上存储客户端状态。
 

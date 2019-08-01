@@ -15,13 +15,13 @@ You can create and administer jobs in the DC/OS web interface, from the DC/OS CL
 
 # DC/OS Web Interface
 
-**Note:** The DC/OS web interface provides a subset of the CLI and API functionality. For advanced job configurations, use the [dcos job](/1.9/cli/command-reference/dcos-job/) commands or the Jobs [API](#jobs-api).
+**Note:** The DC/OS web interface provides a subset of the CLI and API functionality. For advanced job configurations, use the [dcos job](/mesosphere/dcos/1.9/cli/command-reference/dcos-job/) commands or the Jobs [API](#jobs-api).
 
 ## Add a Job
 
 From the DC/OS web interface, click the **Jobs** tab, then the **Create a Job** button. Fill in the following fields, or toggle to JSON mode to edit the JSON directly.
 
-![Create JOB UI](/1.9/img/create-job.png)
+![Create JOB UI](/mesosphere/dcos/1.9/img/create-job.png)
 
 ### **General** Tab
 * **ID** - The ID of your job.
@@ -41,7 +41,7 @@ Check the **Run on a Schedule** to reveal the following fields.
 * **Image** - Enter the Docker image you will use to specify the action of your job, if you are using one.
 
 ### **Labels**
-**Label Name** and **Label Value** - Attach metadata to your jobs so you can filter them. [Learn more about labels](/1.9/tutorials/task-labels/).
+**Label Name** and **Label Value** - Attach metadata to your jobs so you can filter them. [Learn more about labels](/mesosphere/dcos/1.9/tutorials/task-labels/).
 
 ## Modify, View, or Remove a Job
 

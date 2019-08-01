@@ -63,4 +63,4 @@ DC/OS {{ model.techName }} includes the [{{ model.techShortName }} History Serve
 View your job in the dispatcher at `http://<dcos_url>/service/spark/`. The information displayed includes a link to the history server entry for that job.
 
  [3]: http://spark.apache.org/docs/latest/monitoring.html#viewing-after-the-fact
- [10]: /1.12/administering-clusters/sshcluster/
+ [10]: /mesosphere/dcos/1.12/administering-clusters/sshcluster/

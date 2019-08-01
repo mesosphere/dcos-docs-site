@@ -26,6 +26,6 @@ Not all clouds have template support, but not worry, you can still configure the
 
 - [Custom Installation Guides][3]
 
-[1]: /1.9/installing/oss/cloud/aws/
-[2]: /1.9/installing/oss/cloud/azure/
-[3]: /1.9/installing/oss/custom/
+[1]: /mesosphere/dcos/1.9/installing/oss/cloud/aws/
+[2]: /mesosphere/dcos/1.9/installing/oss/cloud/azure/
+[3]: /mesosphere/dcos/1.9/installing/oss/custom/

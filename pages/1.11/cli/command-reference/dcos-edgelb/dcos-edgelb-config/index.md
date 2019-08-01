@@ -41,4 +41,4 @@ dcos edgelb config <file> [OPTIONS]
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/1.11/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
+| [dcos edgelb](/mesosphere/dcos/1.11/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |

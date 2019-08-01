@@ -18,7 +18,7 @@ render: mustache
 - 更新了 libmesos 版本的重要缺陷修复，[MESOS-8171](https://issues.apache.org/jira/browse/MESOS-8171)
 
 ### 文档
-- 添加了一个 [页面](/cn/services/spark/2.3.1-2.2.1-2/limitations/)，记录 DC/OS 上 Spark 规模测试结果。
+- 添加了一个 [页面](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/limitations/)，记录 DC/OS 上 Spark 规模测试结果。
 
 
 ## 版本 2.3.0-2.2.1-2

@@ -28,7 +28,7 @@ Your new machines will take a few minutes to initialize; you can watch them in t
 
 <!-- ## Upgrading
 
-See the upgrade [documentation](/1.9/installing/oss/cloud/aws/upgrading/). -->
+See the upgrade [documentation](/mesosphere/dcos/1.9/installing/oss/cloud/aws/upgrading/). -->
 
- [2]: /1.9/installing/oss/cloud/aws/
+ [2]: /mesosphere/dcos/1.9/installing/oss/cloud/aws/
  [3]: https://console.aws.amazon.com/cloudformation/home

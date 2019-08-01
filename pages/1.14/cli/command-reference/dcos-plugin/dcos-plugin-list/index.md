@@ -31,4 +31,4 @@ dcos plugin list [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos plugin](/1.14/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS software plugins. |
+| [dcos plugin](/mesosphere/dcos/1.14/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS software plugins. |

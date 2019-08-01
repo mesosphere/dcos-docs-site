@@ -12,9 +12,9 @@ preview: true
 enterprise: true
 ---
 
-**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/1.9/networking/tls-ssl/get-cert/).
+**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/mesosphere/dcos/1.9/networking/tls-ssl/get-cert/).
 
-If you have not [set up a proxy](/1.9/networking/tls-ssl/haproxy-adminrouter/), you should use `--cacert dcos-ca.crt` in your curl commands in `permissive` and `strict` security modes. 
+If you have not [set up a proxy](/mesosphere/dcos/1.9/networking/tls-ssl/haproxy-adminrouter/), you should use `--cacert dcos-ca.crt` in your curl commands in `permissive` and `strict` security modes. 
 
 An example follows which assumes that the file is named `dcos-ca.crt` and located in the current directory.
 

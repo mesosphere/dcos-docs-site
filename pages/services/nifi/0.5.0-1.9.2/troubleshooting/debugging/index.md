@@ -90,7 +90,7 @@ A common mistake is to remove the Scheduler task from Marathon, which does not u
 
 ## Uninstall the rest of the service
 
-If you really want to uninstall the service, you must complete the normal package uninstall steps described under [Uninstall](/services/nifi/0.5.0-1.9.2/uninstall/).
+If you really want to uninstall the service, you must complete the normal package uninstall steps described under [Uninstall](/mesosphere/dcos/services/nifi/0.5.0-1.9.2/uninstall/).
 
 ## Recover the Scheduler
 
@@ -100,7 +100,7 @@ To ensure that you do not forget the options your services are configured with, 
 
 # ‘Framework has been removed’
 
-If you forgot to run `janitor.py` the last time you ran the service, see [Uninstall](/services/nifi/0.5.0-1.9.2/uninstall/) for the procedure. For reference, here is what happened:
+If you forgot to run `janitor.py` the last time you ran the service, see [Uninstall](/mesosphere/dcos/services/nifi/0.5.0-1.9.2/uninstall/) for the procedure. For reference, here is what happened:
 
 1. You ran `dcos package {{ model.serviceName }} --app-id {{ model.serviceName }}`. This destroyed the Scheduler and its associated tasks, but did not clean up its reserved resources.
 1. Later on, you tried to reinstall the service. The Scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by `janitor.py`. The Scheduler tried to re-register using that framework ID.

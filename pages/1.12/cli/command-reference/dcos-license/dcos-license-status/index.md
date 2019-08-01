@@ -45,11 +45,11 @@ dcos license status
 dcos license status --breaches
 0
 ```
-For more examples, see [Licenses](/1.12/administering-clusters/licenses/).
+For more examples, see [Licenses](/mesosphere/dcos/1.12/administering-clusters/licenses/).
 
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/1.12/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](/mesosphere/dcos/1.12/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |

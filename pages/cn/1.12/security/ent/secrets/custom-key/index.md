@@ -11,14 +11,14 @@ enterprise: true
 
 **先决条件：**
 
-- [DC/OS CLI 已安装](/cn/1.12/cli/install/)
+- [DC/OS CLI 已安装](/mesosphere/dcos/cn/1.12/cli/install/)
 - 通过 `dcos auth login` 作为超级用户登录到 DC/OS CLI
 - [安装的 GNU 隐私保护 (GPG)](http：//brewformulas.org/gnupg)
-- 必须遵守 [下载根证书](/cn/1.12/security/ent/tls-ssl/get-cert/)中的步骤才能发布此部分的 `curl` 命令。
+- 必须遵守 [下载根证书](/mesosphere/dcos/cn/1.12/security/ent/tls-ssl/get-cert/)中的步骤才能发布此部分的 `curl` 命令。
 
 ## <a name="1"></a>编辑 SECRETS_BOOTSTRAP 值
 
-1. [通过 SSH 进入主节点](/cn/1.12/administering-clusters/sshcluster/)。
+1. [通过 SSH 进入主节点](/mesosphere/dcos/cn/1.12/administering-clusters/sshcluster/)。
 
 1. 在您选择的编辑器中打开 `dcos-secrets.env` 文件。
 

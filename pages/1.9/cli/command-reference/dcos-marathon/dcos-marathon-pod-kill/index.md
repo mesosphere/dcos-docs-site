@@ -35,6 +35,6 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/1.9/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 <!-- # Examples -->

@@ -9,8 +9,8 @@ excerpt: 使用命令行界面管理您的 DC/OS 许可证
 
 # 先决条件
 - 一个 DC/OS Enterprise 群集。
-- [DC/OS CLI](/cn/1.12/cli/install/) 已安装。
-- [DC/OS Enterprise CLI](/cn/1.12/cli/plugins/#enterprise-cli-plugin) 已安装。
+- [DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/install/) 已安装。
+- [DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.12/cli/plugins/#enterprise-cli-plugin) 已安装。
 
 
 # 列示许可证

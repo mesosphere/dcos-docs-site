@@ -28,4 +28,4 @@ dcos task metrics details <task-id> [--json]
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/1.12/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/mesosphere/dcos/1.12/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |

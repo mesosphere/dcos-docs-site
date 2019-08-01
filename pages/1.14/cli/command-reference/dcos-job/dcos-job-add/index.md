@@ -34,12 +34,12 @@ dcos job add <job-file>
 
 # Examples
 
-For job examples, see the [Create a Job](/1.14/deploying-jobs/examples/#create-job).
+For job examples, see the [Create a Job](/mesosphere/dcos/1.14/deploying-jobs/examples/#create-job).
 
-For information on how to create a job using this command, see [Add a job](/1.14/deploying-jobs/quickstart/#add-a-job-2).
+For information on how to create a job using this command, see [Add a job](/mesosphere/dcos/1.14/deploying-jobs/quickstart/#add-a-job-2).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.14/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/mesosphere/dcos/1.14/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

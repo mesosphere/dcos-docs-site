@@ -21,7 +21,7 @@ Prometheus can be installed via either the DC/OS Catalog web interface or by usi
 dcos package install prometheus --yes
 ```
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_install.png" alt="Prometheus Install"/>](/services/prometheus/0.1.1-2.3.2/img/prom_install.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_install.png" alt="Prometheus Install"/>](/mesosphere/dcos/services/prometheus/0.1.1-2.3.2/img/prom_install.png)
 
 Figure 1. Installing Prometheus
 
@@ -203,7 +203,7 @@ http://<public-agent-ip>:9092
 ```
 
 You should see the Prometheus UI:
-[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png" alt="Prometheus Dashboard"/>](/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png" alt="Prometheus Dashboard"/>](/mesosphere/dcos/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png)
 Figure 2. Prometheus dashboard
 
 
@@ -225,7 +225,7 @@ As another example, enter the following expression to graph the per-second rate 
 
 `rate(prometheus_tsdb_head_chunks_created_total[1m])`
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png" alt="Prometheus Graphing"/>](/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png" alt="Prometheus Graphing"/>](/mesosphere/dcos/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png)
 
 Figure 3. Prometheus graphing
 
@@ -239,7 +239,7 @@ http://<public-agent-ip>:9094
 
 This takes you to the Grafana console.
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_login.png" alt="Grafana Logging"/>](/services/prometheus/0.1.1-2.3.2/img/grafana_login.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_login.png" alt="Grafana Logging"/>](/mesosphere/dcos/services/prometheus/0.1.1-2.3.2/img/grafana_login.png)
 
 Figure 4. Grafana console.
 
@@ -250,7 +250,7 @@ The default installation URL is `http://prometheus-0-server.prometheus.autoip.dc
 
 **Note:** your data source will not register without `http://` in front of the URL
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png" alt="Grafana Data Source"/>](/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png" alt="Grafana Data Source"/>](/mesosphere/dcos/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png)
 
 Figure 5. Grafana data source
 
@@ -261,7 +261,7 @@ To create a graph, select your `Prometheus` data source, and enter any Prometheu
 
 The following shows an example Prometheus graph configuration using the variable `rate(prometheus_http_request_duration_seconds_count[5m])`
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png" alt="Grafana Prom Graph"/>](/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png" alt="Grafana Prom Graph"/>](/mesosphere/dcos/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png)
 
 Figure 6. Grafana Prometheus graph configuration
 
@@ -274,7 +274,7 @@ AlertManager UI:
 http://<public-agent-ip>:9093
 ```
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png" alt="AlertManager Dashboard"/>](/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png" alt="AlertManager Dashboard"/>](/mesosphere/dcos/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png)
 
 Figure 7. AlertManager dashboard
 
@@ -393,7 +393,7 @@ receivers:
     channel: '#alerts_test'
 ```
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/slack_alert.png" alt="Slack Alerts"/>](/services/prometheus/0.1.1-2.3.2/img/slack_alert.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/slack_alert.png" alt="Slack Alerts"/>](/mesosphere/dcos/services/prometheus/0.1.1-2.3.2/img/slack_alert.png)
 
 Figure 8. Slack alerts
 
@@ -408,6 +408,6 @@ Push a single sample into the group identified by {job="some_job"}:
 echo "some_metric 3.14" | curl --data-binary @- http://pushgateway.example.org:9091/metrics/job/some_job
 ```
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/pushg.png" alt="PushGateway"/>](/services/prometheus/0.1.1-2.3.2/img/pushg.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/pushg.png" alt="PushGateway"/>](/mesosphere/dcos/services/prometheus/0.1.1-2.3.2/img/pushg.png)
 
 Figure 9. PushGateway

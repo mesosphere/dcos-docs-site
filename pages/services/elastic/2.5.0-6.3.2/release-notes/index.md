@@ -80,7 +80,7 @@ render: mustache
 
 ## New Features
 
-* Custom configuration can now be passed to Elastic plugins. See [the documentation](/services/elastic/2.1.1-5.6.5/custom-elasticsearch-yaml/).
+* Custom configuration can now be passed to Elastic plugins. See [the documentation](/mesosphere/dcos/services/elastic/2.1.1-5.6.5/custom-elasticsearch-yaml/).
 
 ## Bug Fixes
 
@@ -139,7 +139,7 @@ render: mustache
 
 ## Breaking Changes
 
-- Kibana has been removed from the Elastic package, along with the proxylite helper service. Please see the '[Connecting Clients](/services/elastic/2.1.1-5.6.5/connecting-clients/)' section for instructions on how to provision and connect Kibana on DC/OS.
+- Kibana has been removed from the Elastic package, along with the proxylite helper service. Please see the '[Connecting Clients](/mesosphere/dcos/services/elastic/2.1.1-5.6.5/connecting-clients/)' section for instructions on how to provision and connect Kibana on DC/OS.
 
 ## Improvements/Features
 

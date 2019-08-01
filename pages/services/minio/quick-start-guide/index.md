@@ -15,7 +15,7 @@ This section will get you up and running with a basic DC/OS {{ model.techName }}
 
 ## Prerequisites
 
-* A running DC/OS 1.11 cluster. (If you do not have one installed, see the instructions in [Getting Started](/services/minio/0.1.0/getting-started/#install-a-basic-cluster).)
+* A running DC/OS 1.11 cluster. (If you do not have one installed, see the instructions in [Getting Started](/mesosphere/dcos/services/minio/0.1.0/getting-started/#install-a-basic-cluster).)
 
 * DC/OS {{ model.techName }} requires {{ model.install.minNodeCount}} to start in distributed mode. (DC/OS {{ model.techName }} requires that you start {{ model.install.nodeDescription }} in distributed mode.)
 

@@ -7,11 +7,11 @@ excerpt: 了解为 DC/OS 部署配置的端口
 ---
 本节将介绍 DC/OS 部署中的每个预配置端口。
 
-[DC/OS 组件](/1.12/overview/architecture/components/) 监听每个节点上的多个端口。为确保成功安装，这些端口必须可用。
+[DC/OS 组件](/mesosphere/dcos/1.12/overview/architecture/components/) 监听每个节点上的多个端口。为确保成功安装，这些端口必须可用。
 
 - 为让 DC/OS 按照预期安装和运行，这些端口在首次安装时必须可访问。
 - 指定的源节点和目标节点（包括群集区域上）之间的端口必须打开。
-- 您必须采用适当的网络机制，防止未经授权访问群集节点。请参阅 [网络安全](/1.12/administering-clusters/securing-your-cluster/#network-security) 上的文档。
+- 您必须采用适当的网络机制，防止未经授权访问群集节点。请参阅 [网络安全](/mesosphere/dcos/1.12/administering-clusters/securing-your-cluster/#network-security) 上的文档。
 
 DC/OS 将其他端口分配给在 DC/OS 之上运行的服务。安装服务时，需要使用这些端口。
 

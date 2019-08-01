@@ -31,9 +31,9 @@ from the command using the `-vv` flag.
 Usage: `export DCOS_CLI_EXPERIMENTAL_AUTOINSTALL_PLUGINS=1`
 
 When running `dcos cluster setup`, this experiment enables automatic
-installation of the [Core and Enterprise CLI plugins](/1.12/cli/plugins/) from
+installation of the [Core and Enterprise CLI plugins](/mesosphere/dcos/1.12/cli/plugins/) from
 Cosmos. There are Core CLI plugins available in Cosmos for DC/OS 1.10+.
 
 For this to be successful, the user will need to have the
 `dcos:adminrouter:package` permission in order to make calls to Cosmos. Also,
-the system needs access to the internet or a [local universe](/1.12/administering-clusters/deploying-a-local-dcos-universe/).
+the system needs access to the internet or a [local universe](/mesosphere/dcos/1.12/administering-clusters/deploying-a-local-dcos-universe/).

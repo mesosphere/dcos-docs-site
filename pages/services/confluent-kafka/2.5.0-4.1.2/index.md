@@ -36,4 +36,4 @@ DC/OS {{ model.techName }} provides the following features:
 
 # Related Services
 
-*   [DC/OS Spark](/services/spark/)
+*   [DC/OS Spark](/mesosphere/dcos/services/spark/)

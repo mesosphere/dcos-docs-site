@@ -29,7 +29,7 @@ You can deploy a simple program in an inline shell script. Let's start with a si
 
     In the above example, `cmd` is the command that gets executed. Its value is wrapped by the underlying Mesos executor via `/bin/sh -c ${cmd}`.
 
-1. Use the [DC/OS CLI](/1.14/cli/) to add the service to DC/OS.
+1. Use the [DC/OS CLI](/mesosphere/dcos/1.14/cli/) to add the service to DC/OS.
 
     ```bash
     dcos marathon app add <your-service-name>.json
@@ -112,7 +112,7 @@ You can deploy a simple Docker-based application with the REST API. With Maratho
 
 In the following example, you deploy a Docker app to DC/OS using the Marathon API. The Docker app is a Python-based web server that uses the [python:3](https://registry.hub.docker.com/_/python/) image. Inside the container, the web server runs on port `80` (the value of `containerPort`). `hostPort` is set to `0` so that Marathon assigns a random port on the Mesos agent, which is mapped to port 80 inside the container.
 
-1. Choose whether to use the Universal Container Runtime (UCR) or Docker Engine runtime. See [Using Containerizers](/1.14/deploying-services/containerizers/).
+1. Choose whether to use the Universal Container Runtime (UCR) or Docker Engine runtime. See [Using Containerizers](/mesosphere/dcos/1.14/deploying-services/containerizers/).
    -  To use the Universal Container Runtime (UCR), paste the following JSON into a file named `basic-3-mesos.json`:
 
       ```json
@@ -167,7 +167,7 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
       }
       ```
 
-1. Use the [Marathon API](/1.14/deploying-services/marathon-api/) to deploy the app `basic-3-docker`. Refer to [Authentication HTTP API Endpoint](/1.14/security/ent/iam-api/) to learn more about the API token required in the command below.
+1. Use the [Marathon API](/mesosphere/dcos/1.14/deploying-services/marathon-api/) to deploy the app `basic-3-docker`. Refer to [Authentication HTTP API Endpoint](/mesosphere/dcos/1.14/security/ent/iam-api/) to learn more about the API token required in the command below.
 
     ```sh
      curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X POST <master-IP>/service/marathon/v2/apps -d @basic-3-docker.json -H "Content-type: application/json"
@@ -177,9 +177,9 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
 1. Click `basic-3-docker` and then the task ID.
 1. Scroll down to the **Marathon Task Configuration** section and note the PORTS property.
 
-   ![container port](/1.14/img/container-port.png)
+   ![container port](/mesosphere/dcos/1.14/img/container-port.png)
 
    Figure 1. Container port
    
-1. Determine the [IP address of the public node](/1.14/administering-clusters/locate-public-agent/).
+1. Determine the [IP address of the public node](/mesosphere/dcos/1.14/administering-clusters/locate-public-agent/).
 1. Navigate to `<public-node-IP>:<port>` to see the contents of the Docker container's root directory.

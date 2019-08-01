@@ -13,8 +13,8 @@ Welcome to part 6 of the DC/OS 101 Tutorial.
 
 
 # Prerequisites
-* A [running DC/OS cluster](/1.12/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.12/tutorials/dcos-101/cli/).
-* [app2](/1.12/tutorials/dcos-101/app2/) deployed and running in your cluster.
+* A [running DC/OS cluster](/mesosphere/dcos/1.12/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/mesosphere/dcos/1.12/tutorials/dcos-101/cli/).
+* [app2](/mesosphere/dcos/1.12/tutorials/dcos-101/app2/) deployed and running in your cluster.
 
 
 # Objective
@@ -30,7 +30,7 @@ Private agent nodes are usually only accessible inside the cluster, while public
 
 By default, Marathon starts applications and services on private agent nodes, which cannot be accessed from the outside the cluster. To expose an app to the outside you usually use a load balancer running on one of the public nodes.
 
-You will revisit the topic of load balancing and the different choices for load balancers later in this tutorial, but for now, you will use [Marathon-LB](/1.12/tutorials/dcos-101/loadbalancing/) as the load balancer. Marathon-LB uses [HA-Proxy](http://www.haproxy.org/) on a public agent node to provide external access and load balancing for applications running internally in the cluster.
+You will revisit the topic of load balancing and the different choices for load balancers later in this tutorial, but for now, you will use [Marathon-LB](/mesosphere/dcos/1.12/tutorials/dcos-101/loadbalancing/) as the load balancer. Marathon-LB uses [HA-Proxy](http://www.haproxy.org/) on a public agent node to provide external access and load balancing for applications running internally in the cluster.
 
 1. Install Marathon-LB: 
   
@@ -51,7 +51,7 @@ You will revisit the topic of load balancing and the different choices for load 
         dcos task log app1
         ```
     1. Check `redis` directly:
-       *  [SSH](/1.12/administering-clusters/sshcluster/) into node where redis is running:
+       *  [SSH](/mesosphere/dcos/1.12/administering-clusters/sshcluster/) into node where redis is running:
 
            ```bash
            dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
@@ -81,4 +81,4 @@ You will revisit the topic of load balancing and the different choices for load 
 # Outcome
 Congratulations! You have used Marathon-LB to expose your application to the public and added a new key to Redis using the web frontend.
 
- In [the next section](/1.12/tutorials/dcos-101/resources/), you will learn how to monitor and understand your resource utilization, how resource limits are enforced, and how to debug resource management issues.
+ In [the next section](/mesosphere/dcos/1.12/tutorials/dcos-101/resources/), you will learn how to monitor and understand your resource utilization, how resource limits are enforced, and how to debug resource management issues.

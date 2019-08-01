@@ -14,7 +14,7 @@ You can set up secure HTTPS communication using a custom server certificate with
 
 # <a name="HAProxy"></a>Configuring HAProxy in front of Admin Router
 
-Use HAProxy to set up an HTTP proxy in front of the DC/OS [Admin Router](/1.14/overview/architecture/components/#admin-router). This can be useful if you want to present a custom server certificate to user agents connecting to the cluster via HTTPS. DC/OS does not currently support adding your own certificates directly into Admin Router.
+Use HAProxy to set up an HTTP proxy in front of the DC/OS [Admin Router](/mesosphere/dcos/1.14/overview/architecture/components/#admin-router). This can be useful if you want to present a custom server certificate to user agents connecting to the cluster via HTTPS. DC/OS does not currently support adding your own certificates directly into Admin Router.
 
 The following instructions provide a tested [HAProxy](http://www.haproxy.org/) configuration example that handles the named request/response rewriting. This example ensures that the communication between HAProxy and DC/OS Admin Router is TLS-encrypted.
 

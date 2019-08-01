@@ -19,7 +19,7 @@ menuWeight: 10
 
 2.  Click on  **Organization** in the left hand menu. From the **Users** screen, click the plus sign (**+**) in the upper right corner, and fill in the new user email address.
 
-![new DC/OS user](/1.14/img/1-11-add-user-to-cluster.png)
+![new DC/OS user](/mesosphere/dcos/1.14/img/1-11-add-user-to-cluster.png)
 
 Figure 1. Adding a new user
 
@@ -29,9 +29,9 @@ You can add external users to your DC/OS cluster from a terminal by using the `d
 
 **Prerequisites:**
 
-- DC/OS is [installed](/1.14/installing/)
+- DC/OS is [installed](/mesosphere/dcos/1.14/installing/)
 
-1.  [SSH](/1.14/administering-clusters/sshcluster/) to a master node and run this command, where `<email>` is the user's email:
+1.  [SSH](/mesosphere/dcos/1.14/administering-clusters/sshcluster/) to a master node and run this command, where `<email>` is the user's email:
 
     ```bash
     sudo -i dcos-shell /opt/mesosphere/bin/dcos_add_user.py <email>

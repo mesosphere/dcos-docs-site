@@ -18,8 +18,8 @@ This topic provides common usage examples for the Logging API.
 - [Bash](https://www.gnu.org/software/bash/)
 - [Curl](https://curl.haxx.se/)
 - [jq](https://stedolan.github.io/jq/)
-- [DC/OS](/1.10/installing/)
-- [DC/OS CLI](/1.10/cli/) must be installed, configured, and logged in.
+- [DC/OS](/mesosphere/dcos/1.10/installing/)
+- [DC/OS CLI](/mesosphere/dcos/1.10/cli/) must be installed, configured, and logged in.
 - Extract `DCOS_URL` and `DCOS_AUTH_TOKEN` from the DC/OS CLI:
 
     ```
@@ -63,7 +63,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/agen
 # Container Logs
 
 **Important:**
-The following example requires journald task logging, which by default is [disabled](/1.10/monitoring/logging/logging-api/#compatibility). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
+The following example requires journald task logging, which by default is [disabled](/mesosphere/dcos/1.10/monitoring/logging/logging-api/#compatibility). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
 
 The following code may be useful:
 

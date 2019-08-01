@@ -29,7 +29,7 @@ enterprise: false
 
 ## 如何将更多代理自动添加到群集？
 
-DC/OS 无法自动启动新节点以响应硬件的负载，除非云提供商自动扩展组已配置为备用主机并 `dcos_install.sh` 放置在待机节点上。这是一个复杂的过程，需要和云提供商 (AWS、GCE、Azure) 一起设立自动扩展组并在每个节点上放置安装文件。[此处](/cn/1.12/deploying-services/scale-service/) 提供概述。如需设立，请联系 Mesosphere 服务支持，获得更多指导。
+DC/OS 无法自动启动新节点以响应硬件的负载，除非云提供商自动扩展组已配置为备用主机并 `dcos_install.sh` 放置在待机节点上。这是一个复杂的过程，需要和云提供商 (AWS、GCE、Azure) 一起设立自动扩展组并在每个节点上放置安装文件。[此处](/mesosphere/dcos/cn/1.12/deploying-services/scale-service/) 提供概述。如需设立，请联系 Mesosphere 服务支持，获得更多指导。
 
 ## 服务发现的最佳实践是什么？
 
@@ -37,7 +37,7 @@ Marathon 中的 [服务发现][2] 可提供一些服务发现常见实施的综�
 
 ## 我的群集是否可以跨越不同云提供商？
 
-目前不支持。如需更多信息，请参阅 [本文档](/cn/1.12/installing/oss/high-availability/)。
+目前不支持。如需更多信息，请参阅 [本文档](/mesosphere/dcos/cn/1.12/installing/oss/high-availability/)。
 
 ## 如何将文件上传到 Spark 驱动器/执行器？
 
@@ -57,13 +57,13 @@ Marathon 中的 [服务发现][2] 可提供一些服务发现常见实施的综�
 
 DC/OS 通过使用动态生成的设置文件安装到您的环境。此文件通过使用在配置过程中设置的特定参数生成。此安装文件包含 Bash 安装脚本和 Docker 容器，其中载有部署自定义 DC/OS 构建所需的所有要素。
 
-如需更多信息，请参阅安装 [文档](/cn/1.12/installing/)。
+如需更多信息，请参阅安装 [文档](/mesosphere/dcos/cn/1.12/installing/)。
 
 ## 建议使用什么版本的内核、本地操作系统、Docker 引擎、联合加载？
 
 我们建议使用 CoreOS，搭配 Docker、文件系统和其他设置的正确版本和可信默认值。
 
-[1]: /cn/1.12/networking/load-balancing-vips/
-[2]: /cn/1.12/networking/
+[1]: /mesosphere/dcos/cn/1.12/networking/load-balancing-vips/
+[2]: /mesosphere/dcos/cn/1.12/networking/
 [4]: https://support.mesosphere.com/hc/en-us/articles/206474745-How-to-reserve-resources-for-certain-frameworks-in-Mesos-cluster-
-[5]: /cn/1.12/administering-clusters/convert-agent-type/
+[5]: /mesosphere/dcos/cn/1.12/administering-clusters/convert-agent-type/

@@ -11,7 +11,7 @@ enterprise: false
 
 日志记录 API 揭示节点、组件和容器（任务）日志。
 
-日志记录 API 由 [DC/OS 日志组件] 支持(/1.12/overview/architecture/components/#dcos-log)，后者在群集中的所有节点上运行。有关使用日志记录 API 的更多信息，请参阅 [日志记录](/1.12/monitoring/logging/)。关于使用示例，请参阅 [日志记录 API 示例](/1.12/monitoring/logging/logging-api-examples/)。
+日志记录 API 由 [DC/OS 日志组件] 支持(/1.12/overview/architecture/components/#dcos-log)，后者在群集中的所有节点上运行。有关使用日志记录 API 的更多信息，请参阅 [日志记录](/mesosphere/dcos/1.12/monitoring/logging/)。关于使用示例，请参阅 [日志记录 API 示例](/mesosphere/dcos/1.12/monitoring/logging/logging-api-examples/)。
 
 # 兼容性
 
@@ -60,7 +60,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_
 /system/v1/agent/{agent_id}/
 ```
 
-要确定群集的地址，请参阅 [群集访问](/1.12/api/access/)。
+要确定群集的地址，请参阅 [群集访问](/mesosphere/dcos/1.12/api/access/)。
 
 
 ## 发现端点
@@ -72,7 +72,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_
 
 # 认证
 
-所有日志记录 API 路由均需要认证才能使用。要验证 API 请求，请参阅 [获取认证令牌](/1.12/security/ent/iam-api/#/obtaining-an-authentication-token/) 和 [传递认证令牌](/1.12/security/ent/iam-api/#/passing-an-authentication-token/)。
+所有日志记录 API 路由均需要认证才能使用。要验证 API 请求，请参阅 [获取认证令牌](/mesosphere/dcos/1.12/security/ent/iam-api/#/obtaining-an-authentication-token/) 和 [传递认证令牌](/mesosphere/dcos/1.12/security/ent/iam-api/#/passing-an-authentication-token/)。
 
 日志记录 API 还需要通过以下权限授权：
 | 路径 | 权限 |
@@ -80,7 +80,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_
 | /system/v1/logs/v2/ | dcos:adminrouter:ops:system-logs |
 | /system/v1/agent/{agent_id}/logs/v2/ | dcos:adminrouter:system:agent |
 
-用户也可以通过 dcos:superuser 权限来到达所有路由。要为您的账户分配权限，请参阅 [权限参考](/1.12/security/ent/perms-reference/)。
+用户也可以通过 dcos:superuser 权限来到达所有路由。要为您的账户分配权限，请参阅 [权限参考](/mesosphere/dcos/1.12/security/ent/perms-reference/)。
 
 # 格式
 

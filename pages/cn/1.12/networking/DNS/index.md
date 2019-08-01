@@ -12,7 +12,7 @@ enterprise: false
 
 DC/OS 提供基于 DNS 的分布式容错性服务发现机制。
 
-DNS 由 DC/OS 中的两个不同组件 `mesos-dns` 和 `dcos-dns` 提供。这些组件支持两个顶级域 (TLD) 名，即 `.mesos` 和 `.directory`。请阅读 [建议](#Recommendation) 部分和 [Mesos-DNS](/cn/1.12/networking/DNS/mesos-dns/)，更好地了解这两个 TLD 的使用。
+DNS 由 DC/OS 中的两个不同组件 `mesos-dns` 和 `dcos-dns` 提供。这些组件支持两个顶级域 (TLD) 名，即 `.mesos` 和 `.directory`。请阅读 [建议](#Recommendation) 部分和 [Mesos-DNS](/mesosphere/dcos/cn/1.12/networking/DNS/mesos-dns/)，更好地了解这两个 TLD 的使用。
 
 每个 TLD 均由多个区域组成。每个 DC/OS 服务从这些不同区域获取多个 FQDN 条目。通过 Marathon 在 DC/OS 上启动的每个服务都以下列形式获得 FQDN，即 `<service-name>.mesos`。此外，在 DC/OS 上启动的**所有**运行服务都基于启动它的服务获得 FQDN，格式为 `<service-name>.<group-name>.<framework-name>.mesos`。
 
@@ -77,11 +77,11 @@ DNS 由 DC/OS 中的两个不同组件 `mesos-dns` 和 `dcos-dns` 提供。这�
 
 # SRV 记录
 
-有关 Mesos DNS SRV 记录的完整描述，请参阅 [SRV 记录](/cn/1.12/networking/DNS/mesos-dns/service-naming/#srv-records)。
+有关 Mesos DNS SRV 记录的完整描述，请参阅 [SRV 记录](/mesosphere/dcos/cn/1.12/networking/DNS/mesos-dns/service-naming/#srv-records)。
 
 - 对于由名为 `myservice` 的服务启动的名为 `mytask` 的任务，Mesos-DNS 生成一个 SRV 记录 `_mytask._protocol.myservice.mesos`，其中 `protocol` 为 `udp` 或 `tcp`。
 
-- 有关 Mesos-DNS 中命名任务和服务的更多信息，请参阅 [任务和服务命名约定](/cn/1.12/networking/DNS/mesos-dns/service-naming/#task-and-service-naming-conventions)。
+- 有关 Mesos-DNS 中命名任务和服务的更多信息，请参阅 [任务和服务命名约定](/mesosphere/dcos/cn/1.12/networking/DNS/mesos-dns/service-naming/#task-and-service-naming-conventions)。
 
 ### myapp.mygroup./_tcp.marathon.mesos:
 如果某个服务在应用定义中明确为其端口分配名称，则它会获得 FQDN `_<service-name>.<group-name>._<protocol>.<framework-name>.mesos`。

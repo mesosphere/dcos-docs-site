@@ -31,4 +31,4 @@ dcos experimental package add [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos experimental](/cn/1.11/cli/command-reference/dcos-experimental/)  | 管理正在开发并可能发生变化的命令。| 
+| [dcos experimental](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-experimental/)  | 管理正在开发并可能发生变化的命令。| 

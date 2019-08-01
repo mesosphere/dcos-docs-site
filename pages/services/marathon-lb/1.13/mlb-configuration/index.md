@@ -244,7 +244,7 @@ For example:
     }
 ```
 
-For more information about specifying a virtual host, see [Resolving virtual hosts](/services/marathon-lb/mlb-configuration/#virtual-hosts). For information about other configuration templates and app labels, see [Marathon-LB reference](/services/marathon-lb/mlb-reference/).
+For more information about specifying a virtual host, see [Resolving virtual hosts](/mesosphere/dcos/services/marathon-lb/mlb-configuration/#virtual-hosts). For information about other configuration templates and app labels, see [Marathon-LB reference](/mesosphere/dcos/services/marathon-lb/mlb-reference/).
 
 # Working with SSL certificates
 Marathon-LB supports secure socket layer (SSL) encryption and certificates. You can provide the path to your SSL certificate as a command line argument or in the frontend section of the load balancer configuration file using the `--ssl-certs` option. For example, if you are running the script directly, you might provide a command line similar to the following:

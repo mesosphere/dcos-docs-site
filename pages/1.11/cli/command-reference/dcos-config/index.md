@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos config` command allows you to manage the DC/OS configuration file created when you run [dcos cluster setup](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/). The configuration file is located in `~/.dcos/clusters/<cluster_id>/dcos.toml`. If you have not changed any configuration properties, you should see this output when you run `dcos config show`:
+The `dcos config` command allows you to manage the DC/OS configuration file created when you run [dcos cluster setup](/mesosphere/dcos/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/). The configuration file is located in `~/.dcos/clusters/<cluster_id>/dcos.toml`. If you have not changed any configuration properties, you should see this output when you run `dcos config show`:
 
     cluster.name <cluster_name>
     core.dcos_acs_token ********
@@ -39,4 +39,4 @@ dcos config
 
 The `dcos help config` command is the same as `dcos config --help`.
 
-For more information, see the [`dcos help`](/1.11/cli/command-reference/dcos-help/) command.
+For more information, see the [`dcos help`](/mesosphere/dcos/1.11/cli/command-reference/dcos-help/) command.

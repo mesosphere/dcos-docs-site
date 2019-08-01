@@ -36,9 +36,9 @@ dcos node log --leader
 dcos node log --mesos-id=<node-id>
 ```
 
-您可以从 [DC/OS Web 界面](/cn/1.11/gui/)的**Services > Services**选项卡，下载服务的所有日志文件。您也可以监控 `stdout`/`stderr`。
+您可以从 [DC/OS Web 界面](/mesosphere/dcos/cn/1.11/gui/)的**Services > Services**选项卡，下载服务的所有日志文件。您也可以监控 `stdout`/`stderr`。
 
-如需更多信息，请参阅“服务和任务日志”[快速入门指南](/cn/1.11/monitoring/logging/quickstart/)。
+如需更多信息，请参阅“服务和任务日志”[快速入门指南](/mesosphere/dcos/cn/1.11/monitoring/logging/quickstart/)。
 
 ## 系统日志
 
@@ -48,7 +48,7 @@ DC/OS 组件使用 `systemd-journald` 来存储其日志。要访问 DC/OS 核�
 journalctl -u "dcos-*" -b
 ```
 
-输入组件名，您可以查看特定 [组件](/cn/1.11/overview/architecture/components/) 的日志。例如，要访问 Admin Router 日志，可运行此命令：
+输入组件名，您可以查看特定 [组件](/mesosphere/dcos/cn/1.11/overview/architecture/components/) 的日志。例如，要访问 Admin Router 日志，可运行此命令：
 
 ```bash
 journalctl -u dcos-nginx -b
@@ -56,7 +56,7 @@ journalctl -u dcos-nginx -b
 
 您可以在 DC/OS Web 界面的**节点**选项卡上发现哪些组件不正常。
 
-![系统健康](/cn/1.11/img/ui-system-health-logging.png)
+![系统健康](/mesosphere/dcos/cn/1.11/img/ui-system-health-logging.png)
 
 图 1. 显示节点的系统健康状况日志
 
@@ -64,7 +64,7 @@ journalctl -u dcos-nginx -b
 
 流式传输来自集群中机器的日志并非始终可行。有时您需要已发生事件的历史记录，而这需要有存储和聚合日志的方法。这些主题描述了其中一些最常见的解决方案：
 
-- [使用 ELK 进行日志管理](/cn/1.11/monitoring/logging/aggregating/elk/)
-- [使用 Splunk 进行日志管理](/cn/1.11/monitoring/logging/aggregating/splunk/)
+- [使用 ELK 进行日志管理](/mesosphere/dcos/cn/1.11/monitoring/logging/aggregating/elk/)
+- [使用 Splunk 进行日志管理](/mesosphere/dcos/cn/1.11/monitoring/logging/aggregating/splunk/)
 
-[5]: /cn/1.11/administering-clusters/sshcluster/
+[5]: /mesosphere/dcos/cn/1.11/administering-clusters/sshcluster/

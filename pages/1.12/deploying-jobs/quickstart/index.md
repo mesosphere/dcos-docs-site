@@ -15,14 +15,14 @@ You can create and administer jobs for the DC/OS cluster in any of the following
 The DC/OS application programming interface (API) for job-related operations provides the underlying functionality that you can access through the DC/OS web-based administrative console and command-line interface (CLI). In most cases, therefore, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
 
 # Managing jobs with the DC/OS web-based interface
-You can manage the most common job-related activity interactively through the DC/OS web-based interface. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS web-based interface only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/1.12/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.12/deploying-jobs/quickstart/#jobs-api).
+You can manage the most common job-related activity interactively through the DC/OS web-based interface. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the web-based console. However, the DC/OS web-based interface only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the [`dcos job`](/mesosphere/dcos/1.12/cli/command-reference/dcos-job/) commands or the [Jobs API](/mesosphere/dcos/1.12/deploying-jobs/quickstart/#jobs-api).
 
 ## Add a job
 1. Navigate to the URL for the DC/OS web-based console in a web browser.
 
 1. Click **Jobs**, then click **Create a Job** to display the New Job settings.
 
-    ![Create JOB UI](/1.12/img/GUI-Jobs-New_Job_Modal-1_12.png)
+    ![Create JOB UI](/mesosphere/dcos/1.12/img/GUI-Jobs-New_Job_Modal-1_12.png)
 
     You can configure the job using the fields displayed or click **JSON mode** to edit the JSON directly.
 
@@ -52,14 +52,14 @@ You can manage the most common job-related activity interactively through the DC
 
     You can add multiple parameter names and corresponding values.
 
-1. Click **Labels** to specify a **Label Name** and **Label Value** you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. For more information about using labels, see [Labeling tasks and jobs](/1.12/tutorials/task-labels/).
+1. Click **Labels** to specify a **Label Name** and **Label Value** you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. For more information about using labels, see [Labeling tasks and jobs](/mesosphere/dcos/1.12/tutorials/task-labels/).
 
 1. Verify that you have added the new job by clicking **Jobs**.
 
-    ![Jobs List](/1.12/img/GUI-Job-List.png)
+    ![Jobs List](/mesosphere/dcos/1.12/img/GUI-Job-List.png)
 
 ## Add a job to a job group
-You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.12/deploying-jobs/job-groups/).
+You can add a job to a an existing job group or create a new job group when you create the job. Use dots in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. For more information about controlling access to jobs through job groups, see [Granting access to jobs](/mesosphere/dcos/1.12/deploying-jobs/job-groups/).
 
 ## Modify, view, or remove a job
 From the **Jobs** tab, click the name of your job and then the menu on the upper right to modify or delete it. While the job is running, you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.

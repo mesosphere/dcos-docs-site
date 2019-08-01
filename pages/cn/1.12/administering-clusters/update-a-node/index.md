@@ -15,8 +15,8 @@ enterprise: false
 
 ### 先决条件：
 
-* [已安装和配置 SSH](/cn/1.12/administering-clusters/sshcluster/)。这是通过手动终止代理来删除节点所需的。
-* 可访问 [Admin Router 权限](/cn/1.12/overview/architecture/components/#admin-router)。
+* [已安装和配置 SSH](/mesosphere/dcos/cn/1.12/administering-clusters/sshcluster/)。这是通过手动终止代理来删除节点所需的。
+* 可访问 [Admin Router 权限](/mesosphere/dcos/cn/1.12/overview/architecture/components/#admin-router)。
 
 # 使用维护窗口
 使用维护窗口，您可以从群集外部同时排放多个节点。无需 SSH 访问。
@@ -61,7 +61,7 @@ enterprise: false
 # 手动终止代理
 使用终止信号 SIGUSR1 排空节点，这易于与可在节点上平行地执行任务的自动化工具集成，例如，Ansible、Chef 和 Puppet。
 
-1. 在代理节点上打开安全外壳 [SSH](/cn/1.12/administering-clusters/sshcluster/)。
+1. 在代理节点上打开安全外壳 [SSH](/mesosphere/dcos/cn/1.12/administering-clusters/sshcluster/)。
 
 1. 运行相应命令终止代理。
  -  **专用代理** 运行：

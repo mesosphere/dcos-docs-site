@@ -38,4 +38,4 @@ dcos task ls <task> <path> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/1.9/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |  
+| [dcos task](/mesosphere/dcos/1.9/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |  

@@ -12,7 +12,7 @@ model: /services/spark/data.yml
 
 You can run {{ model.techShortName }} commands interactively in the {{ model.techShortName }} shell. The {{ model.techShortName }} shell is available in Scala, Python, and R.
 
-1. Launch a long-running interactive `bash` session using [`dcos task exec`](/1.12/cli/command-reference/dcos-task/dcos-task-exec/).
+1. Launch a long-running interactive `bash` session using [`dcos task exec`](/mesosphere/dcos/1.12/cli/command-reference/dcos-task/dcos-task-exec/).
 
 1. From your interactive `bash` session, pull and run a {{ model.techShortName }} Docker image.
 

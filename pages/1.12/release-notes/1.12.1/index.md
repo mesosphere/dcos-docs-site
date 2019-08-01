@@ -125,7 +125,7 @@ The issues that have been fixed in DC/OS 1.12.1 are grouped by feature, function
 - DCOS-21998, DCOS-44367 - You can install DC/OS cluster nodes with custom RSA-based CA certificates that are signed using an Elastic Cloud (EC) based private key. Previously, a custom CA certificate signed using a trusted EC-based private key would generate a transport security layer (TLS) security alert.
 
 ## Upgrade
-- If you have installed the optional DC/OS Storage Service package, then upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](/services/storage/latest/upgrades/). You must upgrade DC/OS storage **before** you upgrade cluster nodes to 1.12.1 to prevent Mesos agents from crashing after the upgrade.
+- If you have installed the optional DC/OS Storage Service package, then upgrading from 1.12.0 to 1.12.1 requires you to first follow the storage upgrade instructions provided in [Manually upgrade the DSS package to 0.5.x from 0.4.x](/mesosphere/dcos/services/storage/latest/upgrades/). You must upgrade DC/OS storage **before** you upgrade cluster nodes to 1.12.1 to prevent Mesos agents from crashing after the upgrade.
 
 # Known Issues and Limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more issue tracking identifiers.
@@ -150,10 +150,10 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 This section provides an overview of new features and capabilities introduced in DC/OS 1.12.
 
 ### Mesosphere Kubernetes Engine
-- High Density Multi-Kubernetes (HDMK) allows operators to take advantage of intelligent resource pooling when running multiple Kubernetes clusters on DC/OS. Compared with other Kubernetes distributions that run a single Kubernetes node per virtual machine, Mesosphere HDMK uses its intelligent resource pooling to pack multiple Kubernetes nodes onto the same server for bare metal, virtual machine, and public cloud instances, driving significant cost savings and resource efficiencies. [Learn more about Kubernetes on DC/OS](/services/kubernetes/2.0.0-1.12.1/).
+- High Density Multi-Kubernetes (HDMK) allows operators to take advantage of intelligent resource pooling when running multiple Kubernetes clusters on DC/OS. Compared with other Kubernetes distributions that run a single Kubernetes node per virtual machine, Mesosphere HDMK uses its intelligent resource pooling to pack multiple Kubernetes nodes onto the same server for bare metal, virtual machine, and public cloud instances, driving significant cost savings and resource efficiencies. [Learn more about Kubernetes on DC/OS](/mesosphere/dcos/services/kubernetes/2.0.0-1.12.1/).
 
 ### Mesosphere Jupyter Service (MJS)
-- Delivered secure, [cloud-native Jupyter](/services/beta-jupyter/) Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
+- Delivered secure, [cloud-native Jupyter](/mesosphere/dcos/services/beta-jupyter/) Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
 - Secured connectivity to data lakes and data sets on S3 and (Kerberized) HDFS.
 - GPU-enabled Spark and distributed TensorFlow.
 - OpenID connect authentication and authorization with support for Windows Integrated Authentication (WIA) and Active Directory Federation Services (ADFS).
@@ -168,7 +168,7 @@ This section provides an overview of new features and capabilities introduced in
 [enterprise]
 ### Private Package Registry
 [/enterprise]
-- Enabled [on-premise package distribution and management](/1.12/administering-clusters/repo/package-registry/).
+- Enabled [on-premise package distribution and management](/mesosphere/dcos/1.12/administering-clusters/repo/package-registry/).
 - Enabled air-gapped Virtual Private Cloud package management.
 - Simplifies package artifact management.
 - Package-specific controls for adding/removing/updating packages within a cluster.
@@ -179,14 +179,14 @@ This section provides an overview of new features and capabilities introduced in
 - Introducing a unified Terraform-based open source tool for provisioning, deploying, installing, upgrading, and decommissioning DC/OS on AWS, GCP, and Azure.
 - Intuitive, streamlined installation with a quick start process - Spin up a DC/OS cluster with a few easy steps in 10-15 minutes.
 - Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
-- Restructured [Mesosphere installation documentation](/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
-- Expanded DC/OS upgrade paths enable Mesosphere to skip specific [upgrade paths](/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move) and to skip upgrade paths between supported major to major versions of DC/OS (for example, enabling you to upgrade from 1.11.7 to 1.12.1 in one move).
+- Restructured [Mesosphere installation documentation](/mesosphere/dcos/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
+- Expanded DC/OS upgrade paths enable Mesosphere to skip specific [upgrade paths](/mesosphere/dcos/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move) and to skip upgrade paths between supported major to major versions of DC/OS (for example, enabling you to upgrade from 1.11.7 to 1.12.1 in one move).
 
 [enterprise]
 ### LDAP and Networking Enhancements
 [/enterprise]
 - Anonymous LDAP bind complies with standardized Enterprise LDAP integration pattern without a dedicated DC/OS integration LDAP user.
-= Dynamic LDAP synchronization automatically synchronize [LDAP user account groups](/1.12/security/ent/users-groups/) without manual synchronization of [LDAP directory](/1.12/security/ent/ldap/) with accounts imported into DC/OS.
+= Dynamic LDAP synchronization automatically synchronize [LDAP user account groups](/mesosphere/dcos/1.12/security/ent/users-groups/) without manual synchronization of [LDAP directory](/mesosphere/dcos/1.12/security/ent/ldap/) with accounts imported into DC/OS.
 - Networking component enhancements with 150+ bug fixes with limited logging for visibility.
 - Improved DNS convergence time (sub-sec) performance.
 - Configurable MTU for Overlay networks.

@@ -73,28 +73,28 @@ You can try out the new features and updated data services. Provide feedback thr
 ### Networking
 - You can configure Spartan to delegate a particular domain (for example, `\*.foo.company.com`) to a particular upstream.
 
-- DC/OS supports any type of container network interface (CNI) network plugin. [View the documentation](/1.10/networking/virtual-networks/cni-plugins/).
+- DC/OS supports any type of container network interface (CNI) network plugin. [View the documentation](/mesosphere/dcos/1.10/networking/virtual-networks/cni-plugins/).
 
-- You can use Edge-LB load balancer to balance Mesos tasks. The Edge-LB load balancer does not support strict security mode. [View the documentation](/services/edge-lb/latest/).[enterprise type="inline" size="small" /]
+- You can use Edge-LB load balancer to balance Mesos tasks. The Edge-LB load balancer does not support strict security mode. [View the documentation](/mesosphere/dcos/services/edge-lb/latest/).[enterprise type="inline" size="small" /]
 
 [enterprise type="block" size="large"]
 ### Security
 [/ enterprise]
 
 - Custom CA certificate support.
-  Installation time [configuration options](/1.10/security/ent/tls-ssl/ca-custom/) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates. The custom CA certificate can be an intermediate CA certificate so that that all certificates used within the DC/OS cluster derive from your organization’s X.509 certification hierarchy.
+  Installation time [configuration options](/mesosphere/dcos/1.10/security/ent/tls-ssl/ca-custom/) have been added that allow you to configure DC/OS Enterprise to use a custom CA certificate and corresponding private key, which DC/OS then uses for issuing all component certificates. The custom CA certificate can be an intermediate CA certificate so that that all certificates used within the DC/OS cluster derive from your organization’s X.509 certification hierarchy.
 
 - Enhanced secrets management with file-based secrets.
-  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/1.10/security/ent/secrets/use-secrets/).
+  You can now make a secret available to your service in the sandbox of the task. [View the documentation](/mesosphere/dcos/1.10/security/ent/secrets/use-secrets/).
 
 - Vastly improved IAM scalability and performance characteristics.
   The new system removes hard limits on the number of users, groups, and permissions that can be stored, and shows stable read and write performance as the dataset grows.
 
 - Docker `pullConfig` parameter.
-  Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise).
+  Use this parameter in your service definition to authenticate to a private Docker registry. [View the documentation](/mesosphere/dcos/1.10/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise).
 
  - Enterprise CLI permissions management commands.
-   It is now possible to manage permissions to protect resources using the [DC/OS Enterprise CLI](/1.10/security/ent/perms-management/).
+   It is now possible to manage permissions to protect resources using the [DC/OS Enterprise CLI](/mesosphere/dcos/1.10/security/ent/perms-management/).
 
 ### Kubernetes on DC/OS
 
@@ -108,18 +108,18 @@ You can try out the new features and updated data services. Provide feedback thr
 
 The following updated data services packages are compatible with DC/OS 1.10.
 
-- [Cassandra](/services/cassandra/)
-- [Elastic](/services/elastic/)
-- [HDFS](/services/hdfs/)
-- [Kafka](/services/kafka/)
-- [Apache Spark](/services/spark/)
+- [Cassandra](/mesosphere/dcos/services/cassandra/)
+- [Elastic](/mesosphere/dcos/services/elastic/)
+- [HDFS](/mesosphere/dcos/services/hdfs/)
+- [Kafka](/mesosphere/dcos/services/kafka/)
+- [Apache Spark](/mesosphere/dcos/services/spark/)
 
 For more information, see the documentation or release notes for the specific data services package in which you are interested.
 
 ### Platform
 - Node and cluster health checks.
-  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/1.10/installing/production/deploying-dcos/node-cluster-health-check/).
-- Enhanced upgrades with [backup and restore](/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks. [enterprise type="inline" size="small" /]
+  Write your own custom health checks or use the predefined checks to access and use information about your cluster, including available ports, Mesos agent status, and IP detect script validation. [View the documentation](/mesosphere/dcos/1.10/installing/production/deploying-dcos/node-cluster-health-check/).
+- Enhanced upgrades with [backup and restore](/mesosphere/dcos/1.10/administering-clusters/backup-and-restore/), and pre/post flight checks. [enterprise type="inline" size="small" /]
 - Universal Container Runtime (UCR).
   Adds port mapping support for containers running on the CNI network. Port mapping support allows UCR to have a default bridge network, similar to Docker's default bridge network. This gives UCR feature parity with Docker Engine enabling use of Mesos Runtime as the default container runtime.
 - Scale and performance limits.
@@ -127,7 +127,7 @@ For more information, see the documentation or release notes for the specific da
 ### CLI
 
 - DC/OS 1.10 requires DC/OS CLI 0.5.x.
-- DC/OS CLI 0.5.x adds [multi-cluster support](/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/1.10/cli/command-reference/dcos-cluster) commands. Multi-cluster support has a number of consequences:
+- DC/OS CLI 0.5.x adds [multi-cluster support](/mesosphere/dcos/1.10/cli/multi-cluster-cli/) with [`dcos cluster`](/mesosphere/dcos/1.10/cli/command-reference/dcos-cluster) commands. Multi-cluster support has a number of consequences:
 
    - DC/OS CLI 0.4.x has a single configuration file, stored by default in `~/.dcos/dcos.toml`. DC/OS CLI 0.5.x has a configuration file for **each connected cluster**. Each cluster configuration file is stored by default in `~/.dcos/clusters/<cluster_id>/dcos.toml`.
    - DC/OS CLI 0.5.x introduces the `dcos cluster setup` command to configure a connection to a cluster and log into the cluster.
@@ -168,7 +168,7 @@ The GUI sidebar tabs have been updated to offer a more intuitive experience.
 
 - REX-Ray configuration change.
 
-  DC/OS 1.10 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/1.10/installing/production/advanced-configuration/configuration-reference/) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS.
+  DC/OS 1.10 upgrades REX-Ray from v0.3.3 to v0.9.0 and the REX-Ray configuration format has changed. If you have specified custom REX-Ray configuration in the [`rexray_config`](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/) parameter of your `config.yaml` file, either update the configuration to the new format or remove `rexray_config` and set the parameter to `rexray_config_preset: aws`, which configures the `rexray_config` parameter to the default REX-Ray configuration bundled with DC/OS. This option has the benefit of automatically upgrading your cluster's REX-Ray configuration when you upgrade to a newer version of DC/OS.
   **Note:** The `rexray_config_preset: aws` option is only relevant to DC/OS clusters running on AWS.
 
 - New flow to change the `dcos_url` and log in.

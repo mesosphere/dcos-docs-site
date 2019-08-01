@@ -12,8 +12,8 @@ Welcome to part 3 of the DC/OS 101 Tutorial
 
 
 # Prerequisites
-* A [running DC/OS cluster](/1.12/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.12/tutorials/dcos-101/cli/).
-* [Redis](/1.12/tutorials/dcos-101/redis-package/) deployed and running in your cluster.
+* A [running DC/OS cluster](/mesosphere/dcos/1.12/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/mesosphere/dcos/1.12/tutorials/dcos-101/cli/).
+* [Redis](/mesosphere/dcos/1.12/tutorials/dcos-101/redis-package/) deployed and running in your cluster.
 
 
 # Objective
@@ -80,4 +80,4 @@ There are multiple options to deploy and maintain apps on Marathon besides the D
 * DC/OS CLI: You have just used this option to deploy your app. To get more information on the marathon CLI use `dcos marathon app --help`.
 * HTTP endpoints: Marathon also comes with an extensive [REST API](http://mesosphere.github.io/marathon/api-console/index.html)
 
-In [the next section](/1.12/tutorials/dcos-101/service-discovery/), you will learn about DC/OS service discovery by exploring the different options available for apps in DC/OS.
+In [the next section](/mesosphere/dcos/1.12/tutorials/dcos-101/service-discovery/), you will learn about DC/OS service discovery by exploring the different options available for apps in DC/OS.

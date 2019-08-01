@@ -20,7 +20,7 @@ DC/OS 提供东西向第 4 层负载均衡器 (Minuteman)，可实现多层微�
 - 尊重运行状况检查。
 - 自动为服务 FQDN 分配虚拟 IP。
 
-您可以通过在应用定义中分配 [VIP](/cn/1.12/networking/load-balancing-vips/virtual-ip-addresses/) 来使用第 4 层负载均衡器)。创建一个任务或一组任务后，使用 VIP，它们将自动可用于群集中的所有节点，包括管理节点。
+您可以通过在应用定义中分配 [VIP](/mesosphere/dcos/cn/1.12/networking/load-balancing-vips/virtual-ip-addresses/) 来使用第 4 层负载均衡器)。创建一个任务或一组任务后，使用 VIP，它们将自动可用于群集中的所有节点，包括管理节点。
 
 启动一组任务时，DC/OS 将它们分配给群集中的一组节点。在每个群集代理节点上运行的 Minuteman 实例对负载均衡决策进行协调。每个代理节点上的 Minuteman 对 Linux 内核中的 IPVS 模块进行编程，其中所有任务的条目与给定服务相关联。这使得 Linux 内核可以按接近线路速率的速度进行负载均衡决策。Minuteman 跟踪这些任务的可用性和可达到性，并保持 IPVS 数据库与所有运行良好的后端均处于最新状态，意味着 Linux 内核可为每个进行负载均衡的请求选择实时后端。
 
@@ -29,13 +29,13 @@ DC/OS 提供东西向第 4 层负载均衡器 (Minuteman)，可实现多层微�
 - 不要用防火墙保护节点之间的通信（允许所有 TCP/UDP）。
 - 请勿更改 `ip_local_port_range`。
 
-- 必须使用支持的 [操作系统](/cn/1.12/installing/oss/custom/system-requirements/)。
+- 必须使用支持的 [操作系统](/mesosphere/dcos/cn/1.12/installing/oss/custom/system-requirements/)。
 
 #### 持久连接
 保持长时间运行的持久连接，否则您可以快速填充 TCP 套接字表。Linux 系统上的默认本地端口范围允许从 32768 到 61000 的源连接。这使得可以在给定源 IP 和目标地址和端口对之间建立 28232 连接。TCP 连接必须在回收前经历时间等待状态。Linux 内核的默认 TCP 时间等待期为 120 秒。如果没有持久连接，您将只能通过每秒 235 个新连接来耗尽连接表。
 
 #### 运行状况检查
-使用 Mesos 运行状况检查。Mesos 运行状况检查显示在负载均衡层。Marathon 仅将**命令** [运行状况检查](/cn/1.12/deploying-services/creating-services/health-checks/) 转换为 Mesos 运行状况检查。您可以通过以下类似命令来模拟 HTTP 运行状况检查：
+使用 Mesos 运行状况检查。Mesos 运行状况检查显示在负载均衡层。Marathon 仅将**命令** [运行状况检查](/mesosphere/dcos/cn/1.12/deploying-services/creating-services/health-checks/) 转换为 Mesos 运行状况检查。您可以通过以下类似命令来模拟 HTTP 运行状况检查：
 
  ```bash
  test "$(curl -4 -w '%{http_code}' -s http://localhost:${PORT0}/|cut -f1 -d" ")" == 200
@@ -55,5 +55,5 @@ DC/OS 提供东西向第 4 层负载均衡器 (Minuteman)，可实现多层微�
 
 ## 后续步骤
 
-- [为应用程序分配 VIP](/cn/1.12/networking/load-balancing-vips/virtual-ip-addresses/)
+- [为应用程序分配 VIP](/mesosphere/dcos/cn/1.12/networking/load-balancing-vips/virtual-ip-addresses/)
 - [了解实现详情](https://github.com/dcos/minuteman)

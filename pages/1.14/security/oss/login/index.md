@@ -12,11 +12,11 @@ model: /1.14/data.yml
 
 # User login
 
-With DC/OS, login is the process of exchanging user credentials for a [DC/OS Authentication token](/1.14/security/oss/authentication/authentication-token/).
+With DC/OS, login is the process of exchanging user credentials for a [DC/OS Authentication token](/mesosphere/dcos/1.14/security/oss/authentication/authentication-token/).
 
 Users must obtain a DC/OS Authentication to use a DC/OS cluster. In DC/OS the lifetime of an Authentication token is limited to five days. Once the Authentication token expires, the user must log in again.
 
-DC/OS handles multiple user types. User accounts can be managed via the [IAM API](/1.14/security/oss/iam-api/); see [User Management](/1.14/security/oss/user-management/).
+DC/OS handles multiple user types. User accounts can be managed via the [IAM API](/mesosphere/dcos/1.14/security/oss/iam-api/); see [User Management](/mesosphere/dcos/1.14/security/oss/user-management/).
 
 Different login methods exist for different user types, but each one yields a DC/OS authentication token:
 
@@ -26,6 +26,6 @@ Different login methods exist for different user types, but each one yields a DC
 
 # User logout
 
-Users cannot be actively logged out of DC/OS. As long as an issued DC/OS Authentication token exists and is valid, the user that it was issued for can operate the DC/OS cluster. However, a user can decide to delete any valid DC/OS Authentication token in their possession. The DC/OS CLI [auth logout](/1.14/cli/command-reference/dcos-auth/dcos-auth-logout/) command does exactly that.
+Users cannot be actively logged out of DC/OS. As long as an issued DC/OS Authentication token exists and is valid, the user that it was issued for can operate the DC/OS cluster. However, a user can decide to delete any valid DC/OS Authentication token in their possession. The DC/OS CLI [auth logout](/mesosphere/dcos/1.14/cli/command-reference/dcos-auth/dcos-auth-logout/) command does exactly that.
 
 <p class="message--note"><strong>NOTE: </strong>There is no way to revoke access to a DC/OS cluster other than to wait until the authentication token expires.</p>

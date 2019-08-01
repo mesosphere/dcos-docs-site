@@ -10,18 +10,18 @@ excerpt: 升级 DC/OS 群集
 
 <p class="message--important"><strong>重要信息：</strong>只有更改您的 DC/OS 安装的主要或次要版本时，才需要升级。示例：1.10 --> 1.11</p>
 
-- 要更新到较新的维护版本（例如 1.11.6 到 1.11.8），请参阅 [修补](/cn/1.11/installing/production/patching/) 的说明。
-- 要修改群集配置，请参阅 [修补](/cn/1.11/installing/production/patching/) 的说明。
-- `disabled` 安全模式已从 DC/OS Enterprise 1.12 中删除。要将 `disabled` 模式 1.11 群集升级到 1.12，首先 [将 1.11 群集从禁用模式修补到宽容模式](/cn/1.11/installing/production/patching/#patching-dcos-111-in-permissive-mode)，将其当作一个单独的步骤，然后再从 1.11 升级到 1.12。[enterprise type="inline" size="small" /]
+- 要更新到较新的维护版本（例如 1.11.6 到 1.11.8），请参阅 [修补](/mesosphere/dcos/cn/1.11/installing/production/patching/) 的说明。
+- 要修改群集配置，请参阅 [修补](/mesosphere/dcos/cn/1.11/installing/production/patching/) 的说明。
+- `disabled` 安全模式已从 DC/OS Enterprise 1.12 中删除。要将 `disabled` 模式 1.11 群集升级到 1.12，首先 [将 1.11 群集从禁用模式修补到宽容模式](/mesosphere/dcos/cn/1.11/installing/production/patching/#patching-dcos-111-in-permissive-mode)，将其当作一个单独的步骤，然后再从 1.11 升级到 1.12。[enterprise type="inline" size="small" /]
 
 如果在支持的操作系统上执行升级且所有前提条件均满足，则升级 **应该** 维持在群集上运行任务的状态。
 
 ## 重要指南
 
-- 生产安装方法是 DC/OS 的唯一建议升级路径。建议您熟悉 [DC/OS 部署指南](/cn/1.11/installing/production/deploying-dcos/) 后再继续操作。
-- 在升级 DC/OS 之前，请先查看 [版本注释](/cn/1.11/release-notes/)。
+- 生产安装方法是 DC/OS 的唯一建议升级路径。建议您熟悉 [DC/OS 部署指南](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/) 后再继续操作。
+- 在升级 DC/OS 之前，请先查看 [版本注释](/mesosphere/dcos/cn/1.11/release-notes/)。
 - 由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已升级到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，然后在 DC/OS 1.11.3 发布之前不要添加新节点。您可以在我们最新重要的 [产品咨询 中找到更多信息和更详细的补救流程](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302)。[enterprise type="inline" size="small" /]
-- `config.yaml` 文件中有几个必须在升级前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否在 `config.yaml` 文件中添加。您可以在 [此处](/cn/1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file) 查看示例文件。[enterprise type="inline" size="small" /]
+- `config.yaml` 文件中有几个必须在升级前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否在 `config.yaml` 文件中添加。您可以在 [此处](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file) 查看示例文件。[enterprise type="inline" size="small" /]
 - 如果 IPv6 在内核中被禁用，则必须在 `config.yaml` 文件中禁用 IPv6。
 - DC/OS 企业版许可证密钥必须驻留在 `genconf/license.txt` 文件中。[enterprise type="inline" size="small" /]
 - 直到所有管理节点都升级到位，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。
@@ -161,7 +161,7 @@ excerpt: 升级 DC/OS 群集
 
 # 修改 DC/OS 配置 [enterprise type="inline" size="small" /]
 
-_不能_ 在升级到新版本的同时更改群集配置。必须通过对已安装版本的修补进行群集配置更改。例如，您无法同时将群集从 1.10 升级到 1.11 并添加更多公共代理节点。您可以添加可修补到 1.10 的更多公共代理节点，然后升级到 1.11。或者，您可以升级到 1.11，然后在升级后通过 [修补 1.11](/cn/1.11/installing/production/patching/) 来添加更多公共代理节点。
+_不能_ 在升级到新版本的同时更改群集配置。必须通过对已安装版本的修补进行群集配置更改。例如，您无法同时将群集从 1.10 升级到 1.11 并添加更多公共代理节点。您可以添加可修补到 1.10 的更多公共代理节点，然后升级到 1.11。或者，您可以升级到 1.11，然后在升级后通过 [修补 1.11](/mesosphere/dcos/cn/1.11/installing/production/patching/) 来添加更多公共代理节点。
 
 # 说明
 必须执行这些步骤才能进行版本升级和群集配置更改。
@@ -173,19 +173,19 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
 - 出于 Mesos 兼容性原因，我们建议将任何运行Marathon-on-Marathon 实例升级至 Marathon 版本1.3.5，然后进行此 DC/OS 升级。
 - 您必须有权访问与之前 DC/OS 版本一起使用的配置文件的副本：`config.yaml` 和 `ip-detect`。
 - 您必须使用 systemd 218 或更新版本才能维持任务状态。
-- 所有主机（管理和代理节点）必须能够与所有其他主机通信，如 [网络安全](/cn/1.11/administering-clusters/securing-your-cluster/#network-security) 所述。
+- 所有主机（管理和代理节点）必须能够与所有其他主机通信，如 [网络安全](/mesosphere/dcos/cn/1.11/administering-clusters/securing-your-cluster/#network-security) 所述。
 - 在 CentOS 或 RedHat 中，使用此命令安装 IP 集（在某些 IP 检测脚本中使用）：`sudo yum install -y ipset`
 - 您必须熟悉使用 `systemctl` 和 `journalctl` 命令行工具，以查看和监控服务状态。故障排除说明可在本 [文档](#故障排除) 结尾部分找到。
 - 您必须熟悉 [DC/OS 安装指南][安装]。
-- 升级之前抓取 [ZooKeeper 的快照](/cn/1.11/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano)。Marathon 支持回滚，但不支持降级。
-- 升级之前 [对 IAM 数据库进行快照](/cn/1.11/installing/ent/faq/#q-how-do-i-back-up-the-iam-database)。[enterprise type="inline" size="small" /]
+- 升级之前抓取 [ZooKeeper 的快照](/mesosphere/dcos/cn/1.11/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano)。Marathon 支持回滚，但不支持降级。
+- 升级之前 [对 IAM 数据库进行快照](/mesosphere/dcos/cn/1.11/installing/ent/faq/#q-how-do-i-back-up-the-iam-database)。[enterprise type="inline" size="small" /]
 - 确保在开始升级之前， Marathon 事件订阅者已被禁用。完成升级后，保持其禁用状态，因为此功能现已被弃用。
 
 <p class="message--note"><strong>注意：</strong> Marathon 事件订阅者默认被禁用，请检查行 <code>--event_subscriber "http_callback"</code> 是否已添加到管理节点上的 <code>sudo vi /opt/mesosphere/bin/marathon.sh</code>。这种情况下，您需要移除该行，以禁用事件订阅者。 [enterprise type="inline" size="small" /] </p>
 
 - 确认在在开始升级前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
-- [备份您的群集](/cn/1.11/administering-clusters/backup-and-restore/)。[enterprise type="inline" size="small" /]
-- 可选：您可以将自定义 [节点和群集健康检查](/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/) 添加到 `config.yaml`。
+- [备份您的群集](/mesosphere/dcos/cn/1.11/administering-clusters/backup-and-restore/)。[enterprise type="inline" size="small" /]
+- 可选：您可以将自定义 [节点和群集健康检查](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/) 添加到 `config.yaml`。
 - 确认所有管理节点都处于运行良好状态：
  - 检查 Exhibitor UI 以确认所有管理节点已成功加入 quorum（状态指示灯将显示绿色）。Exhibitor UI 可在 `http://<dcos_master>:8181/` 获得。
  - 验证每个管理节点的 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 具有值为 `1` 的 `registrar/log/recovered`。
@@ -203,7 +203,7 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
 1. 将旧的 `config.yaml` 合并为新的 `config.yaml` 格式。大多数情况下，区别会很小。
 
     * 在升级期间，您无法更改 `exhibitor_zk_backend` 设置。
-    * `config.yaml` 的语法可能与早期版本不同。有关当前 `config.yaml` 语法和参数的详细说明，请参阅 [文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
+    * `config.yaml` 的语法可能与早期版本不同。有关当前 `config.yaml` 语法和参数的详细说明，请参阅 [文档](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
 1. 更新 `config.yaml` 的格式后，比较旧的 `config.yaml` 和新的 `config.yaml`。验证路径或配置没有差异。升级时更改这些会导致灾难性群集失效。
 1. 根据需要修改 `ip-detect` 文件。
 1. 构建安装工具包。
@@ -214,7 +214,7 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
             dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
             ```
     3. 上一步骤的命令将在其输出的最后一行产生 URL，前缀为 `Node upgrade script URL:`。记下此 URL 以供后续使用。它在本文档中被称为“节点升级脚本 URL”。
-    4. 运行 [nginx](/cn/1.11/installing/ent/custom/advanced/) 容器以服务安装文件。
+    4. 运行 [nginx](/mesosphere/dcos/cn/1.11/installing/ent/custom/advanced/) 容器以服务安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 以完成安装。
 
@@ -225,7 +225,7 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
 1. 复制并更新 DC/OS 1.10 `config.yaml` 和 `ip-detect` 文件到 bootstrap 节点上新的干净文件夹。
 
     * 在升级期间，您无法更改 `exhibitor_zk_backend` 设置。
-    * DC/OS 1.11 `config.yaml`的语法不同于先前版本。请参阅 [文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/) 以获取最新信息。
+    * DC/OS 1.11 `config.yaml`的语法不同于先前版本。请参阅 [文档](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/) 以获取最新信息。
 
 1. 更新 `config.yaml` 的格式后，比较旧的 `config.yaml` 和新的 `config.yaml`。验证路径或配置没有差异。升级时更改这些会导致灾难性群集失效。
 
@@ -237,7 +237,7 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
             dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
             ```
     1. 上一步骤的命令将在其输出的最后一行产生 URL，前缀为 `Node upgrade script URL:`。记下此 URL 以供后续使用。它在本文档中被称为“节点升级脚本 URL”。
-    1. 运行 [nginx](/cn/1.11/installing/ent/custom/advanced/) 容器以服务安装文件。
+    1. 运行 [nginx](/mesosphere/dcos/cn/1.11/installing/ent/custom/advanced/) 容器以服务安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 以完成安装。
 
@@ -266,7 +266,7 @@ _不能_ 在升级到新版本的同时更改群集配置。必须通过对已�
     1. 验证 `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` 具有值为 `1` 的 `registrar/log/recovered`。
 
         <p class="message--note"><strong>注意：</strong> 如果要从宽容模式升级到严格模式，此 URL 将为 <code>curl https://...</code>，并且需要有 JWT 才能访问。[enterprise type="inline" size="small" /]</p>
-    1. 验证 `/opt/mesosphere/bin/mesos-master --version` 表示升级后的管理节点正在运行 [发行说明](/cn/1.11/release-notes/) 中指定的 Mesos 版本，例如 `1.5.1`。
+    1. 验证 `/opt/mesosphere/bin/mesos-master --version` 表示升级后的管理节点正在运行 [发行说明](/mesosphere/dcos/cn/1.11/release-notes/) 中指定的 Mesos 版本，例如 `1.5.1`。
  1. 验证副本不足范围的数量是否随着 IAM 数据库被复制到新管理节点而已经降至零。这可以通过运行以下命令并确认右侧的最后一列是否只显示零来完成。[enterprise type="inline" size="small" /]
     ```bash
     sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
@@ -323,7 +323,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-如果您的升级因为 [自定义节点或群集检查 而失败](/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/)，运行以下命令可了解更多详细信息：
+如果您的升级因为 [自定义节点或群集检查 而失败](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/)，运行以下命令可了解更多详细信息：
 ```bash
 dcos-diagnostics check node-poststart
 dcos-diagnostics check cluster

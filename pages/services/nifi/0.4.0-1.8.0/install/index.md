@@ -16,8 +16,8 @@ The default DC/OS {{model.techName }} service installation provides reasonable d
 
 ## Prerequisites
 
-- If you are using DC/OS Enterprise, you may [need to provision a service account](/latest/security/ent/service-auth/custom-service-auth/) before installing DC/OS {{model.techName }} Service. Only someone with `superuser` permission can create the service account.
-  - `strict` [security mode](/latest/security/ent/service-auth/custom-service-auth/) requires a service account.
+- If you are using DC/OS Enterprise, you may [need to provision a service account](/mesosphere/dcos/latest/security/ent/service-auth/custom-service-auth/) before installing DC/OS {{model.techName }} Service. Only someone with `superuser` permission can create the service account.
+  - `strict` [security mode](/mesosphere/dcos/latest/security/ent/service-auth/custom-service-auth/) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
 - Your cluster must have {{ model.install.nodeCount }} nodes.

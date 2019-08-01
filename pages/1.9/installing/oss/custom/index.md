@@ -26,6 +26,6 @@ When you're ready to integrate DC/OS with your configuration management tools or
 
 - [Advanced DC/OS Installation Guide][3]
 
-[1]: /1.9/gui/
-[2]: /1.9/cli/
-[3]: /1.9/advanced/
+[1]: /mesosphere/dcos/1.9/gui/
+[2]: /mesosphere/dcos/1.9/cli/
+[3]: /mesosphere/dcos/1.9/advanced/

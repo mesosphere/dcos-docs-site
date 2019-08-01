@@ -18,13 +18,13 @@ If an upgrade is performed on a supported OS with all prerequisites fulfilled, t
 
 **Important:**
 
-- Review the [release notes](/1.9/release-notes/) before upgrading DC/OS.
+- Review the [release notes](/mesosphere/dcos/1.9/release-notes/) before upgrading DC/OS.
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded. For example, an upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. When this occurs:
 
     - The DC/OS GUI may not provide an accurate list of services.
     - For multi-master configurations, after one master has finished upgrading, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
-- The [VIP features](/1.9/networking/load-balancing-vips/virtual-ip-addresses/), added in DC/OS 1.8, require that ports 32768 - 65535 are open between all agent and master nodes for both TCP and UDP.
-- Virtual networks require Docker 1.11 or later. For more information, see the [documentation](/1.9/networking/virtual-networks/).
+- The [VIP features](/mesosphere/dcos/1.9/networking/load-balancing-vips/virtual-ip-addresses/), added in DC/OS 1.8, require that ports 32768 - 65535 are open between all agent and master nodes for both TCP and UDP.
+- Virtual networks require Docker 1.11 or later. For more information, see the [documentation](/mesosphere/dcos/1.9/networking/virtual-networks/).
 - An upgraded DC/OS Marathon leader cannot connect to an non-secure (i.e. not upgraded) leading Mesos master. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads).
@@ -46,26 +46,26 @@ Only a subset of DC/OS configuration parameters can be modified. The adverse eff
 
 Here is a list of the parameters that you can modify:
 
-- [`dns_search`](/1.9/installing/ent/custom/configuration/configuration-parameters/#dns-search)
-- [`docker_remove_delay`](/1.9/installing/ent/custom/configuration/configuration-parameters/#docker-remove-delay)
-- [`gc_delay`](/1.9/installing/ent/custom/configuration/configuration-parameters/#gc-delay)
-- [`resolvers`](/1.9/installing/ent/custom/configuration/configuration-parameters/#resolvers)
-- [`telemetry_enabled`](/1.9/installing/ent/custom/configuration/configuration-parameters/#telemetry-enabled)
-- [`use_proxy`](/1.9/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`http_proxy`](/1.9/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`https_proxy`](/1.9/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
-    - [`no_proxy`](/1.9/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+- [`dns_search`](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#dns-search)
+- [`docker_remove_delay`](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#docker-remove-delay)
+- [`gc_delay`](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#gc-delay)
+- [`resolvers`](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#resolvers)
+- [`telemetry_enabled`](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#telemetry-enabled)
+- [`use_proxy`](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+    - [`http_proxy`](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+    - [`https_proxy`](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
+    - [`no_proxy`](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#use-proxy)
     
 ### Security modes
-The [security mode](/1.9/security/ent/#security-modes) can be changed but has special caveats.
+The [security mode](/mesosphere/dcos/1.9/security/ent/#security-modes) can be changed but has special caveats.
 
 - You can only update to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in permissive mode and you want to downgrade to disabled mode, you must reinstall the cluster and terminate all running workloads.
 - During each update, you can only increase your security by a single level. For example, you cannot update directly from disabled to strict mode. To increase from disabled to strict mode, you must first update to permissive mode, and then update from permissive to strict mode. 
 
-See the security [mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) parameter for a description of the different security modes and what each means.
+See the security [mode](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) parameter for a description of the different security modes and what each means.
 
 ### IP detect script
-The [IP detect script](/1.9/installing/ent/custom/advanced/#ip-detect-script) can be modified during an upgrade.
+The [IP detect script](/mesosphere/dcos/1.9/installing/ent/custom/advanced/#ip-detect-script) can be modified during an upgrade.
 
 # Instructions
 These steps must be performed for version upgrades and cluster configuration changes. 
@@ -93,7 +93,7 @@ Choose your desired security mode and then follow the applicable upgrade instruc
 - [Installing DC/OS 1.9 in strict mode](#strict)
 
 # <a name="current-security"></a>Installing DC/OS 1.9 without changing security mode
-This procedure upgrades a DC/OS 1.8 cluster to DC/OS 1.9 without changing the cluster's [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+This procedure upgrades a DC/OS 1.8 cluster to DC/OS 1.9 without changing the cluster's [security mode](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer. 
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
@@ -101,7 +101,7 @@ This procedure upgrades a DC/OS 1.8 cluster to DC/OS 1.9 without changing the cl
     **Important:**
     
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the DC/OS 1.9 `config.yaml` may be different from the 1.8 version. For a detailed description of the 1.9 `config.yaml` syntax and parameters, see the [documentation](/1.9/installing/ent/custom/configuration/configuration-parameters/).
+    *  The syntax of the DC/OS 1.9 `config.yaml` may be different from the 1.8 version. For a detailed description of the 1.9 `config.yaml` syntax and parameters, see the [documentation](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/).
 
 1. After updating the format of the `config.yaml`, compare the old `config.yaml` and new `config.yaml`.  Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
 1.  Modify the `ip-detect` file as desired. 
@@ -119,11 +119,11 @@ This procedure upgrades a DC/OS 1.8 cluster to DC/OS 1.9 without changing the cl
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="permissive"></a>Installing DC/OS 1.9 in permissive mode
-This procedure upgrades to DC/OS 1.9 in [permissive security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+This procedure upgrades to DC/OS 1.9 in [permissive security mode](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
 
 **Prerequisite:**
 
-- Your cluster must be [upgraded to DC/OS 1.9](#current-security) and running in [disabled security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.9, you can skip this procedure. 
+- Your cluster must be [upgraded to DC/OS 1.9](#current-security) and running in [disabled security mode](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.9, you can skip this procedure. 
 
 To update a 1.9 cluster from disabled security to permissive security, complete the following procedure:
 
@@ -143,7 +143,7 @@ To update a 1.9 cluster from disabled security to permissive security, complete 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="strict"></a>Installing DC/OS 1.9 in strict mode
-This procedure upgrades to DC/OS 1.9 in security strict [mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise). 
+This procedure upgrades to DC/OS 1.9 in security strict [mode](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise). 
 
 If you are updating a running DC/OS cluster to run in `security: strict` mode, beware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before upgrading to strict, to maintain scheduler and script uptimes across the upgrade.
 
@@ -272,4 +272,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.9 Universe are newer than those in the DC/OS 1.8 Universe. Services are not automatically upgraded when  DC/OS 1.9 is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /1.9/installing/ent/custom/advanced/
+[advanced-install]: /mesosphere/dcos/1.9/installing/ent/custom/advanced/

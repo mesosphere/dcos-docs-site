@@ -27,7 +27,7 @@ At the highest level we can distinguish three security zones in a DC/OS deployme
 The **admin** zone is accessible via HTTP/HTTPS and SSH connections, and provides access to the master nodes. It also provides reverse proxy access to the other nodes in the cluster via URL routing. For security, the DC/OS cloud template allows configuring a whitelist so that only specific IP address ranges are permitted to access the admin zone.
 
 ### Admin Router
-Access to the admin zone is controlled by the [Admin Router](/1.14/overview/architecture/components/#admin-router).
+Access to the admin zone is controlled by the [Admin Router](/mesosphere/dcos/1.14/overview/architecture/components/#admin-router).
 
 HTTP requests incoming to your DC/OS cluster are proxied through the Admin Router (using [Nginx](http://nginx.org) with [OpenResty](https://openresty.org) at its core). The Admin Router denies access to most HTTP endpoints for unauthenticated requests. In order for a request to be authenticated, it needs to present a valid authentication token in its `Authorization` header. A token can be obtained by going through the authentication flow.
 
@@ -39,13 +39,13 @@ The optional **public** zone is where publicly accessible applications are run. 
 
 A typical deployment, including load balancers, is shown below:
 
-![Security Zones](/1.14/img/security-zones.png)
+![Security Zones](/mesosphere/dcos/1.14/img/security-zones.png)
 
 Figure 1. Security zone typical deployment
 
 # <a name="security-modes"></a>Security Modes
 
-You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are permissive and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/1.14/installing/production/deploying-dcos/installation/) and can only be changed by performing an upgrade.
+You can control DC/OS Enterprise access by resource and operation (create, read, update, delete). The available security modes are permissive and strict. Strict mode provides the finest-grained controls. The DC/OS permissions are enforced based on your security mode. The security mode is set during [DC/OS installation](/mesosphere/dcos/1.14/installing/production/deploying-dcos/installation/) and can only be changed by performing an upgrade.
 
 
 | Permission Category                                 | Permissive | Strict |
@@ -55,7 +55,7 @@ You can control DC/OS Enterprise access by resource and operation (create, read,
 | Marathon and Metronome permissions (`dcos:service`) |      x     |    x   |
 | Secret store permissions (`dcos:secrets`)           |      x     |    x   |
 
-See the [permissions reference](/1.14/security/ent/perms-reference/) for a complete description.
+See the [permissions reference](/mesosphere/dcos/1.14/security/ent/perms-reference/) for a complete description.
 
 ### Permissive
 This mode provides some of the security features, but does not include the Mesos permissions.
@@ -65,22 +65,22 @@ This mode provides the most robust security posture and requires a significant a
 
 ## <a name="set"></a>Setting your security mode
 
-The security mode is set during [DC/OS installation](/1.14/installing/production/advanced-configuration/) and can only be changed by performing an [upgrade](/1.14/installing/production/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/1.14/installing/production/advanced-configuration/configuration-reference/#security-and-authentication).
+The security mode is set during [DC/OS installation](/mesosphere/dcos/1.14/installing/production/advanced-configuration/) and can only be changed by performing an [upgrade](/mesosphere/dcos/1.14/installing/production/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#security-and-authentication).
 
 <p class="message--important"><strong>IMPORTANT: </strong> You can only move from "permissive" to "strict" during an upgrade.</p>
 
 ## <a name="discover"></a>Discovering your security mode
 You can use either of the following methods to determine the security mode of an existing cluster.
 
-- Make a `GET` request to the following endpoint: `http[s]://<cluster-url>/dcos-metadata/bootstrap-config.json`.
-   **Requirements:** Your user account must have either the `dcos:adminrouter:ops:metadata full` permission or the `dcos:superuser` permission. In `permissive` or `strict`, you must use HTTPS. Review [Securing your TLS communications](/1.14/security/ent/tls-ssl/) to discover how to obtain the root certificate of your DC/OS CA and provision it to your preferred client.
+- Make a `GET` request to the following endpoint: `http[s]: /mesosphere/dcos//<cluster-url>/dcos-metadata/bootstrap-config.json`.
+   **Requirements:** Your user account must have either the `dcos:adminrouter:ops:metadata full` permission or the `dcos:superuser` permission. In `permissive` or `strict`, you must use HTTPS. Review [Securing your TLS communications](/mesosphere/dcos/1.14/security/ent/tls-ssl/) to discover how to obtain the root certificate of your DC/OS CA and provision it to your preferred client.
 
-- [SSH](/1.14/administering-clusters/sshcluster/) into your master and view the contents of `/opt/mesosphere/etc/bootstrap-config.json`.
+- [SSH](/mesosphere/dcos/1.14/administering-clusters/sshcluster/) into your master and view the contents of `/opt/mesosphere/etc/bootstrap-config.json`.
 
 # <a name="authentication"></a>Authentication
-All requests from outside of the DC/OS cluster require an authentication token. Depending on your security mode, in-cluster authentication tokens may be required. For more information, see the [Service Accounts documentation](/1.14/security/ent/service-auth/).
+All requests from outside of the DC/OS cluster require an authentication token. Depending on your security mode, in-cluster authentication tokens may be required. For more information, see the [Service Accounts documentation](/mesosphere/dcos/1.14/security/ent/service-auth/).
 
-The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/1.14/installing/production/advanced-configuration/configuration-reference/#bouncer-expiration-auth-token-days-enterprise).
+The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#bouncer-expiration-auth-token-days-enterprise).
 
 DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequence. This allows the masters to nominate themselves as potential Mesos leaders.
 
@@ -97,7 +97,7 @@ You can log in by using the DC/OS GUI, the DC/OS CLI, or a programmatic client.
 
 The following diagram details the sequence.
 
-![User authentication](/1.14/img/authn-user.png)
+![User authentication](/mesosphere/dcos/1.14/img/authn-user.png)
 
 Figure 2. User authentication sequence
 
@@ -105,19 +105,19 @@ When the authentication token expires, you can re-authenticate to receive anothe
 
 When you log in with the DC/OS GUI, the Identity and Access Manager plants a cookie that contains the authentication token. While it is protected with an [`HttpOnly`](https://www.owasp.org/index.php/HttpOnly) flag, you should **Sign Out** at the end of your browser session to clear this cookie.
 
-Note that clearing the cookie does not invalidate the authentication token. If sniffed over an unencrypted connection or extracted from the cookie, someone could use the authentication token to log into DC/OS. To mitigate this risk,  we recommend setting  the [secure flag](https://www.owasp.org/index.php/SecureFlag) on the cookie in `permissive` and `strict` modes, as discussed in [Hardening](/1.14/security/ent/hardening/#secure-flag).
+Note that clearing the cookie does not invalidate the authentication token. If sniffed over an unencrypted connection or extracted from the cookie, someone could use the authentication token to log into DC/OS. To mitigate this risk,  we recommend setting  the [secure flag](https://www.owasp.org/index.php/SecureFlag) on the cookie in `permissive` and `strict` modes, as discussed in [Hardening](/mesosphere/dcos/1.14/security/ent/hardening/#secure-flag).
 
 ## <a name="passwords"></a>Passwords
 
 Credentials for cluster-local user accounts (those not using LDAP, SAML, or OpenID Connect) consist of a user name and password that can be used to validate, but not reproduce, user passwords. Passwords are individually salted and cryptographically hashed using [crypt(3)](http://man7.org/linux/man-pages/man3/crypt.3.html) SHA-512. This results in one-way hashes that can be used to validate but not reproduce user passwords. To further impede brute force attacks and meet or exceed NIST FIPS security requirements, the hash function performs many iterations using a 128 bit salt length.
 
-Once DC/OS IAM has validated your credentials, an authentication token is returned to you. The authentication token is then used for further request authentication during your session. This way the password does not need to be stored in the client and is only sent over the wire immediately after you enter it. Over the wire, the authentication request is encrypted using TLS. TLS is required and enforced in strict mode, but optional in permissive mode. For more information, see [Security Modes](/1.14/security/ent/#security-modes).
+Once DC/OS IAM has validated your credentials, an authentication token is returned to you. The authentication token is then used for further request authentication during your session. This way the password does not need to be stored in the client and is only sent over the wire immediately after you enter it. Over the wire, the authentication request is encrypted using TLS. TLS is required and enforced in strict mode, but optional in permissive mode. For more information, see [Security Modes](/mesosphere/dcos/1.14/security/ent/#security-modes).
 
 ## <a name="service"></a>Service Authentication
-Service accounts provide an identity for [services](/1.14/overview/concepts/#dcos-service) to authenticate with DC/OS. Service accounts control communication between services and DC/OS components. DC/OS services may require [service accounts](/1.14/security/ent/service-auth/) depending on your security mode.
+Service accounts provide an identity for [services](/mesosphere/dcos/1.14/overview/concepts/#dcos-service) to authenticate with DC/OS. Service accounts control communication between services and DC/OS components. DC/OS services may require [service accounts](/mesosphere/dcos/1.14/security/ent/service-auth/) depending on your security mode.
 
 ## <a name="sysd"></a>Component Authentication
-DC/OS automatically provisions DC/OS components ([systemd services on the DC/OS nodes](/1.14/overview/concepts/#systemd-service)) with service accounts during the bootstrap sequence.
+DC/OS automatically provisions DC/OS components ([systemd services on the DC/OS nodes](/mesosphere/dcos/1.14/overview/concepts/#systemd-service)) with service accounts during the bootstrap sequence.
 
 For example, the Mesos agents are provisioned with service accounts that they use to authenticate to the Mesos master. This ensures that only authorized agents can join the Mesos cluster, advertise resources, and get asked to launch tasks.
 
@@ -132,7 +132,7 @@ In addition to authenticating requests, DC/OS also checks the permissions associ
 
 The following diagram illustrates the authorization sequence.
 
-![Authorization sequence](/1.14/img/authz.png)
+![Authorization sequence](/mesosphere/dcos/1.14/img/authz.png)
 
 Figure 3. Authorization sequence
 
@@ -145,11 +145,11 @@ The `OPT` sequence in the diagram illustrates how permission enforcement varies 
 
 The diagram does not show the Secret Store sequence. The Admin Router does not check the permissions on requests to the Secret Store. It routes these requests to the Secret Store, which enforces its own permissions on each request.
 
-For more information about permissions, refer to [Managing permissions](/1.14/security/ent/perms-reference/).
+For more information about permissions, refer to [Managing permissions](/mesosphere/dcos/1.14/security/ent/perms-reference/).
 
 # <a name="encryption"></a>Transport Layer Security (TLS) Encryption
 
-The encryption of DC/OS communications varies according to your [security mode](/1.14/security/ent/#security-modes).
+The encryption of DC/OS communications varies according to your [security mode](/mesosphere/dcos/1.14/security/ent/#security-modes).
 
 | Security mode | External communications*                                                                                                                                                                                    | Internode communications |
 |---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
@@ -164,7 +164,7 @@ Not all existing user services support encryption at this time. If the service s
 
 Internode communications occur over TLS 1.2. To ensure browser support, external communications currently accept TLS 1.0, 1.1, and 1.2. These settings are configurable.
 
-For more information, see [Securing communication with TLS](/1.14/security/ent/tls-ssl/).
+For more information, see [Securing communication with TLS](/mesosphere/dcos/1.14/security/ent/tls-ssl/).
 
 # <a name="spaces"></a>Spaces
 
@@ -180,9 +180,9 @@ At a minimum, we recommend using spaces to restrict service access to secrets.
 
 One aspect of spaces involves service and job groups. You can put services and jobs into groups in any security mode. This can help users find the jobs or services that pertain to them.
 
-You can use [permissions](/1.14/security/ent/perms-reference/#marathon-metronome) to restrict user's access on a per service/job or service/job group basis.
+You can use [permissions](/mesosphere/dcos/1.14/security/ent/perms-reference/#marathon-metronome) to restrict user's access on a per service/job or service/job group basis.
 
-To learn how to do this, see [Controlling user access to services](/1.14/deploying-services/service-groups/) and [Controlling user access to jobs](/1.14/deploying-jobs/job-groups/).
+To learn how to do this, see [Controlling user access to services](/mesosphere/dcos/1.14/deploying-services/service-groups/) and [Controlling user access to jobs](/mesosphere/dcos/1.14/deploying-jobs/job-groups/).
 
 ## <a name="secrets"></a>Spaces for secrets
 
@@ -213,7 +213,7 @@ To secure sensitive values like private keys, API tokens, and database passwords
 
 DC/OS stores Secret Store data in ZooKeeper encrypted under an unseal key using the Advanced Encryption Standard (AES) algorithm in Galois Counter Mode (GCM). The Secret Store uses the unseal key to encrypt secrets before sending them to ZooKeeper and to decrypt secrets after receiving them from ZooKeeper. This ensures that secrets are encrypted both at rest and in transit. TLS provides an additional layer of encryption on the secrets in transit from ZooKeeper to the Secret Store.
 
-The unseal key is encrypted under a public GPG key. Requests to the [Secrets API](/1.14/security/ent/secrets/secrets-api/) return only the encrypted unseal key. When the Secret Store becomes sealed, either manually or due to a failure, the private GPG key must be used to decrypt the unseal key and unseal the Secret Store. As a convenience, DC/OS automatically generates a new 4096-bit GPG keypair during the bootstrap sequence. It uses this keypair to initialize the Secret Store and stores the keypair in ZooKeeper.
+The unseal key is encrypted under a public GPG key. Requests to the [Secrets API](/mesosphere/dcos/1.14/security/ent/secrets/secrets-api/) return only the encrypted unseal key. When the Secret Store becomes sealed, either manually or due to a failure, the private GPG key must be used to decrypt the unseal key and unseal the Secret Store. As a convenience, DC/OS automatically generates a new 4096-bit GPG keypair during the bootstrap sequence. It uses this keypair to initialize the Secret Store and stores the keypair in ZooKeeper.
 
 
 The Secret Store is available in all security modes. By default, you cannot store a secret larger than one megabyte. If you need to exceed this limit, contact Mesosphere support. We do not support alternate or additional Secret Stores at this time. You should use only the `default` Secret Store provided by Mesosphere.
@@ -222,16 +222,16 @@ The Secret Store is available in all security modes. By default, you cannot stor
 
 DC/OS allows you to restrict:
 
-- **User access to secrets:** use [permissions](/1.14/security/ent/perms-reference/#secrets) to control which users can access what secrets and what operations they can perform.
+- **User access to secrets:** use [permissions](/mesosphere/dcos/1.14/security/ent/perms-reference/#secrets) to control which users can access what secrets and what operations they can perform.
 
-- **Application access to secrets:** use [spaces](/1.14/security/ent/#spaces) to control which applications can retrieve what secrets.
+- **Application access to secrets:** use [spaces](/mesosphere/dcos/1.14/security/ent/#spaces) to control which applications can retrieve what secrets.
 
 
 # <a name="linux-users"></a>Linux User Accounts
 
-The default Linux user for tasks and sandbox files varies according to your [security mode](/1.14/security/ent/#security-modes) and the [type of container](/1.14/deploying-services/containerizers/) the task runs inside of.
+The default Linux user for tasks and sandbox files varies according to your [security mode](/mesosphere/dcos/1.14/security/ent/#security-modes) and the [type of container](/mesosphere/dcos/1.14/deploying-services/containerizers/) the task runs inside of.
 
-By default, all tasks will run inside of Docker containers. Please see [Deploying a Docker-based Service to Marathon](/1.14/deploying-services/creating-services/deploy-docker-app/) for an example.
+By default, all tasks will run inside of Docker containers. Please see [Deploying a Docker-based Service to Marathon](/mesosphere/dcos/1.14/deploying-services/creating-services/deploy-docker-app/) for an example.
 
 The following table identifies the default Linux user in each situation.
 
@@ -240,10 +240,10 @@ The following table identifies the default Linux user in each situation.
 | Mesos (UCR)    | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `nobody`. Fetched and created files are owned by `nobody`. |
 | Docker         | Task runs under `root`. Fetched and created files are owned by `root`. | Task runs under `root`. Fetched and created files are owned by `nobody`.   |
 
-Docker tasks run under `root` by default, but Docker user privileges are confined to the Docker container. Should you wish to change the default task user, modify the Docker container. Please reference the [Docker documentation](https://docs.docker.com/engine/tutorials/dockerimages/) for more information, as well as the user service [documentation](/services/).
+Docker tasks run under `root` by default, but Docker user privileges are confined to the Docker container. Should you wish to change the default task user, modify the Docker container. Please reference the [Docker documentation](https://docs.docker.com/engine/tutorials/dockerimages/) for more information, as well as the user service [documentation](/mesosphere/dcos/services/).
 
 <p class="message--note"><strong>NOTE: </strong>If the fetched file is compressed, the individual files inside will retain the permissions and ownership assigned when the file was compressed and are unaffected by any other configurations or settings.
 </p>
 
 
-See [Overriding the default Linux user](/1.14/security/ent/users-groups/config-linux-user/).
+See [Overriding the default Linux user](/mesosphere/dcos/1.14/security/ent/users-groups/config-linux-user/).

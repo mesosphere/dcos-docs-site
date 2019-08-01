@@ -17,11 +17,11 @@ You can grant users access to the Marathon Tab. By default, new users have no pe
 
 **Prerequisite:**
 
-- A DC/OS user account without the `dcos:superuser` [permission](/1.14/security/ent/users-groups/).
+- A DC/OS user account without the `dcos:superuser` [permission](/mesosphere/dcos/1.14/security/ent/users-groups/).
 
 1.  Log into the DC/OS UI as a user with the `dcos:superuser` permission.
 
-    ![Login](/1.14/img/LOGIN-EE-Modal_View-1_12.png)
+    ![Login](/mesosphere/dcos/1.14/img/LOGIN-EE-Modal_View-1_12.png)
 
     Figure 1. Log in to UI
 
@@ -29,7 +29,7 @@ You can grant users access to the Marathon Tab. By default, new users have no pe
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.14/img/GUI-Organization-Users-List_View-1_12.png)
+    ![Add permission cory](/mesosphere/dcos/1.14/img/GUI-Organization-Users-List_View-1_12.png)
 
     Figure 2. Select user or group to grant permissions to
 
@@ -38,12 +38,12 @@ You can grant users access to the Marathon Tab. By default, new users have no pe
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.14/img/services-tab-user3.png)
+    ![Add permission](/mesosphere/dcos/1.14/img/services-tab-user3.png)
 
     Figure 3. Add permission 
 
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.14/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/1.14/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
 ## Permissive
 
@@ -60,7 +60,7 @@ You can grant users access to the Marathon Tab. By default, new users have no pe
   ```
 
 ### Task details and logs
-  To view task details and logs, you must grant access to the [Mesos UI](/1.14/security/ent/gui-permissions/mesos-ui/).   
+  To view task details and logs, you must grant access to the [Mesos UI](/mesosphere/dcos/1.14/security/ent/gui-permissions/mesos-ui/).   
 
 ## Strict
 
@@ -77,7 +77,7 @@ dcos:service:marathon:marathon:services:/ full
 ```
 
 ### Task details and logs
-    To view Marathon task details and logs, you must grant access to the [Mesos UI](/1.14/security/ent/gui-permissions/mesos-ui/).
+    To view Marathon task details and logs, you must grant access to the [Mesos UI](/mesosphere/dcos/1.14/security/ent/gui-permissions/mesos-ui/).
 
 You can send the URL of the native Marathon UI for DC/OS to the user: `http://<master-public-ip>/marathon/`.
 
@@ -85,8 +85,8 @@ You can send the URL of the native Marathon UI for DC/OS to the user: `http://<m
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/1.14/cli/install/) and be logged in as a superuser.
-- You must [get the root cert](/1.14/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.14/cli/install/) and be logged in as a superuser.
+- You must [get the root cert](/mesosphere/dcos/1.14/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 ### Notes
 
@@ -144,7 +144,7 @@ You can send the URL of the native Marathon UI for DC/OS to the user: `http://<m
 
 
 ### Task details and logs
-To view task details and logs, you must grant access to the [Mesos UI](/1.14/security/ent/gui-permissions/mesos-ui/).
+To view task details and logs, you must grant access to the [Mesos UI](/mesosphere/dcos/1.14/security/ent/gui-permissions/mesos-ui/).
 
 ## Strict
 
@@ -193,6 +193,6 @@ To view task details and logs, you must grant access to the [Mesos UI](/1.14/sec
 
 
 ### Task details and logs
-To view task details and logs, you must grant access to the [Mesos UI](/1.14/security/ent/gui-permissions/mesos-ui/).
+To view task details and logs, you must grant access to the [Mesos UI](/mesosphere/dcos/1.14/security/ent/gui-permissions/mesos-ui/).
 
 You can now send the URL of the native Marathon UI for DC/OS to the user: `http://<master-public-ip>/marathon/`.

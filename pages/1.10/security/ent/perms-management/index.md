@@ -13,7 +13,7 @@ The DC/OS Identity and Access Management system is designed to protect resources
 Each protected resource has one associated ACL that declares which principals may perform which actions on a named resource.
 This is performed according to the whitelisting (deny-by-default) model.
 
-Permissions can be applied to users and groups using either the DC/OS GUI, the [IAM HTTP API](/1.10/security/ent/iam-api/) or the [DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/).
+Permissions can be applied to users and groups using either the DC/OS GUI, the [IAM HTTP API](/mesosphere/dcos/1.10/security/ent/iam-api/) or the [DC/OS Enterprise CLI](/mesosphere/dcos/1.10/cli/enterprise-cli/).
 Each interface provides a way to manage Access Control Entries (ACEs).
 Each ACE includes the following pieces of information:
 

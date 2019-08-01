@@ -35,4 +35,4 @@ dcos security cluster secret-store unseal [OPTIONS] STORE_ID KEY
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster secret-store](/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | Display settings for your secret store. |
+| [dcos security cluster secret-store](/mesosphere/dcos/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | Display settings for your secret store. |

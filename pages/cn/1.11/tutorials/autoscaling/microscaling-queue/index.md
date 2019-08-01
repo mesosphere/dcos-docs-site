@@ -25,7 +25,7 @@ Microscaling 可监控较高优先级任务是否符合性能目标。在本教�
 
 在本教程中，microscaling 可根据 Azure 存储队列中的项目数量调整两个任务（一个高优先级和一个后台）之间的平衡。
 
-![microscaling-queue.png](/cn/1.11/img/microscaling-queue.png)
+![microscaling-queue.png](/mesosphere/dcos/cn/1.11/img/microscaling-queue.png)
  
  图 1. - Microscaling 队列
 
@@ -50,7 +50,7 @@ Microscaling 可监控较高优先级任务是否符合性能目标。在本教�
 * 导航至新建 -> 数据 + 存储 -> 存储帐户。
 * 使用以下设置创建存储帐户：
 
-![microscaling-azure-storage.png](/cn/1.11/img/microscaling-azure-storage.png)
+![microscaling-azure-storage.png](/mesosphere/dcos/cn/1.11/img/microscaling-azure-storage.png)
 
 图 2. - Microscaling Azure 存储帐户
 
@@ -65,14 +65,14 @@ Microscaling 可监控较高优先级任务是否符合性能目标。在本教�
 * 如果您还没有帐户，请转到 [Microscaling-in-a-box][10] 站点并注册帐户。
 * 在步骤 1 中，选择 Mesos/Marathon 选项
 
-![microscaling-step-1.png](/cn/1.11/img/microscaling-step-1.png)
+![microscaling-step-1.png](/mesosphere/dcos/cn/1.11/img/microscaling-step-1.png)
 
 图 3. 选择 Mesos/Marathon 选项
 
 * 跳过步骤 2 和 3 以使用默认值。
 * 导航至步骤 4（运行），并找到您的用户 ID 以及我们在演示中使用的队列的默认值。您稍后将使用这些值作为环境变量 `MSS_USER_ID` 和 `AZURE_STORAGE_QUEUE_NAME`。
 
-![microscaling-step-4.png](/cn/1.11/img/microscaling-step-4.png)
+![microscaling-step-4.png](/mesosphere/dcos/cn/1.11/img/microscaling-step-4.png)
 
 图 4. 用户 ID 和队列名称
 
@@ -110,7 +110,7 @@ export MSS_MARATHON_API=http://localhost/marathon
 
 在 Marathon 启动应用程序后，结果将开始出现在 Microscaling-in-a-Box UI 中。您将看到 Microscaling Engine 调整 consumer 和 remainder 容器，以维持目标队列长度。
 
-![microscaling-chart-ui.png](/cn/1.11/img/microscaling-chart-ui.png)
+![microscaling-chart-ui.png](/mesosphere/dcos/cn/1.11/img/microscaling-chart-ui.png)
 
 图 5. Microscaling-in-a-box 用户界面
 
@@ -146,7 +146,7 @@ export MSS_MARATHON_API=http://localhost/marathon
 [2]:http://microscaling.com
 [3]:http://azure.microsoft.com
 [4]:https://azure.microsoft.com/en-us/pricing/free-trial/
-[5]:/cn/1.11/installing/
+[5]: /mesosphere/dcos/cn/1.11/installing/
 [6]:https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/
 
 [8]:https://www.ruby-lang.org/en/documentation/installation/

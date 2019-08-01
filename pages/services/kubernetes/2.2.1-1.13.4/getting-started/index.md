@@ -22,4 +22,4 @@ In this guided tutorial, you will learn many of the basics of using Kubernetes o
 
 ## First Section: Installing and Using Kubernetes on DC/OS
 
-In the [first part of the tutorial](/services/kubernetes/2.2.1-1.13.4/getting-started/setting-up/), you will set up your cluster for a successful installation of DC/OS Kubernetes.
+In the [first part of the tutorial](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/getting-started/setting-up/), you will set up your cluster for a successful installation of DC/OS Kubernetes.

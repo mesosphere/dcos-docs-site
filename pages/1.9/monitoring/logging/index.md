@@ -41,9 +41,9 @@ To access the logs for an agent node, run `dcos node` to get the Mesos IDs of yo
 dcos node log --mesos-id=<node-id>
 ```
 
-You can download all the log files for your service from the **Services > Services** tab in the [DC/OS GUI](/1.9/gui/). You can also monitor stdout/stderr.
+You can download all the log files for your service from the **Services > Services** tab in the [DC/OS GUI](/mesosphere/dcos/1.9/gui/). You can also monitor stdout/stderr.
 
-For more information, see the Service and Task Logs [quick start guide](/1.9/monitoring/logging/quickstart/).
+For more information, see the Service and Task Logs [quick start guide](/mesosphere/dcos/1.9/monitoring/logging/quickstart/).
 
 ## System Logs
 
@@ -53,7 +53,7 @@ DC/OS components use `systemd-journald` to store their logs. To access the DC/OS
 journalctl -u "dcos-*" -b
 ```
 
-You can view the logs for specific [components](/1.9/overview/architecture/components/) by entering the component name. For example, to access Admin Router logs, run this command:
+You can view the logs for specific [components](/mesosphere/dcos/1.9/overview/architecture/components/) by entering the component name. For example, to access Admin Router logs, run this command:
 
 ```bash
 journalctl -u dcos-nginx -b
@@ -61,18 +61,18 @@ journalctl -u dcos-nginx -b
 
 You can find which components are unhealthy in the DC/OS GUI from the **Nodes** tab.
 
-![system health](/1.9/img/ui-system-health-logging.png)
+![system health](/mesosphere/dcos/1.9/img/ui-system-health-logging.png)
 
 # Aggregation
 
 Unfortunately, streaming logs from machines in your cluster isn’t always viable. Sometimes, you need the logs stored somewhere else as a history of what’s happened. This is where log aggregation really is required. Check out how to get it setup with some of the most common solutions:
 
-- [ELK](/1.9/monitoring/logging/aggregating/elk/)
-- [Splunk](/1.9/monitoring/logging/aggregating/splunk/)
+- [ELK](/mesosphere/dcos/1.9/monitoring/logging/aggregating/elk/)
+- [Splunk](/mesosphere/dcos/1.9/monitoring/logging/aggregating/splunk/)
 
 
-[1]: /1.9/monitoring/logging/quickstart/
-[2]: /1.9/cli/install/
-[3]: /1.9/monitoring/logging/aggregating/elk/
-[4]: /1.9/monitoring/logging/aggregating/splunk/
-[5]: /1.9/administering-clusters/sshcluster/
+[1]: /mesosphere/dcos/1.9/monitoring/logging/quickstart/
+[2]: /mesosphere/dcos/1.9/cli/install/
+[3]: /mesosphere/dcos/1.9/monitoring/logging/aggregating/elk/
+[4]: /mesosphere/dcos/1.9/monitoring/logging/aggregating/splunk/
+[5]: /mesosphere/dcos/1.9/administering-clusters/sshcluster/

@@ -24,7 +24,7 @@ DC/OS 的覆盖技术设计有以下假设：
 
 ## 使用中的 DC/OS 覆盖网络
 
-![VxLAN 配置完成后，在 `MesosContainerizer` 和 Docker 上运行的容器的代理配置。](/1.12/img/overlay-in-action-redesigned.png)
+![VxLAN 配置完成后，在 `MesosContainerizer` 和 Docker 上运行的容器的代理配置。](/mesosphere/dcos/1.12/img/overlay-in-action-redesigned.png)
 
 图 1 - 代理配置 
 
@@ -58,18 +58,18 @@ DC/OS 的覆盖技术设计有以下假设：
 ### 挑战
 
 
-从 [不同主机上的容器到容器通信](/cn/1.12/overview/design/overlay/#container-to-container-different-hosts) 的数据包步骤中明显可知 ，为了让 DC/OS 覆盖网络运行，有几个元数据需要预先配置到代理中，以便进行路由和切换以正常工作。在这里，我们将列出 DC/OS 覆盖网络所需的信息。
+从 [不同主机上的容器到容器通信](/mesosphere/dcos/cn/1.12/overview/design/overlay/#container-to-container-different-hosts) 的数据包步骤中明显可知 ，为了让 DC/OS 覆盖网络运行，有几个元数据需要预先配置到代理中，以便进行路由和切换以正常工作。在这里，我们将列出 DC/OS 覆盖网络所需的信息。
 
 - 在 DC/OS 中，我们需要一个 SAM（子网分配模块），该模块将通知已分配给其的子网的代理。
 - 在代理中，我们需要一个实体，该实体为 Docker 守护程序配置了子网（图 1，9.0.1.128/25 网络）中已分配给 Docker 守护程序的那部分。
 - 在代理中，我们需要一个实体，该实体将 IP 地址分配给由 `MesosContainerizer` 启动的容器（图 1，9.0.1.0/25 网络）。
 - 在 DC/OS 中，我们需要一个实体，该实体将使用所有代理上存在的所有 VTEP 的 MAC 地址，以及正确封装数据包所需的解封信息（代理 IP、UDP 端口），为每个代理上的 VxLAN 转发数据库编程。该实体还需要用所有 VTEP 的 MAC 地址对每个代理上的 ARP 缓存编程，用于其对应的 IP 地址。
 
-只有解决这些挑战，才能让 DC/OS 覆盖网络运行。我们将在下一节介绍 DC/OS 覆盖网络控制平面的软件架构。控制平面将对 [挑战](/cn/1.12/overview/design/overlay/#challenges) 一节列出的元数据 进行配置和编程，以使其正常运行。
+只有解决这些挑战，才能让 DC/OS 覆盖网络运行。我们将在下一节介绍 DC/OS 覆盖网络控制平面的软件架构。控制平面将对 [挑战](/mesosphere/dcos/cn/1.12/overview/design/overlay/#challenges) 一节列出的元数据 进行配置和编程，以使其正常运行。
 
 ## 软件架构
 
-![DC/OS 覆盖网络控制平面的软件架构。](/1.12/img/overlay-control-plane-redesigned.png)
+![DC/OS 覆盖网络控制平面的软件架构。](/mesosphere/dcos/1.12/img/overlay-control-plane-redesigned.png)
 
 图 2 - DC/OS 覆盖网络控制平面的软件架构
 

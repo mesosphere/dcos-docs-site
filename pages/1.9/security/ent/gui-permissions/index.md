@@ -8,6 +8,6 @@ excerpt:
 enterprise: true
 ---
 
-By default, a [new user](/1.9/security/ent/users-groups/) has no permissions and cannot view the [DC/OS GUI](/1.9/gui/). You must grant users and groups access to each tab of the GUI.
+By default, a [new user](/mesosphere/dcos/1.9/security/ent/users-groups/) has no permissions and cannot view the [DC/OS GUI](/mesosphere/dcos/1.9/gui/). You must grant users and groups access to each tab of the GUI.
 
-**Important:** Only [superusers](/1.9/security/ent/perms-reference/#superuser) can view the Dashboard, Nodes, and System Overview tabs.
+**Important:** Only [superusers](/mesosphere/dcos/1.9/security/ent/perms-reference/#superuser) can view the Dashboard, Nodes, and System Overview tabs.

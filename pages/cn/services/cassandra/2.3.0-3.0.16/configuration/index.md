@@ -87,7 +87,7 @@ render: mustache
  - `ROOT` 卷是根卷上的隔离目录，与主机系统的其余部分共享 IO /心轴。
  - `MOUNT` 卷是独立卷上的专用设备或分区，具有专用 IO/心轴。
 
-使用 `MOUNT` 卷，需要 [每个 DC/OS 代理系统上的附加配置](/cn/1.11/storage/mount-disk-resources/)，所以服务当前使用默认的 `ROOT` 卷。为确保生产环境中可靠和稳定的性能，您应配置将在您的集群中运行服务的计算机上的 `MOUNT` 卷，然后将以下内容配置为 `MOUNT` 卷：
+使用 `MOUNT` 卷，需要 [每个 DC/OS 代理系统上的附加配置](/mesosphere/dcos/cn/1.11/storage/mount-disk-resources/)，所以服务当前使用默认的 `ROOT` 卷。为确保生产环境中可靠和稳定的性能，您应配置将在您的集群中运行服务的计算机上的 `MOUNT` 卷，然后将以下内容配置为 `MOUNT` 卷：
 
 配置磁盘类型：
 * **在 DC/OS CLI options.json** 中：`disk_type`：字符串（默认：`ROOT`）

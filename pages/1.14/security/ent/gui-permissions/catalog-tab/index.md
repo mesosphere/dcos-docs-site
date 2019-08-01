@@ -10,7 +10,7 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-You can grant users access to the [**{{ model.packageRepo }}** ](/1.14/gui/catalog/) tag. By default, new users have no permissions.
+You can grant users access to the [**{{ model.packageRepo }}** ](/mesosphere/dcos/1.14/gui/catalog/) tag. By default, new users have no permissions.
 
 <p class="message--note"><strong>NOTE: </strong>This procedure grants full user access to the <strong>Catalog</strong> screen. If you want to configure fine-grained user access, see the <a href="/1.14/deploying-services/service-groups/">documentation</a>.</p>
 
@@ -19,11 +19,11 @@ You can grant users access to the [**{{ model.packageRepo }}** ](/1.14/gui/catal
 
 **Prerequisites:**
 
-- A DC/OS user account without the `dcos:superuser` [permission](/1.14/security/ent/users-groups/).
+- A DC/OS user account without the `dcos:superuser` [permission](/mesosphere/dcos/1.14/security/ent/users-groups/).
 
 1. Log in to the DC/OS UI as a user with the `superuser` permission.
 
-   ![Login](/1.14/img/LOGIN-EE-Modal_View-1_12.png)
+   ![Login](/mesosphere/dcos/1.14/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 1. Log in to the UI
 
@@ -31,7 +31,7 @@ You can grant users access to the [**{{ model.packageRepo }}** ](/1.14/gui/catal
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.14/img/GUI-Organization-Users-List_View-1_12.png)
+    ![Add permission cory](/mesosphere/dcos/1.14/img/GUI-Organization-Users-List_View-1_12.png)
 
     Figure 2. Select user or group to grant permissions to
 
@@ -39,11 +39,11 @@ You can grant users access to the [**{{ model.packageRepo }}** ](/1.14/gui/catal
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.14/img/services-tab-user3.png)
+    ![Add permission](/mesosphere/dcos/1.14/img/services-tab-user3.png)
 
     Figure 3. Add permission
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.14/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/1.14/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
     ## Permissive
 
@@ -61,8 +61,8 @@ You can grant users access to the [**{{ model.packageRepo }}** ](/1.14/gui/catal
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/1.14/cli/install/) and be logged in as a superuser.
-- You must [get the root cert](/1.14/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.14/cli/install/) and be logged in as a superuser.
+- You must [get the root cert](/mesosphere/dcos/1.14/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
 
 ### Notes
 

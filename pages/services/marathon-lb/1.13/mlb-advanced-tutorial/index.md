@@ -16,7 +16,7 @@ This tutorial illustrates a DC/OS cluster running on an AWS instance, with exter
 After completing this tutorial, you will have hands-on practice configuring Marathon-LB for a cluster running on an AWS instance with Marathon-LB providing internal and external load balancing using a sample application.
 
 # Before you begin
-* You must have a DC/OS cluster installed by using [AWS cloud templates](/1.13/installing/evaluation/community-supported-methods/aws/) and credentials.
+* You must have a DC/OS cluster installed by using [AWS cloud templates](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/aws/) and credentials.
 * The DC/OS cluster must have at least one master node, at least three private agent nodes, and at least one public agent node.
 * You must have an account with access to the DC/OS web-based administrative console or DC/OS command-line interface.
 * You must have Marathon-LB installed.
@@ -26,7 +26,7 @@ Before you configure load balancing for external or internal applications, you s
 
 To verify you have Marathon-LB installed and running:
 
-1. Find the public IP address for your [public node](/1.13/administering-clusters/locate-public-agent/).
+1. Find the public IP address for your [public node](/mesosphere/dcos/1.13/administering-clusters/locate-public-agent/).
 
 1. Navigate to the `http://<public-agent-IP>:9090/haproxy?stats` endpoint.
 
@@ -213,7 +213,7 @@ The following steps illustrate how to modify a sample configuration file to do l
     ```
 
 # Confirm apps are deployed and accessible
-You can test your load balancing configurations by opening a [secure shell (SSH)](/1.13/administering-clusters/sshcluster/) into one of the instances in the cluster (such as a master), and running `curl` for the endpoints. For example, run the following commands.
+You can test your load balancing configurations by opening a [secure shell (SSH)](/mesosphere/dcos/1.13/administering-clusters/sshcluster/) into one of the instances in the cluster (such as a master), and running `curl` for the endpoints. For example, run the following commands.
 
 * To test access to the external load balancer, run:
   `curl http://marathon-lb.marathon.mesos:10000`

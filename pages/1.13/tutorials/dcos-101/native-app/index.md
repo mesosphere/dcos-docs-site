@@ -7,7 +7,7 @@ menuWeight: 8
 render: mustache
 model: /1.13/data.yml
 ---
-In a [previous tutorial](/tutorials/dcos-101/app1/), you deployed an application that runs inside the cluster and interacts with another application--the Redis service--that also runs inside the cluster. Neither application is exposed outside of the cluster or available to any external users. This is because DC/OS supports running applications on two different type of nodes: **private agent nodes** and **public agent nodes**. 
+In a [previous tutorial](/mesosphere/dcos/tutorials/dcos-101/app1/), you deployed an application that runs inside the cluster and interacts with another application--the Redis service--that also runs inside the cluster. Neither application is exposed outside of the cluster or available to any external users. This is because DC/OS supports running applications on two different type of nodes: **private agent nodes** and **public agent nodes**. 
 
 So far, you have only worked with applications and services that run on private agent nodes, which cannot be accessed from outside of the cluster. To expose a service or application to the outside world, you typically use a load balancer running on a public node.
 
@@ -20,7 +20,7 @@ In this tutorial, you will deploy another sample application but with a few impo
 Before starting this tutorial, you should verify the following:
 - You have access to a running [DC/OS cluster](../start-here/) with at least at least one master node and three agent nodes.
 - You have access to a computer where the [DC/OS CLI](../cli/) is installed.
-- You have the sample [dcos-101/app1](/tutorials/dcos-101/app1/) application deployed and running in your cluster.
+- You have the sample [dcos-101/app1](/mesosphere/dcos/tutorials/dcos-101/app1/) application deployed and running in your cluster.
 
 # Learning objectives
 By completing this tutorial, you will learn:
@@ -81,7 +81,7 @@ If you review the [app definition](https://raw.githubusercontent.com/joerg84/dco
 1. Close session on the master node that you used to view the raw HTML response for the sample app.
 
 # Install the load balancer
-Public agent nodes allow inbound access requests from clients outside of the cluster. The public agent is exposed to the outside world through a load balancer. For this tutorial, you will install [Marathon-LB](/services/marathon-lb/) as the load balancer to provide external access for applications running internally in the cluster.
+Public agent nodes allow inbound access requests from clients outside of the cluster. The public agent is exposed to the outside world through a load balancer. For this tutorial, you will install [Marathon-LB](/mesosphere/dcos/services/marathon-lb/) as the load balancer to provide external access for applications running internally in the cluster.
 
 1. Install Marathon-LB by running the following command:
 
@@ -124,7 +124,7 @@ Public agent nodes allow inbound access requests from clients outside of the clu
 
     You should see a simple web page form similar to this:
 
-    ![Sample app2 web page](/1.13/img/tutorial-webpage.png)
+    ![Sample app2 web page](/mesosphere/dcos/1.13/img/tutorial-webpage.png)
 
 1. Add a new Key and add a new Value, then click **Save** using the sample app web-based frontend.
 
@@ -157,7 +157,7 @@ Public agent nodes allow inbound access requests from clients outside of the clu
 Congratulations! You have deployed a sample application that uses the native DC/OS UCR container, used Marathon-LB to expose the application to the public, and tested your publicly-available app by adding a new key to the Redis service using the web frontend.
 
 # Related topics
-DC/OS uses [containerizers](/1.13/deploying-services/containerizers/) to run tasks in containers. Running tasks in containers enables you to isolate tasks from each other and control task resources programmatically. DC/OS supports two types of containerizers:
+DC/OS uses [containerizers](/mesosphere/dcos/1.13/deploying-services/containerizers/) to run tasks in containers. Running tasks in containers enables you to isolate tasks from each other and control task resources programmatically. DC/OS supports two types of containerizers:
 
 - DC/OS Universal Containerizer Runtime (UCR)
 - Docker containerizer

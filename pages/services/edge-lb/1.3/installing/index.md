@@ -11,16 +11,16 @@ To configure a service account and install the Edge-LB package, use the instruct
 
 # Prerequisites
 
-- [DC/OS CLI is installed](/1.13/cli/install/)
+- [DC/OS CLI is installed](/mesosphere/dcos/1.13/cli/install/)
 - You are logged in as a superuser.
-- The [DC/OS Enterprise CLI is installed](/1.13/cli/enterprise-cli/).
+- The [DC/OS Enterprise CLI is installed](/mesosphere/dcos/1.13/cli/enterprise-cli/).
 - You have access to [the remote Edge-LB repositories](https://support.mesosphere.com/hc/en-us/articles/213198586).
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must have a customer service account to log in as a superuser and download the remote Edge-LB repositories.</p>
 
 ## Limitations
 
-- Edge-LB supports all [security modes](/1.13/security/ent/#security-modes) in DC/OS 1.11 and later. It supports Permissive, Disabled in DC/OS 1.10. DC/OS 1.9 or earlier is not supported.
+- Edge-LB supports all [security modes](/mesosphere/dcos/1.13/security/ent/#security-modes) in DC/OS 1.11 and later. It supports Permissive, Disabled in DC/OS 1.10. DC/OS 1.9 or earlier is not supported.
 
 # Add Edge-LB package repositories
 The Edge-LB package comprises two components:
@@ -94,17 +94,17 @@ cp -rpv stub-repo/packages/* ../../repo/packages
     sudo make DCOS_VERSION=1.13 DCOS_PACKAGE_INCLUDE=“edgelb:v1.3.1,edgelb-pool:v1.2.1,<other-package>:<version>” local-universe
     ```
 
-1.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
+1.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](/mesosphere/dcos/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
 
 
 # Create a service account
 The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests.
 
-[Service accounts](/1.13/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
+[Service accounts](/mesosphere/dcos/1.13/security/ent/service-auth/) are used in conjunction with public-private key pairs, secrets, permissions, and authentication tokens to provide access for DC/OS services to DC/OS. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
 
 Follow the steps below to create a service account, a principal associated with the service account, assign permissions to this principle, and associate a secret store with this service account. The secret store is used by Edge-LB to retrieve and install TLS certificates on the Edge-LB pools in order to enable TLS for all HTTP traffic between client and service backends.
 
-The steps below require [DC/OS Enterprise CLI to be installed](/1.13/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
+The steps below require [DC/OS Enterprise CLI to be installed](/mesosphere/dcos/1.13/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
 
 ## <a name="create-a-keypair"></a>Create a key pair
 In this step, a 2048-bit RSA public-private key pair is created using the DC/OS Enterprise CLI. Create a public-private key pair and save each value into a separate file within the current directory. 
@@ -149,7 +149,7 @@ dcos security secrets list /
 
 ## <a name="give-perms"></a>Create and Assign Permissions
 
-Use the following CLI commands to provision the Edge-LB service account with the required permissions. All CLI commands can also be executed via the [IAM API](/1.13/security/ent/iam-api/).
+Use the following CLI commands to provision the Edge-LB service account with the required permissions. All CLI commands can also be executed via the [IAM API](/mesosphere/dcos/1.13/security/ent/iam-api/).
 
 One of two methods can be used to securely provision the Edge-LB service account with the required permissions:
 
@@ -193,7 +193,7 @@ dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id fu
 dcos security org users grant edge-lb-principal dcos:adminrouter:service:dcos-edgelb/pools/<POOL-NAME> full
 ```
 
-For more information about required permissions, please see the [Edge-LB Permissions](/services/edge-lb/1.3/permissions/)
+For more information about required permissions, please see the [Edge-LB Permissions](/mesosphere/dcos/services/edge-lb/1.3/permissions/)
 
 # <a name="create-json"></a>Create a configuration file for service authentication
 After configuring service authentication, you must create a JSON options file with your credentials. This file will be passed to DC/OS when you install Edge-LB.
@@ -216,7 +216,7 @@ EdgeLB also needs the following options to be specified. Their values depend on 
 
 Other useful configurable service parameters include:
 
-* `service.name`: `"dcos-edgelb/api"`. The service path for the `apiserver`. `dcos-edgelb` corresponds to `pool.namespace` when [configuring pools](/services/edge-lb/1.3/pool-configuration/).
+* `service.name`: `"dcos-edgelb/api"`. The service path for the `apiserver`. `dcos-edgelb` corresponds to `pool.namespace` when [configuring pools](/mesosphere/dcos/services/edge-lb/1.3/pool-configuration/).
 * `service.logLevel`: `"info"`. Can be one of `debug`, `info`, `warn`, or `error`
 * `service.cpus`: `1.1`
 * `service.mem`: `1024`
@@ -242,8 +242,8 @@ You should receive this message when ready:
 pong
 ```
 
-- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/services/edge-lb/1.3/pool-configuration/) section.
-- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/services/edge-lb/1.3/cli-reference/).
+- For more information about configuring Edge-LB, see the [Edge-LB Configuration](/mesosphere/dcos/services/edge-lb/1.3/pool-configuration/) section.
+- For more information about the available Edge-LB commands, see the [Edge-LB Command Reference](/mesosphere/dcos/services/edge-lb/1.3/cli-reference/).
 
 # Adding the Edge-LB command-line interface package
 In most cases, you add the Edge-LB command-line interface (CLI) as part of your initial installation of the Edge-LB API server and Edge-LB pool packages when you are preparing to deploy Edge-LB load balancing. However, you might find that you need to install the Edge-LB command-line interface (CLI) separately, for example, on additional computers for other administrators. 

@@ -259,5 +259,5 @@ In this tutorial, you learned how to view the resources allocated for applicatio
 # Related topics
 Now that you are practically a pro, you might want to begin exploring more advanced topics and configuration options such as:
 - Using application groups and [labels](../../task-labels/)
-- Defining [placement constraints](/1.13/deploying-services/marathon-constraints/)
-- Deploying applications in [pods](/1.13/deploying-services/pods/)
+- Defining [placement constraints](/mesosphere/dcos/1.13/deploying-services/marathon-constraints/)
+- Deploying applications in [pods](/mesosphere/dcos/1.13/deploying-services/pods/)

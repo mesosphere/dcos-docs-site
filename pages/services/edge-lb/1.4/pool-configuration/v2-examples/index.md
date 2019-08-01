@@ -140,7 +140,7 @@ We used `pool.haproxy.frontend.linkBackend.pathBeg` in this example to match on 
 
 # Internal (East / West) Load Balancing
 
-Sometimes it is desired or necessary to use Edge-LB for load balancing traffic inside of a DC/OS cluster. This can also be done using [Minuteman VIPs](/latest/networking/load-balancing-vips/), but if you need layer 7 functionality, Edge-LB can be configured for internal only traffic.
+Sometimes it is desired or necessary to use Edge-LB for load balancing traffic inside of a DC/OS cluster. This can also be done using [Minuteman VIPs](/mesosphere/dcos/latest/networking/load-balancing-vips/), but if you need layer 7 functionality, Edge-LB can be configured for internal only traffic.
 
 The changes necessary are:
 
@@ -278,7 +278,7 @@ To direct traffic based on the hostname to multiple backends for a single port (
   -----END RSA PRIVATE KEY-----
   ```
 
-For more information about creating and storing secrets, see [Secrets](/1.12/security/ent/secrets/).
+For more information about creating and storing secrets, see [Secrets](/mesosphere/dcos/1.12/security/ent/secrets/).
 
 ## Sample configuration
 After you have created or identified the SSL certificate and stored it securely in DC/OS Secrets, you can route traffic to multiple backends using the `pool.haproxy.frontend.linkBackend` setting as illustrated in the following example:

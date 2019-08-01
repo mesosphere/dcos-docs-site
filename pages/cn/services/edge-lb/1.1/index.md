@@ -8,7 +8,7 @@ excerpt: Edge-LB 将流量代理并负载均衡到在 DC/OS 上运行的所有�
 enterprise: false
 ---
 
-Edge-LB 将流量代理和负载均衡到在 DC/OS 上运行的所有服务。Edge-LB 提供北-南（外部到内部）负载均衡，而 [Minuteman 组件](/cn/1.11/networking/load-balancing-vips/) 提供东-西（内部到内部）负载均衡。
+Edge-LB 将流量代理和负载均衡到在 DC/OS 上运行的所有服务。Edge-LB 提供北-南（外部到内部）负载均衡，而 [Minuteman 组件](/mesosphere/dcos/cn/1.11/networking/load-balancing-vips/) 提供东-西（内部到内部）负载均衡。
 
 Edge-LB 利用 HAProxy，HAProxy 提供核心负载均衡和代理功能，例如，基于 TCP 和 HTTP 的应用程序的负载均衡、SSL 支持和健康状况检查。此外，Edge-LB 为零停机服务部署策略提供了一流的支持，例如，蓝色/绿色部署。Edge-LB 可以实时订阅 Mesos 并更新 HAProxy 配置。
 
@@ -29,7 +29,7 @@ Edge-LB 作为 DC/OS 服务运行，由 [Marathon] 启动(/latest/deploying-serv
 
 外部流量通过硬件负载均衡器进入负载均衡器池。池中的一个 Edge-LB 负载均衡器接受流量，并将其路由到 DC/OS 集群中的相应服务。
 
-![Edge-LB 架构](/cn/services/edge-lb/1.1/img/edge-lb-flow.png)
+![Edge-LB 架构](/mesosphere/dcos/cn/services/edge-lb/1.1/img/edge-lb-flow.png)
 
 图 1. Edge-LB 架构
 

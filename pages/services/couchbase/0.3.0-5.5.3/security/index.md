@@ -26,7 +26,7 @@ With transport encryption enabled, DC/OS {{ model.techName }} will automatically
 <p class="message--note"><strong>NOTE: </strong> Couchbase Server currently supports TLS for client interactions and cross data center replication. There is no TLS for node to node communication. See the [Couchbase documentation](https://developer.couchbase.com/documentation/server/current/security/security-x509certsintro.html) for more details.</p> 
 
 
-The service uses the [DC/OS CA](/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the DC/OS CA will consider the service's certificates valid.
+The service uses the [DC/OS CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the DC/OS CA will consider the service's certificates valid.
 
 #include /services/include/security-configure-transport-encryption.tmpl
 

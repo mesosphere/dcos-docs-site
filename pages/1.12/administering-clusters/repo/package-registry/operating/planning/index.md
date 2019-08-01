@@ -11,7 +11,7 @@ enterprise: true
 
 ## Default
 
-Given the default configuration of the DC/OS Package Registry, DC/OS Packages are stored in a local persistent volume in the host filesystem. When using this default storage configuration, you are [limited to one instance of the registry](/1.12/administering-clusters/repo/package-registry/#limitations). The DC/OS Package Registry also supports storing DC/OS Packages via S3 storage which support deploying more than one instance of the registry.
+Given the default configuration of the DC/OS Package Registry, DC/OS Packages are stored in a local persistent volume in the host filesystem. When using this default storage configuration, you are [limited to one instance of the registry](/mesosphere/dcos/1.12/administering-clusters/repo/package-registry/#limitations). The DC/OS Package Registry also supports storing DC/OS Packages via S3 storage which support deploying more than one instance of the registry.
 
 ## S3 Storage Option
 

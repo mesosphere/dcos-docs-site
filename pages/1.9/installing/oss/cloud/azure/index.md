@@ -39,11 +39,11 @@ Because of security considerations, the DC/OS cluster in Azure is locked down by
 
 First, look up `MASTERFQDN` in the outputs of the deployment. To find that, click on the link under `Last deployment` (which is `4/15/2016 (Succeeded)` here) and you should see this:
 
-![Deployment history](/1.9/img/dcos-azure-marketplace-step2a.png)
+![Deployment history](/mesosphere/dcos/1.9/img/dcos-azure-marketplace-step2a.png)
 
 Click on the latest deployment and copy the value of `MASTERFQDN` in the `Outputs` section:
 
-![Deployment output](/1.9/img/dcos-azure-marketplace-step2b.png)
+![Deployment output](/mesosphere/dcos/1.9/img/dcos-azure-marketplace-step2b.png)
 
 Use the value of `MASTERFQDN` you found in the `Outputs` section in the previous step and paste it in the following command:
 
@@ -59,7 +59,7 @@ ssh azureuser@dcosmaster.westus.cloudapp.azure.com -p 2200 -L 8000:localhost:80
 
 Now you can visit `http://localhost:8000` on your local machine and view the DC/OS Dashboard.
 
-![DC/OS dashboard](/1.9/img/dcos-gui.png)
+![DC/OS dashboard](/mesosphere/dcos/1.9/img/dcos-gui.png)
 
 ### Caveats
 
@@ -99,6 +99,6 @@ If you've created a new resource group in the deployment step, it is as easy as 
 - [Install the DC/OS Command-Line Interface (CLI)][2]
 - [Scaling considerations][4]
 
-[1]: /1.9/security/ent/users-groups/
-[2]: /1.9/cli/install/
+[1]: /mesosphere/dcos/1.9/security/ent/users-groups/
+[2]: /mesosphere/dcos/1.9/cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/

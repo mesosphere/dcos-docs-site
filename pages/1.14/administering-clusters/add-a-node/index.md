@@ -9,18 +9,18 @@ render: mustache
 model: /1.14/data.yml
 ---
 
-Agent nodes are designated as [public](/latest/overview/concepts/#public-agent-node) or [private](/latest/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during the GUI or CLI [installation](/latest/installing/evaluation/).
+Agent nodes are designated as [public](/mesosphere/dcos/latest/overview/concepts/#public-agent-node) or [private](/mesosphere/dcos/latest/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during the GUI or CLI [installation](/mesosphere/dcos/latest/installing/evaluation/).
 
 ## Prerequisites:
 
-*   DC/OS installed using the [custom](/latest/installing/production/deploying-dcos/installation/) installation method
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/latest/installing/evaluation/)
-*   Available agent nodes that satisfy the [system requirements](/latest/installing/production/system-requirements/)
+*   DC/OS installed using the [custom](/mesosphere/dcos/latest/installing/production/deploying-dcos/installation/) installation method
+*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/mesosphere/dcos/latest/installing/evaluation/)
+*   Available agent nodes that satisfy the [system requirements](/mesosphere/dcos/latest/installing/production/system-requirements/)
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation)
 *   SSH installed and configured. This is required to access nodes in the DC/OS cluster.
 
 ## Install DC/OS agent nodes
-Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. This archive is created during the GUI or CLI [installation](/latest/installing/evaluation/#backup).
+Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. This archive is created during the GUI or CLI [installation](/mesosphere/dcos/latest/installing/evaluation/#backup).
 
 1.  Copy the files to your agent node. For example, you can use Secure Copy (scp) to copy `dcos-install.tar` to your home directory:
 

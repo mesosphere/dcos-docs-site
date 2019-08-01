@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos cluster attach` command allows you to attach the CLI to a connected or [linked](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) cluster. When you run the [`dcos cluster setup`](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command, the cluster is automatically attached.
+The `dcos cluster attach` command allows you to attach the CLI to a connected or [linked](/mesosphere/dcos/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) cluster. When you run the [`dcos cluster setup`](/mesosphere/dcos/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command, the cluster is automatically attached.
 
 # Usage
 
@@ -30,7 +30,7 @@ dcos cluster attach [<connected-cluster-name> | <linked-cluster-name> | <connect
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) | Manage connections to DC/OS clusters. |
+| [dcos cluster](/mesosphere/dcos/1.11/cli/command-reference/dcos-cluster/) | Manage connections to DC/OS clusters. |
 
 # Examples
-For examples, see [Cluster Connections](/1.11/administering-clusters/multiple-clusters/cluster-connections/) and [Cluster Links](/1.11/administering-clusters/multiple-clusters/cluster-links/).
+For examples, see [Cluster Connections](/mesosphere/dcos/1.11/administering-clusters/multiple-clusters/cluster-connections/) and [Cluster Links](/mesosphere/dcos/1.11/administering-clusters/multiple-clusters/cluster-links/).

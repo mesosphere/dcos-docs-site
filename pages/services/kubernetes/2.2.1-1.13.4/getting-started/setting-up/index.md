@@ -11,7 +11,7 @@ enterprise: true
 
 ## Prerequisite: DC/OS Enterprise cluster [enterprise type="inline" size="small" /]
 
-You will need [superuser access](/1.12/security/ent/users-groups/reset-superuser/) to an unutilized cluster of virtual machines (VMs). While more is usually always better for seeing more of what DC/OS Kubernetes works at scale, the following is the minimal setup for this current tutorial.
+You will need [superuser access](/mesosphere/dcos/1.12/security/ent/users-groups/reset-superuser/) to an unutilized cluster of virtual machines (VMs). While more is usually always better for seeing more of what DC/OS Kubernetes works at scale, the following is the minimal setup for this current tutorial.
 
   * 1 master node
   * 5 private agent nodes
@@ -20,8 +20,8 @@ You will need [superuser access](/1.12/security/ent/users-groups/reset-superuser
 
 Once you have your cluster infrastructure up and ready as specified by the above minimum prerequisites, you will next install both DC/OS CLIs:
 
-- the [DC/OS CLI](/1.12/cli/install/)
-- the [DC/OS Enterprise CLI](/1.12/cli/enterprise-cli/) [enterprise type="inline" size="small" /]
+- the [DC/OS CLI](/mesosphere/dcos/1.12/cli/install/)
+- the [DC/OS Enterprise CLI](/mesosphere/dcos/1.12/cli/enterprise-cli/) [enterprise type="inline" size="small" /]
 
 before continuing on.
 
@@ -45,7 +45,7 @@ The Mesosphere Kubernetes Engine (MKE) requires access over HTTPS in order to co
 
 <!-- *** NEED some validation here. -->
 
-3. **Moreover, if the [TLS certificate](/services/kubernetes/2.2.1-1.13.4/operations/connecting-clients/) used by DC/OS is not trusted in your case, you can run the following command to disable TLS verification for the purposes of completing this tutorial:**
+3. **Moreover, if the [TLS certificate](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/operations/connecting-clients/) used by DC/OS is not trusted in your case, you can run the following command to disable TLS verification for the purposes of completing this tutorial:**
 
     ```bash
     dcos config set core.ssl_verify false
@@ -62,6 +62,6 @@ The Mesosphere Kubernetes Engine (MKE) requires access over HTTPS in order to co
 
 ## Next Step: Installing the Mesosphere Kubernetes Engine
 
-Now that you have your DC/OS cluster all set up, you are ready to [install the Mesosphere Kubernetes Engine](/services/kubernetes/2.2.1-1.13.4/getting-started/installing-mke/).
+Now that you have your DC/OS cluster all set up, you are ready to [install the Mesosphere Kubernetes Engine](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/getting-started/installing-mke/).
 
 <!-- *** COULD USE some links to community slack and whatnot here to drive traffic that way for feedback. -->

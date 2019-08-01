@@ -22,13 +22,13 @@ Marathon-LB 基于 HAProxy，是快速代理和负载均衡器。HAProxy 为基�
 
 ## Marathon-LB 作为边缘负载均衡器
 
-![lb1](/cn/1.11/img/lb1.png)
+![lb1](/mesosphere/dcos/cn/1.11/img/lb1.png)
 
 图 1. Marathon-LB 作为负载均衡器
 
 ## Marathon-LB 作为内部和外部负载均衡器
 
-![lb7](/cn/1.11/img/lb7.jpg)
+![lb7](/mesosphere/dcos/cn/1.11/img/lb7.jpg)
 
 图 2. Marathon-LB 作为内部和外部负载均衡器
 

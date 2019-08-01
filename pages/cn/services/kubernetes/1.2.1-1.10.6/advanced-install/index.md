@@ -186,12 +186,12 @@ dcos package install kubernetes --options=options.json
 
 TLS 工件，如密钥对（私和公）以及证书的创建、签名和交换，是用于证明实体（例如，人、组织、应用程序等等）的身份，目的在于建立信任。要建立此信任，则需要[公钥基础架构或 PKI](https://en.wikipedia.org/wiki/Public_key_infrastructure)。过去，此包只有在 DC/OS Enterprise 上运行时才完全支持 TLS，因为只有此版本提供 PKI 所需的机制：
 
-- [DC/OS CA](/cn/1.11/security/ent/tls-ssl/) - 集中化证书授权
+- [DC/OS CA](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/) - 集中化证书授权
  (CA) 用于验证和最终签署证书签名请求 (CSR)。
-- [DC/OS 密码](/cn/1.11/security/ent/secrets/) - 一种向包组件分配
+- [DC/OS 密码](/mesosphere/dcos/cn/1.11/security/ent/secrets/) - 一种向包组件分配
  TLS 工件的集中、安全方式，例如，Kubernetes 组件和
  在同一 DC/OS 集群中的其他应用程序。
-- [DC/OS 服务帐户](/cn/1.11/security/ent/service-auth/) - 我们的包和
+- [DC/OS 服务帐户](/mesosphere/dcos/cn/1.11/security/ent/service-auth/) - 我们的包和
  应用程序所需，以对上述服务进行身份认证。
 
 开源 DC/OS 不提供此类功能。问题是我们如何在开源 DC/OS 上实施 TLS？ 答案如下图所示：
@@ -202,9 +202,9 @@ TLS 工件，如密钥对（私和公）以及证书的创建、签名和交换�
 
 ### 利用企业 DC/OS PKI
 
-为了在设置 TLS 时充分利用 DC/OS Enterprise PKI 基础架构，需要有权限管理 CA 和密码的 [服务账户](/cn/1.11/security/ent/service-auth/)。在安装 Kubernetes 包之前， **必须** 进行配置。
+为了在设置 TLS 时充分利用 DC/OS Enterprise PKI 基础架构，需要有权限管理 CA 和密码的 [服务账户](/mesosphere/dcos/cn/1.11/security/ent/service-auth/)。在安装 Kubernetes 包之前， **必须** 进行配置。
 
-为了配置此类服务帐户，首先需要安装 [DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/)。然后，执行以下操作：
+为了配置此类服务帐户，首先需要安装 [DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.11/cli/enterprise-cli/)。然后，执行以下操作：
 
 ```shell
 dcos security org service-accounts keypair private-key.pem public-key.pem
@@ -215,7 +215,7 @@ dcos security secrets create-sa-secret private-key.pem kubernetes kubernetes/sa
 dcos security org groups add_user superusers kubernetes
 ```
 
-下一步，您需要 [授予](/cn/1.11/security/ent/perms-management/) 服务帐户正确的权限。
+下一步，您需要 [授予](/mesosphere/dcos/cn/1.11/security/ent/perms-management/) 服务帐户正确的权限。
 
 所需权限为：
 ```shell
@@ -507,6 +507,6 @@ spec:
 其 Kubernetes 包含内置控制器和与云提供商的集成。
 因此，要使用 `Ingress` AWS 中的资源，您必须部署自定义
 ingress 控制器。请参阅
-[Ingress](/cn/services/kubernetes/1.2.1-1.10.6/ingress/)
+[Ingress](/mesosphere/dcos/cn/services/kubernetes/1.2.1-1.10.6/ingress/)
 文档，以了解有关在您的
 集群中设置 ingress 的示例和重要信息。

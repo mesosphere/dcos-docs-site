@@ -47,13 +47,13 @@ enterprise: true
 
 1. 完成输入后，对话框应如下所示。
 
-    ![简单绑定参数](/cn/1.11/img/ldap-add-dir-auth-simple-bind.png) 
+    ![简单绑定参数](/mesosphere/dcos/cn/1.11/img/ldap-add-dir-auth-simple-bind.png) 
 
     图 1. 简单绑定参数 
 
 1. 单击 **Add Directory**。
 
-1. [验证您的连接](/cn/1.11/security/ent/ldap/ldap-verify/)。
+1. [验证您的连接](/mesosphere/dcos/cn/1.11/security/ent/ldap/ldap-verify/)。
 
 
 # 指定搜索/绑定参数
@@ -69,10 +69,10 @@ enterprise: true
 
 1. 完成输入后，对话框应类似于如下所示的示例。
 
-    ![搜索/绑定参数](/cn/1.11/img/ldap-add-dir-auth-search-bind.png)
+    ![搜索/绑定参数](/mesosphere/dcos/cn/1.11/img/ldap-add-dir-auth-search-bind.png)
 
     图 2. 搜索绑定参数
 
 1. 单击 **Add Directory**。
 
-1. [验证您的连接](/cn/1.11/security/ent/ldap/ldap-verify/)。
+1. [验证您的连接](/mesosphere/dcos/cn/1.11/security/ent/ldap/ldap-verify/)。

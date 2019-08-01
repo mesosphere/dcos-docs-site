@@ -31,4 +31,4 @@ enterprise: true
 
 要确认新的管理节点已成功加入群集，您在继续之前，必须验证该步骤是否成功。该步骤与管理节点升级后执行的验证步骤相同。
 
-确切步骤参见 [升级文档](/cn/1.12/installing/production/upgrading/) 中 [升级管理节点](/cn/1.12/installing/production/upgrading/#dcos-masters) 部分的“验证升级”。
+确切步骤参见 [升级文档](/mesosphere/dcos/cn/1.12/installing/production/upgrading/) 中 [升级管理节点](/mesosphere/dcos/cn/1.12/installing/production/upgrading/#dcos-masters) 部分的“验证升级”。

@@ -31,9 +31,9 @@ DC/OS CLI 提供仍在开发且
 用法：`export DCOS_CLI_EXPERIMENTAL_AUTOINSTALL_PLUGINS=1`
 
 运行 `dcos cluster setup` 时，此实验启用自动
-在 Cosmos 中安装 [Core 和 Enterprise CLI 插件](/cn/1.12/cli/plugins/)
+在 Cosmos 中安装 [Core 和 Enterprise CLI 插件](/mesosphere/dcos/cn/1.12/cli/plugins/)
 。DC/OS 1.10+ 的 Cosmos 中提供了 Core CLI 插件。
 
 为了获得成功，用户将需要
 `dcos:adminrouter:package` 权限以调用 Cosmos。另外，
-系统需要访问互联网或 [Local Universe](/cn/1.12/administering-clusters/deploying-a-local-dcos-universe/)。
+系统需要访问互联网或 [Local Universe](/mesosphere/dcos/cn/1.12/administering-clusters/deploying-a-local-dcos-universe/)。

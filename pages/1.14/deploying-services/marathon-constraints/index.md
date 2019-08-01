@@ -23,7 +23,7 @@ Entering `@hostname` as the field name matches the agent node hostnames. See `UN
 
 ### Region and zone as field names
 
-Use the `@region` and `@zone` field names to configure [fault domain awareness and capacity extension](/1.14/deploying-services/fault-domain-awareness/).
+Use the `@region` and `@zone` field names to configure [fault domain awareness and capacity extension](/mesosphere/dcos/1.14/deploying-services/fault-domain-awareness/).
 
 ## Attribute as field name
 

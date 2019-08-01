@@ -28,7 +28,7 @@ dcos license status  [--terms] [--breaches]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos license](/cn/1.11/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
+| [dcos license](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
 
 # 示例
-有关示例，请参阅[许可证](/cn/1.11/administering-clusters/licenses/)。
+有关示例，请参阅[许可证](/mesosphere/dcos/cn/1.11/administering-clusters/licenses/)。

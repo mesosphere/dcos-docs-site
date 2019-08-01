@@ -146,7 +146,7 @@ The service supports the following two volume types:
  - `ROOT` volumes are an isolated directory on the root volume, sharing IO/spindles with the rest of the host system.
  - `MOUNT` volumes are a dedicated device or partition on a separate volume with dedicated IO/spindles.
 
-Using `MOUNT` volumes requires [additional configuration on each DC/OS agent system](/1.11/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you should configure `MOUNT` volumes on the machines that will run the service in your cluster, and then configure the following as `MOUNT` volumes:
+Using `MOUNT` volumes requires [additional configuration on each DC/OS agent system](/mesosphere/dcos/1.11/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you should configure `MOUNT` volumes on the machines that will run the service in your cluster, and then configure the following as `MOUNT` volumes:
 
 Use the following to configure the disk type:
 *   **In DC/OS CLI options.json**: `disk_type`: string (default: `ROOT`)
@@ -290,7 +290,7 @@ Volume profiles are used to classify volumes. For example, users can group SSDs 
 
 DC/OS Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
 
-If you want to deploy Cassandra with DSS, please follow [this tutorial](/services/storage/1.0.0/tutorials/cassandra-dss-volumes/)
+If you want to deploy Cassandra with DSS, please follow [this tutorial](/mesosphere/dcos/services/storage/1.0.0/tutorials/cassandra-dss-volumes/)
 
 Once the DC/OS cluster is running and volume profiles are created, you can deploy Cassandra with the following configs:
 

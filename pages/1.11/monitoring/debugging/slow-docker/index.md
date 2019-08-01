@@ -22,7 +22,7 @@ Your services or deployments are likely running slowly because they require more
 
 ## Increase CPU allocation
 
-If you have slow-running Docker services or deployments due to DC/OS upgrade or configuring `MESOS_CGROUPS_ENABLE_CFS=true`, increase the required CPU amount in your service definition. [From the CLI](/1.11/deploying-services/update-user-service/) or the **Services** tab of the DC/OS GUI, change the `cpus` property of your service definition to a higher value and test if increased CPU allocation solves your issues.
+If you have slow-running Docker services or deployments due to DC/OS upgrade or configuring `MESOS_CGROUPS_ENABLE_CFS=true`, increase the required CPU amount in your service definition. [From the CLI](/mesosphere/dcos/1.11/deploying-services/update-user-service/) or the **Services** tab of the DC/OS GUI, change the `cpus` property of your service definition to a higher value and test if increased CPU allocation solves your issues.
 
 ## Change Mesos agent configuration
 

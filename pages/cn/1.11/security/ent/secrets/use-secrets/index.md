@@ -21,12 +21,12 @@ enterprise: true
 
 ## 先决条件
 
-- 现有密钥。以下示例使用了存储在 `developer` 路径名为 `my-secret` 的密钥。如果您完成[创建密钥](/cn/1.11/security/ent/secrets/create-secrets/)中的步骤，则您将满足此先决条件。
+- 现有密钥。以下示例使用了存储在 `developer` 路径名为 `my-secret` 的密钥。如果您完成[创建密钥](/mesosphere/dcos/cn/1.11/security/ent/secrets/create-secrets/)中的步骤，则您将满足此先决条件。
 
-- [已安装 DC/OS CLI](/cn/1.11/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
-- 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
-- 如果您的[安全模式](/cn/1.11/security/ent/#security-modes)为 `disabled`，则必须在将其发出前从命令中删除 `--cacert dcos-ca.crt`。
-- 您的[安全模式](/cn/1.11/security/ent/#security-modes)的适当权限。
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
+- 如果您的 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
+- 如果您的[安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)为 `disabled`，则必须在将其发出前从命令中删除 `--cacert dcos-ca.crt`。
+- 您的[安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)的适当权限。
 
   <table class="table">
     <tr>
@@ -48,9 +48,9 @@ enterprise: true
  - `dcos:adminrouter:ops:mesos full`：查看 **Task** 面板信息。
  - `dcos:adminrouter:ops:slave full`：查看任务的详细信息，包括日志。
 
- 只要密钥的路径和组的路径[匹配正确](/cn/1.11//security/ent/#spaces)，服务将能够访问密钥值。
+ 只要密钥的路径和组的路径[匹配正确](/mesosphere/dcos/cn/1.11//security/ent/#spaces)，服务将能够访问密钥值。
 
-该程序根据您是否要将密钥提供给 [pod](/cn/1.11/deploying-services/pods/) 或单个服务而有所不同。
+该程序根据您是否要将密钥提供给 [pod](/mesosphere/dcos/cn/1.11/deploying-services/pods/) 或单个服务而有所不同。
 
 - [单个服务](#service)
 - [Pod](#pod)
@@ -71,7 +71,7 @@ enterprise: true
 
 1. 单击右上方的 **+** 图标。
 
-    ![添加服务](/cn/1.11/img/add-service.png)
+    ![添加服务](/mesosphere/dcos/cn/1.11/img/add-service.png)
 
     图 1. 运行服务
 
@@ -126,7 +126,7 @@ enterprise: true
 
     在上述示例中，密钥将具有文件名 `path`，并且将在任务的沙盒中可用 (`$MESOS_SANDBOX/path`) 。
 
-    由于服务和密钥路径匹配，服务将能够访问该密钥。有关路径的更多详细信息，请参阅[空间](/cn/1.11/security/ent/#spaces)。             
+    由于服务和密钥路径匹配，服务将能够访问该密钥。有关路径的更多详细信息，请参阅[空间](/mesosphere/dcos/cn/1.11/security/ent/#spaces)。             
 
 1. 单击 **REVIEW & RUN**。
 
@@ -189,7 +189,7 @@ enterprise: true
       }
       ```
 
-    由于服务组和密钥路径匹配，服务将能够访问密钥。有关路径的更多详细信息，请参阅[空间](/cn/1.11/security/ent/#spaces)。
+    由于服务组和密钥路径匹配，服务将能够访问密钥。有关路径的更多详细信息，请参阅[空间](/mesosphere/dcos/cn/1.11/security/ent/#spaces)。
 
 1. 使用描述性名称保存文件，如 `myservice.json`。
 

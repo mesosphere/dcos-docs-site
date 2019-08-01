@@ -66,7 +66,7 @@ DC/OS CLI 支持以下环境变量，可以动态设置。
 <a name="dcos-cluster"></a>
 #### `DCOS_CLUSTER` （仅限 DC/OS CLI 0.5.x 及更高版本）
 
-[连接的](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/)集群。要设置连接的集群，请使用以下命令设置变量：
+[连接的](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-attach/)集群。要设置连接的集群，请使用以下命令设置变量：
 
 ```bash
 export DCOS_CLUSTER=<cluster_name>

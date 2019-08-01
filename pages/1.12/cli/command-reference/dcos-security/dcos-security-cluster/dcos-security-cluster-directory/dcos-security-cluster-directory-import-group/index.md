@@ -33,4 +33,4 @@ dcos security cluster directory import_user [OPTIONS] GID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster directory](/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |
+| [dcos security cluster directory](/mesosphere/dcos/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |

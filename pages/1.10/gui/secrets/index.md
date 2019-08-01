@@ -7,6 +7,6 @@ excerpt:
 enterprise: true
 ---
 
-The Secrets tab provides secret and certificates management. For more information, see the [secrets](/1.10/security/ent/secrets/) and [certificate](/1.10/security/ent/tls-ssl/) documentation.
+The Secrets tab provides secret and certificates management. For more information, see the [secrets](/mesosphere/dcos/1.10/security/ent/secrets/) and [certificate](/mesosphere/dcos/1.10/security/ent/tls-ssl/) documentation.
 
-![Secrets](/1.10/img/secrets-ee.png)
+![Secrets](/mesosphere/dcos/1.10/img/secrets-ee.png)

@@ -35,7 +35,7 @@ dcos license list --output <file_path>
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/1.11/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](/mesosphere/dcos/1.11/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
 
 # Examples
-For examples, see [Licenses](/1.11/administering-clusters/licenses/).
+For examples, see [Licenses](/mesosphere/dcos/1.11/administering-clusters/licenses/).

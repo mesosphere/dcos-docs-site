@@ -19,7 +19,7 @@ The general syntax for installing a service with the CLI follows.
 dcos package install [--options=<config-file-name>.json] <servicename>
 ```
 
-Use the optional `--options` flag to specify the name of the customized JSON file you created in [advanced configuration](/1.9/deploying-services/config-universe-service/).
+Use the optional `--options` flag to specify the name of the customized JSON file you created in [advanced configuration](/mesosphere/dcos/1.9/deploying-services/config-universe-service/).
 
 For example, you would use the following command to install Chronos with the default parameters.
     
@@ -29,25 +29,25 @@ dcos package install chronos
     
 ## Installing a service using the GUI
 
-From the DC/OS GUI you can install services from the **Services** or **Universe** tab. The Universe tab shows all of the available DC/OS services from package [repositories](/1.9/administering-clusters/repo/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
+From the DC/OS GUI you can install services from the **Services** or **Universe** tab. The Universe tab shows all of the available DC/OS services from package [repositories](/mesosphere/dcos/1.9/administering-clusters/repo/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
 
 
 ### Universe tab
 
-1.  Navigate to the [**Universe > Packages**](/1.9/gui/universe/) page in the DC/OS GUI.
+1.  Navigate to the [**Universe > Packages**](/mesosphere/dcos/1.9/gui/universe/) page in the DC/OS GUI.
 
-    ![universe](/1.9/img/ui-dashboard-universe.gif)
+    ![universe](/mesosphere/dcos/1.9/img/ui-dashboard-universe.gif)
 
 2.  Choose your package and click **INSTALL PACKAGE**. 
 
-3.  Confirm your installation or choose [**ADVANCED INSTALLATION**](/1.9/deploying-services/config-universe-service/).
+3.  Confirm your installation or choose [**ADVANCED INSTALLATION**](/mesosphere/dcos/1.9/deploying-services/config-universe-service/).
 
 ### Services tab
 
-1.  Navigate to the [**Services**](/1.9/gui/services/) tab in the DC/OS GUI.
+1.  Navigate to the [**Services**](/mesosphere/dcos/1.9/gui/services/) tab in the DC/OS GUI.
 1.  Click **RUN A SERVICE** and specify your Marathon app definition.
 
-    ![service tab](/1.9/img/run-a-service.png)
+    ![service tab](/mesosphere/dcos/1.9/img/run-a-service.png)
 
 ## Verifying your installation
 
@@ -59,8 +59,8 @@ dcos package list
 
 ### Web GUI
 
-Go to the **Services** tab and confirm that the service is running. For more information, see the GUI [documentation](/1.9/gui/services/).
+Go to the **Services** tab and confirm that the service is running. For more information, see the GUI [documentation](/mesosphere/dcos/1.9/gui/services/).
 
-![Services](/1.9/img/tweeter-services6.png)
+![Services](/mesosphere/dcos/1.9/img/tweeter-services6.png)
 
 **Tip:** Some services from the "Community Packages" section of the Universe will not show up in the DC/OS service listing. For these, inspect the service's Marathon app in the Marathon GUI to verify that the service is running and healthy.

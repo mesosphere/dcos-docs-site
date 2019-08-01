@@ -11,7 +11,7 @@ enterprise: false
 
 # 邀约匹配如何起作用
 
-由于 Mesos 资源邀约无法匹配来自服务或 Pod [Marathon 应用定义](/cn/1.12/deploying-services/creating-services/) 的资源请求，DC/OS 服务或 Pod 可能无法部署。
+由于 Mesos 资源邀约无法匹配来自服务或 Pod [Marathon 应用定义](/mesosphere/dcos/cn/1.12/deploying-services/creating-services/) 的资源请求，DC/OS 服务或 Pod 可能无法部署。
 
 以下是对邀约匹配过程的概述。
 
@@ -32,9 +32,9 @@ enterprise: false
 您的服务或 Pod 可能无法部署的原因有很多。可能的情况包括：
 
 - Marathon 没有获得为启动应用程序所需的资源邀约。
- 使用 [CLI](/cn/1.12/monitoring/debugging/cli-debugging/) 调试子命令或 [DC/OS Web 界面中的调试页面](/cn/1.12/monitoring/debugging/gui-debugging/) 来解决来自 Mesos 的不匹配或未接受的资源邀约。您也可以 [查阅服务和任务日志](/cn/1.12/monitoring/logging/)。
+ 使用 [CLI](/mesosphere/dcos/cn/1.12/monitoring/debugging/cli-debugging/) 调试子命令或 [DC/OS Web 界面中的调试页面](/mesosphere/dcos/cn/1.12/monitoring/debugging/gui-debugging/) 来解决来自 Mesos 的不匹配或未接受的资源邀约。您也可以 [查阅服务和任务日志](/mesosphere/dcos/cn/1.12/monitoring/logging/)。
 
-- 服务的运行状况检查失败。如果服务执行运行状况检查，则在通过运行状况检查前，部署不会完成。您可以从 [DC/OS Web 界面](/cn/1.12/monitoring/debugging/gui-debugging/) 查看执行 Marathon 运行状况检查的服务的运行状况。要通过 Marathon 运行状况检查了解有关服务运行状况的更多信息，请从 DC/OS CLI 运行 `dcos marathon app list --json`。
+- 服务的运行状况检查失败。如果服务执行运行状况检查，则在通过运行状况检查前，部署不会完成。您可以从 [DC/OS Web 界面](/mesosphere/dcos/cn/1.12/monitoring/debugging/gui-debugging/) 查看执行 Marathon 运行状况检查的服务的运行状况。要通过 Marathon 运行状况检查了解有关服务运行状况的更多信息，请从 DC/OS CLI 运行 `dcos marathon app list --json`。
 
 - `docker pull` 出现故障。
  如果应用程序在 Docker 镜像中运行，Mesos 代理节点将首先需要拉取 Docker 镜像。如果出现故障，应用程序可能会陷入“正在部署”状态。Mesos 代理节点日志 (`<dcos-url>/mesos/#/agents/`) 将包含此信息。您将在日志中看到类似以下内容的错误。

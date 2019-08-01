@@ -21,7 +21,7 @@ Edge-LB API 最初与 DC/OS 1.10.0 一起发布，需要 DC/OS Enterprise 1.10.0
 /services/edge-lb/
 ```
 
-要确定您集群的地址，请参阅 [集群访问](/cn/1.11/api/access/)。
+要确定您集群的地址，请参阅 [集群访问](/mesosphere/dcos/cn/1.11/api/access/)。
 
 # 格式
 
@@ -34,7 +34,7 @@ API 请求标头可以是以下任一项：
 
 所有 Edge-LB API 路由都需要使用身份验证。
 
-要验证 API 请求，请参阅 [获取身份认证令牌](/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递身份认证令牌](/cn/1.11/security/ent/iam-api/#pass-an-authentication-token)。
+要验证 API 请求，请参阅 [获取身份认证令牌](/mesosphere/dcos/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递身份认证令牌](/mesosphere/dcos/cn/1.11/security/ent/iam-api/#pass-an-authentication-token)。
 
 Edge-LB API 还需要通过以下权限进行授权：
 
@@ -44,7 +44,7 @@ Edge-LB API 还需要通过以下权限进行授权：
 
 用户也可以通过 `dcos:superuser` 权限来访问所有路由。
 
-要为您的帐户分配权限，请参阅 [分配权限](/cn/1.11/security/ent/perms-reference/)。
+要为您的帐户分配权限，请参阅 [分配权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/)。
 
 # 资源
 

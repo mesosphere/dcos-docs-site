@@ -14,7 +14,7 @@ You can deploy a local Universe that includes all Certified packages (easiest), 
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/1.11/cli/install/).
+- [DC/OS CLI installed](/mesosphere/dcos/1.11/cli/install/).
 
 - Logged into the DC/OS CLI. On DC/OS Enterprise, you must be logged in as a user with the `dcos:superuser` permission.
 
@@ -42,7 +42,7 @@ You can deploy a local Universe that includes all Certified packages (easiest), 
     scp dcos-local-universe-registry.service core@<master-IP>:~
     ```
 
-1.  [SSH](/1.11/administering-clusters/sshcluster/) into the master using the following command. Replace `<master-IP>` with the IP address used in the previous commands.
+1.  [SSH](/mesosphere/dcos/1.11/administering-clusters/sshcluster/) into the master using the following command. Replace `<master-IP>` with the IP address used in the previous commands.
 
     ```bash
     ssh -A core@<master-IP>
@@ -121,7 +121,7 @@ You can deploy a local Universe that includes all Certified packages (easiest), 
     scp /etc/systemd/system/dcos-local-universe-http.service core@<master-IP>:~
     ```
 
-1.  [SSH](/1.11/administering-clusters/sshcluster/) into the master that you just copied these files to.
+1.  [SSH](/mesosphere/dcos/1.11/administering-clusters/sshcluster/) into the master that you just copied these files to.
 
     ```bash
     ssh -A core@<master_IP>
@@ -199,10 +199,10 @@ You can deploy a local Universe that includes all Certified packages (easiest), 
     ```bash
     dcos package repo add local-universe http://master.mesos:8082/repo
     ```
-    **NOTE:** If you need help resolving `master.mesos`, refer to [Installing your own set of Universe packages](/1.11/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages).
+    **NOTE:** If you need help resolving `master.mesos`, refer to [Installing your own set of Universe packages](/mesosphere/dcos/1.11/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages).
 
 
-2.  [SSH into one of your agent nodes.](/1.11/administering-clusters/sshcluster/)
+2.  [SSH into one of your agent nodes.](/mesosphere/dcos/1.11/administering-clusters/sshcluster/)
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>

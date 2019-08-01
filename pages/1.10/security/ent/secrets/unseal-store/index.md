@@ -12,16 +12,16 @@ enterprise: true
 
 The Secret Store can become sealed under the following circumstances.
 
-- [After being manually sealed.](/1.10/security/ent/secrets/seal-store/)
+- [After being manually sealed.](/mesosphere/dcos/1.10/security/ent/secrets/seal-store/)
 - After a power outage.
 
-A sealed Secret Store cannot be accessed from the GUI. Secret values cannot be retrieved using the [Secrets API](/1.10/security/ent/secrets/secrets-api/). Services that depend on values provisioned to them via environment variables may fail to deploy.
+A sealed Secret Store cannot be accessed from the GUI. Secret values cannot be retrieved using the [Secrets API](/mesosphere/dcos/1.10/security/ent/secrets/secrets-api/). Services that depend on values provisioned to them via environment variables may fail to deploy.
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/1.10/cli/install/)
+- [DC/OS CLI installed](/mesosphere/dcos/1.10/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
-- If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/1.10/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 **Note:** In these procedures, we will use two terminal prompt tabs: one to SSH into the master and use GPG; another to execute curl requests and use xxd. The master does not have xxd installed by default at this time. Nor does it have a package manager. If you do not wish to shuttle between terminal prompt tabs, you can run xxd inside a container on the master.
 
@@ -43,13 +43,13 @@ A sealed Secret Store cannot be accessed from the GUI. Secret values cannot be r
 
 1. After confirming that your Secret Store is indeed sealed, open a new terminal prompt tab.
 
-1. From the new tab, [SSH into your master](/1.10/administering-clusters/sshcluster/) and launch the ZooKeeper command line interface as follows.
+1. From the new tab, [SSH into your master](/mesosphere/dcos/1.10/administering-clusters/sshcluster/) and launch the ZooKeeper command line interface as follows.
 
    ```bash
    /opt/mesosphere/packages/exhibitor--*/usr/zookeeper/bin/zkCli.sh
    ```
 
-1. Execute the following ZooKeeper command to gain additional privileges, specifying the user name and password of the ZooKeeper superuser. By default, this is set to `super:secret` but we recommend [changing the default](/1.10/installing/production/advanced-configuration/configuration-reference/#zk-superuser).
+1. Execute the following ZooKeeper command to gain additional privileges, specifying the user name and password of the ZooKeeper superuser. By default, this is set to `super:secret` but we recommend [changing the default](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#zk-superuser).
 
    ```bash
    addauth digest super:secret

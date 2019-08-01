@@ -11,7 +11,7 @@ DC/OS 节点是 DC/OS 组件运行所在的虚拟机或物理机。DC/OS 节点�
 
 我们建议您使用在不同网络（专用、公共、主控）中设置的不同类型节点，如图 1 所示。
 
-![DC/OS 节点类型](/cn/1.11/img/dcos-node-types.png)
+![DC/OS 节点类型](/mesosphere/dcos/cn/1.11/img/dcos-node-types.png)
 
 图 1. DC/OS 节点类型
 
@@ -50,7 +50,7 @@ DC/OS 代理节点是用户任务运行所在的节点。代理节点包含几�
 
 ### 公共代理节点
 
-公共代理节点是位于网络上的代理节点，允许通过群集的 [基础架构网络](/cn/1.11/overview/concepts/#infrastructure-network) 从群集外部进入。
+公共代理节点是位于网络上的代理节点，允许通过群集的 [基础架构网络](/mesosphere/dcos/cn/1.11/overview/concepts/#infrastructure-network) 从群集外部进入。
 
 公共代理节点上的资源默认配置为仅分配给指定 `slave_public` 角色的任务。公共代理节点上的 Mesos 代理节点还具有 `public_ip:true` 代理属性以协助其发现。
 
@@ -60,18 +60,18 @@ DC/OS 代理节点是用户任务运行所在的节点。代理节点包含几�
 
 ### 专用代理节点
 
-专用代理节点是位于网络上的代理节点，不允许通过群集的 [基础架构网络](/cn/1.11/overview/concepts/#infrastructure-network) 从群集外部访问。
+专用代理节点是位于网络上的代理节点，不允许通过群集的 [基础架构网络](/mesosphere/dcos/cn/1.11/overview/concepts/#infrastructure-network) 从群集外部访问。
 
 专用代理节点上的资源默认配置为允许无差别的分配。更准确地说，资源被分配予 `*` 角色，从而允许其被给予未指定角色的任务。如需更多信息，请参阅 [Mesos 资源角色](http://mesos.apache.org/documentation/latest/roles/)。
 
-因为这些资源无差别，因此大多数任务都安排在专用代理节点上且无法从群集外部访问，从而减少恶意攻击者可访问的突破表面。所以，群集一般大部分由专用代理节点组成。同样，大部分 [Mesosphere Universe](/cn/1.11/overview/concepts/#mesosphere-universe) 软件包默认安装在专用代理节点上。
+因为这些资源无差别，因此大多数任务都安排在专用代理节点上且无法从群集外部访问，从而减少恶意攻击者可访问的突破表面。所以，群集一般大部分由专用代理节点组成。同样，大部分 [Mesosphere Universe](/mesosphere/dcos/cn/1.11/overview/concepts/#mesosphere-universe) 软件包默认安装在专用代理节点上。
 
 ## 更多信息
 
-有关管理节点组件和代理节点组件的更多信息，请参阅 [组件](/cn/1.11/overview/architecture/components/)。
+有关管理节点组件和代理节点组件的更多信息，请参阅 [组件](/mesosphere/dcos/cn/1.11/overview/architecture/components/)。
 
-有关安全的更多信息，请参阅 [保护您的集群](/cn/1.11/administering-clusters/)。
+有关安全的更多信息，请参阅 [保护您的集群](/mesosphere/dcos/cn/1.11/administering-clusters/)。
 
-有关扩展集群的更多信息，请参阅 [添加代理节点](/cn/1.11/administering-clusters/add-a-node/)。
+有关扩展集群的更多信息，请参阅 [添加代理节点](/mesosphere/dcos/cn/1.11/administering-clusters/add-a-node/)。
 
-有关配置公共节点的更多信息，请参阅 [转换代理节点类型](/cn/1.11/administering-clusters/convert-agent-type/)。
+有关配置公共节点的更多信息，请参阅 [转换代理节点类型](/mesosphere/dcos/cn/1.11/administering-clusters/convert-agent-type/)。

@@ -48,13 +48,13 @@ dcos task log [mesosID] exporter.log
 
 # Examples
 
-For an example, see the [logging documentation](/1.14/monitoring/logging/).
+For an example, see the [logging documentation](/mesosphere/dcos/1.14/monitoring/logging/).
 
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/1.14/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/mesosphere/dcos/1.14/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
 
 

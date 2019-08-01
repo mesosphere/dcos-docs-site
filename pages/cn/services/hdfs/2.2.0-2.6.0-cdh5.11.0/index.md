@@ -32,4 +32,4 @@ DC/OS HDFS 具有以下特性：
 
 ## 相关服务
 
-- [DC/OS Spark](/cn/services/spark/)
+- [DC/OS Spark](/mesosphere/dcos/cn/services/spark/)

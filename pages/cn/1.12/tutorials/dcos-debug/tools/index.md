@@ -77,7 +77,7 @@ DC/OS GUI 显示调试所需的大部分信息。但是，更进一步并访问 
 
 ## 日志
 
-日志是用于查看事件及其出现之前发生的条件的有用工具。通常，日志包含错误消息，可以提供有关错误原因的有用信息。由于日志记录本身就是一个重要的主题，因此我们建议使用 [DC/OS 日志文档](/1.12/monitoring/logging/#system-logs)，以了解更多信息。
+日志是用于查看事件及其出现之前发生的条件的有用工具。通常，日志包含错误消息，可以提供有关错误原因的有用信息。由于日志记录本身就是一个重要的主题，因此我们建议使用 [DC/OS 日志文档](/mesosphere/dcos/1.12/monitoring/logging/#system-logs)，以了解更多信息。
 
 DC/OS 有许多不同的日志源。通常，这些是应用程序调试最有用的日志：
 
@@ -197,7 +197,7 @@ Mesos 管理节点负责将可用资源与调度程序匹配。它还将任务�
 
 ### 系统日志
 
-我们现在已经介绍了 DC/OS 环境中最重要的日志源，但可用的日志还有很多。每个 DC/OS 组件都写入一个日志。如上所述，[每个 DC/OS 组件](/1.12/overview/architecture/components/) 作为一个 Systemd 单元运行。您可以在特定节点上通过 SSH 进入节点[直接检索日志](/latest/monitoring/logging/#system-logs)，然后键入 `journalctl -u <systemd-unit-name>`。在调试过程中，（除 Mesos 和 Marathon 之外）需要考虑的两个更常见的系统单元是 `docker.service` 和 `dcos-exhibitor.service`。
+我们现在已经介绍了 DC/OS 环境中最重要的日志源，但可用的日志还有很多。每个 DC/OS 组件都写入一个日志。如上所述，[每个 DC/OS 组件](/mesosphere/dcos/1.12/overview/architecture/components/) 作为一个 Systemd 单元运行。您可以在特定节点上通过 SSH 进入节点[直接检索日志](/mesosphere/dcos/latest/monitoring/logging/#system-logs)，然后键入 `journalctl -u <systemd-unit-name>`。在调试过程中，（除 Mesos 和 Marathon 之外）需要考虑的两个更常见的系统单元是 `docker.service` 和 `dcos-exhibitor.service`。
 
 例如，考虑 Mesos 代理节点`ffc913d8-4012-4953-b693-1acc33b400ce-S0`上 docker 守护程序的系统单元（重新调用 `dcos node` 命令检索 Mesos ID）。
 
@@ -290,4 +290,4 @@ Marathon [`queue` 端点](https://mesosphere.github.io/marathon/api-console/inde
 
 ## 其他工具
 
-还有其他调试工具 -- [DC/OS 内部](/1.12/monitoring/debugging/) 以及 [Sysdig](https://sysdig.com/blog/monitoring-mesos/) 或 [Instana](https://www.instana.com/) 等外部工具。这些工具对确定非 DC/OS 特定问题（例如，Linux 内核或网络问题）尤为有用。
+还有其他调试工具 -- [DC/OS 内部](/mesosphere/dcos/1.12/monitoring/debugging/) 以及 [Sysdig](https://sysdig.com/blog/monitoring-mesos/) 或 [Instana](https://www.instana.com/) 等外部工具。这些工具对确定非 DC/OS 特定问题（例如，Linux 内核或网络问题）尤为有用。

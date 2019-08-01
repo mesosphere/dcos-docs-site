@@ -57,7 +57,7 @@ The new CLI features a number of other useful commands, which can be listed by r
 dcos kubernetes --help
 ```
 
-See the [CLI](/services/kubernetes/2.3.0-1.14.1/cli/) section for documentation on the new CLI.
+See the [CLI](/mesosphere/dcos/services/kubernetes/2.3.0-1.14.1/cli/) section for documentation on the new CLI.
 
 # Cluster Manager
 
@@ -76,7 +76,7 @@ Control-plane nodes are labeled with `node-role.kubernetes.io/master`, being tai
 # Networking
 
 In order to make it possible to run multiple private Kubernetes nodes on the same private DC/OS agent, some changes to networking were required.
-The `etcd` members, control-plane nodes and private Kubernetes nodes leverage [DC/OS virtual networking](/1.12/networking/SDN/) and each have their own IP address in the DC/OS cluster.
+The `etcd` members, control-plane nodes and private Kubernetes nodes leverage [DC/OS virtual networking](/mesosphere/dcos/1.12/networking/SDN/) and each have their own IP address in the DC/OS cluster.
 Kubernetes cluster pod networking and policy are now powered by [Calico](https://github.com/projectcalico/calico/).
 
 # Community

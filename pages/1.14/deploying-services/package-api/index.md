@@ -8,13 +8,13 @@ model: /1.14/data.yml
 enterprise: true
 ---
 
-You can install DC/OS services by using the Package Management API. DC/OS services are installed from packages that are stored in a package registry, such as the [Mesosphere {{ model.packageRepo }}](/1.14/overview/concepts/#mesosphere-universe).
+You can install DC/OS services by using the Package Management API. DC/OS services are installed from packages that are stored in a package registry, such as the [Mesosphere {{ model.packageRepo }}](/mesosphere/dcos/1.14/overview/concepts/#mesosphere-universe).
 
-The [DC/OS Package Manager (Cosmos) component](/1.14/overview/architecture/components/#dcos-package-manager) runs on all master nodes.
+The [DC/OS Package Manager (Cosmos) component](/mesosphere/dcos/1.14/overview/architecture/components/#dcos-package-manager) runs on all master nodes.
 
-For information about managing package repositories, see [Managing Package Repositories](/1.14/administering-clusters/repo/).
+For information about managing package repositories, see [Managing Package Repositories](/mesosphere/dcos/1.14/administering-clusters/repo/).
 
-For information about managing services, see [Deploying Services and Pods](/1.14/deploying-services/).
+For information about managing services, see [Deploying Services and Pods](/mesosphere/dcos/1.14/deploying-services/).
 
 
 ## Routes
@@ -29,7 +29,7 @@ Admin Router proxies three routes to the DC/OS Package Manager (Cosmos):
 
 ## Authentication
 
-All Package Management API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](/1.14/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.14/security/ent/iam-api/#passing-an-authentication-token). The Package Management API also requires authorization via the following permissions:
+All Package Management API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](/mesosphere/dcos/1.14/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/mesosphere/dcos/1.14/security/ent/iam-api/#passing-an-authentication-token). The Package Management API also requires authorization via the following permissions:
 
 | Route | Permission |
 |-------|----------|
@@ -37,7 +37,7 @@ All Package Management API routes require authentication to use. To authenticate
 | `/package/` | `dcos:adminrouter:package` |
 | `/capabilities` | `dcos:adminrouter:capabilities` |
 
-All routes may also be reached by users with the `dcos:superuser` permission. To assign permissions to your account, see [Permissions Reference](/1.14/security/ent/perms-reference/).
+All routes may also be reached by users with the `dcos:superuser` permission. To assign permissions to your account, see [Permissions Reference](/mesosphere/dcos/1.14/security/ent/perms-reference/).
 
 
 ## Resources

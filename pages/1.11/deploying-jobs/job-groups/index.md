@@ -8,18 +8,18 @@ excerpt: Granting access to jobs using the CLI or the web interface
 enterprise: true
 ---
 
-You can implement fine-grained user access to jobs by using either the DC/OS web interface, the CLI or [the API](/1.11/security/ent/iam-api/). The [Metronome permissions](/1.11/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.
+You can implement fine-grained user access to jobs by using either the DC/OS web interface, the CLI or [the API](/mesosphere/dcos/1.11/security/ent/iam-api/). The [Metronome permissions](/mesosphere/dcos/1.11/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
-- A [user account](/1.11/security/ent/users-groups/) to assign permissions to.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.11/cli/install/) and be logged in as a superuser.
+- A [user account](/mesosphere/dcos/1.11/security/ent/users-groups/) to assign permissions to.
 
 # <a name="job-group-access-via-ui"></a>Via the DC/OS web interface
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.11/img/gui-installer-login-ee.gif)
+   ![Login](/mesosphere/dcos/1.11/img/gui-installer-login-ee.gif)
 
    Figure 1. DC/OS web interface login
 
@@ -27,7 +27,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS web
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.11/img/services-tab-user.png)
+    ![Add permission cory](/mesosphere/dcos/1.11/img/services-tab-user.png)
 
     Figure 2. Choose user or group to add permissions to
 
@@ -35,11 +35,11 @@ You can implement fine-grained user access to jobs by using either the DC/OS web
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.11/img/services-tab-user3.png)
+    ![Add permission](/mesosphere/dcos/1.11/img/services-tab-user3.png)
 
     Figure 3. Add permissions
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/1.11/security/ent/#security-modes).
 
     ### Disabled
 
@@ -109,7 +109,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS web
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.11/cli/install/) and be logged in as a superuser.
 
 **Tips:**
 

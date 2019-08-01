@@ -39,7 +39,7 @@ By completing this tutorial, you will learn:
 - How DC/OS resolves service addresses to find running instances.
 
 # Service discovery options
-In a DC/OS cluster, [service discovery](/1.13/networking/) provides a method for finding applications regardless of where they might be running in the cluster. With service discovery, you can find where deployed services are running in the DC/OS cluster in one of two ways:
+In a DC/OS cluster, [service discovery](/mesosphere/dcos/1.13/networking/) provides a method for finding applications regardless of where they might be running in the cluster. With service discovery, you can find where deployed services are running in the DC/OS cluster in one of two ways:
 
  - By resolving private or public agent node IP addresses for tasks through the **Mesos domain naming service (Mesos-DNS)**.
 

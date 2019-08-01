@@ -10,12 +10,12 @@ beta: true
 ---
 
 
-DC/OS 1.12 and later sends metrics via [Telegraf](/1.14/overview/architecture/components/#telegraf), which may be configured to export metrics to Datadog. There is no need to install a metrics plugin, as in DC/OS 1.9, 1.10, and 1.11. This page explains how to add the appropriate configuration to DC/OS.
+DC/OS 1.12 and later sends metrics via [Telegraf](/mesosphere/dcos/1.14/overview/architecture/components/#telegraf), which may be configured to export metrics to Datadog. There is no need to install a metrics plugin, as in DC/OS 1.9, 1.10, and 1.11. This page explains how to add the appropriate configuration to DC/OS.
 
 
 **Prerequisite:**
 
-- You must have the [DC/OS CLI installed](/1.14/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.14/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 
 # Configuring Telegraf to export metrics to Datadog
 

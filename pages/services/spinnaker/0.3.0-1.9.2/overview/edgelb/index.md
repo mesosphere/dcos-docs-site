@@ -8,9 +8,9 @@ model: /services/spinnaker/data.yml
 render: mustache
 ---
 
-Edge-LB is the load balancer that comes with DC/OS Enterprise. See the DC/OS Enterprise documentation on [how to install Edge-LB](/services/edge-lb/1.3/installing/).
+Edge-LB is the load balancer that comes with DC/OS Enterprise. See the DC/OS Enterprise documentation on [how to install Edge-LB](/mesosphere/dcos/services/edge-lb/1.3/installing/).
 
-1. Create a `config.yaml` file with the following Edge-LB configuration. This configuration works with the [rolling blue-green](/services/spinnaker/0.3.0-1.9.2/quick-start-guide/pipelines/#creating-a-rolling-blue-green-pipeline) sample.
+1. Create a `config.yaml` file with the following Edge-LB configuration. This configuration works with the [rolling blue-green](/mesosphere/dcos/services/spinnaker/0.3.0-1.9.2/quick-start-guide/pipelines/#creating-a-rolling-blue-green-pipeline) sample.
 
 ```yaml
 ---

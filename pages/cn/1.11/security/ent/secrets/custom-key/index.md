@@ -19,15 +19,15 @@ enterprise: true
 
 **先决条件：**
 
-- [DC/OS CLI 已安装](/cn/1.11/cli/install/)
+- [DC/OS CLI 已安装](/mesosphere/dcos/cn/1.11/cli/install/)
 - 通过 `dcos auth login` 作为超级用户登录到 DC/OS CLI
 - [已安装了 GNU Privacy Guard (GPG)](http://brewformulas.org/Gnupg)
-- 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须遵守 [下载根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 中的步骤才能发布此部分的 `curl` 命令。
-- 如果您的 [安全模式](/1.11/security/ent/#security-mode) 是 `disabled`，在必须从命令中删除 `--cacert dcos-ca.crt` 才能发布。
+- 如果您的 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须遵守 [下载根证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/get-cert/) 中的步骤才能发布此部分的 `curl` 命令。
+- 如果您的 [安全模式](/mesosphere/dcos/1.11/security/ent/#security-mode) 是 `disabled`，在必须从命令中删除 `--cacert dcos-ca.crt` 才能发布。
 
 ## <a name="1"></a>编辑 SECRETS_BOOTSTRAP 值
 
-1. [通过 SSH 进入主节点](/cn/1.11/administering-clusters/sshcluster/)。
+1. [通过 SSH 进入主节点](/mesosphere/dcos/cn/1.11/administering-clusters/sshcluster/)。
 
 2. 在您选择的编辑器中打开 `dcos-secrets.env` 文件。
 
@@ -166,4 +166,4 @@ enterprise: true
    {"keys":["c1c14c03483...c400"],"pgp_fingerprints":["1ff31b0af...d57b464df4"],"root_token":"da8e3b55-8719-4594-5378-4a9f3498387f"}
    ```
 
-祝贺您！您已成功重新初始化密钥存储库。要拆封它，请参阅[使用自定义钥匙拆封密封的密钥存储库](/cn/1.11/security/ent/secrets/unseal-store/#unseal-cust-keys)。
+祝贺您！您已成功重新初始化密钥存储库。要拆封它，请参阅[使用自定义钥匙拆封密封的密钥存储库](/mesosphere/dcos/cn/1.11/security/ent/secrets/unseal-store/#unseal-cust-keys)。

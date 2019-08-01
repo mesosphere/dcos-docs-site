@@ -6,7 +6,7 @@ excerpt:
 
 ---
 
-[DC/OS components](/1.9/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
+[DC/OS components](/mesosphere/dcos/1.9/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
 
 DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 

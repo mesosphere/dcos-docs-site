@@ -14,7 +14,7 @@ You can create and administer jobs for the DC/OS cluster in any of the following
 - interactively or programmatically with the DC/OS [CLI](#cli)
 - directly through calls to the DC/OS application programming interface ([API](#jobs-api) for job-related operations
 
-The DC/OS UI only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the CLI [`dcos job`](/1.14/cli/command-reference/dcos-job/) commands or the [Jobs API](/1.14/deploying-jobs/quickstart/#jobs-api).
+The DC/OS UI only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the CLI [`dcos job`](/mesosphere/dcos/1.14/cli/command-reference/dcos-job/) commands or the [Jobs API](/mesosphere/dcos/1.14/deploying-jobs/quickstart/#jobs-api).
 
 The DC/OS application programming interface (API) provides underlying functionality that you can access through the DC/OS UI and CLI. In most cases, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
 
@@ -23,7 +23,7 @@ The DC/OS application programming interface (API) provides underlying functional
 # Managing jobs with the DC/OS UI
 You can manage the most common job-related activity interactively through the DC/OS UI. For example, you can add, modify, run, and remove jobs directly from the **Jobs** tab in the UI. 
 
-![Jobs](/1.14/img/GUI-Jobs-Main.png)
+![Jobs](/mesosphere/dcos/1.14/img/GUI-Jobs-Main.png)
 
 Figure 1 - Jobs tab and jobs list
 
@@ -37,7 +37,7 @@ Edits made to either interface will be immediately reflected in the other. For e
 
 To dismiss the **JSON Editor** screen, click the toggle again.
 
-![Split Screen](/1.14/img/GUI-Jobs-Split-Screen.png)
+![Split Screen](/mesosphere/dcos/1.14/img/GUI-Jobs-Split-Screen.png)
 
 Figure 2 - Split screen
 
@@ -47,19 +47,19 @@ There are two ways to create a job in the DC/OS UI.
 
 - If you have no jobs configured, the Jobs screen will contain a notice that you have no active jobs, and will display a **Create a Job** button. 
 
-![No active jobs](/1.14/img/GUI-Jobs-No-Active-Jobs.png)
+![No active jobs](/mesosphere/dcos/1.14/img/GUI-Jobs-No-Active-Jobs.png)
 
 Figure 3 - Create a Job button
 
 -  Regardless of whether you have active jobs or not, you can always click on the **+** sign in the upper right corner to create a new job.
 
-![Plus sign](/1.14/img/GUI-Jobs-Create-a-Job.png)
+![Plus sign](/mesosphere/dcos/1.14/img/GUI-Jobs-Create-a-Job.png)
 
 Figure 4 - Click on plus sign
 
 A configuration screen for a new job will appear. Note that this screen is the same as that used for editing jobs. 
 
-![Job configuration screen](/1.14/img/GUI-Jobs-New-Job.png)
+![Job configuration screen](/mesosphere/dcos/1.14/img/GUI-Jobs-New-Job.png)
 
 Figure 5 - Job configuration screen
 
@@ -78,24 +78,24 @@ You will see eight tabs on the left hand side of the screen. These help you name
 | [Run Configuration](#run-configuration) | Advanced settings for the job. |
 | [Secrets](#secrets) | Sets up a Secret Store to secure important values like private keys, API tokens, and so forth. |
     
-Detailed information about the parameters and values for each of the configuration screens can be found in the [Jobs](/1.14/gui/jobs/) documentation. 
+Detailed information about the parameters and values for each of the configuration screens can be found in the [Jobs](/mesosphere/dcos/1.14/gui/jobs/) documentation. 
 
 ### General
 
 Select **General** to edit the most basic job settings, such as the job identifier, CPU, memory, and disk requirements.
 
-![Jobs](/1.14/img/GUI-Jobs-General.png)
+![Jobs](/mesosphere/dcos/1.14/img/GUI-Jobs-General.png)
 
 Figure 6 - General configuration tab
 
-The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#general/) documentation of the UI.
+The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/1.14/gui/jobs/#general/) documentation of the UI.
 
 <!-- * **Job ID** - Defines a unique identifier for the new job. The Job ID is a required field. You also use this setting to manage job operations.
 * **Description** - Provides an optional description of the new job.
 * **CPUs** - Specifies the number of CPU cores your job requires. This field is required for all jobs.
 * **Mem** - Specifies the amount of memory, in MB, your job requires. This field is required for all jobs.
 * **Disk** - Specifies the amount of disk space, in MB, your job requires. This field is required for all jobs.
-* **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks that are launched using DC/OS [Universal Container Runtime](/1.14/deploying-services/containerizers/ucr/) containers. Support for GPU resources is are not available for Docker containers or images.
+* **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks that are launched using DC/OS [Universal Container Runtime](/mesosphere/dcos/1.14/deploying-services/containerizers/ucr/) containers. Support for GPU resources is are not available for Docker containers or images.
 
 Select the appropriate Job Type to run one or more specific commands or a Docker container image.
 * Select **Command Only** to specify one or more commands you want the new job to execute. 
@@ -120,7 +120,7 @@ Select **Container Runtime** to specify whether the container for the new job ru
 
 **Universal Container Runtime** uses the native Mesos engine and supports GPU resources. This is the recommended selection.
 
-![Jobs](/1.14/img/GUI-Jobs-Container-Runtime.png)
+![Jobs](/mesosphere/dcos/1.14/img/GUI-Jobs-Container-Runtime.png)
 
 Figure 7 - **Jobs > Container Runtime** tab
 
@@ -128,7 +128,7 @@ Figure 7 - **Jobs > Container Runtime** tab
 
 The **Docker Engine** is Docker's container runtime. It requires an image and does not support GPU resources.
 
-![Jobs](/1.14/img/GUI-Jobs-Container-Runtime-2.png)
+![Jobs](/mesosphere/dcos/1.14/img/GUI-Jobs-Container-Runtime-2.png)
 
 Figure 8 - **Jobs > Container Runtime > Docker Engine** tab
 
@@ -140,17 +140,17 @@ Figure 8 - **Jobs > Container Runtime > Docker Engine** tab
     - Click **Add Parameter** to specify additional Docker runtime parameter names and values for the new job, if applicable. You can add multiple parameter names and corresponding values by clicking **Add Parameter** for each parameter name and value you want to include.
     - Click **Add Arg** to specify additional command-line arguments for the new job, if applicable. You can add multiple arguments by clicking **Add Arg** for each argument you want to include. -->
 
-The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#container-runtime/) documentation of the UI.
+The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/1.14/gui/jobs/#container-runtime/) documentation of the UI.
 
 ### Schedule
 
 You can set up jobs with a scheduler using the `cron` format. Select **Schedule** to specify a schedule for when the job runs.
 
-![Schedule](/1.14/img/GUI-Jobs-Schedule.png)
+![Schedule](/mesosphere/dcos/1.14/img/GUI-Jobs-Schedule.png)
 
 Figure 9 - **Jobs > Schedule** tab
 
-The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#schedule/) documentation of the UI.
+The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/1.14/gui/jobs/#schedule/) documentation of the UI.
 
 After you define the schedule, you can activate or deactivate it by selecting or deselecting the **Enable Schedule** option. You can also modify or remove the schedule when needed after you have submitted the new job definition.
 
@@ -158,38 +158,38 @@ After you define the schedule, you can activate or deactivate it by selecting or
 
 Select **Environment** to configure any environment values to be attached to each instance of your job that is launched.
 
-![Environment](/1.14/img/GUI-Jobs-Environment.png)
+![Environment](/mesosphere/dcos/1.14/img/GUI-Jobs-Environment.png)
 
 Figure 10 - **Jobs > Environment** tab
 
-The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#environment/) documentation of the UI.
+The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/1.14/gui/jobs/#environment/) documentation of the UI.
 
 
 ### Volumes
 
 Select the **Volumes** tab to create a stateful job by configuring a persistent volume. Persistent volumes enable instances to be restarted without data loss.
 
-![Volumes](/1.14/img/GUI-Jobs-Volumes.png)
+![Volumes](/mesosphere/dcos/1.14/img/GUI-Jobs-Volumes.png)
 
 Figure 11 - **Jobs > Volumes** tab
 
-The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#volumes/) documentation of the UI.
+The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/1.14/gui/jobs/#volumes/) documentation of the UI.
 
 ### Placement
 
 You can configure the placement of agent nodes in regions and zones for high availability, or to expand capacity to new regions when necessary.
 
-![Placement](/1.14/img/GUI-Jobs-Placement.png)
+![Placement](/mesosphere/dcos/1.14/img/GUI-Jobs-Placement.png)
 
 Figure 12 - **Jobs > Placement** tab
 
-The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#placement/) documentation of the UI.
+The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/1.14/gui/jobs/#placement/) documentation of the UI.
 
 ### Run Configuration
 
 Select **Run Configuration** to specify advanced settings for the new job.
 
-![Run Config](/1.14/img/GUI-Jobs-Run-Configuration.png)
+![Run Config](/mesosphere/dcos/1.14/img/GUI-Jobs-Run-Configuration.png)
 
 Figure 13 - **Jobs > Run Configuration** tab
 
@@ -204,7 +204,7 @@ Figure 13 - **Jobs > Run Configuration** tab
 
     - Select **Add Artifact** to provide one or more artifact URIs you want passed to fetcher module and resolved at runtime and the action--Execute, Extract, or Cache--you want to perform for each URI.
 
-        ![Adding an artifact URI and action for a job](/1.14/img/job-artifacts-uri.png)
+        ![Adding an artifact URI and action for a job](/mesosphere/dcos/1.14/img/job-artifacts-uri.png)
 
         Figure 2. Add an artifact URI and action
 
@@ -214,20 +214,20 @@ Figure 13 - **Jobs > Run Configuration** tab
         
         - If you choose **On Failure**, you can set a time limit for attempting to restart the job using the **Keep Trying Time** field. For example, set the **Keep Trying Time** to 30 if you want to try restarting the job after waiting for 30 seconds. If no value is set for Keep Trying Time, DC/OS will continue attempting to restart the failed job indefinitely.
 
-    - Click **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/1.14/tutorials/task-labels/). -->
+    - Click **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/mesosphere/dcos/1.14/tutorials/task-labels/). -->
 
-The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#run-configuration/) documentation of the UI.
+The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/1.14/gui/jobs/#run-configuration/) documentation of the UI.
 
 
 ### Secrets
 
 Select the {{ model.productName }} Secret Store to secure important values like private keys, API tokens, and database passwords. 
 
-![Secrets](/1.14/img/job-artifacts-uri.png)
+![Secrets](/mesosphere/dcos/1.14/img/job-artifacts-uri.png)
 
 Figure 14 - Secrets tab
 
-The parameters for this tab and the values allowed are found in the [Jobs](/1.14/gui/jobs/#secrets/) documentation of the UI.
+The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/1.14/gui/jobs/#secrets/) documentation of the UI.
 
 ## Submit
 
@@ -235,19 +235,19 @@ The parameters for this tab and the values allowed are found in the [Jobs](/1.14
 
 1. Verify that you have added the new job by clicking **Jobs**.
 
-    ![Jobs List](/1.14/img/job-list-scheduled.png)
+    ![Jobs List](/mesosphere/dcos/1.14/img/job-list-scheduled.png)
 
     Figure 15. Jobs list
 
 ## Add a job to a job group
 You can add a job to a an existing job group or create a new job group when you create the job. Use periods in your job ID to nest the job in a group. For example, if you add a job using the job ID `marketing.myjob`, the new `myjob` is created in the `marketing` job group. In DC/OS Enterprise, you can use job groups to implement fine-grained user access. 
 
-For more information about controlling access to jobs through job groups, see [Granting access to jobs](/1.14/deploying-jobs/job-groups/).
+For more information about controlling access to jobs through job groups, see [Granting access to jobs](/mesosphere/dcos/1.14/deploying-jobs/job-groups/).
 
 ## View, modify, or remove a specific job
 You can view and modify job-related information, including details about the run history and configuration settings interactively through the DC/OS UI. From the **Jobs** tab, click the name of your job. You can then use the menu on the upper right to edit, run, disable, or delete a selected job. 
 
-![Viewing and modifying job details](/1.14/img/job-menu-options.png)
+![Viewing and modifying job details](/mesosphere/dcos/1.14/img/job-menu-options.png)
 
 Figure 16. Viewing and modifying job details
 
@@ -255,14 +255,14 @@ While the job is running, you can click the job instance to drill down to **Deta
 
 You can see that the **Edit Job** screen contains the same configuration tabs as the **New Job** screen:
 
-![Jobs](/1.14/img/GUI-Jobs-General.png)
+![Jobs](/mesosphere/dcos/1.14/img/GUI-Jobs-General.png)
 
 Figure 17 - General configuration tab in **Edit Job** screen
 
 <a name="cli"></a>
 
 # Managing jobs with the DC/OS CLI
-You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To see a full list of available commands with usage information, run `dcos job --help` or consult the [CLI documentation](/1.14/cli/command-reference/dcos-job/).
+You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To see a full list of available commands with usage information, run `dcos job --help` or consult the [CLI documentation](/mesosphere/dcos/1.14/cli/command-reference/dcos-job/).
 
 <a name="cli-add-job"></a>
 
@@ -415,7 +415,7 @@ Starting a job manually from the command-line or through the DC/OS UI triggers a
 If a schedule is used to start a job, however, the job's concurrency policy determines whether a new job run instance is triggered. Being able to control whether jobs run concurrently is one of the main differences between triggering a job to run manually or using a schedule.
 
 ## Remove a job from the command-line
-You can remove a job using the command-line program [`dcos job remove <job-id>`](/1.14/cli/command-reference/dcos-job/dcos-job-remove/) as long as the job does not have any active job instances running. If a job has any currently active running instances, you must stop all of the currently-active jobs. After you stop all running job instances, you can remove the job using the `dcos job remove <job-id>` command. 
+You can remove a job using the command-line program [`dcos job remove <job-id>`](/mesosphere/dcos/1.14/cli/command-reference/dcos-job/dcos-job-remove/) as long as the job does not have any active job instances running. If a job has any currently active running instances, you must stop all of the currently-active jobs. After you stop all running job instances, you can remove the job using the `dcos job remove <job-id>` command. 
 
 To remove a job:
 1. Check the status of active jobs by running a command similar to the following:

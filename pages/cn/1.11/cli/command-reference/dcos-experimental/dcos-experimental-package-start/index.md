@@ -10,7 +10,7 @@ enterprise: false
 
 
 # 说明
-`dcos experimental service start` 命令让您从非本机 DC/OS 包启动服务。参见 [`dcos experimental package add`](/cn/1.11/cli/command-reference/dcos-experimental/dcos-experimental-package-add/) 了解有关如何将您自己的软件包添加到 DC/OS 的信息。
+`dcos experimental service start` 命令让您从非本机 DC/OS 包启动服务。参见 [`dcos experimental package add`](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-experimental/dcos-experimental-package-add/) 了解有关如何将您自己的软件包添加到 DC/OS 的信息。
 
 # 使用
 
@@ -36,4 +36,4 @@ dcos experimental service start <package-name> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos experimental](/cn/1.11/cli/command-reference/dcos-experimental/)  | 管理正在开发并可能发生变化的命令。|
+| [dcos experimental](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-experimental/)  | 管理正在开发并可能发生变化的命令。|

@@ -12,8 +12,8 @@ render: mustache
 
 ## 先决条件
 
-- 根据您在 Enterprise DC/OS 中的安全模式，安装前可能需要 [配置服务帐户](/cn/services/hdfs/2.2.0-2.6.0-cdh5.11.0/security/)。具有`superuser` 权限的人员才可以创建服务帐户。
- - `strict` [安全模式](/latest/security/ent/#security-modes) 需要服务帐户。
+- 根据您在 Enterprise DC/OS 中的安全模式，安装前可能需要 [配置服务帐户](/mesosphere/dcos/cn/services/hdfs/2.2.0-2.6.0-cdh5.11.0/security/)。具有`superuser` 权限的人员才可以创建服务帐户。
+ - `strict` [安全模式](/mesosphere/dcos/latest/security/ent/#security-modes) 需要服务帐户。
  - `permissive` 安全模式中服务帐户可选。
  - `disabled` 安全模式不需要服务帐户。
 - 您的集群必须至少有 {{ model.install.minNodeCount }} 专用节点。

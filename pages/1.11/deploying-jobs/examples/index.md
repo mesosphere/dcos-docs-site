@@ -12,7 +12,7 @@ These examples provide common usage scenarios for jobs.
 
 **Prerequisite:**
 
-- [DC/OS](/1.11/installing/) and the [DC/OS CLI](/1.11/cli/install/) installed.
+- [DC/OS](/mesosphere/dcos/1.11/installing/) and the [DC/OS CLI](/mesosphere/dcos/1.11/cli/install/) installed.
 
 # <a name="create-job"></a>Creating a Simple Job
 
@@ -118,12 +118,12 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
 **Prerequisites:**
 
-- DC/OS is installed with [security mode](/1.11/security/ent/#security-modes) `permissive` or `strict`.
+- DC/OS is installed with [security mode](/mesosphere/dcos/1.11/security/ent/#security-modes) `permissive` or `strict`.
 - You must be logged in as a `superuser`.
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.11/img/gui-installer-login-ee.gif)
+   ![Login](/mesosphere/dcos/1.11/img/gui-installer-login-ee.gif)
 
    Figure 1. DC/OS Enterprise login
 
@@ -133,7 +133,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
     1.  In the **ID** field, type `dev.batch.job1`.
     1.  In the **Command** field, type `sleep 1000` (or another valid shell command) and click **CREATE A JOB**.
 
-        ![Create job](/1.11/img/job-ex1.png)
+        ![Create job](/mesosphere/dcos/1.11/img/job-ex1.png)
 
         Figure 2. New job screen
 
@@ -141,14 +141,14 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
     1.  Click the **+** icon in the top right corner to create another job.
 
-        ![Create another job](/1.11/img/job-ex2.png)
+        ![Create another job](/mesosphere/dcos/1.11/img/job-ex2.png)
 
         Figure 3. Create another job
 
     1.  In the **ID** field, type `dev.batch.job2`.
     1.  In the **Command** field, type `sleep 1000` (or another valid shell command) and click **CREATE A JOB**. You should have two jobs:
 
-        ![create job](/1.11/img/job-ex3.png)
+        ![create job](/mesosphere/dcos/1.11/img/job-ex3.png)
 
         Figure 4. Jobs > dev > batch screen
 
@@ -156,7 +156,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
     1.  Click **Jobs > dev > batch > job1** and click **Run Now**.
 
-        ![Run job](/1.11/img/job-ex4.png)
+        ![Run job](/mesosphere/dcos/1.11/img/job-ex4.png)
 
         Figure 5. "Run now" menu
 
@@ -166,14 +166,14 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
     1.  Select **Organization > Users** and create new users named `Cory` and `Alice`.  
 
-        ![Create user Cory](/1.11/img/service-group3.png)
+        ![Create user Cory](/mesosphere/dcos/1.11/img/service-group3.png)
 
          Figure 6. Create a new user
 
     1.  Select the user **Cory** grant access to `job1`.
     1.  From the **Permissions** tab, click **ADD PERMISSION** and toggle the **INSERT PERMISSION STRING** button to manually enter the permissions.
 
-        ![Add permissions cory](/1.11/img/job-ex5.png)
+        ![Add permissions cory](/mesosphere/dcos/1.11/img/job-ex5.png)
 
         Figure 7. Add permissions for user 'Cory'
 
@@ -203,6 +203,6 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
 1. Log out and log back in as your new user to verify the permissions. The user should now have the designated level of access to `dev/batch/job1` and `dev/batch/job2` inside the **Jobs** tab. For example, if you log in as **Alice**, you should only see **jobs2**:
 
-    ![Alice job view](/1.11/img/job-ex6.png)
+    ![Alice job view](/mesosphere/dcos/1.11/img/job-ex6.png)
 
     Figure 8. Restricted view for 'Alice'

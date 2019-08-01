@@ -14,7 +14,7 @@ The following figure shows the high-level architecture of the storage support in
 
 Figure 1. - Diagram of storage support architecture
 
-One of the most important components in this architecture is the DC/OS Storage Service (DSS), a [service](/latest/overview/concepts/#system-service) that manages volumes, volume profiles, volume providers, and storage devices in the cluster.
+One of the most important components in this architecture is the DC/OS Storage Service (DSS), a [service](/mesosphere/dcos/latest/overview/concepts/#system-service) that manages volumes, volume profiles, volume providers, and storage devices in the cluster.
 DSS serves as the brain of the storage support system by collecting storage-related information from various components in the cluster, keeping track of their states, and acting on user requests.
 
 Volumes are modeled as [Mesos resources](http://mesos.apache.org/documentation/latest/attributes-resources/#resources) ("disk" resources) so that all the resource management features (such as quota, fair sharing, and weights) from Mesos apply to volumes.

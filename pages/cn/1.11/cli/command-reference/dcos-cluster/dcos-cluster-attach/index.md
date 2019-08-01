@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos cluster attach` 命令让您将 CLI 附加到已连接或 [链接](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) 的集群。当您运行 [`dcos cluster setup`](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 命令时，集群自动被附加。
+`dcos cluster attach` 命令让您将 CLI 附加到已连接或 [链接](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) 的集群。当您运行 [`dcos cluster setup`](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 命令时，集群自动被附加。
 
 # 使用
 
@@ -30,7 +30,7 @@ dcos cluster attach [<connected-cluster-name> | <linked-cluster-name> | <connect
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos cluster](/cn/1.11/cli/command-reference/dcos-cluster/) | 管理与 DC/OS 集群的连接。 |
+| [dcos cluster](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-cluster/) | 管理与 DC/OS 集群的连接。 |
 
 # 示例
-有关示例，请参阅 [集群连接](/cn/1.11/administering-clusters/multiple-clusters/cluster-connections/) 和 [集群链接](/cn/1.11/administering-clusters/multiple-clusters/cluster-links/)。
+有关示例，请参阅 [集群连接](/mesosphere/dcos/cn/1.11/administering-clusters/multiple-clusters/cluster-connections/) 和 [集群链接](/mesosphere/dcos/cn/1.11/administering-clusters/multiple-clusters/cluster-links/)。

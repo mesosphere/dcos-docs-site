@@ -36,7 +36,7 @@ The service uses the [DC/OS CA](https://docs.mesosphere.com/latest/security/ent/
 
 ## Set up the service account
 
-[Grant](/latest/security/ent/perms-management/) the service account the correct permissions.
+[Grant](/mesosphere/dcos/latest/security/ent/perms-management/) the service account the correct permissions.
 - In DC/OS 1.10, the required permission is `dcos:superuser full`.
 - In DC/OS 1.11 and later, the required permissions are:
 ```shell
@@ -79,7 +79,7 @@ Kerberos authentication relies on a central authority to verify that DC/OS {{mod
 - The hostname and port of a Key Distribution Center (KDC) reachable from your DC/OS cluster
 - Sufficient access to the KDC to create Kerberos principals
 - Sufficient access to the KDC to retrieve a keytab for the generated principals
-- [The DC/OS Enterprise CLI](/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
+- [The DC/OS Enterprise CLI](/mesosphere/dcos/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
 - DC/OS Superuser permissions
 
 ## Configure Kerberos Authentication
@@ -97,7 +97,7 @@ The DC/OS {{model.techName }} service uses a keytab containing the above service
 
 Create secret named "{{ model.serviceName }}admin_kerberos_secret" for password of Kerberos User Principal: `{{ model.serviceName }}admin`
 
-Documentation for adding a file to the secret store can be found [here.](/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)
+Documentation for adding a file to the secret store can be found [here.](/mesosphere/dcos/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)
 
 <p class="message--note"><strong>NOTE: </strong>Secrets access is controlled by <a href="https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets">DC/OS Spaces</a>, which function like namespaces. Any secret in the same DC/OS Space as the service will be accessible by the service.</p>
 

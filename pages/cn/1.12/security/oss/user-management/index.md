@@ -16,7 +16,7 @@ menuWeight: 10
 
 2. 单击左侧菜单中的 **Organization**。在 **Users** 屏幕中，单击右上角的加号 (**+**)，然后填写新用户电子邮件地址。将自动向新用户发送电子邮件，通知他们对 DC/OS 的访问权限。
 
-![新 DC/OS 用户](/1.12/img/1-11-add-user-to-cluster.png)
+![新 DC/OS 用户](/mesosphere/dcos/1.12/img/1-11-add-user-to-cluster.png)
 
 图 1. 添加新用户
 
@@ -27,9 +27,9 @@ menuWeight: 10
 
 **先决条件：**
 
-- DC/OS [已安装](/cn/1.12/installing/)
+- DC/OS [已安装](/mesosphere/dcos/cn/1.12/installing/)
 
-1. [SSH](/cn/1.12/administering-clusters/sshcluster/) 到主节点并运行此命令，其中 `<email>` 是用户的电子邮件：
+1. [SSH](/mesosphere/dcos/cn/1.12/administering-clusters/sshcluster/) 到主节点并运行此命令，其中 `<email>` 是用户的电子邮件：
 
     ```bash
     sudo -i dcos-shell /opt/mesosphere/bin/dcos_add_user.py <email>
@@ -53,7 +53,7 @@ menuWeight: 10
 
 要退出 DC/OS Web 界面，请单击右上方的用户名，然后选择 **Sign Out**。
 
-![退出](/1.12/img/1-11-user-drop-down-menu.png)
+![退出](/mesosphere/dcos/1.12/img/1-11-user-drop-down-menu.png)
 
 
 图 3. 下拉用户菜单
@@ -73,4 +73,4 @@ Removed [core.dcos_acs_token]
 
 ## 后续步骤
 
-有关安全的更多信息，请检查[安全和身份认证](/cn/1.12/security/oss/)
+有关安全的更多信息，请检查[安全和身份认证](/mesosphere/dcos/cn/1.12/security/oss/)

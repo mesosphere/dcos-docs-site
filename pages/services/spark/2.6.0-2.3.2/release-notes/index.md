@@ -144,7 +144,7 @@ featureMaturity:
 - Changed the default user to root, in both the Dispatcher and history server.
 - To configure Kerberos in the `options.json` file, a new property `service.security.kerberos.enabled` must be set to `true`. This option applies to both the Dispatcher and history server.
 - Removed the `security.ssl` properties from the `options.json` file. These properties are no longer needed for the Go-based CLI.
-- Removed `--dcos-space` option from the CLI. Access to secrets is determined by the Spark Dispatcher service name. See [security](/security/) for more information about where to place secrets.
+- Removed `--dcos-space` option from the CLI. Access to secrets is determined by the Spark Dispatcher service name. See [security](/mesosphere/dcos/security/) for more information about where to place secrets.
 
 ## Version 2.1.0-2.2.0-1
 
@@ -200,7 +200,7 @@ featureMaturity:
 - CLI breaks with multiple spaces in submit arguments. (https://github.com/mesosphere/spark-build/pull/193)
 
 ### Documentation
-- Updated HDFS endpoint information in [hdfs](/hdfs/).
+- Updated HDFS endpoint information in [hdfs](/mesosphere/dcos/hdfs/).
 - Added checkpointing instructions. (https://github.com/mesosphere/spark-build/pull/181)
 - Updated custom docker image support policy. (https://github.com/mesosphere/spark-build/pull/200)
 

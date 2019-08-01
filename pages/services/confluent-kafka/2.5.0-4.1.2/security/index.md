@@ -47,7 +47,7 @@ Kerberos authentication relies on a central authority to verify that {{ model.te
 - The hostname and port of a KDC reachable from your DC/OS cluster
 - Sufficient access to the KDC to create Kerberos principals
 - Sufficient access to the KDC to retrieve a keytab for the generated principals
-- [The DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
+- [The DC/OS Enterprise CLI](/mesosphere/dcos/1.10/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
 - DC/OS Superuser permissions
 
 #### Configure Kerberos Authentication
@@ -168,7 +168,7 @@ $ curl -X POST \
     -d '{"certificate_request": "<json-encoded-value-of-request.csr>"}'
 ```
 
-The response will contain a signed public certificate. Full details on the DC/OS CA API can be found [here](/latest/security/ent/tls-ssl/ca-api/).
+The response will contain a signed public certificate. Full details on the DC/OS CA API can be found [here](/mesosphere/dcos/latest/security/ent/tls-ssl/ca-api/).
 
 ## Authorization
 

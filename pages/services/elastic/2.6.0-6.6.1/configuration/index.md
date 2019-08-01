@@ -73,11 +73,11 @@ Each task in the cluster performs one and only one of the following roles: maste
 
 The default placement strategy specifies that no two nodes of any type are distributed to the same agent. You can specify further [Marathon placement constraints](http://mesosphere.github.io/marathon/docs/constraints.html) for each node type. For example, you can specify that ingest nodes are deployed on a rack with high-CPU servers.
 
-![agent](/services/elastic/2.2.0-5.6.5/img/private-nodes-by-agent.png)
+![agent](/mesosphere/dcos/services/elastic/2.2.0-5.6.5/img/private-nodes-by-agent.png)
 
 Figure 1. - Private nodes displayed by agent
 
-![vip](/services/elastic/2.2.0-5.6.5/img/private-node-by-vip.png)
+![vip](/mesosphere/dcos/services/elastic/2.2.0-5.6.5/img/private-node-by-vip.png)
 
 Figure 2. - Private nodes displayed by VIP
 
@@ -156,7 +156,7 @@ If Kibana was installed without X-Pack Security enabled you should be able to ac
 
 #### Kibana with X-Pack Security enabled
 
-Otherwise, due to a currently known [limitation](/services/elastic/2.6.0-6.6.1/limitations#kibana-configured-with-x-pack-security-enabled) you won't be able to access it through the default DC/OS UI Service link. In this case you must [expose Kibana using EdgeLB](/services/elastic/2.6.0-6.6.1/how-to-guides#expose-kibana-using-edgelb).
+Otherwise, due to a currently known [limitation](/mesosphere/dcos/services/elastic/2.6.0-6.6.1/limitations#kibana-configured-with-x-pack-security-enabled) you won't be able to access it through the default DC/OS UI Service link. In this case you must [expose Kibana using EdgeLB](/mesosphere/dcos/services/elastic/2.6.0-6.6.1/how-to-guides#expose-kibana-using-edgelb).
 
 ### Configuration Guidelines
 

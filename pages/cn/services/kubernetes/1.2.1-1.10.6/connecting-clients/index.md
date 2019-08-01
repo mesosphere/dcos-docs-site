@@ -12,7 +12,7 @@ excerpt: 将客户端连接到 Kubernetes 群集
 在尝试连接到 Kubernetes 集群之前，您应确保
 您已正确将 Kubernetes API 暴露于 DC/OS 外部
 群集中设置 ingress 的示例和重要信息。这可通过遵循
-[暴露 Kubernetes API](/cn/services/kubernetes/1.2.1-1.10.6/exposing-the-kubernetes-api/) 中所述的步骤实现。
+[暴露 Kubernetes API](/mesosphere/dcos/cn/services/kubernetes/1.2.1-1.10.6/exposing-the-kubernetes-api/) 中所述的步骤实现。
 
 您还应确保
 [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 已

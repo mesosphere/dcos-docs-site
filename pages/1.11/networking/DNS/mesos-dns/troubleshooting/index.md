@@ -29,7 +29,7 @@ Check that port 53 and port 8123 are available and not in use by other processes
 
 # How do I configure my DC/OS cluster to communicate with external hosts and services?
 
-For DNS requests for hostnames or services outside the DC/OS cluster, Mesos-DNS will query an external nameserver. By default, Google's nameserver with IP address 8.8.8.8 will be used. If you need to configure a custom external name server, use the [`resolvers` parameter](/1.11/installing/production/advanced-configuration/configuration-reference/) when you first install DC/OS.
+For DNS requests for hostnames or services outside the DC/OS cluster, Mesos-DNS will query an external nameserver. By default, Google's nameserver with IP address 8.8.8.8 will be used. If you need to configure a custom external name server, use the [`resolvers` parameter](/mesosphere/dcos/1.11/installing/production/advanced-configuration/configuration-reference/) when you first install DC/OS.
 
 <table class=“table” bgcolor=#858585>
 <tr> 

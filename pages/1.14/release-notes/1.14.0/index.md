@@ -49,6 +49,6 @@ This section covers any known issues or limitations that don’t necessarily aff
 
 # Previous releases
 To review changes from a recent previous release, see the following links:
-- [Release version 1.10.11](/1.10/release-notes/1.10.11/) - 12 February 2019.
-- [Release version 1.11.10](/1.11/release-notes/1.11.10/) - 12 February 2019.
-- [Release version 1.12.3](/1.12/release-notes/1.12.3/) - 14 March 2019.
+- [Release version 1.10.11](/mesosphere/dcos/1.10/release-notes/1.10.11/) - 12 February 2019.
+- [Release version 1.11.10](/mesosphere/dcos/1.11/release-notes/1.11.10/) - 12 February 2019.
+- [Release version 1.12.3](/mesosphere/dcos/1.12/release-notes/1.12.3/) - 14 March 2019.

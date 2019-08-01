@@ -48,19 +48,19 @@ DC/OS 任务日志的文件系统路径包含代理 ID、框架 ID 和执行器 
 
 1. 将 `framework:*` 输入“搜索”字段。这将显示 `framework` 字段已定义的所有事件：
 
- ![Logstash 示例](/1.12/img/logstash-framework-exists.png)
+ ![Logstash 示例](/mesosphere/dcos/1.12/img/logstash-framework-exists.png)
 
  图 1. Logstash 事件
 
 1. 点击其中一个事件旁边的三角形按钮可查看详细信息。这将显示从任务日志文件路径提取的所有字段：
 
- ![Logstash 示例2](/1.12/img/logstash-fields.png)
+ ![Logstash 示例2](/mesosphere/dcos/1.12/img/logstash-fields.png)
 
  图 2. 事件详情
 
 1. 搜索所有提到上述屏幕截图中所示事件框架 ID 的事件，但不要包含选中的 `framework` 字段。这将仅显示非任务结果：
 
- ![Logstash 框架搜索](/1.12/img/logstash-framework-search.png)
+ ![Logstash 框架搜索](/mesosphere/dcos/1.12/img/logstash-framework-search.png)
 
  图 3. 搜索结果
 

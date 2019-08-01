@@ -17,7 +17,7 @@ You can control user access to task logs by using Marathon groups for jobs and s
 
 In this procedure, you will deploy services in separate Marathon groups, and grant user permissions to view the tasks for these Marathon groups.
 
-Here is an overview of the [permissions](/1.14/security/ent/perms-reference/) that are required:
+Here is an overview of the [permissions](/mesosphere/dcos/1.14/security/ent/perms-reference/) that are required:
 
 |     Permission string     | full | C | R | U | D |
 |----------------------------|------|---|---|---|---|
@@ -34,7 +34,7 @@ Here is an overview of the [permissions](/1.14/security/ent/perms-reference/) th
 
 **Prerequisites:**
 
-- DC/OS and DC/OS CLI are [installed](/1.14/installing/) and you are logged in as a superuser.
+- DC/OS and DC/OS CLI are [installed](/mesosphere/dcos/1.14/installing/) and you are logged in as a superuser.
 
 # Via the DC/OS web interface
 
@@ -42,19 +42,19 @@ Here is an overview of the [permissions](/1.14/security/ent/perms-reference/) th
 
 1.  Select **Organization** and choose **Groups**.
 
-    ![New group](/1.14/img/GUI-Organization-Groups-Add_Group_w_Plus_Button_Tooltip-1_12.png)
+    ![New group](/mesosphere/dcos/1.14/img/GUI-Organization-Groups-Add_Group_w_Plus_Button_Tooltip-1_12.png)
 
     Figure 1. New user group
 
 1.  Create a new group.
 
-    ![Prod group](/1.14/img/GUI-Organization-Groups-Create_New_Group_Modal-1_12.png)
+    ![Prod group](/mesosphere/dcos/1.14/img/GUI-Organization-Groups-Create_New_Group_Modal-1_12.png)
 
     Figure 2. Create new group screen
 
 1.  Select the group name and from the **Permissions** tab, click **ADD PERMISSION**.
 
-    ![Add permission to prod-group](/1.14/img/GUI-Organization-Groups-Group_Detail_Page-1_12.png)
+    ![Add permission to prod-group](/mesosphere/dcos/1.14/img/GUI-Organization-Groups-Group_Detail_Page-1_12.png)
 
     Figure 3. Add Permission button
 
@@ -72,7 +72,7 @@ Here is an overview of the [permissions](/1.14/security/ent/perms-reference/) th
     dcos:mesos:master:task:app_id:/prod-group/ read
     ```
 
-    ![Add permission](/1.14/img/GUI-Organization-Groups-Add_Perms_Modal_Logging-1_12.png)
+    ![Add permission](/mesosphere/dcos/1.14/img/GUI-Organization-Groups-Add_Perms_Modal_Logging-1_12.png)
 
     Figure 4. Permissions string added
 
@@ -80,13 +80,13 @@ Here is an overview of the [permissions](/1.14/security/ent/perms-reference/) th
 
 1.  Select **Organization** and choose **Users**. Select an existing or create a new user.
 
-    ![New user](/1.14/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
+    ![New user](/mesosphere/dcos/1.14/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
 
     Figure 5. Users screen
 
 1.  From the **Group Membership** tab, type in the search box and choose the group name. This will grant the group permissions to an individual user.
 
-    ![Add alice to security group](/1.14/img/GUI-Organization-Users-User_Alice_Add_prod_group-1_12.png)
+    ![Add alice to security group](/mesosphere/dcos/1.14/img/GUI-Organization-Users-User_Alice_Add_prod_group-1_12.png)
 
     Figure 6. Adding user to security group
 
@@ -102,13 +102,13 @@ This section shows you how to deploy a simple application in your group.
     -  **COMMAND** Specify `sleep 1000000000`.
     -  **Container Runtime** Select **UNIVERSAL CONTAINER RUNTIME (UCR)**.
 
-    ![Define nested service](/1.14/img/GUI-Services-Add_Service_Single_Container_Alice-1_12.png)
+    ![Define nested service](/mesosphere/dcos/1.14/img/GUI-Services-Add_Service_Single_Container_Alice-1_12.png)
 
     Figure 7. Define a nested service
 
 1.  Click **REVIEW & RUN** and **RUN SERVICE** to complete your installation. You should now see a service that is running in a group.
 
-    ![Service running within group](/1.14/img/GUI-Services-Main_View_prod_group_Alice-1_12.png)
+    ![Service running within group](/mesosphere/dcos/1.14/img/GUI-Services-Main_View_prod_group_Alice-1_12.png)
 
     Figure 8. Service running in a group
 
@@ -117,7 +117,7 @@ Now you can [verify access](#verifying-access).
 # Via the IAM API
 
 **Prerequisite:**
-You must [get the root cert](/1.14/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+You must [get the root cert](/mesosphere/dcos/1.14/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 ### Tips
 

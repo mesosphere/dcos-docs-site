@@ -11,16 +11,16 @@ model: /1.14/data.yml
 
 A cluster link is a **unidirectional** relationship between a cluster and another cluster.
 
-You add and remove links from one cluster to another cluster using DC/OS CLI [dcos cluster link](/1.14/cli/command-reference/dcos-cluster/dcos-cluster-link/) and [dcos cluster unlink](/1.14/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) commands, and the [cluster link API](/1.14/administering-clusters/multiple-clusters/cluster-link-api/). Once a link is set up, you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
+You add and remove links from one cluster to another cluster using DC/OS CLI [dcos cluster link](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/dcos-cluster-link/) and [dcos cluster unlink](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) commands, and the [cluster link API](/mesosphere/dcos/1.14/administering-clusters/multiple-clusters/cluster-link-api/). Once a link is set up, you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
 
-You must be logged in as a superuser or have the appropriate cluster link [permission](/1.14/security/ent/perms-reference/#cluster-linker) to view, add, and remove links and grant permissions to view linked clusters.
+You must be logged in as a superuser or have the appropriate cluster link [permission](/mesosphere/dcos/1.14/security/ent/perms-reference/#cluster-linker) to view, add, and remove links and grant permissions to view linked clusters.
 
 
 # Enable access to cluster links using SSO
 
 As superuser:
 
-1. Configure an [OpenID IDP](/1.14/security/ent/sso/setup-openid/).
+1. Configure an [OpenID IDP](/mesosphere/dcos/1.14/security/ent/sso/setup-openid/).
     1. Ensure that both cluster URLs are provided in **Authorized JavaScript origins** and **Authorized redirect URIs** fields in the Google Dev console.
     1. Give the OIDC a name, such as "google-idp".
     1. Ensure that both clusters use the same `Client-Id` and `Client-Secret` when configuring OIDC.
@@ -56,7 +56,7 @@ Choose the login method and provider to enable switching to this linked cluster:
 
 # Viewing linked clusters
 
-To view all linked clusters, run the `dcos cluster list` command. If a cluster was linked, but not set up, it status is `UNCONFIGURED`. If a cluster is linked and attached, its status is `AVAILABLE`. Also see [Viewing Connected Clusters](/1.14/administering-clusters/multiple-clusters/cluster-connections/).
+To view all linked clusters, run the `dcos cluster list` command. If a cluster was linked, but not set up, it status is `UNCONFIGURED`. If a cluster is linked and attached, its status is `AVAILABLE`. Also see [Viewing Connected Clusters](/mesosphere/dcos/1.14/administering-clusters/multiple-clusters/cluster-connections/).
 
 # Remove a link to a cluster
 
@@ -84,19 +84,19 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
 1.  At the top-right corner of the DC/OS UI, click the down arrow to the right of your cluster name.
 
-    ![open cluster popup](/1.14/img/open-cluster-popup.png)
+    ![open cluster popup](/mesosphere/dcos/1.14/img/open-cluster-popup.png)
 
     Figure 1. Open cluster menu
 
 1.  Select **Switch Cluster**.
 
-    ![swi cluster](/1.14/img/switch-cluster-1-12.png)
+    ![swi cluster](/mesosphere/dcos/1.14/img/switch-cluster-1-12.png)
 
     Figure 2. Switch clusters
 
 1. Click the name of the cluster to switch to.
 
-    ![swi linked cluster](/1.14/img/switch-linked-cluster.png)
+    ![swi linked cluster](/mesosphere/dcos/1.14/img/switch-linked-cluster.png)
 
     Figure 3. Switching to linked cluster
 
@@ -106,7 +106,7 @@ If you are logged in as a superuser you can also switch to a linked cluster in t
 
 1. At the far right of the cluster to switch to, click the vertical ellipsis and select **Switch**.
 
-   ![swi linked cluster2](/1.14/img/switch-linked-cluster2.png)
+   ![swi linked cluster2](/mesosphere/dcos/1.14/img/switch-linked-cluster2.png)
 
    Figure 4. Switching to linked clusters
 
@@ -209,13 +209,13 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
 1. Log in to DC/OS UI of cluster `cluster-a` as an external user using Google credentials.
 
-   ![google login](/1.14/img/google-login.png)
+   ![google login](/mesosphere/dcos/1.14/img/google-login.png)
 
    Figure 5. Google login
 
 1. From the top right corner, click the down arrow next to the cluster name.
 
-   ![swi cluster](/1.14/img/switch-cluster-1-12.png)
+   ![swi cluster](/mesosphere/dcos/1.14/img/switch-cluster-1-12.png)
 
    Figure 6. Switch cluster
 

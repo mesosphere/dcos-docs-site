@@ -8,12 +8,12 @@ beta: false
 ---
 
 您可以使用度量标准 API 定期轮询有关集群、主机、容器和应用程序的数据。度量标准 API 只是从 DC/OS 获取度量标准的一种方式。它专为针对特定任务和主机的偶尔访问而设计。这并不是了解 DC/OS 上所有度量标准整体情况的最佳方式。对此，请参阅
-[DataDog](/cn/1.11/metrics/datadog/)、[Prometheus](/cn/1.11/metrics/prometheus/) 以及
+[DataDog](/mesosphere/dcos/cn/1.11/metrics/datadog/)、[Prometheus](/mesosphere/dcos/cn/1.11/metrics/prometheus/) 以及
 [第三方插件](https://github.com/dcos/dcos-metrics/blob/master/plugins/CONTRIBUTING.md) 文档。
 
 度量标准 API 由 [DC/OS 度量标准组件] 支持(/cn/1.11/overview/architecture/components/#dcos-metrics)，后者在集群中的所有节点上运行。
 
-有关如何使用度量标准 API 的示例，请参阅 [度量标准快速入门指南](/cn/1.11/metrics/quickstart/)。
+有关如何使用度量标准 API 的示例，请参阅 [度量标准快速入门指南](/mesosphere/dcos/cn/1.11/metrics/quickstart/)。
 
 
 # 路由
@@ -30,7 +30,7 @@ beta: false
 /system/v1/agent/{agent_id}/metrics/v0/
 ```
 
-要确定集群的 URL，请参阅 [集群访问](/cn/1.11/api/access/)。节点的代理 ID 为其 Mesos ID。
+要确定集群的 URL，请参阅 [集群访问](/mesosphere/dcos/cn/1.11/api/access/)。节点的代理 ID 为其 Mesos ID。
 
 
 # 格式
@@ -54,7 +54,7 @@ Content-Type: application/json
 
 所有度量标准 API 路由需要认证才能使用。
 
-要验证 API 请求，请参阅 [获取认证令牌](/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/cn/1.11/security/ent/iam-api/#passing-an-authentication-token)。
+要验证 API 请求，请参阅 [获取认证令牌](/mesosphere/dcos/cn/1.11/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/mesosphere/dcos/cn/1.11/security/ent/iam-api/#passing-an-authentication-token)。
 
 度量标准 API 还需要通过以下权限授权：
 
@@ -65,7 +65,7 @@ Content-Type: application/json
 
 用户也可以通过 `dcos:superuser` 权限获得所有路由。
 
-要为您的帐户分配权限，请参阅 [权限参考](/cn/1.11/security/ent/perms-reference/)。
+要为您的帐户分配权限，请参阅 [权限参考](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/)。
 
 
 # 资源

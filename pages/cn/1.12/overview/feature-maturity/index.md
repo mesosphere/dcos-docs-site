@@ -16,7 +16,7 @@ Mesosphere DC/OS 功能将通过多阶段生命周期发展。此生命周期可
 
 功能可以包括属于 Mesosphere DC/OS 或其目录一部分的应用程序、服务、框架、组件或软件包。Mesosphere DC/OS 功能的五个成熟度状态在下文阐述，从左到右进行，从 Beta 开始并以“已停用”结束。
 
-![五个成熟度状态](/1.12/img/five_maturity_states.png)
+![五个成熟度状态](/mesosphere/dcos/1.12/img/five_maturity_states.png)
 
 图 1. 功能成熟度生命周期
 

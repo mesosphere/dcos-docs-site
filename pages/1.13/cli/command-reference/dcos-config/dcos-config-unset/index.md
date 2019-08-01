@@ -53,4 +53,4 @@ Removed [core.ssl_verify]
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/1.13/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |
+| [dcos config](/mesosphere/dcos/1.13/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |

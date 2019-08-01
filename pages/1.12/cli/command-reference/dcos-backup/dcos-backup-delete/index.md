@@ -31,7 +31,7 @@ dcos backup delete <backup id> [flags]
 
 # Example
 
-See the documentation for [`dcos backup list`](/../dcos-backup/dcos-backup-list/) to get the backup ID.
+See the documentation for [`dcos backup list`](/mesosphere/dcos/../dcos-backup/dcos-backup-list/) to get the backup ID.
 
 1. Run the `dcos backup list` command to get a list of your backups.
 
@@ -66,5 +66,5 @@ See the documentation for [`dcos backup list`](/../dcos-backup/dcos-backup-list/
 
 | Command | Description |
 |---------|-------------|
-| [dcos backup](/1.12/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+| [dcos backup](/mesosphere/dcos/1.12/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
 

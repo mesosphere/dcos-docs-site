@@ -11,23 +11,23 @@ enterprise: true
 
 In this section you will see how to use the DC/OS web interface to achieve multi-tenancy in permissive mode.
 
-This tutorial demonstrates how to implement user permissions for DC/OS services in the permissive [security mode](/1.11/security/ent/#security-modes). When you are done you will have multi-tenancy by using DC/OS permissions.
+This tutorial demonstrates how to implement user permissions for DC/OS services in the permissive [security mode](/mesosphere/dcos/1.11/security/ent/#security-modes). When you are done you will have multi-tenancy by using DC/OS permissions.
 
 **Prerequisites:**
 
-- DC/OS Enterprise is [installed](/1.11/installing/) in permissive [mode](/1.11/security/ent/#security-modes).
+- DC/OS Enterprise is [installed](/mesosphere/dcos/1.11/installing/) in permissive [mode](/mesosphere/dcos/1.11/security/ent/#security-modes).
 
 ## Create users and groups
 
 1.  Create service groups from the **Services > Services > Create Group**.
 
-    ![Services Create Group](/1.11/img/service-group1.png)
+    ![Services Create Group](/mesosphere/dcos/1.11/img/service-group1.png)
 
     Figure 1. Create Group page
 
     In this example a group called `prod-a` and a group called `prod-b` are created. After the groups are created you should see two folders. This is where you will deploy services for the user groups and set the permissions for each unit.
 
-    ![Group folders](/1.11/img/service-group2.png)
+    ![Group folders](/mesosphere/dcos/1.11/img/service-group2.png)
 
     Figure 2. New groups folders
 
@@ -35,13 +35,13 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
     1.  Select **Organization > Users** and create a new user.  In this example, two users are created (`Cory` and `Nick`).
 
-        ![Create user Cory](/1.11/img/service-group3.png)
+        ![Create user Cory](/mesosphere/dcos/1.11/img/service-group3.png)
 
         Figure 3. Creating a new user
 
         When you are finished, you should see the two users.
 
-        ![All users](/1.11/img/service-group4.png)
+        ![All users](/mesosphere/dcos/1.11/img/service-group4.png)
 
         Figure 4. New users in Users page
 
@@ -54,7 +54,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
         - `prod-a-group` for managing the DC/OS services for user Cory.
         - `prod-b-group` for managing the DC/OS services for user Nick.
 
-        ![prod-a group](/1.11/img/service-group5.png)
+        ![prod-a group](/mesosphere/dcos/1.11/img/service-group5.png)
 
         Figure 5. Creating a new group
 
@@ -79,13 +79,13 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
     dcos:adminrouter:package full
     ```
 
-    ![prod-a-group](/1.11/img/service-group7.png)
+    ![prod-a-group](/mesosphere/dcos/1.11/img/service-group7.png)
 
     Figure 6. Adding permissions for 'prod-a-group'
 
     Here is what the permissions view should look like after adding:
 
-    ![prod-a-group](/1.11/img/service-group8.png)
+    ![prod-a-group](/mesosphere/dcos/1.11/img/service-group8.png)
 
     Figure 7. Group permissions added
 
@@ -106,7 +106,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 1.  Select **Group Membership** and then type `prod-agroup` in the search box, then click to select.
 
-    ![prod-a-group](/1.11/img/service-group9.png)
+    ![prod-a-group](/mesosphere/dcos/1.11/img/service-group9.png)
 
     Figure 8. Add user to group
 
@@ -120,7 +120,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 1.  Log in as Cory to the DC/OS web interface. You can see that user Cory only has access to the **Services** and **Universe** tabs. Also, Cory can only see the **prod-a** services.
 
 
-    ![prod-a-group](/1.11/img/service-group10.png)
+    ![prod-a-group](/mesosphere/dcos/1.11/img/service-group10.png)
 
     Figure 9. Restricted view
 
@@ -215,7 +215,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
         }
         ```
 
-        ![JSON view](/1.11/img/service-group15.png)
+        ![JSON view](/mesosphere/dcos/1.11/img/service-group15.png)
 
         Figure 10. View of JSON file
 
@@ -240,7 +240,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 1.  While logged in as Cory or Nick, click on the NGINX launch icon to view the confirmation message.
 
-    ![NGINX](/1.11/img/service-group-nginx.png)
+    ![NGINX](/mesosphere/dcos/1.11/img/service-group-nginx.png)
 
     Figure 11. Confirmation screen
 
@@ -249,8 +249,8 @@ Now we will look at the **Services** tab from the superuser view.
 
 ## Monitor user accounts in the DC/OS web interface as superuser
 
-1.  Log out of the current user and then back in as a user with [superuser](/1.11/security/ent/perms-reference/#superuser) permission. You will see that both services are running in the prod-a and prod-b-groups.
+1.  Log out of the current user and then back in as a user with [superuser](/mesosphere/dcos/1.11/security/ent/perms-reference/#superuser) permission. You will see that both services are running in the prod-a and prod-b-groups.
 
-    ![prod-a-group](/1.11/img/service-group14.png)
+    ![prod-a-group](/mesosphere/dcos/1.11/img/service-group14.png)
 
     Figure 12. Superuser view

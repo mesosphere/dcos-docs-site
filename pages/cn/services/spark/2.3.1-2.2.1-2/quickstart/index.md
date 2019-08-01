@@ -13,8 +13,8 @@ render: mustache
 
 **前提条件：**
 
-- [安装 DC/OS 和 DC/OS CLI](/cn/1.11//installing/) ，每个代理有最低限度的 {{ model.install.nodeDescription }} 可用。
-- 根据您的 [安全模式](/cn/1.11/security/)，{{ model.techShortName }} 需要服务认证才能访问 DC/OS。参见 [配置服务帐户](/cn/services/spark/2.3.1-2.2.1-2/security/#provisioning-a-service-account) 了解更多信息。
+- [安装 DC/OS 和 DC/OS CLI](/mesosphere/dcos/cn/1.11//installing/) ，每个代理有最低限度的 {{ model.install.nodeDescription }} 可用。
+- 根据您的 [安全模式](/mesosphere/dcos/cn/1.11/security/)，{{ model.techShortName }} 需要服务认证才能访问 DC/OS。参见 [配置服务帐户](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/security/#provisioning-a-service-account) 了解更多信息。
 
 | 安全模式 | 服务帐户 |
 |-----------|-----------|
@@ -25,8 +25,8 @@ render: mustache
 
 # 安装
 
-有关最低限度安装、多次安装和其他更复杂的任务的安装信息，请参阅[安装文档](/cn/services/spark/2.3.1-2.2.1-2/install/)。
-1. 安装 {{ model.techShortName }} 包。这可能需要几分钟。这将安装 DC/OS {{ model.techShortName }} 服务、{{ model.techShortName }} CLI、调度器和可选的 Spark History Server。参见 [Spark History Server](/cn/services/spark/2.3.1-2.2.1-2/history-server/)安装历史服务器。
+有关最低限度安装、多次安装和其他更复杂的任务的安装信息，请参阅[安装文档](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/install/)。
+1. 安装 {{ model.techShortName }} 包。这可能需要几分钟。这将安装 DC/OS {{ model.techShortName }} 服务、{{ model.techShortName }} CLI、调度器和可选的 Spark History Server。参见 [Spark History Server](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/history-server/)安装历史服务器。
 
     ```bash
     dcos package install spark
@@ -46,7 +46,7 @@ Issues: https://docs.mesosphere.com/support/
 
  您可以从 DC/OS GUI **服务** 选项卡查看您的 {{ model.techShortName }} 安装状态。
        
- ![验证 spark 安装](/cn/services/img/spark-dashboard.png)
+ ![验证 spark 安装](/mesosphere/dcos/cn/services/img/spark-dashboard.png)
 
  图 1. 在 DC/OS Web 界面仪表盘中的 Spark
    

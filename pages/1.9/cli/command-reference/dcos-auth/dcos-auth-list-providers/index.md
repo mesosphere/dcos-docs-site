@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # Description
-List configured authentication providers for your DC/OS cluster. For more information, see the service accounts [documentation](/1.9/security/ent/service-auth/).
+List configured authentication providers for your DC/OS cluster. For more information, see the service accounts [documentation](/mesosphere/dcos/1.9/security/ent/service-auth/).
 
 # Usage
 
@@ -27,7 +27,7 @@ dcos auth list-providers [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/1.9/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/mesosphere/dcos/1.9/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 
 # Examples
 

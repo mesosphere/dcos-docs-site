@@ -129,7 +129,7 @@ http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 3000"
 
 ## Permissions when using quota with strict mode
 
-Strict mode clusters (see [security modes](/1.12/security/ent/#security-modes)) require extra
+Strict mode clusters (see [security modes](/mesosphere/dcos/1.12/security/ent/#security-modes)) require extra
 permissions to be set before you can use quota. Follow the instructions in [installing](https://github.com/mesosphere/spark-build/blob/master/docs/install.md) and add the additional permissions for the roles you intend to use, as detailed below.
 
 Using the example above, you would set permissions as follows:

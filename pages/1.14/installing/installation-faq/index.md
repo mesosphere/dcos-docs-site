@@ -11,13 +11,13 @@ excerpt: Frequently asked questions about installing DC/OS
 We recommend starting with a fresh cluster to ensure all defaults are set to expected values. This prevents unexpected conditions related to mismatched versions and configurations.
 
 ## Q. What are the OS requirements of DC/OS?
-See the [system requirements](/1.14/installing/production/system-requirements/) documentation.
+See the [system requirements](/mesosphere/dcos/1.14/installing/production/system-requirements/) documentation.
 
 ## Q. Does DC/OS install ZooKeeper?
 DC/OS runs its own ZooKeeper supervised by Exhibitor and `systemd`.
 
 ## Q. Is it necessary to maintain a bootstrap node after the cluster is created?
-If you specify an Exhibitor storage backend type other than `exhibitor_storage_backend: static` in your cluster configuration [file](/1.14/installing/production/advanced-configuration/configuration-reference/), you must maintain the external storage for the lifetime of your cluster to facilitate leader elections. If your cluster is mission critical, you should harden your external storage by using S3 or running the bootstrap ZooKeeper as a quorum. Interruptions of service from the external storage can be tolerated, but permanent loss of state can lead to unexpected conditions.
+If you specify an Exhibitor storage backend type other than `exhibitor_storage_backend: static` in your cluster configuration [file](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/), you must maintain the external storage for the lifetime of your cluster to facilitate leader elections. If your cluster is mission critical, you should harden your external storage by using S3 or running the bootstrap ZooKeeper as a quorum. Interruptions of service from the external storage can be tolerated, but permanent loss of state can lead to unexpected conditions.
 
 ## Q. How can I add Mesos attributes to nodes to use Marathon constraints?
 

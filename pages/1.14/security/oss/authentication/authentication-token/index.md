@@ -36,7 +36,7 @@ In the process of generating a new DC/OS Authentication token, the IAM signs the
 
 # Lifetime and renewal
 
-In DC/OS Open Source, Authentication tokens are valid for five days after they have been issued. After five days, you must log in again to obtain a new token. Using [service accounts](/1.14/security/oss/user-account-management/service-accounts/) and the [service login](/1.14/security/oss/login/service-login/) make it easy to automate this process when deploying long-running services.
+In DC/OS Open Source, Authentication tokens are valid for five days after they have been issued. After five days, you must log in again to obtain a new token. Using [service accounts](/mesosphere/dcos/1.14/security/oss/user-account-management/service-accounts/) and the [service login](/mesosphere/dcos/1.14/security/oss/login/service-login/) make it easy to automate this process when deploying long-running services.
 
 # Obtain a DC/OS Authentication token
 
@@ -44,14 +44,14 @@ DC/OS authentication tokens can be obtained by any registered user of the cluste
 
 If you want to get an authentication token then you can refer to the following types of user specific login documentations.
 
-* [External user login](/1.14/security/oss/login/external-user-login/)
-* [Local user login](/1.14/security/oss/login/local-user-login/)
-* [Service login](/1.14/security/oss/login/service-login/)
+* [External user login](/mesosphere/dcos/1.14/security/oss/login/external-user-login/)
+* [Local user login](/mesosphere/dcos/1.14/security/oss/login/local-user-login/)
+* [Service login](/mesosphere/dcos/1.14/security/oss/login/service-login/)
 
 # Pass an Authentication token to the API
 
 ## Prerequisite
-- [DC/OS Authentication token](/1.14/security/oss/authentication/authentication-token/)
+- [DC/OS Authentication token](/mesosphere/dcos/1.14/security/oss/authentication/authentication-token/)
 
 You can make external calls to HTTP API endpoints of your DC/OS cluster. You must first obtain an authentication token and then include it in your HTTP request.
 A DC/OS Authentication token must be passed in the `Authorization` HTTP header. The header value must start with `token=` followed by the token, as shown below.

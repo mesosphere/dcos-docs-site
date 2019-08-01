@@ -56,7 +56,7 @@ DC/OS 包由两个文件定义：[ [`build`][1] 和 [`buildinfo.json`][2]。这�
 
 - 将包下载到当前主机。
 - 将包提取到 `/opt/mesosphere` 中。
-- 使用 [DC/OS 组件包管理器 (Pkgpanda)](/cn/1.12/overview/architecture/components/#dcos-component-package-manager) 启动安装。
+- 使用 [DC/OS 组件包管理器 (Pkgpanda)](/mesosphere/dcos/cn/1.12/overview/architecture/components/#dcos-component-package-manager) 启动安装。
 
 一旦 ZooKeeper 群集在管理节点上达到 quorum 数量且 Mesos 出现，每个代理节点都将加入群集。我们已将步骤保持至最低限度，以确保其尽可能可靠。
 

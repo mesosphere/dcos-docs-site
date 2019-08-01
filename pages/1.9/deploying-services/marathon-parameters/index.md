@@ -47,7 +47,7 @@ Specifies constraint operators which control where apps can run, to optimize for
 ### container
 The container information. 
 
-- **type** The containerizer type, either `MESOS` or `DOCKER`. For more information, see the [Containerizers documentation](/1.9/deploying-services/containerizers/). 
+- **type** The containerizer type, either `MESOS` or `DOCKER`. For more information, see the [Containerizers documentation](/mesosphere/dcos/1.9/deploying-services/containerizers/). 
 - **docker** The Docker container information.
     
     - **image** The path to the Docker image.
@@ -68,17 +68,17 @@ The container information.
     
 - **volumes** The persistent volume.  
  
-    - **containerPath** The path where your application will read and write data. This must be a single-level path relative to the container; it cannot contain a forward slash (`/`). (`"data"`, but not `"/data"`, `"/var/data"` or `"var/data"`). If your application requires an absolute path, or a relative path with slashes, [use this configuration](/1.9/storage/persistent-volume/#abs-paths).
-    - **external** The external volume. For more information, see the [documentation](/1.9/storage/external-storage/).
+    - **containerPath** The path where your application will read and write data. This must be a single-level path relative to the container; it cannot contain a forward slash (`/`). (`"data"`, but not `"/data"`, `"/var/data"` or `"var/data"`). If your application requires an absolute path, or a relative path with slashes, [use this configuration](/mesosphere/dcos/1.9/storage/persistent-volume/#abs-paths).
+    - **external** The external volume. For more information, see the [documentation](/mesosphere/dcos/1.9/storage/external-storage/).
         
         - **name** Name that your volume driver uses to look up your volume.
         - **provider** The storage provider.
-        - **options** Specifies which Docker volume driver to use for storage. The only Docker volume driver provided with [DC/OS is REX-Ray](/1.9/storage/external-storage/). 
+        - **options** Specifies which Docker volume driver to use for storage. The only Docker volume driver provided with [DC/OS is REX-Ray](/mesosphere/dcos/1.9/storage/external-storage/). 
         - **size** The size (in GiB) of the external volume. 
         
     - **hostPath** The host path.
     - **mode** The access mode of the volume, either read-write (`RW`) or read-only (`RO`). 
-    - **persistent** The local persistent volume. For more information, see the [documentation](/1.9/storage/persistent-volume/).
+    - **persistent** The local persistent volume. For more information, see the [documentation](/mesosphere/dcos/1.9/storage/persistent-volume/).
         
         - **size** The size (in MiBs) of the persistent volume. 
     
@@ -103,7 +103,7 @@ The list of URIs to fetch. For more information, see the [Mesos Fetcher document
 - **cache** Cache fetched artifact, if supported by Mesos fetcher module.
 
 ### healthChecks
-An array of checks that are run against an application’s tasks. Marathon health checks perform periodic checks on the containers distributed across a cluster to make sure they’re up and responding. For more information, see the [Health Checks documentation](/1.9/deploying-services/creating-services/health-checks/).
+An array of checks that are run against an application’s tasks. Marathon health checks perform periodic checks on the containers distributed across a cluster to make sure they’re up and responding. For more information, see the [Health Checks documentation](/mesosphere/dcos/1.9/deploying-services/creating-services/health-checks/).
 
 - **gracePeriodSeconds** Specifies the amount of time (in seconds) to ignore health checks immediately after a task is started; or until the task becomes healthy for the first time.
 - **intervalSeconds** Specifies the amount of time (in seconds) to wait between health checks.
@@ -126,7 +126,7 @@ The allowable format is represented by the following regular expression:
 The number of instances. You can change this number as needed to scale the application.
 
 ### ipAddress
-Declares that your application will use [virtual networking](/1.9/networking/load-balancing-vips/virtual-networks/).
+Declares that your application will use [virtual networking](/mesosphere/dcos/1.9/networking/load-balancing-vips/virtual-networks/).
 
 - **groups** The name of logically-related interfaces that are allowed to communicate among themselves. Network traffic is allowed between two container interfaces that share at least one network group. For example, you can create separate groups for isolating development, testing, quality assurance, production, and deployment environments.
 - **labels** Metadata to be used by Isolator or IPAM (e.g., rack).
@@ -147,7 +147,7 @@ The amount of memory (MB) required per instance.
 An array of required port resources on the host. The portDefinitions array serves multiple roles:
 
 - Determines how many dynamic ports are allocated for each task.
-- For every port that is zero, a globally unique (cluster-wide) port is assigned and provided as part of the app definition to be used in load balancing definitions. For more information, see the [Networking documentation](/1.9/networking/).
+- For every port that is zero, a globally unique (cluster-wide) port is assigned and provided as part of the app definition to be used in load balancing definitions. For more information, see the [Networking documentation](/mesosphere/dcos/1.9/networking/).
 
 Each port value is exposed to the instance via environment variables `$PORT0`, `$PORT1`, etc. Ports assigned to running instances are also available via the task resource.
 
@@ -156,7 +156,7 @@ Each port value is exposed to the instance via environment variables `$PORT0`, `
 - Configure ports assignment for Docker containers for `BRIDGE` and `USER` networking in `container.docker.portMappings`.
 - If you use the Mesos Containerizer, pass zeros as port values to generate one or more arbitrary free ports for each application instance.
 
-For more information, see the [Containerizers](/1.9/deploying-services/containerizers/) and [Service Ports](/1.9/deploying-services/service-ports/) documentation.
+For more information, see the [Containerizers](/mesosphere/dcos/1.9/deploying-services/containerizers/) and [Service Ports](/mesosphere/dcos/1.9/deploying-services/service-ports/) documentation.
 
 ### requirePorts
 Whether the host ports of your tasks are automatically assigned. 
@@ -165,7 +165,7 @@ Whether the host ports of your tasks are automatically assigned.
 - `"requirePorts": true` Manually specify ports in advance. Marathon will only schedule the associated tasks on hosts that have the specified ports available. 
 
 ### residency
-Set up a stateful application. For more information, see the [local persistent volumes documentation](/1.9/storage/persistent-volume/).
+Set up a stateful application. For more information, see the [local persistent volumes documentation](/mesosphere/dcos/1.9/storage/persistent-volume/).
 
 - **taskLostBehavior** Indicates whether Marathon will launch the task on another node after receiving a `TASK_LOST` status update.
 

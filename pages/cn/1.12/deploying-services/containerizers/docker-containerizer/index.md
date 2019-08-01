@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-[Docker Engine](https://www.docker.com/products/docker-engine) 从 Docker 镜像启动 Docker 容器。如需要 Docker Engine 的[功能](/cn/1.12/deploying-services/containerizers/#container-runtime-features)，请使用 Docker Engine。否则，请考虑使用 [Universal Container Runtime（通用容器运行时间）](/cn/1.12/deploying-services/containerizers/ucr/)。
+[Docker Engine](https://www.docker.com/products/docker-engine) 从 Docker 镜像启动 Docker 容器。如需要 Docker Engine 的[功能](/mesosphere/dcos/cn/1.12/deploying-services/containerizers/#container-runtime-features)，请使用 Docker Engine。否则，请考虑使用 [Universal Container Runtime（通用容器运行时间）](/mesosphere/dcos/cn/1.12/deploying-services/containerizers/ucr/)。
 
 # 使用 Docker Engine 配置容器
 
@@ -17,7 +17,7 @@ enterprise: false
 * 在 Docker Engine 中运行 Docker 镜像时，底层 Docker 日志文件不会被截断或轮换。这些文件可能会变得任意大（通常转到系统磁盘而不是存储磁盘）。这会导致磁盘空间有限的服务器磁盘空间不够。如果您正在使用 Docker Engine，Mesosphere 建议您禁用 Docker 日志记录。为此，请在应用定义的  `containers.docker.parameters` 字段字段中将 `log-driver` 参数设置为 `none`。如果要使用 DC/OS Web 界面配置容器：
  1. 单击 **JSON EDITOR** 切换。
 
-      ![json editor](/1.12/img/json-editor-toggle.png)
+      ![json editor](/mesosphere/dcos/1.12/img/json-editor-toggle.png)
 
       图 1. JSON Editor 切换按钮
 
@@ -40,7 +40,7 @@ enterprise: false
 
 ## DC/OS CLI
 
-在 [Marathon 应用定义](/cn/1.12/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `DOCKER`。
+在 [Marathon 应用定义](/mesosphere/dcos/cn/1.12/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `DOCKER`。
 
 ```json
 {  
@@ -63,7 +63,7 @@ enterprise: false
 }
 ```
 
-有关示例，请参阅[部署基于 Docker 的服务](/cn/1.12/deploying-services/creating-services/deploy-docker-app/)。
+有关示例，请参阅[部署基于 Docker 的服务](/mesosphere/dcos/cn/1.12/deploying-services/creating-services/deploy-docker-app/)。
 
 # 延伸阅读
 

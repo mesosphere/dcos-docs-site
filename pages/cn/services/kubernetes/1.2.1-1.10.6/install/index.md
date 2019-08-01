@@ -104,11 +104,11 @@ dcos package install kubernetes --options=options.json
 
 **建议：** 将自定义配置存储在源控件中。
 
-有关创建 `options.json` 文件的更多信息，请参阅 [DC/OS 文档](/cn/1.11/deploying-services/config-universe-service/)。
+有关创建 `options.json` 文件的更多信息，请参阅 [DC/OS 文档](/mesosphere/dcos/cn/1.11/deploying-services/config-universe-service/)。
 
 # 从 DC/OS Web 界面安装
 
-您可以 [从 DC/OS Web 界面安装 Kubernetes](/cn/1.11/deploying-services/install/)。如果您从 Web 界面安装 Kubernetes，那么您必须单独安装 DC/OS Kubernetes CLI 子命令。
+您可以 [从 DC/OS Web 界面安装 Kubernetes](/mesosphere/dcos/cn/1.11/deploying-services/install/)。如果您从 Web 界面安装 Kubernetes，那么您必须单独安装 DC/OS Kubernetes CLI 子命令。
 
 从 DC/OS CLI 输入：
 
@@ -117,4 +117,4 @@ dcos package install kubernetes --cli
 ```
 请注意，“服务/名称”的任何自定义值必须包含字母数字字符、`'-'`、`'_'` 或 `'.'`，并且必须以字母数字字符开始和结束，不得超过 24 个字符。此外，现在也可以在组下安装包（例如，将 `/dev/kubernetes` 用作服务名称）。为此，您需要提供文件夹的用户权限（例如， `/dev`），您将在此文件夹安装服务。
 
-选择 [高级安装](/cn/services/kubernetes/1.2.1-1.10.6/advanced-install/)，了解如何执行自定义安装，包括如何设置代理、改进 TLS、启用 Kubernetes 云提供商集成、备份/恢复和高可用性。
+选择 [高级安装](/mesosphere/dcos/cn/services/kubernetes/1.2.1-1.10.6/advanced-install/)，了解如何执行自定义安装，包括如何设置代理、改进 TLS、启用 Kubernetes 云提供商集成、备份/恢复和高可用性。

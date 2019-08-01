@@ -55,9 +55,9 @@ You must have less than 100ms latency between regions.
 
     <p class="message--important"> <strong>IMPORTANT:</strong> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
 
-1. Add this script to the `genconf` folder of your bootstrap node. [More information](/1.14/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
+1. Add this script to the `genconf` folder of your bootstrap node. [More information](/mesosphere/dcos/1.14/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
 
-1. [Install DC/OS](/1.14/installing/production/deploying-dcos/installation/).
+1. [Install DC/OS](/mesosphere/dcos/1.14/installing/production/deploying-dcos/installation/).
 
 1. Test your installation. From the DC/OS CLI, enter `dcos node`. You should see output similar to the following, where the region and zone of each node is listed:
 
@@ -78,7 +78,7 @@ User-created Marathon services and pods support both zone and region awareness. 
 
 ## Marathon services and pods
 
-In your Marathon service or pod definition, you can use [placement constraints](/1.14/deploying-services/marathon-constraints/) to:
+In your Marathon service or pod definition, you can use [placement constraints](/mesosphere/dcos/1.14/deploying-services/marathon-constraints/) to:
 
 - Specify a region and zone for your service or pod, so that all instances will be scheduled only in that region and zone.
 
@@ -129,6 +129,6 @@ Suppose you have a Mesos cluster that spans 3 regions: `aws-us-east1`, `aws-us-e
 
 ### Increase Cluster Capacity
 
-To increase capacity, [add new nodess](/1.14/administering-clusters/add-a-node/) to a remote region or regions of your cluster, and then update your services to launch instances in that region or those regions appropriately.
+To increase capacity, [add new nodess](/mesosphere/dcos/1.14/administering-clusters/add-a-node/) to a remote region or regions of your cluster, and then update your services to launch instances in that region or those regions appropriately.
 
 <p class="message--important"><strong>IMPORTANT: </strong>You cannot configure your service to run in more than one region.</p>

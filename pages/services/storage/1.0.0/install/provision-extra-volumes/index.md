@@ -9,11 +9,11 @@ enterprise: true
 ---
 
 DC/OS Storage Service (DSS) can leverage additional raw volumes mounted on an agent to provide additional services.
-[DC/OS Universal Installer](/latest/installing/evaluation/) supports provisioning a cluster with extra volumes created for each agent node.
+[DC/OS Universal Installer](/mesosphere/dcos/latest/installing/evaluation/) supports provisioning a cluster with extra volumes created for each agent node.
 
 # AWS
 
-Please follow the [instructions](/latest/installing/evaluation/aws/) to setup the Universal Installer on AWS.
+Please follow the [instructions](/mesosphere/dcos/latest/installing/evaluation/aws/) to setup the Universal Installer on AWS.
 
 To provision extra volumes on each agent node, specify the `private_agents_extra_volumes` variable in the main AWS `dcos` module.
 All agent nodes will have the same volume configurations specified.

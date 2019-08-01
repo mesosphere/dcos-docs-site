@@ -21,19 +21,19 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
 
 1. At the top-left corner of the DC/OS web interface, click the down arrow to the right of your cluster name.
 
-    ![open cluster popup](/1.11/img/open-cluster-popup.png)
+    ![open cluster popup](/mesosphere/dcos/1.11/img/open-cluster-popup.png)
 
     Figure 1. Open cluster popup menu
 
 1. Select **Install CLI**.
 
-    ![CLI install UI](/1.11/img/install-cli.png)
+    ![CLI install UI](/mesosphere/dcos/1.11/img/install-cli.png)
 
     Figure 2. Select Install CLI
 
 1. Copy and paste the code snippets appropriate to your OS into your terminal.
 
-    ![CLI copy/paste](/1.11/img/install-cli-terminal.png)
+    ![CLI copy/paste](/mesosphere/dcos/1.11/img/install-cli-terminal.png)
 
     Figure 3. Code snippet window
 
@@ -85,7 +85,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
     dcos cluster setup http://example.com
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see [Security](/1.11/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see [Security](/mesosphere/dcos/1.11/security/).
 
     Your CLI should now be authenticated with your cluster!
 1. Type `dcos` view usage information and get started.
@@ -126,7 +126,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
     ```
     If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see [Security](/1.11/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see [Security](/mesosphere/dcos/1.11/security/).
 
     Your CLI should now be authenticated with your cluster!
 1. Type `dcos` to view usage information and get started.
@@ -156,7 +156,7 @@ The recommended method to install the DC/OS CLI is from the DC/OS web interface.
     dcos cluster setup http://example.com
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see [Security](/1.11/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see [Security](/mesosphere/dcos/1.11/security/).
 
     Your CLI should now be authenticated with your cluster!
 

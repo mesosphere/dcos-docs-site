@@ -31,7 +31,7 @@ By completing this tutorial, you will learn:
 
 1. Click the cluster name menu located in the top-right corner of the DC/OS web-based console.
 
-    ![open cluster popup](/1.13/img/tutorial-cluster-menu.png)
+    ![open cluster popup](/mesosphere/dcos/1.13/img/tutorial-cluster-menu.png)
 
 1. From the cluster name menu , select **Install CLI**.
 
@@ -170,7 +170,7 @@ Options:
       Show usage help
 ```
 
-You can then use the `--help` option for individual commands to view usage information about a specific command. For example, you can run `dcos node --help` to see information about specific `dcos node` commands and arguments. For more information about working with the DC/OS command-line interface, see the [CLI documentation](/1.13/cli/).
+You can then use the `--help` option for individual commands to view usage information about a specific command. For example, you can run `dcos node --help` to see information about specific `dcos node` commands and arguments. For more information about working with the DC/OS command-line interface, see the [CLI documentation](/mesosphere/dcos/1.13/cli/).
 
 # Next steps
 Congratulations! You have successfully connected to your cluster using the DC/OS CLI, and started exploring some of the tasks and information available using the DC/OS command-line interface.

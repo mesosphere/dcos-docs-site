@@ -12,7 +12,7 @@ enterprise: false
 
 
 # Description
-Print the DC/OS configuration file contents of the currently [attached](/1.10/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster.
+Print the DC/OS configuration file contents of the currently [attached](/mesosphere/dcos/1.10/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster.
 
 # Usage
 
@@ -34,7 +34,7 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/1.10/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
+| [dcos config](/mesosphere/dcos/1.10/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
 
 # Examples
 

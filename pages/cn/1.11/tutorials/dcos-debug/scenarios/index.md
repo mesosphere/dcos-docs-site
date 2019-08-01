@@ -15,9 +15,9 @@ menuWeight: 31
 
 ## 先决条件
 
-* 正在运行的 [DC/OS 集群](/cn/1.11/installing/oss/)
+* 正在运行的 [DC/OS 集群](/mesosphere/dcos/cn/1.11/installing/oss/)
  - 4 个专用代理节点
  - 1 个公共代理节点
 - 已配置的 [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/install/)
 
-请注意，这些练习需要正在运行的 [DC/OS 集群](/cn/1.11/installing/) 和已配置的 [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/install/)。我们还将使用具有 4 个专用代理节点和 1 个公共代理节点的集群，该公共代理节点**尚未运行任何先前的工作负载**。当然，如果使用替代集群设置，您的结果可能会有所不同。
+请注意，这些练习需要正在运行的 [DC/OS 集群](/mesosphere/dcos/cn/1.11/installing/) 和已配置的 [DC/OS CLI](https://docs.mesosphere.com/1.11/cli/install/)。我们还将使用具有 4 个专用代理节点和 1 个公共代理节点的集群，该公共代理节点**尚未运行任何先前的工作负载**。当然，如果使用替代集群设置，您的结果可能会有所不同。

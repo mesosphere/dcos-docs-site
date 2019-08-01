@@ -31,10 +31,10 @@ dcos package uninstall chronos
 
 可从 DC/OS Web 界面的 **服务** 选项卡中卸载服务。“服务”选项卡为本地 DC/OS Marathon 实例提供了完整的功能界面。
 
-1. 导航至 DC/OS Web 界面中的 [**服务**](/cn/1.11/gui/services/) 选项卡。
+1. 导航至 DC/OS Web 界面中的 [**服务**](/mesosphere/dcos/cn/1.11/gui/services/) 选项卡。
 1. 选择服务，单击最右的垂直椭圆形，然后选择**删除**。
 
-    ![Destroy app](/cn/1.11/img/service-delete.png)
+    ![Destroy app](/mesosphere/dcos/cn/1.11/img/service-delete.png)
 
     图 1. 删除服务
     
@@ -72,7 +72,7 @@ dcos service shutdown 7c0a7bd4-3649-4ec1-866c-5db8f2292bf2-0001
 dcos marathon app remove [--force] <app-id>
 ```
 
-如需更多信息，请参阅 [命令指南](/cn/1.11/cli/command-reference/#dcos-marathon)。
+如需更多信息，请参阅 [命令指南](/mesosphere/dcos/cn/1.11/cli/command-reference/#dcos-marathon)。
 
 ### Web 界面
 
@@ -80,7 +80,7 @@ dcos marathon app remove [--force] <app-id>
 
 ### 服务选项卡
 
-1. 导航至 DC/OS Web 界面中的 [**服务**](/cn/1.11/gui/services/) 选项卡。
+1. 导航至 DC/OS Web 界面中的 [**服务**](/mesosphere/dcos/cn/1.11/gui/services/) 选项卡。
 2. 单击 **已安装** 选项卡查看已安装的服务。
 3. 将光标悬停在要卸载的包的名称上；就会看到右侧的红色“卸载”链接。单击此链接卸载包。
 
@@ -129,7 +129,7 @@ docker run mesosphere/janitor /janitor.py -r <service_name>-role -z dcos-service
     ```
 ### 通过 Marathon 运行
 
-在 DC/OS [**服务**](/cn/1.11/gui/) 选项卡中，使用 JSON 编辑器将以下内容添加为 Marathon 任务。根据需要清理的内容，替换传递到 `-r`/`-z` 的值。
+在 DC/OS [**服务**](/mesosphere/dcos/cn/1.11/gui/) 选项卡中，使用 JSON 编辑器将以下内容添加为 Marathon 任务。根据需要清理的内容，替换传递到 `-r`/`-z` 的值。
 ```json
     {
  "id": "janitor", 

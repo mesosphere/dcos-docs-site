@@ -9,7 +9,7 @@ enterprise: true
 
 ## 关于安装 Marathon-LB
 
-安装流程因您的 [安全模式而异](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。有关分步说明，请参阅与安全模式相对应的部分。
+安装流程因您的 [安全模式而异](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。有关分步说明，请参阅与安全模式相对应的部分。
 
 - [`disabled` 和 `permissive` 模式](#mlb-disabled-install)
 - [`strict` 模式](#mlb-strict-perm-install)
@@ -19,8 +19,8 @@ enterprise: true
 ### 使用 DC/OS CLI
 
 **先决条件：**
-- [已安装 DC/OS CLI](/cn/1.11/cli/install/)
-- 作为具有 [必要权限 的用户通过 `dcos auth login` 登录](/cn/1.11/security/ent/perms-reference/)。
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/)
+- 作为具有 [必要权限 的用户通过 `dcos auth login` 登录](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/)。
 
 如果您不想更改任何默认设置，您可以使用以下命令安装 Marathon-LB：
 
@@ -42,7 +42,7 @@ dcos package install --options=config.json marathon-lb
 
 ### 使用目录
 
-要在 `disabled` 和 `permissive` 模式中从目录中安装 Marathon-LB，以具有[必要权限的用户身份登录到 DC/OS Web 界面](/cn/1.11/security/ent/perms-reference/)。
+要在 `disabled` 和 `permissive` 模式中从目录中安装 Marathon-LB，以具有[必要权限的用户身份登录到 DC/OS Web 界面](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/)。
 
 1. 单击 **目录** 选项卡。
 2. 找到 **marathon-lb**包。
@@ -54,11 +54,11 @@ dcos package install --options=config.json marathon-lb
 
 **先决条件：**
 
-- Marathon-LB 需要一个`strict` [安全模式](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)中的服务帐户。只有具有 `superuser` 权限的用户才能创建服务帐户。请参阅 [Provisioning Marathon-LB](/cn/services/marathon-lb/mlb-auth/) 了解说明。
+- Marathon-LB 需要一个`strict` [安全模式](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)中的服务帐户。只有具有 `superuser` 权限的用户才能创建服务帐户。请参阅 [Provisioning Marathon-LB](/mesosphere/dcos/cn/services/marathon-lb/mlb-auth/) 了解说明。
 
-- [已安装 DC/OS CLI](/cn/1.11/cli/install/) 并作为具有 [必要权限](/cn/1.11/security/ent/perms-reference/)的用户通过 `dcos auth login` 登录。
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 并作为具有 [必要权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/)的用户通过 `dcos auth login` 登录。
 
-需要 [Provisioning Marathon-LB](/cn/services/marathon-lb/mlb-auth/) 中显示的参数才能安装 Marathon-LB。在安装服务之前，您可能希望修改其他默认值。要查看 Marathon-LB 的配置选项和默认值，请键入以下命令。
+需要 [Provisioning Marathon-LB](/mesosphere/dcos/cn/services/marathon-lb/mlb-auth/) 中显示的参数才能安装 Marathon-LB。在安装服务之前，您可能希望修改其他默认值。要查看 Marathon-LB 的配置选项和默认值，请键入以下命令。
 
 ```bash
 dcos package describe --config marathon-lb
@@ -72,11 +72,11 @@ dcos package install --options=config.json marathon-lb
 
 # 后续步骤
 
-- [教程 - 使用 Marathon-LB 部署负载均衡应用](/cn/services/marathon-lb/1.12/mlb-basic-tutorial/)
-- [教程 - 使用 Marathon-LB 进行内部和外部负载均衡](/cn/services/marathon-lb/marathon-lb-advanced-tutorial/)
-- 查看高级 Marathon-LB [文档](/cn/services/marathon-lb/advanced/)。
+- [教程 - 使用 Marathon-LB 部署负载均衡应用](/mesosphere/dcos/cn/services/marathon-lb/1.12/mlb-basic-tutorial/)
+- [教程 - 使用 Marathon-LB 进行内部和外部负载均衡](/mesosphere/dcos/cn/services/marathon-lb/marathon-lb-advanced-tutorial/)
+- 查看高级 Marathon-LB [文档](/mesosphere/dcos/cn/services/marathon-lb/advanced/)。
 
- [1]: /1.10/installing/
- [2]: /1.10/cli/install/
- [3]: /1.10/administering-clusters/managing-aws/
- [4]: /1.10/administering-clusters/sshcluster/
+ [1]: /mesosphere/dcos/1.10/installing/
+ [2]: /mesosphere/dcos/1.10/cli/install/
+ [3]: /mesosphere/dcos/1.10/administering-clusters/managing-aws/
+ [4]: /mesosphere/dcos/1.10/administering-clusters/sshcluster/

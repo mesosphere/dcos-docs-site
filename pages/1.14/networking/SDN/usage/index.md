@@ -10,11 +10,11 @@ enterprise: false
 ---
 
 
-DC/OS provides each container with its own IP address by allowing you to run containers on a wide variety of IP-based virtual networks. In order to run containers on a virtual network, you must install a CNI or CNM network out-of-band. DC/OS itself comes with its own virtual networking solution called [DC/OS Overlay](/1.14/networking/SDN/dcos-overlay/), which the you can use to provide containers with unique IP addresses.
+DC/OS provides each container with its own IP address by allowing you to run containers on a wide variety of IP-based virtual networks. In order to run containers on a virtual network, you must install a CNI or CNM network out-of-band. DC/OS itself comes with its own virtual networking solution called [DC/OS Overlay](/mesosphere/dcos/1.14/networking/SDN/dcos-overlay/), which the you can use to provide containers with unique IP addresses.
 
 # Using Virtual Networks
 
-First, you must [configure the virtual networks](/1.14/networking/SDN/dcos-overlay/). Virtual networks are configured at install time. You must specify a canonical name for each network in the `config.yaml`. When your service needs to launch a container, refer to it by that canonical name. To use a virtual network in a Marathon app definition, specify the `"network": "USER"` property along with an `ipAddress` field in the form: `{"ipAddress": {"network": "$MYNETWORK"}}`. The value of `$MYNETWORK` is the canonical name of the network.
+First, you must [configure the virtual networks](/mesosphere/dcos/1.14/networking/SDN/dcos-overlay/). Virtual networks are configured at install time. You must specify a canonical name for each network in the `config.yaml`. When your service needs to launch a container, refer to it by that canonical name. To use a virtual network in a Marathon app definition, specify the `"network": "USER"` property along with an `ipAddress` field in the form: `{"ipAddress": {"network": "$MYNETWORK"}}`. The value of `$MYNETWORK` is the canonical name of the network.
 
 # Example
 
@@ -49,4 +49,4 @@ The following Marathon application definition specifies a network named `dcos-1`
 }
 ```
 
-Learn more about ports and networking in [Marathon](/1.14/deploying-services/service-ports/).
+Learn more about ports and networking in [Marathon](/mesosphere/dcos/1.14/deploying-services/service-ports/).

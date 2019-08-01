@@ -27,7 +27,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 #### Documentation
 
-* Fix the [`etcd` snapshotting](/services/kubernetes/2.2.1-1.13.4/operations/troubleshooting/) instructions.
+* Fix the [`etcd` snapshotting](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/operations/troubleshooting/) instructions.
 * Add section `Mesos Roles` to `Advanced Installation` page.
 
 ## Version 2.2.0-1.13.3
@@ -50,7 +50,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 #### Documentation
 
-* Add a [Storage](/services/kubernetes/2.2.1-1.13.4/operations/storage/) page documenting Container Storage Interface (CSI).
+* Add a [Storage](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/operations/storage/) page documenting Container Storage Interface (CSI).
 
 ---
 ## Version 2.1.1-1.12.5
@@ -94,7 +94,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 #### Documentation
 
-* Documentation section on how to [upgrade](/services/kubernetes/2.2.1-1.13.4/operations/upgrade/#Mesosphere-Kubernetes-Engine) the `kubernetes` package.
+* Documentation section on how to [upgrade](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/operations/upgrade/#Mesosphere-Kubernetes-Engine) the `kubernetes` package.
 
 ---
 ## Version 2.0.1-1.12.2
@@ -121,7 +121,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 #### Improvements
 
-* Kubernetes v1.12.1 and other components' [version changes](/services/kubernetes/2.0.0-1.12.1/supported-versions#supported-and-bundled-versions).
+* Kubernetes v1.12.1 and other components' [version changes](/mesosphere/dcos/services/kubernetes/2.0.0-1.12.1/supported-versions#supported-and-bundled-versions).
 * Enable high density deployments of multiple Kubernetes clusters on DC/OS.
 * Replace `kube-apiserver`, `kube-controller-manager` and `kube-scheduler` tasks with static pods in a new task `kube-control-plane`.
 * Replace `kube-proxy` and `coredns` tasks with static pods, and rename `coredns` to `local-dns-dispatcher`.
@@ -142,7 +142,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 #### Documentation
 
-* Add an [Overview](/services/kubernetes/2.2.1-1.13.4/overview/) page explaining in detail what changed since the 1.x series of releases.
-* Add a [CLI](/services/kubernetes/2.2.1-1.13.4/cli/) page detailing the new Mesosphere Kubernetes Engine CLI.
-* Merge `Advanced Installation` page merging its content into [Customizing your Installation](/services/kubernetes/2.2.1-1.13.4/operations/customizing-install/).
-* Add a [Private Docker Registry](/services/kubernetes/2.2.1-1.13.4/operations/private-docker-registry/) page explaining how to configure it.
+* Add an [Overview](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/overview/) page explaining in detail what changed since the 1.x series of releases.
+* Add a [CLI](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/cli/) page detailing the new Mesosphere Kubernetes Engine CLI.
+* Merge `Advanced Installation` page merging its content into [Customizing your Installation](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/operations/customizing-install/).
+* Add a [Private Docker Registry](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/operations/private-docker-registry/) page explaining how to configure it.

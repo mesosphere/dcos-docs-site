@@ -16,13 +16,13 @@ model: /1.14/data.yml
 
 1. Log in as a user with the `superuser` permission.
 
-   ![Login](/1.14/img/LOGIN-EE-Modal_View-1_12.png)
+   ![Login](/mesosphere/dcos/1.14/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 1. Log in as superuser
 
 1. Select **Organization > Users** and create a new user. Type in the user's full name, username, and password.
 
-   ![Create user Cory](/1.14/img/service-group3.png)
+   ![Create user Cory](/mesosphere/dcos/1.14/img/service-group3.png)
 
    Figure 2. Create new user
 
@@ -30,7 +30,7 @@ model: /1.14/data.yml
 # Adding local users with the CLI
 
 **Prerequisite:**
-- [DC/OS Enterprise CLI](/1.14/cli/enterprise-cli/)
+- [DC/OS Enterprise CLI](/mesosphere/dcos/1.14/cli/enterprise-cli/)
 
 
 1.  Create a user group named `services` with this command.

@@ -13,7 +13,7 @@ This tutorial shows how to deploy applications on [Marathon][1] using Jenkins fo
 <table class="table" bgcolor="#FAFAFA"> <tr> <td style="border-left: thin solid; border-top: thin solid; border-bottom: thin solid;border-right: thin solid;"><b>Important:</b> Mesosphere does not support this tutorial, associated scripts, or commands, which are provided without warranty of any kind. The purpose of this tutorial is to demonstrate capabilities, and may not be suited for use in a production environment. Before using a similar solution in your environment, you must adapt, validate, and test.</td> </tr> </table>
 
 **Prerequisite:** 
-This tutorial assumes that you have a working Jenkins installation and permission to launch applications on Marathon. Jenkins for DC/OS must be installed as described on the [Jenkins Quickstart](/services/jenkins/quickstart/) page.
+This tutorial assumes that you have a working Jenkins installation and permission to launch applications on Marathon. Jenkins for DC/OS must be installed as described on the [Jenkins Quickstart](/mesosphere/dcos/services/jenkins/quickstart/) page.
 
 # The Example Project
 
@@ -25,11 +25,11 @@ This tutorial uses [Docker Hub][6] to store the created image and requires accou
 
 # Accessing Jenkins for DC/OS
 
-Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menu’s within the [DC/OS web interface](/1.10/gui/). 
+Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menu’s within the [DC/OS web interface](/mesosphere/dcos/1.10/gui/). 
 
 Click the “Jenkins” service and then "Open Service" to access the Jenkins web interface.
 
-![dcos-velocity-jenkins-ui.png](/1.10/img/dcos-velocity-jenkins-ui.png)
+![dcos-velocity-jenkins-ui.png](/mesosphere/dcos/1.10/img/dcos-velocity-jenkins-ui.png)
 
 # Adding Docker Hub Credentials
 
@@ -37,7 +37,7 @@ Jenkins stores account credentials within its Credential Store, which allows job
 
 Click "Add Credentials" to create a new credential for Docker Hub. The "Kind" drop-down should have the "Username with password" option selected. Fill out the rest of the information to match your Docker Hub account.
 
-![dcos-velocity-jenkins-creds-new.png](/1.10/img/dcos-velocity-jenkins-creds-new.png)
+![dcos-velocity-jenkins-creds-new.png](/mesosphere/dcos/1.10/img/dcos-velocity-jenkins-creds-new.png)
 
 # The Job
 
@@ -45,13 +45,13 @@ We’ll create a new Jenkins job that performs several operations with Docker Hu
 
 Create a new **Freestyle** job with a name that includes only lowercase letters and hyphens. This name will be used later in the Docker image name and possibly as the Marathon application ID.
 
-![dcos-jenkins-new-freestyle.png](/1.10/img/dcos-jenkins-new-freestyle.png)
+![dcos-jenkins-new-freestyle.png](/mesosphere/dcos/1.10/img/dcos-jenkins-new-freestyle.png)
 
 # SCM / Git
 
 From the **Example Project** section above, fill in the Git repository URL with the newly created Git repository. This must be accessible to Jenkins and may require adding credentials to the Jenkins instance.
 
-![dcos-jenkins-repourl.png](/1.10/img/dcos-jenkins-repourl.png)
+![dcos-jenkins-repourl.png](/mesosphere/dcos/1.10/img/dcos-jenkins-repourl.png)
 
 # Build Triggers
 
@@ -66,7 +66,7 @@ The Jenkins job performs these actions:
 
 These steps can be performed by a single build step using the **Docker Build and Publish** plugin, which is already included and ready for use. From the **Add build step** drop-down list, select the **Docker Build and Publish** option.
 
-![dcos-velocity-jenkins-build-docker.png](/1.10/img/dcos-velocity-jenkins-build-docker.png)
+![dcos-velocity-jenkins-build-docker.png](/mesosphere/dcos/1.10/img/dcos-velocity-jenkins-build-docker.png)
 
 Fill in the following fields:
 
@@ -74,13 +74,13 @@ Fill in the following fields:
 * **Tag** with `${GIT_COMMIT}`
 * **Registry credentials** to the credentials for Docker Hub created above
 
-![dcos-velocity-jenkins-build-docker-config.png](/1.10/img/dcos-velocity-jenkins-build-docker-config.png)
+![dcos-velocity-jenkins-build-docker-config.png](/mesosphere/dcos/1.10/img/dcos-velocity-jenkins-build-docker-config.png)
 
 # Marathon Deployment
 
 Add a Marathon Deployment post-build action by selecting the **Marathon Deployment** option from the **Add post-build action** drop-down.
 
-![dcos-jenkins-plugin-popup.png](/1.10/img/dcos-jenkins-plugin-popup.png)
+![dcos-jenkins-plugin-popup.png](/mesosphere/dcos/1.10/img/dcos-jenkins-plugin-popup.png)
 
 Fill in the following fields:
 
@@ -88,7 +88,7 @@ Fill in the following fields:
 * **Application Definition** with the relative path to the marathon application file (`conf/cd-demo-app.json`)
 * **Docker Image** with the image created above (`myusername/${JOB_NAME}:${GIT_COMMIT}`)
 
-![dcos-velocity-marathon-config.png](/1.10/img/dcos-velocity-marathon-config.png)
+![dcos-velocity-marathon-config.png](/mesosphere/dcos/1.10/img/dcos-velocity-marathon-config.png)
 
 ## How It Works
 
@@ -106,7 +106,7 @@ Save the job configuration.
 
 Click **Build Now** and let the job build.
 
-![dcos-jenkins-build-now.png](/1.10/img/dcos-jenkins-build-now.png)
+![dcos-jenkins-build-now.png](/mesosphere/dcos/1.10/img/dcos-jenkins-build-now.png)
 
 # Deployment
 
@@ -118,7 +118,7 @@ When the **Status** has changed to **Running**, the deployment is complete and y
 
 Visit port `80` on the public DC/OS agent to display a jekyll website.
 
-![dcos-jekyll-site1.png](/1.10/img/dcos-jekyll-site1.png)
+![dcos-jekyll-site1.png](/mesosphere/dcos/1.10/img/dcos-jekyll-site1.png)
 
 # Adding a New Post
 
@@ -126,7 +126,7 @@ The content in the `_posts` directory generates a Jekyll website. For this examp
 
 Commit the new post to Git. Shortly after the new commit lands on the master branch, Jenkins will see the change and redeploy to Marathon.
 
-![dcos-jekyll-updated.png](/1.10/img/dcos-jekyll-updated.png)
+![dcos-jekyll-updated.png](/mesosphere/dcos/1.10/img/dcos-jekyll-updated.png)
 
  [1]: https://mesosphere.github.io/marathon/
  [3]: https://mesosphere.github.io/marathon/docs/application-basics.html

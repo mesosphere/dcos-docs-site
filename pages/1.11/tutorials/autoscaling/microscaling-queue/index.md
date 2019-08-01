@@ -25,7 +25,7 @@ If you already have the [prerequisites](#prerequisites) set up, you can have the
 
 In this tutorial, microscaling adjusts the balance between two tasks - one high priority and one background - based on the number of items in  an Azure Storage Queue.
 
-![microscaling-queue.png](/1.11/img/microscaling-queue.png)
+![microscaling-queue.png](/mesosphere/dcos/1.11/img/microscaling-queue.png)
  
  Figure 1. - Microscaling queue
 
@@ -50,7 +50,7 @@ but the demo uses an Azure Storage Queue. If you don't already have an account y
 * Navigate to New -> Data + Storage -> Storage Account.
 * Create a storage account with the following settings:
 
-![microscaling-azure-storage.png](/1.11/img/microscaling-azure-storage.png)
+![microscaling-azure-storage.png](/mesosphere/dcos/1.11/img/microscaling-azure-storage.png)
 
 Figure 2. - Microscaling Azure storage account
 
@@ -65,14 +65,14 @@ After the storage account has been created, navigate to Settings -> Access Keys 
 * Go to the [Microscaling-in-a-box][10] site and sign up for an account if you don't have one already.
 * In Step 1, pick the Mesos/Marathon option
 
-![microscaling-step-1.png](/1.11/img/microscaling-step-1.png)
+![microscaling-step-1.png](/mesosphere/dcos/1.11/img/microscaling-step-1.png)
 
 Figure 3. Choose the Mesos/Marathon option
 
 * Skip through steps 2 and 3 to use the default values.
 * Navigate to step 4 (Run) and find your user ID and the default value for the queue we'll be using in the demo. You will use these as the values for environment variables `MSS_USER_ID` and `AZURE_STORAGE_QUEUE_NAME` later.
 
-![microscaling-step-4.png](/1.11/img/microscaling-step-4.png)
+![microscaling-step-4.png](/mesosphere/dcos/1.11/img/microscaling-step-4.png)
 
 Figure 4. User ID and queue name
 
@@ -110,7 +110,7 @@ This script starts all four tasks. You can view these in the DC/OS web interface
 
 After Marathon has launched the apps, the results will start to appear in the Microscaling-in-a-Box UI. You'll see the Microscaling Engine scaling the consumer and remainder containers to maintain the target queue length.
 
-![microscaling-chart-ui.png](/1.11/img/microscaling-chart-ui.png)
+![microscaling-chart-ui.png](/mesosphere/dcos/1.11/img/microscaling-chart-ui.png)
 
 Figure 5. Microscaling-in-a-box user interface
 
@@ -146,7 +146,7 @@ After you've finished with the demo you should delete the Azure resources so tha
 [2]: http://microscaling.com
 [3]: http://azure.microsoft.com
 [4]: https://azure.microsoft.com/en-us/pricing/free-trial/
-[5]: /1.11/installing/
+[5]: /mesosphere/dcos/1.11/installing/
 [6]: https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/
 
 [8]: https://www.ruby-lang.org/en/documentation/installation/

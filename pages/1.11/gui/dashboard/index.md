@@ -7,7 +7,7 @@ excerpt: Using the Dashboard
 ---
 The dashboard is the home page of the DC/OS web interface. It provides an overview of your DC/OS cluster.
 
-![Dashboard](/1.11/img/dashboard-ee.png)
+![Dashboard](/mesosphere/dcos/1.11/img/dashboard-ee.png)
 
 Figure 1. Dashboard
 

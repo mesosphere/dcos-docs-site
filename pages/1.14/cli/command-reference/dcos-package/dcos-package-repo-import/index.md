@@ -35,4 +35,4 @@ dcos package repo import <repos-file>
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.14/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/mesosphere/dcos/1.14/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

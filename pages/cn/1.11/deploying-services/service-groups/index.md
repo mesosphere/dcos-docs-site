@@ -8,16 +8,16 @@ excerpt: 使用 Web 界面或 CLI 对服务实施细粒度用户访问
 enterprise: true
 ---
 
-可以使用 DC/OS Web 界面、[API](/cn/1.11/security/ent/iam-api/) 或 CLI，对服务实施细粒度用户访问 。
+可以使用 DC/OS Web 界面、[API](/mesosphere/dcos/cn/1.11/security/ent/iam-api/) 或 CLI，对服务实施细粒度用户访问 。
 
-[Marathon 权限](/cn/1.11/security/ent/perms-reference/#marathon-metronome) 帮助您按照服务或服务组，限制用户对服务的访问。该部分为您介绍实现这一切的步骤。
+[Marathon 权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/#marathon-metronome) 帮助您按照服务或服务组，限制用户对服务的访问。该部分为您介绍实现这一切的步骤。
 
-[Marathon 权限](/cn/1.11/security/ent/perms-reference/#marathon-metronome) 和 [Mesos 权限](/cn/1.11/security/ent/perms-reference/#mesos) 不区分服务名称、工作名称、服务组或作业组的区别。因此，您的命名必须是唯一的。
+[Marathon 权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/#marathon-metronome) 和 [Mesos 权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/#mesos) 不区分服务名称、工作名称、服务组或作业组的区别。因此，您的命名必须是唯一的。
 
 **先决条件：**
 
-- 您必须[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
-- 用于分配权限的[用户帐户](/cn/1.11/security/ent/users-groups/)。
+- 您必须[安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 并以超级用户身份登录。
+- 用于分配权限的[用户帐户](/mesosphere/dcos/cn/1.11/security/ent/users-groups/)。
 
 # <a name="root-service"></a>授权访问服务
 
@@ -25,7 +25,7 @@ enterprise: true
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
-      ![登录](/cn/1.11/img/gui-installer-login-ee.gif)
+      ![登录](/mesosphere/dcos/cn/1.11/img/gui-installer-login-ee.gif)
 
       图 1. DC/OS Web 界面登录画面。
 
@@ -33,7 +33,7 @@ enterprise: true
 
 1. 选择要授予权限的用户名或组名。
 
-      ![添加 cory 权限](/cn/1.11/img/services-tab-user.png)
+      ![添加 cory 权限](/mesosphere/dcos/cn/1.11/img/services-tab-user.png)
 
       图 2. 选择要授予权限的用户
 
@@ -41,9 +41,9 @@ enterprise: true
 
 1. 单击 **INSERT PERMISSION STRING** 以切换对话框。
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式](/cn/1.11/security/ent/#security-modes)选择权限字符串。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)选择权限字符串。
 
-      ![添加权限](/cn/1.11/img/services-tab-user3.png)
+      ![添加权限](/mesosphere/dcos/cn/1.11/img/services-tab-user3.png)
 
       图 3. 复制和粘贴权限字符串。
 
@@ -96,7 +96,7 @@ enterprise: true
 
 **先决条件：**
 
-- 您必须[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
+- 您必须[安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 并以超级用户身份登录。
 
 - 向组而不是用户授予权限，用‘组授予’ <uid>` with `替换‘用户授予’ <gid>`.
 
@@ -159,7 +159,7 @@ enterprise: true
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
-      ![登录](/cn/1.11/img/gui-installer-login-ee.gif)
+      ![登录](/mesosphere/dcos/cn/1.11/img/gui-installer-login-ee.gif)
 
       图 3. DC/OS Web 界面登录
 
@@ -167,7 +167,7 @@ enterprise: true
 
 1. 选择要授予权限的用户名或组名。
 
-      ![添加 cory 权限](/cn/1.11/img/services-tab-user.png)
+      ![添加 cory 权限](/mesosphere/dcos/cn/1.11/img/services-tab-user.png)
 
       图 4. 选择要授予权限的用户
 
@@ -175,7 +175,7 @@ enterprise: true
 
 1. 单击 **INSERT PERMISSION STRING** 以切换对话框。
 
-      ![添加权限](/cn/1.11/img/services-tab-user3.png)
+      ![添加权限](/mesosphere/dcos/cn/1.11/img/services-tab-user3.png)
 
       图 5. 添加权限
 
@@ -233,7 +233,7 @@ enterprise: true
 
 **先决条件：**
 
-- 您必须[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
+- 您必须[安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 并以超级用户身份登录。
 
 **提示：**
 
@@ -296,7 +296,7 @@ enterprise: true
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
-      ![登录](/cn/1.11/img/gui-installer-login-ee.gif)
+      ![登录](/mesosphere/dcos/cn/1.11/img/gui-installer-login-ee.gif)
 
       图 6. DC/OS Web 界面登录画面。
 
@@ -304,7 +304,7 @@ enterprise: true
 
 1. 选择要授予权限的用户名或组名。
 
-      ![添加 cory 权限](/cn/1.11/img/services-tab-user.png)
+      ![添加 cory 权限](/mesosphere/dcos/cn/1.11/img/services-tab-user.png)
 
       图 7. 选择要授予权限的用户
 
@@ -312,11 +312,11 @@ enterprise: true
 
 1. 单击 **INSERT PERMISSION STRING** 以切换对话框。
 
-      ![添加权限](/cn/1.11/img/services-tab-user3.png)
+      ![添加权限](/mesosphere/dcos/cn/1.11/img/services-tab-user3.png)
 
       图 8. 添加权限
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式](/cn/1.11/security/ent/#security-modes)选择权限字符串。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)选择权限字符串。
 
  ### 已禁用
  此模式不提供细粒度控制。
@@ -370,7 +370,7 @@ enterprise: true
 
 **先决条件：**
 
-- 您必须[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
+- 您必须[安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 并以超级用户身份登录。
 
 **提示：**
 

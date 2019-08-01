@@ -17,7 +17,7 @@ A Mesosphere DC/OS feature will progress through a multi-stage lifecycle.  This 
 
 A feature can encompass Apps, Services, Frameworks, Components or Packages that are part of Mesosphere DC/OS or its catalog. The five Maturity States of a Mesosphere DC/OS feature are illustrated below and progress from left to right starting with Beta and ending with Decommissioned.
 
-![Five Maturity States](/1.14/img/five_maturity_states.png)
+![Five Maturity States](/mesosphere/dcos/1.14/img/five_maturity_states.png)
 
 Figure 1. Feature maturity lifecycle
 
@@ -47,7 +47,7 @@ A feature that is labeled Generally Available (GA) is recommended to be used by 
 3. API modifications will be under version control (V1, V2 etc).
 4. For customers of DC/OS Enterprise, feedback and support should go through the methods outlined in the Mesosphere Support Terms.
 5. For customers of DC/OS Open Source, feedback should go through Community channels.
-6. GA feature modifications or maturity lifecycle changes can be found in the [Release Notes](/1.14/release-notes/).
+6. GA feature modifications or maturity lifecycle changes can be found in the [Release Notes](/mesosphere/dcos/1.14/release-notes/).
 
 <a name="deprecated"></a>
 ## Deprecated

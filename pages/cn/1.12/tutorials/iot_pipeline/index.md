@@ -44,8 +44,8 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 ## 先决条件
 
-* [DC/OS](/latest/installing/) 或 [DC/OS Enterprise](/latest/installing/) 已安装，至少具有 5 个[专用代理节点][6] 和 1 个[公共代理节点][6]。
-* [DC/OS CLI](/cli/install/) 已安装。
+* [DC/OS](/mesosphere/dcos/latest/installing/) 或 [DC/OS Enterprise](/mesosphere/dcos/latest/installing/) 已安装，至少具有 5 个[专用代理节点][6] 和 1 个[公共代理节点][6]。
+* [DC/OS CLI](/mesosphere/dcos/cli/install/) 已安装。
 * 公共代理节点的公共 IP 地址。在声明了公共代理节点的 DC/OS 已安装后，可以[导航到公共代理节点的公共 IP 地址][9]。
 * Git：
   * **macOS** 从 [Git 下载](http://git-scm.com/download/mac)获取安装程序。
@@ -53,7 +53,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 ## 安装 DC/OS 服务
 
-在此步骤中，您可以从 DC/OS GUI [**Catalog**](/gui/catalog/) 选项卡安装 Cassandra、Kafka、Marathon-LB 和 Zeppelin。您还可以使用 `dcos package install`][11] 命令，从 DC/OS CLI 安装 DC/OS 软件包。
+在此步骤中，您可以从 DC/OS GUI [**Catalog**](/mesosphere/dcos/gui/catalog/) 选项卡安装 Cassandra、Kafka、Marathon-LB 和 Zeppelin。您还可以使用 `dcos package install`][11] 命令，从 DC/OS CLI 安装 DC/OS 软件包。
 
 1. 查找并单击 **cassandra** 软件包，单击 **REVIEW & RUN**，并通过再次单击 **REVIEW & RUN**，然后单击 **RUN SERVICE**，接受默认安装。Cassandra 启动最多 3 个节点。当模态警报提示时，单击 **OPEN SERVICE**。
 
@@ -61,7 +61,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 3. 单击 **Catalog** 选项卡。查找并单击 **marathon-lb** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。当模态警报提示时，单击 **OPEN SERVICE**。
 
-    如果您在 Enterprise 群集上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/services/marathon-lb/mlb-install/)进行安装。根据您的 [安全模式](/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
+    如果您在 Enterprise 群集上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/mesosphere/dcos/services/marathon-lb/mlb-install/)进行安装。根据您的 [安全模式](/mesosphere/dcos/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
 
 4. 单击 **Catalog** 选项卡。单击 **zeppelin** 软件包，然后单击 **REVIEW & RUN** 按钮。
     1. 单击左侧的 **spark** 选项卡，并将 `cores_max` 设置为 `8`。
@@ -69,7 +69,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 5. 在 DC/OS 上部署您的微服务时，单击 **Services**（服务**）选项卡。当节点上线时，您将看到“运行状况”状态从“空闲”转为“运行状况不佳”，最后变为良好状态。这可能需要几分钟。
 
-    ![显示所有服务的服务选项卡。](/1.12/img/tweeter-services6-ee.png)
+    ![显示所有服务的服务选项卡。](/mesosphere/dcos/1.12/img/tweeter-services6-ee.png)
 
     图 1. 显示 Tweeter 服务的服务选项卡
 
@@ -121,7 +121,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 4. 转到 **Services** 选项卡，验证您的应用程序是否正常运行。
 
-    ![已部署的 Tweeter](/1.12/img/tweeter-services7.png)
+    ![已部署的 Tweeter](/mesosphere/dcos/1.12/img/tweeter-services7.png)
 
     图 2. 已部署的 Tweeter
 
@@ -145,7 +145,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 3. 在 `post-tweets.json` 运行后，刷新您的浏览器，查看传入的 Shakespeare 推文。
 
-    ![Shakespeare 推文](/1.12/img/tweeter-shakespeare.png)
+    ![Shakespeare 推文](/mesosphere/dcos/1.12/img/tweeter-shakespeare.png)
 
     图 4. Shakespeare 推文
 
@@ -176,7 +176,7 @@ Tweeter 应用程序使用安装在每个 DC/OS 节点上的服务发现和负�
 
 如果您正在使用 DC/OS Enterprise 群集，单击 DC/OS GUI 中的 **Networking** -> **Service Addresses** 选项卡，然后选择 `1.1.1.1:30000` 虚拟网络，以查看正在执行的负载均衡：
 
-![扩展的 Tweeter](/1.12/img/tweeter-services8-ee.png)
+![扩展的 Tweeter](/mesosphere/dcos/1.12/img/tweeter-services8-ee.png)
 
 图 5. 扩展的推文
 
@@ -204,15 +204,15 @@ Tweeter 应用程序使用安装在每个 DC/OS 节点上的服务发现和负�
 
 
 
- [1]: /services/cassandra/
- [2]: /services/kafka/
- [3]: /services/spark/
+ [1]: /mesosphere/dcos/services/cassandra/
+ [2]: /mesosphere/dcos/services/kafka/
+ [3]: /mesosphere/dcos/services/spark/
  [4]:http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
- [6]: /cn/1.12/overview/concepts/
- [9]: /cn/1.12/administering-clusters/locate-public-agent/
- [11]: /cn/1.12/cli/command-reference/
- [12]: /services/marathon-lb/
+ [6]: /mesosphere/dcos/cn/1.12/overview/concepts/
+ [9]: /mesosphere/dcos/cn/1.12/administering-clusters/locate-public-agent/
+ [11]: /mesosphere/dcos/cn/1.12/cli/command-reference/
+ [12]: /mesosphere/dcos/services/marathon-lb/
  [13]: https://github.com/mesosphere/tweeter
- [14]: /1.12/img/tweeter.png
- [16]: /1.12/img/top-tweeters.png
+ [14]: /mesosphere/dcos/1.12/img/tweeter.png
+ [16]: /mesosphere/dcos/1.12/img/top-tweeters.png

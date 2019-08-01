@@ -90,7 +90,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 <a name="kubernetes"></a>
 
 ### Mesosphere Kubernetes 引擎
-- 引入高密度多 Kubernetes (HDMK)，使操作者能够在 DC/OS 上运行多个 Kubernetes 群集时充分利用智能资源池。与每个虚拟机运行单个 Kubernetes 节点的其他 Kubernetes 发行版相比，Mesosphere HDMK 使用其智能资源池将多个 Kubernetes 节点打包到连接裸机、虚拟机和公共云实例的同一服务器上，从而显著节省成本并提高资源利用效率。[详细了解 DC/OS 上的 Kubernetes](/services/kubernetes/2.0.0-1.12.1/)。
+- 引入高密度多 Kubernetes (HDMK)，使操作者能够在 DC/OS 上运行多个 Kubernetes 群集时充分利用智能资源池。与每个虚拟机运行单个 Kubernetes 节点的其他 Kubernetes 发行版相比，Mesosphere HDMK 使用其智能资源池将多个 Kubernetes 节点打包到连接裸机、虚拟机和公共云实例的同一服务器上，从而显著节省成本并提高资源利用效率。[详细了解 DC/OS 上的 Kubernetes](/mesosphere/dcos/services/kubernetes/2.0.0-1.12.1/)。
 
 <a name="jupyter"></a>
 
@@ -129,7 +129,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - 正式推荐为 Mesosphere 支持的安装方法，内置最佳实践（即持续升级的顺序管理节点和并行代理节点）。
 - 重组 [Mesosphere 安装文档](https://docs.mesosphere.com/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
 - 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越升级特定的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越升级支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
-- 如果已安装可选的 DC/OS 存储服务包，则从 1.12.0 升级到 1.12.1 要求您首先按照 [手动将 DSS 软件包从 0.4.x 升级到 0.5.x](/services/storage/latest/upgrades/) 中提供的说明进行操作。在升级 DC/OS 存储 **之前**，必须将群集节点升级到 1.12.1，以防在升级后发生 Mesos 代理节点崩溃。
+- 如果已安装可选的 DC/OS 存储服务包，则从 1.12.0 升级到 1.12.1 要求您首先按照 [手动将 DSS 软件包从 0.4.x 升级到 0.5.x](/mesosphere/dcos/services/storage/latest/upgrades/) 中提供的说明进行操作。在升级 DC/OS 存储 **之前**，必须将群集节点升级到 1.12.1，以防在升级后发生 Mesos 代理节点崩溃。
 
 <a name="ldap-net"></a>
 

@@ -27,10 +27,10 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 ## New Features and Capabilities
 
 ### Mesosphere Kubernetes Engine
-- High Density Multi-Kubernetes (HDMK) allows operators to take advantage of intelligent resource pooling when running multiple Kubernetes clusters on DC/OS. Compared with other Kubernetes distributions that run a single Kubernetes node per virtual machine, Mesosphere HDMK uses its intelligent resource pooling to pack multiple Kubernetes nodes onto the same server for bare metal, virtual machine, and public cloud instances, driving significant cost savings and resource efficiencies. [Learn more about Kubernetes on DC/OS](/services/kubernetes/2.0.0-1.12.1/).
+- High Density Multi-Kubernetes (HDMK) allows operators to take advantage of intelligent resource pooling when running multiple Kubernetes clusters on DC/OS. Compared with other Kubernetes distributions that run a single Kubernetes node per virtual machine, Mesosphere HDMK uses its intelligent resource pooling to pack multiple Kubernetes nodes onto the same server for bare metal, virtual machine, and public cloud instances, driving significant cost savings and resource efficiencies. [Learn more about Kubernetes on DC/OS](/mesosphere/dcos/services/kubernetes/2.0.0-1.12.1/).
 
 ### Mesosphere Jupyter Service (MJS)
-- Delivered secure, [cloud-native Jupyter](/services/beta-jupyter/) Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
+- Delivered secure, [cloud-native Jupyter](/mesosphere/dcos/services/beta-jupyter/) Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
 - Secured connectivity to data lakes and data sets on S3 and (Kerberized) HDFS.
 - GPU-enabled Spark and distributed TensorFlow.
 - OpenID connect authentication and authorization with support for Windows Integrated Authentication (WIA) and Active Directory Federation Services (ADFS)
@@ -45,7 +45,7 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 [enterprise]
 ### Private Package Registry
 [/enterprise]
-- Enabled [on-premise package distribution and management](/1.12/administering-clusters/repo/package-registry/).
+- Enabled [on-premise package distribution and management](/mesosphere/dcos/1.12/administering-clusters/repo/package-registry/).
 - Enabled air-gapped Virtual Private Cloud package management.
 - Simplifies package artifact management.
 - Package-specific controls for adding/removing/updating packages within a cluster.
@@ -62,13 +62,13 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 [enterprise]
 ### Dynamic LDAP Synchronization
 [/enterprise]
-- Automatically synchronize [LDAP user account groups](/1.12/security/ent/users-groups/) without manual synchronization of [LDAP directory](/1.12/security/ent/ldap/) with accounts imported into DC/OS.
+- Automatically synchronize [LDAP user account groups](/mesosphere/dcos/1.12/security/ent/users-groups/) without manual synchronization of [LDAP directory](/mesosphere/dcos/1.12/security/ent/ldap/) with accounts imported into DC/OS.
 
 ### Universal Installer
 - Introducing a unified Terraform-based open source tool for provisioning, deploying, installing, upgrading, and decommissioning DC/OS on AWS, GCP, and Azure.
 - Intuitive, streamlined installation with a quick start process - Spin up a DC/OS cluster with a few easy steps in 10-15 minutes.
 - Officially recommended as a Mesosphere supported installation method with best practices built-in (i.e sequential masters & parallel agents in upgrade).
-- Restructured [Mesosphere installation documentation](/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
+- Restructured [Mesosphere installation documentation](/mesosphere/dcos/1.12/installing/evaluation/) to organize Mesosphere supported installation methods and Community supported installation methods.
 
 ### Networking
 - Networking component enhancements with 150+ bug fixes with limited logging for visibility.
@@ -82,7 +82,7 @@ DC/OS 1.12.0 includes the following new features and capabilities:
 - Improved logging in Edge-LB. [enterprise type="inline" size="small" /]
 
 ### Expanded DC/OS Upgrade Paths
-- Mesosphere now supports specific skip [upgrade paths](/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move).
+- Mesosphere now supports specific skip [upgrade paths](/mesosphere/dcos/1.12/installing/production/upgrading/#supported-upgrade-paths) within a supported patch version of DC/OS (i.e upgrade from 1.11.1 => 1.11.5 in one move).
 - Mesosphere now supports specific skip upgrade paths between supported major to major versions of DC/OS (i.e upgrade from 1.10.7 => 1.11.4 in one move).
 
 ### Services (Marathon) Enhancements

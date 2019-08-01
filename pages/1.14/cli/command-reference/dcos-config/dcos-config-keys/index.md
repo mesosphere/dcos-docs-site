@@ -40,4 +40,4 @@ dcos config keys
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/1.14/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |
+| [dcos config](/mesosphere/dcos/1.14/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |

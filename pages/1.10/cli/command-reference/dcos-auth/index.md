@@ -29,6 +29,6 @@ dcos auth
 
 | Command | Description |
 |---------|-------------|
-|[dcos auth list-providers](/1.10/cli/command-reference/dcos-auth/dcos-auth-list-providers/) | List configured authentication providers for your DC/OS cluster (Enterprise only). |  
-| [dcos auth login](/1.10/cli/command-reference/dcos-auth/dcos-auth-login/)   |   Log in to DC/OS authentication.  |  
-| [dcos auth logout](/1.10/cli/command-reference/dcos-auth/dcos-auth-logout/)   |  Log out of DC/OS authentication.  |  
+|[dcos auth list-providers](/mesosphere/dcos/1.10/cli/command-reference/dcos-auth/dcos-auth-list-providers/) | List configured authentication providers for your DC/OS cluster (Enterprise only). |  
+| [dcos auth login](/mesosphere/dcos/1.10/cli/command-reference/dcos-auth/dcos-auth-login/)   |   Log in to DC/OS authentication.  |  
+| [dcos auth logout](/mesosphere/dcos/1.10/cli/command-reference/dcos-auth/dcos-auth-logout/)   |  Log out of DC/OS authentication.  |  

@@ -5,10 +5,10 @@ navigationTitle: Example Snippets
 menuWeight: -1
 ---
 
-[307](/latest/installing/).
-some other [regex redirect](/services/cassandra/) text.
-something [plaintext redirect](/latest/tutorials/dcos-101/redis-package/).
-[correct](/services/cassandra/).
-[not valid](/defnot/).
+[307](/mesosphere/dcos/latest/installing/).
+some other [regex redirect](/mesosphere/dcos/services/cassandra/) text.
+something [plaintext redirect](/mesosphere/dcos/latest/tutorials/dcos-101/redis-package/).
+[correct](/mesosphere/dcos/services/cassandra/).
+[not valid](/mesosphere/dcos/defnot/).
 
 [swagger api='/services/api/edge-lb-common.yaml']

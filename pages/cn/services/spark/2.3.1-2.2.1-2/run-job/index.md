@@ -65,8 +65,8 @@ Enterprise DC/OS 提供了一个密钥存储库，用于访问敏感数据，如
 私钥和 API 令牌。DC/OS 管理密钥数据的安全运输、访问控制和
 授权，以及安全存储密钥内容。密钥可能以文件和/或以环境变量的形式
 暴露给驱动程序和执行程序。要配置作业访问密钥，请参阅
-[使用密钥存储库](/cn/services/spark/2.3.1-2.2.1-2/security/#using-the-secret-store) 和
-[使用 Mesos 密钥](/cn/services/spark/2.3.1-2.2.1-2/security/#using-mesos-secrets) 部分。
+[使用密钥存储库](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/security/#using-the-secret-store) 和
+[使用 Mesos 密钥](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/security/#using-mesos-secrets) 部分。
 
 # DC/OS 覆盖网络
 
@@ -99,7 +99,7 @@ DC/OS {{ model.techName }} Docker 镜像包含 OpenJDK 8 和 Python 2.7.6。
 
 DC/OS {{ model.techName }} 分布 1.X 采用 Scala 2.10 编译。DC/OS Apache Spark 分布 2.X 采用 Scala 2.11 编译。Scala 各个小版本之间并非二进制兼容，因此，您的 Spark 作业必须采用与您的 DC/OS {{ model.techName }}版本相同的 Scala 版本编译 。
 
-默认 DC/OS {{ model.techName }} 分布针对 Hadoop 2.6 库编译。然而，您可以按照“安装”页面中[自定义 Spark 分布](/cn/services/spark/2.3.1-2.2.1-2/install/#customize-spark-distribution)部分中的说明选择不同的版本。
+默认 DC/OS {{ model.techName }} 分布针对 Hadoop 2.6 库编译。然而，您可以按照“安装”页面中[自定义 Spark 分布](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/install/#customize-spark-distribution)部分中的说明选择不同的版本。
 
 
 [13]: http://spark.apache.org/docs/latest/submitting-applications.html

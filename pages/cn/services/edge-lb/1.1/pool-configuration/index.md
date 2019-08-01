@@ -17,7 +17,7 @@ enterprise: false
 dcos edgelb show --reference
 ```
 
-有关详细信息，请参阅 [`dcos edgelb show` 的 CLI 参考指南条目](/cn/1.1/cli-reference/dcos-edgelb-show/)。
+有关详细信息，请参阅 [`dcos edgelb show` 的 CLI 参考指南条目](/mesosphere/dcos/cn/1.1/cli-reference/dcos-edgelb-show/)。
 
 # API 版本
 

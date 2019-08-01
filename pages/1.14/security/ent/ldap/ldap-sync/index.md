@@ -12,7 +12,7 @@ model: /1.14/data.yml
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 # Background
 
-DC/OS Enterprise supports [directory-based authentication through LDAP](/1.14/security/ent/ldap/). Users and user groups can be imported from the external directory into the DC/OS IAM. See [managing users and groups](/1.14/security/ent/users-groups/).
+DC/OS Enterprise supports [directory-based authentication through LDAP](/mesosphere/dcos/1.14/security/ent/ldap/). Users and user groups can be imported from the external directory into the DC/OS IAM. See [managing users and groups](/mesosphere/dcos/1.14/security/ent/users-groups/).
 
 In earlier versions of DC/OS Enterprise, LDAP Group Import and LDAP User Import were one-shot operations. If a user was removed from the external directory, that user would not be automatically removed from the DC/OS IAM. Similarly, if an “Engineers” user group was imported from the directory, any new user added to that group would have to be added explicitly to the DC/OS IAM. Keeping imported users and user groups synchronized between the DC/OS IAM and the directory was a laborious task for administrators of large organizations.
 
@@ -40,7 +40,7 @@ This procedure runs on the DC/OS master node which corresponds to the current Me
 
 Every run of the LDAP synchronization logs detailed logic to the `systemd` journal. These logs may be inspected by checking the logs on the DC/OS master node corresponding to the Mesos leader.
 
-The exact period is configurable on installation. See the [configuration reference](/1.14/installing/production/advanced-configuration/configuration-reference/) under [advanced configuration](/1.14/installing/production/advanced-configuration/). 
+The exact period is configurable on installation. See the [configuration reference](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/) under [advanced configuration](/mesosphere/dcos/1.14/installing/production/advanced-configuration/). 
 
 # Importing groups with valid names
 If you import LDAP group names to be used as the DC/OS groups, you should keep in mind that the LDAP groups you want to import must have a supported group name format. 

@@ -23,11 +23,11 @@ The DC/OS 101 tutorial includes the following sessions:
 1. [Understanding Resources][7]
 1. [Load-Balancing][8]
 
-[1]: /1.10/tutorials/dcos-101/cli/
-[2]: /1.10/tutorials/dcos-101/redis-package/
-[3]: /1.10/tutorials/dcos-101/app1/
-[4]: /1.10/tutorials/dcos-101/service-discovery/
-[5]: /1.10/tutorials/dcos-101/app2/
-[6]: /1.10/tutorials/dcos-101/marathon-lb/
-[7]: /1.10/tutorials/dcos-101/resources/
-[8]: /1.10/tutorials/dcos-101/loadbalancing/
+[1]: /mesosphere/dcos/1.10/tutorials/dcos-101/cli/
+[2]: /mesosphere/dcos/1.10/tutorials/dcos-101/redis-package/
+[3]: /mesosphere/dcos/1.10/tutorials/dcos-101/app1/
+[4]: /mesosphere/dcos/1.10/tutorials/dcos-101/service-discovery/
+[5]: /mesosphere/dcos/1.10/tutorials/dcos-101/app2/
+[6]: /mesosphere/dcos/1.10/tutorials/dcos-101/marathon-lb/
+[7]: /mesosphere/dcos/1.10/tutorials/dcos-101/resources/
+[8]: /mesosphere/dcos/1.10/tutorials/dcos-101/loadbalancing/

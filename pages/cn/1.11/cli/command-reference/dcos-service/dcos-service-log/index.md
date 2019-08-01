@@ -38,4 +38,4 @@ dcos service log <file> <service> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos service](/cn/1.11/cli/command-reference/dcos-service/) | 管理 DC/OS 服务。|
+| [dcos service](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-service/) | 管理 DC/OS 服务。|

@@ -11,7 +11,7 @@ menuWeight: 2
 
 
 # 先决条件
-到目前为止，您应该已经安装并配置了正在运行的 DC/OS 集群和 DC/OS CLI。 如果不是这样，请按照本教程的[第一](/cn/1.11/tutorials/dcos-101/cli/)部分进行操作。
+到目前为止，您应该已经安装并配置了正在运行的 DC/OS 集群和 DC/OS CLI。 如果不是这样，请按照本教程的[第一](/mesosphere/dcos/cn/1.11/tutorials/dcos-101/cli/)部分进行操作。
 本教程的下一阶段使用 [jq](https://stedolan.github.io/jq/)，一个命令行 JSON 处理器，以简化一些命令。请遵循[此处](https://stedolan.github.io/jq/download/)的说明为操作系统安装 JQ。
 
 # 目的
@@ -42,7 +42,7 @@ menuWeight: 2
 ## 使用 Redis
 
 我们将通过 `redis-cli` 命令手动存储密钥来使用 Redis
- * [SSH](/cn/1.11/administering-clusters/sshcluster/) 进入运行 redis 的节点：
+ * [SSH](/mesosphere/dcos/cn/1.11/administering-clusters/sshcluster/) 进入运行 redis 的节点：
 
       ```bash
       dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
@@ -85,4 +85,4 @@ menuWeight: 2
  1. 经过测试和认证的策划软件包。
  1. 社区贡献的软件包，可能未经过良好测试。
 
- 您还可以添加自己的存储库，其包含您的自定义软件包。有关详细信息，请参阅[文档](/cn/1.11/administering-clusters/repo/)。
+ 您还可以添加自己的存储库，其包含您的自定义软件包。有关详细信息，请参阅[文档](/mesosphere/dcos/cn/1.11/administering-clusters/repo/)。

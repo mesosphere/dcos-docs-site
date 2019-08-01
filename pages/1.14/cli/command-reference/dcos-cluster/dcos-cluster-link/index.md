@@ -10,11 +10,11 @@ model: /1.14/data.yml
 ---
 
 # Description
-The `dcos cluster link` command lets you configure uni-directional links from a cluster to one or more clusters. When accessing a cluster you can view the clusters linked to it. You can [attach](/1.14/cli/command-reference/dcos-cluster/dcos-cluster-attach/) to a linked cluster without needing to run `dcos cluster setup` beforehand.
+The `dcos cluster link` command lets you configure uni-directional links from a cluster to one or more clusters. When accessing a cluster you can view the clusters linked to it. You can [attach](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/dcos-cluster-attach/) to a linked cluster without needing to run `dcos cluster setup` beforehand.
 
 **Prerequisites**
 
-- The [`dcos cluster setup`](/1.14/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command you used to set up the clusters to be linked must specify the same authentication provider.
+- The [`dcos cluster setup`](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command you used to set up the clusters to be linked must specify the same authentication provider.
 
 
 # Usage
@@ -49,7 +49,7 @@ If the cluster links successfully there is no output to the console.
 
 
 # Examples
-For examples, see [Cluster Links](/1.14/administering-clusters/multiple-clusters/cluster-links/).
+For examples, see [Cluster Links](/mesosphere/dcos/1.14/administering-clusters/multiple-clusters/cluster-links/).
 
 
 
@@ -57,4 +57,4 @@ For examples, see [Cluster Links](/1.14/administering-clusters/multiple-clusters
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster](/1.14/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
+| [dcos cluster](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |

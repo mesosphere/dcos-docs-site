@@ -13,7 +13,7 @@ The DC/OS command line interface (DC/OS CLI) utility allows you to manage cluste
 
 # DC/OS CLI versions and configuration files
 
-Different CLI versions are compatible with different versions of DC/OS. To determine which combinations are supported, see the [CLI support matrix](/version-policy/#cli-support-matrix).
+Different CLI versions are compatible with different versions of DC/OS. To determine which combinations are supported, see the [CLI support matrix](/mesosphere/dcos/version-policy/#cli-support-matrix).
 
 DC/OS CLI 0.4.x and 0.5.x use a different structure for the location of configuration files.
 
@@ -26,7 +26,7 @@ DC/OS CLI 0.5.x has a configuration file for each connected cluster, which by de
 
 ## Latest version install
 
-DC/OS 1.13 requires DC/OS CLI >= 0.8. To install it, [follow these instructions](/1.13/cli/install/).
+DC/OS 1.13 requires DC/OS CLI >= 0.8. To install it, [follow these instructions](/mesosphere/dcos/1.13/cli/install/).
 
 ## CLI commands
 
@@ -74,11 +74,11 @@ Use "dcos [command] --help" for more information about a command.
 
 The following commands are available only in the Enterprise version of the CLI:
 
-- [`dcos backup`](/{{ model.version }}/cli/command-reference/dcos-backup/)
-- [`dcos license`](/{{ model.version }}/cli/command-reference/dcos-license/)
-- [`dcos security`](/{{ model.version }}/cli/command-reference/dcos-security/)
+- [`dcos backup`](/mesosphere/dcos/{{ model.version }}/cli/command-reference/dcos-backup/)
+- [`dcos license`](/mesosphere/dcos/{{ model.version }}/cli/command-reference/dcos-license/)
+- [`dcos security`](/mesosphere/dcos/{{ model.version }}/cli/command-reference/dcos-security/)
 
-For instructions on installing the DC/OS Enterprise version of the CLI, [see the documentation](/{{ model.version }}/cli/enterprise-cli/#installing-the-dcos-enterprise-cli).
+For instructions on installing the DC/OS Enterprise version of the CLI, [see the documentation](/mesosphere/dcos/{{ model.version }}/cli/enterprise-cli/#installing-the-dcos-enterprise-cli).
 
 <a name="setupcluster"></a>
 
@@ -103,13 +103,13 @@ The DC/OS CLI supports the following environment variables, which can be set dyn
 
 #### `DCOS_CLUSTER` (DC/OS CLI 0.5.x and later only)
 
-The [attached](/{{ model.version }}/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
+The [attached](/mesosphere/dcos/{{ model.version }}/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
 
 ```bash
 dcos cluster setup <cluster-url>
 ```
 
-After following the login procedure, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/{{ model.version }}/cli/plugins/), `dcos-core-cli` and, if applicable, `dcos-enterprise-cli`, which is automatically installed as part of the setup command.
+After following the login procedure, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/mesosphere/dcos/{{ model.version }}/cli/plugins/), `dcos-core-cli` and, if applicable, `dcos-enterprise-cli`, which is automatically installed as part of the setup command.
 
 <a name="dcos-config"></a>
 

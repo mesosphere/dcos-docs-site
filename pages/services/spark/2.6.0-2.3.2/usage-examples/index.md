@@ -12,7 +12,7 @@ This section describes a basic and advanced example of how to use DC/OS {{ model
 
 # Basic
 
-1. Perform a default installation by following the instructions in the [Install and Customize](/services/spark/2.6.0-2.3.2/install/) section.
+1. Perform a default installation by following the instructions in the [Install and Customize](/mesosphere/dcos/services/spark/2.6.0-2.3.2/install/) section.
 
 1. Run a {{ model.techShortName }} job:
 
@@ -32,7 +32,7 @@ This section describes a basic and advanced example of how to use DC/OS {{ model
 
 Run a {{ model.techShortName }} Streaming job with Kafka.
 
-Examples of {{ model.techShortName }} Streaming applications that connect to a secure Kafka cluster can be found at [spark-build](https://github.com/mesosphere/spark-build/blob/2.6.0-2.3.2/tests/jobs/scala/src/main/scala/KafkaJobs.scala). As mentioned in the [Kerberos](/services/spark/2.6.0-2.3.2/kerberos/) section, {{ model.techShortName }} requires a JAAS file, the `krb5.conf`, and the keytab.
+Examples of {{ model.techShortName }} Streaming applications that connect to a secure Kafka cluster can be found at [spark-build](https://github.com/mesosphere/spark-build/blob/2.6.0-2.3.2/tests/jobs/scala/src/main/scala/KafkaJobs.scala). As mentioned in the [Kerberos](/mesosphere/dcos/services/spark/2.6.0-2.3.2/kerberos/) section, {{ model.techShortName }} requires a JAAS file, the `krb5.conf`, and the keytab.
 
 An example of a JAAS file is:
 

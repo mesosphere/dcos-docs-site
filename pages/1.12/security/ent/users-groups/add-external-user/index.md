@@ -13,8 +13,8 @@ After you have configured a directory service or an identity provider, you can a
 
 # Prerequisites
 
-- An external [LDAP directory](/1.12/security/ent/ldap/).
-- An [OpenID Connect or SAML provider](/1.12/security/ent/sso/).
+- An external [LDAP directory](/mesosphere/dcos/1.12/security/ent/ldap/).
+- An [OpenID Connect or SAML provider](/mesosphere/dcos/1.12/security/ent/sso/).
 
 # Adding external users via logon attempt
 By default, users have no DC/OS permissions. Any attempts to access DC/OS without permissions will fail. However, if you have successfully configured an LDAP directory or an identity provider and the user provides valid credentials, the logon attempt will cause the user's account to be added to DC/OS.
@@ -62,7 +62,7 @@ Group size is limited to 100 users. To increase this limit, contact Mesosphere c
 
 6. When completed, your dialog should look something like the following.
 
-   ![LDAP Group Import Configuration](/1.12/img/ldap-group-import.png)
+   ![LDAP Group Import Configuration](/mesosphere/dcos/1.12/img/ldap-group-import.png)
 
    Figure 1. LDAP group import configuration
 
@@ -81,13 +81,13 @@ Group size is limited to 100 users. To increase this limit, contact Mesosphere c
 
 ## Importing LDAP groups using the API
 
-You can import a group of LDAP users by using the `/ldap/importuser` [IAM API](/1.12/security/ent/iam-api/) endpoint.
+You can import a group of LDAP users by using the `/ldap/importuser` [IAM API](/mesosphere/dcos/1.12/security/ent/iam-api/) endpoint.
 
 **Prerequisites:**
 
 - The `group-search` configuration key must be set, as discussed in [Configuring LDAP group import](#Configuring-LDAP-group-import).
 - The existing group entries must list their members by using the `member`, `uniquemember`, or `memberuid` attribute.
-- You must follow the steps in [Obtaining the root certificate of your DC/OS CA](/1.12/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- You must follow the steps in [Obtaining the root certificate of your DC/OS CA](/mesosphere/dcos/1.12/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 In this example a group named `johngroup` is imported.
 

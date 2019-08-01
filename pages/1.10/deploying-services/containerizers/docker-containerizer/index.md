@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-[Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need [features](/1.10/deploying-services/containerizers/#container-runtime-features) of the Docker Engine. Otherwise, consider using the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/).
+[Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need [features](/mesosphere/dcos/1.10/deploying-services/containerizers/#container-runtime-features) of the Docker Engine. Otherwise, consider using the [Universal Container Runtime](/mesosphere/dcos/1.10/deploying-services/containerizers/ucr/).
 
 # Provision a container with the Docker Engine
 
@@ -20,7 +20,7 @@ enterprise: false
 * When you run a Docker image in the Docker Engine, the underlying Docker log files are not truncated or rotated. These files can become arbitrarily large (and often go to a system disk rather than a storage disk). This can cause a server with limited disk space to run out of disk space. Mesosphere recommends that you disable Docker logging if you are using Docker Engine. To do this, set the `log-driver` parameter to `none` in the `containers.docker.parameters` field of your app definition. If you are provisioning the container using the DC/OS web interface:
   1. Click the **JSON EDITOR** toggle.
 
-     ![json editor](/1.10/img/json-editor-toggle.png)
+     ![json editor](/mesosphere/dcos/1.10/img/json-editor-toggle.png)
 
   1. Enter the `parameters` field in the JSON configuration.
 
@@ -41,7 +41,7 @@ enterprise: false
 
 ## Provision a container with the Docker Engine from the DC/OS CLI
 
-In your [Marathon application definition](/1.10/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api), set the `container.type` parameter to `DOCKER`.
+In your [Marathon application definition](/mesosphere/dcos/1.10/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api), set the `container.type` parameter to `DOCKER`.
 
 ```json
 {  
@@ -64,7 +64,7 @@ In your [Marathon application definition](/1.10/deploying-services/creating-serv
 }
 ```
 
-For examples, see [Deploying a Docker-based Service](/1.10/deploying-services/creating-services/deploy-docker-app/).
+For examples, see [Deploying a Docker-based Service](/mesosphere/dcos/1.10/deploying-services/creating-services/deploy-docker-app/).
 
 # Further Reading
 

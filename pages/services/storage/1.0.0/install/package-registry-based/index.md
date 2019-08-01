@@ -11,11 +11,11 @@ enterprise: true
 # Prerequisites
 
 - DC/OS Enterprise 1.12 or later.
-- [DC/OS CLI](/latest/cli/install/) is installed and you are logged in as a superuser.
+- [DC/OS CLI](/mesosphere/dcos/latest/cli/install/) is installed and you are logged in as a superuser.
 
 # Install package registry
 
-Please follow these [instructions](/latest/administering-clusters/package-registry/) to install the package registry.
+Please follow these [instructions](/mesosphere/dcos/latest/administering-clusters/package-registry/) to install the package registry.
 
 # Download the DSS package
 

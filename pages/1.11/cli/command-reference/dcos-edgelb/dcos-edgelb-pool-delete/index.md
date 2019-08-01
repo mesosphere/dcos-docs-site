@@ -40,8 +40,8 @@ dcos edgelb [<flags>] pool delete <name>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/1.11/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
+| [dcos edgelb](/mesosphere/dcos/1.11/cli/command-reference/dcos-edgelb/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Quick Start Guide](/services/edge-lb/1.0/).
+See the [Edge-LB Quick Start Guide](/mesosphere/dcos/services/edge-lb/1.0/).

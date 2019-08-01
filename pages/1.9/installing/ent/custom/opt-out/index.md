@@ -20,7 +20,7 @@ You can opt-out of providing anonymous data by disabling [telemetry][4] for your
 
 If you’ve already installed your cluster and want to disable this in-place, you can go through an upgrade with the same parameter set.
 
- [1]: /1.9/installing/ent/custom/configuration/configuration-parameters/
- [2]: /1.9/installing/ent/custom/cli/
- [3]: /1.9/installing/ent/custom/advanced/
- [4]: /1.9/overview/telemetry/
+ [1]: /mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/
+ [2]: /mesosphere/dcos/1.9/installing/ent/custom/cli/
+ [3]: /mesosphere/dcos/1.9/installing/ent/custom/advanced/
+ [4]: /mesosphere/dcos/1.9/overview/telemetry/

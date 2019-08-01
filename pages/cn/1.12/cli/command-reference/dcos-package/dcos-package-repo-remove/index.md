@@ -34,10 +34,10 @@ dcos package repo remove <repo-names>...
 
 # 示例
 
-有关示例，请参阅[文档](/cn/1.12/administering-clusters/repo/)。
+有关示例，请参阅[文档](/mesosphere/dcos/cn/1.12/administering-clusters/repo/)。
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/cn/1.12/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|

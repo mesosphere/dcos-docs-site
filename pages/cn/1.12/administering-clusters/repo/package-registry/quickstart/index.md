@@ -11,7 +11,7 @@ enterprise: true
 
 ## 安装或升级到 DC/OS Enterprise 1.12
 
-DC/OS 包注册表包含在 DC/OS Enterprise 1.12 中。如有需要，请先按照 [升级到 DC/OS 1.12 的说明](/cn/1.12/installing/production/upgrading/) 进行操作之后再继续。
+DC/OS 包注册表包含在 DC/OS Enterprise 1.12 中。如有需要，请先按照 [升级到 DC/OS 1.12 的说明](/mesosphere/dcos/cn/1.12/installing/production/upgrading/) 进行操作之后再继续。
 
 ## 删除 Universe 存储库（可选）
 
@@ -83,7 +83,7 @@ DC/OS 包注册表需要通过一个服务帐户在 DC/OS Enterprise 中运行�
     dcos package install package-registry --options=registry-options.json --yes
     ```
 
-DC/OS 包注册表默认在本地文件系统上存储 DC/OS 包。但是，这一注册表不能水平扩展，也不是高度可用。请参阅 [S3 存储选项](/cn/1.12/administering-clusters/repo/package-registry/operating/planning/#s3-storage-option)，了解更灵活的方法。此外，默认配置假定 DC/OS 包注册表的服务帐户的密钥存储在 DC/OS 密钥存储库的 `registry-private-key` 中。如果不是默认情况，请为 `registry-private-key` 替换正确的路径和文件名。
+DC/OS 包注册表默认在本地文件系统上存储 DC/OS 包。但是，这一注册表不能水平扩展，也不是高度可用。请参阅 [S3 存储选项](/mesosphere/dcos/cn/1.12/administering-clusters/repo/package-registry/operating/planning/#s3-storage-option)，了解更灵活的方法。此外，默认配置假定 DC/OS 包注册表的服务帐户的密钥存储在 DC/OS 密钥存储库的 `registry-private-key` 中。如果不是默认情况，请为 `registry-private-key` 替换正确的路径和文件名。
 
 ## 使用 DC/OS 包管理器启用 DC/OS 包注册表
 

@@ -15,8 +15,8 @@ excerpt: Release notes for DC/OS Kubernetes version 2.1.1-1.12.5
 * DC/OS Kubernetes `2.1.1-1.12.5` requires DC/OS 1.12.
 * DC/OS Kubernetes `2.1.1-1.12.5` introduces breaking changes to the way the package works and is deployed.
   Therefore, it is not possible to upgrade an existing installation of DC/OS Kubernetes to `2.1.1-1.12.5`.
-* Before installing `kubernetes-cluster` package `2.1.1-1.12.5`, the `kubernetes` package must be [installed and running](/services/kubernetes/2.1.1-1.12.5/getting-started/installing-mke/).
-* It is no longer possible to install DC/OS Kubernetes on DC/OS Enterprise without specifying a [service account](/1.12/security/ent/service-auth/) and a service account secret with adequate [permissions](/1.12/security/ent/perms-reference/).
+* Before installing `kubernetes-cluster` package `2.1.1-1.12.5`, the `kubernetes` package must be [installed and running](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/getting-started/installing-mke/).
+* It is no longer possible to install DC/OS Kubernetes on DC/OS Enterprise without specifying a [service account](/mesosphere/dcos/1.12/security/ent/service-auth/) and a service account secret with adequate [permissions](/mesosphere/dcos/1.12/security/ent/perms-reference/).
 * Package options have been renamed and re-organized.
   * `node_placement` renamed to `private_node_placement`
   * `reserved_resources` renamed to `private_reserved_resources`
@@ -35,7 +35,7 @@ excerpt: Release notes for DC/OS Kubernetes version 2.1.1-1.12.5
 * Move the validation of the service configuration to the Mesosphere Kubernetes Engine.
 * Enable `--aws-session-token` for `cluster backup` and `cluster restore` commands. The AWS session token can now be used as part of the AWS credentials.
 * Support relative paths in `--path-to-custom-ca` for `cluster kubeconfig` command, e.g. `--path-to-custom-ca=./my-custom-ca.pem`.
-* Documentation section on how to [upgrade](/services/kubernetes/2.1.1-1.12.5/operations/upgrade/#Mesosphere-Kubernetes-Engine) the `kubernetes` package.
+* Documentation section on how to [upgrade](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/operations/upgrade/#Mesosphere-Kubernetes-Engine) the `kubernetes` package.
 * Enable the selection of the desired region where to deploy the Kubernetes cluster.
 * Increase the number of retries an etcd task will perform during installation to resolve its own DNS name. This should prevent etcd tasks from getting stuck in a retry loop on larger clusters.
 
@@ -50,11 +50,11 @@ excerpt: Release notes for DC/OS Kubernetes version 2.1.1-1.12.5
 
 ## Documentation
 
-* Add an [Overview](/services/kubernetes/2.1.1-1.12.5/overview/) page explaining in detail what changed since the 1.x series of releases.
-* Add a [CLI](/services/kubernetes/2.1.1-1.12.5/cli/) page detailing the new Mesosphere Kubernetes Engine CLI.
-* Merged `Advanced Installation` page merging its content into [Customizing your Installation](/services/kubernetes/2.1.1-1.12.5/operations/customizing-install/).
-* Add a [Private Docker Registry](/services/kubernetes/2.1.1-1.12.5/operations/private-docker-registry/) page explaining how to configure it.
+* Add an [Overview](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/overview/) page explaining in detail what changed since the 1.x series of releases.
+* Add a [CLI](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/cli/) page detailing the new Mesosphere Kubernetes Engine CLI.
+* Merged `Advanced Installation` page merging its content into [Customizing your Installation](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/operations/customizing-install/).
+* Add a [Private Docker Registry](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/operations/private-docker-registry/) page explaining how to configure it.
 
 ## Known Issues
 
-Known issues and limitations are listed in the [Limitations](/services/kubernetes/2.1.1-1.12.5/limitations/) page.
+Known issues and limitations are listed in the [Limitations](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/limitations/) page.

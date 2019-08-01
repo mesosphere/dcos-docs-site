@@ -9,7 +9,7 @@ enterprise: false
 
 可以配置 DC/OS 版本 1.12 或更新版本，以从每个 Mesos 代理节点和管理节点收集 [观察性度量标准](http://mesos.apache.org/documentation/latest/monitoring/)。
 
-Telegraf 中的 Mesos 输入插件由名为 `enable_mesos_input_plugin` 的 `config.yaml` 文件中的选项控制。要启用插件，`enable_mesos_input_plugin` 需要设置为 `true`（目前默认为 `false`）。有关如何为本地安装创建配置文件的说明，请参见 [此处](/cn/1.12/installing/production/deploying-dcos/installation/#create-a-configuration-file)。要修改现有本地群集上的配置文件，必须 [修补现有 DC/OS 版本](/cn/1.12/installing/production/patching/#modifying-dcos-configuration)。对于云安装，可以在 [此处](/cn/1.12/installing/evaluation/)找到每个受支持的云提供商的配置和安装说明。
+Telegraf 中的 Mesos 输入插件由名为 `enable_mesos_input_plugin` 的 `config.yaml` 文件中的选项控制。要启用插件，`enable_mesos_input_plugin` 需要设置为 `true`（目前默认为 `false`）。有关如何为本地安装创建配置文件的说明，请参见 [此处](/mesosphere/dcos/cn/1.12/installing/production/deploying-dcos/installation/#create-a-configuration-file)。要修改现有本地群集上的配置文件，必须 [修补现有 DC/OS 版本](/mesosphere/dcos/cn/1.12/installing/production/patching/#modifying-dcos-configuration)。对于云安装，可以在 [此处](/mesosphere/dcos/cn/1.12/installing/evaluation/)找到每个受支持的云提供商的配置和安装说明。
 
 ＃查看 Mesos 管理节点和代理节点的度量标准
  

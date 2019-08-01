@@ -9,15 +9,15 @@ enterprise: true
 
 The DC/OS Enterprise CLI provides commands for DC/OS Enterprise features:
 
-- [`dcos backup`](/1.11/cli/command-reference/dcos-backup/)
-- [`dcos license`](/1.11/cli/command-reference/dcos-license/)
-- [`dcos security`](/1.11/cli/command-reference/dcos-security/)
+- [`dcos backup`](/mesosphere/dcos/1.11/cli/command-reference/dcos-backup/)
+- [`dcos license`](/mesosphere/dcos/1.11/cli/command-reference/dcos-license/)
+- [`dcos security`](/mesosphere/dcos/1.11/cli/command-reference/dcos-security/)
 
 # <a name="ent-cli-install"></a>Installing the DC/OS Enterprise CLI
 
 ## Prerequisite
 
-The DC/OS CLI must already be [installed](/1.11/cli/install/).
+The DC/OS CLI must already be [installed](/mesosphere/dcos/1.11/cli/install/).
 
 **Note:** The DC/OS Enterprise CLI must be installed from the DC/OS CLI. You cannot install the DC/OS Enterprise CLI from the Catalog in the web interface.
 

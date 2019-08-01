@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos auth login` 命令让您向 DC/OS 进行身份认证。[dcos cluster setup](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 命令也运行 `dcos auth login`。
+`dcos auth login` 命令让您向 DC/OS 进行身份认证。[dcos cluster setup](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 命令也运行 `dcos auth login`。
 
 # 使用
 
@@ -39,4 +39,4 @@ dcos auth login [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos auth](/cn/1.11/cli/command-reference/dcos-auth/) | 管理 DC/OS 身份和访问。 |
+| [dcos auth](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-auth/) | 管理 DC/OS 身份和访问。 |

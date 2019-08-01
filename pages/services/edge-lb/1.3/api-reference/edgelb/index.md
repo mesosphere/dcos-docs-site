@@ -18,7 +18,7 @@ The Edge-LB API was initially released alongside DC/OS 1.10.0 and requires DC/OS
 
 A new top level configuration field named `apiVersion` was introduced in Edge-LB v1.0.0. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in apiVersion `V1`) has been replaced with `pool.haproxy.backends.services`, with a more intuitive way to select services/backends for HAProxy.
 
-The V1 and V2 specifications were merged into a single spec; however, there are still separate [v1](/services/edge-lb/1.3/pool-configuration/v1-examples/) and [v2](/services/edge-lb/1.3/pool-configuration/v2-examples/) docs for reference configs, pool examples, etc.
+The V1 and V2 specifications were merged into a single spec; however, there are still separate [v1](/mesosphere/dcos/services/edge-lb/1.3/pool-configuration/v1-examples/) and [v2](/mesosphere/dcos/services/edge-lb/1.3/pool-configuration/v2-examples/) docs for reference configs, pool examples, etc.
 
 # Routes
 
@@ -29,13 +29,13 @@ Access to the Edge-LB API is proxied through the Admin Router on the master node
 ```
 Keep in mind that the path to Edge-LB endpoints might be different if you have change the service name. For example, if you have changed the default Edge-LB service name to append a geographic location, such as `edgelb-emea`, then the path to the service would be `/service/edgelb-emea`.
 
-To determine the address of your cluster, see [Cluster Access](/1.13/api/access/).
+To determine the address of your cluster, see [Cluster Access](/mesosphere/dcos/1.13/api/access/).
 
 # Auth
 
 All Edge-LB API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.12/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.12/security/ent/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/mesosphere/dcos/1.12/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/mesosphere/dcos/1.12/security/ent/iam-api/#passing-an-authentication-token).
 
 The Edge-LB API also requires authorization via the following permissions:
 
@@ -45,7 +45,7 @@ The Edge-LB API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see [Assigning permissions](/1.12/security/ent/perms-reference/).
+To assign permissions to your account, see [Assigning permissions](/mesosphere/dcos/1.12/security/ent/perms-reference/).
 
 # API specification
 

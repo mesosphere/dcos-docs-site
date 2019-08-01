@@ -28,5 +28,5 @@ dcos security cluster directory get_config [OPTIONS]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 安全群集目录](/cn/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |
+| [DCOS 安全群集目录](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |
 

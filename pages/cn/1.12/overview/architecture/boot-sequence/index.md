@@ -92,4 +92,4 @@ enterprise: false
 
 ### 更多信息
 
-有关任务和服务的更多信息，请参阅 [分布式进程管理](/cn/1.12/overview/architecture/distributed-process-management/)。
+有关任务和服务的更多信息，请参阅 [分布式进程管理](/mesosphere/dcos/cn/1.12/overview/architecture/distributed-process-management/)。

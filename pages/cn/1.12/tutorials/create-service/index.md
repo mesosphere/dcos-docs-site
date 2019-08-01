@@ -14,7 +14,7 @@ enterprise: false
 本教程介绍如何使用 DC/OS GUI 和 CLI 创建和部署简单的单命令服务和容器化服务。
 
 ## 先决条件
-- [DC/OS 群集](/cn/1.12/installing/)
+- [DC/OS 群集](/mesosphere/dcos/cn/1.12/installing/)
 
 # 单命令服务
 
@@ -32,17 +32,17 @@ enterprise: false
     - **DOCKER ENGINE** 如果您需要 Docker 软件包的特定功能，请使用此选项。如果选择此选项，则必须在 **CONTAINER IMAGE** 字段中指定 Docker 容器镜像。
     - **UNIVERSAL CONTAINER RUNTIME (UCR)** Universal Container Runtime (UCR) 使用本地 Mesos 引擎。支持 Docker 文件格式、多个容器 (pod) 以及 GPU 资源。如果选择此选项，则可选择在 **CONTAINER IMAGE** 字段中指定 Docker 容器镜像。
 
-    如需更多信息，请参阅[使用容器化工具](/cn/1.12/deploying-services/containerizers/)。
+    如需更多信息，请参阅[使用容器化工具](/mesosphere/dcos/cn/1.12/deploying-services/containerizers/)。
 
 1. 单击**查看和运行**和**运行服务**。
 
-    ![在 DC/OS UI 中创建服务](/1.12/img/deploy-svs-ui.png)
+    ![在 DC/OS UI 中创建服务](/mesosphere/dcos/1.12/img/deploy-svs-ui.png)
 
     图 1. 在 GUI 中创建服务
 
 1. 单击 **Services** 视图中的服务名称，以查看其运行情况并监控运行状况。
 
-    ![在 DC/OS UI 中运行服务](/1.12/img/GUI-Services-Running_Services_View-1_12.png)
+    ![在 DC/OS UI 中运行服务](/mesosphere/dcos/1.12/img/GUI-Services-Running_Services_View-1_12.png)
 
     图 2. 在 GUI 中查看运行的服务
 
@@ -94,14 +94,14 @@ enterprise: false
 1. 单击 **Single Container**，在 **SERVICE ID** 字段中输入您的服务名称。
 1. 单击 **Container Settings** 选项卡，在 **CONTAINER IMAGE** 字段中输入以下内容：`mesosphere/hello-dcos:<image-tag>`。使用您在步骤 1 中复制的标记替换 `<image-tag>`。
 
-    ![DC/OS UI 中的容器化服务](/1.12/img/deploy-container-ui.png)
+    ![DC/OS UI 中的容器化服务](/mesosphere/dcos/1.12/img/deploy-container-ui.png)
 
     图 3. GUI 中的容器化服务
 
 1. 单击**查看和运行**和**运行服务**。
 1. 在 **Services** 选项卡中，单击服务名称，然后选择任务实例之一。单击 **Logs**，然后切换到 **STDERR** 和 **STDOUT** 以查看服务的输出。
 
-    ![在 DC/OS UI 中运行容器化服务](/1.12/img/container-running-ui.png)
+    ![在 DC/OS UI 中运行容器化服务](/mesosphere/dcos/1.12/img/container-running-ui.png)
 
     图 4. 在 GUI 中查看容器化服务
 

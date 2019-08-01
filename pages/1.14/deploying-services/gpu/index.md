@@ -17,18 +17,18 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 ## Custom DC/OS Installation with GPUs
 
 1.  Install the [NVIDIA Management Library (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml) on each node of your cluster that has GPUs. The minimum required NVIDIA driver version is 340.29. For detailed installation instructions, see the [Mesos GPU support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
-1.  Install DC/OS using the [custom advanced installation instructions](/1.14/installing/production/advanced-configuration/). Here are the GPU-specific configuration parameters:
+1.  Install DC/OS using the [custom advanced installation instructions](/mesosphere/dcos/1.14/installing/production/advanced-configuration/). Here are the GPU-specific configuration parameters:
 
     -  **enable_gpu_isolation**: Indicates whether to enable GPU support in DC/OS. By default, this is set to `enable_gpu_isolation: 'true'`.
     -  **gpus_are_scarce**: Indicates whether to treat GPUs as a scarce resource in the cluster. By default, this is set to `gpus_are_scarce: 'true'`, which means DC/OS reserves GPU nodes exclusively for services that are configured to consume GPU resources. It is important to note that this setting will influence which agent nodes of a GPU-aware framework will be deployed on DC/OS. This setting does not influence the individual tasks which the frameworks might launch while the framework is running. It is possible for a framework to schedule a non-GPU task on an agent node where GPU's are present.
 
-    For more information, see the [configuration parameter documentation](/1.14/installing/production/advanced-configuration/configuring-gpu-nodes/) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
+    For more information, see the [configuration parameter documentation](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuring-gpu-nodes/) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
 
 ## AWS EC2 DC/OS Installation with GPUs
 
 ###  Prerequisites
-- The AWS DC/OS advanced template [system requirements](/1.14/installing/evaluation/community-supported-methods/aws/advanced/template-reference/).
-- The `zen.sh` script copied to your local machine. The script and instructions are [here](/1.14/installing/evaluation/community-supported-methods/aws/advanced/).
+- The AWS DC/OS advanced template [system requirements](/mesosphere/dcos/1.14/installing/evaluation/community-supported-methods/aws/advanced/template-reference/).
+- The `zen.sh` script copied to your local machine. The script and instructions are [here](/mesosphere/dcos/1.14/installing/evaluation/community-supported-methods/aws/advanced/).
 
 ### Create Dependencies
 
@@ -40,7 +40,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 
     <p class="message--important"><strong>IMPORTANT: </strong> You must run the "zen.sh" script before performing the next steps.</p>
 
-1. Follow the instructions [here](/1.14/installing/production/advanced-configuration/configuring-gpu-nodes/#aws-ec2-dcos-installation-with-gpus/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
+1. Follow the instructions [here](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuring-gpu-nodes/#aws-ec2-dcos-installation-with-gpus/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
 
     On the **Create Stack** > **Specify Details** page, specify your stack information and click **Next**. Here are the GPU-specific settings.
 
@@ -63,7 +63,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 You can specify GPUs in your application definitions with the `gpus` parameter.
 
 -  You can only specify whole numbers of GPUs in your application definition. If a fractional amount is selected, launching the task will result in a `TASK_ERROR`.
--  NVIDIA GPU support is only available for tasks launched using the [DC/OS Universal container runtime](/1.14/deploying-services/containerizers/).
+-  NVIDIA GPU support is only available for tasks launched using the [DC/OS Universal container runtime](/mesosphere/dcos/1.14/deploying-services/containerizers/).
 
 # Examples
 
@@ -91,7 +91,7 @@ In this example, a simple sleep app is defined which uses GPUs.
     dcos marathon app add simple-gpu-test.json
     ```
 
-1. After your service has deployed, check the contents of `stdout` to verify that the service is producing the proper output from the `nvidia-smi` command. You should see something like the following, repeated once every 5 seconds. Access the log [via the DC/OS CLI](/1.14/monitoring/logging/quickstart/) or from the **Health** page for your service on the DC/OS dashboard.
+1. After your service has deployed, check the contents of `stdout` to verify that the service is producing the proper output from the `nvidia-smi` command. You should see something like the following, repeated once every 5 seconds. Access the log [via the DC/OS CLI](/mesosphere/dcos/1.14/monitoring/logging/quickstart/) or from the **Health** page for your service on the DC/OS dashboard.
 
     ```bash
     +------------------------------------------------------+
@@ -108,7 +108,7 @@ In this example, a simple sleep app is defined which uses GPUs.
 You will also see an entry for **GPU** in the DC/OS GUI on the **Configuration** tab for your service.
 
 ## Docker-Based Application Definition
-In this example, an app is deployed with GPUs that specifies a Docker container and the [DC/OS Universal Container Runtime (UCR)](/1.14/deploying-services/containerizers/) (container type to `MESOS`).
+In this example, an app is deployed with GPUs that specifies a Docker container and the [DC/OS Universal Container Runtime (UCR)](/mesosphere/dcos/1.14/deploying-services/containerizers/) (container type to `MESOS`).
 
 1.  Create an app definition named `docker-gpu-test.json`.
 
@@ -137,7 +137,7 @@ In this example, an app is deployed with GPUs that specifies a Docker container 
     dcos marathon app add docker-gpu-test.json
     ```
 
-1. After your service has deployed, check the contents of `stdout` to verify that the service is producing the proper output from the `nvidia-smi` command. You should see something like the following, repeated once every 5 seconds. Access the log [via the DC/OS CLI](/1.14/monitoring/logging/quickstart/) or from the **Health** page for your service on the DC/OS dashboard.
+1. After your service has deployed, check the contents of `stdout` to verify that the service is producing the proper output from the `nvidia-smi` command. You should see something like the following, repeated once every 5 seconds. Access the log [via the DC/OS CLI](/mesosphere/dcos/1.14/monitoring/logging/quickstart/) or from the **Health** page for your service on the DC/OS dashboard.
 
 
 You will also see an entry for **GPU** on the **Configuration** tab of the page for your service.

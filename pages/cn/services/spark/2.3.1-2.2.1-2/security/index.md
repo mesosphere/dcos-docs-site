@@ -10,8 +10,8 @@ render: mustache
 
 本主题介绍如何为 {{ model.techShortName }} 配置 DC/OS 服务帐户。
 
-在 [DC/OS 严格安全模式](/cn/1.11/security/)下运行时，调度器和作业都
-必须使用 [DC/OS 服务帐户 进行 Mesos 认证](/cn/1.11/security/service-auth/)。
+在 [DC/OS 严格安全模式](/mesosphere/dcos/cn/1.11/security/)下运行时，调度器和作业都
+必须使用 [DC/OS 服务帐户 进行 Mesos 认证](/mesosphere/dcos/cn/1.11/security/service-auth/)。
 
 #include /cn/services/include/service-account.tmpl
 
@@ -64,7 +64,7 @@ curl -X PUT -k \
 DC/OS Enterprise 允许用户以文件的形式向 DC/OS 密钥存储库添加特权信息。这些文件
 可在 {{ model.techShortName }} 作业中引用，可用于认证和授权不同的外部服务（例如
 HDFS）。例如，我们使用此功能传递 Kerberos Keytab。有关如何使用密钥的详细信息，
-参见[官方文档](/cn/1.11/security/ent/secrets/)。
+参见[官方文档](/mesosphere/dcos/cn/1.11/security/ent/secrets/)。
 
 ### 放置密钥的地方
 为了让 {{ model.techShortName}} 可用到密钥，密钥必须放置在可通过 {{ model.techShortName}} 服务访问的路径中。如果只有 {{ model.techShortName}} 需要访问密钥，将密钥存储在匹配所述 {{ model.techShortName}} 服务名称的路径中（例如 `{{ model.serviceName}}/secret`）。有关密钥路径如何限制对密钥的访问的详细信息，请参阅 [有关空间的密钥文档][13]。
@@ -253,7 +253,7 @@ dcos {{ model.serviceName }} run --submit-args="\
 
 
 
- [11]:/cn/1.11/overview/architecture/components/
+ [11]: /mesosphere/dcos/cn/1.11/overview/architecture/components/
  [12]:http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html
- [13]:/cn/1.11/security/ent/#space-for-secrets
+ [13]: /mesosphere/dcos/cn/1.11/security/ent/#space-for-secrets
  [14]:https://docs.mesosphere.com/latest/security/secrets/

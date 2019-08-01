@@ -10,7 +10,7 @@ enterprise: false
 
 本部分介绍了开发人员专用的 DC/OS 组件，解释了在 DC/OS 上打包并提供自己的服务所需的条件。
 
-Mesosphere 数据中心操作系统 (DC/OS) 可提供为数据中心编排和管理的最佳用户体验。您如果是 Apache Mesos 开发人员，就会熟悉框架的开发。DC/OS 扩展了 Apache Mesos，其中包括用于运行状况检查和监控的 Web 界面，一个命令行，一段服务包描述和一个列举软件包目录的 [存储库](/cn/1.11/administering-clusters/repo/)。
+Mesosphere 数据中心操作系统 (DC/OS) 可提供为数据中心编排和管理的最佳用户体验。您如果是 Apache Mesos 开发人员，就会熟悉框架的开发。DC/OS 扩展了 Apache Mesos，其中包括用于运行状况检查和监控的 Web 界面，一个命令行，一段服务包描述和一个列举软件包目录的 [存储库](/mesosphere/dcos/cn/1.11/administering-clusters/repo/)。
 
 # <a name="universe"></a>软件包存储库
 

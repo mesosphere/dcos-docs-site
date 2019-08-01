@@ -11,7 +11,7 @@ enterprise: false
 
 DC/OS provides a distributed and fault tolerant DNS-based service discovery mechanism.
 
-DNS is provided by two different components within DC/OS, `mesos-dns` and `dcos-dns`. These components support two top-level domain (TLD) names, `.mesos` and `.directory`. Please read the [Recommendation](#Recommendation) section and [Mesos-DNS](/1.14/networking/DNS/mesos-dns/) to better understand the usage of these two TLDs.
+DNS is provided by two different components within DC/OS, `mesos-dns` and `dcos-dns`. These components support two top-level domain (TLD) names, `.mesos` and `.directory`. Please read the [Recommendation](#Recommendation) section and [Mesos-DNS](/mesosphere/dcos/1.14/networking/DNS/mesos-dns/) to better understand the usage of these two TLDs.
 
 Each of the TLDs consists of multiple zones. Every DC/OS service gets multiple fully qualified domain name (FQDN) entries from these different zones. Each service that is launched on DC/OS through Marathon gets an FQDN in the form of  `<service-name>.mesos`. Moreover, **all** running services launched on DC/OS get an FQDN based upon the service that launched it, in the form `<service-name>.<group-name>.<framework-name>.mesos`.
 
@@ -77,11 +77,11 @@ This FQDN is exposed by `dcos-dns` as an A record. It is primarily used for laye
 
 # SRV records
 
-See [SRV Records](/1.14/networking/DNS/mesos-dns/service-naming/#srv-records) for a full description of Mesos DNS SRV records.
+See [SRV Records](/mesosphere/dcos/1.14/networking/DNS/mesos-dns/service-naming/#srv-records) for a full description of Mesos DNS SRV records.
 
 - For a task named `mytask` launched by a service named `myservice`, Mesos-DNS generates an SRV record `_mytask._protocol.myservice.mesos`, where `protocol` is either `udp` or `tcp`.
 
-- For more information on naming tasks and services in Mesos-DNS, see [Task and Service Naming Conventions](/1.14/networking/DNS/mesos-dns/service-naming/#task-and-service-naming-conventions).
+- For more information on naming tasks and services in Mesos-DNS, see [Task and Service Naming Conventions](/mesosphere/dcos/1.14/networking/DNS/mesos-dns/service-naming/#task-and-service-naming-conventions).
 
 ### myapp.mygroup./_tcp.marathon.mesos:
 If a service explicitly assigns a name to its port in the app definition, then it gets an FQDN `_<service-name>.<group-name>._<protocol>.<framework-name>.mesos`.

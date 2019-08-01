@@ -15,8 +15,8 @@ excerpt: Release notes for DC/OS Kubernetes version 2.2.2-1.13.5
 * DC/OS Kubernetes `2.2.2-1.13.5` requires DC/OS 1.12.
 * DC/OS Kubernetes `2.2.2-1.13.5` introduces breaking changes to the way the package works and is deployed.
   Therefore, it is not possible to upgrade an existing installation of DC/OS Kubernetes to `2.2.2-1.13.5`.
-* Before installing `kubernetes-cluster` package `2.2.2-1.13.5`, the `kubernetes` package must be [installed and running](/services/kubernetes/2.2.2-1.13.5/getting-started/installing-mke/).
-* It is no longer possible to install DC/OS Kubernetes on DC/OS Enterprise without specifying a [service account](/1.12/security/ent/service-auth/) and a service account secret with adequate [permissions](/1.12/security/ent/perms-reference/).
+* Before installing `kubernetes-cluster` package `2.2.2-1.13.5`, the `kubernetes` package must be [installed and running](/mesosphere/dcos/services/kubernetes/2.2.2-1.13.5/getting-started/installing-mke/).
+* It is no longer possible to install DC/OS Kubernetes on DC/OS Enterprise without specifying a [service account](/mesosphere/dcos/1.12/security/ent/service-auth/) and a service account secret with adequate [permissions](/mesosphere/dcos/1.12/security/ent/perms-reference/).
 * Package options have been renamed and re-organized.
   * `node_placement` renamed to `private_node_placement`
   * `reserved_resources` renamed to `private_reserved_resources`
@@ -39,8 +39,8 @@ excerpt: Release notes for DC/OS Kubernetes version 2.2.2-1.13.5
 
 ## Known Issues
 
-Known issues and limitations are listed in the [Limitations](/services/kubernetes/2.2.2-1.13.5/limitations/) page.
+Known issues and limitations are listed in the [Limitations](/mesosphere/dcos/services/kubernetes/2.2.2-1.13.5/limitations/) page.
 
 ## Changelog
 
-See [Changelog](/services/kubernetes/2.2.2-1.13.5/changelog) for a list of all changes.
+See [Changelog](/mesosphere/dcos/services/kubernetes/2.2.2-1.13.5/changelog) for a list of all changes.

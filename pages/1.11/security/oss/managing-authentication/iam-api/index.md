@@ -13,7 +13,7 @@ You can make external calls to HTTP API endpoints in your DC/OS cluster. You mus
 
 Obtain your authentication token using the DC/OS CLI. When you log into the DC/OS CLI, you paste an OpenID Connect ID token into your terminal prompt. This OpenID Connect ID token logs you into the DC/OS CLI, but does not allow you to access the HTTP API endpoints. You must obtain an authentication token to gain access to the HTTP API endpoints. Complete the following steps to obtain your authentication token.
 
-1. [Log in to the DC/OS CLI](/1.11/security/oss/managing-authentication/#logging-in-to-the-dcos-cli). Logging into the DC/OS CLI causes your authentication token to be written to a configuration file. 
+1. [Log in to the DC/OS CLI](/mesosphere/dcos/1.11/security/oss/managing-authentication/#logging-in-to-the-dcos-cli). Logging into the DC/OS CLI causes your authentication token to be written to a configuration file. 
 
 2. Use the following command to confirm that this write succeeded, and to view your authentication token.
 

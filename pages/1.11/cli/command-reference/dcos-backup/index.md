@@ -39,4 +39,4 @@ Table 1. Options
 | `delete` | Deletes a specific backup. <id> is the unique identifier for a backup. |
 
 
-For information on how to create backups from the CLI, see [Backup and Restore CLI](/1.11/administering-clusters/backup-and-restore/backup-restore-cli/). The limitations of this process can be found in the [Backup and Restore Limitations section](/1.11/administering-clusters/backup-and-restore/#limitations).
+For information on how to create backups from the CLI, see [Backup and Restore CLI](/mesosphere/dcos/1.11/administering-clusters/backup-and-restore/backup-restore-cli/). The limitations of this process can be found in the [Backup and Restore Limitations section](/mesosphere/dcos/1.11/administering-clusters/backup-and-restore/#limitations).

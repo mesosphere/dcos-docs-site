@@ -7,11 +7,11 @@ excerpt: Learn to create Kubernetes clusters on DC/OS using MKE and the DC/OS Ku
 enterprise: true
 ---
 
-At this point, you should have [installed MKE](/services/kubernetes/2.3.0-1.14.1/getting-started/installing-mke/) - using the DC/OS `kubernetes` package on your DC/OS Enterprise cluster and installed the [latest DC/OS Kubernetes CLI](/services/kubernetes/2.3.0-1.14.1/cli/). As when installing the MKE, to run this Kubernetes cluster as a service on our DC/OS Enterprise cluster, we need a service account for it. Like before, to do so we need to first provision a service account for this Kubernetes cluster, then grant it the necessary permissions for operating on DC/OS Enterprise.
+At this point, you should have [installed MKE](/mesosphere/dcos/services/kubernetes/2.3.0-1.14.1/getting-started/installing-mke/) - using the DC/OS `kubernetes` package on your DC/OS Enterprise cluster and installed the [latest DC/OS Kubernetes CLI](/mesosphere/dcos/services/kubernetes/2.3.0-1.14.1/cli/). As when installing the MKE, to run this Kubernetes cluster as a service on our DC/OS Enterprise cluster, we need a service account for it. Like before, to do so we need to first provision a service account for this Kubernetes cluster, then grant it the necessary permissions for operating on DC/OS Enterprise.
 
 ## Provision a Service Account for DC/OS Kubernetes
 
-As with MKE on DC/OS Enterprise, when installing DC/OS Kubernetes on a DC/OS Enterprise cluster, configuring a service account for DC/OS Kubernetes on Enterprise is necessary. Since the pattern is similar here, we will move through it just a little faster than when [provisioning the service account for MKE](/services/kubernetes/2.3.0-1.14.1/getting-started/installing-mke/) earlier.
+As with MKE on DC/OS Enterprise, when installing DC/OS Kubernetes on a DC/OS Enterprise cluster, configuring a service account for DC/OS Kubernetes on Enterprise is necessary. Since the pattern is similar here, we will move through it just a little faster than when [provisioning the service account for MKE](/mesosphere/dcos/services/kubernetes/2.3.0-1.14.1/getting-started/installing-mke/) earlier.
 
 1. <strong>Start by creating a unique keypair to use for the service account, here we specify </strong>`kube1-priv.pem`<strong> and</strong> `kube1-pub.pem`<strong>:</strong>
 
@@ -39,7 +39,7 @@ As with MKE on DC/OS Enterprise, when installing DC/OS Kubernetes on a DC/OS Ent
 
 ## Grant Permisions
 
-We provide code snippets here for ease of granting the necessary permissions. After all, you have already learned some of this pattern when [setting up the service account for MKE](/services/kubernetes/2.3.0-1.14.1/getting-started/installing-mke/) previously. The list of commands is certainly a fair bit more extensive here but the pattern is similar.
+We provide code snippets here for ease of granting the necessary permissions. After all, you have already learned some of this pattern when [setting up the service account for MKE](/mesosphere/dcos/services/kubernetes/2.3.0-1.14.1/getting-started/installing-mke/) previously. The list of commands is certainly a fair bit more extensive here but the pattern is similar.
 
 #### Copy and Paste in Groups
 
@@ -265,4 +265,4 @@ It is a good practice to use of a different keypair to be used with the service 
 
 ## Next Step: Connecting to Kubernetes on DC/OS Enterprise
 
-Nice work! You now have multiple Kubernetes clusters running throughout your DC/OS Enterprise cluster. With the internal workings of the cluster all set, you can move on to [Configuring Edge-LB](/services/kubernetes/2.3.0-1.14.1/getting-started/config-edgelb-for-k8s/) to set up a load balancer for your cluster.
+Nice work! You now have multiple Kubernetes clusters running throughout your DC/OS Enterprise cluster. With the internal workings of the cluster all set, you can move on to [Configuring Edge-LB](/mesosphere/dcos/services/kubernetes/2.3.0-1.14.1/getting-started/config-edgelb-for-k8s/) to set up a load balancer for your cluster.

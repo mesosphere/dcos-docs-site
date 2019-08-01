@@ -23,7 +23,7 @@ dcos marathon task list registry
 
 ## 日志
 
-使用 [`dcos task log`](/cn/1.12/monitoring/logging/quickstart/#view-the-mesos-and-dcos-logs) 命令下载 DC/OS 包注册表日志。DC/OS 还支持 [日志聚合](/cn/1.12/monitoring/logging/aggregating/)。假设再次使用默认服务名称 `registry`，可以使用以下方式获取最新的日志条目：
+使用 [`dcos task log`](/mesosphere/dcos/cn/1.12/monitoring/logging/quickstart/#view-the-mesos-and-dcos-logs) 命令下载 DC/OS 包注册表日志。DC/OS 还支持 [日志聚合](/mesosphere/dcos/cn/1.12/monitoring/logging/aggregating/)。假设再次使用默认服务名称 `registry`，可以使用以下方式获取最新的日志条目：
 
 ```bash
 dcos task log registry

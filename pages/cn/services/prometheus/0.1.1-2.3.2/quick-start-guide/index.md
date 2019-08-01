@@ -20,7 +20,7 @@ Prometheus 可通过 DC/OS 目录 Web 界面或使用 CLI 进行安装。以下�
 dcos package install prometheus
 ```
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_install.png" alt="Prometheus 安装"/>](/cn/services/prometheus/0.1.1-2.3.2/img/prom_install.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_install.png" alt="Prometheus 安装"/>](/mesosphere/dcos/cn/services/prometheus/0.1.1-2.3.2/img/prom_install.png)
 
 图 1. 安装 Prometheus
 
@@ -132,7 +132,7 @@ dcos package install --yes grafana
 http://<public-agent-ip>:9092
 ```
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png" alt="Prometheus 仪表板"/>](/cn/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png" alt="Prometheus 仪表板"/>](/mesosphere/dcos/cn/services/prometheus/0.1.1-2.3.2/img/prom_dashboard.png)
 
 图 2. Prometheus 仪表板
 
@@ -155,7 +155,7 @@ http://<public-agent-ip>:9092/metrics
 
 `rate(prometheus_tsdb_head_chunks_created_total[1m])`
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png" alt="Prometheus 绘图"/>](/cn/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png" alt="Prometheus 绘图"/>](/mesosphere/dcos/cn/services/prometheus/0.1.1-2.3.2/img/prom_graphing.png)
 
 图 3. Prometheus 绘图
 
@@ -169,14 +169,14 @@ http://<public-agent-ip>:9094
 
 这将带您前往 Grafana 控制台。
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_login.png" alt="Grafana 登录"/>](/cn/services/prometheus/0.1.1-2.3.2/img/grafana_login.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_login.png" alt="Grafana 登录"/>](/mesosphere/dcos/cn/services/prometheus/0.1.1-2.3.2/img/grafana_login.png)
 
 图 4. Grafana 控制台。
 
 
 您可以将 Prometheus 添加为数据源：
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png" alt="Grafana 数据源"/>](/cn/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png" alt="Grafana 数据源"/>](/mesosphere/dcos/cn/services/prometheus/0.1.1-2.3.2/img/grafana_datasource.png)
 
 图 5. Grafana 数据源
 
@@ -186,7 +186,7 @@ http://<public-agent-ip>:9094
 
 以下为 Prometheus 图表配置示例：
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png" alt="Grafana Prom 图表"/>](/cn/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png" alt="Grafana Prom 图表"/>](/mesosphere/dcos/cn/services/prometheus/0.1.1-2.3.2/img/grafana_prom.png)
 
 图 6. Grafana Prometheus 图表配置
 
@@ -199,7 +199,7 @@ AlertManager UI：
 http://<public-agent-ip>:9093
 ```
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png" alt="AlertManager 仪表板"/>](/cn/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png" alt="AlertManager 仪表板"/>](/mesosphere/dcos/cn/services/prometheus/0.1.1-2.3.2/img/am_dashboard.png)
 
 图 7. AlertManager 仪表板
 
@@ -318,7 +318,7 @@ receivers:
     channel: '#alerts_test'
 ```
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/slack_alert.png" alt="Slack 警报"/>](/cn/services/prometheus/0.1.1-2.3.2/img/slack_alert.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/slack_alert.png" alt="Slack 警报"/>](/mesosphere/dcos/cn/services/prometheus/0.1.1-2.3.2/img/slack_alert.png)
 
 图 8. Slack 警报
 
@@ -333,6 +333,6 @@ Prometheus PushGateway 可以允许暂时和批处理作业将其度量标准公
 echo "some_metric 3.14" | curl --data-binary @- http://pushgateway.example.org:9091/metrics/job/some_job
 ```
 
-[<img src="/services/prometheus/0.1.1-2.3.2/img/pushg.png" alt="PushGateway"/>](/cn/services/prometheus/0.1.1-2.3.2/img/pushg.png)
+[<img src="/services/prometheus/0.1.1-2.3.2/img/pushg.png" alt="PushGateway"/>](/mesosphere/dcos/cn/services/prometheus/0.1.1-2.3.2/img/pushg.png)
 
 图 9. PushGateway

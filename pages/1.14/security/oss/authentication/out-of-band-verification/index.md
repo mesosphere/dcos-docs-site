@@ -9,7 +9,7 @@ menuWeight: 20
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-Other services can authenticate incoming requests on behalf of the DC/OS [Identity and Access Manager (IAM)](/1.14/overview/architecture/components/#dcos-iam) component, using public key cryptography. This works if the authentication token presented by the client has been signed by the IAM with its private key.
+Other services can authenticate incoming requests on behalf of the DC/OS [Identity and Access Manager (IAM)](/mesosphere/dcos/1.14/overview/architecture/components/#dcos-iam) component, using public key cryptography. This works if the authentication token presented by the client has been signed by the IAM with its private key.
 
 ## Bouncer JSON Web Key Set (JWKS) endpoint
 The Bouncer's JWKS endpoint (`/auth/jwks`) provides the public key details required for verifying the signature of type RS256 JWTs issued by Bouncer. The JSON document data structure emitted by that endpoint is compliant with [RFC 7517](https://tools.ietf.org/html/rfc7517). Within that data structure, the public key is parameterized according to [RFC 7518](https://tools.ietf.org/html/rfc7518).

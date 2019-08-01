@@ -16,7 +16,7 @@ You can debug your service or pod from the DC/OS UI.
 
 The **Services** > **Services** page lists each service or pod, the resources it has requested, and its status. Possible statuses are `Deploying`, `Waiting`, or `Running`. 
 
-![Mesosphere DC/OS Enterprise services](/1.14/img/GUI-Services-Enterprise.png)
+![Mesosphere DC/OS Enterprise services](/mesosphere/dcos/1.14/img/GUI-Services-Enterprise.png)
 
 Figure 1 - DC/OS **Services > Services** page
 
@@ -27,7 +27,7 @@ If you have added a Marathon health check to your service or pod, the **Status**
 
 To reveal a detailed debugging page, click the name of a service or pod and then the `Debug` tab. There, you will see sections for **Last Changes**, **Last Task Failure**, **Task Statistics**, **Recent Resource Offers**. 
 
-![Debug Screen](/1.14/img/GUI-Services-Debug.png)
+![Debug Screen](/mesosphere/dcos/1.14/img/GUI-Services-Debug.png)
 
 Figure 2 - **Services > Debug** tab
 

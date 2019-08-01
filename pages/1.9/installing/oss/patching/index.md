@@ -19,4 +19,4 @@ Example: DC/OS 1.X.A to 1.X.B (1.9.1 --> 1.9.2)
 
 **Note:** A patching process occurs only between minor releases.
 
-There are no specific instructions for patching since it occurs as a part of the release. Refer to [Upgrading instructions](/1.9/installing/oss/upgrading/#instructions) for upgrading DC/OS.
+There are no specific instructions for patching since it occurs as a part of the release. Refer to [Upgrading instructions](/mesosphere/dcos/1.9/installing/oss/upgrading/#instructions) for upgrading DC/OS.

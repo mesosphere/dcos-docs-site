@@ -12,19 +12,19 @@ The DC/OS CLI provides commands to debug services that are not deploying or beha
 ```bash
 dcos -—log-level="debug" package install hdfs
 ```
-For more information about log levels, consult the [CLI command reference](/1.11/cli/command-reference/) or run `dcos --help`.
+For more information about log levels, consult the [CLI command reference](/mesosphere/dcos/1.11/cli/command-reference/) or run `dcos --help`.
 
 # Debug Subcommands for Stuck Deployments
 
-The DC/OS CLI provides a set of debugging subcommands to troubleshoot a stuck service or pod deployment. You can also use debug services and pods from the [DC/OS web interface](/1.11/monitoring/debugging/gui-debugging/).
+The DC/OS CLI provides a set of debugging subcommands to troubleshoot a stuck service or pod deployment. You can also use debug services and pods from the [DC/OS web interface](/mesosphere/dcos/1.11/monitoring/debugging/gui-debugging/).
 
 ## Prerequisites
 - A DC/OS cluster
-- The [DC/OS CLI installed](/1.11/cli/install/)
+- The [DC/OS CLI installed](/mesosphere/dcos/1.11/cli/install/)
 - A service or pod that is stuck in deployment
 
 ## Sample application definitions
-If you do not currently have a service or pod that is stuck in deployment, you can use the following two [Marathon application definitions](/1.11/deploying-services/creating-services/) to test the instructions in this section.
+If you do not currently have a service or pod that is stuck in deployment, you can use the following two [Marathon application definitions](/mesosphere/dcos/1.11/deploying-services/creating-services/) to test the instructions in this section.
 
 - mem-app.json
 
@@ -68,7 +68,7 @@ If you do not currently have a service or pod that is stuck in deployment, you c
 
 ## dcos marathon debug list
 
-The [`dcos marathon debug list`](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-list/) command shows you all the services that are in a waiting state. This enables you to see only the services that are not running.
+The [`dcos marathon debug list`](/mesosphere/dcos/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-list/) command shows you all the services that are in a waiting state. This enables you to see only the services that are not running.
 
 ```bash
 dcos marathon debug list
@@ -89,7 +89,7 @@ This output can quickly show you which services or pods are stuck in deployment 
 
 ## dcos marathon debug summary
 
-Once you know which services or pods are stuck in deployment, use the [`dcos marathon debug summary /<app-id>|/<pod-id>` command](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-summary/) to learn more about a particular stuck service or pod.
+Once you know which services or pods are stuck in deployment, use the [`dcos marathon debug summary /<app-id>|/<pod-id>` command](/mesosphere/dcos/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-summary/) to learn more about a particular stuck service or pod.
 
 ```bash
 dcos marathon debug summary /mem-app
@@ -108,7 +108,7 @@ The output of the command shows the resources, what the service or pod requested
 
 ## dcos marathon debug details
 
-The [`dcos marathon debug details /<app-id>|/<pod-id>` command](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-details/) lets you learn exactly how your service or pod definition should be changed.
+The [`dcos marathon debug details /<app-id>|/<pod-id>` command](/mesosphere/dcos/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-details/) lets you learn exactly how your service or pod definition should be changed.
 
 ```bash
 dcos marathon debug details /mem-app
@@ -126,4 +126,4 @@ The output of the command shows:
 
 In the example above, you can see that one instance of `/mem-app` has a status of `ok` in all categories except memory. The other instance had fewer successful resource matches, with role, CPUs, memory, and ports having no match.
 
-More information about this command can be found in the [CLI Command Reference section](/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-details/).
+More information about this command can be found in the [CLI Command Reference section](/mesosphere/dcos/1.11/cli/command-reference/dcos-marathon/dcos-marathon-debug-details/).

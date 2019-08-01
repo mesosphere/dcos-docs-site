@@ -8,7 +8,7 @@ excerpt: Using the Services menu
 
 The Services menu provides a full-featured interface to the native DC/OS Marathon instance. This Services men provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
 
-![Services](/1.11/img/services-ee.png)
+![Services](/mesosphere/dcos/1.11/img/services-ee.png)
 
 Figure 1. Services menu
 
@@ -22,7 +22,7 @@ By default, all of your services are displayed, sorted by service name. You can 
 
 Click the service name to open the Instances menu, which provides CPU, memory, and disk usage graphs, and lists all tasks using the service. Click a task listed on the Instances menu to see detailed information about the task’s CPU, memory, and disk usage, and the task’s files and directory tree.
 
-For services with a web interface, hover over the service name and click ![open service](/1.11/img/open-service.png) to view it.
+For services with a web interface, hover over the service name and click ![open service](/mesosphere/dcos/1.11/img/open-service.png) to view it.
 
 **Note:** You can access the Mesos web interface at `<hostname>/mesos`.
 

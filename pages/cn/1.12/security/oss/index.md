@@ -19,4 +19,4 @@ DC/OS 使用 JSON Web 令牌 (JWT) 格式作为其认证令牌。JWT 是一种�
 
 DC/OS OAuth 提供一个 HTTP API，用于以 RESTful 的方式管理本地用户。
 
-![Auth0 标记](/cn/1.12/img/a0-badge-light.png)
+![Auth0 标记](/mesosphere/dcos/cn/1.12/img/a0-badge-light.png)

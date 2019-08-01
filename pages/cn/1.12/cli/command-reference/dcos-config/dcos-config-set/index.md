@@ -34,7 +34,7 @@ dcos config set <name> <value> [flags]
 
 | 名称 | 值 |
 |-----------------------|------------------------------------------------|
-|  `core.dcos_acs_token` | DC/OS 认证令牌。当您使用 `dcos auth login` 登录 DC/OS CLI  时，它将认证令牌值存储在本地。有关详细信息，请参阅 [IAM API](/cn/1.12/security/oss/iam-api/)。|
+|  `core.dcos_acs_token` | DC/OS 认证令牌。当您使用 `dcos auth login` 登录 DC/OS CLI  时，它将认证令牌值存储在本地。有关详细信息，请参阅 [IAM API](/mesosphere/dcos/cn/1.12/security/oss/iam-api/)。|
 | `core.dcos_url` | DC/OS 群集的公共管理节点 URL|
 |  `core.mesos_master_url` | Mesos 管理节点 URL。默认为 `core.dcos_url`|
 |  `core.pagination` | 指示是否标页号输出。默认为 true。|
@@ -87,4 +87,4 @@ dcos config set core.ssl_verify true
 
 | 命令 | 说明 |
 |---------|-------------|
-|[dcos config](/cn/1.12/cli/command-reference/dcos-config/) | 管理 DC/OS 配置 |
+|[dcos config](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-config/) | 管理 DC/OS 配置 |

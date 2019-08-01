@@ -15,15 +15,15 @@ This section describes the management of processes in a DC/OS cluster, from the 
 
 At a high level, this interaction takes place between the DC/OS components when a user launches a process. Communication occurs between the different layers, such as the user interacting with the scheduler, and within a layer, for example, a master communicating with agents.
 
-![Concept of distributed process management in DC/OS](/1.10/img/dcos-architecture-distributed-process-management-concept.png)
+![Concept of distributed process management in DC/OS](/mesosphere/dcos/1.10/img/dcos-architecture-distributed-process-management-concept.png)
 
 Here is an example, using the Marathon service and a user launching a container based on a Docker image:
 
-![Example of distributed process management in DC/OS](/1.10/img/dcos-architecture-distributed-process-management-example.png)
+![Example of distributed process management in DC/OS](/mesosphere/dcos/1.10/img/dcos-architecture-distributed-process-management-example.png)
 
 The chronological interaction between the above components looks like this. Notice that Executors and Task are folded into one block since in practice this is often the case:
 
-![Sequence diagram for distributed process management in DC/OS](/1.10/img/dcos-architecture-distributed-process-management-seq-diagram.png)
+![Sequence diagram for distributed process management in DC/OS](/mesosphere/dcos/1.10/img/dcos-architecture-distributed-process-management-seq-diagram.png)
 
 In detail, here are the steps:
 
@@ -86,5 +86,5 @@ In detail, here are the steps:
 </tbody>
 </table>
 
-[auth]: /1.10/security/ent/
-[components]: /1.10/overview/architecture/components/
+[auth]: /mesosphere/dcos/1.10/security/ent/
+[components]: /mesosphere/dcos/1.10/overview/architecture/components/

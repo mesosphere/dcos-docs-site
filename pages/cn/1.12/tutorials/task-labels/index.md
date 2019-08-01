@@ -54,7 +54,7 @@ enterprise: false
 
 从 DC/OS GUI 中单击 **Jobs** 选项卡，然后单击作业名称。这将带您进入单独的作业页面。单击右上角的 **Edit**。在“编辑作业”页面左侧，选择 **Labels**。
 
-  ![作业标签](/1.12/img/job-label.png)
+  ![作业标签](/mesosphere/dcos/1.12/img/job-label.png)
 
   图 1. 分配工作标签
 

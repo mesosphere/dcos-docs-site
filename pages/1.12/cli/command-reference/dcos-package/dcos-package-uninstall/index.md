@@ -36,11 +36,11 @@ dcos package uninstall <package-name> [--cli | [--app [--app-id=<app-id> | --all
 
 # Examples
 
-For an example, see the [documentation](/1.12/deploying-services/uninstall/).
+For an example, see the [documentation](/mesosphere/dcos/1.12/deploying-services/uninstall/).
 
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.12/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/mesosphere/dcos/1.12/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

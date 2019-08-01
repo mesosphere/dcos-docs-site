@@ -18,7 +18,7 @@ enterprise: true
 **先决条件：**
 
 
-[DC/OS CA 根证书](/cn/1.11/security/ent/tls-ssl/get-cert/)的本地副本。
+[DC/OS CA 根证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/get-cert/)的本地副本。
 
 1. 使用以下命令更改默认值，并设置 DC/OS CLI 以信任您的 DC/OS CA。
 

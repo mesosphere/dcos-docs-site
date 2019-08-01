@@ -31,7 +31,7 @@ If you’re new to Ansible and/or want to deploy DC/OS using Ansible quickly and
    - 1 Private Agent
    - 1 Public Agent
 
-Please see the [minimum system requirements](/1.14/installing/production/system-requirements/) and supported CentOS and Redhat Enterprise Linux (RHEL) [versions for your nodes](/version-policy/#dcos-platform-version-compatibility-matrix/), especially when planning for production environments.
+Please see the [minimum system requirements](/mesosphere/dcos/1.14/installing/production/system-requirements/) and supported CentOS and Redhat Enterprise Linux (RHEL) [versions for your nodes](/mesosphere/dcos/version-policy/#dcos-platform-version-compatibility-matrix/), especially when planning for production environments.
 For more information on setting up SSH connections for Ansible see the [remote connections documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#remote-connection-information).
 If you are installing DC/OS Enterprise Edition, you will also need an appropriate license key.
 
@@ -188,13 +188,13 @@ If you installed DC/OS Enterprise, you can login with default demo credentials. 
 * `username: bootstrapuser`
 * `password: deleteme`
 
-![enterprise-Login-Page](/1.14/img/dcos-ee-login.png)
+![enterprise-Login-Page](/mesosphere/dcos/1.14/img/dcos-ee-login.png)
 
 
 
 If you installed DC/OS Open Source, select the OAuth provider of your choice. [oss type="inline" size="small" /]
 
-![oss-login-page](/1.14/img/dcos-oe-login.png)
+![oss-login-page](/mesosphere/dcos/1.14/img/dcos-oe-login.png)
 
 ## Upgrading and managing your cluster
 Upgrading your cluster to a newer version of DC/OS and making configuration changes is incredibly easy with Ansible. The modules have been designed to automatically detect the state of your cluster and nodes, and automatically get them to the newer declared state. It is even possible to change your agents configuration and upgrade DC/OS at the same time.

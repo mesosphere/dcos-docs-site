@@ -35,4 +35,4 @@ dcos service shutdown <service-id>
 
 | Command | Description |
 |---------|-------------|
-| [dcos service](/1.14/cli/command-reference/dcos-service/)   | Manage DC/OS services. |
+| [dcos service](/mesosphere/dcos/1.14/cli/command-reference/dcos-service/)   | Manage DC/OS services. |

@@ -16,14 +16,14 @@ When a user attempts to log in, DC/OS will ask the remote LDAP server to validat
 
 If your LDAP user name is in the [distinguished name (DN)](https://www.ldap.com/ldap-dns-and-rdns), you can use a simple bind to connect to the LDAP directory. Otherwise, a search/bind connection should cover all other cases. 
 
-Review the DC/OS user ID requirements in [Managing users and groups](/1.11/security/ent/users-groups/).
+Review the DC/OS user ID requirements in [Managing users and groups](/mesosphere/dcos/1.11/security/ent/users-groups/).
 
 **Requirement** The directory server must support [LDAP 3](https://tools.ietf.org/html/rfc4511).
 
 To set up an LDAP connection:
 
-1. [Configure your connection](/1.11/security/ent/ldap/ldap-conn/).
+1. [Configure your connection](/mesosphere/dcos/1.11/security/ent/ldap/ldap-conn/).
 
-2. [Configure your authentication](/1.11/security/ent/ldap/ldap-auth/).
+2. [Configure your authentication](/mesosphere/dcos/1.11/security/ent/ldap/ldap-auth/).
 
-3. [Verify the connection](/1.11/security/ent/ldap/ldap-verify/).
+3. [Verify the connection](/mesosphere/dcos/1.11/security/ent/ldap/ldap-verify/).

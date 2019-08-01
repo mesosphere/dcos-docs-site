@@ -18,8 +18,8 @@ This topic provides common usage examples for the Logging API.
 - [Bash](https://www.gnu.org/software/bash/)
 - [Curl](https://curl.haxx.se/)
 - [jq](https://stedolan.github.io/jq/)
-- [DC/OS](/1.9/installing/oss/)
-- [DC/OS CLI](/1.9/cli/) must be installed, configured, and logged in.
+- [DC/OS](/mesosphere/dcos/1.9/installing/oss/)
+- [DC/OS CLI](/mesosphere/dcos/1.9/cli/) must be installed, configured, and logged in.
 - Extract `DCOS_URL` and `DCOS_AUTH_TOKEN` from the DC/OS CLI:
 
     ```
@@ -87,7 +87,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/agent/${AGENT_
 ```
 
 **Important:**
-Journald task logging is disabled in DC/OS 1.9.0. For more information, see [Logging API: Compatibility](/1.9/monitoring/logging/logging-api/#compatibility).
+Journald task logging is disabled in DC/OS 1.9.0. For more information, see [Logging API: Compatibility](/mesosphere/dcos/1.9/monitoring/logging/logging-api/#compatibility).
 
 # Tail
 

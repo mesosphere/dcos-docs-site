@@ -9,7 +9,7 @@ excerpt: 了解 DC/OS 组件
 
 DC/OS 由许多开源微服务组件组成，经过精心调整和配置以协同工作。Mesosphere DC/OS Enterprise 包括大部分开源 DC/OS 组件，但还包括多个额外组件、模块和插件。
 
-![Mesosphere DC/OS Enterprise 组件](/cn/1.11/img/dcos-components-1.11-portrait.png)
+![Mesosphere DC/OS Enterprise 组件](/mesosphere/dcos/cn/1.11/img/dcos-components-1.11-portrait.png)
 
 图 1. DC/OS Enterprise 组件
 
@@ -25,7 +25,7 @@ DC/OS 提供了一种作为单个群集级别系统查看和操作大量单个�
 <a name="apache-mesos"></a>
 ## Apache Mesos
 
-Mesos 作为分布式系统内核来管理资源和任务。Mesos 管理节点揭示调度器、执行器和操作界面，以便进行群集管理。Mesos 代理节点管理每个 [DC/OS 代理节点](/cn/1.11/overview/concepts/#dcos-agent-node) 上的单个执行器、任务和资源。Mesos Agent Public 被配置为可用于在 [DC/OS 公共代理节点](/cn/1.11/overview/concepts/#public-agent-node) 上运行的 Mesos 代理节点。
+Mesos 作为分布式系统内核来管理资源和任务。Mesos 管理节点揭示调度器、执行器和操作界面，以便进行群集管理。Mesos 代理节点管理每个 [DC/OS 代理节点](/mesosphere/dcos/cn/1.11/overview/concepts/#dcos-agent-node) 上的单个执行器、任务和资源。Mesos Agent Public 被配置为可用于在 [DC/OS 公共代理节点](/mesosphere/dcos/cn/1.11/overview/concepts/#public-agent-node) 上运行的 Mesos 代理节点。
 
 ## 系统服务
 
@@ -83,7 +83,7 @@ DC/OS 安装工具（`dcos_generate_config.ee.sh`）生成安装工件并安装 
 **另请参阅：**
 
 
-- [文档](/cn/1.11/installing/)
+- [文档](/mesosphere/dcos/cn/1.11/installing/)
 - [来源](https://github.com/dcos/dcos)
 
 [enterprise]
@@ -99,8 +99,8 @@ DC/OS 备份提供 DC/OS 组件状态的备份和恢复（在 1.10 中仅 Marath
 
 **另请参阅：**
 
-- [文档](/cn/1.11/administering-clusters/backup-and-restore/)
-- [API 参考](/cn/1.11/administering-clusters/backup-and-restore/backup-restore-api/)
+- [文档](/mesosphere/dcos/cn/1.11/administering-clusters/backup-and-restore/)
+- [API 参考](/mesosphere/dcos/cn/1.11/administering-clusters/backup-and-restore/backup-restore-api/)
 
 
 <a name="dcos-gui"></a>
@@ -114,7 +114,7 @@ DC/OS GUI（Web 界面）是基于浏览器的系统仪表盘和控制中心。
 
 **另请参阅：**
 
-- [文档](/cn/1.11/gui/)
+- [文档](/mesosphere/dcos/cn/1.11/gui/)
 - [来源](https://github.com/dcos/dcos-ui)
 
 
@@ -129,7 +129,7 @@ DC/OS CLI 是基于终端的远程客户端。
 
 **另请参阅：**
 
-- [文档](/cn/1.11/cli/)
+- [文档](/mesosphere/dcos/cn/1.11/cli/)
 - [来源](https://github.com/dcos/dcos-cli)
 
 # 容器编排
@@ -149,9 +149,9 @@ Marathon 编排长期的容器化服务（应用程序和 Pod）。
 **另请参阅：**
 
 - [网站](https://mesosphere.github.io/marathon/)
-- [文档](/cn/1.11/deploying-services/)
+- [文档](/mesosphere/dcos/cn/1.11/deploying-services/)
 - [来源](https://github.com/mesosphere/marathon)
-- [API 参考](/cn/1.11/deploying-services/marathon-api/)
+- [API 参考](/mesosphere/dcos/cn/1.11/deploying-services/marathon-api/)
 
 <a name="dcos-jobs"></a>
 ## DC/OS 作业（节拍器）
@@ -164,7 +164,7 @@ DC/OS 作业（节拍器）编排短期的、计划的或即时的容器化作�
 
 **另请参阅：**
 
-- [文档](/cn/1.11/deploying-jobs/)
+- [文档](/mesosphere/dcos/cn/1.11/deploying-jobs/)
 - [来源](https://github.com/dcos/metronome)
 - [API 参考](https://dcos.github.io/metronome/docs/generated/api.html)
 
@@ -244,7 +244,7 @@ DC/OS 诊断汇总并揭示组件的运行状态。DC/OS 诊断也被称为 DC/O
 **另请参阅：**
 
 - [来源](https://github.com/dcos/dcos-diagnostics)
-- [API 参考](/cn/1.11/monitoring/#system-health-http-api-endpoint)
+- [API 参考](/mesosphere/dcos/cn/1.11/monitoring/#system-health-http-api-endpoint)
 
 <a name="dcos-log"></a>
 
@@ -262,7 +262,7 @@ DC/OS 日志服务揭示节点、组件和容器（任务）日志。
 **另请参阅：**
 
 - [来源](https://github.com/dcos/dcos-log)
-- [API 参考](/cn/1.11/monitoring/logging/logging-api/)
+- [API 参考](/mesosphere/dcos/cn/1.11/monitoring/logging/logging-api/)
 
 <a name="logrotate"></a>
 
@@ -299,13 +299,13 @@ DC/OS 度量标准服务揭示节点、容器和应用程序度量标准。
 **另请参阅：**
 
 - [来源](https://github.com/dcos/dcos-metrics)
-- [API 参考](/cn/1.11/metrics/metrics-api/)
+- [API 参考](/mesosphere/dcos/cn/1.11/metrics/metrics-api/)
 
 <a name="dcos-signal"></a>
 
 ## DC/OS 信号
 
-DC/OS 信号服务报告集群遥测和分析，以帮助改进 DC/OS。管理员在安装时可以 [不选择遥测](/cn/1.11/install/production/deploying-dcos/opt-out/#telemetry)。
+DC/OS 信号服务报告集群遥测和分析，以帮助改进 DC/OS。管理员在安装时可以 [不选择遥测](/mesosphere/dcos/cn/1.11/install/production/deploying-dcos/opt-out/#telemetry)。
 
 ### 系统服务
 
@@ -364,7 +364,7 @@ Mesos DNS 提供集群内基于域名的服务发现。
 
 - [文档](http://mesosphere.github.io/mesos-dns/)
 - [来源](https://github.com/mesosphere/mesos-dns)
-- [API 参考](/cn/1.11/networking/mesos-dns/mesos-dns-api/)
+- [API 参考](/mesosphere/dcos/cn/1.11/networking/mesos-dns/mesos-dns-api/)
 
 <a name="dns-forwarder"></a>
 
@@ -409,7 +409,7 @@ Mesos DNS 提供集群内基于域名的服务发现。
 
 ## DC/OS 软件包管理器 (Cosmos)
 
-DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 软件包存储库](/cn/1.11/administering-clusters/repo/) 中的 DC/OS 软件包，如 [Mesosphere Universe](https://github.com/mesosphere/universe)。
+DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 软件包存储库](/mesosphere/dcos/cn/1.11/administering-clusters/repo/) 中的 DC/OS 软件包，如 [Mesosphere Universe](https://github.com/mesosphere/universe)。
 
 ### 系统服务
 
@@ -418,7 +418,7 @@ DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 软件包存储库](/cn/1.11/
 **另请参阅：**
 
 - [来源](https://github.com/dcos/cosmos)
-- [API 参考](/cn/1.11/deploying-services/package-api/)
+- [API 参考](/mesosphere/dcos/cn/1.11/deploying-services/package-api/)
 
 <a name="dcos-component-package-manager">DC/OS 组件包管理器 (Pkgpanda)
 
@@ -433,7 +433,7 @@ DC/OS 组件包管理器 (Pkgpanda) 安装和管理 DC/OS 组件。
 **另请参阅：**
 
 - [来源](https://github.com/dcos/dcos/tree/master/pkgpanda)
-- [API 参考](/cn/1.11/administering-clusters/component-management/)
+- [API 参考](/mesosphere/dcos/cn/1.11/administering-clusters/component-management/)
 
 [enterprise]
 # IAM 和安全
@@ -452,8 +452,8 @@ DC/OS 身份和访问管理器 (IAM) 通过管理用户、用户组、服务帐�
 
 **另请参阅：**
 
-- [文档](/cn/1.11/security/)
-- [API 参考](/cn/1.11/security/ent/iam-api/)
+- [文档](/mesosphere/dcos/cn/1.11/security/)
+- [API 参考](/mesosphere/dcos/cn/1.11/security/ent/iam-api/)
 
 <a name="cockroachdb"></a>
 
@@ -485,8 +485,8 @@ DC/OS 证书颁发机构 (CA) 发布已签署的数字证书，确保通信安�
 
 **另请参阅：**
 
-- [文档](/cn/1.11/security/ent/tls-ssl/)
-- [API 参考](/cn/1.11/security/ent/tls-ssl/ca-api/)
+- [文档](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/)
+- [API 参考](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/ca-api/)
 
 <a name="dcos-secrets"></a>
 ## DC/OS 密钥
@@ -499,8 +499,8 @@ DC/OS 密钥提供一个安全的 API，用于存储并从 Vault （一个密钥
 
 **另请参阅：**
 
-- [文档](/cn/1.11/security/ent/secrets/)
-- [API 参考](/cn/1.11/security/ent/secrets/secrets-api/)
+- [文档](/mesosphere/dcos/cn/1.11/security/ent/secrets/)
+- [API 参考](/mesosphere/dcos/cn/1.11/security/ent/secrets/secrets-api/)
 
 <a name="vault"></a>
 ## Vault
@@ -550,7 +550,7 @@ DC/OS 组件由 [DC/OS 组件包管理器 (Pkgpanda)](https://github.com/dcos/dc
 
 # `Systemd` 服务
 
-大多数 DC/OS 组件在 DC/OS 节点上作为 [systemd 服务](/cn/1.11/overview/concepts/#systemd-service)运行。
+大多数 DC/OS 组件在 DC/OS 节点上作为 [systemd 服务](/mesosphere/dcos/cn/1.11/overview/concepts/#systemd-service)运行。
 
 要查看 `systemd` 在任何特定节点上运行的组件的列表，请列出 `/etc/systemd/system/dcos.target.wants/` 目录的内容或执行 `systemctl | grep dcos-` 以查看其当前状态。
 

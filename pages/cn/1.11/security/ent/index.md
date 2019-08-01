@@ -24,7 +24,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 **管理**区可通过 HTTP/HTTPS 和 SSH 连接访问，并提供对管理节点的访问。它还可通过 URL 路由向集群中的其他节点提供反向代理访问。为了安全起见，DC/OS 云模板允许配置白名单，以便只允许特定的 IP 地址范围访问管理区。
 
 ### Admin Router
-对管理区的访问由 [Admin Router](/cn/1.11/overview/architecture/components/#admin-router) 控制。
+对管理区的访问由 [Admin Router](/mesosphere/dcos/cn/1.11/overview/architecture/components/#admin-router) 控制。
 
 传入 DC/OS 集群的 HTTP 请求通过 Admin Router 代理（使用 [Nginx](http://nginx.org)，其核心是 [OpenResty](https://openresty.org)）。Admin Router 拒绝访问大多数 HTTP 端点未经身份认证的请求。为了请求能得到身份认证，它需要在其 `Authorization` 报文头中提供有效的认证令牌。可通过验证流程获得令牌。
 
@@ -36,13 +36,13 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 
 典型部署（包括负载均衡器）如下所示：
 
-![安全区](/cn/1.11/img/security-zones.png)
+![安全区](/mesosphere/dcos/cn/1.11/img/security-zones.png)
 
 图 1. 安全区典型部署
 
 # <a name="security-modes"></a>安全模式
 
-您可以通过资源和操作（创建、读取、更新、删除）来控制 DC/OS Enterprise 访问。可用的安全模式为禁用、宽容和严格。严格的模式提供了最好的细粒度控制。根据您的安全模式执行 DC/OS 权限。安全模式在 [DC/OS 安装](/cn/1.11/installing/ent/custom/advanced/) 过程中设置，并且只能通过执行升级进行更改。
+您可以通过资源和操作（创建、读取、更新、删除）来控制 DC/OS Enterprise 访问。可用的安全模式为禁用、宽容和严格。严格的模式提供了最好的细粒度控制。根据您的安全模式执行 DC/OS 权限。安全模式在 [DC/OS 安装](/mesosphere/dcos/cn/1.11/installing/ent/custom/advanced/) 过程中设置，并且只能通过执行升级进行更改。
 
 | 权限类别 | 禁用 | 宽容 | 严格 |
 |-----------------------------------------------------|:--------:|:----------:|:------:|
@@ -51,7 +51,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 | Marathon 和 Metronome 权限（`dcos:service`） | | x | x |
 | 密钥存储库权限（`dcos:secrets`） | x | x | x |
 
-有关完整说明，请参阅[权限参考](/cn/1.11/security/ent/perms-reference/)。
+有关完整说明，请参阅[权限参考](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/)。
 
 ### 已禁用
 此模式旨在确保从 DC/OS 早期版本顺利升级，但仅提供最低限度的安全功能，不适用于生产环境。禁用模式不提供 Marathon 或 Mesos 权限。
@@ -63,22 +63,22 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 此模式提供最强大的安全状态，需要大量配置。
 
 ## <a name="set"></a>设置安全模式
-安全模式在 [DC/OS 安装](/cn/1.11/installing/ent/custom/advanced/) 过程中设置，并且只能通过执行[升级](/cn/1.11/installing/ent/upgrading/) 进行更改。安全模式已在有 [`security` 参数](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) 的安装配置文件设置。
+安全模式在 [DC/OS 安装](/mesosphere/dcos/cn/1.11/installing/ent/custom/advanced/) 过程中设置，并且只能通过执行[升级](/mesosphere/dcos/cn/1.11/installing/ent/upgrading/) 进行更改。安全模式已在有 [`security` 参数](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) 的安装配置文件设置。
 
 <p class="message--important"><strong>重要信息：</strong>升级期间，您只能从“禁用”移至“宽容”，从“宽容”移至“严格”。</p>
 
 ## <a name="discover"></a>了解您的安全模式
 您可以使用以下任一方法来确定现有集群的安全模式。
 
-- 向以下端点发送 `GET` 请求：`http[s]://<cluster-url>/dcos-metadata/bootstrap-config.json`。
- **要求：**您的用户帐户必须具有 `dcos:adminrouter:ops:metadata full` 或 `dcos:superuser` 权限。在 `permissive` 或 `strict` 模式下，您必须使用 HTTPS。查看 [保护 TLS 通信的安全](/cn/1.11/security/ent/tls-ssl/)，了解如何获取 DC/OS CA 的根证书，并将其置备到首选客户端。
+- 向以下端点发送 `GET` 请求：`http[s]: /mesosphere/dcos//<cluster-url>/dcos-metadata/bootstrap-config.json`。
+ **要求：**您的用户帐户必须具有 `dcos:adminrouter:ops:metadata full` 或 `dcos:superuser` 权限。在 `permissive` 或 `strict` 模式下，您必须使用 HTTPS。查看 [保护 TLS 通信的安全](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/)，了解如何获取 DC/OS CA 的根证书，并将其置备到首选客户端。
 
-- [SSH](/cn/1.11/administering-clusters/sshcluster/) 进入首要节点并查看 `/opt/mesosphere/etc/bootstrap-config.json` 内容。
+- [SSH](/mesosphere/dcos/cn/1.11/administering-clusters/sshcluster/) 进入首要节点并查看 `/opt/mesosphere/etc/bootstrap-config.json` 内容。
 
 # <a name="authentication"></a>身份认证
-DC/OS 集群外部的所有请求都需要认证令牌。根据您的安全模式，可能会要求集群内认证令牌。如需更多信息，请参阅 [服务账户文档](/cn/1.11/security/ent/service-auth/)。
+DC/OS 集群外部的所有请求都需要认证令牌。根据您的安全模式，可能会要求集群内认证令牌。如需更多信息，请参阅 [服务账户文档](/mesosphere/dcos/cn/1.11/security/ent/service-auth/)。
 
-DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，默认情况下，在发布后五天到期。默认到期时间可在 [自定义安装或升级](/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#bouncer-expiration-auth-token-days-enterprise) 期间进行修改。
+DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，默认情况下，在发布后五天到期。默认到期时间可在 [自定义安装或升级](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#bouncer-expiration-auth-token-days-enterprise) 期间进行修改。
 
 在  bootstrap 序列期间，DC/OS 使用 ZooKeeper 凭据配置管理节点。这使得管理节点可以将自己指定为潜在的 Mesos 管理节点。
 
@@ -94,7 +94,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 下图详细说明了顺序。
 
-![用户身份认证](/cn/1.11/img/authn-user.png)
+![用户身份认证](/mesosphere/dcos/cn/1.11/img/authn-user.png)
 
 图 2. 用户身份认证顺序
 
@@ -102,19 +102,19 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 使用 DC/OS GUI 登录时，Identity 和 Access Manager 会生成包含认证令牌的 Cookie。虽然它收到 [`HttpOnly`](https://www.owasp.org/index.php/HttpOnly) 标志的保护，但您应在浏览器会话结束时**注销**以清除此 Cookie。
 
-请注意，清除 Cookie 不会使认证失效。如果监测到未加密的连接或从 cookie 中提取，则可能有人使用认证令牌登录了 DC/OS。为降低此风险，我们建议在 `permissive` 和 `strict` 模式下设置[安全标志](https://www.owasp.org/index.php/SecureFlag)，如[强化](/cn/1.11/security/ent/hardening/#secure-flag)中所述。
+请注意，清除 Cookie 不会使认证失效。如果监测到未加密的连接或从 cookie 中提取，则可能有人使用认证令牌登录了 DC/OS。为降低此风险，我们建议在 `permissive` 和 `strict` 模式下设置[安全标志](https://www.owasp.org/index.php/SecureFlag)，如[强化](/mesosphere/dcos/cn/1.11/security/ent/hardening/#secure-flag)中所述。
 
 ## <a name="passwords"></a>密码
 
 集群本地用户帐户（不使用 LDAP、SAML 或 OpenID Connect 的账户）的凭据包含用户名和密码，可用于验证但不能复制用户密码。使用 [crypt(3)] (http://man7.org/linux/man-pages/man3/crypt.3.html) SHA-512 对密码进行单独加盐和密码散列。这会导致单向散列，可用于验证但不能复制用户密码。为了进一步阻止暴力攻击并达到或超过 NIST FIPS 安全要求，散列函数使用 128 位盐长度执行多次迭代。
 
-在 DC/OS IAM 验证了您的凭据后，就会将认证令牌返回给您。然后，认证令牌将用于会话期间进一步请求身份认证。这样，密码不需要存储在客户端，并且只能在输入后立即通过电报发送。通过电报，使用 TLS 加密身份认证请求。TLS 是必需的，并以严格模式执行，但在宽容模式下可选。有关更多信息，请参阅[安全模式](/cn/1.11/security/ent/#security-modes)。
+在 DC/OS IAM 验证了您的凭据后，就会将认证令牌返回给您。然后，认证令牌将用于会话期间进一步请求身份认证。这样，密码不需要存储在客户端，并且只能在输入后立即通过电报发送。通过电报，使用 TLS 加密身份认证请求。TLS 是必需的，并以严格模式执行，但在宽容模式下可选。有关更多信息，请参阅[安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)。
 
 ## <a name="service"></a>服务身份认证
-服务帐户为 [服务](/cn/1.11/overview/concepts/#dcos-service) 提供身份，以使用 DC/OS 进行身份认证。服务帐户控制服务与 DC/OS 组件之间的通信。DC/OS 服务可能需要 [服务帐户](/cn/1.11/security/ent/service-auth/)，这取决于您的安全模式。
+服务帐户为 [服务](/mesosphere/dcos/cn/1.11/overview/concepts/#dcos-service) 提供身份，以使用 DC/OS 进行身份认证。服务帐户控制服务与 DC/OS 组件之间的通信。DC/OS 服务可能需要 [服务帐户](/mesosphere/dcos/cn/1.11/security/ent/service-auth/)，这取决于您的安全模式。
 
 ## <a name="sysd"></a>组件身份认证
-在严格和宽容 [安全模式](/cn/1.11/security/ent/#security-modes)下，DC/OS 在 bootstrap 序列期间使用服务账户自动配置 DC/OS 组件（[DC/OS 节点上的systemd服务](/cn/1.11/overview/concepts/#systemd-service)）。服务帐户在禁用安全模式下不可用。
+在严格和宽容 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)下，DC/OS 在 bootstrap 序列期间使用服务账户自动配置 DC/OS 组件（[DC/OS 节点上的systemd服务](/mesosphere/dcos/cn/1.11/overview/concepts/#systemd-service)）。服务帐户在禁用安全模式下不可用。
 
 例如，Mesos 代理节点配置了用于向 Mesos 管理节点进行身份认证的服务帐户。这确保仅授权代理节点可加入 Mesos 集群、宣传资源并被要求启动任务。
 
@@ -129,7 +129,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 下图说明了授权顺序。
 
-![授权顺序](/cn/1.11/img/authz.png)
+![授权顺序](/mesosphere/dcos/cn/1.11/img/authz.png)
 
 图 3. 授权顺序
 
@@ -142,11 +142,11 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 该图未显示密钥存储库序列。Admin Router 不会检查向密钥存储库请求的权限。它将这些请求发送给密钥存储库，后者会针对每个请求执行自己的权限。
 
-有关权限的更多信息，请参阅[管理权限](/cn/1.11/security/ent/perms-reference/)。
+有关权限的更多信息，请参阅[管理权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/)。
 
 # <a name="encryption"></a>传输层安全性 (TLS) 加密
 
-DC/OS 通信的加密因[安全模式](/cn/1.11/security/ent/#security-modes)而异。
+DC/OS 通信的加密因[安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)而异。
 
 | 安全模式 | 外部通信* | 节点间通信 |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
@@ -162,7 +162,7 @@ DC/OS 通信的加密因[安全模式](/cn/1.11/security/ent/#security-modes)而
 
 节点间通信通过 TLS 1.2 进行。为确保浏览器支持，外部通信目前接受 TLS 1.0、1.1 和 1.2。这些配置是可设置的。
 
-有关更多信息，请参阅[使用 TLS 确保通信安全](/cn/1.11/security/ent/tls-ssl/)。
+有关更多信息，请参阅[使用 TLS 确保通信安全](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/)。
 
 # <a name="spaces"></a>空间
 
@@ -178,9 +178,9 @@ DC/OS 通信的加密因[安全模式](/cn/1.11/security/ent/#security-modes)而
 
 空间的一个方面涉及服务和作业组。您可以在任何安全模式下将服务和作业放入组中。这可帮助用户找到与其相关的作业或服务。
 
-在 `strict` 和 `permissive` 安全模式下，您可以使用[权限](/cn/1.11/security/ent/perms-reference/#marathon-metronome)来限制用户对每个服务/作业或服务/作业组的访问。
+在 `strict` 和 `permissive` 安全模式下，您可以使用[权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/#marathon-metronome)来限制用户对每个服务/作业或服务/作业组的访问。
 
-若要了解如何执行此操作，请参阅[控制用户对服务的访问](/cn/1.11/deploying-services/service-groups/)和[控制用户对作业的访问](/cn/1.11/deploying-jobs/job-groups/)。
+若要了解如何执行此操作，请参阅[控制用户对服务的访问](/mesosphere/dcos/cn/1.11/deploying-services/service-groups/)和[控制用户对作业的访问](/mesosphere/dcos/cn/1.11/deploying-jobs/job-groups/)。
 
 ## <a name="secrets"></a>密钥空间
 
@@ -211,7 +211,7 @@ DC/OS 通信的加密因[安全模式](/cn/1.11/security/ent/#security-modes)而
 
 DC/OS 使用 Galois 计数器模式 (GCM) 中的高级加密标准 (AES) 算法将密钥存储库数据存储在 ZooKeeper 中的一个开封密钥中。密钥存储库将解封密钥发送到 ZooKeeper 之前使用开封密钥加密，并在从 ZooKeeper 收到密钥后解密密钥。这可确保密钥在休息和传输时都被加密。TLS 为从 ZooKeeper 传输到密钥存储库的密钥提供了额外的加密层。
 
-开封密钥在公共 GPG 密钥下加密。对 [Secrets API](/cn/1.11/security/ent/secrets/secrets-api/) 的请求仅返回加密的开封密钥。当密钥存储库被手动或由于故障而被密封时，必须使用专用 GPG 密钥解密开封密钥并开启密钥存储库。为方便起见，DC/OS 在 bootstrap 序列期间自动生成新的 4096-bit GPG 密钥对。它使用此密钥初始化密钥存储库，并将密钥对存储在 ZooKeeper 中。
+开封密钥在公共 GPG 密钥下加密。对 [Secrets API](/mesosphere/dcos/cn/1.11/security/ent/secrets/secrets-api/) 的请求仅返回加密的开封密钥。当密钥存储库被手动或由于故障而被密封时，必须使用专用 GPG 密钥解密开封密钥并开启密钥存储库。为方便起见，DC/OS 在 bootstrap 序列期间自动生成新的 4096-bit GPG 密钥对。它使用此密钥初始化密钥存储库，并将密钥对存储在 ZooKeeper 中。
 
 密钥存储库适用于所有安全模式。默认情况下，您不能存储大于一兆字节的密钥。如果您需要超过此限制，请联系 Mesosphere 支持中心。我们目前不支持替代或额外的密钥存储库。您应只使用 Mesosphere 提供的 `default` 密钥存储库。
 
@@ -219,15 +219,15 @@ DC/OS 使用 Galois 计数器模式 (GCM) 中的高级加密标准 (AES) 算法�
 
 DC/OS 允许您限制：
 
-- **用户对密钥的访问：**使用 [权限](/cn/1.11/security/ent/perms-reference/#secrets)控制哪些用户可以访问哪些密钥及其可执行的操作。
+- **用户对密钥的访问：**使用 [权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/#secrets)控制哪些用户可以访问哪些密钥及其可执行的操作。
 
-- **应用程序对密钥的访问：**使用 [空间](/cn/1.11//security/ent/#spaces)以控制哪些应用程序可以检索哪些密钥。
+- **应用程序对密钥的访问：**使用 [空间](/mesosphere/dcos/cn/1.11//security/ent/#spaces)以控制哪些应用程序可以检索哪些密钥。
 
 # <a name="linux-users"></a>Linux 用户帐户
 
-任务和沙盒文件的默认 Linux 用户根据您的[安全模式](/cn/1.11/security/ent/#security-modes)和任务在其中运行的[容器类型](/cn/1.11/deploying-services/containerizers/)而有所不同。
+任务和沙盒文件的默认 Linux 用户根据您的[安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)和任务在其中运行的[容器类型](/mesosphere/dcos/cn/1.11/deploying-services/containerizers/)而有所不同。
 
-默认情况下，所有任务将在 Mesos 容器内运行。然而，用户服务可配置为在 Docker 容器内运行任务。有关示例，请参阅[将基于 Docker 的服务部署到 Marathon](/cn/1.11/deploying-services/creating-services/deploy-docker-app/)。
+默认情况下，所有任务将在 Mesos 容器内运行。然而，用户服务可配置为在 Docker 容器内运行任务。有关示例，请参阅[将基于 Docker 的服务部署到 Marathon](/mesosphere/dcos/cn/1.11/deploying-services/creating-services/deploy-docker-app/)。
 
 下表列出了每种情况下的默认 Linux 用户。
 
@@ -236,8 +236,8 @@ DC/OS 允许您限制：
 | Mesos | 任务在 `root` 下运行。提取和创建的文件归 `root` 所有。| 任务在 `root` 下运行。提取和创建的文件归 `root` 所有。| 任务在 `nobody` 下运行。提取和创建的文件归 `nobody` 所有。
 | Docker | 任务在 `root` 下运行。提取和创建的文件归 `root` 所有。| 任务在 `root` 下运行。提取和创建的文件归 `root` 所有。| 任务在 `root` 下运行。提取和创建的文件归 `nobody` 所有。
 
-默认情况下，Docker 任务在 `root` 下运行，但 Docker 用户权限仅限于 Docker 容器。如果您希望更改默认任务用户，请修改 Docker 容器。有关更多信息，请参考 [Docker 文档](https://docs.docker.com/engine/tutorials/dockerimages/)以及用户服务[文档](/cn/services/)。
+默认情况下，Docker 任务在 `root` 下运行，但 Docker 用户权限仅限于 Docker 容器。如果您希望更改默认任务用户，请修改 Docker 容器。有关更多信息，请参考 [Docker 文档](https://docs.docker.com/engine/tutorials/dockerimages/)以及用户服务[文档](/mesosphere/dcos/cn/services/)。
 
 <p class="message--note"><strong>注意: </strong>如果压缩了提取的文件，内部的单个文件将保留文件压缩时分配的权限和所有权，并且不受任何其他配置或设置的影响。</p>
 
-请参阅 [覆盖默认 Linux 用户](/cn/1.11/security/ent/users-groups/config-linux-user/)。
+请参阅 [覆盖默认 Linux 用户](/mesosphere/dcos/cn/1.11/security/ent/users-groups/config-linux-user/)。

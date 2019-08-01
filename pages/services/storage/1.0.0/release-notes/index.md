@@ -59,7 +59,7 @@ enterprise: true
 * `dcos storage` CLI subcommands may fail with a gateway timeout error, but still complete successfully in the background.
 * [](https://jira.mesosphere.com/browse/ASF-1655) The Mesos SLRP implementation is not yet compatible with multiple profiles that consume capacity from the same provider in different ratios (for example, RAID1 and linear). To work around this, create multiple providers, each of which is wholly dedicated to linear or RAID1.
 * [](https://jira.mesosphere.com/browse/DCOS-44108) The storage service should only list providers that it currently manages; incompletely removed providers may be incorrectly listed in some cases.
-* Deleting a volume may fail with "Cannot allocate memory" on some versions of CoreOS. To avoid this issue, ensure you are using a [supported version](/latest/version-policy/#dcos-platform-version-compatibility-matrix) of CoreOS.
+* Deleting a volume may fail with "Cannot allocate memory" on some versions of CoreOS. To avoid this issue, ensure you are using a [supported version](/mesosphere/dcos/latest/version-policy/#dcos-platform-version-compatibility-matrix) of CoreOS.
 * Kernels from (including) 3.10.0-862.6.3.el7 up to (including) 3.10.0-862.11.6.el7 may panic as a result of LVM operations (https://access.redhat.com/solutions/3520511).
 * The DC/OS installer may issue one or more *WARNING* messages regarding missing kernel modules:
     ```
@@ -67,7 +67,7 @@ enterprise: true
     Checking if kernel module dm_raid is loaded: WARNING Kernel module dm_raid is not loaded. DC/OS Storage Service (DSS) depends on it.
     ```
     To resolve the issue, configure the `raid1` and `dm_raid` kernel modules to load at OS boot time.
-* Using NVMe storage with DSS may require additional modifications to the underlying OS. For more information see these [suggested commands and helper scripts](/latest/storage/external-storage/#ebs-specific).
+* Using NVMe storage with DSS may require additional modifications to the underlying OS. For more information see these [suggested commands and helper scripts](/mesosphere/dcos/latest/storage/external-storage/#ebs-specific).
 * [](https://jira.mesosphere.com/browse/DCOS-54794) The device names (e.g. `sda`) used to create volume providers can be unstable over time thus [precautions](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/persistent_naming) should be taken to avoid this condition.
 * [](https://jira.mesosphere.com/browse/DCOS-55524) The DC/OS UI shows an incorrect unit for DC/OS Storage volume size in the service create modal – the value will be treated as MiB instead of GiB as stated in the UI.
 * [](https://jira.mesosphere.com/browse/DCOS-44055) The DC/OS cluster's reported total disk resources is inflated due to double-counting of DSS devices.
@@ -143,7 +143,7 @@ All metrics related to the DC/OS Storage Service have a prefix of `csidevices_`,
 
 * Only local volume storage is currently supported.
 * Automated [upgrades](../upgrades/) of a running DC/OS Storage Service on an existing cluster are not yet supported.
-* The service must be deployed in a DC/OS cluster running in `strict` [security](/latest/security/ent/#security-modes) mode when configured with a service account and corresponding secret.
+* The service must be deployed in a DC/OS cluster running in `strict` [security](/mesosphere/dcos/latest/security/ent/#security-modes) mode when configured with a service account and corresponding secret.
 
 ## Known Issues
 
@@ -153,7 +153,7 @@ DC/OS Storage Service is currently in Beta and has the following known bugs.
 * `dcos storage` CLI subcommands may fail with a gateway timeout error, but still complete successfully in the background.
 * The Mesos SLRP implementation is not yet compatible with multiple profiles that consume capacity from the same provider in different ratios (for example, RAID1 and linear).
 * The storage service should only list providers that it currently manages; incompletely removed providers may be incorrectly listed in some cases.
-* Deleting a volume may fail with "Cannot allocate memory" on CoreOS; please use a [supported version](/latest/version-policy/#dcos-platform-version-compatibility-matrix) of CoreOS.
+* Deleting a volume may fail with "Cannot allocate memory" on CoreOS; please use a [supported version](/mesosphere/dcos/latest/version-policy/#dcos-platform-version-compatibility-matrix) of CoreOS.
 * Kernels from (including) 3.10.0-862.6.3.el7 up to (including) 3.10.0-862.11.6.el7 may panic as a result of LVM operations (https://access.redhat.com/solutions/3520511).
 
 # Release notes for Beta DC/OS Storage Service version 0.5.3
@@ -196,7 +196,7 @@ DC/OS Storage Service is currently in Beta and has the following known bugs.
 * Only local volume storage is currently supported.
 * Volume profile deactivation is not supported.
 * Automated [upgrades](../upgrades/) of a running DC/OS Storage Service on an existing cluster are not yet supported.
-* The service must be deployed in a DC/OS cluster running in `strict` [security](/latest/security/ent/#security-modes) mode when configured with a service account and corresponding secret.
+* The service must be deployed in a DC/OS cluster running in `strict` [security](/mesosphere/dcos/latest/security/ent/#security-modes) mode when configured with a service account and corresponding secret.
 
 ## Known Issues
 
@@ -207,7 +207,7 @@ DC/OS Storage Service is currently in Beta and has the following known bugs.
 * `MOUNTPOINT` and `FSTYPE` are no longer available via `dcos storage device list`.
 * The Mesos SLRP implementation is not yet compatible with multiple profiles that consume capacity from the same provider in different ratios (for example, RAID1 and linear).
 * The storage service should only list providers that it currently manages; incompletely removed providers may be incorrectly listed in some cases.
-* Deleting a volume may fail with "Cannot allocate memory" on CoreOS; please use a [supported version](/latest/version-policy/#dcos-platform-version-compatibility-matrix) of CoreOS.
+* Deleting a volume may fail with "Cannot allocate memory" on CoreOS; please use a [supported version](/mesosphere/dcos/latest/version-policy/#dcos-platform-version-compatibility-matrix) of CoreOS.
 * Kernels from (including) 3.10.0-862.6.3.el7 up to (including) 3.10.0-862.11.6.el7 may panic as a result of LVM operations (https://access.redhat.com/solutions/3520511).
 
 # Version 0.4.0
@@ -241,7 +241,7 @@ DC/OS Storage Service is currently in Beta and has the following known limitatio
 * Volume profile deactivation is not supported.
 * Removing a `devices` volume provider from a node is not supported.
 * Automated [upgrades](../upgrades/) of a running DC/OS Storage Service on an existing cluster are not yet supported.
-* The service must be deployed in a DC/OS cluster running in `strict` [security](/latest/security/ent/#security-modes) mode when configured with a service account and corresponding secret.
+* The service must be deployed in a DC/OS cluster running in `strict` [security](/mesosphere/dcos/latest/security/ent/#security-modes) mode when configured with a service account and corresponding secret.
 
 ## Known Issues
 
@@ -277,12 +277,12 @@ DC/OS Storage Service is currently in Beta and has the following known bugs.
 
 * Add support for [device blacklist](../cli-references/dcos-storage-device/).
 * [Installation](../install/package-registry-based/) via DC/OS Package Registry.
-* Publish service metrics to DC/OS [metrics](/latest/metrics/).
+* Publish service metrics to DC/OS [metrics](/mesosphere/dcos/latest/metrics/).
 
 ## Updates
 
 * Devices [volume plugin](../terminology-and-concepts/) needs be installed manually from this version.
-* Compatible with DC/OS clusters running in `strict` [security](/latest/security/ent/#security-modes) mode, see [installation notes](../install/) for details.
+* Compatible with DC/OS clusters running in `strict` [security](/mesosphere/dcos/latest/security/ent/#security-modes) mode, see [installation notes](../install/) for details.
 * CLI commands report additional details for errors generated by the DC/OS Storage Service.
 * Plugin [logs are viewable](../tutorials/) via [DC/OS CLI](../latest/cli/command-reference/dcos-node/dcos-node-log/).
 * Bug fixes and other minor improvements.
@@ -318,7 +318,7 @@ DC/OS Storage Service is currently in Beta and has the following known limitatio
 * Cannot list devices or create volume provider on public agents.
 * Only linear target is supported by the LVM volume plugin.
 * Limited error reporting.
-* The only supported DC/OS [security](/latest/security/ent/#security-modes) mode is `permissive`.
+* The only supported DC/OS [security](/mesosphere/dcos/latest/security/ent/#security-modes) mode is `permissive`.
 * Automated [upgrades](../upgrades/) of a running DC/OS Storage Service on an existing cluster are not yet supported.
 
 # Version 0.1.0

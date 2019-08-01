@@ -10,16 +10,16 @@ preview: true
 enterprise: true
 ---
 
-This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/1.10/security/ent/secrets/) or fine-grain ACLs, otherwise use the [basic procedure](/1.10/deploying-services/marathon-on-marathon/basic/).
+This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/mesosphere/dcos/1.10/security/ent/secrets/) or fine-grain ACLs, otherwise use the [basic procedure](/mesosphere/dcos/1.10/deploying-services/marathon-on-marathon/basic/).
 
 or this procedure, we are assuming that you have obtained an enterprise version of Marathon from a support team member. If you still need the enterprise artifact, you will want to first file a ticket via the [Mesosphere support portal](https://support.mesosphere.com/s/). The enterprise artifact is delivered as a Docker image file and contains Marathon plus plugins for Marathon that enable DC/OS Enterprise features - such as secrets and fine-grained access control.
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/1.10/installing/).
--  [DC/OS Enterprise CLI 0.4.14 or later](/1.10/cli/enterprise-cli/#ent-cli-install).
+-  DC/OS and DC/OS CLI [installed](/mesosphere/dcos/1.10/installing/).
+-  [DC/OS Enterprise CLI 0.4.14 or later](/mesosphere/dcos/1.10/cli/enterprise-cli/#ent-cli-install).
 -  Custom non-native Marathon image [deployed in your private Docker registry]((/1.10/deploying-services/private-docker-registry#tarball-instructions). File a ticket with via the [support portal](https://support.mesosphere.com) to obtain the enterprise Marathon image file.
--  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/1.10/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)).
+-  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/mesosphere/dcos/1.10/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)).
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
 
@@ -66,7 +66,7 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
 ## Static Reservations
 **Warning:** This procedure kills all running tasks on your node.
 
-1.  [SSH](/1.10/administering-clusters/sshcluster/) to your private agent node.
+1.  [SSH](/mesosphere/dcos/1.10/administering-clusters/sshcluster/) to your private agent node.
 
    ```bash
    dcos node ssh --master-proxy --mesos-id=<agent-id>
@@ -167,7 +167,7 @@ curl -i -k \
 ```
 
 # Step 3 - Create a Marathon Service Account
-In this step, a Marathon Service Account is created. Depending on your [security mode](/1.10/security/ent/#security-modes), a Marathon Service Account is either optional or required.
+In this step, a Marathon Service Account is created. Depending on your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes), a Marathon Service Account is either optional or required.
 
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
@@ -240,13 +240,13 @@ In this step, the credential tarball is transferred to the local file system of 
    scp docker.tar.gz core@<public-master-ip>:~
    ```
 
-1. [SSH](/1.10/administering-clusters/sshcluster/) to the master node that contains the Docker credentials file.
+1. [SSH](/mesosphere/dcos/1.10/administering-clusters/sshcluster/) to the master node that contains the Docker credentials file.
 
    ```bash
    dcos node ssh --master-proxy --mesos-id=<master-id>
    ```
 
-1. Store the IP address of each private agent in an environment variable. <!-- What is this step for -->The steps required depend on your [security mode](/1.10/security/ent/#security-modes).
+1. Store the IP address of each private agent in an environment variable. <!-- What is this step for -->The steps required depend on your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes).
 
    ### Disabled
 
@@ -313,7 +313,7 @@ dcos security secrets create-sa-secret --strict <private-key>.pem <service-accou
 
 #### Recommendations
 
--  Review your secret to ensure that it contains the correct service account ID, private key, and `login_endpoint` URL. If you're in `strict` it should be HTTPS, in `disabled` or `permissive` mode it should be HTTP. If the URL is incorrect, try [upgrading the DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it. You can use this commands to view the contents:
+-  Review your secret to ensure that it contains the correct service account ID, private key, and `login_endpoint` URL. If you're in `strict` it should be HTTPS, in `disabled` or `permissive` mode it should be HTTP. If the URL is incorrect, try [upgrading the DC/OS Enterprise CLI](/mesosphere/dcos/1.10/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it. You can use this commands to view the contents:
 
    ```bash
    dcos security secrets list /
@@ -336,7 +336,7 @@ In this step, permissions are assigned to the Marathon-on-Marathon instance. Per
 | Permissive | Not available |
 | Strict | Required |
 
-All CLI commands can also be executed via the [IAM API](/1.10/security/ent/iam-api/).
+All CLI commands can also be executed via the [IAM API](/mesosphere/dcos/1.10/security/ent/iam-api/).
 
 1.  Grant the permission for user (`<service-account-id>`) with the `nobody` Linux user account specified. To use a different user account, replace `nobody` with the name of the user account.
 
@@ -353,7 +353,7 @@ All CLI commands can also be executed via the [IAM API](/1.10/security/ent/iam-a
 # Step 7 - Install a Non-Native Marathon Instance with Assigned Role
 In this step, a non-native Marathon instance is installed on DC/OS with the Mesos role assigned.
 
-1.  Create a custom JSON config file and save as `config.json`. This file is used to install the custom non-native Marathon instance. The JSON file contents vary according to your [security mode](/1.10/security/ent/#security-modes). Replace these variables in the examples with your specific information:
+1.  Create a custom JSON config file and save as `config.json`. This file is used to install the custom non-native Marathon instance. The JSON file contents vary according to your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes). Replace these variables in the examples with your specific information:
 
     | Variable | Description |
     |--------------------------|--------------------------------------------|
@@ -649,21 +649,21 @@ In this step, a user is granted access to the non-native Marathon instance.
 
 1. Log into the DC/OS GUI as a user with the `superuser` permission.
 
-   ![Login](/1.10/img/gui-installer-login-ee.gif)
+   ![Login](/mesosphere/dcos/1.10/img/gui-installer-login-ee.gif)
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.10/img/services-tab-user.png)
+    ![Add permission cory](/mesosphere/dcos/1.10/img/services-tab-user.png)
 
 1.  From the **Permissions** tab click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.10/img/services-tab-user3.png)
+    ![Add permission](/mesosphere/dcos/1.10/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.10/security/ent/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes).
 
     ### Disabled
 
@@ -746,11 +746,11 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 
 1.  Enter your username and password and click **LOG IN**.
 
-    ![Log in DC/OS](/1.10/img/gui-installer-login-ee.gif)
+    ![Log in DC/OS](/mesosphere/dcos/1.10/img/gui-installer-login-ee.gif)
 
     You are done!
 
-    ![Marathon on Marathon](/1.10/img/mom-marathon-gui.png)
+    ![Marathon on Marathon](/mesosphere/dcos/1.10/img/mom-marathon-gui.png)
 
 # Next Steps
 

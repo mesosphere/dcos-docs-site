@@ -8,15 +8,15 @@ enterprise: true
 
 DC/OS Enterprise CLI 为 DC/OS Enterprise 功能提供命令：
 
-- [`dcos backup`](/cn/1.12/cli/command-reference/dcos-backup/)
-- [`dcos license`](/cn/1.12/cli/command-reference/dcos-license/)
-- [`dcos security`](/cn/1.12/cli/command-reference/dcos-security/)
+- [`dcos backup`](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-backup/)
+- [`dcos license`](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-license/)
+- [`dcos security`](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-security/)
 
 # <a name="ent-cli-install"></a>安装 DC/OS Enterprise CLI
 
 ## 先决条件
 
-DC/OS CLI 必须已经是 [已安装](/cn/1.12/cli/install/)。
+DC/OS CLI 必须已经是 [已安装](/mesosphere/dcos/cn/1.12/cli/install/)。
 
 <p class="message--note"><strong>注意：</strong>必须从 DC/OS CLI 安装 DC/OS Enterprise CLI。无法在 Web 界面中从 Catalog 安装 DC/OS Enterprise CLI。</p>
 

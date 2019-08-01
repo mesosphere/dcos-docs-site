@@ -9,7 +9,7 @@ enterprise: false
 
 # 使用 UCR 配置 Mesos 容器
 
-[通用容器运行时 (UCR)](http://mesos.apache.org/documentation/latest/container-image) 从二进制可执行文件启动 Mesos 容器，并扩展 Mesos 容器运行时间以支持配置 [Docker](https://docker.com/) 镜像。UCR 与 Docker Engine 相比，在运行 Docker 镜像方面具有许多[优势](/cn/1.12/deploying-services/containerizers/)。只有在您需要 Docker Engine 的[功能](/cn/1.12/deploying-services/containerizers/#container-runtime-features) 的时候才需使用 Docker Engine。
+[通用容器运行时 (UCR)](http://mesos.apache.org/documentation/latest/container-image) 从二进制可执行文件启动 Mesos 容器，并扩展 Mesos 容器运行时间以支持配置 [Docker](https://docker.com/) 镜像。UCR 与 Docker Engine 相比，在运行 Docker 镜像方面具有许多[优势](/mesosphere/dcos/cn/1.12/deploying-services/containerizers/)。只有在您需要 Docker Engine 的[功能](/mesosphere/dcos/cn/1.12/deploying-services/containerizers/#container-runtime-features) 的时候才需使用 Docker Engine。
 
 # DC/OS Web 界面
 使用此程序从 DC/OS Web 界面配置 UCR 的容器。
@@ -30,7 +30,7 @@ enterprise: false
 ## DC/OS CLI
 使用此程序从 DC/OS 命令行配置 UCR 的容器。
 
-1. 在 [Marathon 应用定义](/cn/1.12/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `MESOS`。在这里，我们使用 `docker` 对象指定 Docker 容器。UCR 提供可选的 `pullConfig` 参数以使您能够[对专用 Docker 注册表进行身份认证](/cn/1.12/deploying-services/private-docker-registry/)。
+1. 在 [Marathon 应用定义](/mesosphere/dcos/cn/1.12/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `MESOS`。在这里，我们使用 `docker` 对象指定 Docker 容器。UCR 提供可选的 `pullConfig` 参数以使您能够[对专用 Docker 注册表进行身份认证](/mesosphere/dcos/cn/1.12/deploying-services/private-docker-registry/)。
 
 ```json
 {

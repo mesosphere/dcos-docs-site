@@ -32,6 +32,6 @@ dcos job update <job-file> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
 
 

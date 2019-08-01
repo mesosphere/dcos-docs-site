@@ -14,7 +14,7 @@ enterprise: true
 
 1. 单击 **Add Directory**。
 
-    ![添加目录对话框](/1.12/img/ldap-add-dir-conn.png)
+    ![添加目录对话框](/mesosphere/dcos/1.12/img/ldap-add-dir-conn.png)
 
     图 1. 添加目录对话框
 
@@ -45,4 +45,4 @@ enterprise: true
 
 1. 要确保 DC/OS 群集不接受来自指定 LDAP 目录服务器以外的其他方的连接，请将 LDAP 目录服务器的根 CA 证书和任何中间证书粘贴到 **CA certificate chain (Optional)** 字段中。我们强烈建议您完成此步骤，以便与 LDAP 目录服务器建立安全通信信道。
 
-1. 指定身份认证方法和参数，如[身份认证部分](/cn/1.12/security/ent/ldap/ldap-auth/)中所述。
+1. 指定身份认证方法和参数，如[身份认证部分](/mesosphere/dcos/cn/1.12/security/ent/ldap/ldap-auth/)中所述。

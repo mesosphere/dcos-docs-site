@@ -14,7 +14,7 @@ You can reset an existing user or create a new user with the DC/OS reset superus
 
 **Prerequisite:** You must have SSH access to the DC/OS cluster.
 
-1.  [SSH](/1.14/administering-clusters/sshcluster/) to the master node using the method of your choice.
+1.  [SSH](/mesosphere/dcos/1.14/administering-clusters/sshcluster/) to the master node using the method of your choice.
 
     For example:
 

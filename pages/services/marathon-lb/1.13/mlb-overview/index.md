@@ -45,7 +45,7 @@ You can also customize operations for `HAProxy` and Marathon-LB through Lua scri
 ## Locating services and ports for load balancing
 When your app is up and running, you need a way to send traffic to it from other applications on the same cluster and from external clients. The most common way network traffic is routed to the appropriate application instances running on the appropriate agent nodes is through the domain name services ([DNS](http://en.wikipedia.org/wiki/Domain_Name_System)) you deploy. 
 
-For example, [Mesos-DNS](https://github.com/mesosphere/mesos-dns) provides service discovery through a cluster-aware domain name service that identifies IP addresses for master and agent nodes. For more information about service discovery and the default Mesosphere DNS configuration, see [DNS](/1.13/networking/DNS/mesos-dns/) and [DNS API](http://docs.mesosphere.com/1.13/networking/DNS/mesos-dns/mesos-dns-api).
+For example, [Mesos-DNS](https://github.com/mesosphere/mesos-dns) provides service discovery through a cluster-aware domain name service that identifies IP addresses for master and agent nodes. For more information about service discovery and the default Mesosphere DNS configuration, see [DNS](/mesosphere/dcos/1.13/networking/DNS/mesos-dns/) and [DNS API](http://docs.mesosphere.com/1.13/networking/DNS/mesos-dns/mesos-dns-api).
 
 Marathon-LB locates applications through the Marathon framework port-based service discovery using a virtual or DNS-defined IP address and the frontend and backend configuration settings specified for the HAProxy program. For a detailed description of how ports work in Marathon, see [Networking](https://mesosphere.github.io/marathon/docs/networking.html).
 

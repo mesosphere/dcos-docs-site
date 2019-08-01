@@ -8,14 +8,14 @@ enterprise: true
 ---
 
 You can manage secrets and certificates from the Secrets menu.
-![Secrets](/1.11/img/secrets-ee.png)
+![Secrets](/mesosphere/dcos/1.11/img/secrets-ee.png)
 
 Figure 1. Secrets
 
 If you click on an ID for one of your registered Secrets, the Store and registration information for that Secret will be displayed. By default, the Value field is hidden unless you click on the eye symbol.
 
-![Secrets info](/1.11/img/secrets-tab.png)
+![Secrets info](/mesosphere/dcos/1.11/img/secrets-tab.png)
 
 Figure 2. Secrets menu
 
-For more information, see  [Secrets](/1.11/security/ent/secrets/) and [Certificate](/1.11/security/ent/tls-ssl/) documentation.
+For more information, see  [Secrets](/mesosphere/dcos/1.11/security/ent/secrets/) and [Certificate](/mesosphere/dcos/1.11/security/ent/tls-ssl/) documentation.

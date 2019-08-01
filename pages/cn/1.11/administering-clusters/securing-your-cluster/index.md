@@ -38,7 +38,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 将证书和私钥复制到一个熟悉的位置，如在此位置下
 `/etc/ssl/certs`.
 
-如果您在 Admin Router 前运行 HAProxy，您应该保护它们之间的通信安全。有关保护您的通信的信息，请参阅[文档](/cn/1.11/security/oss/tls-ssl/haproxy-adminrouter/)。
+如果您在 Admin Router 前运行 HAProxy，您应该保护它们之间的通信安全。有关保护您的通信的信息，请参阅[文档](/mesosphere/dcos/cn/1.11/security/oss/tls-ssl/haproxy-adminrouter/)。
 
 ### 私有区
 
@@ -63,14 +63,14 @@ CloudFormation 模板，大量公共区端口暴露于
 互联网中。在生产系统中，您不太可能
 暴露所有这些端口。除了
 80 和 443（用于 HTTP/HTTPS 流量）端口，建议您关闭所有端口，并使用
-[Marathon-LB](/cn/1.11/networking/marathon-lb/) 和 HTTPS
+[Marathon-LB](/mesosphere/dcos/cn/1.11/networking/marathon-lb/) 和 HTTPS
 管理入口流量。
 
 ### 典型 AWS 部署
 
 包括 AWS 负载均衡器的典型 AWS 部署如下所示：
 
-    ![安全区](/cn/1.11/img/security-zones.jpg)
+    ![安全区](/mesosphere/dcos/cn/1.11/img/security-zones.jpg)
 
     图 1. 安全区
 
@@ -90,4 +90,4 @@ Router 代理（在其内核使用 [Nginx](http://nginx.org) 和
 集群中执行任意操作。即，DC/OS 中目前没有极细化的访问控制，
 仅提供可访问服务和不可访问服务这两种控制。
 
-请参阅 [安全部分](/cn/1.11/security/) 了解更多信息。
+请参阅 [安全部分](/mesosphere/dcos/cn/1.11/security/) 了解更多信息。

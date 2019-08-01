@@ -23,7 +23,7 @@ Mesos-DNS 专为可靠性和简单性而设计。它需要的配置很少，启�
 
 您可以通过添加额外的管理节点，以大量代理节点使群集中的 DNS 请求负载均衡；不需要另外配置。
 
-![Mesos-DNS](/1.12/img/mesos-dns.png)
+![Mesos-DNS](/mesosphere/dcos/1.12/img/mesos-dns.png)
 
 图 1. Mesos-DNS 集成
 

@@ -10,7 +10,7 @@ excerpt: Using the UI for DC/OS management
 
 The DC/OS UI provides a rich graphical view of your DC/OS cluster. With the UI you can view the current state of your entire cluster and DC/OS services. The UI is installed as a part of your DC/OS installation.
 
-![Dashboard](/1.14/img/dashboard-ee-1-12.png)
+![Dashboard](/mesosphere/dcos/1.14/img/dashboard-ee-1-12.png)
 
 Figure 1 - Dashboard
 
@@ -20,19 +20,19 @@ On the header bar, the username and cluster name are displayed as menus.
 
 In the user menu, there is a link to let you sign out or change the language of the display:
 
-![DC/OS UI User Menu](/1.14/img/GUI-change-UI-language-selector.png)
+![DC/OS UI User Menu](/mesosphere/dcos/1.14/img/GUI-change-UI-language-selector.png)
 
 Figure 2 - Header Bar User Menu
 
-In the cluster menu, there are links for: [Cluster Overview](/1.14/gui/cluster/), Documentation and CLI Installation.
+In the cluster menu, there are links for: [Cluster Overview](/mesosphere/dcos/1.14/gui/cluster/), Documentation and CLI Installation.
 
-![DC/OS UI Cluster Menu](/1.14/img/header-bar-cluster-dropdown-1-12.png)
+![DC/OS UI Cluster Menu](/mesosphere/dcos/1.14/img/header-bar-cluster-dropdown-1-12.png)
 
 Figure 3 - Header Bar Cluster Menu
 
-For DC/OS Enterprise, there is also a link for administering [linked clusters](/1.14/administering-clusters/multiple-clusters/cluster-links/).
+For DC/OS Enterprise, there is also a link for administering [linked clusters](/mesosphere/dcos/1.14/administering-clusters/multiple-clusters/cluster-links/).
 
-![DC/OS UI Cluster Menu with Linked Cluster](/1.14/img/switch-cluster-1-12.png)
+![DC/OS UI Cluster Menu with Linked Cluster](/mesosphere/dcos/1.14/img/switch-cluster-1-12.png)
 
 Figure 4 - Cluster Menu with Switch Cluster Option
 
@@ -44,19 +44,19 @@ You can change the language in which the UI is displayed.
 
 1. Click on your username in the header bar.
 
-    ![Username Menu](/1.14/img/GUI-change-UI-settings-menu-3.png)
+    ![Username Menu](/mesosphere/dcos/1.14/img/GUI-change-UI-settings-menu-3.png)
 
     Figure 5 - User name menu
 
 1. From the drop-down menu, select "English (change)".
 
-    ![Drop Down menu](/1.14/img/GUI-change-UI-language-selector.png)
+    ![Drop Down menu](/mesosphere/dcos/1.14/img/GUI-change-UI-language-selector.png)
 
     Figure 6 - Username menu
 
 1. From the Language Preferences window, select your language.
 
-    ![Language Preferences](/1.14/img/GUI-change-UI-settings-menu-2.png)
+    ![Language Preferences](/mesosphere/dcos/1.14/img/GUI-change-UI-settings-menu-2.png)
 
     Figure 7 - Language preferences menu
 
@@ -66,7 +66,7 @@ You can change the language in which the UI is displayed.
 
 1. Click on **Settings > UI Settings**.
 
-    ![UI settings tab](/1.14/img/GUI-change-UI-settings-menu-1.png)
+    ![UI settings tab](/mesosphere/dcos/1.14/img/GUI-change-UI-settings-menu-1.png)
 
     Figure 8 - UI Settings tab
 
@@ -74,7 +74,7 @@ You can change the language in which the UI is displayed.
 
 1. From the Language Preferences window, select your language.
 
-    ![Language Preferences](/1.14/img/GUI-change-UI-settings-menu-2.png)
+    ![Language Preferences](/mesosphere/dcos/1.14/img/GUI-change-UI-settings-menu-2.png)
 
     Figure 9 - Language preferences menu
 1. Click **Save**.

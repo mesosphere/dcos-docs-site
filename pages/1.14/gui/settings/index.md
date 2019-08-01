@@ -12,6 +12,6 @@ In the Settings menu you can manage package repositories, change the UI settings
 
 
 
-![Package repositories](/1.14/img/GUI-Settings-EE-Package_Repositories-1_12.png)
+![Package repositories](/mesosphere/dcos/1.14/img/GUI-Settings-EE-Package_Repositories-1_12.png)
 
 Figure 1 - **Settings > Package Repositories** tab

@@ -35,7 +35,7 @@ VIP 遵循以下命名约定：
 
 ## 创建 VIP
 
-1. 从 DC/OS [GUI](/cn/1.11/gui/)，单击**Services**选项卡，然后单击**RUN A SERVICE**。
+1. 从 DC/OS [GUI](/mesosphere/dcos/cn/1.11/gui/)，单击**Services**选项卡，然后单击**RUN A SERVICE**。
     1. 在**Networking**选项卡上，选择**Network Type > Virtual Network：dcos**。
     2. 展开**ADD SERVICE ENDPOINT**，为以下内容提供回复：
 
@@ -46,7 +46,7 @@ VIP 遵循以下命名约定：
 
       在填写这些字段时，Marathon 设置的服务地址将出现在屏幕底部。您可以单击**ADD SERVICE ENDPOINT**，将多个 VIP 分配到您的应用程序。
 
-      ![VIP 服务定义](/cn/1.11/img/vip-service-definition.png)
+      ![VIP 服务定义](/mesosphere/dcos/cn/1.11/img/vip-service-definition.png)
 
       图 1. VIP 服务定义屏幕
 
@@ -56,15 +56,15 @@ VIP 遵循以下命名约定：
 
 您可以单击**网络**选项卡，查看服务的网络详情。
 
-![VIP 输出](/cn/1.11/img/vip-service-definition-output.png)
+![VIP 输出](/mesosphere/dcos/cn/1.11/img/vip-service-definition-output.png)
  
 图 2. 服务定义输出
 
-有关端口配置的更多信息，请参阅 [Marathon 端口文档](/cn/1.11/deploying-services/service-ports/)。
+有关端口配置的更多信息，请参阅 [Marathon 端口文档](/mesosphere/dcos/cn/1.11/deploying-services/service-ports/)。
 
 ## 通过 DC/OS 服务使用 VIP
 
-某些 DC/OS 服务（如 [Kafka](/cn/services/kafka/)）在您安装它们时会自动创建 VIP。命名约定是：`broker. <service.name>.l4lb.thisdcos.directory:9092`。
+某些 DC/OS 服务（如 [Kafka](/mesosphere/dcos/cn/services/kafka/)）在您安装它们时会自动创建 VIP。命名约定是：`broker. <service.name>.l4lb.thisdcos.directory:9092`。
 
 按照以下步骤查看 Kafka 的 VIP。
 
@@ -73,13 +73,13 @@ VIP 遵循以下命名约定：
 1. 单击**网络** > **网络**，然后选择**dcos**。
 1. 选择任务以查看详情。
 
-  ![VIP service details](/cn/1.11/img/vip-service-details.png)
+  ![VIP service details](/mesosphere/dcos/cn/1.11/img/vip-service-details.png)
 
  图 3. VIP 服务详情
 
 ### 通过 CLI
 
-**先决条件：** Kafka 服务和 CLI 必须 [已安装](/cn/services/kafka/)。
+**先决条件：** Kafka 服务和 CLI 必须 [已安装](/mesosphere/dcos/cn/services/kafka/)。
 
 1. 运行此命令：
 
@@ -110,4 +110,4 @@ VIP 遵循以下命名约定：
 
 数据库等长时间连接的应用程序，例如数据库（如 Postgresql）通常会出现这种情况。若要修复，请尝试开启 keepalive。keepalive 可以是应用程序特定的机制（如通信校验），或是 TCP keepalive 等协议中的某些内容。需要有 keepalive，因为负载均衡器无法区分空闲连接或死机连接，原因是数据包在任何一种情况下都不会被发送。默认超时取决于内核配置，但通常为五分钟。
 
- [1]: /cn/1.11/deploying-services/service-ports/
+ [1]: /mesosphere/dcos/cn/1.11/deploying-services/service-ports/

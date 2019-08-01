@@ -28,7 +28,7 @@ Before describing the software architecture we describe the packet flow that wil
 
 ## DC/OS overlay in action
 
-![Agent configuration for containers running on MesosContainerizer and Docker once the VxLAN has been configured.](/1.10/img/overlay-fig-1.png)
+![Agent configuration for containers running on MesosContainerizer and Docker once the VxLAN has been configured.](/mesosphere/dcos/1.10/img/overlay-fig-1.png)
 
 Figure 1: Agent configuration for containers running on MesosContainerizer and Docker once the VxLAN has been configured.
 
@@ -70,7 +70,7 @@ The challenges gives us a laundry list that need to be addressed to make the DC/
 
 ## Software Architecture
 
-![Software architecture for DC/OS overlay control plane.](/1.10/img/overlay-fig-2.png)
+![Software architecture for DC/OS overlay control plane.](/mesosphere/dcos/1.10/img/overlay-fig-2.png)
 
 Figure 2: Software architecture for DC/OS overlay control plane. 
 

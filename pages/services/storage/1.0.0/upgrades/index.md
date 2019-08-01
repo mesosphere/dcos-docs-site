@@ -25,7 +25,7 @@ Therefore, to upgrade from DSS 0.6 to DSS 1.0, you must also upgrade DC/OS Enter
 
 ## Upgrading to DSS 1.0.x on permissive security clusters
 
-1. Add the new DSS `.dcos` package to the [package registry](/latest/administering-clusters/package-registry/). You can download the `.dcos` package of the DC/OS Storage Service (DSS) from the [Mesosphere support site](https://support.mesosphere.com/hc/en-us/articles/213198586). You must have a Mesosphere support account in order to download software from this page.
+1. Add the new DSS `.dcos` package to the [package registry](/mesosphere/dcos/latest/administering-clusters/package-registry/). You can download the `.dcos` package of the DC/OS Storage Service (DSS) from the [Mesosphere support site](https://support.mesosphere.com/hc/en-us/articles/213198586). You must have a Mesosphere support account in order to download software from this page.
     ```bash
     dcos registry add --dcos-file storage.dcos
     ```
@@ -62,7 +62,7 @@ Therefore, to upgrade from DSS 0.6 to DSS 1.0, you must also upgrade DC/OS Enter
 
 ## Upgrading DSS to 1.0.x on strict security clusters
 
-1. Add the new DSS `.dcos` package to the [package registry](/latest/administering-clusters/package-registry/). You can download the `.dcos` package of the DC/OS Storage Service (DSS) from the [Mesosphere support site](https://support.mesosphere.com/hc/en-us/articles/213198586). You must have a Mesosphere support account in order to download software from this page.
+1. Add the new DSS `.dcos` package to the [package registry](/mesosphere/dcos/latest/administering-clusters/package-registry/). You can download the `.dcos` package of the DC/OS Storage Service (DSS) from the [Mesosphere support site](https://support.mesosphere.com/hc/en-us/articles/213198586). You must have a Mesosphere support account in order to download software from this page.
     ```bash
     dcos registry add --dcos-file storage.dcos
     ```

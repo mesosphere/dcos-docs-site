@@ -12,12 +12,12 @@ menuWeight: 5
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/cn/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.12/tutorials/dcos-101/cli/)。
-* [app1](/cn/1.12/tutorials/dcos-101/app1/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 群集](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/cli/)。
+* [app1](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/app1/) 已部署并在您的群集中运行。
 
 
 # 目的
-在本教程[前述部分](/cn/1.12/tutorials/dcos-101/app1/)中，您部署了在群集内部运行的应用程序，与群集中的其他应用程序连接，而不是在外部进行交互。在此部分中，您将部署为用户提供 GUI 的应用程序。您还将本地部署此应用程序，而不依赖于 Docker 作为依赖项，从而降低复杂性。
+在本教程[前述部分](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/app1/)中，您部署了在群集内部运行的应用程序，与群集中的其他应用程序连接，而不是在外部进行交互。在此部分中，您将部署为用户提供 GUI 的应用程序。您还将本地部署此应用程序，而不依赖于 Docker 作为依赖项，从而降低复杂性。
 
 # 步骤
 1. 简要了解一下 [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go)。App2 是基于 [Go](https://golang.org/) 的 HTTP 服务器，它向 Redis 公开了一个非常简单的接口。
@@ -59,11 +59,11 @@ menuWeight: 5
 
 让我们更详细地探讨一下这些差异。
 
-DC/OS 使用[容器化工具](/cn/1.12/deploying-services/containerizers/)在容器中运行任务。容器中的运行任务提供了许多好处，包括将任务彼此隔离并以编程方式控制任务资源的能力。DC/OS 支持两种类型的容器化工具 - DC/OS Universal Container Runtime 和 Docker 容器化工具。
+DC/OS 使用[容器化工具](/mesosphere/dcos/cn/1.12/deploying-services/containerizers/)在容器中运行任务。容器中的运行任务提供了许多好处，包括将任务彼此隔离并以编程方式控制任务资源的能力。DC/OS 支持两种类型的容器化工具 - DC/OS Universal Container Runtime 和 Docker 容器化工具。
 
 对于第一个应用程序，您使用 Docker 容器镜像来封装 `app1` 的依赖项（请记住：永远不要依赖于代理程序上安装的依赖项！），然后使用 Docker 容器化工具来执行它。由于 Docker 容器化工具在内部使用 [Docker 运行时间](https://docs.docker.com/engine/userguide/intro/)，因此您还使用了 Docker 运行时间。
 
 对于第二个应用程序，您没有任何依赖项，因此可能依赖于默认的 DC/OS Universal Container Runtime。在内部，两个运行时间都使用相同的 OS 功能进行隔离，即 [cgroup](https://en.wikipedia.org/wiki/Cgroups) 和 [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces)。
-这实际上可以使用 DC/OS Universal Container Runtime 来运行 Docker 镜像 - 有关详细信息，请查看 [DC/OS Universal Container Runtime](/cn/1.12/deploying-services/containerizers/) 文档。
+这实际上可以使用 DC/OS Universal Container Runtime 来运行 Docker 镜像 - 有关详细信息，请查看 [DC/OS Universal Container Runtime](/mesosphere/dcos/cn/1.12/deploying-services/containerizers/) 文档。
 
-在本教程的[下一部分](/cn/1.12/tutorials/dcos-101/marathon-lb/)中，您将公开展示您的应用。
+在本教程的[下一部分](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/marathon-lb/)中，您将公开展示您的应用。

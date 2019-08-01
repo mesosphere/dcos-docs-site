@@ -26,7 +26,7 @@ Edge-LB 作为 DC/OS 服务进行安装，而非内置组件。以下列出的�
 
 # 服务帐户权限
 
-要使 Edge-LB 运行，必须将其配置为使用 [服务账户](/cn/services/edge-lb/1.1/installing/#create-a-service-account/)。
+要使 Edge-LB 运行，必须将其配置为使用 [服务账户](/mesosphere/dcos/cn/services/edge-lb/1.1/installing/#create-a-service-account/)。
 
 为方便管理，将服务帐户主体添加到 `superusers` 组。
 

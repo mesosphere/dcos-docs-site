@@ -12,7 +12,7 @@ In Spark 2.3.1-2.2.1-2 and later, these topics have been divided up among the Ge
 
 # Configuring DC/OS Access
 
-This topic describes how to configure DC/OS access for Spark. Depending on your [security mode](/1.12/security/ent/#security-modes/), Spark requires [service authentication](/1.12/security/ent/service-auth/) for access to DC/OS.
+This topic describes how to configure DC/OS access for Spark. Depending on your [security mode](/mesosphere/dcos/1.12/security/ent/#security-modes/), Spark requires [service authentication](/mesosphere/dcos/1.12/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 |---------------|-----------------------|
@@ -20,13 +20,13 @@ This topic describes how to configure DC/OS access for Spark. Depending on your 
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in `permissive` mode and do not specify a service account, Metronome and Marathon will act as if requests made by this service are made by an account with the [superuser permission](/1.12/security/ent/perms-reference/#superuser).
+If you install a service in `permissive` mode and do not specify a service account, Metronome and Marathon will act as if requests made by this service are made by an account with the [superuser permission](/mesosphere/dcos/1.12/security/ent/perms-reference/#superuser).
 
 ## Prerequisites
 
-- [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser.
-- [Enterprise DC/OS CLI 0.4.14 or later installed](/1.12/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/1.12/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- [DC/OS CLI installed](/mesosphere/dcos/1.12/cli/install/) and be logged in as a superuser.
+- [Enterprise DC/OS CLI 0.4.14 or later installed](/mesosphere/dcos/1.12/cli/enterprise-cli/#ent-cli-install).
+- If your [security mode](/mesosphere/dcos/1.12/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 <a name="SetPermsOutsideCluster"></a>
 
@@ -195,7 +195,7 @@ dcos spark run --verbose --submit-args=" \
 --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
 ```
 
-If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable:
+If you want to use the [Docker Engine](/mesosphere/dcos/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/mesosphere/dcos/1.10/deploying-services/containerizers/ucr/), you must specify the user through the `SPARK_USER` environment variable:
 
 ```bash
 dcos spark run --verbose --submit-args="\

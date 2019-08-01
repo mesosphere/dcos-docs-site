@@ -31,8 +31,8 @@ Please try out the new features and updated services. Provide any feedback throu
 
 ## Container Orchestration
 
-- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/). [preview type="inline" size="small" /]
-- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/1.9/deploying-services/gpu/). [preview type="inline" size="small" /]
+- Pods - Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/mesosphere/dcos/1.9/deploying-services/pods/). [preview type="inline" size="small" /]
+- GPU - Leverage GPUs to run novel algorithms. For more information, see the [documentation](/mesosphere/dcos/1.9/deploying-services/gpu/). [preview type="inline" size="small" /]
 - Significant scalability improvements.
 
 ## DC/OS Monitoring and Operations
@@ -47,7 +47,7 @@ The new `dcos task exec` command allows you to remotely execute a process inside
 - Attach to a remote pseudoterminal (aka PTY) inside a container via the optional `--tty` flag.
 - Combine the `--interactive` and `--tty` flags to launch an interactive bash session or to run `top` and see the resource usage of your container in real time.
 
-For more information, see the documentation for the `dcos task exec` command [here](/1.9/monitoring/debugging/).
+For more information, see the documentation for the `dcos task exec` command [here](/mesosphere/dcos/1.9/monitoring/debugging/).
 
 [experimental]
 ### Logging
@@ -59,7 +59,7 @@ Stream task and system logs to journald by setting the `mesos_container_log_sink
 - Use the new DC/OS CLI commands `dcos node log` and `dcos task log` to query logs. You can also make HTTP requests directly against the new Logging API.
 - Set up log aggregation solutions such as Logstash to get logs into their aggregated storage solutions.
 
-For more information, see the [documentation](/1.9/monitoring/logging/).
+For more information, see the [documentation](/mesosphere/dcos/1.9/monitoring/logging/).
 
 [experimental]
 ### Metrics 
@@ -69,23 +69,23 @@ For more information, see the [documentation](/1.9/monitoring/logging/).
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.
 - Any metric sent to STATSD_UDP_HOST/PORT is available in the HTTP API’s `/container/<container_id>/app` endpoint.
 
-For more information, see the [documentation](/1.9/metrics/).
+For more information, see the [documentation](/mesosphere/dcos/1.9/metrics/).
 
 ### Tool for Troubleshooting Service Deployment Failures
 
 - The new service deployment troubleshooting tool allows you to find out why your applications aren’t starting from the GUI and CLI.
 
-  ![Service deploy GUI](/1.9/img/dcos-offers.png)
+  ![Service deploy GUI](/mesosphere/dcos/1.9/img/dcos-offers.png)
 
 ### Improved GUI
 
 - New look and feel and improved navigation.
 
-  ![New GUI](/1.9/img/dcos-dash.png)
+  ![New GUI](/mesosphere/dcos/1.9/img/dcos-dash.png)
 
 - Usability improvements to the service create workflow.
 
-  ![Improved GUI](/1.9/img/dcos-create.png)
+  ![Improved GUI](/mesosphere/dcos/1.9/img/dcos-create.png)
 
 ## Networking Services
 
@@ -105,7 +105,7 @@ For more information, see the [documentation](/1.9/metrics/).
   - Support single sign-on authentication via OpenID Connect and SAML 2.0 against the DC/OS IAM.
   - Support authentication with service account credentials.
 
-- Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/ent/secrets/)).
+- Introduce various secrets improvements (for more information, see the [secrets documentation](/mesosphere/dcos/1.9/security/ent/secrets/)).
 - Security hardening across the platform, including Mesos, Marathon, and Admin Router.
 
 ## Developer Services
@@ -131,19 +131,19 @@ For more information, see the [documentation](/1.9/metrics/).
 
 ### Expanded Docker Engine Support
 
-- Docker 1.12 is now [supported](/1.9/installing/ent/custom/system-requirements/).
+- Docker 1.12 is now [supported](/mesosphere/dcos/1.9/installing/ent/custom/system-requirements/).
 
 ### Upgrades
 
 Improved upgrade tooling and experience for on-premise installations. Upgrades now use internal DC/OS APIs to ensure nodes can be upgraded with minimal disruption to running DC/OS services on a node. The upgrade procedure has also been simplified to improve user experience.
 
-For more information, see the [documentation](/1.9/installing/ent/upgrading/).
+For more information, see the [documentation](/mesosphere/dcos/1.9/installing/ent/upgrading/).
 
 # <a name="known-issues"></a>Known Issues and Limitations
 
 - Marathon-LB does not support pods.
-- If you install DC/OS 1.9 by using the [GUI](/1.9/installing/ent/custom/gui/) or [CLI](/1.9/installing/ent/custom/cli/) install methods, your system will be automatically upgraded to CentOS 7.3.
+- If you install DC/OS 1.9 by using the [GUI](/mesosphere/dcos/1.9/installing/ent/custom/gui/) or [CLI](/mesosphere/dcos/1.9/installing/ent/custom/cli/) install methods, your system will be automatically upgraded to CentOS 7.3.
 - The next 1.9 release candidate will use CentOS 7.3 as the default version.
 - The next 1.9 release candidate will use Docker 1.13 as the default version.
-- The next 1.9 release candidate will have [task logging to journald](/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.
+- The next 1.9 release candidate will have [task logging to journald](/mesosphere/dcos/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.
 - [4137](https://github.com/mesosphere/marathon/issues/4137) - Volumes do not persist.

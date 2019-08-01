@@ -42,7 +42,7 @@ Kerberos authentication relies on a central authority to verify that {{ model.te
 - The hostname and port of a KDC reachable from your DC/OS cluster
 - Sufficient access to the KDC to create Kerberos principals
 - Sufficient access to the KDC to retrieve a keytab for the generated principals
-- [The DC/OS Enterprise CLI](/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
+- [The DC/OS Enterprise CLI](/mesosphere/dcos/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
 - DC/OS Superuser permissions
 
 #### Configure Kerberos Authentication

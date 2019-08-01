@@ -69,7 +69,7 @@ This procedure will show you how to configure DC/OS to act as a SAML service pro
 
 ## Obtain the DC/OS callback URL
 
-This procedure uses the Identity and Access Management API (IAM API). For more details on the IAM API, you can visit the [IAM API documentation](/1.14/security/ent/iam-api/).
+This procedure uses the Identity and Access Management API (IAM API). For more details on the IAM API, you can visit the [IAM API documentation](/mesosphere/dcos/1.14/security/ent/iam-api/).
 
 
 1. Make a `GET` request to `<your-cluster-URL>/acs/api/v1/auth/saml/providers` using either your browser or curl.
@@ -114,7 +114,7 @@ This procedure uses the Identity and Access Management API (IAM API). For more d
 
 1. Log into the DC/OS GUI as a user with the `dcos:superuser` permission.
 2. Locate the email address of the user you just tried to log in as in the **Organization** -> **Users** tab and double-click it.
-3. Assign the desired permissions to the account. For more information about assigning permissions, visit the [Permissions](/1.14/security/ent/perms-reference/) documentation.
+3. Assign the desired permissions to the account. For more information about assigning permissions, visit the [Permissions](/mesosphere/dcos/1.14/security/ent/perms-reference/) documentation.
 
 
 # Troubleshooting

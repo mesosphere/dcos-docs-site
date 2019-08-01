@@ -11,7 +11,7 @@ enterprise: true
 
 ## Install or Upgrade to DC/OS Enterprise 1.12
 
-The DC/OS Package Registry is included with DC/OS Enterprise 1.12. If needed, please follow the [instructions for upgrading to DC/OS 1.12](/1.12/installing/production/upgrading/) first before continuing.
+The DC/OS Package Registry is included with DC/OS Enterprise 1.12. If needed, please follow the [instructions for upgrading to DC/OS 1.12](/mesosphere/dcos/1.12/installing/production/upgrading/) first before continuing.
 
 ## Remove the Universe Repository (optional)
 
@@ -83,7 +83,7 @@ echo '{"registry":{"service-account-secret-path":"registry-private-key"}}' > reg
 dcos package install package-registry --options=registry-options.json --yes
 ```
 
-By default, DC/OS Package Registry stores DC/OS Packages on the local filesystem. However, this does not scale horizontally, neither is it highly available. Please see [S3 Storage option](/1.12/administering-clusters/repo/package-registry/operating/planning/#s3-storage-option) for a more flexible approach. Moreover, the default configuration assumes that the secrets for the service account for the DC/OS Package Registry are stored in `registry-private-key` in the DC/OS Secret Store. If that is not the case, please substitute the correct path and filename for `registry-private-key`.
+By default, DC/OS Package Registry stores DC/OS Packages on the local filesystem. However, this does not scale horizontally, neither is it highly available. Please see [S3 Storage option](/mesosphere/dcos/1.12/administering-clusters/repo/package-registry/operating/planning/#s3-storage-option) for a more flexible approach. Moreover, the default configuration assumes that the secrets for the service account for the DC/OS Package Registry are stored in `registry-private-key` in the DC/OS Secret Store. If that is not the case, please substitute the correct path and filename for `registry-private-key`.
 
 ## Enable the DC/OS Package Registry with the DC/OS Package Manager
 

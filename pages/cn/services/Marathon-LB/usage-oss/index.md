@@ -9,8 +9,8 @@ navigationTitle: 上安装和自定义 ： 开源
 
 **先决条件：**
 
-- DC/OS [已安装](/cn/1.11/installing/oss/)
-- DC/OS CLI [已安装](/cn/1.11/cli/install/)
+- DC/OS [已安装](/mesosphere/dcos/cn/1.11/installing/oss/)
+- DC/OS CLI [已安装](/mesosphere/dcos/cn/1.11/cli/install/)
 
 # 默认安装
 
@@ -72,6 +72,6 @@ navigationTitle: 上安装和自定义 ： 开源
 
 ## 后续步骤
 
-- [教程 - 使用 Marathon-LB 部署负载均衡应用](/cn/services/marathon-lb/1.12/mlb-basic-tutorial/)
-- [教程 - 使用 Marathon-LB 进行内部和外部负载均衡](/cn/services/marathon-lb/marathon-lb-advanced-tutorial/)
-- 查看高级 Marathon-LB [文档](/cn/services/marathon-lb/advanced/)。
+- [教程 - 使用 Marathon-LB 部署负载均衡应用](/mesosphere/dcos/cn/services/marathon-lb/1.12/mlb-basic-tutorial/)
+- [教程 - 使用 Marathon-LB 进行内部和外部负载均衡](/mesosphere/dcos/cn/services/marathon-lb/marathon-lb-advanced-tutorial/)
+- 查看高级 Marathon-LB [文档](/mesosphere/dcos/cn/services/marathon-lb/advanced/)。

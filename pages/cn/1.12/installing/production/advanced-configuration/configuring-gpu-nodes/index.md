@@ -30,8 +30,8 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
 ## 带有 GPU 的 AWS EC2 DC/OS 安装
 
 ## 先决条件
-- AWS DC/OS 高级模板 [系统要求](/1.12/installing/evaluation/aws/)。
-- 复制到本地机器的 `zen.sh` 脚本。脚本和说明在 [此处](/1.12/installing/evaluation/aws/)。
+- AWS DC/OS 高级模板 [系统要求](/mesosphere/dcos/1.12/installing/evaluation/aws/)。
+- 复制到本地机器的 `zen.sh` 脚本。脚本和说明在 [此处](/mesosphere/dcos/1.12/installing/evaluation/aws/)。
 
 ### 创建依赖关系
 
@@ -43,7 +43,7 @@ bash ./zen.sh <stack-name>
 
  <p class="message--important"><strong>重要信息：</strong>在执行后续步骤之前，您必须运行 <code>zen.sh</code> 脚本。</p>
 
-2. 请根据 [此处](/1.12/installing/evaluation/aws/) 说明，使用以下 GPU 专用配置创建具有高级 AWS 模板的群集。
+2. 请根据 [此处](/mesosphere/dcos/1.12/installing/evaluation/aws/) 说明，使用以下 GPU 专用配置创建具有高级 AWS 模板的群集。
 
 3. 在 **创建堆栈** > **指定详情**页面指定您的堆栈信息并单击 **下一步**。以下是 GPU 特定设置。
 

@@ -54,7 +54,7 @@ This release extends DC/OS cluster monitoring capabilities and the metrics you c
 
     When you install the DC/OS monitoring service, you can select the volume size and a volume profile for the file system where you want to store the Prometheus time-series database (`tsdb`). By specifying a volume managed by the DC/OS Storage Service, you can take advantage of the durability, performance, and flexibility DSS provides for your collected data.
 
-    For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/services/dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/services/storage/latest/).
+    For more information about working with the DC/OS monitoring service, see [DC/OS Monitoring Service](/mesosphere/dcos/services/dcos-monitoring/). For more information about using the DC/OS storage service, see [DC/OS Storage Service](/mesosphere/dcos/services/storage/latest/).
 
 - The DC/OS monitoring service enables you to import curated alerting rules. <!--(DCOS-47666)-->
 
@@ -117,17 +117,17 @@ You can also collect information about the operation and performance of the Tele
 
 <!-- Application and DC/OS cluster component logs are now aggregated, enabling you to configure forwarding to third-party log storage, search, and reporting services. Previously, forwarding logged information required you to install third-party agents or aggregator services on cluster nodes to perform this task. With the introduction of support for Fluent Bit--a cloud-native, multi-platform log processor and forwarder--you can now leverage easy-to-configure plugins to perform log filtering and forwarding to a log collection, search, and reporting service.
 
-For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/1.13/monitoring/logging/). -->
+For more information about how to configure logging to integrate with Fluent Bit, see [Logging](/mesosphere/dcos/1.13/monitoring/logging/). -->
 
 For more information about collecting metrics and configuring metrics plugins, see the following topics:
-- [Metrics Plugin Architecture](/1.13/metrics/architecture/)
-- [Mesos Metrics](/1.13/metrics/mesos/)
-- [Configuration Reference](/1.13/installing/production/advanced-configuration/configuration-reference/)
+- [Metrics Plugin Architecture](/mesosphere/dcos/1.13/metrics/architecture/)
+- [Mesos Metrics](/mesosphere/dcos/1.13/metrics/mesos/)
+- [Configuration Reference](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/)
 
 ## Command-line interface
 - Identify the public-facing IP address for public agent nodes through the DC/OS CLI. <!--(DCOS-44697)-->
 
-    With this release, you can retrieve the public-facing IP addresses for the nodes in a cluster by running the `dcos node list` command. For more information about using the new command for retrieving public IP addresses, see the [dcos node](/1.13/cli/command-reference/dcos-node/) command reference.
+    With this release, you can retrieve the public-facing IP addresses for the nodes in a cluster by running the `dcos node list` command. For more information about using the new command for retrieving public IP addresses, see the [dcos node](/mesosphere/dcos/1.13/cli/command-reference/dcos-node/) command reference.
 
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a **public cloud provider** such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
@@ -135,19 +135,19 @@ For more information about collecting metrics and configuring metrics plugins, s
 
     If you have deployed a DC/OS Enterprise cluster, ypu can now automatically install the DC/OS Enterprise CLI when you install the base CLI package. Previously, the DC/OS Enterprise CLI could only be installed manually after the successful installation of the base DC/OS CLI.
 
-    For more information about installing the command-line interface (CLI) and CLI plugins, see [Installing the CLI](/1.13/cli/install) and [Installing the DC/OS Enterprise CLI](/1.13/cli/enterprise-cli/).
+    For more information about installing the command-line interface (CLI) and CLI plugins, see [Installing the CLI](/mesosphere/dcos/1.13/cli/install) and [Installing the DC/OS Enterprise CLI](/mesosphere/dcos/1.13/cli/enterprise-cli/).
 
 - Basic auto-completion using the TAB key. <!--(DCOS-39774)-->
 
     You can now use the TAB key to provide automatic completion when typing DC/OS commands. Auto-completion enables you to execute commands in a shell terminal more quickly by attempting to predict the rest of a command or subcommand you are typing. If the suggested text matches the command you intended, you can press the TAB key to accept the suggestion and execute the command.
 
-    For more information about using auto-completion when you are working with the command-line interface (CLI) and CLI plugins, see [Enabling autocompletion for the CLI](/1.13/cli/autocompletion/).
+    For more information about using auto-completion when you are working with the command-line interface (CLI) and CLI plugins, see [Enabling autocompletion for the CLI](/mesosphere/dcos/1.13/cli/autocompletion/).
 
 - Dynamic auto-completion of cluster names for `dcos cluster attach` and `dcos cluster remove` commands.<!--(DCOS-47214)-->
 
     You can now use the TAB key to provide automatic completion for potential cluster names when you run the `dcos cluster attach` or `dcos cluster remove` commands.
 
-    For more information about using auto-completion when you are working with the command-line interface (CLI) and CLI plugins, see [Enabling autocompletion for the CLI](/1.13/cli/autocompletion/).
+    For more information about using auto-completion when you are working with the command-line interface (CLI) and CLI plugins, see [Enabling autocompletion for the CLI](/mesosphere/dcos/1.13/cli/autocompletion/).
 
 - CLI support for macOS using Homebrew. <!--(DCOS-47562)-->
 
@@ -201,11 +201,11 @@ For more information about collecting metrics and configuring metrics plugins, s
 
     DC/OS 1.13 UI now includes a new tab in the Details section of every SDK-based data service. This new tab provides a clear indication of the status and progress of SDK-based services during the service life cycle, including installation and upgrade activity. From the Details tab, you can see information about the specific operational plans that are currently running or have just completed. You can also view the execution of each task so that you can easily track the progress of the plans you have deployed.
 
-    For more information about viewing up-to-date status information for services and operational plans, see the [Services](/1.13/gui/services/) documentation.
+    For more information about viewing up-to-date status information for services and operational plans, see the [Services](/mesosphere/dcos/1.13/gui/services/) documentation.
 
 - Identify the public-facing IP address for public agent nodes in the DC/OS UI. <!--(DCOS-49987)-->
 
-    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS UI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS UI, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
+    With this release, you can view the public-facing IP addresses for agent nodes in the DC/OS UI. Previously, retrieving the public IP address for a node required writing a custom query. For more information about viewing public IP addresses in the DC/OS UI, see [Finding the public IP address](/mesosphere/dcos/1.13/administering-clusters/locate-public-agent/).
 
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a **public cloud provider** such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 
@@ -213,25 +213,25 @@ For more information about collecting metrics and configuring metrics plugins, s
 
     Mesosphere DC/OS 1.13 UI has now been translated into Mandarin Chinese. Mandarin-speaking customers and users can now easily switch the language displayed in the UI and be able to interact with DC/OS operations and functions in English or Chinese. The DC/OS documentation has also been translated to Chinese to support those customers. Support for additional languages can be provided if there is sufficient customer demand.
 
-    For information about changing the language displayed, see the [UI](/1.13/gui/) documentation.
+    For information about changing the language displayed, see the [UI](/mesosphere/dcos/1.13/gui/) documentation.
 
 ## Installation
 - Multi-region support using the Universal Installer. <!--(DCOS-45727)-->
 
-    Multi-region deployments enable higher availability for DC/OS clusters and support for multiple regions is crucial for customers who want to maintain uptime without being susceptible for regional outages. For more information, see the documentation for [multi-region deployment](/1.13/installing/evaluation/aws/aws-remote-region/).
+    Multi-region deployments enable higher availability for DC/OS clusters and support for multiple regions is crucial for customers who want to maintain uptime without being susceptible for regional outages. For more information, see the documentation for [multi-region deployment](/mesosphere/dcos/1.13/installing/evaluation/aws/aws-remote-region/).
 
 - Dynamic masters on the Universal Installer. <!--(DCOS-45725)-->
 
-    Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters from not just the agent nodes (which is currently supported), but also from the master nodes--if you deem it necessary to do so. For more information, see the documentation for [replaceable masters](/1.13/installing/evaluation/aws/aws-replaceable-masters/).
+    Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters from not just the agent nodes (which is currently supported), but also from the master nodes--if you deem it necessary to do so. For more information, see the documentation for [replaceable masters](/mesosphere/dcos/1.13/installing/evaluation/aws/aws-replaceable-masters/).
 
 
 - Enable Universal Installer and on-premise DC/OS life cycle management with Ansible. <!--(DCOS-45724)-->
 
-    The DC/OS Ansible (`dcos-ansible`) component is a Mesosphere-provided version of the Ansible open-source provisioning, configuration management, and deployment tool that enables you to use supported Ansible roles for installing and upgrading DC/OS Open Source and DC/OS Enterprise clusters on the infrastructure you choose. For more information, see the documentation for [Ansible](/1.13/installing/production/dcos-ansible/).
+    The DC/OS Ansible (`dcos-ansible`) component is a Mesosphere-provided version of the Ansible open-source provisioning, configuration management, and deployment tool that enables you to use supported Ansible roles for installing and upgrading DC/OS Open Source and DC/OS Enterprise clusters on the infrastructure you choose. For more information, see the documentation for [Ansible](/mesosphere/dcos/1.13/installing/production/dcos-ansible/).
 
 <!-- not in 1.13 Docs with RN filter
 - Universal Installer to provision Elastic Block Store (EBS) volumes. (DCOS-47221)
-    The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](/services/storage/latest/install/provision-extra-volumes/).
+    The Universal Installer provides the ability to provision Amazon Elastic Block Store (Amazon EBS) volumes and attach them to the private agents within a DC/OS cluster. For more information about deploying extra storage volumes, see [Provision Extra Agent Volumes](/mesosphere/dcos/services/storage/latest/install/provision-extra-volumes/).
 -->
 
 ## Job management and scheduling
@@ -274,7 +274,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
     DC/OS Universal Container Runtime (UCR) now fully supports Docker images that are formatted using the Docker v2_schema2 specification. The DC/OS Universal Container Runtime (UCR) also continues to support Docker images that use the v2_schema1 format.
 
-    For more information, see [Universal Container Runtime](/1.13/deploying-services/containerizers/ucr/).
+    For more information, see [Universal Container Runtime](/mesosphere/dcos/1.13/deploying-services/containerizers/ucr/).
 
 - Add a communication heartbeat to improve resiliency.
 
@@ -293,7 +293,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 ## Networking
 - Add a new networking API endpoint to retrieve the public-facing IP address for public agent nodes. <!--(DCOS-28127)-->
 
-    This release introduces a new API endpoint for accessing public-facing IP addresses for the nodes in a cluster. For more information about retrieving and viewing public IP addresses, see [Finding the public IP address](/1.13/administering-clusters/locate-public-agent/).
+    This release introduces a new API endpoint for accessing public-facing IP addresses for the nodes in a cluster. For more information about retrieving and viewing public IP addresses, see [Finding the public IP address](/mesosphere/dcos/1.13/administering-clusters/locate-public-agent/).
 
     You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is most often the same as the IP address defined for the server in the DNS namespace.
 <!-- not in 1.13 Docs in RN filter
@@ -310,7 +310,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
     You can now create unified service accounts that can be used across DC/OS OSS and DC/OS Enterprise clusters. By extending support for service accounts that can be used for all DC/OS clusters, you have the option to install, configure, and manage additional packages, including packages that require a service account when you are running DC/OS Enterprise DC/OS in `strict` mode.
 
-    For more information about authentication and managing accounts, see [Security](/1.13/security) and [User account management](/1.13/security/oss/user-account-management/).
+    For more information about authentication and managing accounts, see [Security](/mesosphere/dcos/1.13/security) and [User account management](/mesosphere/dcos/1.13/security/oss/user-account-management/).
 
 - Support secure computing mode (seccomp) profiles. <!--(DCOS-28442, DCOS-49134)-->
 
@@ -320,7 +320,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
     Using a secure computing mode profile is an important option if you need to secure access to containers and operations using the principle of least privilege.
 
-    For more information about secure computing mode and the default secure computing profile, see [Secure computing profiles](/1.13/security/oss/secure-compute-profiles/).
+    For more information about secure computing mode and the default secure computing profile, see [Secure computing profiles](/mesosphere/dcos/1.13/security/oss/secure-compute-profiles/).
 
 ## Storage
 - Update Beta Rex-Ray to support NVMe EBS volumes. <!--(DCOS-50047)-->
@@ -583,7 +583,7 @@ To add this job definition to the JSON editor, you would modify the existing JSO
     You should not add applications with names (identifiers) that end with restart, tasks, or versions. For example, the application names `/restart` and `/foo/restart` are invalid and generate errors when you attempt to issue a GET /v2/apps request. If you have any existing apps with restricted names, attempting any operation--except delete--will result in an error. You should ensure that application names comply with the validation rules before upgrading Marathon.
 
 ### Deprecated or decommissioned features
-- In DC/OS 1.13, the DC/OS history service has transitioned into the retired state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/1.13/overview/feature-maturity/). <!--DCOS-50304, DCOS-51996-->
+- In DC/OS 1.13, the DC/OS history service has transitioned into the retired state. The history service is scheduled to be decommissioned in DC/OS 1.14. You can find the definitions for each of the feature maturity states documented in the [Mesosphere DC/OS Feature Maturity Lifecycle](/mesosphere/dcos/1.13/overview/feature-maturity/). <!--DCOS-50304, DCOS-51996-->
 
 - Some of the configuration parameters previously used to install DC/OS cluster components are no longer valid. The following `dcos_generate_config.sh` command-line options have been deprecated and decommissioned:
     * `--set-superuser-password`
@@ -656,6 +656,6 @@ For access to the logs that track specific changes to components that are includ
 
 # Previous releases
 To review changes from a recent previous release, see the following links:
-- [Release version 1.10.11](/1.10/release-notes/1.10.11/) - 12 February 2019.
-- [Release version 1.11.10](/1.11/release-notes/1.11.10/) - 12 February 2019.
-- [Release version 1.12.3](/1.12/release-notes/1.12.3/) - 14 March 2019.
+- [Release version 1.10.11](/mesosphere/dcos/1.10/release-notes/1.10.11/) - 12 February 2019.
+- [Release version 1.11.10](/mesosphere/dcos/1.11/release-notes/1.11.10/) - 12 February 2019.
+- [Release version 1.12.3](/mesosphere/dcos/1.12/release-notes/1.12.3/) - 14 March 2019.

@@ -16,8 +16,8 @@ Welcome to part 3 of the DC/OS 101 Tutorial
 
 
 # Prerequisites
-* A [running DC/OS cluster](/1.11/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.11/tutorials/dcos-101/cli/).
-* [Redis](/1.11/tutorials/dcos-101/redis-package/) deployed and running in your cluster.
+* A [running DC/OS cluster](/mesosphere/dcos/1.11/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/mesosphere/dcos/1.11/tutorials/dcos-101/cli/).
+* [Redis](/mesosphere/dcos/1.11/tutorials/dcos-101/redis-package/) deployed and running in your cluster.
 
 
 # Objective

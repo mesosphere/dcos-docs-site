@@ -13,13 +13,13 @@ You can create and administer jobs in the DC/OS web interface, from the DC/OS CL
 
 # DC/OS Web interface
 
-**Note:** The DC/OS web interface provides a subset of the CLI and API functionality. For advanced job configurations, use the [dcos job](/1.11/cli/command-reference/dcos-job/) commands or the Jobs [API](#jobs-api).
+**Note:** The DC/OS web interface provides a subset of the CLI and API functionality. For advanced job configurations, use the [dcos job](/mesosphere/dcos/1.11/cli/command-reference/dcos-job/) commands or the Jobs [API](#jobs-api).
 
 ## Add a job
 
 From the DC/OS web interface, click the **Jobs** tab, then the **Create a Job** button. Fill in the following fields, or toggle to JSON mode to edit the JSON directly.
 
-![Create JOB UI](/1.11/img/create-job.png)
+![Create JOB UI](/mesosphere/dcos/1.11/img/create-job.png)
 
 Figure 1. New job menu
 
@@ -41,10 +41,10 @@ Check the **Run on a Schedule** to reveal the following fields.
 * **Image** - Enter the Docker image you will use to specify the action of your job, if you are using one.
 
 ### **Labels**
-**Label Name** and **Label Value** - Attach metadata to your jobs so you can filter them. [Learn more about labels](/1.11/tutorials/task-labels/).
+**Label Name** and **Label Value** - Attach metadata to your jobs so you can filter them. [Learn more about labels](/mesosphere/dcos/1.11/tutorials/task-labels/).
 
 ## Job Groups
-You can add a job to a an existing job group or create one when you create the job. Use dots in your job ID to nest the job in a group. For instance, if you enter job ID `marketing.myjob`, `myjob` will be created in the `marketing` group. In DC/OS Enterprise, you can [use job groups](/1.11/deploying-jobs/job-groups/) to implement fine-grained user access.
+You can add a job to a an existing job group or create one when you create the job. Use dots in your job ID to nest the job in a group. For instance, if you enter job ID `marketing.myjob`, `myjob` will be created in the `marketing` group. In DC/OS Enterprise, you can [use job groups](/mesosphere/dcos/1.11/deploying-jobs/job-groups/) to implement fine-grained user access.
 
 ## Modify, view, or remove a job
 

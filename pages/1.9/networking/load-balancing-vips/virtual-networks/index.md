@@ -24,7 +24,7 @@ DC/OS enables virtual networking through the use of virtual networks. DC/OS virt
 
 # Using Virtual Networks
 
-First, you or the data center operator needs to [configure the virtual networks](/1.9/networking/virtual-networks/).
+First, you or the data center operator needs to [configure the virtual networks](/mesosphere/dcos/1.9/networking/virtual-networks/).
 
 Virtual networks are configured at install time. You or the data center operator will specify a canonical name for each network in the `config.yaml`. When your service needs to launch a container, refer to it by that canonical name.
 
@@ -63,4 +63,4 @@ The following Marathon application definition specifies a network named `dcos-1`
 }
 ```
 
-Learn more about ports and networking in [Marathon](/1.9/deploying-services/service-ports/).
+Learn more about ports and networking in [Marathon](/mesosphere/dcos/1.9/deploying-services/service-ports/).

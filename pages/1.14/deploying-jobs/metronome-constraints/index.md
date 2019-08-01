@@ -25,7 +25,7 @@ Entering `@hostname` as the field name matches the agent hostname. See `LIKE` op
 
 ### Region and zone as field names
 
-Use the `@region` and `@zone` field names to configure [fault domain awareness and capacity extension](/1.14/deploying-services/fault-domain-awareness/). See `IS` operator, below, for a usage example
+Use the `@region` and `@zone` field names to configure [fault domain awareness and capacity extension](/mesosphere/dcos/1.14/deploying-services/fault-domain-awareness/). See `IS` operator, below, for a usage example
 
 ## Attribute as field name
 

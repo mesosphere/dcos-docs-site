@@ -20,7 +20,7 @@ a DC/OS Enterprise cluster created with the Universal Installer.
 
 ## Getting started
 
-1. Use the [DC/OS Universal Installer](/latest/installing/evaluation/) to deploy a cluster with at least 3 private agent nodes and an [extra volume on each of these nodes](../../install/provision-extra-volumes). Each volume needs to be larger than 10GB.
+1. Use the [DC/OS Universal Installer](/mesosphere/dcos/latest/installing/evaluation/) to deploy a cluster with at least 3 private agent nodes and an [extra volume on each of these nodes](../../install/provision-extra-volumes). Each volume needs to be larger than 10GB.
 
     ```hcl
     module "dcos" {

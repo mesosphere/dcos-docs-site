@@ -10,7 +10,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-DC/OS includes a service packaging specification and a [repository](/1.10/administering-clusters/repo/) that catalogs those packages. This section describes what is necessary to package and provide your own service on DC/OS.
+DC/OS includes a service packaging specification and a [repository](/mesosphere/dcos/1.10/administering-clusters/repo/) that catalogs those packages. This section describes what is necessary to package and provide your own service on DC/OS.
 
 # <a name="universe"></a>Universe package repository
 

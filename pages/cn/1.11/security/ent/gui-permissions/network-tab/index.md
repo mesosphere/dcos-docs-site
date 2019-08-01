@@ -17,11 +17,11 @@ enterprise: true
 
 **先决条件：**
 
-- 不具有 `dcos:superuser` [权限](/cn/1.11/security/ent/users-groups/) 的 DC/OS 用户账户。
+- 不具有 `dcos:superuser` [权限](/mesosphere/dcos/cn/1.11/security/ent/users-groups/) 的 DC/OS 用户账户。
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS GUI。
 
- ![登录](/cn/1.11/img/gui-installer-login-ee.gif)
+ ![登录](/mesosphere/dcos/cn/1.11/img/gui-installer-login-ee.gif)
 
  图 1. DC/OS Web 界面登录
 
@@ -29,7 +29,7 @@ enterprise: true
 
 1. 选择要授予权限的用户名或组名。
 
- ![添加 cory 权限](/cn/1.11/img/services-tab-user.png)
+ ![添加 cory 权限](/mesosphere/dcos/cn/1.11/img/services-tab-user.png)
 
  图 2. 选择要授予权限的用户或组
 
@@ -38,11 +38,11 @@ enterprise: true
 
 1. 单击 **INSERT PERMISSION STRING** 以切换对话框。
 
- ![添加权限](/cn/1.11/img/services-tab-user3.png)
+ ![添加权限](/mesosphere/dcos/cn/1.11/img/services-tab-user3.png)
 
  图 3. 插入权限字符串
 
-1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes) 选择权限字符串，单击**添加权限**，然后单击**关闭**。
+1. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes) 选择权限字符串，单击**添加权限**，然后单击**关闭**。
 
 ## 禁用
 
@@ -69,8 +69,8 @@ dcos:adminrouter:ops:mesos full
 
 **先决条件：**
 
-- 您必须[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
-- 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
+- 您必须[安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 并以超级用户身份登录。
+- 如果您的 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
 
 **提示：**
 

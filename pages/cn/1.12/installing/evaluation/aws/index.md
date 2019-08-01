@@ -182,7 +182,7 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
         "~/.ssh/aws-key.pub"
         ```
 
-1. `region` 是设定 AWS 区域的一项设置，此 DC/OS 群集将在该区域上启动。虽然此项设置目前设为 “us-east-1”，但也可以更改为任何其他区域（例如 “us-west-1”、“us-west-2”、“us-east-2” 等）。如需完整列表，请参阅 [配置参考](/cn/1.12/installing/evaluation/aws/aws-advanced/)。
+1. `region` 是设定 AWS 区域的一项设置，此 DC/OS 群集将在该区域上启动。虽然此项设置目前设为 “us-east-1”，但也可以更改为任何其他区域（例如 “us-west-1”、“us-west-2”、“us-east-2” 等）。如需完整列表，请参阅 [配置参考](/mesosphere/dcos/cn/1.12/installing/evaluation/aws/aws-advanced/)。
 
 1. 企业用户可以对该区段取消注释/添加注释，实现类似于以下注释，将该位置插入到许可证密钥。[enterprise type="inline" size="small" /]
 
@@ -198,7 +198,7 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
     - 2 个专用代理
     - 1 个公共代理
 
-    如果您想更改群集名称或改变管理/代理节点数量，也可以调整这些值。群集名称必须唯一，包含字母数字字符、'-'、'_' 或 '.'，开头和结尾均为字母数字字符，且不超过 24 个字符。您可以在此查阅其他 [输入变量及其描述](/cn/1.12/installing/evaluation/aws/aws-advanced/)。
+    如果您想更改群集名称或改变管理/代理节点数量，也可以调整这些值。群集名称必须唯一，包含字母数字字符、'-'、'_' 或 '.'，开头和结尾均为字母数字字符，且不超过 24 个字符。您可以在此查阅其他 [输入变量及其描述](/mesosphere/dcos/cn/1.12/installing/evaluation/aws/aws-advanced/)。
       
     模块下方还列出一些简单的助手工具，可找到您的公共 IP，并指定在群集创建完成后应打印以下输出：
 
@@ -317,7 +317,7 @@ TerraForm 需要发送 SSH 密钥才能安全地连接到其创建的节点。�
 
 # 升级群集
 
-Terraform 还可以轻松地将我们的群集升级到更新版本的 DC/OS。如果您有兴趣了解有关 Terraform 执行的升级程序的更多信息，请参阅官方 [DC/OS 升级文档](/cn/1.12/installing/production/upgrading/)。
+Terraform 还可以轻松地将我们的群集升级到更新版本的 DC/OS。如果您有兴趣了解有关 Terraform 执行的升级程序的更多信息，请参阅官方 [DC/OS 升级文档](/mesosphere/dcos/cn/1.12/installing/production/upgrading/)。
 
 1. 为了执行升级，我们需要返回到我们的 `main.tf` 并将当前 DC/OS 版本 (`dcos_version`) 修改为较新版本，如本示例的 `1.12.1`，同时还需指定另一个参数 (`dcos_install_mode`)。默认情况下，此参数设置为 `install`，这就是我们在创建初始 DC/OS 群集和扩展群集时能够不设置该参数的原因
 .

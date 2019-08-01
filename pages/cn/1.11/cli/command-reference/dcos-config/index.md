@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # 说明
-`dcos config` 命令让您管理您在运行 [dcos cluster setup](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 时创建的 DC/OS 配置文件。该配置文件位于：`~/.dcos/cluster/<cluster_id>/dcos.toml`. 如果您尚未更改任何配置属性, 你应该在运行时看到这个输出 `dcos config show`:
+`dcos config` 命令让您管理您在运行 [dcos cluster setup](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 时创建的 DC/OS 配置文件。该配置文件位于：`~/.dcos/cluster/<cluster_id>/dcos.toml`. 如果您尚未更改任何配置属性, 你应该在运行时看到这个输出 `dcos config show`:
 ```
  cluster.name <cluster_name>
  core.dcos_acs_token ********
@@ -39,4 +39,4 @@ dcos config
 
 `dcos help config` 命令与 `dcos config --help`相同。
 
-有关详细信息，请参阅 [`dcos help`](/cn/1.11/cli/command-reference/dcos-help/)命令。
+有关详细信息，请参阅 [`dcos help`](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-help/)命令。

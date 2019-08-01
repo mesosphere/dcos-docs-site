@@ -15,10 +15,10 @@ If an upgrade is performed on a supported OS with all prerequisites fulfilled, t
 
 **Important:**
 
-- Review the [release notes](/1.9/release-notes/) before upgrading DC/OS.
+- Review the [release notes](/mesosphere/dcos/1.9/release-notes/) before upgrading DC/OS.
 - The Advanced Installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [Advanced DC/OS Installation Guide][advanced-install] before proceeding.
-- The [VIP features](/1.9/networking/load-balancing-vips/virtual-ip-addresses/), added in DC/OS 1.8, require that ports 32768 - 65535 are open between all agent and master nodes for both TCP and UDP.
-- Virtual networks require minimum Docker version 1.11. For more information, see the [documentation](/1.9/networking/virtual-networks/).
+- The [VIP features](/mesosphere/dcos/1.9/networking/load-balancing-vips/virtual-ip-addresses/), added in DC/OS 1.8, require that ports 32768 - 65535 are open between all agent and master nodes for both TCP and UDP.
+- Virtual networks require minimum Docker version 1.11. For more information, see the [documentation](/mesosphere/dcos/1.9/networking/virtual-networks/).
 - The DC/OS UI and APIs may be inconsistent or unavailable while masters are being upgraded. Avoid using them until all masters have been upgraded and have rejoined the cluster. You can monitor the health of a master during an upgrade by watching Exhibitor on port 8181.
 - Task history in the Mesos UI will not persist through the upgrade.
 
@@ -57,7 +57,7 @@ Take a snapshot of ZooKeeper prior to upgrading. Marathon supports rollbacks, bu
     **Important:**
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the DC/OS 1.9 `config.yaml` differs from that of DC/OS 1.8. For a detailed description of the 1.9 `config.yaml` syntax and parameters, see the [documentation](/1.9/installing/oss/custom/configuration/configuration-parameters/).
+    *  The syntax of the DC/OS 1.9 `config.yaml` differs from that of DC/OS 1.8. For a detailed description of the 1.9 `config.yaml` syntax and parameters, see the [documentation](/mesosphere/dcos/1.9/installing/oss/custom/configuration/configuration-parameters/).
 
 1.  After you have converted your 1.8 `config.yaml` into the 1.9 `config.yaml` format, you can build your installer package:
 
@@ -146,4 +146,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.9 Universe are newer than those in the DC/OS 1.8 Universe. Services are not automatically upgraded when DC/OS 1.9 is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /1.9/installing/oss/custom/advanced/
+[advanced-install]: /mesosphere/dcos/1.9/installing/oss/custom/advanced/

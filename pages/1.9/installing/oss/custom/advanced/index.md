@@ -53,7 +53,7 @@ The DC/OS installation creates these folders:
 **Important:** Changes to `/opt/mesosphere` are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.
 
 # Prerequisites
-Your cluster must meet the software and hardware [requirements](/1.9/installing/oss/custom/system-requirements/).
+Your cluster must meet the software and hardware [requirements](/mesosphere/dcos/1.9/installing/oss/custom/system-requirements/).
 
 ## Configure your cluster
 
@@ -113,7 +113,7 @@ Your cluster must meet the software and hardware [requirements](/1.9/installing/
 
     **Important:**
 
-    - The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.9/installing/oss/custom/uninstall/).
+    - The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/mesosphere/dcos/1.9/installing/oss/custom/uninstall/).
     - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master.
 
     Create an IP detect script for your environment and save as `genconf/ip-detect`. This script must be `UTF-8` encoded and have a valid [shebang](https://en.wikipedia.org/wiki/Shebang_%28Unix%29) line. You can use the examples below.
@@ -191,7 +191,7 @@ Your cluster must meet the software and hardware [requirements](/1.9/installing/
 In this step you create a custom DC/OS build file on your bootstrap node and then install DC/OS onto your cluster. With this method you package the DC/OS distribution yourself and connect to every server manually and run the commands.
 
 **Important:**
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.9/installing/oss/troubleshooting/).
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/mesosphere/dcos/1.9/installing/oss/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][8].
 
 **Prerequisites**
@@ -296,15 +296,15 @@ To install DC/OS:
 
 1.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
 
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.9/installing/oss/custom/system-requirements/#port-and-protocol-configuration).
+    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/mesosphere/dcos/1.9/installing/oss/custom/system-requirements/#port-and-protocol-configuration).
 
-    ![alt text](/1.9/img/chef-zk-status.png)
+    ![alt text](/mesosphere/dcos/1.9/img/chef-zk-status.png)
 
     When the status icons are green, you can access the DC/OS web interface.
 
 1.  Launch the DC/OS web interface at: `http://<master-node-public-ip>/`. If this doesn't work, take a look at the [troubleshooting docs][9]
 
-    ![DC/OS dashboard](/1.9/img/dcos-gui.png)
+    ![DC/OS dashboard](/mesosphere/dcos/1.9/img/dcos-gui.png)
 
 ### Next Steps
 
@@ -313,11 +313,11 @@ To install DC/OS:
 - [Troubleshooting DC/OS installation][9]
 - [Uninstalling DC/OS][8]
 
-[1]: /1.9/installing/oss/custom/configuration/configuration-parameters/
-[2]: /1.9/cli/install/
+[1]: /mesosphere/dcos/1.9/installing/oss/custom/configuration/configuration-parameters/
+[2]: /mesosphere/dcos/1.9/cli/install/
 [4]: https://downloads.dcos.io/dcos/stable/1.9.4/dcos_generate_config.sh
-[6]: /1.9/overview/concepts/#public-agent-node
-[7]: /1.9/overview/concepts/#private-agent-node
-[8]: /1.9/installing/oss/custom/uninstall/
-[9]: /1.9/installing/oss/troubleshooting/
-[10]: /1.9/security/ent/users-groups/
+[6]: /mesosphere/dcos/1.9/overview/concepts/#public-agent-node
+[7]: /mesosphere/dcos/1.9/overview/concepts/#private-agent-node
+[8]: /mesosphere/dcos/1.9/installing/oss/custom/uninstall/
+[9]: /mesosphere/dcos/1.9/installing/oss/troubleshooting/
+[10]: /mesosphere/dcos/1.9/security/ent/users-groups/

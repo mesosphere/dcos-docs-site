@@ -39,8 +39,8 @@ dcos package install <package-name> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.11/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/mesosphere/dcos/1.11/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
 
 # Examples
 
-For an example, see the [documentation](/1.11/deploying-services/config-universe-service/).
+For an example, see the [documentation](/mesosphere/dcos/1.11/deploying-services/config-universe-service/).

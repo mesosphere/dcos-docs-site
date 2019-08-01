@@ -19,18 +19,18 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
 ## 配备 GPU 的自定义 DC/OS 安装
 
 1. 在每个具有 GPU 的群集节点上安装 [NVIDIA 管理库 (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml)。所需的 NVIDIA 驱动程序最低版本为 340.29。如需详细的安装说明，请参阅 [Mesos GPU 支持文档](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies)。
-1. 使用 [自定义高级安装说明 安装 DC/OS](/cn/1.11/installing/production/deploying-dcos/installation/)。以下是 GPU 特定的配置参数：
+1. 使用 [自定义高级安装说明 安装 DC/OS](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/installation/)。以下是 GPU 特定的配置参数：
 
  -** `enable_gpu_isolation`**：指示是否在 DC/OS 中启用 GPU 支持。默认设置为 `enable_gpu_isolation: 'true'`。
  -** `gpus_are_scarce`**：指示是否将 GPU 作为群集中的稀缺资源。默认设置为 `gpus_are_scarce: 'true'`，这意味着 DC/OS 仅为配置为占用 GPU 资源的服务保留 GPU 节点。值得注意的是，此设置将影响在 DC/OS 的哪些代理节点部署 GPU 感知框架。此设置不影响框架在运行时可能启动的具体任务。框架可以在有 GPU 的代理节点上安排非 GPU 任务。
 
- 如需更多信息，请参阅 [配置参数文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#enable-gpu-isolation) 和 Mesos [Nvidia GPU 支持文档](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies)。
+ 如需更多信息，请参阅 [配置参数文档](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#enable-gpu-isolation) 和 Mesos [Nvidia GPU 支持文档](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies)。
 
 ## 带有 GPU 的 AWS EC2 DC/OS 安装
 
 ## 先决条件
-- AWS DC/OS 高级模板 [系统要求](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/)。
-- 复制到本地机器的 `zen.sh` 脚本。脚本和说明在 [此处](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/)。
+- AWS DC/OS 高级模板 [系统要求](/mesosphere/dcos/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/)。
+- 复制到本地机器的 `zen.sh` 脚本。脚本和说明在 [此处](/mesosphere/dcos/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/)。
 
 ### 创建依赖关系
 
@@ -42,7 +42,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
 
    <p class="message--important"><strong>重要信息：</strong>在执行后续步骤之前，您必须运行 <code>zen.sh</code> 脚本。</p>
 
-2. 请根据 [此处](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/) 说明，使用以下 GPU 专用配置创建具有高级 AWS 模板的群集。
+2. 请根据 [此处](/mesosphere/dcos/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/) 说明，使用以下 GPU 专用配置创建具有高级 AWS 模板的群集。
 
 3. 在 **创建堆栈** > **指定详情**页面指定您的堆栈信息并单击 **下一步**。以下是 GPU 特定设置。
 

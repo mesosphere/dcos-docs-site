@@ -72,7 +72,7 @@ Constraint operators that control where apps can run that allow you to optimize 
 ### container
 The container information.
 
-- **type** The containerizer runtime type, either `MESOS` or `DOCKER`. For more information, see [Using Containerizers](/1.14/deploying-services/containerizers/).
+- **type** The containerizer runtime type, either `MESOS` or `DOCKER`. For more information, see [Using Containerizers](/mesosphere/dcos/1.14/deploying-services/containerizers/).
 
 - **portMappings** An array of port mappings between host and container. A port mapping is similar to passing `-p` into the Docker command line to specify a relationship between a port on the host machine and a port inside the container. If unspecified (null) at create time, defaults to { "portMappings": [ { "containerPort": 0, "name": "default" } ], ... }. Specify an empty array ([]) to indicate no ports are used by the app; no default is injected in this case.
 
@@ -95,18 +95,18 @@ The container information.
       - `"privileged": false` Do not give extended privileges. This is the default value.
       - `"privileged": true` Give extended privileges.
     - **parameters** Command-line options for the `docker run` command executed by the Mesos containerizer. Parameters passed in this manner are not guaranteed to be supported in the future, as Mesos may not always interact with Docker via the CLI.
-    - **pullConfig** A secret whose value is a stringified JSON object in a Secret Store. See [Using a Private Docker Registry](/1.14/deploying-services/private-docker-registry/#secret-store-instructions).
+    - **pullConfig** A secret whose value is a stringified JSON object in a Secret Store. See [Using a Private Docker Registry](/mesosphere/dcos/1.14/deploying-services/private-docker-registry/#secret-store-instructions).
 
 - **volumes** The volumes accessible to the container.
     - **containerPath** The path where your container will read and write data.
-    - **external** An external persistent volume. See [External Persistent Volumes](/1.14/storage/external-storage/).
+    - **external** An external persistent volume. See [External Persistent Volumes](/mesosphere/dcos/1.14/storage/external-storage/).
         - **name** Name that your volume driver uses to look up the external volume.
         - **provider** The storage provider.
-        - **options** Which Docker volume driver to use for storage. The only Docker volume driver supported by DC/OS is [REX-Ray](/1.14/storage/external-storage/).
+        - **options** Which Docker volume driver to use for storage. The only Docker volume driver supported by DC/OS is [REX-Ray](/mesosphere/dcos/1.14/storage/external-storage/).
         - **size** The size (in GiB) of the external persistent volume.
     - **hostPath** The host path.
     - **mode** The access mode of the volume, either read-write (`RW`) or read-only (`RO`).
-    - **persistent** A local persistent volume. See [Local Persistent Volumes](/1.14/storage/persistent-volume/).
+    - **persistent** A local persistent volume. See [Local Persistent Volumes](/mesosphere/dcos/1.14/storage/persistent-volume/).
         - **size** The size (in MiB) of the local persistent volume.
 
 ### cpus
@@ -140,7 +140,7 @@ The number of GPU cores needed per instance.
 This property is only applicable if you are using DC/OS Universal Container Runtime (UCR) containers. Support for GPU resources is not available for Docker containers.
 
 ### healthChecks
-An array of checks that are run against an application’s tasks. Marathon health checks perform periodic checks on the containers distributed across a cluster to make sure they’re up and responding. For more information, see the [Health Checks documentation](/1.14/deploying-services/creating-services/health-checks/).
+An array of checks that are run against an application’s tasks. Marathon health checks perform periodic checks on the containers distributed across a cluster to make sure they’re up and responding. For more information, see the [Health Checks documentation](/mesosphere/dcos/1.14/deploying-services/creating-services/health-checks/).
 
 A health check consists of:
 
@@ -188,7 +188,7 @@ A network definition consists of:
 
 
 ### portDefinitions
-An array of required port resources on the agent host. The number of items in the array determines how many dynamic ports are allocated for every task. For every port definition with port number zero, a globally unique (cluster-wide) service port is assigned and provided as part of the app definition to be used in load balancing definitions. For more information, see the [Networking documentation](/1.14/networking/).
+An array of required port resources on the agent host. The number of items in the array determines how many dynamic ports are allocated for every task. For every port definition with port number zero, a globally unique (cluster-wide) service port is assigned and provided as part of the app definition to be used in load balancing definitions. For more information, see the [Networking documentation](/mesosphere/dcos/1.14/networking/).
 
 A port definition consists of:
 
@@ -203,7 +203,7 @@ Port definitions are used only with [`host`](#networks) networking mode. A port 
 
 The special port value of 0 tells Marathon to select any host port from a Mesos resource offer and any service port from the configured service port range.
 
-You configure ports assignment for Docker containers in [`container.portMappings`](#container). If you use the [Universal Container Runtime](/1.14/deploying-services/containerizers/ucr/), pass zeros as port values to generate one or more arbitrary free ports for each application instance. For more information, see [Containerizers](/1.14/deploying-services/containerizers/).
+You configure ports assignment for Docker containers in [`container.portMappings`](#container). If you use the [Universal Container Runtime](/mesosphere/dcos/1.14/deploying-services/containerizers/ucr/), pass zeros as port values to generate one or more arbitrary free ports for each application instance. For more information, see [Containerizers](/mesosphere/dcos/1.14/deploying-services/containerizers/).
 
 ### requirePorts
 Whether the host ports of your tasks are automatically assigned.
@@ -212,7 +212,7 @@ Whether the host ports of your tasks are automatically assigned.
 - `"requirePorts": true` Manually specify ports in advance. Marathon will only schedule the associated tasks on hosts that have the specified ports available.
 
 ### residency
-Set up a stateful application. For more information, see [local persistent volumes](/1.14/storage/persistent-volume/). **Deprecated**.
+Set up a stateful application. For more information, see [local persistent volumes](/mesosphere/dcos/1.14/storage/persistent-volume/). **Deprecated**.
 
 - **taskLostBehavior** Indicates whether Marathon will launch the task on another node after receiving a `TASK_LOST` status update.
 

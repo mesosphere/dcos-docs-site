@@ -21,4 +21,4 @@ dcos config validate
 
 | 命令 | 说明 |
 |---------|-------------|
-|[dcos config](/cn/1.11/cli/command-reference/dcos-config/) | 管理 DC/OS 配置。 |
+|[dcos config](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-config/) | 管理 DC/OS 配置。 |

@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 
-本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/cn/1.12/deploying-services/marathon-parameters/)。
+本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/mesosphere/dcos/cn/1.12/deploying-services/marathon-parameters/)。
 
 # 带注释的简单 Pod 定义
 
@@ -547,11 +547,11 @@ enterprise: false
 
 # 使用持久卷的 Pod
 
-如需查看使用持久卷的 pod 的示例，请参见 [创建具有本地持久卷的 pod](/cn/1.12/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume)。
+如需查看使用持久卷的 pod 的示例，请参见 [创建具有本地持久卷的 pod](/mesosphere/dcos/cn/1.12/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume)。
 
 ## 各 Pod 的 IP 网络
 
-以下 pod 定义指定名为 `dcos` 的虚拟（用户）网络。`networks:mode:container` 字段创建虚拟网络。`name` 字段为可选。如果您已使用 [我们的 AWS 模板](/cn/1.12/installing/oss/cloud/aws/) 安装 DC/OS，则默认虚拟网络名称为 `dcos`。<!-- Validated by suzanne 6-23-17 -->
+以下 pod 定义指定名为 `dcos` 的虚拟（用户）网络。`networks:mode:container` 字段创建虚拟网络。`name` 字段为可选。如果您已使用 [我们的 AWS 模板](/mesosphere/dcos/cn/1.12/installing/oss/cloud/aws/) 安装 DC/OS，则默认虚拟网络名称为 `dcos`。<!-- Validated by suzanne 6-23-17 -->
 
 ```json
 {

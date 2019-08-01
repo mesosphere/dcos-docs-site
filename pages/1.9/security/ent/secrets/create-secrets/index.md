@@ -15,9 +15,9 @@ The permissions needed to create a secret vary by interface.
 
 - **DC/OS GUI:** `dcos:superuser` 
 
-- **[DC/OS CLI](/1.9/cli/) or [Secrets API](/1.9/security/ent/secrets/secrets-api/):** <code>dcos:secrets:default:[/<i>path</i>]/<i>name</i> create</code> (minimum permission), or <code>dcos:secrets:default:[/<i>path</i>]/<i>name</i> full</code>. The permission must include the name of the secret the user is allowed to create. Users need one permission per secret. The secret itself does not need to exist yet, but when it is created its name must match the name in the permission.
+- **[DC/OS CLI](/mesosphere/dcos/1.9/cli/) or [Secrets API](/mesosphere/dcos/1.9/security/ent/secrets/secrets-api/):** <code>dcos:secrets:default:[/<i>path</i>]/<i>name</i> create</code> (minimum permission), or <code>dcos:secrets:default:[/<i>path</i>]/<i>name</i> full</code>. The permission must include the name of the secret the user is allowed to create. Users need one permission per secret. The secret itself does not need to exist yet, but when it is created its name must match the name in the permission.
 
-Secret should include paths, unless you want to allow all services to access its value. See [Spaces](/1.9/security/ent/#spaces) for more information about secret paths.
+Secret should include paths, unless you want to allow all services to access its value. See [Spaces](/mesosphere/dcos/1.9/security/ent/#spaces) for more information about secret paths.
 
 The procedure for creating a secret varies by interface. Refer to the section that corresponds to your desired interface.
 
@@ -39,7 +39,7 @@ The procedure for creating a secret varies by interface. Refer to the section th
 
 1. When you have completed your entries, the secret should look something like the following.
 
-    ![Creating the Secret](/1.9/img/create-secret.png)
+    ![Creating the Secret](/mesosphere/dcos/1.9/img/create-secret.png)
     
 1. Click **Create**. 
 
@@ -50,8 +50,8 @@ This procedure describes how to create a secret called `my-secret` inside the `d
 
 **Prerequisites:** 
 
-- [DC/OS CLI installed](/1.9/cli/install/)
-- If your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- [DC/OS CLI installed](/mesosphere/dcos/1.9/cli/install/)
+- If your [security mode](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/mesosphere/dcos/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Using `dcos auth login` log into the CLI as a user with one of the following permissions.
 
@@ -69,7 +69,7 @@ This procedure describes how to create a secret called `my-secret` inside the `d
 
 This procedure describes how to create a secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI.
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/1.9/cli/install/) and the  [DC/OS Enterprise CLI installed](/1.9/cli/enterprise-cli/#ent-cli-install).
+**Prerequisite:** You must have the [DC/OS CLI installed](/mesosphere/dcos/1.9/cli/install/) and the  [DC/OS Enterprise CLI installed](/mesosphere/dcos/1.9/cli/enterprise-cli/#ent-cli-install).
 
 1. Using `dcos auth login` log into the CLI as a user with one of the following permissions.
 

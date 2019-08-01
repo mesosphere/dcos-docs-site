@@ -10,7 +10,7 @@ render: mustache
 ---
 # 默认安装示例
 
-1. 按照本主题 [安装和自定义](/cn/services/spark/2.3.1-2.2.1-2/install/)部分中的说明执行默认安装。
+1. 按照本主题 [安装和自定义](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/install/)部分中的说明执行默认安装。
 
 2. 运行 Spark 作业：
 ```
@@ -31,7 +31,7 @@ render: mustache
 ## 高级示例
 
 * 使用 Kafka 运行 Spark 流式作业：连接到安全 Kafka 群集的 Spark 流式应用程序的示例可在 [spark-build 找到](https://github.com/mesosphere/spark-build/blob/beta-2.1.1-2.2.0-2/tests/jobs/scala/src/main/scala/KafkaJobs.scala)。
-正如 [使用 Keberos 安全的 Kafka](/cn/services/spark/2.3.1-2.2.1-2/kerberos/#using-kerberos-secured-kafka) 部分中所述，Spark 需要 JAAS 文件、`krb5.conf` 和 keytab。JAAS 文件的示例：
+正如 [使用 Keberos 安全的 Kafka](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/kerberos/#using-kerberos-secured-kafka) 部分中所述，Spark 需要 JAAS 文件、`krb5.conf` 和 keytab。JAAS 文件的示例：
 
         KafkaClient {
             com.sun.security.auth.module.Krb5LoginModule required

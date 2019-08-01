@@ -16,11 +16,11 @@ enterprise: true
 
 **前提条件：**
 
-- 不具有 `dcos:superuser` [权限](/cn/1.12/security/ent/users-groups/) 的 DC/OS 用户账户。
+- 不具有 `dcos:superuser` [权限](/mesosphere/dcos/cn/1.12/security/ent/users-groups/) 的 DC/OS 用户账户。
 
 1. 以具有 `dcos:superuser` 权限的用户身份登录 DC/OS Web 界面。
 
-    ![登录](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
+    ![登录](/mesosphere/dcos/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
     图 1. 登录 Web 界面
 
@@ -28,7 +28,7 @@ enterprise: true
 
 1. 选择要授予权限的用户名或组名。
 
-    ![添加 cory 权限](/1.12/img/GUI-Organization-Users-List_View-1_12.png)
+    ![添加 cory 权限](/mesosphere/dcos/1.12/img/GUI-Organization-Users-List_View-1_12.png)
 
     图 2. 选择要授予权限的用户或组
 
@@ -37,11 +37,11 @@ enterprise: true
 
 1. 单击**插入权限字符串**以切换对话框。
 
-    ![添加权限](/1.12/img/services-tab-user3.png)
+    ![添加权限](/mesosphere/dcos/1.12/img/services-tab-user3.png)
 
     图 3. 添加权限 
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的 [安全模式](/cn/1.12/security/ent/#security-modes) 选择权限字符串，单击**添加权限**，然后单击**关闭**。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的 [安全模式](/mesosphere/dcos/cn/1.12/security/ent/#security-modes) 选择权限字符串，单击**添加权限**，然后单击**关闭**。
 
 ## 宽容
 
@@ -58,7 +58,7 @@ dcos:service:marathon:marathon:services:/ full
 ```
 
 ### 任务详情和日志
- 要查看任务详情和日志，您必须授予访问 [Mesos UI](/cn/1.12/security/ent/gui-permissions/mesos-ui/) 的权限。
+ 要查看任务详情和日志，您必须授予访问 [Mesos UI](/mesosphere/dcos/cn/1.12/security/ent/gui-permissions/mesos-ui/) 的权限。
 
 ## 严格
 
@@ -75,7 +75,7 @@ dcos:service:marathon:marathon:services:/ full
 ```
 
 ### 任务详情和日志
- 要查看 Marathon 任务详情和日志，您必须授予访问 [Mesos UI](/cn/1.12/security/ent/gui-permissions/mesos-ui/) 的权限。
+ 要查看 Marathon 任务详情和日志，您必须授予访问 [Mesos UI](/mesosphere/dcos/cn/1.12/security/ent/gui-permissions/mesos-ui/) 的权限。
 
 2. 您可以将 DC/OS 本地 Marathon UI 的 URL 发送给用户：`http://<master-public-ip>/marathon/`。
 
@@ -83,8 +83,8 @@ dcos:service:marathon:marathon:services:/ full
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/cn/1.12/cli/install/) 并以超级用户登户身份登录。
-- 您必须 [获取根证书](/cn/1.12/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/install/) 并以超级用户登户身份登录。
+- 您必须 [获取根证书](/mesosphere/dcos/cn/1.12/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
 
 ### Notes
 
@@ -191,6 +191,6 @@ dcos:service:marathon:marathon:services:/ full
 
 
 ### 任务详情和日志
-要查看任务详情和日志，您必须授予访问 [Mesos UI](/cn/1.12/security/ent/gui-permissions/mesos-ui/) 的权限。
+要查看任务详情和日志，您必须授予访问 [Mesos UI](/mesosphere/dcos/cn/1.12/security/ent/gui-permissions/mesos-ui/) 的权限。
 
 您现在可以将 DC/OS 本地 Marathon UI 的 URL 发送给用户：`http://<master-public-ip>/marathon/`。

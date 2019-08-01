@@ -38,4 +38,4 @@ dcos experimental service start <package-name> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos experimental](/1.9/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  
+| [dcos experimental](/mesosphere/dcos/1.9/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  

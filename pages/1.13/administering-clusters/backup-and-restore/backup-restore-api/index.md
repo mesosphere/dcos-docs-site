@@ -22,7 +22,7 @@ Access to the Backup and Restore API is proxied through Admin Router on each mas
 /system/v1/backup/v1
 ```
 
-To determine the URL of your cluster, see [Cluster Access](/latest/api/access/).
+To determine the URL of your cluster, see [Cluster Access](/mesosphere/dcos/latest/api/access/).
 
 # Format
 
@@ -42,7 +42,7 @@ Content-Type: application/json
 
 All Backup and Restore API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/latest/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/latest/security/ent/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/mesosphere/dcos/latest/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/mesosphere/dcos/latest/security/ent/iam-api/#passing-an-authentication-token).
 
 The Backup and Restore API also requires authorization via the following permissions:
 
@@ -52,7 +52,7 @@ The Backup and Restore API also requires authorization via the following permiss
 
 All routes can also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/latest/security/ent/perms-reference/).
+To assign permissions to your account, see the [permissions reference](/mesosphere/dcos/latest/security/ent/perms-reference/).
 
 
 # API reference

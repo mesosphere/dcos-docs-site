@@ -12,8 +12,8 @@ enterprise: false
 
 
 ### Prerequisites
-- DC/OS [installed](/1.9/installing/oss/)
-- DC/OS CLI [installed](/1.9/cli/install/)
+- DC/OS [installed](/mesosphere/dcos/1.9/installing/oss/)
+- DC/OS CLI [installed](/mesosphere/dcos/1.9/cli/install/)
 
 # Launching a pod from the DC/OS CLI
 
@@ -50,10 +50,10 @@ enterprise: false
 
 # Launching a pod from the DC/OS UI
 
-You can also launch a pod from the [**Services**](/1.9/gui/) tab of the DC/OS web interface. Select **Services -> Services -> RUN A SERVICE -> Multi-container (Pod)**, then toggle to JSON mode and paste in the application definition supplied above.
+You can also launch a pod from the [**Services**](/mesosphere/dcos/1.9/gui/) tab of the DC/OS web interface. Select **Services -> Services -> RUN A SERVICE -> Multi-container (Pod)**, then toggle to JSON mode and paste in the application definition supplied above.
 
 If you already have other services running, go to **Services -> Services**, then click the **+** on the upper right hand side.
 
 After you launch your pod, you’ll see your new pod on the **Services** tab of the DC/OS web interface. Click the pod to see information about the status of the containers in your pod.
 
-![Pods UI](/1.9/img/pods-service-dashboard.png)
+![Pods UI](/mesosphere/dcos/1.9/img/pods-service-dashboard.png)

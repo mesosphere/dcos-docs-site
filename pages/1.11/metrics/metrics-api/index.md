@@ -9,12 +9,12 @@ beta: false
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications. The Metrics API is just one way to get metrics from DC/OS. It is designed for occasional targeted access to specific tasks and hosts. It is not the best way to get a comprehensive picture of all metrics on DC/OS. For this, please refer
-to the [DataDog](/1.11/metrics/datadog/), [Prometheus](/1.11/metrics/prometheus/), and
+to the [DataDog](/mesosphere/dcos/1.11/metrics/datadog/), [Prometheus](/mesosphere/dcos/1.11/metrics/prometheus/), and
 [third-party plugins](https://github.com/dcos/dcos-metrics/blob/master/plugins/CONTRIBUTING.md) documents.
 
-The Metrics API is backed by the [DC/OS Metrics component](/1.11/overview/architecture/components/#dcos-metrics), which runs on all nodes in the cluster.
+The Metrics API is backed by the [DC/OS Metrics component](/mesosphere/dcos/1.11/overview/architecture/components/#dcos-metrics), which runs on all nodes in the cluster.
 
-For examples of how to use the Metrics API, see the [Metrics Quick Start Guide](/1.11/metrics/quickstart/).
+For examples of how to use the Metrics API, see the [Metrics Quick Start Guide](/mesosphere/dcos/1.11/metrics/quickstart/).
 
 
 # Routes
@@ -31,7 +31,7 @@ Statistics for an agent are prefixed with:
 /system/v1/agent/{agent_id}/metrics/v0/
 ```
 
-To determine the URL of your cluster, see [Cluster Access](/1.11/api/access/). The agent ID of a node is its Mesos ID.
+To determine the URL of your cluster, see [Cluster Access](/mesosphere/dcos/1.11/api/access/). The agent ID of a node is its Mesos ID.
 
 
 # Format
@@ -55,7 +55,7 @@ Content-Type: application/json
 
 All Metrics API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.11/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.11/security/ent/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/mesosphere/dcos/1.11/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/mesosphere/dcos/1.11/security/ent/iam-api/#passing-an-authentication-token).
 
 The Metrics API also requires authorization via the following permissions:
 
@@ -66,7 +66,7 @@ The Metrics API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see the [permissions reference](/1.11/security/ent/perms-reference/).
+To assign permissions to your account, see the [permissions reference](/mesosphere/dcos/1.11/security/ent/perms-reference/).
 
 
 # Resources

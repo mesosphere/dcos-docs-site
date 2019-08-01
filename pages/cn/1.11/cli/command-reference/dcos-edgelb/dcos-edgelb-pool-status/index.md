@@ -43,8 +43,8 @@ dcos edgelb [<flags>] pool status [<flags>] <name>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos edgelb](/cn/1.11/cli/command-reference/dcos-edgelb/) | 管理 Edge-LB。|
+| [dcos edgelb](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-edgelb/) | 管理 Edge-LB。|
 
 # 示例
 
-请参阅 [Edge-LB 快速入门指南](/cn/1.11/networking/edge-lb/quickstart/)。
+请参阅 [Edge-LB 快速入门指南](/mesosphere/dcos/cn/1.11/networking/edge-lb/quickstart/)。

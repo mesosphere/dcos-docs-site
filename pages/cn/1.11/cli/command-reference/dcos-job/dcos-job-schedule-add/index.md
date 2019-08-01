@@ -33,8 +33,8 @@ dcos job schedule add <job-id> <schedule-file> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
 
 # 示例
 
-有关使用 `job add` 的示例请参阅 [文档](/cn/1.11/deploying-jobs/examples/#create-job-schedule)。
+有关使用 `job add` 的示例请参阅 [文档](/mesosphere/dcos/cn/1.11/deploying-jobs/examples/#create-job-schedule)。

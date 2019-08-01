@@ -10,6 +10,6 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-By default, a [new user](/1.12/security/ent/users-groups/) has no permissions and cannot view the [DC/OS GUI](/1.12/gui/). You must grant users and groups access to each screen of the web interface.
+By default, a [new user](/mesosphere/dcos/1.12/security/ent/users-groups/) has no permissions and cannot view the [DC/OS GUI](/mesosphere/dcos/1.12/gui/). You must grant users and groups access to each screen of the web interface.
 
-**Important:** Only [superusers](/1.12/security/ent/perms-reference/#superuser) can view the Dashboard, Nodes, and **Cluster -> Overview** tabs.
+**Important:** Only [superusers](/mesosphere/dcos/1.12/security/ent/perms-reference/#superuser) can view the Dashboard, Nodes, and **Cluster -> Overview** tabs.

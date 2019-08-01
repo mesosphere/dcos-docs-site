@@ -37,4 +37,4 @@ dcos security secrets create-sa-secret [OPTIONS] SA_PRIVATE_KEY SA_UID SECRET_PA
 
 | Command | Description |
 |---------|-------------|
-| [dcos security secrets](/1.12/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |
+| [dcos security secrets](/mesosphere/dcos/1.12/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

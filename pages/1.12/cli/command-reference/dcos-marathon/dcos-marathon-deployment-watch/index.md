@@ -50,4 +50,4 @@ APP                   POD  ACTION   PROGRESS  ID
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/1.12/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

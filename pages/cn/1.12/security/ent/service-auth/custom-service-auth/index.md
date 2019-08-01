@@ -12,9 +12,9 @@ enterprise: true
 
 **先决条件：**
 
-- [已安装 DC/OS CLI](/cn/1.12/cli/install/) 并以超级用户身份登录。
-- [已安装 DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.12/cli/enterprise-cli/#ent-cli-install)。
-- 必须 [获取根证书](/cn/1.12/security/ent/tls-ssl/get-cert/) 才能在本部分发出 `curl` 命令。
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/install/) 并以超级用户身份登录。
+- [已安装 DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/cn/1.12/cli/enterprise-cli/#ent-cli-install)。
+- 必须 [获取根证书](/mesosphere/dcos/cn/1.12/security/ent/tls-ssl/get-cert/) 才能在本部分发出 `curl` 命令。
 
 # <a name="create-a-keypair"></a>创建密钥对
 使用 DC/OS Enterprise CLI 创建 2048 位 RSA 公私密钥对。将每个值保存到当前目录中的单独文件中。
@@ -23,7 +23,7 @@ enterprise: true
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-使用 [DC/OS 密钥存储库](/cn/1.12/security/ent/secrets/) 保护钥匙对。
+使用 [DC/OS 密钥存储库](/mesosphere/dcos/cn/1.12/security/ent/secrets/) 保护钥匙对。
 
 # <a name="create-a-service-account"></a>创建服务帐户
 您可以使用 DC/OS Enterprise CLI 或 DC/OS Web 界面创建服务帐户。
@@ -47,14 +47,14 @@ dcos security org service-accounts show <service-account-id>
 1. 在 DC/OS Web 界面，导航至 **Organization** -> **Service Accounts** 选项卡。
 1. 单击右上方的 **+** 图标。
 
-    ![单击服务帐户创建按钮](/1.12/img/GUI-Organization-Service_Accounts_View-1_12.png)
+    ![单击服务帐户创建按钮](/mesosphere/dcos/1.12/img/GUI-Organization-Service_Accounts_View-1_12.png)
 
     图 1. 单击服务帐户创建按钮
 
 1. 输入描述并在 **ID** 字段中输入服务帐户 ID。
 1. 将与帐户相关联的公钥粘贴到 **PUBLIC KEY** 字段中。
 
-    ![创建服务帐户 UI](/1.12/img/create-service-account.png)
+    ![创建服务帐户 UI](/mesosphere/dcos/1.12/img/create-service-account.png)
 
     图 2. 创建新服务帐户
 
@@ -85,7 +85,7 @@ dcos security secrets list /
 ## 确定所需权限
 使用此步骤确定服务帐户所需的访问权限。这将允许您排除可能由错误权限导致的任何功能问题。
 
-1. [SSH 到您的节点](/cn/1.12/administering-clusters/sshcluster/)。
+1. [SSH 到您的节点](/mesosphere/dcos/cn/1.12/administering-clusters/sshcluster/)。
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
@@ -109,14 +109,14 @@ dcos security secrets list /
    -h "authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:superuser/users/<service-account-id>/full
    ```
 
-如需更多信息，请参阅 [权限参考](/cn/1.12/security/ent/perms-reference/)。
+如需更多信息，请参阅 [权限参考](/mesosphere/dcos/cn/1.12/security/ent/perms-reference/)。
 
 ## 分配权限
-使用 [权限参考](/cn/1.12/security/ent/perms-reference/) 和日志输出，为您的服务分配权限。所有 CLI 命令也可通过 [IAM API](/cn/1.12/security/ent/iam-api/) 执行。
+使用 [权限参考](/mesosphere/dcos/cn/1.12/security/ent/perms-reference/) 和日志输出，为您的服务分配权限。所有 CLI 命令也可通过 [IAM API](/mesosphere/dcos/cn/1.12/security/ent/iam-api/) 执行。
 
 ### 使用 CLI
 
-您可以使用 CLI 分配权限。例如，为将在 DC/OS 上卸载的 [Cassandra 服务](/services/cassandra/cass-auth/)授权：
+您可以使用 CLI 分配权限。例如，为将在 DC/OS 上卸载的 [Cassandra 服务](/mesosphere/dcos/services/cassandra/cass-auth/)授权：
 
 授予权限 (`dcos:mesos:master:framework:role:cassandra-role`) 和允许的操作 (`create`)。
 
@@ -130,7 +130,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:framework:r
 1. 选择 **Organization > Service Accounts**。
 1. 选择要授予权限的服务账户名称。
 
- ![选择服务帐户](/1.12/img/GUI-Organization-Service_Accounts_No_Tooltip-1_12.png)
+ ![选择服务帐户](/mesosphere/dcos/1.12/img/GUI-Organization-Service_Accounts_No_Tooltip-1_12.png)
 
  图 3. 选择服务帐户
 
@@ -138,20 +138,20 @@ dcos security org users grant <service-account-id> dcos:mesos:master:framework:r
 1. 单击**插入权限字符串**以切换对话框。
 1. 在**权限字符串**字段中复制并粘贴权限。
 
- ![服务帐户权限字符串](/1.12/img/service-account-permission-string.png)
+ ![服务帐户权限字符串](/mesosphere/dcos/1.12/img/service-account-permission-string.png)
 
  图 4. 服务帐户权限字符串
 
 # <a name="req-auth-tok"></a>请求认证令牌
 
-生成 [服务登录令牌](/cn/1.12/security/ent/service-auth/)，其中指定了服务帐户（`<service-account-id>`）和私钥（`<private-key>.pem`）。
+生成 [服务登录令牌](/mesosphere/dcos/cn/1.12/security/ent/service-auth/)，其中指定了服务帐户（`<service-account-id>`）和私钥（`<private-key>.pem`）。
 
 ```bash
 dcos auth login --username=<service-account-id> --private-key=<private-key>.pem
 ```
 
 # <a name="pass-tok"></a>在后续请求中传递认证令牌
-服务成功登录后，将创建一个[认证令牌](/cn/1.12/security/ent/service-auth/)。认证令牌应在后续对 DC/OS 端点的请求中使用。您可以将认证令牌引用为 shell 变量，例如：
+服务成功登录后，将创建一个[认证令牌](/mesosphere/dcos/cn/1.12/security/ent/service-auth/)。认证令牌应在后续对 DC/OS 端点的请求中使用。您可以将认证令牌引用为 shell 变量，例如：
 
 ```
 curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"

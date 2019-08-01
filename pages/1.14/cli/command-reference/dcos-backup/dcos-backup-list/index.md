@@ -58,5 +58,5 @@ backup-1-fd4bdc87-889c-48c3-a656-9f8e96474b27     1.13.0      STATUS_READY     2
 
 | Command | Description |
 |---------|-------------|
-| [dcos backup](/1.14/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+| [dcos backup](/mesosphere/dcos/1.14/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
 

@@ -41,8 +41,8 @@ dcos node ssh <command> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 节点](/cn/1.11/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos 节点](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
 
 # 示例
 
-有关示例，请参阅[文档](/cn/1.11/administering-clusters/sshcluster/)。
+有关示例，请参阅[文档](/mesosphere/dcos/cn/1.11/administering-clusters/sshcluster/)。

@@ -25,10 +25,10 @@ For new users installing to existing virtual or physical machines, on-premises o
 
 For advanced users installing to existing virtual or physical machines, on-premises or in the cloud, the [Advanced Installer][5] provides a scriptable, automatable interface to integrate with your preferred configuration management system.
 
-[1]: /1.9/installing/oss/local/
-[2]: /1.9/installing/oss/cloud/aws/
-[3]: /1.9/installing/oss/cloud/azure/
-[4]: /1.9/installing/oss/custom/gui/
-[5]: /1.9/installing/oss/custom/advanced/
-[6]: /1.9/installing/oss/cloud/
-[7]: /1.9/installing/oss/custom/
+[1]: /mesosphere/dcos/1.9/installing/oss/local/
+[2]: /mesosphere/dcos/1.9/installing/oss/cloud/aws/
+[3]: /mesosphere/dcos/1.9/installing/oss/cloud/azure/
+[4]: /mesosphere/dcos/1.9/installing/oss/custom/gui/
+[5]: /mesosphere/dcos/1.9/installing/oss/custom/advanced/
+[6]: /mesosphere/dcos/1.9/installing/oss/cloud/
+[7]: /mesosphere/dcos/1.9/installing/oss/custom/

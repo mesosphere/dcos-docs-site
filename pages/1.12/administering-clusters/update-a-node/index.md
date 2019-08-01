@@ -15,8 +15,8 @@ These steps are useful if you are downsizing a cluster, reconfiguring agent node
 
 ### Prerequisites:
 
-*   [SSH installed and configured](/1.12/administering-clusters/sshcluster/). This is required when removing nodes by manually killing agents.
-*   Access to the [Admin Router permissions](/1.12/overview/architecture/components/#admin-router).
+*   [SSH installed and configured](/mesosphere/dcos/1.12/administering-clusters/sshcluster/). This is required when removing nodes by manually killing agents.
+*   Access to the [Admin Router permissions](/mesosphere/dcos/1.12/overview/architecture/components/#admin-router).
 
 # Using maintenance windows
 With maintenance windows you can drain multiple nodes at the same time from outside the cluster. SSH access is not required.
@@ -61,7 +61,7 @@ You can define a maintenance schedule to evacuate your tasks prior to changing a
 # Manually killing agents
 Draining nodes by using the terminate signal, SIGUSR1, is easy to integrate with automation tools that can execute tasks on nodes in parallel, for example Ansible, Chef, and Puppet.
 
-1.  Open a secure shell [SSH](/1.12/administering-clusters/sshcluster/) on the agent nodes.
+1.  Open a secure shell [SSH](/mesosphere/dcos/1.12/administering-clusters/sshcluster/) on the agent nodes.
 
 1. Stop the agents by running the appropriate command.
     - For **private agents**, run:

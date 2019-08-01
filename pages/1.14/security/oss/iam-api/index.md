@@ -38,13 +38,13 @@ All IAM endpoints require an authentication token--except the `auth` endpoints. 
 
 DC/OS Open Source supports three types of users that can be managed via the `/users` API endpoint.
 
-The [User account management](/1.14/security/oss/user-account-management/) documentation covers invocation of available operations in detail.
+The [User account management](/mesosphere/dcos/1.14/security/oss/user-account-management/) documentation covers invocation of available operations in detail.
 
 # Authentication token verification
 
 The IAM can provide third-party entities with public key information via the `/auth/jwks` API endpoint for verifying DC/OS Authentication tokens out-of-band.
 
-See [Out-of-band token verification](/1.14/security/oss/authentication/out-of-band-verification/) on how to implement authentication token verification on behalf of the IAM.
+See [Out-of-band token verification](/mesosphere/dcos/1.14/security/oss/authentication/out-of-band-verification/) on how to implement authentication token verification on behalf of the IAM.
 
 # API reference
 
@@ -52,5 +52,5 @@ See [Out-of-band token verification](/1.14/security/oss/authentication/out-of-ba
 
 # Logging
 
-While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/1.14/monitoring/logging/) for instructions.
+While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/mesosphere/dcos/1.14/monitoring/logging/) for instructions.
 

@@ -35,7 +35,7 @@ Edge-LB Service version 1.3.1 was released April 29, 2019.
 
 - Edge-LB currently does not support `Strict` security mode on DC/OS 1.10, but supports `Strict` security mode in DC/OS 1.11.
 
-- The steps provided in the DC/OS 1.10 web interface to uninstall Edge-LB are incorrect. In order to correctly uninstall Edge-LB for any given DC/OS version, please follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.3/uninstalling/).
+- The steps provided in the DC/OS 1.10 web interface to uninstall Edge-LB are incorrect. In order to correctly uninstall Edge-LB for any given DC/OS version, please follow the steps in the [Edge-LB uninstall documentation](/mesosphere/dcos/services/edge-lb/1.3/uninstalling/).
 
 - Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with `ext4` may have connection issues.
 
@@ -73,7 +73,7 @@ Edge-LB Service version 1.3.0 was released February 6, 2019.
 
 - Edge-LB currently does not support self-service configuration. All configuration must be handled centrally.
 
-- The steps provided in the DC/OS 1.10 web interface to uninstall Edge-LB are incorrect. In order to correctly uninstall Edge-LB for any given DC/OS version, please follow the steps in the [Edge-LB uninstall documentation](/services/edge-lb/1.3/uninstalling/).
+- The steps provided in the DC/OS 1.10 web interface to uninstall Edge-LB are incorrect. In order to correctly uninstall Edge-LB for any given DC/OS version, please follow the steps in the [Edge-LB uninstall documentation](/mesosphere/dcos/services/edge-lb/1.3/uninstalling/).
 
 - Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with `ext4` may have connection issues.
 
