@@ -12,7 +12,7 @@ model: /1.14/data.yml
 You can drain tasks from an agent node in an active DC/OS cluster in order to take the node down for maintenance or to remove it permanently from the cluster. Nodes may be drained and their progress may be monitored via the DC/OS CLI or UI.
 
 <p class="message--warning"><strong>WARNING: </strong>All tasks that are running on the agent will be killed when draining is initiated. Use this feature with caution!</p>
-<p class="message--warning"><strong>WARNING: </strong>When the `--decommission` option is specified, all local persistent data on the node will be lost!</p>
+<p class="message--warning"><strong>WARNING: </strong>When the <code>--decommission</code> option is specified, all local persistent data on the node will be lost!</p>
 
 Initiating draining will cause all tasks on the target agent node to receive a kill event immediately, assuming the agent is currently reachable. If the agent is unreachable, initiation of the kill event will be delayed until the agent is reachable by the master again. When the tasks receive a kill event, a SIGTERM signal will be sent to the task to begin the killing process. Depending on the particular task's behavior, this signal may be sufficient to terminate it. Some tasks may use this signal to begin the process of graceful termination, which may take some time. After some delay, a SIGKILL signal will be sent to the task, which forcefully terminates the task if it is still running. The delay between the SIGTERM and SIGKILL signals is determined by the length of the task's kill grace period. If no grace period is set for the task, a default value of several seconds will be used.
 
