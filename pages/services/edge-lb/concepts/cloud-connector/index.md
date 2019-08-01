@@ -20,6 +20,10 @@ For example, using the public cloud load balancer in combination with Edge-LB:
 
 - Enables you to configure load balancing across multiple availability zones.
 
+The following diagram provides a simplified view of the architecture with a cloud provider load balancer deployed between the Edge-LB API server and an Edge-LB pool.
+
+![Integrating a cloud provider load balancer](../../img/Edge-LB-cloud-arch.png)
+
 You should note that, currently, Edge-LB only supports using AWS Network Load Balancers (NLB) for integrated cloud provider load balancing. For information about deploying and configuring AWS Network Load Balancers (NLB), see the AWS documentation for [Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html).
 
 # Configuring cloud provider settings

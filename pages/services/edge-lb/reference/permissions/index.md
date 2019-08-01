@@ -32,29 +32,28 @@ For example, to grant installation permissions to the user account `patsmith`:
 `dcos security org users grant patsmith dcos:adminrouter:package full`
 
 # Service account permissions
-The [service account](/services/edge-lb/1.2/installing/#create-a-service-account/) used for Edge-LB operations must be configured with sufficient administrative permissions. For simplicity, you can add the service account principal to the `superusers` group. However, if you are using the principle of least privilege to secure administrative activity for the cluster, you can grant the specific individual permissions necessary. 
+The [service account](/services/edge-lb/1.2/installing/#create-a-service-account/) used for Edge-LB operations must be configured with sufficient administrative permissions. For simplicity, you can add the service account principal to the `superusers` group. However, if you are using the principle of least privilege to secure administrative activity for the cluster, you can grant the specific individual permissions necessary.
 
 If you are using the principle of least privilege, follow the steps for creating a public/private key pair and a service account principal described in [preparing a service account](/services/edge-lb/how-to-tasks/installing), then grant the following permissions to the service account principal:
 
-- `dcos:adminrouter:ops:ca:rw full`
-- `dcos:adminrouter:ops:ca:ro full`
+- `dcos:adminrouter:ops:ca:rw`
+- `dcos:adminrouter:ops:ca:ro`
 - `dcos:adminrouter:service:marathon`
 - `dcos:adminrouter:package`
 - `dcos:adminrouter:service:edgelb`
-- `dcos:service:marathon:marathon:services:/dcos-edgelb full`
-- `dcos:mesos:master:endpoint:path:/api/v1 full`
-- `dcos:mesos:master:endpoint:path:/api/v1/scheduler full`
-- `dcos:mesos:master:framework:principal:edge-lb-principal full`
-- `dcos:mesos:master:framework:role full`
-- `dcos:mesos:master:reservation:principal:edge-lb-principal full`
-- `dcos:mesos:master:reservation:role full`
-- `dcos:mesos:master:volume:principal:edge-lb-principal full`
-- `dcos:mesos:master:volume:role full`
-- `dcos:mesos:master:task:user:root full`
-- `dcos:mesos:master:task:app_id full`
-
-- `dcos:secrets:default:/dcos-edgelb/* full`
-- `dcos:secrets:list:default:/dcos-edgelb/* full`
+- `dcos:service:marathon:marathon:services:/dcos-edgelb`
+- `dcos:mesos:master:endpoint:path:/api/v1`
+- `dcos:mesos:master:endpoint:path:/api/v1/scheduler`
+- `dcos:mesos:master:framework:principal:edge-lb-principal`
+- `dcos:mesos:master:framework:role`
+- `dcos:mesos:master:reservation:principal:edge-lb-principal`
+- `dcos:mesos:master:reservation:role`
+- `dcos:mesos:master:volume:principal:edge-lb-principal`
+- `dcos:mesos:master:volume:role`
+- `dcos:mesos:master:task:user:root`
+- `dcos:mesos:master:task:app_id`
+- `dcos:secrets:default:/dcos-edgelb/*`
+- `dcos:secrets:list:default:/dcos-edgelb/*`
 
 Additionally, grant the following permission **for each Edge-LB pool created**:
 

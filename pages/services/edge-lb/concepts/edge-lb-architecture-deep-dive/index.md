@@ -10,9 +10,7 @@ Edge-LB provides layer-7 inbound load balancing and proxying through the Edge-LB
 
 The following diagram provides a more detailed representation of the Edge-LB architecture.
 
-<p>
-<img src="/services/edge-lb/img/Edge-LB-detail-arch.png" alt="Detail view of Edge-LB components">
-</p>
+![Detail view of Edge-LB components](../../img/Edge-LB-detail-arch.png)
 
 # A closer look at the Edge-LB API server
 The Edge-LB API receives incoming client requests and, based on the action requested, creates, deletes, or updates Edge-LB pool instances. The API server also serves API endpoint requests for Edge-LB pool(s) instances.
