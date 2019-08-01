@@ -11,12 +11,113 @@ This section contains examples for using {{ model.techName }}.
 
 # Basic
 
-Perform a default installation by following the instructions in the [Install and Customize](/services/data-science-engine/1.0.0/install/) section.
+Perform a default installation by following the instructions in the [Quick Start Guide](/services/data-science-engine/1.0.0/quick-start/) section.
 
-# Example of an R kernel notebook
+To run any job, first you have to open the lab and choose the notebook you want to run.
+You can select from many notebooks available in the lab, for example, Scala, Python, R, and so forth.
+Notebook consists of cells; each cell can be of type `markdown` or `code`. 
+In the `markdown` cell, you can write text or html. In the `code` cell, you can type your code as shown in the example below.
 
+## Python Kernel
+Open a `Python Notebook` and put the following sections in a different code cells.
+
+```python
+def initMatrix(nrow, ncol):
+    mat = []
+    counter = 1
+    for i in range(0, nrow):
+        row = []
+        for j in range(0, ncol):
+            row.append(counter)
+            counter += 1
+        mat.append(row)
+    return mat
 ```
-# creating 10 x 10 matrix
+```python
+def sumMatrix(mat):
+    sum = 0
+    for row in mat:
+        for x in row:
+            sum += x
+    return sum
+```
+```python
+mat = initMatrix(10, 10)
+sum = sumMatrix(mat)
+print(sum)
+```
+
+## Scala Kernel
+Open a `Scala Notebook` and put the following sections in different code cells.
+
+```scala
+def initMatrix(nrow: Int, ncol: Int): Array[Array[Int]] = {
+    val mat = Array.ofDim[Int](nrow, ncol)
+    var counter = 1
+    for(i <- 0 to 9) {
+        for(j <- 0 to 9) {
+            mat(i)(j) = counter
+            counter += 1
+        }
+    }
+    mat
+}
+```
+```scala
+def sumMatrix(mat: Array[Array[Int]]): Int = {
+    var sum = 0
+    for (i <- 0 to 9) {
+        for (j <- 0 to 9) {
+            sum = sum + mat(i)(j)
+        }
+    }
+    sum
+}
+```
+```scala
+val mat = initMatrix(10, 10)
+val sum = sumMatrix(mat)
+```
+
+## Java Kernel
+Open a `Java Notebook` and put the following sections in different code cells.
+
+```java
+class Matrix {
+    private int[][] mat;
+    
+    // constructor to initialize matrix of given number of rows and columns
+    public Matrix(int row, int col) {
+        mat = new int[row][col];
+        int counter = 1;
+        for(int i = 0; i < row; i++) {
+            for(int j = 0; j < col; j++) {
+                mat[i][j] = counter++;
+            }
+        }
+    }
+    
+    // finding sum of all the numbers in the matrix
+    public int sum() {
+        int sum = 0;
+        for(int i = 0; i < mat.length; i++) {
+            for(int j = 0; j < mat[i].length; j++) {
+                sum += mat[i][j];
+            }
+        }
+        return sum;
+    }
+}
+```
+```java
+Matrix mat = new Matrix(10, 10);
+return mat.sum();
+```
+
+## R Kernel
+Open an `R Notebook` and put the following sections in different code cells.
+
+```r
 mat <- matrix(data = seq(1, 100, by=1), nrow = 10, ncol = 10)
 sum = 0
 # calculating sum of all numbers
@@ -28,36 +129,63 @@ for (r in 1:nrow(mat)) {
 print(sum)
 ```
 
+## Clojure Kernel
+Open a `Clojure Notebook` and put the following sections in different code cells.
+
+```clojure
+;; add numbers from 1 to 100
+(reduce + (range 1 101 1))
+```
+
+## Groovy Kernel
+Open a `Groovy Notebook` and put the following sections in different code cells.
+
+```groovy
+def sum = 0
+1.upto(100) {
+    sum = sum + it
+}
+sum
+```
+
+## Kotlin Kernel
+Open a `Kotlin Notebook` and put the following sections in different code cells.
+
+```kotlin
+fun initMatrix(nrow: Int, ncol: Int): Array<IntArray> {
+    val mat = Array(nrow, {IntArray(ncol)})
+    var counter = 1
+    for(i in 0..9) {
+        for(j in 0..9) {
+            mat[i][j] = counter
+            counter += 1
+        }
+    }
+    return mat
+}
+```
+```kotlin
+fun sumMatrix(mat: Array<IntArray>): Int {
+    var sum = 0
+    for(i in 0..9) {
+        for(j in 0..9) {
+            sum += mat[i][j]
+        }
+    }
+    return sum
+}
+```
+```kotlin
+val mat = initMatrix(10, 10)
+val sum = sumMatrix(mat)
+sum
+```
 
 # Advanced
 
-## Run a {{ model.packageName }} streaming job with Kafka
-As mentioned in the Kerberos section, `{{ model.packageName }}` requires a {{ model.packageName }} file, the `krb5.conf`, and the keytab.
-An example of a {{ model.packageName }} file is:
+## Launching a Spark job
+Open a `Python Notebook` and put the following code in a code cell.
 
-    KafkaClient {
-        com.sun.security.auth.module.Krb5LoginModule required
-        useKeyTab=true
-        storeKey=true
-        keyTab="/mnt/mesos/sandbox/kafka-client.keytab"
-        useTicketCache=false
-        serviceName="kafka"
-        principal="client@LOCAL";
-    };
-
-The corresponding `dcos {{ model.packageName }}` command would be:
-
-    dcos {{ model.packageName }} run --submit-args="\
-    --conf {{ model.packageName }}.mesos.containerizer=mesos \  # required for secrets
-    --conf {{ model.packageName }}.mesos.uris=<URI_of_{{ model.packageName }}.conf> \
-    --conf {{ model.packageName }}.mesos.driver.secret.names={{ model.packageName }}/__dcos_base64___keytab \  # base64 encoding of binary secrets required in DC/OS 1.10 or lower
-    --conf {{ model.packageName }}.mesos.driver.secret.filenames=kafka-client.keytab \
-    --conf {{ model.packageName }}.mesos.executor.secret.names={{ model.packageName }}/__dcos_base64___keytab \
-    --conf {{ model.packageName }}.mesos.executor.secret.filenames=kafka-client.keytab \
-    --conf {{ model.packageName }}.mesos.task.labels=DCOS_SPACE:/{{ model.packageName }} \
-    --conf {{ model.packageName }}.scheduler.minRegisteredResourcesRatio=1.0 \
-    --conf {{ model.packageName }}.executorEnv.KRB5_CONFIG_BASE64=W2xpYmRlZmF1bHRzXQpkZWZhdWx0X3JlYWxtID0gTE9DQUwKCltyZWFsbXNdCiAgTE9DQUwgPSB7CiAgICBrZGMgPSBrZGMubWFyYXRob24uYXV0b2lwLmRjb3MudGhpc2Rjb3MuZGlyZWN0b3J5OjI1MDAKICB9Cg== \
-    --conf {{ model.packageName }}.mesos.driverEnv.KRB5_CONFIG_BASE64=W2xpYmRlZmF1bHRzXQpkZWZhdWx0X3JlYWxtID0gTE9DQUwKCltyZWFsbXNdCiAgTE9DQUwgPSB7CiAgICBrZGMgPSBrZGMubWFyYXRob24uYXV0b2lwLmRjb3MudGhpc2Rjb3MuZGlyZWN0b3J5OjI1MDAKICB9Cg== \
-    --class MyAppClass <URL_of_jar> [application args]"
-
-
+```bash
+! spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
+```
