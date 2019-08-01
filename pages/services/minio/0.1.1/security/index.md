@@ -19,9 +19,9 @@ render: mustache
    - [Enterprise DC/OS CLI 1.10 or later installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/#ent-cli-install).
 - If your [security mode](https://docs.mesosphere.com/1.10/security/ent/) is permissive or strict, you must [get the root cert](https://docs.mesosphere.com/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
-#include /services/include/service-account.tmpl
+#include /mesosphere/dcos/services/include/service-account.tmpl
 
-#include /services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
 
 ## Accessing the {{ model.techName }} web interface with Edge-LB TLS configuration
 

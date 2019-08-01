@@ -8,7 +8,7 @@ model: /services/confluent-kafka/data.yml
 render: mustache
 ---
 
-#include /services/include/troubleshooting.tmpl
+#include /mesosphere/dcos/services/include/troubleshooting.tmpl
 
 ## Partition replication
 

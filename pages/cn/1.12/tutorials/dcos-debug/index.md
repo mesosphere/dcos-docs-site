@@ -6,7 +6,7 @@ excerpt: 调试分布式系统中的应用程序部署问题
 menuWeight: 55
 ---
 
-#include /cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 本教程提供在 DC/OS 上部署期间和之后调试应用程序的简介。它不应被视为在 DC/OS 上进行调试的详尽资源，而是一个起点。
 

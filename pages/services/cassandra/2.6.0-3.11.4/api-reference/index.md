@@ -8,4 +8,4 @@ model: /services/cassandra/data.yml
 render: mustache
 ---
 
-#include /services/include/api-reference.tmpl
+#include /mesosphere/dcos/services/include/api-reference.tmpl

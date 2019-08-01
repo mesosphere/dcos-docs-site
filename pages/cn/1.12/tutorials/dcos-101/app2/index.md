@@ -6,7 +6,7 @@ navigationTitle: 本地应用程序
 menuWeight: 5
 ---
 
-#include /cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 欢迎阅读 DC/OS 101 教程第 5 部分
 

@@ -8,12 +8,12 @@ model: /1.10/installing/data.yml
 render: mustache
 ---
 
-#include /install-include/azure-extended-example.tmpl
+#include /mesosphere/dcos/install-include/azure-extended-example.tmpl
 
-#include /install-include/all-dcos-versions.tmpl
+#include /mesosphere/dcos/install-include/all-dcos-versions.tmpl
 
-#include /install-include/all-node-os-versions.tmpl
+#include /mesosphere/dcos/install-include/all-node-os-versions.tmpl
 
-#include /install-include/azurerm-inputs-table.tmpl
+#include /mesosphere/dcos/install-include/azurerm-inputs-table.tmpl
 
-#include /install-include/all-outputs-table.tmpl
+#include /mesosphere/dcos/install-include/all-outputs-table.tmpl

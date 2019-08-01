@@ -8,7 +8,7 @@ model: /services/cassandra/data.yml
 render: mustache
 ---
 
-#include /services/include/operations.tmpl
+#include /mesosphere/dcos/services/include/operations.tmpl
 
 ## Performing {{ model.techShortName }} Cleanup and Repair Operations
 

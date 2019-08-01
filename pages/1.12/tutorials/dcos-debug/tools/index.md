@@ -5,7 +5,7 @@ excerpt: Tutorial - Tools for debugging applications on DC/OS
 menuWeight: 11
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 
 <a name="tools"></a>

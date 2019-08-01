@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Building a complete load-balanced data pipeline on DC/OS
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes!
 

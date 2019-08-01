@@ -9,12 +9,12 @@ render: mustache
 ---
 
 
-#include /services/include/configuration-install-with-options.tmpl
+#include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl
 
 ## Datastax Opscenter
 The DC/OS Datastax Opscenter can be installed from the `datastax-ops` package. It is managed identically to `datastax-dse`. This guide primarily covers `datastax-dse` for conciseness. See the later sections of the guide for any configuration specifics of DC/OS Datastax Opscenter.
 
-#include /services/include/configuration-service-settings.tmpl
+#include /mesosphere/dcos/services/include/configuration-service-settings.tmpl
 
 ## Best Practices
 

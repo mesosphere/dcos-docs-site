@@ -8,5 +8,5 @@ model: /services/minio/data.yml
 render: mustache
 ---
 
-#include /services/include/configuration-install-with-options.tmpl
-#include /services/include/configuration-service-settings.tmpl
+#include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl
+#include /mesosphere/dcos/services/include/configuration-service-settings.tmpl

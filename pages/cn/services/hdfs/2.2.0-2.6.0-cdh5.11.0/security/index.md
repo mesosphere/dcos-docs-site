@@ -16,19 +16,19 @@ render: mustache
 
 <p class="message--note"><strong>注意：</strong> 这些安全功能仅在 DC/OS Enterprise 1.10 及更高版本中可用。</p>
 
-#include /cn/services/include/service-account.tmpl
+#include /mesosphere/dcos/cn/services/include/service-account.tmpl
 
-#include /cn/services/include/security-create-permissions.tmpl
+#include /mesosphere/dcos/cn/services/include/security-create-permissions.tmpl
 
 ## 传输加密
 
-#include /cn/services/include/security-transport-encryption-lead-in.tmpl
+#include /mesosphere/dcos/cn/services/include/security-transport-encryption-lead-in.tmpl
 
 <p class="message--note"><strong>注意 </strong>使用 <a href="#kerberos-authentication">Kerberos 身份认证</a>并不_要求_启用传输加密，但传输加密 _可以_ 与 Kerberos 身份认证结合。</p>
 
-#include /cn/services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/cn/services/include/security-configure-transport-encryption.tmpl
 
-#include /cn/services/include/security-transport-encryption-clients.tmpl
+#include /mesosphere/dcos/cn/services/include/security-transport-encryption-clients.tmpl
 
 待确认
 *注意*：可以更新正在运行的 DC/OS {{ model.techName }} 服务以在初次安装后启用传输加密，但在过渡期间，服务可能不可用。另外，您的 {{ model.techShortName }} 客户端需要重新配置，除非 `service.security.transport_encryption.allow_plaintext` 设置为 true。
@@ -130,9 +130,9 @@ example/data-2-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 HTTP/data-2-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 ```
 
-#include /cn/services/include/security-kerberos-ad.tmpl
+#include /mesosphere/dcos/cn/services/include/security-kerberos-ad.tmpl
 
-#include /cn/services/include/security-service-keytab.tmpl
+#include /mesosphere/dcos/cn/services/include/security-service-keytab.tmpl
 
 #### 安装服务
 

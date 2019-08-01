@@ -11,6 +11,6 @@ Welcome to Mesosphere DC/OS Jupyter! Jupyter is a user interface for interactive
 
 You should note that the {{ model.techName }} service is currently in **preview** mode. In **preview** mode, a service might have bugs, incomplete features, incorrect documentation, or other have significant changes before being released. You should not deploy a package that is in **preview** mode in a production environment.
 
-#include /services/include/beta-software-warning.tmpl
+#include /mesosphere/dcos/services/include/beta-software-warning.tmpl
 
 For additional information not covered in this guide, see [DC/OS JupyterLab Service](https://github.com/dcos-labs/dcos-jupyterlab-service).

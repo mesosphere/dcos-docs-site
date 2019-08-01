@@ -5,7 +5,7 @@ title: Strategy
 excerpt: Tutorial - Applying troubleshooting strategies
 menuWeight: 21
 ---
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 <a name=strategy></a>
 

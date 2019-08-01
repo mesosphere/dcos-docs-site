@@ -10,4 +10,4 @@ render: mustache
 
 This section is a quick guide on how to configure and use {{ model.serverName }} and {{ model.syncGatewayName }} with {{ model.productName }}.
 
-#include /services/include/getting-started.tmpl
+#include /mesosphere/dcos/services/include/getting-started.tmpl

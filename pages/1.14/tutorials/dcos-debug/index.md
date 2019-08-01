@@ -10,7 +10,7 @@ menuWeight: 55
 
 <!-- i. Support Disclaimer -->
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 <!-- ii. Intro/Set Expectations for this Tutorial -->
 

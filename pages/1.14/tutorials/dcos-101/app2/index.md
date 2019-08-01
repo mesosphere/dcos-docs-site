@@ -8,7 +8,7 @@ model: /1.14/data.yml
 menuWeight: 5
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 Welcome to part 5 of the DC/OS 101 Tutorial
 

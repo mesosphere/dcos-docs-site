@@ -9,4 +9,4 @@ model: /data.yml
 render: mustache
 ---
 
-#include /install-include/gcp-remote-region-all.tmpl
+#include /mesosphere/dcos/install-include/gcp-remote-region-all.tmpl

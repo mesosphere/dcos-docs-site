@@ -6,7 +6,7 @@ excerpt: Tutorial - Troubleshooting issues on DC/OS deployments
 menuWeight: 1
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 <a name="problems"></a>
 

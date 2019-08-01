@@ -16,11 +16,11 @@ The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s nati
 
 ## Transport Encryption
 
-#include /services/include/security-transport-encryption-lead-in.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
 
-#include /services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
 
-#include /services/include/security-transport-encryption-clients.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
 
 ## DSE Authentication/Authorization Schemes
 {{ model.shortTechName }} in DC/OS currently supports both internal and ldap authentication/authorization schemes.  You can configure both schemes and then select the order in which they are used, or you can configure just one, in which case only that scheme will be used.  {{ model.shortTechName }} will try to authenticate with the default scheme first and fall back to the alternate scheme if it has been configured. More information about how {{ model.shortTechName }} handles this can be found in [DataStax's documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secDSEUnifiedAuthAbout.html)

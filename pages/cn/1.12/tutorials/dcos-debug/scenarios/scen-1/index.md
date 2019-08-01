@@ -5,7 +5,7 @@ navigationTitle: 方案 1
 excerpt: 教程 - 资源分配
 menuWeight: 1
 ---
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 <a name=c1></a>
 

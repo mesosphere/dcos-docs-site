@@ -18,13 +18,13 @@ A good overview of these features can be found [here](https://hadoop.apache.org/
 
 ## Transport Encryption
 
-#include /services/include/security-transport-encryption-lead-in.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
 
 *Note*: Enabling transport encryption is not _required_ to use [Kerberos authentication](#kerberos-authentication), but transport encryption _can_ be combined with Kerberos authentication.
 
-#include /services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
 
-#include /services/include/security-transport-encryption-clients.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
 
 <!--
 TO BE CONFIRMED
@@ -127,9 +127,9 @@ example/data-2-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 HTTP/data-2-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 ```
 
-#include /services/include/security-kerberos-ad.tmpl
+#include /mesosphere/dcos/services/include/security-kerberos-ad.tmpl
 
-#include /services/include/security-service-keytab.tmpl
+#include /mesosphere/dcos/services/include/security-service-keytab.tmpl
 
 #### Install the Service
 

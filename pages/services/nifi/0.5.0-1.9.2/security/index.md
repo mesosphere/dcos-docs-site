@@ -57,7 +57,7 @@ dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:princi
 
 ## Transport Encryption for Clients
 
-#include /services/include/security-transport-encryption-clients.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
 
 ## Authentication
 
@@ -136,6 +136,6 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 
 # Configuring DC/OS Access for DC/OS {{model.techName }}
 
-#include /services/include/service-account.tmpl
+#include /mesosphere/dcos/services/include/service-account.tmpl
 
-#include /services/include/security-create-permissions.tmpl
+#include /mesosphere/dcos/services/include/security-create-permissions.tmpl

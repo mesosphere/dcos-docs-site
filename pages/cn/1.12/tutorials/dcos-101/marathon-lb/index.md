@@ -6,7 +6,7 @@ navigationTitle: 公开应用程序
 menuWeight: 6
 ---
 
-#include /cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 
 欢迎阅读 DC/OS 101 教程第 6 部分。

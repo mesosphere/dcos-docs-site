@@ -6,7 +6,7 @@ navigationTitle: 服务发现
 menuWeight: 4
 ---
 
-#include /cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 欢迎阅读 DC/OS 101 教程第 4 部分
 

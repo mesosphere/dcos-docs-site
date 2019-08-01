@@ -26,7 +26,7 @@ Here are the available CRUD actions (`create`, `read`, `update`, and `delete`). 
 
 ## <a name="admin-router"></a>Admin Router Permissions
 
-#include /include/permissions-inheritance-disclaimer.tmpl
+#include /mesosphere/dcos/include/permissions-inheritance-disclaimer.tmpl
 
 |                                                                                                                                 Permission string                                                                                                                                 | full | C | R | U | D |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|---|---|---|---|

@@ -10,7 +10,7 @@ model: ../../data.yml
 render: mustache
 ---
 
-#include /services/include/limitations.tmpl
+#include /mesosphere/dcos/services/include/limitations.tmpl
 
 ## Configurations
 

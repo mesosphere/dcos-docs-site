@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 
-#include /cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 
 您可以使用 [marathon-lb-autoscale](https://github.com/mesosphere/marathon-lb-autoscale) 应用程序通过 Marathon 实施基于速率的自动扩展。marathon-lb-autoscale 应用程序与使用 TCP 流量的任何应用程序一起工作，并可通过 HAProxy 进行路由。

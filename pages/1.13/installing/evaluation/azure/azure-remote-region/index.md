@@ -9,4 +9,4 @@ model: /data.yml
 render: mustache
 ---
 
-#include /install-include/azure-remote-region-all.tmpl
+#include /mesosphere/dcos/install-include/azure-remote-region-all.tmpl

@@ -8,4 +8,4 @@ model: /services/hdfs/data.yml
 render: mustache
 ---
 
-#include /services/include/update.tmpl
+#include /mesosphere/dcos/services/include/update.tmpl

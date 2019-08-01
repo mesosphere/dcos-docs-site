@@ -18,19 +18,19 @@ enterprise: true
 <p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
 
-#include /services/include/service-account.tmpl
+#include /mesosphere/dcos/services/include/service-account.tmpl
 
-#include /services/include/security-create-permissions.tmpl
+#include /mesosphere/dcos/services/include/security-create-permissions.tmpl
 
 # <a name="transport_encryption"></a> Transport Encryption
 
-#include /services/include/security-transport-encryption-lead-in.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
 
-#include /services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
 
 <p class="message--note"><strong>NOTE: </strong>It is possible to update a running DC/OS Apache Cassandra service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your clients will need to be reconfigured unless <tt>service.security.transport_encryption.allow_plaintext</tt> is set to <tt>true</tt>.</p>
 
-#include /services/include/security-transport-encryption-clients.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
 
 # <a name="Forwarding DNS and Custom Domain"></a> Forwarding DNS and Custom Domain
 

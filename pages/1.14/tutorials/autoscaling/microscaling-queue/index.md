@@ -11,7 +11,7 @@ menuWeight: 2
 This tutorial walks you through setting up a microscaling demonstration from [Microscaling Systems][2] on a DC/OS cluster.
 
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 [Microscaling][1] adjusts the balance of tasks running within your compute cluster.
 This allows your infrastructure to automatically reallocate

@@ -13,7 +13,7 @@ render: mustache
 在 [DC/OS 严格安全模式](/mesosphere/dcos/cn/1.11/security/)下运行时，调度器和作业都
 必须使用 [DC/OS 服务帐户 进行 Mesos 认证](/mesosphere/dcos/cn/1.11/security/service-auth/)。
 
-#include /cn/services/include/service-account.tmpl
+#include /mesosphere/dcos/cn/services/include/service-account.tmpl
 
 # <a name="give-perms"></a>创建和分配权限
 使用以下 `curl` 命令快速为 {{ model.techShortName }} 服务配置所需权限。这也可通过 UI 完成。
@@ -57,7 +57,7 @@ curl -X PUT -k \
 -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody/users/<service-account-id>/create
 ```
 
-#include /cn/services/include/configuration-create-json-file.tmpl
+#include /mesosphere/dcos/cn/services/include/configuration-create-json-file.tmpl
 
 # 使用密钥存储库
 

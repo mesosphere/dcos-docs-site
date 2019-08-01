@@ -54,7 +54,7 @@ where <service name> is the name of the service to be installed.
 
 ## Transport Encryption for Clients
 
-#include /services/include/security-transport-encryption-clients.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
 
 ## Authentication
 

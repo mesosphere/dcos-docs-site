@@ -29,4 +29,4 @@ This introduction to DC/OS contains tutorials for working with DC/OS Open Source
 # Where to go for additional information
 Before you get started, you might want to bookmark the [Glossary](glossary) for reference. For example, you can use the [Glossary](glossary) to look up unfamiliar concepts or terms.
 -->
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
