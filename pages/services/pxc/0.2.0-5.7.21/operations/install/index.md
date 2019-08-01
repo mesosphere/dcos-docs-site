@@ -35,4 +35,4 @@ throughput. Edit the `/etc/fstab` file and for the partition(s) of interest add 
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
 
-#include /services/include/getting-started.tmpl
+#include /mesosphere/dcos/services/include/getting-started.tmpl

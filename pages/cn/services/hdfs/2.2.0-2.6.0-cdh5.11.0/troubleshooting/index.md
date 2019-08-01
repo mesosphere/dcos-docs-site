@@ -10,7 +10,7 @@ render: mustache
 
 
 
-#include /cn/services/include/troubleshooting.tmpl
+#include /mesosphere/dcos/cn/services/include/troubleshooting.tmpl
 
 # 故障排除已替换的日志节点
 

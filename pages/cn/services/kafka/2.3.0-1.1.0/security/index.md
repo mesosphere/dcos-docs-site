@@ -20,11 +20,11 @@ DC/OS {{ model.techName }} 服务支持 {{ model.techShortName }}的本地传输
 
 ## 传输加密
 
-#include /cn/services/include/security-transport-encryption-lead-in.tmpl
+#include /mesosphere/dcos/cn/services/include/security-transport-encryption-lead-in.tmpl
 
 <p class="message--note"><strong>注意：</strong>对于 [身份认证](#authentication)，启用传输加密 *需要* 使用 [SSL 身份认证]，但是，对于 <a href="#kerberos-authentication">Kerberos 身份认证</a>，则是可选的。</p>
 
-#include /cn/services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/cn/services/include/security-configure-transport-encryption.tmpl
 
 可以更新运行中的 DC/OS {{ model.techName }} 服务，从而在初始安装后启用传输加密，但服务在过渡期间可能不可用。另外，您的 {{ model.techShortName }} 客户端需要重新配置，除非 `service.security.transport_encryption.allow_plaintext` 被设置为 true。
 
@@ -32,7 +32,7 @@ DC/OS {{ model.techName }} 服务支持 {{ model.techShortName }}的本地传输
 
 服务部署完成后，为端点 `broker-tls` 检查  [{{ model.techShortName }}端点](./api-reference/#connection-information) 的列表。如果 `service.security.transport_encryption.allow_plaintext` 是 `true`，那么 `broker` 端点也可用。
 
-#include /cn/services/include/security-transport-encryption-clients.tmpl
+#include /mesosphere/dcos/cn/services/include/security-transport-encryption-clients.tmpl
 
 ## 身份认证
 
@@ -88,9 +88,9 @@ example/kafka-0-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/kafka-1-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/kafka-2-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 ```
-#include /cn/services/include/security-kerberos-ad.tmpl
+#include /mesosphere/dcos/cn/services/include/security-kerberos-ad.tmpl
 
-#include /cn/services/include/security-service-keytab.tmpl
+#include /mesosphere/dcos/cn/services/include/security-service-keytab.tmpl
 
 #### 安装服务
 

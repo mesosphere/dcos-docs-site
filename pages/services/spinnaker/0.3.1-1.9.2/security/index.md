@@ -25,7 +25,7 @@ With transport encryption enabled, DC/OS {{ model.techName }} will automatically
 
 The service uses the [DC/OS CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the DC/OS CA will consider the service's certificates valid.
 
-#include /services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
 
 Service account and service account secret plus enabling TLS can also be configured when launching the {{ model.serverName }} via the DC/OS console.
 

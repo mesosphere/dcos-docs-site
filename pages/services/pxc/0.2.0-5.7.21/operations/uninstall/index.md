@@ -10,4 +10,4 @@ model: /services/pxc/data.yml
 render: mustache
 ---
 
-#include /services/include/uninstall.tmpl
+#include /mesosphere/dcos/services/include/uninstall.tmpl

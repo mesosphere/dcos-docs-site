@@ -10,7 +10,7 @@ model: /services/minio/data.yml
 render: mustache
 ---
 
-#include /services/include/limitations.tmpl
+#include /mesosphere/dcos/services/include/limitations.tmpl
 
 
 ## Scaling Out

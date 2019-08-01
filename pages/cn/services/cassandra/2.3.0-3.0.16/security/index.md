@@ -18,17 +18,17 @@ enterprise: true
 <p class="message--note"><strong>注意：</strong> 这些安全功能仅在 DC/OS Enterprise 1.10 及更高版本中可用。</p>
 
 
-#include /cn/services/include/service-account.tmpl
+#include /mesosphere/dcos/cn/services/include/service-account.tmpl
 
-#include /cn/services/include/security-create-permissions.tmpl
+#include /mesosphere/dcos/cn/services/include/security-create-permissions.tmpl
 
 # <a name="transport_encryption"></a> 传输加密
 
-#include /cn/services/include/security-transport-encryption-lead-in.tmpl
+#include /mesosphere/dcos/cn/services/include/security-transport-encryption-lead-in.tmpl
 
-#include /cn/services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/cn/services/include/security-configure-transport-encryption.tmpl
 
 <p class="message--note"><strong>注意：</strong> 可以更新运行中的 DC/OS {{ model.techName }} 服务，从而在初始安装后启用传输加密，但服务在过渡期间可能不可用。另外，您的客户端需要重新配置，除非 `service.security.transport_encryption.allow_plaintext` 被设置为 `true`。</p>
 
-#include /cn/services/include/security-transport-encryption-clients.tmpl
+#include /mesosphere/dcos/cn/services/include/security-transport-encryption-clients.tmpl
  

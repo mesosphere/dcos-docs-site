@@ -6,7 +6,7 @@ excerpt: Debugging application deployment issues in distributed systems
 menuWeight: 55
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 This tutorial provides a top-down introduction to debugging applications during and after their deployment on DC/OS. It should not be considered an exhaustive resource for debugging on DC/OS, but rather a starting point.
 

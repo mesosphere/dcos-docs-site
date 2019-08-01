@@ -12,7 +12,7 @@ JupyterLab is the next-generation web-based user interface for Project Jupyter. 
 
 
 
-#include /services/include/beta-software-warning.tmpl
+#include /mesosphere/dcos/services/include/beta-software-warning.tmpl
 
 ### Further Information
 

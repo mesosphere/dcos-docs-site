@@ -6,7 +6,7 @@ excerpt: 教程 - 排除 DC/OS 部署问题
 menuWeight: 1
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 <a name="problems"></a>
 

@@ -9,7 +9,7 @@ menuWeight: 2
 ---
 
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 Welcome to part 2 of the DC/OS 101 Tutorial.
 

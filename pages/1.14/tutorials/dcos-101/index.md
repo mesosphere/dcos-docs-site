@@ -9,7 +9,7 @@ menuWeight: 0
 ---
 
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 This DC/OS 101 tutorial will guide you through the steps necessary to get started using DC/OS.
 

@@ -8,7 +8,7 @@ model: /services/kafka/data.yml
 render: mustache
 ---
 
-#include /services/include/advanced.tmpl
+#include /mesosphere/dcos/services/include/advanced.tmpl
 
 [enterprise]
 ## Secure JMX

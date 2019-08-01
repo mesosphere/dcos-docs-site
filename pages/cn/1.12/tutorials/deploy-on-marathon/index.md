@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 本教程介绍如何使用 Jenkins for DC/OS 在 [Marathon][1] 上部署应用程序。本教程将指导您创建新的 Jenkins 作业，在源代码更改时发布 Docker 容器，并根据项目的 `marathon.json` 文件中包含的[应用定义][3] 将这些更改部署到 Marathon。
 

@@ -7,26 +7,26 @@ menuWeight: 0
 model: /1.14/data.yml
 render: mustache
 ---
-#include /install-include/aws-intro-and-prereqs.tmpl
+#include /mesosphere/dcos/install-include/aws-intro-and-prereqs.tmpl
 
-#include /install-include/all-install-terraform.tmpl
+#include /mesosphere/dcos/install-include/all-install-terraform.tmpl
 
-#include /install-include/aws-credentials.tmpl
+#include /mesosphere/dcos/install-include/aws-credentials.tmpl
 
-#include /install-include/all-ssh-keypair.tmpl
+#include /mesosphere/dcos/install-include/all-ssh-keypair.tmpl
 
-#include /install-include/all-enterprise-license.tmpl
+#include /mesosphere/dcos/install-include/all-enterprise-license.tmpl
 
-#include /install-include/aws-cluster-setup.tmpl
+#include /mesosphere/dcos/install-include/aws-cluster-setup.tmpl
 
-#include /install-include/all-create-first-cluster.tmpl
+#include /mesosphere/dcos/install-include/all-create-first-cluster.tmpl
 
-#include /install-include/all-logging-in-dcos.tmpl
+#include /mesosphere/dcos/install-include/all-logging-in-dcos.tmpl
 
-#include /install-include/all-scale-cluster.tmpl
+#include /mesosphere/dcos/install-include/all-scale-cluster.tmpl
 
-#include /install-include/all-upgrade-cluster.tmpl
+#include /mesosphere/dcos/install-include/all-upgrade-cluster.tmpl
 
-#include /install-include/all-destroy-cluster.tmpl
+#include /mesosphere/dcos/install-include/all-destroy-cluster.tmpl
 
-#include /install-include/aws-v02-modules-update.tmpl
+#include /mesosphere/dcos/install-include/aws-v02-modules-update.tmpl

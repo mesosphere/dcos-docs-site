@@ -8,7 +8,7 @@ model: /cn/services/kafka/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/api-reference.tmpl
+#include /mesosphere/dcos/cn/services/include/api-reference.tmpl
 
 # 主题操作
 

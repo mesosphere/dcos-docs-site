@@ -28,7 +28,7 @@ With transport encryption enabled, {{ model.productName }} {{ model.techName }} 
 
 The service uses the [{{ model.productName }} CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the {{ model.productName }} CA will consider the service's certificates valid.
 
-#include /services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
 
 When launching the {{ model.serverName }} via the {{ model.productName }} console, you can enable TLS as well as a service account and service account secret.
 

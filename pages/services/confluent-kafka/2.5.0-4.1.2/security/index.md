@@ -19,11 +19,11 @@ A good overview of these features can be found [here](https://www.confluent.io/b
 
 ## Transport Encryption
 
-#include /services/include/security-transport-encryption-lead-in.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
 
 <p class="message--note"><strong>NOTE: </strong>Enabling transport encryption is <strong>required</strong> to use <a href="#ssl-authentication">SSL authentication</a> for <a href="#authentication">authentication</a>, but is optional for <a href="#kerberos-authentication">Kerberos authentication</a>.</p>
 
-#include /services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
 
 <p class="message--note"><strong>NOTE: </strong>It is possible to update a running DC/OS Confluent Kafka service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your Kafka clients will need to be reconfigured unless <tt>service.security.transport_encryption.allow_plaintext</tt> is set to <tt>true</tt>.</p>
 
@@ -31,7 +31,7 @@ A good overview of these features can be found [here](https://www.confluent.io/b
 
 After service deployment completes, check the list of [{{ model.techShortName }} endpoints](../api-reference/#connection-information) for the endpoint `broker-tls`. If `service.security.transport_encryption.allow_plaintext` is `true`, then the `broker` endpoint will also be available.
 
-#include /services/include/security-transport-encryption-clients.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
 
 ## Authentication
 
@@ -87,9 +87,9 @@ example/kafka-0-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/kafka-1-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/kafka-2-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 ```
-#include /services/include/security-kerberos-ad.tmpl
+#include /mesosphere/dcos/services/include/security-kerberos-ad.tmpl
 
-#include /services/include/security-service-keytab.tmpl
+#include /mesosphere/dcos/services/include/security-service-keytab.tmpl
 
 #### Install the Service
 

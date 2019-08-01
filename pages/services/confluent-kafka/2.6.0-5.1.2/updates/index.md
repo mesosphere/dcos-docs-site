@@ -8,7 +8,7 @@ model: /services/confluent-kafka/data.yml
 render: mustache
 ---
 
-#include /services/include/update.tmpl
+#include /mesosphere/dcos/services/include/update.tmpl
 
 
 ## Upgrading from 4.1.2 to 5.1.2

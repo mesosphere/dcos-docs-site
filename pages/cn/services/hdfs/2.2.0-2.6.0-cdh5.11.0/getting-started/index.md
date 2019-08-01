@@ -19,4 +19,4 @@ render: mustache
 - 您的集群必须至少有 {{ model.install.minNodeCount }} 专用节点。
 {{ model.install.customRequirements }}
 
-#include /cn/services/include/getting-started.tmpl
+#include /mesosphere/dcos/cn/services/include/getting-started.tmpl

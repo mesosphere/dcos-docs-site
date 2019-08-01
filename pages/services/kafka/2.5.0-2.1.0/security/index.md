@@ -18,17 +18,17 @@ enterprise: true
 
 <p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
-#include /services/include/service-account.tmpl
+#include /mesosphere/dcos/services/include/service-account.tmpl
 
-#include /services/include/security-create-permissions.tmpl
+#include /mesosphere/dcos/services/include/security-create-permissions.tmpl
 
 ## Transport Encryption
 
-#include /services/include/security-transport-encryption-lead-in.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
 
 <p class="message--note"><strong>NOTE: </strong> Enabling transport encryption is **required** to use [SSL authentication](#ssl-authentication) for [authentication](#authentication), but is optional for [Kerberos authentication](#kerberos-authentication).</p>
 
-#include /services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
 
 <p class="message--note"><strong>NOTE: </strong>It is possible to update a running DC/OS {{ model.techName }} service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured unless `service.security.transport_encryption.allow_plaintext` is set to true.</p>
 
@@ -36,7 +36,7 @@ enterprise: true
 
 After service deployment completes, check the list of [{{ model.techShortName }} endpoints](../api-reference/#connection-information) for the endpoint `broker-tls`. If `service.security.transport_encryption.allow_plaintext` is `true`, then the `broker` endpoint will also be available.
 
-#include /services/include/security-transport-encryption-clients.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
 
 ## Authentication
 
@@ -92,9 +92,9 @@ example/kafka-0-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/kafka-1-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/kafka-2-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 ```
-#include /services/include/security-kerberos-ad.tmpl
+#include /mesosphere/dcos/services/include/security-kerberos-ad.tmpl
 
-#include /services/include/security-service-keytab.tmpl
+#include /mesosphere/dcos/services/include/security-service-keytab.tmpl
 
 #### Install the Service
 

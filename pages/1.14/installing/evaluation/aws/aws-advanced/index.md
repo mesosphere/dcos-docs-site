@@ -7,12 +7,12 @@ menuWeight: 3
 model: /1.14/data.yml
 render: mustache
 ---
-#include /install-include/aws-extended-example.tmpl
+#include /mesosphere/dcos/install-include/aws-extended-example.tmpl
 
-#include /install-include/all-dcos-versions.tmpl
+#include /mesosphere/dcos/install-include/all-dcos-versions.tmpl
 
-#include /install-include/all-node-os-versions.tmpl
+#include /mesosphere/dcos/install-include/all-node-os-versions.tmpl
 
-#include /install-include/aws-inputs-table.tmpl
+#include /mesosphere/dcos/install-include/aws-inputs-table.tmpl
 
-#include /install-include/all-outputs-table.tmpl
+#include /mesosphere/dcos/install-include/all-outputs-table.tmpl

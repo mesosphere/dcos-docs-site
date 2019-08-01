@@ -6,7 +6,7 @@ title: 教程 - 负载均衡
 menuWeight: 8
 ---
 
-#include /cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 
 

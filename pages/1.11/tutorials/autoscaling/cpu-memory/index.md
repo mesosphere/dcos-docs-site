@@ -8,7 +8,7 @@ excerpt: Autoscaling Marathon services using CPU and memory
 enterprise: false
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 <p class="message--important"><strong>IMPORTANT: </strong>Autoscaling works <strong>only</strong> for DC/OS Open Source or for DC/OS Enterprise in security modes other than "disabled".</p>
 

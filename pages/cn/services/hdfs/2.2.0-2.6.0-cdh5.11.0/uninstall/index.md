@@ -8,4 +8,4 @@ model: /cn/services/hdfs/data.yml
 render: mustache
 ---
 
-#include /cn/services/include/uninstall.tmpl
+#include /mesosphere/dcos/cn/services/include/uninstall.tmpl

@@ -8,7 +8,7 @@ excerpt: 创建和部署服务及容器化服务
 enterprise: false
 ---
 
-#include /cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 
 本教程介绍如何使用 DC/OS GUI 和 CLI 创建和部署简单的单命令服务和容器化服务。

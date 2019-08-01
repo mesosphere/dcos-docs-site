@@ -83,4 +83,4 @@ For more information, see the [dcos package](/mesosphere/dcos/1.12/cli/command-r
 This section describes how to use the DC/OS GUI to configure services. 
 
 
-#include /include/config-gui-services.tmpl
+#include /mesosphere/dcos/include/config-gui-services.tmpl

@@ -18,15 +18,15 @@ A good overview of X-Pack can be found [here](https://www.elastic.co/guide/en/el
 
 ## Transport Encryption
 
-#include /services/include/security-transport-encryption-lead-in.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
 
-#include /services/include/security-configure-transport-encryption.tmpl
+#include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
 
 **Note:** It is possible to enable Transport Encryption after initial installation, but it requires setting `service.update_strategy` to `parallel`. After the update is complete, `service.update_strategy` should be set back to `serial`.
 
 **Warning:** Because the update must occur in parallel, the service will be unavailable during the transition. Additionally, clients will need to be reconfigured after the transition.
 
-#include /services/include/security-transport-encryption-clients.tmpl
+#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
 
 
 #### Kibana

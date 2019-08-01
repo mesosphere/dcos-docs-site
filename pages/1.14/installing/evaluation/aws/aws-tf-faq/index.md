@@ -8,4 +8,4 @@ model: /1.14/data.yml
 render: mustache
 ---
 
-#include /install-include/aws-tf-faq-all.tmpl
+#include /mesosphere/dcos/install-include/aws-tf-faq-all.tmpl

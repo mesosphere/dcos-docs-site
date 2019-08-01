@@ -5,7 +5,7 @@ excerpt: 教程 - 用于调试 DC/OS 上应用程序的工具
 menuWeight: 11
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 
 <a name="tools"></a>

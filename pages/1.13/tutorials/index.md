@@ -13,4 +13,4 @@ The tutorials in this section cover the following tasks:
 
 These tutorials guide you through the steps for setting up a cluster for testing or evaluation purposes. For a production environment or larger scale deployment, however, additional steps are typically required. 
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

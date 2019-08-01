@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs-site -->
-#include /cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 本教程说明如何使用 DC/OS GUI 和 Marathon HTTP API 定义标签，以及如何根据标签值条件查询与正在运行的应用程序和作业有关的信息。
 

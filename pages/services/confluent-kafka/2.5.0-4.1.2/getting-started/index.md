@@ -8,4 +8,4 @@ model: /services/confluent-kafka/data.yml
 render: mustache
 ---
 
-#include /services/include/getting-started.tmpl
+#include /mesosphere/dcos/services/include/getting-started.tmpl

@@ -8,4 +8,4 @@ model: /services/kafka-zookeeper/data.yml
 render: mustache
 ---
 
-#include /services/include/getting-started.tmpl
+#include /mesosphere/dcos/services/include/getting-started.tmpl

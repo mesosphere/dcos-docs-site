@@ -8,7 +8,7 @@ render: mustache
 model: /1.14/data.yml
 ---
 
-#include /include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 This tutorial shows you how to install and run stateful services on DC/OS. A stateful service acts on persistent data. Simple, state**less** services run in an empty sandbox each time they are launched. In contrast, state**ful** services make use of persistent volumes that reside on agents in a cluster until explicitly destroyed.
 

@@ -8,4 +8,4 @@ model: /services/dse/data.yml
 render: mustache
 ---
 
-#include /services/include/troubleshooting.tmpl
+#include /mesosphere/dcos/services/include/troubleshooting.tmpl

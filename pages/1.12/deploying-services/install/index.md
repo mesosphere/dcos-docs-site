@@ -51,7 +51,7 @@ The Services tab provides a full featured interface to the native DC/OS Marathon
 
     Figure 2. Services screen
 
-#include /include/config-gui-services.tmpl
+#include /mesosphere/dcos/include/config-gui-services.tmpl
 
 # Verifying your installation
 
