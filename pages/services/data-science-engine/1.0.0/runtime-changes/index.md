@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Runtime changes
 excerpt: Making changes while running DC/OS Data Science Engine
 title: Runtime changes
-menuWeight: 3
+menuWeight: -1
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
