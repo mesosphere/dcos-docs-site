@@ -37,4 +37,4 @@ dcos security secrets get [OPTIONS] PATH
 
 | Command | Description |
 |---------|-------------|
-| [dcos security secrets](/1.14/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |
+| [dcos security secrets](/mesosphere/dcos/1.14/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

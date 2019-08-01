@@ -57,7 +57,7 @@ You can attach labels to jobs either via the **Jobs** tab of the DC/OS web inter
 
 From the DC/OS web interface, click the **Jobs** tab. You can add labels when you deploy a new job or edit an existing one from the **Labels** tab.
 
-![Job label](/1.10/img/job-label.png)
+![Job label](/mesosphere/dcos/1.10/img/job-label.png)
 
 ## Assign a Label to a Job from the DC/OS CLI
 

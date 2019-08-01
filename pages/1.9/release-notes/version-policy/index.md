@@ -46,7 +46,7 @@ All Mesosphere-driven Service Frameworks and their attached baseline technology 
 
 For example, if we have 3 pieces of technology: DC/OS, Framework, and Apache Kafka.
 
-![version policy framework](/1.9/img/version-policy-1.png)
+![version policy framework](/mesosphere/dcos/1.9/img/version-policy-1.png)
 
 Our interoperability guarantees in the scenario above will be as follows:
 
@@ -88,4 +88,4 @@ A patch release means bug fixes and new enhancements to the same software produc
 
 # Mesosphere Versioning and Upgrade Policy
 
-![version policy framework](/1.9/img/version-policy-2.png)
+![version policy framework](/mesosphere/dcos/1.9/img/version-policy-2.png)

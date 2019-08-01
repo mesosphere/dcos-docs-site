@@ -10,7 +10,7 @@ enterprise: false
 
 The DC/OS command line interface (DC/OS CLI) utility allows you to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.
 
-DC/OS 1.12 requires DC/OS CLI >= 0.7. To install it, [follow the instructions](/1.12/cli/install/).
+DC/OS 1.12 requires DC/OS CLI >= 0.7. To install it, [follow the instructions](/mesosphere/dcos/1.12/cli/install/).
 
 To list available commands, run `dcos` with no parameters:
 
@@ -122,7 +122,7 @@ The DC/OS CLI supports the following environment variables, which can be set dyn
 
 ## `DCOS_CLUSTER` (DC/OS CLI 0.5.x and higher only)
 
-The [attached](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
+The [attached](/mesosphere/dcos/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
 
 ```bash
 dcos cluster setup <cluster-url>
@@ -141,7 +141,7 @@ After following the login procedure, your CLI is now ready to interact with your
 
 ### DC/OS Enterprise CLI
 
-The [`dcos cluster setup`](/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command installs the [plugins](/1.12/cli/plugins/) and `dcos-core-cli`, but not `dcos-enterprise-cli`.  DC/OS Enterprise CLI must be installed separately. See [Installing the DC/OS Enterprise CLI](/1.12/cli/enterprise-cli/#installing-the-dcos-enterprise-cli).
+The [`dcos cluster setup`](/mesosphere/dcos/1.12/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command installs the [plugins](/mesosphere/dcos/1.12/cli/plugins/) and `dcos-core-cli`, but not `dcos-enterprise-cli`.  DC/OS Enterprise CLI must be installed separately. See [Installing the DC/OS Enterprise CLI](/mesosphere/dcos/1.12/cli/enterprise-cli/#installing-the-dcos-enterprise-cli).
 
 After you install DC/OS Enterprise CLI, you will see new commands added:
 

@@ -11,7 +11,7 @@ enterprise: true
 
 ## 默认
 
-DC/OS 包注册表的默认配置是将 DC/OS 包存储在主机文件系统中的本地持久卷中。使用此默认存储配置时，您 [仅限使用注册表的一个实例](/cn/1.12/administering-clusters/repo/package-registry/#limitations)。DC/OS 包注册表还支持通过 S3 存储选项存储 DC/OS 包，从而支持部署多个注册表实例。
+DC/OS 包注册表的默认配置是将 DC/OS 包存储在主机文件系统中的本地持久卷中。使用此默认存储配置时，您 [仅限使用注册表的一个实例](/mesosphere/dcos/cn/1.12/administering-clusters/repo/package-registry/#limitations)。DC/OS 包注册表还支持通过 S3 存储选项存储 DC/OS 包，从而支持部署多个注册表实例。
 
 ## S3 存储选项
 

@@ -17,5 +17,5 @@ Users logging in from the DC/OS CLI can use the following command to discover th
 
 DC/OS Enterprise supports two types of identity provider-based authentication methods: [Security Assertion Markup Language (SAML)](https://wiki.oasis-open.org/security/FrontPage) and [OpenID Connect (OIDC)](http://openid.net/connect/):
 
-- Adding a [SAML Identity Provider](/1.11/security/ent/sso/setup-saml/)
-- Adding an [OpenID Identity Provider](/1.11/security/ent/sso/setup-openid/):
+- Adding a [SAML Identity Provider](/mesosphere/dcos/1.11/security/ent/sso/setup-saml/)
+- Adding an [OpenID Identity Provider](/mesosphere/dcos/1.11/security/ent/sso/setup-openid/):

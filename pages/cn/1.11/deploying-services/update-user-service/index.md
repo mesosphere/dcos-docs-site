@@ -61,4 +61,4 @@ dcos marathon app update test-app < env_vars.json
 dcos marathon app show test-app | jq '.env'
 ```
 
- [1]: /cn/1.11/cli/
+ [1]: /mesosphere/dcos/cn/1.11/cli/

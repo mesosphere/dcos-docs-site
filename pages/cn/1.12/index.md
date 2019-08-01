@@ -7,4 +7,4 @@ menuWeight: 05
 excerpt: 学习 DC/OS
 ---
 
-欢迎使用 DC/OS 1.12 文档。有关新功能和更改功能的信息，请参阅 [发布说明](/cn/1.12/release-notes/)。
+欢迎使用 DC/OS 1.12 文档。有关新功能和更改功能的信息，请参阅 [发布说明](/mesosphere/dcos/cn/1.12/release-notes/)。

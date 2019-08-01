@@ -10,10 +10,10 @@ enterprise: true
 
 # Prerequisites
 - A DC/OS Enterprise cluster.
-- The [DC/OS CLI](/1.10/cli/install/) installed.
-- The [DC/OS Enterprise CLI](/1.10/cli/enterprise-cli/) installed.
+- The [DC/OS CLI](/mesosphere/dcos/1.10/cli/install/) installed.
+- The [DC/OS Enterprise CLI](/mesosphere/dcos/1.10/cli/enterprise-cli/) installed.
 
-**Important:** See the [Limitations](/1.10/administering-clusters/backup-and-restore/#limitations) of backup and restore.
+**Important:** See the [Limitations](/mesosphere/dcos/1.10/administering-clusters/backup-and-restore/#limitations) of backup and restore.
 
 
 # Back up a cluster

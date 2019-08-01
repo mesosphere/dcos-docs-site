@@ -15,4 +15,4 @@ enterprise: false
 
 `marathon-lb-autoscale` 从所有 HAProxy 实例收集数据，以确定应用程序当前的 RPS（每秒请求）。自动扩展控制器随后尝试维护每个服务实例每秒定义的目标请求数。 `marathon-lb-autoscale` 对 Marathon 进行 API 调用以扩展应用程序。
 
-有关更多信息，请参阅 [Marathon-LB Reference](/services/marathon-lb/mlb-reference/)。
+有关更多信息，请参阅 [Marathon-LB Reference](/mesosphere/dcos/services/marathon-lb/mlb-reference/)。

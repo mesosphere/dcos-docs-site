@@ -47,13 +47,13 @@ When you choose Anonymous Bind with Simple Bind, you must provide a **User DN Te
 
 1.  When you have completed your entries, the dialog should look like the following.
 
-    ![Simple bind parameters](/1.14/img/GUI-LDAP-anonymous-simple-bind.png)
+    ![Simple bind parameters](/mesosphere/dcos/1.14/img/GUI-LDAP-anonymous-simple-bind.png)
 
     Figure 1. Anonymous Bind with Simple Bind parameters 
 
 1.  Click **Add Directory**.
 
-1.  [Verify your connection](/1.14/security/ent/ldap/ldap-verify/).
+1.  [Verify your connection](/mesosphere/dcos/1.14/security/ent/ldap/ldap-verify/).
 
 ## Anonymous Bind with Search Bind
 
@@ -76,12 +76,12 @@ When you choose Anonymous Bind with Search Bind, you must provide a **User Searc
     ```
 1. When you have completed your entries, the dialog should look like the following:
 
-    ![Anonymous Bind with Search](/1.14/img/GUI-LDAP-anonymous-search-bind.png)
+    ![Anonymous Bind with Search](/mesosphere/dcos/1.14/img/GUI-LDAP-anonymous-search-bind.png)
 
     Figure 2. Anonymous Bind with Search Bind parameters
 
 1.  Click **Add Directory**.
-1.  [Verify your connection](/1.14/security/ent/ldap/ldap-verify/).
+1.  [Verify your connection](/mesosphere/dcos/1.14/security/ent/ldap/ldap-verify/).
 
 ## LDAP Credentials with Simple Bind
 
@@ -112,13 +112,13 @@ When you choose **LDAP Credentials** as your bind type, and **Simple Bind** as y
 
 1.  When you have completed your entries, the dialog should look like the following.
 
-    ![Simple bind parameters](/1.14/img/GUI-LDAP-credentials-simple.png)
+    ![Simple bind parameters](/mesosphere/dcos/1.14/img/GUI-LDAP-credentials-simple.png)
 
     Figure 3. LDAP Credentials with Simple Bind parameters 
 
 1.  Click **Add Directory**.
 
-1.  [Verify your connection](/1.14/security/ent/ldap/ldap-verify/).
+1.  [Verify your connection](/mesosphere/dcos/1.14/security/ent/ldap/ldap-verify/).
 
 ## LDAP Credentials with Search Bind
 
@@ -152,10 +152,10 @@ When you choose **LDAP Credentials** as your bind type, and **Search Bind** as y
     ```
 1. When you have completed your entries, the dialog should look like the following:
 
-    ![LDAP Credentials with Search](/1.14/img/GUI-LDAP-credentials-search.png)
+    ![LDAP Credentials with Search](/mesosphere/dcos/1.14/img/GUI-LDAP-credentials-search.png)
 
     Figure 4. LDAP Credentials with Search Bind parameters
 
 1.  Click **Add Directory**.
-1.  [Verify your connection](/1.14/security/ent/ldap/ldap-verify/).
+1.  [Verify your connection](/mesosphere/dcos/1.14/security/ent/ldap/ldap-verify/).
 

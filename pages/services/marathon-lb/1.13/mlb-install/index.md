@@ -14,7 +14,7 @@ You can install Marathon-LB on a DC/OS open source or DC/OS enterprise cluster. 
 * You must have access to the DC/OS web-based administrative console or DC/OS command-line interface.
 * You must have an account with administrative privileges to provision a service account and to store a secret to secure the cluster.
 
-If you are installing on DC/OS Enterprise, you must log in as a user with the appropriate permissions for the security mode--disabled, permissive, or strict--associated with the cluster. For more information about the permissions required when using different security modes, see [Permissions reference](/1.13/security/ent/perms-reference/).
+If you are installing on DC/OS Enterprise, you must log in as a user with the appropriate permissions for the security mode--disabled, permissive, or strict--associated with the cluster. For more information about the permissions required when using different security modes, see [Permissions reference](/mesosphere/dcos/1.13/security/ent/perms-reference/).
 
 ## Install with the default configuration options
 You can install Marathon-LB with its default configuration settings on a DC/OS open source cluster or on a DC/OS enterprise cluster by using either the DC/OS web-based administrative console or by running DC/OS commands in a shell terminal. 

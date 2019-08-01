@@ -11,7 +11,7 @@ render: mustache
 
 您可以在 {{ model.techShortName }} shell 中交互式地运行 {{ model.techShortName }}。{{ model.techShortName }} shell 在 Scala、Python 和 R 中都有提供。
 
-1. [使用 `dcos task exec`启动长期运行的交互式 bash 会话](/cn/1.11/monitoring/debugging/task-exec//#launch-a-long-running-interactive-bash-session)。
+1. [使用 `dcos task exec`启动长期运行的交互式 bash 会话](/mesosphere/dcos/cn/1.11/monitoring/debugging/task-exec//#launch-a-long-running-interactive-bash-session)。
 
 1. 从互动式 bash 会话中，拉动并运行 {{ model.techShortName }} Docker 镜像。
     ```bash

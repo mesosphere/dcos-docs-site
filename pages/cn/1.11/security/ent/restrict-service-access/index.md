@@ -10,23 +10,23 @@ enterprise: true
 
 在本部分中，您将看到如何使用 DC/OS Web 界面在宽容模式下实现多租户。
 
-本教程演示如何在宽容[安全模式](/cn/1.11/security/ent/#security-modes)下实现 DC/OS 服务的用户权限。完成后，您将通过使用 DC/OS 权限获得多租户。
+本教程演示如何在宽容[安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)下实现 DC/OS 服务的用户权限。完成后，您将通过使用 DC/OS 权限获得多租户。
 
 **先决条件：**
 
-- DC/OS Enterprise [已安装](/cn/1.11/installing/ent/)在宽容[模式](/cn/1.11/security/ent/#security-modes)下。
+- DC/OS Enterprise [已安装](/mesosphere/dcos/cn/1.11/installing/ent/)在宽容[模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)下。
 
 ## 创建用户和组
 
 1. 从 **Services > Services > Create Group** 创建服务组。
 
-    ![服务创建组](/cn/1.11/img/service-group1.png)
+    ![服务创建组](/mesosphere/dcos/cn/1.11/img/service-group1.png)
 
     图 1. 创建组页面
 
     在此示例中，创建了一个名为 `prod-a` 和一个名为 `prod-b`。创建组之后，您应该看到两个文件夹。您可以在此处为用户组部署服务并为每个单元设置权限。
 
-    ![组文件夹](/cn/1.11/img/service-group2.png)
+    ![组文件夹](/mesosphere/dcos/cn/1.11/img/service-group2.png)
 
     图 2. 新建组文件夹
 
@@ -34,13 +34,13 @@ enterprise: true
 
   1. 选择 **Organization > Users** 并创建新用户。在此示例中，创建了两个用户（`Cory` 和 `Nick`）。
 
-  ![创建用户 Cory](/cn/1.11/img/service-group3.png)
+  ![创建用户 Cory](/mesosphere/dcos/cn/1.11/img/service-group3.png)
 
   图 3. 创建新用户
 
   完成后，您应该看到两个用户。
 
-![service-group4](/cn/1.11/img/service-group4.png)
+![service-group4](/mesosphere/dcos/cn/1.11/img/service-group4.png)
 
 图 4. 用户页面中的新用户
 
@@ -53,7 +53,7 @@ enterprise: true
  - `prod-a-group`，用于管理用户 Cory 的 DC/OS 服务。
  - `prod-b-group`，用于管理用户 Nick 的 DC/OS 服务。
 
- ![prod-a group](/cn/1.11/img/service-group5.png)
+ ![prod-a group](/mesosphere/dcos/cn/1.11/img/service-group5.png)
 
  图 5. 创建新组
 
@@ -78,13 +78,13 @@ enterprise: true
       dcos:adminrouter:package full
       ```
 
-    ![prod-a-group](/cn/1.11/img/service-group7.png)
+    ![prod-a-group](/mesosphere/dcos/cn/1.11/img/service-group7.png)
 
     图 6. 为“prod-a-group”添加权限
 
     以下是添加后的权限视图：
 
-    ![prod-a-group](/cn/1.11/img/service-group8.png)
+    ![prod-a-group](/mesosphere/dcos/cn/1.11/img/service-group8.png)
 
     图 7. 添加的组权限
 
@@ -105,7 +105,7 @@ enterprise: true
 
 1. 选择 **Group Membership**，然后在搜索框中键入 `prod-agroup`，然后单击选择。
 
-    ![prod-a-group](/cn/1.11/img/service-group9.png)
+    ![prod-a-group](/mesosphere/dcos/cn/1.11/img/service-group9.png)
 
     图 8. 将用户添加到组
 
@@ -119,7 +119,7 @@ enterprise: true
 1. 以 Cory 身份登录到 DC/OS Web 界面。您可以看到，用户 Cory 只能访问 **Services** 和 **Universe** 选项卡。同时，Cory 只能看到 **prod-a** 服务。
 
 
-  ![prod-a-group](/cn/1.11/img/service-group10.png)
+  ![prod-a-group](/mesosphere/dcos/cn/1.11/img/service-group10.png)
 
   图 9. 限制视图
 
@@ -215,7 +215,7 @@ enterprise: true
       }
       ```
 
-      ![JSON 视图](/cn/1.11/img/service-group15.png)
+      ![JSON 视图](/mesosphere/dcos/cn/1.11/img/service-group15.png)
 
       图 10. JSON 文件视图
 
@@ -240,7 +240,7 @@ enterprise: true
 
 1. 在 Cory 或 Nick 登录时，单击 NGINX 启动图标，查看确认消息。
 
-    ![NGINX](/cn/1.11/img/service-group-nginx.png)
+    ![NGINX](/mesosphere/dcos/cn/1.11/img/service-group-nginx.png)
 
     图 11. 确认屏幕
 
@@ -249,8 +249,8 @@ enterprise: true
 
 ## 作为超级用户在 DC/OS Web 界面中监控用户帐户
 
-1. 注销当前用户，然后以具有[超级用户](/cn/1.11/security/ent/perms-reference/#superuser)权限的用户身份重新登入。您将看到，两个服务都在 prod-a 和 prod-b 组中运行。
+1. 注销当前用户，然后以具有[超级用户](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/#superuser)权限的用户身份重新登入。您将看到，两个服务都在 prod-a 和 prod-b 组中运行。
 
-  ![prod-a-group](/cn/1.11/img/service-group14.png)
+  ![prod-a-group](/mesosphere/dcos/cn/1.11/img/service-group14.png)
 
   图 12. 超级用户视图

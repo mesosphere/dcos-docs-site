@@ -10,8 +10,8 @@ enterprise: true
 
 # Prerequisites
 - A DC/OS Enterprise cluster.
-- The [DC/OS CLI](/1.11/cli/install/) installed.
-- The [DC/OS Enterprise CLI](/1.11/cli/enterprise-cli/) installed.
+- The [DC/OS CLI](/mesosphere/dcos/1.11/cli/install/) installed.
+- The [DC/OS Enterprise CLI](/mesosphere/dcos/1.11/cli/enterprise-cli/) installed.
 
 <table class=“table” bgcolor=#858585>
 <tr> 

@@ -16,7 +16,7 @@ excerpt: 使用 AWS CloudFormation 上的模板为 Amazon Web Services 安装 DC
 - 对 AWS CloudFormation 的 DC/OS 更新尚未完成自动化、验证或记录。
 - Mesosphere, Inc. 不支持经过修改的 CloudFormation 模板。
 
-安装可以就地升级的生产就绪型 DC/OS 的推荐方法是使用 [安装方法](/cn/1.12/installing/production/deploying-dcos/installation/)。
+安装可以就地升级的生产就绪型 DC/OS 的推荐方法是使用 [安装方法](/mesosphere/dcos/cn/1.12/installing/production/deploying-dcos/installation/)。
 [/message]</p>
 
 <p class="message--note"><strong>注意：</strong>联系<a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">邮寄列表</a>或 <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack 渠道</a>，获取社区支持。</p>

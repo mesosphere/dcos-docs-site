@@ -15,7 +15,7 @@ excerpt: 使用 DC/OS 模板创建 DC/OS 群集
 
 这些说明提供了一个基础的 AWS CloudFormation 模板，可以创建适合演示和 POC 的 DC/OS 群集。这是开始使用 AWS CloudFormation 的 DC/OS 模板的最快方式。
 
-有关完整的 DC/OS 配置选项集，请参阅 [高级 AWS 安装指南](/cn/1.11/installing/evaluation/aws/aws-advanced/)。
+有关完整的 DC/OS 配置选项集，请参阅 [高级 AWS 安装指南](/mesosphere/dcos/cn/1.11/installing/evaluation/aws/aws-advanced/)。
 
 <table class=“table” bgcolor=#858585>
 <tr> 
@@ -30,8 +30,8 @@ excerpt: 使用 DC/OS 模板创建 DC/OS 群集
 AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例。建议不要选择较小的 VM，而选择较少的 VM 可能会导致某些资源密集型服务（例如，分布式数据存储）无法正常工作。
 
 * 可选择一个或三个 Mesos 管理节点。
-* 默认值为五个 [专用](/cn/1.11/overview/concepts/#private-agent-node) Mesos 代理节点。
-* 默认值为一个 [公共](/cn/1.11/overview/concepts/#public-agent-node) Mesos 代理节点。默认情况为，端口已关闭，运行状况检查配置为 Marathon-LB。端口 80 和 443 配置为 AWS 弹性负载均衡器。
+* 默认值为五个 [专用](/mesosphere/dcos/cn/1.11/overview/concepts/#private-agent-node) Mesos 代理节点。
+* 默认值为一个 [公共](/mesosphere/dcos/cn/1.11/overview/concepts/#public-agent-node) Mesos 代理节点。默认情况为，端口已关闭，运行状况检查配置为 Marathon-LB。端口 80 和 443 配置为 AWS 弹性负载均衡器。
 
 ## 软件
 
@@ -62,7 +62,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 </tr> 
 </table>
 
- ![Launch stack](/cn/1.11/img/dcos-aws-step2b.png)
+ ![Launch stack](/mesosphere/dcos/cn/1.11/img/dcos-aws-step2b.png)
 
  图 1. 启动堆栈
 
@@ -72,7 +72,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 6. 跳过开源用户部分，转到第 6 步。
 
-![Create stack](/cn/1.11/img/dcos-aws-step2c-ee.png)
+![Create stack](/mesosphere/dcos/cn/1.11/img/dcos-aws-step2c-ee.png)
 
 图 2. 创建堆栈
 
@@ -84,7 +84,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 2. 在 **选择模板** 页面接受默认值，然后单击 **下一步**。
 
- ![Launch stack](/cn/1.11/img/dcos-aws-step2b.png)
+ ![Launch stack](/mesosphere/dcos/cn/1.11/img/dcos-aws-step2b.png)
 
  图 3. 启动堆栈
 
@@ -99,7 +99,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 4. 转到“所有用户”部分的第 6 步。
 
-![Create stack](/cn/1.11/img/dcos-aws-step2c.png)
+![Create stack](/mesosphere/dcos/cn/1.11/img/dcos-aws-step2c.png)
 
 图 4. 创建堆栈
 
@@ -128,13 +128,13 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 2. 单击 **输出**选项卡并复制 Mesos 管理节点主机名。
 
- ![Monitor stack creation](/cn/1.11/img/dcos-stack.png)
+ ![Monitor stack creation](/mesosphere/dcos/cn/1.11/img/dcos-stack.png)
 
  图 5. 监控堆栈创建
 
 3. 将主机名粘贴到浏览器中，打开 DC/OS Web 界面。该界面在标准 HTTP 端口 80 上运行，因此无需在主机名后指定端口号。浏览器可能会显示您的连接不安全的警告。这是因为 DC/OS 使用自签名证书。可以忽略该错误，然后单击进入登录画面。
 
- ![DC/OS GUI auth](/cn/1.11/img/dc-os-gui-login-ee.png)
+ ![DC/OS GUI auth](/mesosphere/dcos/cn/1.11/img/dc-os-gui-login-ee.png)
 
  图 6. DC/OS Web 界面登录画面。
 
@@ -155,7 +155,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 - [添加用户到群集][3]
 - [扩展注意事项][4]
 
- [1]: /1.11/administering-clusters/managing-aws/
- [2]: /1.11/cli/install/
- [3]: /1.11/security/ent/users-groups/
+ [1]: /mesosphere/dcos/1.11/administering-clusters/managing-aws/
+ [2]: /mesosphere/dcos/1.11/cli/install/
+ [3]: /mesosphere/dcos/1.11/security/ent/users-groups/
  [4]: https://aws.amazon.com/autoscaling/

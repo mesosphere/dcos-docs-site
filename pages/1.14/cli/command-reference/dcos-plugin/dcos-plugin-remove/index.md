@@ -29,4 +29,4 @@ dcos plugin remove <plugin>
 
 | Command | Description |
 |---------|-------------|
-| [dcos plugin](/1.14/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS CLI plugins. |
+| [dcos plugin](/mesosphere/dcos/1.14/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS CLI plugins. |

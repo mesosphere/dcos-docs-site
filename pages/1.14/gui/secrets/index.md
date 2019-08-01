@@ -11,11 +11,11 @@ model: /1.14/data.yml
 
 You can manage secrets and certificates from the Secrets page.
 
-![Secrets](/1.14/img/GUI-Secrets-Secrets_View_With_Secrets-1_12.png)
+![Secrets](/mesosphere/dcos/1.14/img/GUI-Secrets-Secrets_View_With_Secrets-1_12.png)
 Figure 1 - Secrets page
 
 
-For complete details on creating and managing Secrets, see the [Secrets](/1.14/security/ent/secrets) documentation.
+For complete details on creating and managing Secrets, see the [Secrets](/mesosphere/dcos/1.14/security/ent/secrets) documentation.
 
 <p class="message--important"><strong>IMPORTANT: </strong>The maximum file size for a secret is approximately 1 MB, subtracting approximately 1 KB for the secret store metadata.</p>
 
@@ -28,7 +28,7 @@ For complete details on creating and managing Secrets, see the [Secrets](/1.14/s
 
 1. Click the **+** icon in the top right.
 
-    ![New Secret](/1.14/img/new-secret.png)
+    ![New Secret](/mesosphere/dcos/1.14/img/new-secret.png)
 
     Figure 2. New Secret icon
 
@@ -36,7 +36,7 @@ For complete details on creating and managing Secrets, see the [Secrets](/1.14/s
 
 1. Type or paste the secret into the **Value** box.
 
-    ![Secret ID/Value Fields](/1.14/img/create-secret.png)
+    ![Secret ID/Value Fields](/mesosphere/dcos/1.14/img/create-secret.png)
 
     Figure 3. Creating a new Secret
 
@@ -50,19 +50,19 @@ This procedure describes how to use a file to create a secret using the DC/OS we
 1. Click the **Secrets** tab on the left hand navigation menu.
 1. Click the **+** icon in the top right.
 
-    ![New Secret](/1.14/img/new-secret.png)
+    ![New Secret](/mesosphere/dcos/1.14/img/new-secret.png)
 
     Figure 4. Secrets screen
 
     If you have no current secrets, a Create Secret screen will be displayed. Click on the **Create Secret** button.
 
-    ![Create Secret](/1.14/img/GUI-Secrets-Create-Secret.png)
+    ![Create Secret](/mesosphere/dcos/1.14/img/GUI-Secrets-Create-Secret.png)
 
     Figure 5. Create Secret button
 
 1. In the ID box, provide the name of your secret and its path, if any.
 
-    ![Create New Secret](/1.14/img/GUI-Secrets-Create-New-Secret.png)
+    ![Create New Secret](/mesosphere/dcos/1.14/img/GUI-Secrets-Create-New-Secret.png)
 
     Figure 6. Create New Secret dialog
 
@@ -73,5 +73,5 @@ This procedure describes how to use a file to create a secret using the DC/OS we
 
 Returning to the Secrets screen, you can see that your secret has been deployed.
 
-   ![Secret deployed](/1.14/img/GUI-Secrets-Deployed.jpeg)
+   ![Secret deployed](/mesosphere/dcos/1.14/img/GUI-Secrets-Deployed.jpeg)
    Figure 7. Secret deployed

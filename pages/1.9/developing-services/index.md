@@ -12,7 +12,7 @@ enterprise: false
 
 This section describes the developer-specific DC/OS components, explaining what is necessary to package and provide your own service on DC/OS. 
 
-The Mesosphere Distributed Cloud Operating System (DC/OS) provides the optimal user experience possible for orchestrating and managing a datacenter. If you are an Apache Mesos developer, you are already familiar with developing a framework. DC/OS extends Apache Mesos by including a web interface for health checks and monitoring, a command-line, a service packaging description, and a [repository](/1.9/administering-clusters/repo/) that catalogs those packages.
+The Mesosphere Distributed Cloud Operating System (DC/OS) provides the optimal user experience possible for orchestrating and managing a datacenter. If you are an Apache Mesos developer, you are already familiar with developing a framework. DC/OS extends Apache Mesos by including a web interface for health checks and monitoring, a command-line, a service packaging description, and a [repository](/mesosphere/dcos/1.9/administering-clusters/repo/) that catalogs those packages.
 
 # <a name="universe"></a>Package Repositories
 
@@ -22,7 +22,7 @@ All packaged services are required to meet a certain standard as defined by Meso
 
 # <a name="adminrouter"></a>Admin Router and web interface integration
 
-By default, a DC/OS service is deployed on a [private agent node](/1.9/overview/concepts/#private-agent-node). To allow configuration control or monitoring of a service by a user, the Admin Router proxies calls on the master node to the service in a private node on the cluster. The HTTP service endpoint requires relative paths for artifacts and resources. The service endpoint can provide a web interface, a RESTful endpoint, or both. When creating a DC/OS CLI subcommand, it is common to have a RESTful endpoint to communicate with the scheduler service.
+By default, a DC/OS service is deployed on a [private agent node](/mesosphere/dcos/1.9/overview/concepts/#private-agent-node). To allow configuration control or monitoring of a service by a user, the Admin Router proxies calls on the master node to the service in a private node on the cluster. The HTTP service endpoint requires relative paths for artifacts and resources. The service endpoint can provide a web interface, a RESTful endpoint, or both. When creating a DC/OS CLI subcommand, it is common to have a RESTful endpoint to communicate with the scheduler service.
 
 The integration to the Admin Router is automatic when a framework scheduler registers a `webui_url` during the registration process with the Mesos master. There are a couple of limitations:
 
@@ -59,7 +59,7 @@ Service health check information is provided from the DC/OS service tab when:
           "framework": true
         
 
-You can provide public access to your service through the Admin Router or by deploying your own proxy or router to the public agent node. It is recommend to use the Admin Router for scheduler configuration and control, allowing integration with the DC/OS web interface. You can also provide a [CLI subcommand](/1.9/developing-services/cli-spec/) for command-line control of a RESTful service endpoint for the scheduler.
+You can provide public access to your service through the Admin Router or by deploying your own proxy or router to the public agent node. It is recommend to use the Admin Router for scheduler configuration and control, allowing integration with the DC/OS web interface. You can also provide a [CLI subcommand](/mesosphere/dcos/1.9/developing-services/cli-spec/) for command-line control of a RESTful service endpoint for the scheduler.
 
 # DC/OS service structure
 

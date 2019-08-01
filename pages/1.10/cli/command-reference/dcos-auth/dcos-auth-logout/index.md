@@ -28,4 +28,4 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/1.10/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/mesosphere/dcos/1.10/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |

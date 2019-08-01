@@ -10,7 +10,7 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-**先决条件：**[DC/OS CA 根证书](/cn/1.12/security/ent/tls-ssl/get-cert/)的本地副本。
+**先决条件：**[DC/OS CA 根证书](/mesosphere/dcos/cn/1.12/security/ent/tls-ssl/get-cert/)的本地副本。
 
 添加 DC/OS CA 作为受信任根证书颁发机构的程序因操作系统和浏览器而异。请参阅与您的浏览器/操作系统对相对应的部分。
 

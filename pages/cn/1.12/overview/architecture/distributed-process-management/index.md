@@ -15,13 +15,13 @@ enterprise: false
 
 以下是使用 Marathon 服务和用户根据 Docker 镜像启动容器的示例：
 
-![DC/OS 中分布式进程管理的示例](/1.12/img/dcos-architecture-distributed-process-management-example.png)
+![DC/OS 中分布式进程管理的示例](/mesosphere/dcos/1.12/img/dcos-architecture-distributed-process-management-example.png)
 
 图 2 - DC/OS 中使用 Marathon 和 Docker 的分布式进程管理
 
 上述组件之间按时间顺序相互作用与此相似。请注意，执行器和任务被折叠到一个区块，因为在实践中，情况往往如此：
 
-![DC/OS 中分布式进程管理的序列图](/1.12/img/dcos-architecture-distributed-process-management-seq-diagram.png)
+![DC/OS 中分布式进程管理的序列图](/mesosphere/dcos/1.12/img/dcos-architecture-distributed-process-management-seq-diagram.png)
 
 图 3 - DC/OS 中分布式进程管理的顺序
 
@@ -30,7 +30,7 @@ enterprise: false
 1. 客户端/调度器初始化。在此步骤，客户端需要了解如何连接到调度器以启动一个进程，例如通过 Mesos-DNS 或 DC/OS CLI。
 1. Mesos 管理节点将资源邀约发送给调度器，资源邀约是基于通过 Mesos 管理节点中的代理和 <a href="https://www.cs.berkeley.edu/~alig/papers/drf.pdf">DRF</a> 算法来管理的群集资源。
 1. 调度器拒绝资源邀约，因为客户端没有待处理的进程请求。只要没有客户端还有发起进程，调度器就会拒绝来自管理节点的邀约。
-1. 客户发起进程启动。例如，这可以是用户利用 DC/OS [服务](/cn/1.12/gui/services/)标签或通过 HTTP 端点 `/v2/app` 来创建 Marathon 应用程序。
+1. 客户发起进程启动。例如，这可以是用户利用 DC/OS [服务](/mesosphere/dcos/cn/1.12/gui/services/)标签或通过 HTTP 端点 `/v2/app` 来创建 Marathon 应用程序。
 1. Mesos 管理节点发送资源邀约。例如， `cpus(*):1; mem(*):128; ports(*):[21452-21452]`。
 1. 如果资源邀约符合调度器对进程的要求，它将接受邀约并向 Mesos 管理节点发送 `launchTask` 请求。
 1. Mesos 管理节点指示 Mesos 代理节点启动任务。

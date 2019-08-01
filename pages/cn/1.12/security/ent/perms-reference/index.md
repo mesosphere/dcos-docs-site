@@ -9,7 +9,7 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-您可以通过资源和操作控制 DC/OS 访问。参阅 [权限管理](/cn/1.12/security/ent/perms-management/)，了解如何控制权限的详细信息。此页面为每个可用的 DC/OS 权限提供参考。
+您可以通过资源和操作控制 DC/OS 访问。参阅 [权限管理](/mesosphere/dcos/cn/1.12/security/ent/perms-management/)，了解如何控制权限的详细信息。此页面为每个可用的 DC/OS 权限提供参考。
 
 执行
 
@@ -28,7 +28,7 @@ enterprise: true
 
 可用操作是 `create`、`read`、`update`、`delete` 和 `full`。按照惯例，`full` 表示权限支持所有其他操作标识符。操作 `full` 可能包括任何其他操作标识符不支持的操作。
 
-许多资源标识符包括方括号中的可选部分，可以填写这些部分以进一步缩小授予的权限。如果忽略可选部分，则资源标识符引用所有可能的值。例如，资源标识符 `dcos:mesos:agent:framework:role` 控制对使用任何 [Mesos 角色](/cn/1.12/overview/concepts/#mesos-role) 注册的 DC/OS 服务的查看访问权限，而资源标识符 `dcos:mesos:agent:framework:role:slave_public` 控制对使用角色 `slave_public` 注册的 DC/OS 服务的查看访问权限。
+许多资源标识符包括方括号中的可选部分，可以填写这些部分以进一步缩小授予的权限。如果忽略可选部分，则资源标识符引用所有可能的值。例如，资源标识符 `dcos:mesos:agent:framework:role` 控制对使用任何 [Mesos 角色](/mesosphere/dcos/cn/1.12/overview/concepts/#mesos-role) 注册的 DC/OS 服务的查看访问权限，而资源标识符 `dcos:mesos:agent:framework:role:slave_public` 控制对使用角色 `slave_public` 注册的 DC/OS 服务的查看访问权限。
 
 发送到 DC/OS 组件的大多数 HTTP 请求都需要认证证明。这些
 包括由 DC/OS CLI、DC/OS UI、DC/OS API 以及
@@ -67,24 +67,24 @@ HTTP 端点，Admin Router 自身执行授权。例如，
 | 资源标识符 | 全部 | C | R | U | D |
 | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                     | ------ | --- | --- | --- | --- |
 | `dcos:adminrouter:acs`<br>控制对安全和访问管理功能的访问。| x | | | | |
-| `dcos:adminrouter:ops:ca:ro`<br>控制对 [证书颁发机构 API](/cn/1.12/security/ent/tls-ssl/ca-api/)只读端点和 `dcos security cluster ca` [Enterprise DC/OS CLI](/cn/1.12/cli/enterprise-cli/) 命令  的访问。| x | | | | |
-| `dcos:adminrouter:ops:ca:rw`<br>控制用户对 [证书颁发机构 API](/cn/1.12/security/ent/tls-ssl/ca-api/)所有端点和 `dcos security cluster ca` [Enterprise DC/OS CLI](/cn/1.12/cli/enterprise-cli/) 命令  的访问。| x | | | | |
+| `dcos:adminrouter:ops:ca:ro`<br>控制对 [证书颁发机构 API](/mesosphere/dcos/cn/1.12/security/ent/tls-ssl/ca-api/)只读端点和 `dcos security cluster ca` [Enterprise DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/enterprise-cli/) 命令  的访问。| x | | | | |
+| `dcos:adminrouter:ops:ca:rw`<br>控制用户对 [证书颁发机构 API](/mesosphere/dcos/cn/1.12/security/ent/tls-ssl/ca-api/)所有端点和 `dcos security cluster ca` [Enterprise DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/enterprise-cli/) 命令  的访问。| x | | | | |
 | `dcos:adminrouter:ops:cockroachdb`<br>控制对 [CockroachDB UI](https://www.cockroachlabs.com/docs/v1.1/admin-ui-overview-dashboard.html) 的访问。| x | | | | |
-| `dcos:adminrouter:ops:exhibitor`<br>控制对 Exhibitor UI 和 API 的访问。此权限允许用户在卸载服务之后[删除 ZooKeeper 状态](/cn/1.12/deploying-services/uninstall/#framework-cleaner)。| x | | | | |
-| `dcos:adminrouter:ops:historyservice`<br>控制对 [历史服务](/cn/1.12/overview/architecture/components/#dcos-history) 的访问。这包括从 Mesos 访问可能的敏感数据，例如，所有框架的名称、其使用的资源以及每种状态中的任务数量。| x | | | | |
-| `dcos:adminrouter:ops:mesos-dns`<br> 控制对 [Mesos DNS API](/cn/1.12/networking/mesos-dns/mesos-dns-api/) 的访问。| x | | | | |
+| `dcos:adminrouter:ops:exhibitor`<br>控制对 Exhibitor UI 和 API 的访问。此权限允许用户在卸载服务之后[删除 ZooKeeper 状态](/mesosphere/dcos/cn/1.12/deploying-services/uninstall/#framework-cleaner)。| x | | | | |
+| `dcos:adminrouter:ops:historyservice`<br>控制对 [历史服务](/mesosphere/dcos/cn/1.12/overview/architecture/components/#dcos-history) 的访问。这包括从 Mesos 访问可能的敏感数据，例如，所有框架的名称、其使用的资源以及每种状态中的任务数量。| x | | | | |
+| `dcos:adminrouter:ops:mesos-dns`<br> 控制对 [Mesos DNS API](/mesosphere/dcos/cn/1.12/networking/mesos-dns/mesos-dns-api/) 的访问。| x | | | | |
 | `dcos:adminrouter:ops:mesos`<br> 控制对 Mesos 管理节点 UI 和 API 的访问。| x | | | | |
-| `dcos:adminrouter:ops:metadata`<br> 控制对 [元数据端点](/cn/1.12/api/master-routes/#metadata) 的访问。| x | | | | |
-| `dcos:adminrouter:ops:networking`<br> 控制对 [网络度量标准](/cn/1.12/api/master-routes/#network-metrics) 端点的访问。| x | | | | |
+| `dcos:adminrouter:ops:metadata`<br> 控制对 [元数据端点](/mesosphere/dcos/cn/1.12/api/master-routes/#metadata) 的访问。| x | | | | |
+| `dcos:adminrouter:ops:networking`<br> 控制对 [网络度量标准](/mesosphere/dcos/cn/1.12/api/master-routes/#network-metrics) 端点的访问。| x | | | | |
 | `dcos:adminrouter:ops:slave`<br> 控制对 Mesos 代理节点 UI 和 API 的访问。| x | | | | |
-| `dcos:adminrouter:ops:system-health`<br> 控制对 [系统运行状况 API](/cn/1.12/api/master-routes/#system) 的访问。| x | | | | |
-| `dcos:adminrouter:ops:system-logs` <br>控制对 [系统日志 API](/cn/1.12/api/master-routes/#system) 的访问。| x | | | | |
-| `dcos:adminrouter:ops:system-metrics`<br> 控制对 [系统日志度量标准 API](/cn/1.12/api/master-routes/#system) 的访问。| x | | | | |
+| `dcos:adminrouter:ops:system-health`<br> 控制对 [系统运行状况 API](/mesosphere/dcos/cn/1.12/api/master-routes/#system) 的访问。| x | | | | |
+| `dcos:adminrouter:ops:system-logs` <br>控制对 [系统日志 API](/mesosphere/dcos/cn/1.12/api/master-routes/#system) 的访问。| x | | | | |
+| `dcos:adminrouter:ops:system-metrics`<br> 控制对 [系统日志度量标准 API](/mesosphere/dcos/cn/1.12/api/master-routes/#system) 的访问。| x | | | | |
 | `dcos:adminrouter:licensing`<br> 控制对许可 API 的访问。| x | | | | |
-| `dcos:adminrouter:package`<br> 控制对 [Cosmos API](/cn/1.12/api/master-routes/#cosmos)的访问，其提供对 DC/OS Universe 的访问。| x | | | | |
+| `dcos:adminrouter:package`<br> 控制对 [Cosmos API](/mesosphere/dcos/cn/1.12/api/master-routes/#cosmos)的访问，其提供对 DC/OS Universe 的访问。| x | | | | |
 | `dcos:adminrouter:service[:<group-name>]/<service-name>`<br> 控制对已安装的 DC/OS 服务的 UI 和 API 的访问。| x | | | | |
 | `dcos:adminrouter:service:marathon`<br> 控制对本地 Marathon 的访问。| x | | | | |
-| `dcos:adminrouter:service:metronome`<br> 控制对 [DC/OS 作业 (Metronome)](/cn/1.12/deploying-jobs/) 的访问。| x | | | | |
+| `dcos:adminrouter:service:metronome`<br> 控制对 [DC/OS 作业 (Metronome)](/mesosphere/dcos/cn/1.12/deploying-jobs/) 的访问。| x | | | | |
 
 ## <a name="mesos"></a>Mesos 权限
 
@@ -97,20 +97,20 @@ HTTP 请求授权并检查 `alice` DC/OS 用户是否具有
 如果是，它使用**其自己的** DC/OS 用户（ 具有 `dcos_marathon` 的 `uid` 的 DC/OS 服务帐户），用指令认证对 Mesos 的 HTTP 请求，以启动新的 Mesos 任务。
 此时，Mesos 将执行 DC/OS 授权程序，并检查 `dcos_marathon` DC/OS 用户是否已在 `dcos:mesos:master:task:app_id` 资源上被授予 `create` 操作。
 
-根据 Root Marathon 启动的应用程序只能接收为 `slave_public` 或 `*` [Mesos 角色](/cn/1.12/overview/concepts/#mesos-role)保留的资源供应。
+根据 Root Marathon 启动的应用程序只能接收为 `slave_public` 或 `*` [Mesos 角色](/mesosphere/dcos/cn/1.12/overview/concepts/#mesos-role)保留的资源供应。
 
 | 资源标识符 | 全部 | C | R | U | D |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --- | --- | --- | --- |
-| `dcos:mesos:agent:container:app_id[:<service-or-job-group>]`<br> 控制对特定服务或作业的[调试](/cn/1.12/monitoring/debugging/debug-perms/) 功能的访问 。| | | | x | |
-| `dcos:mesos:agent:container:role[:<role-name>]`<br> 控制对给定 [Mesos 角色](/cn/1.12/overview/concepts/#mesos-role)的 [调试](/cn/1.12/monitoring/debugging/debug-perms/) 功能的访问。| | | | x | |
+| `dcos:mesos:agent:container:app_id[:<service-or-job-group>]`<br> 控制对特定服务或作业的[调试](/mesosphere/dcos/cn/1.12/monitoring/debugging/debug-perms/) 功能的访问 。| | | | x | |
+| `dcos:mesos:agent:container:role[:<role-name>]`<br> 控制对给定 [Mesos 角色](/mesosphere/dcos/cn/1.12/overview/concepts/#mesos-role)的 [调试](/mesosphere/dcos/cn/1.12/monitoring/debugging/debug-perms/) 功能的访问。| | | | x | |
 | `dcos:mesos:agent:endpoint:path[:<endpoint>]`<br> 控制对未受保护的 [Mesos 端点](https://mesos.apache.org/documentation/latest/authorization/) 的访问。| | | x | | |
 | `dcos:mesos:agent:executor:app_id[:<service-or-job-group>]`<br> 控制对服务和作业的查看访问权限 [执行器信息](https://mesos.apache.org/documentation/latest/app-framework-development-guide/)。| | | x | | |
 | `dcos:mesos:agent:flags`<br> 控制对 [代理标记](https://mesos.apache.org/documentation/latest/slave/flags/) 配置的查看访问权限。| | | x | | |
-| `dcos:mesos:agent:framework:role[:<role-name>]`<br> 控制对使用给定 [Mesos 角色](/cn/1.12/overview/concepts/#mesos-role) 注册的 DC/OS 服务的查看访问权限。| | | x | | |
-| `dcos:mesos:agent:log`<br> 控制对 [代理日志](/cn/1.12/monitoring/logging/)的访问。| | | x | | |
-| `dcos:mesos:agent:nested_container_session:app_id[:<service-or-job-group>]`<br> 在[调试](/cn/1.12/monitoring/debugging/) 时，按服务或作业组，控制对服务或作业容器内启动容器的访问。| | x | | | |
-| `dcos:mesos:agent:nested_container_session:role[:<role-name>]`<br> 在[调试](/cn/1.12/monitoring/debugging/) 时，按 [Mesos 角色](/cn/1.12/overview/concepts/#mesos-role)，控制对服务或作业容器内启动容器的访问。| | x | | | |
-| `dcos:mesos:agent:nested_container_session:user[:<linux-user-name>]`<br> 在[调试](/cn/1.12/monitoring/debugging/) 时，按 Linux 用户，控制对服务或作业容器内启动容器的访问。两个嵌套容器的用户必须相同。| | x | | | |
+| `dcos:mesos:agent:framework:role[:<role-name>]`<br> 控制对使用给定 [Mesos 角色](/mesosphere/dcos/cn/1.12/overview/concepts/#mesos-role) 注册的 DC/OS 服务的查看访问权限。| | | x | | |
+| `dcos:mesos:agent:log`<br> 控制对 [代理日志](/mesosphere/dcos/cn/1.12/monitoring/logging/)的访问。| | | x | | |
+| `dcos:mesos:agent:nested_container_session:app_id[:<service-or-job-group>]`<br> 在[调试](/mesosphere/dcos/cn/1.12/monitoring/debugging/) 时，按服务或作业组，控制对服务或作业容器内启动容器的访问。| | x | | | |
+| `dcos:mesos:agent:nested_container_session:role[:<role-name>]`<br> 在[调试](/mesosphere/dcos/cn/1.12/monitoring/debugging/) 时，按 [Mesos 角色](/mesosphere/dcos/cn/1.12/overview/concepts/#mesos-role)，控制对服务或作业容器内启动容器的访问。| | x | | | |
+| `dcos:mesos:agent:nested_container_session:user[:<linux-user-name>]`<br> 在[调试](/mesosphere/dcos/cn/1.12/monitoring/debugging/) 时，按 Linux 用户，控制对服务或作业容器内启动容器的访问。两个嵌套容器的用户必须相同。| | x | | | |
 | `dcos:mesos:agent:resource_provider`<br> 控制对按代理查看资源提供程序信息的访问。| | | x | | |
 | `dcos:mesos:agent:resource_provider_config`<br> 控制对按代理执行的资源提供程序配置更改的访问。| | x | | x | x |
 | `dcos:mesos:agent:sandbox:app_id[:<service-or-job-group>]`<br> 控制对 Mesos 沙盒的访问。| | | x | | |
@@ -120,17 +120,17 @@ HTTP 请求授权并检查 `alice` DC/OS 用户是否具有
 | `dcos:mesos:master:executor:app_id[:<service-or-job-group>]`<br> 控制对 [执行器](https://mesos.apache.org/documentation/latest/app-framework-development-guide/) 服务和作业群组的访问。| | | x | | |
 | `dcos:mesos:master:flags`<br> 控制对 [管理标记](https://mesos.apache.org/documentation/latest/endpoints/master/flags/) 配置的查看访问权限。| | | x | | |
 | `dcos:mesos:master:framework:principal[:<service-account-id>]`<br> 按服务帐户 ID，控制对 Mesos [拆除](https://mesos.apache.org/documentation/latest/endpoints/master/teardown/) 端点的访问，这让您可以卸载 DC/OS 服务。| | | | | x |
-| `dcos:mesos:master:framework:role[:<role-name>]`<br> 按 [Mesos 角色](/cn/1.12/overview/concepts/#mesos-role)，通过 [Mesos](https://mesos.apache.org/documentation/latest/roles/) 控制对作为框架的注册表的访问。| | x | | | |
-| `dcos:mesos:master:log`<br> 控制对 Mesos [主日志](/cn/1.12/monitoring/logging/) 的访问。| | | x | | |
+| `dcos:mesos:master:framework:role[:<role-name>]`<br> 按 [Mesos 角色](/mesosphere/dcos/cn/1.12/overview/concepts/#mesos-role)，通过 [Mesos](https://mesos.apache.org/documentation/latest/roles/) 控制对作为框架的注册表的访问。| | x | | | |
+| `dcos:mesos:master:log`<br> 控制对 Mesos [主日志](/mesosphere/dcos/cn/1.12/monitoring/logging/) 的访问。| | | x | | |
 | `dcos:mesos:master:mount_disk`<br> 控制对创建和销毁装载磁盘的访问。| | x | | | x |
-| `dcos:mesos:master:quota:role[:<role-name>]`<br> 按 [Mesos 角色](/cn/1.12/overview/concepts/#mesos-role)，控制对[资源配额](https://mesos.apache.org/documentation/latest/quota/)的访问。| | | x | x | |
+| `dcos:mesos:master:quota:role[:<role-name>]`<br> 按 [Mesos 角色](/mesosphere/dcos/cn/1.12/overview/concepts/#mesos-role)，控制对[资源配额](https://mesos.apache.org/documentation/latest/quota/)的访问。| | | x | x | |
 | `dcos:mesos:master:reservation:principal[:<service-account-id>]`<br> 按用户或服务帐户，控制对取消保留[资源](https://mesos.apache.org/documentation/latest/reservation/)的访问。| | | | | x |
-| `dcos:mesos:master:reservation:role[:<role-name>]`<br> 按 [Mesos 角色](/cn/1.12/overview/concepts/#mesos-role)，控制对保留[资源](https://mesos.apache.org/documentation/latest/reservation/)的访问。| | x | | | |
+| `dcos:mesos:master:reservation:role[:<role-name>]`<br> 按 [Mesos 角色](/mesosphere/dcos/cn/1.12/overview/concepts/#mesos-role)，控制对保留[资源](https://mesos.apache.org/documentation/latest/reservation/)的访问。| | x | | | |
 | `dcos:mesos:master:task:app_id[:<service-or-job-group>]`<br> 控制运行任务的访问权限。| | x | | | |
 | `dcos:mesos:master:task:user[:<linux-user-name>]`<br> 控制作为特定 Linux 用户对运行任务的访问。| | x | | | |
 | `dcos:mesos:master:volume:principal[:<service-account-id>]`<br> 控制销毁卷的访问权限。| | | | | x |
-| `dcos:mesos:master:volume:role[:<role-name>]`<br> 控制为给定 [Mesos 角色](/cn/1.12/overview/concepts/#mesos-role)创建卷的访问权限。| | x | | | |
-| `dcos:mesos:master:weight:role[:<role-name>]`<br> 控制对给定 [Mesos 角色](/cn/1.12/overview/concepts/#mesos-role)的[权重](https://mesos.apache.org/documentation/latest/weights/)的访问 。| | | x | x | |
+| `dcos:mesos:master:volume:role[:<role-name>]`<br> 控制为给定 [Mesos 角色](/mesosphere/dcos/cn/1.12/overview/concepts/#mesos-role)创建卷的访问权限。| | x | | | |
+| `dcos:mesos:master:weight:role[:<role-name>]`<br> 控制对给定 [Mesos 角色](/mesosphere/dcos/cn/1.12/overview/concepts/#mesos-role)的[权重](https://mesos.apache.org/documentation/latest/weights/)的访问 。| | | x | x | |
 
 ## <a name="marathon-metronome"></a>Marathon 和 Metronome 权限
 
@@ -138,23 +138,23 @@ Marathon 和 Metronome 要求对某些受保护资源发出的 HTTP 请求必须
 
 | 资源标识符 | 全部 | C | R | U | D |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --- | --- | --- | --- |
-| `dcos:service:marathon:marathon:admin:config`<br> 控制对 [GET /v2/info Marathon 端点](/cn/1.12/deploying-services/marathon-api/#/info/)的访问。| | | x | | |
-| `dcos:service:marathon:marathon:admin:events`<br> 控制对 Marathon 事件端点 [GET /v2/events](/cn/1.12/deploying-services/marathon-api/#/events/)的访问。| x | | x | | |
-| `dcos:service:marathon:marathon:admin:leader`<br> 控制对 [GET/DELETE /v2/leader](/cn/1.12/deploying-services/marathon-api/#/leader/)端点的访问。| x | | x | x | |
-| `dcos:service:marathon:marathon:services:/[<service-group>]`<br> 控制对本地 Marathon 实例启动的 [DC/OS 服务](/cn/1.12/deploying-services/)的访问。<br>[POST /v2/group](/cn/1.12/deploying-services/marathon-api/#/groups/) 需要 `full` 操作。| x | x | x | x | x |
-| `dcos:service:metronome:metronome:jobs[:<job-group>]`<br> 控制对[作业和作业组](/cn/1.12/deploying-jobs/)的访问。| x | x | x | x | x |
+| `dcos:service:marathon:marathon:admin:config`<br> 控制对 [GET /v2/info Marathon 端点](/mesosphere/dcos/cn/1.12/deploying-services/marathon-api/#/info/)的访问。| | | x | | |
+| `dcos:service:marathon:marathon:admin:events`<br> 控制对 Marathon 事件端点 [GET /v2/events](/mesosphere/dcos/cn/1.12/deploying-services/marathon-api/#/events/)的访问。| x | | x | | |
+| `dcos:service:marathon:marathon:admin:leader`<br> 控制对 [GET/DELETE /v2/leader](/mesosphere/dcos/cn/1.12/deploying-services/marathon-api/#/leader/)端点的访问。| x | | x | x | |
+| `dcos:service:marathon:marathon:services:/[<service-group>]`<br> 控制对本地 Marathon 实例启动的 [DC/OS 服务](/mesosphere/dcos/cn/1.12/deploying-services/)的访问。<br>[POST /v2/group](/mesosphere/dcos/cn/1.12/deploying-services/marathon-api/#/groups/) 需要 `full` 操作。| x | x | x | x | x |
+| `dcos:service:metronome:metronome:jobs[:<job-group>]`<br> 控制对[作业和作业组](/mesosphere/dcos/cn/1.12/deploying-jobs/)的访问。| x | x | x | x | x |
 
 
 ## <a name="secrets"></a>密钥存储库权限
 
-这些权限控制对[密钥 API](/cn/1.12/security/ent/secrets/secrets-api/) 的访问。Mesos 框架必须
+这些权限控制对[密钥 API](/mesosphere/dcos/cn/1.12/security/ent/secrets/secrets-api/) 的访问。Mesos 框架必须
 将权限授予其 DC/OS 服务帐户，以访问给定的密钥。如果您正在寻找有关如何使用密钥
-启动 Marathon 应用程序的信息，请参阅[配置服务和 pod 以使用密钥](/cn/1.12/security/ent/secrets/use-secrets/)。
+启动 Marathon 应用程序的信息，请参阅[配置服务和 pod 以使用密钥](/mesosphere/dcos/cn/1.12/security/ent/secrets/use-secrets/)。
 
 | 资源标识符 | 全部 | C | R | U | D |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --- | --- | --- | --- |
-| `dcos:secrets:default:[/<path-name>/]<secret-name>`<br> 控制对单个[密钥](/cn/1.12/security/ent/secrets/)的访问。| x | x | x | x | x |
-| `dcos:secrets:list:default:/[<path>]`<br> 控制对[密钥](/cn/1.12/security/ent/secrets/)名称的查看访问权限。| | | x | | |
+| `dcos:secrets:default:[/<path-name>/]<secret-name>`<br> 控制对单个[密钥](/mesosphere/dcos/cn/1.12/security/ent/secrets/)的访问。| x | x | x | x | x |
+| `dcos:secrets:list:default:/[<path>]`<br> 控制对[密钥](/mesosphere/dcos/cn/1.12/security/ent/secrets/)名称的查看访问权限。| | | x | | |
 
 ## <a name="cluster-linker"></a> 群集链接器权限
 
@@ -162,8 +162,8 @@ DC/OS 用户需要链接群集的权限。
 
 | 资源标识符 | 全部 | C | R | U | D |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --- | --- | --- | --- |
-| `dcos:cluster:linker:<cluster-id>`<br> 控制对单个[群集链接](/cn/1.12/administering-clusters/multiple-clusters/cluster-links/)的访问。| | | x | | |
-| `dcos:cluster:linker:*`<br> 控制对[群集链接](/cn/1.12/administering-clusters/multiple-clusters/cluster-links/)的访问。| | x | x | x | x |
+| `dcos:cluster:linker:<cluster-id>`<br> 控制对单个[群集链接](/mesosphere/dcos/cn/1.12/administering-clusters/multiple-clusters/cluster-links/)的访问。| | | x | | |
+| `dcos:cluster:linker:*`<br> 控制对[群集链接](/mesosphere/dcos/cn/1.12/administering-clusters/multiple-clusters/cluster-links/)的访问。| | x | x | x | x |
 
 
 ## <a name="superuser"></a>超级用户权限

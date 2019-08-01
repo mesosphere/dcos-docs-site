@@ -39,5 +39,5 @@ enterprise: false
 
 但是，如果您尝试使用 HTTP 以外的任何其他方式查询或连接到 `master.mesos`，结果将不可预测，因为该名称将解析到任意管理节点。例如，尝试向 `master.mesos` 注册的服务可能与非领导管理节点通信，并且无法在群集上注册为服务。
 
- [1]: /1.12/installing/production/advanced-configuration/configuration-reference/
+ [1]: /mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/
 

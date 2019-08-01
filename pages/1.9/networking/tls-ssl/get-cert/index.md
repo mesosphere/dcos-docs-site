@@ -30,4 +30,4 @@ Use the following command to retrieve the DC/OS CA bundle and save it in the cur
 curl -k -v $(dcos config show core.dcos_url)/ca/dcos-ca.crt -o dcos-ca.crt
 ```
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/1.10/cli/install/) in order to retrieve the cluster URL.
+**Prerequisite:** You must have the [DC/OS CLI installed](/mesosphere/dcos/1.10/cli/install/) in order to retrieve the cluster URL.

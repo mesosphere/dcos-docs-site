@@ -141,7 +141,7 @@ Marathon 应用程序通常在终止和重新启动时失去状态。在某些�
 
 [4]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
 [5]:http://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-provider/
-[6]: /cn/1.12/deploying-services/creating-services/
+[6]: /mesosphere/dcos/cn/1.12/deploying-services/creating-services/
 [7]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/#data-directory
 [8]: #implicit-vol
 [9]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/

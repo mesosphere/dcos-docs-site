@@ -9,7 +9,7 @@ model: /cn/services/spark/data.yml
 render: mustache
 ---
 
-欢迎使用 DC/OS {{ model.techName }} 服务文档。有关新特性和更新特性的详细信息，请参阅 [发布说明](/cn/services/spark/2.3.1-2.2.1-2/release-notes/)。
+欢迎使用 DC/OS {{ model.techName }} 服务文档。有关新特性和更新特性的详细信息，请参阅 [发布说明](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/release-notes/)。
 
 
 {{ model.techName }} 是一种用于大数据的快速通用集群计算系统。它提供 Scala、Java、Python 和 R 的高级 API，以及支持数据分析一般计算图形的优化引擎。它还支持丰富的高级工具，包括用于 SQL 和 DatAframes 的 Spark SQL、用于机器学习的 MLlib、用于图形处理的 GraphX 和用于流处理的 Spark Streaming。有关详细信息，请参阅 [Apache Spark 文档][1]。

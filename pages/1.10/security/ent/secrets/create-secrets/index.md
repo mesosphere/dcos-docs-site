@@ -10,13 +10,13 @@ enterprise: true
 
 You can create secrets in DC/OS by using a key-value pair or as a file. Both methods add a name and secret value to the secret store. You may find it convenient to add a secret as a file if you already have a secret value stored in a file locally and want to avoid cutting-and-pasting.
 
-See [Configuring services and pods to use secrets](/1.10/security/ent/secrets/use-secrets/) for information on how to reference these secrets in your app or pod definition.
+See [Configuring services and pods to use secrets](/mesosphere/dcos/1.10/security/ent/secrets/use-secrets/) for information on how to reference these secrets in your app or pod definition.
 
 # Creating secrets
 
 The sections below explain how to create secrets as both key/value pairs and as files using the GUI, CLI, and the Secrets API.
 
-Secrets should include paths, unless you want to allow all services to access its value. See [Spaces](/1.10/security/ent/#spaces) for more information about secret paths.
+Secrets should include paths, unless you want to allow all services to access its value. See [Spaces](/mesosphere/dcos/1.10/security/ent/#spaces) for more information about secret paths.
 
 ## Prerequisites
 
@@ -25,9 +25,9 @@ Secrets should include paths, unless you want to allow all services to access it
 
 ### DC/OS CLI or Secrets API
 
-- See [Secret Store Permissions](/1.10/security/ent/perms-reference/#secrets) for the permissions needed to create secrets from the CLI or API. The permissions you configure must include the name of the secret the user is allowed to create. You must have one permission per secret. The secret name and permission name must match.
+- See [Secret Store Permissions](/mesosphere/dcos/1.10/security/ent/perms-reference/#secrets) for the permissions needed to create secrets from the CLI or API. The permissions you configure must include the name of the secret the user is allowed to create. You must have one permission per secret. The secret name and permission name must match.
 
-- [DC/OS CLI installed](/1.10/cli/install/) and the [DC/OS Enterprise CLI installed](/1.10/cli/enterprise-cli/#ent-cli-install).
+- [DC/OS CLI installed](/mesosphere/dcos/1.10/cli/install/) and the [DC/OS Enterprise CLI installed](/mesosphere/dcos/1.10/cli/enterprise-cli/#ent-cli-install).
 
 # <a name="ui"></a>Creating key-value pair secrets using the GUI
 
@@ -37,17 +37,17 @@ Secrets should include paths, unless you want to allow all services to access it
 
 1. Click the **+** icon in the top right.
 
-    ![New Secret](/1.10/img/new-secret.png)
+    ![New Secret](/mesosphere/dcos/1.10/img/new-secret.png)
 
 1. In the **ID** box, provide the name of your secret and its path, if any. Example, **developer/my-secret**.
 
-    ![Secret ID/Value Fields](/1.10/img/secret-id-value.png)
+    ![Secret ID/Value Fields](/mesosphere/dcos/1.10/img/secret-id-value.png)
 
 1. Type or paste the secret into the **Value** box.
 
 1. When you have completed your entries, the secret should look something like the following.
 
-    ![Creating the Secret](/1.10/img/create-secret.png)
+    ![Creating the Secret](/mesosphere/dcos/1.10/img/create-secret.png)
 
 1. Click **Create**.
 
@@ -55,7 +55,7 @@ Secrets should include paths, unless you want to allow all services to access it
 
 This procedure describes how to create a secret called `my-secret` inside the `developer` path.
 
-**Note:** If your [security mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) is `permissive` or `strict`, you must follow the steps in [Obtaining the DC/OS CA bundle](/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+**Note:** If your [security mode](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) is `permissive` or `strict`, you must follow the steps in [Obtaining the DC/OS CA bundle](/mesosphere/dcos/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Use `dcos auth login` log into the CLI.
 

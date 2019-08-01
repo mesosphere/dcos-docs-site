@@ -22,7 +22,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.9/overview/concepts/#mesos-exhibitor-zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/mesosphere/dcos/1.9/overview/concepts/#mesos-exhibitor-zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -38,7 +38,7 @@ In this step, an IP detect script is created. This script reports the IP address
 
 **Important:** 
 
-- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.9/installing/ent/custom/uninstall/).
+- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/mesosphere/dcos/1.9/installing/ent/custom/uninstall/).
 - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master. 
 
 
@@ -107,7 +107,7 @@ In this step, you create a YAML configuration file that is customized for your e
 
 1.  From your `genconf` directory, create a configuration file and save as `config.yaml`.
     
-    You can use this template to get started. This template specifies three masters, five [private](/1.9/overview/concepts/#private-agent-node) agents, one [public](/1.9/overview/concepts/#public-agent-node) agent, static master discovery list, and SSH configuration. You may use additional configuration parameters. For descriptions of all parameters and configuration examples, see the [documentation][3].
+    You can use this template to get started. This template specifies three masters, five [private](/mesosphere/dcos/1.9/overview/concepts/#private-agent-node) agents, one [public](/mesosphere/dcos/1.9/overview/concepts/#public-agent-node) agent, static master discovery list, and SSH configuration. You may use additional configuration parameters. For descriptions of all parameters and configuration examples, see the [documentation][3].
     
     The CLI installer uses these default configuration values, which you may override in your configuration:
 
@@ -153,7 +153,7 @@ In this step, you create a YAML configuration file that is customized for your e
     superuser_username: <username>
     ```
 
-1.  From your home directory, run this command to create a hashed password for superuser [authentication](/1.9/security/ent/perms-reference/#superuser). The hashed password is automatically appended to `config.yaml`.
+1.  From your home directory, run this command to create a hashed password for superuser [authentication](/mesosphere/dcos/1.9/security/ent/perms-reference/#superuser). The hashed password is automatically appended to `config.yaml`.
 
     ```bash
     bash dcos_generate_config.ee.sh --set-superuser-password
@@ -193,7 +193,7 @@ In this step, you create a custom DC/OS build file on your bootstrap node and th
 
 **Important:** 
 
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.9/installing/ent/troubleshooting/).
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/mesosphere/dcos/1.9/installing/ent/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster <a href="/1.9/installing/ent/custom/uninstall/" target="_blank">cleanup instructions</a>.
 
 To install DC/OS:
@@ -316,7 +316,7 @@ To install DC/OS:
     Starting new HTTPS connection (1): api.segment.io
     ```
     
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.9/installing/ent/custom/system-requirements/#port-and-protocol).
+    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/mesosphere/dcos/1.9/installing/ent/custom/system-requirements/#port-and-protocol).
 
 6.  Monitor Exhibitor and wait for your masters to converge at `http://<master-public-ip>:8181/exhibitor/v1/ui/index.html`.
     
@@ -334,10 +334,10 @@ To install DC/OS:
     
     You are done!
     
-    ![UI dashboard](/1.9/img/dashboard-ee.gif)
+    ![UI dashboard](/mesosphere/dcos/1.9/img/dashboard-ee.gif)
     
 # <a name="backup"></a>(Optional) Backup your DC/OS installer files
-It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/1.9/administering-clusters/convert-agent-type/) node.
+It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent](/mesosphere/dcos/1.9/administering-clusters/convert-agent-type/) node.
 
 1.  From your bootstrap node, navigate to the `genconf/serve` directory and package the contents as `dcos-install.tar`:
 
@@ -385,17 +385,17 @@ After DC/OS is installed and deployed across your cluster, you can add more agen
         
 
 
- [1]: /1.9/installing/ent/custom/system-requirements/
- [2]: /1.9/installing/ent/custom/uninstall/
- [3]: /1.9/installing/ent/custom/configuration/configuration-parameters/
- [5]: /1.9/installing/ent/custom/configuration/configuration-parameters/#rexray-config
+ [1]: /mesosphere/dcos/1.9/installing/ent/custom/system-requirements/
+ [2]: /mesosphere/dcos/1.9/installing/ent/custom/uninstall/
+ [3]: /mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/
+ [5]: /mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#rexray-config
  [6]: http://rexray.readthedocs.io/en/stable/user-guide/config/
- [7]: /1.9/storage/external-storage/
- [8]: /1.9/installing/ent/custom/advanced/
- [9]: /1.9/img/chef-zk-status.png
- [10]: /1.9/img/gui-installer-login-ee.gif
- [11]: /1.9/img/dashboard-ee.gif
- [12]: /1.9/security/ent/
- [13]: /1.9/installing/ent/custom/system-requirements/#hardware-prerequisites
- [14]: /1.9/installing/ent/custom/system-requirements/#software-prerequisites
+ [7]: /mesosphere/dcos/1.9/storage/external-storage/
+ [8]: /mesosphere/dcos/1.9/installing/ent/custom/advanced/
+ [9]: /mesosphere/dcos/1.9/img/chef-zk-status.png
+ [10]: /mesosphere/dcos/1.9/img/gui-installer-login-ee.gif
+ [11]: /mesosphere/dcos/1.9/img/dashboard-ee.gif
+ [12]: /mesosphere/dcos/1.9/security/ent/
+ [13]: /mesosphere/dcos/1.9/installing/ent/custom/system-requirements/#hardware-prerequisites
+ [14]: /mesosphere/dcos/1.9/installing/ent/custom/system-requirements/#software-prerequisites
  [15]: #two

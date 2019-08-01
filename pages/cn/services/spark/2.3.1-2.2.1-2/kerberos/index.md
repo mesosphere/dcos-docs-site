@@ -197,7 +197,7 @@ Spark 可以消费启用 Kerberos 的 Kafka 集群中的数据。连接 Spark �
 安装参数。但是，它确实要求 Spark 驱动程序和 Spark 执行程序可以访问以下文件：
 
 * 客户端 JAAS（Java 认证和授权服务）文件。这是使用带有 `--conf
- spark.mesos.uris=<location_of_jaas>`  的 Mesos URIS 提供的。JAAS 文件的一个示例见 [此处](/cn/services/spark/2.3.1-2.2.1-2/usage-examples/#advanced)
+ spark.mesos.uris=<location_of_jaas>`  的 Mesos URIS 提供的。JAAS 文件的一个示例见 [此处](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/usage-examples/#advanced)
 * `krb5.conf` 用于 Kerberos 设置。与 HDFS 相似，这是使用文件的 base64 编码提供的。
  ```
  cat krb5.conf | base64 -w 0
@@ -225,4 +225,4 @@ Spark 可以消费启用 Kerberos 的 Kafka 集群中的数据。连接 Spark �
 重要的是，驱动程序和执行程序 keytab 文件的文件名相同 (`<keytab_file_name>` 以上）以及
 此文件在您的 JAAS 文件中正确地寻址。
 
-有关来自安全 Kafka 的 Spark 消费者的工作示例，请参阅 [使用示例](/cn/services/spark/2.3.1-2.2.1-2/usage-examples/)。
+有关来自安全 Kafka 的 Spark 消费者的工作示例，请参阅 [使用示例](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/usage-examples/)。

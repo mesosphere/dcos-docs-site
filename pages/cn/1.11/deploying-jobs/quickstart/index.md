@@ -13,13 +13,13 @@ enterprise: false
 
 # DC/OS Web 界面
 
-<p class="message--note"><strong>注意: </strong> DC/OS Web 界面提供 CLI 和 API 功能的子集。对于高级作业配置，使用 [dcos job](/cn/1.11/cli/command-reference/dcos-job/) 命令或 Jobs [API](#jobs-api)。</p>
+<p class="message--note"><strong>注意: </strong> DC/OS Web 界面提供 CLI 和 API 功能的子集。对于高级作业配置，使用 [dcos job](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-job/) 命令或 Jobs [API](#jobs-api)。</p>
 
 ## 添加作业
 
 从 DC/OS Web 界面中单击 **Jobs** 选项卡，然后单击 **Create a Job** 按钮。填写以下字段，或切换到 JSON 模式以直接编辑 JSON。
 
-![创建 JOB UI](/cn/1.11/img/create-job.png)
+![创建 JOB UI](/mesosphere/dcos/cn/1.11/img/create-job.png)
 
 图 1. 新作业菜单
 
@@ -41,10 +41,10 @@ enterprise: false
 * **Image** - 如果您使用的是 Docker 镜像，请输入您将用于指定作业操作的 Docker 镜像。
 
 ### **Labels**
-**Label Name** 和 **Label Value** - 将元数据附加到您的作业，以便您可以筛选。[了解有关标签的更多信息](/cn/1.11/tutorials/task-labels/)。
+**Label Name** 和 **Label Value** - 将元数据附加到您的作业，以便您可以筛选。[了解有关标签的更多信息](/mesosphere/dcos/cn/1.11/tutorials/task-labels/)。
 
 ## 作业组
-您可以将作业添加到现有的作业组，或在创建作业时创建一个组。在作业 ID 中使用点可将作业嵌套在一个组中。例如，如果您输入作业 ID `marketing.myjob`，`myjob` 将在 `marketing` 组中创建。在 DC/OS Enterprise 中，您可以 [使用工作组](/cn/1.11/deploying-jobs/job-groups/) 实现细粒度用户访问。
+您可以将作业添加到现有的作业组，或在创建作业时创建一个组。在作业 ID 中使用点可将作业嵌套在一个组中。例如，如果您输入作业 ID `marketing.myjob`，`myjob` 将在 `marketing` 组中创建。在 DC/OS Enterprise 中，您可以 [使用工作组](/mesosphere/dcos/cn/1.11/deploying-jobs/job-groups/) 实现细粒度用户访问。
 
 ## 修改、查看或删除作业
 

@@ -15,8 +15,8 @@ enterprise: false
 - [Bash](https://www.gnu.org/software/bash/)
 - [Curl](https://curl.haxx.se/)
 - [jq](https://stedolan.github.io/jq/)
-- [DC/OS](/1.12/installing/)
-- 必须安装、配置和登录 [DC/OS CLI](/1.12/cli/)。
+- [DC/OS](/mesosphere/dcos/1.12/installing/)
+- 必须安装、配置和登录 [DC/OS CLI](/mesosphere/dcos/1.12/cli/)。
 - 从 DC/OS CLI 提取 `DCOS_URL` 和 `DCOS_AUTH_TOKEN`：
 
     ```

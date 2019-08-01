@@ -22,4 +22,4 @@ dcos auth logout
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/1.11/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/mesosphere/dcos/1.11/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |

@@ -37,8 +37,8 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/1.13/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/mesosphere/dcos/1.13/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
 
 # Examples
 
-For examples, see the debugging [documentation](/1.13/monitoring/debugging/).
+For examples, see the debugging [documentation](/mesosphere/dcos/1.13/monitoring/debugging/).

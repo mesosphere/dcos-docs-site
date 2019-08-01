@@ -8,4 +8,4 @@ excerpt:
 
 View the system health of your DC/OS components from the Components tab.
 
-![Components](/1.10/img/components-ee.png)
+![Components](/mesosphere/dcos/1.10/img/components-ee.png)

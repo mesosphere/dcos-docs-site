@@ -12,6 +12,6 @@ Admin Router Agent runs on DC/OS agent nodes. It exposes the following API route
 
 -   DC/OS Enterprise adds optional SSL encryption of component communication, in which case Admin Router Agent also listens on port `61002` (HTTPS).
 
-For more detail about how API routing works, see [DC/OS API Reference](/1.12/api/).
+For more detail about how API routing works, see [DC/OS API Reference](/mesosphere/dcos/1.12/api/).
 
 [ngindox api='/1.12/api/nginx.agent.yaml']

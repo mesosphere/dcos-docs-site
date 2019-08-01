@@ -12,7 +12,7 @@ enterprise: true
 
 **先决条件：**
 
-- [DC/OS](/cn/1.11/installing/)和[DC/OS CLI](/cn/1.11/cli/install/)已安装。
+- [DC/OS](/mesosphere/dcos/cn/1.11/installing/)和[DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/)已安装。
 
 # <a name="create-job"></a>创建简单的作业
 
@@ -119,12 +119,12 @@ enterprise: true
 
 **先决条件：**
 
-- 安装 DC/OS 时，[安全模式](/cn/1.11/security/ent/#security-modes) `permissive` 或 `strict`。
+- 安装 DC/OS 时，[安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes) `permissive` 或 `strict`。
 - 您必须以 `superuser` 身份登录。
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
-    ![登录](/cn/1.11/img/gui-installer-login-ee.gif)
+    ![登录](/mesosphere/dcos/cn/1.11/img/gui-installer-login-ee.gif)
 
     图 1. DC/OS Enterprise 登录
 
@@ -134,7 +134,7 @@ enterprise: true
  1. 在 **ID** 字段中，键入 `dev.batch.job1`。
  1. 在 **Command** 字段中，键入 `sleep 1000`（或其他有效的 shell 命令）并单击 **CREATE A JOB**。
 
-    ![创建作业](/cn/1.11/img/job-ex1.png)
+    ![创建作业](/mesosphere/dcos/cn/1.11/img/job-ex1.png)
 
     图 2. 新作业屏幕
 
@@ -142,14 +142,14 @@ enterprise: true
 
  1. 单击右上角的 **+** 图标创建另一项作业。
 
-    ![创建另一项作业](/cn/1.11/img/job-ex2.png)
+    ![创建另一项作业](/mesosphere/dcos/cn/1.11/img/job-ex2.png)
 
     图 3. 创建另一项作业
 
  1. 在 **ID** 字段中，键入 `dev.batch.job2`。
  1. 在 **Command** 字段中，键入 `sleep 1000`（或其他有效的 shell 命令）并单击 **CREATE A JOB**。您应该有两项作业：
 
-    ![创建作业](/cn/1.11/img/job-ex3.png)
+    ![创建作业](/mesosphere/dcos/cn/1.11/img/job-ex3.png)
 
     图 4. Jobs > dev > batch screen
 
@@ -157,7 +157,7 @@ enterprise: true
 
  1. 单击 **Jobs > dev > batch > job1**，然后单击 **Run Now**。
 
-    ![运行作业](/cn/1.11/img/job-ex4.png)
+    ![运行作业](/mesosphere/dcos/cn/1.11/img/job-ex4.png)
 
     图 5. “Run now”菜单
 
@@ -167,14 +167,14 @@ enterprise: true
 
  1. 选择 **Organization > Users** 并创建名为 `Cory` 和 `Alice` 的新用户。
 
-    ![创建用户 Cory](/cn/1.11/img/service-group3.png)
+    ![创建用户 Cory](/mesosphere/dcos/cn/1.11/img/service-group3.png)
 
     图 6. 创建新用户
 
  1. 选择用户 **Cory** 授予 `job1` 访问权限。
  1. 从 **Permissions** 选项卡中，单击 **ADD PERMISSION**，然后切换 **INSERT PERMISSION STRING** 按钮以手动输入权限。
 
-    ![添加 cory 权限](/cn/1.11/img/job-ex5.png)
+    ![添加 cory 权限](/mesosphere/dcos/cn/1.11/img/job-ex5.png)
 
     图 7. 为用户“Cory”添加权限
 
@@ -200,6 +200,6 @@ enterprise: true
 
 1. 退出并以新用户身份重新登录以验证权限。用户现在应该在 **Jobs** 选项卡内具有对 `dev/batch/job1` 和 `dev/batch/job2` 的指定访问级别。例如，如果您以 **Alice** 身份登录，您只能看到 **jobs2**：
 
-    ![Alice 作业查看](/cn/1.11/img/job-ex6.png)
+    ![Alice 作业查看](/mesosphere/dcos/cn/1.11/img/job-ex6.png)
 
     图 8. “Alice”的局限性查看

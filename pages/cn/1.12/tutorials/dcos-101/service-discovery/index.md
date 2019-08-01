@@ -12,8 +12,8 @@ menuWeight: 4
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/cn/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.12/tutorials/dcos-101/cli/)。
-* [app1](/cn/1.12/tutorials/dcos-101/app1/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 群集](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/cli/)。
+* [app1](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/app1/) 已部署并在您的群集中运行。
 
 
 # 目的
@@ -22,7 +22,7 @@ menuWeight: 4
 在本部分中，您将通过探索 DC/OS 中应用程序的不同选项，了解 DC/OS 服务发现。
 
 # 服务发现
- [服务发现](/cn/1.12/networking/)使应用程序能够不依赖于于其在群集中的运行位置进行寻址，这在应用程序可能出现故障并在不同主机上重新启动时尤其有用。
+ [服务发现](/mesosphere/dcos/cn/1.12/networking/)使应用程序能够不依赖于于其在群集中的运行位置进行寻址，这在应用程序可能出现故障并在不同主机上重新启动时尤其有用。
 
  DC/OS 提供两种服务发现选项：
 
@@ -38,9 +38,9 @@ menuWeight: 4
 
 # Mesos-DNS
 
- [Mesos-DNS](/cn/1.12/networking/DNS/mesos-dns/) 为每个任务分配 DNS 条目，这些条目可从群集中的任何节点解析。这些条目的命名模式为 `task.scheduler.mesos`。
+ [Mesos-DNS](/mesosphere/dcos/cn/1.12/networking/DNS/mesos-dns/) 为每个任务分配 DNS 条目，这些条目可从群集中的任何节点解析。这些条目的命名模式为 `task.scheduler.mesos`。
 
- 作业的默认调度程序为 [Marathon](/cn/1.12/overview/architecture/components/#marathon)，因此，Redis 服务的 Mesos-DNS 名称为 **redis.marathon.mesos**。
+ 作业的默认调度程序为 [Marathon](/mesosphere/dcos/cn/1.12/overview/architecture/components/#marathon)，因此，Redis 服务的 Mesos-DNS 名称为 **redis.marathon.mesos**。
 
  我们来使用 [dig](https://linux.die.net/man/1/dig) 命令以检索地址记录（也称为 A 记录）。Dig 是一个命令行实用程序，用于查询 DNS 服务器。如果在没有参数的情况下使用，它将使用系统范围配置的 DNS 服务器进行查询，在 DC/OS 群集中将其配置为指向 Mesos-DNS：
 
@@ -79,7 +79,7 @@ menuWeight: 4
 
 # 命名虚拟 IP
 
- * [命名 VIP](/cn/1.12/networking/load-balancing-vips/) 让您将名称/端口对分配到应用程序，这意味着您可以使用可预测的端口为应用程序提供有意义的名称。当使用应用程序的多个实例时，它们还提供内置的负载均衡。
+ * [命名 VIP](/mesosphere/dcos/cn/1.12/networking/load-balancing-vips/) 让您将名称/端口对分配到应用程序，这意味着您可以使用可预测的端口为应用程序提供有意义的名称。当使用应用程序的多个实例时，它们还提供内置的负载均衡。
  例如，您可以通过将以下内容添加到软件包定义中，将命名 VIP 分配给 Redis 服务：
 
   ```
@@ -107,4 +107,4 @@ Mesos-DNS 是在群集中查找应用程序的简单解决方案。虽然 DNS �
 ## 命名 VIP
 命名 VIP 使用智能算法对 IP 地址/端口对进行负载均衡，以确保与原始请求者相关的流量的最佳路由，并且还提供用于高性能的本地缓存层。它们还允许您为应用程序提供有意义的名称并选择特定端口。由于这些优于 Mesos-DNS 的优势，我们建议使用命名 VIP 作为 DC/OS 中默认的服务发现方法。
 
-在[下一部分](/cn/1.12/tutorials/dcos-101/app2/) 中，您将部署为用户提供 GUI 的应用程序。
+在[下一部分](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/app2/) 中，您将部署为用户提供 GUI 的应用程序。

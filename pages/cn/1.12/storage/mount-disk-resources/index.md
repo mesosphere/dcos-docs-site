@@ -32,13 +32,13 @@ enterprise: false
     请注意，`/dcos/volume0` 尚无引用。
 
 1. 停止代理节点。
-    - 在[专用](/cn/1.12/overview/concepts/#private-agent-node)代理节点上：
+    - 在[专用](/mesosphere/dcos/cn/1.12/overview/concepts/#private-agent-node)代理节点上：
 
       ```bash
       sudo systemctl stop dcos-mesos-slave.service
       ```
 
-    - 在[公共](/cn/1.12/overview/concepts/#public-agent-node)代理节点上：
+    - 在[公共](/mesosphere/dcos/cn/1.12/overview/concepts/#public-agent-node)代理节点上：
 
       ```bash
       sudo systemctl stop dcos-mesos-slave-public.service
@@ -175,7 +175,7 @@ enterprise: false
 
 在运行此服务后，导航到 Web 界面中的 **Services > Volumes** 选项卡：
 
-![挂载磁盘](/1.12/img/mount-disk.png)
+![挂载磁盘](/mesosphere/dcos/1.12/img/mount-disk.png)
 
 图 1. Services > Volumes 选项卡
 

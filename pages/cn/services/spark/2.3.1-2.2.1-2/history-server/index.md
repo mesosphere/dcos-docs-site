@@ -57,4 +57,4 @@ DC/OS {{ model.techName }} 包括 [Spark History Server][3]。由于历史服务
 8. 在此处访问调度器中的作业：`http://<dcos_url>/service/spark/`。它将包含该作业历史服务器条目的链接。
 
  [3]: http://spark.apache.org/docs/latest/monitoring.html#viewing-after-the-fact
- [10]: /latest/administering-clusters/sshcluster/
+ [10]: /mesosphere/dcos/latest/administering-clusters/sshcluster/

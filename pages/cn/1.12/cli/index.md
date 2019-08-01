@@ -10,7 +10,7 @@ enterprise: false
 
 DC/OS 命令行界面 (DC/OS CLI) 实用程序让您可以管理群集节点、安装和管理软件包、检查群集状态以及管理服务和任务。
 
-DC/OS 1.12 需要 DC/OS CLI >= 0.7。安装时，[请遵循说明](/cn/1.12/cli/install/)。
+DC/OS 1.12 需要 DC/OS CLI >= 0.7。安装时，[请遵循说明](/mesosphere/dcos/cn/1.12/cli/install/)。
 
 若要列出可用命令，请运行不带参数的 `dcos`：
 
@@ -112,7 +112,7 @@ DC/OS CLI 支持以下环境变量，可以动态设置。您正在使用的 CLI
 
 ## `DCOS_CLUSTER` （仅限 DC/OS CLI 0.5.x 及更高版本）
 
-[连接的](/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/)群集。要设置连接的群集，请使用以下命令设置变量：
+[连接的](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-cluster/dcos-cluster-attach/)群集。要设置连接的群集，请使用以下命令设置变量：
 
 ```bash
 dcos cluster setup <cluster-url>
@@ -131,7 +131,7 @@ username@10.15.150.126's password: <password>
 
 ### DC/OS Enterprise CLI
 
-[`dcos cluster setup`](/cn/1.12/CLI/Command-Reference/DCOS-Cluster/DCOS-Cluster-Setup/) 命令安装 [插件](/cn/1.12/cli/plugins/) 和 `dcos-core-cli`，但不安装 `dcos-enterprise-cli`。DC/OS Enterprise CLI 必须单独安装。请参阅 [安装 DC/OS Enterprise CLI](/cn/1.12/CLI/enterprise-cli/#install-the-dcos-enterprise-cli)。
+[`dcos cluster setup`](/mesosphere/dcos/cn/1.12/CLI/Command-Reference/DCOS-Cluster/DCOS-Cluster-Setup/) 命令安装 [插件](/mesosphere/dcos/cn/1.12/cli/plugins/) 和 `dcos-core-cli`，但不安装 `dcos-enterprise-cli`。DC/OS Enterprise CLI 必须单独安装。请参阅 [安装 DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.12/CLI/enterprise-cli/#install-the-dcos-enterprise-cli)。
 
 安装 DC/OS Enterprise CLI 后，您将看到添加的新命令：
 

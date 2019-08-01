@@ -17,7 +17,7 @@ A patching process includes the following:
 
 <p class="message--note"><strong>NOTE: </strong>These instructions are only appropriate for a change to the cluster configuration or the maintenance version number. Example: DC/OS 1.12.1 --> 1.12.2</p>
 
-- To update to a newer major or minor version (e.g. 1.11 to 1.12), refer to the instructions for [upgrading](/1.14/installing/production/upgrading/).
+- To update to a newer major or minor version (e.g. 1.11 to 1.12), refer to the instructions for [upgrading](/mesosphere/dcos/1.14/installing/production/upgrading/).
 
 If patching is performed on a supported OS with all prerequisites fulfilled, then the patch **should** preserve the state of running tasks on the cluster.
 
@@ -25,7 +25,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 
 ## Important guidelines
 
-- Review the [release notes](/1.14/release-notes/) before patching DC/OS.
+- Review the [release notes](/mesosphere/dcos/1.14/release-notes/) before patching DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when patching or configuring a new cluster. You can find additional information and a more robust remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302).
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file.
 - The DC/OS Enterprise license key must reside in a `genconf/license.txt` file. [enterprise type="inline" size="small" /]
@@ -52,20 +52,20 @@ Only a subset of DC/OS configuration parameters can be modified. The adverse eff
 
 Here is a list of the parameters that you can modify:
 
-- [`dns_search`](/1.14/installing/production/advanced-configuration/configuration-reference/#dns-search)
-- [`docker_remove_delay`](/1.14/installing/production/advanced-configuration/configuration-reference/#docker-remove-delay)
-- [`gc_delay`](/1.14/installing/production/advanced-configuration/configuration-reference/#gc-delay)
-- [`resolvers`](/1.14/installing/production/advanced-configuration/configuration-reference/#resolvers)
-- [`telemetry_enabled`](/1.14/installing/production/advanced-configuration/configuration-reference/#telemetry-enabled)
-- [`use_proxy`](/1.14/installing/production/advanced-configuration/configuration-reference/#use-proxy)
-    - [`http_proxy`](/1.14/installing/production/advanced-configuration/configuration-reference/#use-proxy)
-    - [`https_proxy`](/1.14/installing/production/advanced-configuration/configuration-reference/#use-proxy)
-    - [`no_proxy`](/1.14/installing/production/advanced-configuration/configuration-reference/#use-proxy)
-- [`enable_mesos_input_plugin`](/1.14/installing/production/advanced-configuration/configuration-reference/#enable-mesos-input-plugin)
+- [`dns_search`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#dns-search)
+- [`docker_remove_delay`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#docker-remove-delay)
+- [`gc_delay`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#gc-delay)
+- [`resolvers`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#resolvers)
+- [`telemetry_enabled`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#telemetry-enabled)
+- [`use_proxy`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`http_proxy`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`https_proxy`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`no_proxy`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+- [`enable_mesos_input_plugin`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#enable-mesos-input-plugin)
 
 The security mode (`security`) can be changed but only to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `strict` mode and you want to downgrade to `permissive` mode, you must reinstall the cluster and terminate all running workloads.
 
-See the security [mode](/1.14/installing/production/advanced-configuration/configuration-reference/#security-enterprise) for information on different security modes.
+See the security [mode](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#security-enterprise) for information on different security modes.
 
 # Instructions
 These steps must be performed for version patches and cluster configuration changes.
@@ -76,19 +76,19 @@ These steps must be performed for version patches and cluster configuration chan
 - For Mesos compatibility reasons, we recommend patching any running Marathon-on-Marathon instances to Marathon version 1.3.5 before proceeding with this DC/OS patch.
 - You must have access to copies of the config files used with the previous DC/OS version: `config.yaml` and `ip-detect`.
 - You must be using `systemd` 218 or newer to maintain task state.
-- All hosts (masters and agents) must be able to communicate with all other hosts as described at [network security](/1.14/administering-clusters/securing-your-cluster/#network-security).
+- All hosts (masters and agents) must be able to communicate with all other hosts as described at [network security](/mesosphere/dcos/1.14/administering-clusters/securing-your-cluster/#network-security).
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
-- You must be familiar with the DC/OS [Production Installation](/1.14/installing/production/deploying-dcos/installation/) instructions.
+- You must be familiar with the DC/OS [Production Installation](/mesosphere/dcos/1.14/installing/production/deploying-dcos/installation/) instructions.
 - Take a snapshot of ZooKeeper prior to patching. Marathon supports rollbacks, but does not support downgrades.
-- *Important:* Take a [snapshot of the IAM database](/1.14/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. This is very easy to do and should be considered a necessity.
+- *Important:* Take a [snapshot of the IAM database](/mesosphere/dcos/1.14/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. This is very easy to do and should be considered a necessity.
 - Ensure that Marathon event subscribers are disabled before beginning the patch. Leave them disabled after completing the patch, as this feature is now deprecated.
 
     <p class="message--note"><strong>NOTE: </strong>Marathon event subscribers are disabled by default. Check to see if the line <code>--event_subscriber "http_callback"</code> has been added to <code>sudo vi /opt/mesosphere/bin/marathon.sh</code> on your master node(s). If this is the case you will need to remove that line in order to disable event subscribers.</p>
 
 - Verify that all Marathon application constraints are valid before beginning the patch. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
-- [Back up your cluster](/1.14/administering-clusters/backup-and-restore/).
-- **Optional** You can add custom [node and cluster health checks](/1.14/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
+- [Back up your cluster](/mesosphere/dcos/1.14/administering-clusters/backup-and-restore/).
+- **Optional** You can add custom [node and cluster health checks](/mesosphere/dcos/1.14/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) to your `config.yaml`.
 
 ## Bootstrap Node
 
@@ -98,7 +98,7 @@ Choose your desired security mode and then follow the applicable patch instructi
 - [Patching to DC/OS 1.12 in strict security mode](#strict)
 
 # <a name="current-security"></a>Patching DC/OS 1.12 without changing security mode
-This procedure patches a DC/OS 1.12 cluster without changing the cluster's [security mode](/1.14/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure patches a DC/OS 1.12 cluster without changing the cluster's [security mode](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
@@ -114,12 +114,12 @@ This procedure patches a DC/OS 1.12 cluster without changing the cluster's [secu
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
-    1.  Run the [nginx](/1.14/installing/production/deploying-dcos/installation/) container to serve the installation files.
+    1.  Run the [nginx](/mesosphere/dcos/1.14/installing/production/deploying-dcos/installation/) container to serve the installation files.
 
-1.  Go to the DC/OS Master [procedure](/1.14/installing/production/patching/#masters) to complete your installation.
+1.  Go to the DC/OS Master [procedure](/mesosphere/dcos/1.14/installing/production/patching/#masters) to complete your installation.
 
 # <a name="strict"></a>Patching to DC/OS 1.12 in strict mode
-This procedure patches to DC/OS 1.12 in strict [security mode](/1.14/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure patches to DC/OS 1.12 in strict [security mode](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 If you are updating a running DC/OS cluster to run in `strict` security mode, be aware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before patching to strict, to maintain scheduler and script uptimes across the patch.
 
@@ -174,7 +174,7 @@ Proceed with patching every master node one at a time in any order using the fol
         <p class="message--note"><strong>NOTE: </strong>If you are patching from permissive to strict mode, this URL will be "curl https://..." and you will need a JWT for access. </p>
         [enterprise type="inline" size="small" /]
 
-    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/1.14/release-notes/), for example `1.5.1`.
+    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/1.14/release-notes/), for example `1.5.1`.
 1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
     ```bash
         sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
@@ -232,7 +232,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-If your patch fails because of a [custom node or cluster check](/1.14/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks), run these commands for more details:
+If your patch fails because of a [custom node or cluster check](/mesosphere/dcos/1.14/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks), run these commands for more details:
 ```bash
 dcos-check-runner check node-poststart
 dcos-check-runner check cluster

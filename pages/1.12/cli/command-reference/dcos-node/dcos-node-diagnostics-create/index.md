@@ -40,5 +40,5 @@ Job has been successfully started, available bundle: bundle-2019-03-18-155293277
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.12/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/mesosphere/dcos/1.12/cli/command-reference/dcos-node/) | View DC/OS node information. |
 

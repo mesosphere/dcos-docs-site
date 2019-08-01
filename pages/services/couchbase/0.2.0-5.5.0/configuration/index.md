@@ -14,11 +14,11 @@ render: mustache
 ## Configuring for Production
 In a production deployment, each {{ model.serverName }} service type (`data`, `index`, `query`, `full text search`, `eventing`, and `analytics`) runs in its own container. In the respective service type configuration sections, you select the count you want. The following sample shows {{ model.configure.nodeDescription }} in the DC/OS dashboard and the {{ model.techName }} dashboard.
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_prod_conf_1.png" alt="Couchbase Install"/>](/services/couchbase/0.2.0-5.5.0/img/couch_prod_conf_1.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_prod_conf_1.png" alt="Couchbase Install"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_prod_conf_1.png)
 
 Figure 1. Sample configuration in DC/OS dashboard
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_prod_conf_2.png" alt="Couchbase Install"/>](/services/couchbase/0.2.0-5.5.0/img/couch_prod_conf_2.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_prod_conf_2.png" alt="Couchbase Install"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_prod_conf_2.png)
 
 Figure 2. Sample configuration in {{ model.techName }} dashboard
 
@@ -29,16 +29,16 @@ In a development deployment, data nodes have all {{ model.serverName }} service 
 
  In the Data Service configuration section, check the `all services enabled` box:
 
-    [<img src="/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_1.png" alt="Couchbase Install"/>](/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_1.png)
+    [<img src="/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_1.png" alt="Couchbase Install"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_1.png)
 
     Figure 3. Enabling all services
 
 The following images show the deployment of two data nodes that have all the {{ model.techName }} service types.
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_2.png" alt="Couchbase Install"/>](/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_2.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_2.png" alt="Couchbase Install"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_2.png)
 
 Figure 4. Data node configuration shown on DC/OS dashboard
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_3.png" alt="Couchbase Install"/>](/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_3.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_3.png" alt="Couchbase Install"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_dev_conf_3.png)
 
 Figure 5. Data node configuration shown on {{ model.techName }} dashboard

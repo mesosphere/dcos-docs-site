@@ -31,7 +31,7 @@ dcos backup delete <backup id> [flags]
 
 # 示例
 
-查看 [`dcos backup list`](/../dcos-backup/dcos-backup-list/) 的文档，获取备份 ID。
+查看 [`dcos backup list`](/mesosphere/dcos/../dcos-backup/dcos-backup-list/) 的文档，获取备份 ID。
 
 1. 运行 `dcos backup list` 命令获取备份列表。
 
@@ -66,5 +66,5 @@ dcos backup delete <backup id> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 备份](/1.12/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
+| [DCOS 备份](/mesosphere/dcos/1.12/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
 

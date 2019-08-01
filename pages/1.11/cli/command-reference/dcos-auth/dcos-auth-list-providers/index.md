@@ -26,7 +26,7 @@ dcos auth list-providers [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/1.11/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/mesosphere/dcos/1.11/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 
 # Example
 
@@ -43,4 +43,4 @@ PROVIDER ID    AUTHENTICATION TYPE
 dcos-services  Authenticate using a DC/OS service user account (using username and private key)  
 dcos-users     Authenticate using a standard DC/OS user account (using username and password)   
 ```
-For more information, see [Service Accounts](/1.11/security/ent/service-auth/).
+For more information, see [Service Accounts](/mesosphere/dcos/1.11/security/ent/service-auth/).

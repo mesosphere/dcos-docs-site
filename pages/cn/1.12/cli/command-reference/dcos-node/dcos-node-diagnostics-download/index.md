@@ -35,6 +35,6 @@ dcos node diagnostics download <bundle> [--location=<location>]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 节点](/cn/1.12/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos 节点](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
 
 

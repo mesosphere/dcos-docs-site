@@ -18,9 +18,9 @@ For a full list of the configuration options available for the DC/OS Package Reg
 ```bash
 dcos package describe package-registry --config
 ```
-You can find more information about the `dcos package` commands in the [CLI documentation](/1.13/cli/command-reference/dcos-package/).
+You can find more information about the `dcos package` commands in the [CLI documentation](/mesosphere/dcos/1.13/cli/command-reference/dcos-package/).
 
-For a detailed description of how to configure and deploy DC/OS Services, see [Configuring {{ model.packageRepo }} Services](/1.14/deploying-services/config-universe-service/).
+For a detailed description of how to configure and deploy DC/OS Services, see [Configuring {{ model.packageRepo }} Services](/mesosphere/dcos/1.14/deploying-services/config-universe-service/).
 
 # Default installation
 
@@ -63,7 +63,7 @@ Package registry would use local storage by default, which is **NOT recommended*
 
 ### Mount volume option
 
-To create mount volumes on DC/OS, refer to the [Mount Volume](/1.14/storage/mount-disk-resources/) documentation, which includes an example that creates a loopback device. The rest of this guide assumes you have a mount volume created at `/dcos/package-registry`. You must specify the `container-path` and a `pinned-hostname`, which refers to the hostname of the agent on which the volume is mounted. The following options can be used to configure `package-registry` to use a mount volume :
+To create mount volumes on DC/OS, refer to the [Mount Volume](/mesosphere/dcos/1.14/storage/mount-disk-resources/) documentation, which includes an example that creates a loopback device. The rest of this guide assumes you have a mount volume created at `/dcos/package-registry`. You must specify the `container-path` and a `pinned-hostname`, which refers to the hostname of the agent on which the volume is mounted. The following options can be used to configure `package-registry` to use a mount volume :
 
 ```json
 {

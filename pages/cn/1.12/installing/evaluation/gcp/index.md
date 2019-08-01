@@ -153,7 +153,7 @@ DC/OS 企业版还需要由 Mesosphere 提供的有效许可证密钥，该密�
 
     在本示例中，为了简化操作，配置值为硬编码。如果您有所需的群集名称或管理/代理节点数，则可以直接在 `main.tf` 配置文件中调节这些值。
 
-    您可以 [在此](/cn/1.12/installing/evaluation/gcp/advanced-gcp/) 查找其他输入变量及其描述。
+    您可以 [在此](/mesosphere/dcos/cn/1.12/installing/evaluation/gcp/advanced-gcp/) 查找其他输入变量及其描述。
 
 1. 如果需要，更改到您刚才创建的 `main.tf` 文件所在的 `dcos-tf-gcp-demo` 文件夹。
 
@@ -203,7 +203,7 @@ DC/OS 企业版还需要由 Mesosphere 提供的有效许可证密钥，该密�
 <img src="./images/install/dcos-ui.png" />
 </p>
 
-有关使用更多高级配置选项在 GCP 上创建群集的更多信息，请参阅 [高级 GCP 群集配置选项](/cn/1.12/installing/evaluation/gcp/advanced-gcp/)。
+有关使用更多高级配置选项在 GCP 上创建群集的更多信息，请参阅 [高级 GCP 群集配置选项](/mesosphere/dcos/cn/1.12/installing/evaluation/gcp/advanced-gcp/)。
 
 # 扩展群集
 在创建初始群集后，TerraForm 很容易扩展您的群集以添加更多代理（公共或专用）。使用以下操作说明。
@@ -291,7 +291,7 @@ DC/OS 企业版还需要由 Mesosphere 提供的有效许可证密钥，该密�
 # 升级群集
 Terraform 还可以轻松地将 DC/OS 群集升级到更新版本的 DC/OS。
 
-在官方 [DC/OS 升级](/cn/1.12/installing/production/upgrading/) 文档中了解有关 Terraform 执行的升级程序的更多信息。
+在官方 [DC/OS 升级](/mesosphere/dcos/cn/1.12/installing/production/upgrading/) 文档中了解有关 Terraform 执行的升级程序的更多信息。
 
 要执行升级：
 

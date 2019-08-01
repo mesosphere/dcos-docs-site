@@ -49,7 +49,7 @@ To get an authentication token, pass a user name and password in the body of a r
 
 ### Via the DC/OS CLI
 
-When you log into the [DC/OS CLI](/1.10/cli/) using `dcos auth login`, it stores the authentication token value locally. You can reference this value as a variable in curl commands (discussed in the next section).
+When you log into the [DC/OS CLI](/mesosphere/dcos/1.10/cli/) using `dcos auth login`, it stores the authentication token value locally. You can reference this value as a variable in curl commands (discussed in the next section).
 
 Alternatively, you can use the following command to get the authentication token value.
 
@@ -85,7 +85,7 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## Refreshing the authentication token
 
-Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/1.10/security/ent/service-auth/custom-service-auth/) for more information.
+Authentication tokens expire after five days by default. If your program needs to run longer than five days, you will need a service account. Please see [Provisioning custom services](/mesosphere/dcos/1.10/security/ent/service-auth/custom-service-auth/) for more information.
 
 
 # API reference
@@ -95,4 +95,4 @@ Authentication tokens expire after five days by default. If your program needs t
 
 # Logging
 
-While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/1.10/monitoring/logging/) for instructions.
+While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/mesosphere/dcos/1.10/monitoring/logging/) for instructions.

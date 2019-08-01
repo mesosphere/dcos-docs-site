@@ -30,7 +30,7 @@ Marathon 应用程序通常代表长期运行的服务，有许多实例在多�
 
     在上述示例中， `cmd` 是执行的命令。它的值由底层的 Mesos 执行器通过 `/bin/sh -c ${cmd}` 包装。
 
-1. 使用 [DC/OS CLI](/cn/1.12/cli/) 将服务添加到 DC/OS。
+1. 使用 [DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/) 将服务添加到 DC/OS。
 
     ```bash
     dcos marathon app add <your-service-name>.json
@@ -113,7 +113,7 @@ Marathon 应用程序通常代表长期运行的服务，有许多实例在多�
 
 在以下示例中，使用 Marathon API 将 Docker 应用程序部署到 DC/OS。Docker 应用程序是基于 Python 的 Web 服务器，使用 [python:3](https://registry.hub.docker.com/_/python/) 镜像。在容器内，Web 服务器在端口 `80`（`containerPort`的值）上运行。 `hostPort` 设置为 `0` 以便 Marathon 在 Mesos 代理节点上分配一个随机端口，该端口映射到容器内的端口 80。
 
-1. 选择是否使用 Universal Container Runtime (UCR) 或 Docker Engine 运行时间。请参阅[使用容器化工具](/cn/1.12/deploying-services/containerizers/)。
+1. 选择是否使用 Universal Container Runtime (UCR) 或 Docker Engine 运行时间。请参阅[使用容器化工具](/mesosphere/dcos/cn/1.12/deploying-services/containerizers/)。
     - 若要使用 Universal Container Runtime (UCR)，请将以下 JSON 粘贴到名为 `basic-3-mesos.json` 的文件中：
 
           ```json
@@ -168,7 +168,7 @@ Marathon 应用程序通常代表长期运行的服务，有许多实例在多�
         }
         ```
 
-1. 使用 [Marathon API](/cn/1.12/deploying-services/marathon-api/) 部署应用程序 `basic-3-docker`。请参阅 [验证 HTTP API 端点](/cn/1.12/security/ent/iam-api/) 以了解有关如下命令中所需的 API 令牌的更多信息。
+1. 使用 [Marathon API](/mesosphere/dcos/cn/1.12/deploying-services/marathon-api/) 部署应用程序 `basic-3-docker`。请参阅 [验证 HTTP API 端点](/mesosphere/dcos/cn/1.12/security/ent/iam-api/) 以了解有关如下命令中所需的 API 令牌的更多信息。
 
       ```sh
       curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X POST <master-IP>/service/marathon/v2/apps -d @basic-3-docker.json -H "Content-type: application/json"
@@ -178,9 +178,9 @@ Marathon 应用程序通常代表长期运行的服务，有许多实例在多�
 1. 单击 `basic-3-docker`，然后单击任务 ID。
 1. 向下滚动到 **Marathon Task Configuration** 部分，并记录 PORTS 属性。
 
-    ![容器端口](/1.12/img/container-port.png)
+    ![容器端口](/mesosphere/dcos/1.12/img/container-port.png)
 
     图 1. 容器端口
    
-1. 确定[公共节点的 IP 地址](/cn/1.12/administering-clusters/locate-public-agent/)。
+1. 确定[公共节点的 IP 地址](/mesosphere/dcos/cn/1.12/administering-clusters/locate-public-agent/)。
 1. 导航至 `<public-node-IP>:<port>` 以查看 Docker 容器根目录的内容。

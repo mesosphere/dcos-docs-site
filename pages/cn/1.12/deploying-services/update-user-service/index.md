@@ -11,7 +11,7 @@ enterprise: false
 
 可以使用 `dcos marathon` 命令轻松查看和更新已部署应用程序的配置。
 
-在 [DC/OS 目录] (/cn/1.12/gui/catalog/)中更新包的流程不同。如需更多信息，请参阅 [文档](/cn/1.12/deploying-services/config-universe-service/)。
+在 [DC/OS 目录] (/cn/1.12/gui/catalog/)中更新包的流程不同。如需更多信息，请参阅 [文档](/mesosphere/dcos/cn/1.12/deploying-services/config-universe-service/)。
 
 # 更新所有环境变量
 
@@ -61,4 +61,4 @@ dcos marathon app show test-app | jq '.env'
     dcos marathon app show test-app | jq '.env'
     ```
 
- [1]: /cn/1.12/cli/
+ [1]: /mesosphere/dcos/cn/1.12/cli/

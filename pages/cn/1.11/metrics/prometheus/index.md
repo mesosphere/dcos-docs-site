@@ -10,7 +10,7 @@ DC/OS 1.11 默认导出 Prometheus 度量标准。无需像在 DC/OS 1.9 和 1.1
 
 **先决条件：**
 
-- 必须 [安装 DC/OS CLI](/cn/1.11/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
 
 # 在 DC/OS 上运行 Prometheus 服务器
 
@@ -29,10 +29,10 @@ DC/OS 1.11 默认导出 Prometheus 度量标准。无需像在 DC/OS 1.9 和 1.1
 
 通过将光标悬停在“monitoring”文件夹中 Prometheus 应用程序的上方并单击显示的链接，可以找到 Prometheus UI。此
 Prometheus 服务被配置为发现集群中的所有代理节点和管理节点，并从它们那里拉取度量标准。运行
-[快速入门](/cn/1.11/metrics/quickstart/) 文档中所述的 statsd-emitter 测试应用程序将能让您查询 `statsd_tester_time_uptime`，查询后应该会产生一个
+[快速入门](/mesosphere/dcos/cn/1.11/metrics/quickstart/) 文档中所述的 statsd-emitter 测试应用程序将能让您查询 `statsd_tester_time_uptime`，查询后应该会产生一个
 与此相似的图形：
 
- ![statsd_tester_time_uptime](/cn/1.11/img/statsd_tester_time_uptime.png)
+ ![statsd_tester_time_uptime](/mesosphere/dcos/cn/1.11/img/statsd_tester_time_uptime.png)
 
  图 1. Statsd 图形
 

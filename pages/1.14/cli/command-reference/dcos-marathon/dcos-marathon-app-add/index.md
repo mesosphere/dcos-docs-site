@@ -30,7 +30,7 @@ dcos marathon app add <app-resource>
 
 | Name |  Description |
 |---------|-------------|
-| `<app-resource>`   | Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description, see the [documentation](/1.14/deploying-services/marathon-api/). |
+| `<app-resource>`   | Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description, see the [documentation](/mesosphere/dcos/1.14/deploying-services/marathon-api/). |
 
 
 # Examples
@@ -87,4 +87,4 @@ In this example, a simple app is deployed to DC/OS Marathon.
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

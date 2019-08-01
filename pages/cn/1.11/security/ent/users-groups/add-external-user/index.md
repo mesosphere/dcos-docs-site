@@ -12,8 +12,8 @@ enterprise: true
 
 # 先决条件
 
-- 外部 [LDAP 目录](/cn/1.11/security/ent/ldap/)。
-- [OpenID Connect 或 SAML 提供程序](/cn/1.11/security/ent/sso/)。
+- 外部 [LDAP 目录](/mesosphere/dcos/cn/1.11/security/ent/ldap/)。
+- [OpenID Connect 或 SAML 提供程序](/mesosphere/dcos/cn/1.11/security/ent/sso/)。
 
 # 通过登录尝试添加外部用户
 默认情况下，用户没有 DC/OS 权限。在无任何权限的情况下，任何对 DC/OS 的访问尝试都将失败。但是，如果您已成功配置 LDAP 目录或身份提供程序，且用户提供有效凭据，登录尝试将导致用户帐户被添加到 DC/OS 中。
@@ -61,7 +61,7 @@ enterprise: true
 
 1. 完成后，对话框应如下所示。
 
-    ![LDAP 组导入配置](/cn/1.11/img/ldap-group-import.png)
+    ![LDAP 组导入配置](/mesosphere/dcos/cn/1.11/img/ldap-group-import.png)
 
     图 1. LDAP 组导入配置
 
@@ -80,13 +80,13 @@ enterprise: true
 
 ## 使用 API 导入 LDAP 组
 
-您可以使用 `/ldap/importuser` [IAM API](/cn/1.11/security/ent/iam-api/) 端点导入一组 LDAP 用户。
+您可以使用 `/ldap/importuser` [IAM API](/mesosphere/dcos/cn/1.11/security/ent/iam-api/) 端点导入一组 LDAP 用户。
 
 **先决条件：**
 
 - 必须设置 `group-search` 配置验证序号，如[配置 LDAP 组导入](#Configure-LDAP-group-import) 中所述。
 - 现有组条目必须通过使用 `member`、`uniquemember` 或 `memberuid` 属性列出其成员。
-- 如果您[安全模式](/cn/1.11/security/ent/#security-modes)为 `permissive` 或 `strict`，则在本部分中发出 curl 命令之前，必须遵循[获取 DC/OS CA 根证书]中的步骤(/cn/1.11/security/ent/tls-ssl/get-cert/)。如果您的[安全模式](/cn/1.11/security/ent/#security-modes)为 `disabled`，则必须在将其发出前从命令中删除 `--cacert dcos-ca.crt`。
+- 如果您[安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)为 `permissive` 或 `strict`，则在本部分中发出 curl 命令之前，必须遵循[获取 DC/OS CA 根证书]中的步骤(/cn/1.11/security/ent/tls-ssl/get-cert/)。如果您的[安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)为 `disabled`，则必须在将其发出前从命令中删除 `--cacert dcos-ca.crt`。
 
 在此示例中，导入了名为 `johngroup` 的组。
 

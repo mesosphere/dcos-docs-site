@@ -12,8 +12,8 @@ menuWeight: 3
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/cn/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.12/tutorials/dcos-101/cli/)。
-* [Redis](/cn/1.12/tutorials/dcos-101/redis-package/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 群集](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/cli/)。
+* [Redis](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/redis-package/) 已部署并在您的群集中运行。
 
 
 # 目的
@@ -80,4 +80,4 @@ Marathon 还允许扩展或卸载应用程序。
 * DC/OS CLI：您刚刚使用此选项部署了应用程序。若要获得有关 Marathon CLI 的更多信息 ，请使用 `dcos marathon app --help`。
 * HTTP 端点：Marathon 还附带广泛的 [REST API](http://mesosphere.github.io/marathon/api-console/index.html)
 
-在 [下一部分](/cn/1.12/tutorials/dcos-101/service-discovery/)中，您将通过探索 DC/OS 中应用程序的不同选项，了解 DC/OS 服务发现。
+在 [下一部分](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/service-discovery/)中，您将通过探索 DC/OS 中应用程序的不同选项，了解 DC/OS 服务发现。

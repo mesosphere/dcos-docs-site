@@ -18,7 +18,7 @@ DC/OS collects four types of metrics as follows:
 
 * **System:** Metrics about each node in the DC/OS cluster.
 * **Component:** Metrics about the components which make up DC/OS.
-* **Container:** Metrics about `cgroup` allocations from tasks running in the DC/OS [Universal Container Runtime](/1.14/deploying-services/containerizers/ucr/) or [Docker Engine](/1.14/deploying-services/containerizers/docker-containerizer/) runtime.
+* **Container:** Metrics about `cgroup` allocations from tasks running in the DC/OS [Universal Container Runtime](/mesosphere/dcos/1.14/deploying-services/containerizers/ucr/) or [Docker Engine](/mesosphere/dcos/1.14/deploying-services/containerizers/docker-containerizer/) runtime.
 * **Application:** Metrics emitted from any application running on the Universal Container Runtime.
 
 # Operations on Metrics 
@@ -42,10 +42,10 @@ For more information, read the documentation on [how to add custom metrics into 
 
 3. **Forwarding Metrics:** After you have collected the metrics from the applications and hosts, it can be forwarded to various metrics stores. Configure Telegraf plugin to forward the metrics data from the cluster.
 
-4. **Monitoring and Visualizing Metrics:** It is recommended to install the DC/OS Monitoring service to monitor and visualize metrics in your DC/OS cluster. See the [service documentation](/services/dcos-monitoring/1.0.0/operations/install/) for instructions on how to install and use the service.
+4. **Monitoring and Visualizing Metrics:** It is recommended to install the DC/OS Monitoring service to monitor and visualize metrics in your DC/OS cluster. See the [service documentation](/mesosphere/dcos/services/dcos-monitoring/1.0.0/operations/install/) for instructions on how to install and use the service.
 
 # Telegraf
-Metrics in DC/OS 1.12 and newer versions use [Telegraf](/1.14/overview/architecture/components/#telegraf) to collect and process data. Telegraf provides a plugin-driven architecture. The custom DC/OS plugins provide metrics on the performance of DC/OS workloads and DC/OS itself. Telegraf provides metrics from DC/OS cluster hosts, containers running on those hosts, and from applications running on DC/OS using the `StatsD` process. It is natively integrated with DC/OS. By default, it exposes metrics in Prometheus format from `port 61091` on each node, and in JSON format through the DC/OS [Metrics API](/1.14/metrics/metrics-api/). Telegraf is included in the DC/OS distribution and runs on every host in the cluster. 
+Metrics in DC/OS 1.12 and newer versions use [Telegraf](/mesosphere/dcos/1.14/overview/architecture/components/#telegraf) to collect and process data. Telegraf provides a plugin-driven architecture. The custom DC/OS plugins provide metrics on the performance of DC/OS workloads and DC/OS itself. Telegraf provides metrics from DC/OS cluster hosts, containers running on those hosts, and from applications running on DC/OS using the `StatsD` process. It is natively integrated with DC/OS. By default, it exposes metrics in Prometheus format from `port 61091` on each node, and in JSON format through the DC/OS [Metrics API](/mesosphere/dcos/1.14/metrics/metrics-api/). Telegraf is included in the DC/OS distribution and runs on every host in the cluster. 
 
 ## Using Telegraf
 Telegraf collects application and custom metrics through the `dcos_statsd` plugin. A dedicated `StatsD` server is started for each new task. Any metrics received by the `StatsD` server are tagged with the task name and its service name. The address of the server is provided by environment variables (`STATSD_UDP_HOST` and `STATSD_UDP_PORT`). 
@@ -54,7 +54,7 @@ Telegraf collects application and custom metrics through the `dcos_statsd` plugi
 
 The metrics collected by `dcos_statsd` are gathered every 30 seconds. The task must run for at least 30 seconds to ensure a task's metrics are gathered.
 
-For more information about the list of metrics that are automatically collected by DC/OS, read [Metrics Reference](/1.14/metrics/reference/) documentation.
+For more information about the list of metrics that are automatically collected by DC/OS, read [Metrics Reference](/mesosphere/dcos/1.14/metrics/reference/) documentation.
 
 # Troubleshooting
 Use the following troubleshooting guidelines to resolve errors:

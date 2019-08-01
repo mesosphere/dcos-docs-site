@@ -34,4 +34,4 @@ dcos security org groups create [OPTIONS] GID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster org groups](/1.14/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |
+| [dcos security cluster org groups](/mesosphere/dcos/1.14/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |

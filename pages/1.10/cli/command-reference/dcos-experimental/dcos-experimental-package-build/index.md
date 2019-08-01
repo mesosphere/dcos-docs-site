@@ -37,4 +37,4 @@ dcos experimental package build <build-definition> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos experimental](/1.10/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |     
+| [dcos experimental](/mesosphere/dcos/1.10/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |     

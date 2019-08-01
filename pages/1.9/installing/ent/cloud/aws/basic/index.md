@@ -11,7 +11,7 @@ You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS 
 
 These instructions provide a basic AWS CloudFormation template that creates a DC/OS cluster that is suitable for demonstrations and POCs. This is the fastest way to get started with the DC/OS templates for AWS CloudFormation.
 
-For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/1.9/installing/ent/cloud/aws/advanced/).
+For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/mesosphere/dcos/1.9/installing/ent/cloud/aws/advanced/).
 
 **Important:** Upgrades are not supported with this installation method.
 
@@ -22,8 +22,8 @@ For a complete set of DC/OS configuration options, see the [Advanced AWS Install
 An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance.  Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores, to not work properly.
 
 *   You have the option of 1 or 3 Mesos master nodes.
-*   5 [private](/1.9/overview/concepts/#private-agent-node) Mesos agent nodes is the default.
-*   1 [public](/1.9/overview/concepts/#public-agent-node) Mesos agent node is the default.
+*   5 [private](/mesosphere/dcos/1.9/overview/concepts/#private-agent-node) Mesos agent nodes is the default.
+*   1 [public](/mesosphere/dcos/1.9/overview/concepts/#public-agent-node) Mesos agent node is the default.
 
 ## Software
 
@@ -42,13 +42,13 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
   **Important:** Do not click the **View/Edit template in Designer** link and edit the template. The DC/OS template is configured for running DC/OS. If you modify the template you might be unable to run certain packages on your DC/OS cluster.
 
-    ![Launch stack](/1.9/img/dcos-aws-step2b.png)
+    ![Launch stack](/mesosphere/dcos/1.9/img/dcos-aws-step2b.png)
     
 2.  Click **Next**.
 
 3.  On the **Specify Details** page, specify a cluster name (`Stack name`), key pair (`KeyName`), public agent (`PublicSlaveInstanceCount`), private agent (`SlaveInstanceCount`), and click **Next**. Depending on the DC/OS services that you install, you might need to change the number of agent nodes after cluster creation. For more information, see [Scaling the DC/OS cluster in AWS][1].
 
-    ![Create stack](/1.9/img/dcos-aws-step2c-ee.png)
+    ![Create stack](/mesosphere/dcos/1.9/img/dcos-aws-step2c-ee.png)
 
 4.  On the **Options** page, accept the defaults and click **Next**.
 
@@ -74,11 +74,11 @@ In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">
 
 1.  Click the **Outputs** tab and copy the Mesos Master hostname.
 
-    ![Monitor stack creation](/1.9/img/dcos-stack.png)
+    ![Monitor stack creation](/mesosphere/dcos/1.9/img/dcos-stack.png)
 
 1.  Paste the hostname into your browser to open the DC/OS web interface. The interface runs on the standard HTTP port 80, so you do not need to specify a port number after the hostname.  Your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed to the login screen.
 
-    ![DC/OS GUI auth](/1.9/img/dc-os-gui-login-ee.png)
+    ![DC/OS GUI auth](/mesosphere/dcos/1.9/img/dc-os-gui-login-ee.png)
 
 1.  Enter the username and password of the superuser account. The default username is `bootstrapuser` and default password is `deleteme`. Click **LOG IN**.
 
@@ -90,6 +90,6 @@ You must install the [DC/OS Command-Line Interface (CLI)][2] to administer your 
 
 1.  Copy the code snippet and run in a terminal. Provide the sudo password, accept the fingerprint of the cluster certificate, and provide the superuser name and password to authenticate the CLI. 
 
-[1]: /1.9/administering-clusters/managing-aws/
-[2]: /1.9/cli/install/
-[10]: /1.9/security/
+[1]: /mesosphere/dcos/1.9/administering-clusters/managing-aws/
+[2]: /mesosphere/dcos/1.9/cli/install/
+[10]: /mesosphere/dcos/1.9/security/

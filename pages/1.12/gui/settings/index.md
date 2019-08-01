@@ -10,6 +10,6 @@ In the Settings menu you can manage package repositories.
 
 
 
-![Package repositories](/1.12/img/GUI-Settings-EE-Package_Repositories-1_12.png)
+![Package repositories](/mesosphere/dcos/1.12/img/GUI-Settings-EE-Package_Repositories-1_12.png)
 
 Figure 1 - Settings > Package Repositories tab

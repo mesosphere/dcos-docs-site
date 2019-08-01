@@ -20,7 +20,7 @@ To manage users:
 
     **Tip:** Any user with access to DC/OS can invite more users. Each DC/OS user is an administrator, there is no explicit concept of privileges with DC/OS.
 
-    ![new DC/OS user](/1.10/img/ui-add-user.gif)
+    ![new DC/OS user](/mesosphere/dcos/1.10/img/ui-add-user.gif)
 
     ### Delete users
 
@@ -33,7 +33,7 @@ To manage users:
 
     *   To log out of the DC/OS web interface, click on your username in the upper-left side and select **Sign Out**.
 
-        ![log out](/1.10/img/auth-enable-logout-user.gif)
+        ![log out](/mesosphere/dcos/1.10/img/auth-enable-logout-user.gif)
 
         You can now log in as another user.
 
@@ -48,4 +48,4 @@ To manage users:
 
 ## Next Steps
 
-For more information on security, check out [Security and Authentication](/1.10/security/oss/)
+For more information on security, check out [Security and Authentication](/mesosphere/dcos/1.10/security/oss/)

@@ -27,12 +27,12 @@ DC/OS 1.9.7 was released on Feb 1, 2018.
 # Issues Fixed in DC/OS 1.9.6
 
 - COPS-980 - Marathon's default task unreachable behavior reinstated.
-- DCOS-17947 - [`cluster_docker_credentials`](/1.9/installing/oss/custom/configuration/examples/#dcos-cluster-with-three-masters-an-exhibitorzookeeper-managed-internally-custom-docker-credentials-two-private-agents-and-google-dns) example corrected.
+- DCOS-17947 - [`cluster_docker_credentials`](/mesosphere/dcos/1.9/installing/oss/custom/configuration/examples/#dcos-cluster-with-three-masters-an-exhibitorzookeeper-managed-internally-custom-docker-credentials-two-private-agents-and-google-dns) example corrected.
 - DCOS-19217 - Metronome adheres to crontab standard.
 - DCOS-19453 - TLS compression disabled because TLS is vulnerable to the CRIME attack. [enterprise type="inline" size="small" /]
 - DCOS-19508 - Non-superusers can now edit an app that uses secrets. [enterprise type="inline" size="small" /]
-- DOCS-2130 - [Security hardening guide](/1.9/security/ent/hardening/) improvements. [enterprise type="inline" size="small" /]
-- DOCS-2153	- [Metrics documentation](/1.9/metrics/) improvements.
+- DOCS-2130 - [Security hardening guide](/mesosphere/dcos/1.9/security/ent/hardening/) improvements. [enterprise type="inline" size="small" /]
+- DOCS-2153	- [Metrics documentation](/mesosphere/dcos/1.9/metrics/) improvements.
 
 # Notable Changes in DC/OS 1.9.6
 
@@ -81,7 +81,7 @@ Added support for pods, GPUs, and made significant scalability improvements.
 [preview]
 #### Pods
 [/preview]
-Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/1.9/deploying-services/pods/).
+Multiple co-located containers per instance, scheduled on the same host. For more information, see the [documentation](/mesosphere/dcos/1.9/deploying-services/pods/).
 
 [preview]
 #### GPU 
@@ -90,7 +90,7 @@ Multiple co-located containers per instance, scheduled on the same host. For mor
 - Because DC/OS GPU support is compatible with nvidia-docker, you can test locally with nvidia-docker and then deploy to production with DC/OS.
 - Allocate GPUs on a per container basis, including isolation guarantees
 
-For more information, see the [documentation](/1.9/deploying-services/gpu/).
+For more information, see the [documentation](/mesosphere/dcos/1.9/deploying-services/gpu/).
 
 ## DC/OS Monitoring and Operations
 
@@ -104,7 +104,7 @@ The new `dcos task exec` command allows you to remotely execute a process inside
 - Attach to a remote pseudoterminal (aka PTY) inside a container via the optional `--tty` flag.
 - Combine the `--interactive` and `--tty` flags to launch an interactive bash session or to run `top` and see the resource usage of your container in real time.
 
-For more information, see the debugging [documentation](/1.9/monitoring/debugging/).
+For more information, see the debugging [documentation](/mesosphere/dcos/1.9/monitoring/debugging/).
 
 [preview]
 ### Logging
@@ -116,7 +116,7 @@ Stream task and system logs to journald by setting the `mesos_container_log_sink
 - Use the new DC/OS CLI commands `dcos node log` and `dcos task log` to query logs. You can also make HTTP requests directly against the new Logging API.
 - Set up log aggregation solutions such as Logstash to get logs into their aggregated storage solutions.
 
-For more information, see the [documentation](/1.9/monitoring/logging/).
+For more information, see the [documentation](/mesosphere/dcos/1.9/monitoring/logging/).
 
 [preview]
 ### Metrics
@@ -126,23 +126,23 @@ For more information, see the [documentation](/1.9/monitoring/logging/).
 - StatsD endpoint in every container for forwarding metrics to the DC/OS metrics service. This service is what exposes the HTTP API.
 - Any metric sent to STATSD_UDP_HOST/PORT is available in the HTTP API’s `/container/<container_id>/app` endpoint.
 
-For more information, see the [documentation](/1.9/metrics/).
+For more information, see the [documentation](/mesosphere/dcos/1.9/metrics/).
 
 ### Tool for Troubleshooting Service Deployment Failures
 
 - The new service deployment troubleshooting tool allows you to find out why your applications aren’t starting from the GUI and CLI.
 
-  ![Service deploy GUI](/1.9/img/dcos-offers.png)
+  ![Service deploy GUI](/mesosphere/dcos/1.9/img/dcos-offers.png)
 
 ### Improved GUI
 
 - New look and feel and improved navigation.
 
-  ![New GUI](/1.9/img/dcos-dash.png)
+  ![New GUI](/mesosphere/dcos/1.9/img/dcos-dash.png)
 
 - Usability improvements to the service create workflow.
 
-  ![Improved GUI](/1.9/img/dcos-create.png)
+  ![Improved GUI](/mesosphere/dcos/1.9/img/dcos-create.png)
 
 ## Networking Services
 
@@ -162,7 +162,7 @@ For more information, see the [documentation](/1.9/metrics/).
   - Support single sign-on authentication via OpenID Connect and SAML 2.0 against the DC/OS IAM.
   - Support authentication with service account credentials.
 
-- Introduce various secrets improvements (for more information, see the [secrets documentation](/1.9/security/ent/secrets/)).
+- Introduce various secrets improvements (for more information, see the [secrets documentation](/mesosphere/dcos/1.9/security/ent/secrets/)).
 - Security hardening across the platform, including Mesos, Marathon, and Admin Router.
 
 ## Developer Services
@@ -184,25 +184,25 @@ For more information, see the [documentation](/1.9/metrics/).
 
 ### Expanded OS Support
 
-- If you install DC/OS 1.9 using the [GUI](/1.9/installing/ent/custom/gui/) or [CLI](/1.9/installing/ent/custom/cli/) installation methods, your system will be automatically upgraded to [the latest version of CentOS](https://access.redhat.com/documentation/en/red-hat-enterprise-linux/).
+- If you install DC/OS 1.9 using the [GUI](/mesosphere/dcos/1.9/installing/ent/custom/gui/) or [CLI](/mesosphere/dcos/1.9/installing/ent/custom/cli/) installation methods, your system will be automatically upgraded to [the latest version of CentOS](https://access.redhat.com/documentation/en/red-hat-enterprise-linux/).
 - CoreOS [1235.12.0](https://coreos.com/releases/#1235.12.0).
 
 ### Expanded Docker Engine Support
 
-- Docker 1.12 and 1.13 are now [supported](/1.9/installing/ent/custom/system-requirements/). Docker 1.13 is the default version.
+- Docker 1.12 and 1.13 are now [supported](/mesosphere/dcos/1.9/installing/ent/custom/system-requirements/). Docker 1.13 is the default version.
 
 ### Upgrades
 
 Improved upgrade tooling and experience for on-premise installations. Upgrades now use internal DC/OS APIs to ensure nodes can be upgraded with minimal disruption to running DC/OS services on a node. The upgrade procedure has also been simplified to improve user experience.
 
-For more information, see the [documentation](/1.9/installing/ent/upgrading/).
+For more information, see the [documentation](/mesosphere/dcos/1.9/installing/ent/upgrading/).
 
 # <a name="known-issues"></a>Known Issues and Limitations
 
 - DCOS_OSS-691 - DNS becomes unavailable during DC/OS version upgrades.
 - DCOS-14005 - Marathon-LB does not support pods.
-- DCOS-14021 - [Task logging to journald](/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.
-- DCOS-16737 - You cannot [generate and publish AWS Advanced Templates](/1.9/installing/ent/cloud/aws/advanced/#create-your-templates) to AWS GovCloud regions. When running the command `dcos_generate_config.ee.sh --aws-cloudformation` with GovCloud credentials you will see an error similar to this:
+- DCOS-14021 - [Task logging to journald](/mesosphere/dcos/1.9/monitoring/logging/) disabled by default, so task logs will continue to be written to their sandboxes, and logrotated out. The `dcos task log` command will work as it did before.
+- DCOS-16737 - You cannot [generate and publish AWS Advanced Templates](/mesosphere/dcos/1.9/installing/ent/cloud/aws/advanced/#create-your-templates) to AWS GovCloud regions. When running the command `dcos_generate_config.ee.sh --aws-cloudformation` with GovCloud credentials you will see an error similar to this:
 
   ```bash
   $ ./dcos_generate_config.ee.sh --aws-cloudformation
@@ -212,7 +212,7 @@ For more information, see the [documentation](/1.9/installing/ent/upgrading/).
   aws_template_storage_region_name: Unable to determine region location of s3 bucket testbucket: An error occurred (InvalidAccessKeyId) when calling the GetBucketLocation operation: The AWS Access Key Id you provided does not exist in our records.
   ```
 - Marathon-7133 - Marathon application history is lost after Marathon restart.
-- CORE-1191 -  The Mesos master's event queue can get backlogged with the default settings, causing performance problems. These can be mitigated by setting the following configuration parameter in your `config.yaml` file at install time. See the [Configuration Reference](/1.9/installing/ent/custom/configuration/configuration-parameters/) for more information. **Note:** Lowering this parameter also reduces the number of tasks per framework that the `dcos task` subcommands can access for debugging. If you run a framework with many short tasks, such as Spark, you may not want to reduce this value.
+- CORE-1191 -  The Mesos master's event queue can get backlogged with the default settings, causing performance problems. These can be mitigated by setting the following configuration parameter in your `config.yaml` file at install time. See the [Configuration Reference](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/) for more information. **Note:** Lowering this parameter also reduces the number of tasks per framework that the `dcos task` subcommands can access for debugging. If you run a framework with many short tasks, such as Spark, you may not want to reduce this value.
 
   ```yaml
   mesos_max_completed_tasks_per_framework: 20

@@ -10,7 +10,7 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-By default, a [new user](/1.11/security/ent/users-groups/) has no permissions and cannot view the [DC/OS GUI](/1.11/gui/). You must grant users and groups access to each screen of the web interface.
+By default, a [new user](/mesosphere/dcos/1.11/security/ent/users-groups/) has no permissions and cannot view the [DC/OS GUI](/mesosphere/dcos/1.11/gui/). You must grant users and groups access to each screen of the web interface.
 
 <table class=“table” bgcolor=#858585>
 <tr> 

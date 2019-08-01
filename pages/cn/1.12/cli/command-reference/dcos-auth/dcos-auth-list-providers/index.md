@@ -50,4 +50,4 @@ dcos-users     Authenticate using a standard DC/OS user account (using username 
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos auth](/cn/1.12/cli/command-reference/dcos-auth/) | 管理 DC/OS 身份和访问。 |
+| [dcos auth](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-auth/) | 管理 DC/OS 身份和访问。 |

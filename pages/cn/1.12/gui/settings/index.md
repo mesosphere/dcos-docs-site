@@ -10,6 +10,6 @@ excerpt: 使用“设置”菜单
 
 
 
-![Package repositories](/1.12/img/GUI-Settings-EE-Package_Repositories-1_12.png)
+![Package repositories](/mesosphere/dcos/1.12/img/GUI-Settings-EE-Package_Repositories-1_12.png)
 
 图 1 - **设置 > 包存储库选项卡**

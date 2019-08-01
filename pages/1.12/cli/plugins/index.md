@@ -23,12 +23,12 @@ The subcommands included in this plugin are:
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.12/cli/command-reference/dcos-job/)    | Deploy and manage jobs in DC/OS.  |
-| [dcos marathon](/1.12/cli/command-reference/dcos-marathon/)  |  Deploy and manage applications to DC/OS.  |
-| [dcos node](/1.12/cli/command-reference/dcos-node/)   |  Administer and manage DC/OS cluster nodes.  |
-| [dcos package](/1.12/cli/command-reference/dcos-package/) | Install and manage DC/OS software packages. |
-| [dcos service](/1.12/cli/command-reference/dcos-service/)  |  Manage DC/OS services.  |
-| [dcos task](/1.12/cli/command-reference/dcos-task/)  |  Manage DC/OS tasks.  |
+| [dcos job](/mesosphere/dcos/1.12/cli/command-reference/dcos-job/)    | Deploy and manage jobs in DC/OS.  |
+| [dcos marathon](/mesosphere/dcos/1.12/cli/command-reference/dcos-marathon/)  |  Deploy and manage applications to DC/OS.  |
+| [dcos node](/mesosphere/dcos/1.12/cli/command-reference/dcos-node/)   |  Administer and manage DC/OS cluster nodes.  |
+| [dcos package](/mesosphere/dcos/1.12/cli/command-reference/dcos-package/) | Install and manage DC/OS software packages. |
+| [dcos service](/mesosphere/dcos/1.12/cli/command-reference/dcos-service/)  |  Manage DC/OS services.  |
+| [dcos task](/mesosphere/dcos/1.12/cli/command-reference/dcos-task/)  |  Manage DC/OS tasks.  |
 
 # Enterprise CLI Plugin
 
@@ -38,9 +38,9 @@ The subcommands included in this plugin are:
 
 | Command | Description |
 |---------|-------------|
-| [dcos backup](/1.12/cli/command-reference/dcos-backup/)    | Access DC/OS backup functionality.  |
-| [dcos license](/1.12/cli/command-reference/dcos-license/)  |  Manage your DC/OS licenses.  |
-| [dcos security](/1.12/cli/command-reference/dcos-security/)   |  DC/OS security related commands. |
+| [dcos backup](/mesosphere/dcos/1.12/cli/command-reference/dcos-backup/)    | Access DC/OS backup functionality.  |
+| [dcos license](/mesosphere/dcos/1.12/cli/command-reference/dcos-license/)  |  Manage your DC/OS licenses.  |
+| [dcos security](/mesosphere/dcos/1.12/cli/command-reference/dcos-security/)   |  DC/OS security related commands. |
 
 # Updating Core and Enterprise plugins
 
@@ -53,8 +53,8 @@ dcos package install <dcos-core-cli|dcos-enterprise-cli>
 
 # Installing plugins
 
-Users can install plugins using the [dcos plugin add](/1.12/cli/command-reference/dcos-plugin/dcos-plugin-add/) command.
+Users can install plugins using the [dcos plugin add](/mesosphere/dcos/1.12/cli/command-reference/dcos-plugin/dcos-plugin-add/) command.
 
 # Distributing plugins
 
-Plugins can also be installed through the [dcos package](/1.12/cli/command-reference/dcos-package/) command in the core CLI.
+Plugins can also be installed through the [dcos package](/mesosphere/dcos/1.12/cli/command-reference/dcos-package/) command in the core CLI.

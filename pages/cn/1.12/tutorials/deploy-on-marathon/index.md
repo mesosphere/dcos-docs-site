@@ -14,7 +14,7 @@ enterprise: false
 本教程介绍如何使用 Jenkins for DC/OS 在 [Marathon][1] 上部署应用程序。本教程将指导您创建新的 Jenkins 作业，在源代码更改时发布 Docker 容器，并根据项目的 `marathon.json` 文件中包含的[应用定义][3] 将这些更改部署到 Marathon。
 
 **先决条件：**
-本教程假设您拥有有效的 Jenkins 安装和许可，可以在 Marathon 上启动应用程序。Jenkins for DC/OS 必须按照 [Jenkins 快速入门](/services/jenkins/quickstart/)页面上的说明进行安装。
+本教程假设您拥有有效的 Jenkins 安装和许可，可以在 Marathon 上启动应用程序。Jenkins for DC/OS 必须按照 [Jenkins 快速入门](/mesosphere/dcos/services/jenkins/quickstart/)页面上的说明进行安装。
 
 # 示例项目
 
@@ -22,11 +22,11 @@ enterprise: false
 
 ## 访问 Jenkins for DC/OS
 
-可通过 [DC/OS GUI](/gui/)中的仪表盘或服务导航菜单访问 Jenkins for DC/OS。
+可通过 [DC/OS GUI](/mesosphere/dcos/gui/)中的仪表盘或服务导航菜单访问 Jenkins for DC/OS。
 
 单击“Jenkins”服务，然后单击“Open Service”访问 Jenkins GUI。
 
-![Jenkins GUI](/1.12/img/dcos-velocity-jenkins-ui.png)
+![Jenkins GUI](/mesosphere/dcos/1.12/img/dcos-velocity-jenkins-ui.png)
 
 图 1. Jenkins GUI 
 
@@ -39,7 +39,7 @@ Jenkins 在其凭据库内存储帐户凭据，这允许作业以安全方式使
 
 1. 单击 **Add Credentials**，为 Docker Hub 创建新凭据。**Kind** 下拉菜单中应选择“Username with password”选项。填写其余信息以匹配您的 Docker Hub 帐户。
 
-    ![Kind drop-down menu](/1.12/img/dcos-velocity-jenkins-creds-new.png)
+    ![Kind drop-down menu](/mesosphere/dcos/1.12/img/dcos-velocity-jenkins-creds-new.png)
 
     图 2. 类型下拉菜单
 
@@ -49,13 +49,13 @@ Jenkins 在其凭据库内存储帐户凭据，这允许作业以安全方式使
 
 1. 创建一个新的 **Freestyle** 作业，其名称仅包含小写字母和连字符。此名称将稍后在 Docker 镜像名称中使用，并可能作为 Marathon 应用程序 ID 使用。
 
-    ![Freestyle page](/1.12/img/dcos-jenkins-new-freestyle.png)
+    ![Freestyle page](/mesosphere/dcos/1.12/img/dcos-jenkins-new-freestyle.png)
 
     图 3. Freestyle 项目
 
 1. SCM/Git 在以上**示例项目**部分中，使用新创建的 Git 存储库填写 Git 存储库 URL。Jenkins 必须可以访问它，且可能需要向 Jenkins 实例添加凭据。
 
-    ![dcos-jenkins-repourl.png](/1.12/img/dcos-jenkins-repourl.png)
+    ![dcos-jenkins-repourl.png](/mesosphere/dcos/1.12/img/dcos-jenkins-repourl.png)
 
     图 4. 源代码管理凭据
 
@@ -72,7 +72,7 @@ Jenkins 作业执行以下操作：
 
 1. 在 **Add build step** 下拉列表中选择 **Docker Build and Publish** 选项。
 
-    ![dcos-velocity-jenkins-build-docker.png](/1.12/img/dcos-velocity-jenkins-build-docker.png)
+    ![dcos-velocity-jenkins-build-docker.png](/mesosphere/dcos/1.12/img/dcos-velocity-jenkins-build-docker.png)
 
     图 5. Docker “Add build step” 选项
 
@@ -82,7 +82,7 @@ Jenkins 作业执行以下操作：
 * **标签**，具有 `$GIT_COMMIT`
 * **注册表凭据**，以上创建的 Docker Hub 的凭据
 
-    ![dcos-velocity-jenkins-build-docker-config.png](/1.12/img/dcos-velocity-jenkins-build-docker-config.png)
+    ![dcos-velocity-jenkins-build-docker-config.png](/mesosphere/dcos/1.12/img/dcos-velocity-jenkins-build-docker-config.png)
 
     图 6. Docker 构建和发布屏幕
 
@@ -90,7 +90,7 @@ Jenkins 作业执行以下操作：
 
 1. 通过从 **Add post-build action**下拉菜单中选择 **Marathon Deployment** 选项，添加 Marathon 部署构建后操作。
 
-    ![dcos-jenkins-plugin-popup.png](/1.12/img/dcos-jenkins-plugin-popup.png)
+    ![dcos-jenkins-plugin-popup.png](/mesosphere/dcos/1.12/img/dcos-jenkins-plugin-popup.png)
 
     图 7. Marathon 部署菜单
 
@@ -100,7 +100,7 @@ Jenkins 作业执行以下操作：
 * **应用定义**，具有与 marathon 应用程序文件 (`conf/cd-demo-app.json`) 相对的路径
 * **Docker 镜像**，具有以上创建的镜像 (`myusername/${JOB_NAME}:${GIT_COMMIT}`)
 
-    ![dcos-velocity-marathon-config.png](/1.12/img/dcos-velocity-marathon-config.png)
+    ![dcos-velocity-marathon-config.png](/mesosphere/dcos/1.12/img/dcos-velocity-marathon-config.png)
 
     图 8. 构建后操作屏幕
 
@@ -120,7 +120,7 @@ Jenkins 作业执行以下操作：
 
 单击 **Build Now**，然后构建作业。
 
-![dcos-jenkins-build-now.png](/1.12/img/dcos-jenkins-build-now.png)
+![dcos-jenkins-build-now.png](/mesosphere/dcos/1.12/img/dcos-jenkins-build-now.png)
 
 图 9. 构建作业
 
@@ -134,7 +134,7 @@ Jenkins 作业执行以下操作：
 
 访问公共 DC/OS 代理节点上的 `80` 以显示 Jekyll 网站。
 
-![dcos-jekyll-site1.png](/1.12/img/dcos-jekyll-site1.png)
+![dcos-jekyll-site1.png](/mesosphere/dcos/1.12/img/dcos-jekyll-site1.png)
 
 图 10. Jekyll 演示
 
@@ -144,7 +144,7 @@ Jenkins 作业执行以下操作：
 
 将新帖子提交给 Git。在新的提交落在主分支上之后不久，Jenkins 将看到更改并重新部署到 Marathon。
 
-![dcos-jekyll-updated.png](/1.12/img/dcos-jekyll-updated.png)
+![dcos-jekyll-updated.png](/mesosphere/dcos/1.12/img/dcos-jekyll-updated.png)
 
 图 11. Jenkins 已更新
 

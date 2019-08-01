@@ -11,7 +11,7 @@ Datadog 度量标准插件支持直接从 DC/OS 度量标准服务发送度量�
 
 **先决条件：**
 
-- 必须 [安装 DC/OS CLI](/cn/1.11/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
 
 # 安装 DC/OS Datadog 度量标准插件
 

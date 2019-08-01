@@ -12,12 +12,12 @@ enterprise: true
 
 This topic describes how to deploy a non-native instance of Marathon with isolated roles, reservations, and quotas. 
 
-The basic procedure does not support [secrets](/1.9/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/1.9/deploying-services/marathon-on-marathon/advanced/).
+The basic procedure does not support [secrets](/mesosphere/dcos/1.9/security/ent/secrets/) or fine-grained ACLs. If you require these features, you must use the custom non-native Marathon [procedure](/mesosphere/dcos/1.9/deploying-services/marathon-on-marathon/advanced/).
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/1.9/installing/).
--  [DC/OS Enterprise CLI 0.4.14 or later](/1.9/cli/enterprise-cli/#ent-cli-install).
+-  DC/OS and DC/OS CLI [installed](/mesosphere/dcos/1.9/installing/).
+-  [DC/OS Enterprise CLI 0.4.14 or later](/mesosphere/dcos/1.9/cli/enterprise-cli/#ent-cli-install).
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
 
@@ -27,7 +27,7 @@ In this step, Mesos resources are reserved. Choose the procedure for either [sta
 ## Static Reservations
 <p class="message--warning"><strong>WARNING: </strong>This procedure kills all running tasks on your node.</p>
 
-1.  [SSH](/1.9/administering-clusters/sshcluster/) to your private agent node.
+1.  [SSH](/mesosphere/dcos/1.9/administering-clusters/sshcluster/) to your private agent node.
     ```bash
     dcos node ssh --master-proxy --mesos-id=<agent-id>
     ```
@@ -136,7 +136,7 @@ In this step, a non-native Marathon instance is installed on DC/OS with the Meso
     dcos package install --options=marathon-config.json marathon
     ```
 # Step 3 - Create a Marathon Service Account
-In this step, a Marathon Service Account is created. Depending on your [security mode](/1.9/security/ent/#security-modes), a Marathon Service Account is either optional or required. 
+In this step, a Marathon Service Account is created. Depending on your [security mode](/mesosphere/dcos/1.9/security/ent/#security-modes), a Marathon Service Account is either optional or required. 
 
 | Security Mode | Marathon Service Account |
 |---------------|----------------------|
@@ -167,7 +167,7 @@ In this step, permissions are assigned to the Marathon-on-Marathon instance. Per
 
 The forward-slash (`/`) characters are replaced with `%252F` in the commands. 
 
-**Prerequisite:** You must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
+**Prerequisite:** You must [get the root cert](/mesosphere/dcos/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. 
 
 1.  Create the permission for user (`<user-name>`) with the `nobody` Linux user account specified. To use a different user account, replace `nobody` with the name of the user account. 
 
@@ -198,21 +198,21 @@ In this step, a user is granted access to the non-native Marathon instance.
 
 1. Log into the DC/OS GUI as a user with the `superuser` permission.
 
-   ![Login](/1.9/img/gui-installer-login-ee.gif)
+   ![Login](/mesosphere/dcos/1.9/img/gui-installer-login-ee.gif)
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.9/img/services-tab-user.png)
+    ![Add permission cory](/mesosphere/dcos/1.9/img/services-tab-user.png)
 
 1.  From the **Permissions** tab click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.9/img/services-tab-user3.png)
+    ![Add permission](/mesosphere/dcos/1.9/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.9/security/ent/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/1.9/security/ent/#security-modes).
 
     ### Disabled
     
@@ -294,8 +294,8 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 
 1.  Enter your username and password and click **LOG IN**.
 
-    ![Log in DC/OS](/1.9/img/gui-installer-login-ee.gif)
+    ![Log in DC/OS](/mesosphere/dcos/1.9/img/gui-installer-login-ee.gif)
     
     You are done!
     
-    ![Marathon on Marathon](/1.9/img/mom-marathon-gui.png)
+    ![Marathon on Marathon](/mesosphere/dcos/1.9/img/mom-marathon-gui.png)

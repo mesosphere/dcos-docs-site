@@ -40,4 +40,4 @@ dcos security cluster oidc add [OPTIONS] OIDC_ID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 安全群集 OIDC](/cn/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-oidc/) | 管理 OIDC 设置。 |
+| [DCOS 安全群集 OIDC](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-oidc/) | 管理 OIDC 设置。 |

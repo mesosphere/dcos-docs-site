@@ -65,9 +65,9 @@ If you are on the same network as your cluster or connected by using VPN, you ca
             dcos node ssh --master-proxy --mesos-id=<mesos-id>
             ```
 
-            To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/1.11/gui/) and click **Details**.
+            To find the agent ID, select the **Nodes** tab in the DC/OS [web interface](/mesosphere/dcos/1.11/gui/) and click **Details**.
 
-            ![Web interface node ID](/1.11/img/ssh-node-id.png)
+            ![Web interface node ID](/mesosphere/dcos/1.11/img/ssh-node-id.png)
 
             Figure 1. Web interface Node ID screen
 
@@ -88,7 +88,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
     2.  Select **SSH-2 RSA** as the key type, click **Save private key**, then choose the name and location to save your new .ppk key.
 
-        ![Windows](/1.11/img/windowsputtykey.png)
+        ![Windows](/mesosphere/dcos/1.11/img/windowsputtykey.png)
 
         Figure 2. Windows PuTTY key
 
@@ -102,19 +102,19 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
         2.  Open PuTTY and enter the master node IP address in the **Host Name (or IP address)** field.
 
-            ![Putty Configuration](/1.11/img/windowsputtybasic.png)
+            ![Putty Configuration](/mesosphere/dcos/1.11/img/windowsputtybasic.png)
 
             Figure 3. PuTTY configuration
 
         3.  In the **Category** pane on the left side of the PuTTY window, choose **Connection > SSH > Auth**, click **Browse**, locate and select your `.ppk` file, then click **Open**.
 
-            ![Putty SSH Options](/1.11/img/windowsputtysshopt.png)
+            ![Putty SSH Options](/mesosphere/dcos/1.11/img/windowsputtysshopt.png)
 
             Figure 4. PutTY SSH options
 
         4.  Login as user "core" if you are running CoreOS. The default user on CentOS is "centos".
 
-            ![Windows Login](/1.11/img/windowscore.png)
+            ![Windows Login](/mesosphere/dcos/1.11/img/windowscore.png)
 
             Figure 5. Windows login
 
@@ -130,7 +130,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             2.  Click the **Browse** button and locate the `.ppk` file that you created previously using PuTTYgen.
 
-                ![Windows Forwarding](/1.11/img/windowsforwarding.png)
+                ![Windows Forwarding](/mesosphere/dcos/1.11/img/windowsforwarding.png)
 
                 Figure 6. Windows forwarding
 
@@ -142,7 +142,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             3.  Locate the `.ppk` file that you created using PuTTYgen and click **Open** to add your key to Pageant.
 
-                ![Windows Pageant](/1.11/img/windowspageant.png)
+                ![Windows Pageant](/mesosphere/dcos/1.11/img/windowspageant.png)
 
                 Figure 7. Windows Pageant
 
@@ -157,7 +157,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             4.  Login as user "core" if you're running CoreOS. The default user on CentOS is "centos".
 
-                ![Windows Login](/1.11/img/windowscore.png)
+                ![Windows Login](/mesosphere/dcos/1.11/img/windowscore.png)
 
                 Figure 8. Windows login
 
@@ -169,6 +169,6 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
                     ssh core@<agent-node-hostname>
 
- [1]: /1.11/cli/command-reference/
+ [1]: /mesosphere/dcos/1.11/cli/command-reference/
  [2]: #unix
  [3]: #windows

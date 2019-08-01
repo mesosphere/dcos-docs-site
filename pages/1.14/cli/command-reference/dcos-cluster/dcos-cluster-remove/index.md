@@ -61,10 +61,10 @@ The `dcos-cluster remove` command will remove a configured cluster from the DC/O
     ```
 
 
-For more examples, see [Cluster Connections](/1.14/administering-clusters/multiple-clusters/cluster-connections/).
+For more examples, see [Cluster Connections](/mesosphere/dcos/1.14/administering-clusters/multiple-clusters/cluster-connections/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster](/1.14/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters
+| [dcos cluster](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters

@@ -18,7 +18,7 @@ Health checks perform periodic checks on the containers distributed across a clu
 Health checks begin immediately when a task is launched. They are locally executed by Mesos on the agent running the corresponding task. Health checks are performed as close to the task as possible, so they are are not affected by networking failures. Health checks are delegated to the agents running the tasks. This allows the number of tasks that are health checked to scale horizontally along with the number of agents in the cluster.
 
 - The default health check leverages Mesos' knowledge of the task state `TASK_RUNNING => healthy`.
-- Marathon provides a `health` member of the task resource via the [REST API](/1.9/deploying-services/marathon-api/) that you can add to your service definition.
+- Marathon provides a `health` member of the task resource via the [REST API](/mesosphere/dcos/1.9/deploying-services/marathon-api/) that you can add to your service definition.
 
 A health check is considered passing if both of these conditions are met:
 
@@ -75,7 +75,7 @@ For example, here is the health check specified as JSON in an application defini
 
 And here is the same health check specified by using the DC/OS GUI.
 
-![GUI health check](/1.9/img/health-check-gui.png)
+![GUI health check](/mesosphere/dcos/1.9/img/health-check-gui.png)
 
 ## More information
 Check out [this blog post](https://mesosphere.com/blog/2017/05/16/13-factor-app-building-releasing-for-cloud-native/) for more information about health checks!

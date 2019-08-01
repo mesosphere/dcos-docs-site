@@ -180,10 +180,10 @@ In one simple but satisfying validation of our connection into our Kubernetes cl
 
 When the Kubernetes login screen is shown, you should choose the **Kubeconfig** option, click the **Choose kubeconfig file** text box and pick the location of your kubeconfig file (typically, `$HOME/.kube/config`).
 
-**Note:** When accessed, and depending on whether you are running DC/OS or DC/OS EE (as well as on your browser's configuration) you may be presented a warning indicating that the TLS certificate being used by the Kubernetes Dashboard is not trusted. It is generally safe to permanently trust this TLS certificate by adding an exception in your browser, or to skip past it. To learn more about TLS certificates, visit the [Kubernetes Dashboard](/services/kubernetes/2.2.0-1.13.3/operations/kubernetes-dashboard/) section.
+**Note:** When accessed, and depending on whether you are running DC/OS or DC/OS EE (as well as on your browser's configuration) you may be presented a warning indicating that the TLS certificate being used by the Kubernetes Dashboard is not trusted. It is generally safe to permanently trust this TLS certificate by adding an exception in your browser, or to skip past it. To learn more about TLS certificates, visit the [Kubernetes Dashboard](/mesosphere/dcos/services/kubernetes/2.2.0-1.13.3/operations/kubernetes-dashboard/) section.
 
 ## Mission Complete!
 
-Well done! You have successfully completed the [Getting Started Guide for Kubernetes](/services/kubernetes/2.2.0-1.13.3/getting-started/). You have set up your DC/OS Enterprise cluster to be able to run Kubernetes as a service on DC/OS.
+Well done! You have successfully completed the [Getting Started Guide for Kubernetes](/mesosphere/dcos/services/kubernetes/2.2.0-1.13.3/getting-started/). You have set up your DC/OS Enterprise cluster to be able to run Kubernetes as a service on DC/OS.
 
-For more information regarding operating Kubernetes as a service on DC/OS, check out the [Operations](/services/kubernetes/2.2.0-1.13.3/operations/) section.
+For more information regarding operating Kubernetes as a service on DC/OS, check out the [Operations](/mesosphere/dcos/services/kubernetes/2.2.0-1.13.3/operations/) section.

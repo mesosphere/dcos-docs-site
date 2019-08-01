@@ -7,11 +7,11 @@ menuWeight: 10
 ---
 Conceptually, a load balancer provides a network communication layer for distributing client requests to applications. Load balancers are particularly important in a clustered network environment because they determine which instance of an application should respond to internal or external service requests. With DC/OS clusters, you have several options for distributing service requests through a load balancer:
 
-- You can use named [virtual IP addresses](/1.13/networking/load-balancing-vips/) and the native distributed layer-4 load balancing service `dcos-l4lb` (previously known as Minuteman).
+- You can use named [virtual IP addresses](/mesosphere/dcos/1.13/networking/load-balancing-vips/) and the native distributed layer-4 load balancing service `dcos-l4lb` (previously known as Minuteman).
 
-- You can use the [Marathon-LB](/services/marathon-lb/) implementation of the [HAProxy] open-source load balancing service if all of your deployed applications use Marathon app definitions. 
+- You can use the [Marathon-LB](/mesosphere/dcos/services/marathon-lb/) implementation of the [HAProxy] open-source load balancing service if all of your deployed applications use Marathon app definitions. 
 
-- You can use [Edge-LB](/services/edge-lb/) layer-7 proxy and load balancing service to distribute inbound access requests for a DC/OS Enterprise cluster.
+- You can use [Edge-LB](/mesosphere/dcos/services/edge-lb/) layer-7 proxy and load balancing service to distribute inbound access requests for a DC/OS Enterprise cluster.
 
 - You can use an external hardware or cloud provider load balancing service, such as the [AWS Elastic Load Balancer (ELB)](https://aws.amazon.com/elasticloadbalancing/) in combination with Marathon-LB or Edge-LB for multi-tiered routing of inbound requests.
 
@@ -77,8 +77,8 @@ You have now used Marathon-LB and virtual IP addresses to load balance requests 
 # Related topics
 Consider these features and benefits when choosing the load balancing mechanism.
 
-- [Marathon-LB](/services/marathon-lb/) is a layer-7 load balancer that is mostly used for **external** or **North-South** requests coming into the cluster from outside of the firewall or through a separate hardware or public cloud load balancer.
+- [Marathon-LB](/mesosphere/dcos/services/marathon-lb/) is a layer-7 load balancer that is mostly used for **external** or **North-South** requests coming into the cluster from outside of the firewall or through a separate hardware or public cloud load balancer.
 
     Its core functionality is based on the HAProxy load balancer with the added benefit of allowing you to define configuration override in Marathon app definitions. Marathon-LB also uses the Marathon event bus to update its configuration in real time. Because it is a layer-7 load balancer, it supports session-based features such as HTTP sticky sessions and zero-downtime deployments.
 
-- [Named virtual IP addresses](/1.13/networking/load-balancing-vips/) provide layer-4 load balancing for **internal** or **East-West** TCP traffic. Because virtual IP addresses are tightly integrated with the kernel, they provide a load balanced IP address which can be used from anywhere within the cluster.
+- [Named virtual IP addresses](/mesosphere/dcos/1.13/networking/load-balancing-vips/) provide layer-4 load balancing for **internal** or **East-West** TCP traffic. Because virtual IP addresses are tightly integrated with the kernel, they provide a load balanced IP address which can be used from anywhere within the cluster.

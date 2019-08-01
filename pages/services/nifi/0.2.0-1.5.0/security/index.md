@@ -29,7 +29,7 @@ Note: Enabling transport encryption is required to use [SSL authentication](http
 
 ## Configure Transport Encryption
 
-**Tip:** A complete guide to Configuring DC/OS Access for NiFi can be found [here](/nifi/security/service-account-detail/).
+**Tip:** A complete guide to Configuring DC/OS Access for NiFi can be found [here](/mesosphere/dcos/nifi/security/service-account-detail/).
 
 
 ## Set up the Service Account

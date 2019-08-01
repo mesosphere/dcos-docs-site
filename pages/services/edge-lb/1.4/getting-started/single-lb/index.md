@@ -9,7 +9,7 @@ enterprise: true
 This tutorial demonstrates how to prepare load balancing for access to a single DC/OS service. For this tutorial, the access requests originate outside of the DC/OS cluster and are routed into the cluster through a public-facing IP address. This scenario illustrates the most common way organizations get started with a load balancing solution.
 
 # Before you begin
-* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.4/getting-started/installing).
+* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/1.4/getting-started/installing).
 * You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * You must have the `edgelb` command-line interface (CLI) installed.
 * You must have an active and properly-configured DC/OS Enterprise cluster.

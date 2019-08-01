@@ -15,7 +15,7 @@ enterprise: false
 
 **先决条件：**
 
-- [已安装 DC/OS CLI](/cn/1.11/cli/install/)。
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/)。
 
 - 登录到 DC/OS CLI。在 DC/OS Enterprise 上，您必须以具有 `dcos:superuser` 权限的用户登录。
 
@@ -41,7 +41,7 @@ enterprise: false
     scp dcos-local-universe-registry.service core@<master-IP>:   
     ```
 
-1. 使用以下命令 [SSH](/cn/1.11/administering-clusters/sshcluster/) 至管理节点。使用先前命令中使用的 IP 地址替换 `<master-IP>` 。
+1. 使用以下命令 [SSH](/mesosphere/dcos/cn/1.11/administering-clusters/sshcluster/) 至管理节点。使用先前命令中使用的 IP 地址替换 `<master-IP>` 。
 
     ```bash
     ssh -A core@<master-IP>
@@ -120,7 +120,7 @@ enterprise: false
     scp /etc/systemd/system/dcos-local-universe-http.service core@<master-IP>:
     ```
 
-1. [SSH](/cn/1.11/administering-clusters/sshcluster/) 至收到这些复制文件的管理节点中
+1. [SSH](/mesosphere/dcos/cn/1.11/administering-clusters/sshcluster/) 至收到这些复制文件的管理节点中
 
     ```bash
     ssh -A core@<master_IP>
@@ -201,7 +201,7 @@ enterprise: false
     <p class="message--note"><strong>注意: </strong> 如果您需要帮助解析 <tt>master.mesos</tt>，请参阅 <a href="https://docs.mesosphere.com/1.9/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages">安装您自己的 Universe 包集合</a>。</p>
 
 
-1. [SSH 至您的代理节点之一。](/cn/1.11/administering-clusters/sshcluster/)
+1. [SSH 至您的代理节点之一。](/mesosphere/dcos/cn/1.11/administering-clusters/sshcluster/)
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>

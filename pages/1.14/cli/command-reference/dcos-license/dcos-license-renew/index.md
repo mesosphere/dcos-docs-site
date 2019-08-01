@@ -36,7 +36,7 @@ dcos license renew [OPTIONS] PATH
 
 
 # Examples
-For examples, see [Licenses](/1.14/administering-clusters/licenses/).
+For examples, see [Licenses](/mesosphere/dcos/1.14/administering-clusters/licenses/).
 
 # Parent command
 

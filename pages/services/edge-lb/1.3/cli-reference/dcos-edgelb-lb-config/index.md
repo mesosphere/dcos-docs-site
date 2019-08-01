@@ -31,8 +31,8 @@ dcos edgelb lb-config [<flags>] <pool-name>
 
 | Command | Description |
 |---------|-------------|
-| [dcos edgelb](/services/edge-lb/1.3/cli-reference/) |  Manage Edge-LB. |
+| [dcos edgelb](/mesosphere/dcos/services/edge-lb/1.3/cli-reference/) |  Manage Edge-LB. |
 
 # Examples
 
-See the [Edge-LB Usage](/services/edge-lb/1.3/usage/).
+See the [Edge-LB Usage](/mesosphere/dcos/services/edge-lb/1.3/usage/).

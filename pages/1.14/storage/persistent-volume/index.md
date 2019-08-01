@@ -40,7 +40,7 @@ Configure a persistent volume with the following options:
 - `mode`: The access mode of the volume. Currently, `"RW"` is the only possible value and will let your application read from and write to the volume.
 - `persistent.type`: The type of Mesos disk resource to use; the valid options are `root`, `path`, and `mount`, corresponding to the [valid Mesos multi-disk resource types](http://mesos.apache.org/documentation/latest/multiple-disk/).
 - `persistent.size`: The size of the persistent volume in MiBs.
-- `persistent.profileName`: (not seen above) The storage [volume profile](/services/storage/latest/terminology-and-concepts/#volume-profile). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
+- `persistent.profileName`: (not seen above) The storage [volume profile](/mesosphere/dcos/services/storage/latest/terminology-and-concepts/#volume-profile). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
 - `persistent.maxSize`: (not seen above) For `root` Mesos disk resources, the optional maximum size of an exclusive mount volume to be considered.
 - `persistent.constraints`: Constraints restricting where new persistent volumes should be created. Currently, it is only possible to constrain the path of the disk resource by regular expression.
 
@@ -127,7 +127,7 @@ where
 - `persistent.type`: The type of Mesos disk resource to use; the valid options are `root`, `path`, and `mount`, corresponding to the [valid Mesos multi-disk resource types](http://mesos.apache.org/documentation/latest/multiple-disk/).
 - `persistent.size`: The size of the persistent volume in MiBs.
 - `persistent.maxSize`: (not seen above) For `root` Mesos disk resources, the optional maximum size of an exclusive mount volume to be considered.
-- `persistent.profileName`: (not seen above) The storage [volume profile](/services/storage/latest/terminology-and-concepts/#volume-profile). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
+- `persistent.profileName`: (not seen above) The storage [volume profile](/mesosphere/dcos/services/storage/latest/terminology-and-concepts/#volume-profile). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
 - `persistent.constraints`: Constraints restricting where new persistent volumes should be created. Currently, it is only possible to constrain the path of the disk resource by regular expression.
 
 ## Configure stateful pod
@@ -346,7 +346,7 @@ Creating an app definition for PostgreSQL on Marathon is similar to creating a d
 
 ## Pod with persistent volume
 
-The following example will create a pod with two containers and one shared persistent volume. Also see [Pods](/1.14/deploying-services/pods/).
+The following example will create a pod with two containers and one shared persistent volume. Also see [Pods](/mesosphere/dcos/1.14/deploying-services/pods/).
 
 ```json
 {

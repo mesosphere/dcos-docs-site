@@ -11,7 +11,7 @@ DC/OS 1.12 exports system, container and application metrics in Prometheus forma
 
 **Prerequisite:**
 
-- You must have the [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.12/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 
 # Running Prometheus and Grafana on DC/OS
 
@@ -25,9 +25,9 @@ There are many ways to run a Prometheus and Grafana stack. This is the simplest 
 
 The Prometheus service is already configured to fetch metrics from every node, mesos agent, and task in your cluster. It is not required to perform any further configuration, although you may add more datasources at any time by updating the configuration field of the Prometheus service. 
 
-The Prometheus service exposes endpoints for AlertManager, the Prometheus UI, and Pushgateway. These are dsiplayed in the `Endpoints` tab. The URL of the Prometheus UI is http://prometheus.prometheus.l4lb.thisdcos.directory:9090. Depending on the network configuration of your cluster, you may need to use [dcos tunnel](/1.12/developing-services/tunnel/) to access it. You can execute the simple queries against existing metrics. 
+The Prometheus service exposes endpoints for AlertManager, the Prometheus UI, and Pushgateway. These are dsiplayed in the `Endpoints` tab. The URL of the Prometheus UI is http://prometheus.prometheus.l4lb.thisdcos.directory:9090. Depending on the network configuration of your cluster, you may need to use [dcos tunnel](/mesosphere/dcos/1.12/developing-services/tunnel/) to access it. You can execute the simple queries against existing metrics. 
 
-   ![prometheus_cpu_usage](/1.12/img/prometheus_cpu_usage.png)
+   ![prometheus_cpu_usage](/mesosphere/dcos/1.12/img/prometheus_cpu_usage.png)
 
    Figure 1. A graph of system metrics
 
@@ -47,6 +47,6 @@ When you are logged in, you must do the following tasks:
 
 When you complete the above tasks, you can create a Grafana dashboard using metrics from your newly created datasource.
 
-   ![grafana_nodes_overview](/1.12/img/grafana_nodes_overview.png)
+   ![grafana_nodes_overview](/mesosphere/dcos/1.12/img/grafana_nodes_overview.png)
 
    Figure 2. A Grafana dashboard, showing system metrics and tasks

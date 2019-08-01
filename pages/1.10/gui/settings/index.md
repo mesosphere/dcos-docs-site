@@ -14,4 +14,4 @@ In DC/OS Enterprise you can also manage:
 - LDAP directories
 - Identity providers
 
-![Package repositories](/1.10/img/package-repositories-ee.png)
+![Package repositories](/mesosphere/dcos/1.10/img/package-repositories-ee.png)

@@ -54,6 +54,6 @@ $ git shortlog v1.0.3..HEAD
 
 ## 已知问题
 
-* 用户界面中出现的卸载 Edge-LB 的步骤不正确。遵循 [Edge-LB 卸载文档 中的步骤](/cn/services/edge-lb/1.1/uninstalling/)。
+* 用户界面中出现的卸载 Edge-LB 的步骤不正确。遵循 [Edge-LB 卸载文档 中的步骤](/mesosphere/dcos/cn/services/edge-lb/1.1/uninstalling/)。
 * 在 CenTos/RHEL 7.2 节点上运行的 Edge-LB（`/var/lib/mesos` 通过 ext4 进行格式化）可能存在连接问题。
 * 如果池配置了无效的约束，那么该池将不会被正确创建，且不会尊重池的删除。必须手动删除。

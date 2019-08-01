@@ -21,8 +21,8 @@ These steps are useful if you are downsizing a cluster, reconfiguring agent node
 
 ### Prerequisites:
 
-*   [SSH installed and configured](/1.9/administering-clusters/sshcluster/). This is required when removing nodes by manually killing agents.
-*   Access to the [Admin Router permissions](/1.9/overview/architecture/components/#admin-router).
+*   [SSH installed and configured](/mesosphere/dcos/1.9/administering-clusters/sshcluster/). This is required when removing nodes by manually killing agents.
+*   Access to the [Admin Router permissions](/mesosphere/dcos/1.9/overview/architecture/components/#admin-router).
 
 # Updating nodes by using maintenance windows
 With maintenance windows you can drain multiple nodes at the same time from outside the cluster. SSH access is not required.
@@ -52,7 +52,7 @@ You can define a maintenance schedule to evacuate your tasks prior to changing a
  
 1.  Invoke the `⁠⁠⁠⁠machine/down` endpoint with the machine JSON definition specified. For example, [here](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) is a script that calls `/machine/down/`. 
 
-    **Important:** Invoking `machine/down` sends a `⁠⁠⁠⁠TASK_LOST`⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS [service guides](/services/) and the Mesos maintenance primitives [documentation](https://mesos.apache.org/documentation/latest/maintenance/).
+    **Important:** Invoking `machine/down` sends a `⁠⁠⁠⁠TASK_LOST`⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS [service guides](/mesosphere/dcos/services/) and the Mesos maintenance primitives [documentation](https://mesos.apache.org/documentation/latest/maintenance/).
     
 1.  Perform your maintenance.
 1.  Add the nodes back to your cluster by invoking the `⁠⁠⁠⁠machine/up` endpoint with the add agents JSON definition specified. For example:
@@ -67,7 +67,7 @@ You can define a maintenance schedule to evacuate your tasks prior to changing a
 # Updating nodes by manually killing agents
 Draining nodes by using terminate signal, SIGUSR1, is easy to integrate with automation tools that can execute tasks on nodes in parallel, for example Ansible, Chef, and Puppet. 
 
-1.  [SSH to the agent nodes](/1.9/administering-clusters/sshcluster/).
+1.  [SSH to the agent nodes](/mesosphere/dcos/1.9/administering-clusters/sshcluster/).
 1.  Stop the agents.
 
     -  **Private agent**

@@ -63,9 +63,9 @@ enterprise: false
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
     ```
 
- 要查找代理 ID，选择 DC/OS [Web 界面](/cn/1.11/gui/) 中的 **节点** 选项卡并单击 **详细信息**。
+ 要查找代理 ID，选择 DC/OS [Web 界面](/mesosphere/dcos/cn/1.11/gui/) 中的 **节点** 选项卡并单击 **详细信息**。
 
- ![Web 界面节点 ID](/cn/1.11/img/ssh-node-id.png)
+ ![Web 界面节点 ID](/mesosphere/dcos/cn/1.11/img/ssh-node-id.png)
 
  图 1. Web 界面节点 ID 屏幕
 
@@ -86,7 +86,7 @@ enterprise: false
 
  2. 选择 **SSH-2 RSA** 作为密钥类型，单击 **保存私钥**，然后选择名称和位置以保存新的 .ppk 密钥。
 
- ![Windows](/cn/1.11/img/windowsputtykey.png)
+ ![Windows](/mesosphere/dcos/cn/1.11/img/windowsputtykey.png)
 
  图 2. Windows PuTTY 密钥
 
@@ -100,19 +100,19 @@ enterprise: false
 
  2. 打开 PuTTY 并在 **主机名（或 IP 地址）** 字段中输入管理节点 IP 地址。
 
- ![Putty 配置](/cn/1.11/img/windowsputtybasic.png)
+ ![Putty 配置](/mesosphere/dcos/cn/1.11/img/windowsputtybasic.png)
 
  图 3. PuTTY 配置
 
  3. 在 PuTTY 窗口左侧的 **类别** 窗格中，选择 **连接 > SSH > Auth**，单击 **浏览**，查找并选择您的 `.ppk` 文件，然后单击 **打开**。
 
- ![Putty SSH 选项](/cn/1.11/img/windowsputtysshopt.png)
+ ![Putty SSH 选项](/mesosphere/dcos/cn/1.11/img/windowsputtysshopt.png)
 
  图 4. PuTty SSH 选项
 
  4. 如果您正在运行 CoreOS，则以“core”用户登录。CentOS 上的默认用户是“centos”。
 
- ![Windows 登录](/cn/1.11/img/windowscore.png)
+ ![Windows 登录](/mesosphere/dcos/cn/1.11/img/windowscore.png)
 
  图 5. Windows 登录
 
@@ -128,7 +128,7 @@ enterprise: false
 
  2. 单击 **浏览** 按钮并找到您之前使用 PuTTYgen 创建的 `.ppk` 文件。
 
- ![Windows 转发](/cn/1.11/img/windowsforwarding.png)
+ ![Windows 转发](/mesosphere/dcos/cn/1.11/img/windowsforwarding.png)
 
  图 6. Windows 转发
 
@@ -140,7 +140,7 @@ enterprise: false
 
  3. 找到您使用 PuTTYgen 创建的 `.ppk` 文件，然后单击 **打开** ，将您的密钥添加到 Pageant 中。
 
- ![Windows Pageant](/cn/1.11/img/windowspageant.png)
+ ![Windows Pageant](/mesosphere/dcos/cn/1.11/img/windowspageant.png)
 
  图 7. Windows Pageant
 
@@ -155,7 +155,7 @@ enterprise: false
 
  4. 如果您正在运行 CoreOS，则以“core”用户登录。CentOS 上的默认用户是“centos”。
 
- ![Windows 登录](/cn/1.11/img/windowscore.png)
+ ![Windows 登录](/mesosphere/dcos/cn/1.11/img/windowscore.png)
 
  图 8. Windows 登录
 
@@ -167,6 +167,6 @@ enterprise: false
 ```
  ssh core@<agent-node-hostname>
 ```
- [1]:/cn/1.11/cli/command-reference/
+ [1]: /mesosphere/dcos/cn/1.11/cli/command-reference/
  [2]: #unix
  [3]: #windows

@@ -27,13 +27,13 @@ You can opt-out of providing anonymous data by disabling telemetry for your clus
     ```
 Or
 
-- Add a flag to the custom installer, `dcos_generate_config.sh --cli-telemetry-disabled`, to disable the CLI basic telemetry. For more information, see the [documentation](/1.9/installing/oss/custom/cli/).
+- Add a flag to the custom installer, `dcos_generate_config.sh --cli-telemetry-disabled`, to disable the CLI basic telemetry. For more information, see the [documentation](/mesosphere/dcos/1.9/installing/oss/custom/cli/).
     
 
 Note that if you’ve already installed your cluster and would like to disable this in-place, you can go through an [upgrade][3] with the same parameter set.
 
-[1]: /1.9/installing/oss/custom/cli/
-[2]: /1.9/installing/oss/custom/advanced/
-[3]: /1.9/installing/oss/custom/configuration/configuration-parameters/
-[4]: /1.9/installing/oss/custom/configuration/configuration-parameters/
+[1]: /mesosphere/dcos/1.9/installing/oss/custom/cli/
+[2]: /mesosphere/dcos/1.9/installing/oss/custom/advanced/
+[3]: /mesosphere/dcos/1.9/installing/oss/custom/configuration/configuration-parameters/
+[4]: /mesosphere/dcos/1.9/installing/oss/custom/configuration/configuration-parameters/
 

@@ -16,7 +16,7 @@ Elasticsearch provides two ways of updating settings: persistent (through `elast
 
 If Kibana is configured with `kibana.elasticsearch_xpack_security_enabled` set to `true` the default DC/OS service link (`https://<cluster-url>/service/<kibana-service-name>`) will not work. This is due to a change in how Kibana deals with `Authorization` HTTP headers starting in version 6.3.
 
-As a workaround, you should be able to expose Kibana using [EdgeLB](https://docs.mesosphere.com/services/edge-lb/) by following the following how-to: [Expose Kibana using EdgeLB](/services/elastic/2.5.0-6.3.2/how-to-guides#expose-kibana-using-edgelb).
+As a workaround, you should be able to expose Kibana using [EdgeLB](https://docs.mesosphere.com/services/edge-lb/) by following the following how-to: [Expose Kibana using EdgeLB](/mesosphere/dcos/services/elastic/2.5.0-6.3.2/how-to-guides#expose-kibana-using-edgelb).
 
 #include /services/include/limitations.tmpl
 #include /services/include/limitations-zones.tmpl

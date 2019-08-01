@@ -81,7 +81,7 @@ The following procedure will take a Google IdP as an example and walk you throug
 
 1. Paste the client secret value from Google into the **Client Secret** field.
 
-    ![Google IdP Configuration](/1.9/img/oidc-google.png) 
+    ![Google IdP Configuration](/mesosphere/dcos/1.9/img/oidc-google.png) 
 
 11. Click **Submit**.
 
@@ -119,11 +119,11 @@ You can use either of the following to verify that you have set up your IdP corr
 
 1. You should see your new user listed there.
 
-1. Assign this user the appropriate [permissions](/1.9/security/ent/perms-reference/). 
+1. Assign this user the appropriate [permissions](/mesosphere/dcos/1.9/security/ent/perms-reference/). 
  
 ### <a name="using-cli"></a>Using the DC/OS CLI
 
-**Prerequisite:** [DC/OS CLI installed](/1.9/cli/install/).
+**Prerequisite:** [DC/OS CLI installed](/mesosphere/dcos/1.9/cli/install/).
 
 1. Use the following command to log in as your new user.
 
@@ -143,7 +143,7 @@ You can use either of the following to verify that you have set up your IdP corr
 
 1. You should see a message similar to the following.
 
-    ![CLI IdP Auth Token](/1.9/img/cli-auth-token.png)
+    ![CLI IdP Auth Token](/mesosphere/dcos/1.9/img/cli-auth-token.png)
     
 1. Click **Copy to clipboard**.
 

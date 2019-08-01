@@ -11,20 +11,20 @@ enterprise: false
 
 
 
-在安装过程中，代理节点被指定为 [公共](/cn/1.11/overview/concepts/#public-agent-node) 或 [私有](/cn/1.11/overview/concepts/#private-agent-node)节点。默认情况下，它们在 GUI 或 CLI [安装](/cn/1.11/installing/evaluation/cloud-installation/) 方法中被指定为私有节点。
+在安装过程中，代理节点被指定为 [公共](/mesosphere/dcos/cn/1.11/overview/concepts/#public-agent-node) 或 [私有](/mesosphere/dcos/cn/1.11/overview/concepts/#private-agent-node)节点。默认情况下，它们在 GUI 或 CLI [安装](/mesosphere/dcos/cn/1.11/installing/evaluation/cloud-installation/) 方法中被指定为私有节点。
 
 <p class="message--note"><strong>注意: </strong>DC/OS 支持添加/替换代理节点，但不支持添加管理节点。</p>
 
 ### 先决条件：
 
-* DC/OS 使用 [自定义](/cn/1.11/installing/production/deploying-dcos/installation/) 安装方法安装。
-* 来自您的[安装](/cn/1.11/installing/evaluation/cloud-installation/)步骤的存档 DC/OS 安装程序文件（`dcos-install.tar`）。
+* DC/OS 使用 [自定义](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/installation/) 安装方法安装。
+* 来自您的[安装](/mesosphere/dcos/cn/1.11/installing/evaluation/cloud-installation/)步骤的存档 DC/OS 安装程序文件（`dcos-install.tar`）。
 * 满足 [系统要求] 的可用代理节点(/cn/1.11/installing/production/system-requirements/)。
 * CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation)。
 * 已安装和配置 SSH。这是访问 DC/OS 集群中的节点所必需的。
 
 ### 安装 DC/OS 代理节点
-复制存档的 DC/OS 安装程序文件（`dcos-install.tar`）到代理节点。此存档在 GUI 或 CLI [安装](/cn/1.11/installing/evaluation/cloud-installation/)方法期间创建。
+复制存档的 DC/OS 安装程序文件（`dcos-install.tar`）到代理节点。此存档在 GUI 或 CLI [安装](/mesosphere/dcos/cn/1.11/installing/evaluation/cloud-installation/)方法期间创建。
 
 1. 将文件复制到代理节点。例如，您可以使用安全拷贝 (scp) 来复制 `dcos-install.tar` 到您的主目录：
 

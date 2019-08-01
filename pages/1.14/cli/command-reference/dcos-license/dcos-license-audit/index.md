@@ -27,10 +27,10 @@ dcos license audit [OPTIONS] COMMAND [ARGS]...
 
 
 # Examples
-For examples, see [Licenses](/1.14/administering-clusters/licenses/).
+For examples, see [Licenses](/mesosphere/dcos/1.14/administering-clusters/licenses/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/1.14/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](/mesosphere/dcos/1.14/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |

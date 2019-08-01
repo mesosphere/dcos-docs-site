@@ -8,11 +8,11 @@ excerpt: 使用 Mesosphere Universal 安装工具在云环境中安装 DC/OS 的
 
 <strong>Mesosphere 通用安装工具是在以下云提供程序上调配、部署、安装和升级 DC/OS 的推荐工具。跳转至您选择的云提供程序的指南，开始操作：</strong>
 
-#### [Amazon Web Services 上的 DC/OS](/cn/1.12/installing/evaluation/aws/)
+#### [Amazon Web Services 上的 DC/OS](/mesosphere/dcos/cn/1.12/installing/evaluation/aws/)
 
-#### [DC/OS Azure 资源管理器](/cn/1.12/installing/evaluation/azure/)
+#### [DC/OS Azure 资源管理器](/mesosphere/dcos/cn/1.12/installing/evaluation/azure/)
 
-#### [Google Cloud Platform 上的 DC/OS](/cn/1.12/installing/evaluation/gcp/)
+#### [Google Cloud Platform 上的 DC/OS](/mesosphere/dcos/cn/1.12/installing/evaluation/gcp/)
 
 # 关于 Mesosphere Universal 安装工具
 
@@ -42,17 +42,17 @@ Terraform 是一种开源基础架构自动化工具，使用模板来管理多�
 这些安装方法用于快速演示和概念证明以及生产用的群集。下列安装方法支持升级。
 
 以下任何方法均可用于安装 DC/OS：
-- [Amazon Web Services (AWS)](/cn/1.12/installing/evaluation/aws/)：通过使用 Mesosphere Universal 安装工具在 AWS 上安装 DC/OS。
-- [Azure](/cn/1.12/installing/evaluation/azure/)：通过使用 Mesosphere Universal 安装工具在 Microsoft Azure 上安装 DC/OS。
-- [Google Cloud Platform (GCP)](/cn/1.12/installing/evaluation/gcp/)：通过使用 Mesosphere Universal 安装工具在 Google Cloud Platform (GCP) 上安装 DC/OS。
-- [任何云](/cn/1.12/installing/evaluation/dcos-ansible/)：将 Mesosphere 通用安装工具连接到现有的 Ansible 设置中，并使用 Mesosphere 提供的 Ansible 角色来管理 DC/OS 群集生命周期。
+- [Amazon Web Services (AWS)](/mesosphere/dcos/cn/1.12/installing/evaluation/aws/)：通过使用 Mesosphere Universal 安装工具在 AWS 上安装 DC/OS。
+- [Azure](/mesosphere/dcos/cn/1.12/installing/evaluation/azure/)：通过使用 Mesosphere Universal 安装工具在 Microsoft Azure 上安装 DC/OS。
+- [Google Cloud Platform (GCP)](/mesosphere/dcos/cn/1.12/installing/evaluation/gcp/)：通过使用 Mesosphere Universal 安装工具在 Google Cloud Platform (GCP) 上安装 DC/OS。
+- [任何云](/mesosphere/dcos/cn/1.12/installing/evaluation/dcos-ansible/)：将 Mesosphere 通用安装工具连接到现有的 Ansible 设置中，并使用 Mesosphere 提供的 Ansible 角色来管理 DC/OS 群集生命周期。
 
 ## 其他安装方法
 这些安装方法由社区提供，未经 Mesosphere 测试。在使用以下安装时，升级 DC/OS 不是受支持的功能。
 
-- [AWS 上的 Cloudformation](/cn/1.12/installing/evaluation/community-supported-methods/aws/) (AWS)：使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。
-- [Azure 资源管理器模板](/cn/1.12/installing/evaluation/community-supported-methods/azure/)：使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。
-- [用于 DigitalOcean 的 Mesosphere Universal 安装工具](/cn/1.12/installing/evaluation/community-supported-methods/digitalocean/)：使用配置为在 DigitalOcean 上运行 Mesosphere DC/OS 的 Terraform 模板，在 DigitalOcean 上安装您的 DC/OS 群集。
-- [用于 Packet（裸机）的 Mesosphere Universal 安装工具](/cn/1.12/installing/evaluation/community-supported-methods/packet/)：裸机环境是计算机系统或网络，其中的虚拟机直接安装在硬件上，而不是安装在主机操作系统 (OS) 内。使用配置为在 Packet 上运行 Mesosphere DC/OS 的 Terraform 模板在 Packet 裸机上安装 DC/OS 群集。
+- [AWS 上的 Cloudformation](/mesosphere/dcos/cn/1.12/installing/evaluation/community-supported-methods/aws/) (AWS)：使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。
+- [Azure 资源管理器模板](/mesosphere/dcos/cn/1.12/installing/evaluation/community-supported-methods/azure/)：使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。
+- [用于 DigitalOcean 的 Mesosphere Universal 安装工具](/mesosphere/dcos/cn/1.12/installing/evaluation/community-supported-methods/digitalocean/)：使用配置为在 DigitalOcean 上运行 Mesosphere DC/OS 的 Terraform 模板，在 DigitalOcean 上安装您的 DC/OS 群集。
+- [用于 Packet（裸机）的 Mesosphere Universal 安装工具](/mesosphere/dcos/cn/1.12/installing/evaluation/community-supported-methods/packet/)：裸机环境是计算机系统或网络，其中的虚拟机直接安装在硬件上，而不是安装在主机操作系统 (OS) 内。使用配置为在 Packet 上运行 Mesosphere DC/OS 的 Terraform 模板在 Packet 裸机上安装 DC/OS 群集。
 
 <p class="message--note"><strong>注意：</strong>联系<a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">邮寄列表</a>或 <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack 渠道</a>，获取社区支持。</p>

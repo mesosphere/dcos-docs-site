@@ -12,8 +12,8 @@ menuWeight: 4
 
 
 # 先决条件
-* [正在运行的 DC/OS 集群](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/tutorials/dcos-101/cli/)。
-* [app1](/cn/1.11/tutorials/dcos-101/app1/) 已部署并在您的集群中运行。
+* [正在运行的 DC/OS 集群](/mesosphere/dcos/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/tutorials/dcos-101/cli/)。
+* [app1](/mesosphere/dcos/cn/1.11/tutorials/dcos-101/app1/) 已部署并在您的集群中运行。
 
 
 # 目的
@@ -22,7 +22,7 @@ menuWeight: 4
 在本部分中，您将通过探索 DC/OS 中应用程序的不同选项，了解 DC/OS 服务发现。
 
 # 服务发现
- [服务发现](/cn/1.11/networking/)使应用程序能够不依赖于于其在集群中的运行位置进行寻址，这在应用程序可能出现故障并在不同主机上重新启动时尤其有用。
+ [服务发现](/mesosphere/dcos/cn/1.11/networking/)使应用程序能够不依赖于于其在集群中的运行位置进行寻址，这在应用程序可能出现故障并在不同主机上重新启动时尤其有用。
 
  DC/OS 提供两种服务发现选项：
 
@@ -36,9 +36,9 @@ menuWeight: 4
 
 # Mesos-DNS
 
- [Mesos-DNS](/cn/1.11/networking/mesos-dns/) 为每个任务分配 DNS 条目，这些条目可从集群中的任何节点解析。这些条目的命名模式为 *task.scheduler.mesos*
+ [Mesos-DNS](/mesosphere/dcos/cn/1.11/networking/mesos-dns/) 为每个任务分配 DNS 条目，这些条目可从集群中的任何节点解析。这些条目的命名模式为 *task.scheduler.mesos*
 
- 作业的默认调度程序为 [Marathon](/cn/1.11/overview/architecture/components/#marathon)，因此，Redis 服务的 Mesos-DNS 名称为 *redis.marathon.mesos*。
+ 作业的默认调度程序为 [Marathon](/mesosphere/dcos/cn/1.11/overview/architecture/components/#marathon)，因此，Redis 服务的 Mesos-DNS 名称为 *redis.marathon.mesos*。
 
  我们将使用 [dig](https://linux.die.net/man/1/dig) 命令以检索地址记录（也称为 A 记录）。Dig 是一个命令行实用程序，用于查询 DNS 服务器。如果在没有参数的情况下使用，它将使用系统范围配置的 DNS 服务器进行查询，在 DC/OS 集群中将其配置为指向 Mesos-DNS：
 
@@ -73,7 +73,7 @@ menuWeight: 4
 
 # 命名虚拟 IP
 
- * [命名 VIP](/cn/1.11/networking/load-balancing-vips/) 让您将名称/端口对分配到应用程序，这意味着您可以使用可预测的端口为应用程序提供有意义的名称。当使用应用程序的多个实例时，它们还提供内置的负载均衡。例如，您可以通过将以下内容添加到软件包定义中，将已命名的 VIP 分配给 Redis 服务：
+ * [命名 VIP](/mesosphere/dcos/cn/1.11/networking/load-balancing-vips/) 让您将名称/端口对分配到应用程序，这意味着您可以使用可预测的端口为应用程序提供有意义的名称。当使用应用程序的多个实例时，它们还提供内置的负载均衡。例如，您可以通过将以下内容添加到软件包定义中，将已命名的 VIP 分配给 Redis 服务：
 
   ```
   "VIP_0": "/redis:6379"

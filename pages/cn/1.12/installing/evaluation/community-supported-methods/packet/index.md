@@ -85,11 +85,11 @@ oss: true
 
 5. 还是在这一目录中运行 `terraform apply`，将服务器部署到您在 Packet 的项目中，并运行 DC/OS 安装步骤。完成后，您将看到和以下内容相似，但带有分配给您服务器的 IP 地址的输出：
 
- ![terraform apply output](/1.12/img/packet_terraform_output.png)
+ ![terraform apply output](/mesosphere/dcos/1.12/img/packet_terraform_output.png)
 
  图 1. “Terraform apply" 输出
 
-这时，可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/cn/1.12/installing/troubleshooting/) 文档。
+这时，可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/mesosphere/dcos/cn/1.12/installing/troubleshooting/) 文档。
 
 # 启动 DC/OS
 输入 Mesos 管理节点 IP 地址启动 DC/OS Web 界面：
@@ -98,7 +98,7 @@ oss: true
 
 2. 安装 DC/OS 命令行界面 (CLI)。可以安装 CLI，用于管理 DC/OS 群集。可以通过单击左上方的群集名称随时访问文档。
 
- ![install CLI](/1.12/img/install-cli-terminal.png)
+ ![install CLI](/mesosphere/dcos/1.12/img/install-cli-terminal.png)
 
  图 2. 安装 DC/OS CLI 画面
 

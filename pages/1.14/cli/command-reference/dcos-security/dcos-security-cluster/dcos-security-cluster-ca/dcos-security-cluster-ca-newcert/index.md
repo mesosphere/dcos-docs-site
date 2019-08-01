@@ -69,4 +69,4 @@ private_key: '-----BEGIN RSA PRIVATE KEY-----
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster ca](/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | View DC/OS security cluster certificate authority information. |
+| [dcos security cluster ca](/mesosphere/dcos/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | View DC/OS security cluster certificate authority information. |

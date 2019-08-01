@@ -8,21 +8,21 @@ excerpt: Common commands for Edge-LB usage
 enterprise: true
 ---
 
-This page covers common commands for Edge-LB usage. For a more detailed list of CLI commands, consult the [dcos edgelb cli reference](/services/edge-lb/1.3/cli-reference/).
+This page covers common commands for Edge-LB usage. For a more detailed list of CLI commands, consult the [dcos edgelb cli reference](/mesosphere/dcos/services/edge-lb/1.3/cli-reference/).
 
 # Prerequisites
 
-- Edge-LB [installed and running](/services/edge-lb/1.3/installing/).
+- Edge-LB [installed and running](/mesosphere/dcos/services/edge-lb/1.3/installing/).
 
 # Create pools
 
-After launching a service and creating a [pool configuration file](/services/edge-lb/1.3/pool-configuration/), you can use the CLI to deploy it:
+After launching a service and creating a [pool configuration file](/mesosphere/dcos/services/edge-lb/1.3/pool-configuration/), you can use the CLI to deploy it:
 
 ```bash
 dcos edgelb create <pool-configuration-file>
 ```
 
-Please refer to the [tutorials sections](/services/edge-lb/1.3/tutorials/) for examples of pool configs.
+Please refer to the [tutorials sections](/mesosphere/dcos/services/edge-lb/1.3/tutorials/) for examples of pool configs.
 
 # Update pools
 
@@ -165,7 +165,7 @@ A change (such as scaling up) to a service that is load balanced by a pool will 
 
 * A reload will occur at most once every three seconds.
 
-The properties of this reload enables strategies like [Blue/Green Deployment](/services/edge-lb/1.3/tutorials/blue-green-deploy/).
+The properties of this reload enables strategies like [Blue/Green Deployment](/mesosphere/dcos/services/edge-lb/1.3/tutorials/blue-green-deploy/).
 
 ## Load balancer relaunch scenario
 
@@ -211,4 +211,4 @@ $ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod replace <pod-id>
 
 This will destroy the pool server and re-launch a new one on the new public agent.
 
-For a list of Edge-LB commands, see the [CLI Reference](/services/edge-lb/1.3/cli-reference/) page.
+For a list of Edge-LB commands, see the [CLI Reference](/mesosphere/dcos/services/edge-lb/1.3/cli-reference/) page.

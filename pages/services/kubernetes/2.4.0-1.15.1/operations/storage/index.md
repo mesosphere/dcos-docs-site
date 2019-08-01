@@ -12,4 +12,4 @@ The aim of the CSI is so that storage providers (e.g. Amazon EBS) can develop on
 
 Accordingly, MKE takes advantage of the [Amazon EBS CSI driver](github.com/kubernetes-sigs/aws-ebs-csi-driver) when managing the lifecycle of [Amazon EBS volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html) across your Kubernetes clusters. The Amazon EBS CSI driver supports management of both [dynamic](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) and pre-provisioned Kubernetes volumes.
 
-The [basic tutorial that follows](/tutorial-kubernetes-storage-basic) demonstrates how to setup Kubernetes deployments with both types of volumes.
+The [basic tutorial that follows](/mesosphere/dcos/tutorial-kubernetes-storage-basic) demonstrates how to setup Kubernetes deployments with both types of volumes.

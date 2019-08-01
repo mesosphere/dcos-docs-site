@@ -6,7 +6,7 @@ title: 部署
 menuWeight: 5
 ---
 
-DC/OS 中应用程序或组定义的每个更改都是作为 Marathon 部署执行的。[部署](/cn/1.12/deploying-services/marathon-api/) 是一组操作，包括：
+DC/OS 中应用程序或组定义的每个更改都是作为 Marathon 部署执行的。[部署](/mesosphere/dcos/cn/1.12/deploying-services/marathon-api/) 是一组操作，包括：
 
 - 启动
 - 停止
@@ -21,7 +21,7 @@ DC/OS 中应用程序或组定义的每个更改都是作为 Marathon 部署执�
 
 在此示例中，应用程序 `app` 依赖于应用程序 `db`。
 
-![依赖关系图](/1.12/img/dependency.png)
+![依赖关系图](/mesosphere/dcos/1.12/img/dependency.png)
 
 图 1. 部署图
 
@@ -36,7 +36,7 @@ DC/OS 中应用程序或组定义的每个更改都是作为 Marathon 部署执�
 
 滚动升级的目标是新版本启动，并停止使用旧版本的进程。有很多方法可以做到这一点。默认情况下，DC/OS 服务部署使用滚动升级方法。升级行为由应用程序中设置的运行状况和准备就绪检查控制。
 
-- **运行状况检查**在每个应用程序中指定，并根据任务运行。如果任务的运行状况检查显示不佳而失败，DC/OS 将替换该任务。如需更多信息，请参阅 [文档](/cn/1.12/deploying-services/creating-services/health-checks/)。
+- **运行状况检查**在每个应用程序中指定，并根据任务运行。如果任务的运行状况检查显示不佳而失败，DC/OS 将替换该任务。如需更多信息，请参阅 [文档](/mesosphere/dcos/cn/1.12/deploying-services/creating-services/health-checks/)。
 - **准备就绪检查**是临时监控器，等待您的应用程序准备就绪。准备就绪检查对缓存预热、JIT 预热或迁移非常有用。如果准备就绪检查失败，DC/OS 将等待其成功，然后再继续部署。
 
 您可以使用 `minimumHealthCapacity` 参数来定义某个版本的应用程序在更新过程中必须始终具有的最小运行良好实例数。此参数在每个应用程序中单独定义。minimumHealthCapacity 是一个百分比，当应用于实例计数时，它定义某个版本的应用程序在更新过程中必须始终具有的运行良好的实例数。

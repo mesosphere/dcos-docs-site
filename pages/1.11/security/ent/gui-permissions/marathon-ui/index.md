@@ -16,11 +16,11 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
 **Prerequisite:**
 
-- A DC/OS user account without the `dcos:superuser` [permission](/1.11/security/ent/users-groups/).
+- A DC/OS user account without the `dcos:superuser` [permission](/mesosphere/dcos/1.11/security/ent/users-groups/).
 
 1.  Log into the DC/OS web interface as a user with the `dcos:superuser` permission.
 
-    ![Login](/1.11/img/gui-installer-login-ee.gif)
+    ![Login](/mesosphere/dcos/1.11/img/gui-installer-login-ee.gif)
 
     Figure 1. DC/OS web interface login
 
@@ -28,7 +28,7 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
 3.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.11/img/services-tab-user.png)
+    ![Add permission cory](/mesosphere/dcos/1.11/img/services-tab-user.png)
 
     Figure 2. Select user or group to grant permissions to
 
@@ -37,11 +37,11 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
 5.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.11/img/services-tab-user3.png)
+    ![Add permission](/mesosphere/dcos/1.11/img/services-tab-user3.png)
 
     Figure 3. Insert Permission String
 
-6.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.11/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
+6.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/1.11/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
 ## Disabled
 
@@ -66,7 +66,7 @@ You can grant users access to the Marathon UI. By default, new users have no per
     ```
 
 ### Task details and logs
-    To view task details and logs, you must grant access to the [Mesos UI](/1.11/security/ent/gui-permissions/mesos-ui/).   
+    To view task details and logs, you must grant access to the [Mesos UI](/mesosphere/dcos/1.11/security/ent/gui-permissions/mesos-ui/).   
 
 ## Strict
 
@@ -83,7 +83,7 @@ You can grant users access to the Marathon UI. By default, new users have no per
     ```
 
 ### Task details and logs
-    To view Marathon task details and logs, you must grant access to the [Mesos UI](/1.11/security/ent/gui-permissions/mesos-ui/).
+    To view Marathon task details and logs, you must grant access to the [Mesos UI](/mesosphere/dcos/1.11/security/ent/gui-permissions/mesos-ui/).
 
 2.  You can send the URL of the native Marathon UI for DC/OS to the user: `http://<master-public-ip>/marathon/`.
 
@@ -91,8 +91,8 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser.
-- If your [security mode](/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.11/cli/install/) and be logged in as a superuser.
+- If your [security mode](/mesosphere/dcos/1.11/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 **Note:**
 
@@ -172,7 +172,7 @@ You can grant users access to the Marathon UI. By default, new users have no per
 
 
 ### Task details and logs
-To view task details and logs, you must grant access to the [Mesos UI](/1.11/security/ent/gui-permissions/mesos-ui/).
+To view task details and logs, you must grant access to the [Mesos UI](/mesosphere/dcos/1.11/security/ent/gui-permissions/mesos-ui/).
 
 ## Strict
 
@@ -219,6 +219,6 @@ To view task details and logs, you must grant access to the [Mesos UI](/1.11/sec
    **Tip:** To grant this permission to a group instead of a user, replace `/users/<uid>` with `/groups/<gid>`.
 
 ### Task details and logs
-To view task details and logs, you must grant access to the [Mesos UI](/1.11/security/ent/gui-permissions/mesos-ui/).
+To view task details and logs, you must grant access to the [Mesos UI](/mesosphere/dcos/1.11/security/ent/gui-permissions/mesos-ui/).
 
 You can now send the URL of the native Marathon UI for DC/OS to the user: `http://<master-public-ip>/marathon/`.

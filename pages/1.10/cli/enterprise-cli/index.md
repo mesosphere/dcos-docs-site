@@ -11,7 +11,7 @@ The DC/OS Enterprise CLI provides commands for DC/OS Enterprise features: `dcos 
 
 # <a name="ent-cli-install"></a>Installing the DC/OS Enterprise CLI
 
-**Prerequisite:** The DC/OS CLI must already be [installed](/1.10/cli/install/).
+**Prerequisite:** The DC/OS CLI must already be [installed](/mesosphere/dcos/1.10/cli/install/).
 
 **Tip:** The DC/OS Enterprise CLI must be installed from the DC/OS CLI. You cannot install from the Catalog in the GUI.
 

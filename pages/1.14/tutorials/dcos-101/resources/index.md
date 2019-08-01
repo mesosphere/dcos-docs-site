@@ -15,8 +15,8 @@ Welcome to part 7 of the DC/OS 101 Tutorial.
 
 
 # Prerequisites
-* A [running DC/OS cluster](/1.14/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.14/tutorials/dcos-101/cli/).
-* [app2](/1.14/tutorials/dcos-101/app2/) deployed and running in your cluster.
+* A [running DC/OS cluster](/mesosphere/dcos/1.14/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/mesosphere/dcos/1.14/tutorials/dcos-101/cli/).
+* [app2](/mesosphere/dcos/1.14/tutorials/dcos-101/app2/) deployed and running in your cluster.
 
 # Objective
 

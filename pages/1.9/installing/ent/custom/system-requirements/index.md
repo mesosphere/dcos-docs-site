@@ -23,7 +23,7 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 The cluster nodes are designated Mesos masters and agents during installation.
 
-The supported operating systems and environments are listed on the [version policy page](/version-policy/).
+The supported operating systems and environments are listed on the [version policy page](/mesosphere/dcos/version-policy/).
 
 
 ### Master nodes
@@ -40,7 +40,7 @@ The table below shows the master node hardware requirements:
 
 There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least 3 masters. For more information about high availability requirements see the [High Availability documentation][0].
 
-[0]: /1.10/overview/high-availability/
+[0]: /mesosphere/dcos/1.10/overview/high-availability/
 
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
 
@@ -61,7 +61,7 @@ The table below shows the agent node hardware requirements.
 
 The agent nodes must also have:
 
-- A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.9/deploying-services/containerizers/).
+- A `/var` directory with 10 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/mesosphere/dcos/1.9/deploying-services/containerizers/).
 - The agent's work directory, `/var/lib/mesos/slave`, should be on a separate device. This protects all the other services from a task overflowing the disk.
 
   - To maintain backwards compatibility with frameworks written before the disk resource was introduced, by default the disk resource is not enforced.
@@ -105,7 +105,7 @@ Refer to [this shell script](https://raw.githubusercontent.com/dcos/dcos/1.9.1/c
 
 ### Docker
 
-Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on the [version policy page](/version-policy/).
+Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on the [version policy page](/mesosphere/dcos/version-policy/).
 
 **Recommendations**
 
@@ -173,7 +173,7 @@ Before installing DC/OS, you must ensure that your bootstrap node has the follow
 
 **Important:**
 
-* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/1.9/installing/ent/custom/configuration/configuration-parameters/).
+* If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper` the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the configuration parameter [documentation](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/).
 * The bootstrap node must be separate from your cluster nodes.
 
 ### <a name="setup-file"></a>DC/OS setup file
@@ -241,7 +241,7 @@ localectl set-locale LANG=en_US.utf8
 - [CLI DC/OS Installation Guide][1]
 - [Advanced DC/OS Installation Guide][5]
 
-[1]: /1.9/installing/ent/custom/cli/
-[2]: /1.9/installing/ent/custom/system-requirements/install-docker-centos/
-[4]: /1.9/installing/ent/custom/gui/
-[5]: /1.9/installing/ent/custom/advanced/
+[1]: /mesosphere/dcos/1.9/installing/ent/custom/cli/
+[2]: /mesosphere/dcos/1.9/installing/ent/custom/system-requirements/install-docker-centos/
+[4]: /mesosphere/dcos/1.9/installing/ent/custom/gui/
+[5]: /mesosphere/dcos/1.9/installing/ent/custom/advanced/

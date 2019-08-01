@@ -9,16 +9,16 @@ model: /1.14/data.yml
 enterprise: true
 ---
 
-This topic describes how to deploy a non-native instance of Marathon (Marathon on Marathon) with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/1.14/security/ent/secrets/) or fine-grain ACLs. Otherwise, use the [basic procedure](/1.14/deploying-services/marathon-on-marathon/basic/).
+This topic describes how to deploy a non-native instance of Marathon (Marathon on Marathon) with isolated roles, reservations, quotas, and security features. The advanced non-native Marathon procedure should only be used if you require [secrets](/mesosphere/dcos/1.14/security/ent/secrets/) or fine-grain ACLs. Otherwise, use the [basic procedure](/mesosphere/dcos/1.14/deploying-services/marathon-on-marathon/basic/).
 
 For this procedure, we are assuming that you have obtained an enterprise version of Marathon from a support team member. If you still need the enterprise artifact, you will want to first file a ticket via the [Mesosphere support portal](https://support.mesosphere.com/s/). The enterprise artifact is delivered as a Docker image file and contains Marathon plus plugins for Marathon that enable DC/OS Enterprise features - such as secrets and fine-grained access control.
 
 **Prerequisites:**
 
--  DC/OS and DC/OS CLI [installed](/1.14/installing/).
--  [DC/OS Enterprise CLI 0.4.14 or later](/1.14/cli/enterprise-cli/#ent-cli-install).
--  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/1.14/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)).
--  Custom non-native Marathon image [deployed in your private Docker registry](/1.14/deploying-services/private-docker-registry#tarball-instructions). File a ticket with via the [support portal](https://support.mesosphere.com) to obtain the enterprise Marathon image file.
+-  DC/OS and DC/OS CLI [installed](/mesosphere/dcos/1.14/installing/).
+-  [DC/OS Enterprise CLI 0.4.14 or later](/mesosphere/dcos/1.14/cli/enterprise-cli/#ent-cli-install).
+-  A private Docker registry that each private DC/OS agent can access over the network. You can follow [these](/mesosphere/dcos/1.14/deploying-services/private-docker-registry/) instructions for how to set up in Marathon, or use another option such as [DockerHub](https://hub.docker.com/), [Amazon EC2 Container Registry](https://aws.amazon.com/ecr/), and [Quay](https://quay.io/)).
+-  Custom non-native Marathon image [deployed in your private Docker registry](/mesosphere/dcos/1.14/deploying-services/private-docker-registry#tarball-instructions). File a ticket with via the [support portal](https://support.mesosphere.com) to obtain the enterprise Marathon image file.
 -  You must be logged in as a superuser.
 -  SSH access to the cluster.
 
@@ -33,10 +33,10 @@ This table contains all the variables used in this page:
 | Variable | Description |
 |--------------------------|--------------------------------------------|
 | `${MESOS_ROLE}` | The name of the [Mesos Role](https://mesos.apache.org/documentation/latest/roles/) that the new Marathon instance will use. This should be all lowercase, and be a valid [Mesos role name](https://mesos.apache.org/documentation/latest/roles/#invalid-role-names), for example `"marathon_ee"`. |
-| `${SERVICE_ACCOUNT}` | The name of the [Service Account](/1.14/security/ent/service-auth/) that Marathon will use to communicate with the other services in DC/OS. The name should include only letters, numbers, `@`, `.`, `\`, `_`, and `-`. For example `"marathon_user_ee"` |
+| `${SERVICE_ACCOUNT}` | The name of the [Service Account](/mesosphere/dcos/1.14/security/ent/service-auth/) that Marathon will use to communicate with the other services in DC/OS. The name should include only letters, numbers, `@`, `.`, `\`, `_`, and `-`. For example `"marathon_user_ee"` |
 | `${MARATHON_INSTANCE_NAME}` | The service name of your new Marathon instance, as launched by the root Marathon instance. This should be a valid [Marathon service name](https://mesosphere.github.io/marathon/docs/application-basics.html), for example `"mom_ee"`. |
-| `${SERVICE_ACCOUNT_SECRET}` | The path of the secret in the [Secret Store](/1.14/security/ent/secrets/) to hold the private key that Marathon will use along with the `${SERVICE_ACCOUNT}` account to authenticate on DC/OS. This name **must not** contain a leading `/`. A valid example: `"marathon_user_ee_secret"` |
-| `${DOCKER_REGISTRY_SECRET}` | The name of the [Secret](/1.14/security/ent/secrets/) to hold the credentials for fetching the Marathon Docker image from the private registry. This name **must not** contain a leading `/`. A valid example: `"registry_secret"`. |
+| `${SERVICE_ACCOUNT_SECRET}` | The path of the secret in the [Secret Store](/mesosphere/dcos/1.14/security/ent/secrets/) to hold the private key that Marathon will use along with the `${SERVICE_ACCOUNT}` account to authenticate on DC/OS. This name **must not** contain a leading `/`. A valid example: `"marathon_user_ee_secret"` |
+| `${DOCKER_REGISTRY_SECRET}` | The name of the [Secret](/mesosphere/dcos/1.14/security/ent/secrets/) to hold the credentials for fetching the Marathon Docker image from the private registry. This name **must not** contain a leading `/`. A valid example: `"registry_secret"`. |
 | `${PRIVATE_KEY}` | The path to a PEM formatted private key file (in your local file system, existing or not), ideally suffixed with `.pem` |
 | `${PUBLIC_KEY}` | The path to a PEM formatted public key file (in your local file system, existing or not), ideally suffixed with `.pem` |
 | `${MARATHON_IMAGE}` | The name of the Marathon image **in your private repository**, for example `private-repo/marathon-dcos-ee`. |
@@ -64,15 +64,15 @@ MARATHON_TAG="..."
 
 For the following steps, we are assuming that you have already:
 
-1. Pushed the Marathon enterprise image to your private registry [(Instructions)](/1.14/deploying-services/private-docker-registry#tarball-instructions), under the name `${MARATHON_IMAGE}:${MARATHON_TAG}`.
-1. Stored your private Docker credentials in the secrets store [(Instructions)](/1.14/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise), under the name `${DOCKER_REGISTRY_SECRET}`.
+1. Pushed the Marathon enterprise image to your private registry [(Instructions)](/mesosphere/dcos/1.14/deploying-services/private-docker-registry#tarball-instructions), under the name `${MARATHON_IMAGE}:${MARATHON_TAG}`.
+1. Stored your private Docker credentials in the secrets store [(Instructions)](/mesosphere/dcos/1.14/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise), under the name `${DOCKER_REGISTRY_SECRET}`.
 
     <p class="message--warning"><strong>WARNING: </strong> The name of the secret should either be in the root path (ex. <code>/some-secret-name</code>) or prefixed with the name of your app (ex. <code>/${MARATHON_INSTANCE_NAME}/some-secret-name</code>). Failing to do so will make root Marathon unable to read the secret value and will fail to launch your custom Marathon-on-Marathon instance.</p>
 
 # Step 2: Create a Marathon Service Account
-In this step, a Marathon [Service Account](/1.14/security/ent/service-auth/) is created. This account will be used by Marathon to authenticate on the rest of DC/OS components. The permissions later given to this account are going to define what Marathon is allowed to do.
+In this step, a Marathon [Service Account](/mesosphere/dcos/1.14/security/ent/service-auth/) is created. This account will be used by Marathon to authenticate on the rest of DC/OS components. The permissions later given to this account are going to define what Marathon is allowed to do.
 
-Depending on your [security mode](/1.14/security/ent/#security-modes), a Marathon Service Account is either optional or required.
+Depending on your [security mode](/mesosphere/dcos/1.14/security/ent/#security-modes), a Marathon Service Account is either optional or required.
 
 | Security Mode | Marathon Service Account |
 |---------------|--------------------------|
@@ -81,7 +81,7 @@ Depending on your [security mode](/1.14/security/ent/#security-modes), a Maratho
 
 1.  Create a 2048-bit RSA private and public key pair (`${PRIVATE_KEY}` and `${PUBLIC_KEY}`) and save each value into a separate file within the current directory.
 
-    With the following command, we create a pair of private and public keys. The public key will be used to create the Marathon service account. The private key we will store in the [secret store](/1.14/security/ent/secrets/) and later passed to Marathon so it can authorize itself using this account.
+    With the following command, we create a pair of private and public keys. The public key will be used to create the Marathon service account. The private key we will store in the [secret store](/mesosphere/dcos/1.14/security/ent/secrets/) and later passed to Marathon so it can authorize itself using this account.
 
     ```bash
     dcos security org service-accounts keypair ${PRIVATE_KEY} ${PUBLIC_KEY}
@@ -121,7 +121,7 @@ In this step, a secret is created for the Marathon service account and stored in
      dcos security secrets list /
      ```
 
-  *  Review your secret to ensure that it contains the correct service account ID, private key, and `login_endpoint` URL. If you're in `strict` it should be HTTPS, in `permissive` mode it should be HTTP. If the URL is incorrect, try [upgrading the DC/OS Enterprise CLI](/1.14/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
+  *  Review your secret to ensure that it contains the correct service account ID, private key, and `login_endpoint` URL. If you're in `strict` it should be HTTPS, in `permissive` mode it should be HTTP. If the URL is incorrect, try [upgrading the DC/OS Enterprise CLI](/mesosphere/dcos/1.14/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
 
       You can use this commands to view the contents (requires [jq 1.5 or later](https://stedolan.github.io/jq/download) installed):
 
@@ -140,7 +140,7 @@ In this step, permissions are assigned to the Marathon-on-Marathon instance. Per
 | Permissive | Not available |
 | Strict | Required |
 
-All CLI commands can also be executed via the [IAM API](/1.14/security/ent/iam-api/).
+All CLI commands can also be executed via the [IAM API](/mesosphere/dcos/1.14/security/ent/iam-api/).
 
 Grant service account `${SERVICE_ACCOUNT}` permission to launch Mesos tasks that will execute as Linux user `nobody`.
 
@@ -161,7 +161,7 @@ dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:princi
 # Step 5: Install a Non-Native Marathon Instance with Assigned Role {.tabs}
 In this step, a non-native Marathon instance is installed on DC/OS with the Mesos role assigned.
 
-1.  Create a custom JSON config that will be used to install the custom non-native Marathon instance. The JSON file contents vary according to your [security mode](/1.14/security/ent/#security-modes).
+1.  Create a custom JSON config that will be used to install the custom non-native Marathon instance. The JSON file contents vary according to your [security mode](/mesosphere/dcos/1.14/security/ent/#security-modes).
 
     Make sure you replace all the `${VARIABLES}` in the JSON file with the correct values for your case.
 
@@ -442,11 +442,11 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 
 1.  Enter your username and password and click **LOG IN**.
 
-    ![Log in DC/OS](/1.14/img/LOGIN-EE-Modal_View-1_12.png)
+    ![Log in DC/OS](/mesosphere/dcos/1.14/img/LOGIN-EE-Modal_View-1_12.png)
 
     Figure 4. You are done!
 
-    ![Marathon on Marathon](/1.14/img/mom-marathon-gui.png)
+    ![Marathon on Marathon](/mesosphere/dcos/1.14/img/mom-marathon-gui.png)
 
 
 # Next Steps

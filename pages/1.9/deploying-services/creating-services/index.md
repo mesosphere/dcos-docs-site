@@ -139,7 +139,7 @@ Paste the following JSON into a file named `basic-3.json`.
 }
 ```
 
-Use the Marathon API to deploy the app `basic-3` from the DC/OS CLI. Refer to the [documentation](/1.9/security/ent/iam-api/) to learn more about the API token required in the command below.
+Use the Marathon API to deploy the app `basic-3` from the DC/OS CLI. Refer to the [documentation](/mesosphere/dcos/1.9/security/ent/iam-api/) to learn more about the API token required in the command below.
 
 ```sh
  curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X POST <master-IP>/service/marathon/v2/apps -d @basic-3.json -H "Content-type: application/json"

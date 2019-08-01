@@ -37,4 +37,4 @@ dcos security secrets update [OPTIONS] PATH
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 安全密钥](/cn/1.12/cli/command-reference/dcos-security/dcos-security-secrets/) | 管理密钥。 |
+| [dcos 安全密钥](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-security/dcos-security-secrets/) | 管理密钥。 |

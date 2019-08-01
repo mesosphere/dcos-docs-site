@@ -9,7 +9,7 @@ excerpt: 安装生产就绪的 DC/OS
 
 本页概括如何安装 DC/OS 用于生产。使用这种方法，您可以打包 DC/OS 分发并手动连接到每个节点，以运行 DC/OS 安装命令。若要与现有系统集成，或者您没有群集的 SSH 访问权限，则推荐使用这种安装方法。
 
-DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和专用代理节点。可以查看 [节点](/cn/1.11/overview/concepts/#node) 文档以了解更多信息。
+DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和专用代理节点。可以查看 [节点](/mesosphere/dcos/cn/1.11/overview/concepts/#node) 文档以了解更多信息。
 
 # 生产安装流程
 
@@ -19,7 +19,7 @@ DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和
 1. 在管理节点上安装 DC/OS
 1. 在代理节点上安装 DC/OS
 
-![Production Installation Process](/cn/1.11/img/advanced-installer.png)
+![Production Installation Process](/mesosphere/dcos/cn/1.11/img/advanced-installer.png)
 图 1. 生产安装流程
 
 
@@ -35,7 +35,7 @@ DC/OS 安装会创建以下文件夹：
 |  /opt/mesosphere | 包含 DC/OS 二进制文件、库和群集配置。请勿修改。 |
 |  /etc/systemd/system/dcos.target.wants | 包含启动 systemd 组件的 systemd 服务。它们因受 systemd 限制而必须位于 `/opt/mesosphere` 之外。 |
 | /etc/systemd/system/dcos. `<units>`      | 包含在 `/etc/systemd/system/dcos.target.wants` 中单元的复制。他们必须在最上面的文件夹，同时也在 `dcos.target.wants` 里面。 |
-|  /var/lib/dcos/exhibitor/zookeeper | 包含 [ZooKeeper](/cn/1.11/overview/concepts/#exhibitor-zookeeper) 数据。 |
+|  /var/lib/dcos/exhibitor/zookeeper | 包含 [ZooKeeper](/mesosphere/dcos/cn/1.11/overview/concepts/#exhibitor-zookeeper) 数据。 |
 |  /var/lib/docker | 包含 Docker 数据。 |
 |  /var/lib/dcos | 包含 DC/OS 数据。 |
 |  /var/lib/mesos | 包含 Mesos 数据。 |
@@ -43,7 +43,7 @@ DC/OS 安装会创建以下文件夹：
 <p class="message--warning"><strong>警告：</strong>不支持更改为 <code>/opt/mesosphere</code>。它们可能导致 DC/OS 中出现不可预测的行为，并防止升级。</p>
 
 ## 前提条件
-您的群集必须符合软件和硬件 [要求](/cn/1.11/installing/production/system-requirements/)，才能安装 DC/OS。
+您的群集必须符合软件和硬件 [要求](/mesosphere/dcos/cn/1.11/installing/production/system-requirements/)，才能安装 DC/OS。
 
 
 # <a name="configure-cluster"></a>配置您的群集
@@ -57,7 +57,7 @@ DC/OS 安装会创建以下文件夹：
 # <a name="license"></a>存储许可证文件
 [/enterprise]
 
-创建 [许可证文件](/cn/1.11/administering-clusters/licenses/)（包含您的授权支持联系人发送的电子邮件中提供的许可文本）并另存为 `genconf/license.txt`。
+创建 [许可证文件](/mesosphere/dcos/cn/1.11/administering-clusters/licenses/)（包含您的授权支持联系人发送的电子邮件中提供的许可文本）并另存为 `genconf/license.txt`。
 
 # <a name="ip-detect-script"></a>创建 IP 检测脚本
 
@@ -152,7 +152,7 @@ DC/OS 安装会创建以下文件夹：
 # 创建故障域检测脚本
 [/enterprise]
 
-DC/OS 群集默认启用 [故障域意识](/cn/1.11/deploying-services/fault-domain-awareness/)，所以必须更改 `config.yaml` 才能使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `config.yaml` 文件中的 `fault_domain_enabled` 参数设置为 `false`。
+DC/OS 群集默认启用 [故障域意识](/mesosphere/dcos/cn/1.11/deploying-services/fault-domain-awareness/)，所以必须更改 `config.yaml` 才能使用此功能。但必须包含名为 `fault-domain-detect` 故障域检测脚本到您的 `./genconf` 目录。要选择禁用故障域感知，请将 `config.yaml` 文件中的 `fault_domain_enabled` 参数设置为 `false`。
 
 
 1. 创建名为 `fault-domain-detect` 的故障域检测脚本，在每个节点上运行，以检测节点的故障域。安装过程中此脚本的输出被传递到 Mesos。
@@ -215,7 +215,7 @@ Enterprise 指定三个Mesos 管理节点、静态管理节点发现列表、Exh
 
 该开源模板指定三个 Mesos 管理节点、三个用于 Exhibitor 存储的 ZooKeeper 实例、静态管理节点发现列表、Exhibitor 的内部存储后端、一个自定义代理，以及云专用的 DNS 解析器。[oss type="inline" size="small" /]
 
-如果服务器在您的 `/etc/resolv.conf` 中安装时带有域名，请添加 `dns_search` 参数。有关参数描述和配置示例，请参阅 [文档](/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
+如果服务器在您的 `/etc/resolv.conf` 中安装时带有域名，请添加 `dns_search` 参数。有关参数描述和配置示例，请参阅 [文档](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/)。
 
 <p class="message--note"><strong>注意：</strong>如果 AWS DNS IP 在您的国家/地区不可用，可以使用本地 DNS 服务器替换 AWS DNS IP 服务器 <code>8.8.8.8</code> 和 <code>8.8.4.4</code>。</p>
 <p class="message--note"><strong>注意：</strong>- 如果您指定 <code>master_discovery: static</code>，则还必须创建脚本，以将内部 IP 映射到 bootstrap 节点上的公共 IP（例如，<code>genconf/ip-detect-public</code>）。然后，此脚本在 <code>ip_detect_public_filename: "relative-path-from-dcos-generate-config.sh"</code> 中引用。</p>
@@ -428,7 +428,7 @@ enable_ipv6: 'false'
 
     <p class="message--note"><strong>注意：</strong>此过程可能大约 10 分钟。在此期间，您将看到管理节点在 Exhibitor 控制台上可见并上线，并且最后会显示一个绿灯图标。</p>
 
-    ![Exhibitor for ZooKeeper](/cn/1.11/img/chef-zk-status.png)
+    ![Exhibitor for ZooKeeper](/mesosphere/dcos/cn/1.11/img/chef-zk-status.png)
 
     图 2. Exhibitor for ZooKeeper
 
@@ -440,14 +440,14 @@ enable_ipv6: 'false'
 
 1. 输入您的管理员用户名和密码。
 
-    ![Login screen](/cn/1.11/img/ui-installer-auth2.png)
+    ![Login screen](/mesosphere/dcos/cn/1.11/img/ui-installer-auth2.png)
 
     图 3. 登录对话
 
 
 成功了！现在将显示 UI 仪表板。
 
-![UI dashboard](/cn/1.11/img/dashboard-ee.png)
+![UI dashboard](/mesosphere/dcos/cn/1.11/img/dashboard-ee.png)
 
 图 4. DC/OS UI 仪表板
 
@@ -457,7 +457,7 @@ enable_ipv6: 'false'
 
 下列链接提供了后续步骤的信息：
 - [分配用户角色][7]。
-- [系统要求](/cn/1.11/installing/production/system-requirements/)
+- [系统要求](/mesosphere/dcos/cn/1.11/installing/production/system-requirements/)
 - [公共代理节点][2]
 - [专用代理节点][3]
 - [安装 DC/OS 命令行界面 (CLI)][9]
@@ -466,16 +466,16 @@ enable_ipv6: 'false'
 - [卸载 DC/OS][11]
 
 
-[1]: /cn/1.11/installing/production/system-requirements/
-[2]: /cn/1.11/overview/concepts/#public
-[3]: /cn/1.11/overview/concepts/#private
-[5]: /cn/1.11/img/ui-installer-auth2.png
-[6]: /cn/1.11/img/dashboard-ee.png
-[7]: /cn/1.11/security/ent/users-groups/
-[8]: /cn/1.11/security/ent/users-groups/
-[9]: /cn/1.11/cli/install/
-[12]: /cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/
-[10]: /cn/1.11/installing/troubleshooting/
-[11]: /cn/1.11/installing/production/uninstalling/
+[1]: /mesosphere/dcos/cn/1.11/installing/production/system-requirements/
+[2]: /mesosphere/dcos/cn/1.11/overview/concepts/#public
+[3]: /mesosphere/dcos/cn/1.11/overview/concepts/#private
+[5]: /mesosphere/dcos/cn/1.11/img/ui-installer-auth2.png
+[6]: /mesosphere/dcos/cn/1.11/img/dashboard-ee.png
+[7]: /mesosphere/dcos/cn/1.11/security/ent/users-groups/
+[8]: /mesosphere/dcos/cn/1.11/security/ent/users-groups/
+[9]: /mesosphere/dcos/cn/1.11/cli/install/
+[12]: /mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/
+[10]: /mesosphere/dcos/cn/1.11/installing/troubleshooting/
+[11]: /mesosphere/dcos/cn/1.11/installing/production/uninstalling/
 
 

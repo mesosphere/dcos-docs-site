@@ -10,7 +10,7 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-您可以授予用户访问 [**作业**屏幕](/cn/1.11/gui/jobs/) 的权限。新用户默认没有权限。
+您可以授予用户访问 [**作业**屏幕](/mesosphere/dcos/cn/1.11/gui/jobs/) 的权限。新用户默认没有权限。
 
 <p class="message--note"><strong>注意: </strong>此过程可授予访问这个屏幕选项卡的全部用户权限。如果您正在以 <tt>strict</tt> 或 <tt>permissive</tt> <a href="/cn/1.11/security/ent/#security-modes">安全模式</a> 运行并希望配置细粒度用户访问权限，请参阅 <a href="/cn/1.11/deploying-services/service-groups/">文档</a>。</p>
 
@@ -18,11 +18,11 @@ enterprise: true
 
 **先决条件：**
 
-- 不具有 `dcos:superuser` [权限](/cn/1.11/security/ent/users-groups/) 的 DC/OS 用户账户。
+- 不具有 `dcos:superuser` [权限](/mesosphere/dcos/cn/1.11/security/ent/users-groups/) 的 DC/OS 用户账户。
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
- ![登录](/cn/1.11/img/gui-installer-login-ee.gif)
+ ![登录](/mesosphere/dcos/cn/1.11/img/gui-installer-login-ee.gif)
 
  图 1. DC/OS Web 界面登录
 
@@ -30,7 +30,7 @@ enterprise: true
 
 3. 选择要授予权限的用户名或组名。
 
- ![添加 cory 权限](/cn/1.11/img/services-tab-user.png)
+ ![添加 cory 权限](/mesosphere/dcos/cn/1.11/img/services-tab-user.png)
 
  图 2. 选择要授予权限的用户或组
 
@@ -39,11 +39,11 @@ enterprise: true
 
 5. 单击 **INSERT PERMISSION STRING** 以切换对话框。
 
- ![添加权限](/cn/1.11/img/services-tab-user3.png)
+ ![添加权限](/mesosphere/dcos/cn/1.11/img/services-tab-user3.png)
 
  图 3. 插入权限字符串
 
-6. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes 选择权限字符串)，单击**ADD PERMISSIONS**，然后单击**Close**。
+6. 在 **Permissions Strings** 字段中复制并粘贴权限。根据您的 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes 选择权限字符串)，单击**ADD PERMISSIONS**，然后单击**Close**。
 
 ## 禁用
 
@@ -104,8 +104,8 @@ dcos:mesos:agent:sandbox:app_id read
 
 **先决条件：**
 
-- 您必须已[安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
-- 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
+- 您必须已[安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 并以超级用户身份登录。
+- 如果您的 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
 
 **注意：**
 

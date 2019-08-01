@@ -16,7 +16,7 @@ Add or set DC/OS configuration properties. Here are the available properties.
 
 | **Property**  | **Description** |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `core.dcos_acs_token`   | The DC/OS authentication token. When you log into the DC/OS CLI using `dcos auth login`, it stores the authentication token value locally. For more information, see the [documentation](/1.10/security/ent/iam-api/). |
+| `core.dcos_acs_token`   | The DC/OS authentication token. When you log into the DC/OS CLI using `dcos auth login`, it stores the authentication token value locally. For more information, see the [documentation](/mesosphere/dcos/1.10/security/ent/iam-api/). |
 | `core.dcos_url`         | The public master URL of your DC/OS cluster.|
 | `core.mesos_master_url` | The Mesos master URL. Defaults to `core.dcos_url`. |
 | `core.pagination`       | Indicates whether to paginate output. Defaults to true.|
@@ -45,7 +45,7 @@ None.
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/1.10/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
+| [dcos config](/mesosphere/dcos/1.10/cli/command-reference/dcos-config/) |  Manage DC/OS configuration. |
 
 
 # Examples

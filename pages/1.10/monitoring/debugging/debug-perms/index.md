@@ -12,10 +12,10 @@ You can grant users access to containers for debugging sessions.
 
 **Prerequisites:** 
 
-- You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser.
-- A [user account](/1.10/security/ent/users-groups/) to assign permissions to.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.10/cli/install/) and be logged in as a superuser.
+- A [user account](/mesosphere/dcos/1.10/security/ent/users-groups/) to assign permissions to.
 
-All CLI commands can also be executed via the [IAM API](/1.10/security/ent/iam-api/).
+All CLI commands can also be executed via the [IAM API](/mesosphere/dcos/1.10/security/ent/iam-api/).
 
 ## Disabled
 

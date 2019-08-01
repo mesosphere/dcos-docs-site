@@ -36,4 +36,4 @@ dcos security secrets delete [OPTIONS] PATH
 
 | Command | Description |
 |---------|-------------|
-| [dcos security secrets](/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |
+| [dcos security secrets](/mesosphere/dcos/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

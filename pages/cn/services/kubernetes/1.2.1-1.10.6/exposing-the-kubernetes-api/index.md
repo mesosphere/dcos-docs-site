@@ -30,7 +30,7 @@ VIP 是 `apiserver.kubernetes.l4lb.thisdcos.directory:6443`。
 
 为了让用户成功遵循示例，其 DC/OS 集群
 **必须**至少有一个
-[共用代理](/cn/1.11/overview/architecture/node-types/#public-agent-nodes)
+[共用代理](/mesosphere/dcos/cn/1.11/overview/architecture/node-types/#public-agent-nodes)
 （例如，网络上一个代理，允许从
 集群外部 ingress）。在示例中，`<ip-of-public-agent>` 代表 IP 地址，
 通过该地址可以找到此公用代理。用户 **必须**也可以从其工作站

@@ -10,11 +10,11 @@ enterprise: false
 
 The Logging API exposes node, component, and container (task) logs.
 
-The Logging API is backed by the [DC/OS Log component](/1.9/overview/architecture/components/#dcos-log), which runs on all nodes in the cluster.
+The Logging API is backed by the [DC/OS Log component](/mesosphere/dcos/1.9/overview/architecture/components/#dcos-log), which runs on all nodes in the cluster.
 
-For more information about using the Logging API, see [Logging](/1.9/monitoring/logging/).
+For more information about using the Logging API, see [Logging](/mesosphere/dcos/1.9/monitoring/logging/).
 
-For usage examples, see [Logging API Examples](/1.9/monitoring/logging/logging-api-examples/).
+For usage examples, see [Logging API Examples](/mesosphere/dcos/1.9/monitoring/logging/logging-api-examples/).
 
 
 # Compatibility
@@ -40,7 +40,7 @@ Access to the Logging API of the agent nodes is also proxied through the master 
 /system/v1/agent/{agent_id}/logs/v1/
 ```
 
-To determine the address of your cluster, see [Cluster Access](/1.9/api/access/).
+To determine the address of your cluster, see [Cluster Access](/mesosphere/dcos/1.9/api/access/).
 
 
 # Format
@@ -56,7 +56,7 @@ The API request header can be any the following:
 
 All Logging API routes require authentication to use.
 
-To authenticate API requests, see [Obtaining an authentication token](/1.9/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/1.9/security/ent/iam-api/#passing-an-authentication-token).
+To authenticate API requests, see [Obtaining an authentication token](/mesosphere/dcos/1.9/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](/mesosphere/dcos/1.9/security/ent/iam-api/#passing-an-authentication-token).
 
 The Logging API also requires authorization via the following permissions:
 
@@ -67,7 +67,7 @@ The Logging API also requires authorization via the following permissions:
 
 All routes may also be reached by users with the `dcos:superuser` permission.
 
-To assign permissions to your account, see [Permissions Reference](/1.9/security/ent/perms-reference/).
+To assign permissions to your account, see [Permissions Reference](/mesosphere/dcos/1.9/security/ent/perms-reference/).
 
 
 # Resources

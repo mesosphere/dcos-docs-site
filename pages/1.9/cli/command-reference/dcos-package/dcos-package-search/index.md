@@ -36,8 +36,8 @@ dcos package search <query> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/1.9/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/mesosphere/dcos/1.9/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
 
 # Examples
 
-For an example, see the [documentation](/1.9/administering-clusters/repo/).
+For an example, see the [documentation](/mesosphere/dcos/1.9/administering-clusters/repo/).

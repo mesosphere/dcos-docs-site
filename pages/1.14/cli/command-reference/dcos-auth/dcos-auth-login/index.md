@@ -36,4 +36,4 @@ dcos auth login [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/1.14/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/mesosphere/dcos/1.14/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |

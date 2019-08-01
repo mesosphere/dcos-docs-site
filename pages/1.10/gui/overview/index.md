@@ -8,4 +8,4 @@ excerpt:
 
 View the cluster details from the **Overview** tab.
 
-![Overview](/1.10/img/overview-ee.png)
+![Overview](/mesosphere/dcos/1.10/img/overview-ee.png)

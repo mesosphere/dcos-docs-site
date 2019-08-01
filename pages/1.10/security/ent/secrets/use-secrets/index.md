@@ -24,13 +24,13 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
 
 ### Prerequisites
 
-- An existing secret. The examples below use a secret called `my-secret` stored in the `developer` path. If you complete the steps in [Creating secrets](/1.10/security/ent/secrets/create-secrets/), you will meet this prerequisite.
+- An existing secret. The examples below use a secret called `my-secret` stored in the `developer` path. If you complete the steps in [Creating secrets](/mesosphere/dcos/1.10/security/ent/secrets/create-secrets/), you will meet this prerequisite.
 
-- [DC/OS CLI installed](/1.10/cli/install/) and the [DC/OS Enterprise CLI installed](/1.10/cli/enterprise-cli/#ent-cli-install).
+- [DC/OS CLI installed](/mesosphere/dcos/1.10/cli/install/) and the [DC/OS Enterprise CLI installed](/mesosphere/dcos/1.10/cli/enterprise-cli/#ent-cli-install).
 
-- If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/1.10/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
-- The appropriate permissions for your [security mode](/1.10/security/ent/#security-modes).
+- The appropriate permissions for your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes).
 
   <table class="table">
     <tr>
@@ -52,9 +52,9 @@ File-based secrets are available in the sandbox of the task (`$MESOS_SANDBOX/<co
   - `dcos:adminrouter:ops:mesos full`: to view **Task** panel information.
   - `dcos:adminrouter:ops:slave full`: to view the details about the task, including the logs.
 
-  As long as the path of the secret and the path of the group [match up properly](/1.10//security/ent/#spaces), the service will be able to access the secret value.
+  As long as the path of the secret and the path of the group [match up properly](/mesosphere/dcos/1.10//security/ent/#spaces), the service will be able to access the secret value.
 
-The procedure differs depending on whether or not you want to make the secret available to a [pod](/1.10/deploying-services/pods/) or to an individual service.
+The procedure differs depending on whether or not you want to make the secret available to a [pod](/mesosphere/dcos/1.10/deploying-services/pods/) or to an individual service.
 
 - [Individual service](#service)
 - [Pod](#pod)
@@ -75,7 +75,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 1. Click the **+** icon in the top right.
 
-    ![Add a Service](/1.10/img/add-service.png)
+    ![Add a Service](/mesosphere/dcos/1.10/img/add-service.png)
 
 1. Click the **JSON Editor** toggle.
 
@@ -129,7 +129,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
    In the example above, the secret will have the filename `path` and will be available in the task's sandbox (`$MESOS_SANDBOX/path`).
 
-   Because the service and the secret paths match, the service will be able to access the secret. See [Spaces](/1.10/security/ent/#spaces) for more details about the paths.
+   Because the service and the secret paths match, the service will be able to access the secret. See [Spaces](/mesosphere/dcos/1.10/security/ent/#spaces) for more details about the paths.
 
 1. Click **REVIEW & RUN**.
 
@@ -218,7 +218,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-   Because the service group and the secret paths match, the service will be able to access the secret. See [Spaces](/1.10/security/ent/#spaces) for more details about the paths.
+   Because the service group and the secret paths match, the service will be able to access the secret. See [Spaces](/mesosphere/dcos/1.10/security/ent/#spaces) for more details about the paths.
 
 1. Save the file with a descriptive name, such as `myservice.json`.
 
@@ -349,7 +349,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-   **Note:** Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.10//security/ent/#spaces) for more details about the paths.
+   **Note:** Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/mesosphere/dcos/1.10//security/ent/#spaces) for more details about the paths.
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 

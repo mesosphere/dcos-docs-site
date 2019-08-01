@@ -11,7 +11,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-You can use [virtual addresses (VIPs)](/1.10/networking/load-balancing-vips/virtual-ip-addresses/) to make ports management easier. VIPs simplify inter-app communication and implement a reliable service-oriented architecture. VIPs map traffic from a single virtual address to multiple IP addresses and ports.
+You can use [virtual addresses (VIPs)](/mesosphere/dcos/1.10/networking/load-balancing-vips/virtual-ip-addresses/) to make ports management easier. VIPs simplify inter-app communication and implement a reliable service-oriented architecture. VIPs map traffic from a single virtual address to multiple IP addresses and ports.
 
 # Definitions
 

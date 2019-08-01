@@ -28,10 +28,10 @@ For the partitions handling the various {{ model.techName }} repos, turn off thi
 throughput. Edit the `/etc/fstab` file and for the partition(s) of interest add the 'noatime' option.
 
 ## Prerequisites
-- You must have [DC/OS](/1.12/installing/) installed on your cluster.
+- You must have [DC/OS](/mesosphere/dcos/1.12/installing/) installed on your cluster.
 - Your cluster must have {{ model.install.minNodeCount }}.
-- If you are using Enterprise DC/OS, you may [need to provision a service account](/services/pxc/0.2.0-5.7.21/Operations/security/service-account/) before installing DC/OS {{ model.techName }} Service. Only someone with `superuser` permission can create the service account.
-  - `strict` [security mode](/1.12/security/ent/service-auth/custom-service-auth/) requires a service account.
+- If you are using Enterprise DC/OS, you may [need to provision a service account](/mesosphere/dcos/services/pxc/0.2.0-5.7.21/Operations/security/service-account/) before installing DC/OS {{ model.techName }} Service. Only someone with `superuser` permission can create the service account.
+  - `strict` [security mode](/mesosphere/dcos/1.12/security/ent/service-auth/custom-service-auth/) requires a service account.
   - In `permissive` security mode a service account is optional.
   - `disabled` security mode does not require a service account.
 

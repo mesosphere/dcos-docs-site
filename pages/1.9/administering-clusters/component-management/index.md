@@ -24,12 +24,12 @@ Component packages built by the package builder are distributed as part of the D
 
 ## Component health
 
-Component health is monitored by the DC/OS Diagnostics (3DT) component. For more information about component monitoring, see [Monitoring](/1.9/monitoring/).
+Component health is monitored by the DC/OS Diagnostics (3DT) component. For more information about component monitoring, see [Monitoring](/mesosphere/dcos/1.9/monitoring/).
 
 
 ## Component logs
 
-Component logs are sent to journald and exposed by the DC/OS Log component. For more information about component logs, see [Logging](/1.9/monitoring/logging/).
+Component logs are sent to journald and exposed by the DC/OS Log component. For more information about component logs, see [Logging](/mesosphere/dcos/1.9/monitoring/logging/).
 
 
 ## Routes

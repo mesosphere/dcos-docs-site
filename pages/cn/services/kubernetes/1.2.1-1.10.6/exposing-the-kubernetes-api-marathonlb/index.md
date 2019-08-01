@@ -163,7 +163,7 @@ $ dcos marathon app add kubectl-proxy.json
 
 如果您使用的是一些服务名称，而非 `kubernetes`，那么 `frameworkName` 应进行修改以匹配您的服务名称。例如，如果您的 Kubernetes 服务位于 `kubernetes-prod`，那么用  `"frameworkName": "kubernetes-prod"` 替换 `"frameworkName": "kubernetes"`。
 
-此示例假设 Edge-LB（版本 1.0.3 或更高版本）已正确安装和配置（遵循 Edge-LB [安装说明](/cn/services/edge-lb/) )：
+此示例假设 Edge-LB（版本 1.0.3 或更高版本）已正确安装和配置（遵循 Edge-LB [安装说明](/mesosphere/dcos/cn/services/edge-lb/) )：
 
 1. 使用以上内容创建 `kubectl-proxy-pool.json`。
 1. 使用以下命令创建 Edge-LB 池：

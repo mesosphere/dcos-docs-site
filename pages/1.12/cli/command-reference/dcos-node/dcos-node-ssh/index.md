@@ -41,10 +41,10 @@ dcos node ssh (--leader | --mesos-id=<mesos-id> | --private-ip=<private-ip>) [--
 
 # Examples
 
-For an example, see the [documentation](/1.12/administering-clusters/sshcluster/).
+For an example, see the [documentation](/mesosphere/dcos/1.12/administering-clusters/sshcluster/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.12/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/mesosphere/dcos/1.12/cli/command-reference/dcos-node/) | View DC/OS node information. |

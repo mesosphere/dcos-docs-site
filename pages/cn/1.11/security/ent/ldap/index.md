@@ -22,8 +22,8 @@ enterprise: true
 
 若要设置 LDAP 连接，请执行以下操作:
 
-1. [配置您的连接](/cn/1.11/security/ent/ldap/ldap-conn/)。
+1. [配置您的连接](/mesosphere/dcos/cn/1.11/security/ent/ldap/ldap-conn/)。
 
-2. [配置身份认证](/cn/1.11/security/ent/ldap/ldap-auth/)。
+2. [配置身份认证](/mesosphere/dcos/cn/1.11/security/ent/ldap/ldap-auth/)。
 
-3. [验证连接](/cn/1.11/security/ent/ldap/ldap-verify/)。
+3. [验证连接](/mesosphere/dcos/cn/1.11/security/ent/ldap/ldap-verify/)。

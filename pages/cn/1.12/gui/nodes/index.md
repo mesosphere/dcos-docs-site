@@ -8,7 +8,7 @@ excerpt: 使用“节点”菜单
 
 “节点”菜单全面展示整个群集中使用的所有节点。您可以查看显示 CPU、内存或磁盘分配百分比的图表。
 
-![Nodes](/1.12/img/nodes-ee-dcos-1-12.png)
+![Nodes](/mesosphere/dcos/1.12/img/nodes-ee-dcos-1-12.png)
 
 图 1 - 代理节点选项卡
 
@@ -16,7 +16,7 @@ excerpt: 使用“节点”菜单
 
 可以切换为 **网格** 视图，查看“饼状图”百分比可视化界面。
 
-![Nodes](/1.12/img/nodes-donuts-ee-dcos-1-12.png)
+![Nodes](/mesosphere/dcos/1.12/img/nodes-donuts-ee-dcos-1-12.png)
 
 图 2 - 节点网格视图
 
@@ -24,7 +24,7 @@ excerpt: 使用“节点”菜单
 
 单击“管理节点”选项卡可打开“管理节点”视图。
 
-![Nodes](/1.12/img/nodes-masters-ee-dcos-1-12.png)
+![Nodes](/mesosphere/dcos/1.12/img/nodes-masters-ee-dcos-1-12.png)
 
 图 3 - 管理节点选项卡
 

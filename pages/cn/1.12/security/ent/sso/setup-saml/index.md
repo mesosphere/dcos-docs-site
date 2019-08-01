@@ -66,7 +66,7 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 
 ## 获取 DC/OS 回调 URL
 
-此程序使用身份和访问管理 API (IAM API)。有关 IAM API 的更多详细信息，请访问 [IAM API 文档](/cn/1.12/security/ent/iam-api/)。
+此程序使用身份和访问管理 API (IAM API)。有关 IAM API 的更多详细信息，请访问 [IAM API 文档](/mesosphere/dcos/cn/1.12/security/ent/iam-api/)。
 
 
 1. 使用浏览器或 curl 向 `<your-cluster-URL>/acs/api/v1/auth/saml/providers` 发出 `GET` 请求。
@@ -111,7 +111,7 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 
 1. 以具有 `dcos:superuser` 权限的用户身份登录 DC/OS GUI。
 1. 在 **Organization** -> **Users** 选项卡中，找到您刚尝试作为用户登录的电子邮件地址，然后双击它。
-1. 为帐户分配所需权限。有关分配权限的详细信息，请访问[权限](/cn/1.12/security/ent/perms-reference/)文档。
+1. 为帐户分配所需权限。有关分配权限的详细信息，请访问[权限](/mesosphere/dcos/cn/1.12/security/ent/perms-reference/)文档。
 
 
 # 故障排除

@@ -10,7 +10,7 @@ DC/OS 1.11 exports Prometheus metrics by default. There is no need to install a 
 
 **Prerequisite:**
 
-- You must have the [DC/OS CLI installed](/1.11/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.11/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 
 # Run a Prometheus server on DC/OS
 
@@ -29,10 +29,10 @@ There are many ways to run a Prometheus server. This is the simplest way to get 
 
 You can find the Prometheus UI by hovering your cursor over the prometheus application in the 'monitoring' folder and clicking on the link that appears. This
 Prometheus service is configured to discover all the agents and masters in your cluster and pull metrics from them. Running the statsd-emitter test application
-described in the [quickstart](/1.11/metrics/quickstart/) documentation will allow you to query for `statsd_tester_time_uptime`, which should yield a graph that
+described in the [quickstart](/mesosphere/dcos/1.11/metrics/quickstart/) documentation will allow you to query for `statsd_tester_time_uptime`, which should yield a graph that
 looks like this:
 
-   ![statsd_tester_time_uptime](/1.11/img/statsd_tester_time_uptime.png)
+   ![statsd_tester_time_uptime](/mesosphere/dcos/1.11/img/statsd_tester_time_uptime.png)
 
    Figure 1. Statsd graph
 

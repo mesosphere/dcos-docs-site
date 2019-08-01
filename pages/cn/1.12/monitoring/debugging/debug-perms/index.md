@@ -13,10 +13,10 @@ enterprise: true
 
 **先决条件：**
 
-- 必须 [安装 DC/OS CLI](/cn/1.12/cli/install/) 并以超级用户登户身份登录。
-- 分配其权限的 [用户帐户](/cn/1.12/security/ent/users-groups/) 
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/install/) 并以超级用户登户身份登录。
+- 分配其权限的 [用户帐户](/mesosphere/dcos/cn/1.12/security/ent/users-groups/) 
 
-所有 CLI 命令也可通过 [IAM API](/cn/1.12/security/ent/iam-api/) 执行。您可以在 [CLI 命令参考部分](/cn/1.12/cli/command-reference/dcos-security/)看到更多有关 `dcos security org users` 命令的详细信息。
+所有 CLI 命令也可通过 [IAM API](/mesosphere/dcos/cn/1.12/security/ent/iam-api/) 执行。您可以在 [CLI 命令参考部分](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-security/)看到更多有关 `dcos security org users` 命令的详细信息。
 
 ## 宽容
 

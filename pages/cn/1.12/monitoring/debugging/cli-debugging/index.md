@@ -12,19 +12,19 @@ DC/OS CLI 提供命令以调试未按照预期部署或表现的服务。要查�
 ```bash
 dcos -—log-level="debug" package install hdfs
 ```
-有关日志级别的更多信息，请参阅 [CLI 命令参考](/cn/1.12/cli/command-reference/) 或运行 `dcos --help`。
+有关日志级别的更多信息，请参阅 [CLI 命令参考](/mesosphere/dcos/cn/1.12/cli/command-reference/) 或运行 `dcos --help`。
 
 # 调试被停滞部署的子命令
 
-DC/OS CLI 提供一组调试子命令，用于排除停滞的服务或 Pod 部署。您也可以从 [DC/OS Web 界面](/cn/1.12/monitoring/debugging/gui-debugging/) 使用调试服务和 Pod。
+DC/OS CLI 提供一组调试子命令，用于排除停滞的服务或 Pod 部署。您也可以从 [DC/OS Web 界面](/mesosphere/dcos/cn/1.12/monitoring/debugging/gui-debugging/) 使用调试服务和 Pod。
 
 ## 先决条件
 - DC/OS 群集
-- [DC/OS CLI 已安装](/cn/1.12/cli/install/)
+- [DC/OS CLI 已安装](/mesosphere/dcos/cn/1.12/cli/install/)
 - 部署时停滞的服务或 Pod
 
 ## 应用定义示例
-如果您目前没有在部署时停滞的服务或 Pod，您可以使用以下两个 [Marathon 应用定义](/cn/1.12/deploying-services/creating-services/) 来验证本节的说明。
+如果您目前没有在部署时停滞的服务或 Pod，您可以使用以下两个 [Marathon 应用定义](/mesosphere/dcos/cn/1.12/deploying-services/creating-services/) 来验证本节的说明。
 
 - mem-app.json
 
@@ -68,7 +68,7 @@ DC/OS CLI 提供一组调试子命令，用于排除停滞的服务或 Pod 部�
 
 ## dcos marathon debug list
 
-[`dcos marathon debug list`](/cn/1.12/cli/command-reference/dcos-marathon/dcos-marathon-debug-list/) 命令向您显示处于等待状态的所有服务。这让您能够只查看未在运行的服务。
+[`dcos marathon debug list`](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-marathon/dcos-marathon-debug-list/) 命令向您显示处于等待状态的所有服务。这让您能够只查看未在运行的服务。
 
 ```bash
 dcos marathon debug list
@@ -89,7 +89,7 @@ ID            SINCE                     INSTANCES TO LAUNCH  WAITING  PROCESSED 
 
 ## dcos marathon debug summary
 
-一旦您知道哪些服务或 pod 在部署中停滞不前，请使用 [`dcos marathon debug summary /<app-id>|/<pod-id>`命令](/cn/1.12/cli/command-reference/dcos-marathon/dcos-marathon-debug-summary/)了解有关具体停滞服务或 pod 的更多信息。
+一旦您知道哪些服务或 pod 在部署中停滞不前，请使用 [`dcos marathon debug summary /<app-id>|/<pod-id>`命令](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-marathon/dcos-marathon-debug-summary/)了解有关具体停滞服务或 pod 的更多信息。
 
 ```bash
 dcos marathon debug summary /mem-app
@@ -108,7 +108,7 @@ PORTS        ---                       0 / 0    ---
 
 ## dcos marathon debug details
 
-[`dcos marathon debug details /<app-id>|/<pod-id>` 命令](/cn/1.12/cli/command-reference/dcos-marathon/dcos-marathon-debug-details/) 可以让您确切了解应当如何更改您的服务或 Pod 定义。
+[`dcos marathon debug details /<app-id>|/<pod-id>` 命令](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-marathon/dcos-marathon-debug-details/) 可以让您确切了解应当如何更改您的服务或 Pod 定义。
 
 ```bash
 dcos marathon debug details /mem-app
@@ -126,4 +126,4 @@ HOSTNAME    ROLE  CONSTRAINTS  CPUS  MEM  DISK  PORTS  RECEIVED
 
 上例中，您可以看到一个 `/mem-app` 实例的状态在除内存以外的所有其他类别中为 `ok`。另一个实例的成功资源匹配比较少，角色、CPU、内存和端口均没有匹配项。
 
-有关此命令的更多信息，请参阅 [CLI 命令参考部分](/cn/1.12/cli/command-reference/dcos-marathon/dcos-marathon-debug-details/)。
+有关此命令的更多信息，请参阅 [CLI 命令参考部分](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-marathon/dcos-marathon-debug-details/)。

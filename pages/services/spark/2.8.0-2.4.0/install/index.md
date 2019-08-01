@@ -13,8 +13,8 @@ featureMaturity:
 
 **Prerequisites**
 
-- [DC/OS and DC/OS CLI installed](/1.12/installing/)
-- Depending on your [security mode](/1.12/security/ent/), {{ model.techShortName }} requires service authentication for access to DC/OS.
+- [DC/OS and DC/OS CLI installed](/mesosphere/dcos/1.12/installing/)
+- Depending on your [security mode](/mesosphere/dcos/1.12/security/ent/), {{ model.techShortName }} requires service authentication for access to DC/OS.
 
 | Security mode | Service account       |
 |---------------|-----------------------|
@@ -22,7 +22,7 @@ featureMaturity:
 | Permissive    | Optional              |
 | Strict        | **Required**          |
 
-For more information about service accounts, see [Security](/1.12/security/):  
+For more information about service accounts, see [Security](/mesosphere/dcos/1.12/security/):  
 
 # Default installation
 To install the DC/OS {{ model.techName }} service, run the following command on the DC/OS CLI. This installs the {{ model.techShortName }} DC/OS service, {{ model.techShortName }} CLI, dispatcher, and, optionally, the history server. See [Custom installation][7] to install the history server.
@@ -33,7 +33,7 @@ dcos package install  {{ model.packageName }}
 
 Go to the **Services** > **Deployments** tab of the DC/OS GUI to monitor the deployment. When it has finished deploying, visit {{ model.techShortName }} at `http://<dcos-url>/service/ {{ model.packageName }}/`.
 
-You can also [install {{ model.techShortName }} via the DC/OS GUI](/1.12/installing/).
+You can also [install {{ model.techShortName }} via the DC/OS GUI](/mesosphere/dcos/1.12/installing/).
 
 ## {{ model.techShortName }} CLI
 You can install the {{ model.techShortName }} CLI with this command. This is useful if you already have a {{ model.techShortName }} cluster running, but need the {{ model.techShortName }} CLI.
@@ -193,7 +193,7 @@ To install multiple instances of the DC/OS {{ model.techName }} package, set eac
 
 # Installation for strict mode
 
-If your cluster is set up for [strict](/1.12/security/ent/#strict) security then you will follow these steps to install and run {{ model.techShortName }}.
+If your cluster is set up for [strict](/mesosphere/dcos/1.12/security/ent/#strict) security then you will follow these steps to install and run {{ model.techShortName }}.
 
 ## Service accounts and secrets
 
@@ -353,7 +353,7 @@ dcos  {{ model.packageName }} run --verbose --submit-args="\
 ```
 
 ### Docker Engine
-If you want to use the [Docker Engine](/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/1.10/deploying-services/containerizers/ucr/), you must specify ` {{ model.packageName }}.mesos.executor.docker.parameters=user=nobody` in addition to ` {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody` to run the Docker container as this user:
+If you want to use the [Docker Engine](/mesosphere/dcos/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/mesosphere/dcos/1.10/deploying-services/containerizers/ucr/), you must specify ` {{ model.packageName }}.mesos.executor.docker.parameters=user=nobody` in addition to ` {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody` to run the Docker container as this user:
 
 ```bash
 dcos  {{ model.packageName }} run --verbose --submit-args="\

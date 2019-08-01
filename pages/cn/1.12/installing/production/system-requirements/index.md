@@ -41,7 +41,7 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 
 管理节点上有许多混合工作负载。预计持续可用或被视为业务关键的工作负载只能在具有至少三个管理节点的 DC/OS 群集上运行。有关高可用性要求的更多信息，请参阅 [高可用性文档][0]。
 
-[0]: /1.12/overview/high-availability/
+[0]: /mesosphere/dcos/1.12/overview/high-availability/
 
 
 管理节点上混合工作负载的示例是 Mesos 复制日志和 ZooKeeper。其中部分每隔一段时间需要进行 fsync()，而且可以生成很多非常昂贵的随机 I/O。我们推荐以下内容：
@@ -77,7 +77,7 @@ DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录�
 
 代理节点还必须具有：
 
-- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒同时用于 [Docker 和 DC/OS 通用容器运行时](/1.12/deploying-services/containerizers/)。
+- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒同时用于 [Docker 和 DC/OS 通用容器运行时](/mesosphere/dcos/1.12/deploying-services/containerizers/)。
 - 公共 Docker 存储库或内部 Docker 注册表的网络访问权限。
 - 在 RHEL 7 和 CenTos 7 上，必须停止并禁用 `firewalld`。这是一个已知的 <a href="https://github.com/docker/docker/issues/16137" target="_blank">Docker 问题</a>，`firewalld` 与 Docker 的交互不佳。如需更多信息，请参阅 <a href="https://docs.docker.com/v1.6/installation/centos/#firewalld" target="_blank">Docker CentOS firewalld</a> 文档。
 
@@ -288,6 +288,6 @@ localectl set-locale LANG=en_US.utf8
 - [从 Docker 的 Yum 存储库安装 Docker][1]
 - [DC/OS 安装指南][2]
 
-[1]: /1.12/installing/production/system-requirements/docker-centos/
+[1]: /mesosphere/dcos/1.12/installing/production/system-requirements/docker-centos/
 
-[2]: /1.12/installing/production/deploying-dcos/installation/
+[2]: /mesosphere/dcos/1.12/installing/production/deploying-dcos/installation/

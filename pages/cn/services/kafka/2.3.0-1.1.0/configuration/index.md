@@ -20,7 +20,7 @@ render: mustache
 
 1. 创建名为 `options.json` 的文件以及以下内容。
 
-**注意：** 如果您正在使用 [DC/OS Apache ZooKeeper 服务](/cn/services/{{ model.kafka.zookeeperPackageName }})，则使用由 `dcos {{ model.kafka.zookeeperPackageName }} endpoints clientport` 命令提供的 DNS 地址，作为 `kafka_zookeeper_uri` 的值。
+**注意：** 如果您正在使用 [DC/OS Apache ZooKeeper 服务](/mesosphere/dcos/cn/services/{{ model.kafka.zookeeperPackageName }})，则使用由 `dcos {{ model.kafka.zookeeperPackageName }} endpoints clientport` 命令提供的 DNS 地址，作为 `kafka_zookeeper_uri` 的值。
 
 这是一个示例 `options.json`，指向名为 `{{ model.kafka.zookeeperServiceName }}` 的 `{{ model.kafka.zookeeperPackageName }}` 实例：
 

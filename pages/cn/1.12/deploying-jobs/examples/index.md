@@ -12,7 +12,7 @@ enterprise: true
 
 **先决条件：**
 
-- [DC/OS](/cn/1.12/installing/) 和 [DC/OS CLI](/cn/1.12/cli/install/) 已安装。
+- [DC/OS](/mesosphere/dcos/cn/1.12/installing/) 和 [DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/install/) 已安装。
 
 # <a name="create-job"></a>创建简单的作业
 
@@ -122,7 +122,7 @@ enterprise: true
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
-    ![登录](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
+    ![登录](/mesosphere/dcos/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
     图 1. DC/OS Enterprise 登录
 
@@ -132,7 +132,7 @@ enterprise: true
     1. 在 **ID** 字段中，键入 `dev.batch.job1`。
     1. 在 **Command** 字段中，键入 `sleep 1000`（或其他有效的 shell 命令）并单击 **CREATE A JOB**。
 
-        ![创建作业](/1.12/img/GUI-Jobs-New_Job_Modal_w_devbatchjob-1_12.png)
+        ![创建作业](/mesosphere/dcos/1.12/img/GUI-Jobs-New_Job_Modal_w_devbatchjob-1_12.png)
 
         图 2. 新作业屏幕
 
@@ -140,14 +140,14 @@ enterprise: true
 
     1. 单击右上角的 **+** 图标创建另一项作业。
 
-        ![创建另一项作业](/1.12/img/GUI-Jobs-Jobs_Table-1_12.png)
+        ![创建另一项作业](/mesosphere/dcos/1.12/img/GUI-Jobs-Jobs_Table-1_12.png)
 
         图 3. 创建另一项作业
 
     1. 在 **ID** 字段中，键入 `dev.batch.job2`。
     1. 在 **Command** 字段中，键入 `sleep 1000`（或其他有效的 shell 命令）并单击 **CREATE A JOB**。您应该有两项作业：
 
-        ![创建作业](/1.12/img/GUI-Jobs-Partitioned_Job_Env_Detail-1_12.png)
+        ![创建作业](/mesosphere/dcos/1.12/img/GUI-Jobs-Partitioned_Job_Env_Detail-1_12.png)
 
         图 4. Jobs > dev > batch screen
 
@@ -155,7 +155,7 @@ enterprise: true
 
     1. 单击 **Jobs > dev > batch > job1**，然后单击 **Run Now**。
 
-        ![运行作业](/1.12/img/GUI-Jobs-Job_View-Run_Now_Menu-1_12.png)
+        ![运行作业](/mesosphere/dcos/1.12/img/GUI-Jobs-Job_View-Run_Now_Menu-1_12.png)
 
         图 5. “Run now”菜单
 
@@ -165,14 +165,14 @@ enterprise: true
 
     1. 选择 **Organization > Users** 并创建名为 `Cory` 和 `Alice` 的新用户。
 
-        ![创建用户 Cory](/1.12/img/GUI-Organization-Users-Create_User_Cory-1_12.png)
+        ![创建用户 Cory](/mesosphere/dcos/1.12/img/GUI-Organization-Users-Create_User_Cory-1_12.png)
 
         图 6. 创建新用户
 
     1. 选择用户 **Cory** 授予 `job1` 访问权限。
     1. 从 **Permissions** 选项卡中，单击 **ADD PERMISSION**，然后切换 **INSERT PERMISSION STRING** 按钮以手动输入权限。
 
-        ![添加 cory 权限](/1.12/img/GUI-Organization-Users-Successful_Perms_Add_Cory_DeplJobs-1_12.png)
+        ![添加 cory 权限](/mesosphere/dcos/1.12/img/GUI-Organization-Users-Successful_Perms_Add_Cory_DeplJobs-1_12.png)
 
         图 7. 为用户“Cory”添加权限
 
@@ -196,6 +196,6 @@ enterprise: true
 
 1. 退出并以新用户身份重新登录以验证权限。用户现在应该在 **Jobs** 选项卡内具有对 `dev/batch/job1` 和 `dev/batch/job2` 的指定访问级别。例如，如果您以 **Alice** 身份登录，您只能看到 **jobs2**：
 
-    ![Alice 作业查看](/1.12/img/GUI-Restricted_User-Jobs_View_Alice-1_12.png)
+    ![Alice 作业查看](/mesosphere/dcos/1.12/img/GUI-Restricted_User-Jobs_View_Alice-1_12.png)
 
     图 8. “Alice”的限制性查看

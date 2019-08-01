@@ -44,7 +44,7 @@ To search for Redis using the DC/OS web-based administrative console:
 
     For example, type "redis" to find the package names that match the package you are going to install for this tutorial.
 
-    ![Search for packages in the Catalog](/1.13/img/tutorial-redis-search.png)
+    ![Search for packages in the Catalog](/mesosphere/dcos/1.13/img/tutorial-redis-search.png)
 
     In this case, more than one package matches your search string. For this tutorial, however, you are only interested in the **redis** package. This package installs a single Redis instance in a Docker container.
 
@@ -61,15 +61,15 @@ To search for Redis using the DC/OS web-based administrative console:
 
 1. Click **Redis** and verify the CPU and memory settings.
 
-    ![Redis configuration settings](/1.13/img/tutorial-redis-config.png)
+    ![Redis configuration settings](/mesosphere/dcos/1.13/img/tutorial-redis-config.png)
 
 1. Click **Review & Run** to verify your Redis configuration, then click **Run Service**.
 
-    ![Redis configuration settings](/1.13/img/tutorial-redis-run.png)
+    ![Redis configuration settings](/mesosphere/dcos/1.13/img/tutorial-redis-run.png)
 
 1. Click **Open Service** to view the status of the Redis deployment.
 
-    ![Redis configuration settings](/1.13/img/tutorial-redis-open-service.png)
+    ![Redis configuration settings](/mesosphere/dcos/1.13/img/tutorial-redis-open-service.png)
 -->
 
 ## Search using the DC/OS CLI
@@ -114,15 +114,15 @@ To install the Redis package using the DC/OS web-based administrative console:
 
 1. Click **Redis** and verify the CPU and memory settings.
 
-    ![Redis configuration settings](/1.13/img/tutorial-redis-config.png)
+    ![Redis configuration settings](/mesosphere/dcos/1.13/img/tutorial-redis-config.png)
 
 1. Click **Review & Run** to verify your Redis configuration, then click **Run Service**.
 
-    ![Redis configuration settings](/1.13/img/tutorial-redis-run.png)
+    ![Redis configuration settings](/mesosphere/dcos/1.13/img/tutorial-redis-run.png)
 
 1. Click **Open Service** to view the status of the Redis deployment.
 
-    ![Redis configuration settings](/1.13/img/tutorial-redis-open-service.png)
+    ![Redis configuration settings](/mesosphere/dcos/1.13/img/tutorial-redis-open-service.png)
 
 ## Install using the DC/OS CLI
 1. Open a terminal shell on the computer where you have access to the DC/OS command-line interface (CLI).
@@ -142,11 +142,11 @@ You can verify that the Redis service is currently running and reporting a Healt
 
 1. Verify the Status column for Redis displays Running.
 
-    ![Checking the Redis service status](/1.13/img/tutorial-redis-status.png)
+    ![Checking the Redis service status](/mesosphere/dcos/1.13/img/tutorial-redis-status.png)
 
 1. Click the service name to display task-level details.
 
-    ![Checking the Redis details](/1.13/img/tutorial-redis-details.png)
+    ![Checking the Redis details](/mesosphere/dcos/1.13/img/tutorial-redis-details.png)
 
 ## Check Redis status using DC/OS commands
 1. Open a terminal shell on the computer where you have access to the DC/OS command-line interface (CLI).
@@ -269,7 +269,7 @@ The next tutorials explore additional getting started tasks that you can perform
 - [Deploy native containerized applications](../native-app/)
   
 # Related topics
-The DC/OS [Catalog](/1.13/gui/catalog/) (or [Universe](https://github.com/mesosphere/universe) in previous versions of DC/OS) is a package repository for services that are available for installation on DC/OS clusters.
+The DC/OS [Catalog](/mesosphere/dcos/1.13/gui/catalog/) (or [Universe](https://github.com/mesosphere/universe) in previous versions of DC/OS) is a package repository for services that are available for installation on DC/OS clusters.
 
 The package repository enables you to easily install certified or community-contributed services, such as Apache Spark or Apache Cassandra, in your cluster without having to locate, download, and configure independent packages manually. If your cluster runs on an isolated network without an internet connection, you can create and manage your own site-specific package repository.
 

@@ -26,7 +26,7 @@ Before describing the software architecture we describe the packet flow that wil
 
 ## DC/OS overlay in action
 
-![Agent configuration for containers running on `MesosContainerizer` and Docker once the VxLAN has been configured.](/1.14/img/overlay-in-action-redesigned.png)
+![Agent configuration for containers running on `MesosContainerizer` and Docker once the VxLAN has been configured.](/mesosphere/dcos/1.14/img/overlay-in-action-redesigned.png)
 
 Figure 1 - Agent configuration  
 
@@ -61,18 +61,18 @@ Assume a Mesos container on 9.0.1.0/25 (Agent 1) wants to talk to a Docker conta
 ### Challenges
 
 
-As must be evident from the packet walk through for [Container-to-Container communication on different hosts](/1.14/overview/design/overlay/#container-to-container-different-hosts), for the DC/OS overlay to function there are several pieces of metadata that need to be pre-configured into the agent for the routing and switching to work properly. Here we will list the information that is required by the DC/OS overlay.
+As must be evident from the packet walk through for [Container-to-Container communication on different hosts](/mesosphere/dcos/1.14/overview/design/overlay/#container-to-container-different-hosts), for the DC/OS overlay to function there are several pieces of metadata that need to be pre-configured into the agent for the routing and switching to work properly. Here we will list the information that is required by the DC/OS overlay.
 
 - Within DC/OS we need a SAM (Subnet Allocation Module) that will inform the agents of the subnets that have been allocated to them.
 - Within the agent, we need an entity that configures the docker daemon with the portion of the subnet (in Figure 1, the 9.0.1.128/25 network) that has been allocated to the docker daemon.
 - Within the agent, we need an entity that allocates IP addresses to the containers launched by the `MesosContainerizer` (in Figure 1, the 9.0.1.0/25 network).
 - Within DC/OS we need an entity that will program the VxLAN forwarding database on each agent, with the MAC addresses of all the VTEPs existing on all the agents, along with the encap information (agent IP, UDP port) required to encapsulate the packets correctly. The same entity also needs to program the ARP cache on each agent with the MAC address of all VTEPs, for their corresponding IP addresses.
 
-These challenges must be addressed to make the DC/OS overlay functional. In the next section we will describe the software architecture of the control plane for DC/OS overlay. The control plane will configure and program the metadata listed in the [Challenges](/1.14/overview/design/overlay/#challenges) section to make it functional.
+These challenges must be addressed to make the DC/OS overlay functional. In the next section we will describe the software architecture of the control plane for DC/OS overlay. The control plane will configure and program the metadata listed in the [Challenges](/mesosphere/dcos/1.14/overview/design/overlay/#challenges) section to make it functional.
 
 ## Software Architecture
 
-![Software architecture for DC/OS overlay control plane.](/1.14/img/overlay-control-plane-redesigned.png)
+![Software architecture for DC/OS overlay control plane.](/mesosphere/dcos/1.14/img/overlay-control-plane-redesigned.png)
 
 Figure 2 - Software architecture for DC/OS overlay control plane
 

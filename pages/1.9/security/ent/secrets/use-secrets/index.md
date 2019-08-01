@@ -10,7 +10,7 @@ excerpt:
 enterprise: true
 ---
 
-The permissions that a user will need to deploy a service or pod that uses a secret vary by [security mode](/1.9/security/ent/#security-modes). 
+The permissions that a user will need to deploy a service or pod that uses a secret vary by [security mode](/mesosphere/dcos/1.9/security/ent/#security-modes). 
 
 <table class="table">
   <tr>
@@ -32,14 +32,14 @@ In `strict` mode, users may also need the following.
 - `dcos:adminrouter:ops:mesos full`: to view **Task** panel information.
 - `dcos:adminrouter:ops:slave full`: to view the details about the task, including the logs.
 
-As long as the path of the secret and the path of the group [match up properly](/1.9//security/ent/#spaces), the service will be able to access the secret value.
+As long as the path of the secret and the path of the group [match up properly](/mesosphere/dcos/1.9//security/ent/#spaces), the service will be able to access the secret value.
 
-The procedure differs depending on whether or not you want to make the secret available to a [pod](/1.9/deploying-services/pods/) or to an individual service. 
+The procedure differs depending on whether or not you want to make the secret available to a [pod](/mesosphere/dcos/1.9/deploying-services/pods/) or to an individual service. 
 
 - [Individual service](#service)
 - [Pod](#pod)
 
-**Prerequisite:** The secret must exist. The examples below use a secret called `my-secret` stored in the `developer` path. If you complete the steps in [Creating secrets](/1.9/security/ent/secrets/create-secrets/), you will meet this prerequisite.
+**Prerequisite:** The secret must exist. The examples below use a secret called `my-secret` stored in the `developer` path. If you complete the steps in [Creating secrets](/mesosphere/dcos/1.9/security/ent/secrets/create-secrets/), you will meet this prerequisite.
 
 
 # <a name="service"></a>Configuring a service to use a secret 
@@ -85,7 +85,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-   Because the service and the secret paths match, the service will be able to access the secret. See [Spaces](/1.9/security/ent/#spaces) for more details about the paths.
+   Because the service and the secret paths match, the service will be able to access the secret. See [Spaces](/mesosphere/dcos/1.9/security/ent/#spaces) for more details about the paths.
 
 1. Click **REVIEW & RUN**.
 
@@ -104,9 +104,9 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 **Prerequisites:** 
 
-- You must have the [DC/OS CLI installed](/1.9/cli/install/).
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.9/cli/install/).
 
-- If your [security mode](/1.9/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/1.9/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/mesosphere/dcos/1.9/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/mesosphere/dcos/1.9/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services and pods to use secrets](#service) to discover the required permissions.
 
@@ -129,7 +129,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-   Because the service group and the secret paths match, the service will be able to access the secret. See [Spaces](/1.9/security/ent/#spaces) for more details about the paths.
+   Because the service group and the secret paths match, the service will be able to access the secret. See [Spaces](/mesosphere/dcos/1.9/security/ent/#spaces) for more details about the paths.
 
 1. Save the file with a descriptive name, such as `myservice.json`.
 
@@ -154,8 +154,8 @@ The procedure varies by interface. Refer to the section that corresponds to your
 
 **Prerequisites:** 
 
-- You must have the [DC/OS CLI installed](/1.9/cli/install/).
-- If your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.9/cli/install/).
+- If your [security mode](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `permissive` or `strict`, you must follow the steps in [Downloading the Root Cert](/mesosphere/dcos/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Log into the CLI as a user with the necessary permissions via `dcos auth login`. Refer to [About configuring services and pods to use secrets](#service) for more information about the permissions.
 
@@ -198,7 +198,7 @@ The procedure varies by interface. Refer to the section that corresponds to your
    }
    ```
 
-   **Note:** Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/1.9//security/ent/#spaces) for more details about the paths.
+   **Note:** Because the service group and the secret paths match, the pod will be able to access the secret. See [Namespacing](/mesosphere/dcos/1.9//security/ent/#spaces) for more details about the paths.
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 

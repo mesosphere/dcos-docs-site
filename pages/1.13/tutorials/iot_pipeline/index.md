@@ -43,8 +43,8 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 
 ## Prerequisites
 
-*  [DC/OS](/latest/installing/) or [DC/OS Enterprise](/latest/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
-*  [DC/OS CLI](/cli/install/) installed.
+*  [DC/OS](/mesosphere/dcos/latest/installing/) or [DC/OS Enterprise](/mesosphere/dcos/latest/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
+*  [DC/OS CLI](/mesosphere/dcos/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
 *   Git:
     *   **macOS:** Get the installer from [Git downloads](http://git-scm.com/download/mac).
@@ -52,7 +52,7 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 
 ## Install DC/OS services
 
-In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS web interface [**Catalog**](/gui/catalog/) tab. You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
+In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS web interface [**Catalog**](/mesosphere/dcos/gui/catalog/) tab. You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
 1.  Find and click the **cassandra** package, click **REVIEW & RUN**, and accept the default installation, by clicking **REVIEW & RUN** again, then **RUN SERVICE**. Cassandra spins up to 3 nodes. When prompted by the modal alert, click **OPEN SERVICE**.
 
@@ -60,7 +60,7 @@ In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC
 
 3.  Click the **Catalog** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
 
-If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/services/marathon-lb/1.13/mlb-install/). Depending on your [security mode](/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
+If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/mesosphere/dcos/services/marathon-lb/1.13/mlb-install/). Depending on your [security mode](/mesosphere/dcos/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
 
 4.  Click the **Catalog** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.
@@ -68,7 +68,7 @@ If you are having trouble getting Marathon-LB up and running on an Enterprise cl
 
 5.  Click the **Services** tab to watch as your microservices are deployed on DC/OS. You will see the Health status go from Idle to Unhealthy, and finally to Healthy as the nodes come online. This may take several minutes.
 
-    ![Services tab with all services shown.](/1.13/img/tweeter-services6-ee.png)
+    ![Services tab with all services shown.](/mesosphere/dcos/1.13/img/tweeter-services6-ee.png)
 
     Figure 1. Services tab showing Tweeter services
 
@@ -125,7 +125,7 @@ In this step you deploy the containerized Tweeter app to a public node.
 
 4.  Go to the **Services** tab to verify your app is up and healthy.
 
-    ![Tweeter deployed](/1.13/img/tweeter-services7.png)
+    ![Tweeter deployed](/mesosphere/dcos/1.13/img/tweeter-services7.png)
 
     Figure 2. Tweeter deployed
 
@@ -149,7 +149,7 @@ In this step you deploy an app that automatically posts a large number of tweets
 
 3.  After the `post-tweets.json` is running, refresh your browser to see the incoming Shakespeare tweets.
 
-    ![Shakespeare tweets](/1.13/img/tweeter-shakespeare.png)
+    ![Shakespeare tweets](/mesosphere/dcos/1.13/img/tweeter-shakespeare.png)
 
     Figure 4. Shakespeare tweets
 
@@ -180,7 +180,7 @@ The Tweeter app uses the service discovery and load balancer service that is ins
 
 If you are using a DC/OS Enterprise cluster, click the **Networking** -> **Service Addresses** tab in the DC/OS web interface and select the `1.1.1.1:30000` virtual network to see the load balancing in action:
 
-![Tweeter scaled](/1.13/img/tweeter-services8-ee.png)
+![Tweeter scaled](/mesosphere/dcos/1.13/img/tweeter-services8-ee.png)
 
 Figure 5. Scaled tweets
 
@@ -208,15 +208,15 @@ Figure 6. Top Tweeters
 
 
 
- [1]: /services/cassandra/
- [2]: /services/kafka/
- [3]: /services/spark/
+ [1]: /mesosphere/dcos/services/cassandra/
+ [2]: /mesosphere/dcos/services/kafka/
+ [3]: /mesosphere/dcos/services/spark/
  [4]: http://zeppelin.apache.org/
  [5]: https://github.com/mesosphere/marathon-lb
- [6]: /1.13/overview/concepts/
- [9]: /1.13/administering-clusters/locate-public-agent/
- [11]: /1.13/cli/command-reference/
- [12]: /services/marathon-lb/1.13/
+ [6]: /mesosphere/dcos/1.13/overview/concepts/
+ [9]: /mesosphere/dcos/1.13/administering-clusters/locate-public-agent/
+ [11]: /mesosphere/dcos/1.13/cli/command-reference/
+ [12]: /mesosphere/dcos/services/marathon-lb/1.13/
  [13]: https://github.com/mesosphere/tweeter
- [14]: /1.13/img/tweeter.png
- [16]: /1.13/img/top-tweeters.png
+ [14]: /mesosphere/dcos/1.13/img/tweeter.png
+ [16]: /mesosphere/dcos/1.13/img/top-tweeters.png

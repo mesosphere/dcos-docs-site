@@ -26,10 +26,10 @@ dcos job add <job-file> [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
 
 # 示例
 
-有关作业示例，请参阅[创建作业](/cn/1.11/deploying-jobs/examples/#create-job)。
+有关作业示例，请参阅[创建作业](/mesosphere/dcos/cn/1.11/deploying-jobs/examples/#create-job)。
 
-有关如何使用此命令创建作业的信息，请参阅 [添加作业](/cn/1.11/deploying-jobs/quickstart/#add-a-job-2)。
+有关如何使用此命令创建作业的信息，请参阅 [添加作业](/mesosphere/dcos/cn/1.11/deploying-jobs/quickstart/#add-a-job-2)。

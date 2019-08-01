@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The `dcos auth login` command allows you to authenticate to DC/OS. The [dcos cluster setup](/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command also runs `dcos auth login`.
+The `dcos auth login` command allows you to authenticate to DC/OS. The [dcos cluster setup](/mesosphere/dcos/1.11/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command also runs `dcos auth login`.
 
 # Usage
 
@@ -39,4 +39,4 @@ If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--c
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/1.11/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/mesosphere/dcos/1.11/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |

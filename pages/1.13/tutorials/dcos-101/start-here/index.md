@@ -54,7 +54,7 @@ By completing this tutorial, you will learn:
 
 # Preview of what you'll do
 You need to perform the following key tasks to create a new DC/OS cluster:
-- Prepare a [bootstrap node](/1.13/installing/production/system-requirements/#bootstrap).
+- Prepare a [bootstrap node](/mesosphere/dcos/1.13/installing/production/system-requirements/#bootstrap).
 - Configure a DC/OS [master node](https://docs.mesosphere.com/1.13/installing/production/system-requirements/#master-nodes).
 - Configure DC/OS [private agent nodes](https://docs.mesosphere.com/1.13/installing/production/system-requirements/#agent-nodes).
 - Configure a DC/OS [public agent node](https://docs.mesosphere.com/1.13/installing/production/system-requirements/#agent-nodes).
@@ -62,7 +62,7 @@ You need to perform the following key tasks to create a new DC/OS cluster:
 # Prepare a bootstrap node
 1. Identify a computer to act as the **bootstrap node** for the new cluster.
 
-    The [bootstrap node](/1.13/installing/production/system-requirements/#bootstrap) computer provides a centralized location for configuring and distributing files for the DC/OS cluster. The bootstrap node:
+    The [bootstrap node](/mesosphere/dcos/1.13/installing/production/system-requirements/#bootstrap) computer provides a centralized location for configuring and distributing files for the DC/OS cluster. The bootstrap node:
     - Must be able to connect over the network to all cluster nodes using SSH. 
     - Can be backed up and shut down after installation is complete.
     - Should not be included in the DC/OS cluster.
@@ -111,16 +111,16 @@ You need to perform the following key tasks to create a new DC/OS cluster:
     security: permissive
     ```
 
-    You can set many more basic and advanced configuration options using the `config.yaml` file. For information about the settings available and examples of the most commonly-used settings, see the [advanced configuration reference](/1.13/installing/production/advanced-configuration/configuration-reference/) and [examples](/1.13/installing/production/deploying-dcos/configuration/examples/).
+    You can set many more basic and advanced configuration options using the `config.yaml` file. For information about the settings available and examples of the most commonly-used settings, see the [advanced configuration reference](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/) and [examples](/mesosphere/dcos/1.13/installing/production/deploying-dcos/configuration/examples/).
 
 1. Save your configuration settings.
 
 1. Add required scripts or files to the `genconf` directory.
 
     In addition to the `config.yaml` file, you should provide the following files in the `genconf` directory:
-    - [ip-detect](/1.13/installing/production/deploying-dcos/installation/#ip-detect-script) - This script is required for all DC/OS clusters.
-    - [license.txt](/1.13/installing/production/deploying-dcos/installation/#license) - This file is required for DC/OS Enterprise clusters.
-    - [fault-domain-detect](/1.13/installing/production/deploying-dcos/installation/#fault-domain) - This script is required for DC/OS Enterprise clusters.
+    - [ip-detect](/mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/#ip-detect-script) - This script is required for all DC/OS clusters.
+    - [license.txt](/mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/#license) - This file is required for DC/OS Enterprise clusters.
+    - [fault-domain-detect](/mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/#fault-domain) - This script is required for DC/OS Enterprise clusters.
 
 ## Create the distribution center
 1. Run the DC/OS installation script to generate the customized
@@ -225,11 +225,11 @@ In a production environment, you would automate these steps to create as many pr
 
 1. Type your administrative user name and password, then click **Log in**.
 
-    ![Log in to the administrative console](/1.13/img/tutorial-sample-login.png)
+    ![Log in to the administrative console](/mesosphere/dcos/1.13/img/tutorial-sample-login.png)
 
     If the connection is successful, the DC/OS dashboard is displayed.
 
-    ![DC/OS dashboard in the administrative console](/1.13/img/tutorial-sample-dashboard.png)
+    ![DC/OS dashboard in the administrative console](/mesosphere/dcos/1.13/img/tutorial-sample-dashboard.png)
 
 Congratulations! You have successfully created your first DC/OS cluster. You can now start exploring what you can do using this cluster in subsequent tutorials.
 
@@ -244,10 +244,10 @@ This tutorial focused on preparing and installing the DC/OS cluster interactivel
 
 ### More about your installation options
 There are several other methods you can use to install the DC/OS cluster. For example, there are other installation options if you are installing DC/OS on a public cloud from a public cloud provider such as AWS, Azure, or the Google Cloud Platform. For information about other installation options, see the following topics:
-- [DC/OS on AWS using the Universal Installer](/1.13/installing/evaluation/aws/)
-- [DC/OS on Azure using the Universal Installer](/1.13/installing/evaluation/azure/)
-- [DC/OS on GCP using the Universal Installer](/1.13/installing/evaluation/gcp/)
-- [Other Installation methods](/1.13/installing/evaluation/community-supported-methods/)
+- [DC/OS on AWS using the Universal Installer](/mesosphere/dcos/1.13/installing/evaluation/aws/)
+- [DC/OS on Azure using the Universal Installer](/mesosphere/dcos/1.13/installing/evaluation/azure/)
+- [DC/OS on GCP using the Universal Installer](/mesosphere/dcos/1.13/installing/evaluation/gcp/)
+- [Other Installation methods](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/)
 
 ### More about cluster architecture and components
 For an overview of the DC/OS platform and the components that make up the architectural layers of the platform, see the [Architectural overview](../../../overview/architecture/).

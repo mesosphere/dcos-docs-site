@@ -13,7 +13,7 @@ model: /1.14/data.yml
 # Refreshing Tokens
 Services can use a variety of means to refresh their tokens. Ideally, a service should calculate the length of time until the token expires, which is embedded within the token itself, and request a new one before it expires. However, a service can also wait until it receives a `401` to request a new token.
 
-You may need to provision a service with a service account depending on your [security mode](/1.14/security/ent/#security-modes) and the origin of the service's requests. 
+You may need to provision a service with a service account depending on your [security mode](/mesosphere/dcos/1.14/security/ent/#security-modes) and the origin of the service's requests. 
 
 An API consumer should be able to handle when its current authentication token expires.
 
@@ -21,7 +21,7 @@ An API consumer should be able to handle when its current authentication token e
 - **Pre-Expiration Renewal** With this method, the token is refreshed before it expires. The service can schedule asynchronous token renewal ahead of the expiration. It can fetch a new authentication token while the old one is still valid. This prevents the latency spikes caused by an expired authentication token.
 
 # Out-of-band Verification of an RS256 Authentication JWT
-DC/OS services can authenticate incoming requests on behalf of the [DC/OS Identity and Access Manager (Bouncer)](/1.14/overview/architecture/components/#dcos-iam) component, using public key cryptography. This works if the authentication token presented by the client has been signed by Bouncer using Bouncer's private key with the RS256 algorithm.
+DC/OS services can authenticate incoming requests on behalf of the [DC/OS Identity and Access Manager (Bouncer)](/mesosphere/dcos/1.14/overview/architecture/components/#dcos-iam) component, using public key cryptography. This works if the authentication token presented by the client has been signed by Bouncer using Bouncer's private key with the RS256 algorithm.
 
 ## Bouncer JSON Web Key Set (JWKS) endpoint
 The Bouncer's JWKS endpoint (`/auth/jwks`) provides the public key details required for verifying the signature of type RS256 JWTs issued by Bouncer. The JSON document data structure emitted by that endpoint is compliant with [RFC 7517](https://tools.ietf.org/html/rfc7517). Within that data structure, the public key is parameterized according to [RFC 7518](https://tools.ietf.org/html/rfc7518).

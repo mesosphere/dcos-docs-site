@@ -36,9 +36,9 @@ To access the logs for an agent node, run `dcos node` to get the Mesos IDs of yo
 dcos node log --mesos-id=<node-id>
 ```
 
-You can download all the log files for your service from the **Services > Services** tab in the [DC/OS web interface](/1.11/gui/). You can also monitor `stdout`/`stderr`.
+You can download all the log files for your service from the **Services > Services** tab in the [DC/OS web interface](/mesosphere/dcos/1.11/gui/). You can also monitor `stdout`/`stderr`.
 
-For more information, see the Service and Task Logs [quick start guide](/1.11/monitoring/logging/quickstart/).
+For more information, see the Service and Task Logs [quick start guide](/mesosphere/dcos/1.11/monitoring/logging/quickstart/).
 
 <p class="message--note"><strong>NOTE: </strong> DC/OS can send copies of task logs to the host's journald, but this is disabled by default because of a known systemd performance problem, for details see the <a href="/1.11/installing/ent/custom/configuration/configuration-parameters/#mesos-container-log-sink">configuration documentation</a></p>.
 
@@ -50,7 +50,7 @@ DC/OS components use `systemd-journald` to store their logs. To access the DC/OS
 journalctl -u "dcos-*" -b
 ```
 
-You can view the logs for specific [components](/1.11/overview/architecture/components/) by entering the component name. For example, to access Admin Router logs, run this command:
+You can view the logs for specific [components](/mesosphere/dcos/1.11/overview/architecture/components/) by entering the component name. For example, to access Admin Router logs, run this command:
 
 ```bash
 journalctl -u dcos-nginx -b
@@ -58,7 +58,7 @@ journalctl -u dcos-nginx -b
 
 You can find which components are unhealthy in the DC/OS web interface **Nodes** tab.
 
-![system health](/1.11/img/ui-system-health-logging.png)
+![system health](/mesosphere/dcos/1.11/img/ui-system-health-logging.png)
 
 Figure 1. System health log showing nodes
 
@@ -66,7 +66,7 @@ Figure 1. System health log showing nodes
 
 Streaming logs from machines in your cluster is not always viable. Sometimes you need a history of what has happened, which requires a method for storing and aggregating logs. These topics describe some of the most common solutions:
 
-- [Log Management with ELK](/1.11/monitoring/logging/aggregating/elk/)
-- [Log Management with Splunk](/1.11/monitoring/logging/aggregating/splunk/)
+- [Log Management with ELK](/mesosphere/dcos/1.11/monitoring/logging/aggregating/elk/)
+- [Log Management with Splunk](/mesosphere/dcos/1.11/monitoring/logging/aggregating/splunk/)
 
-[5]: /1.11/administering-clusters/sshcluster/
+[5]: /mesosphere/dcos/1.11/administering-clusters/sshcluster/

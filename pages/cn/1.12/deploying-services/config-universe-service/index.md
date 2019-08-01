@@ -8,7 +8,7 @@ enterprise: false
 ---
 
 
-本主题介绍如何使用 DC/OS CLI 配置服务。您还可以使用 DC/OS UI 中的 [**Services**](/cn/1.12/gui/services/) 选项卡自定义服务 。
+本主题介绍如何使用 DC/OS CLI 配置服务。您还可以使用 DC/OS UI 中的 [**Services**](/mesosphere/dcos/cn/1.12/gui/services/) 选项卡自定义服务 。
 
 1. 使用 `dcos package describe --config <package-name>` 命令查看服务的可用配置选项。
 
@@ -72,4 +72,4 @@ enterprise: false
     dcos package install --options=marathon-config.json marathon
     ```
 
-如需更多信息，请参阅 [dcos package](/cn/1.12/cli/command-reference/dcos-package/) 文档。
+如需更多信息，请参阅 [dcos package](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-package/) 文档。

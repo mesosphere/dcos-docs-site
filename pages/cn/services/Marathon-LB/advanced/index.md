@@ -151,13 +151,13 @@ HAProxy 的统计报告可用于监控健康、性能，甚至制定调度安排
 
 对于给定应用，基于给定资源集，我们可以衡量其秒请求性能。如果应用为无状态并水平扩展，我们可以按比例扩展应用实例的数量，以对应 N 个间隔中每秒平均请求数。自动扩展脚本会轮询 HAProxy 统计端点，并根据传入请求自动扩展应用实例。
 
-![image04](/cn/1.11/img/image04.png)
+![image04](/mesosphere/dcos/cn/1.11/img/image04.png)
 
 图 1. 自动扩展 Marathon-LB
 
 脚本获取当前 RPS（每秒请求数），并将该数字除以单个应用实例的目标 RPS 数。此分数的结果是所需应用实例的数量（或者说，该分数的上限是所需的实例数量）。
 
-![image00](/cn/1.11/img/image00.png)
+![image00](/mesosphere/dcos/cn/1.11/img/image00.png)
 
 要展示自动扩展，我们将使用 3 个单独的 Marathon 应用：
 
@@ -192,7 +192,7 @@ JSON 应用定义将2个重要的参数输入到工具中： `--target-rps` 让 
 ```
  现在，如果您检查 HAProxy 状态页，您应该看到冲击 NGINX 实例的请求：
 
- ![image02](/cn/1.11/img/image02-800x508.png)
+ ![image02](/mesosphere/dcos/cn/1.11/img/image02-800x508.png)
 
  图 2. HAProxy 状态页
 

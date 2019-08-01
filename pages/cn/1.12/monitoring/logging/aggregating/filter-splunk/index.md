@@ -53,19 +53,19 @@ DC/OS 任务日志的文件系统路径包含代理 ID、框架 ID 和执行器 
 
 1. 在 Splunk Web 界面，将 `framework=*` 输入“搜索”字段。这将显示 `framework` 字段已定义的所有事件：
 
- ![Splunk 框架已存在](/1.12/img/splunk-framework-exists.png)
+ ![Splunk 框架已存在](/mesosphere/dcos/1.12/img/splunk-framework-exists.png)
 
  图 1. Splunk 事件屏幕
 
 1. 点击其中一个事件旁边的披露三角形可查看详细信息。这将显示从任务日志文件路径提取的所有字段：
 
- ![Splunk 字段](/1.12/img/splunk-fields.png)
+ ![Splunk 字段](/mesosphere/dcos/1.12/img/splunk-fields.png)
 
  图 2. 任务日志文件路径中的字段
 
 1. 搜索所有提到上述屏幕截图中所示事件框架 ID 的事件，但不要包含选中的 `framework` 字段。这将仅显示非任务结果：
 
- ![Splunk 框架搜索](/1.12/img/splunk-framework-search.png)
+ ![Splunk 框架搜索](/mesosphere/dcos/1.12/img/splunk-framework-search.png)
 
  图 3. 搜索结果
 

@@ -34,6 +34,6 @@ dcos marathon debug summary <app-id> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/1.11/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
-More information about this command is available in the [Monitoring section](/1.11/monitoring/debugging/cli-debugging/#dcos-marathon-debug-summary).
+More information about this command is available in the [Monitoring section](/mesosphere/dcos/1.11/monitoring/debugging/cli-debugging/#dcos-marathon-debug-summary).

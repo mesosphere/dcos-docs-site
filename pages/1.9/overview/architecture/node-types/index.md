@@ -25,7 +25,7 @@ Protect your cluster from the outside with firewall settings specific for the no
 
 **Important**: Setting firewall rules between the nodes of any types is not recommended.
 
-![DC/OS Node Types](/1.9/img/dcos-node-types.png)
+![DC/OS Node Types](/mesosphere/dcos/1.9/img/dcos-node-types.png)
 
 
 ## Master Nodes
@@ -69,7 +69,7 @@ Agent nodes can be public or private, depending on agent and network configurati
 
 ### Public Agent Nodes
 
-A public agent node is an agent node that is on a network that allows ingress from outside of the cluster via the cluster’s [infrastructure networking](/1.9/overview/concepts/#infrastructure-network).
+A public agent node is an agent node that is on a network that allows ingress from outside of the cluster via the cluster’s [infrastructure networking](/mesosphere/dcos/1.9/overview/concepts/#infrastructure-network).
 
 The resources on public agent nodes are, by default, configured to only be allocated to tasks that specify the `slave_public` role. The Mesos agents on public agent nodes also have the `public_ip:true` agent attribute to assist in their discovery.
 
@@ -79,18 +79,18 @@ Clusters generally have only a few public agent nodes, because a few load balanc
 
 ### Private Agent Nodes
 
-A private agent node is an agent node that is on a network that does not have ingress access from outside of the cluster via the cluster’s [infrastructure networking](/1.9/overview/concepts/#infrastructure-network).
+A private agent node is an agent node that is on a network that does not have ingress access from outside of the cluster via the cluster’s [infrastructure networking](/mesosphere/dcos/1.9/overview/concepts/#infrastructure-network).
 
 The resources on private agent nodes are, by default, configured to allow undifferentiated allocation. More precisely, the resources are given the `*` role, allowing them to be allocated to any task that does not specify a role. For more information, see [Mesos resource roles](http://mesos.apache.org/documentation/latest/roles/).
 
-Because these resources are undifferentiated, most tasks are scheduled on private agent nodes and are inaccessible from outside the cluster, decreasing the surface area accessible by malicious attackers. For this reason, clusters are generally comprised of mostly private agent nodes. Likewise, most [Mesosphere Universe](/1.9/overview/concepts/#mesosphere-universe) packages install by default on private agent nodes.
+Because these resources are undifferentiated, most tasks are scheduled on private agent nodes and are inaccessible from outside the cluster, decreasing the surface area accessible by malicious attackers. For this reason, clusters are generally comprised of mostly private agent nodes. Likewise, most [Mesosphere Universe](/mesosphere/dcos/1.9/overview/concepts/#mesosphere-universe) packages install by default on private agent nodes.
 
 ## More Information
 
-For more on master and agent node components, see [Components](/1.9/overview/architecture/components/).
+For more on master and agent node components, see [Components](/mesosphere/dcos/1.9/overview/architecture/components/).
 
-For more on security, see [Securing Your Cluster](/1.9/administering-clusters/).
+For more on security, see [Securing Your Cluster](/mesosphere/dcos/1.9/administering-clusters/).
 
-For more on scaling your cluster, see [Adding Agent Nodes](/1.9/administering-clusters/add-a-node/).
+For more on scaling your cluster, see [Adding Agent Nodes](/mesosphere/dcos/1.9/administering-clusters/add-a-node/).
 
-For more on configuring public nodes, see [Converting Agent Node Types](/1.9/administering-clusters/convert-agent-type/).
+For more on configuring public nodes, see [Converting Agent Node Types](/mesosphere/dcos/1.9/administering-clusters/convert-agent-type/).

@@ -8,16 +8,16 @@ excerpt: Implementing fine-grained user access to services using the web interfa
 enterprise: true
 ---
 
-You can implement fine-grained user access to services using either the DC/OS web interface or the [API](/1.12/security/ent/iam-api/), or the CLI.
+You can implement fine-grained user access to services using either the DC/OS web interface or the [API](/mesosphere/dcos/1.12/security/ent/iam-api/), or the CLI.
 
-The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to services on either a per service or a per service group basis. This section walks you through the steps to accomplish this.  
+The [Marathon permissions](/mesosphere/dcos/1.12/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to services on either a per service or a per service group basis. This section walks you through the steps to accomplish this.  
 
-[Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronome) and [Mesos permissions](/1.12/security/ent/perms-reference/#mesos) do not distinguish between service names, job names, service groups, or job groups. Therefore your naming must be unique.
+[Marathon permissions](/mesosphere/dcos/1.12/security/ent/perms-reference/#marathon-metronome) and [Mesos permissions](/mesosphere/dcos/1.12/security/ent/perms-reference/#mesos) do not distinguish between service names, job names, service groups, or job groups. Therefore your naming must be unique.
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser.
-- A [user account](/1.12/security/ent/users-groups/) to assign permissions to.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.12/cli/install/) and be logged in as a superuser.
+- A [user account](/mesosphere/dcos/1.12/security/ent/users-groups/) to assign permissions to.
 
 # <a name="root-service"></a>Granting access to a service
 
@@ -25,7 +25,7 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
+   ![Login](/mesosphere/dcos/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 1. DC/OS web interface login screen
 
@@ -33,7 +33,7 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.12/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
+    ![Add permission cory](/mesosphere/dcos/1.12/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     Figure 2. Select user to grant permissions
 
@@ -41,9 +41,9 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.12/security/ent/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/1.12/security/ent/#security-modes).
 
-    ![Add permission](/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
+    ![Add permission](/mesosphere/dcos/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     Figure 3. Copy and paste permissions string.
 
@@ -92,7 +92,7 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.12/cli/install/) and be logged in as a superuser.
 
 - To grant permissions to a group instead of a user, replace `users grant <uid>` with `groups grant <gid>`.
 
@@ -149,7 +149,7 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
+   ![Login](/mesosphere/dcos/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 3. DC/OS web interface login screen
 
@@ -157,7 +157,7 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.12/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
+    ![Add permission cory](/mesosphere/dcos/1.12/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     Figure 4. Select user to grant permissions
 
@@ -165,11 +165,11 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
+    ![Add permission](/mesosphere/dcos/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     Figure 5. Add permission
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.12/security/ent/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/1.12/security/ent/#security-modes).
 
     ### Permissive
 
@@ -220,7 +220,7 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.12/cli/install/) and be logged in as a superuser.
 
 **Tips:**
 
@@ -279,7 +279,7 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
-   ![Login](/1.12/img/LOGIN-EE-Modal_View-1_12.png)
+   ![Login](/mesosphere/dcos/1.12/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 5. DC/OS web interface login screen
 
@@ -287,7 +287,7 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.12/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
+    ![Add permission cory](/mesosphere/dcos/1.12/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     Figure 6. Select user to grant permissions
 
@@ -295,11 +295,11 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
+    ![Add permission](/mesosphere/dcos/1.12/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     Figure 7. Add permissions
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.12/security/ent/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/1.12/security/ent/#security-modes).
 
     ### Permissive
 
@@ -350,7 +350,7 @@ The [Marathon permissions](/1.12/security/ent/perms-reference/#marathon-metronom
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/1.12/cli/install/) and be logged in as a superuser.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.12/cli/install/) and be logged in as a superuser.
 
 **Tips:**
 

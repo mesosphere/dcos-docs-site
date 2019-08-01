@@ -6,7 +6,7 @@ menuWeight: 80
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-Ensure the network is setup according to the information for [securing your cluster](/1.12/administering-clusters/securing-your-cluster/).
+Ensure the network is setup according to the information for [securing your cluster](/mesosphere/dcos/1.12/administering-clusters/securing-your-cluster/).
 
 You can enable authentication in your datacenter with DC/OS [oauth](https://github.com/dcos/dcos-oauth). Authentication is managed through the DC/OS web interface. The Admin Router enforces access control.
 
@@ -19,4 +19,4 @@ DC/OS uses the JSON Web Token (JWT) format for its authentication tokens. JWT is
 
 DC/OS OAuth provides an HTTP API for managing local users in a RESTful fashion.
 
-![Auth0 badge](/1.12/img/a0-badge-light.png)
+![Auth0 badge](/mesosphere/dcos/1.12/img/a0-badge-light.png)

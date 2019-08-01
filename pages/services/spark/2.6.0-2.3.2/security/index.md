@@ -10,7 +10,7 @@ model: /services/spark/data.yml
 
 This topic describes how to configure secure DC/OS service accounts for {{ model.techShortName }}.
 
-When running in [DC/OS strict security mode](https://docs.mesosphere.com/latest/security/ent/#security-modes), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS service account](/services/spark/2.6.0-2.3.2/security/#provision-a-service-account).
+When running in [DC/OS strict security mode](https://docs.mesosphere.com/latest/security/ent/#security-modes), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS service account](/mesosphere/dcos/services/spark/2.6.0-2.3.2/security/#provision-a-service-account).
 
 #include /services/include/service-account.tmpl
 
@@ -20,13 +20,13 @@ When running in [DC/OS strict security mode](https://docs.mesosphere.com/latest/
 
 Use the following `curl` commands to rapidly provision the {{ model.techShortName }} service account with the required permissions. You can also provision the service account through the UI.
 
-When running in [DC/OS strict security mode](/1.12/security/ent/#security-modes/), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS service account](/1.12/security/ent/#service/).
+When running in [DC/OS strict security mode](/mesosphere/dcos/1.12/security/ent/#security-modes/), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS service account](/mesosphere/dcos/1.12/security/ent/#service/).
 
 Follow these instructions to [authenticate in strict mode](https://docs.mesosphere.com/services/spark/spark-auth/).
 
 # Using the secret store
 
-DC/OS Enterprise allows users to add privileged information in the form of a file to the DC/OS secret store. These files can be referenced in {{ model.techShortName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. For details about how to use secrets, see [understanding secrets](/1.12/security/ent/secrets/).
+DC/OS Enterprise allows users to add privileged information in the form of a file to the DC/OS secret store. These files can be referenced in {{ model.techShortName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. For details about how to use secrets, see [understanding secrets](/mesosphere/dcos/1.12/security/ent/secrets/).
 
 ## Where to place secrets
 

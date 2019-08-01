@@ -71,4 +71,4 @@ Here is the output:
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/mesosphere/dcos/1.13/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

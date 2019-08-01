@@ -145,9 +145,9 @@ dcos marathon app remove postgres
 
 ## 附录
 
-有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/cn/1.11/storage/)。
+有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/mesosphere/dcos/cn/1.11/storage/)。
 
 
-[1]: /cn/1.11/installing/
-[2]: /cn/1.11/cli/install/
+[1]: /mesosphere/dcos/cn/1.11/installing/
+[2]: /mesosphere/dcos/cn/1.11/cli/install/
 [4]: postgres.marathon.json

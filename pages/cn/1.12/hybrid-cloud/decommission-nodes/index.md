@@ -9,14 +9,14 @@ enterprise: false
 
 为通过添加节点来支持云爆发，还必须支持停用节点。删除节点包括两个步骤：命令 DC/OS 将节点标记为 `GONE`，并停止相应的 Mesos 从设备 `systemd` 器件。
 
-如果您的节点以意外方式停工，您只需要 [停用节点](/1.12/administering-clusters/delete-node/#decommission-the-node/)。
+如果您的节点以意外方式停工，您只需要 [停用节点](/mesosphere/dcos/1.12/administering-clusters/delete-node/#decommission-the-node/)。
 
 <p class="message--warning"><strong>警告：</strong>仅在节点永远不会返回（例如，EC2 VM 销毁）时才应该停用节点 。节点停用后，对应的代理 ID 被内部标记为 GONE 并且不允许返回和在管理节点上重新注册。节点上运行的任务已过渡到 <code>TASK_GONE_BY_OPERATOR</code> 状态。</p>
 
 
 # 关闭节点
 
-1. [SSH 至代理节点](/1.12/administering-clusters/sshcluster/)（您希望关闭的）。
+1. [SSH 至代理节点](/mesosphere/dcos/1.12/administering-clusters/sshcluster/)（您希望关闭的）。
 
 1. 输入以下命令，停止节点。
 
@@ -39,7 +39,7 @@ enterprise: false
 
 - 您在删除节点，尤其是删除多个节点时。DC/OS 配置为每 20 分钟仅允许标记一个节点为 `UNREACHABLE` ，所以，如果您不是明确地停用节点，可能需要较长时间 Mesos 才能将您的节点标记为 `UNREACHABLE` 并允许服务在另一节点上重新安排任务。
 
-- 如果您正使用有状态服务，如 [DC/OS 数据服务](/services/)。有状态服务重新安排任务代价昂贵，所以服务需要在重新安排前知道代理不会再次返回在线。
+- 如果您正使用有状态服务，如 [DC/OS 数据服务](/mesosphere/dcos/services/)。有状态服务重新安排任务代价昂贵，所以服务需要在重新安排前知道代理不会再次返回在线。
 
 - 当节点以意外停工时。
 
@@ -64,7 +64,7 @@ dcos node decommission <mesos-agent-id>
 
 如果 DC/OS 节点仍在运行，Mesos从进程将继续尝试注册（并且由于代理被标记为已消失，注册会被拒绝）。您可以通过停止 Mesos 从进程（以 systemd 单元运行），停止这些尝试。
 
-1. [SSH 至代理节点](/1.12/administering-clusters/sshcluster/)（您希望关闭的）。
+1. [SSH 至代理节点](/mesosphere/dcos/1.12/administering-clusters/sshcluster/)（您希望关闭的）。
 
 1. 输入以下命令，停止节点。
 

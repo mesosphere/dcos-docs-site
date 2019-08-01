@@ -13,9 +13,9 @@ This topic details how to configure authentication for custom apps and pods laun
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/1.14/cli/install/) and be logged in as a superuser.
-- [DC/OS Enterprise CLI 0.4.14 or later installed](/1.14/cli/enterprise-cli/#ent-cli-install).
-- You must [get the root cert](/1.14/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
+- [DC/OS CLI installed](/mesosphere/dcos/1.14/cli/install/) and be logged in as a superuser.
+- [DC/OS Enterprise CLI 0.4.14 or later installed](/mesosphere/dcos/1.14/cli/enterprise-cli/#ent-cli-install).
+- You must [get the root cert](/mesosphere/dcos/1.14/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
 
 # <a name="create-a-keypair"></a>Create a Key Pair
 Create a 2048-bit RSA public-private key pair using the DC/OS Enterprise CLI. Save each value into a separate file within the current directory.
@@ -24,7 +24,7 @@ Create a 2048-bit RSA public-private key pair using the DC/OS Enterprise CLI. Sa
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-Use the [DC/OS Secret Store](/1.14/security/ent/secrets/) to secure the key pair.
+Use the [DC/OS Secret Store](/mesosphere/dcos/1.14/security/ent/secrets/) to secure the key pair.
 
 # <a name="create-a-service-account"></a>Create a service account
 You can use either the DC/OS Enterprise CLI or the DC/OS web interface to create a service account.
@@ -48,14 +48,14 @@ dcos security org service-accounts show <service-account-id>
 1. In the DC/OS web interface, navigate to the **Organization** -> **Service Accounts** tab.
 1. Click the **+** icon in the top right.
 
-   ![Click the service account create button](/1.14/img/GUI-Organization-Service_Accounts_View-1_12.png)
+   ![Click the service account create button](/mesosphere/dcos/1.14/img/GUI-Organization-Service_Accounts_View-1_12.png)
 
    Figure 1. Click the service account create button
 
 1. Enter a description and type the Service Account ID in the **ID** field.
 1. Paste the public key associated with the account into the **PUBLIC KEY** field.
 
-   ![Create service account UI](/1.14/img/create-service-account.png)
+   ![Create service account UI](/mesosphere/dcos/1.14/img/create-service-account.png)
 
    Figure 2. Create new service account
 
@@ -86,7 +86,7 @@ dcos security secrets list /
 ## Determine the required permissions
 Determine what access your service account requires by using this procedure. This will allow you to rule out any functional issues that might be caused by incorrect permissions.
 
-1.  [SSH to your node](/1.14/administering-clusters/sshcluster/).
+1.  [SSH to your node](/mesosphere/dcos/1.14/administering-clusters/sshcluster/).
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
@@ -110,14 +110,14 @@ You can grant your service superuser permission to rule out any functional issue
    -h "authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:superuser/users/<service-account-id>/full
    ```
 
-For more information, see the [permissions reference](/1.14/security/ent/perms-reference/).
+For more information, see the [permissions reference](/mesosphere/dcos/1.14/security/ent/perms-reference/).
 
 ## Assign the permissions
-Using the [permissions reference](/1.14/security/ent/perms-reference/) and the log output, assign permissions to your service. All CLI commands can also be executed via the [IAM API](/1.14/security/ent/iam-api/).
+Using the [permissions reference](/mesosphere/dcos/1.14/security/ent/perms-reference/) and the log output, assign permissions to your service. All CLI commands can also be executed via the [IAM API](/mesosphere/dcos/1.14/security/ent/iam-api/).
 
 ### Using the CLI
 
-You can assign permissions using the CLI. For example, to authorize the [Cassandra service](/services/cassandra/cass-auth/) to be uninstalled on DC/OS:
+You can assign permissions using the CLI. For example, to authorize the [Cassandra service](/mesosphere/dcos/services/cassandra/cass-auth/) to be uninstalled on DC/OS:
 
 Grant the permissions (`dcos:mesos:master:framework:role:cassandra-role`) and the allowed actions (`create`).
 
@@ -131,7 +131,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:framework:r
 1.  Select **Organization > Service Accounts**.
 1.  Select the name of the service account to grant the permission to.
 
-    ![Select service acccount](/1.14/img/GUI-Organization-Service_Accounts_No_Tooltip-1_12.png)
+    ![Select service acccount](/mesosphere/dcos/1.14/img/GUI-Organization-Service_Accounts_No_Tooltip-1_12.png)
 
     Figure 3. Select service account
 
@@ -139,20 +139,20 @@ dcos security org users grant <service-account-id> dcos:mesos:master:framework:r
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 1.  Copy and paste the permission in the **Permissions Strings** field.
 
-    ![Service account permission string](/1.14/img/service-account-permission-string.png)
+    ![Service account permission string](/mesosphere/dcos/1.14/img/service-account-permission-string.png)
 
     Figure 4. Service account permissions string
 
 # <a name="req-auth-tok"></a>Request an authentication token
 
-Generate a [service login token](/1.14/security/ent/service-auth/), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified.
+Generate a [service login token](/mesosphere/dcos/1.14/security/ent/service-auth/), where the service account (`<service-account-id>`) and private key (`<private-key>.pem`) are specified.
 
 ```bash
 dcos auth login --username=<service-account-id> --private-key=<private-key>.pem
 ```
 
 # <a name="pass-tok"></a>Pass the authentication token in subsequent requests
-After the service has successfully logged in, an [authentication token](/1.14/security/ent/service-auth/) is created. The authentication token should used in subsequent requests to DC/OS endpoints. You can reference the authentication token as a shell variable, for example:
+After the service has successfully logged in, an [authentication token](/mesosphere/dcos/1.14/security/ent/service-auth/) is created. The authentication token should used in subsequent requests to DC/OS endpoints. You can reference the authentication token as a shell variable, for example:
 
 ```
 curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"

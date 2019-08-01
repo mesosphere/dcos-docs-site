@@ -32,4 +32,4 @@ dcos security org groups delete [OPTIONS] GID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 安全群集组织分组](/cn/1.12/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) | 管理用户组和组成员。 |
+| [dcos 安全群集组织分组](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) | 管理用户组和组成员。 |

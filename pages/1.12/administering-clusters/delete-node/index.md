@@ -10,7 +10,7 @@ enterprise: false
 
 As of DC/OS 1.12, deleting a node involves two steps: telling DC/OS to mark the node as `GONE`, and stopping the corresponding Mesos slave systemd unit.
 
-If your node has gone down in an unplanned way, you only have to [Decommission the node](/1.12/administering-clusters/delete-node/#decommission-the-node/).
+If your node has gone down in an unplanned way, you only have to [Decommission the node](/mesosphere/dcos/1.12/administering-clusters/delete-node/#decommission-the-node/).
 
 # Decommission the node
 
@@ -22,7 +22,7 @@ You should decommission nodes in the following situations.
 
 - You are deleting a node, especially if you are deleting multiple nodes. DC/OS is configured to only allow one node to be marked `UNREACHABLE` every 20 minutes, so if you do not explicity decommission nodes, it can take a long time for Mesos to mark your nodes as `UNREACHABLE` and allow services to reschedule tasks on another node.
 
-- If you are working with stateful services, like the [DC/OS data services](/services/). It is expensive for stateful services to reschedule tasks, so the services need to know that an agent is not going to come back online before they reschedule.
+- If you are working with stateful services, like the [DC/OS data services](/mesosphere/dcos/services/). It is expensive for stateful services to reschedule tasks, so the services need to know that an agent is not going to come back online before they reschedule.
 
 - When a node has gone down in an unplanned way.
 
@@ -49,7 +49,7 @@ Once the node has been decommissioned (this is equivalent to using the `MARK_AGE
 
 If the DC/OS node is still running, the Mesos slave process will continue to try to register (and be disallowed, due to the agent being marked gone).  You can stop these attempts by stopping the Mesos slave process, which is run as a systemd unit.
 
-1. [SSH to the agent node](/1.12/administering-clusters/sshcluster/) you wish to shut down.
+1. [SSH to the agent node](/mesosphere/dcos/1.12/administering-clusters/sshcluster/) you wish to shut down.
 
 1. Enter the following commands to stop the node.
 

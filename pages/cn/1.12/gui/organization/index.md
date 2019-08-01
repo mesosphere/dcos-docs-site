@@ -12,6 +12,6 @@ excerpt: 使用“组织”菜单
 - 组
 - 服务帐户
 
-![Organization Tab EE](/1.12/img/GUI-Organization-Users-Users_List_Empty-1_12.png)
+![Organization Tab EE](/mesosphere/dcos/1.12/img/GUI-Organization-Users-Users_List_Empty-1_12.png)
 
 图 1 - 组织 > 用户选项卡

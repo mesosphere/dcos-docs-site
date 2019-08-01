@@ -24,7 +24,7 @@ DC/OS CA 捆绑包位于文件系统路径 `/run/dcos/pki/CA/ca-bundle.crt` 的�
 
 <p class="message--important"><strong>重要信息：</strong>如果您正在使用 `curl` 检索 DC/OS CA 捆绑包，则必须使用 `-k`/`--insecure` 标记。如果通过 HTTPS 执行通信，则此标记会禁用服务器证书验证。这允许<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间人攻击</a>，其中，网络路径中的恶意方可能发送错误的 CA 捆绑包，导致您信任 DC/OS 群集外部的实体。</p>
 
-**先决条件：**您必须已[安装 DC/OS CLI](/cn/1.12/cli/install/)，以在以下命令中检索群集 URL。
+**先决条件：**您必须已[安装 DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/install/)，以在以下命令中检索群集 URL。
 
 使用以下命令检索 DC/OS CA 捆绑包，并将其保存在当前目录中：
 

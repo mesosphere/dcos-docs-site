@@ -8,16 +8,16 @@ beta: false
 enterprise: false
 ---
 
-[度量标准组件](/cn/1.11/overview/architecture/components/#dcos-metrics) 从 DC/OS 集群主机和在这些主机上运行的容器，以及从在 DC/OS 上运行的向 Mesos 度量标准模块发送 StatsD 度量标准的应用程序提供度量标准。度量标准组件与 DC/OS 本身集成，可从 `/system/v1/metrics/v0` HTTP API 端点按主机获得。
+[度量标准组件](/mesosphere/dcos/cn/1.11/overview/architecture/components/#dcos-metrics) 从 DC/OS 集群主机和在这些主机上运行的容器，以及从在 DC/OS 上运行的向 Mesos 度量标准模块发送 StatsD 度量标准的应用程序提供度量标准。度量标准组件与 DC/OS 本身集成，可从 `/system/v1/metrics/v0` HTTP API 端点按主机获得。
 
 ## 概述
 DC/OS 提供以下类型的度量标准：
 
 * **主机：** - 关于特定节点（DC/OS 集群一部分）的度量标准。
-* **容器：** - 关于根据 DC/OS [通用容器运行时](/cn/1.11/deploying-services/containerizers/ucr/) 或 [Docker 引擎](/cn/1.11/deploying-services/containerizers/docker-containerizer/) 运行时中运行的任务进行 cgroup 分配的度量标准 。
+* **容器：** - 关于根据 DC/OS [通用容器运行时](/mesosphere/dcos/cn/1.11/deploying-services/containerizers/ucr/) 或 [Docker 引擎](/mesosphere/dcos/cn/1.11/deploying-services/containerizers/docker-containerizer/) 运行时中运行的任务进行 cgroup 分配的度量标准 。
 * **应用程序：** - 关于在通用容器运行时内运行的特定应用程序的度量标准。
 
-[度量标准 API](/cn/1.11/metrics/metrics-api/) 揭示了这些方面。
+[度量标准 API](/mesosphere/dcos/cn/1.11/metrics/metrics-api/) 揭示了这些方面。
 
 DC/OS 度量标准组件在端口 61091 生成 Prometheus 度量标准，从而无需运行以前版本 DC/OS 支持的 Prometheus 插件。
 
@@ -25,4 +25,4 @@ DC/OS 度量标准组件在端口 61091 生成 Prometheus 度量标准，从而�
 
 Mesos 度量标准模块与集群中的每个代理节点绑定。此模块能让在 DC/OS 之上运行的应用程序向收集器发布度量标准，方法是揭示每个容器内部 StatsD 主机和端口环境变量。这些度量标准附加有结构化数据，如 `agent-id`、`framework-id` 和 `task-id`。DC/OS 应用程序通过环境变量发现端点 (`STATSD_UDP_HOST` 或 `STATSD_UDP_PORT`）。应用程序利用此 StatsD 界面向系统发送自定义分析度量标准。
 
-有关收集哪些度量标准的更多信息，请参阅 [度量标准参考](/cn/1.11/metrics/reference/)。
+有关收集哪些度量标准的更多信息，请参阅 [度量标准参考](/mesosphere/dcos/cn/1.11/metrics/reference/)。

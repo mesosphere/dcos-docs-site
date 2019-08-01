@@ -10,7 +10,7 @@ enterprise: true
 
 您可以限制用户对系统和组件日志的访问。
 
-以下是查看系统和组件日志所需的 [权限](/cn/1.11/security/ent/perms-reference/)：
+以下是查看系统和组件日志所需的 [权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/)：
 
 | 权限字符串 | full | C | R | U | D |
 |----------------------------|------|---|---|---|---|
@@ -18,7 +18,7 @@ enterprise: true
 
 **先决条件：**
 
-- DC/OS 和 DC/OS CLI [已安装](/cn/1.11/installing/)，您以超级用户身份登录。
+- DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/cn/1.11/installing/)，您以超级用户身份登录。
 
 # 通过 DC/OS Web 界面
 
@@ -26,13 +26,13 @@ enterprise: true
 
 1. 选择**组织**并选择**用户**。选择现有用户或创建一个新用户。
 
-   ![新用户](/cn/1.11/img/new-user-generic.png)
+   ![新用户](/mesosphere/dcos/cn/1.11/img/new-user-generic.png)
 
    图 1. 新用户屏幕
 
 1. 从**权限**选项卡，选择**添加权限**。
 
-   ![为用户添加权限](/cn/1.11/img/permission-user.png)
+   ![为用户添加权限](/mesosphere/dcos/cn/1.11/img/permission-user.png)
 
    图 2. “添加权限”按钮
 
@@ -42,13 +42,13 @@ enterprise: true
     dcos:adminrouter:ops:system-logs full
     ```
 
- ![添加权限](/cn/1.11/img/comp-log-perms.png)
+ ![添加权限](/mesosphere/dcos/cn/1.11/img/comp-log-perms.png)
 
  图 3. 权限字符串对话框
 
  **权限**选项卡现应当是这样的：
 
- ![prod-group permissions complete](/cn/1.11/img/comp-log-perms-done.png)
+ ![prod-group permissions complete](/mesosphere/dcos/cn/1.11/img/comp-log-perms-done.png)
 
  图 4. 权限已添加
 
@@ -77,7 +77,7 @@ enterprise: true
 # 通过 IAM API
 
 **先决条件：**
-如果您的 [安全模式](/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
+如果您的 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes) 是 `permissive` 或 `strict`，则必须 [获取根证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
 
 ### 提示
 

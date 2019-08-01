@@ -8,7 +8,7 @@ excerpt: Installing production-ready DC/OS
 
 This page outlines how to install DC/OS for production. Using this method, you can package the DC/OS distribution and connect to every node manually to run the DC/OS installation commands. This installation method is recommended if you want to integrate with an existing system or if you do not have SSH access to your cluster.
 
-The DC/OS installation process requires a bootstrap node, master node, public agent node, and a private agent node. You can view the [nodes](/1.14/overview/concepts/#node) documentation for more information.
+The DC/OS installation process requires a bootstrap node, master node, public agent node, and a private agent node. You can view the [nodes](/mesosphere/dcos/1.14/overview/concepts/#node) documentation for more information.
 
 # Production Installation Process
 
@@ -18,7 +18,7 @@ The DC/OS installation process requires a bootstrap node, master node, public ag
 1. Install DC/OS on master node
 1. Install DC/OS on agent node
 
-![Production Installation Process](/1.14/img/advanced-installer.png)
+![Production Installation Process](/mesosphere/dcos/1.14/img/advanced-installer.png)
 Figure 1. The production installation process
 
 
@@ -34,7 +34,7 @@ The DC/OS installation creates the following folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must be located outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.14/overview/concepts/#exhibitor-zookeeper) data.                                                                   |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/mesosphere/dcos/1.14/overview/concepts/#exhibitor-zookeeper) data.                                                                   |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -42,7 +42,7 @@ The DC/OS installation creates the following folders:
 <p class="message--warning"><strong>WARNING: </strong>Changes to <code>/opt/mesosphere</code> are unsupported. They can lead to unpredictable behavior in DC/OS and prevent upgrades.</p>
 
 ## Prerequisites
-Before installing DC/OS, your cluster must meet the software and hardware [requirements](/1.14/installing/production/system-requirements/).
+Before installing DC/OS, your cluster must meet the software and hardware [requirements](/mesosphere/dcos/1.14/installing/production/system-requirements/).
 
 
 # <a name="configure-cluster"></a>Configure your cluster
@@ -55,7 +55,7 @@ Before installing DC/OS, your cluster must meet the software and hardware [requi
 [enterprise]
 # <a name="license"></a>Store license file
 [/enterprise]
-1.  Create a [license file](/1.14/administering-clusters/licenses/) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
+1.  Create a [license file](/mesosphere/dcos/1.14/administering-clusters/licenses/) containing the license text received in email sent by your Authorized Support Contact and save as `genconf/license.txt`.
 
 # <a name="ip-detect-script"></a>Create an IP detection script
 
@@ -150,7 +150,7 @@ BEGIN { ec = 1 }
 # Create a fault domain detection script
 [/enterprise]
 
-By default, DC/OS clusters have [fault domain awareness](/1.14/deploying-services/fault-domain-awareness/) enabled, so no changes to your `config.yaml` are required to use this feature. However, you must include a fault domain detection script named `fault-domain-detect` in your `./genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
+By default, DC/OS clusters have [fault domain awareness](/mesosphere/dcos/1.14/deploying-services/fault-domain-awareness/) enabled, so no changes to your `config.yaml` are required to use this feature. However, you must include a fault domain detection script named `fault-domain-detect` in your `./genconf` directory. To opt out of fault domain awareness, set the `fault_domain_enabled` parameter of your `config.yaml` file to `false`.
 
 
 1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain. During installation, the output of this script is passed to Mesos.
@@ -213,7 +213,7 @@ The Enterprise template specifies three Mesos masters, static master discovery l
 
 The Open Source template specifies three Mesos masters, three ZooKeeper instances for Exhibitor storage, static master discovery list, internal storage backend for Exhibitor, a custom proxy, and cloud specific DNS resolvers. [oss type="inline" size="small" /]
 
-If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameter descriptions and configuration examples, see the [documentation](/1.14/installing/ent/custom/configuration/configuration-parameters/).
+If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameter descriptions and configuration examples, see the [documentation](/mesosphere/dcos/1.14/installing/ent/custom/configuration/configuration-parameters/).
 
 <p class="message--note"><strong>NOTE: </strong>If AWS DNS IP is not available in your country, you can replace the AWS DNS IP servers <code>8.8.8.8</code> and <code>8.8.4.4</code> with your local DNS servers.</p>
 <p class="message--note"><strong>NOTE: </strong>If you specify <code>master_discovery: static</code>, you must also create a script to map internal IPs to public IPs on your bootstrap node (for example, <code>genconf/ip-detect-public</code>). This script is then referenced in <code>ip_detect_public_filename: "relative-path-from-dcos-generate-config.sh"</code>.</p>
@@ -413,13 +413,13 @@ At this point your directory structure should resemble:
             sudo bash dcos_install.sh slave_public
             ```
 
-    __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.14/installing/production/system-requirements/ports/) documentation.
+    __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/mesosphere/dcos/1.14/installing/production/system-requirements/ports/) documentation.
 
 5.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
 
     <p class="message--note"><strong>NOTE: </strong>This process can take about 10 minutes. During this time, you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.</p>
 
-![Exhibitor for ZooKeeper](/1.14/img/chef-zk-status.png)
+![Exhibitor for ZooKeeper](/mesosphere/dcos/1.14/img/chef-zk-status.png)
 
 Figure 2. Exhibitor for ZooKeeper
 
@@ -431,14 +431,14 @@ Figure 2. Exhibitor for ZooKeeper
 
 7.  Enter your administrator username and password.
 
-![Login screen](/1.14/img/ui-installer-auth2.png)
+![Login screen](/mesosphere/dcos/1.14/img/ui-installer-auth2.png)
 
 Figure 3. Sign in dialogue
 
 
 You are done! The UI dashboard will now be displayed.
 
-![UI dashboard](/1.14/img/dashboard-ee-1-12.png)
+![UI dashboard](/mesosphere/dcos/1.14/img/dashboard-ee-1-12.png)
 
 Figure 4. DC/OS UI dashboard
 
@@ -448,7 +448,7 @@ Figure 4. DC/OS UI dashboard
 
 You can find information on the next steps listed below:
 - [Assign user roles][7].
-- [System Requirements](/1.14/installing/production/system-requirements/)
+- [System Requirements](/mesosphere/dcos/1.14/installing/production/system-requirements/)
 - [Public agent nodes][2]
 - [Private agent nodes][3]
 - [Install the DC/OS Command-Line Interface (CLI)][9]
@@ -457,16 +457,16 @@ You can find information on the next steps listed below:
 - [Uninstalling DC/OS][11]
 
 
-[1]: /1.14/installing/production/system-requirements/
-[2]: /1.14/overview/concepts/#public
-[3]: /1.14/overview/concepts/#private
-[5]: /1.14/img/ui-installer-auth2.png
-[6]: /1.14/img/dashboard-ee.png
-[7]: /1.14/security/ent/users-groups/
-[8]: /1.14/security/ent/users-groups/
-[9]: /1.14/cli/install/
-[12]: /1.14/installing/production/deploying-dcos/node-cluster-health-check/
-[10]: /1.14/installing/oss/troubleshooting/
-[11]: /1.14/installing/oss/custom/uninstall/
+[1]: /mesosphere/dcos/1.14/installing/production/system-requirements/
+[2]: /mesosphere/dcos/1.14/overview/concepts/#public
+[3]: /mesosphere/dcos/1.14/overview/concepts/#private
+[5]: /mesosphere/dcos/1.14/img/ui-installer-auth2.png
+[6]: /mesosphere/dcos/1.14/img/dashboard-ee.png
+[7]: /mesosphere/dcos/1.14/security/ent/users-groups/
+[8]: /mesosphere/dcos/1.14/security/ent/users-groups/
+[9]: /mesosphere/dcos/1.14/cli/install/
+[12]: /mesosphere/dcos/1.14/installing/production/deploying-dcos/node-cluster-health-check/
+[10]: /mesosphere/dcos/1.14/installing/oss/troubleshooting/
+[11]: /mesosphere/dcos/1.14/installing/oss/custom/uninstall/
 
 

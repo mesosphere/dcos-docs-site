@@ -37,7 +37,7 @@ dcos job kill <job-id> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/mesosphere/dcos/1.9/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 <!-- # Examples -->
 

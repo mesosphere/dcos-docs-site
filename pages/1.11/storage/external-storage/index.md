@@ -141,7 +141,7 @@ If you scale your app down to 0 instances, the volume is detached from the agent
 
 [4]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
 [5]: http://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/
-[6]: /1.11/deploying-services/creating-services/
+[6]: /mesosphere/dcos/1.11/deploying-services/creating-services/
 [7]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/#data-directories
 [8]: #implicit-vol
 [9]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/

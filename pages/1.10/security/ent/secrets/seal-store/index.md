@@ -10,15 +10,15 @@ enterprise: true
 
 You may want to manually seal the Secret Store to protect its contents from an intruder.
 
-Sealed Secret Stores cannot be accessed from the GUI. Secret values cannot be retrieved using the [Secrets API](/1.10/security/ent/secrets/secrets-api/). Services that depend on values in the Secret Store may fail to deploy.
+Sealed Secret Stores cannot be accessed from the GUI. Secret values cannot be retrieved using the [Secrets API](/mesosphere/dcos/1.10/security/ent/secrets/secrets-api/). Services that depend on values in the Secret Store may fail to deploy.
 
 To seal the Secret Store, complete the following steps. They will seal just a single instance of dcos-secrets. If the cluster URL obtained through `dcos config show core.dcos_url` points to a load balancer and there is more than one master node in the cluster, then these steps should be issued against each and every master node instead and the cluster URL should be changed to the address of individual master nodes.
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser via `dcos auth login`.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.10/cli/install/) and be logged in as a superuser via `dcos auth login`.
 
-- If your [security mode](/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/1.10/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+- If your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.  If your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 
 1. From a terminal prompt, check the status of the Secret Store via the following command.

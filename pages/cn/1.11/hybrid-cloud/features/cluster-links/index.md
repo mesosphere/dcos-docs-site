@@ -9,16 +9,16 @@ enterprise: true
 
 集群链接是集群和另一集群之间的 **单向** 关系。
 
-您可以使用 DC/OS CLI [dcos cluster link](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) 和 [dcos cluster unlink](/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) 命令和 [cluster link API](/cn/1.11/administering-clusters/multiple-clusters/cluster-link-api/)添加和删除一个集群到另一个集群的链接。链接设置成功后，您可以使用 CLI 或 UI 轻松在集群之间切换。如果已经使用 SSO 提供程序设置链接，您不需要提供凭证即可切换集群。
+您可以使用 DC/OS CLI [dcos cluster link](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-link/) 和 [dcos cluster unlink](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) 命令和 [cluster link API](/mesosphere/dcos/cn/1.11/administering-clusters/multiple-clusters/cluster-link-api/)添加和删除一个集群到另一个集群的链接。链接设置成功后，您可以使用 CLI 或 UI 轻松在集群之间切换。如果已经使用 SSO 提供程序设置链接，您不需要提供凭证即可切换集群。
 
-您必须是超级用户或具有相应的集群链接 [权限](/cn/1.11/security/ent/perms-reference/#cluster-linker)才能查看、添加和删除链接并授予查看链接集群的权限。
+您必须是超级用户或具有相应的集群链接 [权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/#cluster-linker)才能查看、添加和删除链接并授予查看链接集群的权限。
 
 
 # 使用 SSO 访问集群链接
 
 作为超级用户：
 
-1. 配置 [OpenID IDP](/cn/1.11/security/ent/sso/setup-openid/)。
+1. 配置 [OpenID IDP](/mesosphere/dcos/cn/1.11/security/ent/sso/setup-openid/)。
  1. 确保两个集群 URL 均在 Google Dev 控制台中的**Authorized JavaScript origins** 和 **Authorized redirect URIs** 字段中提供。
  1. 提供 OIDC 名称，如“google-idp”。
  1. 配置 OIDC 时，确保两个集群使用相同的 `Client-Id` 和 `Client-Secret` 。
@@ -54,7 +54,7 @@ Choose the login method and provider to enable switching to this linked cluster:
 
 # 查看已链接的集群
 
-要查看所有已链接的集群，运行 `dcos cluster list` 命令。如果集群已链接但未设置，则其状态为 `UNCONFIGURED`。如果集群已链接和附加，其状态为 `AVAILABLE`。另请参阅 [查看连接的集群](/cn/1.11/administering-clusters/multiple-clusters/cluster-connections/)。
+要查看所有已链接的集群，运行 `dcos cluster list` 命令。如果集群已链接但未设置，则其状态为 `UNCONFIGURED`。如果集群已链接和附加，其状态为 `AVAILABLE`。另请参阅 [查看连接的集群](/mesosphere/dcos/cn/1.11/administering-clusters/multiple-clusters/cluster-connections/)。
 
 # 删除链路集群
 
@@ -82,19 +82,19 @@ dcos cluster attach <linked-cluster>
 
 1. 在 DC/OS Web 界面的左上角，单击集群名称右侧的向下箭头。
 
-    ![打开集群弹出窗口](/cn/1.11/img/open-cluster-popup.png)
+    ![打开集群弹出窗口](/mesosphere/dcos/cn/1.11/img/open-cluster-popup.png)
 
     图 1. 集群下拉列表
 
 1. 选择 **切换集群**。
 
-    ![swi 集群](/cn/1.11/img/switch-cluster.png)
+    ![swi 集群](/mesosphere/dcos/cn/1.11/img/switch-cluster.png)
 
     图 2. 集群切换
 
 1. 单击要切换到集群的名称。
 
-    ![swi 链接的集群](/cn/1.11/img/switch-linked-cluster.png)
+    ![swi 链接的集群](/mesosphere/dcos/cn/1.11/img/switch-linked-cluster.png)
 
     图 3. 切换到已链接集群
 
@@ -104,7 +104,7 @@ dcos cluster attach <linked-cluster>
 
 1. 在切换目标集群的最右侧单击垂直椭圆，然后选择 **切换**。
 
-    ![swi linked cluster2](/cn/1.11/img/switch-linked-cluster2.png)
+    ![swi linked cluster2](/mesosphere/dcos/cn/1.11/img/switch-linked-cluster2.png)
 
     图 4. 切换到已链接集群
 
@@ -207,13 +207,13 @@ dcos cluster attach <linked-cluster>
 
 1. 作为外部用户，使用 Google 凭证登录集群的 DC/OS UI `cluster-a` 。
 
-    ![google 登录](/cn/1.11/img/google-login.png)
+    ![google 登录](/mesosphere/dcos/cn/1.11/img/google-login.png)
 
     图 5. Google 登录
 
 1. 从左上角，单击集群名称旁边的向下箭头。
 
-    ![swi 集群](/cn/1.11/img/switch-cluster.png)
+    ![swi 集群](/mesosphere/dcos/cn/1.11/img/switch-cluster.png)
 
     图 6. 切换集群
 

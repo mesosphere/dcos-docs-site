@@ -128,13 +128,13 @@ Etcd、 Zookeeper 和使用
 
 1. 在部署的输出中查找 `MASTERFQDN`。要查找该值，单击 `Last deployment` 下面的链接（就是这里的 `4/15/2016 (Succeeded)`），您将看到：
 
-![Deployment history](/cn/1.11/img/dcos-azure-marketplace-step2a.png)
+![Deployment history](/mesosphere/dcos/cn/1.11/img/dcos-azure-marketplace-step2a.png)
 
 图 1. 部署历史记录
 
 2. 单击最新部署并复制 `MASTERFQDN` 到 `Outputs` 部分。
 
-![Deployment output](/cn/1.11/img/dcos-azure-marketplace-step2b.png)
+![Deployment output](/mesosphere/dcos/cn/1.11/img/dcos-azure-marketplace-step2b.png)
 
 图 2. 输出部分
 
@@ -148,37 +148,37 @@ Etcd、 Zookeeper 和使用
 
 1. 查找管理节点的网络安全组资源，
 
-![Resource - Master Node Network Security Group](/cn/1.11/img/dcos-azure-step2case1a.png)
+![Resource - Master Node Network Security Group](/mesosphere/dcos/cn/1.11/img/dcos-azure-step2case1a.png)
 
 图 3. 管理节点网络安全组
 
 2. 单击左侧的 **入站安全规则** 选项卡。
 
-![Inbound Security Rules](/cn/1.11/img/dcos-azure-step2case1b.png)
+![Inbound Security Rules](/mesosphere/dcos/cn/1.11/img/dcos-azure-step2case1b.png)
 
 图 4. 入站安全规则
 
 3. 添加入站安全规则。
 
-![Add Inbound Security Rules](/cn/1.11/img/dcos-azure-step2case1c.png)
+![Add Inbound Security Rules](/mesosphere/dcos/cn/1.11/img/dcos-azure-step2case1c.png)
 
 图 5. 添加入站安全规则 
 
 4. 查找管理节点的负载均衡器资源。
 
-![Resource - Master Node Load balancer](/cn/1.11/img/dcos-azure-step2case1d.png)
+![Resource - Master Node Load balancer](/mesosphere/dcos/cn/1.11/img/dcos-azure-step2case1d.png)
 
 图 6. 管理节点负载均衡器
 
 5. 单击左侧的 **入站 NAT 规则** 选项卡，
 
-![Inbound NAT Rules](/cn/1.11/img/dcos-azure-step2case1e.png)
+![Inbound NAT Rules](/mesosphere/dcos/cn/1.11/img/dcos-azure-step2case1e.png)
 
 图 7. 入站 NAT 规则
 
 6. 添加入站 NAT 规则。
 
-![Add Inbound NAT Rules](/cn/1.11/img/dcos-azure-step2case1f.png)
+![Add Inbound NAT Rules](/mesosphere/dcos/cn/1.11/img/dcos-azure-step2case1f.png)
 
 图 8. 添加入站 NAT 规则
 
@@ -202,7 +202,7 @@ ssh azureuser@dcosmaster.westus.cloudapp.azure.com -L 8000:localhost:80
 
 现在您可以在本地机器上访问 `http://localhost:8000` 并查看 DC/OS 仪表板。
 
-![DC/OS dashboard](/cn/1.11/img/dcos-gui.png)
+![DC/OS dashboard](/mesosphere/dcos/cn/1.11/img/dcos-gui.png)
 
 图 9. DC/OS 仪表板
 
@@ -246,6 +246,6 @@ dcos package search
 - [安装 DC/OS 命令行界面 (CLI)][2]
 - [扩展注意事项][4]
 
-[1]: /1.11/security/ent/users-groups/
-[2]: /1.11/cli/install/
+[1]: /mesosphere/dcos/1.11/security/ent/users-groups/
+[2]: /mesosphere/dcos/1.11/cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/

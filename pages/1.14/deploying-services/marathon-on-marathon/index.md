@@ -17,7 +17,7 @@ This topic describes how to deploy non-native instances of Marathon to isolate M
 -  **Non-native Marathon** A Marathon instance that you can install as a DC/OS service. Non-native Marathon instances run on private agent nodes. You may need additional private agent nodes to accommodate the increased resource demands.  
 
 # Isolating Resources
-DC/OS Enterprise [security features](/1.14/security/ent/) provides robust fine-grained access control. However, there are situations when you might want a partitioned environment, for example:
+DC/OS Enterprise [security features](/mesosphere/dcos/1.14/security/ent/) provides robust fine-grained access control. However, there are situations when you might want a partitioned environment, for example:
 
 -  Testing DC/OS upgrades or API changes.
 -  Isolating developer groups from each other securely, such that developers in one group cannot negatively impact workloads running in another group. By default, each DC/OS service uses the same [Mesos role](http://mesos.apache.org/documentation/latest/roles/) that the native Marathon registered with for quotas and reservations. This means that Marathon users can run tasks under any Linux user that Marathon can run tasks under.

@@ -36,7 +36,7 @@ dcos node diagnostics download <bundle> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/mesosphere/dcos/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
 
 <!-- # Examples -->
 

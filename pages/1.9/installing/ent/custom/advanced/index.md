@@ -22,7 +22,7 @@ The DC/OS installation creates these folders:
 | `/opt/mesosphere`                       | Contains the DC/OS binaries, libraries, and cluster configuration. Do not modify.                                                              |
 | `/etc/systemd/system/dcos.target.wants` | Contains the systemd services that start the systemd components. They must live outside of `/opt/mesosphere` because of systemd constraints.   |
 | `/etc/systemd/system/dcos.<units>`      | Contains copies of the units in `/etc/systemd/system/dcos.target.wants`. They must be at the top folder as well as inside `dcos.target.wants`. |
-| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/1.9/overview/concepts/#mesos-exhibitor-zookeeper) data.                                                                              |
+| `/var/lib/dcos/exhibitor/zookeeper`     | Contains the [ZooKeeper](/mesosphere/dcos/1.9/overview/concepts/#mesos-exhibitor-zookeeper) data.                                                                              |
 | `/var/lib/docker`                       | Contains the Docker data.                                                                                                                      |
 | `/var/lib/dcos`                         | Contains the DC/OS data.                                                                                                                       |
 | `/var/lib/mesos`                        | Contains the Mesos data.                                                                                                                       |
@@ -38,7 +38,7 @@ In this step, an IP detect script is created. This script reports the IP address
 
 **Important:** 
 
-- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/1.9/installing/ent/custom/uninstall/).
+- The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be [wiped and reinstalled](/mesosphere/dcos/1.9/installing/ent/custom/uninstall/).
 - The script must return the same IP address as specified in the `config.yaml`. For example, if the private master IP is specified as `10.2.30.4` in the `config.yaml`, your script should return this same value when run on the master. 
 
 1.  Create a directory named `genconf` on your bootstrap node and navigate to it.
@@ -118,7 +118,7 @@ In this step you create a YAML configuration file that is customized for your en
 
 2.  Create a configuration file and save as `genconf/config.yaml`. You can use this template to get started.
     
-    The template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and Google DNS resolvers. If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameters descriptions and configuration examples, see the [documentation](/1.9/installing/ent/custom/configuration/configuration-parameters/).
+    The template specifies three Mesos masters, static master discovery list, internal storage backend for Exhibitor, a custom proxy, security mode specified, and Google DNS resolvers. If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameters descriptions and configuration examples, see the [documentation](/mesosphere/dcos/1.9/installing/ent/custom/configuration/configuration-parameters/).
     
     **Tips:** 
     
@@ -157,7 +157,7 @@ In this step you create a custom DC/OS build file on your bootstrap node and the
 
 **Important:** 
 
-- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/1.9/installing/ent/troubleshooting/).
+- Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/mesosphere/dcos/1.9/installing/ent/troubleshooting/).
 - If something goes wrong and you want to rerun your setup, use these cluster [cleanup instructions][2].
 
 **Prerequisites**
@@ -252,7 +252,7 @@ To install DC/OS:
             sudo bash dcos_install.sh slave_public
             ```
             
-    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.9/installing/ent/custom/system-requirements/#port-and-protocol).
+    __Tip:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/mesosphere/dcos/1.9/installing/ent/custom/system-requirements/#port-and-protocol).
 
 6.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
     
@@ -268,21 +268,21 @@ To install DC/OS:
 
 8.  Enter your administrator username and password.
     
-    ![alt text](/1.9/img/ui-installer-auth2.png)
+    ![alt text](/mesosphere/dcos/1.9/img/ui-installer-auth2.png)
     
     You are done!
     
-    ![UI dashboard](/1.9/img/dashboard-ee.gif)
+    ![UI dashboard](/mesosphere/dcos/1.9/img/dashboard-ee.gif)
 
 ### Next Steps
 
 Now you can [assign user roles][8].
 
 
- [1]: /1.9/installing/ent/custom/system-requirements/
- [2]: /1.9/installing/ent/custom/uninstall/
- [3]: /1.9/overview/concepts/#public-agent-node
- [4]: /1.9/overview/concepts/#private-agent-node
- [5]: /1.9/img/chef-zk-status.png
- [7]: /1.9/img/dashboard-ee.gif
- [8]: /1.9/security/ent/
+ [1]: /mesosphere/dcos/1.9/installing/ent/custom/system-requirements/
+ [2]: /mesosphere/dcos/1.9/installing/ent/custom/uninstall/
+ [3]: /mesosphere/dcos/1.9/overview/concepts/#public-agent-node
+ [4]: /mesosphere/dcos/1.9/overview/concepts/#private-agent-node
+ [5]: /mesosphere/dcos/1.9/img/chef-zk-status.png
+ [7]: /mesosphere/dcos/1.9/img/dashboard-ee.gif
+ [8]: /mesosphere/dcos/1.9/security/ent/

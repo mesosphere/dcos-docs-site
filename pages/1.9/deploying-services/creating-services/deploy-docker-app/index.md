@@ -149,25 +149,25 @@ In this tutorial, a custom Docker app is created and added to Marathon.
     /nginx   64  0.1    0/1    ---      scale       DOCKER   None
     ```
 
-1.  If you used the [AWS CloudFormation templates](/1.9/installing/oss/cloud/aws/), you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80).
+1.  If you used the [AWS CloudFormation templates](/mesosphere/dcos/1.9/installing/oss/cloud/aws/), you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80).
     1. In CloudFormation, check the checkbox next to your stack.
     2. Click the **Resources** tab.
     3. Search for **PublicSlaveLoadBalancer**.
     4. Click the link in the Physical ID column.
     5. Follow the instructions in [Update the Health Check Configuration](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html#update-health-check-config).
 
-1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/1.9/administering-clusters/locate-public-agent/).
+1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/mesosphere/dcos/1.9/administering-clusters/locate-public-agent/).
 
     You should see the following message in your browser:
 
-    ![Hello Brave World](/1.9/img/helloworld.png)
+    ![Hello Brave World](/mesosphere/dcos/1.9/img/helloworld.png)
 
 # Next steps
 
-Learn how to load balance your app on a public node using [Marathon-LB](/services/marathon-lb/1.12/mlb-basic-tutorial/).
+Learn how to load balance your app on a public node using [Marathon-LB](/mesosphere/dcos/services/marathon-lb/1.12/mlb-basic-tutorial/).
 
 
  [1]: https://www.docker.com
  [2]: https://hub.docker.com
- [3]: /1.9/installing/oss/
- [4]: /1.9/cli/install/
+ [3]: /mesosphere/dcos/1.9/installing/oss/
+ [4]: /mesosphere/dcos/1.9/cli/install/

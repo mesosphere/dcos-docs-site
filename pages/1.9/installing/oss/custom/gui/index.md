@@ -84,11 +84,11 @@ The DC/OS installation creates these folders:
 
 3.  Click **Begin Installation**.
 
-    ![Begin Install](/1.9/img/dcos-gui-install.png)
+    ![Begin Install](/mesosphere/dcos/1.9/img/dcos-gui-install.png)
 
 4.  Specify your Deployment and DC/OS Environment settings:
 
-    ![preflight](/1.9/img/dcos-gui-preflight.png)
+    ![preflight](/mesosphere/dcos/1.9/img/dcos-gui-preflight.png)
 
 ### Deployment Settings
 
@@ -96,10 +96,10 @@ The DC/OS installation creates these folders:
     Specify a comma-separated list of your internal static master IP addresses.
 
 #### Agent Private IP List
-    Specify a comma-separated list of your internal static [private agent](/1.9/overview/concepts/#private-agent-node) private IP addresses.
+    Specify a comma-separated list of your internal static [private agent](/mesosphere/dcos/1.9/overview/concepts/#private-agent-node) private IP addresses.
 
 #### Agent Public IP List
-    Specify a comma-separated list of your internal static [public agent](/1.9/overview/concepts/#public-agent-node) private IP addresses.
+    Specify a comma-separated list of your internal static [public agent](/mesosphere/dcos/1.9/overview/concepts/#public-agent-node) private IP addresses.
 
 #### Master Public IP
     Specify a publicly accessible proxy IP address to one of your master nodes. If you don't have a proxy or already have access to the network where you are deploying this cluster, you can use one of the master IP's that you specified in the master list. This proxy IP address is used to access the DC/OS web interface on the master node after DC/OS is installed.
@@ -121,15 +121,15 @@ The DC/OS installation creates these folders:
     *Caution:* If you set this parameter incorrectly you will have to reinstall DC/OS. For more information about service discovery, see the [documentation][3].
 
 #### IP Detect Script
-    Choose an IP detect script from the dropdown to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node. For more information about IP detect scripts, see the advanced install [documentation](/1.9/installing/oss/custom/advanced/#ip-detect-script).
+    Choose an IP detect script from the dropdown to broadcast the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detect script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node. For more information about IP detect scripts, see the advanced install [documentation](/mesosphere/dcos/1.9/installing/oss/custom/advanced/#ip-detect-script).
 
     **Note:** The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address must not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be wiped and reinstalled.
 
 #### Send Anonymous Telemetry
-    Indicate whether to allow Mesosphere to collect anonymous DC/OS usage data. For more information, see the [documentation](/1.9/overview/telemetry/).
+    Indicate whether to allow Mesosphere to collect anonymous DC/OS usage data. For more information, see the [documentation](/mesosphere/dcos/1.9/overview/telemetry/).
 
 #### Enable Authentication
-    Indicate whether to enable authentication for your DC/OS cluster. For more information, see the [documentation](/1.9/security/).
+    Indicate whether to enable authentication for your DC/OS cluster. For more information, see the [documentation](/mesosphere/dcos/1.9/security/).
 
 5.  Click **Run Pre-Flight**. The preflight script installs the cluster prerequisites and validates that your cluster is installable. For a list of cluster prerequisites, see the scripted installer [prerequisites][3]. This step can take up to 15 minutes to complete. If errors any errors are found, fix and then click **Retry**.
 
@@ -138,31 +138,31 @@ The DC/OS installation creates these folders:
     *   SSH to each node in your cluster and run `rm -rf /opt/mesosphere`.
     *   SSH to your bootstrap master node and run `rm -rf /var/lib/dcos/exhibitor/zookeeper`
 
-    ![preflight](/1.9/img/dcos-gui-run-preflight.png)
+    ![preflight](/mesosphere/dcos/1.9/img/dcos-gui-run-preflight.png)
 
 6.  Click **Deploy** to install DC/OS on your cluster. If errors any errors are found, fix and then click **Retry**.
 
-    ![deploy](/1.9/img/ui-installer-deploy.png)
+    ![deploy](/mesosphere/dcos/1.9/img/ui-installer-deploy.png)
 
     **Tip:** This step might take a few minutes, depending on the size of your cluster.
 
 7.  Click **Run Post-Flight**. If errors any errors are found, fix and then click **Retry**.
 
-    ![postflight](/1.9/img/ui-installer-post-flight.png)
+    ![postflight](/mesosphere/dcos/1.9/img/ui-installer-post-flight.png)
 
     **Tips:**
 
-    *  If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/1.9/installing/oss/custom/system-requirements/#port-and-protocol-configuration).
+    *  If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` during Post-Flight, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/mesosphere/dcos/1.9/installing/oss/custom/system-requirements/#port-and-protocol-configuration).
     *  You can click **Download Logs** to view your logs locally.
     *  If this takes longer than about 10 minutes, you've probably misconfigured your cluster. Go checkout the [troubleshooting documentation][9].
 
 8.  Click **Log In To DC/OS**. If this doesn't work, take a look at the [troubleshooting docs][9].
 
-    ![login](/1.9/img/dcos-gui-login.png)
+    ![login](/mesosphere/dcos/1.9/img/dcos-gui-login.png)
 
     You are done!
 
-    ![DC/OS dashboard](/1.9/img/dcos-gui.png)
+    ![DC/OS dashboard](/mesosphere/dcos/1.9/img/dcos-gui.png)
 
 # <a name="backup"></a>(Optional) Back up your DC/OS installer files
 It is recommended that you save your DC/OS installer file immediately after installation completes and before you start using DC/OS. These installer files can be used to add more agent nodes to your cluster, including the [public agent][4] node.
@@ -191,10 +191,10 @@ It is recommended that you save your DC/OS installer file immediately after inst
 - [Uninstall DC/OS][7]
 
 [1]: https://downloads.dcos.io/dcos/stable/1.9.4/dcos_generate_config.sh
-[2]: /1.9/networking/
-[3]: /1.9/installing/oss/custom/system-requirements/
-[4]: /1.9/administering-clusters/convert-agent-type/
-[5]: /1.9/cli/install/
-[7]: /1.9/installing/oss/custom/uninstall/
-[9]: /1.9/installing/oss/troubleshooting/
-[10]: /1.9/security/ent/users-groups/
+[2]: /mesosphere/dcos/1.9/networking/
+[3]: /mesosphere/dcos/1.9/installing/oss/custom/system-requirements/
+[4]: /mesosphere/dcos/1.9/administering-clusters/convert-agent-type/
+[5]: /mesosphere/dcos/1.9/cli/install/
+[7]: /mesosphere/dcos/1.9/installing/oss/custom/uninstall/
+[9]: /mesosphere/dcos/1.9/installing/oss/troubleshooting/
+[10]: /mesosphere/dcos/1.9/security/ent/users-groups/

@@ -20,7 +20,7 @@ DC/OS 的 Apache Mesos 内核让您可以使用完全公平调度器严格的 CP
 
 ## 提高 CPU 分配
 
-如果 DC/OS  1.10 或更新版本 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/cn/1.12/deploying-services/update-user-service/) 或 DC/OS GUI 的 [服务](/cn/1.12/gui/services/)选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
+如果 DC/OS  1.10 或更新版本 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/mesosphere/dcos/cn/1.12/deploying-services/update-user-service/) 或 DC/OS GUI 的 [服务](/mesosphere/dcos/cn/1.12/gui/services/)选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
 
 ## 使用 DC/OS Pod 增强资源
 

@@ -35,4 +35,4 @@ dcos security cluster saml add [OPTIONS] SAML_ID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster saml](/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | Manage your Security Assertion Markup Language (SAML) settings. |
+| [dcos security cluster saml](/mesosphere/dcos/1.12/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | Manage your Security Assertion Markup Language (SAML) settings. |

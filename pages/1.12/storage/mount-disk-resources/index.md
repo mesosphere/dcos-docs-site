@@ -36,13 +36,13 @@ Please note that this example handles **adding** resources exclusively and can n
     Note there are no references yet for `/dcos/volume0`.
 
 3.  Stop the agent.
-    - On a [private](/1.12/overview/concepts/#private-agent-node) agent:
+    - On a [private](/mesosphere/dcos/1.12/overview/concepts/#private-agent-node) agent:
 
       ```bash
       sudo systemctl stop dcos-mesos-slave.service
       ```
 
-    - On a [public](/1.12/overview/concepts/#public-agent-node) agent:
+    - On a [public](/mesosphere/dcos/1.12/overview/concepts/#public-agent-node) agent:
 
       ```bash
       sudo systemctl stop dcos-mesos-slave-public.service
@@ -179,7 +179,7 @@ Please note that this example handles **adding** resources exclusively and can n
 
 After running this service, navigate to the **Services > Volumes** tab in the web interface:
 
-![Mount disk](/1.12/img/mount-disk.png)
+![Mount disk](/mesosphere/dcos/1.12/img/mount-disk.png)
 
 Figure 1. Services > Volumes tab
 

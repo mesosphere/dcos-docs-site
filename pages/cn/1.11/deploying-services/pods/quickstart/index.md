@@ -9,8 +9,8 @@ enterprise: false
 
 
 ## 先决条件
-- DC/OS [已安装](/cn/1.11/installing/)
-- DC/OS CLI [已安装](/cn/1.11/cli/install/)
+- DC/OS [已安装](/mesosphere/dcos/cn/1.11/installing/)
+- DC/OS CLI [已安装](/mesosphere/dcos/cn/1.11/cli/install/)
 
 # 在 DC/OS CLI 中启动 Pod
 
@@ -47,12 +47,12 @@ enterprise: false
 
 # 在 DC/OS web 界面启动 Pod
 
-您也可以在 DC/OS 的 [**服务**](/cn/1.11/gui/) 选项卡中启动 Pod。选择 **服务 -> 服务 -> 运行服务 -> 多容器 (Pod)**，然后切换到 JSON 模式并粘贴上述应用定义。
+您也可以在 DC/OS 的 [**服务**](/mesosphere/dcos/cn/1.11/gui/) 选项卡中启动 Pod。选择 **服务 -> 服务 -> 运行服务 -> 多容器 (Pod)**，然后切换到 JSON 模式并粘贴上述应用定义。
 
 如果您已经运行了其他服务，请转到 **服务 -> 服务**，然后单击右上角的 **+**。
 
 在启动 pod 之后，您将在 DC/OS Web 界面的 **服务** 选项卡上看到您的新 POD。单击 pod，查看有关 Pod 中容器状态的信息。
 
-![Pods UI](/cn/1.11/img/pods-service-dashboard.png)
+![Pods UI](/mesosphere/dcos/cn/1.11/img/pods-service-dashboard.png)
 
 图 1. 服务 > Pods

@@ -11,7 +11,7 @@ enterprise: false
 
 You can easily view and update the configuration of a deployed app by using the `dcos marathon` command.
 
-**Note:** The process for updating packages from the [DC/OS Catalog](/1.11/gui/catalog/) is different. For more information, see the [documentation](/1.11/deploying-services/config-universe-service/).
+**Note:** The process for updating packages from the [DC/OS Catalog](/mesosphere/dcos/1.11/gui/catalog/) is different. For more information, see the [documentation](/mesosphere/dcos/1.11/deploying-services/config-universe-service/).
 
 # Update all Environment Variables
 
@@ -61,4 +61,4 @@ dcos marathon app update test-app < env_vars.json
 dcos marathon app show test-app | jq '.env'
 ```
 
- [1]: /1.11/cli/
+ [1]: /mesosphere/dcos/1.11/cli/

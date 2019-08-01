@@ -30,4 +30,4 @@ dcos quota delete <group> [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos quota](/1.14/cli/command-reference/dcos-quota/)   | Managing DC/OS quotas. |
+| [dcos quota](/mesosphere/dcos/1.14/cli/command-reference/dcos-quota/)   | Managing DC/OS quotas. |

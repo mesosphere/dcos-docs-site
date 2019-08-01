@@ -10,7 +10,7 @@ enterprise: false
 
 
 # Description
-The `dcos experimental service start` command allows you to start a service from a non-native DC/OS package. See [`dcos experimental package add`](/1.11/cli/command-reference/dcos-experimental/dcos-experimental-package-add/) for information on how to add your own package to DC/OS.
+The `dcos experimental service start` command allows you to start a service from a non-native DC/OS package. See [`dcos experimental package add`](/mesosphere/dcos/1.11/cli/command-reference/dcos-experimental/dcos-experimental-package-add/) for information on how to add your own package to DC/OS.
 
 # Usage
 
@@ -36,4 +36,4 @@ dcos experimental service start <package-name> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos experimental](/1.11/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  
+| [dcos experimental](/mesosphere/dcos/1.11/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  

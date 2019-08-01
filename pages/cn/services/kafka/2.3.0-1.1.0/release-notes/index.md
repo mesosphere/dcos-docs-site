@@ -22,7 +22,7 @@ render: mustache
 ## 版本 2.2.0-1.0.0
 
 ### 新特性
-- 支持使用自定义顶级域，以便于将服务安全地暴露在集群之外。详情 [此处](/cn/services/kafka/2.3.0-1.0.0/security/#securely-exposing-dcos-apache-kafka-outside-the-cluster)。
+- 支持使用自定义顶级域，以便于将服务安全地暴露在集群之外。详情 [此处](/mesosphere/dcos/cn/services/kafka/2.3.0-1.0.0/security/#securely-exposing-dcos-apache-kafka-outside-the-cluster)。
 - 支持在远程区域启动服务。
 
 ## 版本 2.1.0-1.0.0

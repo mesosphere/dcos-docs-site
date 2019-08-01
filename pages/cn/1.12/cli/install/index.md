@@ -8,7 +8,7 @@ excerpt: 安装 DC/OS 命令行界面
 enterprise: false
 ---
 这些说明将向您展示如何在群集上安装核心 DC/OS CLI 命令。
-有关安装 DC/OS Enterprise CLI 命令的说明，请参阅 [DC/OS Enterprise CLI 部分](/cn/1.12/cli/enterprise-cli/)。
+有关安装 DC/OS Enterprise CLI 命令的说明，请参阅 [DC/OS Enterprise CLI 部分](/mesosphere/dcos/cn/1.12/cli/enterprise-cli/)。
 
 安装 DC/OS CLI 的建议方法是从 DC/OS GUI 获取预先格式好的命令集，然后在终端中运行这些命令。有关详细信息，请参阅操作系统的先决条件和说明：
 
@@ -31,19 +31,19 @@ enterprise: false
 
 1. 在 DC/OS GUI 的右上角，单击群集名称右侧的向下箭头。
 
-    ![打开群集弹出窗口](/1.12/img/open-cluster-popup.png)
+    ![打开群集弹出窗口](/mesosphere/dcos/1.12/img/open-cluster-popup.png)
 
     图 1. 打开群集弹出菜单
 
 1. 选择 **安装 CLI**。
 
-    ![CLI 安装 UI](/1.12/img/install-cli.png)
+    ![CLI 安装 UI](/mesosphere/dcos/1.12/img/install-cli.png)
 
     图 2. 选择安装 CLI
 
 1. 将适合您操作系统的代码片段复制并粘贴到您的终端，然后按返回键。
 
-    ![CLI 复制/粘贴](/1.12/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
+    ![CLI 复制/粘贴](/mesosphere/dcos/1.12/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
 
     图 3. 代码片段窗口
 
@@ -89,9 +89,9 @@ enterprise: false
     dcos cluster setup http://example.com
     ```
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/cn/1.12/security/)。
+ 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/mesosphere/dcos/cn/1.12/security/)。
 
- 您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。可在 [此处](/cn/1.12/cli/command-reference/dcos-cluster/) 了解有关管理群集连接的更多信息。
+ 您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。可在 [此处](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-cluster/) 了解有关管理群集连接的更多信息。
 
 <a name="macos"></a>
 
@@ -110,19 +110,19 @@ enterprise: false
 
 1. 在 DC/OS GUI 的右上角，单击群集名称右侧的向下箭头。
 
-    ![打开群集弹出窗口](/1.12/img/open-cluster-popup.png)
+    ![打开群集弹出窗口](/mesosphere/dcos/1.12/img/open-cluster-popup.png)
 
     图 1. 打开群集弹出菜单
 
 1. 选择 **安装 CLI**。
 
-    ![CLI install GUI](/1.12/img/install-cli.png)
+    ![CLI install GUI](/mesosphere/dcos/1.12/img/install-cli.png)
 
     图 2. 选择安装 CLI
 
 1. 将适合您操作系统的代码片段复制并粘贴到您的终端。
 
-    ![CLI 复制/粘贴](/1.12/img/CLI-Installation-GUI_Popup_OSX-1.12.png)
+    ![CLI 复制/粘贴](/mesosphere/dcos/1.12/img/CLI-Installation-GUI_Popup_OSX-1.12.png)
 
     图 3. 代码片段窗口
 
@@ -155,7 +155,7 @@ enterprise: false
     ```
     如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。</p>
 
-    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.12/security/)。
+    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/cn/1.12/security/)。
 
     您的 CLI 现在应已通过您的群集进行身份认证！
     
@@ -177,19 +177,19 @@ enterprise: false
 
 1. 在 DC/OS GUI 的右上角，单击群集名称右侧的向下箭头。
 
-    ![打开群集弹出窗口](/1.12/img/open-cluster-popup.png)
+    ![打开群集弹出窗口](/mesosphere/dcos/1.12/img/open-cluster-popup.png)
 
     图 1. 打开群集弹出菜单
 
 1. 选择 **安装 CLI**。
 
-    ![CLI 安装 UI](/1.12/img/install-cli.png)
+    ![CLI 安装 UI](/mesosphere/dcos/1.12/img/install-cli.png)
 
     图 2. 选择安装 CLI
 
 1. 按照对话框中列出的命令操作。
 
-    ![CLI 复制/粘贴](/1.12/img/CLI-Installation-GUI_Popup_Windows-1.12.png)
+    ![CLI 复制/粘贴](/mesosphere/dcos/1.12/img/CLI-Installation-GUI_Popup_Windows-1.12.png)
 
     图 3. 代码片段窗口
 
@@ -225,7 +225,7 @@ enterprise: false
 
  <p class="message--note"><strong>注意：</strong>如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。</p>
 
- 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/cn/1.12/security/)。
+ 遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/cn/1.12/security/)。
 
  您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。
 

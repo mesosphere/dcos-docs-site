@@ -11,7 +11,7 @@ The Datadog metrics plugin supports sending metrics from the DC/OS metrics servi
 
 **Prerequisite:**
 
-- You must have the [DC/OS CLI installed](/1.9/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.9/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 
 # Install the DC/OS Datadog metrics plugin
 

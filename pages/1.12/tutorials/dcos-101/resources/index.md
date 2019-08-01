@@ -13,8 +13,8 @@ Welcome to part 7 of the DC/OS 101 Tutorial.
 
 
 # Prerequisites
-* A [running DC/OS cluster](/1.12/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.12/tutorials/dcos-101/cli/).
-* [`app2`](/1.12/tutorials/dcos-101/app2/) deployed and running in your cluster.
+* A [running DC/OS cluster](/mesosphere/dcos/1.12/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/mesosphere/dcos/1.12/tutorials/dcos-101/cli/).
+* [`app2`](/mesosphere/dcos/1.12/tutorials/dcos-101/app2/) deployed and running in your cluster.
 
 # Objective
 
@@ -242,4 +242,4 @@ Remove the app:
 
 Congratulations! You've now learned how to deploy apps to DC/OS, network those apps, expose them to the outside of the cluster with a load-balancer, scale them, and debug potential resource issues! You're practically a pro!
 
-In [the next part](/1.12/tutorials/dcos-101/loadbalancing/), you will scale your application to multiple instances and learn how internal and external services choose which instance to use once the application has been scaled.
+In [the next part](/mesosphere/dcos/1.12/tutorials/dcos-101/loadbalancing/), you will scale your application to multiple instances and learn how internal and external services choose which instance to use once the application has been scaled.

@@ -13,17 +13,17 @@ enterprise: false
 
 You can convert agent nodes to public or private for an existing DC/OS cluster.
 
-Agent nodes are designated as [public](/1.10/overview/concepts/#public-agent-node) or [private](/1.10/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during [GUI][1] or [CLI][2] installation.
+Agent nodes are designated as [public](/mesosphere/dcos/1.10/overview/concepts/#public-agent-node) or [private](/mesosphere/dcos/1.10/overview/concepts/#private-agent-node) during installation. By default, they are designated as private during [GUI][1] or [CLI][2] installation.
 
 ### Prerequisites:
 The following steps must be performed on a machine that is configured as a DC/OS node. Any tasks that are running on the node will be terminated during this conversion process.
 
-*   DC/OS is installed using the [custom](/1.10/installing/) installation method and you have deployed at least one [master](/1.10/overview/concepts/#master) and one [private](/1.10/overview/concepts/#private-agent-node) agent node.
-*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/1.10/installing/#backup).
+*   DC/OS is installed using the [custom](/mesosphere/dcos/1.10/installing/) installation method and you have deployed at least one [master](/mesosphere/dcos/1.10/overview/concepts/#master) and one [private](/mesosphere/dcos/1.10/overview/concepts/#private-agent-node) agent node.
+*   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/mesosphere/dcos/1.10/installing/#backup).
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation).
 *   SSH installed and configured. This is required for accessing nodes in the DC/OS cluster.
 
-**Note:** Use the following steps to convert your agent node only. You will not be able to actually uninstall DC/OS here. In order to uninstall DC/OS, currently you must [re-image](/1.10/installing/production/uninstalling/index.md) the operating system on your nodes. The uninstalling process may change in future releases of DC/OS.
+**Note:** Use the following steps to convert your agent node only. You will not be able to actually uninstall DC/OS here. In order to uninstall DC/OS, currently you must [re-image](/mesosphere/dcos/1.10/installing/production/uninstalling/index.md) the operating system on your nodes. The uninstalling process may change in future releases of DC/OS.
 
 ### Determine the node type
 You can determine the node type by running the following commands from the DC/OS CLI.
@@ -65,7 +65,7 @@ You can determine the node type by running the following commands from the DC/OS
     ```
 
 ### Install DC/OS and convert agent node
-Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that is being converted. This archive is created during the GUI or CLI [installation](/1.10/installing/#backup) method.
+Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that is being converted. This archive is created during the GUI or CLI [installation](/mesosphere/dcos/1.10/installing/#backup) method.
 
 1.  Copy the files to your agent node. For example, you can use Secure Copy (scp) to copy `dcos-install.tar` to your home directory.
 
@@ -105,5 +105,5 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the node that is 
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
     ```
 
- [1]: /1.10/installing/
- [2]: /1.10/installing/evaluation/
+ [1]: /mesosphere/dcos/1.10/installing/
+ [2]: /mesosphere/dcos/1.10/installing/evaluation/

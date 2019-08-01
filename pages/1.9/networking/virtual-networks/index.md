@@ -31,7 +31,7 @@ DC/OS Overlay allows containers launched through the Mesos Containerizer or Dock
 
 Here is the DC/OS Overlay architecture:
 
-![Overview of the DC/OS Overlay architecture](/1.9/img/overlay-networks.png)
+![Overview of the DC/OS Overlay architecture](/mesosphere/dcos/1.9/img/overlay-networks.png)
 
 DC/OS Overlay does not require an external IP address management (IPAM) solution because IP allocation is handled via the Mesos Master replicated log. DC/OS Overlay does not support external IPAMs.
 
@@ -43,13 +43,13 @@ The components of the DC/OS Overlay interact in the following ways:
 
 - For intra-node IP discovery we use an overlay orchestrator called Virtual Network Service. This operator-facing system component is responsible for programming the overlay backend using a library called [lashup](https://github.com/dcos/lashup) that implements a gossip protocol to disseminate and coordinate overlay routing information among all Mesos agents in the DC/OS cluster.
 
-**Note:** Your network must adhere to the [DC/OS system requirements](/1.9/installing/oss/custom/system-requirements/) to use DC/OS Overlay.
+**Note:** Your network must adhere to the [DC/OS system requirements](/mesosphere/dcos/1.9/installing/oss/custom/system-requirements/) to use DC/OS Overlay.
 
 ### Limitations
 
 * DC/OS Overlay does not allow services to reserve IP addresses that result in ephemeral addresses for containers across multiple incarnations on the virtual network. This restriction ensures that a given client connects to the correct service.
 
-  [VIPs (virtual IP addresses)](/1.9/networking/load-balancing-vips/) are built in to DC/OS and offer a clean way of allocating static addresses to services. If you are using DC/OS Overlay, you should use VIPs to access your services to support cached DNS requests and static IP addresses.
+  [VIPs (virtual IP addresses)](/mesosphere/dcos/1.9/networking/load-balancing-vips/) are built in to DC/OS and offer a clean way of allocating static addresses to services. If you are using DC/OS Overlay, you should use VIPs to access your services to support cached DNS requests and static IP addresses.
 
 * The limitation on the total number of containers on DC/OS Overlay is the same value as the number of IP addresses available on the overlay subnet. However, the limitation on the number of containers on an agent depends on the subnet (which will be a subset of the overlay subnet) allocated to the agent. For a given agent subnet, half the address space is allocated to the `MesosContainerizer` and the other half is allocated to the `DockerContainerizer`.
 
@@ -63,17 +63,17 @@ The components of the DC/OS Overlay interact in the following ways:
 
 * Certain names are reserved and cannot be used as DC/OS Overlay names. The is because DC/OS Overlay uses Docker networking underneath to connect Docker containers to the overlay, which in turn reserves certain network names. The reserved names are: `host`, `bridge` and `default`.
 
-* [Marathon health checks](/1.9/deploying-services/creating-services/health-checks/) will not work with certain DC/OS Overlay configurations. If you are not using the default DC/OS Overlay configuration and Marathon is isolated from the virtual network, health checks will fail consistently even if the service is healthy.
+* [Marathon health checks](/mesosphere/dcos/1.9/deploying-services/creating-services/health-checks/) will not work with certain DC/OS Overlay configurations. If you are not using the default DC/OS Overlay configuration and Marathon is isolated from the virtual network, health checks will fail consistently even if the service is healthy.
 
   Marathon health checks _will_ work in any of the following circumstances:
 
   * You are using the default DC/OS Overlay configuration.
   * Marathon has access to the virtual network.
-  * You use a [`command` health check](/1.9/deploying-services/creating-services/health-checks/).
+  * You use a [`command` health check](/mesosphere/dcos/1.9/deploying-services/creating-services/health-checks/).
 
 # Virtual Network Service: DNS
 
-The [Virtual Network Service](/1.9/overview/architecture/components/) maps names to IPs on your virtual network. You can use these DNS addresses to access your task:
+The [Virtual Network Service](/mesosphere/dcos/1.9/overview/architecture/components/) maps names to IPs on your virtual network. You can use these DNS addresses to access your task:
 
 * **Container IP:** Provides the container IP address: `<taskname>.<framework_name>.containerip.dcos.thisdcos.directory`
 * **Auto IP:** Provides a best guess of a task's IP address: `<taskname>.<framework_name>.autoip.dcos.thisdcos.directory`. This is used during migrations to the overlay.

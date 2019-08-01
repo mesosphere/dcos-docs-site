@@ -57,4 +57,4 @@ my-scheduled-job  20170217230705AfpRn  2017-02-17T23:07:05.218+0000
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/cn/1.12/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|

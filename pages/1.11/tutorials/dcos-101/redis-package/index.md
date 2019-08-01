@@ -13,7 +13,7 @@ Welcome to part 2 of the DC/OS 101 Tutorial.
 
 
 # Prerequisites
-By now, you should have a running DC/OS cluster and the DC/OS CLI installed and configured. If that isn't the case, please follow the [first](/1.11/tutorials/dcos-101/cli/) part of this tutorial.
+By now, you should have a running DC/OS cluster and the DC/OS CLI installed and configured. If that isn't the case, please follow the [first](/mesosphere/dcos/1.11/tutorials/dcos-101/cli/) part of this tutorial.
 The next stage of this tutorial uses [jq](https://stedolan.github.io/jq/), a command line JSON processor to simplify some of the commands. Follow the instructions [here](https://stedolan.github.io/jq/download/) to install JQ for your operating system.
 
 # Objective
@@ -44,7 +44,7 @@ By the end of this session you will have installed your first service - [Redis](
 ## Using Redis
 
 We will use Redis by storing a key manually via the `redis-cli` command
-    * [SSH](/1.11/administering-clusters/sshcluster/) into the node where redis is running:
+    * [SSH](/mesosphere/dcos/1.11/administering-clusters/sshcluster/) into the node where redis is running:
 
       ```bash
       dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
@@ -87,4 +87,4 @@ Because Redis is running in a Docker container, you can list all Docker containe
   1. Curated packages that have undergone testing and certification.
   1. Community contributed packages, which may not be as well tested.
 
-  You can also add your own repo that includes your custom packages. See the [documentation](/1.11/administering-clusters/repo/) for details.
+  You can also add your own repo that includes your custom packages. See the [documentation](/mesosphere/dcos/1.11/administering-clusters/repo/) for details.

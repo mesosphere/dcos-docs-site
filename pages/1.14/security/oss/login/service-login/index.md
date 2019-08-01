@@ -23,11 +23,11 @@ The secure service login is enabled through a service login token being signed b
 <p class="message--note"><strong>NOTE: </strong>This demonstrates manual login for service account testing. A service login token is generated internally for the login process.</p>
 
 **Prerequisite:**
-- [DC/OS CLI](/1.14/cli/)
+- [DC/OS CLI](/mesosphere/dcos/1.14/cli/)
 
-Using the [DC/OS CLI](/1.14/cli/) one can log in as service by specifying the `dcos-services` login provider.
+Using the [DC/OS CLI](/mesosphere/dcos/1.14/cli/) one can log in as service by specifying the `dcos-services` login provider.
 
-To test a service login using the DC/OS CLI specify the `dcos-services` login provider with the [auth login](/1.14/cli/command-reference/dcos-auth/dcos-auth-login/) command. Replace `<service-account-id>` and `<private-key-path>` with the corresponding values before executing the following command:
+To test a service login using the DC/OS CLI specify the `dcos-services` login provider with the [auth login](/mesosphere/dcos/1.14/cli/command-reference/dcos-auth/dcos-auth-login/) command. Replace `<service-account-id>` and `<private-key-path>` with the corresponding values before executing the following command:
 
 ```bash
 dcos auth login --provider=dcos-users --username=<service-account-id> --private-key=<private-key-path>
@@ -64,9 +64,9 @@ Service login tokens can be created manually via [jwt.io](https://jwt.io) or via
 ## Logging in using a service login token
 
 **Prerequisite:**
-- [Service login token](/1.14/security/oss/authentication/authentication-token/service-login/#generate-a-service-login-token)
+- [Service login token](/mesosphere/dcos/1.14/security/oss/authentication/authentication-token/service-login/#generate-a-service-login-token)
 
-During a service login a service login token is sent to the DC/OS [Identity and Access Management (IAM) API](/1.14/security/oss/iam-api/).
+During a service login a service login token is sent to the DC/OS [Identity and Access Management (IAM) API](/mesosphere/dcos/1.14/security/oss/iam-api/).
 
 <p class="message--note"><strong>NOTE: </strong>The IAM will reject service login tokens with a life-time greater than ten minutes.</p>
 

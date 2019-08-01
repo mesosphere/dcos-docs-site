@@ -11,7 +11,7 @@ enterprise: false
 
 The Mesos input plugin in Telegraf gathers [observability metrics](http://mesos.apache.org/documentation/latest/monitoring/) from each Mesos agent and master. The plugin is enabled by default in DC/OS 1.12 version or later.
 
-The Mesos input plugin is controlled by an option in the `config.yaml` file called `enable_mesos_input_plugin`. To disable the plugin, `enable_mesos_input_plugin` needs to be set to `false`. Instructions on how to create a configuration file for on-prem installation can be found [here](/1.14/installing/production/deploying-dcos/installation/#create-a-configuration-file). To modify a configuration file on an existing on-prem cluster, you must [patch the existing DC/OS version](/1.14/installing/production/patching/#modifying-dcos-configuration). For cloud installations, configuration and installation instructions for each supported cloud provider can be found [here](/1.14/installing/evaluation/).
+The Mesos input plugin is controlled by an option in the `config.yaml` file called `enable_mesos_input_plugin`. To disable the plugin, `enable_mesos_input_plugin` needs to be set to `false`. Instructions on how to create a configuration file for on-prem installation can be found [here](/mesosphere/dcos/1.14/installing/production/deploying-dcos/installation/#create-a-configuration-file). To modify a configuration file on an existing on-prem cluster, you must [patch the existing DC/OS version](/mesosphere/dcos/1.14/installing/production/patching/#modifying-dcos-configuration). For cloud installations, configuration and installation instructions for each supported cloud provider can be found [here](/mesosphere/dcos/1.14/installing/evaluation/).
 
 # Viewing metrics for Mesos masters and agents
  

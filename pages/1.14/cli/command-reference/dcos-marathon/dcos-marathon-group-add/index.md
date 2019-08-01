@@ -31,11 +31,11 @@ dcos marathon group add [<group-resource>]
 
 | Name |  Description |
 |---------|-------------|
-| `<group-resource>`   | Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description see the [documentation](/1.14/deploying-services/marathon-api/). |
+| `<group-resource>`   | Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description see the [documentation](/mesosphere/dcos/1.14/deploying-services/marathon-api/). |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

@@ -14,7 +14,7 @@ render: mustache
 
 ## Log Retention Bytes
 
-`disk` 配置值以 MB 为单位。建议您设置的配置值 `log_retention_bytes` 小于指示 `disk` 配置。参阅 [配置](/cn/services/kafka/2.3.0-1.1.0/configuration/) 部分，了解有关自定义这些值的指令。
+`disk` 配置值以 MB 为单位。建议您设置的配置值 `log_retention_bytes` 小于指示 `disk` 配置。参阅 [配置](/mesosphere/dcos/cn/services/kafka/2.3.0-1.1.0/configuration/) 部分，了解有关自定义这些值的指令。
 
 ## 安全
 

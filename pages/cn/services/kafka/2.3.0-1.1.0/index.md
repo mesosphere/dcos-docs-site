@@ -35,4 +35,4 @@ DC/OS {{ model.techShortName }} 提供以下功能：
 
 # 相关服务
 
-* [DC/OS Spark](/cn/services/spark/)
+* [DC/OS Spark](/mesosphere/dcos/cn/services/spark/)

@@ -96,7 +96,7 @@ Your Kubernetes cluster is ready to provision volumes via AWS EBS.
 
 1. Note the returned value of `VolumeHandle` from the CLI output and confirm this value matches in the AWS console:
 
-![Screenshot of AWS EBS from above "in-use".](/services/kubernetes/2.3.1-1.14.2/img/ebs-in-use.png)
+![Screenshot of AWS EBS from above "in-use".](/mesosphere/dcos/services/kubernetes/2.3.1-1.14.2/img/ebs-in-use.png)
 
 ## Delete the attached pod
 
@@ -145,7 +145,7 @@ Your Kubernetes cluster is ready to provision volumes via AWS EBS.
 
 1. Check the AWS console, see that the volume will still be "available":
 
-![Screenshot of AWS EBS from above still "available".](/services/kubernetes/2.3.1-1.14.2/img/ebs-available.png)
+![Screenshot of AWS EBS from above still "available".](/mesosphere/dcos/services/kubernetes/2.3.1-1.14.2/img/ebs-available.png)
 
 1. Delete the dynamic deployment's pvc:
 
@@ -154,7 +154,7 @@ Your Kubernetes cluster is ready to provision volumes via AWS EBS.
     ```
 1. Check the AWS console again, this time the volume is deleted and does not even show up:
 
-![Screenshot of AWS EBS volume absent from where it had been.](/services/kubernetes/2.3.1-1.14.2/img/ebs-missing.png)
+![Screenshot of AWS EBS volume absent from where it had been.](/mesosphere/dcos/services/kubernetes/2.3.1-1.14.2/img/ebs-missing.png)
 
 # Pre-provisioned Volume
 
@@ -166,7 +166,7 @@ Creating a `PersistentVolume` resource type directly and specifying the backing 
 
 1. Create a new EBS volume in the same AZ as the cluster in the AWS console, note the `volumeID` of the new volume:
 
-![Screenshot of AWS EBS volume "available" for newly created volume.](/services/kubernetes/2.3.1-1.14.2/img/ebs-pre-provisioned-created.png)
+![Screenshot of AWS EBS volume "available" for newly created volume.](/mesosphere/dcos/services/kubernetes/2.3.1-1.14.2/img/ebs-pre-provisioned-created.png)
 
 1. Next, edit the `pre-provisioned/pv.yaml`, by inserting the value of `volumeID` from the previous step in for the value of `volumeHandle` in the `spec.csi.volumeHandle`, replacing `__REPLACE_ME__`:
 
@@ -200,7 +200,7 @@ Creating a `PersistentVolume` resource type directly and specifying the backing 
 
     the EBS volume will be in "in-use".
 
-![Screenshot of AWS EBS from above "in-use".](/services/kubernetes/2.3.1-1.14.2/img/ebs-pre-provisioned-in-use.png)
+![Screenshot of AWS EBS from above "in-use".](/mesosphere/dcos/services/kubernetes/2.3.1-1.14.2/img/ebs-pre-provisioned-in-use.png)
 
 ## Delete the pre-provisioned deployment
 
@@ -225,4 +225,4 @@ Creating a `PersistentVolume` resource type directly and specifying the backing 
 
     so that that same EBS volume can be reused in other pods later on if desired.
 
-![Screenshot of AWS EBS volume "available" with Retain reclaim policy.](/services/kubernetes/2.3.1-1.14.2/img/ebs-pre-provisioned-available-retain.png)
+![Screenshot of AWS EBS volume "available" with Retain reclaim policy.](/mesosphere/dcos/services/kubernetes/2.3.1-1.14.2/img/ebs-pre-provisioned-available-retain.png)

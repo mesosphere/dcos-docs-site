@@ -19,7 +19,7 @@ render: mustache
 
 ## New Features
 
-- The inter_broker_protocol_version now defaults to the 2.1. Check how to upgrade without downtime [upgrade](/services/confluent-kafka/2.6.0-5.1.2/updates/#upgrading-from-412-to-512)
+- The inter_broker_protocol_version now defaults to the 2.1. Check how to upgrade without downtime [upgrade](/mesosphere/dcos/services/confluent-kafka/2.6.0-5.1.2/updates/#upgrading-from-412-to-512)
 
 <!--
 # Version 2.4.0-4.1.1
@@ -42,7 +42,7 @@ render: mustache
 
 ## New Features
 
-- Support for using a custom top level domain to facilitate exposing the service securely outside of the cluster. Details [here](/services/confluent-kafka/2.2.0-4.0.0e/security/#securely-exposing-dcos-confluent-kafka-outside-the-cluster).
+- Support for using a custom top level domain to facilitate exposing the service securely outside of the cluster. Details [here](/mesosphere/dcos/services/confluent-kafka/2.2.0-4.0.0e/security/#securely-exposing-dcos-confluent-kafka-outside-the-cluster).
 - Support for deploying the service in a remote region.
 
 

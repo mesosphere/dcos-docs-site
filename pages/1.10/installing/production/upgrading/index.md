@@ -17,7 +17,7 @@ If an upgrade is performed on a supported OS with all prerequisites fulfilled, t
 
 **Important:**
 
-- Review the [release notes](/1.10/release-notes/) before upgrading DC/OS.
+- Review the [release notes](/mesosphere/dcos/1.10/release-notes/) before upgrading DC/OS.
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded. For example, an upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. When this occurs:
 
     - The DC/OS GUI may not provide an accurate list of services.
@@ -29,9 +29,9 @@ If an upgrade is performed on a supported OS with all prerequisites fulfilled, t
 
 ## Supported upgrade paths
 - From the latest GA version of previous to the latest GA version of current. For example, if 1.8.8 is the latest and 1.9.0 is the latest, this upgrade would be supported.
-    - [1.7 to 1.8](/1.8/administration/upgrading/)
-    - [1.8 to 1.9](/1.9/installing/ent/upgrading/)
-    - [1.9 to 1.10](/1.10/installing/production/upgrading/)
+    - [1.7 to 1.8](/mesosphere/dcos/1.8/administration/upgrading/)
+    - [1.8 to 1.9](/mesosphere/dcos/1.9/installing/ent/upgrading/)
+    - [1.9 to 1.10](/mesosphere/dcos/1.10/installing/production/upgrading/)
 - From any current release to the next. For example, an upgrade from 1.9.1 to 1.9.2 would be supported.
 - From any current release to an identical release. For example, an upgrade from 1.9.0 to 1.9.0 would be supported. This is useful for making configuration changes.
 
@@ -46,22 +46,22 @@ Only a subset of DC/OS configuration parameters can be modified. The adverse eff
 
 Here is a list of the parameters that you can modify:
 
-- [`dns_search`](/1.10/installing/production/advanced-configuration/configuration-reference/#dns-search)
-- [`docker_remove_delay`](/1.10/installing/production/advanced-configuration/configuration-reference/#docker-remove-delay)
-- [`gc_delay`](/1.10/installing/production/advanced-configuration/configuration-reference/#gc-delay)
-- [`resolvers`](/1.10/installing/production/advanced-configuration/configuration-reference/#resolvers)
-- [`telemetry_enabled`](/1.10/installing/production/advanced-configuration/configuration-reference/#telemetry-enabled)
-- [`use_proxy`](/1.10/installing/production/advanced-configuration/configuration-reference/#use-proxy)
-    - [`http_proxy`](/1.10/installing/production/advanced-configuration/configuration-reference/#use-proxy)
-    - [`https_proxy`](/1.10/installing/production/advanced-configuration/configuration-reference/#use-proxy)
-    - [`no_proxy`](/1.10/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+- [`dns_search`](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#dns-search)
+- [`docker_remove_delay`](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#docker-remove-delay)
+- [`gc_delay`](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#gc-delay)
+- [`resolvers`](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#resolvers)
+- [`telemetry_enabled`](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#telemetry-enabled)
+- [`use_proxy`](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`http_proxy`](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`https_proxy`](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`no_proxy`](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#use-proxy)
 
 The security mode (`security`) can be changed but has special caveats.
 
 - You can only update to a stricter security mode. Security downgrades are not supported. For example, if your cluster is in `permissive` mode and you want to downgrade to `disabled` mode, you must reinstall the cluster and terminate all running workloads.
 - During each update, you can only increase your security by a single level. For example, you cannot update directly from `disabled` to `strict` mode. To increase from `disabled` to `strict` mode you must first update to `permissive` mode, and then update from `permissive` to `strict` mode.
 
-See the security [mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) for a description of the different security modes and what each means.
+See the security [mode](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) for a description of the different security modes and what each means.
 
 # Instructions
 These steps must be performed for version upgrades and cluster configuration changes.
@@ -76,12 +76,12 @@ These steps must be performed for version upgrades and cluster configuration cha
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the [Advanced DC/OS Installation Guide][advanced-install].
-- Take a [snapshot of ZooKeeper](/1.10/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano) prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
-- [Take a snapshot of the IAM database](/1.10/installing/installation-faq/#q-how-do-i-backup-the-iam-database) prior to upgrading.
+- Take a [snapshot of ZooKeeper](/mesosphere/dcos/1.10/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano) prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
+- [Take a snapshot of the IAM database](/mesosphere/dcos/1.10/installing/installation-faq/#q-how-do-i-backup-the-iam-database) prior to upgrading.
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 - Verify that all Marathon application constraints are valid before beginning the upgrade. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
-- [Back up your cluster](/1.10/administering-clusters/backup-and-restore/).
-- Optional: You can add custom [node and cluster healthchecks](/1.10/installing/production/deploying-dcos/node-cluster-health-check/) to your `config.yaml`.
+- [Back up your cluster](/mesosphere/dcos/1.10/administering-clusters/backup-and-restore/).
+- Optional: You can add custom [node and cluster healthchecks](/mesosphere/dcos/1.10/installing/production/deploying-dcos/node-cluster-health-check/) to your `config.yaml`.
 
 ## Bootstrap Node
 
@@ -92,7 +92,7 @@ Choose your desired security mode and then follow the applicable upgrade instruc
 - [Installing DC/OS 1.10 in strict mode](#strict)
 
 # <a name="current-security"></a>Installing DC/OS 1.10 without changing security mode
-This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the cluster's [security mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the cluster's [security mode](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
@@ -100,7 +100,7 @@ This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the c
     **Important:**
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the `config.yaml` may be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/1.10/installing/production/advanced-configuration/configuration-reference/).
+    *  The syntax of the `config.yaml` may be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/).
 1. After updating the format of the config.yaml, compare the old config.yaml and new config.yaml. Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
 1.  Modify the `ip-detect` file as desired.
 1.  Build your installer package.
@@ -116,13 +116,13 @@ This procedure upgrades a DC/OS 1.9 cluster to DC/OS 1.10 without changing the c
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="permissive"></a>Installing DC/OS 1.10 in permissive mode
-This procedure upgrades to DC/OS 1.10 in [permissive security mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure upgrades to DC/OS 1.10 in [permissive security mode](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 **Prerequisite:**
 
-- Your cluster must be [upgraded to DC/OS 1.10](#current-security) and running in [disabled security mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
+- Your cluster must be [upgraded to DC/OS 1.10](#current-security) and running in [disabled security mode](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise) before it can be upgraded to permissive mode. If your cluster was running in permissive mode before it was upgraded to DC/OS 1.10, you can skip this procedure.
 
-**Important:** Any [custom node or cluster healthchecks](/1.10/installing/production/deploying-dcos/node-cluster-health-check/) you have configured will fail for an upgrade from disabled to permissive security mode. A future release will allow you to bypass the healthchecks.
+**Important:** Any [custom node or cluster healthchecks](/mesosphere/dcos/1.10/installing/production/deploying-dcos/node-cluster-health-check/) you have configured will fail for an upgrade from disabled to permissive security mode. A future release will allow you to bypass the healthchecks.
 
 To update a cluster from disabled security to permissive security, complete the following procedure:
 
@@ -141,7 +141,7 @@ To update a cluster from disabled security to permissive security, complete the 
 4.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 
 # <a name="strict"></a>Installing DC/OS 1.10 in strict mode
-This procedure upgrades to DC/OS 1.10 in security strict [mode](/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+This procedure upgrades to DC/OS 1.10 in security strict [mode](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 If you are updating a running DC/OS cluster to run in `security: strict` mode, beware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before upgrading to strict, to maintain scheduler and script uptimes across the upgrade.
 
@@ -247,7 +247,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-If your upgrade fails because of a [custom node or cluster check](/1.10/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks), run these commands for more details:
+If your upgrade fails because of a [custom node or cluster check](/mesosphere/dcos/1.10/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks), run these commands for more details:
 ```bash
 dcos-diagnostics check node-poststart
 dcos-diagnostics check cluster
@@ -271,4 +271,4 @@ sudo journalctl -u dcos-mesos-slave
 
 - Packages available in the DC/OS 1.10 Universe are newer than those in the older versions of Universe. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing state.
 
-[advanced-install]: /1.10/installing/production/deploying-dcos/installation/
+[advanced-install]: /mesosphere/dcos/1.10/installing/production/deploying-dcos/installation/

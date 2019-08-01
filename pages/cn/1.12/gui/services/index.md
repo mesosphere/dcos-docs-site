@@ -8,7 +8,7 @@ excerpt: 使用“服务”菜单
 
 “服务”菜单为本地 DC/OS Marathon 实例提供了完整的功能界面。此“服务”菜单全面展示正在运行的所有服务。您可以按运行状况、状态或服务名称筛选服务。
 
-![Services](/1.12/img/services-ee.png)
+![Services](/mesosphere/dcos/1.12/img/services-ee.png)
 
 图 1. 服务选项卡
 
@@ -26,13 +26,13 @@ excerpt: 使用“服务”菜单
 
 单击服务名称打开“服务实例”页面，即可列出使用该服务的所有任务及其 CPU、内存和 GPU 使用情况。对于每个任务，还有关于其分区、区域、状态、运行状况以及最后更新时间的信息。单击任务以查看其完整配置、工作目录和日志。
 
-![Instances](/1.12/img/services-instances-panel.png)
+![Instances](/mesosphere/dcos/1.12/img/services-instances-panel.png)
 
 图 2. 实例面板
 
 对于带有 Web 界面的服务，将鼠标悬停在服务名称上并单击 
 
-![open service](/1.12/img/open-service.png) 
+![open service](/mesosphere/dcos/1.12/img/open-service.png) 
 
 查看服务。可以在 `<hostname>/mesos` 访问 Mesos Web 界面。
 

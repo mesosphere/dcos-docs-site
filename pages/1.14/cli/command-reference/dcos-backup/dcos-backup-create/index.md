@@ -11,7 +11,7 @@ model: /1.14/data.yml
 
 # Description
 
-The `dcos backup create` command creates a new [backup of your cluster](/1.14/administering-clusters/backup-and-restore/).
+The `dcos backup create` command creates a new [backup of your cluster](/mesosphere/dcos/1.14/administering-clusters/backup-and-restore/).
 
 # Usage
 
@@ -42,6 +42,6 @@ backup-1-fd4bdc87-889c-48c3-a656-9f8e96474b27     1.13.0      STATUS_BACKING_UP 
 
 | Command | Description |
 |---------|-------------|
-| [dcos backup](/1.14/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+| [dcos backup](/mesosphere/dcos/1.14/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
 
 

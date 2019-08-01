@@ -10,7 +10,7 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-如果您的组织将用户记录存储在支持 LDAP 的目录服务器中，则可以配置 DC/OS Enterprise 来检查用户凭据。这让您可以避免在 DC/OS 中重新创建用户帐户。在版本 1.12 及更高版本中，DCOS 会定期[与您的 LDAP 同步](/cn/1.12/security/ent/ldap/ldap-sync/)，从而让您的群组和用户更轻松地保持最新状态。
+如果您的组织将用户记录存储在支持 LDAP 的目录服务器中，则可以配置 DC/OS Enterprise 来检查用户凭据。这让您可以避免在 DC/OS 中重新创建用户帐户。在版本 1.12 及更高版本中，DCOS 会定期[与您的 LDAP 同步](/mesosphere/dcos/cn/1.12/security/ent/ldap/ldap-sync/)，从而让您的群组和用户更轻松地保持最新状态。
 
 在用户尝试登录时，DC/OS 将要求远程 LDAP 服务器验证凭据。DC/OS 从不接收或存储远程用户的密码。因此，如果 DC/OS 无法连接到远程 LDAP，如有人更改或删除 LDAP 配置，则用户的登录将失败。DC/OS 存储用户的内部表达以允许 DC/OS 管理员将用户放入组并分配权限。
 
@@ -22,8 +22,8 @@ enterprise: true
 
 若要设置 LDAP 连接，请执行以下操作:
 
-1. [配置您的连接](/cn/1.12/security/ent/ldap/ldap-conn/)。
+1. [配置您的连接](/mesosphere/dcos/cn/1.12/security/ent/ldap/ldap-conn/)。
 
-2. [配置身份认证](/cn/1.12/security/ent/ldap/ldap-auth/)。
+2. [配置身份认证](/mesosphere/dcos/cn/1.12/security/ent/ldap/ldap-auth/)。
 
-3. [验证连接](/cn/1.12/security/ent/ldap/ldap-verify/)。
+3. [验证连接](/mesosphere/dcos/cn/1.12/security/ent/ldap/ldap-verify/)。

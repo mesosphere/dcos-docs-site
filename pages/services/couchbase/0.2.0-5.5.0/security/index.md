@@ -32,7 +32,7 @@ With transport encryption enabled, DC/OS {{ model.techName }} will automatically
 </tr> 
 </table>
 
-The service uses the [DC/OS CA](/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the DC/OS CA will consider the service's certificates valid.
+The service uses the [DC/OS CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the DC/OS CA will consider the service's certificates valid.
 
 #include /services/include/security-configure-transport-encryption.tmpl
 

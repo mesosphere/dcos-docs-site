@@ -33,7 +33,7 @@ dcos package install {{ model.serviceName }}
 转到 DC/OS GUI 的 **服务** > **部署** 选项卡，以监控部署。完成部署后
 ，访问 {{ model.techShortName }}：`http：//<dcos-url>/service/{{ model.serviceName }}/`. 
 
-您也可以 [通过 DC/OS GUI 安装 {{ model.techShortName }} ](/cn/1.11/gui/#universe)。
+您也可以 [通过 DC/OS GUI 安装 {{ model.techShortName }} ](/mesosphere/dcos/cn/1.11/gui/#universe)。
 
 
 ## {{ model.techShortName }} CLI
@@ -272,7 +272,7 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
 
 ## 在提交时，向您的 Spark 作业添加必要的配置
 
-要在严格的模式集群上运行作业，您必须添加 `principal`到命令行。例如，如果您想使用 [Docker Engine](/latest/deploying-services/containerizers/docker-containerizer/) 而非 [Universal Container Runtime](/latest/deploying-services/containerizers/ucr/)，您必须通过 `SPARK_USER` 环境变量指定用户：
+要在严格的模式集群上运行作业，您必须添加 `principal`到命令行。例如，如果您想使用 [Docker Engine](/mesosphere/dcos/latest/deploying-services/containerizers/docker-containerizer/) 而非 [Universal Container Runtime](/mesosphere/dcos/latest/deploying-services/containerizers/ucr/)，您必须通过 `SPARK_USER` 环境变量指定用户：
 
 
 

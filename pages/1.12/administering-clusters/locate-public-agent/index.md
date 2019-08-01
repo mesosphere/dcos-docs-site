@@ -11,10 +11,10 @@ After you have installed DC/OS with a public agent node declared, you can naviga
 
 **Prerequisites**
 
-- DC/OS is installed with at least one master and [public agent](/1.12/overview/concepts/#public-agent-node) node
-- DC/OS [CLI](/1.12/cli/) 0.4.6 or later
+- DC/OS is installed with at least one master and [public agent](/mesosphere/dcos/1.12/overview/concepts/#public-agent-node) node
+- DC/OS [CLI](/mesosphere/dcos/1.12/cli/) 0.4.6 or later
 - [jq](https://github.com/stedolan/jq/wiki/Installation)
-- [SSH](/1.12/administering-clusters/sshcluster/) configured
+- [SSH](/mesosphere/dcos/1.12/administering-clusters/sshcluster/) configured
 
 You can find your public agent IP by running this command from your terminal. This command SSHs to your cluster to obtain cluster information and then queries [ifconfig.co](https://ifconfig.co/) to determine your public IP address.
 

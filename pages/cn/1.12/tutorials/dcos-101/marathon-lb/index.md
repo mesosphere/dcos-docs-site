@@ -13,8 +13,8 @@ menuWeight: 6
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/cn/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.12/tutorials/dcos-101/cli/)。
-* [app2](/cn/1.12/tutorials/dcos-101/app2/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 群集](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/cli/)。
+* [app2](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/app2/) 已部署并在您的群集中运行。
 
 
 # 目的
@@ -30,7 +30,7 @@ DC/OS 有两种不同的节点类型：
 
 默认情况下，Marathon 启动专用代理节点上的应用程序和服务，而这些程序和服务无法从群集外部访问。要将应用程序向外部公开，通常使用一个公共节点上运行的负载均衡器。
 
-您将在本教程后面重新讨论负载平衡主题和负载均衡器的不同选择，但是现在，您将使用 [Marathon-LB](/cn/1.12/tutorials/dcos-101/loadbalancing/) 作为负载均衡器。Marathon-LB 在公共代理节点上使用 [HA-Proxy](http://www.haproxy.org/)，为群集内部运行的应用程序提供外部访问和负载均衡。
+您将在本教程后面重新讨论负载平衡主题和负载均衡器的不同选择，但是现在，您将使用 [Marathon-LB](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/loadbalancing/) 作为负载均衡器。Marathon-LB 在公共代理节点上使用 [HA-Proxy](http://www.haproxy.org/)，为群集内部运行的应用程序提供外部访问和负载均衡。
 
 1. 安装 Marathon-LB：
   
@@ -51,7 +51,7 @@ DC/OS 有两种不同的节点类型：
         dcos task log app1
         ```
  1. 直接检查 `redis`：
-      * [SSH](/cn/1.12/administering-clusters/sshcluster/) 进入运行 redis 的节点：
+      * [SSH](/mesosphere/dcos/cn/1.12/administering-clusters/sshcluster/) 进入运行 redis 的节点：
 
       ```bash
       dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')
@@ -81,4 +81,4 @@ DC/OS 有两种不同的节点类型：
 # 结果
 祝贺您！您已使用 Marathon-LB 向公众公开您的应用程序，并使用 Web 前端向 Redis 添加了一个新密钥。
 
- 在[下一部分](/cn/1.12/tutorials/dcos-101/resources/) 中，您将学习如何监控和了解资源利用率，如何实施资源限制以及如何调试资源管理问题。
+ 在[下一部分](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/resources/) 中，您将学习如何监控和了解资源利用率，如何实施资源限制以及如何调试资源管理问题。

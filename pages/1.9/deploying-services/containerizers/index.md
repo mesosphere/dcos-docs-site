@@ -15,11 +15,11 @@ A containerizer is a Mesos agent component responsible for launching containers,
 
 DC/OS supports the Mesos containerizer types:
 
-- The [original Mesos containerizer](/1.9/deploying-services/containerizers/mesos-containerizer/).
+- The [original Mesos containerizer](/mesosphere/dcos/1.9/deploying-services/containerizers/mesos-containerizer/).
 
-- The [DC/OS Universal Container Runtime](/1.9/deploying-services/containerizers/ucr/).
+- The [DC/OS Universal Container Runtime](/mesosphere/dcos/1.9/deploying-services/containerizers/ucr/).
 
-- The [Docker containerizer](/1.9/deploying-services/containerizers/docker-containerizer/).
+- The [Docker containerizer](/mesosphere/dcos/1.9/deploying-services/containerizers/docker-containerizer/).
 
 The tables below provide a feature comparison of your containerizer choices on DC/OS.
 

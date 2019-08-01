@@ -29,7 +29,7 @@ dcos cluster unlink [<linked-cluster-name> | <linked-cluster-id> ]
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster](/1.11/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
+| [dcos cluster](/mesosphere/dcos/1.11/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
 
 # Examples
-For examples, see [Cluster Links](/1.11/administering-clusters/multiple-clusters/cluster-links/).
+For examples, see [Cluster Links](/mesosphere/dcos/1.11/administering-clusters/multiple-clusters/cluster-links/).

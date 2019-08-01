@@ -13,7 +13,7 @@ menuWeight: 7
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/cn/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.12/tutorials/dcos-101/cli/)。
+* [正在运行的 DC/OS 群集](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/cli/)。
 * [`app2`] (/cn/1.12/tutorials/dcos-101/app2/) 已部署并在您的群集中运行。
 
 # 目的
@@ -242,4 +242,4 @@ dcos marathon app update /dcos-101/app2 --force cpus=1
 
 祝贺您！您已经学习了如何将应用部署到 DC/OS、将这些应用程序联网、使用负载均衡器将它们公开到群集外部、扩展它们以及调试潜在的资源问题！您几乎是专业人士了！
 
-在[下一部分](/cn/1.12/tutorials/dcos-101/loadbalancing/) 中，您将您的应用程序扩展到多个实例，并了解内部和外部服务在应用程序扩展后如何选择使用的实例。
+在[下一部分](/mesosphere/dcos/cn/1.12/tutorials/dcos-101/loadbalancing/) 中，您将您的应用程序扩展到多个实例，并了解内部和外部服务在应用程序扩展后如何选择使用的实例。

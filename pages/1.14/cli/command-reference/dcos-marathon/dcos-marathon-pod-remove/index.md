@@ -48,4 +48,4 @@ If the pod is currently deploying, you will not be able to remove the pod. To re
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

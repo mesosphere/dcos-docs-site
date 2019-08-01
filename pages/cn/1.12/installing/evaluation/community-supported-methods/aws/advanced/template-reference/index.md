@@ -12,7 +12,7 @@ excerpt: 高级模板参数
 [Zen](#zen) 模板编排各个组件模板，用于创建 DC/OS 群集。
 
 #### 代理模板
-[代理](#private-agent) 模板创建 [公共](/cn/1.12/overview/concepts/#public-agent-node) 或 [专用](/cn/1.12/overview/concepts/#private-agent-node) 代理节点，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 群集。
+[代理](#private-agent) 模板创建 [公共](/mesosphere/dcos/cn/1.12/overview/concepts/#public-agent-node) 或 [专用](/mesosphere/dcos/cn/1.12/overview/concepts/#private-agent-node) 代理节点，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 群集。
 
 #### 管理节点模板
 [管理节点](#master) 模板在已创建基础架构堆栈的基础上创建管理节点。

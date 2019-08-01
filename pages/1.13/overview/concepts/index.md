@@ -26,13 +26,13 @@ While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS 
 
 ## DC/OS GUI
 
-The [DC/OS graphical user interface (GUI)](/1.13/gui/) is an interface for remotely controlling and managing a DC/OS cluster from a web browser. The GUI is also sometimes called the DC/OS UI or DC/OS web interface.
+The [DC/OS graphical user interface (GUI)](/mesosphere/dcos/1.13/gui/) is an interface for remotely controlling and managing a DC/OS cluster from a web browser. The GUI is also sometimes called the DC/OS UI or DC/OS web interface.
 
 <a name="dcos-cli"></a>
 
 ## DC/OS CLI
 
-The [DC/OS command line interface (CLI)](/1.13/cli/) is an interface for remotely controlling and managing a DC/OS cluster from a terminal.
+The [DC/OS command line interface (CLI)](/mesosphere/dcos/1.13/cli/) is an interface for remotely controlling and managing a DC/OS cluster from a terminal.
 
 <a name="dcos-cluster"></a>
 
@@ -89,7 +89,7 @@ A DC/OS agent node is a virtual or physical machine on which Mesos tasks are run
 - Each agent node contains multiple DC/OS components, including most notably a [Mesos agent](#mesos-agent) process.
 - Agent nodes can be [private](#private-agent-node) or [public](#public-agent-node), depending on agent and network configuration.
 
-For more information, see [Network Security](/1.13/administering-clusters/) and [Adding Agent Nodes](/1.13/administering-clusters/add-a-node/).
+For more information, see [Network Security](/mesosphere/dcos/1.13/administering-clusters/) and [Adding Agent Nodes](/mesosphere/dcos/1.13/administering-clusters/add-a-node/).
 
 <a name="private-agent-node"></a>
 
@@ -108,10 +108,10 @@ A private agent node is an agent node that is on a network that *does not allow*
 A public agent node is an agent node that is on a network that **allows** access from outside of the cluster via the cluster’s infrastructure networking.
 
 - The Mesos agent on each public agent node is configured with the `public_ip:true` agent attribute and all of its resources allocated to the `slave_public` role.
-- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/services/marathon-lb/1.13/) or [Edge-LB](/services/edge-lb/1.3/).
+- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/mesosphere/dcos/services/marathon-lb/1.13/) or [Edge-LB](/mesosphere/dcos/services/edge-lb/1.3/).
 - Clusters generally have only a few public agent nodes, because a single load balancer can handle proxying multiple services.
 
-For more information, see [Converting Agent Node Types](/1.13/administering-clusters/convert-agent-type/).
+For more information, see [Converting Agent Node Types](/mesosphere/dcos/1.13/administering-clusters/convert-agent-type/).
 
 <a name="host-operating-system"></a>
 
@@ -135,10 +135,10 @@ A bootstrap machine is the machine on which the DC/OS installer artifacts are co
 
 - The bootstrap machine is not technically considered part of the cluster since it does not have DC/OS installed on it. For most installation methods, the bootstrap node must be accessible to and from the machines in the cluster via infrastructure networking.
 - The bootstrap machine is sometimes used as a jumpbox to control SSH access into other nodes in the cluster for added security and logging.
-- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using S3, DNS, or static IPs, with various tradeoffs. For more information, see the [exhibitor storage backend](/1.13/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) parameter description.
-- If a bootstrap machine is not required for managing master node IP changes or as an SSH jumpbox, it can be shut down after bootstrapping and spun up on demand to [add new nodes](/1.13/administering-clusters/add-a-node/) to the cluster.
+- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using S3, DNS, or static IPs, with various tradeoffs. For more information, see the [exhibitor storage backend](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) parameter description.
+- If a bootstrap machine is not required for managing master node IP changes or as an SSH jumpbox, it can be shut down after bootstrapping and spun up on demand to [add new nodes](/mesosphere/dcos/1.13/administering-clusters/add-a-node/) to the cluster.
 
-For more information, see the [system requirements](/1.13/installing/production/system-requirements/).
+For more information, see the [system requirements](/mesosphere/dcos/1.13/installing/production/system-requirements/).
 
 <a name="dcos-service"></a>
 
@@ -161,7 +161,7 @@ A Marathon service consists of zero or more containerized service instances. Eac
     - Marathon pod instances map one-to-many with tasks.
 - Service instances are restarted as a new Mesos Task when they exit prematurely.
 - Service instances may be re-scheduled onto another agent node if they exit prematurely and the agent is down or does not have enough resources any more.
-- Services can be installed directly via the [DC/OS API (Marathon)](/1.13/deploying-services/marathon-api/) or indirectly via the [DC/OS Package Manager (Cosmos)](#package-manager) from a [package repository](#dcos-package-registry) like [Mesosphere {{ model.packageRepo }}](#mesosphere-universe). The [DC/OS GUI](#dcos-gui) and [DC/OS CLI](#dcos-cli) may be used to interact with the DC/OS Package Manager (Cosmos) more easily.
+- Services can be installed directly via the [DC/OS API (Marathon)](/mesosphere/dcos/1.13/deploying-services/marathon-api/) or indirectly via the [DC/OS Package Manager (Cosmos)](#package-manager) from a [package repository](#dcos-package-registry) like [Mesosphere {{ model.packageRepo }}](#mesosphere-universe). The [DC/OS GUI](#dcos-gui) and [DC/OS CLI](#dcos-cli) may be used to interact with the DC/OS Package Manager (Cosmos) more easily.
 - A Marathon service may be a [DC/OS scheduler](#dcos-scheduler), but not all services are schedulers.
 - A Marathon service is an abstraction around Marathon service instances which are an abstraction around Mesos tasks. Other schedulers such as DC/OS Jobs (Metronome) or Jenkins have their own names for abstractions around Mesos tasks.
 
@@ -286,7 +286,7 @@ A container registry is a repository of pre-built container images. The [Univers
 
 A cloud template is an infrastructure-specific method of declaratively describing a DC/OS cluster.
 
-For more information about deploying using a cloud template, see [Mesosphere installation methods](/1.13/installing/evaluation/).
+For more information about deploying using a cloud template, see [Mesosphere installation methods](/mesosphere/dcos/1.13/installing/evaluation/).
 
 <a name="mesos-concepts"></a>
 
@@ -410,7 +410,7 @@ Mesos depends on ZooKeeper, a high-performance coordination service to manage th
 
 Mesos-DNS is a DC/OS component that provides service discovery within the cluster. Mesos-DNS allows applications and services that are running on Mesos to find each other by using the domain name system (DNS), similar to how services discover each other throughout the Internet.
 
-For more information, see the [Mesos-DNS documentation](/1.13/networking/DNS/mesos-dns/).
+For more information, see the [Mesos-DNS documentation](/mesosphere/dcos/1.13/networking/DNS/mesos-dns/).
 
 <a name="marathon-concepts"></a>
 

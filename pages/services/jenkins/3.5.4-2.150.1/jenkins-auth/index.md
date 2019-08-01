@@ -14,7 +14,7 @@ enterprise: true
 
 # About provisioning Jenkins with a service account
 
-Whether you can or must provision Jenkins with a service account varies by [security mode](/latest/security/ent/#security-modes).
+Whether you can or must provision Jenkins with a service account varies by [security mode](/mesosphere/dcos/latest/security/ent/#security-modes).
 
 - `disabled`: not possible
 - `permissive`: optional
@@ -41,7 +41,7 @@ To set up a service account for Jenkins, complete the following steps.
 
 First, you'll need to generate a 2048-bit RSA public-private key pair. While you can use any tool to accomplish this, the Enterprise DC/OS CLI is the most convenient because it returns the keys in the exact format required.
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/latest/cli/install/) and the [Enterprise DC/OS CLI 0.4.14 or later installed](/latest/cli/enterprise-cli/#ent-cli-install).
+**Prerequisite:** You must have the [DC/OS CLI installed](/mesosphere/dcos/latest/cli/install/) and the [Enterprise DC/OS CLI 0.4.14 or later installed](/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-install).
 
 
 1. Create a public-private key pair and save each value into a separate file within the current directory.
@@ -63,7 +63,7 @@ Next, you must create a service account. This section describes how to use eithe
 
 ## Using the Enterprise DC/OS CLI
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/latest/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/latest/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
+**Prerequisite:** You must have the [DC/OS CLI installed](/mesosphere/dcos/latest/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
 1. Use the following command to create a new service account called `jenkins-principal` with the public key you just generated.
 
@@ -99,7 +99,7 @@ Next, you need to create a secret associated with the service account that conta
 
 ## Using the Enterprise DC/OS CLI
 
-**Prerequisite:** You must have the [DC/OS CLI installed](/latest/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/latest/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
+**Prerequisite:** You must have the [DC/OS CLI installed](/mesosphere/dcos/latest/cli/install/), the [Enterprise DC/OS CLI 0.4.14 or later installed](/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-install), and be logged in as a superuser via `dcos auth login`.
 
 1. Depending on your security mode, use one of the following commands to create a new secret called `jenkins-secret` in the `jenkins` path. Locating the secret inside the `jenkins` path will ensure that only the Jenkins service can access it. The secret will contain the private key, the name of the service account, and other data.
 
@@ -127,7 +127,7 @@ Next, you need to create a secret associated with the service account that conta
     $ dcos security secrets get /jenkins/jenkins-secret --json | jq -r .value | jq
     ```
 
-   **Important:** While reviewing the secret, ensure that the `login_endpoint` URL uses HTTPS if you are in `strict` mode and HTTP if you are in `permissive` mode. If the URL begins with `https` and you are in `permissive` mode, try [upgrading the Enterprise DC/OS CLI](/latest/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
+   **Important:** While reviewing the secret, ensure that the `login_endpoint` URL uses HTTPS if you are in `strict` mode and HTTP if you are in `permissive` mode. If the URL begins with `https` and you are in `permissive` mode, try [upgrading the Enterprise DC/OS CLI](/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
 
 1. Now that you have stored the private key in the Secret Store, we recommend deleting the private key file from your file system. This will prevent bad actors from using the private key to authenticate to DC/OS.
 
@@ -181,7 +181,7 @@ Next, you need to create a secret associated with the service account that conta
 
 ## About the permissions
 
-The permissions needed vary according to your [security mode](/latest/security/ent/#security-modes/). In `permissive` mode, the Jenkins service account does not need any permissions. If you plan to upgrade at some point to `strict` mode, we recommending assigning them the permissions needed in `strict` mode to make the upgrade easier. The permissions will not have any effect until the cluster is in `strict` mode. If you plan to remain in `permissive` mode indefinitely, skip to [Create a config.json file](#create-json).
+The permissions needed vary according to your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/). In `permissive` mode, the Jenkins service account does not need any permissions. If you plan to upgrade at some point to `strict` mode, we recommending assigning them the permissions needed in `strict` mode to make the upgrade easier. The permissions will not have any effect until the cluster is in `strict` mode. If you plan to remain in `permissive` mode indefinitely, skip to [Create a config.json file](#create-json).
 
 If you are in `strict` mode or want to be ready to upgrade to `strict` mode, continue to the next section.
 
@@ -189,7 +189,7 @@ If you are in `strict` mode or want to be ready to upgrade to `strict` mode, con
 
 With the following curl commands you can rapidly provision the Jenkins service account with the permissions required in `strict` mode. These commands can be executed from outside of the cluster. All you will need is the DC/OS CLI installed. You must also log in via `dcos auth login` as a superuser.
 
-**Prerequisite:** If your [security mode](/latest/security/ent/#security-modes/) is `permissive` or `strict`, follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/latest/security/ent/#security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
+**Prerequisite:** If your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/) is `permissive` or `strict`, follow the steps in [Obtaining and passing the DC/OS certificate in curl requests](/mesosphere/dcos/1.11/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section. If your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/) is `disabled`, you must delete `--cacert dcos-ca.crt` from the commands before issuing them.
 
 1. Issue the following commands to create the necessary permissions.
 
@@ -268,7 +268,7 @@ To install the service, complete the following steps.
 
 1. In the **Password** field, type any value.
 
-   ![Adding Jenkins credentials](/services/jenkins/img/add-jenkins-credential.png)
+   ![Adding Jenkins credentials](/mesosphere/dcos/services/jenkins/img/add-jenkins-credential.png)
 
 1. Once you have completed your entries, click **Add**.
 
@@ -294,4 +294,4 @@ To install the service, complete the following steps.
 
 1. After some time, the job should turn green in the **Build history** box. Congratulations! You have succeeded in setting Jenkins up with a service account.
 
-You can also provide the `config.json` file to someone else to install Jenkins. Please see the [Jenkins documentation](/services/jenkins/quickstart/) for more information about how to use the JSON file to install the service.
+You can also provide the `config.json` file to someone else to install Jenkins. Please see the [Jenkins documentation](/mesosphere/dcos/services/jenkins/quickstart/) for more information about how to use the JSON file to install the service.

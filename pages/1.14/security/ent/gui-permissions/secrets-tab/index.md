@@ -19,11 +19,11 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
 **Prerequisites:**
 
-- A DC/OS user account without the `dcos:superuser` [permission](/1.14/security/ent/users-groups/).
+- A DC/OS user account without the `dcos:superuser` [permission](/mesosphere/dcos/1.14/security/ent/users-groups/).
 
 1. Log into the DC/OS UI as a user with the `superuser` permission.
 
-   ![Login](/1.14/img/LOGIN-EE-Modal_View-1_12.png)
+   ![Login](/mesosphere/dcos/1.14/img/LOGIN-EE-Modal_View-1_12.png)
 
    Figure 1. DC/OS UI login
 
@@ -31,14 +31,14 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add user or group for granting permissions](/1.14/img/GUI-Organization-Users-List_VIew-1_12.png)
+    ![Add user or group for granting permissions](/mesosphere/dcos/1.14/img/GUI-Organization-Users-List_VIew-1_12.png)
     Figure 2. Select user or group to grant permissions to
 
 1.  From the **Permissions** tab, click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.14/img/services-tab-user3.png)
+    ![Add permission](/mesosphere/dcos/1.14/img/services-tab-user3.png)
 
     Figure 3. Insert Permission String
 
@@ -49,7 +49,7 @@ You can grant users access to the **Secrets** tab. By default, new users have no
     dcos:secrets:list:default:/ read
     ```
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.14/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/1.14/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
     ## Permissive
 
@@ -70,8 +70,8 @@ You can grant users access to the **Secrets** tab. By default, new users have no
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/1.14/cli/install/) and be logged in as a superuser.
-- You must [get the root cert](/1.14/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.14/cli/install/) and be logged in as a superuser.
+- You must [get the root cert](/mesosphere/dcos/1.14/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 **Tips:**
 

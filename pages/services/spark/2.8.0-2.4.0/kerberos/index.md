@@ -80,7 +80,7 @@ To use Kerberos with {{ model.techShortName }}:
 1. Make sure your `keytab` file is in the DC/OS secret store, under a path that is accessible
     by the {{ model.techShortName }} service. 
     
-    Since the `keytab` is a binary file, you must also base64 encode it on DC/OS 1.10 or earlier. See [Using the Secret Store](/1.12/security/) for details.
+    Since the `keytab` is a binary file, you must also base64 encode it on DC/OS 1.10 or earlier. See [Using the Secret Store](/mesosphere/dcos/1.12/security/) for details.
 
 1. If you are using the history server, you must also configure the `krb5.conf`, principal, and keytab for the history server. Add the Kerberos configurations to your `-history` JSON configuration file:
 

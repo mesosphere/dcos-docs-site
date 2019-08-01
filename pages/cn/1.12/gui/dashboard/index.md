@@ -7,7 +7,7 @@ excerpt: 使用仪表板
 ---
 仪表板是 DC/OS Web 界面的主页。该界面概述了 DC/OS 群集。
 
-![Dashboard](/1.12/img/dashboard-ee-1-12.png)
+![Dashboard](/mesosphere/dcos/1.12/img/dashboard-ee-1-12.png)
 
 图 1 - 仪表板
 

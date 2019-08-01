@@ -18,13 +18,13 @@ DC/OS handles and represents pods as single services. Containers in pods share n
 - Pods support only Mesos-level health checks.
 
 # Networking
-Marathon pods only support the [DC/OS Universal container runtime](/1.14/deploying-services/containerizers/), which supports multiple image formats, including Docker.
+Marathon pods only support the [DC/OS Universal container runtime](/mesosphere/dcos/1.14/deploying-services/containerizers/), which supports multiple image formats, including Docker.
 
-The Universal container runtime simplifies networking by allowing the containers of each pod instance to share a network namespace and communicate over a VLAN or private network. If you specify a container network without a name in a pod definition, it will be assigned to the default network. If you have installed DC/OS using [AWS templates](/1.14/installing/evaluation/aws/), the default network is `dcos`.
+The Universal container runtime simplifies networking by allowing the containers of each pod instance to share a network namespace and communicate over a VLAN or private network. If you specify a container network without a name in a pod definition, it will be assigned to the default network. If you have installed DC/OS using [AWS templates](/mesosphere/dcos/1.14/installing/evaluation/aws/), the default network is `dcos`.
 
-If other applications need to communicate with your pod, specify an endpoint in your pod definition. Other applications will communicate with your pod by addressing those endpoints. See [the Examples section](/1.14/deploying-services/pods/examples/) for more information.
+If other applications need to communicate with your pod, specify an endpoint in your pod definition. Other applications will communicate with your pod by addressing those endpoints. See [the Examples section](/mesosphere/dcos/1.14/deploying-services/pods/examples/) for more information.
 
-In your pod definition, you can declare a `host` or `container` network type. Pods created with `host` type share the network namespace of the host. Pods created with `container` type use virtual networking. If you specify the `container` network type and Marathon was not configured to have a default network name, you must also declare a virtual network name in the `name` field. See the [Examples](/1.14/deploying-services/pods/examples/) section for the full JSON.
+In your pod definition, you can declare a `host` or `container` network type. Pods created with `host` type share the network namespace of the host. Pods created with `container` type use virtual networking. If you specify the `container` network type and Marathon was not configured to have a default network name, you must also declare a virtual network name in the `name` field. See the [Examples](/mesosphere/dcos/1.14/deploying-services/pods/examples/) section for the full JSON.
 
 # Ephemeral Storage
 Containers within a pod share ephemeral storage. Volumes are declared at the pod-level and referenced by `name` when mounting them into specific containers.
@@ -36,14 +36,14 @@ When you update a pod that has already launched, the new version of the pod will
 History is permanently tied to `pod_id`. If you delete a pod and then reuse the ID, even if the details of the pod are different, the new pod will have the previous history (such as version information).
 
 # Pod Definitions
-Pods are configured via a JSON pod definition, which is similar to a Marathon [application definition](/1.14/deploying-services/creating-services/). You must declare the resources required by each container in the pod because Mesos, not Marathon, determines how and when to perform isolation for all resources requested by a pod. See the [Examples](/1.14/deploying-services/pods/examples/) section for complete pod definitions.
+Pods are configured via a JSON pod definition, which is similar to a Marathon [application definition](/mesosphere/dcos/1.14/deploying-services/creating-services/). You must declare the resources required by each container in the pod because Mesos, not Marathon, determines how and when to perform isolation for all resources requested by a pod. See the [Examples](/mesosphere/dcos/1.14/deploying-services/pods/examples/) section for complete pod definitions.
 
 # Environment variables
 Environment variables defined at the pod level are propagated to all pod containers. Pod-level environment variables are overridden by environment variables defined at the pod container level.
 
 Environment variables for ports are defined using the pod container endpoint names (i.e, ENDPOINT_<ENDPOINT_NAME>=<PORT>).
 
-Below are example environment variables reflecting the [multi-pod JSON pod definition example](/1.14/deploying-services/pods/examples/#multi-pod).
+Below are example environment variables reflecting the [multi-pod JSON pod definition example](/mesosphere/dcos/1.14/deploying-services/pods/examples/#multi-pod).
 
 ```
 MESOS_EXECUTOR_ID=instance-test-pod.c2b47e5c-d1f5-11e6-a247-a65e72d2dda4
@@ -138,7 +138,7 @@ Pods also support host volumes. A pod volume parameter can declare a `host` fiel
 
 ## Containerizers
 
-Marathon pods support the [DC/OS Universal container runtime](/1.14/deploying-services/containerizers/). The Universal container runtime [supports multiple images, such as Docker](http://mesos.apache.org/documentation/latest/container-image/).
+Marathon pods support the [DC/OS Universal container runtime](/mesosphere/dcos/1.14/deploying-services/containerizers/). The Universal container runtime [supports multiple images, such as Docker](http://mesos.apache.org/documentation/latest/container-image/).
 
 The following JSON specifies a Docker image for a pod:
 

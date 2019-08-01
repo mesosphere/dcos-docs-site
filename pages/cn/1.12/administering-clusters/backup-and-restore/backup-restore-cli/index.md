@@ -9,8 +9,8 @@ enterprise: true
 
 # 先决条件
 - 一个 DC/OS Enterprise 群集。
-- [DC/OS CLI](/cn/1.12/cli/install/) 已安装。
-- [DC/OS Enterprise CLI](/cn/1.12/cli/enterprise-cli/) 已安装。
+- [DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/install/) 已安装。
+- [DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.12/cli/enterprise-cli/) 已安装。
 
 <p class="message--important"><strong>重要信息：</strong>查看备份和恢复的 <a href="/latest/administering-clusters/backup-and-restore/#limitations">限制</a>部分。</p>
 

@@ -14,7 +14,7 @@ You can update the DC/OS CLI to the latest version or downgrade to an older vers
 
 # <a name="upgrade"></a>Upgrade the CLI
 
-If you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely [uninstall](/1.9/cli/uninstall/) the CLI. You cannot upgrade. 
+If you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely [uninstall](/mesosphere/dcos/1.9/cli/uninstall/) the CLI. You cannot upgrade. 
 
 You can upgrade an existing DC/OS CLI installation to the latest build.
 
@@ -50,7 +50,7 @@ You can upgrade an existing DC/OS CLI installation to the latest build.
     dcos config set core.dcos_url http://example.com
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.9/security/ent/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/mesosphere/dcos/1.9/security/ent/).
     
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.
 

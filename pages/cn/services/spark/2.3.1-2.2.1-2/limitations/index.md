@@ -16,7 +16,7 @@ featureMaturity:
 * Spark 作业在 Docker 容器中运行。第一次在节点上运行 Spark 作业时，
  因为 `docker pull`，可能需要比预期更长的时间。
 
-* DC/OS Apache Spark 仅支持从 DC/OS 群集中运行 Spark shell。参见 [Spark Shell 部分](/cn/services/spark/2.3.1-2.2.1-2/spark-shell/) 了解更多信息。对于交互式分析，我们推荐 Zeppelin，其支持可视化效果和动态依赖关系管理。
+* DC/OS Apache Spark 仅支持从 DC/OS 群集中运行 Spark shell。参见 [Spark Shell 部分](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/spark-shell/) 了解更多信息。对于交互式分析，我们推荐 Zeppelin，其支持可视化效果和动态依赖关系管理。
 
 * 启用 Spark SSL/TLS 时，如果您使用
  `spark.mesos.[driver|executor].secret.envkeys`指定基于环境的密钥，由于密钥实施方式，keystore 和信任存储密钥也将显示为

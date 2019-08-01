@@ -10,9 +10,9 @@ enterprise: false
 
 Marathon 将任务分为三类：初始、非终端和终端。这些类别中的任务可能处于下图所示的几种状态之一。如需了解任务的状态，可以查看数据中心操作系统日志或查询 [ Marathon  API](http://mesosphere.github.io/marathon/api-console/index.html) 的 [事件流](http://mesosphere.github.io/marathon/docs/event-bus.html) (/v2/events)。
 
-也可以 [在无法访问任务时配置 Marathon 的行为](/cn/1.11/deploying-services/task-handling/configure-task-handling/)。
+也可以 [在无法访问任务时配置 Marathon 的行为](/mesosphere/dcos/cn/1.11/deploying-services/task-handling/configure-task-handling/)。
 
-![Task Handling Flow](/cn/1.11/img/task-handling-corrected.png)
+![Task Handling Flow](/mesosphere/dcos/cn/1.11/img/task-handling-corrected.png)
 
 图 1. 任务处理图
 

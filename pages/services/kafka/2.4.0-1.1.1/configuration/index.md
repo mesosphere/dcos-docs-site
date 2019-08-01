@@ -20,7 +20,7 @@ To configure an alternate Zookeeper instance:
 
 1. Create a file named `options.json` with the following contents.
 
-**Note:** If you are using the [DC/OS Apache ZooKeeper service](/services/{{ model.kafka.zookeeperPackageName }}), use the DNS addresses provided by the `dcos {{ model.kafka.zookeeperPackageName }} endpoints clientport` command as the value of `kafka_zookeeper_uri`.
+**Note:** If you are using the [DC/OS Apache ZooKeeper service](/mesosphere/dcos/services/{{ model.kafka.zookeeperPackageName }}), use the DNS addresses provided by the `dcos {{ model.kafka.zookeeperPackageName }} endpoints clientport` command as the value of `kafka_zookeeper_uri`.
 
 Here is an example `options.json` which points to a `{{ model.kafka.zookeeperPackageName }}` instance named `{{ model.kafka.zookeeperServiceName }}`:
 

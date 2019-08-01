@@ -17,19 +17,19 @@ excerpt: 排除 DC/OS 安装问题
 
 ## IP 检测脚本
 
-您必须具有有效的 [ip-detect](/1.12/installing/production/advanced/#create-an-ip-detection-script) 脚本。您可以手动运行群集中所有节点上的 `ip-detect`，或检查现有装置上的 `/opt/mesosphere/bin/detect_ip`，以确保其返回有效的 IP 地址。有效的 IP 地址没有：
+您必须具有有效的 [ip-detect](/mesosphere/dcos/1.12/installing/production/advanced/#create-an-ip-detection-script) 脚本。您可以手动运行群集中所有节点上的 `ip-detect`，或检查现有装置上的 `/opt/mesosphere/bin/detect_ip`，以确保其返回有效的 IP 地址。有效的 IP 地址没有：
 
  - 额外的行
  - 空格
  - 特殊或隐藏字符
 
-我们建议您使用 `ip-detect` [示例](/1.12/installing/production/deploying-dcos/installation/)。
+我们建议您使用 `ip-detect` [示例](/mesosphere/dcos/1.12/installing/production/deploying-dcos/installation/)。
 
 <a name="DNS"></a>
 
 ## DNS 解析器
 
-您必须有正常运行的 DNS 解析器，这在您的 [config.yaml](/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers) 文件中指定。我们建议您对 FQDN、短主机名和 IP 地址进行正向和反向查找。DC/OS 可以在没有有效 DNS 支持的环境中运行，但以下 _必须_ 工作才能支持 DC/OS 服务，包括 Spark：
+您必须有正常运行的 DNS 解析器，这在您的 [config.yaml](/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers) 文件中指定。我们建议您对 FQDN、短主机名和 IP 地址进行正向和反向查找。DC/OS 可以在没有有效 DNS 支持的环境中运行，但以下 _必须_ 工作才能支持 DC/OS 服务，包括 Spark：
 
  - `hostname -f` 返回 FQDN
  - `hostname -s` 返回短主机名
@@ -72,7 +72,7 @@ timedatectl
 
 * 验证 Exhibitor 是否已在 `http://<MASTER_IP>:8181/exhibitor` 上运行。如果 Exhibitor 未启动和运行：
 
- - 对管理节点执行 [SSH](/1.12/administering-clusters/sshcluster/)，并输入以下命令来检查 Exhibitor 服务日志：
+ - 对管理节点执行 [SSH](/mesosphere/dcos/1.12/administering-clusters/sshcluster/)，并输入以下命令来检查 Exhibitor 服务日志：
 
         ```bash
         journalctl -flu dcos-exhibitor
@@ -88,7 +88,7 @@ timedatectl
 	    
 * 检查 `/exhibitor/v1/cluster/status` 的输出，并验证其是否显示了正确数量的管理节点，所有管理节点是否为 `"serving"`，但只有其中一个被指定为 `"isLeader": true`。
 
- 例如，对管理节点执行 [SSH](/1.12/administering-clusters/sshcluster/) 并输入以下命令：
+ 例如，对管理节点执行 [SSH](/mesosphere/dcos/1.12/administering-clusters/sshcluster/) 并输入以下命令：
 
 
  curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
@@ -324,9 +324,9 @@ Mesos-DNS 在 DC/OS 管理节点上启动。Mesos DNS 在群集内提供服务�
 
 ## <a name="zookeeper-and-exhibitor"></a>ZooKeeper 和 Exhibitor
 
-ZooKeeper 和 Exhibitor 在管理节点上启动。Exhibitor 存储位置必须正确配置才能让其工作。如需更多信息，请参阅 [exhibitor_storage_backend](/1.12/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) 参数。
+ZooKeeper 和 Exhibitor 在管理节点上启动。Exhibitor 存储位置必须正确配置才能让其工作。如需更多信息，请参阅 [exhibitor_storage_backend](/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) 参数。
 
-DC/OS 使用 ZooKeeper，后者是一个高性能协调服务，用来管理已安装的 DC/OS 服务。Exhibitor 在 DC/OS 安装期间自动配置管理节点上的 ZooKeeper。如需更多信息，请参阅 [配置参数](/1.12/installing/production/advanced-configuration/configuration-reference/)。
+DC/OS 使用 ZooKeeper，后者是一个高性能协调服务，用来管理已安装的 DC/OS 服务。Exhibitor 在 DC/OS 安装期间自动配置管理节点上的 ZooKeeper。如需更多信息，请参阅 [配置参数](/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/)。
 
 * 转到 Exhibitor Web 界面，并在 `<master-hostname>/exhibitor` 中查看状态。
 
@@ -354,10 +354,10 @@ DC/OS 使用 ZooKeeper，后者是一个高性能协调服务，用来管理已�
 
 
 
- [1]: /1.12/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend
+ [1]: /mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend
  [2]: https://open.mesosphere.com/reference/mesos-master/
- [3]: /1.12/installing/production/advanced-configuration/configuration-reference/
- [4]: /1.12/overview/architecture/boot-sequence/
- [5]: /1.12/installing/production/advanced-configuration/configuration-reference/
- [6]: /1.12/administering-clusters/sshcluster/
+ [3]: /mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/
+ [4]: /mesosphere/dcos/1.12/overview/architecture/boot-sequence/
+ [5]: /mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/
+ [6]: /mesosphere/dcos/1.12/administering-clusters/sshcluster/
 

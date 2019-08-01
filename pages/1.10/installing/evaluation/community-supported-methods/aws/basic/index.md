@@ -17,7 +17,7 @@ The basic templates provide:
 
 These instructions provide a basic AWS CloudFormation template that creates a DC/OS cluster that is suitable for demonstrations and POCs. This is the fastest way to get started with the DC/OS templates for AWS CloudFormation.
 
-For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/advanced/).
+For a complete set of DC/OS configuration options, see the [Advanced AWS Install Guide](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/advanced/).
 
 <table class=“table” bgcolor=#858585>
 <tr>
@@ -32,8 +32,8 @@ For a complete set of DC/OS configuration options, see the [Advanced AWS Install
 An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> instance.  Selecting smaller-sized VMs is not recommended, and selecting fewer VMs will likely cause certain resource-intensive services, such as distributed datastores, to not work properly.
 
 *   You have the option of one or three Mesos master nodes.
-*   The default is five [private](/{{ model.folder_version }}/overview/concepts/#private-agent-node) Mesos agent nodes.
-*   The default is one [public](/{{ model.folder_version }}/overview/concepts/#public-agent-node) Mesos agent node. By default, ports are closed and health checks are configured for Marathon-LB. Ports 80 and 443 are configured for the AWS Elastic Load Balancer.
+*   The default is five [private](/mesosphere/dcos/{{ model.folder_version }}/overview/concepts/#private-agent-node) Mesos agent nodes.
+*   The default is one [public](/mesosphere/dcos/{{ model.folder_version }}/overview/concepts/#public-agent-node) Mesos agent node. By default, ports are closed and health checks are configured for Marathon-LB. Ports 80 and 443 are configured for the AWS Elastic Load Balancer.
 
 ## Software
 
@@ -64,7 +64,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 </tr>
 </table>
 
-   ![Launch stack](/{{ model.folder_version }}/img/dcos-aws-step2b.png)
+   ![Launch stack](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-aws-step2b.png)
 
    Figure 1. Launch stack
 
@@ -74,7 +74,7 @@ An AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlar
 
 6. Skip the Open Source users section and go to Step 6.
 
-![Create stack](/{{ model.folder_version }}/img/dcos-aws-step2c-ee.png)
+![Create stack](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-aws-step2c-ee.png)
 
 Figure 2. Create stack
 
@@ -86,7 +86,7 @@ Figure 2. Create stack
 
 2.  On the **Select Template** page, accept the defaults and click **Next**.
 
-   ![Launch stack](/{{ model.folder_version }}/img/dcos-aws-step2b.png)
+   ![Launch stack](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-aws-step2b.png)
 
    Figure 3. Launch stack
 
@@ -101,7 +101,7 @@ Figure 2. Create stack
 
 4. Go to Step 6 in the "All users" section.
 
-![Create stack](/{{ model.folder_version }}/img/dcos-aws-step2c.png)
+![Create stack](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-aws-step2c.png)
 
 Figure 4. Create stack
 
@@ -130,13 +130,13 @@ In <a href="https://console.aws.amazon.com/cloudformation/home" target="_blank">
 
 2.  Click the **Outputs** tab and copy the Mesos Master hostname.
 
-   ![Monitor stack creation](/{{ model.folder_version }}/img/dcos-stack.png)
+   ![Monitor stack creation](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-stack.png)
 
    Figure 5. Monitor stack creation
 
 3.  Paste the hostname into your browser to open the DC/OS web interface. The interface runs on the standard HTTP port 80, so you do not need to specify a port number after the hostname.  Your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed to the login screen.
 
-   ![DC/OS GUI auth](/{{ model.folder_version }}/img/dc-os-gui-login-ee.png)
+   ![DC/OS GUI auth](/mesosphere/dcos/{{ model.folder_version }}/img/dc-os-gui-login-ee.png)
 
    Figure 6. DC/OS web interface login screen
 
@@ -157,7 +157,7 @@ You must install the [DC/OS Command-Line Interface (CLI)][2] to administer your 
 - [Add users to your cluster][3]
 - [Scaling considerations][4]
 
- [1]: /{{ model.folder_version }}/administering-clusters/managing-aws/
- [2]: /{{ model.folder_version }}/cli/install/
- [3]: /{{ model.folder_version }}/security/ent/users-groups/
+ [1]: /mesosphere/dcos/{{ model.folder_version }}/administering-clusters/managing-aws/
+ [2]: /mesosphere/dcos/{{ model.folder_version }}/cli/install/
+ [3]: /mesosphere/dcos/{{ model.folder_version }}/security/ent/users-groups/
  [4]: https://aws.amazon.com/autoscaling/

@@ -19,7 +19,7 @@ enterprise: true
     Please type the name of the service to confirm: storage
     Uninstalled package [storage] version [...]
     ```
-1. Remove the storage package from the [package registry](/latest/administering-clusters/package-registry/) using the following command:
+1. Remove the storage package from the [package registry](/mesosphere/dcos/latest/administering-clusters/package-registry/) using the following command:
     ```bash
     dcos registry remove --package-name=storage --package-version=$PACKAGE_VERSION
     ```

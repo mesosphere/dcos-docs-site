@@ -15,9 +15,9 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 
 | 参数 | 描述 |
 |--------------------|------------------------|
-| [agent_list](#agent-list) |  [专用代理](/cn/1.11/overview/concepts/#private-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。|
+| [agent_list](#agent-list) |  [专用代理](/mesosphere/dcos/cn/1.11/overview/concepts/#private-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。|
 | aws_template_storage_access_key_id | 拥有 AWS S3 bucket 的帐户 [访问密钥 ID](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) 。 |
-| aws_template_storage_bucket | 包含 [自定义高级 AWS 模板](/cn/1.11/installing/evaluation/aws/advanced/#create-your-templates) 的 S3 bucket 的名称。 |
+| aws_template_storage_bucket | 包含 [自定义高级 AWS 模板](/mesosphere/dcos/cn/1.11/installing/evaluation/aws/advanced/#create-your-templates) 的 S3 bucket 的名称。 |
 | aws_template_storage_bucket_path | S3 bucket 内模板工件存储位置的路径。
 | aws_template_storage_region_name | 包含 S3 bucket 的分域。 |
 | aws_template_storage_secret_access_key | 拥有 AWS S3 bucket 的帐户的 [密钥访问密钥](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)。 |
@@ -37,7 +37,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 | [master_external_loadbalancer](#master-external-loadbalancer) | 负载均衡器的 DNS 名称或 IP 地址。[enterprise type="inline" size="small" /] |
 | [mesos_container_log_sink](#mesos-container-log-sink) | 容器（任务）的日志管理器。 |
 | [platform](#platform) | 基础架构平台。 |
-| [public_agent_list](#public-agent-list) | [公共代理](/cn/1.11/overview/concepts/#public-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。|
+| [public_agent_list](#public-agent-list) | [公共代理](/mesosphere/dcos/cn/1.11/overview/concepts/#public-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。|
 | [rexray_config](#rexray-config) | 在 Marathon 中启用外部持久卷的 [REX-Ray](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/) 配置方法。不能同时指定 `rexray_config` 和 `rexray_config_preset`。|
 | [rexray_config_preset](#rexray-config-preset) | 如果您在 AWS 上运行 DC/OS，将此参数设置为 `aws`，请将 `rexray_config` 参数设置为与 DC/OS 本身捆绑的合理默认 REX-Ray 配置。不能同时指定 `rexray_config` 和 `rexray_config_preset`。|
 
@@ -63,7 +63,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 [/enterprise]
 | 参数 | 描述 |
 |------------------------------|--------------------|
-| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise) | 一个标记，设定后将启用 DC/OS 中的高级存储功能，包括 Mesos [CSI](https://github.com/container-storage-interface/spec) 支持和预安装的 CSI 设备插件。此功能标志需要打开才能使用 [DC/OS 存储服务 (DSS)](/services/storage/) [enterprise type="inline" size="small" /]|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise) | 一个标记，设定后将启用 DC/OS 中的高级存储功能，包括 Mesos [CSI](https://github.com/container-storage-interface/spec) 支持和预安装的 CSI 设备插件。此功能标志需要打开才能使用 [DC/OS 存储服务 (DSS)](/mesosphere/dcos/services/storage/) [enterprise type="inline" size="small" /]|
 
 # 性能和微调
 
@@ -90,9 +90,9 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 | [adminrouter_tls_cipher_suite](#adminrouter-tls-cipher-suite) | 覆盖 Admin Router 中的默认 TLS 密码套件。 |
 | [auth_cookies_secure_flag](#auth-cookies-secure-flag-enterprise) | 指示是否允许 Web 浏览器通过非 HTTPS 连接发送 DC/OS 身份认证 Cookie。[enterprise type="inline" size="small" /] |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) | 设置身份和访问管理的授权令牌生存时间值 (TTL)。[enterprise type="inline" size="small" /]|
-| ca_certificate_path | 使用此路径设置自定义 CA 证书。参见 [使用自定义 CA 证书](/cn/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) 页面，获取详细的配置参数参考。[enterprise type="inline" size="small" /] |
-| ca_certificate_key_path | 使用此路径设置自定义 CA 证书。参见 [使用自定义 CA 证书](/cn/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) 页面，获取详细的配置参数参考。[enterprise type="inline" size="small" /] |
-| ca_certificate_chain_path | 使用此路径设置自定义 CA 证书。参见 [使用自定义 CA 证书](/cn/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) 页面，获取详细的配置参数参考。[enterprise type="inline" size="small" /] |
+| ca_certificate_path | 使用此路径设置自定义 CA 证书。参见 [使用自定义 CA 证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) 页面，获取详细的配置参数参考。[enterprise type="inline" size="small" /] |
+| ca_certificate_key_path | 使用此路径设置自定义 CA 证书。参见 [使用自定义 CA 证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) 页面，获取详细的配置参数参考。[enterprise type="inline" size="small" /] |
+| ca_certificate_chain_path | 使用此路径设置自定义 CA 证书。参见 [使用自定义 CA 证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) 页面，获取详细的配置参数参考。[enterprise type="inline" size="small" /] |
 | [security](#security-enterprise) | 安全模式：禁用、宽容或严格。[enterprise type="inline" size="small" /] |
 | [ssh_key_path](#ssh-key-path) | 安装工具用来登录到目标节点的路径。 |
 | [ssh_port](#ssh-port) | SSH 的端口，例如 22。|
@@ -134,7 +134,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 
 建议您不要启用 TLS 1.0，因为该协议被视为不安全。
 
-如果您已经安装了群集，并且想要在此更改此设备，可以通过 [升级](/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_0_enabled` 参数设置为所需值。
+如果您已经安装了群集，并且想要在此更改此设备，可以通过 [升级](/mesosphere/dcos/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_0_enabled` 参数设置为所需值。
 
 
 ## adminrouter_tls_1_1_enabled [enterprise type="inline" size="small" /]
@@ -143,7 +143,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 - `adminrouter_tls_1_1_enabled: 'true'` 在 Admin Router 中启用 TLS 1.1 协议。这是默认值。
 - `adminrouter_tls_1_1_enabled: 'false'` 在 Admin Router 中禁用 TLS 1.1 协议。
 
-如果您已经安装了群集，并且想要在此更改此设备，可以通过 [升级](/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_1_enabled` 参数设置为所需值。
+如果您已经安装了群集，并且想要在此更改此设备，可以通过 [升级](/mesosphere/dcos/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_1_enabled` 参数设置为所需值。
 
 
 ## adminrouter_tls_1_2_enabled [enterprise type="inline" size="small" /]
@@ -154,7 +154,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 
 建议保持启用此协议版本，让此协议作为最安全的受支持 TLS 版本。
 
-如果您已经安装了群集，并且想要在此更改此设备，可以通过 [升级](/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_2_enabled` 参数设置为所需值。
+如果您已经安装了群集，并且想要在此更改此设备，可以通过 [升级](/mesosphere/dcos/cn/1.11/installing/production/upgrading/) 实现，同时将 `adminrouter_tls_1_2_enabled` 参数设置为所需值。
 
 ## adminrouter_tls_cipher_suite [enterprise type="inline" size="small" /]
 提供 TLS 密码套件的自定义列表。该值将直接传递到 Admin Router  [`ssl_ciphers`](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_ciphers) 配置指令。此字符串没有验证。设置错误将导致 DC/OS 安装失败。此配置设置仅影响在 DC/OS 管理节点上运行的 Admin Router 。
@@ -166,7 +166,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 <p class="message--note"><strong>注意: </strong> 由于 Java 管辖区限制，不能仅使用 AES256 加密套件安装 DC/OS。</p>
 
 ## agent_list
-[专用代理](/cn/1.11/overview/concepts/#private-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。
+[专用代理](/mesosphere/dcos/cn/1.11/overview/concepts/#private-agent-node)主机名的  IPv4 地址的 YAML 嵌套列表（`-`）。
 
 <p class="message--note"><strong>注意: </strong> agent_list 不是生产安装工具的必需参数。</p>
 
@@ -194,7 +194,7 @@ bouncer_expiration_auth_token_days: '0.5'
 我们建议此值设置为不低于 0.25。
 如果您希望使用更低的值，请联系 Mesosphere 支持代表以获得指导。
 
-如需更多信息，请参阅 [安全](/cn/1.11/security/ent/) 文档。
+如需更多信息，请参阅 [安全](/mesosphere/dcos/cn/1.11/security/ent/) 文档。
 
 ## cluster_docker_credentials
 要传递给 Docker 的词典。
@@ -215,7 +215,7 @@ bouncer_expiration_auth_token_days: '0.5'
  * `cluster_docker_credentials_write_to_etc: 'false'` 请勿写入凭据文件。
  * `cluster_docker_credentials_dcos_owned: 'false'` 凭据文件存储在 `/etc/mesosphere/docker_credentials` 中。
 
-如需更多信息，请参阅 [示例](/cn/1.11/installing/production/deploying-dcos/configuration/examples/#docker-credentials)。
+如需更多信息，请参阅 [示例](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/configuration/examples/#docker-credentials)。
 
 ## cluster_docker_credentials_enabled
 是否向 Mesos 传递包含 [`cluster_docker_credentials`](#cluster-docker-credentials) 的 Mesos `--docker_config` 选项。
@@ -239,7 +239,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--
  添加 DC/OS 包时，临时存储包的位置。值必须是一个文件 URL，例如 `file:///var/lib/dcos/cosmos/staged-packages`。
 
 ## custom_checks
-添加到默认检查配置进程的自定义安装检查。配置用于 [DC/OS 诊断组件](/cn/1.11/overview/architecture/components/#dcos-diagnostics) 执行安装和升级检查。在安装和升级期间，这些自定义检查与默认的启动前和启动后检查一起运行。
+添加到默认检查配置进程的自定义安装检查。配置用于 [DC/OS 诊断组件](/mesosphere/dcos/cn/1.11/overview/architecture/components/#dcos-diagnostics) 执行安装和升级检查。在安装和升级期间，这些自定义检查与默认的启动前和启动后检查一起运行。
 
 - `cluster_checks` - 这组参数指定整个 DC/OS 群集的运行状况检查。
 
@@ -255,7 +255,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--
    - `cmd` - 指定运行状况检查命令字符串的阵列
    - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常状态为 `3 (UNKNOWN)`
 
-有关如何使用这些自定义检查的详细信息，请参阅 [示例](/cn/1.11/installing/production/deploying-dcos/configuration/examples/#custom-checks) 以及 [节点和群集运行状况检查](/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/) 文档。
+有关如何使用这些自定义检查的详细信息，请参阅 [示例](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/configuration/examples/#custom-checks) 以及 [节点和群集运行状况检查](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/) 文档。
 
 
 ## dcos_audit_logging [enterprise type="inline" size="small" /]
@@ -264,7 +264,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--
 * `'dcos_audit_logging': 'true'` Mesos、Marathon 和作业已记录。这是默认值。
 * `'dcos_audit_logging': 'false'` Mesos、Marathon 和作业未记录。
 
-如需更多信息，请参阅 [安全文档](/cn/1.11/security/ent/)。
+如需更多信息，请参阅 [安全文档](/mesosphere/dcos/cn/1.11/security/ent/)。
 
 ## dcos_overlay_enable
 指示是否启用 DC/OS 虚拟网络。
@@ -301,7 +301,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--
       
       
 
- 如需更多信息，请参阅 [示例](/cn/1.11/installing/production/deploying-dcos/configuration/examples/#overlay) 和 [文档](/cn/1.11/networking/SDN/dcos-overlay/)。
+ 如需更多信息，请参阅 [示例](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/configuration/examples/#overlay) 和 [文档](/mesosphere/dcos/cn/1.11/networking/SDN/dcos-overlay/)。
 
 
 ## dns_bind_ip_blacklist
@@ -342,8 +342,8 @@ dns_search: dc1.example.com dc1.example.com example.com dc1.example.com dc2.exam
 ## enable_docker_gc
 指示是否运行 [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) 脚本，一个简单的 Docker 容器和镜像垃圾回收脚本，每小时清理一次失散的 Docker 容器。您可以使用 `/etc/` 配置参数，设置运行时间行为。如需更多信息，请参阅 [文档](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
-* `enable_docker_gc: 'true'` 请每小时运行一次 docker-gc 脚本。这是 [云](/cn/1.11/installing/evaluation/) 模板安装的默认值。
-* `enable_docker_gc: 'false'` 请勿每小时运行一次 docker-gc 脚本。这是 [自定义](/cn/1.11/installing/production/) 安装的默认值。
+* `enable_docker_gc: 'true'` 请每小时运行一次 docker-gc 脚本。这是 [云](/mesosphere/dcos/cn/1.11/installing/evaluation/) 模板安装的默认值。
+* `enable_docker_gc: 'false'` 请勿每小时运行一次 docker-gc 脚本。这是 [自定义](/mesosphere/dcos/cn/1.11/installing/production/) 安装的默认值。
 
 ## exhibitor_storage_backend
 Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`static`）或指定外部存储系统（`ZooKeeper`、`aws_s3`和 `Azure`），使用 Exhibitor 在管理节点上配置和编排 ZooKeeper。在 DC/OS 安装期间，Exhibitor 自动配置管理节点上的 ZooKeeper 安装。
@@ -394,16 +394,16 @@ Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`st
 * `enable_gpu_isolation: 'true'` DC/OS 中安装的任何 GPU 将自动被发现并用作 DC/OS 任务的可占用资源。这是默认值。
 * `enable_gpu_isolation: 'false'` GPU 不可用于群集。
 
-如需更多信息，请参阅 [GPU 文档](/cn/1.11/deploying-services/gpu/)。
+如需更多信息，请参阅 [GPU 文档](/mesosphere/dcos/cn/1.11/deploying-services/gpu/)。
 
 ## fault_domain_enabled
-DC/OS 群集默认已启用 [故障域意识](/cn/1.11/deploying-services/fault-domain-awareness/)，所以，不需要对 config.yaml 进行任何更改就能使用此功能。
+DC/OS 群集默认已启用 [故障域意识](/mesosphere/dcos/cn/1.11/deploying-services/fault-domain-awareness/)，所以，不需要对 config.yaml 进行任何更改就能使用此功能。
 
 ## gc_delay
 清理执行器目录前等待的最长时间。建议您接受两天作为默认值。
 
 ## gpus_are_scarce
-指示是否将 [GPU](/cn/1.11/deploying-services/gpu/) 作为群集中的稀缺资源。
+指示是否将 [GPU](/mesosphere/dcos/cn/1.11/deploying-services/gpu/) 作为群集中的稀缺资源。
 
 * `gpus_are_scarce: 'true'` 将 GPU 视为稀缺资源。这样就把 GPU 完全保留给选择通过 [Mesos `GPU_RESOURCES` 框架功能](http://mesos.apache.org/documentation/latest/gpu-support/) 使用 GPU 的服务。这是默认值。
 * `gpus_are_scarce: 'false'` 将 GPU 与其他资源同等对待。所有框架，不论是否使用 [Mesos `GPU_RESOURCES` 框架功能](http://mesos.apache.org/documentation/latest/gpu-support/)，都会没有差别地被提供 GPU。
@@ -441,9 +441,9 @@ Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadb
 * `master_discovery: master_http_loadbalancer` 这组管理节点的开头有一个 HTTP 负载均衡器。代理节点会得知负载均衡器的地址。它们使用负载均衡器访问管理节点中的 Exhibitor ，获取管理节点 IP 的完整列表。如果指定了 `master_http_load_balancer`，您还必须指定这些参数：
 
    * `exhibitor_address` （必填）
- 管理节点前面负载均衡器的地址（最好是 IP 地址）。如果需要替换管理节点，该地址成为代理用来查找新管理节点的静态地址。对于 DC/OS Enterprise，该地址包含在 [DC/OS 证书](/cn/1.11/security/ent/tls-ssl/) 中。负载均衡器必须接受端口 443、2181、5050 和 8181 上的流量。如果群集在宽容或禁用安全模式下运行，负载均衡器也可以接受端口 80 和 8080 上的流量，以便对群集中的服务进行非 SSL HTTP 访问。
+ 管理节点前面负载均衡器的地址（最好是 IP 地址）。如果需要替换管理节点，该地址成为代理用来查找新管理节点的静态地址。对于 DC/OS Enterprise，该地址包含在 [DC/OS 证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/) 中。负载均衡器必须接受端口 443、2181、5050 和 8181 上的流量。如果群集在宽容或禁用安全模式下运行，负载均衡器也可以接受端口 80 和 8080 上的流量，以便对群集中的服务进行非 SSL HTTP 访问。
  **注意：** 通过端口 80 和 8080 访问群集不安全。
- 流量也必须转发到管理节点上的 443、2181、5050 和 8181 端口。例如，负载均衡器上的 Mesos 端口 5050 应转发到管理节点的端口 5050 上。管理节点应通过循环调度转发任何新连接，并且应避免对 Mesos 端口 5050 的请求未做出响应的机器以确保管理节点保持运行。有关安全模式的更多信息，请查阅 [安全模式文档](/cn/1.11/security/ent/#security-modes)。
+ 流量也必须转发到管理节点上的 443、2181、5050 和 8181 端口。例如，负载均衡器上的 Mesos 端口 5050 应转发到管理节点的端口 5050 上。管理节点应通过循环调度转发任何新连接，并且应避免对 Mesos 端口 5050 的请求未做出响应的机器以确保管理节点保持运行。有关安全模式的更多信息，请查阅 [安全模式文档](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)。
 
       <p class="message--note"><strong>注意：</strong> 内部负载均衡器必须在 TCP 模式，不终止任何 TLS 的情况下工作。</p>
 
@@ -463,7 +463,7 @@ Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadb
 
 
 ## master_external_loadbalancer [enterprise type="inline" size="small" /]
-负载均衡器的 DNS 名称或 IP 地址。指定后，将被作为对象替代名称纳入管理节点上 Admin Router 的 [DC/OS 证书](/cn/1.11/security/ent/tls-ssl/) 中。
+负载均衡器的 DNS 名称或 IP 地址。指定后，将被作为对象替代名称纳入管理节点上 Admin Router 的 [DC/OS 证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/) 中。
 
 ## mesos_agent_work_dir [oss type="inline" size="small" /]
 代理和公共代理节点上的 Mesos 工作目录的位置。它定义了群集中 Mesos 代理的 `work_dir` 参数。默认为 `/var/lib/mesos/slave`。如需更多信息，请参阅 [Mesos 文档](https://mesos.apache.org/documentation/latest/configuration/agent/)。
@@ -477,7 +477,7 @@ Mesos 管理节点发现方法。可用选项是 `static` 或 `master_http_loadb
 * `logrotate` - 仅将任务日志发送到文件系统（即 stdout/err 文件）
 * `journald+logrotate` - 将日志发送到 journald 和文件系统
 
-默认为 `logrotate`。由于性能问题， 不推荐 `journald`。如需更多信息，请参阅 [记录 API](/cn/1.11/monitoring/logging/logging-api/#compatibility)。
+默认为 `logrotate`。由于性能问题， 不推荐 `journald`。如需更多信息，请参阅 [记录 API](/mesosphere/dcos/cn/1.11/monitoring/logging/logging-api/#compatibility)。
 
 ## mesos_dns_set_truncate_bit
 指示在响应过大而无法放入一个数据包时，Mesos-DNS 是否设置截断数位。
@@ -526,7 +526,7 @@ DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定
     - 8.8.4.4
     - 8.8.8.8
     ```
-- 如果没有 DNS 基础架构且没有权限访问互联网 DNS 服务器，您可以指定 `resolvers: []`。指定该设置后，发送到非 `.mesos` 的所有请求都将回复一个错误。如需更多信息，请参阅 Mesos-DNS [文档](/cn/1.11/networking/DNS/mesos-dns/)。
+- 如果没有 DNS 基础架构且没有权限访问互联网 DNS 服务器，您可以指定 `resolvers: []`。指定该设置后，发送到非 `.mesos` 的所有请求都将回复一个错误。如需更多信息，请参阅 Mesos-DNS [文档](/mesosphere/dcos/cn/1.11/networking/DNS/mesos-dns/)。
 
 <p class="message--note"><strong>注意：</strong>如果设置的 <code>resolvers</code> 参数不正确，您将永久损坏配置，必须重新安装 DC/OS。</p>
 
@@ -547,7 +547,7 @@ DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定
          tasks:
             logTimeout: 5m
 ```
-请查看外部持久卷 [文档](/cn/1.11/storage/external-storage/)，了解有关如何创建配置的信息。
+请查看外部持久卷 [文档](/mesosphere/dcos/cn/1.11/storage/external-storage/)，了解有关如何创建配置的信息。
 
 如果提供了 `rexray_config` 参数，则请逐字使用其内容进行 REX-Ray 配置。这样就可以完全自定义与各种 [外部存储提供商 集成的 REX-Ray 配置]( https://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/)。然而，如果将群集升级到包含更新版的 REX-Ray 的版本，就必须确保 `rexray_config` 参数与较新版本的 REX-Ray 兼容。
 
@@ -564,7 +564,7 @@ DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定
 
 <p class="message--note"><strong>注意：</strong> 禁用安全模式与操作系统安全模式相同。</p>
 
-请参阅 [安全模式](/cn/1.11/security/ent/#security-modes) 部分，了解对于每个参数的详细探讨。
+请参阅 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes) 部分，了解对于每个参数的详细探讨。
 
 ## ssh_key_path
 安装工具用于登录到目标节点的路径。该参数默认设置为 `/genconf/ssh_key`。该参数不能更改，因为 `/genconf` 是容器运行安装工具的本地路径，还是一个挂载卷。
@@ -582,10 +582,10 @@ SSH 用户名，例如 `centos`。
 <p class="message--note"><strong>注意：</strong> ssh_user 不是生产安装工具的必需参数。</p>
 
 ## superuser_password_hash (Required) [enterprise type="inline" size="small" /]
-带井号的超级用户密码。`superuser_password_hash` 通过使用安装工具 `--hash-password` 标记生成。第一个超级用户帐户用于提供登录 DC/OS 的方法，其中可添加其他管理帐户。如需更多信息，请参阅 [安全文档](/cn/1.11/security/ent/)。
+带井号的超级用户密码。`superuser_password_hash` 通过使用安装工具 `--hash-password` 标记生成。第一个超级用户帐户用于提供登录 DC/OS 的方法，其中可添加其他管理帐户。如需更多信息，请参阅 [安全文档](/mesosphere/dcos/cn/1.11/security/ent/)。
 
 ## superuser_username（必填）[enterprise type="inline" size="small" /]
-超级用户的用户名。此帐户使用 `superuser_password_hash`。如需更多信息，请参阅 [安全文档](/cn/1.11/security/ent/)。
+超级用户的用户名。此帐户使用 `superuser_password_hash`。如需更多信息，请参阅 [安全文档](/mesosphere/dcos/cn/1.11/security/ent/)。
 
 ## telemetry_enabled
 指示是否为群集启用匿名数据共享。<!-- DC/OS auth -->
@@ -593,13 +593,13 @@ SSH 用户名，例如 `centos`。
 - `telemetry_enabled: 'true'` 请启用匿名数据共享。这是默认值。
 - `telemetry_enabled: 'false'` 请禁用匿名数据共享。
 
-如果已经安装了群集，并且希望禁用此功能，可以使用同一参数集进行 [升级](/cn/1.11/installing/production/upgrading/)。
+如果已经安装了群集，并且希望禁用此功能，可以使用同一参数集进行 [升级](/mesosphere/dcos/cn/1.11/installing/production/upgrading/)。
 
 ## use_proxy
 指示是否启用 DC/OS 代理。
 
-* `use_proxy: 'false'` 请勿配置 DC/OS [组件](/cn/1.11/overview/architecture/components/) 以使用自定义代理。这是默认值。
-* `use_proxy: 'true'` 请配置 DC/OS [组件](/cn/1.11/overview/architecture/components/) 以使用自定义代理。如果指定了 `use_proxy: 'true'`，您还可以指定这些参数：
+* `use_proxy: 'false'` 请勿配置 DC/OS [组件](/mesosphere/dcos/cn/1.11/overview/architecture/components/) 以使用自定义代理。这是默认值。
+* `use_proxy: 'true'` 请配置 DC/OS [组件](/mesosphere/dcos/cn/1.11/overview/architecture/components/) 以使用自定义代理。如果指定了 `use_proxy: 'true'`，您还可以指定这些参数：
 
    <p class="message--note"><strong>注意：</strong> 指定的代理必须在提供的 []<a href="#resolvers">解析器</a> 列表中解析。</p>
 
@@ -609,7 +609,7 @@ SSH 用户名，例如 `centos`。
 
    <p class="message--note"><strong>注意：</strong> 不支持通配符（<code>*</code>）。</p>
 
-如需更多信息，请参阅 [示例](/cn/1.11/installing/production/deploying-dcos/configuration/examples/#http-proxy)。
+如需更多信息，请参阅 [示例](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/configuration/examples/#http-proxy)。
 
    <p class="message--note"><strong>注意：</strong> 还应为  <a href="https://docs.docker.com/engine/admin/systemd/#/http-proxy">Docker 配置 HTTP 代理</a>。</p>
 
@@ -624,7 +624,7 @@ SSH 用户名，例如 `centos`。
 
 ## dcos_l4lb_enable_ipv6
 指示第 4 层负载均衡是否可用于 IPv6 容器。
-* `dcos_l4lb_enable_ipv6: 'false'` 请为 IPv6 容器禁用 [第 4 层负载均衡](/cn/1.11/networking/load-balancing-vips/)。这是默认值。
+* `dcos_l4lb_enable_ipv6: 'false'` 请为 IPv6 容器禁用 [第 4 层负载均衡](/mesosphere/dcos/cn/1.11/networking/load-balancing-vips/)。这是默认值。
 * `dcos_l4lb_enable_ipv6: 'true'` 请为 IPv6 容器启用第 4 层负载均衡。
 
 <p class="message--note"><strong>注意：</strong> 为 IPv6 容器打开第 4 层负载均衡时应保持谨慎。</p>
@@ -642,7 +642,7 @@ SSH 用户名，例如 `centos`。
 [/enterprise]
 支持 DC/OS 中的高级存储功能，包括 Mesos 的 [CSI](https://github.com/container-storage-interface/spec) 支持和支持预安装的 CSI 设备插件。
 * `feature_dcos_storage_enabled: 'false'` 请在 DC/OS 中禁用 CSI 支持。这是默认值。
-* `feature_dcos_storage_enabled: 'true'` 请在 DC/OS 中启用 CSI 支持。有必要使用 [DC/OS 存储服务 (DSS)](/services/storage/)
+* `feature_dcos_storage_enabled: 'true'` 请在 DC/OS 中启用 CSI 支持。有必要使用 [DC/OS 存储服务 (DSS)](/mesosphere/dcos/services/storage/)
 
 <a id="zk-superuser"></a>
 

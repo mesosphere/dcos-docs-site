@@ -26,7 +26,7 @@ dcos auth list-providers [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos auth](/cn/1.11/cli/command-reference/dcos-auth/) | 管理 DC/OS 身份和访问。 |
+| [dcos auth](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-auth/) | 管理 DC/OS 身份和访问。 |
 
 # 示例
 
@@ -43,4 +43,4 @@ PROVIDER ID    AUTHENTICATION TYPE
 dcos-services  Authenticate using a DC/OS service user account (using username and private key)  
 dcos-users     Authenticate using a standard DC/OS user account (using username and password)   
 ```
-有关详细信息，请参阅[服务账户](/cn/1.11/security/ent/service-auth/)。
+有关详细信息，请参阅[服务账户](/mesosphere/dcos/cn/1.11/security/ent/service-auth/)。

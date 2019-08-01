@@ -7,7 +7,7 @@ excerpt: Edge-LB proxies and load balances traffic to all services that run on D
 enterprise: true
 ---
 
-Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides North-South (external to internal) load balancing, while the [Minuteman component](/latest/networking/load-balancing-vips/) provides East-West (internal to internal) load balancing.
+Edge-LB proxies and load balances traffic to all services that run on DC/OS. Edge-LB provides North-South (external to internal) load balancing, while the [Minuteman component](/mesosphere/dcos/latest/networking/load-balancing-vips/) provides East-West (internal to internal) load balancing.
 
 Edge-LB leverages HAProxy, which provides the core load balancing and proxying features, such as load balancing for TCP and HTTP-based applications, SSL support, and health checking. In addition, Edge-LB provides first class support for zero downtime service deployment strategies, such as blue/green deployment. Edge-LB subscribes to Mesos and updates HAProxy configuration in real time.
 
@@ -20,7 +20,7 @@ Edge-LB has a 3-part architecture:
 
 These components run on top of DC/OS.
 
-Edge-LB runs as a DC/OS service launched by [Marathon](/latest/deploying-services/). The API server component of Edge-LB launches the load balancer pool(s). From the perspective of Marathon, the pool is another DC/OS service.
+Edge-LB runs as a DC/OS service launched by [Marathon](/mesosphere/dcos/latest/deploying-services/). The API server component of Edge-LB launches the load balancer pool(s). From the perspective of Marathon, the pool is another DC/OS service.
 
 The diagram below shows how configuration and outside requests flow through Edge-LB to the application backend tasks.
 
@@ -28,7 +28,7 @@ Configuration is sent to the API Server, which controls pool management.
 
 Outside traffic moves through a hardware load balancer, then to the load balancer pool. One of the Edge-LB load balancers in the pool accepts the traffic and routes it to the appropriate service within the DC/OS cluster.
 
-![Edge-LB Architecture](/services/edge-lb/1.3/img/edge-lb-flow.png)
+![Edge-LB Architecture](/mesosphere/dcos/services/edge-lb/1.3/img/edge-lb-flow.png)
 
 Figure 1. Edge-LB architecture
 

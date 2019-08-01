@@ -15,9 +15,9 @@ menuWeight: 20
 ## Using the IAM API
 
 **Prerequisite:**
-- [DC/OS Authentication token](/1.14/security/oss/authentication/authentication-token/) exported into the environment as `TOKEN`.
+- [DC/OS Authentication token](/mesosphere/dcos/1.14/security/oss/authentication/authentication-token/) exported into the environment as `TOKEN`.
 
-To add a local user account using the DC/OS [Identity and Access Management (IAM) API](/1.14/security/oss/iam-api/), replace `<uid>` and `<password>` with the corresponding values and execute the following command:
+To add a local user account using the DC/OS [Identity and Access Management (IAM) API](/mesosphere/dcos/1.14/security/oss/iam-api/), replace `<uid>` and `<password>` with the corresponding values and execute the following command:
 
 ```bash
 curl -i -X PUT http://<host-ip>/acs/api/v1/users/<uid> -d '{"password": "<password>"}' -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"
@@ -30,9 +30,9 @@ curl -i -X PUT http://<host-ip>/acs/api/v1/users/<uid> -d '{"password": "<passwo
 ## Using the IAM API
 
 **Prerequisite:**
-- [DC/OS Authentication token](/1.14/security/oss/authentication/authentication-token/) exported into the environment as `TOKEN`.
+- [DC/OS Authentication token](/mesosphere/dcos/1.14/security/oss/authentication/authentication-token/) exported into the environment as `TOKEN`.
 
-To list all configured user accounts using the DC/OS [Identity and Access Management (IAM) API](/1.14/security/oss/iam-api/), execute the following command:
+To list all configured user accounts using the DC/OS [Identity and Access Management (IAM) API](/mesosphere/dcos/1.14/security/oss/iam-api/), execute the following command:
 
 ```bash
 curl -i -X GET http://<host-ip>/acs/api/v1/users -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"
@@ -45,9 +45,9 @@ curl -i -X GET http://<host-ip>/acs/api/v1/users -H 'Content-Type: application/j
 ## Using the IAM API
 
 **Prerequisite:**
-- [DC/OS Authentication token](/1.14/security/oss/authentication/authentication-token/) exported into the environment as `TOKEN`.
+- [DC/OS Authentication token](/mesosphere/dcos/1.14/security/oss/authentication/authentication-token/) exported into the environment as `TOKEN`.
 
-To change a local user account's password using the DC/OS [Identity and Access Management (IAM) API](/1.14/security/oss/iam-api/) replace `<uid>` and `<password>` with the corresponding values and execute the following command:
+To change a local user account's password using the DC/OS [Identity and Access Management (IAM) API](/mesosphere/dcos/1.14/security/oss/iam-api/) replace `<uid>` and `<password>` with the corresponding values and execute the following command:
 
 ```bash
 curl -i -X PATCH http://<host-ip>/acs/api/v1/users/<uid> -d '{"password": "<password>"}' -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"
@@ -60,9 +60,9 @@ curl -i -X PATCH http://<host-ip>/acs/api/v1/users/<uid> -d '{"password": "<pass
 ## Using the IAM API
 
 **Prerequisite:**
-- [DC/OS Authentication token](/1.14/security/oss/authentication/authentication-token/) exported into the environment as `TOKEN`.
+- [DC/OS Authentication token](/mesosphere/dcos/1.14/security/oss/authentication/authentication-token/) exported into the environment as `TOKEN`.
 
-To delete a local user account using the DC/OS [Identity and Access Management (IAM) API](/1.14/security/oss/iam-api/), replace `<uid>` with the corresponding value and execute the following command:
+To delete a local user account using the DC/OS [Identity and Access Management (IAM) API](/mesosphere/dcos/1.14/security/oss/iam-api/), replace `<uid>` with the corresponding value and execute the following command:
 
 ```bash
 curl -i -X DELETE http://<host-ip>/acs/api/v1/users/<uid> -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"

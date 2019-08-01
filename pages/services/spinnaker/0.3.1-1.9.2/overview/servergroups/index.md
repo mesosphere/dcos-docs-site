@@ -15,19 +15,19 @@ http://events.linuxfoundation.org/sites/events/files/slides/Continuous%20Deliver
 
 A {{ model.techName }} **application** contains **(0-n)** **clusters**.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs-c01.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs-c01.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs-c01.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs-c01.png)
 
 Figure 1. {{ model.techName }} application concept
 
 A {{ model.techName }} **cluster** contains **(1-n)** **server groups**, and each **server group** contains **(0-n)** **service instances**. Each server group represents a new version of the cluster.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs-c02.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs-c02.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs-c02.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs-c02.png)
 
 Figure 2. {{ model.techName }} cluster view
 
 A {{ model.techName }} **server group** maps (1-1) to a DC/OS **service** (aka Marathon app).
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs-c03.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs-c03.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs-c03.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs-c03.png)
 
 Figure 3. {{ model.techName }} server group
 
@@ -45,19 +45,19 @@ This section contains instructions for
 
 1. On the {{ model.techName }} home page, select the **Applications** screen. There you select the **Create Application** action.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs01.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs01.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs01.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs01.png)
 
 Figure 4. Applications screen
 
 2. In the **New Application** dialog type `myapp` for the **Name** and `xxx@yyy.zzz` for the **Owner Email**.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs02.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs02.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs02.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs02.png)
 
 Figure 5. New application dialog
 
 The new Application `myapp` shows up in the **Applications** list. Select `myapp` to open the app.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs03.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs03.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs03.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs03.png)
 
 Figure 6. New app in Applications screen
 
@@ -69,13 +69,13 @@ A server group is a DC/OS service (or Marathon app), so most of the information 
 
 1. In the **myapp > Clusters** view select the **Create Server Group** button.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs04.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs04.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs04.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs04.png)
 
 Figure 7. Clusters view screen
 
 2. Under **Basic Settings**, enter the **dcos Account** and **dcos Region** you want to create the server group in. 
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs05.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs05.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs05.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs05.png)
 
 Figure 8. Basic Settings screen
 
@@ -83,19 +83,19 @@ Figure 8. Basic Settings screen
 
 4. In **Container Settings** select `nginx:1.11` for the image to use.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs06.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs06.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs06.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs06.png)
 
 Figure 9. Container Settings screen
 
 5. In **Network** select `Bridge` for **Network Type** and port `80` for **Container Port**. Set `web` for service endpoint **Name**.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs07.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs07.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs07.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs07.png)
 
 Figure 10. Network Settings screen
 
 6. In **Health Checks** define a health check specifying `/` for **Path** and `0` for **Port Index**. 
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs08.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs08.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs08.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs08.png)
 
 Figure 11. Health Checks screen
 
@@ -103,7 +103,7 @@ Figure 11. Health Checks screen
 
 In the **myapp > Clusters** view, you will see the new cluster with one server group containing one instance, that is, one **nginx** server running in our sample.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs09.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs09.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs09.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs09.png)
 
 Figure 12. New cluster with server group
 
@@ -114,18 +114,18 @@ Figure 12. New cluster with server group
 1. For the other sections, choose the same settings we used in [Creating a Server Group](#creating-a-server-group).
 1. Choose **Create** to create another version of the server group.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs10.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs10.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs10.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs10.png)
 
 Figure 13. New server group version Container Image
 
 The **myapp > Clusters** view now shows that our cluster runs two server group versions, `V000` and `V001`. Later, we will show how you can leverage this capability in blue-green deployments.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs11.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs11.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs11.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs11.png)
 
 Figure 14. New server group version
 
 The following image shows how our two server group versions look on the DC/OS web interface. They are now running as DC/OS services, with the name made of the combined cluster name and version number; in this example they are `myapp-prod-V000` and `myapp-prod-v001`.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs12.png"/>](/services/spinnaker/0.3.1-1.9.2/img/acs12.png)
+[<img src="/services/spinnaker/0.3.1-1.9.2/img/acs12.png"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/acs12.png)
 
 Figure 15. Spinnaker server groups on DC/OS web interface

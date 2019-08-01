@@ -13,11 +13,11 @@ menuWeight: 20
 # Logging in using the DC/OS CLI
 
 **Prerequisite:**
-- [DC/OS CLI](/1.14/cli/)
+- [DC/OS CLI](/mesosphere/dcos/1.14/cli/)
 
-Using the [DC/OS CLI](/1.14/cli/) one can log in as a local DC/OS user by specifying the `dcos-users` login provider.
+Using the [DC/OS CLI](/mesosphere/dcos/1.14/cli/) one can log in as a local DC/OS user by specifying the `dcos-users` login provider.
 
-1. To log in via the DC/OS CLI, replace `uid` and `password` in the following [auth login](/1.14/cli/command-reference/dcos-auth/dcos-auth-login/) command:
+1. To log in via the DC/OS CLI, replace `uid` and `password` in the following [auth login](/mesosphere/dcos/1.14/cli/command-reference/dcos-auth/dcos-auth-login/) command:
 
     ```bash
     dcos auth login --provider=dcos-users --username=<uid> --password=<password>
@@ -37,7 +37,7 @@ Using the [DC/OS CLI](/1.14/cli/) one can log in as a local DC/OS user by specif
 
 # Logging in using the IAM API
 
-Local users can log in using [Identity and Access Management (IAM) API](/1.14/security/oss/iam-api/).
+Local users can log in using [Identity and Access Management (IAM) API](/mesosphere/dcos/1.14/security/oss/iam-api/).
 
 1. To log in to local user accounts, replace `<uid>` and `<password>` in the following command:
 

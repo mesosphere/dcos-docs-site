@@ -43,8 +43,8 @@ dcos node ssh <command> [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
+| [dcos node](/mesosphere/dcos/1.10/cli/command-reference/dcos-node/) | View DC/OS node information. | 
 
 # Examples
 
-For an example, see the [documentation](/1.10/administering-clusters/sshcluster/).
+For an example, see the [documentation](/mesosphere/dcos/1.10/administering-clusters/sshcluster/).

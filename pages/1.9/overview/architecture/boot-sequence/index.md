@@ -98,4 +98,4 @@ The following is the boot sequence of a DC/OS scheduler service.
 
 ### More Information
 
-For more information about tasks and services, see [Distributed Process Management](/1.9/overview/architecture/distributed-process-management/).
+For more information about tasks and services, see [Distributed Process Management](/mesosphere/dcos/1.9/overview/architecture/distributed-process-management/).

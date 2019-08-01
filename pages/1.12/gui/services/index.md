@@ -8,7 +8,7 @@ excerpt: Using the Services menu
 
 The Services menu provides a full-featured interface to the native DC/OS Marathon instance. This Services menu provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
 
-![Services](/1.12/img/services-ee.png)
+![Services](/mesosphere/dcos/1.12/img/services-ee.png)
 
 <p>Figure 1. Services tab</p>
 
@@ -26,11 +26,11 @@ By default, all of your services are displayed, sorted by service name. You can 
 
 Click the service name to open the Service Instance page, which lists all tasks using the service and their CPU, memory and GPU requirements. For each task, there is also information about its zone, region, status, health and when it was last updated. Click a task to see its complete configuration, working directory and logs.
 
-![Instances](/1.12/img/services-instances-panel.png)
+![Instances](/mesosphere/dcos/1.12/img/services-instances-panel.png)
 
 <p>Figure 2. Instances panel</p>
 
-For services with a GUI, hover over the service name and click ![open service](/1.12/img/open-service.png) to view it. You can access the Mesos GUI at `<hostname>/mesos`.
+For services with a GUI, hover over the service name and click ![open service](/mesosphere/dcos/1.12/img/open-service.png) to view it. You can access the Mesos GUI at `<hostname>/mesos`.
 
 # Service Status
 

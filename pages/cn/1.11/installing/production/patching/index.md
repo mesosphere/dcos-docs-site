@@ -15,16 +15,16 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 <p class="message--note"><strong>注意：</strong>这些说明仅适用于对群集配置或维护版本号的更改。示例：DC/OS 1.11.1 -> 1.11.2</p>
 
-- 要更新到较新的主要或次要版本（例如 1.10 到 1.11），请参阅 [升级](/cn/1.11/installing/production/upgrading/) 的说明。
+- 要更新到较新的主要或次要版本（例如 1.10 到 1.11），请参阅 [升级](/mesosphere/dcos/cn/1.11/installing/production/upgrading/) 的说明。
 
 如果在支持的操作系统上执行修补且所有前提条件均满足，则修补 **应该** 维持在群集上运行任务的状态。
 
 
 ## 重要指南
 
-- 在修补 DC/OS 之前，请先查看 [版本注释](/cn/1.11/release-notes/)。
+- 在修补 DC/OS 之前，请先查看 [版本注释](/mesosphere/dcos/cn/1.11/release-notes/)。
 - 由于覆盖网络存在群集配置问题，建议在修补或配置新群集时，在 `config.yaml` 中将 `enable_ipv6` 设为“false”。如果已修补到 DC/OS 1.11.x 而没有配置 `enable_ipv6`，或者 `config.yaml` 文件设置为 `true`，则在 DC/OS 1.11.3 发布之前不要添加新节点。您可以在我们最新的重要 [产品咨询 中找到更多信息和更稳固的补救程序](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302) 。
-- `config.yaml` 文件中有几个必须在修补前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否在 `config.yaml` 文件中添加。您可以在 [此处](/cn/1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file) 查看示例文件。
+- `config.yaml` 文件中有几个必须在修补前宣布的新选项。即使您之前通过 `config.yaml` 文件成功安装了 DC/OS，该文件需要新增功能才能与 DC/OS 1.11 一起运行。检查 `fault_domain_enabled` 和 `enable_ipv6` 是否在 `config.yaml` 文件中添加。您可以在 [此处](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/installation/#create-a-configuration-file) 查看示例文件。
 - 如果 IPv6 在内核中被禁用，则 IPv6 必须在 `config.yaml` 文件中禁用才能确保修补成功。
 - DC/OS Enterprise 现在执行许可证密钥。许可证密钥必须驻留在 genconf/license.txt 文件中，否则修补将失败。[enterprise type="inline" size="small" /]
 - 如果没有修补全部管理节点，DC/OS GUI 和其他更高级别的系统 API 可能不一致或不可用。例如，修补后的 DC/OS Marathon 首要实例无法连接到首要的 Mesos 管理节点上，直到该节点也得到修补为止。出现这种情况时：
@@ -145,22 +145,22 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 以下是可以修改的参数的列表：
 
-- [`dns_search`](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#dns-search)
-- [`docker_remove_delay`](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#docker-remove-delay)
-- [`gc_delay`](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#gc-delay)
-- [`resolvers`](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#resolvers)
-- [`telemetry_enabled`](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#telemetry-enabled)
-- [`use_proxy`](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
-    - [`http_proxy`](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
-    - [`https_proxy`](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
-    - [`no_proxy`](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+- [`dns_search`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#dns-search)
+- [`docker_remove_delay`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#docker-remove-delay)
+- [`gc_delay`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#gc-delay)
+- [`resolvers`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#resolvers)
+- [`telemetry_enabled`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#telemetry-enabled)
+- [`use_proxy`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`http_proxy`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`https_proxy`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
+    - [`no_proxy`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#use-proxy)
 
 安全模式 (`security`) 可以更改，但有特别的注意事项。
 
 - 只能更新到更严格的安全模式。不支持安全降级。例如，如果群集处于 `permissive` 模式，而您希望降级至 `disabled` 模式，则必须重新安装群集并终止所有运行的工作负载。
 - 每次更新时，只能将安全性提高一个级别。例如，您无法直接从 `disabled` 升级到 `strict` 模式。要从 `disabled` 提高到 `strict` 模式，您必须首先更新到 `permissive` 模式，然后从 `permissive` 更新到 `strict` 模式。
 
-有关不同安全模式的更多信息，请参阅安全 [模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)。
+有关不同安全模式的更多信息，请参阅安全 [模式](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)。
 
 # 说明
 必须执行这些步骤才能进行版本补丁和群集配置更改。
@@ -174,14 +174,14 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 - 所有主机（管理和代理）必须能够与所有端口上的所有其他主机通信（对于 TCP 和 UDP）。
 - 在 CentOS 或 RedHat 中，使用此命令安装 IP 集（在某些 IP 检测脚本中使用）：`sudo yum install -y ipset`
 - 您必须熟悉使用 `systemctl` 和 `journalctl` 命令行工具，以查看和监控服务状态。故障排除说明可在本 [文档](#故障排除) 结尾部分找到。
-- 您必须熟悉 [DC/OS 安装指南](/cn/1.11/installing/production/deploying-dcos/installation/)。
+- 您必须熟悉 [DC/OS 安装指南](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/installation/)。
 - 修补之前要对 ZooKeeper 进行实时捕捉。Marathon 支持回滚，但不支持降级。
-- 修补之前 [对 IAM 数据库进行实时捕捉](/cn/1.11/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise)。
+- 修补之前 [对 IAM 数据库进行实时捕捉](/mesosphere/dcos/cn/1.11/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise)。
 - 确保在开始修补之前， Marathon 事件订阅者已被禁用。完成修补后，保持其禁用状态，因为此功能现已被弃用。
     <p class="message--note"><strong>注意：</strong> Marathon 事件订阅者默认为禁用。检查是否已将 <code>--event_subscriber "http_callback"</code> 行添加到管理节点上的 <code>sudo vi /opt/mesosphere/bin/marathon.sh</code>。如果是，就需要移除该行，以禁用事件订阅者。</p>
 - 确认在开始修补前，所有 Marathon 应用程序限制都有效。使用 [此脚本](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) 检查限制是否有效。
-- [备份您的群集](/cn/1.11/administering-clusters/backup-and-restore/)。
-- **可选** 您可以将自定义 [节点和群集运行状况检查](/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
+- [备份您的群集](/mesosphere/dcos/cn/1.11/administering-clusters/backup-and-restore/)。
+- **可选** 您可以将自定义 [节点和群集运行状况检查](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) 添加到 `config.yaml`。
 
 ## bootstrap 节点
 
@@ -192,7 +192,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 - [在严格模式下修补 DC/OS 1.11](#strict)
 
 # <a name="current-security"></a>修补 DC/OS 1.11 而不更改安全模式
-改程序将 DC/OS 1.10 群集修补到 DC/OS 1.11 而不更改群集的 [安全模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)。
+改程序将 DC/OS 1.10 群集修补到 DC/OS 1.11 而不更改群集的 [安全模式](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)。
 1. 将现有 `config.yaml` 和 `ip-detect` 文件复制到 bootstrap 节点上的空 `genconf` 文件夹。文件夹与安装工具应当在同一个目录。
 1. 将旧的 `config.yaml` 合并为新的 `config.yaml` 格式。大多数情况下，区别会很小。
 
@@ -208,16 +208,16 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
     dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
     ```
 1. 上一步骤的命令将在其输出的最后一行产生 URL，前缀为 `Node patch script URL:`。记下此 URL 以供后续使用。它在本文档中被称为“节点补丁脚本 URL”。
-1. 运行 [nginx](/cn/1.11/installing/production/deploying-dcos/installation/) 容器以为安装文件提供服务。
+1. 运行 [nginx](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/installation/) 容器以为安装文件提供服务。
 
-1. 转到 DC/OS 管理节点 [程序](/cn/1.11/installing/production/patching/#masters) 完成安装。
+1. 转到 DC/OS 管理节点 [程序](/mesosphere/dcos/cn/1.11/installing/production/patching/#masters) 完成安装。
 
 # <a name="permissive"></a>在宽容模式下的修补 DC/OS 1.11
-此步骤在 [宽容安全模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) 下修补到 DC/OS 1.11。
+此步骤在 [宽容安全模式](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) 下修补到 DC/OS 1.11。
 
 **前提条件：**
 
-- 您的群集必须 [修补到 DC/OS 1.11](#current-security) 并在 [禁用安全模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) 下运行，然后才能修补到宽容模式。如果您的群集在补丁到 DC/OS 1.10 之前处于宽容模式，则可以跳过该程序。
+- 您的群集必须 [修补到 DC/OS 1.11](#current-security) 并在 [禁用安全模式](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) 下运行，然后才能修补到宽容模式。如果您的群集在补丁到 DC/OS 1.10 之前处于宽容模式，则可以跳过该程序。
 
 <p class="message--important"><strong>重要信息：</strong>对于从禁用模式修补到宽容安全模式，您已配置的任何<a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">自定义节点或群集运行状况检查</a>都会失败。将来的版本允许您绕过运行状况检查。</p> 
 
@@ -234,13 +234,13 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
     dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
     ```
 1. 上一步骤的命令将在其输出的最后一行产生 URL，前缀为 `Node patch script URL:`。记下此 URL 以供后续使用。它在本文档中被称为“节点补丁脚本 URL”。
-1. 运行 [nginx](/cn/1.11/installing/production/deploying-dcos/installation/) 容器以服务安装文件。
+1. 运行 [nginx](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/installation/) 容器以服务安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 以完成安装。
 
 # <a name="strict"></a>在严格模式下修补 DC/OS 1.11
 
-该程序的在安全性严格 [模式](/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) 下修补到 DC/OS 1.11。
+该程序的在安全性严格 [模式](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) 下修补到 DC/OS 1.11。
 
 如果正在更新运行的 DC/OS 群集在 `security: strict` 模式下运行，则请注意，在迁移到严格模式后，安全漏洞可能会持续存在。当转到严格模式时，您的服务现在需要身份认证和授权，以便在 Mesos 注册或访问其 HTTP API。在升级到严格模式之前，应在宽容模式下测试这些配置，以便在升级期间维护调度程序和脚本正常运行时间。
 
@@ -262,7 +262,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
     dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
     ```
  1. 上一步骤的命令将在其输出的最后一行产生 URL，前缀为 `Node patch script URL:`。记下此 URL 以供后续使用。它在本文档中被称为“节点补丁脚本 URL”。
- 1. 运行 [nginx](/cn/1.11/installing/production/deploying-dcos/installation/) 容器以服务安装文件。
+ 1. 运行 [nginx](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/installation/) 容器以服务安装文件。
 
 1. 转到 DC/OS 管理节点 [程序](#masters) 以完成安装。
 
@@ -292,7 +292,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
         如果要从宽容模式修补到严格模式，此 URL 将是 `curl https://...`，并且需要有 JWT 才能访问。[enterprise type="inline" size="small" /]
         
-    1. 验证 `/opt/mesosphere/bin/mesos-master --version` 表示修补后的管理节点正在运行 [发行说明](/cn/1.11/release-notes/) 中指定的 Mesos 版本，例如 `1.5.1`。
+    1. 验证 `/opt/mesosphere/bin/mesos-master --version` 表示修补后的管理节点正在运行 [发行说明](/mesosphere/dcos/cn/1.11/release-notes/) 中指定的 Mesos 版本，例如 `1.5.1`。
  1. 验证副本不足范围的数量是否随着 IAM 数据库被复制到新管理节点而已经降至零。这可以通过运行以下命令并确认右侧的最后一列是否只显示零来完成。
 
     ```bash
@@ -351,7 +351,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-如果您的修补因为 [自定义节点或群集检查](/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) 而失败，运行以下命令可了解更多详细信息：
+如果您的修补因为 [自定义节点或群集检查](/mesosphere/dcos/cn/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks) 而失败，运行以下命令可了解更多详细信息：
 
 ```bash
 dcos-diagnostics check node-poststart

@@ -10,9 +10,9 @@ enterprise: false
 本教程向您展示如何使用 Marathon-LB 运行为网站提供服务的容器化 DC/OS 服务。具体地说，您将使用包含 NGINX（为`dcos.i`o 站点服务）的 Docker 镜像。在本教程中，Marathon-LB 用作边缘负载均衡器和服务发现机制。Marathon-LB 在面向公众的节点上运行，以路由 ingress 流量。
 
 ## 先决条件
-- [DC/OS 集群](/cn/1.11/installing/oss/) 至少有一个 [私有](/cn/1.11/overview/concepts/#private-agent-node) 代理和一个 [公共](/cn/1.11/overview/concepts/#public-agent-node) 代理。
-- [DC/OS CLI](/cn/1.11/cli/install/) 已安装。
-- Marathon-LB [已安装](/cn/services/marathon-lb/usage-ee/)。
+- [DC/OS 集群](/mesosphere/dcos/cn/1.11/installing/oss/) 至少有一个 [私有](/mesosphere/dcos/cn/1.11/overview/concepts/#private-agent-node) 代理和一个 [公共](/mesosphere/dcos/cn/1.11/overview/concepts/#public-agent-node) 代理。
+- [DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 已安装。
+- Marathon-LB [已安装](/mesosphere/dcos/cn/services/marathon-lb/usage-ee/)。
 
 ## 在公共节点上配置和运行容器化服务
 
@@ -20,13 +20,13 @@ enterprise: false
 
 1. 前往 [mesosphere/dcos-website](https://hub.docker.com/r/mesosphere/dcos-website/tags/) Docker Hub 存储库并复制最新的镜像标签。
 
- ![Mesosphere Docker Hub](/cn/1.11/img/dockerhub.png)
+ ![Mesosphere Docker Hub](/mesosphere/dcos/cn/1.11/img/dockerhub.png)
 
  图 1. Mesosphere Docker 集线器
 
 3. 用该标签更换 `<image-tag>` in the `docker:image` 字段。
 
-1. 查找并记录 [您的公共代理节点](/cn/1.11/administering-clusters/locate-public-agent/) IP 地址。
+1. 查找并记录 [您的公共代理节点](/mesosphere/dcos/cn/1.11/administering-clusters/locate-public-agent/) IP 地址。
 
 1. 在标签字段，添加 `HAPROXY_0_VHOST` 条目并将您的公共代理 IP 值分配给它。删除 IP 中前导 `http://` 和尾部 `/`。记得在上一字段后添加逗号。
 
@@ -75,8 +75,8 @@ enterprise: false
 
 7. 转到 DC/OS Web 界面的 **服务** 选项卡，验证您的应用程序是否健康。
 
-![健康服务](/cn/1.11/img/healthy-dcos-website.png)
+![健康服务](/mesosphere/dcos/cn/1.11/img/healthy-dcos-website.png)
 
 图 2. 健康检查
 
-8. 转到您的公共代理查看网站运行。有关如何查找公共代理 IP 的信息，请参阅 [文档](/cn/1.11/administering-clusters/locate-public-agent/)。
+8. 转到您的公共代理查看网站运行。有关如何查找公共代理 IP 的信息，请参阅 [文档](/mesosphere/dcos/cn/1.11/administering-clusters/locate-public-agent/)。

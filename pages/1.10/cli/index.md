@@ -71,7 +71,7 @@ The DC/OS CLI supports the following environment variables, which can be set dyn
 <a name="dcos-cluster"></a>
 #### `DCOS_CLUSTER` (DC/OS CLI 0.5.x and higher only)
 
-The [attached](/1.10/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
+The [attached](/mesosphere/dcos/1.10/cli/command-reference/dcos-cluster/dcos-cluster-attach/) cluster. To set the attached cluster, set the variable with the command:
 
 ```bash
 export DCOS_CLUSTER=<cluster_name>

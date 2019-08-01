@@ -57,10 +57,10 @@ In summary, Jenkins-as-a-service is a very dynamic workload, with hundreds of Je
 
 # Implementation
 You can use the following resources to learn how to implement both Marathon on Marathon and Spark quotas:
-- [Deploying non-native instances of Marathon](/1.14/deploying-services/marathon-on-marathon/)
-- [Spark Quota](/services/spark/2.8.0-2.4.0/job-scheduling/#quota-for-drivers-and-executors)
+- [Deploying non-native instances of Marathon](/mesosphere/dcos/1.14/deploying-services/marathon-on-marathon/)
+- [Spark Quota](/mesosphere/dcos/services/spark/2.8.0-2.4.0/job-scheduling/#quota-for-drivers-and-executors)
 
-In the examples below, it is recommended to run the application from a host with [DC/OS CLI](/1.14/cli/) installed.
+In the examples below, it is recommended to run the application from a host with [DC/OS CLI](/mesosphere/dcos/1.14/cli/) installed.
 
 ## Roles
 [Roles](https://mesos.apache.org/documentation/latest/roles/) refer to a tag or a label which is assigned to a framework, task, or an agent. The default role is called <sup>`*`</sup> and all existing roles in a cluster can be viewed through the Mesos UI: `https://<cluster-name-or-IP>/mesos/#/roles`. 
@@ -385,9 +385,9 @@ Weights cannot be removed once set; they can be amended using the same method as
 
 
 ## Marathon on Marathon
-The DC/OS {{ model.packageRepo }} includes Marathon, which can be used to deploy a MoM. It should be noted that this is only useful for DC/OS OSS installations, as it does not provide support for Strict mode, Secrets or ACLs. See the [Marathon on Marathon documentation](/1.14/deploying-services/marathon-on-marathon/basic/).
+The DC/OS {{ model.packageRepo }} includes Marathon, which can be used to deploy a MoM. It should be noted that this is only useful for DC/OS OSS installations, as it does not provide support for Strict mode, Secrets or ACLs. See the [Marathon on Marathon documentation](/mesosphere/dcos/1.14/deploying-services/marathon-on-marathon/basic/).
 
-To install DC/OS Enterprise MoM, you must contact Mesosphere Support for the Enterprise MoM tarball, then deploy it using the root Marathon. See the [custom non-native Marathon documentation](/1.14/deploying-services/marathon-on-marathon/advanced/).
+To install DC/OS Enterprise MoM, you must contact Mesosphere Support for the Enterprise MoM tarball, then deploy it using the root Marathon. See the [custom non-native Marathon documentation](/mesosphere/dcos/1.14/deploying-services/marathon-on-marathon/advanced/).
 
 # Additional Resources
 You can use the following additional resources to learn more about:

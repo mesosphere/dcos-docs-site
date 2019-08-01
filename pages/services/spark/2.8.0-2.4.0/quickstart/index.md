@@ -13,8 +13,8 @@ This page explains how to install the DC/OS {{ model.techName }} service.
 
 **Prerequisites**
 
-* [DC/OS and DC/OS CLI installed](/1.12/installing/) with a minimum of {{ model.install.nodeDescription }}
-* Depending on your [security mode](/1.12/security/ent/), {{ model.techShortName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/services/spark/2.8.0-2.4.0/security/#provision-a-service-account) for more information.
+* [DC/OS and DC/OS CLI installed](/mesosphere/dcos/1.12/installing/) with a minimum of {{ model.install.nodeDescription }}
+* Depending on your [security mode](/mesosphere/dcos/1.12/security/ent/), {{ model.techShortName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/mesosphere/dcos/services/spark/2.8.0-2.4.0/security/#provision-a-service-account) for more information.
 
     | Security mode  | Service account  |
     |---------------|-----------------|
@@ -22,7 +22,7 @@ This page explains how to install the DC/OS {{ model.techName }} service.
     | Permissive    | Optional   |
     | Strict        | Required |
 
-1. Install the {{ model.techShortName }} package. This may take a few minutes. This step installs the {{ model.techShortName }} DC/OS service, {{ model.techShortName }} CLI, dispatcher, and, optionally, the history server. See the [History Server](/services/spark/2.8.0-2.4.0/history-server/#installing-hdfs) section for information about how to install the history server.
+1. Install the {{ model.techShortName }} package. This may take a few minutes. This step installs the {{ model.techShortName }} DC/OS service, {{ model.techShortName }} CLI, dispatcher, and, optionally, the history server. See the [History Server](/mesosphere/dcos/services/spark/2.8.0-2.4.0/history-server/#installing-hdfs) section for information about how to install the history server.
 
     ```bash
     dcos package install spark

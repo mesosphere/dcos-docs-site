@@ -20,7 +20,7 @@ DC/OS 许可组件让您可以根据许可证要求管理群集。DC/OS 许可�
 
 # 配置群集许可证
 
-配置群集安装时，要指定许可证文件。如需配置群集许可证，创建`genconf/license.txt`文件并加入您在授权支持联系人发送的电子邮件中收到的许可证密钥文本。有关此步骤的更多信息，请参阅 [运行安装程序](/cn/1.12/installing/production/deploying-dcos/installation/) 的说明。
+配置群集安装时，要指定许可证文件。如需配置群集许可证，创建`genconf/license.txt`文件并加入您在授权支持联系人发送的电子邮件中收到的许可证密钥文本。有关此步骤的更多信息，请参阅 [运行安装程序](/mesosphere/dcos/cn/1.12/installing/production/deploying-dcos/installation/) 的说明。
 
 仅当许可证中的信息合法时，DC/OS 许可组件才会成功启动。DC/OS 许可组件启动之后，即可继续并验证 DC/OS 组件的部署。如果许可证缺失或无效，部署将失败。
 

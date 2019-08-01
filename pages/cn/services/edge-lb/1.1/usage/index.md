@@ -7,15 +7,15 @@ excerpt: Edge-LB 使用的常见命令
 enterprise: true
 ---
 
-本页面介绍 Edge-LB 使用的常见命令。有关 CLI 命令的更详细列表，请参阅 [dcos edgelb cli 参考](/cn/services/edge-lb/1.1/cli-reference/)。
+本页面介绍 Edge-LB 使用的常见命令。有关 CLI 命令的更详细列表，请参阅 [dcos edgelb cli 参考](/mesosphere/dcos/cn/services/edge-lb/1.1/cli-reference/)。
 
 # 先决条件
 
-- Edge-LB [安装和运行](/cn/services/edge-lb/1.1/installing/)。
+- Edge-LB [安装和运行](/mesosphere/dcos/cn/services/edge-lb/1.1/installing/)。
 
 # 创建池
 
-启动服务并创建 [池配置文件](/cn/services/edge-lb/1.1/pool-configuration/)后，您可以使用 CLI 来部署它：
+启动服务并创建 [池配置文件](/mesosphere/dcos/cn/services/edge-lb/1.1/pool-configuration/)后，您可以使用 CLI 来部署它：
 
 ```
 dcos edgelb create <pool-configuration-file>
@@ -40,7 +40,7 @@ dcos edgelb update <pool-configuration-file>
 * 重新加载将每 10 秒进行一次。
 
 此重新加载的属性能够实现
-[蓝色/绿色部署这样的策略](/cn/services/edge-lb/1.1/tutorials/blue-green-deploy/)。
+[蓝色/绿色部署这样的策略](/mesosphere/dcos/cn/services/edge-lb/1.1/tutorials/blue-green-deploy/)。
 
 ## 负载均衡器重新启动场景
 
@@ -85,4 +85,4 @@ $ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod replace <pod-id>
 
 这将销毁池服务器，并重新启动新公用代理上的新服务器。
 
-有关 Edge-LB 命令的列表，请参阅 [CLI 参考](/cn/services/edge-lb/1.1/cli-reference/) 页面。
+有关 Edge-LB 命令的列表，请参阅 [CLI 参考](/mesosphere/dcos/cn/services/edge-lb/1.1/cli-reference/) 页面。

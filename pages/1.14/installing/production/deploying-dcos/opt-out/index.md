@@ -8,7 +8,7 @@ menuWeight: 20
 
 ## Authentication
 
-You can opt out of the provided authentication by disabling it for your cluster. To disable authentication, add this parameter to your [`config.yaml`](/1.14/installing/production/advanced-configuration/configuration-reference/) file during installation (this requires using the [installation](/1.14/installing/production/deploying-dcos/installation/) method):
+You can opt out of the provided authentication by disabling it for your cluster. To disable authentication, add this parameter to your [`config.yaml`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/) file during installation (this requires using the [installation](/mesosphere/dcos/1.14/installing/production/deploying-dcos/installation/) method):
 
 ```yaml
 oauth_enabled: 'false'
@@ -22,7 +22,7 @@ oauth_enabled: 'false'
 
 You can opt out of providing anonymous data by disabling telemetry for your cluster. To disable telemetry, you can either:
 
-- Add this parameter to your [`config.yaml`](/1.14/installing/production/advanced-configuration/configuration-reference/) file during installation (this requires using the [installation][1] method):
+- Add this parameter to your [`config.yaml`](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/) file during installation (this requires using the [installation][1] method):
 
     ```yaml
     telemetry_enabled: 'false'

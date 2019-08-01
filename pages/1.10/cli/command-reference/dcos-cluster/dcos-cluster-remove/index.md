@@ -30,7 +30,7 @@ dcos cluster remove <name>
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster](/1.10/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters. |
+| [dcos cluster](/mesosphere/dcos/1.10/cli/command-reference/dcos-cluster/) | Manage your DC/OS clusters. |
 
 # Examples
-For examples, see the [Connecting to Multiple Clusters](/1.10/cli/multi-cluster-cli/) documentation.
+For examples, see the [Connecting to Multiple Clusters](/mesosphere/dcos/1.10/cli/multi-cluster-cli/) documentation.

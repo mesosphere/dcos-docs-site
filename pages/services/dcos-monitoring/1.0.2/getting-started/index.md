@@ -15,7 +15,7 @@ Alertmanager is off by default and must be configured by the user in order to be
 # Prerequisites
 
 - DC/OS 1.12 or later.
-- [DC/OS CLI](/latest/cli/install/) is installed.
+- [DC/OS CLI](/mesosphere/dcos/latest/cli/install/) is installed.
 - You are logged in as a superuser.
 
 # Install {{ model.techName }} service

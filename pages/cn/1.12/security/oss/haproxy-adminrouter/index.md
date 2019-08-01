@@ -12,7 +12,7 @@ menuWeight: 30
 
 # <a name="HAProxy"></a>在 Admin Router 前配置 HAProxy
 
-使用 HAProxy 在 DC/OS [Admin Router](/cn/1.12/overview/architecture/components/#admin-router) 前设置 HTTP 代理。如果您想向通过 HTTPS 连接到群集的用户代理程序提供自定义服务器证书，这可能非常有用。DC/OS 当前不支持将您自己的证书直接添加到 Admin Router 中。
+使用 HAProxy 在 DC/OS [Admin Router](/mesosphere/dcos/cn/1.12/overview/architecture/components/#admin-router) 前设置 HTTP 代理。如果您想向通过 HTTPS 连接到群集的用户代理程序提供自定义服务器证书，这可能非常有用。DC/OS 当前不支持将您自己的证书直接添加到 Admin Router 中。
 
 以下说明提供了经测试的 [HAProxy](http://www.haproxy.org/) 配置示例，其处理命名请求/响应重写。此示例确保 HAProxy 和 DC/OS Admin Router 之间的通信是 TLS 加密的。
 

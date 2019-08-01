@@ -25,7 +25,7 @@ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging
 
 ## 解决方案
 
-1. 正如我们[前期](/1.12/tutorials/dcos-debug/gen-strat/)所了解的，对于应用程序故障， [第一步](/1.12/tutorials/dcos-debug/gen-strat/#task-strat)是检查[任务日志](/1.12/tutorials/dcos-debug/tools/#task-logs)。
+1. 正如我们[前期](/mesosphere/dcos/1.12/tutorials/dcos-debug/gen-strat/)所了解的，对于应用程序故障， [第一步](/mesosphere/dcos/1.12/tutorials/dcos-debug/gen-strat/#task-strat)是检查[任务日志](/mesosphere/dcos/1.12/tutorials/dcos-debug/tools/#task-logs)。
 
  ![空日志输出图片](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-18.png)
 
@@ -47,7 +47,7 @@ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging
     Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: ') (mesosphere.marathon.MarathonScheduler:Thread-1723)
     ```
 
-1. 但是，这并没有说明任务失败的原因。那么接下来进入我们[策略](/1.12/tutorials/dcos-debug/gen-strat/)的 [第 3 步](/1.12/tutorials/dcos-debug/gen-strat/#agent-strat)：使用以下命令检查 [Mesos 代理节点日志](/1.12/tutorials/dcos-debug/tools/#agent-logs)：
+1. 但是，这并没有说明任务失败的原因。那么接下来进入我们[策略](/mesosphere/dcos/1.12/tutorials/dcos-debug/gen-strat/)的 [第 3 步](/mesosphere/dcos/1.12/tutorials/dcos-debug/gen-strat/#agent-strat)：使用以下命令检查 [Mesos 代理节点日志](/mesosphere/dcos/1.12/tutorials/dcos-debug/tools/#agent-logs)：
 
     ```bash
     dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100

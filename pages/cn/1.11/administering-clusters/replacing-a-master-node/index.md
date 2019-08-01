@@ -41,4 +41,4 @@ enterprise: true
 
 该程序与管理节点升级后执行的验证程序相同。
 
-确切步骤参见升级文档 [升级管理节点](/cn/1.11/installing/production/upgrading/#dcos-masters) 中的“验证升级”部分。
+确切步骤参见升级文档 [升级管理节点](/mesosphere/dcos/cn/1.11/installing/production/upgrading/#dcos-masters) 中的“验证升级”部分。

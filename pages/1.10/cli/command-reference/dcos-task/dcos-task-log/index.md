@@ -49,8 +49,8 @@ dcos task log [mesosID] exporter.log
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/1.10/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/mesosphere/dcos/1.10/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
 
 # Examples
 
-For an example, see the [documentation](/1.10/monitoring/logging/).
+For an example, see the [documentation](/mesosphere/dcos/1.10/monitoring/logging/).

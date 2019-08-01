@@ -22,7 +22,7 @@ This section is a quick guide on how to configure and use {{ model.serverName }}
 ## Install via {{ model.productName }} web interface
 When you launch {{ model.techName }} via the {{ model.productName }} {{ model.packageRepo }} web interface, choose `Review & Run`.
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_install.png" alt="Couchbase Install"/>](/services/couchbase/0.2.0-5.5.0/img/couch_install.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_install.png" alt="Couchbase Install"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_install.png)
 
 Figure 1. {{ model.techName }} install screen
 
@@ -34,7 +34,7 @@ dcos package install {{ model.packageName }}
 ```
 In either case, a default cluster will come up with two data nodes.
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_install_finished.png" alt="Couchbase Install Finished"/>](/services/couchbase/0.2.0-5.5.0/img/couch_install_finished.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_install_finished.png" alt="Couchbase Install Finished"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_install_finished.png)
 
 Figure 2. {{ model.techName }} installed with two data nodes
 
@@ -54,13 +54,13 @@ You must change the configuration to also bring up `index`, `query`, `full text 
   ```
 3. Open your browser and enter `localhost:8091`. When prompted for credentials, enter the defaults: `Administrator` / `password`.
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_creds.png" alt="Couchbase Creds"/>](/services/couchbase/0.2.0-5.5.0/img/couch_creds.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_creds.png" alt="Couchbase Creds"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_creds.png)
 
 Figure 3. {{ model.techName }} credentials
 
 This will open the {{ model.techName }} dashboard.
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_dashboard.png" alt="Couchbase Dashboard"/>](/services/couchbase/0.2.0-5.5.0/img/couch_dashboard.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_dashboard.png" alt="Couchbase Dashboard"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_dashboard.png)
 
 Figure 4. {{ model.techName }} dashboard
 
@@ -68,19 +68,19 @@ Figure 4. {{ model.techName }} dashboard
 
 Assume we have two data nodes, and we want to add one.
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_dnodes.png" alt="Couchbase Data Nodes"/>](/services/couchbase/0.2.0-5.5.0/img/couch_dnodes.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_dnodes.png" alt="Couchbase Data Nodes"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_dnodes.png)
 
 Figure 5. {{ model.techName }} with two data nodes
 
 You must edit the configuration of your {{ model.techName }} service, and increase the data node count to 3.
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_edit.png" alt="Couchbase Edit configuration"/>](/services/couchbase/0.2.0-5.5.0/img/couch_edit.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_edit.png" alt="Couchbase Edit configuration"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_edit.png)
 
 Figure 6. Adding a {{ model.techName }} node
 
 A third node is added and an automatic rebalance takes place.
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_3.png" alt="Couchbase 3rd"/>](/services/couchbase/0.2.0-5.5.0/img/couch_3.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/couch_3.png" alt="Couchbase 3rd"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/couch_3.png)
 
 Figure 7. {{ model.techName }} with three data nodes
 
@@ -92,12 +92,12 @@ We will use the PouchDB Getting Started app to demonstrate the use of the {{ mod
 
 1. Create a bucket named `todo`, as shown below.
 
-  [<img src="/services/couchbase/0.2.0-5.5.0/img/data_bucket.png" alt="Data Bucket"/>](/services/couchbase/0.2.0-5.5.0/img/data_bucket.png)
+  [<img src="/services/couchbase/0.2.0-5.5.0/img/data_bucket.png" alt="Data Bucket"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/data_bucket.png)
 
   Figure 8.  Adding a data bucket
 2. Create a user named `todo` with password `todo188`, and give that user access to the `todo` bucket.
 
-  [<img src="/services/couchbase/0.2.0-5.5.0/img/add_user.png" alt="Add User"/>](/services/couchbase/0.2.0-5.5.0/img/add_user.png)
+  [<img src="/services/couchbase/0.2.0-5.5.0/img/add_user.png" alt="Add User"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/add_user.png)
 
   Figure 9. Granting access to user `todo`
 
@@ -131,7 +131,7 @@ We will use the PouchDB Getting Started app to demonstrate the use of the {{ mod
 
 4. Add a {{ model.syncGatewayName }} node to our {{ model.packageName }} service. Note that the former yml is already set as the default.
 
-  [<img src="/services/couchbase/0.2.0-5.5.0/img/edit_conf.png" alt="Edit Configuration"/>](/services/couchbase/0.2.0-5.5.0/img/edit_conf.png)
+  [<img src="/services/couchbase/0.2.0-5.5.0/img/edit_conf.png" alt="Edit Configuration"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/edit_conf.png)
 
   Figure 10. Editing the {{ model.syncGatewayName }} configuration
 5. Create a file named `todo.json`, with the following content. This is the PouchDB Getting Started app that accesses the {{ model.syncGatewayName }}.
@@ -228,12 +228,12 @@ Before we can use it, we must expose the {{ model.syncGatewayName }} service and
 
 Now everything is in place.
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/running.png" alt="running"/>](/services/couchbase/0.2.0-5.5.0/img/running.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/running.png" alt="running"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/running.png)
 Figure 11. Edge-LB and {{ model.techName }} running together
 
 3. Get the public IP of your {{ model.productName }} public agent, and enter the following in your browser: `http://<public-ip>:8000` .
 
-[<img src="/services/couchbase/0.2.0-5.5.0/img/todos.png" alt="todos"/>](/services/couchbase/0.2.0-5.5.0/img/todos.png)
+[<img src="/services/couchbase/0.2.0-5.5.0/img/todos.png" alt="todos"/>](/mesosphere/dcos/services/couchbase/0.2.0-5.5.0/img/todos.png)
 
 Figure 12. The `todo` list is up and running
 

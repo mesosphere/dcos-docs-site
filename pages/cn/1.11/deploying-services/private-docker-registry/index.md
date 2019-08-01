@@ -127,7 +127,7 @@ Docker 镜像现在将使用提供的安全凭证进行拉取。
 
   <p class="message--note"><strong>注意：</strong> 如果使用的是 Mac OSX，就需要手动编码 `username:password` 字符串并修改您的 `config.json` ，以便与上面的片段匹配。</p>
 
-2. 添加 `config.json` 文件到 DC/OS 密钥存储库。[了解创建密钥的详细信息](/cn/1.11/security/ent/secrets/create-secrets/)。
+2. 添加 `config.json` 文件到 DC/OS 密钥存储库。[了解创建密钥的详细信息](/mesosphere/dcos/cn/1.11/security/ent/secrets/create-secrets/)。
 
  <p class="message--note"><strong>注意：</strong> 自 DC/OS 版本 1.10.0 开始，您只能使用 DC/OS CLI 将文件添加到密钥存储库。</p>
 

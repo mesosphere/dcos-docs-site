@@ -8,32 +8,32 @@ excerpt:
 enterprise: true
 ---
 
-You can implement fine-grained user access to jobs by using either the DC/OS GUI, the CLI or [the API](/1.10/security/ent/iam-api/). The [Metronome permissions](/1.10/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.
+You can implement fine-grained user access to jobs by using either the DC/OS GUI, the CLI or [the API](/mesosphere/dcos/1.10/security/ent/iam-api/). The [Metronome permissions](/mesosphere/dcos/1.10/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.
 
 **Prerequisites:** 
 
-- You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser.
-- A [user account](/1.10/security/ent/users-groups/) to assign permissions to.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.10/cli/install/) and be logged in as a superuser.
+- A [user account](/mesosphere/dcos/1.10/security/ent/users-groups/) to assign permissions to.
 
 # <a name="job-group-access-via-ui"></a>Via the DC/OS GUI
 
 1. Log into the DC/OS GUI as a user with the `superuser` permission.
 
-   ![Login](/1.10/img/gui-installer-login-ee.gif)
+   ![Login](/mesosphere/dcos/1.10/img/gui-installer-login-ee.gif)
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/1.10/img/services-tab-user.png)
+    ![Add permission cory](/mesosphere/dcos/1.10/img/services-tab-user.png)
 
 1.  From the **Permissions** tab, click **ADD PERMISSION**.
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/1.10/img/services-tab-user3.png)
+    ![Add permission](/mesosphere/dcos/1.10/img/services-tab-user3.png)
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/1.10/security/ent/#security-modes).
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/1.10/security/ent/#security-modes).
 
     ### Disabled
 
@@ -103,7 +103,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS GUI
 
 **Prerequisites:** 
 
-- You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.10/cli/install/) and be logged in as a superuser.
 
 **Tips:** 
 

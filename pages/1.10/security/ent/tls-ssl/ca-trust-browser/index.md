@@ -14,7 +14,7 @@ enterprise: true
 
 # About configuring browsers to trust your DC/OS CA
 
-**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/1.10/security/ent/tls-ssl/get-cert/).
+**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/mesosphere/dcos/1.10/security/ent/tls-ssl/get-cert/).
 
 The procedure for adding your DC/OS CA as a trusted root certificate authority varies by operating system and browser. Refer to the section that corresponds to your browser/operating system pair.
 
@@ -34,7 +34,7 @@ The procedure for adding your DC/OS CA as a trusted root certificate authority v
      
 1. Click the magnifying glass icon in the top right of your desktop to open Spotlight Search. Type **Keychain Access** in the box.
 
-     ![Launch Keychain Access](/1.10/img/osx-chrome-launch-keychain.png)
+     ![Launch Keychain Access](/mesosphere/dcos/1.10/img/osx-chrome-launch-keychain.png)
 
 1. In the **Keychain Access** dialog, select **System**.
 
@@ -44,7 +44,7 @@ The procedure for adding your DC/OS CA as a trusted root certificate authority v
 
 1. Double-click the certificate in the keychain, expand the **Trust** section, and select **Always Trust** in **When using this certificate**.
 
-     ![Always Trust Certificate](/1.10/img/osx-chrome-always-trust.png)
+     ![Always Trust Certificate](/mesosphere/dcos/1.10/img/osx-chrome-always-trust.png)
      
 1. Close the dialog.
 
@@ -79,7 +79,7 @@ The procedure for adding your DC/OS CA as a trusted root certificate authority v
 
 1. Click **Finish**.
 
-     ![Certificate Warning](/1.10/img/chrome-win-sec-wrning.png)
+     ![Certificate Warning](/mesosphere/dcos/1.10/img/chrome-win-sec-wrning.png)
 
 1. You should check that the thumbprint matches the thumbprint of your DC/OS CA root certificate, then click **Yes**.
 
@@ -102,7 +102,7 @@ The procedure for adding your DC/OS CA as a trusted root certificate authority v
 
 1. Locate and select the `dcos-ca.crt` file in the dialog and click **Open**.
 
-     ![Firefox confirmation](/1.10/img/osx-ff-confirm.png)
+     ![Firefox confirmation](/mesosphere/dcos/1.10/img/osx-ff-confirm.png)
 
 1. We recommend clicking **View** to examine the certificate. Ideally, you should confirm that the fingerprints match those of your DC/OS CA's root certificate.
 

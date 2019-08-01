@@ -40,8 +40,8 @@ enterprise: true
 首先，您需要生成 2048 位 RSA 公私密钥对。虽然您可以使用任何工具完成此操作，但 DC/OS Enterprise CLI 最为方便，因为它以 DC/OS 所需的格式返回密钥。
 
 **先决条件：**
-- [已安装 DC/OS CLI](/cn/1.11/cli/install/)
-- [DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/)
+- [DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/cn/1.11/cli/enterprise-cli/#ent-cli-install)
 
 1. 使用以下命令创建公私密钥对并将每个值保存到当前目录中的单独文件中。
 
@@ -60,8 +60,8 @@ enterprise: true
 ### 使用 DC/OS Enterprise CLI
 
 **先决条件：**
-- [已安装 DC/OS CLI](/cn/1.11/cli/install/)
-- [DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/)
+- [DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/cn/1.11/cli/enterprise-cli/#ent-cli-install)
 - 通过 `dcos auth login` 以超级用户身份登录。
 
 1. 使用以下命令创建一个名为 `marathon-lb-sa` 并包含您刚刚生成的公钥的新服务帐户。
@@ -95,8 +95,8 @@ enterprise: true
 ### 使用 DC/OS Enterprise CLI
 
 **先决条件：**
-- [已安装 DC/OS CLI](/cn/1.11/cli/install/)
-- [DC/OS Enterprise CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/)
+- [DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/cn/1.11/cli/enterprise-cli/#ent-cli-install)
 - 通过 `dcos auth login` 以超级用户身份登录。
 
 1. 根据您的安全模式，使用以下命令之一在 `marathon-lb` 路径中创建一个名为 `service-account-secret` 的新密钥（完整的密钥路径是 `marathon-lb/service-account-secret`。在 `marathon-lb` 路径中定位查找该密钥将确保只有 Marathon-LB 服务才能访问它。密钥将包含私钥、服务帐户名称和其他数据。
@@ -180,7 +180,7 @@ rm -rf mlb-private-key.pem
 使用以下命令，您可以快速为 Marathon-LB 服务帐户配置所需权限。这些命令可从集群外部执行。
 
 **先决条件**
-- [已安装 DC/OS CLI](/cn/1.11/cli/install/)
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/)
 - 作为超级用户通过 `dcos auth login` 登录
 
 所有 CLI 命令也可通过 [IAM API] 执行(/1.10/security/ent/iam-api/)。
@@ -196,7 +196,7 @@ rm -rf mlb-private-key.pem
 
 ## <a name="create-json"></a>创建 config.json 文件
 
-`config.json` 文件必要的内容将根据您的 [安全模式而有所不同](/cn/1.11/security/ent/#security-modes)。
+`config.json` 文件必要的内容将根据您的 [安全模式而有所不同](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)。
 
 ### 严格和宽容模式 config.json
 
@@ -237,4 +237,4 @@ rm -rf mlb-private-key.pem
 dcos package install --options=config.json marathon-lb
 ```
 
-您还可以把 `config.json` 提供给其他人，用于安装 Marathon-LB。请参阅 [Marathon-LB 文档](/cn/services/marathon-lb/usage-ee/) 了解更多信息。
+您还可以把 `config.json` 提供给其他人，用于安装 Marathon-LB。请参阅 [Marathon-LB 文档](/mesosphere/dcos/cn/services/marathon-lb/usage-ee/) 了解更多信息。

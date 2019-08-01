@@ -12,8 +12,8 @@ Getting started with a test instance of the DC/OS {{ model.techName }} service i
 
 ## Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may need to [provision a service account](/services/cassandra/2.4.0-3.0.16/security/#provisioning-a-service-account) before installing. Only someone with `superuser` permission can create the service account.
-	- `strict` [security mode](/latest/security/ent/#security-modes) requires a service account.
+- Depending on your security mode in Enterprise DC/OS, you may need to [provision a service account](/mesosphere/dcos/services/cassandra/2.4.0-3.0.16/security/#provisioning-a-service-account) before installing. Only someone with `superuser` permission can create the service account.
+	- `strict` [security mode](/mesosphere/dcos/latest/security/ent/#security-modes) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
 - Your cluster must have at least {{ model.install.minNodeCount }} private nodes.
@@ -23,7 +23,7 @@ The default DC/OS Apache Cassandra installation provides reasonable defaults for
 
 ## Installation from the DC/OS CLI
 
-To start a basic test cluster, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing DC/OS Apache Cassandra on Enterprise DC/OS](/1.11/security/ent/service-auth/custom-service-auth/).
+To start a basic test cluster, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing DC/OS Apache Cassandra on Enterprise DC/OS](/mesosphere/dcos/1.11/security/ent/service-auth/custom-service-auth/).
 
 ```shell
 dcos package install cassandra
@@ -36,11 +36,11 @@ $ dcos package install cassandra --options=<options>.json
 
 It is recommended that this custom configuration is stored in source control.
 
-For more information about building the `options.json` file, see the [DC/OS documentation](/1.11/deploying-services/config-universe-service/) for service configuration access.
+For more information about building the `options.json` file, see the [DC/OS documentation](/mesosphere/dcos/1.11/deploying-services/config-universe-service/) for service configuration access.
 
 ## Installation from the DC/OS Web Interface
 
-You can [install DC/OS Apache Cassandra from the DC/OS web interface](/1.11/deploying-services/install/). If you install DC/OS Apache Cassandra from the web interface, you must install the DC/OS Apache Cassandra CLI subcommands separately. From the DC/OS CLI, enter:
+You can [install DC/OS Apache Cassandra from the DC/OS web interface](/mesosphere/dcos/1.11/deploying-services/install/). If you install DC/OS Apache Cassandra from the web interface, you must install the DC/OS Apache Cassandra CLI subcommands separately. From the DC/OS CLI, enter:
 ```bash
 dcos package install cassandra --cli
 ```
@@ -193,5 +193,5 @@ deploy (IN_PROGRESS)
 
 ## Test your multi-datacenter configuration
 
-Follow the [quick start guide](/services/cassandra/2.0.3-3.0.14/quick-start/) to write data to one cluster. Then, use the client on the other cluster to ensure the data has propagated.
+Follow the [quick start guide](/mesosphere/dcos/services/cassandra/2.0.3-3.0.14/quick-start/) to write data to one cluster. Then, use the client on the other cluster to ensure the data has propagated.
 

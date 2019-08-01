@@ -108,4 +108,4 @@ The following instructions demonstrate how to use Docker with OverlayFS on CentO
 
 For more generic Docker requirements, see [System Requirements: Docker][1].
 
-[1]: /1.9/installing/oss/custom/system-requirements/#docker
+[1]: /mesosphere/dcos/1.9/installing/oss/custom/system-requirements/#docker

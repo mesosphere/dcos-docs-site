@@ -50,11 +50,11 @@ enterprise: true
 
 1.  When you have completed your entries, the dialog should look something like the following.
 
-   ![Simple bind parameters](/1.10/img/ldap-add-dir-auth-simple-bind.png)  
+   ![Simple bind parameters](/mesosphere/dcos/1.10/img/ldap-add-dir-auth-simple-bind.png)  
 
 1.  Click **Add Directory**.
 
-1.  [Verify your connection](/1.10/security/ent/ldap/ldap-verify/).
+1.  [Verify your connection](/mesosphere/dcos/1.10/security/ent/ldap/ldap-verify/).
 
 
 # Specifying search/bind parameters
@@ -70,8 +70,8 @@ While the simple bind connection takes place in a single step, the search/bind o
 
 1.  When you have completed your entries, the dialog should look something like the following.
 
-   ![Search/bind parameters](/1.10/img/ldap-add-dir-auth-search-bind.png)
+   ![Search/bind parameters](/mesosphere/dcos/1.10/img/ldap-add-dir-auth-search-bind.png)
 
 1.  Click **Add Directory**.
 
-1.  [Verify your connection](/1.10/security/ent/ldap/ldap-verify/).
+1.  [Verify your connection](/mesosphere/dcos/1.10/security/ent/ldap/ldap-verify/).

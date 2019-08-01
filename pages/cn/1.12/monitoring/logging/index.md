@@ -36,9 +36,9 @@ dcos node log --leader
 dcos node log --mesos-id=<node-id>
 ```
 
-您可以从 [DC/OS Web 界面](/1.12/gui/) 的**服务 > 服务**选项卡，下载服务的所有日志文件。您也可以监控 `stdout`/`stderr`。
+您可以从 [DC/OS Web 界面](/mesosphere/dcos/1.12/gui/) 的**服务 > 服务**选项卡，下载服务的所有日志文件。您也可以监控 `stdout`/`stderr`。
 
-如需更多信息，请参阅“服务和任务日志”[快速入门指南](/1.12/monitoring/logging/quickstart/)。
+如需更多信息，请参阅“服务和任务日志”[快速入门指南](/mesosphere/dcos/1.12/monitoring/logging/quickstart/)。
 
 <p class="message--note"><strong>注意：</strong>DC/OS 可以将任务日志的副本发送到主机的 journald，但由于已知的系统性能问题，默认情况下会禁用此功能，有关详细信息，请参阅<a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink">配置文档</a> </p>。
 
@@ -58,7 +58,7 @@ journalctl -u dcos-nginx -b
 
 您可以在 DC/OS Web 界面的**节点**选项卡上发现哪些组件不正常。
 
-![系统运行状况](/1.12/img/GUI-Nodes-Main_View_Agents-1_12.png)
+![系统运行状况](/mesosphere/dcos/1.12/img/GUI-Nodes-Main_View_Agents-1_12.png)
 
 图 1. 显示节点的系统运行状况日志
 
@@ -66,7 +66,7 @@ journalctl -u dcos-nginx -b
 
 流式传输来自群集中机器的日志并非始终可行。有时您需要已发生事件的历史记录，而这需要有存储和聚合日志的方法。这些主题描述了其中一些最常见的解决方案：
 
-- [使用 ELK 进行日志管理](/1.12/monitoring/logging/aggregating/elk/)
-- [使用 Splunk 进行日志管理](/1.12/monitoring/logging/aggregating/splunk/)
+- [使用 ELK 进行日志管理](/mesosphere/dcos/1.12/monitoring/logging/aggregating/elk/)
+- [使用 Splunk 进行日志管理](/mesosphere/dcos/1.12/monitoring/logging/aggregating/splunk/)
 
-[5]: /1.12/administering-clusters/sshcluster/
+[5]: /mesosphere/dcos/1.12/administering-clusters/sshcluster/

@@ -23,7 +23,7 @@ The Universal Container Runtime offers the following advantages:
 # Provision Containers with the Universal Container Runtime from the DC/OS Web Interface
 
 ## Prerequisite
-If your service [pulls Docker images from a private registry](/1.9/deploying-services/private-docker-registry/), you must specify the [`cluster_docker_credentials_path` in your `config.yaml`](/1.9/installing/oss/custom/configuration/configuration-parameters/#cluster-docker-credentials) file before installing DC/OS.
+If your service [pulls Docker images from a private registry](/mesosphere/dcos/1.9/deploying-services/private-docker-registry/), you must specify the [`cluster_docker_credentials_path` in your `config.yaml`](/mesosphere/dcos/1.9/installing/oss/custom/configuration/configuration-parameters/#cluster-docker-credentials) file before installing DC/OS.
 
 1. Specify the UCR from the web interface. Go to **Services**  > **Run a Service** > **Single Container** > **More Settings**. In the **Container Runtime** section, choose the **Universal Container Runtime** radio button.
 
@@ -32,9 +32,9 @@ If your service [pulls Docker images from a private registry](/1.9/deploying-ser
 # Provision Containers with the Universal Container Runtime from the DC/OS CLI
 
 ## Prerequisite
-If your service [pulls Docker images from a private registry](/1.9/deploying-services/private-docker-registry/), you must specify the [`cluster_docker_credentials_path` in your `config.yaml`](/1.9/installing/oss/custom/configuration/configuration-parameters/#cluster-docker-credentials) file before installing DC/OS.
+If your service [pulls Docker images from a private registry](/mesosphere/dcos/1.9/deploying-services/private-docker-registry/), you must specify the [`cluster_docker_credentials_path` in your `config.yaml`](/mesosphere/dcos/1.9/installing/oss/custom/configuration/configuration-parameters/#cluster-docker-credentials) file before installing DC/OS.
 
-1. Specify the container type `MESOS` and a the appropriate object in your [Marathon application definition](/1.9/deploying-services/creating-services/). Here, we specify a Docker container with the `docker` object.
+1. Specify the container type `MESOS` and a the appropriate object in your [Marathon application definition](/mesosphere/dcos/1.9/deploying-services/creating-services/). Here, we specify a Docker container with the `docker` object.
 
 The Mesos containerizer provides a `credential` with a `principal` and an optional `secret` field to authenticate when downloading the Docker image.
 

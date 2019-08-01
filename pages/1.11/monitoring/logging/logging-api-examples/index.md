@@ -15,8 +15,8 @@ Here are some common usage examples for the Logging API.
 - [Bash](https://www.gnu.org/software/bash/)
 - [Curl](https://curl.haxx.se/)
 - [jq](https://stedolan.github.io/jq/)
-- [DC/OS](/1.11/installing/)
-- [DC/OS CLI](/1.11/cli/) must be installed, configured, and logged in.
+- [DC/OS](/mesosphere/dcos/1.11/installing/)
+- [DC/OS CLI](/mesosphere/dcos/1.11/cli/) must be installed, configured, and logged in.
 - Extract `DCOS_URL` and `DCOS_AUTH_TOKEN` from the DC/OS CLI:
 
     ```

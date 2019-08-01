@@ -16,27 +16,27 @@ In DC/OS, user authentication is required by default. Every user who wants to pe
 
 DC/OS handles user authentication decentralized by using authentication tokens. Authentication tokens are distributed by the Identity and Access Manager (IAM) on a per user basis. The tokens can are verified out-of-band by any third-party entity. Allowing token verification to happen independent of the IAM makes this approach highly scalable in comparison to centralized session state keeping. Furthermore, with tokens user authentication state cannot be easily revoked.
 
-Upon [login](/1.14/security/oss/login/) to DC/OS users receive a [DC/OS Authentication token](/1.14/security/oss/authentication/authentication-token). The DC/OS Authentication token can be used for authenticating subsequent requests to the API; see [Pass an authentication token to the API](/1.14/security/oss/authentication/authentication-token/#pass-an-authentication-token-to-the-api).
+Upon [login](/mesosphere/dcos/1.14/security/oss/login/) to DC/OS users receive a [DC/OS Authentication token](/mesosphere/dcos/1.14/security/oss/authentication/authentication-token). The DC/OS Authentication token can be used for authenticating subsequent requests to the API; see [Pass an authentication token to the API](/mesosphere/dcos/1.14/security/oss/authentication/authentication-token/#pass-an-authentication-token-to-the-api).
 
-A DC/OS Authentication token is also used internally by the [DC/OS CLI](/1.14/cli/) for authenticating subsequent CLI commands. Authentication is only supported for DC/OS CLI version 0.4.3 and later. See [here](/1.14/cli/update/) for upgrade instructions.
+A DC/OS Authentication token is also used internally by the [DC/OS CLI](/mesosphere/dcos/1.14/cli/) for authenticating subsequent CLI commands. Authentication is only supported for DC/OS CLI version 0.4.3 and later. See [here](/mesosphere/dcos/1.14/cli/update/) for upgrade instructions.
 
-In DC/OS the only authenticator in the system is [Admin Router](/1.14/overview/architecture/components/#admin-router). It enforces DC/OS Authentication token verification based on information from the [Identity and Access Manager (IAM)](/1.14/overview/architecture/components/#dcos-iam).
+In DC/OS the only authenticator in the system is [Admin Router](/mesosphere/dcos/1.14/overview/architecture/components/#admin-router). It enforces DC/OS Authentication token verification based on information from the [Identity and Access Manager (IAM)](/mesosphere/dcos/1.14/overview/architecture/components/#dcos-iam).
 
-Third-party entities can be enabled to become authenticators for DC/OS Authentication tokens by using out-of-band verficiation via public key cryptography; see [Out-of-band token verification](/1.14/security/oss/authentication/out-of-band-verification/) for instructions.
+Third-party entities can be enabled to become authenticators for DC/OS Authentication tokens by using out-of-band verficiation via public key cryptography; see [Out-of-band token verification](/mesosphere/dcos/1.14/security/oss/authentication/out-of-band-verification/) for instructions.
 
 <p class="message--note"><strong>NOTE: </strong>In DC/OS Open Source authentication equals authorization. Therefore, any entity that obtains a valid DC/OS Authentication token has full access to the cluster.</p>
 
 ## Disabling authentication
 
 You can disable authentication using one of the following ways:
-1. Disable authentication using [advanced installation](/1.14/installing/production/deploying-dcos/installation/): You can disable authentication by adding this parameter to your configuration file (`genconf/config.yaml`).
+1. Disable authentication using [advanced installation](/mesosphere/dcos/1.14/installing/production/deploying-dcos/installation/): You can disable authentication by adding this parameter to your configuration file (`genconf/config.yaml`).
 
     ```yaml
     oauth_enabled: 'false'
     ```
-    For more information, see the configuration [documentation](/1.14/installing/production/advanced-configuration/configuration-reference/).
+    For more information, see the configuration [documentation](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/).
 
-2. Disable authentication using cloud installation on [AWS](/1.14/installing/oss/cloud/aws/): You can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
+2. Disable authentication using cloud installation on [AWS](/mesosphere/dcos/1.14/installing/oss/cloud/aws/): You can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
 <p class="message--warning"><strong>WARNING: </strong>You cannot disable authentication using cloud installation on <a href ="/1.14/installing/evaluation/azure/">Azure</a>.</p>
 

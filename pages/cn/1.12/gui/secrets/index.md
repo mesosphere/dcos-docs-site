@@ -8,6 +8,6 @@ enterprise: true
 ---
 
 可在“密钥”菜单中管理密钥和证书。
-![Secrets](/1.12/img/GUI-Secrets-Secrets_View_With_Secrets-1_12.png)
+![Secrets](/mesosphere/dcos/1.12/img/GUI-Secrets-Secrets_View_With_Secrets-1_12.png)
 
 图 1 - 密钥选项卡

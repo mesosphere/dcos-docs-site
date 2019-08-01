@@ -9,13 +9,13 @@ enterprise: false
 
 您可以将代理节点转换为现有 DC/OS 群集的公共或私用节点。
 
-在安装过程中，代理节点被指定为 [公共](/cn/1.12/overview/concepts/#public-agent-node) 或 [私用](/cn/1.12/overview/concepts/#private-agent-node)节点。默认情况下，它们在 [GUI][1] 或 [CLI][2] 安装中被指定为私用节点。
+在安装过程中，代理节点被指定为 [公共](/mesosphere/dcos/cn/1.12/overview/concepts/#public-agent-node) 或 [私用](/mesosphere/dcos/cn/1.12/overview/concepts/#private-agent-node)节点。默认情况下，它们在 [GUI][1] 或 [CLI][2] 安装中被指定为私用节点。
 
 ### 先决条件：
 这些步骤必须在配置为 DC/OS 节点的机器上执行。在此转换过程中将终止在节点上运行的所有任务。
 
-* DC/OS 是使用 [自定义](/cn/1.12/installing/evaluation/)安装方式安装的，您已部署至少一个 [管理节点](/cn/1.12/overview/concepts/#master) 和一个 [私有](/cn/1.12/overview/concepts/#private-agent-node) 代理节点。
-* 来自您的[安装](/cn/1.12/installing/evaluation/#backup)的存档 DC/OS 安装程序文件（`dcos-install.tar`）。
+* DC/OS 是使用 [自定义](/mesosphere/dcos/cn/1.12/installing/evaluation/)安装方式安装的，您已部署至少一个 [管理节点](/mesosphere/dcos/cn/1.12/overview/concepts/#master) 和一个 [私有](/mesosphere/dcos/cn/1.12/overview/concepts/#private-agent-node) 代理节点。
+* 来自您的[安装](/mesosphere/dcos/cn/1.12/installing/evaluation/#backup)的存档 DC/OS 安装程序文件（`dcos-install.tar`）。
 * CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation)。
 * 已安装和配置 SSH。这是访问 DC/OS 群集中的节点所需的。
 
@@ -58,7 +58,7 @@ enterprise: false
     ```
 
 ### 安装 DC/OS 并转换代理节点
-复制存档的 DC/OS 安装程序文件（`dcos-install.tar`）到正在被转换的节点上。此存档在 GUI 或 CLI [安装](/cn/1.12/installing/evaluation/)方法期间创建。
+复制存档的 DC/OS 安装程序文件（`dcos-install.tar`）到正在被转换的节点上。此存档在 GUI 或 CLI [安装](/mesosphere/dcos/cn/1.12/installing/evaluation/)方法期间创建。
 
 1. 将文件复制到代理节点。例如，您可以使用安全拷贝 (scp) 来复制 `dcos-install.tar` 到您的主目录：
 
@@ -98,5 +98,5 @@ enterprise: false
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
     ```
 
- [1]: /1.12/安装/评价/
- [2]: /1.12/安装/评价/
+ [1]: /mesosphere/dcos/1.12/安装/评价/
+ [2]: /mesosphere/dcos/1.12/安装/评价/

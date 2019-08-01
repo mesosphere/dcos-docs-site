@@ -31,4 +31,4 @@ dcos experimental package add [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos experimental](/1.11/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  
+| [dcos experimental](/mesosphere/dcos/1.11/cli/command-reference/dcos-experimental/)   |  Manage commands that under development and subject to change. |  

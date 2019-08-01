@@ -21,7 +21,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 ## 新特性和功能
 
 ### Mesosphere Kubernetes 引擎
-- 高密度多 Kubernetes (HDMK) 使操作者能够在 DC/OS 上运行多个 Kubernetes 群集时充分利用智能资源池。与每个虚拟机运行单个 Kubernetes 节点的其他 Kubernetes 发行版相比，Mesosphere HDMK 使用其智能资源池将多个 Kubernetes 节点打包到连接裸机、虚拟机和公共云实例的同一服务器上，从而显著节省成本并提高资源利用效率。[详细了解 DC/OS 上的 Kubernetes](/services/kubernetes/2.0.0-1.12.1/)。
+- 高密度多 Kubernetes (HDMK) 使操作者能够在 DC/OS 上运行多个 Kubernetes 群集时充分利用智能资源池。与每个虚拟机运行单个 Kubernetes 节点的其他 Kubernetes 发行版相比，Mesosphere HDMK 使用其智能资源池将多个 Kubernetes 节点打包到连接裸机、虚拟机和公共云实例的同一服务器上，从而显著节省成本并提高资源利用效率。[详细了解 DC/OS 上的 Kubernetes](/mesosphere/dcos/services/kubernetes/2.0.0-1.12.1/)。
 
 ### Mesosphere Jupyter 服务 (MJS)
 - 提供安全的 [云原生 Jupyter](https://docs.mesosphere.com/services/beta-jupyter/)笔记本即服务，使数据科学家能够在弹性 GPU 池上执行分析和分布式机器学习，并可访问大型快速数据服务。

@@ -130,13 +130,13 @@ Some notes on the template configuration:
 
 1. Look up `MASTERFQDN` in the outputs of the deployment. To find that, click on the link under `Last deployment` (which is `4/15/2016 (Succeeded)` here) and you should see this:
 
-![Deployment history](/{{ model.folder_version }}/img/dcos-azure-marketplace-step2a.png)
+![Deployment history](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-marketplace-step2a.png)
 
 Figure 1. Deployment history
 
 2. Click on the latest deployment and copy the value of `MASTERFQDN` in the `Outputs` section.
 
-![Deployment output](/{{ model.folder_version }}/img/dcos-azure-marketplace-step2b.png)
+![Deployment output](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-marketplace-step2b.png)
 
 Figure 2. Outputs section
 
@@ -150,37 +150,37 @@ In order to visit the DC/OS Dashboard, you will need to access TCP port 80 or 44
 
 1. Find the network security group resource of the master node,
 
-![Resource - Master Node Network Security Group](/{{ model.folder_version }}/img/dcos-azure-step2case1a.png)
+![Resource - Master Node Network Security Group](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1a.png)
 
 Figure 3. Master node network security group
 
 2. Click on the **Inbound security rules** tab on the left side.
 
-![Inbound Security Rules](/{{ model.folder_version }}/img/dcos-azure-step2case1b.png)
+![Inbound Security Rules](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1b.png)
 
 Figure 4. Inbound security rules
 
 3. Add an inbound security rule.
 
-![Add Inbound Security Rules](/{{ model.folder_version }}/img/dcos-azure-step2case1c.png)
+![Add Inbound Security Rules](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1c.png)
 
 Figure 5. Adding an inbound security rule
 
 4. Find the load balancer resource of the master node.
 
-![Resource - Master Node Load balancer](/{{ model.folder_version }}/img/dcos-azure-step2case1d.png)
+![Resource - Master Node Load balancer](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1d.png)
 
 Figure 6. Master node load balancer
 
 5. Click on the **Inbound NAT rules** tab on the left side,
 
-![Inbound NAT Rules](/{{ model.folder_version }}/img/dcos-azure-step2case1e.png)
+![Inbound NAT Rules](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1e.png)
 
 Figure 7. Inbound NAT rules
 
 6. Add an inbound NAT rule.
 
-![Add Inbound NAT Rules](/{{ model.folder_version }}/img/dcos-azure-step2case1f.png)
+![Add Inbound NAT Rules](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1f.png)
 
 Figure 8. Adding an inbound NAT rule
 
@@ -204,7 +204,7 @@ ssh azureuser@dcosmaster.westus.cloudapp.azure.com -L 8000:localhost:80
 
 Now you can visit `http://localhost:8000` on your local machine and view the DC/OS Dashboard.
 
-![DC/OS dashboard](/{{ model.folder_version }}/img/dcos-gui.png)
+![DC/OS dashboard](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-gui.png)
 
 Figure 9. DC/OS dashboard
 
@@ -248,6 +248,6 @@ If you have created a new resource group in the deployment step, it is easy to t
 - [Install the DC/OS Command-Line Interface (CLI)][2]
 - [Scaling considerations][4]
 
-[1]: /{{ model.folder_version }}/security/ent/users-groups/
-[2]: /{{ model.folder_version }}/cli/install/
+[1]: /mesosphere/dcos/{{ model.folder_version }}/security/ent/users-groups/
+[2]: /mesosphere/dcos/{{ model.folder_version }}/cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/

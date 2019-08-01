@@ -63,5 +63,5 @@ dcos backup restore <backup id> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 备份](/1.12/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
+| [DCOS 备份](/mesosphere/dcos/1.12/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
 

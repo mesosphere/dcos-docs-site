@@ -17,11 +17,11 @@ To see full logs, append `--log-level=debug` to any DC/OS CLI command. For examp
 ```bash
 dcos -—log-level="debug" package install hdfs
 ```
-For more information about log levels, consult the [CLI command reference](/1.9/cli/command-reference/) or run `dcos --help`.
+For more information about log levels, consult the [CLI command reference](/mesosphere/dcos/1.9/cli/command-reference/) or run `dcos --help`.
 
 # Debug Subcommands for Stuck Deployments
 
-The DC/OS CLI provides a set of debugging subcommands to troubleshoot a stuck service or pod deployment. You can also use debug services and pods from the [DC/OS web interface](/1.9/monitoring/debugging/gui-debugging/).
+The DC/OS CLI provides a set of debugging subcommands to troubleshoot a stuck service or pod deployment. You can also use debug services and pods from the [DC/OS web interface](/mesosphere/dcos/1.9/monitoring/debugging/gui-debugging/).
 
 # Using the debugging commands
 
@@ -31,7 +31,7 @@ The DC/OS CLI provides a set of debugging subcommands to troubleshoot a stuck se
 - A service or pod that is stuck in deployment.
 
 ## Sample application definitions
-If you do not currently have a service or pod that is stuck in deployment, you can use the following two [Marathon application definitions](/1.9/deploying-services/creating-services/) to test the instructions in this section.
+If you do not currently have a service or pod that is stuck in deployment, you can use the following two [Marathon application definitions](/mesosphere/dcos/1.9/deploying-services/creating-services/) to test the instructions in this section.
 
 - mem-app.json
 

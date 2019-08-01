@@ -10,8 +10,8 @@ enterprise: false
 
 Containerizer 提供围绕特定容器运行时间的容器化和资源隔离的抽取整理。DC/OS containerizer 支持以下容器运行时间：
 
-- [Universal Container Runtime](/cn/1.11/deploying-services/containerizers/ucr/)。
-- [Docker Engine](/cn/1.11/deploying-services/containerizers/docker-containerizer/)。
+- [Universal Container Runtime](/mesosphere/dcos/cn/1.11/deploying-services/containerizers/ucr/)。
+- [Docker Engine](/mesosphere/dcos/cn/1.11/deploying-services/containerizers/docker-containerizer/)。
 
 Universal Container Runtime (UCR) 的优势如下：
 

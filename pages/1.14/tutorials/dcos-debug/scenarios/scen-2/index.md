@@ -58,7 +58,7 @@ Mar 27 00:46:37 ip-10-0-6-109.us-west-2.compute.internal marathon.sh[5866]: [201
 
 **Now we have confirmed that we exceeded the previously set container memory limit in [`app-oom.json`](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6)**
 
-If you’ve been paying close attention you might shout now “wait a sec” because you noticed that the memory limit we set in the app definition is 32 MB, but the error message mentions 64MB. DC/OS automatically reserves some overhead memory for the [executor](/1.14/overview/architecture/task-types/#executors) which in this case is 32 MB.
+If you’ve been paying close attention you might shout now “wait a sec” because you noticed that the memory limit we set in the app definition is 32 MB, but the error message mentions 64MB. DC/OS automatically reserves some overhead memory for the [executor](/mesosphere/dcos/1.14/overview/architecture/task-types/#executors) which in this case is 32 MB.
 
 Please note that OOM `kill` is performed by the Linux kernel itself, hence we can also check the kernel logs directly:
 

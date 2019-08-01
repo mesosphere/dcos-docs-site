@@ -71,11 +71,11 @@ To configure a job to access a secret, see the sections on
 
 # DC/OS overlay network
 
-To submit a {{ model.techShortName }} job inside the [DC/OS Overlay Network](/1.12/overview/design/overlay/), run a command similar to the following:
+To submit a {{ model.techShortName }} job inside the [DC/OS Overlay Network](/mesosphere/dcos/1.12/overview/design/overlay/), run a command similar to the following:
 
     dcos spark run --submit-args="--conf spark.mesos.containerizer=mesos --conf spark.mesos.network.name=dcos --class MySampleClass http://external.website/mysparkapp.jar"
 
-Note that DC/OS overlay support requires the [UCR](/1.12/deploying-services/containerizers/ucr/)   rather than the default Docker Containerizer, so you must set `--conf spark.mesos.containerizer=mesos`.
+Note that DC/OS overlay support requires the [UCR](/mesosphere/dcos/1.12/deploying-services/containerizers/ucr/)   rather than the default Docker Containerizer, so you must set `--conf spark.mesos.containerizer=mesos`.
 
 # Driver failover timeout
 
@@ -96,7 +96,7 @@ The DC/OS {{ model.techName }} Docker image contains OpenJDK 8 and Python 2.7.6.
 
 DC/OS {{ model.techName }} distributions 1.X are compiled with Scala 2.10.  DC/OS {{ model.techName }} distributions 2.X are compiled with Scala 2.11.  Scala is not binary compatible across minor verions, so your {{ model.techShortName }} job must be compiled with the same Scala version as your version of DC/OS {{ model.techName }}.
 
-The default DC/OS {{ model.techName }} distribution is compiled against Hadoop 2.9 libraries.  However, you can choose a different version by following the instructions in [Customize {{ model.techShortName }} distribution](/services/spark/2.8.0-2.4.0/install/#custom-dist/).
+The default DC/OS {{ model.techName }} distribution is compiled against Hadoop 2.9 libraries.  However, you can choose a different version by following the instructions in [Customize {{ model.techShortName }} distribution](/mesosphere/dcos/services/spark/2.8.0-2.4.0/install/#custom-dist/).
 
 
 [13]: http://spark.apache.org/docs/latest/submitting-applications.html

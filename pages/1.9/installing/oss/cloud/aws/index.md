@@ -8,14 +8,14 @@ menuWeight: 0
 
 You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation.
 
-## [Basic templates](/1.9/installing/oss/cloud/aws/basic/)
+## [Basic templates](/mesosphere/dcos/1.9/installing/oss/cloud/aws/basic/)
 The basic templates provide:
 
 * Limited customization options
 * Fastest deployment and minimal setup required
 * Great for simple production deployments, demos, and testing
 
-## [Advanced templates](/1.9/installing/oss/cloud/aws/advanced/)
+## [Advanced templates](/mesosphere/dcos/1.9/installing/oss/cloud/aws/advanced/)
 Choose the advanced templates if you want to customize the AMI, VPC, or Instance Type. The advanced templates are:
 
 * Highly customizable
@@ -30,5 +30,5 @@ Choose the advanced templates if you want to customize the AMI, VPC, or Instance
 - Updates of DC/OS on AWS CloudFormation have not been automated, validated, or documented.
 - Modified CloudFormation templates are not supported by Mesosphere, Inc.
 
-The recommended way to install production ready DC/OS that can be upgraded in-place is to use the [Advanced Installer](/1.9/installing/oss/custom/advanced/).
+The recommended way to install production ready DC/OS that can be upgraded in-place is to use the [Advanced Installer](/mesosphere/dcos/1.9/installing/oss/custom/advanced/).
 [/message]

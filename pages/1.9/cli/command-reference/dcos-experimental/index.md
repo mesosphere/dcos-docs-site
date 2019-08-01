@@ -32,6 +32,6 @@ dcos experimental [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos experimental package add](/1.9/cli/command-reference/dcos-experimental/dcos-experimental-package-add/)   |  Add a DC/OS package to DC/OS. |     
-| [dcos experimental package build](/1.9/cli/command-reference/dcos-experimental/dcos-experimental-package-build/)   |  Build a package locally to be added to DC/OS or to be shared with Universe. |     
-| [dcos experimental package start](/1.9/cli/command-reference/dcos-experimental/dcos-experimental-package-start/)   |  Start a service from a non-native DC/OS package. See `dcos experimental package add` for information on how to add a package to DC/OS. |   
+| [dcos experimental package add](/mesosphere/dcos/1.9/cli/command-reference/dcos-experimental/dcos-experimental-package-add/)   |  Add a DC/OS package to DC/OS. |     
+| [dcos experimental package build](/mesosphere/dcos/1.9/cli/command-reference/dcos-experimental/dcos-experimental-package-build/)   |  Build a package locally to be added to DC/OS or to be shared with Universe. |     
+| [dcos experimental package start](/mesosphere/dcos/1.9/cli/command-reference/dcos-experimental/dcos-experimental-package-start/)   |  Start a service from a non-native DC/OS package. See `dcos experimental package add` for information on how to add a package to DC/OS. |   

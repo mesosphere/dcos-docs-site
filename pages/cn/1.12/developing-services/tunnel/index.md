@@ -111,9 +111,9 @@ DC/OS 隧道可让您完全访问群集内的 DNS、管理节点和代理。Open
 
 ## 前提条件
 * 目前仅支持 Linux 和 macOS。
-* [DC/OS CLI](/cn/1.12/cli/install/)。
+* [DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/install/)。
 * DC/OS 隧道包。运行 `dcos package install tunnel-cli --cli`。
-* [SSH 访问](/cn/1.12/administering-clusters/sshcluster/) （仅限密钥认证）。
+* [SSH 访问](/mesosphere/dcos/cn/1.12/administering-clusters/sshcluster/) （仅限密钥认证）。
 * [OpenVPN 客户端](https://openvpn.net/index.php/open-source/downloads.html) 用于 VPN 功能。
 
 ## 应用示例
@@ -183,7 +183,7 @@ HTTP 代理以 `_<port-name>._<service-name>._tcp.marathon.mesos.mydcos.director
 如需在 DC/OS Web 界面指定端口，请转到 **服务 > 服务** 选项卡，单击服务名称，然后单击 **编辑**。在 **网络** 选项卡上输入端口的名称。
 
 #### 在 Marathon 应用定义中添加指定港口
-或者，可以添加 `name` 到Marathon 应用定义的 `portMappings` 或 `portDefinitions` 字段。使用 `portMappings` 还是 `portDefinitions` 取决于您使用的是 `BRIDGE` 还是 `HOST` 网络。[详细了解 Marathon 的网络和端口](/cn/1.12/deploying-services/service-ports/)。
+或者，可以添加 `name` 到Marathon 应用定义的 `portMappings` 或 `portDefinitions` 字段。使用 `portMappings` 还是 `portDefinitions` 取决于您使用的是 `BRIDGE` 还是 `HOST` 网络。[详细了解 Marathon 的网络和端口](/mesosphere/dcos/cn/1.12/deploying-services/service-ports/)。
 
 ```json
 "portMappings": [

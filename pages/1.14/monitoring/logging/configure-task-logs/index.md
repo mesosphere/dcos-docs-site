@@ -47,7 +47,7 @@ The `logrotate` option will place logs (files named `stdout` and `stderr`)
 inside the task sandbox and create additional files for rotating these
 logs (`*.logrotate.conf` and `*.logrotate.state`).
 
-See the [Logging Reference](/1.14/monitoring/logging/logging-reference/)
+See the [Logging Reference](/mesosphere/dcos/1.14/monitoring/logging/logging-reference/)
 for information on how to read these logs.
 
 ## Max Sizes

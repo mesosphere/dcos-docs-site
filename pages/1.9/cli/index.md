@@ -13,7 +13,7 @@ enterprise: false
 
 You can use the DC/OS command-line interface (CLI) to manage your cluster nodes, install DC/OS packages, inspect the cluster state, and administer the DC/OS service subcommands. 
 
-You can quickly [install](/1.9/cli/install/) the CLI from the DC/OS web interface.
+You can quickly [install](/mesosphere/dcos/1.9/cli/install/) the CLI from the DC/OS web interface.
 
 DC/OS 1.9 requires the DC/OS CLI 0.4.x.
 
@@ -53,7 +53,7 @@ export DCOS_CONFIG=/home/jdoe/config/dcos.toml
 ```
     
 #### DCOS_SSL_VERIFY
-Indicates whether to verify SSL certificates or set the path to the SSL certificates. You must set this variable manually. Setting this environment variable is equivalent to setting the `dcos config set core.ssl_verify` option in the DC/OS configuration [file](/1.9/cli/#configuration-files). For example, to indicate that you want to set the path to SSL certificates:
+Indicates whether to verify SSL certificates or set the path to the SSL certificates. You must set this variable manually. Setting this environment variable is equivalent to setting the `dcos config set core.ssl_verify` option in the DC/OS configuration [file](/mesosphere/dcos/1.9/cli/#configuration-files). For example, to indicate that you want to set the path to SSL certificates:
 
 ```bash
 export DCOS_SSL_VERIFY=false

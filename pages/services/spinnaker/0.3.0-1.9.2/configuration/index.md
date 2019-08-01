@@ -172,7 +172,7 @@ For more configuration options see [spinnaker/igor](https://github.com/spinnaker
 When installing the {{ model.techName }} service via the DC/OS console you have sections for each of the {{ model.techName }} services where you can enter the respective yaml configuration.
 
 Here the sample for the Clouddriver service.
-[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst05.png" alt="{{ model.techName }} Quick Start"/>](/services/spinnaker/0.3.0-1.9.2/img/inst05.png)
+[<img src="/services/spinnaker/0.3.0-1.9.2/img/inst05.png" alt="{{ model.techName }} Quick Start"/>](/mesosphere/dcos/services/spinnaker/0.3.0-1.9.2/img/inst05.png)
 
 ## DC/OS CLI install
 The config folder that was created when we downloaded the zip file earlier also provides a tool to generate an `options.json` file. Once you have edited the yaml templates to your needs, run the tool in the config folder. The proxy hostname is typically the public agent hostname.

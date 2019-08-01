@@ -12,5 +12,5 @@ Organizations typically deploy and manage multiple DC/OS clusters. Multiple clus
 
 DC/OS has two categories of operations for managing multiple clusters:
 
-- **[Cluster connection](/1.14/administering-clusters/multiple-clusters/cluster-connections/)** - operations allow you to set up connections, authenticate, and attach to clusters to enable access to the cluster from the CLI.
-- **[Cluster link](/1.14/administering-clusters/multiple-clusters/cluster-links/)** - operations allow you to create and remove links between clusters. Once you have authenticated to a cluster, in the CLI you can seamlessly attach to a linked cluster without having to repeat the connection and authentication steps. In the UI, if the clusters share an [SSO provider](/1.14/security/ent/sso/), you can easily switch between linked clusters.
+- **[Cluster connection](/mesosphere/dcos/1.14/administering-clusters/multiple-clusters/cluster-connections/)** - operations allow you to set up connections, authenticate, and attach to clusters to enable access to the cluster from the CLI.
+- **[Cluster link](/mesosphere/dcos/1.14/administering-clusters/multiple-clusters/cluster-links/)** - operations allow you to create and remove links between clusters. Once you have authenticated to a cluster, in the CLI you can seamlessly attach to a linked cluster without having to repeat the connection and authentication steps. In the UI, if the clusters share an [SSO provider](/mesosphere/dcos/1.14/security/ent/sso/), you can easily switch between linked clusters.

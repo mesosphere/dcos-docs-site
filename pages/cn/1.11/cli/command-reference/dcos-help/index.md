@@ -30,7 +30,7 @@ dcos help <subcommand>
 
 ## 显示 dcos config 命令的帮助
 
-`dcos help config` 命令与 [`dcos config --help`](/cn/1.11/cli/command-reference/dcos-config/)一样。
+`dcos help config` 命令与 [`dcos config --help`](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-config/)一样。
 
 ```bash
 dcos help config

@@ -9,7 +9,7 @@ The dashboard is the home page of the DC/OS web interface and provides an overvi
 
 [message type="Info"]The Secrets tab is available only in DC/OS Enterprise.[/message]
 
-![Dashboard](/1.9/img/dashboard-ee.gif)
+![Dashboard](/mesosphere/dcos/1.9/img/dashboard-ee.gif)
 
 
 From the dashboard you can easily monitor the health of your cluster.

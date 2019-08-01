@@ -11,10 +11,10 @@ enterprise: false
 
 **前提条件**
 
-- DC/OS 已安装，有至少一个管理节点和 [公共代理](/cn/1.12/overview/concepts/#public-agent-node) 节点
-- DC/OS [CLI](/cn/1.12/cli/) 0.4.6 或更高版本
+- DC/OS 已安装，有至少一个管理节点和 [公共代理](/mesosphere/dcos/cn/1.12/overview/concepts/#public-agent-node) 节点
+- DC/OS [CLI](/mesosphere/dcos/cn/1.12/cli/) 0.4.6 或更高版本
 - [jq](https://github.com/stedolan/jq/wiki/Installation)
-- [SSH](/cn/1.12/administering-clusters/sshcluster/) 已配置
+- [SSH](/mesosphere/dcos/cn/1.12/administering-clusters/sshcluster/) 已配置
 
 您可以通过从终端运行此命令来找到您的公共代理 IP。此命令 SSH 至您的群集以获取群集信息，然后查询 [ifconfig.co](https://ifconfig.co/) 以确定您的公共 IP 地址。
 

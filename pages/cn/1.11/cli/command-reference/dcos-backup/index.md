@@ -39,4 +39,4 @@ Usage:
 | | `delete` | 删除特定备份。<id> 是备份的唯一标识符。 |
 
 
-有关如何从 CLI 创建备份的信息，请参阅 [备份和恢复 CLI](/cn/1.11/administering-clusters/backup-and-restore/backup-restore-cli/)。此流程的限制可参见[备份和恢复限制部分](/cn/1.11/administering-clusters/backup-and-restore/#limitations)。
+有关如何从 CLI 创建备份的信息，请参阅 [备份和恢复 CLI](/mesosphere/dcos/cn/1.11/administering-clusters/backup-and-restore/backup-restore-cli/)。此流程的限制可参见[备份和恢复限制部分](/mesosphere/dcos/cn/1.11/administering-clusters/backup-and-restore/#limitations)。

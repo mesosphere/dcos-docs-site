@@ -13,7 +13,7 @@ enterprise: true
 
 # 配置 DC/OS 访问
 
-本主题介绍如何为 Spark 配置 DC/OS 访问权限。根据您的 [安全模式](/cn/1.11/security/ent/#security-modes/)，Spark 需要 [服务身份认证](/cn/1.11/security/ent/service-auth/) 以访问 DC/OS。
+本主题介绍如何为 Spark 配置 DC/OS 访问权限。根据您的 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes/)，Spark 需要 [服务身份认证](/mesosphere/dcos/cn/1.11/security/ent/service-auth/) 以访问 DC/OS。
 
 | 安全模式 | 服务帐户 |
 |---------------|-----------------------|
@@ -21,13 +21,13 @@ enterprise: true
 | 宽容 | 可选 |
 | 严格 | 必填 |
 
-如果您在宽容模式下安装服务且未指定服务帐户，Metronome 和 Marathon 将按照此服务的请求是由具有 [超级用户权限](/cn/1.11/security/ent/perms-reference/#superuser)的帐户做出的那样行事。
+如果您在宽容模式下安装服务且未指定服务帐户，Metronome 和 Marathon 将按照此服务的请求是由具有 [超级用户权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/#superuser)的帐户做出的那样行事。
 
 **先决条件：**
 
-- [已安装 DC/OS CLI](/cn/1.11/cli/install/) 并以超级用户身份登录。
-- [已安装 Enterprise DC/OS CLI 0.4.14 或更高版本](/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
-- 如果您的 [安全模式](/cn/1.11/security/ent/#security-modes/) 是 `permissive` 或 `strict`，您必须 [获取 root 证书](/cn/1.11/networking/tls-ssl/get-cert/)，才能发出本部分中的 curl 命令。
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 并以超级用户身份登录。
+- [已安装 Enterprise DC/OS CLI 0.4.14 或更高版本](/mesosphere/dcos/cn/1.11/cli/enterprise-cli/#ent-cli-install)。
+- 如果您的 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes/) 是 `permissive` 或 `strict`，您必须 [获取 root 证书](/mesosphere/dcos/cn/1.11/networking/tls-ssl/get-cert/)，才能发出本部分中的 curl 命令。
 
 # <a name="create-a-keypair"></a>创建密钥对
 在此步骤中，系统使用 Enterprise DC/OS CLI（如果没有，使用 `dcos package install dcos-enterprise-cli` 安装）创建 2048 位 RSA 公私密钥对。
@@ -38,7 +38,7 @@ enterprise: true
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-**提示：** 您可以使用 [DC/OS 密钥存储库](/cn/1.11/security/ent/secrets/) 保护密钥对。
+**提示：** 您可以使用 [DC/OS 密钥存储库](/mesosphere/dcos/cn/1.11/security/ent/secrets/) 保护密钥对。
 
 # <a name="create-a-service-account"></a>创建服务帐户
 
@@ -163,7 +163,7 @@ dcos spark run --verbose --submit-args=" \
 --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 100"
 ```
 
-如果您想使用 [Docker Engine](/cn/1.11/deploying-services/containerizers/docker-containerizer/) 而非 [Universal Container Runtime](/cn/1.11/deploying-services/containerizers/ucr/)，您必须通过 `SPARK_USER` 环境变量指定用户：
+如果您想使用 [Docker Engine](/mesosphere/dcos/cn/1.11/deploying-services/containerizers/docker-containerizer/) 而非 [Universal Container Runtime](/mesosphere/dcos/cn/1.11/deploying-services/containerizers/ucr/)，您必须通过 `SPARK_USER` 环境变量指定用户：
 
 ```bash
 dcos spark run --verbose --submit-args="\

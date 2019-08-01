@@ -17,13 +17,13 @@ DC/OS 作为单一服务处理并展示 pod。pod 共享网络命名空间中的
 - Pod 仅支持 Mesos 级运行状况检查。
 
 # 网络
-Marathon Pod 仅支持 [DC/OS 通用容器运行时间](/cn/1.12/deploying-services/containerizers/)，该运行时间支持多种镜像格式，包括 Docker。
+Marathon Pod 仅支持 [DC/OS 通用容器运行时间](/mesosphere/dcos/cn/1.12/deploying-services/containerizers/)，该运行时间支持多种镜像格式，包括 Docker。
 
-通用容器运行时间允许每个 pod 实例的容器通过 VLAN 或专用网络共享网络命名空间并进行通信，从而简化网络。如果在 pod 定义中指定没有名称的容器网络，它将被分配到默认网络。如果您已使用 [AWS 模板](/cn/1.12/installing/oss/cloud/aws/) 安装了 DC/OS，则默认网络是 `dcos`。
+通用容器运行时间允许每个 pod 实例的容器通过 VLAN 或专用网络共享网络命名空间并进行通信，从而简化网络。如果在 pod 定义中指定没有名称的容器网络，它将被分配到默认网络。如果您已使用 [AWS 模板](/mesosphere/dcos/cn/1.12/installing/oss/cloud/aws/) 安装了 DC/OS，则默认网络是 `dcos`。
 
-如果其他应用需要与您的 pod 通信，请在 pod 定义中指定一个端点。其他应用程序将通过访问这些端点与 Pod 进行通信。参见 [示例部分](/cn/1.12/deploying-services/pods/examples/)，了解更多信息。
+如果其他应用需要与您的 pod 通信，请在 pod 定义中指定一个端点。其他应用程序将通过访问这些端点与 Pod 进行通信。参见 [示例部分](/mesosphere/dcos/cn/1.12/deploying-services/pods/examples/)，了解更多信息。
 
-在您的 pod 定义中，您可以声明 `host` 或 `container` 网络类型。借助 `host` 类型创建的 Pod 共享主机的网络命名空间。借助 `container` 类型创建的 Pod 则使用虚拟网络。如果您指定 `container` 网络类型且 Marathon 未配置为具有默认网络名称，您也必须在 `name` 字段中声明虚拟网络名称。参见完整 JSON 的 [示例](/cn/1.12/deploying-services/pods/examples/) 部分。
+在您的 pod 定义中，您可以声明 `host` 或 `container` 网络类型。借助 `host` 类型创建的 Pod 共享主机的网络命名空间。借助 `container` 类型创建的 Pod 则使用虚拟网络。如果您指定 `container` 网络类型且 Marathon 未配置为具有默认网络名称，您也必须在 `name` 字段中声明虚拟网络名称。参见完整 JSON 的 [示例](/mesosphere/dcos/cn/1.12/deploying-services/pods/examples/) 部分。
 
 # 临时存储库
 Pod 内的容器共享临时存储库。在 pod 级别声明卷，且在被 `name` 引用之后安装到特定容器中。
@@ -35,14 +35,14 @@ Pod 内的容器共享临时存储库。在 pod 级别声明卷，且在被 `nam
  历史记录永久关联 `pod_id`。如果删除 pod，然后重新使用该 ID，即使 Pod 的详细信息不同，新的 pod 仍会显示先前的历史记录（例如，版本信息）。
 
 # Pod 定义
-Pod 通过 JSON pod 定义接受配置，与 Marathon 方式相似 [应用定义](/cn/1.12/deploying-services/creating-services/)。您必须声明 Pod 中每个容器所需的资源，因为Mesos（而非 Marathon）决定了对 Pod 请求的所有资源执行隔离的方式和时间。参见 [示例](/cn/1.12/deploying-services/pods/examples/) 部分，了解完整的 pod 定义。
+Pod 通过 JSON pod 定义接受配置，与 Marathon 方式相似 [应用定义](/mesosphere/dcos/cn/1.12/deploying-services/creating-services/)。您必须声明 Pod 中每个容器所需的资源，因为Mesos（而非 Marathon）决定了对 Pod 请求的所有资源执行隔离的方式和时间。参见 [示例](/mesosphere/dcos/cn/1.12/deploying-services/pods/examples/) 部分，了解完整的 pod 定义。
 
 # 环境变量
 在 pod 级别定义的环境变量将传播到所有 pod 容器。Pod 级环境变量被在 pod 容器级别定义的环境变量覆盖。
 
 端口的环境变量使用 pod 容器端点名称（即，ENDPOINT_<ENDPOINT_NAME>=<PORT>）定义。
 
-以下是反映 [多个 Pod JSON pod 定义示例](/cn/1.12/deploying-services/pods/examples/#multi-pod) 的环境变量示例。
+以下是反映 [多个 Pod JSON pod 定义示例](/mesosphere/dcos/cn/1.12/deploying-services/pods/examples/#multi-pod) 的环境变量示例。
 
 ```
 MESOS_EXECUTOR_ID=instance-test-pod.c2b47e5c-d1f5-11e6-a247-a65e72d2dda4
@@ -137,7 +137,7 @@ Pod 还支持主机卷。Pod 卷参数可以声明 `host` 字段，用于指代�
 
 ## 容器
 
-Marathon Pod 支持 [DC/OS 通用容器运行时间](/cn/1.12/deploying-services/containerizers/)。通用容器运行时 [支持多个镜像，例如 Docker](http://mesos.apache.org/documentation/latest/container-images)。
+Marathon Pod 支持 [DC/OS 通用容器运行时间](/mesosphere/dcos/cn/1.12/deploying-services/containerizers/)。通用容器运行时 [支持多个镜像，例如 Docker](http://mesos.apache.org/documentation/latest/container-images)。
 
 以下 JSON 为 Pod 指定了 Docker 镜像：
 

@@ -12,8 +12,8 @@ menuWeight: 7
 
 
 # 先决条件
-* [正在运行的 DC/OS 集群](/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/cn/1.11/tutorials/dcos-101/cli/)。
-* [app2](/cn/1.11/tutorials/dcos-101/app2/) 已部署并在您的集群中运行。
+* [正在运行的 DC/OS 集群](/mesosphere/dcos/cn/1.11/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/tutorials/dcos-101/cli/)。
+* [app2](/mesosphere/dcos/cn/1.11/tutorials/dcos-101/app2/) 已部署并在您的集群中运行。
 
 # 目的
 

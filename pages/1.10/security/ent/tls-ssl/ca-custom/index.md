@@ -45,7 +45,7 @@ The benefits of using a custom CA certificate for your DC/OS Enterprise cluster 
 
 In order to install DC/OS Enterprise with a custom CA certificate you will need:
 
-- to use the [advanced DC/OS installation method](/1.10/installing/production/deploying-dcos/installation/). Other installation methods are not supported.
+- to use the [advanced DC/OS installation method](/mesosphere/dcos/1.10/installing/production/deploying-dcos/installation/). Other installation methods are not supported.
 - A file containing the custom CA certificate.
 - A file containing the private key associated with the custom CA certificate.
 - If the CA is **not** a self-signed root CA, a file containing the certificate chain associated with the custom CA certificate. 
@@ -123,7 +123,7 @@ For an intermediate CA, this needs to point to a file containing all CA certific
 
 **Prerequisites**
 
-- The installation of DC/OS Enterprise via the Advanced Installer has been prepared according to the corresponding [documentation](/1.10/installing/production/deploying-dcos/installation/). (up to the section **Install DC/OS** of that documentation)
+- The installation of DC/OS Enterprise via the Advanced Installer has been prepared according to the corresponding [documentation](/mesosphere/dcos/1.10/installing/production/deploying-dcos/installation/). (up to the section **Install DC/OS** of that documentation)
 
 - On the bootstrap node, the files carrying custom CA certificate, the associated private key and, optionally, the CA certificate chain have been placed into the `$DCOS_INSTALL_DIR/genconf/` directory. (see the [section](#manually-placing-the-custom-ca-certificate-the-associated-private-key-and-the-certificate-chain-onto-the-bootstrap-node) above for more detailed description)
 
@@ -160,13 +160,13 @@ ca_certificate_chain_path: genconf/dcos-ca-certificate-chain.crt
 Note that `ca_certificate_chain_path` must not be present when setting up DC/OS Enterprise with a root certificate as the custom CA certificate.
 
 ## Installation
-Proceed with the installation as described in the [documentation of the Advanced Installer](/1.10/installing/production/deploying-dcos/installation/#install-dcos).
+Proceed with the installation as described in the [documentation of the Advanced Installer](/mesosphere/dcos/1.10/installing/production/deploying-dcos/installation/#install-dcos).
 Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
 
 ## Verify installation
 One method of verifying that the DC/OS Enterprise cluster was installed properly with the custom CA certificate is to initiate a TLS connection to Admin Router which, after installation, will present a certificate signed by the custom CA. 
 
-In order to do that you first need to obtain the DC/OS CA bundle of the deployed cluster. [This page](/1.10/security/ent/tls-ssl/get-cert/) shows how you can do that.
+In order to do that you first need to obtain the DC/OS CA bundle of the deployed cluster. [This page](/mesosphere/dcos/1.10/security/ent/tls-ssl/get-cert/) shows how you can do that.
 
 Provided you have obtained the DC/OS CA bundle and stored it in a file named `dcos-ca.crt`, issue the following command in the directory containing the `dcos-ca.crt` file in order to check that Admin Router on a master node uses a certificate signed by the custom CA:
 

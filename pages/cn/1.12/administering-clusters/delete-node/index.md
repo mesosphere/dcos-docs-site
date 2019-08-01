@@ -9,7 +9,7 @@ enterprise: false
 
 自 DC/OS 1.12 起，删除节点涉及两个步骤：告知 DC/OS 将节点标记为 `GONE`，并停止相应的 Mesos 从 systemd 单元。
 
-如果您的节点以意外方式停工，您只需要 [停用节点](/cn/1.12/administering-clusters/delete-node/#decommission-the-node/)。
+如果您的节点以意外方式停工，您只需要 [停用节点](/mesosphere/dcos/cn/1.12/administering-clusters/delete-node/#decommission-the-node/)。
 
 # 停用节点
 
@@ -21,7 +21,7 @@ enterprise: false
 
 - 您在删除节点，尤其是删除多个节点时。DC/OS 配置为每 20 分钟仅允许标记一个节点为 `UNREACHABLE` ，所以，如果您不是明确地停用节点，可能需要较长时间 Mesos 才能将您的节点标记为 `UNREACHABLE` 并允许服务在另一节点上重新安排任务。
 
-- 如果您正使用有状态服务，如 [DC/OS 数据服务](/services/)。有状态服务重新安排任务代价昂贵，所以服务需要在重新安排前知道代理不会再次返回在线。
+- 如果您正使用有状态服务，如 [DC/OS 数据服务](/mesosphere/dcos/services/)。有状态服务重新安排任务代价昂贵，所以服务需要在重新安排前知道代理不会再次返回在线。
 
 - 当节点以意外停工时。
 
@@ -48,7 +48,7 @@ dcos node decommission <mesos-agent-id>
 
 如果 DC/OS 节点仍在运行，Mesos从进程将继续尝试注册（并且由于代理被标记为已消失，注册会被拒绝）。您可以通过停止 Mesos 从进程（以 systemd 单元运行），停止这些尝试。
 
-1. [SSH 至代理节点](/cn/1.12/administering-clusters/sshcluster/)（您希望关闭的）。
+1. [SSH 至代理节点](/mesosphere/dcos/cn/1.12/administering-clusters/sshcluster/)（您希望关闭的）。
 
 1. 输入以下命令，停止节点。
 

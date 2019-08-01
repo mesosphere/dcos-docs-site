@@ -11,7 +11,7 @@ The DC/OS Enterprise CLI is used to manage security features.
 
 # <a name="ent-cli-install"></a>Installing the DC/OS Enterprise CLI
 
-**Prerequisite:** The DC/OS CLI must already be [installed](/1.9/cli/install/).
+**Prerequisite:** The DC/OS CLI must already be [installed](/mesosphere/dcos/1.9/cli/install/).
 
 **Tip:** The DC/OS Enterprise CLI must be installed from a terminal prompt. You cannot click on the package in the Universe to install it.
 

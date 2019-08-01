@@ -11,7 +11,7 @@ Use this guide to get started with the DC/OS metrics component. The metrics comp
 
 **Prerequisites:** 
 
-- You must have the [DC/OS CLI installed](/1.10/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.10/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
   
 1.  Optional: Deploy a sample Marathon app for use in this quick start guide. If you already have tasks running on DC/OS, you can skip this setup step.
 

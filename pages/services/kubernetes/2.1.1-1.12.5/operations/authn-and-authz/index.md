@@ -28,7 +28,7 @@ To enable `RBAC` authorization mode set the value of the `kubernetes.authorizati
 
 This is done when installing the package, either via the UI:
 
-![alt text](/services/kubernetes/2.1.1-1.12.5/img/authorization-mode.png "Authorization Mode")
+![alt text](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/img/authorization-mode.png "Authorization Mode")
 
 Figure 1. Setting the authorization mode
 
@@ -58,7 +58,7 @@ We also **highly recommend** that the operator create new service account(s) for
 
 <p class="message--note"><strong>NOTE: </strong> Fine-grained authorization control with service accounts will only work when RBAC authorization mode is selected.</p>
 
-Once [kubectl is setup for the bootstrap user](/services/kubernetes/2.1.1-1.12.5/operations/connecting-clients/) you may wish to grant other users access to specific resources running in the cluster.
+Once [kubectl is setup for the bootstrap user](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/operations/connecting-clients/) you may wish to grant other users access to specific resources running in the cluster.
 Below are examples on how to create service accounts and grant those accounts different permissions in the cluster.
 
 ### Pre-defined roles
@@ -111,7 +111,7 @@ kubectl create rolebinding my-pod-sa-view \
   --namespace=my-namespace
 ```
 
-To retrieve the generated token for `my-pod-sa` service account that can later be used to configure `kubectl` or access the [Kubernetes Dashboard](/services/kubernetes/2.1.1-1.12.5/operations/kubernetes-dashboard/), get the secret name and then that secret's token:
+To retrieve the generated token for `my-pod-sa` service account that can later be used to configure `kubectl` or access the [Kubernetes Dashboard](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/operations/kubernetes-dashboard/), get the secret name and then that secret's token:
 
 ```shell
 export SECRET="$(kubectl get sa my-pod-sa -o 'jsonpath={.secrets[0].name}' -n my-namespace)"

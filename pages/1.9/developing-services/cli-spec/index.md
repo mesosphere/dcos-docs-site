@@ -16,7 +16,7 @@ This page is intended for a developer creating new DC/OS CLI commands.
 See also the [Universe Getting Started][1].
 
 ## The DC/OS CLI
-You can [install](/1.9/cli/install/) the DC/OS Command Line Interface (CLI) locally on your machine. The DC/OS CLI communicates with the DC/OS cluster, running either on-premise or with a cloud provider.
+You can [install](/mesosphere/dcos/1.9/cli/install/) the DC/OS Command Line Interface (CLI) locally on your machine. The DC/OS CLI communicates with the DC/OS cluster, running either on-premise or with a cloud provider.
 
 The DC/OS CLI uses a single command, `dcos`. All functions are expressed as subcommands, and are shown with the `dcos help` command.
 

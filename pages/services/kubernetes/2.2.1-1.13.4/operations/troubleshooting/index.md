@@ -15,11 +15,11 @@ excerpt: Troubleshooting DC/OS Kubernetes
 If the scheduler task is not starting at all for your Kubernetes cluster, confirm that your DC/OS cluster contains enough resources to launch the cluster.
 If it appears that there are enough resources available, verify that there are no existing quotas for that installation. If there are, verify that it contains correct values.
 
-See the [Resources section](/services/kubernetes/2.2.1-1.13.4/getting-started/provision-install/#resources) of the [Installing](/services/kubernetes/2.2.1-1.13.4/getting-started/provision-install/) page for more detail on setting up your cluster.
+See the [Resources section](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/getting-started/provision-install/#resources) of the [Installing](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/getting-started/provision-install/) page for more detail on setting up your cluster.
 
 ## Scheduler is restarting
 
-If the scheduler task is starting for your Kubernetes cluster but is in a "Failed" restart loop, verify all of the installation [prerequisites](/services/kubernetes/2.2.1-1.13.4/getting-started/provision-install/#prerequisites) have been met.
+If the scheduler task is starting for your Kubernetes cluster but is in a "Failed" restart loop, verify all of the installation [prerequisites](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/getting-started/provision-install/#prerequisites) have been met.
 This might include improperly configured Service Account and/or Service Account secret or other issues.
 
 The simplest way is to look at the Kubernetes cluster's scheduler logs for any error messages. Here are a few examples of what you might see.
@@ -58,7 +58,7 @@ Caused by: java.io.IOException: Unable to list secret at 'dev/kubernetes0q': que
 
 ## Scheduler started but other tasks are not being launched
 
-If the scheduler is running but no other tasks are being launched and the DC/OS cluster is running in strict mode, verify that the service account was [created correctly](/services/kubernetes/2.2.1-1.13.4/operations/customizing-install/#tls).
+If the scheduler is running but no other tasks are being launched and the DC/OS cluster is running in strict mode, verify that the service account was [created correctly](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/operations/customizing-install/#tls).
 Below is an example of what you might see in the scheduler logs in such as a scenario:
 
 ```text
@@ -77,7 +77,7 @@ com.mesosphere.mesos.HTTPAdapter.MesosToSchedulerDriverAdapter:subscribe(115): S
 ## A restarting or unhealthy DC/OS task
 
 In rare situations a DC/OS Kubernetes task may become unstable and require manual intervention.
-In this case use the `dcos kubernetes cluster debug pod` [CLI](/services/kubernetes/2.2.1-1.13.4/cli#debug-pod-1) to assist in debugging and recovering failed, flapping or otherwise misbehaving tasks.
+In this case use the `dcos kubernetes cluster debug pod` [CLI](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/cli#debug-pod-1) to assist in debugging and recovering failed, flapping or otherwise misbehaving tasks.
 
 First run `dcos kubernetes cluster debug pod restart <pod> --cluster-name <cluster-name>` to simply restart the task on the same agent.
 If that does not work or you know that specific agent is unhealthy, run `dcos kubernetes cluster debug pod replace <pod> --cluster-name <cluster-name>` to force the pod to be scheduled on a new agent.
@@ -173,7 +173,7 @@ When a DC/OS agent is decommissioned, any Kubernetes tasks that are running on t
 The DC/OS Kubernetes package goes to great lengths to ensure proper operation of the `etcd` cluster in the presence of failures.
 However, it is not possible to foresee and mitigate all possible situations, and in some cases manual intervention by the end-user may be required.
 For instance, if an `etcd` process that has been added to an existing cluster crashes before actually being able to establish a connection with the other members, the cluster may become unstable or, in some circumstances, inoperable.
-This document presents a number of best-practices that help reducing the chances of permanently losing an `etcd` cluster and the associated data. You should be familiar with the [Disaster Recovery](/services/kubernetes/2.2.1-1.13.4/operations/disaster-recovery/) section before reading this document.
+This document presents a number of best-practices that help reducing the chances of permanently losing an `etcd` cluster and the associated data. You should be familiar with the [Disaster Recovery](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/operations/disaster-recovery/) section before reading this document.
 
 ## Failure Scenarios
 
@@ -190,7 +190,7 @@ The first scenario deals with failures that may happen when first installing DC/
 It is the least risky one as there is no pre-existing data stored in `etcd`, and hence there will be no data loss.
 
 In this scenario, the easiest way towards recovery is to uninstall and re-install DC/OS Kubernetes.
-Before re-installing DC/OS Kubernetes, make sure that all DC/OS agents are healthy, and that the DC/OS cluster itself is healthy and that there are no networking problems, and meets all the [prerequisites](/services/kubernetes/2.2.1-1.13.4/getting-started/provision-install/#prerequisites).
+Before re-installing DC/OS Kubernetes, make sure that all DC/OS agents are healthy, and that the DC/OS cluster itself is healthy and that there are no networking problems, and meets all the [prerequisites](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/getting-started/provision-install/#prerequisites).
 
 ### Scenario 2
 
@@ -200,7 +200,7 @@ To prevent this situation or be prepared in case it arises, you can take a numbe
 
 #### Perform a backup of the existing installation
 
-Before switching the value of `kubernetes.high_availability`, it is **STRONGLY ADVISED** to perform a backup of the current installation using the instructions in [Disaster Recovery](/services/kubernetes/2.2.1-1.13.4/operations/disaster-recovery/).
+Before switching the value of `kubernetes.high_availability`, it is **STRONGLY ADVISED** to perform a backup of the current installation using the instructions in [Disaster Recovery](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/operations/disaster-recovery/).
 In the unlikely event of a failure in the `etcd` cluster while the scale-up operation is performed, uninstall DC/OS Kubernetes and use `dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME` to restore the backup to a new cluster.
 After the restore, retry updating the value of `kubernetes.high_availability` from `false` to `true`.
 If this operation fails for the second or third time in a row, the DC/OS cluster may be unhealthy, and you are encouraged to contact technical support in order to further troubleshoot the problem.
@@ -242,8 +242,8 @@ When the `etcd-0-peer` task crashes but the DC/OS agent where it was running rem
 The DC/OS Kubernetes cluster as a whole may experience some instability, and some other tasks (such as `kube-control-plane-0-instance`) may also restart, but existing `etcd` data will be safe.
 There is usually no need for manual intervention in this scenario.
 
-When the DC/OS agent where `etcd-0-peer` was running permanently fails, and as mentioned in [Limitations](/services/kubernetes/2.2.1-1.13.4/limitations/), the contents of the `etcd` data directory will be **PERMANENTLY LOST**.
-In order to restore data you will have to use `dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME` as described in [Disaster Recovery](/services/kubernetes/2.2.1-1.13.4/operations/disaster-recovery/).
+When the DC/OS agent where `etcd-0-peer` was running permanently fails, and as mentioned in [Limitations](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/limitations/), the contents of the `etcd` data directory will be **PERMANENTLY LOST**.
+In order to restore data you will have to use `dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME` as described in [Disaster Recovery](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/operations/disaster-recovery/).
 For this reason, it is **STRONGLY ADVISED** to periodically back up the DC/OS Kubernetes cluster(s) using `dcos kubernetes cluster backup --cluster-name=CLUSTER-NAME`, and to avoid running production workloads in a cluster where `kubernetes.high_availability` is set to `false`.
 
 ### Scenario 4
@@ -270,7 +270,7 @@ $ dcos kubernetes cluster debug --cluster-name=CLUSTER-NAME pod replace <pod-nam
 ```
 
 However, permanently losing two or more members will cause the `etcd` cluster to lose quorum and become inoperable.
-In this scenario you must use `dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME` to re-create the DC/OS Kubernetes cluster from a previous backup, as described in [Disaster Recovery](/services/kubernetes/2.2.1-1.13.4/operations/disaster-recovery/).
+In this scenario you must use `dcos kubernetes cluster restore --cluster-name=CLUSTER-NAME` to re-create the DC/OS Kubernetes cluster from a previous backup, as described in [Disaster Recovery](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/operations/disaster-recovery/).
 
 ## Further Reading
 

@@ -22,7 +22,7 @@ DC/OS 覆盖提供的功能包括：
 * 可以运行需要群集内连通的应用程序，如 Cassandra、HDFS 和 Riak。
 * 可以创建多个虚拟网络来隔离您组织的不同部分，如开发、营销和生产。
 
-有关 DC/OS 覆盖的设计和实现的详细信息，请参阅 [覆盖简介](/cn/1.12/overview/design/overlay/)。DC/OS 覆盖的默认配置提供 IPv4 虚拟网络、`dcos`，以及 YAML 配置如下的 IPv6 虚拟网络 `dcos6`：
+有关 DC/OS 覆盖的设计和实现的详细信息，请参阅 [覆盖简介](/mesosphere/dcos/cn/1.12/overview/design/overlay/)。DC/OS 覆盖的默认配置提供 IPv4 虚拟网络、`dcos`，以及 YAML 配置如下的 IPv6 虚拟网络 `dcos6`：
 
 ```yaml
  dcos_overlay_network :
@@ -40,7 +40,7 @@ DC/OS 覆盖提供的功能包括：
 
 每个虚拟网络通过一个规范的 `name` 识别（有关虚拟网络命名的限制，请参阅 [限制](#limitations)）。在虚拟网络上启动的容器从分配给虚拟网络的子网获取 IP 地址。要移除对全局 IPAM 的依赖关系，覆盖子网进一步分成更小的子网。每个更小的子网都会分配给代理。然后，代理可以使用主机本地 IPAM 将 IP 地址从各自的子网分配给在代理上启动的容器，并附加到给定的覆盖网络。`prefix` 确定分配给每个代理的子网（从覆盖子网创造出来）的大小，进而定义覆盖网络可运行的代理的数量。例如，在高于虚拟网络的默认配置中，`dcos` 分配有 /8 子网（在“子网”字段），它然后被分为每个将作为网络一部分的主机上使用的 /26 容器子网（在“前缀”字段中），如下所示：
 
-![虚拟网络地址空间](/1.12/img/overlay-network-address-space.png)
+![虚拟网络地址空间](/mesosphere/dcos/1.12/img/overlay-network-address-space.png)
 
 图 1. 虚拟网络地址空间
 
@@ -87,7 +87,7 @@ DC/OS 虚拟网络只能在安装时进行添加和配置。要替换或添加�
           prefix: 24
 ```
 
-上例中，定义了两个虚拟网络。虚拟网络 `dcos` 保留默认虚拟网络，并添加了另一个名为 `dcos-1` 的虚拟网络，其子网范围为 `192.168.0.0/16`。在 DC/OS 覆盖中，虚拟网络必须与一个名称和子网关联。该名称用于使用此特定虚拟网络来启动 Marathon 任务和其他 Mesos 框架任务（请参阅 [使用](/cn/1.12/networking/SDN/usage/)）。由于 Linux 设备名称的大小限制，虚拟网络名称必须少于 13 个字符。请参阅虚拟网络主要页面的 [限制](#limitations) 部分，了解更多信息。
+上例中，定义了两个虚拟网络。虚拟网络 `dcos` 保留默认虚拟网络，并添加了另一个名为 `dcos-1` 的虚拟网络，其子网范围为 `192.168.0.0/16`。在 DC/OS 覆盖中，虚拟网络必须与一个名称和子网关联。该名称用于使用此特定虚拟网络来启动 Marathon 任务和其他 Mesos 框架任务（请参阅 [使用](/mesosphere/dcos/cn/1.12/networking/SDN/usage/)）。由于 Linux 设备名称的大小限制，虚拟网络名称必须少于 13 个字符。请参阅虚拟网络主要页面的 [限制](#limitations) 部分，了解更多信息。
 
 # 检索虚拟网络状态
 
@@ -314,7 +314,7 @@ DC/OS Web 界面的**网络**选项卡提供了有助于排除故障的信息。
 
 * DC/OS 覆盖不允许服务预留 IP 地址，这会造成为虚拟网络上多个化身之间的容器产生临时地址。此限制确保给定客户端连接到正确的服务。
 
-DC/OS 在不同的 [区域](/cn/1.12/networking/DNS/) 提供 FQDN，提供通过可预测的 URL 访问服务的简洁方式。如果使用 DC/OS 覆盖，您应使用 DC/OS DNS 服务提供的 FQDN 之一，以便客户端能够轻松发现服务的位置。
+DC/OS 在不同的 [区域](/mesosphere/dcos/cn/1.12/networking/DNS/) 提供 FQDN，提供通过可预测的 URL 访问服务的简洁方式。如果使用 DC/OS 覆盖，您应使用 DC/OS DNS 服务提供的 FQDN 之一，以便客户端能够轻松发现服务的位置。
 
 * DC/OS 覆盖网络上的容器总数的限制与覆盖子网上可用 IP 地址的数量相同。但是，代理上的容器数量限制取决于分配给此代理的子网（将是覆盖子网的子集）。对于给定的代理子网，一半的地址空间分配给 `MesosContainerizer`，另一半分配给 `DockerContainerizer`。
 
@@ -328,10 +328,10 @@ DC/OS 在不同的 [区域](/cn/1.12/networking/DNS/) 提供 FQDN，提供通过
 
 * 某些名称是预留的，不能用作 DC/OS 覆盖名称。这是因为 DC/OS 覆盖使用底层 Docker 网络将 Docker 容器连接到覆盖网络，而这反过来预留某些网络名称。预留的名称为：`host`、`bridge` 和 `default`。
 
-* [Marathon 运行状况检查](/cn/1.12/deploying-services/creating-services/health-checks/) 不会使用某些 DC/OS 覆盖配置。如果您不使用默认的 DC/OS 覆盖配置且 Marathon 与虚拟网络隔离，运行状况检查将持续失败，即使服务的运行状况良好。
+* [Marathon 运行状况检查](/mesosphere/dcos/cn/1.12/deploying-services/creating-services/health-checks/) 不会使用某些 DC/OS 覆盖配置。如果您不使用默认的 DC/OS 覆盖配置且 Marathon 与虚拟网络隔离，运行状况检查将持续失败，即使服务的运行状况良好。
 
  以下任何情况时，Marathon 运行状况检查将正常运行：
 
  * 您在使用默认的 DC/OS 覆盖配置时。
  * Marathon 可以访问虚拟网络时。
- * 您使用 [`command` 运行状况检查](/cn/1.12/deploying-services/creating-services/health-checks/) 时。
+ * 您使用 [`command` 运行状况检查](/mesosphere/dcos/cn/1.12/deploying-services/creating-services/health-checks/) 时。

@@ -347,7 +347,7 @@ Marathon 上 PostgreSQL 的模型应用定义如下所示。请注意，我们�
 
 ## 含有持久卷的 Pod
 
-以下示例将创建含有两个容器和一个共享持久卷的 Pod。另请参见 [Pod](/cn/1.12/deploying-services/pods/)。
+以下示例将创建含有两个容器和一个共享持久卷的 Pod。另请参见 [Pod](/mesosphere/dcos/cn/1.12/deploying-services/pods/)。
 
 ```json
 {

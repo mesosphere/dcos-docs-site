@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-可以使用 [虚拟地址 (VIP)](/networking/load-balancing-vips/virtual-ip-addresses/) 简化端口管理工作。VIP 简化了应用间通信，并实施可靠的服务导向型架构。VIP 将流量从单个虚拟地址映射到多个 IP 地址和端口。
+可以使用 [虚拟地址 (VIP)](/mesosphere/dcos/networking/load-balancing-vips/virtual-ip-addresses/) 简化端口管理工作。VIP 简化了应用间通信，并实施可靠的服务导向型架构。VIP 将流量从单个虚拟地址映射到多个 IP 地址和端口。
 
 # 定义
 

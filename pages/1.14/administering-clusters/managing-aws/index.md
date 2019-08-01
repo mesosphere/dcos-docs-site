@@ -27,5 +27,5 @@ To change the number of agent nodes with AWS:
 
 Your new machines will take a few minutes to initialize; you can watch them in the EC2 console. The DC/OS web interface will update as soon as the new nodes register.
 
- [2]: /1.14/installing/evaluation/community-supported-methods/aws/
+ [2]: /mesosphere/dcos/1.14/installing/evaluation/community-supported-methods/aws/
  [3]: https://console.aws.amazon.com/cloudformation/home

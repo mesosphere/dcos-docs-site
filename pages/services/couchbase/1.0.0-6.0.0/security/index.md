@@ -26,7 +26,7 @@ With transport encryption enabled, {{ model.productName }} {{ model.techName }} 
 <p class="message--note"><strong>NOTE: </strong> Couchbase Server currently supports TLS for client interactions and cross data center replication. There is no TLS for node-to-node communication. See the <a href="https://developer.couchbase.com/documentation/server/current/security/security-x509certsintro.html">Couchbase documentation</a> for more details.</p>
 
 
-The service uses the [{{ model.productName }} CA](/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the {{ model.productName }} CA will consider the service's certificates valid.
+The service uses the [{{ model.productName }} CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the {{ model.productName }} CA will consider the service's certificates valid.
 
 #include /services/include/security-configure-transport-encryption.tmpl
 

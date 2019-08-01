@@ -23,7 +23,7 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 ## Cluster nodes
 
-The cluster nodes are designated Mesos masters and agents during installation. The supported operating systems and environments are listed on the [version policy page](/version-policy/).
+The cluster nodes are designated Mesos masters and agents during installation. The supported operating systems and environments are listed on the [version policy page](/mesosphere/dcos/version-policy/).
 
 DC/OS is installed to `/opt/mesosphere` on cluster nodes. `/opt/mesosphere` directory may be created prior to installing DC/OS, but it must be either an empty directory or a link to an empty directory. DC/OS may be installed on a separate volume mount by creating an empty directory on the mounted volume, creating a link at `/opt/mesosphere` that targets the empty directory, and then installing DC/OS.
 
@@ -41,7 +41,7 @@ The table below shows the master node hardware requirements:
 
 Workloads that are expected to be continuously available or considered business critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
 
-[0]: /1.10/overview/high-availability/
+[0]: /mesosphere/dcos/1.10/overview/high-availability/
 
 
 There are many mixed workloads on the masters. Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. Some of these require fsync()ing every so often, and this can generate a lot of very expensive random I/O. We recommend the following:
@@ -78,7 +78,7 @@ The table below shows the agent node hardware requirements.
 
 The agent nodes must also have:
 
-- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/1.10/deploying-services/containerizers/).
+- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/mesosphere/dcos/1.10/deploying-services/containerizers/).
 - Network Access to a public Docker repository or to an internal Docker registry.
 - On RHEL 7 and CentOS 7, `firewalld` must be stopped and disabled. It is a [known Docker issue](https://github.com/docker/docker/issues/16137) that `firewalld` interacts poorly with Docker. For more information, see the [Docker Engine release notes](https://docs.docker.com/engine/release-notes/).
 
@@ -147,7 +147,7 @@ High speed internet access is recommended for DC/OS installation. A minimum 10 M
 
 ### Docker
 
-Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on [version policy page](/version-policy/).
+Docker must be installed on all bootstrap and cluster nodes. The supported Docker versions are listed on [version policy page](/mesosphere/dcos/version-policy/).
 
 **Recommendations**
 
@@ -292,6 +292,6 @@ localectl set-locale LANG=en_US.utf8
 - [Install Docker from Docker’s yum repository][1]
 - [DC/OS Installation Guide][2]
 
-[1]: /1.10/installing/production/system-requirements/docker-centos/
+[1]: /mesosphere/dcos/1.10/installing/production/system-requirements/docker-centos/
 
-[2]: /1.10/installing/production/deploying-dcos/installation/
+[2]: /mesosphere/dcos/1.10/installing/production/deploying-dcos/installation/

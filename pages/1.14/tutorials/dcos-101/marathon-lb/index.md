@@ -15,8 +15,8 @@ Welcome to part 6 of the DC/OS 101 Tutorial.
 
 
 # Prerequisites
-* A [running DC/OS cluster](/1.14/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/1.14/tutorials/dcos-101/cli/).
-* [app2](/1.14/tutorials/dcos-101/app2/) deployed and running in your cluster.
+* A [running DC/OS cluster](/mesosphere/dcos/1.14/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/mesosphere/dcos/1.14/tutorials/dcos-101/cli/).
+* [app2](/mesosphere/dcos/1.14/tutorials/dcos-101/app2/) deployed and running in your cluster.
 
 
 # Objective
@@ -32,7 +32,7 @@ Private agent nodes are usually only accessible inside the cluster, while public
 
 By default, Marathon starts applications and services on private agent nodes, which cannot be accessed from the outside the cluster. To expose an app to the outside you usually use a load balancer running on one of the public nodes.
 
-You will revisit the topic of load balancing and the different choices for load balancers later in this tutorial, but for now, you will use [Marathon-LB](/1.14/tutorials/dcos-101/loadbalancing/) as the load balancer. Marathon-LB uses [HA-Proxy](http://www.haproxy.org/) on a public agent node to provide external access and load balancing for applications running internally in the cluster.
+You will revisit the topic of load balancing and the different choices for load balancers later in this tutorial, but for now, you will use [Marathon-LB](/mesosphere/dcos/1.14/tutorials/dcos-101/loadbalancing/) as the load balancer. Marathon-LB uses [HA-Proxy](http://www.haproxy.org/) on a public agent node to provide external access and load balancing for applications running internally in the cluster.
 
   * Install Marathon-LB: `dcos package install marathon-lb`
   * Check that it is running using `dcos task` and identify the IP address of the public agent node (Host) where Marathon-LB is running
@@ -45,7 +45,7 @@ You will revisit the topic of load balancing and the different choices for load 
   * You can verify the new key was added in two ways:
     1. Check the total number of keys using app1: `dcos task log app1`
     2. Check Redis directly
-       *  [SSH](/1.14/administering-clusters/sshcluster/) into node where Redis is running:
+       *  [SSH](/mesosphere/dcos/1.14/administering-clusters/sshcluster/) into node where Redis is running:
 
            ```bash
            dcos node ssh --master-proxy --mesos-id=$(dcos task  redis --json |  jq -r '.[] | .slave_id')

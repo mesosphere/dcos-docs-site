@@ -41,13 +41,13 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 
 1. At the top-right corner of the DC/OS UI, click the down arrow to the right of your cluster name.
 
-    ![open cluster popup](/1.14/img/open-cluster-popup.png)
+    ![open cluster popup](/mesosphere/dcos/1.14/img/open-cluster-popup.png)
 
     Figure 1. Open cluster popup menu
 
 1. Select **Install CLI**.
 
-    ![CLI install UI](/1.14/img/install-cli.png)
+    ![CLI install UI](/mesosphere/dcos/1.14/img/install-cli.png)
 
     Figure 2. Select Install CLI
 
@@ -97,9 +97,9 @@ It is strongly recommended that you copy and paste the installation commands fro
     dcos cluster setup http://example.com
     ```
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see [Security](/1.14/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see [Security](/mesosphere/dcos/1.14/security/).
 
-    Your CLI should now be authenticated with your cluster! Enter `dcos` to get started. You can learn more about managing your cluster connections [here](/1.14/cli/command-reference/dcos-cluster/).
+    Your CLI should now be authenticated with your cluster! Enter `dcos` to get started. You can learn more about managing your cluster connections [here](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/).
 
 <a name="macos"></a>
 
@@ -132,7 +132,7 @@ It is strongly recommended that you copy and paste the installation commands fro
     ```
     If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.</p>
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.14/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/mesosphere/dcos/1.14/security/).
 
     Your CLI should now be authenticated with your cluster!
 
@@ -170,7 +170,7 @@ It is strongly recommended that you copy and paste the installation commands fro
 
     <p class="message--note"><strong>NOTE: </strong>If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.</p>
 
-    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/1.14/security/).
+    Follow the instructions in the DC/OS CLI. For more information about security, see the [documentation](/mesosphere/dcos/1.14/security/).
 
     Your CLI should now be authenticated with your cluster! Enter `dcos` to get started.
 

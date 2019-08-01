@@ -23,7 +23,7 @@ beta: true
 
     验证您是否可以在不修改的情况下，原样使用这些脚本构建和部署 AMI。AMI 必须部署到要启动群集的每个分域。DC/OS Packer 构建脚本 [create_dcos_ami.sh] (https://github.com/dcos/dcos/blob/master/cloud_images/centos7/create_dcos_ami.sh)可以在运行脚本之前，通过设置环境变量 `DEPLOY_REGIONS` 将 AMI 部署到多个分域。
 
-1. 使用 AWS CloudFormation Web 控制台启动 DC/OS 高级模板，并指定 DC/OS cloud_images AMI。验证群集是否已成功启动。如需更多信息，请参阅 [文档](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/#launch)。
+1. 使用 AWS CloudFormation Web 控制台启动 DC/OS 高级模板，并指定 DC/OS cloud_images AMI。验证群集是否已成功启动。如需更多信息，请参阅 [文档](/mesosphere/dcos/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/#launch)。
 
 ## 修改 DC/OS cloud_images AMI 
 
@@ -33,10 +33,10 @@ beta: true
 
 1. 使用 AWS CloudFormation Web 控制台启动 DC/OS 高级模板，并指定您的自定义 AMI。验证 DC/OS 是否如期启动，并且可以在 DC/OS 群集上启动服务。
 
-1. 按照 [本说明 完成安装](/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/#launch)。
+1. 按照 [本说明 完成安装](/mesosphere/dcos/cn/1.11/installing/evaluation/cloud-installation/aws/advanced/#launch)。
 
 ## 故障排除
 
-- 熟悉 DC/OS 服务启动 [流程](/cn/1.11/overview/architecture/boot-sequence/)。
-- 查看安装故障排除 [文档](/cn/1.11/installing/troubleshooting/)。要进行故障排除，必须有所有群集节点的 [SSH 访问权限](/cn/1.11/administering-clusters/sshcluster/)。
+- 熟悉 DC/OS 服务启动 [流程](/mesosphere/dcos/cn/1.11/overview/architecture/boot-sequence/)。
+- 查看安装故障排除 [文档](/mesosphere/dcos/cn/1.11/installing/troubleshooting/)。要进行故障排除，必须有所有群集节点的 [SSH 访问权限](/mesosphere/dcos/cn/1.11/administering-clusters/sshcluster/)。
 - [DC/OS Slack](https://support.mesosphere.com) 社区是另一个获得帮助的好地方。

@@ -16,7 +16,7 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
     ```bash
     dcos-shell java -jar guano-0.1a.jar -u super -p secret -d / -o /tmp/mesos-zk-backup -s $ZKHOST:2181 && tar -zcvf zkstate.tar.gz /tmp/mesos-zk-backup/
     ```
-    For more information about backing up ZooKeeper using the Guano utility, see [How do I backup ZooKeeper using Guano?](/1.12/installing/installation-faq/#zk-backup)
+    For more information about backing up ZooKeeper using the Guano utility, see [How do I backup ZooKeeper using Guano?](/mesosphere/dcos/1.12/installing/installation-faq/#zk-backup)
 
 1. Back up the DC/OS identity and access management CockroachDB database to a file by running a command similar to the following on the master node:
 
@@ -24,7 +24,7 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
     dcos-shell iam-database-backup > ~/iam-backup.sql
     ```
 
-    For more information about backing up the DC/OS identity and access management CockroachDB database, see [How do I backup the IAM database?](/1.12/installing/installation-faq/#iam-backup)
+    For more information about backing up the DC/OS identity and access management CockroachDB database, see [How do I backup the IAM database?](/mesosphere/dcos/1.12/installing/installation-faq/#iam-backup)
 
 1. Shut down the master node you want to replace.
 
@@ -46,4 +46,4 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
 
     <p class="message--important"><strong>IMPORTANT: </strong>This step is required. Be sure to confirm that the new master has joined the cluster successfully before replacing any additional master nodes or performing any additional administrative tasks.</p>
     
-    To validate that the master node replacement completed successfully, follow the steps to Validate the upgrade as described in [Upgrading a master](/1.12/installing/production/upgrading/).
+    To validate that the master node replacement completed successfully, follow the steps to Validate the upgrade as described in [Upgrading a master](/mesosphere/dcos/1.12/installing/production/upgrading/).

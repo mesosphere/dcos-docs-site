@@ -9,5 +9,5 @@ model: /cn/services/spark/data.yml
 render: mustache
 ---
 
-欢迎使用 DC/OS {{ model.techName }} 服务文档。有关新特性和更新特性的详细信息，请参阅 [发布说明](/cn/services/spark/2.3.1-2.2.1-2/release-notes/)。
+欢迎使用 DC/OS {{ model.techName }} 服务文档。有关新特性和更新特性的详细信息，请参阅 [发布说明](/mesosphere/dcos/cn/services/spark/2.3.1-2.2.1-2/release-notes/)。
 

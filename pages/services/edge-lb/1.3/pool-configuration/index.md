@@ -18,7 +18,7 @@ The API reference, in swagger format, containing all possible options and short 
 dcos edgelb show --reference
 ```
 
-For more information, see the [CLI Reference Guide entry for `dcos edgelb show`](/services/edge-lb/1.3/cli-reference/dcos-edgelb-show/).
+For more information, see the [CLI Reference Guide entry for `dcos edgelb show`](/mesosphere/dcos/services/edge-lb/1.3/cli-reference/dcos-edgelb-show/).
 
 Choose an API version at the left to view the appropriate configuration reference or examples.
 

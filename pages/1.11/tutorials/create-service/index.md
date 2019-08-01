@@ -13,7 +13,7 @@ enterprise: false
 This tutorial shows how to create and deploy a simple one-command service and a containerized service using both the DC/OS web interface and the CLI.
 
 ### Prerequisites
-- [A DC/OS cluster](/1.11/installing/)
+- [A DC/OS cluster](/mesosphere/dcos/1.11/installing/)
 
 # One-command service
 
@@ -31,17 +31,17 @@ Create and run a simple service from the DC/OS web interface:
       -  **DOCKER ENGINE** Use this option if you require specific features of the Docker package. If you select this option, you must specify a Docker container image in the **CONTAINER IMAGE** field.
       -  **UNIVERSAL CONTAINER RUNTIME (UCR)**  Universal Container Runtime (UCR) using native Mesos engine. Supports Docker file format, multiple containers (pods), and GPU resources. If you select this option, you can optionally specify a Docker container image in the **CONTAINER IMAGE** field.
 
-      For more information, see [Using Containerizers](/1.11/deploying-services/containerizers/).
+      For more information, see [Using Containerizers](/mesosphere/dcos/1.11/deploying-services/containerizers/).
 
 1. Click **REVIEW & RUN** and **RUN SERVICE**.
 
-    ![Create a service in the DC/OS UI](/1.11/img/deploy-svs-ui.png)
+    ![Create a service in the DC/OS UI](/mesosphere/dcos/1.11/img/deploy-svs-ui.png)
 
     Figure 1. Create a service in the web interface
 
 1. Click the name of your service in the **Services** view to see it running and monitor health.
 
-    ![Running service in the DC/OS UI](/1.11/img/svc-running-ui.png)
+    ![Running service in the DC/OS UI](/mesosphere/dcos/1.11/img/svc-running-ui.png)
 
     Figure 2. Viewing a running service in the web interface
 
@@ -93,14 +93,14 @@ Create and run a containerized service from the DC/OS web interface:
 1.  Click **Single Container** and enter a name for your service in the **SERVICE ID** field.
 1.  Click the **Container Settings** tab and enter the following in the **CONTAINER IMAGE** field: `mesosphere/hello-dcos:<image-tag>`. Replace `<image-tag>` with the tag you copied in step 1.
 
-    ![Containerized service in the DC/OS UI](/1.11/img/deploy-container-ui.png)
+    ![Containerized service in the DC/OS UI](/mesosphere/dcos/1.11/img/deploy-container-ui.png)
 
     Figure 3. Containerized service in the web interface
 
 1.  Click **REVIEW & RUN** and **RUN SERVICE**.
 1.  In the **Services** tab, click the name of your service, then choose one of the task instances. Click **Logs**, then toggle to the **STDERR** and **STDOUT** to see the output of the service.
 
-    ![Running containerized service in the DC/OS UI](/1.11/img/container-running-ui.png)
+    ![Running containerized service in the DC/OS UI](/mesosphere/dcos/1.11/img/container-running-ui.png)
 
     Figure 4. Viewing a containerized service in the web interface
 

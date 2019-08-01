@@ -9,7 +9,7 @@ render: mustache
 model: /1.14/data.yml
 ---
 
-The DC/OS API is a collection of routes backed by [DC/OS components](/1.14/overview/architecture/components/) that are made available through an API gateway called [Admin Router](/1.14/overview/architecture/components/#admin-router).
+The DC/OS API is a collection of routes backed by [DC/OS components](/mesosphere/dcos/1.14/overview/architecture/components/) that are made available through an API gateway called [Admin Router](/mesosphere/dcos/1.14/overview/architecture/components/#admin-router).
 
 <img src="/1.14/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
 Figure 1. DC/OS API routing schematic
@@ -25,9 +25,9 @@ Admin Router is an API gateway built on top of NGINX with the following goals:
 
 Admin Router runs on each DC/OS node in one of two configurations:
 
-- **Admin Router Master** exposes the [Master Routes](/1.14/api/master-routes/). This configuration runs on each master node and serves as the primary API gateway for interaction with DC/OS components.
+- **Admin Router Master** exposes the [Master Routes](/mesosphere/dcos/1.14/api/master-routes/). This configuration runs on each master node and serves as the primary API gateway for interaction with DC/OS components.
 
-- **Admin Router Agent** exposes the [Agent Routes](/1.14/api/agent-routes/). This configuration runs on each agent node and provides routes for monitoring, debugging, and administration. 
+- **Admin Router Agent** exposes the [Agent Routes](/mesosphere/dcos/1.14/api/agent-routes/). This configuration runs on each agent node and provides routes for monitoring, debugging, and administration. 
 
 Some agent routes, like logs and metrics, are proxied through the master Admin Router to allow external access.
 Other routes, like component management, are for internal use only.
@@ -46,25 +46,25 @@ Admin Router exposes several types of routes:
 
 # Cluster access
 
-To determine the URL of your cluster, see [Cluster Access](/1.14/api/access/).
+To determine the URL of your cluster, see [Cluster Access](/mesosphere/dcos/1.14/api/access/).
 
 
 # Versioning
 
-Sections of the DC/OS API are versioned by component, route, or resource. For details on the versioning mechanisms, see [Versioning](/1.14/api/versioning/).
+Sections of the DC/OS API are versioned by component, route, or resource. For details on the versioning mechanisms, see [Versioning](/mesosphere/dcos/1.14/api/versioning/).
 
 # Authentication
 
-Some routes are unauthenticated, but most require an authentication token. For details on how to obtain and use an authentication token, see [Authentication HTTP API Endpoint](/1.14/security/ent/iam-api/).
+Some routes are unauthenticated, but most require an authentication token. For details on how to obtain and use an authentication token, see [Authentication HTTP API Endpoint](/mesosphere/dcos/1.14/security/ent/iam-api/).
 
 # Authorization
 
 Most authenticated routes also require authorization via permissions. Permissions in DC/OS Enterprise consist of a hierarchical resource identifier and an action (create, read, update, delete, full). Permission enforcement can be performed at two levels.
 
-- **Course-grained permissions** are [enforced by Admin Router](/1.14/security/ent/perms-reference/#admin-router) at the route level.
+- **Course-grained permissions** are [enforced by Admin Router](/mesosphere/dcos/1.14/security/ent/perms-reference/#admin-router) at the route level.
 - **Fine-grained permissions** are enforced by individual backend component services.
 
-[Permissions Management](/1.14/security/ent/perms-management/) can be performed by users with the [Superuser permission](/1.14/security/ent/perms-reference/#superuser) using the [Identity and Access Management API](/1.14/security/ent/iam-api/). Users with the Superuser permission also have implicit permission to access all routes.
+[Permissions Management](/mesosphere/dcos/1.14/security/ent/perms-management/) can be performed by users with the [Superuser permission](/mesosphere/dcos/1.14/security/ent/perms-reference/#superuser) using the [Identity and Access Management API](/mesosphere/dcos/1.14/security/ent/iam-api/). Users with the Superuser permission also have implicit permission to access all routes.
 
 # Route usage
 

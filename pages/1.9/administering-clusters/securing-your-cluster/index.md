@@ -41,7 +41,7 @@ After you have a valid TLS certificate, install the certificate on each master.
 Copy the certificate and private key to a well known location, such as under
 `/etc/ssl/certs`.
 
-If you run HAProxy in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/1.9/networking/tls-ssl/haproxy-adminrouter/).
+If you run HAProxy in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/mesosphere/dcos/1.9/networking/tls-ssl/haproxy-adminrouter/).
 
 ### Private zone
 
@@ -66,14 +66,14 @@ CloudFormation templates, a large number of ports are exposed to the Internet
 for the public zone. In production systems, it is unlikely that you would
 expose all of these ports. It's recommended that you close all ports except
 80 and 443 (for HTTP/HTTPS traffic) and use
-[Marathon-LB](/services/marathon-lb/1.12/) with HTTPS for
+[Marathon-LB](/mesosphere/dcos/services/marathon-lb/1.12/) with HTTPS for
 managing ingress traffic.
 
 ### Typical AWS deployment
 
 A typical AWS deployment including AWS Load Balancers is shown below:
 
-![Security Zones](/1.9/img/security-zones.jpg)
+![Security Zones](/mesosphere/dcos/1.9/img/security-zones.jpg)
 
 ## Admin Router
 
@@ -91,4 +91,4 @@ Authenticated users are authorized to perform arbitrary actions in their
 cluster. That is, there is currently no fine-grained access control in DC/OS
 besides having access or not having access to services.
 
-See the [Security Administrator's Guide](/1.9/security/) for more information.
+See the [Security Administrator's Guide](/mesosphere/dcos/1.9/security/) for more information.

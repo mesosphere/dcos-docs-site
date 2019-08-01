@@ -35,10 +35,10 @@ dcos job schedule add <job-id> <schedule-file>
 
 # Examples
 
-For examples using `job add`, see the [documentation](/1.14/deploying-jobs/examples/#create-job-schedule).
+For examples using `job add`, see the [documentation](/mesosphere/dcos/1.14/deploying-jobs/examples/#create-job-schedule).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/1.14/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/mesosphere/dcos/1.14/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

@@ -8,7 +8,7 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-服务或作业的默认 Linux 用户可能因安全模式和容器类型而异 请参阅 [Linux 用户](/cn/1.12/security/ent/#linux-users) 了解更多信息。
+服务或作业的默认 Linux 用户可能因安全模式和容器类型而异 请参阅 [Linux 用户](/mesosphere/dcos/cn/1.12/security/ent/#linux-users) 了解更多信息。
 
 覆盖默认 Linux 用户的程序因服务或作业类型而异。
 
@@ -18,19 +18,19 @@ enterprise: true
 
 # <a name="universe"></a>覆盖 Universe 服务的默认 Linux 用户
 
-许多 Universe 服务忽略其用户帐户的覆盖，在 `strict` 模式下除外。我们提供支持在服务账户[服务账户](/cn/1.12/security/ent/service-auth/)中覆盖的服务默认 Linux 用户的详细覆盖步骤。有关逐步说明，请参阅与感兴趣的服务相关的部分。程序还包括如何配置服务以使用加密和服务帐户。
+许多 Universe 服务忽略其用户帐户的覆盖，在 `strict` 模式下除外。我们提供支持在服务账户[服务账户](/mesosphere/dcos/cn/1.12/security/ent/service-auth/)中覆盖的服务默认 Linux 用户的详细覆盖步骤。有关逐步说明，请参阅与感兴趣的服务相关的部分。程序还包括如何配置服务以使用加密和服务帐户。
 
 请记得授予权限，以便对启动 Universe 服务的服务帐户用户执行 `dcos:mesos:master:task:user[:<linux-user-name>]` 资源上的 `create` 操作。请参阅 [Mesos 权限](https://docs.mesosphere.com/1.12/security/ent/perms-reference/#mesos-permissions)，了解更多信息。
 
 # <a name="marathon-app-def"></a>通过 Marathon 应用定义覆盖默认 Linux 用户
 
-Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 密钥。**提示：**参考 [Marathon 文档](/cn/1.12/deploying-services/creating-services/)，了解有关编写 Marathon 服务的更多详细信息。
+Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 密钥。**提示：**参考 [Marathon 文档](/mesosphere/dcos/cn/1.12/deploying-services/creating-services/)，了解有关编写 Marathon 服务的更多详细信息。
 
 以下教程将展示所有权如何运作。在开始之前，请确保：
 
 - 代理程序上已存在 Linux 用户帐户。
-- 您已安装并登录到 [DC/OS CLI](/cn/1.12/cli/)。
-- 必须遵守 [下载根证书](/cn/1.12/security/ent/tls-ssl/get-cert/) 中的步骤才能发布此部分的 curl 命令。
+- 您已安装并登录到 [DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/)。
+- 必须遵守 [下载根证书](/mesosphere/dcos/cn/1.12/security/ent/tls-ssl/get-cert/) 中的步骤才能发布此部分的 curl 命令。
 - 您已授予对`dcos:mesos:master:task:user:<linux-user-name>` DC/OS 服务帐户用户 `create` 资源执行 `dcos_marathon` 操作的权限。
 
 满足这些先决条件后，完成以下步骤以覆盖默认 Linux 用户。
@@ -49,7 +49,7 @@ Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 密钥。
   ```
 <p class="message--important"><strong>重要信息：</strong>不要忘记将“your-test-user-account”替换为代理程序上存在的 Linux 用户的名称，并且与默认值不同。</p>
 
-1. 使用 [Marathon API](/cn/1.12/deploying-services/marathon-api/) 部署服务。
+1. 使用 [Marathon API](/mesosphere/dcos/cn/1.12/deploying-services/marathon-api/) 部署服务。
 
       ```bash
     curl -X POST --cacert dcos-ca.crt $(dcos config show core.dcos_url)/service/marathon/v2/apps -d @myservice.json -H "Content-type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
@@ -82,8 +82,8 @@ Metronome 作业定义提供 `"user"` 密钥，可用于覆盖默认 Linux 用�
 以下程序将引导您完成快速教程，以展示所有权如何运作。在开始之前，请确保：
 
 - 代理程序上已存在 Linux 用户帐户。
-- 您已安装并登录到 [DC/OS CLI](/cn/1.12/cli/)。
-- 必须遵守 [下载根证书](/cn/1.12/security/ent/tls-ssl/get-cert/) 中的步骤才能发布此部分的 curl 命令。
+- 您已安装并登录到 [DC/OS CLI](/mesosphere/dcos/cn/1.12/cli/)。
+- 必须遵守 [下载根证书](/mesosphere/dcos/cn/1.12/security/ent/tls-ssl/get-cert/) 中的步骤才能发布此部分的 curl 命令。
 - 您已授予对`dcos:mesos:master:task:user:<linux-user-name>` DC/OS 服务帐户用户 `create` 资源执行 `dcos_metronome` 操作的权限。
 
   满足这些先决条件后，完成以下步骤以覆盖默认 Linux 用户。

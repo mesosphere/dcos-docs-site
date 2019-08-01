@@ -12,13 +12,13 @@ enterprise: true
 
 1. 以具有 `superuser` 权限的用户身份登录。
 
-    ![登录](/cn/1.11/img/gui-installer-login-ee.gif)
+    ![登录](/mesosphere/dcos/cn/1.11/img/gui-installer-login-ee.gif)
 
     图 1. 以超级用户身份登录
 
 1. 选择 **Organization > Users** 并创建新用户。键入用户的全名、用户名和密码。
 
-    ![创建用户 Cory](/cn/1.11/img/service-group3.png)
+    ![创建用户 Cory](/mesosphere/dcos/cn/1.11/img/service-group3.png)
 
     图 2. 创建新用户
 
@@ -26,7 +26,7 @@ enterprise: true
 # 使用 CLI 添加本地用户
 
 **先决条件：**
-- [DC/OS Enterprise CLI](/cn/1.11/cli/enterprise-cli/)
+- [DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.11/cli/enterprise-cli/)
 
 
 1. 使用此命令创建名为 `services` 的用户组。

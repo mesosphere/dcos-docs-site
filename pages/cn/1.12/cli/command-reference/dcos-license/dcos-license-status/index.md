@@ -45,11 +45,11 @@ dcos license status
 dcos license status --breaches
 0
 ```
-如需更多示例，请参阅 [许可证](/cn/1.12/administering-clusters/licenses/)。
+如需更多示例，请参阅 [许可证](/mesosphere/dcos/cn/1.12/administering-clusters/licenses/)。
 
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos license](/cn/1.12/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
+| [dcos license](/mesosphere/dcos/cn/1.12/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
