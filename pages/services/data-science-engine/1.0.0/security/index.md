@@ -48,7 +48,7 @@ that can be accessed by the {{ model.techName }} service. If only {{ model.techN
 
 ## Limitations
 
-Anyone who has access to the {{ model.techName }} (Notebook) service instance has access to all secrets available to it. Do not grant users access to the {{ model.techName }} Notebook instance unless they are also permitted to access all secrets available to the {{ model.techName }} Notebook instance.
+Anyone who has access to the {{ model.techName }}'s notebook has access to all secrets available to it. Do not grant users access to the notebook unless they are also permitted to access its secrets.
 
 ## Binary secrets
 
@@ -63,10 +63,10 @@ dcos security secrets create --file kerb5.keytab mysecret
 
 # Using Mesos secrets in Spark jobs
 
-Once a secret has been added in the secret store, you can pass it to {{ model.techName }} Notebook using service configuration:
+Once a secret has been added to the secret store, you can include it in the service's configuration under the `security` section:
 
 ```json
-"service":{
+"service": {
   "security": {
     "extra_spark_secrets": {
       "secret_names": "/{{ model.packageName }}/my-secret",
@@ -77,7 +77,9 @@ Once a secret has been added in the secret store, you can pass it to {{ model.te
 }
 ```
 
-Provided secrets will be automatically mounted to {{ model.techName }} Notebook sandbox and added to Spark as `spark.mesos.executor.secret.names` and `spark.mesos.executor.secret.<filenames|envkeys>` configuration properties and make them available to all Spark executors.
+Provided secrets will be automatically mounted to {{ model.techName }}'s sandbox. The secrets will also be made available to all Spark executors by adding them to the following Spark configuration properties:
+-`spark.mesos.executor.secret.names` 
+-`spark.mesos.executor.secret.<filenames|envkeys>` 
 
 # Limitations
 
@@ -89,13 +91,15 @@ There must be an equal number of sinks and secret sources: files (`secret_filena
     "extra_spark_secrets": {
       "secret_names": "/{{ model.packageName }}/my-secret-file,/{{ model.packageName }}/my-secret-envvar",
       "secret_filenames": "target-secret-file,placeholder-file",
-	    "secret_envkeys": "PLACEHOLDER,SECRET_ENVVAR"
+	"secret_envkeys": "PLACEHOLDER,SECRET_ENVVAR"
     }
   }
 }
 ```
 
-This configuration places the content of `{{ model.packageName }}/my-secret-file` into the `PLACEHOLDER` environment variable and the `target-secret-file` file as well as the content of `{{ model.packageName }}/my-secret-envvar` into the `SECRET_ENVVAR` and `placeholder-file`. In the case of binary secrets, if the content size is bigger than 4KB, Mesos security module will reject container execution due to the overhead.
+This configuration places the contents of `{{ model.packageName }}/my-secret-file` into the `target-secret-file` as well as the `PLACEHOLDER` environment variable. Additionally, the contents of `{{ model.packageName }}/my-secret-envvar` are exported to the `SECRET_ENVVAR` and written to the `placeholder-file`.
+
+<p class="message--note"><strong>NOTE: </strong> If the content size of binary secrets is greater than 4KB, Mesos' security module will reject container execution due to the overhead.
 
 # {{ model.techName }} SSL
 
