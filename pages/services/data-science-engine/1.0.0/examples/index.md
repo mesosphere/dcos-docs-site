@@ -184,8 +184,32 @@ sum
 # Advanced
 
 ## Launching a Spark job
-Open a `Python Notebook` and put the following code in a code cell.
+### Using Terminal
+Open a `Terminal` from Notebook UI and run example `spark-submit` job:
 
 ```bash
-! spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
+spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
+```
+
+### Using Python Notebook
+Open a `Python Notebook` and put the following code in a code cell.
+```python
+from __future__ import print_function
+import sys
+from random import random
+from operator import add
+from pyspark.sql import SparkSession
+spark = SparkSession\
+        .builder\
+        .appName("PythonPi")\
+        .getOrCreate()
+partitions = 2
+n = 100000 * partitions
+def f(_):
+    x = random() * 2 - 1
+    y = random() * 2 - 1
+    return 1 if x ** 2 + y ** 2 <= 1 else 0
+count = spark.sparkContext.parallelize(range(1, n + 1), partitions).map(f).reduce(add)
+print("Pi is roughly %f" % (4.0 * count / n))
+spark.stop
 ```
