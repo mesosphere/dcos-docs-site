@@ -116,14 +116,14 @@ You can also specify them through the UI.
     dcos package install hdfs
     ```
 
-1. Create a history HDFS directory (default is `/history`). SSH into your cluster and run:
+2. Create a history HDFS directory (default is `/history`). SSH into your cluster and run:
 
     ```bash
     docker run -it mesosphere/hdfs-client:1.0.0-2.6.0 bash
     ./bin/hdfs dfs -mkdir /history
     ```
 
-1. Create `spark-history-options.json`:
+3. Create `spark-history-options.json`:
 
     ```json
     {
@@ -132,52 +132,3 @@ You can also specify them through the UI.
                   }
     }
     ```
-   
-# TensorBoard
-
-{{ model.techName }} comes with TensorBoard installed. It can be found at
-`http://<dcos-url>/service/{{model.serviceName}}/tensorboard/`.
-
-## Log directory
-
-TensorBoard reads log data from specific directory, with the default being `/mnt/mesos/sandbox`. It can be changed
-with `advanced.tensorboard_logdir` option. HDFS paths are supported as well. 
-
-Here is an example:
-
-1. Install HDFS:
-
-    ```bash
-    dcos package install hdfs
-    ```
-
-2. Install {{ model.packageName }} with overridden log directory option:
-
-    ```bash
-    dcos package install --options=dse-options.json {{ model.serviceName }}
-   ```
-    
-    With `dse-options.json` having the following content: 
-
-    ```json
-    {
-      "advanced": {
-        "tensorboard_logdir": "hdfs://tf_logs"
-      }
-    }
-    ```
-   
-3. Open TensorBoard at `https://<dcos-url>/service/{{ model.service-name }}/tensorboard/` and confirm the change.
-
-## Disabling TensorBoard
-
-{{ model.techName }} can be installed with TensorBoard disabled by using the following configuration:
-
-```json
-{
-  "advanced": {
-    "start_tensorboard": false
-  }
-}
-```
-    
