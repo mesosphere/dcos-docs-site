@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Multi-Tenancy Primitives
 title: Multi-Tenancy Primitives
-menuWeight: 90
+menuWeight: 10
 excerpt: Reserving resources using multi-tenancy primitives
 render: mustache
 model: /1.14/data.yml
