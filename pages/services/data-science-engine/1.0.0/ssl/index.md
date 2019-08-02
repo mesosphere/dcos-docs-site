@@ -16,7 +16,8 @@ SSL support in {{ model.techName }} encrypts the following channels:
 * Files served from the drivers to their executors.
 
 The keystore and truststore are created using the [Java keytool][12]. The keystore must contain one private key and its signed public key. The truststore is optional and might contain a self-signed root-CA certificate that is explicitly trusted by Java.
-Add the stores to your secrets in the DC/OS secret store. For example, if your keystores, truststores and CA bundle are `server.jks`, `trust.jks` and `trust-ca.jks`, respectively, then use the following commands to add them and their passwords to the secret store:
+
+You can add the stores as secrets in the DC/OS secret store. For example, if your keystores, truststores and CA bundle are `server.jks`, `trust.jks` and `trust-ca.jks`, respectively, then use the following commands to add them and their passwords to the secret store:
 
 ```bash
 dcos security secrets create /{{ model.packageName }}/keystore --text-file server.jks
