@@ -57,7 +57,7 @@ enterprise: true
 
 本程序介绍了如何在 `developer` 路径内创建名为 `my-secret` 的密钥。
 
-<p class="message--note"><strong>注意：</strong>在本部分中发出 curl 命令之前，必须遵循<a href="/1.12/security/ent/tls-ssl/get-cert/">[获取 DC/OS CA 捆绑包]</a>中的步骤。</p>
+<p class="message--note"><strong>注意：</strong>在本部分中发出 curl 命令之前，必须遵循<a href="/mesosphere/dcos/1.12/security/ent/tls-ssl/get-cert/">[获取 DC/OS CA 捆绑包]</a>中的步骤。</p>
 
 
 1. 使用 `dcos auth login` 登录到 CLI。

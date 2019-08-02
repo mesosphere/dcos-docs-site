@@ -13,7 +13,7 @@ enterprise: false
 
 This document discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
 
-DC/OS multiple zone (multi-AZ) configuration support is <a href="/1.9/overview/feature-maturity/#preview">preview</a> and multiple region configuration support is <a href="/1.9/overview/feature-maturity/#experimental">experimental</a>.
+DC/OS multiple zone (multi-AZ) configuration support is <a href="/mesosphere/dcos/1.9/overview/feature-maturity/#preview">preview</a> and multiple region configuration support is <a href="/mesosphere/dcos/1.9/overview/feature-maturity/#experimental">experimental</a>.
 
 # Terminology
 

@@ -11,7 +11,7 @@ enterprise: true
 
 您可以授予用户访问 [**目录**屏幕](/mesosphere/dcos/cn/1.12/gui/catalog/) 的权限。新用户默认没有权限。
 
-<p class="message--note"><strong>注意：</strong>此程序可授予访问<strong>目录</strong>屏幕的全部用户权限。如欲配置细分用户访问权限，请参阅<a href="/1.12/deploying-services/service-groups/">文档</a>。</p>
+<p class="message--note"><strong>注意：</strong>此程序可授予访问<strong>目录</strong>屏幕的全部用户权限。如欲配置细分用户访问权限，请参阅<a href="/mesosphere/dcos/1.12/deploying-services/service-groups/">文档</a>。</p>
 
 
 ## <a name="services-access-via-ui"></a>使用 Web 界面授予访问权限

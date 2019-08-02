@@ -196,7 +196,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 1. 将现有 `config.yaml` 和 `ip-detect` 文件复制到 bootstrap 节点上的空 `genconf` 文件夹。文件夹与安装工具应当在同一个目录。
 1. 将旧的 `config.yaml` 合并为新的 `config.yaml` 格式。大多数情况下，区别会很小。
 
-    <p class="message--note"><strong>注意：</strong>在修补期间，您无法更改 <code>exhibitor_zk_backend</code> 配置。<code>config.yaml</code> 的语法可能与早期版本不同。有关当前 <code>config.yaml</code> 语法和参数的详细说明，请参阅 <a href="/1.11/installing/production/advanced-configuration/configuration-reference/">文档</a>。</p>
+    <p class="message--note"><strong>注意：</strong>在修补期间，您无法更改 <code>exhibitor_zk_backend</code> 配置。<code>config.yaml</code> 的语法可能与早期版本不同。有关当前 <code>config.yaml</code> 语法和参数的详细说明，请参阅 <a href="/mesosphere/dcos/1.11/installing/production/advanced-configuration/configuration-reference/">文档</a>。</p>
 
 1. 更新 config.yaml 的格式后，比较旧的 `config.yaml` 和新的 `config.yaml`。验证路径或配置没有差异。修补时更改这些会导致灾难性群集故障。
 1. 根据需要修改 `ip-detect` 文件。
@@ -219,7 +219,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 
 - 您的群集必须 [修补到 DC/OS 1.11](#current-security) 并在 [禁用安全模式](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) 下运行，然后才能修补到宽容模式。如果您的群集在补丁到 DC/OS 1.10 之前处于宽容模式，则可以跳过该程序。
 
-<p class="message--important"><strong>重要信息：</strong>对于从禁用模式修补到宽容安全模式，您已配置的任何<a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">自定义节点或群集运行状况检查</a>都会失败。将来的版本允许您绕过运行状况检查。</p> 
+<p class="message--important"><strong>重要信息：</strong>对于从禁用模式修补到宽容安全模式，您已配置的任何<a href="/mesosphere/dcos/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">自定义节点或群集运行状况检查</a>都会失败。将来的版本允许您绕过运行状况检查。</p> 
 
 
 要将群集从禁用的安全性更新为宽容的安全性，请完成以下步骤：

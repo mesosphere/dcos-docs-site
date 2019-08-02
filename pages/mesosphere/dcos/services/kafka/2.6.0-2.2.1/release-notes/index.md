@@ -17,7 +17,7 @@ render: mustache
 
 ### New Features
 - Autosuggestion is available for Service Account and Secrets when launching the service from DC/OS UI
-- Support for <a href="/services/kafka/2.6.0-2.2.1/advanced/#secure-jmx-enterprise">Secure JMX</a>
+- Support for <a href="/mesosphere/dcos/services/kafka/2.6.0-2.2.1/advanced/#secure-jmx-enterprise">Secure JMX</a>
 - Added marathon service scheduler checks
 - Service will fetch all required resources over HTTPS
 

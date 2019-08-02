@@ -63,7 +63,7 @@ DC/OS 安装会创建以下文件夹：
 
 在这一步创建 IP 检测脚本。这一脚本报告群集中每个节点的 IP 地址。DC/OS 群集中的每个节点都有一个唯一的 IP 地址，用于在群集中的节点之间进行通信。每次在节点上启动 DC/OS 时，IP 检测脚本都会将节点的唯一 IPv4 地址打印到 STDOUT。
 
-<p class="message--note"><strong>注意：</strong>在节点上安装 DC/OS 后，节点的 IP 地址不能更改。例如，当重新启动节点或更新 DHCP 租约时，IP 地址不应更改。如果节点的 IP 地址发生更改，该节点必须<a href="/cn/1.11/installing/production/uninstalling/">卸载</a>。</p>
+<p class="message--note"><strong>注意：</strong>在节点上安装 DC/OS 后，节点的 IP 地址不能更改。例如，当重新启动节点或更新 DHCP 租约时，IP 地址不应更改。如果节点的 IP 地址发生更改，该节点必须<a href="/mesosphere/dcos/cn/1.11/installing/production/uninstalling/">卸载</a>。</p>
 
 <p class="message--note"><strong>注意：</strong>脚本必须返回与 <code>config.yaml</code> 中指定的相同 IP 地址。例如，如果将 <code>config.yaml</code> 中的专用管理节点 IP 指定为 <code>10.2.30.4</code>，您的脚本在管理节点上运行时应返回相同的值。</p>
 
@@ -422,7 +422,7 @@ enable_ipv6: 'false'
             sudo bash dcos_install.sh slave_public
             ```
 
-    <p class="message--note"><strong>注意： </strong>如果遇到错误（例如在 journald 中的 <code>Time is marked as bad</code>、<code>adjtimex</code> 或 <code>Time not in sync</code>），请验证是否在所有节点都启用了网络时间协议 (NTP)。如需更多信息，请参阅 <a href="/cn/1.11/installing/production/system-requirements/#port-and-protocol">系统要求</a> 文档。</p>
+    <p class="message--note"><strong>注意： </strong>如果遇到错误（例如在 journald 中的 <code>Time is marked as bad</code>、<code>adjtimex</code> 或 <code>Time not in sync</code>），请验证是否在所有节点都启用了网络时间协议 (NTP)。如需更多信息，请参阅 <a href="/mesosphere/dcos/cn/1.11/installing/production/system-requirements/#port-and-protocol">系统要求</a> 文档。</p>
 
 1. 监视 Exhibitor 并等待其在 `http://<master-ip>:8181/exhibitor/v1/ui/index.html` 汇合。
 

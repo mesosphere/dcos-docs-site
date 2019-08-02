@@ -11,7 +11,7 @@ enterprise: true
 
 您可以授予用户访问**网络**选项卡的权限。新用户默认没有权限。
 
-<p class="message--note"><strong>注意: </strong>此过程可授予访问这个屏幕选项卡的全部用户权限。如果您正在以 <tt>strict</tt> 或 <tt>permissive</tt> <a href="/cn/1.11/security/ent/#security-modes">安全模式</a> 运行并希望配置细粒度用户访问权限，请参阅 <a href="/cn/1.11/deploying-services/service-groups/">文档</a>。</p>
+<p class="message--note"><strong>注意: </strong>此过程可授予访问这个屏幕选项卡的全部用户权限。如果您正在以 <tt>strict</tt> 或 <tt>permissive</tt> <a href="/mesosphere/dcos/cn/1.11/security/ent/#security-modes">安全模式</a> 运行并希望配置细粒度用户访问权限，请参阅 <a href="/mesosphere/dcos/cn/1.11/deploying-services/service-groups/">文档</a>。</p>
 
 ## <a name="network-access-via-ui"></a>使用 GUI 授予访问权限
 

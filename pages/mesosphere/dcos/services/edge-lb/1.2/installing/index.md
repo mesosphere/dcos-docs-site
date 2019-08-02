@@ -119,7 +119,7 @@ In this step, a 2048-bit RSA public-private key pair is created using the DC/OS 
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/1.12/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
+<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/mesosphere/dcos/1.12/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
 
 ## Create the principal
 From a terminal prompt, create a new service account (`edge-lb-principal`) containing the public key (`edge-lb-public-key.pem`).

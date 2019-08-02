@@ -34,7 +34,7 @@ dcos package install <package>
 
 DC/OS 服务和 CLI 子命令同样采用 [打包格式和资料库][11] 。
 
-<p class="message--important"><strong>重要信息：</strong>CLI 模块<a href="/1.12/administering-clusters/multiple-clusters/">特定于群集</a>，并存储在 <code>〜/ .dcos / clusters /“cluster_id”/subcommands</code> 中。必须为每个群集安装 CLI 模块。例如，如果连接到群集 1 并安装 Spark 模块，则连接到也运行 Spark 的群集 2。在安装该群集的模块之前，Spark CLI 命令不可用。</p>
+<p class="message--important"><strong>重要信息：</strong>CLI 模块<a href="/mesosphere/dcos/1.12/administering-clusters/multiple-clusters/">特定于群集</a>，并存储在 <code>〜/ .dcos / clusters /“cluster_id”/subcommands</code> 中。必须为每个群集安装 CLI 模块。例如，如果连接到群集 1 并安装 Spark 模块，则连接到也运行 Spark 的群集 2。在安装该群集的模块之前，Spark CLI 命令不可用。</p>
 
 ## 创建 DC/OS CLI 子命令
 

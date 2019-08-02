@@ -21,7 +21,7 @@ DC/OS 1.11.0 Release Candidate 1 has a number of limitations that will be resolv
 <ul>
 <li>DC/OS 1.11 requires CLI version 0.6.x.
   <ul>
-  <li><a href="/1.11/cli/uninstall/">Uninstall the existing CLI</a>.</li>
+  <li><a href="/mesosphere/dcos/1.11/cli/uninstall/">Uninstall the existing CLI</a>.</li>
   <li>Install version 0.6.x using the <strong>Install CLI</strong> instructions in the dropdown in the upper left hand corner of the 1.11 DC/OS GUI.</li>
   </ul>
 <strong>Note:</strong> CLI version 0.6.x is not compatible with DC/OS 1.10</li>

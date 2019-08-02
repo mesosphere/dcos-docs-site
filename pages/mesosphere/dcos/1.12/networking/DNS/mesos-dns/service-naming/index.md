@@ -207,7 +207,7 @@ Mesos-DNS generates a few special records:
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>Important:</strong> To query the leading master node, always query "leader.mesos", not "master.mesos". See <a href="/1.12/networking/DNS/mesos-dns/troubleshooting/#leader">this FAQ entry</a> for more information.</td> 
+  <td align=justify style=color:white><strong>Important:</strong> To query the leading master node, always query "leader.mesos", not "master.mesos". See <a href="/mesosphere/dcos/1.12/networking/DNS/mesos-dns/troubleshooting/#leader">this FAQ entry</a> for more information.</td> 
 </tr> 
 </table>
 

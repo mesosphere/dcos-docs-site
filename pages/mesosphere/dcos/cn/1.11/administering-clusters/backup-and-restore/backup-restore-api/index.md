@@ -10,7 +10,7 @@ enterprise: true
 
 您可以使用“备份和恢复 API”来创建和恢复集群的备份。
 
-<p class="message--important"><strong>重要信息：</strong>查看备份和恢复的 <a href="/1.11/administering-clusters/backup-and-restore/#limitations">限制</a> 。</p>
+<p class="message--important"><strong>重要信息：</strong>查看备份和恢复的 <a href="/mesosphere/dcos/1.11/administering-clusters/backup-and-restore/#limitations">限制</a> 。</p>
 
 # 路由
 

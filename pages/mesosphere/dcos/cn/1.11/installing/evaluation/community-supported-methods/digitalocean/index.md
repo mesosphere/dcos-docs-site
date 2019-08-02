@@ -17,7 +17,7 @@ oss: true
 
 ## 安全
 
-<p class="message--important"><strong>重要信息：</strong>使用此方法网络就会默认为打开。因此<a href="/1.12/administering-clusters/securing-your-cluster/#network-security">网络安全</a>是一个需要谨慎的问题，管理员应尽快解决。</p>
+<p class="message--important"><strong>重要信息：</strong>使用此方法网络就会默认为打开。因此<a href="/mesosphere/dcos/1.12/administering-clusters/securing-your-cluster/#network-security">网络安全</a>是一个需要谨慎的问题，管理员应尽快解决。</p>
 
 ## 环境
 

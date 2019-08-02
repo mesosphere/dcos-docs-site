@@ -60,7 +60,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/agen
 # 容器日志
 
 
-<p class="message--important"><strong>重要信息：</strong>以下示例需要进行 journald 任务日志记录，它默认为 <a href="/1.11/monitoring/logging/logging-api/#compatibility">禁用</a>。
+<p class="message--important"><strong>重要信息：</strong>以下示例需要进行 journald 任务日志记录，它默认为 <a href="/mesosphere/dcos/1.11/monitoring/logging/logging-api/#compatibility">禁用</a>。
   </p>
 
 从单个组件容器获取最后 100 个日志条目：

@@ -97,7 +97,7 @@ DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改�
 1. 将现有 `config.yaml` 和 `ip-detect` 文件复制到 bootstrap 节点上的空 `genconf` 文件夹。文件夹与安装工具应当在同一个目录。
 1. 将旧的 `config.yaml` 合并为新的 `config.yaml` 格式。大多数情况下，区别会很小。
 
-    <p class="message--note"><strong>注意：</strong>在修补期间，您无法更改 <code>exhibitor_zk_backend</code> 设置。<code>config.yaml</code> 的语法可能与早期版本不同。有关当前 <code>config.yaml</code> 语法和参数的详细说明，请参阅 <a href="/1.12/installing/production/advanced-configuration/configuration-reference/">文档</a>。</p>
+    <p class="message--note"><strong>注意：</strong>在修补期间，您无法更改 <code>exhibitor_zk_backend</code> 设置。<code>config.yaml</code> 的语法可能与早期版本不同。有关当前 <code>config.yaml</code> 语法和参数的详细说明，请参阅 <a href="/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/">文档</a>。</p>
 
 1. 更新 config.yaml 的格式后，比较旧的 `config.yaml` 和新的 `config.yaml`。验证路径或配置没有差异。修补时更改这些会导致灾难性群集故障。
 1. 根据需要修改 `ip-detect` 文件。

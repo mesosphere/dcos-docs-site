@@ -82,7 +82,7 @@ DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，�
 
 在  bootstrap 序列期间，DC/OS 使用 ZooKeeper 凭据提供主节点。这使得主节点可以将自己指定未潜在的 Mesos 主节点。
 
-<p class="message--important"><strong>重要信息：</strong>除非在安装或升级期间进行了更改，否则每个群集将使用相同的默认 ZooKeeper 凭据（强烈建议）。参见<a href="/1.12/security/ent/hardening/#zk">强化</a>，了解更多信息。</p>
+<p class="message--important"><strong>重要信息：</strong>除非在安装或升级期间进行了更改，否则每个群集将使用相同的默认 ZooKeeper 凭据（强烈建议）。参见<a href="/mesosphere/dcos/1.12/security/ent/hardening/#zk">强化</a>，了解更多信息。</p>
 
 
 ## <a name="user"></a>用户登录

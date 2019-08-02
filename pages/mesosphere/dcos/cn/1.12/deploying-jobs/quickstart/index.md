@@ -13,7 +13,7 @@ enterprise: false
 
 # DC/OS Web 界面
 
-<p class="message--note"><strong>注意：</strong>DC/OS Web 界面提供 CLI 和 API 功能的子集。对于高级作业配置，使用 <a href="/1.12/cli/command-reference/dcos-job">dcos 作业</a> 命令或 <a href="/1.12/deploying-jobs/quickstart/#jobs-api">作业 API</a>。</p>
+<p class="message--note"><strong>注意：</strong>DC/OS Web 界面提供 CLI 和 API 功能的子集。对于高级作业配置，使用 <a href="/mesosphere/dcos/1.12/cli/command-reference/dcos-job">dcos 作业</a> 命令或 <a href="/mesosphere/dcos/1.12/deploying-jobs/quickstart/#jobs-api">作业 API</a>。</p>
 
 ## 添加作业
 

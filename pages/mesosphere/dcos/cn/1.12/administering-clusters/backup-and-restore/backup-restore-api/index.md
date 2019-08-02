@@ -9,7 +9,7 @@ enterprise: true
 
 您可以使用“备份和恢复 API”来创建和恢复群集的备份。
 
-<p class="message--important"><strong>重要信息：</strong>查看备份和恢复的 <a href="/latest/administering-clusters/backup-and-restore/#limitations">限制</a>部分。</p>
+<p class="message--important"><strong>重要信息：</strong>查看备份和恢复的 <a href="/mesosphere/dcos/latest/administering-clusters/backup-and-restore/#limitations">限制</a>部分。</p>
 
 
 # 路由

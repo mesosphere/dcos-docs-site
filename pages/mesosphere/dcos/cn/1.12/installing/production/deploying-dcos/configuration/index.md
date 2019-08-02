@@ -9,7 +9,7 @@ excerpt: 使用 YAML 文件配置 DC/OS 参数
 
 采用 YAML 格式在 `config.yaml` 文件中指定 DC/OS 配置参数。此文件存储在 [bootstrap 节点](/mesosphere/dcos/1.12/installing/production/system-requirements/#bootstrap-node) 上并在 DC/OS 安装期间使用以生成自定义 DC/OS 系统。
 
-<p class="message--important"><strong>重要信息：</strong>如果您想在安装后修改配置文件，就必须遵循 <a href="/1.12/installing/production/upgrading/">DC/OS 升级流程</a>。</p>
+<p class="message--important"><strong>重要信息：</strong>如果您想在安装后修改配置文件，就必须遵循 <a href="/mesosphere/dcos/1.12/installing/production/upgrading/">DC/OS 升级流程</a>。</p>
 
 # 格式
 

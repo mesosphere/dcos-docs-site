@@ -21,7 +21,7 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 <ul>
 <li>DC/OS 1.11 需要有 CLI 版本 0.6.x。
   <ul>
-  <li><a href="/1.11/cli/uninstall/">卸载现有 CLI</a>。</li>
+  <li><a href="/mesosphere/dcos/1.11/cli/uninstall/">卸载现有 CLI</a>。</li>
   <li>根据 1.11 DC/OS GUI 左上角处下拉列表中的 <strong>安装 CLI</strong> 说明，安装版本 0.6.x。</li>
   </ul>
 <strong>注意：</strong>CLI 版本 0.6.x 与 DC/OS 1.10 不兼容</li>

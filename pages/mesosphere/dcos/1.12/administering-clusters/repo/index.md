@@ -18,7 +18,7 @@ You can use the web interface or the CLI to:
 * [Add repositories](#adding)
 * [Remove repositories](#removing)
 
-<p class="message--note"><strong>NOTE: </strong>Before you can use the CLI, you need to <a href="/1.12/cli/install">install it</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>Before you can use the CLI, you need to <a href="/mesosphere/dcos/1.12/cli/install">install it</a>.</p>
 
 
 ## <a name="listing"></a>Listing repositories

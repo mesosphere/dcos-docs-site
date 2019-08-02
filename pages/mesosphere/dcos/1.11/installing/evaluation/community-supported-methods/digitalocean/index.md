@@ -19,7 +19,7 @@ The included Terraform templates are configured to run Mesosphere DC/OS on Digit
 
 ## Security
 
-<p class="message--important"><strong>IMPORTANT: </strong>With this method, the network is open by default. Because of this, <a href="/{{ model.folder_version }}/administering-clusters/securing-your-cluster/#network-security">network security</a> is a concern and should be addressed as soon as possible by the administrator.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>With this method, the network is open by default. Because of this, <a href="/mesosphere/dcos/{{ model.folder_version }}/administering-clusters/securing-your-cluster/#network-security">network security</a> is a concern and should be addressed as soon as possible by the administrator.</p>
 
 ## Environment
 

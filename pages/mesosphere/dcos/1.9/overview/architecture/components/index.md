@@ -35,7 +35,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <div data-role="collapsible">
 <h2 id="apache-mesos">Apache Mesos</h2>
 <div>
-<p><strong>Description:</strong> Mesos manages resources and tasks as a distributed systems kernel. Mesos Master exposes scheduler, executor, and operator interfaces to facilitate cluster management. Mesos Agent manages individual executors, tasks, and resources on each <a href="/1.9/overview/concepts/#dcos-agent-node">DC/OS agent node</a>. Mesos Agent Public is a Mesos Agent configured to run on <a href="/1.9/overview/concepts/#public-agent-node">DC/OS public agent nodes</a>.</p>
+<p><strong>Description:</strong> Mesos manages resources and tasks as a distributed systems kernel. Mesos Master exposes scheduler, executor, and operator interfaces to facilitate cluster management. Mesos Agent manages individual executors, tasks, and resources on each <a href="/mesosphere/dcos/1.9/overview/concepts/#dcos-agent-node">DC/OS agent node</a>. Mesos Agent Public is a Mesos Agent configured to run on <a href="/mesosphere/dcos/1.9/overview/concepts/#public-agent-node">DC/OS public agent nodes</a>.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -105,7 +105,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.9/installing/ent/">Documentation</a></li>
+    <li><a href="/mesosphere/dcos/1.9/installing/ent/">Documentation</a></li>
     <li><a href="https://github.com/dcos/dcos">Source</a></li>
   </ul>
 </p>
@@ -120,7 +120,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.9/gui/">Documentation</a></li>
+    <li><a href="/mesosphere/dcos/1.9/gui/">Documentation</a></li>
     <li><a href="https://github.com/dcos/dcos-ui">Source</a></li>
   </ul>
 </p>
@@ -135,7 +135,7 @@ DC/OS provides a way to view and operate a large number of individual machine-le
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.9/cli/">Documentation</a></li>
+    <li><a href="/mesosphere/dcos/1.9/cli/">Documentation</a></li>
     <li><a href="https://github.com/dcos/dcos-cli">Source</a></li>
   </ul>
 </p>
@@ -163,9 +163,9 @@ DC/OS includes built-in orchestration of the most commonly used high level conta
   <strong>See Also:</strong>
   <ul>
     <li><a href="https://mesosphere.github.io/marathon/">Website</a></li>
-    <li><a href="/1.9/deploying-services/">Documentation</a></li>
+    <li><a href="/mesosphere/dcos/1.9/deploying-services/">Documentation</a></li>
     <li><a href="https://github.com/mesosphere/marathon">Source</a></li>
-    <li><a href="/1.9/deploying-services/marathon-api/">API Reference</a></li>
+    <li><a href="/mesosphere/dcos/1.9/deploying-services/marathon-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -184,7 +184,7 @@ DC/OS includes built-in orchestration of the most commonly used high level conta
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.9/deploying-jobs/">Documentation</a></li>
+    <li><a href="/mesosphere/dcos/1.9/deploying-jobs/">Documentation</a></li>
     <li><a href="https://github.com/dcos/metronome">Source</a></li>
     <li><a href="https://dcos.github.io/metronome/docs/generated/api.html">API Reference</a></li>
   </ul>
@@ -294,7 +294,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
   <strong>See Also:</strong>
   <ul>
     <li><a href="https://github.com/dcos/3dt">Source</a></li>
-    <li><a href="/1.9/monitoring/#system-health-http-api-endpoint">API Reference</a></li>
+    <li><a href="/mesosphere/dcos/1.9/monitoring/#system-health-http-api-endpoint">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -318,7 +318,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
   <strong>See Also:</strong>
   <ul>
     <li><a href="https://github.com/dcos/dcos-log">Source</a></li>
-    <li><a href="/1.9/monitoring/logging/logging-api/">API Reference</a></li>
+    <li><a href="/mesosphere/dcos/1.9/monitoring/logging/logging-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -365,7 +365,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
   <strong>See Also:</strong>
   <ul>
     <li><a href="https://github.com/dcos/dcos-metrics">Source</a></li>
-    <li><a href="/1.9/metrics/metrics-api/">API Reference</a></li>
+    <li><a href="/mesosphere/dcos/1.9/metrics/metrics-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -374,7 +374,7 @@ No software runs perfectly, especially not the first time. Distribute tasks acro
 <div data-role="collapsible">
 <h2 id="dcos-signal">DC/OS Signal</h2>
 <div>
-<p><strong>Description:</strong> The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can <a href="/1.9/installing/ent/custom/opt-out/#telemetry">opt-out of telemetry</a> at install time.</p>
+<p><strong>Description:</strong> The DC/OS Signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can <a href="/mesosphere/dcos/1.9/installing/ent/custom/opt-out/#telemetry">opt-out of telemetry</a> at install time.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -455,7 +455,7 @@ In a world where machines are given numbers instead of names, tasks are schedule
   <ul>
     <li><a href="http://mesosphere.github.io/mesos-dns/">Documentation</a></li>
     <li><a href="https://github.com/mesosphere/mesos-dns">Source</a></li>
-    <li><a href="/1.9/networking/mesos-dns/mesos-dns-api/">API Reference</a></li>
+    <li><a href="/mesosphere/dcos/1.9/networking/mesos-dns/mesos-dns-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -515,7 +515,7 @@ In a world where machines are given numbers instead of names, tasks are schedule
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.9/networking/load-balancing-vips/">Documentation</a></li>
+    <li><a href="/mesosphere/dcos/1.9/networking/load-balancing-vips/">Documentation</a></li>
     <li><a href="https://github.com/dcos/minuteman">Source</a></li>
   </ul>
 </p>
@@ -568,7 +568,7 @@ Just as machine operating systems need package management to install, upgrade, c
 <div data-role="collapsible">
 <h2 id="dcos-package-manager">DC/OS Package Manager (Cosmos)</h2>
 <div>
-<p><strong>Description:</strong> DC/OS Package Manager (Cosmos) installs and manages DC/OS packages from <a href="/1.9/administering-clusters/repo/">DC/OS package repositories</a>, such as the <a href="https://github.com/mesosphere/universe">Mesosphere Universe</a>.</p>
+<p><strong>Description:</strong> DC/OS Package Manager (Cosmos) installs and manages DC/OS packages from <a href="/mesosphere/dcos/1.9/administering-clusters/repo/">DC/OS package repositories</a>, such as the <a href="https://github.com/mesosphere/universe">Mesosphere Universe</a>.</p>
 <p>
   <strong>System Service(s):</strong>
   <ul>
@@ -579,7 +579,7 @@ Just as machine operating systems need package management to install, upgrade, c
   <strong>See Also:</strong>
   <ul>
     <li><a href="https://github.com/dcos/cosmos">Source</a></li>
-    <li><a href="/1.9/deploying-services/package-api/">API Reference</a></li>
+    <li><a href="/mesosphere/dcos/1.9/deploying-services/package-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -600,7 +600,7 @@ Just as machine operating systems need package management to install, upgrade, c
   <strong>See Also:</strong>
   <ul>
     <li><a href="https://github.com/dcos/dcos/tree/master/pkgpanda">Source</a></li>
-    <li><a href="/1.9/administering-clusters/component-management/">API Reference</a></li>
+    <li><a href="/mesosphere/dcos/1.9/administering-clusters/component-management/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -626,8 +626,8 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.9/security/ent/">Documentation</a></li>
-    <li><a href="/1.9/security/ent/iam-api/">API Reference</a></li>
+    <li><a href="/mesosphere/dcos/1.9/security/ent/">Documentation</a></li>
+    <li><a href="/mesosphere/dcos/1.9/security/ent/iam-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -646,8 +646,8 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.9/networking/tls-ssl/">Documentation</a></li>
-    <li><a href="/1.9/networking/tls-ssl/ca-api/">API Reference</a></li>
+    <li><a href="/mesosphere/dcos/1.9/networking/tls-ssl/">Documentation</a></li>
+    <li><a href="/mesosphere/dcos/1.9/networking/tls-ssl/ca-api/">API Reference</a></li>
   </ul>
 </p>
 </div>
@@ -666,8 +666,8 @@ Identity and access management in **DC/OS Enterprise** is governed by an interna
 <p>
   <strong>See Also:</strong>
   <ul>
-    <li><a href="/1.9/security/ent/secrets/">Documentation</a></li>
-    <li><a href="/1.9/security/ent/secrets/secrets-api/">API Reference</a></li>
+    <li><a href="/mesosphere/dcos/1.9/security/ent/secrets/">Documentation</a></li>
+    <li><a href="/mesosphere/dcos/1.9/security/ent/secrets/secrets-api/">API Reference</a></li>
   </ul>
 </p>
 </div>

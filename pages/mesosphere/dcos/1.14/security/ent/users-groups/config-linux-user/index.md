@@ -79,7 +79,7 @@ Once you have met these prerequisites, complete the following steps to override 
 
 Metronome job definitions provide a `"user"` key which you can use to override the default Linux user.
 
-<p class="message--note"><strong>NOTE: </strong>Refer to the <a href="/1.14/deploying-jobs/quickstart/">Jobs documentation</a> for more information about creating and deploying jobs.</p>
+<p class="message--note"><strong>NOTE: </strong>Refer to the <a href="/mesosphere/dcos/1.14/deploying-jobs/quickstart/">Jobs documentation</a> for more information about creating and deploying jobs.</p>
 
 
 The following procedure will walk you through a quick tutorial to demonstrate how the ownership works in action. Before you begin, make sure that:

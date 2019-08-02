@@ -25,7 +25,7 @@ enterprise: true
 
 Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 验证序号。
 
-<p class="message--note"><strong>注意: </strong>参考 <a href="/cn/1.11/deploying-services/creating-services/">Marathon 文档</a>，了解有关编写 Marathon 服务的更多详细信息。</p>
+<p class="message--note"><strong>注意: </strong>参考 <a href="/mesosphere/dcos/cn/1.11/deploying-services/creating-services/">Marathon 文档</a>，了解有关编写 Marathon 服务的更多详细信息。</p>
 
 以下教程将展示所有权如何运作。在开始之前，请确保：
 
@@ -76,7 +76,7 @@ Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 验证序
 
 Metronome 作业定义提供 `"user"` 验证序号，可用于覆盖默认 Linux 用户。
 
-<p class="message--note"><strong>注意: </strong>有关创建和部署作业的更多信息，请参阅<a href="/cn/1.11/deploying-jobs/quickstart/">作业文档</a>。</p>
+<p class="message--note"><strong>注意: </strong>有关创建和部署作业的更多信息，请参阅<a href="/mesosphere/dcos/cn/1.11/deploying-jobs/quickstart/">作业文档</a>。</p>
 
 以下步骤将引导您完成快速教程，以展示所有权如何运作。在开始之前，请确保：
 

@@ -395,7 +395,7 @@ In the example above, DC/OS stores the secret under the environment variable `"T
      }
    }
    ```
-    <p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See <a href="/1.12/security/ent/#spaces">Namespacing</a> for more details about the paths.</p>
+    <p class="message--note"><strong>NOTE: </strong>Because the service group and the secret paths match, the pod will be able to access the secret. See <a href="/mesosphere/dcos/1.12/security/ent/#spaces">Namespacing</a> for more details about the paths.</p>
 
 1. Save the file with a descriptive name, such as `mypod.json`.
 

@@ -62,7 +62,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/agen
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>Important:</strong> The following example requires journald task logging, which by default is <a href="/1.11/monitoring/logging/logging-api/#compatibility">disabled</a>.
+  <td align=justify style=color:white><strong>Important:</strong> The following example requires journald task logging, which by default is <a href="/mesosphere/dcos/1.11/monitoring/logging/logging-api/#compatibility">disabled</a>.
   </td> 
 </tr> 
 </table>

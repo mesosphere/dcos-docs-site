@@ -125,7 +125,7 @@ dcos security secrets list /
 dcos security secrets get /marathon-lb/service-account-secret --json | jq -r .value | jq
 ```
 
- <p class="message--important"><strong>重要信息：</strong> 在检查密钥时，如果您处于 `strict` 或 `permissive` 模式，确保 `login_endpoint` URL 使用 HTTPS；如果您处于 `disabled` 模式，则使用 HTTP。如果 URL 以 `https` 开始，且您处于 `disabled` 模式中，尝试 <a href="/cn/1.11/cli/enterprise-cli/#ent-cli-upgrade">升级 DC/OS Enterprise CLI</a>、删除密钥并重新创建。</p>
+ <p class="message--important"><strong>重要信息：</strong> 在检查密钥时，如果您处于 `strict` 或 `permissive` 模式，确保 `login_endpoint` URL 使用 HTTPS；如果您处于 `disabled` 模式，则使用 HTTP。如果 URL 以 `https` 开始，且您处于 `disabled` 模式中，尝试 <a href="/mesosphere/dcos/cn/1.11/cli/enterprise-cli/#ent-cli-upgrade">升级 DC/OS Enterprise CLI</a>、删除密钥并重新创建。</p>
 
 4. 现在，您已经将私钥存储在密钥存储库中，我们建议从文件系统中删除私钥文件。这将防止不良用户使用私钥来进行 DC/OS 身份认证。
 

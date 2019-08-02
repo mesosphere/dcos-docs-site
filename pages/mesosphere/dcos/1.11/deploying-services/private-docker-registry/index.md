@@ -90,7 +90,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
 
 Follow these steps to add your Docker registry credentials to the [DC/OS Enterprise secrets store](/mesosphere/dcos/1.11/security/ent/secrets/), and then reference that secret in your service definition.
 
-<p class="message--important"><strong>IMPORTANT: </strong>This functionality is available only with the <a href="/1.11/deploying-services/containerizers/ucr/">Universal Container Runtime</a>). If you need to use the Docker Engine, follow the URI instructions above.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>This functionality is available only with the <a href="/mesosphere/dcos/1.11/deploying-services/containerizers/ucr/">Universal Container Runtime</a>). If you need to use the Docker Engine, follow the URI instructions above.</p>
 
 ## Step 1: Create a credentials file
 

@@ -269,7 +269,7 @@ Mesos 用于拉取 Docker 镜像的自定义 URL。设置后将把 Mesos 的 `--
 ## dcos_overlay_enable
 指示是否启用 DC/OS 虚拟网络。
 
-<p class="message--note"><strong>注意: </strong> 虚拟网络需要 Docker 1.12 或更高版本，但如果您使用 Docker 1.12 或更早版本，则必须指定 <code>dcos_overlay_enable: 'false'</code>。如需更多信息，请参阅 <a href="/1.11/installing/production/system-requirements/">系统要求</a>。</p>
+<p class="message--note"><strong>注意: </strong> 虚拟网络需要 Docker 1.12 或更高版本，但如果您使用 Docker 1.12 或更早版本，则必须指定 <code>dcos_overlay_enable: 'false'</code>。如需更多信息，请参阅 <a href="/mesosphere/dcos/1.11/installing/production/system-requirements/">系统要求</a>。</p>
 
 * `dcos_overlay_enable: 'false'` 请勿启用 DC/OS 虚拟网络。
 * `dcos_overlay_enable: 'true'` 请启用 DC/OS 虚拟网络。这是默认值。启用虚拟网络后，您还可以指定以下参数：

@@ -31,7 +31,7 @@ or
 
 The same [packaging format and repository][11] is used for both DC/OS services and CLI subcommands.
 
-<p class="message--important"><strong>IMPORTANT: </strong>CLI modules are <a href="/1.14/administering-clusters/multiple-clusters/">cluster specific</a> and stored in <code>~/.dcos/clusters/"cluster_id"/subcommands</code>. You must install a CLI module for each cluster. For example, if you connect to cluster 1 and install the Spark module, then connect to cluster 2, which is also running Spark. Spark CLI commands are not available until you install the module for that cluster.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>CLI modules are <a href="/mesosphere/dcos/1.14/administering-clusters/multiple-clusters/">cluster specific</a> and stored in <code>~/.dcos/clusters/"cluster_id"/subcommands</code>. You must install a CLI module for each cluster. For example, if you connect to cluster 1 and install the Spark module, then connect to cluster 2, which is also running Spark. Spark CLI commands are not available until you install the module for that cluster.</p>
 
 ## Creating a DC/OS CLI subcommand
 

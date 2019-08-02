@@ -16,7 +16,7 @@ render: mustache
 
 {{ model.techName }} requires a running ZooKeeper ensemble to perform its own internal accounting. By default, the DC/OS {{ model.techName }} Service uses the ZooKeeper ensemble made available on the Mesos masters of a DC/OS cluster at `master.mesos:2181/dcos-service-<servicename>`. At install time, you can configure an alternate ZooKeeper for {{ model.techName }} to use. This enables you to increase {{ model.techName }}'s capacity and removes the DC/OS System ZooKeeper ensemble's involvement in running it.
 
-<p class="message--note"><strong>NOTE: </strong>If you are using the <a href="/services/confluent-zookeeper/">DC/OS Apache ZooKeeper service</a>, use the DNS addresses provided by the <tt>dcos confluent-zookeeper endpoints clientport</tt> command as the value of <tt>kafka_zookeeper_uri</tt>.</p>
+<p class="message--note"><strong>NOTE: </strong>If you are using the <a href="/mesosphere/dcos/services/confluent-zookeeper/">DC/OS Apache ZooKeeper service</a>, use the DNS addresses provided by the <tt>dcos confluent-zookeeper endpoints clientport</tt> command as the value of <tt>kafka_zookeeper_uri</tt>.</p>
 To configure an alternate Zookeeper instance:
 
 1. Create a file named `options.json` with the following contents. Here is an example `options.json` which points to a `confluent-zookeeper` instance named `confluent-zookeeper`:

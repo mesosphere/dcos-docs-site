@@ -88,7 +88,7 @@ cp -rpv stub-repo/packages/* ../../repo/packages
     sudo make DCOS_VERSION=1.11 DCOS_PACKAGE_INCLUDE=“edgelb:v1.1.3,edgelb-pool:stub-universe,<other-package>:<version>” local-universe
     ```
 
-7. 执行 <a href="/cn/1.11/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages">部署包含已认证 Universe 包的本地 Universe</a> 中所述的所有步骤。
+7. 执行 <a href="/mesosphere/dcos/cn/1.11/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages">部署包含已认证 Universe 包的本地 Universe</a> 中所述的所有步骤。
 
 
 # 创建服务帐户
@@ -107,7 +107,7 @@ Edge-LB API 服务器必须与服务帐户关联，以便它可以根据用户�
 dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
 ```
 
-<p class="message--note"><strong>注意: </strong> 您可以使用 <a href="/cn/1.11/security/ent/secrets/">DC/OS 密钥存储库</a> 以确保密钥对的安全。</p>
+<p class="message--note"><strong>注意: </strong> 您可以使用 <a href="/mesosphere/dcos/cn/1.11/security/ent/secrets/">DC/OS 密钥存储库</a> 以确保密钥对的安全。</p>
 
 ## 创建主体
 从终端提示创建包含包含公钥 (`edge-lb-public-key.pem`) 的新服务帐户 (`edge-lb-principal`)。
