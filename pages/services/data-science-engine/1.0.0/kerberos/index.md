@@ -72,10 +72,11 @@ Launch Terminal from Notebook UI and run the following commands:
     hdfs dfs -ls -R /{{ model.packageName }}/mnist_kerberos
     ```
 
-4. Train the model and checkpoint it to the target directory in HDFS.
+4. Train the model and checkpoint it to the target directory in HDFS. You'll need to specify two additional options to distribute Kerberos ticket cache file to executors: `--files <Kerberos ticket cache file>` and `--conf spark.executorEnv.KRB5CCNAME="/mnt/mesos/sandbox/krb5cc_99"`. Kerberos ticket cache file will be used by executors for authentication with Kerberized HDFS:
 
     ```bash
     spark-submit \
+      --files /tmp/krb5cc_99 --conf spark.executorEnv.KRB5CCNAME="/mnt/mesos/sandbox/krb5cc_99" \
       --verbose \
       --py-files $(pwd)/TensorFlowOnSpark/examples/mnist/spark/mnist_dist.py \
       $(pwd)/TensorFlowOnSpark/examples/mnist/spark/mnist_spark.py \

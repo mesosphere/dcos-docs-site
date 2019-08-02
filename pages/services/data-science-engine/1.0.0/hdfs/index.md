@@ -40,13 +40,13 @@ Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage 
     unzip -d mnist/ mnist.zip
     ```
 
-1. List files in the target HDFS directory and remove it if it is not empty.
+2. List files in the target HDFS directory and remove it if it is not empty.
 
     ```bash
     hdfs dfs -ls -R mnist/ && hdfs dfs -rm -R mnist/
     ```
 
-1. Generate sample data and save to HDFS.
+3. Generate sample data and save to HDFS.
 
     ```bash
     spark-submit \
@@ -58,7 +58,7 @@ Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage 
     hdfs dfs -ls -R  mnist
     ```
 
-1. Train the model and checkpoint it to the target directory in HDFS.
+4. Train the model and checkpoint it to the target directory in HDFS.
 
     ```bash
     spark-submit \
@@ -73,7 +73,7 @@ Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage 
       --model mnist/mnist_csv_model
     ```
 
-1. Verify model is saved.
+5. Verify model is saved.
 
     ```bash
     hdfs dfs -ls -R mnist/mnist_csv_model
