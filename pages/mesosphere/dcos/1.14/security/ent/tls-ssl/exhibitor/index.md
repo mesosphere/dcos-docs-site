@@ -8,6 +8,25 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
+<p class="message--note"><strong>NOTE: </strong>Starting with DC/OS 1.14, Exhibitor is secured by default in most circumstances. To verify that Exhibitor is secured on your cluster, run the following command on one of your master nodes:
+
+
+    curl -LI \
+        --cacert /var/lib/dcos/exhibitor-tls-artifacts/root-cert.pem \
+        --cert /var/lib/dcos/exhibitor-tls-artifacts/client-cert.pem \
+        --key /var/lib/dcos/exhibitor-tls-artifacts/client-key.pem \
+        https://localhost:8181/exhibitor/v1/ui/index.html
+
+If you see the following, Exhibitor has been secured on your cluster:
+
+    HTTP/1.1 200 OK
+    Content-Type: text/html
+    Content-Length: 0
+    Server: Jetty(1.5.6-SNAPSHOT)
+
+</p>
+
+
 By default, the Exhibitor HTTP service is open to any client that can reach port 8181 on a master node. This page describes a method for protecting the Exhibitor service from unauthorized access. Once enabled, HTTP clients must access Exhibitor through Admin Router; thus applying the Admin Router access control policy to the Exhibitor service.
 
 <p class="message--note"><strong>NOTE: </strong>When accessing Exhibitor through Admin Router (https://master_host/exhibitor), authenticated users must have the <i>dcos:adminrouter:ops:exhibitor</i> privilege with the <i>full</i> action identifier</p>
