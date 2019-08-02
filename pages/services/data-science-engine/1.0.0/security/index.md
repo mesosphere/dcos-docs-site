@@ -17,7 +17,6 @@ In strict mode, any Spark applications launched by the {{ model.techName }} will
 
 Use the following `DCOS CLI` commands to rapidly provision a service account with the required permissions:
 
-1. Grant the permissions and the allowed actions to the service account using the following commands. Some of these permissions may exist already. Run these commands with your service account name (`<service-account-id>`) specified:
 
     ```bash
     # Allows the default user 'nobody' to execute tasks
